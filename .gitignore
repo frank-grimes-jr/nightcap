@@ -1,0 +1,7 @@
+CLAUDE.local.md
+
+# Personal Claude Code config
+.claude/
+
+# Binary game client — never commit
+Client_RoF2_Dev/
