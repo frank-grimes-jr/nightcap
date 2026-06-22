@@ -60,6 +60,16 @@ The `id` auto_increment PK is required — `SetMulticlassSlot()` in the C++ does
 
 ---
 
+## 2026-06-22 — Bard songs permanent (issue #5)
+
+`eq-solo-gm/scripts/bard_songs_permanent.sql` — new file
+
+Updated 430 bard beneficial buff spells in `spells_new` to `buffdurationformula = 50` (DF_Permanent). Targets spells where `classes8 > 0 AND classes8 < 255 AND buffdurationformula != 0 AND goodEffect = 1`. Skips DDs, debuffs, charm, and mez (goodEffect = 0). Script is idempotent — already-permanent spells are excluded.
+
+No zone restart required — spell data is read fresh per cast.
+
+---
+
 ## 2026-06-22 — pok_attunement_setup.sql fixes
 
 `eq-solo-gm/scripts/pok_attunement_setup.sql` corrected to match actual DB schema:
