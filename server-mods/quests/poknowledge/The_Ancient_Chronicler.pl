@@ -24,8 +24,8 @@ my %CLASS_NAMES = (
     16 => 'Berserker',
 );
 
-my $MIN_LEVEL_CLASS2 = 20;
-my $MIN_LEVEL_CLASS3 = 50;
+my $MIN_LEVEL_CLASS2 = 1;
+my $MIN_LEVEL_CLASS3 = 1;
 
 # ── Helpers ──────────────────────────────────────────────────────────────────
 
