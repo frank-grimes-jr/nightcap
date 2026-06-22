@@ -60,6 +60,20 @@ The `id` auto_increment PK is required — `SetMulticlassSlot()` in the C++ does
 
 ---
 
+## 2026-06-22 — AA window class prefix (issue #4)
+
+`akk-stack/server/quests/poknowledge/The_Ancient_Chronicler.pl`
+
+When a player learns a secondary/tertiary discipline, AA abilities that are newly unlocked for their base class get their names prefixed with the source class abbreviation — e.g., `[NEC] Lich Form`, `[WIZ] Mana Burn`. The prefix appears in the Title column of the AA window.
+
+- Added `%CLASS_ABBREV` hash (traditional EQ 3-letter codes: WAR, CLR, SHD, SHM, etc.)
+- In `_apply_class()`: prefix UPDATE runs **before** the classes bitmask expansion so the `(classes & base_bit) = 0` condition still identifies newly-unlocked AAs. `NOT LIKE "$prefix%"` guard prevents double-prefix on re-application.
+- Prefixes are NOT stripped on revoke — the AAs remain accessible after revoke and the prefix still accurately indicates origin class.
+
+The RoF2 client binary has no EQType or mechanism for a dynamic "Class" column, so modifying `aa_ability.name` is the only server-side path to surfacing class origin in the AA window.
+
+---
+
 ## 2026-06-22 — Discipline login notification (issue #3)
 
 `akk-stack/server/quests/global/global_player.lua` — added to `event_connect`

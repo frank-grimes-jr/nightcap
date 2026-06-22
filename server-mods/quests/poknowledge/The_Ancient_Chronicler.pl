@@ -24,6 +24,13 @@ my %CLASS_NAMES = (
     16 => 'Berserker',
 );
 
+# Traditional EQ 3-letter abbreviations shown in AA window Title column
+my %CLASS_ABBREV = (
+    1=>'WAR', 2=>'CLR', 3=>'PAL', 4=>'RNG', 5=>'SHD',
+    6=>'DRU', 7=>'MNK', 8=>'BRD', 9=>'ROG', 10=>'SHM',
+    11=>'NEC', 12=>'WIZ', 13=>'MAG', 14=>'ENC', 15=>'BST', 16=>'BER',
+);
+
 my $MIN_LEVEL_CLASS2 = 1;
 my $MIN_LEVEL_CLASS3 = 1;
 
@@ -128,6 +135,16 @@ sub _apply_class {
     # Unlock secondary class AAs for base class via bitmask OR
     my $base_bit = 2 ** ($base_class - 1);
     my $sec_bit  = 2 ** ($sec_class - 1);
+    # Prefix AA names with [CLR], [NEC], etc. so the Title column shows class origin.
+    # Applied before the classes expansion so the WHERE condition is still valid.
+    # NOT LIKE guard prevents double-prefix on re-application after revoke.
+    my $prefix = "[$CLASS_ABBREV{$sec_class}] ";
+    $DB->do(
+        "UPDATE aa_ability SET name = CONCAT(?, name)
+         WHERE (classes & ?) > 0 AND (classes & ?) = 0
+           AND name NOT LIKE ?",
+        undef, $prefix, $sec_bit, $base_bit, "$prefix%"
+    );
     $DB->do(
         "UPDATE aa_ability
          SET classes = classes | ?
