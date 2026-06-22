@@ -53,3 +53,9 @@ All commands run from `akk-stack/`:
 - `Client_RoF2_Dev/` is binary EQ client data — never try to build, lint, or modify it
 - No root `package.json` — do not run `npm install` or `npm run` from the repo root
 - Subproject CLAUDE.md files can be added per-directory for module-specific instructions
+
+## Changelog
+
+**Always update `CHANGES.md`** when making significant changes — C++ patches, database schema changes, quest script additions, or SQL setup file corrections. Include: what changed, why, any gotchas. This is the primary audit trail for this repo since many changes touch the live database or compiled binaries and aren't fully captured by git diffs alone.
+
+Format: date header, area, description. Most recent entry at the top.

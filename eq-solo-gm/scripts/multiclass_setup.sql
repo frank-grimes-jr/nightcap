@@ -5,12 +5,16 @@
 -- =============================================================================
 
 -- 1. Character multiclass tracking
+-- id auto_increment is required: the compiled zone binary (SetMulticlassSlot in aa.cpp)
+-- does SELECT id to check row existence before deciding INSERT vs UPDATE.
 CREATE TABLE IF NOT EXISTS character_multiclass (
+    id              INT UNSIGNED NOT NULL AUTO_INCREMENT,
     character_id    INT UNSIGNED NOT NULL,
     class2          TINYINT UNSIGNED NULL DEFAULT NULL,
     class3          TINYINT UNSIGNED NULL DEFAULT NULL,
     applied_at      TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    PRIMARY KEY (character_id)
+    PRIMARY KEY (id),
+    UNIQUE KEY uq_character_id (character_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- =============================================================================
@@ -101,13 +105,13 @@ VALUES
 -- =============================================================================
 
 INSERT IGNORE INTO spawn2
-    (spawngroupID, zone, version, x, y, z, heading, respawntime, variance, pathgrid, enabled, animation)
+    (spawngroupID, zone, version, x, y, z, heading, respawntime, variance, pathgrid, animation)
 VALUES
-    (999220, 'poknowledge', 0, -290, -135, -10, 0, 86400, 0, 0, 1, 0),
-    (999221, 'poknowledge', 0, -310, -135, -10, 0, 86400, 0, 0, 1, 0),
-    (999222, 'poknowledge', 0, -270, -135, -10, 0, 86400, 0, 0, 1, 0),
-    (999223, 'poknowledge', 0, -290, -155, -10, 0, 86400, 0, 0, 1, 0),
-    (999224, 'poknowledge', 0, -290, -115, -10, 0, 86400, 0, 0, 1, 0);
+    (999220, 'poknowledge', 0, -290, -135, -10, 0, 86400, 0, 0, 0),
+    (999221, 'poknowledge', 0, -310, -135, -10, 0, 86400, 0, 0, 0),
+    (999222, 'poknowledge', 0, -270, -135, -10, 0, 86400, 0, 0, 0),
+    (999223, 'poknowledge', 0, -290, -155, -10, 0, 86400, 0, 0, 0),
+    (999224, 'poknowledge', 0, -290, -115, -10, 0, 86400, 0, 0, 0);
 
 -- =============================================================================
 -- 6. Provisions Vendor Stock (static — common food/drink items)

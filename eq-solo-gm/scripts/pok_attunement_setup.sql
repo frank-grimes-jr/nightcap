@@ -9,19 +9,16 @@
 -- =============================================================================
 
 -- 1. Make PoK always accessible regardless of expansion lock.
---    Without this, the teleport spell itself would be blocked by the server's
---    expansion check when the destination zone's expansion > current setting.
 UPDATE zone SET bypass_expansion_check = 1 WHERE short_name = 'poknowledge';
 
 -- =============================================================================
 -- 2. Create the teleport spell.
 --
---    We detect the correct teleport SPA (effectid1) from existing transport
---    spells in this database rather than hardcoding a version-dependent value.
---    If no teleport spell exists (empty server), defaults to SPA 46.
+--    Detects the correct teleport SPA from existing spells rather than
+--    hardcoding a version-dependent value. Defaults to SPA 46 if none found.
 --
---    All class columns are 255 (cannot memorize) — this spell is AA-only and
---    should not appear in the spellbook or vendor lists.
+--    All class columns are 255 (cannot memorize) — AA-only, never appears
+--    in spellbook or vendor lists.
 -- =============================================================================
 
 SET @teleport_spa = COALESCE(
@@ -35,12 +32,14 @@ SET @teleport_spa = COALESCE(
 );
 
 INSERT IGNORE INTO spells_new
-    (id, name, targettype, skill, GoodEffect, Activated,
+    (id, name, targettype, skill, goodEffect, Activated,
      cast_time, recovery_time, recast_time,
-     effectid1, base1, limit1, max1,
+     effectid1, effect_base_value1, effect_limit_value1, max1,
      effectid2, effectid3, effectid4, effectid5, effectid6,
      effectid7, effectid8, effectid9, effectid10, effectid11, effectid12,
      teleport_zone,
+     you_cast, other_casts, cast_on_you, cast_on_other, spell_fades,
+     descnum, typedescnum, effectdescnum, effectdescnum2,
      classes1,  classes2,  classes3,  classes4,
      classes5,  classes6,  classes7,  classes8,
      classes9,  classes10, classes11, classes12,
@@ -51,6 +50,8 @@ SELECT
     @teleport_spa, 0, 0, 0,
     254, 254, 254, 254, 254, 254, 254, 254, 254, 254, 254,
     'poknowledge',
+    '', '', 'You are transported to the Plane of Knowledge.', '', '',
+    0, 0, 0, 0,
     255, 255, 255, 255,
     255, 255, 255, 255,
     255, 255, 255, 255,
@@ -59,56 +60,57 @@ SELECT
 -- =============================================================================
 -- 3. Create the AA ability.
 --
---    category 0 = General tab in AA window
---    classes  65535 = all 16 classes (bitmask all bits set)
---    races    65535 = all races
---    expansion 0 = Classic era (always visible)
---    spell_type 1 = activated (clickable, has recast timer)
---    spell_refresh 600 = 10-minute recast shown in UI (in seconds)
+--    category -1   = General tab
+--    classes 65535 = all 16 classes (bitmask, all bits set)
+--    races   65535 = all races
+--    type 0        = activated ability
+--    first_rank_id = set to the rank row we create below (22200)
 -- =============================================================================
 
 INSERT INTO aa_ability
-    (id, name, category, classes, races, drakkin_heritage, status, type,
-     spell_type, spell_refresh, expansion, aa_expansion, special_category,
-     sof_type, sof_cost_mod, grant_only, auto_grant, auto_grant_level,
-     auto_grant_time, auto_grant_points, icon)
+    (id, name, category, classes, races, drakkin_heritage, deities,
+     status, type, charges, grant_only, first_rank_id, enabled,
+     reset_on_death, auto_grant_enabled)
 VALUES
-    (2220, 'Ancient Attunement', 0, 65535, 65535, 255, 0, 0,
-     1, 600, 0, 0, -1,
-     0, 0, 0, 0, 0, 0, 0, 0)
+    (2220, 'Ancient Attunement', -1, 65535, 65535, 127, 131071,
+     0, 0, 0, 0, 22200, 1,
+     0, 0)
 ON DUPLICATE KEY UPDATE
-    name      = VALUES(name),
-    classes   = VALUES(classes),
-    expansion = VALUES(expansion);
+    name          = VALUES(name),
+    classes       = VALUES(classes),
+    first_rank_id = VALUES(first_rank_id),
+    enabled       = 1;
 
 -- =============================================================================
 -- 4. Create AA rank 1.
 --
---    cost 0       = free (no AA points required to purchase)
---    level_req 1  = available from level 1
---    spell 99001  = the teleport spell above
---    spell_type 1 = activated (not passive)
---    recast_time  = 600 seconds (10 minutes); units may vary by EQEmu version
---    passive 0    = player must click to activate
+--    cost 0        = free (no AA points required)
+--    level_req 1   = available from level 1
+--    spell 99001   = the teleport spell above
+--    spell_type 1  = activated (clickable)
+--    recast_time   = 600 seconds (10 minutes)
+--    prev_id -1    = no prerequisite rank
+--    next_id -1    = no further ranks
 -- =============================================================================
 
 INSERT INTO aa_ranks
-    (id, aa_id, upper_hotkey_sid, lower_hotkey_sid, title_sid, desc_sid,
-     cost, level_req, spell, spell_type, recast_time, passive, total_cost,
-     grant_only, expansion, rank)
+    (id, upper_hotkey_sid, lower_hotkey_sid, title_sid, desc_sid,
+     cost, level_req, spell, spell_type, recast_time, expansion,
+     prev_id, next_id)
 VALUES
-    (22200, 2220, 0, 0, 0, 0,
-     0, 1, 99001, 1, 600, 0, 0,
-     0, 0, 1)
+    (22200, -1, -1, -1, -1,
+     0, 1, 99001, 1, 600, 0,
+     -1, -1)
 ON DUPLICATE KEY UPDATE
     spell      = VALUES(spell),
     level_req  = VALUES(level_req),
-    cost       = VALUES(cost);
+    cost       = VALUES(cost),
+    recast_time = VALUES(recast_time);
 
 -- =============================================================================
 -- Verification queries (run manually to confirm):
 --   SELECT id, name, teleport_zone, effectid1 FROM spells_new WHERE id = 99001;
---   SELECT id, name, classes, expansion FROM aa_ability WHERE id = 2220;
---   SELECT id, aa_id, level_req, spell, recast_time FROM aa_ranks WHERE id = 22200;
+--   SELECT id, name, classes, first_rank_id FROM aa_ability WHERE id = 2220;
+--   SELECT id, level_req, spell, recast_time FROM aa_ranks WHERE id = 22200;
 --   SELECT short_name, bypass_expansion_check FROM zone WHERE short_name = 'poknowledge';
 -- =============================================================================
