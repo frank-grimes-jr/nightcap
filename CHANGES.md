@@ -60,6 +60,17 @@ The `id` auto_increment PK is required — `SetMulticlassSlot()` in the C++ does
 
 ---
 
+## 2026-06-22 — Discipline login notification (issue #3)
+
+`akk-stack/server/quests/global/global_player.lua` — added to `event_connect`
+
+On every login, if the character has any secondary/tertiary disciplines set in qglobals (`mc_class2`, `mc_class3`), a yellow chat message lists all active disciplines:
+`Active disciplines: Warrior (Primary) | Necromancer (Secondary) | Wizard (Tertiary)`
+
+No client XML changes required — uses existing qglobals set by The Ancient Chronicler. The character window in RoF2 has no EQType binding for secondary/tertiary class data; the client binary is fixed and can't be modified, so a login message is the cleanest non-invasive alternative.
+
+---
+
 ## 2026-06-22 — Instance system (issue #1)
 
 `eq-solo-gm/scripts/instance_keeper_setup.sql` — NPC types, spawngroups, spawn2 for 7 starter dungeons (befallen, unrest, highkeep, najena, cazicthule, permafrost, soldungb).
