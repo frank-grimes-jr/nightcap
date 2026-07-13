@@ -4,6 +4,14 @@ Running log of significant changes to this repo — schema migrations, C++ patch
 
 ---
 
+## 2026-07-13 — Instance Keepers were never in the live DB; setup SQL had an ID collision
+
+QA found no keeper NPC in Befallen: `instance_keeper_setup.sql` (committed 2026-06-22) **was never applied to the live DB**. Worse, applying it as-written collided — its "unused" 998001–998007 npc_types ids belong to existing `a_swooping_bat` NPCs, and the script's `ON DUPLICATE KEY UPDATE` / `INSERT IGNORE` clauses silently corrupted them (bat lastnames overwritten, bat NPCs wired to dungeon-entrance spawns) instead of erroring. Reverted surgically (bat lastnames restored to '', my spawn2/spawnentry/spawngroup rows deleted), rewrote the script on **999227–999233** (verified free in npc_types AND spawngroup), with plain INSERTs so any future collision fails loudly. Applied; all 7 keepers verified in DB.
+
+**Gotchas:** (1) a script in git ≠ applied to the live DB — verify rows exist, not files. (2) Never claim an ID range is free without checking every table it touches. (3) `INSERT IGNORE`/`ON DUPLICATE` in setup scripts turn collisions into silent corruption — use plain INSERT and let it error. (4) New spawn2 rows need `#repop` (placeholder coords — `/loc` and UPDATE spawn2 to fine-tune).
+
+---
+
 ## 2026-07-13 — Client crash zoning into classic zones: missing s3d files, full audit + restore
 
 "Crash zoning into West Commonlands" was a **client-side** failure, not a server bug: the RoF2 client bailed with `Unable to find specified world file [commons.s3d]` (see `Client_RoF2_Dev\everquest_rof2\Logs\dbg.txt` — always check this file first for zone-in crashes; the server-side symptom is just `kicked, reason [Dropped by world CLE subsystem]` ~40s after connect, with the zone process alive).
