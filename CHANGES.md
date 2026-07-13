@@ -4,13 +4,120 @@ Running log of significant changes to this repo — schema migrations, C++ patch
 
 ---
 
+## 2026-06-23 — Multiclass AA rework: mask-only access, clean revoke, de-crufted aa_ability
+
+The multiclass AA feature kept breaking because The Ancient Chronicler **mutated the global `aa_ability` table** on every class selection (OR-ing the base-class bit into secondary AAs + name prefixes) and **revoke undid none of it**. This accumulated irreversible cruft — on the live DB, 416 non-Paladin AAs had been falsely OR'd into "Paladin-usable" (670 vs the vanilla 254), plus 525 stale/duplicate `[XXX]` name prefixes.
+
+**Root insight:** access is already granted by the per-character multiclass *mask* (`m_multiclass_mask`, see the load-order fix below). The `classes |= base_bit` mutation was redundant *and* the source of the cruft — it also broke labelling (the `(classes & base)=0` precondition was corrupted, so e.g. `[MAG]` never applied).
+
+**Changes:**
+- **One-time cleanup** (`eq-solo-gm/scripts/multiclass_aa_cleanup.sql`): restored every stock AA's `classes` + `name` from the pristine PEQ dump (`/home/eqemu/code/utils/sql/peq_aa_tables_post_rework.sql`) via a scratch DB joined on `aa_ability.id`. Only `classes`/`name` touched — `first_rank_id` left intact, so the `aa_ability`↔`aa_ranks` link and players' purchased AAs (which reference `first_rank_id`) are preserved. Custom AAs (not in the dump, e.g. PoK attunement) untouched. Result: 0 prefixes, vanilla class bitmasks.
+  - Gotcha hit during this: `aa_ability.id` ≠ `first_rank_id`. id 194 is "Unfailing Divinity"; "Holy Steed" merely has `first_rank_id`=194. Don't confuse the two when sanity-checking.
+- **Labels baked statically** (`eq-solo-gm/scripts/multiclass_aa_labels.sql`): per-selection name prefixing was abandoned — AA names are cached at zone boot, so a label only appeared after `#reload aa`, which public players don't have. Instead, every single-class AA is tagged once with its class (`[WIZ] Mana Burn`, `[BRD] …`; 1210 tagged, shared/general AAs untagged). Tags are permanent and global; the per-character mask decides which a player sees. **No per-player reload ever.**
+- **Chronicler now touches `aa_ability` zero times** — `_apply_class` only writes `character_multiclass`/qglobals + the spells_new/skill_caps patches; `_revoke_slot` only clears `character_multiclass`/qglobals. Access and revoke are purely the mask. Purchased AAs aren't deleted (rows persist, reactivate if the class is re-added — lossless round-trip).
+- **Selection gating** reads `character_multiclass` (not `%qglobals`, which isn't populated on this NPC) via `_get_classes`, so the NPC correctly caps at two extra classes.
+- **Selection gating bugfix:** the Chronicler gated on `%qglobals` (`mc_class2/3`), which isn't reliably populated on this NPC → `$c2/$c3` were always 0, so players could select classes endlessly (each overwriting `class2`). Now reads current classes from `character_multiclass` (the authoritative table) via a `_get_classes` helper, with a defense-in-depth guard in `_apply_class`. Both extra slots full → selection refused.
+- **Scope:** AAs only. The `spells_new` scribing patch and `skill_caps` expansion are unchanged (secondary spells/skills require global patches because RoF2 gates scribing client-side) — revoking a class does NOT remove its spell/skill access, by design.
+
+Deploy: ran cleanup SQL, restarted zones (aa_ability loads per-zone from DB at boot — no shared-memory regen needed for AAs).
+
+---
+
+## 2026-06-23 — Tiered loot system (Rare / Epic / Legendary)
+
+4-tier rarity across all equippable gear + bags. T1 = every existing item (unchanged); T2–T4 are stat-scaled copies that drop progressively rarer.
+
+**Items** (`eq-solo-gm/scripts/tiered_loot_setup.sql`): ~63.7k copies per tier generated via a stored proc that clones rows through a temp table (items has 285 cols — can't enumerate). Packed ID scheme (see ID cap below): Rare `base+200000` ×1.20, Epic `+400000` ×1.45, Legendary `+600000` ×1.75. Positive stats only; haste/delay/req-levels/effects untouched; negatives left as-is. Bags get +2/4/6 slots, +25/50/100 WR, →Giant. Name tags ` (Rare|Epic|Legendary)`.
+
+**RoF2 item-ID cap = 1,048,575.** Item *links* encode the id as `%05X & 0x000FFFFF` (`common/say_link.cpp`), so ids above that wrap and link to the wrong item (the original `+1,000,000` scheme failed in-client — link resolved to a different item). Inventory/summon use full 32-bit ids, but links are the binding constraint. All tier ids stay packed under the cap (max ~820k).
+
+**Drop mechanic** (`akk-stack/code/zone/loot.cpp`, `NPC::AddLootDrop`): one hook at the chokepoint every dropped item passes through. Base items (id < 200000) that are equippable/bags roll `Int(1,10000)`; on a hit it swaps `item2` for `GetItem(id+offset)`. Zero loot-table edits; covers all current+future NPCs. Tunable via `Zone:LootTier{Rare,Epic,Legendary}Chance` rules (1000/200/25 = 10%/2%/0.25%), added in `common/ruletypes.h`.
+
+**Class epics** are auto-Epic: excluded from tier generation (so the hook's `GetItem` returns null → no random upgrade). Legendary epics generated explicitly at `base+800000` ×1.75, granted only by the **Legendary Ascension** quest (`akk-stack/server/quests/poknowledge/Epic_Forgemaster.pl`, NPC 999226 in PoK): carry your epic unequipped + hand in 8× *Essence of the Legend* (item 900000, ~1% global drop on lvl 55+ via `global_loot`) + 100,000pp → epic removed, legendary granted. No-drop-safe (epic detected/removed from inventory via CountItem/RemoveItem; only the tradeable essence + plat are handed in — no-drop items can't be put in a trade window).
+
+**Deploy:** run the SQL, rebuild zone, regenerate shared memory (`./bin/shared_memory` — items are served from a shared-mem cache, so new items need it), restart all zones.
+
+**Open item:** the user wanted item-name *text* colored blue/purple; RoF2 has no per-item name-color field and the client is read-only, so rarity is shown via name tags instead.
+
+---
+
+## 2026-06-22 — AA-vanishes-on-relog: REAL root cause found (load-order vs multiclass mask)
+
+The recurring "AAs I buy disappear on zone/relog, and the points are not refunded" bug — finally the actual cause, not a symptom. Affected **every character**, not just multiclass ones (reproduced with Origin, an all-class `classes=65535` AA).
+
+**Root cause:** the multiclass mod changed `CanUseAlternateAdvancementRank()` (aa.cpp:1635) to gate on `GetClassMask()` (the multiclass mask `m_multiclass_mask`) instead of computing the class bit inline. But `m_multiclass_mask` is **0 until `LoadMulticlassMask()` runs**, and the connect order is:
+
+1. `OP_ZoneEntry` handler → `LoadAlternateAdvancement()` (client_packet.cpp:1536) loads each owned AA, calling `CanUseAlternateAdvancementRank()` per AA. **Mask is still 0 here.**
+2. `OP_ClientReady` → `CompleteConnect` → `SendZoneInPackets()` → `LoadMulticlassMask()` (client.cpp:841). Too late.
+
+With a 0 mask, `a->classes & 0 == 0` → `CanUse` returns false for **every** AA → `LoadAlternateAdvancement` (aa.cpp:1511) silently skips it. The AA isn't loaded into memory; the `character_alternate_abilities` row survives (so the point still reads as spent) but the ability is gone and the point is never refunded. At *purchase* time the mask was already populated (player fully connected), so buying worked — the asymmetry that made it look intermittent.
+
+**Fix:** call `LoadMulticlassMask()` immediately before `LoadAlternateAdvancement()` in the ZoneEntry handler (client_packet.cpp, right after `ReloadExpansionProfileSetting()`). Rebuilt zone, restarted all zones.
+
+**Self-healing:** previously-dropped AAs were never deleted from `character_alternate_abilities` (SaveAA's `ReplaceMany` doesn't delete unlisted rows), so with the correct mask they reload on the next zone-in and the points reconcile.
+
+**Latent issue left as-is:** `LoadAlternateAdvancement` still *drops* (rather than refunds) any AA that genuinely fails `CanUse` (e.g. a real expansion mismatch), losing the points. Not hit by normal play now that the mask is correct; revisit if an expansion-gated AA ever legitimately fails.
+
+---
+
+## 2026-06-22 — Multiclass vendors reworked: 4 archetypes, restocked, relocated, Sphinx Chronicler
+
+Replaced the 3 "Keeper" spell vendors with **4 archetype vendors** clustered at the Crescent Reach stone in PoK, and gave the Chronicler a Sphinx model.
+
+- **NPCs 999221–999224** redefined as Arcane / Divine / Martial / Stalwart Loremaster (Caster / Priest / Melee / Tank). 999224's `npc_types` row had been deleted in the earlier cleanup — recreated, plus its spawngroup/spawnentry/spawn2.
+- **Placement:** all 5 NPCs (4 vendors + Chronicler 999220) moved to a cluster around (-118, 30, -156.87), Turd's loc by the Crescent Reach stone. PoK floor z = -156.87.
+- **Chronicler model → race 21 (King Xorbb / Beholder eye)**, size 8. (First tried race 86 Sphinx, but it's invisible without Luclin models on; Xorbb is a classic model that renders on old graphics.)
+- **Bag vendor** added: NPC 999225 "Bartholomew Packwell", merchant 99225 — stocks one container of each distinct slot size 8→40 (best per size: Giant bagsize, highest weight-reduction). 22 bags.
+- Cluster final position: just south of Mister Magelo (202388) at y≈248–264, z=-125, clear of the tree.
+
+**Vendor restock — root cause the vendors were empty:** the GM tool's `/api/vendors/refresh` (`eq-solo-gm/api/server.cjs`) queries `items.spellid` and `items.expansion`, **neither of which exists in this DB**. The scribable spell id is in `items.scrolleffect`; there is no `items.expansion` column. So the endpoint errored every call and never stocked anything. Restocked directly in SQL using `scrolleffect`, gated by spells_new scribe level ≤ 60 (server is expansion 1 / Kunark):
+
+| Vendor | merchantid | classBits | items |
+|---|---|---|---|
+| Caster (Nec/Wiz/Mag/Enc) | 99221 | 15360 | 1113 |
+| Priest (Clr/Dru/Shm) | 99222 | 546 | 685 |
+| Melee (Mnk/Rog/Ber/Brd/Rng/Bst) | 99223 | 49608 | 358 |
+| Tank (War/Pal/SK) | 99224 | 21 | 237 |
+
+Pure-melee classes (War/Mnk/Rog/Ber) have no scribable spells at exp 1, so Melee stocks Brd/Rng/Bst and Tank stocks Pal/SK.
+
+**Gotcha — merchant NPCs need class 41.** An NPC is only right-clickable to shop if `npc_types.class = 41` (Merchant); `merchant_id` alone just links the inventory. The vendors were initially given their archetype classes (12/2/7/1) and couldn't be opened — fixed to class 41. (Also: npc_types/merchantlist/quest scripts are cached at zone boot, so changes to them need a full zone *restart*, not `#repop`. And dynamic-pool zones run as a bare `bin/zone` with no zone name in the command line — find the live one via its log filename `<zone>_..._<PID>.log`, not `pgrep -f "zone poknowledge"`.)
+
+Full reproducible setup is in `eq-solo-gm/scripts/multiclass_setup.sql` (rewritten sections 2/3/5/6). **`/api/vendors/refresh` in the GM tool is still broken** (wrong column names) — left as a separate TODO.
+
+Apply: changes are live in the DB; `#repop` PoK to spawn/move the NPCs.
+
+---
+
+## 2026-06-22 — Moved ftp-quests passive port range off Hyper-V reserved range
+
+`docker-compose.yml` — `ftp-quests` passive FTP ports moved `30000-30049` → `21000-21049` (both `FTP_PASSIVE_PORTS` env and the published port mapping; they must match). Control port stays 21, so FTP clients need no change.
+
+**Why:** after a host reboot, Windows `winnat` reserved the dynamic range 29995–30194, which overlapped the old passive range. Symptom: `make up`/`docker compose up` aborts with `ports are not available: ... bind: An attempt was made to access a socket in a way forbidden by its access permissions` on a port like 30040, and the abort also skips any services compose hadn't started yet (phpmyadmin, peq-editor → their nginx proxies then crash-loop with `host not found in upstream`).
+
+**Gotcha:** Hyper-V/WSL dynamic port reservations shift on every reboot and live in the ~29995–50000 area. Keep host port mappings below that (21xxx is safe). Check current reservations with `netsh int ipv4 show excludedportrange protocol=tcp`. Bouncing `winnat` (`net stop winnat && net start winnat`, elevated) frees them temporarily but the conflict recurs next reboot — moving the port is the durable fix.
+
+---
+
+## 2026-06-22 — AA-vanishes-on-relog: root cause was stale zone processes
+
+The recurring "purchased AA disappears after I zone/relog" bug was **not** a code bug — the `LoadMulticlassMask` 0-indexed fix (`1 << (GetClass()-1)`) was already correct in source and in the latest zone binary (built 15:33). The problem: several zone processes (qeynos, commons, freporte, freportw, arena, + static pool) were still running from 15:28 — *before* the rebuild — so they served the old buggy binary with mask `1 << GetClass()`.
+
+A process runs whatever binary existed when it started. Killing only *some* zones after a rebuild leaves the rest stale. Whether an AA survived a relog depended entirely on which zone process the player was in: for a Paladin (class 3), buggy mask = `8`, but Paladin AAs have `classes=4` → `4 & 8 = 0` → filtered out of `SendAlternateAdvancementTable` on every zone-in. The data was never deleted from `character_alternate_abilities` — it just stopped being sent to the client.
+
+**Fix:** killed *all* zone processes so eqlaunch respawned every one against the current binary. No code change.
+
+**Gotcha (reinforced):** after `make zone`, you MUST kill **every** `bin/zone` process, not just the zone you're testing in. Dynamic zones already booted keep the old binary until killed. Verify with `ps -eo pid,lstart,cmd | grep '[b]in/zone'` — every start time must be *after* the binary mtime (`ls -lL --time-style=full-iso /home/eqemu/server/bin/zone`).
+
+---
+
 ## 2026-06-22 — Multiclass System
 
 A system that lets characters learn up to 2 additional class disciplines beyond their primary. Gated at level 20 (2nd discipline) and level 50 (3rd discipline).
 
 ### NPC hub
-- **The Ancient Chronicler** (NPC ID 999220) placed in Plane of Knowledge
-- Four companion NPCs (999221–999224): spell vendors by archetype (arcane, priest, martial) and a provisions keeper
+- **The Ancient Chronicler** (NPC ID 999220) placed in Plane of Knowledge at (-80, -25, -157)
+- Companion NPCs 999201–999224 removed — all redundant with existing PoK trainers/vendors; skill training is handled programmatically by the script
 - Setup script: `eq-solo-gm/scripts/multiclass_setup.sql`
 
 ### Perl quest script
@@ -50,6 +157,9 @@ CREATE TABLE character_multiclass (
 );
 ```
 The `id` auto_increment PK is required — `SetMulticlassSlot()` in the C++ does `SELECT id FROM character_multiclass WHERE character_id = ?` to check row existence before deciding INSERT vs UPDATE. Originally created with `character_id` as PK (missing `id`), causing error 1054 on every interaction. Fixed via `ALTER TABLE`.
+
+### Bug fix — zone crash on NULL class2/class3
+`LoadMulticlassMask()` in `aa.cpp` called `Strings::ToUnsignedInt(row[N])` without checking for null. When `class2` or `class3` is SQL NULL (valid state for a character with only one discipline set), `row[N]` returns `nullptr`, and constructing a `std::string` from null throws `std::logic_error` → `std::terminate`. Fixed with null checks: `row[N] ? Strings::ToUnsignedInt(row[N]) : 0`. Also patched existing rows: `UPDATE character_multiclass SET class3 = 0 WHERE class3 IS NULL`.
 
 ### Gotchas discovered
 1. **EQEmu script priority**: `<npcid>.lua` always loads before `<NPC_Name>.pl`. If both exist for the same NPC, the Lua handles all events.

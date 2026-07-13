@@ -448,12 +448,16 @@ app.post('/api/expansion/apply', async (req, res) => {
     )
     changes.push({ icon: '📊', label: `Level cap → ${target.max_level}` })
 
+    // AAs are intentionally NOT era-gated on this server (multiclass system grants
+    // access to many classes' AAs at level 1). Keep UseCurrentExpansionAAOnly=false
+    // so the era lock governs zones + level cap only, not AA visibility.
+    // ponytail: flip to 'true' here if you ever want era-authentic AA gating.
     await pool.query(
-      "UPDATE rule_values SET rule_value = 'true' WHERE rule_name = 'Expansion:UseCurrentExpansionAAOnly' AND ruleset_id = 1"
+      "UPDATE rule_values SET rule_value = 'false' WHERE rule_name = 'Expansion:UseCurrentExpansionAAOnly' AND ruleset_id = 1"
     )
     changes.push({
-      icon: '🔒',
-      label: 'Expansion:UseCurrentExpansionAAOnly confirmed true',
+      icon: '✨',
+      label: 'AA visibility left open (UseCurrentExpansionAAOnly=false)',
     })
 
     const [[lockedZ]] = await pool.query(

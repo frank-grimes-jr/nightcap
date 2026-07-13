@@ -13,6 +13,12 @@
 #   300 + class_id  → confirm adding as tertiary
 #   402             → confirm revoking secondary slot
 #   403             → confirm revoking tertiary slot
+#
+# DB API note: this EQEmu version does not inject $DB. Use Database->new().
+#   $db->prepare($sql)         → MySQLPreparedStmt (or undef on failure)
+#   $sth->execute(@params)     → runs the query
+#   $sth->fetch_hashref()      → next row as hashref (NOT fetchrow_hashref)
+#   No $db->do() — use prepare+execute for all writes.
 # ==============================================================================
 
 my %CLASS_NAMES = (
@@ -24,7 +30,6 @@ my %CLASS_NAMES = (
     16 => 'Berserker',
 );
 
-# Traditional EQ 3-letter abbreviations shown in AA window Title column
 my %CLASS_ABBREV = (
     1=>'WAR', 2=>'CLR', 3=>'PAL', 4=>'RNG', 5=>'SHD',
     6=>'DRU', 7=>'MNK', 8=>'BRD', 9=>'ROG', 10=>'SHM',
@@ -37,14 +42,15 @@ my $MIN_LEVEL_CLASS3 = 1;
 # ── Helpers ──────────────────────────────────────────────────────────────────
 
 sub _db_current_expansion {
-    my $sth = $DB->prepare(
+    my ($db) = @_;
+    my $sth = $db->prepare(
         "SELECT CAST(rule_value AS UNSIGNED) AS val
          FROM rule_values
          WHERE rule_name = 'Expansion:CurrentExpansion' AND ruleset_id = 1
          LIMIT 1"
     );
     $sth->execute();
-    my $row = $sth->fetchrow_hashref();
+    my $row = $sth->fetch_hashref();
     return $row ? $row->{val} : 99;
 }
 
@@ -60,123 +66,87 @@ sub _build_class_links {
     return join(' ', @links);
 }
 
-sub _count_new_spells {
-    my ($char_id, $sec_class, $level) = @_;
-    my $col = "classes$sec_class";
-    my $sth = $DB->prepare(
-        "SELECT COUNT(*) AS cnt
-         FROM spells_new
-         WHERE $col > 0 AND $col <= ? AND $col != 255
-           AND id NOT IN (SELECT spell_id FROM character_spells WHERE id = ?)"
-    );
-    $sth->execute($level, $char_id);
-    my $row = $sth->fetchrow_hashref();
-    return $row ? $row->{cnt} : 0;
-}
-
 sub _apply_class {
-    my ($char_id, $base_class, $sec_class, $existing_c2, $existing_c3, $level) = @_;
+    my ($db, $char_id, $base_class, $sec_class, $existing_c2, $existing_c3, $level) = @_;
 
     my $slot     = !$existing_c2 ? 2 : 3;
     my $slot_key = "mc_class$slot";
 
-    # Persist discipline choice
     quest::setglobal($slot_key, $sec_class, 5, 'F');
 
     if ($slot == 2) {
-        $DB->do(
+        my $sth = $db->prepare(
             "INSERT INTO character_multiclass (character_id, class2)
              VALUES (?, ?)
-             ON DUPLICATE KEY UPDATE class2 = VALUES(class2), applied_at = CURRENT_TIMESTAMP",
-            undef, $char_id, $sec_class
+             ON DUPLICATE KEY UPDATE class2 = VALUES(class2), applied_at = CURRENT_TIMESTAMP"
         );
+        $sth->execute($char_id, $sec_class);
     } else {
-        $DB->do(
+        my $sth = $db->prepare(
             "UPDATE character_multiclass SET class3 = ?, applied_at = CURRENT_TIMESTAMP
-             WHERE character_id = ?",
-            undef, $sec_class, $char_id
+             WHERE character_id = ?"
         );
+        $sth->execute($sec_class, $char_id);
     }
 
-    # Scribe all eligible spells the character doesn't already have
-    my $col = "classes$sec_class";
-    my $spell_sth = $DB->prepare(
-        "SELECT id FROM spells_new
-         WHERE $col > 0 AND $col <= ? AND $col != 255
-           AND id NOT IN (SELECT spell_id FROM character_spells WHERE id = ?)
-         ORDER BY $col, id"
-    );
-    $spell_sth->execute($level, $char_id);
-    my $count = 0;
-    while (my $row = $spell_sth->fetchrow_hashref()) {
-        quest::scribespell($row->{id});
-        $count++;
-    }
-
-    # Patch spells_new so the character's base class can memorize secondary spells.
+    # Patch spells_new so the character's base class can memorize purchased secondary spells.
     # Sets base class min-level = secondary class min-level where base had no access.
+    my $col      = "classes$sec_class";
     my $col_base = "classes$base_class";
-    $DB->do(
-        "UPDATE spells_new
-         SET $col_base = $col
-         WHERE $col_base = 255 AND $col > 0 AND $col != 255"
+    my $patch_sth = $db->prepare(
+        "UPDATE spells_new SET $col_base = $col WHERE $col_base = 255 AND $col > 0 AND $col != 255"
     );
+    $patch_sth->execute();
 
     # Expand skill caps: add secondary class skills that base class lacked
-    $DB->do(
+    my $skill_sth = $db->prepare(
         "INSERT IGNORE INTO skill_caps (class_id, skill_id, level, cap)
          SELECT ?, skill_id, level, cap
          FROM skill_caps
          WHERE class_id = ?
-           AND skill_id NOT IN (SELECT skill_id FROM skill_caps WHERE class_id = ?)",
-        undef, $base_class, $sec_class, $base_class
+           AND skill_id NOT IN (SELECT skill_id FROM skill_caps WHERE class_id = ?)"
     );
+    $skill_sth->execute($base_class, $sec_class, $base_class);
 
-    # Unlock secondary class AAs for base class via bitmask OR
-    my $base_bit = 2 ** ($base_class - 1);
-    my $sec_bit  = 2 ** ($sec_class - 1);
     # Prefix AA names with [CLR], [NEC], etc. so the Title column shows class origin.
     # Applied before the classes expansion so the WHERE condition is still valid.
     # NOT LIKE guard prevents double-prefix on re-application after revoke.
-    my $prefix = "[$CLASS_ABBREV{$sec_class}] ";
-    $DB->do(
+    my $base_bit = 2 ** ($base_class - 1);
+    my $sec_bit  = 2 ** ($sec_class - 1);
+    my $prefix   = "[$CLASS_ABBREV{$sec_class}] ";
+    my $aa_name_sth = $db->prepare(
         "UPDATE aa_ability SET name = CONCAT(?, name)
          WHERE (classes & ?) > 0 AND (classes & ?) = 0
-           AND name NOT LIKE ?",
-        undef, $prefix, $sec_bit, $base_bit, "$prefix%"
+           AND name NOT LIKE ?"
     );
-    $DB->do(
-        "UPDATE aa_ability
-         SET classes = classes | ?
-         WHERE (classes & ?) > 0 AND (classes & ?) = 0",
-        undef, $base_bit, $sec_bit, $base_bit
-    );
+    $aa_name_sth->execute($prefix, $sec_bit, $base_bit, "$prefix%");
 
-    # Train skills to current caps across all active disciplines
-    my $new_c2 = $slot == 2 ? $sec_class : $existing_c2;
-    my $new_c3 = $slot == 3 ? $sec_class : $existing_c3;
-    _train_skills($base_class, $new_c2, $new_c3, $level);
+    my $aa_class_sth = $db->prepare(
+        "UPDATE aa_ability SET classes = classes | ?
+         WHERE (classes & ?) > 0 AND (classes & ?) = 0"
+    );
+    $aa_class_sth->execute($base_bit, $sec_bit, $base_bit);
 
     $client->Message(15,
-        "The $CLASS_NAMES{$sec_class} discipline awakens within you. $count spells added to your spellbook. " .
-        "Return to the spell vendors as you level for additional tomes. " .
+        "The $CLASS_NAMES{$sec_class} discipline awakens within you. " .
+        "Visit the spell vendors nearby to purchase tomes for your new discipline. " .
         "Log out and back in for all changes to take full effect."
     );
 }
 
 sub _train_skills {
-    my ($base, $c2, $c3, $level) = @_;
+    my ($db, $base, $c2, $c3, $level) = @_;
     my @ids = grep { $_ } ($base, $c2 // 0, $c3 // 0);
     my $ph  = join(',', ('?') x @ids);
 
-    my $sth = $DB->prepare(
+    my $sth = $db->prepare(
         "SELECT skill_id, MAX(cap) AS max_cap
          FROM skill_caps
          WHERE class_id IN ($ph) AND level <= ?
          GROUP BY skill_id"
     );
     $sth->execute(@ids, $level);
-    while (my $row = $sth->fetchrow_hashref()) {
+    while (my $row = $sth->fetch_hashref()) {
         my $current = $client->GetSkill($row->{skill_id});
         $client->SetSkill($row->{skill_id}, $row->{max_cap})
             if $current < $row->{max_cap};
@@ -184,61 +154,31 @@ sub _train_skills {
 }
 
 sub _revoke_slot {
-    my ($char_id, $base_class, $slot, $c2, $c3) = @_;
+    my ($db, $char_id, $base_class, $slot, $c2, $c3) = @_;
     my $revoke_class = $slot == 2 ? $c2 : $c3;
     my $keep_class   = $slot == 2 ? $c3 : $c2;
     return unless $revoke_class;
-
-    # Remove spells that came only from the revoked class
-    # (not usable by base class, not usable by the class we're keeping)
-    my $col_rev  = "classes$revoke_class";
-    my $col_base = "classes$base_class";
-    my $keep_clause = $keep_class
-        ? "AND classes$keep_class = 255"
-        : '';
-
-    my $spell_sth = $DB->prepare(
-        "SELECT spell_id FROM character_spells WHERE id = ?
-         AND spell_id IN (
-             SELECT id FROM spells_new
-             WHERE $col_rev > 0 AND $col_rev != 255
-               AND $col_base = 255
-               $keep_clause
-         )"
-    );
-    $spell_sth->execute($char_id);
-    my @remove;
-    while (my $row = $spell_sth->fetchrow_hashref()) {
-        push @remove, $row->{spell_id};
-    }
-
-    if (@remove) {
-        my $ph = join(',', ('?') x @remove);
-        $DB->do(
-            "DELETE FROM character_spells WHERE id = ? AND spell_id IN ($ph)",
-            undef, $char_id, @remove
-        );
-    }
 
     # When revoking slot 2, promote slot 3 → slot 2 if it exists
     if ($slot == 2 && $keep_class) {
         quest::setglobal('mc_class2', $keep_class, 5, 'F');
         quest::delglobal('mc_class3');
-        $DB->do(
-            "UPDATE character_multiclass SET class2 = ?, class3 = NULL WHERE character_id = ?",
-            undef, $keep_class, $char_id
+        my $sth = $db->prepare(
+            "UPDATE character_multiclass SET class2 = ?, class3 = NULL WHERE character_id = ?"
         );
+        $sth->execute($keep_class, $char_id);
     } elsif ($slot == 2) {
         quest::delglobal('mc_class2');
-        $DB->do("UPDATE character_multiclass SET class2 = NULL WHERE character_id = ?", undef, $char_id);
+        my $sth = $db->prepare("UPDATE character_multiclass SET class2 = NULL WHERE character_id = ?");
+        $sth->execute($char_id);
     } else {
         quest::delglobal('mc_class3');
-        $DB->do("UPDATE character_multiclass SET class3 = NULL WHERE character_id = ?", undef, $char_id);
+        my $sth = $db->prepare("UPDATE character_multiclass SET class3 = NULL WHERE character_id = ?");
+        $sth->execute($char_id);
     }
 
     $client->Message(15,
         "Your $CLASS_NAMES{$revoke_class} discipline has been released. " .
-        scalar(@remove) . " spells removed from your spellbook. " .
         "Log out and back in for all changes to take effect."
     );
 }
@@ -250,7 +190,7 @@ sub EVENT_SAY {
     my $name     = $client->GetName();
     my $level    = $client->GetLevel();
     my $base     = $client->GetClass();
-    my $char_id  = $client->GetCharacterID();
+    my $char_id  = $client->CharacterID();
     my $c2       = $qglobals{mc_class2} // 0;
     my $c3       = $qglobals{mc_class3} // 0;
 
@@ -299,7 +239,8 @@ sub EVENT_SAY {
     }
 
     if ($say eq 'train skills') {
-        _train_skills($base, $c2, $c3, $level);
+        my $db = Database->new();
+        _train_skills($db, $base, $c2, $c3, $level);
         quest::say("Your skills have been trained to the highest cap available for all your disciplines, $name.");
         return;
     }
@@ -361,18 +302,14 @@ sub EVENT_SAY {
 
             my $slot_label = !$c2 ? 'second' : 'third';
             my $popup_base = !$c2 ? 200 : 300;
-            my $spell_cnt  = _count_new_spells($char_id, $id, $level);
-            my $cur_exp    = _db_current_expansion();
 
             quest::popup(
                 "Awaken $CLASS_NAMES{$id}",
                 "Awaken $CLASS_NAMES{$id} as your $slot_label discipline?\n\n" .
                 "You will gain:\n" .
-                "  - $spell_cnt spells at your current level\n" .
                 "  - Skills trained to this class's caps\n" .
                 "  - Access to $CLASS_NAMES{$id} AA abilities\n\n" .
-                "Spell vendors carry tomes filtered by the current expansion (era $cur_exp).\n" .
-                "Return here as you level to train new spells.\n\n" .
+                "Purchase spells from the vendors nearby.\n" .
                 "You may release this discipline at any time.",
                 $popup_base + $id, 1, 0
             );
@@ -383,32 +320,33 @@ sub EVENT_SAY {
 
 sub EVENT_POPUPRESPONSE {
     my $base    = $client->GetClass();
-    my $char_id = $client->GetCharacterID();
+    my $char_id = $client->CharacterID();
     my $level   = $client->GetLevel();
     my $c2      = $qglobals{mc_class2} // 0;
     my $c3      = $qglobals{mc_class3} // 0;
+    my $db      = Database->new();
 
     # Confirm secondary class (popup 201-216)
     if ($popupid >= 201 && $popupid <= 216) {
-        _apply_class($char_id, $base, $popupid - 200, $c2, $c3, $level);
+        _apply_class($db, $char_id, $base, $popupid - 200, $c2, $c3, $level);
         return;
     }
 
     # Confirm tertiary class (popup 301-316)
     if ($popupid >= 301 && $popupid <= 316) {
-        _apply_class($char_id, $base, $popupid - 300, $c2, $c3, $level);
+        _apply_class($db, $char_id, $base, $popupid - 300, $c2, $c3, $level);
         return;
     }
 
     # Confirm revoke secondary (popup 402)
     if ($popupid == 402) {
-        _revoke_slot($char_id, $base, 2, $c2, $c3);
+        _revoke_slot($db, $char_id, $base, 2, $c2, $c3);
         return;
     }
 
     # Confirm revoke tertiary (popup 403)
     if ($popupid == 403) {
-        _revoke_slot($char_id, $base, 3, $c2, $c3);
+        _revoke_slot($db, $char_id, $base, 3, $c2, $c3);
         return;
     }
 }
