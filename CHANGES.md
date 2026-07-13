@@ -4,6 +4,16 @@ Running log of significant changes to this repo — schema migrations, C++ patch
 
 ---
 
+## 2026-07-13 — Server locked to Classic (was expansion 19!); daily DB backups established
+
+**Era:** `Expansion:CurrentExpansion` was **19** (RoF) — not 1/Kunark as earlier entries assumed — which is why era-gated content (e.g. `A_Legendary_Hill_Giant`, min_expansion 11, in commons) was live; 1,705 future-era spawn2 rows were eligible, per-zone by boot time. Locked to **Classic (0)** via the GM tool endpoint: level cap 50, 511 zones locked, 6,587 AA ranks hidden, MOTD set, Classic 2D models in eqclient.ini, AA visibility left open (multiclass). ALL zone processes killed so every spawn list rebuilt under era 0. **Pending:** Darth was online during the cap and re-saved at 85 — needs the recap UPDATE re-run after logout (user to confirm).
+
+**Backups:** none existed anywhere. Added `tools/backup-peq.ps1` (in-container mysqldump|gzip → `backups/peq_<ts>.sql.gz`, docker cp out — PowerShell corrupts piped binary stdout — 14-day retention, logs to backups/backup.log) + Windows scheduled task **NightcapPeqBackup** daily 04:00. First two backups taken (43.8 MB each); `backups/` gitignored. Backup was taken BEFORE the era change, per the instance_list lesson.
+
+**Direction note:** the eq-solo-gm "GM tool" is homebrew and not authoritative — per user, ignore it for server ops going forward; a future pass will revisit making server-wide changes accessible alongside Spire.
+
+---
+
 ## 2026-07-13 — Instance Keepers were never in the live DB; setup SQL had an ID collision
 
 QA found no keeper NPC in Befallen: `instance_keeper_setup.sql` (committed 2026-06-22) **was never applied to the live DB**. Worse, applying it as-written collided — its "unused" 998001–998007 npc_types ids belong to existing `a_swooping_bat` NPCs, and the script's `ON DUPLICATE KEY UPDATE` / `INSERT IGNORE` clauses silently corrupted them (bat lastnames overwritten, bat NPCs wired to dungeon-entrance spawns) instead of erroring. Reverted surgically (bat lastnames restored to '', my spawn2/spawnentry/spawngroup rows deleted), rewrote the script on **999227–999233** (verified free in npc_types AND spawngroup), with plain INSERTs so any future collision fails loudly. Applied; all 7 keepers verified in DB.

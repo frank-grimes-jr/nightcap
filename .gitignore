@@ -6,3 +6,6 @@ CLAUDE.local.md
 
 # Binary game client — never commit
 Client_RoF2_Dev/
+
+# Database backups (tools/backup-peq.ps1, scheduled task NightcapPeqBackup)
+backups/
