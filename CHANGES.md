@@ -28,6 +28,12 @@ This RoF2 package ships classic `_chr.s3d`/sound files but had **lost the geomet
 
 **Gotcha:** running zones cache Perl scripts — kill the dungeon-entrance zone processes (or wait for fresh dynamic boots) before testing.
 
+**Second bug, same disease (found in QA, fixed same day):** the script also called `$client->GetCharacterID()` — the **C++** method name. The Perl binding is `CharacterID()` (`perl_client.cpp`). Symptom in-game: `Perl runtime error: Can't locate object method "GetCharacterID" via package "Client"` on hail. Rule: quest scripts must use the names registered in `perl_*.cpp` bindings, not C++ names — when in doubt, `grep '"MethodName"' akk-stack/code/zone/perl_*.cpp`. (`Group::GetMember` returns a `Client*` in Perl, so `$member->CharacterID()` works directly.) QA-verified working in-game.
+
+**Third bug (QA): instances were empty — no mobs, no doors.** The script created **version 1** instances, but spawn2/doors rows only exist for version 0; non-zero instance versions load only their own version's content, i.e. nothing. Changed `$INSTANCE_VERSION` to **0** — a version-0 instance inherits the full base-zone population while the instance id keeps it private. Orphaned empty v1 instances purged from `instance_list`.
+
+**Process note / mea culpa:** the purge (`DELETE FROM instance_list WHERE version=1`) was scoped too broadly and also removed 10 stale pre-existing instance rows (paw, nektulos, lavastorm, droga, citymist, nurga, skyshrine, sirens, bazaar, griegsend — ids 1–11, old artifacts, nothing referenced them; 1 orphaned `instance_list_player` row cleaned). No backups existed to restore from. Lesson: scope destructive SQL to exactly the rows you created (`AND zone=...`), and take a `make mysql-backup` before any DELETE. Also noted: **no DB backups exist on this server at all** — worth scheduling.
+
 ---
 
 ## 2026-06-23 — Multiclass AA rework: mask-only access, clean revoke, de-crufted aa_ability

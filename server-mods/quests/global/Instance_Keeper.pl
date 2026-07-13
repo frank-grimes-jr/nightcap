@@ -21,7 +21,7 @@
 # ==============================================================================
 
 my $INSTANCE_DURATION = 43200;  # 12 hours in seconds
-my $INSTANCE_VERSION  = 1;
+my $INSTANCE_VERSION  = 0;  # version 0 inherits base-zone spawns/doors; v1+ would be EMPTY (spawn2.version)
 my $POPUP_RESET       = 501;
 
 # ── Helpers ───────────────────────────────────────────────────────────────────
@@ -61,7 +61,7 @@ sub _enter_instance {
             my $member = $group->GetMember($i);
             next unless $member;
             next if $member->GetName() eq $char_name;
-            quest::AssignToInstanceByCharID($inst_id, $member->GetCharacterID());
+            quest::AssignToInstanceByCharID($inst_id, $member->CharacterID());
             $member->Message(15,
                 "$char_name has entered an instance of $zone_name. " .
                 "Hail the Instance Keeper here and say 'join' to follow."
@@ -78,7 +78,7 @@ sub _enter_instance {
 sub EVENT_SAY {
     my $say     = lc($text);
     my $name    = $client->GetName();
-    my $char_id = $client->GetCharacterID();
+    my $char_id = $client->CharacterID();
     my $zone    = _zone();
 
     if ($say =~ /hail/) {
@@ -173,7 +173,7 @@ sub EVENT_POPUPRESPONSE {
     return unless $popupid == $POPUP_RESET;
 
     my $zone    = _zone();
-    my $char_id = $client->GetCharacterID();
+    my $char_id = $client->CharacterID();
     my $old_id  = quest::GetInstanceIDByCharID($zone, $INSTANCE_VERSION, $char_id);
 
     quest::DestroyInstance($old_id) if $old_id;
