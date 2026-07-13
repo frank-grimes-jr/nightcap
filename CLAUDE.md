@@ -47,6 +47,10 @@ All commands run from `akk-stack/`:
 - `docker-compose up -d workspace` — start dev container
 - `php artisan zonetools:*` — zone-related artisan commands
 
+## Domain knowledge
+
+`.claude/skills/eqemu/` — EQEmu/Nightcap server internals (caches/reloads, RoF2 client limits, Perl DB API) and the THJ replication spec with gap roadmap (`thj-blueprint.md`). Consult it before touching server systems; keep it updated as systems change.
+
 ## Non-obvious gotchas
 
 - MariaDB is always on **port 3307**, not the default 3306
