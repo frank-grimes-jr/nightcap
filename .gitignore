@@ -1,7 +1,8 @@
 CLAUDE.local.md
 
-# Personal Claude Code config
-.claude/
+# Personal Claude Code config — except project skills, which are versioned
+.claude/*
+!.claude/skills/
 
 # Binary game client — never commit
 Client_RoF2_Dev/
