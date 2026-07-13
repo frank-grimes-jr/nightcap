@@ -54,6 +54,31 @@ All commands run from `akk-stack/`:
 - No root `package.json` — do not run `npm install` or `npm run` from the repo root
 - Subproject CLAUDE.md files can be added per-directory for module-specific instructions
 
+## Working agreement
+
+### Branch flow
+
+`feature/<name>` → `dev` → `test` → `main`
+
+- **feature branch**: temporary, one system/feature each.
+- **dev**: Claude merges here and runs automated testing against the codebase.
+- **test**: pause. The user runs manual in-game QA. Every promotion to `test` MUST include an explicit spike-out of exactly what to QA in game (steps, NPCs, zones, expected results).
+- **main**: only after user sign-off on the manual QA.
+
+Claude is free to commit, open PRs, and merge autonomously **up to `test`** when tests pass. `test` → `main` requires user sign-off.
+
+### Commits
+
+- Small commits/PRs. One system or feature per commit, **with tests**.
+- If a task is ambiguous, propose 2–3 options with tradeoffs in the PR/commit description rather than silently choosing.
+
+### Documentation duties
+
+- **This file**: keep conventions, commands, and architecture summary current. Update as decisions are made.
+- **ADRs**: record significant decisions as short ADRs in `docs/adr/` (`NNNN-title.md`).
+- **Milestone reports**: every phase ends with `docs/milestones/phase-N-report.md` — what was built, what was cut, what's shaky.
+- **Lore**: when lore details are needed (rare — systems here are new, not canon), keep a running doc at `docs/lore/structure.md`, noting anything left mid-design/interrupted.
+
 ## Changelog
 
 **Always update `CHANGES.md`** when making significant changes — C++ patches, database schema changes, quest script additions, or SQL setup file corrections. Include: what changed, why, any gotchas. This is the primary audit trail for this repo since many changes touch the live database or compiled binaries and aren't fully captured by git diffs alone.
