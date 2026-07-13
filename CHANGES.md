@@ -4,6 +4,16 @@ Running log of significant changes to this repo — schema migrations, C++ patch
 
 ---
 
+## 2026-07-13 — Client crash zoning into classic zones: missing s3d files, full audit + restore
+
+"Crash zoning into West Commonlands" was a **client-side** failure, not a server bug: the RoF2 client bailed with `Unable to find specified world file [commons.s3d]` (see `Client_RoF2_Dev\everquest_rof2\Logs\dbg.txt` — always check this file first for zone-in crashes; the server-side symptom is just `kicked, reason [Dropped by world CLE subsystem]` ~40s after connect, with the zone process alive).
+
+This RoF2 package ships classic `_chr.s3d`/sound files but had **lost the geometry (`.s3d`) and `_obj.s3d`** for several classic zones. Audited all 484 DB zones against the client: era-relevant gaps were `commons`, `highpass`, `misty`, `tox`, `hateplane`. Restored from github.com/GiverofMemory/NostalgiaEQ-Client (raw files, PFS headers verified, no overwrites of existing files). Post-audit: zero era-relevant gaps (remaining: `cshome` unused, `powar`/`qvicb`/`barter` beyond era lock). In-game verification pending.
+
+**Gotcha:** `nektulos`, `lavastorm`, `highpasshold` exist only as post-revamp `.eqg` in this client — they load, but classic spawn coords may sit under the new terrain. Check on first visit.
+
+---
+
 ## 2026-07-13 — Instance Keeper: fixed broken Perl DB API calls
 
 `quests/global/Instance_Keeper.pl` used `$DB->prepare()` + `fetchrow_hashref()` — neither exists in this build (no `$DB` injection; the exposed class is `Database` with `fetch_hashref`). Effect: the helper died mid-event — on 'enter' the player was **assigned** to the instance (AssignToInstance runs first) but never teleported (`_safe_coords` died before `MovePCInstance`); 'join' died resolving the leader's char id. Fixed both helpers to `Database->new()` + `prepare`/`execute`/`fetch_hashref` with an undef-guard on prepare. Live file + `server-mods` mirror synced; `perl -c` in-container passes.
