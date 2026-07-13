@@ -30,17 +30,21 @@ sub _zone { $npc->GetLastName() }
 
 sub _safe_coords {
     my ($zone_name) = @_;
-    my $sth = $DB->prepare("SELECT safe_x, safe_y, safe_z FROM zone WHERE short_name = ? LIMIT 1");
+    my $db  = Database->new();
+    my $sth = $db->prepare("SELECT safe_x, safe_y, safe_z FROM zone WHERE short_name = ? LIMIT 1");
+    return (0, 0, 0) unless $sth;
     $sth->execute($zone_name);
-    my $row = $sth->fetchrow_hashref();
+    my $row = $sth->fetch_hashref();
     return $row ? ($row->{safe_x}, $row->{safe_y}, $row->{safe_z}) : (0, 0, 0);
 }
 
 sub _char_id_by_name {
     my ($name) = @_;
-    my $sth = $DB->prepare("SELECT id FROM character_data WHERE name = ? LIMIT 1");
+    my $db  = Database->new();
+    my $sth = $db->prepare("SELECT id FROM character_data WHERE name = ? LIMIT 1");
+    return 0 unless $sth;
     $sth->execute($name);
-    my $row = $sth->fetchrow_hashref();
+    my $row = $sth->fetch_hashref();
     return $row ? $row->{id} : 0;
 }
 
