@@ -1497,43 +1497,18 @@ const SPELL_ARCHETYPES = [
   },
 ]
 
-async function refreshSpellVendors(expansionId) {
-  const results = []
-  for (const arch of SPELL_ARCHETYPES) {
-    await pool.query('DELETE FROM merchantlist WHERE merchantid = ?', [
-      arch.merchantId,
-    ])
-
-    // Spell scrolls: book=1, spellid>0, accessible to archetype, within expansion
-    const classAccessChecks = arch.classCols
-      .map((c) => `sn.classes${c} != 255`)
-      .join(' OR ')
-
-    const [scrolls] = await pool.query(
-      `SELECT i.id, i.name
-       FROM items i
-       INNER JOIN spells_new sn ON sn.id = i.spellid
-       WHERE i.book = 1
-         AND i.spellid > 0
-         AND (i.classes & ?) > 0
-         AND i.expansion <= ?
-         AND (${classAccessChecks})
-       ORDER BY i.name
-       LIMIT 500`,
-      [arch.classBits, expansionId]
-    )
-
-    let slot = 1
-    for (const scroll of scrolls) {
-      await pool.query(
-        'INSERT INTO merchantlist (merchantid, slot, item, faction_required, level_required, alt_currency_cost, classes_required, probability) VALUES (?, ?, ?, -100, 0, 0, 65535, 100)',
-        [arch.merchantId, slot++, scroll.id]
-      )
-    }
-
-    results.push({ label: arch.label, count: scrolls.length })
-  }
-  return results
+// RETIRED 2026-07-14: this rebuilt merchantlist from columns that don't exist
+// in this DB (items.spellid, items.expansion) — and because it DELETEd before
+// SELECTing, the crash left vendor 99221 empty (found in QA). The durable,
+// era-aware restock is eq-solo-gm/scripts/vendor_restock.sql, invoked by
+// tools/apply-era.ps1. This stub exists so old callers can't wipe stock again.
+async function refreshSpellVendors() {
+  return [
+    {
+      label: 'retired — run eq-solo-gm/scripts/vendor_restock.sql instead',
+      count: 0,
+    },
+  ]
 }
 
 app.post('/api/vendors/refresh', async (_req, res) => {

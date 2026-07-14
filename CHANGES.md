@@ -4,6 +4,18 @@ Running log of significant changes to this repo — schema migrations, C++ patch
 
 ---
 
+## 2026-07-14 — Caster vendor wiped by GM tool's broken refresh; era-aware restock built
+
+QA: Arcane Loremaster (99221) showed no spells — `merchantlist` empty. Cause: `/api/expansion/apply` (used for the 2026-07-13 Classic lock) calls `refreshSpellVendors`, which **DELETEs the vendor's stock first** and then crashes on nonexistent columns (`items.spellid`, `items.expansion` — reals: `scrolleffect`, no expansion col). It died on the first archetype, so only 99221 was wiped. The failure was even printed in the era-apply output ("Spell vendor refresh failed") and got noted-but-not-chased.
+
+- **Restock:** `eq-solo-gm/scripts/vendor_restock.sql` — idempotent, stocks all 4 Loremasters from `scrolleffect`→`spells_new`, gated by the live `Character:MaxLevel` rule (follows era.json). Applied: 935/781/212/777 (tank is big because patched PAL/SK columns legitimately include absorbed disciplines; cross-vendor duplication is harmless). PoK restarted.
+- **apply-era.ps1** now runs the restock on every era apply — vendor stock can no longer drift from the era.
+- **GM tool defused:** `refreshSpellVendors` replaced with a no-op stub pointing at the script (delete-then-crash can't recur even if the old button is clicked).
+
+**Gotcha:** delete-then-select in any refresh routine = data loss when the select throws. Select first, or make the whole thing one INSERT…SELECT after a guarded DELETE.
+
+---
+
 ## 2026-07-14 — Spell access for secondary classes was broken end-to-end; sync pipeline built
 
 QA question "can multiclass characters memorize secondary spells?" → **no, since June 23**. Three gates must agree and only one was handled: (1) `spells_new` server levels — patched ✓; (2) **scroll `items.classes`** — still class-locked (3 of 1,086 MAG scrolls PAL-clickable), so vendor scrolls couldn't be right-click scribed; (3) **client `spells_us.txt`** — stock, and RoF2 refuses to memorize what its local file forbids. The June 23 rework removed auto-scribe in favor of vendor purchase without opening gates 2/3, so no character could actually acquire secondary spells (Darth had 0 scribed). User kept the buy→scribe→mem design; fix = `tools/sync-spell-access.ps1`, one idempotent pipeline: scroll classes ← spells_new bits (itemtype 20), shared_memory regen + zone restart, client spell file class-fields (105–120) rewritten from spells_new (client must be closed; `.bak` kept). Run it after every embrace/release — the Chronicler now says so in an operator note. Verified: Burnout client PAL=11, 1,002/1,086 MAG scrolls PAL-usable.

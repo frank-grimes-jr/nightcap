@@ -66,6 +66,12 @@ if (Test-Path $Ini) {
     if ($new -ne $content) { Set-Content -Path $Ini -Value $new -Encoding ASCII; Write-Output "eqclient.ini: AllLuclinPcModelsOff=$Luclin" }
 }
 
+# Restock the PoK spell vendors against the (possibly changed) level cap.
+# History: the GM tool's refresh once wiped a vendor (see CHANGES 2026-07-14).
+Get-Content (Join-Path $Root 'eq-solo-gm\scripts\vendor_restock.sql') -Raw |
+    docker exec -i akk-stack-mariadb-1 mysql -ueqemu -peqemu peq
+Write-Output 'spell vendors restocked for the era level cap'
+
 # Restart every zone so all spawn lists rebuild under the new era (processes cache era at boot).
 # pgrep -x matches the exact process name 'zone' - safe from matching this shell itself.
 docker exec akk-stack-eqemu-server-1 bash -c 'pgrep -x zone | xargs -r kill'
