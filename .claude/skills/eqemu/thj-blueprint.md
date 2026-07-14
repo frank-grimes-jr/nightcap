@@ -38,7 +38,7 @@ THJ is the design spec Nightcap replicates. This is the durable local record of 
 
 **THJ spec:** critical AAs auto-granted at level 1 per class; most AAs (through TBS) purchasable with **no level restriction**.
 
-**Nightcap status:** Close. Level gates removed; AA visibility era-unlocked (`UseCurrentExpansionAAOnly=false`); multiclass AAs via mask with static `[CLS]` name prefixes. Gap: no auto-grant of critical AAs (except custom Ancient Attunement PoK-recall granted on connect).
+**Nightcap status:** Close. Level gates removed (all ranks level_req=1); AA visibility era-unlocked (`UseCurrentExpansionAAOnly=false`); multiclass AAs via mask with static `[CLS]` name prefixes; General/Archetype duplicate families deduped (2026-07-13, `multiclass_aa_dedup.sql` — winner keeps longest rank chain, revert log in `aa_dedup_migration`). Gap: no auto-grant of critical AAs (except custom Ancient Attunement PoK-recall granted on connect).
 
 ## 5. Quality of life
 

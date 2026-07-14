@@ -4,6 +4,23 @@ Running log of significant changes to this repo — schema migrations, C++ patch
 
 ---
 
+## 2026-07-13 — AA system rework: mask off-by-one root cause, dedup of duplicates, cruft removal
+
+**THE root cause of every recurring AA failure, found via the leftover [AADEBUG] log line:** abilities load into zone memory as `classes << 1` (bit N = class N, "EQ client format" — `LoadAlternateAdvancementAbilities`, aa.cpp), but `LoadMulticlassMask()` built the mask as `1 << (class_id - 1)` (bit N = class N+1's data). **Every character's AA visibility was shifted by one class**: Darth (PAL/BRD/MAG, logged mask 4228 = bits 2/7/12) was actually being shown CLR/MNK/WIZ AAs. All-class AAs (`classes=65535`) matched any bit, which masked how broken single-class AAs were. The June-22 "0-indexed mask fix" was itself the bug — it compared masks against *DB-format* values in analysis while the runtime compares *shifted* values. Fixed: mask bits are now `1 << class_id` for all three classes, matching the shifted convention and the NPC path (`1 << GetClass()`) that upstream already used. Only aa.cpp consumes the mask (verified by grep) — no other code affected.
+
+Also in this rework:
+
+Multiclass characters saw the same ability multiple times in the General/Archetype tabs — live EQ defines some abilities (Silent Casting, Combat Fury, Armor of Wisdom ×4, Shield Block ×4, …) as separate `aa_ability` rows per class group with different rank chains; a mask spanning groups exposes all of them. **20 duplicate families (22 loser rows) collapsed** via `eq-solo-gm/scripts/multiclass_aa_dedup.sql`: winner = longest rank chain, winner takes the family's `BIT_OR` class mask, losers `enabled=0` (rank chains left intact), purchases migrated by `first_rank_id`, full revert log in `aa_dedup_migration`. Idempotent; verified zero remaining dup names and zero orphaned purchases.
+
+- **State confirmed correct already** (no changes needed): all 6,655 `aa_ranks.level_req=1` (level-1 availability), Class tab names unique via static `[CLS]` labels, ZoneEntry load-order fix still in place.
+- **Known cosmetic loss:** Darth had rank 11 in two Armor of Wisdom variants; merged to one rank-11 entry — points spent on the duplicate remain counted as spent (no refund mechanism; grant AA points via GM tool if desired).
+- **C++ cruft removed:** `[AADEBUG] LogError` fired on every zone-in per character in `SendAlternateAdvancementTable` (aa.cpp) — deleted, zone rebuilt.
+- **Mirror sync:** `server-mods` copies of `aa.cpp` and `The_Ancient_Chronicler.pl` were stale vs live (the committed Chronicler still showed the pre-June-23 aa_ability-mutating version!) — both synced from live.
+
+Deploy: dedup SQL applied (backup `peq_20260713_204336` taken first), zone rebuilt, all zones restarted.
+
+---
+
 ## 2026-07-13 — Declarative era lock: era.json + tools/apply-era.ps1
 
 Era is now config, not clicks: `era.json` (expansion, level cap, AA policy, models) is the versioned source of truth; `tools/apply-era.ps1` applies it idempotently (rules, MOTD, eqclient.ini, kills all zones so spawn lists rebuild), `-Check` reports drift (exit 1), `-CapCharacters` opt-in de-levels over-cap characters. The nightly backup task now runs the drift check, so a silent era change (like the untracked expansion-19 state) surfaces within a day. GM tool button deprecated for era changes.
