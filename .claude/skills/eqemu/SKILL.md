@@ -40,6 +40,8 @@ Source of truth: C++ in `akk-stack/code/`, live quest scripts in `akk-stack/serv
 - Luclin-model races render invisible when players run classic models (race 86 sphinx is invisible; race 21 Xorbb works everywhere).
 - An NPC is only shoppable if `npc_types.class = 41` (Merchant); `merchant_id` alone just links inventory.
 - **Client "crash" zoning in?** Check `Client_RoF2_Dev\everquest_rof2\Logs\dbg.txt` FIRST — `Unable to find specified world file <zone>.s3d` means the client is missing that zone's geometry (this RoF2 package lost several classic `.s3d`/`_obj.s3d` files). Server-side the only symptom is `kicked, reason [Dropped by world CLE subsystem]` ~40s after connect with the zone process alive.
+- **NPC shows as human?** The client needs the exact **race+gender+texture(+helmtexture) combo** loaded in that zone (zone `_chr.txt` + GlobalLoad.txt archives) — race alone proves nothing (race 330 = playable Froglok has NO gender-2 model → human fallback). Only safe method: copy the full appearance tuple from a native NPC of that zone (`spawn2`→`npc_types`); only size is free. QA-proven in PoK 2026-07-14.
+- **Base class is the client's UI chassis**: WAR/MNK/ROG/BER get no spellbook/gems (can never memorize, whatever the server scribes); pure casters get no combat-abilities window. No server-side override — THJ solves it with client patches. Multiclass design must respect the base-class chassis.
 
 ## Key tables and traps
 
