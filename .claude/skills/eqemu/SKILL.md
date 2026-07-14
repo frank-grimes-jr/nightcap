@@ -26,7 +26,9 @@ Source of truth: C++ in `akk-stack/code/`, live quest scripts in `akk-stack/serv
 | Perl/Lua quest scripts | zone process | `#reload quest` (or zone restart) |
 | `aa_ability` / `aa_ranks` | zone process at boot | restart zones (loads per-zone from DB; no shared-mem regen needed) |
 | `rule_values` | world/zone | `#reload rules` |
-| `spawn2`, doors, ground spawns | zone | `#repop` |
+| `spawn2`, doors, ground spawns | zone | `#repop` (NEW spawn2 rows too) |
+| Era / `Expansion:CurrentExpansion` | every zone process at boot | edit `era.json`, run `tools/apply-era.ps1` (kills all zones) — never set by hand |
+| Instance content (script changed version/zone) | instance's own zone process, lives until idle-timeout | kill that specific process (PID in its log filename) — `#repop` won't |
 | RoF2 client item stat display | client-side cache | player must camp/zone after inspecting an item |
 
 ## RoF2 client hard limits (server-side workarounds required)
@@ -37,6 +39,7 @@ Source of truth: C++ in `akk-stack/code/`, live quest scripts in `akk-stack/serv
 - **No per-item name color field**; rarity/quality must be shown via name text tags.
 - Luclin-model races render invisible when players run classic models (race 86 sphinx is invisible; race 21 Xorbb works everywhere).
 - An NPC is only shoppable if `npc_types.class = 41` (Merchant); `merchant_id` alone just links inventory.
+- **Client "crash" zoning in?** Check `Client_RoF2_Dev\everquest_rof2\Logs\dbg.txt` FIRST — `Unable to find specified world file <zone>.s3d` means the client is missing that zone's geometry (this RoF2 package lost several classic `.s3d`/`_obj.s3d` files). Server-side the only symptom is `kicked, reason [Dropped by world CLE subsystem]` ~40s after connect with the zone process alive.
 
 ## Key tables and traps
 
@@ -61,6 +64,10 @@ my $row = $sth->fetch_hashref();    # fetch_hashref, NOT fetchrow_hashref
 
 Methods: `prepare`, `execute(@params)`, `fetch`/`fetch_array`, `fetch_arrayref`, `fetch_hashref`, `num_rows`, `insert_id`, `rows_affected`. Writes also go through prepare+execute. Bindings: `akk-stack/code/zone/perl_database.cpp`.
 
+**Method names come from the Perl bindings, NOT the C++ classes.** `$client->GetCharacterID()` dies (`Can't locate object method`); the binding is `CharacterID()`. Before calling any object method in a quest script, verify it: `grep '"MethodName"' akk-stack/code/zone/perl_*.cpp`. Note `Group::GetMember(i)` returns a `Client*` in Perl.
+
+**Instances:** create with **version 0** — spawn2/doors rows are version 0, and a non-zero instance version loads NO content (empty zone, no doors). `quest::CreateInstance(zone, 0, seconds)`.
+
 Lua runs alongside Perl (`global_player.lua` handles login grants via `event_connect`).
 
 ## Community / product context
@@ -79,5 +86,9 @@ Lua runs alongside Perl (`global_player.lua` handles login grants via `event_con
 | `$DB->prepare` / `fetchrow_hashref` in Perl | No `$DB`, no `fetchrow_*` — `Database->new()` + `fetch_hashref` |
 | Reading `%qglobals` on an NPC for character state | Unreliable — read the authoritative table |
 | Mutating `aa_ability.classes` per-player | Global + irreversible; use the multiclass mask |
+| C++ method names in Perl (`GetCharacterID`) | Use binding names (`CharacterID`) — grep `perl_*.cpp` |
+| Creating instances with version 1+ | Empty shell — version 0 inherits base-zone spawns/doors |
+| Assuming a committed SQL script ran on the live DB | Verify rows exist; and prove ID ranges free in EVERY table before insert (plain INSERT, never `INSERT IGNORE`/`ON DUPLICATE` in setup scripts) |
+| Setting era rules by hand | `era.json` + `tools/apply-era.ps1` is the source of truth (drift-checked nightly) |
 
 CHANGES.md at repo root is the chronological audit trail behind all of the above; check its recent entries before touching multiclass, loot tiers, or AA code.
