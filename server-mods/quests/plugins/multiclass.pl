@@ -169,6 +169,11 @@ sub mc_apply_class {
 
     plugin::mc_train_skills($client);
 
+    $client->Message(335,
+        'Operator note: run tools/sync-spell-access.ps1 (client closed) so the new ' .
+        'discipline\'s scrolls become scribable - it syncs scroll items and the client spell file.'
+    );
+
     return (1, "The $MC_CLASS_NAMES{$class_id} discipline awakens within you - " .
                "$MC_FLAVOR{$class_id}. Purchase tomes at the Loremasters, and camp " .
                "to the character screen for every change to take hold.");

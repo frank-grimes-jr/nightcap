@@ -4,6 +4,14 @@ Running log of significant changes to this repo — schema migrations, C++ patch
 
 ---
 
+## 2026-07-14 — Spell access for secondary classes was broken end-to-end; sync pipeline built
+
+QA question "can multiclass characters memorize secondary spells?" → **no, since June 23**. Three gates must agree and only one was handled: (1) `spells_new` server levels — patched ✓; (2) **scroll `items.classes`** — still class-locked (3 of 1,086 MAG scrolls PAL-clickable), so vendor scrolls couldn't be right-click scribed; (3) **client `spells_us.txt`** — stock, and RoF2 refuses to memorize what its local file forbids. The June 23 rework removed auto-scribe in favor of vendor purchase without opening gates 2/3, so no character could actually acquire secondary spells (Darth had 0 scribed). User kept the buy→scribe→mem design; fix = `tools/sync-spell-access.ps1`, one idempotent pipeline: scroll classes ← spells_new bits (itemtype 20), shared_memory regen + zone restart, client spell file class-fields (105–120) rewritten from spells_new (client must be closed; `.bak` kept). Run it after every embrace/release — the Chronicler now says so in an operator note. Verified: Burnout client PAL=11, 1,002/1,086 MAG scrolls PAL-usable.
+
+**Gotchas:** client `spells_us.txt` fields 105–120 (1-indexed) are classes 1–16 — verified against three spells before writing. And "the server allows it" ≠ "the client allows it": RoF2 enforces scribe/mem from its own files, so any server-side spells_new change is incomplete without the client sync + items sync + shared-mem regen.
+
+---
+
 ## 2026-07-14 — Multiclass selection v2: plugin core, Chronicler rewrite, crew models fixed (ADR 0003)
 
 - **Core/UI split:** all multiclass mutations moved to `quests/plugins/multiclass.pl` (`plugin::mc_get_classes/mc_preview/mc_apply_class/mc_revoke_slot/mc_train_skills`). The Chronicler is now pure dialog; any future selection front-end calls the same plugin. **qglobals dropped entirely** — `character_multiclass` is the only state.
