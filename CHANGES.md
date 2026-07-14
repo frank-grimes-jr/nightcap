@@ -4,6 +4,14 @@ Running log of significant changes to this repo — schema migrations, C++ patch
 
 ---
 
+## 2026-07-13 — Declarative era lock: era.json + tools/apply-era.ps1
+
+Era is now config, not clicks: `era.json` (expansion, level cap, AA policy, models) is the versioned source of truth; `tools/apply-era.ps1` applies it idempotently (rules, MOTD, eqclient.ini, kills all zones so spawn lists rebuild), `-Check` reports drift (exit 1), `-CapCharacters` opt-in de-levels over-cap characters. The nightly backup task now runs the drift check, so a silent era change (like the untracked expansion-19 state) surfaces within a day. GM tool button deprecated for era changes.
+
+**Gotcha (PowerShell 5.1):** .ps1 files saved as UTF-8 *without BOM* are read as CP1252 — an em-dash becomes `â€”`, and the trailing `”` is treated as a real string delimiter by the tokenizer, producing baffling "missing terminator" parse errors pointing at innocent lines. Keep .ps1 files pure ASCII (or save UTF-8 *with* BOM).
+
+---
+
 ## 2026-07-13 — Server locked to Classic (was expansion 19!); daily DB backups established
 
 **Era:** `Expansion:CurrentExpansion` was **19** (RoF) — not 1/Kunark as earlier entries assumed — which is why era-gated content (e.g. `A_Legendary_Hill_Giant`, min_expansion 11, in commons) was live; 1,705 future-era spawn2 rows were eligible, per-zone by boot time. Locked to **Classic (0)** via the GM tool endpoint: level cap 50, 511 zones locked, 6,587 AA ranks hidden, MOTD set, Classic 2D models in eqclient.ini, AA visibility left open (multiclass). ALL zone processes killed so every spawn list rebuilt under era 0. **Pending:** Darth was online during the cap and re-saved at 85 — needs the recap UPDATE re-run after logout (user to confirm).

@@ -1,4 +1,4 @@
-# Nightcap peq database backup — run manually or via scheduled task "NightcapPeqBackup".
+# Nightcap peq database backup - run manually or via scheduled task "NightcapPeqBackup".
 # Dumps inside the container (binary-safe), copies out, prunes backups older than 14 days.
 # Requires Docker Desktop running; failures are logged, not thrown.
 
@@ -25,3 +25,7 @@ Log "OK $OutFile ($([math]::Round((Get-Item $OutFile).Length/1MB,1)) MB)"
 # Retention: keep 14 days
 Get-ChildItem $BackupDir -Filter 'peq_*.sql.gz' | Where-Object { $_.LastWriteTime -lt (Get-Date).AddDays(-14) } |
     ForEach-Object { Log "prune $($_.Name)"; Remove-Item $_.FullName -Force -Confirm:$false }
+
+# Era drift check (tools/apply-era.ps1 -Check): catches live DB state diverging from era.json
+$eraOut = powershell -NoProfile -ExecutionPolicy Bypass -File (Join-Path $PSScriptRoot 'apply-era.ps1') -Check
+if ($LASTEXITCODE -ne 0) { Log "ERA DRIFT: $($eraOut -join '; ')" } else { Log "era check OK" }
