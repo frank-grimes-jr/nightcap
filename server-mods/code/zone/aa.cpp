@@ -50,7 +50,12 @@ extern QueryServ* QServ;
 // show in the AA window. Called on every zone-in so selection changes take effect
 // after a zone. Upgrade path: cache invalidation if we add an in-zone reclass command.
 void Client::LoadMulticlassMask() {
-	m_multiclass_mask = (1 << (GetClass() - 1));
+	// Bit format MUST match the in-memory ability->classes, which is loaded as
+	// (db_classes << 1) — i.e. bit N = class N ("EQ client format"). The old
+	// (1 << (GetClass()-1)) mask was off by one bit against that: every character
+	// was granted the AAs of class_id-1 instead of their own (the root cause of
+	// the recurring vanish/wrong-class-AA bugs).
+	m_multiclass_mask = (1 << GetClass());
 
 	auto results = database.QueryDatabase(
 		StringFormat("SELECT class2, class3 FROM character_multiclass WHERE character_id = %u", CharacterID())
@@ -61,10 +66,10 @@ void Client::LoadMulticlassMask() {
 	}
 
 	auto row = results.begin();
-	m_class2 = Strings::ToUnsignedInt(row[0]);
-	m_class3 = Strings::ToUnsignedInt(row[1]);
-	if (m_class2 > 0) m_multiclass_mask |= (1 << (m_class2 - 1));
-	if (m_class3 > 0) m_multiclass_mask |= (1 << (m_class3 - 1));
+	m_class2 = row[0] ? Strings::ToUnsignedInt(row[0]) : 0;
+	m_class3 = row[1] ? Strings::ToUnsignedInt(row[1]) : 0;
+	if (m_class2 > 0) m_multiclass_mask |= (1 << m_class2);
+	if (m_class3 > 0) m_multiclass_mask |= (1 << m_class3);
 }
 
 void Client::SetMulticlassSlot(uint8 slot, uint8 class_id) {
@@ -1008,7 +1013,16 @@ void Client::SendAlternateAdvancementRank(int aa_id, int level) {
 	aai->spell = rank->spell;
 	aai->spell_type = rank->spell_type;
 	aai->spell_refresh = rank->recast_time;
-	aai->classes = ability->classes;
+	// Multiclass client display: the client both hides AAs whose class list excludes
+	// the character's class AND files them into tabs (Class/Archetype/General) from
+	// that same list. The server already authorized this AA (CanUse via the multiclass
+	// mask), so reshape the list purely for the client:
+	//   - single-class AA (a secondary class's own AA) -> present as THIS character's
+	//     class bit, so it files into the Class tab beside the native-class AAs.
+	//   - multi-class AA (archetype/general) -> just OR our class bit in for visibility.
+	uint32 my_class_bit = 1 << (GetClass() - 1);
+	bool single_class = (ability->classes != 0) && ((ability->classes & (ability->classes - 1)) == 0);
+	aai->classes = single_class ? my_class_bit : (ability->classes | my_class_bit);
 	aai->level_req = rank->level_req;
 	aai->current_level = level;
 	aai->max_level = ability->GetMaxLevel(this);
@@ -1020,7 +1034,11 @@ void Client::SendAlternateAdvancementRank(int aa_id, int level) {
 		aai->next_id = rank->next_id;
 	}
 	aai->total_cost = rank->total_cost;
-	aai->expansion = rank->expansion;
+	// Multiclass/all-AA server: the client hides AAs whose expansion it thinks is
+	// not unlocked, ignoring the (full) expansion mask we send. Report expansion 0
+	// so the client never hides a server-authorized AA on expansion grounds.
+	// ponytail: blanket 0; if you ever want era-accurate AA labels, gate this.
+	aai->expansion = 0;
 	aai->category = ability->category;
 	aai->charges = ability->charges;
 	aai->grant_only = ability->grant_only;

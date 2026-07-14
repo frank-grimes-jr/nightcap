@@ -69,6 +69,16 @@ sub _build_class_links {
 sub _apply_class {
     my ($db, $char_id, $base_class, $sec_class, $existing_c2, $existing_c3, $level) = @_;
 
+    # Guards (EVENT_SAY also gates, but a stale popup must not overwrite a filled slot).
+    if ($existing_c2 && $existing_c3) {
+        $client->Message(15, "You already carry two additional disciplines. Release one before awakening another.");
+        return;
+    }
+    if (($existing_c2 && $sec_class == $existing_c2) || ($existing_c3 && $sec_class == $existing_c3)) {
+        $client->Message(15, "You already carry the $CLASS_NAMES{$sec_class} discipline.");
+        return;
+    }
+
     my $slot     = !$existing_c2 ? 2 : 3;
     my $slot_key = "mc_class$slot";
 
@@ -108,25 +118,11 @@ sub _apply_class {
     );
     $skill_sth->execute($base_class, $sec_class, $base_class);
 
-    # Prefix AA names with [CLR], [NEC], etc. so the Title column shows class origin.
-    # Applied before the classes expansion so the WHERE condition is still valid.
-    # NOT LIKE guard prevents double-prefix on re-application after revoke.
-    my $base_bit = 2 ** ($base_class - 1);
-    my $sec_bit  = 2 ** ($sec_class - 1);
-    my $prefix   = "[$CLASS_ABBREV{$sec_class}] ";
-    my $aa_name_sth = $db->prepare(
-        "UPDATE aa_ability SET name = CONCAT(?, name)
-         WHERE (classes & ?) > 0 AND (classes & ?) = 0
-           AND name NOT LIKE ?"
-    );
-    $aa_name_sth->execute($prefix, $sec_bit, $base_bit, "$prefix%");
-
-    my $aa_class_sth = $db->prepare(
-        "UPDATE aa_ability SET classes = classes | ?
-         WHERE (classes & ?) > 0 AND (classes & ?) = 0"
-    );
-    $aa_class_sth->execute($base_bit, $sec_bit, $base_bit);
-
+    # NOTE: we do NOT touch aa_ability here. AA access comes purely from the
+    # per-character multiclass mask (LoadMulticlassMask in the zone binary). Class
+    # labels ([WIZ], [BRD], ...) are baked statically into aa_ability.name once by
+    # multiclass_aa_labels.sql, so no per-player reload is needed and revoke has no
+    # global state to undo.
     $client->Message(15,
         "The $CLASS_NAMES{$sec_class} discipline awakens within you. " .
         "Visit the spell vendors nearby to purchase tomes for your new discipline. " .
@@ -159,6 +155,12 @@ sub _revoke_slot {
     my $keep_class   = $slot == 2 ? $c3 : $c2;
     return unless $revoke_class;
 
+    # Revoke is purely mask-based: clearing character_multiclass below drops the class
+    # from the multiclass mask on next zone-in, so its AAs become inaccessible. There is
+    # no global aa_ability state to undo (labels are static; access is the mask).
+    # Purchased AAs are not deleted — their rows persist and reactivate if the class is
+    # re-added.
+
     # When revoking slot 2, promote slot 3 → slot 2 if it exists
     if ($slot == 2 && $keep_class) {
         quest::setglobal('mc_class2', $keep_class, 5, 'F');
@@ -183,6 +185,18 @@ sub _revoke_slot {
     );
 }
 
+# Authoritative source of the player's current extra classes: the character_multiclass
+# table (also what the zone C++ reads). %qglobals is not reliably populated on this NPC,
+# so gating on it let players select classes endlessly — read the DB instead.
+sub _get_classes {
+    my ($db, $char_id) = @_;
+    my $sth = $db->prepare("SELECT class2, class3 FROM character_multiclass WHERE character_id = ?");
+    $sth->execute($char_id);
+    my $row = $sth->fetch_hashref();
+    return (0, 0) unless $row;
+    return ($row->{class2} // 0, $row->{class3} // 0);
+}
+
 # ── Events ────────────────────────────────────────────────────────────────────
 
 sub EVENT_SAY {
@@ -191,8 +205,8 @@ sub EVENT_SAY {
     my $level    = $client->GetLevel();
     my $base     = $client->GetClass();
     my $char_id  = $client->CharacterID();
-    my $c2       = $qglobals{mc_class2} // 0;
-    my $c3       = $qglobals{mc_class3} // 0;
+    my $db       = Database->new();
+    my ($c2, $c3) = _get_classes($db, $char_id);
 
     if ($say =~ /hail/) {
         my $c2_name = $c2 ? $CLASS_NAMES{$c2} : 'none';
@@ -239,7 +253,6 @@ sub EVENT_SAY {
     }
 
     if ($say eq 'train skills') {
-        my $db = Database->new();
         _train_skills($db, $base, $c2, $c3, $level);
         quest::say("Your skills have been trained to the highest cap available for all your disciplines, $name.");
         return;
@@ -322,9 +335,8 @@ sub EVENT_POPUPRESPONSE {
     my $base    = $client->GetClass();
     my $char_id = $client->CharacterID();
     my $level   = $client->GetLevel();
-    my $c2      = $qglobals{mc_class2} // 0;
-    my $c3      = $qglobals{mc_class3} // 0;
     my $db      = Database->new();
+    my ($c2, $c3) = _get_classes($db, $char_id);
 
     # Confirm secondary class (popup 201-216)
     if ($popupid >= 201 && $popupid <= 216) {
