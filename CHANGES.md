@@ -4,6 +4,15 @@ Running log of significant changes to this repo — schema migrations, C++ patch
 
 ---
 
+## 2026-07-14 — Multiclass selection v2: plugin core, Chronicler rewrite, crew models fixed (ADR 0003)
+
+- **Core/UI split:** all multiclass mutations moved to `quests/plugins/multiclass.pl` (`plugin::mc_get_classes/mc_preview/mc_apply_class/mc_revoke_slot/mc_train_skills`). The Chronicler is now pure dialog; any future selection front-end calls the same plugin. **qglobals dropped entirely** — `character_multiclass` is the only state.
+- **New UX:** hail → archetype-grouped class saylinks ("Guardians of the Line", "Menders and Zealots", …); class name → live preview (counts pulled from DB: spells opened / spells in reach at current level / new skills / Class-tab AA lines) + flavor line; `embrace <class>` → confirmation popup; only popup-Yes commits. Release keeps confirm popups (402/403); slot-3→2 promotion preserved.
+- **Models — root cause of the human-fallback found:** PoK renders only races whose archives are in the client's `Resources/GlobalLoad.txt` or the zone's own files. Race 21 (evil eye) is in neither → silent human fallback (the CHANGES 2026-06-22 claim "Xorbb renders on old graphics" was wrong for PoK). Picked the crew from races *verified to spawn in poknowledge*: Chronicler = library guardian construct (330, size 9), Arcane = clockwork (457), Divine = Herald of Druzzil Ro (495), Martial = werewolf (14), Stalwart = Drakkin (522), Packwell = Gigglegibber goblin (433), Forgemaster = fire elemental (75, texture 1 — adjust with `#texture` if the element map differs). `eq-solo-gm/scripts/chronicler_models.sql`.
+- Deploy: SQL applied, PoK zone was down (next boot fresh), `perl -c` passes on both files, mirrors synced (new `server-mods/quests/plugins/`).
+
+---
+
 ## 2026-07-13 — AA system rework: mask off-by-one root cause, dedup of duplicates, cruft removal
 
 **THE root cause of every recurring AA failure, found via the leftover [AADEBUG] log line:** abilities load into zone memory as `classes << 1` (bit N = class N, "EQ client format" — `LoadAlternateAdvancementAbilities`, aa.cpp), but `LoadMulticlassMask()` built the mask as `1 << (class_id - 1)` (bit N = class N+1's data). **Every character's AA visibility was shifted by one class**: Darth (PAL/BRD/MAG, logged mask 4228 = bits 2/7/12) was actually being shown CLR/MNK/WIZ AAs. All-class AAs (`classes=65535`) matched any bit, which masked how broken single-class AAs were. The June-22 "0-indexed mask fix" was itself the bug — it compared masks against *DB-format* values in analysis while the runtime compares *shifted* values. Fixed: mask bits are now `1 << class_id` for all three classes, matching the shifted convention and the NPC path (`1 << GetClass()`) that upstream already used. Only aa.cpp consumes the mask (verified by grep) — no other code affected.
