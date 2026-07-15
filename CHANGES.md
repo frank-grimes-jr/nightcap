@@ -4,6 +4,22 @@ Running log of significant changes to this repo — schema migrations, C++ patch
 
 ---
 
+## 2026-07-14 — M1 (#11): multiclass-aware mana & HP (best-of across held classes)
+
+First code of the True Multiclass epic (#10). Previously a character's mana/HP came only from its **base** class, so a Warrior who adopted Necromancer had zero mana (headline blocker for warrior-casters). Now both are best-of across the held classes (base + class2 + class3 from `character_multiclass`, via the already-loaded mask).
+
+**C++ (`akk-stack/code/zone/`, mirrored to `server-mods/code/zone/`):**
+- New reusable primitives: `Mob::IsINTCasterClassID/IsWISCasterClassID(class_id)` (static; the instance predicates now delegate — single source of the class lists), `Mob::ClassLevelFactor(class_id, level)` (static; `GetClassLevelFactor()` delegates), and `Client::GetMulticlassList()` (base+class2+class3, deduped).
+- **Mana:** `Client::CalcBaseMana()` now returns the max of `CalcBaseManaForClass(c)` over held classes; `CalcMaxMana()` gates on `HasAnyCasterClass()`. Both SoD and classic formula paths parameterized by class.
+- **HP:** `Client::CalcBaseHP()` picks the held class with the highest `base_data.hp` (SoD path) / `GetBestClassLevelFactor()` (classic path). Warrior base already wins HP, so the win is for caster-base + melee-adopted.
+- **Bard regen:** the "Bards get no spell mana regen" exception is now mask-aware (a Bard base with another caster discipline keeps that class's regen).
+
+**Verification:** zone build clean; all 8 zones boot on the new binary through the changed connect/stat-calc paths without error (smoke). Data premise confirmed (base_data: NEC L50 mana=900, WAR=0). Full behavior is in-game QA (M1 acceptance in #11).
+
+**Deferred (named ceiling, ponytail):** AC softcap + stat-cap best-of, and heroic INT/WIS mana-regen mask-awareness (`bonuses.cpp:5809-5828`) — near-zero effect at Classic era (heroic stats), revisit if era advances. Load-order edge: if a stat recalc fires before `LoadMulticlassMask` on zone-in, values are base-only until the next recalc (self-heals within moments; frequent recalcs).
+
+---
+
 ## 2026-07-14 — plugin::multiclass was never loading: plugins live in server/plugins/, not quests/plugins/
 
 In-game: `Undefined subroutine &plugin::mc_get_classes` on hailing the Chronicler. This build loads Perl plugins from **`/home/eqemu/server/plugins/`** (server root) — `quests/plugins/` is a decoy containing copies of the same stock files, which is why the location looked right. Moved `multiclass.pl` to `server/plugins/`, removed the wrong-dir copy, mirror now at `server-mods/plugins/`. PoK restarted (plugins load at zone/perl boot; `#reload quest` does not reload them).
