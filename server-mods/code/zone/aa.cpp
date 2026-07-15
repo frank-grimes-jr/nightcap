@@ -1020,7 +1020,8 @@ void Client::SendAlternateAdvancementRank(int aa_id, int level) {
 	//   - single-class AA (a secondary class's own AA) -> present as THIS character's
 	//     class bit, so it files into the Class tab beside the native-class AAs.
 	//   - multi-class AA (archetype/general) -> just OR our class bit in for visibility.
-	uint32 my_class_bit = 1 << (GetClass() - 1);
+	// classes here is client format: bit N = class N (see loader, classes << 1)
+	uint32 my_class_bit = 1 << GetClass();
 	bool single_class = (ability->classes != 0) && ((ability->classes & (ability->classes - 1)) == 0);
 	aai->classes = single_class ? my_class_bit : (ability->classes | my_class_bit);
 	aai->level_req = rank->level_req;
