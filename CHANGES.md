@@ -4,6 +4,23 @@ Running log of significant changes to this repo — schema migrations, C++ patch
 
 ---
 
+## 2026-07-15 — Item tiers renamed (Polished/Exalted/Ascended) + two-curve scaling rework
+
+Tier review found two problems: names duplicated THJ vocabulary ("Legendary") and EQ's class-epic term ("Epic"), and flat ×1.20/1.45/1.75 scaling on ALL stats made top-tier weapons ~+75% auto-attack DPS (damage scaled, delay untouched) and walked past Classic resist checks.
+
+**Renames:** Rare→Polished, Epic→Exalted, Legendary→Ascended (all ~191k tier rows regenerated in place, same IDs — owned items update automatically). "Essence of the Legend"→"Essence of Ascension"; Forgemaster quest dialogue + lastname updated. C++ rule names (`Zone:LootTier{Rare,Epic,Legendary}Chance`) deliberately kept — internal-only, avoids a rebuild; notes updated to map old→new.
+
+**Scaling model — tier bonuses as fractions of one expansion step** (era mobs and era loot both grow, so relative multipliers stay balanced as eras unlock; measured era steps from PEQ: ~×1.4-1.5 weapon DPS, ~×1.5-2 armor durability per expansion):
+- **Offense + resists ×1.10/1.20/1.35** (damage, attack, accuracy, spelldmg, healamt, backstabdmg, elemdmgamt, combateffects, strikethrough, damageshield, all resists) — time-to-kill is the trivializing axis; top tier now +35% DPS instead of +75%. Resist checks stay meaningful.
+- **Defense + utility ×1.20/1.45/1.75 unchanged** (AC/HP/mana/regens/stats/heroics/avoidance/shieldings/clairvoyance) — survivability is what keeps soloing viable.
+- Ascended class-epics (+800k band) use the same split. Drop rates unchanged (10%/2%/0.25%).
+
+**Applied:** backup taken (peq_20260715_094215), regen run, shared_memory rebuilt, zones restarted. `eq-solo-gm/scripts/tiered_loot_setup.sql` is the durable source.
+
+**Gotchas:** RoF2 caches item stats client-side per session — camp/zone before inspecting. Forgemaster quest reads base class only (multiclass-blind) — follow-up candidate. Existing owned tier items silently changed stats/names (intended).
+
+---
+
 ## 2026-07-15 — M3 server-side (#13 A3+A4): mask-aware spell gates + equipment union; right-click scribe (#2); #instances command (#7); vendor dedupe (#9)
 
 **Spell gates (A3), `akk-stack/code/zone/` mirrored to `server-mods/`:**
