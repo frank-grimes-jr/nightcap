@@ -36,6 +36,22 @@ must confirm the class-UI gating is patchable and identify the offset source.
    viable surface shrinks to: spell-gem window + memorize UI. That lowers B0
    risk further.
 
+## Update 2026-07-15 — offset source confirmed, B1 skeleton built
+
+- **`mq-rof2/MQ2Main.dll` is directly the offset map** — its export table exposes
+  the named globals we need, no gated mqemulator source required:
+  - `pinstCSpellBookWnd` @ `0x0022ACCC`, `pinstCCastSpellWnd` @ `0x0022AED0`,
+    `pinstPCData` @ `0x00226D6C`, `ppSpellBookWnd`/`ppCastSpellWnd`.
+  - window methods `CSpellBookWnd::MemorizeSet`, `CCastSpellWnd::ForgetMemorizedSpell`.
+  Read with `dumpbin /exports`. These must still be validated against our exact
+  `eqgame.exe` build before B2 patches anything (version guard below).
+- **B1 skeleton built and deployed** (`eq-client-dll/`): x86 `dinput8.dll`
+  forwarding all six DirectInput exports to `System32\dinput8.dll`, init thread
+  logs to `nightcap_dll.log` and does a client-size sanity check (8,774,656 bytes,
+  sha256 `2a8702ad…`), no memory patched. Placed in `Client_RoF2_Dev/everquest_rof2/`
+  next to a backup `eqgame.exe.nightcap-bak`. Awaiting user smoke test (B1
+  acceptance: game runs identically, log appears).
+
 ## Decision (proposed)
 
 - Offset mining: clone the macroquest2 ROF2EMU tree and extract the window /
