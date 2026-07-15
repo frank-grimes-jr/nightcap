@@ -261,7 +261,8 @@ void Mob::AddItemBonuses(const EQ::ItemInstance* inst, StatBonuses* b, bool is_a
 		return;
 	}
 
-	if (IsClient() && !is_tribute && !inst->IsEquipable(GetBaseRace(), GetClass())) {
+	// multiclass: bonuses apply if any held class can equip the item
+	if (IsClient() && !is_tribute && !CastToClient()->CanEquipItem(item)) {
 		if (item->ItemType != EQ::item::ItemTypeFood && item->ItemType != EQ::item::ItemTypeDrink) {
 			return;
 		}
@@ -521,7 +522,8 @@ void Mob::AdditiveWornBonuses(const EQ::ItemInstance* inst, StatBonuses* b, bool
 
 	const auto* item = inst->GetItem();
 
-	if (!inst->IsEquipable(GetBaseRace(), GetClass())) {
+	// multiclass: worn bonuses apply if any held class can equip the item
+	if (IsClient() ? !CastToClient()->CanEquipItem(item) : !inst->IsEquipable(GetBaseRace(), GetClass())) {
 		return;
 	}
 

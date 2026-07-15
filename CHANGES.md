@@ -4,6 +4,39 @@ Running log of significant changes to this repo — schema migrations, C++ patch
 
 ---
 
+## 2026-07-15 — M3 server-side (#13 A3+A4): mask-aware spell gates + equipment union; right-click scribe (#2); #instances command (#7); vendor dedupe (#9)
+
+**Spell gates (A3), `akk-stack/code/zone/` mirrored to `server-mods/`:**
+- New helpers: `Client::GetSpellMinLevel(spell_id)` (lowest required level among held classes), `Client::BestCasterClassFor(spell_id)` (held class with lowest req level), `Client::CanEquipItem(item)` (race + any-held-class), `Client::GetEquipClassBitmask()`.
+- `Handle_OP_MemorizeSpell` scribe/mem level gate → min across held classes (client_process.cpp).
+- `Client::CheckFizzle` → difficulty and prime stat (INT/WIS/Bard) come from the best held class for the spell, not base class (spells.cpp).
+- `Client::MemorizeSpellFromItem` + `Client::UseDiscipline` class/level gates → mask-aware (effects.cpp).
+- `CheckSpellLevelRestriction` needed **no change** — it already uses the all-class minimum level (recipient-side check).
+
+**Equipment (A4):**
+- `InventoryProfile::SwapItem` gained an optional `class_bitmask` param — equip class check passes if ANY held class can wear it; race/deity/level still enforced (common/inventory_profile.*). Zone caller passes the multiclass union.
+- Item bonuses (`AddItemBonuses`, `AdditiveWornBonuses`) and loot auto-equip use the union too — without the bonuses change, off-class items would equip but grant no stats.
+
+**Right-click scribe (#2):** enabled `Spells:AllowSpellMemorizeFromItem = true` (rule_values). The RoF2 client sends no scribe packet from inventory double-click; but right-click "use" on a scroll hits `Handle_OP_ItemVerifyRequest`, which scribes directly when this rule is on — no spellbook window needed. This also unblocks scroll scribing for base classes with no book UI (pre-DLL). Gate made mask-aware.
+
+**#instances command (#7):** new player-level `#instances` lists the character's open instances with time remaining (`zone/gm_commands/instances_list.cpp`). A true `/instance` slash command requires client patching — candidate for the M2+ DLL.
+
+**Vendor dupes (#9):** `vendor_restock.sql` now stocks one scroll item per spell (`MIN(item.id)` per scrolleffect) — PEQ ships several identical scrolls per spell (one per original class vendor). Re-ran restock.
+
+**Gotcha:** the restock's per-row `MIN()` correlated subquery is slow (minutes per vendor) — fine for a maintenance script, don't put it in a request path.
+
+---
+
+## 2026-07-15 — Caster AAs invisible: off-by-one class bit in AA send (QA on Tester WAR/NEC)
+
+QA of M1 surfaced that a WAR/NEC saw no Necro AAs in the AA window. Server-side authorization was fine (mask, `character_multiclass` row, `CanUseAlternateAdvancementRank` all correct) — the bug was in the client-facing display reshape in `Client::SendAlternateAdvancementRank` (`aa.cpp:1023`): `my_class_bit` was built as `1 << (GetClass() - 1)` (DB format) but `aai->classes` is client format, bit N = class N (the loader does `classes << 1`). Single-class AAs were therefore tagged with a class bit the client never matches, so the client hid them — including the character's own native class-tab AAs. Fixed to `1 << GetClass()`; mirrored to `server-mods/`.
+
+**Gotcha:** two class-bit formats coexist in AA code — DB format (bit N-1 = class N) and client/in-memory format (bit N = class N). Anything written into an outgoing packet must be client format.
+
+Also from the same QA: "Warrior can't open spellbook / memorize" is **expected**, not a regression — that's M2/M3 (#12/#13, client DLL UI unlock + spell gates), not yet built.
+
+---
+
 ## 2026-07-14 — M1 (#11): multiclass-aware mana & HP (best-of across held classes)
 
 First code of the True Multiclass epic (#10). Previously a character's mana/HP came only from its **base** class, so a Warrior who adopted Necromancer had zero mana (headline blocker for warrior-casters). Now both are best-of across the held classes (base + class2 + class3 from `character_multiclass`, via the already-loaded mask).
