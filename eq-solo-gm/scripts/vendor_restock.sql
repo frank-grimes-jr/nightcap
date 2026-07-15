@@ -26,6 +26,10 @@ INSERT INTO merchantlist (merchantid, slot, item)
 SELECT 99221, ROW_NUMBER() OVER (ORDER BY i.Name, i.id), i.id
 FROM items i JOIN spells_new sn ON sn.id = i.scrolleffect
 WHERE i.itemtype = 20 AND i.scrolleffect > 0
+  -- one scroll per spell: PEQ ships several item copies of the same scroll
+  -- (one per original class vendor); without this the vendor shows dupes (#9)
+  AND i.id = (SELECT MIN(i2.id) FROM items i2
+              WHERE i2.scrolleffect = i.scrolleffect AND i2.itemtype = 20)
   AND LEAST(
         IF(sn.classes11 BETWEEN 1 AND 254, sn.classes11, 255),
         IF(sn.classes12 BETWEEN 1 AND 254, sn.classes12, 255),
@@ -38,6 +42,10 @@ INSERT INTO merchantlist (merchantid, slot, item)
 SELECT 99222, ROW_NUMBER() OVER (ORDER BY i.Name, i.id), i.id
 FROM items i JOIN spells_new sn ON sn.id = i.scrolleffect
 WHERE i.itemtype = 20 AND i.scrolleffect > 0
+  -- one scroll per spell: PEQ ships several item copies of the same scroll
+  -- (one per original class vendor); without this the vendor shows dupes (#9)
+  AND i.id = (SELECT MIN(i2.id) FROM items i2
+              WHERE i2.scrolleffect = i.scrolleffect AND i2.itemtype = 20)
   AND LEAST(
         IF(sn.classes2  BETWEEN 1 AND 254, sn.classes2,  255),
         IF(sn.classes6  BETWEEN 1 AND 254, sn.classes6,  255),
@@ -49,6 +57,10 @@ INSERT INTO merchantlist (merchantid, slot, item)
 SELECT 99223, ROW_NUMBER() OVER (ORDER BY i.Name, i.id), i.id
 FROM items i JOIN spells_new sn ON sn.id = i.scrolleffect
 WHERE i.itemtype = 20 AND i.scrolleffect > 0
+  -- one scroll per spell: PEQ ships several item copies of the same scroll
+  -- (one per original class vendor); without this the vendor shows dupes (#9)
+  AND i.id = (SELECT MIN(i2.id) FROM items i2
+              WHERE i2.scrolleffect = i.scrolleffect AND i2.itemtype = 20)
   AND LEAST(
         IF(sn.classes4  BETWEEN 1 AND 254, sn.classes4,  255),
         IF(sn.classes8  BETWEEN 1 AND 254, sn.classes8,  255),
@@ -60,6 +72,10 @@ INSERT INTO merchantlist (merchantid, slot, item)
 SELECT 99224, ROW_NUMBER() OVER (ORDER BY i.Name, i.id), i.id
 FROM items i JOIN spells_new sn ON sn.id = i.scrolleffect
 WHERE i.itemtype = 20 AND i.scrolleffect > 0
+  -- one scroll per spell: PEQ ships several item copies of the same scroll
+  -- (one per original class vendor); without this the vendor shows dupes (#9)
+  AND i.id = (SELECT MIN(i2.id) FROM items i2
+              WHERE i2.scrolleffect = i.scrolleffect AND i2.itemtype = 20)
   AND LEAST(
         IF(sn.classes3 BETWEEN 1 AND 254, sn.classes3, 255),
         IF(sn.classes5 BETWEEN 1 AND 254, sn.classes5, 255)) <= @cap;
