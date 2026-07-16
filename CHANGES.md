@@ -30,6 +30,21 @@ functions server-side. `client.cpp` is now mirrored to `server-mods/` for the fi
 
 ---
 
+## 2026-07-16 — AA experience allowed from level 1 (#37)
+
+Stock EQ gates AA-XP gain at level 51 via two hardcoded checks in `exp.cpp`
+(`GetLevel() <= 50` and `GetLevel() < 51`, both zeroing `m_epp.perAA`). Replaced both
+literals with a new rule **`Character:AAExpMinLevel`** (`ruletypes.h`, compiled default 51 =
+stock behavior). `aa_exp_min_level.sql` INSERTs the override to **1** on ruleset 1.
+
+- Apply: run the SQL, then `#reload rules` (no restart). Zone binary must carry the new rule
+  (rebuild + restart zones for the `ruletypes.h` change).
+- **Primary QA risk (client-side):** the server now permits AA XP at any level, but the RoF2
+  client may still hide the AA-XP allocation control below 51. Verify in-game that a low-level
+  character can actually toggle AA on; if the UI is hidden, this needs a DLL/UI note (#12/#13).
+
+---
+
 ## 2026-07-16 — DLL track (#12): B1 verified, B0 GO, offset-source claim corrected
 
 Reviewed the tracked DLL work (#12 M2, #13 B2, #15 B3). State assessment + honest scoping, no risky speculative code:
