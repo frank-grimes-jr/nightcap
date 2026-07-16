@@ -4,6 +4,60 @@ Running log of significant changes to this repo — schema migrations, C++ patch
 
 ---
 
+## 2026-07-16 — Multiclass skill access + trainers (#36, #39)
+
+Field QA (char "Done": Cleric base + SK + Monk) surfaced secondary-class skills that were
+set but unusable, and 2nd/3rd-class trainers that refused interaction. Both were base-class
+`GetClass()` gates that never consulted the held-class union. Fixed by extending the
+existing `Client::GetMulticlassList()` mask pattern (already used for mana/equip):
+
+- **`client.cpp CanHaveSkill`** — now returns true if **any** held class can have the skill
+  (each class's native `skill_caps` are already in shared memory). This alone makes
+  `HasSkill`/`CanThisClassDualWield` recognize secondary-class skills — e.g. Cleric-base can
+  now dual wield via its Monk/SK discipline (**#36**).
+- **`client_process.cpp` trainers** (`OPGMTraining`/`OPGMEndTraining`/`OPGMTrainSkill`) —
+  accept the trainer if its class is any held class (`IsMulticlassMember`), and compute the
+  offered skill caps + train levels **best-of across held classes** (**#39**).
+- New helper **`Client::IsMulticlassMember`** (`client.h`/`client_mods.cpp`).
+- **`plugins/multiclass.pl`** — removed the global `skill_caps` INSERT widening from
+  `mc_apply_class`; the mask-aware `CanHaveSkill` makes it dead global mutation. `mc_train_skills`
+  (sets skill values) stays.
+
+**Gotchas:** no `shared_memory` regen needed (reads per-class native caps). After `make zone`,
+**kill every `bin/zone` process** so eqlaunch respawns on the new binary. The RoF2 client's
+Skills *window* may still visually filter by base class (chassis limit) even though the skill
+functions server-side. `client.cpp` is now mirrored to `server-mods/` for the first time.
+
+---
+
+## 2026-07-16 — AA experience allowed from level 1 (#37)
+
+Stock EQ gates AA-XP gain at level 51 via two hardcoded checks in `exp.cpp`
+(`GetLevel() <= 50` and `GetLevel() < 51`, both zeroing `m_epp.perAA`). Replaced both
+literals with a new rule **`Character:AAExpMinLevel`** (`ruletypes.h`, compiled default 51 =
+stock behavior). `aa_exp_min_level.sql` INSERTs the override to **1** on ruleset 1.
+
+- Apply: run the SQL, then `#reload rules` (no restart). Zone binary must carry the new rule
+  (rebuild + restart zones for the `ruletypes.h` change).
+- **Primary QA risk (client-side):** the server now permits AA XP at any level, but the RoF2
+  client may still hide the AA-XP allocation control below 51. Verify in-game that a low-level
+  character can actually toggle AA on; if the UI is hidden, this needs a DLL/UI note (#12/#13).
+
+---
+
+## 2026-07-16 — DLL track (#12): B1 verified, B0 GO, offset-source claim corrected
+
+Reviewed the tracked DLL work (#12 M2, #13 B2, #15 B3). State assessment + honest scoping, no risky speculative code:
+
+- **B1 (dinput8 proxy skeleton) verified done.** Rebuilds reproducibly with the local MSVC x86 toolchain (`eq-client-dll/build.bat`, VS Build Tools 2022 at `C:\BuildTools`), confirmed machine=x86 with all six DirectInput exports forwarded, and **passed its in-game smoke test** (`nightcap_dll.log`: load → size-check OK → init → clean unload vs `testeqgame.exe`, game ran identically). Was already committed d8b28c9.
+- **B0 → GO.** ADR 0004 moved Proposed→Accepted. Feasibility confirmed on every non-interactive axis (toolchain, THJ precedent, symbol set, clean load).
+- **Corrected an over-optimistic ADR claim:** MQ2Main.dll's export *table* is **not** the eqgame offset map. Its `pinstCSpellBookWnd 0x0022ACCC` etc. are RVAs *inside* MQ2Main.dll (image size 0x242000), i.e. MQ2's own `.data` vars — they confirm the symbol set but not the eqgame addresses. Real offsets come from MQ2-emu source `eqgame.h` (ROF2EMU) or a live-client debugger. New `eq-client-dll/docs/offsets.md` records the confirmed symbol set + this caveat + minimum-viable B2 surface (server right-click scribe already works, so only the spell-gem/memorize UI needs unlocking).
+- **B2/B3 deliberately NOT built.** B2 patches client memory at offsets we don't yet hold and can only be verified by a human on a live client — its offset-extraction first step and the "Warrior opens spell-gem window" proof are one interactive session, the tracked next step.
+
+No server/DB/binary changes; docs + build verification only.
+
+---
+
 ## 2026-07-16 — QoL batch: #29 buff bots, #30 vendor cash, #31 permanent self-buffs, #32 waypoints, #33 Ascended summons, #34 loot-all, #35 #sellall (+#28 diagnosis)
 
 **#30 Vendor cash (rule_values):** `Merchant:BuyCostMod` 0.95 → **2.5** — vendors pay ~2.6x for loot, the main money faucet. Buy prices untouched. `vendor_cash_boost.sql`.

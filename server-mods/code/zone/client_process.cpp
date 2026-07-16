@@ -1622,9 +1622,10 @@ void Client::OPGMTraining(const EQApplicationPacket *app)
 	}
 
 	//you can only use your own trainer, client enforces this, but why trust it
+	//Multiclass: any held class's trainer is "your own".
 	if (!RuleB(Character, AllowCrossClassTrainers)) {
 		int trains_class = pTrainer->GetClass() - (Class::WarriorGM - Class::Warrior);
-		if (GetClass() != trains_class) {
+		if (!IsMulticlassMember(trains_class)) {
 			safe_delete(outapp);
 			return;
 		}
@@ -1643,7 +1644,15 @@ void Client::OPGMTraining(const EQApplicationPacket *app)
 		if (sk == EQ::skills::SkillTinkering && GetRace() != Race::Gnome) {
 			gmtrain->skills[sk] = 0; //Non gnomes can't tinker!
 		} else {
-			gmtrain->skills[sk] = GetMaxSkillAfterSpecializationRules((EQ::skills::SkillType)sk, MaxSkill((EQ::skills::SkillType)sk, GetClass(), RuleI(Character, MaxLevel)));
+			//Multiclass: offer the best cap this skill reaches across all held classes.
+			uint16 cap = 0;
+			for (uint8 c : GetMulticlassList()) {
+				uint16 class_cap = MaxSkill((EQ::skills::SkillType)sk, c, RuleI(Character, MaxLevel));
+				if (class_cap > cap) {
+					cap = class_cap;
+				}
+			}
+			gmtrain->skills[sk] = GetMaxSkillAfterSpecializationRules((EQ::skills::SkillType)sk, cap);
 			//this is the highest level that the trainer can train you to, this is enforced clientside so we can't just
 			//Set it to 1 with CanHaveSkill or you wont be able to train past 1.
 		}
@@ -1681,9 +1690,10 @@ void Client::OPGMEndTraining(const EQApplicationPacket *app)
 		return;
 
 	//you can only use your own trainer, client enforces this, but why trust it
+	//Multiclass: any held class's trainer is "your own".
 	if (!RuleB(Character, AllowCrossClassTrainers)) {
 		int trains_class = pTrainer->GetClass() - (Class::WarriorGM - Class::Warrior);
-		if (GetClass() != trains_class)
+		if (!IsMulticlassMember(trains_class))
 			return;
 	}
 
@@ -1712,9 +1722,10 @@ void Client::OPGMTrainSkill(const EQApplicationPacket *app)
 		return;
 
 	//you can only use your own trainer, client enforces this, but why trust it
+	//Multiclass: any held class's trainer is "your own".
 	if (!RuleB(Character, AllowCrossClassTrainers)) {
 		int trains_class = pTrainer->GetClass() - (Class::WarriorGM - Class::Warrior);
-		if (GetClass() != trains_class)
+		if (!IsMulticlassMember(trains_class))
 			return;
 	}
 
@@ -1754,7 +1765,21 @@ void Client::OPGMTrainSkill(const EQApplicationPacket *app)
 			return;
 		}
 
-		if(MaxSkill(skill) == 0) {
+		// Multiclass: best cap and earliest train level for this skill across held classes.
+		uint16 mc_max_skill = 0;
+		uint16 mc_train_level = 0;
+		for (uint8 c : GetMulticlassList()) {
+			uint16 cap = MaxSkill(skill, c, RuleI(Character, MaxLevel));
+			if (cap > mc_max_skill) {
+				mc_max_skill = cap;
+			}
+			uint8 tl = GetSkillTrainLevel(skill, c);
+			if (tl > 0 && (mc_train_level == 0 || tl < mc_train_level)) {
+				mc_train_level = tl;
+			}
+		}
+
+		if(mc_max_skill == 0) {
 			LogSkills("Tried to train skill [{}], but training is not allowed at this level", skill);
 			return;
 		}
@@ -1763,7 +1788,7 @@ void Client::OPGMTrainSkill(const EQApplicationPacket *app)
 
 		if (skilllevel == 0) {
 			//this is a new skill..
-			uint16 t_level = GetSkillTrainLevel(skill, GetClass());
+			uint16 t_level = mc_train_level;
 
 			if (t_level == 0) {
 				LogSkills("Tried to train a new skill [{}] which is invalid for this race/class.", skill);
@@ -1810,7 +1835,7 @@ void Client::OPGMTrainSkill(const EQApplicationPacket *app)
 				break;
 			}
 
-			int MaxSkillValue = MaxSkill(skill);
+			int MaxSkillValue = mc_max_skill;
 			if (skilllevel >= MaxSkillValue)
 			{
 				// Don't allow training over max skill level

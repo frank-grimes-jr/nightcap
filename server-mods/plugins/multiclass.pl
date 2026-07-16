@@ -159,14 +159,9 @@ sub mc_apply_class {
     );
     $patch->execute();
 
-    # Skill caps: base class absorbs the secondary's skills it lacked
-    my $caps = $db->prepare(
-        "INSERT IGNORE INTO skill_caps (class_id, skill_id, level, cap)
-         SELECT ?, skill_id, level, cap FROM skill_caps WHERE class_id = ?
-           AND skill_id NOT IN (SELECT skill_id FROM skill_caps WHERE class_id = ?)"
-    );
-    $caps->execute($base, $class_id, $base);
-
+    # Skills: the zone binary's CanHaveSkill()/trainers are mask-aware (read each held
+    # class's native skill_caps), so no global skill_caps widening is needed. mc_train_skills
+    # just sets the values up to each class's cap.
     plugin::mc_train_skills($client);
 
     $client->Message(335,
