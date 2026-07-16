@@ -4,6 +4,26 @@ Running log of significant changes to this repo — schema migrations, C++ patch
 
 ---
 
+## 2026-07-16 — `#aaexp` player command: turn on AA XP below level 51 (#37 follow-up)
+
+QA of #37 confirmed the server side is fully open (rule `Character:AAExpMinLevel=1`, no gate
+in `Handle_OP_AAAction`, `exp.cpp` gates rule-driven) but the **RoF2 client hides the AA-XP
+toggle below level 51**, so it never sends `OP_AAAction` — a level-4 character has no usable
+control. Root cause is client-side; no server change can draw a control the client refuses to.
+
+Fix (the `#sellall` pattern — a player command where the client UI can't do the job):
+
+- New **`#aaexp [0-100|off]`** command (`AccountStatus::Player`, `gm_commands/aa_exp.cpp`) sets
+  the % of combat XP routed to AA. No args → prints current %.
+- New **`Client::SetAAExperiencePercent`** (`client.cpp`) clamps 0-100, sets `m_epp.perAA`,
+  sends the AA stats/table update. `exp.cpp` still enforces `AAExpMinLevel`, so it only sticks
+  at/above that level (=1 here).
+- Registered in `command.cpp`, declared in `command.h`, added to zone `CMakeLists.txt`.
+
+**Usage:** in game, `#aaexp 50` routes 50% of XP to AA; `#aaexp off` stops. Works at any level.
+
+---
+
 ## 2026-07-16 — Multiclass skill access + trainers (#36, #39)
 
 Field QA (char "Done": Cleric base + SK + Monk) surfaced secondary-class skills that were
