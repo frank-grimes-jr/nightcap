@@ -4,6 +4,32 @@ Running log of significant changes to this repo — schema migrations, C++ patch
 
 ---
 
+## 2026-07-16 — Multiclass skill access + trainers (#36, #39)
+
+Field QA (char "Done": Cleric base + SK + Monk) surfaced secondary-class skills that were
+set but unusable, and 2nd/3rd-class trainers that refused interaction. Both were base-class
+`GetClass()` gates that never consulted the held-class union. Fixed by extending the
+existing `Client::GetMulticlassList()` mask pattern (already used for mana/equip):
+
+- **`client.cpp CanHaveSkill`** — now returns true if **any** held class can have the skill
+  (each class's native `skill_caps` are already in shared memory). This alone makes
+  `HasSkill`/`CanThisClassDualWield` recognize secondary-class skills — e.g. Cleric-base can
+  now dual wield via its Monk/SK discipline (**#36**).
+- **`client_process.cpp` trainers** (`OPGMTraining`/`OPGMEndTraining`/`OPGMTrainSkill`) —
+  accept the trainer if its class is any held class (`IsMulticlassMember`), and compute the
+  offered skill caps + train levels **best-of across held classes** (**#39**).
+- New helper **`Client::IsMulticlassMember`** (`client.h`/`client_mods.cpp`).
+- **`plugins/multiclass.pl`** — removed the global `skill_caps` INSERT widening from
+  `mc_apply_class`; the mask-aware `CanHaveSkill` makes it dead global mutation. `mc_train_skills`
+  (sets skill values) stays.
+
+**Gotchas:** no `shared_memory` regen needed (reads per-class native caps). After `make zone`,
+**kill every `bin/zone` process** so eqlaunch respawns on the new binary. The RoF2 client's
+Skills *window* may still visually filter by base class (chassis limit) even though the skill
+functions server-side. `client.cpp` is now mirrored to `server-mods/` for the first time.
+
+---
+
 ## 2026-07-16 — DLL track (#12): B1 verified, B0 GO, offset-source claim corrected
 
 Reviewed the tracked DLL work (#12 M2, #13 B2, #15 B3). State assessment + honest scoping, no risky speculative code:

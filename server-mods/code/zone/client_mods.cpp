@@ -558,6 +558,16 @@ std::vector<uint8> Client::GetMulticlassList() const
 	return classes;
 }
 
+bool Client::IsMulticlassMember(uint8 class_id) const
+{
+	for (uint8 c : GetMulticlassList()) {
+		if (c == class_id) {
+			return true;
+		}
+	}
+	return false;
+}
+
 bool Client::HasAnyCasterClass() const
 {
 	for (uint8 c : GetMulticlassList()) {
