@@ -4,6 +4,28 @@ Running log of significant changes to this repo — schema migrations, C++ patch
 
 ---
 
+## 2026-07-16 — QoL batch: #29 buff bots, #30 vendor cash, #31 permanent self-buffs, #32 waypoints, #33 Ascended summons, #34 loot-all, #35 #sellall (+#28 diagnosis)
+
+**#30 Vendor cash (rule_values):** `Merchant:BuyCostMod` 0.95 → **2.5** — vendors pay ~2.6x for loot, the main money faucet. Buy prices untouched. `vendor_cash_boost.sql`.
+
+**#31 Permanent self-buffs (C++, spells.cpp `CalcBuffDuration`):** beneficial spells where caster == target (clients only) get 1,000,000 tics (~69 days online). Discs/short-buff-box excluded. **Gotchas:** self-clicked potions (incl. XP potions) also become permanent; buffs still wipe on death unless `persistdeath=1`; deliberately NOT true DF_Permanent — negative tics go raw into the buff packet and `character_buffs`.
+
+**#33 Ascended summons (C++, spell_effects.cpp SE_SummonItem/IntoBag):** summoned equippables (Slots != 0, id < 200k) upgrade to their +600k Ascended variant when one exists. Temporary flag on summons is why `#sellall` skips NoRent items — otherwise summon→sell is an infinite money loop with #30.
+
+**#29 Buff bots (SQL + Perl):** Matron Restora (999237, free, PoK 310,290) and Magus Goldwind (999238, 100pp, PoK 390,290). Spell **rank laddering by 10-level bracket** instead of percentage scaling (zero custom spells, no client sync): SoW + HP/AC lines + Regeneration/Chloroplast + Breeze/Clarity. Goldwind adds Bottle of Adventure III (21030, +50% XP, hard 4h). Bot buffs self-apply via `ApplySpellBuff` → permanent per #31. `buff_bots_setup.sql`.
+
+**#32 Waypoints (SQL + Perl):** 72 Classic-zone waypoints (`nightcap_waypoints`): dungeons at safe point, outdoor at the spawn2 farthest from safe (valid ground, deterministic). Marker NPC `a waypoint` (999240, ONE spawngroup, 72 spawn2 rows). Discovery: `global_player.pl` 3s proximity timer (25u), writes `nightcap_character_waypoints`; all 72 → title "the Explorer" (title_set 100). Waypoint Master (999239, PoK 370,290) saylink-teleports to discovered ones. `waypoints_setup.sql`. **Gotcha:** timer cache (`%nightcap_wp`) dies on `#reload quest`; player re-zones to re-arm.
+
+**#35 #sellall (C++, gm_commands/sell_all.cpp, Player status):** sells general + bag contents at `price * BuyCostMod`, keeps bags/no-drop/temporary/worthless. No merchant target needed; no CHA mod.
+
+**#34 Loot All prompt:** client-side — `eqclient.ini LootAllConfirm=1` → set to 0. Not a server issue. If per-item NO TRADE prompts remain, `/lootnodrop never` in game.
+
+**#28 Pups black screen:** diagnosed client-side — `dbg.txt` shows `Lost D3D device` then endless `CBufferSet::AllocateVertices() failed`; renderer never recovers after device loss, world black, UI alive, follows the client process (not the character — Pups' server data clean). Fix: restart eqgame.exe; prefer windowed/borderless.
+
+Applied to live DB. Zone rebuilt (spells.cpp, spell_effects.cpp, command.cpp/h, sell_all.cpp) + all zones restarted.
+
+---
+
 ## 2026-07-16 — Heroic stats activated + stat softcap raised (#8)
 
 **Finding:** heroic stats were NOT missing — the engine is fully implemented in this build (`bonuses.cpp` CalcHeroicBonuses / SetHeroic*Bonuses, driven by `Character:Heroic*Multiplier` rules at ×1.0). Per the rule descriptions: heroic STA → +100 HP/+0.5 HP-regen/+endurance per 10; STR → +1 melee dmg/+1 shield-AC per 10; AGI → +1 avoidance-AC; DEX → +1 archery/throwing dmg; INT/WIS → +100 mana per 10; heroics also raise the stat's own softcap. It just had nothing to act on. Three gaps fixed:
