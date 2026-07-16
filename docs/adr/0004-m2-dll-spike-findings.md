@@ -1,7 +1,8 @@
 # ADR 0004 — M2 (B0) spike findings: RoF2 UI-unlock offsets source
 
-Date: 2026-07-15
-Status: Proposed (go-leaning; final go/no-go needs one in-game proof session)
+Date: 2026-07-15 (updated 2026-07-16)
+Status: **Accepted — GO on the DLL approach.** B1 built + smoke-passed. B2
+remains gated on offset extraction (below) + one interactive spellbook proof.
 
 ## Context
 
@@ -51,6 +52,38 @@ must confirm the class-UI gating is patchable and identify the offset source.
   sha256 `2a8702ad…`), no memory patched. Placed in `Client_RoF2_Dev/everquest_rof2/`
   next to a backup `eqgame.exe.nightcap-bak`. Awaiting user smoke test (B1
   acceptance: game runs identically, log appears).
+
+## Update 2026-07-16 — B1 smoke-passed; offset-source claim corrected; GO
+
+- **B1 acceptance met.** The proxy rebuilds reproducibly (MSVC x86, VS Build
+  Tools 2022 at `C:\BuildTools`; `eq-client-dll/build.bat`), is confirmed x86
+  with all six DirectInput exports forwarded, and **passed its in-game smoke
+  test**: `nightcap_dll.log` shows load → client-size OK (8,774,656) → init
+  complete → clean unload against `testeqgame.exe`. Game ran identically. B1 is
+  done.
+
+- **Correction to the 2026-07-15 offset-source claim.** The MQ2Main.dll export
+  *table* does **not** directly give eqgame offsets. Its `pinstCSpellBookWnd
+  0x0022ACCC` etc. are RVAs **inside MQ2Main.dll** (image size `0x242000`; all
+  the `pinst*` addresses fall below it) — i.e. MQ2's own `.data` variables that
+  hold the eqgame pointers at MQ2 load time. The export dump **confirms the
+  symbol set and names** (feasibility), but the real `eqgame.exe` addresses B2
+  patches must come from MQ2-emu **source** `eqgame.h` (ROF2EMU) or a live-client
+  debugger. Full symbol map + this caveat: `eq-client-dll/docs/offsets.md`.
+
+- **GO decision.** Feasibility is confirmed on every axis that can be settled
+  without an interactive session: toolchain works end-to-end here, THJ precedent
+  proves the class-UI gate is patchable, the exact symbol set exists, and the
+  proxy loads cleanly in the real client. Proceed with the DLL approach (not the
+  packet-illusion fallback).
+
+- **B2 is NOT started, by design — it cannot be built-and-verified autonomously.**
+  It writes client memory at offsets we do not yet hold, and its only real
+  acceptance test ("a Warrior opens the spell-gem window and mems a scribed
+  spell") requires a human watching a live client. Building speculative
+  memory-patch code against unvalidated offsets would risk crashing the client
+  with nothing verified. B2's concrete first step is the offset extraction above,
+  done in the same interactive session as the B0 proof.
 
 ## Decision (proposed)
 

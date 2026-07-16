@@ -4,6 +4,19 @@ Running log of significant changes to this repo — schema migrations, C++ patch
 
 ---
 
+## 2026-07-16 — DLL track (#12): B1 verified, B0 GO, offset-source claim corrected
+
+Reviewed the tracked DLL work (#12 M2, #13 B2, #15 B3). State assessment + honest scoping, no risky speculative code:
+
+- **B1 (dinput8 proxy skeleton) verified done.** Rebuilds reproducibly with the local MSVC x86 toolchain (`eq-client-dll/build.bat`, VS Build Tools 2022 at `C:\BuildTools`), confirmed machine=x86 with all six DirectInput exports forwarded, and **passed its in-game smoke test** (`nightcap_dll.log`: load → size-check OK → init → clean unload vs `testeqgame.exe`, game ran identically). Was already committed d8b28c9.
+- **B0 → GO.** ADR 0004 moved Proposed→Accepted. Feasibility confirmed on every non-interactive axis (toolchain, THJ precedent, symbol set, clean load).
+- **Corrected an over-optimistic ADR claim:** MQ2Main.dll's export *table* is **not** the eqgame offset map. Its `pinstCSpellBookWnd 0x0022ACCC` etc. are RVAs *inside* MQ2Main.dll (image size 0x242000), i.e. MQ2's own `.data` vars — they confirm the symbol set but not the eqgame addresses. Real offsets come from MQ2-emu source `eqgame.h` (ROF2EMU) or a live-client debugger. New `eq-client-dll/docs/offsets.md` records the confirmed symbol set + this caveat + minimum-viable B2 surface (server right-click scribe already works, so only the spell-gem/memorize UI needs unlocking).
+- **B2/B3 deliberately NOT built.** B2 patches client memory at offsets we don't yet hold and can only be verified by a human on a live client — its offset-extraction first step and the "Warrior opens spell-gem window" proof are one interactive session, the tracked next step.
+
+No server/DB/binary changes; docs + build verification only.
+
+---
+
 ## 2026-07-16 — QoL batch: #29 buff bots, #30 vendor cash, #31 permanent self-buffs, #32 waypoints, #33 Ascended summons, #34 loot-all, #35 #sellall (+#28 diagnosis)
 
 **#30 Vendor cash (rule_values):** `Merchant:BuyCostMod` 0.95 → **2.5** — vendors pay ~2.6x for loot, the main money faucet. Buy prices untouched. `vendor_cash_boost.sql`.
