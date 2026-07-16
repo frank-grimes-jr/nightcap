@@ -4,6 +4,48 @@ Running log of significant changes to this repo — schema migrations, C++ patch
 
 ---
 
+## 2026-07-16 — Auto-grant multiclass skills on level-up (#36/#39 follow-up)
+
+In-game QA confirmed the multiclass skill/trainer fixes are **client-chassis-blocked**: the
+RoF2 Cleric-base chassis hides secondary-class combat skills from the Skills *window* (#36),
+and the client refuses to open an off-base-class trainer at all (#39) — so the server-side
+trainer fix never receives a request. The skills still *function* (Dual Wield etc. are granted
+and work in combat), but they can't be trained the normal way and don't display.
+
+Route-around (matches #36's ask, "auto-granted to avoid running to a trainer"):
+
+- `global/global_player.pl` **`EVENT_LEVEL_UP`** calls `plugin::mc_train_skills` — re-grants
+  every held class's skills to the new level's cap on each level-up. **Scoped to multiclass
+  characters** (has class2/class3) so normal characters keep their skill-up grind.
+- Idempotent (only raises skills below cap). Applies on `#reload quest` / zone restart.
+
+**Still DLL-blocked (client chassis, needs #12/#13), documented not fixed:** the Skills-window
+display of off-base skills (#36) and the off-base trainer window opening (#39). The C++ trainer
+mask-aware fix stays in place for when the DLL unlocks the client. This is the same wall as the
+AA-XP toggle (#37) and equip (#38) — the base-class UI chassis is the recurring limit.
+
+---
+
+## 2026-07-16 — `#aaexp` player command: turn on AA XP below level 51 (#37 follow-up)
+
+QA of #37 confirmed the server side is fully open (rule `Character:AAExpMinLevel=1`, no gate
+in `Handle_OP_AAAction`, `exp.cpp` gates rule-driven) but the **RoF2 client hides the AA-XP
+toggle below level 51**, so it never sends `OP_AAAction` — a level-4 character has no usable
+control. Root cause is client-side; no server change can draw a control the client refuses to.
+
+Fix (the `#sellall` pattern — a player command where the client UI can't do the job):
+
+- New **`#aaexp [0-100|off]`** command (`AccountStatus::Player`, `gm_commands/aa_exp.cpp`) sets
+  the % of combat XP routed to AA. No args → prints current %.
+- New **`Client::SetAAExperiencePercent`** (`client.cpp`) clamps 0-100, sets `m_epp.perAA`,
+  sends the AA stats/table update. `exp.cpp` still enforces `AAExpMinLevel`, so it only sticks
+  at/above that level (=1 here).
+- Registered in `command.cpp`, declared in `command.h`, added to zone `CMakeLists.txt`.
+
+**Usage:** in game, `#aaexp 50` routes 50% of XP to AA; `#aaexp off` stops. Works at any level.
+
+---
+
 ## 2026-07-16 — Multiclass skill access + trainers (#36, #39)
 
 Field QA (char "Done": Cleric base + SK + Monk) surfaced secondary-class skills that were

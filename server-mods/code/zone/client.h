@@ -1132,6 +1132,7 @@ public:
 	void SendClearPlayerAA();
 	inline uint32 GetAAXP() const { return m_pp.expAA; }
 	inline uint32 GetAAPercent() const { return m_epp.perAA; }
+	void SetAAExperiencePercent(uint8 percent); // #aaexp command: set AA XP split server-side (client hides the toggle < 51)
 	void SetAATitle(std::string title);
 	void SetTitleSuffix(std::string suffix);
 	void MemorizeSpell(uint32 slot, uint32 spell_id, uint32 scribing, uint32 reduction = 0);

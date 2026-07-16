@@ -84,6 +84,14 @@ sub EVENT_ENTERZONE { #message only appears in Cities / Pok and wherever the Way
   }
 }
 
+sub EVENT_LEVEL_UP {
+	# Multiclass (#36/#39): the RoF2 client won't open off-base-class trainers, so
+	# keep secondary/tertiary-class skills granted to the new level automatically.
+	# Scoped to multiclass characters — normal characters keep their skill-up grind.
+	my ($c2, $c3) = plugin::mc_get_classes($client->CharacterID());
+	plugin::mc_train_skills($client) if $c2 || $c3;
+}
+
 sub EVENT_COMBINE_VALIDATE {
 	# $validate_type values = { "check_zone", "check_tradeskill" }
 	# criteria exports:

@@ -2060,6 +2060,17 @@ void Client::SetSkill(EQ::skills::SkillType skillid, uint16 value) {
 	safe_delete(outapp);
 }
 
+// Set the AA-experience split server-side. The RoF2 client hides the AA-XP toggle
+// below level 51, so the #aaexp command drives this instead of OP_AAAction. exp.cpp
+// still enforces Character:AAExpMinLevel, so this only "sticks" at/above that level.
+void Client::SetAAExperiencePercent(uint8 percent)
+{
+	m_epp.perAA = percent > 100 ? 100 : percent;
+	MessageString(Chat::White, m_epp.perAA == 0 ? AA_OFF : AA_ON);
+	SendAlternateAdvancementStats();
+	SendAlternateAdvancementTable();
+}
+
 void Client::IncreaseLanguageSkill(uint8 language_id, uint8 increase)
 {
 	if (!EQ::ValueWithin(language_id, Language::CommonTongue, Language::Unknown27)) {
