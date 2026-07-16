@@ -4,6 +4,27 @@ Running log of significant changes to this repo — schema migrations, C++ patch
 
 ---
 
+## 2026-07-16 — Issue batch: #27 no-corpse-runs, #21 spell-vendor split, #18 strip fixes, #19 diagnosis
+
+**#27 No corpse runs (rule_values, ruleset 1):** on death you now keep all gear/money/items and respawn at bind.
+- `Character:LeaveCorpses = false` — no player corpse is created (attack.cpp:2061 / client.cpp:4442 gate on it), so the corpse constructor that "takes the cash/items off the player" never runs.
+- `Character:DeathItemLossLevel = 999` — belt-and-suspenders (the item/cash transfer at corpse.cpp:297 is gated by `level >= DeathItemLossLevel`).
+- `Character:LeaveNakedCorpses = false` — was `true`, but harmless-looking: corpse.cpp:298 ORs it with LeaveCorpses so items still transferred; cleared for clarity.
+- Buffs: the combat-death path already uses `BuffFadeNonPersistDeath()` (keeps only `persistdeath` spells). Set `spells_new.persistdeath = 1` on all permanent (buffdurationformula=50) beneficial buffs so **permanent buffs survive death** (matches the #5 permanent bard songs). Needs shared_memory regen + zone restart.
+
+**#21 Spell vendors truncated at "M":** RoF2 caps the merchant window at **500 items** (`common/patches/rof2_limits.h` MERCHANT_SIZE; enforced client_process.cpp:850/856 — items past slot 500 are silently dropped). The Arcane (776), Divine (687), Stalwart (681) Loremasters exceeded it (504 of Arcane's 776 sort before "Spell: N" → the cut landed at M). Not a restock/level-gate bug — genuinely more Classic-legal caster spells than the client can show.
+- Fix: a second "II" vendor per over-cap archetype (`eq-solo-gm/scripts/spell_vendor_split.sql`, NPCs 999234-236, merchant_ids 99251-253, back row behind the originals). `vendor_restock.sql` now moves each over-cap vendor's second alphabetical half onto its II partner (generic `split_vendor` proc, triggers >480).
+
+**#18 strip fixes (C++, mirrored):** two gaps QA surfaced in the release AA-strip —
+- `SaveAA`'s `ReplaceMany` is `REPLACE INTO` (upsert only), never deleting removed rows → stripped AAs reloaded on relog. Now `DeleteCharacterAAs` wipes first, then SaveAA re-inserts survivors (matches ResetAA).
+- The RoF2 client never drops an AA from its window on its own; added `SendClearPlayerAA` (OP_ClearAA) before the table resend so stripped AAs vanish without a relog.
+
+**#19 Bard movement songs — diagnosed, not yet fixed:** Selo's data (SE_MovementSpeed=15, permanent) and the runspeed math (mob.cpp:834-858, 158% cap) are both correct, and the bonus loop includes permanent buffs. Remaining suspects need an in-game reading: bard `instrument_mod` scaling, or the buff not landing while moving (ties to #20). Left open.
+
+**Gotcha:** `vendor_restock.sql`'s per-row `MIN(item.id)` dedup subquery holds a long read lock on `items`/`spells_new` while it runs (minutes) — don't run concurrent `spells_new` writes; they'll hit lock-wait-timeout.
+
+---
+
 ## 2026-07-15 — Item tiers renamed (Polished/Exalted/Ascended) + two-curve scaling rework
 
 Tier review found two problems: names duplicated THJ vocabulary ("Legendary") and EQ's class-epic term ("Epic"), and flat ×1.20/1.45/1.75 scaling on ALL stats made top-tier weapons ~+75% auto-attack DPS (damage scaled, delay untouched) and walked past Classic resist checks.

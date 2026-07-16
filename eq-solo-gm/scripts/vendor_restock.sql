@@ -80,5 +80,35 @@ WHERE i.itemtype = 20 AND i.scrolleffect > 0
         IF(sn.classes3 BETWEEN 1 AND 254, sn.classes3, 255),
         IF(sn.classes5 BETWEEN 1 AND 254, sn.classes5, 255)) <= @cap;
 
+-- =============================================================================
+-- Overflow split (#21): RoF2 shows at most 500 merchant items. Move each over-cap
+-- vendor's second alphabetical half onto its "II" partner (spell_vendor_split.sql
+-- creates those NPCs). Base keeps slots 1..half; II gets the rest, re-numbered.
+-- Partners: Arcane 99221->99251, Divine 99222->99252, Tank 99224->99253.
+-- Melee 99223 is small (never splits) and has no II vendor.
+-- =============================================================================
+DROP PROCEDURE IF EXISTS split_vendor;
+DELIMITER //
+CREATE PROCEDURE split_vendor(IN p_base INT, IN p_ii INT)
+BEGIN
+    DECLARE v_count INT;
+    DECLARE v_half  INT;
+    SELECT COUNT(*) INTO v_count FROM merchantlist WHERE merchantid = p_base;
+    DELETE FROM merchantlist WHERE merchantid = p_ii;
+    IF v_count > 480 THEN
+        SET v_half = CEIL(v_count / 2);
+        INSERT INTO merchantlist (merchantid, slot, item)
+            SELECT p_ii, ROW_NUMBER() OVER (ORDER BY slot), item
+            FROM merchantlist WHERE merchantid = p_base AND slot > v_half;
+        DELETE FROM merchantlist WHERE merchantid = p_base AND slot > v_half;
+    END IF;
+END //
+DELIMITER ;
+
+CALL split_vendor(99221, 99251);  -- Arcane
+CALL split_vendor(99222, 99252);  -- Divine
+CALL split_vendor(99224, 99253);  -- Stalwart
+DROP PROCEDURE IF EXISTS split_vendor;
+
 SELECT merchantid, COUNT(*) AS stocked FROM merchantlist
-WHERE merchantid BETWEEN 99221 AND 99224 GROUP BY merchantid;
+WHERE merchantid IN (99221,99222,99223,99224,99251,99252,99253) GROUP BY merchantid;
