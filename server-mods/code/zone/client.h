@@ -506,6 +506,7 @@ public:
 	inline PlayerProfile_Struct& GetPP() { return m_pp; }
 	inline ExtendedProfile_Struct& GetEPP() { return m_epp; }
 	void LoadMulticlassMask();
+	void PurgeAfterClassRelease(uint8 released_class); // strip AAs/skills the retained classes can't use; refund AA points
 	void SetMulticlassSlot(uint8 slot, uint8 class_id);
 	inline uint32 GetClassMask() const { return m_multiclass_mask; }
 	inline uint8 GetClass2() const { return m_class2; }
