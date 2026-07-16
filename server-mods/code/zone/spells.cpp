@@ -2992,6 +2992,19 @@ int Mob::CalcBuffDuration(Mob *caster, Mob *target, uint16 spell_id, int32 caste
 		res = 10000; // ~16h override
 	}
 
+	// Nightcap #31: buffs a player casts on themselves last until clicked off or
+	// overwritten. Discs/short-box buffs keep their timers (permanent Defensive would
+	// break combat balance). Formula-50/aura spells already return negative above.
+	// ponytail: 1,000,000 tics (~69 days online time), not true DF_Permanent -- a
+	// negative ticsremaining goes raw into SpellBuffPacket_Struct and character_buffs,
+	// and only formula-50 spells get the 0xFFFFFFFF client override (aa.cpp). If true
+	// permanence matters, wire PERMANENT_BUFF_DURATION through those paths instead.
+	if (res > 0 && caster == target && caster->IsClient() &&
+	    IsBeneficialSpell(spell_id) && !IsDisciplineBuff(spell_id) &&
+	    !spells[spell_id].short_buff_box) {
+		res = 1000000;
+	}
+
 	LogSpells("Spell [{}]: Casting level [{}], formula [{}], base_duration [{}]: result [{}]",
 		spell_id, castlevel, formula, duration, res);
 
