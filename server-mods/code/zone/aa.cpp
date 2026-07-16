@@ -1002,8 +1002,17 @@ void Client::PurgeAfterClassRelease(uint8 released_class) {
 	LogInfo("[PurgeAfterClassRelease] [{}] released class [{}]: refunded [{}] AA points",
 		GetName(), released_class, refunded);
 
+	// SaveAA rewrites survivors with REPLACE INTO but never DELETEs the rows we removed
+	// (they'd reload on relog). Wipe the character's AA rows first, like ResetAA, then let
+	// SaveAA re-insert the survivors.
+	database.DeleteCharacterAAs(CharacterID());
 	SaveAA();
 	Save();
+	// The RoF2 client never drops an AA from the window on its own; resending the table
+	// only adds/updates. Clear the whole client-side AA list (OP_ClearAA), then repopulate
+	// with just the accessible (retained-class) AAs so the stripped ones disappear now,
+	// no relog needed. Matches ResetAA's approach.
+	SendClearPlayerAA();
 	SendAlternateAdvancementTable();
 	SendAlternateAdvancementPoints();
 	SendAlternateAdvancementStats();
