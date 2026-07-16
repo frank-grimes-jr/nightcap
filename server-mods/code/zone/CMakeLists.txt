@@ -513,6 +513,7 @@ set(gm_command_sources
     gm_commands/scale.cpp
     gm_commands/scribespell.cpp
     gm_commands/scribespells.cpp
+    gm_commands/sell_all.cpp
     gm_commands/sendzonespawns.cpp
     gm_commands/sensetrap.cpp
     gm_commands/serverrules.cpp
