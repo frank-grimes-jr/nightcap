@@ -11,17 +11,19 @@
 --   Ascended epics = base + 800,000 (quest-only; see Epic_Forgemaster.pl)
 --   Custom items   = 900,000+
 --
--- Scaling model (2026-07-15 rework, ADR-worthy rationale in CHANGES.md):
--- tier bonuses are fractions of ONE EXPANSION STEP so gear stays balanced as
--- eras unlock (mob HP/damage grow with each era; so does baseline loot).
---   OFFENSE + RESISTS (tight curve — shortens time-to-kill / trivializes
---   resist checks):            x1.10 / x1.20 / x1.35
---   DEFENSE + UTILITY (generous curve — survivability is the solo-enabling
---   axis):                     x1.20 / x1.45 / x1.75
--- Offense family: damage, attack, accuracy, spelldmg, healamt, backstabdmg,
---   elemdmgamt, combateffects, strikethrough, damageshield, fr/cr/mr/dr/pr/svcorruption.
--- Defense family: ac, hp, mana, endur, regens, base stats, heroics, avoidance,
---   dotshielding, shielding, spellshield, clairvoyance.
+-- Scaling model (2026-07-16 rework — calibrated to THJ Legendary, issue #25):
+-- Ascended (max tier) matches THJ's Legendary multipliers, measured off the
+-- Necklace of Eternal Visions (item 9289) base vs its Legendary version.
+-- Per stat FAMILY (Polished / Exalted / Ascended):
+--   HP / Mana:                 x1.45 / x1.90 / x2.40   (THJ Legendary ~x2.4)
+--   AC / base stats / resists / regens: x1.35 / x1.65 / x2.00
+--   Endurance:                 x1.07 / x1.13 / x1.20   (THJ: 180 -> 220)
+--   Offense (dmg/atk/acc/spelldmg/healamt/...): x1.10 / x1.20 / x1.35
+--                              (kept conservative so solo kill-speed doesn't
+--                               trivialize — offense comes from AA/disc/augs, per #24)
+-- NOT scaled (THJ leaves them): shielding, spellshield, dotshielding, avoidance,
+--   clairvoyance (capped advanced stats). HEROIC stats are also left untouched:
+--   THJ *adds* heroic on Legendary; that layer is deferred to heroic-stats (#8).
 --
 -- Scope: equippable items (slots>0) with >=1 positive scalable stat, plus all
 -- bags (bagslots>0). Class epic weapons are excluded (upgraded via quest).
@@ -32,13 +34,15 @@
 DROP PROCEDURE IF EXISTS gen_loot_tier;
 DELIMITER //
 CREATE PROCEDURE gen_loot_tier(
-    IN p_off      INT,
-    IN p_mult     DECIMAL(4,2),  -- defense/utility curve
-    IN p_mult_off DECIMAL(4,2),  -- offense/resist curve
-    IN p_tag      VARCHAR(20),
-    IN p_bagslot  INT,
-    IN p_bagwr    INT,
-    IN p_bagsize  INT
+    IN p_off     INT,
+    IN p_hpmana  DECIMAL(4,2),  -- HP / Mana        (Ascended = THJ Legendary x2.4)
+    IN p_core    DECIMAL(4,2),  -- AC / base stats / resists / regens  (x2.0)
+    IN p_endur   DECIMAL(4,2),  -- Endurance        (x1.2)
+    IN p_offn    DECIMAL(4,2),  -- offense: damage/attack/accuracy/spelldmg/healamt/... (conservative)
+    IN p_tag     VARCHAR(20),
+    IN p_bagslot INT,
+    IN p_bagwr   INT,
+    IN p_bagsize INT
 )
 BEGIN
     -- clear this tier's id band (idempotent re-run)
@@ -65,33 +69,39 @@ BEGIN
             ))
           );
 
-    -- defense/utility scaling (generous curve; positive values only)
+    -- HP / Mana (scale highest) + tag + id shift
     UPDATE tg SET
       id   = id + p_off,
       Name = CONCAT(Name, p_tag),
-      ac=IF(ac>0,ROUND(ac*p_mult),ac), hp=IF(hp>0,ROUND(hp*p_mult),hp), mana=IF(mana>0,ROUND(mana*p_mult),mana),
-      endur=IF(endur>0,ROUND(endur*p_mult),endur), regen=IF(regen>0,ROUND(regen*p_mult),regen),
-      manaregen=IF(manaregen>0,ROUND(manaregen*p_mult),manaregen), enduranceregen=IF(enduranceregen>0,ROUND(enduranceregen*p_mult),enduranceregen),
-      astr=IF(astr>0,ROUND(astr*p_mult),astr), asta=IF(asta>0,ROUND(asta*p_mult),asta), aagi=IF(aagi>0,ROUND(aagi*p_mult),aagi),
-      adex=IF(adex>0,ROUND(adex*p_mult),adex), acha=IF(acha>0,ROUND(acha*p_mult),acha), aint=IF(aint>0,ROUND(aint*p_mult),aint), awis=IF(awis>0,ROUND(awis*p_mult),awis),
-      heroic_str=IF(heroic_str>0,ROUND(heroic_str*p_mult),heroic_str), heroic_sta=IF(heroic_sta>0,ROUND(heroic_sta*p_mult),heroic_sta),
-      heroic_agi=IF(heroic_agi>0,ROUND(heroic_agi*p_mult),heroic_agi), heroic_dex=IF(heroic_dex>0,ROUND(heroic_dex*p_mult),heroic_dex),
-      heroic_cha=IF(heroic_cha>0,ROUND(heroic_cha*p_mult),heroic_cha), heroic_int=IF(heroic_int>0,ROUND(heroic_int*p_mult),heroic_int), heroic_wis=IF(heroic_wis>0,ROUND(heroic_wis*p_mult),heroic_wis),
-      avoidance=IF(avoidance>0,ROUND(avoidance*p_mult),avoidance), clairvoyance=IF(clairvoyance>0,ROUND(clairvoyance*p_mult),clairvoyance),
-      dotshielding=IF(dotshielding>0,ROUND(dotshielding*p_mult),dotshielding), shielding=IF(shielding>0,ROUND(shielding*p_mult),shielding),
-      spellshield=IF(spellshield>0,ROUND(spellshield*p_mult),spellshield);
+      hp   = IF(hp>0,   ROUND(hp   * p_hpmana), hp),
+      mana = IF(mana>0, ROUND(mana * p_hpmana), mana);
 
-    -- offense + resist scaling (tight curve; positive values only)
+    -- Core defense: AC, base stats, resists, regens (positive only)
     UPDATE tg SET
-      damage=IF(damage>0,ROUND(damage*p_mult_off),damage),
-      attack=IF(attack>0,ROUND(attack*p_mult_off),attack), accuracy=IF(accuracy>0,ROUND(accuracy*p_mult_off),accuracy),
-      spelldmg=IF(spelldmg>0,ROUND(spelldmg*p_mult_off),spelldmg), healamt=IF(healamt>0,ROUND(healamt*p_mult_off),healamt),
-      backstabdmg=IF(backstabdmg>0,ROUND(backstabdmg*p_mult_off),backstabdmg), elemdmgamt=IF(elemdmgamt>0,ROUND(elemdmgamt*p_mult_off),elemdmgamt),
-      combateffects=IF(combateffects>0,ROUND(combateffects*p_mult_off),combateffects),
-      strikethrough=IF(strikethrough>0,ROUND(strikethrough*p_mult_off),strikethrough), damageshield=IF(damageshield>0,ROUND(damageshield*p_mult_off),damageshield),
-      fr=IF(fr>0,ROUND(fr*p_mult_off),fr), cr=IF(cr>0,ROUND(cr*p_mult_off),cr), mr=IF(mr>0,ROUND(mr*p_mult_off),mr),
-      dr=IF(dr>0,ROUND(dr*p_mult_off),dr), pr=IF(pr>0,ROUND(pr*p_mult_off),pr),
-      svcorruption=IF(svcorruption>0,ROUND(svcorruption*p_mult_off),svcorruption);
+      ac=IF(ac>0,ROUND(ac*p_core),ac),
+      regen=IF(regen>0,ROUND(regen*p_core),regen), manaregen=IF(manaregen>0,ROUND(manaregen*p_core),manaregen),
+      enduranceregen=IF(enduranceregen>0,ROUND(enduranceregen*p_core),enduranceregen),
+      astr=IF(astr>0,ROUND(astr*p_core),astr), asta=IF(asta>0,ROUND(asta*p_core),asta), aagi=IF(aagi>0,ROUND(aagi*p_core),aagi),
+      adex=IF(adex>0,ROUND(adex*p_core),adex), acha=IF(acha>0,ROUND(acha*p_core),acha), aint=IF(aint>0,ROUND(aint*p_core),aint), awis=IF(awis>0,ROUND(awis*p_core),awis),
+      fr=IF(fr>0,ROUND(fr*p_core),fr), cr=IF(cr>0,ROUND(cr*p_core),cr), mr=IF(mr>0,ROUND(mr*p_core),mr),
+      dr=IF(dr>0,ROUND(dr*p_core),dr), pr=IF(pr>0,ROUND(pr*p_core),pr), svcorruption=IF(svcorruption>0,ROUND(svcorruption*p_core),svcorruption);
+
+    -- Endurance (scales least, per THJ: 180 -> 220)
+    UPDATE tg SET endur=IF(endur>0,ROUND(endur*p_endur),endur);
+
+    -- Offense (conservative — keeps solo kill-speed from trivializing; positive only)
+    UPDATE tg SET
+      damage=IF(damage>0,ROUND(damage*p_offn),damage),
+      attack=IF(attack>0,ROUND(attack*p_offn),attack), accuracy=IF(accuracy>0,ROUND(accuracy*p_offn),accuracy),
+      spelldmg=IF(spelldmg>0,ROUND(spelldmg*p_offn),spelldmg), healamt=IF(healamt>0,ROUND(healamt*p_offn),healamt),
+      backstabdmg=IF(backstabdmg>0,ROUND(backstabdmg*p_offn),backstabdmg), elemdmgamt=IF(elemdmgamt>0,ROUND(elemdmgamt*p_offn),elemdmgamt),
+      combateffects=IF(combateffects>0,ROUND(combateffects*p_offn),combateffects),
+      strikethrough=IF(strikethrough>0,ROUND(strikethrough*p_offn),strikethrough), damageshield=IF(damageshield>0,ROUND(damageshield*p_offn),damageshield);
+
+    -- NOT scaled (THJ leaves them; capped "advanced" stats): shielding, spellshield,
+    -- dotshielding, avoidance, clairvoyance. HEROIC stats are also left untouched — THJ
+    -- *adds* heroic on Legendary, which is deferred to the heroic-stats work (#8); scaling
+    -- the mostly-zero base heroic columns here would do nothing.
 
     -- bag scaling: more slots, weight reduction, capacity
     UPDATE tg SET
@@ -105,9 +115,10 @@ BEGIN
 END //
 DELIMITER ;
 
-CALL gen_loot_tier(200000, 1.20, 1.10, ' (Polished)', 2,  25, 3);  -- T2 Polished
-CALL gen_loot_tier(400000, 1.45, 1.20, ' (Exalted)',  4,  50, 4);  -- T3 Exalted
-CALL gen_loot_tier(600000, 1.75, 1.35, ' (Ascended)', 6, 100, 4);  -- T4 Ascended
+--                       hpmana core  endur offn  tag             bag: slot wr size
+CALL gen_loot_tier(200000, 1.45, 1.35, 1.07, 1.10, ' (Polished)', 2,  25, 3);
+CALL gen_loot_tier(400000, 1.90, 1.65, 1.13, 1.20, ' (Exalted)',  4,  50, 4);
+CALL gen_loot_tier(600000, 2.40, 2.00, 1.20, 1.35, ' (Ascended)', 6, 100, 4);  -- = THJ Legendary
 
 DROP PROCEDURE IF EXISTS gen_loot_tier;
 
@@ -115,34 +126,31 @@ DROP PROCEDURE IF EXISTS gen_loot_tier;
 -- Part 2 — Ascended epics, Essence item, Forgemaster NPC, global Essence drop
 -- =============================================================================
 
--- Ascended epics: each class 1.0 epic -> base+800,000 (quest-only reward)
--- Same two-curve scaling as T4 Ascended: defense x1.75, offense/resists x1.35.
+-- Ascended epics: each class 1.0 epic -> base+800,000 (quest-only reward).
+-- Same per-family scaling as T4 Ascended (= THJ Legendary): HP/Mana x2.4,
+-- AC/stats/resists/regens x2.0, Endurance x1.2, offense x1.35. Capped advanced
+-- stats + heroics left untouched (heroics deferred to #8).
 DELETE FROM items WHERE id BETWEEN 800001 AND 899999;
 DROP TEMPORARY TABLE IF EXISTS tge;
 CREATE TEMPORARY TABLE tge AS SELECT * FROM items
   WHERE id IN (5532,10099,10650,10651,10652,10908,11057,11566,14341,14383,20487,20488,20490,20542,20544);
 UPDATE tge SET
   id=id+800000, Name=CONCAT(Name,' (Ascended)'),
-  ac=IF(ac>0,ROUND(ac*1.75),ac), hp=IF(hp>0,ROUND(hp*1.75),hp), mana=IF(mana>0,ROUND(mana*1.75),mana),
-  endur=IF(endur>0,ROUND(endur*1.75),endur), regen=IF(regen>0,ROUND(regen*1.75),regen),
-  manaregen=IF(manaregen>0,ROUND(manaregen*1.75),manaregen), enduranceregen=IF(enduranceregen>0,ROUND(enduranceregen*1.75),enduranceregen),
-  astr=IF(astr>0,ROUND(astr*1.75),astr), asta=IF(asta>0,ROUND(asta*1.75),asta), aagi=IF(aagi>0,ROUND(aagi*1.75),aagi),
-  adex=IF(adex>0,ROUND(adex*1.75),adex), acha=IF(acha>0,ROUND(acha*1.75),acha), aint=IF(aint>0,ROUND(aint*1.75),aint), awis=IF(awis>0,ROUND(awis*1.75),awis),
-  heroic_str=IF(heroic_str>0,ROUND(heroic_str*1.75),heroic_str), heroic_sta=IF(heroic_sta>0,ROUND(heroic_sta*1.75),heroic_sta),
-  heroic_agi=IF(heroic_agi>0,ROUND(heroic_agi*1.75),heroic_agi), heroic_dex=IF(heroic_dex>0,ROUND(heroic_dex*1.75),heroic_dex),
-  heroic_cha=IF(heroic_cha>0,ROUND(heroic_cha*1.75),heroic_cha), heroic_int=IF(heroic_int>0,ROUND(heroic_int*1.75),heroic_int), heroic_wis=IF(heroic_wis>0,ROUND(heroic_wis*1.75),heroic_wis),
-  avoidance=IF(avoidance>0,ROUND(avoidance*1.75),avoidance), clairvoyance=IF(clairvoyance>0,ROUND(clairvoyance*1.75),clairvoyance),
-  dotshielding=IF(dotshielding>0,ROUND(dotshielding*1.75),dotshielding), shielding=IF(shielding>0,ROUND(shielding*1.75),shielding),
-  spellshield=IF(spellshield>0,ROUND(spellshield*1.75),spellshield),
+  hp=IF(hp>0,ROUND(hp*2.40),hp), mana=IF(mana>0,ROUND(mana*2.40),mana),
+  ac=IF(ac>0,ROUND(ac*2.00),ac),
+  regen=IF(regen>0,ROUND(regen*2.00),regen), manaregen=IF(manaregen>0,ROUND(manaregen*2.00),manaregen),
+  enduranceregen=IF(enduranceregen>0,ROUND(enduranceregen*2.00),enduranceregen),
+  astr=IF(astr>0,ROUND(astr*2.00),astr), asta=IF(asta>0,ROUND(asta*2.00),asta), aagi=IF(aagi>0,ROUND(aagi*2.00),aagi),
+  adex=IF(adex>0,ROUND(adex*2.00),adex), acha=IF(acha>0,ROUND(acha*2.00),acha), aint=IF(aint>0,ROUND(aint*2.00),aint), awis=IF(awis>0,ROUND(awis*2.00),awis),
+  fr=IF(fr>0,ROUND(fr*2.00),fr), cr=IF(cr>0,ROUND(cr*2.00),cr), mr=IF(mr>0,ROUND(mr*2.00),mr),
+  dr=IF(dr>0,ROUND(dr*2.00),dr), pr=IF(pr>0,ROUND(pr*2.00),pr), svcorruption=IF(svcorruption>0,ROUND(svcorruption*2.00),svcorruption),
+  endur=IF(endur>0,ROUND(endur*1.20),endur),
   damage=IF(damage>0,ROUND(damage*1.35),damage),
   attack=IF(attack>0,ROUND(attack*1.35),attack), accuracy=IF(accuracy>0,ROUND(accuracy*1.35),accuracy),
   spelldmg=IF(spelldmg>0,ROUND(spelldmg*1.35),spelldmg), healamt=IF(healamt>0,ROUND(healamt*1.35),healamt),
   backstabdmg=IF(backstabdmg>0,ROUND(backstabdmg*1.35),backstabdmg), elemdmgamt=IF(elemdmgamt>0,ROUND(elemdmgamt*1.35),elemdmgamt),
   combateffects=IF(combateffects>0,ROUND(combateffects*1.35),combateffects),
-  strikethrough=IF(strikethrough>0,ROUND(strikethrough*1.35),strikethrough), damageshield=IF(damageshield>0,ROUND(damageshield*1.35),damageshield),
-  fr=IF(fr>0,ROUND(fr*1.35),fr), cr=IF(cr>0,ROUND(cr*1.35),cr), mr=IF(mr>0,ROUND(mr*1.35),mr),
-  dr=IF(dr>0,ROUND(dr*1.35),dr), pr=IF(pr>0,ROUND(pr*1.35),pr),
-  svcorruption=IF(svcorruption>0,ROUND(svcorruption*1.35),svcorruption);
+  strikethrough=IF(strikethrough>0,ROUND(strikethrough*1.35),strikethrough), damageshield=IF(damageshield>0,ROUND(damageshield*1.35),damageshield);
 INSERT INTO items SELECT * FROM tge;
 DROP TEMPORARY TABLE IF EXISTS tge;
 

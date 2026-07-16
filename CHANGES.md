@@ -4,6 +4,30 @@ Running log of significant changes to this repo — schema migrations, C++ patch
 
 ---
 
+## 2026-07-16 — Item tier scaling recalibrated to THJ Legendary (#25)
+
+Replaced the 2026-07-15 two-curve scaling (defense x1.20/1.45/1.75, offense x1.10/1.20/1.35) with a **per-family model calibrated to actual THJ Legendary values**, measured from the Necklace of Eternal Visions (item 9289) base vs the Legendary reference the user provided (#25):
+
+| Family | Polished | Exalted | Ascended (= THJ Legendary) |
+|---|---|---|---|
+| HP / Mana | 1.45 | 1.90 | **2.40** |
+| AC / base stats / resists / regens | 1.35 | 1.65 | **2.00** |
+| Endurance | 1.07 | 1.13 | **1.20** |
+| Offense (dmg/atk/acc/spelldmg/healamt/...) | 1.10 | 1.20 | **1.35** |
+
+Key changes vs the prior model:
+- **Ascended is now much stronger** on survivability — HP/Mana x2.4 (was x1.75) and stats/AC/resists x2.0. This matches THJ, where end-game is survivable-but-hard only with maxed gear.
+- **Resists moved from the offense curve to the core x2.0 family** (THJ scales resists x2.0, verified: 15 -> 30 on the necklace).
+- **Offense curve unchanged** (x1.35 max) — kept conservative so solo kill-speed doesn't trivialize; burst is meant to come from AA/discs/augments (#24 context).
+- **Capped advanced stats (shielding/spellshield/dotshielding/avoidance/clairvoyance) are no longer scaled** — THJ leaves them (necklace shielding 2 -> 2).
+- **Heroic stats left untouched, by design.** THJ *adds* heroic on Legendary (~25% of the scaled stat); that whole layer is deferred to heroic-stats (#8), since heroic doesn't function yet and scaling the mostly-zero base heroic columns is inert.
+
+`eq-solo-gm/scripts/tiered_loot_setup.sql` is the source. Ascended epics (+800k) use the same per-family scaling. Backup peq_20260716_053700 taken before the 190k-row regen. Needs shared_memory regen + zone restart.
+
+**Not done (follow-ups):** heroic-stat additions (with #8), and THJ's advanced-stat *additions* on Legendary (Attack/Accuracy/Heal/SpellDmg appear on the necklace but were 0 on the base — the multiplier can't add them; would need a generic per-slot rule).
+
+---
+
 ## 2026-07-16 — Issue batch: #27 no-corpse-runs, #21 spell-vendor split, #18 strip fixes, #19 diagnosis
 
 **#27 No corpse runs (rule_values, ruleset 1):** on death you now keep all gear/money/items and respawn at bind.
