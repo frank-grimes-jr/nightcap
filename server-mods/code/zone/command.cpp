@@ -204,6 +204,7 @@ int command_init(void)
 		command_add("scale", "Handles NPC scaling", AccountStatus::GMLeadAdmin, command_scale) ||
 		command_add("scribespell", "[Spell ID] - Scribe a spell by ID to your or your target's spell book.", AccountStatus::GMCoder, command_scribespell) ||
 		command_add("scribespells", "[Max level] [Min level] - Scribe all spells for you or your player target that are usable by them, up to level specified. (may freeze client for a few seconds)", AccountStatus::GMLeadAdmin, command_scribespells) ||
+		command_add("sellall", "Sell everything in your bags to the void (keeps bags, no-drop, and temporary items)", AccountStatus::Player, command_sell_all) ||
 		command_add("sendzonespawns", "Refresh spawn list for all clients in zone", AccountStatus::GMLeadAdmin, command_sendzonespawns) ||
 		command_add("sensetrap", "Analog for ldon sense trap for the newer clients since we still don't have it working.", AccountStatus::Player, command_sensetrap) ||
 		command_add("serverrules", "Show server rules", AccountStatus::Player, command_serverrules) ||
