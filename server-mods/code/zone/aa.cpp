@@ -23,6 +23,7 @@ Copyright (C) 2001-2016 EQEMu Development Team (http://eqemulator.net)
 #include "common/eqemu_logsys.h"
 #include "common/events/player_event_logs.h"
 #include "common/races.h"
+#include "common/skill_caps.h"
 #include "common/repositories/aa_ability_repository.h"
 #include "common/repositories/aa_rank_effects_repository.h"
 #include "common/repositories/aa_rank_prereqs_repository.h"
@@ -940,6 +941,83 @@ void Client::RefundAA() {
 	SendAlternateAdvancementStats();
 }
 
+// Multiclass: called right after a discipline slot is released (character_multiclass
+// already updated). Refunds + strips the AAs and resets the skills the character can no
+// longer access under its remaining class mask. Operates on the live session, so the
+// change is visible without a relog.
+//
+// Spells are intentionally NOT touched here: global spell-access widening (issue #17)
+// makes per-character spell revocation impossible until the client DLL removes the need
+// for it (#18 / #12).
+void Client::PurgeAfterClassRelease(uint8 released_class) {
+	LoadMulticlassMask();                       // recompute mask from the updated DB row
+	const uint32 mask = GetClassMask();         // client format: bit N = class N
+
+	// --- AAs: refund total_cost and remove any no longer accessible under the mask ---
+	int refunded = 0;
+	auto it = aa_ranks.begin();
+	while (it != aa_ranks.end()) {
+		auto ability_rank = zone->GetAlternateAdvancementAbilityAndRank(it->first, it->second.first);
+		auto ability      = ability_rank.first;
+		auto rank         = ability_rank.second;
+
+		if (!ability) { ++it; continue; }
+		if (ability->classes & mask) { ++it; continue; }   // still accessible: keep
+
+		if (!ability->grant_only && rank) {
+			refunded += rank->total_cost;                  // purchased points come back
+		}
+		it = aa_ranks.erase(it);
+	}
+	if (refunded > 0) {
+		m_pp.aapoints += refunded;
+	}
+
+	// --- Skills: cap each trained skill at the best cap the RETAINED classes allow, so
+	// a released class's mastery (e.g. Bard singing at 200) drops to what the kept classes
+	// permit. ponytail: currently near-inert because skill_caps is globally EXPANDED by the
+	// multiclass apply (CHANGES 2026-07-14; same class of problem as spell-access #17) — the
+	// retained classes inherit the released class's caps until skill_caps is de-widened.
+	// Left in because it is correct and starts working the moment skill_caps returns to stock;
+	// full skill revocation needs the de-widen (mask-aware caps), tracked in #18.
+	const uint8 level = GetLevel();
+	for (const auto &entry : EQ::skills::GetSkillTypeMap()) {
+		const EQ::skills::SkillType skill = entry.first;
+		const uint16 current = GetRawSkill(skill);
+		if (current == 0) {
+			continue;
+		}
+		uint16 retained_cap = 0;
+		for (uint8 c : GetMulticlassList()) {
+			const uint16 cap = SkillCaps::Instance()->GetSkillCap(c, skill, level).cap;
+			if (cap > retained_cap) {
+				retained_cap = cap;
+			}
+		}
+		if (current > retained_cap) {
+			SetSkill(skill, retained_cap);
+		}
+	}
+
+	LogInfo("[PurgeAfterClassRelease] [{}] released class [{}]: refunded [{}] AA points",
+		GetName(), released_class, refunded);
+
+	// SaveAA rewrites survivors with REPLACE INTO but never DELETEs the rows we removed
+	// (they'd reload on relog). Wipe the character's AA rows first, like ResetAA, then let
+	// SaveAA re-insert the survivors.
+	database.DeleteCharacterAAs(CharacterID());
+	SaveAA();
+	Save();
+	// The RoF2 client never drops an AA from the window on its own; resending the table
+	// only adds/updates. Clear the whole client-side AA list (OP_ClearAA), then repopulate
+	// with just the accessible (retained-class) AAs so the stripped ones disappear now,
+	// no relog needed. Matches ResetAA's approach.
+	SendClearPlayerAA();
+	SendAlternateAdvancementTable();
+	SendAlternateAdvancementPoints();
+	SendAlternateAdvancementStats();
+}
+
 SwarmPet::SwarmPet()
 {
 	target = 0;
@@ -1020,7 +1098,8 @@ void Client::SendAlternateAdvancementRank(int aa_id, int level) {
 	//   - single-class AA (a secondary class's own AA) -> present as THIS character's
 	//     class bit, so it files into the Class tab beside the native-class AAs.
 	//   - multi-class AA (archetype/general) -> just OR our class bit in for visibility.
-	uint32 my_class_bit = 1 << (GetClass() - 1);
+	// classes here is client format: bit N = class N (see loader, classes << 1)
+	uint32 my_class_bit = 1 << GetClass();
 	bool single_class = (ability->classes != 0) && ((ability->classes & (ability->classes - 1)) == 0);
 	aai->classes = single_class ? my_class_bit : (ability->classes | my_class_bit);
 	aai->level_req = rank->level_req;
