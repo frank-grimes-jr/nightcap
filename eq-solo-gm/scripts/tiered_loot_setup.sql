@@ -39,6 +39,7 @@ CREATE PROCEDURE gen_loot_tier(
     IN p_core    DECIMAL(4,2),  -- AC / base stats / resists / regens  (x2.0)
     IN p_endur   DECIMAL(4,2),  -- Endurance        (x1.2)
     IN p_offn    DECIMAL(4,2),  -- offense: damage/attack/accuracy/spelldmg/healamt/... (conservative)
+    IN p_heroic  DECIMAL(4,2),  -- heroic = this fraction of the scaled stat (Ascended 0.25; else 0)  #8
     IN p_tag     VARCHAR(20),
     IN p_bagslot INT,
     IN p_bagwr   INT,
@@ -98,10 +99,25 @@ BEGIN
       combateffects=IF(combateffects>0,ROUND(combateffects*p_offn),combateffects),
       strikethrough=IF(strikethrough>0,ROUND(strikethrough*p_offn),strikethrough), damageshield=IF(damageshield>0,ROUND(damageshield*p_offn),damageshield);
 
-    -- NOT scaled (THJ leaves them; capped "advanced" stats): shielding, spellshield,
-    -- dotshielding, avoidance, clairvoyance. HEROIC stats are also left untouched — THJ
-    -- *adds* heroic on Legendary, which is deferred to the heroic-stats work (#8); scaling
-    -- the mostly-zero base heroic columns here would do nothing.
+    -- Heroic stats (THJ Legendary signature, #8): add p_heroic of the SCALED base
+    -- stat/resist as heroic (Ascended p_heroic=0.25 -> STA 40 gets +10 heroic, matching
+    -- the reference necklace). Lower tiers pass 0. The heroic engine is live at x1.0
+    -- multipliers (Character:Heroic*Multiplier); heroic also raises the stat softcap.
+    -- Still NOT scaled: shielding/spellshield/dotshielding/avoidance/clairvoyance (capped).
+    UPDATE tg SET
+      heroic_str = heroic_str + IF(astr>0, ROUND(astr*p_heroic), 0),
+      heroic_sta = heroic_sta + IF(asta>0, ROUND(asta*p_heroic), 0),
+      heroic_agi = heroic_agi + IF(aagi>0, ROUND(aagi*p_heroic), 0),
+      heroic_dex = heroic_dex + IF(adex>0, ROUND(adex*p_heroic), 0),
+      heroic_int = heroic_int + IF(aint>0, ROUND(aint*p_heroic), 0),
+      heroic_wis = heroic_wis + IF(awis>0, ROUND(awis*p_heroic), 0),
+      heroic_cha = heroic_cha + IF(acha>0, ROUND(acha*p_heroic), 0),
+      heroic_mr  = heroic_mr  + IF(mr>0, ROUND(mr*p_heroic), 0),
+      heroic_fr  = heroic_fr  + IF(fr>0, ROUND(fr*p_heroic), 0),
+      heroic_cr  = heroic_cr  + IF(cr>0, ROUND(cr*p_heroic), 0),
+      heroic_dr  = heroic_dr  + IF(dr>0, ROUND(dr*p_heroic), 0),
+      heroic_pr  = heroic_pr  + IF(pr>0, ROUND(pr*p_heroic), 0)
+      WHERE p_heroic > 0;
 
     -- bag scaling: more slots, weight reduction, capacity
     UPDATE tg SET
@@ -115,10 +131,10 @@ BEGIN
 END //
 DELIMITER ;
 
---                       hpmana core  endur offn  tag             bag: slot wr size
-CALL gen_loot_tier(200000, 1.45, 1.35, 1.07, 1.10, ' (Polished)', 2,  25, 3);
-CALL gen_loot_tier(400000, 1.90, 1.65, 1.13, 1.20, ' (Exalted)',  4,  50, 4);
-CALL gen_loot_tier(600000, 2.40, 2.00, 1.20, 1.35, ' (Ascended)', 6, 100, 4);  -- = THJ Legendary
+--                       hpmana core  endur offn  heroic tag             bag: slot wr size
+CALL gen_loot_tier(200000, 1.45, 1.35, 1.07, 1.10, 0.00, ' (Polished)', 2,  25, 3);
+CALL gen_loot_tier(400000, 1.90, 1.65, 1.13, 1.20, 0.00, ' (Exalted)',  4,  50, 4);
+CALL gen_loot_tier(600000, 2.40, 2.00, 1.20, 1.35, 0.25, ' (Ascended)', 6, 100, 4);  -- = THJ Legendary (+25% heroic)
 
 DROP PROCEDURE IF EXISTS gen_loot_tier;
 
@@ -151,6 +167,14 @@ UPDATE tge SET
   backstabdmg=IF(backstabdmg>0,ROUND(backstabdmg*1.35),backstabdmg), elemdmgamt=IF(elemdmgamt>0,ROUND(elemdmgamt*1.35),elemdmgamt),
   combateffects=IF(combateffects>0,ROUND(combateffects*1.35),combateffects),
   strikethrough=IF(strikethrough>0,ROUND(strikethrough*1.35),strikethrough), damageshield=IF(damageshield>0,ROUND(damageshield*1.35),damageshield);
+-- Ascended epic heroic (+25% of scaled stat, matching T4 Ascended, #8)
+UPDATE tge SET
+  heroic_str=heroic_str+IF(astr>0,ROUND(astr*0.25),0), heroic_sta=heroic_sta+IF(asta>0,ROUND(asta*0.25),0),
+  heroic_agi=heroic_agi+IF(aagi>0,ROUND(aagi*0.25),0), heroic_dex=heroic_dex+IF(adex>0,ROUND(adex*0.25),0),
+  heroic_int=heroic_int+IF(aint>0,ROUND(aint*0.25),0), heroic_wis=heroic_wis+IF(awis>0,ROUND(awis*0.25),0),
+  heroic_cha=heroic_cha+IF(acha>0,ROUND(acha*0.25),0),
+  heroic_mr=heroic_mr+IF(mr>0,ROUND(mr*0.25),0), heroic_fr=heroic_fr+IF(fr>0,ROUND(fr*0.25),0),
+  heroic_cr=heroic_cr+IF(cr>0,ROUND(cr*0.25),0), heroic_dr=heroic_dr+IF(dr>0,ROUND(dr*0.25),0), heroic_pr=heroic_pr+IF(pr>0,ROUND(pr*0.25),0);
 INSERT INTO items SELECT * FROM tge;
 DROP TEMPORARY TABLE IF EXISTS tge;
 

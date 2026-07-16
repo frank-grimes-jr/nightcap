@@ -4,6 +4,20 @@ Running log of significant changes to this repo — schema migrations, C++ patch
 
 ---
 
+## 2026-07-16 — Heroic stats activated + stat softcap raised (#8)
+
+**Finding:** heroic stats were NOT missing — the engine is fully implemented in this build (`bonuses.cpp` CalcHeroicBonuses / SetHeroic*Bonuses, driven by `Character:Heroic*Multiplier` rules at ×1.0). Per the rule descriptions: heroic STA → +100 HP/+0.5 HP-regen/+endurance per 10; STR → +1 melee dmg/+1 shield-AC per 10; AGI → +1 avoidance-AC; DEX → +1 archery/throwing dmg; INT/WIS → +100 mana per 10; heroics also raise the stat's own softcap. It just had nothing to act on. Three gaps fixed:
+
+1. **Items now carry heroic.** Added `heroic_X = 25% of the scaled base stat/resist` to **Ascended items only** (the THJ Legendary signature — necklace 9289 Legendary: STA 40 → +10 heroic). Polished/Exalted stay heroic-free. `tiered_loot_setup.sql` proc gained a `p_heroic` param (Ascended 0.25, else 0); Ascended epics get it too. Regenerated the tier bands.
+2. **Stat softcap raised 255 → 425** (`Character:StatCap`, ruleset 1) so the 2026-07-16 ×2.0 stat scaling isn't clamped and heroic can stack above it (matches the ~420-435 caps in the THJ #24 reference).
+3. Heroic multipliers left at ×1.0 (already meaningful). The two heroic→advanced conversions (INT→spell-dmg, WIS→heal-amt) left **off** for now — they double-dip with gear's own spell-dmg/heal.
+
+Needs shared_memory regen + zone restart (item data + `#reload rules`). Backup peq_20260716_053700 (from the earlier scaling pass) covers pre-heroic state.
+
+**Gotcha:** heroic only *does* something on gear that has it — currently only Ascended (and Ascended epics). Lower-tier / base gear grants no heroic by design. The heroic→cap interaction means a fully-Ascended character's base stats can exceed 425.
+
+---
+
 ## 2026-07-16 — Item tier scaling recalibrated to THJ Legendary (#25)
 
 Replaced the 2026-07-15 two-curve scaling (defense x1.20/1.45/1.75, offense x1.10/1.20/1.35) with a **per-family model calibrated to actual THJ Legendary values**, measured from the Necklace of Eternal Visions (item 9289) base vs the Legendary reference the user provided (#25):
