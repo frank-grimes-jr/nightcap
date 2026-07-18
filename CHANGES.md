@@ -4,6 +4,27 @@ Running log of significant changes to this repo — schema migrations, C++ patch
 
 ---
 
+## 2026-07-18 — DLL B2: offset-survey build (#12/#13)
+
+In-game QA proved every remaining multiclass blocker (#36 skills window, #37 AA toggle,
+#38 equip, #39 trainers) is the RoF2 base-class UI chassis — the client overrides the server
+below its own gates (the `#aaexp` toggle gets bounced off at level < 51). Server side is done
+for all four; the DLL is the single unlock. Pivoted to B2.
+
+`eq-client-dll/src/dllmain.cpp` gains an **offset survey** (still no memory writes): it waits
+for `MQ2Main.dll` in-process, walks its export table, and logs every exported DWORD whose
+stored value lands inside `eqgame.exe`'s module range — i.e. MQ2-emu's build-exact eqgame
+static addresses, with zero reversing. Then polls a watchlist (spellbook/cast/gem window
+instances, PC/char data) every 15s so a HITL session captures window lifecycle (do the
+windows get constructed for a melee base, or never created?). Output: `nightcap_dll.log` in
+the client folder. Survey runs even on client-size MISMATCH; it never patches.
+
+Deployed to `Client_RoF2_Dev/everquest_rof2/dinput8.dll` (B1 skeleton saved as `.b1bak`).
+Next: HITL session runs the survey, then B2 writes the force-show/gate patches at the
+captured offsets behind the version guard.
+
+---
+
 ## 2026-07-16 — Auto-grant multiclass skills on level-up (#36/#39 follow-up)
 
 In-game QA confirmed the multiclass skill/trainer fixes are **client-chassis-blocked**: the
