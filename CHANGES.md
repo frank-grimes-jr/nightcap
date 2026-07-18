@@ -4,6 +4,36 @@ Running log of significant changes to this repo — schema migrations, C++ patch
 
 ---
 
+## 2026-07-18 — Waypoints fixed: discovery moved to the marker NPC (#32)
+
+**Root cause of "waypoints don't register":** the zone loads only ONE `global_player`
+script, chosen by `_load_precedence` (main.cpp registers **Lua before Perl**). Both
+`global_player.lua` and `global_player.pl` exist, so **Lua always wins and the Perl file
+never loads at all.** All the waypoint discovery logic lived in `global_player.pl` — its
+enter-zone arm + 3s proximity timer never ran. That also explains the earlier main revert
+(someone edited the dead `.pl`).
+
+**Fix — discovery on the marker NPC, language-independent:**
+- New `quests/global/999240.pl` (loads for NPC 999240 in all 72 zones via the "global by NPC
+  ID" resolution). `EVENT_SPAWN` arms a proximity box (±25 xy / ±30 z) around the marker;
+  `EVENT_ENTER` records discovery for the current zone (`INSERT IGNORE`, silent on repeat via
+  `rows_affected`), messages progress, and grants title 100 at all 72. Uses the Perl DB API,
+  so no dependency on the global_player language. Verified: marker sits exactly on the
+  waypoint coords in every zone (spawn2 == nightcap_waypoints).
+- `global_player.pl` replaced with an **inert documented stub** — it never ran; everything in
+  it (veteran AA, PoK attune, mysterious voice, epic combines, per-level skill grant) is
+  already in `global_player.lua`. Header warns future edits to go in the `.lua`.
+- **Deploy:** requires a zone restart so the markers re-run `EVENT_SPAWN` and arm proximity
+  (`#reload quest` alone won't). Done.
+
+**Correction to the 2026-07-16 auto-grant entry (#36/#39):** the `EVENT_LEVEL_UP` skill
+grant I added to `global_player.pl` was in the dead file and never fired. It's moot — the
+LIVE `global_player.lua` `event_level_up` already grants basic skills each level via
+`CanHaveSkill`, which is now mask-aware, so secondary-class skills (Dual Wield, etc.) are
+granted to value 1 on level-up as intended. The dead Perl handler was removed with the stub.
+
+---
+
 ## 2026-07-16 — Auto-grant multiclass skills on level-up (#36/#39 follow-up)
 
 In-game QA confirmed the multiclass skill/trainer fixes are **client-chassis-blocked**: the
