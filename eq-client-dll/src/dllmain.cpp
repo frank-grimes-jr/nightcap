@@ -11,6 +11,7 @@
 // =============================================================================
 
 #include <windows.h>
+#include <tlhelp32.h>
 #include <cstdio>
 #include <cstdint>
 
@@ -130,6 +131,42 @@ static const char* kWatchlist[] = {
     "pinstPCData", "pinstCharData", "pinstLocalPlayer", "pinstControlledPlayer",
 };
 
+// Log every module loaded in the process, so a session that never sees MQ2 still
+// tells us exactly what IS injected (and under what name).
+static void DumpModules(const char* when)
+{
+    HANDLE snap = CreateToolhelp32Snapshot(TH32CS_SNAPMODULE, 0);
+    if (snap == INVALID_HANDLE_VALUE) { Log("modules (%s): snapshot failed", when); return; }
+    MODULEENTRY32 me; me.dwSize = sizeof(me);
+    Log("modules (%s):", when);
+    if (Module32First(snap, &me)) {
+        do {
+            Log("  %-24s base=0x%08X size=0x%08X", me.szModule, (unsigned)(uintptr_t)me.modBaseAddr, me.modBaseSize);
+        } while (Module32Next(snap, &me));
+    }
+    CloseHandle(snap);
+}
+
+// Find MQ2's main module regardless of exact filename: exact "MQ2Main.dll" first,
+// else any loaded module whose name starts with "MQ2".
+static HMODULE FindMq2()
+{
+    HMODULE h = GetModuleHandleA("MQ2Main.dll");
+    if (h) return h;
+
+    HANDLE snap = CreateToolhelp32Snapshot(TH32CS_SNAPMODULE, 0);
+    if (snap == INVALID_HANDLE_VALUE) return nullptr;
+    MODULEENTRY32 me; me.dwSize = sizeof(me);
+    HMODULE found = nullptr;
+    if (Module32First(snap, &me)) {
+        do {
+            if (_strnicmp(me.szModule, "MQ2", 3) == 0) { found = me.hModule; break; }
+        } while (Module32Next(snap, &me));
+    }
+    CloseHandle(snap);
+    return found;
+}
+
 static void SurveyMq2Exports(HMODULE mq2, uintptr_t eq_base, uintptr_t eq_size)
 {
     uintptr_t mq_base, mq_size;
@@ -202,14 +239,18 @@ static DWORD WINAPI InitThread(LPVOID)
     // poll the watchlist so the HITL session captures instance lifecycles
     // (login caster -> windows non-null; camp to melee -> created or null?).
     HMODULE mq2 = nullptr;
-    for (int i = 0; i < 200 && !mq2; i++) {          // up to ~10 min
-        mq2 = GetModuleHandleA("MQ2Main.dll");
-        if (!mq2) Sleep(3000);
+    for (int i = 0; i < 60 && !mq2; i++) {            // up to ~5 min, 5s cadence
+        mq2 = FindMq2();
+        if (i == 2 && !mq2) DumpModules("early, MQ2 not yet seen");  // ~10s in
+        if (!mq2) Sleep(5000);
     }
     if (!mq2) {
-        Log("MQ2Main.dll never appeared - launch MacroQuest2.exe before/after game start, then relog");
+        DumpModules("final, MQ2 never appeared");
+        Log("MQ2 not found in process. Start MacroQuest2.exe (mq-rof2) so MQ2Main.dll injects, "
+            "then relog. If the module list above shows an MQ2 dll under another name, tell me its name.");
         return 0;
     }
+    Log("MQ2 found: module base=0x%08X", (unsigned)(uintptr_t)mq2);
     Sleep(5000); // let MQ2 finish its own offset init
     SurveyMq2Exports(mq2, eq_base, eq_size);
 
