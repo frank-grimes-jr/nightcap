@@ -57,3 +57,146 @@ Server-side right-click scribe already works (`Spells:AllowSpellMemorizeFromItem
 required surface therefore shrinks to: **force `CCastSpellWnd` (spell gems) +
 memorize UI available regardless of `BaseProfile.Class`.** Spellbook window is a
 nice-to-have, not a blocker. This is the smallest thing to prove in B0.
+
+## 2026-07-19 live-client result: exact window gates
+
+The corrected two-client survey captured 991 initialized eqgame offsets in
+each process. Done (Cleric base) and Pups (Rogue base) both had non-null,
+fully initialized `CCastSpellWnd` and `CSpellBookWnd` objects. Pups' objects
+also had valid on-screen rectangles, so construction and geometry were ruled
+out.
+
+MQ2 `/windowstate <name> open` reaches stock `CXWnd::Show(true, true, true)`,
+but `CXWnd::Show` first calls the window's virtual `CanShow` method. Both
+window overrides call the same base-class predicate. Its 16-byte class table
+is:
+
+| Class IDs | 1 WAR | 2 CLR | 3 PAL | 4 RNG | 5 SHD | 6 DRU | 7 MNK | 8 BRD | 9 ROG | 10 SHM | 11 NEC | 12 WIZ | 13 MAG | 14 ENC | 15 BST | 16 BER |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| Stock value | 0 | 1 | 1 | 1 | 1 | 1 | 0 | 1 | 0 | 1 | 1 | 1 | 1 | 1 | 1 | 0 |
+
+The four zeros exactly match the four stock no-mana classes. The first B2
+correction deliberately left the table unchanged and disabled only the
+rejection branch immediately following that predicate in the two window
+`CanShow` methods:
+
+| Window | Signature RVA | Expected signature | Changed bytes |
+|---|---:|---|---|
+| `CCastSpellWnd` | `0x00248867` | `E8 E4 B6 DF FF 85 C0 74 E7` | final `74 E7` → `90 90` |
+| `CSpellBookWnd` | `0x0035C97F` | `E8 CC 75 CE FF 85 C0 74 66` | final `74 66` → `90 90` |
+
+These are RVAs from the loaded `eqgame.exe` base, not preferred virtual
+addresses. The write is allowed only for the 8,774,656-byte client with SHA-256
+`2a8702ad9f722704f01355c0750be7d6f164a8b9c9128ba0cf286ea32b405b0e`, and
+only when both full signatures match. This version preserved all other
+`CanShow` conditions and all unrelated class behavior.
+
+## 2026-07-19 window QA follow-up: shared caster chassis required
+
+The window-only correction passed: Pups could open both Spell Gems and
+Spellbook with normal controls. Pups then displayed `0/0` mana and could not
+cast. A read-only database check proved this was not server state:
+
+| Character | Base / class2 / class3 | Saved server mana |
+|---|---|---:|
+| Pups | ROG / WIZ / DRU | 148 |
+| Done | CLR / SHD / MNK | 103 |
+
+A complete disassembly search found exactly five calls to the shared caster
+predicate in the entire executable:
+
+| Preferred VA | Role |
+|---:|---|
+| `0x004916DF` | caster capability check |
+| `0x004C300D` | caster UI initialization/activation |
+| `0x004F731A` | spellbook command/activation path |
+| `0x00648867` | `CCastSpellWnd::CanShow` |
+| `0x0075C97F` | `CSpellBookWnd::CanShow` |
+
+Because the predicate has a small, closed consumer set and the server remains
+authoritative for actual mana and spell access, the replacement correction
+enables its four stock-zero entries directly:
+
+- table RVA: `0x00043F90`
+- expected 16-byte signature:
+  `00 01 01 01 01 01 00 01 00 01 01 01 01 01 01 00`
+- enabled signature:
+  `01 01 01 01 01 01 01 01 01 01 01 01 01 01 01 01`
+- changed entries: class indexes `0, 6, 8, 15` = WAR, MNK, ROG, BER
+
+This replaces the two branch patches rather than stacking with them and still
+changes four bytes total. It was the next evidence-based candidate for the full
+caster chassis; the mana test below proved its scope is window activation only.
+The file-size and full SHA-256 guards remain, and the complete 16-byte stock
+table must match before any write.
+
+## 2026-07-19 mana QA follow-up: `Max_Mana` is independent
+
+The shared caster table patch applied successfully in
+`nightcap_dll_17020.log`, but Pups still had no mana bar and displayed `0/0`.
+That disproves the table as the mana gate.
+
+MQ2's captured build-exact methods led to the separate path:
+
+| Symbol | Runtime RVA |
+|---|---:|
+| `EQ_Character::Cur_Mana` | `0x00044170` |
+| `EQ_Character::GetManaRegen` | `0x00052DF0` |
+| `EQ_Character::Max_Mana` | `0x00181E60` |
+| `pinstLocalPlayer` | `0x009D2630` |
+
+`EQ_Character::Max_Mana` dispatches on `BaseProfile.Class`. WAR, MNK, ROG, and
+BER jump to a complete six-byte zero-return block:
+
+- return-block RVA: `0x00181E96`
+- exact stock signature: `33 C0 5E C2 04 00`
+  (`xor eax,eax; pop esi; ret 4`)
+
+Separately, RoF2's `OP_ManaUpdate` handler (`0x3791`) reaches preferred VA
+`0x004CEDAE`, decodes `{spawn_id, cur_mana, max_mana}`, and calls preferred VA
+`0x004BD210`. For the local spawn that function stores:
+
+| Local-player field | Packet value |
+|---:|---|
+| `+0x494` | authoritative current mana |
+| `+0x354` | authoritative maximum mana |
+
+The complete handler proves the packet object is the exported local player:
+preferred VA `0x004BD239` compares the spawn resolved from the packet ID in
+`ESI` against the pointer stored at `pinstLocalPlayer` (`0x00DD2630` preferred,
+RVA `0x009D2630`). Only the equal path writes `+0x494/+0x354`.
+
+Runtime log `nightcap_dll_4860.log` showed those fields had not been populated:
+
+- the sampled fields started at `0/0`;
+- after entering world they became `22200/0`, not Pups' server value `148`;
+- Pups still had no mana bar and remained at `0/0`.
+
+The server zone-entry path explains why. It loads saved mana through
+`Mob::SetMana(m_pp.mana)`, whose call site notes that it does not send a packet.
+After `CompleteConnect()`, `Handle_Connect_OP_ClientReady` sends
+`SendHPUpdate()` but did not send `SendManaUpdate()`. With no later mana
+change, the local spawn fields remained stale.
+
+The server now sends one self mana update after `CompleteConnect()` for modern
+clients with a positive server maximum. A behavior-neutral DLL build again
+samples `+0x494/+0x354`; it does not hook `Max_Mana`. The required proof is a
+positive raw maximum for Pups after both login and zoning. The six-byte return
+hook remains withdrawn until that capture succeeds.
+
+The crash dump from the same session is separate from this rejected value
+assumption. `eqgame_20260719_172253.dmp` records `0xC0000005` at
+`eqgame.exe+0x003EFA80` (`mov eax,[ecx+0xD4]`) with `ECX=0`; the immediate
+caller is `MQ2EQIM.dll+0x15C6`, which invokes
+`CChatService::GetNumberOfFriends` after loading a null chat-service pointer.
+
+## 2026-07-19 wire-layout finding: RoF2 `OP_ManaUpdate`
+
+Disassembly of the exact client handler at preferred VA `0x004CEDAE` shows the
+packet fields are read at offsets `0`, `+2`, and `+6`: `uint16 spawn_id`,
+`uint32 cur_mana`, and `uint32 max_mana` (10 bytes total). The generic EQEmu
+`ManaUpdate_Struct` is ordered `cur_mana`, `max_mana`, `spawn_id`, so a generic
+encode produces a packet the RoF2 handler cannot resolve to the local spawn.
+The server now uses a RoF2-specific `OP_ManaUpdate` encoder with the client
+layout. The server diagnostic confirmed Pups was sending `148/148` with spawn
+ID `260`; the client trace remained `0/0` until this wire correction.

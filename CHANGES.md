@@ -1,36 +1,250 @@
 # CHANGES
 
+## 2026-07-19 — Re-enable guarded `Max_Mana` hook after wire fix (#12/#13)
+
+The corrected RoF2 packet encoder now populates Pups's local raw fields at
+`148/148`. The DLL's exact-signature six-byte `Max_Mana` detour is restored; it
+returns `LocalPlayer+0x354` for the four stock non-caster base classes and
+returns zero until a valid local-player object exists. The hook is
+version-guarded, verifies its write, and rolls back on failure.
+
 Running log of significant changes to this repo — schema migrations, C++ patches, quest script additions, and anything with gotchas worth remembering. Most recent first.
 
 ---
 
 ## 2026-07-18 — Waypoints fixed: discovery moved to the marker NPC (#32)
 
-**Root cause of "waypoints don't register":** the zone loads only ONE `global_player`
-script, chosen by `_load_precedence` (main.cpp registers **Lua before Perl**). Both
-`global_player.lua` and `global_player.pl` exist, so **Lua always wins and the Perl file
-never loads at all.** All the waypoint discovery logic lived in `global_player.pl` — its
-enter-zone arm + 3s proximity timer never ran. That also explains the earlier main revert
-(someone edited the dead `.pl`).
+The active global quest is Lua-first, so the old Perl global-player waypoint
+discovery never ran. Discovery now lives on marker NPC `999240`, whose quest
+arms a proximity box on spawn and records the current zone. The old Perl global
+handler is an inert documented stub. Deploy requires a zone restart so marker
+NPC spawn events re-arm.
 
-**Fix — discovery on the marker NPC, language-independent:**
-- New `quests/global/999240.pl` (loads for NPC 999240 in all 72 zones via the "global by NPC
-  ID" resolution). `EVENT_SPAWN` arms a proximity box (±25 xy / ±30 z) around the marker;
-  `EVENT_ENTER` records discovery for the current zone (`INSERT IGNORE`, silent on repeat via
-  `rows_affected`), messages progress, and grants title 100 at all 72. Uses the Perl DB API,
-  so no dependency on the global_player language. Verified: marker sits exactly on the
-  waypoint coords in every zone (spawn2 == nightcap_waypoints).
-- `global_player.pl` replaced with an **inert documented stub** — it never ran; everything in
-  it (veteran AA, PoK attune, mysterious voice, epic combines, per-level skill grant) is
-  already in `global_player.lua`. Header warns future edits to go in the `.lua`.
-- **Deploy:** requires a zone restart so the markers re-run `EVENT_SPAWN` and arm proximity
-  (`#reload quest` alone won't). Done.
+---
 
-**Correction to the 2026-07-16 auto-grant entry (#36/#39):** the `EVENT_LEVEL_UP` skill
-grant I added to `global_player.pl` was in the dead file and never fired. It's moot — the
-LIVE `global_player.lua` `event_level_up` already grants basic skills each level via
-`CanHaveSkill`, which is now mask-aware, so secondary-class skills (Dual Wield, etc.) are
-granted to value 1 on level-up as intended. The dead Perl handler was removed with the stub.
+## 2026-07-19 — RoF2 `OP_ManaUpdate` wire layout corrected (#12/#13)
+
+The client capture and executable disassembly showed that RoF2 decodes mana
+updates as `uint16 spawn_id`, `uint32 cur_mana`, `uint32 max_mana` (10 bytes).
+EQEmu was emitting the generic `cur_mana`, `max_mana`, `spawn_id` layout, so
+the server reported `148/148` for Pups but the client discarded the packet.
+Added the RoF2-specific struct and encoder; the DLL remains a read-only trace.
+
+---
+
+## 2026-07-19 — Mana initialization uses the canonical connected-state path (#12/#13)
+
+The first server-side self `OP_ManaUpdate` attempt did not change Pups's raw
+client fields (`0/0`) despite a clean zone restart. The ready handler now uses
+`CheckManaEndUpdate()` after `CompleteConnect()`, which emits the normal
+`OP_ManaUpdate` plus `OP_ManaChange` sequence once the client is connected. A
+temporary `[ManaInit]` server log records the authoritative current/max mana,
+held classes, and spawn ID for the next capture. The client DLL remains
+behavior-neutral and only traces the raw fields.
+
+---
+
+## 2026-07-19 — DLL B2 trace: force initial self mana update (#12/#13)
+
+Follow-up disassembly corrected the interpretation of the stale
+`LocalPlayer+0x494/+0x354` samples. The RoF2 handler at preferred VA
+`0x004BD210`:
+
+1. resolves the packet's spawn ID through the spawn manager;
+2. explicitly compares that result with `pinstLocalPlayer`;
+3. writes packet current mana to `+0x494` and maximum mana to `+0x354` only
+   when they match.
+
+The object identity was therefore correct. The observed `22200/0` values mean
+the local spawn had not received a self `OP_ManaUpdate` after zone entry.
+Server connect currently sends an HP update after `CompleteConnect()` but no
+equivalent mana update; saved mana is loaded with `Mob::SetMana()`, which is
+documented not to send a packet.
+
+`Handle_Connect_OP_ClientReady` now sends one self mana update for SoD-or-newer
+clients whose server maximum is positive. The DLL remains behavior-neutral for
+this capture: it logs the local spawn's raw current/maximum fields but does not
+reinstate the `Max_Mana` detour. Expected Pups trace after login and after
+zoning is a positive maximum (`148` in the current test state) while the UI
+remains `0/0`. Only that proof will authorize restoring the guarded return
+hook.
+
+---
+
+## 2026-07-19 — DLL B2 safe-build QA passed (#12/#13)
+
+Manual two-client QA passed after withdrawing the invalid mana hook and
+disabling `MQ2EQIM` autoload:
+
+- Pups (Rogue base) and Done (Cleric base) both opened Spell Gems and
+  Spellbook normally.
+- Both characters zoned successfully with the window behavior intact.
+- No client crash recurred.
+- Pups remained at the expected unresolved baseline: no mana bar and `0/0`.
+
+This accepts the guarded caster-class table as a stable window/chassis
+correction and confirms the crash isolation. It does not complete B2: the
+remaining work is to identify the authoritative client mana object/value path
+for melee-base multiclass characters. The branch is not promoted while that
+casting blocker remains.
+
+---
+
+## 2026-07-19 — DLL B2 mana hook withdrawn; MQ2EQIM crash isolated (#12/#13)
+
+The first in-game run rejected the assumed `pinstLocalPlayer` mana fields.
+Runtime samples read `22200/0` at `+0x494/+0x354` for Pups instead of the
+server's saved mana `148`, and the UI remained `0/0`. Static packet-handler
+disassembly had identified fields on an object, but did not prove that object
+was MQ2's exported local-player instance. The six-byte `Max_Mana` detour and
+the invalid field-sampling code have been removed. The deployed replacement
+returns to the already-tested caster-class table correction only.
+
+The session's MacroQuest dump was also analyzed:
+
+- dump: `mq-rof2/Logs/eqgame_20260719_172253.dmp`
+- exception: `0xC0000005`, read from address `0xD4`
+- fault: `eqgame.exe+0x003EFA80`, `mov eax,[ecx+0xD4]`, with `ECX=0`
+- caller: `MQ2EQIM.dll+0x15C6`, calling
+  `CChatService::GetNumberOfFriends` with a null chat-service pointer
+
+The faulting instruction and immediate caller are outside the Nightcap proxy,
+so this crash is attributed to the legacy MQ2EQIM plugin rather than the DLL
+patch. Its autoload entry has been removed from `mq-rof2/MacroQuest.ini` for
+subsequent DLL QA; the plugin binary remains untouched.
+
+---
+
+## 2026-07-19 — DLL B2 follow-up: use server-cached max mana (#12/#13)
+
+QA proved the exact caster-class table correction applied but did not restore
+Rogue-base mana: Pups still had no mana bar and displayed `0/0`. The table is a
+window/caster-activation gate, not the client's max-mana calculation.
+
+Build-exact disassembly found the independent cause:
+
+- `EQ_Character::Max_Mana` (RVA `0x00181E60`) dispatches on base class.
+- WAR/MNK/ROG/BER reach a six-byte unconditional zero return at RVA
+  `0x00181E96` (`33 C0 5E C2 04 00`).
+- The RoF2 `OP_ManaUpdate` handler already stores Nightcap's authoritative self
+  values on the local-player object: current at `+0x494`, maximum at `+0x354`.
+
+The DLL now redirects only that exact non-caster return block to an x86 stub
+that returns `[LocalPlayer+0x354]` (or zero before the player/packet exists) and
+then performs the original epilogue. Caster-base classes do not take the hooked
+path. This preserves the server's best-of-held-classes mana calculation and
+avoids class spoofing or a duplicate client-side formula.
+
+The hook requires the existing size/full-SHA guard plus the complete six-byte
+signature. The survey now logs the cached current/maximum values every 15
+seconds for unambiguous QA. Built successfully with MSVC x86; awaiting Pups
+mana-bar, casting, regeneration, and zone-persistence QA.
+
+---
+
+## 2026-07-19 — DLL B2 follow-up: full caster chassis for melee bases (#12/#13)
+
+The first guarded correction passed its window test: Rogue-base Pups could open
+Spell Gems and Spellbook normally. Pups still displayed `0/0` mana and could
+not cast. A read-only live DB check proved the server had loaded the intended
+multiclass state and mana: Pups is ROG/WIZ/DRU with saved mana `148` (Done is
+CLR/SHD/MNK with `103`). The remaining blocker was therefore the RoF2 client
+chassis, not `Client::CalcMaxMana()`.
+
+A full disassembly search found exactly five calls to the shared 16-byte caster
+predicate table: the two window `CanShow` checks plus three caster
+initialization/activation paths. The correction now replaces the two narrow
+branch NOPs with the underlying class-table change:
+
+- table RVA `0x00043F90`
+- exact stock signature
+  `00 01 01 01 01 01 00 01 00 01 01 01 01 01 01 00`
+- WAR, MNK, ROG, and BER entries change from `0` to `1`
+
+This remains four changed bytes total, but every known caster-chassis consumer
+now receives the same capability answer. The server remains authoritative for
+actual multiclass membership, mana, spell availability, and cast validation.
+The DLL still fails closed on client size, full SHA-256, or complete table
+signature mismatch and rolls back a failed write.
+
+Built successfully with MSVC x86. Awaiting Pups mana/casting QA before feature
+branch promotion.
+
+---
+
+## 2026-07-19 — DLL B2: guarded Rogue-base spell UI correction (#12/#13)
+
+The corrected simultaneous-client survey passed: Done (Cleric base) and Pups
+(Rogue base) each captured 991 initialized eqgame offsets with reliable
+15-second sampling. Both spell-window objects existed and were fully
+initialized for Pups. MQ2 `/windowstate` reached the stock `CXWnd::Show` path
+but the windows remained hidden, isolating the failure to their virtual
+`CanShow` checks.
+
+Live memory inspection and disassembly found that both window overrides consult
+the same 16-byte stock caster-class table. Its zero entries are exactly WAR,
+MNK, ROG, and BER. To limit blast radius, the correction leaves that shared
+table untouched and disables only the post-predicate rejection branch in:
+
+- `CCastSpellWnd::CanShow`, signature RVA `0x00248867`
+- `CSpellBookWnd::CanShow`, signature RVA `0x0035C97F`
+
+This changes four instruction bytes total and preserves all remaining window
+safety checks plus every unrelated class-table consumer. The proxy fails closed:
+it writes only when the client size (8,774,656), full SHA-256
+(`2a8702ad9f722704f01355c0750be7d6f164a8b9c9128ba0cf286ea32b405b0e`),
+and both nine-byte signatures match. A failed partial application is rolled
+back. MQ2 is no longer required by the correction itself; the survey remains
+temporarily for QA diagnostics.
+
+Built successfully with MSVC x86. Awaiting Pups + Done in-game QA before any
+promotion beyond the feature branch.
+
+---
+
+## 2026-07-19 — DLL B2 survey v2: reliable timing + multi-client logs (#12/#13)
+
+The first successful MQ2-injected capture proved the raw-memory fallback works
+(`MQ2 found at base=...`) and exposed the targeted eqgame pointer slots, but it
+also revealed that every `Sleep()` returned almost immediately: 60 intended
+15-second polls completed in ~8ms, before character login. The export survey
+also ran before MQ2 finished initialization and captured only `baseAddress`.
+
+Corrected `eq-client-dll/src/dllmain.cpp`:
+
+- Replaced `Sleep()` with a private, never-signaled event wait plus elapsed-time
+  verification and a defensive wall-clock fallback.
+- Waits for at least five targeted MQ2 exports to contain eqgame addresses,
+  then gives MQ2 a real five-second settling period.
+- Retries the full export survey up to five times when fewer than ten eqgame
+  offsets are captured.
+- Adds sample number + elapsed seconds to every window-instance poll.
+- Writes `nightcap_dll_<PID>.log`, preventing two simultaneous EQ clients
+  (Done caster-base and Pups Rogue-base on separate accounts) from truncating
+  or suppressing each other's capture.
+
+Still survey-only: no client memory writes and no UI behavior changes.
+
+---
+
+## 2026-07-18 — DLL B2: offset-survey build (#12/#13)
+
+In-game QA proved every remaining multiclass blocker (#36 skills window, #37 AA toggle,
+#38 equip, #39 trainers) is the RoF2 base-class UI chassis — the client overrides the server
+below its own gates (the `#aaexp` toggle gets bounced off at level < 51). Server side is done
+for all four; the DLL is the single unlock. Pivoted to B2.
+
+`eq-client-dll/src/dllmain.cpp` gains an **offset survey** (still no memory writes): it waits
+for `MQ2Main.dll` in-process, walks its export table, and logs every exported DWORD whose
+stored value lands inside `eqgame.exe`'s module range — i.e. MQ2-emu's build-exact eqgame
+static addresses, with zero reversing. Then polls a watchlist (spellbook/cast/gem window
+instances, PC/char data) every 15s so a HITL session captures window lifecycle (do the
+windows get constructed for a melee base, or never created?). Output: `nightcap_dll.log` in
+the client folder. Survey runs even on client-size MISMATCH; it never patches.
+
+Deployed to `Client_RoF2_Dev/everquest_rof2/dinput8.dll` (B1 skeleton saved as `.b1bak`).
+Next: HITL session runs the survey, then B2 writes the force-show/gate patches at the
+captured offsets behind the version guard.
 
 ---
 
