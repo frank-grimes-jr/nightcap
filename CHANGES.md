@@ -4,6 +4,33 @@ Running log of significant changes to this repo — schema migrations, C++ patch
 
 ---
 
+## 2026-07-19 — DLL B2 follow-up: use server-cached max mana (#12/#13)
+
+QA proved the exact caster-class table correction applied but did not restore
+Rogue-base mana: Pups still had no mana bar and displayed `0/0`. The table is a
+window/caster-activation gate, not the client's max-mana calculation.
+
+Build-exact disassembly found the independent cause:
+
+- `EQ_Character::Max_Mana` (RVA `0x00181E60`) dispatches on base class.
+- WAR/MNK/ROG/BER reach a six-byte unconditional zero return at RVA
+  `0x00181E96` (`33 C0 5E C2 04 00`).
+- The RoF2 `OP_ManaUpdate` handler already stores Nightcap's authoritative self
+  values on the local-player object: current at `+0x494`, maximum at `+0x354`.
+
+The DLL now redirects only that exact non-caster return block to an x86 stub
+that returns `[LocalPlayer+0x354]` (or zero before the player/packet exists) and
+then performs the original epilogue. Caster-base classes do not take the hooked
+path. This preserves the server's best-of-held-classes mana calculation and
+avoids class spoofing or a duplicate client-side formula.
+
+The hook requires the existing size/full-SHA guard plus the complete six-byte
+signature. The survey now logs the cached current/maximum values every 15
+seconds for unambiguous QA. Built successfully with MSVC x86; awaiting Pups
+mana-bar, casting, regeneration, and zone-persistence QA.
+
+---
+
 ## 2026-07-19 — DLL B2 follow-up: full caster chassis for melee bases (#12/#13)
 
 The first guarded correction passed its window test: Rogue-base Pups could open

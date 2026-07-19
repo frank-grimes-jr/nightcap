@@ -20,13 +20,17 @@ caster-class capability table so any base class can use the caster UI chassis.
   Spell Gems and Spellbook with the two narrow branch corrections, proving the
   window analysis. The Rogue client still displayed `0/0` mana even though the
   server had saved mana `148`, so it could not cast.
-- **B2 caster-chassis correction: built; awaiting mana QA.** The executable has
-  exactly five callers of the shared caster predicate. The replacement enables
-  its four stock-zero class entries (WAR/MNK/ROG/BER), covering both windows and
-  the remaining caster initialization/activation consumers.
+- **B2 caster-class table: window QA passed; not a mana gate.** The four table
+  entries enable the caster-window activation paths, but a verified successful
+  table patch still left Pups without a mana bar at `0/0`.
+- **B2 server-mana correction: built; awaiting QA.** RoF2 already caches
+  Nightcap's authoritative self maximum from `OP_ManaUpdate` at
+  `LocalPlayer+0x354`. The stock non-caster block in
+  `EQ_Character::Max_Mana` ignores it and returns zero. A six-byte detour now
+  returns that cached server value for only the stock non-caster path.
 - **Fail closed:** the patch requires the expected file size, full SHA-256, and
-  exact complete 16-byte class-table signature. Any mismatch leaves memory
-  untouched and is recorded in the per-process log.
+  exact complete class-table and `Max_Mana` signatures. Any mismatch disables
+  that correction and is recorded in the per-process log.
 
 ## Build
 
@@ -50,7 +54,8 @@ Output: `build\dinput8.dll`.
 
 1. Start `MacroQuest2.exe`, then launch EQ through the method that injects MQ2.
 2. Log in Pups (Rogue base). Confirm the new `nightcap_dll_<PID>.log` contains
-   `client size check: OK`, `client sha256 check: OK`, and `B2 patch APPLIED`.
+   `client size check: OK`, `client sha256 check: OK`, `B2 patch APPLIED`, and
+   `B2 mana hook APPLIED`.
 3. Confirm Pups' mana display is no longer `0/0` and begins full or regenerates
    toward a positive maximum.
 4. Use the normal EQ controls (not `/windowstate`) to open Spell Gems and the
@@ -62,6 +67,10 @@ Output: `build\dinput8.dll`.
 7. With Pups still running, log in Done (Cleric base) in a second client.
    Repeat open/close, memorize, cast, and zone as a stock-caster regression.
 8. Exit both clients and retain both new per-process logs.
+
+After at least 15 seconds in world, the log also records
+`server mana cache current=... max=...`. This distinguishes a missing server
+packet from a client display/hook problem without guessing from the UI.
 
 Failure conditions: either guard reports a mismatch, Pups remains at `0/0`, a
 window fails to appear, normal close/reopen stops working, mana does not

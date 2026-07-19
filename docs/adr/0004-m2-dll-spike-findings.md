@@ -2,7 +2,7 @@
 
 Date: 2026-07-15 (updated 2026-07-19)
 Status: **Accepted — GO on the DLL approach.** B1 smoke-passed; B2's guarded
-caster-chassis correction is built and awaiting mana/casting QA.
+window correction passed and its server-mana hook awaits casting QA.
 
 ## Context
 
@@ -121,14 +121,30 @@ must confirm the class-UI gating is patchable and identify the offset source.
   as caster-capable. The server continues to decide actual mana, spells, class
   membership, and casting legality.
 
+## Update 2026-07-19 — caster table applied; separate server-mana hook
+
+- The exact caster-table correction applied, but Pups still displayed `0/0`
+  with no mana bar. The table's verified scope is caster-window
+  activation—not max-mana calculation.
+- `EQ_Character::Max_Mana` has an independent class dispatch. Its
+  WAR/MNK/ROG/BER target is a six-byte block that unconditionally returns zero.
+- RoF2 already receives Nightcap's correct `OP_ManaUpdate` and stores the local
+  player's raw current and maximum mana at `LocalPlayer+0x494` and `+0x354`.
+  Pups' authoritative server maximum remains `148`.
+- Redirect only the exact non-caster zero-return block to a DLL stub returning
+  the cached `+0x354` value. Caster bases never take this path. This preserves
+  Nightcap's best-of-held-classes formula without class spoofing, duplicating
+  formula logic, or teaching the DLL which secondary classes a character owns.
+
 ## Decision
 
 - Retain the `dinput8.dll` proxy approach.
-- Enable the shared caster-class table because in-game evidence proved the
-  window-specific correction is insufficient and the complete caller set is
-  small, known, and aligned with the intended caster chassis.
-- Require immutable version checks plus the complete stock table signature
-  before every memory write.
+- Enable the shared caster-class table for window activation.
+- For melee-base max mana, return the authoritative value already cached from
+  the server's `OP_ManaUpdate`; do not fabricate or duplicate mana formulas in
+  the client.
+- Require immutable version checks plus the complete stock table and
+  `Max_Mana` return-block signatures before memory writes.
 - Promote no farther than the feature branch until Pups and Done pass the
   explicit in-game QA in `eq-client-dll/README.md`.
 

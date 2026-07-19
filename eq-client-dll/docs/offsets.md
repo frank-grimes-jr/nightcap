@@ -124,8 +124,52 @@ enables its four stock-zero entries directly:
   `01 01 01 01 01 01 01 01 01 01 01 01 01 01 01 01`
 - changed entries: class indexes `0, 6, 8, 15` = WAR, MNK, ROG, BER
 
-This replaces the two branch patches rather than stacking with them. It still
-changes four bytes total, but now supplies the full caster UI chassis required
-for the nonzero mana value already supplied by the server. The file-size and
-full SHA-256 guards remain, and the complete 16-byte stock table must match
-before any write.
+This replaces the two branch patches rather than stacking with them and still
+changes four bytes total. It was the next evidence-based candidate for the full
+caster chassis; the mana test below proved its scope is window activation only.
+The file-size and full SHA-256 guards remain, and the complete 16-byte stock
+table must match before any write.
+
+## 2026-07-19 mana QA follow-up: `Max_Mana` is independent
+
+The shared caster table patch applied successfully in
+`nightcap_dll_17020.log`, but Pups still had no mana bar and displayed `0/0`.
+That disproves the table as the mana gate.
+
+MQ2's captured build-exact methods led to the separate path:
+
+| Symbol | Runtime RVA |
+|---|---:|
+| `EQ_Character::Cur_Mana` | `0x00044170` |
+| `EQ_Character::GetManaRegen` | `0x00052DF0` |
+| `EQ_Character::Max_Mana` | `0x00181E60` |
+| `pinstLocalPlayer` | `0x009D2630` |
+
+`EQ_Character::Max_Mana` dispatches on `BaseProfile.Class`. WAR, MNK, ROG, and
+BER jump to a complete six-byte zero-return block:
+
+- return-block RVA: `0x00181E96`
+- exact stock signature: `33 C0 5E C2 04 00`
+  (`xor eax,eax; pop esi; ret 4`)
+
+Separately, RoF2's `OP_ManaUpdate` handler (`0x3791`) reaches preferred VA
+`0x004CEDAE`, decodes `{spawn_id, cur_mana, max_mana}`, and calls preferred VA
+`0x004BD210`. For the local spawn that function stores:
+
+| Local-player field | Packet value |
+|---:|---|
+| `+0x494` | authoritative current mana |
+| `+0x354` | authoritative maximum mana |
+
+Thus the client already possesses Nightcap's exact best-of-held-classes maximum;
+the stock non-caster `Max_Mana` branch simply refuses to return it. The guarded
+correction redirects only the six-byte zero-return block to a DLL stub that:
+
+1. reads the instance from `eq_base + 0x009D2630`;
+2. returns `[LocalPlayer+0x354]` when available, otherwise zero;
+3. performs the original `pop esi; ret 4` epilogue.
+
+Caster-base classes never take this branch and remain completely stock. This
+also avoids inventing a client-side secondary class or duplicating Nightcap's
+server formula. The full executable hash and exact six-byte signature are
+required before installing the relative jump.
