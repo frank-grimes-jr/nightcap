@@ -4,6 +4,31 @@ Running log of significant changes to this repo — schema migrations, C++ patch
 
 ---
 
+## 2026-07-19 — DLL B2 mana hook withdrawn; MQ2EQIM crash isolated (#12/#13)
+
+The first in-game run rejected the assumed `pinstLocalPlayer` mana fields.
+Runtime samples read `22200/0` at `+0x494/+0x354` for Pups instead of the
+server's saved mana `148`, and the UI remained `0/0`. Static packet-handler
+disassembly had identified fields on an object, but did not prove that object
+was MQ2's exported local-player instance. The six-byte `Max_Mana` detour and
+the invalid field-sampling code have been removed. The deployed replacement
+returns to the already-tested caster-class table correction only.
+
+The session's MacroQuest dump was also analyzed:
+
+- dump: `mq-rof2/Logs/eqgame_20260719_172253.dmp`
+- exception: `0xC0000005`, read from address `0xD4`
+- fault: `eqgame.exe+0x003EFA80`, `mov eax,[ecx+0xD4]`, with `ECX=0`
+- caller: `MQ2EQIM.dll+0x15C6`, calling
+  `CChatService::GetNumberOfFriends` with a null chat-service pointer
+
+The faulting instruction and immediate caller are outside the Nightcap proxy,
+so this crash is attributed to the legacy MQ2EQIM plugin rather than the DLL
+patch. Its autoload entry has been removed from `mq-rof2/MacroQuest.ini` for
+subsequent DLL QA; the plugin binary remains untouched.
+
+---
+
 ## 2026-07-19 — DLL B2 follow-up: use server-cached max mana (#12/#13)
 
 QA proved the exact caster-class table correction applied but did not restore

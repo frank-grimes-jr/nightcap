@@ -1,8 +1,9 @@
 # ADR 0004 — M2 (B0) spike findings: RoF2 UI-unlock offsets source
 
 Date: 2026-07-15 (updated 2026-07-19)
-Status: **Accepted — GO on the DLL approach.** B1 smoke-passed; B2's guarded
-window correction passed and its server-mana hook awaits casting QA.
+Status: **Accepted — GO on the DLL approach.** B1 smoke-passed and B2's guarded
+window correction passed. The first server-mana hook was rejected by runtime
+evidence and removed.
 
 ## Context
 
@@ -121,30 +122,34 @@ must confirm the class-UI gating is patchable and identify the offset source.
   as caster-capable. The server continues to decide actual mana, spells, class
   membership, and casting legality.
 
-## Update 2026-07-19 — caster table applied; separate server-mana hook
+## Update 2026-07-19 — caster table applied; server-mana hypothesis rejected
 
 - The exact caster-table correction applied, but Pups still displayed `0/0`
   with no mana bar. The table's verified scope is caster-window
   activation—not max-mana calculation.
 - `EQ_Character::Max_Mana` has an independent class dispatch. Its
   WAR/MNK/ROG/BER target is a six-byte block that unconditionally returns zero.
-- RoF2 already receives Nightcap's correct `OP_ManaUpdate` and stores the local
-  player's raw current and maximum mana at `LocalPlayer+0x494` and `+0x354`.
-  Pups' authoritative server maximum remains `148`.
-- Redirect only the exact non-caster zero-return block to a DLL stub returning
-  the cached `+0x354` value. Caster bases never take this path. This preserves
-  Nightcap's best-of-held-classes formula without class spoofing, duplicating
-  formula logic, or teaching the DLL which secondary classes a character owns.
+- Static analysis showed the decoded `OP_ManaUpdate` values being stored at
+  `+0x494/+0x354` on an object passed through the packet handler. It did not
+  prove that object was the one exported by MQ2 as `pinstLocalPlayer`.
+- Runtime sampling disproved that identity: Pups produced `22200/0` at those
+  fields while the server value was `148`, and the UI remained `0/0`.
+- The experimental detour was removed. The correct packet/profile object must
+  be identified before another mana write or return hook is attempted.
+
+The same session produced a crash dump. Its access violation was independently
+traced to `MQ2EQIM.dll` calling `CChatService::GetNumberOfFriends` with a null
+`CChatService`; neither the faulting instruction nor its return address was in
+the Nightcap proxy. That plugin is excluded from subsequent DLL QA.
 
 ## Decision
 
 - Retain the `dinput8.dll` proxy approach.
 - Enable the shared caster-class table for window activation.
-- For melee-base max mana, return the authoritative value already cached from
-  the server's `OP_ManaUpdate`; do not fabricate or duplicate mana formulas in
-  the client.
-- Require immutable version checks plus the complete stock table and
-  `Max_Mana` return-block signatures before memory writes.
+- Do not ship the rejected `LocalPlayer+0x354` mana hook. Keep the verified
+  non-caster `Max_Mana` zero path as a research lead only.
+- Require immutable version checks plus the complete stock table signature
+  before the remaining memory write.
 - Promote no farther than the feature branch until Pups and Done pass the
   explicit in-game QA in `eq-client-dll/README.md`.
 

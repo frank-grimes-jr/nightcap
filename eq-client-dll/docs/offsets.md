@@ -161,15 +161,23 @@ Separately, RoF2's `OP_ManaUpdate` handler (`0x3791`) reaches preferred VA
 | `+0x494` | authoritative current mana |
 | `+0x354` | authoritative maximum mana |
 
-Thus the client already possesses Nightcap's exact best-of-held-classes maximum;
-the stock non-caster `Max_Mana` branch simply refuses to return it. The guarded
-correction redirects only the six-byte zero-return block to a DLL stub that:
+That disassembly established where one packet-handler object receives the
+values, but not that the object is MQ2's exported `pinstLocalPlayer`. The first
+experimental hook assumed they were the same.
 
-1. reads the instance from `eq_base + 0x009D2630`;
-2. returns `[LocalPlayer+0x354]` when available, otherwise zero;
-3. performs the original `pop esi; ret 4` epilogue.
+Runtime log `nightcap_dll_4860.log` rejected the assumption:
 
-Caster-base classes never take this branch and remain completely stock. This
-also avoids inventing a client-side secondary class or duplicating Nightcap's
-server formula. The full executable hash and exact six-byte signature are
-required before installing the relative jump.
+- the sampled fields started at `0/0`;
+- after entering world they became `22200/0`, not Pups' server value `148`;
+- Pups still had no mana bar and remained at `0/0`.
+
+The `LocalPlayer+0x354` detour and the field-sampling code were therefore
+removed. The `Max_Mana` class dispatch and six-byte zero-return block remain
+verified research facts, but no further hook should be installed until the
+packet destination or authoritative profile field is identified dynamically.
+
+The crash dump from the same session is separate from this rejected value
+assumption. `eqgame_20260719_172253.dmp` records `0xC0000005` at
+`eqgame.exe+0x003EFA80` (`mov eax,[ecx+0xD4]`) with `ECX=0`; the immediate
+caller is `MQ2EQIM.dll+0x15C6`, which invokes
+`CChatService::GetNumberOfFriends` after loading a null chat-service pointer.

@@ -3,9 +3,9 @@
 //
 // RoF2 auto-loads dinput8.dll from its own folder at startup. This proxy
 // forwards every DirectInput export to the real system DLL and starts one
-// init thread that applies tightly guarded caster-window and server-mana
-// corrections. The MQ2 offset survey remains temporarily available for
-// validation. Removing the DLL from the client folder restores stock behavior.
+// init thread that applies one tightly guarded caster-class table correction.
+// The MQ2 offset survey remains temporarily available for validation. Removing
+// the DLL from the client folder restores stock behavior.
 //
 // Build: x86 ONLY (RoF2 is a 32-bit client) — see build.bat.
 // =============================================================================
@@ -44,20 +44,8 @@ static const BYTE kEnabledCasterClassTable[16] = {
 };
 static const size_t kNonCasterClassIndexes[] = { 0, 6, 8, 15 };
 
-// OP_ManaUpdate stores the authoritative self max at LocalPlayer + 0x354. The
-// stock non-caster branch in EQ_Character::Max_Mana returns zero instead of
-// using it. Redirect only that complete six-byte return block to the stub below.
-static const uintptr_t kLocalPlayerSlotRva = 0x009D2630;
-static const uintptr_t kMaxManaNonCasterReturnRva = 0x00181E96;
-static const BYTE kExpectedMaxManaReturn[6] = {
-    0x33, 0xC0,             // xor eax,eax
-    0x5E,                   // pop esi
-    0xC2, 0x04, 0x00,       // ret 4
-};
-
 static HMODULE g_real_dinput8 = nullptr;
 static FILE*   g_log          = nullptr;
-static uintptr_t g_local_player_slot = 0;
 
 static void Log(const char* fmt, ...)
 {
@@ -136,117 +124,6 @@ cleanup:
     if (hash_object) HeapFree(GetProcessHeap(), 0, hash_object);
     if (algorithm) BCryptCloseAlgorithmProvider(algorithm, 0);
     return matched;
-}
-
-// Entered only from EQ_Character::Max_Mana's stock non-caster return block.
-// That path has one saved ESI on the stack and a four-byte method argument.
-// Preserve the exact stock epilogue after returning the server-cached maximum.
-extern "C" __declspec(naked) void MaxManaFromServerCache()
-{
-    __asm {
-        mov eax, dword ptr [g_local_player_slot]
-        test eax, eax
-        jz no_server_value
-        mov eax, dword ptr [eax]
-        test eax, eax
-        jz no_server_value
-        mov eax, dword ptr [eax + 354h]
-        jmp max_mana_return
-
-    no_server_value:
-        xor eax, eax
-
-    max_mana_return:
-        pop esi
-        ret 4
-    }
-}
-
-static bool ApplyMaxManaServerCacheHook(uintptr_t eq_base, bool version_ok)
-{
-    if (!version_ok) {
-        Log("B2 mana hook DISABLED: client version guard failed");
-        return false;
-    }
-
-    BYTE* site =
-        reinterpret_cast<BYTE*>(eq_base + kMaxManaNonCasterReturnRva);
-    BYTE replacement[sizeof(kExpectedMaxManaReturn)] = {
-        0xE9, 0, 0, 0, 0, 0x90,
-    };
-    const intptr_t relative =
-        reinterpret_cast<uintptr_t>(&MaxManaFromServerCache) -
-        (reinterpret_cast<uintptr_t>(site) + 5);
-    const int32_t relative32 = static_cast<int32_t>(relative);
-    if (static_cast<intptr_t>(relative32) != relative) {
-        Log("B2 mana hook DISABLED: detour target is outside rel32 range");
-        return false;
-    }
-    memcpy(replacement + 1, &relative32, sizeof(relative32));
-
-    bool stock_signature = false;
-    bool already_applied = false;
-    __try {
-        stock_signature =
-            (memcmp(site, kExpectedMaxManaReturn, sizeof(kExpectedMaxManaReturn)) == 0);
-        already_applied =
-            (memcmp(site, replacement, sizeof(replacement)) == 0);
-    } __except (EXCEPTION_EXECUTE_HANDLER) {
-        Log("B2 mana hook DISABLED: Max_Mana site unreadable at rva=0x%08X",
-            static_cast<unsigned>(kMaxManaNonCasterReturnRva));
-        return false;
-    }
-
-    if (already_applied) {
-        Log("B2 mana hook already active");
-        return true;
-    }
-    if (!stock_signature) {
-        Log("B2 mana hook DISABLED: Max_Mana signature mismatch at rva=0x%08X",
-            static_cast<unsigned>(kMaxManaNonCasterReturnRva));
-        return false;
-    }
-
-    g_local_player_slot = eq_base + kLocalPlayerSlotRva;
-
-    DWORD old_protection = 0;
-    if (!VirtualProtect(
-            site, sizeof(replacement), PAGE_EXECUTE_READWRITE, &old_protection)) {
-        g_local_player_slot = 0;
-        Log("B2 mana hook FAILED: VirtualProtect");
-        return false;
-    }
-
-    bool wrote = false;
-    __try {
-        memcpy(site, replacement, sizeof(replacement));
-        FlushInstructionCache(GetCurrentProcess(), site, sizeof(replacement));
-        wrote = (memcmp(site, replacement, sizeof(replacement)) == 0);
-        if (!wrote) {
-            memcpy(site, kExpectedMaxManaReturn, sizeof(kExpectedMaxManaReturn));
-            FlushInstructionCache(
-                GetCurrentProcess(), site, sizeof(kExpectedMaxManaReturn));
-        }
-    } __except (EXCEPTION_EXECUTE_HANDLER) {
-        memcpy(site, kExpectedMaxManaReturn, sizeof(kExpectedMaxManaReturn));
-        FlushInstructionCache(
-            GetCurrentProcess(), site, sizeof(kExpectedMaxManaReturn));
-        wrote = false;
-    }
-
-    DWORD ignored = 0;
-    VirtualProtect(site, sizeof(replacement), old_protection, &ignored);
-
-    if (!wrote) {
-        g_local_player_slot = 0;
-        Log("B2 mana hook FAILED: write did not verify; rolled back");
-        return false;
-    }
-
-    Log("B2 mana hook APPLIED: non-caster Max_Mana returns OP_ManaUpdate "
-        "self maximum (site rva=0x%08X, LocalPlayer+0x354)",
-        static_cast<unsigned>(kMaxManaNonCasterReturnRva));
-    return true;
 }
 
 static bool ApplyCasterClassTablePatch(uintptr_t eq_base, bool version_ok)
@@ -594,20 +471,6 @@ static void PollWatchlist(HMODULE mq2, unsigned sample, ULONGLONG elapsed_second
         bool ok = GuardedReadDword((void*)(uintptr_t)slot_va, &instance);
         Log("watch sample=%02u elapsed=%llus: %s slot=0x%08X instance=%s0x%08X",
             sample, elapsed_seconds, name, slot_va, ok ? "" : "<unreadable> ", instance);
-        if (ok && instance && strcmp(name, "pinstLocalPlayer") == 0) {
-            DWORD cached_current = 0;
-            DWORD cached_max = 0;
-            bool current_ok = GuardedReadDword(
-                reinterpret_cast<void*>(static_cast<uintptr_t>(instance) + 0x494),
-                &cached_current);
-            bool max_ok = GuardedReadDword(
-                reinterpret_cast<void*>(static_cast<uintptr_t>(instance) + 0x354),
-                &cached_max);
-            Log("watch sample=%02u elapsed=%llus: server mana cache current=%s%lu max=%s%lu",
-                sample, elapsed_seconds,
-                current_ok ? "" : "<unreadable> ", cached_current,
-                max_ok ? "" : "<unreadable> ", cached_max);
-        }
     }
 }
 
@@ -642,7 +505,6 @@ static DWORD WINAPI InitThread(LPVOID)
     bool hash_ok = size_ok && VerifyEqgameSha256(exe_path);
     Log("client sha256 check: %s", hash_ok ? "OK" : "MISMATCH OR UNREADABLE");
     ApplyCasterClassTablePatch(eq_base, size_ok && hash_ok);
-    ApplyMaxManaServerCacheHook(eq_base, size_ok && hash_ok);
 
     // Wait for MQ2 (user launches MacroQuest2.exe as usual); survey once, then
     // poll the watchlist so the HITL session captures instance lifecycles
