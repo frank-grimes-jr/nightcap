@@ -1,8 +1,9 @@
 # ADR 0004 — M2 (B0) spike findings: RoF2 UI-unlock offsets source
 
-Date: 2026-07-15 (updated 2026-07-16)
-Status: **Accepted — GO on the DLL approach.** B1 built + smoke-passed. B2
-remains gated on offset extraction (below) + one interactive spellbook proof.
+Date: 2026-07-15 (updated 2026-07-19)
+Status: **Accepted — GO on the DLL approach.** B1 smoke-passed and B2's guarded
+window correction passed. The first server-mana hook was rejected by runtime
+evidence and removed.
 
 ## Context
 
@@ -85,18 +86,115 @@ must confirm the class-UI gating is patchable and identify the offset source.
   with nothing verified. B2's concrete first step is the offset extraction above,
   done in the same interactive session as the B0 proof.
 
-## Decision (proposed)
+## Update 2026-07-19 — live gate identified; guarded B2 correction built
 
-- Offset mining: clone the macroquest2 ROF2EMU tree and extract the window /
-  PcProfile offsets from `eqgame.h`; do not reverse the binary DLLs.
-- B1 proxy skeleton can proceed in parallel (no offsets needed to forward
-  DirectInput exports).
-- Final B0 proof (Warrior opens an empty spellbook in a dev client) requires an
-  interactive client session — scheduled as the first step of the next M2 work
-  block, before any B2 patch work.
+- Simultaneous Done (Cleric base) and Pups (Rogue base) captures passed the
+  corrected timing checks and produced 991 eqgame offsets each. Both spell
+  windows were non-null and fully initialized for Pups. `/windowstate` reached
+  the stock show path but still did not make them visible.
+- Live memory inspection and disassembly located the cause: both window
+  `CanShow` overrides call one 16-byte base-class caster table. Its zero entries
+  are exactly WAR, MNK, ROG, and BER.
+- B2 deliberately leaves that shared table unchanged. It NOPs only the two
+  conditional branches that reject the predicate result in
+  `CCastSpellWnd::CanShow` and `CSpellBookWnd::CanShow`—four changed instruction
+  bytes total. All other `CanShow` checks and all unrelated uses of the client
+  class predicate remain stock.
+- Writes fail closed behind three independent checks: exact file size, full
+  SHA-256, and both complete nine-byte code signatures. A partial write is
+  rolled back. Exact RVAs and signatures are recorded in
+  `eq-client-dll/docs/offsets.md`.
+
+## Update 2026-07-19 — window QA passed; caster table required for mana
+
+- The window-specific correction worked: Rogue-base Pups opened Spell Gems and
+  Spellbook normally. Pups still displayed `0/0` mana and could not cast.
+- The server is not the fault. Pups is ROG/WIZ/DRU and has saved mana `148`;
+  Done is CLR/SHD/MNK with saved mana `103`. The existing multiclass
+  `CalcMaxMana()` path is active.
+- A complete executable disassembly found only five calls to the shared caster
+  predicate: the two known `CanShow` overrides and three caster
+  initialization/activation paths. The consumer set is therefore bounded and
+  matches the required chassis behavior.
+- Replace, rather than stack on, the two branch patches. Enable the four
+  stock-zero entries in the exact 16-byte class table at RVA `0x00043F90`.
+  This still changes four bytes total and lets every caller see WAR/MNK/ROG/BER
+  as caster-capable. The server continues to decide actual mana, spells, class
+  membership, and casting legality.
+
+## Update 2026-07-19 — caster table applied; server-mana hypothesis rejected
+
+- The exact caster-table correction applied, but Pups still displayed `0/0`
+  with no mana bar. The table's verified scope is caster-window
+  activation—not max-mana calculation.
+- `EQ_Character::Max_Mana` has an independent class dispatch. Its
+  WAR/MNK/ROG/BER target is a six-byte block that unconditionally returns zero.
+- Static analysis showed the decoded `OP_ManaUpdate` values being stored at
+  `+0x494/+0x354` on an object passed through the packet handler. It did not
+  prove that object was the one exported by MQ2 as `pinstLocalPlayer`.
+- Runtime sampling disproved that identity: Pups produced `22200/0` at those
+  fields while the server value was `148`, and the UI remained `0/0`.
+- The experimental detour was removed. The correct packet/profile object must
+  be identified before another mana write or return hook is attempted.
+
+The same session produced a crash dump. Its access violation was independently
+traced to `MQ2EQIM.dll` calling `CChatService::GetNumberOfFriends` with a null
+`CChatService`; neither the faulting instruction nor its return address was in
+the Nightcap proxy. That plugin is excluded from subsequent DLL QA.
+
+## Update 2026-07-19 — safe-build QA accepted
+
+- With the rejected mana hook absent and `MQ2EQIM` excluded, Pups and Done both
+  opened Spell Gems and Spellbook normally and zoned successfully.
+- No crash recurred, accepting the caster-class table correction and the crash
+  attribution.
+- Pups remained at `0/0` without a mana bar. B2 therefore remains incomplete;
+  the next correction requires dynamically identifying the real mana packet or
+  profile destination rather than assuming offsets on `pinstLocalPlayer`.
+
+## Update 2026-07-19 — packet destination proven; missing initial send
+
+- Complete handler disassembly supersedes the earlier object-identity
+  conclusion. The mana handler resolves the packet spawn, compares it directly
+  with `pinstLocalPlayer`, then writes current/max at `+0x494/+0x354`.
+- The stale `22200/0` values show absence of a self packet, not a wrong object.
+  Zone entry loads saved mana with non-sending `Mob::SetMana()` and sends HP,
+  but not mana, after `CompleteConnect()`.
+- The server now sends one initial self mana update for modern clients with a
+  positive maximum. A behavior-neutral DLL logs the resulting fields.
+- The max-mana return hook stays absent until Pups captures a positive raw
+  maximum after login and zoning.
+
+## Decision
+
+- Retain the `dinput8.dll` proxy approach.
+- Enable the shared caster-class table for window activation.
+- Do not restore the `LocalPlayer+0x354` mana hook until the initial-update
+  trace proves that field receives Pups' authoritative server maximum.
+- Require immutable version checks plus the complete stock table signature
+  before the remaining memory write.
+- Promote no farther than the feature branch until Pups and Done pass the
+  explicit in-game QA in `eq-client-dll/README.md`.
 
 ## Consequences
 
-- New subproject `eq-client-dll/` (C++, MSVC, x86) when B1 starts.
-- Offset-versioning strategy (B3) should pin to the RoF2 build string the same
-  way MQ2-emu does (compare `eqgame.exe` timestamp/checksum before patching).
+- `eq-client-dll/` remains a Windows x86-only subproject.
+- Each newly supported RoF2 executable requires its own size, SHA-256, and
+  verified table signature; unknown clients remain unmodified.
+- The B2 scope is the caster UI chassis. Disc-window or other base-class
+  corrections still require separate evidence and patches.
+
+## Superseding update — 2026-07-19 functional acceptance
+
+Exact RoF2 disassembly showed that `OP_ManaUpdate` consumes a 10-byte wire
+layout (`uint16 spawn_id`, followed by two `uint32` mana values), while the
+generic EQEmu encoder emitted the fields in the wrong order. A RoF2-specific
+encoder corrected the packet. Pups then received raw local mana `148/148`; the
+guarded six-byte `Max_Mana` detour now returns `LocalPlayer+0x354` for the four
+stock non-caster base classes.
+
+Manual QA passed: Pups's inventory reports mana and Pups casts spells; Spell
+Gems and Spellbook open; zoning is stable; and no client crash recurred after
+removing `MQ2EQIM` autoload. The standard mana bar remains absent for the
+Rogue-base chassis, which is cosmetic and tracked separately from functional
+mana/casting acceptance.
