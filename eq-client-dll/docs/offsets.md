@@ -75,10 +75,10 @@ is:
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
 | Stock value | 0 | 1 | 1 | 1 | 1 | 1 | 0 | 1 | 0 | 1 | 1 | 1 | 1 | 1 | 1 | 0 |
 
-The four zeros exactly match the four stock no-mana classes. To avoid changing
-every other consumer of this global predicate, B2 does **not** alter the table.
-It disables only the rejection branch immediately following that predicate in
-the two window `CanShow` methods:
+The four zeros exactly match the four stock no-mana classes. The first B2
+correction deliberately left the table unchanged and disabled only the
+rejection branch immediately following that predicate in the two window
+`CanShow` methods:
 
 | Window | Signature RVA | Expected signature | Changed bytes |
 |---|---:|---|---|
@@ -88,5 +88,44 @@ the two window `CanShow` methods:
 These are RVAs from the loaded `eqgame.exe` base, not preferred virtual
 addresses. The write is allowed only for the 8,774,656-byte client with SHA-256
 `2a8702ad9f722704f01355c0750be7d6f164a8b9c9128ba0cf286ea32b405b0e`, and
-only when both full signatures match. This preserves all other `CanShow`
-conditions and all unrelated class behavior.
+only when both full signatures match. This version preserved all other
+`CanShow` conditions and all unrelated class behavior.
+
+## 2026-07-19 window QA follow-up: shared caster chassis required
+
+The window-only correction passed: Pups could open both Spell Gems and
+Spellbook with normal controls. Pups then displayed `0/0` mana and could not
+cast. A read-only database check proved this was not server state:
+
+| Character | Base / class2 / class3 | Saved server mana |
+|---|---|---:|
+| Pups | ROG / WIZ / DRU | 148 |
+| Done | CLR / SHD / MNK | 103 |
+
+A complete disassembly search found exactly five calls to the shared caster
+predicate in the entire executable:
+
+| Preferred VA | Role |
+|---:|---|
+| `0x004916DF` | caster capability check |
+| `0x004C300D` | caster UI initialization/activation |
+| `0x004F731A` | spellbook command/activation path |
+| `0x00648867` | `CCastSpellWnd::CanShow` |
+| `0x0075C97F` | `CSpellBookWnd::CanShow` |
+
+Because the predicate has a small, closed consumer set and the server remains
+authoritative for actual mana and spell access, the replacement correction
+enables its four stock-zero entries directly:
+
+- table RVA: `0x00043F90`
+- expected 16-byte signature:
+  `00 01 01 01 01 01 00 01 00 01 01 01 01 01 01 00`
+- enabled signature:
+  `01 01 01 01 01 01 01 01 01 01 01 01 01 01 01 01`
+- changed entries: class indexes `0, 6, 8, 15` = WAR, MNK, ROG, BER
+
+This replaces the two branch patches rather than stacking with them. It still
+changes four bytes total, but now supplies the full caster UI chassis required
+for the nonzero mana value already supplied by the server. The file-size and
+full SHA-256 guards remain, and the complete 16-byte stock table must match
+before any write.

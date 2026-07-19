@@ -1,8 +1,8 @@
 # ADR 0004 — M2 (B0) spike findings: RoF2 UI-unlock offsets source
 
 Date: 2026-07-15 (updated 2026-07-19)
-Status: **Accepted — GO on the DLL approach.** B1 smoke-passed; B2's narrowly
-scoped spell-window correction is built and awaiting in-game QA.
+Status: **Accepted — GO on the DLL approach.** B1 smoke-passed; B2's guarded
+caster-chassis correction is built and awaiting mana/casting QA.
 
 ## Context
 
@@ -104,13 +104,31 @@ must confirm the class-UI gating is patchable and identify the offset source.
   rolled back. Exact RVAs and signatures are recorded in
   `eq-client-dll/docs/offsets.md`.
 
+## Update 2026-07-19 — window QA passed; caster table required for mana
+
+- The window-specific correction worked: Rogue-base Pups opened Spell Gems and
+  Spellbook normally. Pups still displayed `0/0` mana and could not cast.
+- The server is not the fault. Pups is ROG/WIZ/DRU and has saved mana `148`;
+  Done is CLR/SHD/MNK with saved mana `103`. The existing multiclass
+  `CalcMaxMana()` path is active.
+- A complete executable disassembly found only five calls to the shared caster
+  predicate: the two known `CanShow` overrides and three caster
+  initialization/activation paths. The consumer set is therefore bounded and
+  matches the required chassis behavior.
+- Replace, rather than stack on, the two branch patches. Enable the four
+  stock-zero entries in the exact 16-byte class table at RVA `0x00043F90`.
+  This still changes four bytes total and lets every caller see WAR/MNK/ROG/BER
+  as caster-capable. The server continues to decide actual mana, spells, class
+  membership, and casting legality.
+
 ## Decision
 
 - Retain the `dinput8.dll` proxy approach.
-- Prefer window-specific gate corrections over changing the global caster-class
-  table; this minimizes behavioral scope while satisfying the tested UI need.
-- Require immutable version checks plus local machine-code signatures before
-  every memory write.
+- Enable the shared caster-class table because in-game evidence proved the
+  window-specific correction is insufficient and the complete caller set is
+  small, known, and aligned with the intended caster chassis.
+- Require immutable version checks plus the complete stock table signature
+  before every memory write.
 - Promote no farther than the feature branch until Pups and Done pass the
   explicit in-game QA in `eq-client-dll/README.md`.
 
@@ -118,6 +136,6 @@ must confirm the class-UI gating is patchable and identify the offset source.
 
 - `eq-client-dll/` remains a Windows x86-only subproject.
 - Each newly supported RoF2 executable requires its own size, SHA-256, and
-  verified code signatures; unknown clients remain unmodified.
-- The current B2 scope unlocks Spell Gems and Spellbook only. Disc-window or
-  other base-class chassis corrections require separate evidence and patches.
+  verified table signature; unknown clients remain unmodified.
+- The B2 scope is the caster UI chassis. Disc-window or other base-class
+  corrections still require separate evidence and patches.

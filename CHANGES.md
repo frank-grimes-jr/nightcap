@@ -4,6 +4,36 @@ Running log of significant changes to this repo — schema migrations, C++ patch
 
 ---
 
+## 2026-07-19 — DLL B2 follow-up: full caster chassis for melee bases (#12/#13)
+
+The first guarded correction passed its window test: Rogue-base Pups could open
+Spell Gems and Spellbook normally. Pups still displayed `0/0` mana and could
+not cast. A read-only live DB check proved the server had loaded the intended
+multiclass state and mana: Pups is ROG/WIZ/DRU with saved mana `148` (Done is
+CLR/SHD/MNK with `103`). The remaining blocker was therefore the RoF2 client
+chassis, not `Client::CalcMaxMana()`.
+
+A full disassembly search found exactly five calls to the shared 16-byte caster
+predicate table: the two window `CanShow` checks plus three caster
+initialization/activation paths. The correction now replaces the two narrow
+branch NOPs with the underlying class-table change:
+
+- table RVA `0x00043F90`
+- exact stock signature
+  `00 01 01 01 01 01 00 01 00 01 01 01 01 01 01 00`
+- WAR, MNK, ROG, and BER entries change from `0` to `1`
+
+This remains four changed bytes total, but every known caster-chassis consumer
+now receives the same capability answer. The server remains authoritative for
+actual multiclass membership, mana, spell availability, and cast validation.
+The DLL still fails closed on client size, full SHA-256, or complete table
+signature mismatch and rolls back a failed write.
+
+Built successfully with MSVC x86. Awaiting Pups mana/casting QA before feature
+branch promotion.
+
+---
+
 ## 2026-07-19 — DLL B2: guarded Rogue-base spell UI correction (#12/#13)
 
 The corrected simultaneous-client survey passed: Done (Cleric base) and Pups
