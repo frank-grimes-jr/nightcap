@@ -20,9 +20,9 @@ caster-class capability table so any base class can use the caster UI chassis.
   Spell Gems and Spellbook with the two narrow branch corrections, proving the
   window analysis. The Rogue client still displayed `0/0` mana even though the
   server had saved mana `148`, so it could not cast.
-- **B2 caster-class table: window QA passed; not a mana gate.** The four table
-  entries enable the caster-window activation paths, but a verified successful
-  table patch still left Pups without a mana bar at `0/0`.
+- **B2 caster-class table: safe-build QA passed; not a mana gate.** Pups and
+  Done both opened Spell Gems and Spellbook normally and zoned successfully
+  without a crash. Pups remained without a mana bar at `0/0`.
 - **B2 server-mana experiment: rejected and removed.** Runtime samples proved
   the object exported as `pinstLocalPlayer` does not hold the decoded
   `OP_ManaUpdate` values at `+0x494/+0x354`: Pups produced `22200/0`, not the
@@ -49,7 +49,7 @@ Output: `build\dinput8.dll`.
 3. The survey writes `nightcap_dll_<PID>.log` beside `eqgame.exe`. Separate EQ
    clients get separate logs.
 
-## B2 safe-build QA
+## B2 safe-build QA — passed 2026-07-19
 
 1. Start `MacroQuest2.exe`, then launch EQ through the method that injects MQ2.
    `MQ2EQIM` has been removed from `MacroQuest.ini` autoload because the July 19
@@ -71,6 +71,9 @@ Failure conditions: either guard reports a mismatch, a window fails to appear,
 normal close/reopen stops working, Done regresses, or either client crashes.
 Pups remaining at `0/0` is expected for this safe build. The MQ2 survey remains
 for diagnostics, but the correction itself does not depend on MQ2.
+
+Recorded result: all guard, window, dual-client, and zoning checks passed.
+No crash recurred. The unresolved acceptance blocker is Pups' `0/0` mana.
 
 ## Remove
 

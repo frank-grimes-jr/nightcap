@@ -4,6 +4,25 @@ Running log of significant changes to this repo — schema migrations, C++ patch
 
 ---
 
+## 2026-07-19 — DLL B2 safe-build QA passed (#12/#13)
+
+Manual two-client QA passed after withdrawing the invalid mana hook and
+disabling `MQ2EQIM` autoload:
+
+- Pups (Rogue base) and Done (Cleric base) both opened Spell Gems and
+  Spellbook normally.
+- Both characters zoned successfully with the window behavior intact.
+- No client crash recurred.
+- Pups remained at the expected unresolved baseline: no mana bar and `0/0`.
+
+This accepts the guarded caster-class table as a stable window/chassis
+correction and confirms the crash isolation. It does not complete B2: the
+remaining work is to identify the authoritative client mana object/value path
+for melee-base multiclass characters. The branch is not promoted while that
+casting blocker remains.
+
+---
+
 ## 2026-07-19 — DLL B2 mana hook withdrawn; MQ2EQIM crash isolated (#12/#13)
 
 The first in-game run rejected the assumed `pinstLocalPlayer` mana fields.

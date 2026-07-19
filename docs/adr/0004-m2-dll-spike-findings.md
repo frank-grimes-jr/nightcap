@@ -142,6 +142,16 @@ traced to `MQ2EQIM.dll` calling `CChatService::GetNumberOfFriends` with a null
 `CChatService`; neither the faulting instruction nor its return address was in
 the Nightcap proxy. That plugin is excluded from subsequent DLL QA.
 
+## Update 2026-07-19 — safe-build QA accepted
+
+- With the rejected mana hook absent and `MQ2EQIM` excluded, Pups and Done both
+  opened Spell Gems and Spellbook normally and zoned successfully.
+- No crash recurred, accepting the caster-class table correction and the crash
+  attribution.
+- Pups remained at `0/0` without a mana bar. B2 therefore remains incomplete;
+  the next correction requires dynamically identifying the real mana packet or
+  profile destination rather than assuming offsets on `pinstLocalPlayer`.
+
 ## Decision
 
 - Retain the `dinput8.dll` proxy approach.
