@@ -1,8 +1,8 @@
 # ADR 0004 — M2 (B0) spike findings: RoF2 UI-unlock offsets source
 
-Date: 2026-07-15 (updated 2026-07-16)
-Status: **Accepted — GO on the DLL approach.** B1 built + smoke-passed. B2
-remains gated on offset extraction (below) + one interactive spellbook proof.
+Date: 2026-07-15 (updated 2026-07-19)
+Status: **Accepted — GO on the DLL approach.** B1 smoke-passed; B2's narrowly
+scoped spell-window correction is built and awaiting in-game QA.
 
 ## Context
 
@@ -85,18 +85,39 @@ must confirm the class-UI gating is patchable and identify the offset source.
   with nothing verified. B2's concrete first step is the offset extraction above,
   done in the same interactive session as the B0 proof.
 
-## Decision (proposed)
+## Update 2026-07-19 — live gate identified; guarded B2 correction built
 
-- Offset mining: clone the macroquest2 ROF2EMU tree and extract the window /
-  PcProfile offsets from `eqgame.h`; do not reverse the binary DLLs.
-- B1 proxy skeleton can proceed in parallel (no offsets needed to forward
-  DirectInput exports).
-- Final B0 proof (Warrior opens an empty spellbook in a dev client) requires an
-  interactive client session — scheduled as the first step of the next M2 work
-  block, before any B2 patch work.
+- Simultaneous Done (Cleric base) and Pups (Rogue base) captures passed the
+  corrected timing checks and produced 991 eqgame offsets each. Both spell
+  windows were non-null and fully initialized for Pups. `/windowstate` reached
+  the stock show path but still did not make them visible.
+- Live memory inspection and disassembly located the cause: both window
+  `CanShow` overrides call one 16-byte base-class caster table. Its zero entries
+  are exactly WAR, MNK, ROG, and BER.
+- B2 deliberately leaves that shared table unchanged. It NOPs only the two
+  conditional branches that reject the predicate result in
+  `CCastSpellWnd::CanShow` and `CSpellBookWnd::CanShow`—four changed instruction
+  bytes total. All other `CanShow` checks and all unrelated uses of the client
+  class predicate remain stock.
+- Writes fail closed behind three independent checks: exact file size, full
+  SHA-256, and both complete nine-byte code signatures. A partial write is
+  rolled back. Exact RVAs and signatures are recorded in
+  `eq-client-dll/docs/offsets.md`.
+
+## Decision
+
+- Retain the `dinput8.dll` proxy approach.
+- Prefer window-specific gate corrections over changing the global caster-class
+  table; this minimizes behavioral scope while satisfying the tested UI need.
+- Require immutable version checks plus local machine-code signatures before
+  every memory write.
+- Promote no farther than the feature branch until Pups and Done pass the
+  explicit in-game QA in `eq-client-dll/README.md`.
 
 ## Consequences
 
-- New subproject `eq-client-dll/` (C++, MSVC, x86) when B1 starts.
-- Offset-versioning strategy (B3) should pin to the RoF2 build string the same
-  way MQ2-emu does (compare `eqgame.exe` timestamp/checksum before patching).
+- `eq-client-dll/` remains a Windows x86-only subproject.
+- Each newly supported RoF2 executable requires its own size, SHA-256, and
+  verified code signatures; unknown clients remain unmodified.
+- The current B2 scope unlocks Spell Gems and Spellbook only. Disc-window or
+  other base-class chassis corrections require separate evidence and patches.

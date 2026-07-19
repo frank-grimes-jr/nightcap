@@ -4,6 +4,36 @@ Running log of significant changes to this repo — schema migrations, C++ patch
 
 ---
 
+## 2026-07-19 — DLL B2: guarded Rogue-base spell UI correction (#12/#13)
+
+The corrected simultaneous-client survey passed: Done (Cleric base) and Pups
+(Rogue base) each captured 991 initialized eqgame offsets with reliable
+15-second sampling. Both spell-window objects existed and were fully
+initialized for Pups. MQ2 `/windowstate` reached the stock `CXWnd::Show` path
+but the windows remained hidden, isolating the failure to their virtual
+`CanShow` checks.
+
+Live memory inspection and disassembly found that both window overrides consult
+the same 16-byte stock caster-class table. Its zero entries are exactly WAR,
+MNK, ROG, and BER. To limit blast radius, the correction leaves that shared
+table untouched and disables only the post-predicate rejection branch in:
+
+- `CCastSpellWnd::CanShow`, signature RVA `0x00248867`
+- `CSpellBookWnd::CanShow`, signature RVA `0x0035C97F`
+
+This changes four instruction bytes total and preserves all remaining window
+safety checks plus every unrelated class-table consumer. The proxy fails closed:
+it writes only when the client size (8,774,656), full SHA-256
+(`2a8702ad9f722704f01355c0750be7d6f164a8b9c9128ba0cf286ea32b405b0e`),
+and both nine-byte signatures match. A failed partial application is rolled
+back. MQ2 is no longer required by the correction itself; the survey remains
+temporarily for QA diagnostics.
+
+Built successfully with MSVC x86. Awaiting Pups + Done in-game QA before any
+promotion beyond the feature branch.
+
+---
+
 ## 2026-07-19 — DLL B2 survey v2: reliable timing + multi-client logs (#12/#13)
 
 The first successful MQ2-injected capture proved the raw-memory fallback works

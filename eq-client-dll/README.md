@@ -2,9 +2,8 @@
 
 Client-side UI-chassis unlock for the True Multiclass epic (#10), Track B / issue #12.
 RoF2 auto-loads `dinput8.dll` from its own folder; this proxy forwards all
-DirectInput exports to the real system DLL and (eventually) patches the client's
-class-gated UI in memory so any base class can open the spellbook / gem / disc
-windows.
+DirectInput exports to the real system DLL and narrowly patches the client's
+spellbook and spell-gem visibility gates so any base class can open them.
 
 ## Status
 
@@ -13,12 +12,17 @@ windows.
   confirms load/init/unload against `testeqgame.exe`, game ran identically.
 - **B0 (feasibility): GO.** See `docs/adr/0004`. Symbol set confirmed in
   `mq-rof2/MQ2Main.dll`; full map in `docs/offsets.md`.
-- **B2 survey: active.** MQ2 injection and hidden-image discovery are proven.
-  Survey v2 uses verified wall-clock waits, initialization retries, and a
-  per-EQ-process log so caster/melee clients can run simultaneously.
-- **B2 UI unlock: not started; awaiting the corrected survey capture.** The
-  capture decides whether melee-base spell windows exist but are hidden or must
-  be constructed before showing.
+- **B2 survey: passed.** Simultaneous Done (Cleric) and Pups (Rogue) captures
+  showed both window objects fully constructed for both clients. Live memory
+  inspection and disassembly identified the exact shared class predicate and
+  its two window-specific rejection branches.
+- **B2 spell UI correction: built; awaiting in-game QA.** Four instruction
+  bytes are changed: the two conditional branches that reject a non-caster
+  base class in `CCastSpellWnd::CanShow` and `CSpellBookWnd::CanShow`. Other
+  client class logic and the remaining window safety checks stay stock.
+- **Fail closed:** the patch requires the expected file size, full SHA-256, and
+  both complete nine-byte code signatures. Any mismatch leaves memory untouched
+  and is recorded in the per-process log.
 
 ## Build
 
@@ -38,21 +42,23 @@ Output: `build\dinput8.dll`.
 3. The survey writes `nightcap_dll_<PID>.log` beside `eqgame.exe`. Separate EQ
    clients get separate logs.
 
-## B2 survey QA
+## B2 spell UI QA
 
 1. Start `MacroQuest2.exe`, then launch EQ through the method that injects MQ2.
-2. Confirm `/plugin list` is handled by MQ2.
-3. Log a caster-base character (Done, Cleric) in one client. Open the spell-gem
-   and spellbook windows and leave the client running for at least 60 seconds.
-4. Log a melee-base character (Pups, Rogue) in another client. Try the same
-   windows (stock behavior is still expected to do nothing) and leave it running
-   for at least 60 seconds.
-5. Exit both clients and collect every new `nightcap_dll_<PID>.log`.
+2. Log in Pups (Rogue base). Confirm the new `nightcap_dll_<PID>.log` contains
+   `client size check: OK`, `client sha256 check: OK`, and `B2 patch APPLIED`.
+3. Use the normal EQ controls (not `/windowstate`) to open Spell Gems and the
+   Spellbook. Both must appear. Close and reopen each, then move each window.
+4. Memorize one already-scribed spell into an empty gem and cast it on a valid
+   target. Zoning must preserve a usable gem bar and spellbook.
+5. With Pups still running, log in Done (Cleric base) in a second client.
+   Repeat open/close, memorize, cast, and zone as a stock-caster regression.
+6. Exit both clients and retain both new per-process logs.
 
-A valid log contains `MQ2 found`, at least one `OFFSET` block, and `watch`
-samples whose `elapsed=` values advance by approximately 15 seconds. The
-caster log should show nonzero spell-window instances. Whether the Rogue log
-shows zero or nonzero instances determines the B2 implementation path.
+Failure conditions: either guard reports a mismatch, a window still fails to
+appear, normal close/reopen stops working, memorization/casting fails, Done
+regresses, or either client crashes. The MQ2 survey remains in this build for
+diagnostics, but the correction itself does not depend on MQ2.
 
 ## Remove
 

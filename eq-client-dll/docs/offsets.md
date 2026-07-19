@@ -57,3 +57,36 @@ Server-side right-click scribe already works (`Spells:AllowSpellMemorizeFromItem
 required surface therefore shrinks to: **force `CCastSpellWnd` (spell gems) +
 memorize UI available regardless of `BaseProfile.Class`.** Spellbook window is a
 nice-to-have, not a blocker. This is the smallest thing to prove in B0.
+
+## 2026-07-19 live-client result: exact window gates
+
+The corrected two-client survey captured 991 initialized eqgame offsets in
+each process. Done (Cleric base) and Pups (Rogue base) both had non-null,
+fully initialized `CCastSpellWnd` and `CSpellBookWnd` objects. Pups' objects
+also had valid on-screen rectangles, so construction and geometry were ruled
+out.
+
+MQ2 `/windowstate <name> open` reaches stock `CXWnd::Show(true, true, true)`,
+but `CXWnd::Show` first calls the window's virtual `CanShow` method. Both
+window overrides call the same base-class predicate. Its 16-byte class table
+is:
+
+| Class IDs | 1 WAR | 2 CLR | 3 PAL | 4 RNG | 5 SHD | 6 DRU | 7 MNK | 8 BRD | 9 ROG | 10 SHM | 11 NEC | 12 WIZ | 13 MAG | 14 ENC | 15 BST | 16 BER |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| Stock value | 0 | 1 | 1 | 1 | 1 | 1 | 0 | 1 | 0 | 1 | 1 | 1 | 1 | 1 | 1 | 0 |
+
+The four zeros exactly match the four stock no-mana classes. To avoid changing
+every other consumer of this global predicate, B2 does **not** alter the table.
+It disables only the rejection branch immediately following that predicate in
+the two window `CanShow` methods:
+
+| Window | Signature RVA | Expected signature | Changed bytes |
+|---|---:|---|---|
+| `CCastSpellWnd` | `0x00248867` | `E8 E4 B6 DF FF 85 C0 74 E7` | final `74 E7` → `90 90` |
+| `CSpellBookWnd` | `0x0035C97F` | `E8 CC 75 CE FF 85 C0 74 66` | final `74 66` → `90 90` |
+
+These are RVAs from the loaded `eqgame.exe` base, not preferred virtual
+addresses. The write is allowed only for the 8,774,656-byte client with SHA-256
+`2a8702ad9f722704f01355c0750be7d6f164a8b9c9128ba0cf286ea32b405b0e`, and
+only when both full signatures match. This preserves all other `CanShow`
+conditions and all unrelated class behavior.

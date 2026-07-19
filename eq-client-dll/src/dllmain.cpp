@@ -1,24 +1,51 @@
 // =============================================================================
-// Nightcap dinput8.dll proxy — B2 offset survey (issue #12, ADR 0004)
+// Nightcap dinput8.dll proxy — B2 caster-window correction (issue #12, ADR 0004)
 //
 // RoF2 auto-loads dinput8.dll from its own folder at startup. This proxy
 // forwards every DirectInput export to the real system DLL and starts one
-// init thread that surveys MQ2's initialized eqgame pointers — no game memory
-// is modified. Removing the DLL from the client folder fully restores stock
-// behavior.
+// init thread that applies two tightly guarded caster-window corrections. The
+// MQ2 offset survey remains temporarily available for validation. Removing the
+// DLL from the client folder fully restores stock behavior.
 //
 // Build: x86 ONLY (RoF2 is a 32-bit client) — see build.bat.
 // =============================================================================
 
 #include <windows.h>
+#include <bcrypt.h>
 #include <tlhelp32.h>
+#include <cstdarg>
 #include <cstdio>
 #include <cstdint>
+#include <cstring>
 
-// --- expected client build (version guard scaffolding for B3) ---------------
+#pragma comment(lib, "bcrypt.lib")
+
+// --- expected client build and B2 patch sites --------------------------------
 // eqgame.exe, RoF2 May 10 2013 emu package, 8,774,656 bytes
 // sha256 2a8702ad9f722704f01355c0750be7d6f164a8b9c9128ba0cf286ea32b405b0e
 static const DWORD kExpectedEqgameSize = 8774656;
+static const BYTE kExpectedEqgameSha256[32] = {
+    0x2A, 0x87, 0x02, 0xAD, 0x9F, 0x72, 0x27, 0x04,
+    0xF0, 0x13, 0x55, 0xC0, 0x75, 0x0B, 0xE7, 0xD6,
+    0xF1, 0x64, 0xA8, 0xB9, 0xC9, 0x12, 0x8B, 0xA0,
+    0xCF, 0x28, 0x6E, 0xA3, 0x2B, 0x40, 0x5B, 0x0E,
+};
+
+// Each signature is the call to the stock caster-class predicate, its result
+// test, and the conditional branch that hides the window for WAR/MNK/ROG/BER.
+// We replace only the final two-byte branch with NOPs. All other CanShow checks
+// and every other consumer of the shared caster predicate remain stock.
+struct WindowGatePatch {
+    const char* name;
+    uintptr_t signature_rva;
+    BYTE expected[9];
+};
+
+static const WindowGatePatch kWindowGatePatches[] = {
+    { "CastSpellWnd", 0x00248867, { 0xE8, 0xE4, 0xB6, 0xDF, 0xFF, 0x85, 0xC0, 0x74, 0xE7 } },
+    { "SpellBookWnd", 0x0035C97F, { 0xE8, 0xCC, 0x75, 0xCE, 0xFF, 0x85, 0xC0, 0x74, 0x66 } },
+};
+static const BYTE kDisabledBranch[2] = { 0x90, 0x90 };
 
 static HMODULE g_real_dinput8 = nullptr;
 static FILE*   g_log          = nullptr;
@@ -35,6 +62,162 @@ static void Log(const char* fmt, ...)
     va_end(args);
     fprintf(g_log, "\n");
     fflush(g_log);
+}
+
+static bool VerifyEqgameSha256(const char* path)
+{
+    BCRYPT_ALG_HANDLE algorithm = nullptr;
+    BCRYPT_HASH_HANDLE hash = nullptr;
+    HANDLE file = INVALID_HANDLE_VALUE;
+    BYTE* hash_object = nullptr;
+    BYTE digest[32] = {};
+    BYTE buffer[64 * 1024];
+    DWORD hash_object_size = 0;
+    DWORD property_size = 0;
+    DWORD bytes_read = 0;
+    bool read_ok = true;
+    bool matched = false;
+
+    NTSTATUS status = BCryptOpenAlgorithmProvider(
+        &algorithm, BCRYPT_SHA256_ALGORITHM, nullptr, 0);
+    if (status < 0) goto cleanup;
+
+    status = BCryptGetProperty(
+        algorithm, BCRYPT_OBJECT_LENGTH,
+        reinterpret_cast<PUCHAR>(&hash_object_size),
+        sizeof(hash_object_size), &property_size, 0);
+    if (status < 0 || hash_object_size == 0) goto cleanup;
+
+    hash_object = static_cast<BYTE*>(
+        HeapAlloc(GetProcessHeap(), 0, hash_object_size));
+    if (!hash_object) goto cleanup;
+
+    status = BCryptCreateHash(
+        algorithm, &hash, hash_object, hash_object_size, nullptr, 0, 0);
+    if (status < 0) goto cleanup;
+
+    file = CreateFileA(
+        path, GENERIC_READ, FILE_SHARE_READ | FILE_SHARE_WRITE | FILE_SHARE_DELETE,
+        nullptr, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, nullptr);
+    if (file == INVALID_HANDLE_VALUE) goto cleanup;
+
+    do {
+        bytes_read = 0;
+        if (!ReadFile(file, buffer, sizeof(buffer), &bytes_read, nullptr)) {
+            read_ok = false;
+            break;
+        }
+        if (bytes_read != 0) {
+            status = BCryptHashData(hash, buffer, bytes_read, 0);
+            if (status < 0) {
+                read_ok = false;
+                break;
+            }
+        }
+    } while (bytes_read != 0);
+
+    if (!read_ok) goto cleanup;
+    status = BCryptFinishHash(hash, digest, sizeof(digest), 0);
+    if (status < 0) goto cleanup;
+    matched = (memcmp(digest, kExpectedEqgameSha256, sizeof(digest)) == 0);
+
+cleanup:
+    if (file != INVALID_HANDLE_VALUE) CloseHandle(file);
+    if (hash) BCryptDestroyHash(hash);
+    if (hash_object) HeapFree(GetProcessHeap(), 0, hash_object);
+    if (algorithm) BCryptCloseAlgorithmProvider(algorithm, 0);
+    return matched;
+}
+
+enum PatchState {
+    PATCH_EXPECTED,
+    PATCH_ALREADY_APPLIED,
+    PATCH_SIGNATURE_MISMATCH,
+};
+
+static PatchState GetPatchState(uintptr_t eq_base, const WindowGatePatch& patch)
+{
+    const BYTE* signature = reinterpret_cast<const BYTE*>(eq_base + patch.signature_rva);
+    __try {
+        if (memcmp(signature, patch.expected, sizeof(patch.expected)) == 0) {
+            return PATCH_EXPECTED;
+        }
+        if (memcmp(signature, patch.expected, 7) == 0 &&
+            memcmp(signature + 7, kDisabledBranch, sizeof(kDisabledBranch)) == 0) {
+            return PATCH_ALREADY_APPLIED;
+        }
+    } __except (EXCEPTION_EXECUTE_HANDLER) {
+        return PATCH_SIGNATURE_MISMATCH;
+    }
+    return PATCH_SIGNATURE_MISMATCH;
+}
+
+static bool WriteWindowGateBranch(
+    uintptr_t eq_base, const WindowGatePatch& patch, const BYTE bytes[2])
+{
+    BYTE* branch = reinterpret_cast<BYTE*>(eq_base + patch.signature_rva + 7);
+    DWORD old_protection = 0;
+    if (!VirtualProtect(branch, 2, PAGE_EXECUTE_READWRITE, &old_protection)) {
+        return false;
+    }
+
+    bool wrote = false;
+    __try {
+        memcpy(branch, bytes, 2);
+        FlushInstructionCache(GetCurrentProcess(), branch, 2);
+        wrote = (memcmp(branch, bytes, 2) == 0);
+    } __except (EXCEPTION_EXECUTE_HANDLER) {
+        wrote = false;
+    }
+
+    DWORD ignored = 0;
+    VirtualProtect(branch, 2, old_protection, &ignored);
+    return wrote;
+}
+
+static bool ApplyCasterWindowGatePatches(uintptr_t eq_base, bool version_ok)
+{
+    if (!version_ok) {
+        Log("B2 patch DISABLED: client version guard failed");
+        return false;
+    }
+
+    PatchState states[sizeof(kWindowGatePatches) / sizeof(kWindowGatePatches[0])];
+    bool changed[sizeof(kWindowGatePatches) / sizeof(kWindowGatePatches[0])] = {};
+
+    for (size_t i = 0; i < sizeof(kWindowGatePatches) / sizeof(kWindowGatePatches[0]); ++i) {
+        states[i] = GetPatchState(eq_base, kWindowGatePatches[i]);
+        if (states[i] == PATCH_SIGNATURE_MISMATCH) {
+            Log("B2 patch DISABLED: %s signature mismatch at rva=0x%08X",
+                kWindowGatePatches[i].name,
+                static_cast<unsigned>(kWindowGatePatches[i].signature_rva));
+            return false;
+        }
+    }
+
+    for (size_t i = 0; i < sizeof(kWindowGatePatches) / sizeof(kWindowGatePatches[0]); ++i) {
+        if (states[i] == PATCH_ALREADY_APPLIED) {
+            Log("B2 patch site already active: %s", kWindowGatePatches[i].name);
+            continue;
+        }
+        if (!WriteWindowGateBranch(eq_base, kWindowGatePatches[i], kDisabledBranch)) {
+            Log("B2 patch FAILED while writing %s; rolling back this load",
+                kWindowGatePatches[i].name);
+            for (size_t rollback = 0; rollback < i; ++rollback) {
+                if (changed[rollback]) {
+                    WriteWindowGateBranch(
+                        eq_base, kWindowGatePatches[rollback],
+                        kWindowGatePatches[rollback].expected + 7);
+                }
+            }
+            return false;
+        }
+        changed[i] = true;
+    }
+
+    Log("B2 patch APPLIED: CastSpellWnd and SpellBookWnd class gates disabled "
+        "(4 bytes; remaining CanShow checks preserved)");
+    return true;
 }
 
 // MQ2/the client environment caused every Sleep() in the first successful
@@ -315,24 +498,29 @@ static DWORD WINAPI InitThread(LPVOID)
     if (fopen_s(&g_log, log_name, "w") != 0 || !g_log) {
         return 0;
     }
-    Log("Nightcap proxy loaded (B2 offset survey v2, no patches active)");
+    Log("Nightcap proxy loaded (B2 caster-window correction + offset survey)");
     Log("pid: %lu | log: %s", pid, log_name);
 
     char exe_path[MAX_PATH];
     GetModuleFileNameA(nullptr, exe_path, MAX_PATH);
     Log("host process: %s", exe_path);
 
-    // version guard scaffolding: warn (do not patch) on unexpected client size
+    // A patch is permitted only when both immutable client checks pass.
     WIN32_FILE_ATTRIBUTE_DATA fad;
     bool size_ok = false;
     if (GetFileAttributesExA(exe_path, GetFileExInfoStandard, &fad)) {
         size_ok = (fad.nFileSizeLow == kExpectedEqgameSize && fad.nFileSizeHigh == 0);
-        Log("client size check: %s (%lu bytes)", size_ok ? "OK" : "MISMATCH - survey only, never patch",
+        Log("client size check: %s (%lu bytes)", size_ok ? "OK" : "MISMATCH",
             fad.nFileSizeLow);
+    } else {
+        Log("client size check: UNREADABLE");
     }
 
     uintptr_t eq_base, eq_size;
     GetModuleRange(GetModuleHandleA(nullptr), &eq_base, &eq_size);
+    bool hash_ok = size_ok && VerifyEqgameSha256(exe_path);
+    Log("client sha256 check: %s", hash_ok ? "OK" : "MISMATCH OR UNREADABLE");
+    ApplyCasterWindowGatePatches(eq_base, size_ok && hash_ok);
 
     // Wait for MQ2 (user launches MacroQuest2.exe as usual); survey once, then
     // poll the watchlist so the HITL session captures instance lifecycles
