@@ -4,6 +4,31 @@ Running log of significant changes to this repo — schema migrations, C++ patch
 
 ---
 
+## 2026-07-19 — DLL B2 survey v2: reliable timing + multi-client logs (#12/#13)
+
+The first successful MQ2-injected capture proved the raw-memory fallback works
+(`MQ2 found at base=...`) and exposed the targeted eqgame pointer slots, but it
+also revealed that every `Sleep()` returned almost immediately: 60 intended
+15-second polls completed in ~8ms, before character login. The export survey
+also ran before MQ2 finished initialization and captured only `baseAddress`.
+
+Corrected `eq-client-dll/src/dllmain.cpp`:
+
+- Replaced `Sleep()` with a private, never-signaled event wait plus elapsed-time
+  verification and a defensive wall-clock fallback.
+- Waits for at least five targeted MQ2 exports to contain eqgame addresses,
+  then gives MQ2 a real five-second settling period.
+- Retries the full export survey up to five times when fewer than ten eqgame
+  offsets are captured.
+- Adds sample number + elapsed seconds to every window-instance poll.
+- Writes `nightcap_dll_<PID>.log`, preventing two simultaneous EQ clients
+  (Done caster-base and Pups Rogue-base on separate accounts) from truncating
+  or suppressing each other's capture.
+
+Still survey-only: no client memory writes and no UI behavior changes.
+
+---
+
 ## 2026-07-18 — DLL B2: offset-survey build (#12/#13)
 
 In-game QA proved every remaining multiclass blocker (#36 skills window, #37 AA toggle,

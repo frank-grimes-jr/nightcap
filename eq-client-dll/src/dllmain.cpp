@@ -1,10 +1,10 @@
 // =============================================================================
-// Nightcap dinput8.dll proxy — B1 skeleton (issue #12, ADR 0004)
+// Nightcap dinput8.dll proxy — B2 offset survey (issue #12, ADR 0004)
 //
 // RoF2 auto-loads dinput8.dll from its own folder at startup. This proxy
 // forwards every DirectInput export to the real system DLL and starts one
-// init thread that only writes a log file — no game memory is touched yet
-// (that's B2). Removing the DLL from the client folder fully restores stock
+// init thread that surveys MQ2's initialized eqgame pointers — no game memory
+// is modified. Removing the DLL from the client folder fully restores stock
 // behavior.
 //
 // Build: x86 ONLY (RoF2 is a 32-bit client) — see build.bat.
@@ -35,6 +35,34 @@ static void Log(const char* fmt, ...)
     va_end(args);
     fprintf(g_log, "\n");
     fflush(g_log);
+}
+
+// MQ2/the client environment caused every Sleep() in the first successful
+// survey to return in ~5ms, collapsing a 15-minute poll into 8ms. Wait on a
+// private, never-signaled event instead, then verify elapsed wall-clock time.
+// The final yield loop is a defensive fallback if another hook short-circuits
+// the kernel wait too.
+static void ReliableWait(DWORD milliseconds)
+{
+    const ULONGLONG started = GetTickCount64();
+    HANDLE blocker = CreateEventA(nullptr, TRUE, FALSE, nullptr);
+    if (blocker) {
+        WaitForSingleObject(blocker, milliseconds);
+        CloseHandle(blocker);
+    } else {
+        // A process object is unsignaled until the process exits, so this is
+        // equivalent to a timeout-only wait while the survey is alive.
+        WaitForSingleObject(GetCurrentProcess(), milliseconds);
+    }
+
+    ULONGLONG elapsed = GetTickCount64() - started;
+    if (elapsed + 100 < milliseconds) {
+        Log("wait anomaly: requested=%lums actual=%llums; enforcing wall-clock deadline",
+            milliseconds, elapsed);
+        while (GetTickCount64() - started < milliseconds) {
+            SwitchToThread();
+        }
+    }
 }
 
 // --- forwarded exports -------------------------------------------------------
@@ -131,6 +159,20 @@ static const char* kWatchlist[] = {
     "pinstPCData", "pinstCharData", "pinstLocalPlayer", "pinstControlledPlayer",
 };
 
+static unsigned CountInitializedWatchSlots(HMODULE mq2, uintptr_t eq_base, uintptr_t eq_size)
+{
+    unsigned ready = 0;
+    for (const char* name : kWatchlist) {
+        auto var = (DWORD*)GetProcAddress(mq2, name);
+        DWORD slot_va = 0;
+        if (var && GuardedReadDword(var, &slot_va) &&
+            slot_va >= eq_base && slot_va < eq_base + eq_size) {
+            ready++;
+        }
+    }
+    return ready;
+}
+
 // Log every module loaded in the process, so a session that never sees MQ2 still
 // tells us exactly what IS injected (and under what name).
 static void DumpModules(const char* when)
@@ -209,7 +251,7 @@ static HMODULE FindMq2()
     return nullptr;
 }
 
-static void SurveyMq2Exports(HMODULE mq2, uintptr_t eq_base, uintptr_t eq_size)
+static unsigned SurveyMq2Exports(HMODULE mq2, uintptr_t eq_base, uintptr_t eq_size)
 {
     uintptr_t mq_base, mq_size;
     GetModuleRange(mq2, &mq_base, &mq_size);
@@ -217,7 +259,10 @@ static void SurveyMq2Exports(HMODULE mq2, uintptr_t eq_base, uintptr_t eq_size)
     auto dos = (IMAGE_DOS_HEADER*)mq2;
     auto nt  = (IMAGE_NT_HEADERS*)(mq_base + dos->e_lfanew);
     DWORD exp_rva = nt->OptionalHeader.DataDirectory[IMAGE_DIRECTORY_ENTRY_EXPORT].VirtualAddress;
-    if (!exp_rva) { Log("survey: MQ2Main has no export directory?"); return; }
+    if (!exp_rva) {
+        Log("survey: MQ2Main has no export directory?");
+        return 0;
+    }
 
     auto exp    = (IMAGE_EXPORT_DIRECTORY*)(mq_base + exp_rva);
     auto names  = (DWORD*)(mq_base + exp->AddressOfNames);
@@ -241,25 +286,37 @@ static void SurveyMq2Exports(HMODULE mq2, uintptr_t eq_base, uintptr_t eq_size)
         }
     }
     Log("survey: %u eqgame-resident offsets captured", hits);
+    return hits;
 }
 
-static void PollWatchlist(HMODULE mq2)
+static void PollWatchlist(HMODULE mq2, unsigned sample, ULONGLONG elapsed_seconds)
 {
     for (const char* name : kWatchlist) {
         auto var = (DWORD*)GetProcAddress(mq2, name);
-        if (!var) { Log("watch: %s (not exported)", name); continue; }
+        if (!var) {
+            Log("watch sample=%02u elapsed=%llus: %s (not exported)",
+                sample, elapsed_seconds, name);
+            continue;
+        }
         DWORD slot_va;
         if (!GuardedReadDword(var, &slot_va)) continue;
         DWORD instance = 0;
         bool ok = GuardedReadDword((void*)(uintptr_t)slot_va, &instance);
-        Log("watch: %s slot=0x%08X instance=%s0x%08X", name, slot_va, ok ? "" : "<unreadable> ", instance);
+        Log("watch sample=%02u elapsed=%llus: %s slot=0x%08X instance=%s0x%08X",
+            sample, elapsed_seconds, name, slot_va, ok ? "" : "<unreadable> ", instance);
     }
 }
 
 static DWORD WINAPI InitThread(LPVOID)
 {
-    fopen_s(&g_log, "nightcap_dll.log", "w");
-    Log("Nightcap proxy loaded (B2 offset survey build, no patches active)");
+    const DWORD pid = GetCurrentProcessId();
+    char log_name[MAX_PATH];
+    sprintf_s(log_name, "nightcap_dll_%lu.log", pid);
+    if (fopen_s(&g_log, log_name, "w") != 0 || !g_log) {
+        return 0;
+    }
+    Log("Nightcap proxy loaded (B2 offset survey v2, no patches active)");
+    Log("pid: %lu | log: %s", pid, log_name);
 
     char exe_path[MAX_PATH];
     GetModuleFileNameA(nullptr, exe_path, MAX_PATH);
@@ -281,34 +338,60 @@ static DWORD WINAPI InitThread(LPVOID)
     // poll the watchlist so the HITL session captures instance lifecycles
     // (login caster -> windows non-null; camp to melee -> created or null?).
     HMODULE mq2 = nullptr;
-    const DWORD start_tick = GetTickCount();
-    const DWORD deadline   = start_tick + 300000;    // wait up to 5 min for MQ2
+    const ULONGLONG start_tick = GetTickCount64();
     bool dumped_early = false;
-    while (!mq2 && GetTickCount() < deadline) {
+    while (!mq2 && GetTickCount64() - start_tick < 300000) {
         mq2 = FindMq2();
         if (mq2) break;
-        DWORD elapsed = GetTickCount() - start_tick;
+        ULONGLONG elapsed = GetTickCount64() - start_tick;
         if (!dumped_early && elapsed >= 8000) { DumpModules("early, MQ2 not yet seen"); dumped_early = true; }
-        Log("waiting for MQ2... elapsed %lus", elapsed / 1000);
-        Sleep(5000);
+        Log("waiting for MQ2... elapsed %llus", elapsed / 1000);
+        ReliableWait(5000);
     }
     if (!mq2) {
         DumpModules("final, MQ2 never appeared");
-        Log("MQ2 not found after %lus (scanned loader list + raw memory). If MQ2 was "
+        Log("MQ2 not found after %llus (scanned loader list + raw memory). If MQ2 was "
             "actually active in-game this session, it's memory-mapped in a way the scan "
             "missed; tell me and I'll widen it. Otherwise MQ2 wasn't injected into this "
-            "eqgame process.", (GetTickCount() - start_tick) / 1000);
+            "eqgame process.", (GetTickCount64() - start_tick) / 1000);
         return 0;
     }
-    Log("MQ2 found at base=0x%08X after %lus", (unsigned)(uintptr_t)mq2, (GetTickCount() - start_tick) / 1000);
-    Sleep(5000); // let MQ2 finish its own offset init
-    SurveyMq2Exports(mq2, eq_base, eq_size);
+    Log("MQ2 found at base=0x%08X after %llus",
+        (unsigned)(uintptr_t)mq2, (GetTickCount64() - start_tick) / 1000);
 
-    for (int i = 0; i < 60; i++) {                   // 15 min of lifecycle polling
-        PollWatchlist(mq2);
-        Sleep(15000);
+    // Finding the image and MQ2 finishing its exported offset initialization are
+    // separate moments. Wait until most targeted exports hold eqgame addresses,
+    // then give the remaining export table a real five-second settling period.
+    const ULONGLONG ready_started = GetTickCount64();
+    unsigned ready_slots = 0;
+    do {
+        ready_slots = CountInitializedWatchSlots(mq2, eq_base, eq_size);
+        Log("MQ2 offset readiness: %u/%u watch slots initialized",
+            ready_slots, (unsigned)(sizeof(kWatchlist) / sizeof(kWatchlist[0])));
+        if (ready_slots >= 5) break;
+        ReliableWait(1000);
+    } while (GetTickCount64() - ready_started < 30000);
+
+    ReliableWait(5000);
+
+    unsigned hits = 0;
+    for (unsigned attempt = 1; attempt <= 5; attempt++) {
+        Log("survey attempt %u/5", attempt);
+        hits = SurveyMq2Exports(mq2, eq_base, eq_size);
+        if (hits >= 10) break;
+        Log("survey captured only %u offset(s); retrying after MQ2 settles", hits);
+        ReliableWait(2000);
     }
-    Log("survey session complete");
+
+    const ULONGLONG polling_started = GetTickCount64();
+    for (unsigned i = 1; i <= 60; i++) {             // 15 min of lifecycle polling
+        PollWatchlist(mq2, i, (GetTickCount64() - polling_started) / 1000);
+        if (i < 60) {
+            ReliableWait(15000);
+        }
+    }
+    Log("survey session complete: offsets=%u polling_elapsed=%llus",
+        hits, (GetTickCount64() - polling_started) / 1000);
     return 0;
 }
 

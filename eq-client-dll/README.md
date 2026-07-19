@@ -9,14 +9,16 @@ windows.
 ## Status
 
 - **B1 (skeleton): built + smoke-passed.** Forwards all six exports, init thread
-  logs only, no memory patched. Reproducible x86 build; `nightcap_dll.log`
+  logs only, no memory patched. Reproducible x86 build; its log
   confirms load/init/unload against `testeqgame.exe`, game ran identically.
 - **B0 (feasibility): GO.** See `docs/adr/0004`. Symbol set confirmed in
   `mq-rof2/MQ2Main.dll`; full map in `docs/offsets.md`.
-- **B2 (UI unlock): not started; blocked on offset extraction + interactive
-  proof.** The MQ2Main export RVAs are *not* eqgame offsets (see `docs/offsets.md`)
-  — real offsets come from MQ2-emu `eqgame.h` or a live-client debugger, mined in
-  the same session that proves a Warrior can open the spell-gem window.
+- **B2 survey: active.** MQ2 injection and hidden-image discovery are proven.
+  Survey v2 uses verified wall-clock waits, initialization retries, and a
+  per-EQ-process log so caster/melee clients can run simultaneously.
+- **B2 UI unlock: not started; awaiting the corrected survey capture.** The
+  capture decides whether melee-base spell windows exist but are hidden or must
+  be constructed before showing.
 
 ## Build
 
@@ -33,8 +35,24 @@ Output: `build\dinput8.dll`.
 1. Copy `build\dinput8.dll` next to `eqgame.exe` in
    `Client_RoF2_Dev\everquest_rof2\`.
 2. Launch the client normally (desktop shortcut).
-3. B1 pass = game runs exactly as without the DLL, and `nightcap_dll.log` appears
-   in the client folder with "init complete".
+3. The survey writes `nightcap_dll_<PID>.log` beside `eqgame.exe`. Separate EQ
+   clients get separate logs.
+
+## B2 survey QA
+
+1. Start `MacroQuest2.exe`, then launch EQ through the method that injects MQ2.
+2. Confirm `/plugin list` is handled by MQ2.
+3. Log a caster-base character (Done, Cleric) in one client. Open the spell-gem
+   and spellbook windows and leave the client running for at least 60 seconds.
+4. Log a melee-base character (Pups, Rogue) in another client. Try the same
+   windows (stock behavior is still expected to do nothing) and leave it running
+   for at least 60 seconds.
+5. Exit both clients and collect every new `nightcap_dll_<PID>.log`.
+
+A valid log contains `MQ2 found`, at least one `OFFSET` block, and `watch`
+samples whose `elapsed=` values advance by approximately 15 seconds. The
+caster log should show nonzero spell-window instances. Whether the Rogue log
+shows zero or nonzero instances determines the B2 implementation path.
 
 ## Remove
 
