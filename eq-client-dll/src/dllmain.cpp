@@ -147,24 +147,66 @@ static void DumpModules(const char* when)
     CloseHandle(snap);
 }
 
-// Find MQ2's main module regardless of exact filename: exact "MQ2Main.dll" first,
-// else any loaded module whose name starts with "MQ2".
+// Does the PE image at `base` export a symbol containing `needle`? Guarded — many
+// regions aren't valid PEs. Returns true and confirms this is MQ2Main.
+static bool ImageExportsSymbol(uintptr_t base, const char* needle)
+{
+    __try {
+        auto dos = (IMAGE_DOS_HEADER*)base;
+        if (dos->e_magic != IMAGE_DOS_SIGNATURE) return false;
+        auto nt = (IMAGE_NT_HEADERS*)(base + dos->e_lfanew);
+        if (nt->Signature != IMAGE_NT_SIGNATURE) return false;
+        DWORD exp_rva = nt->OptionalHeader.DataDirectory[IMAGE_DIRECTORY_ENTRY_EXPORT].VirtualAddress;
+        if (!exp_rva) return false;
+        auto exp   = (IMAGE_EXPORT_DIRECTORY*)(base + exp_rva);
+        auto names = (DWORD*)(base + exp->AddressOfNames);
+        for (DWORD i = 0; i < exp->NumberOfNames; i++) {
+            const char* n = (const char*)(base + names[i]);
+            if (strstr(n, needle)) return true;
+        }
+        return false;
+    } __except (EXCEPTION_EXECUTE_HANDLER) {
+        return false;
+    }
+}
+
+// Find MQ2's main image even when it's unlinked from the loader module list
+// (MQ2 hides its module). 1) GetModuleHandle, 2) Toolhelp, 3) raw VirtualQuery
+// walk looking for a mapped image that exports the eqgame offset symbols.
 static HMODULE FindMq2()
 {
     HMODULE h = GetModuleHandleA("MQ2Main.dll");
     if (h) return h;
 
     HANDLE snap = CreateToolhelp32Snapshot(TH32CS_SNAPMODULE, 0);
-    if (snap == INVALID_HANDLE_VALUE) return nullptr;
-    MODULEENTRY32 me; me.dwSize = sizeof(me);
-    HMODULE found = nullptr;
-    if (Module32First(snap, &me)) {
-        do {
-            if (_strnicmp(me.szModule, "MQ2", 3) == 0) { found = me.hModule; break; }
-        } while (Module32Next(snap, &me));
+    if (snap != INVALID_HANDLE_VALUE) {
+        MODULEENTRY32 me; me.dwSize = sizeof(me);
+        HMODULE found = nullptr;
+        if (Module32First(snap, &me)) {
+            do {
+                if (_strnicmp(me.szModule, "MQ2", 3) == 0) { found = me.hModule; break; }
+            } while (Module32Next(snap, &me));
+        }
+        CloseHandle(snap);
+        if (found) return found;
     }
-    CloseHandle(snap);
-    return found;
+
+    // Memory scan: MQ2's image is still mapped (plugins run), just unlinked.
+    MEMORY_BASIC_INFORMATION mbi;
+    uintptr_t addr = 0x10000;
+    const uintptr_t kMax = 0x7FFF0000;
+    while (addr < kMax && VirtualQuery((LPCVOID)addr, &mbi, sizeof(mbi))) {
+        uintptr_t region = (uintptr_t)mbi.BaseAddress;
+        if (mbi.State == MEM_COMMIT &&
+            (mbi.Type == MEM_IMAGE || mbi.Type == MEM_PRIVATE) &&
+            !(mbi.Protect & PAGE_GUARD) && (mbi.Protect & 0xFF) != PAGE_NOACCESS) {
+            if (ImageExportsSymbol(region, "pinstCSpellBookWnd")) {
+                return (HMODULE)region;
+            }
+        }
+        addr = region + (mbi.RegionSize ? mbi.RegionSize : 0x1000);
+    }
+    return nullptr;
 }
 
 static void SurveyMq2Exports(HMODULE mq2, uintptr_t eq_base, uintptr_t eq_size)
@@ -239,18 +281,26 @@ static DWORD WINAPI InitThread(LPVOID)
     // poll the watchlist so the HITL session captures instance lifecycles
     // (login caster -> windows non-null; camp to melee -> created or null?).
     HMODULE mq2 = nullptr;
-    for (int i = 0; i < 60 && !mq2; i++) {            // up to ~5 min, 5s cadence
+    const DWORD start_tick = GetTickCount();
+    const DWORD deadline   = start_tick + 300000;    // wait up to 5 min for MQ2
+    bool dumped_early = false;
+    while (!mq2 && GetTickCount() < deadline) {
         mq2 = FindMq2();
-        if (i == 2 && !mq2) DumpModules("early, MQ2 not yet seen");  // ~10s in
-        if (!mq2) Sleep(5000);
+        if (mq2) break;
+        DWORD elapsed = GetTickCount() - start_tick;
+        if (!dumped_early && elapsed >= 8000) { DumpModules("early, MQ2 not yet seen"); dumped_early = true; }
+        Log("waiting for MQ2... elapsed %lus", elapsed / 1000);
+        Sleep(5000);
     }
     if (!mq2) {
         DumpModules("final, MQ2 never appeared");
-        Log("MQ2 not found in process. Start MacroQuest2.exe (mq-rof2) so MQ2Main.dll injects, "
-            "then relog. If the module list above shows an MQ2 dll under another name, tell me its name.");
+        Log("MQ2 not found after %lus (scanned loader list + raw memory). If MQ2 was "
+            "actually active in-game this session, it's memory-mapped in a way the scan "
+            "missed; tell me and I'll widen it. Otherwise MQ2 wasn't injected into this "
+            "eqgame process.", (GetTickCount() - start_tick) / 1000);
         return 0;
     }
-    Log("MQ2 found: module base=0x%08X", (unsigned)(uintptr_t)mq2);
+    Log("MQ2 found at base=0x%08X after %lus", (unsigned)(uintptr_t)mq2, (GetTickCount() - start_tick) / 1000);
     Sleep(5000); // let MQ2 finish its own offset init
     SurveyMq2Exports(mq2, eq_base, eq_size);
 
