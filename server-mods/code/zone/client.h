@@ -512,6 +512,7 @@ public:
 	inline uint8 GetClass2() const { return m_class2; }
 	inline uint8 GetClass3() const { return m_class3; }
 	std::vector<uint8> GetMulticlassList() const; // base + class2 + class3 (nonzero, deduped)
+	bool IsMulticlassMember(uint8 class_id) const;// class_id is one of the held classes
 	bool HasAnyCasterClass() const;               // any held class is an INT or WIS caster
 	uint8 GetSpellMinLevel(uint16 spell_id) const;   // lowest required level among held classes (255 if none can use it)
 	uint8 BestCasterClassFor(uint16 spell_id) const; // held class with the lowest required level (0 if none can use it)
@@ -1131,6 +1132,7 @@ public:
 	void SendClearPlayerAA();
 	inline uint32 GetAAXP() const { return m_pp.expAA; }
 	inline uint32 GetAAPercent() const { return m_epp.perAA; }
+	void SetAAExperiencePercent(uint8 percent); // #aaexp command: set AA XP split server-side (client hides the toggle < 51)
 	void SetAATitle(std::string title);
 	void SetTitleSuffix(std::string suffix);
 	void MemorizeSpell(uint32 slot, uint32 spell_id, uint32 scribing, uint32 reduction = 0);
