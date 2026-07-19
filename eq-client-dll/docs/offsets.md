@@ -161,23 +161,42 @@ Separately, RoF2's `OP_ManaUpdate` handler (`0x3791`) reaches preferred VA
 | `+0x494` | authoritative current mana |
 | `+0x354` | authoritative maximum mana |
 
-That disassembly established where one packet-handler object receives the
-values, but not that the object is MQ2's exported `pinstLocalPlayer`. The first
-experimental hook assumed they were the same.
+The complete handler proves the packet object is the exported local player:
+preferred VA `0x004BD239` compares the spawn resolved from the packet ID in
+`ESI` against the pointer stored at `pinstLocalPlayer` (`0x00DD2630` preferred,
+RVA `0x009D2630`). Only the equal path writes `+0x494/+0x354`.
 
-Runtime log `nightcap_dll_4860.log` rejected the assumption:
+Runtime log `nightcap_dll_4860.log` showed those fields had not been populated:
 
 - the sampled fields started at `0/0`;
 - after entering world they became `22200/0`, not Pups' server value `148`;
 - Pups still had no mana bar and remained at `0/0`.
 
-The `LocalPlayer+0x354` detour and the field-sampling code were therefore
-removed. The `Max_Mana` class dispatch and six-byte zero-return block remain
-verified research facts, but no further hook should be installed until the
-packet destination or authoritative profile field is identified dynamically.
+The server zone-entry path explains why. It loads saved mana through
+`Mob::SetMana(m_pp.mana)`, whose call site notes that it does not send a packet.
+After `CompleteConnect()`, `Handle_Connect_OP_ClientReady` sends
+`SendHPUpdate()` but did not send `SendManaUpdate()`. With no later mana
+change, the local spawn fields remained stale.
+
+The server now sends one self mana update after `CompleteConnect()` for modern
+clients with a positive server maximum. A behavior-neutral DLL build again
+samples `+0x494/+0x354`; it does not hook `Max_Mana`. The required proof is a
+positive raw maximum for Pups after both login and zoning. The six-byte return
+hook remains withdrawn until that capture succeeds.
 
 The crash dump from the same session is separate from this rejected value
 assumption. `eqgame_20260719_172253.dmp` records `0xC0000005` at
 `eqgame.exe+0x003EFA80` (`mov eax,[ecx+0xD4]`) with `ECX=0`; the immediate
 caller is `MQ2EQIM.dll+0x15C6`, which invokes
 `CChatService::GetNumberOfFriends` after loading a null chat-service pointer.
+
+## 2026-07-19 wire-layout finding: RoF2 `OP_ManaUpdate`
+
+Disassembly of the exact client handler at preferred VA `0x004CEDAE` shows the
+packet fields are read at offsets `0`, `+2`, and `+6`: `uint16 spawn_id`,
+`uint32 cur_mana`, and `uint32 max_mana` (10 bytes total). The generic EQEmu
+`ManaUpdate_Struct` is ordered `cur_mana`, `max_mana`, `spawn_id`, so a generic
+encode produces a packet the RoF2 handler cannot resolve to the local spawn.
+The server now uses a RoF2-specific `OP_ManaUpdate` encoder with the client
+layout. The server diagnostic confirmed Pups was sending `148/148` with spawn
+ID `260`; the client trace remained `0/0` until this wire correction.

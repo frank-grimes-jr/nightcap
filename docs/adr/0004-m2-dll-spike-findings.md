@@ -152,12 +152,25 @@ the Nightcap proxy. That plugin is excluded from subsequent DLL QA.
   the next correction requires dynamically identifying the real mana packet or
   profile destination rather than assuming offsets on `pinstLocalPlayer`.
 
+## Update 2026-07-19 — packet destination proven; missing initial send
+
+- Complete handler disassembly supersedes the earlier object-identity
+  conclusion. The mana handler resolves the packet spawn, compares it directly
+  with `pinstLocalPlayer`, then writes current/max at `+0x494/+0x354`.
+- The stale `22200/0` values show absence of a self packet, not a wrong object.
+  Zone entry loads saved mana with non-sending `Mob::SetMana()` and sends HP,
+  but not mana, after `CompleteConnect()`.
+- The server now sends one initial self mana update for modern clients with a
+  positive maximum. A behavior-neutral DLL logs the resulting fields.
+- The max-mana return hook stays absent until Pups captures a positive raw
+  maximum after login and zoning.
+
 ## Decision
 
 - Retain the `dinput8.dll` proxy approach.
 - Enable the shared caster-class table for window activation.
-- Do not ship the rejected `LocalPlayer+0x354` mana hook. Keep the verified
-  non-caster `Max_Mana` zero path as a research lead only.
+- Do not restore the `LocalPlayer+0x354` mana hook until the initial-update
+  trace proves that field receives Pups' authoritative server maximum.
 - Require immutable version checks plus the complete stock table signature
   before the remaining memory write.
 - Promote no farther than the feature branch until Pups and Done pass the
@@ -170,3 +183,18 @@ the Nightcap proxy. That plugin is excluded from subsequent DLL QA.
   verified table signature; unknown clients remain unmodified.
 - The B2 scope is the caster UI chassis. Disc-window or other base-class
   corrections still require separate evidence and patches.
+
+## Superseding update — 2026-07-19 functional acceptance
+
+Exact RoF2 disassembly showed that `OP_ManaUpdate` consumes a 10-byte wire
+layout (`uint16 spawn_id`, followed by two `uint32` mana values), while the
+generic EQEmu encoder emitted the fields in the wrong order. A RoF2-specific
+encoder corrected the packet. Pups then received raw local mana `148/148`; the
+guarded six-byte `Max_Mana` detour now returns `LocalPlayer+0x354` for the four
+stock non-caster base classes.
+
+Manual QA passed: Pups's inventory reports mana and Pups casts spells; Spell
+Gems and Spellbook open; zoning is stable; and no client crash recurred after
+removing `MQ2EQIM` autoload. The standard mana bar remains absent for the
+Rogue-base chassis, which is cosmetic and tracked separately from functional
+mana/casting acceptance.

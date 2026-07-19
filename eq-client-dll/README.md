@@ -23,13 +23,40 @@ caster-class capability table so any base class can use the caster UI chassis.
 - **B2 caster-class table: safe-build QA passed; not a mana gate.** Pups and
   Done both opened Spell Gems and Spellbook normally and zoned successfully
   without a crash. Pups remained without a mana bar at `0/0`.
-- **B2 server-mana experiment: rejected and removed.** Runtime samples proved
-  the object exported as `pinstLocalPlayer` does not hold the decoded
-  `OP_ManaUpdate` values at `+0x494/+0x354`: Pups produced `22200/0`, not the
-  server's `148`. The six-byte `Max_Mana` detour has been withdrawn.
+- **B2 mana path: functional QA passed.** RoF2's exact 10-byte
+  `OP_ManaUpdate` layout is encoded server-side; Pups receives raw `148/148`,
+  and the guarded `Max_Mana` detour exposes that value to the client UI/casting
+  path.
 - **Fail closed:** the patch requires the expected file size, full SHA-256, and
   exact complete class-table signature. Any mismatch leaves memory untouched
   and is recorded in the per-process log.
+
+## B2 final functional QA — passed 2026-07-19
+
+The completed server/client path is now functional for a Rogue-base multiclass:
+
+- RoF2 `OP_ManaUpdate` is encoded as the client-required 10-byte layout
+  (`spawn_id`, current mana, maximum mana).
+- Pups (ROG/WIZ/DRU) receives raw local mana `148/148` after login.
+- The guarded `Max_Mana` hook returns the validated local maximum for the four
+  stock non-caster base classes.
+- Inventory reports mana and Pups can cast spells successfully.
+- Spell Gems and Spellbook open normally; zoning remains stable.
+- No crash recurred after disabling `MQ2EQIM` autoload.
+
+The standard mana bar remains a cosmetic HUD limitation for the Rogue base
+chassis; it does not block mana accounting or casting. Track that separately.
+
+### Final QA steps
+
+1. Fully restart MacroQuest2 and the EQ client so the deployed DLL and
+   `MacroQuest.ini` are reloaded.
+2. Confirm the DLL log contains `B2 patch APPLIED` and `B2 mana hook APPLIED`.
+3. Log in Pups and verify the inventory mana value and mana-based spell cast.
+4. Cast again to confirm current mana decreases, then zone and verify mana
+   persists/reloads correctly.
+5. Log in Done concurrently and verify its mana bar, gems, spellbook, casting,
+   and one zone as regression coverage.
 
 ## Build
 
@@ -74,6 +101,19 @@ for diagnostics, but the correction itself does not depend on MQ2.
 
 Recorded result: all guard, window, dual-client, and zoning checks passed.
 No crash recurred. The unresolved acceptance blocker is Pups' `0/0` mana.
+
+## B2 initial-mana trace QA
+
+1. Log in Pups and remain in world for at least 20 seconds.
+2. Confirm Spell Gems and Spellbook still open normally.
+3. Pups is expected to remain at `0/0`; this trace does not alter
+   `EQ_Character::Max_Mana`.
+4. Zone once, then remain in world for another 20 seconds.
+5. Exit the client and retain the new `nightcap_dll_<PID>.log`.
+
+Pass condition: after both login and zoning, the log contains
+`local spawn raw mana current=... max=148` (or another positive authoritative
+maximum). Any `max=0`, crash, or window regression fails the trace.
 
 ## Remove
 

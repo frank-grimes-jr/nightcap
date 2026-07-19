@@ -1,6 +1,63 @@
 # CHANGES
 
+## 2026-07-19 — Re-enable guarded `Max_Mana` hook after wire fix (#12/#13)
+
+The corrected RoF2 packet encoder now populates Pups's local raw fields at
+`148/148`. The DLL's exact-signature six-byte `Max_Mana` detour is restored; it
+returns `LocalPlayer+0x354` for the four stock non-caster base classes and
+returns zero until a valid local-player object exists. The hook is
+version-guarded, verifies its write, and rolls back on failure.
+
 Running log of significant changes to this repo — schema migrations, C++ patches, quest script additions, and anything with gotchas worth remembering. Most recent first.
+
+---
+
+## 2026-07-19 — RoF2 `OP_ManaUpdate` wire layout corrected (#12/#13)
+
+The client capture and executable disassembly showed that RoF2 decodes mana
+updates as `uint16 spawn_id`, `uint32 cur_mana`, `uint32 max_mana` (10 bytes).
+EQEmu was emitting the generic `cur_mana`, `max_mana`, `spawn_id` layout, so
+the server reported `148/148` for Pups but the client discarded the packet.
+Added the RoF2-specific struct and encoder; the DLL remains a read-only trace.
+
+---
+
+## 2026-07-19 — Mana initialization uses the canonical connected-state path (#12/#13)
+
+The first server-side self `OP_ManaUpdate` attempt did not change Pups's raw
+client fields (`0/0`) despite a clean zone restart. The ready handler now uses
+`CheckManaEndUpdate()` after `CompleteConnect()`, which emits the normal
+`OP_ManaUpdate` plus `OP_ManaChange` sequence once the client is connected. A
+temporary `[ManaInit]` server log records the authoritative current/max mana,
+held classes, and spawn ID for the next capture. The client DLL remains
+behavior-neutral and only traces the raw fields.
+
+---
+
+## 2026-07-19 — DLL B2 trace: force initial self mana update (#12/#13)
+
+Follow-up disassembly corrected the interpretation of the stale
+`LocalPlayer+0x494/+0x354` samples. The RoF2 handler at preferred VA
+`0x004BD210`:
+
+1. resolves the packet's spawn ID through the spawn manager;
+2. explicitly compares that result with `pinstLocalPlayer`;
+3. writes packet current mana to `+0x494` and maximum mana to `+0x354` only
+   when they match.
+
+The object identity was therefore correct. The observed `22200/0` values mean
+the local spawn had not received a self `OP_ManaUpdate` after zone entry.
+Server connect currently sends an HP update after `CompleteConnect()` but no
+equivalent mana update; saved mana is loaded with `Mob::SetMana()`, which is
+documented not to send a packet.
+
+`Handle_Connect_OP_ClientReady` now sends one self mana update for SoD-or-newer
+clients whose server maximum is positive. The DLL remains behavior-neutral for
+this capture: it logs the local spawn's raw current/maximum fields but does not
+reinstate the `Max_Mana` detour. Expected Pups trace after login and after
+zoning is a positive maximum (`148` in the current test state) while the UI
+remains `0/0`. Only that proof will authorize restoring the guarded return
+hook.
 
 ---
 
