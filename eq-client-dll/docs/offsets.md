@@ -200,3 +200,14 @@ encode produces a packet the RoF2 handler cannot resolve to the local spawn.
 The server now uses a RoF2-specific `OP_ManaUpdate` encoder with the client
 layout. The server diagnostic confirmed Pups was sending `148/148` with spawn
 ID `260`; the client trace remained `0/0` until this wire correction.
+
+## 2026-07-19 mana gauge visibility correction
+
+The RoF2 `CPlayerWnd` constructor creates the `Player_Mana` child at
+`CPlayerWnd+0x22C`. The child uses the normal `CXWnd::SetVisible` virtual at
+vtable offset `+0xD8`. The new DLL correction runs from the guarded
+non-caster `Max_Mana` return path and calls that stock setter only after a
+positive server maximum is available. The global player-window slot is
+`0x0091FC68` (RVA). All reads/calls are exception-guarded and the existing
+client size/SHA and `Max_Mana` signature guards remain mandatory. The deployed
+build is awaiting manual Pups/Done UI QA.
