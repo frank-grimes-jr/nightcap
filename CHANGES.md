@@ -1,5 +1,16 @@
 # CHANGES
 
+## 2026-07-19 - Reassert RoF2 Player_Mana gauge visibility (#12)
+
+The functional mana path already supplied Pups with `148/148`, but the Rogue
+base HUD could leave the constructed `Player_Mana` gauge hidden. The DLL now
+uses the exact RoF2 `CPlayerWnd` slot (`rva 0x0091FC68`) and child offset
+(`+0x22C`) from the game-thread `Max_Mana` path, calling the stock
+`CXWnd::SetVisible` vtable entry (`+0xD8`) once a positive server maximum is
+available. Pointer reads and the virtual call fail closed; the executable
+size/SHA guard and existing `Max_Mana` signature guard remain required. This
+is deployed to the dev RoF2 client and awaits in-game QA.
+
 ## 2026-07-19 — Re-enable guarded `Max_Mana` hook after wire fix (#12/#13)
 
 The corrected RoF2 packet encoder now populates Pups's local raw fields at

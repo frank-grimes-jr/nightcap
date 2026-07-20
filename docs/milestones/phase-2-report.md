@@ -1,7 +1,7 @@
 # Phase 2 milestone report — multiclass caster chassis
 
 Date: 2026-07-19  
-Status: **Functionally complete; cosmetic HUD follow-up remains**
+Status: **Mana gauge correction deployed; manual QA pending**
 
 ## Built
 
@@ -10,6 +10,7 @@ Status: **Functionally complete; cosmetic HUD follow-up remains**
 - RoF2-specific `OP_ManaUpdate` wire encoder.
 - Server initial self-mana update through the connected-state path.
 - Guarded `Max_Mana` hook backed by the validated local raw maximum.
+- Guarded Player_Mana visibility reassertion through the RoF2 CPlayerWnd child.
 - MQ2EQIM crash isolation by removing its autoload entry.
 
 ## Accepted
@@ -17,10 +18,11 @@ Status: **Functionally complete; cosmetic HUD follow-up remains**
 Pups (ROG/WIZ/DRU) receives `148/148` mana, shows mana in inventory, and casts
 spells. Pups and Done open Spell Gems and Spellbook and zone without crashing.
 
-## Cut / deferred
+## Pending
 
-The standard mana bar is not rendered for the Rogue-base HUD chassis. It is a
-cosmetic client follow-up; it does not block the functional B2 acceptance.
+The standard mana bar correction is deployed to the dev client. Manual QA must
+confirm visibility, value tracking through casting/regeneration, and stability
+for Pups before the feature is promoted.
 
 ## Shaky / operational notes
 

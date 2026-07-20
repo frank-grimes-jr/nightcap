@@ -50,6 +50,13 @@ static const size_t kNonCasterClassIndexes[] = { 0, 6, 8, 15 };
 // Redirect only that complete six-byte return block to the guarded stub below.
 static const uintptr_t kLocalPlayerSlotRva = 0x009D2630;
 static const uintptr_t kMaxManaNonCasterReturnRva = 0x00181E96;
+// CPlayerWnd's global slot and the Player_Mana child discovered in the exact
+// RoF2 player-window constructor.  The stock non-caster UI can leave that
+// child hidden even after Max_Mana becomes valid; the guarded helper below
+// re-applies the normal CXWnd visibility call once authoritative mana exists.
+static const uintptr_t kPlayerWndSlotRva = 0x0091FC68;
+static const uintptr_t kPlayerManaChildOffset = 0x0000022C;
+static const uintptr_t kWndSetVisibleVtableOffset = 0x000000D8;
 static const BYTE kExpectedMaxManaReturn[6] = {
     0x33, 0xC0,             // xor eax,eax
     0x5E,                   // pop esi
@@ -59,6 +66,8 @@ static const BYTE kExpectedMaxManaReturn[6] = {
 static HMODULE g_real_dinput8 = nullptr;
 static FILE*   g_log          = nullptr;
 static uintptr_t g_local_player_slot = 0;
+static uintptr_t g_eq_base = 0;
+static volatile LONG g_mana_gauge_forced = 0;
 
 static void Log(const char* fmt, ...)
 {
@@ -139,6 +148,53 @@ cleanup:
     return matched;
 }
 
+// Re-assert the already-constructed Player_Mana gauge's normal visibility.
+// This runs from the client Max_Mana path, so it executes on the game/UI
+// thread rather than from the DLL's polling thread.  All pointer reads and
+// the virtual call are guarded; a missing window simply leaves stock behavior
+// intact.  Returning the input preserves EAX for the naked Max_Mana epilogue.
+extern "C" __declspec(noinline) DWORD __stdcall ForcePlayerManaGaugeVisible(
+    DWORD max_mana)
+{
+    if (max_mana == 0 || g_eq_base == 0) {
+        return max_mana;
+    }
+
+    __try {
+        void* player_wnd = *reinterpret_cast<void**>(
+            g_eq_base + kPlayerWndSlotRva);
+        if (!player_wnd) {
+            return max_mana;
+        }
+
+        void* mana_wnd = *reinterpret_cast<void**>(
+            reinterpret_cast<BYTE*>(player_wnd) + kPlayerManaChildOffset);
+        if (!mana_wnd) {
+            return max_mana;
+        }
+
+        void** vtable = *reinterpret_cast<void***>(mana_wnd);
+        if (!vtable || !vtable[kWndSetVisibleVtableOffset / sizeof(void*)]) {
+            return max_mana;
+        }
+
+        using SetVisibleFn = void (__thiscall*)(void*, int, int, int);
+        auto set_visible = reinterpret_cast<SetVisibleFn>(
+            vtable[kWndSetVisibleVtableOffset / sizeof(void*)]);
+        set_visible(mana_wnd, 1, 1, 1);
+
+        if (InterlockedExchange(&g_mana_gauge_forced, 1) == 0) {
+            Log("B2 mana gauge APPLIED: Player_Mana visibility reasserted "
+                "(CPlayerWnd+0x22C, CXWnd::SetVisible+0xD8)");
+        }
+    } __except (EXCEPTION_EXECUTE_HANDLER) {
+        // Fail closed if the client has not constructed the UI object yet or
+        // its layout differs despite the outer executable guard.
+    }
+
+    return max_mana;
+}
+
 // Entered only from EQ_Character::Max_Mana's stock non-caster return block.
 // Preserve the exact stock epilogue after returning the server-cached maximum.
 extern "C" __declspec(naked) void MaxManaFromServerCache()
@@ -151,10 +207,17 @@ extern "C" __declspec(naked) void MaxManaFromServerCache()
         test eax, eax
         jz no_server_value
         mov eax, dword ptr [eax + 354h]
+        push eax
+        call ForcePlayerManaGaugeVisible
         jmp max_mana_return
 
     no_server_value:
         xor eax, eax
+
+        // Do not touch the UI until the server has supplied a positive max.
+        // The helper returns EAX unchanged and uses stdcall cleanup.
+        push eax
+        call ForcePlayerManaGaugeVisible
 
     max_mana_return:
         pop esi
@@ -203,6 +266,7 @@ static bool ApplyMaxManaServerCacheHook(uintptr_t eq_base, bool version_ok)
         return false;
     }
 
+    g_eq_base = eq_base;
     g_local_player_slot = eq_base + kLocalPlayerSlotRva;
     DWORD old_protection = 0;
     if (!VirtualProtect(site, sizeof(replacement), PAGE_EXECUTE_READWRITE, &old_protection)) {
