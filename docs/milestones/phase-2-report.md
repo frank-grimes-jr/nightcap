@@ -1,7 +1,7 @@
 # Phase 2 milestone report — multiclass caster chassis
 
 Date: 2026-07-28
-Status: **Mana gauge flicker fix deployed; manual QA pending**
+Status: **Mana gauge flicker fix accepted; test promotion approved**
 
 ## Built
 
@@ -15,17 +15,16 @@ Status: **Mana gauge flicker fix deployed; manual QA pending**
 
 ## Accepted
 
-Pups (ROG/WIZ/DRU) receives `148/148` mana, shows mana in inventory, and casts
-spells. Pups and Done open Spell Gems and Spellbook and zone without crashing.
+Pups (ROG/WIZ/DRU) receives `148/148` mana, shows a stable HUD gauge, and casts
+spells. The gauge tracks casting/regeneration and survives zoning/relogging.
+A true zero-mana melee character remains hidden. Pups and Done open Spell Gems
+and Spellbook, and Done's stock caster HUD remains intact.
 
 ## Pending
 
-The first standard mana-bar correction appeared in manual QA but flickered
-because stock `CPlayerWnd` refreshes hid it every 500 ms. The replacement uses
-the stock refresh continuously with a server-maximum predicate and is deployed
-to the RoF2 dev client. Manual QA must confirm no flicker, value tracking
-through casting/regeneration, zero-mana melee behavior, and stability for Pups
-before the feature is promoted.
+Promotion stops at `test` until the user signs off on the focused QA spike in
+`docs/qa/2026-07-28-mana-gauge-test-qa.md`. No known functional blocker
+remains.
 
 ## Shaky / operational notes
 
@@ -37,3 +36,5 @@ before the feature is promoted.
 - Every zone process must be restarted after a zone/common rebuild.
 - `MQ2EQIM` must remain disabled until its null chat-service path is separately
   corrected and QA'd.
+- If the world turns black while UI remains responsive, switching the RoF2
+  client to fullscreen can recreate the D3D device and restore rendering.

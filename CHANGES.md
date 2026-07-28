@@ -14,8 +14,11 @@ zero-mana characters remain hidden. The competing direct `SetVisible` call was
 removed from the `Max_Mana` detour. Client size/SHA, original call bytes, and
 the original call target are covered by the static regression test. The DLL
 built cleanly and is deployed to the RoF2 dev client; the flickering build is
-preserved as `dinput8.dll.flickerbak`. Focused in-game flicker/regression QA
-remains required before promotion to `test`.
+preserved as `dinput8.dll.flickerbak`. Focused in-game QA passed: the gauge
+remains stable while idle, casting, regenerating, zoning, and relogging; a
+zero-mana melee character stays hidden; and Done's stock caster HUD remains
+intact. A separate black-world renderer failure during QA recovered by
+switching the RoF2 client to fullscreen and did not affect the mana path.
 
 ## 2026-07-19 - Reassert RoF2 Player_Mana gauge visibility (#12)
 

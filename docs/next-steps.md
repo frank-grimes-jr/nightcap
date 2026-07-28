@@ -8,12 +8,10 @@ mirror is `server-mods/`. Audit trail is `CHANGES.md`.
 
 ---
 
-## 1. IN FLIGHT — stabilize the DLL mana gauge (#12/#13)
+## 1. QA GATE — stable DLL mana gauge (#12/#13)
 
-**Status:** the first correction passed functional mana/casting QA but the
-standard mana gauge flickered. The fix is built on
-`feature/mana-gauge-flicker`; the exact-client regression test passes. It is
-deployed to the RoF2 dev client but not yet merged.
+**Status:** fixed, regression-tested, manually accepted on the dev client, and
+promoted through `dev` to `test`. Awaiting user sign-off before `main`.
 
 **Root cause:** `CPlayerWnd` refreshes the HUD every 500 ms using a separate
 base-class mana predicate. It repeatedly hid `PlayerMana` after the old
@@ -24,24 +22,22 @@ authoritative `pinstLocalPlayer+0x354` server maximum is positive. The stock
 HUD now owns visibility continuously; the competing direct `SetVisible` call
 is gone.
 
-**Next:** fully restart the client and verify:
-- Pups's gauge remains continuously visible while idle, casting, and
-  regenerating.
-- The fill/value tracks mana, including after zoning and relogging.
-- A true zero-mana melee character does not gain a visible mana gauge.
-- Done's stock caster HUD and both clients' spell windows remain stable.
+**Accepted on dev:** Pups's gauge stays visible and tracks casting/regeneration
+through zoning and relogging; a true zero-mana melee character remains hidden;
+Done's stock caster HUD and both clients' spell windows remain stable.
 
-After QA passes: merge to `dev`, promote to `test` with the explicit QA spike,
-then wait for user sign-off before `main`.
+**Test QA:** repeat the focused spike in
+`docs/qa/2026-07-28-mana-gauge-test-qa.md`. A black world with responsive UI
+recovered by switching the client to fullscreen; treat that as a renderer
+recovery, not a mana regression.
 
 ---
 
-## 2. QA GATE — mana-gauge fix
+## 2. TACKLE NEXT — no DLL dependency
 
 Waypoints #32, multiclass skills #36/#39, AA XP #37, and the completed B2 mana
-path are already present on `dev`, `test`, and `main`. The only current
-promotion gate is the flicker fix and focused QA above. Equip #38 remains
-client-blocked as expected.
+path are already present on `dev`, `test`, and `main`. Equip #38 remains
+client-blocked as expected. Start #16 after the test promotion is verified.
 
 ---
 
@@ -65,7 +61,7 @@ was classifier-blocked).
 
 ---
 
-## 4. TACKLE NEXT — no DLL dependency (do while DLL is HITL-blocked)
+## 4. DEVELOPMENT BACKLOG
 
 Priority order:
 1. **#16 AA "Unknown DB String"** — data-only fix, no rebuild. Safety check done: **0 of the
@@ -86,7 +82,8 @@ Priority order:
 
 - **Unpushed:** `dev`/`test` are several commits ahead of `origin` (all local this session).
   Decide whether to push.
-- **Unmerged branch:** `feature/mana-gauge-flicker` (see §1).
+- **Merged branch:** `feature/mana-gauge-flicker` is in `dev`/`test`; delete
+  after the promotion is verified.
 - **Deferred (user's call, DLL milestone):** activated combat skills mask-aware in
   `special_attacks.cpp` (kick/flying-kick/bash gate on base `GetClass()`; add to epic #10
   Track A scope).
