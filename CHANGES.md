@@ -1,5 +1,17 @@
 # CHANGES
 
+## 2026-07-28 - Remove production multiclass skill maximization (#10)
+
+Removed `mc_train_skills` and every direct `SetSkill` write from the multiclass
+adoption plugin. Adopting a class can no longer silently raise existing or new
+skills to the current cap. A static regression fails if the production plugin
+reintroduces either behavior; the deployed and tracked plugin copies are
+byte-identical and pass `perl -c`.
+
+Value-`1` lifecycle seeding is intentionally not enabled yet: the live
+`skill_caps` table must first pass the canonical-baseline repair gate. Existing
+zone processes were not restarted by this source-only change.
+
 ## 2026-07-28 - Resolve held-class skill caps and unlocks safely (#10)
 
 Added a pure held-class skill eligibility resolver that deduplicates the

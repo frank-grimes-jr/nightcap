@@ -103,27 +103,6 @@ sub mc_preview {
     return \%out;
 }
 
-# Train every skill of all active disciplines up to the level's cap
-sub mc_train_skills {
-    my ($client) = @_;
-    my $char_id = $client->CharacterID();
-    my ($c2, $c3) = plugin::mc_get_classes($char_id);
-    my @ids = grep { $_ } ($client->GetClass(), $c2, $c3);
-    my $ph  = join(',', ('?') x @ids);
-
-    my $db  = Database->new();
-    my $sth = $db->prepare(
-        "SELECT skill_id, MAX(cap) AS max_cap FROM skill_caps
-         WHERE class_id IN ($ph) AND level <= ? GROUP BY skill_id"
-    );
-    return unless $sth;
-    $sth->execute(@ids, $client->GetLevel());
-    while (my $row = $sth->fetch_hashref()) {
-        $client->SetSkill($row->{skill_id}, $row->{max_cap})
-            if $client->GetSkill($row->{skill_id}) < $row->{max_cap};
-    }
-}
-
 # Adopt $class_id into the first free slot. Returns (1, msg) or (0, error).
 sub mc_apply_class {
     my ($client, $class_id) = @_;
@@ -159,10 +138,8 @@ sub mc_apply_class {
     );
     $patch->execute();
 
-    # Skills: the zone binary's CanHaveSkill()/trainers are mask-aware (read each held
-    # class's native skill_caps), so no global skill_caps widening is needed. mc_train_skills
-    # just sets the values up to each class's cap.
-    plugin::mc_train_skills($client);
+    # Skills are never written by quest code. The C++ lifecycle reconciler owns
+    # value-1 native unlocks after the canonical skill_caps baseline is restored.
 
     $client->Message(335,
         'Operator note: run tools/sync-spell-access.ps1 (client closed) so the new ' .

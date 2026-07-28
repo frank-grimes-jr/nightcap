@@ -27,7 +27,7 @@ No gameplay implementation begins until the contract and this plan are posted to
 - [ ] Write failing tests for value-`1` seeding, idempotence, native thresholds, best held-class cap, acquisition policy, race/specialization restrictions, and non-regression. Policy, threshold, idempotence, and held-class resolution tests are complete; character integration remains.
 - [ ] Implement the authoritative seeding helper.
 - [ ] Invoke it after mask load, class adoption, and level-up.
-- [ ] Remove or neutralize the old production skill-maximizing behavior.
+- [x] Remove or neutralize the old production skill-maximizing behavior.
 - [ ] Write/complete trainer tests for held, non-held, early, capped, and out-of-points requests.
 - [ ] Test class release cleanup and retained-class shared skills.
 - [ ] Build the zone binary and run focused tests.
