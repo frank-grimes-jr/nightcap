@@ -41,4 +41,6 @@ Client: exact RoF2 May 10 2013 build with the deployed Nightcap `dinput8.dll`
 - A visible mana gauge on a true zero-mana melee character.
 - Spell-window regression, client crash, or a DLL guard/signature failure.
 
-On a clean pass, explicitly sign off before merging `test` to `main`.
+## Sign-off
+
+User sign-off received on 2026-07-28. Approved for merge from `test` to `main`.

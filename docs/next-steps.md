@@ -8,10 +8,10 @@ mirror is `server-mods/`. Audit trail is `CHANGES.md`.
 
 ---
 
-## 1. QA GATE — stable DLL mana gauge (#12/#13)
+## 1. COMPLETE — stable DLL mana gauge (#12/#13)
 
 **Status:** fixed, regression-tested, manually accepted on the dev client, and
-promoted through `dev` to `test`. Awaiting user sign-off before `main`.
+promoted through `dev` and `test` to `main` after user sign-off.
 
 **Root cause:** `CPlayerWnd` refreshes the HUD every 500 ms using a separate
 base-class mana predicate. It repeatedly hid `PlayerMana` after the old
@@ -26,7 +26,7 @@ is gone.
 through zoning and relogging; a true zero-mana melee character remains hidden;
 Done's stock caster HUD and both clients' spell windows remain stable.
 
-**Test QA:** repeat the focused spike in
+**Test QA:** accepted per
 `docs/qa/2026-07-28-mana-gauge-test-qa.md`. A black world with responsive UI
 recovered by switching the client to fullscreen; treat that as a renderer
 recovery, not a mana regression.
@@ -37,7 +37,7 @@ recovery, not a mana regression.
 
 Waypoints #32, multiclass skills #36/#39, AA XP #37, and the completed B2 mana
 path are already present on `dev`, `test`, and `main`. Equip #38 remains
-client-blocked as expected. Start #16 after the test promotion is verified.
+client-blocked as expected. Start #16 next.
 
 ---
 

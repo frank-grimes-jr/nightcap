@@ -1,7 +1,7 @@
 # Phase 2 milestone report — multiclass caster chassis
 
 Date: 2026-07-28
-Status: **Mana gauge flicker fix accepted; test promotion approved**
+Status: **Mana gauge flicker fix accepted and promoted to main**
 
 ## Built
 
@@ -22,9 +22,8 @@ and Spellbook, and Done's stock caster HUD remains intact.
 
 ## Pending
 
-Promotion stops at `test` until the user signs off on the focused QA spike in
-`docs/qa/2026-07-28-mana-gauge-test-qa.md`. No known functional blocker
-remains.
+No remaining work for the mana-gauge flicker fix. The user explicitly approved
+the `test` to `main` promotion on 2026-07-28.
 
 ## Shaky / operational notes
 
