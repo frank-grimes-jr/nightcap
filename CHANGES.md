@@ -1,5 +1,19 @@
 # CHANGES
 
+## 2026-07-28 - Define the multiclass skill acquisition policy (#10)
+
+Added a fail-closed acquisition policy for all 78 RoF2 `SkillUseTypes` values and
+a pure seeding decision that grants exactly value `1` only at or after a
+positive native unlock. Existing nonzero values are never changed. Alchemy, Make
+Poison, and Research are class-granted; Tinkering, universal tradeskills, Sense
+Heading, Swimming, Fishing, and Alcohol Tolerance retain stock acquisition.
+
+The checked-in policy table is generated from the actual C++ name map and policy
+switch. CppUnit covers every current skill ID, thresholds, zero-cap/unlock
+rejection, idempotence, and the stock-acquisition exclusions. The full suite
+passes 82/82. This slice defines and tests policy only; no live character skill
+values or database rows are changed.
+
 ## 2026-07-28 - Generate the Epic #10 parity evidence matrix
 
 Added a deterministic PowerShell generator and a 480-row acceptance matrix that

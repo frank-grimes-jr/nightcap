@@ -23,8 +23,8 @@ No gameplay implementation begins until the contract and this plan are posted to
 
 ### 1. Skill unlock and trainer slice
 
-- [ ] Check in the exhaustive `SkillUseTypes` acquisition/restriction table.
-- [ ] Write failing tests for value-`1` seeding, idempotence, native thresholds, best held-class cap, acquisition policy, race/specialization restrictions, and non-regression.
+- [x] Check in the exhaustive `SkillUseTypes` acquisition/restriction table.
+- [ ] Write failing tests for value-`1` seeding, idempotence, native thresholds, best held-class cap, acquisition policy, race/specialization restrictions, and non-regression. Policy, threshold, and idempotence tests are complete; held-class resolution and integration remain.
 - [ ] Implement the authoritative seeding helper.
 - [ ] Invoke it after mask load, class adoption, and level-up.
 - [ ] Remove or neutralize the old production skill-maximizing behavior.

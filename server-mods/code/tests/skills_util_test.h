@@ -29,6 +29,8 @@ public:
 		TEST_ADD(SkillsUtilsTest::IsTradeskill);
 		TEST_ADD(SkillsUtilsTest::IsSpecializedSkill);
 		TEST_ADD(SkillsUtilsTest::FindFirstTrainableLevel);
+		TEST_ADD(SkillsUtilsTest::SkillAcquisitionPolicy);
+		TEST_ADD(SkillsUtilsTest::ShouldSeedAtNativeUnlock);
 	}
 
 	~SkillsUtilsTest() {
@@ -51,5 +53,61 @@ public:
 		TEST_ASSERT_EQUALS(SkillCaps::FindFirstTrainableLevel(4, has_cap), static_cast<uint8>(0));
 		TEST_ASSERT_EQUALS(SkillCaps::FindFirstTrainableLevel(5, has_cap), static_cast<uint8>(5));
 		TEST_ASSERT_EQUALS(SkillCaps::FindFirstTrainableLevel(75, has_cap), static_cast<uint8>(5));
+	}
+
+	void SkillAcquisitionPolicy() {
+		using EQ::skills::SkillAcquisition;
+
+		TEST_ASSERT(
+			EQ::skills::GetSkillAcquisition(EQ::skills::SkillRoundKick) ==
+				SkillAcquisition::AutoGrantAtNativeUnlock
+		);
+		TEST_ASSERT(
+			EQ::skills::GetSkillAcquisition(EQ::skills::SkillAlchemy) ==
+				SkillAcquisition::AutoGrantAtNativeUnlock
+		);
+		TEST_ASSERT(
+			EQ::skills::GetSkillAcquisition(EQ::skills::SkillMakePoison) ==
+				SkillAcquisition::AutoGrantAtNativeUnlock
+		);
+		TEST_ASSERT(
+			EQ::skills::GetSkillAcquisition(EQ::skills::SkillResearch) ==
+				SkillAcquisition::AutoGrantAtNativeUnlock
+		);
+		TEST_ASSERT(
+			EQ::skills::GetSkillAcquisition(EQ::skills::SkillTinkering) ==
+				SkillAcquisition::StockAcquisition
+		);
+		TEST_ASSERT(
+			EQ::skills::GetSkillAcquisition(EQ::skills::SkillBaking) ==
+				SkillAcquisition::StockAcquisition
+		);
+
+		for (int skill_id = 0; skill_id < EQ::skills::SkillCount; ++skill_id) {
+			TEST_ASSERT(
+				EQ::skills::GetSkillAcquisition(
+					static_cast<EQ::skills::SkillType>(skill_id)
+				) != SkillAcquisition::Unclassified
+			);
+		}
+	}
+
+	void ShouldSeedAtNativeUnlock() {
+		using EQ::skills::SkillRoundKick;
+
+		TEST_ASSERT(!EQ::skills::ShouldSeedAtNativeUnlock(SkillRoundKick, 0, 4, 5, 30));
+		TEST_ASSERT(EQ::skills::ShouldSeedAtNativeUnlock(SkillRoundKick, 0, 5, 5, 30));
+		TEST_ASSERT(EQ::skills::ShouldSeedAtNativeUnlock(SkillRoundKick, 0, 50, 5, 200));
+		TEST_ASSERT(!EQ::skills::ShouldSeedAtNativeUnlock(SkillRoundKick, 1, 50, 5, 200));
+		TEST_ASSERT(!EQ::skills::ShouldSeedAtNativeUnlock(SkillRoundKick, 200, 50, 5, 200));
+		TEST_ASSERT(!EQ::skills::ShouldSeedAtNativeUnlock(SkillRoundKick, 0, 50, 0, 200));
+		TEST_ASSERT(!EQ::skills::ShouldSeedAtNativeUnlock(SkillRoundKick, 0, 50, 5, 0));
+		TEST_ASSERT(!EQ::skills::ShouldSeedAtNativeUnlock(
+			EQ::skills::SkillTinkering,
+			0,
+			50,
+			25,
+			200
+		));
 	}
 };
