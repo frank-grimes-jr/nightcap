@@ -1,5 +1,22 @@
 # CHANGES
 
+## 2026-07-28 - Stabilize the RoF2 PlayerMana gauge (#12)
+
+Manual QA found that the melee-base mana gauge appeared but flickered. Exact
+client disassembly showed why: `CPlayerWnd` refreshes the HUD every 500 ms and
+calls a separate base-class mana predicate at RVA `0x00318E93`; its false
+result repeatedly hid `PlayerMana` after the `Max_Mana` hook re-showed it.
+
+The DLL now redirects only that exact five-byte predicate call to a guarded
+helper that reports whether the authoritative `pinstLocalPlayer+0x354` maximum
+is positive. The stock HUD therefore owns continuous visibility, while true
+zero-mana characters remain hidden. The competing direct `SetVisible` call was
+removed from the `Max_Mana` detour. Client size/SHA, original call bytes, and
+the original call target are covered by the static regression test. The DLL
+built cleanly and is deployed to the RoF2 dev client; the flickering build is
+preserved as `dinput8.dll.flickerbak`. Focused in-game flicker/regression QA
+remains required before promotion to `test`.
+
 ## 2026-07-19 - Reassert RoF2 Player_Mana gauge visibility (#12)
 
 The functional mana path already supplied Pups with `148/148`, but the Rogue
