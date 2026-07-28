@@ -1,6 +1,6 @@
 # Nightcap — Next Steps / Backlog
 
-Living task list. Most urgent first. Updated 2026-07-19.
+Living task list. Most urgent first. Updated 2026-07-28.
 
 Branch flow: `feature/*` → `dev` → `test` (in-game QA) → `main` (user sign-off).
 `akk-stack/` and `Client_RoF2_Dev/` are gitignored (live source / client); tracked
@@ -8,67 +8,40 @@ mirror is `server-mods/`. Audit trail is `CHANGES.md`.
 
 ---
 
-## 1. IN FLIGHT — DLL B2 offset survey (#12/#13)
+## 1. IN FLIGHT — stabilize the DLL mana gauge (#12/#13)
 
-**Status:** blocked on a good HITL capture. Branch `feature/dll-b2-offset-survey`
-(commits `7a31c9b`, `83beceb`, `4a1b902`) — **not merged to dev** (kept separate until B2 is complete).
+**Status:** the first correction passed functional mana/casting QA but the
+standard mana gauge flickered. The fix is built on
+`feature/mana-gauge-flicker`; the exact-client regression test passes. It is
+deployed to the RoF2 dev client but not yet merged.
 
-**What happened:** the survey harvests eqgame offsets out of MQ2's memory, but MQ2
-**unlinks its own module** from the loader list, so `GetModuleHandle`/Toolhelp find
-nothing. Two survey runs found no MQ2 at all in the process:
-- Run 1: MQ2 not launched.
-- Run 2 (20:02): full module dump, no MQ2 anywhere — and the wait loop exited in ~88ms
-  (timing bug, now fixed).
+**Root cause:** `CPlayerWnd` refreshes the HUD every 500 ms using a separate
+base-class mana predicate. It repeatedly hid `PlayerMana` after the old
+`Max_Mana` detour forced the child visible.
 
-**Fixes already deployed** (survey `dinput8.dll` is in `Client_RoF2_Dev/everquest_rof2/`,
-B1 saved as `dinput8.dll.b1bak`):
-- `FindMq2()` now falls back to a raw `VirtualQuery` memory scan matching a mapped image
-  that exports `pinstCSpellBookWnd` — finds MQ2 even when hidden.
-- Wait loop rewritten with a `GetTickCount` deadline (5 min) + per-poll elapsed logging.
+**Fix:** redirect only the exact guarded predicate call to report whether the
+authoritative `pinstLocalPlayer+0x354` server maximum is positive. The stock
+HUD now owns visibility continuously; the competing direct `SetVisible` call
+is gone.
 
-**BLOCKER / open question for the user:** need the *working* MQ2 launch method. When the
-cast-timer plugin spam appeared, MQ2 was demonstrably hooked — that launch is the one to
-use. A resident `MacroQuest2.exe` did NOT hook a directly-launched `eqgame.exe`.
+**Next:** fully restart the client and verify:
+- Pups's gauge remains continuously visible while idle, casting, and
+  regenerating.
+- The fill/value tracks mana, including after zoning and relogging.
+- A true zero-mana melee character does not gain a visible mana gauge.
+- Done's stock caster HUD and both clients' spell windows remain stable.
 
-**Next when the log arrives (`nightcap_dll.log`):**
-- If `MQ2 found at base=… ` + `OFFSET …` block + `watch:` lines → write the B2 patch.
-- Key decision from the `watch:` lines: is `pinstCCastSpellWnd` **null on Pups (Rogue base)**
-  (client never builds the window → B2 must trigger creation) vs **non-null** (force-show flag
-  is enough)?
-- If still no MQ2 → confirm launch method; consider fallbacks below.
-
-**Fallbacks if the survey stays blocked:**
-- Static extraction of the offset constants from `mq-rof2/MQ2Main.dll` (built for our exact
-  May-10-2013 client). Init pattern: `INITIALIZE_EQGAME_OFFSET(var) => var = (var_x - 0x400000)
-  + baseAddress`; the `var_x` immediates are in the DLL's init code. Deterministic, no HITL,
-  but does NOT give the runtime window-null behavior (still need one live capture for that).
-- Packet-illusion (epic #10 "safety net"): fake `pp.class_` to a caster in the outgoing
-  player-profile so the client draws caster UI. No DLL/offsets, but affects `/who` and
-  client-side class gating — weigh only if the DLL truly stalls.
-
-**Then:** B2 patch (force-show / create spell-gem + spellbook windows behind the version
-guard, size 8,774,656 / sha256 `2a8702ad…`), HITL verify (Warrior/Rogue base opens a
-spell gem, mems + casts a scribed spell), merge B2 branch to dev.
+After QA passes: merge to `dev`, promote to `test` with the explicit QA spike,
+then wait for user sign-off before `main`.
 
 ---
 
-## 2. QA GATE — promote `test` → `main` (needs user sign-off)
+## 2. QA GATE — mana-gauge fix
 
-Everything below is committed on `dev` and `test`, deployed live, awaiting in-game QA.
-Full step-by-step spike is in the chat; summary:
-
-- **Waypoints #32** — walk onto marker in qeynos2 (~1032,1291) or nro (~265,-1814):
-  expect "attune" + "N of 72", silent on re-entry, Waypoint Master recall works.
-- **Multiclass skills #36 / trainers #39** — dual wield works in combat (passive);
-  level-up grants secondary skills to value 1 (via Lua `event_level_up` + mask-aware
-  `CanHaveSkill`). **Client-blocked, not bugs:** skills window won't list them, off-base
-  trainer window won't open, activated attacks (kick/etc.) don't fire (deferred to DLL).
-- **AA XP #37 (`#aaexp`)** — works at level 51+; **below 51 the client bounces it off**
-  (chassis; DLL fixes it).
-- **Equip #38** — still blocked client-side (expected; server allows it).
-
-On sign-off: `git checkout main && git merge --no-ff test`, then run
-`tools/apply-era.ps1 -Check` and take a backup per CLAUDE.md.
+Waypoints #32, multiclass skills #36/#39, AA XP #37, and the completed B2 mana
+path are already present on `dev`, `test`, and `main`. The only current
+promotion gate is the flicker fix and focused QA above. Equip #38 remains
+client-blocked as expected.
 
 ---
 
@@ -113,7 +86,7 @@ Priority order:
 
 - **Unpushed:** `dev`/`test` are several commits ahead of `origin` (all local this session).
   Decide whether to push.
-- **Unmerged branch:** `feature/dll-b2-offset-survey` (see §1).
+- **Unmerged branch:** `feature/mana-gauge-flicker` (see §1).
 - **Deferred (user's call, DLL milestone):** activated combat skills mask-aware in
   `special_attacks.cpp` (kick/flying-kick/bash gate on base `GetClass()`; add to epic #10
   Track A scope).

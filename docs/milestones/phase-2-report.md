@@ -1,7 +1,7 @@
 # Phase 2 milestone report — multiclass caster chassis
 
-Date: 2026-07-19  
-Status: **Mana gauge correction deployed; manual QA pending**
+Date: 2026-07-28
+Status: **Mana gauge flicker fix deployed; manual QA pending**
 
 ## Built
 
@@ -10,7 +10,7 @@ Status: **Mana gauge correction deployed; manual QA pending**
 - RoF2-specific `OP_ManaUpdate` wire encoder.
 - Server initial self-mana update through the connected-state path.
 - Guarded `Max_Mana` hook backed by the validated local raw maximum.
-- Guarded Player_Mana visibility reassertion through the RoF2 CPlayerWnd child.
+- Guarded CPlayerWnd mana-visibility predicate backed by the server maximum.
 - MQ2EQIM crash isolation by removing its autoload entry.
 
 ## Accepted
@@ -20,9 +20,12 @@ spells. Pups and Done open Spell Gems and Spellbook and zone without crashing.
 
 ## Pending
 
-The standard mana bar correction is deployed to the dev client. Manual QA must
-confirm visibility, value tracking through casting/regeneration, and stability
-for Pups before the feature is promoted.
+The first standard mana-bar correction appeared in manual QA but flickered
+because stock `CPlayerWnd` refreshes hid it every 500 ms. The replacement uses
+the stock refresh continuously with a server-maximum predicate and is deployed
+to the RoF2 dev client. Manual QA must confirm no flicker, value tracking
+through casting/regeneration, zero-mana melee behavior, and stability for Pups
+before the feature is promoted.
 
 ## Shaky / operational notes
 

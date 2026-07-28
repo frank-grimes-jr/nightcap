@@ -27,10 +27,10 @@ caster-class capability table so any base class can use the caster UI chassis.
   `OP_ManaUpdate` layout is encoded server-side; Pups receives raw `148/148`,
   and the guarded `Max_Mana` detour exposes that value to the client UI/casting
   path.
-- **B2 mana gauge correction: built + deployed, manual QA pending.** When a
-  positive server maximum is returned, the DLL reasserts the stock
-  `Player_Mana` child visibility through the exact RoF2 `CPlayerWnd` slot and
-  `CXWnd::SetVisible` vtable entry. Pointer reads and the call are guarded.
+- **B2 mana gauge correction: flicker fix built + deployed, QA pending.**
+  `CPlayerWnd`'s stock 500 ms refresh now bases `PlayerMana` visibility on the
+  positive server-cached maximum. This replaces the competing direct
+  `SetVisible` reassertion that manual QA found could flicker.
 - **Fail closed:** the patch requires the expected file size, full SHA-256, and
   exact complete class-table signature. Any mismatch leaves memory untouched
   and is recorded in the per-process log.
@@ -75,6 +75,12 @@ build.bat
 
 Output: `build\dinput8.dll`.
 
+Static exact-client guard test:
+
+```
+powershell -NoProfile -ExecutionPolicy Bypass -File tests\verify-exact-client-patch-sites.ps1
+```
+
 ## Deploy / test (dev client)
 
 1. Copy `build\dinput8.dll` next to `eqgame.exe` in
@@ -114,8 +120,8 @@ No crash recurred. The unresolved acceptance blocker is Pups' `0/0` mana.
 1. Fully exit MacroQuest2 and all EQ clients, then restart them so the newly
    deployed DLL is loaded.
 2. Log in Pups and retain the new `nightcap_dll_<PID>.log`.
-3. Confirm the log contains `B2 mana hook APPLIED` and, after the client has a
-   positive mana maximum, `B2 mana gauge APPLIED`.
+3. Confirm the log contains `B2 mana hook APPLIED` and
+   `B2 mana gauge APPLIED`.
 4. Confirm the normal player mana bar is visible and starts at the inventory
    value (currently `148/148`). Cast a known spell and verify the fill/value
    decreases; wait for regeneration.
@@ -124,8 +130,9 @@ No crash recurred. The unresolved acceptance blocker is Pups' `0/0` mana.
 6. Log in Done concurrently and verify its stock mana bar, Spell Gems,
    Spellbook, casting, and one zone.
 
-Failure conditions: no `B2 mana gauge APPLIED` log after positive mana,
-missing/stale bar, incorrect fill/value, any window regression, or a crash.
+Failure conditions: no `B2 mana gauge APPLIED` log, any flicker,
+missing/stale bar, incorrect fill/value, a visible zero-mana bar on a
+non-multiclass melee character, any window regression, or a crash.
 
 ## B2 initial-mana trace QA
 
