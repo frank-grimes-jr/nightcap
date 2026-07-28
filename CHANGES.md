@@ -1,5 +1,22 @@
 # CHANGES
 
+## 2026-07-28 - Correct native skill train-level resolution (#10, #39)
+
+`SkillCaps::GetSkillTrainLevel()` previously looped over candidate levels while
+probing the same key built from the requested maximum level. If that final-level
+row existed, it incorrectly returned level 1; otherwise it returned 0. This made
+native unlock thresholds unreliable for multiclass auto-grants and trainers.
+
+The resolver now probes each level in order, stops at the configured skill-cap
+maximum, and exposes the pure search step to CppUnit. The regression covers a
+level-5 unlock below, at, and above its threshold. No live database rows are
+changed by this patch.
+
+Phase 0 also confirmed that legacy globally widened `skill_caps` rows remain in
+the live PEQ database even though the current Chronicler no longer creates them.
+Those rows are a separate migration blocker: held-class authorization cannot
+treat the live table as native until it is reconciled against a clean baseline.
+
 ## 2026-07-28 - Stabilize the RoF2 PlayerMana gauge (#12)
 
 Manual QA found that the melee-base mana gauge appeared but flickered. Exact
