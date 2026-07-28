@@ -50,6 +50,13 @@ static const size_t kNonCasterClassIndexes[] = { 0, 6, 8, 15 };
 // Redirect only that complete six-byte return block to the guarded stub below.
 static const uintptr_t kLocalPlayerSlotRva = 0x009D2630;
 static const uintptr_t kMaxManaNonCasterReturnRva = 0x00181E96;
+// CPlayerWnd refreshes PlayerMana every 500 ms using a second, stock
+// base-class predicate. Redirect only that predicate call so the stock HUD
+// owns visibility continuously and bases it on the server-cached maximum.
+static const uintptr_t kPlayerManaPredicateCallRva = 0x00318E93;
+static const BYTE kExpectedPlayerManaPredicateCall[5] = {
+    0xE8, 0xF8, 0x6C, 0xE8, 0xFF, // call 0x0059FB90
+};
 static const BYTE kExpectedMaxManaReturn[6] = {
     0x33, 0xC0,             // xor eax,eax
     0x5E,                   // pop esi
@@ -139,6 +146,29 @@ cleanup:
     return matched;
 }
 
+// Match the stock no-argument thiscall predicate used by CPlayerWnd. The
+// player argument proves the HUD has a live subject; pinstLocalPlayer remains
+// the authoritative object because the RoF2 OP_ManaUpdate handler writes the
+// server maximum to its +0x354 field.
+extern "C" __declspec(noinline) BYTE __fastcall HasServerManaForGauge(
+    void* player, void* unused_edx)
+{
+    (void)unused_edx;
+    if (!player || g_local_player_slot == 0) {
+        return 0;
+    }
+
+    __try {
+        BYTE* local_player = *reinterpret_cast<BYTE**>(g_local_player_slot);
+        if (!local_player) {
+            return 0;
+        }
+        return *reinterpret_cast<DWORD*>(local_player + 0x354) > 0 ? 1 : 0;
+    } __except (EXCEPTION_EXECUTE_HANDLER) {
+        return 0;
+    }
+}
+
 // Entered only from EQ_Character::Max_Mana's stock non-caster return block.
 // Preserve the exact stock epilogue after returning the server-cached maximum.
 extern "C" __declspec(naked) void MaxManaFromServerCache()
@@ -194,6 +224,7 @@ static bool ApplyMaxManaServerCacheHook(uintptr_t eq_base, bool version_ok)
     }
 
     if (already_applied) {
+        g_local_player_slot = eq_base + kLocalPlayerSlotRva;
         Log("B2 mana hook already active");
         return true;
     }
@@ -237,6 +268,86 @@ static bool ApplyMaxManaServerCacheHook(uintptr_t eq_base, bool version_ok)
     Log("B2 mana hook APPLIED: non-caster Max_Mana returns the OP_ManaUpdate "
         "self maximum (site rva=0x%08X, LocalPlayer+0x354)",
         static_cast<unsigned>(kMaxManaNonCasterReturnRva));
+    return true;
+}
+
+static bool ApplyPlayerManaGaugePredicateHook(uintptr_t eq_base, bool mana_hook_ok)
+{
+    if (!mana_hook_ok) {
+        Log("B2 mana gauge DISABLED: authoritative mana hook unavailable");
+        return false;
+    }
+
+    BYTE* site = reinterpret_cast<BYTE*>(eq_base + kPlayerManaPredicateCallRva);
+    BYTE replacement[sizeof(kExpectedPlayerManaPredicateCall)] = { 0xE8, 0, 0, 0, 0 };
+    const intptr_t relative =
+        reinterpret_cast<uintptr_t>(&HasServerManaForGauge) -
+        (reinterpret_cast<uintptr_t>(site) + sizeof(replacement));
+    const int32_t relative32 = static_cast<int32_t>(relative);
+    if (static_cast<intptr_t>(relative32) != relative) {
+        Log("B2 mana gauge DISABLED: predicate target is outside rel32 range");
+        return false;
+    }
+    memcpy(replacement + 1, &relative32, sizeof(relative32));
+
+    bool stock_signature = false;
+    bool already_applied = false;
+    __try {
+        stock_signature = (memcmp(
+            site, kExpectedPlayerManaPredicateCall,
+            sizeof(kExpectedPlayerManaPredicateCall)) == 0);
+        already_applied = (memcmp(site, replacement, sizeof(replacement)) == 0);
+    } __except (EXCEPTION_EXECUTE_HANDLER) {
+        Log("B2 mana gauge DISABLED: predicate call unreadable at rva=0x%08X",
+            static_cast<unsigned>(kPlayerManaPredicateCallRva));
+        return false;
+    }
+
+    if (already_applied) {
+        Log("B2 mana gauge already active: stock HUD predicate redirected");
+        return true;
+    }
+    if (!stock_signature) {
+        Log("B2 mana gauge DISABLED: predicate signature mismatch at rva=0x%08X",
+            static_cast<unsigned>(kPlayerManaPredicateCallRva));
+        return false;
+    }
+
+    DWORD old_protection = 0;
+    if (!VirtualProtect(site, sizeof(replacement), PAGE_EXECUTE_READWRITE, &old_protection)) {
+        Log("B2 mana gauge FAILED: VirtualProtect");
+        return false;
+    }
+
+    bool wrote = false;
+    __try {
+        memcpy(site, replacement, sizeof(replacement));
+        FlushInstructionCache(GetCurrentProcess(), site, sizeof(replacement));
+        wrote = (memcmp(site, replacement, sizeof(replacement)) == 0);
+        if (!wrote) {
+            memcpy(site, kExpectedPlayerManaPredicateCall,
+                sizeof(kExpectedPlayerManaPredicateCall));
+            FlushInstructionCache(
+                GetCurrentProcess(), site, sizeof(kExpectedPlayerManaPredicateCall));
+        }
+    } __except (EXCEPTION_EXECUTE_HANDLER) {
+        memcpy(site, kExpectedPlayerManaPredicateCall,
+            sizeof(kExpectedPlayerManaPredicateCall));
+        FlushInstructionCache(
+            GetCurrentProcess(), site, sizeof(kExpectedPlayerManaPredicateCall));
+        wrote = false;
+    }
+
+    DWORD ignored = 0;
+    VirtualProtect(site, sizeof(replacement), old_protection, &ignored);
+    if (!wrote) {
+        Log("B2 mana gauge FAILED: write did not verify; rolled back");
+        return false;
+    }
+
+    Log("B2 mana gauge APPLIED: CPlayerWnd predicate now follows the positive "
+        "OP_ManaUpdate maximum (site rva=0x%08X, LocalPlayer+0x354)",
+        static_cast<unsigned>(kPlayerManaPredicateCallRva));
     return true;
 }
 
@@ -633,7 +744,9 @@ static DWORD WINAPI InitThread(LPVOID)
     bool hash_ok = size_ok && VerifyEqgameSha256(exe_path);
     Log("client sha256 check: %s", hash_ok ? "OK" : "MISMATCH OR UNREADABLE");
     ApplyCasterClassTablePatch(eq_base, size_ok && hash_ok);
-    ApplyMaxManaServerCacheHook(eq_base, size_ok && hash_ok);
+    const bool mana_hook_ok =
+        ApplyMaxManaServerCacheHook(eq_base, size_ok && hash_ok);
+    ApplyPlayerManaGaugePredicateHook(eq_base, mana_hook_ok);
 
     // Wait for MQ2 (user launches MacroQuest2.exe as usual); survey once, then
     // poll the watchlist so the HITL session captures instance lifecycles

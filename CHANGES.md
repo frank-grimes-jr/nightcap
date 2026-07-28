@@ -1,5 +1,36 @@
 # CHANGES
 
+## 2026-07-28 - Stabilize the RoF2 PlayerMana gauge (#12)
+
+Manual QA found that the melee-base mana gauge appeared but flickered. Exact
+client disassembly showed why: `CPlayerWnd` refreshes the HUD every 500 ms and
+calls a separate base-class mana predicate at RVA `0x00318E93`; its false
+result repeatedly hid `PlayerMana` after the `Max_Mana` hook re-showed it.
+
+The DLL now redirects only that exact five-byte predicate call to a guarded
+helper that reports whether the authoritative `pinstLocalPlayer+0x354` maximum
+is positive. The stock HUD therefore owns continuous visibility, while true
+zero-mana characters remain hidden. The competing direct `SetVisible` call was
+removed from the `Max_Mana` detour. Client size/SHA, original call bytes, and
+the original call target are covered by the static regression test. The DLL
+built cleanly and is deployed to the RoF2 dev client; the flickering build is
+preserved as `dinput8.dll.flickerbak`. Focused in-game QA passed: the gauge
+remains stable while idle, casting, regenerating, zoning, and relogging; a
+zero-mana melee character stays hidden; and Done's stock caster HUD remains
+intact. A separate black-world renderer failure during QA recovered by
+switching the RoF2 client to fullscreen and did not affect the mana path.
+
+## 2026-07-19 - Reassert RoF2 Player_Mana gauge visibility (#12)
+
+The functional mana path already supplied Pups with `148/148`, but the Rogue
+base HUD could leave the constructed `Player_Mana` gauge hidden. The DLL now
+uses the exact RoF2 `CPlayerWnd` slot (`rva 0x0091FC68`) and child offset
+(`+0x22C`) from the game-thread `Max_Mana` path, calling the stock
+`CXWnd::SetVisible` vtable entry (`+0xD8`) once a positive server maximum is
+available. Pointer reads and the virtual call fail closed; the executable
+size/SHA guard and existing `Max_Mana` signature guard remain required. This
+is deployed to the dev RoF2 client and awaits in-game QA.
+
 ## 2026-07-19 — Re-enable guarded `Max_Mana` hook after wire fix (#12/#13)
 
 The corrected RoF2 packet encoder now populates Pups's local raw fields at

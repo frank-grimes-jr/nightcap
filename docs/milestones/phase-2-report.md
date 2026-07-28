@@ -1,7 +1,7 @@
 # Phase 2 milestone report — multiclass caster chassis
 
-Date: 2026-07-19  
-Status: **Functionally complete; cosmetic HUD follow-up remains**
+Date: 2026-07-28
+Status: **Mana gauge flicker fix accepted and promoted to main**
 
 ## Built
 
@@ -10,17 +10,20 @@ Status: **Functionally complete; cosmetic HUD follow-up remains**
 - RoF2-specific `OP_ManaUpdate` wire encoder.
 - Server initial self-mana update through the connected-state path.
 - Guarded `Max_Mana` hook backed by the validated local raw maximum.
+- Guarded CPlayerWnd mana-visibility predicate backed by the server maximum.
 - MQ2EQIM crash isolation by removing its autoload entry.
 
 ## Accepted
 
-Pups (ROG/WIZ/DRU) receives `148/148` mana, shows mana in inventory, and casts
-spells. Pups and Done open Spell Gems and Spellbook and zone without crashing.
+Pups (ROG/WIZ/DRU) receives `148/148` mana, shows a stable HUD gauge, and casts
+spells. The gauge tracks casting/regeneration and survives zoning/relogging.
+A true zero-mana melee character remains hidden. Pups and Done open Spell Gems
+and Spellbook, and Done's stock caster HUD remains intact.
 
-## Cut / deferred
+## Pending
 
-The standard mana bar is not rendered for the Rogue-base HUD chassis. It is a
-cosmetic client follow-up; it does not block the functional B2 acceptance.
+No remaining work for the mana-gauge flicker fix. The user explicitly approved
+the `test` to `main` promotion on 2026-07-28.
 
 ## Shaky / operational notes
 
@@ -32,3 +35,5 @@ cosmetic client follow-up; it does not block the functional B2 acceptance.
 - Every zone process must be restarted after a zone/common rebuild.
 - `MQ2EQIM` must remain disabled until its null chat-service path is separately
   corrected and QA'd.
+- If the world turns black while UI remains responsive, switching the RoF2
+  client to fullscreen can recreate the D3D device and restore rendering.
