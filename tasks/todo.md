@@ -6,6 +6,7 @@
 - [x] Begin Phase 0 baseline/test-seam work on `feature/true-multiclass-m3`.
 - [x] Fix and test native skill train-level resolution.
 - [x] Check in the read-only legacy `skill_caps` audit and migration safety gate.
+- [x] Generate the 480-row class × held-slot × capability acceptance matrix.
 - [ ] Continue the exhaustive player-facing class-gate audit and acceptance matrix.
 
 ## External-state blocker

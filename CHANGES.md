@@ -1,5 +1,18 @@
 # CHANGES
 
+## 2026-07-28 - Generate the Epic #10 parity evidence matrix
+
+Added a deterministic PowerShell generator and a 480-row acceptance matrix that
+covers all 16 playable classes in primary, secondary, and tertiary slots across
+ten contracted capability groups. Every row has an implementation owner plus
+separate automated and manual evidence fields; all begin unresolved as
+`planned`.
+
+Started the checked-in player class-gate ledger with direct Client paths, shared
+Mob review boundaries, contract classifications, required remediation, and
+named evidence. Bot/NPC identity checks remain distinct from player capability
+gates so later changes do not globally replace `GetClass()`.
+
 ## 2026-07-28 - Add a read-only multiclass skill-cap baseline audit (#10)
 
 The live PEQ `skill_caps` table still contains rows from the legacy global
