@@ -27,6 +27,10 @@ caster-class capability table so any base class can use the caster UI chassis.
   `OP_ManaUpdate` layout is encoded server-side; Pups receives raw `148/148`,
   and the guarded `Max_Mana` detour exposes that value to the client UI/casting
   path.
+- **B2 mana gauge correction: flicker fix built + deployed, QA pending.**
+  `CPlayerWnd`'s stock 500 ms refresh now bases `PlayerMana` visibility on the
+  positive server-cached maximum. This replaces the competing direct
+  `SetVisible` reassertion that manual QA found could flicker.
 - **Fail closed:** the patch requires the expected file size, full SHA-256, and
   exact complete class-table signature. Any mismatch leaves memory untouched
   and is recorded in the per-process log.
@@ -44,8 +48,8 @@ The completed server/client path is now functional for a Rogue-base multiclass:
 - Spell Gems and Spellbook open normally; zoning remains stable.
 - No crash recurred after disabling `MQ2EQIM` autoload.
 
-The standard mana bar remains a cosmetic HUD limitation for the Rogue base
-chassis; it does not block mana accounting or casting. Track that separately.
+The standard mana bar correction is now deployed to the dev client and needs
+the focused in-game QA below before promotion.
 
 ### Final QA steps
 
@@ -57,6 +61,9 @@ chassis; it does not block mana accounting or casting. Track that separately.
    persists/reloads correctly.
 5. Log in Done concurrently and verify its mana bar, gems, spellbook, casting,
    and one zone as regression coverage.
+6. For Pups, confirm the standard player mana bar is visible. Cast a spell and
+   verify the fill decreases; wait for regeneration, then zone and relog to
+   verify it remains visible and tracks the restored value.
 
 ## Build
 
@@ -67,6 +74,12 @@ build.bat
 ```
 
 Output: `build\dinput8.dll`.
+
+Static exact-client guard test:
+
+```
+powershell -NoProfile -ExecutionPolicy Bypass -File tests\verify-exact-client-patch-sites.ps1
+```
 
 ## Deploy / test (dev client)
 
@@ -101,6 +114,25 @@ for diagnostics, but the correction itself does not depend on MQ2.
 
 Recorded result: all guard, window, dual-client, and zoning checks passed.
 No crash recurred. The unresolved acceptance blocker is Pups' `0/0` mana.
+
+## B2 mana gauge QA - pending
+
+1. Fully exit MacroQuest2 and all EQ clients, then restart them so the newly
+   deployed DLL is loaded.
+2. Log in Pups and retain the new `nightcap_dll_<PID>.log`.
+3. Confirm the log contains `B2 mana hook APPLIED` and
+   `B2 mana gauge APPLIED`.
+4. Confirm the normal player mana bar is visible and starts at the inventory
+   value (currently `148/148`). Cast a known spell and verify the fill/value
+   decreases; wait for regeneration.
+5. Zone once and relog Pups. The bar must remain visible and track current and
+   maximum mana.
+6. Log in Done concurrently and verify its stock mana bar, Spell Gems,
+   Spellbook, casting, and one zone.
+
+Failure conditions: no `B2 mana gauge APPLIED` log, any flicker,
+missing/stale bar, incorrect fill/value, a visible zero-mana bar on a
+non-multiclass melee character, any window regression, or a crash.
 
 ## B2 initial-mana trace QA
 

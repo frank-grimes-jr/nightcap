@@ -200,3 +200,30 @@ encode produces a packet the RoF2 handler cannot resolve to the local spawn.
 The server now uses a RoF2-specific `OP_ManaUpdate` encoder with the client
 layout. The server diagnostic confirmed Pups was sending `148/148` with spawn
 ID `260`; the client trace remained `0/0` until this wire correction.
+
+## 2026-07-19 mana gauge visibility correction
+
+The RoF2 `CPlayerWnd` constructor creates the `Player_Mana` child at
+`CPlayerWnd+0x22C`. The child uses the normal `CXWnd::SetVisible` virtual at
+vtable offset `+0xD8`. The new DLL correction runs from the guarded
+non-caster `Max_Mana` return path and calls that stock setter only after a
+positive server maximum is available. The global player-window slot is
+`0x0091FC68` (RVA). All reads/calls are exception-guarded and the existing
+client size/SHA and `Max_Mana` signature guards remain mandatory. The deployed
+build is awaiting manual Pups/Done UI QA.
+
+## 2026-07-28 mana gauge flicker root cause
+
+Manual QA showed that the direct `PlayerMana::SetVisible(true)` correction was
+temporary and flickered. `CPlayerWnd`'s update method begins at preferred VA
+`0x00718D70`. Every 500 ms it calls the stock class predicate at
+`0x0059FB90` from call-site RVA `0x00318E93`, then passes that result to
+`PlayerMana::SetVisible`. Melee base classes therefore alternated between the
+DLL's forced-visible state and the stock refresh's hidden state.
+
+The stable correction replaces only the exact call bytes
+`E8 F8 6C E8 FF` with a call to the DLL's guarded predicate. The replacement
+returns true when the authoritative raw maximum at
+`pinstLocalPlayer+0x354` is positive. This preserves the stock HUD refresh and
+keeps true zero-mana characters hidden. The old direct `SetVisible` call from
+the `Max_Mana` detour is removed.
