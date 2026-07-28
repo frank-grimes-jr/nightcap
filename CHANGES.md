@@ -1,5 +1,17 @@
 # CHANGES
 
+## 2026-07-28 - Resolve held-class skill caps and unlocks safely (#10)
+
+Added a pure held-class skill eligibility resolver that deduplicates the
+primary/secondary/tertiary class list, rejects invalid class IDs, selects the
+highest current cap, and selects the earliest positive native unlock level.
+Those two values may correctly come from different held classes; non-held or
+invalid classes are never queried.
+
+CppUnit covers mixed caps/unlocks, duplicates, and fail-closed invalid input.
+The full suite passes 83/83. This seam does not mutate characters or the live
+database and is ready for the separately tested lifecycle reconciler.
+
 ## 2026-07-28 - Define the multiclass skill acquisition policy (#10)
 
 Added a fail-closed acquisition policy for all 78 RoF2 `SkillUseTypes` values and

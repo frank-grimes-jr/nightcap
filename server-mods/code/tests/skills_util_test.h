@@ -31,6 +31,7 @@ public:
 		TEST_ADD(SkillsUtilsTest::FindFirstTrainableLevel);
 		TEST_ADD(SkillsUtilsTest::SkillAcquisitionPolicy);
 		TEST_ADD(SkillsUtilsTest::ShouldSeedAtNativeUnlock);
+		TEST_ADD(SkillsUtilsTest::ResolveHeldSkillEligibility);
 	}
 
 	~SkillsUtilsTest() {
@@ -109,5 +110,41 @@ public:
 			25,
 			200
 		));
+	}
+
+	void ResolveHeldSkillEligibility() {
+		const std::vector<uint8> held_classes = {Class::Cleric, Class::Monk, Class::Monk, 0, 99};
+		auto result = SkillCaps::ResolveHeldSkillEligibility(
+			held_classes,
+			[](uint8 class_id) {
+				if (class_id == Class::Cleric) {
+					return static_cast<uint16>(75);
+				}
+				if (class_id == Class::Monk) {
+					return static_cast<uint16>(200);
+				}
+				return static_cast<uint16>(500);
+			},
+			[](uint8 class_id) {
+				if (class_id == Class::Cleric) {
+					return static_cast<uint8>(10);
+				}
+				if (class_id == Class::Monk) {
+					return static_cast<uint8>(5);
+				}
+				return static_cast<uint8>(1);
+			}
+		);
+
+		TEST_ASSERT_EQUALS(result.current_cap, static_cast<uint16>(200));
+		TEST_ASSERT_EQUALS(result.unlock_level, static_cast<uint8>(5));
+
+		result = SkillCaps::ResolveHeldSkillEligibility(
+			{0, 99},
+			[](uint8) { return static_cast<uint16>(500); },
+			[](uint8) { return static_cast<uint8>(1); }
+		);
+		TEST_ASSERT_EQUALS(result.current_cap, static_cast<uint16>(0));
+		TEST_ASSERT_EQUALS(result.unlock_level, static_cast<uint8>(0));
 	}
 };

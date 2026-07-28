@@ -81,6 +81,38 @@ uint8 SkillCaps::FindFirstTrainableLevel(uint8 max_level, const std::function<bo
 	return 0;
 }
 
+SkillCaps::HeldSkillEligibility SkillCaps::ResolveHeldSkillEligibility(
+	const std::vector<uint8> &held_classes,
+	const std::function<uint16(uint8)> &current_cap_for_class,
+	const std::function<uint8(uint8)> &unlock_level_for_class
+)
+{
+	HeldSkillEligibility result;
+	bool seen[Class::PLAYER_CLASS_COUNT + 1] = {};
+
+	for (const uint8 class_id : held_classes) {
+		if (!IsPlayerClass(class_id) || class_id > Class::PLAYER_CLASS_COUNT || seen[class_id]) {
+			continue;
+		}
+		seen[class_id] = true;
+
+		const uint16 current_cap = current_cap_for_class(class_id);
+		if (current_cap > result.current_cap) {
+			result.current_cap = current_cap;
+		}
+
+		const uint8 unlock_level = unlock_level_for_class(class_id);
+		if (
+			unlock_level > 0 &&
+			(result.unlock_level == 0 || unlock_level < result.unlock_level)
+		) {
+			result.unlock_level = unlock_level;
+		}
+	}
+
+	return result;
+}
+
 void SkillCaps::LoadSkillCaps()
 {
 	const auto &l = SkillCapsRepository::All(*m_content_database);
