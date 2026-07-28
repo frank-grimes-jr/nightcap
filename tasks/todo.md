@@ -2,11 +2,20 @@
 
 ## Ready
 
-- [ ] Post the approved production contract and ordered plan to GitHub #10.
-- [ ] Begin Phase 0 baseline/test-seam work on a feature branch from `dev`.
+- [x] Post the approved production contract and ordered plan to GitHub #10.
+- [x] Begin Phase 0 baseline/test-seam work on `feature/true-multiclass-m3`.
+- [x] Fix and test native skill train-level resolution.
+- [x] Check in the read-only legacy `skill_caps` audit and migration safety gate.
+- [ ] Continue the exhaustive player-facing class-gate audit and acceptance matrix.
+
+## External-state blocker
+
+- [ ] Acquire a verified canonical PEQ `skill_caps` baseline. The official dump host did not resolve and all retained local backups postdate global widening.
+- [ ] Only after that baseline exists: compare, review, back up, and test a reversible repair migration against a restored copy.
 
 ## Blocked by Phase 0 evidence
 
+- [ ] Any live `skill_caps` repair or migration.
 - [ ] Server gameplay implementation.
 - [ ] RoF2 UI/equipment/trainer patch implementation.
 - [ ] Launcher asset-sync implementation.

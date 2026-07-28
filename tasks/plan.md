@@ -8,8 +8,12 @@ No gameplay implementation begins until the contract and this plan are posted to
 
 ### 0. Baseline, tests, and reverse-engineering evidence
 
-- [ ] Create a feature branch from `dev` for the first server slice.
-- [ ] Add a table-driven held-class/skill-cap test seam that does not require a live zone process.
+- [x] Create a feature branch from `dev` for the first server slice.
+- [x] Add a table-driven native skill train-level test seam that does not require a live zone process.
+- [x] Fix native train-level resolution and pass the full 80-test CppUnit target.
+- [x] Document the legacy globally widened `skill_caps` state and add a read-only comparison audit.
+- [ ] Acquire and verify an authoritative clean PEQ `skill_caps` baseline; current DNS/source availability is blocked.
+- [ ] Compare the live table against the clean baseline before writing any repair migration.
 - [ ] Capture baseline behavior for `Done`, `Pups`, and a stock single-class control.
 - [ ] Create a checked-in audit of every player-facing `GetClass()`/class-switch gate with classification, owner, remediation, and test evidence.
 - [ ] Generate the all-playable-class × primary/secondary/tertiary-slot × capability acceptance matrix.
@@ -62,7 +66,7 @@ Land separate commits for abilities/Skills, trainers, and equipment.
 
 ### 4. Integrated M3 QA
 
-- [ ] Back up PEQ before any migration or broad character-data repair.
+- [ ] Back up PEQ before any migration or broad character-data repair. No live mutation is permitted before the clean-baseline gate passes.
 - [ ] Snapshot all relevant records for `Done`.
 - [ ] Create Human `Monktest` as Cleric / Shadowknight / Monk in Plane of Knowledge with an exact-ID/class-asserting local QA script.
 - [ ] Exercise normal level-threshold unlocks at 1/5/10/15/17/20/25/30/50.

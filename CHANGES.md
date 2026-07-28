@@ -1,5 +1,19 @@
 # CHANGES
 
+## 2026-07-28 - Add a read-only multiclass skill-cap baseline audit (#10)
+
+The live PEQ `skill_caps` table still contains rows from the legacy global
+multiclass widening, while every retained local backup postdates that change.
+Added a checked-in evidence report and a read-only PowerShell audit that reports
+known contamination controls and can later produce exact live-only,
+canonical-only, and cap-mismatch diffs against a separately imported canonical
+table.
+
+No database data is changed. A verified authoritative PEQ baseline, fresh manual
+backup, reviewed diff, and restored-copy migration rehearsal are mandatory before
+any live repair. The official PEQ dump host was unavailable through DNS during
+this audit; unrelated emulator forks are explicitly not accepted as substitutes.
+
 ## 2026-07-28 - Correct native skill train-level resolution (#10, #39)
 
 `SkillCaps::GetSkillTrainLevel()` previously looped over candidate levels while
