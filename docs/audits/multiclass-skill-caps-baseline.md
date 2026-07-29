@@ -2,7 +2,7 @@
 
 Date: 2026-07-28
 Epic: #10
-Status: migration blocked pending an authoritative clean PEQ baseline
+Status: canonical baseline acquired; exact migration rehearsal pending
 
 ## Purpose
 
@@ -32,14 +32,19 @@ is known, what is not yet safe to infer, and the gate for repairing the table.
 
   These are strong contamination controls, not a complete reconstruction of all
   widened rows.
-- Every local PEQ backup currently retained is dated after the original widening.
-  None is accepted as a clean native baseline.
-- The canonical PEQ bootstrap source is identified by
-  `akk-stack/code/utils/scripts/build/source-db-build.sh` as
-  `http://db.projecteq.net/api/v1/dump/latest`. DNS resolution for that host was
-  unavailable from the dev environment during this audit.
-- GitHub code search did not locate an authoritative ProjectEQ `skill_caps`
-  dataset. Unrelated emulator forks are not safe migration sources.
+- Every local PEQ backup retained before this audit was dated after the original
+  widening and was correctly rejected as a clean native baseline.
+- Akk Stack's current `init-peq-database` target references the official PEQ
+  package at
+  `https://gitlab.com/TheGrandLibrary/db.projecteq.net-dumps/-/package_files/232952944/download`.
+  The archive is 32,150,987 bytes with SHA-256
+  `ac8649f23d2c3aea2cade138dfe10d46d1b21ad1a80d08ca95f5434fab7f218d`.
+  Its files are dated 2025-09-28.
+- The dump was imported into the isolated `nightcap-peq-baseline` container,
+  which publishes no host ports and shares no volume with live PEQ.
+- Exact read-only comparison found 74,449 live rows, 58,359 canonical rows,
+  16,090 live-only rows, zero canonical-only rows, and zero cap mismatches.
+  Live is therefore a strict superset of the canonical native table.
 
 ## Safety decision
 
@@ -47,11 +52,14 @@ Do not delete, rewrite, or rebuild live `skill_caps` from heuristics. A row that
 looks unusual may still be a legitimate PEQ era/race/class rule, and the current
 table has insufficient provenance to distinguish native rows from widened rows.
 
-`tools/audit-multiclass-skill-caps.ps1` is intentionally read-only:
+`tools/audit-multiclass-skill-caps.ps1` and
+`tools/compare-multiclass-skill-caps.ps1` are intentionally read-only:
 
 - without a canonical table, it reports table coverage and known heuristic
   contamination controls;
 - with `-CanonicalTable`, it performs an exact live-vs-canonical row comparison;
+- the cross-container comparator retains complete CSV diffs without creating a
+  comparison table in live PEQ;
 - it never imports the canonical dump and never mutates either table.
 
 ## Required migration gate
@@ -59,13 +67,11 @@ table has insufficient provenance to distinguish native rows from widened rows.
 All of the following must be complete before live repair SQL is written or run:
 
 1. Take a fresh manual backup with `tools/backup-peq.ps1` and verify the archive.
-2. Acquire the PEQ dump matching the intended Nightcap source/era from an
-   authoritative ProjectEQ source.
-3. Record its source URL, retrieval time, size, and SHA-256.
-4. Import only its native `skill_caps` data into a separately named comparison
-   table in the dev database. Never overwrite live `skill_caps` during import.
-5. Run the audit tool with `-CanonicalTable` and retain all three exact diffs:
-   live-only rows, canonical-only rows, and cap mismatches.
+2. Acquire and verify the authoritative PEQ dump. **Complete.**
+3. Record its source URL, size, and SHA-256. **Complete.**
+4. Import it into an isolated no-host-port comparison container. **Complete.**
+5. Retain all three exact diffs: live-only rows, canonical-only rows, and cap
+   mismatches. **Complete in `docs/audits/skill-caps-diff/`.**
 6. Review the diff for intentional Nightcap overrides and encode any accepted
    overrides declaratively in version control.
 7. Prepare a transaction-scoped, reversible migration and test it against a

@@ -1,5 +1,18 @@
 # CHANGES
 
+## 2026-07-28 - Acquire and diff the canonical PEQ skill-cap baseline (#10)
+
+Imported the exact PEQ archive referenced by Akk Stack's current
+`init-peq-database` target into an isolated no-host-port MariaDB container. The
+32,150,987-byte archive has SHA-256
+`ac8649f23d2c3aea2cade138dfe10d46d1b21ad1a80d08ca95f5434fab7f218d`.
+
+A new read-only cross-container comparator retains complete CSV evidence. Live
+has 74,449 `skill_caps` rows versus 58,359 canonical rows: 16,090 are live-only,
+zero are canonical-only, and zero shared caps differ. This proves legacy
+widening added rows without altering or removing native rows. Live PEQ remains
+unchanged; the next gate is a fresh backup and restored-copy migration rehearsal.
+
 ## 2026-07-28 - Remove production multiclass skill maximization (#10)
 
 Removed `mc_train_skills` and every direct `SetSkill` write from the multiclass

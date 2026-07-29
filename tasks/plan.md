@@ -12,8 +12,8 @@ No gameplay implementation begins until the contract and this plan are posted to
 - [x] Add a table-driven native skill train-level test seam that does not require a live zone process.
 - [x] Fix native train-level resolution and pass the full 80-test CppUnit target.
 - [x] Document the legacy globally widened `skill_caps` state and add a read-only comparison audit.
-- [ ] Acquire and verify an authoritative clean PEQ `skill_caps` baseline; current DNS/source availability is blocked.
-- [ ] Compare the live table against the clean baseline before writing any repair migration.
+- [x] Acquire and verify an authoritative clean PEQ `skill_caps` baseline in an isolated container.
+- [x] Compare live against canonical: 16,090 live-only, zero canonical-only, zero cap mismatches.
 - [ ] Capture baseline behavior for `Done`, `Pups`, and a stock single-class control.
 - [ ] Create a checked-in audit of every player-facing `GetClass()`/class-switch gate with classification, owner, remediation, and test evidence.
 - [x] Generate the 480-row all-playable-class × primary/secondary/tertiary-slot × capability acceptance matrix.

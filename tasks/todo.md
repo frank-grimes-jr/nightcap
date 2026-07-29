@@ -9,10 +9,11 @@
 - [x] Generate the 480-row class × held-slot × capability acceptance matrix.
 - [ ] Continue the exhaustive player-facing class-gate audit and acceptance matrix.
 
-## External-state blocker
+## Baseline migration gate
 
-- [ ] Acquire a verified canonical PEQ `skill_caps` baseline. The official dump host did not resolve and all retained local backups postdate global widening.
-- [ ] Only after that baseline exists: compare, review, back up, and test a reversible repair migration against a restored copy.
+- [x] Acquire and verify the canonical PEQ baseline in an isolated no-host-port container.
+- [x] Prove live is a strict superset of canonical with a complete read-only diff.
+- [ ] Take a fresh live backup, then test a reversible repair migration against a restored copy.
 
 ## Blocked by Phase 0 evidence
 
