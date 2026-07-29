@@ -20,22 +20,22 @@ is the functional-only pass; it does not test value-1 skill progression.
 
 ## Result
 
-Blocked on RoF2 client presentation. The corrected login banner reports Cleric
-(primary), Shadowknight (secondary), and Monk (tertiary), and the database
-contains all six Monk skill rows at the expected caps. However, the Combat
-Abilities control is grayed out for the Cleric-primary profile and the window
-cannot be opened. No Monk ability can therefore be placed on a hotbar or sent
-to the implemented server dispatch path.
+The corrected login banner reports Cleric (primary), Shadowknight (secondary),
+and Monk (tertiary), and the database contains all six Monk skill rows at the
+expected caps. The RoF2 Combat Abilities control was grayed out for the
+Cleric-primary profile; the guarded client correction now enables it.
 
-This is stronger than an individual missing-button result: RoF2 gates access to
-the entire Combat Abilities window using the primary client class. G006 manual
-activation QA remains blocked until a client-visible activation path is added.
+That window is the discipline/tome window, however, and this fixture
+intentionally has zero `character_disciplines` rows. An enabled but empty Combat
+Abilities window is therefore expected and does not report whether the Monk
+special attacks are available. Those attacks are ordinary activated skills and
+must be assigned through **Actions -> Abilities**. The original QA instructions
+incorrectly conflated these two client surfaces.
 
 The guarded client-table correction from commit `b0ba2e9` was deployed after
-this result. Deployed DLL SHA-256:
+the initial grayed-control result. Deployed DLL SHA-256:
 `209E99A97B8F0A6494B554862A9C9A524784EC8CA535C9C2C33E44AC23052726`.
-The next pass first verifies that the control is enabled and the window opens;
-ability population and activation are separate follow-on observations.
+The next pass uses the separate Actions-window ability picker.
 
 ## Steps
 
@@ -47,8 +47,11 @@ ability population and activation are separate follow-on observations.
    quest-global login handler loaded.
 3. Run `#zone arena -73.5 -979 49.9`. Target `a_training_dummy` or
    `an_undead_training_dummy`.
-4. Open the Skills and Combat Abilities windows. Record whether each of these is
-   visible and can be placed on a hotbar:
+4. Open the **Actions** window (Alt+M), select its second tab, whose tooltip is
+   **Abilities Page**, and right-click a numbered ability square (1-6). Do not
+   use the separate Combat Abilities discipline window for this step.
+5. Record whether each of these is present in the right-click picker, assign it
+   to a numbered square, and drag that square to a hotbar:
 
    | Ability | Expected skill |
    |---|---:|
@@ -59,12 +62,12 @@ ability population and activation are separate follow-on observations.
    | Round Kick | 240 |
    | Tiger Claw | 255 |
 
-5. Activate each visible attack once, waiting for its reuse timer. Each should
+6. Activate each visible attack once, waiting for its reuse timer. Each should
    animate, damage the training dummy, and start the normal reuse timer.
-6. Activate Kick several times. With this fixture's AAs and buffs cleared, each
+7. Activate Kick several times. With this fixture's AAs and buffs cleared, each
    activation should produce one Kick attack—not a generic Kick plus a second
    Monk Kick.
-7. Camp, re-enter `Monktest`, return to the arena, and repeat one Kick and one
+8. Camp, re-enter `Monktest`, return to the arena, and repeat one Kick and one
    non-Kick Monk attack to verify persistence.
 
 ## Report
@@ -77,10 +80,10 @@ Please report:
 - whether Kick ever produced two attacks from one activation;
 - any red rejection message, disconnect, crash, or black-screen event.
 
-If an ability is missing from the RoF2 window, record it as a client-visibility
-result rather than a server-dispatch failure. The deployed server path can
-authorize packets that reach it; the separate client slice must expose any
-buttons RoF2 suppresses for a Cleric primary class.
+If an ability is missing from the Actions-window picker, record it as a
+client-visibility result rather than a server-dispatch failure. The deployed
+server path can authorize packets that reach it; the separate client slice must
+expose any buttons RoF2 suppresses for a Cleric primary class.
 
 ## Fixture operations
 
