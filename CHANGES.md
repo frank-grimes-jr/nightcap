@@ -1,5 +1,19 @@
 # CHANGES
 
+## 2026-07-29 - Seed native multiclass skills across the character lifecycle (#10)
+
+Added one authoritative C++ reconciler that evaluates native eligibility across
+the character's held classes and grants each newly unlocked skill at value `1`.
+It runs during zone-in, immediately after secondary/tertiary class adoption,
+and on level-up before quest events. Existing nonzero skills remain unchanged,
+and stock acquisition-only skills remain excluded.
+
+Removed the duplicate Lua level-up seeding loop and exposed the same reconciler
+to the production Perl adoption plugin. A static lifecycle regression verifies
+all call sites and ordering. The full zone build and 84-test CppUnit target pass;
+all eight restarted zone workers use the rebuilt binary and load the canonical
+58,359-row skill-cap baseline.
+
 ## 2026-07-29 - Add deterministic native skill seed selection (#10)
 
 Added a table-driven seed-candidate collector that applies the approved

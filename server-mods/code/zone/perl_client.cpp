@@ -43,6 +43,11 @@ void Perl_Client_PurgeAfterClassRelease(Client* self, int released_class) // @ca
 	self->PurgeAfterClassRelease(static_cast<uint8>(released_class));
 }
 
+uint32 Perl_Client_ReconcileMulticlassSkills(Client* self) // @categories Skills and Recipes
+{
+	return self->ReconcileMulticlassSkills();
+}
+
 bool Perl_Client_IsLD(Client* self) // @categories Account and Character
 {
 	return self->IsLD();
@@ -3469,6 +3474,7 @@ void perl_register_client()
 	package.add("DialogueWindow", &Perl_Client_DialogueWindow);
 	package.add("Disconnect", &Perl_Client_Disconnect);
 	package.add("PurgeAfterClassRelease", &Perl_Client_PurgeAfterClassRelease);
+	package.add("ReconcileMulticlassSkills", &Perl_Client_ReconcileMulticlassSkills);
 	package.add("DropItem", &Perl_Client_DropItem);
 	package.add("Duck", &Perl_Client_Duck);
 	package.add("DyeArmorBySlot", (void(*)(Client*, uint8, uint8, uint8, uint8))&Perl_Client_DyeArmorBySlot);

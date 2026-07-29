@@ -914,6 +914,8 @@ void Client::SetLevel(uint8 set_level, bool command)
 	if (set_level > m_pp.level) {
 		int levels_gained = (set_level - m_pp.level);
 
+		ReconcileMulticlassSkills();
+
 		if (parse->PlayerHasQuestSub(EVENT_LEVEL_UP)) {
 			parse->EventPlayer(EVENT_LEVEL_UP, this, std::to_string(levels_gained), 0);
 		}

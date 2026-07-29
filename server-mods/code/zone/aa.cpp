@@ -108,7 +108,7 @@ void Client::SetMulticlassSlot(uint8 slot, uint8 class_id) {
 		));
 	}
 
-	LoadMulticlassMask();
+	ReconcileMulticlassSkills();
 	SendAlternateAdvancementTable();
 }
 

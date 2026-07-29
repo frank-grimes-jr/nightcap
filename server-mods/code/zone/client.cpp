@@ -838,7 +838,7 @@ void Client::SendZoneInPackets()
 	if (GetPVP(false))	//force a PVP update until we fix the spawn struct
 		SendAppearancePacket(AppearanceType::PVP, GetPVP(false), true, false);
 
-	LoadMulticlassMask();
+	ReconcileMulticlassSkills();
 	ClearExtraPets();
 
 	//Send AA Exp packet:
@@ -3188,6 +3188,51 @@ void Client::CheckLanguageSkillIncrease(uint8 language_id, uint8 teacher_skill) 
 bool Client::HasSkill(EQ::skills::SkillType skill_id) const
 {
 	return GetSkill(skill_id) > 0 && CanHaveSkill(skill_id);
+}
+
+uint32 Client::ReconcileMulticlassSkills()
+{
+	LoadMulticlassMask();
+
+	const auto held_classes = GetMulticlassList();
+	std::vector<EQ::skills::NativeSkillSeedCandidate> candidates;
+	candidates.reserve(EQ::skills::GetSkillTypeMap().size());
+
+	for (const auto &entry : EQ::skills::GetSkillTypeMap()) {
+		const auto skill = entry.first;
+		const auto eligibility = SkillCaps::ResolveHeldSkillEligibility(
+			held_classes,
+			[this, skill](uint8 class_id) {
+				return MaxSkill(skill, class_id, GetLevel());
+			},
+			[this, skill](uint8 class_id) {
+				return GetSkillTrainLevel(skill, class_id);
+			}
+		);
+
+		candidates.push_back({
+			skill,
+			static_cast<uint16>(GetRawSkill(skill)),
+			eligibility.unlock_level,
+			eligibility.current_cap
+		});
+	}
+
+	const auto seeds = EQ::skills::CollectNativeSkillSeeds(candidates, GetLevel());
+	for (const auto skill : seeds) {
+		SetSkill(skill, 1);
+	}
+
+	if (!seeds.empty()) {
+		LogSkills(
+			"Seeded [{}] native skill unlock(s) at value 1 for [{}] at level [{}]",
+			seeds.size(),
+			GetCleanName(),
+			GetLevel()
+		);
+	}
+
+	return static_cast<uint32>(seeds.size());
 }
 
 bool Client::CanHaveSkill(EQ::skills::SkillType skill_id) const

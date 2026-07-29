@@ -140,6 +140,7 @@ sub mc_apply_class {
 
     # Skills are never written by quest code. The C++ lifecycle reconciler owns
     # value-1 native unlocks after the canonical skill_caps baseline is restored.
+    $client->ReconcileMulticlassSkills();
 
     $client->Message(335,
         'Operator note: run tools/sync-spell-access.ps1 (client closed) so the new ' .
