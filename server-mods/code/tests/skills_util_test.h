@@ -33,6 +33,8 @@ public:
 		TEST_ADD(SkillsUtilsTest::ShouldSeedAtNativeUnlock);
 		TEST_ADD(SkillsUtilsTest::CollectNativeSkillSeeds);
 		TEST_ADD(SkillsUtilsTest::ResolveHeldSkillEligibility);
+		TEST_ADD(SkillsUtilsTest::HeldClassTrainerAuthorization);
+		TEST_ADD(SkillsUtilsTest::SkillTrainingDecision);
 	}
 
 	~SkillsUtilsTest() {
@@ -173,5 +175,45 @@ public:
 		);
 		TEST_ASSERT_EQUALS(result.current_cap, static_cast<uint16>(0));
 		TEST_ASSERT_EQUALS(result.unlock_level, static_cast<uint8>(0));
+	}
+
+	void HeldClassTrainerAuthorization() {
+		const std::vector<uint8> held_classes = {Class::Cleric, Class::ShadowKnight, Class::Monk};
+
+		TEST_ASSERT(SkillCaps::CanUseTrainer(Class::Cleric, held_classes, false));
+		TEST_ASSERT(SkillCaps::CanUseTrainer(Class::Monk, held_classes, false));
+		TEST_ASSERT(!SkillCaps::CanUseTrainer(Class::Wizard, held_classes, false));
+		TEST_ASSERT(!SkillCaps::CanUseTrainer(0, held_classes, false));
+		TEST_ASSERT(SkillCaps::CanUseTrainer(Class::Wizard, held_classes, true));
+	}
+
+	void SkillTrainingDecision() {
+		using EQ::skills::EvaluateSkillTraining;
+		using EQ::skills::SkillTrainingResult;
+
+		TEST_ASSERT(
+			EvaluateSkillTraining(1, 100, 0, 4, 5, 30, 30) ==
+				SkillTrainingResult::NotUnlocked
+		);
+		TEST_ASSERT(
+			EvaluateSkillTraining(1, 100, 0, 5, 5, 30, 30) ==
+				SkillTrainingResult::Allowed
+		);
+		TEST_ASSERT(
+			EvaluateSkillTraining(1, 100, 30, 50, 5, 30, 30) ==
+				SkillTrainingResult::AtCap
+		);
+		TEST_ASSERT(
+			EvaluateSkillTraining(0, 100, 1, 50, 5, 30, 30) ==
+				SkillTrainingResult::NoSkillPoints
+		);
+		TEST_ASSERT(
+			EvaluateSkillTraining(1, 99, 11, 50, 5, 30, 30, 100) ==
+				SkillTrainingResult::InsufficientFunds
+		);
+		TEST_ASSERT(
+			EvaluateSkillTraining(1, 100, 10, 50, 5, 30, 10, 100) ==
+				SkillTrainingResult::AtCap
+		);
 	}
 };

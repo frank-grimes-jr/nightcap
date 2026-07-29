@@ -1,5 +1,21 @@
 # CHANGES
 
+## 2026-07-29 - Enforce held-class trainer authorization atomically (#10)
+
+Replaced legacy max-level multiclass trainer widening with current-level,
+held-class eligibility. Trainer sessions now accept only a held class unless
+the existing cross-class-trainer rule is enabled, display only caps available
+at the character's current level, and reject premature or capped requests.
+
+Training requests now validate skill points, native unlock level, effective
+held-class cap, stock trainer limits, and carried currency before mutation.
+Zero-valued skills open at exactly value `1`; unaffordable requests no longer
+raise a skill before payment fails. Pure tests cover held/non-held trainers,
+early unlocks, caps, points, and funds, while a static integration regression
+locks the packet-handler ordering. The rebuilt test executable exits cleanly
+with all 9 skill tests passing, and all eight restarted zone workers loaded the
+verified binary plus the canonical 58,359-row skill-cap baseline.
+
 ## 2026-07-29 - Seed native multiclass skills across the character lifecycle (#10)
 
 Added one authoritative C++ reconciler that evaluates native eligibility across

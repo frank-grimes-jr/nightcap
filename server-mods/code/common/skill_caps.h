@@ -24,6 +24,11 @@ public:
 		const std::function<uint16(uint8)> &current_cap_for_class,
 		const std::function<uint8(uint8)> &unlock_level_for_class
 	);
+	static bool CanUseTrainer(
+		uint8 trainer_class,
+		const std::vector<uint8> &held_classes,
+		bool allow_cross_class
+	);
 	void LoadSkillCaps();
 	void ReloadSkillCaps();
 	static int32_t GetSkillCapMaxLevel(uint8 class_id, EQ::skills::SkillType skill_id);

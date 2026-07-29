@@ -113,6 +113,29 @@ SkillCaps::HeldSkillEligibility SkillCaps::ResolveHeldSkillEligibility(
 	return result;
 }
 
+bool SkillCaps::CanUseTrainer(
+	uint8 trainer_class,
+	const std::vector<uint8> &held_classes,
+	bool allow_cross_class
+)
+{
+	if (!IsPlayerClass(trainer_class) || trainer_class > Class::PLAYER_CLASS_COUNT) {
+		return false;
+	}
+
+	if (allow_cross_class) {
+		return true;
+	}
+
+	for (const uint8 class_id : held_classes) {
+		if (class_id == trainer_class) {
+			return true;
+		}
+	}
+
+	return false;
+}
+
 void SkillCaps::LoadSkillCaps()
 {
 	const auto &l = SkillCapsRepository::All(*m_content_database);

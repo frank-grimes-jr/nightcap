@@ -21,6 +21,7 @@
 
 #include "common/classes.h"
 
+#include <algorithm>
 #include <cstring>
 
 bool EQ::skills::IsTradeskill(SkillType skill)
@@ -121,6 +122,41 @@ std::vector<EQ::skills::SkillType> EQ::skills::CollectNativeSkillSeeds(
 	}
 
 	return seeds;
+}
+
+EQ::skills::SkillTrainingResult EQ::skills::EvaluateSkillTraining(
+	uint16 skill_points,
+	uint64 available_money,
+	uint16 current_value,
+	uint8 current_level,
+	uint8 unlock_level,
+	uint16 current_cap,
+	uint16 trainer_cap,
+	uint64 cost
+)
+{
+	if (skill_points == 0) {
+		return SkillTrainingResult::NoSkillPoints;
+	}
+
+	if (
+		unlock_level == 0 ||
+		current_level < unlock_level ||
+		current_cap == 0 ||
+		trainer_cap == 0
+	) {
+		return SkillTrainingResult::NotUnlocked;
+	}
+
+	if (current_value >= std::min(current_cap, trainer_cap)) {
+		return SkillTrainingResult::AtCap;
+	}
+
+	if (available_money < cost) {
+		return SkillTrainingResult::InsufficientFunds;
+	}
+
+	return SkillTrainingResult::Allowed;
 }
 
 float EQ::skills::GetSkillMeleePushForce(SkillType skill)

@@ -175,6 +175,14 @@ namespace EQ
 			uint16 current_cap;
 		};
 
+		enum class SkillTrainingResult : uint8 {
+			Allowed,
+			NoSkillPoints,
+			NotUnlocked,
+			AtCap,
+			InsufficientFunds
+		};
+
 		bool IsTradeskill(SkillType skill);
 		bool IsSpecializedSkill(SkillType skill);
 		SkillAcquisition GetSkillAcquisition(SkillType skill);
@@ -188,6 +196,16 @@ namespace EQ
 		std::vector<SkillType> CollectNativeSkillSeeds(
 			const std::vector<NativeSkillSeedCandidate> &candidates,
 			uint8 current_level
+		);
+		SkillTrainingResult EvaluateSkillTraining(
+			uint16 skill_points,
+			uint64 available_money,
+			uint16 current_value,
+			uint8 current_level,
+			uint8 unlock_level,
+			uint16 current_cap,
+			uint16 trainer_cap,
+			uint64 cost = 0
 		);
 		float GetSkillMeleePushForce(SkillType skill);
 		bool IsBardInstrumentSkill(SkillType skill);

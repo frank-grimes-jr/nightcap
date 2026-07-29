@@ -25,6 +25,7 @@
 #include "common/eqemu_logsys.h"
 #include "common/events/player_event_logs.h"
 #include "common/rulesys.h"
+#include "common/skill_caps.h"
 #include "common/skills.h"
 #include "common/spdat.h"
 #include "common/strings.h"
@@ -41,6 +42,7 @@
 #include "zone/zone.h"
 #include "zone/zonedb.h"
 
+#include <algorithm>
 #include <iostream>
 
 extern QueryServ* QServ;
@@ -1623,12 +1625,16 @@ void Client::OPGMTraining(const EQApplicationPacket *app)
 
 	//you can only use your own trainer, client enforces this, but why trust it
 	//Multiclass: any held class's trainer is "your own".
-	if (!RuleB(Character, AllowCrossClassTrainers)) {
-		int trains_class = pTrainer->GetClass() - (Class::WarriorGM - Class::Warrior);
-		if (!IsMulticlassMember(trains_class)) {
-			safe_delete(outapp);
-			return;
-		}
+	const auto trains_class = static_cast<uint8>(
+		pTrainer->GetClass() - (Class::WarriorGM - Class::Warrior)
+	);
+	if (!SkillCaps::CanUseTrainer(
+		trains_class,
+		GetMulticlassList(),
+		RuleB(Character, AllowCrossClassTrainers)
+	)) {
+		safe_delete(outapp);
+		return;
 	}
 
 	//you have to be somewhat close to a trainer to be properly using them
@@ -1647,7 +1653,7 @@ void Client::OPGMTraining(const EQApplicationPacket *app)
 			//Multiclass: offer the best cap this skill reaches across all held classes.
 			uint16 cap = 0;
 			for (uint8 c : GetMulticlassList()) {
-				uint16 class_cap = MaxSkill((EQ::skills::SkillType)sk, c, RuleI(Character, MaxLevel));
+				uint16 class_cap = MaxSkill((EQ::skills::SkillType)sk, c, GetLevel());
 				if (class_cap > cap) {
 					cap = class_cap;
 				}
@@ -1691,10 +1697,15 @@ void Client::OPGMEndTraining(const EQApplicationPacket *app)
 
 	//you can only use your own trainer, client enforces this, but why trust it
 	//Multiclass: any held class's trainer is "your own".
-	if (!RuleB(Character, AllowCrossClassTrainers)) {
-		int trains_class = pTrainer->GetClass() - (Class::WarriorGM - Class::Warrior);
-		if (!IsMulticlassMember(trains_class))
-			return;
+	const auto trains_class = static_cast<uint8>(
+		pTrainer->GetClass() - (Class::WarriorGM - Class::Warrior)
+	);
+	if (!SkillCaps::CanUseTrainer(
+		trains_class,
+		GetMulticlassList(),
+		RuleB(Character, AllowCrossClassTrainers)
+	)) {
+		return;
 	}
 
 	//you have to be somewhat close to a trainer to be properly using them
@@ -1723,10 +1734,15 @@ void Client::OPGMTrainSkill(const EQApplicationPacket *app)
 
 	//you can only use your own trainer, client enforces this, but why trust it
 	//Multiclass: any held class's trainer is "your own".
-	if (!RuleB(Character, AllowCrossClassTrainers)) {
-		int trains_class = pTrainer->GetClass() - (Class::WarriorGM - Class::Warrior);
-		if (!IsMulticlassMember(trains_class))
-			return;
+	const auto trains_class = static_cast<uint8>(
+		pTrainer->GetClass() - (Class::WarriorGM - Class::Warrior)
+	);
+	if (!SkillCaps::CanUseTrainer(
+		trains_class,
+		GetMulticlassList(),
+		RuleB(Character, AllowCrossClassTrainers)
+	)) {
+		return;
 	}
 
 	//you have to be somewhat close to a trainer to be properly using them
@@ -1745,6 +1761,11 @@ void Client::OPGMTrainSkill(const EQApplicationPacket *app)
 		int AdjustedSkillLevel = GetLanguageSkill(gmskill->skill_id) - 10;
 		if(AdjustedSkillLevel > 0)
 			Cost = AdjustedSkillLevel * AdjustedSkillLevel * AdjustedSkillLevel / 100;
+
+		if (Cost && !TakeMoneyFromPP(Cost)) {
+			Message(Chat::Red, "You do not have enough money to train that language.");
+			return;
+		}
 
 		IncreaseLanguageSkill(gmskill->skill_id);
 	}
@@ -1765,39 +1786,20 @@ void Client::OPGMTrainSkill(const EQApplicationPacket *app)
 			return;
 		}
 
-		// Multiclass: best cap and earliest train level for this skill across held classes.
-		uint16 mc_max_skill = 0;
-		uint16 mc_train_level = 0;
-		for (uint8 c : GetMulticlassList()) {
-			uint16 cap = MaxSkill(skill, c, RuleI(Character, MaxLevel));
-			if (cap > mc_max_skill) {
-				mc_max_skill = cap;
+		const auto eligibility = SkillCaps::ResolveHeldSkillEligibility(
+			GetMulticlassList(),
+			[this, skill](uint8 class_id) {
+				return MaxSkill(skill, class_id, GetLevel());
+			},
+			[this, skill](uint8 class_id) {
+				return GetSkillTrainLevel(skill, class_id);
 			}
-			uint8 tl = GetSkillTrainLevel(skill, c);
-			if (tl > 0 && (mc_train_level == 0 || tl < mc_train_level)) {
-				mc_train_level = tl;
-			}
-		}
+		);
 
-		if(mc_max_skill == 0) {
-			LogSkills("Tried to train skill [{}], but training is not allowed at this level", skill);
-			return;
-		}
+		const uint16 skilllevel = GetRawSkill(skill);
+		uint16 trainer_cap = eligibility.current_cap;
 
-		uint16 skilllevel = GetRawSkill(skill);
-
-		if (skilllevel == 0) {
-			//this is a new skill..
-			uint16 t_level = mc_train_level;
-
-			if (t_level == 0) {
-				LogSkills("Tried to train a new skill [{}] which is invalid for this race/class.", skill);
-				return;
-			}
-
-			SetSkill(skill, t_level);
-		} else {
-			switch(skill) {
+		switch(skill) {
 			case EQ::skills::SkillBrewing:
 			case EQ::skills::SkillMakePoison:
 			case EQ::skills::SkillTinkering:
@@ -1808,65 +1810,80 @@ void Client::OPGMTrainSkill(const EQApplicationPacket *app)
 			case EQ::skills::SkillFletching:
 			case EQ::skills::SkillJewelryMaking:
 			case EQ::skills::SkillPottery:
-				if(skilllevel >= RuleI(Skills, MaxTrainTradeskills)) {
-					MessageString(Chat::Red, MORE_SKILLED_THAN_I, pTrainer->GetCleanName());
-					SetSkill(skill, skilllevel);
-					return;
-				}
+				trainer_cap = std::min<uint16>(
+					trainer_cap,
+					static_cast<uint16>(RuleI(Skills, MaxTrainTradeskills))
+				);
 				break;
 			case EQ::skills::SkillResearch:
-				if(skilllevel >= RuleI(Skills, MaxTrainResearch)) {
-					MessageString(Chat::Red, MORE_SKILLED_THAN_I, pTrainer->GetCleanName());
-					SetSkill(skill, skilllevel);
-					return;
-				}
+				trainer_cap = std::min<uint16>(
+					trainer_cap,
+					static_cast<uint16>(RuleI(Skills, MaxTrainResearch))
+				);
 				break;
 			case EQ::skills::SkillSpecializeAbjure:
 			case EQ::skills::SkillSpecializeAlteration:
 			case EQ::skills::SkillSpecializeConjuration:
 			case EQ::skills::SkillSpecializeDivination:
 			case EQ::skills::SkillSpecializeEvocation:
-				if(skilllevel >= RuleI(Skills, MaxTrainSpecializations)) {
-					MessageString(Chat::Red, MORE_SKILLED_THAN_I, pTrainer->GetCleanName());
-					SetSkill(skill, skilllevel);
-					return;
-				}
+				trainer_cap = std::min<uint16>(
+					trainer_cap,
+					static_cast<uint16>(RuleI(Skills, MaxTrainSpecializations))
+				);
 			default:
 				break;
-			}
-
-			int MaxSkillValue = mc_max_skill;
-			if (skilllevel >= MaxSkillValue)
-			{
-				// Don't allow training over max skill level
-				MessageString(Chat::Red, MORE_SKILLED_THAN_I, pTrainer->GetCleanName());
-				SetSkill(skill, skilllevel);
-				return;
-			}
-
-			if (gmskill->skill_id >= EQ::skills::SkillSpecializeAbjure && gmskill->skill_id <= EQ::skills::SkillSpecializeEvocation)
-			{
-				int MaxSpecSkill = GetMaxSkillAfterSpecializationRules(skill, MaxSkillValue);
-				if (skilllevel >= MaxSpecSkill)
-				{
-					// Restrict specialization training to follow the rules
-					MessageString(Chat::Red, MORE_SKILLED_THAN_I, pTrainer->GetCleanName());
-					SetSkill(skill, skilllevel);
-					return;
-				}
-			}
-
-			// Client train a valid skill
-			//
-			int AdjustedSkillLevel = skilllevel - 10;
-
-			if(AdjustedSkillLevel > 0)
-				Cost = AdjustedSkillLevel * AdjustedSkillLevel * AdjustedSkillLevel / 100;
-
-			SetSkill(skill, skilllevel + 1);
-
-
 		}
+
+		if (
+			skill >= EQ::skills::SkillSpecializeAbjure &&
+			skill <= EQ::skills::SkillSpecializeEvocation
+		) {
+			trainer_cap = GetMaxSkillAfterSpecializationRules(skill, trainer_cap);
+		}
+
+		const int adjusted_skill_level = skilllevel - 10;
+		if (adjusted_skill_level > 0) {
+			Cost = adjusted_skill_level * adjusted_skill_level * adjusted_skill_level / 100;
+		}
+
+		const auto decision = EQ::skills::EvaluateSkillTraining(
+			m_pp.points,
+			GetCarriedMoney(),
+			skilllevel,
+			GetLevel(),
+			eligibility.unlock_level,
+			eligibility.current_cap,
+			trainer_cap,
+			Cost
+		);
+
+		switch (decision) {
+		case EQ::skills::SkillTrainingResult::Allowed:
+			break;
+		case EQ::skills::SkillTrainingResult::AtCap:
+			MessageString(Chat::Red, MORE_SKILLED_THAN_I, pTrainer->GetCleanName());
+			return;
+		case EQ::skills::SkillTrainingResult::InsufficientFunds:
+			Message(Chat::Red, "You do not have enough money to train that skill.");
+			return;
+		case EQ::skills::SkillTrainingResult::NoSkillPoints:
+		case EQ::skills::SkillTrainingResult::NotUnlocked:
+			LogSkills(
+				"Rejected training skill [{}] at level [{}] with unlock [{}], cap [{}], points [{}]",
+				skill,
+				GetLevel(),
+				eligibility.unlock_level,
+				eligibility.current_cap,
+				m_pp.points
+			);
+			return;
+		}
+
+		if (Cost && !TakeMoneyFromPP(Cost)) {
+			return;
+		}
+
+		SetSkill(skill, skilllevel == 0 ? 1 : skilllevel + 1);
 	}
 
 	if (ClientVersion() >= EQ::versions::ClientVersion::SoF) {
@@ -1891,9 +1908,6 @@ void Client::OPGMTrainSkill(const EQApplicationPacket *app)
 		QueuePacket(outapp);
 		safe_delete(outapp);
 	}
-
-	if(Cost)
-		TakeMoneyFromPP(Cost);
 
 	m_pp.points--;
 }
