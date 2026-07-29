@@ -17,6 +17,9 @@ and require executable-page protection restoration. This correction affects
 presentation only; the server remains authoritative for held-class
 authorization, reuse timers, targets, damage, and skill-ups.
 
+The reviewed x86 DLL was deployed to the development RoF2 client with SHA-256
+`E5B39B38B4046E46C8B9CE58C3FE08872D490B80F72663B1232AD75F34069BDD`.
+
 ## 2026-07-29 - Unlock the RoF2 combat-ability window chassis (#10)
 
 Added a fail-closed `eq-client-dll` correction for the exact RoF2

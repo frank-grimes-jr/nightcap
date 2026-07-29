@@ -32,10 +32,10 @@ special attacks are available. Those attacks are ordinary activated skills and
 must be assigned through **Actions -> Abilities**. The original QA instructions
 incorrectly conflated these two client surfaces.
 
-The guarded client-table correction from commit `b0ba2e9` was deployed after
-the initial grayed-control result. Deployed DLL SHA-256:
-`209E99A97B8F0A6494B554862A9C9A524784EC8CA535C9C2C33E44AC23052726`.
-The next pass uses the separate Actions-window ability picker.
+The guarded combat-window correction from commit `b0ba2e9` was deployed after
+the initial grayed-control result. The subsequent Actions-selector correction
+from commit `1dba98c` is now deployed with DLL SHA-256
+`E5B39B38B4046E46C8B9CE58C3FE08872D490B80F72663B1232AD75F34069BDD`.
 
 ## Steps
 
