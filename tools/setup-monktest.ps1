@@ -105,7 +105,22 @@ SELECT
 		(SELECT COUNT(*) FROM character_memmed_spells v WHERE v.id = c.id) +
 		(SELECT COUNT(*) FROM character_potionbelt v WHERE v.id = c.id) +
 		(SELECT COUNT(*) FROM character_spells v WHERE v.id = c.id) +
-		(SELECT COUNT(*) FROM inventory v WHERE v.character_id = c.id) +
+		(
+			SELECT IF(
+				COUNT(*) = 1 AND
+				MAX(v.slot_id = 23 AND v.item_id = 13006 AND v.charges = 1) = 1,
+				0,
+				1
+			)
+			FROM inventory v
+			WHERE v.character_id = c.id
+		) +
+		(
+			SELECT COUNT(*)
+			FROM quest_globals v
+			WHERE v.charid = c.id
+			  AND v.name IN ('mc_class2', 'mc_class3')
+		) +
 		(SELECT COUNT(*) FROM timers v WHERE v.char_id = c.id)
 	)
 FROM character_data c
@@ -330,6 +345,10 @@ BEGIN
 	DELETE FROM character_potionbelt WHERE id = fixture_id;
 	DELETE FROM character_spells WHERE id = fixture_id;
 	DELETE FROM inventory WHERE character_id = fixture_id;
+	INSERT INTO inventory (character_id, slot_id, item_id, charges)
+	VALUES (fixture_id, 23, 13006, 1);
+	DELETE FROM quest_globals
+	WHERE charid = fixture_id AND name IN ('mc_class2', 'mc_class3');
 	DELETE FROM timers WHERE char_id = fixture_id;
 
 	DELETE FROM character_multiclass WHERE character_id = fixture_id;

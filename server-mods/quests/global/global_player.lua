@@ -293,9 +293,8 @@ function event_connect(e)
         e.self:Message(MT.Yellow, "You have been granted Ancient Attunement. Open the AA window (V key, General tab) to activate your recall to the Plane of Knowledge.")
     end
 
-    local qg = eq.get_qglobals(e.self)
-    local c2 = tonumber(qg["mc_class2"] or "0") or 0
-    local c3 = tonumber(qg["mc_class3"] or "0") or 0
+    local c2 = e.self:GetClass2()
+    local c3 = e.self:GetClass3()
     if c2 > 0 or c3 > 0 then
         local base = e.self:GetClass()
         local msg = "Active disciplines: " .. (CLASS_NAMES[base] or "Unknown") .. " (Primary)"
