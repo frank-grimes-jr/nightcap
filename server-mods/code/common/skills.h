@@ -168,6 +168,13 @@ namespace EQ
 			StockAcquisition
 		};
 
+		struct NativeSkillSeedCandidate {
+			SkillType skill;
+			uint16 current_value;
+			uint8 unlock_level;
+			uint16 current_cap;
+		};
+
 		bool IsTradeskill(SkillType skill);
 		bool IsSpecializedSkill(SkillType skill);
 		SkillAcquisition GetSkillAcquisition(SkillType skill);
@@ -177,6 +184,10 @@ namespace EQ
 			uint8 current_level,
 			uint8 unlock_level,
 			uint16 current_cap
+		);
+		std::vector<SkillType> CollectNativeSkillSeeds(
+			const std::vector<NativeSkillSeedCandidate> &candidates,
+			uint8 current_level
 		);
 		float GetSkillMeleePushForce(SkillType skill);
 		bool IsBardInstrumentSkill(SkillType skill);

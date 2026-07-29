@@ -31,6 +31,7 @@ public:
 		TEST_ADD(SkillsUtilsTest::FindFirstTrainableLevel);
 		TEST_ADD(SkillsUtilsTest::SkillAcquisitionPolicy);
 		TEST_ADD(SkillsUtilsTest::ShouldSeedAtNativeUnlock);
+		TEST_ADD(SkillsUtilsTest::CollectNativeSkillSeeds);
 		TEST_ADD(SkillsUtilsTest::ResolveHeldSkillEligibility);
 	}
 
@@ -110,6 +111,32 @@ public:
 			25,
 			200
 		));
+	}
+
+	void CollectNativeSkillSeeds() {
+		using EQ::skills::NativeSkillSeedCandidate;
+		using EQ::skills::SkillBash;
+		using EQ::skills::SkillFlyingKick;
+		using EQ::skills::SkillMakePoison;
+		using EQ::skills::SkillRoundKick;
+		using EQ::skills::SkillTinkering;
+
+		const std::vector<NativeSkillSeedCandidate> candidates = {
+			{SkillRoundKick, 0, 5, 30},
+			{SkillTinkering, 0, 1, 200},
+			{SkillBash, 1, 1, 25},
+			{SkillFlyingKick, 0, 30, 100},
+			{SkillMakePoison, 0, 20, 75}
+		};
+
+		auto seeds = EQ::skills::CollectNativeSkillSeeds(candidates, 19);
+		TEST_ASSERT_EQUALS(seeds.size(), static_cast<size_t>(1));
+		TEST_ASSERT(seeds[0] == SkillRoundKick);
+
+		seeds = EQ::skills::CollectNativeSkillSeeds(candidates, 20);
+		TEST_ASSERT_EQUALS(seeds.size(), static_cast<size_t>(2));
+		TEST_ASSERT(seeds[0] == SkillRoundKick);
+		TEST_ASSERT(seeds[1] == SkillMakePoison);
 	}
 
 	void ResolveHeldSkillEligibility() {

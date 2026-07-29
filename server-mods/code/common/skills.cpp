@@ -100,6 +100,29 @@ bool EQ::skills::ShouldSeedAtNativeUnlock(
 		current_cap > 0;
 }
 
+std::vector<EQ::skills::SkillType> EQ::skills::CollectNativeSkillSeeds(
+	const std::vector<NativeSkillSeedCandidate> &candidates,
+	uint8 current_level
+)
+{
+	std::vector<SkillType> seeds;
+	seeds.reserve(candidates.size());
+
+	for (const auto &candidate : candidates) {
+		if (ShouldSeedAtNativeUnlock(
+			candidate.skill,
+			candidate.current_value,
+			current_level,
+			candidate.unlock_level,
+			candidate.current_cap
+		)) {
+			seeds.push_back(candidate.skill);
+		}
+	}
+
+	return seeds;
+}
+
 float EQ::skills::GetSkillMeleePushForce(SkillType skill)
 {
 	// This is the force/magnitude of the push from an attack of this skill type

@@ -1,5 +1,14 @@
 # CHANGES
 
+## 2026-07-29 - Add deterministic native skill seed selection (#10)
+
+Added a table-driven seed-candidate collector that applies the approved
+acquisition policy, native unlock level, current cap, and current character
+value without mutating character state. CppUnit coverage proves ordering,
+threshold behavior, idempotence, stock-acquisition exclusion, and auto-granted
+class tradeskills. This is the tested decision seam for the upcoming Client
+lifecycle reconciler.
+
 ## 2026-07-28 - Apply canonical skill-cap repair to live PEQ (#10)
 
 Stopped every gameplay process, reran the exact canonical preflight, completed a
