@@ -1,5 +1,20 @@
 # CHANGES
 
+## 2026-07-29 - Read the login banner from canonical multiclass state (#10)
+
+Fixed `global_player.lua` reporting `Monktest` as Cleric/Bard even though
+`character_multiclass` correctly held Cleric/Shadowknight/Monk. The login
+banner was the last reader of obsolete `mc_class2`/`mc_class3` quest globals;
+EQEmu's complete QA-character copy had inherited Darth's stale `mc_class2=8`.
+
+The banner now reads the already-loaded canonical C++ slots through
+`GetClass2()` and `GetClass3()`. Added a static regression that rejects legacy
+global reads in `event_connect`, and tightened the fixture to remove and reject
+obsolete multiclass globals. Monktest's copied Bard global was removed without
+changing its canonical class row. The fixture now retains one Water Flask in
+General Slot 1 because EQEmu reports a database inventory-load error when a
+character has zero inventory rows; the item is unequipped and combat-neutral.
+
 ## 2026-07-29 - Create combat-neutral Monktest QA fixture (#10)
 
 Added a guarded, idempotent `Check`/`Apply`/`Rollback` tool for the authorized

@@ -22,7 +22,9 @@ functional-only pass; it does not test value-1 skill progression.
 1. Fully log out to character select so the account list refreshes, then enter
    the world as `Monktest`.
 2. Confirm the welcome/class display reports Cleric (primary), Shadowknight
-   (secondary), and Monk (tertiary), at level 50 in Plane of Knowledge.
+   (secondary), and Monk (tertiary), at level 50 in Plane of Knowledge. A
+   Cleric/Bard banner is a failure; it means a zone still has the obsolete
+   quest-global login handler loaded.
 3. Run `#zone arena -73.5 -979 49.9`. Target `a_training_dummy` or
    `an_undead_training_dummy`.
 4. Open the Skills and Combat Abilities windows. Record whether each of these is
