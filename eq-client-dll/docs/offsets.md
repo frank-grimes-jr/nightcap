@@ -227,3 +227,35 @@ returns true when the authoritative raw maximum at
 `pinstLocalPlayer+0x354` is positive. This preserves the stock HUD refresh and
 keeps true zero-mana characters hidden. The old direct `SetVisible` call from
 the `Max_Mana` detour is removed.
+
+## 2026-07-29 combat-ability window class gate
+
+Manual QA on Monktest (Cleric / Shadowknight / Monk) showed that the Combat
+Abilities control was grayed out and the window could not be opened even though
+all six Monk skill rows were loaded at their level-50 caps.
+
+`pinstCCombatAbilityWnd` is RVA `0x0091FCA0`. Its vtable is at preferred VA
+`0x009E63B0`, and the `CanShow` override is the entry at `+0xDC`, preferred VA
+`0x0065A070`. `CanShow` calls the base-class predicate at `0x00582350`. That
+predicate indexes this 16-byte table by `BaseProfile.Class - 1`:
+
+- table RVA: `0x0018238C`
+- stock signature:
+  `00 01 00 00 00 01 00 00 00 01 01 01 01 01 00 00`
+- enabled signature:
+  `00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00`
+- changed indexes: `1, 5, 9, 10, 11, 12, 13` = CLR, DRU, SHM, NEC, WIZ,
+  MAG, ENC
+
+Table value `0` selects the predicate's true return and value `1` selects
+false. The patch is presentation-only: the server still validates learned
+skills, held classes, reuse timers, targets, and submitted ability packets.
+It retains the executable size/SHA guard, requires the complete stock table,
+verifies the replacement, restores the original page protection, and performs
+a separately guarded verified rollback on failure.
+
+The guard authenticates the executable file on disk and this loaded patch site;
+it is not whole-process anti-tamper. The compare/write sequence is also not
+atomic against another injected thread writing the same 16 bytes concurrently.
+Supported plugins must leave this table alone; suspending every client thread
+for a presentation-table patch would introduce greater deadlock/crash risk.

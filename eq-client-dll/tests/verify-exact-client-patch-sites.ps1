@@ -1,5 +1,6 @@
 param(
-	[string]$EqgamePath = (Join-Path $PSScriptRoot '..\..\Client_RoF2_Dev\everquest_rof2\eqgame.exe')
+	[string]$EqgamePath = (Join-Path $PSScriptRoot '..\..\Client_RoF2_Dev\everquest_rof2\eqgame.exe'),
+	[string]$SourcePath = (Join-Path $PSScriptRoot '..\src\dllmain.cpp')
 )
 
 $ErrorActionPreference = 'Stop'
@@ -38,6 +39,7 @@ if ($sha256 -ne $expectedSha256) {
 
 $image = [System.IO.File]::ReadAllBytes($resolvedPath)
 Assert-Bytes $image 0x00043F90 ([byte[]](0,1,1,1,1,1,0,1,0,1,1,1,1,1,1,0)) 'caster table'
+Assert-Bytes $image 0x0018238C ([byte[]](0,1,0,0,0,1,0,0,0,1,1,1,1,1,0,0)) 'combat-ability table'
 Assert-Bytes $image 0x00181E96 ([byte[]](0x33,0xC0,0x5E,0xC2,0x04,0x00)) 'Max_Mana return'
 Assert-Bytes $image 0x00318E93 ([byte[]](0xE8,0xF8,0x6C,0xE8,0xFF)) 'CPlayerWnd mana predicate call'
 
@@ -46,6 +48,46 @@ $relative = [BitConverter]::ToInt32($image, $callFileOffset + 1)
 $callTarget = $imageBase + 0x00318E93 + 5 + $relative
 if ($callTarget -ne 0x0059FB90) {
 	throw ('CPlayerWnd mana predicate call target mismatch: expected 0x0059FB90, got 0x{0:X8}' -f $callTarget)
+}
+
+$source = [System.IO.File]::ReadAllText((Resolve-Path -LiteralPath $SourcePath).Path)
+$compactSource = $source -replace '\s', ''
+foreach ($requiredFragment in @(
+	'kCombatAbilityClassTableRva=0x0018238C',
+	'kExpectedCombatAbilityClassTable[16]={0,1,0,0,0,1,0,0,0,1,1,1,1,1,0,0,};',
+	'kEnabledCombatAbilityClassTable[16]={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,};',
+	'ApplyCombatAbilityClassTablePatch(eq_base,size_ok&&hash_ok)'
+)) {
+	if (-not $compactSource.Contains($requiredFragment)) {
+		throw "DLL source is missing guarded combat-ability unlock: $requiredFragment"
+	}
+}
+
+$combatPatch = [regex]::Match(
+	$source,
+	'static bool ApplyCombatAbilityClassTablePatch.*?(?=// MQ2/the client environment)',
+	[System.Text.RegularExpressions.RegexOptions]::Singleline
+)
+if (-not $combatPatch.Success) {
+	throw 'Could not isolate ApplyCombatAbilityClassTablePatch.'
+}
+
+$combatBody = $combatPatch.Value
+foreach ($requiredSafetyFragment in @(
+	'BYTE original[',
+	'memcpy(original, table, sizeof(original))',
+	'const bool write_attempted = pre_write_signature',
+	'rollback_ok = (memcmp(table, original, sizeof(original)) == 0)',
+	'bool protection_restored = VirtualProtect(',
+	'if (!protection_restored)',
+	'const bool retry_restored = VirtualProtect('
+)) {
+	if (-not $combatBody.Contains($requiredSafetyFragment)) {
+		throw "Combat-ability patch is missing safety behavior: $requiredSafetyFragment"
+	}
+}
+if ($combatBody.Contains('already_applied')) {
+	throw 'Combat-ability patch must not trust an all-zero table from another modifier.'
 }
 
 Write-Output 'PASS: exact RoF2 client and all guarded B2 patch sites verified.'

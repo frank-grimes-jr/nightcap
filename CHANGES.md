@@ -1,5 +1,21 @@
 # CHANGES
 
+## 2026-07-29 - Unlock the RoF2 combat-ability window chassis (#10)
+
+Added a fail-closed `eq-client-dll` correction for the exact RoF2
+`CCombatAbilityWnd::CanShow` base-class table. Stock RoF2 disables the entire
+window for seven pure-caster primary classes, including Cleric, even when the
+server has granted valid held-Monk skills. The guarded patch changes only those
+seven in-memory table bytes after the executable size, SHA-256, and complete
+stock signature match; unknown binaries or tables already changed when checked
+remain untouched.
+
+The write now snapshots and rechecks the table, verifies rollback independently,
+requires executable-page protection to be restored, and rolls back if
+protection restoration fails. The exact-client regression pins both table
+states and the required safety paths. The server remains authoritative for
+learned skills and submitted combat abilities.
+
 ## 2026-07-29 - Read the login banner from canonical multiclass state (#10)
 
 Fixed `global_player.lua` reporting `Monktest` as Cleric/Bard even though

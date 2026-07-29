@@ -45,6 +45,18 @@ static const BYTE kEnabledCasterClassTable[16] = {
 };
 static const size_t kNonCasterClassIndexes[] = { 0, 6, 8, 15 };
 
+// CCombatAbilityWnd::CanShow indexes this table by BaseProfile.Class - 1.
+// Stock RoF2 disables the window for its seven pure-caster classes. Enable the
+// presentation chassis for every base class; the server remains authoritative
+// for learned skills and every submitted combat ability.
+static const uintptr_t kCombatAbilityClassTableRva = 0x0018238C;
+static const BYTE kExpectedCombatAbilityClassTable[16] = {
+    0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0,
+};
+static const BYTE kEnabledCombatAbilityClassTable[16] = {
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+};
+
 // RoF2's non-caster EQ_Character::Max_Mana branch returns zero even after the
 // server has populated LocalPlayer's authoritative raw maximum at +0x354.
 // Redirect only that complete six-byte return block to the guarded stub below.
@@ -429,6 +441,127 @@ static bool ApplyCasterClassTablePatch(uintptr_t eq_base, bool version_ok)
     return true;
 }
 
+static bool ApplyCombatAbilityClassTablePatch(uintptr_t eq_base, bool version_ok)
+{
+    if (!version_ok) {
+        Log("G006 combat-ability patch DISABLED: client version guard failed");
+        return false;
+    }
+
+    BYTE* table = reinterpret_cast<BYTE*>(
+        eq_base + kCombatAbilityClassTableRva);
+    BYTE original[sizeof(kExpectedCombatAbilityClassTable)] = {};
+    bool stock_signature = false;
+    __try {
+        memcpy(original, table, sizeof(original));
+        stock_signature =
+            (memcmp(original, kExpectedCombatAbilityClassTable,
+                sizeof(original)) == 0);
+    } __except (EXCEPTION_EXECUTE_HANDLER) {
+        Log("G006 combat-ability patch DISABLED: class table unreadable "
+            "at rva=0x%08X",
+            static_cast<unsigned>(kCombatAbilityClassTableRva));
+        return false;
+    }
+
+    if (!stock_signature) {
+        Log("G006 combat-ability patch DISABLED: class table signature mismatch "
+            "at rva=0x%08X",
+            static_cast<unsigned>(kCombatAbilityClassTableRva));
+        return false;
+    }
+
+    DWORD old_protection = 0;
+    if (!VirtualProtect(
+            table, sizeof(kExpectedCombatAbilityClassTable),
+            PAGE_EXECUTE_READWRITE, &old_protection)) {
+        Log("G006 combat-ability patch FAILED: VirtualProtect");
+        return false;
+    }
+
+    // Re-read after changing protection to detect a table change during the
+    // protection transition. This is not atomic against a hostile concurrent
+    // writer; supported injected modules must not mutate this patch site.
+    bool pre_write_signature = false;
+    __try {
+        pre_write_signature = (memcmp(
+            table, original, sizeof(original)) == 0);
+    } __except (EXCEPTION_EXECUTE_HANDLER) {
+        pre_write_signature = false;
+    }
+
+    const bool write_attempted = pre_write_signature;
+    bool wrote = false;
+    if (write_attempted) {
+        __try {
+            memcpy(
+                table, kEnabledCombatAbilityClassTable,
+                sizeof(kEnabledCombatAbilityClassTable));
+            FlushInstructionCache(GetCurrentProcess(), table, sizeof(original));
+            wrote = (memcmp(
+                table, kEnabledCombatAbilityClassTable,
+                sizeof(kEnabledCombatAbilityClassTable)) == 0);
+        } __except (EXCEPTION_EXECUTE_HANDLER) {
+            wrote = false;
+        }
+    }
+
+    bool rollback_ok = true;
+    if (write_attempted && !wrote) {
+        rollback_ok = false;
+        __try {
+            memcpy(table, original, sizeof(original));
+            FlushInstructionCache(GetCurrentProcess(), table, sizeof(original));
+            rollback_ok = (memcmp(table, original, sizeof(original)) == 0);
+        } __except (EXCEPTION_EXECUTE_HANDLER) {
+            rollback_ok = false;
+        }
+    }
+
+    DWORD ignored = 0;
+    bool protection_restored = VirtualProtect(
+        table, sizeof(original), old_protection, &ignored) != FALSE;
+    if (!protection_restored) {
+        // Do not leave an applied patch on a writable executable page. The
+        // guarded rollback is independent of the original write handler.
+        if (write_attempted) {
+            rollback_ok = false;
+            __try {
+                memcpy(table, original, sizeof(original));
+                FlushInstructionCache(
+                    GetCurrentProcess(), table, sizeof(original));
+                rollback_ok = (memcmp(table, original, sizeof(original)) == 0);
+            } __except (EXCEPTION_EXECUTE_HANDLER) {
+                rollback_ok = false;
+            }
+        }
+
+        DWORD retry_ignored = 0;
+        const bool retry_restored = VirtualProtect(
+            table, sizeof(original), old_protection, &retry_ignored) != FALSE;
+        Log("G006 combat-ability patch FAILED: protection restore failed; "
+            "rollback=%s retry=%s",
+            rollback_ok ? "verified" : "FAILED",
+            retry_restored ? "restored" : "FAILED");
+        return false;
+    }
+
+    if (!write_attempted) {
+        Log("G006 combat-ability patch DISABLED: class table changed before write");
+        return false;
+    }
+    if (!wrote) {
+        Log("G006 combat-ability patch FAILED: write/precondition failed; "
+            "rollback=%s",
+            rollback_ok ? "verified" : "FAILED");
+        return false;
+    }
+
+    Log("G006 combat-ability patch APPLIED: all base classes can open "
+        "CCombatAbilityWnd (7 data bytes; page protection restored)");
+    return true;
+}
+
 // MQ2/the client environment caused every Sleep() in the first successful
 // survey to return in ~5ms, collapsing a 15-minute poll into 8ms. Wait on a
 // private, never-signaled event instead, then verify elapsed wall-clock time.
@@ -744,6 +877,7 @@ static DWORD WINAPI InitThread(LPVOID)
     bool hash_ok = size_ok && VerifyEqgameSha256(exe_path);
     Log("client sha256 check: %s", hash_ok ? "OK" : "MISMATCH OR UNREADABLE");
     ApplyCasterClassTablePatch(eq_base, size_ok && hash_ok);
+    ApplyCombatAbilityClassTablePatch(eq_base, size_ok && hash_ok);
     const bool mana_hook_ok =
         ApplyMaxManaServerCacheHook(eq_base, size_ok && hash_ok);
     ApplyPlayerManaGaugePredicateHook(eq_base, mana_hook_ok);

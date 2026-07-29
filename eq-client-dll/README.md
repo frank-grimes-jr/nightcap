@@ -3,7 +3,8 @@
 Client-side UI-chassis unlock for the True Multiclass epic (#10), Track B / issue #12.
 RoF2 auto-loads `dinput8.dll` from its own folder; this proxy forwards all
 DirectInput exports to the real system DLL and patches the client's exact
-caster-class capability table so any base class can use the caster UI chassis.
+caster and combat-ability capability tables so any base class can reach the
+server-authorized UI chassis.
 
 ## Status
 
@@ -31,8 +32,12 @@ caster-class capability table so any base class can use the caster UI chassis.
   `CPlayerWnd`'s stock 500 ms refresh now bases `PlayerMana` visibility on the
   positive server-cached maximum. This replaces the competing direct
   `SetVisible` reassertion that manual QA found could flicker.
+- **G006 combat-ability chassis: built, deployment/QA pending.** Exact
+  disassembly localized the grayed-out window to a 16-entry base-class table at
+  RVA `0x0018238C`. The guarded correction enables its seven pure-caster
+  entries; server skill and packet authorization remain unchanged.
 - **Fail closed:** the patch requires the expected file size, full SHA-256, and
-  exact complete class-table signature. Any mismatch leaves memory untouched
+  exact complete class-table signatures. Any mismatch leaves memory untouched
   and is recorded in the per-process log.
 
 ## B2 final functional QA — passed 2026-07-19
