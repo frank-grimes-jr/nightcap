@@ -18,6 +18,19 @@ AAs, buffs, spells, disciplines, equipment, or cooldown timers. One Water Flask
 occupies General Slot 1 so EQEmu's inventory loader receives a valid row. This
 is the functional-only pass; it does not test value-1 skill progression.
 
+## Result
+
+Blocked on RoF2 client presentation. The corrected login banner reports Cleric
+(primary), Shadowknight (secondary), and Monk (tertiary), and the database
+contains all six Monk skill rows at the expected caps. However, the Combat
+Abilities control is grayed out for the Cleric-primary profile and the window
+cannot be opened. No Monk ability can therefore be placed on a hotbar or sent
+to the implemented server dispatch path.
+
+This is stronger than an individual missing-button result: RoF2 gates access to
+the entire Combat Abilities window using the primary client class. G006 manual
+activation QA remains blocked until a client-visible activation path is added.
+
 ## Steps
 
 1. Fully log out to character select so the account list refreshes, then enter
