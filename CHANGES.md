@@ -1,5 +1,20 @@
 # CHANGES
 
+## 2026-07-29 - Create combat-neutral Monktest QA fixture (#10)
+
+Added a guarded, idempotent `Check`/`Apply`/`Rollback` tool for the authorized
+`Monktest` character. It uses EQEmu's transactional character-copy path, then
+asserts and atomically configures character ID 19 as a level-50 Human
+Cleric/Shadowknight/Monk on account `admin` in Plane of Knowledge. Exactly 60
+eligible held-class skills are granted to their current level-50 caps.
+
+The first complete copy (ID 18) exposed 63 inherited Paladin AAs and five buffs,
+so it was recoverably retired and the fixture was tightened. The final character
+has zero inherited AAs, buffs, auras, disciplines, spells, inventory, or timers,
+making combat results deterministic. Rollback soft-deletes and renames only an
+exactly matching fixture; unexpected characters fail closed. A verified
+46,342,038-byte PEQ backup was taken before application.
+
 ## 2026-07-29 - Authorize held-Monk combat abilities (#10)
 
 Changed `OPCombatAbility` to resolve its current-level skill cap across every

@@ -73,10 +73,10 @@ Land separate commits for abilities/Skills, trainers, and equipment.
 
 - [x] Back up PEQ before any migration or broad character-data repair. No live mutation is permitted before the clean-baseline gate passes.
 - [ ] Snapshot all relevant records for `Done`.
-- [ ] Create Human `Monktest` as Cleric / Shadowknight / Monk in Plane of Knowledge with an exact-ID/class-asserting local QA script.
+- [x] Create Human `Monktest` as Cleric / Shadowknight / Monk in Plane of Knowledge with an exact-ID/class-asserting local QA script.
 - [ ] Exercise normal level-threshold unlocks at 1/5/10/15/17/20/25/30/50.
 - [ ] Prove at least one value-`1` skill improves by successful use and optional training before any cap grant.
-- [ ] Grant `Monktest` all eligible held-class skills to current caps for the functional-only pass; record pre/post audit data and retain rollback.
+- [x] Grant `Monktest` all eligible held-class skills to current caps for the functional-only pass; record pre/post audit data and retain rollback.
 - [ ] Complete the generated all-class/slot matrix and run activated skill, passive, trainer, equipment, spell, discipline, AA, persistence, adoption/release, negative authorization, and control-character tests.
 - [ ] Compare `Done` to the snapshot and fail the checkpoint on any difference.
 - [ ] Merge `dev` to `test` only with a written interim M3 in-game spike and wait for user sign-off.
