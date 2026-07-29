@@ -20,6 +20,13 @@ authorization, reuse timers, targets, damage, and skill-ups.
 The reviewed x86 DLL was deployed to the development RoF2 client with SHA-256
 `E5B39B38B4046E46C8B9CE58C3FE08872D490B80F72663B1232AD75F34069BDD`.
 
+The first in-game retest still produced an empty picker even though the runtime
+log proved both selector hooks were active. Added bounded diagnostics for the
+seven granted Monk skills so a picker invocation records the stock predicate,
+raw server-delivered value, and the client's activated/combat classifications.
+The diagnostic build is deployed with SHA-256
+`B8481512082288B966E8281F38C2EF281636D0FEBCC9A3E5C980B53D6E95A534`.
+
 ## 2026-07-29 - Unlock the RoF2 combat-ability window chassis (#10)
 
 Added a fail-closed `eq-client-dll` correction for the exact RoF2

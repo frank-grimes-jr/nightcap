@@ -46,6 +46,8 @@ Assert-Bytes $image 0x00356D2D ([byte[]](0xE8,0x7E,0x34,0xCF,0xFF)) 'Actions non
 Assert-Bytes $image 0x00356DA5 ([byte[]](0xE8,0x06,0x34,0xCF,0xFF)) 'Actions combat skill predicate call'
 Assert-Bytes $image 0x0004A1B0 ([byte[]](0x8B,0x44,0x24,0x04,0x50,0xE8,0x26,0xFE,0xFF,0xFF)) 'CharacterZoneClient::HasSkill'
 Assert-Bytes $image 0x00042110 ([byte[]](0x83,0xC1,0x04,0xE8,0xF8,0x90,0x39,0x00)) 'EQ_Character::GetBaseSkill'
+Assert-Bytes $image 0x001BAB10 ([byte[]](0x8B,0x44,0x24,0x04,0x83,0xF8,0x63)) 'CSkillMgr combat classification'
+Assert-Bytes $image 0x001BABD0 ([byte[]](0x8B,0x44,0x24,0x04,0x83,0xF8,0x63)) 'CSkillMgr activated classification'
 
 $callFileOffset = $textFileOffset + (0x00318E93 - $textRva)
 $relative = [BitConverter]::ToInt32($image, $callFileOffset + 1)
@@ -64,6 +66,10 @@ foreach ($requiredFragment in @(
 	'kActionsSkillPredicateCallRvas[]={0x00356D2D,0x00356DA5,}',
 	'kCharacterHasSkillRva=0x0004A1B0',
 	'kCharacterGetBaseSkillRva=0x00042110',
+	'kSkillManagerSlotRva=0x00A64610',
+	'kSkillIsCombatRva=0x001BAB10',
+	'kSkillIsActivatedRva=0x001BABD0',
+	'G006_SELECTORskill=%dstock=%u',
 	'HasServerGrantedSkill',
 	'ApplyActionsSkillPredicatePatch(eq_base,size_ok&&hash_ok)'
 )) {

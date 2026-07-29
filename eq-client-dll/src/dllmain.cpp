@@ -73,6 +73,9 @@ static const BYTE kExpectedActionsSkillPredicateCalls[][5] = {
 };
 static const uintptr_t kCharacterHasSkillRva = 0x0004A1B0;
 static const uintptr_t kCharacterGetBaseSkillRva = 0x00042110;
+static const uintptr_t kSkillManagerSlotRva = 0x00A64610;
+static const uintptr_t kSkillIsCombatRva = 0x001BAB10;
+static const uintptr_t kSkillIsActivatedRva = 0x001BABD0;
 
 // RoF2's non-caster EQ_Character::Max_Mana branch returns zero even after the
 // server has populated LocalPlayer's authoritative raw maximum at +0x354.
@@ -215,11 +218,36 @@ extern "C" __declspec(noinline) BYTE __fastcall HasServerGrantedSkill(
         g_eq_base + kCharacterGetBaseSkillRva);
 
     __try {
-        if (stock_has_skill(character, skill)) {
-            return 1;
+        const BYTE stock = stock_has_skill(character, skill);
+        const unsigned int base = get_base_skill(character, skill);
+        const BYTE accepted = (stock || base > 0) ? 1 : 0;
+
+        if (skill == 21 || skill == 23 || skill == 26 || skill == 30 ||
+            skill == 32 || skill == 38 || skill == 52) {
+            typedef BYTE (__thiscall *SkillFlagFn)(void*, int);
+            BYTE activated = 0xFF;
+            BYTE combat = 0xFF;
+            void* skill_manager =
+                *reinterpret_cast<void**>(g_eq_base + kSkillManagerSlotRva);
+            if (skill_manager) {
+                SkillFlagFn is_activated = reinterpret_cast<SkillFlagFn>(
+                    g_eq_base + kSkillIsActivatedRva);
+                SkillFlagFn is_combat = reinterpret_cast<SkillFlagFn>(
+                    g_eq_base + kSkillIsCombatRva);
+                activated = is_activated(skill_manager, skill);
+                combat = is_combat(skill_manager, skill);
+            }
+            Log("G006_SELECTOR skill=%d stock=%u base=%u accepted=%u "
+                "activated=%u combat=%u",
+                skill, static_cast<unsigned>(stock), base,
+                static_cast<unsigned>(accepted),
+                static_cast<unsigned>(activated),
+                static_cast<unsigned>(combat));
         }
-        return get_base_skill(character, skill) > 0 ? 1 : 0;
+
+        return accepted;
     } __except (EXCEPTION_EXECUTE_HANDLER) {
+        Log("G006_SELECTOR skill=%d exception=1", skill);
         return 0;
     }
 }
