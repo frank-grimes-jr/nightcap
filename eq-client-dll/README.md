@@ -32,7 +32,7 @@ server-authorized UI chassis.
   `CPlayerWnd`'s stock 500 ms refresh now bases `PlayerMana` visibility on the
   positive server-cached maximum. This replaces the competing direct
   `SetVisible` reassertion that manual QA found could flicker.
-- **G006 combat-ability chassis: built, deployment/QA pending.** Exact
+- **G006 combat-ability chassis: built + deployed, QA pending.** Exact
   disassembly localized the grayed-out window to a 16-entry base-class table at
   RVA `0x0018238C`. The guarded correction enables its seven pure-caster
   entries; server skill and packet authorization remain unchanged.

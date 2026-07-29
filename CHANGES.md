@@ -14,7 +14,9 @@ The write now snapshots and rechecks the table, verifies rollback independently,
 requires executable-page protection to be restored, and rolls back if
 protection restoration fails. The exact-client regression pins both table
 states and the required safety paths. The server remains authoritative for
-learned skills and submitted combat abilities.
+learned skills and submitted combat abilities. The reviewed x86 DLL was
+deployed to the development RoF2 client with SHA-256
+`209E99A97B8F0A6494B554862A9C9A524784EC8CA535C9C2C33E44AC23052726`.
 
 ## 2026-07-29 - Read the login banner from canonical multiclass state (#10)
 

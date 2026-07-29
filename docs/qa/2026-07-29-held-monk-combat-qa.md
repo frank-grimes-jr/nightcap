@@ -31,6 +31,12 @@ This is stronger than an individual missing-button result: RoF2 gates access to
 the entire Combat Abilities window using the primary client class. G006 manual
 activation QA remains blocked until a client-visible activation path is added.
 
+The guarded client-table correction from commit `b0ba2e9` was deployed after
+this result. Deployed DLL SHA-256:
+`209E99A97B8F0A6494B554862A9C9A524784EC8CA535C9C2C33E44AC23052726`.
+The next pass first verifies that the control is enabled and the window opens;
+ability population and activation are separate follow-on observations.
+
 ## Steps
 
 1. Fully log out to character select so the account list refreshes, then enter
