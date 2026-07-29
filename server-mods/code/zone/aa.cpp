@@ -973,13 +973,10 @@ void Client::PurgeAfterClassRelease(uint8 released_class) {
 		m_pp.aapoints += refunded;
 	}
 
-	// --- Skills: cap each trained skill at the best cap the RETAINED classes allow, so
-	// a released class's mastery (e.g. Bard singing at 200) drops to what the kept classes
-	// permit. ponytail: currently near-inert because skill_caps is globally EXPANDED by the
-	// multiclass apply (CHANGES 2026-07-14; same class of problem as spell-access #17) — the
-	// retained classes inherit the released class's caps until skill_caps is de-widened.
-	// Left in because it is correct and starts working the moment skill_caps returns to stock;
-	// full skill revocation needs the de-widen (mask-aware caps), tracked in #18.
+	// --- Skills: cap each trained skill at the best cap the RETAINED classes allow.
+	// The canonical skill_caps baseline keeps this character-scoped: a skill unique to
+	// the released class drops to zero, a shared skill above its retained cap is clamped,
+	// and a shared skill already at or below that cap keeps its value.
 	const uint8 level = GetLevel();
 	for (const auto &entry : EQ::skills::GetSkillTypeMap()) {
 		const EQ::skills::SkillType skill = entry.first;

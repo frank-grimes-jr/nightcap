@@ -1,5 +1,13 @@
 # CHANGES
 
+## 2026-07-29 - Prove retained-class cleanup on class release (#10)
+
+Added a static release regression that verifies the multiclass database slot is
+updated before the live mask reload, released-class-only AAs and skills are
+removed, shared skills keep values within the best retained cap, over-cap values
+are clamped, and retained AAs are repersisted and resent in the correct order.
+Updated stale comments left from the removed global skill-cap widening.
+
 ## 2026-07-29 - Enforce held-class trainer authorization atomically (#10)
 
 Replaced legacy max-level multiclass trainer widening with current-level,

@@ -178,9 +178,8 @@ sub mc_revoke_slot {
         $sth->execute($char_id);
     }
 
-    # Strip the released class's AAs and refund AA points (live session). Skills/spells
-    # are not removed here — they ride on globally-widened tables (skill_caps/spells_new)
-    # that can't be reverted per character until de-widening / the client DLL (#18/#17).
+    # Strip the released class's AAs, refund AA points, and clamp/remove skills against
+    # the retained classes' canonical caps. Spells remain blocked on the client patch.
     $client->PurgeAfterClassRelease($revoked);
 
     return (1, "Your $MC_CLASS_NAMES{$revoked} discipline has been released. " .

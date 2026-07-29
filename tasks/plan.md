@@ -31,7 +31,7 @@ No gameplay implementation begins until the contract and this plan are posted to
 - [x] Invoke it after mask load, class adoption, and level-up.
 - [x] Remove or neutralize the old production skill-maximizing behavior.
 - [x] Write/complete trainer tests for held, non-held, early, capped, and out-of-points requests.
-- [ ] Test class release cleanup and retained-class shared skills.
+- [x] Test class release cleanup and retained-class shared skills.
 - [x] Build the zone binary and run focused tests.
 - [ ] Commit the slice, update `CHANGES.md`, and merge through `dev`.
 
