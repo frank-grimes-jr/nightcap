@@ -15,7 +15,7 @@
 - [x] Prove live is a strict superset of canonical with a complete read-only diff.
 - [x] Take and verify a fresh live backup.
 - [x] Test guarded dry-run, apply, exact comparison, rollback, and deterministic reapply against a restored copy.
-- [ ] Apply the rehearsed repair during a gameplay-process maintenance stop, regenerate shared memory, and restart every zone.
+- [x] Apply the rehearsed repair during a gameplay-process maintenance stop, refresh supported shared-memory caches, and restart every zone.
 
 ## Blocked by Phase 0 evidence
 

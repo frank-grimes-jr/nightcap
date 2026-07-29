@@ -1,5 +1,20 @@
 # CHANGES
 
+## 2026-07-28 - Apply canonical skill-cap repair to live PEQ (#10)
+
+Stopped every gameplay process, reran the exact canonical preflight, completed a
+transaction-rolled-back live dry run, and then removed exactly 16,090 legacy
+widening rows. Live `skill_caps` now contains the 58,359 canonical rows with
+zero live-only rows, zero canonical-only rows, and zero cap mismatches. The
+original rows remain in `skill_caps_epic10_removed`, and the verified full
+pre-migration backup remains retained.
+
+The current server loads skill caps directly from PEQ at world/zone startup; its
+legacy `shared/skill_caps` file is no longer generated or consumed. A full
+launcher-managed shared-memory refresh and process restart completed. The new
+world and all eight zone workers logged that they loaded 58,359 skill-cap
+entries, with no recent world/zone errors.
+
 ## 2026-07-28 - Rehearse reversible legacy skill-cap repair (#10)
 
 Added a fail-closed `skill_caps` repair tool backed by the pinned 16,090-row

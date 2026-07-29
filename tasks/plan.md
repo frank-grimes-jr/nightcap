@@ -15,6 +15,7 @@ No gameplay implementation begins until the contract and this plan are posted to
 - [x] Acquire and verify an authoritative clean PEQ `skill_caps` baseline in an isolated container.
 - [x] Compare live against canonical: 16,090 live-only, zero canonical-only, zero cap mismatches.
 - [x] Rehearse guarded dry-run, repair, exact comparison, rollback, and deterministic reapply against a restored live copy.
+- [x] Apply the guarded live repair, verify exact canonical equality, refresh caches, and restart all gameplay processes.
 - [ ] Capture baseline behavior for `Done`, `Pups`, and a stock single-class control.
 - [ ] Create a checked-in audit of every player-facing `GetClass()`/class-switch gate with classification, owner, remediation, and test evidence.
 - [x] Generate the 480-row all-playable-class × primary/secondary/tertiary-slot × capability acceptance matrix.

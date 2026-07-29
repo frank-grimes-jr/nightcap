@@ -1,7 +1,7 @@
 # Epic #10 skill-cap repair rehearsal
 
 Date: 2026-07-28
-Status: passed; live application pending
+Status: passed; live application completed and independently recorded
 
 ## Inputs and isolation
 
@@ -67,3 +67,6 @@ Before live application:
 5. Regenerate shared memory, restart every zone, and verify process timestamps.
 6. Retain both the full database backup and `skill_caps_epic10_removed` until
    post-restart QA passes.
+
+All six steps completed on 2026-07-28. See
+`docs/audits/multiclass-skill-caps-live-application.md`.

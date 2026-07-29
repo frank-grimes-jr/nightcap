@@ -2,7 +2,7 @@
 
 Date: 2026-07-28
 Epic: #10
-Status: canonical baseline acquired; reversible rehearsal passed; live application pending
+Status: complete; live table repaired and verified against canonical
 
 ## Purpose
 
@@ -79,8 +79,9 @@ All of the following must be complete before live repair SQL is written or run:
 7. Prepare a transaction-scoped, reversible migration and test it against a
    restored copy of the backup first. **Complete.** See
    `docs/audits/multiclass-skill-caps-migration-rehearsal.md`.
-8. After approval, apply the migration, regenerate shared memory, restart every
-   zone process, and rerun native/held-class skill tests plus stock controls.
+8. After approval, apply the migration, refresh supported shared-memory caches,
+   restart every zone process, and verify native skill-cap loading. **Complete.**
+   See `docs/audits/multiclass-skill-caps-live-application.md`.
 
-Until live application and verification are complete, code must not treat a
-positive live `skill_caps` row as proof that a base class natively owns a skill.
+The canonical-baseline repair gate is satisfied. A positive live `skill_caps`
+row may now be used as evidence that a base class natively owns that skill.
