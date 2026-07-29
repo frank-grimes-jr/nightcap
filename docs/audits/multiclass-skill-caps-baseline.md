@@ -2,7 +2,7 @@
 
 Date: 2026-07-28
 Epic: #10
-Status: canonical baseline acquired; exact migration rehearsal pending
+Status: canonical baseline acquired; reversible rehearsal passed; live application pending
 
 ## Purpose
 
@@ -66,18 +66,21 @@ table has insufficient provenance to distinguish native rows from widened rows.
 
 All of the following must be complete before live repair SQL is written or run:
 
-1. Take a fresh manual backup with `tools/backup-peq.ps1` and verify the archive.
+1. Take a fresh manual backup and verify the archive. **Complete.** The
+   46,304,776-byte gzip has SHA-256
+   `a4db1ca65a18ebdd2049eda426805cd7cd1ec5ce313ea7d9bf7668170942352c`.
 2. Acquire and verify the authoritative PEQ dump. **Complete.**
 3. Record its source URL, size, and SHA-256. **Complete.**
 4. Import it into an isolated no-host-port comparison container. **Complete.**
 5. Retain all three exact diffs: live-only rows, canonical-only rows, and cap
    mismatches. **Complete in `docs/audits/skill-caps-diff/`.**
 6. Review the diff for intentional Nightcap overrides and encode any accepted
-   overrides declaratively in version control.
+   overrides declaratively in version control. **Complete; none accepted.**
 7. Prepare a transaction-scoped, reversible migration and test it against a
-   restored copy of the backup first.
+   restored copy of the backup first. **Complete.** See
+   `docs/audits/multiclass-skill-caps-migration-rehearsal.md`.
 8. After approval, apply the migration, regenerate shared memory, restart every
    zone process, and rerun native/held-class skill tests plus stock controls.
 
-Until this gate is satisfied, code must not treat a positive live `skill_caps`
-row as proof that a base class natively owns a skill.
+Until live application and verification are complete, code must not treat a
+positive live `skill_caps` row as proof that a base class natively owns a skill.

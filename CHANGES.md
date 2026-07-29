@@ -1,5 +1,18 @@
 # CHANGES
 
+## 2026-07-28 - Rehearse reversible legacy skill-cap repair (#10)
+
+Added a fail-closed `skill_caps` repair tool backed by the pinned 16,090-row
+canonical diff. It rejects unexpected target/canonical state, retains every
+removed row in `skill_caps_epic10_removed`, supports transaction-rolled-back dry
+runs, and requires an explicit override before it can target live PEQ.
+
+Restored the verified 46,304,776-byte live backup into an isolated no-host-port
+MariaDB container. Integration testing proved: incorrect preconditions cause no
+mutation; dry-run removes and rolls back exactly 16,090 rows; apply produces an
+exact 58,359-row canonical match; rollback restores 74,449 rows; and reapply is
+deterministic. Live PEQ remains unchanged pending the maintenance application.
+
 ## 2026-07-28 - Acquire and diff the canonical PEQ skill-cap baseline (#10)
 
 Imported the exact PEQ archive referenced by Akk Stack's current

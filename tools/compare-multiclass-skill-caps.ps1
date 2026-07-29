@@ -120,7 +120,13 @@ function Write-DiffCsv(
     }
 }
 
-$verdict = if ($canonicalOnly.Count -eq 0 -and $capMismatches.Count -eq 0) {
+$verdict = if (
+    $liveOnly.Count -eq 0 -and
+    $canonicalOnly.Count -eq 0 -and
+    $capMismatches.Count -eq 0
+) {
+    'exact_canonical_match'
+} elseif ($canonicalOnly.Count -eq 0 -and $capMismatches.Count -eq 0) {
     'strict_live_superset_repair_candidate'
 } else {
     'divergence_blocks_migration'
@@ -146,6 +152,6 @@ $summary = @(
 $summary | Set-Content (Join-Path $OutputDirectory 'summary.txt') -Encoding utf8
 $summary
 
-if ($verdict -ne 'strict_live_superset_repair_candidate') {
+if ($verdict -eq 'divergence_blocks_migration') {
     exit 2
 }

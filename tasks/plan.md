@@ -14,6 +14,7 @@ No gameplay implementation begins until the contract and this plan are posted to
 - [x] Document the legacy globally widened `skill_caps` state and add a read-only comparison audit.
 - [x] Acquire and verify an authoritative clean PEQ `skill_caps` baseline in an isolated container.
 - [x] Compare live against canonical: 16,090 live-only, zero canonical-only, zero cap mismatches.
+- [x] Rehearse guarded dry-run, repair, exact comparison, rollback, and deterministic reapply against a restored live copy.
 - [ ] Capture baseline behavior for `Done`, `Pups`, and a stock single-class control.
 - [ ] Create a checked-in audit of every player-facing `GetClass()`/class-switch gate with classification, owner, remediation, and test evidence.
 - [x] Generate the 480-row all-playable-class × primary/secondary/tertiary-slot × capability acceptance matrix.
@@ -66,7 +67,7 @@ Land separate commits for abilities/Skills, trainers, and equipment.
 
 ### 4. Integrated M3 QA
 
-- [ ] Back up PEQ before any migration or broad character-data repair. No live mutation is permitted before the clean-baseline gate passes.
+- [x] Back up PEQ before any migration or broad character-data repair. No live mutation is permitted before the clean-baseline gate passes.
 - [ ] Snapshot all relevant records for `Done`.
 - [ ] Create Human `Monktest` as Cleric / Shadowknight / Monk in Plane of Knowledge with an exact-ID/class-asserting local QA script.
 - [ ] Exercise normal level-threshold unlocks at 1/5/10/15/17/20/25/30/50.

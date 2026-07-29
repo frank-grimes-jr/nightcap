@@ -13,7 +13,9 @@
 
 - [x] Acquire and verify the canonical PEQ baseline in an isolated no-host-port container.
 - [x] Prove live is a strict superset of canonical with a complete read-only diff.
-- [ ] Take a fresh live backup, then test a reversible repair migration against a restored copy.
+- [x] Take and verify a fresh live backup.
+- [x] Test guarded dry-run, apply, exact comparison, rollback, and deterministic reapply against a restored copy.
+- [ ] Apply the rehearsed repair during a gameplay-process maintenance stop, regenerate shared memory, and restart every zone.
 
 ## Blocked by Phase 0 evidence
 
