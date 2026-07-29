@@ -1,5 +1,25 @@
 # CHANGES
 
+## 2026-07-29 - Authorize held-Monk combat abilities (#10)
+
+Changed `OPCombatAbility` to resolve its current-level skill cap across every
+held class instead of consulting only the primary class. A held Monk can now
+submit the six stock Monk attacks once their native cap is positive: Flying
+Kick, Dragon Punch, Eagle Strike, Tiger Claw, Round Kick, and Kick. Monk Kick
+is excluded from the generic Kick branch so it executes exactly once through
+`MonkSpecialAttack`.
+
+Added a pure authorization helper and table-driven positive/negative coverage
+for all six attacks, premature unlocks, characters without Monk, and unrelated
+Frenzy packets. The ignored Akk Stack source overlay is reproducible through a
+fail-closed, SHA-256-pinned application script; it refuses unknown upstream or
+partially modified `special_attacks.cpp` inputs. Berserker Frenzy rounds, other
+held-class Kick routes, and RoF2 combat-button visibility remain separate work.
+The complete test executable exits 0 with 87 tests and all 10 skill-policy
+tests passing. The full zone target built cleanly; all eight restarted workers
+are newer than the rebuilt binary, loaded the canonical 58,359 skill caps, and
+reported no fresh startup errors.
+
 ## 2026-07-29 - Prove retained-class cleanup on class release (#10)
 
 Added a static release regression that verifies the multiclass database slot is

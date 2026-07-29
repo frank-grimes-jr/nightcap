@@ -40,6 +40,9 @@ No gameplay implementation begins until the contract and this plan are posted to
 Land separate tested commits for:
 
 - [ ] Combat-ability packet dispatch and special attacks.
+  - Held-Monk server dispatch is implemented for the six stock Monk attacks;
+    held-class generic Kick, Berserker Frenzy rounds, and client button
+    visibility remain.
 - [ ] Empty-fist dual wield and held-class passive checks.
 - [ ] Weapon/item runtime legality, damage, and bonuses.
 - [ ] Remaining classified player mechanics, one coherent subsystem per commit.

@@ -35,6 +35,7 @@ public:
 		TEST_ADD(SkillsUtilsTest::ResolveHeldSkillEligibility);
 		TEST_ADD(SkillsUtilsTest::HeldClassTrainerAuthorization);
 		TEST_ADD(SkillsUtilsTest::SkillTrainingDecision);
+		TEST_ADD(SkillsUtilsTest::HeldMonkCombatAbility);
 	}
 
 	~SkillsUtilsTest() {
@@ -215,5 +216,44 @@ public:
 			EvaluateSkillTraining(1, 100, 10, 50, 5, 30, 10, 100) ==
 				SkillTrainingResult::AtCap
 		);
+	}
+
+	void HeldMonkCombatAbility() {
+		const std::vector<uint8> cleric_shadowknight_monk = {
+			Class::Cleric,
+			Class::ShadowKnight,
+			Class::Monk
+		};
+		const std::vector<EQ::skills::SkillType> monk_combat_abilities = {
+			EQ::skills::SkillFlyingKick,
+			EQ::skills::SkillDragonPunch,
+			EQ::skills::SkillEagleStrike,
+			EQ::skills::SkillTigerClaw,
+			EQ::skills::SkillRoundKick,
+			EQ::skills::SkillKick
+		};
+
+		for (const auto skill : monk_combat_abilities) {
+			TEST_ASSERT(EQ::skills::CanUseMonkCombatAbility(
+				cleric_shadowknight_monk,
+				skill,
+				200
+			));
+		}
+		TEST_ASSERT(!EQ::skills::CanUseMonkCombatAbility(
+			{Class::Monk},
+			EQ::skills::SkillFlyingKick,
+			0
+		));
+		TEST_ASSERT(!EQ::skills::CanUseMonkCombatAbility(
+			{Class::Cleric, Class::ShadowKnight},
+			EQ::skills::SkillFlyingKick,
+			200
+		));
+		TEST_ASSERT(!EQ::skills::CanUseMonkCombatAbility(
+			cleric_shadowknight_monk,
+			EQ::skills::SkillFrenzy,
+			200
+		));
 	}
 };

@@ -207,6 +207,11 @@ namespace EQ
 			uint16 trainer_cap,
 			uint64 cost = 0
 		);
+		bool CanUseMonkCombatAbility(
+			const std::vector<uint8> &held_classes,
+			SkillType skill,
+			uint16 current_cap
+		);
 		float GetSkillMeleePushForce(SkillType skill);
 		bool IsBardInstrumentSkill(SkillType skill);
 		bool IsCastingSkill(SkillType skill);

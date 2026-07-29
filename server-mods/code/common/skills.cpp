@@ -159,6 +159,31 @@ EQ::skills::SkillTrainingResult EQ::skills::EvaluateSkillTraining(
 	return SkillTrainingResult::Allowed;
 }
 
+bool EQ::skills::CanUseMonkCombatAbility(
+	const std::vector<uint8> &held_classes,
+	SkillType skill,
+	uint16 current_cap
+)
+{
+	if (current_cap == 0) {
+		return false;
+	}
+
+	switch (skill) {
+	case SkillFlyingKick:
+	case SkillDragonPunch:
+	case SkillEagleStrike:
+	case SkillTigerClaw:
+	case SkillRoundKick:
+	case SkillKick:
+		break;
+	default:
+		return false;
+	}
+
+	return std::find(held_classes.begin(), held_classes.end(), Class::Monk) != held_classes.end();
+}
+
 float EQ::skills::GetSkillMeleePushForce(SkillType skill)
 {
 	// This is the force/magnitude of the push from an attack of this skill type
