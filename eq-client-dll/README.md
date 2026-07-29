@@ -86,6 +86,12 @@ Static exact-client guard test:
 powershell -NoProfile -ExecutionPolicy Bypass -File tests\verify-exact-client-patch-sites.ps1
 ```
 
+For held-class activated skills, the DLL also corrects the exact RoF2
+**Actions -> Abilities** selector. It preserves the stock `HasSkill` result and
+accepts a stock-negative skill only when the server-delivered base value is
+positive. The Combat Abilities window is separate and remains the learned
+discipline/tome surface.
+
 ## Deploy / test (dev client)
 
 1. Copy `build\dinput8.dll` next to `eqgame.exe` in

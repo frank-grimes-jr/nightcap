@@ -259,3 +259,29 @@ it is not whole-process anti-tamper. The compare/write sequence is also not
 atomic against another injected thread writing the same 16 bytes concurrently.
 Supported plugins must leave this table alone; suspending every client thread
 for a presentation-table patch would introduce greater deadlock/crash risk.
+
+## 2026-07-29 Actions ability-selector skill gate
+
+Monktest's six positive Monk skills were absent from the Actions window's
+right-click ability picker even though the RoF2 profile encoder sends all 100
+server skill values unchanged. `CSkillsSelectWnd::SetTypesToDisplay`, preferred
+VA `0x00756CE0`, separates activated combat and non-combat skills but sends both
+paths through `CharacterZoneClient::HasSkill`:
+
+- non-combat predicate call RVA: `0x00356D2D`
+- combat predicate call RVA: `0x00356DA5`
+- stock call target: `CharacterZoneClient::HasSkill`, RVA `0x0004A1B0`
+- raw received-value accessor: `EQ_Character::GetBaseSkill`, RVA `0x00042110`
+
+`HasSkill` calls the adjusted skill accessor, whose path reaches
+`CSkillMgr::GetSkillCap` and therefore clamps a held-class skill through the
+primary client class. The guarded replacement preserves a true stock result and
+otherwise returns true only when `GetBaseSkill` reports a positive
+server-delivered value. The selector's existing activated/combat classification
+continues to decide which skills can be listed.
+
+Only the two five-byte relative calls are redirected. The complete stock calls
+and both accessor entrypoints are pinned by the exact-client regression. The
+write covers their shared executable-page span, rechecks both sites after
+changing protection, verifies both replacements, restores both originals on any
+failure, and requires the original page protection to be restored.

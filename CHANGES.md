@@ -1,5 +1,22 @@
 # CHANGES
 
+## 2026-07-29 - Expose server-granted skills in RoF2 Actions (#10)
+
+Corrected the RoF2 **Actions -> Abilities** selector for true multiclass
+characters. The client receives Monktest's positive Monk skill values but
+`CSkillsSelectWnd::SetTypesToDisplay` calls
+`CharacterZoneClient::HasSkill`, which clamps those values through the primary
+class's skill cap and hides them from a Cleric-primary character.
+
+The exact-client DLL now redirects only the selector's two `HasSkill` call
+sites. Stock-valid skills retain stock behavior; a stock-negative result is
+accepted only when the server-delivered base skill is positive. The executable
+size/hash, both original call signatures, `HasSkill`, and `GetBaseSkill`
+entrypoints are pinned. Writes are rechecked, verified, rolled back on failure,
+and require executable-page protection restoration. This correction affects
+presentation only; the server remains authoritative for held-class
+authorization, reuse timers, targets, damage, and skill-ups.
+
 ## 2026-07-29 - Unlock the RoF2 combat-ability window chassis (#10)
 
 Added a fail-closed `eq-client-dll` correction for the exact RoF2

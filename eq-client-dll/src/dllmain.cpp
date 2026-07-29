@@ -57,6 +57,23 @@ static const BYTE kEnabledCombatAbilityClassTable[16] = {
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 };
 
+// CSkillsSelectWnd::SetTypesToDisplay checks CharacterZoneClient::HasSkill
+// before adding an activated skill to the Actions -> Abilities picker.
+// HasSkill clamps the received value through the primary class's cap, hiding
+// valid secondary/tertiary skills. Redirect only the two selector calls to a
+// predicate that preserves stock success and otherwise accepts a positive
+// server-delivered base skill.
+static const uintptr_t kActionsSkillPredicateCallRvas[] = {
+    0x00356D2D,
+    0x00356DA5,
+};
+static const BYTE kExpectedActionsSkillPredicateCalls[][5] = {
+    { 0xE8, 0x7E, 0x34, 0xCF, 0xFF },
+    { 0xE8, 0x06, 0x34, 0xCF, 0xFF },
+};
+static const uintptr_t kCharacterHasSkillRva = 0x0004A1B0;
+static const uintptr_t kCharacterGetBaseSkillRva = 0x00042110;
+
 // RoF2's non-caster EQ_Character::Max_Mana branch returns zero even after the
 // server has populated LocalPlayer's authoritative raw maximum at +0x354.
 // Redirect only that complete six-byte return block to the guarded stub below.
@@ -78,6 +95,7 @@ static const BYTE kExpectedMaxManaReturn[6] = {
 static HMODULE g_real_dinput8 = nullptr;
 static FILE*   g_log          = nullptr;
 static uintptr_t g_local_player_slot = 0;
+static uintptr_t g_eq_base = 0;
 
 static void Log(const char* fmt, ...)
 {
@@ -176,6 +194,31 @@ extern "C" __declspec(noinline) BYTE __fastcall HasServerManaForGauge(
             return 0;
         }
         return *reinterpret_cast<DWORD*>(local_player + 0x354) > 0 ? 1 : 0;
+    } __except (EXCEPTION_EXECUTE_HANDLER) {
+        return 0;
+    }
+}
+
+extern "C" __declspec(noinline) BYTE __fastcall HasServerGrantedSkill(
+    void* character, void* unused_edx, int skill)
+{
+    (void)unused_edx;
+    if (!character || g_eq_base == 0 || skill < 0 || skill >= 100) {
+        return 0;
+    }
+
+    typedef BYTE (__thiscall *HasSkillFn)(void*, int);
+    typedef unsigned int (__thiscall *GetBaseSkillFn)(void*, int);
+    HasSkillFn stock_has_skill = reinterpret_cast<HasSkillFn>(
+        g_eq_base + kCharacterHasSkillRva);
+    GetBaseSkillFn get_base_skill = reinterpret_cast<GetBaseSkillFn>(
+        g_eq_base + kCharacterGetBaseSkillRva);
+
+    __try {
+        if (stock_has_skill(character, skill)) {
+            return 1;
+        }
+        return get_base_skill(character, skill) > 0 ? 1 : 0;
     } __except (EXCEPTION_EXECUTE_HANDLER) {
         return 0;
     }
@@ -562,6 +605,171 @@ static bool ApplyCombatAbilityClassTablePatch(uintptr_t eq_base, bool version_ok
     return true;
 }
 
+static bool ApplyActionsSkillPredicatePatch(uintptr_t eq_base, bool version_ok)
+{
+    if (!version_ok) {
+        Log("G006 Actions skill patch DISABLED: client version guard failed");
+        return false;
+    }
+
+    const size_t site_count =
+        sizeof(kActionsSkillPredicateCallRvas) /
+        sizeof(kActionsSkillPredicateCallRvas[0]);
+    BYTE originals[site_count][5] = {};
+    BYTE replacements[site_count][5] = {};
+    BYTE* first_site = reinterpret_cast<BYTE*>(
+        eq_base + kActionsSkillPredicateCallRvas[0]);
+    BYTE* last_site = reinterpret_cast<BYTE*>(
+        eq_base + kActionsSkillPredicateCallRvas[site_count - 1]);
+    const size_t protected_span = (last_site + 5) - first_site;
+
+    for (size_t i = 0; i < site_count; ++i) {
+        BYTE* site = reinterpret_cast<BYTE*>(
+            eq_base + kActionsSkillPredicateCallRvas[i]);
+        __try {
+            memcpy(originals[i], site, sizeof(originals[i]));
+        } __except (EXCEPTION_EXECUTE_HANDLER) {
+            Log("G006 Actions skill patch DISABLED: call site unreadable "
+                "at rva=0x%08X",
+                static_cast<unsigned>(kActionsSkillPredicateCallRvas[i]));
+            return false;
+        }
+        if (memcmp(
+                originals[i], kExpectedActionsSkillPredicateCalls[i],
+                sizeof(originals[i])) != 0) {
+            Log("G006 Actions skill patch DISABLED: signature mismatch "
+                "at rva=0x%08X",
+                static_cast<unsigned>(kActionsSkillPredicateCallRvas[i]));
+            return false;
+        }
+
+        replacements[i][0] = 0xE8;
+        const intptr_t displacement =
+            reinterpret_cast<BYTE*>(&HasServerGrantedSkill) - (site + 5);
+        if (displacement < INT32_MIN || displacement > INT32_MAX) {
+            Log("G006 Actions skill patch DISABLED: hook out of rel32 range");
+            return false;
+        }
+        const int32_t relative32 = static_cast<int32_t>(displacement);
+        memcpy(replacements[i] + 1, &relative32, sizeof(relative32));
+    }
+
+    DWORD old_protection = 0;
+    if (!VirtualProtect(
+            first_site, protected_span, PAGE_EXECUTE_READWRITE,
+            &old_protection)) {
+        Log("G006 Actions skill patch FAILED: VirtualProtect");
+        return false;
+    }
+
+    bool pre_write_signatures = true;
+    for (size_t i = 0; i < site_count; ++i) {
+        BYTE* site = reinterpret_cast<BYTE*>(
+            eq_base + kActionsSkillPredicateCallRvas[i]);
+        __try {
+            if (memcmp(site, originals[i], sizeof(originals[i])) != 0) {
+                pre_write_signatures = false;
+            }
+        } __except (EXCEPTION_EXECUTE_HANDLER) {
+            pre_write_signatures = false;
+        }
+    }
+
+    bool wrote = false;
+    if (pre_write_signatures) {
+        __try {
+            for (size_t i = 0; i < site_count; ++i) {
+                BYTE* site = reinterpret_cast<BYTE*>(
+                    eq_base + kActionsSkillPredicateCallRvas[i]);
+                memcpy(site, replacements[i], sizeof(replacements[i]));
+            }
+            FlushInstructionCache(
+                GetCurrentProcess(), first_site, protected_span);
+            wrote = true;
+            for (size_t i = 0; i < site_count; ++i) {
+                BYTE* site = reinterpret_cast<BYTE*>(
+                    eq_base + kActionsSkillPredicateCallRvas[i]);
+                if (memcmp(
+                        site, replacements[i], sizeof(replacements[i])) != 0) {
+                    wrote = false;
+                }
+            }
+        } __except (EXCEPTION_EXECUTE_HANDLER) {
+            wrote = false;
+        }
+    }
+
+    bool rollback_ok = true;
+    if (!wrote) {
+        rollback_ok = false;
+        __try {
+            for (size_t i = 0; i < site_count; ++i) {
+                BYTE* site = reinterpret_cast<BYTE*>(
+                    eq_base + kActionsSkillPredicateCallRvas[i]);
+                memcpy(site, originals[i], sizeof(originals[i]));
+            }
+            FlushInstructionCache(
+                GetCurrentProcess(), first_site, protected_span);
+            rollback_ok = true;
+            for (size_t i = 0; i < site_count; ++i) {
+                BYTE* site = reinterpret_cast<BYTE*>(
+                    eq_base + kActionsSkillPredicateCallRvas[i]);
+                if (memcmp(site, originals[i], sizeof(originals[i])) != 0) {
+                    rollback_ok = false;
+                }
+            }
+        } __except (EXCEPTION_EXECUTE_HANDLER) {
+            rollback_ok = false;
+        }
+    }
+
+    DWORD ignored = 0;
+    bool protection_restored = VirtualProtect(
+        first_site, protected_span, old_protection, &ignored) != FALSE;
+    if (!protection_restored) {
+        rollback_ok = false;
+        __try {
+            for (size_t i = 0; i < site_count; ++i) {
+                BYTE* site = reinterpret_cast<BYTE*>(
+                    eq_base + kActionsSkillPredicateCallRvas[i]);
+                memcpy(site, originals[i], sizeof(originals[i]));
+            }
+            FlushInstructionCache(
+                GetCurrentProcess(), first_site, protected_span);
+            rollback_ok = true;
+            for (size_t i = 0; i < site_count; ++i) {
+                BYTE* site = reinterpret_cast<BYTE*>(
+                    eq_base + kActionsSkillPredicateCallRvas[i]);
+                if (memcmp(site, originals[i], sizeof(originals[i])) != 0) {
+                    rollback_ok = false;
+                }
+            }
+        } __except (EXCEPTION_EXECUTE_HANDLER) {
+            rollback_ok = false;
+        }
+        DWORD retry_ignored = 0;
+        const bool retry_restored = VirtualProtect(
+            first_site, protected_span, old_protection,
+            &retry_ignored) != FALSE;
+        Log("G006 Actions skill patch FAILED: protection restore failed; "
+            "rollback=%s retry=%s",
+            rollback_ok ? "verified" : "FAILED",
+            retry_restored ? "restored" : "FAILED");
+        return false;
+    }
+
+    if (!wrote) {
+        Log("G006 Actions skill patch FAILED: write/precondition failed; "
+            "rollback=%s",
+            rollback_ok ? "verified" : "FAILED");
+        return false;
+    }
+
+    Log("G006 Actions skill patch APPLIED: selector accepts positive "
+        "server-delivered base skills (2 guarded call sites)");
+    return true;
+}
+
 // MQ2/the client environment caused every Sleep() in the first successful
 // survey to return in ~5ms, collapsing a 15-minute poll into 8ms. Wait on a
 // private, never-signaled event instead, then verify elapsed wall-clock time.
@@ -874,10 +1082,12 @@ static DWORD WINAPI InitThread(LPVOID)
 
     uintptr_t eq_base, eq_size;
     GetModuleRange(GetModuleHandleA(nullptr), &eq_base, &eq_size);
+    g_eq_base = eq_base;
     bool hash_ok = size_ok && VerifyEqgameSha256(exe_path);
     Log("client sha256 check: %s", hash_ok ? "OK" : "MISMATCH OR UNREADABLE");
     ApplyCasterClassTablePatch(eq_base, size_ok && hash_ok);
     ApplyCombatAbilityClassTablePatch(eq_base, size_ok && hash_ok);
+    ApplyActionsSkillPredicatePatch(eq_base, size_ok && hash_ok);
     const bool mana_hook_ok =
         ApplyMaxManaServerCacheHook(eq_base, size_ok && hash_ok);
     ApplyPlayerManaGaugePredicateHook(eq_base, mana_hook_ok);
