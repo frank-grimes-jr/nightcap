@@ -18,6 +18,7 @@
 #include <cstdio>
 #include <cstdint>
 #include <cstring>
+#include <share.h>
 
 #pragma comment(lib, "bcrypt.lib")
 
@@ -72,7 +73,7 @@ static const BYTE kExpectedActionsSkillPredicateCalls[][5] = {
     { 0xE8, 0x06, 0x34, 0xCF, 0xFF },
 };
 static const uintptr_t kCharacterHasSkillRva = 0x0004A1B0;
-static const uintptr_t kCharacterGetBaseSkillRva = 0x00042110;
+static const uintptr_t kCharacterGetBaseSkillRva = 0x00049C80;
 static const uintptr_t kSkillManagerSlotRva = 0x00A64610;
 static const uintptr_t kSkillIsCombatRva = 0x001BAB10;
 static const uintptr_t kSkillIsActivatedRva = 0x001BABD0;
@@ -211,7 +212,9 @@ extern "C" __declspec(noinline) BYTE __fastcall HasServerGrantedSkill(
     }
 
     typedef BYTE (__thiscall *HasSkillFn)(void*, int);
-    typedef unsigned int (__thiscall *GetBaseSkillFn)(void*, int);
+    // This exact RoF2 entrypoint has one meaningful skill argument but returns
+    // with `ret 8`; preserve its second, unused stack slot to match the ABI.
+    typedef int (__thiscall *GetBaseSkillFn)(void*, int, int);
     HasSkillFn stock_has_skill = reinterpret_cast<HasSkillFn>(
         g_eq_base + kCharacterHasSkillRva);
     GetBaseSkillFn get_base_skill = reinterpret_cast<GetBaseSkillFn>(
@@ -219,7 +222,7 @@ extern "C" __declspec(noinline) BYTE __fastcall HasServerGrantedSkill(
 
     __try {
         const BYTE stock = stock_has_skill(character, skill);
-        const unsigned int base = get_base_skill(character, skill);
+        const int base = get_base_skill(character, skill, 0);
         const BYTE accepted = (stock || base > 0) ? 1 : 0;
 
         if (skill == 21 || skill == 23 || skill == 26 || skill == 30 ||
@@ -239,7 +242,8 @@ extern "C" __declspec(noinline) BYTE __fastcall HasServerGrantedSkill(
             }
             Log("G006_SELECTOR skill=%d stock=%u base=%u accepted=%u "
                 "activated=%u combat=%u",
-                skill, static_cast<unsigned>(stock), base,
+                skill, static_cast<unsigned>(stock),
+                static_cast<unsigned>(base),
                 static_cast<unsigned>(accepted),
                 static_cast<unsigned>(activated),
                 static_cast<unsigned>(combat));
@@ -247,7 +251,10 @@ extern "C" __declspec(noinline) BYTE __fastcall HasServerGrantedSkill(
 
         return accepted;
     } __except (EXCEPTION_EXECUTE_HANDLER) {
-        Log("G006_SELECTOR skill=%d exception=1", skill);
+        if (skill == 21 || skill == 23 || skill == 26 || skill == 30 ||
+            skill == 32 || skill == 38 || skill == 52) {
+            Log("G006_SELECTOR skill=%d exception=1", skill);
+        }
         return 0;
     }
 }
@@ -1087,7 +1094,8 @@ static DWORD WINAPI InitThread(LPVOID)
     const DWORD pid = GetCurrentProcessId();
     char log_name[MAX_PATH];
     sprintf_s(log_name, "nightcap_dll_%lu.log", pid);
-    if (fopen_s(&g_log, log_name, "w") != 0 || !g_log) {
+    g_log = _fsopen(log_name, "w", _SH_DENYNO);
+    if (!g_log) {
         return 0;
     }
     Log("Nightcap proxy loaded (B2 caster-chassis correction + offset survey)");

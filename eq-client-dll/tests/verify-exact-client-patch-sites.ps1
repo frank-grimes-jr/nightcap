@@ -45,7 +45,7 @@ Assert-Bytes $image 0x00318E93 ([byte[]](0xE8,0xF8,0x6C,0xE8,0xFF)) 'CPlayerWnd 
 Assert-Bytes $image 0x00356D2D ([byte[]](0xE8,0x7E,0x34,0xCF,0xFF)) 'Actions non-combat skill predicate call'
 Assert-Bytes $image 0x00356DA5 ([byte[]](0xE8,0x06,0x34,0xCF,0xFF)) 'Actions combat skill predicate call'
 Assert-Bytes $image 0x0004A1B0 ([byte[]](0x8B,0x44,0x24,0x04,0x50,0xE8,0x26,0xFE,0xFF,0xFF)) 'CharacterZoneClient::HasSkill'
-Assert-Bytes $image 0x00042110 ([byte[]](0x83,0xC1,0x04,0xE8,0xF8,0x90,0x39,0x00)) 'EQ_Character::GetBaseSkill'
+Assert-Bytes $image 0x00049C80 ([byte[]](0x8B,0x41,0x04,0x8B,0x50,0x04,0x8D,0x4C,0x0A,0x04)) 'CharacterZoneClient::GetBaseSkill'
 Assert-Bytes $image 0x001BAB10 ([byte[]](0x8B,0x44,0x24,0x04,0x83,0xF8,0x63)) 'CSkillMgr combat classification'
 Assert-Bytes $image 0x001BABD0 ([byte[]](0x8B,0x44,0x24,0x04,0x83,0xF8,0x63)) 'CSkillMgr activated classification'
 
@@ -65,7 +65,9 @@ foreach ($requiredFragment in @(
 	'ApplyCombatAbilityClassTablePatch(eq_base,size_ok&&hash_ok)',
 	'kActionsSkillPredicateCallRvas[]={0x00356D2D,0x00356DA5,}',
 	'kCharacterHasSkillRva=0x0004A1B0',
-	'kCharacterGetBaseSkillRva=0x00042110',
+	'kCharacterGetBaseSkillRva=0x00049C80',
+	'GetBaseSkillFn)(void*,int,int)',
+	'get_base_skill(character,skill,0)',
 	'kSkillManagerSlotRva=0x00A64610',
 	'kSkillIsCombatRva=0x001BAB10',
 	'kSkillIsActivatedRva=0x001BABD0',
@@ -103,6 +105,10 @@ foreach ($requiredSafetyFragment in @(
 }
 if ($combatBody.Contains('already_applied')) {
 	throw 'Combat-ability patch must not trust an all-zero table from another modifier.'
+}
+
+if (-not $compactSource.Contains('_fsopen(log_name,"w",_SH_DENYNO)')) {
+	throw 'DLL diagnostic log must permit live shared reads.'
 }
 
 $actionsPatch = [regex]::Match(

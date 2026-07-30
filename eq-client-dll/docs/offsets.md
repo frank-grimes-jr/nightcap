@@ -271,7 +271,9 @@ paths through `CharacterZoneClient::HasSkill`:
 - non-combat predicate call RVA: `0x00356D2D`
 - combat predicate call RVA: `0x00356DA5`
 - stock call target: `CharacterZoneClient::HasSkill`, RVA `0x0004A1B0`
-- raw received-value accessor: `EQ_Character::GetBaseSkill`, RVA `0x00042110`
+- raw received-value accessor: `CharacterZoneClient::GetBaseSkill`, RVA
+  `0x00049C80` (one meaningful skill argument plus an unused stack slot;
+  `ret 8`)
 
 `HasSkill` calls the adjusted skill accessor, whose path reaches
 `CSkillMgr::GetSkillCap` and therefore clamps a held-class skill through the

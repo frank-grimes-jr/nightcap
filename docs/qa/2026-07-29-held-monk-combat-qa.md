@@ -38,8 +38,10 @@ from commit `1dba98c` is now deployed with DLL SHA-256
 `E5B39B38B4046E46C8B9CE58C3FE08872D490B80F72663B1232AD75F34069BDD`.
 That correction loaded and applied but the first retest still showed no Monk
 skills. A bounded diagnostic build now records selector state for the seven
-granted Monk skills and is deployed with SHA-256
-`B8481512082288B966E8281F38C2EF281636D0FEBCC9A3E5C980B53D6E95A534`.
+granted Monk skills. Its trace exposed a wrong raw-accessor symbol and stack
+signature in the first selector build. The corrected accessor/ABI build is
+deployed with SHA-256
+`93353758DAEA62D6038DE2DC20582AB8BE1902F229D4620442301022F2CF96C5`.
 
 ## Steps
 

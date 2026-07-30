@@ -24,8 +24,14 @@ The first in-game retest still produced an empty picker even though the runtime
 log proved both selector hooks were active. Added bounded diagnostics for the
 seven granted Monk skills so a picker invocation records the stock predicate,
 raw server-delivered value, and the client's activated/combat classifications.
-The diagnostic build is deployed with SHA-256
-`B8481512082288B966E8281F38C2EF281636D0FEBCC9A3E5C980B53D6E95A534`.
+That trace showed every replacement predicate raising a guarded exception. The
+initial implementation had mistaken RVA `0x00042110` for the raw accessor; the
+verified `CharacterZoneClient::GetBaseSkill` entry is RVA `0x00049C80` and uses
+an unusual two-stack-argument ABI (`ret 8`). Corrected and pinned the symbol,
+entry bytes, function type, and call shape. Diagnostic logs now permit live
+shared reads and remain bounded to the seven Monk skills. The corrected build
+is deployed with SHA-256
+`93353758DAEA62D6038DE2DC20582AB8BE1902F229D4620442301022F2CF96C5`.
 
 ## 2026-07-29 - Unlock the RoF2 combat-ability window chassis (#10)
 
