@@ -49,6 +49,11 @@ August 2 build corrects the separate hotbutton presentation and `UseSkill`
 pre-submit gates; activation, reuse, and damage QA remain pending. Deployed DLL
 SHA-256:
 `B8839305CFC5259365DD7268A19831115BD7922ECAAD4F66A00EFF1CD95CA845`.
+That build fixed the hotbutton presentation, but manual QA showed that the six
+attacks still did not activate. Feign Death did activate, isolating the issue
+to RoF2's separate basic-combat submission path. The corrected activation
+build is deployed for the next QA pass, with SHA-256
+`8F8DF8B2B020486C32ABF8ACF6CEA37C194BFE89D29B762ED833E1C650F1B26D`.
 
 ## Steps
 
@@ -59,7 +64,9 @@ SHA-256:
    Cleric/Bard banner is a failure; it means a zone still has the obsolete
    quest-global login handler loaded.
 3. Run `#zone arena -73.5 -979 49.9`. Target `a_training_dummy` or
-   `an_undead_training_dummy`.
+   `an_undead_training_dummy`. Classic-era expansion filtering hides the static
+   arena spawns; if no dummy is present, run `#npctypespawn 77002` to create a
+   temporary `a_training_dummy` for this session.
 4. Open the **Actions** window (Alt+M), select its second tab, whose tooltip is
    **Abilities Page**, and right-click a numbered ability square (1-6). Do not
    use the separate Combat Abilities discipline window for this step.

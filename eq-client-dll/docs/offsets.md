@@ -307,3 +307,34 @@ positive `GetBaseSkill` value sent by the server. The execution patch is a
 precondition for the presentation patch. Only these two complete five-byte
 calls are changed; later `UseSkill` state, target, and reuse checks remain
 stock, followed by server-side authorization.
+
+## 2026-08-02 Held-Monk special-attack submission
+
+Manual QA then showed a useful split: Feign Death activated, while all six Monk
+attacks did nothing despite usable-looking buttons. RoF2's second `UseSkill`
+jump table maps Dragon Punch (`21`), Eagle Strike (`23`), Flying Kick (`26`),
+Kick (`30`), Round Kick (`38`), and Tiger Claw (`52`) to the empty function
+epilogue at preferred VA `0x0045CE1A`. Feign Death (`25`) and Mend (`32`) have
+real `UseSkill` handlers and must remain stock.
+
+The native basic-combat path is `EQPlayer`'s special-attack submitter:
+
+- submitter RVA: `0x001A5000` (preferred VA `0x005A5000`)
+- stock `UseSkill` call to it: RVA `0x0005D92F`
+- type-9 hotbutton `UseSkill` call: RVA `0x0028CA21`
+- submitter's primary-class `HasSkill` call: RVA `0x001A2FD0`
+- stock post-submit reuse sequence: RVA `0x0005D93C`
+
+The hotbutton call is redirected to a wrapper that preserves stock `UseSkill`
+for every other skill. For the six listed attacks only, it requires a positive
+server-delivered skill, calls the stock submitter with attack selector `100`,
+and reproduces the stock post-submit reuse calls at RVAs `0x001BADA0`,
+`0x001BA2B0`, and `0x001BAC50`. The submitter's one `HasSkill` call uses a
+dedicated predicate: stock success is preserved, and a fallback raw value is
+accepted only for the same six attacks.
+
+The two call redirects are dependency ordered and exact-signature guarded. If
+the hotbutton redirect fails after the predicate redirect succeeds, the
+predicate call is restored only if its generated replacement still matches,
+then the restored bytes and page protection are verified. Client checks and
+the server's `OP_CombatAbility` authorization remain in force.

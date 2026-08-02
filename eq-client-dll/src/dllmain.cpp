@@ -83,12 +83,31 @@ static const uintptr_t kUseSkillValueCallRva = 0x0005B33E;
 static const BYTE kExpectedUseSkillValueCall[5] = {
     0xE8, 0x9D, 0xEC, 0xFE, 0xFF,
 };
+// Type-9 hotbuttons normally enter CharacterZoneClient::UseSkill. Stock RoF2
+// intentionally leaves direct handlers empty for the six basic combat attacks;
+// its internal special-attack submitter is the path that owns their target,
+// animation, reuse, and OP_CombatAbility packet behavior.
+static const uintptr_t kHotButtonSkillActivationCallRva = 0x0028CA21;
+static const BYTE kExpectedHotButtonSkillActivationCall[5] = {
+    0xE8, 0xAA, 0xE8, 0xDC, 0xFF,
+};
+// The stock special-attack submitter has one HasSkill call that repeats the
+// primary-class clamp. Redirect only that exact call for server-granted skills.
+static const uintptr_t kSpecialAttackSkillPredicateCallRva = 0x001A2FD0;
+static const BYTE kExpectedSpecialAttackSkillPredicateCall[5] = {
+    0xE8, 0xDB, 0x71, 0xEA, 0xFF,
+};
+static const uintptr_t kSpecialAttackSubmitRva = 0x001A5000;
+static const uintptr_t kCharacterUseSkillRva = 0x0005B2D0;
 static const uintptr_t kCharacterHasSkillRva = 0x0004A1B0;
 static const uintptr_t kCharacterGetBaseSkillRva = 0x00049C80;
 static const uintptr_t kCharacterGetSkillRva = 0x00049FE0;
 static const uintptr_t kSkillManagerSlotRva = 0x00A64610;
 static const uintptr_t kSkillIsCombatRva = 0x001BAB10;
 static const uintptr_t kSkillIsActivatedRva = 0x001BABD0;
+static const uintptr_t kSkillTimerIndexRva = 0x001BA2B0;
+static const uintptr_t kSkillReuseBeginRva = 0x001BADA0;
+static const uintptr_t kSkillReuseCommitRva = 0x001BAC50;
 
 // RoF2's non-caster EQ_Character::Max_Mana branch returns zero even after the
 // server has populated LocalPlayer's authoritative raw maximum at +0x354.
@@ -112,6 +131,8 @@ static HMODULE g_real_dinput8 = nullptr;
 static FILE*   g_log          = nullptr;
 static uintptr_t g_local_player_slot = 0;
 static uintptr_t g_eq_base = 0;
+
+static bool IsMonkCombatAttack(int skill);
 
 static void Log(const char* fmt, ...)
 {
@@ -271,6 +292,36 @@ extern "C" __declspec(noinline) BYTE __fastcall HasServerGrantedSkill(
     }
 }
 
+// The stock special-attack gate is execution-sensitive, so keep its fallback
+// narrower than the presentation predicate: only the six held-Monk attacks
+// may use a positive server-delivered value after a stock-negative result.
+extern "C" __declspec(noinline) BYTE __fastcall HasServerGrantedMonkAttack(
+    void* character, void* unused_edx, int skill)
+{
+    (void)unused_edx;
+    if (!character || g_eq_base == 0 || skill < 0 || skill >= 100) {
+        return 0;
+    }
+
+    typedef BYTE (__thiscall *HasSkillFn)(void*, int);
+    typedef int (__thiscall *GetBaseSkillFn)(void*, int, int);
+    HasSkillFn stock_has_skill = reinterpret_cast<HasSkillFn>(
+        g_eq_base + kCharacterHasSkillRva);
+    GetBaseSkillFn get_base_skill = reinterpret_cast<GetBaseSkillFn>(
+        g_eq_base + kCharacterGetBaseSkillRva);
+
+    __try {
+        const BYTE stock = stock_has_skill(character, skill);
+        if (stock || !IsMonkCombatAttack(skill)) {
+            return stock ? 1 : 0;
+        }
+        return get_base_skill(character, skill, 0) > 0 ? 1 : 0;
+    } __except (EXCEPTION_EXECUTE_HANDLER) {
+        Log("G006_MONK_GATE skill=%d exception=1", skill);
+        return 0;
+    }
+}
+
 // Preserve the stock adjusted value when it is positive. A held-class skill
 // that the primary-class cap clamps to zero falls back to the raw value sent by
 // the server. UseSkill still owns every subsequent state/target/timer check,
@@ -303,6 +354,88 @@ extern "C" __declspec(noinline) int __fastcall GetServerGrantedSkill(
             Log("G006_USE_SKILL skill=%d exception=1", skill);
         }
         return 0;
+    }
+}
+
+static bool IsMonkCombatAttack(int skill)
+{
+    return skill == 21 || // Dragon Punch / Tail Rake
+        skill == 23 ||    // Eagle Strike
+        skill == 26 ||    // Flying Kick
+        skill == 30 ||    // Kick
+        skill == 38 ||    // Round Kick
+        skill == 52;      // Tiger Claw
+}
+
+// Match CharacterZoneClient::UseSkill's two-argument thiscall ABI at the
+// CHotButtonWnd call site. Non-Monk skills remain entirely stock. The six
+// basic attacks enter the exact stock submitter that UseSkill itself calls for
+// special attacks, after requiring a positive server-delivered skill value.
+extern "C" __declspec(noinline) void __fastcall ActivateServerGrantedSkill(
+    void* character, void* unused_edx, int skill, void* target)
+{
+    (void)unused_edx;
+    if (g_eq_base == 0) {
+        return;
+    }
+
+    typedef void (__thiscall *UseSkillFn)(void*, int, void*);
+    UseSkillFn use_skill = reinterpret_cast<UseSkillFn>(
+        g_eq_base + kCharacterUseSkillRva);
+
+    if (!IsMonkCombatAttack(skill)) {
+        use_skill(character, skill, target);
+        return;
+    }
+
+    if (!character || GetServerGrantedSkill(character, nullptr, skill) <= 0) {
+        Log("G006_MONK_ATTACK skill=%d submitted=0 reason=no-server-skill", skill);
+        return;
+    }
+
+    typedef BYTE (__thiscall *SubmitSpecialAttackFn)(
+        void*, int, int, void*);
+    SubmitSpecialAttackFn submit_special_attack =
+        reinterpret_cast<SubmitSpecialAttackFn>(
+            g_eq_base + kSpecialAttackSubmitRva);
+
+    __try {
+        void* player = *reinterpret_cast<void**>(
+            static_cast<BYTE*>(character) + 0x08);
+        if (!player) {
+            Log("G006_MONK_ATTACK skill=%d submitted=0 reason=no-player", skill);
+            return;
+        }
+        const BYTE submitted = submit_special_attack(
+            player, 100, skill, target);
+        if (submitted) {
+            void* skill_manager =
+                *reinterpret_cast<void**>(g_eq_base + kSkillManagerSlotRva);
+            if (skill_manager) {
+                typedef void (__thiscall *SkillReuseFn)(void*, int, DWORD);
+                typedef int (__thiscall *SkillTimerIndexFn)(void*, int);
+                SkillReuseFn begin_reuse = reinterpret_cast<SkillReuseFn>(
+                    g_eq_base + kSkillReuseBeginRva);
+                SkillTimerIndexFn timer_index =
+                    reinterpret_cast<SkillTimerIndexFn>(
+                        g_eq_base + kSkillTimerIndexRva);
+                SkillReuseFn commit_reuse = reinterpret_cast<SkillReuseFn>(
+                    g_eq_base + kSkillReuseCommitRva);
+
+                // This is the exact stock post-submit sequence at 0x45D93C.
+                begin_reuse(skill_manager, skill, 0);
+                const int index = timer_index(skill_manager, skill);
+                if (index >= 0 && index < 100) {
+                    const DWORD reuse_end = *reinterpret_cast<DWORD*>(
+                        static_cast<BYTE*>(player) + 0x390 + index * 4);
+                    commit_reuse(skill_manager, skill, reuse_end);
+                }
+            }
+        }
+        Log("G006_MONK_ATTACK skill=%d target=%p submitted=%u",
+            skill, target, static_cast<unsigned>(submitted));
+    } __except (EXCEPTION_EXECUTE_HANDLER) {
+        Log("G006_MONK_ATTACK skill=%d submitted=0 exception=1", skill);
     }
 }
 
@@ -992,6 +1125,103 @@ static bool ApplyHotButtonSkillPredicatePatch(
         "G006 hotbutton skill patch");
 }
 
+static bool RestoreGuardedRelativeCall(
+    uintptr_t eq_base,
+    uintptr_t call_rva,
+    const BYTE expected[5],
+    uintptr_t target,
+    const char* label)
+{
+    BYTE* site = reinterpret_cast<BYTE*>(eq_base + call_rva);
+    BYTE replacement[5] = { 0xE8, 0, 0, 0, 0 };
+    const intptr_t displacement =
+        static_cast<intptr_t>(target) -
+        reinterpret_cast<intptr_t>(site + sizeof(replacement));
+    if (displacement < INT32_MIN || displacement > INT32_MAX) {
+        Log("%s ROLLBACK FAILED: hook target is outside rel32 range", label);
+        return false;
+    }
+    const int32_t relative32 = static_cast<int32_t>(displacement);
+    memcpy(replacement + 1, &relative32, sizeof(relative32));
+
+    bool replacement_present = false;
+    __try {
+        replacement_present = (memcmp(site, replacement, 5) == 0);
+    } __except (EXCEPTION_EXECUTE_HANDLER) {
+        replacement_present = false;
+    }
+    if (!replacement_present) {
+        Log("%s ROLLBACK FAILED: patched call no longer matches", label);
+        return false;
+    }
+
+    DWORD old_protection = 0;
+    if (!VirtualProtect(site, 5, PAGE_EXECUTE_READWRITE, &old_protection)) {
+        Log("%s ROLLBACK FAILED: VirtualProtect", label);
+        return false;
+    }
+
+    bool restored = false;
+    __try {
+        if (memcmp(site, replacement, 5) == 0) {
+            memcpy(site, expected, 5);
+            FlushInstructionCache(GetCurrentProcess(), site, 5);
+            restored = (memcmp(site, expected, 5) == 0);
+        }
+    } __except (EXCEPTION_EXECUTE_HANDLER) {
+        restored = false;
+    }
+
+    DWORD ignored = 0;
+    const bool protection_restored = VirtualProtect(
+        site, 5, old_protection, &ignored) != FALSE;
+    Log("%s ROLLBACK: bytes=%s protection=%s", label,
+        restored ? "restored" : "FAILED",
+        protection_restored ? "restored" : "FAILED");
+    return restored && protection_restored;
+}
+
+static bool ApplyMonkAttackActivationPatches(
+    uintptr_t eq_base, bool hotbutton_skill_ok)
+{
+    if (!hotbutton_skill_ok) {
+        Log("G006 Monk attack activation DISABLED: hotbutton skill correction unavailable");
+        return false;
+    }
+
+    const bool predicate_ok = ApplyGuardedRelativeCall(
+        eq_base,
+        kSpecialAttackSkillPredicateCallRva,
+        kExpectedSpecialAttackSkillPredicateCall,
+        reinterpret_cast<uintptr_t>(&HasServerGrantedMonkAttack),
+        "G006 special-attack skill predicate patch");
+    if (!predicate_ok) {
+        return false;
+    }
+
+    const bool activation_ok = ApplyGuardedRelativeCall(
+        eq_base,
+        kHotButtonSkillActivationCallRva,
+        kExpectedHotButtonSkillActivationCall,
+        reinterpret_cast<uintptr_t>(&ActivateServerGrantedSkill),
+        "G006 Monk hotbutton activation patch");
+    if (!activation_ok) {
+        const bool rollback_ok = RestoreGuardedRelativeCall(
+            eq_base,
+            kSpecialAttackSkillPredicateCallRva,
+            kExpectedSpecialAttackSkillPredicateCall,
+            reinterpret_cast<uintptr_t>(&HasServerGrantedMonkAttack),
+            "G006 special-attack skill predicate patch");
+        Log("G006 Monk attack activation DISABLED: activation redirect failed; "
+            "predicate rollback=%s", rollback_ok ? "verified" : "FAILED");
+        return false;
+    }
+
+    Log("G006 Monk attack activation APPLIED: six held Monk attacks use the "
+        "stock special-attack submitter");
+    return true;
+}
+
 // MQ2/the client environment caused every Sleep() in the first successful
 // survey to return in ~5ms, collapsing a 15-minute poll into 8ms. Wait on a
 // private, never-signaled event instead, then verify elapsed wall-clock time.
@@ -1313,7 +1543,9 @@ static DWORD WINAPI InitThread(LPVOID)
     ApplyActionsSkillPredicatePatch(eq_base, size_ok && hash_ok);
     const bool use_skill_ok =
         ApplyUseSkillValuePatch(eq_base, size_ok && hash_ok);
-    ApplyHotButtonSkillPredicatePatch(eq_base, use_skill_ok);
+    const bool hotbutton_skill_ok =
+        ApplyHotButtonSkillPredicatePatch(eq_base, use_skill_ok);
+    ApplyMonkAttackActivationPatches(eq_base, hotbutton_skill_ok);
     const bool mana_hook_ok =
         ApplyMaxManaServerCacheHook(eq_base, size_ok && hash_ok);
     ApplyPlayerManaGaugePredicateHook(eq_base, mana_hook_ok);

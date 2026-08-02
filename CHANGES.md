@@ -1,5 +1,32 @@
 # CHANGES
 
+## 2026-08-02 - Route held-Monk hotbuttons through stock combat submission (#10)
+
+Corrected the remaining RoF2 activation failure for the six held-Monk attacks.
+Manual QA proved the buttons were visible and usable-looking, but clicking them
+did nothing; Feign Death still worked because it has a normal
+`CharacterZoneClient::UseSkill` handler. Exact-client disassembly showed that
+RoF2 deliberately maps Bash, Kick, Frenzy, and the five named Monk strikes to
+an empty `UseSkill` dispatch case. Their native path is the separate
+`EQPlayer` special-attack submitter that constructs `OP_CombatAbility`.
+
+The DLL now redirects the type-9 hotbutton activation call only for Dragon
+Punch/Tail Rake, Eagle Strike, Flying Kick, Kick, Round Kick, and Tiger Claw.
+Those six use the stock target, animation, packet, and reuse path; every other
+skill still calls stock `UseSkill`. The submitter's one primary-class
+`HasSkill` call has a dedicated held-Monk fallback that accepts only those six
+skills and only when the server-delivered value is positive. The stock
+post-submit reuse sequence is preserved, and EQEmu remains authoritative for
+held-class membership, current-level caps, targets, range, timers, damage, and
+skill-ups.
+
+Both call sites, the stock submitter, its stock `UseSkill` caller, and the reuse
+sequence are pinned by the exact-client regression. The two runtime redirects
+are dependency-ordered; failure of the activation redirect performs a verified
+rollback of the execution predicate. The reviewed x86 build was deployed to
+the development RoF2 client with SHA-256
+`8F8DF8B2B020486C32ABF8ACF6CEA37C194BFE89D29B762ED833E1C650F1B26D`.
+
 ## 2026-08-02 - Enable held-class skill hotbuttons and activation (#10)
 
 Completed the RoF2 client path from an assigned held-class skill to its server

@@ -46,6 +46,11 @@ Assert-Bytes $image 0x00356D2D ([byte[]](0xE8,0x7E,0x34,0xCF,0xFF)) 'Actions non
 Assert-Bytes $image 0x00356DA5 ([byte[]](0xE8,0x06,0x34,0xCF,0xFF)) 'Actions combat skill predicate call'
 Assert-Bytes $image 0x00151B59 ([byte[]](0xE8,0x52,0x86,0xEF,0xFF)) 'hotbutton held-skill predicate call'
 Assert-Bytes $image 0x0005B33E ([byte[]](0xE8,0x9D,0xEC,0xFE,0xFF)) 'UseSkill adjusted-skill value call'
+Assert-Bytes $image 0x0028CA21 ([byte[]](0xE8,0xAA,0xE8,0xDC,0xFF)) 'hotbutton skill activation call'
+Assert-Bytes $image 0x001A2FD0 ([byte[]](0xE8,0xDB,0x71,0xEA,0xFF)) 'special-attack held-skill predicate call'
+Assert-Bytes $image 0x001A5000 ([byte[]](0x6A,0xFF,0x68,0xD3,0xBF,0x97,0x00)) 'EQPlayer special-attack submitter'
+Assert-Bytes $image 0x0005D92F ([byte[]](0xE8,0xCC,0x76,0x14,0x00)) 'stock UseSkill special-attack submit call'
+Assert-Bytes $image 0x0005D93C ([byte[]](0x8B,0x7C,0x24,0x1C,0x8B,0x0D,0x10,0x46,0xE6,0x00,0x6A,0x00,0x57,0xE8,0x52,0xD4,0x15,0x00)) 'stock special-attack reuse sequence'
 Assert-Bytes $image 0x0004A1B0 ([byte[]](0x8B,0x44,0x24,0x04,0x50,0xE8,0x26,0xFE,0xFF,0xFF)) 'CharacterZoneClient::HasSkill'
 Assert-Bytes $image 0x00049C80 ([byte[]](0x8B,0x41,0x04,0x8B,0x50,0x04,0x8D,0x4C,0x0A,0x04)) 'CharacterZoneClient::GetBaseSkill'
 Assert-Bytes $image 0x00049FE0 ([byte[]](0x51,0x56,0x57,0x8B,0x7C,0x24,0x10,0x8B,0xF1)) 'CharacterZoneClient::GetSkill'
@@ -69,6 +74,9 @@ foreach ($requiredFragment in @(
 	'kActionsSkillPredicateCallRvas[]={0x00356D2D,0x00356DA5,}',
 	'kHotButtonSkillPredicateCallRva=0x00151B59',
 	'kUseSkillValueCallRva=0x0005B33E',
+	'kHotButtonSkillActivationCallRva=0x0028CA21',
+	'kSpecialAttackSkillPredicateCallRva=0x001A2FD0',
+	'kSpecialAttackSubmitRva=0x001A5000',
 	'kCharacterHasSkillRva=0x0004A1B0',
 	'kCharacterGetBaseSkillRva=0x00049C80',
 	'kCharacterGetSkillRva=0x00049FE0',
@@ -77,12 +85,20 @@ foreach ($requiredFragment in @(
 	'kSkillManagerSlotRva=0x00A64610',
 	'kSkillIsCombatRva=0x001BAB10',
 	'kSkillIsActivatedRva=0x001BABD0',
+	'kSkillTimerIndexRva=0x001BA2B0',
+	'kSkillReuseBeginRva=0x001BADA0',
+	'kSkillReuseCommitRva=0x001BAC50',
 	'G006_SELECTORskill=%dstock=%u',
 	'HasServerGrantedSkill',
+	'HasServerGrantedMonkAttack',
 	'GetServerGrantedSkill',
+	'ActivateServerGrantedSkill',
+	'begin_reuse(skill_manager,skill,0)',
+	'commit_reuse(skill_manager,skill,reuse_end)',
 	'ApplyActionsSkillPredicatePatch(eq_base,size_ok&&hash_ok)',
 	'constbooluse_skill_ok=ApplyUseSkillValuePatch(eq_base,size_ok&&hash_ok)',
-	'ApplyHotButtonSkillPredicatePatch(eq_base,use_skill_ok)'
+	'ApplyHotButtonSkillPredicatePatch(eq_base,use_skill_ok)',
+	'ApplyMonkAttackActivationPatches(eq_base,hotbutton_skill_ok)'
 )) {
 	if (-not $compactSource.Contains($requiredFragment)) {
 		throw "DLL source is missing guarded combat-ability unlock: $requiredFragment"
@@ -170,6 +186,69 @@ foreach ($requiredSafetyFragment in @(
 )) {
 	if (-not $actionsBody.Contains($requiredSafetyFragment)) {
 		throw "Actions skill patch is missing safety behavior: $requiredSafetyFragment"
+	}
+}
+
+$monkActivation = [regex]::Match(
+	$source,
+	'extern "C" __declspec\(noinline\) void __fastcall ActivateServerGrantedSkill.*?(?=// Entered only from)',
+	[System.Text.RegularExpressions.RegexOptions]::Singleline
+)
+if (-not $monkActivation.Success) {
+	throw 'Could not isolate ActivateServerGrantedSkill.'
+}
+$monkActivationCompact = $monkActivation.Value -replace '\s', ''
+foreach ($requiredActivationFragment in @(
+	'if(!IsMonkCombatAttack(skill)){use_skill(character,skill,target);return;}',
+	'GetServerGrantedSkill(character,nullptr,skill)<=0',
+	'player,100,skill,target',
+	'begin_reuse(skill_manager,skill,0)',
+	'commit_reuse(skill_manager,skill,reuse_end)'
+)) {
+	if (-not $monkActivationCompact.Contains($requiredActivationFragment)) {
+		throw "Monk activation wrapper is missing stock-path behavior: $requiredActivationFragment"
+	}
+}
+
+$monkPredicate = [regex]::Match(
+	$source,
+	'extern "C" __declspec\(noinline\) BYTE __fastcall HasServerGrantedMonkAttack.*?(?=// Preserve the stock adjusted value)',
+	[System.Text.RegularExpressions.RegexOptions]::Singleline
+)
+if (-not $monkPredicate.Success) {
+	throw 'Could not isolate HasServerGrantedMonkAttack.'
+}
+$monkPredicateCompact = $monkPredicate.Value -replace '\s', ''
+foreach ($requiredPredicateFragment in @(
+	'constBYTEstock=stock_has_skill(character,skill)',
+	'if(stock||!IsMonkCombatAttack(skill))',
+	'returnget_base_skill(character,skill,0)>0?1:0'
+)) {
+	if (-not $monkPredicateCompact.Contains($requiredPredicateFragment)) {
+		throw "Monk execution predicate is missing narrow fallback behavior: $requiredPredicateFragment"
+	}
+}
+
+$monkPatch = [regex]::Match(
+	$source,
+	'static bool RestoreGuardedRelativeCall.*?(?=// MQ2/the client environment)',
+	[System.Text.RegularExpressions.RegexOptions]::Singleline
+)
+if (-not $monkPatch.Success) {
+	throw 'Could not isolate held-Monk activation patch and rollback.'
+}
+$monkPatchCompact = $monkPatch.Value -replace '\s', ''
+foreach ($requiredPatchFragment in @(
+	'memcmp(site,replacement,5)',
+	'VirtualProtect(site,5,PAGE_EXECUTE_READWRITE',
+	'memcpy(site,expected,5)',
+	'FlushInstructionCache(',
+	'constboolprotection_restored=VirtualProtect(',
+	'if(!activation_ok)',
+	'constboolrollback_ok=RestoreGuardedRelativeCall('
+)) {
+	if (-not $monkPatchCompact.Contains($requiredPatchFragment)) {
+		throw "Held-Monk activation patch is missing rollback safety: $requiredPatchFragment"
 	}
 }
 

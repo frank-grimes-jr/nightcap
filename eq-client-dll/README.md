@@ -32,10 +32,13 @@ server-authorized UI chassis.
   `CPlayerWnd`'s stock 500 ms refresh now bases `PlayerMana` visibility on the
   positive server-cached maximum. This replaces the competing direct
   `SetVisible` reassertion that manual QA found could flicker.
-- **G006 combat-ability chassis: built + deployed, QA pending.** Exact
-  disassembly localized the grayed-out window to a 16-entry base-class table at
-  RVA `0x0018238C`. The guarded correction enables its seven pure-caster
-  entries; server skill and packet authorization remain unchanged.
+- **G006 held-Monk activation: built + deployed, QA pending.** Exact disassembly
+  localized the no-op to RoF2's direct-skill dispatch. Six Monk attack
+  hotbuttons now enter the stock special-attack submitter, with its one
+  primary-class skill predicate corrected only for those positive
+  server-granted skills. Feign Death and Mend retain their stock `UseSkill`
+  handlers; the separate discipline window remains enabled but correctly empty
+  for a character with no learned disciplines.
 - **Fail closed:** the patch requires the expected file size, full SHA-256, and
   exact complete class-table signatures. Any mismatch leaves memory untouched
   and is recorded in the per-process log.
@@ -94,6 +97,13 @@ positive. The assigned skill's hotbutton usability and the pre-submit
 fallback. All subsequent client checks and all server authorization remain
 stock. The Combat Abilities window is separate and remains the learned
 discipline/tome surface.
+
+RoF2 does not implement the six basic Monk attacks in direct `UseSkill`
+dispatch. For Dragon Punch/Tail Rake, Eagle Strike, Flying Kick, Kick, Round
+Kick, and Tiger Claw only, the hotbutton redirect calls the client's stock
+special-attack submitter and then its stock skill-reuse sequence. The submitter
+still owns client target/state/animation behavior, and EQEmu still validates
+the packet, held classes, caps, range, reuse, damage, and skill-ups.
 
 ## Deploy / test (dev client)
 
