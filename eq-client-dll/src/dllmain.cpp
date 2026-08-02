@@ -72,8 +72,20 @@ static const BYTE kExpectedActionsSkillPredicateCalls[][5] = {
     { 0xE8, 0x7E, 0x34, 0xCF, 0xFF },
     { 0xE8, 0x06, 0x34, 0xCF, 0xFF },
 };
+// CHotButton refresh uses HasSkill to decide whether a type-9 skill button is
+// usable. CharacterZoneClient::UseSkill separately calls GetSkill and rejects
+// a non-positive result before sending anything to the server.
+static const uintptr_t kHotButtonSkillPredicateCallRva = 0x00151B59;
+static const BYTE kExpectedHotButtonSkillPredicateCall[5] = {
+    0xE8, 0x52, 0x86, 0xEF, 0xFF,
+};
+static const uintptr_t kUseSkillValueCallRva = 0x0005B33E;
+static const BYTE kExpectedUseSkillValueCall[5] = {
+    0xE8, 0x9D, 0xEC, 0xFE, 0xFF,
+};
 static const uintptr_t kCharacterHasSkillRva = 0x0004A1B0;
 static const uintptr_t kCharacterGetBaseSkillRva = 0x00049C80;
+static const uintptr_t kCharacterGetSkillRva = 0x00049FE0;
 static const uintptr_t kSkillManagerSlotRva = 0x00A64610;
 static const uintptr_t kSkillIsCombatRva = 0x001BAB10;
 static const uintptr_t kSkillIsActivatedRva = 0x001BABD0;
@@ -254,6 +266,41 @@ extern "C" __declspec(noinline) BYTE __fastcall HasServerGrantedSkill(
         if (skill == 21 || skill == 23 || skill == 26 || skill == 30 ||
             skill == 32 || skill == 38 || skill == 52) {
             Log("G006_SELECTOR skill=%d exception=1", skill);
+        }
+        return 0;
+    }
+}
+
+// Preserve the stock adjusted value when it is positive. A held-class skill
+// that the primary-class cap clamps to zero falls back to the raw value sent by
+// the server. UseSkill still owns every subsequent state/target/timer check,
+// and the server remains authoritative for the submitted activation.
+extern "C" __declspec(noinline) int __fastcall GetServerGrantedSkill(
+    void* character, void* unused_edx, int skill)
+{
+    (void)unused_edx;
+    if (!character || g_eq_base == 0 || skill < 0 || skill >= 100) {
+        return 0;
+    }
+
+    typedef int (__thiscall *GetSkillFn)(void*, int);
+    typedef int (__thiscall *GetBaseSkillFn)(void*, int, int);
+    GetSkillFn get_skill = reinterpret_cast<GetSkillFn>(
+        g_eq_base + kCharacterGetSkillRva);
+    GetBaseSkillFn get_base_skill = reinterpret_cast<GetBaseSkillFn>(
+        g_eq_base + kCharacterGetBaseSkillRva);
+
+    __try {
+        const int adjusted = get_skill(character, skill);
+        if (adjusted > 0) {
+            return adjusted;
+        }
+        const int base = get_base_skill(character, skill, 0);
+        return base > 0 ? base : 0;
+    } __except (EXCEPTION_EXECUTE_HANDLER) {
+        if (skill == 21 || skill == 23 || skill == 26 || skill == 30 ||
+            skill == 32 || skill == 38 || skill == 52) {
+            Log("G006_USE_SKILL skill=%d exception=1", skill);
         }
         return 0;
     }
@@ -805,6 +852,146 @@ static bool ApplyActionsSkillPredicatePatch(uintptr_t eq_base, bool version_ok)
     return true;
 }
 
+static bool ApplyGuardedRelativeCall(
+    uintptr_t eq_base,
+    uintptr_t call_rva,
+    const BYTE expected[5],
+    uintptr_t target,
+    const char* label)
+{
+    BYTE* site = reinterpret_cast<BYTE*>(eq_base + call_rva);
+    BYTE replacement[5] = { 0xE8, 0, 0, 0, 0 };
+    const intptr_t displacement =
+        static_cast<intptr_t>(target) -
+        reinterpret_cast<intptr_t>(site + sizeof(replacement));
+    if (displacement < INT32_MIN || displacement > INT32_MAX) {
+        Log("%s DISABLED: hook target is outside rel32 range", label);
+        return false;
+    }
+    const int32_t relative32 = static_cast<int32_t>(displacement);
+    memcpy(replacement + 1, &relative32, sizeof(relative32));
+
+    bool stock_signature = false;
+    __try {
+        stock_signature = (memcmp(site, expected, 5) == 0);
+    } __except (EXCEPTION_EXECUTE_HANDLER) {
+        Log("%s DISABLED: call unreadable at rva=0x%08X", label,
+            static_cast<unsigned>(call_rva));
+        return false;
+    }
+    if (!stock_signature) {
+        Log("%s DISABLED: signature mismatch at rva=0x%08X", label,
+            static_cast<unsigned>(call_rva));
+        return false;
+    }
+
+    DWORD old_protection = 0;
+    if (!VirtualProtect(
+            site, 5, PAGE_EXECUTE_READWRITE, &old_protection)) {
+        Log("%s FAILED: VirtualProtect", label);
+        return false;
+    }
+
+    bool pre_write_signature = false;
+    __try {
+        pre_write_signature = (memcmp(site, expected, 5) == 0);
+    } __except (EXCEPTION_EXECUTE_HANDLER) {
+        pre_write_signature = false;
+    }
+    const bool write_attempted = pre_write_signature;
+
+    bool wrote = false;
+    if (write_attempted) {
+        __try {
+            memcpy(site, replacement, sizeof(replacement));
+            FlushInstructionCache(
+                GetCurrentProcess(), site, sizeof(replacement));
+            wrote = (memcmp(site, replacement, sizeof(replacement)) == 0);
+        } __except (EXCEPTION_EXECUTE_HANDLER) {
+            wrote = false;
+        }
+    }
+
+    bool rollback_ok = true;
+    if (write_attempted && !wrote) {
+        rollback_ok = false;
+        __try {
+            memcpy(site, expected, 5);
+            FlushInstructionCache(GetCurrentProcess(), site, 5);
+            rollback_ok = (memcmp(site, expected, 5) == 0);
+        } __except (EXCEPTION_EXECUTE_HANDLER) {
+            rollback_ok = false;
+        }
+    }
+
+    DWORD ignored = 0;
+    bool protection_restored = VirtualProtect(
+        site, 5, old_protection, &ignored) != FALSE;
+    if (!protection_restored) {
+        if (write_attempted) {
+            rollback_ok = false;
+            __try {
+                memcpy(site, expected, 5);
+                FlushInstructionCache(GetCurrentProcess(), site, 5);
+                rollback_ok = (memcmp(site, expected, 5) == 0);
+            } __except (EXCEPTION_EXECUTE_HANDLER) {
+                rollback_ok = false;
+            }
+        }
+        DWORD retry_ignored = 0;
+        const bool retry_restored = VirtualProtect(
+            site, 5, old_protection, &retry_ignored) != FALSE;
+        Log("%s FAILED: protection restore failed; rollback=%s retry=%s",
+            label,
+            rollback_ok ? "verified" : "FAILED",
+            retry_restored ? "restored" : "FAILED");
+        return false;
+    }
+
+    if (!write_attempted) {
+        Log("%s DISABLED: call changed before write", label);
+        return false;
+    }
+    if (!wrote) {
+        Log("%s FAILED: write/precondition failed; rollback=%s", label,
+            rollback_ok ? "verified" : "FAILED");
+        return false;
+    }
+
+    Log("%s APPLIED: call redirected at rva=0x%08X", label,
+        static_cast<unsigned>(call_rva));
+    return true;
+}
+
+static bool ApplyUseSkillValuePatch(uintptr_t eq_base, bool version_ok)
+{
+    if (!version_ok) {
+        Log("G006 UseSkill value patch DISABLED: client version guard failed");
+        return false;
+    }
+    return ApplyGuardedRelativeCall(
+        eq_base,
+        kUseSkillValueCallRva,
+        kExpectedUseSkillValueCall,
+        reinterpret_cast<uintptr_t>(&GetServerGrantedSkill),
+        "G006 UseSkill value patch");
+}
+
+static bool ApplyHotButtonSkillPredicatePatch(
+    uintptr_t eq_base, bool use_skill_ok)
+{
+    if (!use_skill_ok) {
+        Log("G006 hotbutton skill patch DISABLED: UseSkill correction unavailable");
+        return false;
+    }
+    return ApplyGuardedRelativeCall(
+        eq_base,
+        kHotButtonSkillPredicateCallRva,
+        kExpectedHotButtonSkillPredicateCall,
+        reinterpret_cast<uintptr_t>(&HasServerGrantedSkill),
+        "G006 hotbutton skill patch");
+}
+
 // MQ2/the client environment caused every Sleep() in the first successful
 // survey to return in ~5ms, collapsing a 15-minute poll into 8ms. Wait on a
 // private, never-signaled event instead, then verify elapsed wall-clock time.
@@ -1124,6 +1311,9 @@ static DWORD WINAPI InitThread(LPVOID)
     ApplyCasterClassTablePatch(eq_base, size_ok && hash_ok);
     ApplyCombatAbilityClassTablePatch(eq_base, size_ok && hash_ok);
     ApplyActionsSkillPredicatePatch(eq_base, size_ok && hash_ok);
+    const bool use_skill_ok =
+        ApplyUseSkillValuePatch(eq_base, size_ok && hash_ok);
+    ApplyHotButtonSkillPredicatePatch(eq_base, use_skill_ok);
     const bool mana_hook_ok =
         ApplyMaxManaServerCacheHook(eq_base, size_ok && hash_ok);
     ApplyPlayerManaGaugePredicateHook(eq_base, mana_hook_ok);

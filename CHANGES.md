@@ -1,5 +1,29 @@
 # CHANGES
 
+## 2026-08-02 - Enable held-class skill hotbuttons and activation (#10)
+
+Completed the RoF2 client path from an assigned held-class skill to its server
+submission. After the Actions picker correction, a Cleric-primary Monktest could
+assign Monk attacks but each hotbutton was rendered **Not Usable** and
+`CharacterZoneClient::UseSkill` rejected it before sending a packet.
+
+The exact-client DLL now redirects two additional, narrowly scoped calls. The
+`CHotButton` refresh call uses the positive server-delivered skill predicate for
+presentation. The `UseSkill` call uses an integer-valued accessor that preserves
+the positive stock adjusted value and otherwise falls back to the raw profile
+value. The execution correction must apply before the presentation correction
+is allowed, preventing a usable-looking button that the client cannot submit.
+All later client state, target, and reuse checks remain stock, and the server
+remains authoritative for authorization, timers, damage, and skill-ups.
+
+Both original calls and the stock adjusted-skill entrypoint are pinned by the
+exact-client regression. A shared single-call patch helper rechecks immediately
+before writing, verifies writes and rollback, requires page-protection
+restoration, and does not overwrite a concurrent modifier when no write was
+attempted. The reviewed x86 DLL was deployed to the development RoF2 client
+with SHA-256
+`B8839305CFC5259365DD7268A19831115BD7922ECAAD4F66A00EFF1CD95CA845`.
+
 ## 2026-07-29 - Expose server-granted skills in RoF2 Actions (#10)
 
 Corrected the RoF2 **Actions -> Abilities** selector for true multiclass

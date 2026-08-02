@@ -44,8 +44,11 @@ Assert-Bytes $image 0x00181E96 ([byte[]](0x33,0xC0,0x5E,0xC2,0x04,0x00)) 'Max_Ma
 Assert-Bytes $image 0x00318E93 ([byte[]](0xE8,0xF8,0x6C,0xE8,0xFF)) 'CPlayerWnd mana predicate call'
 Assert-Bytes $image 0x00356D2D ([byte[]](0xE8,0x7E,0x34,0xCF,0xFF)) 'Actions non-combat skill predicate call'
 Assert-Bytes $image 0x00356DA5 ([byte[]](0xE8,0x06,0x34,0xCF,0xFF)) 'Actions combat skill predicate call'
+Assert-Bytes $image 0x00151B59 ([byte[]](0xE8,0x52,0x86,0xEF,0xFF)) 'hotbutton held-skill predicate call'
+Assert-Bytes $image 0x0005B33E ([byte[]](0xE8,0x9D,0xEC,0xFE,0xFF)) 'UseSkill adjusted-skill value call'
 Assert-Bytes $image 0x0004A1B0 ([byte[]](0x8B,0x44,0x24,0x04,0x50,0xE8,0x26,0xFE,0xFF,0xFF)) 'CharacterZoneClient::HasSkill'
 Assert-Bytes $image 0x00049C80 ([byte[]](0x8B,0x41,0x04,0x8B,0x50,0x04,0x8D,0x4C,0x0A,0x04)) 'CharacterZoneClient::GetBaseSkill'
+Assert-Bytes $image 0x00049FE0 ([byte[]](0x51,0x56,0x57,0x8B,0x7C,0x24,0x10,0x8B,0xF1)) 'CharacterZoneClient::GetSkill'
 Assert-Bytes $image 0x001BAB10 ([byte[]](0x8B,0x44,0x24,0x04,0x83,0xF8,0x63)) 'CSkillMgr combat classification'
 Assert-Bytes $image 0x001BABD0 ([byte[]](0x8B,0x44,0x24,0x04,0x83,0xF8,0x63)) 'CSkillMgr activated classification'
 
@@ -64,8 +67,11 @@ foreach ($requiredFragment in @(
 	'kEnabledCombatAbilityClassTable[16]={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,};',
 	'ApplyCombatAbilityClassTablePatch(eq_base,size_ok&&hash_ok)',
 	'kActionsSkillPredicateCallRvas[]={0x00356D2D,0x00356DA5,}',
+	'kHotButtonSkillPredicateCallRva=0x00151B59',
+	'kUseSkillValueCallRva=0x0005B33E',
 	'kCharacterHasSkillRva=0x0004A1B0',
 	'kCharacterGetBaseSkillRva=0x00049C80',
+	'kCharacterGetSkillRva=0x00049FE0',
 	'GetBaseSkillFn)(void*,int,int)',
 	'get_base_skill(character,skill,0)',
 	'kSkillManagerSlotRva=0x00A64610',
@@ -73,7 +79,10 @@ foreach ($requiredFragment in @(
 	'kSkillIsActivatedRva=0x001BABD0',
 	'G006_SELECTORskill=%dstock=%u',
 	'HasServerGrantedSkill',
-	'ApplyActionsSkillPredicatePatch(eq_base,size_ok&&hash_ok)'
+	'GetServerGrantedSkill',
+	'ApplyActionsSkillPredicatePatch(eq_base,size_ok&&hash_ok)',
+	'constbooluse_skill_ok=ApplyUseSkillValuePatch(eq_base,size_ok&&hash_ok)',
+	'ApplyHotButtonSkillPredicatePatch(eq_base,use_skill_ok)'
 )) {
 	if (-not $compactSource.Contains($requiredFragment)) {
 		throw "DLL source is missing guarded combat-ability unlock: $requiredFragment"
@@ -109,6 +118,33 @@ if ($combatBody.Contains('already_applied')) {
 
 if (-not $compactSource.Contains('_fsopen(log_name,"w",_SH_DENYNO)')) {
 	throw 'DLL diagnostic log must permit live shared reads.'
+}
+
+$singleCallPatch = [regex]::Match(
+	$source,
+	'static bool ApplyGuardedRelativeCall.*?(?=static bool ApplyUseSkillValuePatch)',
+	[System.Text.RegularExpressions.RegexOptions]::Singleline
+)
+if (-not $singleCallPatch.Success) {
+	throw 'Could not isolate ApplyGuardedRelativeCall.'
+}
+$singleCallCompact = $singleCallPatch.Value -replace '\s', ''
+
+foreach ($requiredSafetyFragment in @(
+	'memcmp(site,expected,5)',
+	'VirtualProtect(site,5,PAGE_EXECUTE_READWRITE',
+	'boolpre_write_signature=false',
+	'constboolwrite_attempted=pre_write_signature',
+	'if(write_attempted&&!wrote)',
+	'FlushInstructionCache(',
+	'rollback_ok=(memcmp(site,expected,5)==0)',
+	'boolprotection_restored=VirtualProtect(',
+	'if(!protection_restored)',
+	'constboolretry_restored=VirtualProtect('
+)) {
+	if (-not $singleCallCompact.Contains($requiredSafetyFragment)) {
+		throw "Single-call patch helper is missing safety behavior: $requiredSafetyFragment"
+	}
 }
 
 $actionsPatch = [regex]::Match(

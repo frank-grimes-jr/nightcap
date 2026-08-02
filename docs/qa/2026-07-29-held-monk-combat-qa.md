@@ -42,6 +42,13 @@ granted Monk skills. Its trace exposed a wrong raw-accessor symbol and stack
 signature in the first selector build. The corrected accessor/ABI build is
 deployed with SHA-256
 `93353758DAEA62D6038DE2DC20582AB8BE1902F229D4620442301022F2CF96C5`.
+The next retest confirmed all seven skills were visible and assignable, with
+the live trace showing the expected positive raw values and combat/activated
+classification. Assigned hotbuttons were then rendered **Not Usable**. The
+August 2 build corrects the separate hotbutton presentation and `UseSkill`
+pre-submit gates; activation, reuse, and damage QA remain pending. Deployed DLL
+SHA-256:
+`B8839305CFC5259365DD7268A19831115BD7922ECAAD4F66A00EFF1CD95CA845`.
 
 ## Steps
 

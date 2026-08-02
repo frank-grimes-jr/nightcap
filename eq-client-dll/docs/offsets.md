@@ -287,3 +287,23 @@ and both accessor entrypoints are pinned by the exact-client regression. The
 write covers their shared executable-page span, rechecks both sites after
 changing protection, verifies both replacements, restores both originals on any
 failure, and requires the original page protection to be restored.
+
+## 2026-08-02 Held-skill hotbutton and activation gates
+
+The selector correction made held Monk skills assignable, but a second
+presentation check rendered the resulting type-9 hotbutton **Not Usable**, and
+`CharacterZoneClient::UseSkill` independently rejected the activation before
+packet submission:
+
+- hotbutton `HasSkill` call RVA: `0x00151B59`
+- `UseSkill` adjusted-value call RVA: `0x0005B33E`
+- stock adjusted-value accessor: `CharacterZoneClient::GetSkill`, RVA
+  `0x00049FE0`
+
+The hotbutton call is redirected to the same boolean predicate used by the
+Actions selector. The `UseSkill` call requires a separate integer-returning
+wrapper: it preserves a positive stock adjusted value and otherwise uses the
+positive `GetBaseSkill` value sent by the server. The execution patch is a
+precondition for the presentation patch. Only these two complete five-byte
+calls are changed; later `UseSkill` state, target, and reuse checks remain
+stock, followed by server-side authorization.
