@@ -1,5 +1,21 @@
 # CHANGES
 
+## 2026-09-08 - SpellDmg/HealAmt master output scaling
+
+Made SpellDmg and HealAmt the caster/healer output dials. Flipped five Spells
+rules (`ItemExtraSpellAmtCalcAsPercent`, `FlatItemExtraSpellAmt`,
+`IgnoreSpellDmgLvlRestriction`, `DOTsScaleWithSpellDmg`, `HOTsScaleWithHealAmt`)
+so these stats apply as uncapped percent-of-base multipliers on spells, heals,
+DoTs and HoTs. Extended `gen_loot_tier` in `tiered_loot_setup.sql` with a
+`p_spellstat` param that ADDS flat SpellDmg/HealAmt to worn tier gear
+(+5/+12/+20 Polished/Exalted/Ascended, mirrored to Ascended epics) — Classic base
+items are ~0, so the pre-existing offense multiply was a no-op. Soloability is
+tuned via `Character:ItemSpellDmgCap`/`ItemHealAmtCap` (250 = +250% at cap).
+Rules + SQL only; no C++, no client change; NPCs and melee output untouched.
+Gotcha: heroic INT/WIS can also feed these stats via `Heroic*Increase*Multiplier`
+(0 today) — verify vs the cap before enabling. Reverse: rules → false, re-run the
+generator with `p_spellstat` 0.
+
 ## 2026-09-08 - Held-Monk combat QA PASS (#10)
 
 In-game QA of the six held-Monk attacks (G006) passed on the cleaned Monktest
