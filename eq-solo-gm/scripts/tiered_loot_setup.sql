@@ -18,7 +18,10 @@
 --   HP / Mana:                 x1.45 / x1.90 / x2.40   (THJ Legendary ~x2.4)
 --   AC / base stats / resists / regens: x1.35 / x1.65 / x2.00
 --   Endurance:                 x1.07 / x1.13 / x1.20   (THJ: 180 -> 220)
---   Offense (dmg/atk/acc/spelldmg/healamt/...): x1.10 / x1.20 / x1.35
+--   Offense (dmg/atk/acc/...):  x1.10 / x1.20 / x1.35
+--   SpellDmg / HealAmt: FLAT +5 / +12 / +20 ADDED to worn gear (spec 2026-09-08);
+--     base Classic items are ~0 so a multiply is a no-op. Tuned so a near-full
+--     top-tier set saturates Character:ItemSpellDmgCap (the primary dial).
 --                              (kept conservative so solo kill-speed doesn't
 --                               trivialize — offense comes from AA/disc/augs, per #24)
 -- NOT scaled (THJ leaves them): shielding, spellshield, dotshielding, avoidance,
@@ -38,7 +41,8 @@ CREATE PROCEDURE gen_loot_tier(
     IN p_hpmana  DECIMAL(4,2),  -- HP / Mana        (Ascended = THJ Legendary x2.4)
     IN p_core    DECIMAL(4,2),  -- AC / base stats / resists / regens  (x2.0)
     IN p_endur   DECIMAL(4,2),  -- Endurance        (x1.2)
-    IN p_offn    DECIMAL(4,2),  -- offense: damage/attack/accuracy/spelldmg/healamt/... (conservative)
+    IN p_offn    DECIMAL(4,2),  -- offense: damage/attack/accuracy/... (conservative)
+    IN p_spellstat INT,         -- flat SpellDmg/HealAmt ADDED to worn gear per tier (base is ~0)
     IN p_heroic  DECIMAL(4,2),  -- heroic = this fraction of the scaled stat (Ascended 0.25; else 0)  #8
     IN p_tag     VARCHAR(20),
     IN p_bagslot INT,
@@ -99,6 +103,16 @@ BEGIN
       combateffects=IF(combateffects>0,ROUND(combateffects*p_offn),combateffects),
       strikethrough=IF(strikethrough>0,ROUND(strikethrough*p_offn),strikethrough), damageshield=IF(damageshield>0,ROUND(damageshield*p_offn),damageshield);
 
+    -- Master output scaling (spec 2026-09-08): ADD flat SpellDmg/HealAmt to worn
+    -- tier gear. Base Classic items are ~0 so the offense multiply above is a
+    -- no-op; this is the real source. Worn slots only (never bags).
+    -- ponytail: flat on all worn slots regardless of class; percent only applies
+    -- when the wearer actually casts, so it is harmless on pure-melee gear.
+    UPDATE tg SET
+      spelldmg = spelldmg + p_spellstat,
+      healamt  = healamt  + p_spellstat
+      WHERE slots > 0;
+
     -- Heroic stats (THJ Legendary signature, #8): add p_heroic of the SCALED base
     -- stat/resist as heroic (Ascended p_heroic=0.25 -> STA 40 gets +10 heroic, matching
     -- the reference necklace). Lower tiers pass 0. The heroic engine is live at x1.0
@@ -131,10 +145,10 @@ BEGIN
 END //
 DELIMITER ;
 
---                       hpmana core  endur offn  heroic tag             bag: slot wr size
-CALL gen_loot_tier(200000, 1.45, 1.35, 1.07, 1.10, 0.00, ' (Polished)', 2,  25, 3);
-CALL gen_loot_tier(400000, 1.90, 1.65, 1.13, 1.20, 0.00, ' (Exalted)',  4,  50, 4);
-CALL gen_loot_tier(600000, 2.40, 2.00, 1.20, 1.35, 0.25, ' (Ascended)', 6, 100, 4);  -- = THJ Legendary (+25% heroic)
+--                       hpmana core  endur offn  spellstat heroic tag             bag: slot wr size
+CALL gen_loot_tier(200000, 1.45, 1.35, 1.07, 1.10,  5, 0.00, ' (Polished)', 2,  25, 3);
+CALL gen_loot_tier(400000, 1.90, 1.65, 1.13, 1.20, 12, 0.00, ' (Exalted)',  4,  50, 4);
+CALL gen_loot_tier(600000, 2.40, 2.00, 1.20, 1.35, 20, 0.25, ' (Ascended)', 6, 100, 4);  -- = THJ Legendary
 
 DROP PROCEDURE IF EXISTS gen_loot_tier;
 
@@ -167,6 +181,8 @@ UPDATE tge SET
   backstabdmg=IF(backstabdmg>0,ROUND(backstabdmg*1.35),backstabdmg), elemdmgamt=IF(elemdmgamt>0,ROUND(elemdmgamt*1.35),elemdmgamt),
   combateffects=IF(combateffects>0,ROUND(combateffects*1.35),combateffects),
   strikethrough=IF(strikethrough>0,ROUND(strikethrough*1.35),strikethrough), damageshield=IF(damageshield>0,ROUND(damageshield*1.35),damageshield);
+-- Master output scaling: Ascended epics get the same +20 SpellDmg/HealAmt as T4 Ascended.
+UPDATE tge SET spelldmg = spelldmg + 20, healamt = healamt + 20 WHERE slots > 0;
 -- Ascended epic heroic (+25% of scaled stat, matching T4 Ascended, #8)
 UPDATE tge SET
   heroic_str=heroic_str+IF(astr>0,ROUND(astr*0.25),0), heroic_sta=heroic_sta+IF(asta>0,ROUND(asta*0.25),0),
