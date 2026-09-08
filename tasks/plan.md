@@ -17,7 +17,7 @@ No gameplay implementation begins until the contract and this plan are posted to
 - [x] Rehearse guarded dry-run, repair, exact comparison, rollback, and deterministic reapply against a restored live copy.
 - [x] Apply the guarded live repair, verify exact canonical equality, refresh caches, and restart all gameplay processes.
 - [ ] Capture baseline behavior for `Done`, `Pups`, and a stock single-class control.
-- [ ] Create a checked-in audit of every player-facing `GetClass()`/class-switch gate with classification, owner, remediation, and test evidence.
+- [x] Create a checked-in audit of every player-facing `GetClass()`/class-switch gate with classification, owner, remediation, and test evidence. (`docs/audits/multiclass-class-gates.md`, coverage complete 2026-09-08.)
 - [x] Generate the 480-row all-playable-class × primary/secondary/tertiary-slot × capability acceptance matrix.
 - [ ] Find and document exact RoF2 patch sites for spells/disciplines, abilities, Skills, trainers, and equip submission.
 - [ ] Treat every unresolved required site as a blocker unless its server-authoritative fallback is approved in #10.

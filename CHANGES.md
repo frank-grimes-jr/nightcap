@@ -1,5 +1,30 @@
 # CHANGES
 
+## 2026-09-08 - Complete the player-facing class-gate audit coverage (#10)
+
+Finished the Phase 0 gate audit (`docs/audits/multiclass-class-gates.md`), the
+last open item in the Ready queue and the gate that blocks the remaining Phase 2
+gameplay slices. No code or DB changes — audit/doc only.
+
+Expanded the former G018 "inventory" row (581 → re-baselined 552 zone `*.cpp`
+accessor matches) into per-symbol rows G018.1–G018.13 across `attack.cpp`,
+`spell_effects.cpp`, `effects.cpp`, and `bonuses.cpp`: stat softcaps/ATK caps
+(best-of held), hand-to-hand and melee damage/crit/frenzy (additive), defensive
+gates, heroic caster mana, the `IS_CLASS_*` spell-restriction conditionals, focus
+eligibility, and SK/Paladin procs; LDoNTreasure/body-type/banker checks and
+group-exp base class stay non-player/chassis.
+
+The exhaustive sweep surfaced three player capabilities no earlier row owned,
+all still primary-class only: G019 Tracking (`GetClassTrackingDistanceMultiplier`),
+G020 bind-wound class bonuses, and G021 spell/discipline cast-scribe-learn
+resolution (mismatch — blocks the Phase 2 spell/discipline slice). It also
+confirmed pet/familiar summon, scroll memorization, and Bard mana-regen are
+already multiclass-aware (regression-guard only), while tome learning and the
+generic cast-level lookup are not. A coverage-reconciliation table maps all 552
+accessors to a row or non-player/scripting/identity bucket; zero player-reachable
+gates remain unmapped. Rows stay **open**; "complete" here means coverage, not
+implementation.
+
 ## 2026-08-02 - Route held-Monk hotbuttons through stock combat submission (#10)
 
 Corrected the remaining RoF2 activation failure for the six held-Monk attacks.

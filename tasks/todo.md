@@ -7,7 +7,7 @@
 - [x] Fix and test native skill train-level resolution.
 - [x] Check in the read-only legacy `skill_caps` audit and migration safety gate.
 - [x] Generate the 480-row class × held-slot × capability acceptance matrix.
-- [ ] Continue the exhaustive player-facing class-gate audit and acceptance matrix.
+- [x] Continue the exhaustive player-facing class-gate audit and acceptance matrix. (Gate coverage complete 2026-09-08: G018 expanded to per-symbol G018.1–G018.13; G019 tracking, G020 bind-wound, G021 spell/disc cast-resolution surfaced; all 552 zone accessors reconciled.)
 
 ## Baseline migration gate
 
