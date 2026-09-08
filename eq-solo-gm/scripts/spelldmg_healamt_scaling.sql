@@ -8,6 +8,9 @@
 -- heals, DoTs and HoTs, and pins the item-stat caps as the primary "cap-as-dial"
 -- soloability knob. Reverse by setting the five Spells rules back to 'false'.
 -- =============================================================================
+-- ItemExtraSpellAmtCalcAsPercent is a no-op unless FlatItemExtraSpellAmt is also
+-- true: the percent branch is nested inside the flat check, so reverting only one
+-- of the two silently changes semantics rather than partially disabling the effect.
 INSERT INTO rule_values (ruleset_id, rule_name, rule_value, notes) VALUES
  (1,'Spells:ItemExtraSpellAmtCalcAsPercent','true','SpellDmg/HealAmt applied as percent of base spell value'),
  (1,'Spells:FlatItemExtraSpellAmt','true','Bypass cast-time proportion and the +50%-of-base cap'),

@@ -22,6 +22,15 @@ Spec: docs/superpowers/specs/2026-09-08-spelldmg-healamt-scaling-design.md
 5. **Scope guard:** on a pure-melee character (no casting), confirm melee auto-attack
    and combat-ability damage are unchanged by any of the above.
 6. **NPC guard:** confirm an NPC's spell output is unchanged (no client cap path).
+7. **Base>0 saturation note:** a mixed high-tier caster set may hit the 250 cap
+   with fewer than ~13 pieces, because base-item stats aren't all 0 — a caster
+   item that already carries SpellDmg/HealAmt contributes base*mult + stamp, not
+   just the flat stamp. Reaching the cap early is expected, not a bug.
+8. **Heroic INT/WIS headroom:** `Heroic*IncreaseSpellDmgMultiplier` is 0 today, so
+   Ascended-gear heroic INT/WIS doesn't yet feed SpellDmg/HealAmt. Before anyone
+   sets those multipliers non-zero, record whether the heroic contribution would
+   land inside or outside the existing item cap (i.e. how much headroom is left
+   under 250 at a near-full Ascended set) so the cap doesn't need a same-day fix.
 
 ## Report
 - Measured nuke/heal at each state vs the expected multiplier.
@@ -29,3 +38,7 @@ Spec: docs/superpowers/specs/2026-09-08-spelldmg-healamt-scaling-design.md
 - Whether DoT/HoT scaled and stayed split over duration.
 - Any melee/NPC output that changed (should be none).
 - Whether the resulting solo kill speed feels right, or the cap needs a nudge.
+- Piece count at which a mixed high-tier caster set hit the 250 cap, and whether
+  base>0 items were the reason it happened earlier than expected.
+- Headroom left under the item cap for heroic INT/WIS at a near-full Ascended set,
+  before `Heroic*IncreaseSpellDmgMultiplier` is set non-zero.

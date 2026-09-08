@@ -19,12 +19,17 @@
 --   AC / base stats / resists / regens: x1.35 / x1.65 / x2.00
 --   Endurance:                 x1.07 / x1.13 / x1.20   (THJ: 180 -> 220)
 --   Offense (dmg/atk/acc/...):  x1.10 / x1.20 / x1.35
---   SpellDmg / HealAmt: FLAT +5 / +12 / +20 ADDED to worn gear (spec 2026-09-08).
---     Most Classic-obtainable worn items have 0 here, so they get exactly the flat
---     stamp; the minority of base items that already carry these stats get
+--   SpellDmg / HealAmt: FLAT +5 / +12 / +20 ADDED to worn gear (spec 2026-09-08),
+--     driven by the @ss_polished/@ss_exalted/@ss_ascended variables set just above
+--     the CALL gen_loot_tier(...) lines (and reused for the Ascended-epic stamp
+--     below). Most Classic-obtainable worn items have 0 here, so they get exactly
+--     the flat stamp; the minority of base items that already carry these stats get
 --     base*offn + stamp (intended, and bounded by Character:ItemSpellDmgCap /
 --     ItemHealAmtCap, the primary dial). Tuned so a near-full top-tier set
---     saturates that cap.
+--     saturates that cap. Reverse by setting all three @ss_* variables to 0 and
+--     re-running this script — that strips the stamp from every band INCLUDING
+--     the Ascended epics (rules->false in spelldmg_healamt_scaling.sql is the
+--     primary functional reversal; the stamp is inert while those rules are off).
 --                              (kept conservative so solo kill-speed doesn't
 --                               trivialize — offense comes from AA/disc/augs, per #24)
 -- NOT scaled (THJ leaves them): shielding, spellshield, dotshielding, avoidance,
@@ -148,10 +153,18 @@ BEGIN
 END //
 DELIMITER ;
 
---                       hpmana core  endur offn  spellstat heroic tag             bag: slot wr size
-CALL gen_loot_tier(200000, 1.45, 1.35, 1.07, 1.10,  5, 0.00, ' (Polished)', 2,  25, 3);
-CALL gen_loot_tier(400000, 1.90, 1.65, 1.13, 1.20, 12, 0.00, ' (Exalted)',  4,  50, 4);
-CALL gen_loot_tier(600000, 2.40, 2.00, 1.20, 1.35, 20, 0.25, ' (Ascended)', 6, 100, 4);  -- = THJ Legendary
+-- Per-tier flat SpellDmg/HealAmt stamp (spec 2026-09-08). Set all three to 0 and
+-- re-run to strip the stat from every band INCLUDING the Ascended epics below.
+-- rules->false (spelldmg_healamt_scaling.sql) is the primary functional reversal;
+-- the stamp is inert while the percent rules are off.
+SET @ss_polished := 5;
+SET @ss_exalted  := 12;
+SET @ss_ascended := 20;
+
+--                       hpmana core  endur offn  spellstat      heroic tag             bag: slot wr size
+CALL gen_loot_tier(200000, 1.45, 1.35, 1.07, 1.10, @ss_polished, 0.00, ' (Polished)', 2,  25, 3);
+CALL gen_loot_tier(400000, 1.90, 1.65, 1.13, 1.20, @ss_exalted,  0.00, ' (Exalted)',  4,  50, 4);
+CALL gen_loot_tier(600000, 2.40, 2.00, 1.20, 1.35, @ss_ascended, 0.25, ' (Ascended)', 6, 100, 4);  -- = THJ Legendary
 
 DROP PROCEDURE IF EXISTS gen_loot_tier;
 
@@ -185,7 +198,7 @@ UPDATE tge SET
   combateffects=IF(combateffects>0,ROUND(combateffects*1.35),combateffects),
   strikethrough=IF(strikethrough>0,ROUND(strikethrough*1.35),strikethrough), damageshield=IF(damageshield>0,ROUND(damageshield*1.35),damageshield);
 -- Master output scaling: Ascended epics get the same +20 SpellDmg/HealAmt as T4 Ascended.
-UPDATE tge SET spelldmg = spelldmg + 20, healamt = healamt + 20 WHERE slots > 0;
+UPDATE tge SET spelldmg = spelldmg + @ss_ascended, healamt = healamt + @ss_ascended WHERE slots > 0;
 -- Ascended epic heroic (+25% of scaled stat, matching T4 Ascended, #8)
 UPDATE tge SET
   heroic_str=heroic_str+IF(astr>0,ROUND(astr*0.25),0), heroic_sta=heroic_sta+IF(asta>0,ROUND(asta*0.25),0),

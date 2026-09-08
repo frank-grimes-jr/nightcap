@@ -32,3 +32,9 @@ SELECT 'bags_stat_changed (expect 0)' AS check_name, COUNT(*) AS result
 FROM items a JOIN items b ON b.id = a.id - 600000
 WHERE a.id BETWEEN 600001 AND 799999 AND a.bagslots > 0 AND a.slots = 0
   AND (a.spelldmg <> b.spelldmg OR a.healamt <> b.healamt);
+-- Ascended-epic completeness: base-0 epic copies must be stamped to 20 (expect 0).
+SELECT 'epic_base0_unstamped (expect 0)' AS check_name, COUNT(*) AS result
+FROM items a JOIN items b ON b.id = a.id - 800000
+WHERE a.id BETWEEN 800001 AND 899999 AND a.slots > 0
+  AND b.spelldmg = 0 AND b.healamt = 0
+  AND NOT (a.spelldmg = 20 AND a.healamt = 20);

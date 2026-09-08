@@ -8,8 +8,10 @@ rules (`ItemExtraSpellAmtCalcAsPercent`, `FlatItemExtraSpellAmt`,
 so these stats apply as uncapped percent-of-base multipliers on spells, heals,
 DoTs and HoTs. Extended `gen_loot_tier` in `tiered_loot_setup.sql` with a
 `p_spellstat` param that ADDS flat SpellDmg/HealAmt to worn tier gear
-(+5/+12/+20 Polished/Exalted/Ascended, mirrored to Ascended epics) — Classic base
-items are ~0, so the pre-existing offense multiply was a no-op. Soloability is
+(+5/+12/+20 Polished/Exalted/Ascended, mirrored to Ascended epics) — most
+Classic-obtainable worn items are 0 here, so they get exactly the flat stamp,
+while the minority that already carry these stats get base*offn + stamp (bounded
+by the item cap below). Soloability is
 tuned via `Character:ItemSpellDmgCap`/`ItemHealAmtCap` (250 = +250% at cap).
 Rules + SQL only; no C++, no client change; NPCs and melee output untouched.
 Gotcha: heroic INT/WIS can also feed these stats via `Heroic*Increase*Multiplier`
