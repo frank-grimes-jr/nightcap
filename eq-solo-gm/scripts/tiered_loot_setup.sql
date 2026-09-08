@@ -19,9 +19,12 @@
 --   AC / base stats / resists / regens: x1.35 / x1.65 / x2.00
 --   Endurance:                 x1.07 / x1.13 / x1.20   (THJ: 180 -> 220)
 --   Offense (dmg/atk/acc/...):  x1.10 / x1.20 / x1.35
---   SpellDmg / HealAmt: FLAT +5 / +12 / +20 ADDED to worn gear (spec 2026-09-08);
---     base Classic items are ~0 so a multiply is a no-op. Tuned so a near-full
---     top-tier set saturates Character:ItemSpellDmgCap (the primary dial).
+--   SpellDmg / HealAmt: FLAT +5 / +12 / +20 ADDED to worn gear (spec 2026-09-08).
+--     Most Classic-obtainable worn items have 0 here, so they get exactly the flat
+--     stamp; the minority of base items that already carry these stats get
+--     base*offn + stamp (intended, and bounded by Character:ItemSpellDmgCap /
+--     ItemHealAmtCap, the primary dial). Tuned so a near-full top-tier set
+--     saturates that cap.
 --                              (kept conservative so solo kill-speed doesn't
 --                               trivialize — offense comes from AA/disc/augs, per #24)
 -- NOT scaled (THJ leaves them): shielding, spellshield, dotshielding, avoidance,

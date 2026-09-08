@@ -51,10 +51,10 @@ Spec: [docs/superpowers/specs/2026-09-08-spelldmg-healamt-scaling-design.md](../
 Run (confirms the stamp isn't applied yet and the percent rule is off — the problem we're fixing). The check is the exact stamp pattern, not `spelldmg>0`: the full items table already has later-expansion base items carrying SpellDmg, so `>0` is not zero today — but no worn item has both `spelldmg=20` AND `healamt=20` until the stamp lands:
 
 ```bash
-docker exec akk-stack-mariadb-1 mysql -ueqemu -peqemu peq --table -e "SELECT (SELECT COUNT(*) FROM items WHERE id BETWEEN 600001 AND 799999 AND slots>0 AND spelldmg=20 AND healamt=20) AS ascended_worn_stamped, (SELECT rule_value FROM rule_values WHERE rule_name='Spells:ItemExtraSpellAmtCalcAsPercent') AS percent_rule;"
+docker exec akk-stack-mariadb-1 mysql -ueqemu -peqemu peq --table -e "SELECT COUNT(*) AS ascended_base0_stamped_20 FROM items a JOIN items b ON b.id = a.id - 600000 WHERE a.id BETWEEN 600001 AND 799999 AND a.slots>0 AND b.spelldmg=0 AND b.healamt=0 AND a.spelldmg=20 AND a.healamt=20;"
 ```
 
-Expected: `ascended_worn_stamped` = 0 (or a negligible count of coincidences), `percent_rule` = NULL (no row). This is the baseline the change flips — Task 2 Step 6 re-runs the same stamp check and expects a large count.
+Expected: `ascended_base0_stamped_20` = 0 before the change (base-0 items have unstamped tier copies); Task 2 Step 6 re-checks and expects > 1000 after.
 
 - [ ] **Step 2: Create the rules file**
 
@@ -180,23 +180,39 @@ Create `eq-solo-gm/scripts/verify_spelldmg_healamt.sql`:
 
 ```sql
 -- Verification for the SpellDmg/HealAmt scaling slice. Run AFTER applying both
--- scripts and regenerating tiers. All four expectations must hold.
-SELECT 'rules_true (expect 5)' AS check_name,
-       COUNT(*) AS result
+-- scripts and regenerating tiers. Checks 1-2 confirm rules/caps; checks 3-5 prove
+-- the STAMP by joining each tier copy to its base item (id - offset), so a
+-- pre-existing offense-multiply coincidence cannot satisfy them. The Ascended
+-- band (offset 600000) is the representative check.
+SELECT 'rules_true (expect 5)' AS check_name, COUNT(*) AS result
 FROM rule_values
 WHERE rule_name IN ('Spells:ItemExtraSpellAmtCalcAsPercent','Spells:FlatItemExtraSpellAmt',
                     'Spells:IgnoreSpellDmgLvlRestriction','Spells:DOTsScaleWithSpellDmg',
                     'Spells:HOTsScaleWithHealAmt')
   AND rule_value='true';
 SELECT 'caps_present (expect 2, both 250)' AS check_name,
-       GROUP_CONCAT(CONCAT(rule_name,'=',rule_value)) AS result
+       GROUP_CONCAT(CONCAT(rule_name,'=',rule_value) ORDER BY rule_name) AS result
 FROM rule_values WHERE rule_name IN ('Character:ItemSpellDmgCap','Character:ItemHealAmtCap');
-SELECT 'ascended_worn_stamped (expect > 0)' AS check_name,
-       COUNT(*) AS result
-FROM items WHERE id BETWEEN 600001 AND 799999 AND slots>0 AND spelldmg=20 AND healamt=20;
-SELECT 'bags_untouched (expect 0)' AS check_name,
-       COUNT(*) AS result
-FROM items WHERE id BETWEEN 200001 AND 799999 AND bagslots>0 AND slots=0 AND (spelldmg<>0 OR healamt<>0);
+-- Causation: Ascended copies of base-ZERO worn items must be exactly 20/20.
+-- Before the stamp these are 0 (count 0); after, thousands. Expect > 1000.
+SELECT 'ascended_base0_stamped_20 (expect > 1000)' AS check_name, COUNT(*) AS result
+FROM items a JOIN items b ON b.id = a.id - 600000
+WHERE a.id BETWEEN 600001 AND 799999 AND a.slots > 0
+  AND b.spelldmg = 0 AND b.healamt = 0
+  AND a.spelldmg = 20 AND a.healamt = 20;
+-- Completeness: NO base-zero worn Ascended copy may remain unstamped.
+-- Before the stamp this equals every base-0 worn item (huge); after, expect 0.
+SELECT 'ascended_base0_unstamped (expect 0)' AS check_name, COUNT(*) AS result
+FROM items a JOIN items b ON b.id = a.id - 600000
+WHERE a.id BETWEEN 600001 AND 799999 AND a.slots > 0
+  AND b.spelldmg = 0 AND b.healamt = 0
+  AND NOT (a.spelldmg = 20 AND a.healamt = 20);
+-- Bags never received the stamp: a bag tier copy's stats must equal its base's.
+-- Expect 0 changed (the stamp is guarded slots>0).
+SELECT 'bags_stat_changed (expect 0)' AS check_name, COUNT(*) AS result
+FROM items a JOIN items b ON b.id = a.id - 600000
+WHERE a.id BETWEEN 600001 AND 799999 AND a.bagslots > 0 AND a.slots = 0
+  AND (a.spelldmg <> b.spelldmg OR a.healamt <> b.healamt);
 ```
 
 - [ ] **Step 9: Commit**
@@ -270,8 +286,9 @@ docker exec -i akk-stack-mariadb-1 mysql -ueqemu -peqemu peq --table < eq-solo-g
 Expected:
 - `rules_true` = 5
 - `caps_present` = 2, both `=250`
-- `ascended_worn_stamped` > 0
-- `bags_untouched` = 0
+- `ascended_base0_stamped_20` > 1000
+- `ascended_base0_unstamped` = 0
+- `bags_stat_changed` = 0
 
 If any row is off, stop and diagnose before Task 3. (No commit — this task's deliverable is the verified running state on dev.)
 
