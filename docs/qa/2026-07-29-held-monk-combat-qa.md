@@ -18,6 +18,18 @@ AAs, buffs, spells, disciplines, equipment, or cooldown timers. One Water Flask
 occupies General Slot 1 so EQEmu's inventory loader receives a valid row. This
 is the functional-only pass; it does not test value-1 skill progression.
 
+## QA result — 2026-09-08 (PASS)
+
+Ran against the cleaned fixture (stray Ancient Attunement AA removed; activation
+build `8F8DF8B2…` live). All six Monk attacks were visible and assignable through
+Actions -> Abilities, activated with animation and damage against the arena dummy,
+and started their reuse timers. Kick single-routed (one attack per activation, no
+double). Held-Shadowknight **Harm Touch** was additionally spot-checked and fired
+correctly. G006's held-Monk slice is verified in game; the remaining generic
+held-class Kick and Berserker Frenzy rounds are still open. Harm Touch firing is a
+positive signal for G002; the full G002 matrix (Lay on Hands, reuse, negative
+class) still wants formal coverage.
+
 ## Result
 
 The corrected login banner reports Cleric (primary), Shadowknight (secondary),

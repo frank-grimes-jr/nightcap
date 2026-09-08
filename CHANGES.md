@@ -1,5 +1,15 @@
 # CHANGES
 
+## 2026-09-08 - Held-Monk combat QA PASS (#10)
+
+In-game QA of the six held-Monk attacks (G006) passed on the cleaned Monktest
+fixture with the activation build `8F8DF8B2…`: all six visible/assignable via
+Actions -> Abilities, animating and damaging the arena dummy with correct reuse,
+and Kick single-routed (no double). Held-Shadowknight Harm Touch was additionally
+spot-checked and fired. Recorded in `docs/qa/2026-07-29-held-monk-combat-qa.md`;
+audit G006 held-Monk slice marked verified (generic Kick/Frenzy still open), G002
+noted with the Harm Touch spot-check.
+
 ## 2026-09-08 - Clean Monktest QA fixture before held-Monk activation QA (#10)
 
 Prepping the pending G006 in-game QA. Verified the deployed dev client
