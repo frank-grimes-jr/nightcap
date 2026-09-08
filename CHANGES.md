@@ -1,5 +1,19 @@
 # CHANGES
 
+## 2026-09-08 - Clean Monktest QA fixture before held-Monk activation QA (#10)
+
+Prepping the pending G006 in-game QA. Verified the deployed dev client
+`dinput8.dll` is the activation build (SHA-256 `8F8DF8B2…F1B26D`) and that
+Monktest (char 19) is otherwise pristine — 60 skills, 0 mismatches, Water Flask
+in slot 23. The fixture Check flagged one stray `character_alternate_abilities`
+row (Ancient Attunement, aa_id 22200 rank, value 1) granted during earlier
+testing; a stray combat AA would confound the Kick single-routing step. Backed
+up PEQ (`backups/peq_20260908_093915.sql.gz`, 44 MB) and deleted that one row
+while the character was camped (`ingame=0`). Post-state: 0 inherited combat rows,
+aa_points 0. Character is parked in the Arena (zone 77) rather than the pristine
+PoK (202), which is where the QA runs, so the fixture Check still reports that
+zone as a benign mismatch. Re-grant if needed: char 19, aa_id 22200, value 1.
+
 ## 2026-09-08 - Complete the player-facing class-gate audit coverage (#10)
 
 Finished the Phase 0 gate audit (`docs/audits/multiclass-class-gates.md`), the
