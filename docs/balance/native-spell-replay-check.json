@@ -1,0 +1,18 @@
+{
+  "same_seed_byte_identical": true,
+  "sha256": "d0e017ca6c6b6c8b1fea3ff15c6ba69575ecb9f5c295c15b8dfee0839524dc8b",
+  "seed": 1729,
+  "binary_sha256": "d6ab5a2bb397669c52cb8e84737740aa1d2fa7e2441b47cbc31cd67776d6c757",
+  "different_seed_control": {
+    "seeds": [
+      1729,
+      1730
+    ],
+    "samples_per_action": 256,
+    "changed_action_histograms": 3,
+    "report_hashes": [
+      "e777483746bcfbaf8f4aa6590766f03d6f58dffe558ac62e1660a91f788c4662",
+      "edbf54aa698f1a1d757197fcf90e6095e15ebe4946e05c3dfd257981a92137e0"
+    ]
+  }
+}

@@ -2,6 +2,7 @@
 #include "zone/client.h"
 #include "zone/zone.h"
 #include "zone/aa_ability.h"
+#include "zone/npc.h"
 #include "common/json/json.hpp"
 #include "common/item_instance.h"
 #include "common/rulesys.h"
@@ -9,9 +10,30 @@
 #include <fstream>
 #include <iostream>
 #include <stdexcept>
+#include <atomic>
+#include <cstdlib>
+#include <map>
+#include <tuple>
 
 using json = nlohmann::json;
 extern Zone *zone;
+
+// Linker wrapping changes only random_device seeding in this executable.
+// EQ::Random's native engine and distributions are not replaced or patched.
+static std::atomic<uint64_t> balance_seed_calls{0};
+extern "C" unsigned int __real__ZNSt13random_device9_M_getvalEv(void *device);
+extern "C" unsigned int __wrap__ZNSt13random_device9_M_getvalEv(void *device)
+{
+	const char *seed = std::getenv("NIGHTCAP_BALANCE_RNG_SEED");
+	if (!seed) { return __real__ZNSt13random_device9_M_getvalEv(device); }
+	char *end = nullptr;
+	const auto value = std::strtoull(seed, &end, 10);
+	if (!*seed || *end || *seed == '-' || value > UINT32_MAX) {
+		throw std::runtime_error("NIGHTCAP_BALANCE_RNG_SEED must be uint32");
+	}
+	++balance_seed_calls;
+	return static_cast<unsigned int>(value);
+}
 
 // Runs before the original main initializes paths, databases, or networking.
 bool NightcapBalancePreflight(int argc, char **argv)
@@ -180,6 +202,89 @@ public:
 		CalcBonuses();
 		return purchases;
 	}
+
+	json SpellProbes(const json &build, int samples)
+	{
+		if (!std::getenv("NIGHTCAP_BALANCE_RNG_SEED") || samples < 1 || samples > 100000) {
+			throw std::runtime_error("Spell probes require an explicit native seed and 1..100000 samples");
+		}
+		json result = json::array();
+		std::map<uint32, NPC*> targets;
+		SetHP(GetMaxHP());
+		Mob::SetMana(GetMaxMana()); // Resource state without client UI/update side effects.
+		for (const auto &probe : build.at("spell_probes")) {
+			const auto spell_id = probe.at("spell_id").get<uint16>();
+			if (!IsValidSpell(spell_id)) { throw std::runtime_error("Invalid probe spell"); }
+			const auto &spell = spells[spell_id];
+			bool eligible = false;
+			for (auto held : GetMulticlassList()) {
+				eligible |= spell.classes[held - 1] > 0 && spell.classes[held - 1] <= GetLevel();
+			}
+			// First integration covers one direct CurrentHP effect on a single target.
+			// Other effect/target paths must be added explicitly, not silently omitted.
+			if (!eligible || spell.effect_id[0] != SpellEffect::CurrentHP || spell.buff_duration != 0
+				|| spell.target_type != ST_Target || spell.limit_value[0] != 0) {
+				throw std::runtime_error("Unsupported or level-ineligible direct spell probe");
+			}
+			for (int slot = 1; slot < EFFECT_COUNT; ++slot) {
+				if (!IsBlankSpellEffect(spell_id, slot)) { throw std::runtime_error("Multi-effect spell probe requires implementation"); }
+			}
+			const bool healing = spell.base_value[0] > 0;
+			if (healing != (spell.good_effect != 0)) { throw std::runtime_error("Unexpected probe polarity"); }
+			Mob *target = this;
+			const auto npc_id = probe.value("npc_id",0u);
+			if (!healing) {
+				if (npc_id != 32040 && npc_id != 73057) { throw std::runtime_error("Expected captured Nagafen/Vox probe target"); }
+				if (!targets.count(npc_id)) {
+					auto *type = content_db.LoadNPCTypesData(npc_id);
+					if (!type) { throw std::runtime_error("Missing native NPC type"); }
+					// No EntityList registration, AI loop, loot, movement, or quest events.
+					targets[npc_id] = new NPC(type,nullptr,glm::vec4(0,0,0,0),GravityBehavior::Water);
+				}
+				target = targets.at(npc_id);
+			} else if (npc_id) { throw std::runtime_error("Healing probe must target self"); }
+			// Each action starts from the same explicit seed. Replay requires the
+			// pinned binary/runtime; branch-dependent draw consumption stays native.
+			zone->random.Reseed();
+			using Outcome = std::tuple<int64,int32,int32,float>;
+			std::map<Outcome,int> histogram;
+			for (int sample = 0; sample < samples; ++sample) {
+				const auto cast_ms = GetActSpellCasttime(spell_id,spell.cast_time);
+				float partial = 100;
+				if (!healing) {
+					partial = target->IsImmuneToSpell(spell_id,this) ? 0
+						: target->ResistSpell(spell.resist_type,spell_id,this,true,spell.resist_difficulty);
+				}
+				int64 amount = 0;
+				if (partial > 0) {
+					const auto base = target->CalcSpellEffectValue(spell_id,0,GetLevel(),GetInstrumentMod(spell_id),this);
+					amount = healing ? GetActSpellHealing(spell_id,base,this)
+						: -GetActSpellDamage(spell_id,static_cast<int64>(base*partial/100),target);
+				}
+				// Normal spell-slot mana cost is resolved after effect application.
+				const auto mana = GetActSpellCost(spell_id,spell.mana);
+				if (amount < 0 || mana < 0 || cast_ms < 0 || partial < 0 || partial > 100) {
+					throw std::runtime_error("Unexpected native spell outcome");
+				}
+				++histogram[{amount,mana,cast_ms,partial}];
+			}
+			json outcomes = json::array();
+			for (const auto &[value,count] : histogram) {
+				outcomes.push_back({{"count",count},{"amount",std::get<0>(value)},
+					{"mana",std::get<1>(value)},{"cast_ms",std::get<2>(value)},
+					{"landed_percent",std::get<3>(value)}});
+			}
+			result.push_back({{"spell_id",spell_id},{"name",spell.name},{"effect",healing ? "heal" : "damage"},
+				{"caster_hp",GetHP()},{"caster_mana",GetMana()},
+				{"npc_id",npc_id},{"target_level",target->GetLevel()},{"target_resist",target->GetResist(spell.resist_type)},
+				{"raw_mana",spell.mana},{"raw_cast_ms",spell.cast_time},
+				{"raw_recast_ms",spell.recast_time},{"raw_recovery_ms",spell.recovery_time},
+				{"specialization",GetSpecializeSkillValue(spell_id)},
+				{"samples",samples},{"outcomes",outcomes},
+				{"scope","Native direct effect/resist/focus/crit/cost/cast-time samples before Damage/HealDamage; no active buffs or complete casting lifecycle"}});
+		}
+		return result;
+	}
 };
 
 int NightcapBalanceMain(int argc, char **argv)
@@ -223,6 +328,11 @@ int NightcapBalanceMain(int argc, char **argv)
 			output["builds"].back()["raw_skills"] = std::vector<uint32>(std::begin(c->GetPP().skills),std::end(c->GetPP().skills));
 			if (input.value("export_aa_catalog",false)) {
 				output["builds"].back()["aa_catalog"] = c->Catalog();
+			}
+			if (build.contains("spell_probes")) {
+				output["builds"].back()["spell_probes"] = c->SpellProbes(build,input.value("spell_samples",1000));
+				output["native_rng_seed"] = std::stoull(std::getenv("NIGHTCAP_BALANCE_RNG_SEED"));
+				output["native_seed_hook_calls"] = balance_seed_calls.load();
 			}
 		}
 		std::ofstream output_file(argv[3]);

@@ -24,6 +24,9 @@ class Action:
     duration_ms: int = 0
     first_ready_ms: int = 0
     outcomes: tuple = ((1, 100),)  # (relative weight, landed percentage)
+    # Joint native samples: weight, final amount, completion mana, cast ms, landed %.
+    # Amount already includes resists/focus/crits. mana above remains the start gate.
+    resolved_outcomes: tuple = ()
 
     def __post_init__(self):
         if self.effect not in ('damage', 'heal', 'dot', 'hot', 'fear'):
@@ -39,6 +42,16 @@ class Action:
             raise ValueError('Periodic/control actions require duration')
         if not self.outcomes or any(w <= 0 or not 0 <= pct <= 100 for w, pct in self.outcomes):
             raise ValueError('Invalid resolved resist distribution')
+        if self.resolved_outcomes:
+            if self.effect not in ('damage','heal') or self.amount != 0 or tuple(map(tuple,self.outcomes)) != ((1,100),):
+                raise ValueError('Joint native outcomes require a direct effect, zero scalar amount, and no separate resist distribution')
+            for row in self.resolved_outcomes:
+                if len(row) != 5 or row[0] <= 0 or min(row[1:4]) < 0 or not 0 <= row[4] <= 100:
+                    raise ValueError('Invalid joint native outcome')
+                if row[3] + max(self.recast_ms,self.recovery_ms) <= 0:
+                    raise ValueError('Native outcome permits zero-time repeats')
+                if row[4] == 0 and row[1] != 0:
+                    raise ValueError('Fully resisted native outcome cannot deal damage')
 
 
 @dataclass(frozen=True)
@@ -172,23 +185,24 @@ def simulate(player, enemy, *, seed, duration_ms=600000, trace=False,
                         break
             schedule(now + actor.melee.delay_ms, 'melee', index, payload)
         elif kind == 'finish':
-            token, action = payload
+            token, action, resolved = payload
             if token != current['cast_token']:
                 continue
             current['casting'] = False
-            current['mana'] -= action.mana
-            current['mana_spent'] += action.mana
+            mana = min(current['mana'],resolved[2] if resolved else action.mana)
+            current['mana'] -= mana
+            current['mana_spent'] += mana
             current['casts'] += 1
             current['cooldown'][action.name] = now + action.recast_ms
             current['busy_until'] = now + action.recovery_ms
-            percent = rng.choices([pct for _,pct in action.outcomes],
+            percent = resolved[4] if resolved else rng.choices([pct for _,pct in action.outcomes],
                                   weights=[w for w,_ in action.outcomes], k=1)[0]
             if percent == 0:
                 current['resists'] += 1
                 record(index, action.name + ':resist', 0)
             else:
                 target = index if action.effect in ('heal', 'hot') else 1-index
-                amount = action.amount * percent // 100
+                amount = resolved[1] if resolved else action.amount * percent // 100
                 if action.effect in ('damage', 'heal'):
                     apply(index, target, action.effect, amount, action.name)
                 elif action.effect in ('dot', 'hot'):
@@ -212,7 +226,10 @@ def simulate(player, enemy, *, seed, duration_ms=600000, trace=False,
                         continue
                     current['cast_token'] += 1
                     current['casting'] = True
-                    schedule(now + action.cast_ms, 'finish', index, (current['cast_token'], action))
+                    resolved = rng.choices(action.resolved_outcomes,
+                                weights=[r[0] for r in action.resolved_outcomes],k=1)[0] if action.resolved_outcomes else None
+                    cast_ms = resolved[3] if resolved else action.cast_ms
+                    schedule(now + cast_ms, 'finish', index, (current['cast_token'], action, resolved))
                     record(index, action.name + ':start', action.mana)
                     break
             # A single decision chain continues through interrupts and controls.

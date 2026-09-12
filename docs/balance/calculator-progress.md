@@ -7,7 +7,7 @@ Status: foundational calculations and input fixtures verified; encounter model i
 
 - `GetExtraSpellAmt` port: 2,792 boundary/random differential cases match the
   extracted actual C++ function. `spell-formula-oracle.json` records source hashes.
-- 106 Python tests cover caps, timing boundaries, duration splitting, integer
+- 114 Python tests cover caps, timing boundaries, duration splitting, integer
   truncation, snapshot/query gates, and gear legality/assignment. Assignment results
   match exhaustive enumeration on 50 small random matrices, including cases where
   a greedy per-slot choice is wrong.
@@ -45,6 +45,11 @@ Status: foundational calculations and input fixtures verified; encounter model i
   ceilings. All 7,868 native purchase steps and 24 HP/mana pairs pass; native
   post-purchase gates confirm all/free set completeness. Six illegal-purchase
   controls and seven isolation controls pass. See `native-aa-stats.md`.
+- Native direct spell sampling now covers 120 actions and 491,520 samples across
+  those AA cases, using actual boss resist targets. Same-seed replay is byte
+  identical. The event engine preserves joint effect/cost/cast-time samples and
+  passes two 2,000-trial analytic throughput controls. This excludes activated-AA
+  state and full casting/AI lifecycles; see `native-spell-resolution.md`.
 - `candidate-builds.json` contains complete 20-slot shield loadouts for WAR/CLR/WIZ,
   WAR/CLR/MNK, and MAG/NEC/SHM across Base/Polished/Exalted/Ascended. The declared
   additive score is globally optimized over each captured tier pool with lore

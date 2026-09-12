@@ -72,3 +72,18 @@ native specialization rules. Practical skill attainment, client access, and
 base-class-only runtime paths remain explicit QA gates. Purchased AA inputs and
 HP/mana now pass 24 native scenarios; this does not establish activated combat
 effects or full fight outcomes. See `docs/balance/native-aa-stats.md`.
+
+## Native direct-action follow-up (2026-09-12)
+
+Use actual direct spell formula/resist/focus/crit/cost/cast-time paths to produce
+joint action distributions for the event runner. A diagnostic-only GNU linker
+wrapper supplies an explicit random_device seed while retaining native RNG
+algorithms. The alternative of changing a private RNG layout or header while
+reusing older objects is rejected; a full native rebuild with a public seed API
+would be more portable but is unnecessary for this pinned diagnostic. Record
+build/runtime hashes and require same-seed replay evidence.
+
+The first 491,520-sample run replays byte-for-byte. Joint event integration passes
+analytic controls, but full casting lifecycle, activation effects, client access,
+and NPC AI remain open. Evaluate accelerated native combat next; both engine
+millisecond timers and persistent wall-clock timers must advance consistently.

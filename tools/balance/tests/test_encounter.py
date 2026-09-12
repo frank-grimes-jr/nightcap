@@ -9,6 +9,36 @@ def player(**changes):
 
 
 class EncounterTests(unittest.TestCase):
+    def test_native_partial_amount_is_not_resisted_twice_and_cost_resolves_at_finish(self):
+        a = Action('native','damage',0,mana=20,cast_ms=2000,recovery_ms=1000,
+                   resolved_outcomes=((1,30,5,500,50),))
+        result = simulate(player(actions=(a,)),Actor('dummy',60),seed=1,duration_ms=5000)
+        self.assertEqual((result['outcome'],result['elapsed_ms']),('kill',2000))
+        self.assertEqual((result['player']['mana_spent'],result['player']['damage']),(10,60))
+
+    def test_native_raw_mana_gate_is_not_replaced_by_discounted_completion_cost(self):
+        a = Action('native','damage',0,mana=20,cast_ms=1000,
+                   resolved_outcomes=((1,30,1,1000,100),))
+        result = simulate(player(mana=19,actions=(a,)),Actor('dummy',30),seed=1,duration_ms=5000)
+        self.assertEqual((result['player']['casts'],result['enemy']['hp']),(0,30))
+        self.assertGreater(result['player']['oom_checks'],0)
+
+    def test_interrupted_native_cast_spends_no_completion_mana(self):
+        a = Action('native','damage',0,mana=20,cast_ms=1000,
+                   resolved_outcomes=((1,30,5,1000,100),))
+        fear = Action('fear','fear',0,cast_ms=500,recast_ms=100000,duration_ms=5000)
+        result = simulate(player(actions=(a,)),Actor('enemy',100,actions=(fear,)),seed=1,duration_ms=2000)
+        self.assertEqual((result['player']['interrupts'],result['player']['mana_spent']),(1,0))
+
+    def test_invalid_or_double_scaled_native_outcomes_fail(self):
+        for data in ({'amount':1}, {'outcomes':((1,50),)},
+                     {'resolved_outcomes':((1,10,5,1000,0),)},
+                     {'resolved_outcomes':((1,10,5,-1,100),)}):
+            args = {'name':'native','effect':'damage','amount':0,'cast_ms':1000,
+                    'resolved_outcomes':((1,10,5,1000,100),)} | data
+            with self.assertRaises(ValueError):
+                Action(**args)
+
     def test_known_kill_time_and_mana_spending(self):
         result = simulate(player(), Actor('dummy', 100), seed=1, duration_ms=10000)
         self.assertEqual(result['outcome'], 'kill')

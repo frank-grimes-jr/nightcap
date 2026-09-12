@@ -63,6 +63,9 @@ def main():
         raise ValueError('Unexpected native link command')
     link[link.index(old_main)] = str(generated.with_suffix('.o'))
     link.insert(1, str(output / 'native_harness.o'))
+    # GNU libstdc++ random_device seed hook only in this diagnostic link.
+    # Native EQ::Random engines/distributions and production objects stay intact.
+    link.insert(1, '-Wl,--wrap=_ZNSt13random_device9_M_getvalEv')
     binary = output / 'balance-zone'
     link[link.index('-o') + 1] = str(binary)
     subprocess.run(link, cwd=build, check=True)
@@ -70,6 +73,9 @@ def main():
     manifest = {'binary_sha256':digest(binary), 'original_main_sha256':digest(main_source),
                 'patched_main_sha256':digest(generated), 'harness_sha256':digest(output/'native_harness.cpp'),
                 'flags_sha256':digest(flags_file), 'link_sha256':digest(link_file), 'objects':objects,
+                'diagnostic_link_args':link,
+                'random_header_sha256':digest(source/'common/random.h'),
+                'rng_seed_hook':'GNU --wrap std::random_device::_M_getval; enabled only by NIGHTCAP_BALANCE_RNG_SEED',
                 'scope':'Separate diagnostic binary reusing pinned native objects; no fresh full-source parity claim'}
     (output / 'native-build-manifest.json').write_text(json.dumps(manifest, indent=2)+'\n')
     print(json.dumps({'binary':str(binary), 'sha256':manifest['binary_sha256'], 'objects':len(objects)}))

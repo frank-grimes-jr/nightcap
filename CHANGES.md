@@ -1,5 +1,19 @@
 # CHANGES
 
+## 2026-09-12 - Resolve native direct-spell actions and preserve sampled outcomes
+
+Sampled 120 player actions across the 24 AA candidates using native Vox/Nagafen
+types, direct spell formulas, resists, focus, crits, specialization, mana costs,
+and cast times. The 491,520-sample run replays byte-for-byte with an isolated
+GNU linker seed hook; native RNG algorithms and production binaries are unchanged.
+Casters have explicit full resources and no active buffs. Added joint outcome
+support to the event simulator, preserving raw mana start gates, discounted
+completion costs, interruption behavior, and already-resolved damage/healing.
+Two 2,000-trial inert-target controls match exact scheduling/accounting and damage
+expectations. 114 Python tests pass; native AA/resource/isolation checks still pass.
+These are direct-action and integration controls, not full BiS boss fights.
+No live tuning or restart occurred. See docs/balance/native-spell-resolution.md.
+
 ## 2026-09-12 - Verify native AA progression inputs
 
 Added explicit 0/100/200/500/all purchase allocations and two finite-budget

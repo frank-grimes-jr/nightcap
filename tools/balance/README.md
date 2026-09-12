@@ -155,3 +155,24 @@ in that runtime. Results and limitations are in `docs/balance/native-aa-stats.md
 The finite budgets use nested purchase prefixes, so actual spent points can be
 slightly below budget. Free purchasable ranks are common to every stage;
 grant-only rewards are excluded. AA activation policies and fights remain pending.
+
+### Native direct-spell samples
+
+Rebuild the diagnostic with the current `build_native.py` and `native_harness.cpp`
+before these commands. The new diagnostic link supports an explicit RNG seed.
+
+```powershell
+python native_spell_inputs.py --aa-inputs ../../docs/balance/native-aa-inputs.json --output ../../docs/balance/native-spell-inputs.json --samples 4096
+docker cp ../../docs/balance/native-spell-inputs.json akk-stack-eqemu-server-1:/tmp/nightcap-balance-20260912/spell-inputs.json
+docker exec --env NIGHTCAP_BALANCE_RNG_SEED=1729 -w /tmp/nightcap-balance-20260912 akk-stack-eqemu-server-1 /tmp/nightcap-balance-20260912/balance-zone tests:balance /tmp/nightcap-balance-20260912/spell-inputs.json /tmp/nightcap-balance-20260912/spell-results.json
+docker cp akk-stack-eqemu-server-1:/tmp/nightcap-balance-20260912/spell-results.json ../../docs/balance/native-spell-samples.json
+python native_spell_actions.py --inputs ../../docs/balance/native-spell-inputs.json --native ../../docs/balance/native-spell-samples.json --output ../../docs/balance/native-spell-summary.json
+python verify_native_action_control.py --native ../../docs/balance/native-spell-samples.json --output ../../docs/balance/native-action-control.json --runs 2000
+```
+
+For replay, repeat the native command with the same seed/input and a distinct
+output filename, then compare bytes. The GNU link hook is diagnostic-only and
+falls through to the real random device when the seed variable is absent.
+The adapter preserves joint native effects/costs/cast times and requires an
+explicit effective cooldown policy. These probes do not run NPC AI or the full
+casting lifecycle; see `docs/balance/native-spell-resolution.md` for scope.
