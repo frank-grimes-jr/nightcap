@@ -30,6 +30,11 @@ class EncounterMatrixTests(unittest.TestCase):
         self.assertEqual(result['result'], 'npc_death')
         self.assertEqual(result['boss_casts'], {})
 
+    def test_native_rejection_messages_are_not_damage_or_cast_events(self):
+        case, report = self.fixture()
+        report['encounter']['events'].append({'type': 'message', 'ms': 50, 'string_id': 197})
+        self.assertEqual(summarize(case, report)['boss_casts'], {})
+
     def test_incomplete_trace_false_kill_or_no_combat_cannot_pass(self):
         case, original = self.fixture()
         mutations = [lambda r: r['encounter'].update(elapsed_ms=11000),

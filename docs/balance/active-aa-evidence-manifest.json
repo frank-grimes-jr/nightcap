@@ -1,0 +1,31 @@
+{
+  "date": "2026-09-12",
+  "scope": "Native activated-AA candidate baseline; full BiS and final tuning incomplete. No production deployment.",
+  "binary_sha256": "4af215b1fe000bd1e9f9c74fe003837a6db26b173bbda932a9468cd27f9aecb5",
+  "python_tests": 149,
+  "lifecycle_controls": 14,
+  "activated_encounters": 144,
+  "passive_regression_encounters": 52,
+  "artifacts": {
+    "docs/balance/active-aa-build-manifest.json": "004c62365190b015c2156f5dcf8793b083866a3e324bc304dddee8f214dd6d9b",
+    "docs/balance/active-aa-check.json": "d7e4442d0328f64505597f54ac7308aa0e07386b406af3e3ce57b39e3cc9236b",
+    "docs/balance/active-aa-controls.json.gz": "7a8ecc9202aecb043313762cfae9cca00a75ab5526d11021fb46a1ae889d60a3",
+    "docs/balance/active-aa-encounter-check.json": "9828a81935df11eea47af4deb7dfa5877d4514e7a252ea870aa75f53225501cb",
+    "docs/balance/active-aa-encounter-inputs.json": "7b2a0fba3a71ff63954cbfc4d7c90ec40a735836e89abd07aeb8d02ace9e9ace",
+    "docs/balance/active-aa-encounters.json.gz": "e3e9d607383b2625a98f580f9524735309610bfa5778b1736957f642f9177a95",
+    "docs/balance/active-aa-guard-check.json": "c7332a1e2f1f6a83af1b2d220b61fc629a8ff988d48b39f402e21c549f18a2d5",
+    "docs/balance/active-aa-inputs.json": "bc89486aed8277d9512b10ab56555e4c2a701267c483d146ee8a598b6b1df47b",
+    "docs/balance/active-aa-invalid-check.json": "f4fac65f2cb995c8ae29118dfb233d61be468b5af36b00c3ab1df838b5ca7f0f",
+    "docs/balance/active-aa-isolation-regression-check.json": "a2a988d601e43fa6cccf118b2429dc6038bfccf8506dec16e6d5e7c4f80e25b9",
+    "docs/balance/active-aa-legacy-inputs.json": "be051fc185fb9de246ecefbd32b5e168e48ae91128e720e57a88c40767f5f186",
+    "docs/balance/active-aa-movement-check.json": "67270333254fbb85e5d32b542904390da8437a83ca034a94f05f3ea471dc21f9",
+    "docs/balance/active-aa-replay-check.json": "a7727c3a0d769d93db85e071aa1663655059b1c1766baa794b2dac6a93a15ce9",
+    "docs/balance/active-aa-spell-rows.json": "c42abfaf0fda20f910bcac3f3439e3a4e893643bbc097c71a3e37d60314a7db8",
+    "tools/balance/native_harness.cpp": "dfde7e783638b69aa7d6c21a28f92e340d87f0be66715975b6199686119a090c",
+    "tools/balance/native_runtime.cpp": "0e2c18fddcf6dccc508d4ac4682ad3434a1ad070c32f72ccd9355d07507b0117",
+    "tools/balance/native_runtime.h": "f802beb06235ced9a4a5ef97dfceec587c38bb08388d4a52e18e83c1f238e21c",
+    "tools/balance/active_aa_controls.py": "84693d7c6e63538f1b4fb6e3eb559d60ca619babd5506e4a3fe2577f2d58a843",
+    "tools/balance/encounter_matrix.py": "b38983552392eaa287a3752feaf9e5b948c66e163a2ff96053194eb66634c13e",
+    "tools/balance/build_native.py": "3fbb5a02bad4c9e0a32ea2c705e1b4cb5e88bb6d9218251068dc48285b3f4d93"
+  }
+}

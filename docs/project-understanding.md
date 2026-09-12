@@ -158,6 +158,14 @@ runtime effects and encounter mechanics, not conclusions about solo difficulty.
 
 ## Recommended next work
 
+Balance-diagnostic follow-up (2026-09-12): native activation controls now reproduce
+Celestial Regeneration's target-level rejection despite legal AA ownership, the
+Tenacity/regeneration shared cooldown, and temporary AA buffs entering the permanent
+self-buff path. Reconcile those interactions before numerical tuning. The 144-case
+activated-AA boss matrix is candidate evidence; preparation, final BiS and broader
+build coverage remain open. See `balance/native-activated-aa.md` for the dated
+findings and reproduction controls.
+
 First reconcile the current source, migrations, and AA minimum rule so tests and
 balance measurements describe the same server. Then refresh the concrete backlog:
 #16 AA strings, #22 bag pricing, #23 feature page, #26 augments, and #19/#20 bard

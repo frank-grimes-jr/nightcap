@@ -95,7 +95,7 @@ def summarize(case, report):
     boss_melee, player_melee = melee(boss_id), melee(player_id)
     if not boss_melee or not player_melee:
         raise ValueError('Missing native melee activity for weapon-equipped encounter')
-    spells = Counter(e['spell'] for e in events if e['source'] == boss_id and e['type'] == 'begin_cast')
+    spells = Counter(e['spell'] for e in events if e['type'] == 'begin_cast' and e['source'] == boss_id)
     return {'id': case['id'], 'npc_id': encounter['npc_id'], 'seed': case['seed'],
             'gear': build['gear_control'], 'aa_stage': build['aa_stage'], 'aa_policy': build['aa_policy'],
             'aa_spent': player['aa_spent'], 'initial_hp': player['hp'], 'initial_mana': player['mana'],

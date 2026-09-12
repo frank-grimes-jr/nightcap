@@ -1,0 +1,9 @@
+{
+  "isolated_database": "nightcap_balance_20260912",
+  "account_rows": 0,
+  "character_rows": 0,
+  "passive_encounter_cases": 52,
+  "passive_regression_byte_identical": true,
+  "passive_result_sha256": "23383c1031d15f442a5ffbac118770e8470f06b4651988be874017d3917eb671",
+  "diagnostic_binary_sha256": "4af215b1fe000bd1e9f9c74fe003837a6db26b173bbda932a9468cd27f9aecb5"
+}

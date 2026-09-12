@@ -1,5 +1,20 @@
 # CHANGES
 
+## 2026-09-12 - Measure native activated AAs in the balance diagnostic
+
+Added timed native AA lifecycle controls and explicit once-per-fight burst/sustain
+policies for the fixed-gear 0/100/200/500/all matrix. Fourteen lifecycle controls
+and 144 Vox/Nagafen encounters completed. The controls expose purchasable Celestial
+Regeneration failing the level-50 target buff gate, its shared timer with Tenacity,
+and permanent self-buff logic extending Tenacity's damaging tail and Twincast's
+duration. Divine Arbitration has no solo resource effect. Buff disappearance is
+not counted as spent Twincast charges. These are baseline findings, not gameplay
+fixes or full BiS certification. No production binary, live tuning, service restart
+or branch promotion occurred. See docs/balance/native-activated-aa.md and ADR 0007.
+All 144 native reports replay identically; the 14 lifecycle controls and 52 prior
+passive-only encounters reproduce byte for byte. Movement checks pass for all
+144 cases, 149 Python tests pass, and isolated player tables remain empty.
+
 ## 2026-09-12 - Restore player pursuit in native encounter diagnostics
 
 Added optional mesh-guided return to melee through normal client position/history

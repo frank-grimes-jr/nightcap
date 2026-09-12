@@ -6,6 +6,7 @@
 #include "common/json/json.hpp"
 #include "common/item_instance.h"
 #include "common/rulesys.h"
+#include "common/ptimer.h"
 #include "native_runtime.h"
 #include <filesystem>
 #include <fstream>
@@ -112,6 +113,7 @@ public:
 			: RuleI(World, ExpansionSettings);
 		GetInv().SetInventoryVersion(EQ::versions::ClientVersion::RoF2);
 		SetCharacterId(build.at("test_character_id").get<uint32>());
+		GetPTimers().SetCharID(CharacterID());
 		LoadMulticlassMask(); // Reads only the synthetic row in the isolated database.
 		if (GetMulticlassList() != build.at("classes").get<std::vector<uint8>>()) {
 			throw std::runtime_error("Synthetic multiclass row does not match input");
@@ -312,7 +314,10 @@ int NightcapBalanceMain(int argc, char **argv)
 		std::ifstream input_file(argv[2]);
 		json input;
 		input_file >> input;
-		const bool runtime = input.value("runtime_probe",false) || input.contains("encounter");
+		const bool runtime = input.value("runtime_probe",false) || input.contains("encounter") || input.contains("aa_probe");
+		if (int(input.value("runtime_probe",false)) + int(input.contains("encounter")) + int(input.contains("aa_probe")) > 1) {
+			throw std::runtime_error("Runtime modes require separate processes");
+		}
 		if (runtime) {
 			if (input.at("builds").size() != 1) { throw std::runtime_error("Runtime probe requires one client per process"); }
 			if (!std::getenv("NIGHTCAP_BALANCE_RNG_SEED")) { throw std::runtime_error("Runtime requires an explicit RNG seed"); }
@@ -365,11 +370,18 @@ int NightcapBalanceMain(int argc, char **argv)
 			if (input.value("runtime_probe",false)) {
 				output["runtime_probe"] = NightcapBalanceRuntimeProbe(c);
 			}
+			if (input.contains("aa_probe")) {
+				output["aa_probe"] = NightcapBalanceAAProbe(c,input.at("aa_probe"));
+				output["status"] = "Native purchased-AA activation diagnostic; cooldowns initially ready";
+			}
 			if (input.contains("encounter")) {
 				if (build.at("profile") != "war-clr-wiz" || input.value("runtime_probe",false)) {
 					throw std::runtime_error("Initial encounter controller requires WAR/CLR/WIZ and its own process");
 				}
 				output["encounter"] = NightcapBalanceEncounter(c,input.at("encounter"));
+				if (input.at("encounter").contains("active_aa_policy")) {
+					output["status"] = "Native encounter diagnostic with explicit purchased-AA activation policy";
+				}
 			}
 			if (runtime) { output["native_rng_seed"] = std::stoull(std::getenv("NIGHTCAP_BALANCE_RNG_SEED")); }
 		}

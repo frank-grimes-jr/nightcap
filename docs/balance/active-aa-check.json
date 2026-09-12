@@ -1,0 +1,213 @@
+{
+  "controls": [
+    {
+      "id": "200-idle",
+      "requested": 0,
+      "started": 0,
+      "initial_hp": 2534,
+      "final_hp": 2750,
+      "maximum_hp_cap": 6337,
+      "minimum_hp": 2534,
+      "final_buffs": []
+    },
+    {
+      "id": "200-tenacity",
+      "requested": 3,
+      "started": 1,
+      "initial_hp": 2534,
+      "final_hp": 1709,
+      "maximum_hp_cap": 6837,
+      "minimum_hp": 1709,
+      "final_buffs": [
+        {
+          "hits": 0,
+          "slot": 0,
+          "spell": 4925,
+          "ticks": 999976
+        }
+      ]
+    },
+    {
+      "id": "200-regeneration",
+      "requested": 3,
+      "started": 1,
+      "initial_hp": 2534,
+      "final_hp": 1709,
+      "maximum_hp_cap": 6837,
+      "minimum_hp": 1709,
+      "final_buffs": [
+        {
+          "hits": 0,
+          "slot": 0,
+          "spell": 4925,
+          "ticks": 999976
+        }
+      ]
+    },
+    {
+      "id": "200-frenzied",
+      "requested": 2,
+      "started": 1,
+      "initial_hp": 2534,
+      "final_hp": 2750,
+      "maximum_hp_cap": 6337,
+      "minimum_hp": 2534,
+      "final_buffs": []
+    },
+    {
+      "id": "200-twincast",
+      "requested": 2,
+      "started": 1,
+      "initial_hp": 2534,
+      "final_hp": 2750,
+      "maximum_hp_cap": 6337,
+      "minimum_hp": 2534,
+      "final_buffs": [
+        {
+          "hits": 10,
+          "slot": 0,
+          "spell": 27436,
+          "ticks": 999976
+        }
+      ]
+    },
+    {
+      "id": "200-arbitration",
+      "requested": 2,
+      "started": 1,
+      "initial_hp": 2534,
+      "final_hp": 2750,
+      "maximum_hp_cap": 6337,
+      "minimum_hp": 2534,
+      "final_buffs": []
+    },
+    {
+      "id": "200-burst",
+      "requested": 2,
+      "started": 2,
+      "initial_hp": 2534,
+      "final_hp": 2750,
+      "maximum_hp_cap": 6337,
+      "minimum_hp": 2534,
+      "final_buffs": [
+        {
+          "hits": 10,
+          "slot": 0,
+          "spell": 27436,
+          "ticks": 999976
+        }
+      ]
+    },
+    {
+      "id": "all-idle",
+      "requested": 0,
+      "started": 0,
+      "initial_hp": 5438,
+      "final_hp": 6566,
+      "maximum_hp_cap": 13596,
+      "minimum_hp": 5438,
+      "final_buffs": []
+    },
+    {
+      "id": "all-tenacity",
+      "requested": 3,
+      "started": 1,
+      "initial_hp": 5438,
+      "final_hp": -500,
+      "maximum_hp_cap": 26596,
+      "minimum_hp": -500,
+      "final_buffs": [
+        {
+          "hits": 0,
+          "slot": 0,
+          "spell": 23617,
+          "ticks": 1799987
+        }
+      ]
+    },
+    {
+      "id": "all-regeneration",
+      "requested": 3,
+      "started": 1,
+      "initial_hp": 5438,
+      "final_hp": -500,
+      "maximum_hp_cap": 26596,
+      "minimum_hp": -500,
+      "final_buffs": [
+        {
+          "hits": 0,
+          "slot": 0,
+          "spell": 23617,
+          "ticks": 1799987
+        }
+      ]
+    },
+    {
+      "id": "all-frenzied",
+      "requested": 2,
+      "started": 1,
+      "initial_hp": 5438,
+      "final_hp": 6566,
+      "maximum_hp_cap": 13596,
+      "minimum_hp": 5438,
+      "final_buffs": [
+        {
+          "hits": 9,
+          "slot": 42,
+          "spell": 5247,
+          "ticks": 12
+        }
+      ]
+    },
+    {
+      "id": "all-twincast",
+      "requested": 2,
+      "started": 1,
+      "initial_hp": 5438,
+      "final_hp": 6566,
+      "maximum_hp_cap": 13596,
+      "minimum_hp": 5438,
+      "final_buffs": [
+        {
+          "hits": 12,
+          "slot": 0,
+          "spell": 31534,
+          "ticks": 999976
+        }
+      ]
+    },
+    {
+      "id": "all-arbitration",
+      "requested": 2,
+      "started": 1,
+      "initial_hp": 5438,
+      "final_hp": 6566,
+      "maximum_hp_cap": 13596,
+      "minimum_hp": 5438,
+      "final_buffs": []
+    },
+    {
+      "id": "all-burst",
+      "requested": 2,
+      "started": 2,
+      "initial_hp": 5438,
+      "final_hp": 6566,
+      "maximum_hp_cap": 13596,
+      "minimum_hp": 5438,
+      "final_buffs": [
+        {
+          "hits": 12,
+          "slot": 0,
+          "spell": 31534,
+          "ticks": 999976
+        },
+        {
+          "hits": 9,
+          "slot": 42,
+          "spell": 5247,
+          "ticks": 12
+        }
+      ]
+    }
+  ]
+}

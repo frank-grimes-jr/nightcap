@@ -4,6 +4,7 @@
 #include "zone/entity.h"
 #include "zone/npc.h"
 #include "zone/zone.h"
+#include "zone/aa_ability.h"
 #include "zone/mob_movement_manager.h"
 #include "common/eq_stream_intf.h"
 #include "common/ptimer.h"
@@ -70,6 +71,7 @@ class BalanceStream : public EQStreamInterface {
 public:
 	RegularOpcodeManager opcode_manager;
 	uint64_t outgoing = 0;
+	bool capture_messages = false;
 	json events = json::array();
 	std::deque<EQApplicationPacket *> incoming;
 	EQStreamState state = ESTABLISHED;
@@ -85,6 +87,12 @@ public:
 			auto *d = reinterpret_cast<const BeginCast_Struct *>(p->pBuffer);
 			events.push_back({{"ms",Timer::GetCurrentTime()},{"type","begin_cast"},
 				{"source",d->caster_id},{"spell",d->spell_id},{"raw_cast_ms",d->cast_time}});
+		} else if (capture_messages && p->GetOpcode() == OP_FormattedMessage && p->size >= sizeof(FormattedMessage_Struct)) {
+			auto *d = reinterpret_cast<const FormattedMessage_Struct *>(p->pBuffer);
+			events.push_back({{"ms",Timer::GetCurrentTime()},{"type","message"},{"string_id",d->string_id}});
+		} else if (capture_messages && p->GetOpcode() == OP_SimpleMessage && p->size == sizeof(SimpleMessage_Struct)) {
+			auto *d = reinterpret_cast<const SimpleMessage_Struct *>(p->pBuffer);
+			events.push_back({{"ms",Timer::GetCurrentTime()},{"type","message"},{"string_id",d->string_id}});
 		}
 	}
 	void FastQueuePacket(EQApplicationPacket **p, bool = true) override
@@ -186,6 +194,92 @@ json NightcapBalanceRuntimeProbe(Client *c)
 		{"outgoing_packets",streams.at(c)->outgoing},{"connected",c->Connected()},
 		{"client_version_bit",c->ClientVersionBit()},
 		{"scope","Native clock/connected Client::Process/self-heal control; not a boss fight"}};
+}
+
+static json AABuffState(Client *c)
+{
+	json buffs = json::array();
+	for (int slot = 0; slot < c->GetMaxTotalSlots(); ++slot) {
+		const auto &b = c->GetBuffs()[slot];
+		if (IsValidSpell(b.spellid)) {
+			buffs.push_back({{"slot",slot},{"spell",b.spellid},{"ticks",b.ticsremaining},{"hits",b.hit_number}});
+		}
+	}
+	return {{"hp",c->GetHP()},{"max_hp",c->GetMaxHP()},{"mana",c->GetMana()},
+		{"casting",c->CastingSpellID()},{"buffs",buffs}};
+}
+
+static AA::Rank *ValidateActiveRank(Client *c, int rank_id)
+{
+	auto *r = zone->GetAlternateAdvancementRank(rank_id);
+	const std::set<int> supported = {300,308,38,169,515};
+	if (!r || !r->base_ability || !supported.count(r->base_ability->id)
+		|| r->base_ability->charges || !r->effects.empty() || !IsValidSpell(r->spell)
+		|| !c->CanUseAlternateAdvancementRank(r) || r->level_req > c->GetLevel()
+		|| c->GetAA(rank_id) != r->current_value) {
+		throw std::runtime_error("Unsupported or unowned active AA rank " + std::to_string(rank_id));
+	}
+	return r;
+}
+
+static json AttemptAA(Client *c, AA::Rank *r)
+{
+	const auto timer = r->spell_type + pTimerAAStart;
+	const auto before_timer = c->GetPTimers().GetRemainingTime(timer);
+	const auto before = AABuffState(c);
+	c->ActivateAlternateAdvancementAbility(r->id,c->GetID());
+	const auto after_timer = c->GetPTimers().GetRemainingTime(timer);
+	// ActivateAlternateAdvancementAbility returns void. Record native evidence
+	// of acceptance; a request alone is never counted as a successful activation.
+	const bool started = (!before_timer && after_timer > 0)
+		|| (!before.at("casting").get<uint16>() && c->CastingSpellID() == r->spell);
+	return {{"ms",Timer::GetCurrentTime()},{"rank_id",r->id},{"ability_id",r->base_ability->id},
+		{"spell",r->spell},{"cooldown_group",r->spell_type},
+		{"spell_minimum_level",GetSpellMinimumLevel(r->spell)},
+		{"buff_level_restrictions",RuleB(Spells,BuffLevelRestrictions)},
+		{"target_type",spells[r->spell].target_type},{"raw_duration",spells[r->spell].buff_duration},
+		{"duration_formula",spells[r->spell].buff_duration_formula},{"short_buff_box",spells[r->spell].short_buff_box},
+		{"effective_recast_seconds",std::max(0,r->recast_time-c->GetAlternateAdvancementCooldownReduction(r))},
+		{"timer_before",before_timer},{"timer_after",after_timer},{"started",started},
+		{"before",before},{"after",AABuffState(c)}};
+}
+
+json NightcapBalanceAAProbe(Client *c, const json &input)
+{
+	const int duration = input.at("duration_ms");
+	const int percent = input.value("initial_hp_percent",40);
+	if (!virtual_clock || !c->Connected() || duration < 1000 || duration > 300000
+		|| duration % 50 || percent < 1 || percent > 100) {
+		throw std::runtime_error("Invalid AA probe runtime/duration/resources");
+	}
+	int previous_ms = 0;
+	for (const auto &action : input.at("actions")) {
+		const int ms = action.at("ms");
+		if (ms <= previous_ms || ms > duration || ms % 50) { throw std::runtime_error("Invalid AA action time"); }
+		ValidateActiveRank(c,action.at("rank_id"));
+		previous_ms = ms;
+	}
+	c->SetName("BalanceAAProbe"); c->ChangeSize(6,true); c->SetPosition(0,0,0);
+	streams.at(c)->capture_messages = true;
+	entity_list.AddClient(c);
+	is_zone_loaded = true;
+	c->SetHP(c->GetMaxHP()*percent/100); c->Mob::SetMana(c->GetMaxMana());
+	json trace = json::array(), actions = json::array();
+	auto sample = [&]() { auto state = AABuffState(c); state["ms"] = Timer::GetCurrentTime(); trace.push_back(state); };
+	size_t next = 0;
+	sample();
+	for (int ms = 50; ms <= duration && terminal.empty(); ms += 50) {
+		Advance(50);
+		if (!c->Process()) { throw std::runtime_error("AA probe client processing stopped"); }
+		if (!terminal.empty()) { sample(); break; }
+		if (next < input.at("actions").size() && input.at("actions")[next].at("ms") == ms) {
+			actions.push_back(AttemptAA(c,ValidateActiveRank(c,input.at("actions")[next++].at("rank_id"))));
+			sample();
+		} else if (ms % 500 == 0 || ms == duration) { sample(); }
+	}
+	return {{"actions",actions},{"trace",trace},{"events",streams.at(c)->events},
+		{"result",terminal.count(c) ? "player_death" : "duration"},
+		{"scope","Native self-target AA activation/buff/cooldown lifecycle; no opponent, no resource resets after start"}};
 }
 
 class BalanceNPC : public NPC {
@@ -303,11 +397,53 @@ private:
 	}
 };
 
+class BalanceAAActions {
+	std::vector<AA::Rank *> ranks;
+	std::set<int> attempted;
+public:
+	json events = json::array();
+	BalanceAAActions(Client *c, const std::string &policy)
+	{
+		if (policy.empty()) { return; }
+		if (policy != "burst" && policy != "burst_regeneration" && policy != "burst_tenacity") {
+			throw std::runtime_error("Unknown activated-AA policy");
+		}
+		std::vector<int> abilities = {515,308};
+		if (policy == "burst_regeneration") { abilities.push_back(38); }
+		if (policy == "burst_tenacity") { abilities.push_back(300); }
+		for (int id : abilities) {
+			const auto owned = c->GetAAByAAID(id);
+			if (!owned) { continue; }
+			auto pair = zone->GetAlternateAdvancementAbilityAndRank(id,owned);
+			if (!pair.second) { throw std::runtime_error("Owned active AA has no rank"); }
+			ranks.push_back(ValidateActiveRank(c,pair.second->id));
+		}
+	}
+	bool Step(Client *c, uint32 &next_request)
+	{
+		for (auto *r : ranks) {
+			if (attempted.count(r->id)) { continue; }
+			const bool sustain = r->base_ability->id == 38 || r->base_ability->id == 300;
+			if (sustain && c->GetHPRatio() >= 80) { continue; }
+			attempted.insert(r->id);
+			events.push_back(AttemptAA(c,r));
+			next_request = Timer::GetCurrentTime() + 250;
+			if (events.back().at("started") == true && !c->IsCasting()) {
+				next_request = Timer::GetCurrentTime() + std::max<uint32>(250,spells[r->spell].recovery_time);
+			}
+			return true;
+		}
+		return false;
+	}
+};
+
 json NightcapBalanceEncounter(Client *c, const json &input)
 {
 	const int npc_id = input.at("npc_id").get<int>();
 	const int duration = input.value("duration_ms",120000);
 	const bool return_to_melee = input.value("return_to_melee",false);
+	const std::string active_policy = input.value("active_aa_policy",std::string());
+	BalanceAAActions aa_actions(c,active_policy);
 	if ((npc_id != 32040 && npc_id != 73057) || duration < 1000 || duration > 900000
 		|| !virtual_clock || !c->Connected() || !c->ClientFinishedLoading()) {
 		throw std::runtime_error("Unsupported encounter or incomplete runtime client");
@@ -345,6 +481,7 @@ json NightcapBalanceEncounter(Client *c, const json &input)
 	c->GetPP().mem_spells[0] = nuke;
 	c->GetPP().mem_spells[1] = heal;
 	auto *stream = streams.at(c);
+	stream->capture_messages = !active_policy.empty();
 	auto *attack = new EQApplicationPacket(OP_AutoAttack,4);
 	attack->pBuffer[0] = 1;
 	stream->incoming.push_back(attack);
@@ -357,7 +494,9 @@ json NightcapBalanceEncounter(Client *c, const json &input)
 		{"player_autoattack",c->AutoAttackEnabled()},{"player_ai",c->IsAIControlled()},
 		{"player_combat",NightcapBalanceClientCombatState(c)},
 		{"player_position",{c->GetX(),c->GetY(),c->GetZ()}},
-		{"npc_position",{npc->GetX(),npc->GetY(),npc->GetZ()}}}); };
+		{"npc_position",{npc->GetX(),npc->GetY(),npc->GetZ()}}});
+		if (!active_policy.empty()) { trace.back()["aa_state"] = AABuffState(c); }
+	};
 	uint32 next_request = 0;
 	uint16 prior_cast = 0;
 	BalanceMeleeReturn movement;
@@ -377,14 +516,16 @@ json NightcapBalanceEncounter(Client *c, const json &input)
 		}
 		if (!moving && !c->IsCasting() && !c->IsFeared() && !c->IsStunned() && !c->IsMezzed() && ms >= next_request) {
 			c->SetHeading(c->CalculateHeadingToTarget(npc->GetX(),npc->GetY()));
-			const uint16 spell = c->GetHPRatio() < 55 ? heal : nuke;
-			auto *timer = c->GetPTimers().Get(pTimerSpellStart+spell);
-			if ((!timer || timer->GetRemainingTime() == 0) && c->GetMana() >= spells[spell].mana) {
-				const bool accepted = c->CastSpell(spell,spell == heal ? c->GetID() : npc->GetID(),
-					static_cast<EQ::spells::CastingSlot>(spell == heal ? 1 : 0));
-				attempts.push_back({{"ms",ms},{"spell",spell},{"accepted",accepted}});
+			if (!aa_actions.Step(c,next_request)) {
+				const uint16 spell = c->GetHPRatio() < 55 ? heal : nuke;
+				auto *timer = c->GetPTimers().Get(pTimerSpellStart+spell);
+				if ((!timer || timer->GetRemainingTime() == 0) && c->GetMana() >= spells[spell].mana) {
+					const bool accepted = c->CastSpell(spell,spell == heal ? c->GetID() : npc->GetID(),
+						static_cast<EQ::spells::CastingSlot>(spell == heal ? 1 : 0));
+					attempts.push_back({{"ms",ms},{"spell",spell},{"accepted",accepted}});
+				}
+				next_request = ms + 250;
 			}
-			next_request = ms + 250;
 		}
 		prior_cast = c->CastingSpellID();
 		if (ms % 500 == 0) { sample(); }
@@ -397,6 +538,11 @@ json NightcapBalanceEncounter(Client *c, const json &input)
 	if (return_to_melee) {
 		result["movement"] = {{"policy","native mesh, bounded client updates, stop for healing/casting/control"},
 			{"events",movement.events},{"failed_paths",movement.failed_paths},{"history_packets",movement.history_packets}};
+	}
+	if (!active_policy.empty()) {
+		result["activated_aa"] = {{"policy",active_policy},{"actions",aa_actions.events},
+			{"scope","One request per owned AA: Twincast then Frenzied Devastation; selected sustain below 80% HP. Native rejection/cost/charges/cooldowns retained; no preparation buffs."}};
+		result["scope"] = "Native candidate encounter with explicit purchased-AA activation policy; not certified full BiS or final balance evidence";
 	}
 	return result;
 }
