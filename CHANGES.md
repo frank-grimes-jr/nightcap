@@ -1,5 +1,20 @@
 # CHANGES
 
+## 2026-09-12 - Resolve equipped candidate stats with the native engine
+
+Built a separate native diagnostic using the existing mock Client constructor,
+legal Human creation allocations, synthetic multiclass rows, maximum eligible
+skills, actual item instances, and CalcBonuses. Ran all 12 candidate sets; their
+HP and mana match the previously verified calculator with zero mismatches.
+The isolated database has 237 table schemas, copied content, and no account or
+character rows. Its user, runtime, and shared memory are separate from live PEQ.
+Seven preflight checks reject live/unsafe configurations before engine startup.
+The diagnostic pins reused native objects and its executable; this is not a fresh
+full-source rebuild or proof of every running zone's binary. Quest hooks, purchased
+AAs, active buffs, full combat BiS, and complete boss outcomes remain pending.
+The Python suite passes 98 tests. No live tuning, restart, or promotion occurred.
+Evidence and observed stats: docs/balance/native-equipped-stats.md; ADR 0005.
+
 ## 2026-09-12 - Resolve boss spell dependencies and verify spell arithmetic
 
 Expanded the frozen content snapshot to include actual boss lists and immediate

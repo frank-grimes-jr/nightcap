@@ -7,7 +7,7 @@ Status: foundational calculations and input fixtures verified; encounter model i
 
 - `GetExtraSpellAmt` port: 2,792 boundary/random differential cases match the
   extracted actual C++ function. `spell-formula-oracle.json` records source hashes.
-- 94 Python tests cover caps, timing boundaries, duration splitting, integer
+- 98 Python tests cover caps, timing boundaries, duration splitting, integer
   truncation, snapshot/query gates, and gear legality/assignment. Assignment results
   match exhaustive enumeration on 50 small random matrices, including cases where
   a greedy per-slot choice is wrong.
@@ -34,6 +34,12 @@ Status: foundational calculations and input fixtures verified; encounter model i
   formulas remain explicit. Spell application, fear/CHA, focus/AA resist checks,
   physical/PvP paths, root/charm breaks, and AI integration are outside that proof.
   See `spell-resolution.md` for captured boss dependencies and remaining limits.
+- Native inventory/creation resolution now supplies all 12 candidate sets with
+  actual worn bonuses, capped stats, HP/mana, AC sum, avoidance, haste, shielding,
+  and resists. HP/mana match the calculator exactly. This uses maximum eligible
+  skills, no purchased AAs, and no active buffs. Seven preflight checks protect
+  its separate content-only database/runtime. Reused objects are hashed; fresh
+  full-source/runtime parity is not claimed. See `native-equipped-stats.md`.
 - `candidate-builds.json` contains complete 20-slot shield loadouts for WAR/CLR/WIZ,
   WAR/CLR/MNK, and MAG/NEC/SHM across Base/Polished/Exalted/Ascended. The declared
   additive score is globally optimized over each captured tier pool with lore
@@ -73,8 +79,8 @@ recommended level. Haste/procs/focus/AA/buff interactions are not in the objecti
    The active build uses SoD base data for RoF2; do not use the older class-factor
    HP equation. Some heroic effects still inspect the base class, which must be
    represented faithfully rather than assuming intended future multiclass parity.
-   HP/mana arithmetic is now verified; connecting it to complete legal character
-   creation, inventory effects, and buff/AA inputs remains pending. RoF2 creation
+   HP/mana arithmetic and the first native creation/inventory inputs are verified;
+   complete buff/AA inputs and combat-oriented gear selection remain pending. RoF2 creation
    allocations come from `char_create_point_allocations` / combination data loaded
    in `world/worlddb.cpp`, so do not substitute the legacy hardcoded race table.
 3. Prefer actual engine calculations or C++ differential oracles. Existing
@@ -91,6 +97,10 @@ recommended level. Haste/procs/focus/AA/buff interactions are not in the objecti
 5. Run Vox/Nagafen (plus controls) at multiple gear stages, caps, and HP settings;
    report distributions and sensitivity to remaining assumptions. Select balance
    changes only from these results. Produce focused residual in-game QA.
+   The owner explicitly requires level-50 full-BiS comparisons at 0, 100, 200,
+   500 spent AA points and all legally available AAs. Exact purchases, costs,
+   passive effects, activations, and cooldown policies must be recorded; see
+   `aa-baseline-matrix.md`. Current equipped results are the zero-AA control only.
 6. Complete baseline runtime reload/QA and branch promotions within the existing
    working agreement, then continue the remaining backlog. The overall goal remains
    active; none of these pending requirements is satisfied by the checks above.

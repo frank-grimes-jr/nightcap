@@ -96,3 +96,38 @@ defender. It excludes spells and is not a complete boss fight or a BiS result.
 The check enumerates exact hit and mitigation distributions and compares the
 event runner's mean damage with the resulting expectation. See
 `docs/balance/engine-validation.md` for fidelity boundaries and remaining work.
+
+## Native equipped-stat diagnostic
+
+The first validated runtime is `/tmp/nightcap-balance-20260912` inside the server
+container, using `nightcap_balance_20260912` and its dedicated test user. It has
+empty account/character tables and its own generated caches. Do not point it at
+the live runtime. The executable refuses that before initialization.
+
+For a new setup, `prepare_native.py` copies content tables, creates empty schemas
+for other tables, and prepares synthetic creation/loadout inputs. It refuses an
+existing destination/user. Its root access is used only to read source content
+and create the isolated destination and test permissions; test credentials stay
+in the container runtime, outside these reports. The `shared_memory` configuration
+must end in `/` for the existing cache builder.
+
+```powershell
+python prepare_native.py --source E:/EQ_Local_Dev/akk-stack/code --snapshot fixtures/classic-20260912-v2.json.gz --builds ../../docs/balance/candidate-builds.json --output ../../docs/balance/native-clone-manifest.json
+docker cp build_native.py akk-stack-eqemu-server-1:/tmp/nightcap-balance-20260912/build_native.py
+docker cp native_harness.cpp akk-stack-eqemu-server-1:/tmp/nightcap-balance-20260912/native_harness.cpp
+docker exec akk-stack-eqemu-server-1 python3 /tmp/nightcap-balance-20260912/build_native.py
+docker exec -w /tmp/nightcap-balance-20260912 akk-stack-eqemu-server-1 /home/eqemu/code/build/bin/shared_memory
+docker exec -w /tmp/nightcap-balance-20260912 akk-stack-eqemu-server-1 /tmp/nightcap-balance-20260912/balance-zone tests:balance /tmp/nightcap-balance-20260912/inputs.json /tmp/nightcap-balance-20260912/results.json
+docker cp akk-stack-eqemu-server-1:/tmp/nightcap-balance-20260912/results.json ../../docs/balance/native-equipped-stats.json
+python verify_native_resources.py --native ../../docs/balance/native-equipped-stats.json --builds ../../docs/balance/candidate-builds.json --snapshot fixtures/classic-20260912-v2.json.gz --output ../../docs/balance/native-resource-check.json
+```
+
+Reuse the prepared runtime for subsequent diagnostics; skip the creation command
+when it already exists. Copy/run `verify_native_guard.py` in the same directory
+with `--binary .../balance-zone --output .../native-guard-check.json` to test its
+seven preflight refusals. No valid configuration is started by those guard tests.
+
+Native results include worn bonuses but no purchased AAs, active buffs, clicks,
+or quest hooks. The build manifest pins reused objects and makes no fresh full
+source-build claim. See `docs/balance/native-equipped-stats.md` and ADR 0005.
+The requested AA comparison matrix is in `docs/balance/aa-baseline-matrix.md`.

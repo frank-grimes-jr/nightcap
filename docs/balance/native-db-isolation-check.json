@@ -1,0 +1,6 @@
+{
+  "test_database_access": true,
+  "empty_account_and_character_tables": true,
+  "live_peq_access_denied": true,
+  "scope": "Dedicated diagnostic credentials; live probe selects a constant and must be rejected"
+}
