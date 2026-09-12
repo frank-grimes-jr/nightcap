@@ -20,3 +20,6 @@ tools/balance/build_native.py text eol=lf
 tools/balance/verify_native_movement.py text eol=lf
 docs/balance/active-aa-*.json -text
 tools/balance/active_aa_controls.py text eol=lf
+tools/balance/aa_duration_controls.py text eol=lf
+server-mods/code/zone/spells.cpp text eol=lf
+docs/balance/duration-*.json -text

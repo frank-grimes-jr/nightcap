@@ -1,5 +1,18 @@
 # CHANGES
 
+## 2026-09-12 - Keep AA self-buffs on native timers (isolated candidate)
+
+Excluded direct AA spell IDs from the long self-buff override in the reviewed
+server mirror. Tenacity and Twincast now retain native duration/focus rules;
+ordinary Arch Shielding and Resolution preparation buffs retain long durations.
+Eighteen native lifecycle controls and 154 Python tests pass. Maximum-rank
+Tenacity still kills the low-health unhealed control, so the timer correction is
+not a complete sustain fix. The diagnostic supports compiling a separate spells
+candidate without replacing production objects. No live deployment or restart.
+See docs/balance/native-aa-duration.md and ADR 0008 for evidence, scope and QA.
+All 144 matched boss encounters pass movement checks; the 54 no-activation cases
+are byte-identical. Two 200-AA Vox/Tenacity outcomes change from wins to losses.
+
 ## 2026-09-12 - Measure native activated AAs in the balance diagnostic
 
 Added timed native AA lifecycle controls and explicit once-per-fight burst/sustain

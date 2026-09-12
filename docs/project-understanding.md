@@ -166,6 +166,11 @@ activated-AA boss matrix is candidate evidence; preparation, final BiS and broad
 build coverage remain open. See `balance/native-activated-aa.md` for the dated
 findings and reproduction controls.
 
+The separately compiled AA-duration candidate now passes 18 native controls:
+direct AA spells keep native timers and ordinary preparation buffs keep their
+long duration. Maximum-rank Tenacity remains dangerous at low health even with
+normal timing. See `balance/native-aa-duration.md`; the live binary is unchanged.
+
 First reconcile the current source, migrations, and AA minimum rule so tests and
 balance measurements describe the same server. Then refresh the concrete backlog:
 #16 AA strings, #22 bag pricing, #23 feature page, #26 augments, and #19/#20 bard

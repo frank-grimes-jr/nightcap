@@ -256,7 +256,21 @@ json NightcapBalanceAAProbe(Client *c, const json &input)
 	for (const auto &action : input.at("actions")) {
 		const int ms = action.at("ms");
 		if (ms <= previous_ms || ms > duration || ms % 50) { throw std::runtime_error("Invalid AA action time"); }
-		ValidateActiveRank(c,action.at("rank_id"));
+		if (action.contains("rank_id") == action.contains("spell_id")) {
+			throw std::runtime_error("A probe action must select exactly one AA or preparation spell");
+		}
+		if (action.contains("rank_id")) {
+			ValidateActiveRank(c,action.at("rank_id"));
+		} else {
+			const auto id = action.at("spell_id").get<uint16>();
+			bool eligible = false;
+			if (IsValidSpell(id)) {
+				for (auto held : c->GetMulticlassList()) { eligible |= spells[id].classes[held-1] <= c->GetLevel(); }
+			}
+			if (!eligible || !IsBeneficialSpell(id) || !IsBuffSpell(id)) {
+				throw std::runtime_error("Ineligible preparation spell in duration control");
+			}
+		}
 		previous_ms = ms;
 	}
 	c->SetName("BalanceAAProbe"); c->ChangeSize(6,true); c->SetPosition(0,0,0);
@@ -273,7 +287,16 @@ json NightcapBalanceAAProbe(Client *c, const json &input)
 		if (!c->Process()) { throw std::runtime_error("AA probe client processing stopped"); }
 		if (!terminal.empty()) { sample(); break; }
 		if (next < input.at("actions").size() && input.at("actions")[next].at("ms") == ms) {
-			actions.push_back(AttemptAA(c,ValidateActiveRank(c,input.at("actions")[next++].at("rank_id"))));
+			const auto &action = input.at("actions")[next++];
+			if (action.contains("rank_id")) {
+				actions.push_back(AttemptAA(c,ValidateActiveRank(c,action.at("rank_id"))));
+			} else {
+				const auto id = action.at("spell_id").get<uint16>();
+				const auto before = AABuffState(c);
+				c->GetPP().mem_spells[0] = id;
+				const bool accepted = c->CastSpell(id,c->GetID(),static_cast<EQ::spells::CastingSlot>(0));
+				actions.push_back({{"ms",ms},{"spell",id},{"started",accepted},{"before",before},{"after",AABuffState(c)}});
+			}
 			sample();
 		} else if (ms % 500 == 0 || ms == duration) { sample(); }
 	}

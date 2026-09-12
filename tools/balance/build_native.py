@@ -58,6 +58,8 @@ def patched_client(source):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--source', type=Path, default=Path('/home/eqemu/code'))
+    parser.add_argument('--spells-source', type=Path,
+                        help='Compile a reviewed spells.cpp candidate inside this isolated runtime')
     parser.add_argument('--reuse-adapters', action='store_true',
                         help='Reuse manifest-verified main/client adapter objects; still compile harness/runtime')
     args = parser.parse_args()
@@ -96,6 +98,16 @@ def main():
             continue
         subprocess.run([link[0], *compile_flags, '-c', str(cpp), '-o', str(cpp.with_suffix('.o'))],
                        cwd=build, check=True)
+    spells_candidate = args.spells_source.resolve() if args.spells_source else None
+    if spells_candidate:
+        if spells_candidate.parent != output or spells_candidate.suffix != '.cpp':
+            raise ValueError('The candidate must be a C++ file directly inside the isolated runtime')
+        original_object = 'CMakeFiles/zone.dir/spells.cpp.o'
+        if link.count(original_object) != 1:
+            raise ValueError('Unexpected native spells object link entry')
+        subprocess.run([link[0], *compile_flags, '-c', str(spells_candidate),
+                        '-o', str(spells_candidate.with_suffix('.o'))], cwd=build, check=True)
+        link[link.index(original_object)] = str(spells_candidate.with_suffix('.o'))
     old_main = 'CMakeFiles/zone.dir/main.cpp.o'
     if link.count(old_main) != 1 or link.count('-o') != 1:
         raise ValueError('Unexpected native link command')
@@ -127,6 +139,10 @@ def main():
                 'reused_adapter_objects':[str(p.with_suffix('.o')) for p in reused_adapters],
                 'clock_hook':'GNU --wrap gettimeofday/time; shared virtual clock only in explicit runtime mode',
                 'scope':'Separate diagnostic binary reusing pinned native objects; no fresh full-source parity claim'}
+    if spells_candidate:
+        manifest['spells_candidate'] = {'source': str(spells_candidate),
+                                      'sha256': digest(spells_candidate),
+                                      'original_source_sha256': digest(source/'zone/spells.cpp')}
     (output / 'native-build-manifest.json').write_text(json.dumps(manifest, indent=2)+'\n')
     print(json.dumps({'binary':str(binary), 'sha256':manifest['binary_sha256'], 'objects':len(objects)}))
 

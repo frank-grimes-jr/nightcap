@@ -197,7 +197,7 @@ def verify(matrix, evidence):
     return summaries
 
 
-def run(matrix, output):
+def run(matrix, output, verify_report=None):
     if Path.cwd().resolve() != ROOT or output.resolve().parent != ROOT or output.exists():
         raise ValueError('Run in the isolated runtime with a new output path')
     binary = ROOT / 'balance-zone'
@@ -214,7 +214,8 @@ def run(matrix, output):
             raise RuntimeError(f'{case["id"]}: {result.stderr[-2000:]}')
         raw = target.read_bytes()
         report = json.loads(raw)
-        summary = (verify_case if 'aa_probe' in case['input'] else verify_encounter)(case, report)
+        checker = verify_report or (verify_case if 'aa_probe' in case['input'] else verify_encounter)
+        summary = checker(case, report)
         runs.append({'id': case['id'], 'native_raw_sha256': hashlib.sha256(raw).hexdigest(),
                      'summary': summary, 'report': report})
         output.write_bytes(gzip.compress(json.dumps({'scope': matrix['scope'], 'runs': runs}, separators=(',', ':')).encode(), mtime=0))
