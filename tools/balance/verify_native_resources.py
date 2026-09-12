@@ -9,16 +9,19 @@ from resources import base_hp, base_mana, max_hp, max_mana
 
 
 def verify(report, builds, tables):
-    expected = {(b['profile'],b['tier']):b for b in builds}
-    actual = {(r['profile'],r['tier']):r for r in report['builds']}
+    def key(b):
+        return (b['profile'], b['tier'], b.get('aa_stage'), b.get('aa_policy'))
+    expected = {key(b):b for b in builds}
+    actual = {key(r):r for r in report['builds']}
     if len(actual) != len(report['builds']) or len(expected) != len(builds) or actual.keys() != expected.keys():
         raise ValueError('Native report has missing, duplicate, or unexpected builds')
     mismatches = []
     for key, r in actual.items():
         b = expected[key]
         hp = max_hp(base_hp(b['classes'],b['level'],r['sta'],r['heroic_hp'],tables['base_data']),
-                    r['item_hp'],percent=r['item_percent_hp'],flat=r['item_flat_hp'])
-        mana = max_mana(b['classes'],base_mana(b['classes'],b['level'],r['int'],r['wis'],r['heroic_mana'],tables['base_data']),r['item_mana'])
+                    r['item_hp'],percent=r['item_percent_hp']+r.get('aa_percent_hp',0),
+                    flat=r['item_flat_hp']+r.get('aa_flat_hp',0))
+        mana = max_mana(b['classes'],base_mana(b['classes'],b['level'],r['int'],r['wis'],r['heroic_mana'],tables['base_data']),r['item_mana'],aa=r.get('aa_mana',0))
         if (hp,mana) != (r['hp'],r['mana']):
             mismatches.append({'build':key,'python':{'hp':hp,'mana':mana},'native':{'hp':r['hp'],'mana':r['mana']}})
     return mismatches
@@ -37,7 +40,7 @@ def main():
     mismatches = verify(report,builds,snapshot['tables'])
     result = {'native_report_sha256':hashlib.sha256(args.native.read_bytes()).hexdigest(),
               'snapshot_sha256':manifest['snapshot_sha256'],'builds':len(builds),'mismatches':mismatches,
-              'scope':'HP/mana from native resolved stats/item bonuses; excludes active buffs, purchased AAs, and leadership'}
+              'scope':'HP/mana from native resolved stats/item and AA resource bonuses; excludes active buffs and leadership'}
     args.output.write_text(json.dumps(result,indent=2)+'\n')
     print(json.dumps(result,indent=2))
     return int(bool(mismatches))

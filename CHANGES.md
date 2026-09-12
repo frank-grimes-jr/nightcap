@@ -1,5 +1,20 @@
 # CHANGES
 
+## 2026-09-12 - Verify native AA progression inputs
+
+Added explicit 0/100/200/500/all purchase allocations and two finite-budget
+spending policies for the three level-50 Ascended candidate sets. The isolated
+native engine accepts all 7,868 purchase steps across 24 scenarios; HP/mana agree
+with the calculator. Native post-purchase catalogs confirm no omitted legal
+all/free ranks. Six illegal-purchase and seven isolation controls pass.
+All-purchasable totals are 13,738 / 13,261 / 13,288 points, excluding grant-only
+rewards and blocked prerequisites. Zero spent includes the same free ranks at
+every stage (20 flat HP in this data). Corrected the diagnostic's base-class-only
+skills and invalid specialization assumptions; trained held-class ceilings still
+require attainability QA. 106 Python tests pass. These are resource/input results,
+not full BiS fight outcomes. No live tuning, restart, or promotion occurred.
+Details, exact allocations, and evidence: docs/balance/native-aa-stats.md.
+
 ## 2026-09-12 - Resolve equipped candidate stats with the native engine
 
 Built a separate native diagnostic using the existing mock Client constructor,

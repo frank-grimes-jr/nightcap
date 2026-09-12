@@ -1,0 +1,7 @@
+{
+  "native_report_sha256": "f4790a363d2bffc2ed6f87752466317d5db3ea693316ba0386f5e46fbca34570",
+  "snapshot_sha256": "e4b06f462a32b5463a608efae7ddde4d303b2422c863aecedc3427da06c08dae",
+  "builds": 24,
+  "mismatches": [],
+  "scope": "HP/mana from native resolved stats/item and AA resource bonuses; excludes active buffs and leadership"
+}

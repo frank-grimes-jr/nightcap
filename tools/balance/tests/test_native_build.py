@@ -8,6 +8,22 @@ from verify_native_resources import verify
 
 
 class NativeBuildTests(unittest.TestCase):
+    def test_native_resource_verifier_distinguishes_aa_stages_and_policy(self):
+        tables = {'base_data':[{'class':2,'level':50,'hp':1500,'hp_fac':5,'mana':1000,'mana_fac':2}]}
+        build = {'profile':'test','tier':'Ascended','classes':[2],'level':50,'aa_stage':'100'}
+        row = {'profile':'test','tier':'Ascended','aa_stage':'100','sta':100,'int':75,'wis':75,
+               'heroic_hp':0,'heroic_mana':0,'item_hp':100,'item_mana':10,'item_percent_hp':0,
+               'item_flat_hp':0,'aa_percent_hp':1000,'aa_flat_hp':50,'aa_mana':200,
+               'hp':2365,'mana':1360}
+        builds = [build | {'aa_policy':p} for p in ('balanced','durability_first')]
+        report = {'builds':[row | {'aa_policy':p} for p in ('balanced','durability_first')]}
+        self.assertEqual(verify(report,builds,tables), [])
+        report['builds'][1]['aa_mana'] = 0
+        self.assertEqual(len(verify(report,builds,tables)),1)
+        report['builds'][1]['aa_policy'] = 'balanced'
+        with self.assertRaises(ValueError):
+            verify(report,builds,tables)
+
     def test_native_resource_verifier_detects_corruption_and_missing_builds(self):
         builds = [{'profile':'test','tier':'Base','classes':[1],'level':50}]
         tables = {'base_data':[{'class':1,'level':50,'hp':1500,'hp_fac':5,'mana':0,'mana_fac':0}]}

@@ -1,12 +1,14 @@
 # AA progression in encounter baselines
 
 Date: 2026-09-12. Explicit owner requirement added during calculator development.
-Status: required comparison matrix; AA-equipped fights have not been run yet.
+Status: 24 native AA allocation/resource scenarios verified in
+`native-aa-stats.md`; AA-equipped fights have not been run yet.
 
 The owner requested level-50 full-BiS comparisons at zero, 100, 200, 500, and all
 AAs. Interpret the numeric stages as spent AA points, not unspent banked points
-or a count of purchased ranks. The current native equipped-stat report is the
-zero-AA control; it does not represent the other stages.
+or a count of purchased ranks. The first native equipped-stat report remains an
+empty-AA control. The AA matrix includes common freely purchasable ranks at every
+stage; in this data those add 20 flat HP even at zero spent points.
 
 ## Controlled comparison
 
@@ -16,7 +18,7 @@ Change only the AA allocation and the resulting legal action repertoire:
 
 | Stage | Budget and interpretation |
 |---|---|
-| 0 | No purchased AAs; innate class abilities remain explicitly separate |
+| 0 | Zero spent points; common freely purchasable ranks held at every stage |
 | 100 | Build-appropriate legal purchases totaling at most 100 points |
 | 200 | Build-appropriate legal purchases totaling at most 200 points |
 | 500 | Build-appropriate legal purchases totaling at most 500 points |

@@ -7,7 +7,7 @@ Status: foundational calculations and input fixtures verified; encounter model i
 
 - `GetExtraSpellAmt` port: 2,792 boundary/random differential cases match the
   extracted actual C++ function. `spell-formula-oracle.json` records source hashes.
-- 98 Python tests cover caps, timing boundaries, duration splitting, integer
+- 106 Python tests cover caps, timing boundaries, duration splitting, integer
   truncation, snapshot/query gates, and gear legality/assignment. Assignment results
   match exhaustive enumeration on 50 small random matrices, including cases where
   a greedy per-slot choice is wrong.
@@ -36,10 +36,15 @@ Status: foundational calculations and input fixtures verified; encounter model i
   See `spell-resolution.md` for captured boss dependencies and remaining limits.
 - Native inventory/creation resolution now supplies all 12 candidate sets with
   actual worn bonuses, capped stats, HP/mana, AC sum, avoidance, haste, shielding,
-  and resists. HP/mana match the calculator exactly. This uses maximum eligible
-  skills, no purchased AAs, and no active buffs. Seven preflight checks protect
+  and resists. HP/mana match the calculator exactly. This first run used base-class
+  skill caps, no purchased AAs, and no active buffs. Seven preflight checks protect
   its separate content-only database/runtime. Reused objects are hashed; fresh
   full-source/runtime parity is not claimed. See `native-equipped-stats.md`.
+- The AA follow-up verifies 24 purchase/resource scenarios at 0/100/200/500/all
+  stages, two finite-budget policies, and corrected held-class specialization
+  ceilings. All 7,868 native purchase steps and 24 HP/mana pairs pass; native
+  post-purchase gates confirm all/free set completeness. Six illegal-purchase
+  controls and seven isolation controls pass. See `native-aa-stats.md`.
 - `candidate-builds.json` contains complete 20-slot shield loadouts for WAR/CLR/WIZ,
   WAR/CLR/MNK, and MAG/NEC/SHM across Base/Polished/Exalted/Ascended. The declared
   additive score is globally optimized over each captured tier pool with lore
@@ -100,7 +105,8 @@ recommended level. Haste/procs/focus/AA/buff interactions are not in the objecti
    The owner explicitly requires level-50 full-BiS comparisons at 0, 100, 200,
    500 spent AA points and all legally available AAs. Exact purchases, costs,
    passive effects, activations, and cooldown policies must be recorded; see
-   `aa-baseline-matrix.md`. Current equipped results are the zero-AA control only.
+   `aa-baseline-matrix.md`. Native AA purchase/resource inputs are verified;
+   activated effects and complete AA-equipped encounter outcomes remain pending.
 6. Complete baseline runtime reload/QA and branch promotions within the existing
    working agreement, then continue the remaining backlog. The overall goal remains
    active; none of these pending requirements is satisfied by the checks above.

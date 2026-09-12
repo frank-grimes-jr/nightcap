@@ -4,9 +4,14 @@ Date: 2026-09-12. Candidate loadouts, not certified combat BiS or full boss figh
 
 The native diagnostic resolves the existing 20-slot sets through actual Client
 inventory and bonus calculations. It uses level-50 Human agnostic characters,
-database creation defaults, maximum eligible held-class skills, no purchased AAs,
+database creation defaults, base-class maximum skills, no purchased AAs,
 and no active buffs. Worn effects participate in CalcBonuses; clicks are not used.
 Quest-driven item changes, procs, and complete combat are outside this first run.
+
+Correction from the AA follow-up: this first harness did not resolve maximum
+held-class skills and did not enforce specialization limits. Its resource
+comparisons remain recorded controls; use `native-aa-stats.md` for corrected
+skill ceilings and the AA progression diagnostics.
 
 | Build | Tier | HP | Mana | AC sum | Avoidance | MR | FR | CR |
 |---|---|---:|---:|---:|---:|---:|---:|---:|
@@ -56,6 +61,7 @@ replaced. The normal quest compatibility gate is skipped only in the copied
 diagnostic startup; its quest/plugin directories are empty. The cache builder
 requires `shared_memory: "shared/"` with a trailing slash in this build.
 
-Remaining work includes purchased AAs, buffs/clicks, pet and weapon combat, full
+Purchased AA resource diagnostics are now in `native-aa-stats.md`. Remaining
+work includes AA activations, buffs/clicks, pet and weapon combat, full
 NPC casting/control mechanics, combat-oriented BiS selection, and balance sweeps.
 The overall user goal remains active; these diagnostics establish equipped inputs.

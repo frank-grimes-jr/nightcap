@@ -50,3 +50,25 @@ The first 12 native HP/mana results match the calculator and seven early-refusal
 checks pass. Next gates are legal AA/buff setup, acquisition and
 combat objective coverage, complete boss mechanics, sensitivity runs, and focused
 in-game QA. No cap or NPC HP change follows from the harness alone.
+
+## AA follow-up (2026-09-12)
+
+Resolve the requested 0/100/200/500/all comparison through the same isolated
+native engine. Export native use/level eligibility and effect/prerequisite data,
+construct explicit ordered purchase candidates, then require native purchase
+acceptance, exact cost accounting, and post-purchase completeness checks. Use
+native `SetAA` after `CanPurchaseAlternateAdvancementRank`, deduct costs, and
+calculate bonuses without UI, quest, title, logging, or persistence side effects.
+
+Zero means zero spent points, with common purchasable free ranks held consistently
+at all budgets; keep the previous completely empty-AA report as a separate
+control. Grant-only rewards require their own acquisition evidence. Candidate
+offense/sustain/defense and durability-first paths expose allocation sensitivity;
+neither path is declared optimal until encounter measurements support it.
+
+The first harness actually used base-class caps despite its earlier held-class
+description. Corrected diagnostics take held-class maximum trained skills and
+native specialization rules. Practical skill attainment, client access, and
+base-class-only runtime paths remain explicit QA gates. Purchased AA inputs and
+HP/mana now pass 24 native scenarios; this does not establish activated combat
+effects or full fight outcomes. See `docs/balance/native-aa-stats.md`.

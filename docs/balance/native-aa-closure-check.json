@@ -1,0 +1,52 @@
+{
+  "binary_sha256": "f09acdbe832534c10ce253704fcf049f5da93c4d5e772d3d61bf02b8cb138f73",
+  "inputs_sha256": "55d2b24f99684a3675836959651cfdbf09e2b974fbdfcfeb3e473e41527ff8e2",
+  "raw_report_sha256": "debc010b22221b17962c2ee46369fda03256956cda93aeeda23623cca74aa3a2",
+  "raw_report_runtime_path": "/tmp/nightcap-balance-20260912/aa-closure-49b50dd5a3e8478aa974137b95f410d8-result.json",
+  "cases": [
+    {
+      "profile": "war-clr-wiz",
+      "stage": "0",
+      "native_spent": 0,
+      "remaining_purchasable_rank_ids": [],
+      "exact_purchase_order": true
+    },
+    {
+      "profile": "war-clr-wiz",
+      "stage": "all",
+      "native_spent": 13738,
+      "remaining_purchasable_rank_ids": [],
+      "exact_purchase_order": true
+    },
+    {
+      "profile": "war-clr-mnk",
+      "stage": "0",
+      "native_spent": 0,
+      "remaining_purchasable_rank_ids": [],
+      "exact_purchase_order": true
+    },
+    {
+      "profile": "war-clr-mnk",
+      "stage": "all",
+      "native_spent": 13261,
+      "remaining_purchasable_rank_ids": [],
+      "exact_purchase_order": true
+    },
+    {
+      "profile": "mag-nec-shm",
+      "stage": "0",
+      "native_spent": 0,
+      "remaining_purchasable_rank_ids": [],
+      "exact_purchase_order": true
+    },
+    {
+      "profile": "mag-nec-shm",
+      "stage": "all",
+      "native_spent": 13288,
+      "remaining_purchasable_rank_ids": [],
+      "exact_purchase_order": true
+    }
+  ],
+  "passed": true,
+  "scope": "Native purchase gate closure; grant-only rewards and active buff compatibility are separate"
+}

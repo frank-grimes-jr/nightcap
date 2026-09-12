@@ -1,0 +1,38 @@
+{
+  "files": {
+    "balance-zone": {
+      "sha256": "f09acdbe832534c10ce253704fcf049f5da93c4d5e772d3d61bf02b8cb138f73",
+      "bytes": 79425400
+    },
+    "aa-inputs.json": {
+      "sha256": "55d2b24f99684a3675836959651cfdbf09e2b974fbdfcfeb3e473e41527ff8e2",
+      "bytes": 437236
+    },
+    "aa-results.json": {
+      "sha256": "f4790a363d2bffc2ed6f87752466317d5db3ea693316ba0386f5e46fbca34570",
+      "bytes": 1555605
+    },
+    "aa-catalog.json": {
+      "sha256": "0e9e278d71b51f9b1ddc8b3607935c459e45ae1300e2998646c932a314b51473",
+      "bytes": 6061305
+    },
+    "shared/items": {
+      "sha256": "0422e5f58f6f76b8dc29a86b8ac9ace1d56a856094949250e8e2848dff795454",
+      "bytes": 412620696
+    },
+    "shared/spells": {
+      "sha256": "8b7de892471fa2539aebb9e995d41ca2315cf339b187a700a964a7ee6bcc0570",
+      "bytes": 107714188
+    }
+  },
+  "database": "nightcap_balance_20260912",
+  "empty_player_tables": true,
+  "copied_rules": [
+    "Character:AAExpMinLevel\t1",
+    "Expansion:CurrentExpansion\t0",
+    "Expansion:UseCurrentExpansionAAOnly\tfalse",
+    "World:ExpansionSettings\t2097151",
+    "World:UseClientBasedExpansionSettings\tfalse"
+  ],
+  "scope": "Isolated AA runtime artifacts and copied rules; credentials excluded; live runtime parity not claimed"
+}

@@ -127,7 +127,31 @@ when it already exists. Copy/run `verify_native_guard.py` in the same directory
 with `--binary .../balance-zone --output .../native-guard-check.json` to test its
 seven preflight refusals. No valid configuration is started by those guard tests.
 
-Native results include worn bonuses but no purchased AAs, active buffs, clicks,
-or quest hooks. The build manifest pins reused objects and makes no fresh full
+The original native results include worn bonuses but no purchased AAs, active
+buffs, clicks, or quest hooks. The build manifest pins reused objects and makes no fresh full
 source-build claim. See `docs/balance/native-equipped-stats.md` and ADR 0005.
 The requested AA comparison matrix is in `docs/balance/aa-baseline-matrix.md`.
+
+### AA progression inputs
+
+`native-aa-catalog.json` captures the native eligible ranks for the three Ascended
+profiles. To refresh it in the prepared runtime, use inputs selecting those
+profiles with `export_aa_catalog: true`, no `aa_rank_ids`, and no AA budget.
+Keep catalogs paired with their source build manifest and content clone.
+
+```powershell
+python aa_allocations.py --catalog ../../docs/balance/native-aa-catalog.json --builds ../../docs/balance/candidate-builds.json --snapshot fixtures/classic-20260912-v2.json.gz --output ../../docs/balance/native-aa-inputs.json --audit ../../docs/balance/aa-allocation-audit.json
+docker cp ../../docs/balance/native-aa-inputs.json akk-stack-eqemu-server-1:/tmp/nightcap-balance-20260912/aa-inputs.json
+docker exec -w /tmp/nightcap-balance-20260912 akk-stack-eqemu-server-1 /tmp/nightcap-balance-20260912/balance-zone tests:balance /tmp/nightcap-balance-20260912/aa-inputs.json /tmp/nightcap-balance-20260912/aa-results.json
+docker cp akk-stack-eqemu-server-1:/tmp/nightcap-balance-20260912/aa-results.json ../../docs/balance/native-aa-stats.json
+python verify_native_aa.py --inputs ../../docs/balance/native-aa-inputs.json --native ../../docs/balance/native-aa-stats.json --catalog ../../docs/balance/native-aa-catalog.json --output ../../docs/balance/native-aa-verification.json
+python verify_native_resources.py --native ../../docs/balance/native-aa-stats.json --builds ../../docs/balance/native-aa-inputs.json --snapshot fixtures/classic-20260912-v2.json.gz --output ../../docs/balance/native-aa-resources-verification.json
+```
+
+Copy/run `verify_native_aa_gates.py` and `verify_native_aa_closure.py` in the
+isolated runtime for illegal-purchase rejection and all/free completeness checks.
+Their `--inputs`, `--catalog` (gates only), and `--output` files must live directly
+in that runtime. Results and limitations are in `docs/balance/native-aa-stats.md`.
+The finite budgets use nested purchase prefixes, so actual spent points can be
+slightly below budget. Free purchasable ranks are common to every stage;
+grant-only rewards are excluded. AA activation policies and fights remain pending.

@@ -1,0 +1,2317 @@
+{
+  "catalog_sha256": "0e9e278d71b51f9b1ddc8b3607935c459e45ae1300e2998646c932a314b51473",
+  "input_sha256": "55d2b24f99684a3675836959651cfdbf09e2b974fbdfcfeb3e473e41527ff8e2",
+  "scope": "Legal purchase candidates; not optimized fights. Zero spent includes common purchasable free ranks; grant-only rewards excluded.",
+  "allocations": [
+    {
+      "profile": "war-clr-wiz",
+      "stage": "100",
+      "policy": "balanced",
+      "spent": 98,
+      "unused": 2,
+      "next_rank_id": 912
+    },
+    {
+      "profile": "war-clr-wiz",
+      "stage": "200",
+      "policy": "balanced",
+      "spent": 198,
+      "unused": 2,
+      "next_rank_id": 109
+    },
+    {
+      "profile": "war-clr-wiz",
+      "stage": "500",
+      "policy": "balanced",
+      "spent": 496,
+      "unused": 4,
+      "next_rank_id": 7581
+    },
+    {
+      "profile": "war-clr-wiz",
+      "stage": "100",
+      "policy": "durability_first",
+      "spent": 98,
+      "unused": 2,
+      "next_rank_id": 912
+    },
+    {
+      "profile": "war-clr-wiz",
+      "stage": "200",
+      "policy": "durability_first",
+      "spent": 200,
+      "unused": 0,
+      "next_rank_id": 1212
+    },
+    {
+      "profile": "war-clr-wiz",
+      "stage": "500",
+      "policy": "durability_first",
+      "spent": 495,
+      "unused": 5,
+      "next_rank_id": 4780
+    },
+    {
+      "profile": "war-clr-wiz",
+      "stage": "all",
+      "spent": 13738,
+      "purchased_ranks": 2248,
+      "owned_abilities": 441,
+      "common_free_rank_ids": [
+        49999,
+        1000,
+        12636,
+        14017,
+        22200,
+        12637,
+        14018,
+        8445,
+        8446,
+        8447,
+        16419,
+        16420,
+        16421
+      ],
+      "unreachable": [
+        {
+          "rank_id": 5006,
+          "ability_id": 182,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 9032,
+          "ability_id": 453,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 1011,
+          "ability_id": 466,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 1012,
+          "ability_id": 466,
+          "reasons": [
+            "grant_only",
+            "previous_rank"
+          ]
+        },
+        {
+          "rank_id": 1013,
+          "ability_id": 466,
+          "reasons": [
+            "grant_only",
+            "previous_rank"
+          ]
+        },
+        {
+          "rank_id": 1014,
+          "ability_id": 466,
+          "reasons": [
+            "grant_only",
+            "previous_rank"
+          ]
+        },
+        {
+          "rank_id": 1015,
+          "ability_id": 466,
+          "reasons": [
+            "grant_only",
+            "previous_rank"
+          ]
+        },
+        {
+          "rank_id": 1016,
+          "ability_id": 466,
+          "reasons": [
+            "grant_only",
+            "previous_rank"
+          ]
+        },
+        {
+          "rank_id": 1361,
+          "ability_id": 471,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 1362,
+          "ability_id": 472,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 1363,
+          "ability_id": 473,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 1364,
+          "ability_id": 474,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 1365,
+          "ability_id": 475,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 1366,
+          "ability_id": 476,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 1367,
+          "ability_id": 477,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 1368,
+          "ability_id": 478,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 1369,
+          "ability_id": 479,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 1370,
+          "ability_id": 480,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 1371,
+          "ability_id": 481,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 1372,
+          "ability_id": 482,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 1373,
+          "ability_id": 483,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 1374,
+          "ability_id": 484,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 1375,
+          "ability_id": 485,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 1376,
+          "ability_id": 486,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 1377,
+          "ability_id": 487,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 1378,
+          "ability_id": 488,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 1379,
+          "ability_id": 488,
+          "reasons": [
+            "grant_only",
+            "previous_rank"
+          ]
+        },
+        {
+          "rank_id": 1380,
+          "ability_id": 488,
+          "reasons": [
+            "grant_only",
+            "previous_rank"
+          ]
+        },
+        {
+          "rank_id": 1381,
+          "ability_id": 488,
+          "reasons": [
+            "grant_only",
+            "previous_rank"
+          ]
+        },
+        {
+          "rank_id": 1382,
+          "ability_id": 488,
+          "reasons": [
+            "grant_only",
+            "previous_rank"
+          ]
+        },
+        {
+          "rank_id": 12892,
+          "ability_id": 510,
+          "reasons": [
+            "prerequisite:509"
+          ]
+        },
+        {
+          "rank_id": 4665,
+          "ability_id": 511,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 1647,
+          "ability_id": 574,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 4672,
+          "ability_id": 575,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 4673,
+          "ability_id": 575,
+          "reasons": [
+            "grant_only",
+            "previous_rank"
+          ]
+        },
+        {
+          "rank_id": 4674,
+          "ability_id": 575,
+          "reasons": [
+            "grant_only",
+            "previous_rank"
+          ]
+        },
+        {
+          "rank_id": 5150,
+          "ability_id": 590,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 5165,
+          "ability_id": 591,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 5180,
+          "ability_id": 592,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 5195,
+          "ability_id": 593,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 5210,
+          "ability_id": 594,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 5225,
+          "ability_id": 595,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 9033,
+          "ability_id": 600,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 14367,
+          "ability_id": 704,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 14371,
+          "ability_id": 1687,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 4700,
+          "ability_id": 2000,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 6136,
+          "ability_id": 3600,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 9000,
+          "ability_id": 8081,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 9031,
+          "ability_id": 8130,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 15073,
+          "ability_id": 15073,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 15074,
+          "ability_id": 15074,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 30050,
+          "ability_id": 30050,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 30100,
+          "ability_id": 30100,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 30150,
+          "ability_id": 30150,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 30175,
+          "ability_id": 30175,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 30195,
+          "ability_id": 30195,
+          "reasons": [
+            "grant_only"
+          ]
+        }
+      ],
+      "ignored_missing_prerequisites": [
+        {
+          "rank_id": 255,
+          "prerequisite": {
+            "ability_exists": false,
+            "ability_id": 309,
+            "ranks": 3
+          }
+        },
+        {
+          "rank_id": 256,
+          "prerequisite": {
+            "ability_exists": false,
+            "ability_id": 309,
+            "ranks": 3
+          }
+        },
+        {
+          "rank_id": 257,
+          "prerequisite": {
+            "ability_exists": false,
+            "ability_id": 309,
+            "ranks": 3
+          }
+        },
+        {
+          "rank_id": 542,
+          "prerequisite": {
+            "ability_exists": false,
+            "ability_id": 309,
+            "ranks": 3
+          }
+        },
+        {
+          "rank_id": 543,
+          "prerequisite": {
+            "ability_exists": false,
+            "ability_id": 309,
+            "ranks": 3
+          }
+        },
+        {
+          "rank_id": 544,
+          "prerequisite": {
+            "ability_exists": false,
+            "ability_id": 309,
+            "ranks": 3
+          }
+        },
+        {
+          "rank_id": 1163,
+          "prerequisite": {
+            "ability_exists": false,
+            "ability_id": 309,
+            "ranks": 3
+          }
+        },
+        {
+          "rank_id": 1164,
+          "prerequisite": {
+            "ability_exists": false,
+            "ability_id": 309,
+            "ranks": 3
+          }
+        },
+        {
+          "rank_id": 1165,
+          "prerequisite": {
+            "ability_exists": false,
+            "ability_id": 309,
+            "ranks": 3
+          }
+        },
+        {
+          "rank_id": 4795,
+          "prerequisite": {
+            "ability_exists": false,
+            "ability_id": 309,
+            "ranks": 3
+          }
+        },
+        {
+          "rank_id": 4796,
+          "prerequisite": {
+            "ability_exists": false,
+            "ability_id": 309,
+            "ranks": 3
+          }
+        },
+        {
+          "rank_id": 4797,
+          "prerequisite": {
+            "ability_exists": false,
+            "ability_id": 309,
+            "ranks": 3
+          }
+        },
+        {
+          "rank_id": 5595,
+          "prerequisite": {
+            "ability_exists": false,
+            "ability_id": 309,
+            "ranks": 3
+          }
+        },
+        {
+          "rank_id": 5596,
+          "prerequisite": {
+            "ability_exists": false,
+            "ability_id": 309,
+            "ranks": 3
+          }
+        },
+        {
+          "rank_id": 5597,
+          "prerequisite": {
+            "ability_exists": false,
+            "ability_id": 309,
+            "ranks": 3
+          }
+        },
+        {
+          "rank_id": 7631,
+          "prerequisite": {
+            "ability_exists": false,
+            "ability_id": 309,
+            "ranks": 3
+          }
+        },
+        {
+          "rank_id": 7632,
+          "prerequisite": {
+            "ability_exists": false,
+            "ability_id": 309,
+            "ranks": 3
+          }
+        },
+        {
+          "rank_id": 7633,
+          "prerequisite": {
+            "ability_exists": false,
+            "ability_id": 309,
+            "ranks": 3
+          }
+        },
+        {
+          "rank_id": 17441,
+          "prerequisite": {
+            "ability_exists": false,
+            "ability_id": 309,
+            "ranks": 3
+          }
+        },
+        {
+          "rank_id": 8303,
+          "prerequisite": {
+            "ability_exists": false,
+            "ability_id": 309,
+            "ranks": 6
+          }
+        },
+        {
+          "rank_id": 1050,
+          "prerequisite": {
+            "ability_exists": false,
+            "ability_id": 309,
+            "ranks": 6
+          }
+        },
+        {
+          "rank_id": 1051,
+          "prerequisite": {
+            "ability_exists": false,
+            "ability_id": 309,
+            "ranks": 6
+          }
+        },
+        {
+          "rank_id": 1052,
+          "prerequisite": {
+            "ability_exists": false,
+            "ability_id": 309,
+            "ranks": 6
+          }
+        },
+        {
+          "rank_id": 4716,
+          "prerequisite": {
+            "ability_exists": false,
+            "ability_id": 309,
+            "ranks": 6
+          }
+        },
+        {
+          "rank_id": 4717,
+          "prerequisite": {
+            "ability_exists": false,
+            "ability_id": 309,
+            "ranks": 6
+          }
+        },
+        {
+          "rank_id": 4718,
+          "prerequisite": {
+            "ability_exists": false,
+            "ability_id": 309,
+            "ranks": 6
+          }
+        },
+        {
+          "rank_id": 5551,
+          "prerequisite": {
+            "ability_exists": false,
+            "ability_id": 309,
+            "ranks": 6
+          }
+        },
+        {
+          "rank_id": 5552,
+          "prerequisite": {
+            "ability_exists": false,
+            "ability_id": 309,
+            "ranks": 6
+          }
+        },
+        {
+          "rank_id": 5553,
+          "prerequisite": {
+            "ability_exists": false,
+            "ability_id": 309,
+            "ranks": 6
+          }
+        },
+        {
+          "rank_id": 7656,
+          "prerequisite": {
+            "ability_exists": false,
+            "ability_id": 309,
+            "ranks": 6
+          }
+        },
+        {
+          "rank_id": 7657,
+          "prerequisite": {
+            "ability_exists": false,
+            "ability_id": 309,
+            "ranks": 6
+          }
+        },
+        {
+          "rank_id": 7658,
+          "prerequisite": {
+            "ability_exists": false,
+            "ability_id": 309,
+            "ranks": 6
+          }
+        },
+        {
+          "rank_id": 13023,
+          "prerequisite": {
+            "ability_exists": false,
+            "ability_id": 309,
+            "ranks": 6
+          }
+        },
+        {
+          "rank_id": 16117,
+          "prerequisite": {
+            "ability_exists": false,
+            "ability_id": 309,
+            "ranks": 6
+          }
+        },
+        {
+          "rank_id": 6346,
+          "prerequisite": {
+            "ability_exists": false,
+            "ability_id": 494,
+            "ranks": 3
+          }
+        },
+        {
+          "rank_id": 6347,
+          "prerequisite": {
+            "ability_exists": false,
+            "ability_id": 494,
+            "ranks": 3
+          }
+        },
+        {
+          "rank_id": 6348,
+          "prerequisite": {
+            "ability_exists": false,
+            "ability_id": 494,
+            "ranks": 3
+          }
+        },
+        {
+          "rank_id": 7615,
+          "prerequisite": {
+            "ability_exists": false,
+            "ability_id": 494,
+            "ranks": 3
+          }
+        },
+        {
+          "rank_id": 7616,
+          "prerequisite": {
+            "ability_exists": false,
+            "ability_id": 494,
+            "ranks": 3
+          }
+        },
+        {
+          "rank_id": 7617,
+          "prerequisite": {
+            "ability_exists": false,
+            "ability_id": 494,
+            "ranks": 3
+          }
+        },
+        {
+          "rank_id": 15397,
+          "prerequisite": {
+            "ability_exists": false,
+            "ability_id": 494,
+            "ranks": 3
+          }
+        }
+      ]
+    },
+    {
+      "profile": "war-clr-mnk",
+      "stage": "100",
+      "policy": "balanced",
+      "spent": 94,
+      "unused": 6,
+      "next_rank_id": 257
+    },
+    {
+      "profile": "war-clr-mnk",
+      "stage": "200",
+      "policy": "balanced",
+      "spent": 200,
+      "unused": 0,
+      "next_rank_id": 123
+    },
+    {
+      "profile": "war-clr-mnk",
+      "stage": "500",
+      "policy": "balanced",
+      "spent": 498,
+      "unused": 2,
+      "next_rank_id": 7563
+    },
+    {
+      "profile": "war-clr-mnk",
+      "stage": "100",
+      "policy": "durability_first",
+      "spent": 96,
+      "unused": 4,
+      "next_rank_id": 124
+    },
+    {
+      "profile": "war-clr-mnk",
+      "stage": "200",
+      "policy": "durability_first",
+      "spent": 192,
+      "unused": 8,
+      "next_rank_id": 1052
+    },
+    {
+      "profile": "war-clr-mnk",
+      "stage": "500",
+      "policy": "durability_first",
+      "spent": 498,
+      "unused": 2,
+      "next_rank_id": 12449
+    },
+    {
+      "profile": "war-clr-mnk",
+      "stage": "all",
+      "spent": 13261,
+      "purchased_ranks": 2230,
+      "owned_abilities": 398,
+      "common_free_rank_ids": [
+        49999,
+        1000,
+        12636,
+        14017,
+        22200,
+        12637,
+        14018,
+        8445,
+        8446,
+        8447,
+        16419,
+        16420,
+        16421
+      ],
+      "unreachable": [
+        {
+          "rank_id": 446,
+          "ability_id": 150,
+          "reasons": [
+            "prerequisite:26"
+          ]
+        },
+        {
+          "rank_id": 447,
+          "ability_id": 150,
+          "reasons": [
+            "previous_rank",
+            "prerequisite:26"
+          ]
+        },
+        {
+          "rank_id": 448,
+          "ability_id": 150,
+          "reasons": [
+            "previous_rank",
+            "prerequisite:26"
+          ]
+        },
+        {
+          "rank_id": 7050,
+          "ability_id": 150,
+          "reasons": [
+            "previous_rank",
+            "prerequisite:26"
+          ]
+        },
+        {
+          "rank_id": 7051,
+          "ability_id": 150,
+          "reasons": [
+            "previous_rank",
+            "prerequisite:26"
+          ]
+        },
+        {
+          "rank_id": 7052,
+          "ability_id": 150,
+          "reasons": [
+            "previous_rank",
+            "prerequisite:26"
+          ]
+        },
+        {
+          "rank_id": 7053,
+          "ability_id": 150,
+          "reasons": [
+            "previous_rank",
+            "prerequisite:26"
+          ]
+        },
+        {
+          "rank_id": 7054,
+          "ability_id": 150,
+          "reasons": [
+            "previous_rank",
+            "prerequisite:26"
+          ]
+        },
+        {
+          "rank_id": 7055,
+          "ability_id": 150,
+          "reasons": [
+            "previous_rank",
+            "prerequisite:26"
+          ]
+        },
+        {
+          "rank_id": 7063,
+          "ability_id": 150,
+          "reasons": [
+            "previous_rank",
+            "prerequisite:26"
+          ]
+        },
+        {
+          "rank_id": 7064,
+          "ability_id": 150,
+          "reasons": [
+            "previous_rank",
+            "prerequisite:26"
+          ]
+        },
+        {
+          "rank_id": 7065,
+          "ability_id": 150,
+          "reasons": [
+            "previous_rank",
+            "prerequisite:26"
+          ]
+        },
+        {
+          "rank_id": 7622,
+          "ability_id": 150,
+          "reasons": [
+            "previous_rank",
+            "prerequisite:26"
+          ]
+        },
+        {
+          "rank_id": 7623,
+          "ability_id": 150,
+          "reasons": [
+            "previous_rank",
+            "prerequisite:26"
+          ]
+        },
+        {
+          "rank_id": 7624,
+          "ability_id": 150,
+          "reasons": [
+            "previous_rank",
+            "prerequisite:26"
+          ]
+        },
+        {
+          "rank_id": 10473,
+          "ability_id": 150,
+          "reasons": [
+            "previous_rank",
+            "prerequisite:26"
+          ]
+        },
+        {
+          "rank_id": 10474,
+          "ability_id": 150,
+          "reasons": [
+            "previous_rank",
+            "prerequisite:26"
+          ]
+        },
+        {
+          "rank_id": 10475,
+          "ability_id": 150,
+          "reasons": [
+            "previous_rank",
+            "prerequisite:26"
+          ]
+        },
+        {
+          "rank_id": 10476,
+          "ability_id": 150,
+          "reasons": [
+            "previous_rank",
+            "prerequisite:26"
+          ]
+        },
+        {
+          "rank_id": 10477,
+          "ability_id": 150,
+          "reasons": [
+            "previous_rank",
+            "prerequisite:26"
+          ]
+        },
+        {
+          "rank_id": 13308,
+          "ability_id": 150,
+          "reasons": [
+            "previous_rank",
+            "prerequisite:26"
+          ]
+        },
+        {
+          "rank_id": 5006,
+          "ability_id": 182,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 9032,
+          "ability_id": 453,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 1011,
+          "ability_id": 466,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 1012,
+          "ability_id": 466,
+          "reasons": [
+            "grant_only",
+            "previous_rank"
+          ]
+        },
+        {
+          "rank_id": 1013,
+          "ability_id": 466,
+          "reasons": [
+            "grant_only",
+            "previous_rank"
+          ]
+        },
+        {
+          "rank_id": 1014,
+          "ability_id": 466,
+          "reasons": [
+            "grant_only",
+            "previous_rank"
+          ]
+        },
+        {
+          "rank_id": 1015,
+          "ability_id": 466,
+          "reasons": [
+            "grant_only",
+            "previous_rank"
+          ]
+        },
+        {
+          "rank_id": 1016,
+          "ability_id": 466,
+          "reasons": [
+            "grant_only",
+            "previous_rank"
+          ]
+        },
+        {
+          "rank_id": 1361,
+          "ability_id": 471,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 1362,
+          "ability_id": 472,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 1363,
+          "ability_id": 473,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 1364,
+          "ability_id": 474,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 1365,
+          "ability_id": 475,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 1366,
+          "ability_id": 476,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 1367,
+          "ability_id": 477,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 1368,
+          "ability_id": 478,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 1369,
+          "ability_id": 479,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 1370,
+          "ability_id": 480,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 1371,
+          "ability_id": 481,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 1372,
+          "ability_id": 482,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 1373,
+          "ability_id": 483,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 1374,
+          "ability_id": 484,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 1375,
+          "ability_id": 485,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 1376,
+          "ability_id": 486,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 1377,
+          "ability_id": 487,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 1378,
+          "ability_id": 488,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 1379,
+          "ability_id": 488,
+          "reasons": [
+            "grant_only",
+            "previous_rank"
+          ]
+        },
+        {
+          "rank_id": 1380,
+          "ability_id": 488,
+          "reasons": [
+            "grant_only",
+            "previous_rank"
+          ]
+        },
+        {
+          "rank_id": 1381,
+          "ability_id": 488,
+          "reasons": [
+            "grant_only",
+            "previous_rank"
+          ]
+        },
+        {
+          "rank_id": 1382,
+          "ability_id": 488,
+          "reasons": [
+            "grant_only",
+            "previous_rank"
+          ]
+        },
+        {
+          "rank_id": 4665,
+          "ability_id": 511,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 1647,
+          "ability_id": 574,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 4672,
+          "ability_id": 575,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 4673,
+          "ability_id": 575,
+          "reasons": [
+            "grant_only",
+            "previous_rank"
+          ]
+        },
+        {
+          "rank_id": 4674,
+          "ability_id": 575,
+          "reasons": [
+            "grant_only",
+            "previous_rank"
+          ]
+        },
+        {
+          "rank_id": 5150,
+          "ability_id": 590,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 5165,
+          "ability_id": 591,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 5180,
+          "ability_id": 592,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 5195,
+          "ability_id": 593,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 5210,
+          "ability_id": 594,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 5225,
+          "ability_id": 595,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 9033,
+          "ability_id": 600,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 14367,
+          "ability_id": 704,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 16257,
+          "ability_id": 818,
+          "reasons": [
+            "prerequisite:470"
+          ]
+        },
+        {
+          "rank_id": 8193,
+          "ability_id": 1201,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 14371,
+          "ability_id": 1687,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 4700,
+          "ability_id": 2000,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 6136,
+          "ability_id": 3600,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 9000,
+          "ability_id": 8081,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 9031,
+          "ability_id": 8130,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 15073,
+          "ability_id": 15073,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 15074,
+          "ability_id": 15074,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 30050,
+          "ability_id": 30050,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 30100,
+          "ability_id": 30100,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 30150,
+          "ability_id": 30150,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 30175,
+          "ability_id": 30175,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 30185,
+          "ability_id": 30185,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 30195,
+          "ability_id": 30195,
+          "reasons": [
+            "grant_only"
+          ]
+        }
+      ],
+      "ignored_missing_prerequisites": [
+        {
+          "rank_id": 255,
+          "prerequisite": {
+            "ability_exists": false,
+            "ability_id": 309,
+            "ranks": 3
+          }
+        },
+        {
+          "rank_id": 256,
+          "prerequisite": {
+            "ability_exists": false,
+            "ability_id": 309,
+            "ranks": 3
+          }
+        },
+        {
+          "rank_id": 257,
+          "prerequisite": {
+            "ability_exists": false,
+            "ability_id": 309,
+            "ranks": 3
+          }
+        },
+        {
+          "rank_id": 542,
+          "prerequisite": {
+            "ability_exists": false,
+            "ability_id": 309,
+            "ranks": 3
+          }
+        },
+        {
+          "rank_id": 543,
+          "prerequisite": {
+            "ability_exists": false,
+            "ability_id": 309,
+            "ranks": 3
+          }
+        },
+        {
+          "rank_id": 544,
+          "prerequisite": {
+            "ability_exists": false,
+            "ability_id": 309,
+            "ranks": 3
+          }
+        },
+        {
+          "rank_id": 1163,
+          "prerequisite": {
+            "ability_exists": false,
+            "ability_id": 309,
+            "ranks": 3
+          }
+        },
+        {
+          "rank_id": 1164,
+          "prerequisite": {
+            "ability_exists": false,
+            "ability_id": 309,
+            "ranks": 3
+          }
+        },
+        {
+          "rank_id": 1165,
+          "prerequisite": {
+            "ability_exists": false,
+            "ability_id": 309,
+            "ranks": 3
+          }
+        },
+        {
+          "rank_id": 4795,
+          "prerequisite": {
+            "ability_exists": false,
+            "ability_id": 309,
+            "ranks": 3
+          }
+        },
+        {
+          "rank_id": 4796,
+          "prerequisite": {
+            "ability_exists": false,
+            "ability_id": 309,
+            "ranks": 3
+          }
+        },
+        {
+          "rank_id": 4797,
+          "prerequisite": {
+            "ability_exists": false,
+            "ability_id": 309,
+            "ranks": 3
+          }
+        },
+        {
+          "rank_id": 5595,
+          "prerequisite": {
+            "ability_exists": false,
+            "ability_id": 309,
+            "ranks": 3
+          }
+        },
+        {
+          "rank_id": 5596,
+          "prerequisite": {
+            "ability_exists": false,
+            "ability_id": 309,
+            "ranks": 3
+          }
+        },
+        {
+          "rank_id": 5597,
+          "prerequisite": {
+            "ability_exists": false,
+            "ability_id": 309,
+            "ranks": 3
+          }
+        },
+        {
+          "rank_id": 7631,
+          "prerequisite": {
+            "ability_exists": false,
+            "ability_id": 309,
+            "ranks": 3
+          }
+        },
+        {
+          "rank_id": 7632,
+          "prerequisite": {
+            "ability_exists": false,
+            "ability_id": 309,
+            "ranks": 3
+          }
+        },
+        {
+          "rank_id": 7633,
+          "prerequisite": {
+            "ability_exists": false,
+            "ability_id": 309,
+            "ranks": 3
+          }
+        },
+        {
+          "rank_id": 17441,
+          "prerequisite": {
+            "ability_exists": false,
+            "ability_id": 309,
+            "ranks": 3
+          }
+        },
+        {
+          "rank_id": 8303,
+          "prerequisite": {
+            "ability_exists": false,
+            "ability_id": 309,
+            "ranks": 6
+          }
+        },
+        {
+          "rank_id": 1050,
+          "prerequisite": {
+            "ability_exists": false,
+            "ability_id": 309,
+            "ranks": 6
+          }
+        },
+        {
+          "rank_id": 1051,
+          "prerequisite": {
+            "ability_exists": false,
+            "ability_id": 309,
+            "ranks": 6
+          }
+        },
+        {
+          "rank_id": 1052,
+          "prerequisite": {
+            "ability_exists": false,
+            "ability_id": 309,
+            "ranks": 6
+          }
+        },
+        {
+          "rank_id": 4716,
+          "prerequisite": {
+            "ability_exists": false,
+            "ability_id": 309,
+            "ranks": 6
+          }
+        },
+        {
+          "rank_id": 4717,
+          "prerequisite": {
+            "ability_exists": false,
+            "ability_id": 309,
+            "ranks": 6
+          }
+        },
+        {
+          "rank_id": 4718,
+          "prerequisite": {
+            "ability_exists": false,
+            "ability_id": 309,
+            "ranks": 6
+          }
+        },
+        {
+          "rank_id": 5551,
+          "prerequisite": {
+            "ability_exists": false,
+            "ability_id": 309,
+            "ranks": 6
+          }
+        },
+        {
+          "rank_id": 5552,
+          "prerequisite": {
+            "ability_exists": false,
+            "ability_id": 309,
+            "ranks": 6
+          }
+        },
+        {
+          "rank_id": 5553,
+          "prerequisite": {
+            "ability_exists": false,
+            "ability_id": 309,
+            "ranks": 6
+          }
+        },
+        {
+          "rank_id": 7656,
+          "prerequisite": {
+            "ability_exists": false,
+            "ability_id": 309,
+            "ranks": 6
+          }
+        },
+        {
+          "rank_id": 7657,
+          "prerequisite": {
+            "ability_exists": false,
+            "ability_id": 309,
+            "ranks": 6
+          }
+        },
+        {
+          "rank_id": 7658,
+          "prerequisite": {
+            "ability_exists": false,
+            "ability_id": 309,
+            "ranks": 6
+          }
+        },
+        {
+          "rank_id": 13023,
+          "prerequisite": {
+            "ability_exists": false,
+            "ability_id": 309,
+            "ranks": 6
+          }
+        },
+        {
+          "rank_id": 16117,
+          "prerequisite": {
+            "ability_exists": false,
+            "ability_id": 309,
+            "ranks": 6
+          }
+        },
+        {
+          "rank_id": 6346,
+          "prerequisite": {
+            "ability_exists": false,
+            "ability_id": 494,
+            "ranks": 3
+          }
+        },
+        {
+          "rank_id": 6347,
+          "prerequisite": {
+            "ability_exists": false,
+            "ability_id": 494,
+            "ranks": 3
+          }
+        },
+        {
+          "rank_id": 6348,
+          "prerequisite": {
+            "ability_exists": false,
+            "ability_id": 494,
+            "ranks": 3
+          }
+        },
+        {
+          "rank_id": 7615,
+          "prerequisite": {
+            "ability_exists": false,
+            "ability_id": 494,
+            "ranks": 3
+          }
+        },
+        {
+          "rank_id": 7616,
+          "prerequisite": {
+            "ability_exists": false,
+            "ability_id": 494,
+            "ranks": 3
+          }
+        },
+        {
+          "rank_id": 7617,
+          "prerequisite": {
+            "ability_exists": false,
+            "ability_id": 494,
+            "ranks": 3
+          }
+        },
+        {
+          "rank_id": 15397,
+          "prerequisite": {
+            "ability_exists": false,
+            "ability_id": 494,
+            "ranks": 3
+          }
+        }
+      ]
+    },
+    {
+      "profile": "mag-nec-shm",
+      "stage": "100",
+      "policy": "balanced",
+      "spent": 100,
+      "unused": 0,
+      "next_rank_id": 163
+    },
+    {
+      "profile": "mag-nec-shm",
+      "stage": "200",
+      "policy": "balanced",
+      "spent": 199,
+      "unused": 1,
+      "next_rank_id": 84
+    },
+    {
+      "profile": "mag-nec-shm",
+      "stage": "500",
+      "policy": "balanced",
+      "spent": 494,
+      "unused": 6,
+      "next_rank_id": 12794
+    },
+    {
+      "profile": "mag-nec-shm",
+      "stage": "100",
+      "policy": "durability_first",
+      "spent": 100,
+      "unused": 0,
+      "next_rank_id": 163
+    },
+    {
+      "profile": "mag-nec-shm",
+      "stage": "200",
+      "policy": "durability_first",
+      "spent": 198,
+      "unused": 2,
+      "next_rank_id": 6053
+    },
+    {
+      "profile": "mag-nec-shm",
+      "stage": "500",
+      "policy": "durability_first",
+      "spent": 500,
+      "unused": 0,
+      "next_rank_id": 1083
+    },
+    {
+      "profile": "mag-nec-shm",
+      "stage": "all",
+      "spent": 13288,
+      "purchased_ranks": 2095,
+      "owned_abilities": 425,
+      "common_free_rank_ids": [
+        49999,
+        1000,
+        12636,
+        14017,
+        22200,
+        12637,
+        14018,
+        8445,
+        8446,
+        8447,
+        16419,
+        16420,
+        16421
+      ],
+      "unreachable": [
+        {
+          "rank_id": 5006,
+          "ability_id": 182,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 9032,
+          "ability_id": 453,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 1011,
+          "ability_id": 466,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 1012,
+          "ability_id": 466,
+          "reasons": [
+            "grant_only",
+            "previous_rank"
+          ]
+        },
+        {
+          "rank_id": 1013,
+          "ability_id": 466,
+          "reasons": [
+            "grant_only",
+            "previous_rank"
+          ]
+        },
+        {
+          "rank_id": 1014,
+          "ability_id": 466,
+          "reasons": [
+            "grant_only",
+            "previous_rank"
+          ]
+        },
+        {
+          "rank_id": 1015,
+          "ability_id": 466,
+          "reasons": [
+            "grant_only",
+            "previous_rank"
+          ]
+        },
+        {
+          "rank_id": 1016,
+          "ability_id": 466,
+          "reasons": [
+            "grant_only",
+            "previous_rank"
+          ]
+        },
+        {
+          "rank_id": 1361,
+          "ability_id": 471,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 1362,
+          "ability_id": 472,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 1363,
+          "ability_id": 473,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 1364,
+          "ability_id": 474,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 1365,
+          "ability_id": 475,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 1366,
+          "ability_id": 476,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 1367,
+          "ability_id": 477,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 1368,
+          "ability_id": 478,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 1369,
+          "ability_id": 479,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 1370,
+          "ability_id": 480,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 1371,
+          "ability_id": 481,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 1372,
+          "ability_id": 482,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 1373,
+          "ability_id": 483,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 1374,
+          "ability_id": 484,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 1375,
+          "ability_id": 485,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 1376,
+          "ability_id": 486,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 1377,
+          "ability_id": 487,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 1378,
+          "ability_id": 488,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 1379,
+          "ability_id": 488,
+          "reasons": [
+            "grant_only",
+            "previous_rank"
+          ]
+        },
+        {
+          "rank_id": 1380,
+          "ability_id": 488,
+          "reasons": [
+            "grant_only",
+            "previous_rank"
+          ]
+        },
+        {
+          "rank_id": 1381,
+          "ability_id": 488,
+          "reasons": [
+            "grant_only",
+            "previous_rank"
+          ]
+        },
+        {
+          "rank_id": 1382,
+          "ability_id": 488,
+          "reasons": [
+            "grant_only",
+            "previous_rank"
+          ]
+        },
+        {
+          "rank_id": 4665,
+          "ability_id": 511,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 1647,
+          "ability_id": 574,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 4672,
+          "ability_id": 575,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 4673,
+          "ability_id": 575,
+          "reasons": [
+            "grant_only",
+            "previous_rank"
+          ]
+        },
+        {
+          "rank_id": 4674,
+          "ability_id": 575,
+          "reasons": [
+            "grant_only",
+            "previous_rank"
+          ]
+        },
+        {
+          "rank_id": 5150,
+          "ability_id": 590,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 5165,
+          "ability_id": 591,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 5180,
+          "ability_id": 592,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 5195,
+          "ability_id": 593,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 5210,
+          "ability_id": 594,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 5225,
+          "ability_id": 595,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 9033,
+          "ability_id": 600,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 14367,
+          "ability_id": 704,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 14371,
+          "ability_id": 1687,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 4700,
+          "ability_id": 2000,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 9000,
+          "ability_id": 8081,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 9031,
+          "ability_id": 8130,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 15073,
+          "ability_id": 15073,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 15074,
+          "ability_id": 15074,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 30050,
+          "ability_id": 30050,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 30100,
+          "ability_id": 30100,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 30150,
+          "ability_id": 30150,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 30175,
+          "ability_id": 30175,
+          "reasons": [
+            "grant_only"
+          ]
+        },
+        {
+          "rank_id": 30195,
+          "ability_id": 30195,
+          "reasons": [
+            "grant_only"
+          ]
+        }
+      ],
+      "ignored_missing_prerequisites": [
+        {
+          "rank_id": 6346,
+          "prerequisite": {
+            "ability_exists": false,
+            "ability_id": 494,
+            "ranks": 3
+          }
+        },
+        {
+          "rank_id": 6347,
+          "prerequisite": {
+            "ability_exists": false,
+            "ability_id": 494,
+            "ranks": 3
+          }
+        },
+        {
+          "rank_id": 6348,
+          "prerequisite": {
+            "ability_exists": false,
+            "ability_id": 494,
+            "ranks": 3
+          }
+        },
+        {
+          "rank_id": 7615,
+          "prerequisite": {
+            "ability_exists": false,
+            "ability_id": 494,
+            "ranks": 3
+          }
+        },
+        {
+          "rank_id": 7616,
+          "prerequisite": {
+            "ability_exists": false,
+            "ability_id": 494,
+            "ranks": 3
+          }
+        },
+        {
+          "rank_id": 7617,
+          "prerequisite": {
+            "ability_exists": false,
+            "ability_id": 494,
+            "ranks": 3
+          }
+        },
+        {
+          "rank_id": 15397,
+          "prerequisite": {
+            "ability_exists": false,
+            "ability_id": 494,
+            "ranks": 3
+          }
+        }
+      ]
+    }
+  ]
+}
