@@ -7,7 +7,7 @@ Status: foundational calculations and input fixtures verified; encounter model i
 
 - `GetExtraSpellAmt` port: 2,792 boundary/random differential cases match the
   extracted actual C++ function. `spell-formula-oracle.json` records source hashes.
-- 49 Python tests cover caps, timing boundaries, duration splitting, integer
+- 69 Python tests cover caps, timing boundaries, duration splitting, integer
   truncation, snapshot/query gates, and gear legality/assignment. Assignment results
   match exhaustive enumeration on 50 small random matrices, including cases where
   a greedy per-slot choice is wrong.
@@ -17,6 +17,13 @@ Status: foundational calculations and input fixtures verified; encounter model i
   best held-class selection. Inputs are resolved stats and bonuses; this is not
   proof of complete inventory/AA/buff resolution. Ancillary heroic/stat helpers
   have unit coverage and source review, not this differential coverage.
+- The seeded event engine now runs casts, heals, mana exhaustion/recovery, fear,
+  periodic effects, regeneration, melee rounds, deaths, kills, and timeouts with
+  resolved diagnostic inputs. It has analytically solvable timing tests.
+- Hit/DI/mitigation arithmetic matches 5,000 native C++ cases. A 1,000-trial
+  Nagafen melee control matches exact expected damage within 0.446 standard
+  errors. The defender is artificial and spells are omitted; this is an event
+  integration control, not a full boss fight. See `engine-validation.md`.
 - `tools/balance/fixtures/classic-20260912.json.gz` freezes 5,797 item rows, three
   bosses, their spell lists (including Vox's parent list), spell IDs 1-1200, base
   data, skill caps, combat/progression rules, and 124,161 drop provenance records.

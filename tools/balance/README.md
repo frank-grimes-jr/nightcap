@@ -55,3 +55,24 @@ The assignment solver maximizes the documented additive score exactly, including
 lore conflicts and legal class/race/deity/level/slot checks. This produces candidate
 loadouts, not final combat BiS. The full enemy/character model, AA/buff/effect
 coverage, and encounter simulations are still in progress.
+
+## Event simulation and controls
+
+```powershell
+python verify_melee_cpp.py --source E:/EQ_Local_Dev/akk-stack/code/zone/attack.cpp --output ../../docs/balance/melee-formula-oracle.json
+python encounter_cli.py --scenario fixtures/nagafen-melee-control.json --runs 1000 --trace --output ../../docs/balance/nagafen-melee-control.json
+python verify_control.py --results ../../docs/balance/nagafen-melee-control.json --output ../../docs/balance/nagafen-melee-control-check.json
+```
+
+`encounter.py` schedules casts, mana spending, cooldowns, healing, fear interrupts,
+periodic effects, regeneration, and melee rounds. Inputs must supply resolved
+effects and defenses. The current scenario format accepts only `diagnostic`
+status and requires explicit assumptions; it does not certify those assumptions.
+The CLI preserves seeds, input/model hashes, all trial results, and optionally the
+first trace. Kill times and death times are reported separately.
+
+The Nagafen control has captured unbuffed melee inputs and an artificial
+defender. It excludes spells and is not a complete boss fight or a BiS result.
+The check enumerates exact hit and mitigation distributions and compares the
+event runner's mean damage with the resulting expectation. See
+`docs/balance/engine-validation.md` for fidelity boundaries and remaining work.

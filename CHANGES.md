@@ -1,5 +1,18 @@
 # CHANGES
 
+## 2026-09-12 - Add seeded encounter engine and native melee validation
+
+Added an offline event simulator and CLI for resolved diagnostic profiles:
+casting, healing/overheal, mana exhaustion and regeneration, cooldowns, fear
+interrupts, periodic effects, NPC melee rounds, deaths, kills, and timeouts.
+Compared hit/DI/mitigation math with actual C++ in 5,000 cases: zero mismatches.
+Ran 1,000 Nagafen melee controls against an artificial defender; mean damage
+agrees with the exact discrete expectation within 0.446 standard errors.
+The controls explicitly omit full boss AI/spells and are not BiS fight results.
+Full character/AA/buff/effect adapters and Vox/Nagafen balance sweeps remain open.
+Recorded the active live-rounds rule and legal Human Warrior creation allocation.
+No live tuning, player changes, restarts, or promotions occurred in this slice.
+
 ## 2026-09-12 - Verify calculator HP and mana against the engine
 
 Added RoF2/SoD resource calculations for best held-class HP/mana, stamina and
