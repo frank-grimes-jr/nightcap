@@ -1,5 +1,23 @@
 # CHANGES
 
+## 2026-09-12 - Correct held-class weapon damage and measure native monk combat
+
+The first WAR/CLR/MNK pilot exposed a base-class-only swing gate: legal held-Monk
+Tonfa 662038 equipped successfully but all 632 normal swings were immune. The source
+candidate now uses the existing held-class equip helper for player weapon damage,
+preserving slot/level/race checks and non-player/bot logic. Fifteen native weapon
+controls pass; the same pilot now deals ordinary weapon damage and kills Nagafen.
+
+Added a native packet-driven Flying Kick/Tiger Claw plus melee/self-heal controller.
+Sixty matched weapon-layout/AA/control encounters pass, including six byte-identical
+caster regressions. The verifier distinguishes ordinary weapon hits from monk skills
+and accepts native avoided enemy swings as evidence of combat, without requiring
+incoming damage. All 180 Python tests pass. See docs/balance/native-melee.md and
+ADR 0010 for evidence, limitations and explicit QA. The corrected attack.cpp is only
+in the isolated diagnostic; no live binary replacement, restart or numerical tuning
+was performed. Low-AA melee rotations and the unrestricted AA ceiling still require
+balance review alongside pet/DoT play and per-character spell ownership.
+
 ## 2026-09-12 - Include socketed gear and expanded weapon choices in balance evidence
 
 The isolated native harness now equips real augments with socket/lore/level checks

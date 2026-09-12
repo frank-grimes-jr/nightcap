@@ -18,7 +18,7 @@ class EncounterMatrixTests(unittest.TestCase):
         state.update(npc_hate_target=1, player_dead=False, player_zoning=False, player_destroying=False)
         first = dict(ms=0, player_hp=6000, player_mana=4800, npc_hp=32000, feared=False)
         last = dict(ms=10000, player_hp=5000, player_mana=1000, npc_hp=-1, feared=False)
-        events = [dict(type='damage', source=s, spell=65535, damage=100) for s in (1, 2)]
+        events = [dict(type='damage', source=s, target=3-s, spell=65535, damage=100) for s in (1, 2)]
         report = {'builds': [player], 'native_rng_seed': 1729, 'encounter': dict(
             npc_id=32040, player_entity_id=1, npc_entity_id=2, initial_state=state,
             trace=[first, last], events=events, result='npc_death', elapsed_ms=10000)}
@@ -40,6 +40,7 @@ class EncounterMatrixTests(unittest.TestCase):
         mutations = [lambda r: r['encounter'].update(elapsed_ms=11000),
                      lambda r: r['encounter']['trace'][-1].update(npc_hp=10),
                      lambda r: r['encounter'].update(events=[]),
+                     lambda r: r['encounter']['events'][1].update(target=99),
                      lambda r: r['encounter']['initial_state'].update(zone_loaded=False)]
         for mutation in mutations:
             report = copy.deepcopy(original)

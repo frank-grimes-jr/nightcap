@@ -172,6 +172,24 @@ public:
 		return result;
 	}
 
+	json WeaponChecks(const json &ids)
+	{
+		const auto *type = content_db.LoadNPCTypesData(32040);
+		if (!type) { throw std::runtime_error("Missing weapon control NPC"); }
+		auto *target = new NPC(type,nullptr,glm::vec4(0,0,0,0),GravityBehavior::Water);
+		json result = json::array();
+		for (const auto &value : ids) {
+			std::unique_ptr<EQ::ItemInstance> item(database.CreateItem(value.get<uint32>()));
+			if (!item) { throw std::runtime_error("Invalid weapon control item"); }
+			result.push_back({{"id",item->GetID()},{"base_class_equipable",item->IsClassEquipable(GetClass())},
+				{"held_class_equipable",CanEquipItem(item->GetItem())},
+				{"race_equipable",item->IsRaceEquipable(GetBaseRace())},
+				{"required_level",item->GetItemRequiredLevel(true)},
+				{"native_weapon_damage",GetWeaponDamage(target,item.get())}});
+		}
+		return result;
+	}
+
 	void ConfigureSkills(const json &build)
 	{
 		// Explicit trained-skill ceiling. Held-class natural training/client access
@@ -397,6 +415,10 @@ int NightcapBalanceMain(int argc, char **argv)
 			if (build.contains("aa_stage")) { output["builds"].back()["aa_stage"] = build["aa_stage"]; }
 			if (build.contains("aa_policy")) { output["builds"].back()["aa_policy"] = build["aa_policy"]; }
 			if (input.value("export_equipment",false)) { output["builds"].back()["equipped_items"] = c->EquipmentState(); }
+			if (input.contains("weapon_check_items")) {
+				if (runtime) { throw std::runtime_error("Weapon stat controls require their own process"); }
+				output["builds"].back()["weapon_checks"] = c->WeaponChecks(input.at("weapon_check_items"));
+			}
 			output["builds"].back()["skill_model"] = "Maximum held-class trained caps with native specialization/AA cap rules; attainability requires QA";
 			output["builds"].back()["raw_skills"] = std::vector<uint32>(std::begin(c->GetPP().skills),std::end(c->GetPP().skills));
 			if (input.value("export_aa_catalog",false)) {
@@ -415,8 +437,12 @@ int NightcapBalanceMain(int argc, char **argv)
 				output["status"] = "Native purchased-AA activation diagnostic; cooldowns initially ready";
 			}
 			if (input.contains("encounter")) {
-				if (build.at("profile") != "war-clr-wiz" || input.value("runtime_probe",false)) {
-					throw std::runtime_error("Initial encounter controller requires WAR/CLR/WIZ and its own process");
+				const auto policy = input.at("encounter").value("combat_policy",std::string("caster_heal"));
+				const bool supported = (policy == "caster_heal" && build.at("profile") == "war-clr-wiz")
+					|| (policy == "melee_heal" && build.at("profile") == "war-clr-mnk"
+						&& build.at("classes") == json::array({1,2,7}));
+				if (!supported || input.value("runtime_probe",false)) {
+					throw std::runtime_error("Encounter policy does not match its supported class profile");
 				}
 				output["encounter"] = NightcapBalanceEncounter(c,input.at("encounter"));
 				if (input.at("encounter").contains("active_aa_policy")) {

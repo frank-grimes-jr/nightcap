@@ -75,7 +75,7 @@ covered by these rows plus G008/G009/G010/G015/G021.
 | G018.8 | Spell dmg/heal item-mod eligibility & focus-by-class | `effects.cpp` 67–570,452,955,970; `spell_effects.cpp` 3538,3551,4864–5823 | additive (held caster); main spell-dmg path already loops held classes (see below); eligibility/focus-limit still primary-class | partial |
 | G018.9 | SK/Paladin ability procs (Vampiric Embrace, LoH holdover) | `attack.cpp` 2120; `spell_effects.cpp` 1970,4355; `spells.cpp` 6384,6440 | additive (held SK/Pal); overlaps G002 | open |
 | G018.10 | Bard shared-`Mob` exceptions in these files | `effects.cpp` 1333–1334; `spell_effects.cpp` 451,488,8443 | folded into G010 | ref |
-| G018.11 | Weapon legality on the swing | `attack.cpp` 1240 `IsClassEquipable` | additive via equip mask; overlaps G014 | verify |
+| G018.11 | Weapon legality on the swing | `attack.cpp` 1240 `IsClassEquipable` | additive via equip mask; overlaps G014 | Native pilot exposed base-class-only rejection (632 immune swings with a held-Monk weapon). Candidate now uses `CanEquipItem`; 15 native weapon controls pass. See ADR 0010; live deployment/manual QA pending. |
 | G018.12 | LDoNTreasure / body-type / banker target checks | `attack.cpp` 2467,2585,2628,2681; body-type cases in the 7745+ block | non-player (target/object identity) | accepted |
 | G018.13 | Group exp distribution base class | `attack.cpp` 2725,2758,2792 `GetBaseClass` | chassis (progression identity); G011 | accepted |
 

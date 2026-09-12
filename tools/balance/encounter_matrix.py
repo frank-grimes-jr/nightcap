@@ -98,7 +98,11 @@ def summarize(case, report):
     melee = lambda source: sum(e['type'] == 'damage' and e['source'] == source
                                and e['spell'] == 65535 and e['damage'] > 0 for e in events)
     boss_melee, player_melee = melee(boss_id), melee(player_id)
-    if not boss_melee or not player_melee:
+    # A legitimate short fight can avoid every NPC swing at high AA defense.
+    # Native attempted swings still prove melee processing; positive damage does not.
+    boss_attempts = sum(e['type'] == 'damage' and e['source'] == boss_id
+                        and e['target'] == player_id and e['spell'] == 65535 for e in events)
+    if not boss_attempts or not player_melee:
         raise ValueError('Missing native melee activity for weapon-equipped encounter')
     spells = Counter(e['spell'] for e in events if e['type'] == 'begin_cast' and e['source'] == boss_id)
     return {'id': case['id'], 'npc_id': encounter['npc_id'], 'seed': case['seed'],

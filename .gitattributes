@@ -30,3 +30,6 @@ docs/balance/aa-pool-*.json -text
 tools/balance/gear_candidates.py text eol=lf
 tools/balance/gear_encounters.py text eol=lf
 tools/balance/augment_controls.py text eol=lf
+tools/balance/melee_controls.py text eol=lf
+server-mods/code/zone/attack.cpp text eol=lf
+docs/balance/melee-*.json -text

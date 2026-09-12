@@ -72,6 +72,7 @@ public:
 	RegularOpcodeManager opcode_manager;
 	uint64_t outgoing = 0;
 	bool capture_messages = false;
+	bool capture_damage_type = false;
 	json events = json::array();
 	std::deque<EQApplicationPacket *> incoming;
 	EQStreamState state = ESTABLISHED;
@@ -83,6 +84,7 @@ public:
 			auto *d = reinterpret_cast<const CombatDamage_Struct *>(p->pBuffer);
 			events.push_back({{"ms",Timer::GetCurrentTime()},{"type","damage"},
 				{"source",d->source},{"target",d->target},{"spell",d->spellid},{"damage",static_cast<int32>(d->damage)}});
+			if (capture_damage_type) { events.back()["damage_type"] = d->type; }
 		} else if (p->GetOpcode() == OP_BeginCast && p->size == sizeof(BeginCast_Struct)) {
 			auto *d = reinterpret_cast<const BeginCast_Struct *>(p->pBuffer);
 			events.push_back({{"ms",Timer::GetCurrentTime()},{"type","begin_cast"},
@@ -469,6 +471,48 @@ static json PreparationState(Client *c)
 	return state;
 }
 
+// Requests normal combat buttons through Client::Process. The native handler owns
+// class/skill/range checks, damage, Master Wu and cooldown calculation.
+class BalanceMonkActions {
+	std::map<int,uint32> next_request;
+	bool pending = false;
+public:
+	json events = json::array();
+	void Queue(Client *c, NPC *npc, BalanceStream *stream)
+	{
+		if (c->IsCasting() || c->IsAIControlled() || c->IsFeared() || c->IsStunned() || c->IsMezzed()
+			|| (c->GetHPRatio() < 55 && c->GetMana() >= spells[9].mana)
+			|| !c->CombatRange(npc) || !c->CheckLosFN(npc)) { return; }
+		for (auto skill : {EQ::skills::SkillFlyingKick,EQ::skills::SkillTigerClaw}) {
+			const auto timer_id = skill == EQ::skills::SkillTigerClaw ? pTimerCombatAbility2 : pTimerCombatAbility;
+			auto *timer = c->GetPTimers().Get(timer_id);
+			if (!c->GetSkill(skill) || Timer::GetCurrentTime() < next_request[skill]
+				|| (timer && timer->GetRemainingTime())) { continue; }
+			auto *packet = new EQApplicationPacket(OP_CombatAbility,sizeof(CombatAbility_Struct));
+			auto *action = reinterpret_cast<CombatAbility_Struct *>(packet->pBuffer);
+			action->m_target = npc->GetID(); action->m_atk = 100; action->m_skill = skill;
+			stream->incoming.push_back(packet);
+			events.push_back({{"ms",Timer::GetCurrentTime()},{"skill",skill},{"timer_id",timer_id},
+				{"timer_before",timer ? timer->GetRemainingTime() : 0},{"skill_value",c->GetSkill(skill)},
+				{"target",npc->GetID()},{"npc_hp_before",npc->GetHP()},{"player_hp_before",c->GetHP()},
+				{"player_mana_before",c->GetMana()}});
+			next_request[skill] = Timer::GetCurrentTime()+250;
+			pending = true;
+			return; // One button per pulse; separate native RoF2 cooldown groups.
+		}
+	}
+	void Confirm(Client *c, NPC *npc)
+	{
+		if (!pending) { return; }
+		auto *timer = c->GetPTimers().Get(events.back().at("timer_id").get<int>());
+		events.back()["timer_after"] = timer ? timer->GetRemainingTime() : 0;
+		events.back()["npc_hp_after"] = npc->GetHP();
+		events.back()["player_hp_after"] = c->GetHP();
+		events.back()["player_mana_after"] = c->GetMana();
+		pending = false;
+	}
+};
+
 static json PrepareEncounter(Client *c, const json &input)
 {
 	const auto ids = input.at("spell_ids").get<std::vector<int>>();
@@ -551,6 +595,10 @@ json NightcapBalanceEncounter(Client *c, const json &input)
 	const int npc_id = input.at("npc_id").get<int>();
 	const int duration = input.value("duration_ms",120000);
 	const bool return_to_melee = input.value("return_to_melee",false);
+	const std::string combat_policy = input.value("combat_policy",std::string("caster_heal"));
+	const bool melee_heal = combat_policy == "melee_heal";
+	const bool melee_specials = input.value("melee_specials",true);
+	if (combat_policy != "caster_heal" && !melee_heal) { throw std::runtime_error("Unknown native combat policy"); }
 	const std::string active_policy = input.value("active_aa_policy",std::string());
 	BalanceAAActions aa_actions(c,active_policy);
 	if ((npc_id != 32040 && npc_id != 73057) || duration < 1000 || duration > 900000
@@ -592,11 +640,12 @@ json NightcapBalanceEncounter(Client *c, const json &input)
 	if (!npc->IsEngaged() || npc->GetHateTop() != c || !npc->IsAttackAllowed(c)) {
 		throw std::runtime_error("Native engagement control failed: " + initial_state.dump());
 	}
-	const uint16 nuke = npc_id == 32040 ? 732 : 659;
+	const uint16 nuke = melee_heal ? 0 : npc_id == 32040 ? 732 : 659;
 	const uint16 heal = 9;
 	c->GetPP().mem_spells[0] = nuke;
 	c->GetPP().mem_spells[1] = heal;
 	auto *stream = streams.at(c);
+	stream->capture_damage_type = melee_heal;
 	stream->capture_messages = !active_policy.empty();
 	auto *attack = new EQApplicationPacket(OP_AutoAttack,4);
 	attack->pBuffer[0] = 1;
@@ -616,11 +665,14 @@ json NightcapBalanceEncounter(Client *c, const json &input)
 	uint32 next_request = 0;
 	uint16 prior_cast = 0;
 	BalanceMeleeReturn movement;
+	BalanceMonkActions monk_actions;
 	sample();
 	for (uint32 ms = combat_start + 50; ms <= combat_start + duration && terminal.empty(); ms += 50) {
 		Advance(50);
 		const bool moving = return_to_melee && movement.Step(c,npc,stream,50);
+		if (melee_heal && melee_specials && !moving) { monk_actions.Queue(c,npc,stream); }
 		if (!c->Process()) { throw std::runtime_error("Client processing stopped before terminal combat result"); }
+		if (melee_heal && melee_specials) { monk_actions.Confirm(c,npc); }
 		if (return_to_melee) { movement.Confirm(c); }
 		if (!terminal.empty()) { sample(); break; }
 		if (!npc->Process()) { throw std::runtime_error("NPC processing stopped before terminal combat result"); }
@@ -635,7 +687,7 @@ json NightcapBalanceEncounter(Client *c, const json &input)
 			if (!aa_actions.Step(c,next_request)) {
 				const uint16 spell = c->GetHPRatio() < 55 ? heal : nuke;
 				auto *timer = c->GetPTimers().Get(pTimerSpellStart+spell);
-				if ((!timer || timer->GetRemainingTime() == 0) && c->GetMana() >= spells[spell].mana) {
+				if (spell && (!timer || timer->GetRemainingTime() == 0) && c->GetMana() >= spells[spell].mana) {
 					const bool accepted = c->CastSpell(spell,spell == heal ? c->GetID() : npc->GetID(),
 						static_cast<EQ::spells::CastingSlot>(spell == heal ? 1 : 0));
 					attempts.push_back({{"ms",ms},{"spell",spell},{"accepted",accepted}});
@@ -671,6 +723,13 @@ json NightcapBalanceEncounter(Client *c, const json &input)
 		result["preparation"] = preparation;
 		result["scope"] = "Native preparation and encounter; continuous buff/resource/cooldown state, fight-relative timestamps; candidate gear and fixed combat policy";
 		if (!active_policy.empty()) { result["activated_aa"]["scope"] = "Same once-per-fight activation policy after native preparation; shared cooldowns and costs retained"; }
+	}
+	if (melee_heal) {
+		for (auto &event : monk_actions.events) { event["ms"] = event.at("ms").get<uint32>()-combat_start; }
+		result["combat_policy"] = combat_policy;
+		result["monk_actions"] = {{"enabled",melee_specials},{"requests",monk_actions.events},
+			{"policy","Autoattack and native Flying Kick/Tiger Claw buttons, pause for affordable Superior Healing below55%; each button requested at most every250ms and only with its native timer ready"}};
+		result["scope"] = "Native WAR/CLR/MNK melee and self-heal controller; packet combat skills, candidate gear and AA purchases; not final balance certification";
 	}
 	return result;
 }
