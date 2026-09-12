@@ -1,0 +1,18 @@
+{
+  "captured_at": "2026-09-12T14:09:37.149524+00:00",
+  "schema_version": 1,
+  "query_sha256": "d2860f2992ca10b311179e794978e3be8624a15a3010af3fd68bb8f0950d0f33",
+  "scope": "Unconditional, unflagged Classic version-0 drop pool and its tiers; excludes quests, merchants, global loot, epics, and augments. Spell IDs 1-1200 only; unresolved references must fail validation.",
+  "rows": {
+    "items": 5797,
+    "npc_types": 3,
+    "npc_spells": 3,
+    "npc_spells_entries": 91,
+    "spells_new": 1198,
+    "base_data": 880,
+    "skill_caps": 31254,
+    "rule_values": 560,
+    "drop_sources": 124161
+  },
+  "snapshot_sha256": "c787ae4f436bf8eae0d28510e41634fd96fbf9232233069278cc4fd548b9fbc9"
+}

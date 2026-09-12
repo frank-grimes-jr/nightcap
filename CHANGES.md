@@ -1,5 +1,16 @@
 # CHANGES
 
+## 2026-09-12 - Start source-verified offline balance calculator
+
+Added a Python port of the item spell/healing contribution and compared it with
+the actual C++ function in 2,792 cases: zero mismatches. Added a hashed, non-player
+Classic-zone content snapshot and an exact weighted gear assignment solver with
+class/race/deity/level/slot/lore constraints. Thirty-eight unit/relational checks
+pass. Twelve candidate builds cover three class combinations and four tiers;
+these are not yet full combat BiS or encounter outcomes. Full boss AI, combat,
+AA/buff/effect modeling and additional acquisition paths remain in progress.
+No spell/healing caps, mob values, or player records were changed by this slice.
+
 ## 2026-09-12 - Reconcile source/data baseline and restore level-1 AA XP rule
 
 Integrated existing dev, accepted main QA history, and the already-deployed
