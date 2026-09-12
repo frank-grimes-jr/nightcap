@@ -1,5 +1,17 @@
 # CHANGES
 
+## 2026-09-12 - Measure AA rank pools and burst-family exclusions
+
+Added explicit diagnostic AA rank-cap and exclusion policies with native legal
+purchase closure, actual spending and dependency-removal audits. Fifty-four
+fixed-gear prepared boss encounters compare a 114-point early combat core, a
+201-point deeper core, and unrestricted builds without Twincast/Frenzied families.
+The two-family removal alone still leaves a large power ceiling; the small core
+sometimes produces long Vox fights. No production AA has been disabled and no
+era rule changed. See docs/balance/native-aa-pools.md for evidence and release QA.
+All 164 Python tests pass; six zero-spend controls retain identical combat and
+twelve exhausted-budget controls match their completed-pool fights exactly.
+
 ## 2026-09-12 - Include native preparation in boss baselines
 
 Added ordered native self-buff casts, mana costs and optional full sitting recovery

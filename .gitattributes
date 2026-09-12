@@ -25,3 +25,5 @@ server-mods/code/zone/spells.cpp text eol=lf
 docs/balance/duration-*.json -text
 tools/balance/preparation_controls.py text eol=lf
 docs/balance/preparation-*.json -text
+tools/balance/aa_pool_controls.py text eol=lf
+docs/balance/aa-pool-*.json -text

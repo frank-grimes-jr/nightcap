@@ -66,3 +66,9 @@ and gear ceilings. Native metadata is a starting point, not the final balance ru
 
 No AA has been disabled, no purchase has been removed and no era rule has changed
 as part of this review.
+
+The first 54 native rank-pool/family-removal comparisons are now recorded in
+`native-aa-pools.md`. A 114-point combat core preserves danger but has some very
+long Vox fights; removing both selected burst families from the unrestricted
+ceiling still leaves six easy-looking wins with at least 82.1% sampled HP. Broader
+rank curation remains necessary. These candidates are not a release whitelist.

@@ -1,0 +1,24 @@
+{
+  "unchanged_zero_spend_encounters": [
+    "32040-early_core-0-1729",
+    "32040-early_core-0-1730",
+    "32040-early_core-0-1731",
+    "73057-early_core-0-1729",
+    "73057-early_core-0-1730",
+    "73057-early_core-0-1731"
+  ],
+  "identical_exhausted_pool_encounters": [
+    "32040-early_core-200-1729",
+    "32040-early_core-200-1730",
+    "32040-early_core-200-1731",
+    "73057-early_core-200-1729",
+    "73057-early_core-200-1730",
+    "73057-early_core-200-1731",
+    "32040-early_core-500-1729",
+    "32040-early_core-500-1730",
+    "32040-early_core-500-1731",
+    "73057-early_core-500-1729",
+    "73057-early_core-500-1730",
+    "73057-early_core-500-1731"
+  ]
+}
