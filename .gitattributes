@@ -15,3 +15,6 @@ docs/balance/gear-*.json -text
 tools/balance/acquisition_snapshot.py text eol=lf
 tools/balance/gear_haste_controls.py text eol=lf
 tools/balance/encounter_matrix.py text eol=lf
+docs/balance/movement-*.json -text
+tools/balance/build_native.py text eol=lf
+tools/balance/verify_native_movement.py text eol=lf

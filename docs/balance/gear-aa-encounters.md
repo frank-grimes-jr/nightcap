@@ -82,6 +82,10 @@ legal preparation/AA activation policies, additional entity processing where
 required, timestep checks, more seeds, and final gear/acquisition review. Only
 then can cap/HP sensitivity results support tuning and focused in-game QA.
 
+Follow-up: `native-player-pursuit.md` records the implemented pursuit policy.
+The historical timeout above becomes a 271.30-second kill, and the old policy
+still reproduces exactly. These original records remain unchanged.
+
 ## Evidence and reproduction
 
 - `gear-haste-inputs.json`, `gear-haste-stats.json`, `gear-haste-check.json` and

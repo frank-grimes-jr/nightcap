@@ -110,6 +110,7 @@ def main():
     # Native EQ::Random engines/distributions and production objects stay intact.
     link.insert(1, '-Wl,--wrap=_ZNSt13random_device9_M_getvalEv')
     link.insert(1, '-Wl,--wrap=gettimeofday,--wrap=time')
+    link.insert(1, '-Wl,--wrap=_ZN11WorldServer10SendPacketEP12ServerPacket')
     binary = output / 'balance-zone'
     link[link.index('-o') + 1] = str(binary)
     subprocess.run(link, cwd=build, check=True)

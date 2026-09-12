@@ -7,6 +7,9 @@
 #include "zone/mob_movement_manager.h"
 #include "common/eq_stream_intf.h"
 #include "common/ptimer.h"
+#include "common/misc_functions.h"
+#include "common/opcodemgr.h"
+#include "common/servertalk.h"
 #include <sys/time.h>
 #include <ctime>
 #include <deque>
@@ -21,6 +24,12 @@ extern volatile bool is_zone_loaded;
 extern uint32 current_time;
 extern uint32 last_time;
 extern double frame_time;
+// The isolated harness has no world connection. Fail closed on unmodeled
+// notifications instead of dereferencing its absent network connection.
+extern "C" bool __wrap__ZN11WorldServer10SendPacketEP12ServerPacket(void *, ServerPacket *packet)
+{
+	throw std::runtime_error("Unexpected isolated world notification opcode " + std::to_string(packet->opcode));
+}
 static bool virtual_clock = false;
 static uint64_t elapsed_ms = 0;
 static constexpr time_t epoch = 1789171200;
@@ -59,6 +68,7 @@ void NightcapBalanceStartClock()
 
 class BalanceStream : public EQStreamInterface {
 public:
+	RegularOpcodeManager opcode_manager;
 	uint64_t outgoing = 0;
 	json events = json::array();
 	std::deque<EQApplicationPacket *> incoming;
@@ -96,7 +106,7 @@ public:
 	std::string Describe() const override { return "isolated balance packet sink"; }
 	EQStreamState GetState() override { return state; }
 	void SetOpcodeManager(OpcodeManager **) override {}
-	OpcodeManager *GetOpcodeManager() const override { return nullptr; }
+	OpcodeManager *GetOpcodeManager() const override { return const_cast<RegularOpcodeManager *>(&opcode_manager); }
 	const EQ::versions::ClientVersion ClientVersion() const override { return EQ::versions::ClientVersion::RoF2; }
 	Stats GetStats() const override { return {}; }
 	void ResetStats() override {}
@@ -190,10 +200,114 @@ public:
 	}
 };
 
+// Explicit player movement policy. NPC navigation commands require AI control,
+// which would change client combat/casting. Submit ordinary bounded position
+// packets instead, using native pathfinding and native resolved movement speed.
+class BalanceMeleeReturn {
+	IPathfinder::IPath route;
+	uint32 next_path_ms = 0;
+	uint16 sequence = 0;
+	uint32 next_history_ms = 0;
+	bool moving = false;
+	bool pending_move = false;
+public:
+	json events = json::array();
+	uint32 failed_paths = 0;
+	uint32 history_packets = 0;
+	bool Step(Client *c, NPC *npc, BalanceStream *stream, uint32 pulse_ms)
+	{
+		const bool controlled = c->IsAIControlled() || c->IsFeared() || c->IsStunned() || c->IsMezzed();
+		const bool healing = c->GetHPRatio() < 55 && c->GetMana() >= spells[9].mana;
+		const int speed = c->GetRunspeed();
+		const auto from = glm::vec3(c->GetPosition());
+		const bool in_range = c->CombatRange(npc) && c->CheckLosFN(npc);
+		if (controlled || c->IsCasting() || speed <= 0 || healing || in_range) {
+			route.clear();
+			if (moving && !controlled) { Submit(c,stream,from,0); }
+			moving = false;
+			return false;
+		}
+		const auto now = Timer::GetCurrentTime();
+		if (route.empty() || now >= next_path_ms) {
+			if (now < next_path_ms && route.empty()) { return false; }
+			PathfinderOptions options;
+			options.flags = PathingNotDisabled & ~PathingZoneLine & ~PathingPortal;
+			options.step_size = RuleR(Pathing,NavmeshStepSize);
+			options.offset = c->GetZOffset();
+			bool partial = false, stuck = false;
+			route = zone->pathing->FindPath(from,glm::vec3(npc->GetPosition()),partial,stuck,options);
+			next_path_ms = now + 500;
+			if (partial || stuck || route.empty() || std::any_of(route.begin(),route.end(),[](const auto &n) { return n.teleport; })) {
+				route.clear(); ++failed_paths;
+				if (moving) { Submit(c,stream,from,0); moving = false; }
+				return false;
+			}
+		}
+		while (!route.empty() && glm::distance(from,route.front().pos) < 0.1f) { route.pop_front(); }
+		if (route.empty()) {
+			if (moving) { Submit(c,stream,from,0); moving = false; }
+			return false;
+		}
+		const auto waypoint = route.front().pos;
+		const float distance = glm::distance(from,waypoint);
+		// Conservative NPC-ground-motion conversion; client speed parity remains QA.
+		const float limit = pulse_ms / 1000.0f * speed * 0.4f * 1.45f;
+		const auto to = from + (waypoint-from) * std::min(1.0f,limit/distance);
+		if (!std::isfinite(distance) || !std::isfinite(limit) || !zone->zonemap->CheckLoS(from,to)) {
+			route.clear(); ++failed_paths;
+			if (moving) { Submit(c,stream,from,0); moving = false; }
+			return false;
+		}
+		events.push_back({{"ms",now},{"from",{from.x,from.y,from.z}},
+			{"to",{to.x,to.y,to.z}},{"speed",speed},{"limit",limit},
+			{"casting",c->IsCasting()},{"controlled",controlled},{"in_range",in_range}});
+		Submit(c,stream,to,speed);
+		pending_move = true;
+		moving = true;
+		return true;
+	}
+	void Confirm(Client *c)
+	{
+		if (!pending_move) { return; }
+		auto &event = events.back();
+		event["actual"] = {c->GetX(),c->GetY(),c->GetZ()};
+		event["accepted"] = event["actual"] == event["to"];
+		if (event["accepted"] == false && !c->IsAIControlled()) {
+			throw std::runtime_error("Ordinary client position packet was not applied");
+		}
+		pending_move = false;
+	}
+private:
+	void Submit(Client *c, BalanceStream *stream, const glm::vec3 &to, int speed)
+	{
+		if (Timer::GetCurrentTime() >= next_history_ms) {
+			auto *history = new EQApplicationPacket(OP_FloatListThing,sizeof(UpdateMovementEntry));
+			auto *entry = reinterpret_cast<UpdateMovementEntry *>(history->pBuffer);
+			entry->X = c->GetX(); entry->Y = c->GetY(); entry->Z = c->GetZ();
+			// A position sample using the engine's non-exempting history type.
+			// No teleport/zone-line entry or anti-cheat exemption is fabricated.
+			entry->type = UpdateMovementType::Unknown0x5;
+			entry->timestamp = Timer::GetCurrentTime();
+			stream->incoming.push_back(history);
+			next_history_ms = Timer::GetCurrentTime() + 10000;
+			++history_packets;
+		}
+		auto *packet = new EQApplicationPacket(OP_ClientUpdate,sizeof(PlayerPositionUpdateClient_Struct));
+		auto *p = reinterpret_cast<PlayerPositionUpdateClient_Struct *>(packet->pBuffer);
+		p->sequence = ++sequence;
+		p->spawn_id = c->GetID();
+		p->x_pos = to.x; p->y_pos = to.y; p->z_pos = to.z;
+		p->heading = FloatToEQ12(speed ? c->CalculateHeadingToTarget(to.x,to.y) : c->GetHeading());
+		p->animation = speed;
+		stream->incoming.push_back(packet);
+	}
+};
+
 json NightcapBalanceEncounter(Client *c, const json &input)
 {
 	const int npc_id = input.at("npc_id").get<int>();
 	const int duration = input.value("duration_ms",120000);
+	const bool return_to_melee = input.value("return_to_melee",false);
 	if ((npc_id != 32040 && npc_id != 73057) || duration < 1000 || duration > 900000
 		|| !virtual_clock || !c->Connected() || !c->ClientFinishedLoading()) {
 		throw std::runtime_error("Unsupported encounter or incomplete runtime client");
@@ -246,10 +360,13 @@ json NightcapBalanceEncounter(Client *c, const json &input)
 		{"npc_position",{npc->GetX(),npc->GetY(),npc->GetZ()}}}); };
 	uint32 next_request = 0;
 	uint16 prior_cast = 0;
+	BalanceMeleeReturn movement;
 	sample();
 	for (int ms = 50; ms <= duration && terminal.empty(); ms += 50) {
 		Advance(50);
+		const bool moving = return_to_melee && movement.Step(c,npc,stream,50);
 		if (!c->Process()) { throw std::runtime_error("Client processing stopped before terminal combat result"); }
+		if (return_to_melee) { movement.Confirm(c); }
 		if (!terminal.empty()) { sample(); break; }
 		if (!npc->Process()) { throw std::runtime_error("NPC processing stopped before terminal combat result"); }
 		if (!terminal.empty()) { sample(); break; }
@@ -258,7 +375,7 @@ json NightcapBalanceEncounter(Client *c, const json &input)
 			// Explicit conservative client recovery policy; native per-spell timers also apply.
 			next_request = ms + spells[prior_cast].recovery_time;
 		}
-		if (!c->IsCasting() && !c->IsFeared() && !c->IsStunned() && !c->IsMezzed() && ms >= next_request) {
+		if (!moving && !c->IsCasting() && !c->IsFeared() && !c->IsStunned() && !c->IsMezzed() && ms >= next_request) {
 			c->SetHeading(c->CalculateHeadingToTarget(npc->GetX(),npc->GetY()));
 			const uint16 spell = c->GetHPRatio() < 55 ? heal : nuke;
 			auto *timer = c->GetPTimers().Get(pTimerSpellStart+spell);
@@ -272,9 +389,14 @@ json NightcapBalanceEncounter(Client *c, const json &input)
 		prior_cast = c->CastingSpellID();
 		if (ms % 500 == 0) { sample(); }
 	}
-	return {{"npc_id",npc_id},{"player_entity_id",c->GetID()},{"npc_entity_id",npc->GetID()},
+	json result = {{"npc_id",npc_id},{"player_entity_id",c->GetID()},{"npc_entity_id",npc->GetID()},
 		{"initial_state",initial_state},
 		{"result",terminal.count(c) ? "player_death" : terminal.count(npc) ? "npc_death" : "timeout"},
 		{"elapsed_ms",Timer::GetCurrentTime()},{"trace",trace},{"attempts",attempts},{"events",stream->events},
 		{"scope","Native client/NPC combat prototype with maps; fixed nuke/self-heal controller, no buffs or activated AAs, not certified full BiS or balance evidence"}};
+	if (return_to_melee) {
+		result["movement"] = {{"policy","native mesh, bounded client updates, stop for healing/casting/control"},
+			{"events",movement.events},{"failed_paths",movement.failed_paths},{"history_packets",movement.history_packets}};
+	}
+	return result;
 }

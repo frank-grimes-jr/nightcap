@@ -216,3 +216,9 @@ recommended-level item HP/mana scaling, non-stacking worn haste and unchanged
 purchases. `encounter_matrix.py` prepares, runs and checks the 52-case candidate
 weapon/haste/AA boss matrix. Commands, exact inputs, outcomes and remaining
 movement/activation/BiS limits are in `docs/balance/gear-aa-encounters.md`.
+
+The optional encounter field `return_to_melee: true` enables bounded native-mesh
+pursuit through client position/history packets. Keep it absent to reproduce the
+historical controller. `verify_native_movement.py` checks requested/applied movement
+bounds and restored range; evidence and commands are in
+`docs/balance/native-player-pursuit.md`. Run only one matrix driver per runtime.

@@ -101,3 +101,7 @@ additional actors/beacons required by those abilities; improve the controller an
 client parity; test timestep and seed distributions; then run cap/HP sensitivity
 sweeps. Fresh full-source/runtime parity and focused in-game QA remain separate
 gates. Reused objects are pinned, not asserted to be a fresh engine build.
+
+Follow-up: `native-player-pursuit.md` documents explicit `return_to_melee` support,
+native client position/history packets, and the 52-case regression/pursuit checks.
+The option is absent from these historical inputs, preserving their behavior.

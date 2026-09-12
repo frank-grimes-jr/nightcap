@@ -7,7 +7,7 @@ Status: foundational calculations and input fixtures verified; encounter model i
 
 - `GetExtraSpellAmt` port: 2,792 boundary/random differential cases match the
   extracted actual C++ function. `spell-formula-oracle.json` records source hashes.
-- 134 Python tests cover caps, timing boundaries, duration splitting, integer
+- 137 Python tests cover caps, timing boundaries, duration splitting, integer
   truncation, snapshot/query gates, and gear legality/assignment. Assignment results
   match exhaustive enumeration on 50 small random matrices, including cases where
   a greedy per-slot choice is wrong.
@@ -70,6 +70,10 @@ Status: foundational calculations and input fixtures verified; encounter model i
   spans 0/100/200/500/all AA, two finite-budget policies, and three exploratory seeds.
   Preparation, activation, final BiS and movement correction remain open.
   See `gear-aa-encounters.md` for results and their practical limits.
+- Native player pursuit now resolves the exposed Vox timeout through bounded
+  client position/history packets and native mesh/geometry checks. All 52 old
+  encounters reproduce exactly with pursuit disabled; 954 applied movement steps
+  across the enabled matrix pass checks. See `native-player-pursuit.md`.
 
 These are candidate loadouts, not certified full BiS. The search excludes quest,
 merchant, global-loot, conditional/flagged content, epics, augments, and gear above

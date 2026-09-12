@@ -1,5 +1,19 @@
 # CHANGES
 
+## 2026-09-12 - Restore player pursuit in native encounter diagnostics
+
+Added optional mesh-guided return to melee through normal client position/history
+packets, with speed bounds, collision checks, and stops for casting, healing and
+control effects. The prior 900-second Vox timeout now ends in a 271.30-second kill
+with identical stats and AAs. The 52-case pursuit matrix validates 954 position
+updates with no failed paths; disabling pursuit reproduces all previous encounters
+byte for byte. Fixed missing movement-history handling in the mock transport and
+added an explicit failure guard for unmodeled world notifications. Seven isolation
+checks and 137 Python tests pass. Client physics parity, preparation, activated
+AAs and full BiS remain open. No production binary, live tuning or service restart
+occurred. See docs/balance/native-player-pursuit.md and ADR 0006.
+The full pursuit matrix also replays identically; isolated player tables remain empty.
+
 ## 2026-09-12 - Expand gear acquisition and run AA boss progression controls
 
 Captured quest, merchant, global-loot and recipe candidates with source restrictions;
