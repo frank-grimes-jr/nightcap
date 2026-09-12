@@ -59,6 +59,11 @@ def summarize(case, report):
             build['profile'], build['tier'], build['aa_stage'], build['aa_policy']):
         raise ValueError('Native build identity mismatch')
     encounter = report['encounter']
+    from preparation_controls import verify_preparation
+    verify_preparation(case, report)
+    prepared = encounter.get('preparation')
+    initial_hp = prepared['final_state']['hp'] if prepared else player['hp']
+    initial_mana = prepared['final_state']['mana'] if prepared else player['mana']
     if encounter['npc_id'] != case['input']['encounter']['npc_id'] or report['native_rng_seed'] != case['seed']:
         raise ValueError('Native target or seed mismatch')
     state, trace = encounter['initial_state'], encounter['trace']
@@ -71,7 +76,7 @@ def summarize(case, report):
     if any(state[k] for k in ('player_dead', 'player_zoning', 'player_destroying')):
         raise ValueError('Player cannot begin the encounter')
     if (trace[0]['ms'] != 0 or trace[0]['npc_hp'] != 32000
-            or trace[0]['player_hp'] != player['hp'] or trace[0]['player_mana'] != player['mana']):
+            or trace[0]['player_hp'] != initial_hp or trace[0]['player_mana'] != initial_mana):
         raise ValueError('Unexpected initial resources')
     elapsed = encounter['elapsed_ms']
     if (trace[-1]['ms'] != elapsed or not 0 < elapsed <= case['input']['encounter']['duration_ms']
@@ -98,7 +103,7 @@ def summarize(case, report):
     spells = Counter(e['spell'] for e in events if e['type'] == 'begin_cast' and e['source'] == boss_id)
     return {'id': case['id'], 'npc_id': encounter['npc_id'], 'seed': case['seed'],
             'gear': build['gear_control'], 'aa_stage': build['aa_stage'], 'aa_policy': build['aa_policy'],
-            'aa_spent': player['aa_spent'], 'initial_hp': player['hp'], 'initial_mana': player['mana'],
+            'aa_spent': player['aa_spent'], 'initial_hp': initial_hp, 'initial_mana': initial_mana,
             'haste': player['haste'], 'result': result, 'elapsed_ms': elapsed,
             'final_player_hp': last['player_hp'], 'final_player_mana': last['player_mana'],
             'final_npc_hp': last['npc_hp'], 'minimum_sampled_player_hp': min(s['player_hp'] for s in trace),

@@ -1,5 +1,17 @@
 # CHANGES
 
+## 2026-09-12 - Include native preparation in boss baselines
+
+Added ordered native self-buff casts, mana costs and optional full sitting recovery
+before the diagnostic spawns its opponent. Client posture packets establish actual
+sitting/standing; the appearance-only Sit helper does not. Buffs, resources and
+cooldowns carry through a continuous clock into combat. Thirty fixed-gear prepared
+Vox/Nagafen encounters cover all five AA budgets and verify the five-buff stack.
+See docs/balance/native-preparation.md and ADR 0009. Full BiS and release balance
+remain open; no production deployment, live tuning or service restart occurred.
+All 160 Python tests pass; ten no-preparation controls reproduce their native
+reports exactly and four invalid-preparation inputs are rejected natively.
+
 ## 2026-09-12 - Keep AA self-buffs on native timers (isolated candidate)
 
 Excluded direct AA spell IDs from the long self-buff override in the reviewed

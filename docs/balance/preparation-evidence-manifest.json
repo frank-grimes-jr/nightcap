@@ -1,0 +1,30 @@
+{
+  "date": "2026-09-12",
+  "scope": "Native preparation candidate, fixed gear and AA purchases; final BiS, curated era AA availability and full build coverage remain open.",
+  "binary_sha256": "6ec2f32a87705964da42df4a2d4926e34fbb5b8595437dd27cf164efb8e29cba",
+  "python_tests": 160,
+  "prepared_encounters": 30,
+  "unchanged_no_preparation_controls": 10,
+  "native_invalid_input_controls": 4,
+  "isolated_accounts": 0,
+  "isolated_characters": 0,
+  "artifacts": {
+    "docs/balance/preparation-build-manifest.json": "c91c1fca523ae1786437f417fd44bc9005b452d8d98ce9735fec55e2dfff5842",
+    "docs/balance/preparation-checks.json": "c211076d0ffbb79f6f6eb43cf64b06bd2468cf02059507033663534090294b8b",
+    "docs/balance/preparation-encounters.json.gz": "91379860dad934edd8d4ae1a41ecd00064d123e04a55c0180dbcf789e92a6da4",
+    "docs/balance/preparation-inputs.json": "4227653d43efe36a64c55e089f7e07b502eaba7dc14eca182599153177bfb2bf",
+    "docs/balance/preparation-invalid-checks.json": "c4f852e910224a0136a9346d77258b01aafb822ccc5355e65f495b8348f3b943",
+    "docs/balance/preparation-legacy-checks.json": "9e4145419c5f596272362a424b240a3e53e6c54c34b75aa566bf855323fc9366",
+    "docs/balance/preparation-legacy-encounters.json.gz": "9aabd163657f2ef9b71b658ebb03fe421526a1cd457c76b5c2a5f88de2195fb4",
+    "docs/balance/preparation-legacy-inputs.json": "d3864899d13215b4e9911dbd6ec572096aacedee4b1f398588141b90df3d9ecf",
+    "docs/balance/preparation-movement-checks.json": "302944600dc4dd7c2f38a4d05b61b6d3bbd951407763108f3afd9571d1bf0aa2",
+    "tools/balance/native_runtime.cpp": "b701468393b1fdd3a365734b99a24e9cc4e2e8449e836b832b9e3fcce01799d4",
+    "tools/balance/native_runtime.h": "f802beb06235ced9a4a5ef97dfceec587c38bb08388d4a52e18e83c1f238e21c",
+    "tools/balance/native_harness.cpp": "dfde7e783638b69aa7d6c21a28f92e340d87f0be66715975b6199686119a090c",
+    "tools/balance/preparation_controls.py": "6443eec700d591c3b3d0f7143286d5f20cdab7d54e5c3f0fec43d7de8108e03b",
+    "tools/balance/encounter_matrix.py": "fcc6577aa9354e9ec45b479c5053e2c0056c1219a2d2327e312da90f1554207a",
+    "tools/balance/active_aa_controls.py": "48226f84037f7c791df6fe766d8d97289b41cdcd8dccddaf7f44aab571e083e0",
+    "tools/balance/build_native.py": "414ad287906eef02438cb187baedeab15764f04277358a7138f1238aefae60e3",
+    "server-mods/code/zone/spells.cpp": "decdf29850e700436b411de88cae24a6836b072e56b4d89549bbbfcd646277ae"
+  }
+}

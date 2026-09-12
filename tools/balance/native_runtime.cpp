@@ -460,6 +460,92 @@ public:
 	}
 };
 
+static json PreparationState(Client *c)
+{
+	auto state = AABuffState(c);
+	state["max_mana"] = c->GetMaxMana();
+	state["mr"] = c->GetMR(); state["fr"] = c->GetFR(); state["cr"] = c->GetCR();
+	state["sitting"] = c->IsSitting();
+	return state;
+}
+
+static json PrepareEncounter(Client *c, const json &input)
+{
+	const auto ids = input.at("spell_ids").get<std::vector<int>>();
+	const int maximum = input.value("max_duration_ms",900000);
+	const bool recover = input.value("recover",true);
+	if (ids.size() > 16 || std::set<int>(ids.begin(),ids.end()).size() != ids.size()
+		|| maximum < 1000 || maximum > 900000 || maximum % 50) {
+		throw std::runtime_error("Invalid preparation limits or duplicate spell");
+	}
+	for (int id : ids) {
+		bool eligible = false;
+		if (id > 0 && id < 65535 && IsValidSpell(id)) {
+			for (auto held : c->GetMulticlassList()) {
+				const int level = spells[id].classes[held-1];
+				eligible |= level > 0 && level <= c->GetLevel();
+			}
+		}
+		if (!eligible || !IsBeneficialSpell(id) || !IsBuffSpell(id)) {
+			throw std::runtime_error("Ineligible preparation spell " + std::to_string(id));
+		}
+	}
+	auto *stream = streams.at(c);
+	stream->capture_messages = true;
+	json trace = json::array(), actions = json::array();
+	auto posture = [&](bool sitting) {
+		if (c->IsSitting() == sitting) { return true; }
+		auto *packet = new EQApplicationPacket(OP_SpawnAppearance,sizeof(SpawnAppearance_Struct));
+		auto *appearance = reinterpret_cast<SpawnAppearance_Struct *>(packet->pBuffer);
+		appearance->spawn_id = c->GetID(); appearance->type = AppearanceType::Animation;
+		appearance->parameter = sitting ? Animation::Sitting : Animation::Standing;
+		stream->incoming.push_back(packet);
+		return false; // Confirm the native client state after the next Process call.
+	};
+	auto sample = [&]() { auto state = PreparationState(c); state["ms"] = Timer::GetCurrentTime(); trace.push_back(state); };
+	sample();
+	size_t next = 0;
+	uint32 ready = 0;
+	uint16 casting = 0;
+	int retries = 0;
+	bool complete = false;
+	for (int ms = 50; ms <= maximum; ms += 50) {
+		Advance(50);
+		if (!c->Process() || !terminal.empty()) { throw std::runtime_error("Preparation did not survive native processing"); }
+		if (casting && !c->IsCasting()) {
+			actions.back()["completed_ms"] = ms;
+			actions.back()["completed_state"] = PreparationState(c);
+			ready = ms + std::max<uint32>(250,spells[casting].recovery_time);
+			casting = 0;
+		}
+		if (!c->IsCasting() && ms >= ready) {
+			if (next < ids.size()) {
+				if (!posture(false)) { continue; }
+				const int id = ids[next];
+				const auto before = PreparationState(c);
+				c->GetPP().mem_spells[0] = id;
+				const bool accepted = c->CastSpell(id,c->GetID(),static_cast<EQ::spells::CastingSlot>(0));
+				actions.push_back({{"ms",ms},{"spell",id},{"accepted",accepted},{"before",before},{"after",PreparationState(c)}});
+				ready = ms + 250;
+				if (accepted) {
+					casting = c->CastingSpellID(); ++next; retries = 0;
+					if (!casting) { actions.back()["completed_ms"] = ms; actions.back()["completed_state"] = PreparationState(c); }
+				} else if (++retries >= 3) { throw std::runtime_error("Preparation spell failed three native attempts"); }
+			} else if (!recover || (c->GetHP() == c->GetMaxHP() && c->GetMana() == c->GetMaxMana())) {
+				if (!posture(false)) { continue; }
+				sample(); complete = true; break;
+			} else { posture(true); }
+		}
+		if (ms % 500 == 0) { sample(); }
+	}
+	if (!complete) { throw std::runtime_error("Preparation exceeded its native recovery time budget"); }
+	const json result = {{"input",input},{"actions",actions},{"trace",trace},{"events",stream->events},
+		{"elapsed_ms",Timer::GetCurrentTime()},{"final_state",PreparationState(c)},
+		{"scope","Native self-buff casts followed by optional sitting recovery; no resource resets or opponent during preparation"}};
+	stream->events.clear();
+	return result;
+}
+
 json NightcapBalanceEncounter(Client *c, const json &input)
 {
 	const int npc_id = input.at("npc_id").get<int>();
@@ -481,12 +567,19 @@ json NightcapBalanceEncounter(Client *c, const json &input)
 	if (p.size() != 4 || !std::all_of(p.begin(),p.end(),[](float v) { return std::isfinite(v); })) {
 		throw std::runtime_error("Invalid encounter position");
 	}
-	auto *npc = new BalanceNPC(type,nullptr,glm::vec4(p[0],p[1],p[2],p[3]),GravityBehavior::Water);
+	// Preserve construction order and native RNG behavior when preparation is absent.
+	BalanceNPC *npc = input.contains("preparation") ? nullptr : new BalanceNPC(type,nullptr,glm::vec4(p[0],p[1],p[2],p[3]),GravityBehavior::Water);
 	c->SetName("BalanceFighter"); c->ChangeSize(6,true);
 	c->SetPosition(p[0]+10,p[1],p[2]);
 	c->SetHeading(c->CalculateHeadingToTarget(p[0],p[1]));
 	c->SetHP(c->GetMaxHP()); c->Mob::SetMana(c->GetMaxMana());
 	entity_list.AddClient(c);
+	json preparation;
+	if (input.contains("preparation")) {
+		preparation = PrepareEncounter(c,input.at("preparation"));
+		npc = new BalanceNPC(type,nullptr,glm::vec4(p[0],p[1],p[2],p[3]),GravityBehavior::Water);
+	}
+	const uint32 combat_start = Timer::GetCurrentTime();
 	entity_list.AddNPC(npc,false);
 	if (!c->CheckLosFN(npc) || !c->CombatRange(npc)) { throw std::runtime_error("Initial position fails native LOS/melee range"); }
 	c->SetTarget(npc);
@@ -524,7 +617,7 @@ json NightcapBalanceEncounter(Client *c, const json &input)
 	uint16 prior_cast = 0;
 	BalanceMeleeReturn movement;
 	sample();
-	for (int ms = 50; ms <= duration && terminal.empty(); ms += 50) {
+	for (uint32 ms = combat_start + 50; ms <= combat_start + duration && terminal.empty(); ms += 50) {
 		Advance(50);
 		const bool moving = return_to_melee && movement.Step(c,npc,stream,50);
 		if (!c->Process()) { throw std::runtime_error("Client processing stopped before terminal combat result"); }
@@ -551,7 +644,7 @@ json NightcapBalanceEncounter(Client *c, const json &input)
 			}
 		}
 		prior_cast = c->CastingSpellID();
-		if (ms % 500 == 0) { sample(); }
+		if ((ms-combat_start) % 500 == 0) { sample(); }
 	}
 	json result = {{"npc_id",npc_id},{"player_entity_id",c->GetID()},{"npc_entity_id",npc->GetID()},
 		{"initial_state",initial_state},
@@ -566,6 +659,18 @@ json NightcapBalanceEncounter(Client *c, const json &input)
 		result["activated_aa"] = {{"policy",active_policy},{"actions",aa_actions.events},
 			{"scope","One request per owned AA: Twincast then Frenzied Devastation; selected sustain below 80% HP. Native rejection/cost/charges/cooldowns retained; no preparation buffs."}};
 		result["scope"] = "Native candidate encounter with explicit purchased-AA activation policy; not certified full BiS or final balance evidence";
+	}
+	if (input.contains("preparation")) {
+		// Keep native clocks continuous; only report timestamps become fight-relative.
+		auto relative = [combat_start](json &rows) { for (auto &row : rows) { row["ms"] = row.at("ms").get<uint32>() - combat_start; } };
+		for (const char *key : {"trace","attempts","events"}) { relative(result[key]); }
+		if (return_to_melee) { relative(result["movement"]["events"]); }
+		if (!active_policy.empty()) { relative(result["activated_aa"]["actions"]); }
+		result["elapsed_ms"] = Timer::GetCurrentTime()-combat_start;
+		result["combat_start_ms"] = combat_start;
+		result["preparation"] = preparation;
+		result["scope"] = "Native preparation and encounter; continuous buff/resource/cooldown state, fight-relative timestamps; candidate gear and fixed combat policy";
+		if (!active_policy.empty()) { result["activated_aa"]["scope"] = "Same once-per-fight activation policy after native preparation; shared cooldowns and costs retained"; }
 	}
 	return result;
 }
