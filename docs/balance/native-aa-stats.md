@@ -3,6 +3,10 @@
 Date: 2026-09-12. Purchase allocations and equipped resource inputs verified;
 full BiS and Vox/Nagafen fight outcomes remain incomplete.
 
+Follow-up: `gear-aa-encounters.md` records 100 gear/resource controls and 52
+candidate native boss encounters using these allocations. It preserves the
+distinction between purchased AA bonuses and still-unimplemented activation policies.
+
 The isolated engine accepted 7,868 individual purchases across 24 scenarios:
 three level-50 Human agnostic Ascended candidate sets, each at zero spent points,
 100/200/500-point budgets under two progression policies, and all purchasable

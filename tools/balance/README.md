@@ -204,3 +204,15 @@ damage control and validate with `verify_native_runtime.py --native REPORT
 --direct ../../docs/balance/native-spell-samples.json --output CHECK`. These are
 prototype activity and integration checks, not full BiS or balance approvals.
 See `docs/balance/native-encounter-runtime.md` for observed runs and remaining gates.
+
+### Gear acquisition and AA encounter matrix
+
+`acquisition_snapshot.py` captures wider quest/merchant/recipe/global-loot candidates
+with restrictions and source text. It does not certify prerequisite reachability;
+see `docs/balance/acquisition-candidates.md`.
+
+`gear_haste_controls.py` produces 100 native gear/AA controls and verifies
+recommended-level item HP/mana scaling, non-stacking worn haste and unchanged
+purchases. `encounter_matrix.py` prepares, runs and checks the 52-case candidate
+weapon/haste/AA boss matrix. Commands, exact inputs, outcomes and remaining
+movement/activation/BiS limits are in `docs/balance/gear-aa-encounters.md`.

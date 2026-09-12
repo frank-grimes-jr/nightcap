@@ -1,5 +1,20 @@
 # CHANGES
 
+## 2026-09-12 - Expand gear acquisition and run AA boss progression controls
+
+Captured quest, merchant, global-loot and recipe candidates with source restrictions;
+unresolved prerequisites remain explicit. Native controls found that the previous
+gear search excluded a usable recommended-level-62 haste ring. At level 50 its
+HP/mana scale, its full 41% haste applies, and a 36% haste cloak adds no extra haste.
+One hundred gear/AA controls and 52 candidate Vox/Nagafen encounters now validate
+fixed gear across 0/100/200/500/all AA and alternative finite-budget allocations.
+The encounters exercise native purchased bonuses without activated AAs or prep
+buffs. Three seeds per AA case are exploratory; a Vox timeout also exposes the
+controller's missing return-to-melee movement. Full BiS and tuning remain open.
+All 52 encounters replay byte-for-byte; 134 Python tests pass. The isolated
+database still has zero accounts/characters. No live tuning, restart or branch promotion occurred.
+See docs/balance/gear-aa-encounters.md and acquisition-candidates.md for evidence.
+
 ## 2026-09-12 - Run accelerated native boss encounter prototypes
 
 Added a diagnostic-only packet sink, completed mock-client loading state, and a

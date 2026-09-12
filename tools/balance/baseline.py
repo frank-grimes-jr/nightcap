@@ -58,10 +58,10 @@ def compare_mirror(mirror, runtime):
 def query_json(sql):
     """Execute fixed SELECT queries in one read-only transaction, one JSON row per line."""
     result = subprocess.run([
-        'docker', 'exec', 'akk-stack-mariadb-1', 'mysql', '-ueqemu', '-peqemu',
-        'peq', '--batch', '--raw', '--skip-column-names', '-e',
-        'START TRANSACTION READ ONLY; ' + sql + '; COMMIT;'
-    ], capture_output=True, text=True, encoding='utf-8', check=True)
+        'docker', 'exec', '-i', 'akk-stack-mariadb-1', 'mysql', '-ueqemu', '-peqemu',
+        'peq', '--batch', '--raw', '--skip-column-names'
+    ], input='START TRANSACTION READ ONLY; ' + sql + '; COMMIT;',
+        capture_output=True, text=True, encoding='utf-8', check=True)
     return [json.loads(line) for line in result.stdout.splitlines() if line.strip()]
 
 

@@ -7,7 +7,7 @@ Status: foundational calculations and input fixtures verified; encounter model i
 
 - `GetExtraSpellAmt` port: 2,792 boundary/random differential cases match the
   extracted actual C++ function. `spell-formula-oracle.json` records source hashes.
-- 120 Python tests cover caps, timing boundaries, duration splitting, integer
+- 134 Python tests cover caps, timing boundaries, duration splitting, integer
   truncation, snapshot/query gates, and gear legality/assignment. Assignment results
   match exhaustive enumeration on 50 small random matrices, including cases where
   a greedy per-slot choice is wrong.
@@ -61,6 +61,15 @@ Status: foundational calculations and input fixtures verified; encounter model i
   additive score is globally optimized over each captured tier pool with lore
   constraints. Server-side equipment legality is checked; client submission parity
   remains a separate existing multiclass issue.
+- Wider acquisition discovery now preserves quest source, merchant restrictions,
+  recipes and global loot without treating unresolved candidates as obtainable.
+  See `acquisition-candidates.md`. Native controls identified a real search gap:
+  recommended-level-62 gear can contribute scaled stats and full item haste at 50.
+- One hundred native gear/AA controls and 52 weapon-equipped candidate boss fights
+  now pass resource, allocation, activity and complete-trace checks. The boss matrix
+  spans 0/100/200/500/all AA, two finite-budget policies, and three exploratory seeds.
+  Preparation, activation, final BiS and movement correction remain open.
+  See `gear-aa-encounters.md` for results and their practical limits.
 
 These are candidate loadouts, not certified full BiS. The search excludes quest,
 merchant, global-loot, conditional/flagged content, epics, augments, and gear above

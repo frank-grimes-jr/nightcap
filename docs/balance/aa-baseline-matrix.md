@@ -2,7 +2,8 @@
 
 Date: 2026-09-12. Explicit owner requirement added during calculator development.
 Status: 24 native AA allocation/resource scenarios verified in
-`native-aa-stats.md`; AA-equipped fights have not been run yet.
+`native-aa-stats.md`. Candidate AA-equipped fights now run in the 52-case
+`gear-aa-encounters.md` matrix; final BiS and AA activation remain incomplete.
 
 The owner requested level-50 full-BiS comparisons at zero, 100, 200, 500, and all
 AAs. Interpret the numeric stages as spent AA points, not unspent banked points

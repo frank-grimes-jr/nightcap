@@ -7,3 +7,11 @@ docs/balance/native-map-manifest.json -text
 tools/balance/native_harness.cpp text eol=lf
 tools/balance/native_runtime.cpp text eol=lf
 tools/balance/native_runtime.h text eol=lf
+
+# Acquisition query hashes use the recorded UTF-8/LF SQL bytes.
+tools/balance/fixtures/classic-acquisition-*.queries.sql text eol=lf
+tools/balance/fixtures/classic-acquisition-*.manifest.json -text
+docs/balance/gear-*.json -text
+tools/balance/acquisition_snapshot.py text eol=lf
+tools/balance/gear_haste_controls.py text eol=lf
+tools/balance/encounter_matrix.py text eol=lf

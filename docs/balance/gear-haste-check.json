@@ -1,0 +1,8 @@
+{
+  "builds": 100,
+  "mismatches": [],
+  "native_sha256": "f353c403ad3f22956400639dcd888660dcdab09125129dbb8c720cf2689a3c61",
+  "scope": "Flat item HP/mana recommended-level scaling, non-stacking worn haste, unchanged AA purchases. No combat/BiS conclusion.",
+  "snapshot_sha256": "e4b06f462a32b5463a608efae7ddde4d303b2422c863aecedc3427da06c08dae",
+  "aa_inputs_sha256": "55d2b24f99684a3675836959651cfdbf09e2b974fbdfcfeb3e473e41527ff8e2"
+}
