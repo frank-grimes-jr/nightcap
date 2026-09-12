@@ -1,5 +1,17 @@
 # CHANGES
 
+## 2026-09-12 - Reconcile source/data baseline and restore level-1 AA XP rule
+
+Integrated existing dev, accepted main QA history, and the already-deployed
+spell/healing scaling feature in an isolated reconciliation branch. Captured the
+previously unmirrored loot hook and RoF2 wire files. Added a read-only drift checker
+with failure-detecting C++ test summary validation: 43 source files match, 87 C++
+tests pass, and all 184,920 existing worn tier/epic spell-stat stamps match.
+Restored the missing `Character:AAExpMinLevel=1` row using its existing SQL after
+a verified full backup. Runtime reload is pending because a character is marked
+in-game. Recorded the owner's solo-preferred balance requirement in AGENTS.md.
+Evidence, rollback, limits, and focused QA: `docs/balance/reconciliation.md`.
+
 ## 2026-09-08 - SpellDmg/HealAmt master output scaling
 
 Made SpellDmg and HealAmt the caster/healer output dials. Flipped five Spells

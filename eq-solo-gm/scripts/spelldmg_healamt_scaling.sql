@@ -4,13 +4,14 @@
 -- Then: apply tiered_loot_setup.sql, regenerate shared memory, restart zones.
 -- Spec: docs/superpowers/specs/2026-09-08-spelldmg-healamt-scaling-design.md
 --
--- Turns SpellDmg/HealAmt into uncapped percent-of-base multipliers on spells,
--- heals, DoTs and HoTs, and pins the item-stat caps as the primary "cap-as-dial"
+-- Turns SpellDmg/HealAmt into percent-of-base bonuses on eligible spells/heals.
+-- DoT/HoT bonuses still follow the separately configured duration-splitting rules.
+-- Pins the item-stat caps as the primary "cap-as-dial"
 -- soloability knob. Reverse by setting the five Spells rules back to 'false'.
 -- =============================================================================
--- ItemExtraSpellAmtCalcAsPercent is a no-op unless FlatItemExtraSpellAmt is also
--- true: the percent branch is nested inside the flat check, so reverting only one
--- of the two silently changes semantics rather than partially disabling the effect.
+-- With both percent and flat enabled, GetExtraSpellAmt returns the percent bonus
+-- immediately. With flat disabled, the function also has a percent return AFTER
+-- cast-time adjustment and its base-amount clamp, so that combination is different.
 INSERT INTO rule_values (ruleset_id, rule_name, rule_value, notes) VALUES
  (1,'Spells:ItemExtraSpellAmtCalcAsPercent','true','SpellDmg/HealAmt applied as percent of base spell value'),
  (1,'Spells:FlatItemExtraSpellAmt','true','Bypass cast-time proportion and the +50%-of-base cap'),
