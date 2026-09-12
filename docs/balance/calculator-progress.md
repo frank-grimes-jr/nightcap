@@ -7,10 +7,16 @@ Status: foundational calculations and input fixtures verified; encounter model i
 
 - `GetExtraSpellAmt` port: 2,792 boundary/random differential cases match the
   extracted actual C++ function. `spell-formula-oracle.json` records source hashes.
-- 38 Python tests cover caps, timing boundaries, duration splitting, integer
+- 49 Python tests cover caps, timing boundaries, duration splitting, integer
   truncation, snapshot/query gates, and gear legality/assignment. Assignment results
   match exhaustive enumeration on 50 small random matrices, including cases where
   a greedy per-slot choice is wrong.
+- RoF2/SoD base/max HP and mana agree with eight extracted engine functions in
+  2,896 boundary/random cases (four outputs each; zero mismatches), recorded in
+  `resource-formula-oracle.json`. This includes floating-point truncation and
+  best held-class selection. Inputs are resolved stats and bonuses; this is not
+  proof of complete inventory/AA/buff resolution. Ancillary heroic/stat helpers
+  have unit coverage and source review, not this differential coverage.
 - `tools/balance/fixtures/classic-20260912.json.gz` freezes 5,797 item rows, three
   bosses, their spell lists (including Vox's parent list), spell IDs 1-1200, base
   data, skill caps, combat/progression rules, and 124,161 drop provenance records.
@@ -54,6 +60,10 @@ recommended level. Haste/procs/focus/AA/buff interactions are not in the objecti
    The active build uses SoD base data for RoF2; do not use the older class-factor
    HP equation. Some heroic effects still inspect the base class, which must be
    represented faithfully rather than assuming intended future multiclass parity.
+   HP/mana arithmetic is now verified; connecting it to complete legal character
+   creation, inventory effects, and buff/AA inputs remains pending. RoF2 creation
+   allocations come from `char_create_point_allocations` / combination data loaded
+   in `world/worlddb.cpp`, so do not substitute the legacy hardcoded race table.
 3. Prefer actual engine calculations or C++ differential oracles. Existing
    `zone/cli/tests/cli_npc_handins.cpp` demonstrates a mock `Client()` and real
    NPC construction; `zone/tune.cpp` has native melee sampling. A native test

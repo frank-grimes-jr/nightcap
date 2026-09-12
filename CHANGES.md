@@ -1,5 +1,18 @@
 # CHANGES
 
+## 2026-09-12 - Verify calculator HP and mana against the engine
+
+Added RoF2/SoD resource calculations for best held-class HP/mana, stamina and
+casting-stat breakpoints, item/heroic contributions, percentage HP, and flat
+bonuses. A database-free C++ oracle extracts eight actual engine functions and
+compares four outputs across 2,896 boundary/random cases: zero mismatches.
+Eleven additional unit tests cover resource arithmetic and missing-input failures.
+Heroic mana still follows the base class in this build, even when a held caster
+class supplies base mana. The calculator preserves that behavior. Resolved
+AA/buff/item effects, character-creation allocations, and encounter simulation
+remain pending; these checks do not certify a complete character or boss result.
+No production source, binaries, rules, or player data changed in this slice.
+
 ## 2026-09-12 - Start source-verified offline balance calculator
 
 Added a Python port of the item spell/healing contribution and compared it with

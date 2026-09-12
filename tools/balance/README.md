@@ -25,6 +25,7 @@ See `docs/balance/reconciliation.md` for the current pending runtime gate.
 
 ```powershell
 python verify_cpp.py --source E:/EQ_Local_Dev/akk-stack/code/zone/effects.cpp --output ../../docs/balance/spell-formula-oracle.json
+python verify_resources_cpp.py --source E:/EQ_Local_Dev/akk-stack/code --snapshot fixtures/classic-20260912.json.gz --output ../../docs/balance/resource-formula-oracle.json
 python snapshot.py --output fixtures/classic-20260912.json.gz
 python builds.py --snapshot fixtures/classic-20260912.json.gz --output ../../docs/balance/candidate-builds.json
 ```
@@ -32,6 +33,15 @@ python builds.py --snapshot fixtures/classic-20260912.json.gz --output ../../doc
 The oracle extracts and compiles the actual `GetExtraSpellAmt` body in a temporary
 standalone C++ program inside the server container, compares boundary/random cases,
 and removes the temporary executable. Its proof covers that function only.
+
+The resource oracle extracts the actual base/max HP and mana functions plus
+caster predicates. It compares four outputs per case using the frozen base-data
+rows. It fixes the client to RoF2 and the SoD resource rule to enabled, as observed
+in this baseline; supplied stats and bonuses bypass inventory/AA/buff resolution.
+It does not boot a zone or connect to PEQ. `resources.py` rejects missing base data
+instead of returning a plausible but incomplete build. Its ancillary heroic/stat
+helpers have unit coverage and source review, but are not part of this native
+resource oracle's differential proof.
 
 The snapshot uses one read-only content transaction and excludes player/account
 data and service configuration. The manifest hashes the compressed fixture; the
