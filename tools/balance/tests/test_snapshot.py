@@ -1,10 +1,28 @@
 import unittest
 
-from snapshot import era_predicate, row_json, DROP_SOURCES
+from snapshot import era_predicate, row_json, DROP_SOURCES, validate_spell_references
 from verify_cpp import extract_function
 
 
 class SnapshotTests(unittest.TestCase):
+    def test_boss_list_and_immediate_parent_must_be_captured(self):
+        tables = {'items':[], 'spells_new':[], 'npc_spells_entries':[],
+                  'npc_types':[{'id':64001,'npc_spells_id':1346}],
+                  'npc_spells':[{'id':1346,'parent_list':2},{'id':2,'parent_list':0}]}
+        validate_spell_references(tables)
+        for retained in ([], [tables['npc_spells'][0]]):
+            with self.subTest(retained=retained), self.assertRaises(ValueError):
+                validate_spell_references(tables | {'npc_spells':retained})
+
+    def test_referenced_npc_item_and_recourse_spells_must_exist(self):
+        tables = {'items':[{'clickeffect':1542}],
+                  'npc_spells_entries':[{'spellid':1519}],
+                  'spells_new':[{'id':1542,'RecourseLink':1519},{'id':1519,'RecourseLink':0}]}
+        validate_spell_references(tables)
+        tables['spells_new'].pop()
+        with self.assertRaises(ValueError):
+            validate_spell_references(tables)
+
     def test_rejects_sql_identifiers_and_noncontent_tables(self):
         with self.assertRaises(ValueError):
             era_predicate('s; DROP TABLE items')

@@ -26,7 +26,7 @@ See `docs/balance/reconciliation.md` for the current pending runtime gate.
 ```powershell
 python verify_cpp.py --source E:/EQ_Local_Dev/akk-stack/code/zone/effects.cpp --output ../../docs/balance/spell-formula-oracle.json
 python verify_resources_cpp.py --source E:/EQ_Local_Dev/akk-stack/code --snapshot fixtures/classic-20260912.json.gz --output ../../docs/balance/resource-formula-oracle.json
-python snapshot.py --output fixtures/classic-20260912.json.gz
+python snapshot.py --output fixtures/classic-20260912-v2.json.gz
 python builds.py --snapshot fixtures/classic-20260912.json.gz --output ../../docs/balance/candidate-builds.json
 ```
 
@@ -55,6 +55,26 @@ The assignment solver maximizes the documented additive score exactly, including
 lore conflicts and legal class/race/deity/level/slot checks. This produces candidate
 loadouts, not final combat BiS. The full enemy/character model, AA/buff/effect
 coverage, and encounter simulations are still in progress.
+
+## Spell content and arithmetic
+
+```powershell
+python spell_content.py --snapshot fixtures/classic-20260912-v2.json.gz --output ../../docs/balance/npc-spell-profiles.json
+python verify_spell_math_cpp.py --source E:/EQ_Local_Dev/akk-stack/code --snapshot fixtures/classic-20260912-v2.json.gz --output ../../docs/balance/spell-resolution-oracle.json
+```
+
+The v2 snapshot closes references from actual boss lists, their immediate parents,
+item effects, and recourses; it also captures Human creation allocations. Existing
+proofs retain their original fixture hashes. Do not overwrite a reviewed fixture
+when refreshing content; choose a new dated/versioned output name.
+
+The spell oracle compiles extracted native duration, effect-value, and resist
+functions without booting a zone or accessing PEQ. It tests ordinary resists with
+resolved modifiers; it excludes the special paths listed in its report. Unsupported
+effect formulas are reported explicitly. The content report contains formula
+values, not fully applied spells. `npc_casting.py` supplies engaged selection for
+the captured boss categories, given scan order and resolved readiness/statuses;
+runtime integration, stacking, prebuffs, fear timing, and dispels remain pending.
 
 ## Event simulation and controls
 

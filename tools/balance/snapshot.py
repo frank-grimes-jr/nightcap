@@ -9,6 +9,29 @@ from pathlib import Path
 
 from baseline import query_json
 
+ITEM_SPELL_FIELDS = ('clickeffect', 'worneffect', 'proceffect', 'focuseffect', 'scrolleffect', 'bardeffect')
+NPC_IDS = '32040,73057,64001'
+NPC_LISTS = f'SELECT npc_spells_id FROM npc_types WHERE id IN ({NPC_IDS})'
+NPC_LISTS_WITH_PARENTS = f'{NPC_LISTS} UNION SELECT parent_list FROM npc_spells WHERE id IN ({NPC_LISTS})'
+
+
+def validate_spell_references(tables):
+    if 'npc_types' in tables:
+        lists={s['id']:s for s in tables['npc_spells']}
+        for npc in tables['npc_types']:
+            list_id=npc['npc_spells_id']
+            if list_id and (list_id not in lists or (lists[list_id]['parent_list'] and lists[list_id]['parent_list'] not in lists)):
+                raise ValueError(f'Missing spell-list dependency for NPC {npc["id"]}')
+    available = {s['id'] for s in tables['spells_new']}
+    referenced = {r['spellid'] for r in tables['npc_spells_entries']}
+    referenced.update(s.get('RecourseLink', 0) for s in tables['spells_new'])
+    for item in tables['items']:
+        item = {k.lower():v for k,v in item.items()}
+        referenced.update(item.get(field, 0) for field in ITEM_SPELL_FIELDS)
+    missing = {s for s in referenced if s and 0 < s < 65535} - available
+    if missing:
+        raise ValueError(f'Missing referenced spell rows: {sorted(missing)}')
+
 
 def era_predicate(alias):
     if not re.fullmatch(r'[a-z]+', alias):
@@ -41,7 +64,8 @@ AND {era_predicate('l')} AND {era_predicate('d')}"""
 def row_json(table, alias):
     # Only hardcoded content tables reach this function, never arbitrary user SQL.
     if table not in {'items', 'npc_types', 'npc_spells', 'npc_spells_entries',
-                     'spells_new', 'base_data', 'skill_caps', 'rule_values'}:
+                     'spells_new', 'base_data', 'skill_caps', 'rule_values',
+                     'char_create_combinations', 'char_create_point_allocations'}:
         raise ValueError('Unsupported snapshot table')
     if table == 'rule_values':
         return f"JSON_OBJECT('ruleset_id',{alias}.ruleset_id,'rule_name',{alias}.rule_name,'rule_value',{alias}.rule_value)"
@@ -59,18 +83,33 @@ def main():
     eligible = f'SELECT item_id FROM ({DROP_SOURCES}) drop_sources'
     definitions = {
         'items': ('i', f'i.id<800000 AND i.slots>0 AND MOD(i.id,200000) IN ({eligible})'),
-        'npc_types': ('n', 'n.id IN (32040,73057,64001)'),
-        'npc_spells': ('ns', 'ns.id IN (1,25,141)'),
-        'npc_spells_entries': ('ne', 'ne.npc_spells_id IN (1,25,141)'),
+        'npc_types': ('n', f'n.id IN ({NPC_IDS})'),
+        'npc_spells': ('ns', f'ns.id IN ({NPC_LISTS_WITH_PARENTS})'),
+        'npc_spells_entries': ('ne', f'ne.npc_spells_id IN ({NPC_LISTS_WITH_PARENTS})'),
         'spells_new': ('sp', 'sp.id BETWEEN 1 AND 1200'),
         'base_data': ('b', 'b.level<=55'),
         'skill_caps': ('sc', 'sc.level<=55'),
+        'char_create_combinations': ('cc', 'cc.race=1'),
+        'char_create_point_allocations': ('ca', 'ca.id IN (SELECT allocation_id FROM char_create_combinations WHERE race=1)'),
         'rule_values': ('r', "r.ruleset_id IN (1,2) AND r.rule_name REGEXP '^(Character|Spells|Combat|NPC|Zone|Expansion|AA|Merchant|Aggro):'"),
     }
     selects = []
     for table, (alias, condition) in definitions.items():
         row = row_json(table, alias)
-        selects.append(f"SELECT JSON_OBJECT('table','{table}','row',{row}) FROM {table} {alias} WHERE {condition}")
+        if table == 'spells_new':
+            item_refs = ' UNION '.join(f'SELECT {field} FROM eligible_items' for field in ITEM_SPELL_FIELDS)
+            selects.append(f"""WITH RECURSIVE eligible_items AS (
+SELECT i.* FROM items i WHERE {definitions['items'][1]}),
+initial_refs(id) AS (SELECT id FROM spells_new WHERE id BETWEEN 1 AND 1200
+UNION SELECT spellid FROM npc_spells_entries WHERE npc_spells_id IN ({NPC_LISTS_WITH_PARENTS})
+UNION {item_refs}), spell_refs(id) AS (
+SELECT id FROM initial_refs WHERE id>0 AND id<65535
+UNION SELECT s.RecourseLink FROM spells_new s JOIN spell_refs r ON s.id=r.id
+WHERE s.RecourseLink>0 AND s.RecourseLink<65535)
+SELECT JSON_OBJECT('table','spells_new','row',{row}) FROM spells_new sp
+WHERE sp.id IN (SELECT id FROM spell_refs)""")
+        else:
+            selects.append(f"SELECT JSON_OBJECT('table','{table}','row',{row}) FROM {table} {alias} WHERE {condition}")
     selects.append("SELECT JSON_OBJECT('table','drop_sources','row',"
                    "JSON_OBJECT('item_id',item_id,'zone',zone,'npc_id',npc_id,'npc_name',npc_name,'npc_level',npc_level)) "
                    f"FROM ({DROP_SOURCES}) sources ORDER BY item_id,zone,npc_id")
@@ -83,10 +122,11 @@ def main():
         table.sort(key=lambda row: json.dumps(row, sort_keys=True))
     if len(tables['npc_types']) != 3 or not tables['items']:
         raise ValueError('Incomplete content export')
+    validate_spell_references(tables)
     metadata = {
         'captured_at': datetime.now(timezone.utc).isoformat(), 'schema_version': 1,
         'query_sha256': hashlib.sha256(sql.encode()).hexdigest(),
-        'scope': 'Unconditional, unflagged Classic version-0 drop pool and its tiers; excludes quests, merchants, global loot, epics, and augments. Spell IDs 1-1200 only; unresolved references must fail validation.',
+        'scope': 'Unconditional, unflagged Classic version-0 drop pool and its tiers; excludes quests, merchants, global loot, epics, and augments. Spells include IDs 1-1200, all captured NPC/item references, and recursive recourse links; Human creation allocations included.',
         'rows': {name: len(value) for name, value in tables.items()},
     }
     payload = json.dumps({'metadata': metadata, 'tables': tables}, separators=(',', ':')).encode()

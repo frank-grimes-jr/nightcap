@@ -7,7 +7,7 @@ Status: foundational calculations and input fixtures verified; encounter model i
 
 - `GetExtraSpellAmt` port: 2,792 boundary/random differential cases match the
   extracted actual C++ function. `spell-formula-oracle.json` records source hashes.
-- 69 Python tests cover caps, timing boundaries, duration splitting, integer
+- 94 Python tests cover caps, timing boundaries, duration splitting, integer
   truncation, snapshot/query gates, and gear legality/assignment. Assignment results
   match exhaustive enumeration on 50 small random matrices, including cases where
   a greedy per-slot choice is wrong.
@@ -24,10 +24,16 @@ Status: foundational calculations and input fixtures verified; encounter model i
   Nagafen melee control matches exact expected damage within 0.446 standard
   errors. The defender is artificial and spells are omitted; this is an event
   integration control, not a full boss fight. See `engine-validation.md`.
-- `tools/balance/fixtures/classic-20260912.json.gz` freezes 5,797 item rows, three
-  bosses, their spell lists (including Vox's parent list), spell IDs 1-1200, base
-  data, skill caps, combat/progression rules, and 124,161 drop provenance records.
-  Source query and content checksum are included alongside it.
+- The v2 snapshot (`classic-20260912-v2.json.gz`) freezes 5,797 item rows, three
+  bosses, their actual spell lists and immediate parents, 1,373 spells including
+  referenced item effects/recourses, Human creation data, base data, skill caps,
+  rules, and 124,161 drop provenance records. Missing references fail validation.
+  The original fixture stays immutable for existing resource and melee proofs.
+- Stored spell formulas/durations match 12,224 native cases; ordinary resists
+  match all 201 rolls for 1,500 resolved inputs (301,500 rolls). Unsupported
+  formulas remain explicit. Spell application, fear/CHA, focus/AA resist checks,
+  physical/PvP paths, root/charm breaks, and AI integration are outside that proof.
+  See `spell-resolution.md` for captured boss dependencies and remaining limits.
 - `candidate-builds.json` contains complete 20-slot shield loadouts for WAR/CLR/WIZ,
   WAR/CLR/MNK, and MAG/NEC/SHM across Base/Polished/Exalted/Ascended. The declared
   additive score is globally optimized over each captured tier pool with lore

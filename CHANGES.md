@@ -1,5 +1,19 @@
 # CHANGES
 
+## 2026-09-12 - Resolve boss spell dependencies and verify spell arithmetic
+
+Expanded the frozen content snapshot to include actual boss lists and immediate
+parents, referenced item effects and recourses, plus Human creation allocations.
+This fixes an incomplete Phinigel list and the old spell-ID ceiling that omitted
+Vox's inherited later-ID heals and buffs. Missing dependencies now fail validation.
+The v2 snapshot contains 1,373 spells, five lists, and 172 entries; older fixtures
+remain unchanged so their recorded controls stay reproducible. Native extracted
+C++ agrees on 12,224 effect/duration cases and 301,500 ordinary resist rolls.
+Added explicit engaged NPC spell selection and 94 passing Python tests in total.
+Selection still requires runtime integration, stacking/readiness state, and
+explicit equal-priority ordering. These are not complete boss fight results.
+See docs/balance/spell-resolution.md. No live rules, NPCs, or processes changed.
+
 ## 2026-09-12 - Add seeded encounter engine and native melee validation
 
 Added an offline event simulator and CLI for resolved diagnostic profiles:
