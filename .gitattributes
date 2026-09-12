@@ -27,3 +27,6 @@ tools/balance/preparation_controls.py text eol=lf
 docs/balance/preparation-*.json -text
 tools/balance/aa_pool_controls.py text eol=lf
 docs/balance/aa-pool-*.json -text
+tools/balance/gear_candidates.py text eol=lf
+tools/balance/gear_encounters.py text eol=lf
+tools/balance/augment_controls.py text eol=lf

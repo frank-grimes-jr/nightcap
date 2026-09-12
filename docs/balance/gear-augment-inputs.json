@@ -1,0 +1,527 @@
+{
+  "export_equipment": true,
+  "builds": [
+    {
+      "profile": "war-clr-wiz",
+      "classes": [
+        1,
+        2,
+        12
+      ],
+      "level": 50,
+      "race": "Human",
+      "deity": "Agnostic",
+      "tier": "helmet",
+      "casting_stat_scored": "int",
+      "melee_ratio_scored": false,
+      "total_score": 9670,
+      "equipment": [
+        {
+          "slot": 2,
+          "id": 601549
+        }
+      ],
+      "raw_item_totals": {
+        "hp": 2232,
+        "mana": 1908,
+        "ac": 622,
+        "astr": 216,
+        "asta": 216,
+        "aagi": 38,
+        "adex": 58,
+        "aint": 138,
+        "awis": 142,
+        "heroic_str": 58,
+        "heroic_sta": 57,
+        "heroic_agi": 12,
+        "heroic_dex": 17,
+        "heroic_int": 38,
+        "heroic_wis": 40,
+        "spelldmg": 400,
+        "healamt": 400,
+        "attack": 0,
+        "accuracy": 0,
+        "avoidance": 0,
+        "regen": 0,
+        "manaregen": 6,
+        "fr": 104,
+        "cr": 104,
+        "mr": 162,
+        "pr": 190,
+        "dr": 190,
+        "shielding": 0,
+        "spellshield": 0,
+        "dotshielding": 0
+      },
+      "capped_spell_damage": 250,
+      "capped_heal_amount": 250,
+      "creation": {
+        "str": 85,
+        "sta": 110,
+        "dex": 75,
+        "agi": 80,
+        "int": 75,
+        "wis": 75,
+        "cha": 75
+      },
+      "test_character_id": 4,
+      "aa_budget": 0,
+      "aa_rank_ids": [
+        49999,
+        1000,
+        12636,
+        14017,
+        22200,
+        12637,
+        14018,
+        8445,
+        8446,
+        8447,
+        16419,
+        16420,
+        16421
+      ],
+      "aa_stage": "0",
+      "aa_policy": "common_free"
+    },
+    {
+      "profile": "war-clr-wiz",
+      "classes": [
+        1,
+        2,
+        12
+      ],
+      "level": 50,
+      "race": "Human",
+      "deity": "Agnostic",
+      "tier": "helmet_hp",
+      "casting_stat_scored": "int",
+      "melee_ratio_scored": false,
+      "total_score": 9670,
+      "equipment": [
+        {
+          "slot": 2,
+          "id": 601549,
+          "augments": [
+            {
+              "socket": 0,
+              "id": 651903
+            }
+          ]
+        }
+      ],
+      "raw_item_totals": {
+        "hp": 2232,
+        "mana": 1908,
+        "ac": 622,
+        "astr": 216,
+        "asta": 216,
+        "aagi": 38,
+        "adex": 58,
+        "aint": 138,
+        "awis": 142,
+        "heroic_str": 58,
+        "heroic_sta": 57,
+        "heroic_agi": 12,
+        "heroic_dex": 17,
+        "heroic_int": 38,
+        "heroic_wis": 40,
+        "spelldmg": 400,
+        "healamt": 400,
+        "attack": 0,
+        "accuracy": 0,
+        "avoidance": 0,
+        "regen": 0,
+        "manaregen": 6,
+        "fr": 104,
+        "cr": 104,
+        "mr": 162,
+        "pr": 190,
+        "dr": 190,
+        "shielding": 0,
+        "spellshield": 0,
+        "dotshielding": 0
+      },
+      "capped_spell_damage": 250,
+      "capped_heal_amount": 250,
+      "creation": {
+        "str": 85,
+        "sta": 110,
+        "dex": 75,
+        "agi": 80,
+        "int": 75,
+        "wis": 75,
+        "cha": 75
+      },
+      "test_character_id": 4,
+      "aa_budget": 0,
+      "aa_rank_ids": [
+        49999,
+        1000,
+        12636,
+        14017,
+        22200,
+        12637,
+        14018,
+        8445,
+        8446,
+        8447,
+        16419,
+        16420,
+        16421
+      ],
+      "aa_stage": "0",
+      "aa_policy": "common_free"
+    },
+    {
+      "profile": "war-clr-wiz",
+      "classes": [
+        1,
+        2,
+        12
+      ],
+      "level": 50,
+      "race": "Human",
+      "deity": "Agnostic",
+      "tier": "helmet_mana",
+      "casting_stat_scored": "int",
+      "melee_ratio_scored": false,
+      "total_score": 9670,
+      "equipment": [
+        {
+          "slot": 2,
+          "id": 601549,
+          "augments": [
+            {
+              "socket": 0,
+              "id": 679626
+            }
+          ]
+        }
+      ],
+      "raw_item_totals": {
+        "hp": 2232,
+        "mana": 1908,
+        "ac": 622,
+        "astr": 216,
+        "asta": 216,
+        "aagi": 38,
+        "adex": 58,
+        "aint": 138,
+        "awis": 142,
+        "heroic_str": 58,
+        "heroic_sta": 57,
+        "heroic_agi": 12,
+        "heroic_dex": 17,
+        "heroic_int": 38,
+        "heroic_wis": 40,
+        "spelldmg": 400,
+        "healamt": 400,
+        "attack": 0,
+        "accuracy": 0,
+        "avoidance": 0,
+        "regen": 0,
+        "manaregen": 6,
+        "fr": 104,
+        "cr": 104,
+        "mr": 162,
+        "pr": 190,
+        "dr": 190,
+        "shielding": 0,
+        "spellshield": 0,
+        "dotshielding": 0
+      },
+      "capped_spell_damage": 250,
+      "capped_heal_amount": 250,
+      "creation": {
+        "str": 85,
+        "sta": 110,
+        "dex": 75,
+        "agi": 80,
+        "int": 75,
+        "wis": 75,
+        "cha": 75
+      },
+      "test_character_id": 4,
+      "aa_budget": 0,
+      "aa_rank_ids": [
+        49999,
+        1000,
+        12636,
+        14017,
+        22200,
+        12637,
+        14018,
+        8445,
+        8446,
+        8447,
+        16419,
+        16420,
+        16421
+      ],
+      "aa_stage": "0",
+      "aa_policy": "common_free"
+    },
+    {
+      "profile": "war-clr-wiz",
+      "classes": [
+        1,
+        2,
+        12
+      ],
+      "level": 50,
+      "race": "Human",
+      "deity": "Agnostic",
+      "tier": "ring",
+      "casting_stat_scored": "int",
+      "melee_ratio_scored": false,
+      "total_score": 9670,
+      "equipment": [
+        {
+          "slot": 15,
+          "id": 609959
+        }
+      ],
+      "raw_item_totals": {
+        "hp": 2232,
+        "mana": 1908,
+        "ac": 622,
+        "astr": 216,
+        "asta": 216,
+        "aagi": 38,
+        "adex": 58,
+        "aint": 138,
+        "awis": 142,
+        "heroic_str": 58,
+        "heroic_sta": 57,
+        "heroic_agi": 12,
+        "heroic_dex": 17,
+        "heroic_int": 38,
+        "heroic_wis": 40,
+        "spelldmg": 400,
+        "healamt": 400,
+        "attack": 0,
+        "accuracy": 0,
+        "avoidance": 0,
+        "regen": 0,
+        "manaregen": 6,
+        "fr": 104,
+        "cr": 104,
+        "mr": 162,
+        "pr": 190,
+        "dr": 190,
+        "shielding": 0,
+        "spellshield": 0,
+        "dotshielding": 0
+      },
+      "capped_spell_damage": 250,
+      "capped_heal_amount": 250,
+      "creation": {
+        "str": 85,
+        "sta": 110,
+        "dex": 75,
+        "agi": 80,
+        "int": 75,
+        "wis": 75,
+        "cha": 75
+      },
+      "test_character_id": 4,
+      "aa_budget": 0,
+      "aa_rank_ids": [
+        49999,
+        1000,
+        12636,
+        14017,
+        22200,
+        12637,
+        14018,
+        8445,
+        8446,
+        8447,
+        16419,
+        16420,
+        16421
+      ],
+      "aa_stage": "0",
+      "aa_policy": "common_free"
+    },
+    {
+      "profile": "war-clr-wiz",
+      "classes": [
+        1,
+        2,
+        12
+      ],
+      "level": 50,
+      "race": "Human",
+      "deity": "Agnostic",
+      "tier": "ring_hp",
+      "casting_stat_scored": "int",
+      "melee_ratio_scored": false,
+      "total_score": 9670,
+      "equipment": [
+        {
+          "slot": 15,
+          "id": 609959,
+          "augments": [
+            {
+              "socket": 0,
+              "id": 651903
+            }
+          ]
+        }
+      ],
+      "raw_item_totals": {
+        "hp": 2232,
+        "mana": 1908,
+        "ac": 622,
+        "astr": 216,
+        "asta": 216,
+        "aagi": 38,
+        "adex": 58,
+        "aint": 138,
+        "awis": 142,
+        "heroic_str": 58,
+        "heroic_sta": 57,
+        "heroic_agi": 12,
+        "heroic_dex": 17,
+        "heroic_int": 38,
+        "heroic_wis": 40,
+        "spelldmg": 400,
+        "healamt": 400,
+        "attack": 0,
+        "accuracy": 0,
+        "avoidance": 0,
+        "regen": 0,
+        "manaregen": 6,
+        "fr": 104,
+        "cr": 104,
+        "mr": 162,
+        "pr": 190,
+        "dr": 190,
+        "shielding": 0,
+        "spellshield": 0,
+        "dotshielding": 0
+      },
+      "capped_spell_damage": 250,
+      "capped_heal_amount": 250,
+      "creation": {
+        "str": 85,
+        "sta": 110,
+        "dex": 75,
+        "agi": 80,
+        "int": 75,
+        "wis": 75,
+        "cha": 75
+      },
+      "test_character_id": 4,
+      "aa_budget": 0,
+      "aa_rank_ids": [
+        49999,
+        1000,
+        12636,
+        14017,
+        22200,
+        12637,
+        14018,
+        8445,
+        8446,
+        8447,
+        16419,
+        16420,
+        16421
+      ],
+      "aa_stage": "0",
+      "aa_policy": "common_free"
+    },
+    {
+      "profile": "war-clr-wiz",
+      "classes": [
+        1,
+        2,
+        12
+      ],
+      "level": 50,
+      "race": "Human",
+      "deity": "Agnostic",
+      "tier": "ring_mana",
+      "casting_stat_scored": "int",
+      "melee_ratio_scored": false,
+      "total_score": 9670,
+      "equipment": [
+        {
+          "slot": 15,
+          "id": 609959,
+          "augments": [
+            {
+              "socket": 0,
+              "id": 679626
+            }
+          ]
+        }
+      ],
+      "raw_item_totals": {
+        "hp": 2232,
+        "mana": 1908,
+        "ac": 622,
+        "astr": 216,
+        "asta": 216,
+        "aagi": 38,
+        "adex": 58,
+        "aint": 138,
+        "awis": 142,
+        "heroic_str": 58,
+        "heroic_sta": 57,
+        "heroic_agi": 12,
+        "heroic_dex": 17,
+        "heroic_int": 38,
+        "heroic_wis": 40,
+        "spelldmg": 400,
+        "healamt": 400,
+        "attack": 0,
+        "accuracy": 0,
+        "avoidance": 0,
+        "regen": 0,
+        "manaregen": 6,
+        "fr": 104,
+        "cr": 104,
+        "mr": 162,
+        "pr": 190,
+        "dr": 190,
+        "shielding": 0,
+        "spellshield": 0,
+        "dotshielding": 0
+      },
+      "capped_spell_damage": 250,
+      "capped_heal_amount": 250,
+      "creation": {
+        "str": 85,
+        "sta": 110,
+        "dex": 75,
+        "agi": 80,
+        "int": 75,
+        "wis": 75,
+        "cha": 75
+      },
+      "test_character_id": 4,
+      "aa_budget": 0,
+      "aa_rank_ids": [
+        49999,
+        1000,
+        12636,
+        14017,
+        22200,
+        12637,
+        14018,
+        8445,
+        8446,
+        8447,
+        16419,
+        16420,
+        16421
+      ],
+      "aa_stage": "0",
+      "aa_policy": "common_free"
+    }
+  ]
+}

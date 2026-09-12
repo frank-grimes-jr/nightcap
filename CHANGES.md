@@ -1,5 +1,22 @@
 # CHANGES
 
+## 2026-09-12 - Include socketed gear and expanded weapon choices in balance evidence
+
+The isolated native harness now equips real augments with socket/lore/level checks
+and exports observed equipment. The generator includes recommended-level stat
+penalties, shield/dual/two-hand layouts, existing drop augments and alternative
+stat objectives. Ninety native loadouts, four augment-stat controls, nine invalid
+loadouts and 102 prepared boss runs cover gear and fixed-gear AA comparisons.
+Six legacy report hashes and six repeated zero-spend encounters remain identical.
+All 175 Python tests pass. See docs/balance/native-expanded-gear.md for scope and QA.
+
+The stronger candidate gear materially improves sampled Vox outcomes. Proposed
+114/201-point AA cores preserve longer fights than the unrestricted ceiling;
+removing Twincast/Frenzied alone is insufficient. Behemoth loot acquisition, quest
+and crafting challengers, other combat archetypes and expansion policy enforcement
+remain open. Full BiS/final balance are not certified. No live item, AA, era, cap,
+NPC or binary changes were made.
+
 ## 2026-09-12 - Measure AA rank pools and burst-family exclusions
 
 Added explicit diagnostic AA rank-cap and exclusion policies with native legal

@@ -16,6 +16,7 @@
 #include <cstdlib>
 #include <map>
 #include <tuple>
+#include <set>
 
 using json = nlohmann::json;
 extern Zone *zone;
@@ -118,19 +119,57 @@ public:
 		if (GetMulticlassList() != build.at("classes").get<std::vector<uint8>>()) {
 			throw std::runtime_error("Synthetic multiclass row does not match input");
 		}
+		std::set<int16> worn_slots;
+		std::set<std::pair<int32,uint32>> lore;
+		auto check_lore = [&](const EQ::ItemData *data) {
+			if (data->LoreGroup && !lore.insert({data->LoreGroup,data->LoreGroup == -1 ? data->ID : 0}).second) {
+				throw std::runtime_error("Equipped item/augment lore conflict");
+			}
+		};
 		for (const auto &entry : build.at("equipment")) {
 			const auto id = entry.at("id").get<uint32>();
 			const auto slot = entry.at("slot").get<int16>();
 			std::unique_ptr<EQ::ItemInstance> item(database.CreateItem(id));
-			if (!item || slot < 1 || slot > 20 || !CanEquipItem(item->GetItem())
+			if (!item || slot < 1 || slot > 20 || !worn_slots.insert(slot).second
+				|| item->GetItem()->AugType || item->GetItem()->ReqLevel > GetLevel() || !CanEquipItem(item->GetItem())
 				|| !(item->GetItem()->Slots & (uint32(1) << slot))) {
 				throw std::runtime_error("Invalid equipped item " + std::to_string(id));
+			}
+			check_lore(item->GetItem());
+			for (const auto &augment : entry.value("augments",json::array())) {
+				const int socket = augment.at("socket").get<int>();
+				std::unique_ptr<EQ::ItemInstance> aug(database.CreateItem(augment.at("id").get<uint32>()));
+				if (!aug || socket < 0 || socket > EQ::invaug::SOCKET_END || !aug->GetItem()->AugType
+					|| !CanEquipItem(aug->GetItem()) || aug->GetItem()->ReqLevel > GetLevel()
+					|| !(aug->GetItem()->Slots & (uint32(1) << slot))
+					|| !item->IsAugmentSlotAvailable(aug->GetItem()->AugType,socket)
+					|| IsAugmentRestricted(item->GetItem()->ItemType,aug->GetItem()->AugRestrict)) {
+					throw std::runtime_error("Invalid equipped augment/socket");
+				}
+				check_lore(aug->GetItem());
+				item->PutAugment(socket,*aug);
 			}
 			if (GetInv().PutItem(slot, *item) != slot) {
 				throw std::runtime_error("Inventory rejected item " + std::to_string(id));
 			}
 		}
 		CalcBonuses();
+	}
+
+	json EquipmentState()
+	{
+		json result = json::array();
+		for (int slot = 1; slot <= 20; ++slot) {
+			const auto *item = GetInv().GetItem(slot);
+			if (!item) { continue; }
+			json augments = json::array();
+			for (int socket = 0; socket <= EQ::invaug::SOCKET_END; ++socket) {
+				if (const auto *aug = item->GetAugment(socket)) { augments.push_back({{"socket",socket},{"id",aug->GetID()}}); }
+			}
+			result.push_back({{"slot",slot},{"id",item->GetID()},{"augments",augments},
+				{"recommended_level",item->GetItemRecommendedLevel(true)},{"required_level",item->GetItemRequiredLevel(true)}});
+		}
+		return result;
 	}
 
 	void ConfigureSkills(const json &build)
@@ -357,6 +396,7 @@ int NightcapBalanceMain(int argc, char **argv)
 				{"client_expansion_mask",c->GetPP().expansions}});
 			if (build.contains("aa_stage")) { output["builds"].back()["aa_stage"] = build["aa_stage"]; }
 			if (build.contains("aa_policy")) { output["builds"].back()["aa_policy"] = build["aa_policy"]; }
+			if (input.value("export_equipment",false)) { output["builds"].back()["equipped_items"] = c->EquipmentState(); }
 			output["builds"].back()["skill_model"] = "Maximum held-class trained caps with native specialization/AA cap rules; attainability requires QA";
 			output["builds"].back()["raw_skills"] = std::vector<uint32>(std::begin(c->GetPP().skills),std::end(c->GetPP().skills));
 			if (input.value("export_aa_catalog",false)) {

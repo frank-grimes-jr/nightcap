@@ -74,6 +74,11 @@ change, including quality-of-life features and reward systems.
 
 - Evaluate the combined power of multiclass abilities, AAs, gear tiers, heroics,
   augments, buffs, pets, and sustain; do not tune each system in isolation.
+- Curate AA availability by expansion: remove overpowered interactions and unlock
+  additional abilities/ranks with later releases. Balance against an explicit legal
+  pool and rank caps; "all AAs" means all allowed in that release. Keep unrestricted
+  access as a separately labeled stress test, and report actual spent points when
+  a curated pool exhausts below a requested budget.
 - Spell damage/healing caps and NPC HP are adjustable levers. The owner explicitly
   permits considering caps above 250 when evidence supports better balance; 250 is
   not a permanent design ceiling. Verify the active formulas and rules first.

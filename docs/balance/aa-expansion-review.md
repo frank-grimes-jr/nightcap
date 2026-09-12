@@ -4,6 +4,13 @@ Date: 2026-09-12. Design work in response to the owner's request to consider
 removing overpowered AAs and unlocking more with expansion releases. This is a
 review direction, not an approved removal list or a deployed policy.
 
+The later [expanded gear comparison](native-expanded-gear.md) includes real drop
+augments and recommended-level gear. Its fixed-inventory 114/201-point core tests
+retain substantially longer fights than the unrestricted ceiling. Use that updated
+gear evidence when considering this proposal; older timings below describe their
+original candidate inventory. For each release, “all AAs” means its curated legal
+purchase pool; unrestricted access remains a separately labeled stress test.
+
 ## Current evidence
 
 `era.json` currently declares Classic, level 50, and `aa_open: true`.
