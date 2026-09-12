@@ -1,0 +1,9 @@
+# Preserve exact captured bytes used by the native encounter evidence manifests.
+docs/balance/native-encounter-*.json -text
+docs/balance/native-runtime-*.json -text
+docs/balance/native-map-manifest.json -text
+
+# Diagnostic source hashes must also survive a Windows checkout.
+tools/balance/native_harness.cpp text eol=lf
+tools/balance/native_runtime.cpp text eol=lf
+tools/balance/native_runtime.h text eol=lf
