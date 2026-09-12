@@ -171,6 +171,16 @@ direct AA spells keep native timers and ordinary preparation buffs keep their
 long duration. Maximum-rank Tenacity remains dangerous at low health even with
 normal timing. See `balance/native-aa-duration.md`; the live binary is unchanged.
 
+Native preparation now covers 30 fixed-gear WAR/CLR/WIZ fights across the five AA
+stages, with actual client sitting recovery and continuous buff/resource state.
+Ten no-preparation controls remain identical and 160 Python tests pass. See
+`balance/native-preparation.md`; final gear and melee/pet coverage remain open.
+
+Owner follow-up: consider excluding overpowered AAs and unlocking additional AAs
+with expansion releases. `balance/aa-expansion-review.md` records the current
+open-AA rule, available rank metadata and the proposed review. The unrestricted
+all-AA stress ceiling is not an assumed Classic release target.
+
 First reconcile the current source, migrations, and AA minimum rule so tests and
 balance measurements describe the same server. Then refresh the concrete backlog:
 #16 AA strings, #22 bag pricing, #23 feature page, #26 augments, and #19/#20 bard
