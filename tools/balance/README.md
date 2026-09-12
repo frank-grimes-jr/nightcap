@@ -158,7 +158,8 @@ grant-only rewards are excluded. AA activation policies and fights remain pendin
 
 ### Native direct-spell samples
 
-Rebuild the diagnostic with the current `build_native.py` and `native_harness.cpp`
+Rebuild the diagnostic with the current `build_native.py`, `native_harness.cpp`,
+`native_runtime.cpp`, and `native_runtime.h`
 before these commands. The new diagnostic link supports an explicit RNG seed.
 
 ```powershell
@@ -176,3 +177,30 @@ falls through to the real random device when the seed variable is absent.
 The adapter preserves joint native effects/costs/cast times and requires an
 explicit effective cooldown policy. These probes do not run NPC AI or the full
 casting lifecycle; see `docs/balance/native-spell-resolution.md` for scope.
+
+### Accelerated native encounter prototype
+
+Copy all four native build/runtime files named above into the prepared isolated
+runtime before building. `build_native.py --reuse-adapters` may reuse the previous
+main/client adapter objects only when their source, flags, link command, and object
+hashes match the previous manifest. This has the same pinned-object limitation as
+the other reused engine objects; omit the option after changing an adapter.
+
+Encounter inputs have one build and an `encounter` object with `npc_id`, four-value
+`npc_position`, and `duration_ms` (1,000–900,000). Current supported targets are
+Nagafen and Vox, and the initial controller requires WAR/CLR/WIZ. Copy the six
+map files listed in `native-map-manifest.json` to their recorded isolated paths.
+Use a fresh diagnostic process per run with an explicit RNG seed.
+
+```powershell
+docker cp ../../docs/balance/native-encounter-nagafen-long-inputs.json akk-stack-eqemu-server-1:/tmp/nightcap-balance-20260912/nagafen-long-inputs.json
+docker exec --env NIGHTCAP_BALANCE_RNG_SEED=1729 -w /tmp/nightcap-balance-20260912 akk-stack-eqemu-server-1 /tmp/nightcap-balance-20260912/balance-zone tests:balance /tmp/nightcap-balance-20260912/nagafen-long-inputs.json /tmp/nightcap-balance-20260912/nagafen-long-results.json
+docker cp akk-stack-eqemu-server-1:/tmp/nightcap-balance-20260912/nagafen-long-results.json ../../docs/balance/native-encounter-nagafen-long.json
+python verify_native_encounter.py --native ../../docs/balance/native-encounter-nagafen-long.json --output ../../docs/balance/native-encounter-nagafen-long-check.json
+```
+
+Use `runtime_probe: true` instead of `encounter` for the separate clock/self-heal/
+damage control and validate with `verify_native_runtime.py --native REPORT
+--direct ../../docs/balance/native-spell-samples.json --output CHECK`. These are
+prototype activity and integration checks, not full BiS or balance approvals.
+See `docs/balance/native-encounter-runtime.md` for observed runs and remaining gates.

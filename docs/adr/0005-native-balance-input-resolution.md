@@ -87,3 +87,19 @@ The first 491,520-sample run replays byte-for-byte. Joint event integration pass
 analytic controls, but full casting lifecycle, activation effects, client access,
 and NPC AI remain open. Evaluate accelerated native combat next; both engine
 millisecond timers and persistent wall-clock timers must advance consistently.
+
+## Native encounter follow-up (2026-09-12)
+
+Use the engine's client/NPC processing and movement manager with a diagnostic-only
+packet sink and unified virtual clock. Patch only a generated copy of the existing
+mock constructor to complete transport/loading/version state. Preserve native
+combat functions, class layouts, real network constructor, and production files.
+Record deaths after native pre-death saves while omitting corpse/reward persistence.
+Load actual zone configuration and copied maps, and mark the fixture loaded so the
+native hate-list shutdown guard does not suppress target selection.
+
+Clock/cast/resource/damage controls and six reproducible encounter runs now pass.
+The initial idle-boss failure demonstrates why activity assertions are mandatory.
+The prototype remains a fixed controller at 50 ms with no preparation buffs or
+activated-AA policy; it is not full BiS balance evidence. See
+`docs/balance/native-encounter-runtime.md` for explicit remaining gates.

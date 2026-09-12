@@ -6,6 +6,7 @@
 #include "common/json/json.hpp"
 #include "common/item_instance.h"
 #include "common/rulesys.h"
+#include "native_runtime.h"
 #include <filesystem>
 #include <fstream>
 #include <iostream>
@@ -70,6 +71,21 @@ bool NightcapBalancePreflight(int argc, char **argv)
 
 class BalanceClient : public Client {
 public:
+	json CombatState()
+	{
+		return {{"attack_enabled",attack_timer.Enabled()},{"attack_remaining",attack_timer.GetRemainingTime()},
+			{"ranged_enabled",ranged_timer.Enabled()},{"ranged_remaining",ranged_timer.GetRemainingTime()},
+			{"melee_disabled",IsMeleeDisabled()},{"target",GetTarget() ? GetTarget()->GetID() : 0},
+			{"facing",GetTarget() && IsFacingMob(GetTarget())},{"range",GetTarget() && CombatRange(GetTarget())},
+			{"los",GetTarget() && CheckLosFN(GetTarget())},{"heading",GetHeading()}};
+	}
+	bool Death(Mob *, int64, uint16, EQ::skills::SkillType, KilledByTypes, bool) override
+	{ return NightcapBalanceRecordDeath(this); }
+	void Damage(Mob *from, int64 damage, uint16 spell, EQ::skills::SkillType skill,
+		bool avoidable, int8 slot, bool tick, eSpecialAttacks special) override
+	{
+		if (!NightcapBalanceIsTerminal(this)) { Client::Damage(from,damage,spell,skill,avoidable,slot,tick,special); }
+	}
 	void Initialize(const json &build)
 	{
 		class_ = build.at("classes").at(0).get<uint8>();
@@ -287,16 +303,28 @@ public:
 	}
 };
 
+json NightcapBalanceClientCombatState(Client *c) { return static_cast<BalanceClient *>(c)->CombatState(); }
+
 int NightcapBalanceMain(int argc, char **argv)
 {
 	try {
 		EQEmuLogSys::Instance()->SilenceConsoleLogging();
-		zone = new Zone(32, 0, "soldungb");
-		zone->LoadBaseData();
-		zone->LoadAlternateAdvancement();
 		std::ifstream input_file(argv[2]);
 		json input;
 		input_file >> input;
+		const bool runtime = input.value("runtime_probe",false) || input.contains("encounter");
+		if (runtime) {
+			if (input.at("builds").size() != 1) { throw std::runtime_error("Runtime probe requires one client per process"); }
+			if (!std::getenv("NIGHTCAP_BALANCE_RNG_SEED")) { throw std::runtime_error("Runtime requires an explicit RNG seed"); }
+			NightcapBalanceStartClock();
+		}
+		const bool vox = input.contains("encounter") && input["encounter"].at("npc_id") == 73057;
+		zone = new Zone(vox ? 73 : 32, 0, vox ? "permafrost" : "soldungb");
+		if (runtime && !zone->LoadZoneCFG(zone->GetShortName(),0)) {
+			throw std::runtime_error("Cannot load native zone configuration");
+		}
+		zone->LoadBaseData();
+		zone->LoadAlternateAdvancement();
 		json output = { {"status", "Native equipped-stat diagnostic; explicitly supplied AA purchases, no active buffs"},
 			{"builds", json::array()} };
 		for (const auto &build : input.at("builds")) {
@@ -334,6 +362,16 @@ int NightcapBalanceMain(int argc, char **argv)
 				output["native_rng_seed"] = std::stoull(std::getenv("NIGHTCAP_BALANCE_RNG_SEED"));
 				output["native_seed_hook_calls"] = balance_seed_calls.load();
 			}
+			if (input.value("runtime_probe",false)) {
+				output["runtime_probe"] = NightcapBalanceRuntimeProbe(c);
+			}
+			if (input.contains("encounter")) {
+				if (build.at("profile") != "war-clr-wiz" || input.value("runtime_probe",false)) {
+					throw std::runtime_error("Initial encounter controller requires WAR/CLR/WIZ and its own process");
+				}
+				output["encounter"] = NightcapBalanceEncounter(c,input.at("encounter"));
+			}
+			if (runtime) { output["native_rng_seed"] = std::stoull(std::getenv("NIGHTCAP_BALANCE_RNG_SEED")); }
 		}
 		std::ofstream output_file(argv[3]);
 		output_file << output.dump(2) << std::endl;

@@ -1,5 +1,18 @@
 # CHANGES
 
+## 2026-09-12 - Run accelerated native boss encounter prototypes
+
+Added a diagnostic-only packet sink, completed mock-client loading state, and a
+unified virtual clock for native combat and persistent cooldowns. Native self-cast,
+regeneration, damage, boss AI, fear movement, Vox healing, and terminal handling
+now run against the isolated content clone and copied maps. Three short controls
+and three terminal runs replay identically. Fixed the fixture's unloaded-zone
+state, which initially prevented NPC target selection; checks reject idle bosses.
+Verified weapon melee separately because the caster candidate holds a non-weapon.
+120 Python tests and seven isolation guards pass. These remain simple zero-spent-AA
+candidate runs, not full BiS/activated-AA balance conclusions. No live tuning,
+restart, or branch promotion occurred. See docs/balance/native-encounter-runtime.md.
+
 ## 2026-09-12 - Resolve native direct-spell actions and preserve sampled outcomes
 
 Sampled 120 player actions across the 24 AA candidates using native Vox/Nagafen

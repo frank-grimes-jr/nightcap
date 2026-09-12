@@ -1,0 +1,20 @@
+[
+  {
+    "case": "nagafen",
+    "same_seed_identical": true,
+    "original_sha256": "bd5220ac96418cde599b27fc347e69d111ed9e8834d731182db2fd7435d736da",
+    "replay_sha256": "bd5220ac96418cde599b27fc347e69d111ed9e8834d731182db2fd7435d736da"
+  },
+  {
+    "case": "vox",
+    "same_seed_identical": true,
+    "original_sha256": "8000d77f09e7b1fe12ab5dd25c2da4e514097506bad06ade516d890aef213dc2",
+    "replay_sha256": "8000d77f09e7b1fe12ab5dd25c2da4e514097506bad06ade516d890aef213dc2"
+  },
+  {
+    "case": "melee",
+    "same_seed_identical": true,
+    "original_sha256": "56d6adfd3d09ccd28e5cff22894eb5e7777ec85c6deb3188941fda6d49ecad26",
+    "replay_sha256": "56d6adfd3d09ccd28e5cff22894eb5e7777ec85c6deb3188941fda6d49ecad26"
+  }
+]

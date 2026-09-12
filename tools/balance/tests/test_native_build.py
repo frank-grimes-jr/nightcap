@@ -1,13 +1,26 @@
 import unittest
 from pathlib import Path
 
-from build_native import patched_main
+from build_native import patched_main, patched_client
 from builds import load_snapshot
 from prepare_native import native_inputs, content_tables
 from verify_native_resources import verify
 
 
 class NativeBuildTests(unittest.TestCase):
+    def test_runtime_attachment_preserves_real_constructor(self):
+        before = '// prologue\n'
+        mock = 'Client::Client() : Mob(0) {\n\tAI_Init();\n\n}\n\n'
+        real = 'Client::Client(EQStreamInterface *ieqs) : Mob(0) {\n\tAI_Init();\n\n}\n\n'
+        patched = patched_client(before + mock + real)
+        self.assertTrue(patched.startswith(before))
+        self.assertTrue(patched.endswith(real))
+        self.assertEqual(patched.count('if (auto *stream = NightcapBalanceStream(this))'),1)
+        with self.assertRaises(ValueError):
+            patched_client(patched)
+        with self.assertRaises(ValueError):
+            patched_client(before + mock.replace('AI_Init();','AI_Init();\n\tChanged();') + real)
+
     def test_native_resource_verifier_distinguishes_aa_stages_and_policy(self):
         tables = {'base_data':[{'class':2,'level':50,'hp':1500,'hp_fac':5,'mana':1000,'mana_fac':2}]}
         build = {'profile':'test','tier':'Ascended','classes':[2],'level':50,'aa_stage':'100'}

@@ -74,7 +74,7 @@ def main():
     report = {'snapshot_sha256': manifest['snapshot_sha256'],
               'status': 'Candidate builds, not yet certified full BiS or simulated combat results',
               'objective': 'hp + mana + 4*ac + 10*heroic_sta + 10*heroic_casting_stat + 2*casting_stat + sta + 2*spelldmg + 2*healamt; melee additionally damage*1000//delay',
-              'constraints': 'Twenty standard worn slots (1-20), one-handed primary, shield, native class/race/deity/lore gates, required/recommended level <=50. Exact optimal additive score within the captured drop-only tier pool. Quest/global-loot/merchant paths, haste/procs/focus, AAs, and cross-stat caps remain outside this optimization.',
+              'constraints': 'Twenty standard worn slots (1-20), no two-handed primary weapons (non-weapon caster items allowed), shield, native class/race/deity/lore gates, required/recommended level <=50. Exact optimal additive score within the captured drop-only tier pool. Quest/global-loot/merchant paths, haste/procs/focus, AAs, and cross-stat caps remain outside this optimization.',
               'builds': builds}
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(report, indent=2) + '\n', encoding='utf-8')

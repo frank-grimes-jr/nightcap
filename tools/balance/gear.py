@@ -62,7 +62,8 @@ def legal_item(item, slot, classes, level, race_mask=1, deity_mask=1):
 def optimize_gear(items, slots, score, classes, level, *, shield=True):
     """Globally maximize the additive score; never truncates the candidate list.
 
-    This fixture uses a one-handed primary and shield by default. Items above
+    This fixture excludes two-handed primary weapons and uses a shield by default;
+    non-weapon caster items can still occupy primary. Items above
     recommended level are excluded until recommended-level stat scaling is modeled.
     The objective and eligible pool must accompany every reported result.
     """

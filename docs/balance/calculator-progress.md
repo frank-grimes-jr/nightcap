@@ -7,7 +7,7 @@ Status: foundational calculations and input fixtures verified; encounter model i
 
 - `GetExtraSpellAmt` port: 2,792 boundary/random differential cases match the
   extracted actual C++ function. `spell-formula-oracle.json` records source hashes.
-- 114 Python tests cover caps, timing boundaries, duration splitting, integer
+- 120 Python tests cover caps, timing boundaries, duration splitting, integer
   truncation, snapshot/query gates, and gear legality/assignment. Assignment results
   match exhaustive enumeration on 50 small random matrices, including cases where
   a greedy per-slot choice is wrong.
@@ -50,6 +50,12 @@ Status: foundational calculations and input fixtures verified; encounter model i
   identical. The event engine preserves joint effect/cost/cast-time samples and
   passes two 2,000-trial analytic throughput controls. This excludes activated-AA
   state and full casting/AI lifecycles; see `native-spell-resolution.md`.
+- Accelerated native client/NPC processing now passes clock, self-cast, regeneration,
+  login-protection, boss-activity, and weapon controls. Three terminal encounter
+  prototypes and three shorter controls replay identically. Actual boss AI, fear
+  movement, Vox healing, mana use, and both death paths run in the isolated engine.
+  These use a simple zero-spent-AA caster candidate, not full BiS or optimized
+  activated-AA builds. See `native-encounter-runtime.md` for evidence and limits.
 - `candidate-builds.json` contains complete 20-slot shield loadouts for WAR/CLR/WIZ,
   WAR/CLR/MNK, and MAG/NEC/SHM across Base/Polished/Exalted/Ascended. The declared
   additive score is globally optimized over each captured tier pool with lore
