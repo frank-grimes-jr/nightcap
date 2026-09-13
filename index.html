@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nightcap - EverQuest Reimagined</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1a1a2e;
+            --secondary: #16213e;
+            --accent: #0f3460;
+            --gold: #edc531;
+            --purple: #8b5cf6;
+            --cyan: #06b6d4;
+            --light-text: #e8e8e8;
+            --muted: #a0a0a0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: var(--light-text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: rgba(26, 26, 46, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-bottom: 2px solid var(--gold);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--purple) 0%, var(--cyan) 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            font-weight: bold;
+            box-shadow: 0 0 20px rgba(139, 92, 246, 0.5);
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            background: linear-gradient(135deg, var(--gold), var(--cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .logo p {
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        nav a {
+            color: var(--light-text);
+            text-decoration: none;
+            margin-left: 2rem;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            color: var(--gold);
+            text-shadow: 0 0 10px rgba(237, 197, 49, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 6rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(139, 92, 246, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -50%;
+            left: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(6, 182, 212, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(30px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h2 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--gold), var(--cyan), var(--purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(139, 92, 246, 0.3);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: var(--muted);
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--purple), var(--cyan));
+            color: var(--primary);
+            box-shadow: 0 0 20px rgba(139, 92, 246, 0.5);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 30px rgba(139, 92, 246, 0.8);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--gold);
+            border: 2px solid var(--gold);
+        }
+
+        .btn-secondary:hover {
+            background: var(--gold);
+            color: var(--primary);
+            box-shadow: 0 0 20px rgba(237, 197, 49, 0.5);
+        }
+
+        /* Features Section */
+        .features {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            background: linear-gradient(135deg, var(--gold), var(--cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .feature-card {
+            background: rgba(22, 33, 62, 0.5);
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .feature-card:hover::before {
+            left: 100%;
+        }
+
+        .feature-card:hover {
+            border-color: var(--purple);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.2);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--purple), var(--cyan));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 0 15px rgba(139, 92, 246, 0.3);
+        }
+
+        .feature-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
+            color: var(--gold);
+        }
+
+        .feature-card p {
+            color: var(--muted);
+            line-height: 1.8;
+        }
+
+        /* Comparison Section */
+        .comparison {
+            max-width: 1200px;
+            margin: 6rem auto;
+            padding: 0 2rem;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: rgba(22, 33, 62, 0.3);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .comparison-table thead {
+            background: linear-gradient(135deg, var(--purple), var(--cyan));
+            color: var(--primary);
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 1.5rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(139, 92, 246, 0.2);
+        }
+
+        .comparison-table tbody tr:hover {
+            background: rgba(139, 92, 246, 0.1);
+        }
+
+        .comparison-table th:first-child,
+        .comparison-table td:first-child {
+            font-weight: 600;
+            color: var(--gold);
+            width: 35%;
+        }
+
+        .check {
+            color: #4ade80;
+            font-weight: bold;
+        }
+
+        .cross {
+            color: #ef4444;
+            font-weight: bold;
+        }
+
+        /* Features Showcase */
+        .feature-showcase {
+            max-width: 1200px;
+            margin: 6rem auto;
+            padding: 0 2rem;
+        }
+
+        .showcase-item {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 4rem;
+            align-items: center;
+        }
+
+        .showcase-item:nth-child(even) {
+            grid-template-columns: 1fr 1fr;
+            direction: rtl;
+        }
+
+        .showcase-item:nth-child(even) > div {
+            direction: ltr;
+        }
+
+        .showcase-image {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(6, 182, 212, 0.1));
+            border-radius: 12px;
+            padding: 2rem;
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            font-size: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .showcase-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(139,92,246,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)" /></svg>');
+            opacity: 0.5;
+        }
+
+        .showcase-content h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--gold);
+        }
+
+        .showcase-content p {
+            color: var(--muted);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin-top: 1.5rem;
+        }
+
+        .feature-list li {
+            padding: 0.5rem 0;
+            padding-left: 2rem;
+            position: relative;
+            color: var(--light-text);
+        }
+
+        .feature-list li::before {
+            content: '✦';
+            position: absolute;
+            left: 0;
+            color: var(--cyan);
+            font-weight: bold;
+        }
+
+        /* Stats Section */
+        .stats {
+            max-width: 1200px;
+            margin: 6rem auto;
+            padding: 3rem 2rem;
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(6, 182, 212, 0.1));
+            border-radius: 12px;
+            border: 1px solid rgba(139, 92, 246, 0.2);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item h4 {
+            font-size: 2.5rem;
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item p {
+            color: var(--muted);
+            font-size: 1rem;
+        }
+
+        /* Getting Started */
+        .getting-started {
+            max-width: 1200px;
+            margin: 6rem auto;
+            padding: 0 2rem;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .step {
+            background: rgba(22, 33, 62, 0.5);
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            border-radius: 12px;
+            padding: 2rem;
+            position: relative;
+            text-align: center;
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--purple), var(--cyan));
+            color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 1rem;
+        }
+
+        .step h4 {
+            color: var(--gold);
+            margin-bottom: 0.8rem;
+        }
+
+        /* Footer */
+        footer {
+            max-width: 1200px;
+            margin: 6rem auto 0;
+            padding: 3rem 2rem;
+            border-top: 1px solid rgba(139, 92, 246, 0.2);
+            text-align: center;
+            color: var(--muted);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--cyan);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            nav a {
+                margin-left: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .showcase-item,
+            .showcase-item:nth-child(even) {
+                grid-template-columns: 1fr;
+                direction: ltr;
+            }
+
+            .showcase-item:nth-child(even) > div {
+                direction: ltr;
+            }
+
+            .comparison-table th,
+            .comparison-table td {
+                padding: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Scroll animations */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .scroll-reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <div class="logo-icon">🍹</div>
+                <div>
+                    <h1>Nightcap</h1>
+                    <p>EverQuest Reimagined</p>
+                </div>
+            </div>
+            <nav>
+                <a href="#features">Features</a>
+                <a href="#comparison">vs Live</a>
+                <a href="#guide">Guide</a>
+                <a href="#github">Repository</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Play EverQuest Your Way</h2>
+            <p>A heavily customized private server built for solo and small-group play with radical quality-of-life improvements</p>
+            <div class="cta-buttons">
+                <a href="https://github.com/frank-grimes-jr/nightcap" class="btn btn-primary">📖 Read the Docs</a>
+                <a href="#features" class="btn btn-secondary">Explore Features ↓</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <h2 class="section-title">Major Features</h2>
+        <div class="features-grid">
+            <!-- Multiclass System -->
+            <div class="feature-card scroll-reveal">
+                <div class="feature-icon">🎭</div>
+                <h3>Multiclass System</h3>
+                <p>Adopt up to two additional class disciplines beyond your original class. Every character becomes a powerful 2-3 class hybrid starting at level 20.</p>
+            </div>
+
+            <!-- Universal Hub -->
+            <div class="feature-card scroll-reveal">
+                <div class="feature-icon">🏛️</div>
+                <h3>Universal Hub</h3>
+                <p>All new characters start in Plane of Knowledge, regardless of race or class. A central, neutral meeting ground for all players.</p>
+            </div>
+
+            <!-- Free Recall -->
+            <div class="feature-card scroll-reveal">
+                <div class="feature-icon">⚡</div>
+                <h3>Ancient Attunement</h3>
+                <p>Every character gets a free AA that recalls them to PoK with a 10-minute timer. Available from level 1.</p>
+            </div>
+
+            <!-- Expansion Control -->
+            <div class="feature-card scroll-reveal">
+                <div class="feature-icon">🕐</div>
+                <h3>Expansion Management</h3>
+                <p>Server can be locked to any Classic through Gates of Discord era. Switch expansions with one click to revisit your favorite content.</p>
+            </div>
+
+            <!-- AA from Level 1 -->
+            <div class="feature-card scroll-reveal">
+                <div class="feature-icon">📈</div>
+                <h3>AA Progression</h3>
+                <p>Alternate Advancement is accessible from level 1. AA point cost tuned to feel rewarding throughout your entire leveling journey.</p>
+            </div>
+
+            <!-- GM Web Tool -->
+            <div class="feature-card scroll-reveal">
+                <div class="feature-icon">⚙️</div>
+                <h3>GM Web Tool</h3>
+                <p>Easy-to-use interface for character management, expansion control, teleportation, and server configuration. No command-line needed.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature Showcases -->
+    <section class="feature-showcase">
+        <h2 class="section-title" style="margin-bottom: 3rem;">The Magic Behind Nightcap</h2>
+
+        <!-- Multiclass Showcase -->
+        <div class="showcase-item scroll-reveal">
+            <div class="showcase-image">
+                🎭
+            </div>
+            <div class="showcase-content">
+                <h3>Multiclass Disciplines</h3>
+                <p>The single largest departure from vanilla EQ. Transform any character into a hybrid class powerhouse:</p>
+                <ul class="feature-list">
+                    <li><strong>Level 20:</strong> Adopt a 2nd discipline</li>
+                    <li><strong>Level 50:</strong> Adopt a 3rd discipline</li>
+                    <li>All spells, skills, and AAs from adopted classes become available</li>
+                    <li>Revoke disciplines anytime without penalty</li>
+                    <li>Visit The Ancient Chronicler in PoK to manage your disciplines</li>
+                </ul>
+                <p style="margin-top: 1.5rem; color: var(--gold);"><em>"Long have the ancient paths of Norrath been sealed... The Ancient Chronicler walks the forgotten roads between these disciplines."</em></p>
+            </div>
+        </div>
+
+        <!-- Portal System Showcase -->
+        <div class="showcase-item scroll-reveal">
+            <div class="showcase-image">
+                🚪
+            </div>
+            <div class="showcase-content">
+                <h3>Expansion-Gated Portals</h3>
+                <p>Relive your favorite era without spoilers. Portal doors in PoK are locked to their appropriate expansion era.</p>
+                <ul class="feature-list">
+                    <li>Server locked to Classic? Kunark portals won't open</li>
+                    <li>Switch expansions from the GM web tool</li>
+                    <li>Instant effect across all active characters</li>
+                    <li>GM's bypass all restrictions</li>
+                    <li>Relive the vanilla experience, then explore everything</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- XP Tuning Showcase -->
+        <div class="showcase-item scroll-reveal">
+            <div class="showcase-image">
+                📊
+            </div>
+            <div class="showcase-content">
+                <h3>Balanced Progression</h3>
+                <p>Carefully tuned XP rates and AA costs create a rewarding leveling experience from 1 to max level.</p>
+                <ul class="feature-list">
+                    <li><strong>XP Multiplier:</strong> 0.65x (slightly slower than live)</li>
+                    <li><strong>AA Cost:</strong> 50,000 XP per point (vs. 24M on live)</li>
+                    <li><strong>Sweet Spot:</strong> Level 30 in Lower Guk for optimal power</li>
+                    <li>AAs feel meaningful, not grindy</li>
+                    <li>Hybrid classes come online as you level</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Spell Vendors Showcase -->
+        <div class="showcase-item scroll-reveal">
+            <div class="showcase-image">
+                📚
+            </div>
+            <div class="showcase-content">
+                <h3>Smart Spell Vendors</h3>
+                <p>Three specialized vendors in PoK automatically adapt to the current expansion. No more searching for spells.</p>
+                <ul class="feature-list">
+                    <li><strong>Arcane Tomes:</strong> Wizards, Necromancers, Magicians, Enchanters</li>
+                    <li><strong>Sacred Rites:</strong> Clerics, Druids, Shamans</li>
+                    <li><strong>Martial Disciplines:</strong> Paladins, Rangers, Shadow Knights, Bards, Beastlords</li>
+                    <li>Inventory refreshes automatically with each expansion change</li>
+                    <li>Your multiclass disciplines unlock new spell vendors</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Table -->
+    <section class="comparison" id="comparison">
+        <h2 class="section-title">Nightcap vs Live EQ</h2>
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Feature</th>
+                    <th>Live EverQuest</th>
+                    <th>Nightcap</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Multiclass System</td>
+                    <td class="cross">✗ No</td>
+                    <td class="check">✓ Yes (2-3 classes)</td>
+                </tr>
+                <tr>
+                    <td>Multiple Starting Cities</td>
+                    <td class="check">✓ Race-based</td>
+                    <td class="check">✓ PoK (Universal)</td>
+                </tr>
+                <tr>
+                    <td>AA Available at Level 1</td>
+                    <td class="cross">✗ Level 51+</td>
+                    <td class="check">✓ Level 1</td>
+                </tr>
+                <tr>
+                    <td>Free PoK Recall</td>
+                    <td class="cross">✗ No</td>
+                    <td class="check">✓ Yes (10min timer)</td>
+                </tr>
+                <tr>
+                    <td>Expansion Selection</td>
+                    <td class="cross">✗ Current only</td>
+                    <td class="check">✓ Classic to GoD</td>
+                </tr>
+                <tr>
+                    <td>XP Rate</td>
+                    <td class="check">✓ 1.0x</td>
+                    <td class="check">✓ 0.65x (tuned)</td>
+                </tr>
+                <tr>
+                    <td>AA Point Cost</td>
+                    <td class="check">✓ ~24,000,000 XP</td>
+                    <td class="check">✓ 50,000 XP (accessible)</td>
+                </tr>
+                <tr>
+                    <td>Portal Locking by Era</td>
+                    <td class="cross">✗ No</td>
+                    <td class="check">✓ Yes</td>
+                </tr>
+                <tr>
+                    <td>Web Admin Interface</td>
+                    <td class="cross">✗ Command-line</td>
+                    <td class="check">✓ Modern UI</td>
+                </tr>
+                <tr>
+                    <td>Solo/Small Group Tuned</td>
+                    <td class="cross">✗ Guild focused</td>
+                    <td class="check">✓ Yes</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats scroll-reveal">
+        <h2 class="section-title" style="margin-bottom: 2rem;">By The Numbers</h2>
+        <div class="stats-grid">
+            <div class="stat-item">
+                <h4>16</h4>
+                <p>Multiclass Disciplines</p>
+            </div>
+            <div class="stat-item">
+                <h4>6</h4>
+                <p>Expansion Eras</p>
+            </div>
+            <div class="stat-item">
+                <h4>3</h4>
+                <p>Spell Vendors</p>
+            </div>
+            <div class="stat-item">
+                <h4>∞</h4>
+                <p>Solo Possibilities</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Getting Started -->
+    <section class="getting-started" id="guide">
+        <h2 class="section-title">Getting Started</h2>
+        <div class="steps">
+            <div class="step scroll-reveal">
+                <div class="step-number">1</div>
+                <h4>Install akk-stack</h4>
+                <p>Clone the base EQEmu Docker environment and start all containers</p>
+            </div>
+            <div class="step scroll-reveal">
+                <div class="step-number">2</div>
+                <h4>Copy Custom Scripts</h4>
+                <p>Add Nightcap's quest scripts and configurations to your server</p>
+            </div>
+            <div class="step scroll-reveal">
+                <div class="step-number">3</div>
+                <h4>Run SQL Setup</h4>
+                <p>Initialize the database with multiclass, portals, and AA tuning</p>
+            </div>
+            <div class="step scroll-reveal">
+                <div class="step-number">4</div>
+                <h4>Launch GM Tool</h4>
+                <p>Start the web interface for easy server and character management</p>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 3rem;">
+            <a href="https://github.com/frank-grimes-jr/nightcap#setup" class="btn btn-primary">📖 Full Setup Guide</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="github">
+        <h3 style="color: var(--gold); margin-bottom: 1.5rem;">Ready to Embark?</h3>
+        <div class="footer-links">
+            <a href="https://github.com/frank-grimes-jr/nightcap">GitHub Repository</a>
+            <a href="https://www.eqemulator.org/">EQEmulator</a>
+            <a href="https://github.com/akkadius/akk-stack">akk-stack</a>
+            <a href="https://www.projecteq.net/">Project EQ</a>
+        </div>
+        <p>Built with 🍹 for EverQuest Enthusiasts</p>
+        <p style="margin-top: 1rem; font-size: 0.9rem;">Nightcap is a community project inspired by EverQuest classics. Play responsibly.</p>
+    </footer>
+
+    <script>
+        // Scroll reveal animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
