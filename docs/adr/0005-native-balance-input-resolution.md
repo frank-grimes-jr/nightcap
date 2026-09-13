@@ -1,0 +1,105 @@
+# ADR 0005: Resolve equipped balance inputs through an isolated engine harness
+
+Date: 2026-09-12
+Status: accepted; first equipped-stat diagnostic validated, full encounters pending
+
+## Context
+
+Nightcap combines multiclass HP/mana and skills with custom item stats, worn
+effects, focus, and AAs. A gear row sum cannot represent all of these accurately.
+Reimplementing every inventory and bonus path before running a fight would delay
+feedback and introduce a second large implementation to maintain.
+
+## Decision
+
+Use a separate native diagnostic executable for resolved character inputs, while
+retaining the seeded Python event runner and differential formula controls.
+The first diagnostic uses the existing mock Client constructor, captured legal
+Human creation allocations, synthetic multiclass rows, maximum eligible skills,
+real item instances, and CalcBonuses. It reports the existing 20-slot candidate
+sets with no purchased AAs or active buffs. This does not certify combat BiS.
+
+The harness has its own content-only database, database-scoped test user, empty
+player/account tables, runtime directories, and generated shared memory. It must
+refuse a live runtime/configuration before the original zone startup runs.
+The copied main disables world/QueryServ startup connections and returns from
+the diagnostic without entering the normal server loop. Production source,
+build outputs, binaries, and processes remain untouched.
+
+The normal quest-plugin compatibility gate is disabled only in the copied
+diagnostic startup because its quest/plugin directories are empty. Quest-driven
+item changes or encounter behavior are outside this initial diagnostic.
+
+The first build reuses existing native object files and pins their hashes along
+with the new harness, modified startup copy, flags, and executable. This proves
+behavior of that artifact, not a fresh rebuild of all current source files or
+parity with every running zone. Source freshness and in-game QA remain explicit
+gates before using the results for a tuning promotion.
+
+## Alternatives and consequences
+
+- A complete Python port would make repeated sweeps easy but duplicate a large,
+  stateful bonus/AA implementation. Keep small verified arithmetic ports; avoid
+  treating an expanding collection of guessed inputs as a character.
+- Tests against live PEQ would reduce setup time but zone initialization can write
+  state. An isolated clone preserves production behavior during experiments.
+- A full new native build provides stronger source provenance. The initial
+  artifact reuse shortens the feedback cycle; it cannot claim that stronger proof.
+
+The first 12 native HP/mana results match the calculator and seven early-refusal
+checks pass. Next gates are legal AA/buff setup, acquisition and
+combat objective coverage, complete boss mechanics, sensitivity runs, and focused
+in-game QA. No cap or NPC HP change follows from the harness alone.
+
+## AA follow-up (2026-09-12)
+
+Resolve the requested 0/100/200/500/all comparison through the same isolated
+native engine. Export native use/level eligibility and effect/prerequisite data,
+construct explicit ordered purchase candidates, then require native purchase
+acceptance, exact cost accounting, and post-purchase completeness checks. Use
+native `SetAA` after `CanPurchaseAlternateAdvancementRank`, deduct costs, and
+calculate bonuses without UI, quest, title, logging, or persistence side effects.
+
+Zero means zero spent points, with common purchasable free ranks held consistently
+at all budgets; keep the previous completely empty-AA report as a separate
+control. Grant-only rewards require their own acquisition evidence. Candidate
+offense/sustain/defense and durability-first paths expose allocation sensitivity;
+neither path is declared optimal until encounter measurements support it.
+
+The first harness actually used base-class caps despite its earlier held-class
+description. Corrected diagnostics take held-class maximum trained skills and
+native specialization rules. Practical skill attainment, client access, and
+base-class-only runtime paths remain explicit QA gates. Purchased AA inputs and
+HP/mana now pass 24 native scenarios; this does not establish activated combat
+effects or full fight outcomes. See `docs/balance/native-aa-stats.md`.
+
+## Native direct-action follow-up (2026-09-12)
+
+Use actual direct spell formula/resist/focus/crit/cost/cast-time paths to produce
+joint action distributions for the event runner. A diagnostic-only GNU linker
+wrapper supplies an explicit random_device seed while retaining native RNG
+algorithms. The alternative of changing a private RNG layout or header while
+reusing older objects is rejected; a full native rebuild with a public seed API
+would be more portable but is unnecessary for this pinned diagnostic. Record
+build/runtime hashes and require same-seed replay evidence.
+
+The first 491,520-sample run replays byte-for-byte. Joint event integration passes
+analytic controls, but full casting lifecycle, activation effects, client access,
+and NPC AI remain open. Evaluate accelerated native combat next; both engine
+millisecond timers and persistent wall-clock timers must advance consistently.
+
+## Native encounter follow-up (2026-09-12)
+
+Use the engine's client/NPC processing and movement manager with a diagnostic-only
+packet sink and unified virtual clock. Patch only a generated copy of the existing
+mock constructor to complete transport/loading/version state. Preserve native
+combat functions, class layouts, real network constructor, and production files.
+Record deaths after native pre-death saves while omitting corpse/reward persistence.
+Load actual zone configuration and copied maps, and mark the fixture loaded so the
+native hate-list shutdown guard does not suppress target selection.
+
+Clock/cast/resource/damage controls and six reproducible encounter runs now pass.
+The initial idle-boss failure demonstrates why activity assertions are mandatory.
+The prototype remains a fixed controller at 50 ms with no preparation buffs or
+activated-AA policy; it is not full BiS balance evidence. See
+`docs/balance/native-encounter-runtime.md` for explicit remaining gates.

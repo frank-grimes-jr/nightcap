@@ -18,6 +18,7 @@
 #include <cstdio>
 #include <cstdint>
 #include <cstring>
+#include <share.h>
 
 #pragma comment(lib, "bcrypt.lib")
 
@@ -45,6 +46,69 @@ static const BYTE kEnabledCasterClassTable[16] = {
 };
 static const size_t kNonCasterClassIndexes[] = { 0, 6, 8, 15 };
 
+// CCombatAbilityWnd::CanShow indexes this table by BaseProfile.Class - 1.
+// Stock RoF2 disables the window for its seven pure-caster classes. Enable the
+// presentation chassis for every base class; the server remains authoritative
+// for learned skills and every submitted combat ability.
+static const uintptr_t kCombatAbilityClassTableRva = 0x0018238C;
+static const BYTE kExpectedCombatAbilityClassTable[16] = {
+    0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0,
+};
+static const BYTE kEnabledCombatAbilityClassTable[16] = {
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+};
+
+// CSkillsSelectWnd::SetTypesToDisplay checks CharacterZoneClient::HasSkill
+// before adding an activated skill to the Actions -> Abilities picker.
+// HasSkill clamps the received value through the primary class's cap, hiding
+// valid secondary/tertiary skills. Redirect only the two selector calls to a
+// predicate that preserves stock success and otherwise accepts a positive
+// server-delivered base skill.
+static const uintptr_t kActionsSkillPredicateCallRvas[] = {
+    0x00356D2D,
+    0x00356DA5,
+};
+static const BYTE kExpectedActionsSkillPredicateCalls[][5] = {
+    { 0xE8, 0x7E, 0x34, 0xCF, 0xFF },
+    { 0xE8, 0x06, 0x34, 0xCF, 0xFF },
+};
+// CHotButton refresh uses HasSkill to decide whether a type-9 skill button is
+// usable. CharacterZoneClient::UseSkill separately calls GetSkill and rejects
+// a non-positive result before sending anything to the server.
+static const uintptr_t kHotButtonSkillPredicateCallRva = 0x00151B59;
+static const BYTE kExpectedHotButtonSkillPredicateCall[5] = {
+    0xE8, 0x52, 0x86, 0xEF, 0xFF,
+};
+static const uintptr_t kUseSkillValueCallRva = 0x0005B33E;
+static const BYTE kExpectedUseSkillValueCall[5] = {
+    0xE8, 0x9D, 0xEC, 0xFE, 0xFF,
+};
+// Type-9 hotbuttons normally enter CharacterZoneClient::UseSkill. Stock RoF2
+// intentionally leaves direct handlers empty for the six basic combat attacks;
+// its internal special-attack submitter is the path that owns their target,
+// animation, reuse, and OP_CombatAbility packet behavior.
+static const uintptr_t kHotButtonSkillActivationCallRva = 0x0028CA21;
+static const BYTE kExpectedHotButtonSkillActivationCall[5] = {
+    0xE8, 0xAA, 0xE8, 0xDC, 0xFF,
+};
+// The stock special-attack submitter has one HasSkill call that repeats the
+// primary-class clamp. Redirect only that exact call for server-granted skills.
+static const uintptr_t kSpecialAttackSkillPredicateCallRva = 0x001A2FD0;
+static const BYTE kExpectedSpecialAttackSkillPredicateCall[5] = {
+    0xE8, 0xDB, 0x71, 0xEA, 0xFF,
+};
+static const uintptr_t kSpecialAttackSubmitRva = 0x001A5000;
+static const uintptr_t kCharacterUseSkillRva = 0x0005B2D0;
+static const uintptr_t kCharacterHasSkillRva = 0x0004A1B0;
+static const uintptr_t kCharacterGetBaseSkillRva = 0x00049C80;
+static const uintptr_t kCharacterGetSkillRva = 0x00049FE0;
+static const uintptr_t kSkillManagerSlotRva = 0x00A64610;
+static const uintptr_t kSkillIsCombatRva = 0x001BAB10;
+static const uintptr_t kSkillIsActivatedRva = 0x001BABD0;
+static const uintptr_t kSkillTimerIndexRva = 0x001BA2B0;
+static const uintptr_t kSkillReuseBeginRva = 0x001BADA0;
+static const uintptr_t kSkillReuseCommitRva = 0x001BAC50;
+
 // RoF2's non-caster EQ_Character::Max_Mana branch returns zero even after the
 // server has populated LocalPlayer's authoritative raw maximum at +0x354.
 // Redirect only that complete six-byte return block to the guarded stub below.
@@ -66,6 +130,9 @@ static const BYTE kExpectedMaxManaReturn[6] = {
 static HMODULE g_real_dinput8 = nullptr;
 static FILE*   g_log          = nullptr;
 static uintptr_t g_local_player_slot = 0;
+static uintptr_t g_eq_base = 0;
+
+static bool IsMonkCombatAttack(int skill);
 
 static void Log(const char* fmt, ...)
 {
@@ -166,6 +233,209 @@ extern "C" __declspec(noinline) BYTE __fastcall HasServerManaForGauge(
         return *reinterpret_cast<DWORD*>(local_player + 0x354) > 0 ? 1 : 0;
     } __except (EXCEPTION_EXECUTE_HANDLER) {
         return 0;
+    }
+}
+
+extern "C" __declspec(noinline) BYTE __fastcall HasServerGrantedSkill(
+    void* character, void* unused_edx, int skill)
+{
+    (void)unused_edx;
+    if (!character || g_eq_base == 0 || skill < 0 || skill >= 100) {
+        return 0;
+    }
+
+    typedef BYTE (__thiscall *HasSkillFn)(void*, int);
+    // This exact RoF2 entrypoint has one meaningful skill argument but returns
+    // with `ret 8`; preserve its second, unused stack slot to match the ABI.
+    typedef int (__thiscall *GetBaseSkillFn)(void*, int, int);
+    HasSkillFn stock_has_skill = reinterpret_cast<HasSkillFn>(
+        g_eq_base + kCharacterHasSkillRva);
+    GetBaseSkillFn get_base_skill = reinterpret_cast<GetBaseSkillFn>(
+        g_eq_base + kCharacterGetBaseSkillRva);
+
+    __try {
+        const BYTE stock = stock_has_skill(character, skill);
+        const int base = get_base_skill(character, skill, 0);
+        const BYTE accepted = (stock || base > 0) ? 1 : 0;
+
+        if (skill == 21 || skill == 23 || skill == 26 || skill == 30 ||
+            skill == 32 || skill == 38 || skill == 52) {
+            typedef BYTE (__thiscall *SkillFlagFn)(void*, int);
+            BYTE activated = 0xFF;
+            BYTE combat = 0xFF;
+            void* skill_manager =
+                *reinterpret_cast<void**>(g_eq_base + kSkillManagerSlotRva);
+            if (skill_manager) {
+                SkillFlagFn is_activated = reinterpret_cast<SkillFlagFn>(
+                    g_eq_base + kSkillIsActivatedRva);
+                SkillFlagFn is_combat = reinterpret_cast<SkillFlagFn>(
+                    g_eq_base + kSkillIsCombatRva);
+                activated = is_activated(skill_manager, skill);
+                combat = is_combat(skill_manager, skill);
+            }
+            Log("G006_SELECTOR skill=%d stock=%u base=%u accepted=%u "
+                "activated=%u combat=%u",
+                skill, static_cast<unsigned>(stock),
+                static_cast<unsigned>(base),
+                static_cast<unsigned>(accepted),
+                static_cast<unsigned>(activated),
+                static_cast<unsigned>(combat));
+        }
+
+        return accepted;
+    } __except (EXCEPTION_EXECUTE_HANDLER) {
+        if (skill == 21 || skill == 23 || skill == 26 || skill == 30 ||
+            skill == 32 || skill == 38 || skill == 52) {
+            Log("G006_SELECTOR skill=%d exception=1", skill);
+        }
+        return 0;
+    }
+}
+
+// The stock special-attack gate is execution-sensitive, so keep its fallback
+// narrower than the presentation predicate: only the six held-Monk attacks
+// may use a positive server-delivered value after a stock-negative result.
+extern "C" __declspec(noinline) BYTE __fastcall HasServerGrantedMonkAttack(
+    void* character, void* unused_edx, int skill)
+{
+    (void)unused_edx;
+    if (!character || g_eq_base == 0 || skill < 0 || skill >= 100) {
+        return 0;
+    }
+
+    typedef BYTE (__thiscall *HasSkillFn)(void*, int);
+    typedef int (__thiscall *GetBaseSkillFn)(void*, int, int);
+    HasSkillFn stock_has_skill = reinterpret_cast<HasSkillFn>(
+        g_eq_base + kCharacterHasSkillRva);
+    GetBaseSkillFn get_base_skill = reinterpret_cast<GetBaseSkillFn>(
+        g_eq_base + kCharacterGetBaseSkillRva);
+
+    __try {
+        const BYTE stock = stock_has_skill(character, skill);
+        if (stock || !IsMonkCombatAttack(skill)) {
+            return stock ? 1 : 0;
+        }
+        return get_base_skill(character, skill, 0) > 0 ? 1 : 0;
+    } __except (EXCEPTION_EXECUTE_HANDLER) {
+        Log("G006_MONK_GATE skill=%d exception=1", skill);
+        return 0;
+    }
+}
+
+// Preserve the stock adjusted value when it is positive. A held-class skill
+// that the primary-class cap clamps to zero falls back to the raw value sent by
+// the server. UseSkill still owns every subsequent state/target/timer check,
+// and the server remains authoritative for the submitted activation.
+extern "C" __declspec(noinline) int __fastcall GetServerGrantedSkill(
+    void* character, void* unused_edx, int skill)
+{
+    (void)unused_edx;
+    if (!character || g_eq_base == 0 || skill < 0 || skill >= 100) {
+        return 0;
+    }
+
+    typedef int (__thiscall *GetSkillFn)(void*, int);
+    typedef int (__thiscall *GetBaseSkillFn)(void*, int, int);
+    GetSkillFn get_skill = reinterpret_cast<GetSkillFn>(
+        g_eq_base + kCharacterGetSkillRva);
+    GetBaseSkillFn get_base_skill = reinterpret_cast<GetBaseSkillFn>(
+        g_eq_base + kCharacterGetBaseSkillRva);
+
+    __try {
+        const int adjusted = get_skill(character, skill);
+        if (adjusted > 0) {
+            return adjusted;
+        }
+        const int base = get_base_skill(character, skill, 0);
+        return base > 0 ? base : 0;
+    } __except (EXCEPTION_EXECUTE_HANDLER) {
+        if (skill == 21 || skill == 23 || skill == 26 || skill == 30 ||
+            skill == 32 || skill == 38 || skill == 52) {
+            Log("G006_USE_SKILL skill=%d exception=1", skill);
+        }
+        return 0;
+    }
+}
+
+static bool IsMonkCombatAttack(int skill)
+{
+    return skill == 21 || // Dragon Punch / Tail Rake
+        skill == 23 ||    // Eagle Strike
+        skill == 26 ||    // Flying Kick
+        skill == 30 ||    // Kick
+        skill == 38 ||    // Round Kick
+        skill == 52;      // Tiger Claw
+}
+
+// Match CharacterZoneClient::UseSkill's two-argument thiscall ABI at the
+// CHotButtonWnd call site. Non-Monk skills remain entirely stock. The six
+// basic attacks enter the exact stock submitter that UseSkill itself calls for
+// special attacks, after requiring a positive server-delivered skill value.
+extern "C" __declspec(noinline) void __fastcall ActivateServerGrantedSkill(
+    void* character, void* unused_edx, int skill, void* target)
+{
+    (void)unused_edx;
+    if (g_eq_base == 0) {
+        return;
+    }
+
+    typedef void (__thiscall *UseSkillFn)(void*, int, void*);
+    UseSkillFn use_skill = reinterpret_cast<UseSkillFn>(
+        g_eq_base + kCharacterUseSkillRva);
+
+    if (!IsMonkCombatAttack(skill)) {
+        use_skill(character, skill, target);
+        return;
+    }
+
+    if (!character || GetServerGrantedSkill(character, nullptr, skill) <= 0) {
+        Log("G006_MONK_ATTACK skill=%d submitted=0 reason=no-server-skill", skill);
+        return;
+    }
+
+    typedef BYTE (__thiscall *SubmitSpecialAttackFn)(
+        void*, int, int, void*);
+    SubmitSpecialAttackFn submit_special_attack =
+        reinterpret_cast<SubmitSpecialAttackFn>(
+            g_eq_base + kSpecialAttackSubmitRva);
+
+    __try {
+        void* player = *reinterpret_cast<void**>(
+            static_cast<BYTE*>(character) + 0x08);
+        if (!player) {
+            Log("G006_MONK_ATTACK skill=%d submitted=0 reason=no-player", skill);
+            return;
+        }
+        const BYTE submitted = submit_special_attack(
+            player, 100, skill, target);
+        if (submitted) {
+            void* skill_manager =
+                *reinterpret_cast<void**>(g_eq_base + kSkillManagerSlotRva);
+            if (skill_manager) {
+                typedef void (__thiscall *SkillReuseFn)(void*, int, DWORD);
+                typedef int (__thiscall *SkillTimerIndexFn)(void*, int);
+                SkillReuseFn begin_reuse = reinterpret_cast<SkillReuseFn>(
+                    g_eq_base + kSkillReuseBeginRva);
+                SkillTimerIndexFn timer_index =
+                    reinterpret_cast<SkillTimerIndexFn>(
+                        g_eq_base + kSkillTimerIndexRva);
+                SkillReuseFn commit_reuse = reinterpret_cast<SkillReuseFn>(
+                    g_eq_base + kSkillReuseCommitRva);
+
+                // This is the exact stock post-submit sequence at 0x45D93C.
+                begin_reuse(skill_manager, skill, 0);
+                const int index = timer_index(skill_manager, skill);
+                if (index >= 0 && index < 100) {
+                    const DWORD reuse_end = *reinterpret_cast<DWORD*>(
+                        static_cast<BYTE*>(player) + 0x390 + index * 4);
+                    commit_reuse(skill_manager, skill, reuse_end);
+                }
+            }
+        }
+        Log("G006_MONK_ATTACK skill=%d target=%p submitted=%u",
+            skill, target, static_cast<unsigned>(submitted));
+    } __except (EXCEPTION_EXECUTE_HANDLER) {
+        Log("G006_MONK_ATTACK skill=%d submitted=0 exception=1", skill);
     }
 }
 
@@ -426,6 +696,529 @@ static bool ApplyCasterClassTablePatch(uintptr_t eq_base, bool version_ok)
 
     Log("B2 patch APPLIED: WAR/MNK/ROG/BER enabled in caster-class table "
         "(4 data bytes; 5 known client consumers)");
+    return true;
+}
+
+static bool ApplyCombatAbilityClassTablePatch(uintptr_t eq_base, bool version_ok)
+{
+    if (!version_ok) {
+        Log("G006 combat-ability patch DISABLED: client version guard failed");
+        return false;
+    }
+
+    BYTE* table = reinterpret_cast<BYTE*>(
+        eq_base + kCombatAbilityClassTableRva);
+    BYTE original[sizeof(kExpectedCombatAbilityClassTable)] = {};
+    bool stock_signature = false;
+    __try {
+        memcpy(original, table, sizeof(original));
+        stock_signature =
+            (memcmp(original, kExpectedCombatAbilityClassTable,
+                sizeof(original)) == 0);
+    } __except (EXCEPTION_EXECUTE_HANDLER) {
+        Log("G006 combat-ability patch DISABLED: class table unreadable "
+            "at rva=0x%08X",
+            static_cast<unsigned>(kCombatAbilityClassTableRva));
+        return false;
+    }
+
+    if (!stock_signature) {
+        Log("G006 combat-ability patch DISABLED: class table signature mismatch "
+            "at rva=0x%08X",
+            static_cast<unsigned>(kCombatAbilityClassTableRva));
+        return false;
+    }
+
+    DWORD old_protection = 0;
+    if (!VirtualProtect(
+            table, sizeof(kExpectedCombatAbilityClassTable),
+            PAGE_EXECUTE_READWRITE, &old_protection)) {
+        Log("G006 combat-ability patch FAILED: VirtualProtect");
+        return false;
+    }
+
+    // Re-read after changing protection to detect a table change during the
+    // protection transition. This is not atomic against a hostile concurrent
+    // writer; supported injected modules must not mutate this patch site.
+    bool pre_write_signature = false;
+    __try {
+        pre_write_signature = (memcmp(
+            table, original, sizeof(original)) == 0);
+    } __except (EXCEPTION_EXECUTE_HANDLER) {
+        pre_write_signature = false;
+    }
+
+    const bool write_attempted = pre_write_signature;
+    bool wrote = false;
+    if (write_attempted) {
+        __try {
+            memcpy(
+                table, kEnabledCombatAbilityClassTable,
+                sizeof(kEnabledCombatAbilityClassTable));
+            FlushInstructionCache(GetCurrentProcess(), table, sizeof(original));
+            wrote = (memcmp(
+                table, kEnabledCombatAbilityClassTable,
+                sizeof(kEnabledCombatAbilityClassTable)) == 0);
+        } __except (EXCEPTION_EXECUTE_HANDLER) {
+            wrote = false;
+        }
+    }
+
+    bool rollback_ok = true;
+    if (write_attempted && !wrote) {
+        rollback_ok = false;
+        __try {
+            memcpy(table, original, sizeof(original));
+            FlushInstructionCache(GetCurrentProcess(), table, sizeof(original));
+            rollback_ok = (memcmp(table, original, sizeof(original)) == 0);
+        } __except (EXCEPTION_EXECUTE_HANDLER) {
+            rollback_ok = false;
+        }
+    }
+
+    DWORD ignored = 0;
+    bool protection_restored = VirtualProtect(
+        table, sizeof(original), old_protection, &ignored) != FALSE;
+    if (!protection_restored) {
+        // Do not leave an applied patch on a writable executable page. The
+        // guarded rollback is independent of the original write handler.
+        if (write_attempted) {
+            rollback_ok = false;
+            __try {
+                memcpy(table, original, sizeof(original));
+                FlushInstructionCache(
+                    GetCurrentProcess(), table, sizeof(original));
+                rollback_ok = (memcmp(table, original, sizeof(original)) == 0);
+            } __except (EXCEPTION_EXECUTE_HANDLER) {
+                rollback_ok = false;
+            }
+        }
+
+        DWORD retry_ignored = 0;
+        const bool retry_restored = VirtualProtect(
+            table, sizeof(original), old_protection, &retry_ignored) != FALSE;
+        Log("G006 combat-ability patch FAILED: protection restore failed; "
+            "rollback=%s retry=%s",
+            rollback_ok ? "verified" : "FAILED",
+            retry_restored ? "restored" : "FAILED");
+        return false;
+    }
+
+    if (!write_attempted) {
+        Log("G006 combat-ability patch DISABLED: class table changed before write");
+        return false;
+    }
+    if (!wrote) {
+        Log("G006 combat-ability patch FAILED: write/precondition failed; "
+            "rollback=%s",
+            rollback_ok ? "verified" : "FAILED");
+        return false;
+    }
+
+    Log("G006 combat-ability patch APPLIED: all base classes can open "
+        "CCombatAbilityWnd (7 data bytes; page protection restored)");
+    return true;
+}
+
+static bool ApplyActionsSkillPredicatePatch(uintptr_t eq_base, bool version_ok)
+{
+    if (!version_ok) {
+        Log("G006 Actions skill patch DISABLED: client version guard failed");
+        return false;
+    }
+
+    const size_t site_count =
+        sizeof(kActionsSkillPredicateCallRvas) /
+        sizeof(kActionsSkillPredicateCallRvas[0]);
+    BYTE originals[site_count][5] = {};
+    BYTE replacements[site_count][5] = {};
+    BYTE* first_site = reinterpret_cast<BYTE*>(
+        eq_base + kActionsSkillPredicateCallRvas[0]);
+    BYTE* last_site = reinterpret_cast<BYTE*>(
+        eq_base + kActionsSkillPredicateCallRvas[site_count - 1]);
+    const size_t protected_span = (last_site + 5) - first_site;
+
+    for (size_t i = 0; i < site_count; ++i) {
+        BYTE* site = reinterpret_cast<BYTE*>(
+            eq_base + kActionsSkillPredicateCallRvas[i]);
+        __try {
+            memcpy(originals[i], site, sizeof(originals[i]));
+        } __except (EXCEPTION_EXECUTE_HANDLER) {
+            Log("G006 Actions skill patch DISABLED: call site unreadable "
+                "at rva=0x%08X",
+                static_cast<unsigned>(kActionsSkillPredicateCallRvas[i]));
+            return false;
+        }
+        if (memcmp(
+                originals[i], kExpectedActionsSkillPredicateCalls[i],
+                sizeof(originals[i])) != 0) {
+            Log("G006 Actions skill patch DISABLED: signature mismatch "
+                "at rva=0x%08X",
+                static_cast<unsigned>(kActionsSkillPredicateCallRvas[i]));
+            return false;
+        }
+
+        replacements[i][0] = 0xE8;
+        const intptr_t displacement =
+            reinterpret_cast<BYTE*>(&HasServerGrantedSkill) - (site + 5);
+        if (displacement < INT32_MIN || displacement > INT32_MAX) {
+            Log("G006 Actions skill patch DISABLED: hook out of rel32 range");
+            return false;
+        }
+        const int32_t relative32 = static_cast<int32_t>(displacement);
+        memcpy(replacements[i] + 1, &relative32, sizeof(relative32));
+    }
+
+    DWORD old_protection = 0;
+    if (!VirtualProtect(
+            first_site, protected_span, PAGE_EXECUTE_READWRITE,
+            &old_protection)) {
+        Log("G006 Actions skill patch FAILED: VirtualProtect");
+        return false;
+    }
+
+    bool pre_write_signatures = true;
+    for (size_t i = 0; i < site_count; ++i) {
+        BYTE* site = reinterpret_cast<BYTE*>(
+            eq_base + kActionsSkillPredicateCallRvas[i]);
+        __try {
+            if (memcmp(site, originals[i], sizeof(originals[i])) != 0) {
+                pre_write_signatures = false;
+            }
+        } __except (EXCEPTION_EXECUTE_HANDLER) {
+            pre_write_signatures = false;
+        }
+    }
+
+    bool wrote = false;
+    if (pre_write_signatures) {
+        __try {
+            for (size_t i = 0; i < site_count; ++i) {
+                BYTE* site = reinterpret_cast<BYTE*>(
+                    eq_base + kActionsSkillPredicateCallRvas[i]);
+                memcpy(site, replacements[i], sizeof(replacements[i]));
+            }
+            FlushInstructionCache(
+                GetCurrentProcess(), first_site, protected_span);
+            wrote = true;
+            for (size_t i = 0; i < site_count; ++i) {
+                BYTE* site = reinterpret_cast<BYTE*>(
+                    eq_base + kActionsSkillPredicateCallRvas[i]);
+                if (memcmp(
+                        site, replacements[i], sizeof(replacements[i])) != 0) {
+                    wrote = false;
+                }
+            }
+        } __except (EXCEPTION_EXECUTE_HANDLER) {
+            wrote = false;
+        }
+    }
+
+    bool rollback_ok = true;
+    if (!wrote) {
+        rollback_ok = false;
+        __try {
+            for (size_t i = 0; i < site_count; ++i) {
+                BYTE* site = reinterpret_cast<BYTE*>(
+                    eq_base + kActionsSkillPredicateCallRvas[i]);
+                memcpy(site, originals[i], sizeof(originals[i]));
+            }
+            FlushInstructionCache(
+                GetCurrentProcess(), first_site, protected_span);
+            rollback_ok = true;
+            for (size_t i = 0; i < site_count; ++i) {
+                BYTE* site = reinterpret_cast<BYTE*>(
+                    eq_base + kActionsSkillPredicateCallRvas[i]);
+                if (memcmp(site, originals[i], sizeof(originals[i])) != 0) {
+                    rollback_ok = false;
+                }
+            }
+        } __except (EXCEPTION_EXECUTE_HANDLER) {
+            rollback_ok = false;
+        }
+    }
+
+    DWORD ignored = 0;
+    bool protection_restored = VirtualProtect(
+        first_site, protected_span, old_protection, &ignored) != FALSE;
+    if (!protection_restored) {
+        rollback_ok = false;
+        __try {
+            for (size_t i = 0; i < site_count; ++i) {
+                BYTE* site = reinterpret_cast<BYTE*>(
+                    eq_base + kActionsSkillPredicateCallRvas[i]);
+                memcpy(site, originals[i], sizeof(originals[i]));
+            }
+            FlushInstructionCache(
+                GetCurrentProcess(), first_site, protected_span);
+            rollback_ok = true;
+            for (size_t i = 0; i < site_count; ++i) {
+                BYTE* site = reinterpret_cast<BYTE*>(
+                    eq_base + kActionsSkillPredicateCallRvas[i]);
+                if (memcmp(site, originals[i], sizeof(originals[i])) != 0) {
+                    rollback_ok = false;
+                }
+            }
+        } __except (EXCEPTION_EXECUTE_HANDLER) {
+            rollback_ok = false;
+        }
+        DWORD retry_ignored = 0;
+        const bool retry_restored = VirtualProtect(
+            first_site, protected_span, old_protection,
+            &retry_ignored) != FALSE;
+        Log("G006 Actions skill patch FAILED: protection restore failed; "
+            "rollback=%s retry=%s",
+            rollback_ok ? "verified" : "FAILED",
+            retry_restored ? "restored" : "FAILED");
+        return false;
+    }
+
+    if (!wrote) {
+        Log("G006 Actions skill patch FAILED: write/precondition failed; "
+            "rollback=%s",
+            rollback_ok ? "verified" : "FAILED");
+        return false;
+    }
+
+    Log("G006 Actions skill patch APPLIED: selector accepts positive "
+        "server-delivered base skills (2 guarded call sites)");
+    return true;
+}
+
+static bool ApplyGuardedRelativeCall(
+    uintptr_t eq_base,
+    uintptr_t call_rva,
+    const BYTE expected[5],
+    uintptr_t target,
+    const char* label)
+{
+    BYTE* site = reinterpret_cast<BYTE*>(eq_base + call_rva);
+    BYTE replacement[5] = { 0xE8, 0, 0, 0, 0 };
+    const intptr_t displacement =
+        static_cast<intptr_t>(target) -
+        reinterpret_cast<intptr_t>(site + sizeof(replacement));
+    if (displacement < INT32_MIN || displacement > INT32_MAX) {
+        Log("%s DISABLED: hook target is outside rel32 range", label);
+        return false;
+    }
+    const int32_t relative32 = static_cast<int32_t>(displacement);
+    memcpy(replacement + 1, &relative32, sizeof(relative32));
+
+    bool stock_signature = false;
+    __try {
+        stock_signature = (memcmp(site, expected, 5) == 0);
+    } __except (EXCEPTION_EXECUTE_HANDLER) {
+        Log("%s DISABLED: call unreadable at rva=0x%08X", label,
+            static_cast<unsigned>(call_rva));
+        return false;
+    }
+    if (!stock_signature) {
+        Log("%s DISABLED: signature mismatch at rva=0x%08X", label,
+            static_cast<unsigned>(call_rva));
+        return false;
+    }
+
+    DWORD old_protection = 0;
+    if (!VirtualProtect(
+            site, 5, PAGE_EXECUTE_READWRITE, &old_protection)) {
+        Log("%s FAILED: VirtualProtect", label);
+        return false;
+    }
+
+    bool pre_write_signature = false;
+    __try {
+        pre_write_signature = (memcmp(site, expected, 5) == 0);
+    } __except (EXCEPTION_EXECUTE_HANDLER) {
+        pre_write_signature = false;
+    }
+    const bool write_attempted = pre_write_signature;
+
+    bool wrote = false;
+    if (write_attempted) {
+        __try {
+            memcpy(site, replacement, sizeof(replacement));
+            FlushInstructionCache(
+                GetCurrentProcess(), site, sizeof(replacement));
+            wrote = (memcmp(site, replacement, sizeof(replacement)) == 0);
+        } __except (EXCEPTION_EXECUTE_HANDLER) {
+            wrote = false;
+        }
+    }
+
+    bool rollback_ok = true;
+    if (write_attempted && !wrote) {
+        rollback_ok = false;
+        __try {
+            memcpy(site, expected, 5);
+            FlushInstructionCache(GetCurrentProcess(), site, 5);
+            rollback_ok = (memcmp(site, expected, 5) == 0);
+        } __except (EXCEPTION_EXECUTE_HANDLER) {
+            rollback_ok = false;
+        }
+    }
+
+    DWORD ignored = 0;
+    bool protection_restored = VirtualProtect(
+        site, 5, old_protection, &ignored) != FALSE;
+    if (!protection_restored) {
+        if (write_attempted) {
+            rollback_ok = false;
+            __try {
+                memcpy(site, expected, 5);
+                FlushInstructionCache(GetCurrentProcess(), site, 5);
+                rollback_ok = (memcmp(site, expected, 5) == 0);
+            } __except (EXCEPTION_EXECUTE_HANDLER) {
+                rollback_ok = false;
+            }
+        }
+        DWORD retry_ignored = 0;
+        const bool retry_restored = VirtualProtect(
+            site, 5, old_protection, &retry_ignored) != FALSE;
+        Log("%s FAILED: protection restore failed; rollback=%s retry=%s",
+            label,
+            rollback_ok ? "verified" : "FAILED",
+            retry_restored ? "restored" : "FAILED");
+        return false;
+    }
+
+    if (!write_attempted) {
+        Log("%s DISABLED: call changed before write", label);
+        return false;
+    }
+    if (!wrote) {
+        Log("%s FAILED: write/precondition failed; rollback=%s", label,
+            rollback_ok ? "verified" : "FAILED");
+        return false;
+    }
+
+    Log("%s APPLIED: call redirected at rva=0x%08X", label,
+        static_cast<unsigned>(call_rva));
+    return true;
+}
+
+static bool ApplyUseSkillValuePatch(uintptr_t eq_base, bool version_ok)
+{
+    if (!version_ok) {
+        Log("G006 UseSkill value patch DISABLED: client version guard failed");
+        return false;
+    }
+    return ApplyGuardedRelativeCall(
+        eq_base,
+        kUseSkillValueCallRva,
+        kExpectedUseSkillValueCall,
+        reinterpret_cast<uintptr_t>(&GetServerGrantedSkill),
+        "G006 UseSkill value patch");
+}
+
+static bool ApplyHotButtonSkillPredicatePatch(
+    uintptr_t eq_base, bool use_skill_ok)
+{
+    if (!use_skill_ok) {
+        Log("G006 hotbutton skill patch DISABLED: UseSkill correction unavailable");
+        return false;
+    }
+    return ApplyGuardedRelativeCall(
+        eq_base,
+        kHotButtonSkillPredicateCallRva,
+        kExpectedHotButtonSkillPredicateCall,
+        reinterpret_cast<uintptr_t>(&HasServerGrantedSkill),
+        "G006 hotbutton skill patch");
+}
+
+static bool RestoreGuardedRelativeCall(
+    uintptr_t eq_base,
+    uintptr_t call_rva,
+    const BYTE expected[5],
+    uintptr_t target,
+    const char* label)
+{
+    BYTE* site = reinterpret_cast<BYTE*>(eq_base + call_rva);
+    BYTE replacement[5] = { 0xE8, 0, 0, 0, 0 };
+    const intptr_t displacement =
+        static_cast<intptr_t>(target) -
+        reinterpret_cast<intptr_t>(site + sizeof(replacement));
+    if (displacement < INT32_MIN || displacement > INT32_MAX) {
+        Log("%s ROLLBACK FAILED: hook target is outside rel32 range", label);
+        return false;
+    }
+    const int32_t relative32 = static_cast<int32_t>(displacement);
+    memcpy(replacement + 1, &relative32, sizeof(relative32));
+
+    bool replacement_present = false;
+    __try {
+        replacement_present = (memcmp(site, replacement, 5) == 0);
+    } __except (EXCEPTION_EXECUTE_HANDLER) {
+        replacement_present = false;
+    }
+    if (!replacement_present) {
+        Log("%s ROLLBACK FAILED: patched call no longer matches", label);
+        return false;
+    }
+
+    DWORD old_protection = 0;
+    if (!VirtualProtect(site, 5, PAGE_EXECUTE_READWRITE, &old_protection)) {
+        Log("%s ROLLBACK FAILED: VirtualProtect", label);
+        return false;
+    }
+
+    bool restored = false;
+    __try {
+        if (memcmp(site, replacement, 5) == 0) {
+            memcpy(site, expected, 5);
+            FlushInstructionCache(GetCurrentProcess(), site, 5);
+            restored = (memcmp(site, expected, 5) == 0);
+        }
+    } __except (EXCEPTION_EXECUTE_HANDLER) {
+        restored = false;
+    }
+
+    DWORD ignored = 0;
+    const bool protection_restored = VirtualProtect(
+        site, 5, old_protection, &ignored) != FALSE;
+    Log("%s ROLLBACK: bytes=%s protection=%s", label,
+        restored ? "restored" : "FAILED",
+        protection_restored ? "restored" : "FAILED");
+    return restored && protection_restored;
+}
+
+static bool ApplyMonkAttackActivationPatches(
+    uintptr_t eq_base, bool hotbutton_skill_ok)
+{
+    if (!hotbutton_skill_ok) {
+        Log("G006 Monk attack activation DISABLED: hotbutton skill correction unavailable");
+        return false;
+    }
+
+    const bool predicate_ok = ApplyGuardedRelativeCall(
+        eq_base,
+        kSpecialAttackSkillPredicateCallRva,
+        kExpectedSpecialAttackSkillPredicateCall,
+        reinterpret_cast<uintptr_t>(&HasServerGrantedMonkAttack),
+        "G006 special-attack skill predicate patch");
+    if (!predicate_ok) {
+        return false;
+    }
+
+    const bool activation_ok = ApplyGuardedRelativeCall(
+        eq_base,
+        kHotButtonSkillActivationCallRva,
+        kExpectedHotButtonSkillActivationCall,
+        reinterpret_cast<uintptr_t>(&ActivateServerGrantedSkill),
+        "G006 Monk hotbutton activation patch");
+    if (!activation_ok) {
+        const bool rollback_ok = RestoreGuardedRelativeCall(
+            eq_base,
+            kSpecialAttackSkillPredicateCallRva,
+            kExpectedSpecialAttackSkillPredicateCall,
+            reinterpret_cast<uintptr_t>(&HasServerGrantedMonkAttack),
+            "G006 special-attack skill predicate patch");
+        Log("G006 Monk attack activation DISABLED: activation redirect failed; "
+            "predicate rollback=%s", rollback_ok ? "verified" : "FAILED");
+        return false;
+    }
+
+    Log("G006 Monk attack activation APPLIED: six held Monk attacks use the "
+        "stock special-attack submitter");
     return true;
 }
 
@@ -718,7 +1511,8 @@ static DWORD WINAPI InitThread(LPVOID)
     const DWORD pid = GetCurrentProcessId();
     char log_name[MAX_PATH];
     sprintf_s(log_name, "nightcap_dll_%lu.log", pid);
-    if (fopen_s(&g_log, log_name, "w") != 0 || !g_log) {
+    g_log = _fsopen(log_name, "w", _SH_DENYNO);
+    if (!g_log) {
         return 0;
     }
     Log("Nightcap proxy loaded (B2 caster-chassis correction + offset survey)");
@@ -741,9 +1535,17 @@ static DWORD WINAPI InitThread(LPVOID)
 
     uintptr_t eq_base, eq_size;
     GetModuleRange(GetModuleHandleA(nullptr), &eq_base, &eq_size);
+    g_eq_base = eq_base;
     bool hash_ok = size_ok && VerifyEqgameSha256(exe_path);
     Log("client sha256 check: %s", hash_ok ? "OK" : "MISMATCH OR UNREADABLE");
     ApplyCasterClassTablePatch(eq_base, size_ok && hash_ok);
+    ApplyCombatAbilityClassTablePatch(eq_base, size_ok && hash_ok);
+    ApplyActionsSkillPredicatePatch(eq_base, size_ok && hash_ok);
+    const bool use_skill_ok =
+        ApplyUseSkillValuePatch(eq_base, size_ok && hash_ok);
+    const bool hotbutton_skill_ok =
+        ApplyHotButtonSkillPredicatePatch(eq_base, use_skill_ok);
+    ApplyMonkAttackActivationPatches(eq_base, hotbutton_skill_ok);
     const bool mana_hook_ok =
         ApplyMaxManaServerCacheHook(eq_base, size_ok && hash_ok);
     ApplyPlayerManaGaugePredicateHook(eq_base, mana_hook_ok);

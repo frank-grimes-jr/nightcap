@@ -76,6 +76,7 @@ namespace EQ
 #include "common/zone_store.h"
 
 #include <cfloat>
+#include <map>
 #include <set>
 #include <algorithm>
 #include <memory>
@@ -480,7 +481,8 @@ public:
 	/* New PP Save Functions */
 	bool SaveCurrency(){ return database.SaveCharacterCurrency(this->CharacterID(), &m_pp); }
 	bool SaveAA();
-	void RemoveExpendedAA(int aa_id);
+	bool RemoveExpendedAA(int aa_id);
+	bool ExpendEarnedAACharge(uint32 first_rank_id);
 
 	inline bool ClientDataLoaded() const { return client_data_loaded; }
 	inline bool Connected() const { return (client_state == CLIENT_CONNECTED); }
@@ -506,8 +508,10 @@ public:
 	inline PlayerProfile_Struct& GetPP() { return m_pp; }
 	inline ExtendedProfile_Struct& GetEPP() { return m_epp; }
 	void LoadMulticlassMask();
-	void PurgeAfterClassRelease(uint8 released_class); // strip AAs/skills the retained classes can't use; refund AA points
-	void SetMulticlassSlot(uint8 slot, uint8 class_id);
+	uint32 ReconcileMulticlassSkills();
+	void PurgeAfterClassRelease(uint8 released_class); // retired: refuses the old non-atomic quest sequence
+	bool ReleaseMulticlassSlot(int slot);
+	void SetMulticlassSlot(int slot, int class_id);
 	inline uint32 GetClassMask() const { return m_multiclass_mask; }
 	inline uint8 GetClass2() const { return m_class2; }
 	inline uint8 GetClass3() const { return m_class3; }
@@ -1091,6 +1095,11 @@ public:
 	void AutoGrantAAPoints();
 	void GrantAllAAPoints(uint8 unlock_level = 0, bool skip_grant_only = false);
 	bool HasAlreadyPurchasedRank(AA::Rank* rank);
+	void BeginEarnedAALoad();
+	void RecordEarnedAA(uint32 first_rank_id, uint32 rank_count, uint32 charges);
+	void InvalidateEarnedAAState() { m_earned_aa_valid = false; }
+	bool HasValidEarnedAAState() const { return m_earned_aa_valid; }
+	uint32 GetEarnedAACount(uint32 first_rank_id) const;
 	void ListPurchasedAAs(Client *to, std::string search_criteria = std::string());
 
 	bool SendGMCommand(std::string message, bool ignore_status = false);
@@ -1127,7 +1136,7 @@ public:
 	//old AA methods that we still use
 	void ResetAA();
 	void ResetLeadershipAA();
-	void RefundAA();
+	bool RefundAA();
 	void SendClearLeadershipAA();
 	void SendClearPlayerAA();
 	inline uint32 GetAAXP() const { return m_pp.expAA; }
@@ -1981,7 +1990,7 @@ protected:
 	bool client_data_loaded;
 
 
-	void FinishAlternateAdvancementPurchase(AA::Rank *rank, bool ignore_cost, bool send_message_and_save);
+	bool FinishAlternateAdvancementPurchase(AA::Rank *rank, bool ignore_cost, bool send_message);
 
 	Mob* bind_sight_target;
 
@@ -2448,4 +2457,29 @@ public:
 	bool IsFilteredAFKPacket(const EQApplicationPacket *p);
 	void CheckAutoIdleAFK(PlayerPositionUpdateClient_Struct *p);
 	void SyncWorldPositionsToClient(bool ignore_idle = false);
+private:
+	// Canonical persisted ownership; Mob::aa_ranks is only the usable view.
+	using EarnedAAState = std::map<uint32, std::pair<uint32, uint32>>;
+	using UsableAAState = std::unordered_map<uint32, std::pair<uint32, uint32>>;
+	bool PersistEarnedAARemoval(uint32 first_rank_id, bool consume_charge);
+	struct MulticlassSkillChange {
+		EQ::skills::SkillType skill;
+		uint16 before;
+		uint16 after;
+	};
+	struct MulticlassReleaseState {
+		uint8 old_class2;
+		uint8 old_class3;
+		uint8 class2;
+		uint8 class3;
+		uint32 mask;
+		std::vector<MulticlassSkillChange> skills;
+	};
+	void InvalidateMulticlassState();
+	void SendLoadedAlternateAdvancementTable();
+	bool PersistEarnedAAState(EarnedAAState earned, UsableAAState usable, uint32 wallet, uint32 expended,
+		const MulticlassReleaseState *release = nullptr);
+	bool m_multiclass_state_valid = true;
+	EarnedAAState m_earned_aa_ranks;
+	bool m_earned_aa_valid = true;
 };

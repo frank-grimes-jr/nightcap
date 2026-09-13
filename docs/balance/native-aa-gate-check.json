@@ -1,0 +1,61 @@
+{
+  "binary_sha256": "f09acdbe832534c10ce253704fcf049f5da93c4d5e772d3d61bf02b8cb138f73",
+  "cases": [
+    {
+      "case": "insufficient_points",
+      "rank_ids": [
+        2
+      ],
+      "budget": 0,
+      "exit_code": 1,
+      "rejected_by_purchase_gate": true
+    },
+    {
+      "case": "duplicate_rank",
+      "rank_ids": [
+        2,
+        2
+      ],
+      "budget": 100000,
+      "exit_code": 1,
+      "rejected_by_purchase_gate": true
+    },
+    {
+      "case": "missing_previous_rank",
+      "rank_ids": [
+        3
+      ],
+      "budget": 100000,
+      "exit_code": 1,
+      "rejected_by_purchase_gate": true
+    },
+    {
+      "case": "grant_only",
+      "rank_ids": [
+        5006
+      ],
+      "budget": 100000,
+      "exit_code": 1,
+      "rejected_by_purchase_gate": true
+    },
+    {
+      "case": "missing_prerequisite",
+      "rank_ids": [
+        129
+      ],
+      "budget": 100000,
+      "exit_code": 1,
+      "rejected_by_purchase_gate": true
+    },
+    {
+      "case": "unheld_class",
+      "rank_ids": [
+        233
+      ],
+      "budget": 100000,
+      "exit_code": 1,
+      "rejected_by_purchase_gate": true
+    }
+  ],
+  "passed": true
+}

@@ -24,6 +24,21 @@ THJ is the design spec Nightcap replicates. This is the durable local record of 
 **Nightcap status:** Partial. 4 static tiers (Base/**Polished/Exalted/Ascended** at +200k/+400k/+600k id offsets — renamed 2026-07-15 to avoid THJ's Enchanted/Legendary vocabulary) drop via a `NPC::AddLootDrop` hook with rule-tunable chances (10%/2%/0.25%; rule names still carry the old Rare/Epic/Legendary tokens). Per-family scaling calibrated to **actual THJ Legendary** (measured off Necklace of Eternal Visions 9289, issue #25): HP/Mana ×1.45/1.90/**2.40**, AC/stats/resists/regens ×1.35/1.65/**2.00**, Endurance ×1.07/1.13/**1.20**, offense ×1.10/1.20/**1.35** (conservative — burst from AA/disc/augs). Capped advanced stats left untouched. **Heroic stats (#8, 2026-07-16):** the engine was already fully implemented (`CalcHeroicBonuses`, `Character:Heroic*Multiplier` at ×1.0); Ascended items now add heroic = **25% of the scaled stat** (Legendary signature), and the stat softcap was raised **255 → 425** (`Character:StatCap`) so scaling + heroic aren't clamped. Class epics excluded; Ascended epics via quest (8× Essence of Ascension + 100k pp).
 **Gaps:** no upgrade/combine path (drop-only), no luck buff, no attunement, 4 tiers vs THJ's 3 (deliberate deviation). Forgemaster quest is multiclass-blind (base class epic only).
 
+## 2a. Spell Damage / Healing scaling
+
+**THJ spec:** SpellDmg/HealAmt are the master output dials — applied as percentage
+multipliers so caster/healer power (and soloability) scales from those stats
+rather than per-spell/per-mob retuning.
+
+**Nightcap status (2026-09-08, spec `2026-09-08-spelldmg-healamt-scaling`):**
+Implemented via the existing `Spells:*` rules (percent mode, no caps, level-agnostic,
+DoT/HoT on) + a flat per-tier SpellDmg/HealAmt stamp on worn tier gear in
+`tiered_loot_setup.sql` (+5/+12/+20). Primary dial = `Character:ItemSpellDmgCap`/
+`ItemHealAmtCap` (250). Spells+heals only; melee output unscaled (separate future
+slice); NPCs unaffected.
+**Gaps:** melee/ranged output scaling; final cap/stamp calibration pending QA;
+heroic-INT/WIS → SpellDmg path (0 today) not yet reconciled with the cap.
+
 ## 3. Progression
 
 **THJ spec:**

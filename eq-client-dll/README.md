@@ -3,7 +3,8 @@
 Client-side UI-chassis unlock for the True Multiclass epic (#10), Track B / issue #12.
 RoF2 auto-loads `dinput8.dll` from its own folder; this proxy forwards all
 DirectInput exports to the real system DLL and patches the client's exact
-caster-class capability table so any base class can use the caster UI chassis.
+caster and combat-ability capability tables so any base class can reach the
+server-authorized UI chassis.
 
 ## Status
 
@@ -31,8 +32,15 @@ caster-class capability table so any base class can use the caster UI chassis.
   `CPlayerWnd`'s stock 500 ms refresh now bases `PlayerMana` visibility on the
   positive server-cached maximum. This replaces the competing direct
   `SetVisible` reassertion that manual QA found could flicker.
+- **G006 held-Monk activation: built + deployed, QA pending.** Exact disassembly
+  localized the no-op to RoF2's direct-skill dispatch. Six Monk attack
+  hotbuttons now enter the stock special-attack submitter, with its one
+  primary-class skill predicate corrected only for those positive
+  server-granted skills. Feign Death and Mend retain their stock `UseSkill`
+  handlers; the separate discipline window remains enabled but correctly empty
+  for a character with no learned disciplines.
 - **Fail closed:** the patch requires the expected file size, full SHA-256, and
-  exact complete class-table signature. Any mismatch leaves memory untouched
+  exact complete class-table signatures. Any mismatch leaves memory untouched
   and is recorded in the per-process log.
 
 ## B2 final functional QA — passed 2026-07-19
@@ -80,6 +88,22 @@ Static exact-client guard test:
 ```
 powershell -NoProfile -ExecutionPolicy Bypass -File tests\verify-exact-client-patch-sites.ps1
 ```
+
+For held-class activated skills, the DLL also corrects the exact RoF2
+**Actions -> Abilities** selector. It preserves the stock `HasSkill` result and
+accepts a stock-negative skill only when the server-delivered base value is
+positive. The assigned skill's hotbutton usability and the pre-submit
+`CharacterZoneClient::UseSkill` value check use the same server-delivered
+fallback. All subsequent client checks and all server authorization remain
+stock. The Combat Abilities window is separate and remains the learned
+discipline/tome surface.
+
+RoF2 does not implement the six basic Monk attacks in direct `UseSkill`
+dispatch. For Dragon Punch/Tail Rake, Eagle Strike, Flying Kick, Kick, Round
+Kick, and Tiger Claw only, the hotbutton redirect calls the client's stock
+special-attack submitter and then its stock skill-reuse sequence. The submitter
+still owns client target/state/animation behavior, and EQEmu still validates
+the packet, held classes, caps, range, reuse, damage, and skill-ups.
 
 ## Deploy / test (dev client)
 

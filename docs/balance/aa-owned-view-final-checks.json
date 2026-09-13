@@ -1,0 +1,12 @@
+{
+  "database": "nightcap_balance_20260912",
+  "remaining_rows": {
+    "account": 0,
+    "character_data": 0,
+    "character_alternate_abilities": 0,
+    "inventory": 0
+  },
+  "aa_tables_sha256": "bfcce242cd44630515f148f96ebd4668706f45bb5f72eabf7d07ea4ec1e02161",
+  "full_catalog_unchanged": true,
+  "live_era_and_server_unchanged": true
+}

@@ -227,3 +227,114 @@ returns true when the authoritative raw maximum at
 `pinstLocalPlayer+0x354` is positive. This preserves the stock HUD refresh and
 keeps true zero-mana characters hidden. The old direct `SetVisible` call from
 the `Max_Mana` detour is removed.
+
+## 2026-07-29 combat-ability window class gate
+
+Manual QA on Monktest (Cleric / Shadowknight / Monk) showed that the Combat
+Abilities control was grayed out and the window could not be opened even though
+all six Monk skill rows were loaded at their level-50 caps.
+
+`pinstCCombatAbilityWnd` is RVA `0x0091FCA0`. Its vtable is at preferred VA
+`0x009E63B0`, and the `CanShow` override is the entry at `+0xDC`, preferred VA
+`0x0065A070`. `CanShow` calls the base-class predicate at `0x00582350`. That
+predicate indexes this 16-byte table by `BaseProfile.Class - 1`:
+
+- table RVA: `0x0018238C`
+- stock signature:
+  `00 01 00 00 00 01 00 00 00 01 01 01 01 01 00 00`
+- enabled signature:
+  `00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00`
+- changed indexes: `1, 5, 9, 10, 11, 12, 13` = CLR, DRU, SHM, NEC, WIZ,
+  MAG, ENC
+
+Table value `0` selects the predicate's true return and value `1` selects
+false. The patch is presentation-only: the server still validates learned
+skills, held classes, reuse timers, targets, and submitted ability packets.
+It retains the executable size/SHA guard, requires the complete stock table,
+verifies the replacement, restores the original page protection, and performs
+a separately guarded verified rollback on failure.
+
+The guard authenticates the executable file on disk and this loaded patch site;
+it is not whole-process anti-tamper. The compare/write sequence is also not
+atomic against another injected thread writing the same 16 bytes concurrently.
+Supported plugins must leave this table alone; suspending every client thread
+for a presentation-table patch would introduce greater deadlock/crash risk.
+
+## 2026-07-29 Actions ability-selector skill gate
+
+Monktest's six positive Monk skills were absent from the Actions window's
+right-click ability picker even though the RoF2 profile encoder sends all 100
+server skill values unchanged. `CSkillsSelectWnd::SetTypesToDisplay`, preferred
+VA `0x00756CE0`, separates activated combat and non-combat skills but sends both
+paths through `CharacterZoneClient::HasSkill`:
+
+- non-combat predicate call RVA: `0x00356D2D`
+- combat predicate call RVA: `0x00356DA5`
+- stock call target: `CharacterZoneClient::HasSkill`, RVA `0x0004A1B0`
+- raw received-value accessor: `CharacterZoneClient::GetBaseSkill`, RVA
+  `0x00049C80` (one meaningful skill argument plus an unused stack slot;
+  `ret 8`)
+
+`HasSkill` calls the adjusted skill accessor, whose path reaches
+`CSkillMgr::GetSkillCap` and therefore clamps a held-class skill through the
+primary client class. The guarded replacement preserves a true stock result and
+otherwise returns true only when `GetBaseSkill` reports a positive
+server-delivered value. The selector's existing activated/combat classification
+continues to decide which skills can be listed.
+
+Only the two five-byte relative calls are redirected. The complete stock calls
+and both accessor entrypoints are pinned by the exact-client regression. The
+write covers their shared executable-page span, rechecks both sites after
+changing protection, verifies both replacements, restores both originals on any
+failure, and requires the original page protection to be restored.
+
+## 2026-08-02 Held-skill hotbutton and activation gates
+
+The selector correction made held Monk skills assignable, but a second
+presentation check rendered the resulting type-9 hotbutton **Not Usable**, and
+`CharacterZoneClient::UseSkill` independently rejected the activation before
+packet submission:
+
+- hotbutton `HasSkill` call RVA: `0x00151B59`
+- `UseSkill` adjusted-value call RVA: `0x0005B33E`
+- stock adjusted-value accessor: `CharacterZoneClient::GetSkill`, RVA
+  `0x00049FE0`
+
+The hotbutton call is redirected to the same boolean predicate used by the
+Actions selector. The `UseSkill` call requires a separate integer-returning
+wrapper: it preserves a positive stock adjusted value and otherwise uses the
+positive `GetBaseSkill` value sent by the server. The execution patch is a
+precondition for the presentation patch. Only these two complete five-byte
+calls are changed; later `UseSkill` state, target, and reuse checks remain
+stock, followed by server-side authorization.
+
+## 2026-08-02 Held-Monk special-attack submission
+
+Manual QA then showed a useful split: Feign Death activated, while all six Monk
+attacks did nothing despite usable-looking buttons. RoF2's second `UseSkill`
+jump table maps Dragon Punch (`21`), Eagle Strike (`23`), Flying Kick (`26`),
+Kick (`30`), Round Kick (`38`), and Tiger Claw (`52`) to the empty function
+epilogue at preferred VA `0x0045CE1A`. Feign Death (`25`) and Mend (`32`) have
+real `UseSkill` handlers and must remain stock.
+
+The native basic-combat path is `EQPlayer`'s special-attack submitter:
+
+- submitter RVA: `0x001A5000` (preferred VA `0x005A5000`)
+- stock `UseSkill` call to it: RVA `0x0005D92F`
+- type-9 hotbutton `UseSkill` call: RVA `0x0028CA21`
+- submitter's primary-class `HasSkill` call: RVA `0x001A2FD0`
+- stock post-submit reuse sequence: RVA `0x0005D93C`
+
+The hotbutton call is redirected to a wrapper that preserves stock `UseSkill`
+for every other skill. For the six listed attacks only, it requires a positive
+server-delivered skill, calls the stock submitter with attack selector `100`,
+and reproduces the stock post-submit reuse calls at RVAs `0x001BADA0`,
+`0x001BA2B0`, and `0x001BAC50`. The submitter's one `HasSkill` call uses a
+dedicated predicate: stock success is preserved, and a fallback raw value is
+accepted only for the same six attacks.
+
+The two call redirects are dependency ordered and exact-signature guarded. If
+the hotbutton redirect fails after the predicate redirect succeeds, the
+predicate call is restored only if its generated replacement still matches,
+then the restored bytes and page protection are verified. Client checks and
+the server's `OP_CombatAbility` authorization remain in force.

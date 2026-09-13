@@ -1,0 +1,210 @@
+{
+  "date": "2026-09-12",
+  "scope": "Expanded drop gear, native socket loading, and matched prepared WAR/CLR/WIZ AA/gear sensitivity. Not certified full BiS or final server balance.",
+  "binary_sha256": "5cc24aaa7205711abc85eaa856982ef52a9d0dc6ecdc4d30511d70b221419a65",
+  "native_linked_objects_and_archives": 130,
+  "fresh_full_source_rebuild": false,
+  "python_tests": 175,
+  "native_inventory_checks": 90,
+  "native_augment_stat_controls": 4,
+  "native_invalid_loadout_controls": 9,
+  "gear_encounters": 48,
+  "fixed_gear_aa_encounters": 54,
+  "unchanged_legacy_report_hashes": 6,
+  "matched_zero_spend_encounters": 6,
+  "movement_checks": 102,
+  "matrix_regeneration": "Both encounter matrices and augment inputs regenerate exactly from saved upstream inputs.",
+  "isolated_accounts": 0,
+  "isolated_characters": 0,
+  "production_changes": false,
+  "artifacts": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "fc5030b0df3546f0076c62805d830cfdf47d8a3c5296e091d7786c23e7062654",
+      "bytes": 6649,
+      "newline_normalization": "LF"
+    },
+    {
+      "path": "docs/balance/aa-pool-inputs.json",
+      "sha256": "5cb216f03f0d566e27431b9feb0e742006d4b1fc58ec3c28b872443d3b43ebb1",
+      "bytes": 1624214
+    },
+    {
+      "path": "docs/balance/aa-pool-policy.json",
+      "sha256": "3db058c9b7c2614b226b9cfc9f7a36069dcfdfecad28cc8beac6b59d8c614874",
+      "bytes": 1238
+    },
+    {
+      "path": "docs/balance/gear-augment-controls.json",
+      "sha256": "880d2e8dd8b698bc2beaac526b63beac4083a17eb6f441fecd05c15d8b416c98",
+      "bytes": 34320
+    },
+    {
+      "path": "docs/balance/gear-augment-inputs.json",
+      "sha256": "4f2ea73131a638606d19c289185dbb95627cf945bd7fe15a36ecf155f49d3dc1",
+      "bytes": 10492
+    },
+    {
+      "path": "docs/balance/gear-expanded-aa-checks.json",
+      "sha256": "8ac93e0ff54bceca3d197e7e484c3a4c7a20217a3faeb6c9678b878b4b2915cf",
+      "bytes": 72939
+    },
+    {
+      "path": "docs/balance/gear-expanded-aa-encounters.json.gz",
+      "sha256": "b9cb73ef300d679ad48c2692dcdcd5004fbcc5b2cc0816729f4c2e39c1314dd1",
+      "bytes": 996978
+    },
+    {
+      "path": "docs/balance/gear-expanded-aa-inputs.json",
+      "sha256": "c0771813cea97a76f7e6fb722ca756f2f6f2d3af5aaded08d833b4eb9b7de18f",
+      "bytes": 914115
+    },
+    {
+      "path": "docs/balance/gear-expanded-checks.json",
+      "sha256": "a9d22e086d5ed606df88afa9266a6f8b7f170a4f1d8cbaf66889d82add28134f",
+      "bytes": 67589
+    },
+    {
+      "path": "docs/balance/gear-expanded-encounter-inputs.json",
+      "sha256": "4e210d15532b11483e04651396ff5f23c8513e936eec5ff8eefd77486d2ef01b",
+      "bytes": 371339
+    },
+    {
+      "path": "docs/balance/gear-expanded-encounters.json.gz",
+      "sha256": "f744a6a7d7cde71d1ff5675dd9efba852b2f05fbd6f244f120a6ced2a4ccd09a",
+      "bytes": 1030189
+    },
+    {
+      "path": "docs/balance/gear-expanded-inputs.json",
+      "sha256": "c03839f2ce25d22c7b3e2b25e620c6096f0a2ed00c9b69e1f9c3d401ea14b426",
+      "bytes": 398950
+    },
+    {
+      "path": "docs/balance/gear-expanded-native.json",
+      "sha256": "7caa5644a64437df950102a0e6d72ea306ff572ebebfbd01d7f55350036d3e45",
+      "bytes": 859847
+    },
+    {
+      "path": "docs/balance/native-aa-inputs.json",
+      "sha256": "09f5b0fcb0add10e3e9006c2152d19075cc68534d07dded0baaccb3a03f6b6b1",
+      "bytes": 417492,
+      "newline_normalization": "LF"
+    },
+    {
+      "path": "docs/balance/native-expanded-gear.md",
+      "sha256": "96e6c7599f52366bd5a4a4e8ca3753bf90a8e437e83fad701202692bdeb35d48",
+      "bytes": 10479
+    },
+    {
+      "path": "docs/balance/preparation-encounters.json.gz",
+      "sha256": "91379860dad934edd8d4ae1a41ecd00064d123e04a55c0180dbcf789e92a6da4",
+      "bytes": 453949
+    },
+    {
+      "path": "docs/balance/preparation-inputs.json",
+      "sha256": "4227653d43efe36a64c55e089f7e07b502eaba7dc14eca182599153177bfb2bf",
+      "bytes": 736677
+    },
+    {
+      "path": "server-mods/code/zone/spells.cpp",
+      "sha256": "decdf29850e700436b411de88cae24a6836b072e56b4d89549bbbfcd646277ae",
+      "bytes": 234653
+    },
+    {
+      "path": "tools/balance/active_aa_controls.py",
+      "sha256": "48226f84037f7c791df6fe766d8d97289b41cdcd8dccddaf7f44aab571e083e0",
+      "bytes": 13008
+    },
+    {
+      "path": "tools/balance/augment_controls.py",
+      "sha256": "7c8242fb7dead0c998ac139f3c14010ee21c79e63d6939cc17be29405ec806cc",
+      "bytes": 6216
+    },
+    {
+      "path": "tools/balance/build_native.py",
+      "sha256": "414ad287906eef02438cb187baedeab15764f04277358a7138f1238aefae60e3",
+      "bytes": 8832
+    },
+    {
+      "path": "tools/balance/builds.py",
+      "sha256": "fefbe46b3b51db23b38824e20863fe890557d1cfaa245176d7c836288586816f",
+      "bytes": 4858
+    },
+    {
+      "path": "tools/balance/encounter_matrix.py",
+      "sha256": "fcc6577aa9354e9ec45b479c5053e2c0056c1219a2d2327e312da90f1554207a",
+      "bytes": 10558
+    },
+    {
+      "path": "tools/balance/fixtures/classic-20260912-v2.json.gz",
+      "sha256": "e4b06f462a32b5463a608efae7ddde4d303b2422c863aecedc3427da06c08dae",
+      "bytes": 1586340
+    },
+    {
+      "path": "tools/balance/fixtures/classic-20260912-v2.json.manifest.json",
+      "sha256": "c574db4e85724f1dd8ad2c1e07af2dd72d0662e8d784f3127461c605a92f53e2",
+      "bytes": 834,
+      "newline_normalization": "LF"
+    },
+    {
+      "path": "tools/balance/formulas.py",
+      "sha256": "de5a8e3be94a997365c8cedfdc40ea6b8d70d449e3be9f1b25ead4592e46f595",
+      "bytes": 2194
+    },
+    {
+      "path": "tools/balance/gear.py",
+      "sha256": "fde1c76d06906577965522093c957b9c4cd2e91de66e14a069aeb492c71d590c",
+      "bytes": 4340
+    },
+    {
+      "path": "tools/balance/gear_candidates.py",
+      "sha256": "21952a5b33eb1d507a3b9110150fb3c92b05150846d1723d7d5e5924c51ca437",
+      "bytes": 9578
+    },
+    {
+      "path": "tools/balance/gear_encounters.py",
+      "sha256": "a6038694b8493ee8346cb858b54f1c2258eda50885b1ebc16433b555e6fd836d",
+      "bytes": 6503
+    },
+    {
+      "path": "tools/balance/gear_haste_controls.py",
+      "sha256": "f40a08a4bb6f3a5cce64df18d711fdf1a0d4c7b5c78b7ab174088893165fb26c",
+      "bytes": 7222
+    },
+    {
+      "path": "tools/balance/native_harness.cpp",
+      "sha256": "ce56fb546a574bacb02e1e621f0af8907783f13d9ce3d48299b9e79a02d57a38",
+      "bytes": 21474
+    },
+    {
+      "path": "tools/balance/native_runtime.cpp",
+      "sha256": "b701468393b1fdd3a365734b99a24e9cc4e2e8449e836b832b9e3fcce01799d4",
+      "bytes": 31864
+    },
+    {
+      "path": "tools/balance/native_runtime.h",
+      "sha256": "f802beb06235ced9a4a5ef97dfceec587c38bb08388d4a52e18e83c1f238e21c",
+      "bytes": 484
+    },
+    {
+      "path": "tools/balance/preparation_controls.py",
+      "sha256": "6443eec700d591c3b3d0f7143286d5f20cdab7d54e5c3f0fec43d7de8108e03b",
+      "bytes": 4977
+    },
+    {
+      "path": "tools/balance/tests/test_augment_controls.py",
+      "sha256": "2c4617a08be12fc162f115d1f8859fe0f2b44856c3de39ffd30f65f5f756f34e",
+      "bytes": 1423
+    },
+    {
+      "path": "tools/balance/tests/test_gear_candidates.py",
+      "sha256": "f817b08a554be01fdd7875b40665d15892df0c2ff9ae035bb36ff6fdfdc1de85",
+      "bytes": 3565
+    },
+    {
+      "path": "tools/balance/verify_native_movement.py",
+      "sha256": "dfca4d3a38388c43810ec56bc95a0f7d56cfc0f4ce55a7ade237de3ad2d5a7f6",
+      "bytes": 3814
+    }
+  ]
+}

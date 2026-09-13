@@ -1,0 +1,16 @@
+ok 1 - Invalid slot refused
+ok 2 - Invalid slot refused
+ok 3 - Invalid slot refused
+ok 4 - Invalid slot refused
+ok 5 - Invalid slot refused
+ok 6 - Invalid slot refused
+ok 7 - Invalid slot refused
+ok 8 - Invalid values never invoke native release
+ok 9 - Missing native binding fails closed
+ok 10 - Native success reports the selected class and eligible refund
+ok 11 - Success performs exactly one native release
+ok 12 - Native rejection is not reported as success
+ok 13 - Native exception is not reported as success
+ok 14 - Empty slot is refused
+ok 15 - Empty slot does not invoke native release
+1..15

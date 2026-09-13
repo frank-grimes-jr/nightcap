@@ -1,0 +1,116 @@
+{
+  "cases": [
+    {
+      "id": "monk-skill-only-release-clamps-and-preserves",
+      "passed": true,
+      "differences": []
+    },
+    {
+      "id": "monk-release-rollback-character_skills",
+      "passed": true,
+      "differences": []
+    },
+    {
+      "id": "monk-release-rollback-character_data",
+      "passed": true,
+      "differences": []
+    },
+    {
+      "id": "stale-skill-refuses-entire-release",
+      "passed": true,
+      "differences": []
+    },
+    {
+      "id": "class-only-grant-removed-without-refund",
+      "passed": true,
+      "differences": []
+    },
+    {
+      "id": "charged-class-only-aa-refunds-unused-charge",
+      "passed": true,
+      "differences": []
+    },
+    {
+      "id": "charged-class-only-aa-does-not-refund-consumed-charge",
+      "passed": true,
+      "differences": []
+    },
+    {
+      "id": "invalid-release-slot--1",
+      "passed": true,
+      "differences": []
+    },
+    {
+      "id": "invalid-release-slot-0",
+      "passed": true,
+      "differences": []
+    },
+    {
+      "id": "invalid-release-slot-1",
+      "passed": true,
+      "differences": []
+    },
+    {
+      "id": "invalid-release-slot-4",
+      "passed": true,
+      "differences": []
+    },
+    {
+      "id": "invalid-release-slot-258",
+      "passed": true,
+      "differences": []
+    },
+    {
+      "id": "invalid-release-slot-259",
+      "passed": true,
+      "differences": []
+    },
+    {
+      "id": "invalid-or-occupied-set-258-0",
+      "passed": true,
+      "differences": []
+    },
+    {
+      "id": "invalid-or-occupied-set-3-256",
+      "passed": true,
+      "differences": []
+    },
+    {
+      "id": "invalid-or-occupied-set-3-13",
+      "passed": true,
+      "differences": []
+    },
+    {
+      "id": "empty-release-slot",
+      "passed": true,
+      "differences": []
+    },
+    {
+      "id": "stale-empty-selection-cannot-overwrite-held-class",
+      "passed": true,
+      "differences": []
+    },
+    {
+      "id": "stale-loaded-class-refuses-release",
+      "passed": true,
+      "differences": []
+    },
+    {
+      "id": "wizard-passive-bonus-removed-before-harness-recalculation",
+      "passed": true,
+      "differences": []
+    }
+  ],
+  "final": {
+    "remaining_rows": {
+      "account": 0,
+      "character_data": 0,
+      "character_alternate_abilities": 0,
+      "inventory": 0
+    },
+    "catalog_unchanged": true,
+    "failure_trigger_remaining": 0,
+    "classes_restored": true,
+    "skills_restored": true
+  }
+}

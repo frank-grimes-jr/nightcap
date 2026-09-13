@@ -1,5 +1,1019 @@
 # CHANGES
 
+## 2026-09-12 - Project baseline and balance working agreement
+
+Recorded the owner's core requirement: solo-preferred play must remain demanding
+and balanced. Spell damage/healing caps above 250 and NPC HP adjustments may be
+considered when supported by encounter and build evidence. Added
+`docs/project-understanding.md` with a read-only source/PEQ assessment, current
+percentage-based spell/healing scaling, source/mirror drift, the missing level-1 AA
+XP rule override, and item-generation reproducibility gaps. No gameplay, database,
+binary, or client changes were made.
+
+## 2026-09-13 - Verify class-release disconnect and fresh-process recovery
+
+Added isolated native Process/OnDisconnect and profile-loader controls: three
+processes, eight operations prove rollback survives disconnect, saved classes,
+skills and AA counters reload, and retry refunds exactly once. No engine or live
+changes. All 351 Python calculator/evidence tests pass. The final run restores
+its fixture preimages and event setting. Initial
+disabled-event failure and its unavailable original synthetic timestamp are
+retained and documented. Real network reconnect, post-packet processing and
+uncertain COMMIT remain unverified. See docs/balance/native-aa-session-recovery.md.
+
+## 2026-09-13 - Implement atomic class-release candidate
+
+The AA feature branch now stages and transactionally saves discipline slots,
+canonical earned-AA refunds, counters, and retained-class skill clamps. The
+matching Perl plugin uses one native boolean call. Signed slot validation and
+conditional class selection close the Lua narrowing and stale-slot bypasses.
+Failed class changes invalidate the session and terminate processing before
+linkdead AI; the legacy non-atomic purge path is retired.
+
+Candidate only; no deployment or promotion. Forty native cases (131 operations),
+87 C++ tests, 348 Python tests and 15 actual Perl assertions pass. Matched before-state evidence
+retains six expected failures. Client packet ordering, native passive-bonus removal,
+rollback and clone restoration are verified. Initial test fixture failures are
+retained; actual disconnect/reconnect/uncertain-COMMIT recovery and in-game QA
+remain gates. See docs/balance/native-aa-class-release-candidate.md.
+
+## 2026-09-13 - Reproduce earned-AA class-release inconsistencies
+
+Added seven native before-state controls (36 operations) for class release on the
+AA ownership feature. Six fail the required contract and retained-Wizard slot
+promotion passes. Full, partially usable, and suspended releases leave earned
+Wizard ranks persisted; partial access refunds only 18 of 30 points, and full
+suspension refunds none. Shared-family retention is checked separately.
+
+The harness records whether injected failures actually execute. Its bare client
+skips the old general Save: class-write injection executes, but point-write
+injection does not. This does not certify the live Save failure path, skills,
+bonuses, or reconnect. Clone character fixtures/triggers are removed and original
+class values/timestamps, skill rows, and AA catalogs are restored or unchanged.
+ADR 0026 defines the required native atomic slot/refund/skill change. No engine
+fix or live deployment is claimed; AA promotion remains gated on implementation.
+All 343 Python calculator/evidence regressions passed; the retained test log is
+docs/balance/aa-release-before-python-tests.log.
+
+Read-only audits of PEQ and the clone found no SPA472 spells among 40,724 entries,
+so no current spell can enable the passive-AA toggle path. Future toggle catalogs
+require a durable selection design before activation. See docs/balance/native-aa-class-release.md.
+
+## 2026-09-13 - Commit AA purchases and grants before reporting success
+
+AA purchases and explicit/silent grants now persist earned ownership and all AA
+point counters atomically before publishing ranks, wallet changes, or purchase
+events. Grant callers observe failures; successful batch ranks persist individually.
+Thirteen native before/after controls pass across 52 operations per phase,
+including exact success-event ledgers, charged repurchase, and SQL rollback.
+The fresh 2,787-file build succeeds, with 87 C++ and 339 calculator/evidence tests
+passing. Initial C++ tests were run from the wrong directory; their misleading
+zero exit status is rejected by summary validation, and the preserved rerun in
+the dedicated fixture passes. Clone fixtures and triggers are removed; the AA
+catalog is unchanged. No live binary or balance numbers changed. Full batch caller,
+toggle, class-release, reconnect/network, ordinary-save and manual QA gates remain.
+See docs/balance/native-aa-purchase.md and ADR0025.
+
+## 2026-09-13 - Refund full earned AA ownership and guard invalid profile saves
+
+Bulk refund/reset now refunds full earned cost across active, partially usable,
+and suspended ranks while retaining grant-only abilities. Ownership and wallet,
+spent, and expended counters commit together before session state changes.
+Invalid sessions cannot reload AAs alone or overwrite the main character row;
+transaction failures immediately ask the player to reconnect. Client::Save now
+propagates the profile-save result. Eleven native controls pass across 59
+operations per phase, with 87 C++ and 334 calculator/evidence tests passing. Clone fixtures and the failure
+trigger are removed and the AA catalog is unchanged.
+Gotchas: invalid sessions cannot save main character-row progress until reconnect;
+other earlier Client::Save writes are not made atomic. Purchase/grant/toggle,
+class-release, real reconnect/network failure, and manual QA remain open. No live
+server or numerical balance settings changed. See docs/balance/native-aa-bulk.md
+and ADR0023 for retained evidence and boundaries.
+
+## 2026-09-13 - Make single-AA reset and final-charge removal durable
+
+Explicit rank reset now removes canonical earned ownership even while suspended.
+Final-charge consumption removes that ownership and increments expended cost
+once. A transaction checks persisted ownership, updates the selected row and
+spent/expended counters together, and changes session state only after commit.
+Four native before/after controls pass across 22 operations, including an injected
+character-update failure that rolls back the prior owned-row deletion. The fresh
+2,787-file build succeeds; all 87 C++ and 329 calculator/evidence tests pass.
+Clone rows and the temporary
+failure trigger are cleaned up, with the AA catalog unchanged.
+Gotchas: this is single-AA reset, not refund/all-AA reset. Broader save/purchase,
+class-release and uncertain-commit handling still block promotion. No live server
+or numerical balance settings changed. See `docs/balance/native-aa-removal.md`
+and ADR0022 for the evidence and remaining boundaries.
+
+## 2026-09-13 - Preserve earned AAs while deriving usable native ranks
+
+Implemented the first native ownership increment on `feature/aa-ownership`:
+load the eligible prefix while preserving full earned counts and charges, retain
+earned plus expended spent-point totals on save, and reject repurchases or saves
+when ownership is unresolved. Six native controls pass across 32 operations,
+including partial/full suspension, a charged AA and malformed saved rows. A fresh
+2,787-file build succeeds; all 87 C++ and 324 calculator/evidence tests pass. The clone is clean and its
+AA catalog is unchanged. Archived source preserves the frozen five-fix QA proofs
+as new source work proceeds.
+Gotcha: refund/reset/class-release/charge-consumption and purchase failure paths
+still need integration; this increment must not be promoted or activated yet.
+No live gameplay settings or server binaries changed. See
+`docs/balance/native-aa-owned-core.md` for evidence and remaining gates.
+
+## 2026-09-13 - Reproduce AA ownership accounting across expansion eligibility
+
+Added a clone-only native control using the full unchanged AA catalog. A six-rank
+Natural Durability purchase becomes entirely inactive when only its first three
+ranks remain expansion-eligible. SaveAA then drops reported spent points from 29
+to 5 despite retaining all six earned ranks in the database; the 17-point wallet
+does not change. Restoring eligibility and saving returns the 29-point total.
+Captured the before evidence and added exact-state regression checks. ADR0021
+sets the implementation direction: canonical earned rows plus a separate usable
+view, with native purchase/refund/reset/class-release/charge handling required.
+No live server, catalog, era or ownership data changed; test candidate 5f61fdd is
+still frozen pending activation and owner QA.
+
+## 2026-09-13 - Build and verify the five server-fix candidate
+
+Clean-built the candidate from 2,787 pinned source files after rejecting the
+disk-full build's zero-byte artifact. All 87 C++ tests pass. A diagnostic linked
+from the fresh objects reproduces all 24 earlier Vox/Nagafen reports and raw
+hashes exactly. The package includes original source, the five-file patch, build
+provenance, replay evidence, a checksummed E: executable, and explicit in-game QA.
+All 316 tests pass on `dev`. A clean-checkout source-hash discrepancy was resolved
+by rebuilding `mob.cpp` from exact committed LF bytes; its object and the complete
+zone binary remain byte-identical. The complete source archive and original zone
+rollback binary are preserved on E: and verified by checksum.
+The clone is clean and its AA tables are unchanged. These are mechanics fixes;
+caps, NPC HP, the live AA offering and the active server binary remain unchanged.
+See `docs/releases/server-fixes-20260913/README.md` for evidence and remaining gates.
+
+## 2026-09-13 - Finish focused pet shielding comparison
+
+Compared owner Arch Shielding with and without Resist Magic across 36 native
+Vox/Nagafen fights at zero, launch maximum, and later maximum AA purchases.
+Gear, caps, pet preparation, and combat policy stay fixed. Neither preparation
+change consistently resolves the pet build's Nagafen gap, so retain the baseline
+and 250/250 caps. The verifier now checks the armor spell declared by the input
+and rejects missing preparation buffs. All 315 calculator tests pass, including
+the three new shielding tests. Removed an unnecessary full-trace deepcopy from
+the missing/duplicate evidence test without weakening its assertions.
+See `docs/balance/native-pet-shielding.md`. No live gameplay settings changed.
+
+## 2026-09-13 - Move Docker data to E: and recover the stack
+
+Moved the offline 20 GiB Docker data disk to `E:\Docker\wsl\disk`, verified
+matching SHA256 checksums, and retained the original as an E: rollback copy.
+A directory junction preserves Docker's existing path. C: now has about 24 GiB
+free. Resolved stale runtime socket startup failures; all ten stack containers,
+MariaDB, world, login, UCS, and eight zones are running again. Both fail2ban
+containers report healthy. No candidate server binary or balance change deployed.
+See `docs/ops/docker-data-migration-20260913.md` for verification and rollback;
+MariaDB's existing E: bind mount is separate from the saved Docker disk.
+
+## 2026-09-13 - Measure spell damage and healing caps at 300
+
+Ran 162 isolated native Vox/Nagafen fights: damage/heal 250/300, 300/250 and
+300/300, each across three builds, zero/launch/later maximum AA allocations and
+three seeds. Exact gear, purchases and non-cap initial stats remain fixed. The
+launch pet build improves from 0/3 Nagafen wins to 2/3 with both caps 300, but a
+deeper caster Vox sample falls to 57.5 seconds. All 18 melee reports remain
+identical under damage 300 except for the static cap readout. Healing alone does
+not consistently resolve the survival gaps; these are samples, not win rates.
+
+Retain 250/250 as the baseline for targeted pet/encounter work. Higher caps remain
+permitted; this experiment does not support a global increase as the current fix.
+All 310 automated tests pass. Each temporary cap change restores the exact original
+rules; a stale second-cap guard also rolls back the first update. The clone is
+empty of synthetic characters and inventory, and original AA tables are unchanged.
+No live cap, NPC HP, binary or process changed. See ADR0020 and
+`docs/balance/native-cap-sensitivity.md` for the comparisons and in-game QA.
+
+## 2026-09-13 - Keep native owned-AA profiles consistent across rank caps
+
+Corrected the isolated AA-loader candidate to clear stale profile entries and
+populate them only after native SetAA succeeds. Five native controls reproduce
+three invalid/stale profile cases and verify the correction while preserving
+saved rows and the unspent wallet. Two valid controls and 24 legacy/source-gear
+boss reports retain identical complete reports and raw hashes.
+
+Added an offline earned-versus-active ownership transition model. All 196
+captured purchases and nominal cost 3,155 survive launch/later/launch changes.
+A native six-rank restoration control preserves its 17-point wallet without
+repurchase. This is not an installed ledger: spent-point accounting, refunds,
+resets, class release and charged-AA lifecycle integration remain required.
+Candidate cores still are not a final exclusion list or expansion schedule.
+
+All 304 balance tests pass. The full original AA tables are restored exactly and
+the synthetic character fixtures are empty. No live data, binaries, rules or
+processes changed. Exact compiled source bytes are archived; the tracked AA mirror
+uses LF for reproducible checkouts. See ADR0019 and
+`docs/balance/native-aa-ownership.md` for evidence, limitations and in-game QA.
+
+## 2026-09-13 - Verify native enforcement of projected AA rank caps
+
+Projected both candidate AA cores into the empty isolated database by disabling
+omitted families and terminating retained rank chains. Native catalogs expose
+exactly 61/109 ranks while preserving all 23 previously disabled families. All
+21 legal build readouts retain their stats and purchases; 14 forbidden purchases
+succeed before projection and fail afterward. All 12 maximum-AA Vox/Nagafen
+reports match the previous source-gear evidence byte-for-byte.
+
+Backed up both AA tables before changes and restored the complete original dump
+exactly after each candidate. A deliberately stale second-table precondition
+also rolls back the preceding 1,527 ability updates exactly. All 290 tests pass;
+the final synthetic fixture is empty and temporary procedures are removed.
+No live data, character purchases, era rules, binaries or processes changed.
+This proves the native data-projection path, not a complete AA offering or
+existing-owner migration. Source review also flags unchecked SetAA failure after
+truncating an owned chain; ownership preservation and activation/persistence QA
+remain required. See ADR0018 and `docs/balance/native-aa-policy-projection.md`.
+
+## 2026-09-13 - Preflight expansion AA caps against saved purchases
+
+Added a read-only AA policy compiler that resolves complete native rank chains,
+inherited prerequisites and canonical saved first-rank IDs. Captured 1,570
+abilities, 6,655 ranks, 2,525 prerequisite rows and 196 purchase rows from PEQ.
+The proposed launch/later combat cores compile to 61/109 rank IDs and preserve
+every native calculator allocation. Both have closed prerequisites. Ten
+character IDs have affected rows; the launch core leaves 163 rows outside the core
+and caps six others. These omissions are not a final AA removal list.
+
+Source review confirms unavailable owned ranks are skipped as whole families;
+loading does not automatically retain lower ranks or refund points. Repurchasing
+can overwrite the canonical saved row. Reports estimate nominal removed-rank
+cost only, without authorizing refunds. Missing next-rank rows retain valid
+prefixes, matching native loading. Tests cover these identity, chain, cap and
+ownership cases plus regeneration from captured evidence; all 279 tests pass.
+No live AA access, purchases, rules, binaries or processes changed. See ADR0017
+and `docs/balance/aa-policy-preflight.md` for findings and required release QA.
+
+## 2026-09-13 - Measure pet threat policies and resistance preparation
+
+Added optional native Feign Death controls with native cooldown, hate, spell-break
+and standing behavior. Nine matched pilots fail to solve Nagafen survival; these
+policies remain disabled in the baseline. Separately admitted legal Resist Magic
+preparation and measured 36 matched fights with the same gear and AA purchases.
+Buff retention is verified on the owner and three pets. No Nagafen sample wins;
+Vox results vary by AA stage. Extra preparation changes native timing/RNG, so the
+small sample does not establish that the buff causes worse survival.
+
+All 263 tests pass. Twelve baseline reports, six threat pilots and six further
+baseline reports retain identical raw hashes across diagnostic build changes;
+three resistance pilots reproduce exactly in the full matrix. All four earlier
+combat candidates remain, with only the diagnostic runtime object changed.
+The isolated fixture is empty after bounded synthetic-reagent cleanup. No live
+restart, binary replacement, cap/HP tuning or AA-access change occurred. See
+ADR0016 and `docs/balance/native-pet-threat-and-preparation.md` for evidence and
+explicit RoF2/in-game QA. Expansion-specific AA pools remain proposed combat
+cores; complete availability and purchased-rank enforcement are still pending.
+
+## 2026-09-13 - Measure gear-source dependence across legal AA pools
+
+Added 108 matched Vox/Nagafen fights after removing Behemoth 56182 as a gear
+source, retaining items with another captured source. Re-optimized the same
+shield/augment objectives and added 36 Monk cloak/haste comparisons. Gear and AA
+purchases regenerate independently; all builds still hit the 250 spell/heal caps,
+but lower HP/mana and other gear changes materially weaken outcomes. The pet
+launch maximum loses all three Nagafen samples; its deeper maximum wins one.
+
+A failed case exposed a diagnostic death-sampling limitation: native HP reached
+-500, then a pending heal left +732 at the end of the same pulse. Optional native
+death-callback evidence now proves the terminal result and reports minimum HP as
+zero. The focused replay otherwise matches exactly; this is a diagnostic adapter
+change, not a live death/corpse fix. All four previous combat candidates remain.
+
+All 144 comparisons and 243 tests pass. Twelve legacy reports keep identical raw
+hashes, and 90 overlapping earlier reports match after removing the new evidence
+fields. The isolated database is empty after removing two synthetic reagent rows.
+No live content, binaries, caps, NPC HP or AA access changed. See ADR0015 and
+`docs/balance/native-source-gear.md` for results, limitations and explicit QA.
+
+## 2026-09-12 - Correct acquisition and utility-AA baseline assumptions
+
+Captured read-only source evidence for the level-72 Behemoth, Magician epic
+quest/spell chain and Ancient Attunement. Behemoth is present in live Classic
+content; the isolated clone omits spawn2 and cannot establish spawn absence.
+Its rewards remain conditional until level-50 acquisition is demonstrated.
+
+Future acquisition captures now include Orb of Mastery and the ornate exchange
+alongside the legacy Fire staff forge mapping. The observed epic chain depends
+on Kunark zones, and an Ascended orb row is absent. Existing frozen captures and
+combat gear remain unchanged. A regression covers the indirect scroll reward.
+
+Corrected the AA report's unsupported PoK-gate claim: spell 99001 has native pet-
+summoning effect 33. The setup script's unrestricted teleport_zone lookup can
+select pet spells. This free AA was never activated by the fight controllers;
+existing combat evidence remains valid, while recall needs a separate repair
+and QA. No live content, binaries or access policy changed. See
+`docs/balance/acquisition-identity-audit.md` and its captured evidence.
+
+## 2026-09-12 - Compare shared capped AA pools across combat roles
+
+Added two explicit global combat-core candidates, intersected with native held-
+class eligibility for caster, monk and pet profiles. The launch pool exhausts at
+135/141/165 points; the deeper pool at 261/288/306. Requested budgets and legal
+maximums share evidence only when purchased ranks are identical. The explicit
+free baseline removes placeholder/Alaran grants while retaining Nightcap travel
+and interface AAs; native zero-spend HP drops exactly 20 for each profile.
+
+All 108 native fights and the 229-test suite pass verification. Caster and melee
+win all sampled cases; the pet launch maximum has two Nagafen wins and one timeout,
+and its deeper maximum wins all three. The cross-role gap remains substantial.
+These are diagnostic combat cores, not a complete release AA offering or live
+removal. Utility/support review, obtainable BiS and final tuning remain open.
+See ADR0014 and `docs/balance/native-aa-release-candidates.md` for policies,
+limitations, regeneration commands and explicit future enforcement/QA requirements.
+
+## 2026-09-12 - Respect native belly casting in pet balance measurements
+
+Both captured dragons have ranged-spell immunity: native resistance rejects spells
+cast outside melee range. The pet-support diagnostic now offers a native-range
+approach, preserving the old 80-unit controller as a matched comparison. It also
+records movement requests interrupted by newly acquired native fear/AI control,
+without accepting ordinary failed movement. Thirty corrected fights pass; all 65
+legacy support, command, ownership and caster/monk reports remain byte identical.
+The focused 217-test suite passes. See `docs/balance/native-pet-belly-casting.md`.
+
+This corrects the player strategy and evidence, not the dragons. Live NPCs, spells,
+AA access and binaries were not changed. Previous ranged-owner results are weak-
+strategy controls and must not be used as the pet build's full-power baseline.
+
+## 2026-09-12 - Measure native pet support across AA progression
+
+The isolated balance diagnostic now prepares and supports MAG/NEC/SHM pets with
+native spells, sitting recovery, actual recast timers and eight fixed combat gems.
+Matched Vox/Nagafen cases cover requested0/100/200/500 points and unrestricted all,
+reporting actual costs. Preparation validation caught native buff replacement and
+recast rejection; accepted cast requests are not assumed to have landed. Boss HP
+ledger validation now clamps negative terminal HP consistently with damage totals.
+See ADR0013 and `docs/balance/native-pet-support.md` for evidence, limits and QA.
+
+The final release maximum remains a curated expansion AA pool; unrestricted all
+is only a stress test. This controller does not establish obtainable full BiS,
+optimal pet play or final balance. Live binaries, AA availability, NPC HP and spell
+caps were not changed. Reproduce with all four native candidate source flags.
+
+## 2026-09-12 - Give extra pets native attack orders and measure pet boss combat
+
+Reproduced out-of-range, command-spam damage from extra pets: the broadcaster called
+`Attack` directly, bypassing normal orders. It also ignored attack/qattack when no
+primary pet existed. The candidate `client_packet.cpp` now shares the native order
+path across owned pets. Eight command controls cover legal/distant targets,
+repeated input, extra-only pets and primary-only regression. Four native pet-only
+Vox/Nagafen fights now exercise movement, aggro and pet deaths. A native boss HP
+ledger accounts for damage missing from distant client packets without double
+counting nested damage calls. See ADR 0012 and `docs/balance/native-pet-commands.md`.
+
+Build the isolated diagnostic with all four candidate flags, including the new
+`--client-packet-source`. Optional candidate-object reuse checks source/object/
+flags/link hashes; it does not establish fresh full-source parity. No live server
+change or numerical tuning was performed. Owner support rotations, other pet
+commands/persistence, gear acquisition and expansion AA policy remain outstanding.
+
+## 2026-09-12 - Preserve registered multiclass pet ownership
+
+Native MAG/NEC/SHM controls exposed extra pets disappearing after summoning:
+`Mob::GetOwner` and `GetOwnerOrSelf` accepted only the primary pet ID, despite the
+existing extra-class registry. The candidate now recognizes registered extra pets
+and preserves native orphan detach/depop behavior. Fifteen candidate controls pass
+against thirteen recorded pre-fix cases (ten failures); eight caster/monk encounter
+reports remain byte identical. The new pet diagnostic uses real summons, reagents,
+NPC processing, buffs and explicit AA allocations. See ADR 0011 and
+`docs/balance/native-pet-ownership.md` for evidence and in-game QA.
+
+Candidate-only: no live restart, replacement, AA removal, cap or NPC changes.
+Build the diagnostic with all three spells/attack/mob candidate flags. Pet commands,
+combat, death/persistence, gear/focus and curated release pools remain unverified;
+surviving pets do not establish final balance. Native reagent tests temporarily
+created two clone-only synthetic inventory rows; verified and cleaned afterward.
+
+## 2026-09-12 - Correct held-class weapon damage and measure native monk combat
+
+The first WAR/CLR/MNK pilot exposed a base-class-only swing gate: legal held-Monk
+Tonfa 662038 equipped successfully but all 632 normal swings were immune. The source
+candidate now uses the existing held-class equip helper for player weapon damage,
+preserving slot/level/race checks and non-player/bot logic. Fifteen native weapon
+controls pass; the same pilot now deals ordinary weapon damage and kills Nagafen.
+
+Added a native packet-driven Flying Kick/Tiger Claw plus melee/self-heal controller.
+Sixty matched weapon-layout/AA/control encounters pass, including six byte-identical
+caster regressions. The verifier distinguishes ordinary weapon hits from monk skills
+and accepts native avoided enemy swings as evidence of combat, without requiring
+incoming damage. All 180 Python tests pass. See docs/balance/native-melee.md and
+ADR 0010 for evidence, limitations and explicit QA. The corrected attack.cpp is only
+in the isolated diagnostic; no live binary replacement, restart or numerical tuning
+was performed. Low-AA melee rotations and the unrestricted AA ceiling still require
+balance review alongside pet/DoT play and per-character spell ownership.
+
+## 2026-09-12 - Include socketed gear and expanded weapon choices in balance evidence
+
+The isolated native harness now equips real augments with socket/lore/level checks
+and exports observed equipment. The generator includes recommended-level stat
+penalties, shield/dual/two-hand layouts, existing drop augments and alternative
+stat objectives. Ninety native loadouts, four augment-stat controls, nine invalid
+loadouts and 102 prepared boss runs cover gear and fixed-gear AA comparisons.
+Six legacy report hashes and six repeated zero-spend encounters remain identical.
+All 175 Python tests pass. See docs/balance/native-expanded-gear.md for scope and QA.
+
+The stronger candidate gear materially improves sampled Vox outcomes. Proposed
+114/201-point AA cores preserve longer fights than the unrestricted ceiling;
+removing Twincast/Frenzied alone is insufficient. Behemoth loot acquisition, quest
+and crafting challengers, other combat archetypes and expansion policy enforcement
+remain open. Full BiS/final balance are not certified. No live item, AA, era, cap,
+NPC or binary changes were made.
+
+## 2026-09-12 - Measure AA rank pools and burst-family exclusions
+
+Added explicit diagnostic AA rank-cap and exclusion policies with native legal
+purchase closure, actual spending and dependency-removal audits. Fifty-four
+fixed-gear prepared boss encounters compare a 114-point early combat core, a
+201-point deeper core, and unrestricted builds without Twincast/Frenzied families.
+The two-family removal alone still leaves a large power ceiling; the small core
+sometimes produces long Vox fights. No production AA has been disabled and no
+era rule changed. See docs/balance/native-aa-pools.md for evidence and release QA.
+All 164 Python tests pass; six zero-spend controls retain identical combat and
+twelve exhausted-budget controls match their completed-pool fights exactly.
+
+## 2026-09-12 - Include native preparation in boss baselines
+
+Added ordered native self-buff casts, mana costs and optional full sitting recovery
+before the diagnostic spawns its opponent. Client posture packets establish actual
+sitting/standing; the appearance-only Sit helper does not. Buffs, resources and
+cooldowns carry through a continuous clock into combat. Thirty fixed-gear prepared
+Vox/Nagafen encounters cover all five AA budgets and verify the five-buff stack.
+See docs/balance/native-preparation.md and ADR 0009. Full BiS and release balance
+remain open; no production deployment, live tuning or service restart occurred.
+All 160 Python tests pass; ten no-preparation controls reproduce their native
+reports exactly and four invalid-preparation inputs are rejected natively.
+
+## 2026-09-12 - Keep AA self-buffs on native timers (isolated candidate)
+
+Excluded direct AA spell IDs from the long self-buff override in the reviewed
+server mirror. Tenacity and Twincast now retain native duration/focus rules;
+ordinary Arch Shielding and Resolution preparation buffs retain long durations.
+Eighteen native lifecycle controls and 154 Python tests pass. Maximum-rank
+Tenacity still kills the low-health unhealed control, so the timer correction is
+not a complete sustain fix. The diagnostic supports compiling a separate spells
+candidate without replacing production objects. No live deployment or restart.
+See docs/balance/native-aa-duration.md and ADR 0008 for evidence, scope and QA.
+All 144 matched boss encounters pass movement checks; the 54 no-activation cases
+are byte-identical. Two 200-AA Vox/Tenacity outcomes change from wins to losses.
+
+## 2026-09-12 - Measure native activated AAs in the balance diagnostic
+
+Added timed native AA lifecycle controls and explicit once-per-fight burst/sustain
+policies for the fixed-gear 0/100/200/500/all matrix. Fourteen lifecycle controls
+and 144 Vox/Nagafen encounters completed. The controls expose purchasable Celestial
+Regeneration failing the level-50 target buff gate, its shared timer with Tenacity,
+and permanent self-buff logic extending Tenacity's damaging tail and Twincast's
+duration. Divine Arbitration has no solo resource effect. Buff disappearance is
+not counted as spent Twincast charges. These are baseline findings, not gameplay
+fixes or full BiS certification. No production binary, live tuning, service restart
+or branch promotion occurred. See docs/balance/native-activated-aa.md and ADR 0007.
+All 144 native reports replay identically; the 14 lifecycle controls and 52 prior
+passive-only encounters reproduce byte for byte. Movement checks pass for all
+144 cases, 149 Python tests pass, and isolated player tables remain empty.
+
+## 2026-09-12 - Restore player pursuit in native encounter diagnostics
+
+Added optional mesh-guided return to melee through normal client position/history
+packets, with speed bounds, collision checks, and stops for casting, healing and
+control effects. The prior 900-second Vox timeout now ends in a 271.30-second kill
+with identical stats and AAs. The 52-case pursuit matrix validates 954 position
+updates with no failed paths; disabling pursuit reproduces all previous encounters
+byte for byte. Fixed missing movement-history handling in the mock transport and
+added an explicit failure guard for unmodeled world notifications. Seven isolation
+checks and 137 Python tests pass. Client physics parity, preparation, activated
+AAs and full BiS remain open. No production binary, live tuning or service restart
+occurred. See docs/balance/native-player-pursuit.md and ADR 0006.
+The full pursuit matrix also replays identically; isolated player tables remain empty.
+
+## 2026-09-12 - Expand gear acquisition and run AA boss progression controls
+
+Captured quest, merchant, global-loot and recipe candidates with source restrictions;
+unresolved prerequisites remain explicit. Native controls found that the previous
+gear search excluded a usable recommended-level-62 haste ring. At level 50 its
+HP/mana scale, its full 41% haste applies, and a 36% haste cloak adds no extra haste.
+One hundred gear/AA controls and 52 candidate Vox/Nagafen encounters now validate
+fixed gear across 0/100/200/500/all AA and alternative finite-budget allocations.
+The encounters exercise native purchased bonuses without activated AAs or prep
+buffs. Three seeds per AA case are exploratory; a Vox timeout also exposes the
+controller's missing return-to-melee movement. Full BiS and tuning remain open.
+All 52 encounters replay byte-for-byte; 134 Python tests pass. The isolated
+database still has zero accounts/characters. No live tuning, restart or branch promotion occurred.
+See docs/balance/gear-aa-encounters.md and acquisition-candidates.md for evidence.
+
+## 2026-09-12 - Run accelerated native boss encounter prototypes
+
+Added a diagnostic-only packet sink, completed mock-client loading state, and a
+unified virtual clock for native combat and persistent cooldowns. Native self-cast,
+regeneration, damage, boss AI, fear movement, Vox healing, and terminal handling
+now run against the isolated content clone and copied maps. Three short controls
+and three terminal runs replay identically. Fixed the fixture's unloaded-zone
+state, which initially prevented NPC target selection; checks reject idle bosses.
+Verified weapon melee separately because the caster candidate holds a non-weapon.
+120 Python tests and seven isolation guards pass. These remain simple zero-spent-AA
+candidate runs, not full BiS/activated-AA balance conclusions. No live tuning,
+restart, or branch promotion occurred. See docs/balance/native-encounter-runtime.md.
+
+## 2026-09-12 - Resolve native direct-spell actions and preserve sampled outcomes
+
+Sampled 120 player actions across the 24 AA candidates using native Vox/Nagafen
+types, direct spell formulas, resists, focus, crits, specialization, mana costs,
+and cast times. The 491,520-sample run replays byte-for-byte with an isolated
+GNU linker seed hook; native RNG algorithms and production binaries are unchanged.
+Casters have explicit full resources and no active buffs. Added joint outcome
+support to the event simulator, preserving raw mana start gates, discounted
+completion costs, interruption behavior, and already-resolved damage/healing.
+Two 2,000-trial inert-target controls match exact scheduling/accounting and damage
+expectations. 114 Python tests pass; native AA/resource/isolation checks still pass.
+These are direct-action and integration controls, not full BiS boss fights.
+No live tuning or restart occurred. See docs/balance/native-spell-resolution.md.
+
+## 2026-09-12 - Verify native AA progression inputs
+
+Added explicit 0/100/200/500/all purchase allocations and two finite-budget
+spending policies for the three level-50 Ascended candidate sets. The isolated
+native engine accepts all 7,868 purchase steps across 24 scenarios; HP/mana agree
+with the calculator. Native post-purchase catalogs confirm no omitted legal
+all/free ranks. Six illegal-purchase and seven isolation controls pass.
+All-purchasable totals are 13,738 / 13,261 / 13,288 points, excluding grant-only
+rewards and blocked prerequisites. Zero spent includes the same free ranks at
+every stage (20 flat HP in this data). Corrected the diagnostic's base-class-only
+skills and invalid specialization assumptions; trained held-class ceilings still
+require attainability QA. 106 Python tests pass. These are resource/input results,
+not full BiS fight outcomes. No live tuning, restart, or promotion occurred.
+Details, exact allocations, and evidence: docs/balance/native-aa-stats.md.
+
+## 2026-09-12 - Resolve equipped candidate stats with the native engine
+
+Built a separate native diagnostic using the existing mock Client constructor,
+legal Human creation allocations, synthetic multiclass rows, maximum eligible
+skills, actual item instances, and CalcBonuses. Ran all 12 candidate sets; their
+HP and mana match the previously verified calculator with zero mismatches.
+The isolated database has 237 table schemas, copied content, and no account or
+character rows. Its user, runtime, and shared memory are separate from live PEQ.
+Seven preflight checks reject live/unsafe configurations before engine startup.
+The diagnostic pins reused native objects and its executable; this is not a fresh
+full-source rebuild or proof of every running zone's binary. Quest hooks, purchased
+AAs, active buffs, full combat BiS, and complete boss outcomes remain pending.
+The Python suite passes 98 tests. No live tuning, restart, or promotion occurred.
+Evidence and observed stats: docs/balance/native-equipped-stats.md; ADR 0005.
+
+## 2026-09-12 - Resolve boss spell dependencies and verify spell arithmetic
+
+Expanded the frozen content snapshot to include actual boss lists and immediate
+parents, referenced item effects and recourses, plus Human creation allocations.
+This fixes an incomplete Phinigel list and the old spell-ID ceiling that omitted
+Vox's inherited later-ID heals and buffs. Missing dependencies now fail validation.
+The v2 snapshot contains 1,373 spells, five lists, and 172 entries; older fixtures
+remain unchanged so their recorded controls stay reproducible. Native extracted
+C++ agrees on 12,224 effect/duration cases and 301,500 ordinary resist rolls.
+Added explicit engaged NPC spell selection and 94 passing Python tests in total.
+Selection still requires runtime integration, stacking/readiness state, and
+explicit equal-priority ordering. These are not complete boss fight results.
+See docs/balance/spell-resolution.md. No live rules, NPCs, or processes changed.
+
+## 2026-09-12 - Add seeded encounter engine and native melee validation
+
+Added an offline event simulator and CLI for resolved diagnostic profiles:
+casting, healing/overheal, mana exhaustion and regeneration, cooldowns, fear
+interrupts, periodic effects, NPC melee rounds, deaths, kills, and timeouts.
+Compared hit/DI/mitigation math with actual C++ in 5,000 cases: zero mismatches.
+Ran 1,000 Nagafen melee controls against an artificial defender; mean damage
+agrees with the exact discrete expectation within 0.446 standard errors.
+The controls explicitly omit full boss AI/spells and are not BiS fight results.
+Full character/AA/buff/effect adapters and Vox/Nagafen balance sweeps remain open.
+Recorded the active live-rounds rule and legal Human Warrior creation allocation.
+No live tuning, player changes, restarts, or promotions occurred in this slice.
+
+## 2026-09-12 - Verify calculator HP and mana against the engine
+
+Added RoF2/SoD resource calculations for best held-class HP/mana, stamina and
+casting-stat breakpoints, item/heroic contributions, percentage HP, and flat
+bonuses. A database-free C++ oracle extracts eight actual engine functions and
+compares four outputs across 2,896 boundary/random cases: zero mismatches.
+Eleven additional unit tests cover resource arithmetic and missing-input failures.
+Heroic mana still follows the base class in this build, even when a held caster
+class supplies base mana. The calculator preserves that behavior. Resolved
+AA/buff/item effects, character-creation allocations, and encounter simulation
+remain pending; these checks do not certify a complete character or boss result.
+No production source, binaries, rules, or player data changed in this slice.
+
+## 2026-09-12 - Start source-verified offline balance calculator
+
+Added a Python port of the item spell/healing contribution and compared it with
+the actual C++ function in 2,792 cases: zero mismatches. Added a hashed, non-player
+Classic-zone content snapshot and an exact weighted gear assignment solver with
+class/race/deity/level/slot/lore constraints. Thirty-eight unit/relational checks
+pass. Twelve candidate builds cover three class combinations and four tiers;
+these are not yet full combat BiS or encounter outcomes. Full boss AI, combat,
+AA/buff/effect modeling and additional acquisition paths remain in progress.
+No spell/healing caps, mob values, or player records were changed by this slice.
+
+## 2026-09-12 - Reconcile source/data baseline and restore level-1 AA XP rule
+
+Integrated existing dev, accepted main QA history, and the already-deployed
+spell/healing scaling feature in an isolated reconciliation branch. Captured the
+previously unmirrored loot hook and RoF2 wire files. Added a read-only drift checker
+with failure-detecting C++ test summary validation: 43 source files match, 87 C++
+tests pass, and all 184,920 existing worn tier/epic spell-stat stamps match.
+Restored the missing `Character:AAExpMinLevel=1` row using its existing SQL after
+a verified full backup. Runtime reload is pending because a character is marked
+in-game. Recorded the owner's solo-preferred balance requirement in AGENTS.md.
+Evidence, rollback, limits, and focused QA: `docs/balance/reconciliation.md`.
+
+## 2026-09-08 - SpellDmg/HealAmt master output scaling
+
+Made SpellDmg and HealAmt the caster/healer output dials. Flipped five Spells
+rules (`ItemExtraSpellAmtCalcAsPercent`, `FlatItemExtraSpellAmt`,
+`IgnoreSpellDmgLvlRestriction`, `DOTsScaleWithSpellDmg`, `HOTsScaleWithHealAmt`)
+so these stats apply as uncapped percent-of-base multipliers on spells, heals,
+DoTs and HoTs. Extended `gen_loot_tier` in `tiered_loot_setup.sql` with a
+`p_spellstat` param that ADDS flat SpellDmg/HealAmt to worn tier gear
+(+5/+12/+20 Polished/Exalted/Ascended, mirrored to Ascended epics) — most
+Classic-obtainable worn items are 0 here, so they get exactly the flat stamp,
+while the minority that already carry these stats get base*offn + stamp (bounded
+by the item cap below). Soloability is
+tuned via `Character:ItemSpellDmgCap`/`ItemHealAmtCap` (250 = +250% at cap).
+Rules + SQL only; no C++, no client change; NPCs and melee output untouched.
+Gotcha: heroic INT/WIS can also feed these stats via `Heroic*Increase*Multiplier`
+(0 today) — verify vs the cap before enabling. Reverse: rules → false, re-run the
+generator with `p_spellstat` 0.
+
+## 2026-09-08 - Held-Monk combat QA PASS (#10)
+
+In-game QA of the six held-Monk attacks (G006) passed on the cleaned Monktest
+fixture with the activation build `8F8DF8B2…`: all six visible/assignable via
+Actions -> Abilities, animating and damaging the arena dummy with correct reuse,
+and Kick single-routed (no double). Held-Shadowknight Harm Touch was additionally
+spot-checked and fired. Recorded in `docs/qa/2026-07-29-held-monk-combat-qa.md`;
+audit G006 held-Monk slice marked verified (generic Kick/Frenzy still open), G002
+noted with the Harm Touch spot-check.
+
+## 2026-09-08 - Clean Monktest QA fixture before held-Monk activation QA (#10)
+
+Prepping the pending G006 in-game QA. Verified the deployed dev client
+`dinput8.dll` is the activation build (SHA-256 `8F8DF8B2…F1B26D`) and that
+Monktest (char 19) is otherwise pristine — 60 skills, 0 mismatches, Water Flask
+in slot 23. The fixture Check flagged one stray `character_alternate_abilities`
+row (Ancient Attunement, aa_id 22200 rank, value 1) granted during earlier
+testing; a stray combat AA would confound the Kick single-routing step. Backed
+up PEQ (`backups/peq_20260908_093915.sql.gz`, 44 MB) and deleted that one row
+while the character was camped (`ingame=0`). Post-state: 0 inherited combat rows,
+aa_points 0. Character is parked in the Arena (zone 77) rather than the pristine
+PoK (202), which is where the QA runs, so the fixture Check still reports that
+zone as a benign mismatch. Re-grant if needed: char 19, aa_id 22200, value 1.
+
+## 2026-09-08 - Complete the player-facing class-gate audit coverage (#10)
+
+Finished the Phase 0 gate audit (`docs/audits/multiclass-class-gates.md`), the
+last open item in the Ready queue and the gate that blocks the remaining Phase 2
+gameplay slices. No code or DB changes — audit/doc only.
+
+Expanded the former G018 "inventory" row (581 → re-baselined 552 zone `*.cpp`
+accessor matches) into per-symbol rows G018.1–G018.13 across `attack.cpp`,
+`spell_effects.cpp`, `effects.cpp`, and `bonuses.cpp`: stat softcaps/ATK caps
+(best-of held), hand-to-hand and melee damage/crit/frenzy (additive), defensive
+gates, heroic caster mana, the `IS_CLASS_*` spell-restriction conditionals, focus
+eligibility, and SK/Paladin procs; LDoNTreasure/body-type/banker checks and
+group-exp base class stay non-player/chassis.
+
+The exhaustive sweep surfaced three player capabilities no earlier row owned,
+all still primary-class only: G019 Tracking (`GetClassTrackingDistanceMultiplier`),
+G020 bind-wound class bonuses, and G021 spell/discipline cast-scribe-learn
+resolution (mismatch — blocks the Phase 2 spell/discipline slice). It also
+confirmed pet/familiar summon, scroll memorization, and Bard mana-regen are
+already multiclass-aware (regression-guard only), while tome learning and the
+generic cast-level lookup are not. A coverage-reconciliation table maps all 552
+accessors to a row or non-player/scripting/identity bucket; zero player-reachable
+gates remain unmapped. Rows stay **open**; "complete" here means coverage, not
+implementation.
+
+## 2026-08-02 - Route held-Monk hotbuttons through stock combat submission (#10)
+
+Corrected the remaining RoF2 activation failure for the six held-Monk attacks.
+Manual QA proved the buttons were visible and usable-looking, but clicking them
+did nothing; Feign Death still worked because it has a normal
+`CharacterZoneClient::UseSkill` handler. Exact-client disassembly showed that
+RoF2 deliberately maps Bash, Kick, Frenzy, and the five named Monk strikes to
+an empty `UseSkill` dispatch case. Their native path is the separate
+`EQPlayer` special-attack submitter that constructs `OP_CombatAbility`.
+
+The DLL now redirects the type-9 hotbutton activation call only for Dragon
+Punch/Tail Rake, Eagle Strike, Flying Kick, Kick, Round Kick, and Tiger Claw.
+Those six use the stock target, animation, packet, and reuse path; every other
+skill still calls stock `UseSkill`. The submitter's one primary-class
+`HasSkill` call has a dedicated held-Monk fallback that accepts only those six
+skills and only when the server-delivered value is positive. The stock
+post-submit reuse sequence is preserved, and EQEmu remains authoritative for
+held-class membership, current-level caps, targets, range, timers, damage, and
+skill-ups.
+
+Both call sites, the stock submitter, its stock `UseSkill` caller, and the reuse
+sequence are pinned by the exact-client regression. The two runtime redirects
+are dependency-ordered; failure of the activation redirect performs a verified
+rollback of the execution predicate. The reviewed x86 build was deployed to
+the development RoF2 client with SHA-256
+`8F8DF8B2B020486C32ABF8ACF6CEA37C194BFE89D29B762ED833E1C650F1B26D`.
+
+## 2026-08-02 - Enable held-class skill hotbuttons and activation (#10)
+
+Completed the RoF2 client path from an assigned held-class skill to its server
+submission. After the Actions picker correction, a Cleric-primary Monktest could
+assign Monk attacks but each hotbutton was rendered **Not Usable** and
+`CharacterZoneClient::UseSkill` rejected it before sending a packet.
+
+The exact-client DLL now redirects two additional, narrowly scoped calls. The
+`CHotButton` refresh call uses the positive server-delivered skill predicate for
+presentation. The `UseSkill` call uses an integer-valued accessor that preserves
+the positive stock adjusted value and otherwise falls back to the raw profile
+value. The execution correction must apply before the presentation correction
+is allowed, preventing a usable-looking button that the client cannot submit.
+All later client state, target, and reuse checks remain stock, and the server
+remains authoritative for authorization, timers, damage, and skill-ups.
+
+Both original calls and the stock adjusted-skill entrypoint are pinned by the
+exact-client regression. A shared single-call patch helper rechecks immediately
+before writing, verifies writes and rollback, requires page-protection
+restoration, and does not overwrite a concurrent modifier when no write was
+attempted. The reviewed x86 DLL was deployed to the development RoF2 client
+with SHA-256
+`B8839305CFC5259365DD7268A19831115BD7922ECAAD4F66A00EFF1CD95CA845`.
+
+## 2026-07-29 - Expose server-granted skills in RoF2 Actions (#10)
+
+Corrected the RoF2 **Actions -> Abilities** selector for true multiclass
+characters. The client receives Monktest's positive Monk skill values but
+`CSkillsSelectWnd::SetTypesToDisplay` calls
+`CharacterZoneClient::HasSkill`, which clamps those values through the primary
+class's skill cap and hides them from a Cleric-primary character.
+
+The exact-client DLL now redirects only the selector's two `HasSkill` call
+sites. Stock-valid skills retain stock behavior; a stock-negative result is
+accepted only when the server-delivered base skill is positive. The executable
+size/hash, both original call signatures, `HasSkill`, and `GetBaseSkill`
+entrypoints are pinned. Writes are rechecked, verified, rolled back on failure,
+and require executable-page protection restoration. This correction affects
+presentation only; the server remains authoritative for held-class
+authorization, reuse timers, targets, damage, and skill-ups.
+
+The reviewed x86 DLL was deployed to the development RoF2 client with SHA-256
+`E5B39B38B4046E46C8B9CE58C3FE08872D490B80F72663B1232AD75F34069BDD`.
+
+The first in-game retest still produced an empty picker even though the runtime
+log proved both selector hooks were active. Added bounded diagnostics for the
+seven granted Monk skills so a picker invocation records the stock predicate,
+raw server-delivered value, and the client's activated/combat classifications.
+That trace showed every replacement predicate raising a guarded exception. The
+initial implementation had mistaken RVA `0x00042110` for the raw accessor; the
+verified `CharacterZoneClient::GetBaseSkill` entry is RVA `0x00049C80` and uses
+an unusual two-stack-argument ABI (`ret 8`). Corrected and pinned the symbol,
+entry bytes, function type, and call shape. Diagnostic logs now permit live
+shared reads and remain bounded to the seven Monk skills. The corrected build
+is deployed with SHA-256
+`93353758DAEA62D6038DE2DC20582AB8BE1902F229D4620442301022F2CF96C5`.
+
+## 2026-07-29 - Unlock the RoF2 combat-ability window chassis (#10)
+
+Added a fail-closed `eq-client-dll` correction for the exact RoF2
+`CCombatAbilityWnd::CanShow` base-class table. Stock RoF2 disables the entire
+window for seven pure-caster primary classes, including Cleric, even when the
+server has granted valid held-Monk skills. The guarded patch changes only those
+seven in-memory table bytes after the executable size, SHA-256, and complete
+stock signature match; unknown binaries or tables already changed when checked
+remain untouched.
+
+The write now snapshots and rechecks the table, verifies rollback independently,
+requires executable-page protection to be restored, and rolls back if
+protection restoration fails. The exact-client regression pins both table
+states and the required safety paths. The server remains authoritative for
+learned skills and submitted combat abilities. The reviewed x86 DLL was
+deployed to the development RoF2 client with SHA-256
+`209E99A97B8F0A6494B554862A9C9A524784EC8CA535C9C2C33E44AC23052726`.
+
+## 2026-07-29 - Read the login banner from canonical multiclass state (#10)
+
+Fixed `global_player.lua` reporting `Monktest` as Cleric/Bard even though
+`character_multiclass` correctly held Cleric/Shadowknight/Monk. The login
+banner was the last reader of obsolete `mc_class2`/`mc_class3` quest globals;
+EQEmu's complete QA-character copy had inherited Darth's stale `mc_class2=8`.
+
+The banner now reads the already-loaded canonical C++ slots through
+`GetClass2()` and `GetClass3()`. Added a static regression that rejects legacy
+global reads in `event_connect`, and tightened the fixture to remove and reject
+obsolete multiclass globals. Monktest's copied Bard global was removed without
+changing its canonical class row. The fixture now retains one Water Flask in
+General Slot 1 because EQEmu reports a database inventory-load error when a
+character has zero inventory rows; the item is unequipped and combat-neutral.
+
+## 2026-07-29 - Create combat-neutral Monktest QA fixture (#10)
+
+Added a guarded, idempotent `Check`/`Apply`/`Rollback` tool for the authorized
+`Monktest` character. It uses EQEmu's transactional character-copy path, then
+asserts and atomically configures character ID 19 as a level-50 Human
+Cleric/Shadowknight/Monk on account `admin` in Plane of Knowledge. Exactly 60
+eligible held-class skills are granted to their current level-50 caps.
+
+The first complete copy (ID 18) exposed 63 inherited Paladin AAs and five buffs,
+so it was recoverably retired and the fixture was tightened. The final character
+has zero inherited AAs, buffs, auras, disciplines, spells, inventory, or timers,
+making combat results deterministic. Rollback soft-deletes and renames only an
+exactly matching fixture; unexpected characters fail closed. A verified
+46,342,038-byte PEQ backup was taken before application.
+
+## 2026-07-29 - Authorize held-Monk combat abilities (#10)
+
+Changed `OPCombatAbility` to resolve its current-level skill cap across every
+held class instead of consulting only the primary class. A held Monk can now
+submit the six stock Monk attacks once their native cap is positive: Flying
+Kick, Dragon Punch, Eagle Strike, Tiger Claw, Round Kick, and Kick. Monk Kick
+is excluded from the generic Kick branch so it executes exactly once through
+`MonkSpecialAttack`.
+
+Added a pure authorization helper and table-driven positive/negative coverage
+for all six attacks, premature unlocks, characters without Monk, and unrelated
+Frenzy packets. The ignored Akk Stack source overlay is reproducible through a
+fail-closed, SHA-256-pinned application script; it refuses unknown upstream or
+partially modified `special_attacks.cpp` inputs. Berserker Frenzy rounds, other
+held-class Kick routes, and RoF2 combat-button visibility remain separate work.
+The complete test executable exits 0 with 87 tests and all 10 skill-policy
+tests passing. The full zone target built cleanly; all eight restarted workers
+are newer than the rebuilt binary, loaded the canonical 58,359 skill caps, and
+reported no fresh startup errors.
+
+## 2026-07-29 - Prove retained-class cleanup on class release (#10)
+
+Added a static release regression that verifies the multiclass database slot is
+updated before the live mask reload, released-class-only AAs and skills are
+removed, shared skills keep values within the best retained cap, over-cap values
+are clamped, and retained AAs are repersisted and resent in the correct order.
+Updated stale comments left from the removed global skill-cap widening.
+
+## 2026-07-29 - Enforce held-class trainer authorization atomically (#10)
+
+Replaced legacy max-level multiclass trainer widening with current-level,
+held-class eligibility. Trainer sessions now accept only a held class unless
+the existing cross-class-trainer rule is enabled, display only caps available
+at the character's current level, and reject premature or capped requests.
+
+Training requests now validate skill points, native unlock level, effective
+held-class cap, stock trainer limits, and carried currency before mutation.
+Zero-valued skills open at exactly value `1`; unaffordable requests no longer
+raise a skill before payment fails. Pure tests cover held/non-held trainers,
+early unlocks, caps, points, and funds, while a static integration regression
+locks the packet-handler ordering. The rebuilt test executable exits cleanly
+with all 9 skill tests passing, and all eight restarted zone workers loaded the
+verified binary plus the canonical 58,359-row skill-cap baseline.
+
+## 2026-07-29 - Seed native multiclass skills across the character lifecycle (#10)
+
+Added one authoritative C++ reconciler that evaluates native eligibility across
+the character's held classes and grants each newly unlocked skill at value `1`.
+It runs during zone-in, immediately after secondary/tertiary class adoption,
+and on level-up before quest events. Existing nonzero skills remain unchanged,
+and stock acquisition-only skills remain excluded.
+
+Removed the duplicate Lua level-up seeding loop and exposed the same reconciler
+to the production Perl adoption plugin. A static lifecycle regression verifies
+all call sites and ordering. The full zone build and 84-test CppUnit target pass;
+all eight restarted zone workers use the rebuilt binary and load the canonical
+58,359-row skill-cap baseline.
+
+## 2026-07-29 - Add deterministic native skill seed selection (#10)
+
+Added a table-driven seed-candidate collector that applies the approved
+acquisition policy, native unlock level, current cap, and current character
+value without mutating character state. CppUnit coverage proves ordering,
+threshold behavior, idempotence, stock-acquisition exclusion, and auto-granted
+class tradeskills. This is the tested decision seam for the upcoming Client
+lifecycle reconciler.
+
+## 2026-07-28 - Apply canonical skill-cap repair to live PEQ (#10)
+
+Stopped every gameplay process, reran the exact canonical preflight, completed a
+transaction-rolled-back live dry run, and then removed exactly 16,090 legacy
+widening rows. Live `skill_caps` now contains the 58,359 canonical rows with
+zero live-only rows, zero canonical-only rows, and zero cap mismatches. The
+original rows remain in `skill_caps_epic10_removed`, and the verified full
+pre-migration backup remains retained.
+
+The current server loads skill caps directly from PEQ at world/zone startup; its
+legacy `shared/skill_caps` file is no longer generated or consumed. A full
+launcher-managed shared-memory refresh and process restart completed. The new
+world and all eight zone workers logged that they loaded 58,359 skill-cap
+entries, with no recent world/zone errors.
+
+## 2026-07-28 - Rehearse reversible legacy skill-cap repair (#10)
+
+Added a fail-closed `skill_caps` repair tool backed by the pinned 16,090-row
+canonical diff. It rejects unexpected target/canonical state, retains every
+removed row in `skill_caps_epic10_removed`, supports transaction-rolled-back dry
+runs, and requires an explicit override before it can target live PEQ.
+
+Restored the verified 46,304,776-byte live backup into an isolated no-host-port
+MariaDB container. Integration testing proved: incorrect preconditions cause no
+mutation; dry-run removes and rolls back exactly 16,090 rows; apply produces an
+exact 58,359-row canonical match; rollback restores 74,449 rows; and reapply is
+deterministic. Live PEQ remains unchanged pending the maintenance application.
+
+## 2026-07-28 - Acquire and diff the canonical PEQ skill-cap baseline (#10)
+
+Imported the exact PEQ archive referenced by Akk Stack's current
+`init-peq-database` target into an isolated no-host-port MariaDB container. The
+32,150,987-byte archive has SHA-256
+`ac8649f23d2c3aea2cade138dfe10d46d1b21ad1a80d08ca95f5434fab7f218d`.
+
+A new read-only cross-container comparator retains complete CSV evidence. Live
+has 74,449 `skill_caps` rows versus 58,359 canonical rows: 16,090 are live-only,
+zero are canonical-only, and zero shared caps differ. This proves legacy
+widening added rows without altering or removing native rows. Live PEQ remains
+unchanged; the next gate is a fresh backup and restored-copy migration rehearsal.
+
+## 2026-07-28 - Remove production multiclass skill maximization (#10)
+
+Removed `mc_train_skills` and every direct `SetSkill` write from the multiclass
+adoption plugin. Adopting a class can no longer silently raise existing or new
+skills to the current cap. A static regression fails if the production plugin
+reintroduces either behavior; the deployed and tracked plugin copies are
+byte-identical and pass `perl -c`.
+
+Value-`1` lifecycle seeding is intentionally not enabled yet: the live
+`skill_caps` table must first pass the canonical-baseline repair gate. Existing
+zone processes were not restarted by this source-only change.
+
+## 2026-07-28 - Resolve held-class skill caps and unlocks safely (#10)
+
+Added a pure held-class skill eligibility resolver that deduplicates the
+primary/secondary/tertiary class list, rejects invalid class IDs, selects the
+highest current cap, and selects the earliest positive native unlock level.
+Those two values may correctly come from different held classes; non-held or
+invalid classes are never queried.
+
+CppUnit covers mixed caps/unlocks, duplicates, and fail-closed invalid input.
+The full suite passes 83/83. This seam does not mutate characters or the live
+database and is ready for the separately tested lifecycle reconciler.
+
+## 2026-07-28 - Define the multiclass skill acquisition policy (#10)
+
+Added a fail-closed acquisition policy for all 78 RoF2 `SkillUseTypes` values and
+a pure seeding decision that grants exactly value `1` only at or after a
+positive native unlock. Existing nonzero values are never changed. Alchemy, Make
+Poison, and Research are class-granted; Tinkering, universal tradeskills, Sense
+Heading, Swimming, Fishing, and Alcohol Tolerance retain stock acquisition.
+
+The checked-in policy table is generated from the actual C++ name map and policy
+switch. CppUnit covers every current skill ID, thresholds, zero-cap/unlock
+rejection, idempotence, and the stock-acquisition exclusions. The full suite
+passes 82/82. This slice defines and tests policy only; no live character skill
+values or database rows are changed.
+
+## 2026-07-28 - Generate the Epic #10 parity evidence matrix
+
+Added a deterministic PowerShell generator and a 480-row acceptance matrix that
+covers all 16 playable classes in primary, secondary, and tertiary slots across
+ten contracted capability groups. Every row has an implementation owner plus
+separate automated and manual evidence fields; all begin unresolved as
+`planned`.
+
+Started the checked-in player class-gate ledger with direct Client paths, shared
+Mob review boundaries, contract classifications, required remediation, and
+named evidence. Bot/NPC identity checks remain distinct from player capability
+gates so later changes do not globally replace `GetClass()`.
+
+## 2026-07-28 - Add a read-only multiclass skill-cap baseline audit (#10)
+
+The live PEQ `skill_caps` table still contains rows from the legacy global
+multiclass widening, while every retained local backup postdates that change.
+Added a checked-in evidence report and a read-only PowerShell audit that reports
+known contamination controls and can later produce exact live-only,
+canonical-only, and cap-mismatch diffs against a separately imported canonical
+table.
+
+No database data is changed. A verified authoritative PEQ baseline, fresh manual
+backup, reviewed diff, and restored-copy migration rehearsal are mandatory before
+any live repair. The official PEQ dump host was unavailable through DNS during
+this audit; unrelated emulator forks are explicitly not accepted as substitutes.
+
+## 2026-07-28 - Correct native skill train-level resolution (#10, #39)
+
+`SkillCaps::GetSkillTrainLevel()` previously looped over candidate levels while
+probing the same key built from the requested maximum level. If that final-level
+row existed, it incorrectly returned level 1; otherwise it returned 0. This made
+native unlock thresholds unreliable for multiclass auto-grants and trainers.
+
+The resolver now probes each level in order, stops at the configured skill-cap
+maximum, and exposes the pure search step to CppUnit. The regression covers a
+level-5 unlock below, at, and above its threshold. No live database rows are
+changed by this patch.
+
+Phase 0 also confirmed that legacy globally widened `skill_caps` rows remain in
+the live PEQ database even though the current Chronicler no longer creates them.
+Those rows are a separate migration blocker: held-class authorization cannot
+treat the live table as native until it is reconciled against a clean baseline.
+
 ## 2026-07-28 - Stabilize the RoF2 PlayerMana gauge (#12)
 
 Manual QA found that the melee-base mana gauge appeared but flickered. Exact

@@ -1,0 +1,545 @@
+{
+  "cases": [
+    {
+      "id": "mage-missing-reagent",
+      "aa_spent": 0,
+      "assessment": {
+        "ready": true,
+        "pet_spells": [],
+        "expected_spells": [],
+        "dangling_references": [],
+        "untracked_pets": [],
+        "wrong_owner_pets": [],
+        "depopping_pets": []
+      },
+      "pets": []
+    },
+    {
+      "id": "mage-with-reagent",
+      "aa_spent": 0,
+      "assessment": {
+        "ready": true,
+        "pet_spells": [
+          633
+        ],
+        "expected_spells": [
+          633
+        ],
+        "dangling_references": [],
+        "untracked_pets": [],
+        "wrong_owner_pets": [],
+        "depopping_pets": []
+      },
+      "pets": [
+        {
+          "ac": 189,
+          "atk": 70,
+          "buffs": [],
+          "depop": false,
+          "engaged": false,
+          "entity_id": 2,
+          "haste": 100,
+          "hp": 2520,
+          "level": 41,
+          "mana": 0,
+          "max_damage": 60,
+          "max_hp": 2520,
+          "min_damage": 30,
+          "npc_id": 609,
+          "owner_id": 1,
+          "position": [
+            -859.0,
+            -1393.0,
+            104.97999572753906
+          ],
+          "power": 0,
+          "spell": 633
+        }
+      ]
+    },
+    {
+      "id": "necro-only",
+      "aa_spent": 0,
+      "assessment": {
+        "ready": false,
+        "pet_spells": [],
+        "expected_spells": [
+          443
+        ],
+        "dangling_references": [
+          2
+        ],
+        "untracked_pets": [],
+        "wrong_owner_pets": [],
+        "depopping_pets": []
+      },
+      "pets": []
+    },
+    {
+      "id": "shaman-only",
+      "aa_spent": 0,
+      "assessment": {
+        "ready": false,
+        "pet_spells": [],
+        "expected_spells": [
+          166
+        ],
+        "dangling_references": [
+          2
+        ],
+        "untracked_pets": [],
+        "wrong_owner_pets": [],
+        "depopping_pets": []
+      },
+      "pets": []
+    },
+    {
+      "id": "mage-repeat",
+      "aa_spent": 0,
+      "assessment": {
+        "ready": true,
+        "pet_spells": [
+          633
+        ],
+        "expected_spells": [
+          633
+        ],
+        "dangling_references": [],
+        "untracked_pets": [],
+        "wrong_owner_pets": [],
+        "depopping_pets": []
+      },
+      "pets": [
+        {
+          "ac": 189,
+          "atk": 70,
+          "buffs": [],
+          "depop": false,
+          "engaged": false,
+          "entity_id": 2,
+          "haste": 100,
+          "hp": 2520,
+          "level": 41,
+          "mana": 0,
+          "max_damage": 60,
+          "max_hp": 2520,
+          "min_damage": 30,
+          "npc_id": 609,
+          "owner_id": 1,
+          "position": [
+            -859.0,
+            -1393.0,
+            104.97999572753906
+          ],
+          "power": 0,
+          "spell": 633
+        }
+      ]
+    },
+    {
+      "id": "mage-shaman",
+      "aa_spent": 0,
+      "assessment": {
+        "ready": false,
+        "pet_spells": [
+          633
+        ],
+        "expected_spells": [
+          166,
+          633
+        ],
+        "dangling_references": [
+          3
+        ],
+        "untracked_pets": [],
+        "wrong_owner_pets": [],
+        "depopping_pets": []
+      },
+      "pets": [
+        {
+          "ac": 189,
+          "atk": 70,
+          "buffs": [],
+          "depop": false,
+          "engaged": false,
+          "entity_id": 2,
+          "haste": 100,
+          "hp": 2520,
+          "level": 41,
+          "mana": 0,
+          "max_damage": 60,
+          "max_hp": 2520,
+          "min_damage": 30,
+          "npc_id": 609,
+          "owner_id": 1,
+          "position": [
+            -859.0,
+            -1393.0,
+            104.97999572753906
+          ],
+          "power": 0,
+          "spell": 633
+        }
+      ]
+    },
+    {
+      "id": "shaman-mage",
+      "aa_spent": 0,
+      "assessment": {
+        "ready": false,
+        "pet_spells": [
+          633
+        ],
+        "expected_spells": [
+          166,
+          633
+        ],
+        "dangling_references": [
+          2
+        ],
+        "untracked_pets": [],
+        "wrong_owner_pets": [],
+        "depopping_pets": []
+      },
+      "pets": [
+        {
+          "ac": 189,
+          "atk": 70,
+          "buffs": [],
+          "depop": false,
+          "engaged": false,
+          "entity_id": 3,
+          "haste": 100,
+          "hp": 2520,
+          "level": 41,
+          "mana": 0,
+          "max_damage": 60,
+          "max_hp": 2520,
+          "min_damage": 30,
+          "npc_id": 609,
+          "owner_id": 1,
+          "position": [
+            -859.0,
+            -1393.0,
+            104.97999572753906
+          ],
+          "power": 0,
+          "spell": 633
+        }
+      ]
+    },
+    {
+      "id": "necro-mage-shaman",
+      "aa_spent": 0,
+      "assessment": {
+        "ready": false,
+        "pet_spells": [
+          633
+        ],
+        "expected_spells": [
+          166,
+          443,
+          633
+        ],
+        "dangling_references": [
+          2,
+          4
+        ],
+        "untracked_pets": [],
+        "wrong_owner_pets": [],
+        "depopping_pets": []
+      },
+      "pets": [
+        {
+          "ac": 189,
+          "atk": 70,
+          "buffs": [],
+          "depop": false,
+          "engaged": false,
+          "entity_id": 3,
+          "haste": 100,
+          "hp": 2520,
+          "level": 41,
+          "mana": 0,
+          "max_damage": 60,
+          "max_hp": 2520,
+          "min_damage": 30,
+          "npc_id": 609,
+          "owner_id": 1,
+          "position": [
+            -859.0,
+            -1393.0,
+            104.97999572753906
+          ],
+          "power": 0,
+          "spell": 633
+        }
+      ]
+    },
+    {
+      "id": "triple-0",
+      "aa_spent": 0,
+      "assessment": {
+        "ready": false,
+        "pet_spells": [
+          633
+        ],
+        "expected_spells": [
+          166,
+          443,
+          633
+        ],
+        "dangling_references": [
+          3,
+          4
+        ],
+        "untracked_pets": [],
+        "wrong_owner_pets": [],
+        "depopping_pets": []
+      },
+      "pets": [
+        {
+          "ac": 189,
+          "atk": 70,
+          "buffs": [
+            {
+              "spell": 107,
+              "ticks": 597
+            }
+          ],
+          "depop": false,
+          "engaged": false,
+          "entity_id": 2,
+          "haste": 160,
+          "hp": 2520,
+          "level": 41,
+          "mana": 0,
+          "max_damage": 60,
+          "max_hp": 2520,
+          "min_damage": 30,
+          "npc_id": 609,
+          "owner_id": 1,
+          "position": [
+            -859.0,
+            -1393.0,
+            104.97999572753906
+          ],
+          "power": 0,
+          "spell": 633
+        }
+      ]
+    },
+    {
+      "id": "triple-100",
+      "aa_spent": 100,
+      "assessment": {
+        "ready": false,
+        "pet_spells": [
+          633
+        ],
+        "expected_spells": [
+          166,
+          443,
+          633
+        ],
+        "dangling_references": [
+          3,
+          4
+        ],
+        "untracked_pets": [],
+        "wrong_owner_pets": [],
+        "depopping_pets": []
+      },
+      "pets": [
+        {
+          "ac": 189,
+          "atk": 70,
+          "buffs": [
+            {
+              "spell": 107,
+              "ticks": 597
+            }
+          ],
+          "depop": false,
+          "engaged": false,
+          "entity_id": 2,
+          "haste": 160,
+          "hp": 2545,
+          "level": 41,
+          "mana": 0,
+          "max_damage": 60,
+          "max_hp": 2545,
+          "min_damage": 30,
+          "npc_id": 609,
+          "owner_id": 1,
+          "position": [
+            -859.0,
+            -1393.0,
+            104.97999572753906
+          ],
+          "power": 0,
+          "spell": 633
+        }
+      ]
+    },
+    {
+      "id": "triple-200",
+      "aa_spent": 199,
+      "assessment": {
+        "ready": false,
+        "pet_spells": [
+          633
+        ],
+        "expected_spells": [
+          166,
+          443,
+          633
+        ],
+        "dangling_references": [
+          3,
+          4
+        ],
+        "untracked_pets": [],
+        "wrong_owner_pets": [],
+        "depopping_pets": []
+      },
+      "pets": [
+        {
+          "ac": 189,
+          "atk": 70,
+          "buffs": [
+            {
+              "spell": 107,
+              "ticks": 597
+            }
+          ],
+          "depop": false,
+          "engaged": false,
+          "entity_id": 2,
+          "haste": 160,
+          "hp": 2646,
+          "level": 41,
+          "mana": 0,
+          "max_damage": 60,
+          "max_hp": 2646,
+          "min_damage": 30,
+          "npc_id": 609,
+          "owner_id": 1,
+          "position": [
+            -859.0,
+            -1393.0,
+            104.97999572753906
+          ],
+          "power": 0,
+          "spell": 633
+        }
+      ]
+    },
+    {
+      "id": "triple-500",
+      "aa_spent": 494,
+      "assessment": {
+        "ready": false,
+        "pet_spells": [
+          633
+        ],
+        "expected_spells": [
+          166,
+          443,
+          633
+        ],
+        "dangling_references": [
+          3,
+          4
+        ],
+        "untracked_pets": [],
+        "wrong_owner_pets": [],
+        "depopping_pets": []
+      },
+      "pets": [
+        {
+          "ac": 189,
+          "atk": 70,
+          "buffs": [
+            {
+              "spell": 107,
+              "ticks": 597
+            }
+          ],
+          "depop": false,
+          "engaged": false,
+          "entity_id": 2,
+          "haste": 160,
+          "hp": 3099,
+          "level": 41,
+          "mana": 0,
+          "max_damage": 60,
+          "max_hp": 3099,
+          "min_damage": 30,
+          "npc_id": 609,
+          "owner_id": 1,
+          "position": [
+            -859.0,
+            -1393.0,
+            104.97999572753906
+          ],
+          "power": 0,
+          "spell": 633
+        }
+      ]
+    },
+    {
+      "id": "triple-all",
+      "aa_spent": 13288,
+      "assessment": {
+        "ready": false,
+        "pet_spells": [
+          633
+        ],
+        "expected_spells": [
+          166,
+          443,
+          633
+        ],
+        "dangling_references": [
+          3,
+          4
+        ],
+        "untracked_pets": [],
+        "wrong_owner_pets": [],
+        "depopping_pets": []
+      },
+      "pets": [
+        {
+          "ac": 189,
+          "atk": 70,
+          "buffs": [
+            {
+              "spell": 107,
+              "ticks": 1018
+            }
+          ],
+          "depop": false,
+          "engaged": false,
+          "entity_id": 2,
+          "haste": 160,
+          "hp": 3402,
+          "level": 41,
+          "mana": 0,
+          "max_damage": 60,
+          "max_hp": 3402,
+          "min_damage": 30,
+          "npc_id": 609,
+          "owner_id": 1,
+          "position": [
+            -859.0,
+            -1393.0,
+            104.97999572753906
+          ],
+          "power": 0,
+          "spell": 633
+        }
+      ]
+    }
+  ]
+}

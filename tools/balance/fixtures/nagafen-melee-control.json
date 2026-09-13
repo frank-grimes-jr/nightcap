@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "status": "diagnostic",
+  "duration_ms": 60000,
+  "assumptions": [
+    "Melee calibration control using captured Nagafen level, min/max damage, unbuffed skills, STR, ATK, Accuracy, delay, and active UseLiveCombatRounds=true. This is not a complete Nagafen encounter.",
+    "The defender is an artificial nonattacking calibration target with fixed resolved defenses and effectively unlimited HP; it is not a character or BiS build.",
+    "Nagafen offense=265 best melee skill +66 STR contribution +100 ATK=431; accuracy=(235 Offense +7 +210 HandToHand +100 Accuracy +10)*121//100=680. DoubleAttack override=250 at level55; no off-hand flag in captured special abilities.",
+    "The 1800ms delay is npc_types.attack_delay*100 with no haste. attack_speed=-17 is stored but is not applied by the active SetAttackTimer/GetHaste path reviewed here.",
+    "Breath, fear, casting, movement, summoning, encounter scripts, focus/procs, pets, damage shields, buffs, and AAs are disabled for this melee-only control.",
+    "Defender uses 35 shielding and the base-Warrior -5 percentage modifier on the variable damage portion; all skill avoidance is set to zero so hit/DI arithmetic can be isolated.",
+    "Source snapshot SHA256 c787ae4f436bf8eae0d28510e41634fd96fbf9232233069278cc4fd548b9fbc9; native melee formula evidence is in docs/balance/melee-formula-oracle.json."
+  ],
+  "player": {
+    "name": "calibration_target",
+    "hp": 1000000000,
+    "avoidance": 600,
+    "mitigation": 650,
+    "shielding": 35,
+    "incoming_melee_modifier": -5,
+    "level": 50
+  },
+  "enemy": {
+    "name": "Nagafen_melee_control",
+    "hp": 32000,
+    "hp_regen": 23,
+    "level": 55,
+    "melee": {
+      "minimum": 85,
+      "maximum": 218,
+      "delay_ms": 1800,
+      "accuracy": 680,
+      "offense": 431,
+      "level": 55,
+      "live_rounds": true,
+      "double_skill": 250,
+      "offhand": false
+    }
+  }
+}

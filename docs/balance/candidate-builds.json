@@ -1,0 +1,5792 @@
+{
+  "snapshot_sha256": "c787ae4f436bf8eae0d28510e41634fd96fbf9232233069278cc4fd548b9fbc9",
+  "status": "Candidate builds, not yet certified full BiS or simulated combat results",
+  "objective": "hp + mana + 4*ac + 10*heroic_sta + 10*heroic_casting_stat + 2*casting_stat + sta + 2*spelldmg + 2*healamt; melee additionally damage*1000//delay",
+  "constraints": "Twenty standard worn slots (1-20), one-handed primary, shield, native class/race/deity/lore gates, required/recommended level <=50. Exact optimal additive score within the captured drop-only tier pool. Quest/global-loot/merchant paths, haste/procs/focus, AAs, and cross-stat caps remain outside this optimization.",
+  "builds": [
+    {
+      "profile": "war-clr-wiz",
+      "classes": [
+        1,
+        2,
+        12
+      ],
+      "level": 50,
+      "race": "Human",
+      "deity": "Agnostic",
+      "tier": "Base",
+      "casting_stat_scored": "int",
+      "melee_ratio_scored": false,
+      "total_score": 3215,
+      "equipment": [
+        {
+          "slot": 1,
+          "id": 62283,
+          "name": "Shiny Gold Earring",
+          "base_id": 62283,
+          "score": 87,
+          "source_count": 19,
+          "source_examples": [
+            {
+              "item_id": 62283,
+              "zone": "hole",
+              "npc_id": 39015,
+              "npc_name": "a_spirit_of_the_old_city",
+              "npc_level": 51
+            },
+            {
+              "item_id": 62283,
+              "zone": "hole",
+              "npc_id": 39016,
+              "npc_name": "a_spirit_of_the_old_city",
+              "npc_level": 52
+            },
+            {
+              "item_id": 62283,
+              "zone": "hole",
+              "npc_id": 39018,
+              "npc_name": "a_spirit_of_the_old_city",
+              "npc_level": 53
+            }
+          ]
+        },
+        {
+          "slot": 2,
+          "id": 1549,
+          "name": "Halo of the Enlightened",
+          "base_id": 1549,
+          "score": 310,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 1549,
+              "zone": "fearplane",
+              "npc_id": 72003,
+              "npc_name": "Cazic_Thule",
+              "npc_level": 70
+            }
+          ]
+        },
+        {
+          "slot": 3,
+          "id": 1547,
+          "name": "Eye of Cazic-Thule",
+          "base_id": 1547,
+          "score": 225,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 1547,
+              "zone": "fearplane",
+              "npc_id": 72003,
+              "npc_name": "Cazic_Thule",
+              "npc_level": 70
+            }
+          ]
+        },
+        {
+          "slot": 4,
+          "id": 79621,
+          "name": "Silverwing Loop",
+          "base_id": 79621,
+          "score": 72,
+          "source_count": 120,
+          "source_examples": [
+            {
+              "item_id": 79621,
+              "zone": "mistmoore",
+              "npc_id": 59000,
+              "npc_name": "a_deathly_usher",
+              "npc_level": 30
+            },
+            {
+              "item_id": 79621,
+              "zone": "mistmoore",
+              "npc_id": 59001,
+              "npc_name": "a_deathly_usher",
+              "npc_level": 31
+            },
+            {
+              "item_id": 79621,
+              "zone": "mistmoore",
+              "npc_id": 59002,
+              "npc_name": "a_deathly_usher",
+              "npc_level": 29
+            }
+          ]
+        },
+        {
+          "slot": 5,
+          "id": 1550,
+          "name": "Bile Etched Obsidian Choker",
+          "base_id": 1550,
+          "score": 150,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 1550,
+              "zone": "fearplane",
+              "npc_id": 72003,
+              "npc_name": "Cazic_Thule",
+              "npc_level": 70
+            }
+          ]
+        },
+        {
+          "slot": 6,
+          "id": 1531,
+          "name": "Pauldrons of Ferocity",
+          "base_id": 1531,
+          "score": 130,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 1531,
+              "zone": "fearplane",
+              "npc_id": 72003,
+              "npc_name": "Cazic_Thule",
+              "npc_level": 70
+            }
+          ]
+        },
+        {
+          "slot": 7,
+          "id": 68251,
+          "name": "Fabled Crafted Vambraces",
+          "base_id": 68251,
+          "score": 165,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 68251,
+              "zone": "northkarana",
+              "npc_id": 13118,
+              "npc_name": "The_Fabled_GrimFeather",
+              "npc_level": 55
+            }
+          ]
+        },
+        {
+          "slot": 8,
+          "id": 1551,
+          "name": "Cloak of the Fearsome",
+          "base_id": 1551,
+          "score": 175,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 1551,
+              "zone": "fearplane",
+              "npc_id": 72003,
+              "npc_name": "Cazic_Thule",
+              "npc_level": 70
+            }
+          ]
+        },
+        {
+          "slot": 9,
+          "id": 1559,
+          "name": "Zombie Flesh Bracer",
+          "base_id": 1559,
+          "score": 164,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 1559,
+              "zone": "fearplane",
+              "npc_id": 72090,
+              "npc_name": "a_dracoliche",
+              "npc_level": 58
+            }
+          ]
+        },
+        {
+          "slot": 10,
+          "id": 62292,
+          "name": "Steel Bracer of Law",
+          "base_id": 62292,
+          "score": 134,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 62292,
+              "zone": "hole",
+              "npc_id": 39067,
+              "npc_name": "#an_ancient_construct",
+              "npc_level": 55
+            }
+          ]
+        },
+        {
+          "slot": 11,
+          "id": 1554,
+          "name": "Brain of Cazic-Thule",
+          "base_id": 1554,
+          "score": 270,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 1554,
+              "zone": "fearplane",
+              "npc_id": 72003,
+              "npc_name": "Cazic_Thule",
+              "npc_level": 70
+            }
+          ]
+        },
+        {
+          "slot": 12,
+          "id": 4915,
+          "name": "Indicolite Gauntlets",
+          "base_id": 4915,
+          "score": 119,
+          "source_count": 16,
+          "source_examples": [
+            {
+              "item_id": 4915,
+              "zone": "hateplaneb",
+              "npc_id": 186004,
+              "npc_name": "a_kiraikuei",
+              "npc_level": 53
+            },
+            {
+              "item_id": 4915,
+              "zone": "hateplaneb",
+              "npc_id": 186010,
+              "npc_name": "a_kiraikuei",
+              "npc_level": 52
+            },
+            {
+              "item_id": 4915,
+              "zone": "hateplaneb",
+              "npc_id": 186011,
+              "npc_name": "a_repulsive_rat",
+              "npc_level": 52
+            }
+          ]
+        },
+        {
+          "slot": 13,
+          "id": 62285,
+          "name": "Ancient Tome of Lost Lore",
+          "base_id": 62285,
+          "score": 105,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 62285,
+              "zone": "hole",
+              "npc_id": 39118,
+              "npc_name": "#an_old_gargoyle",
+              "npc_level": 49
+            }
+          ]
+        },
+        {
+          "slot": 14,
+          "id": 1555,
+          "name": "Fearsome Shield",
+          "base_id": 1555,
+          "score": 175,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 1555,
+              "zone": "fearplane",
+              "npc_id": 72090,
+              "npc_name": "a_dracoliche",
+              "npc_level": 58
+            }
+          ]
+        },
+        {
+          "slot": 15,
+          "id": 62290,
+          "name": "Shaped Amber Ring of Soldiery",
+          "base_id": 62290,
+          "score": 136,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 62290,
+              "zone": "hole",
+              "npc_id": 39074,
+              "npc_name": "#a_temple_researcher",
+              "npc_level": 60
+            }
+          ]
+        },
+        {
+          "slot": 16,
+          "id": 79871,
+          "name": "Warforged Emerald Hoop",
+          "base_id": 79871,
+          "score": 96,
+          "source_count": 97,
+          "source_examples": [
+            {
+              "item_id": 79871,
+              "zone": "soldunga",
+              "npc_id": 31000,
+              "npc_name": "cinder_goblin",
+              "npc_level": 20
+            },
+            {
+              "item_id": 79871,
+              "zone": "soldunga",
+              "npc_id": 31001,
+              "npc_name": "Lynada_the_exiled",
+              "npc_level": 29
+            },
+            {
+              "item_id": 79871,
+              "zone": "soldunga",
+              "npc_id": 31002,
+              "npc_name": "Solusek_goblin",
+              "npc_level": 30
+            }
+          ]
+        },
+        {
+          "slot": 17,
+          "id": 1552,
+          "name": "Robe of Inspiration",
+          "base_id": 1552,
+          "score": 220,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 1552,
+              "zone": "fearplane",
+              "npc_id": 72003,
+              "npc_name": "Cazic_Thule",
+              "npc_level": 70
+            }
+          ]
+        },
+        {
+          "slot": 18,
+          "id": 62286,
+          "name": "Plate Greaves of the Golden Sun",
+          "base_id": 62286,
+          "score": 140,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 62286,
+              "zone": "hole",
+              "npc_id": 39118,
+              "npc_name": "#an_old_gargoyle",
+              "npc_level": 49
+            }
+          ]
+        },
+        {
+          "slot": 19,
+          "id": 4917,
+          "name": "Indicolite Boots",
+          "base_id": 4917,
+          "score": 90,
+          "source_count": 23,
+          "source_examples": [
+            {
+              "item_id": 4917,
+              "zone": "hateplaneb",
+              "npc_id": 186004,
+              "npc_name": "a_kiraikuei",
+              "npc_level": 53
+            },
+            {
+              "item_id": 4917,
+              "zone": "hateplaneb",
+              "npc_id": 186010,
+              "npc_name": "a_kiraikuei",
+              "npc_level": 52
+            },
+            {
+              "item_id": 4917,
+              "zone": "hateplaneb",
+              "npc_id": 186011,
+              "npc_name": "a_repulsive_rat",
+              "npc_level": 52
+            }
+          ]
+        },
+        {
+          "slot": 20,
+          "id": 1556,
+          "name": "Grotesque Girdle",
+          "base_id": 1556,
+          "score": 252,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 1556,
+              "zone": "fearplane",
+              "npc_id": 72090,
+              "npc_name": "a_dracoliche",
+              "npc_level": 58
+            }
+          ]
+        }
+      ],
+      "raw_item_totals": {
+        "hp": 930,
+        "mana": 795,
+        "ac": 311,
+        "astr": 108,
+        "asta": 108,
+        "aagi": 19,
+        "adex": 29,
+        "aint": 69,
+        "awis": 71,
+        "heroic_str": 0,
+        "heroic_sta": 0,
+        "heroic_agi": 0,
+        "heroic_dex": 0,
+        "heroic_int": 0,
+        "heroic_wis": 0,
+        "spelldmg": 0,
+        "healamt": 0,
+        "attack": 0,
+        "accuracy": 0,
+        "avoidance": 0,
+        "regen": 0,
+        "manaregen": 3,
+        "fr": 52,
+        "cr": 52,
+        "mr": 81,
+        "pr": 95,
+        "dr": 95,
+        "shielding": 0,
+        "spellshield": 0,
+        "dotshielding": 0
+      },
+      "capped_spell_damage": 0,
+      "capped_heal_amount": 0
+    },
+    {
+      "profile": "war-clr-wiz",
+      "classes": [
+        1,
+        2,
+        12
+      ],
+      "level": 50,
+      "race": "Human",
+      "deity": "Agnostic",
+      "tier": "Polished",
+      "casting_stat_scored": "int",
+      "melee_ratio_scored": false,
+      "total_score": 4929,
+      "equipment": [
+        {
+          "slot": 1,
+          "id": 262283,
+          "name": "Shiny Gold Earring (Polished)",
+          "base_id": 62283,
+          "score": 143,
+          "source_count": 19,
+          "source_examples": [
+            {
+              "item_id": 62283,
+              "zone": "hole",
+              "npc_id": 39015,
+              "npc_name": "a_spirit_of_the_old_city",
+              "npc_level": 51
+            },
+            {
+              "item_id": 62283,
+              "zone": "hole",
+              "npc_id": 39016,
+              "npc_name": "a_spirit_of_the_old_city",
+              "npc_level": 52
+            },
+            {
+              "item_id": 62283,
+              "zone": "hole",
+              "npc_id": 39018,
+              "npc_name": "a_spirit_of_the_old_city",
+              "npc_level": 53
+            }
+          ]
+        },
+        {
+          "slot": 2,
+          "id": 201549,
+          "name": "Halo of the Enlightened (Polished)",
+          "base_id": 1549,
+          "score": 460,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 1549,
+              "zone": "fearplane",
+              "npc_id": 72003,
+              "npc_name": "Cazic_Thule",
+              "npc_level": 70
+            }
+          ]
+        },
+        {
+          "slot": 3,
+          "id": 201547,
+          "name": "Eye of Cazic-Thule (Polished)",
+          "base_id": 1547,
+          "score": 339,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 1547,
+              "zone": "fearplane",
+              "npc_id": 72003,
+              "npc_name": "Cazic_Thule",
+              "npc_level": 70
+            }
+          ]
+        },
+        {
+          "slot": 4,
+          "id": 279621,
+          "name": "Silverwing Loop (Polished)",
+          "base_id": 79621,
+          "score": 122,
+          "source_count": 120,
+          "source_examples": [
+            {
+              "item_id": 79621,
+              "zone": "mistmoore",
+              "npc_id": 59000,
+              "npc_name": "a_deathly_usher",
+              "npc_level": 30
+            },
+            {
+              "item_id": 79621,
+              "zone": "mistmoore",
+              "npc_id": 59001,
+              "npc_name": "a_deathly_usher",
+              "npc_level": 31
+            },
+            {
+              "item_id": 79621,
+              "zone": "mistmoore",
+              "npc_id": 59002,
+              "npc_name": "a_deathly_usher",
+              "npc_level": 29
+            }
+          ]
+        },
+        {
+          "slot": 5,
+          "id": 201550,
+          "name": "Bile Etched Obsidian Choker (Polished)",
+          "base_id": 1550,
+          "score": 235,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 1550,
+              "zone": "fearplane",
+              "npc_id": 72003,
+              "npc_name": "Cazic_Thule",
+              "npc_level": 70
+            }
+          ]
+        },
+        {
+          "slot": 6,
+          "id": 201531,
+          "name": "Pauldrons of Ferocity (Polished)",
+          "base_id": 1531,
+          "score": 200,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 1531,
+              "zone": "fearplane",
+              "npc_id": 72003,
+              "npc_name": "Cazic_Thule",
+              "npc_level": 70
+            }
+          ]
+        },
+        {
+          "slot": 7,
+          "id": 268251,
+          "name": "Fabled Crafted Vambraces (Polished)",
+          "base_id": 68251,
+          "score": 249,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 68251,
+              "zone": "northkarana",
+              "npc_id": 13118,
+              "npc_name": "The_Fabled_GrimFeather",
+              "npc_level": 55
+            }
+          ]
+        },
+        {
+          "slot": 8,
+          "id": 201551,
+          "name": "Cloak of the Fearsome (Polished)",
+          "base_id": 1551,
+          "score": 265,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 1551,
+              "zone": "fearplane",
+              "npc_id": 72003,
+              "npc_name": "Cazic_Thule",
+              "npc_level": 70
+            }
+          ]
+        },
+        {
+          "slot": 9,
+          "id": 201559,
+          "name": "Zombie Flesh Bracer (Polished)",
+          "base_id": 1559,
+          "score": 254,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 1559,
+              "zone": "fearplane",
+              "npc_id": 72090,
+              "npc_name": "a_dracoliche",
+              "npc_level": 58
+            }
+          ]
+        },
+        {
+          "slot": 10,
+          "id": 262292,
+          "name": "Steel Bracer of Law (Polished)",
+          "base_id": 62292,
+          "score": 207,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 62292,
+              "zone": "hole",
+              "npc_id": 39067,
+              "npc_name": "#an_ancient_construct",
+              "npc_level": 55
+            }
+          ]
+        },
+        {
+          "slot": 11,
+          "id": 201554,
+          "name": "Brain of Cazic-Thule (Polished)",
+          "base_id": 1554,
+          "score": 408,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 1554,
+              "zone": "fearplane",
+              "npc_id": 72003,
+              "npc_name": "Cazic_Thule",
+              "npc_level": 70
+            }
+          ]
+        },
+        {
+          "slot": 12,
+          "id": 204915,
+          "name": "Indicolite Gauntlets (Polished)",
+          "base_id": 4915,
+          "score": 188,
+          "source_count": 16,
+          "source_examples": [
+            {
+              "item_id": 4915,
+              "zone": "hateplaneb",
+              "npc_id": 186004,
+              "npc_name": "a_kiraikuei",
+              "npc_level": 53
+            },
+            {
+              "item_id": 4915,
+              "zone": "hateplaneb",
+              "npc_id": 186010,
+              "npc_name": "a_kiraikuei",
+              "npc_level": 52
+            },
+            {
+              "item_id": 4915,
+              "zone": "hateplaneb",
+              "npc_id": 186011,
+              "npc_name": "a_repulsive_rat",
+              "npc_level": 52
+            }
+          ]
+        },
+        {
+          "slot": 13,
+          "id": 262285,
+          "name": "Ancient Tome of Lost Lore (Polished)",
+          "base_id": 62285,
+          "score": 170,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 62285,
+              "zone": "hole",
+              "npc_id": 39118,
+              "npc_name": "#an_old_gargoyle",
+              "npc_level": 49
+            }
+          ]
+        },
+        {
+          "slot": 14,
+          "id": 201555,
+          "name": "Fearsome Shield (Polished)",
+          "base_id": 1555,
+          "score": 256,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 1555,
+              "zone": "fearplane",
+              "npc_id": 72090,
+              "npc_name": "a_dracoliche",
+              "npc_level": 58
+            }
+          ]
+        },
+        {
+          "slot": 15,
+          "id": 262290,
+          "name": "Shaped Amber Ring of Soldiery (Polished)",
+          "base_id": 62290,
+          "score": 214,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 62290,
+              "zone": "hole",
+              "npc_id": 39074,
+              "npc_name": "#a_temple_researcher",
+              "npc_level": 60
+            }
+          ]
+        },
+        {
+          "slot": 16,
+          "id": 279871,
+          "name": "Warforged Emerald Hoop (Polished)",
+          "base_id": 79871,
+          "score": 155,
+          "source_count": 97,
+          "source_examples": [
+            {
+              "item_id": 79871,
+              "zone": "soldunga",
+              "npc_id": 31000,
+              "npc_name": "cinder_goblin",
+              "npc_level": 20
+            },
+            {
+              "item_id": 79871,
+              "zone": "soldunga",
+              "npc_id": 31001,
+              "npc_name": "Lynada_the_exiled",
+              "npc_level": 29
+            },
+            {
+              "item_id": 79871,
+              "zone": "soldunga",
+              "npc_id": 31002,
+              "npc_name": "Solusek_goblin",
+              "npc_level": 30
+            }
+          ]
+        },
+        {
+          "slot": 17,
+          "id": 201552,
+          "name": "Robe of Inspiration (Polished)",
+          "base_id": 1552,
+          "score": 327,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 1552,
+              "zone": "fearplane",
+              "npc_id": 72003,
+              "npc_name": "Cazic_Thule",
+              "npc_level": 70
+            }
+          ]
+        },
+        {
+          "slot": 18,
+          "id": 262286,
+          "name": "Plate Greaves of the Golden Sun (Polished)",
+          "base_id": 62286,
+          "score": 213,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 62286,
+              "zone": "hole",
+              "npc_id": 39118,
+              "npc_name": "#an_old_gargoyle",
+              "npc_level": 49
+            }
+          ]
+        },
+        {
+          "slot": 19,
+          "id": 204917,
+          "name": "Indicolite Boots (Polished)",
+          "base_id": 4917,
+          "score": 142,
+          "source_count": 23,
+          "source_examples": [
+            {
+              "item_id": 4917,
+              "zone": "hateplaneb",
+              "npc_id": 186004,
+              "npc_name": "a_kiraikuei",
+              "npc_level": 53
+            },
+            {
+              "item_id": 4917,
+              "zone": "hateplaneb",
+              "npc_id": 186010,
+              "npc_name": "a_kiraikuei",
+              "npc_level": 52
+            },
+            {
+              "item_id": 4917,
+              "zone": "hateplaneb",
+              "npc_id": 186011,
+              "npc_name": "a_repulsive_rat",
+              "npc_level": 52
+            }
+          ]
+        },
+        {
+          "slot": 20,
+          "id": 201556,
+          "name": "Grotesque Girdle (Polished)",
+          "base_id": 1556,
+          "score": 382,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 1556,
+              "zone": "fearplane",
+              "npc_id": 72090,
+              "npc_name": "a_dracoliche",
+              "npc_level": 58
+            }
+          ]
+        }
+      ],
+      "raw_item_totals": {
+        "hp": 1350,
+        "mana": 1154,
+        "ac": 422,
+        "astr": 148,
+        "asta": 147,
+        "aagi": 26,
+        "adex": 40,
+        "aint": 95,
+        "awis": 97,
+        "heroic_str": 0,
+        "heroic_sta": 0,
+        "heroic_agi": 0,
+        "heroic_dex": 0,
+        "heroic_int": 0,
+        "heroic_wis": 0,
+        "spelldmg": 100,
+        "healamt": 100,
+        "attack": 0,
+        "accuracy": 0,
+        "avoidance": 0,
+        "regen": 0,
+        "manaregen": 3,
+        "fr": 71,
+        "cr": 71,
+        "mr": 110,
+        "pr": 129,
+        "dr": 129,
+        "shielding": 0,
+        "spellshield": 0,
+        "dotshielding": 0
+      },
+      "capped_spell_damage": 100,
+      "capped_heal_amount": 100
+    },
+    {
+      "profile": "war-clr-wiz",
+      "classes": [
+        1,
+        2,
+        12
+      ],
+      "level": 50,
+      "race": "Human",
+      "deity": "Agnostic",
+      "tier": "Exalted",
+      "casting_stat_scored": "int",
+      "melee_ratio_scored": false,
+      "total_score": 6712,
+      "equipment": [
+        {
+          "slot": 1,
+          "id": 462283,
+          "name": "Shiny Gold Earring (Exalted)",
+          "base_id": 62283,
+          "score": 210,
+          "source_count": 19,
+          "source_examples": [
+            {
+              "item_id": 62283,
+              "zone": "hole",
+              "npc_id": 39015,
+              "npc_name": "a_spirit_of_the_old_city",
+              "npc_level": 51
+            },
+            {
+              "item_id": 62283,
+              "zone": "hole",
+              "npc_id": 39016,
+              "npc_name": "a_spirit_of_the_old_city",
+              "npc_level": 52
+            },
+            {
+              "item_id": 62283,
+              "zone": "hole",
+              "npc_id": 39018,
+              "npc_name": "a_spirit_of_the_old_city",
+              "npc_level": 53
+            }
+          ]
+        },
+        {
+          "slot": 2,
+          "id": 401549,
+          "name": "Halo of the Enlightened (Exalted)",
+          "base_id": 1549,
+          "score": 609,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 1549,
+              "zone": "fearplane",
+              "npc_id": 72003,
+              "npc_name": "Cazic_Thule",
+              "npc_level": 70
+            }
+          ]
+        },
+        {
+          "slot": 3,
+          "id": 401547,
+          "name": "Eye of Cazic-Thule (Exalted)",
+          "base_id": 1547,
+          "score": 457,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 1547,
+              "zone": "fearplane",
+              "npc_id": 72003,
+              "npc_name": "Cazic_Thule",
+              "npc_level": 70
+            }
+          ]
+        },
+        {
+          "slot": 4,
+          "id": 479621,
+          "name": "Silverwing Loop (Exalted)",
+          "base_id": 79621,
+          "score": 174,
+          "source_count": 120,
+          "source_examples": [
+            {
+              "item_id": 79621,
+              "zone": "mistmoore",
+              "npc_id": 59000,
+              "npc_name": "a_deathly_usher",
+              "npc_level": 30
+            },
+            {
+              "item_id": 79621,
+              "zone": "mistmoore",
+              "npc_id": 59001,
+              "npc_name": "a_deathly_usher",
+              "npc_level": 31
+            },
+            {
+              "item_id": 79621,
+              "zone": "mistmoore",
+              "npc_id": 59002,
+              "npc_name": "a_deathly_usher",
+              "npc_level": 29
+            }
+          ]
+        },
+        {
+          "slot": 5,
+          "id": 401550,
+          "name": "Bile Etched Obsidian Choker (Exalted)",
+          "base_id": 1550,
+          "score": 323,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 1550,
+              "zone": "fearplane",
+              "npc_id": 72003,
+              "npc_name": "Cazic_Thule",
+              "npc_level": 70
+            }
+          ]
+        },
+        {
+          "slot": 6,
+          "id": 401531,
+          "name": "Pauldrons of Ferocity (Exalted)",
+          "base_id": 1531,
+          "score": 273,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 1531,
+              "zone": "fearplane",
+              "npc_id": 72003,
+              "npc_name": "Cazic_Thule",
+              "npc_level": 70
+            }
+          ]
+        },
+        {
+          "slot": 7,
+          "id": 468251,
+          "name": "Fabled Crafted Vambraces (Exalted)",
+          "base_id": 68251,
+          "score": 341,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 68251,
+              "zone": "northkarana",
+              "npc_id": 13118,
+              "npc_name": "The_Fabled_GrimFeather",
+              "npc_level": 55
+            }
+          ]
+        },
+        {
+          "slot": 8,
+          "id": 401551,
+          "name": "Cloak of the Fearsome (Exalted)",
+          "base_id": 1551,
+          "score": 363,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 1551,
+              "zone": "fearplane",
+              "npc_id": 72003,
+              "npc_name": "Cazic_Thule",
+              "npc_level": 70
+            }
+          ]
+        },
+        {
+          "slot": 9,
+          "id": 401559,
+          "name": "Zombie Flesh Bracer (Exalted)",
+          "base_id": 1559,
+          "score": 352,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 1559,
+              "zone": "fearplane",
+              "npc_id": 72090,
+              "npc_name": "a_dracoliche",
+              "npc_level": 58
+            }
+          ]
+        },
+        {
+          "slot": 10,
+          "id": 462292,
+          "name": "Steel Bracer of Law (Exalted)",
+          "base_id": 62292,
+          "score": 289,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 62292,
+              "zone": "hole",
+              "npc_id": 39067,
+              "npc_name": "#an_ancient_construct",
+              "npc_level": 55
+            }
+          ]
+        },
+        {
+          "slot": 11,
+          "id": 401554,
+          "name": "Brain of Cazic-Thule (Exalted)",
+          "base_id": 1554,
+          "score": 547,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 1554,
+              "zone": "fearplane",
+              "npc_id": 72003,
+              "npc_name": "Cazic_Thule",
+              "npc_level": 70
+            }
+          ]
+        },
+        {
+          "slot": 12,
+          "id": 404915,
+          "name": "Indicolite Gauntlets (Exalted)",
+          "base_id": 4915,
+          "score": 255,
+          "source_count": 16,
+          "source_examples": [
+            {
+              "item_id": 4915,
+              "zone": "hateplaneb",
+              "npc_id": 186004,
+              "npc_name": "a_kiraikuei",
+              "npc_level": 53
+            },
+            {
+              "item_id": 4915,
+              "zone": "hateplaneb",
+              "npc_id": 186010,
+              "npc_name": "a_kiraikuei",
+              "npc_level": 52
+            },
+            {
+              "item_id": 4915,
+              "zone": "hateplaneb",
+              "npc_id": 186011,
+              "npc_name": "a_repulsive_rat",
+              "npc_level": 52
+            }
+          ]
+        },
+        {
+          "slot": 13,
+          "id": 462285,
+          "name": "Ancient Tome of Lost Lore (Exalted)",
+          "base_id": 62285,
+          "score": 239,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 62285,
+              "zone": "hole",
+              "npc_id": 39118,
+              "npc_name": "#an_old_gargoyle",
+              "npc_level": 49
+            }
+          ]
+        },
+        {
+          "slot": 14,
+          "id": 401555,
+          "name": "Fearsome Shield (Exalted)",
+          "base_id": 1555,
+          "score": 337,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 1555,
+              "zone": "fearplane",
+              "npc_id": 72090,
+              "npc_name": "a_dracoliche",
+              "npc_level": 58
+            }
+          ]
+        },
+        {
+          "slot": 15,
+          "id": 462290,
+          "name": "Shaped Amber Ring of Soldiery (Exalted)",
+          "base_id": 62290,
+          "score": 296,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 62290,
+              "zone": "hole",
+              "npc_id": 39074,
+              "npc_name": "#a_temple_researcher",
+              "npc_level": 60
+            }
+          ]
+        },
+        {
+          "slot": 16,
+          "id": 479871,
+          "name": "Warforged Emerald Hoop (Exalted)",
+          "base_id": 79871,
+          "score": 215,
+          "source_count": 97,
+          "source_examples": [
+            {
+              "item_id": 79871,
+              "zone": "soldunga",
+              "npc_id": 31000,
+              "npc_name": "cinder_goblin",
+              "npc_level": 20
+            },
+            {
+              "item_id": 79871,
+              "zone": "soldunga",
+              "npc_id": 31001,
+              "npc_name": "Lynada_the_exiled",
+              "npc_level": 29
+            },
+            {
+              "item_id": 79871,
+              "zone": "soldunga",
+              "npc_id": 31002,
+              "npc_name": "Solusek_goblin",
+              "npc_level": 30
+            }
+          ]
+        },
+        {
+          "slot": 17,
+          "id": 401552,
+          "name": "Robe of Inspiration (Exalted)",
+          "base_id": 1552,
+          "score": 436,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 1552,
+              "zone": "fearplane",
+              "npc_id": 72003,
+              "npc_name": "Cazic_Thule",
+              "npc_level": 70
+            }
+          ]
+        },
+        {
+          "slot": 18,
+          "id": 462286,
+          "name": "Plate Greaves of the Golden Sun (Exalted)",
+          "base_id": 62286,
+          "score": 286,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 62286,
+              "zone": "hole",
+              "npc_id": 39118,
+              "npc_name": "#an_old_gargoyle",
+              "npc_level": 49
+            }
+          ]
+        },
+        {
+          "slot": 19,
+          "id": 404917,
+          "name": "Indicolite Boots (Exalted)",
+          "base_id": 4917,
+          "score": 196,
+          "source_count": 23,
+          "source_examples": [
+            {
+              "item_id": 4917,
+              "zone": "hateplaneb",
+              "npc_id": 186004,
+              "npc_name": "a_kiraikuei",
+              "npc_level": 53
+            },
+            {
+              "item_id": 4917,
+              "zone": "hateplaneb",
+              "npc_id": 186010,
+              "npc_name": "a_kiraikuei",
+              "npc_level": 52
+            },
+            {
+              "item_id": 4917,
+              "zone": "hateplaneb",
+              "npc_id": 186011,
+              "npc_name": "a_repulsive_rat",
+              "npc_level": 52
+            }
+          ]
+        },
+        {
+          "slot": 20,
+          "id": 401556,
+          "name": "Grotesque Girdle (Exalted)",
+          "base_id": 1556,
+          "score": 514,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 1556,
+              "zone": "fearplane",
+              "npc_id": 72090,
+              "npc_name": "a_dracoliche",
+              "npc_level": 58
+            }
+          ]
+        }
+      ],
+      "raw_item_totals": {
+        "hp": 1770,
+        "mana": 1513,
+        "ac": 515,
+        "astr": 180,
+        "asta": 181,
+        "aagi": 31,
+        "adex": 48,
+        "aint": 114,
+        "awis": 118,
+        "heroic_str": 0,
+        "heroic_sta": 0,
+        "heroic_agi": 0,
+        "heroic_dex": 0,
+        "heroic_int": 0,
+        "heroic_wis": 0,
+        "spelldmg": 240,
+        "healamt": 240,
+        "attack": 0,
+        "accuracy": 0,
+        "avoidance": 0,
+        "regen": 0,
+        "manaregen": 6,
+        "fr": 86,
+        "cr": 86,
+        "mr": 134,
+        "pr": 157,
+        "dr": 157,
+        "shielding": 0,
+        "spellshield": 0,
+        "dotshielding": 0
+      },
+      "capped_spell_damage": 240,
+      "capped_heal_amount": 240
+    },
+    {
+      "profile": "war-clr-wiz",
+      "classes": [
+        1,
+        2,
+        12
+      ],
+      "level": 50,
+      "race": "Human",
+      "deity": "Agnostic",
+      "tier": "Ascended",
+      "casting_stat_scored": "int",
+      "melee_ratio_scored": false,
+      "total_score": 9670,
+      "equipment": [
+        {
+          "slot": 1,
+          "id": 662283,
+          "name": "Shiny Gold Earring (Ascended)",
+          "base_id": 62283,
+          "score": 300,
+          "source_count": 19,
+          "source_examples": [
+            {
+              "item_id": 62283,
+              "zone": "hole",
+              "npc_id": 39015,
+              "npc_name": "a_spirit_of_the_old_city",
+              "npc_level": 51
+            },
+            {
+              "item_id": 62283,
+              "zone": "hole",
+              "npc_id": 39016,
+              "npc_name": "a_spirit_of_the_old_city",
+              "npc_level": 52
+            },
+            {
+              "item_id": 62283,
+              "zone": "hole",
+              "npc_id": 39018,
+              "npc_name": "a_spirit_of_the_old_city",
+              "npc_level": 53
+            }
+          ]
+        },
+        {
+          "slot": 2,
+          "id": 601549,
+          "name": "Halo of the Enlightened (Ascended)",
+          "base_id": 1549,
+          "score": 830,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 1549,
+              "zone": "fearplane",
+              "npc_id": 72003,
+              "npc_name": "Cazic_Thule",
+              "npc_level": 70
+            }
+          ]
+        },
+        {
+          "slot": 3,
+          "id": 601547,
+          "name": "Eye of Cazic-Thule (Ascended)",
+          "base_id": 1547,
+          "score": 650,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 1547,
+              "zone": "fearplane",
+              "npc_id": 72003,
+              "npc_name": "Cazic_Thule",
+              "npc_level": 70
+            }
+          ]
+        },
+        {
+          "slot": 4,
+          "id": 679621,
+          "name": "Silverwing Loop (Ascended)",
+          "base_id": 79621,
+          "score": 266,
+          "source_count": 120,
+          "source_examples": [
+            {
+              "item_id": 79621,
+              "zone": "mistmoore",
+              "npc_id": 59000,
+              "npc_name": "a_deathly_usher",
+              "npc_level": 30
+            },
+            {
+              "item_id": 79621,
+              "zone": "mistmoore",
+              "npc_id": 59001,
+              "npc_name": "a_deathly_usher",
+              "npc_level": 31
+            },
+            {
+              "item_id": 79621,
+              "zone": "mistmoore",
+              "npc_id": 59002,
+              "npc_name": "a_deathly_usher",
+              "npc_level": 29
+            }
+          ]
+        },
+        {
+          "slot": 5,
+          "id": 601550,
+          "name": "Bile Etched Obsidian Choker (Ascended)",
+          "base_id": 1550,
+          "score": 470,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 1550,
+              "zone": "fearplane",
+              "npc_id": 72003,
+              "npc_name": "Cazic_Thule",
+              "npc_level": 70
+            }
+          ]
+        },
+        {
+          "slot": 6,
+          "id": 601531,
+          "name": "Pauldrons of Ferocity (Ascended)",
+          "base_id": 1531,
+          "score": 406,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 1531,
+              "zone": "fearplane",
+              "npc_id": 72003,
+              "npc_name": "Cazic_Thule",
+              "npc_level": 70
+            }
+          ]
+        },
+        {
+          "slot": 7,
+          "id": 668251,
+          "name": "Fabled Crafted Vambraces (Ascended)",
+          "base_id": 68251,
+          "score": 470,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 68251,
+              "zone": "northkarana",
+              "npc_id": 13118,
+              "npc_name": "The_Fabled_GrimFeather",
+              "npc_level": 55
+            }
+          ]
+        },
+        {
+          "slot": 8,
+          "id": 601551,
+          "name": "Cloak of the Fearsome (Ascended)",
+          "base_id": 1551,
+          "score": 550,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 1551,
+              "zone": "fearplane",
+              "npc_id": 72003,
+              "npc_name": "Cazic_Thule",
+              "npc_level": 70
+            }
+          ]
+        },
+        {
+          "slot": 9,
+          "id": 601559,
+          "name": "Zombie Flesh Bracer (Ascended)",
+          "base_id": 1559,
+          "score": 490,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 1559,
+              "zone": "fearplane",
+              "npc_id": 72090,
+              "npc_name": "a_dracoliche",
+              "npc_level": 58
+            }
+          ]
+        },
+        {
+          "slot": 10,
+          "id": 662292,
+          "name": "Steel Bracer of Law (Ascended)",
+          "base_id": 62292,
+          "score": 396,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 62292,
+              "zone": "hole",
+              "npc_id": 39067,
+              "npc_name": "#an_ancient_construct",
+              "npc_level": 55
+            }
+          ]
+        },
+        {
+          "slot": 11,
+          "id": 601554,
+          "name": "Brain of Cazic-Thule (Ascended)",
+          "base_id": 1554,
+          "score": 800,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 1554,
+              "zone": "fearplane",
+              "npc_id": 72003,
+              "npc_name": "Cazic_Thule",
+              "npc_level": 70
+            }
+          ]
+        },
+        {
+          "slot": 12,
+          "id": 604915,
+          "name": "Indicolite Gauntlets (Ascended)",
+          "base_id": 4915,
+          "score": 368,
+          "source_count": 16,
+          "source_examples": [
+            {
+              "item_id": 4915,
+              "zone": "hateplaneb",
+              "npc_id": 186004,
+              "npc_name": "a_kiraikuei",
+              "npc_level": 53
+            },
+            {
+              "item_id": 4915,
+              "zone": "hateplaneb",
+              "npc_id": 186010,
+              "npc_name": "a_kiraikuei",
+              "npc_level": 52
+            },
+            {
+              "item_id": 4915,
+              "zone": "hateplaneb",
+              "npc_id": 186011,
+              "npc_name": "a_repulsive_rat",
+              "npc_level": 52
+            }
+          ]
+        },
+        {
+          "slot": 13,
+          "id": 662285,
+          "name": "Ancient Tome of Lost Lore (Ascended)",
+          "base_id": 62285,
+          "score": 344,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 62285,
+              "zone": "hole",
+              "npc_id": 39118,
+              "npc_name": "#an_old_gargoyle",
+              "npc_level": 49
+            }
+          ]
+        },
+        {
+          "slot": 14,
+          "id": 601555,
+          "name": "Fearsome Shield (Ascended)",
+          "base_id": 1555,
+          "score": 510,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 1555,
+              "zone": "fearplane",
+              "npc_id": 72090,
+              "npc_name": "a_dracoliche",
+              "npc_level": 58
+            }
+          ]
+        },
+        {
+          "slot": 15,
+          "id": 662290,
+          "name": "Shaped Amber Ring of Soldiery (Ascended)",
+          "base_id": 62290,
+          "score": 436,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 62290,
+              "zone": "hole",
+              "npc_id": 39074,
+              "npc_name": "#a_temple_researcher",
+              "npc_level": 60
+            }
+          ]
+        },
+        {
+          "slot": 16,
+          "id": 679871,
+          "name": "Warforged Emerald Hoop (Ascended)",
+          "base_id": 79871,
+          "score": 308,
+          "source_count": 97,
+          "source_examples": [
+            {
+              "item_id": 79871,
+              "zone": "soldunga",
+              "npc_id": 31000,
+              "npc_name": "cinder_goblin",
+              "npc_level": 20
+            },
+            {
+              "item_id": 79871,
+              "zone": "soldunga",
+              "npc_id": 31001,
+              "npc_name": "Lynada_the_exiled",
+              "npc_level": 29
+            },
+            {
+              "item_id": 79871,
+              "zone": "soldunga",
+              "npc_id": 31002,
+              "npc_name": "Solusek_goblin",
+              "npc_level": 30
+            }
+          ]
+        },
+        {
+          "slot": 17,
+          "id": 601552,
+          "name": "Robe of Inspiration (Ascended)",
+          "base_id": 1552,
+          "score": 660,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 1552,
+              "zone": "fearplane",
+              "npc_id": 72003,
+              "npc_name": "Cazic_Thule",
+              "npc_level": 70
+            }
+          ]
+        },
+        {
+          "slot": 18,
+          "id": 662286,
+          "name": "Plate Greaves of the Golden Sun (Ascended)",
+          "base_id": 62286,
+          "score": 412,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 62286,
+              "zone": "hole",
+              "npc_id": 39118,
+              "npc_name": "#an_old_gargoyle",
+              "npc_level": 49
+            }
+          ]
+        },
+        {
+          "slot": 19,
+          "id": 604917,
+          "name": "Indicolite Boots (Ascended)",
+          "base_id": 4917,
+          "score": 290,
+          "source_count": 23,
+          "source_examples": [
+            {
+              "item_id": 4917,
+              "zone": "hateplaneb",
+              "npc_id": 186004,
+              "npc_name": "a_kiraikuei",
+              "npc_level": 53
+            },
+            {
+              "item_id": 4917,
+              "zone": "hateplaneb",
+              "npc_id": 186010,
+              "npc_name": "a_kiraikuei",
+              "npc_level": 52
+            },
+            {
+              "item_id": 4917,
+              "zone": "hateplaneb",
+              "npc_id": 186011,
+              "npc_name": "a_repulsive_rat",
+              "npc_level": 52
+            }
+          ]
+        },
+        {
+          "slot": 20,
+          "id": 601556,
+          "name": "Grotesque Girdle (Ascended)",
+          "base_id": 1556,
+          "score": 714,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 1556,
+              "zone": "fearplane",
+              "npc_id": 72090,
+              "npc_name": "a_dracoliche",
+              "npc_level": 58
+            }
+          ]
+        }
+      ],
+      "raw_item_totals": {
+        "hp": 2232,
+        "mana": 1908,
+        "ac": 622,
+        "astr": 216,
+        "asta": 216,
+        "aagi": 38,
+        "adex": 58,
+        "aint": 138,
+        "awis": 142,
+        "heroic_str": 58,
+        "heroic_sta": 57,
+        "heroic_agi": 12,
+        "heroic_dex": 17,
+        "heroic_int": 38,
+        "heroic_wis": 40,
+        "spelldmg": 400,
+        "healamt": 400,
+        "attack": 0,
+        "accuracy": 0,
+        "avoidance": 0,
+        "regen": 0,
+        "manaregen": 6,
+        "fr": 104,
+        "cr": 104,
+        "mr": 162,
+        "pr": 190,
+        "dr": 190,
+        "shielding": 0,
+        "spellshield": 0,
+        "dotshielding": 0
+      },
+      "capped_spell_damage": 250,
+      "capped_heal_amount": 250
+    },
+    {
+      "profile": "war-clr-mnk",
+      "classes": [
+        1,
+        2,
+        7
+      ],
+      "level": 50,
+      "race": "Human",
+      "deity": "Agnostic",
+      "tier": "Base",
+      "casting_stat_scored": "wis",
+      "melee_ratio_scored": true,
+      "total_score": 8373,
+      "equipment": [
+        {
+          "slot": 1,
+          "id": 62283,
+          "name": "Shiny Gold Earring",
+          "base_id": 62283,
+          "score": 87,
+          "source_count": 19,
+          "source_examples": [
+            {
+              "item_id": 62283,
+              "zone": "hole",
+              "npc_id": 39015,
+              "npc_name": "a_spirit_of_the_old_city",
+              "npc_level": 51
+            },
+            {
+              "item_id": 62283,
+              "zone": "hole",
+              "npc_id": 39016,
+              "npc_name": "a_spirit_of_the_old_city",
+              "npc_level": 52
+            },
+            {
+              "item_id": 62283,
+              "zone": "hole",
+              "npc_id": 39018,
+              "npc_name": "a_spirit_of_the_old_city",
+              "npc_level": 53
+            }
+          ]
+        },
+        {
+          "slot": 2,
+          "id": 1549,
+          "name": "Halo of the Enlightened",
+          "base_id": 1549,
+          "score": 340,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 1549,
+              "zone": "fearplane",
+              "npc_id": 72003,
+              "npc_name": "Cazic_Thule",
+              "npc_level": 70
+            }
+          ]
+        },
+        {
+          "slot": 3,
+          "id": 1547,
+          "name": "Eye of Cazic-Thule",
+          "base_id": 1547,
+          "score": 225,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 1547,
+              "zone": "fearplane",
+              "npc_id": 72003,
+              "npc_name": "Cazic_Thule",
+              "npc_level": 70
+            }
+          ]
+        },
+        {
+          "slot": 4,
+          "id": 79621,
+          "name": "Silverwing Loop",
+          "base_id": 79621,
+          "score": 72,
+          "source_count": 120,
+          "source_examples": [
+            {
+              "item_id": 79621,
+              "zone": "mistmoore",
+              "npc_id": 59000,
+              "npc_name": "a_deathly_usher",
+              "npc_level": 30
+            },
+            {
+              "item_id": 79621,
+              "zone": "mistmoore",
+              "npc_id": 59001,
+              "npc_name": "a_deathly_usher",
+              "npc_level": 31
+            },
+            {
+              "item_id": 79621,
+              "zone": "mistmoore",
+              "npc_id": 59002,
+              "npc_name": "a_deathly_usher",
+              "npc_level": 29
+            }
+          ]
+        },
+        {
+          "slot": 5,
+          "id": 1550,
+          "name": "Bile Etched Obsidian Choker",
+          "base_id": 1550,
+          "score": 150,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 1550,
+              "zone": "fearplane",
+              "npc_id": 72003,
+              "npc_name": "Cazic_Thule",
+              "npc_level": 70
+            }
+          ]
+        },
+        {
+          "slot": 6,
+          "id": 1531,
+          "name": "Pauldrons of Ferocity",
+          "base_id": 1531,
+          "score": 130,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 1531,
+              "zone": "fearplane",
+              "npc_id": 72003,
+              "npc_name": "Cazic_Thule",
+              "npc_level": 70
+            }
+          ]
+        },
+        {
+          "slot": 7,
+          "id": 68251,
+          "name": "Fabled Crafted Vambraces",
+          "base_id": 68251,
+          "score": 165,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 68251,
+              "zone": "northkarana",
+              "npc_id": 13118,
+              "npc_name": "The_Fabled_GrimFeather",
+              "npc_level": 55
+            }
+          ]
+        },
+        {
+          "slot": 8,
+          "id": 1551,
+          "name": "Cloak of the Fearsome",
+          "base_id": 1551,
+          "score": 175,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 1551,
+              "zone": "fearplane",
+              "npc_id": 72003,
+              "npc_name": "Cazic_Thule",
+              "npc_level": 70
+            }
+          ]
+        },
+        {
+          "slot": 9,
+          "id": 62292,
+          "name": "Steel Bracer of Law",
+          "base_id": 62292,
+          "score": 144,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 62292,
+              "zone": "hole",
+              "npc_id": 39067,
+              "npc_name": "#an_ancient_construct",
+              "npc_level": 55
+            }
+          ]
+        },
+        {
+          "slot": 10,
+          "id": 4884,
+          "name": "Ethereal Mist Bracers",
+          "base_id": 4884,
+          "score": 56,
+          "source_count": 11,
+          "source_examples": [
+            {
+              "item_id": 4884,
+              "zone": "hateplaneb",
+              "npc_id": 186002,
+              "npc_name": "a_cleric_of_hate",
+              "npc_level": 53
+            },
+            {
+              "item_id": 4884,
+              "zone": "hateplaneb",
+              "npc_id": 186024,
+              "npc_name": "a_cleric_of_hate",
+              "npc_level": 54
+            },
+            {
+              "item_id": 4884,
+              "zone": "hateplaneb",
+              "npc_id": 186029,
+              "npc_name": "a_cleric_of_hate",
+              "npc_level": 55
+            }
+          ]
+        },
+        {
+          "slot": 11,
+          "id": 8332,
+          "name": "Shuriken of the Tranquil",
+          "base_id": 8332,
+          "score": 5000,
+          "source_count": 11,
+          "source_examples": [
+            {
+              "item_id": 8332,
+              "zone": "hateplaneb",
+              "npc_id": 186004,
+              "npc_name": "a_kiraikuei",
+              "npc_level": 53
+            },
+            {
+              "item_id": 8332,
+              "zone": "hateplaneb",
+              "npc_id": 186010,
+              "npc_name": "a_kiraikuei",
+              "npc_level": 52
+            },
+            {
+              "item_id": 8332,
+              "zone": "hateplaneb",
+              "npc_id": 186028,
+              "npc_name": "a_greater_kiraikuei",
+              "npc_level": 57
+            }
+          ]
+        },
+        {
+          "slot": 12,
+          "id": 4915,
+          "name": "Indicolite Gauntlets",
+          "base_id": 4915,
+          "score": 119,
+          "source_count": 16,
+          "source_examples": [
+            {
+              "item_id": 4915,
+              "zone": "hateplaneb",
+              "npc_id": 186004,
+              "npc_name": "a_kiraikuei",
+              "npc_level": 53
+            },
+            {
+              "item_id": 4915,
+              "zone": "hateplaneb",
+              "npc_id": 186010,
+              "npc_name": "a_kiraikuei",
+              "npc_level": 52
+            },
+            {
+              "item_id": 4915,
+              "zone": "hateplaneb",
+              "npc_id": 186011,
+              "npc_name": "a_repulsive_rat",
+              "npc_level": 52
+            }
+          ]
+        },
+        {
+          "slot": 13,
+          "id": 31823,
+          "name": "Teir`Dal Sai",
+          "base_id": 31823,
+          "score": 614,
+          "source_count": 8,
+          "source_examples": [
+            {
+              "item_id": 31823,
+              "zone": "hateplaneb",
+              "npc_id": 186031,
+              "npc_name": "a_forlorn_revenant",
+              "npc_level": 57
+            },
+            {
+              "item_id": 31823,
+              "zone": "hateplaneb",
+              "npc_id": 186075,
+              "npc_name": "a_forlorn_revenant",
+              "npc_level": 58
+            },
+            {
+              "item_id": 31823,
+              "zone": "hateplaneb",
+              "npc_id": 186103,
+              "npc_name": "a_forlorn_revenant",
+              "npc_level": 60
+            }
+          ]
+        },
+        {
+          "slot": 14,
+          "id": 1555,
+          "name": "Fearsome Shield",
+          "base_id": 1555,
+          "score": 175,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 1555,
+              "zone": "fearplane",
+              "npc_id": 72090,
+              "npc_name": "a_dracoliche",
+              "npc_level": 58
+            }
+          ]
+        },
+        {
+          "slot": 15,
+          "id": 62290,
+          "name": "Shaped Amber Ring of Soldiery",
+          "base_id": 62290,
+          "score": 136,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 62290,
+              "zone": "hole",
+              "npc_id": 39074,
+              "npc_name": "#a_temple_researcher",
+              "npc_level": 60
+            }
+          ]
+        },
+        {
+          "slot": 16,
+          "id": 79871,
+          "name": "Warforged Emerald Hoop",
+          "base_id": 79871,
+          "score": 96,
+          "source_count": 97,
+          "source_examples": [
+            {
+              "item_id": 79871,
+              "zone": "soldunga",
+              "npc_id": 31000,
+              "npc_name": "cinder_goblin",
+              "npc_level": 20
+            },
+            {
+              "item_id": 79871,
+              "zone": "soldunga",
+              "npc_id": 31001,
+              "npc_name": "Lynada_the_exiled",
+              "npc_level": 29
+            },
+            {
+              "item_id": 79871,
+              "zone": "soldunga",
+              "npc_id": 31002,
+              "npc_name": "Solusek_goblin",
+              "npc_level": 30
+            }
+          ]
+        },
+        {
+          "slot": 17,
+          "id": 4882,
+          "name": "Ethereal Mist Chestplate",
+          "base_id": 4882,
+          "score": 207,
+          "source_count": 11,
+          "source_examples": [
+            {
+              "item_id": 4882,
+              "zone": "hateplaneb",
+              "npc_id": 186002,
+              "npc_name": "a_cleric_of_hate",
+              "npc_level": 53
+            },
+            {
+              "item_id": 4882,
+              "zone": "hateplaneb",
+              "npc_id": 186024,
+              "npc_name": "a_cleric_of_hate",
+              "npc_level": 54
+            },
+            {
+              "item_id": 4882,
+              "zone": "hateplaneb",
+              "npc_id": 186029,
+              "npc_name": "a_cleric_of_hate",
+              "npc_level": 55
+            }
+          ]
+        },
+        {
+          "slot": 18,
+          "id": 62286,
+          "name": "Plate Greaves of the Golden Sun",
+          "base_id": 62286,
+          "score": 140,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 62286,
+              "zone": "hole",
+              "npc_id": 39118,
+              "npc_name": "#an_old_gargoyle",
+              "npc_level": 49
+            }
+          ]
+        },
+        {
+          "slot": 19,
+          "id": 4917,
+          "name": "Indicolite Boots",
+          "base_id": 4917,
+          "score": 90,
+          "source_count": 23,
+          "source_examples": [
+            {
+              "item_id": 4917,
+              "zone": "hateplaneb",
+              "npc_id": 186004,
+              "npc_name": "a_kiraikuei",
+              "npc_level": 53
+            },
+            {
+              "item_id": 4917,
+              "zone": "hateplaneb",
+              "npc_id": 186010,
+              "npc_name": "a_kiraikuei",
+              "npc_level": 52
+            },
+            {
+              "item_id": 4917,
+              "zone": "hateplaneb",
+              "npc_id": 186011,
+              "npc_name": "a_repulsive_rat",
+              "npc_level": 52
+            }
+          ]
+        },
+        {
+          "slot": 20,
+          "id": 1556,
+          "name": "Grotesque Girdle",
+          "base_id": 1556,
+          "score": 252,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 1556,
+              "zone": "fearplane",
+              "npc_id": 72090,
+              "npc_name": "a_dracoliche",
+              "npc_level": 58
+            }
+          ]
+        }
+      ],
+      "raw_item_totals": {
+        "hp": 765,
+        "mana": 540,
+        "ac": 311,
+        "astr": 93,
+        "asta": 108,
+        "aagi": 21,
+        "adex": 35,
+        "aint": 34,
+        "awis": 69,
+        "heroic_str": 0,
+        "heroic_sta": 0,
+        "heroic_agi": 0,
+        "heroic_dex": 0,
+        "heroic_int": 0,
+        "heroic_wis": 0,
+        "spelldmg": 0,
+        "healamt": 0,
+        "attack": 0,
+        "accuracy": 0,
+        "avoidance": 0,
+        "regen": 0,
+        "manaregen": 1,
+        "fr": 27,
+        "cr": 27,
+        "mr": 49,
+        "pr": 65,
+        "dr": 65,
+        "shielding": 0,
+        "spellshield": 0,
+        "dotshielding": 0
+      },
+      "capped_spell_damage": 0,
+      "capped_heal_amount": 0
+    },
+    {
+      "profile": "war-clr-mnk",
+      "classes": [
+        1,
+        2,
+        7
+      ],
+      "level": 50,
+      "race": "Human",
+      "deity": "Agnostic",
+      "tier": "Polished",
+      "casting_stat_scored": "wis",
+      "melee_ratio_scored": true,
+      "total_score": 10444,
+      "equipment": [
+        {
+          "slot": 1,
+          "id": 262283,
+          "name": "Shiny Gold Earring (Polished)",
+          "base_id": 62283,
+          "score": 143,
+          "source_count": 19,
+          "source_examples": [
+            {
+              "item_id": 62283,
+              "zone": "hole",
+              "npc_id": 39015,
+              "npc_name": "a_spirit_of_the_old_city",
+              "npc_level": 51
+            },
+            {
+              "item_id": 62283,
+              "zone": "hole",
+              "npc_id": 39016,
+              "npc_name": "a_spirit_of_the_old_city",
+              "npc_level": 52
+            },
+            {
+              "item_id": 62283,
+              "zone": "hole",
+              "npc_id": 39018,
+              "npc_name": "a_spirit_of_the_old_city",
+              "npc_level": 53
+            }
+          ]
+        },
+        {
+          "slot": 2,
+          "id": 201549,
+          "name": "Halo of the Enlightened (Polished)",
+          "base_id": 1549,
+          "score": 500,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 1549,
+              "zone": "fearplane",
+              "npc_id": 72003,
+              "npc_name": "Cazic_Thule",
+              "npc_level": 70
+            }
+          ]
+        },
+        {
+          "slot": 3,
+          "id": 201547,
+          "name": "Eye of Cazic-Thule (Polished)",
+          "base_id": 1547,
+          "score": 339,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 1547,
+              "zone": "fearplane",
+              "npc_id": 72003,
+              "npc_name": "Cazic_Thule",
+              "npc_level": 70
+            }
+          ]
+        },
+        {
+          "slot": 4,
+          "id": 202197,
+          "name": "Healer's Earring (Polished)",
+          "base_id": 2197,
+          "score": 122,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 2197,
+              "zone": "hateplaneb",
+              "npc_id": 186188,
+              "npc_name": "#Templar_J`Rosix",
+              "npc_level": 63
+            }
+          ]
+        },
+        {
+          "slot": 5,
+          "id": 201550,
+          "name": "Bile Etched Obsidian Choker (Polished)",
+          "base_id": 1550,
+          "score": 235,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 1550,
+              "zone": "fearplane",
+              "npc_id": 72003,
+              "npc_name": "Cazic_Thule",
+              "npc_level": 70
+            }
+          ]
+        },
+        {
+          "slot": 6,
+          "id": 201531,
+          "name": "Pauldrons of Ferocity (Polished)",
+          "base_id": 1531,
+          "score": 200,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 1531,
+              "zone": "fearplane",
+              "npc_id": 72003,
+              "npc_name": "Cazic_Thule",
+              "npc_level": 70
+            }
+          ]
+        },
+        {
+          "slot": 7,
+          "id": 268251,
+          "name": "Fabled Crafted Vambraces (Polished)",
+          "base_id": 68251,
+          "score": 249,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 68251,
+              "zone": "northkarana",
+              "npc_id": 13118,
+              "npc_name": "The_Fabled_GrimFeather",
+              "npc_level": 55
+            }
+          ]
+        },
+        {
+          "slot": 8,
+          "id": 201551,
+          "name": "Cloak of the Fearsome (Polished)",
+          "base_id": 1551,
+          "score": 265,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 1551,
+              "zone": "fearplane",
+              "npc_id": 72003,
+              "npc_name": "Cazic_Thule",
+              "npc_level": 70
+            }
+          ]
+        },
+        {
+          "slot": 9,
+          "id": 262292,
+          "name": "Steel Bracer of Law (Polished)",
+          "base_id": 62292,
+          "score": 221,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 62292,
+              "zone": "hole",
+              "npc_id": 39067,
+              "npc_name": "#an_ancient_construct",
+              "npc_level": 55
+            }
+          ]
+        },
+        {
+          "slot": 10,
+          "id": 204884,
+          "name": "Ethereal Mist Bracers (Polished)",
+          "base_id": 4884,
+          "score": 97,
+          "source_count": 11,
+          "source_examples": [
+            {
+              "item_id": 4884,
+              "zone": "hateplaneb",
+              "npc_id": 186002,
+              "npc_name": "a_cleric_of_hate",
+              "npc_level": 53
+            },
+            {
+              "item_id": 4884,
+              "zone": "hateplaneb",
+              "npc_id": 186024,
+              "npc_name": "a_cleric_of_hate",
+              "npc_level": 54
+            },
+            {
+              "item_id": 4884,
+              "zone": "hateplaneb",
+              "npc_id": 186029,
+              "npc_name": "a_cleric_of_hate",
+              "npc_level": 55
+            }
+          ]
+        },
+        {
+          "slot": 11,
+          "id": 208332,
+          "name": "Shuriken of the Tranquil (Polished)",
+          "base_id": 8332,
+          "score": 5520,
+          "source_count": 11,
+          "source_examples": [
+            {
+              "item_id": 8332,
+              "zone": "hateplaneb",
+              "npc_id": 186004,
+              "npc_name": "a_kiraikuei",
+              "npc_level": 53
+            },
+            {
+              "item_id": 8332,
+              "zone": "hateplaneb",
+              "npc_id": 186010,
+              "npc_name": "a_kiraikuei",
+              "npc_level": 52
+            },
+            {
+              "item_id": 8332,
+              "zone": "hateplaneb",
+              "npc_id": 186028,
+              "npc_name": "a_greater_kiraikuei",
+              "npc_level": 57
+            }
+          ]
+        },
+        {
+          "slot": 12,
+          "id": 204915,
+          "name": "Indicolite Gauntlets (Polished)",
+          "base_id": 4915,
+          "score": 188,
+          "source_count": 16,
+          "source_examples": [
+            {
+              "item_id": 4915,
+              "zone": "hateplaneb",
+              "npc_id": 186004,
+              "npc_name": "a_kiraikuei",
+              "npc_level": 53
+            },
+            {
+              "item_id": 4915,
+              "zone": "hateplaneb",
+              "npc_id": 186010,
+              "npc_name": "a_kiraikuei",
+              "npc_level": 52
+            },
+            {
+              "item_id": 4915,
+              "zone": "hateplaneb",
+              "npc_id": 186011,
+              "npc_name": "a_repulsive_rat",
+              "npc_level": 52
+            }
+          ]
+        },
+        {
+          "slot": 13,
+          "id": 231823,
+          "name": "Teir`Dal Sai (Polished)",
+          "base_id": 31823,
+          "score": 699,
+          "source_count": 8,
+          "source_examples": [
+            {
+              "item_id": 31823,
+              "zone": "hateplaneb",
+              "npc_id": 186031,
+              "npc_name": "a_forlorn_revenant",
+              "npc_level": 57
+            },
+            {
+              "item_id": 31823,
+              "zone": "hateplaneb",
+              "npc_id": 186075,
+              "npc_name": "a_forlorn_revenant",
+              "npc_level": 58
+            },
+            {
+              "item_id": 31823,
+              "zone": "hateplaneb",
+              "npc_id": 186103,
+              "npc_name": "a_forlorn_revenant",
+              "npc_level": 60
+            }
+          ]
+        },
+        {
+          "slot": 14,
+          "id": 201555,
+          "name": "Fearsome Shield (Polished)",
+          "base_id": 1555,
+          "score": 256,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 1555,
+              "zone": "fearplane",
+              "npc_id": 72090,
+              "npc_name": "a_dracoliche",
+              "npc_level": 58
+            }
+          ]
+        },
+        {
+          "slot": 15,
+          "id": 262290,
+          "name": "Shaped Amber Ring of Soldiery (Polished)",
+          "base_id": 62290,
+          "score": 214,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 62290,
+              "zone": "hole",
+              "npc_id": 39074,
+              "npc_name": "#a_temple_researcher",
+              "npc_level": 60
+            }
+          ]
+        },
+        {
+          "slot": 16,
+          "id": 279871,
+          "name": "Warforged Emerald Hoop (Polished)",
+          "base_id": 79871,
+          "score": 155,
+          "source_count": 97,
+          "source_examples": [
+            {
+              "item_id": 79871,
+              "zone": "soldunga",
+              "npc_id": 31000,
+              "npc_name": "cinder_goblin",
+              "npc_level": 20
+            },
+            {
+              "item_id": 79871,
+              "zone": "soldunga",
+              "npc_id": 31001,
+              "npc_name": "Lynada_the_exiled",
+              "npc_level": 29
+            },
+            {
+              "item_id": 79871,
+              "zone": "soldunga",
+              "npc_id": 31002,
+              "npc_name": "Solusek_goblin",
+              "npc_level": 30
+            }
+          ]
+        },
+        {
+          "slot": 17,
+          "id": 204882,
+          "name": "Ethereal Mist Chestplate (Polished)",
+          "base_id": 4882,
+          "score": 304,
+          "source_count": 11,
+          "source_examples": [
+            {
+              "item_id": 4882,
+              "zone": "hateplaneb",
+              "npc_id": 186002,
+              "npc_name": "a_cleric_of_hate",
+              "npc_level": 53
+            },
+            {
+              "item_id": 4882,
+              "zone": "hateplaneb",
+              "npc_id": 186024,
+              "npc_name": "a_cleric_of_hate",
+              "npc_level": 54
+            },
+            {
+              "item_id": 4882,
+              "zone": "hateplaneb",
+              "npc_id": 186029,
+              "npc_name": "a_cleric_of_hate",
+              "npc_level": 55
+            }
+          ]
+        },
+        {
+          "slot": 18,
+          "id": 262286,
+          "name": "Plate Greaves of the Golden Sun (Polished)",
+          "base_id": 62286,
+          "score": 213,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 62286,
+              "zone": "hole",
+              "npc_id": 39118,
+              "npc_name": "#an_old_gargoyle",
+              "npc_level": 49
+            }
+          ]
+        },
+        {
+          "slot": 19,
+          "id": 204917,
+          "name": "Indicolite Boots (Polished)",
+          "base_id": 4917,
+          "score": 142,
+          "source_count": 23,
+          "source_examples": [
+            {
+              "item_id": 4917,
+              "zone": "hateplaneb",
+              "npc_id": 186004,
+              "npc_name": "a_kiraikuei",
+              "npc_level": 53
+            },
+            {
+              "item_id": 4917,
+              "zone": "hateplaneb",
+              "npc_id": 186010,
+              "npc_name": "a_kiraikuei",
+              "npc_level": 52
+            },
+            {
+              "item_id": 4917,
+              "zone": "hateplaneb",
+              "npc_id": 186011,
+              "npc_name": "a_repulsive_rat",
+              "npc_level": 52
+            }
+          ]
+        },
+        {
+          "slot": 20,
+          "id": 201556,
+          "name": "Grotesque Girdle (Polished)",
+          "base_id": 1556,
+          "score": 382,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 1556,
+              "zone": "fearplane",
+              "npc_id": 72090,
+              "npc_name": "a_dracoliche",
+              "npc_level": 58
+            }
+          ]
+        }
+      ],
+      "raw_item_totals": {
+        "hp": 1133,
+        "mana": 806,
+        "ac": 410,
+        "astr": 120,
+        "asta": 146,
+        "aagi": 29,
+        "adex": 48,
+        "aint": 40,
+        "awis": 94,
+        "heroic_str": 0,
+        "heroic_sta": 0,
+        "heroic_agi": 0,
+        "heroic_dex": 0,
+        "heroic_int": 0,
+        "heroic_wis": 0,
+        "spelldmg": 100,
+        "healamt": 100,
+        "attack": 0,
+        "accuracy": 0,
+        "avoidance": 0,
+        "regen": 0,
+        "manaregen": 1,
+        "fr": 33,
+        "cr": 33,
+        "mr": 67,
+        "pr": 88,
+        "dr": 88,
+        "shielding": 0,
+        "spellshield": 0,
+        "dotshielding": 0
+      },
+      "capped_spell_damage": 100,
+      "capped_heal_amount": 100
+    },
+    {
+      "profile": "war-clr-mnk",
+      "classes": [
+        1,
+        2,
+        7
+      ],
+      "level": 50,
+      "race": "Human",
+      "deity": "Agnostic",
+      "tier": "Exalted",
+      "casting_stat_scored": "wis",
+      "melee_ratio_scored": true,
+      "total_score": 12597,
+      "equipment": [
+        {
+          "slot": 1,
+          "id": 462283,
+          "name": "Shiny Gold Earring (Exalted)",
+          "base_id": 62283,
+          "score": 210,
+          "source_count": 19,
+          "source_examples": [
+            {
+              "item_id": 62283,
+              "zone": "hole",
+              "npc_id": 39015,
+              "npc_name": "a_spirit_of_the_old_city",
+              "npc_level": 51
+            },
+            {
+              "item_id": 62283,
+              "zone": "hole",
+              "npc_id": 39016,
+              "npc_name": "a_spirit_of_the_old_city",
+              "npc_level": 52
+            },
+            {
+              "item_id": 62283,
+              "zone": "hole",
+              "npc_id": 39018,
+              "npc_name": "a_spirit_of_the_old_city",
+              "npc_level": 53
+            }
+          ]
+        },
+        {
+          "slot": 2,
+          "id": 401549,
+          "name": "Halo of the Enlightened (Exalted)",
+          "base_id": 1549,
+          "score": 659,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 1549,
+              "zone": "fearplane",
+              "npc_id": 72003,
+              "npc_name": "Cazic_Thule",
+              "npc_level": 70
+            }
+          ]
+        },
+        {
+          "slot": 3,
+          "id": 401547,
+          "name": "Eye of Cazic-Thule (Exalted)",
+          "base_id": 1547,
+          "score": 457,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 1547,
+              "zone": "fearplane",
+              "npc_id": 72003,
+              "npc_name": "Cazic_Thule",
+              "npc_level": 70
+            }
+          ]
+        },
+        {
+          "slot": 4,
+          "id": 402197,
+          "name": "Healer's Earring (Exalted)",
+          "base_id": 2197,
+          "score": 178,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 2197,
+              "zone": "hateplaneb",
+              "npc_id": 186188,
+              "npc_name": "#Templar_J`Rosix",
+              "npc_level": 63
+            }
+          ]
+        },
+        {
+          "slot": 5,
+          "id": 401550,
+          "name": "Bile Etched Obsidian Choker (Exalted)",
+          "base_id": 1550,
+          "score": 323,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 1550,
+              "zone": "fearplane",
+              "npc_id": 72003,
+              "npc_name": "Cazic_Thule",
+              "npc_level": 70
+            }
+          ]
+        },
+        {
+          "slot": 6,
+          "id": 401531,
+          "name": "Pauldrons of Ferocity (Exalted)",
+          "base_id": 1531,
+          "score": 273,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 1531,
+              "zone": "fearplane",
+              "npc_id": 72003,
+              "npc_name": "Cazic_Thule",
+              "npc_level": 70
+            }
+          ]
+        },
+        {
+          "slot": 7,
+          "id": 468251,
+          "name": "Fabled Crafted Vambraces (Exalted)",
+          "base_id": 68251,
+          "score": 341,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 68251,
+              "zone": "northkarana",
+              "npc_id": 13118,
+              "npc_name": "The_Fabled_GrimFeather",
+              "npc_level": 55
+            }
+          ]
+        },
+        {
+          "slot": 8,
+          "id": 401551,
+          "name": "Cloak of the Fearsome (Exalted)",
+          "base_id": 1551,
+          "score": 363,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 1551,
+              "zone": "fearplane",
+              "npc_id": 72003,
+              "npc_name": "Cazic_Thule",
+              "npc_level": 70
+            }
+          ]
+        },
+        {
+          "slot": 9,
+          "id": 462292,
+          "name": "Steel Bracer of Law (Exalted)",
+          "base_id": 62292,
+          "score": 305,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 62292,
+              "zone": "hole",
+              "npc_id": 39067,
+              "npc_name": "#an_ancient_construct",
+              "npc_level": 55
+            }
+          ]
+        },
+        {
+          "slot": 10,
+          "id": 404884,
+          "name": "Ethereal Mist Bracers (Exalted)",
+          "base_id": 4884,
+          "score": 146,
+          "source_count": 11,
+          "source_examples": [
+            {
+              "item_id": 4884,
+              "zone": "hateplaneb",
+              "npc_id": 186002,
+              "npc_name": "a_cleric_of_hate",
+              "npc_level": 53
+            },
+            {
+              "item_id": 4884,
+              "zone": "hateplaneb",
+              "npc_id": 186024,
+              "npc_name": "a_cleric_of_hate",
+              "npc_level": 54
+            },
+            {
+              "item_id": 4884,
+              "zone": "hateplaneb",
+              "npc_id": 186029,
+              "npc_name": "a_cleric_of_hate",
+              "npc_level": 55
+            }
+          ]
+        },
+        {
+          "slot": 11,
+          "id": 408332,
+          "name": "Shuriken of the Tranquil (Exalted)",
+          "base_id": 8332,
+          "score": 6048,
+          "source_count": 11,
+          "source_examples": [
+            {
+              "item_id": 8332,
+              "zone": "hateplaneb",
+              "npc_id": 186004,
+              "npc_name": "a_kiraikuei",
+              "npc_level": 53
+            },
+            {
+              "item_id": 8332,
+              "zone": "hateplaneb",
+              "npc_id": 186010,
+              "npc_name": "a_kiraikuei",
+              "npc_level": 52
+            },
+            {
+              "item_id": 8332,
+              "zone": "hateplaneb",
+              "npc_id": 186028,
+              "npc_name": "a_greater_kiraikuei",
+              "npc_level": 57
+            }
+          ]
+        },
+        {
+          "slot": 12,
+          "id": 404915,
+          "name": "Indicolite Gauntlets (Exalted)",
+          "base_id": 4915,
+          "score": 255,
+          "source_count": 16,
+          "source_examples": [
+            {
+              "item_id": 4915,
+              "zone": "hateplaneb",
+              "npc_id": 186004,
+              "npc_name": "a_kiraikuei",
+              "npc_level": 53
+            },
+            {
+              "item_id": 4915,
+              "zone": "hateplaneb",
+              "npc_id": 186010,
+              "npc_name": "a_kiraikuei",
+              "npc_level": 52
+            },
+            {
+              "item_id": 4915,
+              "zone": "hateplaneb",
+              "npc_id": 186011,
+              "npc_name": "a_repulsive_rat",
+              "npc_level": 52
+            }
+          ]
+        },
+        {
+          "slot": 13,
+          "id": 431823,
+          "name": "Teir`Dal Sai (Exalted)",
+          "base_id": 31823,
+          "score": 792,
+          "source_count": 8,
+          "source_examples": [
+            {
+              "item_id": 31823,
+              "zone": "hateplaneb",
+              "npc_id": 186031,
+              "npc_name": "a_forlorn_revenant",
+              "npc_level": 57
+            },
+            {
+              "item_id": 31823,
+              "zone": "hateplaneb",
+              "npc_id": 186075,
+              "npc_name": "a_forlorn_revenant",
+              "npc_level": 58
+            },
+            {
+              "item_id": 31823,
+              "zone": "hateplaneb",
+              "npc_id": 186103,
+              "npc_name": "a_forlorn_revenant",
+              "npc_level": 60
+            }
+          ]
+        },
+        {
+          "slot": 14,
+          "id": 401555,
+          "name": "Fearsome Shield (Exalted)",
+          "base_id": 1555,
+          "score": 337,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 1555,
+              "zone": "fearplane",
+              "npc_id": 72090,
+              "npc_name": "a_dracoliche",
+              "npc_level": 58
+            }
+          ]
+        },
+        {
+          "slot": 15,
+          "id": 462290,
+          "name": "Shaped Amber Ring of Soldiery (Exalted)",
+          "base_id": 62290,
+          "score": 296,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 62290,
+              "zone": "hole",
+              "npc_id": 39074,
+              "npc_name": "#a_temple_researcher",
+              "npc_level": 60
+            }
+          ]
+        },
+        {
+          "slot": 16,
+          "id": 479871,
+          "name": "Warforged Emerald Hoop (Exalted)",
+          "base_id": 79871,
+          "score": 215,
+          "source_count": 97,
+          "source_examples": [
+            {
+              "item_id": 79871,
+              "zone": "soldunga",
+              "npc_id": 31000,
+              "npc_name": "cinder_goblin",
+              "npc_level": 20
+            },
+            {
+              "item_id": 79871,
+              "zone": "soldunga",
+              "npc_id": 31001,
+              "npc_name": "Lynada_the_exiled",
+              "npc_level": 29
+            },
+            {
+              "item_id": 79871,
+              "zone": "soldunga",
+              "npc_id": 31002,
+              "npc_name": "Solusek_goblin",
+              "npc_level": 30
+            }
+          ]
+        },
+        {
+          "slot": 17,
+          "id": 404882,
+          "name": "Ethereal Mist Chestplate (Exalted)",
+          "base_id": 4882,
+          "score": 403,
+          "source_count": 11,
+          "source_examples": [
+            {
+              "item_id": 4882,
+              "zone": "hateplaneb",
+              "npc_id": 186002,
+              "npc_name": "a_cleric_of_hate",
+              "npc_level": 53
+            },
+            {
+              "item_id": 4882,
+              "zone": "hateplaneb",
+              "npc_id": 186024,
+              "npc_name": "a_cleric_of_hate",
+              "npc_level": 54
+            },
+            {
+              "item_id": 4882,
+              "zone": "hateplaneb",
+              "npc_id": 186029,
+              "npc_name": "a_cleric_of_hate",
+              "npc_level": 55
+            }
+          ]
+        },
+        {
+          "slot": 18,
+          "id": 462286,
+          "name": "Plate Greaves of the Golden Sun (Exalted)",
+          "base_id": 62286,
+          "score": 286,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 62286,
+              "zone": "hole",
+              "npc_id": 39118,
+              "npc_name": "#an_old_gargoyle",
+              "npc_level": 49
+            }
+          ]
+        },
+        {
+          "slot": 19,
+          "id": 404917,
+          "name": "Indicolite Boots (Exalted)",
+          "base_id": 4917,
+          "score": 196,
+          "source_count": 23,
+          "source_examples": [
+            {
+              "item_id": 4917,
+              "zone": "hateplaneb",
+              "npc_id": 186004,
+              "npc_name": "a_kiraikuei",
+              "npc_level": 53
+            },
+            {
+              "item_id": 4917,
+              "zone": "hateplaneb",
+              "npc_id": 186010,
+              "npc_name": "a_kiraikuei",
+              "npc_level": 52
+            },
+            {
+              "item_id": 4917,
+              "zone": "hateplaneb",
+              "npc_id": 186011,
+              "npc_name": "a_repulsive_rat",
+              "npc_level": 52
+            }
+          ]
+        },
+        {
+          "slot": 20,
+          "id": 401556,
+          "name": "Grotesque Girdle (Exalted)",
+          "base_id": 1556,
+          "score": 514,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 1556,
+              "zone": "fearplane",
+              "npc_id": 72090,
+              "npc_name": "a_dracoliche",
+              "npc_level": 58
+            }
+          ]
+        }
+      ],
+      "raw_item_totals": {
+        "hp": 1484,
+        "mana": 1056,
+        "ac": 501,
+        "astr": 147,
+        "asta": 181,
+        "aagi": 34,
+        "adex": 58,
+        "aint": 48,
+        "awis": 114,
+        "heroic_str": 0,
+        "heroic_sta": 0,
+        "heroic_agi": 0,
+        "heroic_dex": 0,
+        "heroic_int": 0,
+        "heroic_wis": 0,
+        "spelldmg": 240,
+        "healamt": 240,
+        "attack": 0,
+        "accuracy": 0,
+        "avoidance": 0,
+        "regen": 0,
+        "manaregen": 2,
+        "fr": 39,
+        "cr": 39,
+        "mr": 80,
+        "pr": 107,
+        "dr": 107,
+        "shielding": 0,
+        "spellshield": 0,
+        "dotshielding": 0
+      },
+      "capped_spell_damage": 240,
+      "capped_heal_amount": 240
+    },
+    {
+      "profile": "war-clr-mnk",
+      "classes": [
+        1,
+        2,
+        7
+      ],
+      "level": 50,
+      "race": "Human",
+      "deity": "Agnostic",
+      "tier": "Ascended",
+      "casting_stat_scored": "wis",
+      "melee_ratio_scored": true,
+      "total_score": 16219,
+      "equipment": [
+        {
+          "slot": 1,
+          "id": 662283,
+          "name": "Shiny Gold Earring (Ascended)",
+          "base_id": 62283,
+          "score": 300,
+          "source_count": 19,
+          "source_examples": [
+            {
+              "item_id": 62283,
+              "zone": "hole",
+              "npc_id": 39015,
+              "npc_name": "a_spirit_of_the_old_city",
+              "npc_level": 51
+            },
+            {
+              "item_id": 62283,
+              "zone": "hole",
+              "npc_id": 39016,
+              "npc_name": "a_spirit_of_the_old_city",
+              "npc_level": 52
+            },
+            {
+              "item_id": 62283,
+              "zone": "hole",
+              "npc_id": 39018,
+              "npc_name": "a_spirit_of_the_old_city",
+              "npc_level": 53
+            }
+          ]
+        },
+        {
+          "slot": 2,
+          "id": 601549,
+          "name": "Halo of the Enlightened (Ascended)",
+          "base_id": 1549,
+          "score": 970,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 1549,
+              "zone": "fearplane",
+              "npc_id": 72003,
+              "npc_name": "Cazic_Thule",
+              "npc_level": 70
+            }
+          ]
+        },
+        {
+          "slot": 3,
+          "id": 601547,
+          "name": "Eye of Cazic-Thule (Ascended)",
+          "base_id": 1547,
+          "score": 650,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 1547,
+              "zone": "fearplane",
+              "npc_id": 72003,
+              "npc_name": "Cazic_Thule",
+              "npc_level": 70
+            }
+          ]
+        },
+        {
+          "slot": 4,
+          "id": 602197,
+          "name": "Healer's Earring (Ascended)",
+          "base_id": 2197,
+          "score": 274,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 2197,
+              "zone": "hateplaneb",
+              "npc_id": 186188,
+              "npc_name": "#Templar_J`Rosix",
+              "npc_level": 63
+            }
+          ]
+        },
+        {
+          "slot": 5,
+          "id": 601550,
+          "name": "Bile Etched Obsidian Choker (Ascended)",
+          "base_id": 1550,
+          "score": 470,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 1550,
+              "zone": "fearplane",
+              "npc_id": 72003,
+              "npc_name": "Cazic_Thule",
+              "npc_level": 70
+            }
+          ]
+        },
+        {
+          "slot": 6,
+          "id": 601531,
+          "name": "Pauldrons of Ferocity (Ascended)",
+          "base_id": 1531,
+          "score": 406,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 1531,
+              "zone": "fearplane",
+              "npc_id": 72003,
+              "npc_name": "Cazic_Thule",
+              "npc_level": 70
+            }
+          ]
+        },
+        {
+          "slot": 7,
+          "id": 668251,
+          "name": "Fabled Crafted Vambraces (Ascended)",
+          "base_id": 68251,
+          "score": 470,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 68251,
+              "zone": "northkarana",
+              "npc_id": 13118,
+              "npc_name": "The_Fabled_GrimFeather",
+              "npc_level": 55
+            }
+          ]
+        },
+        {
+          "slot": 8,
+          "id": 601551,
+          "name": "Cloak of the Fearsome (Ascended)",
+          "base_id": 1551,
+          "score": 550,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 1551,
+              "zone": "fearplane",
+              "npc_id": 72003,
+              "npc_name": "Cazic_Thule",
+              "npc_level": 70
+            }
+          ]
+        },
+        {
+          "slot": 9,
+          "id": 662292,
+          "name": "Steel Bracer of Law (Ascended)",
+          "base_id": 62292,
+          "score": 446,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 62292,
+              "zone": "hole",
+              "npc_id": 39067,
+              "npc_name": "#an_ancient_construct",
+              "npc_level": 55
+            }
+          ]
+        },
+        {
+          "slot": 10,
+          "id": 604884,
+          "name": "Ethereal Mist Bracers (Ascended)",
+          "base_id": 4884,
+          "score": 200,
+          "source_count": 11,
+          "source_examples": [
+            {
+              "item_id": 4884,
+              "zone": "hateplaneb",
+              "npc_id": 186002,
+              "npc_name": "a_cleric_of_hate",
+              "npc_level": 53
+            },
+            {
+              "item_id": 4884,
+              "zone": "hateplaneb",
+              "npc_id": 186024,
+              "npc_name": "a_cleric_of_hate",
+              "npc_level": 54
+            },
+            {
+              "item_id": 4884,
+              "zone": "hateplaneb",
+              "npc_id": 186029,
+              "npc_name": "a_cleric_of_hate",
+              "npc_level": 55
+            }
+          ]
+        },
+        {
+          "slot": 11,
+          "id": 608332,
+          "name": "Shuriken of the Tranquil (Ascended)",
+          "base_id": 8332,
+          "score": 6830,
+          "source_count": 11,
+          "source_examples": [
+            {
+              "item_id": 8332,
+              "zone": "hateplaneb",
+              "npc_id": 186004,
+              "npc_name": "a_kiraikuei",
+              "npc_level": 53
+            },
+            {
+              "item_id": 8332,
+              "zone": "hateplaneb",
+              "npc_id": 186010,
+              "npc_name": "a_kiraikuei",
+              "npc_level": 52
+            },
+            {
+              "item_id": 8332,
+              "zone": "hateplaneb",
+              "npc_id": 186028,
+              "npc_name": "a_greater_kiraikuei",
+              "npc_level": 57
+            }
+          ]
+        },
+        {
+          "slot": 12,
+          "id": 604915,
+          "name": "Indicolite Gauntlets (Ascended)",
+          "base_id": 4915,
+          "score": 368,
+          "source_count": 16,
+          "source_examples": [
+            {
+              "item_id": 4915,
+              "zone": "hateplaneb",
+              "npc_id": 186004,
+              "npc_name": "a_kiraikuei",
+              "npc_level": 53
+            },
+            {
+              "item_id": 4915,
+              "zone": "hateplaneb",
+              "npc_id": 186010,
+              "npc_name": "a_kiraikuei",
+              "npc_level": 52
+            },
+            {
+              "item_id": 4915,
+              "zone": "hateplaneb",
+              "npc_id": 186011,
+              "npc_name": "a_repulsive_rat",
+              "npc_level": 52
+            }
+          ]
+        },
+        {
+          "slot": 13,
+          "id": 631823,
+          "name": "Teir`Dal Sai (Ascended)",
+          "base_id": 31823,
+          "score": 941,
+          "source_count": 8,
+          "source_examples": [
+            {
+              "item_id": 31823,
+              "zone": "hateplaneb",
+              "npc_id": 186031,
+              "npc_name": "a_forlorn_revenant",
+              "npc_level": 57
+            },
+            {
+              "item_id": 31823,
+              "zone": "hateplaneb",
+              "npc_id": 186075,
+              "npc_name": "a_forlorn_revenant",
+              "npc_level": 58
+            },
+            {
+              "item_id": 31823,
+              "zone": "hateplaneb",
+              "npc_id": 186103,
+              "npc_name": "a_forlorn_revenant",
+              "npc_level": 60
+            }
+          ]
+        },
+        {
+          "slot": 14,
+          "id": 601555,
+          "name": "Fearsome Shield (Ascended)",
+          "base_id": 1555,
+          "score": 510,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 1555,
+              "zone": "fearplane",
+              "npc_id": 72090,
+              "npc_name": "a_dracoliche",
+              "npc_level": 58
+            }
+          ]
+        },
+        {
+          "slot": 15,
+          "id": 662290,
+          "name": "Shaped Amber Ring of Soldiery (Ascended)",
+          "base_id": 62290,
+          "score": 436,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 62290,
+              "zone": "hole",
+              "npc_id": 39074,
+              "npc_name": "#a_temple_researcher",
+              "npc_level": 60
+            }
+          ]
+        },
+        {
+          "slot": 16,
+          "id": 679871,
+          "name": "Warforged Emerald Hoop (Ascended)",
+          "base_id": 79871,
+          "score": 308,
+          "source_count": 97,
+          "source_examples": [
+            {
+              "item_id": 79871,
+              "zone": "soldunga",
+              "npc_id": 31000,
+              "npc_name": "cinder_goblin",
+              "npc_level": 20
+            },
+            {
+              "item_id": 79871,
+              "zone": "soldunga",
+              "npc_id": 31001,
+              "npc_name": "Lynada_the_exiled",
+              "npc_level": 29
+            },
+            {
+              "item_id": 79871,
+              "zone": "soldunga",
+              "npc_id": 31002,
+              "npc_name": "Solusek_goblin",
+              "npc_level": 30
+            }
+          ]
+        },
+        {
+          "slot": 17,
+          "id": 604882,
+          "name": "Ethereal Mist Chestplate (Ascended)",
+          "base_id": 4882,
+          "score": 674,
+          "source_count": 11,
+          "source_examples": [
+            {
+              "item_id": 4882,
+              "zone": "hateplaneb",
+              "npc_id": 186002,
+              "npc_name": "a_cleric_of_hate",
+              "npc_level": 53
+            },
+            {
+              "item_id": 4882,
+              "zone": "hateplaneb",
+              "npc_id": 186024,
+              "npc_name": "a_cleric_of_hate",
+              "npc_level": 54
+            },
+            {
+              "item_id": 4882,
+              "zone": "hateplaneb",
+              "npc_id": 186029,
+              "npc_name": "a_cleric_of_hate",
+              "npc_level": 55
+            }
+          ]
+        },
+        {
+          "slot": 18,
+          "id": 662286,
+          "name": "Plate Greaves of the Golden Sun (Ascended)",
+          "base_id": 62286,
+          "score": 412,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 62286,
+              "zone": "hole",
+              "npc_id": 39118,
+              "npc_name": "#an_old_gargoyle",
+              "npc_level": 49
+            }
+          ]
+        },
+        {
+          "slot": 19,
+          "id": 604917,
+          "name": "Indicolite Boots (Ascended)",
+          "base_id": 4917,
+          "score": 290,
+          "source_count": 23,
+          "source_examples": [
+            {
+              "item_id": 4917,
+              "zone": "hateplaneb",
+              "npc_id": 186004,
+              "npc_name": "a_kiraikuei",
+              "npc_level": 53
+            },
+            {
+              "item_id": 4917,
+              "zone": "hateplaneb",
+              "npc_id": 186010,
+              "npc_name": "a_kiraikuei",
+              "npc_level": 52
+            },
+            {
+              "item_id": 4917,
+              "zone": "hateplaneb",
+              "npc_id": 186011,
+              "npc_name": "a_repulsive_rat",
+              "npc_level": 52
+            }
+          ]
+        },
+        {
+          "slot": 20,
+          "id": 601556,
+          "name": "Grotesque Girdle (Ascended)",
+          "base_id": 1556,
+          "score": 714,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 1556,
+              "zone": "fearplane",
+              "npc_id": 72090,
+              "npc_name": "a_dracoliche",
+              "npc_level": 58
+            }
+          ]
+        }
+      ],
+      "raw_item_totals": {
+        "hp": 1872,
+        "mana": 1332,
+        "ac": 606,
+        "astr": 176,
+        "asta": 216,
+        "aagi": 42,
+        "adex": 70,
+        "aint": 58,
+        "awis": 138,
+        "heroic_str": 47,
+        "heroic_sta": 57,
+        "heroic_agi": 13,
+        "heroic_dex": 20,
+        "heroic_int": 17,
+        "heroic_wis": 39,
+        "spelldmg": 400,
+        "healamt": 400,
+        "attack": 0,
+        "accuracy": 0,
+        "avoidance": 0,
+        "regen": 0,
+        "manaregen": 2,
+        "fr": 48,
+        "cr": 48,
+        "mr": 98,
+        "pr": 130,
+        "dr": 130,
+        "shielding": 0,
+        "spellshield": 0,
+        "dotshielding": 0
+      },
+      "capped_spell_damage": 250,
+      "capped_heal_amount": 250
+    },
+    {
+      "profile": "mag-nec-shm",
+      "classes": [
+        13,
+        11,
+        10
+      ],
+      "level": 50,
+      "race": "Human",
+      "deity": "Agnostic",
+      "tier": "Base",
+      "casting_stat_scored": "int",
+      "melee_ratio_scored": false,
+      "total_score": 2703,
+      "equipment": [
+        {
+          "slot": 1,
+          "id": 62283,
+          "name": "Shiny Gold Earring",
+          "base_id": 62283,
+          "score": 87,
+          "source_count": 19,
+          "source_examples": [
+            {
+              "item_id": 62283,
+              "zone": "hole",
+              "npc_id": 39015,
+              "npc_name": "a_spirit_of_the_old_city",
+              "npc_level": 51
+            },
+            {
+              "item_id": 62283,
+              "zone": "hole",
+              "npc_id": 39016,
+              "npc_name": "a_spirit_of_the_old_city",
+              "npc_level": 52
+            },
+            {
+              "item_id": 62283,
+              "zone": "hole",
+              "npc_id": 39018,
+              "npc_name": "a_spirit_of_the_old_city",
+              "npc_level": 53
+            }
+          ]
+        },
+        {
+          "slot": 2,
+          "id": 10143,
+          "name": "Platinum Tiara",
+          "base_id": 10143,
+          "score": 97,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 10143,
+              "zone": "gukbottom",
+              "npc_id": 66121,
+              "npc_name": "a_froglok_tactician",
+              "npc_level": 45
+            }
+          ]
+        },
+        {
+          "slot": 3,
+          "id": 1547,
+          "name": "Eye of Cazic-Thule",
+          "base_id": 1547,
+          "score": 225,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 1547,
+              "zone": "fearplane",
+              "npc_id": 72003,
+              "npc_name": "Cazic_Thule",
+              "npc_level": 70
+            }
+          ]
+        },
+        {
+          "slot": 4,
+          "id": 79621,
+          "name": "Silverwing Loop",
+          "base_id": 79621,
+          "score": 72,
+          "source_count": 120,
+          "source_examples": [
+            {
+              "item_id": 79621,
+              "zone": "mistmoore",
+              "npc_id": 59000,
+              "npc_name": "a_deathly_usher",
+              "npc_level": 30
+            },
+            {
+              "item_id": 79621,
+              "zone": "mistmoore",
+              "npc_id": 59001,
+              "npc_name": "a_deathly_usher",
+              "npc_level": 31
+            },
+            {
+              "item_id": 79621,
+              "zone": "mistmoore",
+              "npc_id": 59002,
+              "npc_name": "a_deathly_usher",
+              "npc_level": 29
+            }
+          ]
+        },
+        {
+          "slot": 5,
+          "id": 62294,
+          "name": "Rock Prism Necklace",
+          "base_id": 62294,
+          "score": 122,
+          "source_count": 4,
+          "source_examples": [
+            {
+              "item_id": 62294,
+              "zone": "hole",
+              "npc_id": 39031,
+              "npc_name": "a_ratman_inhabitant",
+              "npc_level": 51
+            },
+            {
+              "item_id": 62294,
+              "zone": "hole",
+              "npc_id": 39033,
+              "npc_name": "a_ratman_inhabitant",
+              "npc_level": 52
+            },
+            {
+              "item_id": 62294,
+              "zone": "hole",
+              "npc_id": 39055,
+              "npc_name": "a_ratman_inhabitant",
+              "npc_level": 53
+            }
+          ]
+        },
+        {
+          "slot": 6,
+          "id": 4394,
+          "name": "Imbued Granite Spauldors",
+          "base_id": 4394,
+          "score": 80,
+          "source_count": 4,
+          "source_examples": [
+            {
+              "item_id": 4394,
+              "zone": "hole",
+              "npc_id": 39105,
+              "npc_name": "a_massive_construct",
+              "npc_level": 40
+            },
+            {
+              "item_id": 4394,
+              "zone": "hole",
+              "npc_id": 39135,
+              "npc_name": "Slizik_the_Mighty",
+              "npc_level": 54
+            },
+            {
+              "item_id": 4394,
+              "zone": "hole",
+              "npc_id": 39136,
+              "npc_name": "a_ratman_warrior",
+              "npc_level": 47
+            }
+          ]
+        },
+        {
+          "slot": 7,
+          "id": 68251,
+          "name": "Fabled Crafted Vambraces",
+          "base_id": 68251,
+          "score": 165,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 68251,
+              "zone": "northkarana",
+              "npc_id": 13118,
+              "npc_name": "The_Fabled_GrimFeather",
+              "npc_level": 55
+            }
+          ]
+        },
+        {
+          "slot": 8,
+          "id": 62288,
+          "name": "Specious Gemmed Cape",
+          "base_id": 62288,
+          "score": 112,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 62288,
+              "zone": "hole",
+              "npc_id": 39117,
+              "npc_name": "#an_ancient_gargoyle",
+              "npc_level": 55
+            }
+          ]
+        },
+        {
+          "slot": 9,
+          "id": 1559,
+          "name": "Zombie Flesh Bracer",
+          "base_id": 1559,
+          "score": 164,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 1559,
+              "zone": "fearplane",
+              "npc_id": 72090,
+              "npc_name": "a_dracoliche",
+              "npc_level": 58
+            }
+          ]
+        },
+        {
+          "slot": 10,
+          "id": 12805,
+          "name": "Bracelet of Exertion",
+          "base_id": 12805,
+          "score": 110,
+          "source_count": 16,
+          "source_examples": [
+            {
+              "item_id": 12805,
+              "zone": "airplane",
+              "npc_id": 71002,
+              "npc_name": "a_windrider_drake",
+              "npc_level": 60
+            },
+            {
+              "item_id": 12805,
+              "zone": "airplane",
+              "npc_id": 71003,
+              "npc_name": "a_fatestealer_drake",
+              "npc_level": 58
+            },
+            {
+              "item_id": 12805,
+              "zone": "airplane",
+              "npc_id": 71012,
+              "npc_name": "The_Spiroc_Lord",
+              "npc_level": 63
+            }
+          ]
+        },
+        {
+          "slot": 11,
+          "id": 1554,
+          "name": "Brain of Cazic-Thule",
+          "base_id": 1554,
+          "score": 270,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 1554,
+              "zone": "fearplane",
+              "npc_id": 72003,
+              "npc_name": "Cazic_Thule",
+              "npc_level": 70
+            }
+          ]
+        },
+        {
+          "slot": 12,
+          "id": 20655,
+          "name": "Slime Blood of Cazic-Thule",
+          "base_id": 20655,
+          "score": 110,
+          "source_count": 3,
+          "source_examples": [
+            {
+              "item_id": 20655,
+              "zone": "fearplane",
+              "npc_id": 72000,
+              "npc_name": "Dread",
+              "npc_level": 55
+            },
+            {
+              "item_id": 20655,
+              "zone": "fearplane",
+              "npc_id": 72002,
+              "npc_name": "Terror",
+              "npc_level": 55
+            },
+            {
+              "item_id": 20655,
+              "zone": "fearplane",
+              "npc_id": 72004,
+              "npc_name": "Fright",
+              "npc_level": 55
+            }
+          ]
+        },
+        {
+          "slot": 13,
+          "id": 14759,
+          "name": "Tome of Miragul",
+          "base_id": 14759,
+          "score": 107,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 14759,
+              "zone": "hole",
+              "npc_id": 39067,
+              "npc_name": "#an_ancient_construct",
+              "npc_level": 55
+            }
+          ]
+        },
+        {
+          "slot": 14,
+          "id": 11632,
+          "name": "Bladestopper",
+          "base_id": 11632,
+          "score": 165,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 11632,
+              "zone": "soldungb",
+              "npc_id": 32040,
+              "npc_name": "Lord_Nagafen",
+              "npc_level": 55
+            }
+          ]
+        },
+        {
+          "slot": 15,
+          "id": 79872,
+          "name": "Flamewrought Emerald Band",
+          "base_id": 79872,
+          "score": 92,
+          "source_count": 82,
+          "source_examples": [
+            {
+              "item_id": 79872,
+              "zone": "soldunga",
+              "npc_id": 31000,
+              "npc_name": "cinder_goblin",
+              "npc_level": 20
+            },
+            {
+              "item_id": 79872,
+              "zone": "soldunga",
+              "npc_id": 31001,
+              "npc_name": "Lynada_the_exiled",
+              "npc_level": 29
+            },
+            {
+              "item_id": 79872,
+              "zone": "soldunga",
+              "npc_id": 31002,
+              "npc_name": "Solusek_goblin",
+              "npc_level": 30
+            }
+          ]
+        },
+        {
+          "slot": 16,
+          "id": 10366,
+          "name": "Djarn's Amethyst Ring",
+          "base_id": 10366,
+          "score": 80,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 10366,
+              "zone": "soldungb",
+              "npc_id": 32062,
+              "npc_name": "Efreeti_Lord_Djarn",
+              "npc_level": 50
+            }
+          ]
+        },
+        {
+          "slot": 17,
+          "id": 1552,
+          "name": "Robe of Inspiration",
+          "base_id": 1552,
+          "score": 220,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 1552,
+              "zone": "fearplane",
+              "npc_id": 72003,
+              "npc_name": "Cazic_Thule",
+              "npc_level": 70
+            }
+          ]
+        },
+        {
+          "slot": 18,
+          "id": 8049,
+          "name": "Dew Woven Leggings",
+          "base_id": 8049,
+          "score": 97,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 8049,
+              "zone": "jaggedpine",
+              "npc_id": 181120,
+              "npc_name": "#Queen_Nhyalia",
+              "npc_level": 53
+            }
+          ]
+        },
+        {
+          "slot": 19,
+          "id": 68239,
+          "name": "Fabled Journeyman's Boots",
+          "base_id": 68239,
+          "score": 76,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 68239,
+              "zone": "najena",
+              "npc_id": 44105,
+              "npc_name": "#The_Fabled_Drelzna",
+              "npc_level": 55
+            }
+          ]
+        },
+        {
+          "slot": 20,
+          "id": 1556,
+          "name": "Grotesque Girdle",
+          "base_id": 1556,
+          "score": 252,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 1556,
+              "zone": "fearplane",
+              "npc_id": 72090,
+              "npc_name": "a_dracoliche",
+              "npc_level": 58
+            }
+          ]
+        }
+      ],
+      "raw_item_totals": {
+        "hp": 850,
+        "mana": 830,
+        "ac": 202,
+        "astr": 35,
+        "asta": 37,
+        "aagi": 24,
+        "adex": 10,
+        "aint": 89,
+        "awis": 57,
+        "heroic_str": 0,
+        "heroic_sta": 0,
+        "heroic_agi": 0,
+        "heroic_dex": 0,
+        "heroic_int": 0,
+        "heroic_wis": 0,
+        "spelldmg": 0,
+        "healamt": 0,
+        "attack": 0,
+        "accuracy": 0,
+        "avoidance": 0,
+        "regen": 0,
+        "manaregen": 3,
+        "fr": 58,
+        "cr": 51,
+        "mr": 67,
+        "pr": 58,
+        "dr": 48,
+        "shielding": 0,
+        "spellshield": 0,
+        "dotshielding": 0
+      },
+      "capped_spell_damage": 0,
+      "capped_heal_amount": 0
+    },
+    {
+      "profile": "mag-nec-shm",
+      "classes": [
+        13,
+        11,
+        10
+      ],
+      "level": 50,
+      "race": "Human",
+      "deity": "Agnostic",
+      "tier": "Polished",
+      "casting_stat_scored": "int",
+      "melee_ratio_scored": false,
+      "total_score": 4232,
+      "equipment": [
+        {
+          "slot": 1,
+          "id": 262283,
+          "name": "Shiny Gold Earring (Polished)",
+          "base_id": 62283,
+          "score": 143,
+          "source_count": 19,
+          "source_examples": [
+            {
+              "item_id": 62283,
+              "zone": "hole",
+              "npc_id": 39015,
+              "npc_name": "a_spirit_of_the_old_city",
+              "npc_level": 51
+            },
+            {
+              "item_id": 62283,
+              "zone": "hole",
+              "npc_id": 39016,
+              "npc_name": "a_spirit_of_the_old_city",
+              "npc_level": 52
+            },
+            {
+              "item_id": 62283,
+              "zone": "hole",
+              "npc_id": 39018,
+              "npc_name": "a_spirit_of_the_old_city",
+              "npc_level": 53
+            }
+          ]
+        },
+        {
+          "slot": 2,
+          "id": 210143,
+          "name": "Platinum Tiara (Polished)",
+          "base_id": 10143,
+          "score": 160,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 10143,
+              "zone": "gukbottom",
+              "npc_id": 66121,
+              "npc_name": "a_froglok_tactician",
+              "npc_level": 45
+            }
+          ]
+        },
+        {
+          "slot": 3,
+          "id": 201547,
+          "name": "Eye of Cazic-Thule (Polished)",
+          "base_id": 1547,
+          "score": 339,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 1547,
+              "zone": "fearplane",
+              "npc_id": 72003,
+              "npc_name": "Cazic_Thule",
+              "npc_level": 70
+            }
+          ]
+        },
+        {
+          "slot": 4,
+          "id": 279621,
+          "name": "Silverwing Loop (Polished)",
+          "base_id": 79621,
+          "score": 122,
+          "source_count": 120,
+          "source_examples": [
+            {
+              "item_id": 79621,
+              "zone": "mistmoore",
+              "npc_id": 59000,
+              "npc_name": "a_deathly_usher",
+              "npc_level": 30
+            },
+            {
+              "item_id": 79621,
+              "zone": "mistmoore",
+              "npc_id": 59001,
+              "npc_name": "a_deathly_usher",
+              "npc_level": 31
+            },
+            {
+              "item_id": 79621,
+              "zone": "mistmoore",
+              "npc_id": 59002,
+              "npc_name": "a_deathly_usher",
+              "npc_level": 29
+            }
+          ]
+        },
+        {
+          "slot": 5,
+          "id": 262294,
+          "name": "Rock Prism Necklace (Polished)",
+          "base_id": 62294,
+          "score": 194,
+          "source_count": 4,
+          "source_examples": [
+            {
+              "item_id": 62294,
+              "zone": "hole",
+              "npc_id": 39031,
+              "npc_name": "a_ratman_inhabitant",
+              "npc_level": 51
+            },
+            {
+              "item_id": 62294,
+              "zone": "hole",
+              "npc_id": 39033,
+              "npc_name": "a_ratman_inhabitant",
+              "npc_level": 52
+            },
+            {
+              "item_id": 62294,
+              "zone": "hole",
+              "npc_id": 39055,
+              "npc_name": "a_ratman_inhabitant",
+              "npc_level": 53
+            }
+          ]
+        },
+        {
+          "slot": 6,
+          "id": 201905,
+          "name": "Squallsurge Shawl (Polished)",
+          "base_id": 1905,
+          "score": 128,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 1905,
+              "zone": "kedge",
+              "npc_id": 64087,
+              "npc_name": "Undertow",
+              "npc_level": 49
+            }
+          ]
+        },
+        {
+          "slot": 7,
+          "id": 268251,
+          "name": "Fabled Crafted Vambraces (Polished)",
+          "base_id": 68251,
+          "score": 249,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 68251,
+              "zone": "northkarana",
+              "npc_id": 13118,
+              "npc_name": "The_Fabled_GrimFeather",
+              "npc_level": 55
+            }
+          ]
+        },
+        {
+          "slot": 8,
+          "id": 262288,
+          "name": "Specious Gemmed Cape (Polished)",
+          "base_id": 62288,
+          "score": 179,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 62288,
+              "zone": "hole",
+              "npc_id": 39117,
+              "npc_name": "#an_ancient_gargoyle",
+              "npc_level": 55
+            }
+          ]
+        },
+        {
+          "slot": 9,
+          "id": 201559,
+          "name": "Zombie Flesh Bracer (Polished)",
+          "base_id": 1559,
+          "score": 254,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 1559,
+              "zone": "fearplane",
+              "npc_id": 72090,
+              "npc_name": "a_dracoliche",
+              "npc_level": 58
+            }
+          ]
+        },
+        {
+          "slot": 10,
+          "id": 212805,
+          "name": "Bracelet of Exertion (Polished)",
+          "base_id": 12805,
+          "score": 180,
+          "source_count": 16,
+          "source_examples": [
+            {
+              "item_id": 12805,
+              "zone": "airplane",
+              "npc_id": 71002,
+              "npc_name": "a_windrider_drake",
+              "npc_level": 60
+            },
+            {
+              "item_id": 12805,
+              "zone": "airplane",
+              "npc_id": 71003,
+              "npc_name": "a_fatestealer_drake",
+              "npc_level": 58
+            },
+            {
+              "item_id": 12805,
+              "zone": "airplane",
+              "npc_id": 71012,
+              "npc_name": "The_Spiroc_Lord",
+              "npc_level": 63
+            }
+          ]
+        },
+        {
+          "slot": 11,
+          "id": 201554,
+          "name": "Brain of Cazic-Thule (Polished)",
+          "base_id": 1554,
+          "score": 408,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 1554,
+              "zone": "fearplane",
+              "npc_id": 72003,
+              "npc_name": "Cazic_Thule",
+              "npc_level": 70
+            }
+          ]
+        },
+        {
+          "slot": 12,
+          "id": 220655,
+          "name": "Slime Blood of Cazic-Thule (Polished)",
+          "base_id": 20655,
+          "score": 175,
+          "source_count": 3,
+          "source_examples": [
+            {
+              "item_id": 20655,
+              "zone": "fearplane",
+              "npc_id": 72000,
+              "npc_name": "Dread",
+              "npc_level": 55
+            },
+            {
+              "item_id": 20655,
+              "zone": "fearplane",
+              "npc_id": 72002,
+              "npc_name": "Terror",
+              "npc_level": 55
+            },
+            {
+              "item_id": 20655,
+              "zone": "fearplane",
+              "npc_id": 72004,
+              "npc_name": "Fright",
+              "npc_level": 55
+            }
+          ]
+        },
+        {
+          "slot": 13,
+          "id": 214759,
+          "name": "Tome of Miragul (Polished)",
+          "base_id": 14759,
+          "score": 177,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 14759,
+              "zone": "hole",
+              "npc_id": 39067,
+              "npc_name": "#an_ancient_construct",
+              "npc_level": 55
+            }
+          ]
+        },
+        {
+          "slot": 14,
+          "id": 211632,
+          "name": "Bladestopper (Polished)",
+          "base_id": 11632,
+          "score": 249,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 11632,
+              "zone": "soldungb",
+              "npc_id": 32040,
+              "npc_name": "Lord_Nagafen",
+              "npc_level": 55
+            }
+          ]
+        },
+        {
+          "slot": 15,
+          "id": 279872,
+          "name": "Flamewrought Emerald Band (Polished)",
+          "base_id": 79872,
+          "score": 148,
+          "source_count": 82,
+          "source_examples": [
+            {
+              "item_id": 79872,
+              "zone": "soldunga",
+              "npc_id": 31000,
+              "npc_name": "cinder_goblin",
+              "npc_level": 20
+            },
+            {
+              "item_id": 79872,
+              "zone": "soldunga",
+              "npc_id": 31001,
+              "npc_name": "Lynada_the_exiled",
+              "npc_level": 29
+            },
+            {
+              "item_id": 79872,
+              "zone": "soldunga",
+              "npc_id": 31002,
+              "npc_name": "Solusek_goblin",
+              "npc_level": 30
+            }
+          ]
+        },
+        {
+          "slot": 16,
+          "id": 210366,
+          "name": "Djarn's Amethyst Ring (Polished)",
+          "base_id": 10366,
+          "score": 136,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 10366,
+              "zone": "soldungb",
+              "npc_id": 32062,
+              "npc_name": "Efreeti_Lord_Djarn",
+              "npc_level": 50
+            }
+          ]
+        },
+        {
+          "slot": 17,
+          "id": 201552,
+          "name": "Robe of Inspiration (Polished)",
+          "base_id": 1552,
+          "score": 327,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 1552,
+              "zone": "fearplane",
+              "npc_id": 72003,
+              "npc_name": "Cazic_Thule",
+              "npc_level": 70
+            }
+          ]
+        },
+        {
+          "slot": 18,
+          "id": 208049,
+          "name": "Dew Woven Leggings (Polished)",
+          "base_id": 8049,
+          "score": 154,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 8049,
+              "zone": "jaggedpine",
+              "npc_id": 181120,
+              "npc_name": "#Queen_Nhyalia",
+              "npc_level": 53
+            }
+          ]
+        },
+        {
+          "slot": 19,
+          "id": 268239,
+          "name": "Fabled Journeyman's Boots (Polished)",
+          "base_id": 68239,
+          "score": 128,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 68239,
+              "zone": "najena",
+              "npc_id": 44105,
+              "npc_name": "#The_Fabled_Drelzna",
+              "npc_level": 55
+            }
+          ]
+        },
+        {
+          "slot": 20,
+          "id": 201556,
+          "name": "Grotesque Girdle (Polished)",
+          "base_id": 1556,
+          "score": 382,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 1556,
+              "zone": "fearplane",
+              "npc_id": 72090,
+              "npc_name": "a_dracoliche",
+              "npc_level": 58
+            }
+          ]
+        }
+      ],
+      "raw_item_totals": {
+        "hp": 1235,
+        "mana": 1280,
+        "ac": 254,
+        "astr": 50,
+        "asta": 59,
+        "aagi": 32,
+        "adex": 15,
+        "aint": 121,
+        "awis": 78,
+        "heroic_str": 0,
+        "heroic_sta": 0,
+        "heroic_agi": 0,
+        "heroic_dex": 0,
+        "heroic_int": 0,
+        "heroic_wis": 0,
+        "spelldmg": 100,
+        "healamt": 100,
+        "attack": 0,
+        "accuracy": 0,
+        "avoidance": 0,
+        "regen": 0,
+        "manaregen": 3,
+        "fr": 65,
+        "cr": 56,
+        "mr": 77,
+        "pr": 65,
+        "dr": 55,
+        "shielding": 0,
+        "spellshield": 0,
+        "dotshielding": 0
+      },
+      "capped_spell_damage": 100,
+      "capped_heal_amount": 100
+    },
+    {
+      "profile": "mag-nec-shm",
+      "classes": [
+        13,
+        11,
+        10
+      ],
+      "level": 50,
+      "race": "Human",
+      "deity": "Agnostic",
+      "tier": "Exalted",
+      "casting_stat_scored": "int",
+      "melee_ratio_scored": false,
+      "total_score": 5862,
+      "equipment": [
+        {
+          "slot": 1,
+          "id": 462283,
+          "name": "Shiny Gold Earring (Exalted)",
+          "base_id": 62283,
+          "score": 210,
+          "source_count": 19,
+          "source_examples": [
+            {
+              "item_id": 62283,
+              "zone": "hole",
+              "npc_id": 39015,
+              "npc_name": "a_spirit_of_the_old_city",
+              "npc_level": 51
+            },
+            {
+              "item_id": 62283,
+              "zone": "hole",
+              "npc_id": 39016,
+              "npc_name": "a_spirit_of_the_old_city",
+              "npc_level": 52
+            },
+            {
+              "item_id": 62283,
+              "zone": "hole",
+              "npc_id": 39018,
+              "npc_name": "a_spirit_of_the_old_city",
+              "npc_level": 53
+            }
+          ]
+        },
+        {
+          "slot": 2,
+          "id": 410143,
+          "name": "Platinum Tiara (Exalted)",
+          "base_id": 10143,
+          "score": 230,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 10143,
+              "zone": "gukbottom",
+              "npc_id": 66121,
+              "npc_name": "a_froglok_tactician",
+              "npc_level": 45
+            }
+          ]
+        },
+        {
+          "slot": 3,
+          "id": 401547,
+          "name": "Eye of Cazic-Thule (Exalted)",
+          "base_id": 1547,
+          "score": 457,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 1547,
+              "zone": "fearplane",
+              "npc_id": 72003,
+              "npc_name": "Cazic_Thule",
+              "npc_level": 70
+            }
+          ]
+        },
+        {
+          "slot": 4,
+          "id": 479621,
+          "name": "Silverwing Loop (Exalted)",
+          "base_id": 79621,
+          "score": 174,
+          "source_count": 120,
+          "source_examples": [
+            {
+              "item_id": 79621,
+              "zone": "mistmoore",
+              "npc_id": 59000,
+              "npc_name": "a_deathly_usher",
+              "npc_level": 30
+            },
+            {
+              "item_id": 79621,
+              "zone": "mistmoore",
+              "npc_id": 59001,
+              "npc_name": "a_deathly_usher",
+              "npc_level": 31
+            },
+            {
+              "item_id": 79621,
+              "zone": "mistmoore",
+              "npc_id": 59002,
+              "npc_name": "a_deathly_usher",
+              "npc_level": 29
+            }
+          ]
+        },
+        {
+          "slot": 5,
+          "id": 462294,
+          "name": "Rock Prism Necklace (Exalted)",
+          "base_id": 62294,
+          "score": 268,
+          "source_count": 4,
+          "source_examples": [
+            {
+              "item_id": 62294,
+              "zone": "hole",
+              "npc_id": 39031,
+              "npc_name": "a_ratman_inhabitant",
+              "npc_level": 51
+            },
+            {
+              "item_id": 62294,
+              "zone": "hole",
+              "npc_id": 39033,
+              "npc_name": "a_ratman_inhabitant",
+              "npc_level": 52
+            },
+            {
+              "item_id": 62294,
+              "zone": "hole",
+              "npc_id": 39055,
+              "npc_name": "a_ratman_inhabitant",
+              "npc_level": 53
+            }
+          ]
+        },
+        {
+          "slot": 6,
+          "id": 401905,
+          "name": "Squallsurge Shawl (Exalted)",
+          "base_id": 1905,
+          "score": 183,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 1905,
+              "zone": "kedge",
+              "npc_id": 64087,
+              "npc_name": "Undertow",
+              "npc_level": 49
+            }
+          ]
+        },
+        {
+          "slot": 7,
+          "id": 468251,
+          "name": "Fabled Crafted Vambraces (Exalted)",
+          "base_id": 68251,
+          "score": 341,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 68251,
+              "zone": "northkarana",
+              "npc_id": 13118,
+              "npc_name": "The_Fabled_GrimFeather",
+              "npc_level": 55
+            }
+          ]
+        },
+        {
+          "slot": 8,
+          "id": 462288,
+          "name": "Specious Gemmed Cape (Exalted)",
+          "base_id": 62288,
+          "score": 251,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 62288,
+              "zone": "hole",
+              "npc_id": 39117,
+              "npc_name": "#an_ancient_gargoyle",
+              "npc_level": 55
+            }
+          ]
+        },
+        {
+          "slot": 9,
+          "id": 401559,
+          "name": "Zombie Flesh Bracer (Exalted)",
+          "base_id": 1559,
+          "score": 352,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 1559,
+              "zone": "fearplane",
+              "npc_id": 72090,
+              "npc_name": "a_dracoliche",
+              "npc_level": 58
+            }
+          ]
+        },
+        {
+          "slot": 10,
+          "id": 412805,
+          "name": "Bracelet of Exertion (Exalted)",
+          "base_id": 12805,
+          "score": 258,
+          "source_count": 16,
+          "source_examples": [
+            {
+              "item_id": 12805,
+              "zone": "airplane",
+              "npc_id": 71002,
+              "npc_name": "a_windrider_drake",
+              "npc_level": 60
+            },
+            {
+              "item_id": 12805,
+              "zone": "airplane",
+              "npc_id": 71003,
+              "npc_name": "a_fatestealer_drake",
+              "npc_level": 58
+            },
+            {
+              "item_id": 12805,
+              "zone": "airplane",
+              "npc_id": 71012,
+              "npc_name": "The_Spiroc_Lord",
+              "npc_level": 63
+            }
+          ]
+        },
+        {
+          "slot": 11,
+          "id": 401554,
+          "name": "Brain of Cazic-Thule (Exalted)",
+          "base_id": 1554,
+          "score": 547,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 1554,
+              "zone": "fearplane",
+              "npc_id": 72003,
+              "npc_name": "Cazic_Thule",
+              "npc_level": 70
+            }
+          ]
+        },
+        {
+          "slot": 12,
+          "id": 420655,
+          "name": "Slime Blood of Cazic-Thule (Exalted)",
+          "base_id": 20655,
+          "score": 237,
+          "source_count": 3,
+          "source_examples": [
+            {
+              "item_id": 20655,
+              "zone": "fearplane",
+              "npc_id": 72000,
+              "npc_name": "Dread",
+              "npc_level": 55
+            },
+            {
+              "item_id": 20655,
+              "zone": "fearplane",
+              "npc_id": 72002,
+              "npc_name": "Terror",
+              "npc_level": 55
+            },
+            {
+              "item_id": 20655,
+              "zone": "fearplane",
+              "npc_id": 72004,
+              "npc_name": "Fright",
+              "npc_level": 55
+            }
+          ]
+        },
+        {
+          "slot": 13,
+          "id": 414759,
+          "name": "Tome of Miragul (Exalted)",
+          "base_id": 14759,
+          "score": 253,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 14759,
+              "zone": "hole",
+              "npc_id": 39067,
+              "npc_name": "#an_ancient_construct",
+              "npc_level": 55
+            }
+          ]
+        },
+        {
+          "slot": 14,
+          "id": 411632,
+          "name": "Bladestopper (Exalted)",
+          "base_id": 11632,
+          "score": 332,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 11632,
+              "zone": "soldungb",
+              "npc_id": 32040,
+              "npc_name": "Lord_Nagafen",
+              "npc_level": 55
+            }
+          ]
+        },
+        {
+          "slot": 15,
+          "id": 479872,
+          "name": "Flamewrought Emerald Band (Exalted)",
+          "base_id": 79872,
+          "score": 210,
+          "source_count": 82,
+          "source_examples": [
+            {
+              "item_id": 79872,
+              "zone": "soldunga",
+              "npc_id": 31000,
+              "npc_name": "cinder_goblin",
+              "npc_level": 20
+            },
+            {
+              "item_id": 79872,
+              "zone": "soldunga",
+              "npc_id": 31001,
+              "npc_name": "Lynada_the_exiled",
+              "npc_level": 29
+            },
+            {
+              "item_id": 79872,
+              "zone": "soldunga",
+              "npc_id": 31002,
+              "npc_name": "Solusek_goblin",
+              "npc_level": 30
+            }
+          ]
+        },
+        {
+          "slot": 16,
+          "id": 410366,
+          "name": "Djarn's Amethyst Ring (Exalted)",
+          "base_id": 10366,
+          "score": 200,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 10366,
+              "zone": "soldungb",
+              "npc_id": 32062,
+              "npc_name": "Efreeti_Lord_Djarn",
+              "npc_level": 50
+            }
+          ]
+        },
+        {
+          "slot": 17,
+          "id": 401552,
+          "name": "Robe of Inspiration (Exalted)",
+          "base_id": 1552,
+          "score": 436,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 1552,
+              "zone": "fearplane",
+              "npc_id": 72003,
+              "npc_name": "Cazic_Thule",
+              "npc_level": 70
+            }
+          ]
+        },
+        {
+          "slot": 18,
+          "id": 408049,
+          "name": "Dew Woven Leggings (Exalted)",
+          "base_id": 8049,
+          "score": 225,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 8049,
+              "zone": "jaggedpine",
+              "npc_id": 181120,
+              "npc_name": "#Queen_Nhyalia",
+              "npc_level": 53
+            }
+          ]
+        },
+        {
+          "slot": 19,
+          "id": 468239,
+          "name": "Fabled Journeyman's Boots (Exalted)",
+          "base_id": 68239,
+          "score": 184,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 68239,
+              "zone": "najena",
+              "npc_id": 44105,
+              "npc_name": "#The_Fabled_Drelzna",
+              "npc_level": 55
+            }
+          ]
+        },
+        {
+          "slot": 20,
+          "id": 401556,
+          "name": "Grotesque Girdle (Exalted)",
+          "base_id": 1556,
+          "score": 514,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 1556,
+              "zone": "fearplane",
+              "npc_id": 72090,
+              "npc_name": "a_dracoliche",
+              "npc_level": 58
+            }
+          ]
+        }
+      ],
+      "raw_item_totals": {
+        "hp": 1619,
+        "mana": 1674,
+        "ac": 310,
+        "astr": 61,
+        "asta": 73,
+        "aagi": 40,
+        "adex": 20,
+        "aint": 148,
+        "awis": 95,
+        "heroic_str": 0,
+        "heroic_sta": 0,
+        "heroic_agi": 0,
+        "heroic_dex": 0,
+        "heroic_int": 0,
+        "heroic_wis": 0,
+        "spelldmg": 240,
+        "healamt": 240,
+        "attack": 0,
+        "accuracy": 0,
+        "avoidance": 0,
+        "regen": 0,
+        "manaregen": 6,
+        "fr": 80,
+        "cr": 68,
+        "mr": 95,
+        "pr": 80,
+        "dr": 70,
+        "shielding": 0,
+        "spellshield": 0,
+        "dotshielding": 0
+      },
+      "capped_spell_damage": 240,
+      "capped_heal_amount": 240
+    },
+    {
+      "profile": "mag-nec-shm",
+      "classes": [
+        13,
+        11,
+        10
+      ],
+      "level": 50,
+      "race": "Human",
+      "deity": "Agnostic",
+      "tier": "Ascended",
+      "casting_stat_scored": "int",
+      "melee_ratio_scored": false,
+      "total_score": 8423,
+      "equipment": [
+        {
+          "slot": 1,
+          "id": 662283,
+          "name": "Shiny Gold Earring (Ascended)",
+          "base_id": 62283,
+          "score": 300,
+          "source_count": 19,
+          "source_examples": [
+            {
+              "item_id": 62283,
+              "zone": "hole",
+              "npc_id": 39015,
+              "npc_name": "a_spirit_of_the_old_city",
+              "npc_level": 51
+            },
+            {
+              "item_id": 62283,
+              "zone": "hole",
+              "npc_id": 39016,
+              "npc_name": "a_spirit_of_the_old_city",
+              "npc_level": 52
+            },
+            {
+              "item_id": 62283,
+              "zone": "hole",
+              "npc_id": 39018,
+              "npc_name": "a_spirit_of_the_old_city",
+              "npc_level": 53
+            }
+          ]
+        },
+        {
+          "slot": 2,
+          "id": 610143,
+          "name": "Platinum Tiara (Ascended)",
+          "base_id": 10143,
+          "score": 308,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 10143,
+              "zone": "gukbottom",
+              "npc_id": 66121,
+              "npc_name": "a_froglok_tactician",
+              "npc_level": 45
+            }
+          ]
+        },
+        {
+          "slot": 3,
+          "id": 601547,
+          "name": "Eye of Cazic-Thule (Ascended)",
+          "base_id": 1547,
+          "score": 650,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 1547,
+              "zone": "fearplane",
+              "npc_id": 72003,
+              "npc_name": "Cazic_Thule",
+              "npc_level": 70
+            }
+          ]
+        },
+        {
+          "slot": 4,
+          "id": 679621,
+          "name": "Silverwing Loop (Ascended)",
+          "base_id": 79621,
+          "score": 266,
+          "source_count": 120,
+          "source_examples": [
+            {
+              "item_id": 79621,
+              "zone": "mistmoore",
+              "npc_id": 59000,
+              "npc_name": "a_deathly_usher",
+              "npc_level": 30
+            },
+            {
+              "item_id": 79621,
+              "zone": "mistmoore",
+              "npc_id": 59001,
+              "npc_name": "a_deathly_usher",
+              "npc_level": 31
+            },
+            {
+              "item_id": 79621,
+              "zone": "mistmoore",
+              "npc_id": 59002,
+              "npc_name": "a_deathly_usher",
+              "npc_level": 29
+            }
+          ]
+        },
+        {
+          "slot": 5,
+          "id": 662294,
+          "name": "Rock Prism Necklace (Ascended)",
+          "base_id": 62294,
+          "score": 386,
+          "source_count": 4,
+          "source_examples": [
+            {
+              "item_id": 62294,
+              "zone": "hole",
+              "npc_id": 39031,
+              "npc_name": "a_ratman_inhabitant",
+              "npc_level": 51
+            },
+            {
+              "item_id": 62294,
+              "zone": "hole",
+              "npc_id": 39033,
+              "npc_name": "a_ratman_inhabitant",
+              "npc_level": 52
+            },
+            {
+              "item_id": 62294,
+              "zone": "hole",
+              "npc_id": 39055,
+              "npc_name": "a_ratman_inhabitant",
+              "npc_level": 53
+            }
+          ]
+        },
+        {
+          "slot": 6,
+          "id": 601905,
+          "name": "Squallsurge Shawl (Ascended)",
+          "base_id": 1905,
+          "score": 280,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 1905,
+              "zone": "kedge",
+              "npc_id": 64087,
+              "npc_name": "Undertow",
+              "npc_level": 49
+            }
+          ]
+        },
+        {
+          "slot": 7,
+          "id": 668251,
+          "name": "Fabled Crafted Vambraces (Ascended)",
+          "base_id": 68251,
+          "score": 470,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 68251,
+              "zone": "northkarana",
+              "npc_id": 13118,
+              "npc_name": "The_Fabled_GrimFeather",
+              "npc_level": 55
+            }
+          ]
+        },
+        {
+          "slot": 8,
+          "id": 662288,
+          "name": "Specious Gemmed Cape (Ascended)",
+          "base_id": 62288,
+          "score": 368,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 62288,
+              "zone": "hole",
+              "npc_id": 39117,
+              "npc_name": "#an_ancient_gargoyle",
+              "npc_level": 55
+            }
+          ]
+        },
+        {
+          "slot": 9,
+          "id": 601559,
+          "name": "Zombie Flesh Bracer (Ascended)",
+          "base_id": 1559,
+          "score": 490,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 1559,
+              "zone": "fearplane",
+              "npc_id": 72090,
+              "npc_name": "a_dracoliche",
+              "npc_level": 58
+            }
+          ]
+        },
+        {
+          "slot": 10,
+          "id": 612805,
+          "name": "Bracelet of Exertion (Ascended)",
+          "base_id": 12805,
+          "score": 344,
+          "source_count": 16,
+          "source_examples": [
+            {
+              "item_id": 12805,
+              "zone": "airplane",
+              "npc_id": 71002,
+              "npc_name": "a_windrider_drake",
+              "npc_level": 60
+            },
+            {
+              "item_id": 12805,
+              "zone": "airplane",
+              "npc_id": 71003,
+              "npc_name": "a_fatestealer_drake",
+              "npc_level": 58
+            },
+            {
+              "item_id": 12805,
+              "zone": "airplane",
+              "npc_id": 71012,
+              "npc_name": "The_Spiroc_Lord",
+              "npc_level": 63
+            }
+          ]
+        },
+        {
+          "slot": 11,
+          "id": 601554,
+          "name": "Brain of Cazic-Thule (Ascended)",
+          "base_id": 1554,
+          "score": 800,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 1554,
+              "zone": "fearplane",
+              "npc_id": 72003,
+              "npc_name": "Cazic_Thule",
+              "npc_level": 70
+            }
+          ]
+        },
+        {
+          "slot": 12,
+          "id": 620655,
+          "name": "Slime Blood of Cazic-Thule (Ascended)",
+          "base_id": 20655,
+          "score": 336,
+          "source_count": 3,
+          "source_examples": [
+            {
+              "item_id": 20655,
+              "zone": "fearplane",
+              "npc_id": 72000,
+              "npc_name": "Dread",
+              "npc_level": 55
+            },
+            {
+              "item_id": 20655,
+              "zone": "fearplane",
+              "npc_id": 72002,
+              "npc_name": "Terror",
+              "npc_level": 55
+            },
+            {
+              "item_id": 20655,
+              "zone": "fearplane",
+              "npc_id": 72004,
+              "npc_name": "Fright",
+              "npc_level": 55
+            }
+          ]
+        },
+        {
+          "slot": 13,
+          "id": 614759,
+          "name": "Tome of Miragul (Ascended)",
+          "base_id": 14759,
+          "score": 369,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 14759,
+              "zone": "hole",
+              "npc_id": 39067,
+              "npc_name": "#an_ancient_construct",
+              "npc_level": 55
+            }
+          ]
+        },
+        {
+          "slot": 14,
+          "id": 611632,
+          "name": "Bladestopper (Ascended)",
+          "base_id": 11632,
+          "score": 510,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 11632,
+              "zone": "soldungb",
+              "npc_id": 32040,
+              "npc_name": "Lord_Nagafen",
+              "npc_level": 55
+            }
+          ]
+        },
+        {
+          "slot": 15,
+          "id": 679872,
+          "name": "Flamewrought Emerald Band (Ascended)",
+          "base_id": 79872,
+          "score": 300,
+          "source_count": 82,
+          "source_examples": [
+            {
+              "item_id": 79872,
+              "zone": "soldunga",
+              "npc_id": 31000,
+              "npc_name": "cinder_goblin",
+              "npc_level": 20
+            },
+            {
+              "item_id": 79872,
+              "zone": "soldunga",
+              "npc_id": 31001,
+              "npc_name": "Lynada_the_exiled",
+              "npc_level": 29
+            },
+            {
+              "item_id": 79872,
+              "zone": "soldunga",
+              "npc_id": 31002,
+              "npc_name": "Solusek_goblin",
+              "npc_level": 30
+            }
+          ]
+        },
+        {
+          "slot": 16,
+          "id": 610366,
+          "name": "Djarn's Amethyst Ring (Ascended)",
+          "base_id": 10366,
+          "score": 272,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 10366,
+              "zone": "soldungb",
+              "npc_id": 32062,
+              "npc_name": "Efreeti_Lord_Djarn",
+              "npc_level": 50
+            }
+          ]
+        },
+        {
+          "slot": 17,
+          "id": 601552,
+          "name": "Robe of Inspiration (Ascended)",
+          "base_id": 1552,
+          "score": 660,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 1552,
+              "zone": "fearplane",
+              "npc_id": 72003,
+              "npc_name": "Cazic_Thule",
+              "npc_level": 70
+            }
+          ]
+        },
+        {
+          "slot": 18,
+          "id": 608049,
+          "name": "Dew Woven Leggings (Ascended)",
+          "base_id": 8049,
+          "score": 336,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 8049,
+              "zone": "jaggedpine",
+              "npc_id": 181120,
+              "npc_name": "#Queen_Nhyalia",
+              "npc_level": 53
+            }
+          ]
+        },
+        {
+          "slot": 19,
+          "id": 668239,
+          "name": "Fabled Journeyman's Boots (Ascended)",
+          "base_id": 68239,
+          "score": 264,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 68239,
+              "zone": "najena",
+              "npc_id": 44105,
+              "npc_name": "#The_Fabled_Drelzna",
+              "npc_level": 55
+            }
+          ]
+        },
+        {
+          "slot": 20,
+          "id": 601556,
+          "name": "Grotesque Girdle (Ascended)",
+          "base_id": 1556,
+          "score": 714,
+          "source_count": 1,
+          "source_examples": [
+            {
+              "item_id": 1556,
+              "zone": "fearplane",
+              "npc_id": 72090,
+              "npc_name": "a_dracoliche",
+              "npc_level": 58
+            }
+          ]
+        }
+      ],
+      "raw_item_totals": {
+        "hp": 2040,
+        "mana": 2112,
+        "ac": 374,
+        "astr": 75,
+        "asta": 89,
+        "aagi": 48,
+        "adex": 25,
+        "aint": 178,
+        "awis": 114,
+        "heroic_str": 22,
+        "heroic_sta": 25,
+        "heroic_agi": 13,
+        "heroic_dex": 8,
+        "heroic_int": 48,
+        "heroic_wis": 31,
+        "spelldmg": 400,
+        "healamt": 400,
+        "attack": 0,
+        "accuracy": 0,
+        "avoidance": 0,
+        "regen": 0,
+        "manaregen": 6,
+        "fr": 96,
+        "cr": 82,
+        "mr": 114,
+        "pr": 96,
+        "dr": 86,
+        "shielding": 0,
+        "spellshield": 0,
+        "dotshielding": 0
+      },
+      "capped_spell_damage": 250,
+      "capped_heal_amount": 250
+    }
+  ]
+}

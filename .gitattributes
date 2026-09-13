@@ -1,0 +1,145 @@
+# Preserve exact captured bytes used by the native encounter evidence manifests.
+docs/balance/native-encounter-*.json -text
+docs/balance/native-runtime-*.json -text
+docs/balance/native-map-manifest.json -text
+
+# Diagnostic source hashes must also survive a Windows checkout.
+tools/balance/native_harness.cpp text eol=lf
+tools/balance/native_runtime.cpp text eol=lf
+tools/balance/native_runtime.h text eol=lf
+
+# Acquisition query hashes use the recorded UTF-8/LF SQL bytes.
+tools/balance/fixtures/classic-acquisition-*.queries.sql text eol=lf
+tools/balance/fixtures/classic-acquisition-*.manifest.json -text
+docs/balance/gear-*.json -text
+tools/balance/acquisition_snapshot.py text eol=lf
+tools/balance/gear_haste_controls.py text eol=lf
+tools/balance/encounter_matrix.py text eol=lf
+docs/balance/movement-*.json -text
+tools/balance/build_native.py text eol=lf
+tools/balance/verify_native_movement.py text eol=lf
+docs/balance/active-aa-*.json -text
+tools/balance/active_aa_controls.py text eol=lf
+tools/balance/aa_duration_controls.py text eol=lf
+server-mods/code/zone/spells.cpp text eol=lf
+docs/balance/duration-*.json -text
+tools/balance/preparation_controls.py text eol=lf
+docs/balance/preparation-*.json -text
+tools/balance/aa_pool_controls.py text eol=lf
+docs/balance/aa-pool-*.json -text
+tools/balance/gear_candidates.py text eol=lf
+tools/balance/gear_encounters.py text eol=lf
+tools/balance/augment_controls.py text eol=lf
+tools/balance/melee_controls.py text eol=lf
+server-mods/code/zone/attack.cpp text eol=lf
+docs/balance/melee-*.json -text
+server-mods/code/zone/mob.cpp text eol=lf
+tools/balance/pet_controls.py text eol=lf
+docs/balance/pet-*.json -text
+server-mods/code/zone/client_packet.cpp text eol=lf
+tools/balance/pet_combat_controls.py text eol=lf
+tools/balance/pet_support_controls.py text eol=lf
+tools/balance/pet_belly_controls.py text eol=lf
+tools/balance/release_pool_controls.py text eol=lf
+docs/balance/aa-release-candidates.json text eol=lf
+docs/balance/release-pool-*.json -text
+tools/balance/gear_source_controls.py text eol=lf
+tools/balance/pet_threat_controls.py text eol=lf
+tools/balance/pet_resist_controls.py text eol=lf
+tools/balance/aa_policy_preflight.py text eol=lf
+docs/balance/aa-policy-*.json -text
+tools/balance/aa_policy_projection.py text eol=lf
+tools/balance/run_aa_projection.py text eol=lf
+docs/balance/aa-projection-*.json -text
+docs/balance/aa-projection-*.sql text eol=lf
+server-mods/code/zone/aa.cpp text eol=lf
+tools/balance/aa_ownership.py text eol=lf
+tools/balance/aa_ownership_controls.py text eol=lf
+docs/balance/aa-ownership-*.json -text
+tools/balance/tests/test_aa_ownership*.py text eol=lf
+docs/balance/native-aa-ownership.md text eol=lf
+docs/adr/0019-preserve-owned-aa-state-across-caps.md text eol=lf
+tools/balance/cap_controls.py text eol=lf
+tools/balance/tests/test_cap*.py text eol=lf
+docs/balance/cap-*.json -text
+docs/balance/cap-*.sql text eol=lf
+docs/balance/cap-*-run.log -text
+docs/balance/native-cap-sensitivity.md text eol=lf
+docs/adr/0020-retain-caps-after-matched-sensitivity.md text eol=lf
+tools/balance/pet_shield_controls.py text eol=lf
+tools/balance/tests/test_pet_shield*.py text eol=lf
+tools/balance/tests/test_release_pool_evidence.py text eol=lf
+docs/balance/pet-shield-*.json -text
+docs/balance/native-pet-shielding.md text eol=lf
+tools/balance/tests/test_server_candidate.py text eol=lf
+docs/releases/server-fixes-20260913/*.json -text
+docs/releases/server-fixes-20260913/*.log -text -whitespace
+docs/releases/server-fixes-20260913/*.patch -text -whitespace
+docs/releases/server-fixes-20260913/*.py text eol=lf
+docs/releases/server-fixes-20260913/*.md text eol=lf
+tools/balance/aa_owned_view_controls.py text eol=lf
+tools/balance/tests/test_aa_owned_view*.py text eol=lf
+docs/balance/aa-owned-view-*.json -text
+docs/adr/0021-canonical-earned-aa-and-active-views.md text eol=lf
+server-mods/code/zone/client.cpp text eol=lf
+server-mods/code/zone/client.h text eol=lf
+tools/balance/aa_owned_core_controls.py text eol=lf
+tools/balance/run_aa_owned_core.py text eol=lf
+tools/balance/tests/test_aa_owned_core*.py text eol=lf
+docs/balance/aa-owned-core-*.json -text
+docs/balance/aa-owned-core-*.log -text -whitespace
+docs/balance/native-aa-owned-core.md text eol=lf
+tools/balance/aa_removal_controls.py text eol=lf
+tools/balance/run_aa_removal.py text eol=lf
+tools/balance/tests/test_aa_removal*.py text eol=lf
+docs/balance/aa-removal-*.json -text
+docs/balance/aa-removal-*.log -text -whitespace
+docs/balance/native-aa-removal.md text eol=lf
+docs/adr/0022-atomic-earned-aa-removal.md text eol=lf
+server-mods/code/zone/zonedb.cpp text eol=lf
+tools/balance/aa_bulk_controls.py text eol=lf
+tools/balance/run_aa_bulk.py text eol=lf
+tools/balance/tests/test_aa_bulk*.py text eol=lf
+docs/balance/aa-bulk-*.json -text
+docs/balance/aa-bulk-*.log -text -whitespace
+docs/balance/aa-bulk-*.patch -text -whitespace
+docs/balance/native-aa-bulk.md text eol=lf
+docs/adr/0023-refund-earned-aas-and-guard-profile-saves.md text eol=lf
+tools/balance/aa_purchase_controls.py text eol=lf
+tools/balance/run_aa_purchase.py text eol=lf
+tools/balance/tests/test_aa_purchase*.py text eol=lf
+docs/balance/aa-purchase-*.json -text
+docs/balance/aa-purchase-*.log -text -whitespace
+docs/balance/aa-purchase-*.patch -text -whitespace
+docs/balance/aa-purchase-*.py text eol=lf
+docs/balance/native-aa-purchase.md text eol=lf
+docs/adr/0025-durable-aa-purchases-and-grants.md text eol=lf
+
+# Class-release before evidence and diagnostic source provenance.
+docs/balance/aa-release-before*.json -text
+docs/balance/aa-toggle-catalog-audit.json -text
+docs/balance/native-aa-class-release.md text eol=lf
+docs/adr/0026-atomic-multiclass-release.md text eol=lf
+tools/balance/aa_class_release_controls.py text eol=lf
+tools/balance/run_aa_class_release.py text eol=lf
+tools/balance/tests/test_aa_class_release*.py text eol=lf
+docs/balance/aa-release-before*.log -text -whitespace
+
+# Atomic class release candidate and retained build evidence.
+server-mods/code/zone/client_process.cpp text eol=lf
+server-mods/code/zone/lua_client.cpp text eol=lf
+server-mods/code/zone/perl_client.cpp text eol=lf
+tools/balance/aa_class_release_extended.py text eol=lf
+tools/balance/run_aa_class_release_extended.py text eol=lf
+docs/balance/aa-release-*.json -text
+docs/balance/aa-release-*.log -text -whitespace
+docs/balance/aa-release-build-runner.py text eol=lf
+docs/balance/native-aa-class-release-candidate.md text eol=lf
+AGENTS.md text eol=lf
+CHANGES.md text eol=lf
+docs/balance/aa-release-*.py text eol=lf
+docs/balance/aa-session-recovery*.json -text
+docs/balance/aa-session-recovery*.log -text -whitespace
+docs/balance/native-aa-session-recovery.md text eol=lf
+tools/balance/run_aa_session_recovery.py text eol=lf
+tools/balance/tests/test_aa_session_recovery.py text eol=lf

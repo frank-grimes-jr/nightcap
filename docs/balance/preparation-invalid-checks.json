@@ -1,0 +1,24 @@
+{
+  "checks": [
+    {
+      "case": "duplicate",
+      "rejected": true,
+      "expected_error": "duplicate spell"
+    },
+    {
+      "case": "above_level",
+      "rejected": true,
+      "expected_error": "Ineligible preparation spell"
+    },
+    {
+      "case": "detrimental",
+      "rejected": true,
+      "expected_error": "Ineligible preparation spell"
+    },
+    {
+      "case": "time_limit",
+      "rejected": true,
+      "expected_error": "Invalid preparation limits"
+    }
+  ]
+}

@@ -1,0 +1,265 @@
+{
+  "count": 65,
+  "unchanged": [
+    {
+      "id": "pet-support-open-0-32040-1729",
+      "native_raw_sha256": "2248ec4eebc99bfbf1d3389655d5d359f2addab385165d27003385deb9a5cc08"
+    },
+    {
+      "id": "pet-support-open-0-32040-1730",
+      "native_raw_sha256": "7a403ba6c21de56f688951ad2f6774159b265814c99187a71ed37381dfd30682"
+    },
+    {
+      "id": "pet-support-open-0-32040-1731",
+      "native_raw_sha256": "0d3140716c0b7af4732bff539a2bdcc82e7b7cf8dcb573576b10dbcde06bb1f2"
+    },
+    {
+      "id": "pet-support-open-0-73057-1729",
+      "native_raw_sha256": "aa41e5cbac8755c25ff5e60cf61eff477c5cc0a1a3a1a9885714785521c02435"
+    },
+    {
+      "id": "pet-support-open-0-73057-1730",
+      "native_raw_sha256": "2c0b185ec090d102ac2f83f20560e6e179afe3c9634b420109d1fe0f828d1979"
+    },
+    {
+      "id": "pet-support-open-0-73057-1731",
+      "native_raw_sha256": "399b8372b8a52832e4ac870dc663bda189cab024e04787fd9bd7278bad310976"
+    },
+    {
+      "id": "pet-support-open-100-32040-1729",
+      "native_raw_sha256": "07ae6aa1a44a6be3e12618e6966e59a1f10e6cad8dc2bef820d40ea4435953a3"
+    },
+    {
+      "id": "pet-support-open-100-32040-1730",
+      "native_raw_sha256": "e85d31e95f1d8fc044310ea3640a765f4a17518e3fdf1ceb1b55d00be1a20ff6"
+    },
+    {
+      "id": "pet-support-open-100-32040-1731",
+      "native_raw_sha256": "3f820538b00641494554ea07889c8acec9f72fb97f36c80ed7ff455c1100c7b3"
+    },
+    {
+      "id": "pet-support-open-100-73057-1729",
+      "native_raw_sha256": "5aec9cbd715c2319d268805f29e5f3cb3339d0bb43766d789992ce64611724c9"
+    },
+    {
+      "id": "pet-support-open-100-73057-1730",
+      "native_raw_sha256": "a74b3093a2f37c66e95939f231d78c45547d78ce57853dccaf80f2569374508c"
+    },
+    {
+      "id": "pet-support-open-100-73057-1731",
+      "native_raw_sha256": "553b1d1cf5655e3a7c18d54e27743ea545c60c258bd75733845dd6c2c2c9bfdd"
+    },
+    {
+      "id": "pet-support-open-200-32040-1729",
+      "native_raw_sha256": "c45e6183cd6f4fa44546bc852152dae60ec81bb2bcc6ddcd2af8ce315ccc39ea"
+    },
+    {
+      "id": "pet-support-open-200-32040-1730",
+      "native_raw_sha256": "f0cdc222d7a31e708521b5848571079bb01f1991fe40ad001a854cfdd1d82dd1"
+    },
+    {
+      "id": "pet-support-open-200-32040-1731",
+      "native_raw_sha256": "741cbce806e396354327bb41c8c2bdbb4405bdb051ad0c77067ffb38fa56e2e2"
+    },
+    {
+      "id": "pet-support-open-200-73057-1729",
+      "native_raw_sha256": "b9dac6c3b8214d768f2295aba6ad4a6563beffe6650ae2525edeb497a18889fb"
+    },
+    {
+      "id": "pet-support-open-200-73057-1730",
+      "native_raw_sha256": "0d26fa04ef4edd54e74766cba46def57c80001403f302f8f664b76e2b7815f94"
+    },
+    {
+      "id": "pet-support-open-200-73057-1731",
+      "native_raw_sha256": "bb582952f95d3c85284f1d296e9b219a2ad7c32b2152b4929d4d460c304954cf"
+    },
+    {
+      "id": "pet-support-open-500-32040-1729",
+      "native_raw_sha256": "68f7cbb62aacd1afb73bcbeb4ce31427fa9554c9c4f8e750936b7a3d40357f4e"
+    },
+    {
+      "id": "pet-support-open-500-32040-1730",
+      "native_raw_sha256": "52e422dfcffe2ed50a717e4af06fa188c13ab0bd80bcd31586eb894e8e474558"
+    },
+    {
+      "id": "pet-support-open-500-32040-1731",
+      "native_raw_sha256": "ffd91eb35f61ff0e034153700c754e8861e292a6bee99f177a5ee0278a1bcdde"
+    },
+    {
+      "id": "pet-support-open-500-73057-1729",
+      "native_raw_sha256": "65abcb7bd7ccf2804186260f53fc55c8769e5716b99d895521c7d17cb444de00"
+    },
+    {
+      "id": "pet-support-open-500-73057-1730",
+      "native_raw_sha256": "7f6ab878ef7177fe680f629df6dbd4f5fe023b97d2ad339636fbe3aea7e8d805"
+    },
+    {
+      "id": "pet-support-open-500-73057-1731",
+      "native_raw_sha256": "063eb66630b6a3af7ffc090761f0823c2c1334b6f28ca631d327b5eef46e1cda"
+    },
+    {
+      "id": "pet-support-open-all-32040-1729",
+      "native_raw_sha256": "60ef4af43672a4214ef55002504ae3c58d088c6bffb6685dd200ea5dba8a5f46"
+    },
+    {
+      "id": "pet-support-open-all-32040-1730",
+      "native_raw_sha256": "914f69bffa379cad0f761ef00af7a185c44a5c547ff7f22435decf69881539fc"
+    },
+    {
+      "id": "pet-support-open-all-32040-1731",
+      "native_raw_sha256": "695a65c155f39d70a728cfa4021507f2c3540d09952bdac4609fb94758fedd54"
+    },
+    {
+      "id": "pet-support-open-all-73057-1729",
+      "native_raw_sha256": "09ec244917ec470ce19b0da836a7ea9238aa716ef9e53414796ca726cb5444c1"
+    },
+    {
+      "id": "pet-support-open-all-73057-1730",
+      "native_raw_sha256": "523f5cc2141da7f83cd9cc2d47a9141e540222de8943d674a014c4af64009167"
+    },
+    {
+      "id": "pet-support-open-all-73057-1731",
+      "native_raw_sha256": "c690c4b442c8bc83c94536575aa9818e670904d9260b5c1ece49ef25bf80ecb7"
+    },
+    {
+      "id": "command-2-80-extraonly-False",
+      "native_raw_sha256": "3700acf7824571575df1d7524ef6a545121be4a7ff6dba254b976388b8fb6951"
+    },
+    {
+      "id": "command-2-500-extraonly-False",
+      "native_raw_sha256": "f4b14ffd4aca610d83e97281f5eea1fde956db1d809687ea41a5a249f1212e0e"
+    },
+    {
+      "id": "command-2-80-extraonly-True",
+      "native_raw_sha256": "79d03accffb00fa66598f2eeb73f220e32e548db8d5c61aa0b9233a769682bb9"
+    },
+    {
+      "id": "command-2-80-primaryonly",
+      "native_raw_sha256": "8aece1f4c1e9d591e2945bbae17141a6f8ccafcb24a60ca2814eece3eb30ad35"
+    },
+    {
+      "id": "command-3-80-extraonly-False",
+      "native_raw_sha256": "53316750c4e36e3027bca2e4931d9eeb4e3441ceeb64d6e197615f52d1937428"
+    },
+    {
+      "id": "command-3-500-extraonly-False",
+      "native_raw_sha256": "7a9a4e14f3f8ed0f131b2a8436e54432815c59618fb85b7c6ea0f6eda77b0893"
+    },
+    {
+      "id": "command-3-80-extraonly-True",
+      "native_raw_sha256": "ecc388105d2957e2a29868713a3957b5901e98601d9c2bc59e8983351bcdd47e"
+    },
+    {
+      "id": "command-3-80-primaryonly",
+      "native_raw_sha256": "771c6e5755e509dede2bbc27a87d6876c973d687852c49598ab5fe4544ed3965"
+    },
+    {
+      "id": "pet-only-0-32040",
+      "native_raw_sha256": "b8c83ca6412a8754f945612692902c95cbc7de20075e8357cebb17c7b7d07c7a"
+    },
+    {
+      "id": "pet-only-0-73057",
+      "native_raw_sha256": "bdcb61b9c034ec72ef2ac7611d6c1c01720754ec1cc4e17fc449d2c19eb9bc07"
+    },
+    {
+      "id": "pet-only-all-32040",
+      "native_raw_sha256": "00da091fd27f15b41d23a784f5d6dccb37e5920961d71b07183dcd70fab90764"
+    },
+    {
+      "id": "pet-only-all-73057",
+      "native_raw_sha256": "b3c0847243d5bf203c8cab6b51b48ec0cc115b48a5c95f16b152b1b327a9fbbe"
+    },
+    {
+      "id": "mage-missing-reagent",
+      "native_raw_sha256": "4e4b1fb69a921851034a51c25cb6e84c7613442e45e04c72748ae6434849f203"
+    },
+    {
+      "id": "mage-with-reagent",
+      "native_raw_sha256": "c8cb9dc313e829e8b1edcb6c1c8dd6e4b7947a798d5cff59b9d65313d185beee"
+    },
+    {
+      "id": "necro-only",
+      "native_raw_sha256": "236103ec3283fd88bede992a061394529e3047c8bc7fdf9ccadce13606e5e98e"
+    },
+    {
+      "id": "shaman-only",
+      "native_raw_sha256": "b9143365aad7e8dc13cd0dbf43e81d241fc4a68f5a4750da4cd3f328bf9dbc9d"
+    },
+    {
+      "id": "mage-repeat",
+      "native_raw_sha256": "7f57857aad8ab0f8effbb21be6bb9f9a22dc4349ec0427275aa245e51c418139"
+    },
+    {
+      "id": "mage-shaman",
+      "native_raw_sha256": "90bc021230a3c556c13f3ecc87444a79e0fcb718baf746252d1226be4aa605ed"
+    },
+    {
+      "id": "shaman-mage",
+      "native_raw_sha256": "d065007953cff711b0c8c552902844ffda1a6cd51c07b1d04bd14c73687425d7"
+    },
+    {
+      "id": "necro-mage-shaman",
+      "native_raw_sha256": "c11a03fc02e8a47fb0f5e99045cdc1b92f108511f066d600e1ee276a7bf0a3ef"
+    },
+    {
+      "id": "triple-0",
+      "native_raw_sha256": "0e4105feeaadc75e0bd5aa2931cc9ba507673dc92bafc0a2f83f0de3728fa806"
+    },
+    {
+      "id": "triple-100",
+      "native_raw_sha256": "ba892d5304a88eaae5dcc5e6932b95fffb687e137df608dfa6e00d195a80f22a"
+    },
+    {
+      "id": "triple-200",
+      "native_raw_sha256": "a174bbea92ba7b8b9fad41f1e30ec6d3b8ea847f82c9dc2b0c3b496a7be2bb18"
+    },
+    {
+      "id": "triple-500",
+      "native_raw_sha256": "1829a0d7efcf524012f5e13e4a25b9c58d0669c322e8c08170240907f0741f4c"
+    },
+    {
+      "id": "triple-all",
+      "native_raw_sha256": "0ac964cc889da357982ef51fea71132d9552a0a8be52d5a194eaa953072a66f8"
+    },
+    {
+      "id": "unregistered-owner",
+      "native_raw_sha256": "405cd8249e5f2c72dbec2c2cda3b235a503040416cfedc2738f92d275f5c9671"
+    },
+    {
+      "id": "unregistered-owner_or_self",
+      "native_raw_sha256": "6876623e7848bbb92298c9f0421e8d0c65e5d0b44f03b4522531f03820ccee52"
+    },
+    {
+      "id": "32040-ring41-0-common_free-1729-burst-prepared/expanded_balanced_shield",
+      "native_raw_sha256": "d966e45a381942debe8ea4d87a79979e7954359522416a3eda13986a746bdd43"
+    },
+    {
+      "id": "32040-ring41-0-common_free-1730-burst-prepared/expanded_balanced_shield",
+      "native_raw_sha256": "eb695aead4e9da27497ae6eeb09369749ca8061bca2c80133b7f662261cb3cd6"
+    },
+    {
+      "id": "32040-ring41-0-common_free-1731-burst-prepared/expanded_balanced_shield",
+      "native_raw_sha256": "7b49fcedbcaa9a02ec01d1ede469d6e2023a82947a6a8c6f18718b2445a2bb10"
+    },
+    {
+      "id": "73057-ring41-0-common_free-1729-burst-prepared/expanded_balanced_shield",
+      "native_raw_sha256": "458244e8c89cae132cb9a0f3084c36665ae282a5a68fdae5d063d1bacdfd9ea4"
+    },
+    {
+      "id": "73057-ring41-0-common_free-1730-burst-prepared/expanded_balanced_shield",
+      "native_raw_sha256": "2ff5f5037a856e419b13b628d48a80d527ad503c9815db291bb31aad0f3c637e"
+    },
+    {
+      "id": "73057-ring41-0-common_free-1731-burst-prepared/expanded_balanced_shield",
+      "native_raw_sha256": "98d63fdcb1f739b9c0e34cfbe604a0260c0ecefa14ee55b21be4c854bdbe4889"
+    },
+    {
+      "id": "monk/shield/0/specials-True/32040/1729",
+      "native_raw_sha256": "b95569c8851e9cc83ca8aa1ed05e9570b878cc9d7686710f2ff7cb69483c6eba"
+    },
+    {
+      "id": "monk/shield/0/specials-True/73057/1729",
+      "native_raw_sha256": "4d314caa72e3efc53601bc4b71b7fe4ec4130c135e001e6ccad89ef6c07da5b8"
+    }
+  ]
+}

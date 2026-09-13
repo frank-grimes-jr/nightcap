@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "npc_id": 32040,
+  "result": "timeout",
+  "elapsed_ms": 120000,
+  "boss_positive_melee_events": 64,
+  "player_positive_melee_events": 0,
+  "boss_casts": {
+    "861": 9,
+    "981": 4
+  },
+  "sampled_fear_states": 5,
+  "player_moved": false,
+  "scope": "Native combat activity control only; not certified BiS, optimal controller, full AA activation, or balance conclusion"
+}

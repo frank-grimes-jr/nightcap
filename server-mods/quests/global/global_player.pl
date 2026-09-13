@@ -8,7 +8,9 @@
 #   - veteran AA + PoK "Ancient Attunement" recall grant  -> event_connect
 #   - "mysterious voice" Wayfarer message                 -> event_enter_zone
 #   - epic 1.5/2.0 combine rewards                         -> event_combine_success
-#   - per-level basic skill grant (mask-aware CanHaveSkill) -> event_level_up
+#   - level milestone popups                               -> event_level_up
+#
+# Native skill unlocks are owned by Client::ReconcileMulticlassSkills in C++.
 #
 # Waypoint discovery (#32) moved OFF global_player entirely to the marker NPC's
 # own proximity script: quests/global/999240.pl (loads regardless of the

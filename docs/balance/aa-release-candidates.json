@@ -1,0 +1,28 @@
+{
+  "status": "Diagnostic shared whitelist candidates; not deployed or certified as final expansion balance",
+  "free_caps": {"331": 1, "938": 8, "2220": 1},
+  "free_rationale": "Retain Origin, Eyes Wide Open and Nightcap Ancient Attunement. Exclude placeholder ability0 and the two Alaran Culture HP grants from the launch candidate. Compare the resulting zero-spend baseline explicitly.",
+  "allocation_policy": "Role-prioritized native purchase prefixes within the same global ability/rank list; no profile-specific eligibility overrides",
+  "policies": [
+    {
+      "id": "launch_core",
+      "purpose": "Candidate Classic combat core, rank3 defense/sustain and modest role passives; no activated burst or duplicate flurry families",
+      "caps": {"28": 3, "33": 3, "34": 3, "20": 3, "224": 3, "18": 3, "19": 3, "23": 3, "114": 3, "30": 3, "189": 3, "274": 3, "3511": 3, "3512": 3, "3818": 3, "1205": 3, "1403": 3},
+      "budgets": [0, 100, 200, 500, "all"]
+    },
+    {
+      "id": "later_core",
+      "purpose": "Later-rank sensitivity at fixed Classic level, gear and bosses; not an assigned expansion release. Deepen core ranks and add one Monk flurry family plus Fury of Magic",
+      "caps": {"28": 6, "33": 6, "34": 6, "20": 3, "224": 6, "18": 6, "19": 6, "23": 3, "114": 6, "30": 6, "189": 6, "274": 6, "3511": 6, "3512": 6, "3818": 6, "1205": 3, "1403": 6, "273": 3, "215": 3},
+      "budgets": [0, 100, 200, 500, "all"]
+    }
+  ],
+  "deferred_examples": {
+    "515": "Improved Twincast: unrestricted burst ceiling already demonstrated; not in launch or later-core candidate",
+    "308": "Frenzied Devastation: unrestricted burst ceiling already demonstrated; not in launch or later-core candidate",
+    "108": "Flurry: avoid stacking with Monk Rapid Strikes273; catalogue also contains a missing ability309 prerequisite",
+    "338": "Veteran's Wrath: critical-damage amplification deferred",
+    "341": "Veteran's Wrath: second eligible family and missing ability309 prerequisite require review",
+    "398": "Destructive Fury: deeper critical-damage amplification deferred"
+  }
+}

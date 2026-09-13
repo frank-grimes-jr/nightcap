@@ -1,0 +1,27 @@
+{
+  "scope": "Single-AA reset/charge consumption only; broader persistence and lifecycle gates remain open.",
+  "files": {
+    "docs/adr/0022-atomic-earned-aa-removal.md": "c58fbf23ea432c3ed1f96178d7f9ac66d2d33a779efc7a1c3d0d1537e5143420",
+    "docs/balance/aa-removal-after-build.json": "1ae226060f1629d8e022fd9919960c07951d4c93669810b868a7c32575c144ef",
+    "docs/balance/aa-removal-after-inputs.json": "729ae12129cdeee39e037d29a7508c17de3723d6a366ed60390891fe2b727876",
+    "docs/balance/aa-removal-after.json.gz": "a0994824fce7f067bf54d81447ba1ac91f3da7720da2b6c17546e7e74717b265",
+    "docs/balance/aa-removal-before-build.json": "8663038bc5bd1916d9e203090c13093e78c5e94a8b6aef400952c85832b6afbb",
+    "docs/balance/aa-removal-before-inputs.json": "729ae12129cdeee39e037d29a7508c17de3723d6a366ed60390891fe2b727876",
+    "docs/balance/aa-removal-before.json.gz": "7f39d10fedeffcfe08d54cdcac0d66253d67f20bad5e712d523412b42740b5fc",
+    "docs/balance/aa-removal-build-checks.json": "8952a17f90a8c13dd19c26393fe79feb57355b535592e6bd6c44233038f7006e",
+    "docs/balance/aa-removal-build.log": "fb94906fce6c5c84497d02cd0d77753d1ed1500e78d41aee20a2e43e0ffa9df6",
+    "docs/balance/aa-removal-configure-command.json": "b3d50d4dd1cb0c1253f1dc43789de3107e4626bdec5a6d10626a07632eeb768c",
+    "docs/balance/aa-removal-configure.log": "93fdb3b51ceda51fc6c6c1da245eb498bc13185e0220c3b992300b2c3a5c90d9",
+    "docs/balance/aa-removal-cpp-tests.log": "1bbaad2ff7c15c37bdd473c2fae8ff9e24b37570b451e5139ee77effa02e8935",
+    "docs/balance/aa-removal-full-source-manifest.json": "7915a3a733affefb50bd7019286dfa74becd12228dc19d69c8c3d40e17341e51",
+    "docs/balance/aa-removal-source.tar.gz": "bfd4e57e246709124c9a1353cb02dd72b0af2413c456cddaed756c8e7c996684",
+    "docs/balance/native-aa-removal.md": "e307abc11a13b59afe862b28fff02f82eef36aaa42425146184cc8ea8dbdb13d",
+    "docs/balance/aa-removal-python-tests.log": "009006dba44a5ed3b3c94d22204916441cbed75d4cf337e6455818aee0c500e0"
+  },
+  "validation": {
+    "native_controls_passed": 4,
+    "native_operations_per_phase": 22,
+    "cpp_tests_passed": 87,
+    "python_tests_passed": 329
+  }
+}

@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "E:\EQ_Local_Dev\_worktrees\aa-ownership\tools\balance\run_aa_class_release.py", line 77, in <module>
+    if __name__=='__main__': main()
+                             ~~~~^^
+  File "E:\EQ_Local_Dev\_worktrees\aa-ownership\tools\balance\run_aa_class_release.py", line 46, in main
+    native=io.native(case['input'])
+  File "E:\EQ_Local_Dev\_worktrees\aa-ownership\tools\balance\run_aa_projection.py", line 82, in native
+    raise RuntimeError('Native projection control failed: ' + run.stderr[-2000:])
+RuntimeError: Native projection control failed:   Zone |   Error    | operator() AA ownership change not acknowledged for [1;] reconnect before further AA mutations 
+  Zone |   Error    | LoadAlternateAdvancement Refusing in-place AA recovery for [1;] reconnect to reload ownership and counters 
+Native balance failed: Native ownership operation failed: load
+

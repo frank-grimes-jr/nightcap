@@ -838,7 +838,7 @@ void Client::SendZoneInPackets()
 	if (GetPVP(false))	//force a PVP update until we fix the spawn struct
 		SendAppearancePacket(AppearanceType::PVP, GetPVP(false), true, false);
 
-	LoadMulticlassMask();
+	ReconcileMulticlassSkills();
 	ClearExtraPets();
 
 	//Send AA Exp packet:
@@ -932,56 +932,292 @@ void Client::ReportConnectingState() {
 	};
 }
 
-bool Client::SaveAA()
+void Client::BeginEarnedAALoad()
 {
-	std::vector<CharacterAlternateAbilitiesRepository::CharacterAlternateAbilities> v;
-
-	uint32 aa_points_spent = 0;
-
-	auto e = CharacterAlternateAbilitiesRepository::NewEntity();
-
-	for (auto &rank : aa_ranks) {
-		auto a = zone->GetAlternateAdvancementAbility(rank.first);
-		if (!a) {
-			continue;
-		}
-
-		if (rank.second.first > 0) {
-			auto r = a->GetRankByPointsSpent(rank.second.first);
-			if (!r) {
-				continue;
-			}
-
-			aa_points_spent += r->total_cost;
-
-			e.id       = character_id;
-			e.aa_id    = a->first_rank_id;
-			e.aa_value = rank.second.first;
-			e.charges  = rank.second.second;
-
-			v.emplace_back(e);
-		}
-	}
-
-	m_pp.aapoints_spent = aa_points_spent + m_epp.expended_aa;
-
-	if (v.empty()) {
-		return true;
-	}
-
-	return CharacterAlternateAbilitiesRepository::ReplaceMany(database, v);
+	m_earned_aa_ranks.clear();
+	m_earned_aa_valid = true;
 }
 
-void Client::RemoveExpendedAA(int aa_id)
+void Client::RecordEarnedAA(uint32 first_rank_id, uint32 rank_count, uint32 charges)
 {
-	CharacterAlternateAbilitiesRepository::DeleteWhere(
-		database,
-		fmt::format(
-			"`id` = {} AND `aa_id` = {}",
-			CharacterID(),
-			aa_id
-		)
-	);
+	m_earned_aa_ranks[first_rank_id] = {rank_count, charges};
+}
+
+uint32 Client::GetEarnedAACount(uint32 first_rank_id) const
+{
+	const auto owned = m_earned_aa_ranks.find(first_rank_id);
+	return owned == m_earned_aa_ranks.end() ? 0 : owned->second.first;
+}
+
+bool Client::SaveAA()
+{
+	if (!m_earned_aa_valid) {
+		LogError("Refusing AA save for [{}]: earned ownership could not be resolved", CharacterID());
+		return false;
+	}
+
+	std::vector<CharacterAlternateAbilitiesRepository::CharacterAlternateAbilities> v;
+	auto earned = m_earned_aa_ranks;
+	uint64 aa_points_spent = m_epp.expended_aa;
+	auto e = CharacterAlternateAbilitiesRepository::NewEntity();
+
+	for (const auto &active : aa_ranks) {
+		if (!active.second.first) {
+			continue;
+		}
+		auto ability = zone->GetAlternateAdvancementAbility(active.first);
+		if (!ability) {
+			return false;
+		}
+		auto &owned = earned[ability->first_rank_id];
+		owned.first = std::max(owned.first, active.second.first);
+		owned.second = active.second.second;
+	}
+
+	for (const auto &owned : earned) {
+		auto ability = zone->GetAlternateAdvancementAbilityByRank(owned.first);
+		auto rank = ability ? ability->GetRankByPointsSpent(owned.second.first) : nullptr;
+		if (!ability || ability->first_rank_id != owned.first || !rank ||
+			rank->current_value != owned.second.first || rank->total_cost < 0) {
+			LogError("Refusing AA save for [{}]: invalid earned rank [{}]/[{}]",
+				CharacterID(), owned.first, owned.second.first);
+			return false;
+		}
+		aa_points_spent += rank->total_cost;
+		if (aa_points_spent > UINT32_MAX) {
+			return false;
+		}
+		e.id       = character_id;
+		e.aa_id    = owned.first;
+		e.aa_value = owned.second.first;
+		e.charges  = owned.second.second;
+		v.emplace_back(e);
+	}
+
+	if (!v.empty() && !CharacterAlternateAbilitiesRepository::ReplaceMany(database, v)) {
+		return false;
+	}
+	m_earned_aa_ranks = std::move(earned);
+	m_pp.aapoints_spent = static_cast<uint32>(aa_points_spent);
+	return true;
+}
+
+bool Client::RemoveExpendedAA(int aa_id)
+{
+	return PersistEarnedAARemoval(aa_id, false);
+}
+
+bool Client::ExpendEarnedAACharge(uint32 first_rank_id)
+{
+	return PersistEarnedAARemoval(first_rank_id, true);
+}
+
+bool Client::PersistEarnedAARemoval(uint32 first_rank_id, bool consume_charge)
+{
+	if (!m_earned_aa_valid) {
+		return false;
+	}
+	const auto owned = m_earned_aa_ranks.find(first_rank_id);
+	if (owned == m_earned_aa_ranks.end()) {
+		return false;
+	}
+	auto ability = zone->GetAlternateAdvancementAbilityByRank(first_rank_id);
+	auto rank = ability ? ability->GetRankByPointsSpent(owned->second.first) : nullptr;
+	if (!ability || ability->first_rank_id != first_rank_id || !rank ||
+		rank->current_value != owned->second.first || rank->cost < 0) {
+		InvalidateEarnedAAState();
+		return false;
+	}
+	auto active = aa_ranks.find(ability->id);
+	if (consume_charge && (ability->charges < 1 || owned->second.second < 1 ||
+		active == aa_ranks.end() || !active->second.first ||
+		active->second.second != owned->second.second)) {
+		return false;
+	}
+
+	// Prepare the complete session result before writing anything. Temporary
+	// suspension cannot prevent an explicit reset of canonical ownership.
+	auto earned = m_earned_aa_ranks;
+	auto usable = aa_ranks;
+	const uint32 charges = consume_charge ? owned->second.second - 1 : 0;
+	uint64 expended = m_epp.expended_aa;
+	if (consume_charge && !charges) {
+		// Preserve native expendable-AA pricing: the consumed rank's cost.
+		expended += rank->cost;
+	}
+	if (charges) {
+		earned[first_rank_id].second = charges;
+		usable[ability->id].second = charges;
+	} else {
+		earned.erase(first_rank_id);
+		usable.erase(ability->id);
+	}
+	if (expended > UINT32_MAX) {
+		return false;
+	}
+	return PersistEarnedAAState(std::move(earned), std::move(usable), GetAAPoints(), static_cast<uint32>(expended));
+}
+
+void Client::InvalidateMulticlassState()
+{
+	m_multiclass_state_valid = false;
+	InvalidateEarnedAAState();
+	// Do not allow disconnect's general save to overwrite an uncertain commit.
+	client_data_loaded = false;
+	Message(Chat::Red, "The discipline change could not be confirmed. Please reconnect.");
+	if (eqs) { eqs->Close(); }
+	client_state = DISCONNECTED;
+}
+
+bool Client::PersistEarnedAAState(EarnedAAState earned, UsableAAState usable, uint32 wallet, uint32 expended,
+	const MulticlassReleaseState *release)
+{
+	if (!m_earned_aa_valid) {
+		return false;
+	}
+	uint64 spent = expended;
+	for (const auto &entry : earned) {
+		auto a = zone->GetAlternateAdvancementAbilityByRank(entry.first);
+		auto r = a ? a->GetRankByPointsSpent(entry.second.first) : nullptr;
+		if (!a || a->first_rank_id != entry.first || !r ||
+			r->current_value != entry.second.first || r->total_cost < 0) {
+			InvalidateEarnedAAState();
+			return false;
+		}
+		spent += r->total_cost;
+	}
+	if (spent > UINT32_MAX) {
+		return false;
+	}
+	std::vector<AA_Array> profile;
+	for (const auto &entry : usable) {
+		if (!entry.second.first) { continue; }
+		auto ability = zone->GetAlternateAdvancementAbility(entry.first);
+		if (!ability) { return false; }
+		const auto owned = earned.find(ability->first_rank_id);
+		if (owned == earned.end() || owned->second.first < entry.second.first ||
+			owned->second.second != entry.second.second || profile.size() >= MAX_PP_AA_ARRAY) {
+			return false;
+		}
+		AA_Array row = {};
+		row.AA = ability->first_rank_id;
+		row.value = entry.second.first;
+		row.charges = entry.second.second;
+		profile.emplace_back(row);
+	}
+
+	// Do not commit someone else's transaction or retry a statement on a new
+	// connection after losing this transaction. Session state changes only after
+	// an acknowledged commit; an uncertain failure requires ownership reload.
+	if (release) {
+		auto engines = database.QueryDatabase(std::string(
+			"SELECT COUNT(*) FROM information_schema.TABLES WHERE TABLE_SCHEMA=DATABASE() "
+			"AND TABLE_NAME IN ('character_data','character_alternate_abilities','character_multiclass','character_skills') "
+			"AND ENGINE='InnoDB'"), false);
+		if (!engines.Success() || engines.RowCount() != 1 || Strings::ToUnsignedInt(engines.begin()[0]) != 4) { return false; }
+	}
+	auto transaction = database.QueryDatabase(std::string("SELECT @@in_transaction"), false);
+	if (!transaction.Success() || transaction.RowCount() != 1 ||
+		Strings::ToUnsignedInt(transaction.begin()[0]) != 0) {
+		InvalidateEarnedAAState();
+		LogError("Refusing nested/unavailable AA ownership transaction for [{}]", CharacterID());
+		Message(Chat::Red, "The AA change could not be saved. Please reconnect before continuing.");
+		return false;
+	}
+	if (!database.QueryDatabase(std::string("START TRANSACTION"), false).Success()) {
+		InvalidateEarnedAAState();
+		Message(Chat::Red, "The AA change could not be saved. Please reconnect before continuing.");
+		return false;
+	}
+	auto failed = [&]() {
+		database.QueryDatabase(std::string("ROLLBACK"), false);
+		InvalidateEarnedAAState();
+		LogError("AA ownership change not acknowledged for [{}]; reconnect before further AA mutations", CharacterID());
+		Message(Chat::Red, "The AA change could not be saved. Please reconnect before continuing.");
+		return false;
+	};
+	auto character = database.QueryDatabase(fmt::format(
+		"SELECT e_expended_aa_spent FROM character_data WHERE id={} FOR UPDATE", CharacterID()), false);
+	if (!character.Success() || character.RowCount() != 1 ||
+		Strings::ToUnsignedInt(character.begin()[0]) != m_epp.expended_aa) {
+		return failed();
+	}
+	if (release) {
+		auto classes = database.QueryDatabase(fmt::format(
+			"SELECT COALESCE(class2,0),COALESCE(class3,0) FROM character_multiclass WHERE character_id={} FOR UPDATE", CharacterID()), false);
+		if (!classes.Success() || classes.RowCount() != 1 ||
+			Strings::ToUnsignedInt(classes.begin()[0]) != release->old_class2 ||
+			Strings::ToUnsignedInt(classes.begin()[1]) != release->old_class3) { return failed(); }
+		auto skills = database.QueryDatabase(fmt::format(
+			"SELECT skill_id,value FROM character_skills WHERE id={} ORDER BY skill_id FOR UPDATE", CharacterID()), false);
+		if (!skills.Success()) { return failed(); }
+		std::map<uint32, uint32> saved_skills;
+		for (auto row : skills) { saved_skills[Strings::ToUnsignedInt(row[0])] = Strings::ToUnsignedInt(row[1]); }
+		for (const auto &skill : release->skills) {
+			if (saved_skills[skill.skill] != skill.before) { return failed(); }
+		}
+		auto changed = database.QueryDatabase(fmt::format(
+			"UPDATE character_multiclass SET class2=NULLIF({},0),class3=NULLIF({},0) WHERE character_id={}",
+			release->class2, release->class3, CharacterID()), false);
+		if (!changed.Success() || changed.RowsAffected() != 1) { return failed(); }
+		for (const auto &skill : release->skills) {
+			if (skill.before == skill.after) { continue; }
+			auto clamped = database.QueryDatabase(fmt::format(
+				"UPDATE character_skills SET value={} WHERE id={} AND skill_id={}", skill.after, CharacterID(), skill.skill), false);
+			if (!clamped.Success() || clamped.RowsAffected() != 1) { return failed(); }
+		}
+	}
+	auto saved = database.QueryDatabase(fmt::format(
+		"SELECT aa_id,aa_value,charges FROM character_alternate_abilities WHERE id={} ORDER BY aa_id FOR UPDATE",
+		CharacterID()), false);
+	if (!saved.Success() || saved.RowCount() != m_earned_aa_ranks.size()) {
+		return failed();
+	}
+	for (auto row : saved) {
+		const auto expected = m_earned_aa_ranks.find(Strings::ToUnsignedInt(row[0]));
+		if (expected == m_earned_aa_ranks.end() ||
+			expected->second.first != Strings::ToUnsignedInt(row[1]) ||
+			expected->second.second != Strings::ToUnsignedInt(row[2])) {
+			return failed();
+		}
+	}
+	for (const auto &entry : m_earned_aa_ranks) {
+		if (!earned.count(entry.first)) {
+			auto removed = database.QueryDatabase(fmt::format(
+				"DELETE FROM character_alternate_abilities WHERE id={} AND aa_id={}", CharacterID(), entry.first), false);
+			if (!removed.Success() || removed.RowsAffected() != 1) { return failed(); }
+		}
+	}
+	for (const auto &entry : earned) {
+		const auto old = m_earned_aa_ranks.find(entry.first);
+		if (old == m_earned_aa_ranks.end() || old->second != entry.second) {
+			auto updated = database.QueryDatabase(fmt::format(
+				"REPLACE INTO character_alternate_abilities (id,aa_id,aa_value,charges) VALUES ({},{},{},{})",
+				CharacterID(), entry.first, entry.second.first, entry.second.second), false);
+			if (!updated.Success() || !updated.RowsAffected()) { return failed(); }
+		}
+	}
+	auto points = database.QueryDatabase(fmt::format(
+		"UPDATE character_data SET aa_points={},aa_points_spent={},e_expended_aa_spent={} WHERE id={}",
+		wallet, spent, expended, CharacterID()), false);
+	if (!points.Success() || points.RowsAffected() != 1 ||
+		!database.QueryDatabase(std::string("COMMIT"), false).Success()) {
+		return failed();
+	}
+	if (release) {
+		m_class2 = release->class2;
+		m_class3 = release->class3;
+		m_multiclass_mask = release->mask;
+		for (const auto &skill : release->skills) { m_pp.skills[skill.skill] = skill.after; }
+	}
+	m_earned_aa_ranks = std::move(earned);
+	aa_ranks = std::move(usable);
+	m_pp.aapoints = wallet;
+	m_pp.aapoints_spent = static_cast<uint32>(spent);
+	m_epp.expended_aa = static_cast<uint32>(expended);
+	memset(m_pp.aa_array, 0, sizeof(m_pp.aa_array));
+	std::copy(profile.begin(), profile.end(), std::begin(m_pp.aa_array));
+	return true;
 }
 
 bool Client::Save(uint8 iCommitNow) {
@@ -1092,7 +1328,7 @@ bool Client::Save(uint8 iCommitNow) {
 		}
 	}
 
-	database.SaveCharacterData(this, &m_pp, &m_epp); /* Save Character Data */
+	const bool character_saved = database.SaveCharacterData(this, &m_pp, &m_epp);
 
 	database.SaveCharacterEXPModifier(this);
 
@@ -1102,7 +1338,7 @@ bool Client::Save(uint8 iCommitNow) {
 
 	LogInfo("Save for [{}] took [{}]", GetCleanName(), timer.elapsed());
 
-	return true;
+	return character_saved;
 }
 
 CLIENTPACKET::CLIENTPACKET()
@@ -2047,7 +2283,7 @@ void Client::SetLDoNPoints(uint32 theme_id, uint32 points)
 }
 
 void Client::SetSkill(EQ::skills::SkillType skillid, uint16 value) {
-	if (skillid > EQ::skills::HIGHEST_SKILL)
+	if (!m_multiclass_state_valid || skillid > EQ::skills::HIGHEST_SKILL)
 		return;
 	m_pp.skills[skillid] = value; // We need to be able to #setskill 254 and 255 to reset skills
 
@@ -3188,6 +3424,51 @@ void Client::CheckLanguageSkillIncrease(uint8 language_id, uint8 teacher_skill) 
 bool Client::HasSkill(EQ::skills::SkillType skill_id) const
 {
 	return GetSkill(skill_id) > 0 && CanHaveSkill(skill_id);
+}
+
+uint32 Client::ReconcileMulticlassSkills()
+{
+	LoadMulticlassMask();
+
+	const auto held_classes = GetMulticlassList();
+	std::vector<EQ::skills::NativeSkillSeedCandidate> candidates;
+	candidates.reserve(EQ::skills::GetSkillTypeMap().size());
+
+	for (const auto &entry : EQ::skills::GetSkillTypeMap()) {
+		const auto skill = entry.first;
+		const auto eligibility = SkillCaps::ResolveHeldSkillEligibility(
+			held_classes,
+			[this, skill](uint8 class_id) {
+				return MaxSkill(skill, class_id, GetLevel());
+			},
+			[this, skill](uint8 class_id) {
+				return GetSkillTrainLevel(skill, class_id);
+			}
+		);
+
+		candidates.push_back({
+			skill,
+			static_cast<uint16>(GetRawSkill(skill)),
+			eligibility.unlock_level,
+			eligibility.current_cap
+		});
+	}
+
+	const auto seeds = EQ::skills::CollectNativeSkillSeeds(candidates, GetLevel());
+	for (const auto skill : seeds) {
+		SetSkill(skill, 1);
+	}
+
+	if (!seeds.empty()) {
+		LogSkills(
+			"Seeded [{}] native skill unlock(s) at value 1 for [{}] at level [{}]",
+			seeds.size(),
+			GetCleanName(),
+			GetLevel()
+		);
+	}
+
+	return static_cast<uint32>(seeds.size());
 }
 
 bool Client::CanHaveSkill(EQ::skills::SkillType skill_id) const

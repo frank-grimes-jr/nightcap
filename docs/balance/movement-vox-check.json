@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "movement_packets": 193,
+  "distance": 146.06099933889607,
+  "returned_to_sampled_melee_range": true,
+  "history_packets": 4,
+  "failed_paths": 0,
+  "result": "npc_death",
+  "elapsed_ms": 271300,
+  "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven",
+  "native_sha256": "17e2fb5fc4d9fc16e28f2568b88ded128b0f7692cb82fb182214260645fd4b9a"
+}

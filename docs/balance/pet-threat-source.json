@@ -1,0 +1,79 @@
+{
+  "captured_at": "2026-09-13T04:35:43.194257+00:00",
+  "database": "nightcap_balance_20260912",
+  "queries": {
+    "spell": "SELECT JSON_OBJECT('id',id,'name',name,'necromancer_level',classes11,'magician_level',classes13,'shaman_level',classes10,'cast_ms',cast_time,'recast_ms',recast_time,'recovery_ms',recovery_time,'mana',mana,'targettype',targettype,'effect',effectid1,'base',effect_base_value1) FROM spells_new WHERE id=366",
+    "rules": "SELECT JSON_OBJECT('ruleset',ruleset_id,'name',rule_name,'value',rule_value) FROM rule_values WHERE rule_name LIKE '%Feign%'",
+    "empty_fixture": "SELECT JSON_OBJECT('accounts',(SELECT COUNT(*) FROM account),'characters',(SELECT COUNT(*) FROM character_data),'inventory',(SELECT COUNT(*) FROM inventory))"
+  },
+  "rows": {
+    "spell": [
+      {
+        "id": 366,
+        "name": "Feign Death",
+        "necromancer_level": 16,
+        "magician_level": 255,
+        "shaman_level": 255,
+        "cast_ms": 1500,
+        "recast_ms": 15000,
+        "recovery_ms": 1500,
+        "mana": 60,
+        "targettype": 6,
+        "effect": 74,
+        "base": 87
+      }
+    ],
+    "rules": [
+      {
+        "ruleset": 1,
+        "name": "Character:FeignKillsPet",
+        "value": "false"
+      },
+      {
+        "ruleset": 1,
+        "name": "Spells:BreakFeignDeathWhenCastOn",
+        "value": "2.0000000000000"
+      }
+    ],
+    "empty_fixture": [
+      {
+        "accounts": 0,
+        "characters": 0,
+        "inventory": 0
+      }
+    ]
+  },
+  "native_sources": [
+    {
+      "path": "/tmp/nightcap-balance-20260912/mob_pet_ownership_candidate.cpp",
+      "sha256": "bcd0a40312fd59a1430f626507d6cc45233c26393fff45389b7e069d00f48d45",
+      "start_line": 8093,
+      "excerpt": "void Mob::SetFeigned(bool in_feigned) {\n\n\tif (in_feigned)\t{\n\t\tif (IsClient()) {\n\t\t\tif (RuleB(Character, FeignKillsPet)){\n\t\t\t\tSetPet(0);\n\t\t\t}\n\t\t\tCastToClient()->SetHorseId(0);\n\t\t}\n\t\tentity_list.ClearFeignAggro(this);\n\t\tforget_timer.Start(FeignMemoryDuration);\n\t}\n\telse {\n\t\tforget_timer.Disable();\n\t}\n\tfeigned = in_feigned;\n}\n\nbool Mob::JoinHealRotationTargetPool(std::shared_ptr<HealRotation>* heal_rotation)\n"
+    },
+    {
+      "path": "/home/eqemu/code/zone/entity.cpp",
+      "sha256": "dbb2a48464f7038996a4f7f9c282ceb7c6a5ee31ba27708279156805b8b5ee4e",
+      "start_line": 3607,
+      "excerpt": "void EntityList::ClearFeignAggro(Mob *targ)\n{\n\tauto it = npc_list.begin();\n\twhile (it != npc_list.end()) {\n\t\t// add Feign Memory check because sometimes weird stuff happens\n\t\tif (it->second->CheckAggro(targ) || (targ->IsClient() && it->second->IsOnFeignMemory(targ))) {\n\t\t\tif (it->second->GetSpecialAbility(SpecialAbility::FeignDeathImmunity)) {\n\t\t\t\t++it;\n\t\t\t\tcontinue;\n\t\t\t}\n\n\t\t\tif (targ->IsClient()) {\n\t\t\t\tif (parse->PlayerHasQuestSub(EVENT_FEIGN_DEATH)) {\n\t\t\t\t\tstd::vector<std::any> args = { it->second };\n\n\t\t\t\t\tint i = parse->EventPlayer(EVENT_FEIGN_DEATH, targ->CastToClient(), \"\", 0, &args);\n\t\t\t\t\tif (i != 0) {\n\t\t\t\t\t\t++it;\n\t\t\t\t\t\tcontinue;\n\t\t\t\t\t}\n\t\t\t\t}\n\n\t\t\t\tif (it->second->IsNPC()) {\n\t\t\t\t\tif (parse->HasQuestSub(it->second->GetNPCTypeID(), EVENT_FEIGN_DEATH)) {\n\t\t\t\t\t\tint i = parse->EventNPC(EVENT_FEIGN_DEATH, it->second->CastToNPC(), targ, \"\", 0);\n\t\t\t\t\t\tif (i != 0) {\n\t\t\t\t\t\t\t++it;\n\t\t\t\t\t\t\tcontinue;\n\t\t\t\t\t\t}\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\n\t\t\tit->second->RemoveFromHateList(targ);\n\n\t\t\tif (it->second->GetSpecialAbility(SpecialAbility::Rampage)) {\n\t\t\t\tit->second->RemoveFromRampageList(targ, true);\n\t\t\t}\n\n\t\t\tif (targ->IsClient()) {\n\t\t\t\tif (it->second->GetLevel() >= 35 && zone->random.Roll(60)) {\n\t\t\t\t\tit->second->AddFeignMemory(targ);\n\t\t\t\t}\n\t\t\t\telse {\n\t\t\t\t\ttarg->CastToClient()->RemoveXTarget(it->second, false);\n\t\t\t\t}\n\t\t\t}\n\t\t\telse if (targ->IsPet()){\n\t\t\t\tif (it->second->GetLevel() >= 35 && zone->random.Roll(60)) {\n\t\t\t\t\tit->second->AddFeignMemory(targ);\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\t++it;\n\t}\n}\n"
+    },
+    {
+      "path": "/home/eqemu/code/zone/spell_effects.cpp",
+      "sha256": "d0d95e1bc7d90423fcc6a7b9055b22b97783c20990a33121144453551f347f16",
+      "start_line": 1701,
+      "excerpt": "\t\t\tcase SpellEffect::FeignDeath:\n\t\t\t{\n#ifdef SPELL_EFFECT_SPAM\n\t\t\t\tsnprintf(effect_desc, _EDLEN, \"Feign Death\");\n#endif\n\t\t\t\tif(spell_id == SPELL_LIFEBURN) //Dook- Lifeburn fix\n\t\t\t\t\tbreak;\n\n\t\t\t\tif(IsClient()) {\n\t\t\t\t\tCastToClient()->SetHorseId(0); // dismount if have horse\n\n\t\t\t\t\tif (zone->random.Int(0, 99) > spells[spell_id].base_value[i]) {\n\t\t\t\t\t\tSetFeigned(false);\n\t\t\t\t\t\tentity_list.MessageCloseString(this, false, 200, 10, STRING_FEIGNFAILED, GetName());\n\t\t\t\t\t} else {\n\t\t\t\t\t\tSetFeigned(true);\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t\tbreak;\n\t\t\t}\n"
+    },
+    {
+      "path": "/home/eqemu/code/zone/spell_effects.cpp",
+      "sha256": "d0d95e1bc7d90423fcc6a7b9055b22b97783c20990a33121144453551f347f16",
+      "start_line": 9963,
+      "excerpt": "void Client::BreakFeignDeathWhenCastOn(bool IsResisted)\n{\n\tif (GetFeigned()) {\n\t\tint chance = spellbonuses.FeignedCastOnChance + itembonuses.FeignedCastOnChance + aabonuses.FeignedCastOnChance;\n\n\t\tif (IsResisted) {\n\t\t\tchance *= RuleR(Spells, BreakFeignDeathWhenCastOn);\n\t\t}\n\n\t\tif(chance && (zone->random.Roll(chance))){\n\t\t\tMessageString(Chat::SpellFailure,FD_CAST_ON_NO_BREAK);\n\t\t\treturn;\n\t\t}\n\n\t\tSetFeigned(false);\n\t\tMessageString(Chat::SpellFailure,FD_CAST_ON);\n\t}\n}\n"
+    },
+    {
+      "path": "/tmp/nightcap-balance-20260912/client_packet_pet_commands_candidate.cpp",
+      "sha256": "55747c12533fa3b7c90412fe61c51615ee13e5a1df63b2c2cc5af9f13fd41c96",
+      "start_line": 14762,
+      "excerpt": "\t\tif (sa->parameter == Animation::Standing) {\n\t\t\tSetAppearance(eaStanding);\n\t\t\tplayeraction = 0;\n\t\t\tSetFeigned(false);\n\t\t\tBindWound(this, false, true);\n\t\t\tcamp_timer.Disable();\n\t\t\tbot_camp_timer.Disable();\n\t\t}\n\t\telse if (sa->parameter == Animation::Sitting) {\n\t\t\tSetAppearance(eaSitting);\n"
+    }
+  ],
+  "scope": "Read-only clone and source inspection; native strategy execution remains separate evidence."
+}
