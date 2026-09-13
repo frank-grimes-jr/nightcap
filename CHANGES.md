@@ -1,5 +1,25 @@
 # CHANGES
 
+## 2026-09-13 - Measure pet threat policies and resistance preparation
+
+Added optional native Feign Death controls with native cooldown, hate, spell-break
+and standing behavior. Nine matched pilots fail to solve Nagafen survival; these
+policies remain disabled in the baseline. Separately admitted legal Resist Magic
+preparation and measured 36 matched fights with the same gear and AA purchases.
+Buff retention is verified on the owner and three pets. No Nagafen sample wins;
+Vox results vary by AA stage. Extra preparation changes native timing/RNG, so the
+small sample does not establish that the buff causes worse survival.
+
+All 263 tests pass. Twelve baseline reports, six threat pilots and six further
+baseline reports retain identical raw hashes across diagnostic build changes;
+three resistance pilots reproduce exactly in the full matrix. All four earlier
+combat candidates remain, with only the diagnostic runtime object changed.
+The isolated fixture is empty after bounded synthetic-reagent cleanup. No live
+restart, binary replacement, cap/HP tuning or AA-access change occurred. See
+ADR0016 and `docs/balance/native-pet-threat-and-preparation.md` for evidence and
+explicit RoF2/in-game QA. Expansion-specific AA pools remain proposed combat
+cores; complete availability and purchased-rank enforcement are still pending.
+
 ## 2026-09-13 - Measure gear-source dependence across legal AA pools
 
 Added 108 matched Vox/Nagafen fights after removing Behemoth 56182 as a gear

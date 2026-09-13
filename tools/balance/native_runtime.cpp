@@ -291,7 +291,7 @@ json NightcapBalancePetProbe(Client *c, const json &input)
 	const json initial = state();
 	for (const auto &action : actions) {
 		const int spell_id = action.at("spell");
-		const std::set<int> supported = {633,443,166,690,107,67,145,60,61,168,170,644};
+		const std::set<int> supported = {633,443,166,690,107,67,145,60,61,64,168,170,644};
 		if (!supported.count(spell_id)) {
 			throw std::runtime_error("Unsupported pet-control spell");
 		}
@@ -673,6 +673,12 @@ static json PetCombat(Client *c, const json &input)
 	const bool commands_only = input.value("commands_only",false);
 	const auto owner_policy = input.value("owner_policy",std::string("none"));
 	const bool support = owner_policy == "pet_support";
+	const auto threat_policy = input.value("threat_policy",std::string("none"));
+	const bool escape_feign = threat_policy == "feign_escape";
+	const bool feign_control = threat_policy != "none", active_feign = threat_policy == "feign_on_aggro" || escape_feign;
+	const int feign_hold_ms = input.value("feign_hold_ms",4000);
+	if ((feign_control && threat_policy != "no_slow_control" && !active_feign) || (feign_control && !support)
+		|| (feign_control && (feign_hold_ms < 1000 || feign_hold_ms > 15000))) { throw std::runtime_error("Invalid pet threat policy"); }
 	capture_terminal = input.value("capture_terminal",false);
 	if (capture_terminal && !support) { throw std::runtime_error("Terminal evidence requires pet support combat"); }
 	const auto approach_policy = input.value("approach_policy",std::string("ranged80"));
@@ -736,6 +742,10 @@ static json PetCombat(Client *c, const json &input)
 			}
 			result["boss_buffs"] = buffs; result["boss_haste"] = boss->GetHaste();
 			result["player"]["sitting"] = c->IsSitting(); result["player"]["max_mana"] = c->GetMaxMana();
+			if (feign_control) {
+				result["owner_feigned"] = c->GetFeigned(); result["owner_hate"] = boss->GetHateAmount(c);
+				result["owner_on_hate"] = boss->CheckAggro(c); result["owner_feign_memory"] = boss->IsOnFeignMemory(c);
+			}
 			if (native_spell_range) {
 				result["owner_combat_range"] = c->CombatRange(boss);
 				result["owner_los"] = c->CheckLosFN(boss);
@@ -749,11 +759,13 @@ static json PetCombat(Client *c, const json &input)
 	std::unique_ptr<BalanceAAActions> aa_actions;
 	// Choose eight gems before combat. Match cold/fire offense to the boss,
 	// and reserve a gem for native resistance reduction before slow/DoTs.
-	const std::vector<uint16> gems = {15,507,112,436,static_cast<uint16>(npc_id == 32040 ? 32 : 6),
+	const std::vector<uint16> gems = {15,static_cast<uint16>(feign_control ? 366 : 507),112,436,static_cast<uint16>(npc_id == 32040 ? 32 : 6),
 		static_cast<uint16>(npc_id == 32040 ? 510 : 120),754,447};
 	std::map<uint16,uint32> retry;
 	uint32 next_request = 0;
 	uint16 owner_cast = 0;
+	uint32 feign_started = 0;
+	json feign_postures = json::array();
 	if (support) {
 		for (size_t gem = 0; gem < gems.size(); ++gem) {
 			if (!IsValidSpell(gems[gem]) || c->GetSpellMinLevel(gems[gem]) > c->GetLevel()) { throw std::runtime_error("Ineligible pet support gem"); }
@@ -762,7 +774,7 @@ static json PetCombat(Client *c, const json &input)
 		aa_actions = std::make_unique<BalanceAAActions>(c,"burst");
 	}
 	auto posture = [&](bool sitting) {
-		if (c->IsSitting() == sitting) { return true; }
+		if (c->IsSitting() == sitting && (!active_feign || !c->GetFeigned())) { return true; }
 		auto *packet = new EQApplicationPacket(OP_SpawnAppearance,sizeof(SpawnAppearance_Struct));
 		auto *a = reinterpret_cast<SpawnAppearance_Struct *>(packet->pBuffer);
 		a->spawn_id = c->GetID(); a->type = AppearanceType::Animation;
@@ -782,6 +794,11 @@ static json PetCombat(Client *c, const json &input)
 		action["owner_hp_after"] = c->GetHP(); action["owner_mana_after"] = c->GetMana();
 		action["target_hp_after"] = target ? json(target->GetHP()) : json(nullptr);
 		if (target) { action["buff_present_after"] = has_buff(target,action.at("spell").get<uint16>()); }
+		if (feign_control) {
+			action["owner_feigned_after"] = c->GetFeigned(); action["owner_hate_after"] = boss->GetHateAmount(c);
+			action["boss_target_after"] = boss->GetTarget() ? boss->GetTarget()->GetID() : 0;
+			if (active_feign && c->GetFeigned() && !feign_started) { feign_started = Timer::GetCurrentTime(); }
+		}
 	};
 	trace.push_back(state());
 	size_t command_index = 0;
@@ -799,18 +816,46 @@ static json PetCombat(Client *c, const json &input)
 		bool moving = false;
 		if (support) {
 			const auto now = Timer::GetCurrentTime();
-			const bool controlled = c->IsAIControlled() || c->IsFeared() || c->IsStunned() || c->IsMezzed();
+			bool wait_feigned = false;
+			if (active_feign && c->GetFeigned()) {
+				if (!feign_started) { feign_started = now; }
+				wait_feigned = true;
+				if (now-feign_started >= static_cast<uint32>(feign_hold_ms) && now >= next_request) {
+					posture(false);
+					feign_postures.push_back({{"ms",now-start},{"held_ms",now-feign_started},
+						{"feigned_before",true},{"packet",OP_SpawnAppearance},{"animation",Animation::Standing}});
+					next_request = now+250;
+				}
+			} else if (active_feign) { feign_started = 0; }
+			const bool controlled = wait_feigned || c->IsAIControlled() || c->IsFeared() || c->IsStunned() || c->IsMezzed();
 			const bool in_range = approach_range == 0 ? c->CombatRange(boss) :
 				glm::distance(glm::vec3(c->GetPosition()),glm::vec3(boss->GetPosition())) <= approach_range;
 			const bool needs_return = !in_range || !c->CheckLosFN(boss);
 			if (!controlled && !c->IsCasting() && needs_return && c->IsSitting()) { posture(false); }
-			else { moving = movement.Step(c,boss,stream,50,approach_range,15); }
+			else if (!wait_feigned) { moving = movement.Step(c,boss,stream,50,approach_range,15); }
 			if (!moving && !controlled && !c->IsCasting() && now >= next_request) {
 				Mob *target = boss;
 				uint16 selected = 0;
 				std::string reason;
 				const double mana_ratio = c->GetMana()*100.0/c->GetMaxMana();
-				if (c->GetHPRatio() < 55 && c->GetMana() >= spells[15].mana) {
+				auto *feign_timer = feign_control ? c->GetPTimers().Get(pTimerSpellStart+366) : nullptr;
+				const bool feign_ready = !feign_timer || feign_timer->GetRemainingTime() == 0;
+				const bool living_pet = std::any_of(pet_ids.begin(),pet_ids.end(),[&](uint16 id) {
+					auto *pet = entity_list.GetMob(id); return pet && pet->GetHP() > 0 && pet->GetOwnerID() == c->GetID();
+				});
+				double minimum_pet_hp = 100;
+				if (escape_feign) {
+					for (auto id : pet_ids) {
+						auto *pet = entity_list.GetMob(id);
+						if (pet && pet->GetHP() > 0 && pet->GetOwnerID() == c->GetID()) {
+							minimum_pet_hp = std::min(minimum_pet_hp,static_cast<double>(pet->GetHPRatio()));
+						}
+					}
+				}
+				const bool escape_ready = !escape_feign || (c->GetHPRatio() <= 40 && minimum_pet_hp >= 80);
+				if (active_feign && escape_ready && boss->GetTarget() == c && living_pet && feign_ready && c->GetMana() >= spells[366].mana) {
+					selected = 366; target = c; reason = "aggro_feign";
+				} else if (c->GetHPRatio() < 55 && c->GetMana() >= spells[15].mana) {
 					selected = 15; target = c; reason = "self_heal";
 				} else if (!needs_return) {
 					Mob *lowest = nullptr;
@@ -821,7 +866,7 @@ static json PetCombat(Client *c, const json &input)
 					}
 					if (lowest && c->GetMana() >= spells[15].mana) { selected = 15; target = lowest; reason = "pet_heal"; }
 					else if (!has_buff(boss,112) && now >= retry[112] && c->GetMana() >= spells[112].mana) { selected = 112; reason = "resist_debuff"; }
-					else if (!has_buff(boss,507) && now >= retry[507] && c->GetMana() >= spells[507].mana) { selected = 507; reason = "slow"; }
+					else if (!feign_control && !has_buff(boss,507) && now >= retry[507] && c->GetMana() >= spells[507].mana) { selected = 507; reason = "slow"; }
 					else if (mana_ratio < 45 && c->GetHPRatio() > 65) { selected = 754; target = c; reason = "cannibalize"; }
 					else {
 						for (uint16 dot : {gems[4],gems[3]}) {
@@ -833,13 +878,27 @@ static json PetCombat(Client *c, const json &input)
 				if (selected && posture(false)) {
 					auto *timer = c->GetPTimers().Get(pTimerSpellStart+selected);
 					if ((!timer || timer->GetRemainingTime() == 0) &&
-						((selected == 15 || selected == 754 || selected == 112 || selected == 507) || !aa_actions->Step(c,next_request))) {
+						((selected == 366 || selected == 15 || selected == 754 || selected == 112 || selected == 507) || !aa_actions->Step(c,next_request))) {
 						const auto gem = std::find(gems.begin(),gems.end(),selected)-gems.begin();
 						const auto hp = c->GetHP(), target_hp = target->GetHP();
 						const auto mana = c->GetMana();
+						const auto owner_hate = feign_control ? boss->GetHateAmount(c) : 0;
+						const auto boss_target = boss->GetTarget() ? boss->GetTarget()->GetID() : 0;
+						const auto was_feigned = c->GetFeigned();
 						const bool accepted = c->CastSpell(selected,target->GetID(),static_cast<EQ::spells::CastingSlot>(gem));
 						owner_actions.push_back({{"ms",now-start},{"spell",selected},{"gem",gem},{"target",target->GetID()},
 							{"reason",reason},{"accepted",accepted},{"owner_hp_before",hp},{"owner_mana_before",mana},{"target_hp_before",target_hp}});
+						if (feign_control) {
+							owner_actions.back()["owner_feigned_before"] = was_feigned;
+							owner_actions.back()["owner_hate_before"] = owner_hate;
+							owner_actions.back()["boss_target_before"] = boss_target;
+							owner_actions.back()["feign_ready_before"] = feign_ready;
+							owner_actions.back()["living_pet_before"] = living_pet;
+							if (escape_feign) {
+								owner_actions.back()["owner_hp_percent_before"] = hp*100.0/c->GetMaxHP();
+								owner_actions.back()["minimum_living_pet_hp_percent_before"] = minimum_pet_hp;
+							}
+						}
 						if (native_spell_range) {
 							owner_actions.back()["owner_combat_range"] = c->CombatRange(boss);
 							owner_actions.back()["owner_los"] = c->CheckLosFN(boss);
@@ -860,6 +919,10 @@ static json PetCombat(Client *c, const json &input)
 		}
 		if (support) {
 			movement.Confirm(c);
+			if (active_feign && !feign_postures.empty() && !feign_postures.back().contains("feigned_after")) {
+				feign_postures.back()["feigned_after"] = c->GetFeigned();
+				feign_postures.back()["pending_packets_after"] = stream->incoming.size();
+			}
 			if (owner_cast && !c->IsCasting()) {
 				finish_owner_cast(); next_request = Timer::GetCurrentTime()+std::max<uint32>(250,spells[owner_cast].recovery_time); owner_cast = 0;
 			}
@@ -894,6 +957,11 @@ static json PetCombat(Client *c, const json &input)
 		result["owner_actions"] = owner_actions; result["gems"] = gems;
 		result["movement"] = {{"events",movement.events},{"failed_paths",movement.failed_paths},{"history_packets",movement.history_packets},{"approach_range",approach_range}};
 		result["activated_aa"] = aa_actions->events;
+		if (feign_control) {
+			result["threat_control"] = {{"policy",threat_policy},{"hold_ms",feign_hold_ms},{"spell",366},
+				{"spell_min_level",c->GetSpellMinLevel(366)},{"feign_kills_pet",RuleB(Character,FeignKillsPet)},
+				{"stand_requests",feign_postures}};
+		}
 		result["scope"] = "Native pet support: eight fixed gems, self/pet healing, slow, DoTs, Cannibalize II, filler nukes/taps, purchased burst AA, native sitting and bounded return to80 units; no pet resummoning or continuous kiting";
 		if (native_spell_range) {
 			result["range_immunity"] = range_immune;

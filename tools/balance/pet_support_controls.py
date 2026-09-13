@@ -9,8 +9,10 @@ from pathlib import Path
 from pet_controls import run
 from pet_combat_controls import summarize as summarize_combat
 
-def gems_for(boss):
-    return [15, 507, 112, 436, 32 if boss == 32040 else 6,
+def gems_for(boss, threat_policy='none'):
+    if threat_policy not in ('none','no_slow_control','feign_on_aggro','feign_escape'):
+        raise ValueError('Unknown pet threat policy')
+    return [15, 507 if threat_policy=='none' else 366, 112, 436, 32 if boss == 32040 else 6,
             510 if boss == 32040 else 120, 754, 447]
 
 
@@ -47,7 +49,7 @@ def summarize(case, report):
     result = summarize_combat(case, report)
     probe = report['pet_probe']
     combat = probe['combat']
-    gems = gems_for(combat['input']['npc_id'])
+    gems = gems_for(combat['input']['npc_id'],combat['input'].get('threat_policy','none'))
     if (not probe['input'].get('recover_before_combat')
             or combat['input'].get('owner_policy') != 'pet_support'
             or combat['gems'] != gems or len(set(combat['gems'])) != 8):
@@ -82,7 +84,7 @@ def summarize(case, report):
         gem, spell, target = action['gem'], action['spell'], action['target']
         if not 0 <= gem < len(gems) or gems[gem] != spell:
             raise ValueError('Spell did not use its fixed gem')
-        allowed = ({owner} | pets) if spell == 15 else {owner} if spell == 754 else {boss}
+        allowed = ({owner} | pets) if spell == 15 else {owner} if spell in (754,366) else {boss}
         if target not in allowed:
             raise ValueError('Invalid support target')
         if 'ended_ms' in action and action['ended_ms'] < action['ms']:
@@ -91,6 +93,7 @@ def summarize(case, report):
     if not 0 < elapsed <= combat['input']['duration_ms']:
         raise ValueError('Invalid fight duration')
     terminal = verify_terminal(combat, elapsed)
+    verify_threat(combat)
     if combat['result'] == 'timeout' and elapsed != combat['input']['duration_ms']:
         raise ValueError('Timeout ended early')
     previous_ms = 0
@@ -146,6 +149,37 @@ def verify_terminal(combat, elapsed):
     if combat['result'] != expected:
         raise ValueError('Combat result differs from the first native death callback')
     return events
+
+
+def verify_threat(combat):
+    policy = combat['input'].get('threat_policy','none')
+    if policy == 'none':
+        return
+    control = combat['threat_control']
+    if (policy not in ('no_slow_control','feign_on_aggro','feign_escape') or control['policy'] != policy
+            or control['spell'] != 366 or not 1 <= control['spell_min_level'] <= 50
+            or control['feign_kills_pet'] or control['hold_ms'] != combat['input']['feign_hold_ms']
+            or not 1000 <= control['hold_ms'] <= 15000):
+        raise ValueError('Invalid native threat policy or spell eligibility')
+    owner = combat['player_id']
+    for action in combat['owner_actions']:
+        if action['owner_feigned_before'] or action['spell'] == 507:
+            raise ValueError('Owner acted while feigned or used removed slow gem')
+        if action['spell'] == 366:
+            if (policy not in ('feign_on_aggro','feign_escape') or action['target'] != owner or action['boss_target_before'] != owner
+                    or not action['feign_ready_before'] or not action['living_pet_before']
+                    or action['reason'] != 'aggro_feign'):
+                raise ValueError('Feign Death lacked aggro, a living pet or a ready native timer')
+            if policy == 'feign_escape' and (action['owner_hp_percent_before'] > 40
+                    or action['minimum_living_pet_hp_percent_before'] < 80):
+                raise ValueError('Emergency feign lacked a weak owner and healthy surviving pets')
+    for event in control['stand_requests']:
+        if (policy not in ('feign_on_aggro','feign_escape') or not event['feigned_before']
+                or event['held_ms'] < control['hold_ms'] or event['pending_packets_after'] != 0
+                or not 0 < event['ms'] <= combat['trace'][-1]['ms']):
+            raise ValueError('Feign posture did not respect hold time or native packet processing')
+    if policy == 'no_slow_control' and any(s['owner_feigned'] for s in combat['trace']):
+        raise ValueError('No-slow control unexpectedly feigned')
 
 
 def verify(matrix, evidence):

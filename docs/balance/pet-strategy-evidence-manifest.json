@@ -1,0 +1,217 @@
+{
+  "captured_at": "2026-09-13T05:22:10.714756+00:00",
+  "scope": "Matched native pet threat policies and Resist Magic preparation. Candidate expansion AA pools; no final launch balance or complete BiS certification.",
+  "parent_revision": "58449021f7473f496839b8f48bd38eff06d2df99",
+  "binary_sha256": {
+    "pet-threat-before-build": "1d7a71a921dbed39121e8af2a90f200d5ca8b20c43aed4827444eebcc1176f22",
+    "pet-threat-build": "b19c9cb33761602a870bbdaa188ee90c7321d5afec84425cdf2a83128cbec330",
+    "pet-resist-build": "b036d4eba35e8ac80bdbe77c2dc3de7dfbc9a23e296d989d229b4abf47d28075"
+  },
+  "validation": {
+    "python_tests_passed": 263,
+    "threat_pilots": 9,
+    "resistance_pilots": 3,
+    "resistance_comparisons": 36,
+    "unchanged_baseline_reports_after_threat": 12,
+    "unchanged_threat_pilots_after_emergency_policy": 6,
+    "unchanged_baseline_reports_after_resistance_allowlist": 6,
+    "reproduced_resistance_pilots": 3
+  },
+  "build_delta": {
+    "changed_objects": [
+      "/tmp/nightcap-balance-20260912/native_runtime.o"
+    ],
+    "four_candidate_sources_other_objects_harness_and_flags_unchanged": true
+  },
+  "clone_cleanup": {
+    "database": "nightcap_balance_20260912",
+    "removed_synthetic_inventory_rows": [
+      {
+        "character_id": 12,
+        "slot_id": 23,
+        "item_id": 10015,
+        "charges": 9
+      },
+      {
+        "character_id": 12,
+        "slot_id": 24,
+        "item_id": 13073,
+        "charges": 9
+      }
+    ],
+    "remaining_account_rows": 0,
+    "remaining_character_rows": 0,
+    "remaining_inventory_rows": 0
+  },
+  "live_changes": false,
+  "artifacts": {
+    "docs/adr/0016-pet-threat-and-preparation-controls.md": {
+      "sha256": "9261c891d214b2e83e443aa8f4e55db4b381fe8f59d73ef3fa3de6ad09f765b1",
+      "newline_normalization": "LF"
+    },
+    "docs/balance/aa-release-candidates.json": {
+      "sha256": "b2fbfbb1af2220b155208531366d0c7102804277a3fe79d74f2b93c1d8796243",
+      "newline_normalization": "LF"
+    },
+    "docs/balance/gear-source-build.json": {
+      "sha256": "4dd9b8deb15d84f8ccd64abad7428f4b102a74f7ff959fa470c66fd81562623d",
+      "newline_normalization": "LF"
+    },
+    "docs/balance/gear-source-inputs.json": {
+      "sha256": "598daf0357cf701dad395895deff3cb6c610bc16e9c40350b8e605556f46f7e7",
+      "newline_normalization": "LF"
+    },
+    "docs/balance/gear-source.json.gz": {
+      "sha256": "e535e89debed26a080720241c678b1da4d7d59a2c161a7f16f449eedbfce926c",
+      "newline_normalization": "none"
+    },
+    "docs/balance/native-aa-catalog.json": {
+      "sha256": "0e9e278d71b51f9b1ddc8b3607935c459e45ae1300e2998646c932a314b51473",
+      "newline_normalization": "LF"
+    },
+    "docs/balance/native-pet-threat-and-preparation.md": {
+      "sha256": "bade7ba64bbf435556e92c7fcbcdedd25b0e4097fa8b4613094a53eceed63105",
+      "newline_normalization": "LF"
+    },
+    "docs/balance/pet-resist-build.json": {
+      "sha256": "2f39e8c7883c4290875e20b55798169acd8b7c1f3ff348159e0fca93165dc2a8",
+      "newline_normalization": "LF"
+    },
+    "docs/balance/pet-resist-checks.json": {
+      "sha256": "ab4032d78f2f09b5665b27adb6e3c829da1c584632058422d7a592b8fb52024f",
+      "newline_normalization": "LF"
+    },
+    "docs/balance/pet-resist-inputs.json": {
+      "sha256": "6c3fc1af3ab29eb6435f09c98bad287f72beacde39dcb50bdb4ab310dc5840da",
+      "newline_normalization": "LF"
+    },
+    "docs/balance/pet-resist-pilot-checks.json": {
+      "sha256": "ffe9ab25c3c9dda178d5f301a771026c0959a3d778e7fd19858b20dd00c479bc",
+      "newline_normalization": "LF"
+    },
+    "docs/balance/pet-resist-pilot-inputs.json": {
+      "sha256": "21157a30cafb21752c6f9c92ceb10e672a8d8b1dd75f4ce623a578c76205e4c2",
+      "newline_normalization": "LF"
+    },
+    "docs/balance/pet-resist-pilot.json.gz": {
+      "sha256": "ca1287ce35f05ca59561061b694accb3a78c68e33c45e32eecb5feac9db5e3b0",
+      "newline_normalization": "none"
+    },
+    "docs/balance/pet-resist-regression-inputs.json": {
+      "sha256": "a3eb249cfd789dc90ac0bfe2249cc511b0c9bc3274857af5774403948d0181e7",
+      "newline_normalization": "LF"
+    },
+    "docs/balance/pet-resist-regression.json.gz": {
+      "sha256": "a0f44973f499d966d9c4310034679d4dff407dc618bd5abbd471d24e9fadad43",
+      "newline_normalization": "none"
+    },
+    "docs/balance/pet-resist-source.json": {
+      "sha256": "7f8ce0e606670c0f8a06f1fcd82d4f199de673cfc159ab734d7de5bbc51cd56f",
+      "newline_normalization": "LF"
+    },
+    "docs/balance/pet-resist.json.gz": {
+      "sha256": "f3e40b774705de6730a6050bc6ce07fbf9916854ea2248c1b0bea55fbede2a3d",
+      "newline_normalization": "none"
+    },
+    "docs/balance/pet-threat-before-build.json": {
+      "sha256": "93913d1e6427241c19e64794f900fa39975dcc8b90ddd5f9554451498092ac77",
+      "newline_normalization": "LF"
+    },
+    "docs/balance/pet-threat-build.json": {
+      "sha256": "a32bc945e7ebec2757479d614ebebc203ea58fb53b88de1562f3f393c1f5cb5b",
+      "newline_normalization": "LF"
+    },
+    "docs/balance/pet-threat-escape-checks.json": {
+      "sha256": "9eb3507a0fff791a432553e4b2f23e38f5d5a381baf4e11cc33b503cc8e0e4be",
+      "newline_normalization": "LF"
+    },
+    "docs/balance/pet-threat-escape-inputs.json": {
+      "sha256": "b399d34b193b65a8103041787b036bbfed9d56eb210c81cd477fde056d0eb13a",
+      "newline_normalization": "LF"
+    },
+    "docs/balance/pet-threat-escape.json.gz": {
+      "sha256": "05c010eca7600f7e47285560fb38ab6f7ac32b726ed5fa7b2ee4b2b490dea9b6",
+      "newline_normalization": "none"
+    },
+    "docs/balance/pet-threat-pilot-checks.json": {
+      "sha256": "b2a82372f095421741b817b58d4160fc20fae9f9354caadd12ab38ee215c63cd",
+      "newline_normalization": "LF"
+    },
+    "docs/balance/pet-threat-pilot-inputs.json": {
+      "sha256": "0b3649e921f755671ee83dc5fdb671e06e5a6d0aa47f9b963d581d64d6b48cc3",
+      "newline_normalization": "LF"
+    },
+    "docs/balance/pet-threat-pilot-regression-inputs.json": {
+      "sha256": "e693ec07346401dbce3841a81e78e6f52bfc8f0258977c2df17cef4cc8555c94",
+      "newline_normalization": "LF"
+    },
+    "docs/balance/pet-threat-pilot-regression.json.gz": {
+      "sha256": "897ed9c120ec0f30c1747e45e731094d8375ebea609204d609b7ab5c682d44a1",
+      "newline_normalization": "none"
+    },
+    "docs/balance/pet-threat-pilot.json.gz": {
+      "sha256": "897ed9c120ec0f30c1747e45e731094d8375ebea609204d609b7ab5c682d44a1",
+      "newline_normalization": "none"
+    },
+    "docs/balance/pet-threat-regression-inputs.json": {
+      "sha256": "9350e8c174947c3b859d26b4d8d229414eae7d287477f0b14bd3ff8e33faa007",
+      "newline_normalization": "LF"
+    },
+    "docs/balance/pet-threat-regression.json.gz": {
+      "sha256": "1012d83a4d409f4b94d79b759b1bcf8df310fb152348e00127054738809365d8",
+      "newline_normalization": "none"
+    },
+    "docs/balance/pet-threat-source.json": {
+      "sha256": "3bcc33e8395b4142754360e2ac3b8377c078f587116264c343a25c684ae94bad",
+      "newline_normalization": "LF"
+    },
+    "tools/balance/native_runtime.cpp": {
+      "sha256": "9dc972bbfab81f1756903a6131d8ae6a52612a8e55d1ed7ec00c0c38658d4cd0",
+      "newline_normalization": "LF"
+    },
+    "tools/balance/pet_belly_controls.py": {
+      "sha256": "36cd3c04973c1a7f1b1d5a4a62d33243ed4de5f5efe84d55fcc1800efb4f1e08",
+      "newline_normalization": "LF"
+    },
+    "tools/balance/pet_combat_controls.py": {
+      "sha256": "5f083cb7a31c197e1a73b7488e7825a2cc01b055ef4f6a7be40eec20be8fac00",
+      "newline_normalization": "LF"
+    },
+    "tools/balance/pet_controls.py": {
+      "sha256": "5592356753933954062c7a3c9c72affd9dfdfa3e31be33f1fa49b4d592c2d7ac",
+      "newline_normalization": "LF"
+    },
+    "tools/balance/pet_resist_controls.py": {
+      "sha256": "4273ebbe155c865791f0cd96a7c16ca702ed0134415187d6303562e836527f66",
+      "newline_normalization": "LF"
+    },
+    "tools/balance/pet_support_controls.py": {
+      "sha256": "6b63bcd7b8fefc5543836efb9e4322abf17084c17fb77e44f4fc2e9be02aa066",
+      "newline_normalization": "LF"
+    },
+    "tools/balance/pet_threat_controls.py": {
+      "sha256": "780d2e83b3bd4c137df9d060b38e90a03080c49a9f12f023b6aca2da787d5576",
+      "newline_normalization": "LF"
+    },
+    "tools/balance/release_pool_controls.py": {
+      "sha256": "78e4bd85984a8628cb25814225bd42fbd59cbe4a4a4f1372e653a0ca1ccbf1fa",
+      "newline_normalization": "LF"
+    },
+    "tools/balance/tests/test_pet_resist.py": {
+      "sha256": "20e130b828fede32ab77c2c04959d8ef2f5361cebe8f728331e539883cdb5fdb",
+      "newline_normalization": "LF"
+    },
+    "tools/balance/tests/test_pet_resist_evidence.py": {
+      "sha256": "cd0dab949e05576363e8d8c1f8503750ef4a9796d0ca5673b03d0d70ebdeb019",
+      "newline_normalization": "LF"
+    },
+    "tools/balance/tests/test_pet_threat.py": {
+      "sha256": "e8d9e8e4fd0b54bd3e728815a53e35fc9093b3641e6ab5e3a731f954a5764011",
+      "newline_normalization": "LF"
+    },
+    "tools/balance/tests/test_pet_threat_evidence.py": {
+      "sha256": "2bb5e3a863916c1da6844916642596164c06834c4ed15cea8e14279f185c4e1f",
+      "newline_normalization": "LF"
+    }
+  }
+}

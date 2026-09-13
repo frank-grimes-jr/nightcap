@@ -44,3 +44,5 @@ tools/balance/release_pool_controls.py text eol=lf
 docs/balance/aa-release-candidates.json text eol=lf
 docs/balance/release-pool-*.json -text
 tools/balance/gear_source_controls.py text eol=lf
+tools/balance/pet_threat_controls.py text eol=lf
+tools/balance/pet_resist_controls.py text eol=lf
