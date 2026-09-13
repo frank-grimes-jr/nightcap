@@ -1272,40 +1272,43 @@ bool Client::GrantAlternateAdvancementAbility(int aa_id, int points, bool ignore
 			continue;
 		}
 
-		ret = true;
-		FinishAlternateAdvancementPurchase(rank, ignore_cost, true);
+		if (FinishAlternateAdvancementPurchase(rank, ignore_cost, true)) {
+			ret = true;
+		} else if (!HasValidEarnedAAState()) {
+			break;
+		}
 	}
 
 	return ret;
 }
 
-void Client::FinishAlternateAdvancementPurchase(AA::Rank *rank, bool ignore_cost, bool send_message_and_save) {
-	auto rank_id = rank->base_ability->first_rank_id;
-
-	if (rank->base_ability->charges) {
-		uint32 charges = 0;
-		GetAA(rank_id, &charges);
-
-		if (charges) {
-			return;
-		}
-
-		SetAA(rank_id, rank->current_value, rank->base_ability->charges);
-	} else {
-		SetAA(rank_id, rank->current_value, 0);
-
-		//if not max then send next aa
-		if (rank->next && send_message_and_save) {
-			SendAlternateAdvancementRank(rank->base_ability->id, rank->next->current_value);
-		}
+bool Client::FinishAlternateAdvancementPurchase(AA::Rank *rank, bool ignore_cost, bool send_message) {
+	// Callers retain their purchase/grant eligibility rules (including explicit
+	// grant unlock levels). Never publish a new rank or spend session points
+	// before canonical ownership and character counters commit together.
+	if (!HasValidEarnedAAState() || !rank || !rank->base_ability ||
+		rank->current_value < 1 || rank->cost < 0 || rank->total_cost < 0 ||
+		!CanUseAlternateAdvancementRank(rank) || HasAlreadyPurchasedRank(rank) ||
+		rank->current_value > rank->base_ability->GetMaxLevel(this)) {
+		return false;
 	}
-
-	auto cost = !ignore_cost ? rank->cost : 0;
-
-	m_pp.aapoints -= static_cast<uint32>(cost);
-
-	if (send_message_and_save) {
-		SaveAA();
+	const auto ability = rank->base_ability;
+	const auto rank_id = ability->first_rank_id;
+	const int32 cost = ignore_cost ? 0 : rank->cost;
+	if (cost > GetAAPoints() || (ability->charges && GetEarnedAACount(rank_id))) {
+		return false;
+	}
+	auto earned = m_earned_aa_ranks;
+	auto usable = aa_ranks;
+	earned[rank_id] = {rank->current_value, ability->charges};
+	usable[ability->id] = earned[rank_id];
+	if (!PersistEarnedAAState(std::move(earned), std::move(usable), GetAAPoints() - cost, m_epp.expended_aa)) {
+		return false;
+	}
+	if (send_message) {
+		if (!ability->charges && rank->next) {
+			SendAlternateAdvancementRank(ability->id, rank->next->current_value);
+		}
 		SendAlternateAdvancementPoints();
 		SendAlternateAdvancementStats();
 	}
@@ -1322,7 +1325,7 @@ void Client::FinishAlternateAdvancementPurchase(AA::Rank *rank, bool ignore_cost
 	}
 
 	if (rank->prev) {
-		if (send_message_and_save) {
+		if (send_message) {
 			MessageString(
 				Chat::Yellow,
 				AA_IMPROVE,
@@ -1333,7 +1336,7 @@ void Client::FinishAlternateAdvancementPurchase(AA::Rank *rank, bool ignore_cost
 			);
 		}
 	} else {
-		if (send_message_and_save) {
+		if (send_message) {
 			MessageString(
 				Chat::Yellow,
 				AA_GAIN_ABILITY,
@@ -1363,6 +1366,7 @@ void Client::FinishAlternateAdvancementPurchase(AA::Rank *rank, bool ignore_cost
 			NotifyNewTitlesAvailable();
 		}
 	}
+	return true;
 }
 
 //need to rewrite this
@@ -2250,7 +2254,9 @@ void Client::AutoGrantAAPoints() {
 		while (rank != nullptr) {
 			if (CanUseAlternateAdvancementRank(rank)) {
 				if (rank->expansion <= auto_grant_expansion && rank->level_req <= level && !HasAlreadyPurchasedRank(rank)) {
-					FinishAlternateAdvancementPurchase(rank, true, false);
+					if (!FinishAlternateAdvancementPurchase(rank, true, false)) {
+						return;
+					}
 
 					if (rank->prev) {
 						MessageString(
@@ -2312,14 +2318,15 @@ void Client::GrantAllAAPoints(uint8 unlock_level, bool skip_grant_only)
 			}
 
 			if (rank->level_req <= level && !HasAlreadyPurchasedRank(rank)) {
-				FinishAlternateAdvancementPurchase(rank, true, false);
+				if (!FinishAlternateAdvancementPurchase(rank, true, false)) {
+					return;
+				}
 			}
 
 			rank = rank->next;
 		}
 	}
 
-	SaveAA();
 	SendClearLeadershipAA();
 	SendClearPlayerAA();
 	SendAlternateAdvancementTable();

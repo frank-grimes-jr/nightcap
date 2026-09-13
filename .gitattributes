@@ -105,3 +105,12 @@ docs/balance/aa-bulk-*.log -text -whitespace
 docs/balance/aa-bulk-*.patch -text -whitespace
 docs/balance/native-aa-bulk.md text eol=lf
 docs/adr/0023-refund-earned-aas-and-guard-profile-saves.md text eol=lf
+tools/balance/aa_purchase_controls.py text eol=lf
+tools/balance/run_aa_purchase.py text eol=lf
+tools/balance/tests/test_aa_purchase*.py text eol=lf
+docs/balance/aa-purchase-*.json -text
+docs/balance/aa-purchase-*.log -text -whitespace
+docs/balance/aa-purchase-*.patch -text -whitespace
+docs/balance/aa-purchase-*.py text eol=lf
+docs/balance/native-aa-purchase.md text eol=lf
+docs/adr/0025-durable-aa-purchases-and-grants.md text eol=lf

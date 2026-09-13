@@ -70,6 +70,10 @@ bool NightcapBalancePreflight(int argc, char **argv)
 		json fixture;
 		fixture_file >> fixture;
 		profile_save_fixture = fixture.value("profile_save_fixture", false);
+		if (fixture.value("capture_aa_purchase_events", false)) {
+			if (!profile_save_fixture) { throw std::runtime_error("Purchase event capture requires an explicit profile fixture"); }
+			NightcapBalanceCaptureAAPurchaseEvents();
+		}
 		return true;
 	} catch (const std::exception &e) {
 		std::cerr << "Balance preflight refused: " << e.what() << std::endl;
@@ -301,6 +305,16 @@ public:
 			bool success = false;
 			if (name == "load") { success = database.LoadAlternateAdvancement(this); }
 			else if (name == "save") { success = SaveAA(); }
+			else if (name == "purchase_first" || name == "purchase_next" || name == "grant" || name == "grant_silent") {
+				auto ability = zone->GetAlternateAdvancementAbilityByRank(watched);
+				auto rank = ability ? ability->GetRankByPointsSpent(input.value("purchase_rank_count", 1u)) : nullptr;
+				if (!rank) { throw std::runtime_error("Unknown acquisition probe rank"); }
+				if (name == "purchase_first") { PurchaseAlternateAdvancementRank(watched); success = true; }
+				else if (name == "purchase_next") { PurchaseAlternateAdvancementRank(rank->id); success = true; }
+				else if (name == "grant") {
+					success = GrantAlternateAdvancementAbility(ability->id, input.value("grant_rank_count", 1), input.value("ignore_cost", true));
+				} else { FinishAlternateAdvancementPurchase(rank, true, false); success = true; }
+			}
 			else if (name == "refund_all") { RefundAA(); success = true; }
 			else if (name == "reset_all") { ResetAA(); success = true; }
 			else if (name == "invalidate_earned") { InvalidateEarnedAAState(); success = true; }
@@ -374,6 +388,9 @@ public:
 				if (!character.Success() || character.RowCount() != 1) { throw std::runtime_error("Lifecycle character fixture missing"); }
 				auto row = character.begin();
 				steps.back()["saved_points"] = {{"wallet",std::stoul(row[0])},{"spent",std::stoul(row[1])},{"expended",std::stoul(row[2])}};
+			}
+			if (input.value("inspect_purchase_events", false)) {
+				steps.back()["purchase_events"] = NightcapBalanceAAPurchaseEvents();
 			}
 		}
 		return {{"steps",steps},{"scope","Native AA load/save with synthetic persisted rows and wallet; optional fixture-row deletion models a changed database before reload. No gameplay or refund simulation."}};

@@ -1989,7 +1989,7 @@ protected:
 	bool client_data_loaded;
 
 
-	void FinishAlternateAdvancementPurchase(AA::Rank *rank, bool ignore_cost, bool send_message_and_save);
+	bool FinishAlternateAdvancementPurchase(AA::Rank *rank, bool ignore_cost, bool send_message);
 
 	Mob* bind_sight_target;
 

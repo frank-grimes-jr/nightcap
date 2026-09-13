@@ -1,5 +1,20 @@
 # CHANGES
 
+## 2026-09-13 - Commit AA purchases and grants before reporting success
+
+AA purchases and explicit/silent grants now persist earned ownership and all AA
+point counters atomically before publishing ranks, wallet changes, or purchase
+events. Grant callers observe failures; successful batch ranks persist individually.
+Thirteen native before/after controls pass across 52 operations per phase,
+including exact success-event ledgers, charged repurchase, and SQL rollback.
+The fresh 2,787-file build succeeds, with 87 C++ and 339 calculator/evidence tests
+passing. Initial C++ tests were run from the wrong directory; their misleading
+zero exit status is rejected by summary validation, and the preserved rerun in
+the dedicated fixture passes. Clone fixtures and triggers are removed; the AA
+catalog is unchanged. No live binary or balance numbers changed. Full batch caller,
+toggle, class-release, reconnect/network, ordinary-save and manual QA gates remain.
+See docs/balance/native-aa-purchase.md and ADR0025.
+
 ## 2026-09-13 - Refund full earned AA ownership and guard invalid profile saves
 
 Bulk refund/reset now refunds full earned cost across active, partially usable,

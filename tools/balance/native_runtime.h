@@ -3,6 +3,8 @@
 class Client;
 class Mob;
 void NightcapBalanceStartClock();
+void NightcapBalanceCaptureAAPurchaseEvents();
+nlohmann::json NightcapBalanceAAPurchaseEvents();
 nlohmann::json NightcapBalanceRuntimeProbe(Client *client);
 nlohmann::json NightcapBalanceAAProbe(Client *client, const nlohmann::json &input);
 nlohmann::json NightcapBalancePetProbe(Client *client, const nlohmann::json &input);
