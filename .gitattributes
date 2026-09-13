@@ -85,3 +85,5 @@ docs/pok/*.json -text
 docs/pok/*.md text eol=lf
 docs/adr/0024-pok-arrival-hub-and-class-status.md text eol=lf
 docs/pok/*.log -text -whitespace
+tools/pok_hub.py text eol=lf
+tools/tests/test_pok_hub.py text eol=lf

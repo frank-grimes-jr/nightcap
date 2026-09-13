@@ -1,5 +1,16 @@
 # CHANGES
 
+## 2026-09-13 - Plan class-labeled PoK arrival merchants
+
+Added a pure, offline hub planner using the verified original spell-class catalog.
+The generated sixteen-merchant proposal preserves all 1,229 current unique scrolls
+and item prices; the largest shop has 275 items. Two tests verify coverage, class
+routing, prices, and rejection of invalid/unmapped stock. Labels distinguish
+spells, songs, and discipline tomes. Proposed placement leaves an open arrival
+area; new NPC IDs were checked against the live catalog to avoid pet collisions.
+No SQL or zone changes were applied. Guarded migration/rollback, restock integration,
+utility consolidation, ground checks, and manual QA remain. See docs/pok/hub-layout.md.
+
 ## 2026-09-13 - Show selected classes on demand and after selection
 
 The isolated PoK usability branch adds explicit Primary/Second/Third class slots

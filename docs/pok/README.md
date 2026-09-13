@@ -9,6 +9,10 @@ Implemented and script-tested, not deployed:
 - #classes and /say !classes for on-demand status.
 - Clear selection confirmation and progression wording without misleading counts.
 
+A tested merchant inventory and preliminary placement proposal is available in
+hub-layout.md and hub-merchant-plan.json. The planner preserves all 1,229 unique
+scrolls and item prices; two planner tests pass. It applies no database changes.
+
 Still in progress:
 
 - Choose and verify unobstructed arrival-area positions.
