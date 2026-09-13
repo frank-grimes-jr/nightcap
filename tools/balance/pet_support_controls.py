@@ -109,8 +109,10 @@ def summarize(case, report):
         limit = .05*event['speed']*.4*1.45
         if abs(event['limit']-limit) > 1e-5 or math.dist(event['from'], event['to']) > limit+1e-4:
             raise ValueError('Support movement exceeds native speed policy')
-        if not event['accepted'] or event['actual'] != event['to']:
+        if event['accepted'] != (event['actual'] == event['to']):
             raise ValueError('Support position packet was not applied')
+        if not event['accepted'] and not event.get('controlled_after', False):
+            raise ValueError('Support position packet was rejected without native control interruption')
     if combat['movement']['events'] and combat['movement']['history_packets'] <= 0:
         raise ValueError('Support movement lacks history packets')
     slow_samples = sum(any(b['spell'] == 507 for b in s['boss_buffs']) for s in combat['trace'])

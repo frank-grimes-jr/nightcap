@@ -589,6 +589,7 @@ public:
 		auto &event = events.back();
 		event["actual"] = {c->GetX(),c->GetY(),c->GetZ()};
 		event["accepted"] = event["actual"] == event["to"];
+		if (event["accepted"] == false) { event["controlled_after"] = c->IsAIControlled(); }
 		if (event["accepted"] == false && !c->IsAIControlled()) {
 			throw std::runtime_error("Ordinary client position packet was not applied");
 		}
@@ -666,6 +667,11 @@ static json PetCombat(Client *c, const json &input)
 	const bool commands_only = input.value("commands_only",false);
 	const auto owner_policy = input.value("owner_policy",std::string("none"));
 	const bool support = owner_policy == "pet_support";
+	const auto approach_policy = input.value("approach_policy",std::string("ranged80"));
+	const bool native_spell_range = approach_policy == "native_spell_range";
+	if ((approach_policy != "ranged80" && !native_spell_range) || (native_spell_range && !support)) {
+		throw std::runtime_error("Invalid pet approach policy");
+	}
 	if ((owner_policy != "none" && !support) || (support && commands_only)) { throw std::runtime_error("Invalid pet owner policy"); }
 	if ((npc_id != 32040 && npc_id != 73057) || duration < 50 || duration > (commands_only ? 1000 : 900000)) {
 		throw std::runtime_error("Unsupported pet combat target/duration");
@@ -675,6 +681,8 @@ static json PetCombat(Client *c, const json &input)
 	if (!type) { throw std::runtime_error("Missing pet combat NPC"); }
 	auto *boss = new BalanceNPC(type,nullptr,glm::vec4(p[0],p[1],p[2],p[3]),GravityBehavior::Water);
 	boss->capture_damage = !commands_only;
+	const bool range_immune = boss->GetSpecialAbility(SpecialAbility::CastingFromRangeImmunity);
+	const int approach_range = native_spell_range && range_immune ? 0 : 80;
 	std::vector<uint16> pet_ids;
 	for (const auto &entry : entity_list.GetNPCList()) {
 		if (entry.second->GetOwnerID() == c->GetID()) { pet_ids.push_back(entry.first); }
@@ -720,6 +728,10 @@ static json PetCombat(Client *c, const json &input)
 			}
 			result["boss_buffs"] = buffs; result["boss_haste"] = boss->GetHaste();
 			result["player"]["sitting"] = c->IsSitting(); result["player"]["max_mana"] = c->GetMaxMana();
+			if (native_spell_range) {
+				result["owner_combat_range"] = c->CombatRange(boss);
+				result["owner_los"] = c->CheckLosFN(boss);
+			}
 		}
 		return result;
 	};
@@ -780,9 +792,11 @@ static json PetCombat(Client *c, const json &input)
 		if (support) {
 			const auto now = Timer::GetCurrentTime();
 			const bool controlled = c->IsAIControlled() || c->IsFeared() || c->IsStunned() || c->IsMezzed();
-			const bool needs_return = glm::distance(glm::vec3(c->GetPosition()),glm::vec3(boss->GetPosition())) > 80 || !c->CheckLosFN(boss);
+			const bool in_range = approach_range == 0 ? c->CombatRange(boss) :
+				glm::distance(glm::vec3(c->GetPosition()),glm::vec3(boss->GetPosition())) <= approach_range;
+			const bool needs_return = !in_range || !c->CheckLosFN(boss);
 			if (!controlled && !c->IsCasting() && needs_return && c->IsSitting()) { posture(false); }
-			else { moving = movement.Step(c,boss,stream,50,80,15); }
+			else { moving = movement.Step(c,boss,stream,50,approach_range,15); }
 			if (!moving && !controlled && !c->IsCasting() && now >= next_request) {
 				Mob *target = boss;
 				uint16 selected = 0;
@@ -818,6 +832,10 @@ static json PetCombat(Client *c, const json &input)
 						const bool accepted = c->CastSpell(selected,target->GetID(),static_cast<EQ::spells::CastingSlot>(gem));
 						owner_actions.push_back({{"ms",now-start},{"spell",selected},{"gem",gem},{"target",target->GetID()},
 							{"reason",reason},{"accepted",accepted},{"owner_hp_before",hp},{"owner_mana_before",mana},{"target_hp_before",target_hp}});
+						if (native_spell_range) {
+							owner_actions.back()["owner_combat_range"] = c->CombatRange(boss);
+							owner_actions.back()["owner_los"] = c->CheckLosFN(boss);
+						}
 						// Repeated resisted debuffs must not starve the rest of the rotation.
 						retry[selected] = now+30000; next_request = now+250;
 						owner_cast = c->CastingSpellID();
@@ -854,9 +872,13 @@ static json PetCombat(Client *c, const json &input)
 		for (auto &event : movement.events) { event["ms"] = event.at("ms").get<uint32>()-start; }
 		for (auto &event : aa_actions->events) { event["ms"] = event.at("ms").get<uint32>()-start; }
 		result["owner_actions"] = owner_actions; result["gems"] = gems;
-		result["movement"] = {{"events",movement.events},{"failed_paths",movement.failed_paths},{"history_packets",movement.history_packets},{"approach_range",80}};
+		result["movement"] = {{"events",movement.events},{"failed_paths",movement.failed_paths},{"history_packets",movement.history_packets},{"approach_range",approach_range}};
 		result["activated_aa"] = aa_actions->events;
 		result["scope"] = "Native pet support: eight fixed gems, self/pet healing, slow, DoTs, Cannibalize II, filler nukes/taps, purchased burst AA, native sitting and bounded return to80 units; no pet resummoning or continuous kiting";
+		if (native_spell_range) {
+			result["range_immunity"] = range_immune;
+			result["scope"] = "Native pet support with the captured ranged-spell immunity respected: approach native melee range for belly casters, otherwise80 units; eight fixed gems, native recovery/movement, no pet resummoning or continuous kiting";
+		}
 	}
 	return result;
 }

@@ -2,6 +2,10 @@
 
 Date: 2026-09-12. Isolated diagnostic only; no live deployment or numerical tuning.
 
+Follow-up: [native belly casting](native-pet-belly-casting.md) corrects the approach
+for the dragons' ranged-spell immunity. Retain the results below as historical
+ranged-strategy controls, not an estimate of this build's full combat power.
+
 This extends the [pet command controls](native-pet-commands.md) with an active
 owner. It measures fixed candidate equipment and explicitly purchased AAs against
 Lord Nagafen (32040, soldungb) and Lady Vox (73057, permafrost). It does not establish

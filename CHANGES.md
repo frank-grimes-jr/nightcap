@@ -1,5 +1,19 @@
 # CHANGES
 
+## 2026-09-12 - Respect native belly casting in pet balance measurements
+
+Both captured dragons have ranged-spell immunity: native resistance rejects spells
+cast outside melee range. The pet-support diagnostic now offers a native-range
+approach, preserving the old 80-unit controller as a matched comparison. It also
+records movement requests interrupted by newly acquired native fear/AI control,
+without accepting ordinary failed movement. Thirty corrected fights pass; all 65
+legacy support, command, ownership and caster/monk reports remain byte identical.
+The focused 217-test suite passes. See `docs/balance/native-pet-belly-casting.md`.
+
+This corrects the player strategy and evidence, not the dragons. Live NPCs, spells,
+AA access and binaries were not changed. Previous ranged-owner results are weak-
+strategy controls and must not be used as the pet build's full-power baseline.
+
 ## 2026-09-12 - Measure native pet support across AA progression
 
 The isolated balance diagnostic now prepares and supports MAG/NEC/SHM pets with
