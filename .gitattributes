@@ -71,3 +71,9 @@ tools/balance/tests/test_pet_shield*.py text eol=lf
 tools/balance/tests/test_release_pool_evidence.py text eol=lf
 docs/balance/pet-shield-*.json -text
 docs/balance/native-pet-shielding.md text eol=lf
+tools/balance/tests/test_server_candidate.py text eol=lf
+docs/releases/server-fixes-20260913/*.json -text
+docs/releases/server-fixes-20260913/*.log -text
+docs/releases/server-fixes-20260913/*.patch -text
+docs/releases/server-fixes-20260913/*.py text eol=lf
+docs/releases/server-fixes-20260913/*.md text eol=lf

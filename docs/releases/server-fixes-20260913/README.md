@@ -1,0 +1,61 @@
+# Five server fixes — built candidate
+
+The candidate corrects held-class weapon damage, extra-pet ownership and attack
+commands, direct-AA buff duration, and stale owned-AA profile entries. It makes
+no numerical balance change and installs no expansion AA policy or ownership
+ledger. See `QA.md` for the exact in-game steps and activation boundary.
+
+## Build and verification
+
+- All 2,787 pinned source files matched before and after a clean build.
+- Fresh `zone` and `tests` targets built successfully. All 87 C++ tests passed in
+  a separate test directory with its own shared-memory files.
+- A separate diagnostic executable links the freshly built native objects, using
+  the existing isolation adapters. Its 24 fixed-input Vox/Nagafen fights match
+  all previous complete reports and raw hashes: three builds, zero and launch
+  maximum AAs, both dragons, and two recorded gear sets at seed 1729.
+- The three release tests validate the five source/rollback hashes, regenerated
+  patch, source manifest correspondence, and all 24 complete replay reports.
+- The 315-test calculator suite passed before adding the final release-evidence
+  test. The full 316-test run on `dev` is the remaining automated promotion gate.
+- The balance clone has zero account, character, owned-AA and inventory rows;
+  its AA-table dump hash is unchanged. Only two verified reagent rows were removed.
+
+This proves a reproducible mechanics candidate and matched simulation behavior.
+It does not prove final game balance or replace the required in-game QA.
+
+## Candidate artifact
+
+The executable is stored outside Git at
+`E:\EQ_Local_Dev\artifacts\server-fixes-20260913\zone` (78,904,056 bytes).
+Its SHA256 is
+`ce127436f846e2ef0d588501bc5797f13f8928cce72ea45ef9e6eb8562dbcaac`.
+The copied artifact matches the successfully built ELF. The active server binary
+has not been replaced.
+
+`configure-command.json`, `full-source-manifest.json`, `build.log`,
+`build-checks.json`, and `cpp-tests.log` record the build. The diagnostic manifest
+pins the linked objects and adapters. `replay-command.py` records the exact replay
+procedure. The two fresh input/report pairs and `fresh-replay-checks.json` retain
+the comparisons. Original source files are archived in `original-source.tar.gz`;
+apply the source patch only after checking the recorded original hashes.
+
+The first build was interrupted by a full C: drive and left a zero-byte zone
+artifact despite a success line in its log. It was rejected. This candidate comes
+from the subsequent clean build after Docker storage was moved to E:.
+
+## Review and remaining work
+
+The final patch review checked native eligibility gates, unchanged primary-pet
+command behavior, explicit extra-pet registration, native AA duration lookup and
+profile initialization. No new database schema, global class-mask mutation,
+credentials or network access is introduced. The AA duration check scans loaded
+ranks only when applying an otherwise eligible self buff; it avoids a stale cache
+after AA reload. This is an author review, not owner gameplay approval.
+
+Balance remains open: the pet build's Nagafen resistance/sustain gap is not
+consistently resolved by shielding or cap changes. Keep 250/250 as the measured
+baseline. The proposed expansion AA pools still need a complete release offering,
+earned-versus-active ownership integration and lifecycle QA before deployment.
+Activated-AA subspells and the Celestial Regeneration level rejection remain
+separate issues. `test` to `main` requires the owner's in-game sign-off.

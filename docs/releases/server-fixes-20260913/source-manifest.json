@@ -1,0 +1,30 @@
+{
+  "scope": "Five existing server fixes only; excludes diagnostic adapters, AA data projections, ownership ledger and cap changes.",
+  "files": [
+    {
+      "path": "zone/spells.cpp",
+      "original_sha256": "3b8bbbc6756ec1da92a6b8dcf32197437d3c8bbcd3dde1cdddcb0c9cd177979f",
+      "candidate_sha256": "decdf29850e700436b411de88cae24a6836b072e56b4d89549bbbfcd646277ae"
+    },
+    {
+      "path": "zone/attack.cpp",
+      "original_sha256": "e73cad5e28832986ec2b0b656ee550e9c8f3aa35a63e48544476d4979068940f",
+      "candidate_sha256": "b545d2322ae08f42771bc90ac90d85a73431ab216526aae0ff7c315715417f77"
+    },
+    {
+      "path": "zone/mob.cpp",
+      "original_sha256": "f5ee75a42e36e3310c9bd37a110a6f2e9088b31a57e69397cce0da94f8c9e462",
+      "candidate_sha256": "bcd0a40312fd59a1430f626507d6cc45233c26393fff45389b7e069d00f48d45"
+    },
+    {
+      "path": "zone/client_packet.cpp",
+      "original_sha256": "d812fb0e8e5f56adbb79925d8bb099b6598ccab3b9f391ba6baae6e474e56659",
+      "candidate_sha256": "55747c12533fa3b7c90412fe61c51615ee13e5a1df63b2c2cc5af9f13fd41c96"
+    },
+    {
+      "path": "zone/aa.cpp",
+      "original_sha256": "0a21642bdd5cb278f186eba830ab0f8395a6e0e0f61f99f6b9a0ba8b8cde461b",
+      "candidate_sha256": "dae41a76bad6aa6de6130c588ef9f76cbc80a71de8060b8ce623346e4c4d4c81"
+    }
+  ]
+}

@@ -1,5 +1,16 @@
 # CHANGES
 
+## 2026-09-13 - Build and verify the five server-fix candidate
+
+Clean-built the candidate from 2,787 pinned source files after rejecting the
+disk-full build's zero-byte artifact. All 87 C++ tests pass. A diagnostic linked
+from the fresh objects reproduces all 24 earlier Vox/Nagafen reports and raw
+hashes exactly. The package includes original source, the five-file patch, build
+provenance, replay evidence, a checksummed E: executable, and explicit in-game QA.
+The clone is clean and its AA tables are unchanged. These are mechanics fixes;
+caps, NPC HP, the live AA offering and the active server binary remain unchanged.
+See `docs/releases/server-fixes-20260913/README.md` for evidence and remaining gates.
+
 ## 2026-09-13 - Finish focused pet shielding comparison
 
 Compared owner Arch Shielding with and without Resist Magic across 36 native
