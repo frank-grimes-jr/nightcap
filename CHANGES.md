@@ -1,5 +1,20 @@
 # CHANGES
 
+## 2026-09-13 - Preserve earned AAs while deriving usable native ranks
+
+Implemented the first native ownership increment on `feature/aa-ownership`:
+load the eligible prefix while preserving full earned counts and charges, retain
+earned plus expended spent-point totals on save, and reject repurchases or saves
+when ownership is unresolved. Six native controls pass across 32 operations,
+including partial/full suspension, a charged AA and malformed saved rows. A fresh
+2,787-file build succeeds; all 87 C++ and 324 calculator/evidence tests pass. The clone is clean and its
+AA catalog is unchanged. Archived source preserves the frozen five-fix QA proofs
+as new source work proceeds.
+Gotcha: refund/reset/class-release/charge-consumption and purchase failure paths
+still need integration; this increment must not be promoted or activated yet.
+No live gameplay settings or server binaries changed. See
+`docs/balance/native-aa-owned-core.md` for evidence and remaining gates.
+
 ## 2026-09-13 - Reproduce AA ownership accounting across expansion eligibility
 
 Added a clone-only native control using the full unchanged AA catalog. A six-rank

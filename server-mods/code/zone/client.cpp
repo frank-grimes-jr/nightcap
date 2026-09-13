@@ -932,44 +932,74 @@ void Client::ReportConnectingState() {
 	};
 }
 
+void Client::BeginEarnedAALoad()
+{
+	m_earned_aa_ranks.clear();
+	m_earned_aa_valid = true;
+}
+
+void Client::RecordEarnedAA(uint32 first_rank_id, uint32 rank_count, uint32 charges)
+{
+	m_earned_aa_ranks[first_rank_id] = {rank_count, charges};
+}
+
+uint32 Client::GetEarnedAACount(uint32 first_rank_id) const
+{
+	const auto owned = m_earned_aa_ranks.find(first_rank_id);
+	return owned == m_earned_aa_ranks.end() ? 0 : owned->second.first;
+}
+
 bool Client::SaveAA()
 {
+	if (!m_earned_aa_valid) {
+		LogError("Refusing AA save for [{}]: earned ownership could not be resolved", CharacterID());
+		return false;
+	}
+
 	std::vector<CharacterAlternateAbilitiesRepository::CharacterAlternateAbilities> v;
-
-	uint32 aa_points_spent = 0;
-
+	auto earned = m_earned_aa_ranks;
+	uint64 aa_points_spent = m_epp.expended_aa;
 	auto e = CharacterAlternateAbilitiesRepository::NewEntity();
 
-	for (auto &rank : aa_ranks) {
-		auto a = zone->GetAlternateAdvancementAbility(rank.first);
-		if (!a) {
+	for (const auto &active : aa_ranks) {
+		if (!active.second.first) {
 			continue;
 		}
-
-		if (rank.second.first > 0) {
-			auto r = a->GetRankByPointsSpent(rank.second.first);
-			if (!r) {
-				continue;
-			}
-
-			aa_points_spent += r->total_cost;
-
-			e.id       = character_id;
-			e.aa_id    = a->first_rank_id;
-			e.aa_value = rank.second.first;
-			e.charges  = rank.second.second;
-
-			v.emplace_back(e);
+		auto ability = zone->GetAlternateAdvancementAbility(active.first);
+		if (!ability) {
+			return false;
 		}
+		auto &owned = earned[ability->first_rank_id];
+		owned.first = std::max(owned.first, active.second.first);
+		owned.second = active.second.second;
 	}
 
-	m_pp.aapoints_spent = aa_points_spent + m_epp.expended_aa;
-
-	if (v.empty()) {
-		return true;
+	for (const auto &owned : earned) {
+		auto ability = zone->GetAlternateAdvancementAbilityByRank(owned.first);
+		auto rank = ability ? ability->GetRankByPointsSpent(owned.second.first) : nullptr;
+		if (!ability || ability->first_rank_id != owned.first || !rank ||
+			rank->current_value != owned.second.first || rank->total_cost < 0) {
+			LogError("Refusing AA save for [{}]: invalid earned rank [{}]/[{}]",
+				CharacterID(), owned.first, owned.second.first);
+			return false;
+		}
+		aa_points_spent += rank->total_cost;
+		if (aa_points_spent > UINT32_MAX) {
+			return false;
+		}
+		e.id       = character_id;
+		e.aa_id    = owned.first;
+		e.aa_value = owned.second.first;
+		e.charges  = owned.second.second;
+		v.emplace_back(e);
 	}
 
-	return CharacterAlternateAbilitiesRepository::ReplaceMany(database, v);
+	if (!v.empty() && !CharacterAlternateAbilitiesRepository::ReplaceMany(database, v)) {
+		return false;
+	}
+	m_earned_aa_ranks = std::move(earned);
+	m_pp.aapoints_spent = static_cast<uint32>(aa_points_spent);
+	return true;
 }
 
 void Client::RemoveExpendedAA(int aa_id)

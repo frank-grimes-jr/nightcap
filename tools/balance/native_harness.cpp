@@ -305,7 +305,10 @@ public:
 					"DELETE FROM character_alternate_abilities WHERE id={} AND aa_id={}", CharacterID(), watched));
 				success = deleted.Success();
 			} else { throw std::runtime_error("Unknown ownership probe operation"); }
-			if (!success) { throw std::runtime_error("Native ownership operation failed: " + name); }
+			const auto allowed_failures = input.value("allowed_failures", std::vector<std::string>{});
+			if (!success && std::find(allowed_failures.begin(), allowed_failures.end(), name) == allowed_failures.end()) {
+				throw std::runtime_error("Native ownership operation failed: " + name);
+			}
 			CalcBonuses();
 			json profile = json::array(), stored = json::array();
 			for (const auto &entry : GetPP().aa_array) {
@@ -322,6 +325,14 @@ public:
 			steps.push_back({{"operation",name},{"watched_first_rank_id",watched},{"effective_rank_count",GetAA(watched)},
 				{"profile",profile},{"stored",stored},{"unspent_points",GetAAPoints()},{"spent_points",GetSpentAA()},
 				{"hp",GetMaxHP()},{"aa_percent_hp",GetAABonuses().PercentMaxHPChange}});
+			if (input.value("inspect_earned", false)) {
+				auto rank = zone->GetAlternateAdvancementRank(watched);
+				steps.back()["success"] = success;
+				steps.back()["earned_state_valid"] = HasValidEarnedAAState();
+				steps.back()["earned_rank_count"] = GetEarnedAACount(watched);
+				steps.back()["first_rank_already_earned"] = rank && HasAlreadyPurchasedRank(rank);
+				steps.back()["first_rank_purchasable"] = rank && CanPurchaseAlternateAdvancementRank(rank, true, true);
+			}
 		}
 		return {{"steps",steps},{"scope","Native AA load/save with synthetic persisted rows and wallet; optional fixture-row deletion models a changed database before reload. No gameplay or refund simulation."}};
 	}

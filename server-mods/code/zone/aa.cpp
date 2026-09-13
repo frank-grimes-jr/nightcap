@@ -1574,47 +1574,55 @@ void Mob::ExpendAlternateAdvancementCharge(uint32 aa_id) {
 }
 
 bool ZoneDatabase::LoadAlternateAdvancement(Client *c) {
+	// Preserve the session on a read failure; an empty result must be distinguishable
+	// from a failed ownership query before any later save is allowed.
+	auto rows = database.QueryDatabase(fmt::format(
+		"SELECT aa_id, aa_value, charges FROM character_alternate_abilities WHERE id={} ORDER BY aa_id",
+		c->CharacterID()));
+	if (!rows.Success()) {
+		c->InvalidateEarnedAAState();
+		return false;
+	}
 	c->ClearAAs();
+	c->BeginEarnedAALoad();
 	// Reloads must discard profile entries for ranks no longer accepted below.
 	memset(c->GetPP().aa_array, 0, sizeof(c->GetPP().aa_array));
 
-	const auto& l = CharacterAlternateAbilitiesRepository::GetWhere(
-		database,
-		fmt::format(
-			"`id` = {}",
-			c->CharacterID()
-		)
-	);
-
 	uint32 slot_id = 0;
 
-	for (const auto& e : l) {
-		const uint16 aa_id    = e.aa_id;
-		const uint16 aa_value = e.aa_value;
-		const uint16 charges  = e.charges;
+	for (auto row : rows) {
+		const uint32 aa_id    = Strings::ToUnsignedInt(row[0]);
+		const uint32 aa_value = Strings::ToUnsignedInt(row[1]);
+		const uint32 charges  = Strings::ToUnsignedInt(row[2]);
 
-		auto rank = zone->GetAlternateAdvancementRank(aa_id);
-		if (!rank) {
+		auto ability = zone->GetAlternateAdvancementAbilityByRank(aa_id);
+		auto rank = ability ? ability->GetRankByPointsSpent(aa_value) : nullptr;
+		if (!ability || ability->first_rank_id != aa_id || !rank || rank->current_value != aa_value) {
+			c->InvalidateEarnedAAState();
 			continue;
 		}
 
-		auto ability = rank->base_ability;
-		if (!ability) {
+		c->RecordEarnedAA(aa_id, aa_value, charges);
+		const auto active_count = std::min(aa_value, static_cast<uint32>(ability->GetMaxLevel(c)));
+		if (!active_count) {
 			continue;
 		}
-
-		rank = ability->GetRankByPointsSpent(aa_value);
-
-		if (c->CanUseAlternateAdvancementRank(rank) && c->SetAA(aa_id, aa_value, charges)) {
+		if (slot_id >= MAX_PP_AA_ARRAY) {
+			c->InvalidateEarnedAAState();
+			return false;
+		}
+		if (c->SetAA(aa_id, active_count, charges)) {
 			c->GetPP().aa_array[slot_id].AA      = aa_id;
-			c->GetPP().aa_array[slot_id].value   = aa_value;
+			c->GetPP().aa_array[slot_id].value   = active_count;
 			c->GetPP().aa_array[slot_id].charges = charges;
 
 			slot_id++;
+		} else {
+			c->InvalidateEarnedAAState();
 		}
 	}
 
-	return true;
+	return c->HasValidEarnedAAState();
 }
 
 AA::Ability *Zone::GetAlternateAdvancementAbility(int id) {
@@ -1810,7 +1818,7 @@ bool Mob::CanPurchaseAlternateAdvancementRank(AA::Rank *rank, bool check_price, 
 		return false;
 	}
 
-	if (IsClient() && CastToClient()->HasAlreadyPurchasedRank(rank)) {
+	if (IsClient() && (!CastToClient()->HasValidEarnedAAState() || CastToClient()->HasAlreadyPurchasedRank(rank))) {
 		return false;
 	}
 
@@ -2353,6 +2361,9 @@ void Client::GrantAllAAPoints(uint8 unlock_level, bool skip_grant_only)
 }
 
 bool Client::HasAlreadyPurchasedRank(AA::Rank* rank) {
+	if (GetEarnedAACount(rank->base_ability->first_rank_id) >= rank->current_value) {
+		return true;
+	}
 	const auto& aa = aa_ranks.find(rank->base_ability->id);
 	if (aa == aa_ranks.end()) {
 		return false;

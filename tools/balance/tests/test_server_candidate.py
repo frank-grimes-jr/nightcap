@@ -17,20 +17,23 @@ class ServerCandidateTests(unittest.TestCase):
     def test_exact_original_and_candidate_source_hashes_match_all_five_files(self):
         expected = {'zone/' + n + '.cpp' for n in ('spells', 'attack', 'mob', 'client_packet', 'aa')}
         self.assertEqual({r['path'] for r in self.manifest['files']}, expected)
-        with tarfile.open(self.package / 'original-source.tar.gz') as archive:
+        with tarfile.open(self.package / 'original-source.tar.gz') as archive, \
+                tarfile.open(self.package / 'candidate-source.tar.gz') as frozen:
             self.assertEqual(set(archive.getnames()), expected)
+            self.assertEqual(set(frozen.getnames()), expected)
             for row in self.manifest['files']:
                 original = archive.extractfile(row['path']).read()
-                candidate = (self.root / 'server-mods/code' / row['path']).read_bytes()
+                candidate = frozen.extractfile(row['path']).read()
                 self.assertEqual(hashlib.sha256(original).hexdigest(), row['original_sha256'])
                 self.assertEqual(hashlib.sha256(candidate).hexdigest(), row['candidate_sha256'])
 
     def test_review_patch_reproduces_exact_normalized_source_changes(self):
         patch = []
-        with tarfile.open(self.package / 'original-source.tar.gz') as archive:
+        with tarfile.open(self.package / 'original-source.tar.gz') as archive, \
+                tarfile.open(self.package / 'candidate-source.tar.gz') as frozen:
             for row in self.manifest['files']:
                 original = archive.extractfile(row['path']).read().decode().replace('\r\n', '\n')
-                candidate = (self.root / 'server-mods/code' / row['path']).read_text(encoding='utf-8')
+                candidate = frozen.extractfile(row['path']).read().decode().replace('\r\n', '\n')
                 patch.extend(difflib.unified_diff(original.splitlines(True), candidate.splitlines(True),
                                                  fromfile='a/' + row['path'], tofile='b/' + row['path']))
         self.assertEqual(''.join(patch), (self.package / 'server-fixes.patch').read_text(encoding='utf-8'))

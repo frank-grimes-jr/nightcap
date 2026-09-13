@@ -1,5 +1,6 @@
 import gzip
 import hashlib
+import tarfile
 from pathlib import Path
 import unittest
 
@@ -100,7 +101,8 @@ class AAOwnershipEvidenceTests(unittest.TestCase):
         candidate_object = str(Path(after['aa_candidate']['source']).with_suffix('.o')).replace('\\', '/')
         new.pop(candidate_object)
         self.assertEqual(old, new)
-        source = (self.root / 'server-mods/code/zone/aa.cpp').read_bytes()
+        with tarfile.open(self.root / 'docs/releases/server-fixes-20260913/candidate-source.tar.gz') as frozen:
+            source = frozen.extractfile('zone/aa.cpp').read()
         compiled = gzip.decompress((self.docs / 'aa-ownership-candidate.cpp.gz').read_bytes())
         self.assertEqual(hashlib.sha256(compiled).hexdigest(), after['aa_candidate']['sha256'])
         self.assertEqual(source, compiled.replace(b'\r\n', b'\n'))

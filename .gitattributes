@@ -81,3 +81,11 @@ tools/balance/aa_owned_view_controls.py text eol=lf
 tools/balance/tests/test_aa_owned_view*.py text eol=lf
 docs/balance/aa-owned-view-*.json -text
 docs/adr/0021-canonical-earned-aa-and-active-views.md text eol=lf
+server-mods/code/zone/client.cpp text eol=lf
+server-mods/code/zone/client.h text eol=lf
+tools/balance/aa_owned_core_controls.py text eol=lf
+tools/balance/run_aa_owned_core.py text eol=lf
+tools/balance/tests/test_aa_owned_core*.py text eol=lf
+docs/balance/aa-owned-core-*.json -text
+docs/balance/aa-owned-core-*.log -text -whitespace
+docs/balance/native-aa-owned-core.md text eol=lf

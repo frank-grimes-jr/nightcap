@@ -76,6 +76,7 @@ namespace EQ
 #include "common/zone_store.h"
 
 #include <cfloat>
+#include <map>
 #include <set>
 #include <algorithm>
 #include <memory>
@@ -1092,6 +1093,11 @@ public:
 	void AutoGrantAAPoints();
 	void GrantAllAAPoints(uint8 unlock_level = 0, bool skip_grant_only = false);
 	bool HasAlreadyPurchasedRank(AA::Rank* rank);
+	void BeginEarnedAALoad();
+	void RecordEarnedAA(uint32 first_rank_id, uint32 rank_count, uint32 charges);
+	void InvalidateEarnedAAState() { m_earned_aa_valid = false; }
+	bool HasValidEarnedAAState() const { return m_earned_aa_valid; }
+	uint32 GetEarnedAACount(uint32 first_rank_id) const;
 	void ListPurchasedAAs(Client *to, std::string search_criteria = std::string());
 
 	bool SendGMCommand(std::string message, bool ignore_status = false);
@@ -2449,4 +2455,8 @@ public:
 	bool IsFilteredAFKPacket(const EQApplicationPacket *p);
 	void CheckAutoIdleAFK(PlayerPositionUpdateClient_Struct *p);
 	void SyncWorldPositionsToClient(bool ignore_idle = false);
+private:
+	// Canonical persisted ownership; Mob::aa_ranks is only the usable view.
+	std::map<uint32, std::pair<uint32, uint32>> m_earned_aa_ranks;
+	bool m_earned_aa_valid = true;
 };
