@@ -96,3 +96,12 @@ docs/balance/aa-removal-*.json -text
 docs/balance/aa-removal-*.log -text -whitespace
 docs/balance/native-aa-removal.md text eol=lf
 docs/adr/0022-atomic-earned-aa-removal.md text eol=lf
+server-mods/code/zone/zonedb.cpp text eol=lf
+tools/balance/aa_bulk_controls.py text eol=lf
+tools/balance/run_aa_bulk.py text eol=lf
+tools/balance/tests/test_aa_bulk*.py text eol=lf
+docs/balance/aa-bulk-*.json -text
+docs/balance/aa-bulk-*.log -text -whitespace
+docs/balance/aa-bulk-*.patch -text -whitespace
+docs/balance/native-aa-bulk.md text eol=lf
+docs/adr/0023-refund-earned-aas-and-guard-profile-saves.md text eol=lf

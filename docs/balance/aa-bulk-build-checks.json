@@ -1,0 +1,17 @@
+{
+  "source_files_checked": 2787,
+  "source_mismatches": [],
+  "build_exit_code": 0,
+  "reload_guard_build_exit_code": 0,
+  "feedback_build_exit_code": 0,
+  "cpp_exit_code": 0,
+  "zone_bytes": 78975648,
+  "zone_magic": "7f454c46",
+  "zone_sha256": "74166f07a8e7759af53f02ec9d8e75361aa89baefd95c09083b800146ea66db8",
+  "overlay": {
+    "zone/aa.cpp": "b374d1caa8bfc3fd6a305049ffc4bf6e10128fdfadce99344aceca635d8416dc",
+    "zone/client.cpp": "38cb9e82f5458a0fe7262c295e25de3e2002c8bb8d320482d5c6c53d3661266c",
+    "zone/client.h": "d2b946db2cecf8f4e6957d38b217fdaea681119ff78b7e5f37a5e63c8e2cb81b",
+    "zone/zonedb.cpp": "22d2d0110112edc17ea0420c685718294ba632fa0df019f97f10eed5f84582dd"
+  }
+}

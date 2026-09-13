@@ -1135,7 +1135,7 @@ public:
 	//old AA methods that we still use
 	void ResetAA();
 	void ResetLeadershipAA();
-	void RefundAA();
+	bool RefundAA();
 	void SendClearLeadershipAA();
 	void SendClearPlayerAA();
 	inline uint32 GetAAXP() const { return m_pp.expAA; }
@@ -2458,7 +2458,10 @@ public:
 	void SyncWorldPositionsToClient(bool ignore_idle = false);
 private:
 	// Canonical persisted ownership; Mob::aa_ranks is only the usable view.
+	using EarnedAAState = std::map<uint32, std::pair<uint32, uint32>>;
+	using UsableAAState = std::unordered_map<uint32, std::pair<uint32, uint32>>;
 	bool PersistEarnedAARemoval(uint32 first_rank_id, bool consume_charge);
-	std::map<uint32, std::pair<uint32, uint32>> m_earned_aa_ranks;
+	bool PersistEarnedAAState(EarnedAAState earned, UsableAAState usable, uint32 wallet, uint32 expended);
+	EarnedAAState m_earned_aa_ranks;
 	bool m_earned_aa_valid = true;
 };

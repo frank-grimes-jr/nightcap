@@ -583,29 +583,9 @@ void Mob::WakeTheDead(uint16 spell_id, Corpse *corpse_to_use, Mob *tar, uint32 d
 
 void Client::ResetAA()
 {
-	SendClearPlayerAA();
+	// RefundAA now atomically removes refundable earned rows and preserves
+	// grant-only survivors. A second deletion would undo that result.
 	RefundAA();
-
-	memset(&m_pp.aa_array[0], 0, sizeof(AA_Array) * MAX_PP_AA_ARRAY);
-
-	int slot_id = 0;
-
-	for (auto& rank_value: aa_ranks) {
-		auto ability_rank = zone->GetAlternateAdvancementAbilityAndRank(rank_value.first, rank_value.second.first);
-		auto ability      = ability_rank.first;
-		auto rank         = ability_rank.second;
-
-		if (!rank) {
-			continue;
-		}
-
-		m_pp.aa_array[slot_id].AA      = rank_value.first;
-		m_pp.aa_array[slot_id].value   = rank_value.second.first;
-		m_pp.aa_array[slot_id].charges = rank_value.second.second;
-		++slot_id;
-	}
-
-	database.DeleteCharacterAAs(CharacterID());
 }
 
 void Client::ResetLeadershipAA()
@@ -903,43 +883,39 @@ void Client::InspectBuffs(Client* Inspector, int Rank)
 	Inspector->FastQueuePacket(&outapp);
 }
 
-void Client::RefundAA() {
-	int refunded = 0;
-
-	auto rank_value = aa_ranks.begin();
-	while (rank_value != aa_ranks.end()) {
-		auto ability_rank = zone->GetAlternateAdvancementAbilityAndRank(rank_value->first, rank_value->second.first);
-		auto ability      = ability_rank.first;
-		auto rank         = ability_rank.second;
-
-		if (!ability) {
-			++rank_value;
-			continue;
-		}
-
-		if (ability->charges > 0 && rank_value->second.second < 1) {
-			++rank_value;
-			continue;
-		}
-
-		if (ability->grant_only) {
-			++rank_value;
-			continue;
-		}
-
-		refunded += rank->total_cost;
-		rank_value        = aa_ranks.erase(rank_value);
+bool Client::RefundAA() {
+	if (!HasValidEarnedAAState()) {
+		return false;
 	}
-
-	if (refunded > 0) {
-		m_pp.aapoints += refunded;
-		SaveAA();
-		Save();
+	auto earned = m_earned_aa_ranks;
+	auto usable = aa_ranks;
+	uint64 wallet = GetAAPoints();
+	for (auto it = earned.begin(); it != earned.end();) {
+		auto ability = zone->GetAlternateAdvancementAbilityByRank(it->first);
+		auto rank = ability ? ability->GetRankByPointsSpent(it->second.first) : nullptr;
+		if (!ability || ability->first_rank_id != it->first || !rank ||
+			rank->current_value != it->second.first || rank->total_cost < 0) {
+			InvalidateEarnedAAState();
+			return false;
+		}
+		if (ability->grant_only || (ability->charges > 0 && it->second.second < 1)) {
+			++it;
+			continue;
+		}
+		wallet += rank->total_cost;
+		if (wallet > UINT32_MAX) { return false; }
+		usable.erase(ability->id);
+		it = earned.erase(it);
 	}
-
+	if (!PersistEarnedAAState(std::move(earned), std::move(usable), static_cast<uint32>(wallet), m_epp.expended_aa)) {
+		return false;
+	}
+	CalcBonuses();
+	SendClearPlayerAA();
 	SendAlternateAdvancementTable();
 	SendAlternateAdvancementPoints();
 	SendAlternateAdvancementStats();
+	return true;
 }
 
 // Multiclass: called right after a discipline slot is released (character_multiclass
@@ -1570,6 +1546,13 @@ void Mob::ExpendAlternateAdvancementCharge(uint32 aa_id) {
 }
 
 bool ZoneDatabase::LoadAlternateAdvancement(Client *c) {
+	// An in-place AA reload does not reload the character's point counters.
+	// Once those may be untrusted, only a fresh client session may clear the
+	// failure state; otherwise a later profile save could undo a committed change.
+	if (!c->HasValidEarnedAAState()) {
+		LogError("Refusing in-place AA recovery for [{}]; reconnect to reload ownership and counters", c->CharacterID());
+		return false;
+	}
 	// Preserve the session on a read failure; an empty result must be distinguishable
 	// from a failed ownership query before any later save is allowed.
 	auto rows = database.QueryDatabase(fmt::format(

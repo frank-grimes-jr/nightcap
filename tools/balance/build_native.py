@@ -45,6 +45,7 @@ def patched_client(source):
     if body.count(old) != 1:
         raise ValueError('Native mock client changed; review runtime attachment')
     body = body.replace(old, '\tAI_Init();\n'
+        '\tif (auto fixture_account = NightcapBalanceAccountId()) { account_id = fixture_account; }\n'
         '\t// Diagnostic-only mock transport; ordinary stat probes stay unchanged.\n'
         '\tif (auto *stream = NightcapBalanceStream(this)) {\n'
         '\t\teqs = stream;\n\t\tclient_state = CLIENT_CONNECTED;\n'
@@ -52,7 +53,7 @@ def patched_client(source):
         '\t\tm_ClientVersion = EQ::versions::ClientVersion::RoF2;\n'
         '\t\tm_ClientVersionBit = EQ::versions::bitRoF2;\n'
         '\t}\n\n}\n\n')
-    return source[:start] + 'EQStreamInterface *NightcapBalanceStream(Client *);\n' + body + source[end:]
+    return source[:start] + 'EQStreamInterface *NightcapBalanceStream(Client *);\nuint32 NightcapBalanceAccountId();\n' + body + source[end:]
 
 
 def candidate_reusable(candidate, prior, key, flags_file, link_file):

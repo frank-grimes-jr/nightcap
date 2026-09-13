@@ -20,6 +20,8 @@
 
 using json = nlohmann::json;
 extern Zone *zone;
+static bool profile_save_fixture = false;
+uint32 NightcapBalanceAccountId() { return profile_save_fixture ? 1 : 0; }
 
 // Linker wrapping changes only random_device seeding in this executable.
 // EQ::Random's native engine and distributions are not replaced or patched.
@@ -64,6 +66,10 @@ bool NightcapBalancePreflight(int argc, char **argv)
 				throw std::runtime_error("Input and output must be directly inside the isolated runtime");
 			}
 		}
+		std::ifstream fixture_file(argv[2]);
+		json fixture;
+		fixture_file >> fixture;
+		profile_save_fixture = fixture.value("profile_save_fixture", false);
 		return true;
 	} catch (const std::exception &e) {
 		std::cerr << "Balance preflight refused: " << e.what() << std::endl;
@@ -280,6 +286,9 @@ public:
 
 	json OwnershipProbe(const json &input)
 	{
+		if (profile_save_fixture) {
+			strn0cpy(GetPP().name, "AA_Lifecycle_Probe", sizeof(GetPP().name));
+		}
 		const uint32 watched = input.at("first_rank_id");
 		const uint32 original_expansions = GetPP().expansions;
 		if (input.contains("initial_spent_points")) {
@@ -292,6 +301,21 @@ public:
 			bool success = false;
 			if (name == "load") { success = database.LoadAlternateAdvancement(this); }
 			else if (name == "save") { success = SaveAA(); }
+			else if (name == "refund_all") { RefundAA(); success = true; }
+			else if (name == "reset_all") { ResetAA(); success = true; }
+			else if (name == "invalidate_earned") { InvalidateEarnedAAState(); success = true; }
+			else if (name == "save_character") {
+				if (!profile_save_fixture) { throw std::runtime_error("Profile save requires an explicit fixture"); }
+				success = database.SaveCharacterData(this, &GetPP(), &GetEPP());
+			}
+			else if (name == "simulate_committed_reset") {
+				if (!profile_save_fixture) { throw std::runtime_error("Commit outcome probe requires an explicit fixture"); }
+				auto deleted = database.QueryDatabase(fmt::format(
+					"DELETE FROM character_alternate_abilities WHERE id={} AND aa_id={}", CharacterID(), watched));
+				auto points = database.QueryDatabase(fmt::format(
+					"UPDATE character_data SET aa_points_spent=e_expended_aa_spent WHERE id={}", CharacterID()));
+				success = deleted.Success() && points.Success();
+			}
 			else if (name == "reset_rank" || name == "consume_charge") {
 				auto ability = zone->GetAlternateAdvancementAbilityByRank(watched);
 				if (!ability) { throw std::runtime_error("Unknown lifecycle ability"); }

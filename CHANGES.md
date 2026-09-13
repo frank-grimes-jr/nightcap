@@ -1,5 +1,21 @@
 # CHANGES
 
+## 2026-09-13 - Refund full earned AA ownership and guard invalid profile saves
+
+Bulk refund/reset now refunds full earned cost across active, partially usable,
+and suspended ranks while retaining grant-only abilities. Ownership and wallet,
+spent, and expended counters commit together before session state changes.
+Invalid sessions cannot reload AAs alone or overwrite the main character row;
+transaction failures immediately ask the player to reconnect. Client::Save now
+propagates the profile-save result. Eleven native controls pass across 59
+operations per phase, with 87 C++ and 334 calculator/evidence tests passing. Clone fixtures and the failure
+trigger are removed and the AA catalog is unchanged.
+Gotchas: invalid sessions cannot save main character-row progress until reconnect;
+other earlier Client::Save writes are not made atomic. Purchase/grant/toggle,
+class-release, real reconnect/network failure, and manual QA remain open. No live
+server or numerical balance settings changed. See docs/balance/native-aa-bulk.md
+and ADR0023 for retained evidence and boundaries.
+
 ## 2026-09-13 - Make single-AA reset and final-charge removal durable
 
 Explicit rank reset now removes canonical earned ownership even while suspended.
