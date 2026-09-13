@@ -1,5 +1,16 @@
 # CHANGES
 
+## 2026-09-13 - Verify class-release disconnect and fresh-process recovery
+
+Added isolated native Process/OnDisconnect and profile-loader controls: three
+processes, eight operations prove rollback survives disconnect, saved classes,
+skills and AA counters reload, and retry refunds exactly once. No engine or live
+changes. All 351 Python calculator/evidence tests pass. The final run restores
+its fixture preimages and event setting. Initial
+disabled-event failure and its unavailable original synthetic timestamp are
+retained and documented. Real network reconnect, post-packet processing and
+uncertain COMMIT remain unverified. See docs/balance/native-aa-session-recovery.md.
+
 ## 2026-09-13 - Implement atomic class-release candidate
 
 The AA feature branch now stages and transactionally saves discipline slots,

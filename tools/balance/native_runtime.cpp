@@ -30,13 +30,17 @@ static bool capture_aa_purchase_events = false;
 static bool capture_release_transport = false;
 void NightcapBalanceCaptureReleaseTransport() { capture_release_transport = true; }
 static json aa_purchase_events = json::array();
+static bool capture_disconnect_events = false;
+static json disconnect_events = json::array();
+void NightcapBalanceCaptureDisconnectEvents() { capture_disconnect_events = true; }
+json NightcapBalanceDisconnectEvents() { return disconnect_events; }
 void NightcapBalanceCaptureAAPurchaseEvents() { capture_aa_purchase_events = true; }
 json NightcapBalanceAAPurchaseEvents() { return aa_purchase_events; }
 // The explicit acquisition fixture captures only AA purchase events; all other
 // world notifications remain forbidden. No packet is forwarded to a connection.
 extern "C" bool __wrap__ZN11WorldServer10SendPacketEP12ServerPacket(void *, ServerPacket *packet)
 {
-	if (capture_aa_purchase_events && packet->opcode == ServerOP_PlayerEvent &&
+	if ((capture_aa_purchase_events || capture_disconnect_events) && packet->opcode == ServerOP_PlayerEvent &&
 		packet->size >= sizeof(ServerSendPlayerEvent_Struct)) {
 		auto data = reinterpret_cast<ServerSendPlayerEvent_Struct *>(packet->pBuffer);
 		if (data->cereal_size != packet->size - sizeof(ServerSendPlayerEvent_Struct)) {
@@ -46,7 +50,11 @@ extern "C" bool __wrap__ZN11WorldServer10SendPacketEP12ServerPacket(void *, Serv
 		EQ::Util::MemoryStreamReader stream(data->cereal_data, data->cereal_size);
 		cereal::BinaryInputArchive archive(stream);
 		archive(event);
-		if (event.player_event_log.event_type_id != PlayerEvent::AA_PURCHASE) {
+		if (capture_disconnect_events && event.player_event_log.event_type_id == PlayerEvent::WENT_OFFLINE) {
+			disconnect_events.push_back({{"event_type_id",event.player_event_log.event_type_id},{"character_id",event.player_event_log.character_id}});
+			return true;
+		}
+		if (!capture_aa_purchase_events || event.player_event_log.event_type_id != PlayerEvent::AA_PURCHASE) {
 			throw std::runtime_error("Only AA purchase events are allowed in the acquisition fixture");
 		}
 		aa_purchase_events.push_back(json::parse(event.player_event_log.event_data));

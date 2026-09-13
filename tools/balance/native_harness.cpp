@@ -78,6 +78,10 @@ bool NightcapBalancePreflight(int argc, char **argv)
 			if (!profile_save_fixture || !fixture.contains("aa_ownership_probe")) { throw std::runtime_error("Release transport requires an ownership fixture"); }
 			NightcapBalanceCaptureReleaseTransport();
 		}
+		if (fixture.value("capture_disconnect_events", false)) {
+			if (!profile_save_fixture || !fixture.value("capture_class_release_transport", false)) { throw std::runtime_error("Disconnect capture requires a release transport fixture"); }
+			NightcapBalanceCaptureDisconnectEvents();
+		}
 		return true;
 	} catch (const std::exception &e) {
 		std::cerr << "Balance preflight refused: " << e.what() << std::endl;
@@ -343,6 +347,24 @@ public:
 			if (input.value("inspect_release_packets", false)) { NightcapBalanceResetReleasePackets(this); }
 			bool success = false;
 			if (name == "load") { success = database.LoadAlternateAdvancement(this); }
+			else if (name == "load_saved_profile") {
+				if (!profile_save_fixture || !steps.empty() || !HasValidEarnedAAState()) { throw std::runtime_error("Saved profile load requires a fresh fixture client"); }
+				success = database.LoadCharacterData(CharacterID(), &GetPP(), &GetEPP());
+				if (!success || GetPP().class_ != GetClass() || GetPP().level != GetLevel()) { throw std::runtime_error("Saved profile identity differs from native fixture"); }
+				class_ = GetPP().class_;
+				level = GetPP().level;
+				race = base_race = GetPP().race;
+				gender = base_gender = GetPP().gender;
+				deity = GetPP().deity;
+				ReloadExpansionProfileSetting();
+				success = database.LoadCharacterSkills(CharacterID(), &GetPP());
+				LoadMulticlassMask();
+				success = success && database.LoadAlternateAdvancement(this);
+			}
+			else if (name == "process_invalid_session") {
+				if (!profile_save_fixture || HasValidEarnedAAState() || ClientDataLoaded() || Connected()) { throw std::runtime_error("Process termination probe requires an invalid closed session"); }
+				success = Process(); // False is the native EntityList removal signal.
+			}
 			else if (name == "save") { success = SaveAA(); }
 			else if (name == "purchase_first" || name == "purchase_next" || name == "grant" || name == "grant_silent") {
 				auto ability = zone->GetAlternateAdvancementAbilityByRank(watched);
@@ -488,6 +510,13 @@ public:
 			}
 			if (input.value("inspect_purchase_events", false)) {
 				steps.back()["purchase_events"] = NightcapBalanceAAPurchaseEvents();
+			}
+			if (input.value("inspect_disconnect", false)) {
+				steps.back()["disconnect_events"] = NightcapBalanceDisconnectEvents();
+				auto logout = database.QueryDatabase(fmt::format("SELECT ingame,(SELECT COUNT(*) FROM character_stats_record WHERE character_id={}) FROM character_data WHERE id={}",CharacterID(),CharacterID()), false);
+				if (!logout.Success() || logout.RowCount() != 1) { throw std::runtime_error("Cannot inspect logout fixture"); }
+				steps.back()["saved_ingame"] = Strings::ToUnsignedInt(logout.begin()[0]);
+				steps.back()["stats_rows"] = Strings::ToUnsignedInt(logout.begin()[1]);
 			}
 		}
 		const std::string scope = input.value("inspect_classes", false)

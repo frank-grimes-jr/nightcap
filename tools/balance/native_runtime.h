@@ -14,5 +14,7 @@ nlohmann::json NightcapBalanceEncounter(Client *client, const nlohmann::json &in
 nlohmann::json NightcapBalanceClientCombatState(Client *client);
 
 void NightcapBalanceCaptureReleaseTransport();
+void NightcapBalanceCaptureDisconnectEvents();
+nlohmann::json NightcapBalanceDisconnectEvents();
 void NightcapBalanceResetReleasePackets(Client *client);
 nlohmann::json NightcapBalanceReleasePackets(Client *client);

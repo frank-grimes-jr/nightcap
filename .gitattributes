@@ -138,3 +138,8 @@ docs/balance/native-aa-class-release-candidate.md text eol=lf
 AGENTS.md text eol=lf
 CHANGES.md text eol=lf
 docs/balance/aa-release-*.py text eol=lf
+docs/balance/aa-session-recovery*.json -text
+docs/balance/aa-session-recovery*.log -text -whitespace
+docs/balance/native-aa-session-recovery.md text eol=lf
+tools/balance/run_aa_session_recovery.py text eol=lf
+tools/balance/tests/test_aa_session_recovery.py text eol=lf

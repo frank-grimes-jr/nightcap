@@ -61,8 +61,16 @@ class CandidateReleaseEvidence(unittest.TestCase):
 
     def test_final_build_and_retained_source_bytes(self):
         manifest=read_json(self.docs/'aa-release-candidate-evidence-manifest.json')
-        for name,digest in manifest['files'].items():
-            self.assertEqual(hashlib.sha256((self.root/name).read_bytes()).hexdigest(),digest,name)
+        # Working agreements and status documents evolve after the candidate.
+        # Verify their exact committed 82866d1 bytes against the original hashes;
+        # continue checking all immutable evidence directly from the workspace.
+        with tarfile.open(self.docs/'aa-release-pinned-documents.tar.gz') as documents:
+            pinned={'AGENTS.md','CHANGES.md','docs/adr/0026-atomic-multiclass-release.md',
+                    'docs/balance/native-aa-class-release-candidate.md'}
+            self.assertEqual(set(documents.getnames()),pinned)
+            for name,digest in manifest['files'].items():
+                raw=documents.extractfile(name).read() if name in pinned else (self.root/name).read_bytes()
+                self.assertEqual(hashlib.sha256(raw).hexdigest(),digest,name)
         checks=read_json(self.docs/'aa-release-review-build-checks.json')
         self.assertEqual(checks['source_files_checked'],2787)
         self.assertEqual(checks['source_mismatches'],[])

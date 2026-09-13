@@ -75,8 +75,10 @@ expended-counter comparison; concurrent external wallet edits are not certified.
 
 ## Remaining release gates
 
-Actual Client::Process/OnDisconnect execution, fresh-session reconnect and
-uncertain-COMMIT recovery still need native evidence. Class selection's broader
+Follow-up native Process/OnDisconnect and fresh-process loader/retry evidence is
+recorded in native-aa-session-recovery.md. Real network reconnect, the post-packet
+guard, fully loaded-session save suppression and uncertain-COMMIT recovery remain
+unverified. Class selection's broader
 lifecycle, the other outstanding AA lifecycle gates, client rendering and explicit
 in-game QA remain. No deployment, promotion, live binary replacement, or zone
 restart occurred. The owner previously asked not to restart while playing.
