@@ -59,3 +59,10 @@ docs/balance/aa-ownership-*.json -text
 tools/balance/tests/test_aa_ownership*.py text eol=lf
 docs/balance/native-aa-ownership.md text eol=lf
 docs/adr/0019-preserve-owned-aa-state-across-caps.md text eol=lf
+tools/balance/cap_controls.py text eol=lf
+tools/balance/tests/test_cap*.py text eol=lf
+docs/balance/cap-*.json -text
+docs/balance/cap-*.sql text eol=lf
+docs/balance/cap-*-run.log -text
+docs/balance/native-cap-sensitivity.md text eol=lf
+docs/adr/0020-retain-caps-after-matched-sensitivity.md text eol=lf

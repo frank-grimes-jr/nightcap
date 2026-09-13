@@ -1,5 +1,23 @@
 # CHANGES
 
+## 2026-09-13 - Measure spell damage and healing caps at 300
+
+Ran 162 isolated native Vox/Nagafen fights: damage/heal 250/300, 300/250 and
+300/300, each across three builds, zero/launch/later maximum AA allocations and
+three seeds. Exact gear, purchases and non-cap initial stats remain fixed. The
+launch pet build improves from 0/3 Nagafen wins to 2/3 with both caps 300, but a
+deeper caster Vox sample falls to 57.5 seconds. All 18 melee reports remain
+identical under damage 300 except for the static cap readout. Healing alone does
+not consistently resolve the survival gaps; these are samples, not win rates.
+
+Retain 250/250 as the baseline for targeted pet/encounter work. Higher caps remain
+permitted; this experiment does not support a global increase as the current fix.
+All 310 automated tests pass. Each temporary cap change restores the exact original
+rules; a stale second-cap guard also rolls back the first update. The clone is
+empty of synthetic characters and inventory, and original AA tables are unchanged.
+No live cap, NPC HP, binary or process changed. See ADR0020 and
+`docs/balance/native-cap-sensitivity.md` for the comparisons and in-game QA.
+
 ## 2026-09-13 - Keep native owned-AA profiles consistent across rank caps
 
 Corrected the isolated AA-loader candidate to clear stale profile entries and
