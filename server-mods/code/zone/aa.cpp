@@ -1405,6 +1405,10 @@ void Client::IncrementAlternateAdvancementRank(int rank_id) {
 }
 
 void Client::ActivateAlternateAdvancementAbility(int rank_id, int target_id) {
+	if (!HasValidEarnedAAState()) {
+		Message(Chat::Red, "Alternate advancement is temporarily unavailable. Please reconnect.");
+		return;
+	}
 	AA::Rank *rank = zone->GetAlternateAdvancementRank(rank_id);
 
 	if (!rank) {
@@ -1540,6 +1544,15 @@ int Mob::GetAlternateAdvancementCooldownReduction(AA::Rank *rank_in) {
 }
 
 void Mob::ExpendAlternateAdvancementCharge(uint32 aa_id) {
+	if (IsClient()) {
+		auto ability = zone->GetAlternateAdvancementAbility(aa_id);
+		auto client = CastToClient();
+		if (ability && client->ExpendEarnedAACharge(ability->first_rank_id)) {
+			client->CalcBonuses();
+			client->SendAlternateAdvancementPoints();
+		}
+		return;
+	}
 	for (auto &iter : aa_ranks) {
 		auto ability = zone->GetAlternateAdvancementAbility(iter.first);
 		if (ability && aa_id == ability->id) {
@@ -1547,24 +1560,7 @@ void Mob::ExpendAlternateAdvancementCharge(uint32 aa_id) {
 				iter.second.second -= 1;
 
 				if (iter.second.second == 0) {
-					if (IsClient()) {
-						auto c = CastToClient();
-
-						auto r = ability->GetRankByPointsSpent(iter.second.first);
-						if (r) {
-							c->GetEPP().expended_aa += r->cost;
-						}
-
-						c->RemoveExpendedAA(ability->first_rank_id);
-					}
-
 					aa_ranks.erase(iter.first);
-				}
-
-				if (IsClient()) {
-					auto c = CastToClient();
-					c->SaveAA();
-					c->SendAlternateAdvancementPoints();
 				}
 			}
 
@@ -2202,22 +2198,10 @@ bool Client::IsEffectinAlternateAdvancementRankEffects(const AA::Rank &rank, int
 }
 
 void Client::ResetAlternateAdvancementRank(uint32 aa_id) {
-
-	/*
-		Resets your AA to baseline
-	*/
-
-	for(auto &iter : aa_ranks) {
-
-		AA::Ability *ability = zone->GetAlternateAdvancementAbility(iter.first);
-
-		if(ability && aa_id == ability->id) {
-			RemoveExpendedAA(ability->first_rank_id);
-			aa_ranks.erase(iter.first);
-			SaveAA();
-			SendAlternateAdvancementPoints();
-			return;
-		}
+	auto ability = zone->GetAlternateAdvancementAbility(aa_id);
+	if (ability && RemoveExpendedAA(ability->first_rank_id)) {
+		CalcBonuses();
+		SendAlternateAdvancementPoints();
 	}
 }
 

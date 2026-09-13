@@ -292,6 +292,13 @@ public:
 			bool success = false;
 			if (name == "load") { success = database.LoadAlternateAdvancement(this); }
 			else if (name == "save") { success = SaveAA(); }
+			else if (name == "reset_rank" || name == "consume_charge") {
+				auto ability = zone->GetAlternateAdvancementAbilityByRank(watched);
+				if (!ability) { throw std::runtime_error("Unknown lifecycle ability"); }
+				if (name == "reset_rank") { ResetAlternateAdvancementRank(ability->id); }
+				else { ExpendAlternateAdvancementCharge(ability->id); }
+				success = true; // Void native call completed; observed state decides acceptance.
+			}
 			else if (name == "restrict_expansions") {
 				GetPP().expansions = input.at("expansion_mask").get<uint32>();
 				success = true;
@@ -332,6 +339,17 @@ public:
 				steps.back()["earned_rank_count"] = GetEarnedAACount(watched);
 				steps.back()["first_rank_already_earned"] = rank && HasAlreadyPurchasedRank(rank);
 				steps.back()["first_rank_purchasable"] = rank && CanPurchaseAlternateAdvancementRank(rank, true, true);
+			}
+			if (input.value("inspect_lifecycle", false)) {
+				uint32 charges = 0;
+				GetAA(watched, &charges);
+				steps.back()["active_charges"] = charges;
+				steps.back()["expended_points"] = GetEPP().expended_aa;
+				auto character = database.QueryDatabase(fmt::format(
+					"SELECT aa_points,aa_points_spent,e_expended_aa_spent FROM character_data WHERE id={}", CharacterID()));
+				if (!character.Success() || character.RowCount() != 1) { throw std::runtime_error("Lifecycle character fixture missing"); }
+				auto row = character.begin();
+				steps.back()["saved_points"] = {{"wallet",std::stoul(row[0])},{"spent",std::stoul(row[1])},{"expended",std::stoul(row[2])}};
 			}
 		}
 		return {{"steps",steps},{"scope","Native AA load/save with synthetic persisted rows and wallet; optional fixture-row deletion models a changed database before reload. No gameplay or refund simulation."}};

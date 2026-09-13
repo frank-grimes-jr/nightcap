@@ -1002,16 +1002,137 @@ bool Client::SaveAA()
 	return true;
 }
 
-void Client::RemoveExpendedAA(int aa_id)
+bool Client::RemoveExpendedAA(int aa_id)
 {
-	CharacterAlternateAbilitiesRepository::DeleteWhere(
-		database,
-		fmt::format(
-			"`id` = {} AND `aa_id` = {}",
-			CharacterID(),
-			aa_id
-		)
-	);
+	return PersistEarnedAARemoval(aa_id, false);
+}
+
+bool Client::ExpendEarnedAACharge(uint32 first_rank_id)
+{
+	return PersistEarnedAARemoval(first_rank_id, true);
+}
+
+bool Client::PersistEarnedAARemoval(uint32 first_rank_id, bool consume_charge)
+{
+	if (!m_earned_aa_valid) {
+		return false;
+	}
+	const auto owned = m_earned_aa_ranks.find(first_rank_id);
+	if (owned == m_earned_aa_ranks.end()) {
+		return false;
+	}
+	auto ability = zone->GetAlternateAdvancementAbilityByRank(first_rank_id);
+	auto rank = ability ? ability->GetRankByPointsSpent(owned->second.first) : nullptr;
+	if (!ability || ability->first_rank_id != first_rank_id || !rank ||
+		rank->current_value != owned->second.first || rank->cost < 0) {
+		InvalidateEarnedAAState();
+		return false;
+	}
+	auto active = aa_ranks.find(ability->id);
+	if (consume_charge && (ability->charges < 1 || owned->second.second < 1 ||
+		active == aa_ranks.end() || !active->second.first ||
+		active->second.second != owned->second.second)) {
+		return false;
+	}
+
+	// Prepare the complete session result before writing anything. Temporary
+	// suspension cannot prevent an explicit reset of canonical ownership.
+	auto earned = m_earned_aa_ranks;
+	auto usable = aa_ranks;
+	const uint32 charges = consume_charge ? owned->second.second - 1 : 0;
+	uint64 expended = m_epp.expended_aa;
+	if (consume_charge && !charges) {
+		// Preserve native expendable-AA pricing: the consumed rank's cost.
+		expended += rank->cost;
+	}
+	if (charges) {
+		earned[first_rank_id].second = charges;
+		usable[ability->id].second = charges;
+	} else {
+		earned.erase(first_rank_id);
+		usable.erase(ability->id);
+	}
+	uint64 spent = expended;
+	for (const auto &entry : earned) {
+		auto a = zone->GetAlternateAdvancementAbilityByRank(entry.first);
+		auto r = a ? a->GetRankByPointsSpent(entry.second.first) : nullptr;
+		if (!a || a->first_rank_id != entry.first || !r ||
+			r->current_value != entry.second.first || r->total_cost < 0) {
+			InvalidateEarnedAAState();
+			return false;
+		}
+		spent += r->total_cost;
+	}
+	if (spent > UINT32_MAX) {
+		return false;
+	}
+
+	// Do not commit someone else's transaction or retry a statement on a new
+	// connection after losing this transaction. Session state changes only after
+	// an acknowledged commit; an uncertain failure requires ownership reload.
+	auto transaction = database.QueryDatabase(std::string("SELECT @@in_transaction"), false);
+	if (!transaction.Success() || transaction.RowCount() != 1 ||
+		Strings::ToUnsignedInt(transaction.begin()[0]) != 0) {
+		InvalidateEarnedAAState();
+		LogError("Refusing nested/unavailable AA removal transaction for [{}]", CharacterID());
+		return false;
+	}
+	if (!database.QueryDatabase(std::string("START TRANSACTION"), false).Success()) {
+		InvalidateEarnedAAState();
+		return false;
+	}
+	auto failed = [&]() {
+		database.QueryDatabase(std::string("ROLLBACK"), false);
+		InvalidateEarnedAAState();
+		LogError("AA removal not acknowledged for [{}], rank [{}]; reload ownership before further AA mutations",
+			CharacterID(), first_rank_id);
+		return false;
+	};
+	auto character = database.QueryDatabase(fmt::format(
+		"SELECT e_expended_aa_spent FROM character_data WHERE id={} FOR UPDATE", CharacterID()), false);
+	if (!character.Success() || character.RowCount() != 1 ||
+		Strings::ToUnsignedInt(character.begin()[0]) != m_epp.expended_aa) {
+		return failed();
+	}
+	auto saved = database.QueryDatabase(fmt::format(
+		"SELECT aa_id,aa_value,charges FROM character_alternate_abilities WHERE id={} ORDER BY aa_id FOR UPDATE",
+		CharacterID()), false);
+	if (!saved.Success() || saved.RowCount() != m_earned_aa_ranks.size()) {
+		return failed();
+	}
+	for (auto row : saved) {
+		const auto expected = m_earned_aa_ranks.find(Strings::ToUnsignedInt(row[0]));
+		if (expected == m_earned_aa_ranks.end() ||
+			expected->second.first != Strings::ToUnsignedInt(row[1]) ||
+			expected->second.second != Strings::ToUnsignedInt(row[2])) {
+			return failed();
+		}
+	}
+	const auto predicate = fmt::format("id={} AND aa_id={}", CharacterID(), first_rank_id);
+	auto change = database.QueryDatabase(charges
+		? fmt::format("UPDATE character_alternate_abilities SET charges={} WHERE {}", charges, predicate)
+		: fmt::format("DELETE FROM character_alternate_abilities WHERE {}", predicate), false);
+	if (!change.Success() || change.RowsAffected() != 1) {
+		return failed();
+	}
+	auto points = database.QueryDatabase(fmt::format(
+		"UPDATE character_data SET aa_points_spent={},e_expended_aa_spent={} WHERE id={}",
+		spent, expended, CharacterID()), false);
+	if (!points.Success() || points.RowsAffected() != 1 ||
+		!database.QueryDatabase(std::string("COMMIT"), false).Success()) {
+		return failed();
+	}
+	m_earned_aa_ranks = std::move(earned);
+	aa_ranks = std::move(usable);
+	m_pp.aapoints_spent = static_cast<uint32>(spent);
+	m_epp.expended_aa = static_cast<uint32>(expended);
+	for (auto &entry : m_pp.aa_array) {
+		if (entry.AA == first_rank_id) {
+			if (charges) { entry.charges = charges; }
+			else { entry = {}; }
+		}
+	}
+	return true;
 }
 
 bool Client::Save(uint8 iCommitNow) {

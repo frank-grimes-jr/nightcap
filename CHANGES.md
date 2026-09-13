@@ -1,5 +1,21 @@
 # CHANGES
 
+## 2026-09-13 - Make single-AA reset and final-charge removal durable
+
+Explicit rank reset now removes canonical earned ownership even while suspended.
+Final-charge consumption removes that ownership and increments expended cost
+once. A transaction checks persisted ownership, updates the selected row and
+spent/expended counters together, and changes session state only after commit.
+Four native before/after controls pass across 22 operations, including an injected
+character-update failure that rolls back the prior owned-row deletion. The fresh
+2,787-file build succeeds; all 87 C++ and 329 calculator/evidence tests pass.
+Clone rows and the temporary
+failure trigger are cleaned up, with the AA catalog unchanged.
+Gotchas: this is single-AA reset, not refund/all-AA reset. Broader save/purchase,
+class-release and uncertain-commit handling still block promotion. No live server
+or numerical balance settings changed. See `docs/balance/native-aa-removal.md`
+and ADR0022 for the evidence and remaining boundaries.
+
 ## 2026-09-13 - Preserve earned AAs while deriving usable native ranks
 
 Implemented the first native ownership increment on `feature/aa-ownership`:

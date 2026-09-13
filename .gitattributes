@@ -89,3 +89,10 @@ tools/balance/tests/test_aa_owned_core*.py text eol=lf
 docs/balance/aa-owned-core-*.json -text
 docs/balance/aa-owned-core-*.log -text -whitespace
 docs/balance/native-aa-owned-core.md text eol=lf
+tools/balance/aa_removal_controls.py text eol=lf
+tools/balance/run_aa_removal.py text eol=lf
+tools/balance/tests/test_aa_removal*.py text eol=lf
+docs/balance/aa-removal-*.json -text
+docs/balance/aa-removal-*.log -text -whitespace
+docs/balance/native-aa-removal.md text eol=lf
+docs/adr/0022-atomic-earned-aa-removal.md text eol=lf

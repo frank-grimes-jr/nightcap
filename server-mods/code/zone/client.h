@@ -481,7 +481,8 @@ public:
 	/* New PP Save Functions */
 	bool SaveCurrency(){ return database.SaveCharacterCurrency(this->CharacterID(), &m_pp); }
 	bool SaveAA();
-	void RemoveExpendedAA(int aa_id);
+	bool RemoveExpendedAA(int aa_id);
+	bool ExpendEarnedAACharge(uint32 first_rank_id);
 
 	inline bool ClientDataLoaded() const { return client_data_loaded; }
 	inline bool Connected() const { return (client_state == CLIENT_CONNECTED); }
@@ -2457,6 +2458,7 @@ public:
 	void SyncWorldPositionsToClient(bool ignore_idle = false);
 private:
 	// Canonical persisted ownership; Mob::aa_ranks is only the usable view.
+	bool PersistEarnedAARemoval(uint32 first_rank_id, bool consume_charge);
 	std::map<uint32, std::pair<uint32, uint32>> m_earned_aa_ranks;
 	bool m_earned_aa_valid = true;
 };
