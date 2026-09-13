@@ -1,13 +1,36 @@
 import unittest
+import copy
+import tempfile
 from pathlib import Path
 
-from build_native import patched_main, patched_client
+from build_native import patched_main, patched_client, candidate_reusable, digest
 from builds import load_snapshot
 from prepare_native import native_inputs, content_tables
 from verify_native_resources import verify
 
 
 class NativeBuildTests(unittest.TestCase):
+    def test_candidate_reuse_requires_source_object_flags_and_link_identity(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            source, obj, flags, link = [root/name for name in ('mob.cpp', 'mob.o', 'flags', 'link')]
+            for path in (source, obj, flags, link):
+                path.write_text(path.name, encoding='utf-8')
+            prior = {'mob_candidate': {'sha256': digest(source)}, 'objects': {str(obj): digest(obj)},
+                     'flags_sha256': digest(flags), 'link_sha256': digest(link)}
+            self.assertTrue(candidate_reusable(source, prior, 'mob', flags, link))
+            for field in ('flags_sha256', 'link_sha256'):
+                changed = copy.deepcopy(prior)
+                changed[field] = 'changed'
+                self.assertFalse(candidate_reusable(source, changed, 'mob', flags, link))
+            for path in (source, obj):
+                old = path.read_bytes()
+                path.write_bytes(old+b'changed')
+                self.assertFalse(candidate_reusable(source, prior, 'mob', flags, link))
+                path.write_bytes(old)
+            obj.unlink()
+            self.assertFalse(candidate_reusable(source, prior, 'mob', flags, link))
+
     def test_runtime_attachment_preserves_real_constructor(self):
         before = '// prologue\n'
         mock = 'Client::Client() : Mob(0) {\n\tAI_Init();\n\n}\n\n'

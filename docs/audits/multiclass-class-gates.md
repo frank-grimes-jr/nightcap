@@ -88,7 +88,9 @@ not new implementation:
   but native controls exposed incomplete ownership: extra pets were removed by
   `Mob::GetOwner`/`GetOwnerOrSelf`. ADR 0011's candidate registry-aware correction
   passes 15 native controls; live/manual QA is pending. Spell ownership after
-  global class widening, command broadcasting and persistence remain open.
+  global class widening and persistence remain open. ADR 0012 corrects native
+  attack/qattack orders (range, spam and extra-only controls); remaining commands
+  and manual client QA are still outstanding.
 - Scroll/song memorization from item across held classes — `effects.cpp:762–766` (`MemorizeSpellFromItem`).
 - Zeroed Bard mana-regen exception iterating held classes — `bonuses.cpp:1855–1857`.
 - Held-class list plumbing on the client — `client.cpp:3197,3250`.

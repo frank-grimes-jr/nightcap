@@ -100,7 +100,7 @@ def summarize(case, report):
             'pets': probe['final']['pets']}
 
 
-def run(matrix, output):
+def run(matrix, output, summarize_case=summarize):
     if Path.cwd().resolve() != ROOT or output.resolve().parent != ROOT or output.exists():
         raise ValueError('Use a new output in the isolated runtime')
     binary = ROOT/'balance-zone'
@@ -117,7 +117,7 @@ def run(matrix, output):
             raise RuntimeError(f"Native pet case {case['id']} failed: {completed.stderr[-2000:]}")
         raw = result.read_bytes()
         report = json.loads(raw)
-        summary = summarize(case, report)
+        summary = summarize_case(case, report)
         runs.append({'id': case['id'], 'native_raw_sha256': hashlib.sha256(raw).hexdigest(),
                      'summary': summary, 'report': report})
         output.write_bytes(gzip.compress(json.dumps({'runs': runs}, separators=(',', ':')).encode(), mtime=0))

@@ -380,7 +380,8 @@ int NightcapBalanceMain(int argc, char **argv)
 			if (!std::getenv("NIGHTCAP_BALANCE_RNG_SEED")) { throw std::runtime_error("Runtime requires an explicit RNG seed"); }
 			NightcapBalanceStartClock();
 		}
-		const bool vox = input.contains("encounter") && input["encounter"].at("npc_id") == 73057;
+		const bool vox = (input.contains("encounter") && input["encounter"].at("npc_id") == 73057)
+			|| (input.contains("pet_probe") && input["pet_probe"].contains("combat") && input["pet_probe"]["combat"].at("npc_id") == 73057);
 		zone = new Zone(vox ? 73 : 32, 0, vox ? "permafrost" : "soldungb");
 		if (runtime && !zone->LoadZoneCFG(zone->GetShortName(),0)) {
 			throw std::runtime_error("Cannot load native zone configuration");

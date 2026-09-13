@@ -1,5 +1,22 @@
 # CHANGES
 
+## 2026-09-12 - Give extra pets native attack orders and measure pet boss combat
+
+Reproduced out-of-range, command-spam damage from extra pets: the broadcaster called
+`Attack` directly, bypassing normal orders. It also ignored attack/qattack when no
+primary pet existed. The candidate `client_packet.cpp` now shares the native order
+path across owned pets. Eight command controls cover legal/distant targets,
+repeated input, extra-only pets and primary-only regression. Four native pet-only
+Vox/Nagafen fights now exercise movement, aggro and pet deaths. A native boss HP
+ledger accounts for damage missing from distant client packets without double
+counting nested damage calls. See ADR 0012 and `docs/balance/native-pet-commands.md`.
+
+Build the isolated diagnostic with all four candidate flags, including the new
+`--client-packet-source`. Optional candidate-object reuse checks source/object/
+flags/link hashes; it does not establish fresh full-source parity. No live server
+change or numerical tuning was performed. Owner support rotations, other pet
+commands/persistence, gear acquisition and expansion AA policy remain outstanding.
+
 ## 2026-09-12 - Preserve registered multiclass pet ownership
 
 Native MAG/NEC/SHM controls exposed extra pets disappearing after summoning:

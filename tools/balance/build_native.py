@@ -55,6 +55,14 @@ def patched_client(source):
     return source[:start] + 'EQStreamInterface *NightcapBalanceStream(Client *);\n' + body + source[end:]
 
 
+def candidate_reusable(candidate, prior, key, flags_file, link_file):
+    obj = candidate.with_suffix('.o')
+    return (obj.is_file() and prior.get(key+'_candidate', {}).get('sha256') == digest(candidate)
+            and prior.get('objects', {}).get(str(obj)) == digest(obj)
+            and prior.get('flags_sha256') == digest(flags_file)
+            and prior.get('link_sha256') == digest(link_file))
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--source', type=Path, default=Path('/home/eqemu/code'))
@@ -64,8 +72,12 @@ def main():
                         help='Compile a reviewed attack.cpp candidate inside this isolated runtime')
     parser.add_argument('--mob-source', type=Path,
                         help='Compile a reviewed mob.cpp candidate inside this isolated runtime')
+    parser.add_argument('--client-packet-source', type=Path,
+                        help='Compile a reviewed client_packet.cpp candidate inside this isolated runtime')
     parser.add_argument('--reuse-adapters', action='store_true',
                         help='Reuse manifest-verified main/client adapter objects; still compile harness/runtime')
+    parser.add_argument('--reuse-candidates', action='store_true',
+                        help='Reuse candidate objects only when source/object/flags/link hashes still match')
     args = parser.parse_args()
     output = Path(__file__).resolve().parent
     if output.parent != Path('/tmp') or not output.name.startswith('nightcap-balance-'):
@@ -86,8 +98,15 @@ def main():
     # Match the original main's quoted relative includes after moving its copy.
     compile_flags += ['-I' + str(source / 'zone')]
     reused_adapters = []
+    reused_candidates = []
+    prior = json.loads((output/'native-build-manifest.json').read_text()) if args.reuse_adapters or args.reuse_candidates else {}
+    def compile_candidate(candidate, key):
+        if args.reuse_candidates and candidate_reusable(candidate, prior, key, flags_file, link_file):
+            reused_candidates.append(str(candidate.with_suffix('.o')))
+        else:
+            subprocess.run([link[0], *compile_flags, '-c', str(candidate),
+                            '-o', str(candidate.with_suffix('.o'))], cwd=build, check=True)
     if args.reuse_adapters:
-        prior = json.loads((output/'native-build-manifest.json').read_text())
         for cpp, original, key in ((generated,main_source,'main'),(client_copy,client_source,'client')):
             obj = str(cpp.with_suffix('.o'))
             if (prior.get('original_'+key+'_sha256') != digest(original)
@@ -109,8 +128,7 @@ def main():
         original_object = 'CMakeFiles/zone.dir/spells.cpp.o'
         if link.count(original_object) != 1:
             raise ValueError('Unexpected native spells object link entry')
-        subprocess.run([link[0], *compile_flags, '-c', str(spells_candidate),
-                        '-o', str(spells_candidate.with_suffix('.o'))], cwd=build, check=True)
+        compile_candidate(spells_candidate, 'spells')
         link[link.index(original_object)] = str(spells_candidate.with_suffix('.o'))
     attack_candidate = args.attack_source.resolve() if args.attack_source else None
     if attack_candidate:
@@ -119,8 +137,7 @@ def main():
         original_object = 'CMakeFiles/zone.dir/attack.cpp.o'
         if link.count(original_object) != 1:
             raise ValueError('Unexpected native attack object link entry')
-        subprocess.run([link[0], *compile_flags, '-c', str(attack_candidate),
-                        '-o', str(attack_candidate.with_suffix('.o'))], cwd=build, check=True)
+        compile_candidate(attack_candidate, 'attack')
         link[link.index(original_object)] = str(attack_candidate.with_suffix('.o'))
     mob_candidate = args.mob_source.resolve() if args.mob_source else None
     if mob_candidate:
@@ -129,9 +146,17 @@ def main():
         original_object = 'CMakeFiles/zone.dir/mob.cpp.o'
         if link.count(original_object) != 1:
             raise ValueError('Unexpected native mob object link entry')
-        subprocess.run([link[0], *compile_flags, '-c', str(mob_candidate),
-                        '-o', str(mob_candidate.with_suffix('.o'))], cwd=build, check=True)
+        compile_candidate(mob_candidate, 'mob')
         link[link.index(original_object)] = str(mob_candidate.with_suffix('.o'))
+    client_packet_candidate = args.client_packet_source.resolve() if args.client_packet_source else None
+    if client_packet_candidate:
+        if client_packet_candidate.parent != output or client_packet_candidate.suffix != '.cpp':
+            raise ValueError('The client packet candidate must be a C++ file directly inside the isolated runtime')
+        original_object = 'CMakeFiles/zone.dir/client_packet.cpp.o'
+        if link.count(original_object) != 1:
+            raise ValueError('Unexpected native client packet object link entry')
+        compile_candidate(client_packet_candidate, 'client_packet')
+        link[link.index(original_object)] = str(client_packet_candidate.with_suffix('.o'))
     old_main = 'CMakeFiles/zone.dir/main.cpp.o'
     if link.count(old_main) != 1 or link.count('-o') != 1:
         raise ValueError('Unexpected native link command')
@@ -161,6 +186,7 @@ def main():
                 'runtime_sha256':digest(output/'native_runtime.cpp'),
                 'runtime_header_sha256':digest(output/'native_runtime.h'),
                 'reused_adapter_objects':[str(p.with_suffix('.o')) for p in reused_adapters],
+                'reused_candidate_objects':reused_candidates,
                 'clock_hook':'GNU --wrap gettimeofday/time; shared virtual clock only in explicit runtime mode',
                 'scope':'Separate diagnostic binary reusing pinned native objects; no fresh full-source parity claim'}
     if spells_candidate:
@@ -175,6 +201,10 @@ def main():
         manifest['mob_candidate'] = {'source': str(mob_candidate),
                                     'sha256': digest(mob_candidate),
                                     'original_source_sha256': digest(source/'zone/mob.cpp')}
+    if client_packet_candidate:
+        manifest['client_packet_candidate'] = {'source': str(client_packet_candidate),
+                                              'sha256': digest(client_packet_candidate),
+                                              'original_source_sha256': digest(source/'zone/client_packet.cpp')}
     (output / 'native-build-manifest.json').write_text(json.dumps(manifest, indent=2)+'\n')
     print(json.dumps({'binary':str(binary), 'sha256':manifest['binary_sha256'], 'objects':len(objects)}))
 
