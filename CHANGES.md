@@ -1,5 +1,27 @@
 # CHANGES
 
+## 2026-09-13 - Reproduce earned-AA class-release inconsistencies
+
+Added seven native before-state controls (36 operations) for class release on the
+AA ownership feature. Six fail the required contract and retained-Wizard slot
+promotion passes. Full, partially usable, and suspended releases leave earned
+Wizard ranks persisted; partial access refunds only 18 of 30 points, and full
+suspension refunds none. Shared-family retention is checked separately.
+
+The harness records whether injected failures actually execute. Its bare client
+skips the old general Save: class-write injection executes, but point-write
+injection does not. This does not certify the live Save failure path, skills,
+bonuses, or reconnect. Clone character fixtures/triggers are removed and original
+class values/timestamps, skill rows, and AA catalogs are restored or unchanged.
+ADR 0026 defines the required native atomic slot/refund/skill change. No engine
+fix or live deployment is claimed; AA promotion remains gated on implementation.
+All 343 Python calculator/evidence regressions passed; the retained test log is
+docs/balance/aa-release-before-python-tests.log.
+
+Read-only audits of PEQ and the clone found no SPA472 spells among 40,724 entries,
+so no current spell can enable the passive-AA toggle path. Future toggle catalogs
+require a durable selection design before activation. See docs/balance/native-aa-class-release.md.
+
 ## 2026-09-13 - Commit AA purchases and grants before reporting success
 
 AA purchases and explicit/silent grants now persist earned ownership and all AA

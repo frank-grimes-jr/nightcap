@@ -288,6 +288,30 @@ public:
 		return purchases;
 	}
 
+	template <typename T>
+	static bool ReleaseSlotForProbe(T &client, uint8 slot)
+	{
+		if constexpr (requires { client.ReleaseMulticlassSlot(slot); }) {
+			return client.ReleaseMulticlassSlot(slot);
+		} else {
+			// Reproduce the current Perl plugin's separate class write and native
+			// purge on older sources. The same harness selects the atomic entry
+			// point when that implementation is available.
+			if (slot != 2 && slot != 3) { return false; }
+			const uint8 released = slot == 2 ? client.GetClass2() : client.GetClass3();
+			if (!released) { return false; }
+			if (slot == 2) {
+				database.QueryDatabase(fmt::format(
+					"UPDATE character_multiclass SET class2=NULLIF(class3,0),class3=NULL WHERE character_id={}", client.CharacterID()));
+			} else {
+				database.QueryDatabase(fmt::format(
+					"UPDATE character_multiclass SET class3=NULL WHERE character_id={}", client.CharacterID()));
+			}
+			client.PurgeAfterClassRelease(released);
+			return true;
+		}
+	}
+
 	json OwnershipProbe(const json &input)
 	{
 		if (profile_save_fixture) {
@@ -314,6 +338,10 @@ public:
 				else if (name == "grant") {
 					success = GrantAlternateAdvancementAbility(ability->id, input.value("grant_rank_count", 1), input.value("ignore_cost", true));
 				} else { FinishAlternateAdvancementPurchase(rank, true, false); success = true; }
+			}
+			else if (name == "release_second" || name == "release_third") {
+				if (!profile_save_fixture) { throw std::runtime_error("Class release requires an explicit profile fixture"); }
+				success = ReleaseSlotForProbe(*this, name == "release_second" ? 2 : 3);
 			}
 			else if (name == "refund_all") { RefundAA(); success = true; }
 			else if (name == "reset_all") { ResetAA(); success = true; }
@@ -389,11 +417,26 @@ public:
 				auto row = character.begin();
 				steps.back()["saved_points"] = {{"wallet",std::stoul(row[0])},{"spent",std::stoul(row[1])},{"expended",std::stoul(row[2])}};
 			}
+			if (input.value("inspect_classes", false)) {
+				auto classes = database.QueryDatabase(fmt::format(
+					"SELECT COALESCE(class2,0),COALESCE(class3,0) FROM character_multiclass WHERE character_id={}", CharacterID()));
+				if (!classes.Success() || classes.RowCount() != 1) { throw std::runtime_error("Class release fixture missing"); }
+				auto row = classes.begin();
+				steps.back()["loaded_classes"] = {GetClass(),GetClass2(),GetClass3()};
+				steps.back()["client_data_loaded"] = ClientDataLoaded();
+				steps.back()["saved_classes"] = {GetClass(),Strings::ToUnsignedInt(row[0]),Strings::ToUnsignedInt(row[1])};
+				auto failures = database.QueryDatabase(std::string("SELECT COALESCE(@nightcap_class_release_failures,0)"));
+				if (!failures.Success() || failures.RowCount() != 1) { throw std::runtime_error("Cannot inspect release failure injection"); }
+				steps.back()["injected_release_failures"] = Strings::ToUnsignedInt(failures.begin()[0]);
+			}
 			if (input.value("inspect_purchase_events", false)) {
 				steps.back()["purchase_events"] = NightcapBalanceAAPurchaseEvents();
 			}
 		}
-		return {{"steps",steps},{"scope","Native AA load/save with synthetic persisted rows and wallet; optional fixture-row deletion models a changed database before reload. No gameplay or refund simulation."}};
+		const std::string scope = input.value("inspect_classes", false)
+			? "Native class-release ownership and refund state probe with synthetic rows. No quest interpreter, full session, or skill simulation."
+			: "Native AA load/save with synthetic persisted rows and wallet; optional fixture-row deletion models a changed database before reload. No gameplay or refund simulation.";
+		return {{"steps",steps},{"scope",scope}};
 	}
 
 	json SpellProbes(const json &build, int samples)

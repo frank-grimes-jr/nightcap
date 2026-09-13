@@ -114,3 +114,13 @@ docs/balance/aa-purchase-*.patch -text -whitespace
 docs/balance/aa-purchase-*.py text eol=lf
 docs/balance/native-aa-purchase.md text eol=lf
 docs/adr/0025-durable-aa-purchases-and-grants.md text eol=lf
+
+# Class-release before evidence and diagnostic source provenance.
+docs/balance/aa-release-before*.json -text
+docs/balance/aa-toggle-catalog-audit.json -text
+docs/balance/native-aa-class-release.md text eol=lf
+docs/adr/0026-atomic-multiclass-release.md text eol=lf
+tools/balance/aa_class_release_controls.py text eol=lf
+tools/balance/run_aa_class_release.py text eol=lf
+tools/balance/tests/test_aa_class_release*.py text eol=lf
+docs/balance/aa-release-before*.log -text -whitespace
