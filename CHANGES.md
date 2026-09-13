@@ -1,5 +1,24 @@
 # CHANGES
 
+## 2026-09-13 - Verify native enforcement of projected AA rank caps
+
+Projected both candidate AA cores into the empty isolated database by disabling
+omitted families and terminating retained rank chains. Native catalogs expose
+exactly 61/109 ranks while preserving all 23 previously disabled families. All
+21 legal build readouts retain their stats and purchases; 14 forbidden purchases
+succeed before projection and fail afterward. All 12 maximum-AA Vox/Nagafen
+reports match the previous source-gear evidence byte-for-byte.
+
+Backed up both AA tables before changes and restored the complete original dump
+exactly after each candidate. A deliberately stale second-table precondition
+also rolls back the preceding 1,527 ability updates exactly. All 290 tests pass;
+the final synthetic fixture is empty and temporary procedures are removed.
+No live data, character purchases, era rules, binaries or processes changed.
+This proves the native data-projection path, not a complete AA offering or
+existing-owner migration. Source review also flags unchecked SetAA failure after
+truncating an owned chain; ownership preservation and activation/persistence QA
+remain required. See ADR0018 and `docs/balance/native-aa-policy-projection.md`.
+
 ## 2026-09-13 - Preflight expansion AA caps against saved purchases
 
 Added a read-only AA policy compiler that resolves complete native rank chains,

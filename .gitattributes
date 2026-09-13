@@ -48,3 +48,7 @@ tools/balance/pet_threat_controls.py text eol=lf
 tools/balance/pet_resist_controls.py text eol=lf
 tools/balance/aa_policy_preflight.py text eol=lf
 docs/balance/aa-policy-*.json -text
+tools/balance/aa_policy_projection.py text eol=lf
+tools/balance/run_aa_projection.py text eol=lf
+docs/balance/aa-projection-*.json -text
+docs/balance/aa-projection-*.sql text eol=lf

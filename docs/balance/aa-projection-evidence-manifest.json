@@ -1,0 +1,134 @@
+{
+  "captured_at": "2026-09-13T06:10:26.270530+00:00",
+  "parent_revision": "277384b34bbe37094585c3bc0a3e380a430c56b8",
+  "scope": "Native rank-chain data projection in an empty isolated fixture; no live offering, owned-rank reconciliation or activation certification.",
+  "binary_sha256": "b036d4eba35e8ac80bdbe77c2dc3de7dfbc9a23e296d989d229b4abf47d28075",
+  "validation": {
+    "balance_tests_passed": 290,
+    "new_projection_and_evidence_tests": 11,
+    "legal_build_readouts_unchanged": 21,
+    "paired_forbidden_purchase_controls": 14,
+    "byte_identical_boss_reports": 12,
+    "exact_table_restorations": 2,
+    "rejected_atomic_transaction_controls": 1
+  },
+  "original_tables_dump_sha256": "bfcce242cd44630515f148f96ebd4668706f45bb5f72eabf7d07ea4ec1e02161",
+  "clone_cleanup": {
+    "database": "nightcap_balance_20260912",
+    "removed_synthetic_inventory_rows": [
+      {
+        "character_id": 12,
+        "slot_id": 23,
+        "item_id": 10015,
+        "charges": 9
+      },
+      {
+        "character_id": 12,
+        "slot_id": 24,
+        "item_id": 13073,
+        "charges": 9
+      }
+    ],
+    "account_rows": 0,
+    "character_rows": 0,
+    "aa_purchase_rows": 0,
+    "inventory_rows": 0,
+    "remaining_projection_procedures": 0
+  },
+  "live_database_writes": false,
+  "binary_or_process_replacement": false,
+  "artifacts": {
+    "docs/adr/0018-native-aa-rank-projection.md": {
+      "sha256": "73baa5f5355a2d83b9aa204fdd21af04ab942136ed49406b5d12630019fe2833",
+      "newline_normalization": "LF"
+    },
+    "docs/balance/aa-policy-snapshot.json.gz": {
+      "sha256": "f3eb91fd6b16ce4b79a746150b71d6de560f6a12652718748944cc3d679552f7",
+      "newline_normalization": "none"
+    },
+    "docs/balance/aa-projection-before.sql.gz": {
+      "sha256": "64faec3b61a575385497dff90159c05b155d50a2b7dedfa80276eaae0105b84b",
+      "newline_normalization": "none"
+    },
+    "docs/balance/aa-projection-inputs.json": {
+      "sha256": "d88983f0b9df072dd0eb81d9c039788399a697b4ca60515ae16b2979247e6c96",
+      "newline_normalization": "LF"
+    },
+    "docs/balance/aa-projection-later_core-apply.sql": {
+      "sha256": "9d11fd1f9f0e271d9c34ccfb18159063c4eba60a5cb4eb38bb8e32ee66b8d282",
+      "newline_normalization": "LF"
+    },
+    "docs/balance/aa-projection-later_core-restore.sql": {
+      "sha256": "c4ddcb4eba05b6e25ffc3967e4107d51b2418d7ae943f6ae2fcb595ae38165f0",
+      "newline_normalization": "LF"
+    },
+    "docs/balance/aa-projection-launch_core-apply.sql": {
+      "sha256": "aff97128d9d61f783b4dbbc4acee22a1b017390ecb811a0c6ac69f5ee5b5bf8f",
+      "newline_normalization": "LF"
+    },
+    "docs/balance/aa-projection-launch_core-restore.sql": {
+      "sha256": "a757e77ec3505a05ea268bd9cd273482a7ee5298b8db376a377327a38861a893",
+      "newline_normalization": "LF"
+    },
+    "docs/balance/aa-projection-native.json.gz": {
+      "sha256": "c0b98475122d3f163fc43ad2bc233406de23969d747144bf3c7397777258735b",
+      "newline_normalization": "none"
+    },
+    "docs/balance/aa-projection-rollback-check.json": {
+      "sha256": "8215c211a9834a1d0fa66444d12e086b5958dcd8f22f1198d16416189c9e5966",
+      "newline_normalization": "LF"
+    },
+    "docs/balance/aa-projection-rollback-rejection.sql": {
+      "sha256": "e3bc10ce1e9ee1938101d47957db3606d80b3778a6cfa497ca9c24b4fcc75f99",
+      "newline_normalization": "LF"
+    },
+    "docs/balance/aa-release-candidates.json": {
+      "sha256": "b2fbfbb1af2220b155208531366d0c7102804277a3fe79d74f2b93c1d8796243",
+      "newline_normalization": "LF"
+    },
+    "docs/balance/gear-source-inputs.json": {
+      "sha256": "598daf0357cf701dad395895deff3cb6c610bc16e9c40350b8e605556f46f7e7",
+      "newline_normalization": "LF"
+    },
+    "docs/balance/gear-source.json.gz": {
+      "sha256": "e535e89debed26a080720241c678b1da4d7d59a2c161a7f16f449eedbfce926c",
+      "newline_normalization": "none"
+    },
+    "docs/balance/native-aa-catalog.json": {
+      "sha256": "0e9e278d71b51f9b1ddc8b3607935c459e45ae1300e2998646c932a314b51473",
+      "newline_normalization": "LF"
+    },
+    "docs/balance/native-aa-policy-projection.md": {
+      "sha256": "0fe490112cc732a3dd71bf435f81f200fa6ee589a9d78401e31adbb7e2c3645c",
+      "newline_normalization": "LF"
+    },
+    "docs/balance/pet-resist-build.json": {
+      "sha256": "2f39e8c7883c4290875e20b55798169acd8b7c1f3ff348159e0fca93165dc2a8",
+      "newline_normalization": "LF"
+    },
+    "tools/balance/aa_policy_preflight.py": {
+      "sha256": "2ea5db6cfdd3016a6ae93283dac4b549d61c685a826aa00771dfc7a3037375d0",
+      "newline_normalization": "LF"
+    },
+    "tools/balance/aa_policy_projection.py": {
+      "sha256": "e463f04c328269a9dd6859852fa2ec9c8a9597d4f17ae4708934f8c434b2cb14",
+      "newline_normalization": "LF"
+    },
+    "tools/balance/run_aa_projection.py": {
+      "sha256": "60a961531269bd84a6849ccba143eb761bacb094a97bdfa1c1f4d6fa05a658ec",
+      "newline_normalization": "LF"
+    },
+    "tools/balance/tests/test_aa_policy_preflight.py": {
+      "sha256": "64b95bf4f2c8fee3bd94c51dc2f4715bfff3d970fec7255695ea2e1c6192a4b5",
+      "newline_normalization": "LF"
+    },
+    "tools/balance/tests/test_aa_policy_projection.py": {
+      "sha256": "f91b7e1dbdf55302ba1b56a55330be690a1fcbe88277a84055146a11bc2b7c2a",
+      "newline_normalization": "LF"
+    },
+    "tools/balance/tests/test_aa_projection_evidence.py": {
+      "sha256": "e4d88ed189dd6d37bc6fb8fca6e2c3fff97f7aef1d069c328f1c0152de1739cd",
+      "newline_normalization": "LF"
+    }
+  }
+}
