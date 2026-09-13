@@ -67,8 +67,7 @@ def build_plan(audit):
                        'maximum_merchant_slots': max(len(m['items']) for m in merchants),
                        'prices': 'Retain item prices and source merchant faction/pricing settings.'},
         'remaining_gates': ['Verify unused IDs again at apply time.', 'Verify ground, line of sight, and walking paths.',
-                            'Build guarded reversible SQL and integrate restocking.',
-                            'Consolidate the nearby utility services and verify duplicate Forgemaster records.',
+                            'Apply the tested guarded migration only after the agreed activation window.',
                             'Run in-game merchant and selection QA before promotion.'],
     }
 

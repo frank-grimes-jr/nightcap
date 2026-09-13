@@ -40,13 +40,19 @@ Existing merchants all use faction 0; migration must preserve source pricing
 settings and item prices. The guide keeps its quest-bound name and gains the
 Choose / View Classes label and Find-window visibility.
 
-Five version-0 Forgemaster spawn records share the current position. Before
-consolidating utility services, compare their full row state and retain rollback
-copies; do not treat matching coordinates alone as proof that all rows are safe
-to delete. Current IDs: 3266028, 3266043, 3266047, 3266048, 3266124.
+Five version-0 Forgemaster records were compared column by column; only their
+IDs differ. The migration keeps 3266028 and removes 3266043, 3266047, 3266048, and
+3266124, with all five preimages preserved for rollback.
 
-Next: guarded reversible SQL, restock integration, utility-service positions,
-clone migration/rollback checks, and exact in-game QA before promotion.
+Five utility services form a row at y=-232, z=-158.875, facing the hub: Bags at
+x=-337, Epic Ascension at -311, Blessings at -285, Premium Blessings at -259, and
+Waypoint Travel at -233. Existing quest-bound NPC names and pricing are retained.
+These ground positions remain provisional until the in-game walk/LOS check.
+
+Guarded forward/rollback SQL, transactional restock, and era preflight are now
+implemented. Four planner/migration tests, 14 MariaDB controls, and PowerShell
+preflight checks pass. See verification.md. Activation and in-game QA remain;
+follow QA.md and schedule the PoK restart with the owner before applying.
 
 Regenerate the proposal from tools/:
 

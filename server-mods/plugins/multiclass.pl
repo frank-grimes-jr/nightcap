@@ -142,13 +142,9 @@ sub mc_apply_class {
     # value-1 native unlocks after the canonical skill_caps baseline is restored.
     $client->ReconcileMulticlassSkills();
 
-    $client->Message(335,
-        'Operator note: run tools/sync-spell-access.ps1 (client closed) so the new ' .
-        'discipline\'s scrolls become scribable - it syncs scroll items and the client spell file.'
-    );
-
     return (1, "The $MC_CLASS_NAMES{$class_id} discipline awakens within you - " .
-               "$MC_FLAVOR{$class_id}. Purchase tomes at the Loremasters, and camp " .
+               "$MC_FLAVOR{$class_id}. Visit your class merchant near the PoK arrival point " .
+               "for spells, songs, or discipline tomes. Camp " .
                "to the character screen for every change to take hold.");
 }
 
@@ -183,7 +179,7 @@ sub mc_revoke_slot {
     $client->PurgeAfterClassRelease($revoked);
 
     return (1, "Your $MC_CLASS_NAMES{$revoked} discipline has been released. " .
-               "Its alternate abilities were removed and your spent AA points refunded.");
+               "Class-only alternate abilities were removed and eligible spent AA points refunded.");
 }
 
 1;

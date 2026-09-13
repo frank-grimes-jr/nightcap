@@ -1,5 +1,27 @@
 # CHANGES
 
+## 2026-09-13 - Prepare reversible PoK arrival hub and durable restock
+
+Implemented a guarded content migration for sixteen class spell/song/discipline
+merchants, the existing class guide, and five utility services near arrival.
+All 1,229 currently stocked items retain their prices and merchant restrictions;
+original class levels route the 1,747 listings. Five identical Forgemaster spawns
+become one. Full preimages and exact rollback are retained, with occupied-ID,
+source-drift, engine, and transaction guards. Player directions now name the hub
+and keep camp guidance without exposing operator script commands.
+
+The canonical restock detects the legacy/new layout, stages class stock from the
+audited catalog, and commits atomically. Era preflight refuses unreviewed future
+catalogs before rules or client settings change. Missing input/guard files and SQL
+errors stop the era script. Four planner/migration tests, 14 isolated MariaDB
+controls, PowerShell preflight/file-error checks, and seven new plugin assertions
+pass. Independent review findings were fixed. See docs/pok/verification.md.
+
+No live SQL, scripts, client files, or zones changed. Placement and client behavior
+still require docs/pok/QA.md, an agreed PoK restart, and owner sign-off before main.
+The AA ownership branch remains separate. Later expansions require an explicitly
+reviewed stock catalog; current preservation is not an expansion provenance audit.
+
 ## 2026-09-13 - Plan class-labeled PoK arrival merchants
 
 Added a pure, offline hub planner using the verified original spell-class catalog.

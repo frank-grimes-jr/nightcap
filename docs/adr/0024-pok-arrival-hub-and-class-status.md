@@ -1,6 +1,6 @@
 # ADR 0024: PoK arrival hub and explicit class status
 
-Date: 2026-09-13. Status: selected by the owner; implementation in progress.
+Date: 2026-09-13. Status: selected by the owner; candidate implemented; activation and in-game QA pending.
 
 ## Decision
 
@@ -37,8 +37,12 @@ below the 500-item RoF2 merchant limit, so one merchant per class fits today.
 
 Preserve the existing available item set and prices while organizing stock by
 original class eligibility. Do not use the widened spell/item masks as the
-classification source. Keep the downloaded client data read-only. Placement,
-guarded reversible SQL, restock integration, and in-game QA remain to implement.
+classification source. Keep the downloaded client data read-only. Guarded reversible SQL and transactional restock are implemented and pass 14
+isolated MariaDB controls. Five utilities join the hub; five fully identical
+Forgemaster spawns become one. Era preflight stops before writes when the requested
+release lacks a reviewed catalog. Placement and native player behavior remain
+subject to in-game QA. The current available pool is preserved; this is not a
+new audit of each spell's expansion provenance.
 
 ## Verification and remaining gates
 

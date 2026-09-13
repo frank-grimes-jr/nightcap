@@ -9,18 +9,17 @@ Implemented and script-tested, not deployed:
 - #classes and /say !classes for on-demand status.
 - Clear selection confirmation and progression wording without misleading counts.
 
-A tested merchant inventory and preliminary placement proposal is available in
-hub-layout.md and hub-merchant-plan.json. The planner preserves all 1,229 unique
-scrolls and item prices; two planner tests pass. It applies no database changes.
+The hub migration and restock are implemented and tested on an isolated MariaDB
+schema. All 14 database controls pass, including exact rollback and failure
+handling. The sixteen class merchants preserve all 1,229 current scrolls and
+prices across 1,747 class listings. Five utility services move into the hub and
+identical duplicate Forgemaster spawns are consolidated. Player directions name
+the new class merchants and retain camp guidance.
 
-Still in progress:
-
-- Choose and verify unobstructed arrival-area positions.
-- Build one class merchant for each of the 16 classes, using Spells, Songs, or
-  Disciplines labels that match the actual inventory.
-- Preserve existing item availability and prices; replace the old vendor spawns
-  through a guarded migration with rollback and restock integration.
-- Validate merchant contents and the full player flow in game before promotion.
+See hub-layout.md for placement, verification.md for evidence, and QA.md for
+activation and exact in-game checks. Ground/path clearance, client merchant and
+Find behavior, and the native selection flow remain unverified in game. No live
+changes or restart have occurred. Native AA lifecycle work stays separate.
 
 hub-stock-audit.json contains the read-only stock snapshot and original class
 levels from the matching downloaded/server-export spell file. The two source
