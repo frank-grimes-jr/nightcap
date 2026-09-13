@@ -8,10 +8,15 @@ windows.
 
 ## Status
 
-- **B1 (skeleton): built.** Forwards all six exports, init thread logs only, no
-  memory patched. This is what's deployed for the current smoke test.
-- **B2 (UI unlock): not started.** Offsets sourced from `mq-rof2/MQ2Main.dll`
-  exports (see `docs/adr/0004`).
+- **B1 (skeleton): built + smoke-passed.** Forwards all six exports, init thread
+  logs only, no memory patched. Reproducible x86 build; `nightcap_dll.log`
+  confirms load/init/unload against `testeqgame.exe`, game ran identically.
+- **B0 (feasibility): GO.** See `docs/adr/0004`. Symbol set confirmed in
+  `mq-rof2/MQ2Main.dll`; full map in `docs/offsets.md`.
+- **B2 (UI unlock): not started; blocked on offset extraction + interactive
+  proof.** The MQ2Main export RVAs are *not* eqgame offsets (see `docs/offsets.md`)
+  — real offsets come from MQ2-emu `eqgame.h` or a live-client debugger, mined in
+  the same session that proves a Warrior can open the spell-gem window.
 
 ## Build
 
