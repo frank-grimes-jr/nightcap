@@ -16,6 +16,7 @@ Copyright (C) 2001-2016 EQEMu Development Team (http://eqemulator.net)
 	Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 */
 
+#include "common/types.h"
 #include "aa.h"
 
 #include "common/classes.h"
@@ -1574,6 +1575,8 @@ void Mob::ExpendAlternateAdvancementCharge(uint32 aa_id) {
 
 bool ZoneDatabase::LoadAlternateAdvancement(Client *c) {
 	c->ClearAAs();
+	// Reloads must discard profile entries for ranks no longer accepted below.
+	memset(c->GetPP().aa_array, 0, sizeof(c->GetPP().aa_array));
 
 	const auto& l = CharacterAlternateAbilitiesRepository::GetWhere(
 		database,
@@ -1602,12 +1605,10 @@ bool ZoneDatabase::LoadAlternateAdvancement(Client *c) {
 
 		rank = ability->GetRankByPointsSpent(aa_value);
 
-		if (c->CanUseAlternateAdvancementRank(rank)) {
+		if (c->CanUseAlternateAdvancementRank(rank) && c->SetAA(aa_id, aa_value, charges)) {
 			c->GetPP().aa_array[slot_id].AA      = aa_id;
 			c->GetPP().aa_array[slot_id].value   = aa_value;
 			c->GetPP().aa_array[slot_id].charges = charges;
-
-			c->SetAA(aa_id, aa_value, charges);
 
 			slot_id++;
 		}

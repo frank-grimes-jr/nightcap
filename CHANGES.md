@@ -1,5 +1,26 @@
 # CHANGES
 
+## 2026-09-13 - Keep native owned-AA profiles consistent across rank caps
+
+Corrected the isolated AA-loader candidate to clear stale profile entries and
+populate them only after native SetAA succeeds. Five native controls reproduce
+three invalid/stale profile cases and verify the correction while preserving
+saved rows and the unspent wallet. Two valid controls and 24 legacy/source-gear
+boss reports retain identical complete reports and raw hashes.
+
+Added an offline earned-versus-active ownership transition model. All 196
+captured purchases and nominal cost 3,155 survive launch/later/launch changes.
+A native six-rank restoration control preserves its 17-point wallet without
+repurchase. This is not an installed ledger: spent-point accounting, refunds,
+resets, class release and charged-AA lifecycle integration remain required.
+Candidate cores still are not a final exclusion list or expansion schedule.
+
+All 304 balance tests pass. The full original AA tables are restored exactly and
+the synthetic character fixtures are empty. No live data, binaries, rules or
+processes changed. Exact compiled source bytes are archived; the tracked AA mirror
+uses LF for reproducible checkouts. See ADR0019 and
+`docs/balance/native-aa-ownership.md` for evidence, limitations and in-game QA.
+
 ## 2026-09-13 - Verify native enforcement of projected AA rank caps
 
 Projected both candidate AA cores into the empty isolated database by disabling

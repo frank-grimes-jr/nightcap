@@ -74,6 +74,8 @@ def main():
                         help='Compile a reviewed mob.cpp candidate inside this isolated runtime')
     parser.add_argument('--client-packet-source', type=Path,
                         help='Compile a reviewed client_packet.cpp candidate inside this isolated runtime')
+    parser.add_argument('--aa-source', type=Path,
+                        help='Compile a reviewed aa.cpp candidate inside this isolated runtime')
     parser.add_argument('--reuse-adapters', action='store_true',
                         help='Reuse manifest-verified main/client adapter objects; still compile harness/runtime')
     parser.add_argument('--reuse-candidates', action='store_true',
@@ -158,6 +160,15 @@ def main():
         compile_candidate(client_packet_candidate, 'client_packet')
         link[link.index(original_object)] = str(client_packet_candidate.with_suffix('.o'))
     old_main = 'CMakeFiles/zone.dir/main.cpp.o'
+    aa_candidate = args.aa_source.resolve() if args.aa_source else None
+    if aa_candidate:
+        if aa_candidate.parent != output or aa_candidate.suffix != '.cpp':
+            raise ValueError('The AA candidate must be a C++ file directly inside the isolated runtime')
+        original_object = 'CMakeFiles/zone.dir/aa.cpp.o'
+        if link.count(original_object) != 1:
+            raise ValueError('Unexpected native AA object link entry')
+        compile_candidate(aa_candidate, 'aa')
+        link[link.index(original_object)] = str(aa_candidate.with_suffix('.o'))
     if link.count(old_main) != 1 or link.count('-o') != 1:
         raise ValueError('Unexpected native link command')
     link[link.index(old_main)] = str(generated.with_suffix('.o'))
@@ -205,6 +216,10 @@ def main():
         manifest['client_packet_candidate'] = {'source': str(client_packet_candidate),
                                               'sha256': digest(client_packet_candidate),
                                               'original_source_sha256': digest(source/'zone/client_packet.cpp')}
+    if aa_candidate:
+        manifest['aa_candidate'] = {'source': str(aa_candidate),
+                                    'sha256': digest(aa_candidate),
+                                    'original_source_sha256': digest(source/'zone/aa.cpp')}
     (output / 'native-build-manifest.json').write_text(json.dumps(manifest, indent=2)+'\n')
     print(json.dumps({'binary':str(binary), 'sha256':manifest['binary_sha256'], 'objects':len(objects)}))
 

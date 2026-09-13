@@ -278,6 +278,41 @@ public:
 		return purchases;
 	}
 
+	json OwnershipProbe(const json &input)
+	{
+		const uint32 watched = input.at("first_rank_id");
+		json steps = json::array();
+		for (const auto &operation : input.at("operations")) {
+			const auto name = operation.get<std::string>();
+			bool success = false;
+			if (name == "load") { success = database.LoadAlternateAdvancement(this); }
+			else if (name == "save") { success = SaveAA(); }
+			else if (name == "erase_saved") {
+				auto deleted = database.QueryDatabase(fmt::format(
+					"DELETE FROM character_alternate_abilities WHERE id={} AND aa_id={}", CharacterID(), watched));
+				success = deleted.Success();
+			} else { throw std::runtime_error("Unknown ownership probe operation"); }
+			if (!success) { throw std::runtime_error("Native ownership operation failed: " + name); }
+			CalcBonuses();
+			json profile = json::array(), stored = json::array();
+			for (const auto &entry : GetPP().aa_array) {
+				if (entry.AA || entry.value || entry.charges) {
+					profile.push_back({{"first_rank_id",entry.AA},{"rank_count",entry.value},{"charges",entry.charges}});
+				}
+			}
+			auto rows = database.QueryDatabase(fmt::format(
+				"SELECT aa_id,aa_value,charges FROM character_alternate_abilities WHERE id={} ORDER BY aa_id", CharacterID()));
+			if (!rows.Success()) { throw std::runtime_error("Cannot read ownership probe rows"); }
+			for (auto row : rows) {
+				stored.push_back({{"first_rank_id",std::stoul(row[0])},{"rank_count",std::stoul(row[1])},{"charges",std::stoul(row[2])}});
+			}
+			steps.push_back({{"operation",name},{"watched_first_rank_id",watched},{"effective_rank_count",GetAA(watched)},
+				{"profile",profile},{"stored",stored},{"unspent_points",GetAAPoints()},{"spent_points",GetSpentAA()},
+				{"hp",GetMaxHP()},{"aa_percent_hp",GetAABonuses().PercentMaxHPChange}});
+		}
+		return {{"steps",steps},{"scope","Native AA load/save with synthetic persisted rows and wallet; optional fixture-row deletion models a changed database before reload. No gameplay or refund simulation."}};
+	}
+
 	json SpellProbes(const json &build, int samples)
 	{
 		if (!std::getenv("NIGHTCAP_BALANCE_RNG_SEED") || samples < 1 || samples > 100000) {
@@ -372,6 +407,9 @@ int NightcapBalanceMain(int argc, char **argv)
 		json input;
 		input_file >> input;
 		const bool runtime = input.value("runtime_probe",false) || input.contains("encounter") || input.contains("aa_probe") || input.contains("pet_probe");
+		if (input.contains("aa_ownership_probe") && (runtime || input.at("builds").size() != 1)) {
+			throw std::runtime_error("Ownership probe requires one stat-only client");
+		}
 		if (int(input.value("runtime_probe",false)) + int(input.contains("encounter")) + int(input.contains("aa_probe")) + int(input.contains("pet_probe")) > 1) {
 			throw std::runtime_error("Runtime modes require separate processes");
 		}
@@ -424,6 +462,9 @@ int NightcapBalanceMain(int argc, char **argv)
 			output["builds"].back()["raw_skills"] = std::vector<uint32>(std::begin(c->GetPP().skills),std::end(c->GetPP().skills));
 			if (input.value("export_aa_catalog",false)) {
 				output["builds"].back()["aa_catalog"] = c->Catalog();
+			}
+			if (input.contains("aa_ownership_probe")) {
+				output["aa_ownership_probe"] = c->OwnershipProbe(input.at("aa_ownership_probe"));
 			}
 			if (build.contains("spell_probes")) {
 				output["builds"].back()["spell_probes"] = c->SpellProbes(build,input.value("spell_samples",1000));
