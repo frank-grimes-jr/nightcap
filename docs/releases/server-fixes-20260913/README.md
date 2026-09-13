@@ -44,6 +44,16 @@ The first build was interrupted by a full C: drive and left a zero-byte zone
 artifact despite a success line in its log. It was rejected. This candidate comes
 from the subsequent clean build after Docker storage was moved to E:.
 
+The first `dev` suite caught a raw source hash mismatch: the prepared `mob.cpp`
+used CRLF while Git already required LF. Rebuilt that file from exact committed
+bytes; its object and the complete zone binary remained byte-identical. The final
+source manifests use the committed LF hash, and `line-ending-rebuild.json` retains
+both source hashes and the object/binary equality proof. No assertion was relaxed.
+
+The active binary is backed up at
+`E:\EQ_Local_Dev\artifacts\server-fixes-20260913\zone.before`, SHA256
+`b7b2a022e3a7f78528639aaf90dba620e561cc8d4047912d211034b7c9517540`.
+
 ## Review and remaining work
 
 The final patch review checked native eligibility gates, unchanged primary-pet

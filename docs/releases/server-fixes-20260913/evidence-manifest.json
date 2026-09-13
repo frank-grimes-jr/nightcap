@@ -15,14 +15,16 @@
     "docs/releases/server-fixes-20260913/fresh-replay-checks.json": "8cd44f78c3ada5338c7235f55688a4b67e4ec561f82cdb2b539eb5dcc7294ac7",
     "docs/releases/server-fixes-20260913/fresh-source-regression-inputs.json": "5bf78517ef610e8612f5cbf5ae9dcb39b7771fed5189ca903ba311d48667071f",
     "docs/releases/server-fixes-20260913/fresh-source-regression.json.gz": "1012d83a4d409f4b94d79b759b1bcf8df310fb152348e00127054738809365d8",
-    "docs/releases/server-fixes-20260913/full-source-manifest.json": "e30fc473541e79b7148ac25708ae6a54aa27926f60fdd79fd4233ddda18851c4",
+    "docs/releases/server-fixes-20260913/full-source-manifest.json": "25bcb05c01bb664281817757116ac69a170ca17a6a8940e31af6639b5556c60d",
+    "docs/releases/server-fixes-20260913/line-ending-rebuild.json": "7cb5249920798d104e77524e4f6702b926089773289ff68b8d599c63b1f2bfbe",
+    "docs/releases/server-fixes-20260913/line-ending-rebuild.log": "860abacae836ae06b233bb564bb59aa17187fe16319111ccbc7b469a0312249b",
     "docs/releases/server-fixes-20260913/original-source.tar.gz": "fa60a810ffda384156e748907f556c617b9f9167f1d46027d43cefae77957d8c",
     "docs/releases/server-fixes-20260913/python-tests.log": "a5b299945e3817232f79628016d45738df6987f35f311b6149c3774ed3098948",
     "docs/releases/server-fixes-20260913/QA.md": "479c82464cdacabff72e21c364eb23126cf3a82bf995805e2e4f97f7bb8ab206",
-    "docs/releases/server-fixes-20260913/README.md": "32a338596e5b66ff9d365a53156fbaeea4bdaabf6d6b8375710d35c3ef3406fb",
+    "docs/releases/server-fixes-20260913/README.md": "a9096ac6f8b0502a4b79eac1df3e336f98478d76c688372782c8ca72f05b9f85",
     "docs/releases/server-fixes-20260913/replay-command.py": "3dd35d39321b804b07b312b432d06c5537396a378bc12e360e83b8490d19f1b5",
     "docs/releases/server-fixes-20260913/server-fixes.patch": "07553c229fb1493b622484f525589f7345db322ca19b279e40a7463190a07ff7",
-    "docs/releases/server-fixes-20260913/source-manifest.json": "9ff1f2a717543bdbe194a8b65da86501e090675c8922bf3621ef3e5bc880c677",
-    "tools/balance/tests/test_server_candidate.py": "32195e840708b7ff34a141530e8da2ba4b11eba175c4531a07a5c8c8607d8213"
+    "docs/releases/server-fixes-20260913/source-manifest.json": "fd1c2a2af11eb3551637999df8127d3f19ee7f1c077ffd07a2e3b83367025a81",
+    "tools/balance/tests/test_server_candidate.py": "76fc3806c003043a642e9ec2d12a38fc37a2fa76611aeb82902a070635e902f9"
   }
 }

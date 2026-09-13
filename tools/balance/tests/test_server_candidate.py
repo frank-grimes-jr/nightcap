@@ -45,6 +45,11 @@ class ServerCandidateTests(unittest.TestCase):
         self.assertGreater(build['zone_bytes'], 0)
         self.assertEqual(build['zone_magic'], '7f454c46')
         self.assertEqual(len(build['zone_sha256']), 64)
+        normalization = json.loads((self.package / 'line-ending-rebuild.json').read_bytes())
+        self.assertEqual(normalization['build_exit_code'], 0)
+        self.assertEqual(normalization['before'], normalization['after'])
+        self.assertEqual(normalization['after']['zone'], build['zone_sha256'])
+        self.assertTrue(normalization['object_and_binary_unchanged'])
         sources = json.loads((self.package / 'full-source-manifest.json').read_bytes())
         for row in self.manifest['files']:
             self.assertEqual(sources[row['path']], row['candidate_sha256'])

@@ -14,7 +14,7 @@
     {
       "path": "zone/mob.cpp",
       "original_sha256": "f5ee75a42e36e3310c9bd37a110a6f2e9088b31a57e69397cce0da94f8c9e462",
-      "candidate_sha256": "bcd0a40312fd59a1430f626507d6cc45233c26393fff45389b7e069d00f48d45"
+      "candidate_sha256": "b84544a725679739fabaf2dde8ac2dbbabf11fd034a0734ac0e62472d1e09ff3"
     },
     {
       "path": "zone/client_packet.cpp",
