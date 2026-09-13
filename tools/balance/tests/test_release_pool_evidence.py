@@ -54,13 +54,16 @@ class SharedPoolNativeEvidenceTests(unittest.TestCase):
 
     def test_missing_or_duplicated_native_case_is_rejected(self):
         for duplicated in (False, True):
-            evidence = copy.deepcopy(self.evidence)
+            # Only list membership changes; copying every native trace wastes
+            # memory and is unrelated to the missing/duplicate identity guard.
+            evidence = dict(self.evidence, runs=list(self.evidence['runs']))
             if duplicated:
                 evidence['runs'].append(evidence['runs'][0])
             else:
                 evidence['runs'].pop()
             with self.assertRaisesRegex(ValueError, 'Incomplete or duplicate'):
                 verify(self.matrix, evidence, self.catalog)
+            self.assertEqual(len(self.evidence['runs']), 108)
 
 
 if __name__ == '__main__':

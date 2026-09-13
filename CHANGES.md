@@ -1,5 +1,17 @@
 # CHANGES
 
+## 2026-09-13 - Finish focused pet shielding comparison
+
+Compared owner Arch Shielding with and without Resist Magic across 36 native
+Vox/Nagafen fights at zero, launch maximum, and later maximum AA purchases.
+Gear, caps, pet preparation, and combat policy stay fixed. Neither preparation
+change consistently resolves the pet build's Nagafen gap, so retain the baseline
+and 250/250 caps. The verifier now checks the armor spell declared by the input
+and rejects missing preparation buffs. All 315 calculator tests pass, including
+the three new shielding tests. Removed an unnecessary full-trace deepcopy from
+the missing/duplicate evidence test without weakening its assertions.
+See `docs/balance/native-pet-shielding.md`. No live gameplay settings changed.
+
 ## 2026-09-13 - Move Docker data to E: and recover the stack
 
 Moved the offline 20 GiB Docker data disk to `E:\Docker\wsl\disk`, verified

@@ -70,7 +70,11 @@ def summarize(case, report):
     if not all(a['accepted'] for a in probe['actions']):
         raise ValueError('A preparation cast was rejected')
     resist = 60 if combat['input']['npc_id'] == 32040 else 61
-    if not {168, 145, resist, 644} <= {b['spell'] for b in player['buffs']}:
+    owner_armor = [a['spell'] for a in probe['input']['actions']
+                   if a['spell'] in (67, 168) and not a.get('target_class')]
+    if len(owner_armor) != 1:
+        raise ValueError('Expected one explicit owner armor/HP preparation choice')
+    if not {owner_armor[0], 145, resist, 644} <= {b['spell'] for b in player['buffs']}:
         raise ValueError('Required owner buffs absent')
     for pet in prepared['pets']:
         haste = 107 if pet['spell'] == 633 else 170

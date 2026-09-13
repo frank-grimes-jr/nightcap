@@ -66,3 +66,8 @@ docs/balance/cap-*.sql text eol=lf
 docs/balance/cap-*-run.log -text
 docs/balance/native-cap-sensitivity.md text eol=lf
 docs/adr/0020-retain-caps-after-matched-sensitivity.md text eol=lf
+tools/balance/pet_shield_controls.py text eol=lf
+tools/balance/tests/test_pet_shield*.py text eol=lf
+tools/balance/tests/test_release_pool_evidence.py text eol=lf
+docs/balance/pet-shield-*.json -text
+docs/balance/native-pet-shielding.md text eol=lf
