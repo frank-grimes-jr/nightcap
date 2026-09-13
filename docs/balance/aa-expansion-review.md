@@ -79,3 +79,9 @@ The first 54 native rank-pool/family-removal comparisons are now recorded in
 long Vox fights; removing both selected burst families from the unrestricted
 ceiling still leaves six easy-looking wins with at least 82.1% sampled HP. Broader
 rank curation remains necessary. These candidates are not a release whitelist.
+
+The 2026-09-13 [policy and purchase preflight](aa-policy-preflight.md) now compiles
+the shared combat cores into native rank IDs and accounts for all 196 captured
+purchase rows. It identifies ten affected character IDs and the native whole-family
+load/overwrite behavior that must be handled before enforcement. The candidate
+cores remain incomplete offerings; no live policy or purchase was changed.

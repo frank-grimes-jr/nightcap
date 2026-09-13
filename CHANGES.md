@@ -1,5 +1,24 @@
 # CHANGES
 
+## 2026-09-13 - Preflight expansion AA caps against saved purchases
+
+Added a read-only AA policy compiler that resolves complete native rank chains,
+inherited prerequisites and canonical saved first-rank IDs. Captured 1,570
+abilities, 6,655 ranks, 2,525 prerequisite rows and 196 purchase rows from PEQ.
+The proposed launch/later combat cores compile to 61/109 rank IDs and preserve
+every native calculator allocation. Both have closed prerequisites. Ten
+character IDs have affected rows; the launch core leaves 163 rows outside the core
+and caps six others. These omissions are not a final AA removal list.
+
+Source review confirms unavailable owned ranks are skipped as whole families;
+loading does not automatically retain lower ranks or refund points. Repurchasing
+can overwrite the canonical saved row. Reports estimate nominal removed-rank
+cost only, without authorizing refunds. Missing next-rank rows retain valid
+prefixes, matching native loading. Tests cover these identity, chain, cap and
+ownership cases plus regeneration from captured evidence; all 279 tests pass.
+No live AA access, purchases, rules, binaries or processes changed. See ADR0017
+and `docs/balance/aa-policy-preflight.md` for findings and required release QA.
+
 ## 2026-09-13 - Measure pet threat policies and resistance preparation
 
 Added optional native Feign Death controls with native cooldown, hate, spell-break
