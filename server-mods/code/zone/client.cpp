@@ -1058,7 +1058,19 @@ bool Client::PersistEarnedAARemoval(uint32 first_rank_id, bool consume_charge)
 	return PersistEarnedAAState(std::move(earned), std::move(usable), GetAAPoints(), static_cast<uint32>(expended));
 }
 
-bool Client::PersistEarnedAAState(EarnedAAState earned, UsableAAState usable, uint32 wallet, uint32 expended)
+void Client::InvalidateMulticlassState()
+{
+	m_multiclass_state_valid = false;
+	InvalidateEarnedAAState();
+	// Do not allow disconnect's general save to overwrite an uncertain commit.
+	client_data_loaded = false;
+	Message(Chat::Red, "The discipline change could not be confirmed. Please reconnect.");
+	if (eqs) { eqs->Close(); }
+	client_state = DISCONNECTED;
+}
+
+bool Client::PersistEarnedAAState(EarnedAAState earned, UsableAAState usable, uint32 wallet, uint32 expended,
+	const MulticlassReleaseState *release)
 {
 	if (!m_earned_aa_valid) {
 		return false;
@@ -1097,6 +1109,13 @@ bool Client::PersistEarnedAAState(EarnedAAState earned, UsableAAState usable, ui
 	// Do not commit someone else's transaction or retry a statement on a new
 	// connection after losing this transaction. Session state changes only after
 	// an acknowledged commit; an uncertain failure requires ownership reload.
+	if (release) {
+		auto engines = database.QueryDatabase(std::string(
+			"SELECT COUNT(*) FROM information_schema.TABLES WHERE TABLE_SCHEMA=DATABASE() "
+			"AND TABLE_NAME IN ('character_data','character_alternate_abilities','character_multiclass','character_skills') "
+			"AND ENGINE='InnoDB'"), false);
+		if (!engines.Success() || engines.RowCount() != 1 || Strings::ToUnsignedInt(engines.begin()[0]) != 4) { return false; }
+	}
 	auto transaction = database.QueryDatabase(std::string("SELECT @@in_transaction"), false);
 	if (!transaction.Success() || transaction.RowCount() != 1 ||
 		Strings::ToUnsignedInt(transaction.begin()[0]) != 0) {
@@ -1122,6 +1141,31 @@ bool Client::PersistEarnedAAState(EarnedAAState earned, UsableAAState usable, ui
 	if (!character.Success() || character.RowCount() != 1 ||
 		Strings::ToUnsignedInt(character.begin()[0]) != m_epp.expended_aa) {
 		return failed();
+	}
+	if (release) {
+		auto classes = database.QueryDatabase(fmt::format(
+			"SELECT COALESCE(class2,0),COALESCE(class3,0) FROM character_multiclass WHERE character_id={} FOR UPDATE", CharacterID()), false);
+		if (!classes.Success() || classes.RowCount() != 1 ||
+			Strings::ToUnsignedInt(classes.begin()[0]) != release->old_class2 ||
+			Strings::ToUnsignedInt(classes.begin()[1]) != release->old_class3) { return failed(); }
+		auto skills = database.QueryDatabase(fmt::format(
+			"SELECT skill_id,value FROM character_skills WHERE id={} ORDER BY skill_id FOR UPDATE", CharacterID()), false);
+		if (!skills.Success()) { return failed(); }
+		std::map<uint32, uint32> saved_skills;
+		for (auto row : skills) { saved_skills[Strings::ToUnsignedInt(row[0])] = Strings::ToUnsignedInt(row[1]); }
+		for (const auto &skill : release->skills) {
+			if (saved_skills[skill.skill] != skill.before) { return failed(); }
+		}
+		auto changed = database.QueryDatabase(fmt::format(
+			"UPDATE character_multiclass SET class2=NULLIF({},0),class3=NULLIF({},0) WHERE character_id={}",
+			release->class2, release->class3, CharacterID()), false);
+		if (!changed.Success() || changed.RowsAffected() != 1) { return failed(); }
+		for (const auto &skill : release->skills) {
+			if (skill.before == skill.after) { continue; }
+			auto clamped = database.QueryDatabase(fmt::format(
+				"UPDATE character_skills SET value={} WHERE id={} AND skill_id={}", skill.after, CharacterID(), skill.skill), false);
+			if (!clamped.Success() || clamped.RowsAffected() != 1) { return failed(); }
+		}
 	}
 	auto saved = database.QueryDatabase(fmt::format(
 		"SELECT aa_id,aa_value,charges FROM character_alternate_abilities WHERE id={} ORDER BY aa_id FOR UPDATE",
@@ -1159,6 +1203,12 @@ bool Client::PersistEarnedAAState(EarnedAAState earned, UsableAAState usable, ui
 	if (!points.Success() || points.RowsAffected() != 1 ||
 		!database.QueryDatabase(std::string("COMMIT"), false).Success()) {
 		return failed();
+	}
+	if (release) {
+		m_class2 = release->class2;
+		m_class3 = release->class3;
+		m_multiclass_mask = release->mask;
+		for (const auto &skill : release->skills) { m_pp.skills[skill.skill] = skill.after; }
 	}
 	m_earned_aa_ranks = std::move(earned);
 	aa_ranks = std::move(usable);
@@ -2233,7 +2283,7 @@ void Client::SetLDoNPoints(uint32 theme_id, uint32 points)
 }
 
 void Client::SetSkill(EQ::skills::SkillType skillid, uint16 value) {
-	if (skillid > EQ::skills::HIGHEST_SKILL)
+	if (!m_multiclass_state_valid || skillid > EQ::skills::HIGHEST_SKILL)
 		return;
 	m_pp.skills[skillid] = value; // We need to be able to #setskill 254 and 255 to reset skills
 

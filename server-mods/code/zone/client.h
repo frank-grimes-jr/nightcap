@@ -509,8 +509,9 @@ public:
 	inline ExtendedProfile_Struct& GetEPP() { return m_epp; }
 	void LoadMulticlassMask();
 	uint32 ReconcileMulticlassSkills();
-	void PurgeAfterClassRelease(uint8 released_class); // strip AAs/skills the retained classes can't use; refund AA points
-	void SetMulticlassSlot(uint8 slot, uint8 class_id);
+	void PurgeAfterClassRelease(uint8 released_class); // retired: refuses the old non-atomic quest sequence
+	bool ReleaseMulticlassSlot(int slot);
+	void SetMulticlassSlot(int slot, int class_id);
 	inline uint32 GetClassMask() const { return m_multiclass_mask; }
 	inline uint8 GetClass2() const { return m_class2; }
 	inline uint8 GetClass3() const { return m_class3; }
@@ -2461,7 +2462,24 @@ private:
 	using EarnedAAState = std::map<uint32, std::pair<uint32, uint32>>;
 	using UsableAAState = std::unordered_map<uint32, std::pair<uint32, uint32>>;
 	bool PersistEarnedAARemoval(uint32 first_rank_id, bool consume_charge);
-	bool PersistEarnedAAState(EarnedAAState earned, UsableAAState usable, uint32 wallet, uint32 expended);
+	struct MulticlassSkillChange {
+		EQ::skills::SkillType skill;
+		uint16 before;
+		uint16 after;
+	};
+	struct MulticlassReleaseState {
+		uint8 old_class2;
+		uint8 old_class3;
+		uint8 class2;
+		uint8 class3;
+		uint32 mask;
+		std::vector<MulticlassSkillChange> skills;
+	};
+	void InvalidateMulticlassState();
+	void SendLoadedAlternateAdvancementTable();
+	bool PersistEarnedAAState(EarnedAAState earned, UsableAAState usable, uint32 wallet, uint32 expended,
+		const MulticlassReleaseState *release = nullptr);
+	bool m_multiclass_state_valid = true;
 	EarnedAAState m_earned_aa_ranks;
 	bool m_earned_aa_valid = true;
 };

@@ -38,6 +38,11 @@ void Perl_Client_Disconnect(Client* self) // @categories Script Utility
 	self->Disconnect();
 }
 
+bool Perl_Client_ReleaseMulticlassSlot(Client* self, int slot) // @categories Script Utility
+{
+	return self->ReleaseMulticlassSlot(slot);
+}
+
 void Perl_Client_PurgeAfterClassRelease(Client* self, int released_class) // @categories Script Utility
 {
 	self->PurgeAfterClassRelease(static_cast<uint8>(released_class));
@@ -3473,6 +3478,7 @@ void perl_register_client()
 	package.add("DiaWind", &Perl_Client_DiaWind);
 	package.add("DialogueWindow", &Perl_Client_DialogueWindow);
 	package.add("Disconnect", &Perl_Client_Disconnect);
+	package.add("ReleaseMulticlassSlot", &Perl_Client_ReleaseMulticlassSlot);
 	package.add("PurgeAfterClassRelease", &Perl_Client_PurgeAfterClassRelease);
 	package.add("ReconcileMulticlassSkills", &Perl_Client_ReconcileMulticlassSkills);
 	package.add("DropItem", &Perl_Client_DropItem);

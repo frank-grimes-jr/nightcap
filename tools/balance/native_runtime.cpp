@@ -27,6 +27,8 @@ extern uint32 current_time;
 extern uint32 last_time;
 extern double frame_time;
 static bool capture_aa_purchase_events = false;
+static bool capture_release_transport = false;
+void NightcapBalanceCaptureReleaseTransport() { capture_release_transport = true; }
 static json aa_purchase_events = json::array();
 void NightcapBalanceCaptureAAPurchaseEvents() { capture_aa_purchase_events = true; }
 json NightcapBalanceAAPurchaseEvents() { return aa_purchase_events; }
@@ -91,6 +93,12 @@ void NightcapBalanceStartClock()
 class BalanceStream : public EQStreamInterface {
 public:
 	RegularOpcodeManager opcode_manager;
+	Client *release_owner = nullptr;
+	json release_publication = nullptr;
+	json release_skill_packets = json::array();
+	uint32 release_clear_packets = 0;
+	uint32 release_table_packets = 0;
+	bool release_table_before_clear = false;
 	uint64_t outgoing = 0;
 	bool capture_messages = false;
 	bool capture_damage_type = false;
@@ -100,6 +108,32 @@ public:
 	void QueuePacket(const EQApplicationPacket *p, bool = true) override
 	{
 		++outgoing;
+		if (release_owner && (p->GetOpcode() == OP_ClearAA || p->GetOpcode() == OP_SendAATable || p->GetOpcode() == OP_SkillUpdate || p->GetOpcode() == OP_RespondAA || p->GetOpcode() == OP_AAExpUpdate)) {
+			if (release_publication.is_null()) {
+				auto snapshot = database.QueryDatabase(fmt::format(
+					"SELECT @@in_transaction,COALESCE(m.class2,0),COALESCE(m.class3,0),c.aa_points,c.aa_points_spent,c.e_expended_aa_spent,"
+					"(SELECT COUNT(*) FROM character_alternate_abilities a WHERE a.id=c.id) FROM character_data c "
+					"JOIN character_multiclass m ON m.character_id=c.id WHERE c.id={}", release_owner->CharacterID()), false);
+				if (!snapshot.Success() || snapshot.RowCount() != 1) { throw std::runtime_error("Cannot inspect release publication"); }
+				auto row = snapshot.begin();
+				release_publication = {{"in_transaction",Strings::ToUnsignedInt(row[0])},
+					{"classes",{release_owner->GetClass(),Strings::ToUnsignedInt(row[1]),Strings::ToUnsignedInt(row[2])}},
+					{"points",{{"wallet",Strings::ToUnsignedInt(row[3])},{"spent",Strings::ToUnsignedInt(row[4])},{"expended",Strings::ToUnsignedInt(row[5])}}},
+					{"aa_rows",Strings::ToUnsignedInt(row[6])},{"skills",json::array()}};
+				auto skills = database.QueryDatabase(fmt::format("SELECT skill_id,value FROM character_skills WHERE id={} ORDER BY skill_id",release_owner->CharacterID()), false);
+				if (!skills.Success()) { throw std::runtime_error("Cannot inspect skill publication"); }
+				for (auto skill : skills) { release_publication["skills"].push_back({{"id",Strings::ToUnsignedInt(skill[0])},{"value",Strings::ToUnsignedInt(skill[1])}}); }
+			}
+			if (p->GetOpcode() == OP_ClearAA) { ++release_clear_packets; }
+			if (p->GetOpcode() == OP_SendAATable) {
+				if (!release_clear_packets) { release_table_before_clear = true; }
+				++release_table_packets;
+			}
+			if (p->GetOpcode() == OP_SkillUpdate && p->size == sizeof(SkillUpdate_Struct)) {
+				auto skill = reinterpret_cast<const SkillUpdate_Struct *>(p->pBuffer);
+				release_skill_packets.push_back({{"id",skill->skillId},{"value",skill->value}});
+			}
+		}
 		if (events.size() >= 50000) { throw std::runtime_error("Packet trace limit exceeded"); }
 		if (p->GetOpcode() == OP_Damage && p->size == sizeof(CombatDamage_Struct)) {
 			auto *d = reinterpret_cast<const CombatDamage_Struct *>(p->pBuffer);
@@ -160,10 +194,28 @@ bool NightcapBalanceRecordDeath(Mob *mob)
 }
 EQStreamInterface *NightcapBalanceStream(Client *client)
 {
-	if (!virtual_clock) { return nullptr; }
+	if (!virtual_clock && !capture_release_transport) { return nullptr; }
 	auto *stream = new BalanceStream();
+	if (capture_release_transport) { stream->release_owner = client; }
 	streams.emplace(client,stream);
 	return stream;
+}
+
+
+void NightcapBalanceResetReleasePackets(Client *client)
+{
+	auto *stream = streams.at(client);
+	stream->release_publication = nullptr;
+	stream->release_skill_packets = json::array();
+	stream->release_clear_packets = stream->release_table_packets = 0;
+	stream->release_table_before_clear = false;
+}
+json NightcapBalanceReleasePackets(Client *client)
+{
+	auto *stream = streams.at(client);
+	return {{"publication",stream->release_publication},{"clear_packets",stream->release_clear_packets},
+		{"table_packets",stream->release_table_packets},{"table_before_clear",stream->release_table_before_clear},{"skill_packets",stream->release_skill_packets},
+		{"transport_closed",stream->GetState() == CLOSED}};
 }
 
 json NightcapBalanceRuntimeProbe(Client *c)

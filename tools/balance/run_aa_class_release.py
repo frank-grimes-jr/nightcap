@@ -12,13 +12,17 @@ TRIGGER='nightcap_class_release_failure'
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--phase',choices=('before','after'),required=True)
+    parser.add_argument('--persisted-skills',action='store_true',help='Load actual fixture skills instead of synthetic combat caps')
     args=parser.parse_args()
     if io.DATABASE!='nightcap_balance_20260912' or any(counts().values()):
         raise ValueError('Only the empty isolated balance character/AA fixtures are allowed')
     if int(io.sql("SELECT COUNT(*) FROM information_schema.TRIGGERS WHERE TRIGGER_SCHEMA='"+io.DATABASE+"' AND TRIGGER_NAME='"+TRIGGER+"';").strip()):
         raise ValueError('Prior failure trigger exists')
-    io.RUNTIME='/tmp/nightcap-balance-aa-release-'+args.phase+'-20260913'
+    runtime_phase='matched-before' if args.phase=='before' and args.persisted_skills else args.phase
+    io.RUNTIME='/tmp/nightcap-balance-aa-release-'+runtime_phase+'-20260913'
     controls=cases(read_json(io.DOCS/'gear-source-inputs.json'))
+    if args.persisted_skills:
+        for case in controls: case['input']['aa_ownership_probe']['load_release_skills']=True
     catalog=io.digest(io.dump_tables())
     classes=io.sql('SELECT id,character_id,class2,class3,applied_at FROM character_multiclass ORDER BY character_id;')
     skills=io.sql('SELECT id,skill_id,value FROM character_skills ORDER BY id,skill_id;')
@@ -62,11 +66,11 @@ def main():
            'skills_unchanged':io.sql('SELECT id,skill_id,value FROM character_skills ORDER BY id,skill_id;')==skills,
            'catalog_sha256':catalog,
            'failure_trigger_remaining':int(io.sql("SELECT COUNT(*) FROM information_schema.TRIGGERS WHERE TRIGGER_SCHEMA='"+io.DATABASE+"' AND TRIGGER_NAME='"+TRIGGER+"';").strip())}
-    stem='aa-release-'+args.phase
+    stem='aa-release-'+('matched-' if args.persisted_skills else '')+args.phase
     io.write(io.DOCS/(stem+'-inputs.json'),{'cases':controls})
     io.write(io.DOCS/(stem+'-build.json'),build)
     io.write(io.DOCS/(stem+'.json.gz'),{'binary_sha256':binary,'cases':results,'final':final,
-             'scope':'Native purge plus current quest SQL sequence, or native atomic slot entry when present. Synthetic rows; ClientDataLoaded is false so the old general Save exits early. Failure counters distinguish armed from executed injections. No quest interpreter, reconnect, or skill-state simulation.'})
+             'persisted_skill_fixture':args.persisted_skills,'scope':'Native purge plus current quest SQL sequence, or native atomic slot entry when present. Synthetic rows; ClientDataLoaded is false so the old general Save exits early. Failure counters distinguish armed from executed injections. No quest interpreter, reconnect, or skill-state simulation.'})
     if final['failure_trigger_remaining'] or any(final['remaining_rows'].values()) or not all(final[k] for k in ('catalog_unchanged','class_values_restored','skills_unchanged')):
         raise ValueError('Clone restoration failed')
     if any(r['assessment']['passed']!=(args.phase=='after' or c['expected_before_pass']) for r,c in zip(results,controls)):

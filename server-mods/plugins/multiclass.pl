@@ -1,8 +1,8 @@
 # ==============================================================================
 # plugin::multiclass — core of the Nightcap multiclass system (ADR 0003)
 #
-# ALL multiclass state changes live here. NPC scripts (The Ancient Chronicler)
-# are thin dialog layers; any future front-end calls these same subs.
+# NPC scripts (The Ancient Chronicler) call these dialogue-facing operations.
+# Release persistence belongs to the native atomic ReleaseMulticlassSlot method.
 #
 # State: character_multiclass (class2, class3) — the ONLY authority. The zone
 # binary's LoadMulticlassMask() reads it on zone-in for AA access. qglobals are
@@ -152,38 +152,20 @@ sub mc_apply_class {
                "to the character screen for every change to take hold.");
 }
 
-# Release a slot (2 or 3). Slot 3 promotes into slot 2 when 2 is freed.
-# After the table update, PurgeAfterClassRelease (C++) refunds+strips the AAs and
-# resets the skills the retained classes can no longer use, on the live session.
-# Spells are NOT stripped: global spell-access widening (#17) blocks per-character
-# spell revocation until the client DLL lands (#18/#12).
+# Native release commits slots, earned AA refunds and skill clamps together.
+# Requires the matching server binary; never fall back to a separate SQL write.
 sub mc_revoke_slot {
     my ($client, $slot) = @_;
-    my $char_id = $client->CharacterID();
-    my ($c2, $c3) = plugin::mc_get_classes($char_id);
+    return (0, 'Choose discipline slot 2 or 3.') unless defined($slot) && $slot =~ /\A[23]\z/;
+    return (0, 'Discipline release is unavailable. Please contact the server operator.')
+        unless $client->can('ReleaseMulticlassSlot');
+    my ($c2, $c3) = plugin::mc_get_classes($client->CharacterID());
     my $revoked = $slot == 2 ? $c2 : $c3;
     return (0, 'That discipline slot is already empty.') unless $revoked;
-
-    my $db = Database->new();
-    if ($slot == 2 && $c3) {
-        my $sth = $db->prepare(
-            "UPDATE character_multiclass SET class2 = ?, class3 = NULL WHERE character_id = ?"
-        );
-        $sth->execute($c3, $char_id);
-    } elsif ($slot == 2) {
-        my $sth = $db->prepare("UPDATE character_multiclass SET class2 = NULL WHERE character_id = ?");
-        $sth->execute($char_id);
-    } else {
-        my $sth = $db->prepare("UPDATE character_multiclass SET class3 = NULL WHERE character_id = ?");
-        $sth->execute($char_id);
-    }
-
-    # Strip the released class's AAs, refund AA points, and clamp/remove skills against
-    # the retained classes' canonical caps. Spells remain blocked on the client patch.
-    $client->PurgeAfterClassRelease($revoked);
-
+    my $saved = eval { $client->ReleaseMulticlassSlot($slot) };
+    return (0, 'The discipline release could not be confirmed. Please reconnect before trying again.') unless $saved;
     return (1, "Your $MC_CLASS_NAMES{$revoked} discipline has been released. " .
-               "Its alternate abilities were removed and your spent AA points refunded.");
+               "Class-only alternate abilities were removed and eligible AA points refunded.");
 }
 
 1;

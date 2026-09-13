@@ -57,6 +57,16 @@ All commands run from `akk-stack/`:
 - **Era lock is declarative**: `era.json` (repo root) is the source of truth; `tools/apply-era.ps1` applies it idempotently (+`-Check` for drift, `-CapCharacters` to de-level). Change era = edit era.json, commit, run the script. Do not set expansion rules by hand or via the GM tool.
 - **DB backups**: `tools/backup-peq.ps1`, scheduled daily 04:00 (task `NightcapPeqBackup`), 14-day retention, includes the era drift check. Take a manual backup before destructive SQL.
 
+### Multiclass release candidate
+
+The AA ownership feature uses `Client::ReleaseMulticlassSlot(slot)` to commit
+class slots, canonical AA refunds and skill clamps together. Quest code must
+check the boolean result and must not update `character_multiclass` before
+calling the retired `PurgeAfterClassRelease` API. Deploy the matching binary and
+multiclass plugin together. The candidate is not promoted: native session
+recovery and in-game QA gates are tracked in
+`docs/balance/native-aa-class-release-candidate.md`.
+
 ## Non-obvious gotchas
 
 - MariaDB is always on **port 3307**, not the default 3306

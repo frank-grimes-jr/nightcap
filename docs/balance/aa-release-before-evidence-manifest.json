@@ -8,7 +8,7 @@
     "docs/balance/aa-release-before-source.tar.gz": "7d6534eb5082c1d8eb13d54a4fc92303d29fbce6bd06f611eabce51c2d596625",
     "docs/balance/aa-toggle-catalog-audit.json": "468594f32abd1bd26f55562d3b8e7b0da018c9636ff2063e9abb4b4456bc308a",
     "docs/balance/native-aa-class-release.md": "27f38be08ec1e05cc3c68c22f0157319e81ecc3a6f31f15dd31fd8cc4339a760",
-    "docs/adr/0026-atomic-multiclass-release.md": "119d0118ec0e59153a653aba0b93cfbb4d5b8efcceb0aabedd0b4cc36bdcca61",
+    "docs/adr/0026-atomic-multiclass-release.md": "25114b1cc92a867ec94abe63d9612fbda68aac3e571cd5ae65eb7233eedc542c",
     "docs/balance/aa-release-before-python-tests.log": "3df5c317bb34105f6e27efb4c59b9207c31fb01cd2a7cd461b88ecc06874f599"
   }
 }

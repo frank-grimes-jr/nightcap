@@ -52,6 +52,7 @@ extern WorldServer worldserver;
 extern EntityList entity_list;
 
 bool Client::Process() {
+	if (!m_multiclass_state_valid) { OnDisconnect(true); return false; }
 	bool ret = true;
 
 	if (Connected() || IsLD()) {
@@ -616,6 +617,9 @@ bool Client::Process() {
 			safe_delete(app);
 		}
 	}
+
+	// A class commit failure must not enter the normal linkdead/AI path.
+	if (!m_multiclass_state_valid) { OnDisconnect(true); return false; }
 
 	ClientToNpcAggroProcess();
 

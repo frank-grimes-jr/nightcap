@@ -12,3 +12,7 @@ bool NightcapBalanceRecordDeath(Mob *mob);
 bool NightcapBalanceIsTerminal(Mob *mob);
 nlohmann::json NightcapBalanceEncounter(Client *client, const nlohmann::json &input);
 nlohmann::json NightcapBalanceClientCombatState(Client *client);
+
+void NightcapBalanceCaptureReleaseTransport();
+void NightcapBalanceResetReleasePackets(Client *client);
+nlohmann::json NightcapBalanceReleasePackets(Client *client);

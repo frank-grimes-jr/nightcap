@@ -1,5 +1,21 @@
 # CHANGES
 
+## 2026-09-13 - Implement atomic class-release candidate
+
+The AA feature branch now stages and transactionally saves discipline slots,
+canonical earned-AA refunds, counters, and retained-class skill clamps. The
+matching Perl plugin uses one native boolean call. Signed slot validation and
+conditional class selection close the Lua narrowing and stale-slot bypasses.
+Failed class changes invalidate the session and terminate processing before
+linkdead AI; the legacy non-atomic purge path is retired.
+
+Candidate only; no deployment or promotion. Forty native cases (131 operations),
+87 C++ tests, 348 Python tests and 15 actual Perl assertions pass. Matched before-state evidence
+retains six expected failures. Client packet ordering, native passive-bonus removal,
+rollback and clone restoration are verified. Initial test fixture failures are
+retained; actual disconnect/reconnect/uncertain-COMMIT recovery and in-game QA
+remain gates. See docs/balance/native-aa-class-release-candidate.md.
+
 ## 2026-09-13 - Reproduce earned-AA class-release inconsistencies
 
 Added seven native before-state controls (36 operations) for class release on the

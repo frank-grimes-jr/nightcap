@@ -74,6 +74,10 @@ bool NightcapBalancePreflight(int argc, char **argv)
 			if (!profile_save_fixture) { throw std::runtime_error("Purchase event capture requires an explicit profile fixture"); }
 			NightcapBalanceCaptureAAPurchaseEvents();
 		}
+		if (fixture.value("capture_class_release_transport", false)) {
+			if (!profile_save_fixture || !fixture.contains("aa_ownership_probe")) { throw std::runtime_error("Release transport requires an ownership fixture"); }
+			NightcapBalanceCaptureReleaseTransport();
+		}
 		return true;
 	} catch (const std::exception &e) {
 		std::cerr << "Balance preflight refused: " << e.what() << std::endl;
@@ -289,7 +293,7 @@ public:
 	}
 
 	template <typename T>
-	static bool ReleaseSlotForProbe(T &client, uint8 slot)
+	static bool ReleaseSlotForProbe(T &client, int slot)
 	{
 		if constexpr (requires { client.ReleaseMulticlassSlot(slot); }) {
 			return client.ReleaseMulticlassSlot(slot);
@@ -317,6 +321,16 @@ public:
 		if (profile_save_fixture) {
 			strn0cpy(GetPP().name, "AA_Lifecycle_Probe", sizeof(GetPP().name));
 		}
+		if (input.value("load_release_skills", false)) {
+			std::fill(std::begin(GetPP().skills), std::end(GetPP().skills), 0);
+			auto skills = database.QueryDatabase(fmt::format("SELECT skill_id,value FROM character_skills WHERE id={}", CharacterID()));
+			if (!skills.Success()) { throw std::runtime_error("Cannot load release skill fixture"); }
+			for (auto row : skills) {
+				const auto skill = Strings::ToUnsignedInt(row[0]), value = Strings::ToUnsignedInt(row[1]);
+				if (skill > EQ::skills::HIGHEST_SKILL || value > UINT16_MAX) { throw std::runtime_error("Invalid skill fixture"); }
+				GetPP().skills[skill] = value;
+			}
+		}
 		const uint32 watched = input.at("first_rank_id");
 		const uint32 original_expansions = GetPP().expansions;
 		if (input.contains("initial_spent_points")) {
@@ -326,6 +340,7 @@ public:
 		json steps = json::array();
 		for (const auto &operation : input.at("operations")) {
 			const auto name = operation.get<std::string>();
+			if (input.value("inspect_release_packets", false)) { NightcapBalanceResetReleasePackets(this); }
 			bool success = false;
 			if (name == "load") { success = database.LoadAlternateAdvancement(this); }
 			else if (name == "save") { success = SaveAA(); }
@@ -339,9 +354,32 @@ public:
 					success = GrantAlternateAdvancementAbility(ability->id, input.value("grant_rank_count", 1), input.value("ignore_cost", true));
 				} else { FinishAlternateAdvancementPurchase(rank, true, false); success = true; }
 			}
-			else if (name == "release_second" || name == "release_third") {
+			else if (name == "release_second" || name == "release_third" || name == "release_slot") {
 				if (!profile_save_fixture) { throw std::runtime_error("Class release requires an explicit profile fixture"); }
-				success = ReleaseSlotForProbe(*this, name == "release_second" ? 2 : 3);
+				success = ReleaseSlotForProbe(*this, name == "release_slot" ? input.at("release_slot").get<int>() : name == "release_second" ? 2 : 3);
+			}
+			else if (name == "set_class_slot") {
+				SetMulticlassSlot(input.at("set_slot").get<int>(), input.at("set_class").get<int>());
+				success = true; // Void setter; persisted/loaded state determines acceptance.
+			}
+			else if (name == "stale_release_classes") {
+				const auto held = input.at("stale_classes").get<std::vector<int>>();
+				if (held.size() != 2 || held[0] < 0 || held[0] > 16 || held[1] < 0 || held[1] > 16) { throw std::runtime_error("Invalid stale class fixture"); }
+				const auto old2 = GetClass2(), old3 = GetClass3();
+				// Load a reviewed synthetic class state, then model an external DB
+				// change by restoring storage while the session retains that state.
+				auto changed = database.QueryDatabase(fmt::format("UPDATE character_multiclass SET class2={},class3={} WHERE character_id={}", held[0], held[1], CharacterID()), false);
+				if (!changed.Success() || changed.RowsAffected() != 1) { throw std::runtime_error("Cannot prepare stale class fixture"); }
+				LoadMulticlassMask();
+				auto restored = database.QueryDatabase(fmt::format("UPDATE character_multiclass SET class2={},class3={} WHERE character_id={}", old2, old3, CharacterID()), false);
+				if (!restored.Success() || restored.RowsAffected() != 1 || GetClass2() != held[0] || GetClass3() != held[1]) { throw std::runtime_error("Cannot restore stale class fixture"); }
+				success = true;
+			}
+			else if (name == "stale_release_skill") {
+				const auto skill = input.at("stale_skill").get<int>();
+				if (skill < 0 || skill > EQ::skills::HIGHEST_SKILL) { throw std::runtime_error("Invalid stale skill fixture"); }
+				GetPP().skills[skill]++;
+				success = true;
 			}
 			else if (name == "refund_all") { RefundAA(); success = true; }
 			else if (name == "reset_all") { ResetAA(); success = true; }
@@ -382,6 +420,7 @@ public:
 			if (!success && std::find(allowed_failures.begin(), allowed_failures.end(), name) == allowed_failures.end()) {
 				throw std::runtime_error("Native ownership operation failed: " + name);
 			}
+			const json before_recalculation = {{"spell_crit",GetAABonuses().CriticalSpellChance},{"hp_percent",GetAABonuses().PercentMaxHPChange}};
 			CalcBonuses();
 			json profile = json::array(), stored = json::array();
 			for (const auto &entry : GetPP().aa_array) {
@@ -424,6 +463,24 @@ public:
 				auto row = classes.begin();
 				steps.back()["loaded_classes"] = {GetClass(),GetClass2(),GetClass3()};
 				steps.back()["client_data_loaded"] = ClientDataLoaded();
+				if (input.value("inspect_release_details", false)) {
+					steps.back()["class_mask"] = GetClassMask();
+					if (input.value("inspect_release_packets", false)) { steps.back()["release_packets"] = NightcapBalanceReleasePackets(this); }
+					steps.back()["connected"] = Connected();
+					steps.back()["session_exited"] = !Connected() && !InZone() && !IsLD();
+					steps.back()["bonuses_before_recalculation"] = before_recalculation;
+					steps.back()["bonuses_after_recalculation"] = {{"spell_crit",GetAABonuses().CriticalSpellChance},{"hp_percent",GetAABonuses().PercentMaxHPChange}};
+					steps.back()["loaded_skills"] = json::array();
+					for (const auto &skill : input.at("watched_skills")) {
+						steps.back()["loaded_skills"].push_back({{"id",skill},{"value",GetRawSkill(static_cast<EQ::skills::SkillType>(skill.get<int>()))}});
+					}
+					auto skills = database.QueryDatabase(fmt::format("SELECT skill_id,value FROM character_skills WHERE id={} ORDER BY skill_id", CharacterID()));
+					if (!skills.Success()) { throw std::runtime_error("Cannot inspect release skills"); }
+					steps.back()["saved_skills"] = json::array();
+					for (auto skill : skills) {
+						steps.back()["saved_skills"].push_back({{"id",Strings::ToUnsignedInt(skill[0])},{"value",Strings::ToUnsignedInt(skill[1])}});
+					}
+				}
 				steps.back()["saved_classes"] = {GetClass(),Strings::ToUnsignedInt(row[0]),Strings::ToUnsignedInt(row[1])};
 				auto failures = database.QueryDatabase(std::string("SELECT COALESCE(@nightcap_class_release_failures,0)"));
 				if (!failures.Success() || failures.RowCount() != 1) { throw std::runtime_error("Cannot inspect release failure injection"); }

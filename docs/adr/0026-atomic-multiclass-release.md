@@ -1,7 +1,9 @@
 # ADR 0026: Atomic multiclass release
 
-Date: 2026-09-13. Status: design accepted for implementation; native before
-controls reproduce failures. The atomic implementation is not present yet.
+Date: 2026-09-13. The design and before-state evidence were recorded at eedc168.
+Current status: candidate implemented on feature/aa-ownership; verification and
+remaining gates are tracked in ../balance/native-aa-class-release-candidate.md.
+No deployment or promotion has occurred.
 
 ## Problem and required result
 

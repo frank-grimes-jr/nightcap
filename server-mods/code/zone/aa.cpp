@@ -74,8 +74,15 @@ void Client::LoadMulticlassMask() {
 	if (m_class3 > 0) m_multiclass_mask |= (1 << m_class3);
 }
 
-void Client::SetMulticlassSlot(uint8 slot, uint8 class_id) {
-	if (slot < 2 || slot > 3) return;
+void Client::SetMulticlassSlot(int slot, int class_id) {
+	if (!m_multiclass_state_valid || slot < 2 || slot > 3 || class_id < 0 || class_id > 16) { return; }
+	if (!class_id) { ReleaseMulticlassSlot(slot); return; }
+	const auto selected = slot == 2 ? m_class2 : m_class3;
+	if (selected == class_id) { return; }
+	if (selected) {
+		Message(Chat::Red, "Release the current discipline before selecting another class.");
+		return;
+	}
 	if (class_id == GetClass()) {
 		Message(Chat::Red, "You cannot select your primary class as an additional class.");
 		return;
@@ -88,25 +95,23 @@ void Client::SetMulticlassSlot(uint8 slot, uint8 class_id) {
 	}
 
 	const char *col = (slot == 2) ? "class2" : "class3";
-	auto check = database.QueryDatabase(
-		StringFormat("SELECT id FROM character_multiclass WHERE character_id = %u", CharacterID())
-	);
-	if (!check.Success() || check.RowCount() == 0) {
-		database.QueryDatabase(StringFormat(
-			"INSERT INTO character_multiclass (character_id, class2, class3) VALUES (%u, %u, 0)",
-			CharacterID(), slot == 2 ? class_id : 0
-		));
-		if (slot == 3) {
-			database.QueryDatabase(StringFormat(
-				"UPDATE character_multiclass SET class3 = %u WHERE character_id = %u",
-				class_id, CharacterID()
-			));
-		}
+	auto check = database.QueryDatabase(fmt::format(
+		"SELECT COALESCE(class2,0),COALESCE(class3,0) FROM character_multiclass WHERE character_id={}", CharacterID()), false);
+	if (!check.Success() || check.RowCount() > 1) { InvalidateMulticlassState(); return; }
+	if (!check.RowCount()) {
+		if (m_class2 || m_class3) { InvalidateMulticlassState(); return; }
+		auto inserted = database.QueryDatabase(fmt::format(
+			"INSERT INTO character_multiclass (character_id,class2,class3) VALUES ({},{},{})",
+			CharacterID(), slot == 2 ? class_id : 0, slot == 3 ? class_id : 0), false);
+		if (!inserted.Success() || inserted.RowsAffected() != 1) { InvalidateMulticlassState(); return; }
 	} else {
-		database.QueryDatabase(StringFormat(
-			"UPDATE character_multiclass SET %s = %u WHERE character_id = %u",
-			col, class_id, CharacterID()
-		));
+		if (Strings::ToUnsignedInt(check.begin()[0]) != m_class2 || Strings::ToUnsignedInt(check.begin()[1]) != m_class3) {
+			InvalidateMulticlassState(); return;
+		}
+		auto changed = database.QueryDatabase(fmt::format(
+			"UPDATE character_multiclass SET {}={} WHERE character_id={} AND COALESCE(class2,0)={} AND COALESCE(class3,0)={}",
+			col, class_id, CharacterID(), m_class2, m_class3), false);
+		if (!changed.Success() || changed.RowsAffected() != 1) { InvalidateMulticlassState(); return; }
 	}
 
 	ReconcileMulticlassSkills();
@@ -918,78 +923,81 @@ bool Client::RefundAA() {
 	return true;
 }
 
-// Multiclass: called right after a discipline slot is released (character_multiclass
-// already updated). Refunds + strips the AAs and resets the skills the character can no
-// longer access under its remaining class mask. Operates on the live session, so the
-// change is visible without a relog.
-//
-// Spells are intentionally NOT touched here: global spell-access widening (issue #17)
-// makes per-character spell revocation impossible until the client DLL removes the need
-// for it (#18 / #12).
-void Client::PurgeAfterClassRelease(uint8 released_class) {
-	LoadMulticlassMask();                       // recompute mask from the updated DB row
-	const uint32 mask = GetClassMask();         // client format: bit N = class N
+// All durable changes are staged against the session's earned ownership and
+// retained classes. Expansion suspension must not erase a paid refund entitlement.
+bool Client::ReleaseMulticlassSlot(int slot)
+{
+	if (!m_multiclass_state_valid || !HasValidEarnedAAState() || (slot != 2 && slot != 3)) { return false; }
+	const auto primary = GetClass();
+	if (primary < 1 || primary > 16 || m_class2 > 16 || m_class3 > 16 ||
+		(m_class2 && m_class2 == primary) || (m_class3 && m_class3 == primary) ||
+		(m_class2 && m_class2 == m_class3)) { return false; }
+	if (!(slot == 2 ? m_class2 : m_class3)) { return false; }
 
-	// --- AAs: refund total_cost and remove any no longer accessible under the mask ---
-	int refunded = 0;
-	auto it = aa_ranks.begin();
-	while (it != aa_ranks.end()) {
-		auto ability_rank = zone->GetAlternateAdvancementAbilityAndRank(it->first, it->second.first);
-		auto ability      = ability_rank.first;
-		auto rank         = ability_rank.second;
-
-		if (!ability) { ++it; continue; }
-		if (ability->classes & mask) { ++it; continue; }   // still accessible: keep
-
-		if (!ability->grant_only && rank) {
-			refunded += rank->total_cost;                  // purchased points come back
+	MulticlassReleaseState release = {};
+	release.old_class2 = m_class2;
+	release.old_class3 = m_class3;
+	release.class2 = slot == 2 ? m_class3 : m_class2;
+	release.class3 = 0;
+	release.mask = (1u << primary) | (release.class2 ? 1u << release.class2 : 0);
+	auto earned = m_earned_aa_ranks;
+	auto usable = aa_ranks;
+	uint64 wallet = GetAAPoints();
+	for (auto it = earned.begin(); it != earned.end();) {
+		auto ability = zone->GetAlternateAdvancementAbilityByRank(it->first);
+		auto rank = ability ? ability->GetRankByPointsSpent(it->second.first) : nullptr;
+		if (!ability || ability->first_rank_id != it->first || !rank ||
+			rank->current_value != it->second.first || rank->total_cost < 0) {
+			InvalidateMulticlassState();
+			return false;
 		}
-		it = aa_ranks.erase(it);
+		if (ability->classes & release.mask) { ++it; continue; }
+		if (!ability->grant_only && (ability->charges < 1 || it->second.second > 0)) {
+			wallet += rank->total_cost;
+			if (wallet > UINT32_MAX) { return false; }
+		}
+		usable.erase(ability->id);
+		it = earned.erase(it);
 	}
-	if (refunded > 0) {
-		m_pp.aapoints += refunded;
-	}
-
-	// --- Skills: cap each trained skill at the best cap the RETAINED classes allow.
-	// The canonical skill_caps baseline keeps this character-scoped: a skill unique to
-	// the released class drops to zero, a shared skill above its retained cap is clamped,
-	// and a shared skill already at or below that cap keeps its value.
-	const uint8 level = GetLevel();
 	for (const auto &entry : EQ::skills::GetSkillTypeMap()) {
-		const EQ::skills::SkillType skill = entry.first;
+		const auto skill = entry.first;
+		uint16 cap = SkillCaps::Instance()->GetSkillCap(primary, skill, GetLevel()).cap;
+		if (release.class2) {
+			const uint16 other_cap = SkillCaps::Instance()->GetSkillCap(release.class2, skill, GetLevel()).cap;
+			cap = std::max(cap, other_cap);
+		}
 		const uint16 current = GetRawSkill(skill);
-		if (current == 0) {
-			continue;
-		}
-		uint16 retained_cap = 0;
-		for (uint8 c : GetMulticlassList()) {
-			const uint16 cap = SkillCaps::Instance()->GetSkillCap(c, skill, level).cap;
-			if (cap > retained_cap) {
-				retained_cap = cap;
-			}
-		}
-		if (current > retained_cap) {
-			SetSkill(skill, retained_cap);
-		}
+		release.skills.push_back({skill, current, std::min(current, cap)});
 	}
-
-	LogInfo("[PurgeAfterClassRelease] [{}] released class [{}]: refunded [{}] AA points",
-		GetName(), released_class, refunded);
-
-	// SaveAA rewrites survivors with REPLACE INTO but never DELETEs the rows we removed
-	// (they'd reload on relog). Wipe the character's AA rows first, like ResetAA, then let
-	// SaveAA re-insert the survivors.
-	database.DeleteCharacterAAs(CharacterID());
-	SaveAA();
-	Save();
-	// The RoF2 client never drops an AA from the window on its own; resending the table
-	// only adds/updates. Clear the whole client-side AA list (OP_ClearAA), then repopulate
-	// with just the accessible (retained-class) AAs so the stripped ones disappear now,
-	// no relog needed. Matches ResetAA's approach.
+	const auto refund = wallet - GetAAPoints();
+	if (!PersistEarnedAAState(std::move(earned), std::move(usable), static_cast<uint32>(wallet), m_epp.expended_aa, &release)) {
+		InvalidateMulticlassState();
+		return false;
+	}
+	// Persistence published slots, raw skills, ownership and profile together.
+	// No SetSkill/Save calls or second DB class read may follow the commit.
+	CalcBonuses();
+	for (const auto &skill : release.skills) {
+		if (skill.before == skill.after) { continue; }
+		auto outapp = new EQApplicationPacket(OP_SkillUpdate, sizeof(SkillUpdate_Struct));
+		auto update = reinterpret_cast<SkillUpdate_Struct *>(outapp->pBuffer);
+		update->skillId = skill.skill;
+		update->value = skill.after;
+		QueuePacket(outapp);
+		safe_delete(outapp);
+	}
 	SendClearPlayerAA();
-	SendAlternateAdvancementTable();
+	SendLoadedAlternateAdvancementTable();
 	SendAlternateAdvancementPoints();
 	SendAlternateAdvancementStats();
+	LogInfo("[ReleaseMulticlassSlot] [{}] released slot [{}]: refunded [{}] AA points", CharacterID(), slot, refund);
+	return true;
+}
+
+void Client::PurgeAfterClassRelease(uint8 released_class)
+{
+	LogError("Retired non-atomic class release called for [{}], class [{}]; deploy the matching multiclass plugin", CharacterID(), released_class);
+	InvalidateMulticlassState();
 }
 
 SwarmPet::SwarmPet()
@@ -1014,6 +1022,10 @@ Mob *SwarmPet::GetOwner()
 //New AA
 void Client::SendAlternateAdvancementTable() {
 	LoadMulticlassMask();
+	SendLoadedAlternateAdvancementTable();
+}
+
+void Client::SendLoadedAlternateAdvancementTable() {
 	for(auto &aa : zone->aa_abilities) {
 		uint32 charges = 0;
 		auto ranks = GetAA(aa.second->first_rank_id, &charges);

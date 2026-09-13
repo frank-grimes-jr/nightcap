@@ -19,10 +19,14 @@ def trigger_count():
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--phase', required=True, choices=('before', 'after'))
+    parser.add_argument('--release-candidate', action='store_true', help='Verify purchases against the isolated release candidate')
     args = parser.parse_args()
     if io.DATABASE != 'nightcap_balance_20260912' or any(counts().values()) or trigger_count():
         raise ValueError('Only the empty isolated balance clone without a failure trigger is allowed')
     io.RUNTIME = '/tmp/nightcap-balance-aa-purchase-' + args.phase + '-20260913'
+    if args.release_candidate:
+        if args.phase != 'after': raise ValueError('Release candidate requires after expectations')
+        io.RUNTIME = '/tmp/nightcap-balance-aa-release-after-20260913'
     original = io.digest(io.dump_tables())
     build = json.loads(io.command(['docker', 'exec', io.SERVER, 'cat', io.RUNTIME + '/native-build-manifest.json']))
     binary = io.command(['docker', 'exec', io.SERVER, 'sha256sum', io.RUNTIME + '/balance-zone']).decode().split()[0]
@@ -68,7 +72,7 @@ def main():
              'original_tables_sha256': original, 'failure_trigger_remaining': trigger_count()}
     if any(final['remaining_rows'].values()) or not final['full_catalog_unchanged'] or final['failure_trigger_remaining']:
         raise ValueError('Purchase cleanup or catalog verification failed')
-    stem = 'aa-purchase-' + args.phase
+    stem = 'aa-release-purchase-regression' if args.release_candidate else 'aa-purchase-' + args.phase
     io.write(io.DOCS / (stem + '-inputs.json'), {'cases': controls})
     io.write(io.DOCS / (stem + '-build.json'), build)
     io.write(io.DOCS / (stem + '.json.gz'), {'binary_sha256': binary, 'cases': results, 'final': final,

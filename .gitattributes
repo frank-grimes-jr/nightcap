@@ -124,3 +124,17 @@ tools/balance/aa_class_release_controls.py text eol=lf
 tools/balance/run_aa_class_release.py text eol=lf
 tools/balance/tests/test_aa_class_release*.py text eol=lf
 docs/balance/aa-release-before*.log -text -whitespace
+
+# Atomic class release candidate and retained build evidence.
+server-mods/code/zone/client_process.cpp text eol=lf
+server-mods/code/zone/lua_client.cpp text eol=lf
+server-mods/code/zone/perl_client.cpp text eol=lf
+tools/balance/aa_class_release_extended.py text eol=lf
+tools/balance/run_aa_class_release_extended.py text eol=lf
+docs/balance/aa-release-*.json -text
+docs/balance/aa-release-*.log -text -whitespace
+docs/balance/aa-release-build-runner.py text eol=lf
+docs/balance/native-aa-class-release-candidate.md text eol=lf
+AGENTS.md text eol=lf
+CHANGES.md text eol=lf
+docs/balance/aa-release-*.py text eol=lf
