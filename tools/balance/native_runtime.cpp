@@ -211,6 +211,118 @@ static json AABuffState(Client *c)
 		{"casting",c->CastingSpellID()},{"buffs",buffs}};
 }
 
+json NightcapBalancePetProbe(Client *c, const json &input)
+{
+	if (!virtual_clock || !c->Connected() || !c->ClientFinishedLoading() || c->GetGM()) {
+		throw std::runtime_error("Pet control requires a connected non-GM runtime client");
+	}
+	const auto &actions = input.at("actions");
+	if (!actions.is_array() || actions.empty() || actions.size() > 12) {
+		throw std::runtime_error("Pet control requires 1..12 actions");
+	}
+	zone->ReloadMaps();
+	if (!zone->zonemap || !zone->pathing || !zone->watermap) { throw std::runtime_error("Pet control requires native maps"); }
+	is_zone_loaded = true;
+	c->SetName("BalancePetOwner"); c->ChangeSize(6,true);
+	c->SetPosition(-861,-1395,104.879997);
+	c->SetHP(c->GetMaxHP()); c->Mob::SetMana(c->GetMaxMana());
+	entity_list.AddClient(c);
+	auto *stream = streams.at(c);
+	stream->capture_messages = true;
+	stream->capture_damage_type = true;
+	// Explicit inventory supplies; native completion performs reagent checks and consumption.
+	int supply_slot = EQ::invslot::GENERAL_BEGIN;
+	for (const auto &supply : input.value("reagents",json::array())) {
+		const int id = supply.at("id"), count = supply.at("count");
+		if ((id != 10015 && id != 13073 && id != 13080) || count < 1 || count > 20
+			|| supply_slot > EQ::invslot::GENERAL_END) { throw std::runtime_error("Invalid pet reagent supply"); }
+		std::unique_ptr<EQ::ItemInstance> item(database.CreateItem(id,count));
+		if (!item || c->GetInv().PutItem(supply_slot,*item) != supply_slot) { throw std::runtime_error("Pet reagent insertion failed"); }
+		++supply_slot;
+	}
+	auto state = [&]() {
+		json pets = json::array(), refs = json::array(), supplies = json::array();
+		for (int class_id : {10,11,13}) { refs.push_back({{"class",class_id},{"entity_id",c->GetClassPet(class_id)}}); }
+		for (const auto &entry : entity_list.GetNPCList()) {
+			auto *pet = entry.second;
+			json buffs = json::array();
+			for (int slot = 0; slot < pet->GetMaxTotalSlots(); ++slot) {
+				const auto &b = pet->GetBuffs()[slot];
+				if (IsValidSpell(b.spellid)) { buffs.push_back({{"spell",b.spellid},{"ticks",b.ticsremaining}}); }
+			}
+			pets.push_back({{"entity_id",pet->GetID()},{"npc_id",pet->GetNPCTypeID()},
+				{"owner_id",pet->GetOwnerID()},{"spell",pet->GetPetSpellID()},{"level",pet->GetLevel()},
+				{"hp",pet->GetHP()},{"max_hp",pet->GetMaxHP()},{"mana",pet->GetMana()},
+				{"ac",pet->GetAC()},{"atk",pet->GetATK()},{"haste",pet->GetHaste()},
+				{"min_damage",pet->GetMinDMG()},{"max_damage",pet->GetMaxDMG()},{"power",pet->GetPetPower()},
+				{"engaged",pet->IsEngaged()},{"depop",pet->GetDepop()},
+				{"position",{pet->GetX(),pet->GetY(),pet->GetZ()}},{"buffs",buffs}});
+		}
+		std::sort(pets.begin(),pets.end(),[](const json &a,const json &b) { return a.at("entity_id") < b.at("entity_id"); });
+		for (int slot = EQ::invslot::GENERAL_BEGIN; slot < supply_slot; ++slot) {
+			const auto *item = c->GetInv().GetItem(slot);
+			supplies.push_back({{"slot",slot},{"id",item ? item->GetID() : 0},{"count",item ? item->GetCharges() : 0}});
+		}
+		return json{{"ms",Timer::GetCurrentTime()},{"player",AABuffState(c)},
+			{"primary_pet",c->GetPetID()},{"class_pets",refs},{"pets",pets},{"reagents",supplies}};
+	};
+	auto process = [&]() {
+		Advance(50);
+		entity_list.MobProcess();
+		MobMovementManager::Get().Process();
+		if (!terminal.empty() || !c->Connected()) { throw std::runtime_error("Pet control lost its client"); }
+	};
+	json results = json::array();
+	const json initial = state();
+	for (const auto &action : actions) {
+		const int spell_id = action.at("spell");
+		if (spell_id != 633 && spell_id != 443 && spell_id != 166 && spell_id != 690 && spell_id != 107) {
+			throw std::runtime_error("Unsupported pet-control spell");
+		}
+		if (!IsValidSpell(spell_id) || c->GetSpellMinLevel(spell_id) > c->GetLevel()) {
+			throw std::runtime_error("Level-ineligible pet-control spell");
+		}
+		const int target_class = action.value("target_class",0);
+		Mob *target = c;
+		if (target_class) {
+			if (target_class != 13 && target_class != 11 && target_class != 10) { throw std::runtime_error("Unsupported pet target class"); }
+			target = entity_list.GetMob(target_class == 13 ? c->GetPetID() : c->GetClassPet(target_class));
+			if (!target) { throw std::runtime_error("Pet-control target is absent"); }
+		}
+		c->SetTarget(target);
+		c->GetPP().mem_spells[0] = spell_id;
+		const json before = state();
+		const bool accepted = c->CastSpell(spell_id,target->GetID(),static_cast<EQ::spells::CastingSlot>(0));
+		uint32 waited = 0;
+		do { process(); waited += 50; } while (c->IsCasting() && waited < 60000);
+		if (c->IsCasting()) { throw std::runtime_error("Pet-control cast exceeded time budget"); }
+		const json completed = state();
+		const uint32 settle = std::max<uint32>(1500,spells[spell_id].recovery_time + 50);
+		for (uint32 ms = 0; ms < settle; ms += 50) { process(); }
+		results.push_back({{"input",action},{"accepted",accepted},{"before",before},{"completed",completed},{"settled",state()}});
+	}
+	json owner_check;
+	if (input.contains("owner_lookup_control")) {
+		const std::string method = input.at("owner_lookup_control");
+		if (method != "owner" && method != "owner_or_self") { throw std::runtime_error("Unknown owner lookup control"); }
+		auto *pet = entity_list.GetMob(c->GetClassPet(11));
+		if (!pet) { throw std::runtime_error("Owner lookup control requires a surviving Necromancer pet"); }
+		owner_check = {{"method",method},{"pet_id",pet->GetID()},
+			{"registered_owner",pet->GetOwner() == c},{"registered_owner_or_self",pet->GetOwnerOrSelf() == c}};
+		// Negative control: a mere owner ID must not retain an unregistered pet.
+		c->RemoveClassPet(11);
+		auto *resolved = method == "owner" ? pet->GetOwner() : pet->GetOwnerOrSelf();
+		owner_check["unregistered_result"] = resolved ? resolved->GetID() : 0;
+		owner_check["unregistered_owner_id"] = pet->GetOwnerID();
+		owner_check["unregistered_depop"] = pet->CastToNPC()->GetDepop();
+	}
+	for (int ms = 0; ms < 12000; ms += 50) { process(); }
+	return {{"input",input},{"player_entity_id",c->GetID()},{"initial",initial},{"actions",results},
+		{"final",state()},{"events",stream->events},
+		{"owner_lookup_control",owner_check},
+		{"scope","Native cast completion, reagent inventory, entity processing and pet movement; no fabricated ownership or stats, no encounter claim"}};
+}
+
 static AA::Rank *ValidateActiveRank(Client *c, int rank_id)
 {
 	auto *r = zone->GetAlternateAdvancementRank(rank_id);

@@ -62,6 +62,8 @@ def main():
                         help='Compile a reviewed spells.cpp candidate inside this isolated runtime')
     parser.add_argument('--attack-source', type=Path,
                         help='Compile a reviewed attack.cpp candidate inside this isolated runtime')
+    parser.add_argument('--mob-source', type=Path,
+                        help='Compile a reviewed mob.cpp candidate inside this isolated runtime')
     parser.add_argument('--reuse-adapters', action='store_true',
                         help='Reuse manifest-verified main/client adapter objects; still compile harness/runtime')
     args = parser.parse_args()
@@ -120,6 +122,16 @@ def main():
         subprocess.run([link[0], *compile_flags, '-c', str(attack_candidate),
                         '-o', str(attack_candidate.with_suffix('.o'))], cwd=build, check=True)
         link[link.index(original_object)] = str(attack_candidate.with_suffix('.o'))
+    mob_candidate = args.mob_source.resolve() if args.mob_source else None
+    if mob_candidate:
+        if mob_candidate.parent != output or mob_candidate.suffix != '.cpp':
+            raise ValueError('The mob candidate must be a C++ file directly inside the isolated runtime')
+        original_object = 'CMakeFiles/zone.dir/mob.cpp.o'
+        if link.count(original_object) != 1:
+            raise ValueError('Unexpected native mob object link entry')
+        subprocess.run([link[0], *compile_flags, '-c', str(mob_candidate),
+                        '-o', str(mob_candidate.with_suffix('.o'))], cwd=build, check=True)
+        link[link.index(original_object)] = str(mob_candidate.with_suffix('.o'))
     old_main = 'CMakeFiles/zone.dir/main.cpp.o'
     if link.count(old_main) != 1 or link.count('-o') != 1:
         raise ValueError('Unexpected native link command')
@@ -159,6 +171,10 @@ def main():
         manifest['attack_candidate'] = {'source': str(attack_candidate),
                                       'sha256': digest(attack_candidate),
                                       'original_source_sha256': digest(source/'zone/attack.cpp')}
+    if mob_candidate:
+        manifest['mob_candidate'] = {'source': str(mob_candidate),
+                                    'sha256': digest(mob_candidate),
+                                    'original_source_sha256': digest(source/'zone/mob.cpp')}
     (output / 'native-build-manifest.json').write_text(json.dumps(manifest, indent=2)+'\n')
     print(json.dumps({'binary':str(binary), 'sha256':manifest['binary_sha256'], 'objects':len(objects)}))
 

@@ -4509,6 +4509,23 @@ void Mob::ChangeSize(float in_size = 0, bool unrestricted)
 	SendAppearancePacket(AppearanceType::Size, static_cast<uint32>(size));
 }
 
+// Multiclass pets retain their owner through the explicit extra-pet registry.
+// An owner ID alone is insufficient: stale/unregistered pets must still detach.
+static bool IsRegisteredOwnedPet(Mob *owner, uint16 pet_id)
+{
+	if (owner->GetPetID() == pet_id) {
+		return true;
+	}
+	if (owner->IsClient()) {
+		for (const auto extra_id : owner->CastToClient()->GetExtraPetIds()) {
+			if (extra_id == pet_id) {
+				return true;
+			}
+		}
+	}
+	return false;
+}
+
 Mob* Mob::GetOwnerOrSelf()
 {
 	if (!GetOwnerID()) {
@@ -4522,7 +4539,7 @@ Mob* Mob::GetOwnerOrSelf()
 		return this;
 	}
 
-	if (m->GetPetID() == GetID()) {
+	if (IsRegisteredOwnedPet(m, GetID())) {
 		return m;
 	}
 
@@ -4537,7 +4554,7 @@ Mob* Mob::GetOwnerOrSelf()
 Mob* Mob::GetOwner() {
 	Mob* m = entity_list.GetMob(GetOwnerID());
 
-	if (m && m->GetPetID() == GetID()) {
+	if (m && IsRegisteredOwnedPet(m, GetID())) {
 		return m;
 	}
 

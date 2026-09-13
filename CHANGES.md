@@ -1,5 +1,22 @@
 # CHANGES
 
+## 2026-09-12 - Preserve registered multiclass pet ownership
+
+Native MAG/NEC/SHM controls exposed extra pets disappearing after summoning:
+`Mob::GetOwner` and `GetOwnerOrSelf` accepted only the primary pet ID, despite the
+existing extra-class registry. The candidate now recognizes registered extra pets
+and preserves native orphan detach/depop behavior. Fifteen candidate controls pass
+against thirteen recorded pre-fix cases (ten failures); eight caster/monk encounter
+reports remain byte identical. The new pet diagnostic uses real summons, reagents,
+NPC processing, buffs and explicit AA allocations. See ADR 0011 and
+`docs/balance/native-pet-ownership.md` for evidence and in-game QA.
+
+Candidate-only: no live restart, replacement, AA removal, cap or NPC changes.
+Build the diagnostic with all three spells/attack/mob candidate flags. Pet commands,
+combat, death/persistence, gear/focus and curated release pools remain unverified;
+surviving pets do not establish final balance. Native reagent tests temporarily
+created two clone-only synthetic inventory rows; verified and cleaned afterward.
+
 ## 2026-09-12 - Correct held-class weapon damage and measure native monk combat
 
 The first WAR/CLR/MNK pilot exposed a base-class-only swing gate: legal held-Monk

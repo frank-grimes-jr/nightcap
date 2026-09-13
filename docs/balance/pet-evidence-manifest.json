@@ -1,0 +1,114 @@
+{
+  "scope": "Candidate extra-pet ownership correction; stationary pet controls, no pet encounter or release-pool certification",
+  "validation": {
+    "python_tests_passed": 193,
+    "before_controls": 13,
+    "before_rosters_ready": 3,
+    "candidate_controls": 15,
+    "candidate_rosters_ready": 15,
+    "unchanged_encounter_reports": 8
+  },
+  "clone_cleanup": {
+    "database": "nightcap_balance_20260912",
+    "removed_synthetic_inventory_rows": [
+      {
+        "character_id": 12,
+        "slot_id": 23,
+        "item_id": 10015,
+        "charges": 9
+      },
+      {
+        "character_id": 12,
+        "slot_id": 24,
+        "item_id": 13073,
+        "charges": 9
+      }
+    ],
+    "remaining_account_rows": 0,
+    "remaining_character_rows": 0,
+    "remaining_inventory_rows": 0
+  },
+  "live_changes": false,
+  "artifacts": {
+    "docs/balance/pet-after-checks.json": {
+      "sha256": "7cd6304c9badd5c498dfc7455e090cacd09e48deca7b575e1a37a78af769c748",
+      "newline_normalization": "LF"
+    },
+    "docs/balance/pet-before-checks.json": {
+      "sha256": "c837d5e9d5147fdbde084df908170e05b2eeb0be2b98108b4c60ccd2076757a5",
+      "newline_normalization": "LF"
+    },
+    "docs/balance/pet-encounter-checks.json": {
+      "sha256": "18b2d62958db2bfcd7bf5f613de063766752583a8d9ae74108a84eeaf3457343",
+      "newline_normalization": "LF"
+    },
+    "docs/balance/pet-encounter-inputs.json": {
+      "sha256": "f9bcde0f26b610403ff054fa4235f8d868e65f6af896f4c2154deefa5e965a3e",
+      "newline_normalization": "LF"
+    },
+    "docs/balance/pet-inputs.json": {
+      "sha256": "f0cb4c7e8e21365a61692059b43ed66527c505fd3ded40b42ec39dc3270d3a7c",
+      "newline_normalization": "LF"
+    },
+    "docs/balance/pet-native-build-manifest.json": {
+      "sha256": "309702452d88aae6eddc3430fdbb3174d3e8ff040603d23f868836c7956d3d56",
+      "newline_normalization": "LF"
+    },
+    "docs/balance/pet-ownership-build-manifest.json": {
+      "sha256": "22dbd8301a45b65496ce3ded01181fea368daa196ba1b9c17bbd2699818fd2ef",
+      "newline_normalization": "LF"
+    },
+    "docs/balance/pet-ownership-inputs.json": {
+      "sha256": "6c3b22bb00e03b9fae16fd195cb2ade124f0f02d2b83f25b8cb193c128edf051",
+      "newline_normalization": "LF"
+    },
+    "docs/balance/pet-after-ownership.json.gz": {
+      "sha256": "b5431e4c311a8a4761e02f0a94d9168620c14ba0615b42815b30eb684303ac49",
+      "newline_normalization": "raw"
+    },
+    "docs/balance/pet-before-ownership.json.gz": {
+      "sha256": "87d99af6c2dc3a96e9483c1a4271fde68035f40192ff1713e026d78aefac9446",
+      "newline_normalization": "raw"
+    },
+    "docs/balance/pet-encounter-regressions.json.gz": {
+      "sha256": "7b69e687040c0d353accf4a0535d22ca3eee426601568dc466ab99a595cee328",
+      "newline_normalization": "raw"
+    },
+    "tools/balance/native_harness.cpp": {
+      "sha256": "2bb2682bad051b2bdf836c55c0990b04a06fb6e3e31f27761a50bc965d39fbe0",
+      "newline_normalization": "LF"
+    },
+    "tools/balance/native_runtime.cpp": {
+      "sha256": "4f860125fdc776422b5201cbdcb53ad4c30e111e3831cb41a26ce8efa242a28b",
+      "newline_normalization": "LF"
+    },
+    "tools/balance/native_runtime.h": {
+      "sha256": "abb9c21da3a2f1d4b2326fe51e62606818d045ab332362d102a3d5c6cbaa993a",
+      "newline_normalization": "LF"
+    },
+    "tools/balance/build_native.py": {
+      "sha256": "c5a61f9502382129bbb4c4ed1d57a6ec5abbe24f393912c1937a36418214b635",
+      "newline_normalization": "LF"
+    },
+    "tools/balance/pet_controls.py": {
+      "sha256": "3e5ac5601843f40fca0b81decea92849d85d09b06cd7a9e1d9a3b0991ba6f731",
+      "newline_normalization": "LF"
+    },
+    "tools/balance/tests/test_pet_controls.py": {
+      "sha256": "12dca8feb8e3743957159c570682c37851c53d8d1c4092c63c66628638161f66",
+      "newline_normalization": "LF"
+    },
+    "server-mods/code/zone/mob.cpp": {
+      "sha256": "b84544a725679739fabaf2dde8ac2dbbabf11fd034a0734ac0e62472d1e09ff3",
+      "newline_normalization": "LF"
+    },
+    "docs/adr/0011-extra-pet-ownership.md": {
+      "sha256": "e9dc180ad296971653bb68793f23ae1733dfa854313e232a3e48377a75f1ccaa",
+      "newline_normalization": "LF"
+    },
+    "docs/balance/native-pet-ownership.md": {
+      "sha256": "97f9e6f61631634dd986dd4e606cf3d01227f87e31c75bb2f4545514687f2893",
+      "newline_normalization": "LF"
+    }
+  }
+}

@@ -33,3 +33,6 @@ tools/balance/augment_controls.py text eol=lf
 tools/balance/melee_controls.py text eol=lf
 server-mods/code/zone/attack.cpp text eol=lf
 docs/balance/melee-*.json -text
+server-mods/code/zone/mob.cpp text eol=lf
+tools/balance/pet_controls.py text eol=lf
+docs/balance/pet-*.json -text

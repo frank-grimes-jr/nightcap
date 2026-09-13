@@ -371,8 +371,8 @@ int NightcapBalanceMain(int argc, char **argv)
 		std::ifstream input_file(argv[2]);
 		json input;
 		input_file >> input;
-		const bool runtime = input.value("runtime_probe",false) || input.contains("encounter") || input.contains("aa_probe");
-		if (int(input.value("runtime_probe",false)) + int(input.contains("encounter")) + int(input.contains("aa_probe")) > 1) {
+		const bool runtime = input.value("runtime_probe",false) || input.contains("encounter") || input.contains("aa_probe") || input.contains("pet_probe");
+		if (int(input.value("runtime_probe",false)) + int(input.contains("encounter")) + int(input.contains("aa_probe")) + int(input.contains("pet_probe")) > 1) {
 			throw std::runtime_error("Runtime modes require separate processes");
 		}
 		if (runtime) {
@@ -435,6 +435,13 @@ int NightcapBalanceMain(int argc, char **argv)
 			if (input.contains("aa_probe")) {
 				output["aa_probe"] = NightcapBalanceAAProbe(c,input.at("aa_probe"));
 				output["status"] = "Native purchased-AA activation diagnostic; cooldowns initially ready";
+			}
+			if (input.contains("pet_probe")) {
+				if (build.at("profile") != "mag-nec-shm" || build.at("classes") != json::array({13,11,10})) {
+					throw std::runtime_error("Pet control requires MAG/NEC/SHM");
+				}
+				output["pet_probe"] = NightcapBalancePetProbe(c,input.at("pet_probe"));
+				output["status"] = "Native pet summon/ownership/buff diagnostic; no boss balance claim";
 			}
 			if (input.contains("encounter")) {
 				const auto policy = input.at("encounter").value("combat_policy",std::string("caster_heal"));

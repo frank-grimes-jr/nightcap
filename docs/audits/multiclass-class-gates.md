@@ -84,7 +84,11 @@ covered by these rows plus G008/G009/G010/G015/G021.
 These player paths already resolve across held classes and need retained tests,
 not new implementation:
 
-- Pet/familiar summon owning-class resolution and per-class pet tracking — `spell_effects.cpp:1313–` (SummonPet/NecPet/BSTPet/Familiar).
+- Pet/familiar summon class selection and tracking exist in `spell_effects.cpp:1313–`,
+  but native controls exposed incomplete ownership: extra pets were removed by
+  `Mob::GetOwner`/`GetOwnerOrSelf`. ADR 0011's candidate registry-aware correction
+  passes 15 native controls; live/manual QA is pending. Spell ownership after
+  global class widening, command broadcasting and persistence remain open.
 - Scroll/song memorization from item across held classes — `effects.cpp:762–766` (`MemorizeSpellFromItem`).
 - Zeroed Bard mana-regen exception iterating held classes — `bonuses.cpp:1855–1857`.
 - Held-class list plumbing on the client — `client.cpp:3197,3250`.
