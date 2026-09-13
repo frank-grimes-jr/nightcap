@@ -27,6 +27,11 @@ diagnostic profiles. Required level must be at most 50; recommended level may
 exceed 50. Augment rows can occur in the discovery pool and must not be treated as
 ordinary worn items. No quest/merchant/crafted tier copies are automatically granted.
 Epic IDs are included for explicit review, not certified acquisition or ownership.
+The original capture omitted Orb of Mastery because the custom forge's Magician
+mapping pointed to Staff of Elemental Mastery: Fire. Future captures explicitly
+review the true orb, its proposed upgrade ID, the existing staff and its upgrade,
+and the ornate exchange. This does not create missing item rows or grant gear.
+See `acquisition-identity-audit.md` for the captured spell/quest chain and era limits.
 
 ## Findings that change gear selection
 

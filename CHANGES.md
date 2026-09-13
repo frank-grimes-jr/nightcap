@@ -1,5 +1,24 @@
 # CHANGES
 
+## 2026-09-12 - Correct acquisition and utility-AA baseline assumptions
+
+Captured read-only source evidence for the level-72 Behemoth, Magician epic
+quest/spell chain and Ancient Attunement. Behemoth is present in live Classic
+content; the isolated clone omits spawn2 and cannot establish spawn absence.
+Its rewards remain conditional until level-50 acquisition is demonstrated.
+
+Future acquisition captures now include Orb of Mastery and the ornate exchange
+alongside the legacy Fire staff forge mapping. The observed epic chain depends
+on Kunark zones, and an Ascended orb row is absent. Existing frozen captures and
+combat gear remain unchanged. A regression covers the indirect scroll reward.
+
+Corrected the AA report's unsupported PoK-gate claim: spell 99001 has native pet-
+summoning effect 33. The setup script's unrestricted teleport_zone lookup can
+select pet spells. This free AA was never activated by the fight controllers;
+existing combat evidence remains valid, while recall needs a separate repair
+and QA. No live content, binaries or access policy changed. See
+`docs/balance/acquisition-identity-audit.md` and its captured evidence.
+
 ## 2026-09-12 - Compare shared capped AA pools across combat roles
 
 Added two explicit global combat-core candidates, intersected with native held-

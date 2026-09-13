@@ -26,8 +26,12 @@ prerequisite on 108 and 341. This comparison does not silently restore missing
 prerequisites or treat their native omission as permission to add those families.
 
 The free baseline is explicit: Origin 331, Eyes Wide Open 938 through rank 8, and
-Nightcap Ancient Attunement 2220. Clone inspection confirms Origin's native origin
-effect and Ancient Attunement's PoK gate. Placeholder ability 0 is excluded, as are
+Nightcap Ancient Attunement 2220. Origin has its native origin effect. A subsequent
+source audit corrected the earlier claim that Ancient Attunement was a verified
+PoK gate: spell 99001 uses effect 33, which this engine handles as pet summoning,
+with `poknowledge` as the pet lookup string. Recall behavior is not validated.
+The combat controllers do not activate it, so this correction does not change
+the recorded fights. See `acquisition-identity-audit.md`. Placeholder ability 0 is excluded, as are
 the two Alaran Culture HP grants 1684/1685. These are candidate-era/data exclusions,
 not claims that every omitted AA is overpowered. The changed zero-spend baseline
 is measured separately from the prior free closure.

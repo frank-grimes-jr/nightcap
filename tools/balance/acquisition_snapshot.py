@@ -15,6 +15,16 @@ from snapshot import era_predicate,row_json
 TOKENS=re.compile(r'--\[(=*)\[.*?\]\1\]|\[(=*)\[.*?\]\2\]|--[^\n]*|\#[^\n]*|"(?:\\.|[^"\\])*"|\'(?:\\.|[^\'\\])*\'|[A-Za-z_][\w.:]*|\d+|[^\s]',re.S)
 ITEM_GATE='i.reqlevel<=50 AND (i.slots & 2097150)>0 AND (i.classes & 7747)>0 AND (i.races & 1)>0 AND (i.deity=0 OR (i.deity & 1)>0)'
 ZONE_GATE="z.version=0 AND (z.expansion=0 OR z.short_name='poknowledge')"
+# Item identity is independent of the custom forge's current mapping. The Mage
+# epic quest awards a spell scroll, so literal SummonItem discovery misses its orb.
+EPIC_BASE_IDS=(5532,10099,10650,10651,10652,10908,11057,14341,14383,
+               20487,20488,20490,20542,20544,28034)
+
+
+def epic_review_ids():
+    """Discovery only: missing DB rows and unproven acquisition stay ungranted."""
+    return (set(EPIC_BASE_IDS) | {i+800000 for i in EPIC_BASE_IDS}
+            | {11566,811566,55273})  # Existing forge target and ornate exchange.
 
 
 def reward_candidates(source):
@@ -131,8 +141,7 @@ def main():
         if 0<row['item_id']<200000:
             references.update(row['item_id']+offset for offset in (200000,400000,600000))
     # Include all epic base/upgraded rows for explicit acquisition review; not an automatic grant.
-    epics=[5532,10099,10650,10651,10652,10908,11057,11566,14341,14383,20487,20488,20490,20542,20544]
-    references.update(epics); references.update(i+800000 for i in epics)
+    references.update(epic_review_ids())
     ids=','.join(str(i) for i in sorted(references)) or '0'
     item_query=f"SELECT {row_json('items','i')} FROM items i WHERE ({ITEM_GATE}) AND i.id IN ({ids})"
     tables['candidate_items']=query_json(item_query)

@@ -4,11 +4,22 @@ from pathlib import Path
 from types import SimpleNamespace
 from unittest.mock import patch
 
-from acquisition_snapshot import reward_candidates,scan_quests
+from acquisition_snapshot import reward_candidates,scan_quests,epic_review_ids
 from baseline import query_json
 
 
 class AcquisitionTests(unittest.TestCase):
+    def test_indirect_epic_reward_is_reviewed_without_reclassifying_staff(self):
+        # The quest gives a spell scroll, not the wearable Orb of Mastery.
+        rows=reward_candidates('e.other:SummonItem(19436);')
+        self.assertEqual([r['item_id'] for r in rows],[19436])
+        review=epic_review_ids()
+        self.assertTrue({28034,828034,11566,811566,14341,814341,55273} <= review)
+        # Ornate is a separate exchange, not a forge epic with a fabricated tier.
+        self.assertNotIn(855273,review)
+        review.clear()
+        self.assertIn(28034,epic_review_ids())
+
     def test_reward_discovery_excludes_comments_and_strings(self):
         source='''-- e.other:SummonItem(1)
 --[=[ e.other:SummonItem(2) ]=]
