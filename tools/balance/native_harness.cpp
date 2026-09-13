@@ -281,12 +281,25 @@ public:
 	json OwnershipProbe(const json &input)
 	{
 		const uint32 watched = input.at("first_rank_id");
+		const uint32 original_expansions = GetPP().expansions;
+		if (input.contains("initial_spent_points")) {
+			GetPP().aapoints_spent = input.at("initial_spent_points").get<uint32>();
+			GetEPP().expended_aa = input.value("initial_expended_points", uint32(0));
+		}
 		json steps = json::array();
 		for (const auto &operation : input.at("operations")) {
 			const auto name = operation.get<std::string>();
 			bool success = false;
 			if (name == "load") { success = database.LoadAlternateAdvancement(this); }
 			else if (name == "save") { success = SaveAA(); }
+			else if (name == "restrict_expansions") {
+				GetPP().expansions = input.at("expansion_mask").get<uint32>();
+				success = true;
+			}
+			else if (name == "restore_expansions") {
+				GetPP().expansions = original_expansions;
+				success = true;
+			}
 			else if (name == "erase_saved") {
 				auto deleted = database.QueryDatabase(fmt::format(
 					"DELETE FROM character_alternate_abilities WHERE id={} AND aa_id={}", CharacterID(), watched));

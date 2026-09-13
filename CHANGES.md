@@ -1,5 +1,18 @@
 # CHANGES
 
+## 2026-09-13 - Reproduce AA ownership accounting across expansion eligibility
+
+Added a clone-only native control using the full unchanged AA catalog. A six-rank
+Natural Durability purchase becomes entirely inactive when only its first three
+ranks remain expansion-eligible. SaveAA then drops reported spent points from 29
+to 5 despite retaining all six earned ranks in the database; the 17-point wallet
+does not change. Restoring eligibility and saving returns the 29-point total.
+Captured the before evidence and added exact-state regression checks. ADR0021
+sets the implementation direction: canonical earned rows plus a separate usable
+view, with native purchase/refund/reset/class-release/charge handling required.
+No live server, catalog, era or ownership data changed; test candidate 5f61fdd is
+still frozen pending activation and owner QA.
+
 ## 2026-09-13 - Build and verify the five server-fix candidate
 
 Clean-built the candidate from 2,787 pinned source files after rejecting the

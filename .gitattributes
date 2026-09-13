@@ -77,3 +77,7 @@ docs/releases/server-fixes-20260913/*.log -text -whitespace
 docs/releases/server-fixes-20260913/*.patch -text -whitespace
 docs/releases/server-fixes-20260913/*.py text eol=lf
 docs/releases/server-fixes-20260913/*.md text eol=lf
+tools/balance/aa_owned_view_controls.py text eol=lf
+tools/balance/tests/test_aa_owned_view*.py text eol=lf
+docs/balance/aa-owned-view-*.json -text
+docs/adr/0021-canonical-earned-aa-and-active-views.md text eol=lf
