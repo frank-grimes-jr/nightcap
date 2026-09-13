@@ -53,6 +53,8 @@ tools/balance/run_aa_projection.py text eol=lf
 docs/balance/aa-projection-*.json -text
 docs/balance/aa-projection-*.sql text eol=lf
 server-mods/code/zone/aa.cpp text eol=lf
+server-mods/code/zone/mob.cpp text eol=lf
+server-mods/code/zone/client_packet.cpp text eol=lf
 tools/balance/aa_ownership.py text eol=lf
 tools/balance/aa_ownership_controls.py text eol=lf
 docs/balance/aa-ownership-*.json -text
