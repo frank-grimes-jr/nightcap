@@ -1,0 +1,156 @@
+{
+  "unchanged_native_reports": [
+    {
+      "id": "war-clr-wiz-41ef5b5b339000a0-32040-1729",
+      "native_raw_sha256": "520f403160285c74bf48271c750da7fd14033e55b8c382058c02db51badde84b",
+      "identical": true
+    },
+    {
+      "id": "war-clr-wiz-41ef5b5b339000a0-73057-1729",
+      "native_raw_sha256": "b2c8ca3b0206c2771e3a8d17ace7cbd5dc2e2de300aa4b99d45210a090e17d71",
+      "identical": true
+    },
+    {
+      "id": "war-clr-wiz-81fb4435ad6d50ed-32040-1729",
+      "native_raw_sha256": "08c4d395a98de2089751dbb867a7d822d62b92a3259073152cabed2083eaa36e",
+      "identical": true
+    },
+    {
+      "id": "war-clr-wiz-81fb4435ad6d50ed-73057-1729",
+      "native_raw_sha256": "dd2e99332e3b2b38469130d037e5309e722d67334281db45fc8b342b6a912a98",
+      "identical": true
+    },
+    {
+      "id": "war-clr-mnk-4062e52bebda052d-32040-1729",
+      "native_raw_sha256": "1fc779c93f00cbf38172a11545165cc860d59082227192d40707faf572f8b867",
+      "identical": true
+    },
+    {
+      "id": "war-clr-mnk-4062e52bebda052d-73057-1729",
+      "native_raw_sha256": "363d2262b7e44db2ab10a2257013dfa309aa01cf8669a94300e2e6db7edba5e1",
+      "identical": true
+    },
+    {
+      "id": "war-clr-mnk-d851a57022044181-32040-1729",
+      "native_raw_sha256": "b73812fab422a861c6ed56ef3b6dec77bdc54c2cba58e7fee8ab1167bcadbe67",
+      "identical": true
+    },
+    {
+      "id": "war-clr-mnk-d851a57022044181-73057-1729",
+      "native_raw_sha256": "83a78dc17697c44c961cc3ec0e51bc4baa60827b9f923749721d2a058640a18d",
+      "identical": true
+    },
+    {
+      "id": "mag-nec-shm-e13c9653962683d4-32040-1729",
+      "native_raw_sha256": "95f1297f5d3a02b435ee1affbfb9b9484b40f99f2bcf36efc44061c26f870fc1",
+      "identical": true
+    },
+    {
+      "id": "mag-nec-shm-e13c9653962683d4-73057-1729",
+      "native_raw_sha256": "e3c3260f27993544b602c4d779a28d65efa9a9b6ec1030bc2e0b43134058c45b",
+      "identical": true
+    },
+    {
+      "id": "mag-nec-shm-e8a8a776ac39a488-32040-1729",
+      "native_raw_sha256": "ffb16ee4d6fb2cb004ca592b05a6b4364c3f620d0cb0421c6eb91b82ec701e15",
+      "identical": true
+    },
+    {
+      "id": "mag-nec-shm-e8a8a776ac39a488-73057-1729",
+      "native_raw_sha256": "12def7487adbab86f9736453f28cefacf76e6adccc6080a9c69fa30022db17e0",
+      "identical": true
+    }
+  ],
+  "unchanged_after_terminal_field_projection": [
+    "war-clr-wiz-41ef5b5b339000a0-32040-1729-sources-excluding-56182",
+    "war-clr-wiz-41ef5b5b339000a0-32040-1730-sources-excluding-56182",
+    "war-clr-wiz-41ef5b5b339000a0-32040-1731-sources-excluding-56182",
+    "war-clr-wiz-41ef5b5b339000a0-73057-1729-sources-excluding-56182",
+    "war-clr-wiz-41ef5b5b339000a0-73057-1730-sources-excluding-56182",
+    "war-clr-wiz-41ef5b5b339000a0-73057-1731-sources-excluding-56182",
+    "war-clr-wiz-0cbe9dfb393a1b17-32040-1729-sources-excluding-56182",
+    "war-clr-wiz-0cbe9dfb393a1b17-32040-1730-sources-excluding-56182",
+    "war-clr-wiz-0cbe9dfb393a1b17-32040-1731-sources-excluding-56182",
+    "war-clr-wiz-0cbe9dfb393a1b17-73057-1729-sources-excluding-56182",
+    "war-clr-wiz-0cbe9dfb393a1b17-73057-1730-sources-excluding-56182",
+    "war-clr-wiz-0cbe9dfb393a1b17-73057-1731-sources-excluding-56182",
+    "war-clr-wiz-81fb4435ad6d50ed-32040-1729-sources-excluding-56182",
+    "war-clr-wiz-81fb4435ad6d50ed-32040-1730-sources-excluding-56182",
+    "war-clr-wiz-81fb4435ad6d50ed-32040-1731-sources-excluding-56182",
+    "war-clr-wiz-81fb4435ad6d50ed-73057-1729-sources-excluding-56182",
+    "war-clr-wiz-81fb4435ad6d50ed-73057-1730-sources-excluding-56182",
+    "war-clr-wiz-81fb4435ad6d50ed-73057-1731-sources-excluding-56182",
+    "war-clr-wiz-a2dc73cff586248c-32040-1729-sources-excluding-56182",
+    "war-clr-wiz-a2dc73cff586248c-32040-1730-sources-excluding-56182",
+    "war-clr-wiz-a2dc73cff586248c-32040-1731-sources-excluding-56182",
+    "war-clr-wiz-a2dc73cff586248c-73057-1729-sources-excluding-56182",
+    "war-clr-wiz-a2dc73cff586248c-73057-1730-sources-excluding-56182",
+    "war-clr-wiz-a2dc73cff586248c-73057-1731-sources-excluding-56182",
+    "war-clr-wiz-4328fd8d88cfe60f-32040-1729-sources-excluding-56182",
+    "war-clr-wiz-4328fd8d88cfe60f-32040-1730-sources-excluding-56182",
+    "war-clr-wiz-4328fd8d88cfe60f-32040-1731-sources-excluding-56182",
+    "war-clr-wiz-4328fd8d88cfe60f-73057-1729-sources-excluding-56182",
+    "war-clr-wiz-4328fd8d88cfe60f-73057-1730-sources-excluding-56182",
+    "war-clr-wiz-4328fd8d88cfe60f-73057-1731-sources-excluding-56182",
+    "war-clr-wiz-6beb1720a573f22b-32040-1729-sources-excluding-56182",
+    "war-clr-wiz-6beb1720a573f22b-32040-1730-sources-excluding-56182",
+    "war-clr-wiz-6beb1720a573f22b-32040-1731-sources-excluding-56182",
+    "war-clr-wiz-6beb1720a573f22b-73057-1729-sources-excluding-56182",
+    "war-clr-wiz-6beb1720a573f22b-73057-1730-sources-excluding-56182",
+    "war-clr-wiz-6beb1720a573f22b-73057-1731-sources-excluding-56182",
+    "war-clr-mnk-4062e52bebda052d-32040-1729-sources-excluding-56182",
+    "war-clr-mnk-4062e52bebda052d-32040-1730-sources-excluding-56182",
+    "war-clr-mnk-4062e52bebda052d-32040-1731-sources-excluding-56182",
+    "war-clr-mnk-4062e52bebda052d-73057-1729-sources-excluding-56182",
+    "war-clr-mnk-4062e52bebda052d-73057-1730-sources-excluding-56182",
+    "war-clr-mnk-4062e52bebda052d-73057-1731-sources-excluding-56182",
+    "war-clr-mnk-ade9ff88c84fa983-32040-1729-sources-excluding-56182",
+    "war-clr-mnk-ade9ff88c84fa983-32040-1730-sources-excluding-56182",
+    "war-clr-mnk-ade9ff88c84fa983-32040-1731-sources-excluding-56182",
+    "war-clr-mnk-ade9ff88c84fa983-73057-1729-sources-excluding-56182",
+    "war-clr-mnk-ade9ff88c84fa983-73057-1730-sources-excluding-56182",
+    "war-clr-mnk-ade9ff88c84fa983-73057-1731-sources-excluding-56182",
+    "war-clr-mnk-d851a57022044181-32040-1729-sources-excluding-56182",
+    "war-clr-mnk-d851a57022044181-32040-1730-sources-excluding-56182",
+    "war-clr-mnk-d851a57022044181-32040-1731-sources-excluding-56182",
+    "war-clr-mnk-d851a57022044181-73057-1729-sources-excluding-56182",
+    "war-clr-mnk-d851a57022044181-73057-1730-sources-excluding-56182",
+    "war-clr-mnk-d851a57022044181-73057-1731-sources-excluding-56182",
+    "war-clr-mnk-5ccc044c2a72b5f6-32040-1729-sources-excluding-56182",
+    "war-clr-mnk-5ccc044c2a72b5f6-32040-1730-sources-excluding-56182",
+    "war-clr-mnk-5ccc044c2a72b5f6-32040-1731-sources-excluding-56182",
+    "war-clr-mnk-5ccc044c2a72b5f6-73057-1729-sources-excluding-56182",
+    "war-clr-mnk-5ccc044c2a72b5f6-73057-1730-sources-excluding-56182",
+    "war-clr-mnk-5ccc044c2a72b5f6-73057-1731-sources-excluding-56182",
+    "war-clr-mnk-5e2f7ce4010f44f5-32040-1729-sources-excluding-56182",
+    "war-clr-mnk-5e2f7ce4010f44f5-32040-1730-sources-excluding-56182",
+    "war-clr-mnk-5e2f7ce4010f44f5-32040-1731-sources-excluding-56182",
+    "war-clr-mnk-5e2f7ce4010f44f5-73057-1729-sources-excluding-56182",
+    "war-clr-mnk-5e2f7ce4010f44f5-73057-1730-sources-excluding-56182",
+    "war-clr-mnk-5e2f7ce4010f44f5-73057-1731-sources-excluding-56182",
+    "war-clr-mnk-f0fb10370cf86482-32040-1729-sources-excluding-56182",
+    "war-clr-mnk-f0fb10370cf86482-32040-1730-sources-excluding-56182",
+    "war-clr-mnk-f0fb10370cf86482-32040-1731-sources-excluding-56182",
+    "war-clr-mnk-f0fb10370cf86482-73057-1729-sources-excluding-56182",
+    "war-clr-mnk-f0fb10370cf86482-73057-1730-sources-excluding-56182",
+    "war-clr-mnk-f0fb10370cf86482-73057-1731-sources-excluding-56182",
+    "mag-nec-shm-e13c9653962683d4-32040-1729-sources-excluding-56182",
+    "mag-nec-shm-e13c9653962683d4-32040-1730-sources-excluding-56182",
+    "mag-nec-shm-e13c9653962683d4-32040-1731-sources-excluding-56182",
+    "mag-nec-shm-e13c9653962683d4-73057-1729-sources-excluding-56182",
+    "mag-nec-shm-e13c9653962683d4-73057-1730-sources-excluding-56182",
+    "mag-nec-shm-e13c9653962683d4-73057-1731-sources-excluding-56182",
+    "mag-nec-shm-c388756c270fd1b9-32040-1729-sources-excluding-56182",
+    "mag-nec-shm-c388756c270fd1b9-32040-1730-sources-excluding-56182",
+    "mag-nec-shm-c388756c270fd1b9-32040-1731-sources-excluding-56182",
+    "mag-nec-shm-c388756c270fd1b9-73057-1729-sources-excluding-56182",
+    "mag-nec-shm-c388756c270fd1b9-73057-1730-sources-excluding-56182",
+    "mag-nec-shm-c388756c270fd1b9-73057-1731-sources-excluding-56182",
+    "mag-nec-shm-e8a8a776ac39a488-32040-1729-sources-excluding-56182",
+    "mag-nec-shm-e8a8a776ac39a488-32040-1730-sources-excluding-56182",
+    "mag-nec-shm-e8a8a776ac39a488-32040-1731-sources-excluding-56182",
+    "mag-nec-shm-e8a8a776ac39a488-73057-1729-sources-excluding-56182",
+    "mag-nec-shm-e8a8a776ac39a488-73057-1730-sources-excluding-56182",
+    "mag-nec-shm-e8a8a776ac39a488-73057-1731-sources-excluding-56182"
+  ]
+}

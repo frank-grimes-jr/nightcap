@@ -124,11 +124,17 @@ public:
 };
 static std::map<Client *,BalanceStream *> streams;
 static std::set<Mob *> terminal;
+static bool capture_terminal = false;
+static json terminal_events = json::array();
 bool NightcapBalanceIsTerminal(Mob *mob) { return terminal.count(mob); }
 bool NightcapBalanceRecordDeath(Mob *mob)
 {
 	if (!virtual_clock) { throw std::runtime_error("Unexpected death outside runtime mode"); }
-	terminal.insert(mob);
+	const bool first = terminal.insert(mob).second;
+	if (capture_terminal && first) {
+		terminal_events.push_back({{"ms",Timer::GetCurrentTime()},{"entity_id",mob->GetID()},
+			{"hp",mob->GetHP()},{"max_hp",mob->GetMaxHP()},{"mana",mob->GetMana()}});
+	}
 	return true;
 }
 EQStreamInterface *NightcapBalanceStream(Client *client)
@@ -667,6 +673,8 @@ static json PetCombat(Client *c, const json &input)
 	const bool commands_only = input.value("commands_only",false);
 	const auto owner_policy = input.value("owner_policy",std::string("none"));
 	const bool support = owner_policy == "pet_support";
+	capture_terminal = input.value("capture_terminal",false);
+	if (capture_terminal && !support) { throw std::runtime_error("Terminal evidence requires pet support combat"); }
 	const auto approach_policy = input.value("approach_policy",std::string("ranged80"));
 	const bool native_spell_range = approach_policy == "native_spell_range";
 	if ((approach_policy != "ranged80" && !native_spell_range) || (native_spell_range && !support)) {
@@ -864,6 +872,18 @@ static json PetCombat(Client *c, const json &input)
 		{"trace",trace},{"commands",requests},{"events",stream->events},
 		{"result",terminal.count(boss) ? "boss_death" : terminal.count(c) ? "player_death" : "timeout"},
 		{"scope",commands_only ? "Native command boundary only; NPC AI paused to distinguish immediate command damage from attack orders" : "Native pet-only combat and movement; owner issues commands but does not yet cast, heal, kite or use activated AAs"}};
+	if (capture_terminal) {
+		for (auto &event : terminal_events) { event["ms"] = event.at("ms").get<uint32>()-start; }
+		result["terminal_events"] = terminal_events;
+		// The mock death adapter ends the fight without a real corpse transition.
+		// MobProcess can finish a heal later in this same pulse. The first native
+		// death callback, not post-pulse HP or boss-first precedence, ends combat.
+		if (!terminal_events.empty()) {
+			const auto first = terminal_events.front().at("entity_id").get<uint16>();
+			if (first != c->GetID() && first != boss->GetID()) { throw std::runtime_error("Unexpected terminal actor"); }
+			result["result"] = first == c->GetID() ? "player_death" : "boss_death";
+		}
+	}
 	if (!commands_only) {
 		for (auto &event : boss->damage_ledger) { event["ms"] = event.at("ms").get<uint32>()-start; }
 		result["damage_ledger"] = boss->damage_ledger;

@@ -1,5 +1,26 @@
 # CHANGES
 
+## 2026-09-13 - Measure gear-source dependence across legal AA pools
+
+Added 108 matched Vox/Nagafen fights after removing Behemoth 56182 as a gear
+source, retaining items with another captured source. Re-optimized the same
+shield/augment objectives and added 36 Monk cloak/haste comparisons. Gear and AA
+purchases regenerate independently; all builds still hit the 250 spell/heal caps,
+but lower HP/mana and other gear changes materially weaken outcomes. The pet
+launch maximum loses all three Nagafen samples; its deeper maximum wins one.
+
+A failed case exposed a diagnostic death-sampling limitation: native HP reached
+-500, then a pending heal left +732 at the end of the same pulse. Optional native
+death-callback evidence now proves the terminal result and reports minimum HP as
+zero. The focused replay otherwise matches exactly; this is a diagnostic adapter
+change, not a live death/corpse fix. All four previous combat candidates remain.
+
+All 144 comparisons and 243 tests pass. Twelve legacy reports keep identical raw
+hashes, and 90 overlapping earlier reports match after removing the new evidence
+fields. The isolated database is empty after removing two synthetic reagent rows.
+No live content, binaries, caps, NPC HP or AA access changed. See ADR0015 and
+`docs/balance/native-source-gear.md` for results, limitations and explicit QA.
+
 ## 2026-09-12 - Correct acquisition and utility-AA baseline assumptions
 
 Captured read-only source evidence for the level-72 Behemoth, Magician epic

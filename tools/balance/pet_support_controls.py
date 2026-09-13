@@ -90,10 +90,7 @@ def summarize(case, report):
     elapsed = combat['trace'][-1]['ms']
     if not 0 < elapsed <= combat['input']['duration_ms']:
         raise ValueError('Invalid fight duration')
-    if combat['result'] == 'boss_death' and combat['trace'][-1]['boss_hp'] > 0:
-        raise ValueError('Boss victory lacks terminal HP evidence')
-    if combat['result'] == 'player_death' and combat['trace'][-1]['player']['hp'] > 0:
-        raise ValueError('Player death lacks terminal HP evidence')
+    terminal = verify_terminal(combat, elapsed)
     if combat['result'] == 'timeout' and elapsed != combat['input']['duration_ms']:
         raise ValueError('Timeout ended early')
     previous_ms = 0
@@ -123,9 +120,32 @@ def summarize(case, report):
         'owner_spell_requests': len(actions), 'accepted_requests': sum(a['accepted'] for a in actions),
         'heal_requests': sum(a['spell'] == 15 for a in actions), 'slow_trace_samples': slow_samples,
         'native_owner_dot_hp_loss': dot_damage,
-        'min_owner_hp_percent': min(max(0, s['player']['hp'])/s['player']['max_hp']*100 for s in combat['trace']),
+        'min_owner_hp_percent': 0 if any(e['entity_id'] == owner for e in terminal) else
+            min(max(0, s['player']['hp'])/s['player']['max_hp']*100 for s in combat['trace']),
         'scope': 'Native active pet support; fixed candidate gear and open-pool AA sensitivity only. '
                  'No continuous kiting/resummoning, no established full BiS or release balance.'}
+
+
+def verify_terminal(combat, elapsed):
+    if not combat['input'].get('capture_terminal', False):
+        if combat['result'] == 'boss_death' and combat['trace'][-1]['boss_hp'] > 0:
+            raise ValueError('Boss victory lacks terminal HP evidence')
+        if combat['result'] == 'player_death' and combat['trace'][-1]['player']['hp'] > 0:
+            raise ValueError('Player death lacks terminal HP evidence')
+        return []
+    events = combat.get('terminal_events')
+    if (not isinstance(events, list) or any(not isinstance(e, dict) or
+            any(type(e.get(k)) is not int for k in ('entity_id', 'ms', 'hp', 'max_hp')) for e in events)):
+        raise ValueError('Invalid native terminal callback evidence')
+    ids = [e['entity_id'] for e in events]
+    if (len(ids) != len(set(ids)) or set(ids)-{combat['player_id'], combat['boss_id']}
+            or any(e['ms'] != elapsed or e['hp'] > 0 or e['max_hp'] <= 0 for e in events)):
+        raise ValueError('Invalid native terminal callback evidence')
+    expected = ('timeout' if not events else 'player_death'
+                if events[0]['entity_id'] == combat['player_id'] else 'boss_death')
+    if combat['result'] != expected:
+        raise ValueError('Combat result differs from the first native death callback')
+    return events
 
 
 def verify(matrix, evidence):
