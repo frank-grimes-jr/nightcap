@@ -53,13 +53,12 @@ the missing packet damage would substantially understate some ranged runs.
 Owner/boss death uses the existing diagnostic terminal adapters; pet persistence
 after a real owner's death is not modeled by the final snapshot.
 
-The owner-support controller remains next: native Togor's Insects507, Greater
-Healing15, appropriate DoTs (32/436 and fire6 where applicable), self/pet buffs,
-sustain and recovery after fear. Active snapshot spell levels support these at
-level50; do not substitute Warrior/Cleric/Wizard's Ice Comet/Superior Healing
-rotation for this profile. Pet gear/focus, acquisition, other pet commands and
-curated expansion AA pools also remain open. The unrestricted AA row remains a
-stress case, not the Classic release target.
+Follow-up: [native pet support](native-pet-support.md) adds self/pet healing,
+resistance reduction, boss-specific offense, preparation and native recovery.
+It uses spells eligible for this held-class profile instead of substituting the
+Warrior/Cleric/Wizard rotation. Pet gear/focus, acquisition, other pet commands,
+optimal play and curated expansion AA pools remain open. The unrestricted AA row
+remains a stress case, not the Classic release target.
 
 ## Reproduction and provenance
 

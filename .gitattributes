@@ -38,3 +38,4 @@ tools/balance/pet_controls.py text eol=lf
 docs/balance/pet-*.json -text
 server-mods/code/zone/client_packet.cpp text eol=lf
 tools/balance/pet_combat_controls.py text eol=lf
+tools/balance/pet_support_controls.py text eol=lf

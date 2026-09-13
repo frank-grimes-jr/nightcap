@@ -219,8 +219,8 @@ json NightcapBalancePetProbe(Client *c, const json &input)
 		throw std::runtime_error("Pet control requires a connected non-GM runtime client");
 	}
 	const auto &actions = input.at("actions");
-	if (!actions.is_array() || actions.empty() || actions.size() > 12) {
-		throw std::runtime_error("Pet control requires 1..12 actions");
+	if (!actions.is_array() || actions.empty() || actions.size() > 24) {
+		throw std::runtime_error("Pet control requires 1..24 actions");
 	}
 	zone->ReloadMaps();
 	if (!zone->zonemap || !zone->pathing || !zone->watermap) { throw std::runtime_error("Pet control requires native maps"); }
@@ -285,11 +285,18 @@ json NightcapBalancePetProbe(Client *c, const json &input)
 	const json initial = state();
 	for (const auto &action : actions) {
 		const int spell_id = action.at("spell");
-		if (spell_id != 633 && spell_id != 443 && spell_id != 166 && spell_id != 690 && spell_id != 107) {
+		const std::set<int> supported = {633,443,166,690,107,67,145,60,61,168,170,644};
+		if (!supported.count(spell_id)) {
 			throw std::runtime_error("Unsupported pet-control spell");
 		}
 		if (!IsValidSpell(spell_id) || c->GetSpellMinLevel(spell_id) > c->GetLevel()) {
 			throw std::runtime_error("Level-ineligible pet-control spell");
+		}
+		uint32 recast_wait = 0;
+		if (input.value("recover_before_combat",false)) {
+			auto *timer = c->GetPTimers().Get(pTimerSpellStart+spell_id);
+			while (timer && timer->GetRemainingTime() > 0 && recast_wait < 60000) { process(); recast_wait += 50; }
+			if (timer && timer->GetRemainingTime() > 0) { throw std::runtime_error("Pet preparation recast wait exceeded one minute"); }
 		}
 		const int target_class = action.value("target_class",0);
 		Mob *target = c;
@@ -309,6 +316,7 @@ json NightcapBalancePetProbe(Client *c, const json &input)
 		const uint32 settle = std::max<uint32>(1500,spells[spell_id].recovery_time + 50);
 		for (uint32 ms = 0; ms < settle; ms += 50) { process(); }
 		results.push_back({{"input",action},{"accepted",accepted},{"before",before},{"completed",completed},{"settled",state()}});
+		if (input.value("recover_before_combat",false)) { results.back()["recast_wait_ms"] = recast_wait; }
 	}
 	json owner_check;
 	if (input.contains("owner_lookup_control")) {
@@ -326,10 +334,62 @@ json NightcapBalancePetProbe(Client *c, const json &input)
 		owner_check["unregistered_depop"] = pet->CastToNPC()->GetDepop();
 	}
 	for (int ms = 0; ms < 12000; ms += 50) { process(); }
+	json recovery;
+	if (input.value("recover_before_combat",false)) {
+		const auto recovery_start = Timer::GetCurrentTime();
+		json trace = json::array(), heals = json::array();
+		auto recovery_state = [&]() { auto s = state(); s["sitting"] = c->IsSitting(); return s; };
+		trace.push_back(recovery_state());
+		auto posture = [&](bool sitting) {
+			if (c->IsSitting() == sitting) { return true; }
+			auto *packet = new EQApplicationPacket(OP_SpawnAppearance,sizeof(SpawnAppearance_Struct));
+			auto *a = reinterpret_cast<SpawnAppearance_Struct *>(packet->pBuffer);
+			a->spawn_id = c->GetID(); a->type = AppearanceType::Animation;
+			a->parameter = sitting ? Animation::Sitting : Animation::Standing;
+			stream->incoming.push_back(packet);
+			return false;
+		};
+		uint32 ready = 0;
+		bool was_casting = false, done = false;
+		for (int ms = 50; ms <= 900000; ms += 50) {
+			process();
+			if (was_casting && !c->IsCasting()) { ready = ms + std::max<uint32>(250,spells[15].recovery_time); }
+			was_casting = c->IsCasting();
+			bool pets_full = true;
+			Mob *heal_target = c->GetHPRatio() < 90 ? c : nullptr;
+			for (const auto &entry : entity_list.GetNPCList()) {
+				auto *pet = entry.second;
+				if (pet->GetOwnerID() != c->GetID()) { continue; }
+				pets_full = pets_full && pet->GetHP() == pet->GetMaxHP();
+				if (pet->GetHP() < pet->GetMaxHP() && (!heal_target || pet->GetHPRatio() < heal_target->GetHPRatio())) { heal_target = pet; }
+			}
+			if (!c->IsCasting() && ms >= ready) {
+				if (c->GetMana() == c->GetMaxMana() && c->GetHPRatio() >= 95 && pets_full) {
+					if (!posture(false)) { continue; }
+					done = true; break;
+				}
+				auto *heal_timer = c->GetPTimers().Get(pTimerSpellStart+15);
+				if (heal_target && c->GetMana() >= 2*spells[15].mana && (!heal_timer || heal_timer->GetRemainingTime() == 0)) {
+					if (!posture(false)) { continue; }
+					c->GetPP().mem_spells[0] = 15;
+					const bool accepted = c->CastSpell(15,heal_target->GetID(),static_cast<EQ::spells::CastingSlot>(0));
+					heals.push_back({{"ms",Timer::GetCurrentTime()},{"target",heal_target->GetID()},{"accepted",accepted}});
+					was_casting = c->IsCasting(); ready = ms+250;
+				} else { posture(true); }
+			}
+			if (ms % 6000 == 0) { trace.push_back(recovery_state()); }
+		}
+		if (!done) { throw std::runtime_error("Pet preparation failed to recover native resources within 15 minutes"); }
+		trace.push_back(recovery_state());
+		recovery = {{"elapsed_ms",Timer::GetCurrentTime()-recovery_start},{"trace",trace},{"heals",heals},
+			{"max_mana",c->GetMaxMana()},
+			{"scope","Native sitting recovery and Greater Healing; full mana/pet HP, owner HP at least95% with Lich active; no resource resets"}};
+	}
 	json result = {{"input",input},{"player_entity_id",c->GetID()},{"initial",initial},{"actions",results},
 		{"final",state()},{"events",stream->events},
 		{"owner_lookup_control",owner_check},
 		{"scope","Native cast completion, reagent inventory, entity processing and pet movement; no fabricated ownership or stats, no encounter claim"}};
+	if (!recovery.is_null()) { result["recovery"] = recovery; }
 	if (input.contains("combat")) { result["combat"] = PetCombat(c,input.at("combat")); }
 	return result;
 }
@@ -457,91 +517,6 @@ public:
 	}
 };
 
-static json PetCombat(Client *c, const json &input)
-{
-	const int npc_id = input.at("npc_id"), duration = input.at("duration_ms");
-	const bool commands_only = input.value("commands_only",false);
-	if ((npc_id != 32040 && npc_id != 73057) || duration < 50 || duration > (commands_only ? 1000 : 900000)) {
-		throw std::runtime_error("Unsupported pet combat target/duration");
-	}
-	const auto p = input.at("npc_position").get<std::vector<float>>();
-	const auto *type = content_db.LoadNPCTypesData(npc_id);
-	if (!type) { throw std::runtime_error("Missing pet combat NPC"); }
-	auto *boss = new BalanceNPC(type,nullptr,glm::vec4(p[0],p[1],p[2],p[3]),GravityBehavior::Water);
-	boss->capture_damage = !commands_only;
-	std::vector<uint16> pet_ids;
-	for (const auto &entry : entity_list.GetNPCList()) {
-		if (entry.second->GetOwnerID() == c->GetID()) { pet_ids.push_back(entry.first); }
-	}
-	std::sort(pet_ids.begin(),pet_ids.end());
-	if (pet_ids.empty()) { throw std::runtime_error("Pet combat requires an owned pet"); }
-	entity_list.AddNPC(boss,false);
-	c->SetTarget(boss);
-	auto *stream = streams.at(c);
-	stream->events.clear();
-	const uint32 start = Timer::GetCurrentTime();
-	const auto &commands = input.at("commands");
-	if (!commands.is_array() || commands.empty() || commands.size() > 20) { throw std::runtime_error("Invalid pet command schedule"); }
-	int previous_ms = -1;
-	for (const auto &cmd : commands) {
-		const int ms = cmd.at("ms"), command = cmd.at("command");
-		if (ms < 0 || ms <= previous_ms || ms >= duration || (command != PET_ATTACK && command != PET_QATTACK && command != PET_BACKOFF && command != PET_FOLLOWME)) {
-			throw std::runtime_error("Unsupported pet command or unordered schedule");
-		}
-		previous_ms = ms;
-	}
-	auto state = [&]() {
-		json pets = json::array();
-		for (const auto id : pet_ids) {
-			auto *pet = entity_list.GetMob(id);
-			if (!pet) { pets.push_back({{"id",id},{"present",false}}); continue; }
-			pets.push_back({{"id",id},{"present",true},{"owner_id",pet->GetOwnerID()},
-				{"hp",pet->GetHP()},{"mana",pet->GetMana()},{"engaged",pet->IsEngaged()},
-				{"target",pet->GetTarget() ? pet->GetTarget()->GetID() : 0},
-				{"hate",pet->GetHateAmount(boss)},{"melee_range",pet->CombatRange(boss)},
-				{"los",pet->CheckLosFN(boss)},{"position",{pet->GetX(),pet->GetY(),pet->GetZ()}}});
-		}
-		return json{{"ms",Timer::GetCurrentTime()-start},{"player",AABuffState(c)},
-			{"player_position",{c->GetX(),c->GetY(),c->GetZ()}},{"pets",pets},
-			{"boss_hp",boss->GetHP()},{"boss_mana",boss->GetMana()},
-			{"boss_target",boss->GetTarget() ? boss->GetTarget()->GetID() : 0},
-			{"boss_position",{boss->GetX(),boss->GetY(),boss->GetZ()}}};
-	};
-	json trace = json::array(), requests = json::array();
-	trace.push_back(state());
-	size_t command_index = 0;
-	for (int ms = 0; ms < duration && terminal.empty(); ms += 50) {
-		json before;
-		bool requested = false;
-		if (command_index < commands.size() && commands[command_index].at("ms").get<int>() <= ms) {
-			before = state(); requested = true;
-			auto *packet = new EQApplicationPacket(OP_PetCommands,sizeof(PetCommand_Struct));
-			auto *command = reinterpret_cast<PetCommand_Struct *>(packet->pBuffer);
-			command->command = commands[command_index].at("command"); command->target = boss->GetID();
-			stream->incoming.push_back(packet);
-		}
-		Advance(50);
-		if (commands_only) {
-			if (!c->Process()) { throw std::runtime_error("Pet command client stopped"); }
-		} else {
-			entity_list.MobProcess();
-			MobMovementManager::Get().Process();
-		}
-		if (requested) { requests.push_back({{"input",commands[command_index++]},{"before",before},{"after",state()}}); }
-		if ((ms+50) % 500 == 0 || !terminal.empty() || ms+50 >= duration) { trace.push_back(state()); }
-	}
-	for (auto &event : stream->events) { event["ms"] = event.at("ms").get<uint32>()-start; }
-	json result = {{"input",input},{"boss_id",boss->GetID()},{"player_id",c->GetID()},{"pet_ids",pet_ids},
-		{"trace",trace},{"commands",requests},{"events",stream->events},
-		{"result",terminal.count(boss) ? "boss_death" : terminal.count(c) ? "player_death" : "timeout"},
-		{"scope",commands_only ? "Native command boundary only; NPC AI paused to distinguish immediate command damage from attack orders" : "Native pet-only combat and movement; owner issues commands but does not yet cast, heal, kite or use activated AAs"}};
-	if (!commands_only) {
-		for (auto &event : boss->damage_ledger) { event["ms"] = event.at("ms").get<uint32>()-start; }
-		result["damage_ledger"] = boss->damage_ledger;
-	}
-	return result;
-}
-
 // Explicit player movement policy. NPC navigation commands require AI control,
 // which would change client combat/casting. Submit ordinary bounded position
 // packets instead, using native pathfinding and native resolved movement speed.
@@ -556,13 +531,13 @@ public:
 	json events = json::array();
 	uint32 failed_paths = 0;
 	uint32 history_packets = 0;
-	bool Step(Client *c, NPC *npc, BalanceStream *stream, uint32 pulse_ms)
+	bool Step(Client *c, NPC *npc, BalanceStream *stream, uint32 pulse_ms, float approach_range = 0, uint16 heal_spell = 9)
 	{
 		const bool controlled = c->IsAIControlled() || c->IsFeared() || c->IsStunned() || c->IsMezzed();
-		const bool healing = c->GetHPRatio() < 55 && c->GetMana() >= spells[9].mana;
+		const bool healing = c->GetHPRatio() < 55 && c->GetMana() >= spells[heal_spell].mana;
 		const int speed = c->GetRunspeed();
 		const auto from = glm::vec3(c->GetPosition());
-		const bool in_range = c->CombatRange(npc) && c->CheckLosFN(npc);
+		const bool in_range = (approach_range > 0 ? glm::distance(from,glm::vec3(npc->GetPosition())) <= approach_range : c->CombatRange(npc)) && c->CheckLosFN(npc);
 		if (controlled || c->IsCasting() || speed <= 0 || healing || in_range) {
 			route.clear();
 			if (moving && !controlled) { Submit(c,stream,from,0); }
@@ -684,6 +659,208 @@ public:
 		return false;
 	}
 };
+
+static json PetCombat(Client *c, const json &input)
+{
+	const int npc_id = input.at("npc_id"), duration = input.at("duration_ms");
+	const bool commands_only = input.value("commands_only",false);
+	const auto owner_policy = input.value("owner_policy",std::string("none"));
+	const bool support = owner_policy == "pet_support";
+	if ((owner_policy != "none" && !support) || (support && commands_only)) { throw std::runtime_error("Invalid pet owner policy"); }
+	if ((npc_id != 32040 && npc_id != 73057) || duration < 50 || duration > (commands_only ? 1000 : 900000)) {
+		throw std::runtime_error("Unsupported pet combat target/duration");
+	}
+	const auto p = input.at("npc_position").get<std::vector<float>>();
+	const auto *type = content_db.LoadNPCTypesData(npc_id);
+	if (!type) { throw std::runtime_error("Missing pet combat NPC"); }
+	auto *boss = new BalanceNPC(type,nullptr,glm::vec4(p[0],p[1],p[2],p[3]),GravityBehavior::Water);
+	boss->capture_damage = !commands_only;
+	std::vector<uint16> pet_ids;
+	for (const auto &entry : entity_list.GetNPCList()) {
+		if (entry.second->GetOwnerID() == c->GetID()) { pet_ids.push_back(entry.first); }
+	}
+	std::sort(pet_ids.begin(),pet_ids.end());
+	if (pet_ids.empty()) { throw std::runtime_error("Pet combat requires an owned pet"); }
+	entity_list.AddNPC(boss,false);
+	c->SetTarget(boss);
+	auto *stream = streams.at(c);
+	stream->events.clear();
+	const uint32 start = Timer::GetCurrentTime();
+	const auto &commands = input.at("commands");
+	if (!commands.is_array() || commands.empty() || commands.size() > 20) { throw std::runtime_error("Invalid pet command schedule"); }
+	int previous_ms = -1;
+	for (const auto &cmd : commands) {
+		const int ms = cmd.at("ms"), command = cmd.at("command");
+		if (ms < 0 || ms <= previous_ms || ms >= duration || (command != PET_ATTACK && command != PET_QATTACK && command != PET_BACKOFF && command != PET_FOLLOWME && command != PET_TAUNT_ON)) {
+			throw std::runtime_error("Unsupported pet command or unordered schedule");
+		}
+		previous_ms = ms;
+	}
+	auto state = [&]() {
+		json pets = json::array();
+		for (const auto id : pet_ids) {
+			auto *pet = entity_list.GetMob(id);
+			if (!pet) { pets.push_back({{"id",id},{"present",false}}); continue; }
+			pets.push_back({{"id",id},{"present",true},{"owner_id",pet->GetOwnerID()},
+				{"hp",pet->GetHP()},{"mana",pet->GetMana()},{"engaged",pet->IsEngaged()},
+				{"target",pet->GetTarget() ? pet->GetTarget()->GetID() : 0},
+				{"hate",pet->GetHateAmount(boss)},{"melee_range",pet->CombatRange(boss)},
+				{"los",pet->CheckLosFN(boss)},{"position",{pet->GetX(),pet->GetY(),pet->GetZ()}}});
+		}
+		json result = {{"ms",Timer::GetCurrentTime()-start},{"player",AABuffState(c)},
+			{"player_position",{c->GetX(),c->GetY(),c->GetZ()}},{"pets",pets},
+			{"boss_hp",boss->GetHP()},{"boss_mana",boss->GetMana()},
+			{"boss_target",boss->GetTarget() ? boss->GetTarget()->GetID() : 0},
+			{"boss_position",{boss->GetX(),boss->GetY(),boss->GetZ()}}};
+		if (support) {
+			json buffs = json::array();
+			for (int slot = 0; slot < boss->GetMaxTotalSlots(); ++slot) {
+				const auto &b = boss->GetBuffs()[slot];
+				if (IsValidSpell(b.spellid)) { buffs.push_back({{"spell",b.spellid},{"ticks",b.ticsremaining}}); }
+			}
+			result["boss_buffs"] = buffs; result["boss_haste"] = boss->GetHaste();
+			result["player"]["sitting"] = c->IsSitting(); result["player"]["max_mana"] = c->GetMaxMana();
+		}
+		return result;
+	};
+	json trace = json::array(), requests = json::array();
+	json owner_actions = json::array();
+	BalanceMeleeReturn movement;
+	std::unique_ptr<BalanceAAActions> aa_actions;
+	// Choose eight gems before combat. Match cold/fire offense to the boss,
+	// and reserve a gem for native resistance reduction before slow/DoTs.
+	const std::vector<uint16> gems = {15,507,112,436,static_cast<uint16>(npc_id == 32040 ? 32 : 6),
+		static_cast<uint16>(npc_id == 32040 ? 510 : 120),754,447};
+	std::map<uint16,uint32> retry;
+	uint32 next_request = 0;
+	uint16 owner_cast = 0;
+	if (support) {
+		for (size_t gem = 0; gem < gems.size(); ++gem) {
+			if (!IsValidSpell(gems[gem]) || c->GetSpellMinLevel(gems[gem]) > c->GetLevel()) { throw std::runtime_error("Ineligible pet support gem"); }
+			c->GetPP().mem_spells[gem] = gems[gem];
+		}
+		aa_actions = std::make_unique<BalanceAAActions>(c,"burst");
+	}
+	auto posture = [&](bool sitting) {
+		if (c->IsSitting() == sitting) { return true; }
+		auto *packet = new EQApplicationPacket(OP_SpawnAppearance,sizeof(SpawnAppearance_Struct));
+		auto *a = reinterpret_cast<SpawnAppearance_Struct *>(packet->pBuffer);
+		a->spawn_id = c->GetID(); a->type = AppearanceType::Animation;
+		a->parameter = sitting ? Animation::Sitting : Animation::Standing;
+		stream->incoming.push_back(packet); return false;
+	};
+	auto has_buff = [](Mob *target, uint16 spell_id) {
+		for (int slot = 0; slot < target->GetMaxTotalSlots(); ++slot) {
+			if (target->GetBuffs()[slot].spellid == spell_id) { return true; }
+		}
+		return false;
+	};
+	auto finish_owner_cast = [&]() {
+		auto &action = owner_actions.back();
+		auto *target = entity_list.GetMob(action.at("target").get<uint16>());
+		action["ended_ms"] = Timer::GetCurrentTime()-start;
+		action["owner_hp_after"] = c->GetHP(); action["owner_mana_after"] = c->GetMana();
+		action["target_hp_after"] = target ? json(target->GetHP()) : json(nullptr);
+		if (target) { action["buff_present_after"] = has_buff(target,action.at("spell").get<uint16>()); }
+	};
+	trace.push_back(state());
+	size_t command_index = 0;
+	for (int ms = 0; ms < duration && terminal.empty(); ms += 50) {
+		json before;
+		bool requested = false;
+		if (command_index < commands.size() && commands[command_index].at("ms").get<int>() <= ms) {
+			before = state(); requested = true;
+			auto *packet = new EQApplicationPacket(OP_PetCommands,sizeof(PetCommand_Struct));
+			auto *command = reinterpret_cast<PetCommand_Struct *>(packet->pBuffer);
+			command->command = commands[command_index].at("command"); command->target = boss->GetID();
+			stream->incoming.push_back(packet);
+		}
+		Advance(50);
+		bool moving = false;
+		if (support) {
+			const auto now = Timer::GetCurrentTime();
+			const bool controlled = c->IsAIControlled() || c->IsFeared() || c->IsStunned() || c->IsMezzed();
+			const bool needs_return = glm::distance(glm::vec3(c->GetPosition()),glm::vec3(boss->GetPosition())) > 80 || !c->CheckLosFN(boss);
+			if (!controlled && !c->IsCasting() && needs_return && c->IsSitting()) { posture(false); }
+			else { moving = movement.Step(c,boss,stream,50,80,15); }
+			if (!moving && !controlled && !c->IsCasting() && now >= next_request) {
+				Mob *target = boss;
+				uint16 selected = 0;
+				std::string reason;
+				const double mana_ratio = c->GetMana()*100.0/c->GetMaxMana();
+				if (c->GetHPRatio() < 55 && c->GetMana() >= spells[15].mana) {
+					selected = 15; target = c; reason = "self_heal";
+				} else if (!needs_return) {
+					Mob *lowest = nullptr;
+					for (auto id : pet_ids) {
+						auto *pet = entity_list.GetMob(id);
+						if (pet && pet->GetHP() > 0 && pet->GetOwnerID() == c->GetID() && pet->GetHPRatio() < 65
+							&& (!lowest || pet->GetHPRatio() < lowest->GetHPRatio())) { lowest = pet; }
+					}
+					if (lowest && c->GetMana() >= spells[15].mana) { selected = 15; target = lowest; reason = "pet_heal"; }
+					else if (!has_buff(boss,112) && now >= retry[112] && c->GetMana() >= spells[112].mana) { selected = 112; reason = "resist_debuff"; }
+					else if (!has_buff(boss,507) && now >= retry[507] && c->GetMana() >= spells[507].mana) { selected = 507; reason = "slow"; }
+					else if (mana_ratio < 45 && c->GetHPRatio() > 65) { selected = 754; target = c; reason = "cannibalize"; }
+					else {
+						for (uint16 dot : {gems[4],gems[3]}) {
+							if (!has_buff(boss,dot) && now >= retry[dot] && c->GetMana() >= spells[dot].mana + 2*spells[15].mana) { selected = dot; reason = "dot"; break; }
+						}
+						if (!selected && mana_ratio > 60) { selected = c->GetHPRatio() < 85 ? 447 : gems[5]; reason = "filler"; }
+					}
+				}
+				if (selected && posture(false)) {
+					auto *timer = c->GetPTimers().Get(pTimerSpellStart+selected);
+					if ((!timer || timer->GetRemainingTime() == 0) &&
+						((selected == 15 || selected == 754 || selected == 112 || selected == 507) || !aa_actions->Step(c,next_request))) {
+						const auto gem = std::find(gems.begin(),gems.end(),selected)-gems.begin();
+						const auto hp = c->GetHP(), target_hp = target->GetHP();
+						const auto mana = c->GetMana();
+						const bool accepted = c->CastSpell(selected,target->GetID(),static_cast<EQ::spells::CastingSlot>(gem));
+						owner_actions.push_back({{"ms",now-start},{"spell",selected},{"gem",gem},{"target",target->GetID()},
+							{"reason",reason},{"accepted",accepted},{"owner_hp_before",hp},{"owner_mana_before",mana},{"target_hp_before",target_hp}});
+						// Repeated resisted debuffs must not starve the rest of the rotation.
+						retry[selected] = now+30000; next_request = now+250;
+						owner_cast = c->CastingSpellID();
+						if (accepted && !owner_cast) { finish_owner_cast(); next_request = now+std::max<uint32>(250,spells[selected].recovery_time); }
+					}
+				} else if (!selected && !needs_return && mana_ratio < 75 && boss->GetTarget() != c) { posture(true); }
+			}
+		}
+		if (commands_only) {
+			if (!c->Process()) { throw std::runtime_error("Pet command client stopped"); }
+		} else {
+			entity_list.MobProcess();
+			MobMovementManager::Get().Process();
+		}
+		if (support) {
+			movement.Confirm(c);
+			if (owner_cast && !c->IsCasting()) {
+				finish_owner_cast(); next_request = Timer::GetCurrentTime()+std::max<uint32>(250,spells[owner_cast].recovery_time); owner_cast = 0;
+			}
+		}
+		if (requested) { requests.push_back({{"input",commands[command_index++]},{"before",before},{"after",state()}}); }
+		if ((ms+50) % 500 == 0 || !terminal.empty() || ms+50 >= duration) { trace.push_back(state()); }
+	}
+	for (auto &event : stream->events) { event["ms"] = event.at("ms").get<uint32>()-start; }
+	json result = {{"input",input},{"boss_id",boss->GetID()},{"player_id",c->GetID()},{"pet_ids",pet_ids},
+		{"trace",trace},{"commands",requests},{"events",stream->events},
+		{"result",terminal.count(boss) ? "boss_death" : terminal.count(c) ? "player_death" : "timeout"},
+		{"scope",commands_only ? "Native command boundary only; NPC AI paused to distinguish immediate command damage from attack orders" : "Native pet-only combat and movement; owner issues commands but does not yet cast, heal, kite or use activated AAs"}};
+	if (!commands_only) {
+		for (auto &event : boss->damage_ledger) { event["ms"] = event.at("ms").get<uint32>()-start; }
+		result["damage_ledger"] = boss->damage_ledger;
+	}
+	if (support) {
+		for (auto &event : movement.events) { event["ms"] = event.at("ms").get<uint32>()-start; }
+		for (auto &event : aa_actions->events) { event["ms"] = event.at("ms").get<uint32>()-start; }
+		result["owner_actions"] = owner_actions; result["gems"] = gems;
+		result["movement"] = {{"events",movement.events},{"failed_paths",movement.failed_paths},{"history_packets",movement.history_packets},{"approach_range",80}};
+		result["activated_aa"] = aa_actions->events;
+		result["scope"] = "Native pet support: eight fixed gems, self/pet healing, slow, DoTs, Cannibalize II, filler nukes/taps, purchased burst AA, native sitting and bounded return to80 units; no pet resummoning or continuous kiting";
+	}
+	return result;
+}
+
 
 static json PreparationState(Client *c)
 {

@@ -1,5 +1,20 @@
 # CHANGES
 
+## 2026-09-12 - Measure native pet support across AA progression
+
+The isolated balance diagnostic now prepares and supports MAG/NEC/SHM pets with
+native spells, sitting recovery, actual recast timers and eight fixed combat gems.
+Matched Vox/Nagafen cases cover requested0/100/200/500 points and unrestricted all,
+reporting actual costs. Preparation validation caught native buff replacement and
+recast rejection; accepted cast requests are not assumed to have landed. Boss HP
+ledger validation now clamps negative terminal HP consistently with damage totals.
+See ADR0013 and `docs/balance/native-pet-support.md` for evidence, limits and QA.
+
+The final release maximum remains a curated expansion AA pool; unrestricted all
+is only a stress test. This controller does not establish obtainable full BiS,
+optimal pet play or final balance. Live binaries, AA availability, NPC HP and spell
+caps were not changed. Reproduce with all four native candidate source flags.
+
 ## 2026-09-12 - Give extra pets native attack orders and measure pet boss combat
 
 Reproduced out-of-range, command-spam damage from extra pets: the broadcaster called

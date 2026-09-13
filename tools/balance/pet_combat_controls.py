@@ -88,7 +88,7 @@ def summarize(case, report):
     if 'damage_ledger' in combat:
         # Root calls already include any nested damage, so count their HP changes once.
         loss = sum(max(0, e['hp_before'])-max(0, e['hp_after']) for e in combat['damage_ledger'] if e['depth'] == 0)
-        if loss < 32000-combat['trace'][-1]['boss_hp']:
+        if loss < 32000-max(0, combat['trace'][-1]['boss_hp']):
             raise ValueError('Native damage ledger does not account for boss HP loss')
         result['native_boss_hp_loss'] = loss
         result['packet_damage_scope'] = 'Observed packets can omit distant actors; native_boss_hp_loss includes all root damage calls.'
