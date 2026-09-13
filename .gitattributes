@@ -40,3 +40,6 @@ server-mods/code/zone/client_packet.cpp text eol=lf
 tools/balance/pet_combat_controls.py text eol=lf
 tools/balance/pet_support_controls.py text eol=lf
 tools/balance/pet_belly_controls.py text eol=lf
+tools/balance/release_pool_controls.py text eol=lf
+docs/balance/aa-release-candidates.json text eol=lf
+docs/balance/release-pool-*.json -text

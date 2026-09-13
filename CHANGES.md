@@ -1,5 +1,22 @@
 # CHANGES
 
+## 2026-09-12 - Compare shared capped AA pools across combat roles
+
+Added two explicit global combat-core candidates, intersected with native held-
+class eligibility for caster, monk and pet profiles. The launch pool exhausts at
+135/141/165 points; the deeper pool at 261/288/306. Requested budgets and legal
+maximums share evidence only when purchased ranks are identical. The explicit
+free baseline removes placeholder/Alaran grants while retaining Nightcap travel
+and interface AAs; native zero-spend HP drops exactly 20 for each profile.
+
+All 108 native fights and the 229-test suite pass verification. Caster and melee
+win all sampled cases; the pet launch maximum has two Nagafen wins and one timeout,
+and its deeper maximum wins all three. The cross-role gap remains substantial.
+These are diagnostic combat cores, not a complete release AA offering or live
+removal. Utility/support review, obtainable BiS and final tuning remain open.
+See ADR0014 and `docs/balance/native-aa-release-candidates.md` for policies,
+limitations, regeneration commands and explicit future enforcement/QA requirements.
+
 ## 2026-09-12 - Respect native belly casting in pet balance measurements
 
 Both captured dragons have ranged-spell immunity: native resistance rejects spells
