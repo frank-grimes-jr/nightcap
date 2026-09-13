@@ -1,4 +1,4 @@
-# Five server fixes — built candidate
+# Five server fixes — automated gates passed, in-game QA pending
 
 The candidate corrects held-class weapon damage, extra-pet ownership and attack
 commands, direct-AA buff duration, and stale owned-AA profile entries. It makes
@@ -16,8 +16,8 @@ ledger. See `QA.md` for the exact in-game steps and activation boundary.
   maximum AAs, both dragons, and two recorded gear sets at seed 1729.
 - The three release tests validate the five source/rollback hashes, regenerated
   patch, source manifest correspondence, and all 24 complete replay reports.
-- The 315-test calculator suite passed before adding the final release-evidence
-  test. The full 316-test run on `dev` is the remaining automated promotion gate.
+- All 316 calculator and release-evidence tests pass on `dev` at revision
+  `8decea37ea8a41ccfd3eb42f3ea3180cc0826715`; see `dev-python-tests.log`.
 - The balance clone has zero account, character, owned-AA and inventory rows;
   its AA-table dump hash is unchanged. Only two verified reagent rows were removed.
 
@@ -32,6 +32,11 @@ Its SHA256 is
 `ce127436f846e2ef0d588501bc5797f13f8928cce72ea45ef9e6eb8562dbcaac`.
 The copied artifact matches the successfully built ELF. The active server binary
 has not been replaced.
+
+The complete 2,787-file source archive is stored beside it as `full-source.tar.gz`,
+SHA256 `ed2442a0807c7cfa61b782aeb21626765aae4731e1f77622984c4829d5611c06`.
+Every archived file was checked against the source manifest after copying to E:.
+`promotion-checks.json` records artifact sizes/hashes and the tested revision.
 
 `configure-command.json`, `full-source-manifest.json`, `build.log`,
 `build-checks.json`, and `cpp-tests.log` record the build. The diagnostic manifest

@@ -7,6 +7,10 @@ disk-full build's zero-byte artifact. All 87 C++ tests pass. A diagnostic linked
 from the fresh objects reproduces all 24 earlier Vox/Nagafen reports and raw
 hashes exactly. The package includes original source, the five-file patch, build
 provenance, replay evidence, a checksummed E: executable, and explicit in-game QA.
+All 316 tests pass on `dev`. A clean-checkout source-hash discrepancy was resolved
+by rebuilding `mob.cpp` from exact committed LF bytes; its object and the complete
+zone binary remain byte-identical. The complete source archive and original zone
+rollback binary are preserved on E: and verified by checksum.
 The clone is clean and its AA tables are unchanged. These are mechanics fixes;
 caps, NPC HP, the live AA offering and the active server binary remain unchanged.
 See `docs/releases/server-fixes-20260913/README.md` for evidence and remaining gates.
