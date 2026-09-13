@@ -568,6 +568,68 @@ bool Client::HasAnyCasterClass() const
 	return false;
 }
 
+// Lowest level at which any held class can use the spell (255 if none can).
+uint8 Client::GetSpellMinLevel(uint16 spell_id) const
+{
+	uint8 best = UINT8_MAX;
+	if (!IsValidSpell(spell_id)) {
+		return best;
+	}
+	for (uint8 c : GetMulticlassList()) {
+		if (c < 1 || c > Class::PLAYER_CLASS_COUNT) {
+			continue;
+		}
+		if (spells[spell_id].classes[c - 1] < best) {
+			best = spells[spell_id].classes[c - 1];
+		}
+	}
+	return best;
+}
+
+// Held class best suited to cast the spell (lowest required level wins; 0 if none can).
+uint8 Client::BestCasterClassFor(uint16 spell_id) const
+{
+	uint8 best_class = 0;
+	uint8 best_level = UINT8_MAX;
+	if (!IsValidSpell(spell_id)) {
+		return 0;
+	}
+	for (uint8 c : GetMulticlassList()) {
+		if (c < 1 || c > Class::PLAYER_CLASS_COUNT) {
+			continue;
+		}
+		if (spells[spell_id].classes[c - 1] < best_level) {
+			best_level = spells[spell_id].classes[c - 1];
+			best_class = c;
+		}
+	}
+	return best_level < UINT8_MAX ? best_class : 0;
+}
+
+// Equip legality against the union of held classes; race is still enforced.
+bool Client::CanEquipItem(const EQ::ItemData* item) const
+{
+	if (!item) {
+		return false;
+	}
+	for (uint8 c : GetMulticlassList()) {
+		if (item->IsEquipable(GetBaseRace(), c)) {
+			return true;
+		}
+	}
+	return false;
+}
+
+// Union of held classes in items.Classes bit format (bit N-1 = class N).
+uint32 Client::GetEquipClassBitmask() const
+{
+	uint32 bits = 0;
+	for (uint8 c : GetMulticlassList()) {
+		bits |= GetPlayerClassBit(GetPlayerClassValue(c));
+	}
+	return bits;
+}
+
 int64 Client::CalcMaxMana()
 {
 	// Multiclass: a character with any caster discipline gets mana. CalcBaseMana()

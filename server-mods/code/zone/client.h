@@ -506,12 +506,17 @@ public:
 	inline PlayerProfile_Struct& GetPP() { return m_pp; }
 	inline ExtendedProfile_Struct& GetEPP() { return m_epp; }
 	void LoadMulticlassMask();
+	void PurgeAfterClassRelease(uint8 released_class); // strip AAs/skills the retained classes can't use; refund AA points
 	void SetMulticlassSlot(uint8 slot, uint8 class_id);
 	inline uint32 GetClassMask() const { return m_multiclass_mask; }
 	inline uint8 GetClass2() const { return m_class2; }
 	inline uint8 GetClass3() const { return m_class3; }
 	std::vector<uint8> GetMulticlassList() const; // base + class2 + class3 (nonzero, deduped)
 	bool HasAnyCasterClass() const;               // any held class is an INT or WIS caster
+	uint8 GetSpellMinLevel(uint16 spell_id) const;   // lowest required level among held classes (255 if none can use it)
+	uint8 BestCasterClassFor(uint16 spell_id) const; // held class with the lowest required level (0 if none can use it)
+	bool CanEquipItem(const EQ::ItemData* item) const; // race + any-held-class equip check
+	uint32 GetEquipClassBitmask() const;          // union of held classes in items.Classes bit format
 	int64 CalcBaseManaForClass(uint8 class_id);   // base mana as if the character were class_id
 	uint32 GetBestClassLevelFactor() const;       // highest HP multiplier among held classes
 	uint16 GetClassPet(uint8 class_id) const { auto it = m_class_pets.find(class_id); return it != m_class_pets.end() ? it->second : 0; }

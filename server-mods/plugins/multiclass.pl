@@ -180,8 +180,10 @@ sub mc_apply_class {
 }
 
 # Release a slot (2 or 3). Slot 3 promotes into slot 2 when 2 is freed.
-# AA access is mask-based, so clearing the table is the whole revoke; purchased
-# AA rows persist and reactivate if the class is ever re-adopted.
+# After the table update, PurgeAfterClassRelease (C++) refunds+strips the AAs and
+# resets the skills the retained classes can no longer use, on the live session.
+# Spells are NOT stripped: global spell-access widening (#17) blocks per-character
+# spell revocation until the client DLL lands (#18/#12).
 sub mc_revoke_slot {
     my ($client, $slot) = @_;
     my $char_id = $client->CharacterID();
@@ -203,8 +205,13 @@ sub mc_revoke_slot {
         $sth->execute($char_id);
     }
 
+    # Strip the released class's AAs and refund AA points (live session). Skills/spells
+    # are not removed here — they ride on globally-widened tables (skill_caps/spells_new)
+    # that can't be reverted per character until de-widening / the client DLL (#18/#17).
+    $client->PurgeAfterClassRelease($revoked);
+
     return (1, "Your $MC_CLASS_NAMES{$revoked} discipline has been released. " .
-               "Camp to the character screen for the change to take hold.");
+               "Its alternate abilities were removed and your spent AA points refunded.");
 }
 
 1;

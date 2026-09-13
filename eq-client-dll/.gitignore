@@ -1,0 +1,6 @@
+build/
+third_party/
+*.obj
+*.lib
+*.exp
+*.dll

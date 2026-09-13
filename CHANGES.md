@@ -4,6 +4,150 @@ Running log of significant changes to this repo — schema migrations, C++ patch
 
 ---
 
+## 2026-07-16 — DLL track (#12): B1 verified, B0 GO, offset-source claim corrected
+
+Reviewed the tracked DLL work (#12 M2, #13 B2, #15 B3). State assessment + honest scoping, no risky speculative code:
+
+- **B1 (dinput8 proxy skeleton) verified done.** Rebuilds reproducibly with the local MSVC x86 toolchain (`eq-client-dll/build.bat`, VS Build Tools 2022 at `C:\BuildTools`), confirmed machine=x86 with all six DirectInput exports forwarded, and **passed its in-game smoke test** (`nightcap_dll.log`: load → size-check OK → init → clean unload vs `testeqgame.exe`, game ran identically). Was already committed d8b28c9.
+- **B0 → GO.** ADR 0004 moved Proposed→Accepted. Feasibility confirmed on every non-interactive axis (toolchain, THJ precedent, symbol set, clean load).
+- **Corrected an over-optimistic ADR claim:** MQ2Main.dll's export *table* is **not** the eqgame offset map. Its `pinstCSpellBookWnd 0x0022ACCC` etc. are RVAs *inside* MQ2Main.dll (image size 0x242000), i.e. MQ2's own `.data` vars — they confirm the symbol set but not the eqgame addresses. Real offsets come from MQ2-emu source `eqgame.h` (ROF2EMU) or a live-client debugger. New `eq-client-dll/docs/offsets.md` records the confirmed symbol set + this caveat + minimum-viable B2 surface (server right-click scribe already works, so only the spell-gem/memorize UI needs unlocking).
+- **B2/B3 deliberately NOT built.** B2 patches client memory at offsets we don't yet hold and can only be verified by a human on a live client — its offset-extraction first step and the "Warrior opens spell-gem window" proof are one interactive session, the tracked next step.
+
+No server/DB/binary changes; docs + build verification only.
+
+---
+
+## 2026-07-16 — QoL batch: #29 buff bots, #30 vendor cash, #31 permanent self-buffs, #32 waypoints, #33 Ascended summons, #34 loot-all, #35 #sellall (+#28 diagnosis)
+
+**#30 Vendor cash (rule_values):** `Merchant:BuyCostMod` 0.95 → **2.5** — vendors pay ~2.6x for loot, the main money faucet. Buy prices untouched. `vendor_cash_boost.sql`.
+
+**#31 Permanent self-buffs (C++, spells.cpp `CalcBuffDuration`):** beneficial spells where caster == target (clients only) get 1,000,000 tics (~69 days online). Discs/short-buff-box excluded. **Gotchas:** self-clicked potions (incl. XP potions) also become permanent; buffs still wipe on death unless `persistdeath=1`; deliberately NOT true DF_Permanent — negative tics go raw into the buff packet and `character_buffs`.
+
+**#33 Ascended summons (C++, spell_effects.cpp SE_SummonItem/IntoBag):** summoned equippables (Slots != 0, id < 200k) upgrade to their +600k Ascended variant when one exists. Temporary flag on summons is why `#sellall` skips NoRent items — otherwise summon→sell is an infinite money loop with #30.
+
+**#29 Buff bots (SQL + Perl):** Matron Restora (999237, free, PoK 310,290) and Magus Goldwind (999238, 100pp, PoK 390,290). Spell **rank laddering by 10-level bracket** instead of percentage scaling (zero custom spells, no client sync): SoW + HP/AC lines + Regeneration/Chloroplast + Breeze/Clarity. Goldwind adds Bottle of Adventure III (21030, +50% XP, hard 4h). Bot buffs self-apply via `ApplySpellBuff` → permanent per #31. `buff_bots_setup.sql`.
+
+**#32 Waypoints (SQL + Perl):** 72 Classic-zone waypoints (`nightcap_waypoints`): dungeons at safe point, outdoor at the spawn2 farthest from safe (valid ground, deterministic). Marker NPC `a waypoint` (999240, ONE spawngroup, 72 spawn2 rows). Discovery: `global_player.pl` 3s proximity timer (25u), writes `nightcap_character_waypoints`; all 72 → title "the Explorer" (title_set 100). Waypoint Master (999239, PoK 370,290) saylink-teleports to discovered ones. `waypoints_setup.sql`. **Gotcha:** timer cache (`%nightcap_wp`) dies on `#reload quest`; player re-zones to re-arm.
+
+**#35 #sellall (C++, gm_commands/sell_all.cpp, Player status):** sells general + bag contents at `price * BuyCostMod`, keeps bags/no-drop/temporary/worthless. No merchant target needed; no CHA mod.
+
+**#34 Loot All prompt:** client-side — `eqclient.ini LootAllConfirm=1` → set to 0. Not a server issue. If per-item NO TRADE prompts remain, `/lootnodrop never` in game.
+
+**#28 Pups black screen:** diagnosed client-side — `dbg.txt` shows `Lost D3D device` then endless `CBufferSet::AllocateVertices() failed`; renderer never recovers after device loss, world black, UI alive, follows the client process (not the character — Pups' server data clean). Fix: restart eqgame.exe; prefer windowed/borderless.
+
+Applied to live DB. Zone rebuilt (spells.cpp, spell_effects.cpp, command.cpp/h, sell_all.cpp) + all zones restarted.
+
+---
+
+## 2026-07-16 — Heroic stats activated + stat softcap raised (#8)
+
+**Finding:** heroic stats were NOT missing — the engine is fully implemented in this build (`bonuses.cpp` CalcHeroicBonuses / SetHeroic*Bonuses, driven by `Character:Heroic*Multiplier` rules at ×1.0). Per the rule descriptions: heroic STA → +100 HP/+0.5 HP-regen/+endurance per 10; STR → +1 melee dmg/+1 shield-AC per 10; AGI → +1 avoidance-AC; DEX → +1 archery/throwing dmg; INT/WIS → +100 mana per 10; heroics also raise the stat's own softcap. It just had nothing to act on. Three gaps fixed:
+
+1. **Items now carry heroic.** Added `heroic_X = 25% of the scaled base stat/resist` to **Ascended items only** (the THJ Legendary signature — necklace 9289 Legendary: STA 40 → +10 heroic). Polished/Exalted stay heroic-free. `tiered_loot_setup.sql` proc gained a `p_heroic` param (Ascended 0.25, else 0); Ascended epics get it too. Regenerated the tier bands.
+2. **Stat softcap raised 255 → 425** (`Character:StatCap`, ruleset 1) so the 2026-07-16 ×2.0 stat scaling isn't clamped and heroic can stack above it (matches the ~420-435 caps in the THJ #24 reference).
+3. Heroic multipliers left at ×1.0 (already meaningful). The two heroic→advanced conversions (INT→spell-dmg, WIS→heal-amt) left **off** for now — they double-dip with gear's own spell-dmg/heal.
+
+Needs shared_memory regen + zone restart (item data + `#reload rules`). Backup peq_20260716_053700 (from the earlier scaling pass) covers pre-heroic state.
+
+**Gotcha:** heroic only *does* something on gear that has it — currently only Ascended (and Ascended epics). Lower-tier / base gear grants no heroic by design. The heroic→cap interaction means a fully-Ascended character's base stats can exceed 425.
+
+---
+
+## 2026-07-16 — Item tier scaling recalibrated to THJ Legendary (#25)
+
+Replaced the 2026-07-15 two-curve scaling (defense x1.20/1.45/1.75, offense x1.10/1.20/1.35) with a **per-family model calibrated to actual THJ Legendary values**, measured from the Necklace of Eternal Visions (item 9289) base vs the Legendary reference the user provided (#25):
+
+| Family | Polished | Exalted | Ascended (= THJ Legendary) |
+|---|---|---|---|
+| HP / Mana | 1.45 | 1.90 | **2.40** |
+| AC / base stats / resists / regens | 1.35 | 1.65 | **2.00** |
+| Endurance | 1.07 | 1.13 | **1.20** |
+| Offense (dmg/atk/acc/spelldmg/healamt/...) | 1.10 | 1.20 | **1.35** |
+
+Key changes vs the prior model:
+- **Ascended is now much stronger** on survivability — HP/Mana x2.4 (was x1.75) and stats/AC/resists x2.0. This matches THJ, where end-game is survivable-but-hard only with maxed gear.
+- **Resists moved from the offense curve to the core x2.0 family** (THJ scales resists x2.0, verified: 15 -> 30 on the necklace).
+- **Offense curve unchanged** (x1.35 max) — kept conservative so solo kill-speed doesn't trivialize; burst is meant to come from AA/discs/augments (#24 context).
+- **Capped advanced stats (shielding/spellshield/dotshielding/avoidance/clairvoyance) are no longer scaled** — THJ leaves them (necklace shielding 2 -> 2).
+- **Heroic stats left untouched, by design.** THJ *adds* heroic on Legendary (~25% of the scaled stat); that whole layer is deferred to heroic-stats (#8), since heroic doesn't function yet and scaling the mostly-zero base heroic columns is inert.
+
+`eq-solo-gm/scripts/tiered_loot_setup.sql` is the source. Ascended epics (+800k) use the same per-family scaling. Backup peq_20260716_053700 taken before the 190k-row regen. Needs shared_memory regen + zone restart.
+
+**Not done (follow-ups):** heroic-stat additions (with #8), and THJ's advanced-stat *additions* on Legendary (Attack/Accuracy/Heal/SpellDmg appear on the necklace but were 0 on the base — the multiplier can't add them; would need a generic per-slot rule).
+
+---
+
+## 2026-07-16 — Issue batch: #27 no-corpse-runs, #21 spell-vendor split, #18 strip fixes, #19 diagnosis
+
+**#27 No corpse runs (rule_values, ruleset 1):** on death you now keep all gear/money/items and respawn at bind.
+- `Character:LeaveCorpses = false` — no player corpse is created (attack.cpp:2061 / client.cpp:4442 gate on it), so the corpse constructor that "takes the cash/items off the player" never runs.
+- `Character:DeathItemLossLevel = 999` — belt-and-suspenders (the item/cash transfer at corpse.cpp:297 is gated by `level >= DeathItemLossLevel`).
+- `Character:LeaveNakedCorpses = false` — was `true`, but harmless-looking: corpse.cpp:298 ORs it with LeaveCorpses so items still transferred; cleared for clarity.
+- Buffs: the combat-death path already uses `BuffFadeNonPersistDeath()` (keeps only `persistdeath` spells). Set `spells_new.persistdeath = 1` on all permanent (buffdurationformula=50) beneficial buffs so **permanent buffs survive death** (matches the #5 permanent bard songs). Needs shared_memory regen + zone restart.
+
+**#21 Spell vendors truncated at "M":** RoF2 caps the merchant window at **500 items** (`common/patches/rof2_limits.h` MERCHANT_SIZE; enforced client_process.cpp:850/856 — items past slot 500 are silently dropped). The Arcane (776), Divine (687), Stalwart (681) Loremasters exceeded it (504 of Arcane's 776 sort before "Spell: N" → the cut landed at M). Not a restock/level-gate bug — genuinely more Classic-legal caster spells than the client can show.
+- Fix: a second "II" vendor per over-cap archetype (`eq-solo-gm/scripts/spell_vendor_split.sql`, NPCs 999234-236, merchant_ids 99251-253, back row behind the originals). `vendor_restock.sql` now moves each over-cap vendor's second alphabetical half onto its II partner (generic `split_vendor` proc, triggers >480).
+
+**#18 strip fixes (C++, mirrored):** two gaps QA surfaced in the release AA-strip —
+- `SaveAA`'s `ReplaceMany` is `REPLACE INTO` (upsert only), never deleting removed rows → stripped AAs reloaded on relog. Now `DeleteCharacterAAs` wipes first, then SaveAA re-inserts survivors (matches ResetAA).
+- The RoF2 client never drops an AA from its window on its own; added `SendClearPlayerAA` (OP_ClearAA) before the table resend so stripped AAs vanish without a relog.
+
+**#19 Bard movement songs — diagnosed, not yet fixed:** Selo's data (SE_MovementSpeed=15, permanent) and the runspeed math (mob.cpp:834-858, 158% cap) are both correct, and the bonus loop includes permanent buffs. Remaining suspects need an in-game reading: bard `instrument_mod` scaling, or the buff not landing while moving (ties to #20). Left open.
+
+**Gotcha:** `vendor_restock.sql`'s per-row `MIN(item.id)` dedup subquery holds a long read lock on `items`/`spells_new` while it runs (minutes) — don't run concurrent `spells_new` writes; they'll hit lock-wait-timeout.
+
+---
+
+## 2026-07-15 — Item tiers renamed (Polished/Exalted/Ascended) + two-curve scaling rework
+
+Tier review found two problems: names duplicated THJ vocabulary ("Legendary") and EQ's class-epic term ("Epic"), and flat ×1.20/1.45/1.75 scaling on ALL stats made top-tier weapons ~+75% auto-attack DPS (damage scaled, delay untouched) and walked past Classic resist checks.
+
+**Renames:** Rare→Polished, Epic→Exalted, Legendary→Ascended (all ~191k tier rows regenerated in place, same IDs — owned items update automatically). "Essence of the Legend"→"Essence of Ascension"; Forgemaster quest dialogue + lastname updated. C++ rule names (`Zone:LootTier{Rare,Epic,Legendary}Chance`) deliberately kept — internal-only, avoids a rebuild; notes updated to map old→new.
+
+**Scaling model — tier bonuses as fractions of one expansion step** (era mobs and era loot both grow, so relative multipliers stay balanced as eras unlock; measured era steps from PEQ: ~×1.4-1.5 weapon DPS, ~×1.5-2 armor durability per expansion):
+- **Offense + resists ×1.10/1.20/1.35** (damage, attack, accuracy, spelldmg, healamt, backstabdmg, elemdmgamt, combateffects, strikethrough, damageshield, all resists) — time-to-kill is the trivializing axis; top tier now +35% DPS instead of +75%. Resist checks stay meaningful.
+- **Defense + utility ×1.20/1.45/1.75 unchanged** (AC/HP/mana/regens/stats/heroics/avoidance/shieldings/clairvoyance) — survivability is what keeps soloing viable.
+- Ascended class-epics (+800k band) use the same split. Drop rates unchanged (10%/2%/0.25%).
+
+**Applied:** backup taken (peq_20260715_094215), regen run, shared_memory rebuilt, zones restarted. `eq-solo-gm/scripts/tiered_loot_setup.sql` is the durable source.
+
+**Gotchas:** RoF2 caches item stats client-side per session — camp/zone before inspecting. Forgemaster quest reads base class only (multiclass-blind) — follow-up candidate. Existing owned tier items silently changed stats/names (intended).
+
+---
+
+## 2026-07-15 — M3 server-side (#13 A3+A4): mask-aware spell gates + equipment union; right-click scribe (#2); #instances command (#7); vendor dedupe (#9)
+
+**Spell gates (A3), `akk-stack/code/zone/` mirrored to `server-mods/`:**
+- New helpers: `Client::GetSpellMinLevel(spell_id)` (lowest required level among held classes), `Client::BestCasterClassFor(spell_id)` (held class with lowest req level), `Client::CanEquipItem(item)` (race + any-held-class), `Client::GetEquipClassBitmask()`.
+- `Handle_OP_MemorizeSpell` scribe/mem level gate → min across held classes (client_process.cpp).
+- `Client::CheckFizzle` → difficulty and prime stat (INT/WIS/Bard) come from the best held class for the spell, not base class (spells.cpp).
+- `Client::MemorizeSpellFromItem` + `Client::UseDiscipline` class/level gates → mask-aware (effects.cpp).
+- `CheckSpellLevelRestriction` needed **no change** — it already uses the all-class minimum level (recipient-side check).
+
+**Equipment (A4):**
+- `InventoryProfile::SwapItem` gained an optional `class_bitmask` param — equip class check passes if ANY held class can wear it; race/deity/level still enforced (common/inventory_profile.*). Zone caller passes the multiclass union.
+- Item bonuses (`AddItemBonuses`, `AdditiveWornBonuses`) and loot auto-equip use the union too — without the bonuses change, off-class items would equip but grant no stats.
+
+**Right-click scribe (#2):** enabled `Spells:AllowSpellMemorizeFromItem = true` (rule_values). The RoF2 client sends no scribe packet from inventory double-click; but right-click "use" on a scroll hits `Handle_OP_ItemVerifyRequest`, which scribes directly when this rule is on — no spellbook window needed. This also unblocks scroll scribing for base classes with no book UI (pre-DLL). Gate made mask-aware.
+
+**#instances command (#7):** new player-level `#instances` lists the character's open instances with time remaining (`zone/gm_commands/instances_list.cpp`). A true `/instance` slash command requires client patching — candidate for the M2+ DLL.
+
+**Vendor dupes (#9):** `vendor_restock.sql` now stocks one scroll item per spell (`MIN(item.id)` per scrolleffect) — PEQ ships several identical scrolls per spell (one per original class vendor). Re-ran restock.
+
+**Gotcha:** the restock's per-row `MIN()` correlated subquery is slow (minutes per vendor) — fine for a maintenance script, don't put it in a request path.
+
+---
+
+## 2026-07-15 — Caster AAs invisible: off-by-one class bit in AA send (QA on Tester WAR/NEC)
+
+QA of M1 surfaced that a WAR/NEC saw no Necro AAs in the AA window. Server-side authorization was fine (mask, `character_multiclass` row, `CanUseAlternateAdvancementRank` all correct) — the bug was in the client-facing display reshape in `Client::SendAlternateAdvancementRank` (`aa.cpp:1023`): `my_class_bit` was built as `1 << (GetClass() - 1)` (DB format) but `aai->classes` is client format, bit N = class N (the loader does `classes << 1`). Single-class AAs were therefore tagged with a class bit the client never matches, so the client hid them — including the character's own native class-tab AAs. Fixed to `1 << GetClass()`; mirrored to `server-mods/`.
+
+**Gotcha:** two class-bit formats coexist in AA code — DB format (bit N-1 = class N) and client/in-memory format (bit N = class N). Anything written into an outgoing packet must be client format.
+
+Also from the same QA: "Warrior can't open spellbook / memorize" is **expected**, not a regression — that's M2/M3 (#12/#13, client DLL UI unlock + spell gates), not yet built.
+
+---
+
 ## 2026-07-14 — M1 (#11): multiclass-aware mana & HP (best-of across held classes)
 
 First code of the True Multiclass epic (#10). Previously a character's mana/HP came only from its **base** class, so a Warrior who adopted Necromancer had zero mana (headline blocker for warrior-casters). Now both are best-of across the held classes (base + class2 + class3 from `character_multiclass`, via the already-loaded mask).
