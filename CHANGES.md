@@ -1,5 +1,16 @@
 # CHANGES
 
+## 2026-09-13 - Move Docker data to E: and recover the stack
+
+Moved the offline 20 GiB Docker data disk to `E:\Docker\wsl\disk`, verified
+matching SHA256 checksums, and retained the original as an E: rollback copy.
+A directory junction preserves Docker's existing path. C: now has about 24 GiB
+free. Resolved stale runtime socket startup failures; all ten stack containers,
+MariaDB, world, login, UCS, and eight zones are running again. Both fail2ban
+containers report healthy. No candidate server binary or balance change deployed.
+See `docs/ops/docker-data-migration-20260913.md` for verification and rollback;
+MariaDB's existing E: bind mount is separate from the saved Docker disk.
+
 ## 2026-09-13 - Measure spell damage and healing caps at 300
 
 Ran 162 isolated native Vox/Nagafen fights: damage/heal 250/300, 300/250 and
