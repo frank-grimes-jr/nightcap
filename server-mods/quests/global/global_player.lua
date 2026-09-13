@@ -255,8 +255,34 @@ function event_combine_success(e)
 	end
 end
 
+local CLASS_NAMES = {"Warrior","Cleric","Paladin","Ranger","Shadow Knight","Druid","Monk","Bard","Rogue","Shaman","Necromancer","Wizard","Magician","Enchanter","Beastlord","Berserker"}
+
+local function show_class_summary(client, c2, c3)
+    local base = client:GetClass()
+    if c2 == nil then c2 = client:GetClass2() end
+    if c3 == nil then c3 = client:GetClass3() end
+    local function slot_name(id)
+        return id > 0 and (CLASS_NAMES[id] or "Unknown") or "Not selected"
+    end
+    client:Message(MT.Yellow, "Your classes: " .. slot_name(base) .. " (Primary) | " ..
+        slot_name(c2) .. " (Second) | " .. slot_name(c3) .. " (Third)")
+    client:Message(MT.Yellow, "Use #classes anytime. Visit The Ancient Chronicler in PoK to choose an additional class.")
+end
+
 function event_command(e)
-	return eq.DispatchCommands(e);
+    if string.lower(e.command or "") == "classes" then
+        show_class_summary(e.self)
+        return 1
+    end
+    return eq.DispatchCommands(e)
+end
+
+function event_say(e)
+    if string.lower(e.message or ""):match("^%s*!classes%s*$") then
+        show_class_summary(e.self)
+        return 1
+    end
+    return 0
 end
 
 --[[ the main key is the ID of the AA
@@ -282,7 +308,6 @@ vet_aa = {
 }
 
 
-local CLASS_NAMES = {"Warrior","Cleric","Paladin","Ranger","Shadow Knight","Druid","Monk","Bard","Rogue","Shaman","Necromancer","Wizard","Magician","Enchanter","Beastlord","Berserker"}
 
 function event_connect(e)
     -- ponytail: qglobal persists across sessions; prevents re-grant spam and blank-name
@@ -295,13 +320,7 @@ function event_connect(e)
 
     local c2 = e.self:GetClass2()
     local c3 = e.self:GetClass3()
-    if c2 > 0 or c3 > 0 then
-        local base = e.self:GetClass()
-        local msg = "Active disciplines: " .. (CLASS_NAMES[base] or "Unknown") .. " (Primary)"
-        if c2 > 0 then msg = msg .. " | " .. (CLASS_NAMES[c2] or "Unknown") .. " (Secondary)" end
-        if c3 > 0 then msg = msg .. " | " .. (CLASS_NAMES[c3] or "Unknown") .. " (Tertiary)" end
-        e.self:Message(MT.Yellow, msg)
-    end
+    show_class_summary(e.self, c2, c3)
 
     grant_veteran_aa(e)
     don.fix_invalid_faction_state(e.self)

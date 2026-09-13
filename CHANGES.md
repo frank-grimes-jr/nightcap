@@ -1,5 +1,18 @@
 # CHANGES
 
+## 2026-09-13 - Show selected classes on demand and after selection
+
+The isolated PoK usability branch adds explicit Primary/Second/Third class slots
+on hail and login, #classes and /say !classes, and immediate status after class
+selection/release responses. Empty slots are visible. Dialogue now explains earned
+skill progression and removes misleading counts and obsolete retention promises.
+Lua behavior checks cover all 16 primary classes plus commands/login/delegation;
+16 Perl dialogue assertions and the existing canonical-login regression pass.
+A read-only audit maps all 1,229 stocked scrolls to the matching original spell
+catalog; each class fits one merchant window. Hub placement, vendor migration,
+restock integration, and in-game QA remain in progress. No live scripts, NPCs,
+merchants, client files, or AA binaries changed. See docs/pok and ADR 0024.
+
 ## 2026-09-13 - Build and verify the five server-fix candidate
 
 Clean-built the candidate from 2,787 pinned source files after rejecting the

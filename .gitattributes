@@ -77,3 +77,11 @@ docs/releases/server-fixes-20260913/*.log -text -whitespace
 docs/releases/server-fixes-20260913/*.patch -text -whitespace
 docs/releases/server-fixes-20260913/*.py text eol=lf
 docs/releases/server-fixes-20260913/*.md text eol=lf
+server-mods/quests/global/global_player.lua text eol=lf
+server-mods/quests/poknowledge/The_Ancient_Chronicler.pl text eol=lf
+tools/tests/test-pok-*.lua text eol=lf
+tools/tests/test-pok-*.pl text eol=lf
+docs/pok/*.json -text
+docs/pok/*.md text eol=lf
+docs/adr/0024-pok-arrival-hub-and-class-status.md text eol=lf
+docs/pok/*.log -text -whitespace
