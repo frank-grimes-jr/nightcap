@@ -1,5 +1,15 @@
 # CHANGES
 
+## 2026-09-14 - Reconcile GitHub issue completion and release gates
+
+Reviewed all 24 open issues. Recorded six closure candidates with published
+source and acceptance evidence, and concrete remaining gates for 18 issues.
+Published the previously accepted DLL commit 397d51b on a dedicated branch;
+its exact-client B2 verification passed. Kept #11 open after finding deferred
+original acceptance details. Pages still returns HTTP 404. The existing local
+main includes unapproved candidates and was not pushed. See the issue audit,
+updated next steps and phase-3 milestone report. No gameplay deployment occurred.
+
 ## 2026-09-14 - Begin exact AA client-title audit (#16)
 
 Added a read-only SQL snapshot and offline Python audit of RoF2 type-1 AA
