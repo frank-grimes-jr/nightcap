@@ -5,7 +5,8 @@
 ## Built
 
 - Reviewed all 24 open GitHub issues against published history, local candidates
-  and recorded acceptance. Six qualify for closure; 18 retain explicit gates.
+  and recorded acceptance. Six were closed; 18 retain explicit gates and received
+  issue-specific status comments. PR #47 publishes this work against dev.
 - Published signed-off DLL commit 397d51b on feature/accepted-mana-gauge and
   re-ran its exact RoF2 file/signature check successfully.
 - Implemented #16's read-only complete-rank title and saved-ownership preflight.

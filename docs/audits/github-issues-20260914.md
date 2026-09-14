@@ -52,4 +52,13 @@ The DLL acceptance commit is published as `feature/accepted-mana-gauge`; its his
 
 ## Publication and follow-up
 
+Completed: #8, #9, #12, #21, #24 and #25 were closed as completed with
+issue-specific evidence comments. All 18 remaining issues received their next
+steps and closure gates. A fresh GitHub query confirms exactly those 18 remain
+open and main remains `191bf8efaaa2427eb4b0e02ea5b2c4a2532192ae`.
+[PR #47](https://github.com/frank-grimes-jr/nightcap/pull/47) publishes the
+read-only audit and documentation against dev; it is open, not deployed.
+The documentation check confirms coverage of all 24 issues and no broken local
+links. Its initial Windows-default-encoding run failed; explicit UTF-8 passed.
+
 The issue-review branch starts from published main and adds only the audit and documentation, in separate commits. GitHub issue comments link this report and record each closure gate. The local balance, AA ownership and PoK candidates retain their original branches and release gates. Historical docs/next-steps.md is superseded by this review where they conflict; the new next-steps document links here.
