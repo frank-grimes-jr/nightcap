@@ -1,5 +1,17 @@
 # CHANGES
 
+## 2026-09-14 - Begin exact AA client-title audit (#16)
+
+Added a read-only SQL snapshot and offline Python audit of RoF2 type-1 AA
+titles across complete rank chains. Saved ownership is counted by first-rank
+ID; disabled families remain distinguishable. Incomplete exports, malformed
+catalogs and unresolved ownership fail closed. Ten unit/CLI tests pass;
+independent review found no actionable issues. The local client has 2,470
+nonempty type-1 titles. Docker is stopped, so fresh PEQ counts and SQL execution
+remain unverified. No AA disablement, database writes, server reload or client
+edit occurred. See docs/ops/aa-client-title-audit.md for the runbook and QA gates.
+
+
 Running log of significant changes to this repo — schema migrations, C++ patches, quest script additions, and anything with gotchas worth remembering. Most recent first.
 
 ---
