@@ -8,7 +8,7 @@ remains the acceptance standard. This plan does not reduce it to a download tool
 
 | Issues | Evidence | Work and completion proof |
 |---|---|---|
-| #13 | Proxy caster/mana path and scoped Monk attacks exist; equip attempt still client-blocked | Prove exact equip/scribe/memorize call sites; patch only local eligibility, retain server rejection and truthful tooltips; normal UI positive/negative tests in all held slots |
+| #13 | Proxy caster/mana path and scoped Monk attacks exist; scoped equip candidate built, in-game QA pending | Prove exact equip/scribe/memorize call sites; patch only local eligibility, retain server rejection and truthful tooltips; normal UI positive/negative tests in all held slots |
 | #36 | Positive server skills and trainer checks exist; Skills/trainer client gates remain | Locate client list and trainer paths using RoF2 symbols/disassembly; exact-build patches plus natural skill progression/held trainer QA |
 | #4 | AA class column requested | Implement actual AA class column using authoritative eligibility metadata; prefixes alone do not satisfy this issue |
 | #16 | Missing-title audit preserves owned/system AAs | Verify names/effects and ship curated strings through asset inventory; no blanket disablement |
@@ -93,3 +93,14 @@ Official MQ `emu` source pinned for research:
 redirects the proven equip/class calls with item/thread scope. Native tests,
 exact client checks and x86 build pass;
 [equipment QA](../../eq-client-dll/docs/equipment-qa.md) is pending.
+
+### Verified asset staging
+
+`eq-launcher/internal/assets` now verifies metadata before inspection, computes
+size/hash differences and assembles complete candidate generations. Tests cover
+corrupt/missing/current files, user-file preservation, bounded HTTPS streams,
+partial-release failure, redirect host/scheme limits, cancellation, Windows
+junctions, client/staging separation and cleanup failure reporting. Current local
+files are copied and rehashed; tombstones remain unapplied. A completion marker
+never substitutes for content revalidation or required runtime health. Journaled
+activation, process exclusion and restart recovery are the next delivery steps.

@@ -158,7 +158,7 @@ func Verify(raw []byte, signature Signature, trust Trust) (Manifest, error) {
 		if !hashPattern.MatchString(file.SHA256) {
 			return fail("invalid SHA256")
 		}
-		if err := validURL(file.URL, trust.Hosts); err != nil {
+		if err := ValidateURL(file.URL, trust.Hosts); err != nil {
 			return fail(err.Error())
 		}
 	}
@@ -196,7 +196,10 @@ func validPath(name string) error {
 	}
 	return nil
 }
-func validURL(raw string, hosts []string) error {
+
+// ValidateURL applies the same release host/path policy to initial requests and
+// every redirect. Hosts must come from launcher trust, never network metadata.
+func ValidateURL(raw string, hosts []string) error {
 	u, err := url.Parse(raw)
 	if err != nil || u.Scheme != "https" || u.Opaque != "" || u.User != nil || u.Port() != "" || u.RawQuery != "" || u.ForceQuery || u.Fragment != "" || u.RawFragment != "" || u.RawPath != "" || u.Host != u.Hostname() || u.Host != strings.ToLower(u.Host) || u.Path == "" || path.Clean(u.Path) != u.Path || strings.ContainsAny(u.Path, "\\%") {
 		return fmt.Errorf("invalid release URL")

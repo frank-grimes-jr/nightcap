@@ -1,5 +1,14 @@
 # CHANGES
 
+## 2026-09-15 - Stage complete signed client asset generations
+
+Added launcher size/hash diff and bounded HTTPS staging with signed metadata,
+per-hop redirect validation, local-copy rehash and complete candidate marker.
+Windows rooted access/junction checks keep staged files outside the client;
+failed cleanup is reported. Tests cover partial downloads and release failures.
+Activation, journaled recovery and Play gating remain unfinished; no client
+assets are installed by this package. See eq-launcher/README.md and phase 10.
+
 ## 2026-09-15 - Add scoped RoF2 equipment submission candidate
 
 Exact-build redirects allow off-base equip attempts to reach server held-class
