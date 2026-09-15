@@ -1,5 +1,8 @@
 # PoK hub verification
 
+> Current status (2026-09-15): implemented server/AA/PoK candidates are deployed for live QA; main gameplay acceptance remains pending. See [current status](../status.md). The dated evidence below retains its original scope and is not a current deployment checklist.
+
+
 2026-09-13; candidate code and content only, not deployed.
 
 `hub-database-tests.json` records 14 passing controls against newly created

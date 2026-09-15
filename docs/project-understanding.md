@@ -1,5 +1,8 @@
 # Nightcap project understanding and balance baseline
 
+> Current status (2026-09-15): implemented server/AA/PoK candidates are deployed for live QA; main gameplay acceptance remains pending. See [current status](status.md). The dated evidence below retains its original scope and is not a current deployment checklist.
+
+
 Date: 2026-09-12
 Scope: repository onboarding, custom-system source review, and read-only local PEQ inspection.
 

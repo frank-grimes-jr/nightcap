@@ -141,3 +141,11 @@ Codex is free to commit, open PRs, and merge autonomously **up to `test`** when 
 **Always update `CHANGES.md`** when making significant changes — C++ patches, database schema changes, quest script additions, or SQL setup file corrections. Include: what changed, why, any gotchas. This is the primary audit trail for this repo since many changes touch the live database or compiled binaries and aren't fully captured by git diffs alone.
 
 Format: date header, area, description. Most recent entry at the top.
+
+## Current documentation and player website
+
+Use `docs/status.md` for current deployment and issue status; `docs/README.md`
+indexes operational guides and dated evidence. Preserve historical report scope.
+The standalone `index.html` publishes with `.nojekyll` from `gh-pages`; see
+`docs/ops/player-website.md`. Website publication does not promote gameplay to
+main or replace owner in-game QA.

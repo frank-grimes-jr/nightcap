@@ -1,5 +1,8 @@
 # Epic #10 Implementation Plan
 
+> Current status (2026-09-15): implemented server/AA/PoK candidates are deployed for live QA; main gameplay acceptance remains pending. See [current status](../docs/status.md). The dated evidence below retains its original scope and is not a current deployment checklist.
+
+
 Spec: `docs/superpowers/specs/2026-07-28-true-multiclass-production-spec.md`
 
 ## Ordering and gates

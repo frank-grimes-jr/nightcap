@@ -1,4 +1,4 @@
-# eq-client-dll — Nightcap `dinput8.dll` proxy
+# eq-client-dll â€” Nightcap `dinput8.dll` proxy
 
 Client-side UI-chassis unlock for the True Multiclass epic (#10), Track B / issue #12.
 RoF2 auto-loads `dinput8.dll` from its own folder; this proxy forwards all
@@ -7,6 +7,10 @@ caster and combat-ability capability tables so any base class can reach the
 server-authorized UI chassis.
 
 ## Status
+
+Acceptance is scoped to the dated tests, not full multiclass client parity.
+See [held-Monk evidence](../docs/qa/2026-07-29-held-monk-combat-qa.md) and
+[current unresolved client gates](../docs/status.md).
 
 - **B1 (skeleton): built + smoke-passed.** Forwards all six exports, init thread
   logs only, no memory patched. Reproducible x86 build; its log
@@ -28,11 +32,11 @@ server-authorized UI chassis.
   `OP_ManaUpdate` layout is encoded server-side; Pups receives raw `148/148`,
   and the guarded `Max_Mana` detour exposes that value to the client UI/casting
   path.
-- **B2 mana gauge correction: flicker fix built + deployed, QA pending.**
+- **B2 mana gauge correction: QA passed July 28, 2026.**
   `CPlayerWnd`'s stock 500 ms refresh now bases `PlayerMana` visibility on the
   positive server-cached maximum. This replaces the competing direct
   `SetVisible` reassertion that manual QA found could flicker.
-- **G006 held-Monk activation: built + deployed, QA pending.** Exact disassembly
+- **G006 held-Monk activation: six-attack QA passed September 8, 2026.** Exact disassembly
   localized the no-op to RoF2's direct-skill dispatch. Six Monk attack
   hotbuttons now enter the stock special-attack submitter, with its one
   primary-class skill predicate corrected only for those positive
@@ -43,7 +47,7 @@ server-authorized UI chassis.
   exact complete class-table signatures. Any mismatch leaves memory untouched
   and is recorded in the per-process log.
 
-## B2 final functional QA — passed 2026-07-19
+## B2 final functional QA â€” passed 2026-07-19
 
 The completed server/client path is now functional for a Rogue-base multiclass:
 
@@ -75,7 +79,7 @@ the focused in-game QA below before promotion.
 
 ## Build
 
-Requires VS Build Tools 2022 (x86). RoF2 is 32-bit — **do not build x64**.
+Requires VS Build Tools 2022 (x86). RoF2 is 32-bit â€” **do not build x64**.
 
 ```
 build.bat
@@ -113,7 +117,7 @@ the packet, held classes, caps, range, reuse, damage, and skill-ups.
 3. The survey writes `nightcap_dll_<PID>.log` beside `eqgame.exe`. Separate EQ
    clients get separate logs.
 
-## B2 safe-build QA — passed 2026-07-19
+## B2 safe-build QA â€” passed 2026-07-19
 
 1. Start `MacroQuest2.exe`, then launch EQ through the method that injects MQ2.
    `MQ2EQIM` has been removed from `MacroQuest.ini` autoload because the July 19
@@ -139,7 +143,7 @@ for diagnostics, but the correction itself does not depend on MQ2.
 Recorded result: all guard, window, dual-client, and zoning checks passed.
 No crash recurred. The unresolved acceptance blocker is Pups' `0/0` mana.
 
-## B2 mana gauge QA - pending
+## B2 mana gauge QA â€” passed 2026-07-28
 
 1. Fully exit MacroQuest2 and all EQ clients, then restart them so the newly
    deployed DLL is loaded.
@@ -178,7 +182,7 @@ Delete `dinput8.dll` from the client folder. Stock behavior restored (a backup
 
 ## Layout
 
-- `src/dllmain.cpp` — proxy + forwarding + init thread
-- `src/dinput8.def` — export names
-- `build.bat` — x86 MSVC build
-- `third_party/` — cloned offset references (gitignored)
+- `src/dllmain.cpp` â€” proxy + forwarding + init thread
+- `src/dinput8.def` â€” export names
+- `build.bat` â€” x86 MSVC build
+- `third_party/` â€” cloned offset references (gitignored)

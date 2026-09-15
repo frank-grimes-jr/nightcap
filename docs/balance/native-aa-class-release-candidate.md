@@ -1,5 +1,8 @@
 # Atomic class-release candidate
 
+> Current status (2026-09-15): implemented server/AA/PoK candidates are deployed for live QA; main gameplay acceptance remains pending. See [current status](../status.md). The dated evidence below retains its original scope and is not a current deployment checklist.
+
+
 2026-09-13. Native candidate verified on feature/aa-ownership. Not
 promoted, installed, or certified for player use. The committed before-state
 reproduction remains in native-aa-class-release.md and its pinned artifacts.

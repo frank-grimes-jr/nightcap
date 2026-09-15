@@ -1,38 +1,29 @@
-# Epic #10 Current Queue
+# Current multiclass and release queue
 
-## Ready
+Updated September 15, 2026. [Full status](../docs/status.md) and
+[exact live QA](../docs/releases/live-qa-20260915/QA.md) are authoritative.
 
-- [x] Post the approved production contract and ordered plan to GitHub #10.
-- [x] Begin Phase 0 baseline/test-seam work on `feature/true-multiclass-m3`.
-- [x] Fix and test native skill train-level resolution.
-- [x] Check in the read-only legacy `skill_caps` audit and migration safety gate.
-- [x] Generate the 480-row class × held-slot × capability acceptance matrix.
-- [x] Continue the exhaustive player-facing class-gate audit and acceptance matrix. (Gate coverage complete 2026-09-08: G018 expanded to per-symbol G018.1–G018.13; G019 tracking, G020 bind-wound, G021 spell/disc cast-resolution surfaced; all 552 zone accessors reconciled.)
+## Deployed, awaiting owner QA
 
-## Baseline migration gate
+- [x] Canonical skill-cap repair and value-1 lifecycle implementation.
+- [x] Combined server/AA candidate and matching world/zone deployment.
+- [x] PoK hub, class status, native-class merchant routing and bag pricing.
+- [x] Durable level-1 AA XP rule and scoped saved-NPC-state cleanup.
+- [ ] Complete per-feature live QA, including AA persistence/release/reconnect.
+- [ ] Complete all-class/held-slot skill, equipment and trainer acceptance.
+- [ ] Obtain owner sign-off before main gameplay promotion.
 
-- [x] Acquire and verify the canonical PEQ baseline in an isolated no-host-port container.
-- [x] Prove live is a strict superset of canonical with a complete read-only diff.
-- [x] Take and verify a fresh live backup.
-- [x] Test guarded dry-run, apply, exact comparison, rollback, and deterministic reapply against a restored copy.
-- [x] Apply the rehearsed repair during a gameplay-process maintenance stop, refresh supported shared-memory caches, and restart every zone.
+## Still open
 
-## Blocked by Phase 0 evidence
+- [ ] Client equip/Skills/trainer gates (#13/#36).
+- [ ] Original M1 stats/regen acceptance (#11).
+- [ ] AA title remedy preserving owned/system abilities (#16).
+- [ ] Structural spell-tooltip/per-character access (#17).
+- [ ] Bard movement/song reproduction and fixes (#19).
+- [ ] Launcher and release-hardening work (#14/#15).
+- [ ] Augment content (#26), full waypoint acceptance (#32), AA column decision (#4).
+- [ ] Public site deployment and browser verification (#23).
 
-- [ ] Any live `skill_caps` repair or migration.
-- [ ] Server gameplay implementation.
-- [ ] RoF2 UI/equipment/trainer patch implementation.
-- [ ] Launcher asset-sync implementation.
-
-## Product decisions already resolved
-
-- [x] All held classes behave as real classes in ordinary play.
-- [x] Skills auto-grant at native unlock level with value `1`.
-- [x] Skills improve normally through use/training.
-- [x] Held-class trainers work as optional shortcuts.
-- [x] `Monktest` is Cleric / Shadowknight / Monk and may be granted capped skills for QA only.
-- [x] `Done` remains unchanged.
-- [x] Clean-install launcher delivery is required before #10 closes.
-- [x] `Monktest` is the sole capped-skill QA exception; other QA characters follow production policy.
-- [x] Interim gameplay QA does not replace final sign-off after launcher/hardening work.
-- [x] Multi-pet, self-buff stacking, progression, and unrelated THJ gaps are excluded.
+The skill policy is unlock at native level with value 1, followed by ordinary
+use/training. Monktest is the scoped capped-skill fixture; leave Done unchanged.
+An interim gameplay pass does not satisfy final launcher/clean-install acceptance.

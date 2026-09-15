@@ -1,5 +1,8 @@
 # Native class-release session recovery
 
+> Current status (2026-09-15): implemented server/AA/PoK candidates are deployed for live QA; main gameplay acceptance remains pending. See [current status](../status.md). The dated evidence below retains its original scope and is not a current deployment checklist.
+
+
 2026-09-13; feature/aa-ownership, candidate engine commit 82866d1.
 No engine change, live installation, promotion, or restart in this increment.
 

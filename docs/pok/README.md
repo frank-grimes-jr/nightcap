@@ -7,7 +7,7 @@ deployment evidence and outstanding acceptance: [release](../releases/live-qa-20
 The owner selected a compact arrival-area hub with a class guide and class-labeled
 spell merchants. ADR 0024 records the scope and separation from AA persistence work.
 
-Implemented and script-tested, not deployed:
+Deployed for live QA on September 15:
 
 - Three explicit class slots on hail, login, and selection/release responses.
 - #classes and /say !classes for on-demand status.
@@ -22,8 +22,10 @@ the new class merchants and retain camp guidance.
 
 See hub-layout.md for placement, verification.md for evidence, and QA.md for
 activation and exact in-game checks. Ground/path clearance, client merchant and
-Find behavior, and the native selection flow remain unverified in game. No live
-changes or restart have occurred. Native AA lifecycle work stays separate.
+Find behavior, and the native selection flow remain unverified in game. The
+combined release restarted matching world/zone and removed 17 stale custom PoK
+NPC states. Native AA lifecycle changes deployed with the matching class plugin;
+use the combined release QA for transaction and refund checks.
 
 hub-stock-audit.json contains the read-only stock snapshot and original class
 levels from the matching downloaded/server-export spell file. The two source
