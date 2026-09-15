@@ -1,5 +1,14 @@
 # CHANGES
 
+## 2026-09-15 - Connect launcher Play and Stop to verified sessions
+
+Wails and the serialized controller now dispatch the verified session backend,
+keep conflicting actions disabled through cleanup and report session exit/errors.
+Cached release discovery supports offline attempts with fresh checks on every
+launch. Play requires compiled release opt-in and complete trusted inventory; the
+default preview stays disabled. Seven isolated Chrome tests, desktop Go checks
+and the Windows build pass. [Evidence](docs/milestones/phase-20-report.md).
+
 ## 2026-09-15 - Own verified bootstrap sessions in the launcher backend
 
 The Go session owner now requires the helper in signed inventory, supplies private

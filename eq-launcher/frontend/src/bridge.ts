@@ -23,6 +23,7 @@ export interface NativeAPI {
   Update(): Promise<void>;
   Recover(): Promise<void>;
   Cancel(): Promise<void>;
+  Play(): Promise<void>;
   OpenGuide(): Promise<void>;
 }
 declare global {

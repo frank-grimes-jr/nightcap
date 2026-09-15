@@ -2,14 +2,14 @@
 
 Development implementation for issues #14/#15 and the full client-parity goal.
 The Wails/Vue shell and guarded installer/controller are implemented. The
-production release pipeline, required health checks and remaining parity hooks
-are still being built.
+production release pipeline and remaining parity hooks are still being built.
 This is not a production launcher release.
 
 ## Implemented
 
 - Wails Windows shell: folder selection, inventory, update/repair, recovery,
-  cancellation and session activity, backed by a serialized Go controller.
+  verified Play/Stop wiring, cancellation and session activity, backed by a
+  serialized Go controller. Default release policy keeps Play disabled.
 - Fresh signature/file verification for every update; no UI-supplied trust.
 - Read-only local active-generation/checkpoint and pending-recovery inspection.
 - Required signed configuration/catalog and exact PE patch-site preflight before
@@ -46,8 +46,8 @@ go build -trimpath -o build/nightcap-check.exe ./cmd/nightcap-check
 ```
 
 The diagnostic reads the executable without writing or loading it. Success
-means the supported executable was identified; `ready_to_play` remains false
-until installed-generation and required runtime-patch checks are implemented.
+means the supported executable was identified. The diagnostic does not create
+a session or grant Play; `ready_to_play` remains false.
 Unsupported executables exit 2; I/O failures exit 1.
 
 [Full development plan](../docs/ops/client-delivery-plan.md) and
@@ -89,9 +89,9 @@ prior generation is checked before recovery completes. Backups and pre-journal
 orphans remain retained; cleanup/retention management still needs implementation.
 
 The installed record captures verified bytes and local release identity. It is
-not a Play authorization: configuration semantics, exact patch metadata, required
-runtime health, release key provisioning/rotation, signed rollback, Authenticode,
-self-update remain unfinished. The checkpoint uses the
+not a Play authorization: the session backend must repeat configuration, patch
+metadata and runtime-health checks. Release key provisioning/rotation, signed
+rollback, Authenticode and self-update remain unfinished. The checkpoint uses the
 local user's filesystem trust boundary; it is not protected from that user/admin
 rewriting local state. Tests prove process-exit recovery, not sudden power-loss
 or preservation of arbitrary Windows ACL/alternate-stream metadata.
@@ -163,8 +163,9 @@ and `eq-client-dll/config/patch-sites.json` respectively. The catalog must match
 this launcher's embedded version. Required feature keys must all be explicitly
 `1`; optional `mq2_survey` may be `0` or `1`. Missing/duplicate/unknown keys fail.
 The candidate DLL consumes these configuration keys and emits process-bound
-health; the launcher validator rejects stale or incomplete reports. The Go session owner now performs process/nonce/health orchestration; Wails wiring
-and supported-game startup-order proof remain unfinished.
+health; the launcher validator rejects stale or incomplete reports. The Go session owner now performs process/nonce/health orchestration and Wails
+dispatches it. Production release policy and supported-game startup-order proof
+remain unfinished.
 [Runtime protocol and limits](../docs/adr/0033-bind-proxy-health-to-client-process.md).
 
 Generate/check shared inputs from the repository root:
@@ -194,7 +195,8 @@ to include the read-only real-executable integration case; otherwise it skips.
 The native x86 entrypoint gate now passes disposable-process tests, including the
 actual candidate DLL rejecting an unsupported host before main. The Go session
 backend now joins this helper to the verified lease and process-bound health.
-Wails Play integration and supported-game acceptance remain open.
+Wails Play/Stop integration is implemented; native Wails and supported-game
+acceptance remain open.
 [Bootstrap contract](../docs/adr/0034-initialize-proxy-before-client-entry.md).
 
 ### Offline launch preparation
@@ -232,8 +234,38 @@ are reported; a clean requested stop succeeds.
 Build `eq-client-dll/tests/build-helper-tests.bat` before native session tests.
 `NIGHTCAP_TEST_HELPER` points to the built helper with sibling test fixtures;
 those tests execute disposable fixtures only. Public Start still requires the
-exact supported game identity and signed generation. The Wails controller has
-not yet wired this backend into Play; production release policy and supported-game
-acceptance remain open. [Wire contract](../eq-client-dll/bootstrap/README.md),
+exact supported game identity and signed generation. The Wails controller now dispatches this backend while retaining busy state until
+cleanup finishes; production release policy and supported-game acceptance remain
+open. [Wire contract](../eq-client-dll/bootstrap/README.md),
 [ownership decision](../docs/adr/0036-own-bootstrap-session-in-go.md) and
 [evidence](../docs/milestones/phase-19-report.md).
+
+## Play/Stop candidate and native QA
+
+`Policy.EnablePlay` is compiled release policy; the UI cannot set it. It defaults
+to false. Enabling a trusted candidate also requires usable keys, configured
+channel and required helper/proxy/config/catalog inventory. Cached local inspection
+only offers a launch attempt; every Play rechecks signature, expiry, release floor,
+files, executable and actual process-bound health. Play itself needs no network.
+A failed release-service check can leave a valid cached candidate available.
+
+While Play is pending, Stop game stays available and all conflicting actions stay
+disabled. Keep the launcher open during gameplay. Closing its window during an
+operation requests cancellation and vetoes that close; after cleanup, close the
+window again. Cleanup errors appear in status/activity. Unconfirmed process
+termination keeps the launcher busy and its verified files locked.
+
+After a trusted candidate is provisioned, native acceptance must verify:
+
+1. Current signed cached release launches with the network unavailable; changed,
+   expired, missing-helper or pending-recovery installations fail before gameplay.
+2. Starting, running and stopping states match actual process lifetime. Cancel
+   during startup and Stop during play terminate only the owned game session.
+3. Update, recovery, folder changes and a second Play remain blocked until cleanup
+   completes. Natural exit returns to idle, abnormal exit is reported.
+4. Closing during play requests shutdown; cleanup completes before another close
+   exits the launcher. Test the real Wails bridge/window, not just browser fixtures.
+5. Run the complete client-parity in-game matrix and preserve its acceptance gates.
+
+[Integration evidence](../docs/milestones/phase-20-report.md). No production key or
+new client deployment is introduced by this preview.

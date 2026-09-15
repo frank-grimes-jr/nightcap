@@ -81,7 +81,8 @@ All game-shaped executables are disposable fixtures, including the file named
 The candidate `eq-launcher/internal/session` package now implements this protocol.
 It requires the helper in the verified signed inventory, assigns an outer Windows
 job before sending a request, validates actual process-bound health before ACK,
-and retains the launch lease until all owned processes terminate. Wails Play
-wiring and supported-game acceptance remain pending. See
+and retains the launch lease until all owned processes terminate. Wails now
+dispatches this backend; production enablement and supported-game acceptance
+remain pending. See
 [ADR 0036](../../docs/adr/0036-own-bootstrap-session-in-go.md) and
 [phase 19 evidence](../../docs/milestones/phase-19-report.md).

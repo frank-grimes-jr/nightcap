@@ -3,7 +3,7 @@ import type { Status } from "../src/bridge";
 
 async function desktop(
   page: Page,
-  mode: "normal" | "cancel" | "recovery" | "error" = "normal",
+  mode: "normal" | "cancel" | "recovery" | "error" | "play" = "normal",
 ) {
   await page.addInitScript((mode) => {
     const state = {
@@ -25,6 +25,7 @@ async function desktop(
       can_play: false,
     } as Status;
     let finishUpdate: undefined | (() => void);
+    let finishPlay: undefined | (() => void);
     const event = (message: string) =>
       state.events.push({ time: "12:34:56", message });
     window.go = {
@@ -69,6 +70,7 @@ async function desktop(
               can_update: true,
             });
             event("Verified signed release 2.");
+            if (mode === "play") Object.assign(state, {can_play: true, installed_release: 2, phase: "health_pending", files: state.files.map((f) => ({...f, state: "current"})), remove: []});
           },
           async Update() {
             Object.assign(state, {
@@ -97,7 +99,18 @@ async function desktop(
             });
             event("Files installed.");
           },
+          async Play() {
+            Object.assign(state, {phase:"playing",message:"Nightcap is running. Keep this launcher open while playing.",busy:true,can_play:false,can_check:false,can_update:false});
+            await new Promise<void>((resolve) => {finishPlay=resolve;});
+          },
           async Cancel() {
+            if (finishPlay) {
+              Object.assign(state, {phase:"stopping",message:"Stopping Nightcap. Keep the launcher open until cleanup finishes."});
+              await new Promise((resolve) => setTimeout(resolve, 100));
+              Object.assign(state, {phase:"stopped",message:"Nightcap closed. You can launch again or close the launcher.",busy:false,can_check:true,can_play:true});
+              finishPlay();
+              return;
+            }
             Object.assign(state, {
               phase: "error",
               message: "Operation cancelled.",
@@ -254,4 +267,24 @@ test("narrow layout has no horizontal overflow", async ({ page }) => {
     path: "test-results/launcher-narrow.png",
     fullPage: true,
   });
+});
+
+
+test("Play remains pending while Stop game stays available and edits are locked", async ({page}) => {
+  const failures: string[] = [];
+  page.on("pageerror", (e) => failures.push(e.message));
+  await desktop(page, "play");
+  await page.getByRole("button", {name:"Check for updates",exact:true}).click();
+  await expect(page.getByRole("button", {name:"Play Nightcap"})).toBeEnabled();
+  await page.getByRole("button", {name:"Play Nightcap"}).click();
+  await expect(page.getByRole("heading", {name:"Nightcap is running",exact:true})).toBeVisible();
+  await expect(page.getByRole("button", {name:"Change folder",exact:true})).toBeDisabled();
+  await expect(page.getByRole("button", {name:"Check for updates",exact:true})).toBeDisabled();
+  await expect(page.getByRole("button", {name:"Play Nightcap"})).toBeDisabled();
+  await expect(page.getByRole("progressbar")).toHaveCount(0);
+  await page.screenshot({path:"test-results/launcher-playing.png",fullPage:true});
+  await page.getByRole("button", {name:"Stop game",exact:true}).click();
+  await expect(page.getByRole("heading", {name:"Nightcap closed",exact:true})).toBeVisible();
+  await expect(page.getByRole("button", {name:"Play Nightcap"})).toBeEnabled();
+  expect(failures).toEqual([]);
 });

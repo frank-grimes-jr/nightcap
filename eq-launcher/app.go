@@ -77,6 +77,12 @@ func (a *App) Recover() error {
 	}
 	return a.controller.Recover(a.ctx)
 }
+func (a *App) Play() error {
+	if err := a.available(); err != nil {
+		return err
+	}
+	return a.controller.Play(a.ctx)
+}
 func (a *App) Cancel() {
 	if a.controller != nil {
 		a.controller.Cancel()

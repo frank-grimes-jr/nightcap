@@ -3,18 +3,23 @@ package launcher
 import (
 	"bytes"
 	"context"
+	"crypto/ed25519"
 	"encoding/json"
 	"fmt"
 	"io"
 	"net/http"
 	"time"
 
+	"nightcap/eq-launcher/internal/installer"
 	"nightcap/eq-launcher/internal/manifest"
+	"nightcap/eq-launcher/internal/preflight"
 )
 
 // Policy is compiled release configuration, never supplied through the UI or
 // downloaded metadata. Preview builds intentionally have no production keys.
 type Policy struct {
+	// EnablePlay is release-owned and stays false in development previews.
+	EnablePlay   bool
 	ManifestURL  string
 	SignatureURL string
 	Trust        manifest.Trust
@@ -22,6 +27,23 @@ type Policy struct {
 
 func (p Policy) configured() bool {
 	return len(p.Trust.Keys) > 0 && len(p.Trust.Inventory) > 0 && p.ManifestURL != "" && p.SignatureURL != ""
+}
+func (p Policy) playConfigured() bool {
+	if !p.EnablePlay || !p.configured() || p.Trust.LauncherVersion == "" {
+		return false
+	}
+	for _, name := range []string{"dinput8.dll", installer.HelperPath, preflight.ConfigPath, preflight.CatalogPath} {
+		if !p.Trust.Inventory[name] {
+			return false
+		}
+	}
+	now := time.Now().UTC()
+	for _, key := range p.Trust.Keys {
+		if len(key.Public) == ed25519.PublicKeySize && !now.Before(key.NotBefore) && now.Before(key.NotAfter) {
+			return true
+		}
+	}
+	return false
 }
 func DefaultPolicy() Policy { return Policy{Trust: manifest.Trust{LauncherVersion: "0.1.0"}} }
 func fetchRelease(ctx context.Context, p Policy) ([]byte, manifest.Signature, error) {

@@ -82,8 +82,9 @@ emits process-bound health through synchronous first-export initialization.
 The launcher validates that protocol. A new native entrypoint bootstrap passes
 disposable-process tests, including actual candidate rejection before main.
 Go session orchestration now joins the signed launch lease to native health
-approval. Wails integration and supported-game startup acceptance remain required
-before Play.
+approval. Wails now dispatches that backend with serialized Play/Stop state. Production
+release policy and supported-game startup acceptance remain required before
+enabling the default preview.
 Automated fixture tests and independent reviews pass; no new client binary has
 been deployed. Native launcher QA, release signing/hardening, remaining client gates
 and in-game acceptance stay open. Current [development plan](ops/client-delivery-plan.md)
@@ -97,6 +98,7 @@ entry/initializer metadata. The locks allow execution while excluding updates
 and path replacement. The native x86 helper now passes private-pipe approval and
 owned-session failure tests. Go now requires signed helper inventory, validates
 actual process-bound health and retains lease/job ownership through session exit.
-Wails wiring, production release policy and supported-game acceptance remain
-pending; Play remains disabled.
-[Current evidence](milestones/phase-19-report.md).
+Wails Play/Stop wiring and cached offline discovery now pass controller/browser
+tests. Production release policy and native supported-game acceptance remain
+pending; default Play remains disabled.
+[Current evidence](milestones/phase-20-report.md).

@@ -190,6 +190,17 @@ nonce/handles, strict ordered responses and health approval. An outer Windows jo
 contains unreported children; cleanup confirms all owned processes terminated
 before releasing files. Startup context is separate from established-session
 Close/Wait. [Phase 19](../milestones/phase-19-report.md).
-Next: wire this backend into Wails session state/cancellation, provision a trusted
-candidate release, prove supported-game bootstrap and complete the remaining
-parity/release/owner-acceptance contract. Default Play remains disabled.
+Wails now dispatches the backend and holds busy state through game exit/cleanup.
+Next: provision a trusted candidate release, prove supported-game bootstrap and
+complete the remaining parity/release/owner-acceptance contract. Default Play
+remains disabled.
+
+### Wails Play and Stop integration
+
+The controller, native bridge and UI now connect cached signed release discovery,
+fresh verified Play and owned-session Stop. Cancellation remains available while
+Play is pending; updates/folder changes stay blocked until cleanup completes.
+Seven isolated Chrome tests, desktop Go checks and the Windows build pass.
+[Phase 20](../milestones/phase-20-report.md). The compiled release opt-in remains
+off in DefaultPolicy. Native Wails interaction and supported-game acceptance still
+require their own evidence; fixture success does not enable production Play.

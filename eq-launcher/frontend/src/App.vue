@@ -19,6 +19,10 @@ const titles: Record<string, string> = {
   recovering: "Restoring your client",
   recovery: "Recovery needed",
   health_pending: "Files verified",
+  launching: "Starting Nightcap",
+  playing: "Nightcap is running",
+  stopping: "Stopping Nightcap",
+  stopped: "Nightcap closed",
   preview: "Client recognized",
   browser_preview: "Launcher preview",
   error: "Action needed",
@@ -159,7 +163,7 @@ onUnmounted(() => {
           <p v-if="error" class="error-message" role="alert">{{ error }}</p>
           <div
             class="progress"
-            v-if="state.busy"
+            v-if="state.busy && state.phase !== 'playing'"
             role="progressbar"
             aria-label="Client operation in progress"
           >
@@ -205,9 +209,9 @@ onUnmounted(() => {
               class="secondary"
               v-if="state.busy && state.phase !== 'recovering'"
               @click="cancel"
-              :disabled="cancelling"
+              :disabled="cancelling || state.phase === 'stopping'"
             >
-              Cancel
+              {{ state.phase === "playing" ? "Stop game" : state.phase === "stopping" ? "Stopping…" : "Cancel" }}
             </button>
           </div>
         </section>
@@ -308,13 +312,13 @@ onUnmounted(() => {
       </section>
       <footer class="play-bar">
         <div>
-          <strong>Play is not available yet</strong>
-          <p>Client compatibility and release checks must pass first.</p>
+          <strong>{{ state.phase === "playing" ? "Your session is running" : state.phase === "stopping" ? "Finishing your session" : state.can_play ? "Launch your installed release" : "Play is not available yet" }}</strong>
+          <p>{{ state.phase === "playing" || state.phase === "stopping" ? "Keep the launcher open until your game session ends." : state.can_play ? "Your files and client compatibility will be verified before launch." : "Client compatibility and release checks must pass first." }}</p>
         </div>
-        <button class="play-button" disabled aria-describedby="play-reason">
+        <button class="play-button" @click="run('Play')" :disabled="!native() || !state.can_play || busy" aria-describedby="play-reason">
           Play Nightcap <span aria-hidden="true">→</span></button
         ><span id="play-reason" class="sr-only"
-          >This preview does not yet authorize game launch.</span
+          >{{ state.can_play ? "Launch with fresh release and client checks." : "Game launch is unavailable while checks or another operation are pending." }}</span
         >
       </footer>
     </main>

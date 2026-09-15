@@ -13,6 +13,7 @@ import (
 	"nightcap/eq-launcher/internal/client"
 	"nightcap/eq-launcher/internal/installer"
 	"nightcap/eq-launcher/internal/manifest"
+	"nightcap/eq-launcher/internal/session"
 )
 
 var ErrBusy = errors.New("another launcher operation is in progress")
@@ -40,18 +41,20 @@ type Status struct {
 	CanPlay          bool                `json:"can_play"`
 }
 type Controller struct {
-	mu      sync.Mutex
-	home    string
-	policy  Policy
-	state   Status
-	cancel  context.CancelFunc
-	probe   func(string) (client.Report, error)
-	fetch   func(context.Context, Policy) ([]byte, manifest.Signature, error)
-	local   func(context.Context, string, manifest.Trust) (installer.Inspection, error)
-	diff    func(context.Context, []byte, manifest.Signature, manifest.Trust, string) (assets.Diff, error)
-	stage   func(context.Context, []byte, manifest.Signature, manifest.Trust, string, string) (assets.Generation, error)
-	install func(context.Context, string, string, manifest.Trust) (installer.Result, error)
-	recover func(string, manifest.Trust) error
+	locallyCurrent bool
+	start          func(context.Context, string, manifest.Trust) (gameSession, error)
+	mu             sync.Mutex
+	home           string
+	policy         Policy
+	state          Status
+	cancel         context.CancelFunc
+	probe          func(string) (client.Report, error)
+	fetch          func(context.Context, Policy) ([]byte, manifest.Signature, error)
+	local          func(context.Context, string, manifest.Trust) (installer.Inspection, error)
+	diff           func(context.Context, []byte, manifest.Signature, manifest.Trust, string) (assets.Diff, error)
+	stage          func(context.Context, []byte, manifest.Signature, manifest.Trust, string, string) (assets.Generation, error)
+	install        func(context.Context, string, string, manifest.Trust) (installer.Result, error)
+	recover        func(string, manifest.Trust) error
 }
 
 func New(home string, p Policy) (*Controller, error) {
@@ -71,6 +74,9 @@ func New(home string, p Policy) (*Controller, error) {
 		}
 	}
 	c := &Controller{home: home, policy: p, state: Status{ClientDir: s.ClientDir, Phase: "choose", Message: "Choose your EverQuest folder to begin.", Configured: p.configured(), Files: []assets.FileStatus{}, Remove: []string{}, Events: []Event{}}, fetch: fetchRelease, local: installer.Inspect, diff: assets.Inspect, stage: assets.Stage, install: installer.Install, recover: installer.Recover}
+	c.start = func(ctx context.Context, dir string, trust manifest.Trust) (gameSession, error) {
+		return session.Start(ctx, dir, trust)
+	}
 	c.probe = func(dir string) (client.Report, error) { return client.Inspect(filepath.Join(dir, "eqgame.exe")) }
 	return c, nil
 }
@@ -84,7 +90,8 @@ func (c *Controller) Snapshot() Status {
 	s.CanCheck = !s.Busy && s.ClientDir != ""
 	s.CanUpdate = !s.Busy && s.Supported && s.Configured && !s.RecoveryRequired && (s.Phase == "update" || s.Phase == "health_pending")
 	s.CanRecover = !s.Busy && s.Supported && s.Configured && s.RecoveryRequired
-	s.CanPlay = false // Required configuration/patch/runtime gates are not implemented.
+	// Eligibility offers an attempt only; Play revalidates everything under a lease.
+	s.CanPlay = !s.Busy && s.Supported && c.locallyCurrent && !s.RecoveryRequired && c.policy.playConfigured()
 	return s
 }
 func (c *Controller) begin(ctx context.Context) (context.Context, string, error) {
@@ -109,7 +116,7 @@ func (c *Controller) finish(err error) {
 		c.state.Phase = "error"
 		c.state.Message = err.Error()
 		if errors.Is(err, context.Canceled) {
-			c.state.Message = "Operation cancelled. Any interrupted installation will be recovered before updating."
+			c.state.Message = "Operation cancelled."
 		}
 		c.eventLocked(c.state.Message)
 	}
@@ -161,6 +168,7 @@ func (c *Controller) SelectClient(ctx context.Context, dir string) (err error) {
 	c.state.Files = []assets.FileStatus{}
 	c.state.Remove = []string{}
 	c.state.Supported = false
+	c.locallyCurrent = false
 	c.mu.Unlock()
 	if err = c.inspectExecutable(dir); err != nil {
 		return err
@@ -168,7 +176,17 @@ func (c *Controller) SelectClient(ctx context.Context, dir string) (err error) {
 	if !c.policy.configured() {
 		c.show("preview", "Client recognized. Updates are not available in this preview.")
 	} else {
-		c.show("selected", "Client recognized. Check for a verified release.")
+		trust := c.policy.Trust
+		trust.Now = time.Now().UTC()
+		local, e := c.inspectLocal(ctx, dir, trust)
+		if e != nil {
+			return e
+		}
+		if local.RecoveryRequired {
+			c.show("recovery", "An interrupted update needs recovery before continuing.")
+		} else {
+			c.show("selected", "Client recognized. Check for updates or launch your verified installed release.")
+		}
 	}
 	return nil
 }
@@ -198,11 +216,7 @@ func (c *Controller) prepare(ctx context.Context, dir string) ([]byte, manifest.
 		c.show("preview", "Client recognized. Updates are not available in this preview.")
 		return nil, manifest.Signature{}, trust, nil
 	}
-	local, err := c.local(ctx, dir, trust)
-	c.mu.Lock()
-	c.state.RecoveryRequired = local.RecoveryRequired
-	c.state.InstalledRelease = local.Release
-	c.mu.Unlock()
+	local, err := c.inspectLocal(ctx, dir, trust)
 	if err != nil {
 		return nil, manifest.Signature{}, trust, err
 	}
@@ -288,6 +302,7 @@ func (c *Controller) Update(ctx context.Context) (err error) {
 	}
 	c.mu.Lock()
 	c.state.InstalledRelease = result.Release
+	c.locallyCurrent = true
 	c.state.RecoveryRequired = false
 	for i := range c.state.Files {
 		c.state.Files[i].State = assets.Current

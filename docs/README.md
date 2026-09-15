@@ -23,6 +23,8 @@ Start with [current status](status.md), not a dated candidate report.
 
 ## Evidence and design
 
+- [Launcher Play/Stop integration evidence](milestones/phase-20-report.md)
+
 - [Go session ownership and health integration](milestones/phase-19-report.md)
 
 - [Native helper protocol and session evidence](milestones/phase-18-report.md)
