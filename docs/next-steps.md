@@ -6,7 +6,9 @@ in [the GitHub review](audits/github-issues-20260914.md).
 1. The [#16 live audit](audits/aa-titles-20260915/README.md) found affected saved
    ownership. Preserve system/owned AAs; review the two unnamed Paladin rank
    owners and prerequisite dependents before disablement or client-string work.
-2. #22: inspect bag inventory and economy before proposing a concrete price ladder.
+2. #22: review the [guarded bag-price candidate](ops/bag-vendor-pricing.md),
+   including its proposed ladder, shared merchant entries and in-game QA spike.
+   Live prices are unchanged; automated apply/rollback/drift rehearsal passes.
 3. #23: review the existing player-facing page, enable GitHub Pages and verify
    the deployed tabs. A committed index.html is not a deployed site.
 4. #19/#20: capture Bard movement/song behavior in game before changing formulas.
