@@ -162,3 +162,13 @@ Next: turn the primitive into the signed x86 helper, connect verified installati
 locks, PE export validation, private nonce and Go health approval, then prove the
 supported-game startup path and remaining parity. This supersedes reliance on
 ordinary first-DirectInput timing; the launcher still does not expose Play.
+
+### Verified launch lease
+
+`installer.PrepareLaunch` now verifies the cached signed generation using held
+Windows read locks, pinning directory paths and excluding updater writes. Public
+preparation passes for a disposable supported-client copy; no game is started.
+[Phase 16](../milestones/phase-16-report.md). Next: validate PE entry/export data
+from the retained executable/proxy handles, connect the signed x86 helper and
+private health exchange, then keep lease/process/job ownership through sessions.
+The production and full parity contract above remains unchanged.

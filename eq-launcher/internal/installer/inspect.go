@@ -39,13 +39,9 @@ func Inspect(ctx context.Context, clientDir string, trust manifest.Trust) (Inspe
 	if err != nil {
 		return Inspection{}, err
 	}
-	var a activeRecord
-	if err = decode(data, &a); err != nil {
+	a, err := decodeActive(data)
+	if err != nil {
 		return Inspection{}, err
-	}
-	var m manifest.Manifest
-	if json.Unmarshal(a.Manifest, &m) != nil || m.Release != a.Release || a.Release == 0 || manifest.Digest(a.Manifest) != a.ManifestDigest {
-		return Inspection{}, fmt.Errorf("invalid active checkpoint")
 	}
 	report := Inspection{Present: true, Release: a.Release, ManifestDigest: a.ManifestDigest}
 	if a.Release > trust.HighestRelease {
@@ -67,4 +63,17 @@ func Inspect(ctx context.Context, clientDir string, trust manifest.Trust) (Inspe
 		}
 	}
 	return report, nil
+}
+
+// decodeActive checks checkpoint integrity before using its release floor.
+func decodeActive(data []byte) (activeRecord, error) {
+	var a activeRecord
+	if err := decode(data, &a); err != nil {
+		return a, err
+	}
+	var m manifest.Manifest
+	if json.Unmarshal(a.Manifest, &m) != nil || m.Release != a.Release || a.Release == 0 || manifest.Digest(a.Manifest) != a.ManifestDigest {
+		return a, fmt.Errorf("invalid active checkpoint")
+	}
+	return a, nil
 }

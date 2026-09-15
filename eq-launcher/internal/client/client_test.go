@@ -1,6 +1,8 @@
 package client
 
 import (
+	"encoding/hex"
+	"fmt"
 	"os"
 	"path/filepath"
 	"strings"
@@ -46,13 +48,22 @@ func TestMissingAndDirectory(t *testing.T) {
 	}
 }
 func TestGuardAgreesWithProxySource(t *testing.T) {
-	raw, err := os.ReadFile("../../../eq-client-dll/src/dllmain.cpp")
+	raw, err := os.ReadFile("../../../eq-client-dll/src/patch_catalog.h")
 	if err != nil {
 		t.Fatal(err)
 	}
-	s := string(raw)
-	if !strings.Contains(s, "kExpectedEqgameSize = 8774656;") || !strings.Contains(s, "// sha256 "+SupportedSHA256) {
-		t.Fatal("launcher client guard differs from paired proxy")
+	digest, err := hex.DecodeString(SupportedSHA256)
+	if err != nil || len(digest) != 32 {
+		t.Fatal("invalid supported client digest")
+	}
+	var values []string
+	for _, b := range digest {
+		values = append(values, fmt.Sprintf("0x%02X", b))
+	}
+	source := string(raw)
+	if !strings.Contains(source, fmt.Sprintf("kExpectedEqgameSize = %d;", SupportedSize)) ||
+		!strings.Contains(source, "kExpectedEqgameSha256[32] = {"+strings.Join(values, ",")+"};") {
+		t.Fatal("launcher client guard differs from generated proxy constants")
 	}
 }
 

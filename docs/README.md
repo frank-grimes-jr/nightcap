@@ -23,6 +23,8 @@ Start with [current status](status.md), not a dated candidate report.
 
 ## Evidence and design
 
+- [Verified launch file lease evidence](milestones/phase-16-report.md)
+
 - [Pre-entrypoint bootstrap evidence](milestones/phase-15-report.md)
 - [Proxy runtime activation and health evidence](milestones/phase-14-report.md)
 - [Client delivery development plan](ops/client-delivery-plan.md)

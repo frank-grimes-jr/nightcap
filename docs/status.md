@@ -87,3 +87,11 @@ Automated fixture tests and independent reviews pass; no new client binary has
 been deployed. Native launcher QA, release signing/hardening, remaining client gates
 and in-game acceptance stay open. Current [development plan](ops/client-delivery-plan.md)
 and [bootstrap evidence](milestones/phase-15-report.md) preserve these gates.
+
+### Verified launch preparation candidate
+
+The launcher now prepares a cached signed release through retained Windows read
+locks, including exact executable/config/catalog preflight. The locks allow
+execution while excluding updates and path replacement. Signed helper integration,
+PE entry/export validation and actual process/health orchestration remain pending;
+Play remains disabled. [Current evidence](milestones/phase-16-report.md).

@@ -197,3 +197,16 @@ connected to this launcher. The next launch path must retain verified asset lock
 create a private nonce, bind health to the actual process handle, and transfer
 process/job ownership safely before enabling Play.
 [Bootstrap contract](../docs/adr/0034-initialize-proxy-before-client-entry.md).
+
+### Offline launch preparation
+
+`installer.PrepareLaunch(ctx, directory, trust)` returns an owned `LaunchLease`
+after checking cached signature/expiry/release floor, all managed files, required
+config/catalog/proxy, exact executable and patch sites. Retained Windows handles
+allow reads/execution but block writes, replacement and ancestor renames. Keep
+the lease alive for the entire game session; close on failure or session end.
+User settings remain writable. UNC/reparse paths are rejected.
+
+This is a backend preparation boundary, not an enabled Play path. PE bootstrap
+metadata, helper/health IPC and process/job ownership still require integration.
+[Contract and limits](../docs/adr/0035-hold-verified-files-through-client-launch.md).

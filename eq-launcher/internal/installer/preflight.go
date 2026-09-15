@@ -10,6 +10,12 @@ import (
 // patchAssets reads only explicit required entries, binding the exact parsed
 // bytes to the verified manifest. Paths and limits are compiled policy.
 func patchAssets(stage *os.Root, m manifest.Manifest) ([]byte, []byte, error) {
+	return requiredPatchAssets(m, func(name string, limit int64) ([]byte, error) {
+		return readBounded(stage, "files/"+name, limit)
+	})
+}
+
+func requiredPatchAssets(m manifest.Manifest, readFile func(string, int64) ([]byte, error)) ([]byte, []byte, error) {
 	read := func(name string, limit int64) ([]byte, error) {
 		var entry *manifest.File
 		for i := range m.Files {
@@ -21,7 +27,7 @@ func patchAssets(stage *os.Root, m manifest.Manifest) ([]byte, []byte, error) {
 		if entry == nil || !entry.Required || entry.Size > limit {
 			return nil, fmt.Errorf("missing/invalid required preflight asset: %s", name)
 		}
-		data, err := readBounded(stage, "files/"+name, limit)
+		data, err := readFile(name, limit)
 		if err != nil {
 			return nil, err
 		}

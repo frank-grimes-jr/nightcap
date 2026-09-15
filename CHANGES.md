@@ -1,5 +1,15 @@
 # CHANGES
 
+## 2026-09-15 - Hold verified client assets during launch preparation
+
+Added Windows read-sharing leases that allow image execution while denying
+updates, replacement and ancestor renames. Offline preparation verifies signed
+checkpoint/content and exact executable/config/catalog through retained handles.
+Failures/cancellation release locks. Repaired the stale generated-proxy constant
+consistency test discovered by the full suite. The lease is not connected to
+Play yet; bootstrap metadata, health exchange and remaining parity are open.
+[Evidence](docs/milestones/phase-16-report.md).
+
 ## 2026-09-15 - Add a proxy bootstrap before executable entry
 
 The x86 bootstrap primitive stops a newly created owned process at its exact PE
