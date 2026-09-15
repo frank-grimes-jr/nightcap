@@ -41,7 +41,7 @@ Their unresolved acceptance was preserved; consolidation did not fix the bugs.
 | #17 | Hub vendor routing awaits QA; global tooltip widening/per-character solution remains |
 | #19 | Both movement speed and song landing while running remain unverified/unfixed |
 | #22 | Deployed bag prices need economy and in-game purchase acceptance |
-| #23 | Updated tabbed player site and public Pages publication/verification |
+| #23 | HTML complete; GitHub plan rejects Pages for the private repo (422); hosting choice required |
 | #26 | Approved augment design; no deployed content |
 | #32 | Deployed waypoint baseline needs acceptance; accepted main had a revert |
 | #36 | Skills/dual wield and second/third trainers, including client gates |
@@ -55,8 +55,9 @@ The owner explicitly approved updating and publicly publishing the HTML through
 GitHub Pages. The standalone site uses Home, Features, Major Changes and FAQ tabs.
 It identifies the release as live testing and contains player-facing information.
 Publication verification is recorded in [the website runbook](ops/player-website.md).
-The website publishes from a dedicated `gh-pages` branch; it does not promote
-untested server code to main.
+The static payload is committed on `gh-pages`, but GitHub rejected activation
+with HTTP 422 because this plan does not support Pages for the private repository.
+The public URL is not live. A hosting choice remains; gameplay main is unchanged.
 
 ## Operational lessons
 

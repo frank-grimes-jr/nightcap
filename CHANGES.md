@@ -10,7 +10,9 @@ reports retain their original evidence with supersession notices. Updated hub,
 bag and client QA documentation without claiming unfinished gameplay acceptance.
 Browser checks cover tabs, keyboard focus/history, deep links, disclosure, four
 viewport widths and no-JavaScript readability; desktop/mobile visuals reviewed.
-Public deployment verification is recorded in docs/ops/player-website.md.
+Static payload is published on gh-pages; GitHub rejected Pages activation with
+HTTP 422 because the current plan does not support the private repository.
+The public URL is not live and #23 remains open. See docs/ops/player-website.md.
 
 ## 2026-09-15 - Deploy combined server, AA, PoK hub and bag-price release for live QA
 
@@ -1974,3 +1976,13 @@ No zone restart required — spell data is read fresh per cast.
 - `spells_new` column names: `GoodEffect` → `goodEffect`, `base1` → `effect_base_value1`, `limit1` → `effect_limit_value1`; added missing string columns (`you_cast`, `other_casts`, `cast_on_you`, `cast_on_other`, `spell_fades`, `descnum`, `typedescnum`, `effectdescnum`, `effectdescnum2`)
 - `aa_ability` INSERT: added `deities`, `charges`, `first_rank_id`, `enabled`, `reset_on_death`, `auto_grant_enabled`; removed legacy columns
 - `aa_ranks` INSERT: removed `aa_id`, `passive`, `total_cost`, `rank`; added `prev_id`, `next_id`
+
+## 2026-09-12 - Project baseline and balance working agreement
+
+Recorded the owner's core requirement: solo-preferred play must remain demanding
+and balanced. Spell damage/healing caps above 250 and NPC HP adjustments may be
+considered when supported by encounter and build evidence. Added
+`docs/project-understanding.md` with a read-only source/PEQ assessment, current
+percentage-based spell/healing scaling, source/mirror drift, the missing level-1 AA
+XP rule override, and item-generation reproducibility gaps. No gameplay, database,
+binary, or client changes were made.

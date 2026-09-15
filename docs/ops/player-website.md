@@ -30,7 +30,32 @@ A pushed branch alone is not proof of a successful deployment.
 
 Browser checks cover tab selection, arrow/Home/End keys, direct fragment links,
 browser history, FAQ disclosure, no-JavaScript readability and narrow viewports.
-Publication evidence will be recorded below after the build succeeds.
+Publication evidence is recorded below; GitHub rejected site activation.
 Rollback by restoring the last verified static commit on `gh-pages` with a new
 commit, then repeat the public hash/browser checks. Gameplay deployment and QA
 remain independent of this site.
+
+## September 15 publication result
+
+- Source implementation: `9f6f48b`; reviewed PR #50 merged to dev and test at
+  `2d95329`. Main gameplay was not promoted.
+- Static branch: `gh-pages`, commit `e6efdf1`; exactly `index.html` and `.nojekyll`.
+- Local browser suite and desktop/mobile visual inspection passed.
+- POST `/repos/frank-grimes-jr/nightcap/pages` returned HTTP 422:
+  `Your current plan does not support GitHub Pages for this repository.`
+- The repository is private. Follow-up Pages GET still returns 404. The proposed
+  public URL is **not live**; no public hash/browser verification is claimed.
+- Issue #23 remains open. Hosting requires a supported GitHub plan or an
+  owner-selected alternate destination, such as a public website-only repository.
+  Publication authorization is present; the remaining blocker is GitHub plan support.
+
+Run the browser suite from the repository root with Node:
+
+```powershell
+node tools/tests/test_player_site.cjs
+```
+
+Install/provide Playwright through `PLAYWRIGHT_MODULE` if it is outside normal
+Node resolution; `BROWSER_EXECUTABLE` selects an installed Chromium browser.
+`SCREENSHOT_DIR` saves visual evidence. Set `SITE_URL` to test the deployed URL
+once hosting succeeds. No server restart is needed for website updates.

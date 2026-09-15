@@ -9,7 +9,9 @@ September 15, 2026. Owner authorized updated HTML/documentation and public Pages
   sixteen PoK class merchants and explicit live-testing status.
 - Current status/documentation indexes; corrected hub, bag and client guides;
   supersession notices preserve the scope of dated evidence.
-- Standalone gh-pages deployment independent of gameplay main promotion.
+- Standalone gh-pages payload published, independent of gameplay main promotion.
+  GitHub rejected Pages activation (422: current plan/private repository); public
+  hosting remains blocked and #23 remains open.
 
 ## Verification
 

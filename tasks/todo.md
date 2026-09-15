@@ -22,7 +22,8 @@ Updated September 15, 2026. [Full status](../docs/status.md) and
 - [ ] Bard movement/song reproduction and fixes (#19).
 - [ ] Launcher and release-hardening work (#14/#15).
 - [ ] Augment content (#26), full waypoint acceptance (#32), AA column decision (#4).
-- [ ] Public site deployment and browser verification (#23).
+- [x] Updated HTML/docs and local browser verification (#23).
+- [ ] Resolve GitHub Pages plan restriction, host and verify the public site (#23).
 
 The skill policy is unlock at native level with value 1, followed by ordinary
 use/training. Monktest is the scoped capped-skill fixture; leave Done unchanged.

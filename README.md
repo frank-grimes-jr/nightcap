@@ -8,7 +8,7 @@ must preserve meaningful difficulty.
 is pending. `dev` and `test` contain the candidate; `main` remains the accepted
 history. Documentation and website updates do not certify new gameplay.
 
-[Player website](https://frank-grimes-jr.github.io/nightcap/) ·
+[Player website source](index.html) ·
 [Current status](docs/status.md) · [Documentation](docs/README.md) ·
 [Live QA checklist](docs/releases/live-qa-20260915/QA.md)
 
