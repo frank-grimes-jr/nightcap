@@ -11,7 +11,8 @@ Updated September 15, 2026. [Full status](../docs/status.md) and
 - [x] Durable level-1 AA XP rule and scoped saved-NPC-state cleanup.
 - [ ] Complete per-feature live QA, including AA persistence/release/reconnect.
 - [ ] Complete all-class/held-slot skill, equipment and trainer acceptance.
-- [ ] Obtain owner sign-off before main gameplay promotion.
+- [x] Owner explicitly authorized all gameplay promotion to main for live testing.
+- [ ] Record actual in-game acceptance separately from promotion authorization.
 
 ## Still open
 

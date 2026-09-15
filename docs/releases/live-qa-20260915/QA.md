@@ -1,7 +1,7 @@
 # Live release QA — 2026-09-15
 
-The owner authorized deploying all implemented changes for live testing. This is
-test acceptance, not main sign-off. Record PASS/FAIL separately for each section,
+The owner authorized deployment and subsequently all gameplay promotion to main
+for live testing. Manual acceptance is still pending. Record PASS/FAIL separately for each section,
 with character classes/level, exact steps, observed result and relevant logs.
 Use disposable characters for purchase/refund/class-release tests; leave Done
 unchanged. Existing player data is backed up; no blanket AA disablement, expansion

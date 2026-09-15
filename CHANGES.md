@@ -1,5 +1,14 @@
 # CHANGES
 
+## 2026-09-15 - Promote tested gameplay to main for owner live QA
+
+Owner explicitly requested all gameplay changes move to main before their live
+testing. Promote the reviewed dev/test history containing AA persistence and
+class release, skills, weapon/pet/buff fixes, waypoints, PoK hub relocation and
+bag pricing. Existing live deployment remains the same; manual acceptance and
+unresolved issues remain open. Record this release-specific branch-policy
+exception and the exact QA/rollback links in docs/releases/main-live-qa-20260915.md.
+
 ## 2026-09-15 - Refresh player website and current documentation
 
 Rebuilt the standalone player guide with Home, Features, Major Changes and FAQ

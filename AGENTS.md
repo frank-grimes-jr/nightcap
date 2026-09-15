@@ -74,9 +74,10 @@ The AA ownership feature uses `Client::ReleaseMulticlassSlot(slot)` to commit
 class slots, canonical AA refunds and skill clamps together. Quest code must
 check the boolean result and must not update `character_multiclass` before
 calling the retired `PurgeAfterClassRelease` API. Deploy the matching binary and
-multiclass plugin together. The candidate is not promoted: native session
-recovery and in-game QA gates are tracked in
-`docs/balance/native-aa-class-release-candidate.md`.
+multiclass plugin together. The owner authorized promotion to main for live QA
+on September 15, 2026; this is not a record of completed manual acceptance.
+Current scope and QA: `docs/releases/main-live-qa-20260915.md` and
+`docs/releases/live-qa-20260915/QA.md`.
 
 ## Non-obvious gotchas
 
@@ -123,6 +124,11 @@ claims about live state).
 - **main**: only after user sign-off on the manual QA.
 
 Codex is free to commit, open PRs, and merge autonomously **up to `test`** when tests pass. `test` → `main` requires user sign-off.
+
+**September 15, 2026 exception:** the owner explicitly requested all gameplay
+changes move into main so they can test live. This authorizes the current
+`test` release promotion before manual acceptance; retain all unresolved QA
+and issue gates. It does not permanently remove the default branch policy.
 
 ### Commits
 

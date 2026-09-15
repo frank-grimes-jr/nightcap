@@ -7,8 +7,9 @@ See [combined deployment and rollback](releases/live-qa-20260915/README.md) and
 1. Run and record owner QA for PoK placement/shopping/class status, bag pricing,
    skills/trainers, level-1 AA XP, earned-AA purchase/refund/class release,
    weapon/pet/AA-buff fixes, waypoints and established caster UI.
-2. Keep the combined release on test until explicit owner sign-off; no issue is
-   closed merely because its candidate deployed. Main remains unchanged.
+2. Test the combined release on main under the owner's September 15 promotion
+   authorization. Record acceptance per feature; no issue closes merely because
+   its implementation deployed or merged. See [promotion record](releases/main-live-qa-20260915.md).
 3. #16 missing-title audit found owned/system AAs. Preserve them while reviewing
    acquisition/effects, dependencies and supported title or audited removal options.
 4. #23: HTML and documentation are published to dev/test; the static payload is

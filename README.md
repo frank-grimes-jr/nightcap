@@ -5,8 +5,9 @@ earned gear and encounter execution matter. Friends are welcome; easier access
 must preserve meaningful difficulty.
 
 **Current release: deployed for live QA, September 15, 2026.** Gameplay acceptance
-is pending. `dev` and `test` contain the candidate; `main` remains the accepted
-history. Documentation and website updates do not certify new gameplay.
+is pending. The owner explicitly authorized promoting all gameplay from `test`
+to `main` for live testing. Main now carries this release; promotion does not
+certify in-game acceptance. See [promotion record](docs/releases/main-live-qa-20260915.md).
 
 [Player website source](index.html) ·
 [Current status](docs/status.md) · [Documentation](docs/README.md) ·
@@ -109,7 +110,8 @@ binding and plugin; the old separate SQL/purge route is retired.
 
 `feature/*` → `dev` → `test` → `main`. Automated verification precedes test;
 each promotion includes exact in-game steps. Main gameplay promotion requires
-owner sign-off. Keep small commits and update `CHANGES.md`; [AGENTS.md](AGENTS.md)
+owner sign-off unless explicitly overridden. The September 15 release has an
+owner-authorized exception for testing on main. Keep small commits and update `CHANGES.md`; [AGENTS.md](AGENTS.md)
 is the canonical workspace guidance. Historical reports retain their original
 dates and scope; [current status](docs/status.md) supersedes old queue summaries.
 

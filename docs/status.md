@@ -18,8 +18,9 @@ QA reports preserve their original evidence and are not live-state promises.
 
 [Exact live QA checklist](releases/live-qa-20260915/QA.md) ·
 [Deployment and rollback](releases/live-qa-20260915/README.md).
-The server release entered dev/test in PR #49; main gameplay acceptance remains
-pending. No new client patch, numerical balance policy or augment content was
+The server release entered dev/test in PR #49. The owner subsequently authorized
+all gameplay to move to main for live testing; [promotion record](releases/main-live-qa-20260915.md).
+Manual gameplay acceptance remains pending. No new client patch, numerical balance policy or augment content was
 introduced by this deployment.
 
 ## Issue disposition
@@ -43,7 +44,7 @@ Their unresolved acceptance was preserved; consolidation did not fix the bugs.
 | #22 | Deployed bag prices need economy and in-game purchase acceptance |
 | #23 | HTML complete; GitHub plan rejects Pages for the private repo (422); hosting choice required |
 | #26 | Approved augment design; no deployed content |
-| #32 | Deployed waypoint baseline needs acceptance; accepted main had a revert |
+| #32 | Restored waypoint baseline is on main for live QA; full discovery/Explorer acceptance remains |
 | #36 | Skills/dual wield and second/third trainers, including client gates |
 | #37 | Level-1 AA XP rule now durable; in-game XP proof pending |
 
@@ -57,7 +58,8 @@ It identifies the release as live testing and contains player-facing information
 Publication verification is recorded in [the website runbook](ops/player-website.md).
 The static payload is committed on `gh-pages`, but GitHub rejected activation
 with HTTP 422 because this plan does not support Pages for the private repository.
-The public URL is not live. A hosting choice remains; gameplay main is unchanged.
+The public URL is not live. A hosting choice remains, independent of the
+owner-authorized gameplay promotion.
 
 ## Operational lessons
 

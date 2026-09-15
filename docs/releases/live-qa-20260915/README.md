@@ -2,7 +2,9 @@
 
 Owner request: "Deploy ALL of our changes and I'll test each one in live."
 This authorizes the maintenance restart and candidate deployment for manual QA;
-it does not certify gameplay or authorize test-to-main promotion as accepted.
+it does not certify gameplay. The later explicit request, "Move all gameplay
+changes into main. I will test it live," authorizes promotion before manual
+acceptance. See [promotion record](../main-live-qa-20260915.md).
 
 ## Integrated implementation
 
