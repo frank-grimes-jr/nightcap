@@ -93,6 +93,7 @@ and [bootstrap evidence](milestones/phase-15-report.md) preserve these gates.
 The launcher now prepares a cached signed release through retained Windows read
 locks, including exact executable/config/catalog preflight and validated PE
 entry/initializer metadata. The locks allow execution while excluding updates
-and path replacement. Signed helper integration and actual process/health
+and path replacement. The native x86 helper now passes private-pipe approval and
+owned-session failure tests. Signed helper inventory and Go process/health
 orchestration remain pending; Play remains disabled.
-[Current evidence](milestones/phase-17-report.md).
+[Current evidence](milestones/phase-18-report.md).

@@ -1,5 +1,14 @@
 # CHANGES
 
+## 2026-09-15 - Add native bootstrap helper and session protocol
+
+Built the x86 helper around the pre-entry gate, with bounded inherited-pipe
+messages, private nonce propagation, health approval before resume and retained
+process/job ownership. Parent loss and post-start stdin closure terminate only
+the owned session. Seventeen disposable native scenarios pass. The helper is
+unsigned and Go/Wails integration remains open; no live client deployment.
+[Evidence](docs/milestones/phase-18-report.md).
+
 ## 2026-09-15 - Validate bootstrap addresses from held PE files
 
 Launch preparation now derives executable entry and proxy initializer RVAs from

@@ -217,3 +217,10 @@ Build the DLL, run `tests/build-bootstrap-tests.bat`, then
 to start the real client. Production verified-file/nonce/health/session handoff is
 still to be connected to the launcher.
 [Design and required integration](../docs/adr/0034-initialize-proxy-before-client-entry.md).
+
+### Native helper candidate
+
+`bootstrap/build.bat` builds the unsigned x86 `build/nightcap-bootstrap.exe`.
+It owns the child process/job and exchanges startup approval over private pipes.
+[Protocol, ownership and tests](bootstrap/README.md). Go/Wails integration and
+signed release inventory remain pending; no live client deployment is implied.

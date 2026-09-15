@@ -217,3 +217,9 @@ IPC and process/job ownership still require integration. Set both
 `NIGHTCAP_TEST_EQGAME` and `NIGHTCAP_TEST_PROXY` for the actual-image Go tests;
 they read the originals and prepare disposable copies without launching the game.
 [Contract and limits](../docs/adr/0035-hold-verified-files-through-client-launch.md).
+
+The native helper now implements the private pipe/session side of this boundary.
+[Wire and ownership contract](../eq-client-dll/bootstrap/README.md). The Go owner
+still needs to supply explicit inherited handles, validate process-bound health
+before approval, and retain the lease until the session ends. Its cancellation
+path must close helper stdin or terminate the owned helper.

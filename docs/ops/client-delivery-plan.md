@@ -173,3 +173,13 @@ now comes from the retained executable/proxy handles;
 [phase 17](../milestones/phase-17-report.md). Next: connect the signed x86 helper
 and private health exchange, then keep lease/process/job ownership through sessions.
 The production and full parity contract above remains unchanged.
+
+### Native helper protocol
+
+The x86 helper wraps the entry gate with bounded inherited-pipe messages and
+retains the owned process/job through session exit. Parent loss and stdin closure
+terminate its owned session. [Phase 18](../milestones/phase-18-report.md).
+Next: bind the helper into required signed inventory, implement the Go owner and
+strict response state machine, validate actual process-bound health before ACK,
+and connect cancellation/session lifetime while retaining the launch lease.
+The unsigned native fixture success is not Play or supported-game acceptance.
