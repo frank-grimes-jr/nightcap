@@ -24,6 +24,7 @@ Start with [current status](status.md), not a dated candidate report.
 ## Evidence and design
 
 - [Client delivery development plan](ops/client-delivery-plan.md)
+- [Windows launcher build and UI evidence](milestones/phase-12-report.md)
 - [Guarded client install/recovery evidence](milestones/phase-11-report.md)
 
 - [September 15 live deployment milestone](milestones/phase-5-report.md)

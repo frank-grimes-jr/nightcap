@@ -118,3 +118,16 @@ The real game remains unmodified. Next delivery work is Wails orchestration and
 installed-generation/configuration/patch health before Play, with production
 signing/rotation/rollback/self-update still required. Remaining client parity
 hooks and in-game acceptance retain their original scope.
+
+### Wails shell and release orchestration
+
+The Windows preview now builds with folder selection, inventory, update/repair,
+recovery, cancellation and session activity. A serialized Go controller repeats
+signed checks for every update and never accepts policy from the UI. Read-only
+local inspection reports active metadata/content and pending recovery. Core and
+desktop Go checks plus six real-browser fixture tests pass. Native interaction
+QA is pending; no production keys or Play authorization are present. See
+[phase 12](../milestones/phase-12-report.md) for build evidence, failed native smoke
+limits and the full remaining release/parity work. Next work should implement
+required config/patch/runtime health and remaining client gates, alongside native
+manual acceptance; a functional browser fixture is not the release end state.

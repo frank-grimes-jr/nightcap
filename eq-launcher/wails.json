@@ -1,0 +1,11 @@
+{
+ "$schema":"https://wails.io/schemas/config.v2.json",
+ "name":"nightcap-launcher",
+ "outputfilename":"nightcap-launcher",
+ "frontend:install":"npm ci",
+ "frontend:build":"npm run build",
+ "frontend:dev:watcher":"npm run dev",
+ "frontend:dev:serverUrl":"auto",
+ "author":{"name":"Nightcap","email":""},
+ "info":{"productName":"Nightcap Launcher","productVersion":"0.1.0","copyright":"Nightcap","comments":"Development preview. No production release channel or Play authorization."}
+}

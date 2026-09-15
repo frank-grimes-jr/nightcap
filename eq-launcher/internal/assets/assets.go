@@ -23,8 +23,8 @@ const (
 )
 
 type FileStatus struct {
-	Path  string
-	State State
+	Path  string `json:"path"`
+	State State  `json:"state"`
 }
 type Diff struct {
 	Files  []FileStatus

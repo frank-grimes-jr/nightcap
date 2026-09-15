@@ -1,5 +1,16 @@
 # CHANGES
 
+## 2026-09-15 - Add the Windows launcher UI and release controller
+
+Added a Wails/Vue preview with client-folder selection, inventory, update/repair,
+recovery, cancellation and session activity. Every update repeats signed metadata
+and content checks through the native controller; local generation inspection
+identifies damaged/expired files and pending recovery. Fixed pending-update Cancel
+and stale inventory display after installation. Windows build, 162 Go cases and
+six isolated browser tests pass; independent review found no blockers. Native
+interactive QA remains pending. Production trust, runtime health and Play remain
+unimplemented; no client files were deployed. Build/QA: eq-launcher/README.md.
+
 ## 2026-09-15 - Install and recover complete client asset generations
 
 Added guarded signed installation, immutable backups, bounded recovery journals,

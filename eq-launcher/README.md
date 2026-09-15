@@ -1,12 +1,17 @@
-# Nightcap launcher core
+# Nightcap launcher development preview
 
 Development implementation for issues #14/#15 and the full client-parity goal.
-The player-facing Wails application, production release pipeline and remaining
-parity hooks are still being built. The guarded installer core is implemented.
+The Wails/Vue shell and guarded installer/controller are implemented. The
+production release pipeline, required health checks and remaining parity hooks
+are still being built.
 This is not a production launcher release.
 
 ## Implemented
 
+- Wails Windows shell: folder selection, inventory, update/repair, recovery,
+  cancellation and session activity, backed by a serialized Go controller.
+- Fresh signature/file verification for every update; no UI-supplied trust.
+- Read-only local active-generation/checkpoint and pending-recovery inspection.
 - Ed25519 verification of compact, schema-specific canonical manifest bytes.
 - Key validity, manifest expiry, launcher version and monotonic release checks.
 - Exact trusted inventory, required flags, bounded sizes and lowercase SHA256.
@@ -84,10 +89,65 @@ orphans remain retained; cleanup/retention management still needs implementation
 The installed record captures verified bytes and local release identity. It is
 not a Play authorization: configuration semantics, exact patch metadata, required
 runtime health, release key provisioning/rotation, signed rollback, Authenticode,
-self-update and Wails orchestration remain unfinished. The checkpoint uses the
+self-update remain unfinished. The checkpoint uses the
 local user's filesystem trust boundary; it is not protected from that user/admin
 rewriting local state. Tests prove process-exit recovery, not sudden power-loss
 or preservation of arbitrary Windows ACL/alternate-stream metadata.
 
 [Transaction protocol](../docs/adr/0031-journal-client-generation-recovery.md)
 and [native guard](../docs/adr/0030-exclude-game-launch-during-client-update.md).
+
+## Desktop preview
+
+Use Node 22.12+ (verified with 24.17), Go 1.26+ (verified with 1.27.1),
+Wails CLI 2.16.0 and Windows WebView2. From `eq-launcher/`:
+
+```powershell
+go install github.com/wailsapp/wails/v2/cmd/wails@v2.16.0
+Push-Location frontend
+npm ci
+npm run build
+npm test
+Pop-Location
+wails build -tags desktop
+go test -tags desktop ./...
+go vet -tags desktop ./...
+```
+
+Build the frontend before the first Wails build: binding generation compiles the
+embedded `frontend/dist` before Wails runs its frontend build step. `main.go` and
+`app.go` include both `desktop` and `bindings` build modes because Wails removes
+its `desktop` tag when generating bindings. Output: `build/bin/nightcap-launcher.exe`.
+The executable is an unsigned development preview, not a production release.
+
+TypeScript is pinned to 6.0.3: vue-tsc 3.3.11 cannot load TypeScript 7's removed
+`typescript/lib/tsc` entry point. The frontend lockfile is committed. Playwright
+uses an installed Chrome in fresh temporary profiles, never an existing profile.
+Browser-only preview disables all native operations. Tests inject a native bridge
+fixture before loading the real UI; fixtures are not bundled in the product.
+
+The native controller owns release policy. This build has no production release
+keys/endpoints, so it can remember a client folder and identify the supported
+executable, but cannot install or authorize Play. Settings live in
+`%APPDATA%/NightcapLauncher/settings.json`; activity shows this session only.
+Configured-policy fixture tests exercise signed check/stage/install/recovery.
+Update always repeats verification rather than trusting an earlier UI snapshot.
+Closing during an operation requests cancellation and keeps the window open
+until that operation/rollback ends. Recovery itself runs to completion.
+
+### Native manual QA still required
+
+1. Start the built preview, choose a disposable copy of the supported RoF2 folder,
+   and check it: supported-client message, no install action, Play disabled.
+2. Restart: the chosen folder persists. Change to an unsupported executable and
+   verify the error, then select the supported folder again.
+3. Verify native folder-dialog cancellation, keyboard navigation, resize, Activity,
+   player-guide link and second-instance focus. No client files should change.
+4. Once a real signed channel is provisioned, verify updates, cancellation,
+   running-game refusal, interrupted-install recovery and all required health gates.
+   Browser fixture results do not constitute that release acceptance.
+
+The September 15 default-loader native smoke attempt created a task-owned profile
+but did not complete: Wails strips WebView debugging environment arguments, and
+Windows UI Automation did not expose the hidden test window. No native interaction
+pass is claimed. [Evidence and remaining work](../docs/milestones/phase-12-report.md).

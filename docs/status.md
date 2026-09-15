@@ -72,8 +72,9 @@ and binary/file manifests are retained under `artifacts/live-qa-20260915/` local
 ## Client delivery development (not deployed)
 
 Draft PR #52 contains signed manifest verification, full asset staging, guarded
-Windows installation/recovery, and a scoped equipment-submission DLL candidate.
+Windows installation/recovery, a Wails/Vue launcher preview and native controller,
+and a scoped equipment-submission DLL candidate.
 Automated fixture tests and independent reviews pass; no new client binary has
-been deployed. Wails, release signing/hardening, remaining native client gates
+been deployed. Native launcher QA, release signing/hardening, remaining client gates
 and in-game acceptance stay open. Current [development plan](ops/client-delivery-plan.md)
-and [transaction evidence](milestones/phase-11-report.md) preserve these gates.
+and [launcher evidence](milestones/phase-12-report.md) preserve these gates.
