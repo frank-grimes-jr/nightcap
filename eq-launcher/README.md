@@ -1,8 +1,9 @@
 # Nightcap launcher core
 
 Development implementation for issues #14/#15 and the full client-parity goal.
-The player-facing Wails application, installer, release pipeline and new parity
-hooks are still being built. This is not a production launcher release.
+The player-facing Wails application, production release pipeline and remaining
+parity hooks are still being built. The guarded installer core is implemented.
+This is not a production launcher release.
 
 ## Implemented
 
@@ -16,6 +17,9 @@ hooks are still being built. This is not a production launcher release.
   verify HTTPS redirects, bound streams and preserve signed metadata.
 - Physical staging/client separation (including Windows junction aliases), final
   completion marker and explicit failed-cleanup reporting.
+- Windows process/executable guard that excludes launch and concurrent updates.
+- Journaled asset installation, full rollback/restart recovery, tombstones and
+  same-release repair with a durable local release/digest checkpoint.
 
 No release key is embedded yet. Tests generate ephemeral keys. Trust configuration
 must come from the launcher/release trust chain, never a fetched manifest. The manifest
@@ -52,12 +56,38 @@ Current local files are copied and hashed again, so staging contains a complete
 candidate even when only changed files use the network. Tombstones are planned
 but not applied. Unknown user files are not inventory targets.
 
-The completion marker is a discovery aid, not a trust credential. The future
-installer must reverify signatures/content under its process lock before use.
+The completion marker is a discovery aid, not a trust credential. The installer
+reverifies signatures/content under its exclusive executable guard before use.
 Failures remove the new candidate; cleanup errors are joined with the original
 error and an orphan can remain. Abrupt interruption may also leave an incomplete
-candidate. Journaled activation/recovery and orphan management are not implemented.
+candidate. The installer implements journaled asset recovery; orphan retention
+management remains unfinished.
 This package never marks a client generation active or grants Play. Test transport
 injection is private; production Stage uses normal TLS verification and per-hop
 host checks. Cached-current staging avoids downloads, but trusted offline Play
 still requires the full active-generation and runtime health implementation.
+
+## Installation and recovery boundary
+
+`internal/installer.Install` accepts the client path, complete candidate path and
+caller-owned trust. `Recover` needs only the client path and trusted ownership
+inventory. Both use the native Windows game/update guard and require the exact
+supported executable. The guard requests write access for exclusion without
+writing executable bytes. Failed/unsupported preflight performs no installation.
+
+Pending recovery blocks a new update. Immutable backups and a bounded canonical
+journal restore all affected files and the previous active record on failure or
+restart. A corrupt journal/backup fails closed with pending retained. The full
+prior generation is checked before recovery completes. Backups and pre-journal
+orphans remain retained; cleanup/retention management still needs implementation.
+
+The installed record captures verified bytes and local release identity. It is
+not a Play authorization: configuration semantics, exact patch metadata, required
+runtime health, release key provisioning/rotation, signed rollback, Authenticode,
+self-update and Wails orchestration remain unfinished. The checkpoint uses the
+local user's filesystem trust boundary; it is not protected from that user/admin
+rewriting local state. Tests prove process-exit recovery, not sudden power-loss
+or preservation of arbitrary Windows ACL/alternate-stream metadata.
+
+[Transaction protocol](../docs/adr/0031-journal-client-generation-recovery.md)
+and [native guard](../docs/adr/0030-exclude-game-launch-during-client-update.md).

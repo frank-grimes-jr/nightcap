@@ -55,3 +55,26 @@ func TestGuardAgreesWithProxySource(t *testing.T) {
 		t.Fatal("launcher client guard differs from paired proxy")
 	}
 }
+
+func TestInspectOpenResetsPositionAndRetainsHandle(t *testing.T) {
+	file, err := os.CreateTemp(t.TempDir(), "executable")
+	if err != nil {
+		t.Fatal(err)
+	}
+	defer file.Close()
+	if _, err = file.Write([]byte("unsupported executable")); err != nil {
+		t.Fatal(err)
+	}
+	if err = file.Truncate(SupportedSize); err != nil {
+		t.Fatal(err)
+	}
+	// Leave a nonzero offset: inspection must hash the entire file through the
+	// retained handle, not just its unread suffix.
+	report, err := InspectOpen(file)
+	if err != nil || report.Supported {
+		t.Fatalf("wrong open-file report: %+v %v", report, err)
+	}
+	if _, err = file.Stat(); err != nil {
+		t.Fatal("InspectOpen closed caller's guard handle")
+	}
+}

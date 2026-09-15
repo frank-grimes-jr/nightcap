@@ -102,5 +102,19 @@ corrupt/missing/current files, user-file preservation, bounded HTTPS streams,
 partial-release failure, redirect host/scheme limits, cancellation, Windows
 junctions, client/staging separation and cleanup failure reporting. Current local
 files are copied and rehashed; tombstones remain unapplied. A completion marker
-never substitutes for content revalidation or required runtime health. Journaled
-activation, process exclusion and restart recovery are the next delivery steps.
+never substitutes for content revalidation or required runtime health. Journaled asset
+installation, process exclusion and restart recovery are now implemented in
+`internal/installer` and `internal/installguard`; production activation still
+requires configuration semantics and the remaining release/runtime health gates.
+
+### Guarded installation and recovery
+
+The native Windows guard and complete asset transaction core now pass tests,
+including actual subprocess exit during installation and recovery. Immutable
+backups and pending state restore the full prior file generation. Local monotonic
+checkpointing supports repair and rejects ordinary downgrades. Protocol, evidence
+and explicit limits: [ADR 0031](../adr/0031-journal-client-generation-recovery.md).
+The real game remains unmodified. Next delivery work is Wails orchestration and
+installed-generation/configuration/patch health before Play, with production
+signing/rotation/rollback/self-update still required. Remaining client parity
+hooks and in-game acceptance retain their original scope.

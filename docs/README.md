@@ -23,6 +23,9 @@ Start with [current status](status.md), not a dated candidate report.
 
 ## Evidence and design
 
+- [Client delivery development plan](ops/client-delivery-plan.md)
+- [Guarded client install/recovery evidence](milestones/phase-11-report.md)
+
 - [September 15 live deployment milestone](milestones/phase-5-report.md)
 - [Original issue-review snapshot](audits/github-issues-20260914.md)
 - [Live AA title findings](audits/aa-titles-20260915/README.md)

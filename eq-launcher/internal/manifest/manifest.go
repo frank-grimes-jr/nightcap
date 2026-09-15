@@ -140,7 +140,7 @@ func Verify(raw []byte, signature Signature, trust Trust) (Manifest, error) {
 	seen := map[string]bool{}
 	var total int64
 	for _, file := range m.Files {
-		if err := validPath(file.Path); err != nil {
+		if err := ValidatePath(file.Path); err != nil {
 			return fail(err.Error())
 		}
 		required, owned := trust.Inventory[file.Path]
@@ -163,7 +163,7 @@ func Verify(raw []byte, signature Signature, trust Trust) (Manifest, error) {
 		}
 	}
 	for _, name := range m.Tombstones {
-		if err := validPath(name); err != nil {
+		if err := ValidatePath(name); err != nil {
 			return fail(err.Error())
 		}
 		if !trust.Retired[name] || seen[name] {
@@ -177,7 +177,8 @@ func Verify(raw []byte, signature Signature, trust Trust) (Manifest, error) {
 var hashPattern = regexp.MustCompile(`^[0-9a-f]{64}$`)
 var segmentPattern = regexp.MustCompile(`^[a-z0-9_][a-z0-9_.-]*$`)
 
-func validPath(name string) error {
+// ValidatePath rejects unsafe or protected managed-asset paths.
+func ValidatePath(name string) error {
 	if len(name) == 0 || len(name) > 200 || name != strings.ToLower(name) || path.Clean(name) != name || strings.HasPrefix(name, "/") {
 		return fmt.Errorf("invalid asset path")
 	}

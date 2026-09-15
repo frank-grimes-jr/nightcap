@@ -27,6 +27,19 @@ func Inspect(filename string) (Report, error) {
 		return Report{}, err
 	}
 	defer file.Close()
+	return InspectOpen(file)
+}
+
+// InspectOpen checks a read-only view of an already-open executable, allowing
+// the installer to retain its exclusive Windows handle throughout preflight.
+func InspectOpen(file interface {
+	io.Reader
+	io.Seeker
+	Stat() (os.FileInfo, error)
+}) (Report, error) {
+	if _, err := file.Seek(0, io.SeekStart); err != nil {
+		return Report{}, err
+	}
 	stat, err := file.Stat()
 	if err != nil {
 		return Report{}, err

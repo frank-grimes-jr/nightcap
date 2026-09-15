@@ -1,5 +1,14 @@
 # CHANGES
 
+## 2026-09-15 - Install and recover complete client asset generations
+
+Added guarded signed installation, immutable backups, bounded recovery journals,
+tombstones and whole-generation rollback. Actual subprocess exits during install
+and recovery pass; locked unchanged Windows files no longer block rollback.
+Local release checkpoints allow repair and reject ordinary downgrades. Play
+remains false; production keys/health/UI and retention management are unfinished.
+Real client files are unchanged. Protocol/limits: docs/adr/0031-journal-client-generation-recovery.md.
+
 ## 2026-09-15 - Exclude game launch and concurrent client updates
 
 Added a fail-closed Windows process check and exclusive executable handle. It
