@@ -1,5 +1,5 @@
 {
-  "status": "candidate_not_deployed",
+  "status": "historical_isolated_candidate_manifest",
   "base_commit": "5f61fddb0253a6c0516a9d208ffc960ce6d8fd3e",
   "branch": "feature/pok-usability",
   "tests": {
@@ -32,5 +32,7 @@
     "tools/tests/test_pok_hub_migration.py": "dc4bd756a6634a52a2a20a4ca2fa53174e1da27640bac73b2f8391f836f4a828",
     "tools/tests/test-pok-hub-era.ps1": "9a6dc536756ec2195570a58d34e83f3d84d71c2e8b753f95dad17b5a5f6ff9b6",
     "tools/tests/test-pok-class-guidance.pl": "f5a4d599ff9c4cb5529e5c9e0e54a8ce6cdfd4e45825ffa645cfe7b17a152c0f"
-  }
+  },
+  "superseded_by": "docs/releases/live-qa-20260915/README.md",
+  "note": "Original file hashes retained as preparation evidence; combined live release uses a different paired multiclass plugin. Manual acceptance pending."
 }

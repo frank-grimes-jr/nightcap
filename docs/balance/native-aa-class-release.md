@@ -1,5 +1,8 @@
 # Native class-release reproduction
 
+> Current status (2026-09-15): implemented server/AA/PoK candidates are deployed for live QA; main gameplay acceptance remains pending. See [current status](../status.md). The dated evidence below retains its original scope and is not a current deployment checklist.
+
+
 2026-09-13. Before-state evidence on the isolated AA feature branch at d7c5613.
 The atomic class-release fix is not implemented or deployed in this increment.
 

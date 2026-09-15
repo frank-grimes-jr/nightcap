@@ -1,5 +1,8 @@
 # ADR 0012: Issue native attack orders to every owned class pet
 
+> Current status (2026-09-15): implemented server/AA/PoK candidates are deployed for live QA; main gameplay acceptance remains pending. See [current status](../status.md). The dated evidence below retains its original scope and is not a current deployment checklist.
+
+
 Date: 2026-09-12. Status: candidate in isolated diagnostic; not deployed.
 
 ## Problem

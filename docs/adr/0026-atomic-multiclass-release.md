@@ -1,5 +1,8 @@
 # ADR 0026: Atomic multiclass release
 
+> Current status (2026-09-15): implemented server/AA/PoK candidates are deployed for live QA; main gameplay acceptance remains pending. See [current status](../status.md). The dated evidence below retains its original scope and is not a current deployment checklist.
+
+
 Date: 2026-09-13. The design and before-state evidence were recorded at eedc168.
 Current status: candidate implemented on feature/aa-ownership; verification and
 remaining gates are tracked in ../balance/native-aa-class-release-candidate.md.

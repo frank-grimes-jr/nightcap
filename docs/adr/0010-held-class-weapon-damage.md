@@ -1,5 +1,8 @@
 # ADR 0010: use held-class eligibility when resolving player weapon damage
 
+> Current status (2026-09-15): implemented server/AA/PoK candidates are deployed for live QA; main gameplay acceptance remains pending. See [current status](../status.md). The dated evidence below retains its original scope and is not a current deployment checklist.
+
+
 Date: 2026-09-12. Status: candidate passes native weapon controls and 60 matched
 encounters; live deployment and manual QA remain pending. Related gates: G014 and G018.11.
 

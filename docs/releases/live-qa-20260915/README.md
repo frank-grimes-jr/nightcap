@@ -81,9 +81,10 @@ Fresh full PEQ backup: 46,341,767 compressed bytes, 440,671,787 uncompressed,
 SHA256 `e8f81a82f279a5d2b6e6f2569e568933615efbebbc24596226d336c1aea5ce90`.
 No character rows or AA ownership/wallets were directly edited during deployment.
 
-GitHub Pages publication was blocked by automatic approval review pending the
-owner's explicit approval to publish the existing main-branch HTML publicly.
-This does not block game-server QA.
+Website follow-up: the owner explicitly approved the updated HTML and public
+GitHub Pages publication on September 15. This resolves the earlier approval
+block. See [website publication evidence](../../ops/player-website.md); game-server
+acceptance remains independent.
 
 See [the full test checklist](QA.md). All manual acceptance remains pending.
 

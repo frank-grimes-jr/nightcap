@@ -1,5 +1,8 @@
 # Epic: True multiclass production parity
 
+> Current status (2026-09-15): implemented server/AA/PoK candidates are deployed for live QA; main gameplay acceptance remains pending. See [current status](../docs/status.md). The dated evidence below retains its original scope and is not a current deployment checklist.
+
+
 Make primary, secondary, and tertiary classes function as real classes in ordinary play, with production-grade delivery comparable to the multiclass expectation in THJ.
 
 ## Confirmed Definition of Done

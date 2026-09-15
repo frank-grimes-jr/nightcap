@@ -1,5 +1,8 @@
 # Server fixes candidate: in-game QA
 
+> Current status (2026-09-15): implemented server/AA/PoK candidates are deployed for live QA; main gameplay acceptance remains pending. See [current status](../../status.md). The dated evidence below retains its original scope and is not a current deployment checklist.
+
+
 This candidate packages five existing C++ fixes. It does not change spell/healing
 caps, NPC HP, the live AA offering, character purchases or era configuration.
 The balance study remains open. Test-to-main requires the owner's sign-off.

@@ -1,13 +1,15 @@
-# PoK arrival hub proposal
+# PoK arrival hub — deployed layout
 
-Status: generated and tested; not applied to the database or live zone.
+Status: deployed September 15, 2026 for owner live QA. SQL placement and stale
+custom NPC cache repair are verified; terrain and interaction acceptance remain
+open. See [combined release](../releases/live-qa-20260915/README.md).
 
 The guide stands north of the arrival point, with two rows of eight class
 merchants flanking an open center aisle. Existing nearby NPC positions were
 checked; exact ground, line of sight, and walking clearance still need in-game QA.
-The current arrival point is x=-285, y=-148, z=-159. Proposed merchant rows are
-x=-325 and x=-245, y=-204 through -92 in 16-unit steps. The guide is proposed at
-x=-285, y=-74. Proposed z=-158.875 uses the nearby native NPC ground height.
+The current arrival point is x=-285, y=-148, z=-159. Deployed merchant rows are
+x=-325 and x=-245, y=-204 through -92 in 16-unit steps. The guide is placed at
+x=-285, y=-74. Deployed z=-158.875 uses the nearby native NPC ground height.
 
 The stock plan preserves all 1,229 currently available unique scrolls, retains
 item prices, and sorts each merchant by original class level then name. Shared
@@ -33,8 +35,8 @@ one merchant window; no II/cont. overflow NPC is needed for this inventory.
 | Beastlord | 71 | Beastlord: Spells |
 | Berserker | 3 | Berserker: Tomes |
 
-The proposed NPC/spawn-group range 997900-997915 and merchant IDs 99300-99315
-were empty in the read-only check. Apply must verify them again. The initially
+The migration occupies NPC/spawn-group range 997900-997915 and merchant IDs
+99300-99315; these were empty before deployment. Future changes must respect them. The initially
 considered 999260 range contains existing pet NPCs and must not be repurposed.
 Existing merchants all use faction 0; migration must preserve source pricing
 settings and item prices. The guide keeps its quest-bound name and gains the
@@ -51,8 +53,9 @@ These ground positions remain provisional until the in-game walk/LOS check.
 
 Guarded forward/rollback SQL, transactional restock, and era preflight are now
 implemented. Four planner/migration tests, 14 MariaDB controls, and PowerShell
-preflight checks pass. See verification.md. Activation and in-game QA remain;
-follow QA.md and schedule the PoK restart with the owner before applying.
+preflight checks pass. See verification.md for preparation evidence and QA.md
+for outstanding in-game acceptance. Do not replay the historical migration
+as a substitute for checking current deployed state.
 
 Regenerate the proposal from tools/:
 

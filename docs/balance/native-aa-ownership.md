@@ -1,5 +1,8 @@
 # Native owned-AA consistency and expansion transition evidence
 
+> Current status (2026-09-15): implemented server/AA/PoK candidates are deployed for live QA; main gameplay acceptance remains pending. See [current status](../status.md). The dated evidence below retains its original scope and is not a current deployment checklist.
+
+
 Captured 2026-09-13 in `nightcap_balance_20260912`. No live data, binary, era rule
 or process was changed. This checkpoint verifies a loader fix and an offline
 ownership model; it does not complete expansion AA availability or server balance.

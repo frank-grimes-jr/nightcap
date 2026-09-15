@@ -29,8 +29,9 @@ Owner in-game checks remain for every deployed feature, particularly transaction
 network reconnect, client rendering, terrain clearance and merchant interactions.
 Unimplemented client gates, missing-title remediation, Bard fixes, augment content,
 launcher delivery and experimental balance policies were not represented as
-shipped. Public website activation is prepared but was blocked by automatic
-approval review pending explicit GitHub Pages publication approval.
+shipped. Website publication initially required specific public-destination
+approval; the owner subsequently provided it. See [phase 6](phase-6-report.md)
+for the website/documentation follow-up.
 
 [Deployment evidence and rollback](../releases/live-qa-20260915/README.md).
 [Exact owner QA checklist](../releases/live-qa-20260915/QA.md).

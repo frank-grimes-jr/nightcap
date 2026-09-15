@@ -1,5 +1,8 @@
 # GitHub issue review — 2026-09-14
 
+> Current status (2026-09-15): implemented server/AA/PoK candidates are deployed for live QA; main gameplay acceptance remains pending. See [current status](../status.md). The dated evidence below retains its original scope and is not a current deployment checklist.
+
+
 ## Scope and evidence boundary
 
 Reviewed all 24 open issues and open PRs (none) through the GitHub API. Published main was `191bf8e`; dev `0d3bb96`; test `477852c`. The local main `f7943c1` is 121 commits ahead and includes candidate work whose own documentation still requires QA. This review does not synchronize or promote that branch. Docker Desktop's Linux engine was unavailable; no fresh database or in-game results are claimed.

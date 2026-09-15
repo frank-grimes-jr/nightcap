@@ -1,41 +1,22 @@
 # PoK arrival hub: activation and in-game QA
 
-Candidate only, 2026-09-13. No live deployment or in-game QA has occurred.
-Keep the current AA ownership branch and its binaries out of this release.
+Deployed September 15, 2026 as part of the combined server/AA/hub release.
+Owner in-game acceptance remains pending.
 
-## Operator activation
+## Operator state and future deployment
 
-1. Schedule the PoK restart with the owner; the owner previously asked not to
-   restart zones while playing. Do not substitute `#repop` for the restart.
-2. Take and verify a fresh PEQ backup, including routines/triggers. Preserve the
-   three deployed quest/plugin files listed below with hashes for rollback.
-3. Verify the five hashes in `hub-database-tests.json`. Read `hub-layout.md` and
-   inspect `hub-before.json`/`hub-after.json`. Apply `hub-forward.sql` to PEQ in
-   a fresh mysql connection **without `--force`**. It refuses changed preimages
-   or occupied IDs and rolls back all content writes on an SQL error. Do not
-   bypass a rejection; recapture/review/regenerate/retest if the source changed.
-4. Deploy these candidate files from `server-mods/` to their corresponding paths
-   under `E:\EQ_Local_Dev\akk-stack\server\`:
-   - `quests/global/global_player.lua` → `quests/global/global_player.lua`
-   - `quests/poknowledge/The_Ancient_Chronicler.pl` → `quests/poknowledge/The_Ancient_Chronicler.pl`
-   - `plugins/multiclass.pl` → `plugins/multiclass.pl`
-5. Promote the matching `vendor_restock.sql`, `tools/apply-era.ps1`,
-   `tools/pok-hub-era.ps1`, and `docs/pok/catalog-policy.json` together through
-   the agreed dev/test flow. Keep the GM refresh endpoint retired; it cannot
-   overwrite merchant stock. Do not run apply-era merely to activate this hub.
-6. Restart only PoK at the agreed time. Dynamic zone processes are bare `bin/zone`:
-   identify PoK's PID through its current zone log, not command-line matching.
-   Reload the global quest/plugin changes in other active zones as needed so
-   status commands agree. No C++ build, shared-memory rebuild, or client-file
-   modification belongs to this content deployment.
-7. Verify 16 new class merchants (NPC IDs 997900–997915), six guide/utility
-   spawns, no old Loremaster spawns, and one Forgemaster. Inspect zone logs for
-   quest exceptions. Then run the player checks below.
+The hub is active. Use the [combined deployment/rollback runbook](../releases/live-qa-20260915/README.md)
+for matching world/zone binaries, the merged class plugin, SQL guards, shared
+memory and scoped saved-NPC-state handling. The original isolated content
+activation procedure is superseded: restoring its old plugin alone would break
+the paired AA release contract. Do not replay captured SQL or cached-state IDs
+against later gameplay without reviewing fresh preimages.
 
 ## Player checks — normal account, current RoF2 client
 
 Use disposable characters for class changes. Do not spend or refund a main
-character's AAs to test this UI; native AA persistence remains a separate change.
+character's AAs to test this UI. Test native AA persistence/refunds separately
+using the [combined checklist](../releases/live-qa-20260915/QA.md).
 
 1. **Arrival and walking:** enter PoK normally. Arrival is approximately
    x=-285, y=-148, z=-159. Walk between both merchant rows, through the center,
@@ -81,12 +62,10 @@ character's AAs to test this UI; native AA persistence remains a separate change
 
 ## Rollback and limitations
 
-Restore the three backed-up quest/plugin files, apply `hub-rollback.sql` in a
-fresh connection without `--force`, and restart PoK at an agreed time. Rollback
-restores the exact captured content, including the original duplicate spawns.
-It deliberately refuses unexpected later NPC, stock, item-price, or era edits;
-review those differences rather than overwriting them. The new restock script
-automatically follows its legacy branch after the hub NPCs are removed.
+Follow the combined rollback runbook linked above, preserving the matching
+binary/plugin pair. Hub rollback restores exact captured content and refuses
+unexpected later NPC, stock, price or era changes. Cached NPC state requires
+separate reconciliation after later gameplay; never restore stale state blindly.
 
 The current inventory policy preserves the already stocked pool at expansion 0,
 with original class levels up to 50. It does not certify each spell's original
@@ -98,4 +77,4 @@ The class plugin still performs the existing global spell-access widening and
 requires a camp for all client state to refresh. Client spell-data synchronization
 remains an operator procedure with the client closed; it is no longer printed as
 a script command in player dialogue. This change improves status and navigation;
-it does not certify class-change transactions or resolve the AA lifecycle work.
+class-change transactions and AA lifecycle acceptance require the combined QA.

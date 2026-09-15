@@ -1,5 +1,8 @@
 # Native earned-AA bulk refund and profile-save controls
 
+> Current status (2026-09-15): implemented server/AA/PoK candidates are deployed for live QA; main gameplay acceptance remains pending. See [current status](../status.md). The dated evidence below retains its original scope and is not a current deployment checklist.
+
+
 Date: 2026-09-13. Feature branch only; no live activation or promotion.
 
 ## Result

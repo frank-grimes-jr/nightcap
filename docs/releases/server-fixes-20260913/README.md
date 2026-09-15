@@ -1,5 +1,8 @@
 # Five server fixes — automated gates passed, in-game QA pending
 
+> Current status (2026-09-15): implemented server/AA/PoK candidates are deployed for live QA; main gameplay acceptance remains pending. See [current status](../../status.md). The dated evidence below retains its original scope and is not a current deployment checklist.
+
+
 The candidate corrects held-class weapon damage, extra-pet ownership and attack
 commands, direct-AA buff duration, and stale owned-AA profile entries. It makes
 no numerical balance change and installs no expansion AA policy or ownership

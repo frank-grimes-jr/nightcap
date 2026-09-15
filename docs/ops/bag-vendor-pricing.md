@@ -1,13 +1,13 @@
-# Bag vendor pricing candidate — #22
+# Bag vendor pricing — deployed for live QA, #22
 
 **2026-09-15 deployment:** the owner authorized all implemented candidates for live
 testing. This ladder is now applied; economy and in-game acceptance remain pending.
 See [combined release evidence and QA](../releases/live-qa-20260915/README.md).
 
-2026-09-15. Candidate only; live prices remain unchanged. SQL and disposable
-MariaDB tests are complete. Economy and in-game merchant acceptance remain open.
+SQL and disposable MariaDB tests passed before the September 15 deployment.
+The observations below describe the captured pre-deployment inventory.
 
-## Observed problem and proposed behavior
+## Original problem and deployed behavior
 
 Bartholomew Packwell, NPC 999225 / merchant 99225 in PoK, stocks 22 containers.
 Eighteen have zero base price. The four priced bags range from 2,500 platinum
@@ -18,7 +18,7 @@ slot count. It changes only `items.price`; names, container restrictions, capaci
 weight reduction, stock and NO TRADE flags stay as captured. Specialized
 containers remain specialized; general-purpose use of every bag is not certified.
 
-| Slots | Proposed base platinum | Slots | Proposed base platinum |
+| Slots | Deployed base platinum | Slots | Deployed base platinum |
 |---|---:|---|---:|
 | 8 | 10 | 22 | 750 |
 | 9 | 20 | 24 | 1,000 |
@@ -42,8 +42,7 @@ is made. At that reference the largest bag represents about 500 swords.
 
 Alternatives for review: half this ladder (5–3,750 platinum) favors early
 inventory convenience; twice this ladder (20–15,000) creates a stronger coin
-sink but may overburden solo play. The middle ladder is proposed, not approved
-balance. Native specialty/weight-reduction differences still warrant manual QA.
+sink but may overburden solo play. The middle ladder is deployed for testing; its balance is not yet accepted. Native specialty/weight-reduction differences still warrant manual QA.
 
 ## Resale and scope
 
@@ -106,7 +105,8 @@ read-only comparison passed. None of these failures changed live item prices.
    `bag_vendor_prices.sql` without `--force`. Do not embed this script in an
    already-open application transaction. Any nonzero exit is a failed deploy.
 4. Rebuild shared item data and coordinate the required zone reload/restart;
-   establish all serving processes use the new cache. No restart occurred here.
+   establish all serving processes use the new cache. The combined September 15
+   deployment completed this refresh; these steps document future redeployment.
 5. PoK: target Bartholomew Packwell. On an ordinary non-GM character, check all
    22 listings have positive prices increasing by capacity. Record actual quotes
    and charisma/faction. Compare the proposed base ladder with applicable mods.
@@ -124,4 +124,4 @@ read-only comparison passed. None of these failures changed live item prices.
    memory and process refresh and verify original prices. Never overwrite drift.
 
 Follow feature -> dev -> test with this QA spike. Owner in-game sign-off is
-required for main promotion and issue closure. No live deployment is claimed.
+required for main promotion and issue closure. Deployment evidence is linked above.

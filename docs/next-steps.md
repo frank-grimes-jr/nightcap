@@ -11,9 +11,8 @@ See [combined deployment and rollback](releases/live-qa-20260915/README.md) and
    closed merely because its candidate deployed. Main remains unchanged.
 3. #16 missing-title audit found owned/system AAs. Preserve them while reviewing
    acquisition/effects, dependencies and supported title or audited removal options.
-4. #23: public GitHub Pages publication is prepared but automatic approval review
-   requires explicit approval for that public destination. Existing HTML remains
-   in the repository.
+4. #23: the owner explicitly approved the updated public player site. Publication
+   and verification follow [the website runbook](ops/player-website.md).
 5. #19 captures both movement speed and song landing while running (absorbs #20).
    Neither has a verified fix; use the listed controls to reproduce them.
 6. #13 owns off-base equipment (absorbs #38); #36 owns skills and trainers

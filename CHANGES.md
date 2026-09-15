@@ -1,5 +1,17 @@
 # CHANGES
 
+## 2026-09-15 - Refresh player website and current documentation
+
+Rebuilt the standalone player guide with Home, Features, Major Changes and FAQ
+tabs. Corrected class-slot availability, spell learning, skill progression and
+PoK merchant guidance against deployed quest behavior. Added a current status
+index, documentation map and dedicated GitHub Pages publication runbook; dated
+reports retain their original evidence with supersession notices. Updated hub,
+bag and client QA documentation without claiming unfinished gameplay acceptance.
+Browser checks cover tabs, keyboard focus/history, deep links, disclosure, four
+viewport widths and no-JavaScript readability; desktop/mobile visuals reviewed.
+Public deployment verification is recorded in docs/ops/player-website.md.
+
 ## 2026-09-15 - Deploy combined server, AA, PoK hub and bag-price release for live QA
 
 Owner authorized all implemented candidates for live testing. Integrated the
