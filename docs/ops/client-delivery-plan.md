@@ -151,3 +151,14 @@ cross-language agreement pass; [phase 14](../milestones/phase-14-report.md).
 Next: prove startup ordering relative to every patched consumer, then implement
 actual launcher process/nonce/health orchestration. Complete remaining parity and
 production release requirements from the original contract; Play remains disabled.
+
+### Before-entry bootstrap
+
+The initial system-breakpoint experiment stalled under loader startup; the exact
+executable-entrypoint gate now passes native fixtures and actual proxy failure
+before fixture main. It retains checked process/job ownership and exposes an
+explicit proxy initializer. [Phase 15](../milestones/phase-15-report.md).
+Next: turn the primitive into the signed x86 helper, connect verified installation
+locks, PE export validation, private nonce and Go health approval, then prove the
+supported-game startup path and remaining parity. This supersedes reliance on
+ordinary first-DirectInput timing; the launcher still does not expose Play.

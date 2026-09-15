@@ -188,3 +188,12 @@ the currently recorded sites, not proof that the remaining client gates exist.
 Set `NIGHTCAP_TEST_EQGAME` to the supported executable path when running Go tests
 to include the read-only real-executable integration case; otherwise it skips.
 [Design and limits](../docs/adr/0032-share-client-patch-catalog-and-preflight.md).
+
+### Startup timing integration
+
+The native x86 entrypoint gate now passes disposable-process tests, including the
+actual candidate DLL rejecting an unsupported host before main. It is not yet
+connected to this launcher. The next launch path must retain verified asset locks,
+create a private nonce, bind health to the actual process handle, and transfer
+process/job ownership safely before enabling Play.
+[Bootstrap contract](../docs/adr/0034-initialize-proxy-before-client-entry.md).

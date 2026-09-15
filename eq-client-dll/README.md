@@ -205,3 +205,15 @@ consumes them before any patch writes. Generated `runtime_contract.h` binds the
 feature mask, catalog hash and proxy version to Go validation. Configuration and
 health alone do not prove startup ordering or full multiclass parity.
 [ADR 0033](../docs/adr/0033-bind-proxy-health-to-client-process.md).
+
+## Before-entry bootstrap candidate
+
+`bootstrap/entry_gate.h` creates only new owned x86 processes and initializes the
+proxy while executable entry remains stopped. `NightcapInitialize` uses the same
+required configuration/version/patch checks as the forwarding gate.
+
+Build the DLL, run `tests/build-bootstrap-tests.bat`, then
+`python tests/test_bootstrap.py`. Tests use disposable hosts; this is not a command
+to start the real client. Production verified-file/nonce/health/session handoff is
+still to be connected to the launcher.
+[Design and required integration](../docs/adr/0034-initialize-proxy-before-client-entry.md).

@@ -79,9 +79,11 @@ Windows installation/recovery, a Wails/Vue launcher preview and native controlle
 a shared configuration/patch-site preflight gate, and a scoped
 equipment-submission DLL candidate. The proxy now consumes configuration and
 emits process-bound health through synchronous first-export initialization.
-The launcher validates that protocol; launch orchestration and startup-order
-proof are still required before Play.
+The launcher validates that protocol. A new native entrypoint bootstrap passes
+disposable-process tests, including actual candidate rejection before main.
+Signed launch orchestration and supported-game startup acceptance remain required
+before Play.
 Automated fixture tests and independent reviews pass; no new client binary has
 been deployed. Native launcher QA, release signing/hardening, remaining client gates
 and in-game acceptance stay open. Current [development plan](ops/client-delivery-plan.md)
-and [runtime evidence](milestones/phase-14-report.md) preserve these gates.
+and [bootstrap evidence](milestones/phase-15-report.md) preserve these gates.

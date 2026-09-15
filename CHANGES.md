@@ -1,5 +1,15 @@
 # CHANGES
 
+## 2026-09-15 - Add a proxy bootstrap before executable entry
+
+The x86 bootstrap primitive stops a newly created owned process at its exact PE
+entrypoint, initializes the verified imported proxy while main remains suspended,
+and resumes only after health approval. Failures terminate before continuing a
+stopped event; job/process ownership transfers on success. Added an explicit DLL
+initializer export and version 0.3.0-dev, with original DirectInput ordinals kept.
+Native failure, owner-crash and repeated-session tests pass. Launcher integration
+and actual RoF2 acceptance remain open; no installed client changes. See ADR 0034.
+
 ## 2026-09-15 - Gate proxy forwarding on required runtime activation
 
 The candidate DLL now consumes strict configuration, pins its lifetime and blocks

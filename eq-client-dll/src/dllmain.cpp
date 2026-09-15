@@ -1507,6 +1507,15 @@ static void EnsureInitialized()
         InterlockedCompareExchange(&g_initialize_state,0,0)!=1) StopClient("initialization_failed");
 }
 
+// The x86 bootstrap calls this only after the loader has completed and while
+// the executable's original entrypoint is stopped. It never bypasses the same
+// required guards used by DirectInput forwarding.
+extern "C" DWORD WINAPI NightcapInitialize(void*)
+{
+    EnsureInitialized();
+    return 0;
+}
+
 static unsigned __stdcall SurveyThread(void*)
 {
     uintptr_t eq_base,eq_size;
