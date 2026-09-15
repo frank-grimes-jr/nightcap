@@ -12,6 +12,8 @@ param(
     [switch]$CapCharacters
 )
 
+$ErrorActionPreference = 'Stop'
+
 $Root    = 'E:\EQ_Local_Dev'
 $Era     = Get-Content (Join-Path $Root 'era.json') -Raw | ConvertFrom-Json
 $Ini     = Join-Path $Root 'Client_RoF2_Dev\everquest_rof2\eqclient.ini'
@@ -20,6 +22,7 @@ $Luclin  = if ($Era.luclin_models) { 'FALSE' } else { 'TRUE' } # ini key is AllL
 
 function Sql($query) {
     docker exec akk-stack-mariadb-1 mysql -ueqemu -peqemu peq -N -e $query
+    if ($LASTEXITCODE -ne 0) { throw "Era SQL failed; further changes and restarts stopped." }
 }
 
 if ($Check) {
@@ -45,6 +48,10 @@ if ($Check) {
     exit 1
 }
 
+$VendorRestock = Get-Content (Join-Path $Root 'eq-solo-gm\scripts\vendor_restock.sql') -Raw
+. (Join-Path $PSScriptRoot 'pok-hub-era.ps1')
+Assert-PokHubEra -Era $Era -ReadSql ${function:Sql}
+
 # -- Apply ---------------------------------------------------------------------
 Sql "UPDATE rule_values SET rule_value='$($Era.expansion)' WHERE ruleset_id=1 AND rule_name='Expansion:CurrentExpansion';"
 Sql "UPDATE rule_values SET rule_value='$($Era.max_level)' WHERE ruleset_id=1 AND rule_name IN ('Character:MaxLevel','Character:MaxExpLevel');"
@@ -68,8 +75,9 @@ if (Test-Path $Ini) {
 
 # Restock the PoK spell vendors against the (possibly changed) level cap.
 # History: the GM tool's refresh once wiped a vendor (see CHANGES 2026-07-14).
-Get-Content (Join-Path $Root 'eq-solo-gm\scripts\vendor_restock.sql') -Raw |
+$VendorRestock |
     docker exec -i akk-stack-mariadb-1 mysql -ueqemu -peqemu peq
+if ($LASTEXITCODE -ne 0) { throw 'Spell restock failed; zone restart stopped. Inspect the error before continuing.' }
 Write-Output 'spell vendors restocked for the era level cap'
 
 # Restart every zone so all spawn lists rebuild under the new era (processes cache era at boot).

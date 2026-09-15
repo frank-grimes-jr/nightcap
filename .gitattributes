@@ -143,3 +143,26 @@ docs/balance/aa-session-recovery*.log -text -whitespace
 docs/balance/native-aa-session-recovery.md text eol=lf
 tools/balance/run_aa_session_recovery.py text eol=lf
 tools/balance/tests/test_aa_session_recovery.py text eol=lf
+server-mods/quests/global/global_player.lua text eol=lf
+server-mods/quests/poknowledge/The_Ancient_Chronicler.pl text eol=lf
+tools/tests/test-pok-*.lua text eol=lf
+tools/tests/test-pok-*.pl text eol=lf
+docs/pok/*.json -text
+docs/pok/*.md text eol=lf
+docs/adr/0024-pok-arrival-hub-and-class-status.md text eol=lf
+docs/pok/*.log -text -whitespace
+tools/pok_hub.py text eol=lf
+tools/tests/test_pok_hub.py text eol=lf
+
+# PoK migration SQL and tested source bytes must survive Windows checkout.
+docs/pok/*.sql text eol=lf
+eq-solo-gm/scripts/vendor_restock.sql text eol=lf
+server-mods/plugins/multiclass.pl text eol=lf
+tools/pok_hub_migration.py text eol=lf
+tools/pok_hub_restock.py text eol=lf
+tools/pok-hub-era.ps1 text eol=lf
+tools/apply-era.ps1 text eol=lf
+tools/tests/test-pok-hub-era.ps1 text eol=lf
+tools/tests/test_pok_hub_migration.py text eol=lf
+tools/tests/run_pok_hub_database.py text eol=lf
+tools/templates/vendor_restock-archetype.sql text eol=lf

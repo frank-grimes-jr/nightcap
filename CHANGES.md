@@ -156,6 +156,51 @@ sets the implementation direction: canonical earned rows plus a separate usable
 view, with native purchase/refund/reset/class-release/charge handling required.
 No live server, catalog, era or ownership data changed; test candidate 5f61fdd is
 still frozen pending activation and owner QA.
+## 2026-09-13 - Prepare reversible PoK arrival hub and durable restock
+
+Implemented a guarded content migration for sixteen class spell/song/discipline
+merchants, the existing class guide, and five utility services near arrival.
+All 1,229 currently stocked items retain their prices and merchant restrictions;
+original class levels route the 1,747 listings. Five identical Forgemaster spawns
+become one. Full preimages and exact rollback are retained, with occupied-ID,
+source-drift, engine, and transaction guards. Player directions now name the hub
+and keep camp guidance without exposing operator script commands.
+
+The canonical restock detects the legacy/new layout, stages class stock from the
+audited catalog, and commits atomically. Era preflight refuses unreviewed future
+catalogs before rules or client settings change. Missing input/guard files and SQL
+errors stop the era script. Four planner/migration tests, 14 isolated MariaDB
+controls, PowerShell preflight/file-error checks, and seven new plugin assertions
+pass. Independent review findings were fixed. See docs/pok/verification.md.
+
+No live SQL, scripts, client files, or zones changed. Placement and client behavior
+still require docs/pok/QA.md, an agreed PoK restart, and owner sign-off before main.
+The AA ownership branch remains separate. Later expansions require an explicitly
+reviewed stock catalog; current preservation is not an expansion provenance audit.
+
+## 2026-09-13 - Plan class-labeled PoK arrival merchants
+
+Added a pure, offline hub planner using the verified original spell-class catalog.
+The generated sixteen-merchant proposal preserves all 1,229 current unique scrolls
+and item prices; the largest shop has 275 items. Two tests verify coverage, class
+routing, prices, and rejection of invalid/unmapped stock. Labels distinguish
+spells, songs, and discipline tomes. Proposed placement leaves an open arrival
+area; new NPC IDs were checked against the live catalog to avoid pet collisions.
+No SQL or zone changes were applied. Guarded migration/rollback, restock integration,
+utility consolidation, ground checks, and manual QA remain. See docs/pok/hub-layout.md.
+
+## 2026-09-13 - Show selected classes on demand and after selection
+
+The isolated PoK usability branch adds explicit Primary/Second/Third class slots
+on hail and login, #classes and /say !classes, and immediate status after class
+selection/release responses. Empty slots are visible. Dialogue now explains earned
+skill progression and removes misleading counts and obsolete retention promises.
+Lua behavior checks cover all 16 primary classes plus commands/login/delegation;
+16 Perl dialogue assertions and the existing canonical-login regression pass.
+A read-only audit maps all 1,229 stocked scrolls to the matching original spell
+catalog; each class fits one merchant window. Hub placement, vendor migration,
+restock integration, and in-game QA remain in progress. No live scripts, NPCs,
+merchants, client files, or AA binaries changed. See docs/pok and ADR 0024.
 
 ## 2026-09-13 - Build and verify the five server-fix candidate
 
