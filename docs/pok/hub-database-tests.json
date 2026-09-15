@@ -1,5 +1,5 @@
 {
-  "database": "nightcap_pok_qa_f19ab2efd09d",
+  "database": "nightcap_pok_qa_89c7d253830c",
   "cases": [
     "forward_exact_afterimage",
     "repeat_apply_rejected_without_changes",

@@ -1,5 +1,9 @@
 # PoK usability work
 
+**2026-09-15:** the combined hub/AA/bag candidate was applied for owner live QA.
+The dated preparation notes below describe the original isolated work. Current
+deployment evidence and outstanding acceptance: [release](../releases/live-qa-20260915/README.md).
+
 The owner selected a compact arrival-area hub with a class guide and class-labeled
 spell merchants. ADR 0024 records the scope and separation from AA persistence work.
 

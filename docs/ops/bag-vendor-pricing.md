@@ -1,5 +1,9 @@
 # Bag vendor pricing candidate — #22
 
+**2026-09-15 deployment:** the owner authorized all implemented candidates for live
+testing. This ladder is now applied; economy and in-game acceptance remain pending.
+See [combined release evidence and QA](../releases/live-qa-20260915/README.md).
+
 2026-09-15. Candidate only; live prices remain unchanged. SQL and disposable
 MariaDB tests are complete. Economy and in-game merchant acceptance remain open.
 

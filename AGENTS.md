@@ -53,6 +53,16 @@ All commands run from `akk-stack/`:
 
 ## Server ops
 
+- **Custom rules require matching world and zone builds.** World deletes rules
+  absent from its compiled catalog during boot. The old world removed
+  `Character:AAExpMinLevel` despite the newer zone supporting it. Build/deploy
+  both when `common/ruletypes.h` changes, and verify required values after boot.
+- **PoK relocation also needs saved-state handling.** With
+  `Zone:StateSavingOnShutdown=true`, `zone_state_spawns` can restore old positions
+  and deleted NPC spawns. Back up and invalidate only the affected non-corpse,
+  correct-instance cache rows; retain unrelated states. Evidence and scoped
+  rollback rehearsal: `docs/releases/live-qa-20260915/`.
+
 - **Docker data disk**: stored at `E:\Docker\wsl\disk\docker_data.vhdx`; the original `%LOCALAPPDATA%\Docker\wsl\disk` is a directory junction to that folder. Keep E: available before starting Docker. Migration evidence and rollback details: `docs/ops/docker-data-migration-20260913.md`.
 - **Era lock is declarative**: `era.json` (repo root) is the source of truth; `tools/apply-era.ps1` applies it idempotently (+`-Check` for drift, `-CapCharacters` to de-level). Change era = edit era.json, commit, run the script. Do not set expansion rules by hand or via the GM tool.
 - **PoK class hub**: `tools/pok_hub.py` plans from `docs/pok/hub-stock-audit.json` (original class levels, not widened `spells_new` columns). `tools/pok_hub_migration.py` generates guarded forward/rollback SQL; `tools/pok_hub_restock.py` generates the canonical restock. `docs/pok/catalog-policy.json` gates era promotion before writes. Current catalog preserves the existing expansion-0, level-50 item pool; extending it requires review and regeneration. Activation/rollback and exact player QA: `docs/pok/QA.md`. Candidate only until the recorded in-game QA passes.

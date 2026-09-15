@@ -1,5 +1,28 @@
 # CHANGES
 
+## 2026-09-15 - Deploy combined server, AA, PoK hub and bag-price release for live QA
+
+Owner authorized all implemented candidates for live testing. Integrated the
+final earned-AA/atomic class-release binary (including five weapon/pet/buff/AA
+fixes), matched PoK guidance, sixteen class merchants, relocated utilities and
+22 bag prices. Retained a verified full PEQ backup and exact binary/file/content
+rollback assets. All 351 server/AA evidence tests, 14 MariaDB hub controls, four
+planner tests, three pricing tests, 13 title-audit tests and merged quest checks
+passed; independent review verified source/binary/plugin compatibility.
+
+Post-start checks found the old world deletes the custom level-1 AA rule during
+orphan cleanup. Built and installed matching world from the same 2,787-file pinned
+source and restored the rule to 1. Also cleared exactly 17 stale custom PoK NPC
+saved-state rows after a verified rollback rehearsal; 245 other PoK states remain.
+These runtime issues explain why a DB repair or spawn relocation alone can vanish
+after restart. World and all zones must use the matching release generation.
+
+No blanket AA disablement, experimental AA pool, augment design, balance-number
+change or new client patch was deployed. All manual acceptance remains open;
+test-to-main still needs owner sign-off. GitHub Pages publication awaits specific
+public-publication approval required by automatic review. Full per-feature QA,
+hashes, retained limitations and rollback: `docs/releases/live-qa-20260915/`.
+
 ## 2026-09-15 - Prepare guarded bag-vendor pricing candidate (#22)
 
 Captured all 22 Bartholomew Packwell items: 18 free bags and four legacy prices
