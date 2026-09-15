@@ -168,7 +168,8 @@ ordinary first-DirectInput timing; the launcher still does not expose Play.
 `installer.PrepareLaunch` now verifies the cached signed generation using held
 Windows read locks, pinning directory paths and excluding updater writes. Public
 preparation passes for a disposable supported-client copy; no game is started.
-[Phase 16](../milestones/phase-16-report.md). Next: validate PE entry/export data
-from the retained executable/proxy handles, connect the signed x86 helper and
-private health exchange, then keep lease/process/job ownership through sessions.
+[Phase 16](../milestones/phase-16-report.md). Validated PE entry/export metadata
+now comes from the retained executable/proxy handles;
+[phase 17](../milestones/phase-17-report.md). Next: connect the signed x86 helper
+and private health exchange, then keep lease/process/job ownership through sessions.
 The production and full parity contract above remains unchanged.

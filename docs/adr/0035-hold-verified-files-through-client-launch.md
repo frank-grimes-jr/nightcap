@@ -29,9 +29,11 @@ Cancellation and all failures release every acquired handle.
 The returned single-owner `LaunchLease` must survive until the owned game exits,
 or transfer equivalent locks before release. It supplies read-only executable
 and proxy handles and signed generation/config identity. It creates no process
-and grants no runtime approval. The next bootstrap integration must validate PE
-entry/export metadata, establish private nonce/health IPC and retain process/job
-ownership before any Play action is possible.
+and grants no runtime approval. Preparation now derives checked PE entry/export metadata through these same
+handles, using the bounded conventional PE32 profile recorded in
+[phase 17](../milestones/phase-17-report.md). The next bootstrap integration must
+establish private nonce/health IPC and retain process/job ownership before any
+Play action is possible.
 
 ## Limits
 

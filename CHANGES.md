@@ -1,5 +1,14 @@
 # CHANGES
 
+## 2026-09-15 - Validate bootstrap addresses from held PE files
+
+Launch preparation now derives executable entry and proxy initializer RVAs from
+its retained verified handles. A bounded PE32 parser checks conventional Windows
+alignment, sections, code permissions and named exports; forwarded, ambiguous or
+malformed initializers fail before process creation. Signed but invalid DLLs
+release all launch locks. No Play integration or client deployment yet.
+[Evidence and remaining work](docs/milestones/phase-17-report.md).
+
 ## 2026-09-15 - Hold verified client assets during launch preparation
 
 Added Windows read-sharing leases that allow image execution while denying

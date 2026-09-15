@@ -207,6 +207,13 @@ allow reads/execution but block writes, replacement and ancestor renames. Keep
 the lease alive for the entire game session; close on failure or session end.
 User settings remain writable. UNC/reparse paths are rejected.
 
-This is a backend preparation boundary, not an enabled Play path. PE bootstrap
-metadata, helper/health IPC and process/job ownership still require integration.
+The lease also exposes validated PE entry/initializer RVAs and image size. The
+proxy must be a conventional aligned PE32 DLL with a direct, unique initializer
+in persistent read-only executable code; malformed or forwarded exports fail.
+Files are bounded to 16 MiB for the proxy and 256 MiB for the loaded image.
+
+This is a backend preparation boundary, not an enabled Play path. Helper/health
+IPC and process/job ownership still require integration. Set both
+`NIGHTCAP_TEST_EQGAME` and `NIGHTCAP_TEST_PROXY` for the actual-image Go tests;
+they read the originals and prepare disposable copies without launching the game.
 [Contract and limits](../docs/adr/0035-hold-verified-files-through-client-launch.md).

@@ -11,8 +11,8 @@ import (
 )
 
 // LaunchLease owns a verified local generation. It is not runtime approval:
-// the bootstrap still must validate PE entry/export metadata, initialize the
-// owned child and obtain matching health before releasing its entrypoint.
+// the bootstrap still must initialize the owned child and obtain matching
+// health before releasing its entrypoint.
 // Keep this single-owner lease alive for the entire game session.
 type LaunchLease struct {
 	locks        *launchlock.Set
@@ -20,15 +20,17 @@ type LaunchLease struct {
 	release      uint64
 	digest       string
 	configDigest string
+	bootstrap    preflight.BootstrapMetadata
 }
 
-func (l *LaunchLease) Close() error                { return l.locks.Close() }
-func (l *LaunchLease) Directory() string           { return l.locks.Directory() }
-func (l *LaunchLease) Release() uint64             { return l.release }
-func (l *LaunchLease) ManifestDigest() string      { return l.digest }
-func (l *LaunchLease) ConfigDigest() string        { return l.configDigest }
-func (l *LaunchLease) Executable() launchlock.File { return l.files["eqgame.exe"] }
-func (l *LaunchLease) Proxy() launchlock.File      { return l.files["dinput8.dll"] }
+func (l *LaunchLease) Close() error                           { return l.locks.Close() }
+func (l *LaunchLease) Directory() string                      { return l.locks.Directory() }
+func (l *LaunchLease) Release() uint64                        { return l.release }
+func (l *LaunchLease) ManifestDigest() string                 { return l.digest }
+func (l *LaunchLease) ConfigDigest() string                   { return l.configDigest }
+func (l *LaunchLease) Executable() launchlock.File            { return l.files["eqgame.exe"] }
+func (l *LaunchLease) Proxy() launchlock.File                 { return l.files["dinput8.dll"] }
+func (l *LaunchLease) Bootstrap() preflight.BootstrapMetadata { return l.bootstrap }
 
 // PrepareLaunch performs no network requests or writes. Trust must come from
 // compiled launcher policy and its trusted release floor, never the UI. All
@@ -68,6 +70,10 @@ func PrepareLaunch(ctx context.Context, directory string, trust manifest.Trust) 
 		return nil, fmt.Errorf("missing required proxy")
 	}
 	if _, err = preflight.CheckOpen(lease.Executable(), config, catalog); err != nil {
+		return nil, err
+	}
+	lease.bootstrap, err = preflight.BootstrapOpen(lease.Executable(), lease.Proxy())
+	if err != nil {
 		return nil, err
 	}
 	if err = ctx.Err(); err != nil {

@@ -23,6 +23,8 @@ Start with [current status](status.md), not a dated candidate report.
 
 ## Evidence and design
 
+- [Validated bootstrap PE metadata](milestones/phase-17-report.md)
+
 - [Verified launch file lease evidence](milestones/phase-16-report.md)
 
 - [Pre-entrypoint bootstrap evidence](milestones/phase-15-report.md)

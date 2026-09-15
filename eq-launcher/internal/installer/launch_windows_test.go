@@ -219,9 +219,9 @@ func TestLaunchCancellation(t *testing.T) {
 	}
 }
 func TestPrepareLaunchSupportedClientOffline(t *testing.T) {
-	source := os.Getenv("NIGHTCAP_TEST_EQGAME")
-	if source == "" {
-		t.Skip("set NIGHTCAP_TEST_EQGAME for a disposable copy; never executes the game")
+	source, proxySource := os.Getenv("NIGHTCAP_TEST_EQGAME"), os.Getenv("NIGHTCAP_TEST_PROXY")
+	if source == "" || proxySource == "" {
+		t.Skip("set NIGHTCAP_TEST_EQGAME and NIGHTCAP_TEST_PROXY for disposable copies; never executes the game")
 	}
 	data, err := os.ReadFile(source)
 	if err != nil {
@@ -229,11 +229,24 @@ func TestPrepareLaunchSupportedClientOffline(t *testing.T) {
 	}
 	f := newLaunchFixture(t)
 	put(t, f.dir, "eqgame.exe", string(data))
+	proxy, err := os.ReadFile(proxySource)
+	if err != nil {
+		t.Fatal(err)
+	}
+	f.changeSigned(t, "dinput8.dll", string(proxy))
 	lease, err := PrepareLaunch(context.Background(), f.dir, f.trust)
 	if err != nil {
 		t.Fatal(err)
 	}
 	defer lease.Close()
+	metadata := lease.Bootstrap()
+	if metadata.EntryRVA != 0x4e3b4a || metadata.EntryOriginal != 0xe8 || metadata.InitializerRVA == 0 || metadata.ProxyImageSize <= metadata.InitializerRVA {
+		t.Fatalf("incorrect bootstrap metadata: %+v", metadata)
+	}
+	metadata.EntryRVA = 0
+	if lease.Bootstrap().EntryRVA == 0 {
+		t.Fatal("caller mutated lease metadata")
+	}
 	config, err := os.ReadFile(filepath.Join(f.dir, preflight.ConfigPath))
 	if err != nil {
 		t.Fatal(err)
@@ -249,5 +262,30 @@ func TestPrepareLaunchSupportedClientOffline(t *testing.T) {
 	}
 	if err := os.WriteFile(filepath.Join(f.dir, "eqgame.exe"), []byte("after close"), 0600); err != nil {
 		t.Fatal("successful lease leaked:", err)
+	}
+}
+
+func TestPrepareLaunchRejectsSignedInvalidProxy(t *testing.T) {
+	source := os.Getenv("NIGHTCAP_TEST_EQGAME")
+	if source == "" {
+		t.Skip("set NIGHTCAP_TEST_EQGAME for a disposable copy; no execution")
+	}
+	data, err := os.ReadFile(source)
+	if err != nil {
+		t.Fatal(err)
+	}
+	f := newLaunchFixture(t)
+	put(t, f.dir, "eqgame.exe", string(data))
+	lease, err := PrepareLaunch(context.Background(), f.dir, f.trust)
+	if lease != nil || err == nil || !strings.Contains(err.Error(), "bootstrap PE") {
+		if lease != nil {
+			lease.Close()
+		}
+		t.Fatalf("signed non-PE proxy accepted: %v", err)
+	}
+	for _, name := range []string{"eqgame.exe", "dinput8.dll", ".nightcap/active.json"} {
+		if err := os.WriteFile(filepath.Join(f.dir, name), []byte("after failure"), 0600); err != nil {
+			t.Fatal("bootstrap validation leaked lock:", err)
+		}
 	}
 }
