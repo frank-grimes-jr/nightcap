@@ -1,5 +1,17 @@
 # CHANGES
 
+## 2026-09-15 - Prepare guarded bag-vendor pricing candidate (#22)
+
+Captured all 22 Bartholomew Packwell items: 18 free bags and four legacy prices
+up to one million platinum. Added a proposed 10–7,500 platinum base-price ladder,
+exact original-price rollback, idempotent apply and stock/metadata/drift guards.
+Corrected the setup comment: nodrop=0 means NO TRADE, preserving server resale
+refusal. Three disposable-database integration tests (including nine drift cases)
+and 13 AA tests pass; live bag rows remain unchanged and scratch schemas are gone.
+Four entries on unused merchant list 9905 share these item IDs. Economy, specialized-container
+behavior, shared pricing and in-game QA remain review gates. No live price/cache
+change or main promotion. See docs/ops/bag-vendor-pricing.md.
+
 ## 2026-09-15 - Complete live AA title preflight and preserve owned abilities
 
 The first live #16 audit exposed invalid offline assumptions: native loading
