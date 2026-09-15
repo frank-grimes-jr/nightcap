@@ -1,5 +1,13 @@
 # CHANGES
 
+## 2026-09-15 - Exclude game launch and concurrent client updates
+
+Added a fail-closed Windows process check and exclusive executable handle. It
+blocks game launch and another updater for the duration of installation without
+writing executable bytes. Disposable executable tests verify the actual Windows
+sharing behavior; independent review found no blockers. Write access is required
+for the guard. Design and evidence: docs/adr/0030-exclude-game-launch-during-client-update.md.
+
 ## 2026-09-15 - Stage complete signed client asset generations
 
 Added launcher size/hash diff and bounded HTTPS staging with signed metadata,
