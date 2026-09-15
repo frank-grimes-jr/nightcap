@@ -65,6 +65,9 @@ if ($callTarget -ne 0x0059FB90) {
 }
 
 $source = [System.IO.File]::ReadAllText((Resolve-Path -LiteralPath $SourcePath).Path)
+# Original-byte declarations are generated from the shared release catalog.
+$catalogHeader = Join-Path (Split-Path -Parent $SourcePath) 'patch_catalog.h'
+$source += "`n" + [System.IO.File]::ReadAllText((Resolve-Path -LiteralPath $catalogHeader).Path)
 $compactSource = $source -replace '\s', ''
 foreach ($requiredFragment in @(
 	'kCombatAbilityClassTableRva=0x0018238C',
@@ -119,7 +122,7 @@ foreach ($requiredSafetyFragment in @(
 	'BYTE original[',
 	'memcpy(original, table, sizeof(original))',
 	'const bool write_attempted = pre_write_signature',
-	'rollback_ok = (memcmp(table, original, sizeof(original)) == 0)',
+	'rollback_ok = FlushInstructionCache(GetCurrentProcess(), table, sizeof(original)) != FALSE &&',
 	'bool protection_restored = VirtualProtect(',
 	'if (!protection_restored)',
 	'const bool retry_restored = VirtualProtect('
@@ -132,7 +135,7 @@ if ($combatBody.Contains('already_applied')) {
 	throw 'Combat-ability patch must not trust an all-zero table from another modifier.'
 }
 
-if (-not $compactSource.Contains('_fsopen(log_name,"w",_SH_DENYNO)')) {
+if (-not $compactSource.Contains('CreateFileW(log_name,GENERIC_WRITE,FILE_SHARE_READ,nullptr,CREATE_NEW,FILE_ATTRIBUTE_NORMAL|FILE_FLAG_OPEN_REPARSE_POINT,nullptr)')) {
 	throw 'DLL diagnostic log must permit live shared reads.'
 }
 
@@ -153,7 +156,7 @@ foreach ($requiredSafetyFragment in @(
 	'constboolwrite_attempted=pre_write_signature',
 	'if(write_attempted&&!wrote)',
 	'FlushInstructionCache(',
-	'rollback_ok=(memcmp(site,expected,5)==0)',
+	'rollback_ok=FlushInstructionCache(GetCurrentProcess(),site,5)!=FALSE&&',
 	'boolprotection_restored=VirtualProtect(',
 	'if(!protection_restored)',
 	'constboolretry_restored=VirtualProtect('
@@ -252,4 +255,30 @@ foreach ($requiredPatchFragment in @(
 	}
 }
 
-Write-Output 'PASS: exact RoF2 client and all guarded B2 patch sites verified.'
+# #13 equipment caller and class accessor, plus exact native entry signatures.
+Assert-Bytes $image 0x0018359C ([byte[]](0xE8,0x8F,0x8E,0xEC,0xFF)) 'Equip CanUseItem call'
+Assert-Bytes $image 0x0004C46D ([byte[]](0xE8,0x6E,0x88,0x36,0x00)) 'CanUseItem class accessor'
+Assert-Bytes $image 0x0004C430 ([byte[]](0x55,0x56,0x57,0x8B,0x7C,0x24,0x10)) 'CanUseItem entry'
+Assert-Bytes $image 0x003B4CE0 ([byte[]](0x55,0x8B,0xEC,0x83,0xEC,0x44)) 'Item class accessor entry'
+foreach ($fragment in @(
+    'kEquipCanUseItemCallRva=0x0018359C',
+    'kEquipClassMaskCallRva=0x0004C46D',
+    'kCanUseItemRva=0x0004C430',
+    'kItemClassesRva=0x003B4CE0',
+    'ApplyEquipSubmissionPatches(eq_base,size_ok&&hash_ok)',
+    'result=original(character,item_ref,use_required_level,output)',
+    'constuint32_tstock=original(item,flag1,flag2)',
+    'returnnightcap::EquipClassMask(stock,item,flag1,flag2)'
+)) {
+    if (-not $compactSource.Contains($fragment)) {
+        throw "Missing scoped equipment contract: $fragment"
+    }
+}
+$equipWrapper = [regex]::Match($source,
+    'BYTE __fastcall CanUseItemForEquip.*?(?=static bool ApplyEquipSubmissionPatches)',
+    [System.Text.RegularExpressions.RegexOptions]::Singleline)
+$equipWrapperCode = $equipWrapper.Value -replace '//[^\r\n]*', '' -replace '\s', ''
+if (-not $equipWrapper.Success -or -not $equipWrapperCode.Contains('__finally{nightcap::SetActiveEquipItem(previous);}')) {
+    throw 'Equipment wrapper must restore the previous item scope in __finally.'
+}
+Write-Output 'PASS: exact RoF2 client, B2/G006 and G013 equipment patch sites verified.'

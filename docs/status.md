@@ -25,7 +25,7 @@ introduced by this deployment.
 
 ## Issue disposition
 
-**15 open issues.** Six completed issues closed after evidence publication:
+**14 open issues** at the latest September 15 query. Six completed issues closed after evidence publication:
 #8, #9, #12, #21, #24 and #25. Three reports were administratively consolidated:
 #38 → #13 (equipment), #39 → #36 (trainers), #20 → #19 (song landing).
 Their unresolved acceptance was preserved; consolidation did not fix the bugs.
@@ -45,8 +45,11 @@ Their unresolved acceptance was preserved; consolidation did not fix the bugs.
 | #23 | HTML complete; GitHub plan rejects Pages for the private repo (422); hosting choice required |
 | #26 | Approved augment design; no deployed content |
 | #32 | Restored waypoint baseline is on main for live QA; full discovery/Explorer acceptance remains |
-| #36 | Skills/dual wield and second/third trainers, including client gates |
 | #37 | Level-1 AA XP rule now durable; in-game XP proof pending |
+
+#36 is now closed in GitHub, but its body retains unchecked Skills/dual-wield/
+trainer acceptance. Those requirements remain part of #10; tracker closure is
+not additional gameplay evidence.
 
 Numbers are a dated snapshot. [Live issue tracker](https://github.com/frank-grimes-jr/nightcap/issues).
 
@@ -68,3 +71,34 @@ world and zone when rules change; verify `Character:AAExpMinLevel=1` after boot.
 PoK cached NPC state overrides fresh spawn placement. The release rehearsed and
 removed exactly 17 stale custom states, preserving 245 others. Current backups
 and binary/file manifests are retained under `artifacts/live-qa-20260915/` locally.
+
+## Client delivery development (not deployed)
+
+Draft PR #52 contains signed manifest verification, full asset staging, guarded
+Windows installation/recovery, a Wails/Vue launcher preview and native controller,
+a shared configuration/patch-site preflight gate, and a scoped
+equipment-submission DLL candidate. The proxy now consumes configuration and
+emits process-bound health through synchronous first-export initialization.
+The launcher validates that protocol. A new native entrypoint bootstrap passes
+disposable-process tests, including actual candidate rejection before main.
+Go session orchestration now joins the signed launch lease to native health
+approval. Wails now dispatches that backend with serialized Play/Stop state. Production
+release policy and supported-game startup acceptance remain required before
+enabling the default preview.
+Automated fixture tests and independent reviews pass; no new client binary has
+been deployed. Native launcher QA, release signing/hardening, remaining client gates
+and in-game acceptance stay open. Current [development plan](ops/client-delivery-plan.md)
+and [bootstrap evidence](milestones/phase-15-report.md) preserve these gates.
+
+### Verified launch preparation candidate
+
+The launcher now prepares a cached signed release through retained Windows read
+locks, including exact executable/config/catalog preflight and validated PE
+entry/initializer metadata. The locks allow execution while excluding updates
+and path replacement. The native x86 helper now passes private-pipe approval and
+owned-session failure tests. Go now requires signed helper inventory, validates
+actual process-bound health and retains lease/job ownership through session exit.
+Wails Play/Stop wiring and cached offline discovery now pass controller/browser
+tests. Production release policy and native supported-game acceptance remain
+pending; default Play remains disabled.
+[Current evidence](milestones/phase-20-report.md).

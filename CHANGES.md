@@ -1,5 +1,146 @@
 # CHANGES
 
+## 2026-09-15 - Connect launcher Play and Stop to verified sessions
+
+Wails and the serialized controller now dispatch the verified session backend,
+keep conflicting actions disabled through cleanup and report session exit/errors.
+Cached release discovery supports offline attempts with fresh checks on every
+launch. Play requires compiled release opt-in and complete trusted inventory; the
+default preview stays disabled. Seven isolated Chrome tests, desktop Go checks
+and the Windows build pass. [Evidence](docs/milestones/phase-20-report.md).
+
+## 2026-09-15 - Own verified bootstrap sessions in the launcher backend
+
+The Go session owner now requires the helper in signed inventory, supplies private
+nonce/handles, validates actual process-bound health before startup approval and
+retains verified files through session exit. An outer Windows job covers helper
+failure before child PID publication. Concurrent cancellation preserves ownership
+and reports cleanup errors. Native fixtures and desktop Go checks pass; Wails
+Play wiring, signing and supported-game acceptance remain open. No live client
+deployment. [Evidence](docs/milestones/phase-19-report.md).
+
+## 2026-09-15 - Add native bootstrap helper and session protocol
+
+Built the x86 helper around the pre-entry gate, with bounded inherited-pipe
+messages, private nonce propagation, health approval before resume and retained
+process/job ownership. Parent loss and post-start stdin closure terminate only
+the owned session. Seventeen disposable native scenarios pass. The helper is
+unsigned and Go/Wails integration remains open; no live client deployment.
+[Evidence](docs/milestones/phase-18-report.md).
+
+## 2026-09-15 - Validate bootstrap addresses from held PE files
+
+Launch preparation now derives executable entry and proxy initializer RVAs from
+its retained verified handles. A bounded PE32 parser checks conventional Windows
+alignment, sections, code permissions and named exports; forwarded, ambiguous or
+malformed initializers fail before process creation. Signed but invalid DLLs
+release all launch locks. No Play integration or client deployment yet.
+[Evidence and remaining work](docs/milestones/phase-17-report.md).
+
+## 2026-09-15 - Hold verified client assets during launch preparation
+
+Added Windows read-sharing leases that allow image execution while denying
+updates, replacement and ancestor renames. Offline preparation verifies signed
+checkpoint/content and exact executable/config/catalog through retained handles.
+Failures/cancellation release locks. Repaired the stale generated-proxy constant
+consistency test discovered by the full suite. The lease is not connected to
+Play yet; bootstrap metadata, health exchange and remaining parity are open.
+[Evidence](docs/milestones/phase-16-report.md).
+
+## 2026-09-15 - Add a proxy bootstrap before executable entry
+
+The x86 bootstrap primitive stops a newly created owned process at its exact PE
+entrypoint, initializes the verified imported proxy while main remains suspended,
+and resumes only after health approval. Failures terminate before continuing a
+stopped event; job/process ownership transfers on success. Added an explicit DLL
+initializer export and version 0.3.0-dev, with original DirectInput ordinals kept.
+Native failure, owner-crash and repeated-session tests pass. Launcher integration
+and actual RoF2 acceptance remain open; no installed client changes. See ADR 0034.
+
+## 2026-09-15 - Gate proxy forwarding on required runtime activation
+
+The candidate DLL now consumes strict configuration, pins its lifetime and blocks
+forwarding until all required patches succeed. Failures write process-bound
+health where possible and terminate; optional MQ2 surveying defaults off. Patch
+writers now check cache/protection failures. Added atomic health and Go validation
+plus native fault/disposable-host tests. No installed client changes. Startup
+ordering and the launcher process handshake remain release gates; Play is disabled.
+Design: docs/adr/0033-bind-proxy-health-to-client-process.md.
+
+## 2026-09-15 - Require shared configuration and patch-site preflight
+
+Public client installation now requires manifest-bound configuration/catalog
+assets and checks the exact executable plus 22 recorded PE patch sites under its
+exclusive handle before mutation. Generated C++ and Go guard data share one
+versioned catalog. Disabled/missing/ambiguous feature keys and altered metadata
+fail closed. Exact-client checks, x86 build and focused tests pass. No live client
+files changed. DLL configuration consumption/runtime health remain unfinished;
+static preflight never enables Play. Contract: docs/adr/0032-share-client-patch-catalog-and-preflight.md.
+
+## 2026-09-15 - Add the Windows launcher UI and release controller
+
+Added a Wails/Vue preview with client-folder selection, inventory, update/repair,
+recovery, cancellation and session activity. Every update repeats signed metadata
+and content checks through the native controller; local generation inspection
+identifies damaged/expired files and pending recovery. Fixed pending-update Cancel
+and stale inventory display after installation. Windows build, 162 Go cases and
+six isolated browser tests pass; independent review found no blockers. Native
+interactive QA remains pending. Production trust, runtime health and Play remain
+unimplemented; no client files were deployed. Build/QA: eq-launcher/README.md.
+
+## 2026-09-15 - Install and recover complete client asset generations
+
+Added guarded signed installation, immutable backups, bounded recovery journals,
+tombstones and whole-generation rollback. Actual subprocess exits during install
+and recovery pass; locked unchanged Windows files no longer block rollback.
+Local release checkpoints allow repair and reject ordinary downgrades. Play
+remains false; production keys/health/UI and retention management are unfinished.
+Real client files are unchanged. Protocol/limits: docs/adr/0031-journal-client-generation-recovery.md.
+
+## 2026-09-15 - Exclude game launch and concurrent client updates
+
+Added a fail-closed Windows process check and exclusive executable handle. It
+blocks game launch and another updater for the duration of installation without
+writing executable bytes. Disposable executable tests verify the actual Windows
+sharing behavior; independent review found no blockers. Write access is required
+for the guard. Design and evidence: docs/adr/0030-exclude-game-launch-during-client-update.md.
+
+## 2026-09-15 - Stage complete signed client asset generations
+
+Added launcher size/hash diff and bounded HTTPS staging with signed metadata,
+per-hop redirect validation, local-copy rehash and complete candidate marker.
+Windows rooted access/junction checks keep staged files outside the client;
+failed cleanup is reported. Tests cover partial downloads and release failures.
+Activation, journaled recovery and Play gating remain unfinished; no client
+assets are installed by this package. See eq-launcher/README.md and phase 10.
+
+## 2026-09-15 - Add scoped RoF2 equipment submission candidate
+
+Exact-build redirects allow off-base equip attempts to reach server held-class
+validation. Only the active item/thread class return changes; zero masks, other
+callers and native checks remain. Includes guarded rollback, x86 scope tests,
+exact client checks and independent review. Candidate only; no deployment or
+manual acceptance. Evidence: eq-client-dll/docs/equipment-qa.md and ADR 0028.
+
+## 2026-09-15 - Add Darth Classic Ascended GM summon kit
+
+Added the requested MQ2 macro for Darth: 20 items across 18 verified IDs,
+including Classic Valorium armor, jewelry, haste, sword/shield and Fiery Avenger.
+Live PEQ checks verified Human Paladin eligibility, level requirements and
+lore-safe duplicate quantities. The macro stops on wrong character, failed
+summons or a blocked cursor; no level/equipment mutation is issued directly.
+It is a practical high-end kit, not an exhaustive encounter-specific BiS proof.
+Installed into the local MQ macros folder; in-game execution remains untested.
+
+## 2026-09-15 - Begin trusted client patcher and parity delivery
+
+Reviewed current client issues and the approved full multiclass contract. Added
+the Go launcher core with signed canonical metadata, exact inventory, path/host
+constraints and anti-rollback validation; read-only RoF2 executable preflight
+shares the existing DLL guard. No client files were modified or new hooks deployed.
+The Wails shell, transactional installer, signed release pipeline and outstanding
+client parity gates remain active work. Plan: docs/ops/client-delivery-plan.md.
+
 ## 2026-09-15 - Promote tested gameplay to main for owner live QA
 
 Owner explicitly requested all gameplay changes move to main before their live

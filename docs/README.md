@@ -23,6 +23,23 @@ Start with [current status](status.md), not a dated candidate report.
 
 ## Evidence and design
 
+- [Launcher Play/Stop integration evidence](milestones/phase-20-report.md)
+
+- [Go session ownership and health integration](milestones/phase-19-report.md)
+
+- [Native helper protocol and session evidence](milestones/phase-18-report.md)
+
+- [Validated bootstrap PE metadata](milestones/phase-17-report.md)
+
+- [Verified launch file lease evidence](milestones/phase-16-report.md)
+
+- [Pre-entrypoint bootstrap evidence](milestones/phase-15-report.md)
+- [Proxy runtime activation and health evidence](milestones/phase-14-report.md)
+- [Client delivery development plan](ops/client-delivery-plan.md)
+- [Shared patch/configuration preflight evidence](milestones/phase-13-report.md)
+- [Windows launcher build and UI evidence](milestones/phase-12-report.md)
+- [Guarded client install/recovery evidence](milestones/phase-11-report.md)
+
 - [September 15 live deployment milestone](milestones/phase-5-report.md)
 - [Original issue-review snapshot](audits/github-issues-20260914.md)
 - [Live AA title findings](audits/aa-titles-20260915/README.md)

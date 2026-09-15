@@ -1,0 +1,81 @@
+| Darth: Classic-era Ascended tank kit. GM #summonitem permission required.
+| High-end practical kit; not an exhaustive encounter-specific BiS proof.
+| Includes a Fiery Avenger two-handed alternative; equip it instead of sword/shield.
+| No auto-equip, character/level changes, item deletion, or later-era/Fabled items.
+Sub Main
+    /if (${Me.Name.NotEqual[Darth]}) {
+        /echo [DarthKit] Log in as Darth first.
+        /endmacro
+    }
+    /if (${Cursor.ID}) {
+        /echo [DarthKit] Clear your cursor before starting.
+        /endmacro
+    }
+    /echo [DarthKit] Summoning Classic Ascended gear. Leave about 20 bag slots free.
+    | Valorium Helmet (Ascended)
+    /call Summon 604851 1
+    | Polished Mithril Mask (Ascended)
+    /call Summon 604505 1
+    | Black Sapphire Electrum Earring (Ascended)
+    /call Summon 614701 2
+    | Black Sapphire Platinum Necklace (Ascended)
+    /call Summon 614703 1
+    | Adamantite Epaulets (Ascended)
+    /call Summon 604402 1
+    | Valorium Vambraces (Ascended)
+    /call Summon 604853 1
+    | Cloak of Flames (Ascended)
+    /call Summon 611621 1
+    | Valorium Bracers (Ascended)
+    /call Summon 604854 2
+    | Valorium Gauntlets (Ascended)
+    /call Summon 604855 1
+    | Valorium Chestplate (Ascended)
+    /call Summon 604852 1
+    | Valorium Greaves (Ascended)
+    /call Summon 604856 1
+    | Valorium Boots (Ascended)
+    /call Summon 604857 1
+    | Platinum Fire Wedding Ring (Ascended)
+    /call Summon 614679 1
+    | Djarn's Amethyst Ring (Ascended)
+    /call Summon 610366 1
+    | Thick Banded Belt (Ascended)
+    /call Summon 602406 1
+    | Ghoulbane (Ascended)
+    /call Summon 605403 1
+    | Shield of the Immaculate (Ascended)
+    /call Summon 611551 1
+    | Fiery Avenger (Ascended)
+    /call Summon 611050 1
+    /echo [DarthKit] Finished. Equip manually; Fiery Avenger replaces sword and shield.
+/return
+
+Sub Summon(int ItemID, int Wanted)
+    /declare Attempts int local 0
+    :nextitem
+    /if (${FindItemCount[${ItemID}]}>=${Wanted}) /return
+    /if (${Attempts}>=${Wanted}) {
+        /echo [DarthKit] Inventory count did not update for ${ItemID}; stopping.
+        /endmacro
+    }
+    /if (${Cursor.ID}) {
+        /echo [DarthKit] Cursor occupied; stopping safely.
+        /endmacro
+    }
+    /varcalc Attempts ${Attempts}+1
+    /say #summonitem ${ItemID}
+    /delay 5s ${Cursor.ID}
+    /if (${Cursor.ID}!=${ItemID}) {
+        /echo [DarthKit] Summon failed or cursor changed for ${ItemID}. Check GM access/lore ownership.
+        /endmacro
+    }
+    /autoinventory
+    /delay 3s !${Cursor.ID}
+    /if (${Cursor.ID}) {
+        /echo [DarthKit] Bags full or item could not be stored; stopping with item on cursor.
+        /endmacro
+    }
+    /delay 5
+    /goto :nextitem
+/return
