@@ -1,0 +1,32 @@
+{
+  "scope": "Bulk earned-AA refund/reset and guarded invalid profile saves; broader lifecycle gates remain open.",
+  "files": {
+    "docs/balance/aa-bulk-after-build.json": "45d5aa1717deb87a1d583c2644a697c66f2b9d2313a513cfb7a191127257acfa",
+    "docs/balance/aa-bulk-after-inputs.json": "68754b36ff87e3f79336b7a80aed695b588171a8ff61757d48be16340fcd16f1",
+    "docs/balance/aa-bulk-after.json.gz": "58bcdae8a6caa23c37364893379fe52c39ae14917a8babaf2658736f89d6c989",
+    "docs/balance/aa-bulk-before-build.json": "7874da6374dc1630def3e00e77cb65aa7de96e8d726f7e5df1b19ea2f3dba592",
+    "docs/balance/aa-bulk-before-inputs.json": "68754b36ff87e3f79336b7a80aed695b588171a8ff61757d48be16340fcd16f1",
+    "docs/balance/aa-bulk-before.json.gz": "951d9735955dabd4356acd01d340dac5905a3b4c80bf3101739995a39da4f239",
+    "docs/balance/aa-bulk-build-checks.json": "c9920c9240a6256ede303e0a192501981be1e91b5fc95d56cfc2f4fc54ba8634",
+    "docs/balance/aa-bulk-build.log": "314a7042d3db8cae2b07319af050ff001567d392cbc2eb57a9e00720844c3862",
+    "docs/balance/aa-bulk-configure-command.json": "aca423fa1932780064f4732317341cb95b4ead0b3f2b09a79db38d8a15c11c78",
+    "docs/balance/aa-bulk-configure.log": "0e3461bc4c4d5af3a992598c9320f8731aa1f34ff32397af135f589e08b79bd1",
+    "docs/balance/aa-bulk-cpp-tests.log": "f64abea9e0715904850bc5522e95b0a5b96e8d0b61ea19a45b24a6b3b6192a8f",
+    "docs/balance/aa-bulk-feedback-build.log": "013ea7c2e2be4b38ccb795cb6851b66de06e6b75a639e0d66b556dbd1b0ea692",
+    "docs/balance/aa-bulk-full-source-manifest.json": "cb2f9370be4d517f740cd23fe44fe7fae4c34f914d0f4aa24a58b1a84543e9a9",
+    "docs/balance/aa-bulk-original-source-manifest.json": "194c091bd8cdd9b27803e6845bde7a2e75bcd59ab521f57f4a5f8f88ae25fa32",
+    "docs/balance/aa-bulk-original-source.tar.gz": "583a240cb9ba163a307e7468a03b383a35e83241bf8fb985bc0fa79de5bacd06",
+    "docs/balance/aa-bulk-python-tests.log": "b47ac4b335d5fe63e7c71592671e95b4421528fbe6d45cebd823f52e36983ac0",
+    "docs/balance/aa-bulk-reload-guard-build.log": "9396c62b28da983250097b4d4a8393f8b53f072c4f4b92d25f9f7b7f23fdac83",
+    "docs/balance/aa-bulk-server.patch": "b489792b77385c54ccfaf4b6ef1b6aeb2156c333108c287d7a97524d271b4334",
+    "docs/balance/aa-bulk-source.tar.gz": "5d7f2c30f0daaaeca09d082fc6018dbfb381cbcae9e02f35c9994bbb3c9530ac",
+    "docs/adr/0023-refund-earned-aas-and-guard-profile-saves.md": "8d5ed80bac9eafae67e2bb723a73ee8d5fc97099188b1b606fb112950267be69",
+    "docs/balance/native-aa-bulk.md": "99bf8a1229daaf82cb224afaf41baa45f40aee7de6fc97746f1b7b4250b820fa"
+  },
+  "validation": {
+    "native_controls_passed": 11,
+    "native_operations_per_phase": 59,
+    "cpp_tests_passed": 87,
+    "python_tests_passed": 334
+  }
+}

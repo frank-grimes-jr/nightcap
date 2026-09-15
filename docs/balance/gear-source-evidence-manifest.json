@@ -1,0 +1,181 @@
+{
+  "captured_at": "2026-09-13T04:21:41.867055+00:00",
+  "scope": "Matched exclusion of Behemoth item sources and Monk haste comparison. Current post-verification code and frozen native evidence; no full-BiS or final release claim.",
+  "parent_revision": "2ccb86e",
+  "binary_sha256": "d00d9250a09b89ccf354bdbd80c063192d489635c60cbc66432a682bc8a510e5",
+  "validation": {
+    "python_tests_passed": 243,
+    "source_comparisons": 108,
+    "monk_cloak_comparisons": 36,
+    "terminal_replay": 1,
+    "unchanged_native_report_hashes": 12,
+    "unchanged_overlap_after_projection": 90,
+    "positive_post_death_hp_cases": 1,
+    "multiple_terminal_callback_cases": 0
+  },
+  "build_delta": {
+    "changed_objects": [
+      "/tmp/nightcap-balance-20260912/native_runtime.o"
+    ],
+    "four_candidate_sources_harness_adapters_and_flags_unchanged": true
+  },
+  "clone_cleanup": {
+    "database": "nightcap_balance_20260912",
+    "removed_synthetic_inventory_rows": [
+      {
+        "character_id": 12,
+        "slot_id": 23,
+        "item_id": 10015,
+        "charges": 9
+      },
+      {
+        "character_id": 12,
+        "slot_id": 24,
+        "item_id": 13073,
+        "charges": 9
+      }
+    ],
+    "remaining_account_rows": 0,
+    "remaining_character_rows": 0,
+    "remaining_inventory_rows": 0
+  },
+  "live_changes": false,
+  "artifacts": {
+    "docs/balance/gear-source-build.json": {
+      "sha256": "4dd9b8deb15d84f8ccd64abad7428f4b102a74f7ff959fa470c66fd81562623d",
+      "newline_normalization": "LF"
+    },
+    "docs/balance/gear-source-checks.json": {
+      "sha256": "ff338d84c6662536a7de7e44e9c934ed7b462f1d06ea6d01cff5512df4123079",
+      "newline_normalization": "LF"
+    },
+    "docs/balance/gear-source-cloak-checks.json": {
+      "sha256": "202677f7fbf7c5128119da22d6216d5ca8ecc4904bb32916b4faa70c30a9d03d",
+      "newline_normalization": "LF"
+    },
+    "docs/balance/gear-source-cloak-inputs.json": {
+      "sha256": "462aee0714e630c34500c44f3001772f9777ad7da337100b92c434a7b06631f7",
+      "newline_normalization": "LF"
+    },
+    "docs/balance/gear-source-cloak.json.gz": {
+      "sha256": "c845f4040378271615b95c60f1782658a4dd5b6eb3507054b3aa0185c6555b89",
+      "newline_normalization": "none"
+    },
+    "docs/balance/gear-source-death-before.json.gz": {
+      "sha256": "c9b921b8a32e4ba35a9abceb7496194caaceb64c008882a52f39d594cd36bc3f",
+      "newline_normalization": "none"
+    },
+    "docs/balance/gear-source-death-inputs.json": {
+      "sha256": "23725eac83ccf54b7d06a84020ff0aef404af2c4354bcb90ab1c3d1b0333b968",
+      "newline_normalization": "LF"
+    },
+    "docs/balance/gear-source-death-repro-input.json": {
+      "sha256": "847c02faf1c083eadc297d7a875745acaf0977693a42c2f032557fb3c3134c79",
+      "newline_normalization": "LF"
+    },
+    "docs/balance/gear-source-death.json.gz": {
+      "sha256": "80b8f7d08ea36599beee60b19ed6a8046ffa92ce96a1a5085b4f222abaa61d17",
+      "newline_normalization": "none"
+    },
+    "docs/balance/gear-source-failure.txt": {
+      "sha256": "d31cbac36e4e133d279e4ad21455fdd46d22052b35404f73865a47d13501811f",
+      "newline_normalization": "LF"
+    },
+    "docs/balance/gear-source-inputs.json": {
+      "sha256": "598daf0357cf701dad395895deff3cb6c610bc16e9c40350b8e605556f46f7e7",
+      "newline_normalization": "LF"
+    },
+    "docs/balance/gear-source-partial-before.json.gz": {
+      "sha256": "2406ebde6d1dc9570fc2d63a9820fddaa47a6ca223128d8ee05fda10ee7d79a3",
+      "newline_normalization": "none"
+    },
+    "docs/balance/gear-source-regression-inputs.json": {
+      "sha256": "8302156c069f6860a12345d79cb03128ce550d3f86a24f4885f909bf0f0df85d",
+      "newline_normalization": "LF"
+    },
+    "docs/balance/gear-source-regression.json.gz": {
+      "sha256": "480814e379b3d1bc606be74f2ae67308ef7770096b3520eb9fbcf4f03d281c4a",
+      "newline_normalization": "none"
+    },
+    "docs/balance/gear-source-regressions.json": {
+      "sha256": "d6616cf9349c9d3ce0b1336f2be501aaa57fc835f0df561f15de3683db6ffe2f",
+      "newline_normalization": "LF"
+    },
+    "docs/balance/gear-source-uninstrumented-inputs.json": {
+      "sha256": "76a4c149320e50b29e7f1873281245df2e58ef9452db4df9bb045cadf3f0917a",
+      "newline_normalization": "LF"
+    },
+    "docs/balance/gear-source.json.gz": {
+      "sha256": "e535e89debed26a080720241c678b1da4d7d59a2c161a7f16f449eedbfce926c",
+      "newline_normalization": "none"
+    },
+    "docs/balance/native-source-gear.md": {
+      "sha256": "980791c4ec12b69a6bfead70ff6875d61dd04c7bcb441f671135d1b50a2510c2",
+      "newline_normalization": "LF"
+    },
+    "docs/adr/0015-source-gear-and-terminal-evidence.md": {
+      "sha256": "cdbbd75fe263f6e1b338659a6f7539260a977b4e40330895d3405ee2bd75c361",
+      "newline_normalization": "LF"
+    },
+    "docs/balance/release-pool-inputs.json": {
+      "sha256": "bde9194a1e91e6499aace4c346970299359b42d9a4279d017396b70d1534e85d",
+      "newline_normalization": "LF"
+    },
+    "docs/balance/release-pool.json.gz": {
+      "sha256": "088bed29b3c38b976259adc447b1e5a2cd514c22e345553ddfb32a569cd55be9",
+      "newline_normalization": "none"
+    },
+    "docs/balance/aa-release-candidates.json": {
+      "sha256": "b2fbfbb1af2220b155208531366d0c7102804277a3fe79d74f2b93c1d8796243",
+      "newline_normalization": "LF"
+    },
+    "docs/balance/native-aa-catalog.json": {
+      "sha256": "0e9e278d71b51f9b1ddc8b3607935c459e45ae1300e2998646c932a314b51473",
+      "newline_normalization": "LF"
+    },
+    "tools/balance/fixtures/classic-20260912-v2.json.gz": {
+      "sha256": "e4b06f462a32b5463a608efae7ddde4d303b2422c863aecedc3427da06c08dae",
+      "newline_normalization": "none"
+    },
+    "tools/balance/gear_source_controls.py": {
+      "sha256": "c27c459e45c2e3a855f6399f1b5b6ed8968b486c648ed9de0ecaa9e3152559f9",
+      "newline_normalization": "LF"
+    },
+    "tools/balance/native_runtime.cpp": {
+      "sha256": "bd033f80e65cdd27eac9c4e3cf3e1d2271fdd392724140139f1dffee62e8c673",
+      "newline_normalization": "LF"
+    },
+    "tools/balance/native_runtime.h": {
+      "sha256": "abb9c21da3a2f1d4b2326fe51e62606818d045ab332362d102a3d5c6cbaa993a",
+      "newline_normalization": "LF"
+    },
+    "tools/balance/native_harness.cpp": {
+      "sha256": "fdcd59004c5d8d8a7347df7801d32afd2be4cd652ec5db0a62c44ec5102a2153",
+      "newline_normalization": "LF"
+    },
+    "tools/balance/pet_support_controls.py": {
+      "sha256": "c25c41810199e279039fa74326007b5b7feb13c5758c135a367f828d0c62cab8",
+      "newline_normalization": "LF"
+    },
+    "tools/balance/release_pool_controls.py": {
+      "sha256": "78e4bd85984a8628cb25814225bd42fbd59cbe4a4a4f1372e653a0ca1ccbf1fa",
+      "newline_normalization": "LF"
+    },
+    "tools/balance/gear_candidates.py": {
+      "sha256": "21952a5b33eb1d507a3b9110150fb3c92b05150846d1723d7d5e5924c51ca437",
+      "newline_normalization": "LF"
+    },
+    "tools/balance/tests/test_terminal_evidence.py": {
+      "sha256": "e98c509458253bdfe4c472ae02251ccce1b410e43a6f46ff1a15be4e39e47306",
+      "newline_normalization": "LF"
+    },
+    "tools/balance/tests/test_gear_sources.py": {
+      "sha256": "57b26807d304e1cd7710bbd24ec4b76e8b3adaabac6422473f0e16e916507140",
+      "newline_normalization": "LF"
+    },
+    "tools/balance/tests/test_gear_source_evidence.py": {
+      "sha256": "6880151f6c2fab98407fc8d3f73420d6187f6c5efe3043237547434d1d14d77f",
+      "newline_normalization": "LF"
+    }
+  }
+}

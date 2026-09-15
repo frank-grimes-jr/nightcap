@@ -1,0 +1,18 @@
+{
+  "scope": "Native before-fix reproduction; ownership implementation remains pending. Five-fix test candidate is unchanged.",
+  "validation": {
+    "full_suite_tests_passed": 319,
+    "focused_controls_after_review_passed": 3
+  },
+  "files": {
+    "tools/balance/native_harness.cpp": "d4a3fda2905f9552939ac2f08b9883fd8c0ba88943744b69be3669726e599876",
+    "tools/balance/aa_owned_view_controls.py": "3cea857f1fadd7e3bda25eaafc7491620cdbbebb48b6cae21a5f34365e5f1ea3",
+    "tools/balance/tests/test_aa_owned_view_controls.py": "182dded2d91a70abec14821bdb0d76a568233f4745a4a7c284adae7d0cf8fde5",
+    "tools/balance/tests/test_aa_owned_view_evidence.py": "81d1a277f316221d8e57d8d3743ba5d777997c474eeda7da953cd3eb4cb92963",
+    "docs/adr/0021-canonical-earned-aa-and-active-views.md": "fae9f8752979c4539392792ff94b7a273810eff1c33f1b7fe948f1c8ecfe64b1",
+    "docs/balance/aa-owned-view-before-build.json": "dddc30c822da94d6c5e2efbefdbd28e7e2413c0fd21e5cd631f3114e7c490f10",
+    "docs/balance/aa-owned-view-before.json.gz": "df04d4eb45e272abf273aa8313f17ca11a4ea2a30124c16098e02eb56782afb2",
+    "docs/balance/aa-owned-view-final-checks.json": "8cf2282482cfdd21685dbaa2aabc23c98ee26966873c93bd64a1e2abf122e107",
+    "docs/balance/aa-owned-view-input.json": "478b494b7ed7d38b1e154ea400dc3dba6620a1996afc68f154f0620b67c7365f"
+  }
+}

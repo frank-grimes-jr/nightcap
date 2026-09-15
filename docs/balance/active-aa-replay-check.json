@@ -1,0 +1,11 @@
+{
+  "encounter_cases": 144,
+  "native_raw_report_hashes_identical": true,
+  "serialized_json_bytes_identical_after_summary_correction": true,
+  "compressed_bytes_identical": false,
+  "canonical_gzip_from": "final native replay; local summary recompression uses a different gzip implementation",
+  "encounter_sha256": "e3e9d607383b2625a98f580f9524735309610bfa5778b1736957f642f9177a95",
+  "encounter_json_sha256": "6f3fd36f7f469faca65449c574d899078c2932e6ff3d388447fbd160a75365b2",
+  "lifecycle_cases": 14,
+  "lifecycle_compressed_bytes_identical": true
+}

@@ -1,0 +1,27 @@
+{
+  "date": "2026-09-12",
+  "scope": "Isolated AA-duration candidate; no live deployment or full BiS claim.",
+  "binary_sha256": "ecdb45db8fb3c93848e58f1e4e79ebc034aa94c3880af58c13b32f5f4ec52008",
+  "python_tests": 154,
+  "lifecycle_controls": 18,
+  "compiled_spells_raw_sha256": "636f12118b5ea93008259911907e602587768c538d95514e8b427381987a4214",
+  "compiled_spells_lf_sha256": "decdf29850e700436b411de88cae24a6836b072e56b4d89549bbbfcd646277ae",
+  "source_note": "Compiled source normalized from mixed CRLF/LF to LF for Git; normalized hash checked directly in runtime.",
+  "artifacts": {
+    "docs/balance/duration-checks.json": "6e498c799a456a2b450968abe096cf617ef3331b41a72b30160cbaa42146ce8c",
+    "docs/balance/duration-controls.json.gz": "1e7527ab6e5a2b5110c570ecdc8e8172333a6055a2964a3ee57a1f170d00e8cf",
+    "docs/balance/duration-encounter-inputs.json": "7aca3deddced5b7f3267547d5694f375901cb6c3544f0e0776fac0f64e877f18",
+    "docs/balance/duration-inputs.json": "37beccbe30da2c2fed6bbfca108176e1489eaa093d1a6c18dd54b7dcd7e1a421",
+    "docs/balance/duration-native-build-manifest.json": "8d952d0110bcf18f16e4dc78233feb1a6d79675d8c2bf90adea57f030899c32f",
+    "server-mods/code/zone/spells.cpp": "decdf29850e700436b411de88cae24a6836b072e56b4d89549bbbfcd646277ae",
+    "tools/balance/aa_duration_controls.py": "ccc98eaf0e6678da7ae5545b5c085e57bcb71073bac5f51144d414053b9b46ec",
+    "tools/balance/native_runtime.cpp": "30b5157d689380d1a12653fdc12949a1c81eac31815763a18f806a048e54a58d",
+    "tools/balance/active_aa_controls.py": "48226f84037f7c791df6fe766d8d97289b41cdcd8dccddaf7f44aab571e083e0",
+    "tools/balance/build_native.py": "414ad287906eef02438cb187baedeab15764f04277358a7138f1238aefae60e3",
+    "docs/balance/duration-encounter-checks.json": "769dde4e09b35d88af9776b61552f358c6b735cadd74240cd3a1e9fce5121115",
+    "docs/balance/duration-encounters.json.gz": "460ee824dc8c2ed22ca199e837cb19a9b51c09d0326e668cd90cc46486a6d096"
+  },
+  "matched_encounters": 144,
+  "unchanged_no_activation_reports": 54,
+  "changed_terminal_outcomes": 2
+}

@@ -1,0 +1,11 @@
+{
+  "scenarios": 24,
+  "purchase_steps": 7868,
+  "failures": [],
+  "scope": "Native purchase acceptance and ledger identity/cost; no AA activation or fight certification",
+  "sha256": {
+    "inputs": "55d2b24f99684a3675836959651cfdbf09e2b974fbdfcfeb3e473e41527ff8e2",
+    "native": "f4790a363d2bffc2ed6f87752466317d5db3ea693316ba0386f5e46fbca34570",
+    "catalog": "0e9e278d71b51f9b1ddc8b3607935c459e45ae1300e2998646c932a314b51473"
+  }
+}

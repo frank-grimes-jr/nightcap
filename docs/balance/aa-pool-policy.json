@@ -1,0 +1,22 @@
+{
+  "status": "diagnostic candidates only; not a deployed release whitelist",
+  "profile": "war-clr-wiz",
+  "free_ranks": "Preserve the prior zero-spend baseline for matched comparisons; review these separately before release.",
+  "policies": [
+    {
+      "id": "early_core",
+      "purpose": "Candidate early combat core: modest offense, defense and sustain; no activated burst.",
+      "caps": {"28": 3, "33": 3, "34": 3, "20": 3, "224": 3, "18": 3, "19": 3, "23": 3, "114": 3},
+      "budgets": [0, 100, 200, 500, "all"]
+    },
+    {
+      "id": "expanded_core",
+      "purpose": "Sensitivity to deeper core ranks, not an assigned expansion release.",
+      "caps": {"28": 6, "33": 6, "34": 6, "20": 6, "224": 6, "18": 6, "19": 6, "23": 6, "114": 6},
+      "budgets": ["all"]
+    },
+    {"id": "without_twincast", "purpose": "Matched unrestricted ceiling without Improved Twincast.", "exclude": [515], "budgets": ["all"]},
+    {"id": "without_frenzied", "purpose": "Matched unrestricted ceiling without Frenzied Devastation.", "exclude": [308], "budgets": ["all"]},
+    {"id": "without_both", "purpose": "Matched unrestricted ceiling without either selected activated burst ability.", "exclude": [515, 308], "budgets": ["all"]}
+  ]
+}

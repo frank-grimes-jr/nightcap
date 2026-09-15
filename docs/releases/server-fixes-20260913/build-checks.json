@@ -1,0 +1,10 @@
+{
+  "source_files_checked": 2787,
+  "source_mismatches": [],
+  "build_exit_code": 0,
+  "cpp_tests_exit_code": 0,
+  "zone_bytes": 78904056,
+  "zone_magic": "7f454c46",
+  "zone_sha256": "ce127436f846e2ef0d588501bc5797f13f8928cce72ea45ef9e6eb8562dbcaac",
+  "cpp_tests_passed": 87
+}

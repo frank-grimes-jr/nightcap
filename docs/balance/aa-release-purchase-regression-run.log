@@ -1,0 +1,81 @@
+{
+  "phase": "after",
+  "cases": [
+    {
+      "id": "paid-ranks-save-wallet-before-reload",
+      "passed": true,
+      "differences": 0
+    },
+    {
+      "id": "silent-grant-is-durable-without-later-save",
+      "passed": true,
+      "differences": 0
+    },
+    {
+      "id": "multi-rank-paid-grant",
+      "passed": true,
+      "differences": 0
+    },
+    {
+      "id": "multi-rank-free-grant",
+      "passed": true,
+      "differences": 0
+    },
+    {
+      "id": "rollback-purchase_first-on-character-update-failure",
+      "passed": true,
+      "differences": 0
+    },
+    {
+      "id": "rollback-grant-on-character-update-failure",
+      "passed": true,
+      "differences": 0
+    },
+    {
+      "id": "rollback-grant_silent-on-character-update-failure",
+      "passed": true,
+      "differences": 0
+    },
+    {
+      "id": "insufficient-wallet-remains-rejected",
+      "passed": true,
+      "differences": 0
+    },
+    {
+      "id": "suspended-earned-rank-cannot-be-repurchased",
+      "passed": true,
+      "differences": 0
+    },
+    {
+      "id": "charged-purchase-consume-and-repurchase",
+      "passed": true,
+      "differences": 0
+    },
+    {
+      "id": "grant-only-purchase-rejected-explicit-grant-retained",
+      "passed": true,
+      "differences": 0
+    },
+    {
+      "id": "invalid-session-cannot-receive-silent-grant",
+      "passed": true,
+      "differences": 0
+    },
+    {
+      "id": "paid-rank-cannot-skip-predecessor",
+      "passed": true,
+      "differences": 0
+    }
+  ],
+  "final": {
+    "remaining_rows": {
+      "account": 0,
+      "character_data": 0,
+      "character_alternate_abilities": 0,
+      "inventory": 0
+    },
+    "full_catalog_unchanged": true,
+    "original_tables_sha256": "bfcce242cd44630515f148f96ebd4668706f45bb5f72eabf7d07ea4ec1e02161",
+    "failure_trigger_remaining": 0
+  }
+}

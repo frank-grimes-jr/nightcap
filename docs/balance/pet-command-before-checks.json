@@ -1,0 +1,280 @@
+{
+  "cases": [
+    {
+      "id": "command-2-80-extraonly-False",
+      "aa_spent": 0,
+      "result": "timeout",
+      "final_boss_hp": 31898,
+      "command_boundary": {
+        "passed": false,
+        "immediate_damage": [
+          0,
+          51,
+          17,
+          34
+        ],
+        "ordered_pet_ids": [
+          [
+            2
+          ],
+          [
+            2
+          ],
+          [
+            2
+          ],
+          [
+            2
+          ]
+        ],
+        "expected_ordered_pet_ids": [
+          2,
+          3,
+          4
+        ]
+      }
+    },
+    {
+      "id": "command-2-500-extraonly-False",
+      "aa_spent": 0,
+      "result": "timeout",
+      "final_boss_hp": 31898,
+      "command_boundary": {
+        "passed": false,
+        "immediate_damage": [
+          0,
+          51,
+          17,
+          34
+        ],
+        "ordered_pet_ids": [
+          [],
+          [],
+          [],
+          []
+        ],
+        "expected_ordered_pet_ids": []
+      }
+    },
+    {
+      "id": "command-2-80-extraonly-True",
+      "aa_spent": 0,
+      "result": "timeout",
+      "final_boss_hp": 32000,
+      "command_boundary": {
+        "passed": false,
+        "immediate_damage": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "ordered_pet_ids": [
+          [],
+          [],
+          [],
+          []
+        ],
+        "expected_ordered_pet_ids": [
+          2,
+          3
+        ]
+      }
+    },
+    {
+      "id": "command-3-80-extraonly-False",
+      "aa_spent": 0,
+      "result": "timeout",
+      "final_boss_hp": 31898,
+      "command_boundary": {
+        "passed": false,
+        "immediate_damage": [
+          0,
+          51,
+          17,
+          34
+        ],
+        "ordered_pet_ids": [
+          [
+            2
+          ],
+          [
+            2
+          ],
+          [
+            2
+          ],
+          [
+            2
+          ]
+        ],
+        "expected_ordered_pet_ids": [
+          2,
+          3,
+          4
+        ]
+      }
+    },
+    {
+      "id": "command-3-500-extraonly-False",
+      "aa_spent": 0,
+      "result": "timeout",
+      "final_boss_hp": 31898,
+      "command_boundary": {
+        "passed": false,
+        "immediate_damage": [
+          0,
+          51,
+          17,
+          34
+        ],
+        "ordered_pet_ids": [
+          [],
+          [],
+          [],
+          []
+        ],
+        "expected_ordered_pet_ids": []
+      }
+    },
+    {
+      "id": "command-3-80-extraonly-True",
+      "aa_spent": 0,
+      "result": "timeout",
+      "final_boss_hp": 32000,
+      "command_boundary": {
+        "passed": false,
+        "immediate_damage": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "ordered_pet_ids": [
+          [],
+          [],
+          [],
+          []
+        ],
+        "expected_ordered_pet_ids": [
+          2,
+          3
+        ]
+      }
+    },
+    {
+      "id": "pet-only-0-32040",
+      "aa_spent": 0,
+      "result": "player_death",
+      "final_boss_hp": 31016,
+      "elapsed_ms": 103600,
+      "pet_damage": 1390,
+      "owner_damage": 0,
+      "surviving_pet_ids": [],
+      "scope": "Pet-only control; no owner spell/heal rotation and no balance certification"
+    },
+    {
+      "id": "pet-only-0-73057",
+      "aa_spent": 0,
+      "result": "timeout",
+      "final_boss_hp": 28614,
+      "elapsed_ms": 120000,
+      "pet_damage": 3709,
+      "owner_damage": 0,
+      "surviving_pet_ids": [
+        4
+      ],
+      "scope": "Pet-only control; no owner spell/heal rotation and no balance certification"
+    },
+    {
+      "id": "pet-only-all-32040",
+      "aa_spent": 13288,
+      "result": "timeout",
+      "final_boss_hp": 23805,
+      "elapsed_ms": 120000,
+      "pet_damage": 3623,
+      "owner_damage": 0,
+      "surviving_pet_ids": [],
+      "scope": "Pet-only control; no owner spell/heal rotation and no balance certification"
+    },
+    {
+      "id": "pet-only-all-73057",
+      "aa_spent": 13288,
+      "result": "timeout",
+      "final_boss_hp": 16993,
+      "elapsed_ms": 120000,
+      "pet_damage": 14303,
+      "owner_damage": 0,
+      "surviving_pet_ids": [
+        2,
+        3,
+        4
+      ],
+      "scope": "Pet-only control; no owner spell/heal rotation and no balance certification"
+    },
+    {
+      "id": "command-2-80-primaryonly",
+      "aa_spent": 0,
+      "result": "timeout",
+      "final_boss_hp": 32000,
+      "command_boundary": {
+        "passed": true,
+        "immediate_damage": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "ordered_pet_ids": [
+          [
+            2
+          ],
+          [
+            2
+          ],
+          [
+            2
+          ],
+          [
+            2
+          ]
+        ],
+        "expected_ordered_pet_ids": [
+          2
+        ]
+      }
+    },
+    {
+      "id": "command-3-80-primaryonly",
+      "aa_spent": 0,
+      "result": "timeout",
+      "final_boss_hp": 32000,
+      "command_boundary": {
+        "passed": true,
+        "immediate_damage": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "ordered_pet_ids": [
+          [
+            2
+          ],
+          [
+            2
+          ],
+          [
+            2
+          ],
+          [
+            2
+          ]
+        ],
+        "expected_ordered_pet_ids": [
+          2
+        ]
+      }
+    }
+  ]
+}

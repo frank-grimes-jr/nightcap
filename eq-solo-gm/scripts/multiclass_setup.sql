@@ -188,7 +188,8 @@ ORDER BY i.name;
 -- =============================================================================
 -- 7. Bag vendor (99225) — one container of each distinct slot size, 8..40.
 -- bagslots = slot count; pick the best per size (Giant bagsize=4 then highest
--- weight-reduction). nodrop=0 so they're sellable.
+-- weight-reduction). nodrop=0 means NO TRADE: the merchant can sell these,
+-- but the server rejects selling them back. Do not flip this flag for pricing.
 -- =============================================================================
 
 DELETE FROM merchantlist WHERE merchantid = 99225;

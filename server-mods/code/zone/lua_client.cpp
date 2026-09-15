@@ -1358,7 +1358,7 @@ int Lua_Client::GetClass3() {
 
 void Lua_Client::SetMulticlassSlot(int slot, int class_id) {
 	Lua_Safe_Call_Void();
-	self->SetMulticlassSlot(static_cast<uint8>(slot), static_cast<uint8>(class_id));
+	self->SetMulticlassSlot(slot, class_id);
 }
 
 void Lua_Client::MarkSingleCompassLoc(float in_x, float in_y, float in_z) {

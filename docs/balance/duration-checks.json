@@ -1,0 +1,208 @@
+{
+  "controls": [
+    {
+      "id": "200-idle",
+      "requested": 0,
+      "started": 0,
+      "initial_hp": 2534,
+      "final_hp": 2750,
+      "maximum_hp_cap": 6337,
+      "minimum_hp": 2534,
+      "final_buffs": []
+    },
+    {
+      "id": "200-tenacity",
+      "requested": 3,
+      "started": 1,
+      "initial_hp": 2534,
+      "final_hp": 2333,
+      "maximum_hp_cap": 6837,
+      "minimum_hp": 2225,
+      "final_buffs": []
+    },
+    {
+      "id": "200-regeneration",
+      "requested": 3,
+      "started": 1,
+      "initial_hp": 2534,
+      "final_hp": 2333,
+      "maximum_hp_cap": 6837,
+      "minimum_hp": 2225,
+      "final_buffs": []
+    },
+    {
+      "id": "200-frenzied",
+      "requested": 2,
+      "started": 1,
+      "initial_hp": 2534,
+      "final_hp": 2750,
+      "maximum_hp_cap": 6337,
+      "minimum_hp": 2534,
+      "final_buffs": []
+    },
+    {
+      "id": "200-twincast",
+      "requested": 2,
+      "started": 1,
+      "initial_hp": 2534,
+      "final_hp": 2750,
+      "maximum_hp_cap": 6337,
+      "minimum_hp": 2534,
+      "final_buffs": []
+    },
+    {
+      "id": "200-arbitration",
+      "requested": 2,
+      "started": 1,
+      "initial_hp": 2534,
+      "final_hp": 2750,
+      "maximum_hp_cap": 6337,
+      "minimum_hp": 2534,
+      "final_buffs": []
+    },
+    {
+      "id": "200-burst",
+      "requested": 2,
+      "started": 2,
+      "initial_hp": 2534,
+      "final_hp": 2750,
+      "maximum_hp_cap": 6337,
+      "minimum_hp": 2534,
+      "final_buffs": []
+    },
+    {
+      "id": "all-idle",
+      "requested": 0,
+      "started": 0,
+      "initial_hp": 5438,
+      "final_hp": 6566,
+      "maximum_hp_cap": 13596,
+      "minimum_hp": 5438,
+      "final_buffs": []
+    },
+    {
+      "id": "all-tenacity",
+      "requested": 3,
+      "started": 1,
+      "initial_hp": 5438,
+      "final_hp": -500,
+      "maximum_hp_cap": 26596,
+      "minimum_hp": -1060,
+      "final_buffs": [
+        {
+          "hits": 0,
+          "slot": 0,
+          "spell": 23617,
+          "ticks": 8
+        }
+      ]
+    },
+    {
+      "id": "all-regeneration",
+      "requested": 3,
+      "started": 1,
+      "initial_hp": 5438,
+      "final_hp": -500,
+      "maximum_hp_cap": 26596,
+      "minimum_hp": -1060,
+      "final_buffs": [
+        {
+          "hits": 0,
+          "slot": 0,
+          "spell": 23617,
+          "ticks": 8
+        }
+      ]
+    },
+    {
+      "id": "all-frenzied",
+      "requested": 2,
+      "started": 1,
+      "initial_hp": 5438,
+      "final_hp": 6566,
+      "maximum_hp_cap": 13596,
+      "minimum_hp": 5438,
+      "final_buffs": [
+        {
+          "hits": 9,
+          "slot": 42,
+          "spell": 5247,
+          "ticks": 12
+        }
+      ]
+    },
+    {
+      "id": "all-twincast",
+      "requested": 2,
+      "started": 1,
+      "initial_hp": 5438,
+      "final_hp": 6566,
+      "maximum_hp_cap": 13596,
+      "minimum_hp": 5438,
+      "final_buffs": []
+    },
+    {
+      "id": "all-arbitration",
+      "requested": 2,
+      "started": 1,
+      "initial_hp": 5438,
+      "final_hp": 6566,
+      "maximum_hp_cap": 13596,
+      "minimum_hp": 5438,
+      "final_buffs": []
+    },
+    {
+      "id": "all-burst",
+      "requested": 2,
+      "started": 2,
+      "initial_hp": 5438,
+      "final_hp": 6566,
+      "maximum_hp_cap": 13596,
+      "minimum_hp": 5438,
+      "final_buffs": [
+        {
+          "hits": 9,
+          "slot": 42,
+          "spell": 5247,
+          "ticks": 12
+        }
+      ]
+    },
+    {
+      "id": "200-preparation-67",
+      "spell": 67,
+      "maximum_observed_ticks": 999999,
+      "final_hp": 2750,
+      "final_max_hp": 6487
+    },
+    {
+      "id": "200-preparation-314",
+      "spell": 314,
+      "maximum_observed_ticks": 1000000,
+      "final_hp": 3000,
+      "final_max_hp": 6587
+    },
+    {
+      "id": "all-preparation-67",
+      "spell": 67,
+      "maximum_observed_ticks": 1800000,
+      "final_hp": 6566,
+      "final_max_hp": 13746
+    },
+    {
+      "id": "all-preparation-314",
+      "spell": 314,
+      "maximum_observed_ticks": 1800000,
+      "final_hp": 6816,
+      "final_max_hp": 13846
+    }
+  ],
+  "unchanged_native_controls": [
+    "200-idle",
+    "200-frenzied",
+    "200-arbitration",
+    "all-idle",
+    "all-frenzied",
+    "all-arbitration"
+  ]
+}

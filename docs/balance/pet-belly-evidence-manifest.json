@@ -1,0 +1,114 @@
+{
+  "scope": "Correct the pet controller for native ranged-spell immunity; explicit native control interruptions; no live tuning.",
+  "binary_sha256": "8b73863155c35d6e79ffb743e7890db4d72c93d546398e93975a542fbfea53ff",
+  "validation": {
+    "python_tests_passed": 217,
+    "new_native_fights": 30,
+    "unchanged_legacy_reports": 65,
+    "native_control_interrupted_movement_requests": 6
+  },
+  "source_facts": {
+    "CastingFromRangeImmunity": 26,
+    "gate": "Mob::ResistSpell returns zero outside caster->CombatRange(this)",
+    "production_source_changed": false
+  },
+  "clone_cleanup": {
+    "database": "nightcap_balance_20260912",
+    "removed_synthetic_inventory_rows": [
+      {
+        "character_id": 12,
+        "slot_id": 23,
+        "item_id": 10015,
+        "charges": 9
+      },
+      {
+        "character_id": 12,
+        "slot_id": 24,
+        "item_id": 13073,
+        "charges": 9
+      }
+    ],
+    "remaining_account_rows": 0,
+    "remaining_character_rows": 0,
+    "remaining_inventory_rows": 0
+  },
+  "live_changes": false,
+  "artifacts": {
+    "docs/balance/pet-belly-build.json": {
+      "sha256": "68e40706de745141558b042e788d2bb5ecf821a058e7cb0fb906352286f0099a",
+      "newline_normalization": "LF"
+    },
+    "docs/balance/pet-belly-checks.json": {
+      "sha256": "91011c6d06741d02b89031bc2eebb6b205312192f0cdd184a949141e2caab1d0",
+      "newline_normalization": "LF"
+    },
+    "docs/balance/pet-belly-command-regression-inputs.json": {
+      "sha256": "983c4090817c352d17a397abf43932b343bf68afcd4c24fb586536dd1bb41fe9",
+      "newline_normalization": "LF"
+    },
+    "docs/balance/pet-belly-command-regression.json.gz": {
+      "sha256": "e3d1c240ef10d75b91ae5f57dab134a47f7af515024f75e7ee07cf22eb783c0a",
+      "newline_normalization": "none"
+    },
+    "docs/balance/pet-belly-encounter-regression-inputs.json": {
+      "sha256": "b48bf9b400fd703d2c5bde739edc18858ed35e94e93e703a264a9fcc3a50880b",
+      "newline_normalization": "LF"
+    },
+    "docs/balance/pet-belly-encounter-regression.json.gz": {
+      "sha256": "5c8f92d1bd23c22f79cc1b139d1bc9d6149d1abb01b578d4c4231e36de9dc7f8",
+      "newline_normalization": "none"
+    },
+    "docs/balance/pet-belly-inputs.json": {
+      "sha256": "8df1c5083dfb519965fab70f8c5f755655ffbaaa72bfc8178c679e431a555421",
+      "newline_normalization": "LF"
+    },
+    "docs/balance/pet-belly-legacy-support-inputs.json": {
+      "sha256": "ee3dcb8be95ae9f6d887742bb526c8370ec3860ba96daf286a79a3dbaa9e57a8",
+      "newline_normalization": "LF"
+    },
+    "docs/balance/pet-belly-legacy-support.json.gz": {
+      "sha256": "59cd7b15571d33f8e5e05bca9eaef9f69fb2a84697aff0e65771a9623aab7597",
+      "newline_normalization": "none"
+    },
+    "docs/balance/pet-belly-ownership-regression-inputs.json": {
+      "sha256": "c9c993375a9906526a67c3526f29e84001b02442659d96bd9e76793bd6da8004",
+      "newline_normalization": "LF"
+    },
+    "docs/balance/pet-belly-ownership-regression.json.gz": {
+      "sha256": "b5431e4c311a8a4761e02f0a94d9168620c14ba0615b42815b30eb684303ac49",
+      "newline_normalization": "none"
+    },
+    "docs/balance/pet-belly-regression-checks.json": {
+      "sha256": "d40f50584973b44cd14558ab2f9718c78c72a91a3a8ff8c9e1418f7d9e3e4073",
+      "newline_normalization": "LF"
+    },
+    "docs/balance/pet-belly.json.gz": {
+      "sha256": "7bf5b7fbcb723d0c2f5b8a538f1c2358aedec9bb24559599d9fb5eed1984d3f1",
+      "newline_normalization": "none"
+    },
+    "tools/balance/native_runtime.cpp": {
+      "sha256": "5642de8ca46c6c8333b7753c5ac3fb8e7eb594a3dde5a6a4918bb45fcc7d6212",
+      "newline_normalization": "LF"
+    },
+    "tools/balance/pet_support_controls.py": {
+      "sha256": "11ee37fc8e9279d9210b569759c1142126f1d8656b0961fb611b357a7134057d",
+      "newline_normalization": "LF"
+    },
+    "tools/balance/pet_belly_controls.py": {
+      "sha256": "36cd3c04973c1a7f1b1d5a4a62d33243ed4de5f5efe84d55fcc1800efb4f1e08",
+      "newline_normalization": "LF"
+    },
+    "tools/balance/tests/test_pet_belly_controls.py": {
+      "sha256": "9259afa6e502a76767cdc83f939d24643dd5b7b207fae73602ad5083d9293e84",
+      "newline_normalization": "LF"
+    },
+    "docs/balance/native-pet-belly-casting.md": {
+      "sha256": "1848d79a9328672e5c5193c04d99e617aad84ebf034df0edbbc0fe824b875136",
+      "newline_normalization": "LF"
+    },
+    "server-mods/code/zone/spells.cpp": {
+      "sha256": "decdf29850e700436b411de88cae24a6836b072e56b4d89549bbbfcd646277ae",
+      "newline_normalization": "LF"
+    }
+  }
+}

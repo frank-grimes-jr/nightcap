@@ -1,0 +1,25 @@
+{
+  "scope": "Archived native load/save increment only; lifecycle integration is required before promotion. Historical build evidence is independent of later source edits.",
+  "files": {
+    "docs/balance/aa-owned-core-build-checks.json": "321a6fc7a38322c6c42033d0c7b2cd396b9625c2b6f8fd98ffcf8d2a712d86ac",
+    "docs/balance/aa-owned-core-build.json": "edc797dcb3fe891a72fa248a44d720a12d056427a98dd63818f61e339645d762",
+    "docs/balance/aa-owned-core-build.log": "ee4bc80a3d9037be4510ff078dd578df01449df3e8207e99111d535a30a73189",
+    "docs/balance/aa-owned-core-configure-command.json": "d22e19e278f3efc2202773ee87040e0a3f8a79fd7d864c33f66d43c51c7dd9cc",
+    "docs/balance/aa-owned-core-configure.log": "3799796ba40c2af4e5144fbb632ff12e5b3429ba2bbab38580247263deb05c0b",
+    "docs/balance/aa-owned-core-cpp-tests.log": "4311b48b0287791e36b8269977d341f634f8a0c43cc30dce57fed6dfc507d24e",
+    "docs/balance/aa-owned-core-full-source-manifest.json": "499e2c016a190b4c0fb914737d9275436debe0c90fe325fea17480b3f6bf6bf0",
+    "docs/balance/aa-owned-core-inputs.json": "2211dfc5301542f6366c0f8ed672c0fb5568ca3baad981da9846e1a803104d2e",
+    "docs/balance/aa-owned-core-native.json.gz": "047843e10f5c31313faa409766bb8f56abc751ae724b4dd19d02cf70f0b4cdf6",
+    "docs/balance/aa-owned-core-source.tar.gz": "54f4b58abdeb6c16bc591d5e5abb509d98a12f2d65b782c81b3f93a12e2924b3",
+    "docs/balance/aa-owned-view-before-harness.cpp.gz": "323fcb97715d543ffcfc3349bcb19a8a5eaf29ac7fdacbf84cb58b4e3a4d6d56",
+    "docs/balance/native-aa-owned-core.md": "f3e692921f7a15950e28ab48c7133f857e127b167e1c678127ed2ac36055c817",
+    "docs/releases/server-fixes-20260913/candidate-source.tar.gz": "4b36c3eab0da0a6d53f4e93508bdd19660fdff448ffc2fe7cc52e6704ace9d63",
+    "docs/balance/aa-owned-core-python-tests.log": "73e33befe5407370f496f833ceda5b87dedc1667c69ef49840ec77b771ffd40e"
+  },
+  "validation": {
+    "native_controls_passed": 6,
+    "native_operations": 32,
+    "cpp_tests_passed": 87,
+    "python_tests_passed": 324
+  }
+}

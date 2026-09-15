@@ -1,0 +1,48 @@
+{
+  "captured_at": "2026-09-13T05:38:12.506940+00:00",
+  "scope": "Read-only source excerpts for rank identity, native loading/gating and persistence; not a new runtime enforcement test.",
+  "excerpts": [
+    {
+      "source": "E:\\EQ_Local_Dev\\akk-stack\\code\\zone\\aa.cpp",
+      "file_sha256": "0a21642bdd5cb278f186eba830ab0f8395a6e0e0f61f99f6b9a0ba8b8cde461b",
+      "mirror_matches_after_lf": true,
+      "start_line": 1575,
+      "text": "bool ZoneDatabase::LoadAlternateAdvancement(Client *c) {\n\tc->ClearAAs();\n\n\tconst auto& l = CharacterAlternateAbilitiesRepository::GetWhere(\n\t\tdatabase,\n\t\tfmt::format(\n\t\t\t\"`id` = {}\",\n\t\t\tc->CharacterID()\n\t\t)\n\t);\n\n\tuint32 slot_id = 0;\n\n\tfor (const auto& e : l) {\n\t\tconst uint16 aa_id    = e.aa_id;\n\t\tconst uint16 aa_value = e.aa_value;\n\t\tconst uint16 charges  = e.charges;\n\n\t\tauto rank = zone->GetAlternateAdvancementRank(aa_id);\n\t\tif (!rank) {\n\t\t\tcontinue;\n\t\t}\n\n\t\tauto ability = rank->base_ability;\n\t\tif (!ability) {\n\t\t\tcontinue;\n\t\t}\n\n\t\trank = ability->GetRankByPointsSpent(aa_value);\n\n\t\tif (c->CanUseAlternateAdvancementRank(rank)) {\n\t\t\tc->GetPP().aa_array[slot_id].AA      = aa_id;\n\t\t\tc->GetPP().aa_array[slot_id].value   = aa_value;\n\t\t\tc->GetPP().aa_array[slot_id].charges = charges;\n\n\t\t\tc->SetAA(aa_id, aa_value, charges);\n\n\t\t\tslot_id++;\n\t\t}\n\t}\n\n\treturn true;\n}\n\n"
+    },
+    {
+      "source": "E:\\EQ_Local_Dev\\akk-stack\\code\\zone\\aa.cpp",
+      "file_sha256": "0a21642bdd5cb278f186eba830ab0f8395a6e0e0f61f99f6b9a0ba8b8cde461b",
+      "mirror_matches_after_lf": true,
+      "start_line": 1717,
+      "text": "bool Mob::CanUseAlternateAdvancementRank(AA::Rank *rank)\n{\n\tif (!rank) {\n\t\treturn false;\n\t}\n\n\tconst auto a = rank->base_ability;\n\n\tif (!a) {\n\t\treturn false;\n\t}\n\n\tuint32 class_mask = IsClient() ? CastToClient()->GetClassMask() : (1 << GetClass());\n\tif (!(a->classes & class_mask)) {\n\t\treturn false;\n\t}\n\n\t// Passive and Active Shroud AAs, skip for now\n\tif (\n\t\ta->category == AACategory::ShroudPassive ||\n\t\ta->category == AACategory::ShroudActive\n\t) {\n\t\treturn false;\n\t}\n\n\t//the one titanium hack i will allow\n\t//just to make sure we dont crash the client with newer aas\n\t//we'll exclude any expendable ones\n\tif (IsClient() && CastToClient()->ClientVersionBit() & EQ::versions::maskTitaniumAndEarlier) {\n\t\tif (a->charges > 0) {\n\t\t\treturn false;\n\t\t}\n\t}\n\n\tconst int  expansion        = RuleI(Expansion, CurrentExpansion);\n\tconst bool use_expansion_aa = RuleB(Expansion, UseCurrentExpansionAAOnly);\n\tif (use_expansion_aa && expansion >= 0) {\n\t\tif (rank->expansion > expansion) {\n\t\t\treturn false;\n\t\t}\n\t}\n\n\n\tif (IsClient()) {\n\t\tif (rank->expansion && !(CastToClient()->GetPP().expansions & (1 << (rank->expansion - 1)))) {\n\t\t\treturn false;\n\t\t}\n\t} else if (IsBot()) {\n\t\tif (rank->expansion && !(CastToBot()->GetExpansionBitmask() & (1 << (rank->expansion - 1)))) {\n\t\t\treturn false;\n\t\t}\n\t} else {\n\t\tif (rank->expansion && !(RuleI(World, ExpansionSettings) & (1 << (rank->expansion - 1)))) {\n\t\t\treturn false;\n\t\t}\n\t}\n\n\tauto race = GetPlayerRaceValue(GetBaseRace());\n\n\trace = race > RaceIndex::Drakkin ? Race::Human : race;\n\n\tif (!(a->races & (1 << (race - 1)))) {\n\t\treturn false;\n\t}\n\n\tconst auto deity = GetDeityBit();\n\tif (!(a->deities & deity)) {\n\t\treturn false;\n\t}\n\n\tif (IsClient() && CastToClient()->Admin() < a->status) {\n\t\treturn false;\n\t}\n\n\tif (GetBaseRace() == Race::Drakkin) {\n\t\tif (!(a->drakkin_heritage & (1 << GetDrakkinHeritage()))) {\n\t\t\treturn false;\n\t\t}\n\t}\n\n\treturn true;\n}\n\n"
+    },
+    {
+      "source": "E:\\EQ_Local_Dev\\akk-stack\\code\\zone\\aa.cpp",
+      "file_sha256": "0a21642bdd5cb278f186eba830ab0f8395a6e0e0f61f99f6b9a0ba8b8cde461b",
+      "mirror_matches_after_lf": true,
+      "start_line": 1870,
+      "text": "void Zone::LoadAlternateAdvancement() {\n\tif (!content_db.LoadAlternateAdvancementAbilities(aa_abilities, aa_ranks)) {\n\t\taa_abilities.clear();\n\t\taa_ranks.clear();\n\t\tLogInfo(\"Failed to load Alternate Advancement Data\");\n\t\treturn;\n\t}\n\n\tfor(const auto &ability : aa_abilities) {\n\t\tability.second->first = GetAlternateAdvancementRank(ability.second->first_rank_id);\n\n\t\t//process these ranks\n\t\tAA::Rank *current = ability.second->first;\n\t\tint i = 1;\n\t\tint prev_id = -1;\n\t\twhile(current) {\n\t\t\tcurrent->prev_id = prev_id;\n\t\t\tcurrent->prev = GetAlternateAdvancementRank(current->prev_id);\n\t\t\tcurrent->next = GetAlternateAdvancementRank(current->next_id);\n\t\t\tcurrent->base_ability = ability.second.get();\n\t\t\tcurrent->current_value = i;\n\n\t\t\tif(current->prev) {\n\t\t\t\tcurrent->total_cost = current->cost + current->prev->total_cost;\n\n\t\t\t\t//check prereqs here\n\t\t\t\tfor(auto &prev_prereq : current->prev->prereqs) {\n\t\t\t\t\t//if prev has an aa we dont have set\n\t\t\t\t\t//\tthen set it here too\n\t\t\t\t\t//if prev has an aa we have\n\t\t\t\t\t//\tthen set to whichever is highest\n\n\t\t\t\t\tauto iter = current->prereqs.find(prev_prereq.first);\n\t\t\t\t\tif(iter == current->prereqs.end()) {\n\t\t\t\t\t\t//not found\n\t\t\t\t\t\tcurrent->prereqs[prev_prereq.first] = prev_prereq.second;\n\t\t\t\t\t} else {\n\t\t\t\t\t\t//they already have it too!\n\t\t\t\t\t\tauto points = std::max(iter->second, prev_prereq.second);\n\t\t\t\t\t\tcurrent->prereqs[iter->first] = points;\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t\telse {\n\t\t\t\tcurrent->prev_id = -1;\n\t\t\t\tcurrent->total_cost = current->cost;\n\t\t\t}\n\n\t\t\tif(!current->next) {\n\t\t\t\tcurrent->next_id = -1;\n\t\t\t}\n\n\t\t\ti++;\n\t\t\tprev_id = current->id;\n\t\t\tcurrent = current->next;\n\t\t}\n\t}\n}\n\n"
+    },
+    {
+      "source": "E:\\EQ_Local_Dev\\akk-stack\\code\\zone\\aa_ability.cpp",
+      "file_sha256": "37cf53339e246d323682c3a80de1a91d76b0f692b5e346c36bbaa7ebc7f366bd",
+      "mirror_matches_after_lf": null,
+      "start_line": 23,
+      "text": "AA::Rank *AA::Ability::GetRankByPointsSpent(int current_level) {\n\tif(current_level == 0)\n\t\treturn nullptr;\n\n\tif(!first)\n\t\treturn nullptr;\n\n\tint i = 1;\n\tRank *current = first;\n\twhile(current->next) {\n\t\tif(i == current_level) {\n\t\t\tbreak;\n\t\t}\n\n\t\ti++;\n\t\tcurrent = current->next;\n\t}\n\n\treturn current;\n}\n\n"
+    },
+    {
+      "source": "E:\\EQ_Local_Dev\\akk-stack\\code\\zone\\client.cpp",
+      "file_sha256": "3cb968a57bce18a3108797942832764994a547643c9df7e33e9cc00f6430e79a",
+      "mirror_matches_after_lf": true,
+      "start_line": 935,
+      "text": "bool Client::SaveAA()\n{\n\tstd::vector<CharacterAlternateAbilitiesRepository::CharacterAlternateAbilities> v;\n\n\tuint32 aa_points_spent = 0;\n\n\tauto e = CharacterAlternateAbilitiesRepository::NewEntity();\n\n\tfor (auto &rank : aa_ranks) {\n\t\tauto a = zone->GetAlternateAdvancementAbility(rank.first);\n\t\tif (!a) {\n\t\t\tcontinue;\n\t\t}\n\n\t\tif (rank.second.first > 0) {\n\t\t\tauto r = a->GetRankByPointsSpent(rank.second.first);\n\t\t\tif (!r) {\n\t\t\t\tcontinue;\n\t\t\t}\n\n\t\t\taa_points_spent += r->total_cost;\n\n\t\t\te.id       = character_id;\n\t\t\te.aa_id    = a->first_rank_id;\n\t\t\te.aa_value = rank.second.first;\n\t\t\te.charges  = rank.second.second;\n\n\t\t\tv.emplace_back(e);\n\t\t}\n\t}\n\n\tm_pp.aapoints_spent = aa_points_spent + m_epp.expended_aa;\n\n\tif (v.empty()) {\n\t\treturn true;\n\t}\n\n\treturn CharacterAlternateAbilitiesRepository::ReplaceMany(database, v);\n}\n\n"
+    },
+    {
+      "source": "E:\\EQ_Local_Dev\\akk-stack\\code\\zone\\bonuses.cpp",
+      "file_sha256": "aa3ffcb7a8bbd0dd9dbb33a38dfa8ff922cdeee85e9d1789ab9e542d38c91353",
+      "mirror_matches_after_lf": true,
+      "start_line": 591,
+      "text": "void Mob::CalcAABonuses(StatBonuses *newbon)\n{\n\tmemset(newbon, 0, sizeof(StatBonuses)); // start fresh\n\n\tfor (const auto &aa : aa_ranks) {\n\t\tauto ability_rank = zone->GetAlternateAdvancementAbilityAndRank(aa.first, aa.second.first);\n\t\tauto ability = ability_rank.first;\n\t\tauto rank = ability_rank.second;\n\n\t\tif(!ability) {\n\t\t\tcontinue;\n\t\t}\n\n\t\t// bad data or no effects\n\t\tif (rank->effects.empty())\n\t\t\tcontinue;\n\n\t\tApplyAABonuses(*rank, newbon);\n\t}\n}\n\n"
+    }
+  ]
+}

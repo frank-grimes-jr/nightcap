@@ -82,6 +82,7 @@ Copyright (C) 2001-2002 EQEMu Development Team (http://eqemu.org)
 #include "common/spdat.h"
 #include "common/strings.h"
 #include "zone/bot.h"
+#include "zone/aa_ability.h"
 #include "zone/client.h"
 #include "zone/fastmath.h"
 #include "zone/lua_parser.h"
@@ -2993,15 +2994,21 @@ int Mob::CalcBuffDuration(Mob *caster, Mob *target, uint16 spell_id, int32 caste
 	}
 
 	// Nightcap #31: buffs a player casts on themselves last until clicked off or
-	// overwritten. Discs/short-box buffs keep their timers (permanent Defensive would
-	// break combat balance). Formula-50/aura spells already return negative above.
+	// overwritten. AA spells, discs and short-box buffs keep their native timers:
+	// extending temporary combat benefits or Tenacity's HP drain breaks balance.
+	// Resolve AA membership from current zone data, so #reload aa cannot leave a
+	// stale spell-ID cache. This only runs when applying an eligible self-buff.
+	// Formula-50/aura spells already return negative above.
 	// ponytail: 1,000,000 tics (~69 days online time), not true DF_Permanent -- a
 	// negative ticsremaining goes raw into SpellBuffPacket_Struct and character_buffs,
 	// and only formula-50 spells get the 0xFFFFFFFF client override (aa.cpp). If true
 	// permanence matters, wire PERMANENT_BUFF_DURATION through those paths instead.
 	if (res > 0 && caster == target && caster->IsClient() &&
 	    IsBeneficialSpell(spell_id) && !IsDisciplineBuff(spell_id) &&
-	    !spells[spell_id].short_buff_box) {
+	    !spells[spell_id].short_buff_box && zone &&
+	    std::none_of(zone->aa_ranks.begin(), zone->aa_ranks.end(), [spell_id](const auto &entry) {
+		    return entry.second && entry.second->spell == spell_id;
+	    })) {
 		res = 1000000;
 	}
 

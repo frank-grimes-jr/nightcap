@@ -1,0 +1,79 @@
+{
+  "captured_at": "2026-09-13T06:59:22.035021+00:00",
+  "parent_revision": "af61b491f9ca665f7c29b08ca404036105bf7ba3",
+  "scope": "Isolated native owned-AA loader consistency and offline earned/active transition model; live ledger, lifecycle handling and expansion offerings pending.",
+  "binary_sha256": "67892e42182343264698f98545f564b595cbbce36b1a817f5dc9dfec7958b74b",
+  "validation": {
+    "balance_tests_passed": 304,
+    "new_model_and_evidence_tests": 14,
+    "post_line_ending_provenance_checks_passed": 6,
+    "native_owned_aa_cases": 5,
+    "byte_identical_valid_controls": 2,
+    "byte_identical_boss_reports": 24,
+    "earned_rows_preserved": 196,
+    "earned_nominal_cost_preserved": 3155,
+    "native_six_rank_restoration_controls": 1
+  },
+  "final_checks": {
+    "database": "nightcap_balance_20260912",
+    "removed_synthetic_inventory_rows": [
+      {
+        "character_id": 12,
+        "slot_id": 23,
+        "item_id": 10015,
+        "charges": 9
+      },
+      {
+        "character_id": 12,
+        "slot_id": 24,
+        "item_id": 13073,
+        "charges": 9
+      }
+    ],
+    "remaining_rows": {
+      "account": 0,
+      "character_data": 0,
+      "character_alternate_abilities": 0,
+      "inventory": 0
+    },
+    "aa_procedures": 0,
+    "restored_tables_sha256": "bfcce242cd44630515f148f96ebd4668706f45bb5f72eabf7d07ea4ec1e02161",
+    "captured_clone_rules": {
+      "AA:ModernAAScalingAALimit": "4000",
+      "AA:ModernAAScalingAAMinimum": "0",
+      "AA:ModernAAScalingEnabled": "false",
+      "AA:ModernAAScalingStartPercent": "1000.0000000000000"
+    }
+  },
+  "files": {
+    "docs/adr/0019-preserve-owned-aa-state-across-caps.md": "3efa83a09880689c346c2646877a7f27dac373e31b354c648c557fa0168d6469",
+    "docs/balance/aa-ownership-after-build.json": "c95c18539cef7c5f7178728c34037ff3f521095528d50b5c1966eafffd12ad6a",
+    "docs/balance/aa-ownership-after-checks.json": "aecc8a7eb76e3e2e369aa4d41148ee2a7e019d7fe833ea26d04a8ebec3ff0fcc",
+    "docs/balance/aa-ownership-after-inputs.json": "7ec3ed83b1626aaeeeeabec1c7c6e7e0d5663fd04e0814cd7646e7b76237efe0",
+    "docs/balance/aa-ownership-after.json.gz": "b0e55af81eb13dfe4e993f6b1afd7f5327e72ca1abbb93812327a350ecda6b42",
+    "docs/balance/aa-ownership-before-build.json": "75b8a91bb988fc46ffb0919e49cdcfbf9136ecfbb57835b4a423169c30b2ee73",
+    "docs/balance/aa-ownership-before-inputs.json": "7ec3ed83b1626aaeeeeabec1c7c6e7e0d5663fd04e0814cd7646e7b76237efe0",
+    "docs/balance/aa-ownership-before.json.gz": "08952e7535fac75d7135223bc40aa84ecf24629883e5f89c76d106b616d90f3f",
+    "docs/balance/aa-ownership-candidate.cpp.gz": "0ec39d2ebf0d97c2d0bf6a185ec06345e0f8df65cee49c1afc91f77600c1e5f5",
+    "docs/balance/aa-ownership-final-checks.json": "a1fb4042ba4d815300265a5424ed5adb0f9097ecdff1fc57d307e2a998a36e45",
+    "docs/balance/aa-ownership-plan.json": "c238df0589cd63a5ada5070ef2727567413cf0513eca0eff6c13a3aab38d7177",
+    "docs/balance/aa-ownership-regression-inputs.json": "3d0cdf38a825ab6b2b633b9202f8fd6e0274733bfa1651cde398e1ebd9bfbe31",
+    "docs/balance/aa-ownership-regression.json.gz": "480814e379b3d1bc606be74f2ae67308ef7770096b3520eb9fbcf4f03d281c4a",
+    "docs/balance/aa-ownership-restoration.json.gz": "3dcaf9a4aa3a6cca845be6211e0dd2068ef1db81b3c884f5c3a9de260c11b176",
+    "docs/balance/aa-ownership-source-regression-inputs.json": "d5950a05d2c6a41b07f4d482882a1e98854c76495e247fde226b6064e62006e6",
+    "docs/balance/aa-ownership-source-regression.json.gz": "1012d83a4d409f4b94d79b759b1bcf8df310fb152348e00127054738809365d8",
+    "docs/balance/aa-policy-snapshot.json.gz": "f3eb91fd6b16ce4b79a746150b71d6de560f6a12652718748944cc3d679552f7",
+    "docs/balance/aa-projection-before.sql.gz": "64faec3b61a575385497dff90159c05b155d50a2b7dedfa80276eaae0105b84b",
+    "docs/balance/aa-release-candidates.json": "b2fbfbb1af2220b155208531366d0c7102804277a3fe79d74f2b93c1d8796243",
+    "docs/balance/gear-source-regression.json.gz": "480814e379b3d1bc606be74f2ae67308ef7770096b3520eb9fbcf4f03d281c4a",
+    "docs/balance/gear-source.json.gz": "e535e89debed26a080720241c678b1da4d7d59a2c161a7f16f449eedbfce926c",
+    "docs/balance/native-aa-ownership.md": "88eaa55bb1de30bca00774d261dc5b09b0ca1f47cb92eacc02ee2b6cb321d8ea",
+    "server-mods/code/zone/aa.cpp": "dae41a76bad6aa6de6130c588ef9f76cbc80a71de8060b8ce623346e4c4d4c81",
+    "tools/balance/aa_ownership.py": "198dd57cab7f27135812ac63302dd7259c4b056a53849683d762ef2f3c517bbf",
+    "tools/balance/aa_ownership_controls.py": "28eb7288cced19967fc683f134491e4d313db296fef24916c81eb88e9d40165c",
+    "tools/balance/build_native.py": "32fb1b9fd1d50735f1be42385a28b31921c815f9fb044caa38743d65c0ac7eb4",
+    "tools/balance/native_harness.cpp": "8a0d2ce2595ff0bc01bf0180e6913eb7458da9b9d634ea198365e7cf103acc5d",
+    "tools/balance/tests/test_aa_ownership.py": "f352727b889a0946ca4dbb207156ca0d1a6b54cde87431bad42550fa6d3afae8",
+    "tools/balance/tests/test_aa_ownership_evidence.py": "10294be73dcf3af7c2602928fabaa4d4ec017121f71131467952df77f3435fb2"
+  }
+}

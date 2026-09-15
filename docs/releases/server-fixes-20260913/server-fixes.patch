@@ -1,0 +1,414 @@
+--- a/zone/spells.cpp
++++ b/zone/spells.cpp
+@@ -82,6 +82,7 @@
+ #include "common/spdat.h"
+ #include "common/strings.h"
+ #include "zone/bot.h"
++#include "zone/aa_ability.h"
+ #include "zone/client.h"
+ #include "zone/fastmath.h"
+ #include "zone/lua_parser.h"
+@@ -2993,15 +2994,21 @@
+ 	}
+ 
+ 	// Nightcap #31: buffs a player casts on themselves last until clicked off or
+-	// overwritten. Discs/short-box buffs keep their timers (permanent Defensive would
+-	// break combat balance). Formula-50/aura spells already return negative above.
++	// overwritten. AA spells, discs and short-box buffs keep their native timers:
++	// extending temporary combat benefits or Tenacity's HP drain breaks balance.
++	// Resolve AA membership from current zone data, so #reload aa cannot leave a
++	// stale spell-ID cache. This only runs when applying an eligible self-buff.
++	// Formula-50/aura spells already return negative above.
+ 	// ponytail: 1,000,000 tics (~69 days online time), not true DF_Permanent -- a
+ 	// negative ticsremaining goes raw into SpellBuffPacket_Struct and character_buffs,
+ 	// and only formula-50 spells get the 0xFFFFFFFF client override (aa.cpp). If true
+ 	// permanence matters, wire PERMANENT_BUFF_DURATION through those paths instead.
+ 	if (res > 0 && caster == target && caster->IsClient() &&
+ 	    IsBeneficialSpell(spell_id) && !IsDisciplineBuff(spell_id) &&
+-	    !spells[spell_id].short_buff_box) {
++	    !spells[spell_id].short_buff_box && zone &&
++	    std::none_of(zone->aa_ranks.begin(), zone->aa_ranks.end(), [spell_id](const auto &entry) {
++		    return entry.second && entry.second->spell == spell_id;
++	    })) {
+ 		res = 1000000;
+ 	}
+ 
+--- a/zone/attack.cpp
++++ b/zone/attack.cpp
+@@ -1237,7 +1237,13 @@
+ 			return 0;
+ 		}
+ 
+-		if (!weapon_item->IsClassEquipable(GetClass()) &&
++		// Player weapon use must honor the same held-class union as inventory equip.
++		// Preserve the stock slot check and all non-player/bot rule behavior.
++		const bool class_equipable = IsClient()
++			? weapon_item->GetItem()->Slots && CastToClient()->CanEquipItem(weapon_item->GetItem())
++			: weapon_item->IsClassEquipable(GetClass());
++
++		if (!class_equipable &&
+ 			(
+ 				!IsBot() ||
+ 				(IsBot() && !RuleB(Bots, AllowBotEquipAnyClassGear))
+--- a/zone/mob.cpp
++++ b/zone/mob.cpp
+@@ -4509,6 +4509,23 @@
+ 	SendAppearancePacket(AppearanceType::Size, static_cast<uint32>(size));
+ }
+ 
++// Multiclass pets retain their owner through the explicit extra-pet registry.
++// An owner ID alone is insufficient: stale/unregistered pets must still detach.
++static bool IsRegisteredOwnedPet(Mob *owner, uint16 pet_id)
++{
++	if (owner->GetPetID() == pet_id) {
++		return true;
++	}
++	if (owner->IsClient()) {
++		for (const auto extra_id : owner->CastToClient()->GetExtraPetIds()) {
++			if (extra_id == pet_id) {
++				return true;
++			}
++		}
++	}
++	return false;
++}
++
+ Mob* Mob::GetOwnerOrSelf()
+ {
+ 	if (!GetOwnerID()) {
+@@ -4522,7 +4539,7 @@
+ 		return this;
+ 	}
+ 
+-	if (m->GetPetID() == GetID()) {
++	if (IsRegisteredOwnedPet(m, GetID())) {
+ 		return m;
+ 	}
+ 
+@@ -4537,7 +4554,7 @@
+ Mob* Mob::GetOwner() {
+ 	Mob* m = entity_list.GetMob(GetOwnerID());
+ 
+-	if (m && m->GetPetID() == GetID()) {
++	if (m && IsRegisteredOwnedPet(m, GetID())) {
+ 		return m;
+ 	}
+ 
+--- a/zone/client_packet.cpp
++++ b/zone/client_packet.cpp
+@@ -11088,6 +11088,141 @@
+ 	Mob* mypet = GetPet();
+ 	Mob *target = entity_list.GetMob(pet->target);
+ 
++	// Each pet receives an order through the native range/LoS/mez/type gates.
++	// Never call Attack here: NPC AI owns movement and swing timing.
++	auto order_attack = [&](Mob *mypet, bool primary) {
++		if (!mypet || mypet->GetPetType() == petTargetLock || mypet->GetPetType() == petFamiliar) {
++			return;
++		}
++		const uint32 PetCommand = pet->command;
++		switch (PetCommand) {
++		case PET_ATTACK: {
++			if (!target)
++				break;
++
++			if (RuleB(Pets, PetsRequireLoS) && !DoLosChecks(target)) {
++				mypet->SayString(this, NOT_LEGAL_TARGET);
++				break;
++			}
++
++			if (target->IsMezzed()) {
++				MessageString(Chat::NPCQuestSay, CANNOT_WAKE, mypet->GetCleanName(), target->GetCleanName());
++				break;
++			}
++
++			if (mypet->IsFeared())
++				break; //prevent pet from attacking stuff while feared
++
++			if (!mypet->IsAttackAllowed(target)) {
++				mypet->SayString(this, NOT_LEGAL_TARGET);
++				break;
++			}
++
++			// default range is 200, takes Z into account
++			// really they do something weird where they're added to the aggro list then remove them
++			// and will attack if they come in range -- too lazy, lets remove exploits for now
++			if (DistanceSquared(mypet->GetPosition(), target->GetPosition()) >= RuleR(Aggro, PetAttackRange)) {
++				// they say they're attacking then remove on live ... so they don't really say anything in this case ...
++				break;
++			}
++
++			if ((mypet->GetPetType() == petAnimation && aabonuses.PetCommands[PetCommand]) || mypet->GetPetType() != petAnimation) {
++				if (target != this && DistanceSquared(mypet->GetPosition(), target->GetPosition()) <= (RuleR(Pets, AttackCommandRange)*RuleR(Pets, AttackCommandRange))) {
++					mypet->SetFeigned(false);
++					if (mypet->IsPetStop()) {
++						mypet->SetPetStop(false);
++						if (primary) { SetPetCommandState(PET_BUTTON_STOP, 0); }
++					}
++					if (mypet->IsPetRegroup()) {
++						mypet->SetPetRegroup(false);
++						if (primary) { SetPetCommandState(PET_BUTTON_REGROUP, 0); }
++					}
++
++					// fix GUI sit button to be unpressed and stop sitting regen
++					if (primary) { SetPetCommandState(PET_BUTTON_SIT, 0); }
++					if (mypet->GetPetOrder() == SPO_Sit || mypet->GetPetOrder() == SPO_FeignDeath) {
++						mypet->SetPetOrder(mypet->GetPreviousPetOrder());
++						mypet->SetAppearance(eaStanding);
++					}
++
++					zone->AddAggroMob();
++					// classic acts like qattack
++					int hate = 1;
++					if (mypet->IsEngaged()) {
++						auto top = mypet->GetHateMost();
++						if (top && top != target)
++							hate += mypet->GetHateAmount(top) - mypet->GetHateAmount(target) + 100; // should be enough to cause target change
++					}
++					mypet->AddToHateList(target, hate, 0, true, false, false, SPELL_UNKNOWN, true);
++					if (primary) MessageString(Chat::PetResponse, PET_ATTACKING, mypet->GetCleanName(), target->GetCleanName());
++					SetTarget(target);
++				}
++			}
++			break;
++		}
++		case PET_QATTACK: {
++			if (mypet->IsFeared())
++				break; //prevent pet from attacking stuff while feared
++
++			if (!GetTarget()) {
++				break;
++			}
++
++			if (RuleB(Pets, PetsRequireLoS) && !DoLosChecks(GetTarget())) {
++				mypet->SayString(this, NOT_LEGAL_TARGET);
++				break;
++			}
++
++			if (GetTarget()->IsMezzed()) {
++				MessageString(Chat::NPCQuestSay, CANNOT_WAKE, mypet->GetCleanName(), GetTarget()->GetCleanName());
++				break;
++			}
++
++			if (!mypet->IsAttackAllowed(GetTarget())) {
++				mypet->SayString(this, NOT_LEGAL_TARGET);
++				break;
++			}
++
++			if ((mypet->GetPetType() == petAnimation && aabonuses.PetCommands[PetCommand]) || mypet->GetPetType() != petAnimation) {
++				if (GetTarget() != this && DistanceSquaredNoZ(mypet->GetPosition(), GetTarget()->GetPosition()) <= (RuleR(Pets, AttackCommandRange)*RuleR(Pets, AttackCommandRange))) {
++					mypet->SetFeigned(false);
++					if (mypet->IsPetStop()) {
++						mypet->SetPetStop(false);
++						if (primary) { SetPetCommandState(PET_BUTTON_STOP, 0); }
++					}
++					if (mypet->IsPetRegroup()) {
++						mypet->SetPetRegroup(false);
++						if (primary) { SetPetCommandState(PET_BUTTON_REGROUP, 0); }
++					}
++
++					// fix GUI sit button to be unpressed and stop sitting regen
++					if (primary) { SetPetCommandState(PET_BUTTON_SIT, 0); }
++					if (mypet->GetPetOrder() == SPO_Sit || mypet->GetPetOrder() == SPO_FeignDeath) {
++						mypet->SetPetOrder(mypet->GetPreviousPetOrder());
++						mypet->SetAppearance(eaStanding);
++					}
++
++					zone->AddAggroMob();
++					mypet->AddToHateList(GetTarget(), 1, 0, true, false, false, SPELL_UNKNOWN, true);
++					if (primary) MessageString(Chat::PetResponse, PET_ATTACKING, mypet->GetCleanName(), GetTarget()->GetCleanName());
++				}
++			}
++			break;
++		}
++		}
++	};
++	if (pet->command == PET_ATTACK || pet->command == PET_QATTACK) {
++		order_attack(mypet, true);
++		for (const auto extra_id : GetExtraPetIds()) {
++			auto *extra = entity_list.GetMob(extra_id);
++			if (extra && extra != mypet && extra->IsNPC() && !extra->CastToNPC()->GetDepop()
++				&& extra->GetOwnerID() == GetID()) {
++				order_attack(extra, false);
++			}
++		}
++		return;
++	}
++
+ 	if (!mypet || pet->command == PET_LEADER) {
+ 		if (pet->command == PET_LEADER) {
+ 			// we either send the ID of an NPC we're interested in or no ID for our own pet
+@@ -11126,119 +11261,6 @@
+ 
+ 	switch (PetCommand)
+ 	{
+-	case PET_ATTACK: {
+-		if (!target)
+-			break;
+-
+-		if (RuleB(Pets, PetsRequireLoS) && !DoLosChecks(target)) {
+-			mypet->SayString(this, NOT_LEGAL_TARGET);
+-			break;
+-		}
+-
+-		if (target->IsMezzed()) {
+-			MessageString(Chat::NPCQuestSay, CANNOT_WAKE, mypet->GetCleanName(), target->GetCleanName());
+-			break;
+-		}
+-
+-		if (mypet->IsFeared())
+-			break; //prevent pet from attacking stuff while feared
+-
+-		if (!mypet->IsAttackAllowed(target)) {
+-			mypet->SayString(this, NOT_LEGAL_TARGET);
+-			break;
+-		}
+-
+-		// default range is 200, takes Z into account
+-		// really they do something weird where they're added to the aggro list then remove them
+-		// and will attack if they come in range -- too lazy, lets remove exploits for now
+-		if (DistanceSquared(mypet->GetPosition(), target->GetPosition()) >= RuleR(Aggro, PetAttackRange)) {
+-			// they say they're attacking then remove on live ... so they don't really say anything in this case ...
+-			break;
+-		}
+-
+-		if ((mypet->GetPetType() == petAnimation && aabonuses.PetCommands[PetCommand]) || mypet->GetPetType() != petAnimation) {
+-			if (target != this && DistanceSquared(mypet->GetPosition(), target->GetPosition()) <= (RuleR(Pets, AttackCommandRange)*RuleR(Pets, AttackCommandRange))) {
+-				mypet->SetFeigned(false);
+-				if (mypet->IsPetStop()) {
+-					mypet->SetPetStop(false);
+-					SetPetCommandState(PET_BUTTON_STOP, 0);
+-				}
+-				if (mypet->IsPetRegroup()) {
+-					mypet->SetPetRegroup(false);
+-					SetPetCommandState(PET_BUTTON_REGROUP, 0);
+-				}
+-
+-				// fix GUI sit button to be unpressed and stop sitting regen
+-				SetPetCommandState(PET_BUTTON_SIT, 0);
+-				if (mypet->GetPetOrder() == SPO_Sit || mypet->GetPetOrder() == SPO_FeignDeath) {
+-					mypet->SetPetOrder(mypet->GetPreviousPetOrder());
+-					mypet->SetAppearance(eaStanding);
+-				}
+-
+-				zone->AddAggroMob();
+-				// classic acts like qattack
+-				int hate = 1;
+-				if (mypet->IsEngaged()) {
+-					auto top = mypet->GetHateMost();
+-					if (top && top != target)
+-						hate += mypet->GetHateAmount(top) - mypet->GetHateAmount(target) + 100; // should be enough to cause target change
+-				}
+-				mypet->AddToHateList(target, hate, 0, true, false, false, SPELL_UNKNOWN, true);
+-				MessageString(Chat::PetResponse, PET_ATTACKING, mypet->GetCleanName(), target->GetCleanName());
+-				SetTarget(target);
+-			}
+-		}
+-		break;
+-	}
+-	case PET_QATTACK: {
+-		if (mypet->IsFeared())
+-			break; //prevent pet from attacking stuff while feared
+-
+-		if (!GetTarget()) {
+-			break;
+-		}
+-
+-		if (RuleB(Pets, PetsRequireLoS) && !DoLosChecks(GetTarget())) {
+-			mypet->SayString(this, NOT_LEGAL_TARGET);
+-			break;
+-		}
+-
+-		if (GetTarget()->IsMezzed()) {
+-			MessageString(Chat::NPCQuestSay, CANNOT_WAKE, mypet->GetCleanName(), GetTarget()->GetCleanName());
+-			break;
+-		}
+-
+-		if (!mypet->IsAttackAllowed(GetTarget())) {
+-			mypet->SayString(this, NOT_LEGAL_TARGET);
+-			break;
+-		}
+-
+-		if ((mypet->GetPetType() == petAnimation && aabonuses.PetCommands[PetCommand]) || mypet->GetPetType() != petAnimation) {
+-			if (GetTarget() != this && DistanceSquaredNoZ(mypet->GetPosition(), GetTarget()->GetPosition()) <= (RuleR(Pets, AttackCommandRange)*RuleR(Pets, AttackCommandRange))) {
+-				mypet->SetFeigned(false);
+-				if (mypet->IsPetStop()) {
+-					mypet->SetPetStop(false);
+-					SetPetCommandState(PET_BUTTON_STOP, 0);
+-				}
+-				if (mypet->IsPetRegroup()) {
+-					mypet->SetPetRegroup(false);
+-					SetPetCommandState(PET_BUTTON_REGROUP, 0);
+-				}
+-
+-				// fix GUI sit button to be unpressed and stop sitting regen
+-				SetPetCommandState(PET_BUTTON_SIT, 0);
+-				if (mypet->GetPetOrder() == SPO_Sit || mypet->GetPetOrder() == SPO_FeignDeath) {
+-					mypet->SetPetOrder(mypet->GetPreviousPetOrder());
+-					mypet->SetAppearance(eaStanding);
+-				}
+-
+-				zone->AddAggroMob();
+-				mypet->AddToHateList(GetTarget(), 1, 0, true, false, false, SPELL_UNKNOWN, true);
+-				MessageString(Chat::PetResponse, PET_ATTACKING, mypet->GetCleanName(), GetTarget()->GetCleanName());
+-			}
+-		}
+-		break;
+-	}
+ 	case PET_BACKOFF: {
+ 		if (mypet->IsFeared()) break; //keeps pet running while feared
+ 
+@@ -11734,7 +11756,7 @@
+ 		break;
+ 	}
+ 
+-	// Multiclass: broadcast movement/attack commands to extra pets.
++	// Multiclass: broadcast remaining movement commands to extra pets.
+ 	// Speech and button-state updates stay on the primary pet only.
+ 	auto extra_pet_ids = GetExtraPetIds();
+ 	if (!extra_pet_ids.empty()) {
+@@ -11742,11 +11764,6 @@
+ 			Mob *ep = entity_list.GetMob(extra_id);
+ 			if (!ep || ep->IsFeared()) continue;
+ 			switch (PetCommand) {
+-			case PET_ATTACK:
+-			case PET_QATTACK:
+-				if (target && ep->IsAttackAllowed(target))
+-					ep->Attack(target, EQ::invslot::slotPrimary);
+-				break;
+ 			case PET_FOLLOWME:
+ 			case PET_BACKOFF:
+ 				ep->SetPetOrder(SPO_Follow);
+--- a/zone/aa.cpp
++++ b/zone/aa.cpp
+@@ -16,6 +16,7 @@
+ 	Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+ 
++#include "common/types.h"
+ #include "aa.h"
+ 
+ #include "common/classes.h"
+@@ -1574,6 +1575,8 @@
+ 
+ bool ZoneDatabase::LoadAlternateAdvancement(Client *c) {
+ 	c->ClearAAs();
++	// Reloads must discard profile entries for ranks no longer accepted below.
++	memset(c->GetPP().aa_array, 0, sizeof(c->GetPP().aa_array));
+ 
+ 	const auto& l = CharacterAlternateAbilitiesRepository::GetWhere(
+ 		database,
+@@ -1602,12 +1605,10 @@
+ 
+ 		rank = ability->GetRankByPointsSpent(aa_value);
+ 
+-		if (c->CanUseAlternateAdvancementRank(rank)) {
++		if (c->CanUseAlternateAdvancementRank(rank) && c->SetAA(aa_id, aa_value, charges)) {
+ 			c->GetPP().aa_array[slot_id].AA      = aa_id;
+ 			c->GetPP().aa_array[slot_id].value   = aa_value;
+ 			c->GetPP().aa_array[slot_id].charges = charges;
+-
+-			c->SetAA(aa_id, aa_value, charges);
+ 
+ 			slot_id++;
+ 		}

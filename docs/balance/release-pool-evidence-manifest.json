@@ -1,0 +1,115 @@
+{
+  "scope": "Two shared combat-core whitelist candidates across three native profiles; not a complete release offering, deployed gate or final balance certification.",
+  "binary_sha256": "8b73863155c35d6e79ffb743e7890db4d72c93d546398e93975a542fbfea53ff",
+  "validation": {
+    "python_tests_passed": 229,
+    "unique_profile_allocations": 18,
+    "native_fights": 108,
+    "requested_budgets": [
+      0,
+      100,
+      200,
+      500,
+      "all"
+    ],
+    "clean_zero_baseline_hp_reduction_each_profile": 20,
+    "later_pool_retains_launch_ranks": true
+  },
+  "pool_costs": {
+    "war-clr-wiz": {
+      "launch_core": 135,
+      "later_core": 261
+    },
+    "war-clr-mnk": {
+      "launch_core": 141,
+      "later_core": 288
+    },
+    "mag-nec-shm": {
+      "launch_core": 165,
+      "later_core": 306
+    }
+  },
+  "clone_cleanup": {
+    "database": "nightcap_balance_20260912",
+    "removed_synthetic_inventory_rows": [
+      {
+        "character_id": 12,
+        "slot_id": 23,
+        "item_id": 10015,
+        "charges": 9
+      },
+      {
+        "character_id": 12,
+        "slot_id": 24,
+        "item_id": 13073,
+        "charges": 9
+      }
+    ],
+    "remaining_account_rows": 0,
+    "remaining_character_rows": 0,
+    "remaining_inventory_rows": 0
+  },
+  "live_changes": false,
+  "artifacts": {
+    "docs/balance/release-pool-checks.json": {
+      "sha256": "d71129714116230c51ec0a65410bd1be9ccfc920c7606c9d0f0b0991345add35",
+      "newline_normalization": "LF"
+    },
+    "docs/balance/release-pool-inputs.json": {
+      "sha256": "bde9194a1e91e6499aace4c346970299359b42d9a4279d017396b70d1534e85d",
+      "newline_normalization": "LF"
+    },
+    "docs/balance/release-pool.json.gz": {
+      "sha256": "088bed29b3c38b976259adc447b1e5a2cd514c22e345553ddfb32a569cd55be9",
+      "newline_normalization": "none"
+    },
+    "docs/balance/aa-release-candidates.json": {
+      "sha256": "b2fbfbb1af2220b155208531366d0c7102804277a3fe79d74f2b93c1d8796243",
+      "newline_normalization": "LF"
+    },
+    "docs/balance/native-aa-catalog.json": {
+      "sha256": "0e9e278d71b51f9b1ddc8b3607935c459e45ae1300e2998646c932a314b51473",
+      "newline_normalization": "LF"
+    },
+    "docs/balance/pet-belly-build.json": {
+      "sha256": "68e40706de745141558b042e788d2bb5ecf821a058e7cb0fb906352286f0099a",
+      "newline_normalization": "LF"
+    },
+    "docs/balance/native-aa-release-candidates.md": {
+      "sha256": "c11a58769512be77637e0176f5c9b9ba1166925b22abef5b5dbd47932d0057f7",
+      "newline_normalization": "LF"
+    },
+    "docs/adr/0014-shared-expansion-aa-pool-comparisons.md": {
+      "sha256": "606ad1c7bfc077ef5604bc236005999d3f5f323340e6ef135345c4a187912f7d",
+      "newline_normalization": "LF"
+    },
+    "tools/balance/release_pool_controls.py": {
+      "sha256": "78e4bd85984a8628cb25814225bd42fbd59cbe4a4a4f1372e653a0ca1ccbf1fa",
+      "newline_normalization": "LF"
+    },
+    "tools/balance/aa_allocations.py": {
+      "sha256": "bf4252f1fe1ff1e81877783a4d2ee8dbd42dea2b8fcf767508a05cdc7d750d35",
+      "newline_normalization": "LF"
+    },
+    "tools/balance/melee_controls.py": {
+      "sha256": "4a91fa5101b69110a3ff953a6e8a262cbd9c27cc6464589d24124b489c60a70e",
+      "newline_normalization": "LF"
+    },
+    "tools/balance/pet_belly_controls.py": {
+      "sha256": "36cd3c04973c1a7f1b1d5a4a62d33243ed4de5f5efe84d55fcc1800efb4f1e08",
+      "newline_normalization": "LF"
+    },
+    "tools/balance/pet_support_controls.py": {
+      "sha256": "11ee37fc8e9279d9210b569759c1142126f1d8656b0961fb611b357a7134057d",
+      "newline_normalization": "LF"
+    },
+    "tools/balance/tests/test_release_pool_controls.py": {
+      "sha256": "1285dbfe988612d632dfaaaee3ce967bc7a9e58b953ff21458af76961f54c74a",
+      "newline_normalization": "LF"
+    },
+    "tools/balance/tests/test_release_pool_evidence.py": {
+      "sha256": "96fdaecc35e9167b6c3f7c4fb8f89393e10a0e9df68df0c5f9fd7dc714ebbcfa",
+      "newline_normalization": "LF"
+    }
+  }
+}

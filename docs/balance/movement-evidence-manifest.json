@@ -1,0 +1,39 @@
+{
+  "date": "2026-09-12",
+  "baseline_commit": "e5bfa0d",
+  "scope": "Native pursuit and unchanged-policy regression. Full BiS/activated-AA/final balance work remains open.",
+  "binary_sha256": "b96145127db8e3dba80f7ba351cb157888a58ad533d24c89cf6e8b5d3f6e705f",
+  "artifacts": {
+    "docs/balance/movement-build-manifest.json": "00d94a5b36f976ee8f40c0555c394c38ff10987673bd93a8b1ef9da1d19da6c2",
+    "docs/balance/movement-guard-check.json": "c7332a1e2f1f6a83af1b2d220b61fc629a8ff988d48b39f402e21c549f18a2d5",
+    "docs/balance/movement-legacy-inputs.json": "f64dc2f3595b794eecdd2304776c33d9d7b11895ac3a548321c3c6b6d781ed51",
+    "docs/balance/movement-matrix-check.json": "ee2d40899a1ab2a32ba3cc80d19835f3db4e018bb57ab11b85ee617365164114",
+    "docs/balance/movement-matrix-inputs.json": "9c1eb1ab2841404a17508d3a404d0191f6f631cd3331ae1a7f98da231565027c",
+    "docs/balance/movement-matrix-results.json.gz": "23383c1031d15f442a5ffbac118770e8470f06b4651988be874017d3917eb671",
+    "docs/balance/movement-replay-check.json": "10b45cc2fea036b152dc41bfd7bf7b0b3fb17aab1485af0e6fa52e9254f67934",
+    "docs/balance/movement-vox-check.json": "446ed3b7e8a33b1b430fa7c3a9536189528ad38d4b26efed50cea7243128df70",
+    "docs/balance/movement-vox-inputs.json": "8996b770a4ad52b741b043e675264fa6df7a83e2e180628988a6441d0c22f4d3",
+    "docs/balance/movement-vox-result.json": "17e2fb5fc4d9fc16e28f2568b88ded128b0f7692cb82fb182214260645fd4b9a",
+    "tools/balance/build_native.py": "3fbb5a02bad4c9e0a32ea2c705e1b4cb5e88bb6d9218251068dc48285b3f4d93",
+    "tools/balance/encounter_matrix.py": "83caa7065e88ed51cc50c97c8653824a10072053b08dd17655c680774c6d94df",
+    "tools/balance/native_harness.cpp": "f78e2fc00d84f6bed29e4db16cd597598fe33e35e450d154932130ac2fdcdaa6",
+    "tools/balance/native_runtime.cpp": "6401d26ec3dfa0c48d0f50945a73cab0ef9291183ddda98f20f0b65a78c77637",
+    "tools/balance/native_runtime.h": "796f667037ed9f09a3c906d4983b54ea1ad3137e17335ace66c8e8da2c7a0881",
+    "tools/balance/verify_native_movement.py": "dfca4d3a38388c43810ec56bc95a0f7d56cfc0f4ce55a7ade237de3ad2d5a7f6"
+  },
+  "replay": {
+    "hashes": {
+      "movement-matrix-results.json.gz": "23383c1031d15f442a5ffbac118770e8470f06b4651988be874017d3917eb671",
+      "movement-matrix-replay.json.gz": "23383c1031d15f442a5ffbac118770e8470f06b4651988be874017d3917eb671",
+      "movement-legacy-results.json.gz": "105ecc7f2b6921153c97cd025b2da33f3d849ac01811da36edac1b6f7c2ba4ae"
+    },
+    "isolated_database": {
+      "accounts": 0,
+      "characters": 0
+    }
+  },
+  "verified_cases": 52,
+  "verified_movement_updates": 954,
+  "failed_paths": 0,
+  "python_tests": 137
+}

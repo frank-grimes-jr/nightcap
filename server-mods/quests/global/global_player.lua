@@ -255,8 +255,34 @@ function event_combine_success(e)
 	end
 end
 
+local CLASS_NAMES = {"Warrior","Cleric","Paladin","Ranger","Shadow Knight","Druid","Monk","Bard","Rogue","Shaman","Necromancer","Wizard","Magician","Enchanter","Beastlord","Berserker"}
+
+local function show_class_summary(client, c2, c3)
+    local base = client:GetClass()
+    if c2 == nil then c2 = client:GetClass2() end
+    if c3 == nil then c3 = client:GetClass3() end
+    local function slot_name(id)
+        return id > 0 and (CLASS_NAMES[id] or "Unknown") or "Not selected"
+    end
+    client:Message(MT.Yellow, "Your classes: " .. slot_name(base) .. " (Primary) | " ..
+        slot_name(c2) .. " (Second) | " .. slot_name(c3) .. " (Third)")
+    client:Message(MT.Yellow, "Use #classes anytime. Visit The Ancient Chronicler in PoK to choose an additional class.")
+end
+
 function event_command(e)
-	return eq.DispatchCommands(e);
+    if string.lower(e.command or "") == "classes" then
+        show_class_summary(e.self)
+        return 1
+    end
+    return eq.DispatchCommands(e)
+end
+
+function event_say(e)
+    if string.lower(e.message or ""):match("^%s*!classes%s*$") then
+        show_class_summary(e.self)
+        return 1
+    end
+    return 0
 end
 
 --[[ the main key is the ID of the AA
@@ -282,7 +308,6 @@ vet_aa = {
 }
 
 
-local CLASS_NAMES = {"Warrior","Cleric","Paladin","Ranger","Shadow Knight","Druid","Monk","Bard","Rogue","Shaman","Necromancer","Wizard","Magician","Enchanter","Beastlord","Berserker"}
 
 function event_connect(e)
     -- ponytail: qglobal persists across sessions; prevents re-grant spam and blank-name
@@ -293,16 +318,9 @@ function event_connect(e)
         e.self:Message(MT.Yellow, "You have been granted Ancient Attunement. Open the AA window (V key, General tab) to activate your recall to the Plane of Knowledge.")
     end
 
-    local qg = eq.get_qglobals(e.self)
-    local c2 = tonumber(qg["mc_class2"] or "0") or 0
-    local c3 = tonumber(qg["mc_class3"] or "0") or 0
-    if c2 > 0 or c3 > 0 then
-        local base = e.self:GetClass()
-        local msg = "Active disciplines: " .. (CLASS_NAMES[base] or "Unknown") .. " (Primary)"
-        if c2 > 0 then msg = msg .. " | " .. (CLASS_NAMES[c2] or "Unknown") .. " (Secondary)" end
-        if c3 > 0 then msg = msg .. " | " .. (CLASS_NAMES[c3] or "Unknown") .. " (Tertiary)" end
-        e.self:Message(MT.Yellow, msg)
-    end
+    local c2 = e.self:GetClass2()
+    local c3 = e.self:GetClass3()
+    show_class_summary(e.self, c2, c3)
 
     grant_veteran_aa(e)
     don.fix_invalid_faction_state(e.self)
@@ -403,14 +421,6 @@ end
 ]]--
 
 function event_level_up(e)
-  local free_skills =  {0,1,2,3,4,5,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,28,29,30,31,32,33,34,36,37,38,39,41,42,43,44,45,46,47,49,51,52,54,67,70,71,72,73,74,76};
-
-  for k,v in ipairs(free_skills) do
-    if ( e.self:MaxSkill(v) > 0 and e.self:GetRawSkill(v) < 1 and e.self:CanHaveSkill(v) ) then
-      e.self:SetSkill(v, 1);
-    end
-  end
-
   if e.self:GetLevel() == 5 then
     eq.popup("", "<c \"#F0F000\">Welcome to level 5.</c><br><br>You have just been granted a new ability called '<c \"#F0F000\">Origin</c>' which allows you to teleport back to your starting city.<br><br>Open the Alternate Advancement window by pressing the '<c \"#F0F000\">V</c>' key, look in the '<c \"#F0F000\">General' tab</c>, and find the '<c \"#F0F000\">Origin</c>' ability and select it.<br><br>Now press the '<c \"#F0F000\">Hotkey</c>' button to create a hotkey you can place on your hot bar.");
   end

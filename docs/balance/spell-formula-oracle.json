@@ -1,0 +1,8 @@
+{
+  "captured_at": "2026-09-12T13:51:28.247616+00:00",
+  "source_sha256": "d776244039601ae449a724b635c9d93508b0b66ec19c28c2e3eb35a859537db5",
+  "function_sha256": "5fb026720d45be6fe08a323613e1b2bc79b06b3a82f8c21bdc68c5a92d56f35f",
+  "cases": 2792,
+  "mismatches": [],
+  "scope": "GetExtraSpellAmt only; not full spell resolution or combat simulation"
+}

@@ -16,6 +16,7 @@ Copyright (C) 2001-2016 EQEMu Development Team (http://eqemulator.net)
 	Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 */
 
+#include "common/types.h"
 #include "aa.h"
 
 #include "common/classes.h"
@@ -73,8 +74,15 @@ void Client::LoadMulticlassMask() {
 	if (m_class3 > 0) m_multiclass_mask |= (1 << m_class3);
 }
 
-void Client::SetMulticlassSlot(uint8 slot, uint8 class_id) {
-	if (slot < 2 || slot > 3) return;
+void Client::SetMulticlassSlot(int slot, int class_id) {
+	if (!m_multiclass_state_valid || slot < 2 || slot > 3 || class_id < 0 || class_id > 16) { return; }
+	if (!class_id) { ReleaseMulticlassSlot(slot); return; }
+	const auto selected = slot == 2 ? m_class2 : m_class3;
+	if (selected == class_id) { return; }
+	if (selected) {
+		Message(Chat::Red, "Release the current discipline before selecting another class.");
+		return;
+	}
 	if (class_id == GetClass()) {
 		Message(Chat::Red, "You cannot select your primary class as an additional class.");
 		return;
@@ -87,28 +95,26 @@ void Client::SetMulticlassSlot(uint8 slot, uint8 class_id) {
 	}
 
 	const char *col = (slot == 2) ? "class2" : "class3";
-	auto check = database.QueryDatabase(
-		StringFormat("SELECT id FROM character_multiclass WHERE character_id = %u", CharacterID())
-	);
-	if (!check.Success() || check.RowCount() == 0) {
-		database.QueryDatabase(StringFormat(
-			"INSERT INTO character_multiclass (character_id, class2, class3) VALUES (%u, %u, 0)",
-			CharacterID(), slot == 2 ? class_id : 0
-		));
-		if (slot == 3) {
-			database.QueryDatabase(StringFormat(
-				"UPDATE character_multiclass SET class3 = %u WHERE character_id = %u",
-				class_id, CharacterID()
-			));
-		}
+	auto check = database.QueryDatabase(fmt::format(
+		"SELECT COALESCE(class2,0),COALESCE(class3,0) FROM character_multiclass WHERE character_id={}", CharacterID()), false);
+	if (!check.Success() || check.RowCount() > 1) { InvalidateMulticlassState(); return; }
+	if (!check.RowCount()) {
+		if (m_class2 || m_class3) { InvalidateMulticlassState(); return; }
+		auto inserted = database.QueryDatabase(fmt::format(
+			"INSERT INTO character_multiclass (character_id,class2,class3) VALUES ({},{},{})",
+			CharacterID(), slot == 2 ? class_id : 0, slot == 3 ? class_id : 0), false);
+		if (!inserted.Success() || inserted.RowsAffected() != 1) { InvalidateMulticlassState(); return; }
 	} else {
-		database.QueryDatabase(StringFormat(
-			"UPDATE character_multiclass SET %s = %u WHERE character_id = %u",
-			col, class_id, CharacterID()
-		));
+		if (Strings::ToUnsignedInt(check.begin()[0]) != m_class2 || Strings::ToUnsignedInt(check.begin()[1]) != m_class3) {
+			InvalidateMulticlassState(); return;
+		}
+		auto changed = database.QueryDatabase(fmt::format(
+			"UPDATE character_multiclass SET {}={} WHERE character_id={} AND COALESCE(class2,0)={} AND COALESCE(class3,0)={}",
+			col, class_id, CharacterID(), m_class2, m_class3), false);
+		if (!changed.Success() || changed.RowsAffected() != 1) { InvalidateMulticlassState(); return; }
 	}
 
-	LoadMulticlassMask();
+	ReconcileMulticlassSkills();
 	SendAlternateAdvancementTable();
 }
 
@@ -582,29 +588,9 @@ void Mob::WakeTheDead(uint16 spell_id, Corpse *corpse_to_use, Mob *tar, uint32 d
 
 void Client::ResetAA()
 {
-	SendClearPlayerAA();
+	// RefundAA now atomically removes refundable earned rows and preserves
+	// grant-only survivors. A second deletion would undo that result.
 	RefundAA();
-
-	memset(&m_pp.aa_array[0], 0, sizeof(AA_Array) * MAX_PP_AA_ARRAY);
-
-	int slot_id = 0;
-
-	for (auto& rank_value: aa_ranks) {
-		auto ability_rank = zone->GetAlternateAdvancementAbilityAndRank(rank_value.first, rank_value.second.first);
-		auto ability      = ability_rank.first;
-		auto rank         = ability_rank.second;
-
-		if (!rank) {
-			continue;
-		}
-
-		m_pp.aa_array[slot_id].AA      = rank_value.first;
-		m_pp.aa_array[slot_id].value   = rank_value.second.first;
-		m_pp.aa_array[slot_id].charges = rank_value.second.second;
-		++slot_id;
-	}
-
-	database.DeleteCharacterAAs(CharacterID());
 }
 
 void Client::ResetLeadershipAA()
@@ -902,120 +888,116 @@ void Client::InspectBuffs(Client* Inspector, int Rank)
 	Inspector->FastQueuePacket(&outapp);
 }
 
-void Client::RefundAA() {
-	int refunded = 0;
-
-	auto rank_value = aa_ranks.begin();
-	while (rank_value != aa_ranks.end()) {
-		auto ability_rank = zone->GetAlternateAdvancementAbilityAndRank(rank_value->first, rank_value->second.first);
-		auto ability      = ability_rank.first;
-		auto rank         = ability_rank.second;
-
-		if (!ability) {
-			++rank_value;
+bool Client::RefundAA() {
+	if (!HasValidEarnedAAState()) {
+		return false;
+	}
+	auto earned = m_earned_aa_ranks;
+	auto usable = aa_ranks;
+	uint64 wallet = GetAAPoints();
+	for (auto it = earned.begin(); it != earned.end();) {
+		auto ability = zone->GetAlternateAdvancementAbilityByRank(it->first);
+		auto rank = ability ? ability->GetRankByPointsSpent(it->second.first) : nullptr;
+		if (!ability || ability->first_rank_id != it->first || !rank ||
+			rank->current_value != it->second.first || rank->total_cost < 0) {
+			InvalidateEarnedAAState();
+			return false;
+		}
+		if (ability->grant_only || (ability->charges > 0 && it->second.second < 1)) {
+			++it;
 			continue;
 		}
-
-		if (ability->charges > 0 && rank_value->second.second < 1) {
-			++rank_value;
-			continue;
-		}
-
-		if (ability->grant_only) {
-			++rank_value;
-			continue;
-		}
-
-		refunded += rank->total_cost;
-		rank_value        = aa_ranks.erase(rank_value);
+		wallet += rank->total_cost;
+		if (wallet > UINT32_MAX) { return false; }
+		usable.erase(ability->id);
+		it = earned.erase(it);
 	}
-
-	if (refunded > 0) {
-		m_pp.aapoints += refunded;
-		SaveAA();
-		Save();
+	if (!PersistEarnedAAState(std::move(earned), std::move(usable), static_cast<uint32>(wallet), m_epp.expended_aa)) {
+		return false;
 	}
-
-	SendAlternateAdvancementTable();
-	SendAlternateAdvancementPoints();
-	SendAlternateAdvancementStats();
-}
-
-// Multiclass: called right after a discipline slot is released (character_multiclass
-// already updated). Refunds + strips the AAs and resets the skills the character can no
-// longer access under its remaining class mask. Operates on the live session, so the
-// change is visible without a relog.
-//
-// Spells are intentionally NOT touched here: global spell-access widening (issue #17)
-// makes per-character spell revocation impossible until the client DLL removes the need
-// for it (#18 / #12).
-void Client::PurgeAfterClassRelease(uint8 released_class) {
-	LoadMulticlassMask();                       // recompute mask from the updated DB row
-	const uint32 mask = GetClassMask();         // client format: bit N = class N
-
-	// --- AAs: refund total_cost and remove any no longer accessible under the mask ---
-	int refunded = 0;
-	auto it = aa_ranks.begin();
-	while (it != aa_ranks.end()) {
-		auto ability_rank = zone->GetAlternateAdvancementAbilityAndRank(it->first, it->second.first);
-		auto ability      = ability_rank.first;
-		auto rank         = ability_rank.second;
-
-		if (!ability) { ++it; continue; }
-		if (ability->classes & mask) { ++it; continue; }   // still accessible: keep
-
-		if (!ability->grant_only && rank) {
-			refunded += rank->total_cost;                  // purchased points come back
-		}
-		it = aa_ranks.erase(it);
-	}
-	if (refunded > 0) {
-		m_pp.aapoints += refunded;
-	}
-
-	// --- Skills: cap each trained skill at the best cap the RETAINED classes allow, so
-	// a released class's mastery (e.g. Bard singing at 200) drops to what the kept classes
-	// permit. ponytail: currently near-inert because skill_caps is globally EXPANDED by the
-	// multiclass apply (CHANGES 2026-07-14; same class of problem as spell-access #17) — the
-	// retained classes inherit the released class's caps until skill_caps is de-widened.
-	// Left in because it is correct and starts working the moment skill_caps returns to stock;
-	// full skill revocation needs the de-widen (mask-aware caps), tracked in #18.
-	const uint8 level = GetLevel();
-	for (const auto &entry : EQ::skills::GetSkillTypeMap()) {
-		const EQ::skills::SkillType skill = entry.first;
-		const uint16 current = GetRawSkill(skill);
-		if (current == 0) {
-			continue;
-		}
-		uint16 retained_cap = 0;
-		for (uint8 c : GetMulticlassList()) {
-			const uint16 cap = SkillCaps::Instance()->GetSkillCap(c, skill, level).cap;
-			if (cap > retained_cap) {
-				retained_cap = cap;
-			}
-		}
-		if (current > retained_cap) {
-			SetSkill(skill, retained_cap);
-		}
-	}
-
-	LogInfo("[PurgeAfterClassRelease] [{}] released class [{}]: refunded [{}] AA points",
-		GetName(), released_class, refunded);
-
-	// SaveAA rewrites survivors with REPLACE INTO but never DELETEs the rows we removed
-	// (they'd reload on relog). Wipe the character's AA rows first, like ResetAA, then let
-	// SaveAA re-insert the survivors.
-	database.DeleteCharacterAAs(CharacterID());
-	SaveAA();
-	Save();
-	// The RoF2 client never drops an AA from the window on its own; resending the table
-	// only adds/updates. Clear the whole client-side AA list (OP_ClearAA), then repopulate
-	// with just the accessible (retained-class) AAs so the stripped ones disappear now,
-	// no relog needed. Matches ResetAA's approach.
+	CalcBonuses();
 	SendClearPlayerAA();
 	SendAlternateAdvancementTable();
 	SendAlternateAdvancementPoints();
 	SendAlternateAdvancementStats();
+	return true;
+}
+
+// All durable changes are staged against the session's earned ownership and
+// retained classes. Expansion suspension must not erase a paid refund entitlement.
+bool Client::ReleaseMulticlassSlot(int slot)
+{
+	if (!m_multiclass_state_valid || !HasValidEarnedAAState() || (slot != 2 && slot != 3)) { return false; }
+	const auto primary = GetClass();
+	if (primary < 1 || primary > 16 || m_class2 > 16 || m_class3 > 16 ||
+		(m_class2 && m_class2 == primary) || (m_class3 && m_class3 == primary) ||
+		(m_class2 && m_class2 == m_class3)) { return false; }
+	if (!(slot == 2 ? m_class2 : m_class3)) { return false; }
+
+	MulticlassReleaseState release = {};
+	release.old_class2 = m_class2;
+	release.old_class3 = m_class3;
+	release.class2 = slot == 2 ? m_class3 : m_class2;
+	release.class3 = 0;
+	release.mask = (1u << primary) | (release.class2 ? 1u << release.class2 : 0);
+	auto earned = m_earned_aa_ranks;
+	auto usable = aa_ranks;
+	uint64 wallet = GetAAPoints();
+	for (auto it = earned.begin(); it != earned.end();) {
+		auto ability = zone->GetAlternateAdvancementAbilityByRank(it->first);
+		auto rank = ability ? ability->GetRankByPointsSpent(it->second.first) : nullptr;
+		if (!ability || ability->first_rank_id != it->first || !rank ||
+			rank->current_value != it->second.first || rank->total_cost < 0) {
+			InvalidateMulticlassState();
+			return false;
+		}
+		if (ability->classes & release.mask) { ++it; continue; }
+		if (!ability->grant_only && (ability->charges < 1 || it->second.second > 0)) {
+			wallet += rank->total_cost;
+			if (wallet > UINT32_MAX) { return false; }
+		}
+		usable.erase(ability->id);
+		it = earned.erase(it);
+	}
+	for (const auto &entry : EQ::skills::GetSkillTypeMap()) {
+		const auto skill = entry.first;
+		uint16 cap = SkillCaps::Instance()->GetSkillCap(primary, skill, GetLevel()).cap;
+		if (release.class2) {
+			const uint16 other_cap = SkillCaps::Instance()->GetSkillCap(release.class2, skill, GetLevel()).cap;
+			cap = std::max(cap, other_cap);
+		}
+		const uint16 current = GetRawSkill(skill);
+		release.skills.push_back({skill, current, std::min(current, cap)});
+	}
+	const auto refund = wallet - GetAAPoints();
+	if (!PersistEarnedAAState(std::move(earned), std::move(usable), static_cast<uint32>(wallet), m_epp.expended_aa, &release)) {
+		InvalidateMulticlassState();
+		return false;
+	}
+	// Persistence published slots, raw skills, ownership and profile together.
+	// No SetSkill/Save calls or second DB class read may follow the commit.
+	CalcBonuses();
+	for (const auto &skill : release.skills) {
+		if (skill.before == skill.after) { continue; }
+		auto outapp = new EQApplicationPacket(OP_SkillUpdate, sizeof(SkillUpdate_Struct));
+		auto update = reinterpret_cast<SkillUpdate_Struct *>(outapp->pBuffer);
+		update->skillId = skill.skill;
+		update->value = skill.after;
+		QueuePacket(outapp);
+		safe_delete(outapp);
+	}
+	SendClearPlayerAA();
+	SendLoadedAlternateAdvancementTable();
+	SendAlternateAdvancementPoints();
+	SendAlternateAdvancementStats();
+	LogInfo("[ReleaseMulticlassSlot] [{}] released slot [{}]: refunded [{}] AA points", CharacterID(), slot, refund);
+	return true;
+}
+
+void Client::PurgeAfterClassRelease(uint8 released_class)
+{
+	LogError("Retired non-atomic class release called for [{}], class [{}]; deploy the matching multiclass plugin", CharacterID(), released_class);
+	InvalidateMulticlassState();
 }
 
 SwarmPet::SwarmPet()
@@ -1040,6 +1022,10 @@ Mob *SwarmPet::GetOwner()
 //New AA
 void Client::SendAlternateAdvancementTable() {
 	LoadMulticlassMask();
+	SendLoadedAlternateAdvancementTable();
+}
+
+void Client::SendLoadedAlternateAdvancementTable() {
 	for(auto &aa : zone->aa_abilities) {
 		uint32 charges = 0;
 		auto ranks = GetAA(aa.second->first_rank_id, &charges);
@@ -1298,40 +1284,43 @@ bool Client::GrantAlternateAdvancementAbility(int aa_id, int points, bool ignore
 			continue;
 		}
 
-		ret = true;
-		FinishAlternateAdvancementPurchase(rank, ignore_cost, true);
+		if (FinishAlternateAdvancementPurchase(rank, ignore_cost, true)) {
+			ret = true;
+		} else if (!HasValidEarnedAAState()) {
+			break;
+		}
 	}
 
 	return ret;
 }
 
-void Client::FinishAlternateAdvancementPurchase(AA::Rank *rank, bool ignore_cost, bool send_message_and_save) {
-	auto rank_id = rank->base_ability->first_rank_id;
-
-	if (rank->base_ability->charges) {
-		uint32 charges = 0;
-		GetAA(rank_id, &charges);
-
-		if (charges) {
-			return;
-		}
-
-		SetAA(rank_id, rank->current_value, rank->base_ability->charges);
-	} else {
-		SetAA(rank_id, rank->current_value, 0);
-
-		//if not max then send next aa
-		if (rank->next && send_message_and_save) {
-			SendAlternateAdvancementRank(rank->base_ability->id, rank->next->current_value);
-		}
+bool Client::FinishAlternateAdvancementPurchase(AA::Rank *rank, bool ignore_cost, bool send_message) {
+	// Callers retain their purchase/grant eligibility rules (including explicit
+	// grant unlock levels). Never publish a new rank or spend session points
+	// before canonical ownership and character counters commit together.
+	if (!HasValidEarnedAAState() || !rank || !rank->base_ability ||
+		rank->current_value < 1 || rank->cost < 0 || rank->total_cost < 0 ||
+		!CanUseAlternateAdvancementRank(rank) || HasAlreadyPurchasedRank(rank) ||
+		rank->current_value > rank->base_ability->GetMaxLevel(this)) {
+		return false;
 	}
-
-	auto cost = !ignore_cost ? rank->cost : 0;
-
-	m_pp.aapoints -= static_cast<uint32>(cost);
-
-	if (send_message_and_save) {
-		SaveAA();
+	const auto ability = rank->base_ability;
+	const auto rank_id = ability->first_rank_id;
+	const int32 cost = ignore_cost ? 0 : rank->cost;
+	if (cost > GetAAPoints() || (ability->charges && GetEarnedAACount(rank_id))) {
+		return false;
+	}
+	auto earned = m_earned_aa_ranks;
+	auto usable = aa_ranks;
+	earned[rank_id] = {rank->current_value, ability->charges};
+	usable[ability->id] = earned[rank_id];
+	if (!PersistEarnedAAState(std::move(earned), std::move(usable), GetAAPoints() - cost, m_epp.expended_aa)) {
+		return false;
+	}
+	if (send_message) {
+		if (!ability->charges && rank->next) {
+			SendAlternateAdvancementRank(ability->id, rank->next->current_value);
+		}
 		SendAlternateAdvancementPoints();
 		SendAlternateAdvancementStats();
 	}
@@ -1348,7 +1337,7 @@ void Client::FinishAlternateAdvancementPurchase(AA::Rank *rank, bool ignore_cost
 	}
 
 	if (rank->prev) {
-		if (send_message_and_save) {
+		if (send_message) {
 			MessageString(
 				Chat::Yellow,
 				AA_IMPROVE,
@@ -1359,7 +1348,7 @@ void Client::FinishAlternateAdvancementPurchase(AA::Rank *rank, bool ignore_cost
 			);
 		}
 	} else {
-		if (send_message_and_save) {
+		if (send_message) {
 			MessageString(
 				Chat::Yellow,
 				AA_GAIN_ABILITY,
@@ -1389,6 +1378,7 @@ void Client::FinishAlternateAdvancementPurchase(AA::Rank *rank, bool ignore_cost
 			NotifyNewTitlesAvailable();
 		}
 	}
+	return true;
 }
 
 //need to rewrite this
@@ -1407,6 +1397,10 @@ void Client::IncrementAlternateAdvancementRank(int rank_id) {
 }
 
 void Client::ActivateAlternateAdvancementAbility(int rank_id, int target_id) {
+	if (!HasValidEarnedAAState()) {
+		Message(Chat::Red, "Alternate advancement is temporarily unavailable. Please reconnect.");
+		return;
+	}
 	AA::Rank *rank = zone->GetAlternateAdvancementRank(rank_id);
 
 	if (!rank) {
@@ -1542,6 +1536,15 @@ int Mob::GetAlternateAdvancementCooldownReduction(AA::Rank *rank_in) {
 }
 
 void Mob::ExpendAlternateAdvancementCharge(uint32 aa_id) {
+	if (IsClient()) {
+		auto ability = zone->GetAlternateAdvancementAbility(aa_id);
+		auto client = CastToClient();
+		if (ability && client->ExpendEarnedAACharge(ability->first_rank_id)) {
+			client->CalcBonuses();
+			client->SendAlternateAdvancementPoints();
+		}
+		return;
+	}
 	for (auto &iter : aa_ranks) {
 		auto ability = zone->GetAlternateAdvancementAbility(iter.first);
 		if (ability && aa_id == ability->id) {
@@ -1549,24 +1552,7 @@ void Mob::ExpendAlternateAdvancementCharge(uint32 aa_id) {
 				iter.second.second -= 1;
 
 				if (iter.second.second == 0) {
-					if (IsClient()) {
-						auto c = CastToClient();
-
-						auto r = ability->GetRankByPointsSpent(iter.second.first);
-						if (r) {
-							c->GetEPP().expended_aa += r->cost;
-						}
-
-						c->RemoveExpendedAA(ability->first_rank_id);
-					}
-
 					aa_ranks.erase(iter.first);
-				}
-
-				if (IsClient()) {
-					auto c = CastToClient();
-					c->SaveAA();
-					c->SendAlternateAdvancementPoints();
 				}
 			}
 
@@ -1576,47 +1562,62 @@ void Mob::ExpendAlternateAdvancementCharge(uint32 aa_id) {
 }
 
 bool ZoneDatabase::LoadAlternateAdvancement(Client *c) {
+	// An in-place AA reload does not reload the character's point counters.
+	// Once those may be untrusted, only a fresh client session may clear the
+	// failure state; otherwise a later profile save could undo a committed change.
+	if (!c->HasValidEarnedAAState()) {
+		LogError("Refusing in-place AA recovery for [{}]; reconnect to reload ownership and counters", c->CharacterID());
+		return false;
+	}
+	// Preserve the session on a read failure; an empty result must be distinguishable
+	// from a failed ownership query before any later save is allowed.
+	auto rows = database.QueryDatabase(fmt::format(
+		"SELECT aa_id, aa_value, charges FROM character_alternate_abilities WHERE id={} ORDER BY aa_id",
+		c->CharacterID()));
+	if (!rows.Success()) {
+		c->InvalidateEarnedAAState();
+		return false;
+	}
 	c->ClearAAs();
-
-	const auto& l = CharacterAlternateAbilitiesRepository::GetWhere(
-		database,
-		fmt::format(
-			"`id` = {}",
-			c->CharacterID()
-		)
-	);
+	c->BeginEarnedAALoad();
+	// Reloads must discard profile entries for ranks no longer accepted below.
+	memset(c->GetPP().aa_array, 0, sizeof(c->GetPP().aa_array));
 
 	uint32 slot_id = 0;
 
-	for (const auto& e : l) {
-		const uint16 aa_id    = e.aa_id;
-		const uint16 aa_value = e.aa_value;
-		const uint16 charges  = e.charges;
+	for (auto row : rows) {
+		const uint32 aa_id    = Strings::ToUnsignedInt(row[0]);
+		const uint32 aa_value = Strings::ToUnsignedInt(row[1]);
+		const uint32 charges  = Strings::ToUnsignedInt(row[2]);
 
-		auto rank = zone->GetAlternateAdvancementRank(aa_id);
-		if (!rank) {
+		auto ability = zone->GetAlternateAdvancementAbilityByRank(aa_id);
+		auto rank = ability ? ability->GetRankByPointsSpent(aa_value) : nullptr;
+		if (!ability || ability->first_rank_id != aa_id || !rank || rank->current_value != aa_value) {
+			c->InvalidateEarnedAAState();
 			continue;
 		}
 
-		auto ability = rank->base_ability;
-		if (!ability) {
+		c->RecordEarnedAA(aa_id, aa_value, charges);
+		const auto active_count = std::min(aa_value, static_cast<uint32>(ability->GetMaxLevel(c)));
+		if (!active_count) {
 			continue;
 		}
-
-		rank = ability->GetRankByPointsSpent(aa_value);
-
-		if (c->CanUseAlternateAdvancementRank(rank)) {
+		if (slot_id >= MAX_PP_AA_ARRAY) {
+			c->InvalidateEarnedAAState();
+			return false;
+		}
+		if (c->SetAA(aa_id, active_count, charges)) {
 			c->GetPP().aa_array[slot_id].AA      = aa_id;
-			c->GetPP().aa_array[slot_id].value   = aa_value;
+			c->GetPP().aa_array[slot_id].value   = active_count;
 			c->GetPP().aa_array[slot_id].charges = charges;
 
-			c->SetAA(aa_id, aa_value, charges);
-
 			slot_id++;
+		} else {
+			c->InvalidateEarnedAAState();
 		}
 	}
 
-	return true;
+	return c->HasValidEarnedAAState();
 }
 
 AA::Ability *Zone::GetAlternateAdvancementAbility(int id) {
@@ -1812,7 +1813,7 @@ bool Mob::CanPurchaseAlternateAdvancementRank(AA::Rank *rank, bool check_price, 
 		return false;
 	}
 
-	if (IsClient() && CastToClient()->HasAlreadyPurchasedRank(rank)) {
+	if (IsClient() && (!CastToClient()->HasValidEarnedAAState() || CastToClient()->HasAlreadyPurchasedRank(rank))) {
 		return false;
 	}
 
@@ -2196,22 +2197,10 @@ bool Client::IsEffectinAlternateAdvancementRankEffects(const AA::Rank &rank, int
 }
 
 void Client::ResetAlternateAdvancementRank(uint32 aa_id) {
-
-	/*
-		Resets your AA to baseline
-	*/
-
-	for(auto &iter : aa_ranks) {
-
-		AA::Ability *ability = zone->GetAlternateAdvancementAbility(iter.first);
-
-		if(ability && aa_id == ability->id) {
-			RemoveExpendedAA(ability->first_rank_id);
-			aa_ranks.erase(iter.first);
-			SaveAA();
-			SendAlternateAdvancementPoints();
-			return;
-		}
+	auto ability = zone->GetAlternateAdvancementAbility(aa_id);
+	if (ability && RemoveExpendedAA(ability->first_rank_id)) {
+		CalcBonuses();
+		SendAlternateAdvancementPoints();
 	}
 }
 
@@ -2277,7 +2266,9 @@ void Client::AutoGrantAAPoints() {
 		while (rank != nullptr) {
 			if (CanUseAlternateAdvancementRank(rank)) {
 				if (rank->expansion <= auto_grant_expansion && rank->level_req <= level && !HasAlreadyPurchasedRank(rank)) {
-					FinishAlternateAdvancementPurchase(rank, true, false);
+					if (!FinishAlternateAdvancementPurchase(rank, true, false)) {
+						return;
+					}
 
 					if (rank->prev) {
 						MessageString(
@@ -2339,14 +2330,15 @@ void Client::GrantAllAAPoints(uint8 unlock_level, bool skip_grant_only)
 			}
 
 			if (rank->level_req <= level && !HasAlreadyPurchasedRank(rank)) {
-				FinishAlternateAdvancementPurchase(rank, true, false);
+				if (!FinishAlternateAdvancementPurchase(rank, true, false)) {
+					return;
+				}
 			}
 
 			rank = rank->next;
 		}
 	}
 
-	SaveAA();
 	SendClearLeadershipAA();
 	SendClearPlayerAA();
 	SendAlternateAdvancementTable();
@@ -2355,6 +2347,9 @@ void Client::GrantAllAAPoints(uint8 unlock_level, bool skip_grant_only)
 }
 
 bool Client::HasAlreadyPurchasedRank(AA::Rank* rank) {
+	if (GetEarnedAACount(rank->base_ability->first_rank_id) >= rank->current_value) {
+		return true;
+	}
 	const auto& aa = aa_ranks.find(rank->base_ability->id);
 	if (aa == aa_ranks.end()) {
 		return false;

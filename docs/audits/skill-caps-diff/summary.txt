@@ -1,0 +1,10 @@
+﻿baseline_source=https://gitlab.com/TheGrandLibrary/db.projecteq.net-dumps/-/package_files/232952944/download
+baseline_sha256=ac8649f23d2c3aea2cade138dfe10d46d1b21ad1a80d08ca95f5434fab7f218d
+live_container=akk-stack-mariadb-1
+canonical_container=nightcap-peq-baseline
+live_rows=74449
+canonical_rows=58359
+live_only_rows=16090
+canonical_only_rows=0
+cap_mismatches=0
+verdict=strict_live_superset_repair_candidate

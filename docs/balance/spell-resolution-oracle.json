@@ -1,0 +1,23 @@
+{
+  "snapshot_sha256": "e4b06f462a32b5463a608efae7ddde4d303b2422c863aecedc3427da06c08dae",
+  "source_sha256": {
+    "zone/spell_effects.cpp": "d0d95e1bc7d90423fcc6a7b9055b22b97783c20990a33121144453551f347f16",
+    "zone/spells.cpp": "3b8bbbc6756ec1da92a6b8dcf32197437d3c8bbcd3dde1cdddcb0c9cd177979f"
+  },
+  "function_sha256": {
+    "duration": "24ad566bb9e405216772ba7abf97109d22aa8bfb799e380874c8fc54e6b0310b",
+    "effect": "32fe96006c3f784f4067bbd0113ef72ab8d886a5db68031b12995fc398796143",
+    "resist": "1e7e09898897e8a3644ae7dcba4fa60b9f8d1458df30eff21da7b7b6b801baf8"
+  },
+  "value_duration_cases": 12224,
+  "resist_distributions": 1500,
+  "native_resist_rolls": 301500,
+  "skipped_formulas": {
+    "208": 28,
+    "210": 28,
+    "211": 28,
+    "202": 8
+  },
+  "mismatches": [],
+  "scope": "Stored effect formulas/durations and ordinary resist path with resolved modifier; excludes dynamic HP formulas, focus/AA resistance checks, fear CHA, physical/PvP special handling, softcap, root/charm breaks, and complete spell application"
+}

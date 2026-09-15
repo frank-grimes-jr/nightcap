@@ -1,0 +1,14 @@
+{
+  "status": "before_reproduction_unfixed",
+  "engine_commit": "d7c5613",
+  "files": {
+    "docs/balance/aa-release-before-build.json": "fa03adcbfca36753bf5e1424a491455e5f70438eb5d94e8cd24af7ee68c0f516",
+    "docs/balance/aa-release-before-inputs.json": "08aaa56a6fb69f2b4ec109469788f0dd4ee3330aeebeb40c2dd568db61083406",
+    "docs/balance/aa-release-before.json.gz": "0596d22044d8866277a6a152eda575b99af922d84b560d254942f6665568aebb",
+    "docs/balance/aa-release-before-source.tar.gz": "7d6534eb5082c1d8eb13d54a4fc92303d29fbce6bd06f611eabce51c2d596625",
+    "docs/balance/aa-toggle-catalog-audit.json": "468594f32abd1bd26f55562d3b8e7b0da018c9636ff2063e9abb4b4456bc308a",
+    "docs/balance/native-aa-class-release.md": "27f38be08ec1e05cc3c68c22f0157319e81ecc3a6f31f15dd31fd8cc4339a760",
+    "docs/adr/0026-atomic-multiclass-release.md": "25114b1cc92a867ec94abe63d9612fbda68aac3e571cd5ae65eb7233eedc542c",
+    "docs/balance/aa-release-before-python-tests.log": "3df5c317bb34105f6e27efb4c59b9207c31fb01cd2a7cd461b88ecc06874f599"
+  }
+}

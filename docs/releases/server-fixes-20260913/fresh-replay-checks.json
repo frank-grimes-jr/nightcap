@@ -1,0 +1,23 @@
+{
+  "binary_sha256": "0013dd36ee163eebb19844da8b17157fc5fc483ec7dc36e5b2bbf8b61ad9ee6d",
+  "batches": [
+    {
+      "kind": "regression",
+      "cases": 12,
+      "original_binary_sha256": "67892e42182343264698f98545f564b595cbbce36b1a817f5dc9dfec7958b74b",
+      "reference_sha256": "480814e379b3d1bc606be74f2ae67308ef7770096b3520eb9fbcf4f03d281c4a",
+      "actual_sha256": "480814e379b3d1bc606be74f2ae67308ef7770096b3520eb9fbcf4f03d281c4a",
+      "complete_reports_and_raw_hashes_equal": true,
+      "differences": []
+    },
+    {
+      "kind": "source-regression",
+      "cases": 12,
+      "original_binary_sha256": "67892e42182343264698f98545f564b595cbbce36b1a817f5dc9dfec7958b74b",
+      "reference_sha256": "1012d83a4d409f4b94d79b759b1bcf8df310fb152348e00127054738809365d8",
+      "actual_sha256": "1012d83a4d409f4b94d79b759b1bcf8df310fb152348e00127054738809365d8",
+      "complete_reports_and_raw_hashes_equal": true,
+      "differences": []
+    }
+  ]
+}

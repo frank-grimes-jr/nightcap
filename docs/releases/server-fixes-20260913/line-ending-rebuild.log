@@ -1,0 +1,12 @@
+[ 44%] Built target common
+[ 46%] Built target perlbind
+[ 50%] Built target gm_commands_zone
+[ 51%] Built target perl_zone
+[ 58%] Built target luabind
+[ 59%] Built target lua_zone
+[ 59%] Building CXX object zone/CMakeFiles/zone.dir/mob.cpp.o
+[ 61%] Linking CXX executable ../bin/zone
+[100%] Built target zone
+[  8%] Built target cppunit
+[100%] Built target common
+[100%] Built target tests
