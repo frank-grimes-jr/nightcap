@@ -131,3 +131,12 @@ QA is pending; no production keys or Play authorization are present. See
 limits and the full remaining release/parity work. Next work should implement
 required config/patch/runtime health and remaining client gates, alongside native
 manual acceptance; a functional browser fixture is not the release end state.
+
+### Shared static preflight
+
+Public installation now verifies required signed configuration/catalog assets
+and all 22 recorded original PE sites before mutation, using the exclusive
+executable handle. C++ original-byte declarations and the Go embedded catalog are
+generated from the same versioned input. The real-client diagnostic passes;
+Play stays false. [ADR 0032](../adr/0032-share-client-patch-catalog-and-preflight.md)
+records exact semantics and the remaining DLL config/runtime-health work.

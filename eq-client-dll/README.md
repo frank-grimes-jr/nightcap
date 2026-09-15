@@ -186,3 +186,17 @@ Delete `dinput8.dll` from the client folder. Stock behavior restored (a backup
 - `src/dinput8.def` â€” export names
 - `build.bat` â€” x86 MSVC build
 - `third_party/` â€” cloned offset references (gitignored)
+
+## Shared catalog (development candidate)
+
+Original executable identity and patch-site guard constants are generated in
+`src/patch_catalog.h` from `config/patch-sites.json`, also embedded by the launcher.
+From the repo root, run `python tools/generate-client-patch-catalog.py --check`
+before the existing exact-client verifier/build. Update the catalog and verifier
+together, then run the generator without `--check` to refresh both outputs.
+
+`config/nightcap-patches.cfg` defines the launcher's required configuration
+contract. The current DLL does **not yet consume it**: runtime feature switches,
+versioned health, required-failure startup blocking and lifecycle hardening remain
+open. This change shares guard data without changing runtime patch behavior.
+[ADR 0032](../docs/adr/0032-share-client-patch-catalog-and-preflight.md).

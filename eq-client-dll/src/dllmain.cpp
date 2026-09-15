@@ -20,28 +20,19 @@
 #include <cstring>
 #include <share.h>
 #include "equipment_scope.h"
+#include "patch_catalog.h"
 
 #pragma comment(lib, "bcrypt.lib")
 
 // --- expected client build and B2 caster-class table --------------------------
 // eqgame.exe, RoF2 May 10 2013 emu package, 8,774,656 bytes
 // sha256 2a8702ad9f722704f01355c0750be7d6f164a8b9c9128ba0cf286ea32b405b0e
-static const DWORD kExpectedEqgameSize = 8774656;
-static const BYTE kExpectedEqgameSha256[32] = {
-    0x2A, 0x87, 0x02, 0xAD, 0x9F, 0x72, 0x27, 0x04,
-    0xF0, 0x13, 0x55, 0xC0, 0x75, 0x0B, 0xE7, 0xD6,
-    0xF1, 0x64, 0xA8, 0xB9, 0xC9, 0x12, 0x8B, 0xA0,
-    0xCF, 0x28, 0x6E, 0xA3, 0x2B, 0x40, 0x5B, 0x0E,
-};
 
 // The stock predicate indexes this table by BaseProfile.Class - 1. Its only
 // zero entries are the four no-mana classes. Enabling those four entries makes
 // every base class caster-capable in the client chassis while the server remains
 // authoritative for whether a character actually has mana or usable spells.
-static const uintptr_t kCasterClassTableRva = 0x00043F90;
-static const BYTE kExpectedCasterClassTable[16] = {
-    0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 0,
-};
+
 static const BYTE kEnabledCasterClassTable[16] = {
     1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
 };
@@ -51,10 +42,7 @@ static const size_t kNonCasterClassIndexes[] = { 0, 6, 8, 15 };
 // Stock RoF2 disables the window for its seven pure-caster classes. Enable the
 // presentation chassis for every base class; the server remains authoritative
 // for learned skills and every submitted combat ability.
-static const uintptr_t kCombatAbilityClassTableRva = 0x0018238C;
-static const BYTE kExpectedCombatAbilityClassTable[16] = {
-    0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0,
-};
+
 static const BYTE kEnabledCombatAbilityClassTable[16] = {
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 };
@@ -65,47 +53,23 @@ static const BYTE kEnabledCombatAbilityClassTable[16] = {
 // valid secondary/tertiary skills. Redirect only the two selector calls to a
 // predicate that preserves stock success and otherwise accepts a positive
 // server-delivered base skill.
-static const uintptr_t kActionsSkillPredicateCallRvas[] = {
-    0x00356D2D,
-    0x00356DA5,
-};
-static const BYTE kExpectedActionsSkillPredicateCalls[][5] = {
-    { 0xE8, 0x7E, 0x34, 0xCF, 0xFF },
-    { 0xE8, 0x06, 0x34, 0xCF, 0xFF },
-};
+
 // CHotButton refresh uses HasSkill to decide whether a type-9 skill button is
 // usable. CharacterZoneClient::UseSkill separately calls GetSkill and rejects
 // a non-positive result before sending anything to the server.
-static const uintptr_t kHotButtonSkillPredicateCallRva = 0x00151B59;
-static const BYTE kExpectedHotButtonSkillPredicateCall[5] = {
-    0xE8, 0x52, 0x86, 0xEF, 0xFF,
-};
-static const uintptr_t kUseSkillValueCallRva = 0x0005B33E;
-static const BYTE kExpectedUseSkillValueCall[5] = {
-    0xE8, 0x9D, 0xEC, 0xFE, 0xFF,
-};
+
 // Type-9 hotbuttons normally enter CharacterZoneClient::UseSkill. Stock RoF2
 // intentionally leaves direct handlers empty for the six basic combat attacks;
 // its internal special-attack submitter is the path that owns their target,
 // animation, reuse, and OP_CombatAbility packet behavior.
-static const uintptr_t kHotButtonSkillActivationCallRva = 0x0028CA21;
-static const BYTE kExpectedHotButtonSkillActivationCall[5] = {
-    0xE8, 0xAA, 0xE8, 0xDC, 0xFF,
-};
+
 // The stock special-attack submitter has one HasSkill call that repeats the
 // primary-class clamp. Redirect only that exact call for server-granted skills.
-static const uintptr_t kSpecialAttackSkillPredicateCallRva = 0x001A2FD0;
-static const BYTE kExpectedSpecialAttackSkillPredicateCall[5] = {
-    0xE8, 0xDB, 0x71, 0xEA, 0xFF,
-};
-static const uintptr_t kSpecialAttackSubmitRva = 0x001A5000;
+
 static const uintptr_t kCharacterUseSkillRva = 0x0005B2D0;
-static const uintptr_t kCharacterHasSkillRva = 0x0004A1B0;
-static const uintptr_t kCharacterGetBaseSkillRva = 0x00049C80;
-static const uintptr_t kCharacterGetSkillRva = 0x00049FE0;
+
 static const uintptr_t kSkillManagerSlotRva = 0x00A64610;
-static const uintptr_t kSkillIsCombatRva = 0x001BAB10;
-static const uintptr_t kSkillIsActivatedRva = 0x001BABD0;
+
 static const uintptr_t kSkillTimerIndexRva = 0x001BA2B0;
 static const uintptr_t kSkillReuseBeginRva = 0x001BADA0;
 static const uintptr_t kSkillReuseCommitRva = 0x001BAC50;
@@ -114,30 +78,13 @@ static const uintptr_t kSkillReuseCommitRva = 0x001BAC50;
 // server has populated LocalPlayer's authoritative raw maximum at +0x354.
 // Redirect only that complete six-byte return block to the guarded stub below.
 static const uintptr_t kLocalPlayerSlotRva = 0x009D2630;
-static const uintptr_t kMaxManaNonCasterReturnRva = 0x00181E96;
+
 // CPlayerWnd refreshes PlayerMana every 500 ms using a second, stock
 // base-class predicate. Redirect only that predicate call so the stock HUD
 // owns visibility continuously and bases it on the server-cached maximum.
-static const uintptr_t kPlayerManaPredicateCallRva = 0x00318E93;
-static const BYTE kExpectedPlayerManaPredicateCall[5] = {
-    0xE8, 0xF8, 0x6C, 0xE8, 0xFF, // call 0x0059FB90
-};
-static const BYTE kExpectedMaxManaReturn[6] = {
-    0x33, 0xC0,             // xor eax,eax
-    0x5E,                   // pop esi
-    0xC2, 0x04, 0x00,       // ret 4
-};
 
 // #13: CanEquipItem -> CanUseItem and its class-mask accessor. These calls
 // scope a permissive class result to equip submission, never global item data.
-static const uintptr_t kEquipCanUseItemCallRva = 0x0018359C;
-static const BYTE kExpectedEquipCanUseItemCall[5] = { 0xE8, 0x8F, 0x8E, 0xEC, 0xFF };
-static const uintptr_t kEquipClassMaskCallRva = 0x0004C46D;
-static const BYTE kExpectedEquipClassMaskCall[5] = { 0xE8, 0x6E, 0x88, 0x36, 0x00 };
-static const uintptr_t kCanUseItemRva = 0x0004C430;
-static const BYTE kExpectedCanUseItemEntry[7] = { 0x55, 0x56, 0x57, 0x8B, 0x7C, 0x24, 0x10 };
-static const uintptr_t kItemClassesRva = 0x003B4CE0;
-static const BYTE kExpectedItemClassesEntry[6] = { 0x55, 0x8B, 0xEC, 0x83, 0xEC, 0x44 };
 
 static HMODULE g_real_dinput8 = nullptr;
 static FILE*   g_log          = nullptr;

@@ -14,6 +14,7 @@ import (
 	"nightcap/eq-launcher/internal/client"
 	"nightcap/eq-launcher/internal/installguard"
 	"nightcap/eq-launcher/internal/manifest"
+	"nightcap/eq-launcher/internal/preflight"
 )
 
 type Result struct {
@@ -51,7 +52,12 @@ func Install(ctx context.Context, clientDir, candidateDir string, trust manifest
 	if err = decode(signature, &sig); err != nil {
 		return Result{}, err
 	}
-	if _, err = manifest.Verify(raw, sig, trust); err != nil {
+	m, err := manifest.Verify(raw, sig, trust)
+	if err != nil {
+		return Result{}, err
+	}
+	config, metadata, err := patchAssets(stage, m)
+	if err != nil {
 		return Result{}, err
 	}
 	guard, err := installguard.Acquire(clientDir)
@@ -59,12 +65,9 @@ func Install(ctx context.Context, clientDir, candidateDir string, trust manifest
 		return Result{}, err
 	}
 	defer guard.Close()
-	report, err := client.InspectOpen(guard.Executable())
+	_, err = preflight.CheckOpen(guard.Executable(), config, metadata)
 	if err != nil {
 		return Result{}, err
-	}
-	if !report.Supported {
-		return Result{}, fmt.Errorf("unsupported client executable")
 	}
 	return installLocked(ctx, guard.Root(), stage, raw, sig, trust, nil)
 }

@@ -65,6 +65,9 @@ if ($callTarget -ne 0x0059FB90) {
 }
 
 $source = [System.IO.File]::ReadAllText((Resolve-Path -LiteralPath $SourcePath).Path)
+# Original-byte declarations are generated from the shared release catalog.
+$catalogHeader = Join-Path (Split-Path -Parent $SourcePath) 'patch_catalog.h'
+$source += "`n" + [System.IO.File]::ReadAllText((Resolve-Path -LiteralPath $catalogHeader).Path)
 $compactSource = $source -replace '\s', ''
 foreach ($requiredFragment in @(
 	'kCombatAbilityClassTableRva=0x0018238C',

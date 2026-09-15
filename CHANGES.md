@@ -1,5 +1,15 @@
 # CHANGES
 
+## 2026-09-15 - Require shared configuration and patch-site preflight
+
+Public client installation now requires manifest-bound configuration/catalog
+assets and checks the exact executable plus 22 recorded PE patch sites under its
+exclusive handle before mutation. Generated C++ and Go guard data share one
+versioned catalog. Disabled/missing/ambiguous feature keys and altered metadata
+fail closed. Exact-client checks, x86 build and focused tests pass. No live client
+files changed. DLL configuration consumption/runtime health remain unfinished;
+static preflight never enables Play. Contract: docs/adr/0032-share-client-patch-catalog-and-preflight.md.
+
 ## 2026-09-15 - Add the Windows launcher UI and release controller
 
 Added a Wails/Vue preview with client-folder selection, inventory, update/repair,

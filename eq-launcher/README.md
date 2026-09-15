@@ -12,6 +12,8 @@ This is not a production launcher release.
   cancellation and session activity, backed by a serialized Go controller.
 - Fresh signature/file verification for every update; no UI-supplied trust.
 - Read-only local active-generation/checkpoint and pending-recovery inspection.
+- Required signed configuration/catalog and exact PE patch-site preflight before
+  public installation, sharing original-byte constants with the proxy.
 - Ed25519 verification of compact, schema-specific canonical manifest bytes.
 - Key validity, manifest expiry, launcher version and monotonic release checks.
 - Exact trusted inventory, required flags, bounded sizes and lowercase SHA256.
@@ -151,3 +153,36 @@ The September 15 default-loader native smoke attempt created a task-owned profil
 but did not complete: Wails strips WebView debugging environment arguments, and
 Windows UI Automation did not expose the hidden test window. No native interaction
 pass is claimed. [Evidence and remaining work](../docs/milestones/phase-12-report.md).
+
+## Required configuration and static patch preflight
+
+Before `Install` can write a generation, its verified manifest must include
+`nightcap-patches.cfg` and `nightcap-patch-sites.json` with `required: true` and
+matching size/hash. Assemble them from `eq-client-dll/config/nightcap-patches.cfg`
+and `eq-client-dll/config/patch-sites.json` respectively. The catalog must match
+this launcher's embedded version. Required feature keys must all be explicitly
+`1`; optional `mq2_survey` may be `0` or `1`. Missing/duplicate/unknown keys fail.
+The DLL does not yet consume these configuration keys; runtime enforcement and
+health are the next implementation step.
+
+Generate/check shared inputs from the repository root:
+
+```powershell
+python tools/generate-client-patch-catalog.py --check
+```
+
+Read-only diagnostic, after building `nightcap-check`, from `eq-launcher/`:
+
+```powershell
+./build/nightcap-check.exe -client 'path/to/eqgame.exe' `
+  -config ../eq-client-dll/config/nightcap-patches.cfg `
+  -catalog ../eq-client-dll/config/patch-sites.json
+```
+
+A pass reports `configuration_valid: true`, `sites_verified: 22` and
+`static_preflight_valid: true`. `ready_to_play` remains false: installed-generation
+integrity, required runtime health and full parity are separate gates. These are
+the currently recorded sites, not proof that the remaining client gates exist.
+Set `NIGHTCAP_TEST_EQGAME` to the supported executable path when running Go tests
+to include the read-only real-executable integration case; otherwise it skips.
+[Design and limits](../docs/adr/0032-share-client-patch-catalog-and-preflight.md).
