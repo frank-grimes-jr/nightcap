@@ -31,13 +31,15 @@ type Site struct {
 	Original string `json:"original"`
 }
 type catalog struct {
-	Schema       int      `json:"schema"`
-	ClientSize   int64    `json:"client_size"`
-	ClientSHA256 string   `json:"client_sha256"`
-	ImageBase    uint32   `json:"image_base"`
-	Required     []string `json:"required_features"`
-	Optional     []string `json:"optional_features"`
-	Sites        []Site   `json:"sites"`
+	RuntimeSchema uint32   `json:"runtime_schema"`
+	ProxyVersion  string   `json:"proxy_version"`
+	Schema        int      `json:"schema"`
+	ClientSize    int64    `json:"client_size"`
+	ClientSHA256  string   `json:"client_sha256"`
+	ImageBase     uint32   `json:"image_base"`
+	Required      []string `json:"required_features"`
+	Optional      []string `json:"optional_features"`
+	Sites         []Site   `json:"sites"`
 }
 type Report struct {
 	Supported     bool `json:"supported_executable"`
@@ -205,4 +207,24 @@ func siteBytes(data []byte, sections []*pe.Section, rva uint32, size uint64) ([]
 		return nil, fmt.Errorf("site has %d section mappings", matches)
 	}
 	return result, nil
+}
+
+// RuntimeRequirements is compiled identity, not data accepted from a health file.
+type RuntimePolicy struct {
+	Schema        uint32
+	ProxyVersion  string
+	CatalogSHA256 string
+	RequiredMask  uint32
+}
+
+func RuntimeRequirements() (RuntimePolicy, error) {
+	c, err := policy()
+	if err != nil {
+		return RuntimePolicy{}, err
+	}
+	if c.RuntimeSchema != 1 || c.ProxyVersion == "" || len(c.Required) >= 32 {
+		return RuntimePolicy{}, fmt.Errorf("invalid compiled runtime contract")
+	}
+	hash := sha256.Sum256(catalogBytes)
+	return RuntimePolicy{Schema: c.RuntimeSchema, ProxyVersion: c.ProxyVersion, CatalogSHA256: hex.EncodeToString(hash[:]), RequiredMask: (uint32(1) << len(c.Required)) - 1}, nil
 }

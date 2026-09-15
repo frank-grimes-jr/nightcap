@@ -2,9 +2,9 @@
 // Nightcap dinput8.dll proxy — B2 caster-chassis correction (issue #12, ADR 0004)
 //
 // RoF2 auto-loads dinput8.dll from its own folder at startup. This proxy
-// forwards every DirectInput export to the real system DLL and starts one
-// init thread that applies tightly guarded caster-class and server-mana
-// corrections.
+// gates DirectInput forwarding on synchronous configuration/version/patch
+// validation, then forwards to the real system DLL. Required failures stop
+// startup and publish versioned health; optional MQ2 survey defaults off.
 // The MQ2 offset survey remains temporarily available for validation. Removing
 // the DLL from the client folder restores stock behavior.
 //
@@ -19,8 +19,14 @@
 #include <cstdint>
 #include <cstring>
 #include <share.h>
+#include <process.h>
+#include <intrin.h>
+#include <io.h>
+#include <fcntl.h>
 #include "equipment_scope.h"
 #include "patch_catalog.h"
+#include "runtime_health.h"
+#include "verified_patch.h"
 
 #pragma comment(lib, "bcrypt.lib")
 
@@ -36,7 +42,6 @@
 static const BYTE kEnabledCasterClassTable[16] = {
     1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
 };
-static const size_t kNonCasterClassIndexes[] = { 0, 6, 8, 15 };
 
 // CCombatAbilityWnd::CanShow indexes this table by BaseProfile.Class - 1.
 // Stock RoF2 disables the window for its seven pure-caster classes. Enable the
@@ -92,6 +97,17 @@ static uintptr_t g_local_player_slot = 0;
 static uintptr_t g_eq_base = 0;
 
 static bool IsMonkCombatAttack(int skill);
+static void EnsureInitialized();
+static unsigned __stdcall SurveyThread(void*);
+static INIT_ONCE g_initialize_once = INIT_ONCE_STATIC_INIT;
+static volatile LONG g_initialize_owner = 0;
+static volatile LONG g_initialize_state = 0;
+static wchar_t g_client_directory[MAX_PATH] = {};
+static nightcap::RuntimeConfig g_config;
+static nightcap::RuntimeHealth g_health;
+static FARPROC g_real_exports[6] = {};
+static const char* const kRealExportNames[] = {"DirectInput8Create","DllCanUnloadNow","DllGetClassObject","DllRegisterServer","DllUnregisterServer","GetdfDIJoystick"};
+
 
 static void Log(const char* fmt, ...)
 {
@@ -107,7 +123,7 @@ static void Log(const char* fmt, ...)
     fflush(g_log);
 }
 
-static bool VerifyEqgameSha256(const char* path)
+static bool VerifyEqgameSha256(const wchar_t* path)
 {
     BCRYPT_ALG_HANDLE algorithm = nullptr;
     BCRYPT_HASH_HANDLE hash = nullptr;
@@ -139,7 +155,7 @@ static bool VerifyEqgameSha256(const char* path)
         algorithm, &hash, hash_object, hash_object_size, nullptr, 0, 0);
     if (status < 0) goto cleanup;
 
-    file = CreateFileA(
+    file = CreateFileW(
         path, GENERIC_READ, FILE_SHARE_READ | FILE_SHARE_WRITE | FILE_SHARE_DELETE,
         nullptr, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, nullptr);
     if (file == INVALID_HANDLE_VALUE) goto cleanup;
@@ -440,57 +456,10 @@ static bool ApplyMaxManaServerCacheHook(uintptr_t eq_base, bool version_ok)
     }
     memcpy(replacement + 1, &relative32, sizeof(relative32));
 
-    bool stock_signature = false;
-    bool already_applied = false;
-    __try {
-        stock_signature =
-            (memcmp(site, kExpectedMaxManaReturn, sizeof(kExpectedMaxManaReturn)) == 0);
-        already_applied = (memcmp(site, replacement, sizeof(replacement)) == 0);
-    } __except (EXCEPTION_EXECUTE_HANDLER) {
-        Log("B2 mana hook DISABLED: Max_Mana site unreadable at rva=0x%08X",
-            static_cast<unsigned>(kMaxManaNonCasterReturnRva));
-        return false;
-    }
-
-    if (already_applied) {
-        g_local_player_slot = eq_base + kLocalPlayerSlotRva;
-        Log("B2 mana hook already active");
-        return true;
-    }
-    if (!stock_signature) {
-        Log("B2 mana hook DISABLED: Max_Mana signature mismatch at rva=0x%08X",
-            static_cast<unsigned>(kMaxManaNonCasterReturnRva));
-        return false;
-    }
-
     g_local_player_slot = eq_base + kLocalPlayerSlotRva;
-    DWORD old_protection = 0;
-    if (!VirtualProtect(site, sizeof(replacement), PAGE_EXECUTE_READWRITE, &old_protection)) {
+    if (!nightcap::WriteVerifiedPatch(site, kExpectedMaxManaReturn, replacement, sizeof(replacement))) {
         g_local_player_slot = 0;
-        Log("B2 mana hook FAILED: VirtualProtect");
-        return false;
-    }
-
-    bool wrote = false;
-    __try {
-        memcpy(site, replacement, sizeof(replacement));
-        FlushInstructionCache(GetCurrentProcess(), site, sizeof(replacement));
-        wrote = (memcmp(site, replacement, sizeof(replacement)) == 0);
-        if (!wrote) {
-            memcpy(site, kExpectedMaxManaReturn, sizeof(kExpectedMaxManaReturn));
-            FlushInstructionCache(GetCurrentProcess(), site, sizeof(kExpectedMaxManaReturn));
-        }
-    } __except (EXCEPTION_EXECUTE_HANDLER) {
-        memcpy(site, kExpectedMaxManaReturn, sizeof(kExpectedMaxManaReturn));
-        FlushInstructionCache(GetCurrentProcess(), site, sizeof(kExpectedMaxManaReturn));
-        wrote = false;
-    }
-
-    DWORD ignored = 0;
-    VirtualProtect(site, sizeof(replacement), old_protection, &ignored);
-    if (!wrote) {
-        g_local_player_slot = 0;
-        Log("B2 mana hook FAILED: write did not verify; rolled back");
+        Log("B2 mana hook FAILED: guarded write/cache/protection check");
         return false;
     }
 
@@ -519,58 +488,8 @@ static bool ApplyPlayerManaGaugePredicateHook(uintptr_t eq_base, bool mana_hook_
     }
     memcpy(replacement + 1, &relative32, sizeof(relative32));
 
-    bool stock_signature = false;
-    bool already_applied = false;
-    __try {
-        stock_signature = (memcmp(
-            site, kExpectedPlayerManaPredicateCall,
-            sizeof(kExpectedPlayerManaPredicateCall)) == 0);
-        already_applied = (memcmp(site, replacement, sizeof(replacement)) == 0);
-    } __except (EXCEPTION_EXECUTE_HANDLER) {
-        Log("B2 mana gauge DISABLED: predicate call unreadable at rva=0x%08X",
-            static_cast<unsigned>(kPlayerManaPredicateCallRva));
-        return false;
-    }
-
-    if (already_applied) {
-        Log("B2 mana gauge already active: stock HUD predicate redirected");
-        return true;
-    }
-    if (!stock_signature) {
-        Log("B2 mana gauge DISABLED: predicate signature mismatch at rva=0x%08X",
-            static_cast<unsigned>(kPlayerManaPredicateCallRva));
-        return false;
-    }
-
-    DWORD old_protection = 0;
-    if (!VirtualProtect(site, sizeof(replacement), PAGE_EXECUTE_READWRITE, &old_protection)) {
-        Log("B2 mana gauge FAILED: VirtualProtect");
-        return false;
-    }
-
-    bool wrote = false;
-    __try {
-        memcpy(site, replacement, sizeof(replacement));
-        FlushInstructionCache(GetCurrentProcess(), site, sizeof(replacement));
-        wrote = (memcmp(site, replacement, sizeof(replacement)) == 0);
-        if (!wrote) {
-            memcpy(site, kExpectedPlayerManaPredicateCall,
-                sizeof(kExpectedPlayerManaPredicateCall));
-            FlushInstructionCache(
-                GetCurrentProcess(), site, sizeof(kExpectedPlayerManaPredicateCall));
-        }
-    } __except (EXCEPTION_EXECUTE_HANDLER) {
-        memcpy(site, kExpectedPlayerManaPredicateCall,
-            sizeof(kExpectedPlayerManaPredicateCall));
-        FlushInstructionCache(
-            GetCurrentProcess(), site, sizeof(kExpectedPlayerManaPredicateCall));
-        wrote = false;
-    }
-
-    DWORD ignored = 0;
-    VirtualProtect(site, sizeof(replacement), old_protection, &ignored);
-    if (!wrote) {
-        Log("B2 mana gauge FAILED: write did not verify; rolled back");
+    if (!nightcap::WriteVerifiedPatch(site, kExpectedPlayerManaPredicateCall, replacement, sizeof(replacement))) {
+        Log("B2 mana gauge FAILED: guarded write/cache/protection check");
         return false;
     }
 
@@ -588,68 +507,9 @@ static bool ApplyCasterClassTablePatch(uintptr_t eq_base, bool version_ok)
     }
 
     BYTE* table = reinterpret_cast<BYTE*>(eq_base + kCasterClassTableRva);
-    bool stock_signature = false;
-    bool already_applied = false;
-    __try {
-        stock_signature =
-            (memcmp(table, kExpectedCasterClassTable, sizeof(kExpectedCasterClassTable)) == 0);
-        already_applied =
-            (memcmp(table, kEnabledCasterClassTable, sizeof(kEnabledCasterClassTable)) == 0);
-    } __except (EXCEPTION_EXECUTE_HANDLER) {
-        Log("B2 patch DISABLED: caster-class table unreadable at rva=0x%08X",
-            static_cast<unsigned>(kCasterClassTableRva));
-        return false;
-    }
-
-    if (already_applied) {
-        Log("B2 patch already active: caster-class table enabled");
-        return true;
-    }
-    if (!stock_signature) {
-        Log("B2 patch DISABLED: caster-class table signature mismatch at rva=0x%08X",
-            static_cast<unsigned>(kCasterClassTableRva));
-        return false;
-    }
-
-    DWORD old_protection = 0;
-    if (!VirtualProtect(
-            table, sizeof(kExpectedCasterClassTable),
-            PAGE_EXECUTE_READWRITE, &old_protection)) {
-        Log("B2 patch FAILED: VirtualProtect on caster-class table");
-        return false;
-    }
-
-    bool wrote = false;
-    __try {
-        for (size_t index : kNonCasterClassIndexes) {
-            table[index] = 1;
-        }
-        FlushInstructionCache(
-            GetCurrentProcess(), table, sizeof(kExpectedCasterClassTable));
-        wrote =
-            (memcmp(table, kEnabledCasterClassTable, sizeof(kEnabledCasterClassTable)) == 0);
-        if (!wrote) {
-            for (size_t index : kNonCasterClassIndexes) {
-                table[index] = 0;
-            }
-            FlushInstructionCache(
-                GetCurrentProcess(), table, sizeof(kExpectedCasterClassTable));
-        }
-    } __except (EXCEPTION_EXECUTE_HANDLER) {
-        for (size_t index : kNonCasterClassIndexes) {
-            table[index] = 0;
-        }
-        FlushInstructionCache(
-            GetCurrentProcess(), table, sizeof(kExpectedCasterClassTable));
-        wrote = false;
-    }
-
-    DWORD ignored = 0;
-    VirtualProtect(
-        table, sizeof(kExpectedCasterClassTable), old_protection, &ignored);
-
-    if (!wrote) {
-        Log("B2 patch FAILED: caster-class table write did not verify; rolled back");
+    if (!nightcap::WriteVerifiedPatch(table, kExpectedCasterClassTable,
+            kEnabledCasterClassTable, sizeof(kExpectedCasterClassTable))) {
+        Log("B2 patch FAILED: guarded write/cache/protection check");
         return false;
     }
 
@@ -714,8 +574,8 @@ static bool ApplyCombatAbilityClassTablePatch(uintptr_t eq_base, bool version_ok
             memcpy(
                 table, kEnabledCombatAbilityClassTable,
                 sizeof(kEnabledCombatAbilityClassTable));
-            FlushInstructionCache(GetCurrentProcess(), table, sizeof(original));
-            wrote = (memcmp(
+            wrote = FlushInstructionCache(GetCurrentProcess(), table, sizeof(original)) != FALSE &&
+                (memcmp(
                 table, kEnabledCombatAbilityClassTable,
                 sizeof(kEnabledCombatAbilityClassTable)) == 0);
         } __except (EXCEPTION_EXECUTE_HANDLER) {
@@ -728,8 +588,8 @@ static bool ApplyCombatAbilityClassTablePatch(uintptr_t eq_base, bool version_ok
         rollback_ok = false;
         __try {
             memcpy(table, original, sizeof(original));
-            FlushInstructionCache(GetCurrentProcess(), table, sizeof(original));
-            rollback_ok = (memcmp(table, original, sizeof(original)) == 0);
+            rollback_ok = FlushInstructionCache(GetCurrentProcess(), table, sizeof(original)) != FALSE &&
+                (memcmp(table, original, sizeof(original)) == 0);
         } __except (EXCEPTION_EXECUTE_HANDLER) {
             rollback_ok = false;
         }
@@ -745,9 +605,9 @@ static bool ApplyCombatAbilityClassTablePatch(uintptr_t eq_base, bool version_ok
             rollback_ok = false;
             __try {
                 memcpy(table, original, sizeof(original));
-                FlushInstructionCache(
-                    GetCurrentProcess(), table, sizeof(original));
-                rollback_ok = (memcmp(table, original, sizeof(original)) == 0);
+                rollback_ok = FlushInstructionCache(
+                    GetCurrentProcess(), table, sizeof(original)) != FALSE &&
+                (memcmp(table, original, sizeof(original)) == 0);
             } __except (EXCEPTION_EXECUTE_HANDLER) {
                 rollback_ok = false;
             }
@@ -857,9 +717,8 @@ static bool ApplyActionsSkillPredicatePatch(uintptr_t eq_base, bool version_ok)
                     eq_base + kActionsSkillPredicateCallRvas[i]);
                 memcpy(site, replacements[i], sizeof(replacements[i]));
             }
-            FlushInstructionCache(
-                GetCurrentProcess(), first_site, protected_span);
-            wrote = true;
+            wrote = FlushInstructionCache(
+                GetCurrentProcess(), first_site, protected_span) != FALSE;
             for (size_t i = 0; i < site_count; ++i) {
                 BYTE* site = reinterpret_cast<BYTE*>(
                     eq_base + kActionsSkillPredicateCallRvas[i]);
@@ -882,9 +741,8 @@ static bool ApplyActionsSkillPredicatePatch(uintptr_t eq_base, bool version_ok)
                     eq_base + kActionsSkillPredicateCallRvas[i]);
                 memcpy(site, originals[i], sizeof(originals[i]));
             }
-            FlushInstructionCache(
-                GetCurrentProcess(), first_site, protected_span);
-            rollback_ok = true;
+            rollback_ok = FlushInstructionCache(
+                GetCurrentProcess(), first_site, protected_span) != FALSE;
             for (size_t i = 0; i < site_count; ++i) {
                 BYTE* site = reinterpret_cast<BYTE*>(
                     eq_base + kActionsSkillPredicateCallRvas[i]);
@@ -908,9 +766,8 @@ static bool ApplyActionsSkillPredicatePatch(uintptr_t eq_base, bool version_ok)
                     eq_base + kActionsSkillPredicateCallRvas[i]);
                 memcpy(site, originals[i], sizeof(originals[i]));
             }
-            FlushInstructionCache(
-                GetCurrentProcess(), first_site, protected_span);
-            rollback_ok = true;
+            rollback_ok = FlushInstructionCache(
+                GetCurrentProcess(), first_site, protected_span) != FALSE;
             for (size_t i = 0; i < site_count; ++i) {
                 BYTE* site = reinterpret_cast<BYTE*>(
                     eq_base + kActionsSkillPredicateCallRvas[i]);
@@ -996,9 +853,9 @@ static bool ApplyGuardedRelativeCall(
     if (write_attempted) {
         __try {
             memcpy(site, replacement, sizeof(replacement));
-            FlushInstructionCache(
-                GetCurrentProcess(), site, sizeof(replacement));
-            wrote = (memcmp(site, replacement, sizeof(replacement)) == 0);
+            wrote = FlushInstructionCache(
+                GetCurrentProcess(), site, sizeof(replacement)) != FALSE &&
+                (memcmp(site, replacement, sizeof(replacement)) == 0);
         } __except (EXCEPTION_EXECUTE_HANDLER) {
             wrote = false;
         }
@@ -1009,8 +866,8 @@ static bool ApplyGuardedRelativeCall(
         rollback_ok = false;
         __try {
             memcpy(site, expected, 5);
-            FlushInstructionCache(GetCurrentProcess(), site, 5);
-            rollback_ok = (memcmp(site, expected, 5) == 0);
+            rollback_ok = FlushInstructionCache(GetCurrentProcess(), site, 5) != FALSE &&
+                (memcmp(site, expected, 5) == 0);
         } __except (EXCEPTION_EXECUTE_HANDLER) {
             rollback_ok = false;
         }
@@ -1024,8 +881,8 @@ static bool ApplyGuardedRelativeCall(
             rollback_ok = false;
             __try {
                 memcpy(site, expected, 5);
-                FlushInstructionCache(GetCurrentProcess(), site, 5);
-                rollback_ok = (memcmp(site, expected, 5) == 0);
+                rollback_ok = FlushInstructionCache(GetCurrentProcess(), site, 5) != FALSE &&
+                (memcmp(site, expected, 5) == 0);
             } __except (EXCEPTION_EXECUTE_HANDLER) {
                 rollback_ok = false;
             }
@@ -1124,8 +981,8 @@ static bool RestoreGuardedRelativeCall(
     __try {
         if (memcmp(site, replacement, 5) == 0) {
             memcpy(site, expected, 5);
-            FlushInstructionCache(GetCurrentProcess(), site, 5);
-            restored = (memcmp(site, expected, 5) == 0);
+            const bool flushed = FlushInstructionCache(GetCurrentProcess(), site, 5) != FALSE;
+            restored = flushed && (memcmp(site, expected, 5) == 0);
         }
     } __except (EXCEPTION_EXECUTE_HANDLER) {
         restored = false;
@@ -1290,13 +1147,9 @@ static void ReliableWait(DWORD milliseconds)
 
 static FARPROC Real(const char* name)
 {
-    if (!g_real_dinput8) {
-        char path[MAX_PATH];
-        GetSystemDirectoryA(path, MAX_PATH);
-        strcat_s(path, "\\dinput8.dll");
-        g_real_dinput8 = LoadLibraryA(path);
-    }
-    return g_real_dinput8 ? GetProcAddress(g_real_dinput8, name) : nullptr;
+    EnsureInitialized();
+    for (size_t i = 0; i < 6; ++i) if (strcmp(name,kRealExportNames[i]) == 0) return g_real_exports[i];
+    return nullptr;
 }
 
 extern "C" {
@@ -1310,9 +1163,8 @@ HRESULT WINAPI DirectInput8Create(HINSTANCE hinst, DWORD dwVersion, REFIID riid,
 
 HRESULT WINAPI DllCanUnloadNow()
 {
-    typedef HRESULT(WINAPI* Fn)();
-    auto fn = (Fn)Real("DllCanUnloadNow");
-    return fn ? fn() : S_FALSE;
+    // Active hooks and the optional survey retain pointers into this module.
+    return S_FALSE;
 }
 
 HRESULT WINAPI DllGetClassObject(REFCLSID rclsid, REFIID riid, LPVOID* ppv)
@@ -1540,51 +1392,125 @@ static void PollWatchlist(HMODULE mq2, unsigned sample, ULONGLONG elapsed_second
     }
 }
 
-static DWORD WINAPI InitThread(LPVOID)
+__declspec(noreturn) static void StopClient(const char* reason)
 {
-    const DWORD pid = GetCurrentProcessId();
-    char log_name[MAX_PATH];
-    sprintf_s(log_name, "nightcap_dll_%lu.log", pid);
-    g_log = _fsopen(log_name, "w", _SH_DENYNO);
-    if (!g_log) {
-        return 0;
+    InterlockedExchange(&g_initialize_state,-1);
+    Log("REQUIRED STARTUP FAILURE: %s",reason);
+    nightcap::WriteHealth(g_client_directory,g_health,"failed",reason);
+    OutputDebugStringA("Nightcap required client initialization failed; see nightcap health/log files.\n");
+    TerminateProcess(GetCurrentProcess(),0x4E430001);
+    __fastfail(7); // A failed/redirected termination must never permit forwarding.
+}
+
+static void RequirePatch(size_t index, bool applied)
+{
+    if (!applied) StopClient(nightcap::kRequiredFeatures[index]);
+    g_health.applied_mask |= uint32_t(1) << index;
+}
+
+static BOOL CALLBACK InitializeRuntime(PINIT_ONCE, PVOID, PVOID*)
+{
+    InterlockedExchange(&g_initialize_owner,static_cast<LONG>(GetCurrentThreadId()));
+    // Pin before creating callbacks or writing a single hook. No dynamic unload.
+    HMODULE self = nullptr;
+    if (!GetModuleHandleExW(GET_MODULE_HANDLE_EX_FLAG_FROM_ADDRESS|GET_MODULE_HANDLE_EX_FLAG_PIN,
+            reinterpret_cast<LPCWSTR>(&InitializeRuntime),&self)) StopClient("module_pin");
+    wchar_t module_path[MAX_PATH],exe_path[MAX_PATH];
+    const DWORD module_length=GetModuleFileNameW(self,module_path,MAX_PATH);
+    const DWORD exe_length=GetModuleFileNameW(nullptr,exe_path,MAX_PATH);
+    if (!module_length||module_length>=MAX_PATH||!exe_length||exe_length>=MAX_PATH) StopClient("client_path");
+    wchar_t* separator=wcsrchr(module_path,L'\\');
+    const wchar_t* exe_separator=wcsrchr(exe_path,L'\\');
+    if (!separator||!exe_separator) StopClient("client_path");
+    const size_t directory_length=separator-module_path+1;
+    if (directory_length!=static_cast<size_t>(exe_separator-exe_path+1) ||
+        CompareStringOrdinal(module_path,static_cast<int>(directory_length),exe_path,static_cast<int>(directory_length),TRUE)!=CSTR_EQUAL) StopClient("proxy_location");
+    wcsncpy_s(g_client_directory,module_path,directory_length);
+    g_health.pid=GetCurrentProcessId();
+    FILETIME created,exited,kernel,user;
+    if (!GetProcessTimes(GetCurrentProcess(),&created,&exited,&kernel,&user)) StopClient("process_identity");
+    g_health.process_created=(static_cast<unsigned long long>(created.dwHighDateTime)<<32)|created.dwLowDateTime;
+    const DWORD nonce_size=GetEnvironmentVariableA("NIGHTCAP_LAUNCH_NONCE",g_health.nonce,sizeof(g_health.nonce));
+    if (nonce_size && (nonce_size!=32 || !nightcap::IsLowerHex(g_health.nonce,32))) {g_health.nonce[0]=0;StopClient("launch_nonce");}
+    wchar_t log_name[MAX_PATH];
+    if (swprintf_s(log_name,L"%snightcap_dll_%lu_%llu.log",g_client_directory,g_health.pid,g_health.process_created)<0) StopClient("log_path");
+    HANDLE log_file=CreateFileW(log_name,GENERIC_WRITE,FILE_SHARE_READ,nullptr,CREATE_NEW,FILE_ATTRIBUTE_NORMAL|FILE_FLAG_OPEN_REPARSE_POINT,nullptr);
+    if (log_file==INVALID_HANDLE_VALUE) StopClient("log_open");
+    const int log_fd=_open_osfhandle(reinterpret_cast<intptr_t>(log_file),_O_WRONLY|_O_TEXT);
+    if (log_fd==-1) {CloseHandle(log_file);StopClient("log_open");}
+    g_log=_fdopen(log_fd,"w");
+    if (!g_log) {_close(log_fd);StopClient("log_open");}
+    Log("Nightcap proxy %s initializing; pid=%lu",nightcap::kProxyVersion,g_health.pid);
+    if (!nightcap::WriteHealth(g_client_directory,g_health,"initializing","")) StopClient("health_write");
+    wchar_t config_path[MAX_PATH];
+    if (swprintf_s(config_path,L"%snightcap-patches.cfg",g_client_directory)<0) StopClient("configuration_path");
+    HANDLE config_file=CreateFileW(config_path,GENERIC_READ,FILE_SHARE_READ,nullptr,OPEN_EXISTING,FILE_FLAG_OPEN_REPARSE_POINT,nullptr);
+    if (config_file==INVALID_HANDLE_VALUE) StopClient("configuration_open");
+    BY_HANDLE_FILE_INFORMATION config_info;
+    char bytes[4097];DWORD count=0;
+    bool read_ok=GetFileInformationByHandle(config_file,&config_info)!=FALSE &&
+        !(config_info.dwFileAttributes&(FILE_ATTRIBUTE_REPARSE_POINT|FILE_ATTRIBUTE_DIRECTORY)) &&
+        config_info.nFileSizeHigh==0 && config_info.nFileSizeLow<=4096 &&
+        ReadFile(config_file,bytes,sizeof(bytes),&count,nullptr)!=FALSE && count==config_info.nFileSizeLow;
+    if (!CloseHandle(config_file)) read_ok=false;
+    if (!read_ok) StopClient("configuration_read");
+    if (!nightcap::DigestBytes(reinterpret_cast<BYTE*>(bytes),count,g_health.config_sha256)) StopClient("configuration_hash");
+    const char* config_reason=nullptr;
+    const bool config_ok=nightcap::ParseRuntimeConfig(bytes,count,g_config,config_reason);
+    g_health.enabled_mask=g_config.enabled_mask;
+    if (!config_ok) StopClient(config_reason);
+
+    WIN32_FILE_ATTRIBUTE_DATA attributes;
+    const bool size_ok=GetFileAttributesExW(exe_path,GetFileExInfoStandard,&attributes)!=FALSE &&
+        attributes.nFileSizeHigh==0 && attributes.nFileSizeLow==kExpectedEqgameSize;
+    const bool hash_ok=size_ok && VerifyEqgameSha256(exe_path);
+    if (!size_ok||!hash_ok) StopClient("unsupported_executable");
+    uintptr_t eq_base,eq_size;
+    GetModuleRange(GetModuleHandleW(nullptr),&eq_base,&eq_size);
+    g_eq_base=eq_base;
+    // Resolve every system export before any patch write or successful health.
+    wchar_t system_path[MAX_PATH];
+    const UINT system_length=GetSystemDirectoryW(system_path,MAX_PATH);
+    if (!system_length||system_length>=MAX_PATH||wcscat_s(system_path,L"\\dinput8.dll")) StopClient("system_library_path");
+    g_real_dinput8=LoadLibraryExW(system_path,nullptr,LOAD_LIBRARY_SEARCH_SYSTEM32);
+    if (!g_real_dinput8||g_real_dinput8==self) StopClient("system_library");
+    for (size_t i=0;i<6;++i) {g_real_exports[i]=GetProcAddress(g_real_dinput8,kRealExportNames[i]);if(!g_real_exports[i])StopClient("system_export");}
+    RequirePatch(nightcap::Feature_caster_chassis,ApplyCasterClassTablePatch(eq_base,size_ok && hash_ok));
+    RequirePatch(nightcap::Feature_combat_ability_window,ApplyCombatAbilityClassTablePatch(eq_base,size_ok && hash_ok));
+    RequirePatch(nightcap::Feature_actions_skills,ApplyActionsSkillPredicatePatch(eq_base,size_ok && hash_ok));
+    const bool use_skill_ok=ApplyUseSkillValuePatch(eq_base,size_ok && hash_ok);
+    RequirePatch(nightcap::Feature_skill_value,use_skill_ok);
+    const bool hotbutton_skill_ok=ApplyHotButtonSkillPredicatePatch(eq_base,use_skill_ok);
+    RequirePatch(nightcap::Feature_hotbutton_skills,hotbutton_skill_ok);
+    RequirePatch(nightcap::Feature_monk_attacks,ApplyMonkAttackActivationPatches(eq_base,hotbutton_skill_ok));
+    RequirePatch(nightcap::Feature_equipment,ApplyEquipSubmissionPatches(eq_base,size_ok && hash_ok));
+    const bool mana_hook_ok=ApplyMaxManaServerCacheHook(eq_base,size_ok && hash_ok);
+    RequirePatch(nightcap::Feature_mana_cache,mana_hook_ok);
+    RequirePatch(nightcap::Feature_mana_gauge,ApplyPlayerManaGaugePredicateHook(eq_base,mana_hook_ok));
+    if (g_health.applied_mask!=nightcap::kRequiredMask) StopClient("incomplete_patches");
+    if (g_config.mq2_survey) {
+        const uintptr_t thread=_beginthreadex(nullptr,0,SurveyThread,nullptr,0,nullptr);
+        g_health.mq2_survey=thread!=0;
+        if(thread)CloseHandle(reinterpret_cast<HANDLE>(thread));
+        else Log("Optional MQ2 survey disabled: thread creation failed");
     }
-    Log("Nightcap proxy loaded (B2 caster-chassis correction + offset survey)");
-    Log("pid: %lu | log: %s", pid, log_name);
+    if (!nightcap::WriteHealth(g_client_directory,g_health,"ready","")) StopClient("health_write");
+    InterlockedExchange(&g_initialize_state,1);
+    InterlockedExchange(&g_initialize_owner,0);
+    return TRUE;
+}
 
-    char exe_path[MAX_PATH];
-    GetModuleFileNameA(nullptr, exe_path, MAX_PATH);
-    Log("host process: %s", exe_path);
+static void EnsureInitialized()
+{
+    if (static_cast<DWORD>(InterlockedCompareExchange(&g_initialize_owner,0,0))==GetCurrentThreadId()) StopClient("recursive_initialization");
+    if (!InitOnceExecuteOnce(&g_initialize_once,InitializeRuntime,nullptr,nullptr) ||
+        InterlockedCompareExchange(&g_initialize_state,0,0)!=1) StopClient("initialization_failed");
+}
 
-    // A patch is permitted only when both immutable client checks pass.
-    WIN32_FILE_ATTRIBUTE_DATA fad;
-    bool size_ok = false;
-    if (GetFileAttributesExA(exe_path, GetFileExInfoStandard, &fad)) {
-        size_ok = (fad.nFileSizeLow == kExpectedEqgameSize && fad.nFileSizeHigh == 0);
-        Log("client size check: %s (%lu bytes)", size_ok ? "OK" : "MISMATCH",
-            fad.nFileSizeLow);
-    } else {
-        Log("client size check: UNREADABLE");
-    }
-
-    uintptr_t eq_base, eq_size;
-    GetModuleRange(GetModuleHandleA(nullptr), &eq_base, &eq_size);
-    g_eq_base = eq_base;
-    bool hash_ok = size_ok && VerifyEqgameSha256(exe_path);
-    Log("client sha256 check: %s", hash_ok ? "OK" : "MISMATCH OR UNREADABLE");
-    ApplyCasterClassTablePatch(eq_base, size_ok && hash_ok);
-    ApplyCombatAbilityClassTablePatch(eq_base, size_ok && hash_ok);
-    ApplyActionsSkillPredicatePatch(eq_base, size_ok && hash_ok);
-    const bool use_skill_ok =
-        ApplyUseSkillValuePatch(eq_base, size_ok && hash_ok);
-    const bool hotbutton_skill_ok =
-        ApplyHotButtonSkillPredicatePatch(eq_base, use_skill_ok);
-    ApplyMonkAttackActivationPatches(eq_base, hotbutton_skill_ok);
-    ApplyEquipSubmissionPatches(eq_base, size_ok && hash_ok);
-    const bool mana_hook_ok =
-        ApplyMaxManaServerCacheHook(eq_base, size_ok && hash_ok);
-    ApplyPlayerManaGaugePredicateHook(eq_base, mana_hook_ok);
-
+static unsigned __stdcall SurveyThread(void*)
+{
+    uintptr_t eq_base,eq_size;
+    GetModuleRange(GetModuleHandleW(nullptr),&eq_base,&eq_size);
     // Wait for MQ2 (user launches MacroQuest2.exe as usual); survey once, then
     // poll the watchlist so the HITL session captures instance lifecycles
     // (login caster -> windows non-null; camp to melee -> created or null?).
@@ -1646,16 +1572,9 @@ static DWORD WINAPI InitThread(LPVOID)
     return 0;
 }
 
-BOOL WINAPI DllMain(HINSTANCE hinst, DWORD reason, LPVOID)
+BOOL WINAPI DllMain(HINSTANCE, DWORD, LPVOID)
 {
-    if (reason == DLL_PROCESS_ATTACH) {
-        DisableThreadLibraryCalls(hinst);
-        // no loader-lock-unsafe work in DllMain; everything happens on the thread
-        HANDLE t = CreateThread(nullptr, 0, InitThread, nullptr, 0, nullptr);
-        if (t) CloseHandle(t);
-    } else if (reason == DLL_PROCESS_DETACH) {
-        if (g_log) { Log("Nightcap proxy unloading"); fclose(g_log); g_log = nullptr; }
-        if (g_real_dinput8) { FreeLibrary(g_real_dinput8); g_real_dinput8 = nullptr; }
-    }
+    // /MT and static TLS need CRT thread notifications. No loader-lock work,
+    // worker startup, pinning, logging, waiting, or detach cleanup belongs here.
     return TRUE;
 }

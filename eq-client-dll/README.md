@@ -2,7 +2,7 @@
 
 Client-side UI-chassis unlock for the True Multiclass epic (#10), Track B / issue #12.
 RoF2 auto-loads `dinput8.dll` from its own folder; this proxy forwards all
-DirectInput exports to the real system DLL and patches the client's exact
+DirectInput operations to the real system DLL (DllCanUnloadNow stays local) and patches the client's exact
 caster and combat-ability capability tables so any base class can reach the
 server-authorized UI chassis.
 
@@ -43,9 +43,10 @@ See [held-Monk evidence](../docs/qa/2026-07-29-held-monk-combat-qa.md) and
   server-granted skills. Feign Death and Mend retain their stock `UseSkill`
   handlers; the separate discipline window remains enabled but correctly empty
   for a character with no learned disciplines.
-- **Fail closed:** the patch requires the expected file size, full SHA-256, and
-  exact complete class-table signatures. Any mismatch leaves memory untouched
-  and is recorded in the per-process log.
+- **Runtime candidate (September 15):** synchronous first-export configuration and
+  patch checks, pinned lifetime, process-bound health and non-returning required
+  failure. The startup-order proof and actual launcher handshake remain open.
+  [Protocol and limits](../docs/adr/0033-bind-proxy-health-to-client-process.md).
 
 ## B2 final functional QA â€” passed 2026-07-19
 
@@ -109,13 +110,17 @@ special-attack submitter and then its stock skill-reuse sequence. The submitter
 still owns client target/state/animation behavior, and EQEmu still validates
 the packet, held classes, caps, range, reuse, damage, and skill-ups.
 
-## Deploy / test (dev client)
+## Candidate build and test
 
-1. Copy `build\dinput8.dll` next to `eqgame.exe` in
-   `Client_RoF2_Dev\everquest_rof2\`.
-2. Launch the client normally (desktop shortcut).
-3. The survey writes `nightcap_dll_<PID>.log` beside `eqgame.exe`. Separate EQ
-   clients get separate logs.
+The current candidate requires `config/nightcap-patches.cfg` beside the DLL;
+missing or disabled required settings terminate initialization. MQ2 surveying
+is optional and defaults off. Logs are `nightcap_dll_<PID>_<FILETIME>.log`; health
+is `nightcap_health_<PID>.json`. The installed client has not been updated.
+
+Build with `build.bat`, then `tests/build-runtime-tests.bat`, and run
+`python tests/test_runtime.py`. These checks use disposable fake hosts, never the
+real game. [Results and remaining release gates](../docs/milestones/phase-14-report.md).
+The dated B2 procedures below describe historical builds, not this candidate.
 
 ## B2 safe-build QA â€” passed 2026-07-19
 
@@ -182,7 +187,7 @@ Delete `dinput8.dll` from the client folder. Stock behavior restored (a backup
 
 ## Layout
 
-- `src/dllmain.cpp` â€” proxy + forwarding + init thread
+- `src/dllmain.cpp` â€” proxy + synchronous startup gate + optional survey worker
 - `src/dinput8.def` â€” export names
 - `build.bat` â€” x86 MSVC build
 - `third_party/` â€” cloned offset references (gitignored)
@@ -195,8 +200,8 @@ From the repo root, run `python tools/generate-client-patch-catalog.py --check`
 before the existing exact-client verifier/build. Update the catalog and verifier
 together, then run the generator without `--check` to refresh both outputs.
 
-`config/nightcap-patches.cfg` defines the launcher's required configuration
-contract. The current DLL does **not yet consume it**: runtime feature switches,
-versioned health, required-failure startup blocking and lifecycle hardening remain
-open. This change shares guard data without changing runtime patch behavior.
-[ADR 0032](../docs/adr/0032-share-client-patch-catalog-and-preflight.md).
+`config/nightcap-patches.cfg` defines required runtime settings; the candidate DLL
+consumes them before any patch writes. Generated `runtime_contract.h` binds the
+feature mask, catalog hash and proxy version to Go validation. Configuration and
+health alone do not prove startup ordering or full multiclass parity.
+[ADR 0033](../docs/adr/0033-bind-proxy-health-to-client-process.md).

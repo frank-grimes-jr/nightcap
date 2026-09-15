@@ -1,5 +1,15 @@
 # CHANGES
 
+## 2026-09-15 - Gate proxy forwarding on required runtime activation
+
+The candidate DLL now consumes strict configuration, pins its lifetime and blocks
+forwarding until all required patches succeed. Failures write process-bound
+health where possible and terminate; optional MQ2 surveying defaults off. Patch
+writers now check cache/protection failures. Added atomic health and Go validation
+plus native fault/disposable-host tests. No installed client changes. Startup
+ordering and the launcher process handshake remain release gates; Play is disabled.
+Design: docs/adr/0033-bind-proxy-health-to-client-process.md.
+
 ## 2026-09-15 - Require shared configuration and patch-site preflight
 
 Public client installation now requires manifest-bound configuration/catalog

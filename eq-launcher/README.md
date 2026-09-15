@@ -162,8 +162,10 @@ matching size/hash. Assemble them from `eq-client-dll/config/nightcap-patches.cf
 and `eq-client-dll/config/patch-sites.json` respectively. The catalog must match
 this launcher's embedded version. Required feature keys must all be explicitly
 `1`; optional `mq2_survey` may be `0` or `1`. Missing/duplicate/unknown keys fail.
-The DLL does not yet consume these configuration keys; runtime enforcement and
-health are the next implementation step.
+The candidate DLL consumes these configuration keys and emits process-bound
+health; the launcher validator rejects stale or incomplete reports. Actual launch
+process/nonce/health orchestration and startup-order proof remain unfinished.
+[Runtime protocol and limits](../docs/adr/0033-bind-proxy-health-to-client-process.md).
 
 Generate/check shared inputs from the repository root:
 

@@ -140,3 +140,14 @@ executable handle. C++ original-byte declarations and the Go embedded catalog ar
 generated from the same versioned input. The real-client diagnostic passes;
 Play stays false. [ADR 0032](../adr/0032-share-client-patch-catalog-and-preflight.md)
 records exact semantics and the remaining DLL config/runtime-health work.
+
+### Runtime activation and health
+
+The candidate proxy now consumes required config, serializes first-export
+initialization, pins its lifetime and terminates on required failure. Atomic
+health identifies process creation, nonce, config/catalog hashes and applied
+feature mask. Go rejects stale/incomplete reports. Native failure tests and
+cross-language agreement pass; [phase 14](../milestones/phase-14-report.md).
+Next: prove startup ordering relative to every patched consumer, then implement
+actual launcher process/nonce/health orchestration. Complete remaining parity and
+production release requirements from the original contract; Play remains disabled.

@@ -122,7 +122,7 @@ foreach ($requiredSafetyFragment in @(
 	'BYTE original[',
 	'memcpy(original, table, sizeof(original))',
 	'const bool write_attempted = pre_write_signature',
-	'rollback_ok = (memcmp(table, original, sizeof(original)) == 0)',
+	'rollback_ok = FlushInstructionCache(GetCurrentProcess(), table, sizeof(original)) != FALSE &&',
 	'bool protection_restored = VirtualProtect(',
 	'if (!protection_restored)',
 	'const bool retry_restored = VirtualProtect('
@@ -135,7 +135,7 @@ if ($combatBody.Contains('already_applied')) {
 	throw 'Combat-ability patch must not trust an all-zero table from another modifier.'
 }
 
-if (-not $compactSource.Contains('_fsopen(log_name,"w",_SH_DENYNO)')) {
+if (-not $compactSource.Contains('CreateFileW(log_name,GENERIC_WRITE,FILE_SHARE_READ,nullptr,CREATE_NEW,FILE_ATTRIBUTE_NORMAL|FILE_FLAG_OPEN_REPARSE_POINT,nullptr)')) {
 	throw 'DLL diagnostic log must permit live shared reads.'
 }
 
@@ -156,7 +156,7 @@ foreach ($requiredSafetyFragment in @(
 	'constboolwrite_attempted=pre_write_signature',
 	'if(write_attempted&&!wrote)',
 	'FlushInstructionCache(',
-	'rollback_ok=(memcmp(site,expected,5)==0)',
+	'rollback_ok=FlushInstructionCache(GetCurrentProcess(),site,5)!=FALSE&&',
 	'boolprotection_restored=VirtualProtect(',
 	'if(!protection_restored)',
 	'constboolretry_restored=VirtualProtect('

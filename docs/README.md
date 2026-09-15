@@ -23,6 +23,7 @@ Start with [current status](status.md), not a dated candidate report.
 
 ## Evidence and design
 
+- [Proxy runtime activation and health evidence](milestones/phase-14-report.md)
 - [Client delivery development plan](ops/client-delivery-plan.md)
 - [Shared patch/configuration preflight evidence](milestones/phase-13-report.md)
 - [Windows launcher build and UI evidence](milestones/phase-12-report.md)
