@@ -81,7 +81,8 @@ equipment-submission DLL candidate. The proxy now consumes configuration and
 emits process-bound health through synchronous first-export initialization.
 The launcher validates that protocol. A new native entrypoint bootstrap passes
 disposable-process tests, including actual candidate rejection before main.
-Signed launch orchestration and supported-game startup acceptance remain required
+Go session orchestration now joins the signed launch lease to native health
+approval. Wails integration and supported-game startup acceptance remain required
 before Play.
 Automated fixture tests and independent reviews pass; no new client binary has
 been deployed. Native launcher QA, release signing/hardening, remaining client gates
@@ -94,6 +95,8 @@ The launcher now prepares a cached signed release through retained Windows read
 locks, including exact executable/config/catalog preflight and validated PE
 entry/initializer metadata. The locks allow execution while excluding updates
 and path replacement. The native x86 helper now passes private-pipe approval and
-owned-session failure tests. Signed helper inventory and Go process/health
-orchestration remain pending; Play remains disabled.
-[Current evidence](milestones/phase-18-report.md).
+owned-session failure tests. Go now requires signed helper inventory, validates
+actual process-bound health and retains lease/job ownership through session exit.
+Wails wiring, production release policy and supported-game acceptance remain
+pending; Play remains disabled.
+[Current evidence](milestones/phase-19-report.md).

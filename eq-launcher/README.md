@@ -163,8 +163,8 @@ and `eq-client-dll/config/patch-sites.json` respectively. The catalog must match
 this launcher's embedded version. Required feature keys must all be explicitly
 `1`; optional `mq2_survey` may be `0` or `1`. Missing/duplicate/unknown keys fail.
 The candidate DLL consumes these configuration keys and emits process-bound
-health; the launcher validator rejects stale or incomplete reports. Actual launch
-process/nonce/health orchestration and startup-order proof remain unfinished.
+health; the launcher validator rejects stale or incomplete reports. The Go session owner now performs process/nonce/health orchestration; Wails wiring
+and supported-game startup-order proof remain unfinished.
 [Runtime protocol and limits](../docs/adr/0033-bind-proxy-health-to-client-process.md).
 
 Generate/check shared inputs from the repository root:
@@ -192,17 +192,16 @@ to include the read-only real-executable integration case; otherwise it skips.
 ### Startup timing integration
 
 The native x86 entrypoint gate now passes disposable-process tests, including the
-actual candidate DLL rejecting an unsupported host before main. It is not yet
-connected to this launcher. The next launch path must retain verified asset locks,
-create a private nonce, bind health to the actual process handle, and transfer
-process/job ownership safely before enabling Play.
+actual candidate DLL rejecting an unsupported host before main. The Go session
+backend now joins this helper to the verified lease and process-bound health.
+Wails Play integration and supported-game acceptance remain open.
 [Bootstrap contract](../docs/adr/0034-initialize-proxy-before-client-entry.md).
 
 ### Offline launch preparation
 
 `installer.PrepareLaunch(ctx, directory, trust)` returns an owned `LaunchLease`
 after checking cached signature/expiry/release floor, all managed files, required
-config/catalog/proxy, exact executable and patch sites. Retained Windows handles
+config/catalog/proxy/helper, exact executable and patch sites. Retained Windows handles
 allow reads/execution but block writes, replacement and ancestor renames. Keep
 the lease alive for the entire game session; close on failure or session end.
 User settings remain writable. UNC/reparse paths are rejected.
@@ -212,14 +211,29 @@ proxy must be a conventional aligned PE32 DLL with a direct, unique initializer
 in persistent read-only executable code; malformed or forwarded exports fail.
 Files are bounded to 16 MiB for the proxy and 256 MiB for the loaded image.
 
-This is a backend preparation boundary, not an enabled Play path. Helper/health
-IPC and process/job ownership still require integration. Set both
-`NIGHTCAP_TEST_EQGAME` and `NIGHTCAP_TEST_PROXY` for the actual-image Go tests;
+This is a backend preparation boundary, not an enabled Play path. Set
+`NIGHTCAP_TEST_EQGAME`, `NIGHTCAP_TEST_PROXY` and `NIGHTCAP_TEST_HELPER` for
+the actual-image Go tests;
 they read the originals and prepare disposable copies without launching the game.
 [Contract and limits](../docs/adr/0035-hold-verified-files-through-client-launch.md).
 
-The native helper now implements the private pipe/session side of this boundary.
-[Wire and ownership contract](../eq-client-dll/bootstrap/README.md). The Go owner
-still needs to supply explicit inherited handles, validate process-bound health
-before approval, and retain the lease until the session ends. Its cancellation
-path must close helper stdin or terminate the owned helper.
+### Owned session backend
+
+`session.Start(ctx, directory, trust)` prepares the signed generation, starts its
+required `nightcap-bootstrap.exe`, supplies explicit inherited handles and a fresh
+private nonce, and validates actual child identity/health before approval.
+Start's context controls startup only. The returned Session supplies Identity,
+Done, Wait(ctx) and concurrent/idempotent Close(ctx). Close cancels the owned
+session; a caller timeout leaves cleanup and verified file locks retained.
+An outer Windows job covers even helper death before the child PID is known.
+All owned processes must exit before the lease closes. Unexpected cleanup errors
+are reported; a clean requested stop succeeds.
+
+Build `eq-client-dll/tests/build-helper-tests.bat` before native session tests.
+`NIGHTCAP_TEST_HELPER` points to the built helper with sibling test fixtures;
+those tests execute disposable fixtures only. Public Start still requires the
+exact supported game identity and signed generation. The Wails controller has
+not yet wired this backend into Play; production release policy and supported-game
+acceptance remain open. [Wire contract](../eq-client-dll/bootstrap/README.md),
+[ownership decision](../docs/adr/0036-own-bootstrap-session-in-go.md) and
+[evidence](../docs/milestones/phase-19-report.md).

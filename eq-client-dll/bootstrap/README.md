@@ -75,3 +75,13 @@ python eq-client-dll/tests/test_helper.py
 The actual-proxy rejection case additionally requires `eq-client-dll/build.bat`.
 All game-shaped executables are disposable fixtures, including the file named
 `eqgame.exe`; the installed client is never started by this test suite.
+
+## Go owner integration
+
+The candidate `eq-launcher/internal/session` package now implements this protocol.
+It requires the helper in the verified signed inventory, assigns an outer Windows
+job before sending a request, validates actual process-bound health before ACK,
+and retains the launch lease until all owned processes terminate. Wails Play
+wiring and supported-game acceptance remain pending. See
+[ADR 0036](../../docs/adr/0036-own-bootstrap-session-in-go.md) and
+[phase 19 evidence](../../docs/milestones/phase-19-report.md).

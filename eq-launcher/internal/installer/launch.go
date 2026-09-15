@@ -10,6 +10,8 @@ import (
 	"nightcap/eq-launcher/internal/preflight"
 )
 
+const HelperPath = "nightcap-bootstrap.exe"
+
 // LaunchLease owns a verified local generation. It is not runtime approval:
 // the bootstrap still must initialize the owned child and obtain matching
 // health before releasing its entrypoint.
@@ -30,6 +32,7 @@ func (l *LaunchLease) ManifestDigest() string                 { return l.digest 
 func (l *LaunchLease) ConfigDigest() string                   { return l.configDigest }
 func (l *LaunchLease) Executable() launchlock.File            { return l.files["eqgame.exe"] }
 func (l *LaunchLease) Proxy() launchlock.File                 { return l.files["dinput8.dll"] }
+func (l *LaunchLease) Helper() launchlock.File                { return l.files[HelperPath] }
 func (l *LaunchLease) Bootstrap() preflight.BootstrapMetadata { return l.bootstrap }
 
 // PrepareLaunch performs no network requests or writes. Trust must come from
@@ -60,8 +63,11 @@ func PrepareLaunch(ctx context.Context, directory string, trust manifest.Trust) 
 	if err != nil {
 		return nil, err
 	}
-	requiredProxy := false
+	requiredProxy, requiredHelper := false, false
 	for _, entry := range m.Files {
+		if entry.Path == HelperPath && entry.Required {
+			requiredHelper = true
+		}
 		if entry.Path == "dinput8.dll" && entry.Required {
 			requiredProxy = true
 		}
@@ -69,11 +75,17 @@ func PrepareLaunch(ctx context.Context, directory string, trust manifest.Trust) 
 	if !requiredProxy {
 		return nil, fmt.Errorf("missing required proxy")
 	}
+	if !requiredHelper {
+		return nil, fmt.Errorf("missing required bootstrap helper")
+	}
 	if _, err = preflight.CheckOpen(lease.Executable(), config, catalog); err != nil {
 		return nil, err
 	}
 	lease.bootstrap, err = preflight.BootstrapOpen(lease.Executable(), lease.Proxy())
 	if err != nil {
+		return nil, err
+	}
+	if err = preflight.CheckHelperOpen(lease.Helper()); err != nil {
 		return nil, err
 	}
 	if err = ctx.Err(); err != nil {

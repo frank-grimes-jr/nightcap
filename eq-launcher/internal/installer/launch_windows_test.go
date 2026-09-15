@@ -45,6 +45,7 @@ func newLaunchFixture(t *testing.T) *launchFixture {
 		{preflight.ConfigPath, config, true},
 		{preflight.CatalogPath, preflight.Catalog(), true},
 		{"uifiles/nightcap/window.xml", []byte("fixture UI"), false},
+		{HelperPath, []byte("fixture helper bytes"), true},
 	} {
 		put(t, f.dir, item.name, string(item.data))
 		f.m.Files = append(f.m.Files, manifest.File{Path: item.name, Size: int64(len(item.data)), SHA256: manifest.Digest(item.data), URL: "https://release.test/" + item.name, Required: item.required})
@@ -140,7 +141,7 @@ func TestLockedGenerationRetainsCheckpointAndEveryAsset(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	if lease.Release() != 2 || len(m.Files) != 4 || lease.Proxy() == nil {
+	if lease.Release() != 2 || len(m.Files) != 5 || lease.Proxy() == nil {
 		t.Fatal("wrong lease")
 	}
 	names := []string{"eqgame.exe", ".nightcap/active.json"}
@@ -170,6 +171,16 @@ func TestPrepareLaunchRejectsPreflightAndReleasesLocks(t *testing.T) {
 		{"missing required config", "preflight asset", func(t *testing.T, f *launchFixture) {
 			f.m.Files[1].Required = false
 			f.trust.Inventory[preflight.ConfigPath] = false
+			f.sign(t)
+		}},
+		{"optional helper", "required bootstrap helper", func(t *testing.T, f *launchFixture) {
+			f.m.Files[4].Required = false
+			f.trust.Inventory[HelperPath] = false
+			f.sign(t)
+		}},
+		{"missing helper inventory", "required bootstrap helper", func(t *testing.T, f *launchFixture) {
+			f.m.Files = f.m.Files[:4]
+			delete(f.trust.Inventory, HelperPath)
 			f.sign(t)
 		}},
 		{"optional proxy", "required proxy", func(t *testing.T, f *launchFixture) {
@@ -219,9 +230,9 @@ func TestLaunchCancellation(t *testing.T) {
 	}
 }
 func TestPrepareLaunchSupportedClientOffline(t *testing.T) {
-	source, proxySource := os.Getenv("NIGHTCAP_TEST_EQGAME"), os.Getenv("NIGHTCAP_TEST_PROXY")
-	if source == "" || proxySource == "" {
-		t.Skip("set NIGHTCAP_TEST_EQGAME and NIGHTCAP_TEST_PROXY for disposable copies; never executes the game")
+	source, proxySource, helperSource := os.Getenv("NIGHTCAP_TEST_EQGAME"), os.Getenv("NIGHTCAP_TEST_PROXY"), os.Getenv("NIGHTCAP_TEST_HELPER")
+	if source == "" || proxySource == "" || helperSource == "" {
+		t.Skip("set NIGHTCAP_TEST_EQGAME, NIGHTCAP_TEST_PROXY and NIGHTCAP_TEST_HELPER for disposable copies; never executes the game")
 	}
 	data, err := os.ReadFile(source)
 	if err != nil {
@@ -234,6 +245,11 @@ func TestPrepareLaunchSupportedClientOffline(t *testing.T) {
 		t.Fatal(err)
 	}
 	f.changeSigned(t, "dinput8.dll", string(proxy))
+	helper, err := os.ReadFile(helperSource)
+	if err != nil {
+		t.Fatal(err)
+	}
+	f.changeSigned(t, HelperPath, string(helper))
 	lease, err := PrepareLaunch(context.Background(), f.dir, f.trust)
 	if err != nil {
 		t.Fatal(err)

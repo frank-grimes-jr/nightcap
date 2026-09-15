@@ -259,3 +259,19 @@ func exportName(data []byte, file *pe.File, rva uint32) (string, error) {
 	}
 	return "", fmt.Errorf("invalid or unterminated proxy export name")
 }
+
+// CheckHelperOpen checks the signed helper's conventional x86 executable shape.
+// The inventory signature/hash, not this shape check, establishes authenticity.
+func CheckHelperOpen(file ImageFile) error {
+	data, err := readBootstrapImage(file, MaxProxyBytes)
+	if err != nil {
+		return err
+	}
+	executable, optional, err := bootstrapPE(data, false)
+	if err != nil {
+		return err
+	}
+	defer executable.Close()
+	_, err = bootstrapCode(data, executable, optional.AddressOfEntryPoint)
+	return err
+}

@@ -23,6 +23,8 @@ Start with [current status](status.md), not a dated candidate report.
 
 ## Evidence and design
 
+- [Go session ownership and health integration](milestones/phase-19-report.md)
+
 - [Native helper protocol and session evidence](milestones/phase-18-report.md)
 
 - [Validated bootstrap PE metadata](milestones/phase-17-report.md)

@@ -250,3 +250,33 @@ func FuzzBootstrapPE(f *testing.F) {
 		bootstrapEntry(data)
 	})
 }
+
+func TestHelperExecutableShape(t *testing.T) {
+	for _, tc := range []struct {
+		name  string
+		data  []byte
+		valid bool
+	}{
+		{"executable", bootstrapFixture(false), true},
+		{"DLL", bootstrapFixture(true), false},
+		{"truncated", []byte("MZ"), false},
+	} {
+		t.Run(tc.name, func(t *testing.T) {
+			path := filepath.Join(t.TempDir(), "helper.exe")
+			if err := os.WriteFile(path, tc.data, 0600); err != nil {
+				t.Fatal(err)
+			}
+			file, err := os.Open(path)
+			if err != nil {
+				t.Fatal(err)
+			}
+			defer file.Close()
+			if err := CheckHelperOpen(file); (err == nil) != tc.valid {
+				t.Fatalf("valid=%v: %v", tc.valid, err)
+			}
+			if _, err := file.Stat(); err != nil {
+				t.Fatal("borrowed handle closed", err)
+			}
+		})
+	}
+}

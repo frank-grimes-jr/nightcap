@@ -1,5 +1,15 @@
 # CHANGES
 
+## 2026-09-15 - Own verified bootstrap sessions in the launcher backend
+
+The Go session owner now requires the helper in signed inventory, supplies private
+nonce/handles, validates actual process-bound health before startup approval and
+retains verified files through session exit. An outer Windows job covers helper
+failure before child PID publication. Concurrent cancellation preserves ownership
+and reports cleanup errors. Native fixtures and desktop Go checks pass; Wails
+Play wiring, signing and supported-game acceptance remain open. No live client
+deployment. [Evidence](docs/milestones/phase-19-report.md).
+
 ## 2026-09-15 - Add native bootstrap helper and session protocol
 
 Built the x86 helper around the pre-entry gate, with bounded inherited-pipe

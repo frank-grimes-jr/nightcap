@@ -179,7 +179,17 @@ The production and full parity contract above remains unchanged.
 The x86 helper wraps the entry gate with bounded inherited-pipe messages and
 retains the owned process/job through session exit. Parent loss and stdin closure
 terminate its owned session. [Phase 18](../milestones/phase-18-report.md).
-Next: bind the helper into required signed inventory, implement the Go owner and
-strict response state machine, validate actual process-bound health before ACK,
-and connect cancellation/session lifetime while retaining the launch lease.
+The Go owner now requires signed helper inventory, validates process-bound health
+before ACK and retains the launch lease through termination.
 The unsigned native fixture success is not Play or supported-game acceptance.
+
+### Go session ownership
+
+`session.Start` now joins offline preparation to the native helper with private
+nonce/handles, strict ordered responses and health approval. An outer Windows job
+contains unreported children; cleanup confirms all owned processes terminated
+before releasing files. Startup context is separate from established-session
+Close/Wait. [Phase 19](../milestones/phase-19-report.md).
+Next: wire this backend into Wails session state/cancellation, provision a trusted
+candidate release, prove supported-game bootstrap and complete the remaining
+parity/release/owner-acceptance contract. Default Play remains disabled.
