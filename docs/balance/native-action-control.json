@@ -1,0 +1,452 @@
+{
+  "native_report_sha256": "d0e017ca6c6b6c8b1fea3ff15c6ba69575ecb9f5c295c15b8dfee0839524dc8b",
+  "engine_sha256": "ce65e940bf10b860a58b0ed6e78f1b50f287bb997091aebb44c9ac9997d7c0f5",
+  "scope": "Sampled Ice Comet actions against an inert unlimited-resource control; no boss AI or encounter certification",
+  "controls": [
+    {
+      "aa_stage": "0",
+      "runs": 2000,
+      "first_seed": 0,
+      "last_seed": 1999,
+      "duration_ms": 60000,
+      "casts_per_trial": 9,
+      "mana_per_trial": 1611,
+      "accounting_exact": true,
+      "expected_mean_damage": 18218.40380859375,
+      "observed_mean_damage": 18226.2475,
+      "mean_standard_error": 75.25152324869705,
+      "z_score": 0.1042329918070744,
+      "passed": true,
+      "first_trace": [
+        {
+          "time_ms": 0,
+          "actor": "native-action control caster",
+          "action": "Ice Comet:start",
+          "amount": 203,
+          "player_hp": 1000000000,
+          "player_mana": 1000000000,
+          "enemy_hp": 1000000000,
+          "enemy_mana": 0
+        },
+        {
+          "time_ms": 5000,
+          "actor": "native-action control caster",
+          "action": "Ice Comet",
+          "amount": 2828,
+          "player_hp": 1000000000,
+          "player_mana": 999999821,
+          "enemy_hp": 999997172,
+          "enemy_mana": 0
+        },
+        {
+          "time_ms": 6500,
+          "actor": "native-action control caster",
+          "action": "Ice Comet:start",
+          "amount": 203,
+          "player_hp": 1000000000,
+          "player_mana": 999999821,
+          "enemy_hp": 999997172,
+          "enemy_mana": 0
+        },
+        {
+          "time_ms": 11500,
+          "actor": "native-action control caster",
+          "action": "Ice Comet",
+          "amount": 2828,
+          "player_hp": 1000000000,
+          "player_mana": 999999642,
+          "enemy_hp": 999994344,
+          "enemy_mana": 0
+        },
+        {
+          "time_ms": 13000,
+          "actor": "native-action control caster",
+          "action": "Ice Comet:start",
+          "amount": 203,
+          "player_hp": 1000000000,
+          "player_mana": 999999642,
+          "enemy_hp": 999994344,
+          "enemy_mana": 0
+        },
+        {
+          "time_ms": 18000,
+          "actor": "native-action control caster",
+          "action": "Ice Comet",
+          "amount": 2828,
+          "player_hp": 1000000000,
+          "player_mana": 999999463,
+          "enemy_hp": 999991516,
+          "enemy_mana": 0
+        },
+        {
+          "time_ms": 19500,
+          "actor": "native-action control caster",
+          "action": "Ice Comet:start",
+          "amount": 203,
+          "player_hp": 1000000000,
+          "player_mana": 999999463,
+          "enemy_hp": 999991516,
+          "enemy_mana": 0
+        },
+        {
+          "time_ms": 24500,
+          "actor": "native-action control caster",
+          "action": "Ice Comet",
+          "amount": 1158,
+          "player_hp": 1000000000,
+          "player_mana": 999999284,
+          "enemy_hp": 999990358,
+          "enemy_mana": 0
+        },
+        {
+          "time_ms": 26000,
+          "actor": "native-action control caster",
+          "action": "Ice Comet:start",
+          "amount": 203,
+          "player_hp": 1000000000,
+          "player_mana": 999999284,
+          "enemy_hp": 999990358,
+          "enemy_mana": 0
+        },
+        {
+          "time_ms": 31000,
+          "actor": "native-action control caster",
+          "action": "Ice Comet",
+          "amount": 2828,
+          "player_hp": 1000000000,
+          "player_mana": 999999105,
+          "enemy_hp": 999987530,
+          "enemy_mana": 0
+        },
+        {
+          "time_ms": 32500,
+          "actor": "native-action control caster",
+          "action": "Ice Comet:start",
+          "amount": 203,
+          "player_hp": 1000000000,
+          "player_mana": 999999105,
+          "enemy_hp": 999987530,
+          "enemy_mana": 0
+        },
+        {
+          "time_ms": 37500,
+          "actor": "native-action control caster",
+          "action": "Ice Comet",
+          "amount": 2656,
+          "player_hp": 1000000000,
+          "player_mana": 999998926,
+          "enemy_hp": 999984874,
+          "enemy_mana": 0
+        },
+        {
+          "time_ms": 39000,
+          "actor": "native-action control caster",
+          "action": "Ice Comet:start",
+          "amount": 203,
+          "player_hp": 1000000000,
+          "player_mana": 999998926,
+          "enemy_hp": 999984874,
+          "enemy_mana": 0
+        },
+        {
+          "time_ms": 44000,
+          "actor": "native-action control caster",
+          "action": "Ice Comet",
+          "amount": 2828,
+          "player_hp": 1000000000,
+          "player_mana": 999998747,
+          "enemy_hp": 999982046,
+          "enemy_mana": 0
+        },
+        {
+          "time_ms": 45500,
+          "actor": "native-action control caster",
+          "action": "Ice Comet:start",
+          "amount": 203,
+          "player_hp": 1000000000,
+          "player_mana": 999998747,
+          "enemy_hp": 999982046,
+          "enemy_mana": 0
+        },
+        {
+          "time_ms": 50500,
+          "actor": "native-action control caster",
+          "action": "Ice Comet",
+          "amount": 1610,
+          "player_hp": 1000000000,
+          "player_mana": 999998568,
+          "enemy_hp": 999980436,
+          "enemy_mana": 0
+        },
+        {
+          "time_ms": 52000,
+          "actor": "native-action control caster",
+          "action": "Ice Comet:start",
+          "amount": 203,
+          "player_hp": 1000000000,
+          "player_mana": 999998568,
+          "enemy_hp": 999980436,
+          "enemy_mana": 0
+        },
+        {
+          "time_ms": 57000,
+          "actor": "native-action control caster",
+          "action": "Ice Comet",
+          "amount": 2828,
+          "player_hp": 1000000000,
+          "player_mana": 999998389,
+          "enemy_hp": 999977608,
+          "enemy_mana": 0
+        },
+        {
+          "time_ms": 58500,
+          "actor": "native-action control caster",
+          "action": "Ice Comet:start",
+          "amount": 203,
+          "player_hp": 1000000000,
+          "player_mana": 999998389,
+          "enemy_hp": 999977608,
+          "enemy_mana": 0
+        }
+      ]
+    },
+    {
+      "aa_stage": "all",
+      "runs": 2000,
+      "first_seed": 0,
+      "last_seed": 1999,
+      "duration_ms": 60000,
+      "casts_per_trial": 11,
+      "mana_per_trial": 1639,
+      "accounting_exact": true,
+      "expected_mean_damage": 62375.9833984375,
+      "observed_mean_damage": 62229.0905,
+      "mean_standard_error": 263.7067744790158,
+      "z_score": -0.5570311901455927,
+      "passed": true,
+      "first_trace": [
+        {
+          "time_ms": 0,
+          "actor": "native-action control caster",
+          "action": "Ice Comet:start",
+          "amount": 203,
+          "player_hp": 1000000000,
+          "player_mana": 1000000000,
+          "enemy_hp": 1000000000,
+          "enemy_mana": 0
+        },
+        {
+          "time_ms": 4000,
+          "actor": "native-action control caster",
+          "action": "Ice Comet",
+          "amount": 8833,
+          "player_hp": 1000000000,
+          "player_mana": 999999851,
+          "enemy_hp": 999991167,
+          "enemy_mana": 0
+        },
+        {
+          "time_ms": 5500,
+          "actor": "native-action control caster",
+          "action": "Ice Comet:start",
+          "amount": 203,
+          "player_hp": 1000000000,
+          "player_mana": 999999851,
+          "enemy_hp": 999991167,
+          "enemy_mana": 0
+        },
+        {
+          "time_ms": 9500,
+          "actor": "native-action control caster",
+          "action": "Ice Comet",
+          "amount": 8833,
+          "player_hp": 1000000000,
+          "player_mana": 999999702,
+          "enemy_hp": 999982334,
+          "enemy_mana": 0
+        },
+        {
+          "time_ms": 11000,
+          "actor": "native-action control caster",
+          "action": "Ice Comet:start",
+          "amount": 203,
+          "player_hp": 1000000000,
+          "player_mana": 999999702,
+          "enemy_hp": 999982334,
+          "enemy_mana": 0
+        },
+        {
+          "time_ms": 15000,
+          "actor": "native-action control caster",
+          "action": "Ice Comet",
+          "amount": 5284,
+          "player_hp": 1000000000,
+          "player_mana": 999999553,
+          "enemy_hp": 999977050,
+          "enemy_mana": 0
+        },
+        {
+          "time_ms": 16500,
+          "actor": "native-action control caster",
+          "action": "Ice Comet:start",
+          "amount": 203,
+          "player_hp": 1000000000,
+          "player_mana": 999999553,
+          "enemy_hp": 999977050,
+          "enemy_mana": 0
+        },
+        {
+          "time_ms": 20500,
+          "actor": "native-action control caster",
+          "action": "Ice Comet",
+          "amount": 2785,
+          "player_hp": 1000000000,
+          "player_mana": 999999404,
+          "enemy_hp": 999974265,
+          "enemy_mana": 0
+        },
+        {
+          "time_ms": 22000,
+          "actor": "native-action control caster",
+          "action": "Ice Comet:start",
+          "amount": 203,
+          "player_hp": 1000000000,
+          "player_mana": 999999404,
+          "enemy_hp": 999974265,
+          "enemy_mana": 0
+        },
+        {
+          "time_ms": 26000,
+          "actor": "native-action control caster",
+          "action": "Ice Comet",
+          "amount": 8392,
+          "player_hp": 1000000000,
+          "player_mana": 999999255,
+          "enemy_hp": 999965873,
+          "enemy_mana": 0
+        },
+        {
+          "time_ms": 27500,
+          "actor": "native-action control caster",
+          "action": "Ice Comet:start",
+          "amount": 203,
+          "player_hp": 1000000000,
+          "player_mana": 999999255,
+          "enemy_hp": 999965873,
+          "enemy_mana": 0
+        },
+        {
+          "time_ms": 31500,
+          "actor": "native-action control caster",
+          "action": "Ice Comet",
+          "amount": 4687,
+          "player_hp": 1000000000,
+          "player_mana": 999999106,
+          "enemy_hp": 999961186,
+          "enemy_mana": 0
+        },
+        {
+          "time_ms": 33000,
+          "actor": "native-action control caster",
+          "action": "Ice Comet:start",
+          "amount": 203,
+          "player_hp": 1000000000,
+          "player_mana": 999999106,
+          "enemy_hp": 999961186,
+          "enemy_mana": 0
+        },
+        {
+          "time_ms": 37000,
+          "actor": "native-action control caster",
+          "action": "Ice Comet",
+          "amount": 8833,
+          "player_hp": 1000000000,
+          "player_mana": 999998957,
+          "enemy_hp": 999952353,
+          "enemy_mana": 0
+        },
+        {
+          "time_ms": 38500,
+          "actor": "native-action control caster",
+          "action": "Ice Comet:start",
+          "amount": 203,
+          "player_hp": 1000000000,
+          "player_mana": 999998957,
+          "enemy_hp": 999952353,
+          "enemy_mana": 0
+        },
+        {
+          "time_ms": 42500,
+          "actor": "native-action control caster",
+          "action": "Ice Comet",
+          "amount": 3036,
+          "player_hp": 1000000000,
+          "player_mana": 999998808,
+          "enemy_hp": 999949317,
+          "enemy_mana": 0
+        },
+        {
+          "time_ms": 44000,
+          "actor": "native-action control caster",
+          "action": "Ice Comet:start",
+          "amount": 203,
+          "player_hp": 1000000000,
+          "player_mana": 999998808,
+          "enemy_hp": 999949317,
+          "enemy_mana": 0
+        },
+        {
+          "time_ms": 48000,
+          "actor": "native-action control caster",
+          "action": "Ice Comet",
+          "amount": 7186,
+          "player_hp": 1000000000,
+          "player_mana": 999998659,
+          "enemy_hp": 999942131,
+          "enemy_mana": 0
+        },
+        {
+          "time_ms": 49500,
+          "actor": "native-action control caster",
+          "action": "Ice Comet:start",
+          "amount": 203,
+          "player_hp": 1000000000,
+          "player_mana": 999998659,
+          "enemy_hp": 999942131,
+          "enemy_mana": 0
+        },
+        {
+          "time_ms": 53500,
+          "actor": "native-action control caster",
+          "action": "Ice Comet",
+          "amount": 8833,
+          "player_hp": 1000000000,
+          "player_mana": 999998510,
+          "enemy_hp": 999933298,
+          "enemy_mana": 0
+        },
+        {
+          "time_ms": 55000,
+          "actor": "native-action control caster",
+          "action": "Ice Comet:start",
+          "amount": 203,
+          "player_hp": 1000000000,
+          "player_mana": 999998510,
+          "enemy_hp": 999933298,
+          "enemy_mana": 0
+        },
+        {
+          "time_ms": 59000,
+          "actor": "native-action control caster",
+          "action": "Ice Comet",
+          "amount": 8833,
+          "player_hp": 1000000000,
+          "player_mana": 999998361,
+          "enemy_hp": 999924465,
+          "enemy_mana": 0
+        }
+      ]
+    }
+  ],
+  "passed": true
+}

@@ -1,0 +1,25 @@
+{
+  "files": {
+    "balance-zone": {
+      "sha256": "e46a277f4c67f4eab6b725244b8f94b6d14de3020a59ea9e21578a9bf55385f9",
+      "bytes": 79250592
+    },
+    "inputs.json": {
+      "sha256": "12386f64f4d7c8363a8e212240de4c66c3b7669e149f7e80a549fa2d793c066b",
+      "bytes": 152434
+    },
+    "results.json": {
+      "sha256": "e75df1f0e599a4986799122497d27ce554366e3e48240fb49228a8ceec74c5d4",
+      "bytes": 7388
+    },
+    "shared/items": {
+      "sha256": "0422e5f58f6f76b8dc29a86b8ac9ace1d56a856094949250e8e2848dff795454",
+      "bytes": 412620696
+    },
+    "shared/spells": {
+      "sha256": "8b7de892471fa2539aebb9e995d41ca2315cf339b187a700a964a7ee6bcc0570",
+      "bytes": 107714188
+    }
+  },
+  "scope": "Isolated runtime artifacts used by the equipped-stat diagnostic; configuration credentials excluded"
+}

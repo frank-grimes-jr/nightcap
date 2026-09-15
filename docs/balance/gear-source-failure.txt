@@ -1,0 +1,12 @@
+  File "/tmp/nightcap-balance-20260912/pet_controls.py", line 120, in run
+    summary = summarize_case(case, report)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/nightcap-balance-20260912/release_pool_controls.py", line 95, in summarize
+    native = pet_summary(case, report)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/nightcap-balance-20260912/pet_belly_controls.py", line 23, in summarize
+    result = support_summary(case, report)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/nightcap-balance-20260912/pet_support_controls.py", line 96, in summarize
+    raise ValueError('Player death lacks terminal HP evidence')
+ValueError: Player death lacks terminal HP evidence

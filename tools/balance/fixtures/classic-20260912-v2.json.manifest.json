@@ -1,0 +1,20 @@
+{
+  "captured_at": "2026-09-12T15:17:42.162669+00:00",
+  "schema_version": 1,
+  "query_sha256": "731b5fe74d99938c7db8ae838850911f35036552eacc94a99742572407ec7d01",
+  "scope": "Unconditional, unflagged Classic version-0 drop pool and its tiers; excludes quests, merchants, global loot, epics, and augments. Spells include IDs 1-1200, all captured NPC/item references, and recursive recourse links; Human creation allocations included.",
+  "rows": {
+    "items": 5797,
+    "npc_types": 3,
+    "npc_spells": 5,
+    "npc_spells_entries": 172,
+    "spells_new": 1373,
+    "base_data": 880,
+    "skill_caps": 31254,
+    "char_create_combinations": 160,
+    "char_create_point_allocations": 12,
+    "rule_values": 560,
+    "drop_sources": 124161
+  },
+  "snapshot_sha256": "e4b06f462a32b5463a608efae7ddde4d303b2422c863aecedc3427da06c08dae"
+}

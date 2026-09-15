@@ -1,0 +1,13 @@
+{
+  "captured_at": "2026-09-12T14:43:46.962868+00:00",
+  "source_sha256": "e73cad5e28832986ec2b0b656ee550e9c8f3aa35a63e48544476d4979068940f",
+  "functions_sha256": {
+    "double Mob::RollD20(": "92a7d07ca2a7952ee10e34e8808293444d01fc568ab12b5172bebc8b20bfcab0",
+    "bool Mob::CheckHitChance(": "276f1de3471f7f97682364e77eebf151be3dc1d8d84eb517045faf471269e1f9",
+    "void Mob::MeleeMitigation(": "2862f7778c3e4e48fc7869b342605fb447efea6fe8c50f7971ff60bacce03ae6"
+  },
+  "cases": 5000,
+  "outputs_compared_per_case": 3,
+  "mismatches": [],
+  "scope": "Controlled RollD20, hit check, and mitigation; excludes AC/bonus resolution, PvP, armor penetration, outgoing modifiers, and attack scheduling"
+}

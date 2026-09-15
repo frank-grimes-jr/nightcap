@@ -1,0 +1,33 @@
+{
+  "scope": "Native AA purchase and grant persistence; broader lifecycle gates remain open.",
+  "files": {
+    "docs/balance/aa-purchase-after-build.json": "e2cf92847cd3ce30e3efeb2ddc9310b09ef27f7c5136f14f039c35a21be71041",
+    "docs/balance/aa-purchase-after-inputs.json": "6c67bba9d11362ddce5406432d92e9d965e0e2249aa1794c9bcf2e7ecf74c592",
+    "docs/balance/aa-purchase-after.json.gz": "4aea3814e866912c6bd10de14c19247ae085be6891ad6bbb542a3878eee3c4c1",
+    "docs/balance/aa-purchase-before-build.json": "23ec118c3fc25573ea71c5cec8ed9f77637173178c0ef76d992342128eec827d",
+    "docs/balance/aa-purchase-before-inputs.json": "6c67bba9d11362ddce5406432d92e9d965e0e2249aa1794c9bcf2e7ecf74c592",
+    "docs/balance/aa-purchase-before.json.gz": "d28e042cbac590dfe0a76fb980e65371058a8044f19b1f5a557fd89767998aa8",
+    "docs/balance/aa-purchase-build-checks.json": "08cfb6f559920c880d563c433f07dd7deab89f090e0feff7bc5275b70f8fb407",
+    "docs/balance/aa-purchase-build-runner.py": "e463cb3ad9032aa3dc6ab8c82d8201702998a2f6f2067a206ffc5eee4946e120",
+    "docs/balance/aa-purchase-build.log": "0707ca90f4144f9b75e6a3619f2ec97feb9b167417f33dd8fddf6e58db357262",
+    "docs/balance/aa-purchase-configure-command.json": "ad37179c7c066a17f94786a946e42686eb1101ef9ee909d20ee359979da3598b",
+    "docs/balance/aa-purchase-configure.log": "563de9a31a417b128de5715a778e13092b81de6b1e5e62f00d57bb18b3dde1bc",
+    "docs/balance/aa-purchase-cpp-test-command.json": "166f21ccd9ef62f699fd2e9f651595c6463d14e9413922f1bcb7babbe029c428",
+    "docs/balance/aa-purchase-cpp-tests-initial.log": "a15a93899025663e798858b6e4ce0d835b1fc65e0515ee05a123864711f8eb25",
+    "docs/balance/aa-purchase-cpp-tests.log": "258c971b47c4c4ff86aa28ecafd0a55ff023cde66ce1f857f3fad2d7d874b545",
+    "docs/balance/aa-purchase-full-source-manifest.json": "827516d3b91ec93043ba7504188d5dcd4c7300aa9b4347824762a5ee1a9e33b6",
+    "docs/balance/aa-purchase-original-source-manifest.json": "6ffb4e4943195fac4a9e2c41ce75114bc44bae062af540d4cb4eb4351a85dafd",
+    "docs/balance/aa-purchase-original-source.tar.gz": "0cc3613cda869fb9d7825033716c904b2b08d2ea199cd6ff1fdfa2737c6bd7c8",
+    "docs/balance/aa-purchase-python-tests.log": "845c96e31cd6b2f8005c84f91807ad3eff6e1acbb91e55629dec6249ed17d234",
+    "docs/balance/aa-purchase-server.patch": "b3a11a8d244da5a00bc0a8a9eb932cbdbda00de31853b524cd05901a4f67cb02",
+    "docs/balance/aa-purchase-source.tar.gz": "68fa619814c247fdce8745b444a4983e70c7ea25d947f16d483ccaad6191942c",
+    "docs/balance/native-aa-purchase.md": "32f11f9ac490861880f4f5a75b6c419ba94a527f6df3265a2c81505911be975e",
+    "docs/adr/0025-durable-aa-purchases-and-grants.md": "7b8e632d7972e56e274a3f1e4e5c8cd87b86885cc8eb829a5c411f8e70a89231"
+  },
+  "validation": {
+    "native_controls_passed": 13,
+    "native_operations_per_phase": 52,
+    "cpp_tests_passed": 87,
+    "python_tests_passed": 339
+  }
+}

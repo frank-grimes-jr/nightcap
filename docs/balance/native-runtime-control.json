@@ -1,0 +1,423 @@
+{
+  "builds": [
+    {
+      "aa_budget": 0,
+      "aa_flat_hp": 20,
+      "aa_hp_regen": 0,
+      "aa_mana": 0,
+      "aa_mana_regen": 0,
+      "aa_percent_hp": 0,
+      "aa_policy": "common_free",
+      "aa_purchases": [
+        {
+          "ability_id": 0,
+          "cost": 0,
+          "name": "Unknown AA -1",
+          "points_spent": 0,
+          "rank": 1,
+          "rank_id": 49999
+        },
+        {
+          "ability_id": 331,
+          "cost": 0,
+          "name": "Origin",
+          "points_spent": 0,
+          "rank": 1,
+          "rank_id": 1000
+        },
+        {
+          "ability_id": 938,
+          "cost": 0,
+          "name": "Eyes Wide Open",
+          "points_spent": 0,
+          "rank": 1,
+          "rank_id": 12636
+        },
+        {
+          "ability_id": 1684,
+          "cost": 0,
+          "name": "Knowledge of Alaran Culture",
+          "points_spent": 0,
+          "rank": 1,
+          "rank_id": 14017
+        },
+        {
+          "ability_id": 2220,
+          "cost": 0,
+          "name": "Ancient Attunement",
+          "points_spent": 0,
+          "rank": 1,
+          "rank_id": 22200
+        },
+        {
+          "ability_id": 938,
+          "cost": 0,
+          "name": "Eyes Wide Open",
+          "points_spent": 0,
+          "rank": 2,
+          "rank_id": 12637
+        },
+        {
+          "ability_id": 1685,
+          "cost": 0,
+          "name": "Knowledge of Alaran Culture - Advanced",
+          "points_spent": 0,
+          "rank": 1,
+          "rank_id": 14018
+        },
+        {
+          "ability_id": 938,
+          "cost": 0,
+          "name": "Eyes Wide Open",
+          "points_spent": 0,
+          "rank": 3,
+          "rank_id": 8445
+        },
+        {
+          "ability_id": 938,
+          "cost": 0,
+          "name": "Eyes Wide Open",
+          "points_spent": 0,
+          "rank": 4,
+          "rank_id": 8446
+        },
+        {
+          "ability_id": 938,
+          "cost": 0,
+          "name": "Eyes Wide Open",
+          "points_spent": 0,
+          "rank": 5,
+          "rank_id": 8447
+        },
+        {
+          "ability_id": 938,
+          "cost": 0,
+          "name": "Eyes Wide Open",
+          "points_spent": 0,
+          "rank": 6,
+          "rank_id": 16419
+        },
+        {
+          "ability_id": 938,
+          "cost": 0,
+          "name": "Eyes Wide Open",
+          "points_spent": 0,
+          "rank": 7,
+          "rank_id": 16420
+        },
+        {
+          "ability_id": 938,
+          "cost": 0,
+          "name": "Eyes Wide Open",
+          "points_spent": 0,
+          "rank": 8,
+          "rank_id": 16421
+        }
+      ],
+      "aa_remaining": 0,
+      "aa_spent": 0,
+      "aa_stage": "0",
+      "ac_sum": 640,
+      "agi": 130,
+      "avoidance": 439,
+      "client_expansion_mask": 2097151,
+      "cr": 158,
+      "dex": 150,
+      "dr": 258,
+      "fr": 158,
+      "haste": 100,
+      "heal_amount": 250,
+      "heroic_hp": 570,
+      "heroic_mana": 0,
+      "hp": 5922,
+      "int": 251,
+      "item_flat_hp": 0,
+      "item_hp": 2232,
+      "item_mana": 1908,
+      "item_percent_hp": 0,
+      "mana": 4707,
+      "mr": 257,
+      "pr": 258,
+      "profile": "war-clr-wiz",
+      "raw_skills": [
+        250,
+        250,
+        250,
+        250,
+        250,
+        250,
+        0,
+        250,
+        0,
+        275,
+        250,
+        0,
+        0,
+        200,
+        250,
+        230,
+        255,
+        0,
+        250,
+        230,
+        225,
+        0,
+        210,
+        0,
+        250,
+        0,
+        0,
+        0,
+        195,
+        0,
+        225,
+        275,
+        0,
+        210,
+        230,
+        0,
+        250,
+        180,
+        0,
+        0,
+        200,
+        0,
+        0,
+        50,
+        50,
+        50,
+        50,
+        225,
+        0,
+        0,
+        250,
+        250,
+        0,
+        0,
+        0,
+        200,
+        0,
+        300,
+        300,
+        0,
+        300,
+        300,
+        0,
+        300,
+        300,
+        300,
+        275,
+        250,
+        300,
+        300,
+        0,
+        0,
+        0,
+        200,
+        0,
+        0,
+        100,
+        250,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "shielding": 0,
+      "skill_model": "Maximum held-class trained caps with native specialization/AA cap rules; attainability requires QA",
+      "spell_damage": 250,
+      "spellshield": 0,
+      "sta": 383,
+      "str": 359,
+      "tier": "Ascended",
+      "wis": 257
+    }
+  ],
+  "native_rng_seed": 1729,
+  "runtime_probe": {
+    "cast_accepted": true,
+    "client_version_bit": 64,
+    "clock": {
+      "at_1000_persistent": true,
+      "at_1000_timer": false,
+      "at_1001_timer": true,
+      "at_2000_persistent": true,
+      "seconds": 1789171201,
+      "time": 1789171201
+    },
+    "connected": true,
+    "damage_control": {
+      "client_finished_loading": true,
+      "hp_after": 4970,
+      "hp_before": 5070,
+      "requested_damage": 100
+    },
+    "outgoing_packets": 23,
+    "scope": "Native clock/connected Client::Process/self-heal control; not a boss fight",
+    "trace": [
+      {
+        "casting": 0,
+        "hp": 2961,
+        "mana": 4707,
+        "ms": 2000
+      },
+      {
+        "casting": 9,
+        "hp": 2961,
+        "mana": 4707,
+        "ms": 2000
+      },
+      {
+        "casting": 9,
+        "hp": 2961,
+        "mana": 4707,
+        "ms": 2500
+      },
+      {
+        "casting": 9,
+        "hp": 2961,
+        "mana": 4707,
+        "ms": 3000
+      },
+      {
+        "casting": 9,
+        "hp": 2961,
+        "mana": 4707,
+        "ms": 3500
+      },
+      {
+        "casting": 9,
+        "hp": 2961,
+        "mana": 4707,
+        "ms": 4000
+      },
+      {
+        "casting": 9,
+        "hp": 2961,
+        "mana": 4707,
+        "ms": 4500
+      },
+      {
+        "casting": 9,
+        "hp": 2961,
+        "mana": 4707,
+        "ms": 5000
+      },
+      {
+        "casting": 9,
+        "hp": 2961,
+        "mana": 4707,
+        "ms": 5500
+      },
+      {
+        "casting": 0,
+        "hp": 5061,
+        "mana": 4527,
+        "ms": 5550
+      },
+      {
+        "casting": 0,
+        "hp": 5061,
+        "mana": 4527,
+        "ms": 6000
+      },
+      {
+        "casting": 0,
+        "hp": 5070,
+        "mana": 4533,
+        "ms": 6050
+      },
+      {
+        "casting": 0,
+        "hp": 5070,
+        "mana": 4533,
+        "ms": 6500
+      },
+      {
+        "casting": 0,
+        "hp": 5070,
+        "mana": 4533,
+        "ms": 7000
+      },
+      {
+        "casting": 0,
+        "hp": 5070,
+        "mana": 4533,
+        "ms": 7500
+      },
+      {
+        "casting": 0,
+        "hp": 5070,
+        "mana": 4533,
+        "ms": 8000
+      },
+      {
+        "casting": 0,
+        "hp": 5070,
+        "mana": 4533,
+        "ms": 8500
+      },
+      {
+        "casting": 0,
+        "hp": 5070,
+        "mana": 4533,
+        "ms": 9000
+      },
+      {
+        "casting": 0,
+        "hp": 5070,
+        "mana": 4533,
+        "ms": 9500
+      },
+      {
+        "casting": 0,
+        "hp": 5070,
+        "mana": 4533,
+        "ms": 10000
+      },
+      {
+        "casting": 0,
+        "hp": 5070,
+        "mana": 4533,
+        "ms": 10500
+      },
+      {
+        "casting": 0,
+        "hp": 5070,
+        "mana": 4533,
+        "ms": 11000
+      },
+      {
+        "casting": 0,
+        "hp": 5070,
+        "mana": 4533,
+        "ms": 11500
+      },
+      {
+        "casting": 0,
+        "hp": 5070,
+        "mana": 4533,
+        "ms": 12000
+      }
+    ]
+  },
+  "status": "Native equipped-stat diagnostic; explicitly supplied AA purchases, no active buffs"
+}

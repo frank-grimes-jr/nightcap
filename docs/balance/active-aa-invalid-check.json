@@ -1,0 +1,35 @@
+{
+  "checks": [
+    {
+      "case": "unowned_rank",
+      "passed": true,
+      "exit_code": 1,
+      "reason": "Native balance failed: Unsupported or unowned active AA rank 10585"
+    },
+    {
+      "case": "invalid_timing",
+      "passed": true,
+      "exit_code": 1,
+      "reason": "Native balance failed: Invalid AA action time"
+    },
+    {
+      "case": "duplicate_timing",
+      "passed": true,
+      "exit_code": 1,
+      "reason": "Native balance failed: Invalid AA action time"
+    },
+    {
+      "case": "invalid_resources",
+      "passed": true,
+      "exit_code": 1,
+      "reason": "Native balance failed: Invalid AA probe runtime/duration/resources"
+    },
+    {
+      "case": "mixed_runtime_modes",
+      "passed": true,
+      "exit_code": 1,
+      "reason": "Native balance failed: Runtime modes require separate processes"
+    }
+  ],
+  "passed": true
+}

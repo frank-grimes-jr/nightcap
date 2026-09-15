@@ -1,0 +1,2146 @@
+{
+  "scope": "Unchanged caster/monk encounter controls after native pet owner correction.",
+  "binary_sha256": "8b73863155c35d6e79ffb743e7890db4d72c93d546398e93975a542fbfea53ff",
+  "cases": [
+    {
+      "id": "32040-ring41-0-common_free-1729-burst-prepared/expanded_balanced_shield",
+      "seed": 1729,
+      "input": {
+        "builds": [
+          {
+            "profile": "war-clr-wiz",
+            "classes": [
+              1,
+              2,
+              12
+            ],
+            "level": 50,
+            "race": "Human",
+            "deity": "Agnostic",
+            "tier": "Ascended/ring41/expanded_balanced_shield",
+            "casting_stat_scored": "int",
+            "melee_ratio_scored": false,
+            "equipment": [
+              {
+                "slot": 1,
+                "id": 602630,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 651903
+                  }
+                ]
+              },
+              {
+                "slot": 2,
+                "id": 601549,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 651907
+                  }
+                ]
+              },
+              {
+                "slot": 3,
+                "id": 601547,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 680382
+                  }
+                ]
+              },
+              {
+                "slot": 4,
+                "id": 610231,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 479870
+                  }
+                ]
+              },
+              {
+                "slot": 5,
+                "id": 607767,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 480394
+                  }
+                ]
+              },
+              {
+                "slot": 6,
+                "id": 615841,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 251907
+                  }
+                ]
+              },
+              {
+                "slot": 7,
+                "id": 668251,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 680379
+                  }
+                ]
+              },
+              {
+                "slot": 8,
+                "id": 415841,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 479626
+                  }
+                ]
+              },
+              {
+                "slot": 9,
+                "id": 601559,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 680394
+                  }
+                ]
+              },
+              {
+                "slot": 10,
+                "id": 662022,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 679870
+                  }
+                ]
+              },
+              {
+                "slot": 11,
+                "id": 627986,
+                "augments": []
+              },
+              {
+                "slot": 12,
+                "id": 662032,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 451904
+                  }
+                ]
+              },
+              {
+                "slot": 13,
+                "id": 662035,
+                "augments": []
+              },
+              {
+                "slot": 14,
+                "id": 662014,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 651904
+                  }
+                ]
+              },
+              {
+                "slot": 15,
+                "id": 609959,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 480379
+                  }
+                ]
+              },
+              {
+                "slot": 16,
+                "id": 410231,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 479622
+                  }
+                ]
+              },
+              {
+                "slot": 17,
+                "id": 601552,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 451907
+                  }
+                ]
+              },
+              {
+                "slot": 18,
+                "id": 662025,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 480382
+                  }
+                ]
+              },
+              {
+                "slot": 19,
+                "id": 604917,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 679622
+                  }
+                ]
+              },
+              {
+                "slot": 20,
+                "id": 601556,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 679626
+                  }
+                ]
+              }
+            ],
+            "creation": {
+              "str": 85,
+              "sta": 110,
+              "dex": 75,
+              "agi": 80,
+              "int": 75,
+              "wis": 75,
+              "cha": 75
+            },
+            "test_character_id": 4,
+            "aa_budget": 0,
+            "aa_rank_ids": [
+              49999,
+              1000,
+              12636,
+              14017,
+              22200,
+              12637,
+              14018,
+              8445,
+              8446,
+              8447,
+              16419,
+              16420,
+              16421
+            ],
+            "aa_stage": "0",
+            "aa_policy": "common_free",
+            "gear_control": "expanded_balanced_shield"
+          }
+        ],
+        "encounter": {
+          "npc_id": 32040,
+          "npc_position": [
+            -871,
+            -1395,
+            104.879997,
+            45
+          ],
+          "duration_ms": 900000,
+          "return_to_melee": true,
+          "active_aa_policy": "burst",
+          "preparation": {
+            "spell_ids": [
+              67,
+              314,
+              488,
+              64,
+              60
+            ],
+            "recover": true,
+            "max_duration_ms": 900000
+          }
+        },
+        "export_equipment": true
+      }
+    },
+    {
+      "id": "32040-ring41-0-common_free-1730-burst-prepared/expanded_balanced_shield",
+      "seed": 1730,
+      "input": {
+        "builds": [
+          {
+            "profile": "war-clr-wiz",
+            "classes": [
+              1,
+              2,
+              12
+            ],
+            "level": 50,
+            "race": "Human",
+            "deity": "Agnostic",
+            "tier": "Ascended/ring41/expanded_balanced_shield",
+            "casting_stat_scored": "int",
+            "melee_ratio_scored": false,
+            "equipment": [
+              {
+                "slot": 1,
+                "id": 602630,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 651903
+                  }
+                ]
+              },
+              {
+                "slot": 2,
+                "id": 601549,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 651907
+                  }
+                ]
+              },
+              {
+                "slot": 3,
+                "id": 601547,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 680382
+                  }
+                ]
+              },
+              {
+                "slot": 4,
+                "id": 610231,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 479870
+                  }
+                ]
+              },
+              {
+                "slot": 5,
+                "id": 607767,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 480394
+                  }
+                ]
+              },
+              {
+                "slot": 6,
+                "id": 615841,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 251907
+                  }
+                ]
+              },
+              {
+                "slot": 7,
+                "id": 668251,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 680379
+                  }
+                ]
+              },
+              {
+                "slot": 8,
+                "id": 415841,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 479626
+                  }
+                ]
+              },
+              {
+                "slot": 9,
+                "id": 601559,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 680394
+                  }
+                ]
+              },
+              {
+                "slot": 10,
+                "id": 662022,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 679870
+                  }
+                ]
+              },
+              {
+                "slot": 11,
+                "id": 627986,
+                "augments": []
+              },
+              {
+                "slot": 12,
+                "id": 662032,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 451904
+                  }
+                ]
+              },
+              {
+                "slot": 13,
+                "id": 662035,
+                "augments": []
+              },
+              {
+                "slot": 14,
+                "id": 662014,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 651904
+                  }
+                ]
+              },
+              {
+                "slot": 15,
+                "id": 609959,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 480379
+                  }
+                ]
+              },
+              {
+                "slot": 16,
+                "id": 410231,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 479622
+                  }
+                ]
+              },
+              {
+                "slot": 17,
+                "id": 601552,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 451907
+                  }
+                ]
+              },
+              {
+                "slot": 18,
+                "id": 662025,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 480382
+                  }
+                ]
+              },
+              {
+                "slot": 19,
+                "id": 604917,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 679622
+                  }
+                ]
+              },
+              {
+                "slot": 20,
+                "id": 601556,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 679626
+                  }
+                ]
+              }
+            ],
+            "creation": {
+              "str": 85,
+              "sta": 110,
+              "dex": 75,
+              "agi": 80,
+              "int": 75,
+              "wis": 75,
+              "cha": 75
+            },
+            "test_character_id": 4,
+            "aa_budget": 0,
+            "aa_rank_ids": [
+              49999,
+              1000,
+              12636,
+              14017,
+              22200,
+              12637,
+              14018,
+              8445,
+              8446,
+              8447,
+              16419,
+              16420,
+              16421
+            ],
+            "aa_stage": "0",
+            "aa_policy": "common_free",
+            "gear_control": "expanded_balanced_shield"
+          }
+        ],
+        "encounter": {
+          "npc_id": 32040,
+          "npc_position": [
+            -871,
+            -1395,
+            104.879997,
+            45
+          ],
+          "duration_ms": 900000,
+          "return_to_melee": true,
+          "active_aa_policy": "burst",
+          "preparation": {
+            "spell_ids": [
+              67,
+              314,
+              488,
+              64,
+              60
+            ],
+            "recover": true,
+            "max_duration_ms": 900000
+          }
+        },
+        "export_equipment": true
+      }
+    },
+    {
+      "id": "32040-ring41-0-common_free-1731-burst-prepared/expanded_balanced_shield",
+      "seed": 1731,
+      "input": {
+        "builds": [
+          {
+            "profile": "war-clr-wiz",
+            "classes": [
+              1,
+              2,
+              12
+            ],
+            "level": 50,
+            "race": "Human",
+            "deity": "Agnostic",
+            "tier": "Ascended/ring41/expanded_balanced_shield",
+            "casting_stat_scored": "int",
+            "melee_ratio_scored": false,
+            "equipment": [
+              {
+                "slot": 1,
+                "id": 602630,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 651903
+                  }
+                ]
+              },
+              {
+                "slot": 2,
+                "id": 601549,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 651907
+                  }
+                ]
+              },
+              {
+                "slot": 3,
+                "id": 601547,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 680382
+                  }
+                ]
+              },
+              {
+                "slot": 4,
+                "id": 610231,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 479870
+                  }
+                ]
+              },
+              {
+                "slot": 5,
+                "id": 607767,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 480394
+                  }
+                ]
+              },
+              {
+                "slot": 6,
+                "id": 615841,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 251907
+                  }
+                ]
+              },
+              {
+                "slot": 7,
+                "id": 668251,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 680379
+                  }
+                ]
+              },
+              {
+                "slot": 8,
+                "id": 415841,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 479626
+                  }
+                ]
+              },
+              {
+                "slot": 9,
+                "id": 601559,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 680394
+                  }
+                ]
+              },
+              {
+                "slot": 10,
+                "id": 662022,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 679870
+                  }
+                ]
+              },
+              {
+                "slot": 11,
+                "id": 627986,
+                "augments": []
+              },
+              {
+                "slot": 12,
+                "id": 662032,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 451904
+                  }
+                ]
+              },
+              {
+                "slot": 13,
+                "id": 662035,
+                "augments": []
+              },
+              {
+                "slot": 14,
+                "id": 662014,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 651904
+                  }
+                ]
+              },
+              {
+                "slot": 15,
+                "id": 609959,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 480379
+                  }
+                ]
+              },
+              {
+                "slot": 16,
+                "id": 410231,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 479622
+                  }
+                ]
+              },
+              {
+                "slot": 17,
+                "id": 601552,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 451907
+                  }
+                ]
+              },
+              {
+                "slot": 18,
+                "id": 662025,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 480382
+                  }
+                ]
+              },
+              {
+                "slot": 19,
+                "id": 604917,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 679622
+                  }
+                ]
+              },
+              {
+                "slot": 20,
+                "id": 601556,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 679626
+                  }
+                ]
+              }
+            ],
+            "creation": {
+              "str": 85,
+              "sta": 110,
+              "dex": 75,
+              "agi": 80,
+              "int": 75,
+              "wis": 75,
+              "cha": 75
+            },
+            "test_character_id": 4,
+            "aa_budget": 0,
+            "aa_rank_ids": [
+              49999,
+              1000,
+              12636,
+              14017,
+              22200,
+              12637,
+              14018,
+              8445,
+              8446,
+              8447,
+              16419,
+              16420,
+              16421
+            ],
+            "aa_stage": "0",
+            "aa_policy": "common_free",
+            "gear_control": "expanded_balanced_shield"
+          }
+        ],
+        "encounter": {
+          "npc_id": 32040,
+          "npc_position": [
+            -871,
+            -1395,
+            104.879997,
+            45
+          ],
+          "duration_ms": 900000,
+          "return_to_melee": true,
+          "active_aa_policy": "burst",
+          "preparation": {
+            "spell_ids": [
+              67,
+              314,
+              488,
+              64,
+              60
+            ],
+            "recover": true,
+            "max_duration_ms": 900000
+          }
+        },
+        "export_equipment": true
+      }
+    },
+    {
+      "id": "73057-ring41-0-common_free-1729-burst-prepared/expanded_balanced_shield",
+      "seed": 1729,
+      "input": {
+        "builds": [
+          {
+            "profile": "war-clr-wiz",
+            "classes": [
+              1,
+              2,
+              12
+            ],
+            "level": 50,
+            "race": "Human",
+            "deity": "Agnostic",
+            "tier": "Ascended/ring41/expanded_balanced_shield",
+            "casting_stat_scored": "int",
+            "melee_ratio_scored": false,
+            "equipment": [
+              {
+                "slot": 1,
+                "id": 602630,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 651903
+                  }
+                ]
+              },
+              {
+                "slot": 2,
+                "id": 601549,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 651907
+                  }
+                ]
+              },
+              {
+                "slot": 3,
+                "id": 601547,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 680382
+                  }
+                ]
+              },
+              {
+                "slot": 4,
+                "id": 610231,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 479870
+                  }
+                ]
+              },
+              {
+                "slot": 5,
+                "id": 607767,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 480394
+                  }
+                ]
+              },
+              {
+                "slot": 6,
+                "id": 615841,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 251907
+                  }
+                ]
+              },
+              {
+                "slot": 7,
+                "id": 668251,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 680379
+                  }
+                ]
+              },
+              {
+                "slot": 8,
+                "id": 415841,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 479626
+                  }
+                ]
+              },
+              {
+                "slot": 9,
+                "id": 601559,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 680394
+                  }
+                ]
+              },
+              {
+                "slot": 10,
+                "id": 662022,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 679870
+                  }
+                ]
+              },
+              {
+                "slot": 11,
+                "id": 627986,
+                "augments": []
+              },
+              {
+                "slot": 12,
+                "id": 662032,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 451904
+                  }
+                ]
+              },
+              {
+                "slot": 13,
+                "id": 662035,
+                "augments": []
+              },
+              {
+                "slot": 14,
+                "id": 662014,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 651904
+                  }
+                ]
+              },
+              {
+                "slot": 15,
+                "id": 609959,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 480379
+                  }
+                ]
+              },
+              {
+                "slot": 16,
+                "id": 410231,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 479622
+                  }
+                ]
+              },
+              {
+                "slot": 17,
+                "id": 601552,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 451907
+                  }
+                ]
+              },
+              {
+                "slot": 18,
+                "id": 662025,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 480382
+                  }
+                ]
+              },
+              {
+                "slot": 19,
+                "id": 604917,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 679622
+                  }
+                ]
+              },
+              {
+                "slot": 20,
+                "id": 601556,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 679626
+                  }
+                ]
+              }
+            ],
+            "creation": {
+              "str": 85,
+              "sta": 110,
+              "dex": 75,
+              "agi": 80,
+              "int": 75,
+              "wis": 75,
+              "cha": 75
+            },
+            "test_character_id": 4,
+            "aa_budget": 0,
+            "aa_rank_ids": [
+              49999,
+              1000,
+              12636,
+              14017,
+              22200,
+              12637,
+              14018,
+              8445,
+              8446,
+              8447,
+              16419,
+              16420,
+              16421
+            ],
+            "aa_stage": "0",
+            "aa_policy": "common_free",
+            "gear_control": "expanded_balanced_shield"
+          }
+        ],
+        "encounter": {
+          "npc_id": 73057,
+          "npc_position": [
+            -262,
+            857,
+            22,
+            407
+          ],
+          "duration_ms": 900000,
+          "return_to_melee": true,
+          "active_aa_policy": "burst",
+          "preparation": {
+            "spell_ids": [
+              67,
+              314,
+              488,
+              64,
+              61
+            ],
+            "recover": true,
+            "max_duration_ms": 900000
+          }
+        },
+        "export_equipment": true
+      }
+    },
+    {
+      "id": "73057-ring41-0-common_free-1730-burst-prepared/expanded_balanced_shield",
+      "seed": 1730,
+      "input": {
+        "builds": [
+          {
+            "profile": "war-clr-wiz",
+            "classes": [
+              1,
+              2,
+              12
+            ],
+            "level": 50,
+            "race": "Human",
+            "deity": "Agnostic",
+            "tier": "Ascended/ring41/expanded_balanced_shield",
+            "casting_stat_scored": "int",
+            "melee_ratio_scored": false,
+            "equipment": [
+              {
+                "slot": 1,
+                "id": 602630,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 651903
+                  }
+                ]
+              },
+              {
+                "slot": 2,
+                "id": 601549,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 651907
+                  }
+                ]
+              },
+              {
+                "slot": 3,
+                "id": 601547,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 680382
+                  }
+                ]
+              },
+              {
+                "slot": 4,
+                "id": 610231,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 479870
+                  }
+                ]
+              },
+              {
+                "slot": 5,
+                "id": 607767,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 480394
+                  }
+                ]
+              },
+              {
+                "slot": 6,
+                "id": 615841,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 251907
+                  }
+                ]
+              },
+              {
+                "slot": 7,
+                "id": 668251,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 680379
+                  }
+                ]
+              },
+              {
+                "slot": 8,
+                "id": 415841,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 479626
+                  }
+                ]
+              },
+              {
+                "slot": 9,
+                "id": 601559,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 680394
+                  }
+                ]
+              },
+              {
+                "slot": 10,
+                "id": 662022,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 679870
+                  }
+                ]
+              },
+              {
+                "slot": 11,
+                "id": 627986,
+                "augments": []
+              },
+              {
+                "slot": 12,
+                "id": 662032,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 451904
+                  }
+                ]
+              },
+              {
+                "slot": 13,
+                "id": 662035,
+                "augments": []
+              },
+              {
+                "slot": 14,
+                "id": 662014,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 651904
+                  }
+                ]
+              },
+              {
+                "slot": 15,
+                "id": 609959,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 480379
+                  }
+                ]
+              },
+              {
+                "slot": 16,
+                "id": 410231,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 479622
+                  }
+                ]
+              },
+              {
+                "slot": 17,
+                "id": 601552,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 451907
+                  }
+                ]
+              },
+              {
+                "slot": 18,
+                "id": 662025,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 480382
+                  }
+                ]
+              },
+              {
+                "slot": 19,
+                "id": 604917,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 679622
+                  }
+                ]
+              },
+              {
+                "slot": 20,
+                "id": 601556,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 679626
+                  }
+                ]
+              }
+            ],
+            "creation": {
+              "str": 85,
+              "sta": 110,
+              "dex": 75,
+              "agi": 80,
+              "int": 75,
+              "wis": 75,
+              "cha": 75
+            },
+            "test_character_id": 4,
+            "aa_budget": 0,
+            "aa_rank_ids": [
+              49999,
+              1000,
+              12636,
+              14017,
+              22200,
+              12637,
+              14018,
+              8445,
+              8446,
+              8447,
+              16419,
+              16420,
+              16421
+            ],
+            "aa_stage": "0",
+            "aa_policy": "common_free",
+            "gear_control": "expanded_balanced_shield"
+          }
+        ],
+        "encounter": {
+          "npc_id": 73057,
+          "npc_position": [
+            -262,
+            857,
+            22,
+            407
+          ],
+          "duration_ms": 900000,
+          "return_to_melee": true,
+          "active_aa_policy": "burst",
+          "preparation": {
+            "spell_ids": [
+              67,
+              314,
+              488,
+              64,
+              61
+            ],
+            "recover": true,
+            "max_duration_ms": 900000
+          }
+        },
+        "export_equipment": true
+      }
+    },
+    {
+      "id": "73057-ring41-0-common_free-1731-burst-prepared/expanded_balanced_shield",
+      "seed": 1731,
+      "input": {
+        "builds": [
+          {
+            "profile": "war-clr-wiz",
+            "classes": [
+              1,
+              2,
+              12
+            ],
+            "level": 50,
+            "race": "Human",
+            "deity": "Agnostic",
+            "tier": "Ascended/ring41/expanded_balanced_shield",
+            "casting_stat_scored": "int",
+            "melee_ratio_scored": false,
+            "equipment": [
+              {
+                "slot": 1,
+                "id": 602630,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 651903
+                  }
+                ]
+              },
+              {
+                "slot": 2,
+                "id": 601549,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 651907
+                  }
+                ]
+              },
+              {
+                "slot": 3,
+                "id": 601547,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 680382
+                  }
+                ]
+              },
+              {
+                "slot": 4,
+                "id": 610231,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 479870
+                  }
+                ]
+              },
+              {
+                "slot": 5,
+                "id": 607767,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 480394
+                  }
+                ]
+              },
+              {
+                "slot": 6,
+                "id": 615841,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 251907
+                  }
+                ]
+              },
+              {
+                "slot": 7,
+                "id": 668251,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 680379
+                  }
+                ]
+              },
+              {
+                "slot": 8,
+                "id": 415841,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 479626
+                  }
+                ]
+              },
+              {
+                "slot": 9,
+                "id": 601559,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 680394
+                  }
+                ]
+              },
+              {
+                "slot": 10,
+                "id": 662022,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 679870
+                  }
+                ]
+              },
+              {
+                "slot": 11,
+                "id": 627986,
+                "augments": []
+              },
+              {
+                "slot": 12,
+                "id": 662032,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 451904
+                  }
+                ]
+              },
+              {
+                "slot": 13,
+                "id": 662035,
+                "augments": []
+              },
+              {
+                "slot": 14,
+                "id": 662014,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 651904
+                  }
+                ]
+              },
+              {
+                "slot": 15,
+                "id": 609959,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 480379
+                  }
+                ]
+              },
+              {
+                "slot": 16,
+                "id": 410231,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 479622
+                  }
+                ]
+              },
+              {
+                "slot": 17,
+                "id": 601552,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 451907
+                  }
+                ]
+              },
+              {
+                "slot": 18,
+                "id": 662025,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 480382
+                  }
+                ]
+              },
+              {
+                "slot": 19,
+                "id": 604917,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 679622
+                  }
+                ]
+              },
+              {
+                "slot": 20,
+                "id": 601556,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 679626
+                  }
+                ]
+              }
+            ],
+            "creation": {
+              "str": 85,
+              "sta": 110,
+              "dex": 75,
+              "agi": 80,
+              "int": 75,
+              "wis": 75,
+              "cha": 75
+            },
+            "test_character_id": 4,
+            "aa_budget": 0,
+            "aa_rank_ids": [
+              49999,
+              1000,
+              12636,
+              14017,
+              22200,
+              12637,
+              14018,
+              8445,
+              8446,
+              8447,
+              16419,
+              16420,
+              16421
+            ],
+            "aa_stage": "0",
+            "aa_policy": "common_free",
+            "gear_control": "expanded_balanced_shield"
+          }
+        ],
+        "encounter": {
+          "npc_id": 73057,
+          "npc_position": [
+            -262,
+            857,
+            22,
+            407
+          ],
+          "duration_ms": 900000,
+          "return_to_melee": true,
+          "active_aa_policy": "burst",
+          "preparation": {
+            "spell_ids": [
+              67,
+              314,
+              488,
+              64,
+              61
+            ],
+            "recover": true,
+            "max_duration_ms": 900000
+          }
+        },
+        "export_equipment": true
+      }
+    },
+    {
+      "id": "monk/shield/0/specials-True/32040/1729",
+      "seed": 1729,
+      "input": {
+        "builds": [
+          {
+            "profile": "war-clr-mnk",
+            "classes": [
+              1,
+              2,
+              7
+            ],
+            "level": 50,
+            "race": "Human",
+            "deity": "Agnostic",
+            "tier": "monk/shield/0/specials-True",
+            "casting_stat_scored": "wis",
+            "melee_ratio_scored": true,
+            "equipment": [
+              {
+                "slot": 1,
+                "id": 602630,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 480382
+                  }
+                ]
+              },
+              {
+                "slot": 2,
+                "id": 601549,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 680394
+                  }
+                ]
+              },
+              {
+                "slot": 3,
+                "id": 601547,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 651907
+                  }
+                ]
+              },
+              {
+                "slot": 4,
+                "id": 402630,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 451903
+                  }
+                ]
+              },
+              {
+                "slot": 5,
+                "id": 607767,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 280394
+                  }
+                ]
+              },
+              {
+                "slot": 6,
+                "id": 615841,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 479870
+                  }
+                ]
+              },
+              {
+                "slot": 7,
+                "id": 668251,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 680379
+                  }
+                ]
+              },
+              {
+                "slot": 8,
+                "id": 601551,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 679622
+                  }
+                ]
+              },
+              {
+                "slot": 9,
+                "id": 662022,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 451907
+                  }
+                ]
+              },
+              {
+                "slot": 10,
+                "id": 662292,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 679870
+                  }
+                ]
+              },
+              {
+                "slot": 11,
+                "id": 608332,
+                "augments": []
+              },
+              {
+                "slot": 12,
+                "id": 604915,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 651904
+                  }
+                ]
+              },
+              {
+                "slot": 13,
+                "id": 662038,
+                "augments": []
+              },
+              {
+                "slot": 14,
+                "id": 601555,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 651903
+                  }
+                ]
+              },
+              {
+                "slot": 15,
+                "id": 609959,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 479622
+                  }
+                ]
+              },
+              {
+                "slot": 16,
+                "id": 610231,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 480379
+                  }
+                ]
+              },
+              {
+                "slot": 17,
+                "id": 662034,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 451904
+                  }
+                ]
+              },
+              {
+                "slot": 18,
+                "id": 662025,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 679626
+                  }
+                ]
+              },
+              {
+                "slot": 19,
+                "id": 604917,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 680382
+                  }
+                ]
+              },
+              {
+                "slot": 20,
+                "id": 601550,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 480394
+                  }
+                ]
+              }
+            ],
+            "creation": {
+              "str": 85,
+              "sta": 110,
+              "dex": 75,
+              "agi": 80,
+              "int": 75,
+              "wis": 75,
+              "cha": 75
+            },
+            "test_character_id": 8,
+            "aa_budget": 0,
+            "aa_rank_ids": [
+              49999,
+              1000,
+              12636,
+              14017,
+              22200,
+              12637,
+              14018,
+              8445,
+              8446,
+              8447,
+              16419,
+              16420,
+              16421
+            ],
+            "aa_stage": "0",
+            "aa_policy": "common_free",
+            "gear_control": "monk_shield"
+          }
+        ],
+        "encounter": {
+          "npc_id": 32040,
+          "npc_position": [
+            -871,
+            -1395,
+            104.879997,
+            45
+          ],
+          "duration_ms": 900000,
+          "return_to_melee": true,
+          "active_aa_policy": "burst",
+          "preparation": {
+            "spell_ids": [
+              67,
+              314,
+              488,
+              64,
+              60
+            ],
+            "recover": true,
+            "max_duration_ms": 900000
+          },
+          "combat_policy": "melee_heal",
+          "melee_specials": true
+        },
+        "export_equipment": true
+      }
+    },
+    {
+      "id": "monk/shield/0/specials-True/73057/1729",
+      "seed": 1729,
+      "input": {
+        "builds": [
+          {
+            "profile": "war-clr-mnk",
+            "classes": [
+              1,
+              2,
+              7
+            ],
+            "level": 50,
+            "race": "Human",
+            "deity": "Agnostic",
+            "tier": "monk/shield/0/specials-True",
+            "casting_stat_scored": "wis",
+            "melee_ratio_scored": true,
+            "equipment": [
+              {
+                "slot": 1,
+                "id": 602630,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 480382
+                  }
+                ]
+              },
+              {
+                "slot": 2,
+                "id": 601549,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 680394
+                  }
+                ]
+              },
+              {
+                "slot": 3,
+                "id": 601547,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 651907
+                  }
+                ]
+              },
+              {
+                "slot": 4,
+                "id": 402630,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 451903
+                  }
+                ]
+              },
+              {
+                "slot": 5,
+                "id": 607767,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 280394
+                  }
+                ]
+              },
+              {
+                "slot": 6,
+                "id": 615841,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 479870
+                  }
+                ]
+              },
+              {
+                "slot": 7,
+                "id": 668251,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 680379
+                  }
+                ]
+              },
+              {
+                "slot": 8,
+                "id": 601551,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 679622
+                  }
+                ]
+              },
+              {
+                "slot": 9,
+                "id": 662022,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 451907
+                  }
+                ]
+              },
+              {
+                "slot": 10,
+                "id": 662292,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 679870
+                  }
+                ]
+              },
+              {
+                "slot": 11,
+                "id": 608332,
+                "augments": []
+              },
+              {
+                "slot": 12,
+                "id": 604915,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 651904
+                  }
+                ]
+              },
+              {
+                "slot": 13,
+                "id": 662038,
+                "augments": []
+              },
+              {
+                "slot": 14,
+                "id": 601555,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 651903
+                  }
+                ]
+              },
+              {
+                "slot": 15,
+                "id": 609959,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 479622
+                  }
+                ]
+              },
+              {
+                "slot": 16,
+                "id": 610231,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 480379
+                  }
+                ]
+              },
+              {
+                "slot": 17,
+                "id": 662034,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 451904
+                  }
+                ]
+              },
+              {
+                "slot": 18,
+                "id": 662025,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 679626
+                  }
+                ]
+              },
+              {
+                "slot": 19,
+                "id": 604917,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 680382
+                  }
+                ]
+              },
+              {
+                "slot": 20,
+                "id": 601550,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 480394
+                  }
+                ]
+              }
+            ],
+            "creation": {
+              "str": 85,
+              "sta": 110,
+              "dex": 75,
+              "agi": 80,
+              "int": 75,
+              "wis": 75,
+              "cha": 75
+            },
+            "test_character_id": 8,
+            "aa_budget": 0,
+            "aa_rank_ids": [
+              49999,
+              1000,
+              12636,
+              14017,
+              22200,
+              12637,
+              14018,
+              8445,
+              8446,
+              8447,
+              16419,
+              16420,
+              16421
+            ],
+            "aa_stage": "0",
+            "aa_policy": "common_free",
+            "gear_control": "monk_shield"
+          }
+        ],
+        "encounter": {
+          "npc_id": 73057,
+          "npc_position": [
+            -262,
+            857,
+            22,
+            407
+          ],
+          "duration_ms": 900000,
+          "return_to_melee": true,
+          "active_aa_policy": "burst",
+          "preparation": {
+            "spell_ids": [
+              67,
+              314,
+              488,
+              64,
+              61
+            ],
+            "recover": true,
+            "max_duration_ms": 900000
+          },
+          "combat_policy": "melee_heal",
+          "melee_specials": true
+        },
+        "export_equipment": true
+      }
+    }
+  ]
+}

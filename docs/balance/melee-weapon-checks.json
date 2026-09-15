@@ -1,0 +1,79 @@
+{
+  "checks": [
+    {
+      "profile": "war-clr-wiz",
+      "item": 662038,
+      "native_damage": 0
+    },
+    {
+      "profile": "war-clr-wiz",
+      "item": 662035,
+      "native_damage": 16
+    },
+    {
+      "profile": "war-clr-wiz",
+      "item": 631822,
+      "native_damage": 42
+    },
+    {
+      "profile": "war-clr-wiz",
+      "item": 24587,
+      "native_damage": 0
+    },
+    {
+      "profile": "war-clr-wiz",
+      "item": 5100,
+      "native_damage": 0
+    },
+    {
+      "profile": "war-clr-mnk",
+      "item": 662038,
+      "native_damage": 26
+    },
+    {
+      "profile": "war-clr-mnk",
+      "item": 662035,
+      "native_damage": 16
+    },
+    {
+      "profile": "war-clr-mnk",
+      "item": 631822,
+      "native_damage": 42
+    },
+    {
+      "profile": "war-clr-mnk",
+      "item": 24587,
+      "native_damage": 0
+    },
+    {
+      "profile": "war-clr-mnk",
+      "item": 5100,
+      "native_damage": 0
+    },
+    {
+      "profile": "mag-nec-shm",
+      "item": 662038,
+      "native_damage": 0
+    },
+    {
+      "profile": "mag-nec-shm",
+      "item": 662035,
+      "native_damage": 0
+    },
+    {
+      "profile": "mag-nec-shm",
+      "item": 631822,
+      "native_damage": 0
+    },
+    {
+      "profile": "mag-nec-shm",
+      "item": 24587,
+      "native_damage": 0
+    },
+    {
+      "profile": "mag-nec-shm",
+      "item": 5100,
+      "native_damage": 0
+    }
+  ]
+}

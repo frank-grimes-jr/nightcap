@@ -1,0 +1,38 @@
+[
+  {
+    "source": "/home/eqemu/server/maps/base/soldungb.map",
+    "copy": "/tmp/nightcap-balance-20260912/maps/base/soldungb.map",
+    "bytes": 194599,
+    "sha256": "6457a51f76aa7d6a4ebff4b7fa7ca1ed79edeb473b3cf09154e736fbd95bb108"
+  },
+  {
+    "source": "/home/eqemu/server/maps/base/permafrost.map",
+    "copy": "/tmp/nightcap-balance-20260912/maps/base/permafrost.map",
+    "bytes": 133070,
+    "sha256": "bd5c236151331ec667f9b4441c87f2cc5a429ee4324a5dbe250f745ea5099f7d"
+  },
+  {
+    "source": "/home/eqemu/server/maps/nav/soldungb.nav",
+    "copy": "/tmp/nightcap-balance-20260912/maps/nav/soldungb.nav",
+    "bytes": 151167,
+    "sha256": "7e67452811450a5f3e297a0f9b6467212e0b84efc57efe60c144fa2208add06f"
+  },
+  {
+    "source": "/home/eqemu/server/maps/nav/permafrost.nav",
+    "copy": "/tmp/nightcap-balance-20260912/maps/nav/permafrost.nav",
+    "bytes": 183790,
+    "sha256": "1812706e8d1838ccb633fbba16b1d376f8fd9834a77355523e70aa3f85e1086a"
+  },
+  {
+    "source": "/home/eqemu/server/maps/water/soldungb.wtr",
+    "copy": "/tmp/nightcap-balance-20260912/maps/water/soldungb.wtr",
+    "bytes": 348462,
+    "sha256": "f0a36861a463e0eef7210a931ad8ddc240d6f1617823264fd093903d88c72d8b"
+  },
+  {
+    "source": "/home/eqemu/server/maps/water/permafrost.wtr",
+    "copy": "/tmp/nightcap-balance-20260912/maps/water/permafrost.wtr",
+    "bytes": 310518,
+    "sha256": "22197ee83b70fa3f3985744d0501867f11cfa9f46d7c9f96d8082e260062fc34"
+  }
+]

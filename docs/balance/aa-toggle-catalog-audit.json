@@ -1,0 +1,19 @@
+{
+  "observed_at_utc": "2026-09-13T19:14:35.975187+00:00",
+  "databases": [
+    "peq",
+    "nightcap_balance_20260912"
+  ],
+  "counts": {
+    "spells": 40724,
+    "abilities": 1570,
+    "ranks": 6655
+  },
+  "toggle_spell_spa": 472,
+  "matching_spell_rows": [],
+  "query": "SELECT COUNT(*) FROM spells_new; SELECT COUNT(*) FROM aa_ability; SELECT COUNT(*) FROM aa_ranks;SELECT id,name FROM spells_new WHERE 472 IN (effectid1,effectid2,effectid3,effectid4,effectid5,effectid6,effectid7,effectid8,effectid9,effectid10,effectid11,effectid12) ORDER BY id;",
+  "native_spell_constant": "common/spdat.h: Buy_AA_Rank = 472",
+  "native_detection": "UseTogglePassiveHotkey requires SPA472 on the current or previous rank spell",
+  "current_scope": "No spell can satisfy the toggle detector in either captured database. Re-audit when the spell/AA catalog changes.",
+  "design_gate": "Adding a toggle requires durable selection separate from canonical earned ranks, or a reviewed pair-aware ownership redesign. Do not enable a future toggle solely by adding catalog rows."
+}

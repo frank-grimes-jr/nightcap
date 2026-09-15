@@ -1,0 +1,14 @@
+{
+  "old_source_sha256": "bcd0a40312fd59a1430f626507d6cc45233c26393fff45389b7e069d00f48d45",
+  "committed_source_sha256": "b84544a725679739fabaf2dde8ac2dbbabf11fd034a0734ac0e62472d1e09ff3",
+  "before": {
+    "mob_object": "2fe0aed57009565f00a1bac4986a77846705f28e5569ca9261b032bc470fb881",
+    "zone": "ce127436f846e2ef0d588501bc5797f13f8928cce72ea45ef9e6eb8562dbcaac"
+  },
+  "after": {
+    "mob_object": "2fe0aed57009565f00a1bac4986a77846705f28e5569ca9261b032bc470fb881",
+    "zone": "ce127436f846e2ef0d588501bc5797f13f8928cce72ea45ef9e6eb8562dbcaac"
+  },
+  "build_exit_code": 0,
+  "object_and_binary_unchanged": true
+}

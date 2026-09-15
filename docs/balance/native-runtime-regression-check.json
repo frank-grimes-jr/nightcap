@@ -1,0 +1,18 @@
+[
+  {
+    "case": "aa",
+    "equal_json": true,
+    "byte_identical": true,
+    "reference": "native-aa-stats.json",
+    "reference_sha256": "f4790a363d2bffc2ed6f87752466317d5db3ea693316ba0386f5e46fbca34570",
+    "current_sha256": "f4790a363d2bffc2ed6f87752466317d5db3ea693316ba0386f5e46fbca34570"
+  },
+  {
+    "case": "spells",
+    "equal_json": true,
+    "byte_identical": true,
+    "reference": "native-spell-samples.json",
+    "reference_sha256": "d0e017ca6c6b6c8b1fea3ff15c6ba69575ecb9f5c295c15b8dfee0839524dc8b",
+    "current_sha256": "d0e017ca6c6b6c8b1fea3ff15c6ba69575ecb9f5c295c15b8dfee0839524dc8b"
+  }
+]

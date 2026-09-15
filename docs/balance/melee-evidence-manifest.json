@@ -1,0 +1,191 @@
+{
+  "date": "2026-09-12",
+  "scope": "Held-class weapon correction and native WAR/CLR/MNK melee/AA controls; source candidate, not live deployment, full BiS or final balance certification.",
+  "binary_sha256": "a56d20d38dd01e4527d3d8a016a2591273dbadec6a06f39cd640742d00b5ddeb",
+  "original_failure_binary_sha256": "fb3f4fea7dd166cd02e441635023a9382d6be913799fc2ff77d3fbacbddad995",
+  "captured_original_attack_cpp_sha256": "e73cad5e28832986ec2b0b656ee550e9c8f3aa35a63e48544476d4979068940f",
+  "native_weapon_controls": 15,
+  "native_melee_encounters": 54,
+  "unchanged_caster_reports": 6,
+  "movement_checks": 60,
+  "original_failing_pilot_normal_immune_swings": 632,
+  "python_tests": 180,
+  "matrix_regeneration": "Exact match from saved expanded gear, AA and prepared caster inputs.",
+  "isolated_accounts": 0,
+  "isolated_characters": 0,
+  "production_deployed": false,
+  "artifacts": [
+    {
+      "path": "docs/adr/0010-held-class-weapon-damage.md",
+      "sha256": "9a2791abef26bf2dea174c1a1fc6cc6e43a87d393fc9203ddd7dfa2555e2a263",
+      "bytes": 3178,
+      "newline_normalization": "LF"
+    },
+    {
+      "path": "docs/balance/gear-expanded-aa-encounters.json.gz",
+      "sha256": "b9cb73ef300d679ad48c2692dcdcd5004fbcc5b2cc0816729f4c2e39c1314dd1",
+      "bytes": 996978
+    },
+    {
+      "path": "docs/balance/gear-expanded-aa-inputs.json",
+      "sha256": "c0771813cea97a76f7e6fb722ca756f2f6f2d3af5aaded08d833b4eb9b7de18f",
+      "bytes": 914115,
+      "newline_normalization": "LF"
+    },
+    {
+      "path": "docs/balance/gear-expanded-inputs.json",
+      "sha256": "c03839f2ce25d22c7b3e2b25e620c6096f0a2ed00c9b69e1f9c3d401ea14b426",
+      "bytes": 398950,
+      "newline_normalization": "LF"
+    },
+    {
+      "path": "docs/balance/melee-checks.json",
+      "sha256": "04532b56111cac929823ba2b5a56c978fbec4c3507d995068efa06f364ced0a2",
+      "bytes": 91456,
+      "newline_normalization": "LF"
+    },
+    {
+      "path": "docs/balance/melee-encounters.json.gz",
+      "sha256": "877935e4fee66f6180ca35e97d4bb6e6a2f424158357771340db8c63703ee1b4",
+      "bytes": 2693599
+    },
+    {
+      "path": "docs/balance/melee-formula-oracle.json",
+      "sha256": "85e94b84ae7c3efadbb546db6e4254f0f297b1e8e7b8a661c9de276bd5d6c107",
+      "bytes": 698,
+      "newline_normalization": "LF"
+    },
+    {
+      "path": "docs/balance/melee-inputs.json",
+      "sha256": "0308c87dededf1ba53dc92192895122801cbdbb8a36c8afa1cec1a541d084e53",
+      "bytes": 689892,
+      "newline_normalization": "LF"
+    },
+    {
+      "path": "docs/balance/melee-native-build-manifest.json",
+      "sha256": "91591a47ad04df58428bbf5adc5630fb1c942fc248fd0b33a01c881bcc9da7e8",
+      "bytes": 23596,
+      "newline_normalization": "LF"
+    },
+    {
+      "path": "docs/balance/melee-pilot-encounters.json.gz",
+      "sha256": "0a416f9c559e5030a35904e1e2916b66eb9854d0f98b83a1859c8033973e02ab",
+      "bytes": 53917
+    },
+    {
+      "path": "docs/balance/melee-pilot-inputs.json",
+      "sha256": "420ca2a15bc2f8161961a21ed2a938f652f5f80023b468330a28db8db5ae195d",
+      "bytes": 6806,
+      "newline_normalization": "LF"
+    },
+    {
+      "path": "docs/balance/melee-weapon-checks.json",
+      "sha256": "205a2d3bbef2eea4b460b8e4c2deb9fa824e6a2cc4b70b87d71a99dabde9d0f7",
+      "bytes": 1397,
+      "newline_normalization": "LF"
+    },
+    {
+      "path": "docs/balance/melee-weapon-inputs.json",
+      "sha256": "5e31dd3f05398caa0be49b465e34fc72a95044c4cd7ee73eb558219c56d1241c",
+      "bytes": 4869,
+      "newline_normalization": "LF"
+    },
+    {
+      "path": "docs/balance/melee-weapon-native.json",
+      "sha256": "b15f76a89671e9ad7854911c182603fe90018794cd49a82cb7ea8a1d6e5f5758",
+      "bytes": 17646,
+      "newline_normalization": "LF"
+    },
+    {
+      "path": "docs/balance/native-aa-inputs.json",
+      "sha256": "09f5b0fcb0add10e3e9006c2152d19075cc68534d07dded0baaccb3a03f6b6b1",
+      "bytes": 417492,
+      "newline_normalization": "LF"
+    },
+    {
+      "path": "docs/balance/native-melee.md",
+      "sha256": "e220ac6a18041fafe4086d31822508c6c023549b6c2d51dfa475a386a5ab0000",
+      "bytes": 7719,
+      "newline_normalization": "LF"
+    },
+    {
+      "path": "server-mods/code/zone/attack.cpp",
+      "sha256": "b545d2322ae08f42771bc90ac90d85a73431ab216526aae0ff7c315715417f77",
+      "bytes": 226974,
+      "newline_normalization": "LF"
+    },
+    {
+      "path": "tools/balance/active_aa_controls.py",
+      "sha256": "48226f84037f7c791df6fe766d8d97289b41cdcd8dccddaf7f44aab571e083e0",
+      "bytes": 13008,
+      "newline_normalization": "LF"
+    },
+    {
+      "path": "tools/balance/augment_controls.py",
+      "sha256": "7c8242fb7dead0c998ac139f3c14010ee21c79e63d6939cc17be29405ec806cc",
+      "bytes": 6216,
+      "newline_normalization": "LF"
+    },
+    {
+      "path": "tools/balance/build_native.py",
+      "sha256": "7204c2b4c301354255f426b449cc08b538fc280b4eacf7ed0526ce284b9c6dbb",
+      "bytes": 9996,
+      "newline_normalization": "LF"
+    },
+    {
+      "path": "tools/balance/encounter_matrix.py",
+      "sha256": "b2f19424712ebb57d64a8d8d1b14489a75aea591e862bb4b8236b830854ad4b1",
+      "bytes": 10891,
+      "newline_normalization": "LF"
+    },
+    {
+      "path": "tools/balance/melee_controls.py",
+      "sha256": "4a91fa5101b69110a3ff953a6e8a262cbd9c27cc6464589d24124b489c60a70e",
+      "bytes": 8882,
+      "newline_normalization": "LF"
+    },
+    {
+      "path": "tools/balance/native_harness.cpp",
+      "sha256": "967a72425ea603feb971af59a01be7a3d0df35d099c83203bf13585fb3dbb9a9",
+      "bytes": 22849,
+      "newline_normalization": "LF"
+    },
+    {
+      "path": "tools/balance/native_runtime.cpp",
+      "sha256": "ed251a0ec281fdce538ef11ced5db814c1f5d2a1d7315eeec86ed22547643833",
+      "bytes": 35257,
+      "newline_normalization": "LF"
+    },
+    {
+      "path": "tools/balance/native_runtime.h",
+      "sha256": "f802beb06235ced9a4a5ef97dfceec587c38bb08388d4a52e18e83c1f238e21c",
+      "bytes": 484,
+      "newline_normalization": "LF"
+    },
+    {
+      "path": "tools/balance/preparation_controls.py",
+      "sha256": "6443eec700d591c3b3d0f7143286d5f20cdab7d54e5c3f0fec43d7de8108e03b",
+      "bytes": 4977,
+      "newline_normalization": "LF"
+    },
+    {
+      "path": "tools/balance/tests/test_encounter_matrix.py",
+      "sha256": "455bd886f09d61e3287de1be76ee25f2c4497429461d3dcc00e8a76ed4bd8b8d",
+      "bytes": 3726,
+      "newline_normalization": "LF"
+    },
+    {
+      "path": "tools/balance/tests/test_melee_controls.py",
+      "sha256": "cf58efa3b8659d4cd29e2a72c1610b3bfe1d52b0428d813bd2ed4b19564b8c94",
+      "bytes": 3800,
+      "newline_normalization": "LF"
+    },
+    {
+      "path": "tools/balance/verify_native_movement.py",
+      "sha256": "dfca4d3a38388c43810ec56bc95a0f7d56cfc0f4ce55a7ade237de3ad2d5a7f6",
+      "bytes": 3814,
+      "newline_normalization": "LF"
+    }
+  ],
+  "source_mirror_whitespace": "Three cached-diff warnings at candidate lines 972, 2156 and 2176 are unchanged from captured original lines 972, 2150 and 2170. No new whitespace defect in the six-line functional correction."
+}

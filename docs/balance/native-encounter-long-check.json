@@ -1,0 +1,57 @@
+[
+  {
+    "passed": true,
+    "npc_id": 32040,
+    "result": "npc_death",
+    "elapsed_ms": 251050,
+    "boss_positive_melee_events": 129,
+    "player_positive_melee_events": 0,
+    "boss_casts": {
+      "861": 19,
+      "981": 7
+    },
+    "sampled_fear_states": 24,
+    "player_moved": true,
+    "scope": "Native combat activity control only; not certified BiS, optimal controller, full AA activation, or balance conclusion"
+  },
+  {
+    "passed": true,
+    "npc_id": 73057,
+    "result": "player_death",
+    "elapsed_ms": 235400,
+    "boss_positive_melee_events": 72,
+    "player_positive_melee_events": 0,
+    "boss_casts": {
+      "952": 6,
+      "981": 4,
+      "416": 1,
+      "672": 2,
+      "1534": 7,
+      "230": 9,
+      "125": 1,
+      "1542": 1,
+      "1518": 10,
+      "1519": 5,
+      "13": 3,
+      "132": 1
+    },
+    "sampled_fear_states": 21,
+    "player_moved": true,
+    "scope": "Native combat activity control only; not certified BiS, optimal controller, full AA activation, or balance conclusion"
+  },
+  {
+    "passed": true,
+    "npc_id": 32040,
+    "result": "npc_death",
+    "elapsed_ms": 241400,
+    "boss_positive_melee_events": 127,
+    "player_positive_melee_events": 37,
+    "boss_casts": {
+      "861": 18,
+      "981": 7
+    },
+    "sampled_fear_states": 0,
+    "player_moved": false,
+    "scope": "Native combat activity control only; not certified BiS, optimal controller, full AA activation, or balance conclusion"
+  }
+]

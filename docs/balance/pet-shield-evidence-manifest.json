@@ -1,0 +1,16 @@
+{
+  "scope": "Focused 36-fight preparation comparison; no live gameplay change",
+  "files": {
+    "tools/balance/pet_support_controls.py": "a84a7805e7a9f41cb3a6fa699ac2e3674a1e4c2344e9b2d6a32a6c8204afbabf",
+    "tools/balance/pet_shield_controls.py": "8c51a4dcc86202d3c76f09b8a4778ecf2f09bc378b257e851990fa9aebfb5e61",
+    "tools/balance/tests/test_pet_shield_controls.py": "26a91bd4aba34b924a786693b50622bde69e0a31e172fe2da2b7525f810ae63a",
+    "tools/balance/tests/test_pet_shield_evidence.py": "e5b2e929466164ede76316556afb073fee4970fde18d9ff0306e9b3f1a2e6c83",
+    "tools/balance/tests/test_release_pool_evidence.py": "8df1e2d6bb57b30138a015a73ba86ea4cf28e926baa4cec193ad782c8b41b8cf",
+    "docs/balance/pet-shield-source.json": "e3b05f057841d4b8b612f9d3134fc57d385bccce607e14bf4326b91b385799e6",
+    "docs/balance/pet-shield-inputs.json": "28278b329a0f1e41be6377b60b14de76c0ae5bd864f9814ecf6d16eafcab71a8",
+    "docs/balance/pet-shield.json.gz": "eb99cda38e6c742d65f7556d0ed10bc755b7d1d63eec49b48a7cb9a74665ee63",
+    "docs/balance/pet-shield-checks.json": "a8728a70a1a6ddacc117492848ab9e4b02a8998d7e37b55a4549351d938663fb",
+    "docs/balance/pet-shield-final-checks.json": "9739a9c00b44ee426a0e2970082ddee905f1aa004d1bfd11c699ffc19fb7c951",
+    "docs/balance/native-pet-shielding.md": "6ae685cb5b67c8f3026af213b1229cbb4bc7a3895a7047693c3a22872398f7dc"
+  }
+}

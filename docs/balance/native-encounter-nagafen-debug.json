@@ -1,0 +1,5778 @@
+{
+  "builds": [
+    {
+      "aa_budget": 0,
+      "aa_flat_hp": 20,
+      "aa_hp_regen": 0,
+      "aa_mana": 0,
+      "aa_mana_regen": 0,
+      "aa_percent_hp": 0,
+      "aa_policy": "common_free",
+      "aa_purchases": [
+        {
+          "ability_id": 0,
+          "cost": 0,
+          "name": "Unknown AA -1",
+          "points_spent": 0,
+          "rank": 1,
+          "rank_id": 49999
+        },
+        {
+          "ability_id": 331,
+          "cost": 0,
+          "name": "Origin",
+          "points_spent": 0,
+          "rank": 1,
+          "rank_id": 1000
+        },
+        {
+          "ability_id": 938,
+          "cost": 0,
+          "name": "Eyes Wide Open",
+          "points_spent": 0,
+          "rank": 1,
+          "rank_id": 12636
+        },
+        {
+          "ability_id": 1684,
+          "cost": 0,
+          "name": "Knowledge of Alaran Culture",
+          "points_spent": 0,
+          "rank": 1,
+          "rank_id": 14017
+        },
+        {
+          "ability_id": 2220,
+          "cost": 0,
+          "name": "Ancient Attunement",
+          "points_spent": 0,
+          "rank": 1,
+          "rank_id": 22200
+        },
+        {
+          "ability_id": 938,
+          "cost": 0,
+          "name": "Eyes Wide Open",
+          "points_spent": 0,
+          "rank": 2,
+          "rank_id": 12637
+        },
+        {
+          "ability_id": 1685,
+          "cost": 0,
+          "name": "Knowledge of Alaran Culture - Advanced",
+          "points_spent": 0,
+          "rank": 1,
+          "rank_id": 14018
+        },
+        {
+          "ability_id": 938,
+          "cost": 0,
+          "name": "Eyes Wide Open",
+          "points_spent": 0,
+          "rank": 3,
+          "rank_id": 8445
+        },
+        {
+          "ability_id": 938,
+          "cost": 0,
+          "name": "Eyes Wide Open",
+          "points_spent": 0,
+          "rank": 4,
+          "rank_id": 8446
+        },
+        {
+          "ability_id": 938,
+          "cost": 0,
+          "name": "Eyes Wide Open",
+          "points_spent": 0,
+          "rank": 5,
+          "rank_id": 8447
+        },
+        {
+          "ability_id": 938,
+          "cost": 0,
+          "name": "Eyes Wide Open",
+          "points_spent": 0,
+          "rank": 6,
+          "rank_id": 16419
+        },
+        {
+          "ability_id": 938,
+          "cost": 0,
+          "name": "Eyes Wide Open",
+          "points_spent": 0,
+          "rank": 7,
+          "rank_id": 16420
+        },
+        {
+          "ability_id": 938,
+          "cost": 0,
+          "name": "Eyes Wide Open",
+          "points_spent": 0,
+          "rank": 8,
+          "rank_id": 16421
+        }
+      ],
+      "aa_remaining": 0,
+      "aa_spent": 0,
+      "aa_stage": "0",
+      "ac_sum": 640,
+      "agi": 130,
+      "avoidance": 439,
+      "client_expansion_mask": 2097151,
+      "cr": 158,
+      "dex": 150,
+      "dr": 258,
+      "fr": 158,
+      "haste": 100,
+      "heal_amount": 250,
+      "heroic_hp": 570,
+      "heroic_mana": 0,
+      "hp": 5922,
+      "int": 251,
+      "item_flat_hp": 0,
+      "item_hp": 2232,
+      "item_mana": 1908,
+      "item_percent_hp": 0,
+      "mana": 4707,
+      "mr": 257,
+      "pr": 258,
+      "profile": "war-clr-wiz",
+      "raw_skills": [
+        250,
+        250,
+        250,
+        250,
+        250,
+        250,
+        0,
+        250,
+        0,
+        275,
+        250,
+        0,
+        0,
+        200,
+        250,
+        230,
+        255,
+        0,
+        250,
+        230,
+        225,
+        0,
+        210,
+        0,
+        250,
+        0,
+        0,
+        0,
+        195,
+        0,
+        225,
+        275,
+        0,
+        210,
+        230,
+        0,
+        250,
+        180,
+        0,
+        0,
+        200,
+        0,
+        0,
+        50,
+        50,
+        50,
+        50,
+        225,
+        0,
+        0,
+        250,
+        250,
+        0,
+        0,
+        0,
+        200,
+        0,
+        300,
+        300,
+        0,
+        300,
+        300,
+        0,
+        300,
+        300,
+        300,
+        275,
+        250,
+        300,
+        300,
+        0,
+        0,
+        0,
+        200,
+        0,
+        0,
+        100,
+        250,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "shielding": 0,
+      "skill_model": "Maximum held-class trained caps with native specialization/AA cap rules; attainability requires QA",
+      "spell_damage": 250,
+      "spellshield": 0,
+      "sta": 383,
+      "str": 359,
+      "tier": "Ascended",
+      "wis": 257
+    }
+  ],
+  "encounter": {
+    "attempts": [
+      {
+        "accepted": true,
+        "ms": 50,
+        "spell": 732
+      },
+      {
+        "accepted": true,
+        "ms": 6600,
+        "spell": 732
+      },
+      {
+        "accepted": true,
+        "ms": 13150,
+        "spell": 732
+      },
+      {
+        "accepted": true,
+        "ms": 19700,
+        "spell": 732
+      },
+      {
+        "accepted": true,
+        "ms": 26250,
+        "spell": 732
+      },
+      {
+        "accepted": true,
+        "ms": 32800,
+        "spell": 732
+      },
+      {
+        "accepted": true,
+        "ms": 39350,
+        "spell": 732
+      },
+      {
+        "accepted": true,
+        "ms": 45900,
+        "spell": 732
+      },
+      {
+        "accepted": true,
+        "ms": 52450,
+        "spell": 732
+      },
+      {
+        "accepted": true,
+        "ms": 59000,
+        "spell": 732
+      },
+      {
+        "accepted": true,
+        "ms": 65550,
+        "spell": 732
+      },
+      {
+        "accepted": true,
+        "ms": 72100,
+        "spell": 732
+      },
+      {
+        "accepted": true,
+        "ms": 78650,
+        "spell": 732
+      },
+      {
+        "accepted": true,
+        "ms": 85200,
+        "spell": 732
+      },
+      {
+        "accepted": true,
+        "ms": 91750,
+        "spell": 732
+      },
+      {
+        "accepted": true,
+        "ms": 98300,
+        "spell": 732
+      }
+    ],
+    "elapsed_ms": 103350,
+    "events": [
+      {
+        "ms": 50,
+        "raw_cast_ms": 5000,
+        "source": 1,
+        "spell": 732,
+        "type": "begin_cast"
+      },
+      {
+        "damage": 2828,
+        "ms": 5100,
+        "source": 1,
+        "spell": 732,
+        "target": 2,
+        "type": "damage"
+      },
+      {
+        "ms": 6600,
+        "raw_cast_ms": 5000,
+        "source": 1,
+        "spell": 732,
+        "type": "begin_cast"
+      },
+      {
+        "damage": 1102,
+        "ms": 11650,
+        "source": 1,
+        "spell": 732,
+        "target": 2,
+        "type": "damage"
+      },
+      {
+        "ms": 13150,
+        "raw_cast_ms": 5000,
+        "source": 1,
+        "spell": 732,
+        "type": "begin_cast"
+      },
+      {
+        "damage": 2828,
+        "ms": 18200,
+        "source": 1,
+        "spell": 732,
+        "target": 2,
+        "type": "damage"
+      },
+      {
+        "ms": 19700,
+        "raw_cast_ms": 5000,
+        "source": 1,
+        "spell": 732,
+        "type": "begin_cast"
+      },
+      {
+        "damage": 2828,
+        "ms": 24750,
+        "source": 1,
+        "spell": 732,
+        "target": 2,
+        "type": "damage"
+      },
+      {
+        "ms": 26250,
+        "raw_cast_ms": 5000,
+        "source": 1,
+        "spell": 732,
+        "type": "begin_cast"
+      },
+      {
+        "ms": 32800,
+        "raw_cast_ms": 5000,
+        "source": 1,
+        "spell": 732,
+        "type": "begin_cast"
+      },
+      {
+        "damage": 479,
+        "ms": 37850,
+        "source": 1,
+        "spell": 732,
+        "target": 2,
+        "type": "damage"
+      },
+      {
+        "ms": 39350,
+        "raw_cast_ms": 5000,
+        "source": 1,
+        "spell": 732,
+        "type": "begin_cast"
+      },
+      {
+        "damage": 2828,
+        "ms": 44400,
+        "source": 1,
+        "spell": 732,
+        "target": 2,
+        "type": "damage"
+      },
+      {
+        "ms": 45900,
+        "raw_cast_ms": 5000,
+        "source": 1,
+        "spell": 732,
+        "type": "begin_cast"
+      },
+      {
+        "damage": 2828,
+        "ms": 50950,
+        "source": 1,
+        "spell": 732,
+        "target": 2,
+        "type": "damage"
+      },
+      {
+        "ms": 52450,
+        "raw_cast_ms": 5000,
+        "source": 1,
+        "spell": 732,
+        "type": "begin_cast"
+      },
+      {
+        "damage": 2233,
+        "ms": 57500,
+        "source": 1,
+        "spell": 732,
+        "target": 2,
+        "type": "damage"
+      },
+      {
+        "ms": 59000,
+        "raw_cast_ms": 5000,
+        "source": 1,
+        "spell": 732,
+        "type": "begin_cast"
+      },
+      {
+        "damage": 2828,
+        "ms": 64050,
+        "source": 1,
+        "spell": 732,
+        "target": 2,
+        "type": "damage"
+      },
+      {
+        "ms": 65550,
+        "raw_cast_ms": 5000,
+        "source": 1,
+        "spell": 732,
+        "type": "begin_cast"
+      },
+      {
+        "damage": 2828,
+        "ms": 70600,
+        "source": 1,
+        "spell": 732,
+        "target": 2,
+        "type": "damage"
+      },
+      {
+        "ms": 72100,
+        "raw_cast_ms": 5000,
+        "source": 1,
+        "spell": 732,
+        "type": "begin_cast"
+      },
+      {
+        "ms": 78650,
+        "raw_cast_ms": 5000,
+        "source": 1,
+        "spell": 732,
+        "type": "begin_cast"
+      },
+      {
+        "damage": 2828,
+        "ms": 83700,
+        "source": 1,
+        "spell": 732,
+        "target": 2,
+        "type": "damage"
+      },
+      {
+        "ms": 85200,
+        "raw_cast_ms": 5000,
+        "source": 1,
+        "spell": 732,
+        "type": "begin_cast"
+      },
+      {
+        "damage": 2828,
+        "ms": 90250,
+        "source": 1,
+        "spell": 732,
+        "target": 2,
+        "type": "damage"
+      },
+      {
+        "ms": 91750,
+        "raw_cast_ms": 5000,
+        "source": 1,
+        "spell": 732,
+        "type": "begin_cast"
+      },
+      {
+        "damage": 2828,
+        "ms": 96800,
+        "source": 1,
+        "spell": 732,
+        "target": 2,
+        "type": "damage"
+      },
+      {
+        "ms": 98300,
+        "raw_cast_ms": 5000,
+        "source": 1,
+        "spell": 732,
+        "type": "begin_cast"
+      }
+    ],
+    "initial_state": {
+      "can_combat": true,
+      "npc_ai": true,
+      "npc_can_attack": true,
+      "npc_engaged": true,
+      "npc_has_spells": true,
+      "npc_hate_target": 0,
+      "player_can_attack": true,
+      "player_dead": false,
+      "player_destroying": false,
+      "player_zoning": false
+    },
+    "npc_entity_id": 2,
+    "npc_id": 32040,
+    "player_entity_id": 1,
+    "result": "npc_death",
+    "scope": "Native client/NPC combat prototype with maps; fixed nuke/self-heal controller, no buffs or activated AAs, not certified full BiS or balance evidence",
+    "trace": [
+      {
+        "feared": false,
+        "ms": 0,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 32000,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": false,
+        "player_casting": 0,
+        "player_hp": 5922,
+        "player_mana": 4707,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 32000,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 4707,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 1000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 32000,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 4707,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 1500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 32000,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 4707,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 2000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 32000,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 4707,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 2500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 32000,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 4707,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 3000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 32000,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 4707,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 3500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 32000,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 4707,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 4000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 32000,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 4707,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 4500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 32000,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 4707,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 5000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 32000,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 4707,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 5500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 29172,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 0,
+        "player_hp": 5922,
+        "player_mana": 4528,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 6000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 29172,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 0,
+        "player_hp": 5922,
+        "player_mana": 4528,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 6500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 29195,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 0,
+        "player_hp": 5922,
+        "player_mana": 4534,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 7000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 29195,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 4534,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 7500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 29195,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 4534,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 8000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 29195,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 4534,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 8500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 29195,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 4534,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 9000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 29195,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 4534,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 9500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 29195,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 4534,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 10000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 29195,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 4534,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 10500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 29195,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 4534,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 11000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 29195,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 4534,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 11500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 29195,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 4534,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 12000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 28093,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 0,
+        "player_hp": 5922,
+        "player_mana": 4355,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 12500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 28116,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 0,
+        "player_hp": 5922,
+        "player_mana": 4361,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 13000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 28116,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 0,
+        "player_hp": 5922,
+        "player_mana": 4361,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 13500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 28116,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 4361,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 14000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 28116,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 4361,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 14500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 28116,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 4361,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 15000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 28116,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 4361,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 15500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 28116,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 4361,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 16000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 28116,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 4361,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 16500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 28116,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 4361,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 17000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 28116,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 4361,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 17500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 28116,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 4361,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 18000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 28116,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 4361,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 18500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 25311,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 0,
+        "player_hp": 5922,
+        "player_mana": 4188,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 19000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 25311,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 0,
+        "player_hp": 5922,
+        "player_mana": 4188,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 19500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 25311,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 0,
+        "player_hp": 5922,
+        "player_mana": 4188,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 20000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 25311,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 4188,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 20500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 25311,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 4188,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 21000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 25311,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 4188,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 21500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 25311,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 4188,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 22000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 25311,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 4188,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 22500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 25311,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 4188,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 23000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 25311,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 4188,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 23500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 25311,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 4188,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 24000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 25311,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 4188,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 24500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 25334,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 4194,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 25000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 22506,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 0,
+        "player_hp": 5922,
+        "player_mana": 4015,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 25500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 22506,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 0,
+        "player_hp": 5922,
+        "player_mana": 4015,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 26000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 22506,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 0,
+        "player_hp": 5922,
+        "player_mana": 4015,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 26500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 22506,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 4015,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 27000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 22506,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 4015,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 27500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 22506,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 4015,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 28000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 22506,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 4015,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 28500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 22506,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 4015,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 29000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 22506,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 4015,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 29500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 22506,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 4015,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 30000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 22506,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 4015,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 30500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 22529,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 4021,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 31000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 22529,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 4021,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 31500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 22529,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 0,
+        "player_hp": 5922,
+        "player_mana": 3842,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 32000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 22529,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 0,
+        "player_hp": 5922,
+        "player_mana": 3842,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 32500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 22529,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 0,
+        "player_hp": 5922,
+        "player_mana": 3842,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 33000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 22529,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 3842,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 33500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 22529,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 3842,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 34000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 22529,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 3842,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 34500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 22529,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 3842,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 35000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 22529,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 3842,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 35500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 22529,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 3842,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 36000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 22529,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 3842,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 36500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 22552,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 3848,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 37000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 22552,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 3848,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 37500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 22552,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 3848,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 38000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 22073,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 0,
+        "player_hp": 5922,
+        "player_mana": 3669,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 38500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 22073,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 0,
+        "player_hp": 5922,
+        "player_mana": 3669,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 39000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 22073,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 0,
+        "player_hp": 5922,
+        "player_mana": 3669,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 39500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 22073,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 3669,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 40000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 22073,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 3669,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 40500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 22073,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 3669,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 41000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 22073,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 3669,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 41500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 22073,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 3669,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 42000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 22073,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 3669,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 42500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 22096,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 3675,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 43000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 22096,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 3675,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 43500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 22096,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 3675,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 44000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 22096,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 3675,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 44500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 19268,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 0,
+        "player_hp": 5922,
+        "player_mana": 3496,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 45000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 19268,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 0,
+        "player_hp": 5922,
+        "player_mana": 3496,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 45500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 19268,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 0,
+        "player_hp": 5922,
+        "player_mana": 3496,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 46000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 19268,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 3496,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 46500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 19268,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 3496,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 47000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 19268,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 3496,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 47500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 19268,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 3496,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 48000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 19268,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 3496,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 48500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 19291,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 3502,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 49000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 19291,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 3502,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 49500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 19291,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 3502,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 50000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 19291,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 3502,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 50500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 19291,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 3502,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 51000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 16463,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 0,
+        "player_hp": 5922,
+        "player_mana": 3323,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 51500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 16463,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 0,
+        "player_hp": 5922,
+        "player_mana": 3323,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 52000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 16463,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 0,
+        "player_hp": 5922,
+        "player_mana": 3323,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 52500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 16463,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 3323,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 53000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 16463,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 3323,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 53500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 16463,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 3323,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 54000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 16463,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 3323,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 54500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 16486,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 3329,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 55000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 16486,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 3329,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 55500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 16486,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 3329,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 56000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 16486,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 3329,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 56500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 16486,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 3329,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 57000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 16486,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 3329,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 57500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 14253,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 0,
+        "player_hp": 5922,
+        "player_mana": 3150,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 58000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 14253,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 0,
+        "player_hp": 5922,
+        "player_mana": 3150,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 58500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 14253,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 0,
+        "player_hp": 5922,
+        "player_mana": 3150,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 59000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 14253,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 3150,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 59500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 14253,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 3150,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 60000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 14253,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 3150,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 60500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 14276,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 3156,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 61000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 14276,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 3156,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 61500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 14276,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 3156,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 62000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 14276,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 3156,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 62500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 14276,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 3156,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 63000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 14276,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 3156,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 63500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 14276,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 3156,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 64000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 14276,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 3156,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 64500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 11448,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 0,
+        "player_hp": 5922,
+        "player_mana": 2977,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 65000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 11448,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 0,
+        "player_hp": 5922,
+        "player_mana": 2977,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 65500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 11448,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 0,
+        "player_hp": 5922,
+        "player_mana": 2977,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 66000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 11448,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 2977,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 66500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 11448,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 2977,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 67000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 11471,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 2983,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 67500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 11471,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 2983,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 68000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 11471,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 2983,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 68500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 11471,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 2983,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 69000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 11471,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 2983,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 69500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 11471,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 2983,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 70000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 11471,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 2983,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 70500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 11471,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 2983,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 71000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 8643,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 0,
+        "player_hp": 5922,
+        "player_mana": 2804,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 71500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 8643,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 0,
+        "player_hp": 5922,
+        "player_mana": 2804,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 72000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 8643,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 0,
+        "player_hp": 5922,
+        "player_mana": 2804,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 72500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 8643,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 2804,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 73000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 8666,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 2810,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 73500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 8666,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 2810,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 74000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 8666,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 2810,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 74500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 8666,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 2810,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 75000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 8666,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 2810,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 75500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 8666,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 2810,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 76000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 8666,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 2810,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 76500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 8666,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 2810,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 77000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 8666,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 2810,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 77500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 8666,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 0,
+        "player_hp": 5922,
+        "player_mana": 2631,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 78000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 8666,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 0,
+        "player_hp": 5922,
+        "player_mana": 2631,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 78500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 8666,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 0,
+        "player_hp": 5922,
+        "player_mana": 2631,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 79000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 8689,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 2637,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 79500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 8689,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 2637,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 80000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 8689,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 2637,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 80500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 8689,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 2637,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 81000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 8689,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 2637,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 81500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 8689,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 2637,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 82000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 8689,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 2637,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 82500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 8689,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 2637,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 83000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 8689,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 2637,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 83500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 8689,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 2637,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 84000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 5861,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 0,
+        "player_hp": 5922,
+        "player_mana": 2458,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 84500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 5861,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 0,
+        "player_hp": 5922,
+        "player_mana": 2458,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 85000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 5884,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 0,
+        "player_hp": 5922,
+        "player_mana": 2464,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 85500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 5884,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 2464,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 86000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 5884,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 2464,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 86500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 5884,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 2464,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 87000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 5884,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 2464,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 87500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 5884,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 2464,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 88000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 5884,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 2464,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 88500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 5884,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 2464,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 89000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 5884,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 2464,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 89500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 5884,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 2464,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 90000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 5884,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 2464,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 90500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 3056,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 0,
+        "player_hp": 5922,
+        "player_mana": 2285,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 91000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 3079,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 0,
+        "player_hp": 5922,
+        "player_mana": 2291,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 91500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 3079,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 0,
+        "player_hp": 5922,
+        "player_mana": 2291,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 92000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 3079,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 2291,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 92500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 3079,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 2291,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 93000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 3079,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 2291,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 93500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 3079,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 2291,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 94000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 3079,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 2291,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 94500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 3079,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 2291,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 95000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 3079,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 2291,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 95500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 3079,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 2291,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 96000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 3079,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 2291,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 96500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 3079,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 2291,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 97000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 274,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 0,
+        "player_hp": 5922,
+        "player_mana": 2118,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 97500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 274,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 0,
+        "player_hp": 5922,
+        "player_mana": 2118,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 98000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 274,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 0,
+        "player_hp": 5922,
+        "player_mana": 2118,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 98500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 274,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 2118,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 99000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 274,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 2118,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 99500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 274,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 2118,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 100000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 274,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 2118,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 100500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 274,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 2118,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 101000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 274,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 2118,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 101500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 274,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 2118,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 102000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 274,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 2118,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 102500,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 274,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 2118,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 103000,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": 297,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 732,
+        "player_hp": 5922,
+        "player_mana": 2124,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      },
+      {
+        "feared": false,
+        "ms": 103350,
+        "npc_casting": 0,
+        "npc_engaged": true,
+        "npc_hp": -500,
+        "npc_mana": 0,
+        "npc_position": [
+          -871.0,
+          -1395.0,
+          104.97999572753906
+        ],
+        "npc_target": 0,
+        "player_ai": false,
+        "player_autoattack": true,
+        "player_casting": 0,
+        "player_hp": 5922,
+        "player_mana": 1945,
+        "player_position": [
+          -861.0,
+          -1395.0,
+          104.87999725341797
+        ],
+        "stunned": false
+      }
+    ]
+  },
+  "native_rng_seed": 1729,
+  "status": "Native equipped-stat diagnostic; explicitly supplied AA purchases, no active buffs"
+}

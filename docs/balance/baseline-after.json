@@ -1,0 +1,94 @@
+{
+  "captured_at": "2026-09-12T13:43:05.342445+00:00",
+  "mirror": {
+    "checked": 43,
+    "missing": [],
+    "mismatches": [],
+    "sha256_lf": {
+      "code/common/inventory_profile.cpp": "6c490c07cae4a6dc5248a98b394198014f4119324a16789fee4df1e7ae813c44",
+      "code/common/inventory_profile.h": "f9d9ce50c7836f9ec847e85a39591acd2315a68301f62ad32be1169fcb109e47",
+      "code/common/patches/rof2.cpp": "af2a318e7f5a37bc03427e78e505f1b4f884bb296a40b3b8c766b37f027b911a",
+      "code/common/patches/rof2_ops.h": "df2b8d485f451e5e817794984b3579252f3c57cf8d029dcde3e1f2b51802d790",
+      "code/common/patches/rof2_structs.h": "807ebf7b873a7162aab4d36e3aad44864838650cd7848f2e39af4683c5aab0d7",
+      "code/common/ruletypes.h": "cebe9c29c7bf3b1033f47e7f54887bd906646443e6de0ecdb7595bae915c0bcf",
+      "code/common/skill_caps.cpp": "a1166874736d319b62f2872787b245a792987bb69da0ad2ba661e93d4f962d96",
+      "code/common/skill_caps.h": "649b641c4f4bd363b273d2a8099e182568e58413d9181d79782ea837a48688a1",
+      "code/common/skills.cpp": "ac49698cce2418dc343902266a9158344a59e2a370c13808b245fc906b6e049f",
+      "code/common/skills.h": "3f86da12b0ce77bede41a57f1793c17d03fb7f3e14d8ec43079190e38ebf6c71",
+      "code/tests/skills_util_test.h": "48c4778faa7a937b25c16db41ff6128eac368fcca7f2ae59b82e186615e0d1d7",
+      "code/zone/aa.cpp": "dad2822ca3076dadbaf4430635f1a8a711518966e425065cf0edda2eb48bd94f",
+      "code/zone/bonuses.cpp": "0f89997f7fc1128c08fdbe5350f2ec78fd5ca318f0df8929ccd9e546e44896c8",
+      "code/zone/client.cpp": "3cb968a57bce18a3108797942832764994a547643c9df7e33e9cc00f6430e79a",
+      "code/zone/client.h": "be95d135ca060dd8554f8b4bf47c8d7add9a88ab99e2361b7491588c2d6ceaa6",
+      "code/zone/client_mods.cpp": "e32dfdfae228de954a411cedc285a93c350dfc31f1d3c74d68572fefabeefac3",
+      "code/zone/client_process.cpp": "3ed39de01558e495327b56aa89e79f072902f31f955698dc26e3058d455f7e25",
+      "code/zone/CMakeLists.txt": "bac765a619a3905c583f2870885bd3c7b01f117ef5d2c6acbcff62ffffa39d55",
+      "code/zone/command.cpp": "5d382c22abca638d6e9125720e55eb2e242d38c0fe6777eb66e35f1426ec26fb",
+      "code/zone/command.h": "73ed1086cc9d7409eea0a6744dc512b2facad3b1f91fc3d76118704465c7cb97",
+      "code/zone/effects.cpp": "343e51438c614157f069b8aabfb582d7984c688aac2fd38f77786b8e69435058",
+      "code/zone/exp.cpp": "a98281cfe728c9739bf6fc3a361a231c6d57ead3a9ba990c4e7517b1e305169d",
+      "code/zone/gm_commands/aa_exp.cpp": "4685e7cf639c214f69dee864451df5c6e9951fad36abe7559f5212e8d5c9be60",
+      "code/zone/gm_commands/instances_list.cpp": "f2d25cd61b8097832f921991ed347def38d9fdfc86aeddf9da4b88f8e2ec3e83",
+      "code/zone/gm_commands/sell_all.cpp": "a2b437bbc9b6ea3b0e8a823f6ea8cdbd74a7fe3bd7f134ec2c55200da7c0dded",
+      "code/zone/inventory.cpp": "5aca55111727540b32babded648b8c2edb7c7fddf35c104bc8fe326fca71404e",
+      "code/zone/loot.cpp": "dfa3ca4929ce1d5f4e14921bca1a0711b8c25e30a56aacce9539109cb357a9db",
+      "code/zone/lua_client.cpp": "d236d50c9a3def8d53b9b790f128caf39a0ceb1ffb808db30d08bd09eb64d567",
+      "code/zone/lua_client.h": "ace21b02887f685346da1f0340b95d9936f904432308b18692f3ee1981916716",
+      "code/zone/mob.cpp": "6260f2dda3a2a82d89dcc2e23e9b4b2356c5da04cd9644311118771f41e6de70",
+      "code/zone/mob.h": "1eb9ae1317d3e92ab26dcfd07732c771ee4f508bb73273e85c7aa3b3c3ae4746",
+      "code/zone/perl_client.cpp": "f0a2f611b64a17c62c5febc61e9ee0d51f44999888ebae95324b09acb88d5c6b",
+      "code/zone/spell_effects.cpp": "00bef588912cb2daeab1e54961899eec045e303fdbd221d16a6535cc3972222c",
+      "code/zone/spells.cpp": "6feb7170c896928802972acec86d4d50d37310ed5d079082603cb23176081124",
+      "plugins/multiclass.pl": "e461cac976eeb7beb6426d7f8060143205649535a51fcd31e81d37abf516f553",
+      "quests/global/999240.pl": "78edf254f2b484c6d8855059b1ecddb062b5dae6f64f3c70f7a771fb9f0ec0b4",
+      "quests/global/global_player.lua": "f1779dda63c8804ccb2ed2be73f9ddac3373093840d020e38be4c940f98aba1c",
+      "quests/global/global_player.pl": "ced9891097508d2baedfde38beba9c42a24bfc3d8d7fc7e15908ac2a30e7660e",
+      "quests/global/Instance_Keeper.pl": "2d5f6af9dcc015dc222a23b50ea338d594e0420c2570353e6f0e572ff4b86969",
+      "quests/poknowledge/Epic_Forgemaster.pl": "273a1a50dc5ade77a70382204a616d46ffa2d76ec5e4f7d7c4be39f0bd777c6d",
+      "quests/poknowledge/Magus_Goldwind.pl": "3738d07412071a7d88313a85ff8e18124fd11cf9cffabea0f463e356314f4422",
+      "quests/poknowledge/Matron_Restora.pl": "7627d9ee359880ba462f50058d1c3b057ab57c27c89648e19f045162c2933650",
+      "quests/poknowledge/The_Ancient_Chronicler.pl": "98e065aea6715a2782a514067bdb654b5350ffb304511988d57a28d7c453a53a"
+    }
+  },
+  "database": {
+    "rules": {
+      "Character:AAExpMinLevel": "1",
+      "Character:ItemSpellDmgCap": "250",
+      "Character:ItemHealAmtCap": "250",
+      "Spells:ItemExtraSpellAmtCalcAsPercent": "true",
+      "Spells:FlatItemExtraSpellAmt": "true",
+      "Spells:IgnoreSpellDmgLvlRestriction": "true",
+      "Spells:DOTsScaleWithSpellDmg": "true",
+      "Spells:HOTsScaleWithHealAmt": "true",
+      "Spells:DOTBonusDamageSplitOverDuration": "true",
+      "Spells:HOTBonusHealingSplitOverDuration": "true"
+    },
+    "rule_mismatches": {},
+    "tier_stamps": [
+      {
+        "offset": 200000,
+        "items": 61635,
+        "mismatches": 0
+      },
+      {
+        "offset": 400000,
+        "items": 61635,
+        "mismatches": 0
+      },
+      {
+        "offset": 600000,
+        "items": 61635,
+        "mismatches": 0
+      },
+      {
+        "offset": 800000,
+        "items": 15,
+        "mismatches": 0
+      }
+    ]
+  },
+  "cpp_tests": {
+    "passed": 87
+  },
+  "passed": true
+}

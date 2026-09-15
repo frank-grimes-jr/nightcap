@@ -1,0 +1,9 @@
+{
+  "command": [
+    "/tmp/nightcap-aa-purchase-20260913/source/build/bin/tests"
+  ],
+  "cwd": "/tmp/nightcap-aa-purchase-20260913/cpp-tests",
+  "fixture_base": "Previous isolated bulk-AA test config; all directory paths rewritten into this fixture. Database remains the balance clone.",
+  "exit_code": 0,
+  "verified_summary": "Total: 87 tests, 100% correct"
+}

@@ -1,0 +1,23 @@
+{
+  "tested_revision": "8decea37ea8a41ccfd3eb42f3ea3180cc0826715",
+  "dev_python_tests": 316,
+  "dev_python_exit_code": 0,
+  "source_archive_files_verified": 2787,
+  "artifacts": {
+    "zone": {
+      "path": "E:\\EQ_Local_Dev\\artifacts\\server-fixes-20260913\\zone",
+      "sha256": "ce127436f846e2ef0d588501bc5797f13f8928cce72ea45ef9e6eb8562dbcaac",
+      "bytes": 78904056
+    },
+    "zone.before": {
+      "path": "E:\\EQ_Local_Dev\\artifacts\\server-fixes-20260913\\zone.before",
+      "sha256": "b7b2a022e3a7f78528639aaf90dba620e561cc8d4047912d211034b7c9517540",
+      "bytes": 78897448
+    },
+    "full-source.tar.gz": {
+      "path": "E:\\EQ_Local_Dev\\artifacts\\server-fixes-20260913\\full-source.tar.gz",
+      "sha256": "ed2442a0807c7cfa61b782aeb21626765aae4731e1f77622984c4829d5611c06",
+      "bytes": 20447062
+    }
+  }
+}

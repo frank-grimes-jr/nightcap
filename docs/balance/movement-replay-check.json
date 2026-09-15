@@ -1,0 +1,11 @@
+{
+  "hashes": {
+    "movement-matrix-results.json.gz": "23383c1031d15f442a5ffbac118770e8470f06b4651988be874017d3917eb671",
+    "movement-matrix-replay.json.gz": "23383c1031d15f442a5ffbac118770e8470f06b4651988be874017d3917eb671",
+    "movement-legacy-results.json.gz": "105ecc7f2b6921153c97cd025b2da33f3d849ac01811da36edac1b6f7c2ba4ae"
+  },
+  "isolated_database": {
+    "accounts": 0,
+    "characters": 0
+  }
+}
