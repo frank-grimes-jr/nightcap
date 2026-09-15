@@ -1,0 +1,30 @@
+[
+  {
+    "path": "common/spdat.h",
+    "sha256": "c7977ab7b236587b13e2bc110a735032095cc82b994d540397c8ee961c24da56",
+    "excerpts": [
+      {
+        "start": 1090,
+        "source": "\tconstexpr int Gate                            = 26; // implemented - Gate to bind point\n\tconstexpr int CancelMagic                     = 27; // implemented\n\tconstexpr int InvisVsUndead                   = 28; // implemented\n\tconstexpr int InvisVsAnimals                  = 29; // implemented\n\tconstexpr int ChangeFrenzyRad                 = 30; // implemented - Pacify\n\tconstexpr int Mez                             = 31; // implemented\n\tconstexpr int SummonItem                      = 32; // implemented\n\tconstexpr int SummonPet                       = 33; // implemented\n\tconstexpr int Confuse                         = 34; // not used (Nimbus of Temporal Rifting) ?\n"
+      },
+      {
+        "start": 1147,
+        "source": "\tconstexpr int Teleport                        = 83; // implemented\n"
+      },
+      {
+        "start": 1231,
+        "source": "\tconstexpr int PetPowerIncrease                = 167; // implemented, @Fc, On Caster, pet power mod, base: value\n"
+      }
+    ]
+  },
+  {
+    "path": "zone/spell_effects.cpp",
+    "sha256": "d0d95e1bc7d90423fcc6a7b9055b22b97783c20990a33121144453551f347f16",
+    "excerpts": [
+      {
+        "start": 1303,
+        "source": "\t\t\tcase SpellEffect::SummonBSTPet:\n\t\t\tcase SpellEffect::NecPet:\n\t\t\tcase SpellEffect::SummonPet:\n\t\t\tcase SpellEffect::Familiar:\n\t\t\t{\n#ifdef SPELL_EFFECT_SPAM\n\t\t\t\tsnprintf(effect_desc, _EDLEN, \"Summon %s: %s\", (effect==SE_Familiar)?\"Familiar\":\"Pet\", spell.teleport_zone);\n#endif\n\t\t\t\t// Multiclass: determine which of the character's classes owns this spell.\n\t\t\t\t// Primary class takes precedence; extras checked only if primary can't cast it.\n\t\t\t\tuint8 owning_class = GetClass();\n\t\t\t\tif (IsClient()) {\n\t\t\t\t\tauto mc = CastToClient();\n\t\t\t\t\tif (spell.classes[GetClass() - 1] >= 255) {\n\t\t\t\t\t\tuint8 c2 = mc->GetClass2(), c3 = mc->GetClass3();\n\t\t\t\t\t\tif (c2 > 0 && spell.classes[c2 - 1] < 255)      owning_class = c2;\n\t\t\t\t\t\telse if (c3 > 0 && spell.classes[c3 - 1] < 255) owning_class = c3;\n\t\t\t\t\t}\n\t\t\t\t}\n\n\t\t\t\tbool is_extra_class = IsClient() && (owning_class != GetClass());\n\n\t\t\t\tif (is_extra_class)\n\t\t\t\t{\n\t\t\t\t\t// Extra class slot: depop existing same-class pet if any, then summon fresh.\n\t\t\t\t\tauto c = CastToClient();\n\t\t\t\t\tuint16 existing_id = c->GetClassPet(owning_class);\n\t\t\t\t\tif (existing_id) {\n\t\t\t\t\t\tMob *old_pet = entity_list.GetMob(existing_id);\n\t\t\t\t\t\tif (old_pet) old_pet->Depop(false);\n\t\t\t\t\t\tc->RemoveClassPet(owning_class);\n\t\t\t\t\t}\n\t\t\t\t\tuint16 saved_pet_id = GetPetID();\n\t\t\t\t\tSetPetID(0);\n\t\t\t\t\tMakePet(spell_id, spell.teleport_zone);\n\t\t\t\t\tMob *new_pet = GetPet();\n\t\t\t\t\tif (new_pet) {\n\t\t\t\t\t\tc->SetClassPet(owning_class, new_pet->GetID());\n\t\t\t\t\t}\n\t\t\t\t\tSetPetID(saved_pet_id);\n\t\t\t\t\tMob *primary = entity_list.GetMob(saved_pet_id);\n\t\t\t\t\tif (primary) primary->SetOwnerID(GetID());\n\t\t\t\t}\n\t\t\t\telse if (GetPet())\n\t\t\t\t{\n\t\t\t\t\tMessageString(Chat::Shout, ONLY_ONE_PET);\n\t\t\t\t}\n\t\t\t\telse\n\t\t\t\t{\n\t\t\t\t\t// Normal primary slot summon\n\t\t\t\t\tMakePet(spell_id, spell.teleport_zone);\n\t\t\t\t\tMob *pet = GetPet();\n\t\t\t\t\tif (IsClient() && pet) {\n"
+      }
+    ]
+  }
+]

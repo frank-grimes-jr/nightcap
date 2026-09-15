@@ -1,0 +1,124 @@
+{
+  "scope": "Native active pet support, fixed candidate gear and open-pool AA sensitivity. Curated release maximum, obtainable full BiS and final balance remain open.",
+  "binary_sha256": "2c4aaceaeab6bb6223e2f1c7785fa771bb577369fd9225fccea852bf013889f3",
+  "validation": {
+    "python_tests_passed": 211,
+    "native_support_fights": 30,
+    "unchanged_command_combat_reports": 12,
+    "unchanged_ownership_reports": 15,
+    "unchanged_caster_monk_reports": 8
+  },
+  "source_review": {
+    "production_code_changed": false,
+    "controller": "Eight fixed gems per boss; actual native recast, recovery, movement and spell effects; no resource reset before combat.",
+    "limitations": [
+      "Partial native build, not fresh full-source parity",
+      "No continuous kiting, pet resummoning or complete activated-AA rotation",
+      "Out-of-combat gem memorization time not modeled",
+      "Release AA whitelist and complete gear acquisition unresolved"
+    ]
+  },
+  "clone_cleanup": {
+    "database": "nightcap_balance_20260912",
+    "removed_synthetic_inventory_rows": [
+      {
+        "character_id": 12,
+        "slot_id": 23,
+        "item_id": 10015,
+        "charges": 9
+      },
+      {
+        "character_id": 12,
+        "slot_id": 24,
+        "item_id": 13073,
+        "charges": 9
+      }
+    ],
+    "remaining_account_rows": 0,
+    "remaining_character_rows": 0,
+    "remaining_inventory_rows": 0
+  },
+  "live_changes": false,
+  "artifacts": {
+    "docs/balance/pet-support-build.json": {
+      "sha256": "66d9ef9f24e1849134e1d7f9c698a737fca436fbc6bd4ee46b5ef8acce119cac",
+      "newline_normalization": "LF"
+    },
+    "docs/balance/pet-support-checks.json": {
+      "sha256": "0b148d13ac63bdb16db1fdec71fc3b7f61c061e95e534517633596427e5621ef",
+      "newline_normalization": "LF"
+    },
+    "docs/balance/pet-support-command-regression-inputs.json": {
+      "sha256": "201a997244b7d6b877ce9e9484cbbfb79d8acb3a5daca136bf07932fd60dd0b4",
+      "newline_normalization": "LF"
+    },
+    "docs/balance/pet-support-command-regression.json.gz": {
+      "sha256": "e3d1c240ef10d75b91ae5f57dab134a47f7af515024f75e7ee07cf22eb783c0a",
+      "newline_normalization": "none"
+    },
+    "docs/balance/pet-support-encounter-regression-inputs.json": {
+      "sha256": "c1511b1804a47a180254239e0199ad5c7b3b0af5da8ed2976a5708250c9b6c1c",
+      "newline_normalization": "LF"
+    },
+    "docs/balance/pet-support-encounter-regression.json.gz": {
+      "sha256": "5c8f92d1bd23c22f79cc1b139d1bc9d6149d1abb01b578d4c4231e36de9dc7f8",
+      "newline_normalization": "none"
+    },
+    "docs/balance/pet-support-inputs.json": {
+      "sha256": "948d3e14d948c77cad0144742b126f72101548835e0086d37957b2325e2ebe12",
+      "newline_normalization": "LF"
+    },
+    "docs/balance/pet-support-ownership-regression-inputs.json": {
+      "sha256": "6472f242cc4bd4f478c77a37c6785620c61066d4bb88fe28954218eb2735108c",
+      "newline_normalization": "LF"
+    },
+    "docs/balance/pet-support-ownership-regression.json.gz": {
+      "sha256": "b5431e4c311a8a4761e02f0a94d9168620c14ba0615b42815b30eb684303ac49",
+      "newline_normalization": "none"
+    },
+    "docs/balance/pet-support-regression-checks.json": {
+      "sha256": "3252f2801f6c438672f08cbaa7be79f10aba758d5f9634f1336ceb48fb2a39c8",
+      "newline_normalization": "LF"
+    },
+    "docs/balance/pet-support.json.gz": {
+      "sha256": "59cd7b15571d33f8e5e05bca9eaef9f69fb2a84697aff0e65771a9623aab7597",
+      "newline_normalization": "none"
+    },
+    "tools/balance/native_runtime.cpp": {
+      "sha256": "f5f59f48781fbb5e0d99dd22d0fdf0df06ca38eb1c8b77258f1cc673b78d7021",
+      "newline_normalization": "LF"
+    },
+    "tools/balance/native_runtime.h": {
+      "sha256": "abb9c21da3a2f1d4b2326fe51e62606818d045ab332362d102a3d5c6cbaa993a",
+      "newline_normalization": "LF"
+    },
+    "tools/balance/native_harness.cpp": {
+      "sha256": "fdcd59004c5d8d8a7347df7801d32afd2be4cd652ec5db0a62c44ec5102a2153",
+      "newline_normalization": "LF"
+    },
+    "tools/balance/pet_support_controls.py": {
+      "sha256": "bb7f8fd577ee574e8394db811111739e8987f2348a621289cdb7595cd685ea04",
+      "newline_normalization": "LF"
+    },
+    "tools/balance/pet_combat_controls.py": {
+      "sha256": "5f083cb7a31c197e1a73b7488e7825a2cc01b055ef4f6a7be40eec20be8fac00",
+      "newline_normalization": "LF"
+    },
+    "tools/balance/pet_controls.py": {
+      "sha256": "5592356753933954062c7a3c9c72affd9dfdfa3e31be33f1fa49b4d592c2d7ac",
+      "newline_normalization": "LF"
+    },
+    "tools/balance/tests/test_pet_support_controls.py": {
+      "sha256": "63e9e060710214b11437629c0374e7c27d4aaacc2b437de9a52fd9e716124976",
+      "newline_normalization": "LF"
+    },
+    "docs/balance/native-pet-support.md": {
+      "sha256": "f980a83beb0460de0f4381a0032ff954da8557f1a3fe87d6f5a311260a623a8d",
+      "newline_normalization": "LF"
+    },
+    "docs/adr/0013-native-pet-support-measurements.md": {
+      "sha256": "0213369cb454521595327634ff926fd9af0a214501f87e393788fb44d8141cd4",
+      "newline_normalization": "LF"
+    }
+  }
+}

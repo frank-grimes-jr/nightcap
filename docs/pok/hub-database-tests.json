@@ -1,0 +1,29 @@
+{
+  "database": "nightcap_pok_qa_89c7d253830c",
+  "cases": [
+    "forward_exact_afterimage",
+    "repeat_apply_rejected_without_changes",
+    "rollback_exact_preimage",
+    "changed_existing_npc_rejected_without_changes",
+    "occupied_new_spawn_id_rejected_without_changes",
+    "late_write_failure_rolls_back_all_content",
+    "rollback_preserves_unexpected_later_edits",
+    "pre_migration_restock_matches_legacy",
+    "hub_restock_preserves_routing_despite_widened_classes",
+    "lower_cap_uses_original_class_levels_and_contiguous_slots",
+    "unreviewed_cap_and_expansion_refuse_before_writes",
+    "malformed_level_cap_rejected_without_changes",
+    "restock_rejects_changed_merchant_identity",
+    "late_restock_failure_restores_previous_stock"
+  ],
+  "passed": 14,
+  "restored_exact_preimage": true,
+  "scope": "Real MariaDB content tables. No PEQ writes, zone restart, client, or in-game QA.",
+  "sha256": {
+    "hub-before.json": "85794468701fe05259c12bf2525aa3991716976b5d229facfb43a3a5ef344cc5",
+    "hub-after.json": "e47a268ecd74971e84b6ed49479ba1ca20cb8b8503001ddebeb64c00c40cb696",
+    "hub-forward.sql": "07afbeac2773d8cf88a617bec7266fdb5bde8f06ccd34853a62ed75de2a469c1",
+    "hub-rollback.sql": "87e4cf8062ed2af52f185a5b254db8b812cf8a9d5a5c06381c5aea27816be1d3",
+    "vendor_restock.sql": "2f6baaa20908724095ea3a48ec9b5ad1282335d1ec219ad4ebaffb9c41fa6b56"
+  }
+}

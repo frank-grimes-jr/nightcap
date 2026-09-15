@@ -1,0 +1,13 @@
+{
+  "source_files_checked": 2787,
+  "source_mismatches": [],
+  "build_exit_code": 0,
+  "cpp_exit_code": 0,
+  "zone_bytes": 78975792,
+  "zone_magic": "7f454c46",
+  "zone_sha256": "da5b36b19ed6ce3c5ae5eb172e4d5cad5a3617694873f2d4293fc4e3257f2c6a",
+  "overlay": {
+    "zone/aa.cpp": "e732fb7acf77d84e5fdba847a0ebe062e4bcb64602388a41bfff9a5aacc45fe8",
+    "zone/client.h": "d02066694636f4a1472977e0c5cbfc1b91034ffd11205b456f2992fcbfd3f210"
+  }
+}

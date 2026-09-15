@@ -1,0 +1,53 @@
+{
+  "phase": "after",
+  "cases": [
+    {
+      "id": "release-full-earned-wizard",
+      "passed": true,
+      "differences": 0
+    },
+    {
+      "id": "release-partially-usable-wizard",
+      "passed": true,
+      "differences": 0
+    },
+    {
+      "id": "release-suspended-wizard",
+      "passed": true,
+      "differences": 0
+    },
+    {
+      "id": "release-preserves-shared-earned-aa",
+      "passed": true,
+      "differences": 0
+    },
+    {
+      "id": "failed-class-write-preserves-entire-character",
+      "passed": true,
+      "differences": 0
+    },
+    {
+      "id": "failed-point-write-preserves-entire-character",
+      "passed": true,
+      "differences": 0
+    },
+    {
+      "id": "release-second-promotes-wizard-without-refund",
+      "passed": true,
+      "differences": 0
+    }
+  ],
+  "final": {
+    "remaining_rows": {
+      "account": 0,
+      "character_data": 0,
+      "character_alternate_abilities": 0,
+      "inventory": 0
+    },
+    "catalog_unchanged": true,
+    "class_values_restored": true,
+    "skills_unchanged": true,
+    "catalog_sha256": "bfcce242cd44630515f148f96ebd4668706f45bb5f72eabf7d07ea4ec1e02161",
+    "failure_trigger_remaining": 0
+  }
+}

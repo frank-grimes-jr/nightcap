@@ -1,0 +1,292 @@
+--- a/zone/aa.cpp
++++ b/zone/aa.cpp
+@@ -583,29 +583,9 @@
+ 
+ void Client::ResetAA()
+ {
+-	SendClearPlayerAA();
++	// RefundAA now atomically removes refundable earned rows and preserves
++	// grant-only survivors. A second deletion would undo that result.
+ 	RefundAA();
+-
+-	memset(&m_pp.aa_array[0], 0, sizeof(AA_Array) * MAX_PP_AA_ARRAY);
+-
+-	int slot_id = 0;
+-
+-	for (auto& rank_value: aa_ranks) {
+-		auto ability_rank = zone->GetAlternateAdvancementAbilityAndRank(rank_value.first, rank_value.second.first);
+-		auto ability      = ability_rank.first;
+-		auto rank         = ability_rank.second;
+-
+-		if (!rank) {
+-			continue;
+-		}
+-
+-		m_pp.aa_array[slot_id].AA      = rank_value.first;
+-		m_pp.aa_array[slot_id].value   = rank_value.second.first;
+-		m_pp.aa_array[slot_id].charges = rank_value.second.second;
+-		++slot_id;
+-	}
+-
+-	database.DeleteCharacterAAs(CharacterID());
+ }
+ 
+ void Client::ResetLeadershipAA()
+@@ -903,43 +883,39 @@
+ 	Inspector->FastQueuePacket(&outapp);
+ }
+ 
+-void Client::RefundAA() {
+-	int refunded = 0;
+-
+-	auto rank_value = aa_ranks.begin();
+-	while (rank_value != aa_ranks.end()) {
+-		auto ability_rank = zone->GetAlternateAdvancementAbilityAndRank(rank_value->first, rank_value->second.first);
+-		auto ability      = ability_rank.first;
+-		auto rank         = ability_rank.second;
+-
+-		if (!ability) {
+-			++rank_value;
++bool Client::RefundAA() {
++	if (!HasValidEarnedAAState()) {
++		return false;
++	}
++	auto earned = m_earned_aa_ranks;
++	auto usable = aa_ranks;
++	uint64 wallet = GetAAPoints();
++	for (auto it = earned.begin(); it != earned.end();) {
++		auto ability = zone->GetAlternateAdvancementAbilityByRank(it->first);
++		auto rank = ability ? ability->GetRankByPointsSpent(it->second.first) : nullptr;
++		if (!ability || ability->first_rank_id != it->first || !rank ||
++			rank->current_value != it->second.first || rank->total_cost < 0) {
++			InvalidateEarnedAAState();
++			return false;
++		}
++		if (ability->grant_only || (ability->charges > 0 && it->second.second < 1)) {
++			++it;
+ 			continue;
+ 		}
+-
+-		if (ability->charges > 0 && rank_value->second.second < 1) {
+-			++rank_value;
+-			continue;
+-		}
+-
+-		if (ability->grant_only) {
+-			++rank_value;
+-			continue;
+-		}
+-
+-		refunded += rank->total_cost;
+-		rank_value        = aa_ranks.erase(rank_value);
+-	}
+-
+-	if (refunded > 0) {
+-		m_pp.aapoints += refunded;
+-		SaveAA();
+-		Save();
+-	}
+-
++		wallet += rank->total_cost;
++		if (wallet > UINT32_MAX) { return false; }
++		usable.erase(ability->id);
++		it = earned.erase(it);
++	}
++	if (!PersistEarnedAAState(std::move(earned), std::move(usable), static_cast<uint32>(wallet), m_epp.expended_aa)) {
++		return false;
++	}
++	CalcBonuses();
++	SendClearPlayerAA();
+ 	SendAlternateAdvancementTable();
+ 	SendAlternateAdvancementPoints();
+ 	SendAlternateAdvancementStats();
++	return true;
+ }
+ 
+ // Multiclass: called right after a discipline slot is released (character_multiclass
+@@ -1570,6 +1546,13 @@
+ }
+ 
+ bool ZoneDatabase::LoadAlternateAdvancement(Client *c) {
++	// An in-place AA reload does not reload the character's point counters.
++	// Once those may be untrusted, only a fresh client session may clear the
++	// failure state; otherwise a later profile save could undo a committed change.
++	if (!c->HasValidEarnedAAState()) {
++		LogError("Refusing in-place AA recovery for [{}]; reconnect to reload ownership and counters", c->CharacterID());
++		return false;
++	}
+ 	// Preserve the session on a read failure; an empty result must be distinguishable
+ 	// from a failed ownership query before any later save is allowed.
+ 	auto rows = database.QueryDatabase(fmt::format(
+--- a/zone/client.cpp
++++ b/zone/client.cpp
+@@ -1052,6 +1052,17 @@
+ 		earned.erase(first_rank_id);
+ 		usable.erase(ability->id);
+ 	}
++	if (expended > UINT32_MAX) {
++		return false;
++	}
++	return PersistEarnedAAState(std::move(earned), std::move(usable), GetAAPoints(), static_cast<uint32>(expended));
++}
++
++bool Client::PersistEarnedAAState(EarnedAAState earned, UsableAAState usable, uint32 wallet, uint32 expended)
++{
++	if (!m_earned_aa_valid) {
++		return false;
++	}
+ 	uint64 spent = expended;
+ 	for (const auto &entry : earned) {
+ 		auto a = zone->GetAlternateAdvancementAbilityByRank(entry.first);
+@@ -1066,6 +1077,22 @@
+ 	if (spent > UINT32_MAX) {
+ 		return false;
+ 	}
++	std::vector<AA_Array> profile;
++	for (const auto &entry : usable) {
++		if (!entry.second.first) { continue; }
++		auto ability = zone->GetAlternateAdvancementAbility(entry.first);
++		if (!ability) { return false; }
++		const auto owned = earned.find(ability->first_rank_id);
++		if (owned == earned.end() || owned->second.first < entry.second.first ||
++			owned->second.second != entry.second.second || profile.size() >= MAX_PP_AA_ARRAY) {
++			return false;
++		}
++		AA_Array row = {};
++		row.AA = ability->first_rank_id;
++		row.value = entry.second.first;
++		row.charges = entry.second.second;
++		profile.emplace_back(row);
++	}
+ 
+ 	// Do not commit someone else's transaction or retry a statement on a new
+ 	// connection after losing this transaction. Session state changes only after
+@@ -1074,18 +1101,20 @@
+ 	if (!transaction.Success() || transaction.RowCount() != 1 ||
+ 		Strings::ToUnsignedInt(transaction.begin()[0]) != 0) {
+ 		InvalidateEarnedAAState();
+-		LogError("Refusing nested/unavailable AA removal transaction for [{}]", CharacterID());
++		LogError("Refusing nested/unavailable AA ownership transaction for [{}]", CharacterID());
++		Message(Chat::Red, "The AA change could not be saved. Please reconnect before continuing.");
+ 		return false;
+ 	}
+ 	if (!database.QueryDatabase(std::string("START TRANSACTION"), false).Success()) {
+ 		InvalidateEarnedAAState();
++		Message(Chat::Red, "The AA change could not be saved. Please reconnect before continuing.");
+ 		return false;
+ 	}
+ 	auto failed = [&]() {
+ 		database.QueryDatabase(std::string("ROLLBACK"), false);
+ 		InvalidateEarnedAAState();
+-		LogError("AA removal not acknowledged for [{}], rank [{}]; reload ownership before further AA mutations",
+-			CharacterID(), first_rank_id);
++		LogError("AA ownership change not acknowledged for [{}]; reconnect before further AA mutations", CharacterID());
++		Message(Chat::Red, "The AA change could not be saved. Please reconnect before continuing.");
+ 		return false;
+ 	};
+ 	auto character = database.QueryDatabase(fmt::format(
+@@ -1108,30 +1137,36 @@
+ 			return failed();
+ 		}
+ 	}
+-	const auto predicate = fmt::format("id={} AND aa_id={}", CharacterID(), first_rank_id);
+-	auto change = database.QueryDatabase(charges
+-		? fmt::format("UPDATE character_alternate_abilities SET charges={} WHERE {}", charges, predicate)
+-		: fmt::format("DELETE FROM character_alternate_abilities WHERE {}", predicate), false);
+-	if (!change.Success() || change.RowsAffected() != 1) {
+-		return failed();
++	for (const auto &entry : m_earned_aa_ranks) {
++		if (!earned.count(entry.first)) {
++			auto removed = database.QueryDatabase(fmt::format(
++				"DELETE FROM character_alternate_abilities WHERE id={} AND aa_id={}", CharacterID(), entry.first), false);
++			if (!removed.Success() || removed.RowsAffected() != 1) { return failed(); }
++		}
++	}
++	for (const auto &entry : earned) {
++		const auto old = m_earned_aa_ranks.find(entry.first);
++		if (old == m_earned_aa_ranks.end() || old->second != entry.second) {
++			auto updated = database.QueryDatabase(fmt::format(
++				"REPLACE INTO character_alternate_abilities (id,aa_id,aa_value,charges) VALUES ({},{},{},{})",
++				CharacterID(), entry.first, entry.second.first, entry.second.second), false);
++			if (!updated.Success() || !updated.RowsAffected()) { return failed(); }
++		}
+ 	}
+ 	auto points = database.QueryDatabase(fmt::format(
+-		"UPDATE character_data SET aa_points_spent={},e_expended_aa_spent={} WHERE id={}",
+-		spent, expended, CharacterID()), false);
++		"UPDATE character_data SET aa_points={},aa_points_spent={},e_expended_aa_spent={} WHERE id={}",
++		wallet, spent, expended, CharacterID()), false);
+ 	if (!points.Success() || points.RowsAffected() != 1 ||
+ 		!database.QueryDatabase(std::string("COMMIT"), false).Success()) {
+ 		return failed();
+ 	}
+ 	m_earned_aa_ranks = std::move(earned);
+ 	aa_ranks = std::move(usable);
++	m_pp.aapoints = wallet;
+ 	m_pp.aapoints_spent = static_cast<uint32>(spent);
+ 	m_epp.expended_aa = static_cast<uint32>(expended);
+-	for (auto &entry : m_pp.aa_array) {
+-		if (entry.AA == first_rank_id) {
+-			if (charges) { entry.charges = charges; }
+-			else { entry = {}; }
+-		}
+-	}
++	memset(m_pp.aa_array, 0, sizeof(m_pp.aa_array));
++	std::copy(profile.begin(), profile.end(), std::begin(m_pp.aa_array));
+ 	return true;
+ }
+ 
+@@ -1243,7 +1278,7 @@
+ 		}
+ 	}
+ 
+-	database.SaveCharacterData(this, &m_pp, &m_epp); /* Save Character Data */
++	const bool character_saved = database.SaveCharacterData(this, &m_pp, &m_epp);
+ 
+ 	database.SaveCharacterEXPModifier(this);
+ 
+@@ -1253,7 +1288,7 @@
+ 
+ 	LogInfo("Save for [{}] took [{}]", GetCleanName(), timer.elapsed());
+ 
+-	return true;
++	return character_saved;
+ }
+ 
+ CLIENTPACKET::CLIENTPACKET()
+--- a/zone/client.h
++++ b/zone/client.h
+@@ -1135,7 +1135,7 @@
+ 	//old AA methods that we still use
+ 	void ResetAA();
+ 	void ResetLeadershipAA();
+-	void RefundAA();
++	bool RefundAA();
+ 	void SendClearLeadershipAA();
+ 	void SendClearPlayerAA();
+ 	inline uint32 GetAAXP() const { return m_pp.expAA; }
+@@ -2458,7 +2458,10 @@
+ 	void SyncWorldPositionsToClient(bool ignore_idle = false);
+ private:
+ 	// Canonical persisted ownership; Mob::aa_ranks is only the usable view.
++	using EarnedAAState = std::map<uint32, std::pair<uint32, uint32>>;
++	using UsableAAState = std::unordered_map<uint32, std::pair<uint32, uint32>>;
+ 	bool PersistEarnedAARemoval(uint32 first_rank_id, bool consume_charge);
+-	std::map<uint32, std::pair<uint32, uint32>> m_earned_aa_ranks;
++	bool PersistEarnedAAState(EarnedAAState earned, UsableAAState usable, uint32 wallet, uint32 expended);
++	EarnedAAState m_earned_aa_ranks;
+ 	bool m_earned_aa_valid = true;
+ };
+--- a/zone/zonedb.cpp
++++ b/zone/zonedb.cpp
+@@ -1046,6 +1046,10 @@
+ 	ExtendedProfile_Struct* m_epp
+ ) {
+ 	if (!c) {
++		return false;
++	}
++	if (!c->HasValidEarnedAAState()) {
++		LogError("Refusing character save for [{}]: AA ownership/counters require reconciliation", c->CharacterID());
+ 		return false;
+ 	}
+ 

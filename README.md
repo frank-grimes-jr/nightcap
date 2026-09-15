@@ -1,266 +1,123 @@
-# Nightcap — Custom EverQuest Private Server
-
-A heavily customized [EQEmu](https://www.eqemulator.org/) server built for small-group and solo play with friends. All content runs inside Docker via [akk-stack](https://github.com/akkadius/akk-stack). Includes a custom GM web tool (`eq-solo-gm`) for server management without requiring in-game GM commands.
-
----
-
-## Major Deviations from Vanilla EverQuest
-
-These are the intentional rule changes that differentiate Nightcap from a stock PEQ server.
-
----
-
-### 1. Multiclass System
-
-**The single largest departure from vanilla EQ.** Characters can adopt up to two additional class disciplines beyond their original class, turning every character into a 2- or 3-class hybrid.
-
-#### How it works
-
-Speak to **The Ancient Chronicler** in Plane of Knowledge. This NPC acts as the multiclass hub.
-
-- **2nd Discipline** — Available at level 20. Choose any of the 16 EQ classes.
-- **3rd Discipline** — Available at level 50. Choose a second additional class.
-
-#### What applying a discipline does
-
-When you adopt a new discipline:
-
-1. **Spells** — All spells from the secondary class that are available in the current expansion are scribed to your spellbook. The class restriction in the spell table is patched so your base class can memorize them.
-2. **Skills** — Your skill caps are expanded to include all skills from the adopted class, trained to maximum for your level.
-3. **AAs** — The alternate advancement abilities for the adopted class become visible in your AA window and are purchasable immediately.
-
-#### Releasing a discipline
-
-You can revoke a secondary or tertiary discipline at any time through the same Chronicler NPC. Revocation removes exclusive spells from that class (spells not already available to your base class), resets the associated AA visibility, and clears the discipline from your character record.
-
-#### Lore framing
-
-> *"Long have the ancient paths of Norrath been sealed — the rigid walls between fighting forms and mystic arts. The Ancient Chronicler walks the forgotten roads between these disciplines. In exchange for dedication and mastery, he can teach a warrior the prayers of a cleric, or show a rogue the blade dances of a monk."*
-
----
-
-### 2. Plane of Knowledge as Universal Starting Hub
-
-**All new characters start in Plane of Knowledge**, regardless of race, class, or deity. In vanilla EQ, each race has a dedicated starting city. Here, PoK is the central hub for everything.
-
-- Starting coordinates are set to PoK's safe zone point.
-- Death-bind point for new characters is also set to PoK.
-- The PoK expansion check is bypassed so the zone is always accessible even when the server is locked to Classic or Kunark content.
-
----
-
-### 3. Ancient Attunement — Universal PoK Recall AA
-
-Every character receives a free **Ancient Attunement** AA on login, regardless of level, class, or expansion.
-
-- Teleports the character to Plane of Knowledge.
-- Available from **level 1**.
-- 10-minute recast timer.
-- No AA points required to acquire or use.
-- Granted automatically via `global_player.lua` on every connect.
-
-This replaces the need for GM commands to return to the hub. Friends playing on the server can recall to PoK at any time.
-
----
-
-### 4. Expansion-Gated PoK Portals
-
-The portal doors inside Plane of Knowledge are locked to their appropriate expansion era. A character attempting to zone through a portal to Kunark content while the server is running Classic will receive a message and be returned to PoK.
-
-- GMs bypass this check entirely.
-- Portal locking is enforced via `player.pl` in the PoK quest script directory.
-- The current expansion is read from the `Expansion:CurrentExpansion` server rule, which the GM tool manages.
-
----
-
-### 5. AA Progression from Level 1
-
-In vanilla EQ, Alternate Advancement abilities are locked behind level 51 (Shadows of Luclin release). On Nightcap:
-
-- **All AA rank level requirements are set to 1** — any AA can be purchased as soon as you have the points.
-- **`AA:ExpPerPoint` is tuned to 50,000** (vs. live EQ's ~24,000,000). This makes AAs accessible during normal leveling.
-- XP rate is intentionally minimal at level 1 but scales with level. **Level 30 in Lower Guk is the designed sweet spot** — the combination of red-con mobs (XP bonus) and 3-class combat power makes it an efficient AA grind zone.
-- AA visibility is still class-gated — only AAs for your active disciplines appear in the window.
-
----
-
-### 6. Expansion Management System
-
-The server can be locked to any EverQuest content era. Switching expansion changes:
-
-- Maximum character level cap
-- Which zones are accessible through PoK portals
-- Which spells appear on the in-PoK spell vendors
-- Which AAs are visible in the AA window (`Expansion:UseCurrentExpansionAAOnly = true`)
-
-Expansion switching is handled through the **GM web tool** (see below). A single button press updates all relevant server rules and triggers a spell vendor refresh.
-
-**Supported eras:**
-| # | Expansion |
-|---|-----------|
-| 0 | Classic |
-| 1 | Ruins of Kunark |
-| 2 | Scars of Velious |
-| 3 | Shadows of Luclin |
-| 4 | Planes of Power |
-| 5 | Lost Dungeons of Norrath |
-| 6 | Gates of Discord |
-
----
-
-### 7. Expansion-Filtered Spell Vendors
-
-Three spell vendors are stationed in Plane of Knowledge, each serving a different class archetype. Spell inventory is automatically refreshed to only show spells from the current expansion when you change eras via the GM tool.
-
-| Vendor | Classes |
-|--------|---------|
-| Arcane Tomes | Necromancer, Wizard, Magician, Enchanter |
-| Sacred Rites | Cleric, Druid, Shaman |
-| Martial Disciplines | Paladin, Ranger, Shadow Knight, Bard, Beastlord |
-
-Spells sold as books require the appropriate class (or multiclass discipline) to use. Vendors are populated via the `POST /api/vendors/refresh` endpoint in the GM tool.
-
----
-
-### 8. XP and Progression Tuning
-
-| Setting | Value | Vanilla |
-|---------|-------|---------|
-| `Character:ExpMultiplier` | 0.65 | 1.0 |
-| `Character:AAExpMultiplier` | 0.65 | 1.0 |
-| `AA:ExpPerPoint` | 50,000 | ~24,000,000 |
-
-The XP multiplier is slightly below live EQ rate, making leveling take a bit longer. AA experience is tuned to be nearly inaccessible at level 1 (intentional) and quite productive at level 30+ when grinding red-con mobs.
-
----
-
-### 9. GM Web Tool (`eq-solo-gm`)
-
-A custom web interface for server administration. Runs locally on **port 5173** (frontend) and **port 3001** (API).
-
-**Features:**
-- **Character Management** — Boost any character's level, grant AA points, set skills to max, add platinum/currency.
-- **Expansion Control** — Switch the server's content era with one click. Automatically updates level cap, portal locks, and spell vendor inventory.
-- **Server Rules** — Live-edit tracked server rules: XP multiplier, AA cost, loot rates, death penalty, etc.
-- **Teleport** — Move any character to any zone.
-- **Vendor Refresh** — Rebuild spell vendor inventories for the current expansion.
-
-> **Note:** Database credentials in `api/server.cjs` are hardcoded to the default EQEmu values (`eqemu`/`eqemu` on `localhost:3307`). Change these if your setup differs.
-
----
-
-## Repository Structure
-
-`akk-stack` (the base Docker server) is a separate upstream project and is not included here. Install it first, then copy the files from this repo into place.
-
-```
-nightcap/
-├── server/
-│   └── quests/                 Custom and modified quest scripts
-│       ├── global/
-│       │   ├── global_player.lua   Ancient Attunement AA grant on login
-│       │   └── global_player.pl    Perl fallback
-│       └── poknowledge/
-│           ├── The_Ancient_Chronicler.pl   Multiclass hub NPC
-│           └── player.pl                   PoK portal expansion lock
-├── eq-solo-gm/                 GM web tool (Vue3 + Express)
-│   ├── api/
-│   │   └── server.cjs          Express API server
-│   ├── src/                    Vue3 frontend components
-│   └── scripts/                SQL setup scripts
-│       ├── multiclass_setup.sql        DB schema + NPC spawns for multiclass
-│       ├── pok_attunement_setup.sql    Ancient Attunement spell + AA
-│       ├── pok_start_zone.sql          Set PoK as universal start zone
-│       └── aa_progression_setup.sql    AA level/XP tuning
-└── README.md
-```
-
----
-
-## Setup
-
-### Prerequisites
-
-- Docker Desktop (Windows/Mac) or Docker Engine (Linux)
-- Node.js 18+ (for the GM tool)
-- A copy of the EverQuest Rain of Fear 2 client
-
-### 1. Install and start akk-stack
-
-```bash
-git clone https://github.com/akkadius/akk-stack.git
-cd akk-stack
-make install     # first time only — downloads and configures everything
-make up          # start all containers
-```
-
-### 2. Copy the custom quest scripts
-
-From the nightcap repo root:
-
-```bash
-cp -r server/quests/global/* akk-stack/server/quests/global/
-cp -r server/quests/poknowledge/* akk-stack/server/quests/poknowledge/
-```
-
-### 3. Run the custom SQL scripts
-
-```bash
-cd akk-stack
-docker exec -i akk-stack-mariadb-1 mysql -ueqemu -peqemu peq < ../eq-solo-gm/scripts/multiclass_setup.sql
-docker exec -i akk-stack-mariadb-1 mysql -ueqemu -peqemu peq < ../eq-solo-gm/scripts/pok_attunement_setup.sql
-docker exec -i akk-stack-mariadb-1 mysql -ueqemu -peqemu peq < ../eq-solo-gm/scripts/pok_start_zone.sql
-docker exec -i akk-stack-mariadb-1 mysql -ueqemu -peqemu peq < ../eq-solo-gm/scripts/aa_progression_setup.sql
-```
-
-### 3. Start the GM tool
-
-```bash
-cd eq-solo-gm
-npm install
+# Nightcap
+
+A solo-preferred EverQuest emulator server where preparation, class choices,
+earned gear and encounter execution matter. Friends are welcome; easier access
+must preserve meaningful difficulty.
+
+**Current release: deployed for live QA, September 15, 2026.** Gameplay acceptance
+is pending. The owner explicitly authorized promoting all gameplay from `test`
+to `main` for live testing. Main now carries this release; promotion does not
+certify in-game acceptance. See [promotion record](docs/releases/main-live-qa-20260915.md).
+
+[Player website source](index.html) ·
+[Current status](docs/status.md) · [Documentation](docs/README.md) ·
+[Live QA checklist](docs/releases/live-qa-20260915/QA.md)
+
+## For players
+
+- **Classic progression, level cap 50.** Plane of Knowledge is the shared hub.
+  The custom spell/AA offering is not a claim of strict original-era parity.
+- **Three-class characters.** Both additional disciplines can be selected from
+  level 1 through the Ancient Chronicler. The primary class remains unchanged.
+  Class uniqueness, free slots and individual ability requirements still apply.
+- **See your choices.** Login, hail, `#classes` and `/say !classes` show Primary,
+  Second and Third, including empty slots. Camp/relog when instructed.
+- **Earn your progression.** Buy eligible spells, songs and tomes from class
+  merchants and learn them normally. Skills unlock at native required levels
+  with value 1 and improve through use/training. No automatic spell scribing
+  or production skill maximization is part of choosing a class.
+- **PoK arrival hub.** Sixteen class merchants flank arrival. The Chronicler is
+  north of the aisle; bags, epic, blessing and waypoint services share a nearby
+  row. The new layout and interactions await owner in-game acceptance.
+- **Equipment tiers.** Polished, Exalted and Ascended items extend progression;
+  Ascended items include heroic stats. Encounter balance remains under study.
+- **Early AA progression.** AA experience is enabled from level 1. The setting
+  survived startup of matching world/zone binaries; XP earning needs player QA.
+- **Travel.** Ancient Attunement returns to PoK. Discover waypoint markers to
+  unlock destinations at the hub service; discovery/recall remain QA checks.
+
+### What changed in the current release
+
+The combined release adds the arrival hub and clearer class dialogue, positive
+prices for all 22 bags, earned-AA persistence and atomic discipline release,
+and weapon/pet/direct-AA-buff fixes. Skills and waypoint work are in the deployed
+baseline. Bag base prices range from 10 platinum (8 slots) to 7,500 (40 slots);
+normal merchant modifiers apply. NO TRADE and specialty-container restrictions
+remain. See the [full feature-by-feature checklist](docs/releases/live-qa-20260915/QA.md).
+
+Discipline release commits class slots, eligible earned-AA refunds/removal and
+retained-class skill clamps together. Shared AA families remain owned; scribed
+spells are not erased by this release path. Spell usability still depends on
+remaining eligibility. Test on disposable characters before changing a valued
+build. Client equipment/Skills/trainer coverage, some stats/regen acceptance,
+Bard behavior, missing AA titles, augments and launcher delivery remain open.
+
+## For operators
+
+This is an existing development workspace with independent subprojects, not a
+one-command clean installation. Do not replay historical setup SQL against live
+PEQ: some scripts describe superseded NPC layouts and contain destructive steps.
+Use the reviewed release's guarded migration, exact preimages and rollback.
+
+| Location | Purpose |
+|---|---|
+| `akk-stack/` | Local Docker stack, active C++ and runtime quests; separate/ignored project |
+| `server-mods/` | Tracked custom server-source and quest/plugin mirror |
+| `eq-solo-gm/` | Vue/Vite + Express GM tools and SQL scripts |
+| `eq-client-dll/` | Guarded RoF2 UI/mana proxy source and evidence |
+| `era.json`, `tools/` | Declarative era policy, audits, migrations and backups |
+| `docs/` | Current status, operator runbooks, dated evidence and QA |
+
+Run commands in the named subproject. There is no root package manifest.
+
+```powershell
+# Existing stack: ensure E: and the Docker data disk are available first.
+cd E:/EQ_Local_Dev/akk-stack
+make up
+
+# Optional GM UI/API, using the project's existing dependencies.
+cd E:/EQ_Local_Dev/eq-solo-gm
 npm run dev
 ```
 
-Open [http://localhost:5173](http://localhost:5173).
+The GM UI uses port 5173 and API 3001; host MariaDB is **3307**, database `peq`.
+Credentials/configuration belong to the local setup, not the public site.
+Era control is **only** `era.json` plus `tools/apply-era.ps1`; the GM era/vendor
+refresh route is retired. The current hub catalog supports reviewed Classic
+inventory through level 50; future-era catalogs require review before applying.
 
-### 4. Reload the server
+### Deployment and cache boundaries
 
-After running the SQL scripts, apply changes in-game:
+Take and verify a full backup before destructive SQL. Match source, binary and
+quest versions. AA class release requires the matching `ReleaseMulticlassSlot`
+binding and plugin; the old separate SQL/purge route is retired.
 
-```
-#reloadworld
-```
+- Changes to compiled rules require **both world and zone** builds. Old world
+  deletes unknown rules on boot; this previously removed `AAExpMinLevel`.
+- Item/spell changes require the appropriate shared-memory refresh and fresh
+  zones. NPC/merchant changes need a zone restart, not just repop.
+- Skill caps load directly into world and every zone; restart both generations.
+- NPC relocation must also handle affected `zone_state_spawns` records. Saved
+  positions can restore old locations and deleted spawns. Preserve unrelated
+  state and rehearse a guarded, scoped rollback.
+- Never build or routinely modify `Client_RoF2_Dev/`.
 
----
+[Deployment, checksums and rollback](docs/releases/live-qa-20260915/README.md) ·
+[PoK runbook](docs/pok/QA.md) · [Bag pricing](docs/ops/bag-vendor-pricing.md) ·
+[Docker storage](docs/ops/docker-data-migration-20260913.md)
 
-## After First Login
+## Working agreement
 
-When you first log in with a new character:
-
-1. You will spawn in **Plane of Knowledge**.
-2. Open your **AA window** — the *Ancient Attunement* ability is already granted and ready.
-3. Visit **The Ancient Chronicler** (somewhere in PoK — coordinates are placeholders until placed in-game) to select your character's disciplines.
-4. Use `/loc` in-game to find good NPC placement spots, then update `spawn2` coordinates in the DB.
-
----
-
-## NPC Placement (Required After Install)
-
-The Chronicler and vendor NPCs use placeholder coordinates. After running `multiclass_setup.sql`:
-
-1. Stand at your desired location in PoK.
-2. Note the `/loc` output.
-3. Run:
-   ```sql
-   UPDATE spawn2 SET x = ?, y = ?, z = ?
-   WHERE spawngroupID IN (999220, 999221, 999222, 999223, 999224);
-   ```
-4. In-game: `#repop`
-
----
+`feature/*` → `dev` → `test` → `main`. Automated verification precedes test;
+each promotion includes exact in-game steps. Main gameplay promotion requires
+owner sign-off unless explicitly overridden. The September 15 release has an
+owner-authorized exception for testing on main. Keep small commits and update `CHANGES.md`; [AGENTS.md](AGENTS.md)
+is the canonical workspace guidance. Historical reports retain their original
+dates and scope; [current status](docs/status.md) supersedes old queue summaries.
 
 ## Acknowledgements
 
-- [EQEmulator](https://www.eqemulator.org/) — the open-source EverQuest server emulator
-- [akk-stack](https://github.com/akkadius/akk-stack) — the Docker setup this server is built on
-- [Project EQ](https://www.projecteq.net/) — quest scripts and database content
+Built with [EQEmulator](https://www.eqemulator.org/),
+[akk-stack](https://github.com/akkadius/akk-stack), and
+[Project EQ](https://www.projecteq.net/). Independent community project, not
+affiliated with the official EverQuest service.

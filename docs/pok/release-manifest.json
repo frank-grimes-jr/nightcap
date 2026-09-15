@@ -1,0 +1,38 @@
+{
+  "status": "historical_isolated_candidate_manifest",
+  "base_commit": "5f61fddb0253a6c0516a9d208ffc960ce6d8fd3e",
+  "branch": "feature/pok-usability",
+  "tests": {
+    "database_controls": 14,
+    "python_tests": 4,
+    "additional_plugin_assertions": 7,
+    "era_preflight_invalid_cases": 6,
+    "era_required_file_failure_cases": 2,
+    "existing_chronicler_assertions": 16,
+    "lua_status_primary_classes": 16
+  },
+  "manual_qa": "pending; docs/pok/QA.md",
+  "files": {
+    "server-mods/quests/global/global_player.lua": "a42171a6b1b7dd06c00f5f53aafd0dbe0372ae48a8345f12167eafa85d9cc513",
+    "server-mods/quests/poknowledge/The_Ancient_Chronicler.pl": "777d57939ab1a813f502e1b389c7665f9da2febdb51a049a22bcd0e25a11413e",
+    "server-mods/plugins/multiclass.pl": "4bb1630195f11cc9ae42cdb81919e7be93c828f0d656d3137742090eb9aa96cf",
+    "eq-solo-gm/scripts/vendor_restock.sql": "2f6baaa20908724095ea3a48ec9b5ad1282335d1ec219ad4ebaffb9c41fa6b56",
+    "tools/apply-era.ps1": "98101f72e80d095b1ef0f891d921d280f3937ec9261b41aea8b7878cfc852a1c",
+    "tools/pok-hub-era.ps1": "1394eacad721c30be1f9c576ec49ea8c15ad1bb53b14fe04bb154889f0baff7f",
+    "docs/pok/catalog-policy.json": "981f9fc51fd5bf81f4f474d4ed2da4a906de41be810a4a25c9b601befa56bf90",
+    "docs/pok/hub-forward.sql": "07afbeac2773d8cf88a617bec7266fdb5bde8f06ccd34853a62ed75de2a469c1",
+    "docs/pok/hub-rollback.sql": "87e4cf8062ed2af52f185a5b254db8b812cf8a9d5a5c06381c5aea27816be1d3",
+    "docs/pok/hub-before.json": "85794468701fe05259c12bf2525aa3991716976b5d229facfb43a3a5ef344cc5",
+    "docs/pok/hub-after.json": "e47a268ecd74971e84b6ed49479ba1ca20cb8b8503001ddebeb64c00c40cb696",
+    "tools/pok_hub.py": "51cfffceadc22a73a01a84ac96fc427f3f271603bda5a4bf26b87ab90aca4c91",
+    "tools/pok_hub_migration.py": "184b72772950d60eccdd1a4fff36905f222bc2fb0fa4b1efc915f4946383d528",
+    "tools/pok_hub_restock.py": "95243a1c1186340279c11089115c7fef04d55381750b32fffed93f57af34ec6e",
+    "tools/tests/run_pok_hub_database.py": "a18b7c309b0dcf751a06bbd13ce20186f48a032ac7d5d05d1d36a17d846c76f6",
+    "tools/tests/test_pok_hub.py": "c42886eeb1a362aeea55ac42d8ab7b59d359434c5525458917a26b6fc9f074e3",
+    "tools/tests/test_pok_hub_migration.py": "dc4bd756a6634a52a2a20a4ca2fa53174e1da27640bac73b2f8391f836f4a828",
+    "tools/tests/test-pok-hub-era.ps1": "9a6dc536756ec2195570a58d34e83f3d84d71c2e8b753f95dad17b5a5f6ff9b6",
+    "tools/tests/test-pok-class-guidance.pl": "f5a4d599ff9c4cb5529e5c9e0e54a8ce6cdfd4e45825ffa645cfe7b17a152c0f"
+  },
+  "superseded_by": "docs/releases/live-qa-20260915/README.md",
+  "note": "Original file hashes retained as preparation evidence; combined live release uses a different paired multiclass plugin. Manual acceptance pending."
+}

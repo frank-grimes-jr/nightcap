@@ -1,0 +1,21 @@
+PASS: 16 primary classes, explicit empty slots, both status commands, login, and command delegation
+
+ok 1 - hail shows all slots
+ok 2 - hail never selects a class
+ok 3 - preview explains earned skill progression
+ok 4 - preview never selects a class
+ok 5 - selection opens the expected confirmation
+ok 6 - opening confirmation does not mutate classes
+ok 7 - dismissal ID never selects a class
+ok 8 - dismissal leaves the class slot empty
+ok 9 - confirmed selection uses existing class plugin
+ok 10 - selection response immediately rereads saved slots
+ok 11 - failed selection does not fill a slot
+ok 12 - failure stays visible
+ok 13 - failure displays the unchanged slots
+ok 14 - status works with all three slots filled
+ok 15 - release no longer promises the obsolete retention behavior
+ok 16 - release immediately shows promoted slot state
+1..16
+
+Multiclass login banner uses the canonical loaded class slots.

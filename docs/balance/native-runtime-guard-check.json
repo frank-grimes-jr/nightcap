@@ -1,0 +1,41 @@
+{
+  "checks": [
+    {
+      "case": "live_database",
+      "passed": true,
+      "exit_code": 2
+    },
+    {
+      "case": "root_account",
+      "passed": true,
+      "exit_code": 2
+    },
+    {
+      "case": "content_database",
+      "passed": true,
+      "exit_code": 2
+    },
+    {
+      "case": "automatic_updates",
+      "passed": true,
+      "exit_code": 2
+    },
+    {
+      "case": "outside_input",
+      "passed": true,
+      "exit_code": 2
+    },
+    {
+      "case": "outside_runtime",
+      "passed": true,
+      "exit_code": 2
+    },
+    {
+      "case": "wrong_operation",
+      "passed": true,
+      "exit_code": 2
+    }
+  ],
+  "passed": true,
+  "scope": "Early preflight rejection only; no valid configuration is started"
+}

@@ -1,0 +1,2020 @@
+{
+  "checks": [
+    {
+      "id": "32040-ring41-0-common_free-1729-burst",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "player_death",
+        "elapsed_ms": 166500,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "32040-ring41-0-common_free-1729-burst_regeneration",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "player_death",
+        "elapsed_ms": 166500,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "32040-ring41-0-common_free-1729-burst_tenacity",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "player_death",
+        "elapsed_ms": 166500,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "32040-ring41-0-common_free-1730-burst",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "player_death",
+        "elapsed_ms": 275650,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "32040-ring41-0-common_free-1730-burst_regeneration",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "player_death",
+        "elapsed_ms": 275650,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "32040-ring41-0-common_free-1730-burst_tenacity",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "player_death",
+        "elapsed_ms": 275650,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "32040-ring41-0-common_free-1731-burst",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 237750,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "32040-ring41-0-common_free-1731-burst_regeneration",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 237750,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "32040-ring41-0-common_free-1731-burst_tenacity",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 237750,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "73057-ring41-0-common_free-1729-burst",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "player_death",
+        "elapsed_ms": 330250,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "73057-ring41-0-common_free-1729-burst_regeneration",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "player_death",
+        "elapsed_ms": 330250,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "73057-ring41-0-common_free-1729-burst_tenacity",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "player_death",
+        "elapsed_ms": 330250,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "73057-ring41-0-common_free-1730-burst",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "player_death",
+        "elapsed_ms": 327000,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "73057-ring41-0-common_free-1730-burst_regeneration",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "player_death",
+        "elapsed_ms": 327000,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "73057-ring41-0-common_free-1730-burst_tenacity",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "player_death",
+        "elapsed_ms": 327000,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "73057-ring41-0-common_free-1731-burst",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "player_death",
+        "elapsed_ms": 303750,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "73057-ring41-0-common_free-1731-burst_regeneration",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "player_death",
+        "elapsed_ms": 303750,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "73057-ring41-0-common_free-1731-burst_tenacity",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "player_death",
+        "elapsed_ms": 303750,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "32040-ring41-100-balanced-1729-burst",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 218100,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "32040-ring41-100-balanced-1729-burst_regeneration",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 218100,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "32040-ring41-100-balanced-1729-burst_tenacity",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 218100,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "32040-ring41-100-balanced-1730-burst",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 226200,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "32040-ring41-100-balanced-1730-burst_regeneration",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 226200,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "32040-ring41-100-balanced-1730-burst_tenacity",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 226200,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "32040-ring41-100-balanced-1731-burst",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 194900,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "32040-ring41-100-balanced-1731-burst_regeneration",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 194900,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "32040-ring41-100-balanced-1731-burst_tenacity",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 194900,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "73057-ring41-100-balanced-1729-burst",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "player_death",
+        "elapsed_ms": 276050,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "73057-ring41-100-balanced-1729-burst_regeneration",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "player_death",
+        "elapsed_ms": 276050,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "73057-ring41-100-balanced-1729-burst_tenacity",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "player_death",
+        "elapsed_ms": 276050,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "73057-ring41-100-balanced-1730-burst",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "player_death",
+        "elapsed_ms": 304750,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "73057-ring41-100-balanced-1730-burst_regeneration",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "player_death",
+        "elapsed_ms": 304750,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "73057-ring41-100-balanced-1730-burst_tenacity",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "player_death",
+        "elapsed_ms": 304750,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "73057-ring41-100-balanced-1731-burst",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "player_death",
+        "elapsed_ms": 303100,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "73057-ring41-100-balanced-1731-burst_regeneration",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "player_death",
+        "elapsed_ms": 303100,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "73057-ring41-100-balanced-1731-burst_tenacity",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "player_death",
+        "elapsed_ms": 303100,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "32040-ring41-200-balanced-1729-burst",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 87600,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "32040-ring41-200-balanced-1729-burst_regeneration",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "player_death",
+        "elapsed_ms": 345950,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "32040-ring41-200-balanced-1729-burst_tenacity",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 269250,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "32040-ring41-200-balanced-1730-burst",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 267100,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "32040-ring41-200-balanced-1730-burst_regeneration",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 261500,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "32040-ring41-200-balanced-1730-burst_tenacity",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 170550,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "32040-ring41-200-balanced-1731-burst",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 230250,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "32040-ring41-200-balanced-1731-burst_regeneration",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 178250,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "32040-ring41-200-balanced-1731-burst_tenacity",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 173100,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "73057-ring41-200-balanced-1729-burst",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 110250,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "73057-ring41-200-balanced-1729-burst_regeneration",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 110250,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "73057-ring41-200-balanced-1729-burst_tenacity",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "player_death",
+        "elapsed_ms": 296700,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "73057-ring41-200-balanced-1730-burst",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "player_death",
+        "elapsed_ms": 392750,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "73057-ring41-200-balanced-1730-burst_regeneration",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 198850,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "73057-ring41-200-balanced-1730-burst_tenacity",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "player_death",
+        "elapsed_ms": 357750,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "73057-ring41-200-balanced-1731-burst",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "player_death",
+        "elapsed_ms": 324450,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "73057-ring41-200-balanced-1731-burst_regeneration",
+      "check": {
+        "passed": true,
+        "movement_packets": 1114,
+        "distance": 875.455217633707,
+        "returned_to_sampled_melee_range": true,
+        "history_packets": 17,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 543550,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "73057-ring41-200-balanced-1731-burst_tenacity",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 180950,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "32040-ring41-500-balanced-1729-burst",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 105450,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "32040-ring41-500-balanced-1729-burst_regeneration",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 111900,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "32040-ring41-500-balanced-1729-burst_tenacity",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 105350,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "32040-ring41-500-balanced-1730-burst",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 153800,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "32040-ring41-500-balanced-1730-burst_regeneration",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 105350,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "32040-ring41-500-balanced-1730-burst_tenacity",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 104800,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "32040-ring41-500-balanced-1731-burst",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 99250,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "32040-ring41-500-balanced-1731-burst_regeneration",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 83000,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "32040-ring41-500-balanced-1731-burst_tenacity",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 124600,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "73057-ring41-500-balanced-1729-burst",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 169100,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "73057-ring41-500-balanced-1729-burst_regeneration",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 169100,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "73057-ring41-500-balanced-1729-burst_tenacity",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 54400,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "73057-ring41-500-balanced-1730-burst",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 211250,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "73057-ring41-500-balanced-1730-burst_regeneration",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 134900,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "73057-ring41-500-balanced-1730-burst_tenacity",
+      "check": {
+        "passed": true,
+        "movement_packets": 105,
+        "distance": 80.81400817668266,
+        "returned_to_sampled_melee_range": true,
+        "history_packets": 2,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 124050,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "73057-ring41-500-balanced-1731-burst",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 48100,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "73057-ring41-500-balanced-1731-burst_regeneration",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 48100,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "73057-ring41-500-balanced-1731-burst_tenacity",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 39450,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "32040-ring41-100-durability_first-1729-burst",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 218100,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "32040-ring41-100-durability_first-1729-burst_regeneration",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 218100,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "32040-ring41-100-durability_first-1729-burst_tenacity",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 218100,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "32040-ring41-100-durability_first-1730-burst",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 226200,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "32040-ring41-100-durability_first-1730-burst_regeneration",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 226200,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "32040-ring41-100-durability_first-1730-burst_tenacity",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 226200,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "32040-ring41-100-durability_first-1731-burst",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 194900,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "32040-ring41-100-durability_first-1731-burst_regeneration",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 194900,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "32040-ring41-100-durability_first-1731-burst_tenacity",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 194900,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "73057-ring41-100-durability_first-1729-burst",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "player_death",
+        "elapsed_ms": 276050,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "73057-ring41-100-durability_first-1729-burst_regeneration",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "player_death",
+        "elapsed_ms": 276050,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "73057-ring41-100-durability_first-1729-burst_tenacity",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "player_death",
+        "elapsed_ms": 276050,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "73057-ring41-100-durability_first-1730-burst",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "player_death",
+        "elapsed_ms": 304750,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "73057-ring41-100-durability_first-1730-burst_regeneration",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "player_death",
+        "elapsed_ms": 304750,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "73057-ring41-100-durability_first-1730-burst_tenacity",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "player_death",
+        "elapsed_ms": 304750,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "73057-ring41-100-durability_first-1731-burst",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "player_death",
+        "elapsed_ms": 303100,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "73057-ring41-100-durability_first-1731-burst_regeneration",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "player_death",
+        "elapsed_ms": 303100,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "73057-ring41-100-durability_first-1731-burst_tenacity",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "player_death",
+        "elapsed_ms": 303100,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "32040-ring41-200-durability_first-1729-burst",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 113450,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "32040-ring41-200-durability_first-1729-burst_regeneration",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 199000,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "32040-ring41-200-durability_first-1729-burst_tenacity",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 177700,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "32040-ring41-200-durability_first-1730-burst",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 216600,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "32040-ring41-200-durability_first-1730-burst_regeneration",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "player_death",
+        "elapsed_ms": 355150,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "32040-ring41-200-durability_first-1730-burst_tenacity",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 127800,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "32040-ring41-200-durability_first-1731-burst",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 97250,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "32040-ring41-200-durability_first-1731-burst_regeneration",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 161500,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "32040-ring41-200-durability_first-1731-burst_tenacity",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 202000,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "73057-ring41-200-durability_first-1729-burst",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 159150,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "73057-ring41-200-durability_first-1729-burst_regeneration",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 159150,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "73057-ring41-200-durability_first-1729-burst_tenacity",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 121550,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "73057-ring41-200-durability_first-1730-burst",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 119100,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "73057-ring41-200-durability_first-1730-burst_regeneration",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 73850,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "73057-ring41-200-durability_first-1730-burst_tenacity",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "player_death",
+        "elapsed_ms": 316350,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "73057-ring41-200-durability_first-1731-burst",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 50350,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "73057-ring41-200-durability_first-1731-burst_regeneration",
+      "check": {
+        "passed": true,
+        "movement_packets": 299,
+        "distance": 230.94790415746283,
+        "returned_to_sampled_melee_range": true,
+        "history_packets": 3,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 94100,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "73057-ring41-200-durability_first-1731-burst_tenacity",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 66050,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "32040-ring41-500-durability_first-1729-burst",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 168600,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "32040-ring41-500-durability_first-1729-burst_regeneration",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 161500,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "32040-ring41-500-durability_first-1729-burst_tenacity",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 137750,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "32040-ring41-500-durability_first-1730-burst",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 214800,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "32040-ring41-500-durability_first-1730-burst_regeneration",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 186350,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "32040-ring41-500-durability_first-1730-burst_tenacity",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 238300,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "32040-ring41-500-durability_first-1731-burst",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 194450,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "32040-ring41-500-durability_first-1731-burst_regeneration",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 111900,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "32040-ring41-500-durability_first-1731-burst_tenacity",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 113300,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "73057-ring41-500-durability_first-1729-burst",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 76350,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "73057-ring41-500-durability_first-1729-burst_regeneration",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 76350,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "73057-ring41-500-durability_first-1729-burst_tenacity",
+      "check": {
+        "passed": true,
+        "movement_packets": 1115,
+        "distance": 823.9332852879727,
+        "returned_to_sampled_melee_range": true,
+        "history_packets": 23,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 787350,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "73057-ring41-500-durability_first-1730-burst",
+      "check": {
+        "passed": true,
+        "movement_packets": 553,
+        "distance": 426.7894667739897,
+        "returned_to_sampled_melee_range": true,
+        "history_packets": 11,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 343900,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "73057-ring41-500-durability_first-1730-burst_regeneration",
+      "check": {
+        "passed": true,
+        "movement_packets": 553,
+        "distance": 426.7894667739897,
+        "returned_to_sampled_melee_range": true,
+        "history_packets": 11,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 343900,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "73057-ring41-500-durability_first-1730-burst_tenacity",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 167600,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "73057-ring41-500-durability_first-1731-burst",
+      "check": {
+        "passed": true,
+        "movement_packets": 2417,
+        "distance": 1884.1635982730102,
+        "returned_to_sampled_melee_range": true,
+        "history_packets": 36,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 776700,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "73057-ring41-500-durability_first-1731-burst_regeneration",
+      "check": {
+        "passed": true,
+        "movement_packets": 2417,
+        "distance": 1884.1635982730102,
+        "returned_to_sampled_melee_range": true,
+        "history_packets": 36,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 776700,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "73057-ring41-500-durability_first-1731-burst_tenacity",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 71100,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "32040-ring41-all-purchase_closure-1729-burst",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 47100,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "32040-ring41-all-purchase_closure-1729-burst_regeneration",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 47100,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "32040-ring41-all-purchase_closure-1729-burst_tenacity",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 44800,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "32040-ring41-all-purchase_closure-1730-burst",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 30900,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "32040-ring41-all-purchase_closure-1730-burst_regeneration",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 30900,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "32040-ring41-all-purchase_closure-1730-burst_tenacity",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 30900,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "32040-ring41-all-purchase_closure-1731-burst",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 63300,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "32040-ring41-all-purchase_closure-1731-burst_regeneration",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 63300,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "32040-ring41-all-purchase_closure-1731-burst_tenacity",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 63300,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "73057-ring41-all-purchase_closure-1729-burst",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 22500,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "73057-ring41-all-purchase_closure-1729-burst_regeneration",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 22500,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "73057-ring41-all-purchase_closure-1729-burst_tenacity",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 22500,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "73057-ring41-all-purchase_closure-1730-burst",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 32650,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "73057-ring41-all-purchase_closure-1730-burst_regeneration",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 32650,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "73057-ring41-all-purchase_closure-1730-burst_tenacity",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 32650,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "73057-ring41-all-purchase_closure-1731-burst",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 16950,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "73057-ring41-all-purchase_closure-1731-burst_regeneration",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 16950,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    },
+    {
+      "id": "73057-ring41-all-purchase_closure-1731-burst_tenacity",
+      "check": {
+        "passed": true,
+        "movement_packets": 0,
+        "distance": 0.0,
+        "returned_to_sampled_melee_range": false,
+        "history_packets": 0,
+        "failed_paths": 0,
+        "result": "npc_death",
+        "elapsed_ms": 16950,
+        "scope": "Native packet application and bounded mesh pursuit; client physics parity and final balance remain unproven"
+      }
+    }
+  ]
+}

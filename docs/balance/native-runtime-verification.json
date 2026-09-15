@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "cast_finished_ms": 5550,
+  "heal_amount": 2100,
+  "mana_spent": 180,
+  "post_cast_hp_regen": 9,
+  "post_cast_mana_regen": 6,
+  "damage_taken": 100,
+  "scope": "Native connected Client::Process clock/cast/resource/damage control; not a boss balance result"
+}

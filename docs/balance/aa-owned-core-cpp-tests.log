@@ -1,0 +1,24 @@
+Import |    Info    | Init Loading server paths 
+Import |    Info    | Init ---------------------------------------------------------------------- 
+Import |    Info    | Init          server > [/tmp/nightcap-aa-owned-core-20260913/cpp-tests] 
+Import |    Info    | Init            logs > [../../nightcap-release-20260913/cpp-tests/logs] 
+Import |    Info    | Init            maps > [../../nightcap-release-20260913/cpp-tests/maps] 
+Import |    Info    | Init        lua mods > [mods] 
+Import |    Info    | Init         patches > [.] 
+Import |    Info    | Init          opcode > [.] 
+Import |    Info    | Init   shared_memory > [../../nightcap-release-20260913/cpp-tests/shared] 
+Import |    Info    | operator()         quests > [../../nightcap-release-20260913/cpp-tests/quests] 
+Import |    Info    | operator()        plugins > [../../nightcap-release-20260913/cpp-tests/plugins] 
+Import |    Info    | operator()    lua_modules > [../../nightcap-release-20260913/cpp-tests/lua_modules] 
+Import |    Info    | Init ---------------------------------------------------------------------- 
+MemoryMappedFileTest: 0/2MemoryMappedFileTest: 1/2MemoryMappedFileTest: 2/2MemoryMappedFileTest: 2/2, 100% correct in 0.000000 seconds
+IPCMutexTest: 0/4IPCMutexTest: 1/4IPCMutexTest: 2/4IPCMutexTest: 3/4IPCMutexTest: 4/4IPCMutexTest: 4/4, 100% correct in 0.000000 seconds
+FixedMemoryHashTest: 0/12FixedMemoryHashTest: 1/12FixedMemoryHashTest: 2/12FixedMemoryHashTest: 3/12FixedMemoryHashTest: 4/12FixedMemoryHashTest: 5/12FixedMemoryHashTest: 6/12FixedMemoryHashTest: 7/12FixedMemoryHashTest: 8/12FixedMemoryHashTest: 9/12FixedMemoryHashTest: 10/12FixedMemoryHashTest: 11/12FixedMemoryHashTest: 12/12FixedMemoryHashTest: 12/12, 100% correct in 0.000000 seconds
+FixedMemoryVariableHashTest: 0/8FixedMemoryVariableHashTest: 1/8FixedMemoryVariableHashTest: 2/8FixedMemoryVariableHashTest: 3/8FixedMemoryVariableHashTest: 4/8FixedMemoryVariableHashTest: 5/8FixedMemoryVariableHashTest: 6/8FixedMemoryVariableHashTest: 7/8FixedMemoryVariableHashTest: 8/8FixedMemoryVariableHashTest: 8/8, 100% correct in 0.000000 seconds
+atoboolTest: 0/13atoboolTest: 1/13atoboolTest: 2/13atoboolTest: 3/13atoboolTest: 4/13atoboolTest: 5/13atoboolTest: 6/13atoboolTest: 7/13atoboolTest: 8/13atoboolTest: 9/13atoboolTest: 10/13atoboolTest: 11/13atoboolTest: 12/13atoboolTest: 13/13atoboolTest: 13/13, 100% correct in 0.000000 seconds
+hextoi_32_64_Test: 0/12hextoi_32_64_Test: 1/12hextoi_32_64_Test: 2/12hextoi_32_64_Test: 3/12hextoi_32_64_Test: 4/12hextoi_32_64_Test: 5/12hextoi_32_64_Test: 6/12hextoi_32_64_Test: 7/12hextoi_32_64_Test: 8/12hextoi_32_64_Test: 9/12hextoi_32_64_Test: 10/12hextoi_32_64_Test: 11/12hextoi_32_64_Test: 12/12hextoi_32_64_Test: 12/12, 100% correct in 0.000000 seconds
+StringUtilTest: 0/6StringUtilTest: 1/6StringUtilTest: 2/6StringUtilTest: 3/6StringUtilTest: 4/6StringUtilTest: 5/6StringUtilTest: 6/6StringUtilTest: 6/6, 100% correct in 0.000000 seconds
+DataVerificationTest: 0/4DataVerificationTest: 1/4DataVerificationTest: 2/4DataVerificationTest: 3/4DataVerificationTest: 4/4DataVerificationTest: 4/4, 100% correct in 0.000000 seconds
+SkillsUtilsTest: 0/10SkillsUtilsTest: 1/10SkillsUtilsTest: 2/10SkillsUtilsTest: 3/10SkillsUtilsTest: 4/10SkillsUtilsTest: 5/10SkillsUtilsTest: 6/10SkillsUtilsTest: 7/10SkillsUtilsTest: 8/10SkillsUtilsTest: 9/10SkillsUtilsTest: 10/10SkillsUtilsTest: 10/10, 100% correct in 0.000000 seconds
+TaskStateTest: 0/16TaskStateTest: 1/16TaskStateTest: 2/16TaskStateTest: 3/16TaskStateTest: 4/16TaskStateTest: 5/16TaskStateTest: 6/16TaskStateTest: 7/16TaskStateTest: 8/16TaskStateTest: 9/16TaskStateTest: 10/16TaskStateTest: 11/16TaskStateTest: 12/16TaskStateTest: 13/16TaskStateTest: 14/16TaskStateTest: 15/16TaskStateTest: 16/16TaskStateTest: 16/16, 100% correct in 0.000000 seconds
+Total: 87 tests, 100% correct in 0.000000 seconds

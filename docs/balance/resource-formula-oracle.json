@@ -1,0 +1,24 @@
+{
+  "captured_at": "2026-09-12T14:26:46.947598+00:00",
+  "snapshot_sha256": "c787ae4f436bf8eae0d28510e41634fd96fbf9232233069278cc4fd548b9fbc9",
+  "source_sha256": {
+    "zone/client_mods.cpp": "6a5f05b99c2edf628b5a6fac10409caa5d2924e46437bda5563d0fd14507979d",
+    "zone/mob.cpp": "f5ee75a42e36e3310c9bd37a110a6f2e9088b31a57e69397cce0da94f8c9e462",
+    "common/classes.h": "df2c1df7bd3218260476fcbef9fc13648e4007d84b79bad42b72357a5084ec7c"
+  },
+  "function_sha256": {
+    "int64 Client::CalcBaseHP(": "31df76fad0181a54595d0d43c908ff7c7190c2ba010128cdd7888c02bc1684d4",
+    "int64 Client::CalcBaseMana(": "1eef381dc6e704ab704acdd41fc61227ca514973e8e08b69e0b29592912b4052",
+    "int64 Client::CalcBaseManaForClass(": "1f9df3af00acf2479d810d2d07136ab54ed6f250ab7de78a3fa869b1448f2308",
+    "int64 Client::CalcMaxHP(": "98e89f76470158c4c75f3cd845eec62896a477a83bd9798f1976723f0ce7285c",
+    "int64 Client::CalcMaxMana(": "3f5c0e77fccce56f893627d8d8ef5ffe437820ed94cfcbb6fefdb6aede95c9c1",
+    "bool Client::HasAnyCasterClass(": "2825293d0f1dafa2302b28ef40f354eda7332bedda981efe0e1ea21ff66251a0",
+    "bool Mob::IsINTCasterClassID(": "431359928e3a5c7cf0c474494562f486e82ce72f002f050a091ff0c8335cb477",
+    "bool Mob::IsWISCasterClassID(": "921bab0856ea2641317f55ed0b805831c23c6fa61a212fc04759904b652c0e07"
+  },
+  "harness_sha256": "597338fdc53240a81d349041029b014d813b9e71dba0f86647e04e75310e61d2",
+  "cases": 2896,
+  "outputs_compared_per_case": 4,
+  "mismatches": [],
+  "scope": "RoF2 with SoD resource rule; supplied resolved stats/bonuses; excludes bonus resolution, legacy clients, current-resource percent limits, and combat"
+}

@@ -1,0 +1,67 @@
+{
+  "captured_at": "2026-09-13T05:42:03.086217+00:00",
+  "parent_revision": "865307efc147a9c29d892156a15f154c979b43b1",
+  "scope": "Read-only full AA table and ownership preflight for diagnostic combat cores. No native access enforcement, live mutation, refund or complete release offering claim.",
+  "query_sha256": "254ece9ab1ca2259813e48a160145ff2d38b939899e64760cee442b95a639e46",
+  "validation": {
+    "balance_tests_passed": 279,
+    "new_preflight_and_evidence_tests": 16,
+    "purchase_rows_accounted_per_policy": 196,
+    "compiled_launch_rank_ids": 61,
+    "compiled_later_rank_ids": 109,
+    "prerequisite_issues": 0,
+    "calculator_allocations_preserved": true
+  },
+  "live_database_writes": false,
+  "binary_or_process_changes": false,
+  "artifacts": {
+    "tools/balance/aa_policy_preflight.py": {
+      "sha256": "2ea5db6cfdd3016a6ae93283dac4b549d61c685a826aa00771dfc7a3037375d0",
+      "newline_normalization": "LF"
+    },
+    "tools/balance/tests/test_aa_policy_preflight.py": {
+      "sha256": "64b95bf4f2c8fee3bd94c51dc2f4715bfff3d970fec7255695ea2e1c6192a4b5",
+      "newline_normalization": "LF"
+    },
+    "tools/balance/tests/test_aa_policy_evidence.py": {
+      "sha256": "938e18bf3506dd2b069c0b272b5bd20fbcb5815c5c74f9f821a79f7a9f37a3cd",
+      "newline_normalization": "LF"
+    },
+    "tools/balance/release_pool_controls.py": {
+      "sha256": "78e4bd85984a8628cb25814225bd42fbd59cbe4a4a4f1372e653a0ca1ccbf1fa",
+      "newline_normalization": "LF"
+    },
+    "docs/balance/aa-policy-snapshot.json.gz": {
+      "sha256": "f3eb91fd6b16ce4b79a746150b71d6de560f6a12652718748944cc3d679552f7",
+      "newline_normalization": "none"
+    },
+    "docs/balance/aa-policy-native-source.json": {
+      "sha256": "e4b765ae1a318ce3d5578eedf8b2748353a62a7ba9d994fca1c7f2c49b4c6ddb",
+      "newline_normalization": "LF"
+    },
+    "docs/balance/aa-policy-preflight.json": {
+      "sha256": "a32c9257a9a92186ddedb8a53040d6e89f736975f8b225309d0a39666ddc4577",
+      "newline_normalization": "LF"
+    },
+    "docs/balance/aa-policy-preflight.md": {
+      "sha256": "6be6dd78ba7eba95988fa051e226a4339fd7d6c96a04384e4711f464b6f04881",
+      "newline_normalization": "LF"
+    },
+    "docs/balance/aa-release-candidates.json": {
+      "sha256": "b2fbfbb1af2220b155208531366d0c7102804277a3fe79d74f2b93c1d8796243",
+      "newline_normalization": "LF"
+    },
+    "docs/balance/native-aa-catalog.json": {
+      "sha256": "0e9e278d71b51f9b1ddc8b3607935c459e45ae1300e2998646c932a314b51473",
+      "newline_normalization": "LF"
+    },
+    "docs/balance/aa-expansion-review.md": {
+      "sha256": "89e066a582cdc4d6959b6077cf418c16ba391a95dadf2e295297d8420fc60e3f",
+      "newline_normalization": "LF"
+    },
+    "docs/adr/0017-aa-policy-purchase-preflight.md": {
+      "sha256": "158db70b83ea799f5cb1548d0cc6f44a11af90b52526596add661c221dce7e31",
+      "newline_normalization": "LF"
+    }
+  }
+}

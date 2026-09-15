@@ -1,0 +1,27 @@
+{
+  "date": "2026-09-12",
+  "scope": "AA availability diagnostics only; no live policy enforcement, no final BiS claim.",
+  "binary_sha256": "6ec2f32a87705964da42df4a2d4926e34fbb5b8595437dd27cf164efb8e29cba",
+  "native_encounters": 54,
+  "unchanged_zero_spend_encounters": 6,
+  "identical_exhausted_budget_encounters": 12,
+  "python_tests": 164,
+  "artifacts": {
+    "docs/balance/aa-pool-allocations.json": "5fcedf84c05db7941e006c7911266683b37e17b2ec195a54a2fb7a8852e4c121",
+    "docs/balance/aa-pool-checks.json": "d068fb11b3578ea8243fec38e0e7aa6f8c0613bd64a4c94d0b508e0bacc51400",
+    "docs/balance/aa-pool-comparison-checks.json": "c763b85cce2c88e7d331e24bb6265868ac84b19cb131de9aa80aedb18abdb9c5",
+    "docs/balance/aa-pool-encounters.json.gz": "32d405a561e190a3f432af8a9d3da672f108571407c47970076316732ba72c09",
+    "docs/balance/aa-pool-inputs.json": "5cb216f03f0d566e27431b9feb0e742006d4b1fc58ec3c28b872443d3b43ebb1",
+    "docs/balance/aa-pool-movement-checks.json": "51c3f73c9745a62f2c8ab1709aa608e556b6fc13bb71f0f469a4f49eeb9c02ca",
+    "docs/balance/aa-pool-policy.json": "3db058c9b7c2614b226b9cfc9f7a36069dcfdfecad28cc8beac6b59d8c614874",
+    "docs/balance/preparation-build-manifest.json": "c91c1fca523ae1786437f417fd44bc9005b452d8d98ce9735fec55e2dfff5842",
+    "docs/balance/preparation-inputs.json": "4227653d43efe36a64c55e089f7e07b502eaba7dc14eca182599153177bfb2bf",
+    "docs/balance/preparation-encounters.json.gz": "91379860dad934edd8d4ae1a41ecd00064d123e04a55c0180dbcf789e92a6da4",
+    "docs/balance/native-aa-catalog.json": "0e9e278d71b51f9b1ddc8b3607935c459e45ae1300e2998646c932a314b51473",
+    "tools/balance/aa_pool_controls.py": "1a670a0c512267e7aa204972681c1a6a93c31718341e839bdd57a0346fb9d4cc",
+    "tools/balance/aa_allocations.py": "bf4252f1fe1ff1e81877783a4d2ee8dbd42dea2b8fcf767508a05cdc7d750d35",
+    "tools/balance/active_aa_controls.py": "48226f84037f7c791df6fe766d8d97289b41cdcd8dccddaf7f44aab571e083e0",
+    "tools/balance/preparation_controls.py": "6443eec700d591c3b3d0f7143286d5f20cdab7d54e5c3f0fec43d7de8108e03b",
+    "tools/balance/encounter_matrix.py": "fcc6577aa9354e9ec45b479c5053e2c0056c1219a2d2327e312da90f1554207a"
+  }
+}

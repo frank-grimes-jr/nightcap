@@ -1,0 +1,24 @@
+{
+  "captured_at": "2026-09-13T05:00:00.284938+00:00",
+  "database": "nightcap_balance_20260912",
+  "query": "SELECT JSON_OBJECT('id',id,'name',name,'necromancer_level',classes11,'shaman_level',classes10,'mage_level',classes13,'targettype',targettype,'effect1',effectid1,'base1',effect_base_value1,'formula1',formula1,'max1',max1,'duration_formula',buffdurationformula,'duration',buffduration,'cast_ms',cast_time,'recast_ms',recast_time,'mana',mana) FROM spells_new WHERE id=64",
+  "rows": [
+    {
+      "id": 64,
+      "name": "Resist Magic",
+      "necromancer_level": 37,
+      "shaman_level": 43,
+      "mage_level": 255,
+      "targettype": 5,
+      "effect1": 50,
+      "base1": 10,
+      "formula1": 102,
+      "max1": 40,
+      "duration_formula": 3,
+      "duration": 360,
+      "cast_ms": 4500,
+      "recast_ms": 1500,
+      "mana": 85
+    }
+  ]
+}

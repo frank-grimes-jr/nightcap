@@ -1,0 +1,32 @@
+{
+  "scope": "Five-source mechanics candidate; native clean build, utility suite and 24 unchanged fight replays. No live activation.",
+  "files": {
+    "docs/releases/server-fixes-20260913/build-checks.json": "db998f326a2725be215897d48b701bd8650da072ea43d221c5dc574704a66333",
+    "docs/releases/server-fixes-20260913/build.log": "62245780464acaecb70ce515b76fcb698e596818fde0e19de356fc756998009f",
+    "docs/releases/server-fixes-20260913/clone-after.json": "d4d969217fdb5271941948ed0360fb9224485057100bca6f6e0fb9197f3d78d8",
+    "docs/releases/server-fixes-20260913/clone-before.json": "3c7090b42bf148edbbe422fa41b450a49e6b83b8ef13cfae808f27ce1e0b86bd",
+    "docs/releases/server-fixes-20260913/configure-command.json": "4dccbeffcd0111f72dfc942250bf6c0503cc81ad03bb5e3815604e378a3b618c",
+    "docs/releases/server-fixes-20260913/configure.log": "952f9e0b6472274cd12cb80c61c292110524631023a3606e385e3150285156d4",
+    "docs/releases/server-fixes-20260913/cpp-tests.log": "a91187a5e6f506615b748f34cf994f81fc04649fde707ca8ca101ff6355caeb2",
+    "docs/releases/server-fixes-20260913/dev-python-tests.log": "5b3d48133b31cb08adc570ad94be68e862e9357e0265974e6c6d01f50a3c397c",
+    "docs/releases/server-fixes-20260913/diagnostic-build-manifest.json": "80628b7882a4e1ed93920b018b4dc0de6dafe4098b7427c86401267541389678",
+    "docs/releases/server-fixes-20260913/diagnostic-build.log": "360f850c40bf5d9541d87c144a629ea6f554bbf6892e15f689c635140ee2304d",
+    "docs/releases/server-fixes-20260913/fresh-regression-inputs.json": "4b225e9b24a9e3a32c3b5b8d506e819b4fae69dd8188c39d670220a148cea39d",
+    "docs/releases/server-fixes-20260913/fresh-regression.json.gz": "480814e379b3d1bc606be74f2ae67308ef7770096b3520eb9fbcf4f03d281c4a",
+    "docs/releases/server-fixes-20260913/fresh-replay-checks.json": "8cd44f78c3ada5338c7235f55688a4b67e4ec561f82cdb2b539eb5dcc7294ac7",
+    "docs/releases/server-fixes-20260913/fresh-source-regression-inputs.json": "5bf78517ef610e8612f5cbf5ae9dcb39b7771fed5189ca903ba311d48667071f",
+    "docs/releases/server-fixes-20260913/fresh-source-regression.json.gz": "1012d83a4d409f4b94d79b759b1bcf8df310fb152348e00127054738809365d8",
+    "docs/releases/server-fixes-20260913/full-source-manifest.json": "25bcb05c01bb664281817757116ac69a170ca17a6a8940e31af6639b5556c60d",
+    "docs/releases/server-fixes-20260913/line-ending-rebuild.json": "7cb5249920798d104e77524e4f6702b926089773289ff68b8d599c63b1f2bfbe",
+    "docs/releases/server-fixes-20260913/line-ending-rebuild.log": "860abacae836ae06b233bb564bb59aa17187fe16319111ccbc7b469a0312249b",
+    "docs/releases/server-fixes-20260913/original-source.tar.gz": "fa60a810ffda384156e748907f556c617b9f9167f1d46027d43cefae77957d8c",
+    "docs/releases/server-fixes-20260913/promotion-checks.json": "bf951666c2dc48d18c476e9a3b41ab4890fb2d445a93d44758117cfc7432db3e",
+    "docs/releases/server-fixes-20260913/python-tests.log": "a5b299945e3817232f79628016d45738df6987f35f311b6149c3774ed3098948",
+    "docs/releases/server-fixes-20260913/QA.md": "479c82464cdacabff72e21c364eb23126cf3a82bf995805e2e4f97f7bb8ab206",
+    "docs/releases/server-fixes-20260913/README.md": "3fd31d13399073db3c241e2e09dc8aa30c2b3272f625b6a0476cd04e5890a157",
+    "docs/releases/server-fixes-20260913/replay-command.py": "3dd35d39321b804b07b312b432d06c5537396a378bc12e360e83b8490d19f1b5",
+    "docs/releases/server-fixes-20260913/server-fixes.patch": "07553c229fb1493b622484f525589f7345db322ca19b279e40a7463190a07ff7",
+    "docs/releases/server-fixes-20260913/source-manifest.json": "fd1c2a2af11eb3551637999df8127d3f19ee7f1c077ffd07a2e3b83367025a81",
+    "tools/balance/tests/test_server_candidate.py": "76fc3806c003043a642e9ec2d12a38fc37a2fa76611aeb82902a070635e902f9"
+  }
+}

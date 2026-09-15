@@ -1,0 +1,14 @@
+{
+  "unchanged_raw_reports": [
+    "32040-ring41-0-common_free-1729-burst",
+    "73057-ring41-0-common_free-1729-burst",
+    "32040-ring41-100-balanced-1729-burst",
+    "73057-ring41-100-balanced-1729-burst",
+    "32040-ring41-200-balanced-1729-burst",
+    "73057-ring41-200-balanced-1729-burst",
+    "32040-ring41-500-balanced-1729-burst",
+    "73057-ring41-500-balanced-1729-burst",
+    "32040-ring41-all-purchase_closure-1729-burst",
+    "73057-ring41-all-purchase_closure-1729-burst"
+  ]
+}

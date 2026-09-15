@@ -1,0 +1,43 @@
+-- The CXX compiler identification is Clang 14.0.6
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/clang++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found Boost: /home/eqemu/code/build/vcpkg_installed/x64-linux/share/boost/BoostConfig.cmake (found version "1.89.0") found components: dynamic_bitset foreach tuple 
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE  
+-- Found OpenSSL: /home/eqemu/code/build/vcpkg_installed/x64-linux/lib/libcrypto.a (found version "3.6.0")  
+-- Found ZLIB: optimized;/home/eqemu/code/build/vcpkg_installed/x64-linux/lib/libz.a;debug;/home/eqemu/code/build/vcpkg_installed/x64-linux/debug/lib/libz.a (found version "1.3.1") 
+-- Found LuaJit: /home/eqemu/code/build/vcpkg_installed/x64-linux/lib/libluajit-5.1.a;/usr/lib/x86_64-linux-gnu/libm.so (found version "5.1.4") 
+-- Found Perl: /opt/eqemu-perl/bin/perl (found version "5.32.1") 
+-- Found PerlLibs: /opt/eqemu-perl/lib/5.32.1/x86_64-linux-thread-multi/CORE/libperl.so (found version "5.32.1") 
+-- **************************************************
+-- * Library Detection                              *
+-- **************************************************
+-- * MariaDB:                               MISSING *
+-- * ZLIB:                                    FOUND *
+-- * LuaJIT:                                  FOUND *
+-- * Perl:                                    FOUND *
+-- * OpenSSL:                                 FOUND *
+-- PERL_INCLUDE_PATH: /opt/eqemu-perl/lib/5.32.1/x86_64-linux-thread-multi/CORE
+-- PERL_LIBRARY: /opt/eqemu-perl/lib/5.32.1/x86_64-linux-thread-multi/CORE/libperl.so
+-- PERL_INCLUDE_DIR: /opt/eqemu-perl/lib/5.32.1/x86_64-linux-thread-multi/CORE
+-- PERL_INCLUDE_DIRS: /opt/eqemu-perl/lib/5.32.1/x86_64-linux-thread-multi/CORE
+-- PERL_LIBRARIES: /opt/eqemu-perl/lib/5.32.1/x86_64-linux-thread-multi/CORE/libperl.so
+-- PERL_VERSION: 5.32.1
+-- **************************************************
+-- 
+-- **************************************************
+-- * Library Usage                                  *
+-- **************************************************
+-- * Database:                              MariaDB *
+-- * TLS:                                   OpenSSL *
+-- * Lua:                                    LuaJIT *
+-- * Perl:                                     Perl *
+-- * zlib:                                     ZLIB *
+-- **************************************************
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /tmp/nightcap-release-20260913/source/build

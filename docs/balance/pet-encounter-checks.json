@@ -1,0 +1,36 @@
+{
+  "unchanged": [
+    {
+      "id": "32040-ring41-0-common_free-1729-burst-prepared/expanded_balanced_shield",
+      "native_raw_sha256": "d966e45a381942debe8ea4d87a79979e7954359522416a3eda13986a746bdd43"
+    },
+    {
+      "id": "32040-ring41-0-common_free-1730-burst-prepared/expanded_balanced_shield",
+      "native_raw_sha256": "eb695aead4e9da27497ae6eeb09369749ca8061bca2c80133b7f662261cb3cd6"
+    },
+    {
+      "id": "32040-ring41-0-common_free-1731-burst-prepared/expanded_balanced_shield",
+      "native_raw_sha256": "7b49fcedbcaa9a02ec01d1ede469d6e2023a82947a6a8c6f18718b2445a2bb10"
+    },
+    {
+      "id": "73057-ring41-0-common_free-1729-burst-prepared/expanded_balanced_shield",
+      "native_raw_sha256": "458244e8c89cae132cb9a0f3084c36665ae282a5a68fdae5d063d1bacdfd9ea4"
+    },
+    {
+      "id": "73057-ring41-0-common_free-1730-burst-prepared/expanded_balanced_shield",
+      "native_raw_sha256": "2ff5f5037a856e419b13b628d48a80d527ad503c9815db291bb31aad0f3c637e"
+    },
+    {
+      "id": "73057-ring41-0-common_free-1731-burst-prepared/expanded_balanced_shield",
+      "native_raw_sha256": "98d63fdcb1f739b9c0e34cfbe604a0260c0ecefa14ee55b21be4c854bdbe4889"
+    },
+    {
+      "id": "monk/shield/0/specials-True/32040/1729",
+      "native_raw_sha256": "b95569c8851e9cc83ca8aa1ed05e9570b878cc9d7686710f2ff7cb69483c6eba"
+    },
+    {
+      "id": "monk/shield/0/specials-True/73057/1729",
+      "native_raw_sha256": "4d314caa72e3efc53601bc4b71b7fe4ec4130c135e001e6ccad89ef6c07da5b8"
+    }
+  ]
+}

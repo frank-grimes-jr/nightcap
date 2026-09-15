@@ -1,0 +1,45 @@
+{
+  "binary_sha256": "84af2efdaffb601c9e2634b3791a5354b2a05dd0f9ef003ea2eb252d1e6783e1",
+  "seed": 1729,
+  "step_ms": 50,
+  "scope": "Native runtime and prototype integration evidence; not full BiS or balance conclusions",
+  "isolated_database": "nightcap_balance_20260912",
+  "observed_after_runs": {
+    "account_rows": 0,
+    "character_data_rows": 0
+  },
+  "invalid_debug_artifact": {
+    "file": "native-encounter-nagafen-debug.json",
+    "binary_sha256": "a15f670afeb8fabc6716a2f47092b518bbf5fa68c3044f1b13a68c12f58c829d",
+    "reason": "Zone was not loaded; NPC hate target remained zero. Excluded from valid encounter evidence."
+  },
+  "files": {
+    "docs\\balance\\native-encounter-long-check.json": "34cda5ce332dc156da2893295e1ce9aa1db064f0783b2b0056799785cdc0b6bd",
+    "docs\\balance\\native-encounter-long-replay-check.json": "9ef99ff68b289a68cbe9ae3eca3b858a6de22ce2ac0e4a2c5ca02db08dba677f",
+    "docs\\balance\\native-encounter-melee-check.json": "f09c61bbf4bbad77e771af55fe79ebde29802d4e86dc4844837339acbcf79b44",
+    "docs\\balance\\native-encounter-melee-control.json": "56d6adfd3d09ccd28e5cff22894eb5e7777ec85c6deb3188941fda6d49ecad26",
+    "docs\\balance\\native-encounter-melee-inputs.json": "f562fc75b7e2e549f435c03184a3c4764de9cdf95fc21f6a2df5f27124b9cd9f",
+    "docs\\balance\\native-encounter-melee-long-inputs.json": "971940660f0298fd965ec8deb6f0068aa78204beb14e765c76961539c9183b58",
+    "docs\\balance\\native-encounter-melee-long.json": "2d43c55fd3a1eb1a22d6aaf3c2d841c46bf3d8939a1ff8f4bb8ecba9ba85a3cb",
+    "docs\\balance\\native-encounter-nagafen-check.json": "826743596d0d648152f4981410d3c7b68d4fc5ff4f86c4348e3ab6576a72647d",
+    "docs\\balance\\native-encounter-nagafen-debug.json": "907082669311859a4080d69a14998253e0d41eb8860f5c6007dbc8ab8ca82c40",
+    "docs\\balance\\native-encounter-nagafen-inputs.json": "dbf13b3c3cfd42715e879857441b474790193bc60972b0e929b542147181570e",
+    "docs\\balance\\native-encounter-nagafen-long-inputs.json": "efcb3a869b5bb8af55e898dd1ac08b218aecaaae521ed2ee257a4566672543b4",
+    "docs\\balance\\native-encounter-nagafen-long.json": "8288bd76ad0a14c740b9dc2971641466ebf0b4fceba551b2da4959c0e89d39ad",
+    "docs\\balance\\native-encounter-nagafen-prototype.json": "bd5220ac96418cde599b27fc347e69d111ed9e8834d731182db2fd7435d736da",
+    "docs\\balance\\native-encounter-replay-check.json": "af11d9f61b2a0d69b48ec4f7cdd57293b9c6d59d28d617993271abff76bf68ed",
+    "docs\\balance\\native-encounter-vox-check.json": "bb0a68afc1b3c06c9e50e3771088e324b46251efb94707733f65fbe0fa5745f9",
+    "docs\\balance\\native-encounter-vox-inputs.json": "4b395cc52b85d81ec5f898720bc52926bad9a19a2b10803f9d6df8a1d57e993f",
+    "docs\\balance\\native-encounter-vox-long-inputs.json": "700c561dd45a19e7d4ac22928528c38b4ea9ef78e5d7a2d7f81187851bf28bbe",
+    "docs\\balance\\native-encounter-vox-long.json": "0697c81a31bbd0d5a318c485236d046fb3e1fa63e02fc3d58656513eaf84d117",
+    "docs\\balance\\native-encounter-vox-prototype.json": "8000d77f09e7b1fe12ab5dd25c2da4e514097506bad06ade516d890aef213dc2",
+    "docs\\balance\\native-map-manifest.json": "e1a29ef77d2884fba2ec614b8f41b36a19bfedc7f9e939f899131d4ad84f2d62",
+    "docs\\balance\\native-runtime-build-manifest.json": "9a74d382e5d3dccfeba613f73ba8540ce2b238a602a30daeed8c26094da9818a",
+    "docs\\balance\\native-runtime-control.json": "df655ad5d90a2b89bdfa2b16800496c53a9eedde125d6ac75dcdac985b1af55a",
+    "docs\\balance\\native-runtime-guard-check.json": "c7332a1e2f1f6a83af1b2d220b61fc629a8ff988d48b39f402e21c549f18a2d5",
+    "docs\\balance\\native-runtime-inputs.json": "cf42d948bf708e186ab4ade867125d9f0049d1a437a63c1b76e55235f4de4b9f",
+    "docs\\balance\\native-runtime-manifest.json": "ec3b75e990918c17a0cf54d3a6944e19357a1f2da454ec29437de7df6fc71690",
+    "docs\\balance\\native-runtime-verification.json": "31eb742e24afe7a5c6e1890c01d2ab34198dfffc40c518f1c39fe98f6f27c9af",
+    "docs\\balance\\native-runtime-regression-check.json": "093087e49dccf29e2efc149d9395f6f68e1c8cedb042c1e1c1bed304956afba5"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "kind": "acquisition_candidates",
+  "snapshot_sha256": "43085d1eaa28bf2da736f16d8b226673c0eafefee870135f3627e6a87aaf6cf5",
+  "scope": "Acquisition discovery candidates only. Global-loot NPC restrictions, merchant faction/class/bucket access, quest execution/NPC/version/prerequisites, epic accessibility, and recipe components/learning remain unverified. No quest/merchant/craft tier copies are assumed obtainable.",
+  "captured_at": "2026-09-12T18:46:32.480173+00:00",
+  "quest_files": 1156,
+  "referenced_item_ids": 13221,
+  "rows": {
+    "merchant_sources": 27567,
+    "global_loot": 21,
+    "global_loot_entries": 37,
+    "recipes": 8663,
+    "recipe_entries": 67271,
+    "candidate_items": 6306
+  },
+  "query_sha256": "db45a1c9a5cdef98d614f91c46f1da8a37ef782dfc62d5ce465925bfdd51a075"
+}

@@ -1,0 +1,7870 @@
+{
+  "scope": "Native attack-order boundaries and pet-only boss controls; owner combat rotation not implemented.",
+  "binary_sha256": "8b73863155c35d6e79ffb743e7890db4d72c93d546398e93975a542fbfea53ff",
+  "cases": [
+    {
+      "id": "command-2-80-extraonly-False",
+      "seed": 1729,
+      "expected_spells": [
+        633,
+        443,
+        166
+      ],
+      "input": {
+        "builds": [
+          {
+            "profile": "mag-nec-shm",
+            "classes": [
+              13,
+              11,
+              10
+            ],
+            "level": 50,
+            "race": "Human",
+            "deity": "Agnostic",
+            "tier": "captured_drops/balanced/shield/unforced",
+            "equipment": [
+              {
+                "slot": 1,
+                "id": 602630,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 480394
+                  }
+                ]
+              },
+              {
+                "slot": 2,
+                "id": 662020,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 480379
+                  }
+                ]
+              },
+              {
+                "slot": 3,
+                "id": 601547,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 651907
+                  }
+                ]
+              },
+              {
+                "slot": 4,
+                "id": 610231,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 479622
+                  }
+                ]
+              },
+              {
+                "slot": 5,
+                "id": 607767,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 251907
+                  }
+                ]
+              },
+              {
+                "slot": 6,
+                "id": 662029,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 679870
+                  }
+                ]
+              },
+              {
+                "slot": 7,
+                "id": 668251,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 680382
+                  }
+                ]
+              },
+              {
+                "slot": 8,
+                "id": 662288,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 680394
+                  }
+                ]
+              },
+              {
+                "slot": 9,
+                "id": 601559,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 680379
+                  }
+                ]
+              },
+              {
+                "slot": 10,
+                "id": 401559,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 679626
+                  }
+                ]
+              },
+              {
+                "slot": 11,
+                "id": 601554,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 651904
+                  }
+                ]
+              },
+              {
+                "slot": 12,
+                "id": 662032,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 451904
+                  }
+                ]
+              },
+              {
+                "slot": 13,
+                "id": 611625,
+                "augments": []
+              },
+              {
+                "slot": 14,
+                "id": 662014,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 651903
+                  }
+                ]
+              },
+              {
+                "slot": 15,
+                "id": 609959,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 479626
+                  }
+                ]
+              },
+              {
+                "slot": 16,
+                "id": 410231,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 479870
+                  }
+                ]
+              },
+              {
+                "slot": 17,
+                "id": 601552,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 451907
+                  }
+                ]
+              },
+              {
+                "slot": 18,
+                "id": 662031,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 280382
+                  }
+                ]
+              },
+              {
+                "slot": 19,
+                "id": 668239,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 679622
+                  }
+                ]
+              },
+              {
+                "slot": 20,
+                "id": 601556,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 480382
+                  }
+                ]
+              }
+            ],
+            "creation": {
+              "str": 75,
+              "sta": 90,
+              "dex": 75,
+              "agi": 75,
+              "int": 110,
+              "wis": 75,
+              "cha": 75
+            },
+            "test_character_id": 12,
+            "aa_budget": 0,
+            "aa_rank_ids": [
+              49999,
+              1000,
+              12636,
+              14017,
+              22200,
+              12637,
+              14018,
+              8445,
+              8446,
+              8447,
+              16419,
+              16420,
+              16421
+            ],
+            "aa_stage": "0",
+            "aa_policy": "common_free",
+            "gear_search": {
+              "scope": "captured_drops",
+              "objective": "balanced",
+              "mode": "shield",
+              "forced_haste": "unforced",
+              "max_raw_worn_haste": 41
+            }
+          }
+        ],
+        "export_equipment": true,
+        "pet_probe": {
+          "reagents": [
+            {
+              "id": 10015,
+              "count": 10
+            },
+            {
+              "id": 13073,
+              "count": 10
+            }
+          ],
+          "actions": [
+            {
+              "spell": 633
+            },
+            {
+              "spell": 443
+            },
+            {
+              "spell": 166
+            },
+            {
+              "spell": 107,
+              "target_class": 13
+            }
+          ],
+          "combat": {
+            "npc_id": 32040,
+            "npc_position": [
+              -871,
+              -1395,
+              104.879997,
+              45
+            ],
+            "starting_distance": 80,
+            "duration_ms": 500,
+            "commands_only": true,
+            "commands": [
+              {
+                "ms": 0,
+                "command": 2
+              },
+              {
+                "ms": 100,
+                "command": 2
+              },
+              {
+                "ms": 200,
+                "command": 2
+              },
+              {
+                "ms": 300,
+                "command": 2
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "command-2-500-extraonly-False",
+      "seed": 1729,
+      "expected_spells": [
+        633,
+        443,
+        166
+      ],
+      "input": {
+        "builds": [
+          {
+            "profile": "mag-nec-shm",
+            "classes": [
+              13,
+              11,
+              10
+            ],
+            "level": 50,
+            "race": "Human",
+            "deity": "Agnostic",
+            "tier": "captured_drops/balanced/shield/unforced",
+            "equipment": [
+              {
+                "slot": 1,
+                "id": 602630,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 480394
+                  }
+                ]
+              },
+              {
+                "slot": 2,
+                "id": 662020,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 480379
+                  }
+                ]
+              },
+              {
+                "slot": 3,
+                "id": 601547,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 651907
+                  }
+                ]
+              },
+              {
+                "slot": 4,
+                "id": 610231,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 479622
+                  }
+                ]
+              },
+              {
+                "slot": 5,
+                "id": 607767,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 251907
+                  }
+                ]
+              },
+              {
+                "slot": 6,
+                "id": 662029,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 679870
+                  }
+                ]
+              },
+              {
+                "slot": 7,
+                "id": 668251,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 680382
+                  }
+                ]
+              },
+              {
+                "slot": 8,
+                "id": 662288,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 680394
+                  }
+                ]
+              },
+              {
+                "slot": 9,
+                "id": 601559,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 680379
+                  }
+                ]
+              },
+              {
+                "slot": 10,
+                "id": 401559,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 679626
+                  }
+                ]
+              },
+              {
+                "slot": 11,
+                "id": 601554,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 651904
+                  }
+                ]
+              },
+              {
+                "slot": 12,
+                "id": 662032,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 451904
+                  }
+                ]
+              },
+              {
+                "slot": 13,
+                "id": 611625,
+                "augments": []
+              },
+              {
+                "slot": 14,
+                "id": 662014,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 651903
+                  }
+                ]
+              },
+              {
+                "slot": 15,
+                "id": 609959,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 479626
+                  }
+                ]
+              },
+              {
+                "slot": 16,
+                "id": 410231,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 479870
+                  }
+                ]
+              },
+              {
+                "slot": 17,
+                "id": 601552,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 451907
+                  }
+                ]
+              },
+              {
+                "slot": 18,
+                "id": 662031,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 280382
+                  }
+                ]
+              },
+              {
+                "slot": 19,
+                "id": 668239,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 679622
+                  }
+                ]
+              },
+              {
+                "slot": 20,
+                "id": 601556,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 480382
+                  }
+                ]
+              }
+            ],
+            "creation": {
+              "str": 75,
+              "sta": 90,
+              "dex": 75,
+              "agi": 75,
+              "int": 110,
+              "wis": 75,
+              "cha": 75
+            },
+            "test_character_id": 12,
+            "aa_budget": 0,
+            "aa_rank_ids": [
+              49999,
+              1000,
+              12636,
+              14017,
+              22200,
+              12637,
+              14018,
+              8445,
+              8446,
+              8447,
+              16419,
+              16420,
+              16421
+            ],
+            "aa_stage": "0",
+            "aa_policy": "common_free",
+            "gear_search": {
+              "scope": "captured_drops",
+              "objective": "balanced",
+              "mode": "shield",
+              "forced_haste": "unforced",
+              "max_raw_worn_haste": 41
+            }
+          }
+        ],
+        "export_equipment": true,
+        "pet_probe": {
+          "reagents": [
+            {
+              "id": 10015,
+              "count": 10
+            },
+            {
+              "id": 13073,
+              "count": 10
+            }
+          ],
+          "actions": [
+            {
+              "spell": 633
+            },
+            {
+              "spell": 443
+            },
+            {
+              "spell": 166
+            },
+            {
+              "spell": 107,
+              "target_class": 13
+            }
+          ],
+          "combat": {
+            "npc_id": 32040,
+            "npc_position": [
+              -871,
+              -1395,
+              104.879997,
+              45
+            ],
+            "starting_distance": 500,
+            "duration_ms": 500,
+            "commands_only": true,
+            "commands": [
+              {
+                "ms": 0,
+                "command": 2
+              },
+              {
+                "ms": 100,
+                "command": 2
+              },
+              {
+                "ms": 200,
+                "command": 2
+              },
+              {
+                "ms": 300,
+                "command": 2
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "command-2-80-extraonly-True",
+      "seed": 1729,
+      "expected_spells": [
+        443,
+        166
+      ],
+      "input": {
+        "builds": [
+          {
+            "profile": "mag-nec-shm",
+            "classes": [
+              13,
+              11,
+              10
+            ],
+            "level": 50,
+            "race": "Human",
+            "deity": "Agnostic",
+            "tier": "captured_drops/balanced/shield/unforced",
+            "equipment": [
+              {
+                "slot": 1,
+                "id": 602630,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 480394
+                  }
+                ]
+              },
+              {
+                "slot": 2,
+                "id": 662020,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 480379
+                  }
+                ]
+              },
+              {
+                "slot": 3,
+                "id": 601547,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 651907
+                  }
+                ]
+              },
+              {
+                "slot": 4,
+                "id": 610231,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 479622
+                  }
+                ]
+              },
+              {
+                "slot": 5,
+                "id": 607767,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 251907
+                  }
+                ]
+              },
+              {
+                "slot": 6,
+                "id": 662029,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 679870
+                  }
+                ]
+              },
+              {
+                "slot": 7,
+                "id": 668251,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 680382
+                  }
+                ]
+              },
+              {
+                "slot": 8,
+                "id": 662288,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 680394
+                  }
+                ]
+              },
+              {
+                "slot": 9,
+                "id": 601559,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 680379
+                  }
+                ]
+              },
+              {
+                "slot": 10,
+                "id": 401559,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 679626
+                  }
+                ]
+              },
+              {
+                "slot": 11,
+                "id": 601554,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 651904
+                  }
+                ]
+              },
+              {
+                "slot": 12,
+                "id": 662032,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 451904
+                  }
+                ]
+              },
+              {
+                "slot": 13,
+                "id": 611625,
+                "augments": []
+              },
+              {
+                "slot": 14,
+                "id": 662014,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 651903
+                  }
+                ]
+              },
+              {
+                "slot": 15,
+                "id": 609959,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 479626
+                  }
+                ]
+              },
+              {
+                "slot": 16,
+                "id": 410231,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 479870
+                  }
+                ]
+              },
+              {
+                "slot": 17,
+                "id": 601552,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 451907
+                  }
+                ]
+              },
+              {
+                "slot": 18,
+                "id": 662031,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 280382
+                  }
+                ]
+              },
+              {
+                "slot": 19,
+                "id": 668239,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 679622
+                  }
+                ]
+              },
+              {
+                "slot": 20,
+                "id": 601556,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 480382
+                  }
+                ]
+              }
+            ],
+            "creation": {
+              "str": 75,
+              "sta": 90,
+              "dex": 75,
+              "agi": 75,
+              "int": 110,
+              "wis": 75,
+              "cha": 75
+            },
+            "test_character_id": 12,
+            "aa_budget": 0,
+            "aa_rank_ids": [
+              49999,
+              1000,
+              12636,
+              14017,
+              22200,
+              12637,
+              14018,
+              8445,
+              8446,
+              8447,
+              16419,
+              16420,
+              16421
+            ],
+            "aa_stage": "0",
+            "aa_policy": "common_free",
+            "gear_search": {
+              "scope": "captured_drops",
+              "objective": "balanced",
+              "mode": "shield",
+              "forced_haste": "unforced",
+              "max_raw_worn_haste": 41
+            }
+          }
+        ],
+        "export_equipment": true,
+        "pet_probe": {
+          "reagents": [
+            {
+              "id": 10015,
+              "count": 10
+            },
+            {
+              "id": 13073,
+              "count": 10
+            }
+          ],
+          "actions": [
+            {
+              "spell": 443
+            },
+            {
+              "spell": 166
+            }
+          ],
+          "combat": {
+            "npc_id": 32040,
+            "npc_position": [
+              -871,
+              -1395,
+              104.879997,
+              45
+            ],
+            "starting_distance": 80,
+            "duration_ms": 500,
+            "commands_only": true,
+            "commands": [
+              {
+                "ms": 0,
+                "command": 2
+              },
+              {
+                "ms": 100,
+                "command": 2
+              },
+              {
+                "ms": 200,
+                "command": 2
+              },
+              {
+                "ms": 300,
+                "command": 2
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "command-2-80-primaryonly",
+      "seed": 1729,
+      "expected_spells": [
+        633
+      ],
+      "input": {
+        "builds": [
+          {
+            "profile": "mag-nec-shm",
+            "classes": [
+              13,
+              11,
+              10
+            ],
+            "level": 50,
+            "race": "Human",
+            "deity": "Agnostic",
+            "tier": "captured_drops/balanced/shield/unforced",
+            "equipment": [
+              {
+                "slot": 1,
+                "id": 602630,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 480394
+                  }
+                ]
+              },
+              {
+                "slot": 2,
+                "id": 662020,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 480379
+                  }
+                ]
+              },
+              {
+                "slot": 3,
+                "id": 601547,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 651907
+                  }
+                ]
+              },
+              {
+                "slot": 4,
+                "id": 610231,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 479622
+                  }
+                ]
+              },
+              {
+                "slot": 5,
+                "id": 607767,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 251907
+                  }
+                ]
+              },
+              {
+                "slot": 6,
+                "id": 662029,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 679870
+                  }
+                ]
+              },
+              {
+                "slot": 7,
+                "id": 668251,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 680382
+                  }
+                ]
+              },
+              {
+                "slot": 8,
+                "id": 662288,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 680394
+                  }
+                ]
+              },
+              {
+                "slot": 9,
+                "id": 601559,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 680379
+                  }
+                ]
+              },
+              {
+                "slot": 10,
+                "id": 401559,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 679626
+                  }
+                ]
+              },
+              {
+                "slot": 11,
+                "id": 601554,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 651904
+                  }
+                ]
+              },
+              {
+                "slot": 12,
+                "id": 662032,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 451904
+                  }
+                ]
+              },
+              {
+                "slot": 13,
+                "id": 611625,
+                "augments": []
+              },
+              {
+                "slot": 14,
+                "id": 662014,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 651903
+                  }
+                ]
+              },
+              {
+                "slot": 15,
+                "id": 609959,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 479626
+                  }
+                ]
+              },
+              {
+                "slot": 16,
+                "id": 410231,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 479870
+                  }
+                ]
+              },
+              {
+                "slot": 17,
+                "id": 601552,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 451907
+                  }
+                ]
+              },
+              {
+                "slot": 18,
+                "id": 662031,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 280382
+                  }
+                ]
+              },
+              {
+                "slot": 19,
+                "id": 668239,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 679622
+                  }
+                ]
+              },
+              {
+                "slot": 20,
+                "id": 601556,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 480382
+                  }
+                ]
+              }
+            ],
+            "creation": {
+              "str": 75,
+              "sta": 90,
+              "dex": 75,
+              "agi": 75,
+              "int": 110,
+              "wis": 75,
+              "cha": 75
+            },
+            "test_character_id": 12,
+            "aa_budget": 0,
+            "aa_rank_ids": [
+              49999,
+              1000,
+              12636,
+              14017,
+              22200,
+              12637,
+              14018,
+              8445,
+              8446,
+              8447,
+              16419,
+              16420,
+              16421
+            ],
+            "aa_stage": "0",
+            "aa_policy": "common_free",
+            "gear_search": {
+              "scope": "captured_drops",
+              "objective": "balanced",
+              "mode": "shield",
+              "forced_haste": "unforced",
+              "max_raw_worn_haste": 41
+            }
+          }
+        ],
+        "export_equipment": true,
+        "pet_probe": {
+          "reagents": [
+            {
+              "id": 10015,
+              "count": 10
+            },
+            {
+              "id": 13073,
+              "count": 10
+            }
+          ],
+          "actions": [
+            {
+              "spell": 633
+            },
+            {
+              "spell": 107,
+              "target_class": 13
+            }
+          ],
+          "combat": {
+            "npc_id": 32040,
+            "npc_position": [
+              -871,
+              -1395,
+              104.879997,
+              45
+            ],
+            "starting_distance": 80,
+            "duration_ms": 500,
+            "commands_only": true,
+            "commands": [
+              {
+                "ms": 0,
+                "command": 2
+              },
+              {
+                "ms": 100,
+                "command": 2
+              },
+              {
+                "ms": 200,
+                "command": 2
+              },
+              {
+                "ms": 300,
+                "command": 2
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "command-3-80-extraonly-False",
+      "seed": 1729,
+      "expected_spells": [
+        633,
+        443,
+        166
+      ],
+      "input": {
+        "builds": [
+          {
+            "profile": "mag-nec-shm",
+            "classes": [
+              13,
+              11,
+              10
+            ],
+            "level": 50,
+            "race": "Human",
+            "deity": "Agnostic",
+            "tier": "captured_drops/balanced/shield/unforced",
+            "equipment": [
+              {
+                "slot": 1,
+                "id": 602630,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 480394
+                  }
+                ]
+              },
+              {
+                "slot": 2,
+                "id": 662020,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 480379
+                  }
+                ]
+              },
+              {
+                "slot": 3,
+                "id": 601547,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 651907
+                  }
+                ]
+              },
+              {
+                "slot": 4,
+                "id": 610231,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 479622
+                  }
+                ]
+              },
+              {
+                "slot": 5,
+                "id": 607767,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 251907
+                  }
+                ]
+              },
+              {
+                "slot": 6,
+                "id": 662029,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 679870
+                  }
+                ]
+              },
+              {
+                "slot": 7,
+                "id": 668251,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 680382
+                  }
+                ]
+              },
+              {
+                "slot": 8,
+                "id": 662288,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 680394
+                  }
+                ]
+              },
+              {
+                "slot": 9,
+                "id": 601559,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 680379
+                  }
+                ]
+              },
+              {
+                "slot": 10,
+                "id": 401559,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 679626
+                  }
+                ]
+              },
+              {
+                "slot": 11,
+                "id": 601554,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 651904
+                  }
+                ]
+              },
+              {
+                "slot": 12,
+                "id": 662032,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 451904
+                  }
+                ]
+              },
+              {
+                "slot": 13,
+                "id": 611625,
+                "augments": []
+              },
+              {
+                "slot": 14,
+                "id": 662014,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 651903
+                  }
+                ]
+              },
+              {
+                "slot": 15,
+                "id": 609959,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 479626
+                  }
+                ]
+              },
+              {
+                "slot": 16,
+                "id": 410231,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 479870
+                  }
+                ]
+              },
+              {
+                "slot": 17,
+                "id": 601552,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 451907
+                  }
+                ]
+              },
+              {
+                "slot": 18,
+                "id": 662031,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 280382
+                  }
+                ]
+              },
+              {
+                "slot": 19,
+                "id": 668239,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 679622
+                  }
+                ]
+              },
+              {
+                "slot": 20,
+                "id": 601556,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 480382
+                  }
+                ]
+              }
+            ],
+            "creation": {
+              "str": 75,
+              "sta": 90,
+              "dex": 75,
+              "agi": 75,
+              "int": 110,
+              "wis": 75,
+              "cha": 75
+            },
+            "test_character_id": 12,
+            "aa_budget": 0,
+            "aa_rank_ids": [
+              49999,
+              1000,
+              12636,
+              14017,
+              22200,
+              12637,
+              14018,
+              8445,
+              8446,
+              8447,
+              16419,
+              16420,
+              16421
+            ],
+            "aa_stage": "0",
+            "aa_policy": "common_free",
+            "gear_search": {
+              "scope": "captured_drops",
+              "objective": "balanced",
+              "mode": "shield",
+              "forced_haste": "unforced",
+              "max_raw_worn_haste": 41
+            }
+          }
+        ],
+        "export_equipment": true,
+        "pet_probe": {
+          "reagents": [
+            {
+              "id": 10015,
+              "count": 10
+            },
+            {
+              "id": 13073,
+              "count": 10
+            }
+          ],
+          "actions": [
+            {
+              "spell": 633
+            },
+            {
+              "spell": 443
+            },
+            {
+              "spell": 166
+            },
+            {
+              "spell": 107,
+              "target_class": 13
+            }
+          ],
+          "combat": {
+            "npc_id": 32040,
+            "npc_position": [
+              -871,
+              -1395,
+              104.879997,
+              45
+            ],
+            "starting_distance": 80,
+            "duration_ms": 500,
+            "commands_only": true,
+            "commands": [
+              {
+                "ms": 0,
+                "command": 3
+              },
+              {
+                "ms": 100,
+                "command": 3
+              },
+              {
+                "ms": 200,
+                "command": 3
+              },
+              {
+                "ms": 300,
+                "command": 3
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "command-3-500-extraonly-False",
+      "seed": 1729,
+      "expected_spells": [
+        633,
+        443,
+        166
+      ],
+      "input": {
+        "builds": [
+          {
+            "profile": "mag-nec-shm",
+            "classes": [
+              13,
+              11,
+              10
+            ],
+            "level": 50,
+            "race": "Human",
+            "deity": "Agnostic",
+            "tier": "captured_drops/balanced/shield/unforced",
+            "equipment": [
+              {
+                "slot": 1,
+                "id": 602630,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 480394
+                  }
+                ]
+              },
+              {
+                "slot": 2,
+                "id": 662020,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 480379
+                  }
+                ]
+              },
+              {
+                "slot": 3,
+                "id": 601547,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 651907
+                  }
+                ]
+              },
+              {
+                "slot": 4,
+                "id": 610231,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 479622
+                  }
+                ]
+              },
+              {
+                "slot": 5,
+                "id": 607767,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 251907
+                  }
+                ]
+              },
+              {
+                "slot": 6,
+                "id": 662029,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 679870
+                  }
+                ]
+              },
+              {
+                "slot": 7,
+                "id": 668251,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 680382
+                  }
+                ]
+              },
+              {
+                "slot": 8,
+                "id": 662288,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 680394
+                  }
+                ]
+              },
+              {
+                "slot": 9,
+                "id": 601559,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 680379
+                  }
+                ]
+              },
+              {
+                "slot": 10,
+                "id": 401559,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 679626
+                  }
+                ]
+              },
+              {
+                "slot": 11,
+                "id": 601554,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 651904
+                  }
+                ]
+              },
+              {
+                "slot": 12,
+                "id": 662032,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 451904
+                  }
+                ]
+              },
+              {
+                "slot": 13,
+                "id": 611625,
+                "augments": []
+              },
+              {
+                "slot": 14,
+                "id": 662014,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 651903
+                  }
+                ]
+              },
+              {
+                "slot": 15,
+                "id": 609959,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 479626
+                  }
+                ]
+              },
+              {
+                "slot": 16,
+                "id": 410231,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 479870
+                  }
+                ]
+              },
+              {
+                "slot": 17,
+                "id": 601552,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 451907
+                  }
+                ]
+              },
+              {
+                "slot": 18,
+                "id": 662031,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 280382
+                  }
+                ]
+              },
+              {
+                "slot": 19,
+                "id": 668239,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 679622
+                  }
+                ]
+              },
+              {
+                "slot": 20,
+                "id": 601556,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 480382
+                  }
+                ]
+              }
+            ],
+            "creation": {
+              "str": 75,
+              "sta": 90,
+              "dex": 75,
+              "agi": 75,
+              "int": 110,
+              "wis": 75,
+              "cha": 75
+            },
+            "test_character_id": 12,
+            "aa_budget": 0,
+            "aa_rank_ids": [
+              49999,
+              1000,
+              12636,
+              14017,
+              22200,
+              12637,
+              14018,
+              8445,
+              8446,
+              8447,
+              16419,
+              16420,
+              16421
+            ],
+            "aa_stage": "0",
+            "aa_policy": "common_free",
+            "gear_search": {
+              "scope": "captured_drops",
+              "objective": "balanced",
+              "mode": "shield",
+              "forced_haste": "unforced",
+              "max_raw_worn_haste": 41
+            }
+          }
+        ],
+        "export_equipment": true,
+        "pet_probe": {
+          "reagents": [
+            {
+              "id": 10015,
+              "count": 10
+            },
+            {
+              "id": 13073,
+              "count": 10
+            }
+          ],
+          "actions": [
+            {
+              "spell": 633
+            },
+            {
+              "spell": 443
+            },
+            {
+              "spell": 166
+            },
+            {
+              "spell": 107,
+              "target_class": 13
+            }
+          ],
+          "combat": {
+            "npc_id": 32040,
+            "npc_position": [
+              -871,
+              -1395,
+              104.879997,
+              45
+            ],
+            "starting_distance": 500,
+            "duration_ms": 500,
+            "commands_only": true,
+            "commands": [
+              {
+                "ms": 0,
+                "command": 3
+              },
+              {
+                "ms": 100,
+                "command": 3
+              },
+              {
+                "ms": 200,
+                "command": 3
+              },
+              {
+                "ms": 300,
+                "command": 3
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "command-3-80-extraonly-True",
+      "seed": 1729,
+      "expected_spells": [
+        443,
+        166
+      ],
+      "input": {
+        "builds": [
+          {
+            "profile": "mag-nec-shm",
+            "classes": [
+              13,
+              11,
+              10
+            ],
+            "level": 50,
+            "race": "Human",
+            "deity": "Agnostic",
+            "tier": "captured_drops/balanced/shield/unforced",
+            "equipment": [
+              {
+                "slot": 1,
+                "id": 602630,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 480394
+                  }
+                ]
+              },
+              {
+                "slot": 2,
+                "id": 662020,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 480379
+                  }
+                ]
+              },
+              {
+                "slot": 3,
+                "id": 601547,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 651907
+                  }
+                ]
+              },
+              {
+                "slot": 4,
+                "id": 610231,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 479622
+                  }
+                ]
+              },
+              {
+                "slot": 5,
+                "id": 607767,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 251907
+                  }
+                ]
+              },
+              {
+                "slot": 6,
+                "id": 662029,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 679870
+                  }
+                ]
+              },
+              {
+                "slot": 7,
+                "id": 668251,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 680382
+                  }
+                ]
+              },
+              {
+                "slot": 8,
+                "id": 662288,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 680394
+                  }
+                ]
+              },
+              {
+                "slot": 9,
+                "id": 601559,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 680379
+                  }
+                ]
+              },
+              {
+                "slot": 10,
+                "id": 401559,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 679626
+                  }
+                ]
+              },
+              {
+                "slot": 11,
+                "id": 601554,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 651904
+                  }
+                ]
+              },
+              {
+                "slot": 12,
+                "id": 662032,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 451904
+                  }
+                ]
+              },
+              {
+                "slot": 13,
+                "id": 611625,
+                "augments": []
+              },
+              {
+                "slot": 14,
+                "id": 662014,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 651903
+                  }
+                ]
+              },
+              {
+                "slot": 15,
+                "id": 609959,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 479626
+                  }
+                ]
+              },
+              {
+                "slot": 16,
+                "id": 410231,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 479870
+                  }
+                ]
+              },
+              {
+                "slot": 17,
+                "id": 601552,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 451907
+                  }
+                ]
+              },
+              {
+                "slot": 18,
+                "id": 662031,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 280382
+                  }
+                ]
+              },
+              {
+                "slot": 19,
+                "id": 668239,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 679622
+                  }
+                ]
+              },
+              {
+                "slot": 20,
+                "id": 601556,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 480382
+                  }
+                ]
+              }
+            ],
+            "creation": {
+              "str": 75,
+              "sta": 90,
+              "dex": 75,
+              "agi": 75,
+              "int": 110,
+              "wis": 75,
+              "cha": 75
+            },
+            "test_character_id": 12,
+            "aa_budget": 0,
+            "aa_rank_ids": [
+              49999,
+              1000,
+              12636,
+              14017,
+              22200,
+              12637,
+              14018,
+              8445,
+              8446,
+              8447,
+              16419,
+              16420,
+              16421
+            ],
+            "aa_stage": "0",
+            "aa_policy": "common_free",
+            "gear_search": {
+              "scope": "captured_drops",
+              "objective": "balanced",
+              "mode": "shield",
+              "forced_haste": "unforced",
+              "max_raw_worn_haste": 41
+            }
+          }
+        ],
+        "export_equipment": true,
+        "pet_probe": {
+          "reagents": [
+            {
+              "id": 10015,
+              "count": 10
+            },
+            {
+              "id": 13073,
+              "count": 10
+            }
+          ],
+          "actions": [
+            {
+              "spell": 443
+            },
+            {
+              "spell": 166
+            }
+          ],
+          "combat": {
+            "npc_id": 32040,
+            "npc_position": [
+              -871,
+              -1395,
+              104.879997,
+              45
+            ],
+            "starting_distance": 80,
+            "duration_ms": 500,
+            "commands_only": true,
+            "commands": [
+              {
+                "ms": 0,
+                "command": 3
+              },
+              {
+                "ms": 100,
+                "command": 3
+              },
+              {
+                "ms": 200,
+                "command": 3
+              },
+              {
+                "ms": 300,
+                "command": 3
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "command-3-80-primaryonly",
+      "seed": 1729,
+      "expected_spells": [
+        633
+      ],
+      "input": {
+        "builds": [
+          {
+            "profile": "mag-nec-shm",
+            "classes": [
+              13,
+              11,
+              10
+            ],
+            "level": 50,
+            "race": "Human",
+            "deity": "Agnostic",
+            "tier": "captured_drops/balanced/shield/unforced",
+            "equipment": [
+              {
+                "slot": 1,
+                "id": 602630,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 480394
+                  }
+                ]
+              },
+              {
+                "slot": 2,
+                "id": 662020,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 480379
+                  }
+                ]
+              },
+              {
+                "slot": 3,
+                "id": 601547,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 651907
+                  }
+                ]
+              },
+              {
+                "slot": 4,
+                "id": 610231,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 479622
+                  }
+                ]
+              },
+              {
+                "slot": 5,
+                "id": 607767,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 251907
+                  }
+                ]
+              },
+              {
+                "slot": 6,
+                "id": 662029,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 679870
+                  }
+                ]
+              },
+              {
+                "slot": 7,
+                "id": 668251,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 680382
+                  }
+                ]
+              },
+              {
+                "slot": 8,
+                "id": 662288,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 680394
+                  }
+                ]
+              },
+              {
+                "slot": 9,
+                "id": 601559,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 680379
+                  }
+                ]
+              },
+              {
+                "slot": 10,
+                "id": 401559,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 679626
+                  }
+                ]
+              },
+              {
+                "slot": 11,
+                "id": 601554,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 651904
+                  }
+                ]
+              },
+              {
+                "slot": 12,
+                "id": 662032,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 451904
+                  }
+                ]
+              },
+              {
+                "slot": 13,
+                "id": 611625,
+                "augments": []
+              },
+              {
+                "slot": 14,
+                "id": 662014,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 651903
+                  }
+                ]
+              },
+              {
+                "slot": 15,
+                "id": 609959,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 479626
+                  }
+                ]
+              },
+              {
+                "slot": 16,
+                "id": 410231,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 479870
+                  }
+                ]
+              },
+              {
+                "slot": 17,
+                "id": 601552,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 451907
+                  }
+                ]
+              },
+              {
+                "slot": 18,
+                "id": 662031,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 280382
+                  }
+                ]
+              },
+              {
+                "slot": 19,
+                "id": 668239,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 679622
+                  }
+                ]
+              },
+              {
+                "slot": 20,
+                "id": 601556,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 480382
+                  }
+                ]
+              }
+            ],
+            "creation": {
+              "str": 75,
+              "sta": 90,
+              "dex": 75,
+              "agi": 75,
+              "int": 110,
+              "wis": 75,
+              "cha": 75
+            },
+            "test_character_id": 12,
+            "aa_budget": 0,
+            "aa_rank_ids": [
+              49999,
+              1000,
+              12636,
+              14017,
+              22200,
+              12637,
+              14018,
+              8445,
+              8446,
+              8447,
+              16419,
+              16420,
+              16421
+            ],
+            "aa_stage": "0",
+            "aa_policy": "common_free",
+            "gear_search": {
+              "scope": "captured_drops",
+              "objective": "balanced",
+              "mode": "shield",
+              "forced_haste": "unforced",
+              "max_raw_worn_haste": 41
+            }
+          }
+        ],
+        "export_equipment": true,
+        "pet_probe": {
+          "reagents": [
+            {
+              "id": 10015,
+              "count": 10
+            },
+            {
+              "id": 13073,
+              "count": 10
+            }
+          ],
+          "actions": [
+            {
+              "spell": 633
+            },
+            {
+              "spell": 107,
+              "target_class": 13
+            }
+          ],
+          "combat": {
+            "npc_id": 32040,
+            "npc_position": [
+              -871,
+              -1395,
+              104.879997,
+              45
+            ],
+            "starting_distance": 80,
+            "duration_ms": 500,
+            "commands_only": true,
+            "commands": [
+              {
+                "ms": 0,
+                "command": 3
+              },
+              {
+                "ms": 100,
+                "command": 3
+              },
+              {
+                "ms": 200,
+                "command": 3
+              },
+              {
+                "ms": 300,
+                "command": 3
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "pet-only-0-32040",
+      "seed": 1729,
+      "expected_spells": [
+        633,
+        443,
+        166
+      ],
+      "input": {
+        "builds": [
+          {
+            "profile": "mag-nec-shm",
+            "classes": [
+              13,
+              11,
+              10
+            ],
+            "level": 50,
+            "race": "Human",
+            "deity": "Agnostic",
+            "tier": "captured_drops/balanced/shield/unforced",
+            "equipment": [
+              {
+                "slot": 1,
+                "id": 602630,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 480394
+                  }
+                ]
+              },
+              {
+                "slot": 2,
+                "id": 662020,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 480379
+                  }
+                ]
+              },
+              {
+                "slot": 3,
+                "id": 601547,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 651907
+                  }
+                ]
+              },
+              {
+                "slot": 4,
+                "id": 610231,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 479622
+                  }
+                ]
+              },
+              {
+                "slot": 5,
+                "id": 607767,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 251907
+                  }
+                ]
+              },
+              {
+                "slot": 6,
+                "id": 662029,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 679870
+                  }
+                ]
+              },
+              {
+                "slot": 7,
+                "id": 668251,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 680382
+                  }
+                ]
+              },
+              {
+                "slot": 8,
+                "id": 662288,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 680394
+                  }
+                ]
+              },
+              {
+                "slot": 9,
+                "id": 601559,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 680379
+                  }
+                ]
+              },
+              {
+                "slot": 10,
+                "id": 401559,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 679626
+                  }
+                ]
+              },
+              {
+                "slot": 11,
+                "id": 601554,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 651904
+                  }
+                ]
+              },
+              {
+                "slot": 12,
+                "id": 662032,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 451904
+                  }
+                ]
+              },
+              {
+                "slot": 13,
+                "id": 611625,
+                "augments": []
+              },
+              {
+                "slot": 14,
+                "id": 662014,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 651903
+                  }
+                ]
+              },
+              {
+                "slot": 15,
+                "id": 609959,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 479626
+                  }
+                ]
+              },
+              {
+                "slot": 16,
+                "id": 410231,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 479870
+                  }
+                ]
+              },
+              {
+                "slot": 17,
+                "id": 601552,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 451907
+                  }
+                ]
+              },
+              {
+                "slot": 18,
+                "id": 662031,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 280382
+                  }
+                ]
+              },
+              {
+                "slot": 19,
+                "id": 668239,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 679622
+                  }
+                ]
+              },
+              {
+                "slot": 20,
+                "id": 601556,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 480382
+                  }
+                ]
+              }
+            ],
+            "creation": {
+              "str": 75,
+              "sta": 90,
+              "dex": 75,
+              "agi": 75,
+              "int": 110,
+              "wis": 75,
+              "cha": 75
+            },
+            "test_character_id": 12,
+            "aa_budget": 0,
+            "aa_rank_ids": [
+              49999,
+              1000,
+              12636,
+              14017,
+              22200,
+              12637,
+              14018,
+              8445,
+              8446,
+              8447,
+              16419,
+              16420,
+              16421
+            ],
+            "aa_stage": "0",
+            "aa_policy": "common_free",
+            "gear_search": {
+              "scope": "captured_drops",
+              "objective": "balanced",
+              "mode": "shield",
+              "forced_haste": "unforced",
+              "max_raw_worn_haste": 41
+            }
+          }
+        ],
+        "export_equipment": true,
+        "pet_probe": {
+          "reagents": [
+            {
+              "id": 10015,
+              "count": 10
+            },
+            {
+              "id": 13073,
+              "count": 10
+            }
+          ],
+          "actions": [
+            {
+              "spell": 633
+            },
+            {
+              "spell": 443
+            },
+            {
+              "spell": 166
+            },
+            {
+              "spell": 107,
+              "target_class": 13
+            }
+          ],
+          "combat": {
+            "npc_id": 32040,
+            "npc_position": [
+              -871,
+              -1395,
+              104.879997,
+              45
+            ],
+            "starting_distance": 80,
+            "duration_ms": 120000,
+            "commands_only": false,
+            "commands": [
+              {
+                "ms": 0,
+                "command": 2
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "pet-only-0-73057",
+      "seed": 1729,
+      "expected_spells": [
+        633,
+        443,
+        166
+      ],
+      "input": {
+        "builds": [
+          {
+            "profile": "mag-nec-shm",
+            "classes": [
+              13,
+              11,
+              10
+            ],
+            "level": 50,
+            "race": "Human",
+            "deity": "Agnostic",
+            "tier": "captured_drops/balanced/shield/unforced",
+            "equipment": [
+              {
+                "slot": 1,
+                "id": 602630,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 480394
+                  }
+                ]
+              },
+              {
+                "slot": 2,
+                "id": 662020,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 480379
+                  }
+                ]
+              },
+              {
+                "slot": 3,
+                "id": 601547,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 651907
+                  }
+                ]
+              },
+              {
+                "slot": 4,
+                "id": 610231,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 479622
+                  }
+                ]
+              },
+              {
+                "slot": 5,
+                "id": 607767,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 251907
+                  }
+                ]
+              },
+              {
+                "slot": 6,
+                "id": 662029,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 679870
+                  }
+                ]
+              },
+              {
+                "slot": 7,
+                "id": 668251,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 680382
+                  }
+                ]
+              },
+              {
+                "slot": 8,
+                "id": 662288,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 680394
+                  }
+                ]
+              },
+              {
+                "slot": 9,
+                "id": 601559,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 680379
+                  }
+                ]
+              },
+              {
+                "slot": 10,
+                "id": 401559,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 679626
+                  }
+                ]
+              },
+              {
+                "slot": 11,
+                "id": 601554,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 651904
+                  }
+                ]
+              },
+              {
+                "slot": 12,
+                "id": 662032,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 451904
+                  }
+                ]
+              },
+              {
+                "slot": 13,
+                "id": 611625,
+                "augments": []
+              },
+              {
+                "slot": 14,
+                "id": 662014,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 651903
+                  }
+                ]
+              },
+              {
+                "slot": 15,
+                "id": 609959,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 479626
+                  }
+                ]
+              },
+              {
+                "slot": 16,
+                "id": 410231,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 479870
+                  }
+                ]
+              },
+              {
+                "slot": 17,
+                "id": 601552,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 451907
+                  }
+                ]
+              },
+              {
+                "slot": 18,
+                "id": 662031,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 280382
+                  }
+                ]
+              },
+              {
+                "slot": 19,
+                "id": 668239,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 679622
+                  }
+                ]
+              },
+              {
+                "slot": 20,
+                "id": 601556,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 480382
+                  }
+                ]
+              }
+            ],
+            "creation": {
+              "str": 75,
+              "sta": 90,
+              "dex": 75,
+              "agi": 75,
+              "int": 110,
+              "wis": 75,
+              "cha": 75
+            },
+            "test_character_id": 12,
+            "aa_budget": 0,
+            "aa_rank_ids": [
+              49999,
+              1000,
+              12636,
+              14017,
+              22200,
+              12637,
+              14018,
+              8445,
+              8446,
+              8447,
+              16419,
+              16420,
+              16421
+            ],
+            "aa_stage": "0",
+            "aa_policy": "common_free",
+            "gear_search": {
+              "scope": "captured_drops",
+              "objective": "balanced",
+              "mode": "shield",
+              "forced_haste": "unforced",
+              "max_raw_worn_haste": 41
+            }
+          }
+        ],
+        "export_equipment": true,
+        "pet_probe": {
+          "reagents": [
+            {
+              "id": 10015,
+              "count": 10
+            },
+            {
+              "id": 13073,
+              "count": 10
+            }
+          ],
+          "actions": [
+            {
+              "spell": 633
+            },
+            {
+              "spell": 443
+            },
+            {
+              "spell": 166
+            },
+            {
+              "spell": 107,
+              "target_class": 13
+            }
+          ],
+          "combat": {
+            "npc_id": 73057,
+            "npc_position": [
+              -262,
+              857,
+              22,
+              407
+            ],
+            "starting_distance": 80,
+            "duration_ms": 120000,
+            "commands_only": false,
+            "commands": [
+              {
+                "ms": 0,
+                "command": 2
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "pet-only-all-32040",
+      "seed": 1729,
+      "expected_spells": [
+        633,
+        443,
+        166
+      ],
+      "input": {
+        "builds": [
+          {
+            "profile": "mag-nec-shm",
+            "classes": [
+              13,
+              11,
+              10
+            ],
+            "level": 50,
+            "race": "Human",
+            "deity": "Agnostic",
+            "tier": "captured_drops/balanced/shield/unforced",
+            "equipment": [
+              {
+                "slot": 1,
+                "id": 602630,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 480394
+                  }
+                ]
+              },
+              {
+                "slot": 2,
+                "id": 662020,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 480379
+                  }
+                ]
+              },
+              {
+                "slot": 3,
+                "id": 601547,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 651907
+                  }
+                ]
+              },
+              {
+                "slot": 4,
+                "id": 610231,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 479622
+                  }
+                ]
+              },
+              {
+                "slot": 5,
+                "id": 607767,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 251907
+                  }
+                ]
+              },
+              {
+                "slot": 6,
+                "id": 662029,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 679870
+                  }
+                ]
+              },
+              {
+                "slot": 7,
+                "id": 668251,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 680382
+                  }
+                ]
+              },
+              {
+                "slot": 8,
+                "id": 662288,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 680394
+                  }
+                ]
+              },
+              {
+                "slot": 9,
+                "id": 601559,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 680379
+                  }
+                ]
+              },
+              {
+                "slot": 10,
+                "id": 401559,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 679626
+                  }
+                ]
+              },
+              {
+                "slot": 11,
+                "id": 601554,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 651904
+                  }
+                ]
+              },
+              {
+                "slot": 12,
+                "id": 662032,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 451904
+                  }
+                ]
+              },
+              {
+                "slot": 13,
+                "id": 611625,
+                "augments": []
+              },
+              {
+                "slot": 14,
+                "id": 662014,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 651903
+                  }
+                ]
+              },
+              {
+                "slot": 15,
+                "id": 609959,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 479626
+                  }
+                ]
+              },
+              {
+                "slot": 16,
+                "id": 410231,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 479870
+                  }
+                ]
+              },
+              {
+                "slot": 17,
+                "id": 601552,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 451907
+                  }
+                ]
+              },
+              {
+                "slot": 18,
+                "id": 662031,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 280382
+                  }
+                ]
+              },
+              {
+                "slot": 19,
+                "id": 668239,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 679622
+                  }
+                ]
+              },
+              {
+                "slot": 20,
+                "id": 601556,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 480382
+                  }
+                ]
+              }
+            ],
+            "creation": {
+              "str": 75,
+              "sta": 90,
+              "dex": 75,
+              "agi": 75,
+              "int": 110,
+              "wis": 75,
+              "cha": 75
+            },
+            "test_character_id": 12,
+            "aa_budget": 13288,
+            "aa_rank_ids": [
+              49999,
+              1000,
+              12636,
+              14017,
+              22200,
+              12637,
+              14018,
+              8445,
+              8446,
+              8447,
+              16419,
+              16420,
+              16421,
+              2,
+              7,
+              12,
+              17,
+              22,
+              27,
+              32,
+              37,
+              42,
+              47,
+              52,
+              57,
+              62,
+              68,
+              71,
+              74,
+              77,
+              80,
+              83,
+              86,
+              92,
+              98,
+              101,
+              104,
+              107,
+              122,
+              125,
+              128,
+              130,
+              147,
+              150,
+              153,
+              163,
+              167,
+              168,
+              171,
+              174,
+              177,
+              182,
+              183,
+              184,
+              185,
+              186,
+              187,
+              288,
+              412,
+              418,
+              426,
+              14231,
+              14232,
+              14233,
+              14234,
+              14237,
+              459,
+              513,
+              520,
+              523,
+              526,
+              528,
+              616,
+              634,
+              655,
+              658,
+              661,
+              671,
+              678,
+              691,
+              692,
+              734,
+              767,
+              785,
+              790,
+              795,
+              800,
+              803,
+              834,
+              839,
+              14289,
+              961,
+              967,
+              970,
+              1388,
+              14307,
+              979,
+              982,
+              985,
+              988,
+              991,
+              994,
+              997,
+              1006,
+              1021,
+              1026,
+              14301,
+              15771,
+              1071,
+              1072,
+              14321,
+              14322,
+              1089,
+              12652,
+              1186,
+              13695,
+              14264,
+              1228,
+              1272,
+              12766,
+              12770,
+              12778,
+              1287,
+              12785,
+              1327,
+              1404,
+              12893,
+              1510,
+              1520,
+              1527,
+              1528,
+              16016,
+              12941,
+              16081,
+              1462,
+              4675,
+              4698,
+              4699,
+              4702,
+              13788,
+              4704,
+              4705,
+              4706,
+              12963,
+              12971,
+              13096,
+              5369,
+              12989,
+              4927,
+              5366,
+              4938,
+              13020,
+              4943,
+              5269,
+              14224,
+              14358,
+              14359,
+              16083,
+              5109,
+              14360,
+              13225,
+              5276,
+              16208,
+              13684,
+              13687,
+              13693,
+              13133,
+              1056,
+              1662,
+              6635,
+              6646,
+              16370,
+              6691,
+              6692,
+              6702,
+              6706,
+              6709,
+              17258,
+              16536,
+              17555,
+              17199,
+              6815,
+              6818,
+              6822,
+              6828,
+              10792,
+              17328,
+              17329,
+              17357,
+              17378,
+              17558,
+              6112,
+              17538,
+              17561,
+              17564,
+              17567,
+              17570,
+              17573,
+              17597,
+              17600,
+              7900,
+              7903,
+              17603,
+              17606,
+              17609,
+              17612,
+              17615,
+              10481,
+              5045,
+              8190,
+              8194,
+              8201,
+              8210,
+              8221,
+              8222,
+              8227,
+              8228,
+              8231,
+              8240,
+              15574,
+              15582,
+              15594,
+              9109,
+              9118,
+              9154,
+              9503,
+              9506,
+              9509,
+              5809,
+              12416,
+              15357,
+              15362,
+              15374,
+              15200,
+              15203,
+              15213,
+              15214,
+              15217,
+              15232,
+              13692,
+              10700,
+              6051,
+              6346,
+              6206,
+              6212,
+              6281,
+              6282,
+              6119,
+              7069,
+              6375,
+              6379,
+              6383,
+              6455,
+              6461,
+              7828,
+              7000,
+              7002,
+              7003,
+              7004,
+              7062,
+              9502,
+              7016,
+              7017,
+              7018,
+              7019,
+              1017,
+              976,
+              7698,
+              7699,
+              7703,
+              9021,
+              8341,
+              8342,
+              10600,
+              10603,
+              10701,
+              10754,
+              10950,
+              10957,
+              10958,
+              10959,
+              50000,
+              3,
+              8,
+              13,
+              18,
+              23,
+              28,
+              33,
+              38,
+              43,
+              48,
+              53,
+              58,
+              63,
+              69,
+              72,
+              75,
+              78,
+              81,
+              84,
+              87,
+              93,
+              99,
+              102,
+              105,
+              108,
+              123,
+              126,
+              148,
+              151,
+              1519,
+              5879,
+              169,
+              172,
+              175,
+              178,
+              5953,
+              14225,
+              413,
+              419,
+              427,
+              460,
+              474,
+              483,
+              514,
+              521,
+              524,
+              527,
+              529,
+              574,
+              617,
+              635,
+              656,
+              659,
+              662,
+              679,
+              693,
+              768,
+              786,
+              791,
+              796,
+              801,
+              804,
+              835,
+              840,
+              14282,
+              14292,
+              14295,
+              968,
+              971,
+              980,
+              983,
+              986,
+              989,
+              992,
+              995,
+              998,
+              1007,
+              1022,
+              1027,
+              14308,
+              14311,
+              4764,
+              1073,
+              1090,
+              1129,
+              12653,
+              1187,
+              14331,
+              1126,
+              6378,
+              13682,
+              12771,
+              12773,
+              13678,
+              1288,
+              12779,
+              12782,
+              17131,
+              1328,
+              12866,
+              1405,
+              13663,
+              1504,
+              7202,
+              1521,
+              1529,
+              1577,
+              1463,
+              4676,
+              6545,
+              6540,
+              12964,
+              12968,
+              12972,
+              12977,
+              4861,
+              13097,
+              12990,
+              13001,
+              13008,
+              7209,
+              13009,
+              5610,
+              14062,
+              14318,
+              6448,
+              14304,
+              13143,
+              13688,
+              5277,
+              13667,
+              16203,
+              13685,
+              13689,
+              16211,
+              16342,
+              1057,
+              1251,
+              1252,
+              1253,
+              1254,
+              1663,
+              16218,
+              16371,
+              6693,
+              6697,
+              6703,
+              6707,
+              6710,
+              6712,
+              16380,
+              6816,
+              6819,
+              13683,
+              6823,
+              10208,
+              10793,
+              17336,
+              17342,
+              3676,
+              12966,
+              17515,
+              17517,
+              17522,
+              17533,
+              7901,
+              12976,
+              5010,
+              16336,
+              16339,
+              8191,
+              8195,
+              8202,
+              8204,
+              8211,
+              8220,
+              12810,
+              8229,
+              8241,
+              15571,
+              15575,
+              15579,
+              15591,
+              15377,
+              9110,
+              9119,
+              9155,
+              9504,
+              9507,
+              9510,
+              16103,
+              12417,
+              12422,
+              6026,
+              8260,
+              15356,
+              15358,
+              15371,
+              15204,
+              15207,
+              15210,
+              6052,
+              6333,
+              6347,
+              6207,
+              6213,
+              6228,
+              12995,
+              6120,
+              6376,
+              6384,
+              6514,
+              6445,
+              6456,
+              6462,
+              7832,
+              7829,
+              12475,
+              9500,
+              13726,
+              7715,
+              9022,
+              8332,
+              8335,
+              14729,
+              10601,
+              10702,
+              13000,
+              10961,
+              10413,
+              4,
+              9,
+              14,
+              19,
+              24,
+              29,
+              34,
+              39,
+              44,
+              49,
+              54,
+              59,
+              64,
+              70,
+              73,
+              76,
+              79,
+              82,
+              85,
+              88,
+              94,
+              100,
+              103,
+              106,
+              109,
+              124,
+              127,
+              149,
+              152,
+              5068,
+              7249,
+              170,
+              173,
+              176,
+              179,
+              7203,
+              414,
+              420,
+              428,
+              461,
+              475,
+              484,
+              515,
+              522,
+              525,
+              530,
+              575,
+              618,
+              636,
+              657,
+              660,
+              663,
+              680,
+              694,
+              769,
+              787,
+              792,
+              797,
+              802,
+              805,
+              836,
+              841,
+              14281,
+              969,
+              972,
+              981,
+              984,
+              987,
+              990,
+              993,
+              996,
+              999,
+              1008,
+              1023,
+              1028,
+              7553,
+              1074,
+              1091,
+              1122,
+              1130,
+              12654,
+              1188,
+              1127,
+              12772,
+              12774,
+              1289,
+              12780,
+              12783,
+              1329,
+              15605,
+              1406,
+              1505,
+              10212,
+              1522,
+              1530,
+              1578,
+              1464,
+              4677,
+              7500,
+              12965,
+              12969,
+              12973,
+              12978,
+              4862,
+              13098,
+              12991,
+              13002,
+              4903,
+              4906,
+              4909,
+              4912,
+              10218,
+              5614,
+              7467,
+              13144,
+              13646,
+              5278,
+              13686,
+              1058,
+              1664,
+              6694,
+              6698,
+              6704,
+              6708,
+              6711,
+              6713,
+              16386,
+              6817,
+              6820,
+              6824,
+              17534,
+              12635,
+              10794,
+              17317,
+              17339,
+              12967,
+              7902,
+              14734,
+              5011,
+              8192,
+              8196,
+              8203,
+              8205,
+              8212,
+              12811,
+              8230,
+              8242,
+              15576,
+              9111,
+              9120,
+              9156,
+              9505,
+              9508,
+              9511,
+              12418,
+              6027,
+              6053,
+              7266,
+              6348,
+              6208,
+              6214,
+              6229,
+              6121,
+              6377,
+              6385,
+              6515,
+              6446,
+              6457,
+              6463,
+              7833,
+              7830,
+              12476,
+              7716,
+              9023,
+              8333,
+              8336,
+              10602,
+              10703,
+              16214,
+              10962,
+              10414,
+              5,
+              10,
+              15,
+              20,
+              25,
+              30,
+              35,
+              40,
+              45,
+              50,
+              55,
+              60,
+              672,
+              676,
+              434,
+              437,
+              13099,
+              266,
+              4767,
+              7541,
+              454,
+              449,
+              141,
+              146,
+              6101,
+              8343,
+              15241,
+              15244,
+              15247,
+              15250,
+              415,
+              421,
+              429,
+              446,
+              1189,
+              476,
+              485,
+              6095,
+              1507,
+              900,
+              576,
+              1248,
+              844,
+              637,
+              5306,
+              674,
+              681,
+              7647,
+              754,
+              1099,
+              788,
+              793,
+              798,
+              837,
+              842,
+              6464,
+              973,
+              1113,
+              1009,
+              1024,
+              1029,
+              7681,
+              1075,
+              13411,
+              4776,
+              1128,
+              12775,
+              5516,
+              12781,
+              12784,
+              5314,
+              1435,
+              1420,
+              1407,
+              1506,
+              1511,
+              6449,
+              1531,
+              1579,
+              1465,
+              10788,
+              12970,
+              12974,
+              12979,
+              4863,
+              13127,
+              5336,
+              13003,
+              5892,
+              5893,
+              5894,
+              5895,
+              12875,
+              5251,
+              13016,
+              13145,
+              15238,
+              14690,
+              1059,
+              1274,
+              1665,
+              6695,
+              6699,
+              6705,
+              10179,
+              6714,
+              10200,
+              6821,
+              6825,
+              10795,
+              16402,
+              10268,
+              5012,
+              8197,
+              16475,
+              8206,
+              8213,
+              12812,
+              8243,
+              15577,
+              15622,
+              9318,
+              9336,
+              10087,
+              13630,
+              9515,
+              9426,
+              13413,
+              6028,
+              15220,
+              15223,
+              15226,
+              15229,
+              7601,
+              13920,
+              7615,
+              7606,
+              7609,
+              6230,
+              6122,
+              7644,
+              10607,
+              6516,
+              6447,
+              7834,
+              7827,
+              12477,
+              7695,
+              7717,
+              9024,
+              8334,
+              8337,
+              12982,
+              12754,
+              10951,
+              12988,
+              10415,
+              6,
+              11,
+              16,
+              21,
+              26,
+              31,
+              36,
+              41,
+              46,
+              51,
+              56,
+              61,
+              673,
+              677,
+              435,
+              438,
+              10467,
+              4768,
+              7542,
+              455,
+              450,
+              142,
+              5069,
+              7468,
+              12955,
+              416,
+              422,
+              430,
+              447,
+              1190,
+              15359,
+              6096,
+              1508,
+              901,
+              7718,
+              1249,
+              845,
+              638,
+              5307,
+              675,
+              682,
+              7648,
+              755,
+              1100,
+              789,
+              794,
+              799,
+              838,
+              843,
+              6465,
+              974,
+              1114,
+              1010,
+              1025,
+              1030,
+              1076,
+              4777,
+              5513,
+              12776,
+              5517,
+              1323,
+              5315,
+              1436,
+              1421,
+              1408,
+              5880,
+              1512,
+              6450,
+              1532,
+              5886,
+              1466,
+              14238,
+              12975,
+              12980,
+              5954,
+              12992,
+              15348,
+              7253,
+              7254,
+              7255,
+              7256,
+              13010,
+              13727,
+              5252,
+              5356,
+              1060,
+              1275,
+              1666,
+              6696,
+              6700,
+              10176,
+              10180,
+              6715,
+              10201,
+              10203,
+              6826,
+              10796,
+              10269,
+              15317,
+              7704,
+              1656,
+              8214,
+              8244,
+              9319,
+              9337,
+              10088,
+              16361,
+              9427,
+              7602,
+              7616,
+              7607,
+              7610,
+              6231,
+              6123,
+              7645,
+              10608,
+              7835,
+              12876,
+              7696,
+              14314,
+              9025,
+              8338,
+              12983,
+              12755,
+              10952,
+              10416,
+              10434,
+              292,
+              302,
+              312,
+              322,
+              332,
+              342,
+              352,
+              362,
+              372,
+              382,
+              392,
+              402,
+              978,
+              436,
+              439,
+              4769,
+              7543,
+              456,
+              451,
+              143,
+              6102,
+              10193,
+              13718,
+              417,
+              1001,
+              448,
+              1191,
+              6097,
+              1509,
+              6103,
+              1250,
+              1319,
+              639,
+              5308,
+              1031,
+              6518,
+              7649,
+              756,
+              1101,
+              15235,
+              5259,
+              1430,
+              5325,
+              6466,
+              1324,
+              1115,
+              7516,
+              6521,
+              1389,
+              4744,
+              4778,
+              5514,
+              12777,
+              5518,
+              5316,
+              1437,
+              1422,
+              12880,
+              5881,
+              1513,
+              6451,
+              4819,
+              5887,
+              4900,
+              12981,
+              5955,
+              12993,
+              10255,
+              10256,
+              10257,
+              10258,
+              13011,
+              13013,
+              5253,
+              5264,
+              6431,
+              1276,
+              5342,
+              6701,
+              10177,
+              10181,
+              6716,
+              10202,
+              10204,
+              6827,
+              17365,
+              10270,
+              7705,
+              1657,
+              1651,
+              10781,
+              9320,
+              9338,
+              10089,
+              9428,
+              7603,
+              7617,
+              7608,
+              7611,
+              7526,
+              7646,
+              10609,
+              7836,
+              12877,
+              7697,
+              9026,
+              8339,
+              12984,
+              10610,
+              12756,
+              10953,
+              10417,
+              10435,
+              293,
+              303,
+              313,
+              323,
+              333,
+              343,
+              353,
+              363,
+              373,
+              383,
+              393,
+              403,
+              1083,
+              1086,
+              5586,
+              457,
+              452,
+              12863,
+              7466,
+              11081,
+              1002,
+              7050,
+              5062,
+              7475,
+              5883,
+              6104,
+              6254,
+              1320,
+              770,
+              5309,
+              1032,
+              6519,
+              7670,
+              7659,
+              12423,
+              5260,
+              1431,
+              5326,
+              7217,
+              1325,
+              7517,
+              6522,
+              1390,
+              4745,
+              5589,
+              5515,
+              12469,
+              6098,
+              4773,
+              1423,
+              5882,
+              5950,
+              1514,
+              7463,
+              4820,
+              5888,
+              4901,
+              17334,
+              5956,
+              12994,
+              12956,
+              12959,
+              12957,
+              12958,
+              13012,
+              13014,
+              6092,
+              5265,
+              6432,
+              4864,
+              10178,
+              5353,
+              10182,
+              12786,
+              10205,
+              10206,
+              7706,
+              1652,
+              10782,
+              9112,
+              9121,
+              9157,
+              12792,
+              10604,
+              15397,
+              12460,
+              12942,
+              7527,
+              7663,
+              12801,
+              12878,
+              9027,
+              13720,
+              10611,
+              15588,
+              15363,
+              10954,
+              10436,
+              294,
+              304,
+              314,
+              324,
+              334,
+              344,
+              354,
+              364,
+              374,
+              384,
+              394,
+              404,
+              1084,
+              1087,
+              5587,
+              458,
+              453,
+              15396,
+              7691,
+              12996,
+              1003,
+              7051,
+              5063,
+              7476,
+              5884,
+              6105,
+              6255,
+              1321,
+              771,
+              5310,
+              1033,
+              6520,
+              7671,
+              7660,
+              12424,
+              5261,
+              1432,
+              5327,
+              7218,
+              1326,
+              7518,
+              7539,
+              1391,
+              4746,
+              5590,
+              13253,
+              12470,
+              6099,
+              6517,
+              1424,
+              1486,
+              7260,
+              5951,
+              1515,
+              7464,
+              4821,
+              7263,
+              4902,
+              7215,
+              5350,
+              13698,
+              13701,
+              14733,
+              13704,
+              14223,
+              13015,
+              6093,
+              5266,
+              6433,
+              4865,
+              13005,
+              10183,
+              12787,
+              10207,
+              1653,
+              10783,
+              9113,
+              9122,
+              9158,
+              12793,
+              10605,
+              12461,
+              12943,
+              7528,
+              10084,
+              12802,
+              15270,
+              9028,
+              10612,
+              10955,
+              295,
+              305,
+              315,
+              325,
+              335,
+              345,
+              355,
+              365,
+              375,
+              385,
+              395,
+              405,
+              1085,
+              1088,
+              5588,
+              1066,
+              1061,
+              13256,
+              17333,
+              1004,
+              7052,
+              5064,
+              7477,
+              5885,
+              7469,
+              6256,
+              5032,
+              772,
+              5623,
+              1034,
+              7544,
+              7672,
+              7661,
+              12425,
+              5262,
+              4897,
+              5328,
+              7219,
+              17311,
+              7519,
+              7540,
+              1392,
+              4747,
+              5591,
+              13254,
+              12471,
+              6100,
+              7621,
+              1487,
+              7261,
+              5952,
+              1516,
+              7465,
+              4822,
+              7264,
+              14739,
+              4688,
+              7216,
+              6094,
+              5267,
+              6434,
+              4866,
+              13006,
+              10184,
+              12788,
+              1654,
+              10784,
+              9114,
+              9123,
+              9159,
+              12794,
+              10606,
+              12462,
+              12944,
+              7529,
+              10085,
+              12803,
+              9029,
+              10956,
+              296,
+              306,
+              316,
+              326,
+              336,
+              346,
+              356,
+              366,
+              376,
+              386,
+              396,
+              406,
+              12449,
+              4779,
+              7584,
+              1067,
+              1062,
+              13257,
+              1005,
+              7053,
+              7250,
+              7470,
+              7257,
+              5033,
+              4749,
+              5624,
+              1035,
+              7545,
+              12767,
+              5263,
+              4898,
+              5329,
+              10224,
+              7520,
+              7683,
+              1393,
+              4748,
+              7587,
+              1213,
+              13255,
+              10637,
+              7460,
+              13090,
+              1488,
+              7262,
+              13404,
+              10190,
+              4823,
+              7265,
+              4689,
+              7682,
+              13004,
+              7472,
+              5268,
+              4761,
+              6435,
+              5947,
+              13007,
+              10185,
+              14355,
+              12478,
+              1655,
+              10785,
+              9321,
+              9339,
+              5360,
+              9429,
+              12795,
+              12520,
+              13291,
+              7530,
+              10086,
+              5339,
+              9030,
+              297,
+              307,
+              317,
+              327,
+              337,
+              347,
+              357,
+              367,
+              377,
+              387,
+              397,
+              407,
+              12450,
+              4780,
+              7585,
+              1068,
+              1063,
+              13258,
+              4678,
+              7054,
+              7251,
+              7471,
+              7258,
+              5034,
+              4750,
+              5625,
+              4693,
+              7546,
+              12768,
+              5320,
+              4899,
+              7210,
+              10225,
+              7837,
+              7684,
+              4683,
+              5566,
+              7588,
+              1214,
+              13723,
+              10638,
+              7461,
+              13295,
+              1489,
+              10191,
+              15188,
+              10262,
+              4690,
+              12757,
+              15855,
+              13017,
+              7473,
+              5939,
+              13416,
+              4762,
+              7521,
+              5948,
+              10186,
+              12479,
+              13149,
+              8224,
+              13343,
+              9322,
+              9340,
+              9430,
+              12796,
+              12521,
+              12406,
+              5347,
+              298,
+              308,
+              318,
+              328,
+              338,
+              348,
+              358,
+              368,
+              378,
+              388,
+              398,
+              408,
+              12451,
+              4781,
+              7586,
+              1069,
+              1064,
+              14222,
+              4679,
+              7055,
+              7252,
+              10194,
+              7259,
+              5611,
+              4751,
+              5626,
+              4694,
+              12769,
+              5321,
+              5889,
+              7211,
+              10226,
+              7838,
+              7685,
+              4684,
+              5567,
+              7589,
+              1215,
+              10639,
+              7462,
+              1490,
+              10192,
+              10263,
+              4691,
+              12758,
+              13018,
+              7474,
+              5940,
+              4763,
+              7522,
+              5949,
+              12480,
+              13150,
+              8225,
+              9323,
+              9341,
+              9431,
+              12797,
+              12522,
+              12407,
+              5348,
+              299,
+              309,
+              319,
+              329,
+              339,
+              349,
+              359,
+              369,
+              379,
+              389,
+              399,
+              409,
+              12497,
+              5592,
+              11061,
+              1070,
+              1065,
+              4680,
+              7063,
+              10252,
+              10195,
+              10259,
+              5612,
+              5571,
+              5627,
+              4695,
+              17295,
+              5322,
+              5890,
+              7212,
+              12789,
+              7839,
+              13894,
+              4685,
+              5568,
+              7692,
+              4755,
+              13323,
+              10187,
+              5529,
+              12997,
+              10264,
+              4692,
+              12759,
+              4924,
+              13019,
+              10197,
+              5941,
+              6500,
+              7523,
+              7199,
+              13151,
+              8226,
+              9115,
+              9124,
+              9160,
+              13278,
+              13275,
+              12408,
+              300,
+              310,
+              320,
+              330,
+              340,
+              350,
+              360,
+              370,
+              380,
+              390,
+              400,
+              410,
+              12498,
+              5593,
+              11062,
+              1399,
+              1394,
+              4681,
+              7064,
+              10253,
+              10196,
+              10260,
+              5613,
+              5572,
+              7593,
+              4696,
+              5323,
+              5891,
+              7213,
+              12790,
+              7840,
+              4686,
+              5569,
+              7693,
+              4756,
+              10188,
+              5530,
+              12998,
+              13707,
+              4925,
+              13396,
+              10198,
+              5942,
+              6501,
+              7524,
+              7200,
+              13152,
+              8421,
+              9116,
+              9125,
+              9161,
+              12409,
+              301,
+              311,
+              321,
+              331,
+              341,
+              351,
+              361,
+              371,
+              381,
+              391,
+              401,
+              411,
+              12499,
+              5594,
+              11063,
+              1400,
+              1395,
+              4682,
+              7065,
+              10254,
+              13161,
+              10261,
+              7713,
+              5573,
+              7594,
+              4697,
+              5324,
+              7267,
+              7214,
+              12791,
+              7841,
+              4687,
+              5570,
+              7694,
+              4757,
+              10189,
+              5531,
+              12999,
+              4926,
+              10199,
+              5943,
+              6502,
+              7525,
+              7201,
+              13153,
+              9117,
+              9126,
+              9162,
+              12410,
+              13296,
+              7590,
+              13921,
+              1401,
+              1396,
+              7547,
+              7622,
+              12985,
+              13162,
+              14730,
+              7714,
+              12435,
+              7595,
+              6390,
+              7270,
+              7268,
+              10219,
+              17535,
+              8470,
+              6523,
+              7576,
+              12564,
+              5577,
+              5330,
+              5532,
+              5333,
+              5944,
+              5363,
+              7204,
+              16414,
+              10209,
+              13318,
+              9324,
+              9342,
+              9432,
+              12492,
+              13297,
+              7591,
+              1402,
+              1397,
+              7548,
+              7623,
+              12986,
+              13163,
+              10778,
+              12436,
+              7596,
+              6391,
+              7271,
+              7269,
+              10220,
+              6524,
+              7577,
+              12565,
+              5578,
+              5533,
+              5945,
+              7205,
+              10210,
+              9325,
+              9343,
+              9433,
+              12493,
+              7592,
+              1403,
+              1398,
+              7549,
+              7624,
+              12987,
+              5357,
+              10779,
+              12437,
+              7597,
+              6392,
+              7272,
+              10265,
+              10221,
+              6525,
+              7578,
+              12566,
+              5579,
+              7554,
+              5946,
+              7206,
+              10211,
+              9326,
+              9344,
+              9434,
+              12494,
+              12452,
+              5524,
+              5519,
+              7550,
+              10473,
+              10780,
+              12553,
+              12455,
+              6393,
+              7273,
+              10266,
+              10222,
+              6526,
+              7579,
+              13299,
+              7581,
+              7555,
+              7207,
+              12760,
+              12495,
+              12453,
+              5525,
+              5520,
+              7551,
+              10474,
+              15585,
+              12554,
+              12456,
+              6394,
+              7274,
+              10267,
+              10223,
+              6527,
+              7580,
+              7582,
+              7556,
+              7208,
+              12761,
+              12496,
+              12454,
+              5526,
+              5521,
+              10475,
+              12555,
+              12457,
+              7534,
+              12950,
+              12945,
+              7511,
+              8263,
+              12444,
+              8268,
+              8273,
+              8278,
+              8283,
+              8288,
+              8293,
+              7583,
+              7557,
+              10213,
+              12762,
+              8448,
+              12567,
+              5527,
+              5522,
+              10476,
+              14361,
+              12458,
+              7535,
+              12951,
+              12946,
+              7512,
+              8264,
+              12445,
+              8269,
+              8274,
+              8279,
+              8284,
+              8289,
+              8294,
+              8344,
+              7558,
+              10214,
+              14352,
+              12568,
+              5528,
+              5523,
+              10477,
+              12459,
+              7536,
+              12952,
+              12947,
+              7513,
+              8265,
+              12446,
+              8270,
+              8275,
+              8280,
+              8285,
+              8290,
+              8295,
+              8345,
+              7722,
+              10215,
+              12569,
+              7506,
+              7501,
+              13308,
+              12570,
+              7537,
+              12953,
+              12948,
+              7514,
+              8266,
+              12447,
+              8271,
+              8276,
+              8281,
+              8286,
+              8291,
+              8296,
+              8346,
+              7723,
+              10216,
+              13302,
+              7507,
+              7502,
+              12571,
+              7538,
+              12954,
+              12949,
+              7515,
+              8267,
+              12448,
+              8272,
+              8277,
+              8282,
+              8287,
+              8292,
+              8297,
+              12526,
+              7724,
+              10217,
+              7508,
+              7503,
+              12572,
+              7904,
+              13713,
+              13710,
+              7886,
+              8351,
+              12537,
+              8361,
+              8371,
+              8381,
+              8391,
+              8401,
+              8411,
+              12527,
+              7725,
+              12798,
+              7509,
+              7504,
+              12573,
+              7905,
+              7887,
+              8352,
+              12538,
+              8362,
+              8372,
+              8382,
+              8392,
+              8402,
+              8412,
+              12528,
+              7726,
+              12799,
+              7510,
+              7505,
+              12574,
+              7906,
+              7888,
+              8353,
+              12539,
+              8363,
+              8373,
+              8383,
+              8393,
+              8403,
+              8413,
+              14349,
+              7842,
+              12800,
+              12401,
+              12396,
+              13313,
+              7907,
+              7889,
+              8354,
+              12540,
+              8364,
+              8374,
+              8384,
+              8394,
+              8404,
+              8414,
+              7843,
+              13675,
+              12402,
+              12397,
+              7908,
+              7890,
+              8355,
+              12541,
+              8365,
+              8375,
+              8385,
+              8395,
+              8405,
+              8415,
+              7844,
+              12403,
+              12398,
+              8435,
+              8430,
+              8356,
+              13281,
+              8366,
+              8376,
+              8386,
+              8396,
+              8406,
+              8416,
+              12404,
+              12399,
+              8357,
+              8367,
+              8377,
+              8387,
+              8397,
+              8407,
+              8417,
+              12405,
+              12400,
+              8358,
+              8368,
+              8378,
+              8388,
+              8398,
+              8408,
+              8418,
+              13085,
+              13080,
+              8359,
+              8369,
+              8379,
+              8389,
+              8399,
+              8409,
+              8419,
+              13086,
+              13081,
+              8360,
+              8370,
+              8380,
+              8390,
+              8400,
+              8410,
+              8420,
+              13087,
+              13082,
+              13933,
+              13943,
+              13953,
+              13963,
+              13973,
+              13983,
+              13993,
+              13088,
+              13083,
+              13089,
+              13084,
+              8440,
+              8463,
+              8464
+            ],
+            "aa_stage": "all",
+            "aa_policy": "purchase_closure",
+            "gear_search": {
+              "scope": "captured_drops",
+              "objective": "balanced",
+              "mode": "shield",
+              "forced_haste": "unforced",
+              "max_raw_worn_haste": 41
+            }
+          }
+        ],
+        "export_equipment": true,
+        "pet_probe": {
+          "reagents": [
+            {
+              "id": 10015,
+              "count": 10
+            },
+            {
+              "id": 13073,
+              "count": 10
+            }
+          ],
+          "actions": [
+            {
+              "spell": 633
+            },
+            {
+              "spell": 443
+            },
+            {
+              "spell": 166
+            },
+            {
+              "spell": 107,
+              "target_class": 13
+            }
+          ],
+          "combat": {
+            "npc_id": 32040,
+            "npc_position": [
+              -871,
+              -1395,
+              104.879997,
+              45
+            ],
+            "starting_distance": 80,
+            "duration_ms": 120000,
+            "commands_only": false,
+            "commands": [
+              {
+                "ms": 0,
+                "command": 2
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "pet-only-all-73057",
+      "seed": 1729,
+      "expected_spells": [
+        633,
+        443,
+        166
+      ],
+      "input": {
+        "builds": [
+          {
+            "profile": "mag-nec-shm",
+            "classes": [
+              13,
+              11,
+              10
+            ],
+            "level": 50,
+            "race": "Human",
+            "deity": "Agnostic",
+            "tier": "captured_drops/balanced/shield/unforced",
+            "equipment": [
+              {
+                "slot": 1,
+                "id": 602630,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 480394
+                  }
+                ]
+              },
+              {
+                "slot": 2,
+                "id": 662020,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 480379
+                  }
+                ]
+              },
+              {
+                "slot": 3,
+                "id": 601547,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 651907
+                  }
+                ]
+              },
+              {
+                "slot": 4,
+                "id": 610231,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 479622
+                  }
+                ]
+              },
+              {
+                "slot": 5,
+                "id": 607767,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 251907
+                  }
+                ]
+              },
+              {
+                "slot": 6,
+                "id": 662029,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 679870
+                  }
+                ]
+              },
+              {
+                "slot": 7,
+                "id": 668251,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 680382
+                  }
+                ]
+              },
+              {
+                "slot": 8,
+                "id": 662288,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 680394
+                  }
+                ]
+              },
+              {
+                "slot": 9,
+                "id": 601559,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 680379
+                  }
+                ]
+              },
+              {
+                "slot": 10,
+                "id": 401559,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 679626
+                  }
+                ]
+              },
+              {
+                "slot": 11,
+                "id": 601554,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 651904
+                  }
+                ]
+              },
+              {
+                "slot": 12,
+                "id": 662032,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 451904
+                  }
+                ]
+              },
+              {
+                "slot": 13,
+                "id": 611625,
+                "augments": []
+              },
+              {
+                "slot": 14,
+                "id": 662014,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 651903
+                  }
+                ]
+              },
+              {
+                "slot": 15,
+                "id": 609959,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 479626
+                  }
+                ]
+              },
+              {
+                "slot": 16,
+                "id": 410231,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 479870
+                  }
+                ]
+              },
+              {
+                "slot": 17,
+                "id": 601552,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 451907
+                  }
+                ]
+              },
+              {
+                "slot": 18,
+                "id": 662031,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 280382
+                  }
+                ]
+              },
+              {
+                "slot": 19,
+                "id": 668239,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 679622
+                  }
+                ]
+              },
+              {
+                "slot": 20,
+                "id": 601556,
+                "augments": [
+                  {
+                    "socket": 0,
+                    "id": 480382
+                  }
+                ]
+              }
+            ],
+            "creation": {
+              "str": 75,
+              "sta": 90,
+              "dex": 75,
+              "agi": 75,
+              "int": 110,
+              "wis": 75,
+              "cha": 75
+            },
+            "test_character_id": 12,
+            "aa_budget": 13288,
+            "aa_rank_ids": [
+              49999,
+              1000,
+              12636,
+              14017,
+              22200,
+              12637,
+              14018,
+              8445,
+              8446,
+              8447,
+              16419,
+              16420,
+              16421,
+              2,
+              7,
+              12,
+              17,
+              22,
+              27,
+              32,
+              37,
+              42,
+              47,
+              52,
+              57,
+              62,
+              68,
+              71,
+              74,
+              77,
+              80,
+              83,
+              86,
+              92,
+              98,
+              101,
+              104,
+              107,
+              122,
+              125,
+              128,
+              130,
+              147,
+              150,
+              153,
+              163,
+              167,
+              168,
+              171,
+              174,
+              177,
+              182,
+              183,
+              184,
+              185,
+              186,
+              187,
+              288,
+              412,
+              418,
+              426,
+              14231,
+              14232,
+              14233,
+              14234,
+              14237,
+              459,
+              513,
+              520,
+              523,
+              526,
+              528,
+              616,
+              634,
+              655,
+              658,
+              661,
+              671,
+              678,
+              691,
+              692,
+              734,
+              767,
+              785,
+              790,
+              795,
+              800,
+              803,
+              834,
+              839,
+              14289,
+              961,
+              967,
+              970,
+              1388,
+              14307,
+              979,
+              982,
+              985,
+              988,
+              991,
+              994,
+              997,
+              1006,
+              1021,
+              1026,
+              14301,
+              15771,
+              1071,
+              1072,
+              14321,
+              14322,
+              1089,
+              12652,
+              1186,
+              13695,
+              14264,
+              1228,
+              1272,
+              12766,
+              12770,
+              12778,
+              1287,
+              12785,
+              1327,
+              1404,
+              12893,
+              1510,
+              1520,
+              1527,
+              1528,
+              16016,
+              12941,
+              16081,
+              1462,
+              4675,
+              4698,
+              4699,
+              4702,
+              13788,
+              4704,
+              4705,
+              4706,
+              12963,
+              12971,
+              13096,
+              5369,
+              12989,
+              4927,
+              5366,
+              4938,
+              13020,
+              4943,
+              5269,
+              14224,
+              14358,
+              14359,
+              16083,
+              5109,
+              14360,
+              13225,
+              5276,
+              16208,
+              13684,
+              13687,
+              13693,
+              13133,
+              1056,
+              1662,
+              6635,
+              6646,
+              16370,
+              6691,
+              6692,
+              6702,
+              6706,
+              6709,
+              17258,
+              16536,
+              17555,
+              17199,
+              6815,
+              6818,
+              6822,
+              6828,
+              10792,
+              17328,
+              17329,
+              17357,
+              17378,
+              17558,
+              6112,
+              17538,
+              17561,
+              17564,
+              17567,
+              17570,
+              17573,
+              17597,
+              17600,
+              7900,
+              7903,
+              17603,
+              17606,
+              17609,
+              17612,
+              17615,
+              10481,
+              5045,
+              8190,
+              8194,
+              8201,
+              8210,
+              8221,
+              8222,
+              8227,
+              8228,
+              8231,
+              8240,
+              15574,
+              15582,
+              15594,
+              9109,
+              9118,
+              9154,
+              9503,
+              9506,
+              9509,
+              5809,
+              12416,
+              15357,
+              15362,
+              15374,
+              15200,
+              15203,
+              15213,
+              15214,
+              15217,
+              15232,
+              13692,
+              10700,
+              6051,
+              6346,
+              6206,
+              6212,
+              6281,
+              6282,
+              6119,
+              7069,
+              6375,
+              6379,
+              6383,
+              6455,
+              6461,
+              7828,
+              7000,
+              7002,
+              7003,
+              7004,
+              7062,
+              9502,
+              7016,
+              7017,
+              7018,
+              7019,
+              1017,
+              976,
+              7698,
+              7699,
+              7703,
+              9021,
+              8341,
+              8342,
+              10600,
+              10603,
+              10701,
+              10754,
+              10950,
+              10957,
+              10958,
+              10959,
+              50000,
+              3,
+              8,
+              13,
+              18,
+              23,
+              28,
+              33,
+              38,
+              43,
+              48,
+              53,
+              58,
+              63,
+              69,
+              72,
+              75,
+              78,
+              81,
+              84,
+              87,
+              93,
+              99,
+              102,
+              105,
+              108,
+              123,
+              126,
+              148,
+              151,
+              1519,
+              5879,
+              169,
+              172,
+              175,
+              178,
+              5953,
+              14225,
+              413,
+              419,
+              427,
+              460,
+              474,
+              483,
+              514,
+              521,
+              524,
+              527,
+              529,
+              574,
+              617,
+              635,
+              656,
+              659,
+              662,
+              679,
+              693,
+              768,
+              786,
+              791,
+              796,
+              801,
+              804,
+              835,
+              840,
+              14282,
+              14292,
+              14295,
+              968,
+              971,
+              980,
+              983,
+              986,
+              989,
+              992,
+              995,
+              998,
+              1007,
+              1022,
+              1027,
+              14308,
+              14311,
+              4764,
+              1073,
+              1090,
+              1129,
+              12653,
+              1187,
+              14331,
+              1126,
+              6378,
+              13682,
+              12771,
+              12773,
+              13678,
+              1288,
+              12779,
+              12782,
+              17131,
+              1328,
+              12866,
+              1405,
+              13663,
+              1504,
+              7202,
+              1521,
+              1529,
+              1577,
+              1463,
+              4676,
+              6545,
+              6540,
+              12964,
+              12968,
+              12972,
+              12977,
+              4861,
+              13097,
+              12990,
+              13001,
+              13008,
+              7209,
+              13009,
+              5610,
+              14062,
+              14318,
+              6448,
+              14304,
+              13143,
+              13688,
+              5277,
+              13667,
+              16203,
+              13685,
+              13689,
+              16211,
+              16342,
+              1057,
+              1251,
+              1252,
+              1253,
+              1254,
+              1663,
+              16218,
+              16371,
+              6693,
+              6697,
+              6703,
+              6707,
+              6710,
+              6712,
+              16380,
+              6816,
+              6819,
+              13683,
+              6823,
+              10208,
+              10793,
+              17336,
+              17342,
+              3676,
+              12966,
+              17515,
+              17517,
+              17522,
+              17533,
+              7901,
+              12976,
+              5010,
+              16336,
+              16339,
+              8191,
+              8195,
+              8202,
+              8204,
+              8211,
+              8220,
+              12810,
+              8229,
+              8241,
+              15571,
+              15575,
+              15579,
+              15591,
+              15377,
+              9110,
+              9119,
+              9155,
+              9504,
+              9507,
+              9510,
+              16103,
+              12417,
+              12422,
+              6026,
+              8260,
+              15356,
+              15358,
+              15371,
+              15204,
+              15207,
+              15210,
+              6052,
+              6333,
+              6347,
+              6207,
+              6213,
+              6228,
+              12995,
+              6120,
+              6376,
+              6384,
+              6514,
+              6445,
+              6456,
+              6462,
+              7832,
+              7829,
+              12475,
+              9500,
+              13726,
+              7715,
+              9022,
+              8332,
+              8335,
+              14729,
+              10601,
+              10702,
+              13000,
+              10961,
+              10413,
+              4,
+              9,
+              14,
+              19,
+              24,
+              29,
+              34,
+              39,
+              44,
+              49,
+              54,
+              59,
+              64,
+              70,
+              73,
+              76,
+              79,
+              82,
+              85,
+              88,
+              94,
+              100,
+              103,
+              106,
+              109,
+              124,
+              127,
+              149,
+              152,
+              5068,
+              7249,
+              170,
+              173,
+              176,
+              179,
+              7203,
+              414,
+              420,
+              428,
+              461,
+              475,
+              484,
+              515,
+              522,
+              525,
+              530,
+              575,
+              618,
+              636,
+              657,
+              660,
+              663,
+              680,
+              694,
+              769,
+              787,
+              792,
+              797,
+              802,
+              805,
+              836,
+              841,
+              14281,
+              969,
+              972,
+              981,
+              984,
+              987,
+              990,
+              993,
+              996,
+              999,
+              1008,
+              1023,
+              1028,
+              7553,
+              1074,
+              1091,
+              1122,
+              1130,
+              12654,
+              1188,
+              1127,
+              12772,
+              12774,
+              1289,
+              12780,
+              12783,
+              1329,
+              15605,
+              1406,
+              1505,
+              10212,
+              1522,
+              1530,
+              1578,
+              1464,
+              4677,
+              7500,
+              12965,
+              12969,
+              12973,
+              12978,
+              4862,
+              13098,
+              12991,
+              13002,
+              4903,
+              4906,
+              4909,
+              4912,
+              10218,
+              5614,
+              7467,
+              13144,
+              13646,
+              5278,
+              13686,
+              1058,
+              1664,
+              6694,
+              6698,
+              6704,
+              6708,
+              6711,
+              6713,
+              16386,
+              6817,
+              6820,
+              6824,
+              17534,
+              12635,
+              10794,
+              17317,
+              17339,
+              12967,
+              7902,
+              14734,
+              5011,
+              8192,
+              8196,
+              8203,
+              8205,
+              8212,
+              12811,
+              8230,
+              8242,
+              15576,
+              9111,
+              9120,
+              9156,
+              9505,
+              9508,
+              9511,
+              12418,
+              6027,
+              6053,
+              7266,
+              6348,
+              6208,
+              6214,
+              6229,
+              6121,
+              6377,
+              6385,
+              6515,
+              6446,
+              6457,
+              6463,
+              7833,
+              7830,
+              12476,
+              7716,
+              9023,
+              8333,
+              8336,
+              10602,
+              10703,
+              16214,
+              10962,
+              10414,
+              5,
+              10,
+              15,
+              20,
+              25,
+              30,
+              35,
+              40,
+              45,
+              50,
+              55,
+              60,
+              672,
+              676,
+              434,
+              437,
+              13099,
+              266,
+              4767,
+              7541,
+              454,
+              449,
+              141,
+              146,
+              6101,
+              8343,
+              15241,
+              15244,
+              15247,
+              15250,
+              415,
+              421,
+              429,
+              446,
+              1189,
+              476,
+              485,
+              6095,
+              1507,
+              900,
+              576,
+              1248,
+              844,
+              637,
+              5306,
+              674,
+              681,
+              7647,
+              754,
+              1099,
+              788,
+              793,
+              798,
+              837,
+              842,
+              6464,
+              973,
+              1113,
+              1009,
+              1024,
+              1029,
+              7681,
+              1075,
+              13411,
+              4776,
+              1128,
+              12775,
+              5516,
+              12781,
+              12784,
+              5314,
+              1435,
+              1420,
+              1407,
+              1506,
+              1511,
+              6449,
+              1531,
+              1579,
+              1465,
+              10788,
+              12970,
+              12974,
+              12979,
+              4863,
+              13127,
+              5336,
+              13003,
+              5892,
+              5893,
+              5894,
+              5895,
+              12875,
+              5251,
+              13016,
+              13145,
+              15238,
+              14690,
+              1059,
+              1274,
+              1665,
+              6695,
+              6699,
+              6705,
+              10179,
+              6714,
+              10200,
+              6821,
+              6825,
+              10795,
+              16402,
+              10268,
+              5012,
+              8197,
+              16475,
+              8206,
+              8213,
+              12812,
+              8243,
+              15577,
+              15622,
+              9318,
+              9336,
+              10087,
+              13630,
+              9515,
+              9426,
+              13413,
+              6028,
+              15220,
+              15223,
+              15226,
+              15229,
+              7601,
+              13920,
+              7615,
+              7606,
+              7609,
+              6230,
+              6122,
+              7644,
+              10607,
+              6516,
+              6447,
+              7834,
+              7827,
+              12477,
+              7695,
+              7717,
+              9024,
+              8334,
+              8337,
+              12982,
+              12754,
+              10951,
+              12988,
+              10415,
+              6,
+              11,
+              16,
+              21,
+              26,
+              31,
+              36,
+              41,
+              46,
+              51,
+              56,
+              61,
+              673,
+              677,
+              435,
+              438,
+              10467,
+              4768,
+              7542,
+              455,
+              450,
+              142,
+              5069,
+              7468,
+              12955,
+              416,
+              422,
+              430,
+              447,
+              1190,
+              15359,
+              6096,
+              1508,
+              901,
+              7718,
+              1249,
+              845,
+              638,
+              5307,
+              675,
+              682,
+              7648,
+              755,
+              1100,
+              789,
+              794,
+              799,
+              838,
+              843,
+              6465,
+              974,
+              1114,
+              1010,
+              1025,
+              1030,
+              1076,
+              4777,
+              5513,
+              12776,
+              5517,
+              1323,
+              5315,
+              1436,
+              1421,
+              1408,
+              5880,
+              1512,
+              6450,
+              1532,
+              5886,
+              1466,
+              14238,
+              12975,
+              12980,
+              5954,
+              12992,
+              15348,
+              7253,
+              7254,
+              7255,
+              7256,
+              13010,
+              13727,
+              5252,
+              5356,
+              1060,
+              1275,
+              1666,
+              6696,
+              6700,
+              10176,
+              10180,
+              6715,
+              10201,
+              10203,
+              6826,
+              10796,
+              10269,
+              15317,
+              7704,
+              1656,
+              8214,
+              8244,
+              9319,
+              9337,
+              10088,
+              16361,
+              9427,
+              7602,
+              7616,
+              7607,
+              7610,
+              6231,
+              6123,
+              7645,
+              10608,
+              7835,
+              12876,
+              7696,
+              14314,
+              9025,
+              8338,
+              12983,
+              12755,
+              10952,
+              10416,
+              10434,
+              292,
+              302,
+              312,
+              322,
+              332,
+              342,
+              352,
+              362,
+              372,
+              382,
+              392,
+              402,
+              978,
+              436,
+              439,
+              4769,
+              7543,
+              456,
+              451,
+              143,
+              6102,
+              10193,
+              13718,
+              417,
+              1001,
+              448,
+              1191,
+              6097,
+              1509,
+              6103,
+              1250,
+              1319,
+              639,
+              5308,
+              1031,
+              6518,
+              7649,
+              756,
+              1101,
+              15235,
+              5259,
+              1430,
+              5325,
+              6466,
+              1324,
+              1115,
+              7516,
+              6521,
+              1389,
+              4744,
+              4778,
+              5514,
+              12777,
+              5518,
+              5316,
+              1437,
+              1422,
+              12880,
+              5881,
+              1513,
+              6451,
+              4819,
+              5887,
+              4900,
+              12981,
+              5955,
+              12993,
+              10255,
+              10256,
+              10257,
+              10258,
+              13011,
+              13013,
+              5253,
+              5264,
+              6431,
+              1276,
+              5342,
+              6701,
+              10177,
+              10181,
+              6716,
+              10202,
+              10204,
+              6827,
+              17365,
+              10270,
+              7705,
+              1657,
+              1651,
+              10781,
+              9320,
+              9338,
+              10089,
+              9428,
+              7603,
+              7617,
+              7608,
+              7611,
+              7526,
+              7646,
+              10609,
+              7836,
+              12877,
+              7697,
+              9026,
+              8339,
+              12984,
+              10610,
+              12756,
+              10953,
+              10417,
+              10435,
+              293,
+              303,
+              313,
+              323,
+              333,
+              343,
+              353,
+              363,
+              373,
+              383,
+              393,
+              403,
+              1083,
+              1086,
+              5586,
+              457,
+              452,
+              12863,
+              7466,
+              11081,
+              1002,
+              7050,
+              5062,
+              7475,
+              5883,
+              6104,
+              6254,
+              1320,
+              770,
+              5309,
+              1032,
+              6519,
+              7670,
+              7659,
+              12423,
+              5260,
+              1431,
+              5326,
+              7217,
+              1325,
+              7517,
+              6522,
+              1390,
+              4745,
+              5589,
+              5515,
+              12469,
+              6098,
+              4773,
+              1423,
+              5882,
+              5950,
+              1514,
+              7463,
+              4820,
+              5888,
+              4901,
+              17334,
+              5956,
+              12994,
+              12956,
+              12959,
+              12957,
+              12958,
+              13012,
+              13014,
+              6092,
+              5265,
+              6432,
+              4864,
+              10178,
+              5353,
+              10182,
+              12786,
+              10205,
+              10206,
+              7706,
+              1652,
+              10782,
+              9112,
+              9121,
+              9157,
+              12792,
+              10604,
+              15397,
+              12460,
+              12942,
+              7527,
+              7663,
+              12801,
+              12878,
+              9027,
+              13720,
+              10611,
+              15588,
+              15363,
+              10954,
+              10436,
+              294,
+              304,
+              314,
+              324,
+              334,
+              344,
+              354,
+              364,
+              374,
+              384,
+              394,
+              404,
+              1084,
+              1087,
+              5587,
+              458,
+              453,
+              15396,
+              7691,
+              12996,
+              1003,
+              7051,
+              5063,
+              7476,
+              5884,
+              6105,
+              6255,
+              1321,
+              771,
+              5310,
+              1033,
+              6520,
+              7671,
+              7660,
+              12424,
+              5261,
+              1432,
+              5327,
+              7218,
+              1326,
+              7518,
+              7539,
+              1391,
+              4746,
+              5590,
+              13253,
+              12470,
+              6099,
+              6517,
+              1424,
+              1486,
+              7260,
+              5951,
+              1515,
+              7464,
+              4821,
+              7263,
+              4902,
+              7215,
+              5350,
+              13698,
+              13701,
+              14733,
+              13704,
+              14223,
+              13015,
+              6093,
+              5266,
+              6433,
+              4865,
+              13005,
+              10183,
+              12787,
+              10207,
+              1653,
+              10783,
+              9113,
+              9122,
+              9158,
+              12793,
+              10605,
+              12461,
+              12943,
+              7528,
+              10084,
+              12802,
+              15270,
+              9028,
+              10612,
+              10955,
+              295,
+              305,
+              315,
+              325,
+              335,
+              345,
+              355,
+              365,
+              375,
+              385,
+              395,
+              405,
+              1085,
+              1088,
+              5588,
+              1066,
+              1061,
+              13256,
+              17333,
+              1004,
+              7052,
+              5064,
+              7477,
+              5885,
+              7469,
+              6256,
+              5032,
+              772,
+              5623,
+              1034,
+              7544,
+              7672,
+              7661,
+              12425,
+              5262,
+              4897,
+              5328,
+              7219,
+              17311,
+              7519,
+              7540,
+              1392,
+              4747,
+              5591,
+              13254,
+              12471,
+              6100,
+              7621,
+              1487,
+              7261,
+              5952,
+              1516,
+              7465,
+              4822,
+              7264,
+              14739,
+              4688,
+              7216,
+              6094,
+              5267,
+              6434,
+              4866,
+              13006,
+              10184,
+              12788,
+              1654,
+              10784,
+              9114,
+              9123,
+              9159,
+              12794,
+              10606,
+              12462,
+              12944,
+              7529,
+              10085,
+              12803,
+              9029,
+              10956,
+              296,
+              306,
+              316,
+              326,
+              336,
+              346,
+              356,
+              366,
+              376,
+              386,
+              396,
+              406,
+              12449,
+              4779,
+              7584,
+              1067,
+              1062,
+              13257,
+              1005,
+              7053,
+              7250,
+              7470,
+              7257,
+              5033,
+              4749,
+              5624,
+              1035,
+              7545,
+              12767,
+              5263,
+              4898,
+              5329,
+              10224,
+              7520,
+              7683,
+              1393,
+              4748,
+              7587,
+              1213,
+              13255,
+              10637,
+              7460,
+              13090,
+              1488,
+              7262,
+              13404,
+              10190,
+              4823,
+              7265,
+              4689,
+              7682,
+              13004,
+              7472,
+              5268,
+              4761,
+              6435,
+              5947,
+              13007,
+              10185,
+              14355,
+              12478,
+              1655,
+              10785,
+              9321,
+              9339,
+              5360,
+              9429,
+              12795,
+              12520,
+              13291,
+              7530,
+              10086,
+              5339,
+              9030,
+              297,
+              307,
+              317,
+              327,
+              337,
+              347,
+              357,
+              367,
+              377,
+              387,
+              397,
+              407,
+              12450,
+              4780,
+              7585,
+              1068,
+              1063,
+              13258,
+              4678,
+              7054,
+              7251,
+              7471,
+              7258,
+              5034,
+              4750,
+              5625,
+              4693,
+              7546,
+              12768,
+              5320,
+              4899,
+              7210,
+              10225,
+              7837,
+              7684,
+              4683,
+              5566,
+              7588,
+              1214,
+              13723,
+              10638,
+              7461,
+              13295,
+              1489,
+              10191,
+              15188,
+              10262,
+              4690,
+              12757,
+              15855,
+              13017,
+              7473,
+              5939,
+              13416,
+              4762,
+              7521,
+              5948,
+              10186,
+              12479,
+              13149,
+              8224,
+              13343,
+              9322,
+              9340,
+              9430,
+              12796,
+              12521,
+              12406,
+              5347,
+              298,
+              308,
+              318,
+              328,
+              338,
+              348,
+              358,
+              368,
+              378,
+              388,
+              398,
+              408,
+              12451,
+              4781,
+              7586,
+              1069,
+              1064,
+              14222,
+              4679,
+              7055,
+              7252,
+              10194,
+              7259,
+              5611,
+              4751,
+              5626,
+              4694,
+              12769,
+              5321,
+              5889,
+              7211,
+              10226,
+              7838,
+              7685,
+              4684,
+              5567,
+              7589,
+              1215,
+              10639,
+              7462,
+              1490,
+              10192,
+              10263,
+              4691,
+              12758,
+              13018,
+              7474,
+              5940,
+              4763,
+              7522,
+              5949,
+              12480,
+              13150,
+              8225,
+              9323,
+              9341,
+              9431,
+              12797,
+              12522,
+              12407,
+              5348,
+              299,
+              309,
+              319,
+              329,
+              339,
+              349,
+              359,
+              369,
+              379,
+              389,
+              399,
+              409,
+              12497,
+              5592,
+              11061,
+              1070,
+              1065,
+              4680,
+              7063,
+              10252,
+              10195,
+              10259,
+              5612,
+              5571,
+              5627,
+              4695,
+              17295,
+              5322,
+              5890,
+              7212,
+              12789,
+              7839,
+              13894,
+              4685,
+              5568,
+              7692,
+              4755,
+              13323,
+              10187,
+              5529,
+              12997,
+              10264,
+              4692,
+              12759,
+              4924,
+              13019,
+              10197,
+              5941,
+              6500,
+              7523,
+              7199,
+              13151,
+              8226,
+              9115,
+              9124,
+              9160,
+              13278,
+              13275,
+              12408,
+              300,
+              310,
+              320,
+              330,
+              340,
+              350,
+              360,
+              370,
+              380,
+              390,
+              400,
+              410,
+              12498,
+              5593,
+              11062,
+              1399,
+              1394,
+              4681,
+              7064,
+              10253,
+              10196,
+              10260,
+              5613,
+              5572,
+              7593,
+              4696,
+              5323,
+              5891,
+              7213,
+              12790,
+              7840,
+              4686,
+              5569,
+              7693,
+              4756,
+              10188,
+              5530,
+              12998,
+              13707,
+              4925,
+              13396,
+              10198,
+              5942,
+              6501,
+              7524,
+              7200,
+              13152,
+              8421,
+              9116,
+              9125,
+              9161,
+              12409,
+              301,
+              311,
+              321,
+              331,
+              341,
+              351,
+              361,
+              371,
+              381,
+              391,
+              401,
+              411,
+              12499,
+              5594,
+              11063,
+              1400,
+              1395,
+              4682,
+              7065,
+              10254,
+              13161,
+              10261,
+              7713,
+              5573,
+              7594,
+              4697,
+              5324,
+              7267,
+              7214,
+              12791,
+              7841,
+              4687,
+              5570,
+              7694,
+              4757,
+              10189,
+              5531,
+              12999,
+              4926,
+              10199,
+              5943,
+              6502,
+              7525,
+              7201,
+              13153,
+              9117,
+              9126,
+              9162,
+              12410,
+              13296,
+              7590,
+              13921,
+              1401,
+              1396,
+              7547,
+              7622,
+              12985,
+              13162,
+              14730,
+              7714,
+              12435,
+              7595,
+              6390,
+              7270,
+              7268,
+              10219,
+              17535,
+              8470,
+              6523,
+              7576,
+              12564,
+              5577,
+              5330,
+              5532,
+              5333,
+              5944,
+              5363,
+              7204,
+              16414,
+              10209,
+              13318,
+              9324,
+              9342,
+              9432,
+              12492,
+              13297,
+              7591,
+              1402,
+              1397,
+              7548,
+              7623,
+              12986,
+              13163,
+              10778,
+              12436,
+              7596,
+              6391,
+              7271,
+              7269,
+              10220,
+              6524,
+              7577,
+              12565,
+              5578,
+              5533,
+              5945,
+              7205,
+              10210,
+              9325,
+              9343,
+              9433,
+              12493,
+              7592,
+              1403,
+              1398,
+              7549,
+              7624,
+              12987,
+              5357,
+              10779,
+              12437,
+              7597,
+              6392,
+              7272,
+              10265,
+              10221,
+              6525,
+              7578,
+              12566,
+              5579,
+              7554,
+              5946,
+              7206,
+              10211,
+              9326,
+              9344,
+              9434,
+              12494,
+              12452,
+              5524,
+              5519,
+              7550,
+              10473,
+              10780,
+              12553,
+              12455,
+              6393,
+              7273,
+              10266,
+              10222,
+              6526,
+              7579,
+              13299,
+              7581,
+              7555,
+              7207,
+              12760,
+              12495,
+              12453,
+              5525,
+              5520,
+              7551,
+              10474,
+              15585,
+              12554,
+              12456,
+              6394,
+              7274,
+              10267,
+              10223,
+              6527,
+              7580,
+              7582,
+              7556,
+              7208,
+              12761,
+              12496,
+              12454,
+              5526,
+              5521,
+              10475,
+              12555,
+              12457,
+              7534,
+              12950,
+              12945,
+              7511,
+              8263,
+              12444,
+              8268,
+              8273,
+              8278,
+              8283,
+              8288,
+              8293,
+              7583,
+              7557,
+              10213,
+              12762,
+              8448,
+              12567,
+              5527,
+              5522,
+              10476,
+              14361,
+              12458,
+              7535,
+              12951,
+              12946,
+              7512,
+              8264,
+              12445,
+              8269,
+              8274,
+              8279,
+              8284,
+              8289,
+              8294,
+              8344,
+              7558,
+              10214,
+              14352,
+              12568,
+              5528,
+              5523,
+              10477,
+              12459,
+              7536,
+              12952,
+              12947,
+              7513,
+              8265,
+              12446,
+              8270,
+              8275,
+              8280,
+              8285,
+              8290,
+              8295,
+              8345,
+              7722,
+              10215,
+              12569,
+              7506,
+              7501,
+              13308,
+              12570,
+              7537,
+              12953,
+              12948,
+              7514,
+              8266,
+              12447,
+              8271,
+              8276,
+              8281,
+              8286,
+              8291,
+              8296,
+              8346,
+              7723,
+              10216,
+              13302,
+              7507,
+              7502,
+              12571,
+              7538,
+              12954,
+              12949,
+              7515,
+              8267,
+              12448,
+              8272,
+              8277,
+              8282,
+              8287,
+              8292,
+              8297,
+              12526,
+              7724,
+              10217,
+              7508,
+              7503,
+              12572,
+              7904,
+              13713,
+              13710,
+              7886,
+              8351,
+              12537,
+              8361,
+              8371,
+              8381,
+              8391,
+              8401,
+              8411,
+              12527,
+              7725,
+              12798,
+              7509,
+              7504,
+              12573,
+              7905,
+              7887,
+              8352,
+              12538,
+              8362,
+              8372,
+              8382,
+              8392,
+              8402,
+              8412,
+              12528,
+              7726,
+              12799,
+              7510,
+              7505,
+              12574,
+              7906,
+              7888,
+              8353,
+              12539,
+              8363,
+              8373,
+              8383,
+              8393,
+              8403,
+              8413,
+              14349,
+              7842,
+              12800,
+              12401,
+              12396,
+              13313,
+              7907,
+              7889,
+              8354,
+              12540,
+              8364,
+              8374,
+              8384,
+              8394,
+              8404,
+              8414,
+              7843,
+              13675,
+              12402,
+              12397,
+              7908,
+              7890,
+              8355,
+              12541,
+              8365,
+              8375,
+              8385,
+              8395,
+              8405,
+              8415,
+              7844,
+              12403,
+              12398,
+              8435,
+              8430,
+              8356,
+              13281,
+              8366,
+              8376,
+              8386,
+              8396,
+              8406,
+              8416,
+              12404,
+              12399,
+              8357,
+              8367,
+              8377,
+              8387,
+              8397,
+              8407,
+              8417,
+              12405,
+              12400,
+              8358,
+              8368,
+              8378,
+              8388,
+              8398,
+              8408,
+              8418,
+              13085,
+              13080,
+              8359,
+              8369,
+              8379,
+              8389,
+              8399,
+              8409,
+              8419,
+              13086,
+              13081,
+              8360,
+              8370,
+              8380,
+              8390,
+              8400,
+              8410,
+              8420,
+              13087,
+              13082,
+              13933,
+              13943,
+              13953,
+              13963,
+              13973,
+              13983,
+              13993,
+              13088,
+              13083,
+              13089,
+              13084,
+              8440,
+              8463,
+              8464
+            ],
+            "aa_stage": "all",
+            "aa_policy": "purchase_closure",
+            "gear_search": {
+              "scope": "captured_drops",
+              "objective": "balanced",
+              "mode": "shield",
+              "forced_haste": "unforced",
+              "max_raw_worn_haste": 41
+            }
+          }
+        ],
+        "export_equipment": true,
+        "pet_probe": {
+          "reagents": [
+            {
+              "id": 10015,
+              "count": 10
+            },
+            {
+              "id": 13073,
+              "count": 10
+            }
+          ],
+          "actions": [
+            {
+              "spell": 633
+            },
+            {
+              "spell": 443
+            },
+            {
+              "spell": 166
+            },
+            {
+              "spell": 107,
+              "target_class": 13
+            }
+          ],
+          "combat": {
+            "npc_id": 73057,
+            "npc_position": [
+              -262,
+              857,
+              22,
+              407
+            ],
+            "starting_distance": 80,
+            "duration_ms": 120000,
+            "commands_only": false,
+            "commands": [
+              {
+                "ms": 0,
+                "command": 2
+              }
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

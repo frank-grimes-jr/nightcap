@@ -1,0 +1,34 @@
+{
+  "captured_date": "2026-09-12",
+  "scope": "Candidate acquisition, item scaling/haste and passive-AA encounter evidence. Not final BiS or tuning approval.",
+  "binary_sha256": "84af2efdaffb601c9e2634b3791a5354b2a05dd0f9ef003ea2eb252d1e6783e1",
+  "artifacts": {
+    "docs/balance/gear-aa-encounter-check.json": "79d8c887880822b69a7730550ad6fbee2d579988394807696876ba3c6a865095",
+    "docs/balance/gear-aa-encounter-inputs.json": "c7acc0e5b24b9907500277c53e66618b522a42303822118f667d873344782201",
+    "docs/balance/gear-aa-encounters.json.gz": "105ecc7f2b6921153c97cd025b2da33f3d849ac01811da36edac1b6f7c2ba4ae",
+    "docs/balance/gear-haste-check.json": "54d7dc4fe34ac7d06c3dfcc670f65825d64b46b10840240d71f368a21e19847c",
+    "docs/balance/gear-haste-inputs.json": "921c16ad0fbb466614ebd40cfd8aab57abe8e39c19f919fe824414b72d37f6e5",
+    "docs/balance/gear-haste-resources-check.json": "8b44f0ee4f4caee952c0bbd69476bed2223a9057ad216001f75d43493e33951b",
+    "docs/balance/gear-haste-stats.json": "f353c403ad3f22956400639dcd888660dcdab09125129dbb8c720cf2689a3c61",
+    "tools/balance/acquisition_snapshot.py": "c841ca0a1f5f38c28104573d36b929b09f1f85f7faa815f5c1beee2e01de70fa",
+    "tools/balance/encounter_matrix.py": "83caa7065e88ed51cc50c97c8653824a10072053b08dd17655c680774c6d94df",
+    "tools/balance/fixtures/classic-acquisition-20260912.json.gz": "43085d1eaa28bf2da736f16d8b226673c0eafefee870135f3627e6a87aaf6cf5",
+    "tools/balance/fixtures/classic-acquisition-20260912.json.manifest.json": "933a2a66bebcd8f277e6a9b34844c1aca66b06583faa03e0f00abf56d7f0d3be",
+    "tools/balance/fixtures/classic-acquisition-20260912.json.queries.sql": "db45a1c9a5cdef98d614f91c46f1da8a37ef782dfc62d5ce465925bfdd51a075",
+    "tools/balance/gear_haste_controls.py": "f40a08a4bb6f3a5cce64df18d711fdf1a0d4c7b5c78b7ab174088893165fb26c"
+  },
+  "replay": {
+    "cases": 52,
+    "first_gzip_sha256": "105ecc7f2b6921153c97cd025b2da33f3d849ac01811da36edac1b6f7c2ba4ae",
+    "second_gzip_sha256": "105ecc7f2b6921153c97cd025b2da33f3d849ac01811da36edac1b6f7c2ba4ae",
+    "byte_identical": true,
+    "separate_native_process_per_case": true
+  },
+  "previous_nagafen_weapon_encounter_equal": true,
+  "isolated_database": {
+    "name": "nightcap_balance_20260912",
+    "accounts": 0,
+    "characters": 0
+  },
+  "python_tests": 134
+}

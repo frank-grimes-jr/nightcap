@@ -1,0 +1,20 @@
+{
+  "status": "pass",
+  "runs": 1000,
+  "checks": {
+    "all_runs_reach_control_duration": true,
+    "damage_matches_defender_hp_loss": true,
+    "mean_within_four_standard_errors": true
+  },
+  "rounds_per_run": 34,
+  "expected_swings": 54.739999999999995,
+  "exact_hit_probability": 0.5588235294117647,
+  "exact_mean_damage_per_hit": 102.51512010645003,
+  "expected_total_damage": 3135.937524056306,
+  "observed_mean_total_damage": 3142.493,
+  "observed_mean_swings": 54.733,
+  "sample_standard_error": 14.695030584346359,
+  "z_score": 0.44610155154608555,
+  "results_sha256": "e4c22d4b6bda1738cfec466cfacb03b60f5cc328bca2c4b8c13ea3d1e08e51ff",
+  "scope": "Event integration of the isolated melee control; not complete combat or a BiS encounter"
+}

@@ -1,0 +1,30 @@
+{
+  "files": {
+    "balance-zone": {
+      "sha256": "d6ab5a2bb397669c52cb8e84737740aa1d2fa7e2441b47cbc31cd67776d6c757",
+      "bytes": 79519672
+    },
+    "spell-inputs.json": {
+      "sha256": "547275e330228de1992ff70ca72639e08838a33faa0ae59e0f923bcf51c1b67a",
+      "bytes": 446262
+    },
+    "spell-results.json": {
+      "sha256": "d0e017ca6c6b6c8b1fea3ff15c6ba69575ecb9f5c295c15b8dfee0839524dc8b",
+      "bytes": 2386782
+    },
+    "spell-replay.json": {
+      "sha256": "d0e017ca6c6b6c8b1fea3ff15c6ba69575ecb9f5c295c15b8dfee0839524dc8b",
+      "bytes": 2386782
+    },
+    "shared/items": {
+      "sha256": "0422e5f58f6f76b8dc29a86b8ac9ace1d56a856094949250e8e2848dff795454",
+      "bytes": 412620696
+    },
+    "shared/spells": {
+      "sha256": "8b7de892471fa2539aebb9e995d41ca2315cf339b187a700a964a7ee6bcc0570",
+      "bytes": 107714188
+    }
+  },
+  "empty_player_tables": true,
+  "scope": "Isolated native direct-spell samples; runtime hashes and empty player tables; credentials omitted"
+}

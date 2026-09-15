@@ -1,0 +1,329 @@
+{
+  "cases": [
+    {
+      "id": "command-2-80-extraonly-False",
+      "aa_spent": 0,
+      "result": "timeout",
+      "final_boss_hp": 32000,
+      "command_boundary": {
+        "passed": true,
+        "immediate_damage": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "ordered_pet_ids": [
+          [
+            2,
+            3,
+            4
+          ],
+          [
+            2,
+            3,
+            4
+          ],
+          [
+            2,
+            3,
+            4
+          ],
+          [
+            2,
+            3,
+            4
+          ]
+        ],
+        "expected_ordered_pet_ids": [
+          2,
+          3,
+          4
+        ]
+      }
+    },
+    {
+      "id": "command-2-500-extraonly-False",
+      "aa_spent": 0,
+      "result": "timeout",
+      "final_boss_hp": 32000,
+      "command_boundary": {
+        "passed": true,
+        "immediate_damage": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "ordered_pet_ids": [
+          [],
+          [],
+          [],
+          []
+        ],
+        "expected_ordered_pet_ids": []
+      }
+    },
+    {
+      "id": "command-2-80-extraonly-True",
+      "aa_spent": 0,
+      "result": "timeout",
+      "final_boss_hp": 32000,
+      "command_boundary": {
+        "passed": true,
+        "immediate_damage": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "ordered_pet_ids": [
+          [
+            2,
+            3
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "expected_ordered_pet_ids": [
+          2,
+          3
+        ]
+      }
+    },
+    {
+      "id": "command-2-80-primaryonly",
+      "aa_spent": 0,
+      "result": "timeout",
+      "final_boss_hp": 32000,
+      "command_boundary": {
+        "passed": true,
+        "immediate_damage": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "ordered_pet_ids": [
+          [
+            2
+          ],
+          [
+            2
+          ],
+          [
+            2
+          ],
+          [
+            2
+          ]
+        ],
+        "expected_ordered_pet_ids": [
+          2
+        ]
+      }
+    },
+    {
+      "id": "command-3-80-extraonly-False",
+      "aa_spent": 0,
+      "result": "timeout",
+      "final_boss_hp": 32000,
+      "command_boundary": {
+        "passed": true,
+        "immediate_damage": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "ordered_pet_ids": [
+          [
+            2,
+            3,
+            4
+          ],
+          [
+            2,
+            3,
+            4
+          ],
+          [
+            2,
+            3,
+            4
+          ],
+          [
+            2,
+            3,
+            4
+          ]
+        ],
+        "expected_ordered_pet_ids": [
+          2,
+          3,
+          4
+        ]
+      }
+    },
+    {
+      "id": "command-3-500-extraonly-False",
+      "aa_spent": 0,
+      "result": "timeout",
+      "final_boss_hp": 32000,
+      "command_boundary": {
+        "passed": true,
+        "immediate_damage": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "ordered_pet_ids": [
+          [],
+          [],
+          [],
+          []
+        ],
+        "expected_ordered_pet_ids": []
+      }
+    },
+    {
+      "id": "command-3-80-extraonly-True",
+      "aa_spent": 0,
+      "result": "timeout",
+      "final_boss_hp": 32000,
+      "command_boundary": {
+        "passed": true,
+        "immediate_damage": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "ordered_pet_ids": [
+          [
+            2,
+            3
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "expected_ordered_pet_ids": [
+          2,
+          3
+        ]
+      }
+    },
+    {
+      "id": "command-3-80-primaryonly",
+      "aa_spent": 0,
+      "result": "timeout",
+      "final_boss_hp": 32000,
+      "command_boundary": {
+        "passed": true,
+        "immediate_damage": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "ordered_pet_ids": [
+          [
+            2
+          ],
+          [
+            2
+          ],
+          [
+            2
+          ],
+          [
+            2
+          ]
+        ],
+        "expected_ordered_pet_ids": [
+          2
+        ]
+      }
+    },
+    {
+      "id": "pet-only-0-32040",
+      "aa_spent": 0,
+      "result": "player_death",
+      "final_boss_hp": 30493,
+      "elapsed_ms": 96200,
+      "pet_damage": 1852,
+      "owner_damage": 0,
+      "surviving_pet_ids": [],
+      "scope": "Pet-only control; no owner spell/heal rotation and no balance certification",
+      "native_boss_hp_loss": 1852,
+      "packet_damage_scope": "Observed packets can omit distant actors; native_boss_hp_loss includes all root damage calls."
+    },
+    {
+      "id": "pet-only-0-73057",
+      "aa_spent": 0,
+      "result": "player_death",
+      "final_boss_hp": 27035,
+      "elapsed_ms": 108450,
+      "pet_damage": 2622,
+      "owner_damage": 0,
+      "surviving_pet_ids": [
+        2,
+        3,
+        4
+      ],
+      "scope": "Pet-only control; no owner spell/heal rotation and no balance certification",
+      "native_boss_hp_loss": 5254,
+      "packet_damage_scope": "Observed packets can omit distant actors; native_boss_hp_loss includes all root damage calls."
+    },
+    {
+      "id": "pet-only-all-32040",
+      "aa_spent": 13288,
+      "result": "timeout",
+      "final_boss_hp": 26773,
+      "elapsed_ms": 120000,
+      "pet_damage": 1612,
+      "owner_damage": 0,
+      "surviving_pet_ids": [],
+      "scope": "Pet-only control; no owner spell/heal rotation and no balance certification",
+      "native_boss_hp_loss": 5664,
+      "packet_damage_scope": "Observed packets can omit distant actors; native_boss_hp_loss includes all root damage calls."
+    },
+    {
+      "id": "pet-only-all-73057",
+      "aa_spent": 13288,
+      "result": "timeout",
+      "final_boss_hp": 19511,
+      "elapsed_ms": 120000,
+      "pet_damage": 11402,
+      "owner_damage": 0,
+      "surviving_pet_ids": [
+        3,
+        4
+      ],
+      "scope": "Pet-only control; no owner spell/heal rotation and no balance certification",
+      "native_boss_hp_loss": 12812,
+      "packet_damage_scope": "Observed packets can omit distant actors; native_boss_hp_loss includes all root damage calls."
+    }
+  ]
+}
