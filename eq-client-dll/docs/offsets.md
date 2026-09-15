@@ -338,3 +338,39 @@ the hotbutton redirect fails after the predicate redirect succeeds, the
 predicate call is restored only if its generated replacement still matches,
 then the restored bytes and page protection are verified. Client checks and
 the server's `OP_CombatAbility` authorization remain in force.
+
+## 2026-09-15 Equipment submission candidate (#13)
+
+Exact executable: 8,774,656 bytes, SHA256
+`2a8702ad9f722704f01355c0750be7d6f164a8b9c9128ba0cf286ea32b405b0e`.
+Preferred image base `0x00400000`; implementation uses relocated RVAs.
+
+| Site | RVA | Original bytes |
+|---|---|---|
+| CanEquipItem call to CanUseItem | `0x0018359C` | `E8 8F 8E EC FF` |
+| CanUseItem call to item class accessor | `0x0004C46D` | `E8 6E 88 36 00` |
+| CanUseItem entry | `0x0004C430` | `55 56 57 8B 7C 24 10` |
+| Item class accessor entry | `0x003B4CE0` | `55 8B EC 83 EC 44` |
+
+Official MacroQuest emu commit `f4b77136b0b8e095814c41c26404595393273304`
+pins eqlib `db5c8806f86d1f9b5496842c2fd38fdabd1f659c`. Its
+[RoF2 offsets](https://github.com/macroquest/eqlib/blob/db5c8806f86d1f9b5496842c2fd38fdabd1f659c/include/eqlib/offsets/eqgame.h)
+explicitly identify the May 10, 2013 client. Named function addresses were checked
+against the actual executable. Native CanUseItem accepts an item smart-pointer
+reference and two booleans (ret 12); the accessor takes two booleans (ret 8).
+The observed accessor flags are true/false; the item reference is dereferenced.
+
+Two redirects establish a thread-local raw item identity only during this equip
+call into original CanUseItem. Within scope, the accessor preserves zero
+(including unusable-item/augment failures), otherwise ORs the low sixteen class
+bits into its return. Other items, threads, flags and callers keep the stock mask.
+No item memory changes. Nested scopes restore on return and SEH unwind. Remaining
+native checks execute with original flags/results. The neutral accessor installs
+first; caller failure restores it with guarded rollback. All four signatures and
+the executable hash must match before writes.
+
+Server inventory moves supply GetEquipClassBitmask to SwapItem, which retains
+held class union, race, deity, required level and slot checks for both items.
+This permits submission; the server authorizes equipment. Tooltip presentation
+and widened spell data are unchanged. See [candidate QA](equipment-qa.md).
+Byte checks and native unit tests do not prove in-game acceptance.

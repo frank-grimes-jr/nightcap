@@ -30,9 +30,10 @@ first; reuse the shell/config concepts after the core is proven.
 
 Retain `eq-client-dll/` for build-exact parity hooks. The existing `mq-rof2/`
 package supplied useful named exports and runtime inspection; its exports are
-MQ2 RVAs, not eqgame offsets. Current upstream MacroQuest documents a modern
-64-bit build. An emulator-specific source/build must be pinned and checked
-against our 32-bit May 10 2013 client before a plugin becomes a runtime dependency.
+MQ2 RVAs, not eqgame offsets. The pinned official `emu` branch and eqlib match the 32-bit May 10 2013
+client; equipment function addresses were confirmed against our executable. A
+reproducible build/plugin and compatibility test remain required before runtime
+adoption.
 The local MQ package includes proprietary components; do not assume its entire
 archive is redistributable because it also includes a GPL text. Evaluate an
 open-source RoF2 build/plugin for diagnostics and any UI features it simplifies.
@@ -87,5 +88,8 @@ identified the local 8,774,656-byte RoF2 executable with SHA256
 not yet certified. The existing proxy's exact-site verifier also passed.
 
 Official MQ `emu` source pinned for research:
-`f4b77136b0b8e095814c41c26404595393273304`. Its `src/eqlib` dependency must
-be inspected for RoF2 compatibility before any runtime adoption.
+`f4b77136b0b8e095814c41c26404595393273304`, with eqlib
+`db5c8806f86d1f9b5496842c2fd38fdabd1f659c`. The equipment candidate now
+redirects the proven equip/class calls with item/thread scope. Native tests,
+exact client checks and x86 build pass;
+[equipment QA](../../eq-client-dll/docs/equipment-qa.md) is pending.

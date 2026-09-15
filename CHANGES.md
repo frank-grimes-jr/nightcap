@@ -1,5 +1,13 @@
 # CHANGES
 
+## 2026-09-15 - Add scoped RoF2 equipment submission candidate
+
+Exact-build redirects allow off-base equip attempts to reach server held-class
+validation. Only the active item/thread class return changes; zero masks, other
+callers and native checks remain. Includes guarded rollback, x86 scope tests,
+exact client checks and independent review. Candidate only; no deployment or
+manual acceptance. Evidence: eq-client-dll/docs/equipment-qa.md and ADR 0028.
+
 ## 2026-09-15 - Add Darth Classic Ascended GM summon kit
 
 Added the requested MQ2 macro for Darth: 20 items across 18 verified IDs,

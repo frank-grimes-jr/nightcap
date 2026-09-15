@@ -19,6 +19,7 @@
 #include <cstdint>
 #include <cstring>
 #include <share.h>
+#include "equipment_scope.h"
 
 #pragma comment(lib, "bcrypt.lib")
 
@@ -126,6 +127,17 @@ static const BYTE kExpectedMaxManaReturn[6] = {
     0x5E,                   // pop esi
     0xC2, 0x04, 0x00,       // ret 4
 };
+
+// #13: CanEquipItem -> CanUseItem and its class-mask accessor. These calls
+// scope a permissive class result to equip submission, never global item data.
+static const uintptr_t kEquipCanUseItemCallRva = 0x0018359C;
+static const BYTE kExpectedEquipCanUseItemCall[5] = { 0xE8, 0x8F, 0x8E, 0xEC, 0xFF };
+static const uintptr_t kEquipClassMaskCallRva = 0x0004C46D;
+static const BYTE kExpectedEquipClassMaskCall[5] = { 0xE8, 0x6E, 0x88, 0x36, 0x00 };
+static const uintptr_t kCanUseItemRva = 0x0004C430;
+static const BYTE kExpectedCanUseItemEntry[7] = { 0x55, 0x56, 0x57, 0x8B, 0x7C, 0x24, 0x10 };
+static const uintptr_t kItemClassesRva = 0x003B4CE0;
+static const BYTE kExpectedItemClassesEntry[6] = { 0x55, 0x8B, 0xEC, 0x83, 0xEC, 0x44 };
 
 static HMODULE g_real_dinput8 = nullptr;
 static FILE*   g_log          = nullptr;
@@ -1222,6 +1234,81 @@ static bool ApplyMonkAttackActivationPatches(
     return true;
 }
 
+// The first redirect is neutral until the equip caller establishes an item
+// scope. Every non-class predicate and the final stock result remain native.
+extern "C" __declspec(noinline) uint32_t __fastcall EquipScopedItemClasses(
+    void* item, void* unused_edx, bool flag1, bool flag2)
+{
+    (void)unused_edx;
+    typedef uint32_t (__thiscall *ItemClassesFn)(void*, bool, bool);
+    const auto original = reinterpret_cast<ItemClassesFn>(g_eq_base + kItemClassesRva);
+    const uint32_t stock = original(item, flag1, flag2);
+    return nightcap::EquipClassMask(stock, item, flag1, flag2);
+}
+
+extern "C" __declspec(noinline) BYTE __fastcall CanUseItemForEquip(
+    void* character, void* unused_edx, const void* item_ref,
+    bool use_required_level, bool output)
+{
+    (void)unused_edx;
+    const void* item = nullptr;
+    if (!character || !item_ref) return 0;
+    __try {
+        item = *reinterpret_cast<const void* const*>(item_ref);
+    } __except (EXCEPTION_EXECUTE_HANDLER) {
+        return 0;
+    }
+    if (!item) return 0;
+    typedef BYTE (__thiscall *CanUseItemFn)(void*, const void*, bool, bool);
+    const auto original = reinterpret_cast<CanUseItemFn>(g_eq_base + kCanUseItemRva);
+    const void* previous = nightcap::SetActiveEquipItem(item);
+    BYTE result = 0;
+    __try {
+        result = original(character, item_ref, use_required_level, output);
+    } __finally {
+        // Also restore nested scope on native SEH exceptions, not just C++ unwind.
+        nightcap::SetActiveEquipItem(previous);
+    }
+    return result;
+}
+
+static bool ApplyEquipSubmissionPatches(uintptr_t eq_base, bool version_ok)
+{
+    if (!version_ok) {
+        Log("G013 equip submission DISABLED: client version guard failed");
+        return false;
+    }
+    __try {
+        if (memcmp(reinterpret_cast<void*>(eq_base + kEquipCanUseItemCallRva), kExpectedEquipCanUseItemCall, 5) != 0 ||
+            memcmp(reinterpret_cast<void*>(eq_base + kEquipClassMaskCallRva), kExpectedEquipClassMaskCall, 5) != 0 ||
+            memcmp(reinterpret_cast<void*>(eq_base + kCanUseItemRva), kExpectedCanUseItemEntry, 7) != 0 ||
+            memcmp(reinterpret_cast<void*>(eq_base + kItemClassesRva), kExpectedItemClassesEntry, 6) != 0) {
+            Log("G013 equip submission DISABLED: complete pair/helper signature mismatch");
+            return false;
+        }
+    } __except (EXCEPTION_EXECUTE_HANDLER) {
+        Log("G013 equip submission DISABLED: unreadable pair/helper signature");
+        return false;
+    }
+    const bool accessor_ok = ApplyGuardedRelativeCall(
+        eq_base, kEquipClassMaskCallRva, kExpectedEquipClassMaskCall,
+        reinterpret_cast<uintptr_t>(&EquipScopedItemClasses), "G013 equip class accessor");
+    if (!accessor_ok) return false;
+    const bool caller_ok = ApplyGuardedRelativeCall(
+        eq_base, kEquipCanUseItemCallRva, kExpectedEquipCanUseItemCall,
+        reinterpret_cast<uintptr_t>(&CanUseItemForEquip), "G013 equip caller");
+    if (!caller_ok) {
+        const bool rollback_ok = RestoreGuardedRelativeCall(
+            eq_base, kEquipClassMaskCallRva, kExpectedEquipClassMaskCall,
+            reinterpret_cast<uintptr_t>(&EquipScopedItemClasses), "G013 equip class accessor");
+        Log("G013 equip submission DISABLED: caller failed; accessor rollback=%s",
+            rollback_ok ? "verified" : "FAILED");
+        return false;
+    }
+    Log("G013 equip submission APPLIED: item/thread-scoped class check; native restrictions and server authorization retained");
+    return true;
+}
+
 // MQ2/the client environment caused every Sleep() in the first successful
 // survey to return in ~5ms, collapsing a 15-minute poll into 8ms. Wait on a
 // private, never-signaled event instead, then verify elapsed wall-clock time.
@@ -1546,6 +1633,7 @@ static DWORD WINAPI InitThread(LPVOID)
     const bool hotbutton_skill_ok =
         ApplyHotButtonSkillPredicatePatch(eq_base, use_skill_ok);
     ApplyMonkAttackActivationPatches(eq_base, hotbutton_skill_ok);
+    ApplyEquipSubmissionPatches(eq_base, size_ok && hash_ok);
     const bool mana_hook_ok =
         ApplyMaxManaServerCacheHook(eq_base, size_ok && hash_ok);
     ApplyPlayerManaGaugePredicateHook(eq_base, mana_hook_ok);
