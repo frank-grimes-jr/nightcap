@@ -1,5 +1,13 @@
 # CHANGES
 
+## 2026-09-15 - Consolidate reviewed client work into test
+
+Promoted the dev history after owner-merged PR #52 and reconciled historical
+local source refs without changing their already-integrated code. Published exact
+launcher, equipment, PoK and held-Monk QA steps. All committed source branch work
+is included; production client signing, manual acceptance and live deployment
+remain separate. [Promotion record](docs/releases/test-consolidation-20260915.md).
+
 ## 2026-09-15 - Connect launcher Play and Stop to verified sessions
 
 Wails and the serialized controller now dispatch the verified session backend,

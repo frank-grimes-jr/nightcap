@@ -3,6 +3,14 @@
 Updated September 15, 2026. This is the current status index; dated studies and
 QA reports preserve their original evidence and are not live-state promises.
 
+## Test branch consolidation
+
+After the owner merged PR #52 into dev, all committed source work was consolidated
+through dev into test. The client implementation is unchanged from the reviewed
+phase-20 build; historical branch reconciliation introduced no code changes.
+[Exact promotion scope and native/in-game QA](releases/test-consolidation-20260915.md).
+This source promotion does not deploy a client or enable the default preview.
+
 ## Deployed for live QA
 
 | System | Current state | Remaining acceptance |
@@ -74,7 +82,7 @@ and binary/file manifests are retained under `artifacts/live-qa-20260915/` local
 
 ## Client delivery development (not deployed)
 
-Draft PR #52 contains signed manifest verification, full asset staging, guarded
+Merged PR #52, now included in test, contains signed manifest verification, full asset staging, guarded
 Windows installation/recovery, a Wails/Vue launcher preview and native controller,
 a shared configuration/patch-site preflight gate, and a scoped
 equipment-submission DLL candidate. The proxy now consumes configuration and
