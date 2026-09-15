@@ -1,5 +1,15 @@
 # CHANGES
 
+## 2026-09-15 - Add Darth Classic Ascended GM summon kit
+
+Added the requested MQ2 macro for Darth: 20 items across 18 verified IDs,
+including Classic Valorium armor, jewelry, haste, sword/shield and Fiery Avenger.
+Live PEQ checks verified Human Paladin eligibility, level requirements and
+lore-safe duplicate quantities. The macro stops on wrong character, failed
+summons or a blocked cursor; no level/equipment mutation is issued directly.
+It is a practical high-end kit, not an exhaustive encounter-specific BiS proof.
+Installed into the local MQ macros folder; in-game execution remains untested.
+
 ## 2026-09-15 - Begin trusted client patcher and parity delivery
 
 Reviewed current client issues and the approved full multiclass contract. Added
