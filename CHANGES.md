@@ -1,5 +1,39 @@
 # CHANGES
 
+## 2026-09-15 - Complete live AA title preflight and preserve owned abilities
+
+The first live #16 audit exposed invalid offline assumptions: native loading
+accepts ability ID 0 and truncates absent next-rank references. Corrected the
+audit and added failing-before/passing-after controls; all 13 tests pass.
+Live PEQ has 192 enabled missing-title families and 19 intersecting saved rows:
+two for an unnamed 24-cost Paladin rank and 17 for the zero-cost Ancient
+Attunement system AA. The old zero-purchase assertion is stale. No disablement,
+refund or client edit occurred; raw title coverage is not a display verdict.
+See docs/audits/aa-titles-20260915/ for full findings and hashes.
+
+## 2026-09-14 - Reconcile GitHub issue completion and release gates
+
+Reviewed all 24 open issues. Closed #8, #9, #12, #21, #24 and #25 with published
+source and acceptance evidence, and posted concrete remaining gates for 18 issues.
+Published the previously accepted DLL commit 397d51b on a dedicated branch;
+its exact-client B2 verification passed. Kept #11 open after finding deferred
+original acceptance details. Pages still returns HTTP 404. The existing local
+main includes unapproved candidates and was not pushed. PR #47 targets dev.
+See the issue audit,
+updated next steps and phase-3 milestone report. No gameplay deployment occurred.
+
+## 2026-09-14 - Begin exact AA client-title audit (#16)
+
+Added a read-only SQL snapshot and offline Python audit of RoF2 type-1 AA
+titles across complete rank chains. Saved ownership is counted by first-rank
+ID; disabled families remain distinguishable. Incomplete exports, malformed
+catalogs and unresolved ownership fail closed. Ten unit/CLI tests pass;
+independent review found no actionable issues. The local client has 2,470
+nonempty type-1 titles. Docker is stopped, so fresh PEQ counts and SQL execution
+remain unverified. No AA disablement, database writes, server reload or client
+edit occurred. See docs/ops/aa-client-title-audit.md for the runbook and QA gates.
+
+
 Running log of significant changes to this repo — schema migrations, C++ patches, quest script additions, and anything with gotchas worth remembering. Most recent first.
 
 ---
