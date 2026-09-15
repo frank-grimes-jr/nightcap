@@ -23,19 +23,20 @@ def title_ids(text):
     return titles
 
 
-def indexed(rows, key, fields):
+def indexed(rows, key, fields, minimum=1):
     result = {}
     for row in rows:
         if any(type(row.get(field)) is not int for field in fields):
             raise ValueError('Missing or noninteger fields in ' + key)
-        if row[key] <= 0 or row[key] in result:
+        if row[key] < minimum or row[key] in result:
             raise ValueError('Invalid or duplicate ' + key)
         result[row[key]] = row
     return result
 
 
 def audit(snapshot, titles):
-    abilities = indexed(snapshot['abilities'], 'id', ('id', 'first_rank_id', 'enabled'))
+    # The native loader keys its map by aa_ability.id without excluding zero.
+    abilities = indexed(snapshot['abilities'], 'id', ('id', 'first_rank_id', 'enabled'), minimum=0)
     ranks = indexed(snapshot['ranks'], 'id', ('id', 'title_sid', 'next_id'))
     ownership = indexed(snapshot['ownership'], 'aa_id', ('aa_id', 'saved_rows'))
     if not abilities or not ranks or not titles:
@@ -48,11 +49,14 @@ def audit(snapshot, titles):
     if any(row['saved_rows'] <= 0 for row in ownership.values()):
         raise ValueError('Invalid saved ownership row count')
     affected = []
+    tail_terminations = []
     rank_owners = {}
     for aid, ability in sorted(abilities.items()):
         if ability['enabled'] not in (0, 1) or ability['first_rank_id'] <= 0:
             raise ValueError('Invalid ability flags or first rank')
         rid, seen, missing = ability['first_rank_id'], set(), set()
+        if rid not in ranks:
+            raise ValueError('Missing first rank in ability ' + str(aid))
         while rid > 0:
             if rid in seen or rid not in ranks:
                 raise ValueError('Cyclic or missing rank in ability ' + str(aid))
@@ -63,6 +67,12 @@ def audit(snapshot, titles):
             rank = ranks[rid]
             if rank['title_sid'] not in titles:
                 missing.add(rank['title_sid'])
+            # Zone::LoadAlternateAdvancement sets next_id=-1 when its lookup
+            # finds no next rank. PEQ commonly retains unreleased tail IDs.
+            if rank['next_id'] > 0 and rank['next_id'] not in ranks:
+                tail_terminations.append({'ability_id': aid, 'last_rank_id': rid,
+                                          'missing_next_id': rank['next_id']})
+                break
             rid = rank['next_id']
             if rid < -1:
                 raise ValueError('Invalid rank terminator')
@@ -79,6 +89,7 @@ def audit(snapshot, titles):
         'enabled_affected_abilities': len(enabled),
         'enabled_affected_saved_rows': sum(row['saved_rows'] for row in enabled),
         'missing_title_abilities': affected,
+        'native_tail_terminations': tail_terminations,
         'status': 'audit_only_not_authorization_to_disable',
     }
 

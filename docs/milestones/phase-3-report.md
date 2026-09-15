@@ -1,5 +1,13 @@
 # Phase 3 — GitHub issue reconciliation and AA title preflight
 
+## 2026-09-15 continuation
+
+Live audit completed after Docker recovery. Native ID-zero and absent-tail
+semantics are now covered by 13 passing tests and independent review. The report
+found 192 enabled missing-title families and affected saved ownership in two
+families. No disablement performed; ownership and system-AA handling are gates.
+See [live evidence](../audits/aa-titles-20260915/README.md).
+
 2026-09-14. This is an issue-maintenance milestone, not a multiclass release.
 
 ## Built

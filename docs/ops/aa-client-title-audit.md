@@ -2,7 +2,8 @@
 
 ## Status and intent
 
-2026-09-14: implemented a read-only preflight; disablement remains unapplied.
+2026-09-15: the [live preflight](../audits/aa-titles-20260915/README.md) completed;
+disablement remains unapplied because affected saved ownership exists.
 The historical 193 missing-title families and 29 name-pattern matches are not
 interchangeable. The RoF2 client looks up `aa_ranks.title_sid` in type-1 records
 of `dbstr_us.txt`; neither the server name nor an expansion cutoff is sufficient.
@@ -13,8 +14,10 @@ Saved ownership is aggregated by `character_alternate_abilities.aa_id`, which
 references a **first rank**, not `aa_ability.id`. All saved rows count as a
 review gate, including grants or exhausted charges; the tool does not infer
 refund amounts. Disabled families are listed separately from enabled candidates.
-Unknown ownership, broken/shared/cyclic rank chains and incomplete exports abort
-the audit. An abort requires investigation, never a name-pattern fallback.
+Unknown ownership, missing first ranks, shared/cyclic rank chains and incomplete
+exports abort the audit. Missing next ranks terminate the chain as in the native
+loader and are recorded explicitly. Ability ID 0 is a valid native map key.
+An abort requires investigation, never a name-pattern fallback.
 
 ## Run from the repository root (PowerShell)
 
@@ -54,14 +57,16 @@ client file is read only. Output must differ from both inputs.
 ## Verification in this change
 
 `python -B -m unittest discover -s tools/tests -p test_aa_client_strings.py -v`
-passes all 10 tests. Coverage includes later-rank title loss, type-1 matching,
+passes all 13 tests. Coverage includes later-rank title loss, type-1 matching,
 valid titles on placeholder-named/post-RoF families, saved ownership, disabled
 families, malformed inputs and rank chains, truncated exports, CLI hashes and
 input preservation. Independent review found no actionable issues.
 
 Parsing the actual local client file found 2,470 nonempty type-1 title IDs.
-Docker's Linux engine was unavailable, so SQL execution against PEQ and current
-affected-AA/purchase counts are **not verified**. No live data or files changed.
+SQL execution against live PEQ is now verified. The report found 192 enabled
+missing-title families and 19 affected saved rows, including a system AA;
+these are raw coverage findings, not 192 proven visible UI defects. See the live
+report for exact ownership and native-chain caveats. No gameplay data changed.
 
 ## Next implementation and in-game QA gates
 

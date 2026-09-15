@@ -52,11 +52,35 @@ class ClientTitleAuditTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'ownership'):
             audit(snapshot, {500})
 
-    def test_broken_or_cyclic_rank_chain_fails(self):
-        for target in (999, 100):
+    def test_cyclic_rank_or_missing_first_rank_fails(self):
+        for first, target in ((100, 100), (999, -1)):
             snapshot = self.snapshot()
+            snapshot['abilities'][0]['first_rank_id'] = first
+            snapshot['ownership'] = []
             snapshot['ranks'][1]['next_id'] = target
             with self.subTest(target=target), self.assertRaises(ValueError):
+                audit(snapshot, {500})
+
+    def test_missing_next_rank_matches_native_chain_termination(self):
+        snapshot = self.snapshot()
+        snapshot['ranks'][1]['next_id'] = 999
+        report = audit(snapshot, {500})
+        self.assertEqual(report['enabled_affected_saved_rows'], 2)
+        self.assertEqual(report['native_tail_terminations'], [
+            {'ability_id': 7, 'last_rank_id': 101, 'missing_next_id': 999}])
+
+    def test_zero_ability_id_is_valid_but_ownership_still_uses_first_rank(self):
+        snapshot = self.snapshot()
+        snapshot['abilities'][0]['id'] = 0
+        report = audit(snapshot, {500})
+        self.assertEqual(report['missing_title_abilities'][0]['ability_id'], 0)
+        self.assertEqual(report['enabled_affected_saved_rows'], 2)
+
+    def test_negative_ability_or_zero_rank_ids_fail(self):
+        for group, value in (('abilities', -1), ('ranks', 0)):
+            snapshot = self.snapshot()
+            snapshot[group][0]['id'] = value
+            with self.subTest(group=group), self.assertRaises(ValueError):
                 audit(snapshot, {500})
 
     def test_duplicate_rows_and_empty_catalog_fail(self):

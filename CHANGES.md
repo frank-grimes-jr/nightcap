@@ -1,5 +1,16 @@
 # CHANGES
 
+## 2026-09-15 - Complete live AA title preflight and preserve owned abilities
+
+The first live #16 audit exposed invalid offline assumptions: native loading
+accepts ability ID 0 and truncates absent next-rank references. Corrected the
+audit and added failing-before/passing-after controls; all 13 tests pass.
+Live PEQ has 192 enabled missing-title families and 19 intersecting saved rows:
+two for an unnamed 24-cost Paladin rank and 17 for the zero-cost Ancient
+Attunement system AA. The old zero-purchase assertion is stale. No disablement,
+refund or client edit occurred; raw title coverage is not a display verdict.
+See docs/audits/aa-titles-20260915/ for full findings and hashes.
+
 ## 2026-09-14 - Reconcile GitHub issue completion and release gates
 
 Reviewed all 24 open issues. Closed #8, #9, #12, #21, #24 and #25 with published
