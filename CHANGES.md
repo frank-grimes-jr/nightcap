@@ -1,5 +1,14 @@
 # CHANGES
 
+## 2026-09-15 - Begin trusted client patcher and parity delivery
+
+Reviewed current client issues and the approved full multiclass contract. Added
+the Go launcher core with signed canonical metadata, exact inventory, path/host
+constraints and anti-rollback validation; read-only RoF2 executable preflight
+shares the existing DLL guard. No client files were modified or new hooks deployed.
+The Wails shell, transactional installer, signed release pipeline and outstanding
+client parity gates remain active work. Plan: docs/ops/client-delivery-plan.md.
+
 ## 2026-09-15 - Promote tested gameplay to main for owner live QA
 
 Owner explicitly requested all gameplay changes move to main before their live
