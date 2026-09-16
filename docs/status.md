@@ -5,6 +5,8 @@ QA reports preserve their original evidence and are not live-state promises.
 
 ## Local QA launcher
 
+The owner confirmed the delivered QA launcher works on September 15, 2026.
+
 A signed offline QA package now installs/repairs four client patch files and
 launches the separate supported RoF2 copy with verified runtime health. Use
 [the QA executable path and instructions](releases/launcher-qa-20260915.md).

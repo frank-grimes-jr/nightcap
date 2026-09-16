@@ -50,6 +50,14 @@ Local evidence: `E:/EQ_Local_Dev/artifacts/nightcap-qa-20260915/evidence/`,
 `launch-verification.log`, bundle audit/signature/manifest and launcher hash.
 [Owner instructions and exact QA](../releases/launcher-qa-20260915.md).
 
+## Owner confirmation
+
+On September 15, 2026, after receiving and testing this QA launcher, the owner
+confirmed: **"It works."** This records owner acceptance that the delivered local
+QA launcher works. Individual repair/recovery edge cases and the in-game
+multiclass, equipment, skills, Bard and PoK acceptance matrix were not separately
+reported by that confirmation; their existing issue gates remain open.
+
 ## Cut / still open
 
 No hosted production update channel, Authenticode, public game-client distribution,

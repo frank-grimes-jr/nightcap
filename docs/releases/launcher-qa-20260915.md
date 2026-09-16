@@ -12,6 +12,14 @@ It is a complete ordinary-file copy, with `Host=localhost:5998`. Original client
 executable, proxy, user INI and login-target hashes remain unchanged. Settings and
 staging are under the package's `launcher-state` folder, independent of preview.
 
+## Owner confirmation
+
+On September 15, 2026, after receiving and testing this QA launcher, the owner
+confirmed: **"It works."** This records owner acceptance that the delivered local
+QA launcher works. Individual repair/recovery edge cases and the in-game
+multiclass, equipment, skills, Bard and PoK acceptance matrix were not separately
+reported by that confirmation; their existing issue gates remain open.
+
 ## Exact owner QA
 
 1. Open the QA executable. Confirm the copied client path and installed release
