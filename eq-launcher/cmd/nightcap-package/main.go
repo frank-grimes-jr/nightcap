@@ -1,0 +1,223 @@
+// nightcap-package assembles a signed, offline local QA build. Run from eq-launcher.
+package main
+
+import (
+	"crypto/ed25519"
+	"crypto/rand"
+	"encoding/hex"
+	"encoding/json"
+	"errors"
+	"flag"
+	"fmt"
+	"go/format"
+	"io"
+	"os"
+	"path/filepath"
+	"time"
+
+	"nightcap/eq-launcher/internal/manifest"
+	"nightcap/eq-launcher/internal/preflight"
+)
+
+func main() {
+	client := flag.String("client", "", "supported eqgame.exe (read only)")
+	keyPath := flag.String("key", "", "private seed in an access-restricted directory outside source/package")
+	newKey := flag.Bool("new-key", false, "create a fresh private seed exclusively; never replace")
+	release := flag.Uint64("release", 0, "unique increasing QA release number")
+	output := flag.String("output", "internal/launcher", "generated policy directory")
+	flag.Parse()
+	if err := build(*client, *keyPath, *newKey, *release, *output); err != nil {
+		fmt.Fprintln(os.Stderr, err)
+		os.Exit(1)
+	}
+}
+
+func readBounded(path string, limit int64) ([]byte, error) {
+	f, err := os.Open(path)
+	if err != nil {
+		return nil, err
+	}
+	defer f.Close()
+	info, err := f.Stat()
+	if err != nil {
+		return nil, err
+	}
+	if !info.Mode().IsRegular() || info.Size() <= 0 || info.Size() > limit {
+		return nil, fmt.Errorf("invalid input size/type: %s", path)
+	}
+	data := make([]byte, info.Size()+1)
+	n, err := f.ReadAt(data, 0)
+	if (err != nil && err != io.EOF) || int64(n) != info.Size() {
+		return nil, fmt.Errorf("input changed: %s", path)
+	}
+	return data[:n], nil
+}
+
+func privateKey(path string, create bool) (ed25519.PrivateKey, error) {
+	if path == "" || !filepath.IsAbs(path) {
+		return nil, fmt.Errorf("absolute private seed path required")
+	}
+	if create {
+		seed := make([]byte, ed25519.SeedSize)
+		if _, err := rand.Read(seed); err != nil {
+			return nil, err
+		}
+		f, err := os.OpenFile(path, os.O_WRONLY|os.O_CREATE|os.O_EXCL, 0600)
+		if err != nil {
+			return nil, err
+		}
+		_, err = f.Write(seed)
+		err = errors.Join(err, f.Sync(), f.Close())
+		if err != nil {
+			return nil, err
+		}
+	}
+	seed, err := readBounded(path, ed25519.SeedSize)
+	if err != nil {
+		return nil, err
+	}
+	if len(seed) != ed25519.SeedSize {
+		return nil, fmt.Errorf("invalid private seed length")
+	}
+	return ed25519.NewKeyFromSeed(seed), nil
+}
+
+func build(client, keyPath string, create bool, release uint64, output string) error {
+	if client == "" || release == 0 {
+		return fmt.Errorf("client and nonzero release required")
+	}
+	names := []string{"dinput8.dll", "nightcap-bootstrap.exe", preflight.ConfigPath, preflight.CatalogPath}
+	paths := []string{"../eq-client-dll/build/dinput8.dll", "../eq-client-dll/build/nightcap-bootstrap.exe", "../eq-client-dll/config/nightcap-patches.cfg", "../eq-client-dll/config/patch-sites.json"}
+	data := map[string][]byte{}
+	for i, name := range names {
+		raw, err := readBounded(paths[i], manifest.MaxFileBytes)
+		if err != nil {
+			return err
+		}
+		data[name] = raw
+	}
+	exe, err := os.Open(client)
+	if err != nil {
+		return err
+	}
+	defer exe.Close()
+	report, err := preflight.CheckOpen(exe, data[preflight.ConfigPath], data[preflight.CatalogPath])
+	if err != nil {
+		return err
+	}
+	// Validate the very bytes to be published, rather than reopening mutable inputs.
+	temp, err := os.MkdirTemp("", "nightcap-package-")
+	if err != nil {
+		return err
+	}
+	defer os.RemoveAll(temp)
+	for _, name := range names[:2] {
+		if err = os.WriteFile(filepath.Join(temp, name), data[name], 0600); err != nil {
+			return err
+		}
+	}
+	proxy, err := os.Open(filepath.Join(temp, names[0]))
+	if err != nil {
+		return err
+	}
+	defer proxy.Close()
+	boot, err := preflight.BootstrapOpen(exe, proxy)
+	if err != nil {
+		return err
+	}
+	helper, err := os.Open(filepath.Join(temp, names[1]))
+	if err != nil {
+		return err
+	}
+	defer helper.Close()
+	if err = preflight.CheckHelperOpen(helper); err != nil {
+		return err
+	}
+	private, err := privateKey(keyPath, create)
+	if err != nil {
+		return err
+	}
+	public := private.Public().(ed25519.PublicKey)
+	now := time.Now().UTC().Truncate(time.Second)
+	key := manifest.Key{ID: "local-qa-" + manifest.Digest(public)[:16], Public: public, NotBefore: now.Add(-time.Hour), NotAfter: now.Add(90 * 24 * time.Hour)}
+	trust := manifest.Trust{Keys: []manifest.Key{key}, Now: now, LauncherVersion: "0.1.0", Hosts: []string{"qa.nightcap.invalid"}, Inventory: map[string]bool{}, Retired: map[string]bool{}}
+	m := manifest.Manifest{Schema: 1, Release: release, MinLauncher: "0.1.0", Expires: now.Add(30 * 24 * time.Hour), Tombstones: []string{}}
+	for _, name := range names {
+		trust.Inventory[name] = true
+		m.Files = append(m.Files, manifest.File{Path: name, SHA256: manifest.Digest(data[name]), Size: int64(len(data[name])), URL: fmt.Sprintf("https://qa.nightcap.invalid/release/%d/%s", release, name), Required: true})
+	}
+	raw, err := manifest.Canonical(m)
+	if err != nil {
+		return err
+	}
+	sig := manifest.Signature{KeyID: key.ID, Bytes: ed25519.Sign(private, raw)}
+	if _, err = manifest.Verify(raw, sig, trust); err != nil {
+		return err
+	}
+	signature, err := json.Marshal(sig)
+	if err != nil {
+		return err
+	}
+	source, err := policySource(key, release)
+	if err != nil {
+		return err
+	}
+	bundle := filepath.Join(output, "qabundle")
+	// Exclusive creation prevents accidental reuse or mixing generations.
+	if err = os.Mkdir(bundle, 0700); err != nil {
+		return err
+	}
+	if err = os.Mkdir(filepath.Join(bundle, "files"), 0700); err != nil {
+		return err
+	}
+	for _, name := range names {
+		if err = os.WriteFile(filepath.Join(bundle, "files", name), data[name], 0600); err != nil {
+			return err
+		}
+	}
+	if err = os.WriteFile(filepath.Join(bundle, "manifest.json"), raw, 0600); err != nil {
+		return err
+	}
+	if err = os.WriteFile(filepath.Join(bundle, "signature.json"), signature, 0600); err != nil {
+		return err
+	}
+	audit, err := json.MarshalIndent(map[string]any{"release": release, "created": now, "expires": m.Expires, "key_id": key.ID, "public_key": hex.EncodeToString(public), "public_key_sha256": manifest.Digest(public), "manifest_sha256": manifest.Digest(raw), "files": m.Files, "preflight": report, "bootstrap": boot, "scope": "LOCAL QA CANDIDATE; package signature is not Windows Authenticode or gameplay acceptance"}, "", "  ")
+	if err != nil {
+		return err
+	}
+	if err = os.WriteFile(filepath.Join(bundle, "audit.json"), audit, 0600); err != nil {
+		return err
+	}
+	f, err := os.OpenFile(filepath.Join(output, "policy_qa_generated.go"), os.O_CREATE|os.O_EXCL|os.O_WRONLY, 0600)
+	if err != nil {
+		return err
+	}
+	_, err = f.Write(source)
+	if err = errors.Join(err, f.Close()); err != nil {
+		return err
+	}
+	fmt.Printf("Signed QA release %d; %d verified patch sites; public key %s\n", release, report.SitesVerified, key.ID)
+	return nil
+}
+
+func policySource(key manifest.Key, release uint64) ([]byte, error) {
+	source := fmt.Sprintf(`//go:build qacandidate
+
+// Code generated by nightcap-package. DO NOT EDIT.
+package launcher
+import ("embed"; "io/fs"; "time"; "encoding/hex"; "nightcap/eq-launcher/internal/manifest")
+//go:embed qabundle/manifest.json qabundle/signature.json qabundle/files/*
+var qaBundle embed.FS
+func DefaultPolicy() Policy {
+ bundle, err := fs.Sub(qaBundle,"qabundle"); if err != nil { panic(err) }
+ public, err := hex.DecodeString(%q); if err != nil { panic(err) }
+ return Policy{Bundle:bundle, Label:"LOCAL QA CANDIDATE", EnablePlay:true, Trust:manifest.Trust{
+ LauncherVersion:"0.1.0", Hosts:[]string{"qa.nightcap.invalid"},
+ Keys:[]manifest.Key{{ID:%q,Public:public,NotBefore:time.Unix(%d,0),NotAfter:time.Unix(%d,0)}},
+ Inventory:map[string]bool{"dinput8.dll":true,"nightcap-bootstrap.exe":true,"nightcap-patches.cfg":true,"nightcap-patch-sites.json":true}, Retired:map[string]bool{},
+ }}
+}
+// Embedded release: %d
+`, hex.EncodeToString(key.Public), key.ID, key.NotBefore.Unix(), key.NotAfter.Unix(), release)
+	return format.Source([]byte(source))
+}

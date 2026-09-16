@@ -9,3 +9,7 @@ Client_RoF2_Dev/
 
 # Database backups (tools/backup-peq.ps1, scheduled task NightcapPeqBackup)
 backups/
+
+# Generated local QA trust and embedded signed bundle
+eq-launcher/internal/launcher/policy_qa_generated.go
+eq-launcher/internal/launcher/qabundle/

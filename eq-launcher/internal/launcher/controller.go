@@ -23,6 +23,7 @@ type Event struct {
 	Message string `json:"message"`
 }
 type Status struct {
+	Channel          string              `json:"channel"`
 	ClientDir        string              `json:"client_dir"`
 	Phase            string              `json:"phase"`
 	Message          string              `json:"message"`
@@ -65,7 +66,7 @@ func New(home string, p Policy) (*Controller, error) {
 	if err != nil {
 		return nil, err
 	}
-	if p.configured() {
+	if p.configured() && p.Bundle == nil {
 		if err := manifest.ValidateURL(p.ManifestURL, p.Trust.Hosts); err != nil {
 			return nil, err
 		}
@@ -73,7 +74,12 @@ func New(home string, p Policy) (*Controller, error) {
 			return nil, err
 		}
 	}
-	c := &Controller{home: home, policy: p, state: Status{ClientDir: s.ClientDir, Phase: "choose", Message: "Choose your EverQuest folder to begin.", Configured: p.configured(), Files: []assets.FileStatus{}, Remove: []string{}, Events: []Event{}}, fetch: fetchRelease, local: installer.Inspect, diff: assets.Inspect, stage: assets.Stage, install: installer.Install, recover: installer.Recover}
+	c := &Controller{home: home, policy: p, state: Status{Channel: p.Label, ClientDir: s.ClientDir, Phase: "choose", Message: "Choose your EverQuest folder to begin.", Configured: p.configured(), Files: []assets.FileStatus{}, Remove: []string{}, Events: []Event{}}, fetch: fetchRelease, local: installer.Inspect, diff: assets.Inspect, stage: assets.Stage, install: installer.Install, recover: installer.Recover}
+	if p.Bundle != nil {
+		c.stage = func(ctx context.Context, raw []byte, sig manifest.Signature, trust manifest.Trust, dir, parent string) (assets.Generation, error) {
+			return assets.StageBundle(ctx, raw, sig, trust, dir, parent, p.Bundle)
+		}
+	}
 	c.start = func(ctx context.Context, dir string, trust manifest.Trust) (gameSession, error) {
 		return session.Start(ctx, dir, trust)
 	}
@@ -256,7 +262,7 @@ func (c *Controller) prepare(ctx context.Context, dir string) ([]byte, manifest.
 	if changes > 0 || local.Release != m.Release || !local.Present {
 		c.show("update", fmt.Sprintf("Release %d is ready. %d file changes to apply.", m.Release, changes))
 	} else {
-		c.show("health_pending", "Files match this release. Client compatibility checks are still required before Play.")
+		c.show("health_pending", "Files match this release. Play will verify client compatibility and active patches.")
 	}
 	return raw, sig, trust, nil
 }
@@ -309,7 +315,7 @@ func (c *Controller) Update(ctx context.Context) (err error) {
 	}
 	c.state.Remove = []string{}
 	c.mu.Unlock()
-	c.show("health_pending", "Files installed. Client compatibility checks are still required before Play.")
+	c.show("health_pending", "Files installed. Play will verify client compatibility and active patches.")
 	return nil
 }
 func (c *Controller) Recover(ctx context.Context) (err error) {

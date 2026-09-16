@@ -7,6 +7,7 @@ async function desktop(
 ) {
   await page.addInitScript((mode) => {
     const state = {
+      channel: "LOCAL QA CANDIDATE",
       client_dir: "",
       phase: "choose",
       message: "Choose your EverQuest folder to begin.",
@@ -288,3 +289,9 @@ test("Play remains pending while Stop game stays available and edits are locked"
   await expect(page.getByRole("button", {name:"Play Nightcap"})).toBeEnabled();
   expect(failures).toEqual([]);
 });
+
+ test("QA channel is visible in the header and footer", async ({page}) => {
+ await desktop(page);
+ await expect(page.locator(".preview-badge")).toHaveText("LOCAL QA CANDIDATE");
+ await expect(page.locator(".build")).toContainText("LOCAL QA CANDIDATE");
+ });

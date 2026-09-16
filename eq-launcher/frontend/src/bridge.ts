@@ -1,4 +1,5 @@
 export interface Status {
+  channel: string;
   client_dir: string;
   phase: string;
   message: string;
@@ -33,6 +34,7 @@ declare global {
 }
 export const native = () => window.go?.main?.App;
 export const initial: Status = {
+  channel: "Development preview",
   client_dir: "",
   phase: "choose",
   message: "Choose your EverQuest folder to begin.",

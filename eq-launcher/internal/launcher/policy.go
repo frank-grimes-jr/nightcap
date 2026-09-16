@@ -7,9 +7,11 @@ import (
 	"encoding/json"
 	"fmt"
 	"io"
+	"io/fs"
 	"net/http"
 	"time"
 
+	"nightcap/eq-launcher/internal/assets"
 	"nightcap/eq-launcher/internal/installer"
 	"nightcap/eq-launcher/internal/manifest"
 	"nightcap/eq-launcher/internal/preflight"
@@ -18,6 +20,9 @@ import (
 // Policy is compiled release configuration, never supplied through the UI or
 // downloaded metadata. Preview builds intentionally have no production keys.
 type Policy struct {
+	// Bundle is a compiled, signed offline source. There is no network fallback.
+	Bundle fs.FS
+	Label  string
 	// EnablePlay is release-owned and stays false in development previews.
 	EnablePlay   bool
 	ManifestURL  string
@@ -26,7 +31,7 @@ type Policy struct {
 }
 
 func (p Policy) configured() bool {
-	return len(p.Trust.Keys) > 0 && len(p.Trust.Inventory) > 0 && p.ManifestURL != "" && p.SignatureURL != ""
+	return len(p.Trust.Keys) > 0 && len(p.Trust.Inventory) > 0 && (p.Bundle != nil || (p.ManifestURL != "" && p.SignatureURL != ""))
 }
 func (p Policy) playConfigured() bool {
 	if !p.EnablePlay || !p.configured() || p.Trust.LauncherVersion == "" {
@@ -45,8 +50,13 @@ func (p Policy) playConfigured() bool {
 	}
 	return false
 }
-func DefaultPolicy() Policy { return Policy{Trust: manifest.Trust{LauncherVersion: "0.1.0"}} }
 func fetchRelease(ctx context.Context, p Policy) ([]byte, manifest.Signature, error) {
+	if err := ctx.Err(); err != nil {
+		return nil, manifest.Signature{}, err
+	}
+	if p.Bundle != nil {
+		return assets.BundleMetadata(p.Bundle)
+	}
 	transport := http.DefaultTransport.(*http.Transport).Clone()
 	transport.DisableCompression = true
 	defer transport.CloseIdleConnections()

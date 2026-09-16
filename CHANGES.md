@@ -1,5 +1,14 @@
 # CHANGES
 
+## 2026-09-15 - Usable signed offline QA launcher
+
+Added a generated QA-only signed bundle and portable launcher state so Check,
+Update/Repair and Play work against an independent RoF2 copy. The default preview
+remains unconfigured. Existing signature, journal recovery, executable/patch-site
+and runtime-health gates are retained. Fixed a Windows post-exit image-mapping
+race with a bounded non-mutating cleanup probe. Exact package/expiry, rebuild,
+rollback and manual QA: [launcher guide](docs/releases/launcher-qa-20260915.md).
+
 ## 2026-09-15 - Consolidate reviewed client work into test
 
 Promoted the dev history after owner-merged PR #52 and reconciled historical
