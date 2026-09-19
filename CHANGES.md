@@ -1,5 +1,16 @@
 # CHANGES
 
+## 2026-09-19 - Activate gameplay release for live QA
+
+Deployed matching world/zone binaries and 22 source/build overlays after graceful
+character/zone saves and a verified 441,566,517-byte PEQ dump. Created the additive
+18-column pet armor table and applied the fresh guarded 22-service PoK relocation.
+All eight zone processes and world have the expected hashes; required rules and
+merchant stock are retained, with no Error/Fatal lines in the checked fresh logs.
+The owner authorized main promotion before manual acceptance. Automatic-UI client
+1904 installation remains gated on game exit and the authorized folder choice.
+[Evidence and recovery](docs/releases/client-gameplay-live-20260919.md).
+
 ## 2026-09-19 - Automatic Nightcap UI loading
 
 The exact-build client patch now selects the Nightcap skin during native UI load
