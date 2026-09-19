@@ -1,5 +1,16 @@
 # CHANGES
 
+## 2026-09-19 - Repair rejected Nightcap UI skin
+
+In-game evidence showed the custom skin falling back to Default. The XML generator
+had rewritten the native `Schema` element to `ns0:Schema` and removed its required
+literal namespace declarations. Preserve the stock unprefixed schema and ASCII
+header. Add regression coverage and make signed packaging reject the malformed
+representation. Release 2026091905 includes this repair and automatic skin loading.
+Prior startup-health success did not prove character UI loading; 1903/1904 skin
+assets are superseded. Missing AA title data remains a separate open catalog issue.
+[Repair evidence](docs/releases/client-skin-repair-20260919.md).
+
 ## 2026-09-19 - Activate gameplay release for live QA
 
 Deployed matching world/zone binaries and 22 source/build overlays after graceful

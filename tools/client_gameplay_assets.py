@@ -87,8 +87,15 @@ def ui_xml(raw, kind):
                 x.text = str(int(x.text) + 300)
     else:
         raise ValueError('Unknown UI asset')
+    # RoF2's reader needs the stock lexical Schema declaration. ElementTree
+    # otherwise emits ns0:Schema and drops xmlns:dt, which made the game reject
+    # the entire skin and silently fall back to Default.
+    for schema in root.findall('{EverQuestData}Schema'):
+        schema.tag = 'Schema'
+        schema.set('xmlns', 'EverQuestData')
+        schema.set('xmlns:dt', 'EverQuestDataTypes')
     ET.indent(root, space='\t')
-    return ET.tostring(root, encoding='utf-8', xml_declaration=True)
+    return b'<?xml version="1.0" encoding="us-ascii" ?>\n' + ET.tostring(root, encoding='us-ascii', xml_declaration=False)
 
 
 def main():

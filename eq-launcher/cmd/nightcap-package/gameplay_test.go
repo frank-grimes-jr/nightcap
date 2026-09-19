@@ -5,6 +5,7 @@ import (
 	"nightcap/eq-launcher/internal/manifest"
 	"os"
 	"path/filepath"
+	"strings"
 	"testing"
 )
 
@@ -18,6 +19,9 @@ func TestGameplayAssetGenerationIsCompleteAndBoundToInputs(t *testing.T) {
 	audit := gameplayAudit{Schema: 1, Status: "generated_not_installed", SourceSpellsSHA256: manifest.Digest(spells), Files: map[string]gameplayFile{}}
 	for _, name := range gameplayNames {
 		data := []byte("fixture for " + name)
+		if strings.HasSuffix(name, ".xml") {
+			data = []byte(`<XML ID="EQInterfaceDefinitionLanguage"><Schema xmlns="EverQuestData" xmlns:dt="EverQuestDataTypes" /></XML>`)
+		}
 		path := filepath.Join(root, filepath.FromSlash(name))
 		if err := os.MkdirAll(filepath.Dir(path), 0700); err != nil {
 			t.Fatal(err)
@@ -73,4 +77,40 @@ func TestGameplayAssetGenerationIsCompleteAndBoundToInputs(t *testing.T) {
 		audit.Files["poknowledge_chr.txt"] = saved
 		writeAudit()
 	})
+}
+
+func TestNativeSkinRejectsGenericNamespaceRewrite(t *testing.T) {
+	for _, source := range []string{
+		`<XML xmlns:ns0="EverQuestData"><ns0:Schema /></XML>`,
+		`<XML><Schema xmlns="EverQuestData" /></XML>`,
+		`<XML><Schema xmlns="EverQuestData" xmlns:dt="wrong" /></XML>`,
+		`<XML><Schema xmlns="EverQuestData" xmlns:dt="EverQuestDataTypes" />`,
+	} {
+		if validateNativeSkin([]byte(source)) == nil {
+			t.Fatalf("accepted native-incompatible skin: %s", source)
+		}
+	}
+}
+
+func TestNativeSkinRequiresRealSchemaAndCompleteDocument(t *testing.T) {
+	schema := `<Schema xmlns="EverQuestData" xmlns:dt="EverQuestDataTypes" />`
+	for _, source := range []string{
+		`<XML><!-- ` + schema + ` --></XML>`,
+		`<XML><Wrapper>` + schema + `</Wrapper></XML>`,
+		`<XML>` + schema + `</XML><`,
+		`<XML>` + schema + `</XML><XML/>`,
+		`<XML>` + schema + `<Wrong></XML>`,
+		`<XML>` + schema + schema + `</XML>`,
+	} {
+		if validateNativeSkin([]byte(source)) == nil {
+			t.Fatalf("accepted invalid skin structure: %s", source)
+		}
+	}
+}
+
+func TestNativeSkinAcceptsStockASCIIEncoding(t *testing.T) {
+	source := `<?xml version="1.0" encoding="us-ascii" ?><XML ID="EQInterfaceDefinitionLanguage"><Schema xmlns="EverQuestData" xmlns:dt="EverQuestDataTypes" /></XML>`
+	if err := validateNativeSkin([]byte(source)); err != nil {
+		t.Fatal(err)
+	}
 }

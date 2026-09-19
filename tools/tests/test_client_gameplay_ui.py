@@ -51,6 +51,19 @@ class UIAssets(unittest.TestCase):
         self.assertEqual(result.findtext("Screen[@item='AAWindow']/Size/CX"), '940')
         self.assertEqual(result.findtext("Button[@item='AAW_TrainButton']/Location/X"), '830')
 
+    def test_preserves_native_schema_declaration_without_generated_prefix(self):
+        # RoF2's XML reader rejected the valid-but-rewritten ns0:Schema form.
+        schema = b'<Schema xmlns="EverQuestData" xmlns:dt="EverQuestDataTypes" />'
+        source = aa_fixture().replace(b'<XML>', b'<XML ID="EQInterfaceDefinitionLanguage">' + schema)
+        output = ui_xml(source, 'aa')
+        self.assertIn(schema, output)
+        self.assertNotIn(b'ns0:', output)
+        self.assertNotIn(b'xmlns:ns0', output)
+        parsed = ET.fromstring(output)
+        self.assertEqual(parsed.tag, 'XML')
+        self.assertEqual(len(parsed.findall('{EverQuestData}Schema')), 1)
+        self.assertEqual(len(parsed.findall('Listbox')), 4)
+
     def test_unknown_or_partial_layout_refused(self):
         for raw in [aa_fixture().replace(b'Category', b'Timer'), aa_fixture().replace(b'AAW_Subwindows', b'Unknown')]:
             with self.assertRaises(ValueError):
