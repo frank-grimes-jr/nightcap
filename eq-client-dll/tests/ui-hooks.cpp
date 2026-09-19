@@ -8,7 +8,25 @@
 
 static int __cdecl replacement() { return 99; }
 
+static unsigned skin_assign_calls = 0;
+static nightcap::client_ui::EqString* __fastcall fake_skin_assign(nightcap::client_ui::EqString* self, void*, const char* text) {
+    assert(strcmp(text,"nightcap")==0);
+    ++skin_assign_calls;
+    return self;
+}
+
 int main() {
+    // Both native UI-load branches use CXStr assignment (__thiscall, one stack
+    // argument). Existing/custom/missing skin preferences all choose Nightcap;
+    // the original input and unrelated layout data remain untouched.
+    nightcap::client_ui::skin_assign = reinterpret_cast<nightcap::client_ui::AssignString>(&fake_skin_assign);
+    auto skin_hook = reinterpret_cast<nightcap::client_ui::AssignString>(&nightcap::client_ui::SkinHook);
+    nightcap::client_ui::EqString selected{};
+    for (const char* preference : {"Default", "custom", "nightcap", "", static_cast<const char*>(nullptr)}) {
+        assert(skin_hook(&selected,preference)==&selected);
+    }
+    assert(skin_assign_calls==5);
+
     // A disposable synthetic host proves relocated entry execution, return
     // value, original trampoline and byte mismatch rejection. No game process.
     const BYTE original[5] = {0xB8,42,0,0,0}; // mov eax,42

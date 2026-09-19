@@ -3,22 +3,29 @@
 Updated September 19, 2026. This is the current status index; dated studies and
 QA reports preserve their original evidence and are not live-state promises.
 
-## September 19 gameplay candidate
+## September 19 gameplay release
 
-The seven requested client/server updates are implemented in an isolated
-candidate promoted through local dev to local test, with the explicit permanent-AA
-and equippable-pet choices. Matching
-server builds, 87 native tests, item SQL round trips and 26 independent hub
-migration controls pass. Signed QA client 2026091903 starts with all 11 required
-features active and shuts down cleanly. The original client and live server/database are
-unchanged. [Candidate, limitations and exact in-game QA](releases/client-gameplay-20260919.md)
-([phase report](milestones/phase-23-report.md)).
+The seven requested client/server changes are implemented. The matching world
+and all eight zones are now running the verified September 19 build; pet armor
+schema and the compact exotic PoK hub are applied. The full backup, fresh guarded
+migration/rollback rehearsal, running binary hashes, retained rules and merchant
+stock are recorded in [live activation evidence](releases/client-gameplay-live-20260919.md).
+The owner explicitly authorized live activation and main promotion before manual
+acceptance. [Exact in-game QA and limitations](releases/client-gameplay-20260919.md)
+remain open.
+
+Signed client 2026091904 automatically chooses the Nightcap UI for every character,
+removing the per-character slash command. Native checks, both Go suites and eight
+browser tests pass. Final installation/startup is pending: the owner still has the
+1903 client running and must choose whether to override the protected original
+client-folder rule. The new launcher is under `artifacts/client-gameplay-20260919/launcher-auto-ui`.
+[Automatic UI and activation phase report](milestones/phase-24-report.md).
 
 ## Local QA launcher
 
 The owner confirmed the delivered QA launcher works on September 15, 2026.
 
-A signed offline QA package now installs/repairs four client patch files and
+A signed offline QA package installs/repairs the 13-file client inventory and
 launches the separate supported RoF2 copy with verified runtime health. Use
 [the QA executable path and instructions](releases/launcher-qa-20260915.md).
 The normal development preview remains unconfigured. Hosted production updates,
@@ -37,7 +44,7 @@ This source promotion does not deploy a client or enable the default preview.
 
 | System | Current state | Remaining acceptance |
 |---|---|---|
-| PoK hub | 16 class merchants, 1,747 listings / 1,229 unique items; relocated utilities and one Forgemaster | Grounding, paths, Find, shop and quest interactions |
+| PoK hub | Compact 22-service exotic hub; 16 class merchants, 1,747 listings / 1,229 unique items | Grounding, paths, Find, shop and quest interactions |
 | Class guidance | Primary/Second/Third on login, hail and commands; both extra slots selectable from level 1 | Normal-account selection, confirmation, release and persistence |
 | Bags | 22 positive prices, base 10–7,500 platinum; flags/stock retained | Quotes, wallets, restrictions, resale refusal and economy |
 | Earned AAs | Purchases/grants/refunds and atomic native class release; paired binary/plugin | In-game counters/effects, reconnect, failure recovery and rendering |
@@ -50,8 +57,9 @@ This source promotion does not deploy a client or enable the default preview.
 [Deployment and rollback](releases/live-qa-20260915/README.md).
 The server release entered dev/test in PR #49. The owner subsequently authorized
 all gameplay to move to main for live testing; [promotion record](releases/main-live-qa-20260915.md).
-Manual gameplay acceptance remains pending. No new client patch, numerical balance policy or augment content was
-introduced by this deployment.
+Manual gameplay acceptance remains pending. The September 15 deployment did not
+include the new client patch or permanence policy; the September 19 release above
+supersedes those portions of the live baseline.
 
 ## Issue disposition
 
@@ -62,7 +70,7 @@ Their unresolved acceptance was preserved; consolidation did not fix the bugs.
 
 | Open issue | What remains |
 |---|---|
-| #4 | Decide actual AA class column versus labels; true column needs client work |
+| #4 | Native AA Class column implemented in September 19 release; in-game acceptance pending |
 | #10 | Full multiclass/client/launcher release contract and owner acceptance |
 | #11 | Original best-of-stat/AC/stat-cap and heroic-regeneration acceptance |
 | #13 | Caster/equipment parity, including off-base client equip submission |

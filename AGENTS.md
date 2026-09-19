@@ -145,6 +145,12 @@ changes move into main so they can test live. This authorizes the current
 `test` release promotion before manual acceptance; retain all unresolved QA
 and issue gates. It does not permanently remove the default branch policy.
 
+**September 19, 2026 exception:** the owner explicitly requested all remaining
+client/gameplay changes be made live and then merged into main. This authorizes
+this release's deployment and main promotion before manual acceptance. Preserve
+all remaining in-game checks in `docs/releases/client-gameplay-20260919.md`; this
+is not a permanent change to branch policy.
+
 ### Commits
 
 - Small commits/PRs. One system or feature per commit, **with tests**.

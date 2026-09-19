@@ -4,7 +4,9 @@ Start with [current status](status.md), not a dated candidate report.
 
 ## Players and testers
 
-- [September 19 client/gameplay candidate and exact QA](releases/client-gameplay-20260919.md)
+- [September 19 client/gameplay release and exact QA](releases/client-gameplay-20260919.md)
+- [September 19 live activation and recovery](releases/client-gameplay-live-20260919.md)
+- [Phase 24: automatic UI and live activation](milestones/phase-24-report.md)
 
 - [Usable local QA launcher package](releases/launcher-qa-20260915.md)
 
