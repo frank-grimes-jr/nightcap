@@ -11,8 +11,10 @@ permanence and selected equip/remove/inspect rather than inspection alone.
 
 Use exact-build client hooks and a separate `nightcap` skin. The original RoF2
 directory remains read-only. A signed offline package owns all 13 client files;
-the player activates the skin with `/loadskin nightcap 1` per character. Inventory
-and AA metadata are opt-in, bounded, and tied to character/spawn/generation.
+the native UI loader selects `nightcap` automatically for existing and new
+characters. Both saved and explicit skin-name assignments are guarded hooks;
+character-selection UI and native window/hotbar layout handling remain intact.
+Inventory and AA metadata are opt-in, bounded, and tied to character/spawn/generation.
 AA ownership uses the original ability class mask rather than widened access.
 
 The inventory's Pet Armor tab selects each owned permanent pet by class. Its
@@ -66,5 +68,7 @@ because those rows may be stale; content rolls back and the zone respawns them.
 
 Permanent immunity and AA effects change balance substantially. The earlier timed
 AA policy is superseded for this candidate; older balance results cannot certify
-it. Main promotion requires explicit owner acceptance after the exact gameplay
-checks in [the release guide](../releases/client-gameplay-20260919.md).
+it. On September 19 the owner explicitly requested live activation and then
+merging everything into main. This authorizes this release before manual
+acceptance; the exact gameplay checks in [the release guide](../releases/client-gameplay-20260919.md)
+remain open and are not implied by source promotion.

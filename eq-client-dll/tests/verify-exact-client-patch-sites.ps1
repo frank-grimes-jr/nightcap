@@ -292,3 +292,7 @@ if (-not $equipWrapper.Success -or -not $equipWrapperCode.Contains('__finally{ni
     throw 'Equipment wrapper must restore the previous item scope in __finally.'
 }
 Write-Output 'PASS: exact RoF2 client, B2/G006 and G013 equipment patch sites verified.'
+
+# Native UI-load skin assignment, covering explicit and saved/default branches.
+Assert-Bytes $image 0x00095DB5 ([byte[]](0xE8,0x26,0x00,0x37,0x00)) 'UI explicit skin assignment'
+Assert-Bytes $image 0x00095E0B ([byte[]](0xE8,0xD0,0xFF,0x36,0x00)) 'UI saved skin assignment'

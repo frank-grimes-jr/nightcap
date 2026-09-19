@@ -1492,6 +1492,12 @@ static BOOL CALLBACK InitializeRuntime(PINIT_ONCE, PVOID, PVOID*)
     if (!class_ui_ok) Log("Class UI initialization failed at %s; image base=0x%08X", nightcap::client_ui::install_failure, static_cast<unsigned>(eq_base));
     RequirePatch(nightcap::Feature_class_ui,class_ui_ok);
     RequirePatch(nightcap::Feature_pet_armor,nightcap::client_ui::InstallPetArmor());
+    nightcap::client_ui::skin_assign = reinterpret_cast<nightcap::client_ui::AssignString>(eq_base+kUIStringAssignRva);
+    RequirePatch(nightcap::Feature_auto_ui,
+        ApplyGuardedRelativeCall(eq_base,kUIExplicitSkinRva,kExpectedUIExplicitSkin,
+            reinterpret_cast<uintptr_t>(&nightcap::client_ui::SkinHook),"Automatic UI explicit load") &&
+        ApplyGuardedRelativeCall(eq_base,kUISavedSkinRva,kExpectedUISavedSkin,
+            reinterpret_cast<uintptr_t>(&nightcap::client_ui::SkinHook),"Automatic UI saved load"));
     if (g_health.applied_mask!=nightcap::kRequiredMask) StopClient("incomplete_patches");
     if (g_config.mq2_survey) {
         const uintptr_t thread=_beginthreadex(nullptr,0,SurveyThread,nullptr,0,nullptr);

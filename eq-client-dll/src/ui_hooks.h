@@ -10,6 +10,12 @@ namespace client_ui {
 struct EqString { void* rep; };
 static_assert(sizeof(EqString) == 4, "RoF2 CXStr wrapper is x86");
 using AssignString = EqString* (__thiscall *)(EqString*, const char*);
+// Only the two final skin-name assignments in the native UI loader are
+// redirected. Character window positions, hotbars and other INI reads stay native.
+static AssignString skin_assign = nullptr;
+inline EqString* __fastcall SkinHook(EqString* self, void*, const char*) {
+    return skin_assign(self, "nightcap");
+}
 using GetLabel = bool (__cdecl *)(int, EqString*, bool*, unsigned long*);
 using DisplayChat = void (__thiscall *)(void*, const char*, int, bool, bool);
 using SetGameState = void (__thiscall *)(void*, int);

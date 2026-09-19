@@ -1,5 +1,15 @@
 # CHANGES
 
+## 2026-09-19 - Automatic Nightcap UI loading
+
+The exact-build client patch now selects the Nightcap skin during native UI load
+for existing and new characters. No per-character `/loadskin` command is needed;
+window positions and hotbars keep using the native layout handling. Signed
+release 2026091904 adds two guarded call sites and requires all 12 features
+before startup. Native calling-convention tests, exact-client checks, both Go
+suites, and eight browser tests pass. The owner explicitly requested deployment
+and main promotion; gameplay acceptance remains separate.
+
 ## 2026-09-19 - Client and gameplay candidate
 
 Added native inventory multiclass labels, an AA Class column, and an eight-slot

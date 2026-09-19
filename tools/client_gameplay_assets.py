@@ -121,7 +121,7 @@ def main():
     audit = {'schema':1, 'features':['three_classes','aa_class_column','instant_dots','pet_armor','compact_hub_models'],
              'status':'generated_not_installed',
              'source_spells_sha256':hashlib.sha256(raw).hexdigest(),
-             'instant_dot_ids':ids, 'skin_command':'/loadskin nightcap 1',
+             'instant_dot_ids':ids, 'skin_activation':'automatic_at_native_ui_load',
              'files':{name:{'size':len(data),'sha256':hashlib.sha256(data).hexdigest()} for name,data in files.items()}}
     (output/'audit.json').write_text(json.dumps(audit,indent=2)+'\n')
     print(json.dumps({'status':audit['status'],'instant_dots':len(ids),'files':list(files)}))
