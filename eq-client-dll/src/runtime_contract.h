@@ -3,12 +3,12 @@
 #include <cstddef>
 #include <cstdint>
 namespace nightcap {
-enum RequiredFeature : size_t {Feature_caster_chassis,Feature_combat_ability_window,Feature_actions_skills,Feature_skill_value,Feature_hotbutton_skills,Feature_monk_attacks,Feature_equipment,Feature_mana_cache,Feature_mana_gauge};
-static const char* const kRequiredFeatures[] = {"caster_chassis","combat_ability_window","actions_skills","skill_value","hotbutton_skills","monk_attacks","equipment","mana_cache","mana_gauge"};
+enum RequiredFeature : size_t {Feature_caster_chassis,Feature_combat_ability_window,Feature_actions_skills,Feature_skill_value,Feature_hotbutton_skills,Feature_monk_attacks,Feature_equipment,Feature_mana_cache,Feature_mana_gauge,Feature_class_ui,Feature_pet_armor};
+static const char* const kRequiredFeatures[] = {"caster_chassis","combat_ability_window","actions_skills","skill_value","hotbutton_skills","monk_attacks","equipment","mana_cache","mana_gauge","class_ui","pet_armor"};
 static const size_t kRequiredFeatureCount = sizeof(kRequiredFeatures) / sizeof(kRequiredFeatures[0]);
 static const uint32_t kRequiredMask = (uint32_t(1) << kRequiredFeatureCount) - 1;
 static_assert(kRequiredFeatureCount > 0 && kRequiredFeatureCount < 32, "feature mask capacity");
-static const char kCatalogSHA256[] = "0e6d1600971d3abb62c2a243373bfd871b2c9923276b68031410a56d76641795";
-static const char kProxyVersion[] = "0.3.0-dev";
+static const char kCatalogSHA256[] = "d8285e0d55bb506943f6e03e6ffdf7c70fa2b1964ad876acf75e5bd9eece4ac4";
+static const char kProxyVersion[] = "0.4.0-dev";
 static const unsigned kRuntimeSchema = 1;
 }

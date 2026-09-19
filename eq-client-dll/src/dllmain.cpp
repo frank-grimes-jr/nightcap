@@ -27,6 +27,7 @@
 #include "patch_catalog.h"
 #include "runtime_health.h"
 #include "verified_patch.h"
+#include "ui_hooks.h"
 
 #pragma comment(lib, "bcrypt.lib")
 
@@ -1487,6 +1488,10 @@ static BOOL CALLBACK InitializeRuntime(PINIT_ONCE, PVOID, PVOID*)
     const bool mana_hook_ok=ApplyMaxManaServerCacheHook(eq_base,size_ok && hash_ok);
     RequirePatch(nightcap::Feature_mana_cache,mana_hook_ok);
     RequirePatch(nightcap::Feature_mana_gauge,ApplyPlayerManaGaugePredicateHook(eq_base,mana_hook_ok));
+    const bool class_ui_ok = nightcap::client_ui::Install(eq_base);
+    if (!class_ui_ok) Log("Class UI initialization failed at %s; image base=0x%08X", nightcap::client_ui::install_failure, static_cast<unsigned>(eq_base));
+    RequirePatch(nightcap::Feature_class_ui,class_ui_ok);
+    RequirePatch(nightcap::Feature_pet_armor,nightcap::client_ui::InstallPetArmor());
     if (g_health.applied_mask!=nightcap::kRequiredMask) StopClient("incomplete_patches");
     if (g_config.mq2_survey) {
         const uintptr_t thread=_beginthreadex(nullptr,0,SurveyThread,nullptr,0,nullptr);

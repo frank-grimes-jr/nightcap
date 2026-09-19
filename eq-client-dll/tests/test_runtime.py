@@ -15,6 +15,12 @@ CONFIG = (ROOT / "config/nightcap-patches.cfg").read_bytes()
 STOP_CODE = 0x4E430001
 
 class RuntimeTests(unittest.TestCase):
+    def test_ui_state_and_hooks(self):
+        for name in ("ui-state", "ui-hooks", "pet-state"):
+            with self.subTest(name=name):
+                result = subprocess.run([ROOT / f"build/tests/{name}.exe"], capture_output=True, timeout=15)
+                self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+
     def test_patch_failure_injection(self):
         result = subprocess.run([ROOT / "build/tests/verified-patch.exe"], capture_output=True, timeout=15)
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
