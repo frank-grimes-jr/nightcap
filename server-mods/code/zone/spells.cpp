@@ -393,6 +393,11 @@ bool Mob::DoCastSpell(uint16 spell_id, uint16 target_id, CastingSlot slot,
 		orgcasttime = cast_time;
 	}
 
+	// Nightcap player DoTs retain normal mana, target, resist and reuse checks.
+	if (IsInstantCastDot(spell_id)) {
+		cast_time = orgcasttime = 0;
+	}
+
 	// we checked for spells not requiring targets above
 	if(target_id == 0) {
 		LogSpells("Spell Error: no target. spell=[{}]", spell_id);
@@ -2993,29 +2998,47 @@ int Mob::CalcBuffDuration(Mob *caster, Mob *target, uint16 spell_id, int32 caste
 		res = 10000; // ~16h override
 	}
 
-	// Nightcap #31: buffs a player casts on themselves last until clicked off or
-	// overwritten. AA spells, discs and short-box buffs keep their native timers:
-	// extending temporary combat benefits or Tenacity's HP drain breaks balance.
-	// Resolve AA membership from current zone data, so #reload aa cannot leave a
-	// stale spell-ID cache. This only runs when applying an eligible self-buff.
-	// Formula-50/aura spells already return negative above.
-	// ponytail: 1,000,000 tics (~69 days online time), not true DF_Permanent -- a
-	// negative ticsremaining goes raw into SpellBuffPacket_Struct and character_buffs,
-	// and only formula-50 spells get the 0xFFFFFFFF client override (aa.cpp). If true
-	// permanence matters, wire PERMANENT_BUFF_DURATION through those paths instead.
-	if (res > 0 && caster == target && caster->IsClient() &&
-	    IsBeneficialSpell(spell_id) && !IsDisciplineBuff(spell_id) &&
-	    !spells[spell_id].short_buff_box && zone &&
-	    std::none_of(zone->aa_ranks.begin(), zone->aa_ranks.end(), [spell_id](const auto &entry) {
-		    return entry.second && entry.second->spell == spell_id;
-	    })) {
-		res = 1000000;
-	}
+	// AddBuff applies permanence after native formula/focus resolution.
 
 	LogSpells("Spell [{}]: Casting level [{}], formula [{}], base_duration [{}]: result [{}]",
 		spell_id, castlevel, formula, duration, res);
 
 	return res;
+}
+
+int32 Mob::GetBuffDurationForTarget(uint16 spell_id, int32 duration) const
+{
+	// Auras retain range-managed expiry; duration zero is not a buff.
+	if (duration != 0 && duration != -4 && IsValidSpell(spell_id) &&
+		(IsClient() || IsPetOwnerClient()) && IsBeneficialSpell(spell_id)) {
+		return PERMANENT_BUFF_DURATION;
+	}
+	return duration;
+}
+
+int32 Mob::BuffDurationForClient(int32 duration)
+{
+	// Engine override sentinel -1000 is RoF2's no-countdown value -1 on the wire.
+	return duration == PERMANENT_BUFF_DURATION ? -1 : duration;
+}
+
+bool Mob::IsInstantCastDot(uint16 spell_id) const
+{
+	if (!IsClient() || !IsValidSpell(spell_id) || !IsDetrimentalSpell(spell_id)) {
+		return false;
+	}
+	const auto &spell = spells[spell_id];
+	if (CalcBuffDuration_formula(1, spell.buff_duration_formula, spell.buff_duration) == 0) {
+		return false;
+	}
+	// Include life-tap and one-tick DoTs excluded by the generic AI classifier.
+	for (int i = 0; i < EFFECT_COUNT; ++i) {
+		if (spell.base_value[i] < 0 && (spell.effect_id[i] == SpellEffect::CurrentHP ||
+			spell.effect_id[i] == SpellEffect::BardAEDot)) {
+			return true;
+		}
+	}
+	return false;
 }
 
 // the generic formula calculations
@@ -3580,6 +3603,8 @@ int Mob::AddBuff(Mob *caster, uint16 spell_id, int duration, int32 level_overrid
 		return -2;	// no duration? this isn't a buff
 	}
 
+	duration = GetBuffDurationForTarget(spell_id, duration);
+
 	LogSpells("Trying to add buff [{}] cast by [{}] (cast level [{}]) with duration [{}]",
 		spell_id, caster?caster->GetName():"UNKNOWN", caster_level, duration);
 
@@ -3773,7 +3798,7 @@ int Mob::AddBuff(Mob *caster, uint16 spell_id, int duration, int32 level_overrid
 	buffs[emptyslot].virus_spread_time = 0;
 	buffs[emptyslot].instrument_mod = caster ? caster->GetInstrumentMod(spell_id) : 10;
 
-	if (level_override > 0 || buffs[emptyslot].hit_number > 0) {
+	if (duration == PERMANENT_BUFF_DURATION || level_override > 0 || buffs[emptyslot].hit_number > 0) {
 		buffs[emptyslot].UpdateClient = true;
 	} else {
 		if (buffs[emptyslot].ticsremaining > (1 + CalcBuffDuration_formula(caster_level, spells[spell_id].buff_duration_formula, spells[spell_id].buff_duration)))
@@ -4860,8 +4885,8 @@ void Mob::BuffFadeNonPersistDeath()
 		auto current_spell_id = buffs[buff_slot].spellid;
 		if (
 			IsValidSpell(current_spell_id) &&
-			!IsPersistDeathSpell(current_spell_id) &&
-			!HasPersistDeathIllusion(current_spell_id)
+			(((IsClient() || IsPetOwnerClient()) && IsBeneficialSpell(current_spell_id)) ||
+				(!IsPersistDeathSpell(current_spell_id) && !HasPersistDeathIllusion(current_spell_id)))
 		) {
 			BuffFadeBySlot(buff_slot, false);
 			recalc_bonus = true;
@@ -6580,7 +6605,7 @@ void Client::SendBuffDurationPacket(Buffs_Struct &buff, int slot)
 	sbf->buff.level = buff.casterlevel > 0 ? buff.casterlevel : GetLevel();
 	sbf->buff.bard_modifier = buff.instrument_mod;
 	sbf->buff.spellid = buff.spellid;
-	sbf->buff.duration = buff.ticsremaining;
+	sbf->buff.duration = BuffDurationForClient(buff.ticsremaining);
 	if (buff.dot_rune)
 		sbf->buff.counters = buff.dot_rune;
 	else if (buff.magic_rune)
@@ -6615,7 +6640,7 @@ void Client::SendBuffNumHitPacket(Buffs_Struct &buff, int slot)
 
 	bi->entries[0].buff_slot = slot;
 	bi->entries[0].spell_id = buff.spellid;
-	bi->entries[0].tics_remaining = buff.ticsremaining;
+	bi->entries[0].tics_remaining = BuffDurationForClient(buff.ticsremaining);
 	bi->entries[0].num_hits = buff.hit_number;
 	strn0cpy(bi->entries[0].caster, buff.caster_name, 64);
 	bi->name_lengths = strlen(bi->entries[0].caster);
@@ -6645,7 +6670,7 @@ void Mob::SendPetBuffsToClient()
 	{
 		if (IsValidSpell(buffs[buffslot].spellid)) {
 			pbs->spellid[buffslot] = buffs[buffslot].spellid;
-			pbs->ticsremaining[buffslot] = buffs[buffslot].ticsremaining;
+			pbs->ticsremaining[buffslot] = BuffDurationForClient(buffs[buffslot].ticsremaining);
 			PetBuffCount++;
 		}
 	}
@@ -6714,7 +6739,7 @@ EQApplicationPacket *Mob::MakeBuffsPacket(bool for_target, bool clear_buffs)
 		if (IsValidSpell(buffs[i].spellid)) {
 			buff->entries[index].buff_slot = i;
 			buff->entries[index].spell_id = buffs[i].spellid;
-			buff->entries[index].tics_remaining = buffs[i].ticsremaining;
+			buff->entries[index].tics_remaining = BuffDurationForClient(buffs[i].ticsremaining);
 			buff->entries[index].num_hits = buffs[i].hit_number;
 			strn0cpy(buff->entries[index].caster, buffs[i].caster_name, 64);
 			buff->name_lengths += strlen(buff->entries[index].caster);
@@ -6732,7 +6757,7 @@ void Mob::BuffModifyDurationBySpellID(uint16 spell_id, int32 newDuration)
 	{
 		if (buffs[i].spellid == spell_id)
 		{
-			buffs[i].ticsremaining = newDuration;
+			buffs[i].ticsremaining = GetBuffDurationForTarget(spell_id, newDuration);
 			if(IsClient())
 			{
 				CastToClient()->SendBuffDurationPacket(buffs[i], i);

@@ -3600,7 +3600,8 @@ void Mob::ShowBuffs(Client* c) {
 			const auto buff_duration_formula = spells[spell_id].buff_duration_formula;
 			const auto is_permanent          = (
 				buff_duration_formula == DF_Aura ||
-				buff_duration_formula == DF_Permanent
+				buff_duration_formula == DF_Permanent ||
+				buffs[i].ticsremaining == PERMANENT_BUFF_DURATION
 			);
 
 			const auto time = Strings::SecondsToTime(buffs[i].ticsremaining * 6);
@@ -5284,6 +5285,10 @@ uint32 Mob::GetLevelHP(uint8 tlevel)
 
 int32 Mob::GetActSpellCasttime(uint16 spell_id, int32 casttime)
 {
+	if (IsInstantCastDot(spell_id)) {
+		return 0;
+	}
+
 	int32 cast_reducer = GetFocusEffect(focusSpellHaste, spell_id);
 	int32 cast_reducer_amt = GetFocusEffect(focusFcCastTimeAmt, spell_id);
 	int32 cast_reducer_no_limit = GetFocusEffect(focusFcCastTimeMod2, spell_id);

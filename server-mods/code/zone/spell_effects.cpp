@@ -1376,7 +1376,7 @@ bool Mob::SpellEffect(Mob* caster, uint16 spell_id, float partial, int level_ove
 				snprintf(effect_desc, _EDLEN, "Invulnerability");
 #endif
 				if (spell_id == 4789 && buffslot > -1) { // Touch of the Divine - Divine Save
-					buffs[buffslot].ticsremaining = spells[spell_id].buff_duration;
+					buffs[buffslot].ticsremaining = GetBuffDurationForTarget(spell_id, spells[spell_id].buff_duration);
 				} // Prevent focus/aa buff extension
 
 				SetInvul(true);

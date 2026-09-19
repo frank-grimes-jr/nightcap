@@ -169,11 +169,12 @@ uint32 Client::NukeItem(uint32 itemnum, uint8 where_to_check) {
 }
 
 
-bool Client::CheckLoreConflict(const EQ::ItemData* item)
+bool Client::CheckLoreConflict(const EQ::ItemData* item, bool include_pet_armor)
 {
 	if (!item) { return false; }
 	if (!item->LoreFlag) { return false; }
 	if (item->LoreGroup == 0) { return false; }
+	if (include_pet_armor && PetArmorLoreConflict(item)) { return true; }
 
 	if (item->LoreGroup == -1) // Standard lore items; look everywhere except the shared bank, return the result
 		return (m_inv.HasItem(item->ID, 0, ~invWhereSharedBank) != INVALID_INDEX);

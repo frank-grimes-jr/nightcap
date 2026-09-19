@@ -52,10 +52,11 @@ extern WorldServer worldserver;
 extern EntityList entity_list;
 
 bool Client::Process() {
-	if (!m_multiclass_state_valid) { OnDisconnect(true); return false; }
+	if (!m_multiclass_state_valid || !m_pet_armor_transfer_valid) { OnDisconnect(true); return false; }
 	bool ret = true;
 
 	if (Connected() || IsLD()) {
+		if (client_data_loaded && m_pet_armor_apply_timer.Check()) { ApplyPetArmor(); }
 		// try to send all packets that weren't sent before
 		if (!IsLD() && zoneinpacket_timer.Check()) {
 			SendAllPackets();
@@ -178,7 +179,7 @@ bool Client::Process() {
 
 			RecordPlayerEventLog(PlayerEvent::WENT_OFFLINE, PlayerEvent::EmptyEvent{});
 
-			if (parse->PlayerHasQuestSub(EVENT_DISCONNECT)) {
+			if (m_pet_armor_transfer_valid && parse->PlayerHasQuestSub(EVENT_DISCONNECT)) {
 				parse->EventPlayer(EVENT_DISCONNECT, this, "", 0);
 			}
 
@@ -327,14 +328,12 @@ bool Client::Process() {
 			Things which prevent us from attacking:
 				- being under AI control, the AI does attacks
 				- being dead
-				- casting a spell and bard check
 				- not having a target
 				- being stunned or mezzed
 				- having used a ranged weapon recently
 		*/
 		if (auto_attack) {
 			if (!IsAIControlled() && !dead
-				&& !(spellend_timer.Enabled() && casting_spell_id && !IsBardSong(casting_spell_id))
 				&& !IsStunned() && !IsFeared() && !IsMezzed() && GetAppearance() != eaDead && !IsMeleeDisabled()
 				)
 				may_use_attacks = true;
@@ -615,11 +614,12 @@ bool Client::Process() {
 		while (app = eqs->PopPacket()) {
 			HandlePacket(app);
 			safe_delete(app);
+			if (!m_pet_armor_transfer_valid) { break; }
 		}
 	}
 
 	// A class commit failure must not enter the normal linkdead/AI path.
-	if (!m_multiclass_state_valid) { OnDisconnect(true); return false; }
+	if (!m_multiclass_state_valid || !m_pet_armor_transfer_valid) { OnDisconnect(true); return false; }
 
 	ClientToNpcAggroProcess();
 
@@ -733,14 +733,20 @@ void Client::OnDisconnect(bool hard_disconnect) {
 	database.SetIngame(CharacterID(), 0); //We change ingame status regardless of if a player logs out to zone or not, because we only want to trigger it on their first login from world.
 
 	/* Remove from all proximities */
-	ClearAllProximities();
+	if (m_pet_armor_transfer_valid) {
+		ClearAllProximities();
+	} else {
+		// Exit/area quest callbacks can write inventory. Do not dispatch them
+		// after an ambiguous item transaction has quarantined this session.
+		m_Proximity = glm::vec3(FLT_MAX, FLT_MAX, FLT_MAX);
+	}
 
 	auto outapp = new EQApplicationPacket(OP_LogoutReply);
 	FastQueuePacket(&outapp);
 
 	RecordPlayerEventLog(PlayerEvent::WENT_OFFLINE, PlayerEvent::EmptyEvent{});
 
-	if (parse->PlayerHasQuestSub(EVENT_DISCONNECT)) {
+	if (m_pet_armor_transfer_valid && parse->PlayerHasQuestSub(EVENT_DISCONNECT)) {
 		parse->EventPlayer(EVENT_DISCONNECT, this, "", 0);
 	}
 

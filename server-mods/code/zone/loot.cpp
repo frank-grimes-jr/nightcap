@@ -398,6 +398,8 @@ void NPC::AddLootDrop(
 
 		if (!item2->NoPet) {
 			for (int i = EQ::invslot::EQUIPMENT_BEGIN; !found && i <= EQ::invslot::EQUIPMENT_END; i++) {
+				// Explicit player armor owns these slots, including quest-granted loot.
+				if (IsNightcapPetArmorSlot(i)) { continue; }
 				const uint32 slots = (1 << i);
 				if (item2->Slots & slots) {
 					if (equipment[i]) {

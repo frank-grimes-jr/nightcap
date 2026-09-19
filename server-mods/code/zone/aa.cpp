@@ -881,7 +881,7 @@ void Client::InspectBuffs(Client* Inspector, int Rank)
 			continue;
 		ib->spell_id[packet_index] = buffs[i].spellid;
 		if (Rank > 1)
-			ib->tics_remaining[packet_index] = spells[buffs[i].spellid].buff_duration_formula == DF_Permanent ? 0xFFFFFFFF : buffs[i].ticsremaining;
+			ib->tics_remaining[packet_index] = spells[buffs[i].spellid].buff_duration_formula == DF_Permanent ? 0xFFFFFFFF : BuffDurationForClient(buffs[i].ticsremaining);
 		packet_index++;
 	}
 
@@ -1025,7 +1025,21 @@ void Client::SendAlternateAdvancementTable() {
 	SendLoadedAlternateAdvancementTable();
 }
 
+void Client::RefreshNightcapUI() {
+	if (!zone || (m_nightcap_ui_enabled && !m_nightcap_ui_refresh_timer.Check())) { return; }
+	m_nightcap_ui_refresh_timer.Start(3000);
+	m_nightcap_ui_enabled = true;
+	SendLoadedAlternateAdvancementTable();
+}
+
 void Client::SendLoadedAlternateAdvancementTable() {
+	// Versioned presentation snapshot; never changes AA eligibility or ownership.
+	if (m_nightcap_ui_enabled) {
+		if (++m_nightcap_ui_generation == 0) { ++m_nightcap_ui_generation; }
+		Message(Chat::White, "[NCUI1]S|%u|%u|%u|%u|%u|%u|%u|%u|%s",
+			m_nightcap_ui_generation, CharacterID(), zone->GetZoneID(), zone->GetInstanceID(),
+			GetID(), GetClass(), GetClass2(), GetClass3(), GetCleanName());
+	}
 	for(auto &aa : zone->aa_abilities) {
 		uint32 charges = 0;
 		auto ranks = GetAA(aa.second->first_rank_id, &charges);
@@ -1040,6 +1054,8 @@ void Client::SendLoadedAlternateAdvancementTable() {
 			SendAlternateAdvancementRank(aa.first, 1);
 		}
 	}
+	// The native AAExpUpdate handler rebuilds an already-open AA window.
+	if (m_nightcap_ui_enabled) { SendAlternateAdvancementStats(); }
 }
 
 void Client::SendAlternateAdvancementRank(int aa_id, int level) {
@@ -1065,6 +1081,14 @@ void Client::SendAlternateAdvancementRank(int aa_id, int level) {
 	int size = sizeof(AARankInfo_Struct) + (sizeof(AARankEffect_Struct) * rank->effects.size()) + (sizeof(AARankPrereq_Struct) * rank->prereqs.size());
 	auto outapp = new EQApplicationPacket(OP_SendAATable, size);
 	AARankInfo_Struct *aai = (AARankInfo_Struct*)outapp->pBuffer;
+
+	// Publish the original mask, before the client visibility mask is reshaped.
+	// List row data is rank->id, not ability->id. Send before the table row.
+	if (m_nightcap_ui_enabled) {
+		Message(Chat::White, "[NCUI1]A|%u|%u|%u|%u|%u|%u|%u",
+			m_nightcap_ui_generation, CharacterID(), zone->GetZoneID(), zone->GetInstanceID(),
+			GetID(), rank->id, ability->classes & 0x1fffe);
+	}
 
 	aai->id = rank->id;
 	aai->upper_hotkey_sid = rank->upper_hotkey_sid;

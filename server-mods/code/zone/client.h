@@ -38,6 +38,7 @@ namespace EQ
 	struct ItemData;
 }
 
+#include "zone/pet_armor.h"
 #include "zone/aggromanager.h"
 #include "zone/bot_structs.h"
 #include "zone/cheat_manager.h"
@@ -515,6 +516,13 @@ public:
 	inline uint32 GetClassMask() const { return m_multiclass_mask; }
 	inline uint8 GetClass2() const { return m_class2; }
 	inline uint8 GetClass3() const { return m_class3; }
+	void RefreshNightcapUI();
+	bool LoadPetArmor();
+	NPC *GetArmorPet(uint8 pet_class);
+	void ApplyPetArmor();
+	void SendPetArmor();
+	void HandlePetArmor(const Seperator *sep);
+	bool PetArmorLoreConflict(const EQ::ItemData *item);
 	std::vector<uint8> GetMulticlassList() const; // base + class2 + class3 (nonzero, deduped)
 	bool IsMulticlassMember(uint8 class_id) const;// class_id is one of the held classes
 	bool HasAnyCasterClass() const;               // any held class is an INT or WIS caster
@@ -826,7 +834,7 @@ public:
 	void AssignToInstance(uint16 instance_id);
 	void RemoveFromInstance(uint16 instance_id);
 	void WhoAll();
-	bool CheckLoreConflict(const EQ::ItemData* item);
+	bool CheckLoreConflict(const EQ::ItemData* item, bool include_pet_armor = true);
 	void ChangeLastName(std::string last_name);
 	void GetGroupAAs(GroupLeadershipAA_Struct *into) const;
 	void GetRaidAAs(RaidLeadershipAA_Struct *into) const;
@@ -2312,6 +2320,18 @@ private:
 	EQ::versions::ClientVersion m_ClientVersion;
 	uint32 m_ClientVersionBit;
 	uint32 m_multiclass_mask;
+	NightcapPetArmor::Collection m_pet_armor;
+	std::map<uint8, uint16> m_pet_armor_roster;
+	bool m_pet_armor_loaded = false;
+	bool m_pet_armor_unavailable = false;
+	bool m_pet_armor_transfer_valid = true;
+	bool m_pet_armor_ui_enabled = false;
+	uint32 m_pet_armor_nonce = 0;
+	Timer m_pet_armor_apply_timer{1000};
+	Timer m_pet_armor_view_timer{3000};
+	bool m_nightcap_ui_enabled = false;
+	uint32 m_nightcap_ui_generation = 0;
+	Timer m_nightcap_ui_refresh_timer{3000};
 	uint8 m_class2;
 	uint8 m_class3;
 	std::map<uint8, uint16> m_class_pets; // class_id -> entity_id for class2/class3 pets

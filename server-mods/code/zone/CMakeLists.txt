@@ -71,6 +71,8 @@ set(zone_sources
     pathfinder_null.cpp
     pathing.cpp
     petitions.cpp
+    client_pet_armor.cpp
+    pet_armor.cpp
     pets.cpp
     position.cpp
     qglobals.cpp
@@ -368,6 +370,7 @@ set(gm_command_sources
     bot_commands/bot_track.cpp
     bot_commands/bot_view_combos.cpp
     command.cpp
+    gm_commands/nightcapui.cpp
     gm_commands/aa_exp.cpp
     gm_commands/acceptrules.cpp
     gm_commands/advnpcspawn.cpp

@@ -2986,7 +2986,7 @@ void ZoneDatabase::LoadBuffs(Client *client)
 			strncpy(buffs[e.slot_id].caster_name, "", 64);
 		}
 
-		buffs[e.slot_id].ticsremaining     = e.ticsremaining;
+		buffs[e.slot_id].ticsremaining     = client->GetBuffDurationForTarget(e.spell_id, e.ticsremaining);
 		buffs[e.slot_id].counters          = e.counters;
 		buffs[e.slot_id].hit_number        = e.numhits;
 		buffs[e.slot_id].melee_rune        = e.melee_rune;

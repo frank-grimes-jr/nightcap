@@ -1583,14 +1583,14 @@ bool Mob::Attack(Mob* other, int Hand, bool bRiposte, bool IsStrikethrough, bool
 	LogCombatDetail("Attacking [{}] with hand [{}] [{}]", other->GetName(), Hand, bRiposte ? "this is a riposte" : "");
 
 	if (
-		(IsCasting() && GetClass() != Class::Bard && !IsFromSpell)
+		(!IsClient() && IsCasting() && GetClass() != Class::Bard && !IsFromSpell)
 		|| ((IsClient() && CastToClient()->dead) || (other->IsClient() && other->CastToClient()->dead))
 		|| (GetHP() < 0)
 		|| (!IsAttackAllowed(other))
 		|| (IsBot() && GetAppearance() == eaDead)
 		) {
 		LogCombat("Attack cancelled, invalid circumstances");
-		return false; // Only bards can attack while casting
+		return false;
 	}
 
 	if (DivineAura() && !CastToClient()->GetGM()) { //cant attack while invulnerable unless your a gm
@@ -2036,6 +2036,9 @@ bool Client::Death(Mob* killer_mob, int64 damage, uint16 spell, EQ::skills::Skil
 
 	// now we apply the exp loss, unmem their spells, and make a corpse
 	// unless they're a GM (or less than lvl 10
+	// Nightcap beneficial buffs never survive actual death, including effects
+	// normally marked death-persistent and when BuffsFadeOnDeath is disabled.
+	BuffFadeBeneficial();
 	if (!GetGM()) {
 		if (exploss > 0) {
 			int32 newexp = GetEXP();

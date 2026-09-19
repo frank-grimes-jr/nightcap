@@ -1,5 +1,22 @@
 # CHANGES
 
+## 2026-09-19 - Client and gameplay candidate
+
+Added native inventory multiclass labels, an AA Class column, and an eight-slot
+Pet Armor tab with equip/remove/inspect and durable per-class item storage.
+Beneficial player/owned-pet buffs now use true permanent duration, including AA
+buffs and disciplines as explicitly requested; death removes them. Player DoTs
+cast instantly and melee rounds continue during casting. The PoK planner groups
+22 existing services near arrival and stages verified later-era models without
+changing merchant stock. Signed client packaging now requires 13 files.
+
+Validation includes native world/zone builds, item transfer failure injection and
+SQL round trips, independent migration/rollback rehearsal, and client/launcher
+tests. Native UI SEH prologues handle Windows image relocation. Pet armor rejects
+temporary No Rent and evolving/scaling items; its escrow table must never be
+dropped while it owns items. Exact deployment, rollback and required in-game QA:
+[September 19 guide](docs/releases/client-gameplay-20260919.md).
+
 ## 2026-09-15 - Usable signed offline QA launcher
 
 Added a generated QA-only signed bundle and portable launcher state so Check,

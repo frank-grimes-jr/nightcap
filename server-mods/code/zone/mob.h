@@ -363,6 +363,9 @@ public:
 	int32 GetActSpellCost(uint16 spell_id, int32 cost);
 	virtual int32 GetActSpellDuration(uint16 spell_id, int32 duration);
 	int32 GetActSpellCasttime(uint16 spell_id, int32 casttime);
+	int32 GetBuffDurationForTarget(uint16 spell_id, int32 duration) const;
+	bool IsInstantCastDot(uint16 spell_id) const;
+	static int32 BuffDurationForClient(int32 duration);
 	virtual int64 GetActReflectedSpellDamage(uint16 spell_id, int64 value, int effectiveness);
 	float ResistSpell(uint8 resist_type, uint16 spell_id, Mob *caster, bool use_resist_override = false,
 		int resist_override = 0, bool CharismaCheck = false, bool CharmTick = false, bool IsRoot = false,
