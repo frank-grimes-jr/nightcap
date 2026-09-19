@@ -4,6 +4,8 @@ Start with [current status](status.md), not a dated candidate report.
 
 ## Players and testers
 
+- [September 19 client/gameplay candidate and exact QA](releases/client-gameplay-20260919.md)
+
 - [Usable local QA launcher package](releases/launcher-qa-20260915.md)
 
 - [Consolidated test release and exact QA](releases/test-consolidation-20260915.md)
@@ -26,6 +28,8 @@ Start with [current status](status.md), not a dated candidate report.
 - [Change history](../CHANGES.md)
 
 ## Evidence and design
+
+- [Client/gameplay candidate verification](milestones/phase-23-report.md)
 
 - [Signed offline QA launcher evidence](milestones/phase-22-report.md)
 

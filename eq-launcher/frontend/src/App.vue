@@ -160,6 +160,10 @@ onUnmounted(() => {
           <p class="status-message" role="status" aria-live="polite">
             {{ state.message }}
           </p>
+          <p v-if="state.can_play" class="status-message">
+            In game, run <code>/loadskin nightcap 1</code> once per character to show
+            the three classes, AA class column, and Pet Armor tab.
+          </p>
           <p v-if="error" class="error-message" role="alert">{{ error }}</p>
           <div
             class="progress"

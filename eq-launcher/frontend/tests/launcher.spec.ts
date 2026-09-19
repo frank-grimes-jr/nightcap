@@ -276,6 +276,8 @@ test("Play remains pending while Stop game stays available and edits are locked"
   page.on("pageerror", (e) => failures.push(e.message));
   await desktop(page, "play");
   await page.getByRole("button", {name:"Check for updates",exact:true}).click();
+  await expect(page.getByText("/loadskin nightcap 1", {exact:true})).toBeVisible();
+  await page.screenshot({path:"test-results/launcher-gameplay-ready.png",fullPage:true});
   await expect(page.getByRole("button", {name:"Play Nightcap"})).toBeEnabled();
   await page.getByRole("button", {name:"Play Nightcap"}).click();
   await expect(page.getByRole("heading", {name:"Nightcap is running",exact:true})).toBeVisible();

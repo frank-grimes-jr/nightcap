@@ -1,7 +1,17 @@
 # Current Nightcap status
 
-Updated September 15, 2026. This is the current status index; dated studies and
+Updated September 19, 2026. This is the current status index; dated studies and
 QA reports preserve their original evidence and are not live-state promises.
+
+## September 19 gameplay candidate
+
+The seven requested client/server updates are implemented in an isolated
+candidate, with the explicit permanent-AA and equippable-pet choices. Matching
+server builds, 87 native tests, item SQL round trips and 26 independent hub
+migration controls pass. Signed QA client 2026091903 starts with all 11 required
+features active and shuts down cleanly. The original client and live server/database are
+unchanged. [Candidate, limitations and exact in-game QA](releases/client-gameplay-20260919.md)
+([phase report](milestones/phase-23-report.md)).
 
 ## Local QA launcher
 

@@ -79,6 +79,21 @@ on September 15, 2026; this is not a record of completed manual acceptance.
 Current scope and QA: `docs/releases/main-live-qa-20260915.md` and
 `docs/releases/live-qa-20260915/QA.md`.
 
+### September 19 client/gameplay candidate
+
+`docs/releases/client-gameplay-20260919.md` owns this candidate's activation and
+in-game gates. The original client stays read-only; generate assets separately
+and install into a QA copy. Native SEH prologue signatures contain HIGHLOW
+relocations: rebase their verified immediate before runtime comparison or copying
+to a trampoline. Keep the on-disk signed catalog bytes unchanged.
+
+`character_pet_armor` owns complete player item instances. Never drop/truncate it
+on rollback. Transfers use no-retry transactions and full preimages; uncertain
+commit acknowledgement quarantines all cursor-saving and quest-callback paths.
+Saved GUIDs are CAS preimages, not runtime serials restored after inventory load.
+PoK FLOAT heading rollback preimages must match float32 storage, not Python double
+formatting. Rehearse forward and rollback against captured schemas before apply.
+
 ## Non-obvious gotchas
 
 - MariaDB is always on **port 3307**, not the default 3306
