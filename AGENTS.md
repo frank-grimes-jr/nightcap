@@ -81,6 +81,12 @@ Current scope and QA: `docs/releases/main-live-qa-20260915.md` and
 
 ### September 19 client/gameplay candidate
 
+The owner explicitly authorized signed repair release 2026091905 in
+`Client_RoF2_Dev/everquest_rof2` on September 19. It was installed through the
+verified launcher and all 13 managed files/runtime features checked; eqgame.exe
+remained unchanged. This scoped exception does not authorize arbitrary client
+binary/data edits. Current delivery evidence is in the skin-repair release guide.
+
 RoF2's UI parser requires literal unprefixed `Schema` with both
 `xmlns="EverQuestData"` and `xmlns:dt="EverQuestDataTypes"`. Generic XML
 namespace rewriting (`ns0:Schema`) makes the entire skin fall back to Default.

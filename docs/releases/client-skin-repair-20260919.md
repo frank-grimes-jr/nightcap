@@ -46,11 +46,20 @@ then shut down through owned cleanup. At 22:43 UTC its runtime reported proxy
 the repaired native header. Evidence: local `delivery-verification.json`,
 `install-1905.json` and `launch-1905.jsonl` under the repair artifact directory.
 
-Original-client installation still requires the selected authorized folder: the
-repository protects `Client_RoF2_Dev` until the owner explicitly overrides that
-restriction. Native character loading and gameplay acceptance remain unverified;
-the new startup smoke is not a claim that those tests passed. Old offline launcher
-copies embed their old packages, so Check there cannot discover a newer build.
+The owner then explicitly authorized installing this repair into the protected
+original folder. At 23:37 UTC, signed release 1905 was installed into
+`E:\EQ_Local_Dev\Client_RoF2_Dev\everquest_rof2`. All 13 files matched the manifest;
+its actual startup reported proxy 0.4.1 and required/enabled/applied masks all 4095,
+then completed owned shutdown. The pinned `eqgame.exe` hash remained unchanged.
+Evidence: `original-install-1905.json`, `original-launch-1905.jsonl` and
+`original-delivery-verification.json` in the repair artifact directory. The usual
+launcher was reopened for owner login.
+
+Native character loading and gameplay acceptance remain unverified; neither
+startup smoke is a claim that those tests passed. Old offline launcher copies
+embed their old packages, so Check there cannot discover a newer build. The
+original-folder exception applies to this authorized signed repair, not arbitrary
+editing of the client's binary/data tree.
 
 After updating, Check must show installed release 2026091905 with every file
 current. Play must report proxy 0.4.1 and required/enabled/applied masks 4095.
