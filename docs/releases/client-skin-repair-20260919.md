@@ -36,14 +36,21 @@ It contains signed release **2026091905**, expiring `2026-10-19T16:33:38Z`.
 Manifest SHA256:
 `293b5627c07162e2a5ff7754c79b167cf6174783541b5083f127691998ce1b3d`.
 
-Close both EverQuest and the old launcher before replacement. The intended
-stable launcher path is the owner's existing
-`artifacts/client-gameplay-20260919/launcher-final/nightcap-launcher-qa.exe`;
-its current process must exit before that executable can be replaced. Final
-client installation also requires the selected authorized folder. The repository
-protects the original `Client_RoF2_Dev` tree until the owner explicitly overrides
-that restriction. The running 1903 launcher embeds its old package, so pressing
-Check there cannot discover this newer offline build.
+After the owner closed both applications, the existing stable launcher path
+`artifacts/client-gameplay-20260919/launcher-final/nightcap-launcher-qa.exe` was
+updated to 1905, with its previous executable and metadata backed up. Launcher
+SHA256 is `18a21664aee4cb3c1d61cd8498325b99414b546ce5670dff761d7a8d964d0a4b`.
+The separate QA client was updated with the signed installer and reached playing,
+then shut down through owned cleanup. At 22:43 UTC its runtime reported proxy
+0.4.1 and required/enabled/applied masks all 4095. Both installed XML files have
+the repaired native header. Evidence: local `delivery-verification.json`,
+`install-1905.json` and `launch-1905.jsonl` under the repair artifact directory.
+
+Original-client installation still requires the selected authorized folder: the
+repository protects `Client_RoF2_Dev` until the owner explicitly overrides that
+restriction. Native character loading and gameplay acceptance remain unverified;
+the new startup smoke is not a claim that those tests passed. Old offline launcher
+copies embed their old packages, so Check there cannot discover a newer build.
 
 After updating, Check must show installed release 2026091905 with every file
 current. Play must report proxy 0.4.1 and required/enabled/applied masks 4095.
