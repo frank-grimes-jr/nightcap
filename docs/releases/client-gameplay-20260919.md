@@ -1,8 +1,11 @@
 # September 19 client/gameplay candidate
 
-Status: isolated implementation and automated verification; not deployed to the
-live server, not accepted in game, and not promoted to main. Candidate source is
-`feature/client-gameplay` in `E:\EQ_Local_Dev\_worktrees\client-gameplay`.
+Status: source promoted through local dev to local test after automated
+verification; not deployed to the live server, not accepted in game, and not
+promoted to main. Implementation commits: 5d7f3f3 (server), d46afe5 (client),
+48a087f (hub/assets), da77811 (packaging/QA). Feature, dev and test trees matched
+exactly at promotion. The working candidate remains in
+`E:\EQ_Local_Dev\_worktrees\client-gameplay`.
 
 ## Files and activation
 

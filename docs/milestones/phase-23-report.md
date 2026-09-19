@@ -2,7 +2,8 @@
 
 September 19, 2026. Scope: the owner's seven requested updates and explicit
 permanent-AA/equippable-pet clarification. Implementation is isolated on
-`feature/client-gameplay`; live binaries/database remain unchanged.
+`feature/client-gameplay`, then fast-forwarded through clean local dev/test
+worktrees with identical source trees. Live binaries/database remain unchanged.
 
 Built native inventory class presentation, an AA Class column, an eight-slot
 per-pet armor tab with durable item transactions, permanent beneficial buffs
