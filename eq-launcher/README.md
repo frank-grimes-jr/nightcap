@@ -1,4 +1,10 @@
-# Nightcap launcher development preview
+# Nightcap launcher
+
+## Usable local QA package
+
+The default build is an unconfigured development preview. For the signed offline
+QA build, copied client, exact executable path, build instructions and owner QA,
+see [the September 15 package guide](../docs/releases/launcher-qa-20260915.md).
 
 Development implementation for issues #14/#15 and the full client-parity goal.
 The Wails/Vue shell and guarded installer/controller are implemented. The

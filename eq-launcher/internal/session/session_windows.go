@@ -315,6 +315,9 @@ func (o *owner) run(request []byte) {
 		childCloseErr = windows.CloseHandle(o.child)
 	}
 	cleanupErr := errors.Join(pipeCloseErr, childCloseErr, windows.CloseHandle(o.helper), windows.CloseHandle(o.job), o.read.Close(), o.input.close())
+	if cleanupErr == nil {
+		cleanupErr = waitImageWritable(filepath.Join(o.input.directory, "eqgame.exe"), time.Now().Add(5*time.Second))
+	}
 	if cleanupErr != nil {
 		err = errors.Join(err, cleanupErr)
 	}

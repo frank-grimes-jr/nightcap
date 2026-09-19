@@ -8,6 +8,7 @@ import (
 	"io"
 	"os"
 	"path/filepath"
+	"time"
 	"unsafe"
 
 	"golang.org/x/sys/windows"
@@ -148,4 +149,29 @@ func jobEmpty(job windows.Handle) (bool, error) {
 	var info jobAccounting
 	err := windows.QueryInformationJobObject(job, windows.JobObjectBasicAccountingInformation, uintptr(unsafe.Pointer(&info)), uint32(unsafe.Sizeof(info)), nil)
 	return info.ActiveProcesses == 0, err
+}
+
+// waitImageWritable bridges a Windows teardown boundary that job accounting does
+// not cover. ActiveProcesses can reach zero before the executable's image section
+// is released, so returning immediately can expose a generation that the updater
+// still cannot replace. The open is non-mutating; it only proves write access is
+// available after the launch lease and owned process/job handles are closed.
+func waitImageWritable(path string, deadline time.Time) error {
+	wide, err := windows.UTF16PtrFromString(path)
+	if err != nil {
+		return err
+	}
+	for {
+		h, openErr := windows.CreateFile(wide, windows.GENERIC_WRITE, windows.FILE_SHARE_READ|windows.FILE_SHARE_WRITE|windows.FILE_SHARE_DELETE, nil, windows.OPEN_EXISTING, windows.FILE_ATTRIBUTE_NORMAL, 0)
+		if openErr == nil {
+			return windows.CloseHandle(h)
+		}
+		if openErr != windows.ERROR_SHARING_VIOLATION && openErr != windows.ERROR_USER_MAPPED_FILE {
+			return openErr
+		}
+		if time.Now().After(deadline) {
+			return fmt.Errorf("executable remained mapped or write-locked after process cleanup: %w", openErr)
+		}
+		time.Sleep(10 * time.Millisecond)
+	}
 }

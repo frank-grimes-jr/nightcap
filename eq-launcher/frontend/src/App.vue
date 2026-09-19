@@ -124,7 +124,7 @@ onUnmounted(() => {
           :disabled="!native() || busy"
         >
           Player guide <span aria-hidden="true">↗</span></button
-        ><span class="build">Launcher 0.1.0 · Preview</span>
+        ><span class="build">Launcher 0.1.0 · {{ state.channel }}</span>
       </div>
     </aside>
     <main>
@@ -133,7 +133,7 @@ onUnmounted(() => {
           <p class="eyebrow">WELCOME TO NIGHTCAP</p>
           <h1>{{ tab === "client" ? "Your client" : "Recent activity" }}</h1>
         </div>
-        <span class="preview-badge">PREVIEW BUILD</span>
+        <span class="preview-badge">{{ state.channel || "Development preview" }}</span>
       </header>
       <template v-if="tab === 'client'">
         <section

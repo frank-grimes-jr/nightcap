@@ -215,6 +215,37 @@ func TestNativeCancelBeforeChildPIDReleasesOnlyAfterJobEmpty(t *testing.T) {
 	assertUnlocked(t, input)
 }
 
+func TestNativeCleanupReportsPersistentExternalImageLock(t *testing.T) {
+	t.Setenv("NIGHTCAP_BOOTSTRAP_TEST", "hang")
+	t.Setenv("NIGHTCAP_HELPER_HOLD", "1")
+	input := fixtureInputs(t)
+	path := filepath.Join(input.directory, "eqgame.exe")
+	wide, err := windows.UTF16PtrFromString(path)
+	if err != nil {
+		t.Fatal(err)
+	}
+	blocker, err := windows.CreateFile(wide, windows.GENERIC_READ, windows.FILE_SHARE_READ, nil, windows.OPEN_EXISTING, windows.FILE_ATTRIBUTE_NORMAL, 0)
+	if err != nil {
+		t.Fatal(err)
+	}
+	ctx, cancel := context.WithTimeout(context.Background(), 300*time.Millisecond)
+	defer cancel()
+	started := time.Now()
+	s, err := startPrepared(ctx, input)
+	if s != nil || !errors.Is(err, context.DeadlineExceeded) || !strings.Contains(err.Error(), "remained mapped or write-locked") {
+		windows.CloseHandle(blocker)
+		t.Fatalf("persistent image lock result: %v", err)
+	}
+	if elapsed := time.Since(started); elapsed < 5*time.Second || elapsed > 8*time.Second {
+		windows.CloseHandle(blocker)
+		t.Fatalf("cleanup deadline not bounded near five seconds: %v", elapsed)
+	}
+	if err := windows.CloseHandle(blocker); err != nil {
+		t.Fatal(err)
+	}
+	assertUnlocked(t, input)
+}
+
 // This is an owned test executable, not an existing process or installed game.
 func TestUnresponsiveHelperProcess(t *testing.T) {
 	if os.Getenv("NIGHTCAP_GO_HELPER_FIXTURE") != "1" {

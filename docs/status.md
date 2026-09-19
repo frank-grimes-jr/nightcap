@@ -3,10 +3,21 @@
 Updated September 15, 2026. This is the current status index; dated studies and
 QA reports preserve their original evidence and are not live-state promises.
 
+## Local QA launcher
+
+The owner confirmed the delivered QA launcher works on September 15, 2026.
+
+A signed offline QA package now installs/repairs four client patch files and
+launches the separate supported RoF2 copy with verified runtime health. Use
+[the QA executable path and instructions](releases/launcher-qa-20260915.md).
+The normal development preview remains unconfigured. Hosted production updates,
+Windows signing and full in-game client acceptance remain open.
+
 ## Test branch consolidation
 
 After the owner merged PR #52 into dev, all committed source work was consolidated
-through dev into test. The client implementation is unchanged from the reviewed
+through dev into test; the owner then requested promotion of that consolidated
+source to main (2d18e10). The client implementation is unchanged from the reviewed
 phase-20 build; historical branch reconciliation introduced no code changes.
 [Exact promotion scope and native/in-game QA](releases/test-consolidation-20260915.md).
 This source promotion does not deploy a client or enable the default preview.

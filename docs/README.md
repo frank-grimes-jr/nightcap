@@ -4,6 +4,8 @@ Start with [current status](status.md), not a dated candidate report.
 
 ## Players and testers
 
+- [Usable local QA launcher package](releases/launcher-qa-20260915.md)
+
 - [Consolidated test release and exact QA](releases/test-consolidation-20260915.md)
 
 - [Player website](https://frank-grimes-jr.github.io/nightcap/)
@@ -24,6 +26,8 @@ Start with [current status](status.md), not a dated candidate report.
 - [Change history](../CHANGES.md)
 
 ## Evidence and design
+
+- [Signed offline QA launcher evidence](milestones/phase-22-report.md)
 
 - [Test branch consolidation evidence](milestones/phase-21-report.md)
 

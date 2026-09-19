@@ -6,7 +6,6 @@ import (
 	"context"
 	"fmt"
 	"os"
-	"path/filepath"
 
 	"github.com/wailsapp/wails/v2/pkg/runtime"
 	"nightcap/eq-launcher/internal/assets"
@@ -22,9 +21,14 @@ type App struct {
 func NewApp() *App { return &App{} }
 func (a *App) startup(ctx context.Context) {
 	a.ctx = ctx
-	home, err := os.UserConfigDir()
+	policy := launcher.DefaultPolicy()
+	home, err := launcher.StateHome(policy, os.Executable, os.UserConfigDir)
 	if err == nil {
-		a.controller, err = launcher.New(filepath.Join(home, "NightcapLauncher"), launcher.DefaultPolicy())
+		a.controller, err = launcher.New(home, policy)
+		if err == nil && a.controller.Snapshot().ClientDir != "" {
+			// Client errors belong in the status panel, not startup availability.
+			_ = a.controller.SelectClient(ctx, a.controller.Snapshot().ClientDir)
+		}
 	}
 	a.startupError = err
 }

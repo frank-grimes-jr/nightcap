@@ -36,7 +36,21 @@ func Stage(ctx context.Context, raw []byte, sig manifest.Signature, trust manife
 func stage(ctx context.Context, raw []byte, sig manifest.Signature, trust manifest.Trust, clientDir, stagingParent string, transport http.RoundTripper) (Generation, error) {
 	return stageWithCleanup(ctx, raw, sig, trust, clientDir, stagingParent, transport, func(root *os.Root, name string) error { return root.RemoveAll(name) })
 }
-func stageWithCleanup(ctx context.Context, raw []byte, sig manifest.Signature, trust manifest.Trust, clientDir, stagingParent string, transport http.RoundTripper, cleanup func(*os.Root, string) error) (generation Generation, stageErr error) {
+func stageWithCleanup(ctx context.Context, raw []byte, sig manifest.Signature, trust manifest.Trust, clientDir, stagingParent string, transport http.RoundTripper, cleanup func(*os.Root, string) error) (Generation, error) {
+	hosts := append([]string(nil), trust.Hosts...)
+	downloader := &http.Client{Transport: transport, Timeout: 2 * time.Minute, CheckRedirect: func(req *http.Request, via []*http.Request) error {
+		if len(via) >= 5 {
+			return fmt.Errorf("release redirect limit exceeded")
+		}
+		return manifest.ValidateURL(req.URL.String(), hosts)
+	}}
+	return stageFrom(ctx, raw, sig, trust, clientDir, stagingParent, func(ctx context.Context, out *os.File, f manifest.File) error {
+		return download(ctx, downloader, hosts, out, f)
+	}, cleanup)
+}
+
+// Every source shares signed verification, complete staging and cleanup semantics.
+func stageFrom(ctx context.Context, raw []byte, sig manifest.Signature, trust manifest.Trust, clientDir, stagingParent string, source func(context.Context, *os.File, manifest.File) error, cleanup func(*os.Root, string) error) (generation Generation, stageErr error) {
 	m, err := manifest.Verify(raw, sig, trust)
 	if err != nil {
 		return Generation{}, err
@@ -91,13 +105,7 @@ func stageWithCleanup(ctx context.Context, raw []byte, sig manifest.Signature, t
 		return Generation{}, err
 	}
 	defer files.Close()
-	hosts := append([]string(nil), trust.Hosts...)
-	downloader := &http.Client{Transport: transport, Timeout: 2 * time.Minute, CheckRedirect: func(req *http.Request, via []*http.Request) error {
-		if len(via) >= 5 {
-			return fmt.Errorf("release redirect limit exceeded")
-		}
-		return manifest.ValidateURL(req.URL.String(), hosts)
-	}}
+
 	for i, f := range m.Files {
 		if err = ctx.Err(); err != nil {
 			return Generation{}, err
@@ -120,7 +128,7 @@ func stageWithCleanup(ctx context.Context, raw []byte, sig manifest.Signature, t
 				err = closeErr
 			}
 		} else {
-			err = download(ctx, downloader, hosts, out, f)
+			err = source(ctx, out, f)
 		}
 		if err == nil {
 			err = out.Sync()
