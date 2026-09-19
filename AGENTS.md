@@ -81,6 +81,13 @@ Current scope and QA: `docs/releases/main-live-qa-20260915.md` and
 
 ### September 19 client/gameplay candidate
 
+RoF2's UI parser requires literal unprefixed `Schema` with both
+`xmlns="EverQuestData"` and `xmlns:dt="EverQuestDataTypes"`. Generic XML
+namespace rewriting (`ns0:Schema`) makes the entire skin fall back to Default.
+Preserve these declarations and verify native character loading; successful
+runtime hook health alone does not prove that a skin loaded. See
+`docs/releases/client-skin-repair-20260919.md`.
+
 `docs/releases/client-gameplay-20260919.md` owns this candidate's activation and
 in-game gates. The original client stays read-only; generate assets separately
 and install into a QA copy. Native SEH prologue signatures contain HIGHLOW

@@ -14,12 +14,15 @@ The owner explicitly authorized live activation and main promotion before manual
 acceptance. [Exact in-game QA and limitations](releases/client-gameplay-20260919.md)
 remain open.
 
-Signed client 2026091904 automatically chooses the Nightcap UI for every character,
-removing the per-character slash command. Native checks, both Go suites and eight
-browser tests pass. Final installation/startup is pending: the owner still has the
-1903 client running and must choose whether to override the protected original
-client-folder rule. The new launcher is under `artifacts/client-gameplay-20260919/launcher-auto-ui`.
-[Automatic UI and activation phase report](milestones/phase-24-report.md).
+Signed client 2026091905 repairs an actual skin-load failure found in owner QA:
+the generator's namespace rewrite made RoF2 reject Nightcap and fall back to
+Default. The repaired package retains automatic skin selection, preserves the
+native schema header, and rejects the old invalid assets during packaging.
+[Repair evidence and current delivery](releases/client-skin-repair-20260919.md).
+The existing 1903 launcher remains running; replacement/installation requires
+closing the game and launcher, plus the owner's selected authorized client folder.
+Unknown AA title strings remain an open catalog issue (#16); no abilities or owned
+ranks were removed to hide them.
 
 ## Local QA launcher
 

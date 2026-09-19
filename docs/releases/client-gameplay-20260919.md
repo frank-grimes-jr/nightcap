@@ -1,5 +1,9 @@
 # September 19 client/gameplay release
 
+**Client update:** releases 1903/1904 contain a skin serialization defect found
+in owner QA. Use [repair release 1905](client-skin-repair-20260919.md); the historical
+1904 artifact references below are superseded. Server activation remains valid.
+
 The server/database changes are live, verified September 19 at 16:14 UTC.
 [Activation evidence and recovery](client-gameplay-live-20260919.md). The owner
 explicitly requested live activation followed by main promotion on September 19. Manual gameplay acceptance remains open. Implementation commits:
