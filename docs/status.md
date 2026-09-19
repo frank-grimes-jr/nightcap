@@ -20,9 +20,10 @@ Default. The repaired package retains automatic skin selection, preserves the
 native schema header, and rejects the old invalid assets during packaging.
 [Repair evidence and current delivery](releases/client-skin-repair-20260919.md).
 The owner closed the apps; the usual `launcher-final` path now contains 1905.
-Installation and startup passed on the separate QA copy with all 12 features
-active. Original-client installation still awaits its explicit folder override;
-native character UI loading remains unverified.
+Installation and startup passed on both the separate QA copy and, after the
+owner's explicit folder override, the normal original client. All 13 signed files
+and all 12 runtime features were verified. The launcher is ready for owner login;
+native character UI loading and gameplay acceptance remain unverified.
 Unknown AA title strings remain an open catalog issue (#16); no abilities or owned
 ranks were removed to hide them.
 
