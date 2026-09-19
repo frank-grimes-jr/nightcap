@@ -8,8 +8,11 @@ The repair preserves the exact Schema declarations, adds a failing-then-passing
 regression test, and rejects the old representation during signed packaging.
 Independent native-parser and stock-schema review found no additional concrete
 rejection causes. Both Go suites, all four UI tests and the launcher build pass.
-Signed release 2026091905 is ready; actual installation/login remains pending
-game/launcher closure and the authorized folder choice.
+Signed release 2026091905 replaced the old launcher at the usual path after the
+owner closed both apps. Installation and startup on the separate QA copy passed
+with proxy 0.4.1 and all 12 features active, followed by clean owned shutdown.
+Original-client installation awaits the explicit protected-folder override;
+native character login/UI loading remains unverified.
 
 The missing AA names are a separate pre-existing catalog gap: even the database's
 ability names are placeholders. No AA flags, ownership, points, server binaries

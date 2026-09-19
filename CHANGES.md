@@ -8,7 +8,8 @@ literal namespace declarations. Preserve the stock unprefixed schema and ASCII
 header. Add regression coverage and make signed packaging reject the malformed
 representation. Release 2026091905 includes this repair and automatic skin loading.
 Prior startup-health success did not prove character UI loading; 1903/1904 skin
-assets are superseded. Missing AA title data remains a separate open catalog issue.
+assets are superseded. The usual launcher path now contains 1905; signed installation
+and startup passed on the separate QA copy with all 12 features active. Missing AA title data remains a separate open catalog issue.
 [Repair evidence](docs/releases/client-skin-repair-20260919.md).
 
 ## 2026-09-19 - Activate gameplay release for live QA

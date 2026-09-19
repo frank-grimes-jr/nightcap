@@ -19,8 +19,10 @@ the generator's namespace rewrite made RoF2 reject Nightcap and fall back to
 Default. The repaired package retains automatic skin selection, preserves the
 native schema header, and rejects the old invalid assets during packaging.
 [Repair evidence and current delivery](releases/client-skin-repair-20260919.md).
-The existing 1903 launcher remains running; replacement/installation requires
-closing the game and launcher, plus the owner's selected authorized client folder.
+The owner closed the apps; the usual `launcher-final` path now contains 1905.
+Installation and startup passed on the separate QA copy with all 12 features
+active. Original-client installation still awaits its explicit folder override;
+native character UI loading remains unverified.
 Unknown AA title strings remain an open catalog issue (#16); no abilities or owned
 ranks were removed to hide them.
 
