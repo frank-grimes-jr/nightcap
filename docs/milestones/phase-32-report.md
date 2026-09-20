@@ -12,11 +12,13 @@ explicit catalog update rather than inheriting globally widened eligibility.
 Verified: full Linux native build, five client runtime tests, exact signatures,
 69 repository tests, 13 Go test packages, frontend/Wails builds, five production
 supervisor tests, seven mocked rollout cases and five publication cases. Signed release 2026092005 and
-launcher 0.2.2 are staged.
+launcher 0.2.2 are published. The owner authorized main promotion and production
+deployment; both completed. All 15 running native hashes, 33 runtime files, 30
+resident afterimages, 22 hosted client files and four encrypted native handshakes
+pass. Eight preservation checks and all rules are unchanged; full backup retained.
 
-Open: explicit production upload/deployment approval after an automatic review
-rejection, followed by hosted verification and owner in-game acceptance. The separate
-2026092004 deployment has corrected the old hosted economy binaries, but this
-task's OOC and spell changes remain a candidate until its own verified rollout.
+Open: owner in-game acceptance of hails, all-class merchant filtering, scroll
+levels/scribing and WTS/WTB delivery on the updated client. Automated and runtime
+checks do not stand in for those observations.
 
 [Release status, rollback and exact QA](../releases/production-bugfixes-20260920.md).

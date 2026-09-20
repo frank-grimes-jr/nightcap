@@ -1,5 +1,16 @@
 # CHANGES
 
+## 2026-09-20 - Deploy production NPC and multiclass spell repair
+
+At the owner's explicit request, applied the paired native/plugin repair to OVH
+and published signed client release 2026092005 with launcher 0.2.2. All 15 running
+process hashes, 33 runtime files, 30 resident afterimages, 22 hosted file hashes,
+signature and four encrypted native handshakes pass. Eight preservation checks
+and all rules stayed unchanged. A validated on-host backup and previous image
+remain available; no content/schema migration was replayed. Market startup moved
+epoch 2 to 3 with six sell/four buy offers. Players must install the new client
+update. In-game acceptance remains open; see the production bugfix release record.
+
 ## 2026-09-20 - Authorize production bugfix source promotion
 
 The owner requested the tested NPC and multiclass spell fixes be pushed to main.

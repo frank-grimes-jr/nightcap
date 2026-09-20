@@ -1,10 +1,11 @@
 # Production NPC and multiclass spell fixes — September 20, 2026
 
-Status: built, tested, independently reviewed and signed; deployment awaiting
-explicit host/payload approval. No upload or production switch by this task.
+Status: deployed to OVH and client release published after the owner explicitly
+requested "And apply to the server". Server started September 20 at 20:33:24 UTC.
+Hosted verification passes; owner in-game acceptance remains open.
 The owner explicitly authorized main source promotion with "Push to main when
 you're done" on September 20. Existing automated verification and independent
-review pass; manual gameplay acceptance and production deployment remain open.
+review pass; manual gameplay acceptance remains open.
 Branch: `feature/production-bugfixes-20260920`, isolated from the original working
 tree. User intent: repair Tunnel Trader errors, missing NPC auctions, secondary
 class merchant usability and purchased spells reporting level 255.
@@ -72,7 +73,7 @@ Local artifacts: `E:/EQ_Local_Dev/artifacts/production-bugfixes-20260920/`.
 
 ## Rollout and rollback
 
-Staged signed client release: 2026092005; launcher 0.2.2; proxy 0.5.0-dev.
+Published signed client release: 2026092005; launcher 0.2.2; proxy 0.5.0-dev.
 The package has 22 files, uses the existing production signing authority and
 expires October 20, 2026. Private signing material remains local.
 
@@ -88,8 +89,8 @@ expires October 20, 2026. Private signing material remains local.
 Automatic approval review rejected SCP to the existing OVH production host
 `135.148.47.202`: the request did not explicitly authorize exporting these
 binaries, plugin/source artifacts and release script to that host. Explicit
-approval for upload, short restart, deployment and client publication is pending.
-No retry, indirect upload or production change followed that rejection.
+approval was subsequently supplied by the owner: "And apply to the server".
+The reviewed upload, short restart, deployment and publication then completed.
 
 1. Complete full native build, independent review, launcher tests and signing.
    Preserve the source and binary hashes, security hardening and package hashes.
@@ -109,7 +110,35 @@ Do not overwrite subsequent player progress with a whole database restore. For
 client rollback publish retained contents under a higher signed release number;
 do not lower or replace an already published immutable release. The owner's
 explicit main-promotion authorization applies to source; automated checks are
-not manual acceptance or approval of the blocked production upload.
+not manual gameplay acceptance. The later server instruction separately
+authorized the completed production deployment.
+
+## Completed production verification
+
+- Running image: `nightcap-game:release-2026092005`; image ID
+  `sha256:6c448d0ead9433386e89ca207c19bd91ec750e8a7d70f1d9a420b6474f8b8909`. Login, world, UCS and all 12 zones match the reviewed binaries.
+- Full on-host backup validated to 444,884,409 uncompressed bytes;
+  SHA-256 `9232da3ab890d24f8b30cf9613adc35161b30b1fa1a0791a7560c3f59971021e`.
+  Recovery evidence and the prior plugin are retained at
+  `/opt/nightcap/releases/server-2026092005/`; previous image 2026092004 remains.
+- All eight preservation fingerprints and all rule values remained unchanged.
+  No schema/content SQL was replayed. Market epoch moved once, 2 to 3, with ten
+  finds, six sell offers and four buy offers, each quantity one.
+- All 33 managed runtime files and 30 resident afterimages match. Game health is
+  healthy with zero restarts. Startup scans found zero missing-quest-API, native
+  crash or selected database-error markers; raw logs remained on the host.
+- The public signature and every one of the 22 client files passed the actual
+  launcher trust policy and hash checks. Launcher ZIP hash passed. Encrypted
+  native handshakes passed for login/world/UCS/zone ports 5998/9000/7778/7000.
+- Evidence: local `live-verification.json` and `hosted-smoke.txt` in the artifact
+  directory above. These checks do not prove visible in-game hails, filtering,
+  scribing or auction delivery; the exact owner checks below remain necessary.
+
+Close EQ and the old launcher, download the replacement
+[launcher ZIP](https://play.nightcapgame.org/nightcap-friends.zip), extract and run
+launcher 0.2.2, then Check for updates, Install update and Play. Client release
+2026092005 is required for the merchant/scroll UI fixes. The original workspace
+client was not edited. Classic Lavastorm readiness remains gated.
 
 ## Exact owner in-game QA
 

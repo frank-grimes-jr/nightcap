@@ -53,7 +53,7 @@ All commands run from `akk-stack/`:
 
 ## Server ops
 
-- **Spell access is per character in the production bugfix candidate**: use
+- **Spell access is per character in production release 2026092005**: use
   `common/spell_class_catalog.h`, generated from the pinned original spell file,
   for learnable spell levels and ownership. Never widen shared `spells_new` class
   columns on class selection or run the retired global `sync-spell-access.ps1`.
@@ -223,9 +223,10 @@ future gameplay promotion or friend distribution without acceptance.
 
 **September 20 production bugfix promotion:** the owner explicitly requested
 "Push to main when you're done" for the NPC and multiclass spell fixes. This
-authorizes source promotion of the tested release 2026092005 candidate. The
-separate production upload/deployment approval and manual gameplay checks remain
-open; see `docs/releases/production-bugfixes-20260920.md`.
+authorized source promotion of tested release 2026092005. The owner then said
+"And apply to the server", authorizing the completed production deployment and
+matching client publication. Manual gameplay acceptance remains open; see
+`docs/releases/production-bugfixes-20260920.md`.
 
 - Small commits/PRs. One system or feature per commit, **with tests**.
 - If a task is ambiguous, propose 2–3 options with tradeoffs in the PR/commit description rather than silently choosing.
@@ -280,9 +281,9 @@ assets before replacing the channel. New hosts/keys/inventory require a new EXE.
 Cloudflare Tunnel-only ingress, IP allow/deny, private mode14 scrypt login, account
 provisioning and backups. Never set LSPX (even0); it enables public login lookup.
 Use a separate production signing seed and retain it locally. OVH + Cloudflare at
-`play.nightcapgame.org` hosts launcher0.2.1/release2026092004 and the matching native
+`play.nightcapgame.org` hosts launcher0.2.2/release2026092005 and the matching native
 runtime; transport/hash verification passed, but native gameplay acceptance and
-R2 backup/restore testing remain open. See the coordinated hosted release record.
+R2 backup/restore testing remain open. See the production bugfix release record.
 GitHub Actions deployment, patch-before-Play and EXE self-update are not implemented;
 a main push alone does not change OVH. Players fetch built signed artifacts.
 

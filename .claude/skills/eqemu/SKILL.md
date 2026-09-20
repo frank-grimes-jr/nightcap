@@ -34,7 +34,7 @@ Source of truth: C++ in `akk-stack/code/`, live quest scripts in `akk-stack/serv
 ## RoF2 client hard limits (server-side workarounds required)
 
 - **Item ID cap for links: 1,048,575** (`0xFFFFF`). Links encode the id as `%05X & 0x000FFFFF` (`common/say_link.cpp`); higher ids wrap and link to the *wrong item*. Inventory/summon accept 32-bit ids — links are the binding constraint. Keep all custom item ids under the cap.
-- **Spell scribing is gated client-side** by `spells_new.classes1–16`. Granting another class's spells requires patching `spells_new` globally (min-level per class; `255` = unusable). There is no per-character override.
+- **Spell access is per character in signed client/server release 2026092005**: guarded client hooks cover merchant masks, spell levels and the earlier scribe item gate. Both sides use `common/spell_class_catalog.h` from the pinned original spell file and current held classes. Never globally widen `spells_new.classes1–16`; `sync-spell-access.ps1` is retired. Deploy the matching client and server; unknown custom learnable spells require an explicit catalog entry. See `docs/releases/production-bugfixes-20260920.md`.
 - **AA names are cached at zone boot** — per-player dynamic AA renaming is impossible without `#reload aa`; bake labels statically instead.
 - **No per-item name color field**; rarity/quality must be shown via name text tags.
 - Luclin-model races render invisible when players run classic models (race 86 sphinx is invisible; race 21 Xorbb works everywhere).

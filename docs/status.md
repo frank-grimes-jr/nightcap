@@ -3,22 +3,25 @@
 Updated September 20, 2026. This is the current status index; dated studies and
 QA reports preserve their original evidence and are not live-state promises.
 
-## Production NPC and spell-access repair awaiting deployment
+## Production NPC and spell-access repair deployed
 
-[Release 2026092005](releases/production-bugfixes-20260920.md) repairs secondary-class
-vendor usability, level-255 scroll handling and the missing resident OOC API.
-Native/client builds, regression tests, exact client signatures, independent
-review and server/publication rollback rehearsals pass. Launcher 0.2.2 and the
-22-file signed package are staged locally. Automatic review blocked upload to
-the production host; explicit upload/deployment approval is pending. No production
-switch or client publication has occurred for this repair. The owner authorized
-main source promotion on September 20; manual gameplay QA remains open. The last
-verified running hosted version is 2026092004 below.
+[Release 2026092005](releases/production-bugfixes-20260920.md) is deployed on OVH
+with launcher 0.2.2 and 22 signed client files. It repairs secondary-class vendor
+usability, level-255 scroll handling and the missing resident OOC API. The owner
+explicitly requested main promotion and then production application.
+
+All 15 running native process hashes, 33 runtime files, 30 resident afterimages,
+hosted signature/file hashes and four encrypted native handshakes pass. Eight
+player/merchant preservation fingerprints and all rules stayed unchanged. Market
+epoch 3 has ten finds, six sales and four buys, each quantity one. A validated
+full backup and the previous image/plugin are retained. Players must install the
+new launcher/client update; [exact in-game QA](releases/production-bugfixes-20260920.md#exact-owner-in-game-qa)
+remains open. The original workspace client and local QA server were not changed.
 
 ## Production launcher and hosting candidate
 
-The [coordinated hosted update](releases/hosted-main-update-20260920.md) is deployed
-for owner QA: launcher 0.2.1, signed release2026092004, 22 client files and matching
+The earlier [coordinated hosted update](releases/hosted-main-update-20260920.md)
+was deployed for owner QA and is superseded by the repair above: launcher 0.2.1, signed release2026092004, 22 client files and matching
 economy-aware native binaries. All 15 running native process hashes, hosted file
 hashes/signature and four encrypted native transport checks pass. Eight player and
 merchant fingerprints are preserved; no schema/content migration was replayed.
@@ -30,7 +33,7 @@ friends. Infrastructure, private-account provisioning, backups and guides exist.
 The owner selected OVH + Cloudflare; follow the [short setup guide](../deploy/production/QUICKSTART.md).
 The owner-test deployment is running at `play.nightcapgame.org`: database restored,
 private world registered, Cloudflare IP blocking verified, and signed production
-release2026092004 published. Native transport handshakes pass through the encrypted
+release2026092005 published. Native transport handshakes pass through the encrypted
 relay; actual RoF2 login/gameplay and R2 backups remain open. See
 [OVH activation and recovery evidence](releases/ovh-activation-20260920.md).
 GitHub Actions deployment, automatic patch-before-Play and launcher EXE self-update
