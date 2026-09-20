@@ -1,7 +1,8 @@
 # Living economy activation
 
-September 20, 2026. **Active QA candidate; manual acceptance and main promotion
-remain open.** The owner approved a full backup, map repair and world/all-zone
+September 20, 2026. **Active QA candidate; manual acceptance remains open.**
+The owner later authorized [main source promotion](../releases/main-promotion-20260920.md).
+The activation approval covered a full backup, map repair and world/all-zone
 restart, plus preparation of a separate QA-client terrain update.
 
 ## Verified live state
@@ -26,7 +27,8 @@ but its final snapshot agrees with all eight native workers.
 | Automated tests | 61 passed / 1 existing opt-in skip; 23 resident quest assertions passed |
 
 Source release: `46283a6`, travel guard `98691d0`, build-provenance repair
-`8fbfddd`. These are promoted through dev/test only. Pricing still requires owner
+`8fbfddd`. These were initially promoted through dev/test; the later main source
+promotion does not change this dated runtime evidence. Pricing still requires owner
 balance acceptance: current scaling models increased item-roll/vendor income,
 not a raw coin multiplier, then adds the requested seller premium.
 

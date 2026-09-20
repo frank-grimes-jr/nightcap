@@ -1,8 +1,10 @@
 # QA activation evidence — September 20, 2026
 
-Active on the development server; manual acceptance and main promotion remain
-pending. Feature commits: `30a4ea2` (retirement/recovery), `daf5b06` (hub). The
-candidate was promoted through dev/test; main remains `b620beb`.
+At activation, manual acceptance and main promotion remained pending. Feature
+commits: `30a4ea2` (retirement/recovery), `daf5b06` (hub). The candidate was then
+promoted through dev/test while main was `b620beb`. The owner subsequently
+authorized [main source promotion](../main-promotion-20260920.md); manual
+acceptance remains open and the dated runtime evidence below is unchanged.
 
 - Full verified backup: SHA256 `5cf899245ea4297465912f2100bb7c13644d7403194d494ec4fd67aa74b141c4`,
   46,395,786 compressed / 441,569,249 uncompressed bytes.

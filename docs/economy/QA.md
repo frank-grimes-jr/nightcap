@@ -2,7 +2,8 @@
 
 Candidate dated 2026-09-20, now active for owner QA after the approved backup and
 controlled restart. [Activation evidence](ACTIVATION.md) records the corrected
-running pair and first rotation. Manual acceptance and main promotion are open.
+running pair and first rotation. Manual acceptance remains open despite the
+owner-authorized [main source promotion](../releases/main-promotion-20260920.md).
 
 The candidate now also includes [six named residents](residents/README.md).
 Follow their additional setup, Lavastorm client prerequisite, exact appearance/port
@@ -47,7 +48,8 @@ instructions to reapply live SQL. Proceed to the in-game QA section below.
 6. Verify enabled state/era/earning rules, 10 find + 6 sell + 4 buy offers,
    quantity one, and matching running binary hashes. A world rotation failure
    refuses startup. Never manually call the rotation routine on a running server.
-7. Complete the following normal-account QA before main promotion.
+7. Complete the following normal-account QA before claiming gameplay acceptance;
+   the owner's source-promotion exception does not waive these checks.
 
 ## Exact In-Game QA
 

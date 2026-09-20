@@ -24,12 +24,13 @@ was changed by this repair. [Client prerequisite](economy/residents/CLIENT-TERRA
 Costume rendering, normal-account transactions, pricing balance and owner
 [in-game QA](economy/QA.md) remain open. [Resident QA](economy/residents/README.md)
 includes all six appearances, Trift's OOC story and offered ring landings.
-Promoted through **dev/test**, not main.
+Source promoted to **main** at the owner's explicit request; this is not manual
+acceptance or a new deployment. [Promotion scope](releases/main-promotion-20260920.md).
 
 ## East Commonlands hub QA candidate
 
-The approved tunnel hub is active on the development server and promoted through
-**dev/test**. It moves22existingservices, adds ten paired Classic travel routes
+The approved tunnel hub is active on the development server and its source is
+promoted to **main**. It moves22existingservices, adds ten paired Classic travel routes
 and a PoK bridge, sets new starts, and repairs Ancient Attunement in place.
 Existing player state, binds, merchant stock and original travel doors are preserved.
 World and all eight zones have verified hashes and clean checked startup logs.
@@ -37,7 +38,8 @@ Signed client release **2026092002** is required. Its20files and actual startup
 passed on the separate QA client copy. Close the old launcher and use the new
 release executable listed in [activation evidence](releases/ecommons-hub-20260920/ACTIVATION.md).
 The usual launcher executable is awaiting replacement because Windows has it open.
-Owner [in-game QA](releases/ecommons-hub-20260920/README.md) and main promotion remain open.
+Owner [in-game QA](releases/ecommons-hub-20260920/README.md) remains open after the
+explicitly authorized source promotion.
 
 ## Three-pet QA candidate
 
@@ -47,7 +49,7 @@ class/summon permutations, attack/range cases, migration cases and transactional
 failure checks pass. [Evidence and exact owner QA](releases/multiclass-pets-20260919/README.md).
 The QA candidate is active: world and all eight zones have verified hashes,
 with a fresh backup and clean checked startup logs. [Activation evidence](releases/multiclass-pets-20260919/ACTIVATION.md).
-Manual acceptance and main promotion remain pending. The pet feature itself needs
+Source is promoted to main; manual acceptance remains pending. The pet feature itself needs
 no new client hook; the current EC hub requires release2026092002 above.
 
 The [East Commonlands tunnel proposal](pok/ecommons-tunnel-proposal.md) was approved

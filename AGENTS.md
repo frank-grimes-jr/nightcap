@@ -185,6 +185,13 @@ this release's deployment and main promotion before manual acceptance. Preserve
 all remaining in-game checks in `docs/releases/client-gameplay-20260919.md`; this
 is not a permanent change to branch policy.
 
+**September 20, 2026 source-promotion exception:** the owner explicitly requested
+the verified `test` candidate (`dd24fe0`) be pushed to main, including the pet
+roster, EC hub, living economy, residents and Lavastorm package preparation.
+This is source promotion, not completed manual acceptance or a new deployment.
+Keep the signed-client build/install and global Lavastorm readiness gates open.
+Scope and remaining QA: `docs/releases/main-promotion-20260920.md`.
+
 ### Commits
 
 - Small commits/PRs. One system or feature per commit, **with tests**.

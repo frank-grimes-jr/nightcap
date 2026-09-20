@@ -1,5 +1,15 @@
 # CHANGES
 
+## 2026-09-20 - Owner-authorized main source promotion
+
+Promote verified test revision `dd24fe0` and this documentation update to main,
+including the existing pet roster, EC hub, living economy, named residents and
+Lavastorm packaging preparation. Repository regression passed 62 tests with one
+existing opt-in skip; the uncached launcher Go suite passed. No runtime restart,
+SQL, client installation or global travel-readiness change accompanies this push.
+Preserve outstanding manual acceptance and signed-client release checks.
+[Promotion scope and QA](docs/releases/main-promotion-20260920.md).
+
 ## 2026-09-20 - Classic Lavastorm QA assets staged
 
 The owner supplied `lavastorm.s3d`; archive contents and five ring-ground samples

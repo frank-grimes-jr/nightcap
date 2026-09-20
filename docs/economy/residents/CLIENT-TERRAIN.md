@@ -96,7 +96,9 @@ Keep `nightcap:classic_lavastorm_client_ready` absent until readiness applies to
 the gate is global, not per-client capability detection. Until explicitly
 approved, Khalure must offer the other eight rings and reject stale
 `ring lavastorm` links without movement. After rollout acceptance, recheck menu,
-actual travel, arrival and era gating. No main promotion has been recorded.
+actual travel, arrival and era gating. The owner subsequently authorized
+[main source promotion](../../releases/main-promotion-20260920.md), not client
+installation, global readiness or manual gameplay acceptance.
 
 Until then Khalure offers the other eight Classic rings. The map alias repair
 does not remove this client prerequisite or constitute manual gameplay acceptance.

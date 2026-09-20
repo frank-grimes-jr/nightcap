@@ -4,6 +4,7 @@ Start with [current status](status.md), not a dated candidate report.
 
 ## Players and testers
 
+- [September 20 main source promotion and remaining QA](releases/main-promotion-20260920.md)
 - [Finite merchant finds and EC traders: exact QA](economy/QA.md)
 - [Living economy activation, recovery and remaining gates](economy/ACTIVATION.md)
 - [Six named tunnel residents and druid-ring QA](economy/residents/README.md)
