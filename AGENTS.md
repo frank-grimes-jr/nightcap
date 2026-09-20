@@ -72,7 +72,8 @@ All commands run from `akk-stack/`:
   `lavastorm_orig.map` is the verified Classic source. The approved activation
   installed the byte-identical alias; do not substitute newer terrain. See
   `docs/economy/residents/README.md` for the hash and activation gate.
-  Client terrain must also match: the QA RoF2 copy lacks `lavastorm.s3d`, so
+  Client terrain must also match: the supplied `lavastorm.s3d` passes the ring
+  geometry check and is staged, but the signed QA update is not yet installed.
   Khalure withholds Lavastorm until `nightcap:classic_lavastorm_client_ready=1`.
   Do not enable that global gate merely because one client was patched.
 - **Market build provenance**: `tools/build_living_economy.py` requires a fresh

@@ -14,10 +14,12 @@ observed earning boosts before premiums. [Activation evidence](economy/ACTIVATIO
 
 Initial activation exposed stale build artifacts; the corrected paired rebuild
 and regression guard are recorded in [verification](economy/VERIFICATION.md).
-The Classic Lavastorm server map alias is repaired, but client terrain is still
-missing, including from the owner's suggested `E:/EQ_Local` copy. Khalure offers
-the other eight Classic rings and rejects stale Lavastorm links. No client files
-were changed. [Client prerequisite](economy/residents/CLIENT-TERRAIN.md).
+The Classic Lavastorm server map alias is repaired. The owner has now supplied
+matching client terrain: archive inspection and five ring samples pass, and the
+two pinned assets are staged. The signed QA update is not installed; dependency
+approval was blocked by the approval service's usage limit. Khalure still offers
+the other eight Classic rings and rejects stale Lavastorm links. Neither client
+was changed by this repair. [Client prerequisite](economy/residents/CLIENT-TERRAIN.md).
 
 Costume rendering, normal-account transactions, pricing balance and owner
 [in-game QA](economy/QA.md) remain open. [Resident QA](economy/residents/README.md)

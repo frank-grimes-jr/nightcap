@@ -97,3 +97,21 @@ Recovery evidence is retained under
 `first-start-failure.log`, `rebuilt/build.log`, `rebuilt-manifest.json`,
 `rebuilt-installed.json`, `quest-fix.json`, and `file-manifest-effective.json`.
 The original manifests and failed artifacts are retained separately.
+
+## Dev/Test Source Promotion
+
+The owner requested pushing all living-economy work through dev and QA (`test`).
+The five existing economy/resident commits and the Lavastorm packaging follow-up
+are included; main, installed clients and running server processes are untouched.
+
+- Full repository suite: 63 tests, 62 passed and one existing opt-in skip.
+  The initial sandbox run lacked Docker access; the authorized rerun passed
+  against the test's unique disposable database, without selecting live PEQ.
+- Normal launcher `go test ./...`: all packages pass.
+- Independent Lavastorm packaging review: no actionable findings.
+- Exact in-game handoff: [market transactions, chatter and rotation](QA.md),
+  [six resident appearances and Khalure travel](residents/README.md), and
+  [Lavastorm build/install and terrain acceptance](residents/CLIENT-TERRAIN.md).
+
+This source push is not a signed-client release, new deployment, manual gameplay
+acceptance or authorization to enable the global Lavastorm readiness flag.

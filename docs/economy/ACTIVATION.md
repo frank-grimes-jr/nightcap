@@ -67,8 +67,10 @@ player progress merely to remove this feature.
 The configured `lavastorm_v0.map` alias is installed from the pinned Classic
 source; all 25 positions pass the installed-map geometry probe. However, the
 original client, approved separate QA copy and owner-suggested `E:/EQ_Local`
-client all lack `lavastorm.s3d`. The QA-client update cannot be completed until
-that asset is available. No client files were changed.
+client all lacked `lavastorm.s3d` at activation. The owner has since supplied
+the asset; its archive contents and ring geometry verify, and the update is
+staged. Signing/build/installation remain pending after dependency approval
+was blocked by the approval service's usage limit. No client files were changed.
 
 Khalure offers eight Classic rings; missing global readiness hides Lavastorm and
 rejects old links. Do not enable it just because one client was patched.

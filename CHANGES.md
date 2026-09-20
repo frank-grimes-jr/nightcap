@@ -1,5 +1,19 @@
 # CHANGES
 
+## 2026-09-20 - Classic Lavastorm QA assets staged
+
+The owner supplied `lavastorm.s3d`; archive contents and five ring-ground samples
+match the installed Classic server map. Pin both archive hashes in the read-only
+generator and add them to the signed QA inventory, with exact-hash retirement of
+revamped `lavastorm.eqg`. All 20 previous package inputs remain byte-identical.
+Thirteen client-asset tests, the normal launcher Go suite and the full repository
+regression pass (62 passed, one existing opt-in skip). Independent packaging
+review found no actionable issues. The earlier dependency approval failure left
+signing, desktop build and installation pending; this owner-requested dev/test
+source promotion does not deploy that client update. Neither client was changed,
+no server restart occurred, and travel readiness stays gated.
+[Evidence and continuation](docs/economy/residents/CLIENT-TERRAIN.md).
+
 ## 2026-09-20 - Living economy and residents activated for QA
 
 After the owner-approved full PEQ backup and controlled restart, corrected world

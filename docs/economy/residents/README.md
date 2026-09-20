@@ -64,9 +64,10 @@ without `--verify-lavastorm-source`, using newly staged probe inputs. The normal
 verifier refuses missing configured maps. Its optional source-verification mode
 records a prerequisite, not a completed installation.
 
-Server collision checks do not validate client terrain. The approved QA copy
-lacks `lavastorm.s3d`; `E:/EQ_Local` also lacks it. Until the client prerequisite
-is resolved, keep `nightcap:classic_lavastorm_client_ready` absent. The quest
+Server collision checks do not validate client rendering. The owner-supplied
+`lavastorm.s3d` passes archive and ring-geometry checks, but the signed QA update
+is not installed; see [current client evidence](CLIENT-TERRAIN.md). Until this
+prerequisite is resolved, keep `nightcap:classic_lavastorm_client_ready` absent. The quest
 checks it on both hail and click, hiding Lavastorm and rejecting stale links.
 Do not set this global readiness flag merely because one client was repaired.
 

@@ -54,3 +54,18 @@ output and verify source stability and the actual binary startup contract.
 The updated regression suite passes 61 of 62 tests (one existing opt-in skip),
 plus all 23 resident Perl assertions. Historical preflight findings above remain
 dated evidence; see [current verification](../economy/VERIFICATION.md).
+
+## Client Terrain Follow-Up
+
+The owner supplied `E:/EQ_Local_Dev/lavastorm.s3d`. Independent archive/map
+review verified the Classic terrain and exact ground/headroom agreement at all
+five ring samples. The generator now pins both archives, and the QA packager
+includes them plus exact-hash retirement of the revamped EQG. All 13 client-asset
+tests and the normal Go suite pass; all 20 prior package inputs are unchanged.
+Independent packaging review subsequently completed without actionable findings,
+and the pre-push repository rerun passes 62 tests with one existing opt-in skip.
+The owner requested source promotion through dev/test. The earlier approval
+failure left the signed launcher build and installation pending; source promotion
+does not deploy them. Neither client nor server was modified in this follow-up.
+Rendering, rollout readiness and owner QA remain open.
+[Continuation and evidence](../economy/residents/CLIENT-TERRAIN.md).
