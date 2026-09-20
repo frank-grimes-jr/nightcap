@@ -122,6 +122,22 @@ func installLocked(ctx context.Context, root, stage *os.Root, raw []byte, sig ma
 	if err = verifyStage(ctx, stage, m); err != nil {
 		return Result{}, err
 	}
+	retirementLocks := map[string]*retirementLock{}
+	closeRetirements := func() {
+		for _, lock := range retirementLocks {
+			lock.close()
+		}
+	}
+	defer closeRetirements()
+	for _, name := range m.Tombstones {
+		if expected, pinned := trust.RetiredSHA256[name]; pinned {
+			lock, e := lockRetirement(root, name, expected)
+			if e != nil {
+				return Result{}, e
+			}
+			retirementLocks[name] = lock
+		}
+	}
 	idBytes := make([]byte, 16)
 	if _, err = rand.Read(idBytes); err != nil {
 		return Result{}, err
@@ -136,6 +152,12 @@ func installLocked(ctx context.Context, root, stage *os.Root, raw []byte, sig ma
 	j, err := snapshot(root, id, paths)
 	if err != nil {
 		return Result{}, err
+	}
+	// Reject an unrecognized existing archive before changing any installed file.
+	for _, e := range j.Entries {
+		if expected, pinned := trust.RetiredSHA256[e.Path]; pinned && e.Existed && e.SHA256 != expected {
+			return Result{}, fmt.Errorf("retired file %s differs from the supported original; no files changed", e.Path)
+		}
 	}
 	journalBytes, err := encode(j)
 	if err != nil {
@@ -154,6 +176,7 @@ func installLocked(ctx context.Context, root, stage *os.Root, raw []byte, sig ma
 	committed := false
 	defer func() {
 		if !committed && !errors.Is(err, errInterrupted) {
+			closeRetirements()
 			rollbackErr := recoverLocked(root, trust)
 			if rollbackErr != nil {
 				err = errors.Join(err, fmt.Errorf("rollback requires recovery: %w", rollbackErr))
@@ -188,7 +211,19 @@ func installLocked(ctx context.Context, root, stage *os.Root, raw []byte, sig ma
 		}
 	}
 	for i, name := range m.Tombstones {
-		if err = removeRegular(root, name); err != nil {
+		if lock, pinned := retirementLocks[name]; pinned {
+			if lock != nil {
+				err = lock.remove()
+			} else {
+				_, e := root.Lstat(name)
+				if !errors.Is(e, os.ErrNotExist) {
+					return Result{}, fmt.Errorf("retirement appeared during install: %s", name)
+				}
+			}
+		} else {
+			err = removeRegular(root, name)
+		}
+		if err != nil {
 			return Result{}, err
 		}
 		if err = step(fmt.Sprintf("remove:%d", len(m.Files)+i)); err != nil {

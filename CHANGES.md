@@ -1,5 +1,17 @@
 # CHANGES
 
+## 2026-09-20 - East Commonlands tunnel hub (QA candidate)
+
+Move 22 existing services to the approved tunnel layout, add ten native Classic
+routes with separate return books and a PoK bridge, and set new starts to EC.
+Preserve existing binds, positions, stock, NPC definitions and old routes. Repair
+owned Ancient Attunement using a visible General AA, native recall spell 42604
+and complete client strings. Signed release 2026092002 includes zone models,
+portal imports, map labels and pinned classic Nektulos selection. Retirement uses
+locked original files and atomic conflict-preserving recovery. Fresh guarded SQL
+and scoped saved-state invalidation are required; no broad repop. Manual QA and
+main promotion remain open. See [release QA](docs/releases/ecommons-hub-20260920/README.md).
+
 ## 2026-09-19 - Three class pets and shared controls (active QA candidate)
 
 Use original summon spell eligibility to assign one persistent pet per held

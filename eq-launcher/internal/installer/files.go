@@ -226,3 +226,39 @@ func verifyStage(ctx context.Context, root *os.Root, m manifest.Manifest) error 
 	}
 	return nil
 }
+
+// Restore a retired original without exposing partial bytes or replacing a conflict.
+// Linking a complete, synced temp publishes it atomically and fails if occupied.
+func restoreRetired(root *os.Root, name string, src io.Reader, size int64, digest, id string, index int, fault func(string)) error {
+	p, base, err := parentOf(root, name, true)
+	if err != nil {
+		return err
+	}
+	defer p.Close()
+	temp := temporary(id, index)
+	if err = removeRegular(p, temp); err != nil {
+		return err
+	}
+	f, err := p.OpenFile(temp, os.O_WRONLY|os.O_CREATE|os.O_EXCL, 0600)
+	if err != nil {
+		return err
+	}
+	got, err := copyHash(f, src, size)
+	if err == nil && got != digest {
+		err = fmt.Errorf("retired restore hash mismatch")
+	}
+	if err == nil {
+		err = f.Sync()
+	}
+	err = errors.Join(err, f.Close())
+	if err != nil {
+		return err
+	}
+	if fault != nil {
+		fault("retired-staged:" + name)
+	}
+	if err = p.Link(temp, base); err != nil {
+		return err
+	}
+	return removeRegular(p, temp)
+}

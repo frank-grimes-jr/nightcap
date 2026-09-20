@@ -43,9 +43,9 @@ func Inspect(ctx context.Context, raw []byte, sig manifest.Signature, trust mani
 		return Diff{}, err
 	}
 	defer root.Close()
-	return inspect(ctx, m, root)
+	return inspect(ctx, m, root, trust)
 }
-func inspect(ctx context.Context, m manifest.Manifest, root *os.Root) (Diff, error) {
+func inspect(ctx context.Context, m manifest.Manifest, root *os.Root, trust manifest.Trust) (Diff, error) {
 	d := Diff{Files: make([]FileStatus, 0, len(m.Files)), Remove: []string{}}
 	for _, f := range m.Files {
 		if err := ctx.Err(); err != nil {
@@ -83,6 +83,14 @@ func inspect(ctx context.Context, m manifest.Manifest, root *os.Root) (Diff, err
 		}
 		file, err := openRegular(root, name)
 		if err == nil {
+			if expected, pinned := trust.RetiredSHA256[name]; pinned {
+				h := sha256.New()
+				n, hashErr := io.Copy(h, io.LimitReader(file, manifest.MaxFileBytes+1))
+				if hashErr != nil || n > manifest.MaxFileBytes || hex.EncodeToString(h.Sum(nil)) != expected {
+					file.Close()
+					return Diff{}, fmt.Errorf("retired file %s differs from the supported original", name)
+				}
+			}
 			if err = file.Close(); err != nil {
 				return Diff{}, err
 			}

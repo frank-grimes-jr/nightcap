@@ -1,0 +1,14 @@
+{
+  "review": {
+    "review/portal-review.md": "92dca6e15a8c68681636870599cc24b36114fd2c7c3a885697ae72d2eefec627",
+    "review/portal-assets.json": "625f9a7bc862752e91d9aa823dac25b50790ea31e0bb3f9fa1bb21e4d63f1590",
+    "review/native-selected-disassembly.txt": "974f05b14d7a981f1cd23ba460156e1885c3f5d6bc6d3f934a7b4d8a7a74fdf1",
+    "review/aa-recall-selected-disassembly.txt": "b0152a1d6d419af5191491c5ba4975d53e659574d8d45dbf2a7293a55c3ed8ab"
+  },
+  "build": {
+    "launcher/launcher-sha256.json": "f09f8824686a1c0b7b948a6d986dee73cdf30d448c91854b69d7dc73e2808c91"
+  },
+  "rehearsal": {
+    "hub-v3-review-report.json": "3692b57242ae762669c1d6da672d8ed95c6220eefd3434dcad32d8cc11c5f387"
+  }
+}

@@ -63,7 +63,7 @@ func stageFrom(ctx context.Context, raw []byte, sig manifest.Signature, trust ma
 		return Generation{}, err
 	}
 	defer clientRoot.Close()
-	diff, err := inspect(ctx, m, clientRoot)
+	diff, err := inspect(ctx, m, clientRoot, trust)
 	if err != nil {
 		return Generation{}, err
 	}

@@ -42,7 +42,7 @@ func TestGameplayAssetGenerationIsCompleteAndBoundToInputs(t *testing.T) {
 	}
 	writeAudit()
 	data, err := loadGameplayAssets(root, filepath.Join(client, "eqgame.exe"))
-	if err != nil || len(data) != 9 {
+	if err != nil || len(data) != len(gameplayNames) {
 		t.Fatalf("expected complete generation: %d %v", len(data), err)
 	}
 	t.Run("tampered asset", func(t *testing.T) {

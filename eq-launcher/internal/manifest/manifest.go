@@ -59,7 +59,9 @@ type Trust struct {
 	HighestDigest   string
 	Inventory       map[string]bool
 	Retired         map[string]bool
-	Hosts           []string
+	// RetiredSHA256 pins pre-existing third-party files before retirement.
+	RetiredSHA256 map[string]string
+	Hosts         []string
 }
 
 func Digest(raw []byte) string { sum := sha256.Sum256(raw); return hex.EncodeToString(sum[:]) }
@@ -136,6 +138,11 @@ func Verify(raw []byte, signature Signature, trust Trust) (Manifest, error) {
 	}
 	if m.Tombstones == nil || len(m.Files) == 0 || len(m.Files) > MaxFiles || len(m.Files) != len(trust.Inventory) || len(m.Tombstones) > MaxFiles {
 		return fail("inventory size mismatch")
+	}
+	for name, digest := range trust.RetiredSHA256 {
+		if !trust.Retired[name] || !hashPattern.MatchString(digest) {
+			return fail("invalid trusted retirement preimage")
+		}
 	}
 	seen := map[string]bool{}
 	var total int64

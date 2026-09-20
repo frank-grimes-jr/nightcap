@@ -197,3 +197,14 @@ chat echo/history. Proxy 0.4.2 uses the pinned native channel sender with an
 ASLR-aware signed guard. Keep ordinary chat and actionable server errors visible;
 retain authoritative server handlers. Native evidence and QA are in
 `docs/releases/client-silent-ui-20260919.md`.
+
+### East Commonlands hub QA (September 20)
+
+Approved service/travel plan: `docs/ecommons-hub/plan.json`; generator:
+`tools/ecommons_hub.py`. Preserve original doors, merchant stock and all existing
+binds. Fresh stop/capture/backup precedes SQL. New door DBIDs 40600..40621 are
+range-gated, and client release 2026092002 imports PoK objects and selects classic
+Nektulos by pinned EQG retirement. Recall AA 2220 owns rank 22200; use spell 42604,
+type 1/category 9 and dbstr 22200 types 1/2/4, preserving type 6. Native client lists
+exclude AA type 0 and its spell table stops at 45000. Exact QA and post-activity
+rollback constraints: `docs/releases/ecommons-hub-20260920/README.md`.
