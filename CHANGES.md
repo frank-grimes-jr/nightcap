@@ -1,5 +1,15 @@
 # CHANGES
 
+## 2026-09-20 - Production launcher candidate
+
+Add a production-only hosted signing policy, single-object signed channel metadata,
+immutable release packaging, friend instructions and a Windows build script.
+Play can own an encrypted WebSocket relay for fixed native login/world/zone/chat
+ports and temporarily configure/restore eqhost under its existing installation lease.
+Automated manifest, lifecycle, relay and frontend checks passed. No production seed
+or final hostname-bound Windows launcher has been distributed. Hosted/native
+acceptance remains pending; the live QA stack and client are unchanged.
+
 ## 2026-09-20 - East Commonlands tunnel hub (active QA candidate)
 
 Move 22 existing services to the approved tunnel layout, add ten native Classic

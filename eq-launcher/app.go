@@ -93,7 +93,11 @@ func (a *App) Cancel() {
 	}
 }
 func (a *App) OpenGuide() {
-	runtime.BrowserOpenURL(a.ctx, "https://github.com/frank-grimes-jr/nightcap/blob/main/README.md")
+	address := launcher.DefaultPolicy().GuideURL
+	if address == "" {
+		address = "https://github.com/frank-grimes-jr/nightcap/blob/main/README.md"
+	}
+	runtime.BrowserOpenURL(a.ctx, address)
 }
 func (a *App) beforeClose(context.Context) bool {
 	if a.controller != nil && a.controller.Snapshot().Busy {

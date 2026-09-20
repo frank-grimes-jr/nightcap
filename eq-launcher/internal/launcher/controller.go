@@ -23,6 +23,7 @@ type Event struct {
 	Message string `json:"message"`
 }
 type Status struct {
+	Version          string              `json:"version"`
 	Channel          string              `json:"channel"`
 	ClientDir        string              `json:"client_dir"`
 	Phase            string              `json:"phase"`
@@ -67,20 +68,27 @@ func New(home string, p Policy) (*Controller, error) {
 		return nil, err
 	}
 	if p.configured() && p.Bundle == nil {
-		if err := manifest.ValidateURL(p.ManifestURL, p.Trust.Hosts); err != nil {
-			return nil, err
+		urls := []string{p.ManifestURL, p.SignatureURL}
+		if p.EnvelopeURL != "" {
+			urls = []string{p.EnvelopeURL}
 		}
-		if err := manifest.ValidateURL(p.SignatureURL, p.Trust.Hosts); err != nil {
-			return nil, err
+		for _, address := range urls {
+			if err := manifest.ValidateURL(address, p.Trust.Hosts); err != nil {
+				return nil, err
+			}
 		}
 	}
 	c := &Controller{home: home, policy: p, state: Status{Channel: p.Label, ClientDir: s.ClientDir, Phase: "choose", Message: "Choose your EverQuest folder to begin.", Configured: p.configured(), Files: []assets.FileStatus{}, Remove: []string{}, Events: []Event{}}, fetch: fetchRelease, local: installer.Inspect, diff: assets.Inspect, stage: assets.Stage, install: installer.Install, recover: installer.Recover}
+	c.state.Version = p.Trust.LauncherVersion
 	if p.Bundle != nil {
 		c.stage = func(ctx context.Context, raw []byte, sig manifest.Signature, trust manifest.Trust, dir, parent string) (assets.Generation, error) {
 			return assets.StageBundle(ctx, raw, sig, trust, dir, parent, p.Bundle)
 		}
 	}
 	c.start = func(ctx context.Context, dir string, trust manifest.Trust) (gameSession, error) {
+		if p.RelayURL != "" {
+			return session.StartPrivate(ctx, dir, trust)
+		}
 		return session.Start(ctx, dir, trust)
 	}
 	c.probe = func(dir string) (client.Report, error) { return client.Inspect(filepath.Join(dir, "eqgame.exe")) }

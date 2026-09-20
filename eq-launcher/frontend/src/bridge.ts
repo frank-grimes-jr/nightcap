@@ -1,4 +1,5 @@
 export interface Status {
+	version?: string;
   channel: string;
   client_dir: string;
   phase: string;

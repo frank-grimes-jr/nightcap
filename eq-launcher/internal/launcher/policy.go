@@ -27,11 +27,14 @@ type Policy struct {
 	EnablePlay   bool
 	ManifestURL  string
 	SignatureURL string
+	EnvelopeURL  string
+	GuideURL     string
+	RelayURL     string
 	Trust        manifest.Trust
 }
 
 func (p Policy) configured() bool {
-	return len(p.Trust.Keys) > 0 && len(p.Trust.Inventory) > 0 && (p.Bundle != nil || (p.ManifestURL != "" && p.SignatureURL != ""))
+	return len(p.Trust.Keys) > 0 && len(p.Trust.Inventory) > 0 && (p.Bundle != nil || p.EnvelopeURL != "" || (p.ManifestURL != "" && p.SignatureURL != ""))
 }
 func (p Policy) playConfigured() bool {
 	if !p.EnablePlay || !p.configured() || p.Trust.LauncherVersion == "" {
@@ -97,6 +100,13 @@ func fetchWithClient(ctx context.Context, p Policy, client *http.Client) ([]byte
 			return nil, fmt.Errorf("release metadata size limit exceeded")
 		}
 		return body, nil
+	}
+	if p.EnvelopeURL != "" {
+		body, err := get(p.EnvelopeURL, manifest.MaxEnvelopeBytes)
+		if err != nil {
+			return nil, manifest.Signature{}, err
+		}
+		return manifest.DecodeEnvelope(body)
 	}
 	raw, err := get(p.ManifestURL, manifest.MaxManifestBytes)
 	if err != nil {

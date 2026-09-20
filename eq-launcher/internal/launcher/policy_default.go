@@ -1,4 +1,4 @@
-//go:build !qacandidate
+//go:build !qacandidate && !production
 
 package launcher
 

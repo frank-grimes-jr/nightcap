@@ -25,11 +25,28 @@ import (
 // startup only; after a successful return use Session.Close to end that session.
 // Start may return a completed session if the client exits immediately.
 func Start(ctx context.Context, directory string, trust manifest.Trust) (*Session, error) {
+	return start(ctx, directory, trust, false)
+}
+
+func StartPrivate(ctx context.Context, directory string, trust manifest.Trust) (*Session, error) {
+	return start(ctx, directory, trust, true)
+}
+
+func start(ctx context.Context, directory string, trust manifest.Trust, private bool) (*Session, error) {
 	lease, err := installer.PrepareLaunch(ctx, directory, trust)
 	if err != nil {
 		return nil, err
 	}
-	return startPrepared(ctx, launchInputs{directory: lease.Directory(), executable: lease.Executable(), proxy: lease.Proxy(), helper: lease.Helper(), metadata: lease.Bootstrap(), configDigest: lease.ConfigDigest(), close: lease.Close, timeout: 20000})
+	closeLease := lease.Close
+	if private {
+		restore, e := lease.PrivateLogin()
+		if e != nil {
+			lease.Close()
+			return nil, e
+		}
+		closeLease = func() error { return errors.Join(restore(), lease.Close()) }
+	}
+	return startPrepared(ctx, launchInputs{directory: lease.Directory(), executable: lease.Executable(), proxy: lease.Proxy(), helper: lease.Helper(), metadata: lease.Bootstrap(), configDigest: lease.ConfigDigest(), close: closeLease, timeout: 20000})
 }
 
 type launchInputs struct {
@@ -53,11 +70,11 @@ type owner struct {
 	deadline           time.Time
 }
 
-func startPrepared(ctx context.Context, input launchInputs) (*Session, error) {
+func startPrepared(ctx context.Context, input launchInputs) (result *Session, err error) {
 	transferred := false
 	defer func() {
 		if !transferred {
-			input.close()
+			err = errors.Join(err, input.close())
 		}
 	}()
 	if err := ctx.Err(); err != nil {

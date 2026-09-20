@@ -29,8 +29,14 @@ func main() {
 	newKey := flag.Bool("new-key", false, "create a fresh private seed exclusively; never replace")
 	release := flag.Uint64("release", 0, "unique increasing QA release number")
 	output := flag.String("output", "internal/launcher", "generated policy directory")
+	profilePath := flag.String("production-profile", "", "reviewed production profile JSON; otherwise build offline QA")
+	publish := flag.String("publish", "", "new directory for hosted production files")
 	flag.Parse()
-	if err := build(*client, *assets, *keyPath, *newKey, *release, *output); err != nil {
+	profile, err := loadProfile(*profilePath, *publish)
+	if err == nil {
+		err = buildConfigured(*client, *assets, *keyPath, *newKey, *release, *output, profile)
+	}
+	if err != nil {
 		fmt.Fprintln(os.Stderr, err)
 		os.Exit(1)
 	}
@@ -87,6 +93,10 @@ func privateKey(path string, create bool) (ed25519.PrivateKey, error) {
 }
 
 func build(client, assets, keyPath string, create bool, release uint64, output string) error {
+	return buildConfigured(client, assets, keyPath, create, release, output, nil)
+}
+
+func buildConfigured(client, assets, keyPath string, create bool, release uint64, output string, profile *productionProfile) error {
 	if client == "" || release == 0 {
 		return fmt.Errorf("client and nonzero release required")
 	}
@@ -152,11 +162,22 @@ func build(client, assets, keyPath string, create bool, release uint64, output s
 	public := private.Public().(ed25519.PublicKey)
 	now := time.Now().UTC().Truncate(time.Second)
 	key := manifest.Key{ID: "local-qa-" + manifest.Digest(public)[:16], Public: public, NotBefore: now.Add(-time.Hour), NotAfter: now.Add(90 * 24 * time.Hour)}
+	baseURL, version := "https://qa.nightcap.invalid", "0.1.0"
+	hosts := []string{"qa.nightcap.invalid"}
+	if profile != nil {
+		key = manifest.Key{ID: "production-" + manifest.Digest(public)[:16], Public: public, NotBefore: profile.KeyNotBefore, NotAfter: profile.KeyNotAfter}
+		baseURL, version, hosts = profile.BaseURL, profile.Version, profile.hosts()
+		if now.Before(key.NotBefore) || !now.Add(30*24*time.Hour).Before(key.NotAfter) {
+			return fmt.Errorf("production key must cover the whole release lifetime")
+		}
+	}
 	trust := manifest.Trust{Keys: []manifest.Key{key}, Now: now, LauncherVersion: "0.1.0", Hosts: []string{"qa.nightcap.invalid"}, Inventory: map[string]bool{}, Retired: map[string]bool{"nektulos.eqg": true}, RetiredSHA256: map[string]string{"nektulos.eqg": classicNektulosRetirementSHA256}}
 	m := manifest.Manifest{Schema: 1, Release: release, MinLauncher: "0.1.0", Expires: now.Add(30 * 24 * time.Hour), Tombstones: []string{"nektulos.eqg"}}
+	trust.Keys, trust.Hosts, trust.LauncherVersion = []manifest.Key{key}, hosts, version
+	m.MinLauncher = version
 	for _, name := range names {
 		trust.Inventory[name] = true
-		m.Files = append(m.Files, manifest.File{Path: name, SHA256: manifest.Digest(data[name]), Size: int64(len(data[name])), URL: fmt.Sprintf("https://qa.nightcap.invalid/release/%d/%s", release, name), Required: true})
+		m.Files = append(m.Files, manifest.File{Path: name, SHA256: manifest.Digest(data[name]), Size: int64(len(data[name])), URL: fmt.Sprintf("%s/release/%d/%s", baseURL, release, name), Required: true})
 	}
 	raw, err := manifest.Canonical(m)
 	if err != nil {
@@ -165,6 +186,9 @@ func build(client, assets, keyPath string, create bool, release uint64, output s
 	sig := manifest.Signature{KeyID: key.ID, Bytes: ed25519.Sign(private, raw)}
 	if _, err = manifest.Verify(raw, sig, trust); err != nil {
 		return err
+	}
+	if profile != nil {
+		return publishProduction(profile, output, key, m, raw, sig, data)
 	}
 	signature, err := json.Marshal(sig)
 	if err != nil {

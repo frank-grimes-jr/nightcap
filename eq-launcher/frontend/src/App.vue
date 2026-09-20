@@ -124,7 +124,7 @@ onUnmounted(() => {
           :disabled="!native() || busy"
         >
           Player guide <span aria-hidden="true">↗</span></button
-        ><span class="build">Launcher 0.1.0 · {{ state.channel }}</span>
+        ><span class="build">Launcher {{ state.version ?? '0.1.0' }} · {{ state.channel }}</span>
       </div>
     </aside>
     <main>

@@ -2,9 +2,11 @@ package launcher
 
 import (
 	"context"
+	"errors"
 	"fmt"
 	"time"
 
+	"nightcap/eq-launcher/internal/gametunnel"
 	"nightcap/eq-launcher/internal/installer"
 	"nightcap/eq-launcher/internal/manifest"
 	"nightcap/eq-launcher/internal/session"
@@ -30,7 +32,7 @@ func (c *Controller) inspectLocal(ctx context.Context, dir string, trust manifes
 
 // Play remains pending for the complete session. Busy excludes updates and folder
 // changes until all owned processes exit and their verified lease is released.
-// No network request is needed: Start freshly verifies the cached signed release.
+// Start freshly verifies the cached signed release; production also opens its relay.
 func (c *Controller) Play(ctx context.Context) (err error) {
 	ctx, dir, err := c.begin(ctx)
 	if err != nil {
@@ -46,12 +48,23 @@ func (c *Controller) Play(ctx context.Context) (err error) {
 	trust := c.policy.Trust
 	trust.Now = time.Now().UTC()
 	c.show("launching", "Verifying your installed release and starting Nightcap…")
+	var disconnected <-chan struct{}
+	if c.policy.RelayURL != "" {
+		tunnel, e := gametunnel.Start(ctx, c.policy.RelayURL, c.policy.Trust.Hosts)
+		if e != nil {
+			return e
+		}
+		defer tunnel.Close()
+		disconnected = tunnel.Done()
+	}
 	active, err := c.start(ctx, dir, trust)
 	if err != nil {
 		return err
 	}
 	c.show("playing", "Nightcap is running. Keep this launcher open while playing.")
 	select {
+	case <-disconnected:
+		return errors.Join(fmt.Errorf("secure Nightcap connection closed; reconnect with Play"), active.Close(context.Background()))
 	case <-ctx.Done():
 		c.show("stopping", "Stopping Nightcap. Keep the launcher open until cleanup finishes.")
 		// A UI/request timeout must not release the controller while cleanup owns files.
