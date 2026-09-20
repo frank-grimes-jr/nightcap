@@ -3,6 +3,19 @@
 Updated September 19, 2026. This is the current status index; dated studies and
 QA reports preserve their original evidence and are not live-state promises.
 
+## Three-pet QA candidate
+
+The server candidate supports one permanent summoned pet per held class, shared
+ordinary pet controls and separate eight-slot armor loadouts. The 36 native
+class/summon permutations, attack/range cases, migration cases and transactional
+failure checks pass. [Evidence and exact owner QA](releases/multiclass-pets-20260919/README.md).
+Manual acceptance and main promotion remain pending. The existing 1906 launcher
+is sufficient; this behavior depends on activating the candidate server.
+
+The [East Commonlands tunnel proposal](pok/ecommons-tunnel-proposal.md) has
+16 spaced merchants and ten suggested travel stones. It is an assessment only;
+PoK, character starts and travel data have not been moved.
+
 ## September 19 gameplay release
 
 Signed release 2026091906 installs the client-only silent UI repair: login and

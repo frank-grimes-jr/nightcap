@@ -30,10 +30,10 @@ NPC *Client::GetArmorPet(uint8 pet_class)
 {
 	if (pet_class < 1 || pet_class > 16 ||
 		(pet_class != GetClass() && pet_class != GetClass2() && pet_class != GetClass3())) { return nullptr; }
-	const auto id = pet_class == GetClass() ? GetPetID() : GetClassPet(pet_class);
+	const auto id = GetClassPet(pet_class);
 	const auto mob = entity_list.GetMob(id);
 	if (!mob || !mob->IsNPC() || mob->GetOwnerID() != GetID() || !mob->IsPet() || mob->IsCharmed() ||
-		mob->CastToNPC()->GetSwarmInfo() || mob->GetPetType() == PetType::TargetLock) { return nullptr; }
+		mob->CastToNPC()->GetDepop() || mob->HasDied() || mob->CastToNPC()->GetSwarmInfo() || mob->GetPetType() == PetType::TargetLock) { return nullptr; }
 	return mob->CastToNPC();
 }
 

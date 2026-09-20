@@ -1,0 +1,22 @@
+{
+  "binary_sha256": "620033790eeafbbab25cd5d8679c55a98f865bbb5f6d223b04919ff3f4e27d33",
+  "passed": 1,
+  "cases": [
+    {
+      "case": "case-00",
+      "classes": [
+        10,
+        11,
+        13
+      ],
+      "summons": [
+        166,
+        443,
+        633
+      ],
+      "actions": 26,
+      "final_pets": 0,
+      "anchor_packets": 32
+    }
+  ]
+}

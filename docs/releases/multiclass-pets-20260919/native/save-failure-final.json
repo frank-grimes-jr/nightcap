@@ -1,0 +1,8 @@
+{
+  "status": "passed",
+  "binary_sha256": "620033790eeafbbab25cd5d8679c55a98f865bbb5f6d223b04919ff3f4e27d33",
+  "scope": "Conditional INSERT failure for synthetic character980002 in isolated DB; all three original tables restored",
+  "exit_code": 1,
+  "before": "980002\t14\tRollback original\t0\t633\t987\t111\t6\t1\n980002\t14\t0\t107\t50\t\t-1\t0\t0\t0\t10\n980002\t14\t2\t1001\n",
+  "after": "980002\t14\tRollback original\t0\t633\t987\t111\t6\t1\n980002\t14\t0\t107\t50\t\t-1\t0\t0\t0\t10\n980002\t14\t2\t1001\n"
+}

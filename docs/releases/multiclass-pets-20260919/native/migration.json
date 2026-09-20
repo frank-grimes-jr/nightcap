@@ -1,0 +1,26 @@
+{
+  "binary_sha256": "620033790eeafbbab25cd5d8679c55a98f865bbb5f6d223b04919ff3f4e27d33",
+  "passed": 4,
+  "cases": [
+    {
+      "case": "legacy-held",
+      "mapped_class": 11,
+      "status": "passed"
+    },
+    {
+      "case": "legacy-released",
+      "mapped_class": 0,
+      "status": "passed"
+    },
+    {
+      "case": "saved-shared-class",
+      "mapped_class": 11,
+      "status": "passed"
+    },
+    {
+      "case": "saved-released",
+      "mapped_class": 0,
+      "status": "passed"
+    }
+  ]
+}

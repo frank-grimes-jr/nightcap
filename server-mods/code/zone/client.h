@@ -533,15 +533,27 @@ public:
 	int64 CalcBaseManaForClass(uint8 class_id);   // base mana as if the character were class_id
 	uint32 GetBestClassLevelFactor() const;       // highest HP multiplier among held classes
 	uint16 GetClassPet(uint8 class_id) const { auto it = m_class_pets.find(class_id); return it != m_class_pets.end() ? it->second : 0; }
-	void SetClassPet(uint8 class_id, uint16 entity_id) { m_class_pets[class_id] = entity_id; }
-	void RemoveClassPet(uint8 class_id) { m_class_pets.erase(class_id); }
-	void ClearExtraPets() { m_class_pets.clear(); }
-	int GetExtraPetCount() const { return static_cast<int>(m_class_pets.size()); }
-	std::vector<uint16> GetExtraPetIds() const { std::vector<uint16> v; for (auto& kv : m_class_pets) v.push_back(kv.second); return v; }
+	uint8 GetPetSpellClass(uint16 spell_id) const;
+	bool RegisterClassPet(uint8 class_id, NPC *pet);
+	void UnregisterClassPet(uint16 entity_id);
+	void RefreshClassPets(bool force_window = false);
+	void SyncPetWindow();
+	void CaptureClassPets();
+	void RestoreClassPets();
+	void InvalidatePetState();
+	uint8 GetSuspendedPetClass() const { return m_suspended_pet_class; }
+	void SetSuspendedPetClass(uint8 value) { m_suspended_pet_class = value <= 16 ? value : 0; }
+	std::vector<uint16> GetExtraPetIds() const;
+	std::vector<NPC *> GetCommandPets();
 	inline EQ::InventoryProfile& GetInv() { return m_inv; }
 	inline const EQ::InventoryProfile& GetInv() const { return m_inv; }
 	const std::vector<int16>& GetInventorySlots();
-	inline PetInfo* GetPetInfo(int pet_info_type) { return pet_info_type == PetInfoType::Suspended ? &m_suspendedminion : &m_petinfo; }
+	inline PetInfo* GetPetInfo(int type) {
+		if (type == PetInfoType::Current) { return &m_petinfo; }
+		if (type == PetInfoType::Suspended) { return &m_suspendedminion; }
+		if (type >= 18 && type <= 33 && type - 17 == m_suspended_pet_class) { return &m_suspendedminion; }
+		return type >= 2 && type <= 17 ? &m_class_pet_info[type - 2] : nullptr;
+	}
 	inline InspectMessage_Struct& GetInspectMessage() { return m_inspect_message; }
 	inline const InspectMessage_Struct& GetInspectMessage() const { return m_inspect_message; }
 	void ReloadExpansionProfileSetting();
@@ -2334,7 +2346,12 @@ private:
 	Timer m_nightcap_ui_refresh_timer{3000};
 	uint8 m_class2;
 	uint8 m_class3;
-	std::map<uint8, uint16> m_class_pets; // class_id -> entity_id for class2/class3 pets
+	std::map<uint8, uint16> m_class_pets; // all permanent pets, keyed by original summon class
+	uint16 m_pet_window_id = 0;
+	std::array<PetInfo, 16> m_class_pet_info{};
+	bool m_pet_state_valid = true;
+	uint8 m_restoring_pet_class = 0;
+	uint8 m_suspended_pet_class = 0; // durable suspended key is class + 17
 
 	int XPRate;
 

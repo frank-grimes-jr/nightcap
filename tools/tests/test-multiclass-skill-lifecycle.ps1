@@ -36,7 +36,7 @@ Assert-Contains $clientSource 'CollectNativeSkillSeeds' `
     'Client reconciler must use the tested native seed selector'
 Assert-Contains $clientSource 'SetSkill\(skill,\s*1\)' `
     'Client reconciler must seed eligible skills at value 1'
-Assert-Contains $clientSource 'ReconcileMulticlassSkills\(\);\s*\r?\n\s*ClearExtraPets' `
+Assert-Contains $clientSource 'ReconcileMulticlassSkills\(\);\s*\r?\n\s*RefreshClassPets' `
     'Zone-in must reconcile immediately after loading character data'
 Assert-Contains $aaSource 'ReconcileMulticlassSkills\(\);\s*\r?\n\s*SendAlternateAdvancementTable' `
     'C++ class adoption must reconcile before resending class capabilities'

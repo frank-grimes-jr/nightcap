@@ -6651,7 +6651,7 @@ void Mob::SendPetBuffsToClient()
 {
 	// Don't really need this check, as it should be checked before this method is called, but it doesn't hurt
 	// too much to check again.
-	if(!(GetOwner() && GetOwner()->IsClient()))
+	if (!(GetOwner() && GetOwner()->IsClient() && GetOwner()->GetPetID() == GetID()))
 		return;
 
 	int PetBuffCount = 0;

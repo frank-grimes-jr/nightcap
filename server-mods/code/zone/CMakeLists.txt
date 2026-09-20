@@ -71,6 +71,7 @@ set(zone_sources
     pathfinder_null.cpp
     pathing.cpp
     petitions.cpp
+    client_class_pets.cpp
     client_pet_armor.cpp
     pet_armor.cpp
     pets.cpp

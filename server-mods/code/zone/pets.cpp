@@ -73,6 +73,7 @@ void Mob::MakePet(uint16 spell_id, const char* pettype, const char *petname) {
 	// petpower of -1 is used to get the petpower based on whichever focus is currently
 	// equipped. This should replicate the old functionality for the most part.
 	MakePoweredPet(spell_id, pettype, -1, petname);
+	if (IsClient()) { CastToClient()->ApplyPetArmor(); }
 }
 
 // Split from the basic MakePet to allow backward compatiblity with existing code while also
@@ -82,8 +83,21 @@ void Mob::MakePet(uint16 spell_id, const char* pettype, const char *petname) {
 void Mob::MakePoweredPet(uint16 spell_id, const char* pettype, int16 petpower,
 		const char *petname, float in_size) {
 	// Sanity and early out checking first.
-	if(HasPet() || pettype == nullptr)
-		return;
+	if (!pettype) { return; }
+	auto client = IsClient() ? CastToClient() : nullptr;
+	uint8 pet_class = 0;
+	uint16 previous_pet = GetPetID();
+	if (client) {
+		client->RefreshClassPets();
+		previous_pet = GetPetID();
+		pet_class = client->GetPetSpellClass(spell_id);
+		// Charms keep the native exclusive slot. Unknown summons fail closed.
+		if (!pet_class || client->GetClassPet(pet_class) ||
+			(GetPet() && (GetPet()->IsCharmed() || GetPet()->GetPetType() == petTargetLock))) {
+			MessageString(Chat::Shout, ONLY_ONE_PET);
+			return;
+		}
+	} else if (HasPet()) { return; }
 
 	int16 act_power = 0; // The actual pet power we'll use.
 	if (petpower == -1) {
@@ -107,6 +121,8 @@ void Mob::MakePoweredPet(uint16 spell_id, const char* pettype, int16 petpower,
 		LogError("Unable to find data for pet [{}], check pets table", pettype);
 		return;
 	}
+
+	if (client && record.petcontrol == PetType::TargetLock && HasPet()) { return; }
 
 	//find the NPC data for the specified NPC type
 	const NPCType *base = content_db.LoadNPCTypesData(record.npc_type);
@@ -282,7 +298,17 @@ void Mob::MakePoweredPet(uint16 spell_id, const char* pettype, int16 petpower,
 		npc->size = in_size;
 
 	entity_list.AddNPC(npc, true, true);
-	SetPetID(npc->GetID());
+	if (client && record.petcontrol != PetType::TargetLock) {
+		if (!client->RegisterClassPet(pet_class, npc)) {
+			npc->Depop();
+			SetPetID(previous_pet);
+			client->RefreshClassPets(true);
+			return;
+		}
+		// AddNPC changes the native ID. Restore the chosen window representative.
+		SetPetID(previous_pet);
+		client->RefreshClassPets(true);
+	} else { SetPetID(npc->GetID()); }
 	// We need to handle PetType 5 (petHatelist), add the current target to the hatelist of the pet
 
 	if (record.petcontrol == PetType::TargetLock)

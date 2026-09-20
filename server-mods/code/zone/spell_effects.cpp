@@ -1308,65 +1308,8 @@ bool Mob::SpellEffect(Mob* caster, uint16 spell_id, float partial, int level_ove
 #ifdef SPELL_EFFECT_SPAM
 				snprintf(effect_desc, _EDLEN, "Summon %s: %s", (effect==SE_Familiar)?"Familiar":"Pet", spell.teleport_zone);
 #endif
-				// Multiclass: determine which of the character's classes owns this spell.
-				// Primary class takes precedence; extras checked only if primary can't cast it.
-				uint8 owning_class = GetClass();
-				if (IsClient()) {
-					auto mc = CastToClient();
-					if (spell.classes[GetClass() - 1] >= 255) {
-						uint8 c2 = mc->GetClass2(), c3 = mc->GetClass3();
-						if (c2 > 0 && spell.classes[c2 - 1] < 255)      owning_class = c2;
-						else if (c3 > 0 && spell.classes[c3 - 1] < 255) owning_class = c3;
-					}
-				}
-
-				bool is_extra_class = IsClient() && (owning_class != GetClass());
-
-				if (is_extra_class)
-				{
-					// Extra class slot: depop existing same-class pet if any, then summon fresh.
-					auto c = CastToClient();
-					uint16 existing_id = c->GetClassPet(owning_class);
-					if (existing_id) {
-						Mob *old_pet = entity_list.GetMob(existing_id);
-						if (old_pet) old_pet->Depop(false);
-						c->RemoveClassPet(owning_class);
-					}
-					uint16 saved_pet_id = GetPetID();
-					SetPetID(0);
-					MakePet(spell_id, spell.teleport_zone);
-					Mob *new_pet = GetPet();
-					if (new_pet) {
-						c->SetClassPet(owning_class, new_pet->GetID());
-					}
-					SetPetID(saved_pet_id);
-					Mob *primary = entity_list.GetMob(saved_pet_id);
-					if (primary) primary->SetOwnerID(GetID());
-				}
-				else if (GetPet())
-				{
-					MessageString(Chat::Shout, ONLY_ONE_PET);
-				}
-				else
-				{
-					// Normal primary slot summon
-					MakePet(spell_id, spell.teleport_zone);
-					Mob *pet = GetPet();
-					if (IsClient() && pet) {
-						auto c = CastToClient();
-						if (c->ClientVersionBit() & EQ::versions::maskUFAndLater) {
-							c->SetPetCommandState(PetButton::Sit, PetButtonState::Off);
-							c->SetPetCommandState(PetButton::Stop, PetButtonState::Off);
-							c->SetPetCommandState(PetButton::Regroup, PetButtonState::Off);
-							c->SetPetCommandState(PetButton::Follow, PetButtonState::On);
-							c->SetPetCommandState(PetButton::Guard, PetButtonState::Off);
-							c->SetPetCommandState(PetButton::Hold, PetButtonState::Off);
-							c->SetPetCommandState(PetButton::GreaterHold, PetButtonState::Off);
-							c->SetPetCommandState(PetButton::Focus, PetButtonState::Off);
-							c->SetPetCommandState(PetButton::SpellHold, PetButtonState::Off);
-						}
-					}
-				}
+				// The summoner owns the class limit and registration for all call sites.
+				MakePet(spell_id, spell.teleport_zone);
 				break;
 			}
 
@@ -1678,10 +1621,9 @@ bool Mob::SpellEffect(Mob* caster, uint16 spell_id, float partial, int level_ove
 
 				caster->SetMana(caster->GetMana() + pet_ActSpellCost);
 
-					if(caster->IsClient())
-						caster->CastToClient()->SetPet(0);
-
-					SetOwnerID(0);	// this will kill the pet
+					if (caster->IsClient()) { caster->CastToClient()->UnregisterClassPet(GetID()); }
+					SetOwnerID(0); // this kills only the reclaimed pet
+					if (caster->IsClient()) { caster->CastToClient()->RefreshClassPets(); }
 				}
 				break;
 			}
@@ -4444,10 +4386,16 @@ void Mob::BuffFadeBySlot(int slot, bool iRecalcBonuses)
 
 			case SpellEffect::Familiar:
 			{
-				Mob *mypet = GetPet();
-				if (mypet){
-					if(mypet->IsNPC())
-						mypet->CastToNPC()->Depop();
+				if (IsClient()) {
+					auto client = CastToClient();
+					for (auto pet : client->GetCommandPets()) {
+						if (pet->GetPetType() != petFamiliar || pet->GetPetSpellID() != buffs[slot].spellid) { continue; }
+						client->UnregisterClassPet(pet->GetID());
+						pet->Depop();
+					}
+					client->RefreshClassPets();
+				} else if (auto pet = GetPet()) {
+					if (pet->IsNPC()) { pet->CastToNPC()->Depop(); }
 					SetPetID(0);
 				}
 				break;

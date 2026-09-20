@@ -1,0 +1,137 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1320" height="830" viewBox="0 0 1320 830">
+<rect width="1320" height="830" fill="#101d26"/>
+<style>text{font-family:Segoe UI,Arial,sans-serif;fill:#edf2f7}.small{font-size:12px}.label{font-size:11px;font-weight:600}</style>
+<text x="40" y="38" font-size="25">East Commonlands tunnel · proposed hub</text>
+<text x="40" y="65" font-size="14" fill="#adb8c7">Classic ecommons / zone 22 · existing map geometry · no changes applied</text>
+<path d="M837.7 516.1L833.5 186.0" stroke="#809da9" fill="none"/>
+<path d="M833.5 186.0L505.3 123.0" stroke="#809da9" fill="none"/>
+<path d="M505.3 123.0L285.4 134.0" stroke="#809da9" fill="none"/>
+<path d="M285.4 134.0L116.4 303.1" stroke="#809da9" fill="none"/>
+<path d="M116.4 303.1L126.5 461.7" stroke="#809da9" fill="none"/>
+<path d="M126.5 461.7L134.0 552.2" stroke="#809da9" fill="none"/>
+<path d="M134.0 552.2L140.8 619.0" stroke="#809da9" fill="none"/>
+<path d="M140.8 619.0L270.9 749.0" stroke="#809da9" fill="none"/>
+<path d="M270.9 749.0L450.4 737.8" stroke="#809da9" fill="none"/>
+<path d="M450.4 737.8L483.3 735.3" stroke="#809da9" fill="none"/>
+<path d="M483.3 735.3L575.7 706.8" stroke="#809da9" fill="none"/>
+<path d="M575.7 706.8L659.5 681.9" stroke="#809da9" fill="none"/>
+<path d="M659.5 681.9L724.9 759.8" stroke="#809da9" fill="none"/>
+<circle cx="313.15225" cy="169.74549999999996" r="5" fill="#526371"><title>WAGON</title></circle>
+<circle cx="129.6541" cy="397.34650000000005" r="5" fill="#526371"><title>BARREL3</title></circle>
+<circle cx="324.39865" cy="133.3135000000001" r="5" fill="#526371"><title>BARREL3</title></circle>
+<circle cx="313.57135000000005" cy="731.917" r="5" fill="#526371"><title>BARREL3</title></circle>
+<circle cx="139.64815000000002" cy="442.9854999999998" r="5" fill="#526371"><title>BUCKET1</title></circle>
+<circle cx="344.5765" cy="391.654" r="5" fill="#526371"><title>BUCKET1</title></circle>
+<circle cx="402.145" cy="699.4944999999999" r="5" fill="#526371"><title>CART</title></circle>
+<circle cx="149.62075" cy="357.6805000000001" r="5" fill="#526371"><title>CART</title></circle>
+<circle cx="317.4472" cy="240.79449999999989" r="5" fill="#526371"><title>CART</title></circle>
+<circle cx="350.97684999999996" cy="402.2140000000001" r="5" fill="#526371"><title>CHAIR2D</title></circle>
+<circle cx="369.88915" cy="380.78050000000013" r="5" fill="#526371"><title>CHAIR2D</title></circle>
+<circle cx="129.5782" cy="424.5715" r="5" fill="#526371"><title>CRATEA</title></circle>
+<circle cx="357.04224999999997" cy="736.5039999999999" r="5" fill="#526371"><title>CRATEE</title></circle>
+<circle cx="332.3896" cy="738.3685000000002" r="5" fill="#526371"><title>CRATEF</title></circle>
+<circle cx="360.88345" cy="390.5979999999998" r="5" fill="#526371"><title>CRATEF</title></circle>
+<circle cx="282.36654999999996" cy="717.9085" r="5" fill="#526371"><title>GCHAIR2</title></circle>
+<circle cx="363.97389999999996" cy="723.8319999999999" r="5" fill="#526371"><title>GCHAIR2</title></circle>
+<circle cx="139.01619999999997" cy="452.12650000000014" r="5" fill="#526371"><title>GCHAIR2</title></circle>
+<circle cx="376.89505" cy="141.97600000000008" r="5" fill="#526371"><title>GCHAIR2</title></circle>
+<circle cx="325.0141" cy="661.8744999999999" r="5" fill="#526371"><title>GRATE</title></circle>
+<circle cx="201.06939999999994" cy="419.45649999999983" r="5" fill="#526371"><title>GRATE</title></circle>
+<circle cx="342.29124999999993" cy="733.3689999999998" r="5" fill="#526371"><title>LEANTO3</title></circle>
+<circle cx="134.74930000000003" cy="426.43599999999986" r="5" fill="#526371"><title>LEANTO3</title></circle>
+<circle cx="356.52579999999995" cy="138.95649999999983" r="5" fill="#526371"><title>LEANTO3</title></circle>
+<circle cx="292.75" cy="298.0" r="8" fill="#68d9c2"/>
+<text class="label" x="292.75" y="284.0" text-anchor="middle">WAR</text>
+<circle cx="358.75" cy="298.0" r="8" fill="#68d9c2"/>
+<text class="label" x="358.75" y="284.0" text-anchor="middle">CLR</text>
+<circle cx="424.75" cy="298.0" r="8" fill="#68d9c2"/>
+<text class="label" x="424.75" y="284.0" text-anchor="middle">PAL</text>
+<circle cx="490.75" cy="298.0" r="8" fill="#68d9c2"/>
+<text class="label" x="490.75" y="284.0" text-anchor="middle">RNG</text>
+<circle cx="556.75" cy="298.0" r="8" fill="#68d9c2"/>
+<text class="label" x="556.75" y="284.0" text-anchor="middle">SHD</text>
+<circle cx="622.75" cy="298.0" r="8" fill="#68d9c2"/>
+<text class="label" x="622.75" y="284.0" text-anchor="middle">DRU</text>
+<circle cx="688.75" cy="298.0" r="8" fill="#68d9c2"/>
+<text class="label" x="688.75" y="284.0" text-anchor="middle">MNK</text>
+<circle cx="754.75" cy="298.0" r="8" fill="#68d9c2"/>
+<text class="label" x="754.75" y="284.0" text-anchor="middle">BRD</text>
+<circle cx="292.75" cy="586.75" r="8" fill="#68d9c2"/>
+<text class="label" x="292.75" y="572.75" text-anchor="middle">ROG</text>
+<circle cx="358.75" cy="586.75" r="8" fill="#68d9c2"/>
+<text class="label" x="358.75" y="572.75" text-anchor="middle">SHM</text>
+<circle cx="424.75" cy="586.75" r="8" fill="#68d9c2"/>
+<text class="label" x="424.75" y="572.75" text-anchor="middle">NEC</text>
+<circle cx="490.75" cy="586.75" r="8" fill="#68d9c2"/>
+<text class="label" x="490.75" y="572.75" text-anchor="middle">WIZ</text>
+<circle cx="556.75" cy="586.75" r="8" fill="#68d9c2"/>
+<text class="label" x="556.75" y="572.75" text-anchor="middle">MAG</text>
+<circle cx="622.75" cy="586.75" r="8" fill="#68d9c2"/>
+<text class="label" x="622.75" y="572.75" text-anchor="middle">ENC</text>
+<circle cx="688.75" cy="586.75" r="8" fill="#68d9c2"/>
+<text class="label" x="688.75" y="572.75" text-anchor="middle">BST</text>
+<circle cx="754.75" cy="586.75" r="8" fill="#68d9c2"/>
+<text class="label" x="754.75" y="572.75" text-anchor="middle">BER</text>
+<circle cx="235.0" cy="248.5" r="8" fill="#b69af9"/>
+<text class="label" x="220.0" y="252.5" text-anchor="end">1</text>
+<circle cx="235.0" cy="289.75" r="8" fill="#b69af9"/>
+<text class="label" x="220.0" y="293.75" text-anchor="end">2</text>
+<circle cx="235.0" cy="331.0" r="8" fill="#b69af9"/>
+<text class="label" x="220.0" y="335.0" text-anchor="end">3</text>
+<circle cx="235.0" cy="372.25" r="8" fill="#b69af9"/>
+<text class="label" x="220.0" y="376.25" text-anchor="end">4</text>
+<circle cx="235.0" cy="413.5" r="8" fill="#b69af9"/>
+<text class="label" x="220.0" y="417.5" text-anchor="end">5</text>
+<circle cx="235.0" cy="454.75" r="8" fill="#b69af9"/>
+<text class="label" x="220.0" y="458.75" text-anchor="end">6</text>
+<circle cx="235.0" cy="496.0" r="8" fill="#b69af9"/>
+<text class="label" x="220.0" y="500.0" text-anchor="end">7</text>
+<circle cx="235.0" cy="537.25" r="8" fill="#b69af9"/>
+<text class="label" x="220.0" y="541.25" text-anchor="end">8</text>
+<circle cx="235.0" cy="578.5" r="8" fill="#b69af9"/>
+<text class="label" x="220.0" y="582.5" text-anchor="end">9</text>
+<circle cx="235.0" cy="619.75" r="8" fill="#b69af9"/>
+<text class="label" x="220.0" y="623.75" text-anchor="end">10</text>
+<circle cx="358.75" cy="199.0" r="8" fill="#efc477"/>
+<text class="label" x="358.75" y="185.0" text-anchor="middle">Bags</text>
+<circle cx="416.5" cy="199.0" r="8" fill="#efc477"/>
+<text class="label" x="416.5" y="185.0" text-anchor="middle">Epics</text>
+<circle cx="474.25" cy="199.0" r="8" fill="#efc477"/>
+<text class="label" x="474.25" y="185.0" text-anchor="middle">Bless</text>
+<circle cx="532.0" cy="199.0" r="8" fill="#efc477"/>
+<text class="label" x="532.0" y="185.0" text-anchor="middle">Premium</text>
+<circle cx="589.75" cy="199.0" r="8" fill="#efc477"/>
+<text class="label" x="589.75" y="185.0" text-anchor="middle">Waypoints</text>
+<circle cx="680.5" cy="199.0" r="8" fill="#efc477"/>
+<text class="label" x="680.5" y="185.0" text-anchor="middle">Classes</text>
+<circle cx="499.0" cy="487.75" r="8" fill="#ffffff"/>
+<text class="label" x="499.0" y="473.75" text-anchor="middle">Arrival</text>
+<circle cx="579.8499999999999" cy="408.55" r="8" fill="#fa945d"/>
+<text class="label" x="579.8499999999999" y="394.55" text-anchor="middle">Shady</text>
+<text x="862.0" y="504.25" class="small">Entrance</text>
+<text x="980" y="120" font-size="14">16 spell / tome merchants</text>
+<text x="980" y="145" font-size="14">Two rows · 40 units between NPCs</text>
+<text x="980" y="170" font-size="14"></text>
+<text x="980" y="195" font-size="14">10 proposed one-click travel stones</text>
+<text x="980" y="220" font-size="14">1. Qeynos</text>
+<text x="980" y="245" font-size="14">2. Freeport</text>
+<text x="980" y="270" font-size="14">3. Faydwer</text>
+<text x="980" y="295" font-size="14">4. Butcherblock</text>
+<text x="980" y="320" font-size="14">5. Everfrost</text>
+<text x="980" y="345" font-size="14">6. Misty</text>
+<text x="980" y="370" font-size="14">7. Nektulos</text>
+<text x="980" y="395" font-size="14">8. Feerrott</text>
+<text x="980" y="420" font-size="14">9. Innothule</text>
+<text x="980" y="445" font-size="14">10. Toxxulia</text>
+<text x="980" y="470" font-size="14"></text>
+<text x="980" y="495" font-size="14">Central arrival and open aisle</text>
+<text x="980" y="520" font-size="14">Shady stays at his existing location</text>
+<text x="980" y="545" font-size="14">Gray dots: existing props</text>
+<text x="980" y="570" font-size="14"></text>
+<text x="980" y="595" font-size="14">Before activation:</text>
+<text x="980" y="620" font-size="14">• Verify feet, collision and pathing</text>
+<text x="980" y="645" font-size="14">• Validate portal models in this zone</text>
+<text x="980" y="670" font-size="14">• Retain Classic-only spell stock</text>
+<text x="980" y="695" font-size="14">• Prove both directions of travel</text>
+<text x="40" y="808" font-size="13">Concept positions only. Object bounds and floor heights require in-game QA; dots do not imply collision clearance.</text>
+</svg>

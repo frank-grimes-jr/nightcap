@@ -557,7 +557,7 @@ void NPC::SetTarget(Mob* mob) {
 			owner = nullptr;
 	}
 
-	if (owner) {
+	if (owner && owner->GetPetID() == GetID()) {
 		auto client = owner->CastToClient();
 		if (client->ClientVersionBit() & EQ::versions::maskUFAndLater) {
 			auto app = new EQApplicationPacket(OP_PetHoTT, sizeof(ClientTarget_Struct));
