@@ -27,7 +27,9 @@ QA and independent rollback steps when activating this combined candidate.
 1. Review `policy.json`, `catalog-20260920.json`, and `generated/catalog.json`.
    The latter contains final scaled prices; the former is immutable source evidence.
 2. Run focused tests, the disposable database rehearsal and quest tests. Build
-   **both** world and zone from the same candidate; retain their hashes.
+   **both** world and zone from the same candidate in a new output directory;
+   retain their hashes. Run `tools/check_living_economy_binary.py <world>` on
+   the artifact. Copying current sources over old objects is not build evidence.
 3. Before activation, check player presence, arrange a restart, take a verified
    full PEQ backup and preserve currently deployed world/zone, plugin and quests.
    Stop world and all zones gracefully. Do not use a live broad repop.

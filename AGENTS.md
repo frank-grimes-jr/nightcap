@@ -72,6 +72,14 @@ All commands run from `akk-stack/`:
   `lavastorm_orig.map` is the verified Classic source. Resolve the alias before
   enabling Khalure's ports; do not substitute newer terrain. See
   `docs/economy/residents/README.md` for the hash and activation gate.
+  Client terrain must also match: the QA RoF2 copy lacks `lavastorm.s3d`, so
+  Khalure withholds Lavastorm until `nightcap:classic_lavastorm_client_ready=1`.
+  Do not enable that global gate merely because one client was patched.
+- **Market build provenance**: `tools/build_living_economy.py` requires a fresh
+  output directory. Never reuse objects after copying sources with preserved
+  mtimes. Source hashes must stay identical across compilation; run
+  `tools/check_living_economy_binary.py <world>` before installation, then verify
+  the actual startup rotation and running world/zone hashes.
 
 ### Multiclass release candidate
 

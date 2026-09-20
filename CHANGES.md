@@ -1,5 +1,15 @@
 # CHANGES
 
+## 2026-09-20 - Market build provenance correction
+
+The first controlled activation refused world startup: a reused object embedded
+the earlier one-argument rotation call while the reviewed source/schema require
+three. The build helper now rejects existing output directories, compares source
+hashes across compilation and checks the actual ELF startup contract before
+writing its manifest. Three regression tests cover stale artifacts and build-tree
+reuse. Recovery recompiles every changed market source/header and its dependents;
+retain the failed artifacts and startup log separately from the corrected pair.
+
 ## 2026-09-20 - Lavastorm travel readiness guard
 
 Withhold Khalure's Lavastorm destination until the explicit
