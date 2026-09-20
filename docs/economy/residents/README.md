@@ -1,7 +1,8 @@
 # Named tunnel residents
 
 September 20, 2026 candidate. Six additional residents; the ten market traders,
-their prices and finite stock are unchanged. Not activated or accepted in game.
+their prices and finite stock are unchanged. Active for QA, not yet accepted in
+game. [Activation evidence](../ACTIVATION.md).
 
 | NPC | Appearance | World X,Y,Z |
 |---|---|---|
@@ -30,8 +31,10 @@ retains zone restrictions; invalid/unknown era values fail closed.
 
 ## Ring catalog
 
-The current Classic menu contains North Karana, West Commonlands, Toxxulia,
-Butcherblock, Lavastorm, South Ro, Feerrott, Steamfont and Misty Thicket. Explicit
+The Classic catalog contains North Karana, West Commonlands, Toxxulia,
+Butcherblock, Lavastorm, South Ro, Feerrott, Steamfont and Misty Thicket. Lavastorm
+is currently withheld: the separate QA client lacks its Classic terrain, leaving
+eight offered rings. See [client readiness](CLIENT-TERRAIN.md). Explicit
 future entries add Dreadlands at Kunark; Iceclad, Great Divide, Wakening Lands,
 Cobalt Scar and Surefall at Velious; four Luclin destinations at Luclin.
 This is a reviewed catalog through Luclin, not automatic support for later eras.
@@ -47,8 +50,8 @@ metadata captured in `rings.json` and `source.json`. No web requests run in ques
 
 ## Activation prerequisite
 
-**Do not activate Khalure until the Lavastorm map prerequisite is resolved.**
-The live zone row names `lavastorm_v0.map`, which is absent. The installed
+The live zone row names `lavastorm_v0.map`, which was absent during preflight.
+The approved activation has now installed and verified that alias. The installed
 `lavastorm.map` is newer terrain and fails the Classic landing. The existing
 `lavastorm_orig.map` passes ground/headroom checks at the Classic ring.
 Its SHA256 is `1d4f49fa9e5bd0bf6e8511b1d8f5a42536d6e633db9ecf04430258f02dc03d94`.
@@ -61,7 +64,14 @@ without `--verify-lavastorm-source`, using newly staged probe inputs. The normal
 verifier refuses missing configured maps. Its optional source-verification mode
 records a prerequisite, not a completed installation.
 
-After a verified full backup with world/zones stopped, apply `forward.sql` and
+Server collision checks do not validate client terrain. The approved QA copy
+lacks `lavastorm.s3d`; `E:/EQ_Local` also lacks it. Until the client prerequisite
+is resolved, keep `nightcap:classic_lavastorm_client_ready` absent. The quest
+checks it on both hail and click, hiding Lavastorm and rejecting stale links.
+Do not set this global readiness flag merely because one client was repaired.
+
+For a new deployment only (this release is already applied), after a verified
+full backup with world/zones stopped, apply `forward.sql` and
 install both `tunnel_residents.pl` and `tunnel_resident_data.pl` plugins plus
 quests `ecommons/999520.pl` through `999525.pl`. Combine with the market's paired
 binary activation procedure in [QA](../QA.md). This follow-up adds no C++ change.
@@ -80,9 +90,11 @@ unexpected triggers, nontransactional tables and coordinate-format drift.
 3. Hail all six. Wait ten minutes with OOC enabled, then disable OOC. Trift's
    bounded story uses OOC filtering, names Butcherblock and the goblin, and
    mentions his missing corpse. Existing auction cadence stays independent.
-4. Hail Khalure. Confirm exactly nine Classic destinations, with no Dreadlands,
-   Surefall, Velious or Luclin links. Visit every offered ring, including
-   Lavastorm with the approved client; confirm the actual stones, safe footing,
+4. Hail Khalure. Currently confirm eight Classic destinations and no Lavastorm,
+   Dreadlands, Surefall, Velious or Luclin links. A stale `ring lavastorm` must
+   reject without movement. After complete client readiness is verified and the
+   gate enabled, expect all nine Classic destinations. Visit every offered ring;
+   confirm the actual stones, safe footing,
    correct zone, unchanged bind and no fee. Use existing return routes/recall.
 5. Try old/forged future links, more than 100 units away, in combat and while
    casting. No travel should occur. Rapid repeated clicks must not double-zone.

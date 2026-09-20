@@ -5,6 +5,7 @@ Start with [current status](status.md), not a dated candidate report.
 ## Players and testers
 
 - [Finite merchant finds and EC traders: exact QA](economy/QA.md)
+- [Living economy activation, recovery and remaining gates](economy/ACTIVATION.md)
 - [Six named tunnel residents and druid-ring QA](economy/residents/README.md)
 
 - [Three class pets: evidence and exact QA](releases/multiclass-pets-20260919/README.md)

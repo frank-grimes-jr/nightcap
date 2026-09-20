@@ -3,22 +3,26 @@
 Updated September 20, 2026. This is the current status index; dated studies and
 QA reports preserve their original evidence and are not live-state promises.
 
-## Living economy candidate
+## Living economy QA candidate
 
-Finite city-merchant finds and ten EC tunnel traders are implemented in an
-isolated candidate. Dated P1999 references are scaled for observed earning
-boosts before premiums. Atomic stock/payment/item handling, auction chatter,
-disabled-by-default installation and scoped rollback are included.
-Paired world/zone compilation, focused native/SQL/quest checks and the broader
-regression suite passed; see [verification](economy/VERIFICATION.md).
-It is **not active**. Controlled activation, pricing balance and owner
-[in-game QA](economy/QA.md) remain open; this feature has not been promoted to main.
+Finite city-merchant finds, ten EC traders and all six requested residents are
+**active for QA** after owner-approved backup/restart. The corrected world and
+all eight zones have verified running hashes and clean checked startup logs.
+Epoch 1 has 10 finds, six WTS and four WTB offers, each quantity one. Existing
+player/merchant fingerprints are unchanged. Dated P1999 prices are scaled for
+observed earning boosts before premiums. [Activation evidence](economy/ACTIVATION.md).
 
-The six requested named residents are an additive follow-up candidate, including
-Trift's OOC story and Khalure's era-checked ring ports. Before activation, resolve
-the missing configured Classic Lavastorm map alias from its verified source.
-[Resident details and exact QA](economy/residents/README.md). No live map, SQL,
-quest or client changes have been made for this candidate.
+Initial activation exposed stale build artifacts; the corrected paired rebuild
+and regression guard are recorded in [verification](economy/VERIFICATION.md).
+The Classic Lavastorm server map alias is repaired, but client terrain is still
+missing, including from the owner's suggested `E:/EQ_Local` copy. Khalure offers
+the other eight Classic rings and rejects stale Lavastorm links. No client files
+were changed. [Client prerequisite](economy/residents/CLIENT-TERRAIN.md).
+
+Costume rendering, normal-account transactions, pricing balance and owner
+[in-game QA](economy/QA.md) remain open. [Resident QA](economy/residents/README.md)
+includes all six appearances, Trift's OOC story and offered ring landings.
+Promoted through **dev/test**, not main.
 
 ## East Commonlands hub QA candidate
 

@@ -69,8 +69,8 @@ All commands run from `akk-stack/`:
 - **DB backups**: `tools/backup-peq.ps1`, scheduled daily 04:00 (task `NightcapPeqBackup`), 14-day retention, includes the era drift check. Take a manual backup before destructive SQL.
 - **Ring geometry**: validate against `zone.map_file_name`, not only the short
   zone name. The September 20 resident candidate found missing `lavastorm_v0.map`;
-  `lavastorm_orig.map` is the verified Classic source. Resolve the alias before
-  enabling Khalure's ports; do not substitute newer terrain. See
+  `lavastorm_orig.map` is the verified Classic source. The approved activation
+  installed the byte-identical alias; do not substitute newer terrain. See
   `docs/economy/residents/README.md` for the hash and activation gate.
   Client terrain must also match: the QA RoF2 copy lacks `lavastorm.s3d`, so
   Khalure withholds Lavastorm until `nightcap:classic_lavastorm_client_ready=1`.

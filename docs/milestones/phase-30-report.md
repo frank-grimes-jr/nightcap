@@ -37,3 +37,20 @@ Zero NPC RGB means no tint, not black. Persistent native material/tint fields
 avoid equip-on-spawn visual drift and do not need loot-table gear. Fixed-precision
 spawn coordinates must retain native formatting in exact rollback preimages.
 Guard dangling references as well as reserved row IDs before adding tint sets.
+
+## September 20 Activation Addendum
+
+The owner authorized a fresh full backup, server map repair and controlled restart
+for QA, plus preparation of a separate QA-client terrain update. The configured
+map alias is installed; all 25 server positions pass the installed-map probe.
+Classic Lavastorm client terrain is absent from both inspected workspace clients
+and the owner's suggested `E:/EQ_Local` source. Khalure therefore withholds that
+one destination and rejects stale links; no client files were changed.
+
+Initial activation exposed stale build objects. The launcher was stopped before
+any zones opened, all affected C++ inputs were invalidated, and both binaries
+were rebuilt from unchanged reviewed sources. Future builds now require fresh
+output and verify source stability and the actual binary startup contract.
+The updated regression suite passes 61 of 62 tests (one existing opt-in skip),
+plus all 23 resident Perl assertions. Historical preflight findings above remain
+dated evidence; see [current verification](../economy/VERIFICATION.md).

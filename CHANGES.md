@@ -1,5 +1,16 @@
 # CHANGES
 
+## 2026-09-20 - Living economy and residents activated for QA
+
+After the owner-approved full PEQ backup and controlled restart, corrected world
+and all eight zone binaries are running with matching hashes. Epoch 1 contains
+10 finds, six sales and four purchases, all quantity one. All 30 resident rows,
+29 runtime files and 11 post-boot player/merchant fingerprints verify; checked
+startup logs are clean. The Classic Lavastorm server map alias is repaired, but
+its client terrain remains missing, including in `E:/EQ_Local`. Khalure offers
+eight Classic rings until that separate client gate is resolved. No original
+client edits or main promotion. [Activation and remaining QA](docs/economy/ACTIVATION.md).
+
 ## 2026-09-20 - Market build provenance correction
 
 The first controlled activation refused world startup: a reused object embedded

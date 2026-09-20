@@ -1,10 +1,11 @@
 # Living economy release checks
 
-Candidate dated 2026-09-20. Not yet activated. Do not interpret generated SQL or
-a successful compile as live deployment or owner acceptance.
+Candidate dated 2026-09-20, now active for owner QA after the approved backup and
+controlled restart. [Activation evidence](ACTIVATION.md) records the corrected
+running pair and first rotation. Manual acceptance and main promotion are open.
 
 The candidate now also includes [six named residents](residents/README.md).
-Follow their additional setup, Lavastorm map prerequisite, exact appearance/port
+Follow their additional setup, Lavastorm client prerequisite, exact appearance/port
 QA and independent rollback steps when activating this combined candidate.
 
 ## Intended behavior
@@ -23,6 +24,9 @@ QA and independent rollback steps when activating this combined candidate.
   direct 10.53x coin-drop rule. These prices require owner balance acceptance.
 
 ## Installation gate
+
+This release is already installed. These steps are for a new deployment, not
+instructions to reapply live SQL. Proceed to the in-game QA section below.
 
 1. Review `policy.json`, `catalog-20260920.json`, and `generated/catalog.json`.
    The latter contains final scaled prices; the former is immutable source evidence.
@@ -47,8 +51,9 @@ QA and independent rollback steps when activating this combined candidate.
 
 ## Exact In-Game QA
 
-Use the approved current QA client; this feature introduces no additional client
-files. GM teleport/item preparation may assist, but repeat trades on normal accounts.
+Use the approved current QA client. The market needs no additional client files;
+Lavastorm remains withheld pending its Classic terrain update. GM teleport/item
+preparation may assist, but repeat trades on normal accounts.
 
 1. Enter East Commonlands. Rellan Ridgewalker is at world X=-300, Y=-1660,
    Z=3.75; Mirielle Dusksong is at -240,-1660; Caelith Emberweave at -80,-1650.
