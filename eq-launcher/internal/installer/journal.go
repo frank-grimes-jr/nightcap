@@ -22,9 +22,11 @@ type entry struct {
 	SHA256  string
 }
 type journal struct {
-	Schema  int
-	ID      string
-	Entries []entry
+	Schema    int
+	ID        string
+	Entries   []entry
+	Manifest  []byte             `json:",omitempty"`
+	Signature manifest.Signature `json:",omitzero"`
 }
 
 var transactionID = regexp.MustCompile(`^[0-9a-f]{32}$`)
@@ -59,8 +61,36 @@ func readJournal(root *os.Root, p pendingRecord) (journal, error) {
 	return j, err
 }
 func validateJournal(j journal, p pendingRecord, trust manifest.Trust) error {
-	if j.Schema != 1 || j.ID != p.ID || len(j.Entries) < 1 || len(j.Entries) > 2*manifest.MaxFiles+1 {
+	if (j.Schema != 1 && j.Schema != 2) || j.ID != p.ID || len(j.Entries) < 1 || len(j.Entries) > 2*manifest.MaxFiles+1 {
 		return fmt.Errorf("invalid recovery journal")
+	}
+	allowed := map[string]bool{}
+	if j.Schema == 2 {
+		m, err := manifest.VerifyRecovery(j.Manifest, j.Signature, trust)
+		if err != nil {
+			return fmt.Errorf("recovery authority: %w", err)
+		}
+		for _, f := range m.Files {
+			allowed[f.Path] = true
+		}
+		for _, name := range m.Tombstones {
+			allowed[name] = true
+		}
+		if len(j.Entries) != len(allowed)+1 {
+			return fmt.Errorf("incomplete recovery inventory")
+		}
+	} else {
+		if len(j.Manifest) != 0 || j.Signature.KeyID != "" || len(j.Signature.Bytes) != 0 {
+			return fmt.Errorf("unexpected legacy recovery proof")
+		}
+		for name := range trust.Inventory {
+			allowed[name] = true
+		}
+		for name, retired := range trust.Retired {
+			if retired {
+				allowed[name] = true
+			}
+		}
 	}
 	seen := map[string]bool{}
 	var total int64
@@ -77,8 +107,7 @@ func validateJournal(j journal, p pendingRecord, trust manifest.Trust) error {
 			if err := manifest.ValidatePath(e.Path); err != nil {
 				return err
 			}
-			_, owned := trust.Inventory[e.Path]
-			if !owned && !trust.Retired[e.Path] {
+			if !allowed[e.Path] {
 				return fmt.Errorf("unowned recovery path %s", e.Path)
 			}
 		}

@@ -31,8 +31,6 @@ type Site struct {
 	Original string `json:"original"`
 }
 type catalog struct {
-	RuntimeSchema uint32   `json:"runtime_schema"`
-	ProxyVersion  string   `json:"proxy_version"`
 	Schema        int      `json:"schema"`
 	ClientSize    int64    `json:"client_size"`
 	ClientSHA256  string   `json:"client_sha256"`
@@ -40,6 +38,8 @@ type catalog struct {
 	Required      []string `json:"required_features"`
 	Optional      []string `json:"optional_features"`
 	Sites         []Site   `json:"sites"`
+	RuntimeSchema uint32   `json:"runtime_schema"`
+	ProxyVersion  string   `json:"proxy_version"`
 }
 type Report struct {
 	Supported     bool `json:"supported_executable"`
@@ -71,6 +71,9 @@ func ValidateConfig(raw []byte) error {
 	if err != nil {
 		return err
 	}
+	return validateConfig(raw, c)
+}
+func validateConfig(raw []byte, c catalog) error {
 	if len(raw) == 0 || len(raw) > MaxConfigBytes {
 		return fmt.Errorf("patch configuration size invalid")
 	}
@@ -109,14 +112,26 @@ func CheckOpen(file interface {
 	io.Seeker
 	Stat() (os.FileInfo, error)
 }, config, metadata []byte) (Report, error) {
+	if !bytes.Equal(metadata, catalogBytes) {
+		return Report{}, fmt.Errorf("release patch catalog differs from launcher catalog")
+	}
+	c, err := policy()
+	if err != nil {
+		return Report{}, err
+	}
+	return checkOpen(file, config, c)
+}
+
+func checkOpen(file interface {
+	io.Reader
+	io.Seeker
+	Stat() (os.FileInfo, error)
+}, config []byte, c catalog) (Report, error) {
 	var report Report
-	if err := ValidateConfig(config); err != nil {
+	if err := validateConfig(config, c); err != nil {
 		return report, err
 	}
 	report.ConfigValid = true
-	if !bytes.Equal(metadata, catalogBytes) {
-		return report, fmt.Errorf("release patch catalog differs from launcher catalog")
-	}
 	if _, err := file.Seek(0, io.SeekStart); err != nil {
 		return report, err
 	}
@@ -136,10 +151,6 @@ func CheckOpen(file interface {
 		return report, fmt.Errorf("unsupported client executable SHA-256")
 	}
 	report.Supported = true
-	c, err := policy()
-	if err != nil {
-		return report, err
-	}
 	if err = checkSites(data, c); err != nil {
 		return report, err
 	}

@@ -34,6 +34,7 @@ type Expected struct {
 	ProcessCreated uint64
 	Nonce          string
 	ConfigSHA256   string
+	Runtime        preflight.RuntimePolicy
 }
 
 func lowerHex(value string, size int) bool {
@@ -64,9 +65,9 @@ func Validate(raw []byte, expected Expected) (Record, error) {
 	if err != nil || !bytes.Equal(canonical, raw) {
 		return record, fmt.Errorf("noncanonical runtime health")
 	}
-	policy, err := preflight.RuntimeRequirements()
-	if err != nil {
-		return record, err
+	policy := expected.Runtime
+	if policy.Schema != 1 || policy.ProxyVersion == "" || !lowerHex(policy.CatalogSHA256, 64) || policy.RequiredMask == 0 || policy.RequiredMask > 0x7fffffff || policy.RequiredMask&(policy.RequiredMask+1) != 0 {
+		return record, fmt.Errorf("invalid trusted runtime contract")
 	}
 	if record.Schema != policy.Schema || record.ProxyVersion != policy.ProxyVersion || record.CatalogSHA256 != policy.CatalogSHA256 {
 		return record, fmt.Errorf("runtime health contract mismatch")

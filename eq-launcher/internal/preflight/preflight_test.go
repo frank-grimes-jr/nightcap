@@ -168,8 +168,12 @@ func TestExactRoF2Preflight(t *testing.T) {
 		t.Fatal(err)
 	}
 	defer f.Close()
+	compiled, err := policy()
+	if err != nil {
+		t.Fatal(err)
+	}
 	report, err := CheckOpen(f, configFixture(t), Catalog())
-	if err != nil || !report.StaticValid || report.SitesVerified != 22 || report.ReadyToPlay {
+	if err != nil || !report.StaticValid || report.SitesVerified != len(compiled.Sites) || report.ReadyToPlay {
 		t.Fatalf("exact client preflight %+v %v", report, err)
 	}
 }

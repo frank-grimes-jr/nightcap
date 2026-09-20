@@ -52,13 +52,16 @@ type Key struct {
 // maps exact owned paths to their required flag. Retired lists removable paths.
 // HighestRelease/Digest come from the trusted, durable anti-rollback state.
 type Trust struct {
-	Keys            []Key
-	Now             time.Time
-	LauncherVersion string
-	HighestRelease  uint64
-	HighestDigest   string
-	Inventory       map[string]bool
-	Retired         map[string]bool
+	// ReleaseInventory permits signed inventories inside the compiled game-asset
+	// scopes. It never grants broad deletion authority or changes signing trust.
+	ReleaseInventory bool
+	Keys             []Key
+	Now              time.Time
+	LauncherVersion  string
+	HighestRelease   uint64
+	HighestDigest    string
+	Inventory        map[string]bool
+	Retired          map[string]bool
 	// RetiredSHA256 pins pre-existing third-party files before retirement.
 	RetiredSHA256 map[string]string
 	Hosts         []string
@@ -71,6 +74,16 @@ func Digest(raw []byte) string { sum := sha256.Sum256(raw); return hex.EncodeToS
 func Canonical(m Manifest) ([]byte, error) { return json.Marshal(m) }
 
 func Verify(raw []byte, signature Signature, trust Trust) (Manifest, error) {
+	return verify(raw, signature, trust, false)
+}
+
+// VerifyRecovery authenticates rollback destinations only. Expired metadata and
+// an older release can restore backups, but cannot authorize install or Play.
+func VerifyRecovery(raw []byte, signature Signature, trust Trust) (Manifest, error) {
+	return verify(raw, signature, trust, true)
+}
+
+func verify(raw []byte, signature Signature, trust Trust, recovery bool) (Manifest, error) {
 	fail := func(message string) (Manifest, error) { return Manifest{}, fmt.Errorf("manifest: %s", message) }
 	if len(raw) == 0 || len(raw) > MaxManifestBytes {
 		return fail("invalid manifest size")
@@ -90,7 +103,7 @@ func Verify(raw []byte, signature Signature, trust Trust) (Manifest, error) {
 	if key == nil || len(key.Public) != ed25519.PublicKeySize || len(signature.Bytes) != ed25519.SignatureSize {
 		return fail("unknown key or invalid signature length")
 	}
-	if trust.Now.Before(key.NotBefore) || !trust.Now.Before(key.NotAfter) {
+	if !recovery && (trust.Now.Before(key.NotBefore) || !trust.Now.Before(key.NotAfter)) {
 		return fail("signing key is not currently valid")
 	}
 	if !ed25519.Verify(key.Public, raw, signature.Bytes) {
@@ -111,7 +124,7 @@ func Verify(raw []byte, signature Signature, trust Trust) (Manifest, error) {
 	if m.Schema != 1 || m.Release == 0 {
 		return fail("unsupported schema or release")
 	}
-	if !trust.Now.Before(m.Expires) {
+	if !recovery && !trust.Now.Before(m.Expires) {
 		return fail("release metadata expired")
 	}
 	minimum, err := version(m.MinLauncher)
@@ -123,6 +136,9 @@ func Verify(raw []byte, signature Signature, trust Trust) (Manifest, error) {
 		return fail("invalid local launcher version")
 	}
 	for i := range minimum {
+		if recovery {
+			break
+		}
 		if current[i] > minimum[i] {
 			break
 		}
@@ -130,13 +146,13 @@ func Verify(raw []byte, signature Signature, trust Trust) (Manifest, error) {
 			return fail("launcher upgrade required")
 		}
 	}
-	if m.Release < trust.HighestRelease {
+	if !recovery && m.Release < trust.HighestRelease {
 		return fail("release downgrade requires signed rollback authorization")
 	}
-	if m.Release == trust.HighestRelease && Digest(raw) != trust.HighestDigest {
+	if !recovery && m.Release == trust.HighestRelease && Digest(raw) != trust.HighestDigest {
 		return fail("release identifier reused with different metadata")
 	}
-	if m.Tombstones == nil || len(m.Files) == 0 || len(m.Files) > MaxFiles || len(m.Files) != len(trust.Inventory) || len(m.Tombstones) > MaxFiles {
+	if m.Tombstones == nil || len(m.Files) == 0 || len(m.Files) > MaxFiles || (!trust.ReleaseInventory && len(m.Files) != len(trust.Inventory)) || len(m.Tombstones) > MaxFiles {
 		return fail("inventory size mismatch")
 	}
 	for name, digest := range trust.RetiredSHA256 {
@@ -151,6 +167,9 @@ func Verify(raw []byte, signature Signature, trust Trust) (Manifest, error) {
 			return fail(err.Error())
 		}
 		required, owned := trust.Inventory[file.Path]
+		if trust.ReleaseInventory {
+			owned, required = GameAssetPath(file.Path), true
+		}
 		if !owned || required != file.Required || seen[file.Path] {
 			return fail("unknown, duplicate or misclassified asset")
 		}
@@ -167,6 +186,13 @@ func Verify(raw []byte, signature Signature, trust Trust) (Manifest, error) {
 		}
 		if err := ValidateURL(file.URL, trust.Hosts); err != nil {
 			return fail(err.Error())
+		}
+	}
+	if trust.ReleaseInventory {
+		for _, name := range CoreAssets {
+			if !seen[name] {
+				return fail("missing core asset: " + name)
+			}
 		}
 	}
 	for _, name := range m.Tombstones {

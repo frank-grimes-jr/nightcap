@@ -46,13 +46,14 @@ func start(ctx context.Context, directory string, trust manifest.Trust, private 
 		}
 		closeLease = func() error { return errors.Join(restore(), lease.Close()) }
 	}
-	return startPrepared(ctx, launchInputs{directory: lease.Directory(), executable: lease.Executable(), proxy: lease.Proxy(), helper: lease.Helper(), metadata: lease.Bootstrap(), configDigest: lease.ConfigDigest(), close: closeLease, timeout: 20000})
+	return startPrepared(ctx, launchInputs{directory: lease.Directory(), executable: lease.Executable(), proxy: lease.Proxy(), helper: lease.Helper(), metadata: lease.Bootstrap(), configDigest: lease.ConfigDigest(), runtime: lease.Runtime(), close: closeLease, timeout: 20000})
 }
 
 type launchInputs struct {
 	directory, configDigest   string
 	executable, proxy, helper launchlock.File
 	metadata                  preflight.BootstrapMetadata
+	runtime                   preflight.RuntimePolicy
 	close                     func() error
 	timeout                   uint32
 }
@@ -236,7 +237,7 @@ func (o *owner) approve(m message) error {
 	if err != nil {
 		return err
 	}
-	_, err = runtimehealth.Validate(data, runtimehealth.Expected{PID: m.identity.PID, ProcessCreated: m.identity.Created, Nonce: o.nonce, ConfigSHA256: o.input.configDigest})
+	_, err = runtimehealth.Validate(data, runtimehealth.Expected{PID: m.identity.PID, ProcessCreated: m.identity.Created, Nonce: o.nonce, ConfigSHA256: o.input.configDigest, Runtime: o.input.runtime})
 	if err != nil {
 		return err
 	}

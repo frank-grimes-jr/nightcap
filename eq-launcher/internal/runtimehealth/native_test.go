@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"crypto/sha256"
 	"encoding/hex"
+	"nightcap/eq-launcher/internal/preflight"
 	"os"
 	"os/exec"
 	"path/filepath"
@@ -29,7 +30,11 @@ func TestNativeHealthAgreement(t *testing.T) {
 		t.Fatalf("%v: %s", err, out.String())
 	}
 	digest := sha256.Sum256([]byte("fixture"))
-	expected := Expected{PID: pid, ProcessCreated: 123456789, Nonce: strings.Repeat("0123456789abcdef", 2), ConfigSHA256: hex.EncodeToString(digest[:])}
+	policy, err := preflight.RuntimeRequirements()
+	if err != nil {
+		t.Fatal(err)
+	}
+	expected := Expected{Runtime: policy, PID: pid, ProcessCreated: 123456789, Nonce: strings.Repeat("0123456789abcdef", 2), ConfigSHA256: hex.EncodeToString(digest[:])}
 	raw := bytes.TrimSpace(out.Bytes())
 	if _, err := Validate(raw, expected); err != nil {
 		t.Fatal(err)

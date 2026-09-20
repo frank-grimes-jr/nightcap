@@ -12,7 +12,7 @@ func fixture(t *testing.T) (Record, Expected) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	e := Expected{PID: 123, ProcessCreated: 456, Nonce: strings.Repeat("a", 32), ConfigSHA256: strings.Repeat("b", 64)}
+	e := Expected{PID: 123, ProcessCreated: 456, Nonce: strings.Repeat("a", 32), ConfigSHA256: strings.Repeat("b", 64), Runtime: p}
 	r := Record{Schema: p.Schema, ProxyVersion: p.ProxyVersion, CatalogSHA256: p.CatalogSHA256, ConfigSHA256: e.ConfigSHA256, PID: e.PID, ProcessCreated: e.ProcessCreated, Nonce: e.Nonce, State: "ready", RequiredMask: p.RequiredMask, EnabledMask: p.RequiredMask, AppliedMask: p.RequiredMask}
 	return r, e
 }

@@ -106,7 +106,11 @@ func fixtureInputs(t *testing.T) launchInputs {
 	initializer := binary.LittleEndian.Uint32(readRVA(pp, binary.LittleEndian.Uint32(exports[28:]), 4))
 	metadata := preflight.BootstrapMetadata{EntryRVA: eh.AddressOfEntryPoint, EntryOriginal: readRVA(ep, eh.AddressOfEntryPoint, 1)[0], InitializerRVA: initializer, ProxyImageSize: ph.SizeOfImage}
 	prepared = true
-	return launchInputs{directory: dir, executable: exe, proxy: proxy, helper: helperFile, metadata: metadata, configDigest: manifest.Digest(config), close: locks.Close, timeout: 2000}
+	runtime, err := preflight.RuntimeRequirements()
+	if err != nil {
+		t.Fatal(err)
+	}
+	return launchInputs{directory: dir, executable: exe, proxy: proxy, helper: helperFile, metadata: metadata, configDigest: manifest.Digest(config), runtime: runtime, close: locks.Close, timeout: 2000}
 }
 func assertUnlocked(t *testing.T, input launchInputs) {
 	t.Helper()

@@ -65,7 +65,11 @@ func Install(ctx context.Context, clientDir, candidateDir string, trust manifest
 		return Result{}, err
 	}
 	defer guard.Close()
-	_, err = preflight.CheckOpen(guard.Executable(), config, metadata)
+	check := preflight.CheckOpen
+	if trust.ReleaseInventory {
+		check = preflight.CheckSignedOpen
+	}
+	_, err = check(guard.Executable(), config, metadata)
 	if err != nil {
 		return Result{}, err
 	}
@@ -152,6 +156,9 @@ func installLocked(ctx context.Context, root, stage *os.Root, raw []byte, sig ma
 	j, err := snapshot(root, id, paths)
 	if err != nil {
 		return Result{}, err
+	}
+	if trust.ReleaseInventory {
+		j.Schema, j.Manifest, j.Signature = 2, raw, sig
 	}
 	// Reject an unrecognized existing archive before changing any installed file.
 	for _, e := range j.Entries {

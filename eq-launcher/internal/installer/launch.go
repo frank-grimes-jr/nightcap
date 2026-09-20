@@ -23,6 +23,7 @@ type LaunchLease struct {
 	digest       string
 	configDigest string
 	bootstrap    preflight.BootstrapMetadata
+	runtime      preflight.RuntimePolicy
 }
 
 func (l *LaunchLease) Close() error                           { return l.locks.Close() }
@@ -34,6 +35,7 @@ func (l *LaunchLease) Executable() launchlock.File            { return l.files["
 func (l *LaunchLease) Proxy() launchlock.File                 { return l.files["dinput8.dll"] }
 func (l *LaunchLease) Helper() launchlock.File                { return l.files[HelperPath] }
 func (l *LaunchLease) Bootstrap() preflight.BootstrapMetadata { return l.bootstrap }
+func (l *LaunchLease) Runtime() preflight.RuntimePolicy       { return l.runtime }
 
 // PrepareLaunch performs no network requests or writes. Trust must come from
 // compiled launcher policy and its trusted release floor, never the UI. All
@@ -78,7 +80,15 @@ func PrepareLaunch(ctx context.Context, directory string, trust manifest.Trust) 
 	if !requiredHelper {
 		return nil, fmt.Errorf("missing required bootstrap helper")
 	}
-	if _, err = preflight.CheckOpen(lease.Executable(), config, catalog); err != nil {
+	check := preflight.CheckOpen
+	if trust.ReleaseInventory {
+		check = preflight.CheckSignedOpen
+	}
+	if _, err = check(lease.Executable(), config, catalog); err != nil {
+		return nil, err
+	}
+	lease.runtime, err = preflight.RuntimeForCatalog(catalog)
+	if err != nil {
 		return nil, err
 	}
 	lease.bootstrap, err = preflight.BootstrapOpen(lease.Executable(), lease.Proxy())
