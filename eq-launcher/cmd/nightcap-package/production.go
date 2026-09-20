@@ -146,9 +146,9 @@ func DefaultPolicy() Policy {
  return Policy{Label:"Nightcap", EnablePlay:true, EnvelopeURL:%q, GuideURL:%q, RelayURL:%q, Trust:manifest.Trust{
  LauncherVersion:%q, Hosts:[]string{%q},
  Keys:[]manifest.Key{{ID:%q,Public:public,NotBefore:time.Unix(%d,0),NotAfter:time.Unix(%d,0)}},
- Inventory:map[string]bool{%s}, Retired:map[string]bool{"nektulos.eqg":true}, RetiredSHA256:map[string]string{"nektulos.eqg":%q},
+ Inventory:map[string]bool{%s}, Retired:map[string]bool{"nektulos.eqg":true,"lavastorm.eqg":true}, RetiredSHA256:map[string]string{"nektulos.eqg":%q,"lavastorm.eqg":%q},
  }}
 }
-`, hex.EncodeToString(key.Public), p.BaseURL+"/channel.json", p.GuideURL, p.RelayURL, p.Version, p.hosts()[0], key.ID, key.NotBefore.Unix(), key.NotAfter.Unix(), inventory.String(), classicNektulosRetirementSHA256)
+`, hex.EncodeToString(key.Public), p.BaseURL+"/channel.json", p.GuideURL, p.RelayURL, p.Version, p.hosts()[0], key.ID, key.NotBefore.Unix(), key.NotAfter.Unix(), inventory.String(), classicNektulosRetirementSHA256, classicLavastormRetirementSHA256)
 	return format.Source([]byte(source))
 }

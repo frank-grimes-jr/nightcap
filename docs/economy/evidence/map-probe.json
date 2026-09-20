@@ -1,0 +1,436 @@
+{
+  "map": "/home/eqemu/server/maps/base/ecommons.map",
+  "points": [
+    {
+      "label": "Rellan_Ridgewalker",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -9.5367431640625e-07,
+          "headroom": 30.0
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -9.5367431640625e-07,
+          "headroom": 30.0
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -9.5367431640625e-07,
+          "headroom": 30.0
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": true,
+          "ground_z": -9.5367431640625e-07,
+          "headroom": 30.0
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": true,
+          "ground_z": -9.5367431640625e-07,
+          "headroom": 30.0
+        }
+      ],
+      "x": -300,
+      "y": -1660,
+      "z": 3.75
+    },
+    {
+      "label": "Mirielle_Dusksong",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": 0.0,
+          "headroom": 30.000001907348633
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": 0.0,
+          "headroom": 30.000001907348633
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -9.5367431640625e-07,
+          "headroom": 30.0
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": true,
+          "ground_z": 0.0,
+          "headroom": 30.000001907348633
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": true,
+          "ground_z": -9.5367431640625e-07,
+          "headroom": 30.0
+        }
+      ],
+      "x": -240,
+      "y": -1660,
+      "z": 3.75
+    },
+    {
+      "label": "Caelith_Emberweave",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": 0.0,
+          "headroom": 30.0
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": 0.0,
+          "headroom": 30.0
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": 0.0,
+          "headroom": 30.0
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": true,
+          "ground_z": 0.0,
+          "headroom": 30.0
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": true,
+          "ground_z": 0.0,
+          "headroom": 30.0
+        }
+      ],
+      "x": -80,
+      "y": -1650,
+      "z": 3.75
+    },
+    {
+      "label": "Bromli_Copperkeg",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": 0.0,
+          "headroom": 30.0
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": 0.0,
+          "headroom": 30.0
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": 0.0,
+          "headroom": 30.0
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": true,
+          "ground_z": 0.0,
+          "headroom": 30.0
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": true,
+          "ground_z": 0.0,
+          "headroom": 30.0
+        }
+      ],
+      "x": -35,
+      "y": -1705,
+      "z": 3.75
+    },
+    {
+      "label": "Tamsin_Quickstep",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": 0.0,
+          "headroom": 30.000001907348633
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": 0.0,
+          "headroom": 30.000001907348633
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": 0.0,
+          "headroom": 30.000001907348633
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": true,
+          "ground_z": 0.0,
+          "headroom": 30.000001907348633
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": true,
+          "ground_z": 0.0,
+          "headroom": 30.000001907348633
+        }
+      ],
+      "x": -90,
+      "y": -1735,
+      "z": 3.75
+    },
+    {
+      "label": "Varkyn_Ashblade",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": 0.0,
+          "headroom": 30.000001907348633
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": 0.0,
+          "headroom": 30.000001907348633
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": 0.0,
+          "headroom": 30.000001907348633
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": true,
+          "ground_z": 0.0,
+          "headroom": 30.000001907348633
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": true,
+          "ground_z": 0.0,
+          "headroom": 30.000001907348633
+        }
+      ],
+      "x": -155,
+      "y": -1750,
+      "z": 3.75
+    },
+    {
+      "label": "Harlon_Frostbeard",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -9.5367431640625e-07,
+          "headroom": 30.0
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -9.5367431640625e-07,
+          "headroom": 30.0
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -9.5367431640625e-07,
+          "headroom": 30.0
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": true,
+          "ground_z": -9.5367431640625e-07,
+          "headroom": 30.0
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": true,
+          "ground_z": -9.5367431640625e-07,
+          "headroom": 30.0
+        }
+      ],
+      "x": -230,
+      "y": -1735,
+      "z": 3.75
+    },
+    {
+      "label": "Nimri_Mossfoot",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": 0.0,
+          "headroom": 30.0
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": 0.0,
+          "headroom": 30.0
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": 0.0,
+          "headroom": 30.0
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": true,
+          "ground_z": 0.0,
+          "headroom": 30.0
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": true,
+          "ground_z": 0.0,
+          "headroom": 30.0
+        }
+      ],
+      "x": -300,
+      "y": -1720,
+      "z": 3.75
+    },
+    {
+      "label": "Grukk_Bargainhand",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": 0.0,
+          "headroom": 30.0
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": 0.0,
+          "headroom": 30.0
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": 0.0,
+          "headroom": 30.0
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": true,
+          "ground_z": 0.0,
+          "headroom": 30.0
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": true,
+          "ground_z": 0.0,
+          "headroom": 30.0
+        }
+      ],
+      "x": -390,
+      "y": -1710,
+      "z": 3.75
+    },
+    {
+      "label": "Selindra_Starsong",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": 0.0,
+          "headroom": 30.000001907348633
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": 0.0,
+          "headroom": 30.000001907348633
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": 0.0,
+          "headroom": 30.000001907348633
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": true,
+          "ground_z": 0.0,
+          "headroom": 30.000001907348633
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": true,
+          "ground_z": 0.0,
+          "headroom": 30.000001907348633
+        }
+      ],
+      "x": -385,
+      "y": -1585,
+      "z": 3.75
+    }
+  ],
+  "segments": []
+}

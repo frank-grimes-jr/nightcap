@@ -1,0 +1,30 @@
+{
+  "buy": [
+    "SELECT @@in_transaction",
+    "START TRANSACTION",
+    "SELECT epoch FROM nightcap_market_state WHERE id=1 AND enabled=1 AND epoch=1 AND expansion=0 FOR UPDATE",
+    "SELECT item_id FROM nightcap_market_offers WHERE npc_id=999500 AND epoch=1 AND zone_id=22 AND item_id=1001 AND price_cp=10000 AND kind='sell' AND remaining=1 FOR UPDATE",
+    "SELECT c.item_id FROM nightcap_market_catalog c JOIN items i ON i.id=c.item_id WHERE c.item_id=1001 AND c.min_expansion<=0 AND (c.max_expansion<0 OR c.max_expansion>=0) AND i.nodrop<>0 AND i.norent<>0 AND i.stackable=0 AND i.maxcharges=0 AND i.itemclass=0 AND i.questitemflag=0 AND i.attuneable=0 FOR UPDATE",
+    "SELECT id FROM character_currency WHERE id=77 AND platinum=100 AND gold=0 AND silver=0 AND copper=0 FOR UPDATE",
+    "SELECT slot_id FROM inventory WHERE character_id=77 AND (slot_id=33 OR slot_id BETWEEN 6010 AND 6209) FOR UPDATE",
+    "INSERT INTO inventory(character_id,slot_id,item_id,charges,color,guid) VALUES(77,33,1001,0,0,901)",
+    "UPDATE character_currency SET platinum=90,gold=0,silver=0,copper=0 WHERE id=77 AND platinum=100 AND gold=0 AND silver=0 AND copper=0",
+    "UPDATE nightcap_market_offers SET remaining=0 WHERE npc_id=999500 AND epoch=1 AND zone_id=22 AND item_id=1001 AND price_cp=10000 AND kind='sell' AND remaining=1",
+    "INSERT INTO nightcap_market_trades(epoch,npc_id,character_id,kind,item_id,price_cp) VALUES(1,999500,77,'sell',1001,10000)",
+    "COMMIT"
+  ],
+  "sell": [
+    "SELECT @@in_transaction",
+    "START TRANSACTION",
+    "SELECT epoch FROM nightcap_market_state WHERE id=1 AND enabled=1 AND epoch=1 AND expansion=0 FOR UPDATE",
+    "SELECT item_id FROM nightcap_market_offers WHERE npc_id=999500 AND epoch=1 AND zone_id=22 AND item_id=1001 AND price_cp=10000 AND kind='buy' AND remaining=1 FOR UPDATE",
+    "SELECT c.item_id FROM nightcap_market_catalog c JOIN items i ON i.id=c.item_id WHERE c.item_id=1001 AND c.min_expansion<=0 AND (c.max_expansion<0 OR c.max_expansion>=0) AND i.nodrop<>0 AND i.norent<>0 AND i.stackable=0 AND i.maxcharges=0 AND i.itemclass=0 AND i.questitemflag=0 AND i.attuneable=0 FOR UPDATE",
+    "SELECT id FROM character_currency WHERE id=77 AND platinum=100 AND gold=0 AND silver=0 AND copper=0 FOR UPDATE",
+    "SELECT slot_id FROM inventory WHERE character_id=77 AND (slot_id=33 OR slot_id BETWEEN 6010 AND 6209) FOR UPDATE",
+    "DELETE FROM inventory WHERE character_id=77 AND slot_id=33 AND item_id=1001 AND charges=0 AND color=0 AND guid=901 AND instnodrop=0 AND COALESCE(custom_data,'')='' AND augment_one=0 AND augment_two=0 AND augment_three=0 AND augment_four=0 AND augment_five=0 AND augment_six=0 AND ornament_icon=0 AND ornament_idfile=0 AND ornament_hero_model=0",
+    "UPDATE character_currency SET platinum=110,gold=0,silver=0,copper=0 WHERE id=77 AND platinum=100 AND gold=0 AND silver=0 AND copper=0",
+    "UPDATE nightcap_market_offers SET remaining=0 WHERE npc_id=999500 AND epoch=1 AND zone_id=22 AND item_id=1001 AND price_cp=10000 AND kind='buy' AND remaining=1",
+    "INSERT INTO nightcap_market_trades(epoch,npc_id,character_id,kind,item_id,price_cp) VALUES(1,999500,77,'buy',1001,10000)",
+    "COMMIT"
+  ]
+}

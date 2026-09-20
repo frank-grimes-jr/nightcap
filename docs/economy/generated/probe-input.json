@@ -1,0 +1,65 @@
+{
+  "map": "/home/eqemu/server/maps/base/ecommons.map",
+  "points": [
+    {
+      "label": "Rellan_Ridgewalker",
+      "x": -300,
+      "y": -1660,
+      "z": 3.75
+    },
+    {
+      "label": "Mirielle_Dusksong",
+      "x": -240,
+      "y": -1660,
+      "z": 3.75
+    },
+    {
+      "label": "Caelith_Emberweave",
+      "x": -80,
+      "y": -1650,
+      "z": 3.75
+    },
+    {
+      "label": "Bromli_Copperkeg",
+      "x": -35,
+      "y": -1705,
+      "z": 3.75
+    },
+    {
+      "label": "Tamsin_Quickstep",
+      "x": -90,
+      "y": -1735,
+      "z": 3.75
+    },
+    {
+      "label": "Varkyn_Ashblade",
+      "x": -155,
+      "y": -1750,
+      "z": 3.75
+    },
+    {
+      "label": "Harlon_Frostbeard",
+      "x": -230,
+      "y": -1735,
+      "z": 3.75
+    },
+    {
+      "label": "Nimri_Mossfoot",
+      "x": -300,
+      "y": -1720,
+      "z": 3.75
+    },
+    {
+      "label": "Grukk_Bargainhand",
+      "x": -390,
+      "y": -1710,
+      "z": 3.75
+    },
+    {
+      "label": "Selindra_Starsong",
+      "x": -385,
+      "y": -1585,
+      "z": 3.75
+    }
+  ]
+}

@@ -42,7 +42,7 @@ func TestProductionPolicyHasHostedTrustAndNoBundle(t *testing.T) {
 	if _, err = parser.ParseFile(token.NewFileSet(), "policy.go", b, 0); err != nil {
 		t.Fatal(err)
 	}
-	for _, expected := range []string{"//go:build production", "EnvelopeURL:", "RelayURL:", "GuideURL:"} {
+	for _, expected := range []string{"//go:build production", "EnvelopeURL:", "RelayURL:", "GuideURL:", "\"lavastorm.eqg\": true", classicLavastormRetirementSHA256, classicNektulosRetirementSHA256} {
 		if !strings.Contains(string(b), expected) {
 			t.Fatal("missing", expected)
 		}

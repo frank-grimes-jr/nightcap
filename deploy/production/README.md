@@ -157,7 +157,9 @@ currently disconnects all relay sessions on a gateway restart; announce it first
 
 1. Copy `profile.example.json` to a private release workspace. Set all three URLs
    to the chosen HTTPS hostname and choose the signing-key validity dates. The
-   example hostname intentionally fails validation. Version starts at0.2.0.
+   example hostname intentionally fails validation. Use version 0.2.1 or later
+   for the 22-file inventory including Classic Lavastorm. Existing 0.2.0 users
+   need the replacement launcher EXE; updating source does not update their EXE.
 2. Create a **new production** Ed25519 seed outside source and upload directories,
    with owner-only ACLs (Windows0600 alone is not an ACL). Do not reuse the QA seed.
    Back it up offline. The key never goes on the VPS. From `eq-launcher`, run:

@@ -1,5 +1,15 @@
 # CHANGES
 
+## 2026-09-20 - Combine hosted production and current main
+
+Integrate the production launcher/hosting candidate with the owner's current
+main gameplay release. Preserve both Classic terrain retirement hashes in the
+generated production trust policy and require launcher 0.2.1 for the expanded
+22-file inventory. Hosted audit confirms 33 runtime files and all 30 resident
+afterimages already match; the paired native update corrects older world/zone
+binaries without replaying database migrations. Preparation and remaining gates:
+[coordinated hosted release](docs/releases/hosted-main-update-20260920.md).
+
 ## 2026-09-20 - OVH owner-test activation
 
 Deploy the private container candidate to the owner's OVH VPS and Cloudflare
@@ -41,6 +51,85 @@ ports and temporarily configure/restore eqhost under its existing installation l
 Automated manifest, lifecycle, relay and frontend checks passed. No production seed
 or final hostname-bound Windows launcher has been distributed. Hosted/native
 acceptance remains pending; the live QA stack and client are unchanged.
+
+## 2026-09-20 - Owner-authorized main source promotion
+
+Promote verified test revision `dd24fe0` and this documentation update to main,
+including the existing pet roster, EC hub, living economy, named residents and
+Lavastorm packaging preparation. Repository regression passed 62 tests with one
+existing opt-in skip; the uncached launcher Go suite passed. No runtime restart,
+SQL, client installation or global travel-readiness change accompanies this push.
+Preserve outstanding manual acceptance and signed-client release checks.
+[Promotion scope and QA](docs/releases/main-promotion-20260920.md).
+
+## 2026-09-20 - Classic Lavastorm QA assets staged
+
+The owner supplied `lavastorm.s3d`; archive contents and five ring-ground samples
+match the installed Classic server map. Pin both archive hashes in the read-only
+generator and add them to the signed QA inventory, with exact-hash retirement of
+revamped `lavastorm.eqg`. All 20 previous package inputs remain byte-identical.
+Thirteen client-asset tests, the normal launcher Go suite and the full repository
+regression pass (62 passed, one existing opt-in skip). Independent packaging
+review found no actionable issues. The earlier dependency approval failure left
+signing, desktop build and installation pending; this owner-requested dev/test
+source promotion does not deploy that client update. Neither client was changed,
+no server restart occurred, and travel readiness stays gated.
+[Evidence and continuation](docs/economy/residents/CLIENT-TERRAIN.md).
+
+## 2026-09-20 - Living economy and residents activated for QA
+
+After the owner-approved full PEQ backup and controlled restart, corrected world
+and all eight zone binaries are running with matching hashes. Epoch 1 contains
+10 finds, six sales and four purchases, all quantity one. All 30 resident rows,
+29 runtime files and 11 post-boot player/merchant fingerprints verify; checked
+startup logs are clean. The Classic Lavastorm server map alias is repaired, but
+its client terrain remains missing, including in `E:/EQ_Local`. Khalure offers
+eight Classic rings until that separate client gate is resolved. No original
+client edits or main promotion. [Activation and remaining QA](docs/economy/ACTIVATION.md).
+
+## 2026-09-20 - Market build provenance correction
+
+The first controlled activation refused world startup: a reused object embedded
+the earlier one-argument rotation call while the reviewed source/schema require
+three. The build helper now rejects existing output directories, compares source
+hashes across compilation and checks the actual ELF startup contract before
+writing its manifest. Three regression tests cover stale artifacts and build-tree
+reuse. Recovery recompiles every changed market source/header and its dependents;
+retain the failed artifacts and startup log separately from the corrected pair.
+
+## 2026-09-20 - Lavastorm travel readiness guard
+
+Withhold Khalure's Lavastorm destination until the explicit
+`nightcap:classic_lavastorm_client_ready` data bucket is `1`. The separate QA
+client currently lacks Classic terrain; repairing the server collision map alone
+does not make that landing safe. Missing readiness also rejects stale links.
+Other rings are unchanged. All 23 resident quest assertions pass. The original
+client remains untouched.
+
+## 2026-09-20 - Six named tunnel residents (candidate)
+
+Add the requested Sortre, Camil, Rekk, Nalin, Trift and Khalure as six residents
+alongside the ten economy traders. Persistent visual-only armor/weapons do not
+create loot. Trift is level 12 and tells his Butcherblock corpse story in OOC;
+Khalure offers era-checked druid-ring travel. Guarded additive SQL and scoped
+rollback preserve existing content and player state. Map verification found a
+missing configured Classic Lavastorm map alias; its verified source exists, but
+repair is an activation prerequisite. No live writes or client changes. See
+[resident setup and exact QA](docs/economy/residents/README.md).
+
+## 2026-09-20 - Finite city finds and EC tunnel economy (candidate)
+
+Add restart-scoped, quantity-one finds to selected city merchants and ten
+player-looking EC traders with real WTS/WTB offers, auction lines and local
+chatter. Curate Classic drops from dated P1999 price evidence; scale the reference
+for increased item drops/vendor payouts before the seller premium. Native atomic
+stock/wallet/cursor transactions prevent partial exchanges and concurrent sales;
+ambiguous commits quarantine until reconnect. Closing a shop invalidates quotes,
+and ordinary quest hand-ins explicitly return items and coin. Matching world/zone,
+schema and quests must ship together; no client change. Disabled-by-default setup,
+scoped rollback and [exact owner QA](docs/economy/QA.md) are included. Not yet active;
+pricing balance and manual acceptance remain open.
+
 
 ## 2026-09-20 - East Commonlands tunnel hub (active QA candidate)
 

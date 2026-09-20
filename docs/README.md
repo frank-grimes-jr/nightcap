@@ -9,6 +9,11 @@ Start with [current status](status.md), not a dated candidate report.
 
 ## Players and testers
 
+- [September 20 main source promotion and remaining QA](releases/main-promotion-20260920.md)
+- [Finite merchant finds and EC traders: exact QA](economy/QA.md)
+- [Living economy activation, recovery and remaining gates](economy/ACTIVATION.md)
+- [Six named tunnel residents and druid-ring QA](economy/residents/README.md)
+
 - [Three class pets: evidence and exact QA](releases/multiclass-pets-20260919/README.md)
 - [East Commonlands tunnel proposal](pok/ecommons-tunnel-proposal.md)
 - [Silent UI synchronization and release 1906](releases/client-silent-ui-20260919.md)
@@ -40,6 +45,9 @@ Start with [current status](status.md), not a dated candidate report.
 - [Change history](../CHANGES.md)
 
 ## Evidence and design
+
+- [Living economy design and pricing policy](economy/SPEC.md)
+- [Atomic finite market decision](adr/0041-finite-living-economy.md)
 
 - [Client/gameplay candidate verification](milestones/phase-23-report.md)
 

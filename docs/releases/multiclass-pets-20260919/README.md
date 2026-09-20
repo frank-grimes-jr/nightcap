@@ -2,7 +2,8 @@
 
 September 19, 2026. One permanent summoned pet per held eligible class, one
 ordinary pet window controlling the roster, and separate existing eight-slot
-armor loadouts. Manual acceptance and promotion to main remain pending.
+armor loadouts. Manual acceptance remains pending after the owner-authorized
+[main source promotion](../main-promotion-20260920.md).
 
 The server now assigns summons from original spell eligibility rather than the
 multiclass-widened database columns. It saves all class pets, preserves the

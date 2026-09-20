@@ -75,6 +75,20 @@ All commands run from `akk-stack/`:
 - **Era lock is declarative**: `era.json` (repo root) is the source of truth; `tools/apply-era.ps1` applies it idempotently (+`-Check` for drift, `-CapCharacters` to de-level). Change era = edit era.json, commit, run the script. Do not set expansion rules by hand or via the GM tool.
 - **PoK class hub**: `tools/pok_hub.py` plans from `docs/pok/hub-stock-audit.json` (original class levels, not widened `spells_new` columns). `tools/pok_hub_migration.py` generates guarded forward/rollback SQL; `tools/pok_hub_restock.py` generates the canonical restock. `docs/pok/catalog-policy.json` gates era promotion before writes. Current catalog preserves the existing expansion-0, level-50 item pool; extending it requires review and regeneration. Activation/rollback and exact player QA: `docs/pok/QA.md`. Candidate only until the recorded in-game QA passes.
 - **DB backups**: `tools/backup-peq.ps1`, scheduled daily 04:00 (task `NightcapPeqBackup`), 14-day retention, includes the era drift check. Take a manual backup before destructive SQL.
+- **Ring geometry**: validate against `zone.map_file_name`, not only the short
+  zone name. The September 20 resident candidate found missing `lavastorm_v0.map`;
+  `lavastorm_orig.map` is the verified Classic source. The approved activation
+  installed the byte-identical alias; do not substitute newer terrain. See
+  `docs/economy/residents/README.md` for the hash and activation gate.
+  Client terrain must also match: the supplied `lavastorm.s3d` passes the ring
+  geometry check and is staged, but the signed QA update is not yet installed.
+  Khalure withholds Lavastorm until `nightcap:classic_lavastorm_client_ready=1`.
+  Do not enable that global gate merely because one client was patched.
+- **Market build provenance**: `tools/build_living_economy.py` requires a fresh
+  output directory. Never reuse objects after copying sources with preserved
+  mtimes. Source hashes must stay identical across compilation; run
+  `tools/check_living_economy_binary.py <world>` before installation, then verify
+  the actual startup rotation and running world/zone hashes.
 
 ### Multiclass release candidate
 
@@ -116,6 +130,13 @@ PoK FLOAT heading rollback preimages must match float32 storage, not Python doub
 formatting. Rehearse forward and rollback against captured schemas before apply.
 
 ## Non-obvious gotchas
+
+- **Finite living economy**: `docs/economy/policy.json` and the reviewed catalog
+  define prices and eligibility. Regenerate guarded SQL with
+  `tools/generate_living_economy.py`; never rotate offers on zone boot or quest
+  reload. Deploy matching world/zone plus the market plugin/quests. Money, item,
+  stock and audit must remain one native transaction. Read `docs/economy/QA.md`
+  before activation/rollback; preserve player progress and trade audit.
 
 - MariaDB is always on **port 3307**, not the default 3306
 - `Client_RoF2_Dev/` is binary EQ client data — never try to build, lint, or modify it
@@ -171,6 +192,13 @@ client/gameplay changes be made live and then merged into main. This authorizes
 this release's deployment and main promotion before manual acceptance. Preserve
 all remaining in-game checks in `docs/releases/client-gameplay-20260919.md`; this
 is not a permanent change to branch policy.
+
+**September 20, 2026 source-promotion exception:** the owner explicitly requested
+the verified `test` candidate (`dd24fe0`) be pushed to main, including the pet
+roster, EC hub, living economy, residents and Lavastorm package preparation.
+This is source promotion, not completed manual acceptance or a new deployment.
+Keep the signed-client build/install and global Lavastorm readiness gates open.
+Scope and remaining QA: `docs/releases/main-promotion-20260920.md`.
 
 ### Commits
 

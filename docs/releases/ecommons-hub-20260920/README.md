@@ -1,7 +1,8 @@
 # East Commonlands tunnel QA candidate
 
-Approved September 20, 2026. Candidate only; owner in-game acceptance and main
-promotion remain open. The launcher installs automatically before Play; no new
+Approved September 20, 2026. Owner in-game acceptance remains open after the
+explicitly authorized [main source promotion](../main-promotion-20260920.md).
+The launcher installs automatically before Play; no new
 slash command is required. Use signed release **2026092002** with the matching
 server migration. Older launchers lack the tunnel object imports and recall data.
 

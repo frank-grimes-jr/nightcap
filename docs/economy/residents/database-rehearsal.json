@@ -1,0 +1,23 @@
+{
+  "status": "passed",
+  "scope": "disposable schema; no live PEQ writes",
+  "schema_removed": "nightcap_residents_test_706bf336e7",
+  "checks": [
+    "dangling unowned tint reference rejects installation",
+    "rejected install leaves no resident rows or unrelated changes",
+    "six residents, persistent tint sets and placements installed",
+    "npc_types exact appearance and ownership preimages match",
+    "npc_types_tint exact appearance and ownership preimages match",
+    "spawngroup exact appearance and ownership preimages match",
+    "spawnentry exact appearance and ownership preimages match",
+    "spawn2 exact appearance and ownership preimages match",
+    "Trift is exactly level twelve",
+    "costume gear is not loot or merchant stock",
+    "installation preserves existing NPCs, merchant stock, player items, money and trader placement",
+    "duplicate installation rejected atomically",
+    "rollback refuses edited ownership preimage without partial deletion",
+    "rollback removes only owned residents, tints and placements",
+    "rollback retains corpses, other instances and existing trader state",
+    "rollback preserves original NPCs, stock, player money/items and trader placement"
+  ]
+}

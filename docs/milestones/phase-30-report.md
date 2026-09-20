@@ -1,24 +1,71 @@
-# Phase 30 — Hosted owner-test deployment
+# Phase 30 - Named tunnel residents
 
-2026-09-20. OVH runs the five private containers; Cloudflare provides the domain,
-tunnel and tested IP restriction. Database/runtime data were copied without
-changing local QA. Three verified login namespace mappings preserve existing
-characters. A backup and transaction rollback rehearsal precede the change.
+Date: 2026-09-20. Additive candidate after the finite living economy.
 
-Production launcher0.2.0 and signed release2026092003 are built and hosted for
-the owner. All20hosted file hashes/signature and ZIP hash pass; native session
-handshakes traverse the actual WSS tunnel to login/world/UCS/zone. Host checks
-cover Docker mount semantics, private networks, password hashing and failed
-backup behavior. Idle memory fits the8GBVPS, but ten-player load is unmeasured.
+## Built
 
-Unfinished: owner/native gameplay acceptance, friends' onboarding, R2 encrypted
-backup setup and restore rehearsal, release automation and scheduled downtime.
-No gameplay promotion or friend distribution approval was inferred.
+Six owner-specified residents with persistent native costume materials/tints,
+weapon models and hail dialogue. Sortre is the confirmed Dark Elf; Nalin wears
+Classic planar Valorium with SoulFire. Trift is exactly level 12 and tells the
+requested Butcherblock story in OOC every three to five minutes. Khalure offers
+all nine Classic druid rings with explicit era-gated later destinations through
+Luclin, local range/instance checks and guarded individual travel.
 
-Operational learning: Compose parsing alone did not catch comma-split tmpfs
-strings; validate resolved mounts and actual engine startup. Consistent dumps
-must include stored procedures and propagate producer failures. Source-tree
-opcode symlinks require resolved copies. Private login migration needs exact
-identity checks and native-collation collision checks before changing namespaces.
+Repository regression: 59 tests, 58 passed and one existing opt-in skip, including
+five resident tests. All 21 Perl assertions, 16 disposable-database checks and
+five-point geometry checks at 25 locations passed. Independent review's ownership
+finding and rehearsal's coordinate formatting bug are corrected.
+[Evidence](../economy/VERIFICATION.md) and [exact QA](../economy/residents/README.md).
 
-[Detailed activation and recovery](../releases/ovh-activation-20260920.md).
+## Not Included
+
+No equipment loot, new market offers, fee, player-state migration, client patch,
+live activation or automatic post-Luclin travel catalog. No pricing changes to
+the first candidate. No extended character backstories beyond requested flavor.
+
+## Remaining Gates
+
+The configured Classic Lavastorm map alias is missing. Its installed Classic
+source is verified, but the alias must be installed and the normal probe rerun
+before enabling Khalure. Backup, controlled activation, costume/landing checks,
+owner economy balance acceptance and main promotion remain open.
+
+## Operational Learning
+
+Probe the map named by the zone row; a short-name map can refer to newer terrain.
+Zero NPC RGB means no tint, not black. Persistent native material/tint fields
+avoid equip-on-spawn visual drift and do not need loot-table gear. Fixed-precision
+spawn coordinates must retain native formatting in exact rollback preimages.
+Guard dangling references as well as reserved row IDs before adding tint sets.
+
+## September 20 Activation Addendum
+
+The owner authorized a fresh full backup, server map repair and controlled restart
+for QA, plus preparation of a separate QA-client terrain update. The configured
+map alias is installed; all 25 server positions pass the installed-map probe.
+Classic Lavastorm client terrain is absent from both inspected workspace clients
+and the owner's suggested `E:/EQ_Local` source. Khalure therefore withholds that
+one destination and rejects stale links; no client files were changed.
+
+Initial activation exposed stale build objects. The launcher was stopped before
+any zones opened, all affected C++ inputs were invalidated, and both binaries
+were rebuilt from unchanged reviewed sources. Future builds now require fresh
+output and verify source stability and the actual binary startup contract.
+The updated regression suite passes 61 of 62 tests (one existing opt-in skip),
+plus all 23 resident Perl assertions. Historical preflight findings above remain
+dated evidence; see [current verification](../economy/VERIFICATION.md).
+
+## Client Terrain Follow-Up
+
+The owner supplied `E:/EQ_Local_Dev/lavastorm.s3d`. Independent archive/map
+review verified the Classic terrain and exact ground/headroom agreement at all
+five ring samples. The generator now pins both archives, and the QA packager
+includes them plus exact-hash retirement of the revamped EQG. All 13 client-asset
+tests and the normal Go suite pass; all 20 prior package inputs are unchanged.
+Independent packaging review subsequently completed without actionable findings,
+and the pre-push repository rerun passes 62 tests with one existing opt-in skip.
+The owner requested source promotion through dev/test. The earlier approval
+failure left the signed launcher build and installation pending; source promotion
+does not deploy them. Neither client nor server was modified in this follow-up.
+Rendering, rollout readiness and owner QA remain open.
+[Continuation and evidence](../economy/residents/CLIENT-TERRAIN.md).

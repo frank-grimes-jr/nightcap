@@ -8,6 +8,16 @@
 #include "zone/embperl.h"
 #include "zone/titles.h"
 
+void Perl_Client_LivingEconomy(Client* self, uint32 npc_entity_id, const char* text)
+{
+	self->LivingEconomy(npc_entity_id, text);
+}
+
+void Perl_Client_MarketAnnouncement(Client* self, uint32 npc_entity_id, uint32 variant)
+{
+	self->MarketAnnouncement(npc_entity_id, variant);
+}
+
 void Perl_Client_SendSound(Client* self) // @categories Script Utility
 {
 	self->SendSound();
@@ -3451,6 +3461,8 @@ void perl_register_client()
 	package.add("GrantPetNameChange", &Perl_Client_GrantPetNameChange);
 	package.add("ClearNameChange", (bool(*)(Client*))&Perl_Client_ClearNameChange);
 	package.add("CharacterID", &Perl_Client_CharacterID);
+	package.add("LivingEconomy", &Perl_Client_LivingEconomy);
+	package.add("MarketAnnouncement", &Perl_Client_MarketAnnouncement);
 	package.add("CheckIncreaseSkill", (bool(*)(Client*, int))&Perl_Client_CheckIncreaseSkill);
 	package.add("CheckIncreaseSkill", (bool(*)(Client*, int, int))&Perl_Client_CheckIncreaseSkill);
 	package.add("CheckSpecializeIncrease", &Perl_Client_CheckSpecializeIncrease);

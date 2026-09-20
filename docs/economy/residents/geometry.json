@@ -1,0 +1,1253 @@
+[
+  {
+    "map": "/home/eqemu/server/maps/base/butcher.map",
+    "points": [
+      {
+        "label": "Butcherblock Mountains",
+        "samples": [
+          {
+            "dx": 0.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": -3.542111396789551,
+            "headroom": 80.0
+          },
+          {
+            "dx": 4.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": -3.4261693954467773,
+            "headroom": 80.0
+          },
+          {
+            "dx": -4.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": -3.658053398132324,
+            "headroom": 80.0
+          },
+          {
+            "dx": 0.0,
+            "dy": 4.0,
+            "ground_hit": true,
+            "ground_z": -3.658867835998535,
+            "headroom": 80.0
+          },
+          {
+            "dx": 0.0,
+            "dy": -4.0,
+            "ground_hit": true,
+            "ground_z": -3.4253549575805664,
+            "headroom": 80.0
+          }
+        ],
+        "x": 1984,
+        "y": -2135,
+        "z": 3,
+        "ground_offset": 6.542,
+        "clear": true
+      }
+    ],
+    "segments": []
+  },
+  {
+    "map": "/home/eqemu/server/maps/base/cobaltscar.map",
+    "points": [
+      {
+        "label": "Cobalt Scar",
+        "samples": [
+          {
+            "dx": 0.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": 293.78125,
+            "headroom": 80.0
+          },
+          {
+            "dx": 4.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": 293.78125,
+            "headroom": 80.0
+          },
+          {
+            "dx": -4.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": 293.78125,
+            "headroom": 80.0
+          },
+          {
+            "dx": 0.0,
+            "dy": 4.0,
+            "ground_hit": true,
+            "ground_z": 293.78125,
+            "headroom": 80.0
+          },
+          {
+            "dx": 0.0,
+            "dy": -4.0,
+            "ground_hit": true,
+            "ground_z": 293.78125,
+            "headroom": 80.0
+          }
+        ],
+        "x": -1634,
+        "y": -1065,
+        "z": 299,
+        "ground_offset": 5.219,
+        "clear": true
+      }
+    ],
+    "segments": []
+  },
+  {
+    "map": "/home/eqemu/server/maps/base/commons.map",
+    "points": [
+      {
+        "label": "West Commonlands",
+        "samples": [
+          {
+            "dx": 0.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": -55.0625,
+            "headroom": 80.0
+          },
+          {
+            "dx": 4.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": -55.0625,
+            "headroom": 80.0
+          },
+          {
+            "dx": -4.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": -55.0625,
+            "headroom": 80.0
+          },
+          {
+            "dx": 0.0,
+            "dy": 4.0,
+            "ground_hit": true,
+            "ground_z": -55.0625,
+            "headroom": 80.0
+          },
+          {
+            "dx": 0.0,
+            "dy": -4.0,
+            "ground_hit": true,
+            "ground_z": -55.0625,
+            "headroom": 80.0
+          }
+        ],
+        "x": 1427,
+        "y": 478,
+        "z": -48,
+        "ground_offset": 7.062,
+        "clear": true
+      }
+    ],
+    "segments": []
+  },
+  {
+    "map": "/home/eqemu/server/maps/base/dawnshroud.map",
+    "points": [
+      {
+        "label": "Dawnshroud Peaks",
+        "samples": [
+          {
+            "dx": 0.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": 119.40625,
+            "headroom": 80.0
+          },
+          {
+            "dx": 4.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": 119.40625,
+            "headroom": 80.0
+          },
+          {
+            "dx": -4.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": 119.40625,
+            "headroom": 80.0
+          },
+          {
+            "dx": 0.0,
+            "dy": 4.0,
+            "ground_hit": true,
+            "ground_z": 119.40625,
+            "headroom": 80.0
+          },
+          {
+            "dx": 0.0,
+            "dy": -4.0,
+            "ground_hit": true,
+            "ground_z": 119.40625,
+            "headroom": 80.0
+          }
+        ],
+        "x": -996,
+        "y": 325,
+        "z": 121,
+        "ground_offset": 1.594,
+        "clear": true
+      }
+    ],
+    "segments": []
+  },
+  {
+    "map": "/home/eqemu/server/maps/base/dreadlands.map",
+    "points": [
+      {
+        "label": "Dreadlands",
+        "samples": [
+          {
+            "dx": 0.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": 1045.46875,
+            "headroom": 80.0
+          },
+          {
+            "dx": 4.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": 1045.46875,
+            "headroom": 80.0
+          },
+          {
+            "dx": -4.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": 1045.46875,
+            "headroom": 80.0
+          },
+          {
+            "dx": 0.0,
+            "dy": 4.0,
+            "ground_hit": true,
+            "ground_z": 1045.46875,
+            "headroom": 80.0
+          },
+          {
+            "dx": 0.0,
+            "dy": -4.0,
+            "ground_hit": true,
+            "ground_z": 1045.46875,
+            "headroom": 80.0
+          }
+        ],
+        "x": 7717,
+        "y": 2484,
+        "z": 1051,
+        "ground_offset": 5.531,
+        "clear": true
+      }
+    ],
+    "segments": []
+  },
+  {
+    "map": "/home/eqemu/server/maps/base/feerrott.map",
+    "points": [
+      {
+        "label": "The Feerrott",
+        "samples": [
+          {
+            "dx": 0.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": 9.828950881958008,
+            "headroom": 80.0
+          },
+          {
+            "dx": 4.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": 9.933420181274414,
+            "headroom": 80.0
+          },
+          {
+            "dx": -4.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": 9.724481582641602,
+            "headroom": 80.0
+          },
+          {
+            "dx": 0.0,
+            "dy": 4.0,
+            "ground_hit": true,
+            "ground_z": 10.100569725036621,
+            "headroom": 80.0
+          },
+          {
+            "dx": 0.0,
+            "dy": -4.0,
+            "ground_hit": true,
+            "ground_z": 9.557331085205078,
+            "headroom": 80.0
+          }
+        ],
+        "x": -1885,
+        "y": 367,
+        "z": 16,
+        "ground_offset": 6.171,
+        "clear": true
+      }
+    ],
+    "segments": []
+  },
+  {
+    "map": "/home/eqemu/server/maps/base/greatdivide.map",
+    "points": [
+      {
+        "label": "Great Divide",
+        "samples": [
+          {
+            "dx": 0.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": -242.2285614013672,
+            "headroom": 26.58013916015625
+          },
+          {
+            "dx": 4.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": -242.2279510498047,
+            "headroom": 26.580123901367188
+          },
+          {
+            "dx": -4.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": -242.22915649414062,
+            "headroom": 26.41424560546875
+          },
+          {
+            "dx": 0.0,
+            "dy": 4.0,
+            "ground_hit": true,
+            "ground_z": -242.17945861816406,
+            "headroom": 26.58013916015625
+          },
+          {
+            "dx": 0.0,
+            "dy": -4.0,
+            "ground_hit": true,
+            "ground_z": -242.2776641845703,
+            "headroom": 26.58013916015625
+          }
+        ],
+        "x": 3651,
+        "y": -3766,
+        "z": -237,
+        "ground_offset": 5.229,
+        "clear": true
+      }
+    ],
+    "segments": []
+  },
+  {
+    "map": "/home/eqemu/server/maps/base/grimling.map",
+    "points": [
+      {
+        "label": "Grimling Forest",
+        "samples": [
+          {
+            "dx": 0.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": 10.231249809265137,
+            "headroom": 80.0
+          },
+          {
+            "dx": 4.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": 10.586250305175781,
+            "headroom": 80.0
+          },
+          {
+            "dx": -4.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": 9.876250267028809,
+            "headroom": 80.0
+          },
+          {
+            "dx": 0.0,
+            "dy": 4.0,
+            "ground_hit": true,
+            "ground_z": 9.921250343322754,
+            "headroom": 80.0
+          },
+          {
+            "dx": 0.0,
+            "dy": -4.0,
+            "ground_hit": true,
+            "ground_z": 10.541250228881836,
+            "headroom": 80.0
+          }
+        ],
+        "x": -1170,
+        "y": -690,
+        "z": 13,
+        "ground_offset": 2.769,
+        "clear": true
+      }
+    ],
+    "segments": []
+  },
+  {
+    "map": "/home/eqemu/server/maps/base/iceclad.map",
+    "points": [
+      {
+        "label": "Iceclad Ocean",
+        "samples": [
+          {
+            "dx": 0.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": 108.98334503173828,
+            "headroom": 26.57811737060547
+          },
+          {
+            "dx": 4.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": 108.98334503173828,
+            "headroom": 26.57811737060547
+          },
+          {
+            "dx": -4.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": 108.98334503173828,
+            "headroom": 26.57811737060547
+          },
+          {
+            "dx": 0.0,
+            "dy": 4.0,
+            "ground_hit": true,
+            "ground_z": 108.98334503173828,
+            "headroom": 26.57811737060547
+          },
+          {
+            "dx": 0.0,
+            "dy": -4.0,
+            "ground_hit": true,
+            "ground_z": 108.98334503173828,
+            "headroom": 26.57811737060547
+          }
+        ],
+        "x": 4925,
+        "y": -630,
+        "z": 113,
+        "ground_offset": 4.017,
+        "clear": true
+      }
+    ],
+    "segments": []
+  },
+  {
+    "map": "/home/eqemu/server/maps/base/ecommons.map",
+    "points": [
+      {
+        "label": "Sortre_Blackdragon",
+        "samples": [
+          {
+            "dx": 0.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": -9.5367431640625e-07,
+            "headroom": 30.0
+          },
+          {
+            "dx": 4.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": -9.5367431640625e-07,
+            "headroom": 30.0
+          },
+          {
+            "dx": -4.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": -9.5367431640625e-07,
+            "headroom": 30.0
+          },
+          {
+            "dx": 0.0,
+            "dy": 4.0,
+            "ground_hit": true,
+            "ground_z": -9.5367431640625e-07,
+            "headroom": 30.0
+          },
+          {
+            "dx": 0.0,
+            "dy": -4.0,
+            "ground_hit": true,
+            "ground_z": -9.5367431640625e-07,
+            "headroom": 30.0
+          }
+        ],
+        "x": -340,
+        "y": -1645,
+        "z": 3.75,
+        "ground_offset": 3.75,
+        "clear": true
+      },
+      {
+        "label": "Camil_Swiftwolf",
+        "samples": [
+          {
+            "dx": 0.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": 0.0,
+            "headroom": 30.0
+          },
+          {
+            "dx": 4.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": 0.0,
+            "headroom": 30.0
+          },
+          {
+            "dx": -4.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": 0.0,
+            "headroom": 30.0
+          },
+          {
+            "dx": 0.0,
+            "dy": 4.0,
+            "ground_hit": true,
+            "ground_z": 0.0,
+            "headroom": 30.0
+          },
+          {
+            "dx": 0.0,
+            "dy": -4.0,
+            "ground_hit": true,
+            "ground_z": 0.0,
+            "headroom": 30.0
+          }
+        ],
+        "x": -275,
+        "y": -1695,
+        "z": 3.75,
+        "ground_offset": 3.75,
+        "clear": true
+      },
+      {
+        "label": "Rekk_Diver",
+        "samples": [
+          {
+            "dx": 0.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": -9.5367431640625e-07,
+            "headroom": 30.0
+          },
+          {
+            "dx": 4.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": 0.0,
+            "headroom": 30.0
+          },
+          {
+            "dx": -4.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": -9.5367431640625e-07,
+            "headroom": 30.0
+          },
+          {
+            "dx": 0.0,
+            "dy": 4.0,
+            "ground_hit": true,
+            "ground_z": -9.5367431640625e-07,
+            "headroom": 30.0
+          },
+          {
+            "dx": 0.0,
+            "dy": -4.0,
+            "ground_hit": true,
+            "ground_z": 0.0,
+            "headroom": 30.0
+          }
+        ],
+        "x": -185,
+        "y": -1645,
+        "z": 3.75,
+        "ground_offset": 3.75,
+        "clear": true
+      },
+      {
+        "label": "Nalin_Shadowbane",
+        "samples": [
+          {
+            "dx": 0.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": 0.0,
+            "headroom": 30.0
+          },
+          {
+            "dx": 4.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": 0.0,
+            "headroom": 30.0
+          },
+          {
+            "dx": -4.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": 0.0,
+            "headroom": 30.0
+          },
+          {
+            "dx": 0.0,
+            "dy": 4.0,
+            "ground_hit": true,
+            "ground_z": 0.0,
+            "headroom": 30.0
+          },
+          {
+            "dx": 0.0,
+            "dy": -4.0,
+            "ground_hit": true,
+            "ground_z": 0.0,
+            "headroom": 30.000001907348633
+          }
+        ],
+        "x": -115,
+        "y": -1695,
+        "z": 3.75,
+        "ground_offset": 3.75,
+        "clear": true
+      },
+      {
+        "label": "Trift",
+        "samples": [
+          {
+            "dx": 0.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": 0.0,
+            "headroom": 30.0
+          },
+          {
+            "dx": 4.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": 0.0,
+            "headroom": 30.0
+          },
+          {
+            "dx": -4.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": 0.0,
+            "headroom": 30.0
+          },
+          {
+            "dx": 0.0,
+            "dy": 4.0,
+            "ground_hit": true,
+            "ground_z": 0.0,
+            "headroom": 30.0
+          },
+          {
+            "dx": 0.0,
+            "dy": -4.0,
+            "ground_hit": true,
+            "ground_z": 0.0,
+            "headroom": 30.0
+          }
+        ],
+        "x": -335,
+        "y": -1760,
+        "z": 3.75,
+        "ground_offset": 3.75,
+        "clear": true
+      },
+      {
+        "label": "Khalure_Ser`Tiras",
+        "samples": [
+          {
+            "dx": 0.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": 0.0,
+            "headroom": 30.000001907348633
+          },
+          {
+            "dx": 4.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": 0.0,
+            "headroom": 30.000001907348633
+          },
+          {
+            "dx": -4.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": 0.0,
+            "headroom": 30.000001907348633
+          },
+          {
+            "dx": 0.0,
+            "dy": 4.0,
+            "ground_hit": true,
+            "ground_z": 0.0,
+            "headroom": 30.000001907348633
+          },
+          {
+            "dx": 0.0,
+            "dy": -4.0,
+            "ground_hit": true,
+            "ground_z": 0.0,
+            "headroom": 30.000001907348633
+          }
+        ],
+        "x": -55,
+        "y": -1750,
+        "z": 3.75,
+        "ground_offset": 3.75,
+        "clear": true
+      }
+    ],
+    "segments": []
+  },
+  {
+    "map": "/home/eqemu/server/maps/base/lavastorm_orig.map",
+    "points": [
+      {
+        "label": "Lavastorm Mountains",
+        "samples": [
+          {
+            "dx": 0.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": 125.24105072021484,
+            "headroom": 80.0
+          },
+          {
+            "dx": 4.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": 125.54381561279297,
+            "headroom": 80.0
+          },
+          {
+            "dx": -4.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": 124.93828582763672,
+            "headroom": 80.0
+          },
+          {
+            "dx": 0.0,
+            "dy": 4.0,
+            "ground_hit": true,
+            "ground_z": 125.24105072021484,
+            "headroom": 80.0
+          },
+          {
+            "dx": 0.0,
+            "dy": -4.0,
+            "ground_hit": true,
+            "ground_z": 125.24105072021484,
+            "headroom": 80.0
+          }
+        ],
+        "x": 1389,
+        "y": 1014,
+        "z": 131,
+        "ground_offset": 5.759,
+        "clear": true
+      }
+    ],
+    "segments": [],
+    "activation_prerequisite": {
+      "configured_map": "/home/eqemu/server/maps/base/lavastorm_v0.map",
+      "verified_source": "/home/eqemu/server/maps/base/lavastorm_orig.map",
+      "source_sha256": "1d4f49fa9e5bd0bf6e8511b1d8f5a42536d6e633db9ecf04430258f02dc03d94",
+      "installed": false
+    }
+  },
+  {
+    "map": "/home/eqemu/server/maps/base/misty.map",
+    "points": [
+      {
+        "label": "Misty Thicket",
+        "samples": [
+          {
+            "dx": 0.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": 116.59021759033203,
+            "headroom": 80.0
+          },
+          {
+            "dx": 4.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": 116.94271850585938,
+            "headroom": 80.0
+          },
+          {
+            "dx": -4.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": 116.23771667480469,
+            "headroom": 80.0
+          },
+          {
+            "dx": 0.0,
+            "dy": 4.0,
+            "ground_hit": true,
+            "ground_z": 116.63646697998047,
+            "headroom": 80.0
+          },
+          {
+            "dx": 0.0,
+            "dy": -4.0,
+            "ground_hit": true,
+            "ground_z": 116.5439682006836,
+            "headroom": 80.0
+          }
+        ],
+        "x": -1896,
+        "y": -490,
+        "z": 120,
+        "ground_offset": 3.41,
+        "clear": true
+      }
+    ],
+    "segments": []
+  },
+  {
+    "map": "/home/eqemu/server/maps/base/nexus.map",
+    "points": [
+      {
+        "label": "The Nexus",
+        "samples": [
+          {
+            "dx": 0.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": -34.0,
+            "headroom": 80.0
+          },
+          {
+            "dx": 4.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": -34.0,
+            "headroom": 80.0
+          },
+          {
+            "dx": -4.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": -34.0,
+            "headroom": 80.0
+          },
+          {
+            "dx": 0.0,
+            "dy": 4.0,
+            "ground_hit": true,
+            "ground_z": -34.0,
+            "headroom": 80.0
+          },
+          {
+            "dx": 0.0,
+            "dy": -4.0,
+            "ground_hit": true,
+            "ground_z": -34.0,
+            "headroom": 80.0
+          }
+        ],
+        "x": 0,
+        "y": 0,
+        "z": -28,
+        "ground_offset": 6.0,
+        "clear": true
+      }
+    ],
+    "segments": []
+  },
+  {
+    "map": "/home/eqemu/server/maps/base/northkarana.map",
+    "points": [
+      {
+        "label": "North Karana",
+        "samples": [
+          {
+            "dx": 0.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": -11.25,
+            "headroom": 80.0
+          },
+          {
+            "dx": 4.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": -11.25,
+            "headroom": 80.0
+          },
+          {
+            "dx": -4.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": -11.25,
+            "headroom": 80.0
+          },
+          {
+            "dx": 0.0,
+            "dy": 4.0,
+            "ground_hit": true,
+            "ground_z": -11.25,
+            "headroom": 80.0
+          },
+          {
+            "dx": 0.0,
+            "dy": -4.0,
+            "ground_hit": true,
+            "ground_z": -11.25,
+            "headroom": 80.0
+          }
+        ],
+        "x": -1494,
+        "y": -2706,
+        "z": -4,
+        "ground_offset": 7.25,
+        "clear": true
+      }
+    ],
+    "segments": []
+  },
+  {
+    "map": "/home/eqemu/server/maps/base/qrg.map",
+    "points": [
+      {
+        "label": "Surefall Glade",
+        "samples": [
+          {
+            "dx": 0.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": 1.0000009536743164,
+            "headroom": 25.0
+          },
+          {
+            "dx": 4.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": 1.0000009536743164,
+            "headroom": 25.0
+          },
+          {
+            "dx": -4.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": 1.0000009536743164,
+            "headroom": 25.0
+          },
+          {
+            "dx": 0.0,
+            "dy": 4.0,
+            "ground_hit": true,
+            "ground_z": 1.0,
+            "headroom": 25.0
+          },
+          {
+            "dx": 0.0,
+            "dy": -4.0,
+            "ground_hit": true,
+            "ground_z": 1.0,
+            "headroom": 25.0
+          }
+        ],
+        "x": -391,
+        "y": -209,
+        "z": 9,
+        "ground_offset": 8.0,
+        "clear": true
+      }
+    ],
+    "segments": []
+  },
+  {
+    "map": "/home/eqemu/server/maps/base/sro.map",
+    "points": [
+      {
+        "label": "South Ro",
+        "samples": [
+          {
+            "dx": 0.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": -26.396373748779297,
+            "headroom": 80.0
+          },
+          {
+            "dx": 4.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": -26.396373748779297,
+            "headroom": 80.0
+          },
+          {
+            "dx": -4.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": -26.396373748779297,
+            "headroom": 80.0
+          },
+          {
+            "dx": 0.0,
+            "dy": 4.0,
+            "ground_hit": true,
+            "ground_z": -26.551815032958984,
+            "headroom": 80.0
+          },
+          {
+            "dx": 0.0,
+            "dy": -4.0,
+            "ground_hit": true,
+            "ground_z": -26.24093246459961,
+            "headroom": 80.0
+          }
+        ],
+        "x": 317,
+        "y": -2034,
+        "z": -19,
+        "ground_offset": 7.396,
+        "clear": true
+      }
+    ],
+    "segments": []
+  },
+  {
+    "map": "/home/eqemu/server/maps/base/steamfont.map",
+    "points": [
+      {
+        "label": "Steamfont Mountains",
+        "samples": [
+          {
+            "dx": 0.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": -111.8191909790039,
+            "headroom": 80.0
+          },
+          {
+            "dx": 4.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": -111.80635833740234,
+            "headroom": 80.0
+          },
+          {
+            "dx": -4.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": -111.83202362060547,
+            "headroom": 80.0
+          },
+          {
+            "dx": 0.0,
+            "dy": 4.0,
+            "ground_hit": true,
+            "ground_z": -111.83216857910156,
+            "headroom": 80.0
+          },
+          {
+            "dx": 0.0,
+            "dy": -4.0,
+            "ground_hit": true,
+            "ground_z": -111.80621337890625,
+            "headroom": 80.0
+          }
+        ],
+        "x": 1668,
+        "y": -1779,
+        "z": -104,
+        "ground_offset": 7.819,
+        "clear": true
+      }
+    ],
+    "segments": []
+  },
+  {
+    "map": "/home/eqemu/server/maps/base/tox.map",
+    "points": [
+      {
+        "label": "Toxxulia Forest",
+        "samples": [
+          {
+            "dx": 0.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": -61.678955078125,
+            "headroom": 80.0
+          },
+          {
+            "dx": 4.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": -61.551292419433594,
+            "headroom": 80.0
+          },
+          {
+            "dx": -4.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": -61.80661392211914,
+            "headroom": 80.0
+          },
+          {
+            "dx": 0.0,
+            "dy": 4.0,
+            "ground_hit": true,
+            "ground_z": -61.805015563964844,
+            "headroom": 80.0
+          },
+          {
+            "dx": 0.0,
+            "dy": -4.0,
+            "ground_hit": true,
+            "ground_z": -61.552894592285156,
+            "headroom": 80.0
+          }
+        ],
+        "x": -357,
+        "y": 1099,
+        "z": -53,
+        "ground_offset": 8.679,
+        "clear": true
+      }
+    ],
+    "segments": []
+  },
+  {
+    "map": "/home/eqemu/server/maps/base/twilight.map",
+    "points": [
+      {
+        "label": "Twilight Sea",
+        "samples": [
+          {
+            "dx": 0.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": -25.79151153564453,
+            "headroom": 80.0
+          },
+          {
+            "dx": 4.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": -25.690513610839844,
+            "headroom": 80.0
+          },
+          {
+            "dx": -4.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": -25.892513275146484,
+            "headroom": 80.0
+          },
+          {
+            "dx": 0.0,
+            "dy": 4.0,
+            "ground_hit": true,
+            "ground_z": -26.29317855834961,
+            "headroom": 80.0
+          },
+          {
+            "dx": 0.0,
+            "dy": -4.0,
+            "ground_hit": true,
+            "ground_z": -25.289844512939453,
+            "headroom": 80.0
+          }
+        ],
+        "x": -125,
+        "y": -656,
+        "z": -22,
+        "ground_offset": 3.792,
+        "clear": true
+      }
+    ],
+    "segments": []
+  },
+  {
+    "map": "/home/eqemu/server/maps/base/wakening.map",
+    "points": [
+      {
+        "label": "Wakening Lands",
+        "samples": [
+          {
+            "dx": 0.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": 23.703664779663086,
+            "headroom": 26.5781307220459
+          },
+          {
+            "dx": 4.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": 23.703664779663086,
+            "headroom": 26.5781307220459
+          },
+          {
+            "dx": -4.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": 23.703664779663086,
+            "headroom": 26.5781307220459
+          },
+          {
+            "dx": 0.0,
+            "dy": 4.0,
+            "ground_hit": true,
+            "ground_z": 23.703664779663086,
+            "headroom": 26.5781307220459
+          },
+          {
+            "dx": 0.0,
+            "dy": -4.0,
+            "ground_hit": true,
+            "ground_z": 23.703664779663086,
+            "headroom": 26.5781307220459
+          }
+        ],
+        "x": -3032,
+        "y": -3040,
+        "z": 28,
+        "ground_offset": 4.296,
+        "clear": true
+      }
+    ],
+    "segments": []
+  }
+]

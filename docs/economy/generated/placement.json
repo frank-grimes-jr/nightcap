@@ -1,0 +1,251 @@
+{
+  "merchants": [
+    {
+      "npc_id": 1004,
+      "name": "Meera_Lylon",
+      "zone": "qeynos",
+      "zone_id": 1,
+      "merchant_id": 1004,
+      "x": -314.0,
+      "y": 190.0,
+      "z": 3.75
+    },
+    {
+      "npc_id": 2036,
+      "name": "Nerissa_Clothspinner",
+      "zone": "qeynos2",
+      "zone_id": 2,
+      "merchant_id": 2036,
+      "x": 346.880005,
+      "y": 83.0,
+      "z": 3.8
+    },
+    {
+      "npc_id": 9011,
+      "name": "Linadian",
+      "zone": "freportw",
+      "zone_id": 9,
+      "merchant_id": 9011,
+      "x": -299.0,
+      "y": 56.0,
+      "z": -24.75
+    },
+    {
+      "npc_id": 10030,
+      "name": "Tagus_Wunne",
+      "zone": "freporte",
+      "zone_id": 10,
+      "merchant_id": 10030,
+      "x": -256.0,
+      "y": -101.0,
+      "z": -94.129997
+    },
+    {
+      "npc_id": 54028,
+      "name": "Hendricks",
+      "zone": "gfaydark",
+      "zone_id": 54,
+      "merchant_id": 54028,
+      "x": -550.0,
+      "y": -537.0,
+      "z": 161.0
+    },
+    {
+      "npc_id": 19017,
+      "name": "Fralith_Thornbush",
+      "zone": "rivervale",
+      "zone_id": 19,
+      "merchant_id": 19017,
+      "x": -380.0,
+      "y": -48.0,
+      "z": -11.75
+    },
+    {
+      "npc_id": 29000,
+      "name": "Dargon",
+      "zone": "halas",
+      "zone_id": 29,
+      "merchant_id": 29000,
+      "x": 356.0,
+      "y": 354.0,
+      "z": 4.38
+    },
+    {
+      "npc_id": 41003,
+      "name": "Mignar_Mi`Draskch",
+      "zone": "neriakb",
+      "zone_id": 41,
+      "merchant_id": 41003,
+      "x": -952.0,
+      "y": 154.0,
+      "z": -38.75
+    },
+    {
+      "npc_id": 40070,
+      "name": "Grallvek",
+      "zone": "grobb",
+      "zone_id": 52,
+      "merchant_id": 40070,
+      "x": -91.800003,
+      "y": 387.399994,
+      "z": 3.5
+    },
+    {
+      "npc_id": 49016,
+      "name": "Angrog",
+      "zone": "oggok",
+      "zone_id": 49,
+      "merchant_id": 49016,
+      "x": -2.0,
+      "y": -243.0,
+      "z": 5.63
+    },
+    {
+      "npc_id": 24014,
+      "name": "Chembla_Ellent",
+      "zone": "erudnext",
+      "zone_id": 24,
+      "merchant_id": 24014,
+      "x": -244.0,
+      "y": -1048.0,
+      "z": 83.629997
+    },
+    {
+      "npc_id": 55013,
+      "name": "Clockwork_Merchant",
+      "zone": "akanon",
+      "zone_id": 55,
+      "merchant_id": 55013,
+      "x": -411.0,
+      "y": 2098.0,
+      "z": -182.0
+    }
+  ],
+  "traders": [
+    {
+      "npc_id": 999500,
+      "name": "Rellan_Ridgewalker",
+      "template": 22033,
+      "race": 1,
+      "gender": 0,
+      "x": -300,
+      "y": -1660,
+      "z": 3.75,
+      "kind": "sell"
+    },
+    {
+      "npc_id": 999501,
+      "name": "Mirielle_Dusksong",
+      "template": 22087,
+      "race": 1,
+      "gender": 1,
+      "x": -240,
+      "y": -1660,
+      "z": 3.75,
+      "kind": "sell"
+    },
+    {
+      "npc_id": 999502,
+      "name": "Caelith_Emberweave",
+      "template": 22092,
+      "race": 3,
+      "gender": 1,
+      "x": -80,
+      "y": -1650,
+      "z": 3.75,
+      "kind": "sell"
+    },
+    {
+      "npc_id": 999503,
+      "name": "Bromli_Copperkeg",
+      "template": 22083,
+      "race": 7,
+      "gender": 0,
+      "x": -35,
+      "y": -1705,
+      "z": 3.75,
+      "kind": "sell"
+    },
+    {
+      "npc_id": 999504,
+      "name": "Tamsin_Quickstep",
+      "template": 22082,
+      "race": 12,
+      "gender": 0,
+      "x": -90,
+      "y": -1735,
+      "z": 3.75,
+      "kind": "sell"
+    },
+    {
+      "npc_id": 999505,
+      "name": "Varkyn_Ashblade",
+      "template": 22116,
+      "race": 5,
+      "gender": 0,
+      "x": -155,
+      "y": -1750,
+      "z": 3.75,
+      "kind": "sell"
+    },
+    {
+      "npc_id": 999506,
+      "name": "Harlon_Frostbeard",
+      "template": 22088,
+      "race": 2,
+      "gender": 0,
+      "x": -230,
+      "y": -1735,
+      "z": 3.75,
+      "kind": "buy"
+    },
+    {
+      "npc_id": 999507,
+      "name": "Nimri_Mossfoot",
+      "template": 22086,
+      "race": 4,
+      "gender": 0,
+      "x": -300,
+      "y": -1720,
+      "z": 3.75,
+      "kind": "buy"
+    },
+    {
+      "npc_id": 999508,
+      "name": "Grukk_Bargainhand",
+      "template": 22118,
+      "race": 9,
+      "gender": 0,
+      "x": -390,
+      "y": -1710,
+      "z": 3.75,
+      "kind": "buy"
+    },
+    {
+      "npc_id": 999509,
+      "name": "Selindra_Starsong",
+      "template": 22073,
+      "race": 3,
+      "gender": 0,
+      "x": -385,
+      "y": -1585,
+      "z": 3.75,
+      "kind": "buy"
+    }
+  ],
+  "policy": {
+    "expansion": 0,
+    "reference_server": "Green",
+    "income_basis": "item_drops_and_vendor_payout",
+    "baseline_buy_cost_mod": "0.95",
+    "buy_cost_mod": "2.5",
+    "global_loot_multiplier": 4,
+    "sell_cost_mod": "1.0499999523163",
+    "price_bonus_pct": 4,
+    "price_penalty_pct": 4,
+    "tunnel_premium": "1.20",
+    "find_premium": "1.10",
+    "buy_fraction": "0.70",
+    "evidence": "Live rules read 2026-09-20; vendor_cash_boost.sql documents 0.95 -> 2.5. NPC::AddLootTable repeats item rolls 4 times; raw coin is not multiplied. Combined factor estimates loot-sale income."
+  }
+}

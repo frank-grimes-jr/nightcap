@@ -21,6 +21,7 @@ import (
 )
 
 const classicNektulosRetirementSHA256 = "de487c2820595b753ccdb5c38d87769f396dc345cb5699b8b109b949b01b8885"
+const classicLavastormRetirementSHA256 = "86988d368570e218022c420a4fa4e9d67e258356295d6bb4419a2d5834ef0b3a"
 
 func main() {
 	client := flag.String("client", "", "supported eqgame.exe (read only)")
@@ -171,10 +172,11 @@ func buildConfigured(client, assets, keyPath string, create bool, release uint64
 			return fmt.Errorf("production key must cover the whole release lifetime")
 		}
 	}
-	trust := manifest.Trust{Keys: []manifest.Key{key}, Now: now, LauncherVersion: "0.1.0", Hosts: []string{"qa.nightcap.invalid"}, Inventory: map[string]bool{}, Retired: map[string]bool{"nektulos.eqg": true}, RetiredSHA256: map[string]string{"nektulos.eqg": classicNektulosRetirementSHA256}}
-	m := manifest.Manifest{Schema: 1, Release: release, MinLauncher: "0.1.0", Expires: now.Add(30 * 24 * time.Hour), Tombstones: []string{"nektulos.eqg"}}
+	trust := manifest.Trust{Keys: []manifest.Key{key}, Now: now, LauncherVersion: "0.1.0", Hosts: []string{"qa.nightcap.invalid"}, Inventory: map[string]bool{}, Retired: map[string]bool{"nektulos.eqg": true, "lavastorm.eqg": true}, RetiredSHA256: map[string]string{"nektulos.eqg": classicNektulosRetirementSHA256, "lavastorm.eqg": classicLavastormRetirementSHA256}}
+	m := manifest.Manifest{Schema: 1, Release: release, MinLauncher: "0.1.0", Expires: now.Add(30 * 24 * time.Hour), Tombstones: []string{"nektulos.eqg", "lavastorm.eqg"}}
 	trust.Keys, trust.Hosts, trust.LauncherVersion = []manifest.Key{key}, hosts, version
 	m.MinLauncher = version
+
 	for _, name := range names {
 		trust.Inventory[name] = true
 		m.Files = append(m.Files, manifest.File{Path: name, SHA256: manifest.Digest(data[name]), Size: int64(len(data[name])), URL: fmt.Sprintf("%s/release/%d/%s", baseURL, release, name), Required: true})
@@ -258,10 +260,10 @@ func DefaultPolicy() Policy {
  return Policy{Bundle:bundle, Label:"LOCAL QA CANDIDATE", EnablePlay:true, Trust:manifest.Trust{
  LauncherVersion:"0.1.0", Hosts:[]string{"qa.nightcap.invalid"},
  Keys:[]manifest.Key{{ID:%q,Public:public,NotBefore:time.Unix(%d,0),NotAfter:time.Unix(%d,0)}},
- Inventory:map[string]bool{%s}, Retired:map[string]bool{"nektulos.eqg":true}, RetiredSHA256:map[string]string{"nektulos.eqg":%q},
+ Inventory:map[string]bool{%s}, Retired:map[string]bool{"nektulos.eqg":true,"lavastorm.eqg":true}, RetiredSHA256:map[string]string{"nektulos.eqg":%q,"lavastorm.eqg":%q},
  }}
 }
 // Embedded release: %d
-`, hex.EncodeToString(key.Public), key.ID, key.NotBefore.Unix(), key.NotAfter.Unix(), inventory.String(), classicNektulosRetirementSHA256, release)
+`, hex.EncodeToString(key.Public), key.ID, key.NotBefore.Unix(), key.NotAfter.Unix(), inventory.String(), classicNektulosRetirementSHA256, classicLavastormRetirementSHA256, release)
 	return format.Source([]byte(source))
 }

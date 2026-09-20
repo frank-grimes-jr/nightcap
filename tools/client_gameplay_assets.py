@@ -11,6 +11,7 @@ import xml.etree.ElementTree as ET
 from client_pet_armor_ui import add_pet_page
 from client_hub_models import add_models, MODELS
 from client_ecommons_hub import recall_spell, hub_files, ROOT
+from client_lavastorm import lavastorm_files
 
 
 def instant_dots(raw):
@@ -103,6 +104,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--client', required=True, type=Path)
     parser.add_argument('--output', required=True, type=Path)
+    parser.add_argument('--lavastorm', required=True, type=Path, help='reviewed Classic lavastorm.s3d (read only)')
     args = parser.parse_args()
     client, output = args.client.resolve(), args.output.resolve()
     if output == client or client in output.parents or output in client.parents:
@@ -114,6 +116,7 @@ def main():
     plan=json.loads((ROOT/'docs/ecommons-hub/plan.json').read_bytes())
     files = {'spells_us.txt': recall_spell(spells,plan['arrival'])}
     files.update(hub_files(client,plan))
+    files.update(lavastorm_files(args.lavastorm,client))
     for filename, kind in [('EQUI_Inventory.xml','inventory'),('EQUI_AAWindow.xml','aa')]:
         files['uifiles/nightcap/'+filename.lower()] = ui_xml((client/'uifiles/default'/filename).read_bytes(),kind)
     files['poknowledge_chr.txt'] = add_models((client/'poknowledge_chr.txt').read_bytes())
@@ -128,7 +131,7 @@ def main():
         target = output/name
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_bytes(data)
-    audit = {'schema':1, 'features':['three_classes','aa_class_column','instant_dots','pet_armor','compact_hub_models','ecommons_tunnel_hub','ancient_attunement_recall','classic_nektulos'],
+    audit = {'schema':1, 'features':['three_classes','aa_class_column','instant_dots','pet_armor','compact_hub_models','ecommons_tunnel_hub','ancient_attunement_recall','classic_nektulos','classic_lavastorm'],
              'status':'generated_not_installed',
              'source_spells_sha256':hashlib.sha256(raw).hexdigest(),
              'instant_dot_ids':ids, 'skin_activation':'automatic_at_native_ui_load',
