@@ -8,8 +8,10 @@ our $root=shift @ARGV or die 'Expected server-mods root';
     do "$main::root/plugins/tunnel_residents.pl" or die $@ || $!;
     package quest;
     our $era=0;
+    our $lavastorm_ready='1';
     our (@said,@ooc,@timers);
     sub get_rule { return $era; }
+    sub get_data { return $lavastorm_ready; }
     sub say { push @said,$_[0]; }
     sub saylink { return '['.$_[0].']'; }
     sub ooc { push @ooc,$_[0]; }
@@ -43,6 +45,12 @@ plugin::tunnel_resident_hail($client,$npc,'Hail');
 my $menu=join(' ',@quest::said);
 is(scalar(()=$menu=~/\[ring /g),9,'Classic menu has all nine druid rings');
 unlike($menu,qr/dreadlands|qrg|commonlands|toxxulia|mistythicket|southro/,'later and replacement zones absent');
+$quest::lavastorm_ready='';@quest::said=();
+plugin::tunnel_resident_hail($client,$npc,'Hail');
+unlike(join(' ',@quest::said),qr/\[ring lavastorm\]/,'missing Classic client readiness hides Lavastorm');
+plugin::tunnel_resident_hail($client,$npc,'ring lavastorm');
+is(scalar @{$client->{moves}},0,'unready Classic client blocks a stale Lavastorm link');
+$quest::lavastorm_ready='1';
 plugin::tunnel_resident_hail($client,$npc,'ring commons');
 is_deeply($client->{moves},[[21,1427,478,-48,0]],'classic West Commonlands destination uses correct X/Y');
 plugin::tunnel_resident_hail($client,$npc,'ring butcher');

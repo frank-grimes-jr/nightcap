@@ -1,5 +1,14 @@
 # CHANGES
 
+## 2026-09-20 - Lavastorm travel readiness guard
+
+Withhold Khalure's Lavastorm destination until the explicit
+`nightcap:classic_lavastorm_client_ready` data bucket is `1`. The separate QA
+client currently lacks Classic terrain; repairing the server collision map alone
+does not make that landing safe. Missing readiness also rejects stale links.
+Other rings are unchanged. All 23 resident quest assertions pass. The original
+client remains untouched.
+
 ## 2026-09-20 - Six named tunnel residents (candidate)
 
 Add the requested Sortre, Camil, Rekk, Nalin, Trift and Khalure as six residents

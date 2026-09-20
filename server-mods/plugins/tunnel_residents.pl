@@ -20,11 +20,15 @@ sub tunnel_resident_hail {
     unless (defined $era && $era =~ /^\d+$/ && $era<=30) {
         quest::say('The paths are uncertain just now. Please try again later.'); return;
     }
-    my @rings=grep { $_->{era}<=$era && $_->{min_level}<=$client->GetLevel() } @{plugin::tunnel_ring_catalog()};
+    my $lavastorm_ready=(quest::get_data('nightcap:classic_lavastorm_client_ready') || '') eq '1';
+    my @rings=grep {
+        $_->{era}<=$era && $_->{min_level}<=$client->GetLevel() &&
+        ($_->{zone} ne 'lavastorm' || $lavastorm_ready)
+    } @{plugin::tunnel_ring_catalog()};
     if ($text =~ /^ring ([a-z]+)$/) {
         my $destination=$1;
         my ($ring)=grep { $_->{zone} eq $destination } @rings;
-        unless ($ring) { quest::say('That ring is not available in this era.'); return; }
+        unless ($ring) { quest::say('That ring is not available right now.'); return; }
         if ($client->GetHP()<=0 || $client->GetAggroCount() || $client->IsCasting() ||
             $client->IsStunned() || $client->IsMezzed() || $client->IsFeared()) {
             quest::say('Finish your fight or spell, then we can travel.'); return;
