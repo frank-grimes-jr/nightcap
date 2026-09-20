@@ -11,7 +11,7 @@ explicit catalog update rather than inheriting globally widened eligibility.
 
 Verified: full Linux native build, five client runtime tests, exact signatures,
 69 repository tests, 13 Go test packages, frontend/Wails builds, five production
-supervisor tests and seven mocked rollout cases. Signed release 2026092005 and
+supervisor tests, seven mocked rollout cases and five publication cases. Signed release 2026092005 and
 launcher 0.2.2 are staged.
 
 Open: explicit production upload/deployment approval after an automatic review

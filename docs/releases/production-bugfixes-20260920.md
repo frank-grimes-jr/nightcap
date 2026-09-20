@@ -63,7 +63,9 @@ Local artifacts: `E:/EQ_Local_Dev/artifacts/production-bugfixes-20260920/`.
 - Independent review found no remaining actionable source issues. Seven mocked
   activation scenarios passed, including partial plugin/image writes and failed
   startup, preservation and gateway gates. Image-contained hashes are checked
-  before production stops. Manual gameplay is not claimed by these checks.
+  before production stops. Five publication interruption scenarios also passed;
+  already-visible new channel metadata is never downgraded. Manual gameplay is
+  not claimed by these checks.
 
 ## Rollout and rollback
 
@@ -110,8 +112,8 @@ still requires the owner's sign-off; automated checks are not manual acceptance.
 Use Monktest, CLR/MAG/NEC level 50, on the supported updated RoF2 client.
 
 1. Log in directly to East Commonlands. Without first opening Inventory or AA,
-   open the Magician vendor with **Show only items I can use** enabled. Confirm
-   native MAG spells appear with normal required levels. Repeat NEC and CLR.
+   open **Magician: Spells** (NPC 997912) with **Show only items I can use** enabled. Confirm
+   native MAG spells appear with normal required levels. Repeat **Necromancer: Spells** (997910) and **Cleric: Spells** (997901).
    Repeat immediately after zoning and after camping to a different character.
 2. Buy a native MAG scroll such as Summon Waterstone (spell 4, required level 17),
    or repeat with the exact originally reported scroll. Its required level must

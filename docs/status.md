@@ -3,6 +3,17 @@
 Updated September 20, 2026. This is the current status index; dated studies and
 QA reports preserve their original evidence and are not live-state promises.
 
+## Production NPC and spell-access repair awaiting deployment
+
+[Release 2026092005](releases/production-bugfixes-20260920.md) repairs secondary-class
+vendor usability, level-255 scroll handling and the missing resident OOC API.
+Native/client builds, regression tests, exact client signatures, independent
+review and server/publication rollback rehearsals pass. Launcher 0.2.2 and the
+22-file signed package are staged locally. Automatic review blocked upload to
+the production host; explicit upload/deployment approval is pending. No production
+switch or client publication has occurred for this repair. Manual gameplay QA
+and main promotion remain open; the running hosted version is 2026092004 below.
+
 ## Production launcher and hosting candidate
 
 The [coordinated hosted update](releases/hosted-main-update-20260920.md) is deployed
