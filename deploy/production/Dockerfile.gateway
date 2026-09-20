@@ -1,0 +1,14 @@
+# Build context: eq-launcher/. Build locally, then transfer the image to the VPS.
+ARG GO_IMAGE
+FROM ${GO_IMAGE} AS build
+WORKDIR /src
+COPY go.mod go.sum ./
+RUN go mod download
+COPY internal/gametunnel ./internal/gametunnel
+COPY internal/manifest ./internal/manifest
+COPY cmd/nightcap-gateway ./cmd/nightcap-gateway
+RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -trimpath -ldflags="-s -w" -o /gateway ./cmd/nightcap-gateway
+FROM scratch
+COPY --from=build /gateway /nightcap-gateway
+USER 65532:65532
+ENTRYPOINT ["/nightcap-gateway"]

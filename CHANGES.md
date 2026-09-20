@@ -1,5 +1,14 @@
 # CHANGES
 
+## 2026-09-20 - Private container hosting candidate
+
+Add isolated container networks, deny-first IP controls, private scrypt account
+provisioning, native credential-log redactions/self-test and encrypted backup tooling.
+Real MariaDB provisioning and failure tests caught and fixed table-lock and truncated
+backup issues. Include owner/friend guides, hosting cost research and explicit native
+acceptance steps. No public service is deployed; host/domain selection, full runtime
+restore and hosted ten-player QA remain open. See deploy/production/README.md.
+
 ## 2026-09-20 - Production launcher candidate
 
 Add a production-only hosted signing policy, single-object signed channel metadata,

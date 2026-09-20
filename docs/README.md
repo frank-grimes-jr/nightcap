@@ -2,6 +2,9 @@
 
 Start with [current status](status.md), not a dated candidate report.
 
+- [Private production launcher and hosting kit](../deploy/production/README.md)
+- [Production acceptance matrix](../deploy/production/QA.md)
+
 ## Players and testers
 
 - [Three class pets: evidence and exact QA](releases/multiclass-pets-20260919/README.md)

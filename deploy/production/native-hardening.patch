@@ -1,0 +1,417 @@
+--- a/loginserver/main.cpp
++++ b/loginserver/main.cpp
+@@ -1,3 +1,5 @@
++#include "loginserver/encryption.h"
++#include <cstdio>
+ #include "common/crash.h"
+ #include "common/database.h"
+ #include "common/eqemu_logsys.h"
+@@ -140,6 +142,16 @@
+ 
+ int main(int argc, char **argv)
+ {
++	if (argc == 2 && std::string(argv[1]) == "--nightcap-crypto-self-test") {
++		const auto hash = eqcrypt_hash("nightcap-check", "correct-private-password", EncryptionModeSCrypt);
++		const bool ok = hash.rfind("$7$", 0) == 0
++			&& eqcrypt_verify_hash("nightcap-check", "correct-private-password", hash, EncryptionModeSCrypt)
++			&& !eqcrypt_verify_hash("nightcap-check", "wrong", hash, EncryptionModeSCrypt)
++			&& !eqcrypt_verify_hash("nightcap-check", "wrong", "", EncryptionModeSCrypt);
++		std::puts(ok ? "Nightcap native crypto self-test passed" : "Nightcap native crypto self-test FAILED");
++		return ok ? 0 : 1;
++	}
++
+ 	RegisterExecutablePlatform(ExePlatformLogin);
+ 	set_exception_handler();
+ 
+--- a/loginserver/world_server.cpp
++++ b/loginserver/world_server.cpp
+@@ -70,10 +70,7 @@
+ 
+ void WorldServer::ProcessNewLSInfo(uint16_t opcode, const EQ::Net::Packet &packet)
+ {
+-	LogNetcode(
+-		"Application packet received from server [{:#04x}] [Size: {}]\n{}",
+-		opcode, packet.Length(), packet.ToString()
+-	);
++	LogInfo("Authentication detail redacted");
+ 
+ 	if (packet.Length() < sizeof(LoginserverNewWorldRequest)) {
+ 		LogError(
+@@ -91,28 +88,14 @@
+ 		r->remote_ip_address[sizeof(r->remote_ip_address) - 1] = '\0'; // Ensure null termination
+ 	}
+ 
+-	LogInfo(
+-		"New World Server Info | name [{}] shortname [{}] remote_address [{}] local_address [{}] account [{}] password [{}] server_type [{}]",
+-		r->server_long_name,
+-		r->server_short_name,
+-		r->remote_ip_address,
+-		r->local_ip_address,
+-		r->account_name,
+-		r->account_password,
+-		r->server_process_type
+-	);
++	LogInfo("Authentication detail redacted");
+ 
+ 	HandleNewWorldserver(r);
+ }
+ 
+ void WorldServer::ProcessLSStatus(uint16_t opcode, const EQ::Net::Packet &packet)
+ {
+-	LogNetcode(
+-		"Application packet received from server [{:#04x}] [Size: {}]\n{}",
+-		opcode,
+-		packet.Length(),
+-		packet.ToString()
+-	);
++	LogInfo("Authentication detail redacted");
+ 
+ 	if (packet.Length() < sizeof(LoginserverWorldStatusUpdate)) {
+ 		LogError(
+@@ -137,12 +120,7 @@
+ 
+ void WorldServer::ProcessUserToWorldResponseLegacy(uint16_t opcode, const EQ::Net::Packet &packet)
+ {
+-	LogNetcode(
+-		"Application packet received from server [{:#04x}] [Size: {}]\n{}",
+-		opcode,
+-		packet.Length(),
+-		packet.ToString()
+-	);
++	LogInfo("Authentication detail redacted");
+ 
+ 	if (packet.Length() < sizeof(UsertoWorldResponseLegacy)) {
+ 		LogError(
+@@ -227,12 +205,7 @@
+ 
+ void WorldServer::ProcessUserToWorldResponse(uint16_t opcode, const EQ::Net::Packet &packet)
+ {
+-	LogNetcode(
+-		"Application packet received from server [{:#04x}] [Size: {}]\n{}",
+-		opcode,
+-		packet.Length(),
+-		packet.ToString()
+-	);
++	LogInfo("Authentication detail redacted");
+ 
+ 	if (packet.Length() < sizeof(UsertoWorldResponse)) {
+ 		LogError(
+@@ -273,7 +246,7 @@
+ 			c->GetSelectedPlayServerID()
+ 		);
+ 
+-		LogDebug("[Size: [{}]] {}", outapp->size, DumpPacketToString(outapp));
++		LogInfo("Authentication detail redacted");
+ 
+ 		if (res->response > 0) {
+ 			r->base_reply.success = true;
+@@ -325,12 +298,7 @@
+ 
+ void WorldServer::ProcessLSAccountUpdate(uint16_t opcode, const EQ::Net::Packet &packet)
+ {
+-	LogNetcode(
+-		"Application packet received from server [{:#04x}] [Size: {}]\n{}",
+-		opcode,
+-		packet.Length(),
+-		packet.ToString()
+-	);
++	LogInfo("Authentication detail redacted");
+ 
+ 	if (packet.Length() < sizeof(LoginserverAccountUpdate)) {
+ 		LogError(
+@@ -532,28 +500,12 @@
+ 		client_address
+ 	);
+ 
+-	LogInfo(
+-		"Sending Client Authentication Response ls_account_id [{}] ls_name [{}] name [{}] key [{}] ls_admin [{}] "
+-		"world_admin [{}] ip [{}] local [{}]",
+-		a.loginserver_account_id,
+-		a.loginserver_name,
+-		a.account_name,
+-		a.key,
+-		a.lsadmin,
+-		a.is_world_admin,
+-		inet_ntoa(ip_addr),
+-		a.is_client_from_local_network
+-	);
++	LogInfo("Authentication detail redacted");
+ 
+ 	outapp.PutSerialize(0, a);
+ 	m_connection->Send(ServerOP_LSClientAuth, outapp);
+ 
+-	LogNetcode(
+-		"Sending [{:#04x}] [Size: {}]\n{}",
+-		ServerOP_LSClientAuth,
+-		outapp.Length(),
+-		outapp.ToString()
+-	);
++	LogInfo("Authentication detail redacted");
+ }
+ 
+ constexpr static int MAX_ACCOUNT_NAME_LENGTH          = 30;
+--- a/loginserver/loginserver_command_handler.cpp
++++ b/loginserver/loginserver_command_handler.cpp
+@@ -15,7 +15,7 @@
+ 
+ 		argh::parser cmd;
+ 		cmd.parse(argc, argv, argh::parser::PREFER_PARAM_FOR_UNREG_OPTION);
+-		EQEmuCommand::DisplayDebug(cmd);
++		// Credentials in command arguments must never be copied into logs.
+ 
+ 		auto function_map = EQEmuCommand::function_map;
+ 		function_map["login-user:check-credentials"]          = &LoginserverCommandHandler::CheckLoginserverUserCredentials;
+--- a/world/login_server.cpp
++++ b/world/login_server.cpp
+@@ -207,16 +207,7 @@
+ 	try {
+ 		auto r = p.GetSerialize<ClientAuthLegacy>(0);
+ 
+-		LogDebug(
+-			"Processing Loginserver Auth Legacy | account_id [{}] account_name [{}] key [{}] admin [{}] ip [{}] "
+-			"local_network [{}]",
+-			r.loginserver_account_id,
+-			r.loginserver_account_name,
+-			r.key,
+-			r.is_world_admin,
+-			r.ip_address,
+-			r.is_client_from_local_network
+-		);
++		LogInfo("Authentication detail redacted");
+ 
+ 		ClientList::Instance()->CLEAdd(
+ 			r.loginserver_account_id,
+@@ -241,17 +232,7 @@
+ 	try {
+ 		auto r = p.GetSerialize<ClientAuth>(0);
+ 
+-		LogDebug(
+-			"Processing Loginserver Auth | account_id [{}] account_name [{}] loginserver_name [{}] key [{}] "
+-			"admin [{}] ip [{}] local_network [{}]",
+-			r.loginserver_account_id,
+-			r.account_name,
+-			r.loginserver_name,
+-			r.key,
+-			r.is_world_admin,
+-			r.ip_address,
+-			r.is_client_from_local_network
+-		);
++		LogInfo("Authentication detail redacted");
+ 
+ 		ClientList::Instance()->CLEAdd(
+ 			r.loginserver_account_id,
+--- a/world/client.cpp
++++ b/world/client.cpp
+@@ -453,10 +453,10 @@
+ 	strn0cpy(name, (char *) r->login_info, 18);
+ 	strn0cpy(password, (char *) &(r->login_info[strlen(name) + 1]), 15);
+ 
+-	LogDebug("Receiving login info packet from client | name [{}] password [{}]", name, password);
++	LogInfo("Authentication detail redacted");
+ 
+ 	if (strlen(password) <= 1) {
+-		LogInfo("Login without a password");
++		LogInfo("Authentication detail redacted");
+ 		return false;
+ 	}
+ 
+@@ -560,7 +560,7 @@
+ 		return true;
+ 	}
+ 	else {
+-		LogInfo("Bad/Expired session key [{}]", name);
++		LogInfo("Authentication detail redacted");
+ 		return false;
+ 	}
+ }
+--- a/world/cliententry.cpp
++++ b/world/cliententry.cpp
+@@ -25,17 +25,7 @@
+ {
+ 	ClearVars(true);
+ 
+-	LogDebug(
+-		"id [{}] loginserver_id [{}] loginserver_name [{}] login_name [{}] login_key [{}] is_world_admin [{}] ip [{}] local [{}]",
+-		id,
+-		login_server_id,
+-		login_server_name,
+-		account_name,
+-		login_key,
+-		is_world_admin,
+-		ip_address,
+-		local
+-	);
++	LogInfo("Authentication detail redacted");
+ 
+ 	m_ip_address      = ip_address;
+ 	m_login_server_id = login_server_id;
+@@ -296,22 +286,10 @@
+ 
+ bool ClientListEntry::CheckAuth(uint32 loginserver_account_id, const char *key_password)
+ {
+-	LogDebug(
+-		"ls_account_id [{}] key_password [{}] key [{}]",
+-		loginserver_account_id,
+-		key_password,
+-		m_key
+-	);
++	LogInfo("Authentication detail redacted");
+ 
+ 	if (m_login_server_id == loginserver_account_id && strncmp(m_key, key_password, 10) == 0) {
+-		LogDebug(
+-			"ls_account_id [{}] key_password [{}] m_key [{}] lsid [{}] m_account_id [{}]",
+-			loginserver_account_id,
+-			key_password,
+-			m_key,
+-			LSID(),
+-			m_account_id
+-		);
++		LogInfo("Authentication detail redacted");
+ 
+ 		// create account if it doesn't exist
+ 		if (m_account_id == 0 && LSID() > 0) {
+--- a/ucs/clientlist.cpp
++++ b/ucs/clientlist.cpp
+@@ -644,13 +644,8 @@
+ 			EmuOpcode opcode = app->GetOpcode();
+ 
+ 			auto o = (*it)->ClientStream->GetOpcodeManager();
+-			LogPacketClientServer(
+-				"[{}] [{:#06x}] Size [{}] {}",
+-				OpcodeManager::EmuToName(app->GetOpcode()),
+-				o->EmuToEQ(app->GetOpcode()) == 0 ? app->GetProtocolOpcode() : o->EmuToEQ(app->GetOpcode()),
+-				app->Size(),
+-				(EQEmuLogSys::Instance()->IsLogEnabled(Logs::Detail, Logs::PacketClientServer) ? DumpPacketToString(app) : "")
+-			);
++			// Production build omits authentication-capable packet payload logging.
++LogPacketClientServer("Packet metadata only");
+ 
+ 			switch (opcode) {
+ 			case OP_MailLogin: {
+@@ -662,7 +657,7 @@
+ 				VARSTRUCT_DECODE_STRING(MailBox, PacketBuffer);
+ 
+ 				if (strlen(PacketBuffer) != 9) {
+-					LogInfo("Mail key is the wrong size. Version of world incompatible with UCS.");
++					LogInfo("Authentication detail redacted");
+ 					KeyValid = false;
+ 					break;
+ 				}
+@@ -685,11 +680,10 @@
+ 					CharacterName = MailBoxString.substr(LastPeriod + 1);
+ 				}
+ 
+-				LogInfo("Received login for user [{}] with key [{}]",
+-					MailBox, Key);
++				LogInfo("Authentication detail redacted");
+ 
+ 				if (!database.VerifyMailKey(CharacterName, (*it)->ClientStream->GetRemoteIP(), Key)) {
+-					LogError("Chat Key for [{}] does not match, closing connection.", MailBox);
++					LogInfo("Authentication detail redacted");
+ 					KeyValid = false;
+ 					break;
+ 				}
+@@ -1668,7 +1662,7 @@
+ 	else
+ 		Message = "Password change on channel " + ChannelName;
+ 
+-	LogInfo("Set password of channel [[{}]] to [[{}]] by [{}]", ChannelName.c_str(), Password.c_str(), GetName().c_str());
++	LogInfo("Authentication detail redacted");
+ 
+ 	ChatChannel *RequiredChannel = ChannelList->FindChannel(ChannelName);
+ 
+--- a/ucs/database.cpp
++++ b/ucs/database.cpp
+@@ -137,7 +137,7 @@
+ 
+ 	auto results = QueryDatabase(query);
+ 	if (!results.Success()) {
+-		LogInfo("Error retrieving mailkey from database: [{}]", results.ErrorMessage().c_str());
++		LogInfo("Authentication detail redacted");
+ 		return false;
+ 	}
+ 
+@@ -160,7 +160,7 @@
+ 		sprintf(combinedKey, "%s", MailKey.c_str());
+ 	}
+ 
+-	LogInfo("DB key is [[{}]], Client key is [[{}]]", (row[0] ? row[0] : ""), combinedKey);
++	LogInfo("Authentication detail redacted");
+ 
+ 	return !strcmp(row[0], combinedKey);
+ }
+@@ -335,7 +335,7 @@
+ 
+ void UCSDatabase::SetChannelPassword(const std::string& channel_name, const std::string& password)
+ {
+-	LogInfo("UCSDatabase::SetChannelPassword([{}], [{}])", channel_name.c_str(), password.c_str());
++	LogInfo("Authentication detail redacted");
+ 
+ 	std::string query = fmt::format(
+ 		"UPDATE `chatchannels` SET `password` = '{}' WHERE `name` = '{}'",
+--- a/common/shareddb.cpp
++++ b/common/shareddb.cpp
+@@ -124,14 +124,14 @@
+ 
+ 	auto e = CharacterDataRepository::FindOne(*this, character_id);
+ 	if (!e.id) {
+-		LogError("Failed to find character_id [{}] when setting mailkey", character_id);
++		LogInfo("Authentication detail redacted");
+ 		return;
+ 	}
+ 
+ 	e.mailkey = full_mail_key;
+ 
+ 	if (!CharacterDataRepository::UpdateOne(*this, e)) {
+-		LogError("Failed to set mailkey to [{}] for character_id [{}]", full_mail_key, character_id);
++		LogInfo("Authentication detail redacted");
+ 	}
+ }
+ 
+--- a/loginserver/client.cpp
++++ b/loginserver/client.cpp
+@@ -20,13 +20,8 @@
+ 	EQApplicationPacket *app = m_connection->PopPacket();
+ 	while (app) {
+ 		auto o = m_connection->GetOpcodeManager();
+-		LogPacketClientServer(
+-			"[{}] [{:#06x}] Size [{}] {}",
+-			OpcodeManager::EmuToName(app->GetOpcode()),
+-			o->EmuToEQ(app->GetOpcode()) == 0 ? app->GetProtocolOpcode() : o->EmuToEQ(app->GetOpcode()),
+-			app->Size(),
+-			(EQEmuLogSys::Instance()->IsLogEnabled(Logs::Detail, Logs::PacketClientServer) ? DumpPacketToString(app) : "")
+-		);
++		// Production build omits authentication-capable packet payload logging.
++LogPacketClientServer("Packet metadata only");
+ 
+ 		if (m_client_status == cs_failed_to_login) {
+ 			delete app;
+--- a/common/net/eqstream.cpp
++++ b/common/net/eqstream.cpp
+@@ -67,13 +67,8 @@
+ 
+ void EQ::Net::EQStream::QueuePacket(const EQApplicationPacket *p, bool ack_req) {
+ 
+-	LogPacketServerClient(
+-		"[{}] [{:#06x}] Size [{}] {}",
+-		OpcodeManager::EmuToName(p->GetOpcode()),
+-		(*m_opcode_manager)->EmuToEQ(p->GetOpcode()),
+-		p->Size(),
+-		(EQEmuLogSys::Instance()->IsLogEnabled(Logs::Detail, Logs::PacketServerClient) ? DumpPacketToString(p) : "")
+-	);
++	// Production build omits authentication-capable packet payload logging.
++LogPacketServerClient("Packet metadata only");
+ 
+ 	if (m_opcode_manager && *m_opcode_manager) {
+ 		uint16 opcode = 0;
+--- a/world/clientlist.cpp
++++ b/world/clientlist.cpp
+@@ -491,7 +491,7 @@
+ 		scl->AccountID,
+ 		scl->AccountName,
+ 		scl->LSAccountID,
+-		scl->lskey,
++		"[redacted]",
+ 		scl->race,
+ 		scl->class_,
+ 		scl->level,

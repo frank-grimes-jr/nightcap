@@ -13,6 +13,11 @@ backups/
 # Generated local QA trust and embedded signed bundle
 eq-launcher/internal/launcher/policy_qa_generated.go
 eq-launcher/internal/launcher/qabundle/
+eq-launcher/internal/launcher/policy_production_generated.go
+deploy/production/.env
+deploy/production/private/
+deploy/production/data/
+deploy/production/native-bin/
 
 # Python test/generator bytecode
 __pycache__/

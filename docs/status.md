@@ -3,6 +3,14 @@
 Updated September 20, 2026. This is the current status index; dated studies and
 QA reports preserve their original evidence and are not live-state promises.
 
+## Production launcher and hosting candidate
+
+A separate [production hosting/launcher candidate](../deploy/production/README.md)
+implements hosted signed updates and launcher-managed encrypted transport for ten
+friends. Infrastructure, private-account provisioning, backups and guides exist.
+Domain/account selection, full isolated restore, native relay acceptance and public
+deployment remain open. It has not changed the running QA server or promoted gameplay.
+
 ## East Commonlands hub QA candidate
 
 The approved tunnel hub is active on the development server and promoted through

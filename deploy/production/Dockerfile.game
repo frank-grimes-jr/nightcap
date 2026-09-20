@@ -1,0 +1,11 @@
+# Use the exact runtime image matching the tested native build, pinned by digest.
+# Context contains this directory and native-bin/ with reviewed Linux binaries.
+ARG EQEMU_RUNTIME_IMAGE
+FROM ${EQEMU_RUNTIME_IMAGE}
+USER root
+COPY --chmod=0555 native-bin/ /opt/nightcap/bin/
+COPY start.py configure.py accounts.py /opt/nightcap/
+RUN /opt/nightcap/bin/loginserver --nightcap-crypto-self-test
+USER 1000:1000
+WORKDIR /srv/nightcap
+ENTRYPOINT ["python3", "/opt/nightcap/start.py"]

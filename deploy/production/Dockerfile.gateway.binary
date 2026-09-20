@@ -1,0 +1,5 @@
+# Build from the owner kit only after verifying its SHA256SUMS.txt.
+FROM scratch
+COPY --chmod=0555 nightcap-gateway /nightcap-gateway
+USER 65532:65532
+ENTRYPOINT ["/nightcap-gateway"]
