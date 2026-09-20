@@ -1,5 +1,13 @@
 # CHANGES
 
+## 2026-09-20 - Restore resident NPC OOC quest API
+
+Add the native `quest::ooc` adapter required by Trift's timer. Send literal NPC
+text to every client in the zone, including timer events without a client
+context. Regression tests cover sender, channel, multiple clients, missing
+owners and percent signs. Deploy a rebuilt zone binary before relying on this
+API; manual in-game confirmation remains open.
+
 ## 2026-09-20 - Combine hosted production and current main
 
 Integrate the production launcher/hosting candidate with the owner's current
