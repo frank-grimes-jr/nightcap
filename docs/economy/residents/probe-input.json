@@ -1,0 +1,41 @@
+{
+  "map": "/home/eqemu/server/maps/base/ecommons.map",
+  "points": [
+    {
+      "label": "Sortre_Blackdragon",
+      "x": -340,
+      "y": -1645,
+      "z": 3.75
+    },
+    {
+      "label": "Camil_Swiftwolf",
+      "x": -275,
+      "y": -1695,
+      "z": 3.75
+    },
+    {
+      "label": "Rekk_Diver",
+      "x": -185,
+      "y": -1645,
+      "z": 3.75
+    },
+    {
+      "label": "Nalin_Shadowbane",
+      "x": -115,
+      "y": -1695,
+      "z": 3.75
+    },
+    {
+      "label": "Trift",
+      "x": -335,
+      "y": -1760,
+      "z": 3.75
+    },
+    {
+      "label": "Khalure_Ser`Tiras",
+      "x": -55,
+      "y": -1750,
+      "z": 3.75
+    }
+  ]
+}

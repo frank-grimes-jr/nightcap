@@ -14,6 +14,12 @@ regression suite passed; see [verification](economy/VERIFICATION.md).
 It is **not active**. Controlled activation, pricing balance and owner
 [in-game QA](economy/QA.md) remain open; this feature has not been promoted to main.
 
+The six requested named residents are an additive follow-up candidate, including
+Trift's OOC story and Khalure's era-checked ring ports. Before activation, resolve
+the missing configured Classic Lavastorm map alias from its verified source.
+[Resident details and exact QA](economy/residents/README.md). No live map, SQL,
+quest or client changes have been made for this candidate.
+
 ## East Commonlands hub QA candidate
 
 The approved tunnel hub is active on the development server and promoted through

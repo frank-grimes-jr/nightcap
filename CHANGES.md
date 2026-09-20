@@ -1,5 +1,16 @@
 # CHANGES
 
+## 2026-09-20 - Six named tunnel residents (candidate)
+
+Add the requested Sortre, Camil, Rekk, Nalin, Trift and Khalure as six residents
+alongside the ten economy traders. Persistent visual-only armor/weapons do not
+create loot. Trift is level 12 and tells his Butcherblock corpse story in OOC;
+Khalure offers era-checked druid-ring travel. Guarded additive SQL and scoped
+rollback preserve existing content and player state. Map verification found a
+missing configured Classic Lavastorm map alias; its verified source exists, but
+repair is an activation prerequisite. No live writes or client changes. See
+[resident setup and exact QA](docs/economy/residents/README.md).
+
 ## 2026-09-20 - Finite city finds and EC tunnel economy (candidate)
 
 Add restart-scoped, quantity-one finds to selected city merchants and ten

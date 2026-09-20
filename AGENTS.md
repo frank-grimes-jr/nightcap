@@ -67,6 +67,11 @@ All commands run from `akk-stack/`:
 - **Era lock is declarative**: `era.json` (repo root) is the source of truth; `tools/apply-era.ps1` applies it idempotently (+`-Check` for drift, `-CapCharacters` to de-level). Change era = edit era.json, commit, run the script. Do not set expansion rules by hand or via the GM tool.
 - **PoK class hub**: `tools/pok_hub.py` plans from `docs/pok/hub-stock-audit.json` (original class levels, not widened `spells_new` columns). `tools/pok_hub_migration.py` generates guarded forward/rollback SQL; `tools/pok_hub_restock.py` generates the canonical restock. `docs/pok/catalog-policy.json` gates era promotion before writes. Current catalog preserves the existing expansion-0, level-50 item pool; extending it requires review and regeneration. Activation/rollback and exact player QA: `docs/pok/QA.md`. Candidate only until the recorded in-game QA passes.
 - **DB backups**: `tools/backup-peq.ps1`, scheduled daily 04:00 (task `NightcapPeqBackup`), 14-day retention, includes the era drift check. Take a manual backup before destructive SQL.
+- **Ring geometry**: validate against `zone.map_file_name`, not only the short
+  zone name. The September 20 resident candidate found missing `lavastorm_v0.map`;
+  `lavastorm_orig.map` is the verified Classic source. Resolve the alias before
+  enabling Khalure's ports; do not substitute newer terrain. See
+  `docs/economy/residents/README.md` for the hash and activation gate.
 
 ### Multiclass release candidate
 

@@ -3,6 +3,10 @@
 Candidate dated 2026-09-20. Not yet activated. Do not interpret generated SQL or
 a successful compile as live deployment or owner acceptance.
 
+The candidate now also includes [six named residents](residents/README.md).
+Follow their additional setup, Lavastorm map prerequisite, exact appearance/port
+QA and independent rollback steps when activating this combined candidate.
+
 ## Intended behavior
 
 - Twelve ordinary city merchants are eligible; ten receive one find per world

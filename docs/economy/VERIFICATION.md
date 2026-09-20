@@ -44,3 +44,25 @@ Evidence:
 The user declined a cross-model second opinion and chose continued current review
 and tests. The current reviewer traced the existing quarantine/save hooks and
 native hand-in return path. No new automatic promotion to main is authorized.
+
+## Named resident follow-up
+
+- Final repository regression: 59 tests, 58 passed; the existing opt-in pet
+  database test remains skipped. This includes five resident-specific tests.
+- Twenty-one Perl assertions passed for menu destinations, forged/stale links,
+  era/range/combat checks, cooldown, hand-in returns and Trift's OOC cadence.
+- Sixteen real MariaDB checks passed in a removed disposable schema; see
+  `residents/database-rehearsal.json`. Installation/rollback preserve unrelated
+  NPCs, traders, merchant stock, player items/money and non-owned saved states.
+- All 25 positions pass five-sample ground/headroom checks with landing height
+  between ground and 12 units above it. Lavastorm uses the verified Classic
+  source map, **not the missing configured alias**; the prerequisite remains
+  uninstalled and blocks activation. See `residents/geometry.json` and README.
+- Independent follow-up review found a dangling-tint-reference ownership gap;
+  the forward guard now rejects it and the database rehearsal covers it.
+  Rehearsal also caught six-decimal spawn formatting; exact rollback preimages
+  and column-type guards now pass. Reviewer confirmed the regenerated package.
+
+This follow-up changes no C++ and uses the paired binaries recorded above.
+Live activation, actual costume rendering and ring-stone/client terrain QA have
+not been performed. No original client files were changed.

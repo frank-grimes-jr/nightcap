@@ -34,6 +34,12 @@ Requested September 20, 2026. Candidate based on dev's existing EC tunnel hub.
 
 ## Implementation plan
 
+The owner also requested six additional named residents. Their exact identities,
+appearance, Trift OOC behavior, Khalure ring catalog and activation gates are
+specified in [the resident addendum](residents/README.md). They do not replace
+the ten traders or change economy prices. Equipment is visual-only; transport
+uses curated destinations with runtime era checks, not widened spell eligibility.
+
 1. `tools/living_economy.py`, catalog JSON and Python tests: capture public wiki
    pricing and PEQ provenance; validate curated sources, pricing and era policy.
 2. `server-mods/sql/2026-09-20-living-economy.sql`: disabled-by-default schema,

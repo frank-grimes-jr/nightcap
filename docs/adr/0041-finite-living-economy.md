@@ -41,3 +41,14 @@ The current catalog has five lower-tier finds and seven tunnel items; future
 expansion additions need fresh provenance and prices, not just a higher era rule.
 Player-earned items and wallets survive rollback. Manual client UI, economic
 balance and recovery QA remain release gates even after automated checks pass.
+
+## Named resident addendum
+
+The six requested characters are additional residents, not replacement traders.
+Use native persistent material/tint/model fields with no equipment loot; this
+preserves late-arrival appearance without adding valuable drops. Khalure uses a
+reviewed era-tagged ring catalog and native restricted MovePC, not current PEQ
+spell destinations that can name revamped zones. Trift has separate bounded OOC
+chatter. The missing configured Classic Lavastorm map alias is an activation
+gate. Details, alternatives and owner QA are in the
+[resident specification](../economy/residents/README.md).
