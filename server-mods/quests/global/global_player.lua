@@ -266,7 +266,7 @@ local function show_class_summary(client, c2, c3)
     end
     client:Message(MT.Yellow, "Your classes: " .. slot_name(base) .. " (Primary) | " ..
         slot_name(c2) .. " (Second) | " .. slot_name(c3) .. " (Third)")
-    client:Message(MT.Yellow, "Use #classes anytime. Visit The Ancient Chronicler in PoK to choose an additional class.")
+    client:Message(MT.Yellow, "Use #classes anytime. Visit The Ancient Chronicler in the East Commonlands tunnel to choose an additional class.")
 end
 
 function event_command(e)
@@ -310,12 +310,11 @@ vet_aa = {
 
 
 function event_connect(e)
-    -- ponytail: qglobal persists across sessions; prevents re-grant spam and blank-name
-    -- message every login (RoF2 client has no dbstr entry for custom AA 2220)
+    -- Keep the existing grant marker and AA ownership across the hub move.
     if not eq.get_qglobals(e.self)["pok_attuned"] then
         e.self:GrantAlternateAdvancementAbility(2220, 1)
         eq.set_global("pok_attuned", "1", 0, "F")
-        e.self:Message(MT.Yellow, "You have been granted Ancient Attunement. Open the AA window (V key, General tab) to activate your recall to the Plane of Knowledge.")
+        e.self:Message(MT.Yellow, "You have been granted Ancient Attunement. Open the AA window (V key, General tab) to activate your recall to the East Commonlands tunnel.")
     end
 
     local c2 = e.self:GetClass2()

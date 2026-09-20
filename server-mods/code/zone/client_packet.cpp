@@ -4676,6 +4676,12 @@ void Client::Handle_OP_ClickDoor(const EQApplicationPacket *app)
 
 	bool within_distance = distance < RuleI(Range, MaxDistanceToClickDoors);
 
+	// These direct hub teleports are player clicks, never linked-door updates.
+	if (currentdoor->GetDoorDBID() >= 40600 && currentdoor->GetDoorDBID() <= 40621 &&
+		!(Distance(GetPosition(), currentdoor->GetPosition()) < RuleI(Range, MaxDistanceToClickDoors))) {
+		return;
+	}
+
 	// distance gate this because some doors are client controlled and the client
 	// will spam door click even across the zone to force a door back into desired state
 	if (IsDevToolsEnabled() && within_distance) {

@@ -14,6 +14,7 @@ import (
 
 var gameplayNames = []string{
 	"spells_us.txt", "uifiles/nightcap/equi_inventory.xml", "uifiles/nightcap/equi_aawindow.xml",
+	"ecommons_chr.txt", "ecommons_assets.txt", "poknowledge_obj.s3d", "nektulos.s3d", "nektulos_obj.s3d", "dbstr_us.txt", "maps/ecommons_3.txt",
 	"poknowledge_chr.txt", "mur.eqg", "scu.eqg", "frd.eqg", "ddv.eqg", "srn.eqg",
 }
 

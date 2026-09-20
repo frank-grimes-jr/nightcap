@@ -69,3 +69,5 @@ Start with [current status](status.md), not a dated candidate report.
 
 Historical documents describe their capture date. A passed offline/native test
 is not an in-game sign-off; a deployed candidate is not accepted main gameplay.
+
+- [East Commonlands tunnel hub QA](releases/ecommons-hub-20260920/README.md)
