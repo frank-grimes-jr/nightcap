@@ -213,6 +213,12 @@ This is source promotion, not completed manual acceptance or a new deployment.
 Keep the signed-client build/install and global Lavastorm readiness gates open.
 Scope and remaining QA: `docs/releases/main-promotion-20260920.md`.
 
+**September 20 hosted integration:** the owner requested server/client updates
+be combined in main and delivered to OVH. This release integrates main `014978f`
+with the production launcher/hosting branch for owner QA. Retain the manual gates
+in `docs/releases/hosted-main-update-20260920.md`; this does not authorize blanket
+future gameplay promotion or friend distribution without acceptance.
+
 ### Commits
 
 - Small commits/PRs. One system or feature per commit, **with tests**.
@@ -258,7 +264,7 @@ type 1/category 9 and dbstr 22200 types 1/2/4, preserving type 6. Native client 
 exclude AA type 0 and its spell table stops at 45000. Exact QA and post-activity
 rollback constraints: `docs/releases/ecommons-hub-20260920/README.md`.
 
-### Production launcher candidate (September 20)
+### Hosted production owner-QA release (September 20)
 
 `eq-launcher` owns production builds (`build-production.ps1`, `production` tag),
 separate from the embedded `qacandidate` policy. Hosted channel metadata is one
@@ -267,5 +273,18 @@ assets before replacing the channel. New hosts/keys/inventory require a new EXE.
 `deploy/production/` owns private hosting: launcher WSS relay, fixed UDP ports,
 Cloudflare Tunnel-only ingress, IP allow/deny, private mode14 scrypt login, account
 provisioning and backups. Never set LSPX (even0); it enables public login lookup.
-Use a separate production signing seed. Domain selection, actual native/hosted QA,
-data restore and deployment remain open; do not describe this kit as a live service.
+Use a separate production signing seed and retain it locally. OVH + Cloudflare at
+`play.nightcapgame.org` hosts launcher0.2.1/release2026092004 and the matching native
+runtime; transport/hash verification passed, but native gameplay acceptance and
+R2 backup/restore testing remain open. See the coordinated hosted release record.
+GitHub Actions deployment, patch-before-Play and EXE self-update are not implemented;
+a main push alone does not change OVH. Players fetch built signed artifacts.
+
+Before a hosted update, compare native feature contracts with the existing DB and
+quests. Never restore a newer feature snapshot onto older native binaries. Rebuild
+in a fresh isolated directory with the production hardening patch, verify source
+stability and running executable hashes, and keep gateway access stopped until
+preservation checks pass. Market stock rotates on each successful world startup.
+Preserve hosted player progress and never replay initial-restore SQL for an update.
+For publication recovery, inspect the visible channel before restoring pointers;
+clients that saw a newer release require a higher-numbered corrective release.

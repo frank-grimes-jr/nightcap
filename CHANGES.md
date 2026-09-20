@@ -31,7 +31,9 @@ main gameplay release. Preserve both Classic terrain retirement hashes in the
 generated production trust policy and require launcher 0.2.1 for the expanded
 22-file inventory. Hosted audit confirms 33 runtime files and all 30 resident
 afterimages already match; the paired native update corrects older world/zone
-binaries without replaying database migrations. Preparation and remaining gates:
+binaries without replaying database migrations. Release2026092004 is hosted,
+all22signedfile hashes and four encrypted native transport checks pass, and all
+eight player/merchant fingerprints are preserved. Verification and remaining gates:
 [coordinated hosted release](docs/releases/hosted-main-update-20260920.md).
 
 ## 2026-09-20 - OVH owner-test activation

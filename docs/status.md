@@ -5,11 +5,12 @@ QA reports preserve their original evidence and are not live-state promises.
 
 ## Production launcher and hosting candidate
 
-The current main/production integration is preparing a
-[coordinated hosted update](releases/hosted-main-update-20260920.md): launcher
-0.2.1, 22 client files and matching economy-aware native binaries. The initial
-hosted snapshot already contains the economy database/quests but its native
-binaries are older. Preparation is not a completed deployment.
+The [coordinated hosted update](releases/hosted-main-update-20260920.md) is deployed
+for owner QA: launcher 0.2.1, signed release2026092004, 22 client files and matching
+economy-aware native binaries. All 15 running native process hashes, hosted file
+hashes/signature and four encrypted native transport checks pass. Eight player and
+merchant fingerprints are preserved; no schema/content migration was replayed.
+Market stock rotated once to epoch2. Lavastorm travel readiness stays closed.
 
 A separate [production hosting/launcher candidate](../deploy/production/README.md)
 implements hosted signed updates and launcher-managed encrypted transport for ten
@@ -17,13 +18,13 @@ friends. Infrastructure, private-account provisioning, backups and guides exist.
 The owner selected OVH + Cloudflare; follow the [short setup guide](../deploy/production/QUICKSTART.md).
 The owner-test deployment is running at `play.nightcapgame.org`: database restored,
 private world registered, Cloudflare IP blocking verified, and signed production
-release2026092003 published. Native transport handshakes pass through the encrypted
+release2026092004 published. Native transport handshakes pass through the encrypted
 relay; actual RoF2 login/gameplay and R2 backups remain open. See
 [OVH activation and recovery evidence](releases/ovh-activation-20260920.md).
 GitHub Actions deployment, automatic patch-before-Play and launcher EXE self-update
-are not implemented yet. The running local QA server and gameplay branches are unchanged.
+are not implemented yet. The running local QA server and workspace clients are unchanged.
 
-## Living economy QA candidate
+## Local living economy QA candidate
 
 Finite city-merchant finds, ten EC traders and all six requested residents are
 **active for QA** after owner-approved backup/restart. The corrected world and
