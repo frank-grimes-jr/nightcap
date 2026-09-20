@@ -5,14 +5,18 @@ kit, not an already-hosted server. Use [QA.md](QA.md) before distributing the fi
 launcher. Domain, cloud accounts, production signing key and host purchase remain
 owner inputs. Preparing this infrastructure does not approve gameplay promotion.
 
+Start with the [short OVH + Cloudflare setup guide](QUICKSTART.md). The owner has
+selected these providers; account provisioning and deployment remain pending.
+
 ## Lowest-cost practical starting point
 
 Start with **one regular OVHcloud US VPS-2 in Vint Hill, Virginia**, Ubuntu Linux,
 4 vCPU / 8 GB RAM / 75 GB disk, subject to checkout availability. Its advertised
 price is **from $8.50/month**, and the linked offer selects `upfront12`; treat that
 as a commitment price, not a verified month-to-month quote. Confirm the actual
-term, taxes and total before ordering. A domain costs extra. Do not choose a
-Local Zone: the current provider page says Docker is unsupported there.
+term, taxes and total before ordering. A domain costs extra. Choose the regular regional VPS for this deployment. Earlier notes described
+Docker as unsupported in Local Zones; the current page no longer establishes that
+restriction, so it is not the basis for this choice.
 
 This is a suitable low-cost candidate among the verified offers, not a claim
 that no cheaper offer exists. The 4 GB entry tier saves money but leaves less

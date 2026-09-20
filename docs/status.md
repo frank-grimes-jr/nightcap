@@ -8,8 +8,10 @@ QA reports preserve their original evidence and are not live-state promises.
 A separate [production hosting/launcher candidate](../deploy/production/README.md)
 implements hosted signed updates and launcher-managed encrypted transport for ten
 friends. Infrastructure, private-account provisioning, backups and guides exist.
-Domain/account selection, full isolated restore, native relay acceptance and public
-deployment remain open. It has not changed the running QA server or promoted gameplay.
+The owner selected OVH + Cloudflare; follow the [short setup guide](../deploy/production/QUICKSTART.md).
+Domain/account provisioning, full isolated restore, native relay acceptance and public
+deployment remain open. GitHub Actions deployment, automatic patch-before-Play
+and launcher EXE self-update are not implemented yet. It has not changed the running QA server or promoted gameplay.
 
 ## East Commonlands hub QA candidate
 

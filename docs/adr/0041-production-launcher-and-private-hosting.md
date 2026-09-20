@@ -4,7 +4,12 @@
 
 The owner wants an independent, secured Nightcap login, container hosting for
 up to ten friends in US East, IP allow/deny controls, and no separately installed
-VPN. Domain and hosting accounts have not been selected or purchased.
+VPN. The owner selected OVH VPS + Cloudflare on 2026-09-20 after comparing Azure, AWS
+and Cloudflare-only hosting. Domain and account provisioning remain pending.
+Keep MariaDB on the VPS with persistent SSD storage; Cloudflare provides DNS,
+WAF, the encrypted tunnel and private R2 backups. This avoids a database migration
+and retains the existing container deployment. Scheduled game downtime is desired;
+OVH subscription cost does not decrease when the VPS is powered off.
 
 Use a production-only compiled launcher policy, separate Ed25519 signing key,
 HTTPS assets at immutable release paths, and one signed metadata envelope per

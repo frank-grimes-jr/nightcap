@@ -2,6 +2,7 @@
 
 Start with [current status](status.md), not a dated candidate report.
 
+- [Start here: OVH + Cloudflare setup](../deploy/production/QUICKSTART.md)
 - [Private production launcher and hosting kit](../deploy/production/README.md)
 - [Production acceptance matrix](../deploy/production/QA.md)
 

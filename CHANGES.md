@@ -1,5 +1,11 @@
 # CHANGES
 
+## 2026-09-20 - OVH and Cloudflare onboarding guide
+
+Record the owner's provider choice and add a short setup guide covering purchase,
+domain, private deployment, backups, acceptance and friend onboarding. Clearly mark
+release automation and launcher self-update as pending. No hosting was activated.
+
 ## 2026-09-20 - Private container hosting candidate
 
 Add isolated container networks, deny-first IP controls, private scrypt account
