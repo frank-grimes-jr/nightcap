@@ -31,7 +31,7 @@ symbols = {
  0x405DE0:("kUIStringAssignRva","kExpectedUIStringAssign"),
  0x453680:("kUIRowDataRva","kExpectedUIRowData"),
  0x4575B0:("kUICellTextRva","kExpectedUICellText"),
- 0x11FCE0:("kUIInterpretRva","kExpectedUIInterpret"),
+ 0x11DCD0:("kUISendRequestRva","kExpectedUISendRequest"),
  0x43F90:("kCasterClassTableRva","kExpectedCasterClassTable"),
  0x18238C:("kCombatAbilityClassTableRva","kExpectedCombatAbilityClassTable"),
  0x181E96:("kMaxManaNonCasterReturnRva","kExpectedMaxManaReturn"),

@@ -72,3 +72,12 @@ it. On September 19 the owner explicitly requested live activation and then
 merging everything into main. This authorizes this release before manual
 acceptance; the exact gameplay checks in [the release guide](../releases/client-gameplay-20260919.md)
 remain open and are not implied by source promotion.
+
+## September 19 refinement: silent client requests
+
+Use the exact-client native channel packet sender for UI metadata and armor
+requests, bypassing InterpretCmd and Say's local echo/history. Preserve the
+existing server command dispatcher and authoritative handlers. The call target
+is signed and guarded with relocated SEH bytes; normal chat/error display stays
+unchanged. A new server opcode would require a coordinated deployment without
+improving this presentation fix. See [native evidence and QA](../releases/client-silent-ui-20260919.md).

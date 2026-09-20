@@ -17,6 +17,10 @@ inline EqString* __fastcall SkinHook(EqString* self, void*, const char*) {
     return skin_assign(self, "nightcap");
 }
 using GetLabel = bool (__cdecl *)(int, EqString*, bool*, unsigned long*);
+// Native channel packet sender. Unlike InterpretCmd / Say, this does not echo
+// text, touch the command buffer/history, or address the current NPC target.
+using SendRequest = void (__thiscall *)(void*, int, const char*, const char*, int);
+static SendRequest send_request = nullptr;
 using DisplayChat = void (__thiscall *)(void*, const char*, int, bool, bool);
 using SetGameState = void (__thiscall *)(void*, int);
 using UpdateAA = void (__thiscall *)(void*);
@@ -52,35 +56,38 @@ inline bool CurrentIdentity() {
     char name[64] = {};
     return ReadIdentity(spawn, name) && state.Matches(spawn, name);
 }
-inline void RequestRefresh() {
+inline void* RequestContext() {
     uint32_t spawn = 0;
     char name[64] = {};
-    if (!ReadIdentity(spawn, name) || GetTickCount64() < next_refresh) return;
-    next_refresh = GetTickCount64() + 5000;
-    using Interpret = void (__thiscall *)(void*, void*, char*);
-    auto eq = *reinterpret_cast<void**>(base + 0xA67CCC);
-    auto player = *reinterpret_cast<void**>(base + 0x9D2630);
-    char command[] = "/say #nightcapui refresh";
-    reinterpret_cast<Interpret>(base+kUIInterpretRva)(eq, player, command);
+    if (!ReadIdentity(spawn, name)) return nullptr;
+    __try {
+        // The native serializer also reads the character profile and connection.
+        if (!*reinterpret_cast<void**>(base+0x9D261C) ||
+            !*reinterpret_cast<void**>(base+0x9D25AC)) return nullptr;
+        return *reinterpret_cast<void**>(base+0xA67CCC);
+    } __except(EXCEPTION_EXECUTE_HANDLER) { return nullptr; }
+}
+inline bool ExecuteUIRequest(const std::string& request) {
+    if (!send_request || request.empty() || request.size() > 128 || request[0] != '#') return false;
+    auto eq = RequestContext();
+    if (!eq) return false;
+    // Keep the existing server command dispatcher/validation, but bypass the
+    // client interpreter and Say's local echo. '#' requests never broadcast.
+    send_request(eq, 8, nullptr, request.c_str(), 0);
+    return true;
+}
+inline void RequestRefresh() {
+    if (GetTickCount64() < next_refresh) return;
+    if (ExecuteUIRequest("#nightcapui refresh")) next_refresh = GetTickCount64() + 5000;
 }
 inline bool CurrentPetIdentity() {
     uint32_t spawn = 0;
     char name[64] = {};
     return ReadIdentity(spawn, name) && pets.Matches(spawn, name);
 }
-inline void ExecuteUICommand(std::string command) {
-    uint32_t spawn = 0;
-    char name[64] = {};
-    if (command.empty() || !ReadIdentity(spawn, name)) return;
-    using Interpret = void (__thiscall *)(void*, void*, char*);
-    auto eq = *reinterpret_cast<void**>(base + 0xA67CCC);
-    auto player = *reinterpret_cast<void**>(base + 0x9D2630);
-    reinterpret_cast<Interpret>(base+kUIInterpretRva)(eq, player, command.data());
-}
 inline void RequestPetRefresh() {
     if (GetTickCount64() < next_pet_refresh) return;
-    next_pet_refresh = GetTickCount64() + 5000;
-    ExecuteUICommand("/say #nightcappet view");
+    if (ExecuteUIRequest("#nightcappet view")) next_pet_refresh = GetTickCount64() + 5000;
 }
 inline bool IsArmorControl(void* window, void* sender, const char* name) {
     using Child = void* (__thiscall *)(void*, const EqString*);
@@ -102,7 +109,7 @@ inline int __fastcall InventoryHook(void* self, void*, void* sender, uint32_t me
             for (unsigned slot = 0; slot < 8; ++slot) {
                 const std::string id = std::string("NCPA_") + ids[action] + std::to_string(slot);
                 if (!IsArmorControl(self, sender, id.c_str())) continue;
-                if (CurrentPetIdentity()) ExecuteUICommand(pets.Command(verbs[action], slot));
+                if (CurrentPetIdentity()) ExecuteUIRequest(pets.Command(verbs[action], slot));
                 else RequestPetRefresh();
                 return 1;
             }
@@ -242,8 +249,8 @@ inline bool Install(uintptr_t image_base) {
     // Callee signatures are independently guarded; all hooks are complete,
     // entry instructions; verified SEH operands follow the executable relocation.
     __try {
-        install_failure = "UIInterpret_signature";
-        if (!MatchSEH(base+kUIInterpretRva, kExpectedUIInterpret, base)) return false;
+        install_failure = "UISendRequest_signature";
+        if (!MatchSEH(base+kUISendRequestRva, kExpectedUISendRequest, base)) return false;
         install_failure = "UIStringAssign_signature";
         if (memcmp(reinterpret_cast<void*>(base+kUIStringAssignRva), kExpectedUIStringAssign, sizeof(kExpectedUIStringAssign))) return false;
         install_failure = "UIRowData_signature";
@@ -251,6 +258,7 @@ inline bool Install(uintptr_t image_base) {
         install_failure = "UICellText_signature";
         if (memcmp(reinterpret_cast<void*>(base+kUICellTextRva), kExpectedUICellText, sizeof(kExpectedUICellText))) return false;
     } __except(EXCEPTION_EXECUTE_HANDLER) { return false; }
+    send_request = reinterpret_cast<SendRequest>(base+kUISendRequestRva);
     install_failure = "label_entry";
     original_label = reinterpret_cast<GetLabel>(EntryHook(base+kUILabelRva, kExpectedUILabel, reinterpret_cast<void*>(&LabelHook)));
     if (!original_label) return false;

@@ -15,7 +15,56 @@ static nightcap::client_ui::EqString* __fastcall fake_skin_assign(nightcap::clie
     return self;
 }
 
+static std::vector<std::string> sent_requests;
+static unsigned displayed_lines = 0;
+static void* expected_eq = nullptr;
+static void __fastcall fake_request_sender(void* self, void*, int channel, const char* target, const char* text, int unknown) {
+    assert(self == expected_eq && channel == 8 && target == nullptr && unknown == 0);
+    sent_requests.emplace_back(text);
+}
+static void __fastcall fake_chat(void*, void*, const char*, int, bool, bool) { ++displayed_lines; }
+
+static void TestSilentRequests() {
+    using namespace nightcap::client_ui;
+    auto host = static_cast<BYTE*>(VirtualAlloc(nullptr,0xA68000,MEM_COMMIT|MEM_RESERVE,PAGE_READWRITE));
+    assert(host);
+    alignas(4) BYTE eq[0x600] = {}, player[0x150] = {};
+    base = reinterpret_cast<uintptr_t>(host);
+    expected_eq = eq;
+    *reinterpret_cast<void**>(host+0xA67CCC) = eq;
+    *reinterpret_cast<void**>(host+0x9D2630) = player;
+    *reinterpret_cast<void**>(host+0x9D261C) = player;
+    *reinterpret_cast<void**>(host+0x9D25AC) = player;
+    *reinterpret_cast<int*>(eq+0x5C8) = 5;
+    *reinterpret_cast<uint32_t*>(player+0x148) = 7;
+    memcpy(player+0xA4,"Zozobra",8);
+    send_request = reinterpret_cast<SendRequest>(&fake_request_sender);
+    original_chat = reinterpret_cast<DisplayChat>(&fake_chat);
+    RequestRefresh(); RequestPetRefresh();
+    assert((sent_requests == std::vector<std::string>{"#nightcapui refresh", "#nightcappet view"}));
+    RequestRefresh(); RequestPetRefresh();
+    assert(sent_requests.size() == 2); // preserve retry throttles
+    assert(ExecuteUIRequest("#nightcappet equip 10 0 77"));
+    assert(ExecuteUIRequest("#nightcappet remove 10 7 78"));
+    assert(ExecuteUIRequest("#nightcappet inspect 10 4 79"));
+    assert(sent_requests.back() == "#nightcappet inspect 10 4 79");
+    assert(!ExecuteUIRequest(""));
+    *reinterpret_cast<int*>(eq+0x5C8) = 1;
+    assert(!ExecuteUIRequest("#nightcapui refresh")); // no packets at character select
+    *reinterpret_cast<int*>(eq+0x5C8) = 5;
+    for (unsigned offset : {0x9D261C,0x9D25AC,0x9D2630,0xA67CCC}) {
+        auto ptr = reinterpret_cast<void**>(host+offset); auto saved = *ptr; *ptr = nullptr;
+        assert(!ExecuteUIRequest("#nightcapui refresh")); *ptr = saved;
+    }
+    assert(sent_requests.size() == 5 && displayed_lines == 0);
+    ChatHook(eq,nullptr,"You say, 'hello'",307,true,true);
+    ChatHook(eq,nullptr,"You cannot change pet armor while fighting.",13,true,true);
+    assert(displayed_lines == 2); // ordinary chat and server errors remain visible
+    VirtualFree(host,0,MEM_RELEASE); base = 0; send_request = nullptr;
+}
+
 int main() {
+    TestSilentRequests();
     // Both native UI-load branches use CXStr assignment (__thiscall, one stack
     // argument). Existing/custom/missing skin preferences all choose Nightcap;
     // the original input and unrelated layout data remain untouched.
