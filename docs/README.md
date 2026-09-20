@@ -4,6 +4,7 @@ Start with [current status](status.md), not a dated candidate report.
 
 - [Start here: OVH + Cloudflare setup](../deploy/production/QUICKSTART.md)
 - [Hosted owner-test activation and recovery](releases/ovh-activation-20260920.md)
+- [Coordinated main/server/client update](releases/hosted-main-update-20260920.md)
 - [Private production launcher and hosting kit](../deploy/production/README.md)
 - [Production acceptance matrix](../deploy/production/QA.md)
 
