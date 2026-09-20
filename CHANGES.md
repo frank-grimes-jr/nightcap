@@ -1,5 +1,12 @@
 # CHANGES
 
+## 2026-09-20 - Production Compose mount correction
+
+The first OVH container startup rejected a stray `mode=1777` mount: YAML flow
+lists split the unquoted tmpfs options at the comma. Quote both mount strings
+and add a regression check against Docker Compose's resolved configuration,
+including the no-published-ports and internal-network contracts.
+
 ## 2026-09-20 - OVH and Cloudflare onboarding guide
 
 Record the owner's provider choice and add a short setup guide covering purchase,

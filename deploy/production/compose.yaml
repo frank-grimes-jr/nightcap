@@ -33,7 +33,7 @@ services:
     user: "1000:1000"
     read_only: true
     cap_drop: [ALL]
-    tmpfs: [/tmp:size=128m,mode=1777]
+    tmpfs: ["/tmp:size=128m,mode=1777"]
     working_dir: /srv/nightcap
     entrypoint: [python3, /opt/nightcap/start.py]
     environment: {NIGHTCAP_ZONE_WORKERS: "12"}
@@ -77,7 +77,7 @@ services:
     image: ${NGINX_IMAGE:?Set a reviewed nginx unprivileged image digest}
     read_only: true
     cap_drop: [ALL]
-    tmpfs: [/tmp:size=16m,mode=1777]
+    tmpfs: ["/tmp:size=16m,mode=1777"]
     volumes:
       - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
       - ./data/public:/srv/public:ro
