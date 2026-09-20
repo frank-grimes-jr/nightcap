@@ -1,6 +1,6 @@
 # CHANGES
 
-## 2026-09-20 - East Commonlands tunnel hub (QA candidate)
+## 2026-09-20 - East Commonlands tunnel hub (active QA candidate)
 
 Move 22 existing services to the approved tunnel layout, add ten native Classic
 routes with separate return books and a PoK bridge, and set new starts to EC.
@@ -10,7 +10,8 @@ and complete client strings. Signed release 2026092002 includes zone models,
 portal imports, map labels and pinned classic Nektulos selection. Retirement uses
 locked original files and atomic conflict-preserving recovery. Fresh guarded SQL
 and scoped saved-state invalidation are required; no broad repop. Manual QA and
-main promotion remain open. See [release QA](docs/releases/ecommons-hub-20260920/README.md).
+main promotion remain open. World/all eight zones and migrated rows now verify;
+all nine checked player-state tables are unchanged. See [release QA](docs/releases/ecommons-hub-20260920/README.md).
 
 ## 2026-09-19 - Three class pets and shared controls (active QA candidate)
 
