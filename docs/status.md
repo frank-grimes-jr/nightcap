@@ -3,6 +3,17 @@
 Updated September 20, 2026. This is the current status index; dated studies and
 QA reports preserve their original evidence and are not live-state promises.
 
+## Living economy candidate
+
+Finite city-merchant finds and ten EC tunnel traders are implemented in an
+isolated candidate. Dated P1999 references are scaled for observed earning
+boosts before premiums. Atomic stock/payment/item handling, auction chatter,
+disabled-by-default installation and scoped rollback are included.
+Paired world/zone compilation, focused native/SQL/quest checks and the broader
+regression suite passed; see [verification](economy/VERIFICATION.md).
+It is **not active**. Controlled activation, pricing balance and owner
+[in-game QA](economy/QA.md) remain open; this feature has not been promoted to main.
+
 ## East Commonlands hub QA candidate
 
 The approved tunnel hub is active on the development server and promoted through

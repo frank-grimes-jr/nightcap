@@ -109,6 +109,13 @@ formatting. Rehearse forward and rollback against captured schemas before apply.
 
 ## Non-obvious gotchas
 
+- **Finite living economy**: `docs/economy/policy.json` and the reviewed catalog
+  define prices and eligibility. Regenerate guarded SQL with
+  `tools/generate_living_economy.py`; never rotate offers on zone boot or quest
+  reload. Deploy matching world/zone plus the market plugin/quests. Money, item,
+  stock and audit must remain one native transaction. Read `docs/economy/QA.md`
+  before activation/rollback; preserve player progress and trade audit.
+
 - MariaDB is always on **port 3307**, not the default 3306
 - `Client_RoF2_Dev/` is binary EQ client data — never try to build, lint, or modify it
 - No root `package.json` — do not run `npm install` or `npm run` from the repo root

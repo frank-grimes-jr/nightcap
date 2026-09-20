@@ -1,0 +1,15 @@
+{
+  "expansion": 0,
+  "reference_server": "Green",
+  "income_basis": "item_drops_and_vendor_payout",
+  "baseline_buy_cost_mod": "0.95",
+  "buy_cost_mod": "2.5",
+  "global_loot_multiplier": 4,
+  "sell_cost_mod": "1.0499999523163",
+  "price_bonus_pct": 4,
+  "price_penalty_pct": 4,
+  "tunnel_premium": "1.20",
+  "find_premium": "1.10",
+  "buy_fraction": "0.70",
+  "evidence": "Live rules read 2026-09-20; vendor_cash_boost.sql documents 0.95 -> 2.5. NPC::AddLootTable repeats item rolls 4 times; raw coin is not multiplied. Combined factor estimates loot-sale income."
+}

@@ -847,6 +847,9 @@ void Client::BulkSendInventoryItems()
 }
 
 void Client::BulkSendMerchantInventory(int merchant_id, int npcid) {
+	m_market_quote = {};
+	m_market_slot = 0;
+	m_market_entity = 0;
 	const EQ::ItemData* handy_item = nullptr;
 	const EQ::ItemData *item = nullptr;
 	auto merchant_list = zone->merchanttable[merchant_id];
@@ -1005,6 +1008,9 @@ void Client::BulkSendMerchantInventory(int merchant_id, int npcid) {
 
 	//this resets the slot
 	zone->tmpmerchanttable[npcid] = temporary_merchant_list;
+	m_market_quote = {};
+	m_market_slot = 0;
+	if (slot_id <= merchant_slots) { SendMarketFind(npcid, slot_id); }
 	if (npc && handy_item) {
 		int greet_id = zone->random.Int(MERCHANT_GREETING, MERCHANT_HANDY_ITEM4);
 		auto handy_id = std::to_string(greet_id);

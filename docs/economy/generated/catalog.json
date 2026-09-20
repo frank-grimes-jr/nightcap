@@ -1,0 +1,556 @@
+{
+  "captured_at": "2026-09-20T13:46:43.516948+00:00",
+  "server": "Green",
+  "expansion": 0,
+  "items": [
+    {
+      "id": 9307,
+      "Name": "Shiny Brass Shield",
+      "nodrop": 1,
+      "norent": 1,
+      "stackable": 0,
+      "maxcharges": 0,
+      "price": 3200,
+      "sellrate": 20,
+      "loregroup": -1,
+      "questitemflag": 0,
+      "itemclass": 0,
+      "attuneable": 0,
+      "pool": "find",
+      "min_expansion": 0,
+      "source_zone": "Crushbone",
+      "source_npc": "Trainer",
+      "sources": [
+        {
+          "npc_id": 58013,
+          "npc": "orc_trainer",
+          "level": 12,
+          "zone": "crushbone",
+          "min_expansion": -1
+        },
+        {
+          "npc_id": 58035,
+          "npc": "orc_trainer",
+          "level": 13,
+          "zone": "crushbone",
+          "min_expansion": -1
+        }
+      ],
+      "source_url": "https://wiki.project1999.com/Shiny_Brass_Shield",
+      "revision": 378830,
+      "reference_pp": 20.0,
+      "window": "30d",
+      "latest_auction": "2026-08-30",
+      "sell_cp": 253000,
+      "buy_cp": 147000,
+      "find_cp": 232000
+    },
+    {
+      "id": 13942,
+      "Name": "Dragoon Dirk",
+      "nodrop": 1,
+      "norent": 1,
+      "stackable": 0,
+      "maxcharges": 0,
+      "price": 4500,
+      "sellrate": 20,
+      "loregroup": -1,
+      "questitemflag": 0,
+      "itemclass": 0,
+      "attuneable": 0,
+      "pool": "find",
+      "min_expansion": 0,
+      "source_zone": "Crushbone",
+      "source_npc": "Ambassador DVinn",
+      "sources": [
+        {
+          "npc_id": 25026,
+          "npc": "Captain_N`Farre",
+          "level": 50,
+          "zone": "nektulos",
+          "min_expansion": -1
+        },
+        {
+          "npc_id": 25115,
+          "npc": "Sergeant_C`Orm",
+          "level": 50,
+          "zone": "nektulos",
+          "min_expansion": -1
+        },
+        {
+          "npc_id": 34082,
+          "npc": "Dorn_B`Dynn",
+          "level": 14,
+          "zone": "nro",
+          "min_expansion": -1
+        },
+        {
+          "npc_id": 49092,
+          "npc": "Ambassador_K`Ryn",
+          "level": 24,
+          "zone": "oggok",
+          "min_expansion": -1
+        },
+        {
+          "npc_id": 58059,
+          "npc": "Ambassador_DVinn",
+          "level": 20,
+          "zone": "crushbone",
+          "min_expansion": -1
+        },
+        {
+          "npc_id": 93084,
+          "npc": "Dragoon_T`Vex",
+          "level": 50,
+          "zone": "overthere",
+          "min_expansion": -1
+        },
+        {
+          "npc_id": 93086,
+          "npc": "Dragoon_V`Resh",
+          "level": 50,
+          "zone": "overthere",
+          "min_expansion": -1
+        },
+        {
+          "npc_id": 93088,
+          "npc": "Dragoon_T`Vem",
+          "level": 50,
+          "zone": "overthere",
+          "min_expansion": -1
+        },
+        {
+          "npc_id": 93124,
+          "npc": "Dragoon_Barber_W`Selo",
+          "level": 50,
+          "zone": "overthere",
+          "min_expansion": -1
+        },
+        {
+          "npc_id": 93125,
+          "npc": "Dragoon_V`Lask",
+          "level": 50,
+          "zone": "overthere",
+          "min_expansion": -1
+        },
+        {
+          "npc_id": 392072,
+          "npc": "Dorn_B`Dynn",
+          "level": 14,
+          "zone": "northro",
+          "min_expansion": -1
+        }
+      ],
+      "source_url": "https://wiki.project1999.com/Dragoon_Dirk",
+      "revision": 307964,
+      "reference_pp": 25.0,
+      "window": "90d",
+      "latest_auction": "2026-08-08",
+      "sell_cp": 316000,
+      "buy_cp": 184000,
+      "find_cp": 290000
+    },
+    {
+      "id": 3312,
+      "Name": "Dwarven Work Boots",
+      "nodrop": 1,
+      "norent": 1,
+      "stackable": 0,
+      "maxcharges": 0,
+      "price": 2600,
+      "sellrate": 20,
+      "loregroup": 0,
+      "questitemflag": 0,
+      "itemclass": 0,
+      "attuneable": 0,
+      "pool": "find",
+      "min_expansion": 0,
+      "source_zone": "Unrest",
+      "source_npc": "a reanimated hand",
+      "sources": [
+        {
+          "npc_id": 63062,
+          "npc": "Garanel_Rucksif",
+          "level": 35,
+          "zone": "unrest",
+          "min_expansion": -1
+        }
+      ],
+      "source_url": "https://wiki.project1999.com/Dwarven_Work_Boots",
+      "revision": 265287,
+      "reference_pp": 100.0,
+      "window": "30d",
+      "latest_auction": "2026-09-08",
+      "sell_cp": 1264000,
+      "buy_cp": 736000,
+      "find_cp": 1158000
+    },
+    {
+      "id": 10364,
+      "Name": "Jagged Band",
+      "nodrop": 1,
+      "norent": 1,
+      "stackable": 0,
+      "maxcharges": 0,
+      "price": 4500,
+      "sellrate": 15,
+      "loregroup": 0,
+      "questitemflag": 0,
+      "itemclass": 0,
+      "attuneable": 0,
+      "pool": "find",
+      "min_expansion": 0,
+      "source_zone": "Unrest",
+      "source_npc": "a skeletal monk",
+      "sources": [
+        {
+          "npc_id": 63062,
+          "npc": "Garanel_Rucksif",
+          "level": 35,
+          "zone": "unrest",
+          "min_expansion": -1
+        }
+      ],
+      "source_url": "https://wiki.project1999.com/Jagged_Band",
+      "revision": 264811,
+      "reference_pp": 25.0,
+      "window": "30d",
+      "latest_auction": "2026-08-22",
+      "sell_cp": 316000,
+      "buy_cp": 184000,
+      "find_cp": 290000
+    },
+    {
+      "id": 4301,
+      "Name": "Skull-shaped Barbute",
+      "nodrop": 1,
+      "norent": 1,
+      "stackable": 0,
+      "maxcharges": 0,
+      "price": 65000,
+      "sellrate": 10,
+      "loregroup": 0,
+      "questitemflag": 0,
+      "itemclass": 0,
+      "attuneable": 0,
+      "pool": "find",
+      "min_expansion": 0,
+      "source_zone": "Unrest",
+      "source_npc": "a reanimated hand",
+      "sources": [
+        {
+          "npc_id": 66005,
+          "npc": "the_ghoul_lord",
+          "level": 47,
+          "zone": "gukbottom",
+          "min_expansion": -1
+        }
+      ],
+      "source_url": "https://wiki.project1999.com/Skull-shaped_Barbute",
+      "revision": 265280,
+      "reference_pp": 285.0,
+      "window": "30d",
+      "latest_auction": "2026-09-02",
+      "sell_cp": 3600000,
+      "buy_cp": 2100000,
+      "find_cp": 3300000
+    },
+    {
+      "id": 1365,
+      "Name": "Flowing Black Silk Sash",
+      "nodrop": 1,
+      "norent": 1,
+      "stackable": 0,
+      "maxcharges": 0,
+      "price": 8900,
+      "sellrate": 63,
+      "loregroup": -1,
+      "questitemflag": 0,
+      "itemclass": 0,
+      "attuneable": 0,
+      "pool": "tunnel",
+      "min_expansion": 0,
+      "source_zone": "Lower Guk",
+      "source_npc": "a frenzied ghoul",
+      "sources": [
+        {
+          "npc_id": 66146,
+          "npc": "a_frenzied_ghoul",
+          "level": 42,
+          "zone": "gukbottom",
+          "min_expansion": -1
+        }
+      ],
+      "source_url": "https://wiki.project1999.com/Flowing_Black_Silk_Sash",
+      "revision": 379805,
+      "reference_pp": 1575.0,
+      "window": "30d",
+      "latest_auction": "2026-08-23",
+      "sell_cp": 19895000,
+      "buy_cp": 11605000,
+      "find_cp": 18237000
+    },
+    {
+      "id": 4407,
+      "Name": "Golden Efreeti Boots",
+      "nodrop": 1,
+      "norent": 1,
+      "stackable": 0,
+      "maxcharges": 0,
+      "price": 21000,
+      "sellrate": 35,
+      "loregroup": 0,
+      "questitemflag": 0,
+      "itemclass": 0,
+      "attuneable": 0,
+      "pool": "tunnel",
+      "min_expansion": 0,
+      "source_zone": "Solusek B",
+      "source_npc": "Efreeti Lord Djarn",
+      "sources": [
+        {
+          "npc_id": 32062,
+          "npc": "Efreeti_Lord_Djarn",
+          "level": 50,
+          "zone": "soldungb",
+          "min_expansion": -1
+        }
+      ],
+      "source_url": "https://wiki.project1999.com/Golden_Efreeti_Boots",
+      "revision": 287990,
+      "reference_pp": 910.0,
+      "window": "30d",
+      "latest_auction": "2026-09-04",
+      "sell_cp": 11495000,
+      "buy_cp": 6705000,
+      "find_cp": 10537000
+    },
+    {
+      "id": 5500,
+      "Name": "Short Sword of the Ykesha",
+      "nodrop": 1,
+      "norent": 1,
+      "stackable": 0,
+      "maxcharges": 0,
+      "price": 250000,
+      "sellrate": 12,
+      "loregroup": 0,
+      "questitemflag": 0,
+      "itemclass": 0,
+      "attuneable": 0,
+      "pool": "tunnel",
+      "min_expansion": 0,
+      "source_zone": "Lower Guk",
+      "source_npc": "a ghoul lord",
+      "sources": [
+        {
+          "npc_id": 66005,
+          "npc": "the_ghoul_lord",
+          "level": 47,
+          "zone": "gukbottom",
+          "min_expansion": -1
+        }
+      ],
+      "source_url": "https://wiki.project1999.com/Short_Sword_of_the_Ykesha",
+      "revision": 265052,
+      "reference_pp": 300.0,
+      "window": "30d",
+      "latest_auction": "2026-09-02",
+      "sell_cp": 3790000,
+      "buy_cp": 2210000,
+      "find_cp": 3932000
+    },
+    {
+      "id": 10141,
+      "Name": "Runed Cowl",
+      "nodrop": 1,
+      "norent": 1,
+      "stackable": 0,
+      "maxcharges": 0,
+      "price": 6200,
+      "sellrate": 45,
+      "loregroup": 0,
+      "questitemflag": 0,
+      "itemclass": 0,
+      "attuneable": 0,
+      "pool": "tunnel",
+      "min_expansion": 0,
+      "source_zone": "Lower Guk",
+      "source_npc": "a ghoul ritualist",
+      "sources": [
+        {
+          "npc_id": 66165,
+          "npc": "a_ghoul_sage",
+          "level": 37,
+          "zone": "gukbottom",
+          "min_expansion": -1
+        }
+      ],
+      "source_url": "https://wiki.project1999.com/Runed_Cowl",
+      "revision": 319310,
+      "reference_pp": 525.0,
+      "window": "30d",
+      "latest_auction": "2026-09-04",
+      "sell_cp": 6632000,
+      "buy_cp": 3868000,
+      "find_cp": 6079000
+    },
+    {
+      "id": 1409,
+      "Name": "Hooded Black Cloak",
+      "nodrop": 1,
+      "norent": 1,
+      "stackable": 0,
+      "maxcharges": 0,
+      "price": 5600,
+      "sellrate": 36,
+      "loregroup": -1,
+      "questitemflag": 0,
+      "itemclass": 0,
+      "attuneable": 0,
+      "pool": "tunnel",
+      "min_expansion": 0,
+      "source_zone": "Mistmoore",
+      "source_npc": "a cloaked dhampyre",
+      "sources": [
+        {
+          "npc_id": 59102,
+          "npc": "a_cloaked_dhampyre",
+          "level": 33,
+          "zone": "mistmoore",
+          "min_expansion": -1
+        }
+      ],
+      "source_url": "https://wiki.project1999.com/Hooded_Black_Cloak",
+      "revision": 379046,
+      "reference_pp": 250.0,
+      "window": "30d",
+      "latest_auction": "2026-09-02",
+      "sell_cp": 3158000,
+      "buy_cp": 1842000,
+      "find_cp": 2895000
+    },
+    {
+      "id": 2406,
+      "Name": "Thick Banded Belt",
+      "nodrop": 1,
+      "norent": 1,
+      "stackable": 0,
+      "maxcharges": 0,
+      "price": 4000,
+      "sellrate": 15,
+      "loregroup": 0,
+      "questitemflag": 0,
+      "itemclass": 0,
+      "attuneable": 0,
+      "pool": "tunnel",
+      "min_expansion": 0,
+      "source_zone": "Lower Guk",
+      "source_npc": "a froglok dar knight",
+      "sources": [
+        {
+          "npc_id": 66021,
+          "npc": "a_ghoul_supplier",
+          "level": 36,
+          "zone": "gukbottom",
+          "min_expansion": -1
+        }
+      ],
+      "source_url": "https://wiki.project1999.com/Thick_Banded_Belt",
+      "revision": 353001,
+      "reference_pp": 1686.0,
+      "window": "30d",
+      "latest_auction": "2026-09-05",
+      "sell_cp": 21297000,
+      "buy_cp": 12423000,
+      "find_cp": 19523000
+    },
+    {
+      "id": 2468,
+      "Name": "Executioners Hood",
+      "nodrop": 1,
+      "norent": 1,
+      "stackable": 0,
+      "maxcharges": 0,
+      "price": 43000,
+      "sellrate": 10,
+      "loregroup": 0,
+      "questitemflag": 0,
+      "itemclass": 0,
+      "attuneable": 0,
+      "pool": "tunnel",
+      "min_expansion": 0,
+      "source_zone": "Lower Guk",
+      "source_npc": "a ghoul executioner",
+      "sources": [
+        {
+          "npc_id": 66092,
+          "npc": "a_ghoul_executioner",
+          "level": 35,
+          "zone": "gukbottom",
+          "min_expansion": -1
+        }
+      ],
+      "source_url": "https://wiki.project1999.com/Executioners_Hood",
+      "revision": 353333,
+      "reference_pp": 158.0,
+      "window": "30d",
+      "latest_auction": "2026-09-04",
+      "sell_cp": 1996000,
+      "buy_cp": 1164000,
+      "find_cp": 1830000
+    }
+  ],
+  "excluded": [
+    {
+      "name": "Polished Granite Tomahawk",
+      "reason": "Wiki does not identify Classic Era",
+      "source_url": "https://wiki.project1999.com/Polished_Granite_Tomahawk"
+    },
+    {
+      "name": "Bloodstained Tunic",
+      "reason": "Wiki does not identify Classic Era",
+      "source_url": "https://wiki.project1999.com/Bloodstained_Tunic"
+    },
+    {
+      "name": "Bloodstained Mantle",
+      "reason": "Wiki does not identify Classic Era",
+      "source_url": "https://wiki.project1999.com/Bloodstained_Mantle"
+    },
+    {
+      "name": "Savant's Cap",
+      "reason": "Wiki does not identify Classic Era",
+      "source_url": "https://wiki.project1999.com/Savant%27s_Cap"
+    },
+    {
+      "name": "Glowing Black Stone",
+      "reason": "Missing/changed P1999 Green auction summary",
+      "source_url": "https://wiki.project1999.com/Glowing_Black_Stone"
+    },
+    {
+      "name": "Gatorscale Sleeves",
+      "reason": "No Classic level<=50 live drop source",
+      "source_url": "https://wiki.project1999.com/Gatorscale_Sleeves"
+    },
+    {
+      "name": "Foreman's Tunic",
+      "reason": "Wiki does not identify Classic Era",
+      "source_url": "https://wiki.project1999.com/Foreman%27s_Tunic"
+    },
+    {
+      "name": "Shiny Metallic Robes",
+      "reason": "HTTP Error 404: Not Found",
+      "source_url": "https://wiki.project1999.com/Shiny_Metallic_Robes"
+    },
+    {
+      "name": "Robe of the Ishva",
+      "reason": "Wiki does not identify Classic Era",
+      "source_url": "https://wiki.project1999.com/Robe_of_the_Ishva"
+    },
+    {
+      "name": "Crested Mistmoore Shield",
+      "reason": "Wiki does not identify Classic Era",
+      "source_url": "https://wiki.project1999.com/Crested_Mistmoore_Shield"
+    }
+  ]
+}

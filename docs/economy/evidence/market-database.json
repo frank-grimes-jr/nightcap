@@ -1,0 +1,31 @@
+{
+  "status": "passed",
+  "scope": "disposable schema; no live PEQ writes",
+  "schema_removed": "nightcap_market_test_44c73e1de7",
+  "checks": [
+    "22 actors installed",
+    "10 new spawns",
+    "duplicate setup rejected",
+    "disabled startup does not rotate",
+    "bounded find/sell/buy allocation",
+    "every generated item quantity one",
+    "reading/reopening does not restock",
+    "earning-rule drift rejects rotation",
+    "failed rotation retains exact prior stock",
+    "future era catalog excluded",
+    "only successful world rotations increment epoch",
+    "rollback after statement 8 preserves wallet/item/stock/audit",
+    "rollback after statement 9 preserves wallet/item/stock/audit",
+    "rollback after statement 10 preserves wallet/item/stock/audit",
+    "rollback after statement 11 preserves wallet/item/stock/audit",
+    "two simultaneous buyers have exactly one winner",
+    "one item, one payment, one audit, sold out",
+    "repeated purchase rejected",
+    "modified hand-in rejected without payout",
+    "WTB consumes one item and pays atomically",
+    "stale restart quote rejected",
+    "rollback disables market and removes only new actors/spawns",
+    "rollback preserves player money/items, audit and original merchant stock",
+    "rollback retains corpses, other instances and unrelated saved spawns"
+  ]
+}

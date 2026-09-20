@@ -14078,6 +14078,11 @@ void Client::Handle_OP_ShopPlayerBuy(const EQApplicationPacket *app)
 
 	merchantid = tmp->CastToNPC()->MerchantType;
 
+	if (GetMerchantSessionEntityID() != mp->npcid) {
+		SendMerchantEnd();
+		return;
+	}
+	if (BuyMarketFind(tmp->GetID(), mp->itemslot, mp->quantity)) { return; }
 	uint32 item_id = 0;
 	std::list<MerchantList> merlist = zone->merchanttable[merchantid];
 	std::list<MerchantList>::const_iterator itr;

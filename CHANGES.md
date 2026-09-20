@@ -1,5 +1,18 @@
 # CHANGES
 
+## 2026-09-20 - Finite city finds and EC tunnel economy (candidate)
+
+Add restart-scoped, quantity-one finds to selected city merchants and ten
+player-looking EC traders with real WTS/WTB offers, auction lines and local
+chatter. Curate Classic drops from dated P1999 price evidence; scale the reference
+for increased item drops/vendor payouts before the seller premium. Native atomic
+stock/wallet/cursor transactions prevent partial exchanges and concurrent sales;
+ambiguous commits quarantine until reconnect. Closing a shop invalidates quotes,
+and ordinary quest hand-ins explicitly return items and coin. Matching world/zone,
+schema and quests must ship together; no client change. Disabled-by-default setup,
+scoped rollback and [exact owner QA](docs/economy/QA.md) are included. Not yet active;
+pricing balance and manual acceptance remain open.
+
 ## 2026-09-20 - East Commonlands tunnel hub (active QA candidate)
 
 Move 22 existing services to the approved tunnel layout, add ten native Classic

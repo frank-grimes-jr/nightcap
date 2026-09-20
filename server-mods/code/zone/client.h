@@ -39,6 +39,7 @@ namespace EQ
 }
 
 #include "zone/pet_armor.h"
+#include "zone/living_economy.h"
 #include "zone/aggromanager.h"
 #include "zone/bot_structs.h"
 #include "zone/cheat_manager.h"
@@ -943,6 +944,14 @@ public:
 	void ReadBookByName(std::string book_name, uint8 book_type);
 	void QuestReadBook(const char* text, uint8 type);
 	void SendMoneyUpdate();
+	void LivingEconomy(uint32 npc_entity_id, const std::string &text);
+	void MarketAnnouncement(uint32 npc_entity_id, uint32 variant);
+	void SendMarketFind(uint32 npc_id, uint32 slot);
+	bool BuyMarketFind(uint32 npc_entity_id, uint32 slot, uint32 quantity);
+	bool CompleteMarketTrade(NPC *npc, const NightcapMarket::Offer &offer);
+	NightcapMarket::Offer m_market_quote;
+	uint32 m_market_entity = 0;
+	uint32 m_market_slot = 0;
 	bool TakeMoneyFromPP(uint64 copper, bool update_client = false);
 	bool TakePlatinum(uint32 platinum, bool update_client = false);
 	void AddMoneyToPP(uint64 copper, bool update_client = false);
