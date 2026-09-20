@@ -142,6 +142,15 @@ Saved GUIDs are CAS preimages, not runtime serials restored after inventory load
 PoK FLOAT heading rollback preimages must match float32 storage, not Python double
 formatting. Rehearse forward and rollback against captured schemas before apply.
 
+## Launcher delivery
+
+`eq-launcher/` is the Nightcap Wails/Go patcher (separate from the expansion
+switcher). Its stable starter verifies a separate signed desktop channel; the
+desktop checks on opening and patches before Play. Game release counters, launcher
+release counters and `minimum_launcher` are independent. Preserve the legacy
+inventory for old recovery journals. Signing/build/publication and forward-only
+rollback: `docs/ops/permanent-patcher.md`.
+
 ## Non-obvious gotchas
 
 - **Finite living economy**: `docs/economy/policy.json` and the reviewed catalog

@@ -1,0 +1,17 @@
+?   	nightcap/eq-launcher/cmd/nightcap-check	[no test files]
+?   	nightcap/eq-launcher/cmd/nightcap-gateway	[no test files]
+ok  	nightcap/eq-launcher/cmd/nightcap-package	2.432s
+?   	nightcap/eq-launcher/cmd/nightcap-releasecheck	[no test files]
+?   	nightcap/eq-launcher/cmd/nightcap-starter	[no test files]
+ok  	nightcap/eq-launcher/internal/assets	5.044s
+ok  	nightcap/eq-launcher/internal/client	1.196s
+ok  	nightcap/eq-launcher/internal/gametunnel	3.351s
+ok  	nightcap/eq-launcher/internal/installer	7.157s
+ok  	nightcap/eq-launcher/internal/installguard	2.524s
+ok  	nightcap/eq-launcher/internal/launcher	3.382s
+ok  	nightcap/eq-launcher/internal/launchlock	2.560s
+ok  	nightcap/eq-launcher/internal/manifest	1.643s
+ok  	nightcap/eq-launcher/internal/preflight	1.989s
+ok  	nightcap/eq-launcher/internal/runtimehealth	1.365s
+ok  	nightcap/eq-launcher/internal/selfupdate	2.426s
+ok  	nightcap/eq-launcher/internal/session	2.940s

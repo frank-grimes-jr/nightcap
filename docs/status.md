@@ -3,6 +3,16 @@
 Updated September 20, 2026. This is the current status index; dated studies and
 QA reports preserve their original evidence and are not live-state promises.
 
+## Permanent patcher deployed
+
+[Launcher 0.3.0](releases/permanent-patcher-20260920.md) is live with stable starter,
+automatic launcher updates and patch-before-Play. Existing players download the
+starter once, keep their game folder and use the same shortcut afterwards. Signed
+launcher release 2026092001 and game release 2026092006 verify over HTTPS. All 22
+game files are unchanged from the repair below; production was not restarted.
+Native/Go/UI checks and 63 publication failure rehearsals pass. Owner in-game
+acceptance remains open. [Release operations](ops/permanent-patcher.md).
+
 ## Production NPC and spell-access repair deployed
 
 [Release 2026092005](releases/production-bugfixes-20260920.md) is deployed on OVH
@@ -36,8 +46,8 @@ private world registered, Cloudflare IP blocking verified, and signed production
 release2026092005 published. Native transport handshakes pass through the encrypted
 relay; actual RoF2 login/gameplay and R2 backups remain open. See
 [OVH activation and recovery evidence](releases/ovh-activation-20260920.md).
-GitHub Actions deployment, automatic patch-before-Play and launcher EXE self-update
-are not implemented yet. The running local QA server and workspace clients are unchanged.
+GitHub Actions deployment remains unimplemented. Automatic patch-before-Play and
+launcher self-update are implemented by the permanent patcher above. The running local QA server and workspace clients are unchanged.
 
 ## Local living economy QA candidate
 

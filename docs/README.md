@@ -10,6 +10,8 @@ Start with [current status](status.md), not a dated candidate report.
 
 ## Players and testers
 
+- [Permanent patcher: one-time transition and release evidence](releases/permanent-patcher-20260920.md)
+
 - [Production spell/NPC repair: status, evidence and exact QA](releases/production-bugfixes-20260920.md)
 
 - [September 20 main source promotion and remaining QA](releases/main-promotion-20260920.md)
@@ -38,6 +40,8 @@ Start with [current status](status.md), not a dated candidate report.
 - [Current queue](next-steps.md)
 
 ## Operators
+
+- [Permanent patcher: packaging, compatibility, recovery and rollback](ops/permanent-patcher.md)
 
 - [Combined deployment, hashes and rollback](releases/live-qa-20260915/README.md)
 - [PoK activation and saved-state requirements](pok/QA.md)

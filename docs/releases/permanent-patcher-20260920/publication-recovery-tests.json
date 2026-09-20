@@ -1,0 +1,443 @@
+[
+  {
+    "operation": "copy",
+    "boundary": 1,
+    "fault_injected": true,
+    "resume": "pass",
+    "backup": "preserved"
+  },
+  {
+    "operation": "copy",
+    "boundary": 2,
+    "fault_injected": true,
+    "resume": "pass",
+    "backup": "preserved"
+  },
+  {
+    "operation": "copy",
+    "boundary": 3,
+    "fault_injected": true,
+    "resume": "pass",
+    "backup": "preserved"
+  },
+  {
+    "operation": "copy",
+    "boundary": 4,
+    "fault_injected": true,
+    "resume": "pass",
+    "backup": "preserved"
+  },
+  {
+    "operation": "copy",
+    "boundary": 5,
+    "fault_injected": true,
+    "resume": "pass",
+    "backup": "preserved"
+  },
+  {
+    "operation": "copy",
+    "boundary": 6,
+    "fault_injected": true,
+    "resume": "pass",
+    "backup": "preserved"
+  },
+  {
+    "operation": "copy",
+    "boundary": 7,
+    "fault_injected": true,
+    "resume": "pass",
+    "backup": "preserved"
+  },
+  {
+    "operation": "copy",
+    "boundary": 8,
+    "fault_injected": true,
+    "resume": "pass",
+    "backup": "preserved"
+  },
+  {
+    "operation": "copy",
+    "boundary": 9,
+    "fault_injected": true,
+    "resume": "pass",
+    "backup": "preserved"
+  },
+  {
+    "operation": "copy",
+    "boundary": 10,
+    "fault_injected": true,
+    "resume": "pass",
+    "backup": "preserved"
+  },
+  {
+    "operation": "copy",
+    "boundary": 11,
+    "fault_injected": true,
+    "resume": "pass",
+    "backup": "preserved"
+  },
+  {
+    "operation": "copy",
+    "boundary": 12,
+    "fault_injected": true,
+    "resume": "pass",
+    "backup": "preserved"
+  },
+  {
+    "operation": "copy",
+    "boundary": 13,
+    "fault_injected": true,
+    "resume": "pass",
+    "backup": "preserved"
+  },
+  {
+    "operation": "copy",
+    "boundary": 14,
+    "fault_injected": true,
+    "resume": "pass",
+    "backup": "preserved"
+  },
+  {
+    "operation": "copy",
+    "boundary": 15,
+    "fault_injected": true,
+    "resume": "pass",
+    "backup": "preserved"
+  },
+  {
+    "operation": "copy",
+    "boundary": 16,
+    "fault_injected": true,
+    "resume": "pass",
+    "backup": "preserved"
+  },
+  {
+    "operation": "copy",
+    "boundary": 17,
+    "fault_injected": true,
+    "resume": "pass",
+    "backup": "preserved"
+  },
+  {
+    "operation": "copy",
+    "boundary": 18,
+    "fault_injected": true,
+    "resume": "pass",
+    "backup": "preserved"
+  },
+  {
+    "operation": "copy",
+    "boundary": 19,
+    "fault_injected": true,
+    "resume": "pass",
+    "backup": "preserved"
+  },
+  {
+    "operation": "copy",
+    "boundary": 20,
+    "fault_injected": true,
+    "resume": "pass",
+    "backup": "preserved"
+  },
+  {
+    "operation": "copy",
+    "boundary": 21,
+    "fault_injected": true,
+    "resume": "pass",
+    "backup": "preserved"
+  },
+  {
+    "operation": "copy",
+    "boundary": 22,
+    "fault_injected": true,
+    "resume": "pass",
+    "backup": "preserved"
+  },
+  {
+    "operation": "copy",
+    "boundary": 23,
+    "fault_injected": true,
+    "resume": "pass",
+    "backup": "preserved"
+  },
+  {
+    "operation": "copy",
+    "boundary": 24,
+    "fault_injected": true,
+    "resume": "pass",
+    "backup": "preserved"
+  },
+  {
+    "operation": "copy",
+    "boundary": 25,
+    "fault_injected": true,
+    "resume": "pass",
+    "backup": "preserved"
+  },
+  {
+    "operation": "copy",
+    "boundary": 26,
+    "fault_injected": true,
+    "resume": "pass",
+    "backup": "preserved"
+  },
+  {
+    "operation": "copy",
+    "boundary": 27,
+    "fault_injected": true,
+    "resume": "pass",
+    "backup": "preserved"
+  },
+  {
+    "operation": "copy",
+    "boundary": 28,
+    "fault_injected": true,
+    "resume": "pass",
+    "backup": "preserved"
+  },
+  {
+    "operation": "copy",
+    "boundary": 29,
+    "fault_injected": true,
+    "resume": "pass",
+    "backup": "preserved"
+  },
+  {
+    "operation": "copy",
+    "boundary": 30,
+    "fault_injected": true,
+    "resume": "pass",
+    "backup": "preserved"
+  },
+  {
+    "operation": "rename",
+    "boundary": 1,
+    "fault_injected": true,
+    "resume": "pass",
+    "backup": "preserved"
+  },
+  {
+    "operation": "rename",
+    "boundary": 2,
+    "fault_injected": true,
+    "resume": "pass",
+    "backup": "preserved"
+  },
+  {
+    "operation": "rename",
+    "boundary": 3,
+    "fault_injected": true,
+    "resume": "pass",
+    "backup": "preserved"
+  },
+  {
+    "operation": "rename",
+    "boundary": 4,
+    "fault_injected": true,
+    "resume": "pass",
+    "backup": "preserved"
+  },
+  {
+    "operation": "rename",
+    "boundary": 5,
+    "fault_injected": true,
+    "resume": "pass",
+    "backup": "preserved"
+  },
+  {
+    "operation": "rename",
+    "boundary": 6,
+    "fault_injected": true,
+    "resume": "pass",
+    "backup": "preserved"
+  },
+  {
+    "operation": "rename",
+    "boundary": 7,
+    "fault_injected": true,
+    "resume": "pass",
+    "backup": "preserved"
+  },
+  {
+    "operation": "rename",
+    "boundary": 8,
+    "fault_injected": true,
+    "resume": "pass",
+    "backup": "preserved"
+  },
+  {
+    "operation": "rename",
+    "boundary": 9,
+    "fault_injected": true,
+    "resume": "pass",
+    "backup": "preserved"
+  },
+  {
+    "operation": "rename",
+    "boundary": 10,
+    "fault_injected": true,
+    "resume": "pass",
+    "backup": "preserved"
+  },
+  {
+    "operation": "rename",
+    "boundary": 11,
+    "fault_injected": true,
+    "resume": "pass",
+    "backup": "preserved"
+  },
+  {
+    "operation": "rename",
+    "boundary": 12,
+    "fault_injected": true,
+    "resume": "pass",
+    "backup": "preserved"
+  },
+  {
+    "operation": "rename",
+    "boundary": 13,
+    "fault_injected": true,
+    "resume": "pass",
+    "backup": "preserved"
+  },
+  {
+    "operation": "rename",
+    "boundary": 14,
+    "fault_injected": true,
+    "resume": "pass",
+    "backup": "preserved"
+  },
+  {
+    "operation": "rename",
+    "boundary": 15,
+    "fault_injected": true,
+    "resume": "pass",
+    "backup": "preserved"
+  },
+  {
+    "operation": "rename",
+    "boundary": 16,
+    "fault_injected": true,
+    "resume": "pass",
+    "backup": "preserved"
+  },
+  {
+    "operation": "rename",
+    "boundary": 17,
+    "fault_injected": true,
+    "resume": "pass",
+    "backup": "preserved"
+  },
+  {
+    "operation": "rename",
+    "boundary": 18,
+    "fault_injected": true,
+    "resume": "pass",
+    "backup": "preserved"
+  },
+  {
+    "operation": "rename",
+    "boundary": 19,
+    "fault_injected": true,
+    "resume": "pass",
+    "backup": "preserved"
+  },
+  {
+    "operation": "rename",
+    "boundary": 20,
+    "fault_injected": true,
+    "resume": "pass",
+    "backup": "preserved"
+  },
+  {
+    "operation": "rename",
+    "boundary": 21,
+    "fault_injected": true,
+    "resume": "pass",
+    "backup": "preserved"
+  },
+  {
+    "operation": "rename",
+    "boundary": 22,
+    "fault_injected": true,
+    "resume": "pass",
+    "backup": "preserved"
+  },
+  {
+    "operation": "rename",
+    "boundary": 23,
+    "fault_injected": true,
+    "resume": "pass",
+    "backup": "preserved"
+  },
+  {
+    "operation": "rename",
+    "boundary": 24,
+    "fault_injected": true,
+    "resume": "pass",
+    "backup": "preserved"
+  },
+  {
+    "operation": "rename",
+    "boundary": 25,
+    "fault_injected": true,
+    "resume": "pass",
+    "backup": "preserved"
+  },
+  {
+    "operation": "rename",
+    "boundary": 26,
+    "fault_injected": true,
+    "resume": "pass",
+    "backup": "preserved"
+  },
+  {
+    "operation": "rename",
+    "boundary": 27,
+    "fault_injected": true,
+    "resume": "pass",
+    "backup": "preserved"
+  },
+  {
+    "operation": "rename",
+    "boundary": 28,
+    "fault_injected": true,
+    "resume": "pass",
+    "backup": "preserved"
+  },
+  {
+    "operation": "rename",
+    "boundary": 29,
+    "fault_injected": true,
+    "resume": "pass",
+    "backup": "preserved"
+  },
+  {
+    "operation": "rename",
+    "boundary": 30,
+    "fault_injected": true,
+    "resume": "pass",
+    "backup": "preserved"
+  },
+  {
+    "operation": "rename",
+    "boundary": 31,
+    "fault_injected": true,
+    "resume": "pass",
+    "backup": "preserved"
+  },
+  {
+    "operation": "rename",
+    "boundary": 32,
+    "fault_injected": true,
+    "resume": "pass",
+    "backup": "preserved"
+  },
+  {
+    "operation": "rename",
+    "boundary": 33,
+    "fault_injected": true,
+    "resume": "pass",
+    "backup": "preserved"
+  }
+]

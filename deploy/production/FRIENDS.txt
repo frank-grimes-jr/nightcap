@@ -14,8 +14,8 @@ runtime from https://www.microsoft.com/en-us/download/details.aspx?id=8109.
    Use only the owner's download and compare its SHA-256 if you need to verify it.
    The package is not currently Windows Authenticode signed; Windows may show
    an unknown-publisher warning. Do not disable antivirus or install exclusions.
-4. Choose the folder containing eqgame.exe. Check for updates, then install them.
-5. Press Play. Keep the launcher open and sign in with your Nightcap account.
+4. Choose the folder containing eqgame.exe. Updates are checked automatically.
+5. Press Play to apply patches and start. Keep the launcher open and sign in.
    No VPN app, eqhost editing, /loadskin command, or other slash command is needed.
 
 The launcher establishes the encrypted connection automatically. Closing it
@@ -29,9 +29,16 @@ local EQ server. Do not run two copies of this launcher on the same PC.
 
 An unsupported-client message means this eqgame.exe is not the supported RoF2
 build. Do not rename a different client's executable to bypass the check.
-If files are in recovery, use the launcher's recovery action before Play.
-New launcher versions are downloaded from the owner; the launcher automatically
-checks signed game-file releases when you use Check for updates.
+If automatic recovery cannot finish, close the game and retry Recovery.
+Keep the extracted nightcap-launcher.exe in a permanent folder and make a
+shortcut to it. It checks for signed launcher updates on every opening. The
+launcher checks game patches on opening/selecting your game folder; Play
+downloads only changed files, applies required patches and starts the game.
+Interrupted updates recover automatically. Keep using the same shortcut.
+
+Players on 0.2.2 or earlier need this one-time starter download. Keep your
+existing game folder and select it again if prompted. Future routine updates
+do not require a new ZIP or game-client download.
 
 Never send anyone your password, complete log-in packets, or private server files.
 SERVER.txt contains the guide address for this release.

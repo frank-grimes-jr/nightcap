@@ -1,5 +1,18 @@
 # CHANGES
 
+## 2026-09-20 - Permanent patcher and launcher self-updates
+
+Published launcher 0.3.0 through a stable signed-channel starter. The launcher
+checks on opening/selecting a client and applies required changed-file patches
+before Play. Signed inventory/catalog evolution no longer requires a new desktop
+for ordinary game updates; recovery validates its signed candidate destinations.
+Launcher/game counters and minimum compatibility are separate. Independent review,
+native/Go/UI tests, 63 publication failure rehearsals and hosted verification pass.
+Existing players need one transition starter ZIP, then keep the same shortcut.
+No game files changed from 2026092005, no server restart or DB writes. Signing
+metadata renewal and 2028 starter trust migration remain operator duties; gameplay
+QA is still open. See docs/releases/permanent-patcher-20260920.md.
+
 ## 2026-09-20 - Deploy production NPC and multiclass spell repair
 
 At the owner's explicit request, applied the paired native/plugin repair to OVH

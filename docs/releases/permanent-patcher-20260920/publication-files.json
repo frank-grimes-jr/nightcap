@@ -1,0 +1,114 @@
+{
+  "channel.json": {
+    "sha256": "6e5d2b95d3ac9be29949bb839153aeb0040d43e6013c56ad3e069c8216f0e23d",
+    "size": 6466
+  },
+  "release-audit.json": {
+    "sha256": "8f3b959b9ab3a0d0a83717a0a4acd5df4a7db953d1ffc4a7cf33deabd13fc17f",
+    "size": 6003
+  },
+  "release/2026092006/dbstr_us.txt": {
+    "sha256": "ed077151c4bbfd8828708e6dd812095cdf4b69dbdd3c9f29f078062b51520a0f",
+    "size": 6368726
+  },
+  "release/2026092006/ddv.eqg": {
+    "sha256": "095e723a4aee74c518921fcb4c134ccec547cb4463538385b4bfd997c3609972",
+    "size": 2374012
+  },
+  "release/2026092006/dinput8.dll": {
+    "sha256": "69636fab487f3c49e2879bf04f87af057b67243fcb727393947ca940c49e33f3",
+    "size": 503808
+  },
+  "release/2026092006/ecommons_assets.txt": {
+    "sha256": "160fb90872f853a5181261e815832a9b5ff0e755c4fa2f0f0086f967a6985c95",
+    "size": 16
+  },
+  "release/2026092006/ecommons_chr.txt": {
+    "sha256": "ce76d34efb7d66705dbfa13e12047b622cc0da8ca7c44e3d81ce526bda3e6c03",
+    "size": 98
+  },
+  "release/2026092006/frd.eqg": {
+    "sha256": "cec07cab1aee916d9ad67a78cc7733ddb3407f7c20609ce9e1241c4e78c97680",
+    "size": 2528730
+  },
+  "release/2026092006/lavastorm.s3d": {
+    "sha256": "daa1053f71320e1f5882417f3dadc0b65c55fb64c75f3a806bceb57bbceb24c3",
+    "size": 839387
+  },
+  "release/2026092006/lavastorm_obj.s3d": {
+    "sha256": "6476962179483d940cde99ef60fee43477d95c158aa28ccc1bc0e14d396b7b1f",
+    "size": 315859
+  },
+  "release/2026092006/mur.eqg": {
+    "sha256": "f16e0cc1238aed5341db915191e23f8ef899ccfdb07845631544c77b2b130b81",
+    "size": 2538532
+  },
+  "release/2026092006/nektulos.s3d": {
+    "sha256": "6cfb7612bfe2703242add44d7cff285a37e08423df8082fffe10ce3dd84c7f21",
+    "size": 966169
+  },
+  "release/2026092006/nektulos_obj.s3d": {
+    "sha256": "980717cdf70834429ed9667c14321a93f15aa38f78e331e8b6a15938f626969c",
+    "size": 951436
+  },
+  "release/2026092006/nightcap-bootstrap.exe": {
+    "sha256": "fbd6f592275667211a377f41733626fbd8d3932faceb92dd85245b43a1dc249f",
+    "size": 119808
+  },
+  "release/2026092006/nightcap-patch-sites.json": {
+    "sha256": "533af367e00e48b3f700f0f2f0df75886322ccb6becbce78b616fcd400cc84ef",
+    "size": 3674
+  },
+  "release/2026092006/nightcap-patches.cfg": {
+    "sha256": "510da76c698ec673139a29e978c8c729c253b2d248cbb1e15f4e78ce067b578e",
+    "size": 240
+  },
+  "release/2026092006/poknowledge_chr.txt": {
+    "sha256": "75d478e5585952b4a6d5a65d96c5999de5a577fd97c59f96b26cfb108a340690",
+    "size": 246
+  },
+  "release/2026092006/poknowledge_obj.s3d": {
+    "sha256": "de46dd2bdb55daac2e559148f62d83108da2697bb7c0079edd4c8ec09ee7a9e1",
+    "size": 6619031
+  },
+  "release/2026092006/scu.eqg": {
+    "sha256": "ef25cc9574fc6e86b739f33189cb4e8b417109350ffd27e2b2ea85bb7dcd41cd",
+    "size": 3453594
+  },
+  "release/2026092006/spells_us.txt": {
+    "sha256": "56915e0e489422a7befb1f3255610a8f6c1cb2163252aa05476a6dfea4270456",
+    "size": 28139043
+  },
+  "release/2026092006/srn.eqg": {
+    "sha256": "5a5cc71322234a3a26f6d7f34b996ba17a6d190ef46d8d84567c2ca0371bc18f",
+    "size": 1878012
+  },
+  "release/2026092006/maps/ecommons_3.txt": {
+    "sha256": "db69717986bcaa83ff6f1c8a88f42884aa7b06b35d488e0d091f58ed5d095d69",
+    "size": 1736
+  },
+  "release/2026092006/uifiles/nightcap/equi_aawindow.xml": {
+    "sha256": "11ddab585f2105ba39252bff2bbb7e7778683b676a15acc6b8b4b9a666e0b3eb",
+    "size": 21226
+  },
+  "release/2026092006/uifiles/nightcap/equi_inventory.xml": {
+    "sha256": "7566fc72269d04e090f70e1e4b7b36bc3db71fe01f84165132212b5a0ed33f7e",
+    "size": 187448
+  },
+  "launcher-channel.json": {
+    "sha256": "b81f97154e1b78f890b6cab3af95cbf59679ff8633ea1e8db2055baea2ab3963",
+    "size": 577
+  },
+  "launcher/2026092001/nightcap-desktop.exe": {
+    "sha256": "8400d547cf93f585406bc4ccfe21b884e07e3bd40a67bb09c7813521a64ccc22",
+    "size": 12552704
+  },
+  "nightcap-friends.zip": {
+    "sha256": "2abdb9f293daad239e0d0cc656ce7153c9e2ffb47580196306aaf222963b6a5c",
+    "size": 3169436
+  },
+  "guide.html": {
+    "sha256": "e939bd4360e86c4d8087a7f6efaf75419c671c502203076ec1cf4c8bde14ba33",
+    "size": 1335
+  }
+}
