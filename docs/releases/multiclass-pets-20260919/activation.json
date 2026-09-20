@@ -1,0 +1,67 @@
+{
+  "verified_utc": "2026-09-20T02:02:17.533201+00:00",
+  "running_binaries": [
+    {
+      "pid": 50044,
+      "name": "world",
+      "sha256": "f7db30da4c3c337637b6a42dce82dc0290818e7c692584652a4bb99fc13149cd"
+    },
+    {
+      "pid": 50487,
+      "name": "zone",
+      "sha256": "ee0cc6ab7a83d2d538d6342273eb6fbfed8cc738a35cb0103090e1825435e2b4"
+    },
+    {
+      "pid": 50491,
+      "name": "zone",
+      "sha256": "ee0cc6ab7a83d2d538d6342273eb6fbfed8cc738a35cb0103090e1825435e2b4"
+    },
+    {
+      "pid": 50494,
+      "name": "zone",
+      "sha256": "ee0cc6ab7a83d2d538d6342273eb6fbfed8cc738a35cb0103090e1825435e2b4"
+    },
+    {
+      "pid": 50497,
+      "name": "zone",
+      "sha256": "ee0cc6ab7a83d2d538d6342273eb6fbfed8cc738a35cb0103090e1825435e2b4"
+    },
+    {
+      "pid": 50500,
+      "name": "zone",
+      "sha256": "ee0cc6ab7a83d2d538d6342273eb6fbfed8cc738a35cb0103090e1825435e2b4"
+    },
+    {
+      "pid": 50727,
+      "name": "zone",
+      "sha256": "ee0cc6ab7a83d2d538d6342273eb6fbfed8cc738a35cb0103090e1825435e2b4"
+    },
+    {
+      "pid": 50731,
+      "name": "zone",
+      "sha256": "ee0cc6ab7a83d2d538d6342273eb6fbfed8cc738a35cb0103090e1825435e2b4"
+    },
+    {
+      "pid": 50735,
+      "name": "zone",
+      "sha256": "ee0cc6ab7a83d2d538d6342273eb6fbfed8cc738a35cb0103090e1825435e2b4"
+    }
+  ],
+  "source_files_verified": 17,
+  "rules": {
+    "Character:AAExpMinLevel": "1",
+    "Expansion:CurrentExpansion": "0",
+    "Zone:StateSavingOnShutdown": "true"
+  },
+  "pet_armor_columns": 18,
+  "pet_armor_rows": 0,
+  "class_merchant_listings": 1747,
+  "class_merchant_unique_items": 1229,
+  "hub_afterimage_matches": true,
+  "boot_logs_checked": 14,
+  "boot_error_lines": 0,
+  "players_online": 0,
+  "backup_sha256": "72d68e29104ca53dddb40c721e108a836135f517e58f3e473ba5244d698b4347",
+  "backup_compressed_bytes": 46395555,
+  "backup_uncompressed_bytes": 441567211
+}
