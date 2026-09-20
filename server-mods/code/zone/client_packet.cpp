@@ -4393,7 +4393,8 @@ void Client::Handle_OP_CastSpell(const EQApplicationPacket *app)
 	}
 
 	/* Memorized Spell */
-	if (m_pp.mem_spells[castspell->slot] && m_pp.mem_spells[castspell->slot] == castspell->spell_id) {
+	if (castspell->slot < EQ::spells::SPELL_GEM_COUNT &&
+		m_pp.mem_spells[castspell->slot] && m_pp.mem_spells[castspell->slot] == castspell->spell_id) {
 		uint16 spell_to_cast = 0;
 		if (castspell->slot < EQ::spells::SPELL_GEM_COUNT) {
 			spell_to_cast = m_pp.mem_spells[castspell->slot];
@@ -4407,6 +4408,12 @@ void Client::Handle_OP_CastSpell(const EQApplicationPacket *app)
 			return;
 		}
 
+		const auto required_level = GetSpellMinLevel(spell_to_cast);
+		if (required_level == UINT8_MAX || GetLevel() < required_level) {
+			InterruptSpell(spell_to_cast);
+			Message(Chat::Red, "Your selected classes cannot cast this spell at your current level.");
+			return;
+		}
 		if (IsValidSpell(spell_to_cast)) {
 			CastSpell(spell_to_cast, castspell->target_id, slot);
 		}

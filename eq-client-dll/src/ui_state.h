@@ -31,6 +31,12 @@ class UIState {
     }
 public:
     void Clear() { identity_ = {}; classes_ = {}; name_.clear(); aa_classes_.clear(); }
+    uint32_t PrimaryClass() const { return classes_[0]; }
+    uint32_t ClassMask() const {
+        uint32_t mask = 0;
+        for (auto id : classes_) if (id >= 1 && id <= 16) mask |= uint32_t(1) << (id - 1);
+        return mask;
+    }
     bool Matches(uint32_t spawn, const char* name) const {
         return identity_[0] && identity_[4] == spawn && name && name_ == name;
     }

@@ -19,6 +19,22 @@ start=module('start')
 accounts=module('accounts')
 
 class ProductionTests(unittest.TestCase):
+    def test_old_native_pair_is_rejected_before_startup(self):
+        world=b'\x7fELF\x00CALL nightcap_market_rotate({},{},{})\x00'
+        markers=[b'LivingEconomy\x00',b'MarketAnnouncement\x00',b'_Z9Perl__oocPKc',
+                 b'Your selected classes cannot cast this spell at your current level.']
+        with tempfile.TemporaryDirectory() as tmp, patch.object(start,'BIN',Path(tmp)):
+            root=Path(tmp)
+            (root/'world').write_bytes(world)
+            (root/'zone').write_bytes(b'\x7fELF'+b'\x00'.join(markers))
+            start.validate_native()
+            for marker in markers:
+                (root/'zone').write_bytes(b'\x7fELF'+b'\x00'.join(m for m in markers if m!=marker))
+                with self.assertRaises(ValueError):start.validate_native()
+            (root/'zone').write_bytes(b'\x7fELF'+b'\x00'.join(markers))
+            (root/'world').write_bytes(b'\x7fELF\x00CALL nightcap_market_rotate({})\x00')
+            with self.assertRaises(ValueError):start.validate_native()
+
     def test_sql_inputs_are_bound_and_invalid_names_rejected(self):
         sql=accounts.sql_for('create','friend-one','$7$fixture')
         self.assertIn('EXECUTE p USING @name,@hash',sql)

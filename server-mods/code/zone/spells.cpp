@@ -1065,9 +1065,7 @@ bool Client::CheckFizzle(uint16 spell_id)
 	// Multiclass: fizzle difficulty and casting stat come from the held class
 	// best suited to this spell, not necessarily the base class.
 	const uint8 casting_class = BestCasterClassFor(spell_id);
-	const uint8 spell_req_level =
-		casting_class ? spells[spell_id].classes[casting_class - 1]
-		              : spells[spell_id].classes[GetClass() - 1];
+	const uint8 spell_req_level = GetSpellMinLevel(spell_id);
 
 	//Live AA - Spell Casting Expertise, Mastery of the Past
 	no_fizzle_level = aabonuses.MasteryofPast + itembonuses.MasteryofPast + spellbonuses.MasteryofPast;

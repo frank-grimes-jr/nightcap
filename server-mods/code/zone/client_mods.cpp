@@ -21,6 +21,7 @@
 #include "common/eqemu_logsys.h"
 #include "common/rulesys.h"
 #include "common/spdat.h"
+#include "common/spell_class_catalog.h"
 #include "zone/bot.h"
 #include "zone/mob.h"
 
@@ -589,8 +590,9 @@ uint8 Client::GetSpellMinLevel(uint16 spell_id) const
 		if (c < 1 || c > Class::PLAYER_CLASS_COUNT) {
 			continue;
 		}
-		if (spells[spell_id].classes[c - 1] < best) {
-			best = spells[spell_id].classes[c - 1];
+		const auto level = NightcapSpellClasses::Level(spell_id, c);
+		if (level < best) {
+			best = level;
 		}
 	}
 	return best;
@@ -608,8 +610,9 @@ uint8 Client::BestCasterClassFor(uint16 spell_id) const
 		if (c < 1 || c > Class::PLAYER_CLASS_COUNT) {
 			continue;
 		}
-		if (spells[spell_id].classes[c - 1] < best_level) {
-			best_level = spells[spell_id].classes[c - 1];
+		const auto level = NightcapSpellClasses::Level(spell_id, c);
+		if (level < best_level) {
+			best_level = level;
 			best_class = c;
 		}
 	}

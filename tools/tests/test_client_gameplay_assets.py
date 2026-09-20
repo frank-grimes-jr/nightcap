@@ -1,4 +1,7 @@
 import unittest
+import hashlib
+import json
+from unittest.mock import patch
 import client_gameplay_assets as assets
 
 
@@ -14,6 +17,29 @@ def spell(spell_id=1, **changes):
 
 
 class SpellAssets(unittest.TestCase):
+    def test_previously_generated_recall_remains_valid(self):
+        fields=spell(3134).strip().split('^')
+        fields[16:18]=['0','0'];fields[86:98]=['83']+['254']*11;fields[98]='6'
+        native=('^'.join(fields)+'\r\n').encode()
+        arrival=json.loads((assets.ROOT/'docs/ecommons-hub/plan.json').read_bytes())['arrival']
+        generated=assets.recall_spell(native,arrival)
+        with patch.object(assets,'SOURCE_SHA256',hashlib.sha256(native).hexdigest()):
+            self.assertEqual(assets.restore_spell_classes(generated,native),(generated,[]))
+            with self.assertRaises(ValueError):
+                assets.restore_spell_classes(generated.replace(b'42604^Ancient Attunement',b'42604^Wrong spell'),native)
+
+    def test_restore_only_class_fields_and_reject_identity_drift(self):
+        native = spell(f105=255,f116=17).encode()
+        widened = spell(f105=1,f116=17,f13=0).encode()
+        with patch.object(assets,'SOURCE_SHA256',hashlib.sha256(native).hexdigest()):
+            result, ids = assets.restore_spell_classes(widened,native)
+            self.assertEqual(ids,[1])
+            self.assertEqual(result,spell(f105=255,f116=17,f13=0).encode())
+            self.assertEqual(assets.restore_spell_classes(result,native),(result,[]))
+            for bad in (b'', widened*2, widened.replace(b'Test spell',b'Other'), spell(2).encode()):
+                with self.assertRaises(ValueError): assets.restore_spell_classes(bad,native)
+        with self.assertRaises(ValueError): assets.restore_spell_classes(widened,native)
+
     def test_only_cast_time_changes(self):
         source = spell()
         output, ids = assets.instant_dots(source.encode('latin1'))

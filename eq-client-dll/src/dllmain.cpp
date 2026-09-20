@@ -1048,6 +1048,9 @@ extern "C" __declspec(noinline) uint32_t __fastcall EquipScopedItemClasses(
     typedef uint32_t (__thiscall *ItemClassesFn)(void*, bool, bool);
     const auto original = reinterpret_cast<ItemClassesFn>(g_eq_base + kItemClassesRva);
     const uint32_t stock = original(item, flag1, flag2);
+    if (item == nightcap::client_ui::ActiveSpellItem()) {
+        return nightcap::client_ui::ScribeClassMask(stock,item,flag1,flag2);
+    }
     return nightcap::EquipClassMask(stock, item, flag1, flag2);
 }
 
@@ -1492,6 +1495,27 @@ static BOOL CALLBACK InitializeRuntime(PINIT_ONCE, PVOID, PVOID*)
     if (!class_ui_ok) Log("Class UI initialization failed at %s; image base=0x%08X", nightcap::client_ui::install_failure, static_cast<unsigned>(eq_base));
     RequirePatch(nightcap::Feature_class_ui,class_ui_ok);
     RequirePatch(nightcap::Feature_pet_armor,nightcap::client_ui::InstallPetArmor());
+    // Guard every accessor before installing any multiclass redirection.
+    bool spell_access_ok = false;
+    __try {
+        spell_access_ok = !memcmp(reinterpret_cast<void*>(eq_base+kItemTypeRva), kExpectedItemType, sizeof(kExpectedItemType)) &&
+            !memcmp(reinterpret_cast<void*>(eq_base+kItemSpellRva), kExpectedItemSpell, sizeof(kExpectedItemSpell));
+    } __except(EXCEPTION_EXECUTE_HANDLER) { spell_access_ok = false; }
+    if (spell_access_ok) {
+        nightcap::client_ui::original_spell_level = reinterpret_cast<nightcap::client_ui::SpellLevel>(
+            nightcap::client_ui::EntryHook(eq_base+kSpellLevelRva,kExpectedSpellLevel,
+                reinterpret_cast<void*>(&nightcap::client_ui::SpellLevelHook)));
+        spell_access_ok = nightcap::client_ui::original_spell_level &&
+            ApplyGuardedRelativeCall(eq_base,kMerchantLevelMaskRva,kExpectedMerchantLevelMask,
+                reinterpret_cast<uintptr_t>(&nightcap::client_ui::MerchantClassesHook),"Merchant spell class levels") &&
+            ApplyGuardedRelativeCall(eq_base,kMerchantUsableMaskRva,kExpectedMerchantUsableMask,
+                reinterpret_cast<uintptr_t>(&nightcap::client_ui::MerchantClassesHook),"Merchant usable classes") &&
+            ApplyGuardedRelativeCall(eq_base,kScribeCanUseRva,kExpectedScribeCanUse,
+                reinterpret_cast<uintptr_t>(&nightcap::client_ui::CanUseSpellItem),"Spellbook scribe classes") &&
+            ApplyGuardedRelativeCall(eq_base,kScrollPlacementCanUseRva,kExpectedScrollPlacementCanUse,
+                reinterpret_cast<uintptr_t>(&nightcap::client_ui::CanUseSpellItem),"Scroll inventory placement classes");
+    }
+    RequirePatch(nightcap::Feature_multiclass_spell_access,spell_access_ok);
     nightcap::client_ui::skin_assign = reinterpret_cast<nightcap::client_ui::AssignString>(eq_base+kUIStringAssignRva);
     RequirePatch(nightcap::Feature_auto_ui,
         ApplyGuardedRelativeCall(eq_base,kUIExplicitSkinRva,kExpectedUIExplicitSkin,

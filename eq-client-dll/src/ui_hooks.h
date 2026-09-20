@@ -2,6 +2,7 @@
 #include "ui_state.h"
 #include "pet_state.h"
 #include "verified_patch.h"
+#include "spell_access.h"
 
 namespace nightcap {
 namespace client_ui {
@@ -38,6 +39,13 @@ static DisplayChat original_chat = nullptr;
 static SetGameState original_state = nullptr;
 static UpdateAA original_aa = nullptr;
 static ULONGLONG next_refresh = 0;
+using SpellLevel = uint8_t (__thiscall *)(void*, int);
+static SpellLevel original_spell_level = nullptr;
+inline void RequestRefresh();
+inline const void*& ActiveSpellItem() {
+    static thread_local const void* item = nullptr;
+    return item;
+}
 
 // Keep SEH and C++ object lifetimes separate. No memory dereference is based on
 // a server-provided pointer or row index.
@@ -55,6 +63,57 @@ inline bool CurrentIdentity() {
     uint32_t spawn = 0;
     char name[64] = {};
     return ReadIdentity(spawn, name) && state.Matches(spawn, name);
+}
+inline uint8_t __fastcall SpellLevelHook(void* spell, void*, int queried_class) {
+    // Only replace the local character's primary-class query. Class-list
+    // enumeration and queries before identity arrives retain native behavior.
+    const bool current = CurrentIdentity();
+    if (!current) RequestRefresh();
+    if (current && queried_class == static_cast<int>(state.PrimaryClass())) {
+        __try {
+            return HeldSpellLevel(*reinterpret_cast<uint32_t*>(static_cast<BYTE*>(spell)+0x174), state.ClassMask());
+        } __except(EXCEPTION_EXECUTE_HANDLER) { return 255; }
+    }
+    return original_spell_level(spell, queried_class);
+}
+inline uint32_t __fastcall MerchantClassesHook(void* item, void*, bool flag1, bool flag2) {
+    using ItemClasses = uint32_t (__thiscall *)(void*, bool, bool);
+    using ItemType = int (__thiscall *)(void*);
+    using ItemSpell = int (__thiscall *)(void*, int);
+    const auto stock = reinterpret_cast<ItemClasses>(base+kItemClassesRva)(item,flag1,flag2);
+    if (!CurrentIdentity()) { RequestRefresh(); return stock; }
+    if (!stock) return stock;
+    __try {
+        const bool scroll = reinterpret_cast<ItemType>(base+kItemTypeRva)(item)==20;
+        const auto id = scroll ? reinterpret_cast<ItemSpell>(base+kItemSpellRva)(item,4) : 0;
+        return MerchantClassMask(stock,state.PrimaryClass(),state.ClassMask(),scroll,id);
+    } __except(EXCEPTION_EXECUTE_HANDLER) { return 0; }
+}
+inline uint32_t ScribeClassMask(uint32_t stock, const void* item, bool flag1, bool flag2) {
+    if (!stock || !item || item != ActiveSpellItem() || !flag1 || flag2 || !CurrentIdentity()) return stock;
+    using ItemType = int (__thiscall *)(void*);
+    using ItemSpell = int (__thiscall *)(void*, int);
+    __try {
+        if (reinterpret_cast<ItemType>(base+kItemTypeRva)(const_cast<void*>(item)) != 20) return stock;
+        const auto spell = reinterpret_cast<ItemSpell>(base+kItemSpellRva)(const_cast<void*>(item),4);
+        return MerchantClassMask(stock,state.PrimaryClass(),state.ClassMask(),true,spell);
+    } __except(EXCEPTION_EXECUTE_HANDLER) { return 0; }
+}
+inline BYTE __fastcall CanUseSpellItem(void* character, void*, const void* item_ref, bool required, bool output) {
+    using CanUse = BYTE (__thiscall *)(void*, const void*, bool, bool);
+    const auto original = reinterpret_cast<CanUse>(base+kCanUseItemRva);
+    const void* item = nullptr;
+    if (!character || !item_ref) return 0;
+    __try { item = *reinterpret_cast<const void* const*>(item_ref); }
+    __except(EXCEPTION_EXECUTE_HANDLER) { return 0; }
+    if (!item) return 0;
+    if (!CurrentIdentity()) RequestRefresh();
+    const auto previous = ActiveSpellItem();
+    ActiveSpellItem() = item;
+    BYTE result = 0;
+    __try { result = original(character,item_ref,required,output); }
+    __finally { ActiveSpellItem() = previous; }
+    return result;
 }
 inline void* RequestContext() {
     uint32_t spawn = 0;
@@ -118,6 +177,9 @@ inline int __fastcall InventoryHook(void* self, void*, void* sender, uint32_t me
     return original_inventory(self, sender, message, data);
 }
 inline bool __cdecl LabelHook(int type, EqString* output, bool* override_color, unsigned long* color) {
+    // The always-visible HUD requests identity too; opening Inventory/AA is not
+    // a prerequisite for a correct shop or spellbook. Requests are throttled.
+    if (!CurrentIdentity()) RequestRefresh();
     if (type >= 10020 && type <= 10028) {
         const bool current = CurrentPetIdentity();
         if (!current) RequestPetRefresh();
@@ -141,6 +203,7 @@ inline void __fastcall ChatHook(void* self, void*, const char* message, int colo
 inline void __fastcall StateHook(void* self, void*, int next) {
     if (next != 5) { state.Clear(); pets.Clear(); next_refresh = 0; next_pet_refresh = 0; }
     original_state(self, next);
+    if (next == 5) RequestRefresh();
 }
 inline bool ReadList(void* window, unsigned index, void*& list, int& rows, int& class_column) {
     __try {

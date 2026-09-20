@@ -129,14 +129,8 @@ sub mc_apply_class {
         $sth->execute($class_id, $char_id);
     }
 
-    # RoF2 gates spell memorization client-side by spells_new.classesN, so the base
-    # class inherits the secondary's min-levels globally (only where base had none).
-    my $col      = "classes$class_id";
-    my $col_base = "classes$base";
-    my $patch = $db->prepare(
-        "UPDATE spells_new SET $col_base = $col WHERE $col_base = 255 AND $col > 0 AND $col != 255"
-    );
-    $patch->execute();
+    # Spell ownership is per-character in the matching server/client catalog.
+    # Never mutate shared spell definitions when one character selects a class.
 
     # Skills are never written by quest code. The C++ lifecycle reconciler owns
     # value-1 native unlocks after the canonical skill_caps baseline is restored.

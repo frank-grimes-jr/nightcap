@@ -23,6 +23,100 @@ static void __fastcall fake_request_sender(void* self, void*, int channel, const
     sent_requests.emplace_back(text);
 }
 static void __fastcall fake_chat(void*, void*, const char*, int, bool, bool) { ++displayed_lines; }
+static unsigned stock_level_calls=0, item_calls=0;
+static uint32_t item_mask=65535;
+static int item_type=20, item_spell=4;
+static bool last_flag1=false, last_flag2=false;
+static bool native_use_result=true, use_raises=false;
+static bool use_required=false,use_output=false;
+static uint8_t __fastcall fake_spell_level(void*,void*,int) { ++stock_level_calls; return 123; }
+static uint32_t __fastcall fake_item_classes(void*,void*,bool first,bool second) {
+    ++item_calls; last_flag1=first; last_flag2=second; return item_mask;
+}
+static int __fastcall fake_item_type(void*,void*) { return item_type; }
+static int __fastcall fake_item_spell(void*,void*,int type) { assert(type==4); return item_spell; }
+static BYTE __fastcall fake_can_use(void*,void*,const void* item_ref,bool required,bool output) {
+    using namespace nightcap::client_ui;
+    const auto item=*reinterpret_cast<const void* const*>(item_ref);
+    assert(ActiveSpellItem()==item);
+    use_required=required;use_output=output;
+    if(use_raises) RaiseException(0xE0123456,0,0,nullptr);
+    const auto mask=ScribeClassMask(item_mask,item,true,false);
+    return native_use_result && ((mask&(1u<<1))!=0);
+}
+static void ExerciseScribeException(void* character,const void* item_ref) {
+    bool caught=false;
+    __try { nightcap::client_ui::CanUseSpellItem(character,nullptr,item_ref,true,true); }
+    __except(EXCEPTION_EXECUTE_HANDLER) { caught=true; }
+    assert(caught);
+}
+static void JumpTo(BYTE* address, void* function) {
+    DWORD old=0;
+    assert(VirtualProtect(address,5,PAGE_EXECUTE_READWRITE,&old));
+    address[0]=0xE9;
+    const auto delta=static_cast<int32_t>(reinterpret_cast<uintptr_t>(function)-reinterpret_cast<uintptr_t>(address+5));
+    memcpy(address+1,&delta,4);
+    assert(FlushInstructionCache(GetCurrentProcess(),address,5));
+}
+
+static void TestSpellAccessABI() {
+    using namespace nightcap::client_ui;
+    auto host=static_cast<BYTE*>(VirtualAlloc(nullptr,0xA68000,MEM_COMMIT|MEM_RESERVE,PAGE_READWRITE));
+    assert(host);
+    alignas(4) BYTE eq[0x600]={},player[0x150]={},spell[0x280]={},item[4]={};
+    base=reinterpret_cast<uintptr_t>(host);
+    *reinterpret_cast<void**>(host+0xA67CCC)=eq;
+    *reinterpret_cast<void**>(host+0x9D2630)=player;
+    *reinterpret_cast<int*>(eq+0x5C8)=5;
+    *reinterpret_cast<uint32_t*>(player+0x148)=7;
+    memcpy(player+0xA4,"Monktest",9);
+    *reinterpret_cast<uint32_t*>(spell+0x174)=4;
+    assert(state.Consume("[NCUI1]S|1|19|22|0|7|2|13|11|Monktest"));
+    original_spell_level=reinterpret_cast<SpellLevel>(&fake_spell_level);
+    const auto level_hook=reinterpret_cast<SpellLevel>(&SpellLevelHook);
+    for(int i=0;i<1000;++i) assert(level_hook(spell,2)==17);
+    assert(stock_level_calls==0 && level_hook(spell,13)==123 && stock_level_calls==1);
+    using Classes=uint32_t (__thiscall *)(void*,bool,bool);
+    JumpTo(host+kItemClassesRva,reinterpret_cast<void*>(&fake_item_classes));
+    JumpTo(host+kItemTypeRva,reinterpret_cast<void*>(&fake_item_type));
+    JumpTo(host+kItemSpellRva,reinterpret_cast<void*>(&fake_item_spell));
+    JumpTo(host+kCanUseItemRva,reinterpret_cast<void*>(&fake_can_use));
+    const auto mask_hook=reinterpret_cast<Classes>(&MerchantClassesHook);
+    for(int i=0;i<1000;++i) {
+        assert(mask_hook(item,true,false)==((1u<<12)|(1u<<1)));
+        assert(last_flag1 && !last_flag2);
+        assert(mask_hook(item,false,false)==((1u<<12)|(1u<<1)));
+        assert(!last_flag1 && !last_flag2);
+    }
+    item_mask=0; assert(mask_hook(item,false,false)==0); item_mask=65535;
+    using CanUse=BYTE (__thiscall *)(void*,const void*,bool,bool);
+    auto use_hook=reinterpret_cast<CanUse>(&CanUseSpellItem);
+    const void* item_ref=item;
+    item_mask=1u<<12;
+    for(int i=0;i<1000;++i) assert(use_hook(player,&item_ref,true,true)==1);
+    assert(use_required && use_output && ActiveSpellItem()==nullptr);
+    native_use_result=false;
+    assert(use_hook(player,&item_ref,true,true)==0); // native race/deity/level rejection wins
+    native_use_result=true;
+    ActiveSpellItem()=spell;
+    assert(use_hook(player,&item_ref,false,false)==1 && ActiveSpellItem()==spell);
+    assert(!use_required && !use_output);
+    use_raises=true; ExerciseScribeException(player,&item_ref);
+    assert(ActiveSpellItem()==spell); use_raises=false;ActiveSpellItem()=nullptr;
+    item_mask=65535;
+    assert(state.Consume("[NCUI1]S|2|19|22|0|7|2|0|11|Monktest"));
+    assert(level_hook(spell,2)==255 && mask_hook(item,false,false)==(1u<<12));
+    item_spell=44999; assert(mask_hook(item,false,false)==0); item_spell=4;
+    item_type=0; item_mask=1u<<10;
+    assert(mask_hook(item,false,false)==((1u<<10)|(1u<<1)));
+    *reinterpret_cast<uint32_t*>(player+0x148)=8; // old metadata cannot affect next spawn
+    assert(level_hook(spell,2)==123 && mask_hook(item,false,false)==item_mask);
+    *reinterpret_cast<uint32_t*>(player+0x148)=7;
+    *reinterpret_cast<int*>(eq+0x5C8)=1;
+    assert(level_hook(spell,2)==123 && mask_hook(item,false,false)==item_mask);
+    state.Clear(); base=0; original_spell_level=nullptr;
+    VirtualFree(host,0,MEM_RELEASE);
+}
 
 static void TestSilentRequests() {
     using namespace nightcap::client_ui;
@@ -64,6 +158,7 @@ static void TestSilentRequests() {
 }
 
 int main() {
+    TestSpellAccessABI();
     TestSilentRequests();
     // Both native UI-load branches use CXStr assignment (__thiscall, one stack
     // argument). Existing/custom/missing skin preferences all choose Nightcap;

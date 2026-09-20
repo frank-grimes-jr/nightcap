@@ -12,6 +12,47 @@ from client_pet_armor_ui import add_pet_page
 from client_hub_models import add_models, MODELS
 from client_ecommons_hub import recall_spell, hub_files, ROOT
 from client_lavastorm import lavastorm_files
+from generate_pet_spell_catalog import SOURCE_SHA256
+
+
+def restore_spell_classes(raw, original):
+    if hashlib.sha256(original).hexdigest() != SOURCE_SHA256:
+        raise ValueError('Unreviewed original spell eligibility source')
+    if any(line.startswith(b'42604^') for line in raw.splitlines()):
+        # Accept only the exact independently generated recall afterimage; its
+        # custom ID is not part of the original class catalog.
+        arrival = json.loads((ROOT/'docs/ecommons-hub/plan.json').read_bytes())['arrival']
+        recall_spell(raw, arrival)
+    native = {}
+    for line in original.decode('latin1').splitlines():
+        fields = line.split('^')
+        if len(fields) == 230 and fields[:2] == ['99001', 'Ancient Attunement']:
+            continue
+        if len(fields) != 237 or fields[0] in native:
+            raise ValueError('Malformed original spell catalog')
+        native[fields[0]] = fields
+    output, changed, seen = [], [], set()
+    for line in raw.decode('latin1').splitlines(keepends=True):
+        ending = '\r\n' if line.endswith('\r\n') else '\n' if line.endswith('\n') else ''
+        fields = (line[:-len(ending)] if ending else line).split('^')
+        if len(fields) != 237 or fields[0] in seen:
+            raise ValueError('Malformed or duplicate packaged spell')
+        seen.add(fields[0])
+        if fields[0] == '42604':
+            output.append('^'.join(fields)+ending)
+            continue
+        source = native.get(fields[0])
+        # The generated hub recall is independently reviewed and applied after
+        # this transform. Every ordinary packaged spell must match native identity.
+        if not source or fields[1] != source[1]:
+            raise ValueError('Packaged spell identity differs from the original: '+fields[0])
+        if fields[104:120] != source[104:120]:
+            changed.append(int(fields[0]))
+            fields[104:120] = source[104:120]
+        output.append('^'.join(fields)+ending)
+    if not seen:
+        raise ValueError('Empty packaged spell file')
+    return ''.join(output).encode('latin1'), changed
 
 
 def instant_dots(raw):
@@ -105,6 +146,7 @@ def main():
     parser.add_argument('--client', required=True, type=Path)
     parser.add_argument('--output', required=True, type=Path)
     parser.add_argument('--lavastorm', required=True, type=Path, help='reviewed Classic lavastorm.s3d (read only)')
+    parser.add_argument('--spell-source', type=Path, help='pinned original spells_us.txt; defaults to client Downloads')
     args = parser.parse_args()
     client, output = args.client.resolve(), args.output.resolve()
     if output == client or client in output.parents or output in client.parents:
@@ -112,7 +154,9 @@ def main():
     if output.exists():
         raise ValueError('Refusing to overwrite an existing asset generation')
     raw = (client/'spells_us.txt').read_bytes()
-    spells, ids = instant_dots(raw)
+    original = (args.spell_source or client/'Downloads/spells_us.txt').read_bytes()
+    spells, restored = restore_spell_classes(raw, original)
+    spells, ids = instant_dots(spells)
     plan=json.loads((ROOT/'docs/ecommons-hub/plan.json').read_bytes())
     files = {'spells_us.txt': recall_spell(spells,plan['arrival'])}
     files.update(hub_files(client,plan))
@@ -134,6 +178,7 @@ def main():
     audit = {'schema':1, 'features':['three_classes','aa_class_column','instant_dots','pet_armor','compact_hub_models','ecommons_tunnel_hub','ancient_attunement_recall','classic_nektulos','classic_lavastorm'],
              'status':'generated_not_installed',
              'source_spells_sha256':hashlib.sha256(raw).hexdigest(),
+             'canonical_spell_source_sha256':SOURCE_SHA256, 'restored_spell_class_ids':restored,
              'instant_dot_ids':ids, 'skin_activation':'automatic_at_native_ui_load',
              'files':{name:{'size':len(data),'sha256':hashlib.sha256(data).hexdigest()} for name,data in files.items()}}
     (output/'audit.json').write_text(json.dumps(audit,indent=2)+'\n')

@@ -10,6 +10,19 @@ import time
 
 BIN = Path('/opt/nightcap/bin')
 
+
+def validate_native():
+    """Refuse the old binary/new-quest combination before accepting players."""
+    world, zone = (BIN/'world').read_bytes(), (BIN/'zone').read_bytes()
+    if not world.startswith(b'\x7fELF') or not zone.startswith(b'\x7fELF'):
+        raise ValueError('Native runtime must contain the reviewed Linux ELF pair')
+    if b'CALL nightcap_market_rotate({},{},{})\x00' not in world or b'CALL nightcap_market_rotate({})\x00' in world:
+        raise ValueError('World lacks the current economy startup contract')
+    for marker in (b'LivingEconomy\x00', b'MarketAnnouncement\x00', b'_Z9Perl__oocPKc',
+                   b'Your selected classes cannot cast this spell at your current level.'):
+        if marker not in zone:
+            raise ValueError('Zone lacks a required production quest/spell contract')
+
 def validate():
     if 'LSPX' in os.environ:
         raise ValueError('LSPX must be absent, even an empty value enables public lookup')
@@ -54,6 +67,7 @@ def main():
     if sys.argv[1:] == ['--health']:
         health()
         return
+    validate_native()
     subprocess.run([str(BIN/'loginserver'), '--nightcap-crypto-self-test'], check=True)
     for path in ('logs', 'shared'):
         Path(path).mkdir(exist_ok=True)

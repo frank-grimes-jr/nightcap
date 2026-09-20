@@ -53,6 +53,19 @@ All commands run from `akk-stack/`:
 
 ## Server ops
 
+- **Spell access is per character in the production bugfix candidate**: use
+  `common/spell_class_catalog.h`, generated from the pinned original spell file,
+  for learnable spell levels and ownership. Never widen shared `spells_new` class
+  columns on class selection or run the retired global `sync-spell-access.ps1`.
+  The matching signed client handles merchant and scribing gates; ship both.
+  New custom learnable spells require a reviewed catalog entry. Rollout and
+  exact QA: `docs/releases/production-bugfixes-20260920.md`.
+
+- **Quest API compatibility is a release gate**: a successful Perl mock test
+  does not prove the running zone exposes its mocked methods. Production startup
+  checks the native economy/OOC/spell contracts before accepting players. Keep
+  the full paired build provenance and verify actual running hashes.
+
 - **OVH owner-test host**: `/opt/nightcap/deploy/production` runs the private
   database/game/gateway/web/tunnel Compose stack for `play.nightcapgame.org`.
   Use `sudo docker compose`; no host game or database ports are published.

@@ -1,5 +1,21 @@
 # CHANGES
 
+## 2026-09-20 - Multiclass spell-access production repair candidate
+
+Use original spell class levels plus each character's held classes for merchant
+filtering, scribing, memorization and gem casting. Stop globally widening shared
+spell definitions on class selection; preserve existing saved data. Client hooks
+cover both merchant masks and the earlier scribe item gate, retain native item
+restrictions, and clear stale identity. Restore 11,057 packaged spell class rows,
+with explicit protection for generated recall. Production startup rejects
+binaries missing the required economy, OOC and spell-access contracts.
+
+Native/client regression tests, full Linux and Windows builds, signed release
+2026092005 and launcher 0.2.2 pass. Deployment awaits explicit host/payload
+approval after an automatic upload rejection. Evidence, rollback and exact
+in-game QA: `docs/releases/production-bugfixes-20260920.md`. This is not manual
+acceptance or main promotion.
+
 ## 2026-09-20 - Restore resident NPC OOC quest API
 
 Add the native `quest::ooc` adapter required by Trift's timer. Send literal NPC
