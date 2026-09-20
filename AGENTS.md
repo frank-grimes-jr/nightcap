@@ -189,3 +189,11 @@ indexes operational guides and dated evidence. Preserve historical report scope.
 The standalone `index.html` publishes with `.nojekyll` from `gh-pages`; see
 `docs/ops/player-website.md`. Website publication does not promote gameplay to
 main or replace owner in-game QA.
+
+### Client UI request transport
+
+Internal class/AA and pet armor requests must bypass InterpretCmd and Say's local
+chat echo/history. Proxy 0.4.2 uses the pinned native channel sender with an
+ASLR-aware signed guard. Keep ordinary chat and actionable server errors visible;
+retain authoritative server handlers. Native evidence and QA are in
+`docs/releases/client-silent-ui-20260919.md`.

@@ -21,7 +21,7 @@ int main() {
     assert(state.SelectedClass() == 10);
     assert(state.Nonce() == 77);
     assert(state.SlotText(0) == "Head: Empty");
-    assert(state.Command("equip", 0) == "/say #nightcappet equip 10 0 77");
+    assert(state.Command("equip", 0) == "#nightcappet equip 10 0 77");
     assert(state.Command("remove", 0).empty());
     assert(state.Command("evil", 0).empty());
     assert(state.Command("equip", 8).empty());
@@ -37,8 +37,8 @@ int main() {
     }
     assert(state.Consume("[NCPA1]E|78"));
     assert(state.Command("equip", 0).empty());
-    assert(state.Command("remove", 0) == "/say #nightcappet remove 10 0 78");
-    assert(state.Command("inspect", 0) == "/say #nightcappet inspect 10 0 78");
+    assert(state.Command("remove", 0) == "#nightcappet remove 10 0 78");
+    assert(state.Command("inspect", 0) == "#nightcappet inspect 10 0 78");
     assert(!state.Consume("[NCPA1]I|77|10|0|400|426164"));
     assert(state.SlotText(0) == "Head: Armor");
     state.Next(1); assert(state.SelectedClass() == 10);

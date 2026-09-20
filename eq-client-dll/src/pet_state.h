@@ -81,7 +81,7 @@ public:
         if (verb == "equip") { if (!pet->spawn || pet->slots[index].item) return ""; }
         else if (verb == "remove" || verb == "inspect") { if (!pet->slots[index].item) return ""; }
         else return "";
-        return "/say #nightcappet " + verb + " " + std::to_string(selected_) + " " + std::to_string(index) + " " + std::to_string(current_.identity[0]);
+        return "#nightcappet " + verb + " " + std::to_string(selected_) + " " + std::to_string(index) + " " + std::to_string(current_.identity[0]);
     }
     bool Consume(const char *message) {
         if (!message) return false;

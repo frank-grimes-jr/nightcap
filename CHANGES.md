@@ -1,5 +1,14 @@
 # CHANGES
 
+## 2026-09-19 - Silence automatic UI requests
+
+Replace the client slash-command interpreter with the verified native channel
+packet sender for class/AA refresh and pet armor actions. Automatic requests no
+longer enter Say echo or command history; normal chat/errors and server item
+safeguards remain intact. Proxy 0.4.2 / signed release 2026091906 updates the
+ASLR-aware compatibility guard and adds native transport regression coverage.
+[Delivery and exact QA](docs/releases/client-silent-ui-20260919.md).
+
 ## 2026-09-19 - Repair rejected Nightcap UI skin
 
 In-game evidence showed the custom skin falling back to Default. The XML generator

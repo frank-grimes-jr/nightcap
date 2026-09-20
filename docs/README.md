@@ -4,6 +4,8 @@ Start with [current status](status.md), not a dated candidate report.
 
 ## Players and testers
 
+- [Silent UI synchronization and release 1906](releases/client-silent-ui-20260919.md)
+
 - [September 19 client/gameplay release and exact QA](releases/client-gameplay-20260919.md)
 - [September 19 live activation and recovery](releases/client-gameplay-live-20260919.md)
 - [September 19 skin rejection repair and release 1905](releases/client-skin-repair-20260919.md)

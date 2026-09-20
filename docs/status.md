@@ -5,6 +5,12 @@ QA reports preserve their original evidence and are not live-state promises.
 
 ## September 19 gameplay release
 
+Signed release 2026091906 installs the client-only silent UI repair: login and
+pet armor requests bypass local slash-command echo/history. The usual launcher
+now contains 1906. Original-client installation, all 13 file hashes, and actual
+startup with proxy 0.4.2 / all 12 features pass; in-game silence QA remains open.
+[Delivery and exact QA](releases/client-silent-ui-20260919.md).
+
 The seven requested client/server changes are implemented. The matching world
 and all eight zones are now running the verified September 19 build; pet armor
 schema and the compact exotic PoK hub are applied. The full backup, fresh guarded
@@ -19,7 +25,7 @@ the generator's namespace rewrite made RoF2 reject Nightcap and fall back to
 Default. The repaired package retains automatic skin selection, preserves the
 native schema header, and rejects the old invalid assets during packaging.
 [Repair evidence and current delivery](releases/client-skin-repair-20260919.md).
-The owner closed the apps; the usual `launcher-final` path now contains 1905.
+Release 1905 established the repaired skin baseline; 1906 supersedes that launcher.
 Installation and startup passed on both the separate QA copy and, after the
 owner's explicit folder override, the normal original client. All 13 signed files
 and all 12 runtime features were verified. The launcher is ready for owner login;
