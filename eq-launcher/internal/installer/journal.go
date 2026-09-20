@@ -171,6 +171,17 @@ func recoverWithFault(root *os.Root, trust manifest.Trust, fault func(string)) e
 			}
 		}
 	}
+	for _, e := range j.Entries {
+		if _, pinned := trust.RetiredSHA256[e.Path]; pinned {
+			current, readErr := readBounded(root, e.Path, manifest.MaxFileBytes)
+			if readErr != nil && !errors.Is(readErr, os.ErrNotExist) {
+				return readErr
+			}
+			if readErr == nil && (!e.Existed || manifest.Digest(current) != e.SHA256) {
+				return fmt.Errorf("recovery conflict: preserve changed retired file %s", e.Path)
+			}
+		}
+	}
 	for i, e := range j.Entries {
 		// A failed Windows replacement can leave the original intact but held
 		// open without delete sharing. Avoid rewriting a verified original;
@@ -180,12 +191,22 @@ func recoverWithFault(root *os.Root, trust manifest.Trust, fault func(string)) e
 			if err != nil {
 				return err
 			}
-			err = replace(root, e.Path, in, e.Size, e.SHA256, p.ID, i)
+			if _, pinned := trust.RetiredSHA256[e.Path]; pinned {
+				err = restoreRetired(root, e.Path, in, e.Size, e.SHA256, p.ID, i, fault)
+			} else {
+				err = replace(root, e.Path, in, e.Size, e.SHA256, p.ID, i)
+			}
 			err = errors.Join(err, in.Close())
 			if err != nil {
 				return err
 			}
 		} else if !e.Existed {
+			if _, pinned := trust.RetiredSHA256[e.Path]; pinned {
+				if _, e2 := root.Lstat(e.Path); !errors.Is(e2, os.ErrNotExist) {
+					return fmt.Errorf("recovery conflict: preserve appeared retired file %s", e.Path)
+				}
+				continue
+			}
 			if err = removeRegular(root, e.Path); err != nil {
 				return err
 			}
