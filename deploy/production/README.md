@@ -1,12 +1,13 @@
 # Nightcap private hosting candidate
 
-Prepared 2026-09-20 for ten simultaneous friends in US East. This is a deployment
-kit, not an already-hosted server. Use [QA.md](QA.md) before distributing the final
-launcher. Domain, cloud accounts, production signing key and host purchase remain
-owner inputs. Preparing this infrastructure does not approve gameplay promotion.
+Prepared 2026-09-20 for ten simultaneous friends in US East. The owner-test stack
+is now deployed at `play.nightcapgame.org`; see
+[activation evidence](../../docs/releases/ovh-activation-20260920.md).
+Use [QA.md](QA.md) before friend distribution. Real client acceptance and encrypted
+off-host backups remain open. Hosting does not approve gameplay promotion.
 
 Start with the [short OVH + Cloudflare setup guide](QUICKSTART.md). The owner has
-selected these providers; account provisioning and deployment remain pending.
+selected these providers; the guide also documents the remaining backup/QA steps.
 
 ## Lowest-cost practical starting point
 

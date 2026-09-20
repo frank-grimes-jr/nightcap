@@ -1,7 +1,9 @@
 # Production acceptance — not yet signed off
 
 Automated checks prove components only. Record dates, versions, image hashes,
-release ID and results for each manual case. Hosting has not been provisioned.
+release ID and results for each manual case. The owner-test host is provisioned;
+[automated activation evidence](../../docs/releases/ovh-activation-20260920.md)
+does not establish the still-open native acceptance cases below.
 
 - [ ] Native crypto self-test passes with the actual shipped loginserver. Correct
   password accepted; wrong/empty hash rejected. Mode14 account provision/reset

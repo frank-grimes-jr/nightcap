@@ -1,7 +1,9 @@
 # Nightcap: OVH + Cloudflare setup
 
-Provider choice confirmed by the owner on 2026-09-20. Hosting has not been ordered
-or activated. This is the short owner guide; [README.md](README.md) contains the
+Provider choice confirmed by the owner on 2026-09-20. OVH and the Cloudflare tunnel
+are now active for owner testing at `play.nightcapgame.org`; see
+[deployment evidence](../../docs/releases/ovh-activation-20260920.md).
+This is the short owner guide; [README.md](README.md) contains the
 technical deployment steps and [QA.md](QA.md) the acceptance checklist.
 
 ## 1. Order one OVH VPS — owner
@@ -90,5 +92,6 @@ are not implemented yet. The current patcher fetches published signed releases,
 not GitHub source. Until automation is installed, use the README release procedure.
 Keep manual gameplay QA and main-promotion approval in the release process.
 
-First action: complete steps 1–3. No production service has been purchased or
-started by preparing this guide.
+Current owner steps: reset the existing private admin password, run the hosted
+client QA in step6, and finish encrypted R2 backup configuration/restore testing
+from step5. Friend distribution remains gated on acceptance.

@@ -9,9 +9,13 @@ A separate [production hosting/launcher candidate](../deploy/production/README.m
 implements hosted signed updates and launcher-managed encrypted transport for ten
 friends. Infrastructure, private-account provisioning, backups and guides exist.
 The owner selected OVH + Cloudflare; follow the [short setup guide](../deploy/production/QUICKSTART.md).
-Domain/account provisioning, full isolated restore, native relay acceptance and public
-deployment remain open. GitHub Actions deployment, automatic patch-before-Play
-and launcher EXE self-update are not implemented yet. It has not changed the running QA server or promoted gameplay.
+The owner-test deployment is running at `play.nightcapgame.org`: database restored,
+private world registered, Cloudflare IP blocking verified, and signed production
+release2026092003 published. Native transport handshakes pass through the encrypted
+relay; actual RoF2 login/gameplay and R2 backups remain open. See
+[OVH activation and recovery evidence](releases/ovh-activation-20260920.md).
+GitHub Actions deployment, automatic patch-before-Play and launcher EXE self-update
+are not implemented yet. The running local QA server and gameplay branches are unchanged.
 
 ## East Commonlands hub QA candidate
 

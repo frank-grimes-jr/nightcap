@@ -53,6 +53,14 @@ All commands run from `akk-stack/`:
 
 ## Server ops
 
+- **OVH owner-test host**: `/opt/nightcap/deploy/production` runs the private
+  database/game/gateway/web/tunnel Compose stack for `play.nightcapgame.org`.
+  Use `sudo docker compose`; no host game or database ports are published.
+  Stop `gateway game` for gameplay downtime; never use `down -v` on this data.
+  SSH, Cloudflare and gateway allowlists need coordinated owner-IP changes.
+  Initial activation, verified account namespace migration and open native/R2
+  acceptance gates: `docs/releases/ovh-activation-20260920.md`.
+
 - **Custom rules require matching world and zone builds.** World deletes rules
   absent from its compiled catalog during boot. The old world removed
   `Character:AAExpMinLevel` despite the newer zone supporting it. Build/deploy

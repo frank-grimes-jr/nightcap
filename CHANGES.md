@@ -1,5 +1,15 @@
 # CHANGES
 
+## 2026-09-20 - OVH owner-test activation
+
+Deploy the private container candidate to the owner's OVH VPS and Cloudflare
+hostname, restore the complete QA snapshot, preserve character ownership across
+the verified private-login namespace migration, and publish signed production
+release2026092003 / launcher0.2.0. Hosted signatures/file hashes and native relay
+session handshakes pass; owner versus unapproved-IP HTTPS checks return200/403.
+Local QA and gameplay branches remain unchanged. Real RoF2 acceptance, encrypted
+R2 backups and release automation remain open. See docs/releases/ovh-activation-20260920.md.
+
 ## 2026-09-20 - Production Compose mount correction
 
 The first OVH container startup rejected a stray `mode=1777` mount: YAML flow
