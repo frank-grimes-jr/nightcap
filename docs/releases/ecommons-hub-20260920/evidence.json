@@ -10,5 +10,14 @@
   },
   "rehearsal": {
     "hub-v3-review-report.json": "3692b57242ae762669c1d6da672d8ed95c6220eefd3434dcad32d8cc11c5f387"
+  },
+  "activation": {
+    "activation/live-verification.json": "2363a9fc831b4a7a6225cbfa06c0f96d52d701baa1d93b5bd445760adb013800",
+    "activation/applied.json": "ccc90a932604d90bfaacf64bb70430f312c21c3a86c6e2047f3c3d74b02c78b5",
+    "activation/backup.json": "8de3e32faf47d9ec1f74c93e3aa9cc65dd48c1ebf2cf57342e0826ee2bdee992",
+    "activation/hub-v4-review-report.json": "b1b2c0d61e3d8d4535ad785bd3a4e506ec7351407076843ea138df4f6832e0c8",
+    "client-install.json": "3a6441d7c93437fb92f8c1d1db436c4d52f2c3d1deff7b64530e9dcad79026ea",
+    "client-health.json": "13201e0f170939ce7b2f6393cd1f37ceecd872c1d76921619d39625119dde11e",
+    "return-approaches.json": "faeca7fd8a67985808a15d561d587c24df3804a325f736f90abdd926b9793316"
   }
 }
