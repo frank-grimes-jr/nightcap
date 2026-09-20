@@ -166,3 +166,7 @@ tools/tests/test-pok-hub-era.ps1 text eol=lf
 tools/tests/test_pok_hub_migration.py text eol=lf
 tools/tests/run_pok_hub_database.py text eol=lf
 tools/templates/vendor_restock-archetype.sql text eol=lf
+
+# Production Linux scripts/configs and patch context must survive Windows checkout.
+deploy/production/* text eol=lf
+deploy/production/native-hardening.patch text eol=lf -whitespace
