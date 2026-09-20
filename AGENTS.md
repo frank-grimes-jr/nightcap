@@ -221,6 +221,12 @@ future gameplay promotion or friend distribution without acceptance.
 
 ### Commits
 
+**September 20 production bugfix promotion:** the owner explicitly requested
+"Push to main when you're done" for the NPC and multiclass spell fixes. This
+authorizes source promotion of the tested release 2026092005 candidate. The
+separate production upload/deployment approval and manual gameplay checks remain
+open; see `docs/releases/production-bugfixes-20260920.md`.
+
 - Small commits/PRs. One system or feature per commit, **with tests**.
 - If a task is ambiguous, propose 2–3 options with tradeoffs in the PR/commit description rather than silently choosing.
 

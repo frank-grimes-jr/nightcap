@@ -1,5 +1,13 @@
 # CHANGES
 
+## 2026-09-20 - Authorize production bugfix source promotion
+
+The owner requested the tested NPC and multiclass spell fixes be pushed to main.
+Promote the reviewed source through dev/test/main with its existing test and
+rollback evidence. Production release 2026092005 upload/deployment is separately
+awaiting explicit approval after automatic review rejected the transfer. Source
+promotion does not establish deployment or completed in-game acceptance.
+
 ## 2026-09-20 - Multiclass spell-access production repair candidate
 
 Use original spell class levels plus each character's held classes for merchant

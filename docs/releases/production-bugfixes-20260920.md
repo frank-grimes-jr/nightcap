@@ -2,6 +2,9 @@
 
 Status: built, tested, independently reviewed and signed; deployment awaiting
 explicit host/payload approval. No upload or production switch by this task.
+The owner explicitly authorized main source promotion with "Push to main when
+you're done" on September 20. Existing automated verification and independent
+review pass; manual gameplay acceptance and production deployment remain open.
 Branch: `feature/production-bugfixes-20260920`, isolated from the original working
 tree. User intent: repair Tunnel Trader errors, missing NPC auctions, secondary
 class merchant usability and purchased spells reporting level 255.
@@ -104,8 +107,9 @@ No retry, indirect upload or production change followed that rejection.
 On server failure, restore the retained image, supervisor and plugin together.
 Do not overwrite subsequent player progress with a whole database restore. For
 client rollback publish retained contents under a higher signed release number;
-do not lower or replace an already published immutable release. Main promotion
-still requires the owner's sign-off; automated checks are not manual acceptance.
+do not lower or replace an already published immutable release. The owner's
+explicit main-promotion authorization applies to source; automated checks are
+not manual acceptance or approval of the blocked production upload.
 
 ## Exact owner in-game QA
 
@@ -135,4 +139,5 @@ Use Monktest, CLR/MAG/NEC level 50, on the supported updated RoF2 client.
 7. Confirm normal non-scroll equipment, race/deity restrictions, item clickies,
    Ancient Attunement, class skills and pets retain their prior behavior.
 
-Record observed results and any immediate-login refresh race before main promotion.
+Record observed results and any immediate-login refresh race before gameplay
+acceptance; the owner authorized source promotion ahead of that acceptance.

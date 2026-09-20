@@ -11,8 +11,9 @@ Native/client builds, regression tests, exact client signatures, independent
 review and server/publication rollback rehearsals pass. Launcher 0.2.2 and the
 22-file signed package are staged locally. Automatic review blocked upload to
 the production host; explicit upload/deployment approval is pending. No production
-switch or client publication has occurred for this repair. Manual gameplay QA
-and main promotion remain open; the running hosted version is 2026092004 below.
+switch or client publication has occurred for this repair. The owner authorized
+main source promotion on September 20; manual gameplay QA remains open. The last
+verified running hosted version is 2026092004 below.
 
 ## Production launcher and hosting candidate
 
