@@ -9,8 +9,10 @@ The server candidate supports one permanent summoned pet per held class, shared
 ordinary pet controls and separate eight-slot armor loadouts. The 36 native
 class/summon permutations, attack/range cases, migration cases and transactional
 failure checks pass. [Evidence and exact owner QA](releases/multiclass-pets-20260919/README.md).
+The QA candidate is active: world and all eight zones have verified hashes,
+with a fresh backup and clean checked startup logs. [Activation evidence](releases/multiclass-pets-20260919/ACTIVATION.md).
 Manual acceptance and main promotion remain pending. The existing 1906 launcher
-is sufficient; this behavior depends on activating the candidate server.
+is sufficient; no client repatch or startup command is required.
 
 The [East Commonlands tunnel proposal](pok/ecommons-tunnel-proposal.md) has
 16 spaced merchants and ten suggested travel stones. It is an assessment only;

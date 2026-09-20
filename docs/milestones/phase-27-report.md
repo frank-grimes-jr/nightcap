@@ -20,3 +20,8 @@ hub. [Proposal](../pok/ecommons-tunnel-proposal.md). No hub migration was applie
 Not claimed: in-game visual acceptance, complete death/zoning/client interaction
 QA, or encounter balance with three pets. The release stays at the test gate
 until owner sign-off. The earlier silent UI package remains unchanged.
+
+The candidate is active on the development server after graceful shutdown and
+a verified full backup. World and all eight zone hashes match, 17 source files
+match, required rules and PoK stock are intact, and the 14 checked startup logs
+contain no Error/Fatal lines. [Activation and recovery](../releases/multiclass-pets-20260919/ACTIVATION.md).

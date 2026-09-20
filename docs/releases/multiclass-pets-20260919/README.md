@@ -11,6 +11,7 @@ Duplicate same-class summons cannot replace or add another pet. Native command
 permissions and combat checks remain in force.
 
 - [Exact owner QA](QA.md)
+- [Verified server activation and recovery](ACTIVATION.md)
 - [Architecture and rollback constraints](../../adr/0039-class-pet-roster-and-persistence.md)
 - [East Commonlands assessment; no migration applied](../../pok/ecommons-tunnel-proposal.md)
 
@@ -47,8 +48,8 @@ Production candidate hashes:
 - Zone: `ee0cc6ab7a83d2d538d6342273eb6fbfed8cc738a35cb0103090e1825435e2b4`
 
 No new client files or schema migration are required. Matching source overlays
-and candidate binaries must be deployed before the QA steps can exercise this
-behavior. Actual activation evidence is recorded separately when performed.
+and candidate binaries are now active on the development server; the running
+world and all eight zones were verified. See the activation evidence above.
 
 ## Recovery
 

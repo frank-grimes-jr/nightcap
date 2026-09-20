@@ -1,6 +1,6 @@
 # Three class pets: owner QA
 
-September 19, 2026. Candidate server build; manual acceptance is pending.
+September 19, 2026. Candidate server build is active; manual acceptance is pending.
 The existing signed launcher 2026091906 is sufficient. This change requires
 the candidate **server**, not another client patch or a startup slash command.
 
