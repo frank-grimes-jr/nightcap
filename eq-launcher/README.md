@@ -1,5 +1,14 @@
 # Nightcap launcher
 
+## Production patcher
+
+The permanent `nightcap-launcher.exe` starter verifies a separate signed desktop
+channel and opens the cached, verified launcher. Production checks on opening or
+selecting a game folder; Play recovers interruptions and applies required updates
+before launch. Only changed game files use the network. Existing players migrate
+once from launcher 0.2.2 or earlier; keep the same starter shortcut afterwards.
+See [release and publishing operations](../docs/ops/permanent-patcher.md).
+
 ## Usable local QA package
 
 The default build is an unconfigured development preview. For the signed offline
@@ -7,9 +16,8 @@ QA build, copied client, exact executable path, build instructions and owner QA,
 see [the September 15 package guide](../docs/releases/launcher-qa-20260915.md).
 
 Development implementation for issues #14/#15 and the full client-parity goal.
-The Wails/Vue shell and guarded installer/controller are implemented. The
-production release pipeline and remaining parity hooks are still being built.
-This is not a production launcher release.
+The Wails/Vue shell and guarded installer/controller are implemented. The production policy is generated locally during release signing; the default
+source build intentionally remains an unconfigured preview.
 
 ## Implemented
 
@@ -22,7 +30,8 @@ This is not a production launcher release.
   public installation, sharing original-byte constants with the proxy.
 - Ed25519 verification of compact, schema-specific canonical manifest bytes.
 - Key validity, manifest expiry, launcher version and monotonic release checks.
-- Exact trusted inventory, required flags, bounded sizes and lowercase SHA256.
+- Signed production inventory inside compiled game-asset scopes; offline QA keeps
+  exact inventories. Core files, required flags, sizes and hashes are validated.
 - Strict Windows relative paths, owned tombstones and allowlisted HTTPS hosts.
 - Read-only exact RoF2 executable identification, shared with the proxy guard.
 - Signed local inventory diff by size/SHA256 with nonregular/link rejection.
@@ -34,7 +43,7 @@ This is not a production launcher release.
 - Journaled asset installation, full rollback/restart recovery, tombstones and
   same-release repair with a durable local release/digest checkpoint.
 
-No release key is embedded yet. Tests generate ephemeral keys. Trust configuration
+Production builds embed the public signing key; tests generate ephemeral keys. Trust configuration
 must come from the launcher/release trust chain, never a fetched manifest. The manifest
 API returns validated metadata only. Asset inspection/staging adds file evidence,
 not runtime patch health or authority to launch. Rollback and key rotation remain

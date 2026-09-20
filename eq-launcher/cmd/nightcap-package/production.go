@@ -24,6 +24,7 @@ type productionProfile struct {
 	GuideURL     string    `json:"guide_url"`
 	RelayURL     string    `json:"relay_url"`
 	Version      string    `json:"version"`
+	MinLauncher  string    `json:"minimum_launcher,omitempty"`
 	KeyNotBefore time.Time `json:"key_not_before"`
 	KeyNotAfter  time.Time `json:"key_not_after"`
 	publish      string
@@ -85,6 +86,9 @@ func (p productionProfile) validate() error {
 	if !regexp.MustCompile(`^[0-9]+\.[0-9]+\.[0-9]+$`).MatchString(p.Version) {
 		return fmt.Errorf("three-part launcher version required")
 	}
+	if p.MinLauncher != "" && !regexp.MustCompile(`^[0-9]+\.[0-9]+\.[0-9]+$`).MatchString(p.MinLauncher) {
+		return fmt.Errorf("three-part minimum launcher version required")
+	}
 	if p.KeyNotBefore.IsZero() || !p.KeyNotAfter.After(p.KeyNotBefore) || p.KeyNotAfter.Sub(p.KeyNotBefore) > 3*366*24*time.Hour {
 		return fmt.Errorf("explicit signing-key window of at most three years required")
 	}
@@ -143,8 +147,8 @@ package launcher
 import ("time"; "encoding/hex"; "nightcap/eq-launcher/internal/manifest")
 func DefaultPolicy() Policy {
  public, err := hex.DecodeString(%q); if err != nil { panic(err) }
- return Policy{Label:"Nightcap", EnablePlay:true, EnvelopeURL:%q, GuideURL:%q, RelayURL:%q, Trust:manifest.Trust{
- LauncherVersion:%q, Hosts:[]string{%q},
+ return Policy{Label:"Nightcap", EnablePlay:true, AutomaticUpdates:true, EnvelopeURL:%q, GuideURL:%q, RelayURL:%q, Trust:manifest.Trust{
+ ReleaseInventory:true, LauncherVersion:%q, Hosts:[]string{%q},
  Keys:[]manifest.Key{{ID:%q,Public:public,NotBefore:time.Unix(%d,0),NotAfter:time.Unix(%d,0)}},
  Inventory:map[string]bool{%s}, Retired:map[string]bool{"nektulos.eqg":true,"lavastorm.eqg":true}, RetiredSHA256:map[string]string{"nektulos.eqg":%q,"lavastorm.eqg":%q},
  }}

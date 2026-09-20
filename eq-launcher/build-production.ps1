@@ -1,7 +1,10 @@
 param(
     [Parameter(Mandatory=$true)][string]$Destination,
     [Parameter(Mandatory=$true)][string]$Profile,
-    [string]$Wails = 'wails'
+    [string]$Wails = 'wails',
+    [Parameter(Mandatory=$true)][string]$Key,
+    [Parameter(Mandatory=$true)][UInt64]$LauncherRelease,
+    [Parameter(Mandatory=$true)][string]$LauncherPublish
 )
 $ErrorActionPreference = 'Stop'
 if (![IO.Path]::IsPathRooted($Destination)) { throw 'Destination must be absolute.' }
@@ -32,9 +35,15 @@ try {
         $config.info.productVersion = $profileData.version
         $config.info.comments = 'Private Nightcap launcher with signed updates and encrypted game transport.'
         [IO.File]::WriteAllText($configPath, ($config | ConvertTo-Json -Depth 10), [Text.UTF8Encoding]::new($false))
-        & $Wails build -platform windows/amd64 -tags production -o nightcap-launcher.exe -s -m -nosyncgomod
+        & $Wails build -platform windows/amd64 -tags production -o nightcap-desktop.exe -s -m -nosyncgomod
         if ($LASTEXITCODE -ne 0) { throw 'Production desktop build failed.' }
     } finally { [IO.File]::WriteAllBytes($configPath, $original) }
+    & go run ./cmd/nightcap-package -production-profile $Profile -publish $LauncherPublish -key $Key -release $LauncherRelease -launcher-exe 'build/bin/nightcap-desktop.exe'
+    if ($LASTEXITCODE -ne 0) { throw 'Launcher channel signing failed.' }
+    & go run -tags production ./cmd/nightcap-releasecheck -launcher-channel (Join-Path $LauncherPublish 'launcher-channel.json')
+    if ($LASTEXITCODE -ne 0) { throw 'Launcher channel does not match compiled starter trust.' }
+    & go build -trimpath -tags production -ldflags '-s -w -H=windowsgui' -o 'build/bin/nightcap-launcher.exe' ./cmd/nightcap-starter
+    if ($LASTEXITCODE -ne 0) { throw 'Stable starter build failed.' }
     New-Item -ItemType Directory -Path $Destination | Out-Null
     Copy-Item -LiteralPath 'build/bin/nightcap-launcher.exe' -Destination $Destination
     Copy-Item -LiteralPath '../deploy/production/FRIENDS.txt' -Destination $Destination

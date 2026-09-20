@@ -27,7 +27,7 @@ func (a *App) startup(ctx context.Context) {
 		a.controller, err = launcher.New(home, policy)
 		if err == nil && a.controller.Snapshot().ClientDir != "" {
 			// Client errors belong in the status panel, not startup availability.
-			_ = a.controller.SelectClient(ctx, a.controller.Snapshot().ClientDir)
+			go func() { _ = a.controller.SelectClient(ctx, a.controller.Snapshot().ClientDir) }()
 		}
 	}
 	a.startupError = err

@@ -24,13 +24,14 @@ type Policy struct {
 	Bundle fs.FS
 	Label  string
 	// EnablePlay is release-owned and stays false in development previews.
-	EnablePlay   bool
-	ManifestURL  string
-	SignatureURL string
-	EnvelopeURL  string
-	GuideURL     string
-	RelayURL     string
-	Trust        manifest.Trust
+	EnablePlay       bool
+	AutomaticUpdates bool
+	ManifestURL      string
+	SignatureURL     string
+	EnvelopeURL      string
+	GuideURL         string
+	RelayURL         string
+	Trust            manifest.Trust
 }
 
 func (p Policy) configured() bool {

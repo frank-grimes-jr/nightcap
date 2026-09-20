@@ -32,10 +32,15 @@ func main() {
 	output := flag.String("output", "internal/launcher", "generated policy directory")
 	profilePath := flag.String("production-profile", "", "reviewed production profile JSON; otherwise build offline QA")
 	publish := flag.String("publish", "", "new directory for hosted production files")
+	launcherExe := flag.String("launcher-exe", "", "sign this desktop EXE into a separate launcher channel instead of packaging game files")
 	flag.Parse()
 	profile, err := loadProfile(*profilePath, *publish)
 	if err == nil {
-		err = buildConfigured(*client, *assets, *keyPath, *newKey, *release, *output, profile)
+		if *launcherExe != "" {
+			err = buildLauncher(*launcherExe, *keyPath, *release, profile)
+		} else {
+			err = buildConfigured(*client, *assets, *keyPath, *newKey, *release, *output, profile)
+		}
 	}
 	if err != nil {
 		fmt.Fprintln(os.Stderr, err)
@@ -176,6 +181,13 @@ func buildConfigured(client, assets, keyPath string, create bool, release uint64
 	m := manifest.Manifest{Schema: 1, Release: release, MinLauncher: "0.1.0", Expires: now.Add(30 * 24 * time.Hour), Tombstones: []string{"nektulos.eqg", "lavastorm.eqg"}}
 	trust.Keys, trust.Hosts, trust.LauncherVersion = []manifest.Key{key}, hosts, version
 	m.MinLauncher = version
+	if profile != nil {
+		trust.ReleaseInventory = true
+		m.MinLauncher = "0.3.0"
+		if profile.MinLauncher != "" {
+			m.MinLauncher = profile.MinLauncher
+		}
+	}
 
 	for _, name := range names {
 		trust.Inventory[name] = true

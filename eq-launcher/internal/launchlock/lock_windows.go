@@ -14,6 +14,11 @@ import (
 // Only ordinary absolute drive paths are supported; junctions and UNC/device
 // namespaces fail closed. Drive remapping by the same user is outside this lease.
 func Acquire(directory string) (*Set, error) {
+	return AcquireImage(directory, "eqgame.exe")
+}
+
+// AcquireImage pins a fixed caller-selected executable and its ancestors.
+func AcquireImage(directory, image string) (*Set, error) {
 	dir, err := filepath.Abs(directory)
 	if err != nil {
 		return nil, err
@@ -45,7 +50,7 @@ func Acquire(directory string) (*Set, error) {
 			return nil, err
 		}
 	}
-	if _, err = s.Open("eqgame.exe"); err != nil {
+	if _, err = s.Open(image); err != nil {
 		return nil, err
 	}
 	keep = true

@@ -105,7 +105,7 @@ func (c *Controller) Snapshot() Status {
 	s.CanUpdate = !s.Busy && s.Supported && s.Configured && !s.RecoveryRequired && (s.Phase == "update" || s.Phase == "health_pending")
 	s.CanRecover = !s.Busy && s.Supported && s.Configured && s.RecoveryRequired
 	// Eligibility offers an attempt only; Play revalidates everything under a lease.
-	s.CanPlay = !s.Busy && s.Supported && c.locallyCurrent && !s.RecoveryRequired && c.policy.playConfigured()
+	s.CanPlay = !s.Busy && s.Supported && (c.locallyCurrent || c.policy.AutomaticUpdates) && (!s.RecoveryRequired || c.policy.AutomaticUpdates) && c.policy.playConfigured()
 	return s
 }
 func (c *Controller) begin(ctx context.Context) (context.Context, string, error) {
@@ -187,6 +187,10 @@ func (c *Controller) SelectClient(ctx context.Context, dir string) (err error) {
 	if err = c.inspectExecutable(dir); err != nil {
 		return err
 	}
+	if c.policy.AutomaticUpdates && c.policy.configured() {
+		_, _, _, err = c.prepare(ctx, dir)
+		return err
+	}
 	if !c.policy.configured() {
 		c.show("preview", "Client recognized. Updates are not available in this preview.")
 	} else {
@@ -235,6 +239,21 @@ func (c *Controller) prepare(ctx context.Context, dir string) ([]byte, manifest.
 		return nil, manifest.Signature{}, trust, err
 	}
 	if local.RecoveryRequired {
+		if c.policy.AutomaticUpdates {
+			if err := ctx.Err(); err != nil {
+				return nil, manifest.Signature{}, trust, err
+			}
+			c.show("recovering", "Restoring the interrupted update before checking for patches…")
+			if err := c.recover(dir, trust); err != nil {
+				return nil, manifest.Signature{}, trust, err
+			}
+			local, err = c.inspectLocal(ctx, dir, trust)
+			if err != nil {
+				return nil, manifest.Signature{}, trust, err
+			}
+		}
+	}
+	if local.RecoveryRequired {
 		c.show("recovery", "An interrupted update needs recovery before continuing.")
 		return nil, manifest.Signature{}, trust, nil
 	}
@@ -267,7 +286,7 @@ func (c *Controller) prepare(ctx context.Context, dir string) ([]byte, manifest.
 	c.state.Files = diff.Files
 	c.state.Remove = diff.Remove
 	c.mu.Unlock()
-	if changes > 0 || local.Release != m.Release || !local.Present {
+	if changes > 0 || local.Release != m.Release || !local.Present || !local.Current {
 		c.show("update", fmt.Sprintf("Release %d is ready. %d file changes to apply.", m.Release, changes))
 	} else {
 		c.show("health_pending", "Files match this release. Play will verify client compatibility and active patches.")
@@ -289,30 +308,39 @@ func (c *Controller) Update(ctx context.Context) (err error) {
 		return err
 	}
 	defer func() { c.finish(err) }()
+	_, err = c.updatePrepared(ctx, dir, false)
+	return err
+}
+
+// Caller owns Busy continuously through verification, installation and Play.
+func (c *Controller) updatePrepared(ctx context.Context, dir string, onlyNeeded bool) (manifest.Trust, error) {
 	raw, sig, trust, err := c.prepare(ctx, dir)
 	if err != nil {
-		return err
+		return trust, err
 	}
 	if len(raw) == 0 {
-		return fmt.Errorf("a verified release and complete recovery are required before updating")
+		return trust, fmt.Errorf("a verified release and complete recovery are required before updating")
+	}
+	if onlyNeeded && c.Snapshot().Phase == "health_pending" {
+		return trust, ctx.Err()
 	}
 	parent := filepath.Join(c.home, "staging")
 	if err = os.MkdirAll(parent, 0700); err != nil {
-		return err
+		return trust, err
 	}
 	c.show("staging", "Preparing and verifying all release files…")
 	generation, err := c.stage(ctx, raw, sig, trust, dir, parent)
 	if err != nil {
-		return err
+		return trust, err
 	}
 	if err = ctx.Err(); err != nil {
-		return err
+		return trust, err
 	}
 	trust.Now = time.Now().UTC()
 	c.show("installing", "Installing verified files. Keep the game closed.")
 	result, err := c.install(ctx, dir, generation.Directory, trust)
 	if err != nil {
-		return err
+		return trust, err
 	}
 	c.mu.Lock()
 	c.state.InstalledRelease = result.Release
@@ -324,7 +352,8 @@ func (c *Controller) Update(ctx context.Context) (err error) {
 	c.state.Remove = []string{}
 	c.mu.Unlock()
 	c.show("health_pending", "Files installed. Play will verify client compatibility and active patches.")
-	return nil
+	trust.HighestRelease, trust.HighestDigest = result.Release, result.ManifestDigest
+	return trust, nil
 }
 func (c *Controller) Recover(ctx context.Context) (err error) {
 	ctx, dir, err := c.begin(ctx)

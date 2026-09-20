@@ -47,6 +47,15 @@ func (c *Controller) Play(ctx context.Context) (err error) {
 	}
 	trust := c.policy.Trust
 	trust.Now = time.Now().UTC()
+	if c.policy.AutomaticUpdates {
+		trust, err = c.updatePrepared(ctx, dir, true)
+		if err != nil {
+			return err
+		}
+	}
+	if err = ctx.Err(); err != nil {
+		return err
+	}
 	c.show("launching", "Verifying your installed release and starting Nightcap…")
 	var disconnected <-chan struct{}
 	if c.policy.RelayURL != "" {
@@ -57,6 +66,7 @@ func (c *Controller) Play(ctx context.Context) (err error) {
 		defer tunnel.Close()
 		disconnected = tunnel.Done()
 	}
+	trust.Now = time.Now().UTC()
 	active, err := c.start(ctx, dir, trust)
 	if err != nil {
 		return err
