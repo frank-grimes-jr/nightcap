@@ -143,6 +143,14 @@ public:
 			}
 		}
 		if (events.size() >= 50000) { throw std::runtime_error("Packet trace limit exceeded"); }
+		if (capture_messages && p->GetOpcode() == OP_Charm && p->size == sizeof(Charm_Struct)) {
+			auto d = reinterpret_cast<const Charm_Struct *>(p->pBuffer);
+			events.push_back({{"ms",Timer::GetCurrentTime()},{"type","pet_anchor"},{"pet",d->pet_id},{"command",d->command}});
+		}
+		if (capture_messages && p->GetOpcode() == OP_PetBuffWindow && p->size == sizeof(PetBuff_Struct)) {
+			auto d = reinterpret_cast<const PetBuff_Struct *>(p->pBuffer);
+			events.push_back({{"ms",Timer::GetCurrentTime()},{"type","pet_buffs"},{"pet",d->petid}});
+		}
 		if (p->GetOpcode() == OP_Damage && p->size == sizeof(CombatDamage_Struct)) {
 			auto *d = reinterpret_cast<const CombatDamage_Struct *>(p->pBuffer);
 			events.push_back({{"ms",Timer::GetCurrentTime()},{"type","damage"},
@@ -306,8 +314,8 @@ json NightcapBalancePetProbe(Client *c, const json &input)
 		throw std::runtime_error("Pet control requires a connected non-GM runtime client");
 	}
 	const auto &actions = input.at("actions");
-	if (!actions.is_array() || actions.empty() || actions.size() > 24) {
-		throw std::runtime_error("Pet control requires 1..24 actions");
+	if (!actions.is_array() || actions.empty() || actions.size() > 64) {
+		throw std::runtime_error("Pet control requires 1..64 actions");
 	}
 	zone->ReloadMaps();
 	if (!zone->zonemap || !zone->pathing || !zone->watermap) { throw std::runtime_error("Pet control requires native maps"); }
@@ -338,10 +346,13 @@ json NightcapBalancePetProbe(Client *c, const json &input)
 	}
 	auto state = [&]() {
 		json pets = json::array(), refs = json::array(), supplies = json::array();
-		for (int class_id : {10,11,13}) { refs.push_back({{"class",class_id},{"entity_id",c->GetClassPet(class_id)}}); }
+		for (int class_id : c->GetMulticlassList()) { refs.push_back({{"class",class_id},{"entity_id",c->GetClassPet(class_id)}}); }
 		for (const auto &entry : entity_list.GetNPCList()) {
 			auto *pet = entry.second;
-			json buffs = json::array();
+			json buffs = json::array(), armor_slots = json::array(), armor_items = json::array();
+			PetInfo saved{}; pet->GetPetState(saved.Buffs, saved.Items, saved.Name);
+			for (auto slot : NightcapPetArmor::Slots) { armor_items.push_back(saved.Items[slot]); }
+			for (auto slot : NightcapPetArmor::Slots) { if (pet->IsNightcapPetArmorSlot(slot)) { armor_slots.push_back(slot); } }
 			for (int slot = 0; slot < pet->GetMaxTotalSlots(); ++slot) {
 				const auto &b = pet->GetBuffs()[slot];
 				if (IsValidSpell(b.spellid)) { buffs.push_back({{"spell",b.spellid},{"ticks",b.ticsremaining}}); }
@@ -352,7 +363,11 @@ json NightcapBalancePetProbe(Client *c, const json &input)
 				{"ac",pet->GetAC()},{"atk",pet->GetATK()},{"haste",pet->GetHaste()},
 				{"min_damage",pet->GetMinDMG()},{"max_damage",pet->GetMaxDMG()},{"power",pet->GetPetPower()},
 				{"engaged",pet->IsEngaged()},{"depop",pet->GetDepop()},
-				{"position",{pet->GetX(),pet->GetY(),pet->GetZ()}},{"buffs",buffs}});
+				{"order",pet->GetPetOrder()},{"appearance",pet->GetAppearance()},
+				{"taunt",pet->IsTaunting()},{"held",pet->IsHeld()},{"gheld",pet->IsGHeld()},
+				{"no_cast",pet->IsNoCast()},{"focused",pet->IsFocused()},
+				{"stop",pet->IsPetStop()},{"regroup",pet->IsPetRegroup()},{"feigned",pet->GetFeigned()},
+				{"position",{pet->GetX(),pet->GetY(),pet->GetZ()}},{"buffs",buffs},{"armor_slots",armor_slots},{"legacy_items",armor_items}});
 		}
 		std::sort(pets.begin(),pets.end(),[](const json &a,const json &b) { return a.at("entity_id") < b.at("entity_id"); });
 		for (int slot = EQ::invslot::GENERAL_BEGIN; slot < supply_slot; ++slot) {
@@ -360,7 +375,7 @@ json NightcapBalancePetProbe(Client *c, const json &input)
 			supplies.push_back({{"slot",slot},{"id",item ? item->GetID() : 0},{"count",item ? item->GetCharges() : 0}});
 		}
 		return json{{"ms",Timer::GetCurrentTime()},{"player",AABuffState(c)},
-			{"primary_pet",c->GetPetID()},{"class_pets",refs},{"pets",pets},{"reagents",supplies}};
+			{"primary_pet",c->GetPetID()},{"suspended_class",c->GetSuspendedPetClass()},{"class_pets",refs},{"pets",pets},{"reagents",supplies}};
 	};
 	auto process = [&]() {
 		Advance(50);
@@ -371,6 +386,58 @@ json NightcapBalancePetProbe(Client *c, const json &input)
 	json results = json::array();
 	const json initial = state();
 	for (const auto &action : actions) {
+		if (action.contains("command")) {
+			const std::map<std::string, uint32> commands = {
+				{"sit",PET_SIT},{"sit_down",PET_SITDOWN},{"stand",PET_STANDUP},{"follow",PET_FOLLOWME},
+				{"guard",PET_GUARDHERE},{"backoff",PET_BACKOFF},{"taunt",PET_TAUNT},{"hold",PET_HOLD},
+				{"ghold",PET_GHOLD},{"spellhold",PET_SPELLHOLD},{"focus",PET_FOCUS},{"stop",PET_STOP},
+				{"regroup",PET_REGROUP},{"dismiss",PET_GETLOST},{"health",PET_HEALTHREPORT}};
+			const std::string command = action.at("command");
+			if (!commands.count(command)) { throw std::runtime_error("Unsupported roster command"); }
+			const auto before = state();
+			auto packet = new EQApplicationPacket(OP_PetCommands, sizeof(PetCommand_Struct));
+			auto data = reinterpret_cast<PetCommand_Struct *>(packet->pBuffer);
+			data->command = commands.at(command); data->target = 0;
+			stream->incoming.push_back(packet);
+			process();
+			results.push_back({{"input",action},{"before",before},{"settled",state()}});
+			continue;
+		}
+		if (action.contains("lifecycle")) {
+			const std::string operation = action.at("lifecycle");
+			const auto before = state();
+			if (operation == "seed_native_armor") {
+				auto pet = c->GetArmorPet(10);
+				if (!pet) { throw std::runtime_error("Underlying armor control needs Shaman pet"); }
+				pet->SetNightcapPetArmor(0, nullptr);
+				PetInfo info{};
+				pet->GetPetState(info.Buffs, info.Items, info.Name);
+				info.Items[EQ::invslot::slotHead] = 1001;
+				pet->SetPetState(info.Buffs, info.Items);
+				c->ApplyPetArmor();
+				pet->SetHP(pet->GetMaxHP()); pet->SetMana(pet->GetMaxMana());
+			} else if (operation == "inspect_underlying_armor") {
+				for (auto pet : c->GetCommandPets()) { for (uint8 i=0; i<8; ++i) { pet->SetNightcapPetArmor(i,nullptr); } }
+				results.push_back({{"input",action},{"before",before},{"settled",state()}});
+				c->ApplyPetArmor();
+				continue;
+			} else if (operation == "depop_representative") {
+				auto pet = c->GetPet();
+				if (!pet || !pet->IsNPC()) { throw std::runtime_error("Missing representative"); }
+				pet->Depop(false);
+				process(); c->RefreshClassPets();
+			} else if (operation == "suspend") {
+				c->SuspendMinion(1); process();
+			} else if (operation == "load_saved") {
+				database.LoadPetInfo(c); c->RestoreClassPets(); process();
+			} else if (operation == "roundtrip") {
+				c->CaptureClassPets(); database.SavePetInfo(c);
+				for (auto pet : c->GetCommandPets()) { c->UnregisterClassPet(pet->GetID()); pet->Depop(); }
+				process(); database.LoadPetInfo(c); c->RestoreClassPets(); process();
+			} else { throw std::runtime_error("Unsupported roster lifecycle operation"); }
+			results.push_back({{"input",action},{"before",before},{"settled",state()}});
+			continue;
+		}
 		const int spell_id = action.at("spell");
 		const std::set<int> supported = {633,443,166,690,107,67,145,60,61,64,168,170,644};
 		if (!supported.count(spell_id)) {
@@ -389,20 +456,33 @@ json NightcapBalancePetProbe(Client *c, const json &input)
 		Mob *target = c;
 		if (target_class) {
 			if (target_class != 13 && target_class != 11 && target_class != 10) { throw std::runtime_error("Unsupported pet target class"); }
-			target = entity_list.GetMob(target_class == 13 ? c->GetPetID() : c->GetClassPet(target_class));
+			target = entity_list.GetMob(c->GetClassPet(target_class));
 			if (!target) { throw std::runtime_error("Pet-control target is absent"); }
 		}
 		c->SetTarget(target);
 		c->GetPP().mem_spells[0] = spell_id;
 		const json before = state();
-		const bool accepted = c->CastSpell(spell_id,target->GetID(),static_cast<EQ::spells::CastingSlot>(0));
-		uint32 waited = 0;
-		do { process(); waited += 50; } while (c->IsCasting() && waited < 60000);
-		if (c->IsCasting()) { throw std::runtime_error("Pet-control cast exceeded time budget"); }
-		const json completed = state();
-		const uint32 settle = std::max<uint32>(1500,spells[spell_id].recovery_time + 50);
-		for (uint32 ms = 0; ms < settle; ms += 50) { process(); }
-		results.push_back({{"input",action},{"accepted",accepted},{"before",before},{"completed",completed},{"settled",state()}});
+		bool accepted = false;
+		json attempts = json::array();
+		json completed;
+		for (int attempt = 0; attempt < (input.value("retry_native_fizzles",false) ? 8 : 1); ++attempt) {
+			const auto event_start = stream->events.size();
+			accepted = c->CastSpell(spell_id,target->GetID(),static_cast<EQ::spells::CastingSlot>(0));
+			uint32 waited = 0;
+			do { process(); waited += 50; } while (c->IsCasting() && waited < 60000);
+			if (c->IsCasting()) { throw std::runtime_error("Pet-control cast exceeded time budget"); }
+			completed = state();
+			const uint32 settle = std::max<uint32>(1500,spells[spell_id].recovery_time + 50);
+			for (uint32 ms = 0; ms < settle; ms += 50) { process(); }
+			bool fizzled = false;
+			for (size_t i = event_start; i < stream->events.size(); ++i) {
+				const auto &event = stream->events[i];
+				if (event.value("type",std::string()) == "message" && event.value("string_id",0) == 173) { fizzled = true; }
+			}
+			attempts.push_back({{"accepted",accepted},{"fizzled",fizzled}});
+			if (accepted || !fizzled) { break; }
+		}
+		results.push_back({{"input",action},{"accepted",accepted},{"attempts",attempts},{"before",before},{"completed",completed},{"settled",state()}});
 		if (input.value("recover_before_combat",false)) { results.back()["recast_wait_ms"] = recast_wait; }
 	}
 	json owner_check;
@@ -414,7 +494,7 @@ json NightcapBalancePetProbe(Client *c, const json &input)
 		owner_check = {{"method",method},{"pet_id",pet->GetID()},
 			{"registered_owner",pet->GetOwner() == c},{"registered_owner_or_self",pet->GetOwnerOrSelf() == c}};
 		// Negative control: a mere owner ID must not retain an unregistered pet.
-		c->RemoveClassPet(11);
+		c->UnregisterClassPet(pet->GetID());
 		auto *resolved = method == "owner" ? pet->GetOwner() : pet->GetOwnerOrSelf();
 		owner_check["unregistered_result"] = resolved ? resolved->GetID() : 0;
 		owner_check["unregistered_owner_id"] = pet->GetOwnerID();

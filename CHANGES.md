@@ -1,5 +1,17 @@
 # CHANGES
 
+## 2026-09-19 - Three class pets and shared controls (candidate)
+
+Use original summon spell eligibility to assign one persistent pet per held
+class, independent of widened spell access or summon order. All class pets use
+the ordinary command handler and their own eight-slot armor loadout. Keep one
+stable pet-window representative and restore all pets across database saves,
+including a class-aware suspended minion. Save/load failures quarantine the
+session; armor restoration preserves underlying gear and armored resource caps.
+This candidate has not replaced the live server. Older binaries cannot preserve
+the extended pet save keys without a scoped state backup. See
+[ADR 0039](docs/adr/0039-class-pet-roster-and-persistence.md).
+
 ## 2026-09-19 - Silence automatic UI requests
 
 Replace the client slash-command interpreter with the verified native channel

@@ -3074,6 +3074,10 @@ void ZoneDatabase::LoadAuras(Client *c)
 
 void ZoneDatabase::SavePetInfo(Client *client)
 {
+	auto active = database.QueryDatabase(std::string("SELECT @@in_transaction"), false);
+	if (!active.Success() || active.RowCount() != 1 || Strings::ToUnsignedInt(active.begin()[0])) {
+		client->InvalidatePetState(); return;
+	}
 	PetInfo* p = nullptr;
 
 	std::vector<CharacterPetInfoRepository::CharacterPetInfo> pet_infos;
@@ -3085,9 +3089,10 @@ void ZoneDatabase::SavePetInfo(Client *client)
 	std::vector<CharacterPetInventoryRepository::CharacterPetInventory> inventory;
 	auto item = CharacterPetInventoryRepository::NewEntity();
 
-	for (int pet_info_type = PetInfoType::Current; pet_info_type <= PetInfoType::Suspended; pet_info_type++) {
+	for (int pet_info_type = PetInfoType::Current; pet_info_type <= 33; pet_info_type++) {
+		if (pet_info_type == PetInfoType::Suspended && client->GetSuspendedPetClass()) { continue; }
 		p = client->GetPetInfo(pet_info_type);
-		if (!p) {
+		if (!p || !p->SpellID) {
 			continue;
 		}
 
@@ -3172,41 +3177,43 @@ void ZoneDatabase::SavePetInfo(Client *client)
 		}
 	}
 
-	CharacterPetInfoRepository::DeleteWhere(
-		database,
-		fmt::format(
-			"`char_id` = {}",
-			client->CharacterID()
-		)
-	);
-
-	if (!pet_infos.empty()) {
-		CharacterPetInfoRepository::InsertMany(database, pet_infos);
+	// All three tables must publish the same roster. Never reconnect/replay a
+	// statement inside this transaction after a lost connection.
+	auto ready = database.QueryDatabase(std::string("SELECT TABLE_NAME FROM information_schema.TABLES WHERE TABLE_SCHEMA=DATABASE() "
+		"AND TABLE_NAME IN ('character_pet_info','character_pet_buffs','character_pet_inventory') AND ENGINE='InnoDB'"), false);
+	if (!ready.Success() || ready.RowCount() != 3 || !database.QueryDatabase(std::string("START TRANSACTION"), false).Success()) {
+		client->InvalidatePetState(); return;
 	}
-
-	CharacterPetBuffsRepository::DeleteWhere(
-		database,
-		fmt::format(
-			"`char_id` = {}",
-			client->CharacterID()
-		)
-	);
-
-	if (!pet_buffs.empty()) {
-		CharacterPetBuffsRepository::InsertMany(database, pet_buffs);
+	auto fail = [&]() { database.QueryDatabase(std::string("ROLLBACK"), false); client->InvalidatePetState(); };
+	for (const auto table : {"character_pet_info", "character_pet_buffs", "character_pet_inventory"}) {
+		if (!database.QueryDatabase(fmt::format("DELETE FROM {} WHERE char_id={}", table, client->CharacterID()), false).Success()) { fail(); return; }
 	}
-
-	CharacterPetInventoryRepository::DeleteWhere(
-		database,
-		fmt::format(
-			"`char_id` = {}",
-			client->CharacterID()
-		)
-	);
-
-	if (!inventory.empty()) {
-		CharacterPetInventoryRepository::InsertMany(database, inventory);
+	auto hex = [](const std::string &value) {
+		std::string out = "X'";
+		for (unsigned char c : value) { out += "0123456789abcdef"[c >> 4]; out += "0123456789abcdef"[c & 15]; }
+		return out + "'";
+	};
+	std::vector<std::string> values;
+	for (const auto &e : pet_infos) {
+		values.push_back(fmt::format("({},{},{},{},{},{},{},{},{})", e.char_id, e.pet, hex(e.petname), e.petpower, e.spell_id, e.hp, e.mana, e.size, e.taunting));
 	}
+	auto insert = [&](const std::string &prefix) {
+		if (values.empty()) { return true; }
+		auto result = database.QueryDatabase(prefix + " VALUES " + Strings::Implode(",", values), false);
+		return result.Success() && result.RowsAffected() == values.size();
+	};
+	if (!insert(CharacterPetInfoRepository::BaseInsert())) { fail(); return; }
+	values.clear();
+	for (const auto &e : pet_buffs) {
+		values.push_back(fmt::format("({},{},{},{},{},{},{},{},{},{},{})", e.char_id, e.pet, e.slot, e.spell_id, e.caster_level,
+			hex(e.castername), e.ticsremaining, e.counters, e.numhits, e.rune, e.instrument_mod));
+	}
+	if (!insert(CharacterPetBuffsRepository::BaseInsert())) { fail(); return; }
+	values.clear();
+	for (const auto &e : inventory) { values.push_back(fmt::format("({},{},{},{})", e.char_id, e.pet, e.slot, e.item_id)); }
+	if (!insert(CharacterPetInventoryRepository::BaseInsert())) { fail(); return; }
+	if (!database.QueryDatabase(std::string("COMMIT"), false).Success()) { fail(); }
+
 }
 
 void ZoneDatabase::RemoveTempFactions(Client *client) {
@@ -3243,106 +3250,68 @@ void ZoneDatabase::DeleteItemRecast(uint32 character_id, uint32 recast_type)
 
 void ZoneDatabase::LoadPetInfo(Client *client)
 {
-	// Load current pet and suspended pet
-	auto pet_info           = client->GetPetInfo(PetInfoType::Current);
-	auto suspended_pet_info = client->GetPetInfo(PetInfoType::Suspended);
-
-	memset(pet_info, 0, sizeof(PetInfo));
-	memset(suspended_pet_info, 0, sizeof(PetInfo));
-
-	const auto& info = CharacterPetInfoRepository::GetWhere(
-		database,
-		fmt::format(
-			"`char_id` = {}",
-			client->CharacterID()
-		)
-	);
-
-	if (info.empty()) {
-		return;
+	auto active = database.QueryDatabase(std::string("SELECT @@in_transaction"), false);
+	if (!active.Success() || active.RowCount() != 1 || Strings::ToUnsignedInt(active.begin()[0])) {
+		client->InvalidatePetState(); return;
+	}
+	// Read the three tables from one snapshot; a failed query must never look
+	// like an empty roster and subsequently overwrite the last durable save.
+	auto fail = [&]() { database.QueryDatabase(std::string("ROLLBACK"), false); client->InvalidatePetState(); };
+	if (!database.QueryDatabase(std::string("START TRANSACTION WITH CONSISTENT SNAPSHOT"), false).Success()) { fail(); return; }
+	const auto where = fmt::format(" WHERE char_id={}", client->CharacterID());
+	auto info = database.QueryDatabase(CharacterPetInfoRepository::BaseSelect() + where, false);
+	auto buffs = database.QueryDatabase(CharacterPetBuffsRepository::BaseSelect() + where, false);
+	auto inventory = database.QueryDatabase(CharacterPetInventoryRepository::BaseSelect() + where, false);
+	if (!info.Success() || !buffs.Success() || !inventory.Success() ||
+		!database.QueryDatabase(std::string("COMMIT"), false).Success()) { fail(); return; }
+	for (int type = 0; type <= 17; ++type) { memset(client->GetPetInfo(type), 0, sizeof(PetInfo)); }
+	client->SetSuspendedPetClass(0);
+	bool suspended_seen = false;
+	for (auto row : info) {
+		const auto type = Strings::ToInt(row[1]);
+		if (type == PetInfoType::Suspended || (type >= 18 && type <= 33)) {
+			if (suspended_seen) { client->InvalidatePetState(); return; }
+			suspended_seen = true;
+			client->SetSuspendedPetClass(type >= 18 ? type - 17 : 0);
+		}
+		auto p = client->GetPetInfo(Strings::ToInt(row[1]));
+		const auto spell = Strings::ToUnsignedInt(row[4]);
+		if (!p || !IsValidSpell(spell)) { continue; }
+		strn0cpy(p->Name, row[2] ? row[2] : "", sizeof(p->Name));
+		p->petpower = Strings::ToInt(row[3]);
+		p->SpellID = spell;
+		p->HP = Strings::ToInt(row[5]);
+		p->Mana = Strings::ToInt(row[6]);
+		p->size = Strings::ToFloat(row[7]);
+		p->taunting = Strings::ToInt(row[8]) != 0;
+	}
+	// Migrate the old single suspended slot while held-class identity is still
+	// available. A later class release must not leave an unrecallable blocker.
+	auto suspended = client->GetPetInfo(PetInfoType::Suspended);
+	if (suspended->SpellID && !client->GetSuspendedPetClass()) {
+		const auto class_id = client->GetPetSpellClass(suspended->SpellID);
+		if (class_id) { client->SetSuspendedPetClass(class_id); }
+		else { memset(suspended, 0, sizeof(PetInfo)); }
 	}
 
-	PetInfo* p;
-
-	for (const auto& e : info) {
-		if (e.pet == PetInfoType::Current) {
-			p = pet_info;
-		} else if (e.pet == PetInfoType::Suspended) {
-			p = suspended_pet_info;
-		} else {
-			continue;
-		}
-
-		strn0cpy(p->Name, e.petname.c_str(), sizeof(p->Name));
-
-		p->petpower = e.petpower;
-		p->SpellID  = e.spell_id;
-		p->HP       = e.hp;
-		p->Mana     = e.mana;
-		p->size     = e.size;
-		p->taunting = e.taunting;
+	for (auto row : buffs) {
+		auto p = client->GetPetInfo(Strings::ToInt(row[1]));
+		const auto slot = Strings::ToInt(row[2]);
+		const auto spell = Strings::ToUnsignedInt(row[3]);
+		if (!p || !p->SpellID || slot < 0 || slot >= PET_BUFF_COUNT || slot >= RuleI(Spells, MaxTotalSlotsPET) || !IsValidSpell(spell)) { continue; }
+		p->Buffs[slot].spellid = spell;
+		p->Buffs[slot].level = Strings::ToInt(row[4]);
+		p->Buffs[slot].player_id = 0;
+		p->Buffs[slot].effect_type = BuffEffectType::Buff;
+		p->Buffs[slot].duration = Strings::ToInt(row[6]);
+		p->Buffs[slot].counters = Strings::ToInt(row[7]);
+		p->Buffs[slot].bard_modifier = Strings::ToInt(row[10]);
 	}
-
-	const auto& buffs = CharacterPetBuffsRepository::GetWhere(
-		database,
-		fmt::format(
-			"`char_id` = {}",
-			client->CharacterID()
-		)
-	);
-
-	if (!buffs.empty()) {
-		for (const auto& e : buffs) {
-			if (e.pet == PetInfoType::Current) {
-				p = pet_info;
-			} else if (e.pet == PetInfoType::Suspended) {
-				p = suspended_pet_info;
-			} else {
-				continue;
-			}
-
-			if (e.slot >= RuleI(Spells, MaxTotalSlotsPET)) {
-				continue;
-			}
-
-			if (!IsValidSpell(e.spell_id)) {
-				continue;
-			}
-
-			p->Buffs[e.slot].spellid       = e.spell_id;
-			p->Buffs[e.slot].level         = e.caster_level;
-			p->Buffs[e.slot].player_id     = 0;
-			p->Buffs[e.slot].effect_type   = BuffEffectType::Buff;
-			p->Buffs[e.slot].duration      = e.ticsremaining;
-			p->Buffs[e.slot].counters      = e.counters;
-			p->Buffs[e.slot].bard_modifier = e.instrument_mod;
-		}
-	}
-
-	const auto& inventory = CharacterPetInventoryRepository::GetWhere(
-		database,
-		fmt::format(
-			"`char_id` = {}",
-			client->CharacterID()
-		)
-	);
-
-	if (!inventory.empty()) {
-		for (const auto& e : inventory) {
-			if (e.pet == PetInfoType::Current) {
-				p = pet_info;
-			} else if (e.pet == PetInfoType::Suspended) {
-				p = suspended_pet_info;
-			} else {
-				continue;
-			}
-
-			if (!EQ::ValueWithin(e.slot, EQ::invslot::EQUIPMENT_BEGIN, EQ::invslot::EQUIPMENT_END)) {
-				continue;
-			}
-
-			p->Items[e.slot] = e.item_id;
-		}
+	for (auto row : inventory) {
+		auto p = client->GetPetInfo(Strings::ToInt(row[1]));
+		const auto slot = Strings::ToInt(row[2]);
+		if (!p || !p->SpellID || !EQ::ValueWithin(slot, EQ::invslot::EQUIPMENT_BEGIN, EQ::invslot::EQUIPMENT_END)) { continue; }
+		p->Items[slot] = Strings::ToUnsignedInt(row[3]);
 	}
 }
 

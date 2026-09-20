@@ -1740,25 +1740,8 @@ void Client::Handle_Connect_OP_ZoneEntry(const EQApplicationPacket *app)
 	if (RuleB(NPC, PetZoneWithOwner)) {
 		/* Load Pet */
 		database.LoadPetInfo(this);
-		if (m_petinfo.SpellID > 1 && !GetPet() && m_petinfo.SpellID <= SPDAT_RECORDS) {
-			MakePoweredPet(m_petinfo.SpellID, spells[m_petinfo.SpellID].teleport_zone, m_petinfo.petpower,
-						   m_petinfo.Name, m_petinfo.size);
-			if (GetPet() && GetPet()->IsNPC()) {
-				NPC *pet = GetPet()->CastToNPC();
-				pet->SetPetState(m_petinfo.Buffs, m_petinfo.Items);
-				pet->CalcBonuses();
-				pet->SetHP(m_petinfo.HP);
-				pet->SetMana(m_petinfo.Mana);
-
-				// Taunt persists when zoning on newer clients, overwrite default.
-				if (m_ClientVersionBit & EQ::versions::maskUFAndLater) {
-					if (!ingame) {
-						pet->SetTaunting(m_petinfo.taunting);
-					}
-				}
-			}
-			m_petinfo.SpellID = 0;
-		}
+		RestoreClassPets();
+		if (!m_pet_state_valid) { return; }
 	}
 	/* Moved here so it's after where we load the pet data. */
 	if (!aabonuses.ZoneSuspendMinion && !spellbonuses.ZoneSuspendMinion && !itembonuses.ZoneSuspendMinion) {
@@ -11085,7 +11068,8 @@ void Client::Handle_OP_PetCommands(const EQApplicationPacket *app)
 	}
 	char val1[20] = { 0 };
 	PetCommand_Struct* pet = (PetCommand_Struct*)app->pBuffer;
-	Mob* mypet = GetPet();
+	const auto roster = GetCommandPets();
+	Mob* mypet = roster.empty() ? nullptr : roster.front();
 	Mob *target = entity_list.GetMob(pet->target);
 
 	// Each pet receives an order through the native range/LoS/mez/type gates.
@@ -11126,7 +11110,7 @@ void Client::Handle_OP_PetCommands(const EQApplicationPacket *app)
 				break;
 			}
 
-			if ((mypet->GetPetType() == petAnimation && aabonuses.PetCommands[PetCommand]) || mypet->GetPetType() != petAnimation) {
+			if ((mypet->GetPetType() == petAnimation && aabonuses.PetCommands[pet->command]) || mypet->GetPetType() != petAnimation) {
 				if (target != this && DistanceSquared(mypet->GetPosition(), target->GetPosition()) <= (RuleR(Pets, AttackCommandRange)*RuleR(Pets, AttackCommandRange))) {
 					mypet->SetFeigned(false);
 					if (mypet->IsPetStop()) {
@@ -11183,7 +11167,7 @@ void Client::Handle_OP_PetCommands(const EQApplicationPacket *app)
 				break;
 			}
 
-			if ((mypet->GetPetType() == petAnimation && aabonuses.PetCommands[PetCommand]) || mypet->GetPetType() != petAnimation) {
+			if ((mypet->GetPetType() == petAnimation && aabonuses.PetCommands[pet->command]) || mypet->GetPetType() != petAnimation) {
 				if (GetTarget() != this && DistanceSquaredNoZ(mypet->GetPosition(), GetTarget()->GetPosition()) <= (RuleR(Pets, AttackCommandRange)*RuleR(Pets, AttackCommandRange))) {
 					mypet->SetFeigned(false);
 					if (mypet->IsPetStop()) {
@@ -11212,14 +11196,8 @@ void Client::Handle_OP_PetCommands(const EQApplicationPacket *app)
 		}
 	};
 	if (pet->command == PET_ATTACK || pet->command == PET_QATTACK) {
-		order_attack(mypet, true);
-		for (const auto extra_id : GetExtraPetIds()) {
-			auto *extra = entity_list.GetMob(extra_id);
-			if (extra && extra != mypet && extra->IsNPC() && !extra->CastToNPC()->GetDepop()
-				&& extra->GetOwnerID() == GetID()) {
-				order_attack(extra, false);
-			}
-		}
+		for (auto commanded : roster) { order_attack(commanded, commanded == mypet); }
+		SyncPetWindow();
 		return;
 	}
 
@@ -11240,31 +11218,28 @@ void Client::Handle_OP_PetCommands(const EQApplicationPacket *app)
 		return;
 	}
 
-	if (mypet->GetPetType() == petTargetLock && (pet->command != PET_HEALTHREPORT && pet->command != PET_GETLOST))
-		return;
-
-	// just let the command "/pet get lost" work for familiars
-	if (mypet->GetPetType() == petFamiliar && pet->command != PET_GETLOST)
-		return;
-
+	// One toggle intent for the whole roster, even when individual pets differ.
 	uint32 PetCommand = pet->command;
-
-	// Handle Sit/Stand toggle in UF and later.
-	/*
-	if (GetClientVersion() >= EQClientUnderfoot)
-	{
-	if (PetCommand == PET_SITDOWN)
-	if (mypet->GetPetOrder() == SPO_Sit)
-	PetCommand = PET_STANDUP;
+	switch (PetCommand) {
+	case PET_SIT: PetCommand = mypet->GetPetOrder() == SPO_Sit ? PET_STANDUP : PET_SITDOWN; break;
+	case PET_TAUNT: PetCommand = mypet->CastToNPC()->IsTaunting() ? PET_TAUNT_OFF : PET_TAUNT_ON; break;
+	case PET_HOLD: PetCommand = mypet->IsHeld() ? PET_HOLD_OFF : PET_HOLD_ON; break;
+	case PET_GHOLD: PetCommand = mypet->IsGHeld() ? PET_GHOLD_OFF : PET_GHOLD_ON; break;
+	case PET_SPELLHOLD: PetCommand = mypet->IsNoCast() ? PET_SPELLHOLD_OFF : PET_SPELLHOLD_ON; break;
+	case PET_FOCUS: PetCommand = mypet->IsFocused() ? PET_FOCUS_OFF : PET_FOCUS_ON; break;
+	case PET_STOP: PetCommand = mypet->IsPetStop() ? PET_STOP_OFF : PET_STOP_ON; break;
+	case PET_REGROUP: PetCommand = mypet->IsPetRegroup() ? PET_REGROUP_OFF : PET_REGROUP_ON; break;
+	default: break;
 	}
-	*/
-
+	for (auto mypet : roster) {
+		if (mypet->GetPetType() == petTargetLock && PetCommand != PET_HEALTHREPORT && PetCommand != PET_GETLOST) { continue; }
+		if (mypet->GetPetType() == petFamiliar && PetCommand != PET_GETLOST) { continue; }
 	switch (PetCommand)
 	{
 	case PET_BACKOFF: {
 		if (mypet->IsFeared()) break; //keeps pet running while feared
 
-		if ((mypet->GetPetType() == petAnimation && aabonuses.PetCommands[PetCommand]) || mypet->GetPetType() != petAnimation) {
+		if ((mypet->GetPetType() == petAnimation && aabonuses.PetCommands[pet->command]) || mypet->GetPetType() != petAnimation) {
 			mypet->SayString(this, Chat::PetResponse, PET_CALMING);
 			mypet->WipeHateList();
 			mypet->SetTarget(nullptr);
@@ -11276,7 +11251,7 @@ void Client::Handle_OP_PetCommands(const EQApplicationPacket *app)
 		break;
 	}
 	case PET_HEALTHREPORT: {
-		if ((mypet->GetPetType() == petAnimation && aabonuses.PetCommands[PetCommand]) || mypet->GetPetType() != petAnimation) {
+		if ((mypet->GetPetType() == petAnimation && aabonuses.PetCommands[pet->command]) || mypet->GetPetType() != petAnimation) {
 			MessageString(Chat::PetResponse, PET_REPORT_HP, ConvertArrayF(mypet->GetHPRatio(), val1));
 			mypet->ShowBuffs(this);
 		}
@@ -11293,7 +11268,7 @@ void Client::Handle_OP_PetCommands(const EQApplicationPacket *app)
 			break;
 		}
 		else {
-			SetPet(nullptr);
+			UnregisterClassPet(mypet->GetID());
 		}
 
 		mypet->SayString(this, Chat::PetResponse, PET_GETLOST_STRING);
@@ -11312,7 +11287,7 @@ void Client::Handle_OP_PetCommands(const EQApplicationPacket *app)
 	case PET_GUARDHERE: {
 		if (mypet->IsFeared()) break; //could be exploited like PET_BACKOFF
 
-		if ((mypet->GetPetType() == petAnimation && aabonuses.PetCommands[PetCommand]) || mypet->GetPetType() != petAnimation) {
+		if ((mypet->GetPetType() == petAnimation && aabonuses.PetCommands[pet->command]) || mypet->GetPetType() != petAnimation) {
 			if (mypet->IsNPC()) {
 
 				// Set Sit button to unpressed - send stand anim/end hpregen
@@ -11336,7 +11311,7 @@ void Client::Handle_OP_PetCommands(const EQApplicationPacket *app)
 	case PET_FOLLOWME: {
 		if (mypet->IsFeared()) break; //could be exploited like PET_BACKOFF
 
-		if ((mypet->GetPetType() == petAnimation && aabonuses.PetCommands[PetCommand]) || mypet->GetPetType() != petAnimation) {
+		if ((mypet->GetPetType() == petAnimation && aabonuses.PetCommands[pet->command]) || mypet->GetPetType() != petAnimation) {
 			mypet->SetFeigned(false);
 			mypet->SayString(this, Chat::PetResponse, PET_FOLLOWING);
 			mypet->SetPetOrder(SPO_Follow);
@@ -11353,7 +11328,7 @@ void Client::Handle_OP_PetCommands(const EQApplicationPacket *app)
 		break;
 	}
 	case PET_TAUNT: {
-		if ((mypet->GetPetType() == petAnimation && aabonuses.PetCommands[PetCommand]) || mypet->GetPetType() != petAnimation) {
+		if ((mypet->GetPetType() == petAnimation && aabonuses.PetCommands[pet->command]) || mypet->GetPetType() != petAnimation) {
 			if (mypet->CastToNPC()->IsTaunting())
 			{
 				MessageString(Chat::PetResponse, PET_NO_TAUNT);
@@ -11368,14 +11343,14 @@ void Client::Handle_OP_PetCommands(const EQApplicationPacket *app)
 		break;
 	}
 	case PET_TAUNT_ON: {
-		if ((mypet->GetPetType() == petAnimation && aabonuses.PetCommands[PetCommand]) || mypet->GetPetType() != petAnimation) {
+		if ((mypet->GetPetType() == petAnimation && aabonuses.PetCommands[pet->command]) || mypet->GetPetType() != petAnimation) {
 			MessageString(Chat::PetResponse, PET_DO_TAUNT);
 			mypet->CastToNPC()->SetTaunting(true);
 		}
 		break;
 	}
 	case PET_TAUNT_OFF: {
-		if ((mypet->GetPetType() == petAnimation && aabonuses.PetCommands[PetCommand]) || mypet->GetPetType() != petAnimation) {
+		if ((mypet->GetPetType() == petAnimation && aabonuses.PetCommands[pet->command]) || mypet->GetPetType() != petAnimation) {
 			MessageString(Chat::PetResponse, PET_NO_TAUNT);
 			mypet->CastToNPC()->SetTaunting(false);
 		}
@@ -11384,7 +11359,7 @@ void Client::Handle_OP_PetCommands(const EQApplicationPacket *app)
 	case PET_GUARDME: {
 		if (mypet->IsFeared()) break; //could be exploited like PET_BACKOFF
 
-		if ((mypet->GetPetType() == petAnimation && aabonuses.PetCommands[PetCommand]) || mypet->GetPetType() != petAnimation) {
+		if ((mypet->GetPetType() == petAnimation && aabonuses.PetCommands[pet->command]) || mypet->GetPetType() != petAnimation) {
 			mypet->SetFeigned(false);
 			mypet->SayString(this, Chat::PetResponse, PET_GUARDME_STRING);
 			mypet->SetPetOrder(SPO_Follow);
@@ -11403,7 +11378,7 @@ void Client::Handle_OP_PetCommands(const EQApplicationPacket *app)
 	case PET_SIT: {
 		if (mypet->IsFeared()) break; //could be exploited like PET_BACKOFF
 
-		if ((mypet->GetPetType() == petAnimation && aabonuses.PetCommands[PetCommand]) || mypet->GetPetType() != petAnimation) {
+		if ((mypet->GetPetType() == petAnimation && aabonuses.PetCommands[pet->command]) || mypet->GetPetType() != petAnimation) {
 			if (mypet->GetPetOrder() == SPO_Sit)
 			{
 				mypet->SetFeigned(false);
@@ -11427,7 +11402,7 @@ void Client::Handle_OP_PetCommands(const EQApplicationPacket *app)
 	case PET_STANDUP: {
 		if (mypet->IsFeared()) break; //could be exploited like PET_BACKOFF
 
-		if ((mypet->GetPetType() == petAnimation && aabonuses.PetCommands[PetCommand]) || mypet->GetPetType() != petAnimation) {
+		if ((mypet->GetPetType() == petAnimation && aabonuses.PetCommands[pet->command]) || mypet->GetPetType() != petAnimation) {
 			mypet->SetFeigned(false);
 			mypet->SayString(this, Chat::PetResponse, PET_SIT_STRING);
 			SetPetCommandState(PET_BUTTON_SIT, 0);
@@ -11439,7 +11414,7 @@ void Client::Handle_OP_PetCommands(const EQApplicationPacket *app)
 	case PET_SITDOWN: {
 		if (mypet->IsFeared()) break; //could be exploited like PET_BACKOFF
 
-		if ((mypet->GetPetType() == petAnimation && aabonuses.PetCommands[PetCommand]) || mypet->GetPetType() != petAnimation) {
+		if ((mypet->GetPetType() == petAnimation && aabonuses.PetCommands[pet->command]) || mypet->GetPetType() != petAnimation) {
 			mypet->SetFeigned(false);
 			mypet->SayString(this, Chat::PetResponse, PET_SIT_STRING);
 			SetPetCommandState(PET_BUTTON_SIT, 1);
@@ -11452,7 +11427,7 @@ void Client::Handle_OP_PetCommands(const EQApplicationPacket *app)
 		break;
 	}
 	case PET_HOLD: {
-		if (aabonuses.PetCommands[PetCommand] && mypet->IsNPC()) {
+		if (aabonuses.PetCommands[pet->command] && mypet->IsNPC()) {
 			if (mypet->IsHeld())
 			{
 				if (m_ClientVersionBit & EQ::versions::maskSoDAndLater)
@@ -11477,7 +11452,7 @@ void Client::Handle_OP_PetCommands(const EQApplicationPacket *app)
 		break;
 	}
 	case PET_HOLD_ON: {
-		if (aabonuses.PetCommands[PetCommand] && mypet->IsNPC() && !mypet->IsHeld()) {
+		if (aabonuses.PetCommands[pet->command] && mypet->IsNPC() && !mypet->IsHeld()) {
 			if (m_ClientVersionBit & EQ::versions::maskSoDAndLater)
 				MessageString(Chat::PetResponse, PET_HOLD_SET_ON);
 
@@ -11492,7 +11467,7 @@ void Client::Handle_OP_PetCommands(const EQApplicationPacket *app)
 		break;
 	}
 	case PET_HOLD_OFF: {
-		if (aabonuses.PetCommands[PetCommand] && mypet->IsNPC() && mypet->IsHeld()) {
+		if (aabonuses.PetCommands[pet->command] && mypet->IsNPC() && mypet->IsHeld()) {
 			if (m_ClientVersionBit & EQ::versions::maskSoDAndLater)
 				MessageString(Chat::PetResponse, PET_HOLD_SET_OFF);
 			mypet->SetHeld(false);
@@ -11500,7 +11475,7 @@ void Client::Handle_OP_PetCommands(const EQApplicationPacket *app)
 		break;
 	}
 	case PET_GHOLD: {
-		if (aabonuses.PetCommands[PetCommand] && mypet->IsNPC()) {
+		if (aabonuses.PetCommands[pet->command] && mypet->IsNPC()) {
 			if (mypet->IsGHeld())
 			{
 				if (m_ClientVersionBit & EQ::versions::maskUFAndLater)
@@ -11523,7 +11498,7 @@ void Client::Handle_OP_PetCommands(const EQApplicationPacket *app)
 		break;
 	}
 	case PET_GHOLD_ON: {
-		if (aabonuses.PetCommands[PetCommand] && mypet->IsNPC()) {
+		if (aabonuses.PetCommands[pet->command] && mypet->IsNPC()) {
 			if (m_ClientVersionBit & EQ::versions::maskUFAndLater) {
 				MessageString(Chat::PetResponse, PET_ON_GHOLD);
 				mypet->SayString(this, Chat::PetResponse, PET_GHOLD_ON_MSG);
@@ -11537,7 +11512,7 @@ void Client::Handle_OP_PetCommands(const EQApplicationPacket *app)
 		break;
 	}
 	case PET_GHOLD_OFF: {
-		if (aabonuses.PetCommands[PetCommand] && mypet->IsNPC() && mypet->IsGHeld()) {
+		if (aabonuses.PetCommands[pet->command] && mypet->IsNPC() && mypet->IsGHeld()) {
 			if (m_ClientVersionBit & EQ::versions::maskUFAndLater)
 				MessageString(Chat::PetResponse, PET_OFF_GHOLD);
 			mypet->SetGHeld(false);
@@ -11545,7 +11520,7 @@ void Client::Handle_OP_PetCommands(const EQApplicationPacket *app)
 		break;
 	}
 	case PET_SPELLHOLD: {
-		if (aabonuses.PetCommands[PetCommand] && mypet->IsNPC()) {
+		if (aabonuses.PetCommands[pet->command] && mypet->IsNPC()) {
 			if (mypet->IsFeared())
 				break;
 			if (mypet->IsNoCast()) {
@@ -11564,7 +11539,7 @@ void Client::Handle_OP_PetCommands(const EQApplicationPacket *app)
 		break;
 	}
 	case PET_SPELLHOLD_ON: {
-		if (aabonuses.PetCommands[PetCommand] && mypet->IsNPC()) {
+		if (aabonuses.PetCommands[pet->command] && mypet->IsNPC()) {
 			if (mypet->IsFeared())
 				break;
 			if (!mypet->IsNoCast()) {
@@ -11577,7 +11552,7 @@ void Client::Handle_OP_PetCommands(const EQApplicationPacket *app)
 		break;
 	}
 	case PET_SPELLHOLD_OFF: {
-		if (aabonuses.PetCommands[PetCommand] && mypet->IsNPC()) {
+		if (aabonuses.PetCommands[pet->command] && mypet->IsNPC()) {
 			if (mypet->IsFeared())
 				break;
 			if (mypet->IsNoCast()) {
@@ -11590,7 +11565,7 @@ void Client::Handle_OP_PetCommands(const EQApplicationPacket *app)
 		break;
 	}
 	case PET_FOCUS: {
-		if (aabonuses.PetCommands[PetCommand] && mypet->IsNPC()) {
+		if (aabonuses.PetCommands[pet->command] && mypet->IsNPC()) {
 			if (mypet->IsFeared())
 				break;
 			if (mypet->IsFocused()) {
@@ -11609,7 +11584,7 @@ void Client::Handle_OP_PetCommands(const EQApplicationPacket *app)
 		break;
 	}
 	case PET_FOCUS_ON: {
-		if (aabonuses.PetCommands[PetCommand] && mypet->IsNPC()) {
+		if (aabonuses.PetCommands[pet->command] && mypet->IsNPC()) {
 			if (mypet->IsFeared())
 				break;
 			if (!mypet->IsFocused()) {
@@ -11622,7 +11597,7 @@ void Client::Handle_OP_PetCommands(const EQApplicationPacket *app)
 		break;
 	}
 	case PET_FOCUS_OFF: {
-		if (aabonuses.PetCommands[PetCommand] && mypet->IsNPC()) {
+		if (aabonuses.PetCommands[pet->command] && mypet->IsNPC()) {
 			if (mypet->IsFeared())
 				break;
 			if (mypet->IsFocused()) {
@@ -11636,7 +11611,7 @@ void Client::Handle_OP_PetCommands(const EQApplicationPacket *app)
 	}
 
 	case PET_FEIGN: {
-		if (aabonuses.PetCommands[PetCommand] && mypet->IsNPC()) {
+		if (aabonuses.PetCommands[pet->command] && mypet->IsNPC()) {
 			if (mypet->IsFeared())
 				break;
 
@@ -11669,7 +11644,7 @@ void Client::Handle_OP_PetCommands(const EQApplicationPacket *app)
 	case PET_STOP: {
 		if (mypet->IsFeared()) break; //could be exploited like PET_BACKOFF
 
-		if ((mypet->GetPetType() == petAnimation && aabonuses.PetCommands[PetCommand]) || mypet->GetPetType() != petAnimation) {
+		if ((mypet->GetPetType() == petAnimation && aabonuses.PetCommands[pet->command]) || mypet->GetPetType() != petAnimation) {
 			if (mypet->IsPetStop()) {
 				mypet->SetPetStop(false);
 			} else {
@@ -11688,7 +11663,7 @@ void Client::Handle_OP_PetCommands(const EQApplicationPacket *app)
 	case PET_STOP_ON: {
 		if (mypet->IsFeared()) break; //could be exploited like PET_BACKOFF
 
-		if ((mypet->GetPetType() == petAnimation && aabonuses.PetCommands[PetCommand]) || mypet->GetPetType() != petAnimation) {
+		if ((mypet->GetPetType() == petAnimation && aabonuses.PetCommands[pet->command]) || mypet->GetPetType() != petAnimation) {
 			mypet->SetPetStop(true);
 			mypet->StopNavigation();
 			mypet->SetTarget(nullptr);
@@ -11703,7 +11678,7 @@ void Client::Handle_OP_PetCommands(const EQApplicationPacket *app)
 	case PET_STOP_OFF: {
 		if (mypet->IsFeared()) break; //could be exploited like PET_BACKOFF
 
-		if ((mypet->GetPetType() == petAnimation && aabonuses.PetCommands[PetCommand]) || mypet->GetPetType() != petAnimation) {
+		if ((mypet->GetPetType() == petAnimation && aabonuses.PetCommands[pet->command]) || mypet->GetPetType() != petAnimation) {
 			mypet->SetPetStop(false);
 			mypet->SayString(this, Chat::PetResponse, PET_GETLOST_STRING);
 		}
@@ -11712,7 +11687,7 @@ void Client::Handle_OP_PetCommands(const EQApplicationPacket *app)
 	case PET_REGROUP: {
 		if (mypet->IsFeared()) break; //could be exploited like PET_BACKOFF
 
-		if (aabonuses.PetCommands[PetCommand]) {
+		if (aabonuses.PetCommands[pet->command]) {
 			if (mypet->IsPetRegroup()) {
 				mypet->SetPetRegroup(false);
 				mypet->SayString(this, Chat::PetResponse, PET_OFF_REGROUPING);
@@ -11731,7 +11706,7 @@ void Client::Handle_OP_PetCommands(const EQApplicationPacket *app)
 	case PET_REGROUP_ON: {
 		if (mypet->IsFeared()) break; //could be exploited like PET_BACKOFF
 
-		if (aabonuses.PetCommands[PetCommand]) {
+		if (aabonuses.PetCommands[pet->command]) {
 			mypet->SetPetRegroup(true);
 			mypet->SetTarget(nullptr);
 			mypet->SayString(this, Chat::PetResponse, PET_ON_REGROUPING);
@@ -11745,7 +11720,7 @@ void Client::Handle_OP_PetCommands(const EQApplicationPacket *app)
 	case PET_REGROUP_OFF: {
 		if (mypet->IsFeared()) break; //could be exploited like PET_BACKOFF
 
-		if (aabonuses.PetCommands[PetCommand]) {
+		if (aabonuses.PetCommands[pet->command]) {
 			mypet->SetPetRegroup(false);
 			mypet->SayString(this, Chat::PetResponse, PET_OFF_REGROUPING);
 		}
@@ -11756,44 +11731,9 @@ void Client::Handle_OP_PetCommands(const EQApplicationPacket *app)
 		break;
 	}
 
-	// Multiclass: broadcast remaining movement commands to extra pets.
-	// Speech and button-state updates stay on the primary pet only.
-	auto extra_pet_ids = GetExtraPetIds();
-	if (!extra_pet_ids.empty()) {
-		for (uint16 extra_id : extra_pet_ids) {
-			Mob *ep = entity_list.GetMob(extra_id);
-			if (!ep || ep->IsFeared()) continue;
-			switch (PetCommand) {
-			case PET_FOLLOWME:
-			case PET_BACKOFF:
-				ep->SetPetOrder(SPO_Follow);
-				ep->WipeHateList();
-				break;
-			case PET_GUARDHERE:
-				ep->SetPetOrder(SPO_Guard);
-				ep->CastToNPC()->SaveGuardSpot(GetPosition());
-				ep->StopNavigation();
-				break;
-			case PET_SIT:
-			case PET_SITDOWN:
-				ep->SetPetOrder(SPO_Sit);
-				break;
-			case PET_STANDUP:
-				if (ep->GetPetOrder() == SPO_Sit)
-					ep->SetPetOrder(SPO_Follow);
-				break;
-			case PET_GETLOST:
-				ep->SetPetStop(true);
-				ep->StopNavigation();
-				ep->SetTarget(nullptr);
-				ep->Depop(false);
-				break;
-			default:
-				break;
-			}
-		}
-		if (PetCommand == PET_GETLOST) ClearExtraPets();
 	}
+	RefreshClassPets();
+	SyncPetWindow();
 }
 void Client::Handle_OP_Petition(const EQApplicationPacket *app)
 {

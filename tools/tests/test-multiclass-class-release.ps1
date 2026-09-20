@@ -14,6 +14,6 @@ if ($release.IndexOf('PersistEarnedAAState(') -gt $release.IndexOf('SendClearPla
 $revoke = $plugin.Substring($plugin.IndexOf('sub mc_revoke_slot'))
 if ($revoke -match 'UPDATE|INSERT|DELETE|PurgeAfterClassRelease') { throw 'Quest must not bypass native release' }
 if ($revoke -notmatch 'ReleaseMulticlassSlot') { throw 'Native release binding missing' }
-if ([regex]::Matches($process,'if \(!m_multiclass_state_valid\) \{ OnDisconnect\(true\); return false; \}').Count -ne 2) { throw 'Invalid class state must terminate at entry and after packet handling' }
+if ([regex]::Matches($process,'if \(!m_multiclass_state_valid(?: \|\| ![a-z_]+)*\) \{ OnDisconnect\(true\); return false; \}').Count -ne 2) { throw 'Invalid class state must terminate at entry and after packet handling' }
 if ($lua -match 'SetMulticlassSlot\(static_cast<uint8>') { throw 'Lua must validate signed values before narrowing' }
 'PASS: atomic class release architecture guards; native behavior is verified by the clone controls'

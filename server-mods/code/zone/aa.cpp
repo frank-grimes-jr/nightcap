@@ -976,6 +976,7 @@ bool Client::ReleaseMulticlassSlot(int slot)
 	}
 	// Persistence published slots, raw skills, ownership and profile together.
 	// No SetSkill/Save calls or second DB class read may follow the commit.
+	RefreshClassPets();
 	CalcBonuses();
 	for (const auto &skill : release.skills) {
 		if (skill.before == skill.after) { continue; }

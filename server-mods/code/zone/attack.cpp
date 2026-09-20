@@ -1908,6 +1908,11 @@ bool Client::Death(Mob* killer_mob, int64 damage, uint16 spell, EQ::skills::Skil
 	InterruptSpell();
 
 	Mob* m_pet = GetPet();
+	for (auto pet : GetCommandPets()) {
+		if (pet->IsCharmed()) { continue; }
+		UnregisterClassPet(pet->GetID());
+		pet->Depop();
+	}
 	SetPet(0);
 	SetHorseId(0);
 	ShieldAbilityClearVariables();

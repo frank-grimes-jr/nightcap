@@ -52,11 +52,11 @@ extern WorldServer worldserver;
 extern EntityList entity_list;
 
 bool Client::Process() {
-	if (!m_multiclass_state_valid || !m_pet_armor_transfer_valid) { OnDisconnect(true); return false; }
+	if (!m_multiclass_state_valid || !m_pet_armor_transfer_valid || !m_pet_state_valid) { OnDisconnect(true); return false; }
 	bool ret = true;
 
 	if (Connected() || IsLD()) {
-		if (client_data_loaded && m_pet_armor_apply_timer.Check()) { ApplyPetArmor(); }
+		if (client_data_loaded && m_pet_armor_apply_timer.Check()) { RefreshClassPets(); ApplyPetArmor(); }
 		// try to send all packets that weren't sent before
 		if (!IsLD() && zoneinpacket_timer.Check()) {
 			SendAllPackets();
@@ -619,7 +619,7 @@ bool Client::Process() {
 	}
 
 	// A class commit failure must not enter the normal linkdead/AI path.
-	if (!m_multiclass_state_valid || !m_pet_armor_transfer_valid) { OnDisconnect(true); return false; }
+	if (!m_multiclass_state_valid || !m_pet_armor_transfer_valid || !m_pet_state_valid) { OnDisconnect(true); return false; }
 
 	ClientToNpcAggroProcess();
 

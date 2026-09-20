@@ -691,8 +691,10 @@ int NightcapBalanceMain(int argc, char **argv)
 				output["status"] = "Native purchased-AA activation diagnostic; cooldowns initially ready";
 			}
 			if (input.contains("pet_probe")) {
-				if (build.at("profile") != "mag-nec-shm" || build.at("classes") != json::array({13,11,10})) {
-					throw std::runtime_error("Pet control requires MAG/NEC/SHM");
+				const auto classes = build.at("classes").get<std::vector<int>>();
+				if (classes.size() != 3 || std::set<int>(classes.begin(), classes.end()).size() != 3 ||
+					!std::all_of(classes.begin(), classes.end(), [](int c) { return c >= 1 && c <= 16; })) {
+					throw std::runtime_error("Pet control requires three distinct valid held classes");
 				}
 				output["pet_probe"] = NightcapBalancePetProbe(c,input.at("pet_probe"));
 				output["status"] = "Native pet summon/ownership/buff diagnostic; no boss balance claim";

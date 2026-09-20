@@ -5555,7 +5555,7 @@ void Mob::SetTarget(Mob *mob)
 
 	parse->EventMob(EVENT_TARGET_CHANGE, this, mob, [&]() { return ""; }, 0, &args);
 
-	if (IsPet() && GetOwner() && GetOwner()->IsClient()) {
+	if (IsPet() && GetOwner() && GetOwner()->IsClient() && GetOwner()->GetPetID() == GetID()) {
 		GetOwner()->CastToClient()->UpdateXTargetType(MyPetTarget, mob);
 	}
 

@@ -839,7 +839,7 @@ void Client::SendZoneInPackets()
 		SendAppearancePacket(AppearanceType::PVP, GetPVP(false), true, false);
 
 	ReconcileMulticlassSkills();
-	ClearExtraPets();
+	RefreshClassPets(true);
 
 	//Send AA Exp packet:
 	if (GetLevel() >= 51)
@@ -1284,19 +1284,9 @@ bool Client::Save(uint8 iCommitNow) {
 
 	m_pp.lastlogin = time(nullptr);
 
-	if (GetPet() && GetPet()->CastToNPC()->GetPetSpellID() && !dead) {
-		NPC *pet = GetPet()->CastToNPC();
-		m_petinfo.SpellID = pet->CastToNPC()->GetPetSpellID();
-		m_petinfo.HP = pet->GetHP();
-		m_petinfo.Mana = pet->GetMana();
-		pet->GetPetState(m_petinfo.Buffs, m_petinfo.Items, m_petinfo.Name);
-		m_petinfo.petpower = pet->GetPetPower();
-		m_petinfo.size = pet->GetSize();
-		m_petinfo.taunting = pet->CastToNPC()->IsTaunting();
-	} else {
-		memset(&m_petinfo, 0, sizeof(struct PetInfo));
-	}
+	CaptureClassPets();
 	database.SavePetInfo(this);
+	if (!m_pet_state_valid) { return false; }
 
 	if(tribute_timer.Enabled()) {
 		m_pp.tribute_time_remaining = tribute_timer.GetRemainingTime();
@@ -6664,9 +6654,16 @@ void Client::SuspendMinion(int value)
 		Note: SPA 308 allows for suspended pets to be resummoned after zoning.
 	*/
 
-	NPC *CurrentPet = GetPet()->CastToNPC();
-
-	if(!CurrentPet)
+	RefreshClassPets();
+	NPC *CurrentPet = GetPet() && GetPet()->IsNPC() ? GetPet()->CastToNPC() : nullptr;
+	m_restoring_pet_class = m_suspended_pet_class;
+	const auto recall_class = m_suspendedminion.SpellID ? GetPetSpellClass(m_suspendedminion.SpellID) : 0;
+	m_restoring_pet_class = 0;
+	if (m_suspendedminion.SpellID && (!recall_class || GetClassPet(recall_class))) {
+		MessageString(Chat::Red, ONLY_ONE_PET);
+		return;
+	}
+	if (!CurrentPet || m_suspendedminion.SpellID)
 	{
 		if(m_suspendedminion.SpellID > 0)
 		{
@@ -6676,10 +6673,12 @@ void Client::SuspendMinion(int value)
 				return;
 			}
 
+			m_restoring_pet_class = recall_class;
 			MakePoweredPet(m_suspendedminion.SpellID, spells[m_suspendedminion.SpellID].teleport_zone,
 				m_suspendedminion.petpower, m_suspendedminion.Name, m_suspendedminion.size);
 
-			CurrentPet = GetPet()->CastToNPC();
+			m_restoring_pet_class = 0;
+			CurrentPet = GetArmorPet(recall_class);
 
 			if(!CurrentPet)
 			{
@@ -6694,6 +6693,7 @@ void Client::SuspendMinion(int value)
 				CurrentPet->SendPetBuffsToClient();
 			}
 			CurrentPet->CalcBonuses();
+			ApplyPetArmor();
 
 			CurrentPet->SetHP(m_suspendedminion.HP);
 
@@ -6704,21 +6704,9 @@ void Client::SuspendMinion(int value)
 			MessageString(Chat::Magenta, SUSPEND_MINION_UNSUSPEND, CurrentPet->GetCleanName());
 
 			memset(&m_suspendedminion, 0, sizeof(struct PetInfo));
-			// TODO: These pet command states need to be synced ...
-			// Will just fix them for now
-			if (m_ClientVersionBit & EQ::versions::maskUFAndLater) {
-				SetPetCommandState(PetButton::Sit, PetButtonState::Off);
-				SetPetCommandState(PetButton::Stop, PetButtonState::Off);
-				SetPetCommandState(PetButton::Regroup, PetButtonState::Off);
-				SetPetCommandState(PetButton::Follow, PetButtonState::On);
-				SetPetCommandState(PetButton::Guard, PetButtonState::Off);
-				// Taunt saved on client side for logging on with pet
-				// In our db for when we zone.
-				SetPetCommandState(PetButton::Hold, PetButtonState::Off);
-				SetPetCommandState(PetButton::GreaterHold, PetButtonState::Off);
-				SetPetCommandState(PetButton::Focus, PetButtonState::Off);
-				SetPetCommandState(PetButton::SpellHold, PetButtonState::Off);
-			}
+			m_suspended_pet_class = 0;
+			ApplyPetArmor();
+			SyncPetWindow();
 		}
 		else
 			return;
@@ -6748,6 +6736,11 @@ void Client::SuspendMinion(int value)
 			}
 			else
 			{
+				m_suspended_pet_class = 0;
+				for (auto class_id : GetMulticlassList()) {
+					if (GetClassPet(class_id) == CurrentPet->GetID()) { m_suspended_pet_class = class_id; break; }
+				}
+				if (!m_suspended_pet_class) { MessageString(Chat::Red, ONLY_SUMMONED_PETS); return; }
 				m_suspendedminion.SpellID = SpellID;
 
 				m_suspendedminion.HP = CurrentPet->GetHP();
@@ -6755,6 +6748,7 @@ void Client::SuspendMinion(int value)
 				m_suspendedminion.Mana = CurrentPet->GetMana();
 				m_suspendedminion.petpower = CurrentPet->GetPetPower();
 				m_suspendedminion.size = CurrentPet->GetSize();
+				m_suspendedminion.taunting = CurrentPet->IsTaunting();
 
 				if(value >= 1)
 					CurrentPet->GetPetState(m_suspendedminion.Buffs, m_suspendedminion.Items, m_suspendedminion.Name);
@@ -6763,9 +6757,9 @@ void Client::SuspendMinion(int value)
 
 				MessageString(Chat::Magenta, SUSPEND_MINION_SUSPEND, CurrentPet->GetCleanName());
 
+				UnregisterClassPet(CurrentPet->GetID());
 				CurrentPet->Depop(false);
-
-				SetPetID(0);
+				RefreshClassPets();
 			}
 		}
 		else
@@ -13574,4 +13568,13 @@ bool Client::UncompleteTask(int task_id)
 	);
 
 	return task_state->UncompleteTask(task_id);
+}
+
+void Client::InvalidatePetState()
+{
+	m_pet_state_valid = false;
+	client_data_loaded = false;
+	Message(Chat::Red, "Your pet state could not be confirmed. Please reconnect to reload your pets.");
+	if (eqs) { eqs->Close(); }
+	client_state = DISCONNECTED;
 }

@@ -4,6 +4,8 @@ Start with [current status](status.md), not a dated candidate report.
 
 ## Players and testers
 
+- [Three class pets: evidence and exact QA](releases/multiclass-pets-20260919/README.md)
+- [East Commonlands tunnel proposal](pok/ecommons-tunnel-proposal.md)
 - [Silent UI synchronization and release 1906](releases/client-silent-ui-20260919.md)
 
 - [September 19 client/gameplay release and exact QA](releases/client-gameplay-20260919.md)

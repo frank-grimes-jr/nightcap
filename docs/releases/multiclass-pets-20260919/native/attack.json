@@ -1,0 +1,232 @@
+{
+  "binary_sha256": "ba5c8da4ffa6d9ff7435538e8e2efdb7cc9de62891fc3c60bf7c29ee99d24cf8",
+  "passed": 8,
+  "cases": [
+    {
+      "id": "command-2-80-extraonly-False",
+      "passed": true,
+      "immediate_damage": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "ordered_pet_ids": [
+        [
+          2,
+          3,
+          4
+        ],
+        [
+          2,
+          3,
+          4
+        ],
+        [
+          2,
+          3,
+          4
+        ],
+        [
+          2,
+          3,
+          4
+        ]
+      ],
+      "expected_ordered_pet_ids": [
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "id": "command-2-500-extraonly-False",
+      "passed": true,
+      "immediate_damage": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "ordered_pet_ids": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "expected_ordered_pet_ids": []
+    },
+    {
+      "id": "command-2-80-extraonly-True",
+      "passed": true,
+      "immediate_damage": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "ordered_pet_ids": [
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "expected_ordered_pet_ids": [
+        2,
+        3
+      ]
+    },
+    {
+      "id": "command-2-80-primaryonly",
+      "passed": true,
+      "immediate_damage": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "ordered_pet_ids": [
+        [
+          2
+        ],
+        [
+          2
+        ],
+        [
+          2
+        ],
+        [
+          2
+        ]
+      ],
+      "expected_ordered_pet_ids": [
+        2
+      ]
+    },
+    {
+      "id": "command-3-80-extraonly-False",
+      "passed": true,
+      "immediate_damage": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "ordered_pet_ids": [
+        [
+          2,
+          3,
+          4
+        ],
+        [
+          2,
+          3,
+          4
+        ],
+        [
+          2,
+          3,
+          4
+        ],
+        [
+          2,
+          3,
+          4
+        ]
+      ],
+      "expected_ordered_pet_ids": [
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "id": "command-3-500-extraonly-False",
+      "passed": true,
+      "immediate_damage": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "ordered_pet_ids": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "expected_ordered_pet_ids": []
+    },
+    {
+      "id": "command-3-80-extraonly-True",
+      "passed": true,
+      "immediate_damage": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "ordered_pet_ids": [
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "expected_ordered_pet_ids": [
+        2,
+        3
+      ]
+    },
+    {
+      "id": "command-3-80-primaryonly",
+      "passed": true,
+      "immediate_damage": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "ordered_pet_ids": [
+        [
+          2
+        ],
+        [
+          2
+        ],
+        [
+          2
+        ],
+        [
+          2
+        ]
+      ],
+      "expected_ordered_pet_ids": [
+        2
+      ]
+    }
+  ]
+}

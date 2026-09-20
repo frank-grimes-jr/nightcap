@@ -1,0 +1,582 @@
+{
+  "binary_sha256": "ba5c8da4ffa6d9ff7435538e8e2efdb7cc9de62891fc3c60bf7c29ee99d24cf8",
+  "passed": 36,
+  "cases": [
+    {
+      "case": "case-00",
+      "classes": [
+        10,
+        11,
+        13
+      ],
+      "summons": [
+        166,
+        443,
+        633
+      ],
+      "actions": 26,
+      "final_pets": 0,
+      "anchor_packets": 32
+    },
+    {
+      "case": "case-01",
+      "classes": [
+        10,
+        11,
+        13
+      ],
+      "summons": [
+        166,
+        633,
+        443
+      ],
+      "actions": 26,
+      "final_pets": 0,
+      "anchor_packets": 32
+    },
+    {
+      "case": "case-02",
+      "classes": [
+        10,
+        11,
+        13
+      ],
+      "summons": [
+        443,
+        166,
+        633
+      ],
+      "actions": 26,
+      "final_pets": 0,
+      "anchor_packets": 32
+    },
+    {
+      "case": "case-03",
+      "classes": [
+        10,
+        11,
+        13
+      ],
+      "summons": [
+        443,
+        633,
+        166
+      ],
+      "actions": 26,
+      "final_pets": 0,
+      "anchor_packets": 32
+    },
+    {
+      "case": "case-04",
+      "classes": [
+        10,
+        11,
+        13
+      ],
+      "summons": [
+        633,
+        166,
+        443
+      ],
+      "actions": 26,
+      "final_pets": 0,
+      "anchor_packets": 32
+    },
+    {
+      "case": "case-05",
+      "classes": [
+        10,
+        11,
+        13
+      ],
+      "summons": [
+        633,
+        443,
+        166
+      ],
+      "actions": 26,
+      "final_pets": 0,
+      "anchor_packets": 32
+    },
+    {
+      "case": "case-06",
+      "classes": [
+        10,
+        13,
+        11
+      ],
+      "summons": [
+        166,
+        443,
+        633
+      ],
+      "actions": 26,
+      "final_pets": 0,
+      "anchor_packets": 32
+    },
+    {
+      "case": "case-07",
+      "classes": [
+        10,
+        13,
+        11
+      ],
+      "summons": [
+        166,
+        633,
+        443
+      ],
+      "actions": 26,
+      "final_pets": 0,
+      "anchor_packets": 32
+    },
+    {
+      "case": "case-08",
+      "classes": [
+        10,
+        13,
+        11
+      ],
+      "summons": [
+        443,
+        166,
+        633
+      ],
+      "actions": 26,
+      "final_pets": 0,
+      "anchor_packets": 32
+    },
+    {
+      "case": "case-09",
+      "classes": [
+        10,
+        13,
+        11
+      ],
+      "summons": [
+        443,
+        633,
+        166
+      ],
+      "actions": 26,
+      "final_pets": 0,
+      "anchor_packets": 32
+    },
+    {
+      "case": "case-10",
+      "classes": [
+        10,
+        13,
+        11
+      ],
+      "summons": [
+        633,
+        166,
+        443
+      ],
+      "actions": 26,
+      "final_pets": 0,
+      "anchor_packets": 32
+    },
+    {
+      "case": "case-11",
+      "classes": [
+        10,
+        13,
+        11
+      ],
+      "summons": [
+        633,
+        443,
+        166
+      ],
+      "actions": 26,
+      "final_pets": 0,
+      "anchor_packets": 32
+    },
+    {
+      "case": "case-12",
+      "classes": [
+        11,
+        10,
+        13
+      ],
+      "summons": [
+        166,
+        443,
+        633
+      ],
+      "actions": 26,
+      "final_pets": 0,
+      "anchor_packets": 32
+    },
+    {
+      "case": "case-13",
+      "classes": [
+        11,
+        10,
+        13
+      ],
+      "summons": [
+        166,
+        633,
+        443
+      ],
+      "actions": 26,
+      "final_pets": 0,
+      "anchor_packets": 32
+    },
+    {
+      "case": "case-14",
+      "classes": [
+        11,
+        10,
+        13
+      ],
+      "summons": [
+        443,
+        166,
+        633
+      ],
+      "actions": 26,
+      "final_pets": 0,
+      "anchor_packets": 32
+    },
+    {
+      "case": "case-15",
+      "classes": [
+        11,
+        10,
+        13
+      ],
+      "summons": [
+        443,
+        633,
+        166
+      ],
+      "actions": 26,
+      "final_pets": 0,
+      "anchor_packets": 32
+    },
+    {
+      "case": "case-16",
+      "classes": [
+        11,
+        10,
+        13
+      ],
+      "summons": [
+        633,
+        166,
+        443
+      ],
+      "actions": 26,
+      "final_pets": 0,
+      "anchor_packets": 32
+    },
+    {
+      "case": "case-17",
+      "classes": [
+        11,
+        10,
+        13
+      ],
+      "summons": [
+        633,
+        443,
+        166
+      ],
+      "actions": 26,
+      "final_pets": 0,
+      "anchor_packets": 32
+    },
+    {
+      "case": "case-18",
+      "classes": [
+        11,
+        13,
+        10
+      ],
+      "summons": [
+        166,
+        443,
+        633
+      ],
+      "actions": 26,
+      "final_pets": 0,
+      "anchor_packets": 32
+    },
+    {
+      "case": "case-19",
+      "classes": [
+        11,
+        13,
+        10
+      ],
+      "summons": [
+        166,
+        633,
+        443
+      ],
+      "actions": 26,
+      "final_pets": 0,
+      "anchor_packets": 32
+    },
+    {
+      "case": "case-20",
+      "classes": [
+        11,
+        13,
+        10
+      ],
+      "summons": [
+        443,
+        166,
+        633
+      ],
+      "actions": 26,
+      "final_pets": 0,
+      "anchor_packets": 32
+    },
+    {
+      "case": "case-21",
+      "classes": [
+        11,
+        13,
+        10
+      ],
+      "summons": [
+        443,
+        633,
+        166
+      ],
+      "actions": 26,
+      "final_pets": 0,
+      "anchor_packets": 32
+    },
+    {
+      "case": "case-22",
+      "classes": [
+        11,
+        13,
+        10
+      ],
+      "summons": [
+        633,
+        166,
+        443
+      ],
+      "actions": 26,
+      "final_pets": 0,
+      "anchor_packets": 32
+    },
+    {
+      "case": "case-23",
+      "classes": [
+        11,
+        13,
+        10
+      ],
+      "summons": [
+        633,
+        443,
+        166
+      ],
+      "actions": 26,
+      "final_pets": 0,
+      "anchor_packets": 32
+    },
+    {
+      "case": "case-24",
+      "classes": [
+        13,
+        10,
+        11
+      ],
+      "summons": [
+        166,
+        443,
+        633
+      ],
+      "actions": 26,
+      "final_pets": 0,
+      "anchor_packets": 32
+    },
+    {
+      "case": "case-25",
+      "classes": [
+        13,
+        10,
+        11
+      ],
+      "summons": [
+        166,
+        633,
+        443
+      ],
+      "actions": 26,
+      "final_pets": 0,
+      "anchor_packets": 32
+    },
+    {
+      "case": "case-26",
+      "classes": [
+        13,
+        10,
+        11
+      ],
+      "summons": [
+        443,
+        166,
+        633
+      ],
+      "actions": 26,
+      "final_pets": 0,
+      "anchor_packets": 32
+    },
+    {
+      "case": "case-27",
+      "classes": [
+        13,
+        10,
+        11
+      ],
+      "summons": [
+        443,
+        633,
+        166
+      ],
+      "actions": 26,
+      "final_pets": 0,
+      "anchor_packets": 32
+    },
+    {
+      "case": "case-28",
+      "classes": [
+        13,
+        10,
+        11
+      ],
+      "summons": [
+        633,
+        166,
+        443
+      ],
+      "actions": 26,
+      "final_pets": 0,
+      "anchor_packets": 32
+    },
+    {
+      "case": "case-29",
+      "classes": [
+        13,
+        10,
+        11
+      ],
+      "summons": [
+        633,
+        443,
+        166
+      ],
+      "actions": 26,
+      "final_pets": 0,
+      "anchor_packets": 32
+    },
+    {
+      "case": "case-30",
+      "classes": [
+        13,
+        11,
+        10
+      ],
+      "summons": [
+        166,
+        443,
+        633
+      ],
+      "actions": 26,
+      "final_pets": 0,
+      "anchor_packets": 32
+    },
+    {
+      "case": "case-31",
+      "classes": [
+        13,
+        11,
+        10
+      ],
+      "summons": [
+        166,
+        633,
+        443
+      ],
+      "actions": 26,
+      "final_pets": 0,
+      "anchor_packets": 32
+    },
+    {
+      "case": "case-32",
+      "classes": [
+        13,
+        11,
+        10
+      ],
+      "summons": [
+        443,
+        166,
+        633
+      ],
+      "actions": 26,
+      "final_pets": 0,
+      "anchor_packets": 32
+    },
+    {
+      "case": "case-33",
+      "classes": [
+        13,
+        11,
+        10
+      ],
+      "summons": [
+        443,
+        633,
+        166
+      ],
+      "actions": 26,
+      "final_pets": 0,
+      "anchor_packets": 32
+    },
+    {
+      "case": "case-34",
+      "classes": [
+        13,
+        11,
+        10
+      ],
+      "summons": [
+        633,
+        166,
+        443
+      ],
+      "actions": 26,
+      "final_pets": 0,
+      "anchor_packets": 32
+    },
+    {
+      "case": "case-35",
+      "classes": [
+        13,
+        11,
+        10
+      ],
+      "summons": [
+        633,
+        443,
+        166
+      ],
+      "actions": 26,
+      "final_pets": 0,
+      "anchor_packets": 32
+    }
+  ]
+}
