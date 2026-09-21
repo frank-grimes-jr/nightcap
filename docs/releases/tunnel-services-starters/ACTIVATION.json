@@ -1,0 +1,230 @@
+{
+  "status": "deployed_live_qa_manual_acceptance_open",
+  "date": "2026-09-21",
+  "authorization": "Owner: Move ahead with it; approved this release main promotion and OVH deployment",
+  "gameplay_main_commit": "0f023711a0ef1f60a26d6e466a722778b6688056",
+  "migration_fix_commit": "feda6ae64d5e6a3786955bed96ec035b910d7391",
+  "release_main_commit": "e4c996c32ca9025d94e15a0399e94ab922494ac4",
+  "pull_requests": [
+    57,
+    58,
+    59,
+    60
+  ],
+  "image_tag": "nightcap-game:tunnel-services-20260921",
+  "local_evidence_root": "E:\\EQ_Local_Dev\\artifacts\\tunnel-services-starters\\ovh-20260921",
+  "remote_evidence_root": "/opt/nightcap/releases/tunnel-services-evidence-20260921",
+  "checks": {
+    "content_database_regressions": 34,
+    "rollout_failure_tests": 17,
+    "existing_characters_preserved_at_activation": 22,
+    "baseline_starting_rules": 148
+  },
+  "transport": [
+    {
+      "native_session": "passed",
+      "port": 5998,
+      "tls": "verified"
+    },
+    {
+      "native_session": "passed",
+      "port": 9000,
+      "tls": "verified"
+    },
+    {
+      "native_session": "passed",
+      "port": 7778,
+      "tls": "verified"
+    },
+    {
+      "native_session": "passed",
+      "port": 7000,
+      "tls": "verified"
+    }
+  ],
+  "evidence": {
+    "backup.json": {
+      "sha256": "b89adaec9f43e142577f16d6079d026ffc496975b36120443e299ea2d25b4e7f",
+      "uncompressed_bytes": 445236201
+    },
+    "rehearsal.json": {
+      "full_backup_restored": true,
+      "baseline_rules_match": 148,
+      "forward_exact": true,
+      "rotations_checked": 3,
+      "rollback_exact": true,
+      "preserved_tables": 46
+    },
+    "prepared.json": {
+      "ready": true,
+      "artifacts_sha256": {
+        "source.json": "7ed37a79ea1a8495bdc5a961c242494176911e7fe3f5c3bb6913b2f50169861f",
+        "candidate-indexed/plan.json": "d9f7252c8c509747e9bc6e69d44701325401e192d5461ac1225a9980dc9c711e",
+        "candidate-indexed/after.json": "20e03d81f2d932d1dd17b7486915d5e55c99ce2d1033b125ef7235da34fbeee1",
+        "candidate-indexed/forward.sql": "bc378da4fa6cc465c8a326fd99c2e0863a5014bce14bba1caef050b82cb67c71",
+        "candidate-indexed/rollback.sql": "e8db8ca9d3d26cd3654b267efb2db78791bef647bab89b824d53de7ae885e351"
+      }
+    },
+    "preflight.json": {
+      "old": {
+        "bin/loginserver": "8702cb691077ca075e832250511c194ea457436e835fb31daac5b231d683ff60",
+        "bin/world": "36ff9d66695e62061397452f090e6a068ce3c735b35367d7261932cd36c7de97",
+        "bin/zone": "4f64b3e78a149b4de8fd523429043b6641d19d5e3a496f15fc2d353ad17a974a",
+        "bin/ucs": "aa9e4ec87dca221faeaaccd82cb2f2e6576b99979b79d6722b1ec9ab779efba7",
+        "bin/shared_memory": "9446e1020d44eccb673442ceba5b85d4e99ae18debfe352e1a2a0626ff5db8cd",
+        "start.py": "0f4f683b58c61f70cc41ea017746486f9c3188deb56c2f626b36f945aa53cb9b"
+      },
+      "new": {
+        "bin/loginserver": "8702cb691077ca075e832250511c194ea457436e835fb31daac5b231d683ff60",
+        "bin/world": "6bf1827689b9887dea150f69f2a9bce43a5a8039b834dc55c6d70bfaf20b0994",
+        "bin/zone": "09996b0732642178b9b869e9a3a5d24c8a0cbb2a0c5645ee532536fa59e70823",
+        "bin/ucs": "aa9e4ec87dca221faeaaccd82cb2f2e6576b99979b79d6722b1ec9ab779efba7",
+        "bin/shared_memory": "9446e1020d44eccb673442ceba5b85d4e99ae18debfe352e1a2a0626ff5db8cd",
+        "start.py": "ca4099eb898730141e7941d3afc366d59c4bc8351eea74c5b6fd9560c24b815f"
+      },
+      "new_image_id": "sha256:7219a5e43b6f00e96e6abf88914e309f0ea3c36ad381a9f840f6a605c8e0c570"
+    },
+    "activated.json": {
+      "image_id": "sha256:7219a5e43b6f00e96e6abf88914e309f0ea3c36ad381a9f840f6a605c8e0c570",
+      "started_at": "2026-09-21T11:30:54.345938747Z",
+      "native_processes": 15,
+      "hashes_match": true,
+      "restart_count": 0,
+      "errors": {
+        "quest_api": 0,
+        "native": 0,
+        "database": 0
+      },
+      "epoch": 5,
+      "offers": [
+        "find\t10\t10",
+        "sell\t20\t20",
+        "buy\t12\t12"
+      ],
+      "preserved_tables": 46,
+      "runtime_files": 19,
+      "gateway_running": true
+    },
+    "source-revalidation.json": {
+      "complete_source_unchanged": true,
+      "source_sha256": "7ed37a79ea1a8495bdc5a961c242494176911e7fe3f5c3bb6913b2f50169861f"
+    },
+    "predicate-explain-before-fix.json": {
+      "unindexed": {
+        "access_type": "ALL",
+        "index": "NULL",
+        "estimated_rows": "82755"
+      },
+      "indexed": {
+        "access_type": "const",
+        "index": "PRIMARY",
+        "estimated_rows": "1"
+      }
+    },
+    "indexed-regression/database-checks.json": {
+      "checks": [
+        "same-key case-only NPC drift rejected",
+        "drift rejection preserves all scoped rows",
+        "reserved NPC collision rejected",
+        "collision rejection leaves entire content unchanged",
+        "npc_types exact afterimage",
+        "spawngroup exact afterimage",
+        "spawnentry exact afterimage",
+        "spawn2 exact afterimage",
+        "merchantlist exact afterimage",
+        "object exact afterimage",
+        "grid exact afterimage",
+        "grid_entries exact afterimage",
+        "items exact afterimage",
+        "nightcap_market_actors exact afterimage",
+        "zone_state_spawns exact afterimage",
+        "npc_types exact predicate uses an index",
+        "merchantlist exact predicate uses an index",
+        "items exact predicate uses an index",
+        "second apply fails closed without duplicate stock",
+        "rejected replay preserves candidate",
+        "player wallet and inventory survive apply and rollback",
+        "rollback retains definitions for granted starter items",
+        "npc_types rollback row count",
+        "spawngroup rollback row count",
+        "spawnentry rollback row count",
+        "spawn2 rollback row count",
+        "merchantlist rollback row count",
+        "object rollback row count",
+        "grid rollback row count",
+        "grid_entries rollback row count",
+        "items rollback row count",
+        "nightcap_market_actors rollback row count",
+        "zone_state_spawns rollback row count",
+        "all original scoped content restored exactly"
+      ],
+      "disposable_schema_removed": true
+    },
+    "post_activation_content": {
+      "exact_static_afterimages": true,
+      "counts": {
+        "npc_types": 90,
+        "spawngroup": 90,
+        "spawnentry": 90,
+        "spawn2": 90,
+        "merchantlist": 2199,
+        "object": 6,
+        "grid": 8,
+        "grid_entries": 32,
+        "items": 33,
+        "nightcap_market_actors": 16,
+        "trainer_classes": 16
+      },
+      "trainers": {
+        "distinct_classes": 16,
+        "one_per_class": true,
+        "npc_ids": [
+          999650,
+          999656,
+          999658,
+          999665,
+          999651,
+          999652,
+          999654,
+          999659,
+          999653,
+          999655,
+          999657,
+          999664,
+          999660,
+          999661,
+          999662,
+          999663
+        ]
+      }
+    },
+    "runtime_recheck": {
+      "image_id": "sha256:7219a5e43b6f00e96e6abf88914e309f0ea3c36ad381a9f840f6a605c8e0c570",
+      "started_at": "2026-09-21T11:30:54.345938747Z",
+      "native_processes": 15,
+      "hashes_match": true,
+      "restart_count": 0,
+      "errors": {
+        "quest_api": 0,
+        "native": 0,
+        "database": 0
+      }
+    }
+  },
+  "local_artifact_sha256": {
+    "rollout.py": "35d9c11cd00645274607ffd7725da72bcc7a46014cf2708efa4cb26d1486f4de",
+    "test_rollout.py": "f556e0de804a5c66079b7bfae0efa562b311bee074d060270258164b8fc508a7",
+    "rollout-tests-final.log": "4c15b0e5140fb90acba40e46316ba55a2027b4e470f039e222d055036e941f27",
+    "remote-evidence.json": "2b53aa683112108fc879b2e92501f10dd6b6e0600ffbe11415c2e872cd6db17f",
+    "trainer-verification.json": "810b3a66a93d3fede4cdf3c80045e040562ef26671a5a9a32fad8698e915af82",
+    "transport-smoke.ps1": "69ab15f4ef5fe847ea4de11dd7ce230a0dd535a1a1f4c101d98cfad0dc99e9fa",
+    "transport-smoke.json": "a737af0426df33e1d93d61b47078061c65f5aaec365b50a5345fe1c2ee22d0df",
+    "stage/manifest.json": "a520e8c40b0c596cfdbdab2eef171ee31d3ec63c860955dc15d430aee9e8d4a5"
+  },
+  "limits": [
+    "No graphical or authenticated RoF2 gameplay acceptance",
+    "Production fingerprints are an activation-time snapshot; later legitimate play is expected",
+    "Backup and raw SQL/private logs remain on host",
+    "Rollback preserves player progress, granted starter definitions and market trade audit"
+  ]
+}
