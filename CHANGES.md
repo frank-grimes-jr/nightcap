@@ -10,6 +10,10 @@ classes or ordinary level-ups. Regression tests exercise actual server methods
 and the real client parser. No client update or SQL migration is needed. The
 owner authorized direct main promotion and server deployment; evidence and
 remaining visual QA: `docs/releases/inventory-class-refresh-20260921.md`.
+Deployed to OVH after full native build and twelve rollback rehearsals. All 15
+running process hashes, eight preservation fingerprints, rules, startup checks
+and four encrypted connection handshakes pass. A validated backup and the
+previous runtime image are retained; client files and quests are unchanged.
 
 ## 2026-09-20 - Permanent patcher and launcher self-updates
 

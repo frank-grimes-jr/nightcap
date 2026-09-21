@@ -227,7 +227,7 @@ int main(int argc, char** argv) {
         }
         if (scenario == "second" || scenario == "consecutive") {
             check(client.inventory.Classes() == "WAR/---/---", "incorrect initial class label");
-            client.stored_class2 = 2; // Trainer writes the database, then calls the reconciler.
+            client.stored_class2 = 2; // The Chronicler quest writes the database, then reconciles.
             client.ReconcileMulticlassSkills();
             check(client.inventory.Classes() == "WAR/CLR/---", "inventory label stale after second class selection");
             check(client.m_nightcap_ui_generation > initial_generation, "second class snapshot generation did not advance");
