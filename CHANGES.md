@@ -1,5 +1,19 @@
 # CHANGES
 
+## 2026-09-21 - Rustic tunnel travel alcove for dev/test QA
+
+Replace the ten oversized East Commonlands city stones with Merrin, a findable
+human travel guide, beside a native lantern, barrel and crate. His hail menu
+preserves the ten exact destinations/landings; all return/PoK books, merchants,
+waypoints, binds and player data remain unchanged. No client patch or C++ build.
+
+Fresh-target SQL guards identity, geometry, routes and full preimages. Rehearsal
+covers apply, drift/collision rejection, replay, exact rollback and preservation.
+After zone activity use the documented fresh-capture rollback; the immediate
+rollback intentionally rejects guide saved-state drift. Native floor/path checks
+passed; actual appearance, clicks/Find, round trips and pets await owner QA.
+Scope and exact steps: `docs/releases/tunnel-travel-alcove/README.md`.
+
 ## 2026-09-21 - Deploy tunnel services and starters for owner QA
 
 The owner explicitly approved main promotion and OVH deployment. Applied the
