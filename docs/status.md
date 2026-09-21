@@ -3,6 +3,26 @@
 Updated September 20, 2026. This is the current status index; dated studies and
 QA reports preserve their original evidence and are not live-state promises.
 
+## Tunnel services and starter candidate
+
+[Candidate scope, evidence and exact QA](releases/tunnel-services-starters/README.md):
+22 supply merchants, six crafting stations, all 16 trainers, eight walkers,
+varied first-name OOC/auction and two finite offers per tunnel trader. Creation
+provides 100pp, a primary-class weapon and a 10 AC/+5 main-stat robe. Includes the
+latest inventory refresh repair. Local migration/rollback, native map/build and
+independent review checks pass. **Not applied to production or manually accepted.**
+Normal test-to-main sign-off applies; prior deployment exceptions are not reused.
+
+## Inventory class refresh deployed
+
+[The class-selection refresh fix](releases/inventory-class-refresh-20260921.md)
+is live on OVH. Selecting an extra class now publishes the class/AA snapshot
+immediately, including when no new skills unlock. Seven regression controls,
+the full native build, twelve rollout/rollback rehearsals, all 15 running process
+hashes and four encrypted native handshakes pass. Eight player/merchant
+fingerprints and all rules were preserved. No client update is required; manual
+visual acceptance remains in the linked QA steps.
+
 ## Permanent patcher deployed
 
 [Launcher 0.3.0](releases/permanent-patcher-20260920.md) is live with stable starter,

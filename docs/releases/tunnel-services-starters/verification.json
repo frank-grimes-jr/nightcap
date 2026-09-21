@@ -1,0 +1,50 @@
+{
+  "status": "candidate_not_deployed_not_manually_accepted",
+  "source_commit": "10ceb60f34f44de6b03ac4896ea53b30f0c34a6d",
+  "local_evidence_root": "E:\\EQ_Local_Dev\\artifacts\\tunnel-services-starters",
+  "binaries": {
+    "world": "6bf1827689b9887dea150f69f2a9bce43a5a8039b834dc55c6d70bfaf20b0994",
+    "zone": "09996b0732642178b9b869e9a3a5d24c8a0cbb2a0c5645ee532536fa59e70823"
+  },
+  "build_method": "Fresh isolated full build followed by recorded changed-source rebuild with fresh mtimes; no stale source/object copying",
+  "integration": "Includes latest main inventory refresh; changed aa.cpp/client.cpp written with new mtimes before rebuild",
+  "production_hardening_sha256": "219f556bb1e55a719f8a3f5150c95723ce46ab9a8b69c93c2bc0f54ff1262b2e",
+  "checks": {
+    "focused_python_tests": 26,
+    "perl_assertions": 36,
+    "content_database_checks": 29,
+    "market_database_checks": 97,
+    "market_rotations": 30,
+    "linux_supervisor_tests": 5,
+    "inventory_refresh_native_tests": 7,
+    "skill_lifecycle": "passed",
+    "geometry_points": 227,
+    "clear_path_segments": 24,
+    "actual_binary_startup_contract": "passed",
+    "final_merged_python_tests": 33
+  },
+  "review": {
+    "native_market_creation": "no remaining required fixes",
+    "content_reagent_price": "resolved and rollback verified"
+  },
+  "artifact_sha256": {
+    "source-v2.json": "440603f3f577f03fb49540f315473bb5a048d16c7b842a0572fc8cf717a1d591",
+    "source-v3.json": "e7d1b19ea2e1f5a303f8cf8e689dedd186de10f6026c3af2ca4ec2d9727faa9b",
+    "candidate-v3/plan.json": "d2e0b40de80d7a263e510949b4bfa90310a4fe8e337d8a9fbff393d87cff28cc",
+    "candidate-v3/forward.sql": "80701236a0b522a1333c7edfe5f90980e2a28fa68dbdd1a798158387382128a0",
+    "candidate-v3/rollback.sql": "66161f0f6d05be000ec68517a43a850ab32ee3ebe16a577429aec566f70cf29e",
+    "candidate-v3/geometry.json": "3723e4808bb38debd9c8d03b9fd9df22836c07759e8d7d961ee7444a7f613155",
+    "tests-final/content/database-checks.json": "1facdefb71c0a4c4ce8ec8d305dbd9f1aecbb9724f44252fea907fbe49e8602f",
+    "tests-final/market/market-database-checks.json": "e0fe58e3660d133e693b07a7e1228511c14b57f04a8f58b80d1461f32067f115",
+    "integrated-manifest.json": "6e8b61aca4ca3a8b2811319a9f13d0419f0f6d425c038dfee29d5a6748e1c9ef",
+    "integrated-build.log": "c06d5567a164c18588eab25fc682ff68b93a4a44f4cbcc960c92e44e64f5845c",
+    "starting-items-baseline.sql": "ea21570ed57c8b5ee0bcec0b6a93c96df9b592a112b9491e9fa864457fe10907",
+    "tests-final/python-final.log": "163da5f63114472b283e4685b50dfa56ef1697c79ef4752c40be93ee5baba889"
+  },
+  "limits": [
+    "No production database or runtime changed",
+    "No RoF2 graphical or in-game acceptance",
+    "Local source capture must not be used as production preimage",
+    "Native fixtures exercise selected failure paths; inherited profile repository writes are not made atomic by this change"
+  ]
+}

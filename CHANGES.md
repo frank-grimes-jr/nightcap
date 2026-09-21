@@ -1,5 +1,45 @@
 # CHANGES
 
+## 2026-09-21 - Tunnel services, channel activity and starter provisions candidate
+
+Adds a planned general merchant with all 46 components from the approved Classic
+level-50 spell catalog, food/water/bandages and all instrument families; 21
+tradeskill suppliers covering 12 disciplines, six crafting stations, 16 trainers,
+irregular service groups and eight patrolling residents. Guarded fresh-capture
+SQL rejects collisions/drift and limits saved-state invalidation to affected EC
+instance-zero non-corpse rows. Plains Pebble was previously unpriced; its reviewed
+base price becomes 100 copper, with native merchant modifiers still applied.
+
+Expands the finite tunnel market to ten sellers and six buyers, two distinct
+items per actor. Real available item links/prices use varied first-name auction
+messages and separators. One coordinator varies OOC among six residents and eight
+walkers, avoids immediate repeats, and stays silent without players. Composite
+offer/audit keys retain atomic trades and historical audit; rollback restores the
+original rotation routine without deleting audit history.
+
+New-character creation grants exactly 100pp and a modest primary-class weapon
+plus a no-trade 10 AC/+5 main-stat robe. Empty-reservation and equipment guards
+reject replay, existing wallets and unexpected starting gear. There is no login
+grant. Rollback retains definitions for already-owned items and preserves wallets.
+Requires matching world/zone, content cache, supervisor and quest plugins.
+Candidate only: production application and owner gameplay acceptance remain open.
+Evidence, exact QA and rollback: `docs/releases/tunnel-services-starters/`.
+
+## 2026-09-20 - Refresh inventory classes immediately after adoption
+
+Class selection reloaded server skills/slots but left the client's same-zone
+class snapshot stale. Publish the existing class/AA snapshot when reconciliation
+detects changed slots, including selections that unlock no new skills. Reuse that
+publication for native slot assignment; no extra refresh occurs for unchanged
+classes or ordinary level-ups. Regression tests exercise actual server methods
+and the real client parser. No client update or SQL migration is needed. The
+owner authorized direct main promotion and server deployment; evidence and
+remaining visual QA: `docs/releases/inventory-class-refresh-20260921.md`.
+Deployed to OVH after full native build and twelve rollback rehearsals. All 15
+running process hashes, eight preservation fingerprints, rules, startup checks
+and four encrypted connection handshakes pass. A validated backup and the
+previous runtime image are retained; client files and quests are unchanged.
+
 ## 2026-09-20 - Permanent patcher and launcher self-updates
 
 Published launcher 0.3.0 through a stable signed-channel starter. The launcher

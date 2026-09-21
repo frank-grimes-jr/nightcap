@@ -38,8 +38,14 @@ Assert-Contains $clientSource 'SetSkill\(skill,\s*1\)' `
     'Client reconciler must seed eligible skills at value 1'
 Assert-Contains $clientSource 'ReconcileMulticlassSkills\(\);\s*\r?\n\s*RefreshClassPets' `
     'Zone-in must reconcile immediately after loading character data'
-Assert-Contains $aaSource 'ReconcileMulticlassSkills\(\);\s*\r?\n\s*SendAlternateAdvancementTable' `
-    'C++ class adoption must reconcile before resending class capabilities'
+$nativeAdoptionStart = $aaSource.IndexOf('void Client::SetMulticlassSlot(')
+$nativeAdoptionEnd = $aaSource.IndexOf('void Mob::TemporaryPets(', $nativeAdoptionStart)
+if ($nativeAdoptionStart -lt 0 -or $nativeAdoptionEnd -lt $nativeAdoptionStart) {
+    throw 'Unable to locate native class adoption'
+}
+$nativeAdoption = $aaSource.Substring($nativeAdoptionStart, $nativeAdoptionEnd - $nativeAdoptionStart)
+Assert-Contains $nativeAdoption 'ReconcileMulticlassSkills\(\);' `
+    'C++ class adoption must use the shared skill and capability reconciler'
 Assert-Contains $perlBinding 'package\.add\("ReconcileMulticlassSkills"' `
     'Perl adoption must have a binding to the authoritative reconciler'
 Assert-Contains $plugin '\$client->ReconcileMulticlassSkills\(\);' `

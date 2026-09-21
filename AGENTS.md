@@ -263,6 +263,12 @@ main or replace owner in-game QA.
 
 ### Client UI request transport
 
+Class adoption must publish the loaded class/AA snapshot when the reconciler
+detects changed class slots. The client retains a valid same-zone identity and
+does not poll again just because Inventory opens. Keep publication independent
+of whether new skills unlock, and avoid duplicate sends from native adoption.
+Regression and rollout: `docs/releases/inventory-class-refresh-20260921.md`.
+
 Internal class/AA and pet armor requests must bypass InterpretCmd and Say's local
 chat echo/history. Proxy 0.4.2 uses the pinned native channel sender with an
 ASLR-aware signed guard. Keep ordinary chat and actionable server errors visible;
@@ -304,3 +310,16 @@ preservation checks pass. Market stock rotates on each successful world startup.
 Preserve hosted player progress and never replay initial-restore SQL for an update.
 For publication recovery, inspect the visible channel before restoring pointers;
 clients that saw a newer release require a higher-numbered corrective release.
+
+### Tunnel services and creation provisions candidate (September 21)
+
+`tools/tunnel_services.py` plans from the reviewed release catalog and emits
+forward/rollback SQL from `tools/tunnel_services_capture.py` preimages. Stop the
+target world/zones and back up before capture/apply; local evidence is not a
+production preimage. Retain starter item definitions during rollback because
+characters may own them. Deploy matching world/zone, supervisor and chatter
+plugins with the multi-offer market schema/procedure. Composite audit keys must
+survive rollback. Starting currency belongs in `character_currency`, not merely
+the creation profile. No repeatable login grants. The historical living-economy
+generator intentionally refuses refresh after this coordinator is installed.
+Exact scope and owner QA: `docs/releases/tunnel-services-starters/README.md`.
