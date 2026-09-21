@@ -52,9 +52,10 @@ usability, level-255 scroll handling and the missing resident OOC API. The owner
 explicitly requested main promotion and then production application.
 
 All 15 running native process hashes, 33 runtime files, 30 resident afterimages,
-hosted signature/file hashes and four encrypted native handshakes pass. Eight
-player/merchant preservation fingerprints and all rules stayed unchanged. Market
-epoch 3 has ten finds, six sales and four buys, each quantity one. A validated
+hosted signature/file hashes and four encrypted native handshakes passed for that
+release. Eight player/merchant preservation fingerprints and all rules stayed
+unchanged. At that release, market epoch 3 had ten finds, six sales and four buys,
+each quantity one; the tunnel deployment above supersedes that market stock. A validated
 full backup and the previous image/plugin are retained. Players must install the
 new launcher/client update; [exact in-game QA](releases/production-bugfixes-20260920.md#exact-owner-in-game-qa)
 remains open. The original workspace client and local QA server were not changed.
