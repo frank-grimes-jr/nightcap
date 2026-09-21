@@ -4,6 +4,7 @@ use Test::More;
 our $root=shift @ARGV or die 'Expected server-mods root';
 {
     package plugin;
+    do "$main::root/plugins/tunnel_chatter.pl" or die $@ || $!;
     do "$main::root/plugins/tunnel_resident_data.pl" or die $@ || $!;
     do "$main::root/plugins/tunnel_residents.pl" or die $@ || $!;
     package quest;
@@ -80,17 +81,11 @@ is($client->{moves}[-1][0],3,'Surefall does not unlock before Velious');
 for my $id (999520..999524) {
     $npc->{id}=$id;plugin::tunnel_resident_hail($client,$npc,'Hail');
 }
-like($quest::said[-1],qr/Level twelve.*corpse.*Butcherblock.*goblin/,'Trift remembers the requested story');
-my $entities=bless {clients=>[]},'ResidentEntities';
-plugin::tunnel_trift_story($entities);
-is(scalar @quest::ooc,0,'no OOC in empty zone');
-$entities->{clients}=[$client];
-srand(50);plugin::tunnel_trift_story($entities) for 1..20;
-is(scalar @quest::ooc,20,'stories use actual OOC adapter');
-ok(!(grep { !/corpse/ || !/Butcherblock/ || !/goblin/i } @quest::ooc),'every variation retains corpse, zone and cause');
-$TriftQuest::npc=$npc;$TriftQuest::client=$client;$TriftQuest::entity_list=$entities;
+like($quest::said[-1],qr/Butcherblock/,'Trift remembers the requested story');
+my $stories=plugin::tunnel_dialogue(999524);
+is(scalar @$stories,6,'Trift has six story variations');
+ok(!(grep { !/corpse/ || !/Butcherblock/ || !/goblin/i } @$stories),'every variation retains corpse, zone and cause');
+$TriftQuest::npc=$npc;$TriftQuest::client=$client;
 TriftQuest::EVENT_ITEM();is($npc->{returned},1,'wrong items and money use native return path');
-TriftQuest::EVENT_SPAWN();$TriftQuest::timer='trift_story';TriftQuest::EVENT_TIMER() for 1..50;
-is(scalar @quest::timers,51,'Trift has one rearming timer');
-ok(!(grep { $_->[0] ne 'trift_story' || $_->[1]<180 || $_->[1]>300 } @quest::timers),'story cadence is bounded at three to five minutes');
+ok(!TriftQuest->can('EVENT_TIMER'),'only the shared coordinator owns OOC cadence');
 done_testing();

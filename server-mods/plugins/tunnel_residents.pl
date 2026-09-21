@@ -9,13 +9,10 @@ sub tunnel_resident_hail {
     return unless $client->GetZoneID()==22 && $client->GetInstanceID()==0;
     my $distance=($client->GetX()-$npc->GetX())**2+($client->GetY()-$npc->GetY())**2+($client->GetZ()-$npc->GetZ())**2;
     return if $distance>10000;
-    my %greetings=(
-        999520=>'Crafted plate, two good blades, and enough room to swing. That is all I ask.',
-        999521=>'May your road be clear. Ghoulbane has made a few of mine considerably quieter.',
-        999522=>'I was standing right here the whole time. Ask anyone who did not see me.',
-        999523=>'Fear teaches patience. Bringing back the armor takes a little more than that.',
-        999524=>'Level twelve, full bronze, and I still lost my corpse in Butcherblock. A goblin killed me, and I cannot remember where.');
-    if ($identity!=999525) { quest::say($greetings{$identity}); return; }
+    if ($identity!=999525) {
+        my $lines=plugin::tunnel_dialogue($identity);
+        quest::say($lines->[int(rand(@$lines))]); return;
+    }
     my $era=quest::get_rule('Expansion:CurrentExpansion');
     unless (defined $era && $era =~ /^\d+$/ && $era<=30) {
         quest::say('The paths are uncertain just now. Please try again later.'); return;
@@ -47,18 +44,6 @@ sub tunnel_resident_hail {
         my @line=splice(@rings,0,4);
         quest::say(join(' - ',map { quest::saylink('ring '.$_->{zone},1,$_->{label}) } @line));
     }
-}
-
-sub tunnel_trift_story {
-    my ($entities)=@_;
-    my @clients=$entities->GetClientList();
-    return unless @clients;
-    my @stories=(
-        'I was level twelve and feeling invincible in my bronze. Then a goblin in Butcherblock killed me. Still cannot find that corpse.',
-        'Has anyone seen a lost corpse in Butcherblock? Mine. Goblin got me. I thought I would remember which hill it was.',
-        'The trouble with losing your corpse in Butcherblock is that every tree starts looking like the tree beside that goblin.',
-        'Full bronze does not make a level twelve warrior goblin-proof. Learned that in Butcherblock. Still looking for the corpse.');
-    quest::ooc($stories[int(rand(@stories))]);
 }
 
 1;

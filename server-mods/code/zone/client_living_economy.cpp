@@ -3,6 +3,7 @@
 #include "zone/zone.h"
 #include "common/content/world_content_service.h"
 #include "common/say_link.h"
+#include "common/tunnel_chat.h"
 #include <algorithm>
 #include <limits>
 
@@ -79,31 +80,36 @@ void Client::LivingEconomy(uint32 npc_entity_id, const std::string &text)
 	if (!zone || zone->GetInstanceID()) { return; }
 	auto mob = entity_list.GetMob(npc_entity_id);
 	if (!mob || !mob->IsNPC() || DistanceSquared(GetPosition(), mob->GetPosition()) > USE_NPC_RANGE2) { return; }
-	NightcapMarket::Offer offer;
-	if (!NightcapMarket::ReadOffer(mob->GetNPCTypeID(), zone->GetZoneID(), MarketEra(), offer) || offer.kind == "find") {
+	const auto offers = NightcapMarket::ReadOffers(mob->GetNPCTypeID(), zone->GetZoneID(), MarketEra());
+	if (offers.empty() || offers.front().kind == "find") {
 		Message(Chat::NPCQuestSay, "%s says, 'All finished trading for now. Good hunting!'", mob->GetCleanName());
 		return;
 	}
-	const std::string command = fmt::format("market {} {} {} {}", offer.epoch, offer.npc_id, offer.item_id, offer.price_cp);
-	if (text == command) {
-		CompleteMarketTrade(mob->CastToNPC(), offer);
-		return;
+	for (const auto &offer : offers) {
+		const auto command = fmt::format("market {} {} {} {}", offer.epoch, offer.npc_id, offer.item_id, offer.price_cp);
+		if (text == command) {
+			CompleteMarketTrade(mob->CastToNPC(), offer);
+			return;
+		}
 	}
 	if (text.rfind("market ", 0) == 0) {
 		Message(Chat::NPCQuestSay, "That offer has changed. Hail me again for today's price.");
 		return;
 	}
-	const auto item = database.GetItem(offer.item_id);
-	if (!item) { return; }
-	EQ::SayLinkEngine link;
-	link.SetLinkType(EQ::saylink::SayLinkItemData);
-	link.SetItemData(item);
-	const auto item_link = link.GenerateLink();
-	const bool selling = offer.kind == "sell";
-	const auto action = Saylink::Silent(command, selling ? "Buy one" : "Sell one from cursor");
-	Message(Chat::NPCQuestSay, "%s says, '%s %s for %u platinum. %s %s'", mob->GetCleanName(),
-		selling ? "WTS" : "WTB", item_link.c_str(), offer.price_cp / 1000,
-		selling ? "I've just the one. Empty your cursor first." : "Put one unmodified item on your cursor; I'll take it there.", action.c_str());
+	for (const auto &offer : offers) {
+		const auto item = database.GetItem(offer.item_id);
+		if (!item) { continue; }
+		const auto command = fmt::format("market {} {} {} {}", offer.epoch, offer.npc_id, offer.item_id, offer.price_cp);
+		EQ::SayLinkEngine link;
+		link.SetLinkType(EQ::saylink::SayLinkItemData);
+		link.SetItemData(item);
+		const auto item_link = link.GenerateLink();
+		const bool selling = offer.kind == "sell";
+		const auto action = Saylink::Silent(command, selling ? "Buy one" : "Sell one from cursor");
+		Message(Chat::NPCQuestSay, "%s says, '%s %s for %u platinum. %s %s'", mob->GetCleanName(),
+			selling ? "WTS" : "WTB", item_link.c_str(), offer.price_cp / 1000,
+			selling ? "I've just the one. Empty your cursor first." : "Put one unmodified item on your cursor; I'll take it there.", action.c_str());
+	}
 }
 
 bool Client::CompleteMarketTrade(NPC *npc, const NightcapMarket::Offer &offer)
@@ -116,7 +122,7 @@ bool Client::CompleteMarketTrade(NPC *npc, const NightcapMarket::Offer &offer)
 		return false;
 	}
 	NightcapMarket::Offer current;
-	if (!NightcapMarket::ReadOffer(offer.npc_id, offer.zone_id, MarketEra(), current) ||
+	if (!NightcapMarket::ReadOffer(offer.npc_id, offer.zone_id, MarketEra(), current, offer.item_id) ||
 		current.epoch != offer.epoch || current.item_id != offer.item_id ||
 		current.price_cp != offer.price_cp || current.kind != offer.kind) {
 		Message(Chat::Yellow, "That offer is no longer available. Hail or reopen the shop.");
@@ -184,30 +190,36 @@ void Client::MarketAnnouncement(uint32 npc_entity_id, uint32 variant)
 {
 	if (!zone || zone->GetZoneID() != 22 || zone->GetInstanceID()) { return; }
 	auto mob = entity_list.GetMob(npc_entity_id);
-	NightcapMarket::Offer offer;
-	if (!mob || !mob->IsNPC() || !NightcapMarket::ReadOffer(mob->GetNPCTypeID(), 22, MarketEra(), offer) ||
-		offer.kind == "find") { return; }
-	const char *chatter[] = {
-		"I went into Guk for an hour. That was yesterday.",
-		"Anyone else carry three bags of things they might need someday?",
-		"The tunnel is the only camp where my boots stay dry.",
-		"Someone remind me to buy food before I leave this time.",
-		"Almost had that pull. Almost is doing a lot of work there.",
-		"That last group was good company. Even the corpse run."
-	};
-	if (variant >= 8) {
-		if (DistanceSquared(GetPosition(), mob->GetPosition()) <= 200.0f * 200.0f) {
-			ChannelMessageSend(mob->GetCleanName(), nullptr, ChatChannel_Say, 0, 100, "%s", chatter[(variant - 8) % 6]);
-		}
-		return;
+	if (!mob || !mob->IsNPC()) { return; }
+	const auto offers = NightcapMarket::ReadOffers(mob->GetNPCTypeID(), 22, MarketEra());
+	if (offers.empty() || offers.front().kind == "find") { return; }
+	std::vector<std::string> items;
+	for (const auto &offer : offers) {
+		const auto item = database.GetItem(offer.item_id);
+		if (!item) { continue; }
+		EQ::SayLinkEngine link;
+		link.SetLinkType(EQ::saylink::SayLinkItemData);
+		link.SetItemData(item);
+		items.push_back(fmt::format("{} {}pp", link.GenerateLink(), offer.price_cp / 1000));
 	}
-	const auto item = database.GetItem(offer.item_id);
-	if (!item) { return; }
-	EQ::SayLinkEngine link;
-	link.SetLinkType(EQ::saylink::SayLinkItemData);
-	link.SetItemData(item);
-	const char *endings[] = {"at the tunnel. Come hail me!", "one only, near the tunnel merchants.",
-		"at the tunnel. Price is firm.", "come find me in the tunnel!"};
-	ChannelMessageSend(mob->GetCleanName(), nullptr, ChatChannel_Auction, 0, 100, "%s %s %upp, %s",
-		offer.kind == "buy" ? "WTB" : "WTS", link.GenerateLink().c_str(), offer.price_cp / 1000, endings[variant % 4]);
+	if (variant % 2) { std::reverse(items.begin(), items.end()); }
+	const auto text = NightcapTunnel::Auction(items, offers.front().kind == "buy", variant);
+	const auto name = NightcapTunnel::FirstName(mob->GetCleanName());
+	if (!text.empty() && !name.empty()) {
+		ChannelMessageSend(name.c_str(), nullptr, ChatChannel_Auction, 0, 100, "%s", text.c_str());
+	}
+}
+
+void Client::TunnelChatter(uint32 npc_entity_id, const std::string &message)
+{
+	if (!zone || zone->GetZoneID() != 22 || zone->GetInstanceID() || message.empty() || message.size() > 300) { return; }
+	auto mob = entity_list.GetMob(npc_entity_id);
+	if (!mob || !mob->IsNPC()) { return; }
+	const auto id = mob->GetNPCTypeID();
+	if (!((id >= 999500 && id <= 999509) || (id >= 999520 && id <= 999525) ||
+		(id >= 999680 && id <= 999685) || (id >= 999700 && id <= 999707))) { return; }
+	const auto name = NightcapTunnel::FirstName(mob->GetCleanName());
+	if (!name.empty()) {
+		ChannelMessageSend(name.c_str(), nullptr, ChatChannel_OOC, 0, 100, "%s", message.c_str());
+	}
 }
