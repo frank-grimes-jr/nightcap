@@ -311,7 +311,7 @@ Preserve hosted player progress and never replay initial-restore SQL for an upda
 For publication recovery, inspect the visible channel before restoring pointers;
 clients that saw a newer release require a higher-numbered corrective release.
 
-### Tunnel services and creation provisions candidate (September 21)
+### Tunnel services and creation provisions deployed for QA (September 21)
 
 `tools/tunnel_services.py` plans from the reviewed release catalog and emits
 forward/rollback SQL from `tools/tunnel_services_capture.py` preimages. Stop the
@@ -323,3 +323,12 @@ survive rollback. Starting currency belongs in `character_currency`, not merely
 the creation profile. No repeatable login grants. The historical living-economy
 generator intentionally refuses refresh after this coordinator is installed.
 Exact scope and owner QA: `docs/releases/tunnel-services-starters/README.md`.
+The owner explicitly authorized this release's main promotion and OVH deployment;
+it is live for QA, not manually accepted. Activation evidence and scoped rollback:
+`docs/releases/tunnel-services-starters/ACTIVATION.md`. Keep native key predicates
+before exact binary row comparisons: casting every key forces repeated full PEQ
+table scans. The MariaDB rehearsal checks EXPLAIN index use and case-only drift.
+For a full restore rehearsal, wait for MariaDB's final PID 1 process, not its
+temporary bootstrap server. Copy the compressed dump into the isolated container
+and use pipefail with a private error file; captured stderr pipes can fill with
+large SQL statement diagnostics and deadlock a streaming restore.

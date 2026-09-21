@@ -16,5 +16,15 @@ Cut: unrestricted future-era reagent/tradeskill pools, repeatable login grants,
 cosmetic auctions and per-NPC broadcast timers. No client files were changed.
 Shaky/open: actual in-game robe/trainer/station appearance and interactions,
 walker behavior, trade delivery, economic acceptance, and the inherited
-best-effort profile writes inside SaveCharacterCreate. This is a candidate;
-production application and owner acceptance are not claimed.
+best-effort profile writes inside SaveCharacterCreate. The owner authorized main
+promotion and OVH deployment on September 21. It is now online for live QA;
+manual acceptance is not claimed.
+
+Activation: full production backup restored into isolated MariaDB; 148 baseline
+starting rules, exact forward/rollback, three rotations and 46 preservation
+checks passed. Full PEQ exposed unindexed exact predicates; native key prefixes
+preserve binary comparisons while enabling indexes. The resulting 34 database
+regressions and 17 rollout failure tests pass. All 15 running native hashes,
+19 runtime files, static content afterimages and four encrypted handshakes pass.
+The previous runtime and full backup remain available. See
+[activation evidence](../releases/tunnel-services-starters/ACTIVATION.md).
