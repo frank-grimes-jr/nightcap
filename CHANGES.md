@@ -1,5 +1,22 @@
 # CHANGES
 
+## 2026-09-21 - Deploy tunnel services and starters for owner QA
+
+The owner explicitly approved main promotion and OVH deployment. Applied the
+target-captured guarded content migration and multi-offer procedure; installed
+the matching world/zone, supervisor and 19 runtime quest/plugin files. The server
+is online with 90 custom NPCs, 22 merchants / 2,199 listings, 16 trainers, six
+stations, eight patrols and creation-only 100pp/class gear. Market epoch 5 has
+20 sales, 12 buys and ten merchant finds, initially one copy each.
+
+Before application, restored the full 445,236,201-byte SQL backup into isolated
+MariaDB and passed exact forward/rollback, three rotations, 148 starting-rule
+comparisons and 34 content regressions. Seventeen rollout failure tests passed.
+All 46 player/rule/merchant preservation checks, 15 running process hashes,
+static content afterimages and four encrypted handshakes passed. Previous runtime,
+full backup and scoped rollback are retained. Actual RoF2 behavior and owner
+acceptance remain open; see `docs/releases/tunnel-services-starters/ACTIVATION.md`.
+
 ## 2026-09-21 - Index tunnel migration verification on full PEQ data
 
 The full OVH restore rehearsal exposed repeated table scans in exact preimage

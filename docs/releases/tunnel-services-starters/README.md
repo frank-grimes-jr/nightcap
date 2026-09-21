@@ -1,9 +1,11 @@
 # Tunnel services and starting provisions
 
-September 21, 2026 candidate. Implemented and automatically verified; **not applied
-to production and not manually accepted**. Normal feature -> dev -> test -> owner
-sign-off -> main policy applies. Previous live-release exceptions do not authorize
-this release. The latest main inventory refresh is included.
+Deployed to OVH on September 21, 2026 after the owner explicitly approved main
+promotion and live deployment. **Online for in-game QA; not manually accepted.**
+This approval applies to this release and does not change the normal branch
+policy. The latest main inventory refresh is included. See the
+[activation record](ACTIVATION.md) for running hashes, preservation checks,
+external connection checks and rollback instructions.
 
 ## Delivered behavior
 
@@ -51,7 +53,8 @@ in-game evidence; these items do not replace the existing AA/gear balance gates.
 
 - [Layout, exact inventory IDs and starter items](layout.json)
 - [Reviewed source catalog](catalog.json)
-- [Verification record](verification.json)
+- [Original candidate verification record](verification.json)
+- [Live activation evidence](ACTIVATION.json)
 - [Decision record](../../adr/0044-tunnel-services-and-creation-provisions.md)
 - [Exact in-game checklist](QA.md)
 
@@ -59,8 +62,10 @@ Local evidence is under `E:/EQ_Local_Dev/artifacts/tunnel-services-starters/`:
 `source-v3.json`, `candidate-v3/`, `tests-final/` and the integrated native build
 manifest/log. The first capture read the stopped local PEQ volume through a
 network-isolated MariaDB process; it wrote no PEQ content. It was handed back to
-the separate Docker recovery task. All mutation rehearsals used a separate empty
-disposable database container with no shared volume or ports.
+the separate Docker recovery task. Initial mutation rehearsals used a separate empty
+disposable database container with no shared volume or ports. Production activation
+then restored the full stopped OVH backup into another disposable container and
+rehearsed the exact target forward migration, three rotations and rollback.
 
 Source-v3 extends the source-v2 item scope using the exact Plains Pebble row already
 captured there. These are local rehearsal preimages, **not production migration
@@ -84,7 +89,7 @@ profile writes; this change does not claim a transaction across every creation
 repository. SQL and native fixtures prove selected failure paths, not a real RoF2
 client session or graphical station/trainer/robe behavior.
 
-## Activation sequence after the applicable approval
+## Activation procedure (completed on OVH September 21)
 
 1. Select the exact reviewed source/binary/plugin/supervisor manifest. Retain the
    previous full paired runtime. Preserve current hosted account/configuration

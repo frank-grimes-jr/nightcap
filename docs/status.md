@@ -1,17 +1,28 @@
 # Current Nightcap status
 
-Updated September 20, 2026. This is the current status index; dated studies and
+Updated September 21, 2026. This is the current status index; dated studies and
 QA reports preserve their original evidence and are not live-state promises.
 
-## Tunnel services and starter candidate
+## Tunnel services and starters deployed
 
-[Candidate scope, evidence and exact QA](releases/tunnel-services-starters/README.md):
+[Deployed scope, evidence and exact QA](releases/tunnel-services-starters/README.md):
 22 supply merchants, six crafting stations, all 16 trainers, eight walkers,
 varied first-name OOC/auction and two finite offers per tunnel trader. Creation
 provides 100pp, a primary-class weapon and a 10 AC/+5 main-stat robe. Includes the
-latest inventory refresh repair. Local migration/rollback, native map/build and
-independent review checks pass. **Not applied to production or manually accepted.**
-Normal test-to-main sign-off applies; prior deployment exceptions are not reused.
+latest inventory refresh repair. The owner explicitly authorized main promotion
+and OVH deployment on September 21. The server is online: all 15 running native
+hashes, 19 runtime files, exact static content, 46 preservation checks and four
+encrypted native handshakes passed. A full production-backup restore, forward /
+rollback rehearsal and 34 content regressions passed before application.
+**Deployed for live QA; manual gameplay acceptance remains open.**
+[Activation and rollback evidence](releases/tunnel-services-starters/ACTIVATION.md).
+
+For the reported spell level/filter issue, the owner's `E:/Nightcap` installation
+was stale at game release 2026092003 / proxy 0.4.2-dev. The signed production
+updater installed 2026092006 / proxy 0.5.0 and verified all 22 managed files. The
+desktop Nightcap shortcut now opens `E:/Nightcap/nightcap-launcher.exe`; close the
+old nested launcher before reopening it. Real spell levels and merchant filtering
+still need the [in-game check](releases/tunnel-services-starters/QA.md#spell-display-and-filter-follow-up).
 
 ## Inventory class refresh deployed
 

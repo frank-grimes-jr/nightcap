@@ -1,10 +1,29 @@
 # Owner in-game QA: tunnel services and starters
 
-Not yet executed. Use a normal account and current launcher; record character,
+Manual QA not yet executed. The release is live on OVH as of September 21, 2026;
+[activation evidence](ACTIVATION.md) records the runtime. Use a normal account
+and current launcher; record character,
 primary/held classes, client release, server binary manifest and result for every
 row. Use a separate test character when spending currency or consuming stock.
 Coordinates below are **X, Y**; EQ `/loc` presents **Y, X, Z**. All locations are
 in East Commonlands (`ecommons`, zone 22), original instance 0, tunnel main room.
+
+## Spell display and filter follow-up
+
+Close the old launcher and open the desktop **Nightcap** shortcut, which now uses
+`E:/Nightcap/nightcap-launcher.exe`. This installation was updated through the
+signed production updater to game release **2026092006**, including proxy
+**0.5.0**; all 22 managed files verify. The earlier installation had 2026092003 /
+0.4.2-dev and its shortcut bypassed the launcher. No additional client release is
+required by the tunnel deployment.
+
+On the affected character, keep **show spells I cannot use** disabled and open a
+spell merchant. Spells usable by the character's held classes should appear.
+Inspect an affected scroll: its real class level should replace 255, and the
+spell inventory level column should show the expected level instead of `--`.
+Confirm unowned-class and above-level spells remain restricted. Record the spell
+name, primary/held classes and character level for any failure. Installation and
+hook inspection passed; this runtime behavior has not been visually verified.
 
 ## Arrival, appearance and movement
 

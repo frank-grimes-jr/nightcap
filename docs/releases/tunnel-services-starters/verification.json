@@ -46,5 +46,7 @@
     "No RoF2 graphical or in-game acceptance",
     "Local source capture must not be used as production preimage",
     "Native fixtures exercise selected failure paths; inherited profile repository writes are not made atomic by this change"
-  ]
+  ],
+  "record_scope": "Original predeployment candidate evidence; see ACTIVATION.json for current deployment",
+  "current_activation_record": "ACTIVATION.json"
 }
