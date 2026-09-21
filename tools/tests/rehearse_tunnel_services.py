@@ -7,9 +7,9 @@ import secrets
 import subprocess
 import sys
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
-from tunnel_services import desired, plan, patch_sql, rollback_target, KEYS
+from tunnel_services import desired, plan, patch_sql, rollback_target, indexed_predicate, KEYS
 from generate_living_economy import insert
-from pok_hub_migration import predicate
+from pok_hub_migration import sql_value
 
 
 def run(source,container,evidence):
@@ -39,6 +39,15 @@ def run(source,container,evidence):
             'INSERT INTO character_currency(id,platinum) VALUES(77,321);'
             'INSERT INTO inventory(character_id,slot_id,item_id,charges) VALUES(77,22,5500,1);')
         original=fingerprint()
+        # Indexed lookup must retain the binary comparison of every other field.
+        npc=before['rows']['npc_types'][0]
+        changed_name=npc['name'].swapcase()
+        assert changed_name!=npc['name']
+        sql(f"UPDATE npc_types SET name={sql_value(changed_name)} WHERE id={int(npc['id'])};")
+        drifted=fingerprint()
+        verify(sql(patch_sql(before,after),False).returncode!=0,'same-key case-only NPC drift rejected')
+        verify(fingerprint()==drifted,'drift rejection preserves all scoped rows')
+        sql(f"UPDATE npc_types SET name={sql_value(npc['name'])} WHERE id={int(npc['id'])};")
         # Explicit occupied-ID case fails before any writes.
         sql(insert('npc_types',dict(after['rows']['npc_types'][-1],id='999600')))
         collision=fingerprint()
@@ -47,12 +56,16 @@ def run(source,container,evidence):
         sql('DELETE FROM npc_types WHERE id=999600;')
         sql(patch_sql(before,after))
         for table in KEYS:
-            counts=sql('\n'.join(f'SELECT COUNT(*) FROM `{table}` WHERE '+predicate(r)+';' for r in after['rows'][table])).stdout.splitlines() if after['rows'][table] else []
+            counts=sql('\n'.join(f'SELECT COUNT(*) FROM `{table}` WHERE '+indexed_predicate(table,r)+';' for r in after['rows'][table])).stdout.splitlines() if after['rows'][table] else []
             if counts!=['1']*len(counts):
                 bad=[(i,r) for i,r in enumerate(after['rows'][table]) if counts[i]!='1']
                 evidence.mkdir(parents=True,exist_ok=True)
                 (evidence/'mismatches.json').write_text(json.dumps({table:bad},indent=2))
             verify(counts==['1']*len(after['rows'][table]),table+' exact afterimage')
+        for table in ('npc_types','merchantlist','items'):
+            row=after['rows'][table][0]
+            explain=sql(f'EXPLAIN SELECT COUNT(*) FROM `{table}` WHERE '+indexed_predicate(table,row)+';').stdout.strip().split('\t')
+            verify(explain[5]!='NULL',table+' exact predicate uses an index')
         applied=fingerprint()
         verify(sql(patch_sql(before,after),False).returncode!=0,'second apply fails closed without duplicate stock')
         verify(fingerprint()==applied,'rejected replay preserves candidate')

@@ -1,5 +1,13 @@
 # CHANGES
 
+## 2026-09-21 - Index tunnel migration verification on full PEQ data
+
+The full OVH restore rehearsal exposed repeated table scans in exact preimage
+checks. Prefix each unchanged binary field comparison with the table's native
+key columns so forward, rollback and afterimage checks use indexes. Case-only
+drift still rejects the migration. Rehearsal now checks both drift rejection and
+actual MariaDB EXPLAIN index selection; gameplay definitions are unchanged.
+
 ## 2026-09-21 - Tunnel services, channel activity and starter provisions candidate
 
 Adds a planned general merchant with all 46 components from the approved Classic
