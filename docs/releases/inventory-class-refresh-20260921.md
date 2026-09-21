@@ -85,8 +85,10 @@ remain at `/opt/nightcap/releases/inventory-ui-20260921/`.
 
 [Verification summary](inventory-class-refresh-20260921/verification.json)
 records deployed hashes, health, backup and transport results. Raw database
-contents, secrets and startup logs remain on the host. The original local client
-and local gameplay server were not modified or started.
+contents, secrets and startup logs remain on the host. This task deployed no
+local client or gameplay binaries. Docker Desktop was restarted to recover the
+build engine; existing local stack containers were observed running during the
+final audit and left intact. The isolated build container was stopped.
 
 ## Exact owner in-game QA
 
