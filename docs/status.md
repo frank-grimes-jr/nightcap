@@ -3,6 +3,16 @@
 Updated September 20, 2026. This is the current status index; dated studies and
 QA reports preserve their original evidence and are not live-state promises.
 
+## Inventory class refresh deployed
+
+[The class-selection refresh fix](releases/inventory-class-refresh-20260921.md)
+is live on OVH. Selecting an extra class now publishes the class/AA snapshot
+immediately, including when no new skills unlock. Seven regression controls,
+the full native build, twelve rollout/rollback rehearsals, all 15 running process
+hashes and four encrypted native handshakes pass. Eight player/merchant
+fingerprints and all rules were preserved. No client update is required; manual
+visual acceptance remains in the linked QA steps.
+
 ## Permanent patcher deployed
 
 [Launcher 0.3.0](releases/permanent-patcher-20260920.md) is live with stable starter,

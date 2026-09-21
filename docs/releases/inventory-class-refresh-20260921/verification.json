@@ -1,0 +1,55 @@
+{
+  "source_commit": "30fbdcc8ab062909cd1fe1ab2c9828bd546f761c",
+  "image": "nightcap-game:inventory-ui-20260921",
+  "image_id": "sha256:d797c1246ea4359b5d6758b06c215f2fea821c110594686438a5874c59533ea6",
+  "started_at": "2026-09-21T01:27:35.287107332Z",
+  "health": "healthy",
+  "restart_count": 0,
+  "running_native_processes": 15,
+  "native_hashes_match": true,
+  "binaries": {
+    "loginserver": "8702cb691077ca075e832250511c194ea457436e835fb31daac5b231d683ff60",
+    "world": "36ff9d66695e62061397452f090e6a068ce3c735b35367d7261932cd36c7de97",
+    "zone": "4f64b3e78a149b4de8fd523429043b6641d19d5e3a496f15fc2d353ad17a974a",
+    "ucs": "aa9e4ec87dca221faeaaccd82cb2f2e6576b99979b79d6722b1ec9ab779efba7",
+    "shared_memory": "9446e1020d44eccb673442ceba5b85d4e99ae18debfe352e1a2a0626ff5db8cd"
+  },
+  "plugin_preserved": true,
+  "supervisor_preserved": true,
+  "preserved_tables": 8,
+  "rules_preserved": true,
+  "market_epoch": 4,
+  "startup_error_counts": {
+    "missing_quest_api": 0,
+    "native_crash": 0,
+    "database_error": 0
+  },
+  "backup": {
+    "sha256": "02023bb06699ec7c34f2d0f9202d5f40d69a1aad0cb3ef36d4cb6ad2fb9f4400",
+    "uncompressed_bytes": 445236292
+  },
+  "server_archive_sha256": "796cab8ca34bbf53f45414f6bf366d7e63a7608da2cace00ddc946b452166c4a",
+  "transport": [
+    {
+      "port": 5998,
+      "tls": "verified",
+      "native_session": "passed"
+    },
+    {
+      "port": 9000,
+      "tls": "verified",
+      "native_session": "passed"
+    },
+    {
+      "port": 7778,
+      "tls": "verified",
+      "native_session": "passed"
+    },
+    {
+      "port": 7000,
+      "tls": "verified",
+      "native_session": "passed"
+    }
+  ],
+  "manual_visual_qa": "Not performed; exact owner QA is in the release record"
+}

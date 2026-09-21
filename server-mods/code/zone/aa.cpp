@@ -115,7 +115,6 @@ void Client::SetMulticlassSlot(int slot, int class_id) {
 	}
 
 	ReconcileMulticlassSkills();
-	SendAlternateAdvancementTable();
 }
 
 void Mob::TemporaryPets(uint16 spell_id, Mob *targ, const char *name_override, uint32 duration_override, bool followme, bool sticktarg, uint16 *eye_id) {
