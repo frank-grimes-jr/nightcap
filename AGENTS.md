@@ -310,3 +310,16 @@ preservation checks pass. Market stock rotates on each successful world startup.
 Preserve hosted player progress and never replay initial-restore SQL for an update.
 For publication recovery, inspect the visible channel before restoring pointers;
 clients that saw a newer release require a higher-numbered corrective release.
+
+### Tunnel services and creation provisions candidate (September 21)
+
+`tools/tunnel_services.py` plans from the reviewed release catalog and emits
+forward/rollback SQL from `tools/tunnel_services_capture.py` preimages. Stop the
+target world/zones and back up before capture/apply; local evidence is not a
+production preimage. Retain starter item definitions during rollback because
+characters may own them. Deploy matching world/zone, supervisor and chatter
+plugins with the multi-offer market schema/procedure. Composite audit keys must
+survive rollback. Starting currency belongs in `character_currency`, not merely
+the creation profile. No repeatable login grants. The historical living-economy
+generator intentionally refuses refresh after this coordinator is installed.
+Exact scope and owner QA: `docs/releases/tunnel-services-starters/README.md`.

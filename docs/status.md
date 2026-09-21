@@ -3,6 +3,16 @@
 Updated September 20, 2026. This is the current status index; dated studies and
 QA reports preserve their original evidence and are not live-state promises.
 
+## Tunnel services and starter candidate
+
+[Candidate scope, evidence and exact QA](releases/tunnel-services-starters/README.md):
+22 supply merchants, six crafting stations, all 16 trainers, eight walkers,
+varied first-name OOC/auction and two finite offers per tunnel trader. Creation
+provides 100pp, a primary-class weapon and a 10 AC/+5 main-stat robe. Includes the
+latest inventory refresh repair. Local migration/rollback, native map/build and
+independent review checks pass. **Not applied to production or manually accepted.**
+Normal test-to-main sign-off applies; prior deployment exceptions are not reused.
+
 ## Inventory class refresh deployed
 
 [The class-selection refresh fix](releases/inventory-class-refresh-20260921.md)

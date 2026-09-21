@@ -10,6 +10,8 @@ Start with [current status](status.md), not a dated candidate report.
 
 ## Players and testers
 
+- [Tunnel services and starter candidate: scope, evidence, exact QA and rollback](releases/tunnel-services-starters/README.md)
+
 - [Immediate inventory class refresh: deployment and exact QA](releases/inventory-class-refresh-20260921.md)
 
 - [Permanent patcher: one-time transition and release evidence](releases/permanent-patcher-20260920.md)

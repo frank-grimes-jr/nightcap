@@ -8,24 +8,30 @@ from pok_hub_migration import sql_value
 ROOT = Path(__file__).resolve().parents[1]
 
 
-def query(sql, container):
-    result = subprocess.run(['docker', 'exec', '-i', container, 'mysql', '-ueqemu',
-        '-peqemu', 'peq', '--batch', '--raw', '--skip-column-names'], input=sql,
+def query(sql, container, root_env=False):
+    command=['docker', 'exec', '-i', container]
+    if root_env:
+        # Resolve the container's existing secret internally; never print it or
+        # put it in host command arguments. The query remains SELECT/SHOW only.
+        command += ['sh','-c','MYSQL_PWD="${MARIADB_ROOT_PASSWORD:-$MYSQL_ROOT_PASSWORD}" exec mariadb -uroot peq --batch --raw --skip-column-names']
+    else:
+        command += ['mysql','-ueqemu','-peqemu','peq','--batch','--raw','--skip-column-names']
+    result = subprocess.run(command, input=sql,
         text=True, encoding='utf-8', capture_output=True, timeout=120)
     if result.returncode:
         raise RuntimeError(result.stderr)
     return result.stdout
 
 
-def capture(container):
+def capture(container, root_env=False):
     schemas = {}
     def rows(table, where):
         if table not in schemas:
-            columns = [s.split('\t')[0] for s in query(f'SHOW COLUMNS FROM `{table}`;', container).splitlines()]
-            create = query(f'SHOW CREATE TABLE `{table}`;', container).split('\t', 1)[1].strip()
+            columns = [s.split('\t')[0] for s in query(f'SHOW COLUMNS FROM `{table}`;', container,root_env).splitlines()]
+            create = query(f'SHOW CREATE TABLE `{table}`;', container,root_env).split('\t', 1)[1].strip()
             schemas[table] = {'columns': columns, 'create': create}
         fields = ','.join(sql_value(c) + f',CAST(`{c}` AS CHAR)' for c in schemas[table]['columns'])
-        return [json.loads(line) for line in query(f'SELECT JSON_OBJECT({fields}) FROM `{table}` WHERE {where};', container).splitlines()]
+        return [json.loads(line) for line in query(f'SELECT JSON_OBJECT({fields}) FROM `{table}` WHERE {where};', container,root_env).splitlines()]
 
     audit = json.loads((ROOT/'docs/pok/hub-stock-audit.json').read_bytes())
     legal_spells = sorted({s['spell_id'] for s in audit['stock'] if s['classes_at_level_50']})
@@ -66,11 +72,12 @@ def capture(container):
 if __name__ == '__main__':
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument('--container', default='akk-stack-mariadb-1')
+    p.add_argument('--root-env',action='store_true',help='Use the container existing root-password environment for an on-host read-only capture')
     p.add_argument('--output', type=Path, required=True)
     a = p.parse_args()
     if a.output.exists():
         raise ValueError('Refusing to overwrite source evidence')
-    data = capture(a.container)
+    data = capture(a.container,a.root_env)
     a.output.parent.mkdir(parents=True, exist_ok=True)
     a.output.write_text(json.dumps(data, separators=(',', ':'))+'\n')
     print(json.dumps({k:len(v) for k,v in data['source'].items()}))
