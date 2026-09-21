@@ -3418,6 +3418,8 @@ bool Client::HasSkill(EQ::skills::SkillType skill_id) const
 
 uint32 Client::ReconcileMulticlassSkills()
 {
+	const auto previous_class2 = GetClass2();
+	const auto previous_class3 = GetClass3();
 	LoadMulticlassMask();
 
 	const auto held_classes = GetMulticlassList();
@@ -3456,6 +3458,12 @@ uint32 Client::ReconcileMulticlassSkills()
 			GetCleanName(),
 			GetLevel()
 		);
+	}
+
+	// Quest adoption reloads slots here without going through SetMulticlassSlot.
+	// Publish the new class/AA snapshot immediately, even when no skills unlock.
+	if (previous_class2 != GetClass2() || previous_class3 != GetClass3()) {
+		SendLoadedAlternateAdvancementTable();
 	}
 
 	return static_cast<uint32>(seeds.size());
