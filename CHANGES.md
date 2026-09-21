@@ -1,5 +1,16 @@
 # CHANGES
 
+## 2026-09-20 - Refresh inventory classes immediately after adoption
+
+Class selection reloaded server skills/slots but left the client's same-zone
+class snapshot stale. Publish the existing class/AA snapshot when reconciliation
+detects changed slots, including selections that unlock no new skills. Reuse that
+publication for native slot assignment; no extra refresh occurs for unchanged
+classes or ordinary level-ups. Regression tests exercise actual server methods
+and the real client parser. No client update or SQL migration is needed. The
+owner authorized direct main promotion and server deployment; evidence and
+remaining visual QA: `docs/releases/inventory-class-refresh-20260921.md`.
+
 ## 2026-09-20 - Permanent patcher and launcher self-updates
 
 Published launcher 0.3.0 through a stable signed-channel starter. The launcher

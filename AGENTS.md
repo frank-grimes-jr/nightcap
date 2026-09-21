@@ -263,6 +263,12 @@ main or replace owner in-game QA.
 
 ### Client UI request transport
 
+Class adoption must publish the loaded class/AA snapshot when the reconciler
+detects changed class slots. The client retains a valid same-zone identity and
+does not poll again just because Inventory opens. Keep publication independent
+of whether new skills unlock, and avoid duplicate sends from native adoption.
+Regression and rollout: `docs/releases/inventory-class-refresh-20260921.md`.
+
 Internal class/AA and pet armor requests must bypass InterpretCmd and Say's local
 chat echo/history. Proxy 0.4.2 uses the pinned native channel sender with an
 ASLR-aware signed guard. Keep ordinary chat and actionable server errors visible;

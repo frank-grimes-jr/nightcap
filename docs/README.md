@@ -10,6 +10,8 @@ Start with [current status](status.md), not a dated candidate report.
 
 ## Players and testers
 
+- [Immediate inventory class refresh: deployment and exact QA](releases/inventory-class-refresh-20260921.md)
+
 - [Permanent patcher: one-time transition and release evidence](releases/permanent-patcher-20260920.md)
 
 - [Production spell/NPC repair: status, evidence and exact QA](releases/production-bugfixes-20260920.md)
