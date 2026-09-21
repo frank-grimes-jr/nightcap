@@ -3,6 +3,7 @@
 #include "common/types.h"
 #include <array>
 #include <string>
+#include <vector>
 
 namespace NightcapMarket {
 struct Offer {
@@ -24,7 +25,8 @@ struct Item {
 using Wallet = std::array<uint32, 4>; // platinum, gold, silver, copper
 enum class Result { Rejected, Committed, Uncertain };
 bool Ready();
-bool ReadOffer(uint32 npc_id, uint32 zone_id, int era, Offer &offer);
+std::vector<Offer> ReadOffers(uint32 npc_id, uint32 zone_id, int era);
+bool ReadOffer(uint32 npc_id, uint32 zone_id, int era, Offer &offer, uint32 item_id = 0);
 Result Trade(uint32 character_id, const Offer &offer, int era, const Wallet &before,
 	const Wallet &after, const Item &item);
 }

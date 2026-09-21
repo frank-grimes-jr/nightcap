@@ -18,7 +18,9 @@ def validate_native():
         raise ValueError('Native runtime must contain the reviewed Linux ELF pair')
     if b'CALL nightcap_market_rotate({},{},{})\x00' not in world or b'CALL nightcap_market_rotate({})\x00' in world:
         raise ValueError('World lacks the current economy startup contract')
-    for marker in (b'LivingEconomy\x00', b'MarketAnnouncement\x00', b'_Z9Perl__oocPKc',
+    if b'INSERT INTO character_currency(id,platinum) VALUES({},100)' not in world:
+        raise ValueError('World lacks the creation-time starter currency contract')
+    for marker in (b'LivingEconomy\x00', b'MarketAnnouncement\x00', b'TunnelChatter\x00', b'_Z9Perl__oocPKc',
                    b'Your selected classes cannot cast this spell at your current level.'):
         if marker not in zone:
             raise ValueError('Zone lacks a required production quest/spell contract')

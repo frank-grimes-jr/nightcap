@@ -23,9 +23,9 @@ bool Ready()
 	return ready;
 }
 
-bool ReadOffer(uint32 npc_id, uint32 zone_id, int era, Offer &offer)
+std::vector<Offer> ReadOffers(uint32 npc_id, uint32 zone_id, int era)
 {
-	if (!Ready() || era < 0) { return false; }
+	if (!Ready() || era < 0) { return {}; }
 	auto row = database.QueryDatabase(fmt::format(
 		"SELECT o.epoch,o.item_id,o.price_cp,o.kind FROM nightcap_market_offers o "
 		"JOIN nightcap_market_state s ON s.id=1 AND s.enabled=1 AND s.epoch=o.epoch AND s.expansion={} "
@@ -34,12 +34,24 @@ bool ReadOffer(uint32 npc_id, uint32 zone_id, int era, Offer &offer)
 		"JOIN nightcap_market_actors a ON a.npc_id=o.npc_id AND a.zone_id=o.zone_id AND a.kind=o.kind "
 		"WHERE o.npc_id={} AND o.zone_id={} AND o.remaining=1 AND o.price_cp>0",
 		era, era, era, npc_id, zone_id) + fmt::format(" AND s.loot_multiplier={} AND s.buy_cost_mod={}",
-		RuleI(Zone, GlobalLootMultiplier), RuleR(Merchant, BuyCostMod)), false);
-	if (!row.Success() || row.RowCount() != 1) { return false; }
-	auto r = row.begin();
-	offer = {strtoull(r[0], nullptr, 10), npc_id, zone_id, Strings::ToUnsignedInt(r[1]),
-		Strings::ToUnsignedInt(r[2]), r[3]};
-	return true;
+		RuleI(Zone, GlobalLootMultiplier), RuleR(Merchant, BuyCostMod)) + " ORDER BY o.item_id LIMIT 3", false);
+	if (!row.Success() || row.RowCount() > 2) { return {}; }
+	std::vector<Offer> offers;
+	for (auto r : row) {
+		offers.push_back({strtoull(r[0], nullptr, 10), npc_id, zone_id, Strings::ToUnsignedInt(r[1]),
+			Strings::ToUnsignedInt(r[2]), r[3]});
+	}
+	return offers;
+}
+
+bool ReadOffer(uint32 npc_id, uint32 zone_id, int era, Offer &offer, uint32 item_id)
+{
+	auto offers = ReadOffers(npc_id, zone_id, era);
+	if (!item_id && offers.size() != 1) { return false; }
+	for (const auto &candidate : offers) {
+		if (!item_id || candidate.item_id == item_id) { offer = candidate; return true; }
+	}
+	return false;
 }
 
 Result Trade(uint32 character_id, const Offer &offer, int era, const Wallet &before,
