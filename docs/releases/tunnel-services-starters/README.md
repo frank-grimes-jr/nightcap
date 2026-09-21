@@ -1,9 +1,11 @@
 # Tunnel services and starting provisions
 
-September 21, 2026 candidate. Implemented and automatically verified; **not applied
-to production and not manually accepted**. Normal feature -> dev -> test -> owner
-sign-off -> main policy applies. Previous live-release exceptions do not authorize
-this release. The latest main inventory refresh is included.
+Deployed to OVH on September 21, 2026 after the owner explicitly approved main
+promotion and live deployment. **Online for in-game QA; not manually accepted.**
+This approval applies to this release and does not change the normal branch
+policy. The latest main inventory refresh is included. See the
+[activation record](ACTIVATION.md) for running hashes, preservation checks,
+external connection checks and rollback instructions.
 
 ## Delivered behavior
 
@@ -51,7 +53,8 @@ in-game evidence; these items do not replace the existing AA/gear balance gates.
 
 - [Layout, exact inventory IDs and starter items](layout.json)
 - [Reviewed source catalog](catalog.json)
-- [Verification record](verification.json)
+- [Original candidate verification record](verification.json)
+- [Live activation evidence](ACTIVATION.json)
 - [Decision record](../../adr/0044-tunnel-services-and-creation-provisions.md)
 - [Exact in-game checklist](QA.md)
 
@@ -59,8 +62,10 @@ Local evidence is under `E:/EQ_Local_Dev/artifacts/tunnel-services-starters/`:
 `source-v3.json`, `candidate-v3/`, `tests-final/` and the integrated native build
 manifest/log. The first capture read the stopped local PEQ volume through a
 network-isolated MariaDB process; it wrote no PEQ content. It was handed back to
-the separate Docker recovery task. All mutation rehearsals used a separate empty
-disposable database container with no shared volume or ports.
+the separate Docker recovery task. Initial mutation rehearsals used a separate empty
+disposable database container with no shared volume or ports. Production activation
+then restored the full stopped OVH backup into another disposable container and
+rehearsed the exact target forward migration, three rotations and rollback.
 
 Source-v3 extends the source-v2 item scope using the exact Plains Pebble row already
 captured there. These are local rehearsal preimages, **not production migration
@@ -84,7 +89,7 @@ profile writes; this change does not claim a transaction across every creation
 repository. SQL and native fixtures prove selected failure paths, not a real RoF2
 client session or graphical station/trainer/robe behavior.
 
-## Activation sequence after the applicable approval
+## Activation procedure (completed on OVH September 21)
 
 1. Select the exact reviewed source/binary/plugin/supervisor manifest. Retain the
    previous full paired runtime. Preserve current hosted account/configuration
@@ -94,12 +99,13 @@ client session or graphical station/trainer/robe behavior.
    Take and validate a full database backup. Export preservation fingerprints for
    character data, inventory, wallets, AAs, multiclass state, spells and market
    audit. Capture all 148 baseline starting-item rules (or stop on differences).
-3. On the target host, run the read-only capture with that MariaDB container:
-   `python tools/tunnel_services_capture.py --container TARGET_DB --root-env --output SOURCE.json`.
-   Existing container root credentials are resolved internally, never emitted.
-   `--root-env` requires the container's existing root-password environment;
-   the default path is the local eqemu/peq database. Capture only while stopped,
-   since the SELECT/SHOW calls are not one multi-table snapshot.
+3. The OVH helper captured the stopped database through
+   `tunnel_services_capture.capture` with a query adapter using
+   `mariadb --defaults-extra-file=/run/secrets/db_backup_config` inside the DB
+   container. Credentials remain in the existing secret file and are never
+   emitted. The generic capture CLI's `--root-env` mode does not apply to this
+   host. Capture only while stopped, since the SELECT/SHOW calls are not one
+   multi-table snapshot. The pinned helper/evidence paths are in [ACTIVATION.md](ACTIVATION.md).
 4. Generate into a fresh directory:
    `python tools/tunnel_services.py --source SOURCE.json --output TARGET_CANDIDATE`.
    Compare the generated stock, starter definitions, positions and counts with
@@ -126,8 +132,9 @@ client session or graphical station/trainer/robe behavior.
    character preservation fingerprints, intact audit and zero relevant native,
    DB or missing-quest-API errors. Check Plains Pebble base price=100 and no
    duplicate spawns. World startup legitimately advances the market epoch.
-9. Open the test environment, execute [QA.md](QA.md), record owner results and
-   retain unresolved gates. Production/main promotion follows explicit sign-off.
+9. The owner authorized opening production for live QA before manual acceptance.
+   Execute [QA.md](QA.md), record owner results and retain unresolved gates until
+   accepted. This release exception does not change the normal branch policy.
 
 ## Scoped rollback
 
