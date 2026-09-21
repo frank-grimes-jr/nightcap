@@ -27,6 +27,11 @@ KEYS = {'npc_types':['id'], 'spawngroup':['id'], 'spawnentry':['spawngroupID','n
         'items':['id'], 'nightcap_market_actors':['npc_id'], 'zone_state_spawns':['id']}
 
 
+def indexed_predicate(table, row):
+    key = ' AND '.join(f'`{column}` <=> {sql_value(row[column])}' for column in KEYS[table])
+    return key + ' AND ' + predicate(row)
+
+
 def pos(x, y, face_x=None, face_y=None):
     heading = 128 if face_x is None else math.atan2(face_x-x, face_y-y)*256/math.pi % 512
     return dict(x=x, y=y, z=3.75, heading=round(heading, 5))
@@ -259,17 +264,17 @@ def patch_sql(before, after):
                 f"SELECT COUNT(*) INTO n FROM `{table}` WHERE {before['scopes'][table]} FOR UPDATE;",
                 f"IF n<>{len(old)} THEN SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT='Tunnel count drift: {table}'; END IF;"]
         for row in old:
-            sql += [f'SELECT COUNT(*) INTO n FROM `{table}` WHERE '+predicate(row)+';',
+            sql += [f'SELECT COUNT(*) INTO n FROM `{table}` WHERE '+indexed_predicate(table,row)+';',
                     f"IF n<>1 THEN SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT='Tunnel row drift: {table}'; END IF;"]
     # All guards precede writes: collisions/drift leave the complete preimage intact.
     for table,keys in KEYS.items():
         old={tuple(r[k] for k in keys):r for r in before['rows'][table]}
         new={tuple(r[k] for k in keys):r for r in after['rows'][table]}
         for key,row in old.items():
-            if key not in new:sql.append(f'DELETE FROM `{table}` WHERE '+predicate(row)+';')
+            if key not in new:sql.append(f'DELETE FROM `{table}` WHERE '+indexed_predicate(table,row)+';')
             elif row!=new[key]:
                 changes={k:v for k,v in new[key].items() if row[k]!=v}
-                sql.append(f'UPDATE `{table}` SET '+','.join('`'+k+'`='+sql_value(v) for k,v in changes.items())+' WHERE '+predicate(row)+';')
+                sql.append(f'UPDATE `{table}` SET '+','.join('`'+k+'`='+sql_value(v) for k,v in changes.items())+' WHERE '+indexed_predicate(table,row)+';')
         for key,row in new.items():
             if key not in old:sql.append(insert(table,row))
     return ('-- Stop world/zones, capture fresh preimages and back up before applying.\n'
