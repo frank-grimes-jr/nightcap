@@ -946,6 +946,7 @@ public:
 	void SendMoneyUpdate();
 	void LivingEconomy(uint32 npc_entity_id, const std::string &text);
 	void MarketAnnouncement(uint32 npc_entity_id, uint32 variant);
+	void TunnelChatter(uint32 npc_entity_id, const std::string &message);
 	void SendMarketFind(uint32 npc_id, uint32 slot);
 	bool BuyMarketFind(uint32 npc_entity_id, uint32 slot, uint32 quantity);
 	bool CompleteMarketTrade(NPC *npc, const NightcapMarket::Offer &offer);

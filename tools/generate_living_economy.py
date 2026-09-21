@@ -29,6 +29,11 @@ def guard(query, expected, label):
 
 
 def generate(output, refresh=False):
+    # This generator reproduces the historical one-offer baseline. Never rewrite
+    # evidence or quests after the expanded tunnel coordinator has replaced it.
+    coordinator=ROOT/'server-mods/quests/ecommons/999500.pl'
+    if coordinator.exists() and 'tunnel_chatter_pulse' in coordinator.read_text():
+        raise ValueError('Baseline generator retired; use tunnel_services.py for the expanded hub')
     if refresh and output.resolve() != (ROOT/'docs/economy/generated').resolve():
         raise ValueError('Refresh is limited to the checked-in generated market package')
     if output.exists() and not refresh:
