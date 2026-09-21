@@ -99,12 +99,13 @@ client session or graphical station/trainer/robe behavior.
    Take and validate a full database backup. Export preservation fingerprints for
    character data, inventory, wallets, AAs, multiclass state, spells and market
    audit. Capture all 148 baseline starting-item rules (or stop on differences).
-3. On the target host, run the read-only capture with that MariaDB container:
-   `python tools/tunnel_services_capture.py --container TARGET_DB --root-env --output SOURCE.json`.
-   Existing container root credentials are resolved internally, never emitted.
-   `--root-env` requires the container's existing root-password environment;
-   the default path is the local eqemu/peq database. Capture only while stopped,
-   since the SELECT/SHOW calls are not one multi-table snapshot.
+3. The OVH helper captured the stopped database through
+   `tunnel_services_capture.capture` with a query adapter using
+   `mariadb --defaults-extra-file=/run/secrets/db_backup_config` inside the DB
+   container. Credentials remain in the existing secret file and are never
+   emitted. The generic capture CLI's `--root-env` mode does not apply to this
+   host. Capture only while stopped, since the SELECT/SHOW calls are not one
+   multi-table snapshot. The pinned helper/evidence paths are in [ACTIVATION.md](ACTIVATION.md).
 4. Generate into a fresh directory:
    `python tools/tunnel_services.py --source SOURCE.json --output TARGET_CANDIDATE`.
    Compare the generated stock, starter definitions, positions and counts with
@@ -131,8 +132,9 @@ client session or graphical station/trainer/robe behavior.
    character preservation fingerprints, intact audit and zero relevant native,
    DB or missing-quest-API errors. Check Plains Pebble base price=100 and no
    duplicate spawns. World startup legitimately advances the market epoch.
-9. Open the test environment, execute [QA.md](QA.md), record owner results and
-   retain unresolved gates. Production/main promotion follows explicit sign-off.
+9. The owner authorized opening production for live QA before manual acceptance.
+   Execute [QA.md](QA.md), record owner results and retain unresolved gates until
+   accepted. This release exception does not change the normal branch policy.
 
 ## Scoped rollback
 

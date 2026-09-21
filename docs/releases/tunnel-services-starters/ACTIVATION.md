@@ -88,8 +88,10 @@ manifest and exact target artifacts, rolls back only scoped content/procedure,
 retains starter definitions and market audit, restores the prior paired runtime
 and changed files, then verifies health and preservation before reopening.
 No wallet or inventory grant is undone. If affected EC saved-state rows have
-changed since startup, the exact guard intentionally stops: back up the current
-state and use the scoped saved-state procedure in [the release guide](README.md).
+changed since startup, the exact guard intentionally stops and leaves both game
+and gateway stopped. An operator must resolve the scoped drift, complete the
+guarded rollback and verify the previous runtime before reopening. Back up the
+current state and use the scoped saved-state procedure in [the release guide](README.md).
 Never bypass a drift assertion or delete unrelated/corpse/other-instance states.
 
 ## Remaining owner checks

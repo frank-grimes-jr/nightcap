@@ -166,4 +166,5 @@ automated; report any creation failure instead of repeating grants manually.
 - [ ] All twelve disciplines, six stations and portable containers accepted.
 - [ ] All sixteen trainers and starter packages accepted; existing players unchanged.
 - [ ] Varied first-name OOC and real multi-item auction/trades accepted.
-- [ ] Owner names/date/build and any remaining failures recorded before main promotion.
+- [ ] Spell level display and usable-spell filtering accepted with the updated launcher.
+- [ ] Owner names/date/build and any remaining failures recorded before closing live QA.
