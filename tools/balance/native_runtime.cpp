@@ -346,6 +346,9 @@ json NightcapBalancePetProbe(Client *c, const json &input)
 	}
 	auto state = [&]() {
 		json pets = json::array(), refs = json::array(), supplies = json::array();
+		std::vector<uint16> command_pet_ids;
+		for (auto pet : c->GetSelectedCommandPets()) { command_pet_ids.push_back(pet->GetID()); }
+		std::sort(command_pet_ids.begin(), command_pet_ids.end());
 		for (int class_id : c->GetMulticlassList()) { refs.push_back({{"class",class_id},{"entity_id",c->GetClassPet(class_id)}}); }
 		for (const auto &entry : entity_list.GetNPCList()) {
 			auto *pet = entry.second;
@@ -375,7 +378,9 @@ json NightcapBalancePetProbe(Client *c, const json &input)
 			supplies.push_back({{"slot",slot},{"id",item ? item->GetID() : 0},{"count",item ? item->GetCharges() : 0}});
 		}
 		return json{{"ms",Timer::GetCurrentTime()},{"player",AABuffState(c)},
-			{"primary_pet",c->GetPetID()},{"suspended_class",c->GetSuspendedPetClass()},{"class_pets",refs},{"pets",pets},{"reagents",supplies}};
+			{"primary_pet",c->GetPetID()},{"command_pet_ids",command_pet_ids},
+			{"player_target",c->GetTarget() ? c->GetTarget()->GetID() : 0},
+			{"suspended_class",c->GetSuspendedPetClass()},{"class_pets",refs},{"pets",pets},{"reagents",supplies}};
 	};
 	auto process = [&]() {
 		Advance(50);
@@ -386,6 +391,26 @@ json NightcapBalancePetProbe(Client *c, const json &input)
 	json results = json::array();
 	const json initial = state();
 	for (const auto &action : actions) {
+		if (action.contains("select_class") || (action.contains("target_class") && !action.contains("spell"))) {
+			const bool direct = action.contains("select_class");
+			const int class_id = action.at(direct ? "select_class" : "target_class");
+			if (class_id != 0 && class_id != 10 && class_id != 11 && class_id != 13) {
+				throw std::runtime_error("Unsupported pet selection class");
+			}
+			const uint16 pet_id = class_id ? c->GetClassPet(class_id) : 0;
+			if (class_id && !pet_id) { throw std::runtime_error("Pet selection class is absent"); }
+			const auto before = state();
+			if (direct) {
+				if (!c->SelectCommandPet(pet_id)) { throw std::runtime_error("Pet selection rejected"); }
+			} else {
+				auto packet = new EQApplicationPacket(OP_TargetMouse, sizeof(ClientTarget_Struct));
+				reinterpret_cast<ClientTarget_Struct *>(packet->pBuffer)->new_target = pet_id;
+				stream->incoming.push_back(packet);
+			}
+			process();
+			results.push_back({{"input",action},{"before",before},{"settled",state()}});
+			continue;
+		}
 		if (action.contains("command")) {
 			const std::map<std::string, uint32> commands = {
 				{"sit",PET_SIT},{"sit_down",PET_SITDOWN},{"stand",PET_STANDUP},{"follow",PET_FOLLOWME},
@@ -867,6 +892,11 @@ static json PetCombat(Client *c, const json &input)
 	entity_list.AddNPC(boss,false);
 	c->SetTarget(boss);
 	auto *stream = streams.at(c);
+	if (input.value("target_via_mouse",false)) {
+		auto packet = new EQApplicationPacket(OP_TargetMouse, sizeof(ClientTarget_Struct));
+		reinterpret_cast<ClientTarget_Struct *>(packet->pBuffer)->new_target = boss->GetID();
+		stream->incoming.push_back(packet);
+	}
 	stream->events.clear();
 	const uint32 start = Timer::GetCurrentTime();
 	const auto &commands = input.at("commands");

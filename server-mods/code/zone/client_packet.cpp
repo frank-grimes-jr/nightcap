@@ -11081,7 +11081,7 @@ void Client::Handle_OP_PetCommands(const EQApplicationPacket *app)
 	}
 	char val1[20] = { 0 };
 	PetCommand_Struct* pet = (PetCommand_Struct*)app->pBuffer;
-	const auto roster = GetCommandPets();
+	const auto roster = GetSelectedCommandPets();
 	Mob* mypet = roster.empty() ? nullptr : roster.front();
 	Mob *target = entity_list.GetMob(pet->target);
 
@@ -15050,6 +15050,7 @@ void Client::Handle_OP_TargetMouse(const EQApplicationPacket *app)
 	// Locate and cache new target
 	ClientTarget_Struct* ct = (ClientTarget_Struct*)app->pBuffer;
 	pClientSideTarget = ct->new_target;
+	if (!IsAIControlled()) { ObservePetTarget(ct->new_target); }
 	if (!IsAIControlled())
 	{
 		Mob *nt = entity_list.GetMob(ct->new_target);

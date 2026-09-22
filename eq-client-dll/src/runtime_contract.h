@@ -8,7 +8,7 @@ static const char* const kRequiredFeatures[] = {"caster_chassis","combat_ability
 static const size_t kRequiredFeatureCount = sizeof(kRequiredFeatures) / sizeof(kRequiredFeatures[0]);
 static const uint32_t kRequiredMask = (uint32_t(1) << kRequiredFeatureCount) - 1;
 static_assert(kRequiredFeatureCount > 0 && kRequiredFeatureCount < 32, "feature mask capacity");
-static const char kCatalogSHA256[] = "533af367e00e48b3f700f0f2f0df75886322ccb6becbce78b616fcd400cc84ef";
-static const char kProxyVersion[] = "0.5.0-dev";
+static const char kCatalogSHA256[] = "77ecc7c2e0e7321b21608c17dfcb114a6ba2f9662dc6d1e55fa2731a1fe70d67";
+static const char kProxyVersion[] = "0.6.0-dev";
 static const unsigned kRuntimeSchema = 1;
 }

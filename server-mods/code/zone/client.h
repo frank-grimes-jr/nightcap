@@ -546,6 +546,10 @@ public:
 	void SetSuspendedPetClass(uint8 value) { m_suspended_pet_class = value <= 16 ? value : 0; }
 	std::vector<uint16> GetExtraPetIds() const;
 	std::vector<NPC *> GetCommandPets();
+	std::vector<NPC *> GetSelectedCommandPets();
+	bool SelectCommandPet(uint16 id);
+	void ObservePetTarget(uint16 id);
+	void SendPetManagement();
 	inline EQ::InventoryProfile& GetInv() { return m_inv; }
 	inline const EQ::InventoryProfile& GetInv() const { return m_inv; }
 	const std::vector<int16>& GetInventorySlots();
@@ -2358,6 +2362,10 @@ private:
 	uint8 m_class3;
 	std::map<uint8, uint16> m_class_pets; // all permanent pets, keyed by original summon class
 	uint16 m_pet_window_id = 0;
+	uint16 m_selected_command_pet = 0;
+	bool m_pet_management_enabled = false;
+	uint32 m_pet_management_token = 0;
+	uint32 m_pet_management_generation = 0;
 	std::array<PetInfo, 16> m_class_pet_info{};
 	bool m_pet_state_valid = true;
 	uint8 m_restoring_pet_class = 0;

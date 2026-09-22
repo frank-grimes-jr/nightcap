@@ -1,6 +1,7 @@
 #pragma once
 #include "ui_state.h"
 #include "pet_state.h"
+#include "pet_management.h"
 #include "verified_patch.h"
 #include "spell_access.h"
 
@@ -31,8 +32,14 @@ static uintptr_t base = 0;
 static const char* install_failure = "not_started";
 static UIState state;
 static PetState pets;
+static PetManagement pet_management;
 using InventoryNotify = int (__thiscall *)(void*, void*, uint32_t, void*);
 static InventoryNotify original_inventory = nullptr;
+static InventoryNotify original_pet_window = nullptr;
+using PetAvailable = bool (__thiscall *)(void*, unsigned);
+static PetAvailable original_pet_available = nullptr;
+static ULONGLONG next_management_refresh = 0;
+static ULONGLONG management_received = 0;
 static ULONGLONG next_pet_refresh = 0;
 static GetLabel original_label = nullptr;
 static DisplayChat original_chat = nullptr;
@@ -157,6 +164,68 @@ inline bool IsArmorControl(void* window, void* sender, const char* name) {
     assign(&id, "");
     return child && child == sender;
 }
+inline bool CurrentManagementIdentity() {
+    uint32_t spawn = 0;
+    char name[64] = {};
+    return ReadIdentity(spawn, name) && pet_management.Matches(spawn, name) &&
+        GetTickCount64() - management_received < 5000;
+}
+inline void RequestManagementRefresh() {
+    if (GetTickCount64() < next_management_refresh) return;
+    if (ExecuteUIRequest("#nightcappet manage")) next_management_refresh = GetTickCount64() + 3000;
+}
+inline bool __fastcall PetAvailableHook(void* self, void*, unsigned command) {
+    // Let the authoritative server validate each pet's permissions. RoF2's
+    // cached singular-pet flags cannot describe a mixed class roster.
+    if (command < 34 && command != 30 && CurrentManagementIdentity() && pet_management.HasPets()) return true;
+    return original_pet_available(self, command);
+}
+inline bool NativePetCommand(void* window, void* sender, unsigned& command) {
+    // CPetInfoWnd maps configurable native buttons into this capability array.
+    // Mapping is pinned by the exact-client verifier (GetCommand at 0x70F1C0).
+    static constexpr unsigned commands[] = {0,1,2,3,4,5,6,9,31,12,15,18,21,24,27,28,29,30};
+    __try {
+        const auto controls = reinterpret_cast<void**>(static_cast<BYTE*>(window)+0x26C);
+        for (unsigned i = 0; i < 18; ++i) {
+            if (sender && controls[i] == sender) { command = commands[i]; return command != 30; }
+        }
+    } __except(EXCEPTION_EXECUTE_HANDLER) { return false; }
+    return false;
+}
+inline int __fastcall PetWindowHook(void* self, void*, void* sender, uint32_t message, void* data) {
+    if (sender) {
+        std::string request;
+        bool handled = false;
+        if (IsArmorControl(self, sender, "NCPM_All")) { request = pet_management.AllCommand(); handled = true; }
+        for (unsigned row = 0; row < 3; ++row) {
+            const std::string id = "NCPM_Pet" + std::to_string(row);
+            if (IsArmorControl(self, sender, id.c_str()) || IsArmorControl(self, sender, (id+"Name").c_str())) {
+                request = pet_management.SelectCommand(row); handled = true;
+            }
+        }
+        const unsigned commands[] = {2,4,5,12,6,9,31,28,15,18,24,21,0,29};
+        for (unsigned index = 0; index < 14; ++index) {
+            const std::string id = "NCPM_Command" + std::to_string(index);
+            if (IsArmorControl(self, sender, id.c_str())) { request = pet_management.OrderCommand(commands[index]); handled = true; }
+        }
+        if (handled) {
+            // Native drag notification 0x17 assumes one of its own slots and
+            // otherwise creates a slot-0 hotbutton. Never forward custom senders.
+            if (message == 1) {
+                if (CurrentManagementIdentity()) ExecuteUIRequest(request);
+                else RequestManagementRefresh();
+            }
+            return 1;
+        }
+        unsigned command = 0;
+        if (message == 1 && NativePetCommand(self, sender, command)) {
+            if (CurrentManagementIdentity()) ExecuteUIRequest(pet_management.OrderCommand(command));
+            else RequestManagementRefresh();
+            return 1;
+        }
+    }
+    return original_pet_window(self, sender, message, data);
+}
 inline int __fastcall InventoryHook(void* self, void*, void* sender, uint32_t message, void* data) {
     if (message == 1 && sender) {
         if (IsArmorControl(self, sender, "NCPA_Refresh")) { RequestPetRefresh(); return 1; }
@@ -180,6 +249,14 @@ inline bool __cdecl LabelHook(int type, EqString* output, bool* override_color, 
     // The always-visible HUD requests identity too; opening Inventory/AA is not
     // a prerequisite for a correct shop or spellbook. Requests are throttled.
     if (!CurrentIdentity()) RequestRefresh();
+    if (!CurrentManagementIdentity()) RequestManagementRefresh();
+    if (type >= 10030 && type <= 10033) {
+        const std::string text = !CurrentManagementIdentity() ? "Pets loading" :
+            type == 10030 ? pet_management.ScopeText() : pet_management.RowText(type-10031);
+        reinterpret_cast<AssignString>(base + kUIStringAssignRva)(output, text.c_str());
+        if (override_color) *override_color = false;
+        return true;
+    }
     if (type >= 10020 && type <= 10028) {
         const bool current = CurrentPetIdentity();
         if (!current) RequestPetRefresh();
@@ -197,11 +274,12 @@ inline bool __cdecl LabelHook(int type, EqString* output, bool* override_color, 
     return true;
 }
 inline void __fastcall ChatHook(void* self, void*, const char* message, int color, bool log, bool convert) {
+    if (pet_management.Consume(message)) { management_received = GetTickCount64(); return; }
     if (state.Consume(message) || pets.Consume(message)) return;
     original_chat(self, message, color, log, convert);
 }
 inline void __fastcall StateHook(void* self, void*, int next) {
-    if (next != 5) { state.Clear(); pets.Clear(); next_refresh = 0; next_pet_refresh = 0; }
+    if (next != 5) { state.Clear(); pets.Clear(); pet_management.Clear(); next_refresh = 0; next_pet_refresh = 0; next_management_refresh = 0; management_received = 0; }
     original_state(self, next);
     if (next == 5) RequestRefresh();
 }
@@ -305,7 +383,15 @@ inline bool InstallPetArmor() {
     install_failure = "inventory_entry";
     original_inventory = reinterpret_cast<InventoryNotify>(SEHEntryHook(base+kUIInventoryNotifyRva,
         kExpectedUIInventoryNotify, reinterpret_cast<void*>(&InventoryHook), base));
-    return original_inventory != nullptr;
+    if (!original_inventory) return false;
+    install_failure = "pet_window_entry";
+    original_pet_window = reinterpret_cast<InventoryNotify>(EntryHook(base+kUIPetNotifyRva,
+        kExpectedUIPetNotify, reinterpret_cast<void*>(&PetWindowHook)));
+    if (!original_pet_window) return false;
+    install_failure = "pet_available_entry";
+    original_pet_available = reinterpret_cast<PetAvailable>(EntryHook(base+kUIPetAvailableRva,
+        kExpectedUIPetAvailable, reinterpret_cast<void*>(&PetAvailableHook)));
+    return original_pet_available != nullptr;
 }
 inline bool Install(uintptr_t image_base) {
     base = image_base;
