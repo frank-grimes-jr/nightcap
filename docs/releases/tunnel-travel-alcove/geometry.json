@@ -1,0 +1,338 @@
+{
+  "map": "/home/eqemu/server/maps/base/ecommons.map",
+  "points": [
+    {
+      "heading": 192,
+      "label": "Merrin",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": 0.0,
+          "headroom": 30.000001907348633
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": 0.0,
+          "headroom": 30.000001907348633
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": 0.0,
+          "headroom": 30.000001907348633
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": true,
+          "ground_z": 0.0,
+          "headroom": 30.000001907348633
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": true,
+          "ground_z": 0.0,
+          "headroom": 30.000001907348633
+        }
+      ],
+      "x": -335,
+      "y": -1537,
+      "z": 3.75
+    },
+    {
+      "label": "HANGLANT",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": 0.0,
+          "headroom": 30.000001907348633
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": 0.0,
+          "headroom": 30.000001907348633
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": 0.0,
+          "headroom": 30.000001907348633
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": true,
+          "ground_z": 0.0,
+          "headroom": 30.000001907348633
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": true,
+          "ground_z": 0.0,
+          "headroom": 30.000001907348633
+        }
+      ],
+      "x": -341,
+      "y": -1537,
+      "z": 3.75
+    },
+    {
+      "label": "BARREL3",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": 0.0,
+          "headroom": 30.000001907348633
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": 0.0,
+          "headroom": 30.000001907348633
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": 0.0,
+          "headroom": 30.000001907348633
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": true,
+          "ground_z": 0.0,
+          "headroom": 30.000001907348633
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": true,
+          "ground_z": 0.0,
+          "headroom": 30.000001907348633
+        }
+      ],
+      "x": -331,
+      "y": -1527,
+      "z": 3.75
+    },
+    {
+      "label": "CRATEA",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": 0.0,
+          "headroom": 30.000001907348633
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": 0.0,
+          "headroom": 30.000001907348633
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": 0.0,
+          "headroom": 30.000001907348633
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": true,
+          "ground_z": 0.0,
+          "headroom": 30.000001907348633
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": true,
+          "ground_z": 0.0,
+          "headroom": 30.000001907348633
+        }
+      ],
+      "x": -324,
+      "y": -1529,
+      "z": 3.75
+    },
+    {
+      "label": "Approach",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": 0.0,
+          "headroom": 30.000001907348633
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": 0.0,
+          "headroom": 30.000001907348633
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": 0.0,
+          "headroom": 30.000001907348633
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": true,
+          "ground_z": 0.0,
+          "headroom": 30.000001907348633
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": true,
+          "ground_z": 0.0,
+          "headroom": 30.000001907348633
+        }
+      ],
+      "x": -335,
+      "y": -1565,
+      "z": 3.75
+    },
+    {
+      "label": "Approach",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": 0.0,
+          "headroom": 30.000001907348633
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": 0.0,
+          "headroom": 30.000001907348633
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": 0.0,
+          "headroom": 30.000001907348633
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": true,
+          "ground_z": 0.0,
+          "headroom": 30.000001907348633
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": true,
+          "ground_z": 0.0,
+          "headroom": 30.000001907348633
+        }
+      ],
+      "x": -335,
+      "y": -1555,
+      "z": 3.75
+    },
+    {
+      "label": "Approach",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": 0.0,
+          "headroom": 30.000001907348633
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": 0.0,
+          "headroom": 30.000001907348633
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": 0.0,
+          "headroom": 30.000001907348633
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": true,
+          "ground_z": 0.0,
+          "headroom": 30.000001907348633
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": true,
+          "ground_z": 0.0,
+          "headroom": 30.000001907348633
+        }
+      ],
+      "x": -335,
+      "y": -1545,
+      "z": 3.75
+    }
+  ],
+  "segments": [
+    {
+      "blocked": false,
+      "from": [
+        -335,
+        -1565,
+        6
+      ],
+      "to": [
+        -335,
+        -1537,
+        6
+      ]
+    },
+    {
+      "blocked": false,
+      "from": [
+        -315,
+        -1550,
+        6
+      ],
+      "to": [
+        -335,
+        -1545,
+        6
+      ]
+    }
+  ],
+  "newer_npc_clearance": 28.02,
+  "newer_patrol_clearance": 47.01,
+  "status": "geometry_passed_visual_QA_pending"
+}
