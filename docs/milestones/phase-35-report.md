@@ -8,6 +8,12 @@ owner's explicit request. Full production backup restore, migration/rollback,
 [Production evidence](../releases/tunnel-travel-alcove/PRODUCTION.md).
 Manual appearance and gameplay acceptance remain open.
 
+The owner's subsequent hail test found that production had installed the helpers
+outside its configured plugin path. Corrected the deployment and restarted at
+19:18 UTC September 22. The installed-runtime check now resolves configuration
+and passes 25 quest assertions; four regression cases catch path mistakes.
+[Incident, verification and current rollback](../releases/tunnel-travel-alcove/HAIL-FIX.md).
+
 Built one human travel guide and three rustic Commonlands props in place of the
 ten PoK city stones. The guide preserves all ten exact landings and leaves all
 twelve return/PoK books and existing services intact. Added guarded migration,

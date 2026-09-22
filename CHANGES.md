@@ -1,5 +1,6 @@
 # CHANGES
 
+<<<<<<< HEAD
 ## 2026-09-22 - Three-pet management candidate
 
 Add three named health rows and an explicit All pets scope to Pet Info. Clicking
@@ -14,6 +15,23 @@ keep armor selection separate. Package the generated pet XML with the matching
 guarded client hooks. This is a paired client/server candidate, with no schema
 or balance change. Owner gameplay acceptance and hosted activation are pending;
 see docs/releases/pet-management-20260922/README.md.
+=======
+## 2026-09-22 - Fix Merrin's silent hail in production
+
+The initial deployment put the two travel helpers in `quests/plugins/`, while
+production loads `plugins/`. Hailing Merrin raised an undefined-subroutine error.
+Installed the same reviewed main payloads in the configured directory and
+gracefully restarted production. The installed quest now passes all 25 dialogue,
+destination and guard checks; 46 preservation fingerprints and all 15 native
+hashes match, with no new quest errors. Public transport checks pass. No SQL,
+client or native binary changed; normal startup advanced market epoch 6 to 7.
+
+The regression smoke now resolves the target's actual plugin/quest configuration;
+four path tests catch the original wrong-directory deployment and verify config
+overrides. Preserve the initial evidence as a dated record. Use the new recovery
+wrapper so rollback removes the active helpers too. Details and remaining manual
+QA: `docs/releases/tunnel-travel-alcove/HAIL-FIX.md`.
+>>>>>>> c32c27b (Fix production travel plugin paths and verify installed hail handling)
 
 ## 2026-09-22 - Deploy tunnel travel alcove to production
 

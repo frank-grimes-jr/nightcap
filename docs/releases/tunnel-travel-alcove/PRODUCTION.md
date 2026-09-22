@@ -1,5 +1,10 @@
 # Tunnel travel alcove: production activation
 
+**Historical initial activation; the [hail fix](HAIL-FIX.md) supersedes its
+plugin-path and rollback instructions.** Owner gameplay exposed the silent-hail
+failure after these startup-only checks. Preserve this record and JSON as the
+original evidence; use the fix record for current runtime verification.
+
 Deployed September 22, 2026 at 18:01 UTC (14:01 Eastern) to
 `play.nightcapgame.org` after the owner explicitly requested main promotion and
 production deployment. Main promotion: [PR 66](https://github.com/frank-grimes-jr/nightcap/pull/66),
@@ -64,10 +69,11 @@ Private backup, preimages and target-specific SQL remain on the production host:
 The pinned helper and main-revision source package are in
 `/opt/nightcap/releases/tunnel-travel-20260922/`.
 
-For an authorized rollback:
+For an authorized rollback after the hail fix, use its wrapper (it removes the
+two active helpers before invoking this release's guarded content rollback):
 
 ```sh
-sudo -n python3 /opt/nightcap/releases/tunnel-travel-20260922/rollout.py rollback
+sudo -n python3 /opt/nightcap/releases/tunnel-travel-hail-fix-20260922/hotfix.py rollback
 ```
 
 The helper closes access, saves zones, captures current preservation fingerprints,

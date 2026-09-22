@@ -21,8 +21,14 @@ promotion and production deployment on September 22. It is live at
 `play.nightcapgame.org`: exact content, three quest hashes/syntax checks,
 46 preservation fingerprints, all 15 native process hashes and four encrypted
 public handshakes passed. [Production evidence and rollback](releases/tunnel-travel-alcove/PRODUCTION.md).
-All ten destinations and return/PoK books remain; visual and gameplay acceptance
-remain open. The earlier local QA deployment is retained as dated evidence.
+The owner's silent-hail report exposed a deployment path error: production loads
+`plugins/`, but the helpers were under `quests/plugins/`. The
+[September 22 hail fix](releases/tunnel-travel-alcove/HAIL-FIX.md) is live after a
+graceful restart; the configured runtime passes all 25 quest checks, preservation
+and native hashes match, and no new quest errors were found. Use its recovery
+wrapper for rollback. All ten destinations and return/PoK books remain; visual
+and gameplay acceptance remain open. The earlier local QA deployment is retained
+as dated evidence.
 
 [Deployed scope, evidence and exact QA](releases/tunnel-services-starters/README.md):
 22 supply merchants, six crafting stations, all 16 trainers, eight walkers,
