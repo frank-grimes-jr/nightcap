@@ -14,6 +14,7 @@ import (
 
 var gameplayNames = []string{
 	"spells_us.txt", "uifiles/nightcap/equi_inventory.xml", "uifiles/nightcap/equi_aawindow.xml",
+	"uifiles/nightcap/equi_petinfowindow.xml",
 	"ecommons_chr.txt", "ecommons_assets.txt", "poknowledge_obj.s3d", "nektulos.s3d", "nektulos_obj.s3d", "dbstr_us.txt", "maps/ecommons_3.txt",
 	"lavastorm.s3d", "lavastorm_obj.s3d",
 	"poknowledge_chr.txt", "mur.eqg", "scu.eqg", "frd.eqg", "ddv.eqg", "srn.eqg",
@@ -68,7 +69,7 @@ func loadGameplayAssets(root, clientExe string) (map[string][]byte, error) {
 		if int64(len(data)) != entry.Size || manifest.Digest(data) != entry.SHA256 {
 			return nil, fmt.Errorf("gameplay asset changed: %s", name)
 		}
-		if name == "uifiles/nightcap/equi_inventory.xml" || name == "uifiles/nightcap/equi_aawindow.xml" {
+		if strings.HasPrefix(name, "uifiles/nightcap/") && strings.HasSuffix(name, ".xml") {
 			if err := validateNativeSkin(data); err != nil {
 				return nil, fmt.Errorf("%s: %w", name, err)
 			}

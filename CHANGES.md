@@ -1,5 +1,20 @@
 # CHANGES
 
+## 2026-09-22 - Three-pet management candidate
+
+Add three named health rows and an explicit All pets scope to Pet Info. Clicking
+a name or an owned pet selects that spawn; enemy targeting keeps the selection,
+and clearing target or All pets restores shared commands. Window buttons enter
+the native server command handler directly, and the exact-client slash-command
+gate accepts a fresh server-confirmed roster. Native ownership, AA permissions,
+animation/familiar restrictions and combat checks still apply.
+
+Reject stale session/roster requests, clear selection on lifecycle loss, and
+keep armor selection separate. Package the generated pet XML with the matching
+guarded client hooks. This is a paired client/server candidate, with no schema
+or balance change. Owner gameplay acceptance and hosted activation are pending;
+see docs/releases/pet-management-20260922/README.md.
+
 ## 2026-09-21 - Rustic tunnel travel alcove for dev/test QA
 
 Replace the ten oversized East Commonlands city stones with Merrin, a findable

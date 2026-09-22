@@ -9,6 +9,7 @@ import json
 from pathlib import Path
 import xml.etree.ElementTree as ET
 from client_pet_armor_ui import add_pet_page
+from client_pet_management_ui import add_pet_management
 from client_hub_models import add_models, MODELS
 from client_ecommons_hub import recall_spell, hub_files, ROOT
 from client_lavastorm import lavastorm_files
@@ -94,6 +95,8 @@ def ui_xml(raw, kind):
         labels[0].find('EQType').text = '10001'
         labels[0].find('Text').text = 'Classes loading'
         add_pet_page(root)
+    elif kind == 'pets':
+        add_pet_management(root)
     elif kind == 'aa':
         for name in ('AAW_GeneralList','AAW_ArchList','AAW_ClassList','AAW_SpecialList'):
             matches = root.findall(f"Listbox[@item='{name}']")
@@ -161,7 +164,7 @@ def main():
     files = {'spells_us.txt': recall_spell(spells,plan['arrival'])}
     files.update(hub_files(client,plan))
     files.update(lavastorm_files(args.lavastorm,client))
-    for filename, kind in [('EQUI_Inventory.xml','inventory'),('EQUI_AAWindow.xml','aa')]:
+    for filename, kind in [('EQUI_Inventory.xml','inventory'),('EQUI_AAWindow.xml','aa'),('EQUI_PetInfoWindow.xml','pets')]:
         files['uifiles/nightcap/'+filename.lower()] = ui_xml((client/'uifiles/default'/filename).read_bytes(),kind)
     files['poknowledge_chr.txt'] = add_models((client/'poknowledge_chr.txt').read_bytes())
     for model in MODELS.values():

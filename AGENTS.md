@@ -255,6 +255,15 @@ Format: date header, area, description. Most recent entry at the top.
 
 ## Current documentation and player website
 
+Pet command selection is separate from Pet Armor selection. The September 22
+candidate uses `GetSelectedCommandPets()` for commands and retains
+`GetCommandPets()` for full-roster lifecycle/spell operations. Pair server,
+proxy and generated Pet Info XML; retain native pet controls for existing hotbar
+assignments. Tokens invalidate when the roster changes or selection is lost
+automatically. Deliberate selection keeps the token so a quick select/order pair
+uses the latest player input without waiting for a snapshot round trip.
+Candidate activation and exact QA: `docs/releases/pet-management-20260922/`.
+
 Use `docs/status.md` for current deployment and issue status; `docs/README.md`
 indexes operational guides and dated evidence. Preserve historical report scope.
 The standalone `index.html` publishes with `.nojekyll` from `gh-pages`; see

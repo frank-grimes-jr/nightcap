@@ -374,3 +374,28 @@ held class union, race, deity, required level and slot checks for both items.
 This permits submission; the server authorizes equipment. Tooltip presentation
 and widened spell data are unchanged. See [candidate QA](equipment-qa.md).
 Byte checks and native unit tests do not prove in-game acceptance.
+
+## Three-pet command window (September 22 candidate)
+
+The exact May 2013 executable identifies PetInfoWindow through its string at
+VA `0x9F518C`, constructor `0x711280`, and vtable `0x9F4FA8`.
+Vtable slot `0x88` is WndNotification at RVA `0x310800`. The first eight bytes
+`6A FF 64 A1 00 00 00 00` are two whole instructions without an absolute SEH
+handler operand. Native availability at RVA `0x30EA00` starts with
+`8B 44 24 04 83 F8 22`; this seven-byte trampoline stops before the branch.
+Both are guarded by the catalog and exact executable SHA before installation.
+
+Native pet commands depend on the singular pet/capability cache. The candidate
+uses acknowledged roster identity to permit `/pet` requests and sends window
+commands through the silent request channel into the same server opcode handler.
+The server still owns permissions, selection, attack restrictions and pet state.
+
+Keep original PIW controls as off-window children: hotbuttons resolve them at
+`0x70E3E0` and skip execution if missing (`0x68CD4E`). Configurable controls are
+indexed by capability at `this+0x26C`; `0x70F1C0` maps these indices to wire
+commands `{0,1,2,3,4,5,6,9,31,12,15,18,21,24,27,28,29,30}`. The verifier checks
+the actual switch jump table and return instructions. Command 30 is native
+local targeting and retains its original behavior. Custom controls consume drag
+notification `0x17`: native code otherwise treats an unknown sender as slot zero.
+Disposable ABI tests cover all bridged commands, original false-availability,
+foreign/stale identity, custom drag suppression and legacy configured hotbuttons.

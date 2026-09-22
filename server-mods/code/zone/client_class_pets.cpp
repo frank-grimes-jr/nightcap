@@ -19,11 +19,14 @@ bool Client::RegisterClassPet(uint8 class_id, NPC *pet)
 		pet->IsCharmed() || pet->GetSwarmInfo() || pet->GetPetType() == petTargetLock ||
 		GetPetSpellClass(pet->GetPetSpellID()) != class_id) { return false; }
 	m_class_pets[class_id] = pet->GetID();
+	m_pet_management_token = 0;
 	return true;
 }
 
 void Client::UnregisterClassPet(uint16 entity_id)
 {
+	if (m_selected_command_pet == entity_id) { m_selected_command_pet = 0; }
+	m_pet_management_token = 0; // stale rows cannot select a recycled spawn ID
 	for (auto it = m_class_pets.begin(); it != m_class_pets.end();) {
 		if (it->second == entity_id) { it = m_class_pets.erase(it); }
 		else { ++it; }
@@ -51,6 +54,8 @@ void Client::RefreshClassPets(bool force_window)
 		const bool owned = mob && mob->IsNPC() && mob->GetOwnerID() == GetID();
 		if (!owned || mob->CastToNPC()->GetDepop() || mob->HasDied() || mob->IsCharmed() ||
 			!IsMulticlassMember(it->first)) {
+			m_pet_management_token = 0;
+			if (m_selected_command_pet == it->second) { m_selected_command_pet = 0; }
 			// A committed class release removes its pet, never another owner's NPC.
 			if (owned && !IsMulticlassMember(it->first) && !mob->IsCharmed()) { mob->Depop(false); }
 			if (GetPetID() == it->second) { SetPetID(0); }
@@ -58,8 +63,12 @@ void Client::RefreshClassPets(bool force_window)
 		} else { ++it; }
 	}
 	auto current = entity_list.GetMob(GetPetID());
-	if (!current || !current->IsNPC() || current->GetOwnerID() != GetID() ||
-		current->CastToNPC()->GetDepop() || current->HasDied()) { SetPetID(0); }
+	if (GetPetID() && (!current || !current->IsNPC() || current->GetOwnerID() != GetID() ||
+		current->CastToNPC()->GetDepop() || current->HasDied())) {
+		if (m_selected_command_pet == GetPetID()) { m_selected_command_pet = 0; }
+		m_pet_management_token = 0;
+		SetPetID(0);
+	}
 	if (!GetPetID() || (current && current->GetPetType() == petFamiliar)) {
 		for (const auto class_id : GetMulticlassList()) {
 			if (auto id = GetClassPet(class_id)) {
@@ -85,6 +94,38 @@ std::vector<NPC *> Client::GetCommandPets()
 			mob->GetOwnerID() == GetID()) { pets.push_back(mob->CastToNPC()); }
 	}
 	return pets;
+}
+
+std::vector<NPC *> Client::GetSelectedCommandPets()
+{
+	auto pets = GetCommandPets();
+	if (m_selected_command_pet) {
+		for (auto pet : pets) {
+			if (pet->GetID() == m_selected_command_pet) { return {pet}; }
+		}
+		m_selected_command_pet = 0;
+		m_pet_management_token = 0;
+	}
+	return pets;
+}
+
+bool Client::SelectCommandPet(uint16 id)
+{
+	if (id) {
+		const auto pets = GetCommandPets();
+		if (std::none_of(pets.begin(), pets.end(), [id](const auto pet) { return pet->GetID() == id; })) { return false; }
+	}
+	m_selected_command_pet = id;
+	if (id) { SetPetID(id); }
+	SyncPetWindow();
+	SendPetManagement();
+	return true;
+}
+
+void Client::ObservePetTarget(uint16 id)
+{
+	// Enemy targeting must not undo a deliberate single-pet command selection.
+	if (!id || id != m_selected_command_pet) { SelectCommandPet(id); }
 }
 
 void Client::SyncPetWindow()
