@@ -1,5 +1,8 @@
 # Local QA activation — September 21, 2026
 
+Historical local activation. Subsequent authorized main/production deployment
+on September 22 is recorded in [PRODUCTION.md](PRODUCTION.md).
+
 Installed on **Local Development Server** for owner QA. No hosted deployment or
 main promotion was performed. Implementation commit: `4cd97b5`.
 
@@ -45,7 +48,8 @@ They are deliberately not committed with account/character records.
 
 Run the [exact in-game QA](README.md#exact-in-game-qa): appearance/placement,
 Find/hail, all ten city round trips, travel guards, pets, existing services and
-persistence after a zone restart. Main/hosted promotion awaits that sign-off.
+persistence after a zone restart. Main/hosted promotion was pending at this local
+activation; the owner separately authorized it on September 22.
 
 For rollback use the [post-activity capture procedure](README.md#activation-and-rollback)
 against `activation/candidate/` above. The runtime has restarted: do not assume
