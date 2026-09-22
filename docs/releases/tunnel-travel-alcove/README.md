@@ -6,6 +6,10 @@ deployment. Installed on `play.nightcapgame.org`; see
 remains open. The earlier [local QA activation](ACTIVATION.md) is preserved as
 dated evidence.
 
+The initial production install had a plugin-directory error, corrected in the
+[September 22 hail fix](HAIL-FIX.md). Reconnect and hail Merrin; no client patch
+is needed. Current full rollback uses the hail-fix wrapper linked there.
+
 ## What changes
 
 - Remove the ten oversized outbound city stones (DBIDs 40600–40609).
@@ -76,18 +80,25 @@ From the feature/test checkout:
 ```powershell
 python -m unittest discover -s tools/tests -p test_tunnel_travel.py -v
 perl tools/tests/tunnel_travel_quests.t .
+python -m unittest discover -s tools/tests -p test_tunnel_travel_runtime.py -v
 python tools/tunnel_travel.py --capture --output NEW_CANDIDATE_DIRECTORY
 python tools/tests/rehearse_tunnel_travel.py --source NEW_CANDIDATE_DIRECTORY/before.json --evidence NEW_TEST_DIRECTORY
 python tools/tests/probe_tunnel_travel.py --probe /tmp/nightcap-map-probe-20260920/map-probe --evidence NEW_GEOMETRY_DIRECTORY
 ```
 
-The last command needs the existing native map probe in the local server
+Inside the target runtime, also run
+`perl tools/tests/tunnel_travel_quests.t /path/to/repository /path/to/server`.
+The optional server argument reads its `eqemu_config.json`, resolves configured
+plugin and quest paths, and exercises the installed files. Repository tests and
+`perl -c` alone do not prove that EQEmu loads the installed helpers.
+
+The geometry command needs the existing native map probe in the local server
 container. It checks 35 floor/headroom samples, two approach rays and clearance
 from the newer NPC/patrol plan. It does not render the RoF2 client.
 
 ## Activation and rollback
 
-For the deployed production release use the pinned helper in [PRODUCTION.md](PRODUCTION.md).
+For the deployed production release use the pinned wrapper in [HAIL-FIX.md](HAIL-FIX.md).
 For a new authorized target:
 
 1. Target the authorized environment. Check no players are online, gracefully
@@ -96,10 +107,14 @@ For a new authorized target:
 2. Recapture the stopped target with `tools/tunnel_travel.py --capture --output
    NEW_STOPPED_CANDIDATE`. Rehearse that exact snapshot. Never apply a local
    preimage to hosted PEQ. Verify the generated route catalog is unchanged.
-3. Install together `server-mods/plugins/tunnel_travel.pl`,
-   `server-mods/plugins/tunnel_travel_data.pl` into the runtime `quests/plugins/`
-   directory, and `server-mods/quests/ecommons/999810.pl` into runtime
-   `quests/ecommons/`. Preserve prior files and hashes; new paths must be free.
+3. Read the target's `server.directories` configuration. A nonempty
+   `plugin_paths` array overrides `plugins` (default `plugins/`); `quest_paths`
+   similarly overrides `quests` (default `quests/`). Install together
+   `server-mods/plugins/tunnel_travel.pl` and `tunnel_travel_data.pl` into a
+   configured plugin directory, and `server-mods/quests/ecommons/999810.pl` into
+   a configured quest root's `ecommons/` directory. Production uses `plugins/`
+   and `quests/ecommons/`. Preserve prior files and hashes; new paths must be
+   free. Run the installed-runtime hail smoke before reopening access.
 4. Apply only that candidate's `forward.sql` without `--force`. Verify every
    scoped afterimage, unchanged preserved tables, and installed quest hashes.
    Start the original runtime and check quest errors and process health.

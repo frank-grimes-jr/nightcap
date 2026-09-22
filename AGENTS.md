@@ -328,6 +328,13 @@ After zone activity, generate rollback with a fresh stopped-target capture via
 `--rollback-from`; never replay the immediate rollback against new cached state.
 Exact QA and scoped recovery: `docs/releases/tunnel-travel-alcove/README.md`.
 
+Plugin installation must follow the target's `server.directories` config:
+nonempty `plugin_paths` overrides scalar `plugins` (default `plugins/`). Production
+uses `data/server/plugins/`, not `data/server/quests/plugins/`. Confirm the native
+startup path log and run the installed-runtime hail smoke; `perl -c` and source
+tests missed the September 22 silent-hail failure. Current recovery wrapper and
+evidence: `docs/releases/tunnel-travel-alcove/HAIL-FIX.md`.
+
 `tools/tunnel_services.py` plans from the reviewed release catalog and emits
 forward/rollback SQL from `tools/tunnel_services_capture.py` preimages. Stop the
 target world/zones and back up before capture/apply; local evidence is not a

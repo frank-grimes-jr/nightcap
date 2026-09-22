@@ -1,0 +1,97 @@
+{
+  "manifest.json": {
+    "hotfix.py": "97c1cd35223a8abd6094db0446e41e94cf0cfdb5a1bfe767de1ff4622041a6bc",
+    "tunnel_travel_quests.t": "84d9f76a7a13f731e0ab438b6f68507d83fc9676e98e616a3bc4fa41fc18c68a",
+    "plan.json": "ac4ff84f6e0d54fa588e3b3a08e995a363273b182a543c31c54606e68ba1b7b5"
+  },
+  "before-runtime-test.json": {
+    "exit_code": 2,
+    "stdout": "",
+    "stderr": "Expected one loaded tunnel_travel_data.pl in configured plugin_paths; found 0\n"
+  },
+  "activated.json": {
+    "image_id": "sha256:7219a5e43b6f00e96e6abf88914e309f0ea3c36ad381a9f840f6a605c8e0c570",
+    "native_processes": 15,
+    "hashes_match": true,
+    "started_at": "2026-09-22T19:18:18.970682058Z",
+    "restart_count": 0,
+    "errors": {
+      "quest_api": 0,
+      "native": 0,
+      "database": 0
+    },
+    "runtime_test": {
+      "exit_code": 0,
+      "stdout": "ok 1 - hail offers ten destinations\nok 2 - preserves qeynos2 exact landing and heading\nok 3 - preserves freportw exact landing and heading\nok 4 - preserves gfaydark exact landing and heading\nok 5 - preserves butcher exact landing and heading\nok 6 - preserves everfrost exact landing and heading\nok 7 - preserves misty exact landing and heading\nok 8 - preserves nektulos exact landing and heading\nok 9 - preserves feerrott exact landing and heading\nok 10 - preserves innothule exact landing and heading\nok 11 - preserves tox exact landing and heading\nok 12 - repeat click does not issue another zone request\nok 13 - forged and unsupported destinations never move player\nok 14 - unavailable player state blocks travel\nok 15 - unavailable player state blocks travel\nok 16 - unavailable player state blocks travel\nok 17 - unavailable player state blocks travel\nok 18 - unavailable player state blocks travel\nok 19 - unavailable player state blocks travel\nok 20 - unavailable player state blocks travel\nok 21 - unavailable player state blocks travel\nok 22 - unavailable player state blocks travel\nok 23 - unavailable player state blocks travel\nok 24 - wrong NPC cannot provide city travel\nok 25 - numeric quest adapter exposes the menu\n1..25\n",
+      "stderr": "# Installed runtime: /srv/nightcap/plugins/tunnel_travel.pl; /srv/nightcap/plugins/tunnel_travel_data.pl; /srv/nightcap/quests/ecommons/999810.pl\n"
+    },
+    "correct_plugin_directory": "plugins/",
+    "original_misplaced_files_retained_for_guarded_rollback": true,
+    "preserved_tables": 46,
+    "epoch_before": 6,
+    "epoch_after": 7,
+    "utc": "2026-09-22T19:18:59.995756+00:00",
+    "gateway_running": true
+  },
+  "current_verification": {
+    "image_id": "sha256:7219a5e43b6f00e96e6abf88914e309f0ea3c36ad381a9f840f6a605c8e0c570",
+    "native_processes": 15,
+    "hashes_match": true,
+    "started_at": "2026-09-22T19:18:18.970682058Z",
+    "restart_count": 0,
+    "errors": {
+      "quest_api": 0,
+      "native": 0,
+      "database": 0
+    },
+    "runtime_test": {
+      "exit_code": 0,
+      "stdout": "ok 1 - hail offers ten destinations\nok 2 - preserves qeynos2 exact landing and heading\nok 3 - preserves freportw exact landing and heading\nok 4 - preserves gfaydark exact landing and heading\nok 5 - preserves butcher exact landing and heading\nok 6 - preserves everfrost exact landing and heading\nok 7 - preserves misty exact landing and heading\nok 8 - preserves nektulos exact landing and heading\nok 9 - preserves feerrott exact landing and heading\nok 10 - preserves innothule exact landing and heading\nok 11 - preserves tox exact landing and heading\nok 12 - repeat click does not issue another zone request\nok 13 - forged and unsupported destinations never move player\nok 14 - unavailable player state blocks travel\nok 15 - unavailable player state blocks travel\nok 16 - unavailable player state blocks travel\nok 17 - unavailable player state blocks travel\nok 18 - unavailable player state blocks travel\nok 19 - unavailable player state blocks travel\nok 20 - unavailable player state blocks travel\nok 21 - unavailable player state blocks travel\nok 22 - unavailable player state blocks travel\nok 23 - unavailable player state blocks travel\nok 24 - wrong NPC cannot provide city travel\nok 25 - numeric quest adapter exposes the menu\n1..25\n",
+      "stderr": "# Installed runtime: /srv/nightcap/plugins/tunnel_travel.pl; /srv/nightcap/plugins/tunnel_travel_data.pl; /srv/nightcap/quests/ecommons/999810.pl\n"
+    },
+    "correct_plugin_directory": "plugins/",
+    "original_misplaced_files_retained_for_guarded_rollback": true
+  },
+  "native_plugin_paths": [
+    "> [plugins]"
+  ],
+  "runtime_files": [
+    {
+      "target": "plugins/tunnel_travel.pl",
+      "sha256": "b3e9307c8fa65baaf93fb12ea4423849b063d89c604e9fd18c012a80fc216774"
+    },
+    {
+      "target": "plugins/tunnel_travel_data.pl",
+      "sha256": "945dd266a4ae400486571004adc4b537bac289fab2a763065cd6bd3b983de1ea"
+    }
+  ],
+  "public_transport": [
+    {
+      "port": 5998,
+      "native_session": "passed",
+      "tls": "verified"
+    },
+    {
+      "port": 9000,
+      "native_session": "passed",
+      "tls": "verified"
+    },
+    {
+      "port": 7778,
+      "native_session": "passed",
+      "tls": "verified"
+    },
+    {
+      "port": 7000,
+      "native_session": "passed",
+      "tls": "verified"
+    }
+  ],
+  "scope": "Production Merrin hail path fix; existing main plugin bytes, no SQL or native/client changes",
+  "local_checks": {
+    "quest_assertions": 25,
+    "migration_tests": 6,
+    "runtime_path_tests": 4
+  },
+  "review": "Independent review: no must-fix findings. Optional preflight evidence pinning deferred; authoritative post-start smoke gates reopening."
+}
