@@ -1,8 +1,10 @@
-# Tunnel travel alcove — dev/test QA candidate
+# Tunnel travel alcove — deployed for owner QA
 
-September 21, 2026. Owner requested dev → test promotion and will perform manual
-in-game QA. Main/hosted promotion is not part of this approval. Installed on the
-local QA server; see [activation and verification](ACTIVATION.md).
+September 22, 2026. The owner explicitly authorized main promotion and production
+deployment. Installed on `play.nightcapgame.org`; see
+[production activation and rollback](PRODUCTION.md). Manual in-game acceptance
+remains open. The earlier [local QA activation](ACTIVATION.md) is preserved as
+dated evidence.
 
 ## What changes
 
@@ -16,7 +18,7 @@ local QA server; see [activation and verification](ACTIVATION.md).
 - Keep the ten destination return books, both PoK books, existing bind/arrival
   rules, merchants, residents, player data and all waypoint progression unchanged.
 
-The local QA database initially had 39 custom EC spawns; hosted content has 90.
+The local QA database initially had 39 custom EC spawns; hosted started with 90.
 The migration does not upgrade that separate feature baseline. Geometry checks
 also compare the alcove against the latest 90-NPC placement and patrol plan.
 No new world/zone binary or client download is needed. Older optional map-layer
@@ -85,7 +87,10 @@ from the newer NPC/patrol plan. It does not render the RoF2 client.
 
 ## Activation and rollback
 
-1. Target the authorized QA environment. Check no players are online, gracefully
+For the deployed production release use the pinned helper in [PRODUCTION.md](PRODUCTION.md).
+For a new authorized target:
+
+1. Target the authorized environment. Check no players are online, gracefully
    stop world/zones through its existing supervisor, and take a full PEQ backup.
    A world restart follows the existing market rotation policy.
 2. Recapture the stopped target with `tools/tunnel_travel.py --capture --output
@@ -111,5 +116,5 @@ from the newer NPC/patrol plan. It does not render the RoF2 client.
    and NPC states are preserved. Remove only the three introduced quest files after verifying
    their installed hashes, then restart the original runtime.
 
-No gameplay promotion to main before owner sign-off. A Git push alone does not
-deploy the hosted server.
+The owner explicitly authorized main/production release on September 22 before
+completed manual acceptance. A Git push alone does not deploy the hosted server.
