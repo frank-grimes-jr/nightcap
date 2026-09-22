@@ -1,0 +1,41 @@
+{
+  "date": "2026-09-21",
+  "implementation_commit": "4cd97b5",
+  "target": "Local Development Server",
+  "status": "installed_for_owner_QA",
+  "main_promoted": false,
+  "hosted_deployed": false,
+  "automated_checks": {
+    "migration_unit_tests": 6,
+    "quest_checks": 25,
+    "existing_hub_and_client_tests": 5,
+    "existing_resident_quest_checks": 21,
+    "stopped_target_database_rehearsal_checks": 20,
+    "ground_and_headroom_samples": 35,
+    "approach_rays": 2,
+    "preserved_table_fingerprints": 7,
+    "installed_file_hashes_and_perl_syntax_checks": 3
+  },
+  "installed_utc": "2026-09-21T22:55:34.889645+00:00",
+  "verified_utc": "2026-09-21T23:21:30.934887+00:00",
+  "zone_workers": 8,
+  "running_world_and_zone_hashes_verified": 9,
+  "established_zone_to_world_connections": 8,
+  "current_process_startup_log_errors": 0,
+  "players_online_at_maintenance": 0,
+  "exact_scoped_afterimages": true,
+  "backup": {
+    "uncompressed_bytes": 441742100,
+    "sha256": "90679bea5517eaa7928876f8dc7c4f5fc9cd8494dc286479245735c6101c08a6"
+  },
+  "unchanged_binary_sha256": {
+    "world": "c7a008e95615ff7f74cdca946ef889ad013052227b5593854e56e0091d8c51b3",
+    "zone": "6f110f50ad9018a380f65fe47bd4cc0388bb7c4103a9665d569902d4411a843e"
+  },
+  "runtime_quest_sha256": {
+    "plugins/tunnel_travel.pl": "b3e9307c8fa65baaf93fb12ea4423849b063d89c604e9fd18c012a80fc216774",
+    "plugins/tunnel_travel_data.pl": "ffc39f145595e2a29280ae6f9019536d4580c884dab7b3e6276055d0ca4cc69d",
+    "ecommons/999810.pl": "24e11a058daaf16adcfb1c9d47881b5ca85ce5cf48c8e083f79b9211d81b08b8"
+  },
+  "manual_QA": "pending; see README.md exact in-game steps"
+}

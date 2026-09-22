@@ -1,0 +1,26 @@
+{
+  "checks": [
+    "case-only door drift rejected",
+    "rejected drift performs no writes",
+    "dangling guide reference blocks installation",
+    "reference collision preserves database",
+    "npc_types exact afterimage",
+    "spawngroup exact afterimage",
+    "spawnentry exact afterimage",
+    "spawn2 exact afterimage",
+    "doors exact afterimage",
+    "zone_state_spawns exact afterimage",
+    "replay rejected",
+    "replay preserves installed content",
+    "immediate rollback restores original content exactly",
+    "stale immediate rollback fails closed after zone activity",
+    "guide references in corpses or other instances/zones block rollback",
+    "blocked rollback retains all referenced states and guide definitions",
+    "runtime rollback removes guide saved state",
+    "runtime rollback preserves unrelated corpses, other instances/zones and NPC states",
+    "player wallet and inventory unchanged",
+    "post-activity rollback restores original scoped content exactly"
+  ],
+  "schema": "nightcap_travel_test_e8762a8893",
+  "removed": true
+}

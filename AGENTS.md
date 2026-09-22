@@ -313,6 +313,12 @@ clients that saw a newer release require a higher-numbered corrective release.
 
 ### Tunnel services and creation provisions deployed for QA (September 21)
 
+The travel alcove follow-up uses `tools/tunnel_travel.py`, guide 999810 and three
+native props reusing retired city-door IDs. All twelve return/PoK books remain.
+After zone activity, generate rollback with a fresh stopped-target capture via
+`--rollback-from`; never replay the immediate rollback against new cached state.
+Exact QA and scoped recovery: `docs/releases/tunnel-travel-alcove/README.md`.
+
 `tools/tunnel_services.py` plans from the reviewed release catalog and emits
 forward/rollback SQL from `tools/tunnel_services_capture.py` preimages. Stop the
 target world/zones and back up before capture/apply; local evidence is not a
