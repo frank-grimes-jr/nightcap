@@ -38,6 +38,20 @@ if ($sha256 -ne $expectedSha256) {
 }
 
 $image = [System.IO.File]::ReadAllBytes($resolvedPath)
+Assert-Bytes $image 0x310800 ([byte[]](0x6A,0xFF,0x64,0xA1,0x00,0x00,0x00,0x00)) 'UIPetNotify'
+Assert-Bytes $image 0x30EA00 ([byte[]](0x8B,0x44,0x24,0x04,0x83,0xF8,0x22)) 'UIPetAvailable'
+# The hidden native hotbuttons keep their per-character configured meaning.
+# Decode the pinned switch jump table, rather than assuming UI slot == command.
+$petCommands = @(0,1,2,3,4,5,6,9,31,12,15,18,21,24,27,28,29,30)
+for ($index = 0; $index -lt $petCommands.Count; $index++) {
+	$tableOffset = $textFileOffset + 0x30F26C - $textRva + 4 * $index
+	$caseRva = [BitConverter]::ToUInt32($image, $tableOffset) - $imageBase
+	if ($index -eq 0) {
+		Assert-Bytes $image $caseRva ([byte[]](0x33,0xC0,0xC2,0x04,0x00)) 'Pet command zero'
+	} else {
+		Assert-Bytes $image $caseRva ([byte[]](0xB8,$petCommands[$index],0x00,0x00,0x00,0xC2,0x04,0x00)) 'Pet command mapping'
+	}
+}
 Assert-Bytes $image 0x293490 ([byte[]](0x6A,0xFF,0x68,0xA8,0xA3,0x98,0x00)) 'UIInventoryNotify'
 Assert-Bytes $image 0x468330 ([byte[]](0x53,0x8B,0x5C,0x24,0x08,0x56,0x57,0x8B)) 'UIChild'
 Assert-Bytes $image 0x00363640 ([byte[]](0x55,0x8B,0xEC,0x6A,0xFF)) 'UILabel'

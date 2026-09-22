@@ -23,6 +23,17 @@ static void __fastcall fake_request_sender(void* self, void*, int channel, const
     sent_requests.emplace_back(text);
 }
 static void __fastcall fake_chat(void*, void*, const char*, int, bool, bool) { ++displayed_lines; }
+static std::map<std::string, void*> management_controls;
+static unsigned native_pet_calls = 0;
+static nightcap::client_ui::EqString* __fastcall fake_ui_assign(nightcap::client_ui::EqString* self, void*, const char* text) {
+    self->rep = const_cast<char*>(text); return self;
+}
+static void* __fastcall fake_ui_child(void*, void*, const nightcap::client_ui::EqString* id) {
+    auto it = management_controls.find(static_cast<const char*>(id->rep));
+    return it == management_controls.end() ? nullptr : it->second;
+}
+static int __fastcall fake_pet_window(void*, void*, void*, uint32_t, void*) { ++native_pet_calls; return 7; }
+static bool __fastcall fake_pet_available(void*, void*, unsigned) { return false; }
 static unsigned stock_level_calls=0, item_calls=0;
 static uint32_t item_mask=65535;
 static int item_type=20, item_spell=4;
@@ -157,9 +168,72 @@ static void TestSilentRequests() {
     VirtualFree(host,0,MEM_RELEASE); base = 0; send_request = nullptr;
 }
 
+static void TestPetManagementABI() {
+    using namespace nightcap::client_ui;
+    auto host = static_cast<BYTE*>(VirtualAlloc(nullptr,0xA68000,MEM_COMMIT|MEM_RESERVE,PAGE_READWRITE));
+    assert(host);
+    alignas(4) BYTE eq[0x600] = {}, player[0x150] = {}, profile[4] = {}, connection[4] = {};
+    base = reinterpret_cast<uintptr_t>(host);
+    *reinterpret_cast<void**>(host+0xA67CCC) = eq;
+    *reinterpret_cast<void**>(host+0x9D2630) = player;
+    *reinterpret_cast<void**>(host+0x9D261C) = profile;
+    *reinterpret_cast<void**>(host+0x9D25AC) = connection;
+    *reinterpret_cast<int*>(eq+0x5C8) = 5;
+    *reinterpret_cast<uint32_t*>(player+0x148) = 7;
+    memcpy(player+0xA4,"Test",5);
+    JumpTo(host+kUIStringAssignRva, reinterpret_cast<void*>(&fake_ui_assign));
+    JumpTo(host+kUIChildRva, reinterpret_cast<void*>(&fake_ui_child));
+    original_pet_window = reinterpret_cast<InventoryNotify>(&fake_pet_window);
+    original_pet_available = reinterpret_cast<PetAvailable>(&fake_pet_available);
+    send_request = reinterpret_cast<SendRequest>(&fake_request_sender);
+    expected_eq = eq; sent_requests.clear(); pet_management.Clear();
+    ChatHook(eq,nullptr,"[NCPM1]|77|1|19|22|0|7|54657374|0|3|10|101|95|537069726974|11|102|80|426f6e6573|13|103|100|5761746572",0,false,false);
+    assert(CurrentManagementIdentity());
+    auto available = reinterpret_cast<PetAvailable>(&PetAvailableHook);
+    for (int repeat = 0; repeat < 1000; ++repeat) assert(available(eq,2));
+    assert(!available(eq,30) && !available(eq,34));
+    auto notify = reinterpret_cast<InventoryNotify>(&PetWindowHook);
+    management_controls["NCPM_Pet1Name"] = reinterpret_cast<void*>(1);
+    management_controls["NCPM_All"] = reinterpret_cast<void*>(2);
+    assert(notify(eq,reinterpret_cast<void*>(1),1,nullptr) == 1);
+    assert(sent_requests.back() == "#nightcappet select 102 77");
+    assert(notify(eq,reinterpret_cast<void*>(2),1,nullptr) == 1);
+    assert(sent_requests.back() == "#nightcappet select 0 77");
+    const unsigned commands[] = {2,4,5,12,6,9,31,28,15,18,24,21,0,29};
+    for (unsigned i = 0; i < 14; ++i) {
+        auto sender = reinterpret_cast<void*>(i+3);
+        management_controls["NCPM_Command"+std::to_string(i)] = sender;
+        assert(notify(eq,sender,1,nullptr) == 1);
+        assert(sent_requests.back() == "#nightcappet order " + std::to_string(commands[i]) + " 77");
+    }
+    assert(native_pet_calls == 0); // no singular pet/profile gate was consulted
+    const auto prior_count = sent_requests.size();
+    assert(notify(eq,reinterpret_cast<void*>(1),0x17,nullptr) == 1);
+    assert(native_pet_calls == 0 && sent_requests.size() == prior_count); // roster drag cannot create Attack hotbutton
+    const unsigned legacy_commands[] = {0,1,2,3,4,5,6,9,31,12,15,18,21,24,27,28,29};
+    for (unsigned i = 0; i < 17; ++i) {
+        auto sender = reinterpret_cast<void*>(i+100);
+        reinterpret_cast<void**>(eq+0x26C)[i] = sender;
+        assert(notify(eq,sender,1,nullptr) == 1);
+        assert(sent_requests.back() == "#nightcappet order " + std::to_string(legacy_commands[i]) + " 77");
+    }
+    assert(notify(eq,reinterpret_cast<void*>(99),1,nullptr) == 7 && native_pet_calls == 1);
+    const auto count = sent_requests.size();
+    next_management_refresh = GetTickCount64()+3000;
+    management_received = GetTickCount64()-6000;
+    assert(!available(eq,2));
+    assert(notify(eq,reinterpret_cast<void*>(3),1,nullptr) == 1 && sent_requests.size() == count);
+    management_received = GetTickCount64();
+    *reinterpret_cast<uint32_t*>(player+0x148) = 8;
+    assert(!available(eq,2));
+    pet_management.Clear(); management_controls.clear(); send_request = nullptr;
+    VirtualFree(host,0,MEM_RELEASE); base = 0;
+}
+
 int main() {
     TestSpellAccessABI();
     TestSilentRequests();
+    TestPetManagementABI();
     // Both native UI-load branches use CXStr assignment (__thiscall, one stack
     // argument). Existing/custom/missing skin preferences all choose Nightcap;
     // the original input and unrelated layout data remain untouched.

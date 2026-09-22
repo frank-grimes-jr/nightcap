@@ -8,6 +8,12 @@ server-authorized UI chassis.
 
 ## Status
 
+September 22 candidate: proxy `0.6.0-dev` adds the three-pet roster and guarded
+command controls. It requires the matching server and generated Pet Info XML.
+Existing pet hotbar assignments remain supported. See the
+[candidate evidence and owner QA](../docs/releases/pet-management-20260922/README.md);
+this is not a record of deployment or gameplay acceptance.
+
 Acceptance is scoped to the dated tests, not full multiclass client parity.
 See [held-Monk evidence](../docs/qa/2026-07-29-held-monk-combat-qa.md) and
 [current unresolved client gates](../docs/status.md).

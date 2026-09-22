@@ -1,0 +1,44 @@
+{
+  "status": "built_and_native_verified_not_activated",
+  "date": "2026-09-22",
+  "candidate_commit": "150f71b",
+  "upstream_documentation_merge": "8ef918e",
+  "server": {
+    "method": "Fresh full build followed by recompilation of final reviewed pet files",
+    "overlay_files_verified": 56,
+    "binaries": {
+      "world": "2466968466c59b8f4024a0169297c0d76c8b09392778286388850941940b7bac",
+      "zone": "9355fc126d5649accc22622486179082b6a8af1a07d320690ef7d278c57414ca"
+    },
+    "manifest_sha256": "f25e3a583491b2e512243cf41315911aaef8ff1e696690721cc38c56c940f201"
+  },
+  "client": {
+    "proxy_version": "0.6.0-dev",
+    "release": 2026092201,
+    "files": 23,
+    "exact_client_patch_sites": 43,
+    "proxy_sha256": "fc051399205b7a12f153cdfa84d36dee3e8e89a324119592d4767fa49d6d0c69",
+    "bootstrap_sha256": "315e9d0d41aadf9c0b039ce73ab80ba9185c3c368e89a5271a5a246af562d2d4",
+    "launcher_sha256": "2914a02ef6163e76caba429376e28ac95dccee5b700b92e960a7a4a131dfa8b5",
+    "manifest_sha256": "b102485c29f5de33cc832a34dd47c7f1f55c5b041efe52635f56d27be242a021"
+  },
+  "verification": {
+    "python_runtime_roster_xml_assets_tests": 13,
+    "go_packages": [
+      "cmd/nightcap-package",
+      "internal/preflight",
+      "internal/manifest"
+    ],
+    "independent_review": "No remaining required findings after native hotbar and stale roster corrections",
+    "native_cases": 9,
+    "native_actions": 132,
+    "native_commands": 105,
+    "native_diagnostic_sha256": "5c4de0352441837ab122825b776182836feaccd5c7940298a928e2f6176f3f87"
+  },
+  "pending": [
+    "Paired server/client activation",
+    "QA copy updater and actual eqgame startup: existing eqgame process blocked the install guard",
+    "Owner graphical and gameplay acceptance from QA.md"
+  ],
+  "artifact_root": "E:\\EQ_Local_Dev\\artifacts\\pet-management-20260922"
+}
