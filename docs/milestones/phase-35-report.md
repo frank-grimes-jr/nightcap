@@ -2,6 +2,12 @@
 
 September 21, 2026. Dev/test candidate; manual acceptance pending.
 
+September 22 follow-up: promoted to main and deployed to production at the
+owner's explicit request. Full production backup restore, migration/rollback,
+46 preservation checks, runtime hashes and four public transport checks passed.
+[Production evidence](../releases/tunnel-travel-alcove/PRODUCTION.md).
+Manual appearance and gameplay acceptance remain open.
+
 Built one human travel guide and three rustic Commonlands props in place of the
 ten PoK city stones. The guide preserves all ten exact landings and leaves all
 twelve return/PoK books and existing services intact. Added guarded migration,
