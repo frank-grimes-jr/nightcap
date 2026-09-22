@@ -13,6 +13,8 @@ After zone activity use the documented fresh-capture rollback; the immediate
 rollback intentionally rejects guide saved-state drift. Native floor/path checks
 passed; actual appearance, clicks/Find, round trips and pets await owner QA.
 Scope and exact steps: `docs/releases/tunnel-travel-alcove/README.md`.
+Installed on local QA after a full backup, exact stopped-target rehearsal and
+seven preservation fingerprints; eight zone workers online. Hosted unchanged.
 
 ## 2026-09-21 - Deploy tunnel services and starters for owner QA
 

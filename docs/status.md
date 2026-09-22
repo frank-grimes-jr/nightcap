@@ -7,8 +7,9 @@ QA reports preserve their original evidence and are not live-state promises.
 
 The [travel alcove candidate](releases/tunnel-travel-alcove/README.md) replaces
 the ten city stones with Merrin and three rustic props. Authorized for dev/test
-QA on September 21; main and hosted promotion require owner acceptance. See its
-release evidence for activation status. All ten destinations and return books
+QA on September 21; installed on Local Development Server with eight zone workers
+online. [Activation evidence](releases/tunnel-travel-alcove/ACTIVATION.md).
+Main and hosted promotion require owner acceptance. All ten destinations and return books
 are retained; graphical and gameplay checks remain open.
 
 [Deployed scope, evidence and exact QA](releases/tunnel-services-starters/README.md):

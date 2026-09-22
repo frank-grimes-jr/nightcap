@@ -1,8 +1,8 @@
 # Tunnel travel alcove — dev/test QA candidate
 
 September 21, 2026. Owner requested dev → test promotion and will perform manual
-in-game QA. Main/hosted promotion is not part of this approval. Activation status
-and verification results belong in this directory's evidence record.
+in-game QA. Main/hosted promotion is not part of this approval. Installed on the
+local QA server; see [activation and verification](ACTIVATION.md).
 
 ## What changes
 
