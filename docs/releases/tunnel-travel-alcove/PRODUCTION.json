@@ -1,0 +1,215 @@
+{
+  "preflight.json": {
+    "image_id": "sha256:7219a5e43b6f00e96e6abf88914e309f0ea3c36ad381a9f840f6a605c8e0c570",
+    "native_processes": 15,
+    "hashes_match": true,
+    "started_at": "2026-09-21T11:30:54.345938747Z",
+    "restart_count": 0,
+    "errors": {
+      "quest_api": 0,
+      "native": 0,
+      "database": 0
+    }
+  },
+  "backup.json": {
+    "sha256": "041590cd1c330f1a77b42ea8117a1307058980c2317bf3b2048489265e5434ed",
+    "uncompressed_bytes": 445454139
+  },
+  "rehearsal.json": {
+    "full_backup_restored": true,
+    "checks": [
+      "case-only door drift rejected",
+      "rejected drift performs no writes",
+      "dangling guide reference blocks installation",
+      "reference collision preserves database",
+      "npc_types exact afterimage",
+      "spawngroup exact afterimage",
+      "spawnentry exact afterimage",
+      "spawn2 exact afterimage",
+      "doors exact afterimage",
+      "zone_state_spawns exact afterimage",
+      "replay rejected",
+      "replay preserves installed content",
+      "immediate rollback restores original content exactly",
+      "stale immediate rollback fails closed after zone activity",
+      "guide references in corpses or other instances/zones block rollback",
+      "blocked rollback retains all referenced states and guide definitions",
+      "runtime rollback removes guide saved state",
+      "runtime rollback preserves unrelated corpses, other instances/zones and NPC states",
+      "player wallet and inventory unchanged",
+      "post-activity rollback restores original scoped content exactly"
+    ],
+    "exact_full_database_forward": true,
+    "exact_full_database_rollback": true,
+    "preserved_tables": 46
+  },
+  "prepared.json": {
+    "artifacts_sha256": {
+      "before-content.json": "32799358dc0471426ba87f92a9c55d81726bc80ba56d70a375c5c01ca12822dd",
+      "after-content.json": "293d46d7fee067b89e2f96cf4295aeced341737aa032bdf5a3640efed3ecfafb",
+      "forward.sql": "7ec1b188f03c8207f683a7fe6c955d4774409ca752ef654f69a926aa0bb8a8a8",
+      "immediate-rollback.sql": "705f5be463b72507a37fe4cbcf174ec2728401ec44834275c5f1f03040050c40",
+      "peq-before.sql.gz": "041590cd1c330f1a77b42ea8117a1307058980c2317bf3b2048489265e5434ed"
+    }
+  },
+  "verified-before-open.json": {
+    "image_id": "sha256:7219a5e43b6f00e96e6abf88914e309f0ea3c36ad381a9f840f6a605c8e0c570",
+    "native_processes": 15,
+    "hashes_match": true,
+    "started_at": "2026-09-22T18:01:31.73482525Z",
+    "restart_count": 0,
+    "errors": {
+      "quest_api": 0,
+      "native": 0,
+      "database": 0
+    },
+    "source_commit": "eba1eeea1320e36b80425379f9b4fc78b77c0d3f",
+    "preserved_tables": 46,
+    "runtime_files": 3,
+    "exact_static_afterimages": true,
+    "epoch": 6
+  },
+  "activated.json": {
+    "image_id": "sha256:7219a5e43b6f00e96e6abf88914e309f0ea3c36ad381a9f840f6a605c8e0c570",
+    "native_processes": 15,
+    "hashes_match": true,
+    "started_at": "2026-09-22T18:01:31.73482525Z",
+    "restart_count": 0,
+    "errors": {
+      "quest_api": 0,
+      "native": 0,
+      "database": 0
+    },
+    "source_commit": "eba1eeea1320e36b80425379f9b4fc78b77c0d3f",
+    "preserved_tables": 46,
+    "runtime_files": 3,
+    "exact_static_afterimages": true,
+    "epoch": 6,
+    "gateway_running": true
+  },
+  "regression/database-checks.json": {
+    "checks": [
+      "case-only door drift rejected",
+      "rejected drift performs no writes",
+      "dangling guide reference blocks installation",
+      "reference collision preserves database",
+      "npc_types exact afterimage",
+      "spawngroup exact afterimage",
+      "spawnentry exact afterimage",
+      "spawn2 exact afterimage",
+      "doors exact afterimage",
+      "zone_state_spawns exact afterimage",
+      "replay rejected",
+      "replay preserves installed content",
+      "immediate rollback restores original content exactly",
+      "stale immediate rollback fails closed after zone activity",
+      "guide references in corpses or other instances/zones block rollback",
+      "blocked rollback retains all referenced states and guide definitions",
+      "runtime rollback removes guide saved state",
+      "runtime rollback preserves unrelated corpses, other instances/zones and NPC states",
+      "player wallet and inventory unchanged",
+      "post-activity rollback restores original scoped content exactly"
+    ],
+    "schema": "nightcap_travel_test_8fe6b14482",
+    "removed": true
+  },
+  "manifest": {
+    "source_commit": "eba1eeea1320e36b80425379f9b4fc78b77c0d3f",
+    "image": "nightcap-game:tunnel-services-20260921",
+    "image_id": "sha256:7219a5e43b6f00e96e6abf88914e309f0ea3c36ad381a9f840f6a605c8e0c570",
+    "binaries": {
+      "bin/loginserver": "8702cb691077ca075e832250511c194ea457436e835fb31daac5b231d683ff60",
+      "bin/world": "6bf1827689b9887dea150f69f2a9bce43a5a8039b834dc55c6d70bfaf20b0994",
+      "bin/zone": "09996b0732642178b9b869e9a3a5d24c8a0cbb2a0c5645ee532536fa59e70823",
+      "bin/ucs": "aa9e4ec87dca221faeaaccd82cb2f2e6576b99979b79d6722b1ec9ab779efba7"
+    },
+    "runtime": [
+      {
+        "source": "server-mods/plugins/tunnel_travel.pl",
+        "target": "quests/plugins/tunnel_travel.pl",
+        "sha256": "b3e9307c8fa65baaf93fb12ea4423849b063d89c604e9fd18c012a80fc216774"
+      },
+      {
+        "source": "server-mods/plugins/tunnel_travel_data.pl",
+        "target": "quests/plugins/tunnel_travel_data.pl",
+        "sha256": "945dd266a4ae400486571004adc4b537bac289fab2a763065cd6bd3b983de1ea"
+      },
+      {
+        "source": "server-mods/quests/ecommons/999810.pl",
+        "target": "quests/ecommons/999810.pl",
+        "sha256": "24e11a058daaf16adcfb1c9d47881b5ca85ce5cf48c8e083f79b9211d81b08b8"
+      }
+    ],
+    "files": {
+      "rollout.py": "f164607a608ee80a1eda66e5029a147b0c7a238e8936746cd525f586e41b22d6",
+      "tools/generate_living_economy.py": "05c6df0212c9ec8caa894be752ffa6755d6c73e518f472a8db5415bd5fa95c43",
+      "tools/living_economy.py": "4d96c3d3629ad8d2ac076783005d9d998f72dcc4a4573da61c7519e3346f0043",
+      "tools/pok_hub.py": "51cfffceadc22a73a01a84ac96fc427f3f271603bda5a4bf26b87ab90aca4c91",
+      "tools/pok_hub_migration.py": "184b72772950d60eccdd1a4fff36905f222bc2fb0fa4b1efc915f4946383d528",
+      "tools/tunnel_services.py": "dc072c65afee5a2e81533ab90ceba29937554afc6b3356851b5ca33bb2e91200",
+      "tools/tunnel_travel.py": "d5274451f03bf85769475c067ab53246efcae6071ab58e7b226c40efe9e0f67d",
+      "tools/tests/rehearse_living_economy.py": "3271e271d7339ba709a6988ed2d869f7d2637d206c8bae705216411dd32953a1",
+      "tools/tests/rehearse_tunnel_travel.py": "8b4f82c176e6b2e3fca810d8dcbb713a03adb8d637ee984e054ebca22dbf5831",
+      "server-mods/plugins/tunnel_travel.pl": "b3e9307c8fa65baaf93fb12ea4423849b063d89c604e9fd18c012a80fc216774",
+      "server-mods/plugins/tunnel_travel_data.pl": "945dd266a4ae400486571004adc4b537bac289fab2a763065cd6bd3b983de1ea",
+      "server-mods/quests/ecommons/999810.pl": "24e11a058daaf16adcfb1c9d47881b5ca85ce5cf48c8e083f79b9211d81b08b8",
+      "docs/ecommons-hub/plan.json": "ac4ff84f6e0d54fa588e3b3a08e995a363273b182a543c31c54606e68ba1b7b5"
+    }
+  },
+  "post_deployment": {
+    "image_id": "sha256:7219a5e43b6f00e96e6abf88914e309f0ea3c36ad381a9f840f6a605c8e0c570",
+    "native_processes": 15,
+    "hashes_match": true,
+    "started_at": "2026-09-22T18:01:31.73482525Z",
+    "restart_count": 0,
+    "errors": {
+      "quest_api": 0,
+      "native": 0,
+      "database": 0
+    },
+    "gateway_running": true,
+    "exact_static_afterimages": true,
+    "runtime_files": 3,
+    "guide_saved_states": 0,
+    "utc": "2026-09-22T18:03:36.986735+00:00"
+  },
+  "content_counts": {
+    "npc_types": 2,
+    "spawngroup": 2,
+    "spawnentry": 2,
+    "spawn2": 2,
+    "doors": 15,
+    "zone_state_spawns": 0
+  },
+  "release_counts": {
+    "guide_npc": 1,
+    "guide_spawn": 1,
+    "rustic_props": 3,
+    "preserved_books": 12
+  },
+  "public_transport": [
+    {
+      "port": 5998,
+      "tls": "verified",
+      "native_session": "passed"
+    },
+    {
+      "port": 9000,
+      "tls": "verified",
+      "native_session": "passed"
+    },
+    {
+      "port": 7778,
+      "tls": "verified",
+      "native_session": "passed"
+    },
+    {
+      "port": 7000,
+      "tls": "verified",
+      "native_session": "passed"
+    }
+  ],
+  "deployment_fault_tests": 17,
+  "main_promotion_pr": "https://github.com/frank-grimes-jr/nightcap/pull/66",
+  "manual_gameplay_acceptance": "pending"
+}
