@@ -3,6 +3,16 @@
 Updated September 22, 2026. This is the current status index; dated studies and
 QA reports preserve their original evidence and are not live-state promises.
 
+## Three-pet management candidate
+
+The [pet management candidate](releases/pet-management-20260922/README.md) adds
+three roster rows and shared/individual command selection to Pet Info. Window,
+slash and existing hotbar commands use the same server selection. It requires
+matching server binaries, client proxy and generated UI. It has not been activated
+on Local Development Server or OVH. Native verification and the exact
+[owner QA steps](releases/pet-management-20260922/QA.md) are tracked with the
+candidate; production promotion requires owner sign-off.
+
 ## Tunnel services and starters deployed
 
 The [travel alcove](releases/tunnel-travel-alcove/README.md) replaces the ten city

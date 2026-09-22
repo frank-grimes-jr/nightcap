@@ -1,0 +1,15 @@
+{
+  "database": "nightcap_balance_20260912",
+  "character_ids": [
+    980070,
+    980078
+  ],
+  "remaining_rows": {
+    "character_multiclass": 0,
+    "character_pet_armor": 0,
+    "character_pet_info": 0,
+    "character_pet_buffs": 0,
+    "character_pet_inventory": 0,
+    "character_data": 0
+  }
+}

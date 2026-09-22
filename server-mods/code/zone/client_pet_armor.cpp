@@ -39,6 +39,7 @@ NPC *Client::GetArmorPet(uint8 pet_class)
 
 void Client::ApplyPetArmor()
 {
+	SendPetManagement();
 	if (!LoadPetArmor()) { return; }
 	std::map<uint8, uint16> roster;
 	for (uint8 pet_class = 1; pet_class <= 16; ++pet_class) {
@@ -103,9 +104,68 @@ void Client::SendPetArmor()
 	Message(Chat::White, "[NCPA1]E|%u", m_pet_armor_nonce);
 }
 
+void Client::SendPetManagement()
+{
+	if (!m_pet_management_enabled || !zone) { return; }
+	GetSelectedCommandPets(); // discard a selection whose exact spawn no longer exists
+	const auto pets = GetCommandPets();
+	if (!m_pet_management_token) { m_pet_management_token = zone->random.Int(1, INT32_MAX); }
+	if (++m_pet_management_generation == 0) { ++m_pet_management_generation; }
+	std::string rows;
+	unsigned count = 0;
+	std::map<uint8, NPC *> ordered;
+	for (auto pet : pets) {
+		uint8 pet_class = GetClass();
+		for (const auto &[class_id, id] : m_class_pets) {
+			if (id == pet->GetID()) { pet_class = class_id; break; }
+		}
+		ordered[pet_class] = pet;
+	}
+	for (const auto &[pet_class, pet] : ordered) {
+		if (count == 3) { break; }
+		rows += fmt::format("|{}|{}|{}|{}", pet_class, pet->GetID(),
+			std::clamp(static_cast<int>(pet->GetHPRatio()), 0, 100), ArmorText(pet->GetCleanName()));
+		++count;
+	}
+	Message(Chat::White, "[NCPM1]|%u|%u|%u|%u|%u|%u|%s|%u|%u%s", m_pet_management_token,
+		m_pet_management_generation, CharacterID(), zone->GetZoneID(), zone->GetInstanceID(),
+		GetID(), ArmorText(GetCleanName()).c_str(), m_selected_command_pet, count, rows.c_str());
+}
+
 void Client::HandlePetArmor(const Seperator *sep)
 {
 	if (!sep || !zone || !Connected()) { return; }
+	if (sep->argnum == 1 && !strcmp(sep->arg[1], "manage")) {
+		if (m_pet_management_enabled && !m_pet_armor_view_timer.Check()) { return; }
+		m_pet_armor_view_timer.Start(3000);
+		m_pet_management_enabled = true;
+		SendPetManagement();
+		return;
+	}
+	if (sep->argnum == 3 && (!strcmp(sep->arg[1], "select") || !strcmp(sep->arg[1], "order"))) {
+		if (!m_pet_management_enabled) { return; }
+		RefreshClassPets(); // invalidate stale scope before accepting its token
+		for (int i = 2; i <= 3; ++i) {
+			const std::string value = sep->arg[i];
+			if (value.empty() || value.size() > 10 || value.find_first_not_of("0123456789") != std::string::npos ||
+				strtoull(value.c_str(), nullptr, 10) > UINT32_MAX) { return; }
+		}
+		const uint32 id = Strings::ToUnsignedInt(sep->arg[2]);
+		const uint32 token = Strings::ToUnsignedInt(sep->arg[3]);
+		if (id > UINT16_MAX || !token || token != m_pet_management_token) { return; }
+		if (!strcmp(sep->arg[1], "order")) {
+			if (id >= PET_MAXCOMMANDS) { return; }
+			EQApplicationPacket packet(OP_PetCommands, sizeof(PetCommand_Struct));
+			auto body = reinterpret_cast<PetCommand_Struct *>(packet.pBuffer);
+			body->command = id;
+			body->target = GetTarget() ? GetTarget()->GetID() : 0;
+			Handle_OP_PetCommands(&packet);
+			SendPetManagement();
+			return;
+		}
+		if (!SelectCommandPet(static_cast<uint16>(id))) { SendPetManagement(); }
+		return;
+	}
 	if (sep->argnum == 1 && !strcmp(sep->arg[1], "view")) {
 		if (m_pet_armor_ui_enabled && !m_pet_armor_view_timer.Check()) { return; }
 		m_pet_armor_view_timer.Start(3000);
