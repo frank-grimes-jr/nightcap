@@ -3,6 +3,10 @@
 Accepted September 21, 2026 for dev/test and owner QA. Main promotion still
 requires the owner's in-game sign-off.
 
+September 22 update: the owner explicitly authorized main promotion and
+production deployment before completed manual acceptance. The original scope
+and remaining visual/gameplay QA are unchanged; see the production record.
+
 Ten full-size PoK city monuments crowd the classic East Commonlands tunnel.
 Replace those ten outbound doors with one human guide, Merrin (999810), and
 three native Commonlands props: a lantern at 60% scale, a barrel, and a crate.

@@ -12,7 +12,7 @@ Start with [current status](status.md), not a dated candidate report.
 
 - [Three-pet management: candidate, evidence and exact owner QA](releases/pet-management-20260922/README.md)
 
-- [Tunnel travel alcove: dev/test candidate and exact owner QA](releases/tunnel-travel-alcove/README.md)
+- [Tunnel travel alcove deployed: production evidence and exact owner QA](releases/tunnel-travel-alcove/README.md)
 
 - [Tunnel services and starters deployed: scope, evidence, exact QA and rollback](releases/tunnel-services-starters/README.md)
 

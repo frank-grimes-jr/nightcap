@@ -15,12 +15,14 @@ candidate; production promotion requires owner sign-off.
 
 ## Tunnel services and starters deployed
 
-The [travel alcove candidate](releases/tunnel-travel-alcove/README.md) replaces
-the ten city stones with Merrin and three rustic props. Authorized for dev/test
-QA on September 21; installed on Local Development Server with eight zone workers
-online. [Activation evidence](releases/tunnel-travel-alcove/ACTIVATION.md).
-Main and hosted promotion require owner acceptance. All ten destinations and return books
-are retained; graphical and gameplay checks remain open.
+The [travel alcove](releases/tunnel-travel-alcove/README.md) replaces the ten city
+stones with Merrin and three rustic props. The owner explicitly authorized main
+promotion and production deployment on September 22. It is live at
+`play.nightcapgame.org`: exact content, three quest hashes/syntax checks,
+46 preservation fingerprints, all 15 native process hashes and four encrypted
+public handshakes passed. [Production evidence and rollback](releases/tunnel-travel-alcove/PRODUCTION.md).
+All ten destinations and return/PoK books remain; visual and gameplay acceptance
+remain open. The earlier local QA deployment is retained as dated evidence.
 
 [Deployed scope, evidence and exact QA](releases/tunnel-services-starters/README.md):
 22 supply merchants, six crafting stations, all 16 trainers, eight walkers,

@@ -15,6 +15,21 @@ guarded client hooks. This is a paired client/server candidate, with no schema
 or balance change. Owner gameplay acceptance and hosted activation are pending;
 see docs/releases/pet-management-20260922/README.md.
 
+## 2026-09-22 - Deploy tunnel travel alcove to production
+
+Owner explicitly requested main promotion and hosted deployment. Promoted the
+reviewed test revision through PR 66 and installed Merrin with the native lantern,
+barrel and crate on production. Ten exact city destinations and twelve return/PoK
+books remain intact; no native rebuild or client download.
+
+Captured production's stopped preimages, validated/restored a full PEQ backup,
+passed 20 SQL regressions and exact forward/rollback rehearsal before applying.
+All 46 preservation fingerprints, three quest hashes/syntax checks, 15 native
+process hashes and four encrypted public handshakes passed. Normal startup moved
+market epoch 5 to 6. Private backup and guarded post-activity rollback are retained;
+ambiguous guide saved state aborts recovery without deleting it. Appearance and
+gameplay acceptance remain open. Evidence: `docs/releases/tunnel-travel-alcove/PRODUCTION.md`.
+
 ## 2026-09-21 - Rustic tunnel travel alcove for dev/test QA
 
 Replace the ten oversized East Commonlands city stones with Merrin, a findable
