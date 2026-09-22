@@ -2,11 +2,40 @@ use strict;
 use warnings;
 use Test::More;
 use JSON::PP;
+use File::Spec;
 our $root=shift @ARGV or die 'Expected repository root';
+my $runtime=shift @ARGV;
+our ($travel_data,$travel_plugin,$travel_quest);
+if (defined $runtime) {
+    # Follow EQEmuConfig and PathManager: nonempty path arrays override scalars.
+    # Probe the installed tree, never a repository copy of the plugin.
+    open my $config,'<',"$runtime/eqemu_config.json" or die $!;
+    my $directories=decode_json(do { local $/; <$config> })->{server}{directories}//{};
+    my $locate=sub {
+        my ($array,$scalar,$default,$file)=@_;
+        my @paths=ref($directories->{$array}) eq 'ARRAY'
+            ? grep { defined($_) && !ref($_) } @{$directories->{$array}} : ();
+        @paths=($directories->{$scalar}//$default) unless @paths;
+        my @matches=grep { -f $_ } map {
+            File::Spec->catfile(File::Spec->rel2abs($_,$runtime),$file)
+        } @paths;
+        die "Expected one loaded $file in configured $array; found ".scalar(@matches)."\n"
+            unless @matches==1;
+        return $matches[0];
+    };
+    $travel_data=$locate->('plugin_paths','plugins','plugins/','tunnel_travel_data.pl');
+    $travel_plugin=$locate->('plugin_paths','plugins','plugins/','tunnel_travel.pl');
+    $travel_quest=$locate->('quest_paths','quests','quests/','ecommons/999810.pl');
+    diag("Installed runtime: $travel_plugin; $travel_data; $travel_quest");
+} else {
+    $travel_data="$root/server-mods/plugins/tunnel_travel_data.pl";
+    $travel_plugin="$root/server-mods/plugins/tunnel_travel.pl";
+    $travel_quest="$root/server-mods/quests/ecommons/999810.pl";
+}
 {
     package plugin;
-    do "$main::root/server-mods/plugins/tunnel_travel_data.pl" or die $@ || $!;
-    do "$main::root/server-mods/plugins/tunnel_travel.pl" or die $@ || $!;
+    do $main::travel_data or die $@ || $!;
+    do $main::travel_plugin or die $@ || $!;
     package quest;
     our @said;
     sub say { push @said,$_[0]; }
@@ -29,7 +58,7 @@ our $root=shift @ARGV or die 'Expected repository root';
     sub MovePC { push @{$_[0]->{moves}},[@_[1..5]] }
     package TravelQuest;
     our($client,$npc,$text);
-    do "$main::root/server-mods/quests/ecommons/999810.pl" or die $@ || $!;
+    do $main::travel_quest or die $@ || $!;
 }
 my $npc=bless {},'TravelNPC';
 my $client=bless {moves=>[]},'TravelClient';
