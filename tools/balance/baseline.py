@@ -4,8 +4,12 @@ import hashlib
 import json
 import re
 import subprocess
+import sys
 from datetime import datetime, timezone
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from tier_spell_scaling import stat_sql
 
 
 EXPECTED_RULES = {
@@ -65,7 +69,17 @@ def query_json(sql):
     return [json.loads(line) for line in result.stdout.splitlines() if line.strip()]
 
 
-def database_checks():
+def tier_mismatches(multiplier, ceiling, policy):
+    if policy == 'base-strength':
+        return ' OR '.join(f'a.{stat}<>{stat_sql("b", stat, int(round(float(multiplier)*100)), ceiling)}'
+                           for stat in ('spelldmg', 'healamt'))
+    if policy != 'legacy-flat':
+        raise ValueError('Unknown item policy: '+policy)
+    return ' OR '.join(f'a.{stat}<>IF(b.{stat}>0,ROUND(b.{stat}*{multiplier}),b.{stat})+{ceiling}'
+                       for stat in ('spelldmg', 'healamt'))
+
+
+def database_checks(item_policy='legacy-flat'):
     rule_rows = query_json("SELECT JSON_OBJECT('name',rule_name,'value',rule_value) FROM rule_values WHERE ruleset_id=1")
     rules = {row['name']: row['value'] for row in rule_rows}
     tiers = []
@@ -75,13 +89,13 @@ def database_checks():
         upper = offset + (99999 if offset == 800000 else 199999)
         row = query_json(f"""SELECT JSON_OBJECT('offset',{offset},'items',COUNT(*),
             'mismatches',COALESCE(SUM(
-                a.spelldmg <> IF(b.spelldmg>0,ROUND(b.spelldmg*{multiplier}),b.spelldmg)+{stamp}
-                OR a.healamt <> IF(b.healamt>0,ROUND(b.healamt*{multiplier}),b.healamt)+{stamp}
+                {tier_mismatches(multiplier, stamp, item_policy)}
             ),0)) FROM items a JOIN items b ON b.id=a.id-{offset}
             WHERE a.id BETWEEN {offset+1} AND {upper} AND a.slots>0""")[0]
         tiers.append(row)
     return {'rules': {key: rules.get(key) for key in EXPECTED_RULES},
-            'rule_mismatches': validate_rules(rules, EXPECTED_RULES), 'tier_stamps': tiers}
+            'rule_mismatches': validate_rules(rules, EXPECTED_RULES), 'tier_stamps': tiers,
+            'item_policy': item_policy}
 
 
 def main():
@@ -89,6 +103,8 @@ def main():
     parser.add_argument('--runtime', type=Path, required=True, help='Active akk-stack directory')
     parser.add_argument('--output', type=Path, required=True)
     parser.add_argument('--database', action='store_true')
+    parser.add_argument('--item-policy', choices=('legacy-flat', 'base-strength'), default='legacy-flat',
+                        help='Explicit expected item policy; existing deployed baseline remains the default')
     parser.add_argument('--cpp-tests', action='store_true')
     args = parser.parse_args()
     repo = Path(__file__).resolve().parents[2]
@@ -96,7 +112,7 @@ def main():
     report = {'captured_at': datetime.now(timezone.utc).isoformat(), 'mirror': mirror}
     failures = bool(mirror['missing'] or mirror['mismatches'])
     if args.database:
-        report['database'] = database_checks()
+        report['database'] = database_checks(args.item_policy)
         failures |= bool(report['database']['rule_mismatches'])
         failures |= any(row['items'] == 0 or row['mismatches'] for row in report['database']['tier_stamps'])
     if args.cpp_tests:

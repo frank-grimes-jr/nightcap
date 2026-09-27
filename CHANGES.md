@@ -1,5 +1,34 @@
 # CHANGES
 
+## 2026-09-27 - Casting-bar diagnosis and repair QA
+
+Owner confirms the personal bar freezes for every non-instant spell even outside
+combat, while spells finish. No speculative animation suppression is included.
+Add a pinned-client, read-only timer capture and record candidate evidence, guard
+limits and exact in-game QA. A running affected client is still required.
+See docs/releases/combat-item-fixes-20260922/.
+
+## 2026-09-27 - Base-item spell/heal progression candidate
+
+Replace flat 5/12/20 tier spell/heal stamps with additions scaled from unmodified
+base-item strength. Preserve positive native scaling and negative drawbacks.
+Guarded migration changes only the two stats and provides exact rollback; do not
+run the destructive tier bootstrap on an existing server. An isolated 93,615-item
+rehearsal preserved every other column and restored the complete items table;
+base/identity/rollback drift and injected after-update failure controls pass.
+The read-only balance audit now supports explicit legacy-flat/base-strength
+policy selection; the deployed default stays legacy. Balance and in-game
+acceptance remain open; not deployed. Policy: ADR 0047.
+
+## 2026-09-27 - Held Monk/Beastlord fists and skill progression candidate
+
+Resolve held Monk/Beastlord fists across damage, delay, magical damage, empty
+offhand and unarmed damage-table gates. Skill advancement now uses held-class
+native caps, so a Wizard/Monk does not leave Dual Wield stuck at its seeded value.
+Native-method regressions, independent review and the full world/zone build
+pass. Source and object provenance are verified. Manual acceptance remains open;
+this candidate has not been deployed.
+
 ## 2026-09-27 - Deploy three-pet management for live QA
 
 Activated the owner-approved paired server/client release on OVH. Pet Info lists

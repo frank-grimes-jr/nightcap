@@ -3489,6 +3489,17 @@ bool Client::CanHaveSkill(EQ::skills::SkillType skill_id) const
 	return false;
 }
 
+uint16 Client::MaxSkill(EQ::skills::SkillType skill_id) const
+{
+	// Skill ownership and seeding already use every held class. Advancement must
+	// use the same native caps, without granting any unearned skill points.
+	uint16 cap = 0;
+	for (const uint8 class_id : GetMulticlassList()) {
+		cap = std::max(cap, MaxSkill(skill_id, class_id, GetLevel()));
+	}
+	return cap;
+}
+
 uint16 Client::MaxSkill(EQ::skills::SkillType skill_id, uint8 class_id, uint8 level) const
 {
 	if (

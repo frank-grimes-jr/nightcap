@@ -48,3 +48,18 @@ class BaselineTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             with self.assertRaises(ValueError):
                 compare_mirror(Path(directory), Path(directory))
+
+
+class TierPolicySelection(unittest.TestCase):
+    def test_candidate_and_legacy_are_explicit(self):
+        from baseline import tier_mismatches
+        legacy=tier_mismatches('1.35',20,'legacy-flat')
+        candidate=tier_mismatches('1.35',20,'base-strength')
+        self.assertIn('ROUND(b.spelldmg*1.35)',legacy)
+        self.assertNotIn('b.hp',legacy)
+        self.assertIn('b.hp',candidate)
+        self.assertIn('b.healamt<0',candidate)
+        with self.assertRaises(ValueError): tier_mismatches('1.35',20,'guess')
+
+if __name__ == '__main__':
+    unittest.main()
