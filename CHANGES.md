@@ -1,5 +1,13 @@
 # CHANGES
 
+## 2026-09-27 - Casting-bar diagnosis and repair QA
+
+Owner confirms the personal bar freezes for every non-instant spell even outside
+combat, while spells finish. No speculative animation suppression is included.
+Add a pinned-client, read-only timer capture and record candidate evidence, guard
+limits and exact in-game QA. A running affected client is still required.
+See docs/releases/combat-item-fixes-20260922/.
+
 ## 2026-09-27 - Base-item spell/heal progression candidate
 
 Replace flat 5/12/20 tier spell/heal stamps with additions scaled from unmodified
