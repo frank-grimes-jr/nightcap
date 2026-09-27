@@ -1,5 +1,21 @@
 # CHANGES
 
+## 2026-09-27 - Deploy three-pet management for live QA
+
+Activated the owner-approved paired server/client release on OVH. Pet Info lists
+all three pets; commands affect all unless a pet is selected by name or world
+click. Shared selection can be restored with All pets, the selected name or target
+clearing. Signed game 2026092201 is installed in E:/Nightcap with all 23 files
+verified; actual startup applied every required hook. Automatic launcher 0.3.1
+supports updating Nightcap while unrelated Legends remains running.
+
+The full production backup was restored successfully in isolation. All 46
+preservation checks, 8,134 runtime file hashes, 15 native process hashes, four
+public encrypted handshakes, nine hardened command scenarios and 47 rollout/
+publication failure tests passed. No schema or balance changes. Manual graphical
+and gameplay QA remains open. Exact evidence and paired rollback:
+`docs/releases/pet-management-20260922/PRODUCTION.md`.
+
 ## 2026-09-27 - Scope the updater guard to its selected client
 
 Remove the global eqgame.exe process-name rejection, which prevented Nightcap
