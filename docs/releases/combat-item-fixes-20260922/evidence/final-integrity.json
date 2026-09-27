@@ -1,0 +1,6 @@
+{
+  "scope": "isolated clone after all fault tests",
+  "rows": 308928,
+  "null_or_invalid_row_hashes": 0,
+  "full_table_sha256": "1a1829e3681965a7f2961230c3e01226df34b122acc379d96269cd8097cc2388"
+}

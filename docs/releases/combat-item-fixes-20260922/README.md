@@ -49,7 +49,13 @@ The original snapshot SHA-256 is
 `bf7008da8dba0338648db1163918902ef969c97218ba8cc2d64cc451d9e9b354`.
 The complete restored table fingerprint is
 `1a1829e3681965a7f2961230c3e01226df34b122acc379d96269cd8097cc2388`.
-These are local evidence, not a capture or migration of production.
+The September 27 read-only hosted capture of the same item fields has exactly
+the same SHA-256 and the same 93,615-row plan. No hosted migration occurred.
+Full-table preservation/rollback evidence is from the isolated local clone. A
+final integrity read checked all 308,928 restored rows: every row produced a
+valid digest, and the complete table hash still matches the initial preimage.
+Target-captured forward/rollback SQL is prepared under
+`artifacts/combat-item-fixes-20260922/production-plan-20260927/`; it is not applied.
 
 The read-only balance checker supports `--item-policy base-strength` for a
 migrated candidate. Its default remains `legacy-flat`; every report records the

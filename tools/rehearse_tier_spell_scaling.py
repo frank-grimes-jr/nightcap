@@ -45,6 +45,8 @@ def main():
     def fingerprint(excluded=()):
         selected = ','.join('`'+name+'`' for name in names if name not in excluded)
         data = sql('SELECT SHA2(JSON_ARRAY('+selected+'),256) FROM items ORDER BY id;').stdout
+        if not data or any(not re.fullmatch('[0-9a-f]{64}', row) for row in data.splitlines()):
+            raise ValueError('Incomplete or NULL item-row fingerprint')
         return hashlib.sha256(data.encode('utf-8')).hexdigest()
 
     checks = []
