@@ -87,6 +87,8 @@ specializations remain at 50 before native cap-raising bonuses.
 
 This is an explicit trained-skill ceiling. Natural skill-ups still call
 base-class `MaxSkill`; held-class training and practical attainment require QA.
+A September 27 [repair candidate](../releases/combat-item-fixes-20260922/README.md)
+now addresses that advancement gate; it is not deployed or accepted yet.
 The correction raises MAG/NEC/SHM zero-spend AC sum/avoidance from the prior
 base-skill control's 436/387 to 437/405. The separate 20 HP difference comes
 from free AAs. Outputs include raw skills and the skill-model label.

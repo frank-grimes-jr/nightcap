@@ -1,0 +1,15 @@
+{
+  "database": "nightcap_spell_rehearsal_20260927",
+  "changed_items": 93615,
+  "checks": [
+    "preimage drift rejected without writes",
+    "all four tier formulas verified",
+    "every other item column preserved",
+    "replay rejected without writes",
+    "exact full-table rollback"
+  ],
+  "before_sha256": "1a1829e3681965a7f2961230c3e01226df34b122acc379d96269cd8097cc2388",
+  "after_sha256": "8136c94d248bbf3ac6295c98b7542b7df7834fa91ce4a91876964241377b8cac",
+  "untouched_columns_sha256": "46bf8b2ae2db13064aadffdc303005a35bab705d352a8d7ddbed45b6cb125ed8",
+  "input_sha256": "bf7008da8dba0338648db1163918902ef969c97218ba8cc2d64cc451d9e9b354"
+}
