@@ -1,5 +1,15 @@
 # CHANGES
 
+## 2026-09-27 - Base-item spell/heal progression candidate
+
+Replace flat 5/12/20 tier spell/heal stamps with additions scaled from unmodified
+base-item strength. Preserve positive native scaling and negative drawbacks.
+Guarded migration changes only the two stats and provides exact rollback; do not
+run the destructive tier bootstrap on an existing server. An isolated 93,615-item
+rehearsal preserved every other column and restored the complete items table;
+base/identity/rollback drift and injected after-update failure controls pass.
+Balance and in-game acceptance remain open; not deployed. Policy: ADR 0047.
+
 ## 2026-09-27 - Held Monk/Beastlord fists and skill progression candidate
 
 Resolve held Monk/Beastlord fists across damage, delay, magical damage, empty
