@@ -1,0 +1,79 @@
+{
+  "binary_sha256": "c695aeb4579b72187108afdd6fecc34bfc4e96799d66cb93191d05378ce91464",
+  "database": "nightcap_balance_20260912",
+  "passed": 9,
+  "cases": [
+    {
+      "id": "select-class-10",
+      "actions": 36,
+      "commands": 27,
+      "final_pets": 0
+    },
+    {
+      "id": "select-class-11",
+      "actions": 36,
+      "commands": 27,
+      "final_pets": 0
+    },
+    {
+      "id": "select-class-13",
+      "actions": 36,
+      "commands": 27,
+      "final_pets": 0
+    },
+    {
+      "id": "attack-2-select-0-range-80",
+      "actions": 4,
+      "commands": 4,
+      "final_pets": 3,
+      "ordered_pet_ids": [
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "id": "attack-2-select-11-range-80",
+      "actions": 4,
+      "commands": 4,
+      "final_pets": 3,
+      "ordered_pet_ids": [
+        3
+      ]
+    },
+    {
+      "id": "attack-2-select-11-range-500",
+      "actions": 4,
+      "commands": 4,
+      "final_pets": 3,
+      "ordered_pet_ids": []
+    },
+    {
+      "id": "attack-3-select-0-range-80",
+      "actions": 4,
+      "commands": 4,
+      "final_pets": 3,
+      "ordered_pet_ids": [
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "id": "attack-3-select-11-range-80",
+      "actions": 4,
+      "commands": 4,
+      "final_pets": 3,
+      "ordered_pet_ids": [
+        3
+      ]
+    },
+    {
+      "id": "attack-3-select-11-range-500",
+      "actions": 4,
+      "commands": 4,
+      "final_pets": 3,
+      "ordered_pet_ids": []
+    }
+  ]
+}

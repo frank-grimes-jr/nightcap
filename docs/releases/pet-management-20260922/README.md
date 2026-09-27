@@ -1,8 +1,10 @@
-# Three-pet management candidate
+# Three-pet management: live QA
 
-September 22, 2026. Client and server builds, independent review and isolated
-native command verification passed. Paired activation and owner gameplay
-acceptance remain pending. No deployment is claimed.
+Built September 22 and activated September 27, 2026, after explicit owner
+approval for main and live server/client deployment. Production server, signed
+game release 2026092201 and launcher 0.3.1 are live. The owner client at E:/Nightcap
+was updated and passed an actual startup check. Graphical and gameplay acceptance
+remain open. [Production evidence and recovery](PRODUCTION.md).
 
 Pet Info shows three class/name/health rows. The `Commands:` line states the
 server-acknowledged scope. Click a name or target your pet in the world to select
@@ -21,7 +23,7 @@ roster rows show the complete live roster. Advanced controls still need their AA
 The reported live no-op has not been reproduced on the player's exact session.
 Read-only analysis of the pinned RoF2 executable confirms that both its native
 window and slash parser rely on one cached pet/capability set. Packet sizes and
-the server decoder agree. The candidate's window bypasses that local restriction
+the server decoder agree. The new window bypasses that local restriction
 and its guarded slash hook permits requests for a fresh server-confirmed roster;
 the server continues to authorize each recipient. A disposable native ABI test
 exercises the controls while the original availability predicate returns false.
@@ -84,9 +86,10 @@ python tools/balance/verify_pet_management.py --runtime /tmp/nightcap-balance-pe
 ```
 
 The isolated QA executable is `E:/EQ_Local_Dev/artifacts/pet-management-20260922/qa/nightcap-launcher-qa.exe`.
-Its copied game directory is the sibling `client` folder. The updater recognized
-and verified the signed bundle, then correctly refused installation because an
-existing eqgame.exe was running. No game was closed. Installation and actual client
-startup remain pending; first close the game normally, then update this QA copy
-with the matching candidate server active. Do not use the candidate client with
-an older server. The original binary client and live server remain unchanged.
+Its copied game directory is the sibling `client` folder. The updater initially
+refused installation while an existing game was running. After it closed, the
+normal updater installed and verified all 23 files. An owned startup/stop smoke
+test reached the running state with proxy `0.6.0-dev`; enabled, required and
+applied patch masks all equaled 8191. No authentication or gameplay was automated.
+The original binary client remains unchanged. This startup check does not replace
+the owner's graphical and gameplay checks in QA.md.
