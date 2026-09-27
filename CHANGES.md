@@ -1,5 +1,13 @@
 # CHANGES
 
+## 2026-09-27 - Held Monk/Beastlord fists and skill progression candidate
+
+Resolve held Monk/Beastlord fists across damage, delay, magical damage, empty
+offhand and unarmed damage-table gates. Skill advancement now uses held-class
+native caps, so a Wizard/Monk does not leave Dual Wield stuck at its seeded value.
+Native-method regressions and independent review pass. Full native build and
+manual acceptance remain open; this candidate has not been deployed.
+
 ## 2026-09-22 - Three-pet management candidate
 
 Add three named health rows and an explicit All pets scope to Pet Info. Clicking

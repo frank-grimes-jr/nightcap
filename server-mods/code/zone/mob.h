@@ -1143,11 +1143,12 @@ public:
 	int32 GetMeleeMitigation();
 
 	uint8 GetWeaponDamageBonus(const EQ::ItemData* weapon, bool offhand = false);
-	const DamageTable &GetDamageTable() const;
+	const DamageTable &GetDamageTable(bool unarmed = false) const;
 	int GetMobFixedOffenseSkill();
 	int GetMobFixedWeaponSkill();
 	void ApplyDamageTable(DamageHitInfo &hit);
 	virtual int GetHandToHandDamage(void);
+	uint8 GetHandToHandClass() const;
 
 	bool CanThisClassDoubleAttack(void) const;
 	bool CanThisClassTripleAttack() const;
