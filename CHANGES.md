@@ -1,5 +1,15 @@
 # CHANGES
 
+## 2026-09-27 - Scope the updater guard to its selected client
+
+Remove the global eqgame.exe process-name rejection, which prevented Nightcap
+updates while an independent EverQuest Legends installation was running. Keep
+the exclusive writable handle to Nightcap's exact executable for the entire
+transaction, including file-identity checks and launch/update exclusion.
+Windows regressions cover an unrelated same-name executable, the running target,
+renamed hard-link aliases and attempted launches/updates while locked. The
+unrelated game is never stopped. ADR 0030 records the amended boundary.
+
 ## 2026-09-22 - Fix Merrin's silent hail in production
 
 The initial deployment put the two travel helpers in `quests/plugins/`, while
