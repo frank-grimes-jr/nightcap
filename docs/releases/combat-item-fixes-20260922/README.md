@@ -16,7 +16,10 @@ fist damage/delay, magical fists, empty offhand eligibility and unarmed damage
 tables/bonuses. Equipped weapons and NPC identity retain their existing paths.
 The one-argument skill cap now takes the maximum native cap across held classes:
 newly seeded Dual Wield can improve instead of stopping at the Wizard's zero
-cap. Learned values are not raised automatically; specialization and explicit
+cap. The September 27 local cap data at level 2 is Monk H2H 20 / Dual Wield 19 /
+Offense 10 versus Wizard 6 / 0 / 8. The skill regression uses captured native
+level-1, level-2 and level-50 caps, including Beastlord's later Dual Wield unlock.
+Learned values are not raised automatically; specialization and explicit
 class-specific cap queries retain their existing rules.
 
 Tier spell/heal additions use the unscaled base item's strength instead of a

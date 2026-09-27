@@ -24,8 +24,16 @@ struct Client {
  }
  uint16 MaxSkill(EQ::skills::SkillType skill, uint8 cls, uint8 lvl) const {
   if(skill==EQ::skills::Specialize) return cls==12 ? 200 : 0;
-  if(cls==7 || cls==15) return lvl<2 ? 0 : lvl*5+5;
-  return skill==EQ::skills::DualWield ? 0 : lvl*2;
+  // PEQ native caps captured 2026-09-27: classes Monk, Beastlord, Wizard;
+  // skills Hand-to-Hand, Dual Wield, Offense; levels 1, 2, 50.
+  const uint16 caps[3][3][3] = {
+   {{10,20,270},{12,19,252},{5,10,230}},
+   {{10,20,250},{0,0,210},{5,10,200}},
+   {{3,6,150},{0,0,0},{4,8,140}}
+  };
+  int c=cls==7 ? 0 : cls==15 ? 1 : cls==12 ? 2 : -1;
+  int l=lvl==1 ? 0 : lvl==2 ? 1 : lvl==50 ? 2 : -1;
+  return c<0 || l<0 || skill>EQ::skills::Offense ? 0 : caps[c][skill][l];
  }
  CAP_DECL
  uint16 GetRawSkill(EQ::skills::SkillType s) const { return skills[s]; }
@@ -40,18 +48,20 @@ int main() {
  try {
   for(int slot : {2,3}) for(int cls : {7,15}) {
    Client native, held, ordinary; native.base=cls; (slot==2?held.second:held.third)=cls;
+   native.level=held.level=ordinary.level=cls==7 ? 2 : 50;
    for(auto skill : {EQ::skills::HandToHand,EQ::skills::DualWield,EQ::skills::Offense}) {
     check(held.MaxSkill(skill)==native.MaxSkill(skill), "held combat skill cap differs from native");
     held.AddSkill(skill,1); check(held.GetRawSkill(skill)==2,"seeded skill cannot advance");
     held.AddSkill(skill,1000); check(held.GetRawSkill(skill)==native.MaxSkill(skill),"advancement must stop at held cap");
-    check(held.MaxSkill(skill,12,2)==ordinary.MaxSkill(skill),"explicit primary-class cap changed");
+    check(held.MaxSkill(skill,12,held.level)==ordinary.MaxSkill(skill),"explicit primary-class cap changed");
    }
    held.AddSkill(EQ::skills::Specialize,1000); check(held.GetRawSkill(EQ::skills::Specialize)==50,"specialization cap bypassed");
-   held.level=1; check(held.MaxSkill(EQ::skills::DualWield)==0,"skill unlocked before native level");
+   held.level=native.level=1; check(held.MaxSkill(EQ::skills::DualWield)==native.MaxSkill(EQ::skills::DualWield),"level-one native unlock differs");
+   if(cls==15) { held.level=2; check(held.MaxSkill(EQ::skills::DualWield)==0,"Beastlord gained Dual Wield before native unlock"); }
    held.level=50; native.level=50; check(held.MaxSkill(EQ::skills::HandToHand)==native.MaxSkill(EQ::skills::HandToHand),"level-up cap stale");
    held.second=held.third=0; check(held.MaxSkill(EQ::skills::DualWield)==0,"released class retains cap");
   }
-  Client wizard; check(wizard.MaxSkill(EQ::skills::HandToHand)==4,"single-class cap changed");
+  Client wizard; check(wizard.MaxSkill(EQ::skills::HandToHand)==6,"single-class cap changed");
   std::cout << "seeded skills advance to held native caps; specialization and release controls passed\n";
  } catch(const std::exception& e) { std::cerr<<e.what(); return 1; }
 }
