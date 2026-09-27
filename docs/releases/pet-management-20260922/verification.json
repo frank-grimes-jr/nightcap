@@ -1,17 +1,8 @@
 {
-  "status": "built_and_native_verified_not_activated",
+  "status": "deployed_live_for_owner_QA",
   "date": "2026-09-22",
   "candidate_commit": "150f71b",
   "upstream_documentation_merge": "8ef918e",
-  "server": {
-    "method": "Fresh full build followed by recompilation of final reviewed pet files",
-    "overlay_files_verified": 56,
-    "binaries": {
-      "world": "2466968466c59b8f4024a0169297c0d76c8b09392778286388850941940b7bac",
-      "zone": "9355fc126d5649accc22622486179082b6a8af1a07d320690ef7d278c57414ca"
-    },
-    "manifest_sha256": "f25e3a583491b2e512243cf41315911aaef8ff1e696690721cc38c56c940f201"
-  },
   "client": {
     "proxy_version": "0.6.0-dev",
     "release": 2026092201,
@@ -19,8 +10,11 @@
     "exact_client_patch_sites": 43,
     "proxy_sha256": "fc051399205b7a12f153cdfa84d36dee3e8e89a324119592d4767fa49d6d0c69",
     "bootstrap_sha256": "315e9d0d41aadf9c0b039ce73ab80ba9185c3c368e89a5271a5a246af562d2d4",
-    "launcher_sha256": "2914a02ef6163e76caba429376e28ac95dccee5b700b92e960a7a4a131dfa8b5",
-    "manifest_sha256": "b102485c29f5de33cc832a34dd47c7f1f55c5b041efe52635f56d27be242a021"
+    "qa_launcher_sha256": "2914a02ef6163e76caba429376e28ac95dccee5b700b92e960a7a4a131dfa8b5",
+    "qa_manifest_sha256": "b102485c29f5de33cc832a34dd47c7f1f55c5b041efe52635f56d27be242a021",
+    "production_channel_sha256": "48adafb8c2658e06b40cfdedef264e02f21733e001f2bddceb316d6599fe6250",
+    "desktop_version": "0.3.1",
+    "desktop_release": 2026092701
   },
   "verification": {
     "python_runtime_roster_xml_assets_tests": 13,
@@ -33,12 +27,37 @@
     "native_cases": 9,
     "native_actions": 132,
     "native_commands": 105,
-    "native_diagnostic_sha256": "5c4de0352441837ab122825b776182836feaccd5c7940298a928e2f6176f3f87"
+    "native_diagnostic_sha256": "5c4de0352441837ab122825b776182836feaccd5c7940298a928e2f6176f3f87",
+    "production_native_cases": 9,
+    "rollout_publication_fault_tests": 47,
+    "windows_guard_tests": 6,
+    "installed_client_startup": "ready; all required masks 8191"
   },
   "pending": [
-    "Paired server/client activation",
-    "QA copy updater and actual eqgame startup: existing eqgame process blocked the install guard",
     "Owner graphical and gameplay acceptance from QA.md"
   ],
-  "artifact_root": "E:\\EQ_Local_Dev\\artifacts\\pet-management-20260922"
+  "artifact_root": "E:\\EQ_Local_Dev\\artifacts\\pet-management-20260922",
+  "deployment_date": "2026-09-27",
+  "local_server_build": {
+    "method": "Fresh full build followed by recompilation of final reviewed pet files",
+    "overlay_files_verified": 56,
+    "binaries": {
+      "world": "2466968466c59b8f4024a0169297c0d76c8b09392778286388850941940b7bac",
+      "zone": "9355fc126d5649accc22622486179082b6a8af1a07d320690ef7d278c57414ca"
+    },
+    "manifest_sha256": "f25e3a583491b2e512243cf41315911aaef8ff1e696690721cc38c56c940f201"
+  },
+  "server": {
+    "method": "Fresh full production-hardened build of all five targets",
+    "binaries": {
+      "loginserver": "a9c97271ce27bcbd4fc4003126af12a7c11821ef97d5aa8dff1be0dc1b4fffd8",
+      "world": "2e205df5d2cc7b78d3897e1741287c1c5acf501c444bf84350a825b03e83b1ba",
+      "zone": "3603c2907df5a30142e5c07fe91a1877839e5984983086af619bac6df4dd8e1e",
+      "ucs": "96757b356eca25c539bdd6e036c635ab79fee383e7a5ec9e27b14bb5138f5583",
+      "shared_memory": "3e45b9b1f8444eba773ff4375cd55089d8c5fff78cc3eb93e639a8aba9ef6f21"
+    },
+    "hardening_sha256": "219f556bb1e55a719f8a3f5150c95723ce46ab9a8b69c93c2bc0f54ff1262b2e",
+    "image_id": "sha256:d9aadb51fc2d1b6cb773c102baea1747b734b764028a84e044cde03090e19806"
+  },
+  "production_evidence": "production.json"
 }

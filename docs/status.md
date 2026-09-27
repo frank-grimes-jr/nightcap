@@ -1,17 +1,20 @@
 # Current Nightcap status
 
-Updated September 22, 2026. This is the current status index; dated studies and
+Updated September 27, 2026. This is the current status index; dated studies and
 QA reports preserve their original evidence and are not live-state promises.
 
-## Three-pet management candidate
+## Three-pet management deployed for live QA
 
-The [pet management candidate](releases/pet-management-20260922/README.md) adds
-three roster rows and shared/individual command selection to Pet Info. Window,
-slash and existing hotbar commands use the same server selection. It requires
-matching server binaries, client proxy and generated UI. It has not been activated
-on Local Development Server or OVH. Native verification and the exact
-[owner QA steps](releases/pet-management-20260922/QA.md) are tracked with the
-candidate; production promotion requires owner sign-off.
+The [pet management release](releases/pet-management-20260922/README.md) shows
+all three pets with shared commands by default and individual selection by name
+or world target. Owner-approved main/OVH activation completed September 27.
+Game 2026092201 and automatic launcher 0.3.1 are published; E:/Nightcap is updated
+and its actual startup passed. All 15 native hashes, 46 preservation checks,
+a full backup restore, 47 publication/rollout fault cases and four encrypted
+handshakes passed. The updater now locks only its exact client executable, so
+independent Legends installations do not block it. [Production evidence and
+recovery](releases/pet-management-20260922/PRODUCTION.md).
+[Owner graphical/gameplay QA](releases/pet-management-20260922/QA.md) remains open.
 
 ## Tunnel services and starters deployed
 
@@ -61,12 +64,13 @@ visual acceptance remains in the linked QA steps.
 
 ## Permanent patcher deployed
 
-[Launcher 0.3.0](releases/permanent-patcher-20260920.md) is live with stable starter,
-automatic launcher updates and patch-before-Play. Existing players download the
-starter once, keep their game folder and use the same shortcut afterwards. Signed
-launcher release 2026092001 and game release 2026092006 verify over HTTPS. All 22
-game files are unchanged from the repair below; production was not restarted.
-Native/Go/UI checks and 63 publication failure rehearsals pass. Owner in-game
+[Launcher 0.3.0](releases/permanent-patcher-20260920.md) established the stable
+starter, automatic launcher updates and patch-before-Play on September 20.
+Players keep their game folder and use the same shortcut. That historical release
+verified launcher 2026092001 and game 2026092006, with 22 managed game files;
+it did not restart production. Its native/Go/UI checks and 63 publication failure
+rehearsals passed. The current launcher is 0.3.1 / release 2026092701 and the game
+is 2026092201 with 23 files, as recorded in the pet release above. Owner in-game
 acceptance remains open. [Release operations](ops/permanent-patcher.md).
 
 ## Production NPC and spell-access repair deployed

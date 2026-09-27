@@ -1,6 +1,7 @@
 # Phase 36: Three-pet command management
 
-September 22, 2026. Candidate; activation and manual acceptance pending.
+September 22, 2026; updated September 27. Deployed to main/OVH and the owner
+client for authorized live QA; manual acceptance remains pending.
 
 Built a three-row Pet Info roster with class, name and health, an explicit command
 scope, All pets control, and commands routed through the existing server handler.
@@ -20,3 +21,8 @@ compiled ABI checks and isolated native integration provide bounded evidence;
 renderer appearance and owner command/lifecycle acceptance remain open.
 
 [Build evidence, delivery and exact owner QA](../releases/pet-management-20260922/README.md).
+
+September 27 delivery: fresh hardened five-target build, nine native command cases,
+47 rollout/publication failure cases, 46 preserved tables and actual client startup
+passed. Launcher 0.3.1 removes the unrelated-process false positive while retaining
+exact executable locking. Legends was left running. See the production record.
