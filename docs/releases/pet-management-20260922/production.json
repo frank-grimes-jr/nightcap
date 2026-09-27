@@ -1,0 +1,349 @@
+{
+  "status": "deployed_for_owner_gameplay_QA",
+  "date": "2026-09-27",
+  "server": {
+    "backup.json": {
+      "sha256": "4d4dabe22f4121cb484ed0101bcc76865b4e3810c245a45e96da906169211bc6",
+      "uncompressed_bytes": 444687702
+    },
+    "rehearsal.json": {
+      "full_backup_restored": true,
+      "preserved_tables": 46
+    },
+    "epoch-before.json": {
+      "epoch": 8
+    },
+    "verified-before-open.json": {
+      "image_id": "sha256:d9aadb51fc2d1b6cb773c102baea1747b734b764028a84e044cde03090e19806",
+      "native_processes": 15,
+      "running_hashes": [
+        [
+          "loginserver",
+          "a9c97271ce27bcbd4fc4003126af12a7c11821ef97d5aa8dff1be0dc1b4fffd8"
+        ],
+        [
+          "world",
+          "2e205df5d2cc7b78d3897e1741287c1c5acf501c444bf84350a825b03e83b1ba"
+        ],
+        [
+          "ucs",
+          "96757b356eca25c539bdd6e036c635ab79fee383e7a5ec9e27b14bb5138f5583"
+        ],
+        [
+          "zone",
+          "3603c2907df5a30142e5c07fe91a1877839e5984983086af619bac6df4dd8e1e"
+        ],
+        [
+          "zone",
+          "3603c2907df5a30142e5c07fe91a1877839e5984983086af619bac6df4dd8e1e"
+        ],
+        [
+          "zone",
+          "3603c2907df5a30142e5c07fe91a1877839e5984983086af619bac6df4dd8e1e"
+        ],
+        [
+          "zone",
+          "3603c2907df5a30142e5c07fe91a1877839e5984983086af619bac6df4dd8e1e"
+        ],
+        [
+          "zone",
+          "3603c2907df5a30142e5c07fe91a1877839e5984983086af619bac6df4dd8e1e"
+        ],
+        [
+          "zone",
+          "3603c2907df5a30142e5c07fe91a1877839e5984983086af619bac6df4dd8e1e"
+        ],
+        [
+          "zone",
+          "3603c2907df5a30142e5c07fe91a1877839e5984983086af619bac6df4dd8e1e"
+        ],
+        [
+          "zone",
+          "3603c2907df5a30142e5c07fe91a1877839e5984983086af619bac6df4dd8e1e"
+        ],
+        [
+          "zone",
+          "3603c2907df5a30142e5c07fe91a1877839e5984983086af619bac6df4dd8e1e"
+        ],
+        [
+          "zone",
+          "3603c2907df5a30142e5c07fe91a1877839e5984983086af619bac6df4dd8e1e"
+        ],
+        [
+          "zone",
+          "3603c2907df5a30142e5c07fe91a1877839e5984983086af619bac6df4dd8e1e"
+        ],
+        [
+          "zone",
+          "3603c2907df5a30142e5c07fe91a1877839e5984983086af619bac6df4dd8e1e"
+        ]
+      ],
+      "started_at": "2026-09-27T20:47:20.833455437Z",
+      "restart_count": 0,
+      "errors": {
+        "quest_api": 0,
+        "native": 0,
+        "database": 0
+      },
+      "epoch": 9,
+      "preserved_tables": 46,
+      "runtime_files": 8134,
+      "backup_sha256": "4d4dabe22f4121cb484ed0101bcc76865b4e3810c245a45e96da906169211bc6"
+    },
+    "activated.json": {
+      "image_id": "sha256:d9aadb51fc2d1b6cb773c102baea1747b734b764028a84e044cde03090e19806",
+      "native_processes": 15,
+      "running_hashes": [
+        [
+          "loginserver",
+          "a9c97271ce27bcbd4fc4003126af12a7c11821ef97d5aa8dff1be0dc1b4fffd8"
+        ],
+        [
+          "world",
+          "2e205df5d2cc7b78d3897e1741287c1c5acf501c444bf84350a825b03e83b1ba"
+        ],
+        [
+          "ucs",
+          "96757b356eca25c539bdd6e036c635ab79fee383e7a5ec9e27b14bb5138f5583"
+        ],
+        [
+          "zone",
+          "3603c2907df5a30142e5c07fe91a1877839e5984983086af619bac6df4dd8e1e"
+        ],
+        [
+          "zone",
+          "3603c2907df5a30142e5c07fe91a1877839e5984983086af619bac6df4dd8e1e"
+        ],
+        [
+          "zone",
+          "3603c2907df5a30142e5c07fe91a1877839e5984983086af619bac6df4dd8e1e"
+        ],
+        [
+          "zone",
+          "3603c2907df5a30142e5c07fe91a1877839e5984983086af619bac6df4dd8e1e"
+        ],
+        [
+          "zone",
+          "3603c2907df5a30142e5c07fe91a1877839e5984983086af619bac6df4dd8e1e"
+        ],
+        [
+          "zone",
+          "3603c2907df5a30142e5c07fe91a1877839e5984983086af619bac6df4dd8e1e"
+        ],
+        [
+          "zone",
+          "3603c2907df5a30142e5c07fe91a1877839e5984983086af619bac6df4dd8e1e"
+        ],
+        [
+          "zone",
+          "3603c2907df5a30142e5c07fe91a1877839e5984983086af619bac6df4dd8e1e"
+        ],
+        [
+          "zone",
+          "3603c2907df5a30142e5c07fe91a1877839e5984983086af619bac6df4dd8e1e"
+        ],
+        [
+          "zone",
+          "3603c2907df5a30142e5c07fe91a1877839e5984983086af619bac6df4dd8e1e"
+        ],
+        [
+          "zone",
+          "3603c2907df5a30142e5c07fe91a1877839e5984983086af619bac6df4dd8e1e"
+        ],
+        [
+          "zone",
+          "3603c2907df5a30142e5c07fe91a1877839e5984983086af619bac6df4dd8e1e"
+        ]
+      ],
+      "started_at": "2026-09-27T20:47:20.833455437Z",
+      "restart_count": 0,
+      "errors": {
+        "quest_api": 0,
+        "native": 0,
+        "database": 0
+      },
+      "epoch": 9,
+      "preserved_tables": 46,
+      "runtime_files": 8134,
+      "backup_sha256": "4d4dabe22f4121cb484ed0101bcc76865b4e3810c245a45e96da906169211bc6"
+    },
+    "manifest": {
+      "source_commit": "9d271c4fb8d5333de343b215c02873eab5427620",
+      "old_image": "nightcap-game:tunnel-services-20260921",
+      "old_image_id": "sha256:7219a5e43b6f00e96e6abf88914e309f0ea3c36ad381a9f840f6a605c8e0c570",
+      "old_restart_count": 1,
+      "old_started_at": "2026-09-22T20:56:01.049146897Z",
+      "old_hashes": {
+        "bin/loginserver": "8702cb691077ca075e832250511c194ea457436e835fb31daac5b231d683ff60",
+        "bin/world": "6bf1827689b9887dea150f69f2a9bce43a5a8039b834dc55c6d70bfaf20b0994",
+        "bin/zone": "09996b0732642178b9b869e9a3a5d24c8a0cbb2a0c5645ee532536fa59e70823",
+        "bin/ucs": "aa9e4ec87dca221faeaaccd82cb2f2e6576b99979b79d6722b1ec9ab779efba7",
+        "bin/shared_memory": "9446e1020d44eccb673442ceba5b85d4e99ae18debfe352e1a2a0626ff5db8cd",
+        "start.py": "ca4099eb898730141e7941d3afc366d59c4bc8351eea74c5b6fd9560c24b815f",
+        "configure.py": "90873958dfb013201dd9c9552beaccdd88984a2e55739da07874fa4a95a84e57",
+        "accounts.py": "400d4e7a5d0bedeed47ffdb33b142a4a62a3f939a35466da66ce3201ae52ef5c"
+      },
+      "new_image": "nightcap-game:pet-management-20260922",
+      "binaries": {
+        "loginserver": "a9c97271ce27bcbd4fc4003126af12a7c11821ef97d5aa8dff1be0dc1b4fffd8",
+        "world": "2e205df5d2cc7b78d3897e1741287c1c5acf501c444bf84350a825b03e83b1ba",
+        "zone": "3603c2907df5a30142e5c07fe91a1877839e5984983086af619bac6df4dd8e1e",
+        "ucs": "96757b356eca25c539bdd6e036c635ab79fee383e7a5ec9e27b14bb5138f5583",
+        "shared_memory": "3e45b9b1f8444eba773ff4375cd55089d8c5fff78cc3eb93e639a8aba9ef6f21"
+      },
+      "hardening_sha256": "219f556bb1e55a719f8a3f5150c95723ce46ab9a8b69c93c2bc0f54ff1262b2e"
+    },
+    "manifest_sha256": "fe177350e21436cbe7d14cad50864eb67abddfdc3a12ba81ea0ff9be8ec5edde",
+    "post_deployment": {
+      "image_id": "sha256:d9aadb51fc2d1b6cb773c102baea1747b734b764028a84e044cde03090e19806",
+      "native_processes": 15,
+      "running_hashes": [
+        [
+          "loginserver",
+          "a9c97271ce27bcbd4fc4003126af12a7c11821ef97d5aa8dff1be0dc1b4fffd8"
+        ],
+        [
+          "world",
+          "2e205df5d2cc7b78d3897e1741287c1c5acf501c444bf84350a825b03e83b1ba"
+        ],
+        [
+          "ucs",
+          "96757b356eca25c539bdd6e036c635ab79fee383e7a5ec9e27b14bb5138f5583"
+        ],
+        [
+          "zone",
+          "3603c2907df5a30142e5c07fe91a1877839e5984983086af619bac6df4dd8e1e"
+        ],
+        [
+          "zone",
+          "3603c2907df5a30142e5c07fe91a1877839e5984983086af619bac6df4dd8e1e"
+        ],
+        [
+          "zone",
+          "3603c2907df5a30142e5c07fe91a1877839e5984983086af619bac6df4dd8e1e"
+        ],
+        [
+          "zone",
+          "3603c2907df5a30142e5c07fe91a1877839e5984983086af619bac6df4dd8e1e"
+        ],
+        [
+          "zone",
+          "3603c2907df5a30142e5c07fe91a1877839e5984983086af619bac6df4dd8e1e"
+        ],
+        [
+          "zone",
+          "3603c2907df5a30142e5c07fe91a1877839e5984983086af619bac6df4dd8e1e"
+        ],
+        [
+          "zone",
+          "3603c2907df5a30142e5c07fe91a1877839e5984983086af619bac6df4dd8e1e"
+        ],
+        [
+          "zone",
+          "3603c2907df5a30142e5c07fe91a1877839e5984983086af619bac6df4dd8e1e"
+        ],
+        [
+          "zone",
+          "3603c2907df5a30142e5c07fe91a1877839e5984983086af619bac6df4dd8e1e"
+        ],
+        [
+          "zone",
+          "3603c2907df5a30142e5c07fe91a1877839e5984983086af619bac6df4dd8e1e"
+        ],
+        [
+          "zone",
+          "3603c2907df5a30142e5c07fe91a1877839e5984983086af619bac6df4dd8e1e"
+        ],
+        [
+          "zone",
+          "3603c2907df5a30142e5c07fe91a1877839e5984983086af619bac6df4dd8e1e"
+        ]
+      ],
+      "started_at": "2026-09-27T20:47:20.833455437Z",
+      "restart_count": 0,
+      "errors": {
+        "quest_api": 0,
+        "native": 0,
+        "database": 0
+      },
+      "gateway_running": true
+    },
+    "runtime_unchanged": true,
+    "client": {
+      "release": 2026092201,
+      "verified_files": 23,
+      "channel_sha256": "48adafb8c2658e06b40cfdedef264e02f21733e001f2bddceb316d6599fe6250",
+      "launcher_unchanged": true
+    }
+  },
+  "public_game": {
+    "channel_sha256": "48adafb8c2658e06b40cfdedef264e02f21733e001f2bddceb316d6599fe6250",
+    "game_files_verified": 23,
+    "game_release": 2026092201,
+    "minimum_launcher": "0.3.0",
+    "old_inventory_compatible": true,
+    "scope": "HTTPS hosted files",
+    "signature": "valid existing production authority"
+  },
+  "transport": [
+    {
+      "port": 5998,
+      "native_session": "passed",
+      "tls": "verified"
+    },
+    {
+      "port": 9000,
+      "native_session": "passed",
+      "tls": "verified"
+    },
+    {
+      "port": 7778,
+      "native_session": "passed",
+      "tls": "verified"
+    },
+    {
+      "port": 7000,
+      "native_session": "passed",
+      "tls": "verified"
+    }
+  ],
+  "client_installation": {
+    "release": 2026092201,
+    "previous_release": 2026092006,
+    "managed_files_verified": 23,
+    "protected_files_unchanged": 21,
+    "proxy_sha256": "fc051399205b7a12f153cdfa84d36dee3e8e89a324119592d4767fa49d6d0c69",
+    "base_eqgame_sha256": "2a8702ad9f722704f01355c0750be7d6f164a8b9c9128ba0cf286ea32b405b0e",
+    "method": "Production updater controller with exact-file guard; independent installed hash check"
+  },
+  "client_startup": {
+    "state": "ready",
+    "proxy_version": "0.6.0-dev",
+    "catalog_sha256": "77ecc7c2e0e7321b21608c17dfcb114a6ba2f9662dc6d1e55fa2731a1fe70d67",
+    "required_mask": 8191,
+    "enabled_mask": 8191,
+    "applied_mask": 8191
+  },
+  "desktop_publication": {
+    "launcher_release": 2026092701,
+    "version": "0.3.1",
+    "desktop_sha256": "130df2766b0c175a33286be38ced10b5ef84102392f512b18c11425b4ba889fc",
+    "channel_sha256": "5ba5900ab7d4987e0ff569e18a4fcd32e241df8e653e8c00e3f122e5caa0d57f",
+    "game_starter_guide_unchanged": true
+  },
+  "gameplay_acceptance": "pending owner QA.md; no authentication or gameplay automated",
+  "pull_requests": [
+    72,
+    76,
+    77,
+    78
+  ],
+  "public_desktop": {
+    "signature": "verified against shipped production authority",
+    "version": "0.3.1",
+    "release": 2026092701,
+    "size": 12548096,
+    "sha256": "130df2766b0c175a33286be38ced10b5ef84102392f512b18c11425b4ba889fc",
+    "https": "verified"
+  }
+}

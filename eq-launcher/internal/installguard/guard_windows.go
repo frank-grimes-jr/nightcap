@@ -1,28 +1,17 @@
 package installguard
 
 import (
-	"errors"
 	"fmt"
 	"os"
 	"path/filepath"
-	"strings"
 	"syscall"
-	"unsafe"
 )
 
-// Acquire refuses any running eqgame.exe, then holds a non-shared writable
-// executable handle for the transaction. No executable writes are performed.
-// The handle also prevents launches that race the process snapshot and excludes
-// another updater, including one reaching this client through a directory alias.
-func Acquire(clientDir string) (*Guard, error) { return acquire(clientDir, "eqgame.exe") }
-func acquire(clientDir, processName string) (*Guard, error) {
-	running, err := Running(processName)
-	if err != nil {
-		return nil, err
-	}
-	if running {
-		return nil, fmt.Errorf("close %s before updating", processName)
-	}
+// Acquire holds a non-shared writable handle to this client's executable.
+// Windows refuses that handle while the image is running, including through an
+// alias, and refuses launches while it is held. Other installations are unrelated.
+// No executable writes are performed.
+func Acquire(clientDir string) (*Guard, error) {
 	root, err := os.OpenRoot(clientDir)
 	if err != nil {
 		return nil, err
@@ -64,25 +53,4 @@ func acquire(clientDir, processName string) (*Guard, error) {
 	}
 	keep = true
 	return &Guard{file: file, root: root}, nil
-}
-
-// Running fails closed when a process snapshot cannot be read completely.
-func Running(imageName string) (bool, error) {
-	handle, err := syscall.CreateToolhelp32Snapshot(syscall.TH32CS_SNAPPROCESS, 0)
-	if err != nil {
-		return false, err
-	}
-	defer syscall.CloseHandle(handle)
-	entry := syscall.ProcessEntry32{Size: uint32(unsafe.Sizeof(syscall.ProcessEntry32{}))}
-	err = syscall.Process32First(handle, &entry)
-	for err == nil {
-		if strings.EqualFold(syscall.UTF16ToString(entry.ExeFile[:]), imageName) {
-			return true, nil
-		}
-		err = syscall.Process32Next(handle, &entry)
-	}
-	if errors.Is(err, syscall.ERROR_NO_MORE_FILES) {
-		return false, nil
-	}
-	return false, fmt.Errorf("cannot inspect running processes: %w", err)
 }

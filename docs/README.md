@@ -12,7 +12,7 @@ Start with [current status](status.md), not a dated candidate report.
 
 - [Combat and tier-item repair candidate: evidence and owner QA](releases/combat-item-fixes-20260922/README.md)
 
-- [Three-pet management: candidate, evidence and exact owner QA](releases/pet-management-20260922/README.md)
+- [Three-pet management: live release, evidence and exact owner QA](releases/pet-management-20260922/README.md)
 
 - [Tunnel travel alcove deployed: production evidence and exact owner QA](releases/tunnel-travel-alcove/README.md)
 
