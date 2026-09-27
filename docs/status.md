@@ -9,7 +9,8 @@ QA reports preserve their original evidence and are not live-state promises.
 are under verification, not deployed. The personal casting bar also freezes
 outside combat while spells finish; its cause remains open. Ten focused tests
 and full-table item migration/rollback rehearsal pass. Full native build and
-[gameplay acceptance](releases/combat-item-fixes-20260922/QA.md) remain required.
+nine balance-audit tests also pass.
+[Gameplay acceptance](releases/combat-item-fixes-20260922/QA.md) remains required.
 
 ## Three-pet management deployed for live QA
 

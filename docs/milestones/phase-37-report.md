@@ -16,8 +16,8 @@ failure. Ten focused tests and existing lifecycle/special-attack checks pass.
 No speculative casting fix was included. Owner follow-up establishes that all
 non-instant bars freeze even outside combat while spells finish. A guarded,
 read-only timer capture is ready; an affected Nightcap reproduction is required.
-The full world/zone build is still running, and representative balance/manual
-QA remains open. External cross-model review was declined in favor of regression
+The full world/zone build passed with source and object provenance verified.
+Representative balance/manual QA remains open. External cross-model review was declined in favor of regression
 tests and independent review.
 
 [Scope, evidence, limitations and exact QA](../releases/combat-item-fixes-20260922/README.md).

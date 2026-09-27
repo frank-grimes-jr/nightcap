@@ -25,8 +25,9 @@ acceptance remain open; not deployed. Policy: ADR 0047.
 Resolve held Monk/Beastlord fists across damage, delay, magical damage, empty
 offhand and unarmed damage-table gates. Skill advancement now uses held-class
 native caps, so a Wizard/Monk does not leave Dual Wield stuck at its seeded value.
-Native-method regressions and independent review pass. Full native build and
-manual acceptance remain open; this candidate has not been deployed.
+Native-method regressions, independent review and the full world/zone build
+pass. Source and object provenance are verified. Manual acceptance remains open;
+this candidate has not been deployed.
 
 ## 2026-09-27 - Deploy three-pet management for live QA
 

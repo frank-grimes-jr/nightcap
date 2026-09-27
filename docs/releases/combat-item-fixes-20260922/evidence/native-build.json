@@ -1,0 +1,13 @@
+{
+  "status": "built_not_installed",
+  "binaries": {
+    "world": "76b05a896e734f94dbad7376cd068ef77c9c71dcd996d4f2b91e8728613fa917",
+    "zone": "29b3e66ae3eeca1217b52fe321e76a5fafedfb7c1c5317334e57e012a716a8bb"
+  },
+  "overlay_files_verified": 56,
+  "object_count": 335,
+  "refreshed_objects": 56,
+  "source_files_verified_stable": 2790,
+  "manifest_sha256": "82f495c6582af19c93c4cd7174c15acaf54c0194b64bb0905c5ee13548b29467",
+  "build_scope": "isolated world and zone; all object files newer than source restage; market binary guard passed"
+}

@@ -41,7 +41,10 @@ scaled by the tier multiplier. Negative native values remain drawbacks.
   failed without writes; rollback restored the entire items table exactly.
 - Base formula/target identity drift and stale rollback were rejected. A trigger
   forced an after-UPDATE validation failure; both changed rows rolled back exactly.
-- Full world/zone build is in progress.
+- Full world/zone build passed. All 335 objects are newer than source restaging;
+  56 older objects were explicitly rebuilt before accepting the final binaries.
+  All 2,790 source hashes stayed stable and all 56 overlay files match this branch.
+  [Native build receipt](evidence/native-build.json).
 - Independent review found and resolved offhand, damage-table/bonus and practical
   skill progression gates. Item review accepted the documented guard scope and
   requested additional fault tests. External cross-model review was declined.
