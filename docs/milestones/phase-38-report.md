@@ -1,15 +1,27 @@
-# Phase 38: Tunnel class courts and Khaleid
+# Phase 38: Advanced-loot client foundation
 
-Built eight class courts, matching class/profession uniforms, Roman stock-page
-subtitles, Khalure's druid-ring label and Khaleid's Classic wizard travel.
-Guarded migration/recovery preserves stock, prices, player data, rules and class
-functions. [Evidence and exact QA](../releases/tunnel-class-courts/README.md).
+Date: 2026-09-30. In-progress feature on `feature/advanced-loot`; not deployed.
 
-Passed 13 new Python tests, 19 MariaDB checks, 26 wizard/21 resident assertions,
-8 existing service tests, 550 court samples, 55 approach rays and 40 landing
-samples. All nine maps match production hashes.
+## Built
 
-Cut: custom wall signage/client publication; native subtitles and uniforms provide
-identification. Other named residents retain their prior lineup. Still uncertain:
-rendered outfits/staff, label readability and authenticated runtime interactions.
-Owner QA and current main/OVH authorization remain required; not deployed.
+Native RoF2 screen lifecycle and exact `/advloot` hook in the Nightcap proxy,
+server-snapshot client model, bounded action requests, search/paging/filter and
+shared-loot controls, generated SIDL screen, and matching guarded patch catalog.
+The x86 proxy build succeeds. Shared server decision policy and preference
+storage source provide the next integration points.
+
+## Cut
+
+The earlier classic-loot-window prototype was removed from the ignored working
+source. It did not supply the requested window and had an unrelated death hook.
+No requested advanced-loot behavior is removed from the accepted scope.
+
+## Shaky / incomplete
+
+The server queue and actual item-transfer adapter are still required. The UI has
+not been exercised inside eqgame; native rendering, skin reload and real packet
+traffic remain unverified. The preference migration has not run. Successful
+compilation does not establish runtime readiness or player acceptance.
+
+Exact evidence and remaining requirements:
+[advanced-loot implementation](../releases/advanced-loot/README.md).
