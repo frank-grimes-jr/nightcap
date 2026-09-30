@@ -2,6 +2,12 @@
 
 ## 2026-09-30 - Classic client model defaults candidate
 
+Follow-up audit adds classic counterparts for later Human (566), Ogre (624),
+Erudite (678), and scaled-wolf (481) models. Preserve native player actor names
+for armor handling; select the original scaled-wolf female variant explicitly.
+The mapping now has 98 entries. Full old-only coverage remains open for later-only
+races; see the release scope audit rather than inferring completion from startup.
+
 Add required proxy `0.7.0-dev` classic-model policy. Existing Luclin preferences
 cannot silently enable modern visuals; a deliberate `[Nightcap]`
 `UseModernModels=TRUE` opt-in restores native model selection after restart.

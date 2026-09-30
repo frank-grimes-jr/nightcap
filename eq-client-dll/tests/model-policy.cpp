@@ -4,6 +4,8 @@
 
 int main() {
     using namespace nightcap::models;
+    for (int race : {1,2,3,10,12,128}) assert(ClassicPlayerRace(race));
+    for (int race : {-1,0,13,130,330,522,566}) assert(!ClassicPlayerRace(race));
     const char* disabled[] = {nullptr, "", "FALSE", "0", "yes", "TRUEjunk", "2"};
     for (const char* value : disabled) assert(!ModernOptIn(value));
     for (const char* value : {"TRUE", "true", "True", "1"}) assert(ModernOptIn(value));

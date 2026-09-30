@@ -22,7 +22,17 @@ inline const Registration* Registered(int race, int gender) {
 }
 inline void ClassicRace(int& race, int& gender) {
     for (const auto& entry : kRemakes)
-        if (entry.race == race) { race = entry.original; break; }
+        if (entry.race == race) {
+            race = entry.original;
+            if (entry.gender >= 0) gender = entry.gender;
+            break;
+        }
+    // Later humanoid NPC remakes can use the native classic PC actor registry.
+    // Keep those actor codes intact for armor and weapon appearance handling.
+    if (ClassicPlayerRace(race)) {
+        gender = gender == 1 ? 1 : 0;
+        return;
+    }
     if (Registered(race, gender)) return;
     // Several old NPCs have only a neutral model, even when the newer model
     // has male/female variants. Never request an unavailable original gender.

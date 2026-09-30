@@ -43,9 +43,15 @@ int main() {
         lookup(seen,output,484,0); assert(seen[0]==60 && seen[1]==2);
         lookup(seen,output,606,1); assert(seen[0]==161 && seen[1]==2);
         lookup(seen,output,485,2); assert(seen[0]==85 && seen[1]==2);
+        lookup(seen,output,566,1); assert(seen[0]==1 && seen[1]==1);
+        lookup(seen,output,624,2); assert(seen[0]==10 && seen[1]==0);
+        lookup(seen,output,678,0); assert(seen[0]==3 && seen[1]==0);
+        lookup(seen,output,481,2); assert(seen[0]==42 && seen[1]==1);
         modern=true;
         assert(profile("Defaults","UseLuclinElementals","TRUE",output,sizeof(output),"eqclient.ini")==123);
         lookup(seen,output,484,0); assert(seen[0]==484 && seen[1]==0);
+        lookup(seen,output,566,1); assert(seen[0]==566 && seen[1]==1);
+        lookup(seen,output,481,2); assert(seen[0]==481 && seen[1]==2);
     }
     original_register=reinterpret_cast<RegisterActor>(&RegisterCapture);
     original_imports=reinterpret_cast<LoadImports>(&ImportCapture);
@@ -57,7 +63,8 @@ int main() {
     }
     for(const auto& entry:kRemakes) for(int sex=0;sex<3;++sex) {
         int race=entry.race,gender=sex; ClassicRace(race,gender);
-        assert(race==entry.original && Registered(race,gender));
+        assert(race==entry.original && (Registered(race,gender) || (ClassicPlayerRace(race) && (gender==0 || gender==1))));
+        if (entry.gender >= 0) assert(gender==entry.gender);
     }
     ImportsHook(seen,nullptr,"Resources\\GlobalLoad_chr.txt"); assert(!strcmp(captured_import,"nightcap_models_chr.txt"));
     modern=true;

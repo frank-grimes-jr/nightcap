@@ -55,6 +55,9 @@ assert {r['alias'] for r in plan['registrations']}==actor_catalog
 for race in (234,349,367,484): assert plan['remakes'][str(race)]==60
 assert plan['remakes']['606']==161 and plan['remakes']['604']==122
 assert plan['remakes']['485']==85
+for race, original in ((566,1),(624,10),(678,3),(481,42)):
+    assert plan['remakes'][str(race)]==original, 'Later model with an original counterpart passed through'
+assert plan['remake_genders']['481']==1  # WOF: the original scaled-wolf mesh and scales.
 for race, original in ((475,210),(476,209),(477,212),(478,211)):
     assert plan['remakes'][str(race)]==original, 'Air/Earth/Fire/Water remake order differs from original IDs'
 for race,texture in ((209,0),(210,3),(211,2),(212,1)):

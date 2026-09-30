@@ -4,6 +4,9 @@
 
 namespace nightcap {
 namespace models {
+inline bool ClassicPlayerRace(int race) {
+    return (race >= 1 && race <= 12) || race == 128;
+}
 // The opt-in is deliberately separate from stock RoF2 preferences: copied
 // eqclient.ini files commonly already have every UseLuclin option enabled.
 inline bool ModernOptIn(const char* value) {
