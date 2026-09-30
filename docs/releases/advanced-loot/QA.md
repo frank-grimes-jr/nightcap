@@ -13,6 +13,8 @@ The QA client targets `127.0.0.1:15998`, but client access is deliberately inact
 until world port 9000 is freed and published for QA. The live local game-server
 container currently owns that port. A temporary cutover requires owner approval
 because it interrupts that server; it has not been performed.
+The concrete [access and restore plan](QA-ACCESS.md) preserves the isolated
+runtime and database and returns the live container to its prior running state.
 
 Use fresh accounts `advloota` and `advlootb`; their generated credentials are in
 the private local artifact directory, outside the package and Git. The isolated

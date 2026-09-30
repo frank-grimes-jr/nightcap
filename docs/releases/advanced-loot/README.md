@@ -196,5 +196,7 @@ client login listener deliberately uses an unpublished port until QA world acces
 is enabled. RoF2 requires world port 9000, which the live local container occupies.
 An explicit temporary cutover is needed before the owner can enter this QA server;
 do not change the client's login target to production to bypass the gate.
+The [access and restoration handoff](QA-ACCESS.md) records the proposed switch,
+preservation steps and approval boundary. It has not been executed.
 Candidate world/zone and SQL are under the artifact root's `server` directory.
 Private signing material is outside the package and must not be copied into it.
