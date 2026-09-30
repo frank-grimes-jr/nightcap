@@ -12,7 +12,7 @@ Start with [current status](status.md), not a dated candidate report.
 
 - [Advanced loot: implementation progress and outstanding acceptance](releases/advanced-loot/README.md)
 - [Classic model defaults: live release, opt-in and graphical QA](releases/classic-models-20260930/PRODUCTION.md)
-- [Enchanter animation pet command QA](releases/enchanter-animation-pet-commands-20260930/QA.md)
+- [Enchanter animation commands: live deployment, recovery and QA](releases/enchanter-animation-pet-commands-20260930/PRODUCTION.md)
 
 - [Combat and tier-item repair candidate: evidence and owner QA](releases/combat-item-fixes-20260922/README.md)
 

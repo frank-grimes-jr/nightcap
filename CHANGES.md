@@ -1,5 +1,15 @@
 # CHANGES
 
+## 2026-09-30 - Advanced-loot live-test promotion authorized
+
+The owner explicitly requested direct main promotion and live server deployment,
+with gameplay testing to follow live. This supersedes the pending isolated QA
+cutover for this release; it does not record completed manual acceptance. Prepare
+the matching signed client update, additive preference/receipt schema and paired
+world/zone build from the preserved hardened production source. Preserve existing
+player state, quests and authentication hardening. After the new server starts,
+recovery must retain receipt-aware code and checkpoints; an old binary swap is unsafe.
+
 ## 2026-09-30 - Advanced-loot integrated QA candidate
 
 Integrate dev `ffac9ba`, retaining current classic models, pet UI and enchanter
@@ -49,6 +59,16 @@ server integration and in-game QA remain unfinished; nothing is deployed.
 The original client stays read-only. Preserve full item metadata and existing
 loot rights when completing the server adapter. Evidence and requirements:
 `docs/releases/advanced-loot/README.md`; design: ADR 0049.
+
+## 2026-09-30 - Enchanter animation fix deployed to OVH
+
+Deployed main fix `1ce04d0` to `play.nightcapgame.org` from a fresh production
+zone build. Nine isolated native animation checks, the selection regression and
+19 rollout failure tests passed. All 15 running native hashes matched; a complete
+backup restore, player/rule/merchant preservation and four public encrypted handshakes
+passed. Previous production image retained for rollback; owner gameplay QA stays
+open. No client update is needed. Evidence and scoped recovery:
+`docs/releases/enchanter-animation-pet-commands-20260930/PRODUCTION.md`.
 
 ## 2026-09-30 - Classic client model defaults deployed
 

@@ -10,9 +10,9 @@ RoF2 window and server queue, saved filters, personal/shared controls, checked
 item/coin transfers and saved-state receipt protection. Focused fixtures and
 the disposable SQL rehearsal pass. The clean world/zone build and locally signed
 QA package pass compilation, installation and actual RoF2 startup. Isolated
-login/world/ecommons services boot successfully. Client access needs an approved
-temporary port-9000 cutover. Native gameplay and rollback review remain open.
-No live changes or promotion.
+login/world/ecommons services boot successfully. The owner now authorizes direct main promotion and hosted live deployment for
+testing, superseding the isolated port cutover. Production preparation is in progress;
+native gameplay acceptance remains open. No live activation is recorded yet.
 
 ## Classic models deployed
 
@@ -25,6 +25,14 @@ and packaging checks pass. Rendering and owner acceptance remain open. Creatures
 counterpart retain their existing model, as the owner explicitly requested on
 September 30. The policy choice is resolved; see the [coverage audit](releases/classic-models-20260930/scope-audit.md)
 for the mapping scope and remaining visual acceptance.
+
+## Enchanter animation commands deployed
+
+Enchanter animations now accept standard pet commands without an AA unlock on
+the live OVH server, including when Enchanter is a secondary class. The fresh
+zone build, native command checks, backup restore, preservation and live process
+checks passed. No client update is required. [Deployment and recovery evidence](releases/enchanter-animation-pet-commands-20260930/PRODUCTION.md);
+[owner in-game QA](releases/enchanter-animation-pet-commands-20260930/QA.md) remains open.
 
 ## Combat and item repair candidate
 

@@ -1,6 +1,7 @@
 # Isolated advanced-loot QA access
 
-Date: 2026-09-30. **Prepared; cutover not authorized or executed.**
+Date: 2026-09-30. **Historical isolated plan; superseded by explicit main/live
+deployment authorization. This local cutover was not executed.**
 
 The [candidate services](gameplay-qa.json) boot successfully. Client access is
 deliberately gated: RoF2 needs world port 9000, currently published by
