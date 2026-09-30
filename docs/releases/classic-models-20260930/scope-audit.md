@@ -45,5 +45,6 @@ no substitute table or changes to the current binary/assets are required.
   examples without old counterparts to confirm they retain their existing models.
 - Model appearance, equipment, animations and zoning still need owner in-game
   acceptance under AGENTS.md. Startup health is not rendered acceptance.
-- Nothing in this candidate has been published to production. Do not promote it
-  as completion of the full goal on the strength of the current checks.
+- The owner subsequently authorized main/server publication. Signed production
+  release 2026093004 is live; see [activation evidence](PRODUCTION.md). Deployment
+  approval does not establish rendered acceptance.

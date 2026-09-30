@@ -3,13 +3,14 @@
 Updated September 30, 2026. This is the current status index; dated studies and
 QA reports preserve their original evidence and are not live-state promises.
 
-## Classic models candidate
+## Classic models deployed
 
-The [classic-model default candidate](releases/classic-models-20260930/QA.md)
+The [classic-model release](releases/classic-models-20260930/PRODUCTION.md)
 adds a mandatory client policy, 22 isolated classic archives, original elemental
 palettes and 98 remake mappings. Existing INI settings cannot silently opt in.
-Native x86, archive integrity and packaging checks pass. Rendering and owner
-acceptance remain open; this candidate is not deployed. Creatures with no old
+Signed game release **2026093004** is live through the existing patcher after
+the owner's explicit main/server instruction. Native x86, archive integrity
+and packaging checks pass. Rendering and owner acceptance remain open. Creatures with no old
 counterpart retain their existing model, as the owner explicitly requested on
 September 30. The policy choice is resolved; see the [coverage audit](releases/classic-models-20260930/scope-audit.md)
 for the mapping scope and remaining visual acceptance.

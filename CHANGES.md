@@ -1,6 +1,13 @@
 # CHANGES
 
-## 2026-09-30 - Classic client model defaults candidate
+## 2026-09-30 - Classic client model defaults deployed
+
+The owner explicitly requested main/server publication. Promoted through PRs
+88, 89 and 90 and published signed game release 2026093004 on OVH. Existing
+launchers apply its 46 managed files before Play. Preserve the current compact
+Pet Info layout from main. The game services, desktop launcher, starter and
+guide remain unchanged. Activation and recovery: see
+`docs/releases/classic-models-20260930/PRODUCTION.md`.
 
 Follow-up audit adds classic counterparts for later Human (566), Ogre (624),
 Erudite (678), and scaled-wolf (481) models. Preserve native player actor names
@@ -20,8 +27,8 @@ overriding classic skeleton art. Source client and user INIs remain untouched.
 Proxy, launcher catalog and generated asset hashes form one required release.
 Publish them together. Creatures and playable races without an original
 counterpart retain their existing models under the accepted policy.
-Native and archive checks pass; rendered QA and production activation remain
-open. See `docs/releases/classic-models-20260930/QA.md` and ADR 0048.
+Native and archive checks pass; rendered QA remains open after the explicitly
+authorized deployment. See `docs/releases/classic-models-20260930/QA.md` and ADR 0048.
 
 ## 2026-09-30 - Enable standard commands for Enchanter animations
 

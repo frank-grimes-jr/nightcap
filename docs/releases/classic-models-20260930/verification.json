@@ -1,6 +1,7 @@
 {
   "date": "2026-09-30",
-  "status": "candidate_not_deployed_graphical_QA_open",
+  "status": "qa_candidate_evidence_graphical_QA_open",
+  "production_activation": "PRODUCTION.md",
   "implementation_commit": "d89fe25ad1ecc4e497204b257af82d03eb0ff4fa",
   "qa_release": 2026093003,
   "proxy_version": "0.7.0-dev",

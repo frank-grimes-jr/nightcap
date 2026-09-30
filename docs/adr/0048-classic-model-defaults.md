@@ -68,6 +68,8 @@ existing." The candidate already implements this fallback. The
 native lookup scope and remaining visual acceptance.
 
 See [release QA](../releases/classic-models-20260930/QA.md) for checks, evidence,
-manual acceptance and rollback. Production publication remains pending.
+manual acceptance and rollback. The owner authorized main/server publication on
+September 30; [production release 2026093004](../releases/classic-models-20260930/PRODUCTION.md)
+is live. Rendered acceptance remains open.
 
 Format reference: [EQEmu Client Race Inventory](https://docs.eqemu.dev/server/npc/client-race-inventory/).

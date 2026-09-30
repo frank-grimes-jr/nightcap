@@ -1,7 +1,14 @@
-# Classic model defaults — September 30 candidate
+# Classic model defaults — September 30 release
 
-Status: main promotion and production publication authorized September 30;
-in-game visual acceptance remains open.
+Status: [production release 2026093004 is live](PRODUCTION.md) after the owner's
+September 30 main/server instruction; in-game visual acceptance remains open.
+
+## Published release
+
+Open the existing Nightcap starter and let the patcher update before Play.
+Confirm game release `2026093004`. It includes the same classic-model policy as
+the isolated candidate below, plus current main's compact Pet Info layout.
+The existing desktop launcher `0.3.1` supports this update.
 
 ## Ready-to-use local candidate
 
@@ -75,7 +82,9 @@ Generated artifacts are under
 
 ## Exact owner in-game acceptance
 
-Use the isolated QA client for both modes. Record screenshots and its
+Use a game folder updated to published release `2026093004` for both modes.
+The isolated offline `2026093003` copy remains useful for model checks but has
+the earlier Pet Info layout. Record screenshots and the game folder's
 `nightcap_dll_<pid>_<creation>.log`. Check `Model policy: classic defaults` and
 proxy `0.7.0-dev`; required/enabled/applied masks must all be 16383.
 
