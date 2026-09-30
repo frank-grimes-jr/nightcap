@@ -10,6 +10,8 @@ Start with [current status](status.md), not a dated candidate report.
 
 ## Players and testers
 
+- [Enchanter animation pet command QA](releases/enchanter-animation-pet-commands-20260930/QA.md)
+
 - [Combat and tier-item repair candidate: evidence and owner QA](releases/combat-item-fixes-20260922/README.md)
 
 - [Three-pet management: live release, evidence and exact owner QA](releases/pet-management-20260922/README.md)

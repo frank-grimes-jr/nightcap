@@ -1,5 +1,14 @@
 # CHANGES
 
+## 2026-09-30 - Enable standard commands for Enchanter animations
+
+Enchanter animation pets now accept the standard pet command set, including
+attack, back off, follow, guard, sit and stop, without requiring a PetCommands
+AA unlock. Detection covers both Enchanter characters and Enchanter class pets
+in a multiclass roster. Advanced controls that are AA-gated for other pets remain
+gated. Requires a matching zone rebuild and restart; in-game command behavior
+still needs owner QA.
+
 ## 2026-09-30 - Compact three-pet management window
 
 Reduced the default Pet Info window from 330×458 to 350×350, arranged the 14
