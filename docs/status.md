@@ -1,6 +1,6 @@
 # Current Nightcap status
 
-Updated September 27, 2026. This is the current status index; dated studies and
+Updated September 30, 2026. This is the current status index; dated studies and
 QA reports preserve their original evidence and are not live-state promises.
 
 ## Combat and item repair candidate
@@ -37,10 +37,14 @@ The owner's silent-hail report exposed a deployment path error: production loads
 `plugins/`, but the helpers were under `quests/plugins/`. The
 [September 22 hail fix](releases/tunnel-travel-alcove/HAIL-FIX.md) is live after a
 graceful restart; the configured runtime passes all 25 quest checks, preservation
-and native hashes match, and no new quest errors were found. Use its recovery
-wrapper for rollback. All ten destinations and return/PoK books remain; visual
-and gameplay acceptance remain open. The earlier local QA deployment is retained
-as dated evidence.
+and native hashes match, and no new quest errors were found. On September 30 the
+owner confirmed Merrin is fixed. His three production files already match main;
+the installed handler, scoped content and current pet-release native hashes
+were reverified without a restart. [Owner report and current verification](releases/tunnel-travel-alcove/OWNER-QA.json).
+All ten destinations and return/PoK books remain; the complete round-trip,
+appearance and pet QA matrix remains open. The September 22 recovery wrapper is
+pinned to the old native image: read the current-target caveat in the hail-fix
+guide before recovery. The earlier local QA deployment remains dated evidence.
 
 [Deployed scope, evidence and exact QA](releases/tunnel-services-starters/README.md):
 22 supply merchants, six crafting stations, all 16 trainers, eight walkers,
