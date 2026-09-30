@@ -16,6 +16,18 @@ are outside this mapping; arbitrary replacements need an owner decision.
 Native and archive checks pass; rendered QA and production activation remain
 open. See `docs/releases/classic-models-20260930/QA.md` and ADR 0048.
 
+## 2026-09-30 - Owner confirms Merrin travel fix
+
+The owner confirmed Merrin is fixed and authorized main/server publication.
+His gameplay changes were already merged through PR 75; all three active quest
+files match main exactly. Revalidated the installed handler and current native
+runtime, retaining the September 27 pet release. No gameplay files, SQL or client
+assets needed replacement, and no restart was required. Record the reported
+hail/click issue as resolved; all-destination, appearance and pet acceptance are
+not inferred from that report. Evidence: `docs/releases/tunnel-travel-alcove/OWNER-QA.json`.
+The September 22 travel recovery helper is pinned to the older native image;
+do not run it unchanged against the current server.
+
 ## 2026-09-27 - Casting-bar diagnosis and repair QA
 
 Owner confirms the personal bar freezes for every non-instant spell even outside

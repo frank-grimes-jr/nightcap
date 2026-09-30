@@ -6,6 +6,16 @@ the existing game image. Reconnect and hail **Merrin — Tunnel Travel** in East
 Commonlands, near the PoK book at `/loc -1537,-335,3.75`. His menu offers the ten
 original city destinations. No launcher/client update is required.
 
+September 30 follow-up: the owner confirmed Merrin is fixed and authorized
+main/server publication. The gameplay changes were already on main through
+[PR 75](https://github.com/frank-grimes-jr/nightcap/pull/75), and all three live
+quest files still match main exactly. [Current verification](OWNER-QA.json)
+passes the installed quest checks and the newer pet-release native hashes.
+No server file replacement, SQL or restart was needed. This closes the reported
+hail/destination-click issue; it does not record all ten round trips or the
+complete appearance/pet QA matrix as passed. The click investigation did not
+produce a separately identified root cause or an additional code patch.
+
 ## Cause and correction
 
 The initial release installed `tunnel_travel.pl` and `tunnel_travel_data.pl` under
@@ -40,6 +50,15 @@ passed. [Appearance, all ten round trips, Find and pets](README.md#exact-in-game
 still require owner acceptance.
 
 ## Recovery
+
+**Current-target restriction (September 30):** production now runs
+`nightcap-game:pet-management-20260922`. The commands below are historical and
+pin `nightcap-game:tunnel-services-20260921`; do not run that rollback unchanged
+against the newer runtime. A current travel-only rollback must preserve the
+current native image and use its matching verification, with fresh scoped
+content/preservation evidence. The [pet production record](../pet-management-20260922/PRODUCTION.md)
+owns the current native release and its separate paired recovery. Do not roll
+back pets merely to satisfy the old travel helper's image check.
 
 Pinned helper/test/catalog and private preservation evidence:
 `/opt/nightcap/releases/tunnel-travel-hail-fix-20260922/`.
