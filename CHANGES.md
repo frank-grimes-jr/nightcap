@@ -1,5 +1,28 @@
 # CHANGES
 
+## 2026-09-30 - Classic client model defaults candidate
+
+Follow-up audit adds classic counterparts for later Human (566), Ogre (624),
+Erudite (678), and scaled-wolf (481) models. Preserve native player actor names
+for armor handling; select the original scaled-wolf female variant explicitly.
+The mapping now has 98 entries. The owner clarified on September 30 that races
+without old models use their existing models. The candidate already follows
+this rule; no binary or asset changes are needed for the clarification.
+
+Add required proxy `0.7.0-dev` classic-model policy. Existing Luclin preferences
+cannot silently enable modern visuals; a deliberate `[Nightcap]`
+`UseModernModels=TRUE` opt-in restores native model selection after restart.
+Generate 22 isolated classic archives plus a global import list, preserving the
+four magician elemental palettes and mapping skeleton/spectre/other remakes to
+their original counterparts. Namespaced textures avoid newer equipment archives
+overriding classic skeleton art. Source client and user INIs remain untouched.
+
+Proxy, launcher catalog and generated asset hashes form one required release.
+Publish them together. Creatures and playable races without an original
+counterpart retain their existing models under the accepted policy.
+Native and archive checks pass; rendered QA and production activation remain
+open. See `docs/releases/classic-models-20260930/QA.md` and ADR 0048.
+
 ## 2026-09-30 - Enable standard commands for Enchanter animations
 
 Enchanter animation pets now accept the standard pet command set, including

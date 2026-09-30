@@ -20,6 +20,11 @@ assert len(sites) > 0 and sorted(sites,key=lambda x:x["rva"]) == catalog["sites"
 # Names already consumed by the proxy. Keeping these declarations generated
 # binds launcher preflight and runtime original-byte guards to one catalog.
 symbols = {
+ 0x460EF0:("kModelProfileRva","kExpectedModelProfile"),
+ 0x10A440:("kModelRegisterRva","kExpectedModelRegister"),
+ 0x10A2D0:("kModelTagRva","kExpectedModelTag"),
+ 0x934AC:("kModelImportsCallRva","kExpectedModelImportsCall"),
+ 0x8CB80:("kModelImportsTargetRva",None),
  0x310800:("kUIPetNotifyRva","kExpectedUIPetNotify"),
  0x30EA00:("kUIPetAvailableRva","kExpectedUIPetAvailable"),
  0x35DF6A:("kScribeCanUseRva","kExpectedScribeCanUse"),

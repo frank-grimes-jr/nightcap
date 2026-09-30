@@ -3,6 +3,17 @@
 Updated September 30, 2026. This is the current status index; dated studies and
 QA reports preserve their original evidence and are not live-state promises.
 
+## Classic models candidate
+
+The [classic-model default candidate](releases/classic-models-20260930/QA.md)
+adds a mandatory client policy, 22 isolated classic archives, original elemental
+palettes and 98 remake mappings. Existing INI settings cannot silently opt in.
+Native x86, archive integrity and packaging checks pass. Rendering and owner
+acceptance remain open; this candidate is not deployed. Creatures with no old
+counterpart retain their existing model, as the owner explicitly requested on
+September 30. The policy choice is resolved; see the [coverage audit](releases/classic-models-20260930/scope-audit.md)
+for the mapping scope and remaining visual acceptance.
+
 ## Combat and item repair candidate
 
 [Monk fists and tier spell/heal fixes](releases/combat-item-fixes-20260922/README.md)
