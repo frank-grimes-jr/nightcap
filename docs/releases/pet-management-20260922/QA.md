@@ -31,11 +31,13 @@ with another primary class and with only one/two pets.
    Existing native restrictions must remain. Check out-of-range, feared-pet,
    mezzed-target and line-of-sight rejection; no new combat shortcut is allowed.
 8. Damage a pet and verify its own row health changes. Select each pet and check
-   native detail gauges/buffs show that representative. Resize the window, close
-   and reopen it, reload UI, and verify all rows/buttons remain visible and usable.
-   Check existing pet hotbar buttons retain their labels and saved assignments,
-   and execute with the displayed scope. Dragging a new window control must not
-   create an unrelated native pet hotbutton or issue a command.
+   native detail gauges/buffs show that representative. Confirm the compact
+   350×350 default layout keeps the roster, command grid and buff icons usable.
+   Resize it, close and reopen it, reload UI, and confirm rows, buttons and buffs
+   remain visible. Check existing pet hotbar buttons retain
+   their labels and saved assignments, and execute with the displayed scope.
+   Dragging a new window control must not create an unrelated native pet
+   hotbutton or issue a command.
 9. With distinct pet armor loadouts, select a command pet and then a different
    Pet Armor pet. Command scope must stay unchanged. Existing armor, summoned
    gear and class loadouts must persist through dismiss/resummon.
