@@ -1,6 +1,7 @@
 # ADR 0049: Advanced loot in the RoF2 client
 
-Date: 2026-09-30. Status: implementation in progress; not deployed.
+Date: 2026-09-30. Status: implemented and deployed by explicit owner instruction;
+native gameplay acceptance pending. [Deployment record](../releases/advanced-loot/PRODUCTION.md).
 
 ## Intent
 
@@ -58,7 +59,9 @@ Its exact pre-removal files are retained under local
    must not acknowledge success or offer another award of an uncertain item.
 7. Build the matching server/client, preserve reproducible source provenance,
    include exact in-game QA and rollback, and use feature → dev → test → main.
-   Main and live gameplay acceptance still require the owner's release sign-off.
+   The owner explicitly authorized direct main/live deployment on September 30
+   for this release and will test live. This exception does not establish manual
+   acceptance or change the default branch policy for later work.
 
 ## Implementation order
 

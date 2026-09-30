@@ -1,0 +1,40 @@
+{
+  "source_commit": "0f7d089610a1a3e33ff7324e187f04c19079a846",
+  "build_source_commit": "cebf649e76717dade35240936e091a6428a3bb9c",
+  "old_image": "nightcap-game:enchanter-animation-20260930",
+  "old_image_id": "sha256:5a2263643ce4660b632cc033558e9108473fb551fa1436767e2e4aee26622964",
+  "old_restart_count": 0,
+  "old_started_at": "2026-09-30T20:17:58.67600417Z",
+  "old_hashes": {
+    "bin/loginserver": "a9c97271ce27bcbd4fc4003126af12a7c11821ef97d5aa8dff1be0dc1b4fffd8",
+    "bin/zone": "8079ef1c11c488d01aba9cf18160520146978298768cf9189c983f8374c6d110",
+    "bin/ucs": "96757b356eca25c539bdd6e036c635ab79fee383e7a5ec9e27b14bb5138f5583",
+    "bin/shared_memory": "3e45b9b1f8444eba773ff4375cd55089d8c5fff78cc3eb93e639a8aba9ef6f21",
+    "bin/world": "2e205df5d2cc7b78d3897e1741287c1c5acf501c444bf84350a825b03e83b1ba",
+    "start.py": "ca4099eb898730141e7941d3afc366d59c4bc8351eea74c5b6fd9560c24b815f",
+    "configure.py": "90873958dfb013201dd9c9552beaccdd88984a2e55739da07874fa4a95a84e57",
+    "accounts.py": "400d4e7a5d0bedeed47ffdb33b142a4a62a3f939a35466da66ce3201ae52ef5c"
+  },
+  "new_image": "nightcap-game:advanced-loot-20260930",
+  "client_release": 2026093006,
+  "client_channel_sha256": "4698296da56f328241c96ab7051f7458585da603c6c8307f623ee838a807fa99",
+  "binaries": {
+    "loginserver": "a9c97271ce27bcbd4fc4003126af12a7c11821ef97d5aa8dff1be0dc1b4fffd8",
+    "world": "12c11b3f34f65e994c1ed06e02c45c0a9162fd05e640322acb70a67eab34b70e",
+    "zone": "8414c0f5885b944d5971ca28fc950c8c6847b64f87741b22e28df9f994ae02f6",
+    "ucs": "96757b356eca25c539bdd6e036c635ab79fee383e7a5ec9e27b14bb5138f5583",
+    "shared_memory": "3e45b9b1f8444eba773ff4375cd55089d8c5fff78cc3eb93e639a8aba9ef6f21"
+  },
+  "hardening_sha256": "219f556bb1e55a719f8a3f5150c95723ce46ab9a8b69c93c2bc0f54ff1262b2e",
+  "files": {
+    "20260930_advanced_loot.sql": "c3ac708181b5cd9c2fdf10d2890991a66b1ebf13d86b129ccb2196627487fe4f",
+    "appdb_probe.py": "2734835e50988b2e1312593db78c7fa3efc329a52933caa74db26a67917ef737",
+    "build.py": "99d64d2da6d82952a92dcc4abbcdf7d09929950518fdb8d773040445608ac1ad",
+    "Dockerfile": "f1d1f973a7a07615c43608fda20483e110082191426dcfe7090438a2149a3631",
+    "native-build-manifest.json": "007da2bb06fd470c5a8f3647ea3b30b63ef51cc689e128a8f43d52c5caf2b592",
+    "production-source.patch": "11b3e381158a994517e2c827193cf78e051087ad762700adfca75b5df5380903",
+    "rollout-tests.log": "1362d6ec5927c84adcf250e45cc7c5929f50a1003abc209f567ea7492246cd0f",
+    "rollout.py": "5cde09228b614e1fdc6a6b5c10c6925eb4540e5d56b686109978f9d7ed312bb3",
+    "test_rollout.py": "8fce949799717e04dd0aa35e67c730be6a8e933a3da74bafe448450d90a935b0"
+  }
+}

@@ -20,6 +20,27 @@ The final reviewer pass found no further high-confidence defects in those fixes.
 Snapshot actions intentionally remain disabled during an incomplete refresh so
 stale row authority is never submitted while a newer snapshot is assembling.
 
+## Production review and execution
+
+A subsequent independent read-only review covered the exact 24-path source delta
+against the hardened production baseline and the deployment/publication helpers.
+No authentication-hardening regression was found. Resolved operational findings:
+
+- Verify privileges through the actual game database account, with writes rolled
+  back and no credential export, before marking ready and before opening access.
+- Preserve the receipt-aware boundary from the first new-server start attempt;
+  failures thereafter hold access closed and never choose an older binary.
+- Emergency hold works without trusting the staged manifest, treats a verified
+  absent gateway as closed, attempts game shutdown and records verified outcomes.
+- Check exact inventory columns and zero transfer/new-table triggers before use.
+- Require matching healthy server identity and a closed gateway before publishing
+  the signed client channel, then verify public bytes before opening access.
+
+Thirteen isolated orchestration tests passed. The final reviewer found no concrete
+blocker. Actual production preflight, activation, publication, opening and public
+transport subsequently passed; [deployment evidence](PRODUCTION.md) records scope
+and limitations. Native gameplay acceptance remains with the owner.
+
 ## Limits
 
 This review does not establish native rendering, real client packet behavior,
