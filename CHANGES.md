@@ -1,5 +1,21 @@
 # CHANGES
 
+## 2026-09-30 - Classic client model defaults candidate
+
+Add required proxy `0.7.0-dev` classic-model policy. Existing Luclin preferences
+cannot silently enable modern visuals; a deliberate `[Nightcap]`
+`UseModernModels=TRUE` opt-in restores native model selection after restart.
+Generate 22 isolated classic archives plus a global import list, preserving the
+four magician elemental palettes and mapping skeleton/spectre/other remakes to
+their original counterparts. Namespaced textures avoid newer equipment archives
+overriding classic skeleton art. Source client and user INIs remain untouched.
+
+Proxy, launcher catalog and generated asset hashes form one required release.
+Publish them together. Later-only creatures without an original counterpart
+are outside this mapping; arbitrary replacements need an owner decision.
+Native and archive checks pass; rendered QA and production activation remain
+open. See `docs/releases/classic-models-20260930/QA.md` and ADR 0048.
+
 ## 2026-09-27 - Casting-bar diagnosis and repair QA
 
 Owner confirms the personal bar freezes for every non-instant spell even outside
