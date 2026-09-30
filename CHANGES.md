@@ -23,6 +23,23 @@ counterpart retain their existing models under the accepted policy.
 Native and archive checks pass; rendered QA and production activation remain
 open. See `docs/releases/classic-models-20260930/QA.md` and ADR 0048.
 
+## 2026-09-30 - Enable standard commands for Enchanter animations
+
+Enchanter animation pets now accept the standard pet command set, including
+attack, back off, follow, guard, sit and stop, without requiring a PetCommands
+AA unlock. Detection covers both Enchanter characters and Enchanter class pets
+in a multiclass roster. Advanced controls that are AA-gated for other pets remain
+gated. Requires a matching zone rebuild and restart; in-game command behavior
+still needs owner QA.
+
+## 2026-09-30 - Compact three-pet management window
+
+Reduced the default Pet Info window from 330×458 to 350×350, arranged the 14
+commands in a compact three-column grid, and moved the native buff panel beside
+the roster. Short button captions retain their full command names in tooltips.
+The layout preserves native pet status widgets and starts at a smaller footprint;
+manual in-game resize and visibility QA is still required.
+
 ## 2026-09-30 - Owner confirms Merrin travel fix
 
 The owner confirmed Merrin is fixed and authorized main/server publication.
@@ -63,7 +80,6 @@ native caps, so a Wizard/Monk does not leave Dual Wield stuck at its seeded valu
 Native-method regressions, independent review and the full world/zone build
 pass. Source and object provenance are verified. Manual acceptance remains open;
 this candidate has not been deployed.
-
 ## 2026-09-27 - Deploy three-pet management for live QA
 
 Activated the owner-approved paired server/client release on OVH. Pet Info lists

@@ -11,6 +11,7 @@ Start with [current status](status.md), not a dated candidate report.
 ## Players and testers
 
 - [Classic model defaults: candidate coverage, opt-in and graphical QA](releases/classic-models-20260930/QA.md)
+- [Enchanter animation pet command QA](releases/enchanter-animation-pet-commands-20260930/QA.md)
 
 - [Combat and tier-item repair candidate: evidence and owner QA](releases/combat-item-fixes-20260922/README.md)
 
