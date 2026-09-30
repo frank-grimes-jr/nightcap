@@ -31,6 +31,36 @@ class DropPolicy {
 		return it != filters_.end() && it->second != Filter::Never;
 	}
 public:
+	struct Checkpoint {
+		uint32_t master = 0, recipient = 0;
+		uint64_t remaining = 0;
+		Distribution state = Distribution::Shared;
+		std::map<uint32_t, Choice> choices;
+		std::map<uint32_t, Filter> filters;
+	};
+	Checkpoint Save(uint64_t now) const {
+		return {master_, recipient_, deadline_ > now ? deadline_ - now : 0, state_, choices_, filters_};
+	}
+	static DropPolicy Restore(const Checkpoint &s, uint64_t now) {
+		DropPolicy policy(s.master, s.filters, s.state == Distribution::Personal);
+		if (static_cast<unsigned>(s.state) > static_cast<unsigned>(Distribution::Expired) ||
+			s.remaining > 60000 || now > UINT64_MAX - s.remaining || s.choices.size() != s.filters.size()) {
+			throw std::invalid_argument("invalid loot checkpoint");
+		}
+		for (const auto &[id, choice] : s.choices) {
+			if (!s.filters.count(id) || static_cast<unsigned>(choice) > static_cast<unsigned>(Choice::Pass)) {
+				throw std::invalid_argument("invalid loot choice");
+			}
+		}
+		if ((s.state == Distribution::Personal || s.state == Distribution::Awarded) ?
+			!s.filters.count(s.recipient) : s.recipient != 0 && s.state != Distribution::Consumed && s.state != Distribution::Quarantined) {
+			throw std::invalid_argument("invalid loot recipient");
+		}
+		if (s.state != Distribution::Rolling && s.remaining) { throw std::invalid_argument("invalid roll timer"); }
+		policy.state_ = s.state; policy.recipient_ = s.recipient; policy.choices_ = s.choices;
+		policy.deadline_ = s.state == Distribution::Rolling ? now + s.remaining : 0;
+		return policy;
+	}
 	DropPolicy(uint32_t master, const std::map<uint32_t, Filter> &participants, bool personal)
 		: master_(master), filters_(participants)
 	{
@@ -48,9 +78,21 @@ public:
 	uint32_t Master() const { return master_; }
 	uint64_t Deadline() const { return deadline_; }
 	bool HasParticipant(uint32_t character) const { return filters_.count(character) != 0; }
+	Choice Selected(uint32_t character) const {
+		const auto found = choices_.find(character);
+		return found == choices_.end() ? Choice::None : found->second;
+	}
+	bool SetMaster(uint32_t character) {
+		if (transferring_ || Terminal() || state_ == Distribution::Personal || !HasParticipant(character)) { return false; }
+		// Native adapter alone chooses the replacement from current corpse rights.
+		// Pending choices, deadlines and an existing award remain unchanged.
+		master_ = character;
+		return true;
+	}
 
 	bool UpdateFilter(uint32_t character, Filter filter) {
 		if (transferring_ || Terminal() || !HasParticipant(character) || static_cast<uint32_t>(filter) > 4) { return false; }
+		if (filters_.at(character) == filter) { return true; }
 		filters_[character] = filter;
 		if (state_ == Distribution::Rolling) {
 			choices_[character] = filter == Filter::Never ? Choice::Pass : filter == Filter::AlwaysNeed ? Choice::Need :
@@ -121,8 +163,7 @@ public:
 	bool ShouldAutoTake(uint32_t character, bool enabled, bool apply_filters, bool auto_all) const {
 		if (!enabled || !CanTake(character) || state_ == Distribution::FreeGrab) { return false; }
 		const auto filter = filters_.at(character);
-		return auto_all || (apply_filters && (filter == Filter::AlwaysTake ||
-			state_ == Distribution::Awarded && (filter == Filter::AlwaysNeed || filter == Filter::AlwaysGreed)));
+		return auto_all || (apply_filters && (filter == Filter::AlwaysTake || filter == Filter::AlwaysNeed || filter == Filter::AlwaysGreed));
 	}
 	template<class Transfer>
 	TransferResult Take(uint32_t character, Transfer transfer) {

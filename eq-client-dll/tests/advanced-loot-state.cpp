@@ -116,5 +116,41 @@ int main() {
 		state.Consume(message.substr(0, length));
 		assert(!state.Ready() && state.Command(0, Action::Take).empty());
 	}
-	std::cout << "PASS: advanced loot snapshot identity, atomic publication, replay, capabilities, paging and malformed frames\n";
+	// Auto-show notices a new item even when it appears on a later page.
+	auto before = Fixture(); before.total = 8; before.rows.resize(8, before.rows.front());
+	std::unordered_set<uint32_t> seen;
+	for (uint32_t i = 0; i < 8; ++i) { before.rows[i].token = i + 1; seen.insert(i + 1); }
+	auto after = before; after.revision++;
+	assert(!nightcap::NewAdvancedLoot(before, after, seen));
+	after.total = 9;
+	assert(nightcap::NewAdvancedLoot(before, after, seen));
+	after.view = View::Filters;
+	assert(!nightcap::NewAdvancedLoot(before, after, seen));
+	after = before; after.rows[0].token = 99;
+	assert(nightcap::NewAdvancedLoot(before, after, seen));
+	// Other players' choices and unrelated deaths do not cancel this confirmation.
+	before = Fixture(); before.rows[0].capabilities = Capability(Action::TakeNoTrade);
+	after = before; after.revision++; after.rows[1].source = "Unrelated roll update";
+	assert(nightcap::KeepNoTradeConfirmation(before, after, 7));
+	assert(!nightcap::KeepNoTradeConfirmation(before, after, 0));
+	for (unsigned kind = 0; kind < 13; ++kind) {
+		after = before;
+		switch (kind) {
+		case 0: after.rows[0].token++; break;
+		case 1: after.rows[0].corpse++; break;
+		case 2: after.rows[0].item++; break;
+		case 3: after.rows[0].quantity++; break;
+		case 4: after.rows[0].phase = Phase::Awarded; break;
+		case 5: after.rows[0].capabilities = Capability(Action::Take); break;
+		case 6: after.session++; break;
+		case 7: after.identity.character++; break;
+		case 8: after.view = View::Filters; break;
+		case 9: after.page++; break;
+		case 10: after.rows[0].filter = Filter::Never; break;
+		case 11: after.rows.clear(); break;
+		case 12: after.settings ^= Enabled; break;
+		}
+		assert(!nightcap::KeepNoTradeConfirmation(before, after, 7));
+	}
+	std::cout << "PASS: advanced loot snapshot identity, atomic publication, replay, capabilities, paging, auto-show, NO TRADE confirmation and malformed frames\n";
 }

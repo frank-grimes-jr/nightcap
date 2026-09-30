@@ -1,0 +1,60 @@
+{
+  "date": "2026-09-30",
+  "release": 2026093001,
+  "status": "isolated_client_startup_passed_not_gameplay_acceptance",
+  "package": "E:\\EQ_Local_Dev\\artifacts\\advloot-20260930\\qa",
+  "client": "E:\\EQ_Local_Dev\\artifacts\\advloot-20260930\\qa\\client\\everquest_rof2",
+  "isolated_login_target": "127.0.0.1:15998",
+  "server_started": false,
+  "expires": "2026-10-30T18:44:12Z",
+  "files": 23,
+  "hashes": {
+    "nightcap-launcher-qa.exe": "5ee00c6786071ed6647ec4ef8d4a3c9889ff71b63a4c594ecc9452771fa540c6",
+    "nightcap-qa-check.exe": "7bbfa87a92ca65801b8d3c8ae073ea2480819f02c0cea561f57c20f0f1d250e4",
+    "manifest.json": "ddd24727746e818e2aff8109a79341a991499161eef4b308efd15659379ce91a",
+    "signature.json": "35a60d6326ba7523d70ad30c3365b8522e33c529509f5227be8de1472f64b401",
+    "audit.json": "c298c2c865039f2d08c8a694d629358c6030c60052b1673b6610cdd4311734ed"
+  },
+  "runtime": {
+    "proxy_version": "0.7.0-dev",
+    "state": "ready",
+    "required_mask": 16383,
+    "enabled_mask": 16383,
+    "applied_mask": 16383,
+    "catalog_sha256": "829d8f90965be47166c1f8ca5348a27c1784f99e92ba4f091b51f97208248e53",
+    "config_sha256": "f561845bedc6a4bd54b615cd49277498ade33faf1b028ab4f5c2c2b7fd73e643"
+  },
+  "controller_phases": [
+    "launching",
+    "playing",
+    "stopped"
+  ],
+  "original_client_preserved": {
+    "eqgame.exe": "2a8702ad9f722704f01355c0750be7d6f164a8b9c9128ba0cf286ea32b405b0e",
+    "spells_us.txt": "fd0a88825eaacb46d438bb3739ffe4bc05607f9e3122a3a34f4520fc05551599",
+    "eqhost.txt": "5840a290965fabd67d76d1cca020a81d9ceca298eedda65843867b630d932c99",
+    "dinput8.dll": "2b79dbf868ed9580dc55e3598f28a7403f3fb8e689439e6a9f67b6c9b1fbd8cd"
+  },
+  "verification": {
+    "focused_cpp_fixtures": 3,
+    "runtime_python_tests": 5,
+    "disposable_sql_checks": 16,
+    "production_body_fault_fixtures": [
+      "inventory",
+      "currency",
+      "saved_state"
+    ],
+    "go_packages": [
+      "internal/preflight",
+      "internal/manifest",
+      "cmd/nightcap-package"
+    ]
+  },
+  "remaining": [
+    "Native in-game window rendering and skin reload",
+    "End-to-end native server loot transfer and quest/lifecycle checks",
+    "Isolated gameplay server startup",
+    "Owner manual QA",
+    "Release branch promotion and live deployment"
+  ]
+}

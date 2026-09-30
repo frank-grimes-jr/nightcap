@@ -140,17 +140,13 @@ public:
 	}
 	static bool Consume(std::string_view message) {
 		if (message.substr(0, 7) != "[NCAL1]") { return false; }
-		const uint32_t revision = state_.Current().revision;
+		const auto before = state_.Current();
 		state_.Consume(message); dirty_ = true;
-		if (state_.Ready() && state_.Current().revision != revision) {
-			busy_ = false; confirm_ = 0;
+		if (state_.Ready() && state_.Current().revision != before.revision) {
+			busy_ = false;
 			const auto &s = state_.Current();
-			bool fresh = false;
-			if (s.view == NightcapLoot::View::Drops) {
-				for (const auto &row : s.rows) { if (seen_.insert(row.token).second) { fresh = true; } }
-				// Bound memory even during very long sessions. Tokens remain server-owned.
-				if (seen_.size() > 8192) { seen_.clear(); for (const auto &row : s.rows) { seen_.insert(row.token); } }
-			}
+			if (!KeepNoTradeConfirmation(before, s, confirm_)) { confirm_ = 0; }
+			const bool fresh = NewAdvancedLoot(before, s, seen_);
 			if (fresh && (s.settings & NightcapLoot::Enabled) && (s.settings & NightcapLoot::AutoShow)) { want_show_ = true; }
 			if (Selected() == s.rows.size()) { selected_ = s.rows.empty() ? 0 : s.rows[0].token; }
 		}

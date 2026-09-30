@@ -3,8 +3,32 @@
 #include "../../server-mods/code/common/advanced_loot_protocol.h"
 #include <algorithm>
 #include <array>
+#include <unordered_set>
 
 namespace nightcap {
+inline bool NewAdvancedLoot(const NightcapLoot::Snapshot &before, const NightcapLoot::Snapshot &after,
+	std::unordered_set<uint32_t> &seen) {
+	if (after.view != NightcapLoot::View::Drops) { return false; }
+	// A newly queued item may be beyond the visible eight rows.
+	bool fresh = before.view == NightcapLoot::View::Drops && after.total > before.total;
+	for (const auto &row : after.rows) { if (seen.insert(row.token).second) { fresh = true; } }
+	if (seen.size() > 8192) {
+		seen.clear();
+		for (const auto &row : after.rows) { seen.insert(row.token); }
+	}
+	return fresh;
+}
+inline bool KeepNoTradeConfirmation(const NightcapLoot::Snapshot &before, const NightcapLoot::Snapshot &after, uint32_t token) {
+	using namespace NightcapLoot;
+	if (!token || before.session != after.session || !(before.identity == after.identity) ||
+		before.view != View::Drops || after.view != View::Drops || before.page != after.page || before.settings != after.settings) { return false; }
+	const auto old_row = std::find_if(before.rows.begin(), before.rows.end(), [=](const Row &row) { return row.token == token; });
+	const auto new_row = std::find_if(after.rows.begin(), after.rows.end(), [=](const Row &row) { return row.token == token; });
+	return old_row != before.rows.end() && new_row != after.rows.end() &&
+		old_row->corpse == new_row->corpse && old_row->item == new_row->item && old_row->quantity == new_row->quantity &&
+		old_row->phase == new_row->phase && old_row->filter == new_row->filter &&
+		(old_row->capabilities & Capability(Action::TakeNoTrade)) && (new_row->capabilities & Capability(Action::TakeNoTrade));
+}
 class AdvancedLootState {
 	NightcapLoot::Snapshot active_, pending_;
 	uint32_t context_spawn_ = 0, highest_revision_ = 0, session_ = 0;

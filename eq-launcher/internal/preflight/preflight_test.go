@@ -60,6 +60,15 @@ func TestConfigurationContract(t *testing.T) {
 		})
 	}
 }
+func TestShippedConfigurationMatchesCatalog(t *testing.T) {
+	raw, err := os.ReadFile("../../../eq-client-dll/config/nightcap-patches.cfg")
+	if err != nil {
+		t.Fatal(err)
+	}
+	if err := ValidateConfig(raw); err != nil {
+		t.Fatalf("shipped proxy configuration does not satisfy the launcher catalog: %v", err)
+	}
+}
 func TestMetadataAndExecutableRejection(t *testing.T) {
 	f, err := os.CreateTemp(t.TempDir(), "exe")
 	if err != nil {

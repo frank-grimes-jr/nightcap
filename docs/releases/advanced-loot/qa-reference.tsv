@@ -1,0 +1,6 @@
+zone	22	ecommons
+bone_chips	13073	Bone Chips	1	0	0	1	100
+no_trade	1068	Holy Dirt of Brell	0	0	0	0	1
+lore	1041	Worthless Coin	1	-1	0	0	1
+persistent_npc	22003	a_decaying_skeleton	1
+evolving_engine	InnoDB

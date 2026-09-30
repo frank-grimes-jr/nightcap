@@ -1,7 +1,16 @@
 # Current Nightcap status
 
-Updated September 27, 2026. This is the current status index; dated studies and
+Updated September 30, 2026. This is the current status index; dated studies and
 QA reports preserve their original evidence and are not live-state promises.
+
+## Advanced loot under implementation
+
+The [advanced-loot candidate](releases/advanced-loot/README.md) has a native
+RoF2 window and server queue, saved filters, personal/shared controls, checked
+item/coin transfers and saved-state receipt protection. Focused fixtures and
+the disposable SQL rehearsal pass. The clean world/zone build and locally signed
+QA package pass compilation, installation and actual RoF2 startup. Native gameplay,
+isolated server integration and rollback review remain open. No live changes or promotion.
 
 ## Combat and item repair candidate
 

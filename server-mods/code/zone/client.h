@@ -519,6 +519,7 @@ public:
 	inline uint8 GetClass3() const { return m_class3; }
 	void RefreshNightcapUI();
 	bool LoadPetArmor();
+	void QuarantineItemTransfer(const char *message);
 	NPC *GetArmorPet(uint8 pet_class);
 	void ApplyPetArmor();
 	void SendPetArmor();
@@ -1208,6 +1209,8 @@ public:
 	bool SwapItem(MoveItem_Struct* move_in);
 	void SwapItemResync(MoveItem_Struct* move_slots);
 	void PutLootInInventory(int16 slot_id, const EQ::ItemInstance &inst, LootItem** bag_item_data = 0);
+	int16 FindLootEquipSlot(const EQ::ItemInstance &inst);
+	void NotifyLootEquipped(EQ::ItemInstance &inst, int16 slot);
 	bool AutoPutLootInInventory(EQ::ItemInstance& inst, bool try_worn = false, bool try_cursor = true, LootItem** bag_item_data = 0);
 	bool SummonItem(uint32 item_id, int16 charges = -1, uint32 aug1 = 0, uint32 aug2 = 0, uint32 aug3 = 0, uint32 aug4 = 0, uint32 aug5 = 0, uint32 aug6 = 0, bool attuned = false, uint16 to_slot = EQ::invslot::slotCursor, uint32 ornament_icon = 0, uint32 ornament_idfile = 0, uint32 ornament_hero_model = 0);
 	void SummonItemIntoInventory(uint32 item_id, int16 charges = -1, uint32 aug1 = 0, uint32 aug2 = 0, uint32 aug3 = 0, uint32 aug4 = 0, uint32 aug5 = 0, uint32 aug6 = 0, bool is_attuned = false);

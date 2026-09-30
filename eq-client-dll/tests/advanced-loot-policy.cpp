@@ -15,6 +15,8 @@ int main() {
 	assert(personal.ShouldAutoTake(10, true, true, false));
 	assert(!personal.ShouldAutoTake(10, false, true, true));
 	assert(!personal.ShouldAutoTake(10, true, false, false));
+	assert(personal.UpdateFilter(10, Filter::AlwaysNeed) && personal.ShouldAutoTake(10, true, true, false));
+	assert(personal.UpdateFilter(10, Filter::AlwaysGreed) && personal.ShouldAutoTake(10, true, true, false));
 	assert(personal.Take(20, deliver) == TransferResult::Declined && transfers == 0);
 	assert(personal.Take(10, [] { return TransferResult::Declined; }) == TransferResult::Declined);
 	assert(personal.CanTake(10)); // full inventory, lore, distance, quest veto: item stays pending
@@ -44,6 +46,20 @@ int main() {
 	assert(!roll.Resolve(60099, Everyone, First));
 	assert(!roll.Choose(40, Choice::Need, 200));
 	assert(roll.Choose(30, Choice::Need, 200));
+	assert(roll.UpdateFilter(30, Filter::Ask)); // a polling refresh must retain this manual vote
+	assert(roll.Save(200).choices.at(30) == Choice::Need);
+	const auto checkpoint = roll.Save(300);
+	auto restored = DropPolicy::Restore(checkpoint, 1000);
+	assert(restored.Deadline() == 60800 && restored.Master() == 10);
+	assert(restored.Save(1000).choices == checkpoint.choices);
+	assert(!restored.Resolve(60799, Everyone, First));
+	assert(restored.Resolve(60800, Everyone, [](std::size_t count) { assert(count == 2); return 1; }));
+	assert(restored.Recipient() == 30);
+	auto handoff = DropPolicy::Restore(checkpoint, 1000);
+	assert(!handoff.SetMaster(99) && handoff.SetMaster(20));
+	assert(handoff.Master() == 20 && handoff.Deadline() == 60800 && handoff.Save(1000).choices == checkpoint.choices);
+	assert(!handoff.Assign(10, 30) && handoff.Assign(20, 30));
+	assert(handoff.SetMaster(30) && handoff.Recipient() == 30 && handoff.State() == Distribution::Awarded);
 	assert(!roll.Choose(30, Choice::Greed, 60100));
 	assert(roll.Resolve(60100, Everyone, [](std::size_t count) { assert(count == 2); return 1; }));
 	assert(roll.Recipient() == 30 && roll.CanTake(30) && !roll.CanTake(20));
@@ -62,6 +78,7 @@ int main() {
 	DropPolicy uncertain(10, {{10, Filter::Ask}}, true);
 	assert(uncertain.Take(10, [] { return TransferResult::Uncertain; }) == TransferResult::Uncertain);
 	assert(!uncertain.CanTake(10) && uncertain.State() == Distribution::Quarantined);
+	assert(!uncertain.SetMaster(10));
 	uncertain.Invalidate(); assert(uncertain.State() == Distribution::Quarantined);
 	assert(uncertain.Take(10, deliver) == TransferResult::Declined);
 	DropPolicy reentry(10, {{10, Filter::Ask}}, true);
@@ -80,5 +97,19 @@ int main() {
 	bool invalid = false;
 	try { DropPolicy bad(10, {{20, Filter::Ask}}, false); } catch (const std::invalid_argument &) { invalid = true; }
 	assert(invalid);
+	for (unsigned kind = 0; kind < 6; ++kind) {
+		auto bad = checkpoint;
+		switch (kind) {
+		case 0: bad.master = 99; break;
+		case 1: bad.remaining = 60001; break;
+		case 2: bad.choices.erase(30); break;
+		case 3: bad.state = static_cast<Distribution>(99); break;
+		case 4: bad.choices[30] = static_cast<Choice>(99); break;
+		case 5: bad.state = Distribution::Awarded; bad.recipient = 99; bad.remaining = 0; break;
+		}
+		invalid = false;
+		try { (void) DropPolicy::Restore(bad, 1000); } catch (const std::invalid_argument &) { invalid = true; }
+		assert(invalid);
+	}
 	std::cout << "PASS: advanced loot personal/shared decisions, need/greed priority, access loss, replay and uncertain-transfer quarantine\n";
 }

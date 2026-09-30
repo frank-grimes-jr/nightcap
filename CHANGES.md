@@ -1,5 +1,29 @@
 # CHANGES
 
+## 2026-09-30 - Advanced-loot server integration (candidate)
+
+Wire the native window to a zone-owned corpse queue and `#advloot` protocol:
+saved filters/settings, manual and automatic pickup, NO TRADE confirmation,
+master assignment, Need/Greed/Pass rolls, free grab, inspection and corpse finding.
+Keep existing kill-credit and raid rights and the native 25-unit pickup range.
+Add atomic inventory/coin receipts, checked complete-instance placement, group
+and raid coin splitting, classic-loot coordination, and durable saved-state IDs.
+Validate saved loot before restoration; never reroll malformed checkpoints.
+
+The clean paired world/zone build passes, as do focused protocol/policy/screen
+fixtures, production inventory/currency/saved-state body fault checks and 16
+disposable SQL checks. Signed QA release 2026093001 installs 23 files into a
+separate client and passes actual RoF2 startup with all 14 required features.
+Correct the shipped feature config and add a launcher/config contract regression.
+Auto-show detects later-page additions; unrelated updates retain NO TRADE consent.
+Independent review corrections preserve classic manual cursor pickup, auto-equip
+and GM recovery, and hand master control to a connected eligible participant.
+The checked transfer compares worn-slot preimages before auto-equipping and emits
+wear/quest notifications only after an acknowledged commit. Regression fixtures pass.
+Native gameplay acceptance remains a release gate. Nothing is deployed live. Important:
+an older receipt-unaware server must not load an unreconciled saved checkpoint.
+Evidence, limitations and remaining work: `docs/releases/advanced-loot/README.md`.
+
 ## 2026-09-30 - Advanced-loot client foundation (in progress)
 
 Add a native RoF2 Advanced Loot screen, exact `/advloot` hook, atomic server
