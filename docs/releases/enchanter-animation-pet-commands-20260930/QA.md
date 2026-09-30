@@ -1,11 +1,11 @@
 # Owner in-game QA: Enchanter animation commands
 
-Run after the matching zone build is active. Record character classes, AA
-permissions, server build and zone. Use a disposable Enchanter without an
+The matching zone build is deployed on OVH; see [production evidence](PRODUCTION.md).
+Record character classes, AA permissions, server build and zone. Use a disposable Enchanter without an
 Animation Empathy/PetCommands unlock.
 
-1. In East Commonlands, summon Greater Animation. Confirm it appears as the
-   Enchanter's active pet and that no command AA is owned or granting
+1. In East Commonlands, summon Pendril's Animation (spell 285), or a higher-level
+   animation available to the character. Confirm it appears as the Enchanter's active pet and that no command AA is owned or granting
    `PetCommands` bonuses.
 2. Target a nearby, attackable decaying skeleton and issue `/pet attack`. The
    animation must answer that it is attacking and enter combat. Issue `/pet

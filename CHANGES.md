@@ -15,6 +15,76 @@ runtime plugin installation and zone restart, no native/client build. Checks pas
 not deployed and manual acceptance remains open. Evidence and exact QA:
 `docs/releases/tunnel-class-courts/README.md`.
 
+## 2026-09-30 - Advanced-loot live-test promotion authorized
+
+The owner explicitly requested direct main promotion and live server deployment,
+with gameplay testing to follow live. This supersedes the pending isolated QA
+cutover for this release; it does not record completed manual acceptance. Prepare
+the matching signed client update, additive preference/receipt schema and paired
+world/zone build from the preserved hardened production source. Preserve existing
+player state, quests and authentication hardening. After the new server starts,
+recovery must retain receipt-aware code and checkpoints; an old binary swap is unsafe.
+
+## 2026-09-30 - Advanced-loot integrated QA candidate
+
+Integrate dev `ffac9ba`, retaining current classic models, pet UI and enchanter
+commands. Resolve the shared catalog to 63 sites and 15 required features.
+Signed offline QA release 2026093005 installs 46 files in the separate client and
+passes actual RoF2 startup and clean shutdown. Original client hashes are unchanged.
+Verify all 73 server overlays against the clean-build-plus-integration manifest.
+Detect and repair an incremental timestamp skip before installing any QA binaries.
+Boot isolated login/world/ecommons services against a fresh content database with
+two fixture accounts and no copied characters or inventory. Client access remains
+disabled until an approved temporary world-port cutover; native in-game QA and
+receipt-aware rollback remain open. No live deployment or gameplay promotion.
+
+## 2026-09-30 - Advanced-loot server integration (candidate)
+
+Wire the native window to a zone-owned corpse queue and `#advloot` protocol:
+saved filters/settings, manual and automatic pickup, NO TRADE confirmation,
+master assignment, Need/Greed/Pass rolls, free grab, inspection and corpse finding.
+Keep existing kill-credit and raid rights and the native 25-unit pickup range.
+Add atomic inventory/coin receipts, checked complete-instance placement, group
+and raid coin splitting, classic-loot coordination, and durable saved-state IDs.
+Validate saved loot before restoration; never reroll malformed checkpoints.
+
+The clean paired world/zone build passes, as do focused protocol/policy/screen
+fixtures, production inventory/currency/saved-state body fault checks and 16
+disposable SQL checks. Signed QA release 2026093001 installs 23 files into a
+separate client and passes actual RoF2 startup with all 14 required features.
+Correct the shipped feature config and add a launcher/config contract regression.
+Auto-show detects later-page additions; unrelated updates retain NO TRADE consent.
+Independent review corrections preserve classic manual cursor pickup, auto-equip
+and GM recovery, and hand master control to a connected eligible participant.
+The checked transfer compares worn-slot preimages before auto-equipping and emits
+wear/quest notifications only after an acknowledged commit. Regression fixtures pass.
+Native gameplay acceptance remains a release gate. Nothing is deployed live. Important:
+an older receipt-unaware server must not load an unreconciled saved checkpoint.
+Evidence, limitations and remaining work: `docs/releases/advanced-loot/README.md`.
+
+## 2026-09-30 - Advanced-loot client foundation (in progress)
+
+Add a native RoF2 Advanced Loot screen, exact `/advloot` hook, atomic server
+snapshot model, filter/search/settings controls and a guarded client/launcher
+catalog. The x86 proxy builds; the 58 catalog sites preserve the launcher's
+64-byte signature bound. Native window recreation handles delayed skin loading,
+and the skin generator retains RoF2's required Schema declarations. Add shared loot-decision policy and candidate
+per-character preference storage. The corpse queue, checked item transfers,
+server integration and in-game QA remain unfinished; nothing is deployed.
+The original client stays read-only. Preserve full item metadata and existing
+loot rights when completing the server adapter. Evidence and requirements:
+`docs/releases/advanced-loot/README.md`; design: ADR 0049.
+
+## 2026-09-30 - Enchanter animation fix deployed to OVH
+
+Deployed main fix `1ce04d0` to `play.nightcapgame.org` from a fresh production
+zone build. Nine isolated native animation checks, the selection regression and
+19 rollout failure tests passed. All 15 running native hashes matched; a complete
+backup restore, player/rule/merchant preservation and four public encrypted handshakes
+passed. Previous production image retained for rollback; owner gameplay QA stays
+open. No client update is needed. Evidence and scoped recovery:
+`docs/releases/enchanter-animation-pet-commands-20260930/PRODUCTION.md`.
+
 ## 2026-09-30 - Classic client model defaults deployed
 
 The owner explicitly requested main/server publication. Promoted through PRs

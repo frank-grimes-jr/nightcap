@@ -1,3 +1,4 @@
+#include "zone/advanced_loot.h"
 /*	EQEMu: Everquest Server Emulator
 	Copyright (C) 2001-2016 EQEMu Development Team (http://eqemulator.org)
 
@@ -698,6 +699,7 @@ Client::Client(EQStreamInterface *ieqs) : Mob(
 }
 
 Client::~Client() {
+	NightcapLoot::Forget(this);
 	entity_list.RemoveMobFromCloseLists(this);
 	m_close_mobs.clear();
 
@@ -947,6 +949,17 @@ uint32 Client::GetEarnedAACount(uint32 first_rank_id) const
 {
 	const auto owned = m_earned_aa_ranks.find(first_rank_id);
 	return owned == m_earned_aa_ranks.end() ? 0 : owned->second.first;
+}
+
+void Client::QuarantineItemTransfer(const char *message)
+{
+	// Reuse the existing item-transfer quarantine: it suppresses disconnect,
+	// proximity and cursor-save callbacks after an uncertain commit.
+	m_pet_armor_transfer_valid = false;
+	client_data_loaded = false;
+	Message(Chat::Red, "%s", message);
+	if (eqs) { eqs->Close(); }
+	client_state = DISCONNECTED;
 }
 
 bool Client::SaveAA()
