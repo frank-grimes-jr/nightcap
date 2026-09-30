@@ -4,7 +4,9 @@
 
 Add a native RoF2 Advanced Loot screen, exact `/advloot` hook, atomic server
 snapshot model, filter/search/settings controls and a guarded client/launcher
-catalog. The x86 proxy builds. Add shared loot-decision policy and candidate
+catalog. The x86 proxy builds; the 58 catalog sites preserve the launcher's
+64-byte signature bound. Native window recreation handles delayed skin loading,
+and the skin generator retains RoF2's required Schema declarations. Add shared loot-decision policy and candidate
 per-character preference storage. The corpse queue, checked item transfers,
 server integration and in-game QA remain unfinished; nothing is deployed.
 The original client stays read-only. Preserve full item metadata and existing

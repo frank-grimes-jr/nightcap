@@ -20,6 +20,16 @@ assert len(sites) > 0 and sorted(sites,key=lambda x:x["rva"]) == catalog["sites"
 # Names already consumed by the proxy. Keeping these declarations generated
 # binds launcher preflight and runtime original-byte guards to one catalog.
 symbols = {
+ 0x11FCE0:("kLootCommandRva","kExpectedLootCommand"),
+ 0x45F070:("kLootConstructRva","kExpectedLootConstruct"),
+ 0x45DCF0:("kLootChildrenRva","kExpectedLootChildren"),
+ 0x4DBB3B:("kLootAllocateRva","kExpectedLootAllocate"),
+ 0x619828:("kLootTableRva","kExpectedLootTable"),
+ 0x27C9A0:("kLootDestroyRva","kExpectedLootDestroy"),
+ 0x45EAD0:("kLootNotifyRva","kExpectedLootNotify"),
+ 0x465F20:("kLootFrameRva","kExpectedLootFrame"),
+ 0x465290:("kLootShowRva","kExpectedLootShow"),
+ 0x11FB0:("kLootTextRva","kExpectedLootText"),
  0x310800:("kUIPetNotifyRva","kExpectedUIPetNotify"),
  0x30EA00:("kUIPetAvailableRva","kExpectedUIPetAvailable"),
  0x35DF6A:("kScribeCanUseRva","kExpectedScribeCanUse"),
@@ -71,6 +81,12 @@ for rva, (rva_name, bytes_name) in symbols.items():
     header.append(f"static const uintptr_t {rva_name} = 0x{rva:08X};")
     if bytes_name:
         data = bytes.fromhex(site["original"])
+        if rva == 0x619828:
+            # Signed launcher sites remain <=64 bytes. The runtime needs the
+            # entire contiguous native vtable including its RTTI locator.
+            chunks = [bytes.fromhex(by_rva[rva+i*64]["original"]) for i in range(6)]
+            assert all(len(chunk) == 64 for chunk in chunks)
+            data = b''.join(chunks)
         # Decimal tables retain the established source-verifier representation.
         values = ",".join(str(x) for x in data) if rva in (0x43F90,0x18238C) else byte_list(data)
         header.append(f"static const BYTE {bytes_name}[{len(data)}] = {{"+values+",};")

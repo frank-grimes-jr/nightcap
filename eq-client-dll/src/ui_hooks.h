@@ -4,6 +4,7 @@
 #include "pet_management.h"
 #include "verified_patch.h"
 #include "spell_access.h"
+#include "advanced_loot_ui.h"
 
 namespace nightcap {
 namespace client_ui {
@@ -44,6 +45,8 @@ static ULONGLONG next_pet_refresh = 0;
 static GetLabel original_label = nullptr;
 static DisplayChat original_chat = nullptr;
 static SetGameState original_state = nullptr;
+using InterpretCommand = void (__thiscall *)(void*, void*, const char*);
+static InterpretCommand original_command = nullptr;
 static UpdateAA original_aa = nullptr;
 static ULONGLONG next_refresh = 0;
 using SpellLevel = uint8_t (__thiscall *)(void*, int);
@@ -141,6 +144,32 @@ inline bool ExecuteUIRequest(const std::string& request) {
     // client interpreter and Say's local echo. '#' requests never broadcast.
     send_request(eq, 8, nullptr, request.c_str(), 0);
     return true;
+}
+inline void LootNotice(const char* message) {
+    auto eq = RequestContext();
+    if (eq && original_chat) original_chat(eq, message, 13, false, false);
+}
+inline void LootPulse() {
+    uint32_t spawn = 0;
+    char name[64] = {};
+    if (!ReadIdentity(spawn, name)) spawn = 0;
+    AdvancedLootUI::Pulse(GetTickCount64(), spawn, name);
+}
+inline void __fastcall CommandHook(void* self, void*, void* player, const char* text) {
+    const char* command = text;
+    if (command) {
+        while (*command == ' ' || *command == '\t') ++command;
+        if (_strnicmp(command, "/advloot", 8) == 0 &&
+            (!command[8] || command[8] == ' ' || command[8] == '\t')) {
+            command += 8;
+            while (*command == ' ' || *command == '\t') ++command;
+            LootPulse();
+            if (*command) LootNotice("Use /advloot to open the window. Manage filters and loot options there.");
+            else AdvancedLootUI::Toggle();
+            return;
+        }
+    }
+    original_command(self, player, text);
 }
 inline void RequestRefresh() {
     if (GetTickCount64() < next_refresh) return;
@@ -250,6 +279,7 @@ inline bool __cdecl LabelHook(int type, EqString* output, bool* override_color, 
     // a prerequisite for a correct shop or spellbook. Requests are throttled.
     if (!CurrentIdentity()) RequestRefresh();
     if (!CurrentManagementIdentity()) RequestManagementRefresh();
+    LootPulse();
     if (type >= 10030 && type <= 10033) {
         const std::string text = !CurrentManagementIdentity() ? "Pets loading" :
             type == 10030 ? pet_management.ScopeText() : pet_management.RowText(type-10031);
@@ -274,11 +304,14 @@ inline bool __cdecl LabelHook(int type, EqString* output, bool* override_color, 
     return true;
 }
 inline void __fastcall ChatHook(void* self, void*, const char* message, int color, bool log, bool convert) {
+    LootPulse();
+    if (message && AdvancedLootUI::Consume(message)) return;
     if (pet_management.Consume(message)) { management_received = GetTickCount64(); return; }
     if (state.Consume(message) || pets.Consume(message)) return;
     original_chat(self, message, color, log, convert);
 }
 inline void __fastcall StateHook(void* self, void*, int next) {
+    if (next != 5) AdvancedLootUI::Reset();
     if (next != 5) { state.Clear(); pets.Clear(); pet_management.Clear(); next_refresh = 0; next_pet_refresh = 0; next_management_refresh = 0; management_received = 0; }
     original_state(self, next);
     if (next == 5) RequestRefresh();
@@ -420,6 +453,45 @@ inline bool Install(uintptr_t image_base) {
     install_failure = "aa_entry";
     original_aa = reinterpret_cast<UpdateAA>(SEHEntryHook(base+kUIAARva, kExpectedUIAA, reinterpret_cast<void*>(&AAHook), base));
     return original_aa != nullptr;
+}
+inline bool MatchLootNative() {
+    __try {
+        if (!MatchSEH(base+kLootCommandRva, kExpectedLootCommand, base) ||
+            !MatchSEH(base+kLootConstructRva, kExpectedLootConstruct, base)) return false;
+        if (memcmp(reinterpret_cast<void*>(base+kLootAllocateRva), kExpectedLootAllocate, sizeof(kExpectedLootAllocate)) ||
+            memcmp(reinterpret_cast<void*>(base+kLootChildrenRva), kExpectedLootChildren, sizeof(kExpectedLootChildren)) ||
+            memcmp(reinterpret_cast<void*>(base+kLootDestroyRva), kExpectedLootDestroy, sizeof(kExpectedLootDestroy)) ||
+            memcmp(reinterpret_cast<void*>(base+kLootNotifyRva), kExpectedLootNotify, sizeof(kExpectedLootNotify)) ||
+            memcmp(reinterpret_cast<void*>(base+kLootFrameRva), kExpectedLootFrame, sizeof(kExpectedLootFrame)) ||
+            memcmp(reinterpret_cast<void*>(base+kLootShowRva), kExpectedLootShow, sizeof(kExpectedLootShow)) ||
+            memcmp(reinterpret_cast<void*>(base+kLootTextRva), kExpectedLootText, sizeof(kExpectedLootText))) return false;
+        // This catalog entry includes the RTTI locator and every vtable slot.
+        // Each word is a HIGHLOW-relocated preferred-base pointer.
+        for (size_t offset = 0; offset < sizeof(kExpectedLootTable); offset += 4) {
+            uint32_t preferred = 0;
+            memcpy(&preferred, kExpectedLootTable + offset, 4);
+            if (*reinterpret_cast<uint32_t*>(base+kLootTableRva+offset) != preferred + static_cast<uint32_t>(base) - 0x400000u) return false;
+        }
+        return true;
+    } __except(EXCEPTION_EXECUTE_HANDLER) { return false; }
+}
+inline bool InstallAdvancedLoot() {
+    install_failure = "advanced_loot_native_guards";
+    if (!MatchLootNative()) return false;
+    LootScreenAPI api;
+    api.allocate = reinterpret_cast<LootScreenAPI::Allocate>(base+kLootAllocateRva);
+    api.construct = reinterpret_cast<LootScreenAPI::Construct>(base+kLootConstructRva);
+    api.children = reinterpret_cast<LootScreenAPI::Children>(base+kLootChildrenRva);
+    api.assign = reinterpret_cast<LootScreenAPI::Assign>(base+kUIStringAssignRva);
+    api.child = reinterpret_cast<LootScreenAPI::Child>(base+kUIChildRva);
+    api.vtable = reinterpret_cast<void**>(base+kLootTableRva+4);
+    if (!AdvancedLootScreen::Bind(api, &AdvancedLootUI::Notify, &LootPulse, &AdvancedLootUI::Destroyed)) return false;
+    install_failure = "advanced_loot_command_entry";
+    original_command = reinterpret_cast<InterpretCommand>(SEHEntryHook(base+kLootCommandRva,
+        kExpectedLootCommand, reinterpret_cast<void*>(&CommandHook), base));
+    if (!original_command) return false;
+    AdvancedLootUI::Initialize(&ExecuteUIRequest, &LootNotice);
+    return true;
 }
 }
 }
