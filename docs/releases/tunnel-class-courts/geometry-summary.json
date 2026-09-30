@@ -5,7 +5,7 @@
   "spire_destinations": 8,
   "spire_ground_samples": 40,
   "minimum_patrol_clearance": 12.122,
-  "minimum_furniture_or_npc_clearance": 10.02,
+  "minimum_furniture_or_npc_clearance": 10.848,
   "status": "geometry_passed_visual_QA_pending",
-  "snapshot_sha256": "ce346f3f253874c4fc428d5a35065e27a8f60a47aee738f4223361ce3eba2aac"
+  "snapshot_sha256": "4c9a0429fcb3b243ef35c0156fd8830abdffd08f8f650f263e53d8fc1ffee69c"
 }

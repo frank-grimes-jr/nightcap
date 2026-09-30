@@ -13,7 +13,7 @@ No production files or SQL were changed.
   playable race and armor material/color/size, with male/female variation.
 - Twenty-two suppliers use profession outfits. Fourteen spillover subtitles use
   I–IV. Bartholomew becomes a Halfling. Stock, prices and class functions stay intact.
-- Khalure (999525) moves to X=-305,Y=-1561,Z=3.75 with `Druid Rings`. His script,
+- Khalure (999525) moves to X=-311,Y=-1561,Z=3.75 with `Druid Rings`. His script,
   era restrictions and Lavastorm readiness gate are unchanged.
 - Khaleid (999527), X=-279,Y=-1567,Z=3.75, is a male Dark Elf wizard with `Wizard
   Spires`, Carmine Robe material 15/RGB 175,10,50 and Blue Crystal Staff IT122.
@@ -32,7 +32,7 @@ uniforms and native subtitles and requires no client patch.
 
 ## Verification
 
-- 9 new Python checks preserve trainer/shop functions, stock links, stats,
+- 13 new Python checks preserve trainer/shop functions, stock links, stats,
   matching uniforms, Roman pages, display-only gear and scoped recovery.
 - 19 MariaDB checks on captured production schemas in a disposable local database:
   exact apply/rollback, case-only drift/replay/orphan rejection, fresh recovery
@@ -43,7 +43,10 @@ uniforms and native subtitles and requires no client patch.
   quest loading or rendered gameplay.
 - 550 court ground/headroom samples, 55 clear approach rays and 40 samples for
   eight wizard landings pass. Patrol clearance is at least 12.122 world units;
-  small props get 10 units, carts/lean-tos 15, NPCs/stations 12.
+  small props get 10 units, carts/lean-tos 15, NPCs/stations 12. The full native
+  NPC roster is included, and continuous service frontages clear NPCs by 8 units,
+  small props by 6 and carts/lean-tos by 11. Actual patrol modes must match the
+  verified reversing routes. Regression tests reject incomplete roster captures.
 - All nine tested map hashes match production, including its configured
   `nektulos_classic.map`. [Hashes](map-hashes.json), [geometry](geometry-summary.json),
   [database checks](database-checks.json).
@@ -118,7 +121,7 @@ Database coordinates are X,Y,Z; `/loc` reports Y,X,Z.
 3. Check Smithing I–III, Baking I–II, Alchemy I–IV, Poison I–II and Research I–III.
    Every page remains separately shoppable with its prior stock. Check single-page
    suppliers and open all six crafting-station windows.
-4. Khalure at `/loc -1561,-305,3.75`: `Druid Rings` displays. Hail and take West
+4. Khalure at `/loc -1561,-311,3.75`: `Druid Rings` displays. Hail and take West
    Commonlands, then return. All ring/era/Lavastorm gates behave as before.
 5. Khaleid at `/loc -1567,-279,3.75`: Dark Elf male, Carmine robe, Blue Crystal Staff,
    `Wizard Spires`. Hail offers exactly Toxxulia, North Karana, Greater Faydark,

@@ -5,7 +5,7 @@ subtitles, Khalure's druid-ring label and Khaleid's Classic wizard travel.
 Guarded migration/recovery preserves stock, prices, player data, rules and class
 functions. [Evidence and exact QA](../releases/tunnel-class-courts/README.md).
 
-Passed 9 new Python tests, 19 MariaDB checks, 26 wizard/21 resident assertions,
+Passed 13 new Python tests, 19 MariaDB checks, 26 wizard/21 resident assertions,
 8 existing service tests, 550 court samples, 55 approach rays and 40 landing
 samples. All nine maps match production hashes.
 

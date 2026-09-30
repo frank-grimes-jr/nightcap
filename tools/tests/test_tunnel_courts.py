@@ -7,6 +7,7 @@ import unittest
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from tunnel_courts import (class_members, roman_title, appearance, CLASS_STYLES,
                           placements, IDS, KHALEID, KEYS, desired, rollback_target, patch_sql)
+from probe_tunnel_courts import stationary_obstacles, patrol_segments, check_frontage
 
 def fixture():
     rows={t:[] for t in KEYS}
@@ -26,6 +27,32 @@ def fixture():
 
 
 class TunnelCourts(unittest.TestCase):
+    def test_probe_rejects_missing_native_npc_definitions(self):
+        source=dict(npc_types=[dict(id='999650')],spawnentry=[dict(spawngroupID='1',npcID='22081')])
+        with self.assertRaisesRegex(ValueError,'Incomplete NPC capture'):
+            stationary_obstacles(source,{})
+
+    def test_probe_checks_all_alternates_in_a_spawn_group(self):
+        source=dict(npc_types=[dict(id='22081'),dict(id='999650')],
+                    spawnentry=[dict(spawngroupID='1',npcID=i) for i in ('22081','999650')],
+                    spawn2=[dict(spawngroupID='1',pathgrid='0',x='-252',y='-1512')],object=[],doors=[])
+        # The last entry belongs to a moved court; the retained alternate still matters.
+        self.assertEqual(stationary_obstacles(source,{999650:{}}),[('22081',-252,-1512,12)])
+
+    def test_probe_validates_patrol_mode_before_assuming_reversal(self):
+        source=dict(grid=[dict(id=str(i),type='3') for i in range(999700,999708)],
+                    grid_entries=[dict(gridid=str(i),number=str(j),x=str(j),y='0')
+                                  for i in range(999700,999708) for j in range(1,5)])
+        self.assertEqual(len(patrol_segments(source)),24)
+        source['grid'][0]['type']='0'
+        with self.assertRaisesRegex(ValueError,'Patrol mode drift'):patrol_segments(source)
+
+    def test_probe_rejects_npc_blocking_access_despite_clear_centers(self):
+        p=dict(x=0,y=0);approach=dict(x=12,y=0)
+        with self.assertRaisesRegex(ValueError,'Blocked frontage'):
+            check_frontage(1,p,approach,[('native resident',12,2,12)])
+        check_frontage(1,p,approach,[('native resident',12,9,12)])
+
     def test_classes_keep_one_trainer_and_one_shop_with_matching_uniforms(self):
         groups=class_members()
         self.assertEqual(set(groups),set(range(1,17)))
