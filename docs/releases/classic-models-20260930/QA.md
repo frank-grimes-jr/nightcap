@@ -1,6 +1,7 @@
 # Classic model defaults — September 30 candidate
 
-Status: candidate only; not published or accepted in game.
+Status: main promotion and production publication authorized September 30;
+in-game visual acceptance remains open.
 
 ## Ready-to-use local candidate
 
@@ -127,7 +128,9 @@ failure. Restore temporary GM illusions before leaving the test session.
 ## Promotion and rollback
 
 AGENTS.md requires owner in-game sign-off before `test` → `main`. Do not infer
-sign-off from automated checks. No server binary, database or quest deployment
+sign-off from automated checks. For this release, the owner explicitly instructed
+"Push to main and server" on September 30, authorizing promotion and publication
+with the visual checks still open. No server binary, database or quest deployment
 is needed for this client-only policy.
 
 Publish the matching proxy, configuration, catalog and full generated gameplay

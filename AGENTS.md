@@ -155,6 +155,9 @@ matching proxy, config, catalog and generated assets together only after the
 gates in `docs/releases/classic-models-20260930/QA.md`. Original client stays
 read-only. Per the owner's September 30 clarification, creatures and playable
 races without old counterparts keep their existing models.
+The owner explicitly authorized this feature's main promotion and production
+publication on September 30 ("Push to main and server"). Retain the outstanding
+visual QA; this deployment instruction does not record rendered acceptance.
 
 `eq-launcher/` is the Nightcap Wails/Go patcher (separate from the expansion
 switcher). Its stable starter verifies a separate signed desktop channel; the
