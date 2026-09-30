@@ -270,6 +270,13 @@ Format: date header, area, description. Most recent entry at the top.
 
 ## Current documentation and player website
 
+Tunnel court follow-ups use `tools/tunnel_courts.py`, not regeneration of the
+historical services release. Verify terrain plus DB furniture and patrol paths.
+Local PEQ has an older services roster than OVH: capture the actual target, stop
+writers before final preimages, and recapture before post-activity rollback.
+Khaleid is reserved at 999527. Runtime paths and exact normal-account QA:
+`docs/releases/tunnel-class-courts/README.md`.
+
 Pet command selection is separate from Pet Armor selection. The September 22
 candidate uses `GetSelectedCommandPets()` for commands and retains
 `GetCommandPets()` for full-roster lifecycle/spell operations. Pair server,

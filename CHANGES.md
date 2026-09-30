@@ -1,5 +1,20 @@
 # CHANGES
 
+## 2026-09-30 - Tunnel class courts and wizard porter candidate
+
+Organized sixteen trainer/shop pairs into eight courts with matching race,
+armor and colors. Supply merchants use profession uniforms and Roman stock-page
+subtitles; stock, prices and trainer functions remain intact. Khalure gains
+`Druid Rings` and joins new Dark Elf wizard Khaleid in the verified travel area.
+Khaleid displays Classic Carmine Robe and Blue Crystal Staff and offers eight
+guarded Classic wizard destinations. Appearance creates no drops or player power.
+
+Target-specific SQL and recovery preserve unrelated saved states. Stop writers
+and recapture after zone activity; do not replay stale preimages. Requires correct
+runtime plugin installation and zone restart, no native/client build. Checks pass;
+not deployed and manual acceptance remains open. Evidence and exact QA:
+`docs/releases/tunnel-class-courts/README.md`.
+
 ## 2026-09-30 - Classic client model defaults deployed
 
 The owner explicitly requested main/server publication. Promoted through PRs
