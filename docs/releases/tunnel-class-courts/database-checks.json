@@ -1,0 +1,25 @@
+{
+  "checks": [
+    "case-only NPC drift rejected",
+    "rejected row drift performs no writes",
+    "dangling Khaleid reference blocks installation",
+    "reference collision preserves database",
+    "npc_types exact afterimage",
+    "npc_types_tint exact afterimage",
+    "spawngroup exact afterimage",
+    "spawnentry exact afterimage",
+    "spawn2 exact afterimage",
+    "zone_state_spawns exact afterimage",
+    "replay rejected",
+    "replay preserves installed content",
+    "immediate rollback restores exact preimage",
+    "stale rollback stops after new zone activity",
+    "corpse/other-zone/other-instance dependencies block rollback",
+    "blocked rollback preserves all referenced states",
+    "fresh scoped rollback removes Khaleid cached state",
+    "unrelated/corpse/other-instance saved states preserved",
+    "player inventory/currency, merchant stock and era rule preserved"
+  ],
+  "schema": "nightcap_courts_test_60cb7c40ad",
+  "removed": true
+}
