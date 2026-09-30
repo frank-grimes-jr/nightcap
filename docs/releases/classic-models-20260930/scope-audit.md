@@ -1,8 +1,9 @@
-# Old-model objective: remaining coverage
+# Classic model policy and coverage
 
-The requested outcome is **OLD MODELS ONLY by default**, with modern visuals
-requiring a manual INI edit. The current counterpart mapping is an interim
-candidate. Its green structural/startup checks do not prove that full outcome.
+The requested outcome is **old models by default wherever an old counterpart
+exists**, with a manual INI opt-in for modern versions. On September 30 the owner
+clarified: "Races without old models use existing." The candidate already follows
+this rule. Structural/startup checks pass; rendered acceptance remains open.
 
 ## What the audit found
 
@@ -14,7 +15,8 @@ the observed native constructor inventory.
 
 The remaining 491 observed IDs follow the native lookup. This includes old
 models, later creatures, props and invisible helpers; **491 does not mean 491
-modern creatures**. Native passthrough cannot establish old-only appearance.
+modern creatures**. These counts alone do not prove that every available old
+counterpart is selected correctly in game.
 The captured inventory and full categorized results are retained under
 `E:/EQ_Local_Dev/artifacts/classic-models-20260930/coverage-audit.json`.
 
@@ -28,29 +30,19 @@ They are corrected in QA release 2026093003: Human2 → Human, Ogre2 → Ogre,
 Erudite2 → Erudite, and scaled wolf → original WOF (race 42/gender 1). Humanoid
 NPCs keep the original player actor names to preserve armor handling.
 
-## Replacement decision
+## Accepted fallback
 
-Later-only player races have no original player mesh. Two old-only approaches
-are possible; neither should silently be presented as the original race model:
+Creatures and playable races without old counterparts keep their existing models
+in both default and opt-in modes. This includes the later-only examples above.
+The owner's clarification resolves the earlier replacement-choice question;
+no substitute table or changes to the current binary/assets are required.
 
-| Priority | Examples to review | Tradeoff |
-|---|---|---|
-| Closest creature appearance | Vah Shir → original Kerran; Froglok → original Froglok; Drakkin → original Iksar | NPC meshes can lose wearable armor presentation or expected player animations. |
-| Classic playable meshes | Vah Shir → Human; Froglok → Gnome; Drakkin → Iksar | Preserves the classic player equipment system but changes racial appearance more substantially. |
-
-Later-only NPCs need a curated classic substitute table too. Representative
-proposals for the hub are Lightning Warrior → Giant, Pyrilen → fire elemental,
-Gelidran → water elemental, Girplan → Gargoyle, and Scrykin → Gnome. These are
-proposals, not active mappings or verified rendered results. Props, invisible
-helpers and mounts need separate review so substitutions do not expose hidden
-helpers or break interaction/animation.
-
-## Completion remains unproven
+## Remaining acceptance
 
 - Manual INI opt-in, classic counterparts, signed delivery into an isolated copy,
   required-asset repair and startup have objective evidence.
-- Full old-only coverage remains incomplete until the later-only replacement
-  policy is implemented and checked against the relevant runtime models.
+- The fallback policy is resolved and already implemented. In-game QA includes
+  examples without old counterparts to confirm they retain their existing models.
 - Model appearance, equipment, animations and zoning still need owner in-game
   acceptance under AGENTS.md. Startup health is not rendered acceptance.
 - Nothing in this candidate has been published to production. Do not promote it

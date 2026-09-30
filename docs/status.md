@@ -10,8 +10,9 @@ adds a mandatory client policy, 22 isolated classic archives, original elemental
 palettes and 98 remake mappings. Existing INI settings cannot silently opt in.
 Native x86, archive integrity and packaging checks pass. Rendering and owner
 acceptance remain open; this candidate is not deployed. Creatures with no old
-counterpart retain their available model pending an explicit replacement policy.
-This leaves the full old-only goal incomplete; see the [coverage audit](releases/classic-models-20260930/scope-audit.md).
+counterpart retain their existing model, as the owner explicitly requested on
+September 30. The policy choice is resolved; see the [coverage audit](releases/classic-models-20260930/scope-audit.md)
+for the mapping scope and remaining visual acceptance.
 
 ## Combat and item repair candidate
 

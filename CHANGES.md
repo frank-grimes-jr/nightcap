@@ -5,8 +5,9 @@
 Follow-up audit adds classic counterparts for later Human (566), Ogre (624),
 Erudite (678), and scaled-wolf (481) models. Preserve native player actor names
 for armor handling; select the original scaled-wolf female variant explicitly.
-The mapping now has 98 entries. Full old-only coverage remains open for later-only
-races; see the release scope audit rather than inferring completion from startup.
+The mapping now has 98 entries. The owner clarified on September 30 that races
+without old models use their existing models. The candidate already follows
+this rule; no binary or asset changes are needed for the clarification.
 
 Add required proxy `0.7.0-dev` classic-model policy. Existing Luclin preferences
 cannot silently enable modern visuals; a deliberate `[Nightcap]`
@@ -17,8 +18,8 @@ their original counterparts. Namespaced textures avoid newer equipment archives
 overriding classic skeleton art. Source client and user INIs remain untouched.
 
 Proxy, launcher catalog and generated asset hashes form one required release.
-Publish them together. Later-only creatures without an original counterpart
-are outside this mapping; arbitrary replacements need an owner decision.
+Publish them together. Creatures and playable races without an original
+counterpart retain their existing models under the accepted policy.
 Native and archive checks pass; rendered QA and production activation remain
 open. See `docs/releases/classic-models-20260930/QA.md` and ADR 0048.
 

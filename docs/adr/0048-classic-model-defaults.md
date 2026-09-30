@@ -61,11 +61,11 @@ Stock global imports remain in the generated import list.
 
 The opt-in permits native preferences; users can retain old player models while
 opting into modern NPCs. Removing it restores classic defaults. Creatures and
-playable races with no original model keep their available model; selecting an
-unrelated replacement remains a separate owner decision. This is an unfinished
-part of the full old-only objective, not an accepted reduction of that objective.
-The [scope audit](../releases/classic-models-20260930/scope-audit.md) records the
-remaining native passthrough and the replacement choices needed.
+playable races with no original model keep their existing model. The owner
+explicitly confirmed this rule on September 30: "Races without old models use
+existing." The candidate already implements this fallback. The
+[scope audit](../releases/classic-models-20260930/scope-audit.md) records the
+native lookup scope and remaining visual acceptance.
 
 See [release QA](../releases/classic-models-20260930/QA.md) for checks, evidence,
 manual acceptance and rollback. Production publication remains pending.

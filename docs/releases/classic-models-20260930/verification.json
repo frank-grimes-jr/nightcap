@@ -8,6 +8,13 @@
   "classic_assets": 23,
   "race_gender_registrations": 144,
   "remake_mappings": 98,
+  "owner_model_policy": {
+    "date": "2026-09-30",
+    "clarification": "Races without old models use existing",
+    "default": "classic model where an old counterpart exists",
+    "without_old_counterpart": "existing model",
+    "candidate_change_required": false
+  },
   "checks": {
     "x86_proxy_build": "pass",
     "native_runtime_suite": "pass",
@@ -20,7 +27,7 @@
     "missing_archive_repair": "pass",
     "ini_opt_in_preserved_during_repair": "pass",
     "graphical_QA": "pending",
-    "full_old_only_coverage": "incomplete: later-only replacement policy pending"
+    "model_policy_coverage": "owner scope resolved; rendered coverage acceptance pending"
   },
   "startup_modes": {
     "classic": {

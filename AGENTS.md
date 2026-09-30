@@ -153,7 +153,8 @@ require `[Nightcap] UseModernModels=TRUE`; missing/invalid values force the
 classic defaults. This restores native preferences when enabled. Publish the
 matching proxy, config, catalog and generated assets together only after the
 gates in `docs/releases/classic-models-20260930/QA.md`. Original client stays
-read-only; later-only races without original counterparts need a separate policy.
+read-only. Per the owner's September 30 clarification, creatures and playable
+races without old counterparts keep their existing models.
 
 `eq-launcher/` is the Nightcap Wails/Go patcher (separate from the expansion
 switcher). Its stable starter verifies a separate signed desktop channel; the

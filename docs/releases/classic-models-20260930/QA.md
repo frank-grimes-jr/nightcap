@@ -24,13 +24,13 @@ later remake race IDs, including wolves, bears, orcs, goblins, giants, vampires,
 werewolves and other original counterparts. The full mapping and source hashes
 are in `eq-client-dll/config/classic-models.json`.
 
-Later-only creatures and playable races with no original counterpart retain
-their available model. The owner has not chosen unrelated classic substitutes.
-This is an outstanding part of the original request. [Coverage and replacement
-choices](scope-audit.md) must be resolved before claiming all-old coverage.
+Creatures and playable races with no original counterpart retain their existing
+model. The owner confirmed this rule on September 30. QA release `2026093003`
+already follows it; the clarification requires no binary or asset changes.
+See the [coverage audit](scope-audit.md) for the mapping scope.
 
-Modern models require a deliberate edit to the game folder's `eqclient.ini`,
-followed by a complete client restart:
+Choosing modern versions where classic models are available requires a deliberate
+edit to the game folder's `eqclient.ini`, followed by a complete client restart:
 
 ```ini
 [Nightcap]
@@ -114,6 +114,12 @@ proxy `0.7.0-dev`; required/enabled/applied masks must all be 16383.
 8. **Failure:** in the disposable QA installation only, rename one `ncm*_chr.s3d`
    file, launch and confirm required startup fails or launcher repairs it before
    Play. Never accept silent missing-model fallback. Restore through the updater.
+9. **Races without old models:** use temporary race illusions on the disposable
+   GM test character to inspect Vah Shir (130), playable Froglok (330), Drakkin
+   (522), and the compact-hub races (407, 411, 417, 419, 495). Expect their existing
+   models in both default and opt-in modes, with working movement and casting
+   animations and the same equipment presentation in both modes. This check
+   does not change the server's legal character race or era settings.
 
 Document NPC/race, gender, texture, zone, action, mode and screenshot for any
 failure. Restore temporary GM illusions before leaving the test session.
