@@ -30,5 +30,5 @@ will test ordinary gameplay live; injected faults stay isolated. After the new
 server starts, recovery must preserve receipt-aware code and current data.
 An older binary or pre-release database dump is not a routine rollback.
 
-[Production and recovery](../releases/advanced-loot/PRODUCTION.md) Â·
+[Production and recovery](../releases/advanced-loot/PRODUCTION.md) ·
 [Exact owner live QA](../releases/advanced-loot/LIVE-QA.md).
