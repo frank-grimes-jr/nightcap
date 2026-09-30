@@ -998,7 +998,7 @@ public:
 	void ShowSkillsWindow();
 
 	uint16 MaxSkill(EQ::skills::SkillType skill_id, uint8 class_id, uint8 level) const;
-	inline uint16 MaxSkill(EQ::skills::SkillType skill_id) const { return MaxSkill(skill_id, GetClass(), GetLevel()); }
+	uint16 MaxSkill(EQ::skills::SkillType skill_id) const;
 	uint8 GetSkillTrainLevel(EQ::skills::SkillType skill_id, uint8 class_id);
 	void MaxSkills();
 

@@ -1,0 +1,15 @@
+{
+  "database": "nightcap_spell_rehearsal_20260927",
+  "checks": [
+    "base formula drift rejected",
+    "target identity drift rejected",
+    "after-UPDATE failure rolled back both rows exactly",
+    "stale rollback rejected; exact rollback passed after recovery"
+  ],
+  "item_ids": [
+    201001,
+    201002
+  ],
+  "scope_sha256": "c9f73d9bbcd3328f703dd1535f0c7f80132f600662f1d019d48c8f38ea8edc80",
+  "generator_sha256": "9ac2a2b9b0a63b90109836d013b4d19d09554fe8c7ebf86a83023881222a7e98"
+}

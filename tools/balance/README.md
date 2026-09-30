@@ -222,3 +222,10 @@ pursuit through client position/history packets. Keep it absent to reproduce the
 historical controller. `verify_native_movement.py` checks requested/applied movement
 bounds and restored range; evidence and commands are in
 `docs/balance/native-player-pursuit.md`. Run only one matrix driver per runtime.
+
+
+The September 27 tier-scaling candidate is checked explicitly with
+`--item-policy base-strength`. The default remains `legacy-flat` for the deployed
+baseline and historical reproducibility. Reports record the selected policy;
+do not treat the default's expected flat stamps as a regression in a deliberately
+migrated test database. Neither mode changes the database or the spell/heal caps.

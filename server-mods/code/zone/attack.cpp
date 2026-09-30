@@ -1150,7 +1150,7 @@ int64 Mob::GetWeaponDamage(Mob *against, const EQ::ItemData *weapon_item) {
 				return 0;
 			}
 		}
-		else if ((GetClass() == Class::Monk || GetClass() == Class::Beastlord) && GetLevel() >= 30) {
+		else if ((GetHandToHandClass() == Class::Monk || GetHandToHandClass() == Class::Beastlord) && GetLevel() >= 30) {
 			dmg = GetHandToHandDamage();
 		}
 		else {
@@ -1288,7 +1288,7 @@ int64 Mob::GetWeaponDamage(Mob *against, const EQ::ItemInstance *weapon_item, in
 					MagicGloves = gloves->GetItemMagical(true);
 			}
 
-			if (GetClass() == Class::Monk || GetClass() == Class::Beastlord) {
+			if (GetHandToHandClass() == Class::Monk || GetHandToHandClass() == Class::Beastlord) {
 				if (MagicGloves || GetLevel() >= 30) {
 					dmg = GetHandToHandDamage();
 					if (hate)
@@ -1678,7 +1678,8 @@ bool Mob::Attack(Mob* other, int Hand, bool bRiposte, bool IsStrikethrough, bool
 
 		int ucDamageBonus = 0;
 
-		if (Hand == EQ::invslot::slotPrimary && GetLevel() >= 28 && IsWarriorClass())
+		if (Hand == EQ::invslot::slotPrimary && GetLevel() >= 28 &&
+			(IsWarriorClass() || (!weapon && (GetHandToHandClass() == Class::Monk || GetHandToHandClass() == Class::Beastlord))))
 		{
 			// Damage bonuses apply only to hits from the main hand (Hand == MainPrimary) by characters level 28 and above
 			// who belong to a melee class. If we're here, then all of these conditions apply.
@@ -3518,6 +3519,19 @@ uint8 Mob::GetWeaponDamageBonus(const EQ::ItemData *weapon, bool offhand)
 	return 0;
 }
 
+uint8 Mob::GetHandToHandClass() const
+{
+	if (IsClient()) {
+		// Prefer Monk fists regardless of which slot supplies the class.
+		for (auto class_id : {Class::Monk, Class::Beastlord}) {
+			if (CastToClient()->IsMulticlassMember(class_id)) {
+				return class_id;
+			}
+		}
+	}
+	return GetClass();
+}
+
 int Mob::GetHandToHandDamage(void)
 {
 	if (RuleB(Combat, UseRevampHandToHand)) {
@@ -3545,14 +3559,14 @@ int Mob::GetHandToHandDamage(void)
 		7, 7, 7, 8, 8, 8, 8, 8, 8, 9,        // 21-30
 		9, 9, 9, 9, 9, 10, 10, 10, 10, 10,   // 31-40
 		10, 11, 11, 11, 11, 11, 11, 12, 12 }; // 41-49
-	if (GetClass() == Class::Monk) {
+	if (GetHandToHandClass() == Class::Monk) {
 		if (IsClient() && CastToClient()->GetItemIDAt(12) == 10652 && GetLevel() > 50)
 			return 9;
 		if (level > 62)
 			return 15;
 		return mnk_dmg[level];
 	}
-	else if (GetClass() == Class::Beastlord) {
+	else if (GetHandToHandClass() == Class::Beastlord) {
 		if (level > 49)
 			return 13;
 		return bst_dmg[level];
@@ -3604,7 +3618,7 @@ int Mob::GetHandToHandDelay(void)
 		28, 28, 28, 27, 27, 27, 27, 27, 26, 26, // 61-70
 		26, 26, 26 };                            // 71-73
 
-	if (GetClass() == Class::Monk) {
+	if (GetHandToHandClass() == Class::Monk) {
 		// Have a look to see if we have epic fists on
 		if (IsClient() && CastToClient()->GetItemIDAt(12) == 10652 && GetLevel() > 50)
 			return 16;
@@ -3613,7 +3627,7 @@ int Mob::GetHandToHandDelay(void)
 			return GetRace() == Race::Iksar ? 21 : 20;
 		return GetRace() == Race::Iksar ? mnk_iks_delay[level] : mnk_hum_delay[level];
 	}
-	else if (GetClass() == Class::Beastlord) {
+	else if (GetHandToHandClass() == Class::Beastlord) {
 		int level = GetLevel();
 		if (level > 73)
 			return 25;
@@ -5763,7 +5777,7 @@ bool Mob::HasDied() {
 	return Result;
 }
 
-const DamageTable &Mob::GetDamageTable() const
+const DamageTable &Mob::GetDamageTable(bool unarmed) const
 {
 	static const DamageTable dmg_table[] = {
 		{ 210, 49, 105 }, // 1-50
@@ -5883,8 +5897,9 @@ const DamageTable &Mob::GetDamageTable() const
 		{ 415, 15,  40 }, // 105
 	};
 
-	bool monk = GetClass() == Class::Monk;
-	bool melee = IsWarriorClass();
+	const auto combat_class = unarmed ? GetHandToHandClass() : GetClass();
+	bool monk = combat_class == Class::Monk;
+	bool melee = IsWarriorClass() || (unarmed && (monk || combat_class == Class::Beastlord));
 	// tables caped at 105 for now -- future proofed for a while at least :P
 	int level = std::min(static_cast<int>(GetLevel()), 105);
 
@@ -5981,7 +5996,10 @@ void Mob::ApplyDamageTable(DamageHitInfo &hit)
 	if (hit.damage_done < 2)
 		return;
 
-	auto &damage_table = GetDamageTable();
+	const bool unarmed = IsClient() && hit.skill == EQ::skills::SkillHandtoHand &&
+		(hit.hand == EQ::invslot::slotPrimary || hit.hand == EQ::invslot::slotSecondary) &&
+		!CastToClient()->GetInv().GetItem(hit.hand);
+	auto &damage_table = GetDamageTable(unarmed);
 
 	if (zone->random.Roll(damage_table.chance))
 		return;
@@ -5992,7 +6010,7 @@ void Mob::ApplyDamageTable(DamageHitInfo &hit)
 	int percent = std::min(100 + extrapercent, damage_table.max_extra);
 	hit.damage_done = (hit.damage_done * percent) / 100;
 
-	if (IsWarriorClass() && GetLevel() > 54)
+	if ((IsWarriorClass() || (unarmed && (GetHandToHandClass() == Class::Monk || GetHandToHandClass() == Class::Beastlord))) && GetLevel() > 54)
 		hit.damage_done++;
 	Log(Logs::Detail, Logs::Attack, "Damage table applied %d (max %d)", percent, damage_table.max_extra);
 }
