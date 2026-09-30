@@ -9,11 +9,15 @@ settings, personal/shared decisions, native item transfer with checked inventory
 placement, atomic item/coin receipts, group/raid splitting, classic-loot
 coordination, and complete saved-state metadata with stable physical IDs.
 
-The clean paired world/zone build passes with all 73 overlay hashes verified.
+A clean paired world/zone build and incremental dev integration pass with all
+73 final overlay hashes verified. The incremental source was explicitly recompiled
+after detecting and correcting a preserved-timestamp build skip.
 Protocol/policy/screen fixtures, production inventory/currency/saved-state body
 fault checks, five proxy runtime tests, three Go package suites and 16 disposable
-SQL checks pass. Signed QA release 2026093001 installs 23 files and starts actual
-RoF2 with all 14 required features active, followed by clean owned shutdown.
+SQL checks pass. Signed QA release 2026093005 installs 46 files and starts actual
+RoF2 with all 15 required features active, followed by clean owned shutdown.
+Isolated login/world/ecommons services boot with no startup errors and matching
+binary hashes. The fresh QA database contains two fixture accounts and no characters.
 No live data, server process or original client installation was changed.
 
 ## Cut
@@ -24,7 +28,7 @@ and range, creates no additional personal drops, and does not alter progression.
 ## Shaky / incomplete
 
 Real client rendering, quest/packet/lifecycle integration, saved-state recovery,
-disconnected group leadership, isolated server startup and manual gameplay acceptance
+disconnected group leadership, client access cutover and manual gameplay acceptance
 remain gates. Fixture dependency fakes are not proof of native gameplay. Older
 receipt-unaware binaries require saved-state reconciliation before rollback.
 

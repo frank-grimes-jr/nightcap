@@ -1,0 +1,80 @@
+{
+  "date": "2026-09-30",
+  "status": "qa_candidate_evidence_graphical_QA_open",
+  "production_activation": "PRODUCTION.md",
+  "implementation_commit": "d89fe25ad1ecc4e497204b257af82d03eb0ff4fa",
+  "qa_release": 2026093003,
+  "proxy_version": "0.7.0-dev",
+  "classic_archives": 22,
+  "classic_assets": 23,
+  "race_gender_registrations": 144,
+  "remake_mappings": 98,
+  "owner_model_policy": {
+    "date": "2026-09-30",
+    "clarification": "Races without old models use existing",
+    "default": "classic model where an old counterpart exists",
+    "without_old_counterpart": "existing model",
+    "candidate_change_required": false
+  },
+  "checks": {
+    "x86_proxy_build": "pass",
+    "native_runtime_suite": "pass",
+    "exact_client_sites": 48,
+    "inverse_wld_and_texture_integrity": "pass",
+    "launcher_go_suite": "pass",
+    "gameplay_python_suite": "pass",
+    "frontend_and_wails_build": "pass",
+    "signed_install_and_update": "pass",
+    "missing_archive_repair": "pass",
+    "ini_opt_in_preserved_during_repair": "pass",
+    "graphical_QA": "pending",
+    "model_policy_coverage": "owner scope resolved; rendered coverage acceptance pending"
+  },
+  "startup_modes": {
+    "classic": {
+      "proxy_version": "0.7.0-dev",
+      "state": "ready",
+      "required_mask": 16383,
+      "enabled_mask": 16383,
+      "applied_mask": 16383,
+      "reason": ""
+    },
+    "modern": {
+      "proxy_version": "0.7.0-dev",
+      "state": "ready",
+      "required_mask": 16383,
+      "enabled_mask": 16383,
+      "applied_mask": 16383,
+      "reason": ""
+    }
+  },
+  "artifacts": {
+    "proxy": {
+      "size": 526848,
+      "sha256": "6bc05569c4d7f956877901348e90156cc7c6480d12d3497a0d71e4489e74606e"
+    },
+    "bootstrap": {
+      "size": 119808,
+      "sha256": "b5460e212c571f4ecbfefb636e93161ad9d6f1a0f5af1c961392960e0c4b88d1"
+    },
+    "catalog": {
+      "size": 4201,
+      "sha256": "29178abe9f595dde3c67f6c123be54bc3cfc0c5fdbbb6b7a03cc8a0c90c24d93"
+    },
+    "model_plan": {
+      "size": 37201,
+      "sha256": "955048a2b5bc0dc07bc6a63fe9945fa16c8e8212c9d342d4487a7294fbd56117"
+    },
+    "launcher": {
+      "size": 161185280,
+      "sha256": "ad9e28d077bab2fe82827c749d9914430a4aee4cee883c7eb71d7b716ede924c"
+    },
+    "signed_manifest": {
+      "size": 9572,
+      "sha256": "718da0e19c976e11acecffa9b3f782f41a54f4c70a7b9c378bd4caebb981019c"
+    }
+  },
+  "qa_launcher": "E:\\EQ_Local_Dev\\artifacts\\classic-models-20260930\\qa\\nightcap-launcher-qa.exe",
+  "qa_client": "E:\\EQ_Local_Dev\\artifacts\\classic-models-20260930\\qa\\client",
+  "scope_audit": "scope-audit.md"
+}

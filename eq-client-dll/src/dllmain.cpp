@@ -28,6 +28,7 @@
 #include "runtime_health.h"
 #include "verified_patch.h"
 #include "ui_hooks.h"
+#include "model_hooks.h"
 
 #pragma comment(lib, "bcrypt.lib")
 
@@ -124,7 +125,7 @@ static void Log(const char* fmt, ...)
     fflush(g_log);
 }
 
-static bool VerifyEqgameSha256(const wchar_t* path)
+static bool VerifyFileSha256(const wchar_t* path, const BYTE* expected)
 {
     BCRYPT_ALG_HANDLE algorithm = nullptr;
     BCRYPT_HASH_HANDLE hash = nullptr;
@@ -179,7 +180,7 @@ static bool VerifyEqgameSha256(const wchar_t* path)
     if (!read_ok) goto cleanup;
     status = BCryptFinishHash(hash, digest, sizeof(digest), 0);
     if (status < 0) goto cleanup;
-    matched = (memcmp(digest, kExpectedEqgameSha256, sizeof(digest)) == 0);
+    matched = (memcmp(digest, expected, sizeof(digest)) == 0);
 
 cleanup:
     if (file != INVALID_HANDLE_VALUE) CloseHandle(file);
@@ -1467,7 +1468,7 @@ static BOOL CALLBACK InitializeRuntime(PINIT_ONCE, PVOID, PVOID*)
     WIN32_FILE_ATTRIBUTE_DATA attributes;
     const bool size_ok=GetFileAttributesExW(exe_path,GetFileExInfoStandard,&attributes)!=FALSE &&
         attributes.nFileSizeHigh==0 && attributes.nFileSizeLow==kExpectedEqgameSize;
-    const bool hash_ok=size_ok && VerifyEqgameSha256(exe_path);
+    const bool hash_ok=size_ok && VerifyFileSha256(exe_path,kExpectedEqgameSha256);
     if (!size_ok||!hash_ok) StopClient("unsupported_executable");
     uintptr_t eq_base,eq_size;
     GetModuleRange(GetModuleHandleW(nullptr),&eq_base,&eq_size);
@@ -1525,6 +1526,23 @@ static BOOL CALLBACK InitializeRuntime(PINIT_ONCE, PVOID, PVOID*)
             reinterpret_cast<uintptr_t>(&nightcap::client_ui::SkinHook),"Automatic UI explicit load") &&
         ApplyGuardedRelativeCall(eq_base,kUISavedSkinRva,kExpectedUISavedSkin,
             reinterpret_cast<uintptr_t>(&nightcap::client_ui::SkinHook),"Automatic UI saved load"));
+    wchar_t preference_path[MAX_PATH] = {}, preference[32] = {};
+    if (swprintf_s(preference_path,L"%seqclient.ini",g_client_directory)<0) StopClient("model_preference_path");
+    GetPrivateProfileStringW(L"Nightcap",L"UseModernModels",L"",preference,_countof(preference),preference_path);
+    nightcap::models::modern = !_wcsicmp(preference,L"TRUE") || !wcscmp(preference,L"1");
+    for (const auto& asset : nightcap::models::kAssets) {
+        wchar_t path[MAX_PATH] = {};
+        WIN32_FILE_ATTRIBUTE_DATA info = {};
+        if (swprintf_s(path,L"%s%s",g_client_directory,asset.name)<0 ||
+            !GetFileAttributesExW(path,GetFileExInfoStandard,&info) || info.nFileSizeHigh ||
+            info.nFileSizeLow != asset.size || !VerifyFileSha256(path,asset.sha256))
+            StopClient("classic_model_assets");
+    }
+    RequirePatch(nightcap::Feature_classic_models,
+        nightcap::models::Install(eq_base) &&
+        ApplyGuardedRelativeCall(eq_base,kModelImportsCallRva,kExpectedModelImportsCall,
+            reinterpret_cast<uintptr_t>(&nightcap::models::ImportsHook),"Classic model imports"));
+    Log("Model policy: %s",nightcap::models::modern ? "modern INI opt-in" : "classic defaults");
     if (g_health.applied_mask!=nightcap::kRequiredMask) StopClient("incomplete_patches");
     if (g_config.mq2_survey) {
         const uintptr_t thread=_beginthreadex(nullptr,0,SurveyThread,nullptr,0,nullptr);

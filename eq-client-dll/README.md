@@ -14,6 +14,13 @@ server, SQL migration and generated Pet Info XML. A signed QA copy passes
 installation and real RoF2 startup; in-game rendering and loot acceptance remain
 open. See [advanced-loot evidence](../docs/releases/advanced-loot/README.md).
 
+September 30 candidate: proxy `0.7.0-dev` requires the classic model asset set.
+Old player/elemental models are the default, with isolated classic textures and
+race lookup remapping for creature remakes. `[Nightcap] UseModernModels=TRUE` in
+the client's `eqclient.ini` restores native model selection after a full restart;
+native Luclin preferences still determine which supported player models load.
+No INI is rewritten. [Coverage and required graphical QA](../docs/releases/classic-models-20260930/QA.md).
+
 September 22 candidate: proxy `0.6.0-dev` adds the three-pet roster and guarded
 command controls. It requires the matching server and generated Pet Info XML.
 Existing pet hotbar assignments remain supported. See the

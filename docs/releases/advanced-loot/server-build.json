@@ -1,17 +1,20 @@
 {
-  "status": "built_not_installed",
+  "status": "built_installed_only_in_isolated_qa",
   "date": "2026-09-30",
   "targets": [
     "world",
-    "zone"
+    "zone",
+    "loginserver",
+    "shared_memory"
   ],
-  "build_root": "/tmp/nightcap-market-advloot-20260930-server",
-  "command": "python3 build_living_economy.py --overlay /tmp/nightcap-advloot-input-20260930-server/code --output /tmp/nightcap-market-advloot-20260930-server",
+  "build_root": "/tmp/nightcap-market-advloot-20260930-reviewed",
+  "method": "clean paired world/zone build followed by one verified-source incremental integration",
+  "command": "build_living_economy.py, integrate_server_build.py, repair_integration_build.py",
   "source_unchanged_during_build": true,
-  "full_source_manifest_sha256": "604fec691dccea1b98b049307de1656c9a0ad0769bd2e459a41e12078d03d313",
+  "full_source_manifest_sha256": "6bab1b17e86997bb1899130bfae9c6c509c978949e0fe3624c2a4677cb53a209",
   "overlay_files_verified": 73,
   "overlay": {
-    "common/advanced_loot_policy.h": "8dbe83783b0d05e87d0046456746af83565eca6795ad1737a1b6de1179b88593",
+    "common/advanced_loot_policy.h": "719591ce166e912f12a34b7f7122c54936ceb58618364348e044ae5c7979a39b",
     "common/advanced_loot_protocol.h": "6689843ddcae4c72e455541e09fa5f01f01943f81d4d86194fda21f0f4057f41",
     "common/inventory_profile.cpp": "34fa1b6847f84d30eeebcc99695cc8dbcb4cf3e94275600cc19a967f714bbcc2",
     "common/inventory_profile.h": "c7e74519d2c835a46d2fd81d25bbc32eb0e6d01a9adde5c3432c5c322961a714",
@@ -30,12 +33,12 @@
     "world/main.cpp": "ec5c114addde053f62271f23e766a51f559ef97dacfcb93ed21015c0baff6a21",
     "world/starter_provisions.h": "c1270d7ea4840791097608de65661099982016762d342d959fac22829af61bc1",
     "zone/aa.cpp": "9498d44461253d3f1ec90c3dc2d4563dabade9a1f3e590e98ab72a3ed4b42266",
-    "zone/advanced_loot.cpp": "0dbd35f384b2f60eca275a7f8beda42f8c5c3463e1774623532f1dc924fc84b5",
-    "zone/advanced_loot.h": "4ab77f8b40c1fab9210a6ca69916c6bad6099f17c083cabd7d65e25e0ae44950",
-    "zone/advanced_loot_currency.cpp": "458a0843cd809dbd1719edc1f59282825b9a02e710b157e82af2bb05fcb4fb19",
-    "zone/advanced_loot_currency.h": "904cd44611000784b2fa171064a83b215a7e5a378bf3d3dc4f4653cf8b05ccd8",
-    "zone/advanced_loot_inventory.cpp": "6a631fde77e0c51cff9648914f4f343c3d2d183ac57d84628b5f8e29c601adbc",
-    "zone/advanced_loot_inventory.h": "7c752a5c2c428ba4d3e733f4aac612ebd33593d8a5ed2e2b2461860bfbc9ed3e",
+    "zone/advanced_loot.cpp": "8a79fe074d66d5c3de73a88153777c4881f8d6ca27f8a3b5c5119883c2794334",
+    "zone/advanced_loot.h": "75437e4618c6f6077657b368c31c8d96ce05701b25c2b8b34466831109315a08",
+    "zone/advanced_loot_currency.cpp": "476f811bda6dd8ae8244c59904a824d96626bfc1062f3aa4c861e7a8d568926d",
+    "zone/advanced_loot_currency.h": "2a2ee4bf577bcc4ec5b02ada8975f9b6bec52c6d8518cf44575f0f80bb8880aa",
+    "zone/advanced_loot_inventory.cpp": "c26b62b3715128545d1119250f10cf7f908e6e2950c58a0f29dcd77a5cfc5619",
+    "zone/advanced_loot_inventory.h": "909512bd201b1fd64bac5849e4408ccfb15801aa7a531f51c260eb0b3ddd18fc",
     "zone/advanced_loot_preferences.cpp": "4508a235871c294a6121b8d2429d03857afca429888a382cbb139f45c526a730",
     "zone/advanced_loot_preferences.h": "e53c549fd8f23075726904ab640070d2267c10e6b28243be1b9b86658bcd99a3",
     "zone/advanced_loot_saved_state.cpp": "818f85d03f0924d83d6c60466bf99d5dbbb23bb6a69281df987f99a4b246f68c",
@@ -43,23 +46,23 @@
     "zone/attack.cpp": "435afbadea447e514ac304a6a86fa4557b61c854f47ffcf10e4108e5259ad543",
     "zone/bonuses.cpp": "aa3ffcb7a8bbd0dd9dbb33a38dfa8ff922cdeee85e9d1789ab9e542d38c91353",
     "zone/client.cpp": "c110f692b2f64f99386cb91219b05b2c3a70d6736c9cce8b276d7e9e9b3d17f9",
-    "zone/client.h": "11906a4c0f8aa807c845fa9c91bd00b3cd738c36ec059209a1c65efdb1164d88",
+    "zone/client.h": "68762e41d3011fb644f9d53df963584d97a2256612ca21330f9e5dccd2ffd437",
     "zone/client_class_pets.cpp": "7cc33a94f2d522d65f2d35600d29f3768de831da4374cbca8ca646a6fe706f77",
     "zone/client_living_economy.cpp": "d9132e64b5acbd9b959ce606036a96e2fc96b9fade2a5615191ecfc62b294ae8",
     "zone/client_mods.cpp": "cb139cf05bdd8860cd81272a611c77e4ac32be27ab5c5e02bb5e5a4fc9800113",
-    "zone/client_packet.cpp": "a99507232ba05fd7f61a7090bffa0819c4a844a1ff44dc83bcb4bd2110904f5c",
+    "zone/client_packet.cpp": "3ce946d7b709020e7fbd9e5cd1eb1b96fb61e49c4d0c5104e813c503e5059523",
     "zone/client_pet_armor.cpp": "23a87348e51bc32a0c42256677c066a289c9563aa76d9cc0872a49a559a5b616",
     "zone/client_process.cpp": "c05700cbf6e80c439c2cebbbb377fb6255796a443e5507e4c719461f38f48c85",
     "zone/CMakeLists.txt": "2752c9f7477de87419f7a63c73c20a7ad40aa7a3a1137eeac901761165bba3d4",
     "zone/command.cpp": "a9662038345b9b95d49f359146989ce802d1ac060082209eb2e751517b50df6a",
     "zone/command.h": "19238262119ea1c3296b951a9ba5540111bcd4dabe154c2d6f1edb946eebaf56",
-    "zone/corpse.cpp": "176991c5f390296534b2215b0cd2b2194f13a70fc53abc96e9f8a908a7258996",
-    "zone/corpse.h": "5e7e3ebb3c42a768d824a284d42ba2f00df7f8d1f5fab09ce9227fdc11d3ae5d",
-    "zone/corpse_advanced_loot.cpp": "d47aae7edd51b8d10527328ac7e87677a18969bea1a9874bb41e15e489fa712c",
+    "zone/corpse.cpp": "c6f4b3d90828fa3aa1c29894b8df1db83bbf68264bfb184cf1b282a5d815c7b4",
+    "zone/corpse.h": "60ad3ace84a055e6b8eae618adc968e6299d6c4277fa158e07841a57463d06ee",
+    "zone/corpse_advanced_loot.cpp": "0c1f5cba952333622d2370f3c1c7e9964e13c12dc5b81b20c08b7dd10306ebb9",
     "zone/effects.cpp": "d776244039601ae449a724b635c9d93508b0b66ec19c28c2e3eb35a859537db5",
     "zone/embparser_api.cpp": "fa47d16df2c2ffaaae58001301969145c7b5b5706170a3bb7a35ba1bdebdee45",
     "zone/exp.cpp": "4aedc191fdbb7844d5d175b65d53e0155314ebf50a3659337a27d164d6f73961",
-    "zone/inventory.cpp": "93e1dca182613bea3f75fbcad6838eda99ed12571345cb4fddef27c7f44c75b6",
+    "zone/inventory.cpp": "7a4ab9d2c552984ecf6700e3a2c7748d7421d54b9f56549bf7bebc37d013c909",
     "zone/living_economy.cpp": "48b236d05028a54ced6b9afaab112244b83d88a2756dc9df904cd9754b5814fc",
     "zone/living_economy.h": "a2a0782816b400dd93b13a4094bbafcc731b2ab17dd6bb37d09b491266e4a433",
     "zone/loot.cpp": "a826b26e65199692a037f62f3c22cbd36d26da1a97e03bf2106c691f38cbab46",
@@ -86,7 +89,42 @@
     "common/patches/rof2_structs.h": "548419e3b25381ceaf59dc57b199e90ed9332e966255a5e881853898ba1d1bf0"
   },
   "binaries": {
-    "world": "9b8bde8b8a221836409b5a6c6739885fa34db099da00ff9d1736e36472f5102d",
-    "zone": "16770ad0a3c9a3f796458cbd19c79a7816fcce3d8fc6d2f8926cf4a0361a8970"
-  }
+    "world": "b4780ac44df0dce186e75d3bddc01c6c988ebcf45afc5016a516b4d5f4a5656d",
+    "zone": "81efa292bfd5ca75c51a17f692638bd9af0647cad5d849b3674679dc8b4072db",
+    "loginserver": "67687a7d0fd0aaa796ab77d06f12adb02b433e321f3816f8c6e15b71f0022936",
+    "shared_memory": "3411871a9c03e6ce0285eeafc252411e9d8dcb55fdfd282ba26a4c05a342c0b0"
+  },
+  "integration": {
+    "base_commit": "ffac9ba",
+    "feature_commit": "1727192",
+    "method": "incremental over manifest-verified clean paired build",
+    "clean_manifest_sha256": "074e2aa565de01963928d5dc3f1c86bcb999732f419496a55cdc2abc5a15bd1f",
+    "clean_binaries": {
+      "world": "b4780ac44df0dce186e75d3bddc01c6c988ebcf45afc5016a516b4d5f4a5656d",
+      "zone": "34b178707d924ab57b6bda5188ca46479b1357829faa67667f94a23a77150650"
+    },
+    "changed_sources": {
+      "zone/client_packet.cpp": {
+        "before": "a99507232ba05fd7f61a7090bffa0819c4a844a1ff44dc83bcb4bd2110904f5c",
+        "after": "3ce946d7b709020e7fbd9e5cd1eb1b96fb61e49c4d0c5104e813c503e5059523"
+      }
+    },
+    "source_unchanged_during_build": true,
+    "timestamp_repair": {
+      "reason": "copy2 preserved a source mtime older than the compiled object; initial incremental build skipped it",
+      "action": "touched verified source; recompiled client_packet.cpp and relinked zone",
+      "superseded_manifest_sha256": "ac1d58a43075bf9e06547db12927829f8dc1eb2b1d66412ba5f3718d80d277b3",
+      "build_log_sha256": "2455467f21c5e676c9cb1e74ecdf5f52bcb75a6cc6430ba719300386caed1e37",
+      "object_compilation_verified": true,
+      "zone_binary_changed": true
+    }
+  },
+  "logs": {
+    "configure.log": "59cb4edf06c3b4ff0dab41b0ee71df9a4a52f047806dc93ae59bca504fef134a",
+    "build.log": "30f953af9e0ef6b6b21653feabc11a92c6f8a6ae91e4a8cee7dacb43ed6491db",
+    "integration-build.log": "39f8adaf1dc0b94186e635885c82b36505adbd518f03fc02720409cbe3aa43b7",
+    "integration-repair-build.log": "2455467f21c5e676c9cb1e74ecdf5f52bcb75a6cc6430ba719300386caed1e37"
+  },
+  "local_evidence": "E:\\EQ_Local_Dev\\artifacts\\advloot-20260930\\server-evidence",
+  "live_binaries_replaced": false
 }

@@ -120,6 +120,9 @@ func buildConfigured(client, assets, keyPath string, create bool, release uint64
 	if err != nil {
 		return err
 	}
+	if err = validateClassicModels(gameplay); err != nil {
+		return err
+	}
 	for _, name := range gameplayNames {
 		names = append(names, name)
 		data[name] = gameplay[name]

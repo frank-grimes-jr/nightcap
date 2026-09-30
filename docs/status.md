@@ -3,14 +3,28 @@
 Updated September 30, 2026. This is the current status index; dated studies and
 QA reports preserve their original evidence and are not live-state promises.
 
-## Advanced loot under implementation
+## Advanced loot candidate awaiting native QA
 
 The [advanced-loot candidate](releases/advanced-loot/README.md) has a native
 RoF2 window and server queue, saved filters, personal/shared controls, checked
 item/coin transfers and saved-state receipt protection. Focused fixtures and
 the disposable SQL rehearsal pass. The clean world/zone build and locally signed
-QA package pass compilation, installation and actual RoF2 startup. Native gameplay,
-isolated server integration and rollback review remain open. No live changes or promotion.
+QA package pass compilation, installation and actual RoF2 startup. Isolated
+login/world/ecommons services boot successfully. Client access needs an approved
+temporary port-9000 cutover. Native gameplay and rollback review remain open.
+No live changes or promotion.
+
+## Classic models deployed
+
+The [classic-model release](releases/classic-models-20260930/PRODUCTION.md)
+adds a mandatory client policy, 22 isolated classic archives, original elemental
+palettes and 98 remake mappings. Existing INI settings cannot silently opt in.
+Signed game release **2026093004** is live through the existing patcher after
+the owner's explicit main/server instruction. Native x86, archive integrity
+and packaging checks pass. Rendering and owner acceptance remain open. Creatures with no old
+counterpart retain their existing model, as the owner explicitly requested on
+September 30. The policy choice is resolved; see the [coverage audit](releases/classic-models-20260930/scope-audit.md)
+for the mapping scope and remaining visual acceptance.
 
 ## Combat and item repair candidate
 
@@ -46,10 +60,14 @@ The owner's silent-hail report exposed a deployment path error: production loads
 `plugins/`, but the helpers were under `quests/plugins/`. The
 [September 22 hail fix](releases/tunnel-travel-alcove/HAIL-FIX.md) is live after a
 graceful restart; the configured runtime passes all 25 quest checks, preservation
-and native hashes match, and no new quest errors were found. Use its recovery
-wrapper for rollback. All ten destinations and return/PoK books remain; visual
-and gameplay acceptance remain open. The earlier local QA deployment is retained
-as dated evidence.
+and native hashes match, and no new quest errors were found. On September 30 the
+owner confirmed Merrin is fixed. His three production files already match main;
+the installed handler, scoped content and current pet-release native hashes
+were reverified without a restart. [Owner report and current verification](releases/tunnel-travel-alcove/OWNER-QA.json).
+All ten destinations and return/PoK books remain; the complete round-trip,
+appearance and pet QA matrix remains open. The September 22 recovery wrapper is
+pinned to the old native image: read the current-target caveat in the hail-fix
+guide before recovery. The earlier local QA deployment remains dated evidence.
 
 [Deployed scope, evidence and exact QA](releases/tunnel-services-starters/README.md):
 22 supply merchants, six crafting stations, all 16 trainers, eight walkers,

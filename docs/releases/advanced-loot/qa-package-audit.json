@@ -2,185 +2,346 @@
   "bootstrap": {
     "EntryRVA": 5126986,
     "EntryOriginal": 232,
-    "InitializerRVA": 92080,
-    "ProxyImageSize": 577536
+    "InitializerRVA": 93696,
+    "ProxyImageSize": 589824
   },
-  "created": "2026-09-30T18:44:12Z",
-  "expires": "2026-10-30T18:44:12Z",
+  "created": "2026-09-30T20:17:37Z",
+  "expires": "2026-10-30T20:17:37Z",
   "files": [
     {
       "path": "dinput8.dll",
-      "sha256": "d5d6aed9cf5ed003ac7e56d051b2bc98630ac11c3f00965e30e62c541cbeadaa",
-      "size": 562688,
-      "url": "https://qa.nightcap.invalid/release/2026093001/dinput8.dll",
+      "sha256": "5e91625fd01df681d7e7740a07ba3fe3e3f46c9f2b4ab71427d558acba9f9dbc",
+      "size": 572928,
+      "url": "https://qa.nightcap.invalid/release/2026093005/dinput8.dll",
       "required": true
     },
     {
       "path": "nightcap-bootstrap.exe",
-      "sha256": "beceb5fec2c40dd83d35a9ed42e2fc3fcddb2e115e041e1e65775d8f4f75fc45",
+      "sha256": "013e24424d403e42051355f0de25aee0f4da4494d2dc4b1418feaec7e44f27fa",
       "size": 119808,
-      "url": "https://qa.nightcap.invalid/release/2026093001/nightcap-bootstrap.exe",
+      "url": "https://qa.nightcap.invalid/release/2026093005/nightcap-bootstrap.exe",
       "required": true
     },
     {
       "path": "nightcap-patches.cfg",
-      "sha256": "f561845bedc6a4bd54b615cd49277498ade33faf1b028ab4f5c2c2b7fd73e643",
-      "size": 255,
-      "url": "https://qa.nightcap.invalid/release/2026093001/nightcap-patches.cfg",
+      "sha256": "74fb0152599f7dd162fa2d315ff0480370a90d8b70f92a275d7764b202731fa0",
+      "size": 275,
+      "url": "https://qa.nightcap.invalid/release/2026093005/nightcap-patches.cfg",
       "required": true
     },
     {
       "path": "nightcap-patch-sites.json",
-      "sha256": "829d8f90965be47166c1f8ca5348a27c1784f99e92ba4f091b51f97208248e53",
-      "size": 5575,
-      "url": "https://qa.nightcap.invalid/release/2026093001/nightcap-patch-sites.json",
+      "sha256": "ad821dc33f2d1c0c370a2a60ad6c70ea0c3f29400d157559835a8285e2b47243",
+      "size": 5967,
+      "url": "https://qa.nightcap.invalid/release/2026093005/nightcap-patch-sites.json",
       "required": true
     },
     {
       "path": "spells_us.txt",
       "sha256": "56915e0e489422a7befb1f3255610a8f6c1cb2163252aa05476a6dfea4270456",
       "size": 28139043,
-      "url": "https://qa.nightcap.invalid/release/2026093001/spells_us.txt",
+      "url": "https://qa.nightcap.invalid/release/2026093005/spells_us.txt",
       "required": true
     },
     {
       "path": "uifiles/nightcap/equi_inventory.xml",
       "sha256": "7566fc72269d04e090f70e1e4b7b36bc3db71fe01f84165132212b5a0ed33f7e",
       "size": 187448,
-      "url": "https://qa.nightcap.invalid/release/2026093001/uifiles/nightcap/equi_inventory.xml",
+      "url": "https://qa.nightcap.invalid/release/2026093005/uifiles/nightcap/equi_inventory.xml",
       "required": true
     },
     {
       "path": "uifiles/nightcap/equi_aawindow.xml",
       "sha256": "11ddab585f2105ba39252bff2bbb7e7778683b676a15acc6b8b4b9a666e0b3eb",
       "size": 21226,
-      "url": "https://qa.nightcap.invalid/release/2026093001/uifiles/nightcap/equi_aawindow.xml",
+      "url": "https://qa.nightcap.invalid/release/2026093005/uifiles/nightcap/equi_aawindow.xml",
       "required": true
     },
     {
       "path": "uifiles/nightcap/equi_petinfowindow.xml",
-      "sha256": "02443ceae1e4bb0704a4f6a90527248c2bb5c7a80fd82af7bd75743d0b30b86e",
-      "size": 96030,
-      "url": "https://qa.nightcap.invalid/release/2026093001/uifiles/nightcap/equi_petinfowindow.xml",
+      "sha256": "2315f62110f2f84aa424e2861acf7d29147fdfbe8ad0b0f0948854cce0ec9fd1",
+      "size": 95989,
+      "url": "https://qa.nightcap.invalid/release/2026093005/uifiles/nightcap/equi_petinfowindow.xml",
       "required": true
     },
     {
       "path": "ecommons_chr.txt",
       "sha256": "ce76d34efb7d66705dbfa13e12047b622cc0da8ca7c44e3d81ce526bda3e6c03",
       "size": 98,
-      "url": "https://qa.nightcap.invalid/release/2026093001/ecommons_chr.txt",
+      "url": "https://qa.nightcap.invalid/release/2026093005/ecommons_chr.txt",
       "required": true
     },
     {
       "path": "ecommons_assets.txt",
       "sha256": "160fb90872f853a5181261e815832a9b5ff0e755c4fa2f0f0086f967a6985c95",
       "size": 16,
-      "url": "https://qa.nightcap.invalid/release/2026093001/ecommons_assets.txt",
+      "url": "https://qa.nightcap.invalid/release/2026093005/ecommons_assets.txt",
       "required": true
     },
     {
       "path": "poknowledge_obj.s3d",
       "sha256": "de46dd2bdb55daac2e559148f62d83108da2697bb7c0079edd4c8ec09ee7a9e1",
       "size": 6619031,
-      "url": "https://qa.nightcap.invalid/release/2026093001/poknowledge_obj.s3d",
+      "url": "https://qa.nightcap.invalid/release/2026093005/poknowledge_obj.s3d",
       "required": true
     },
     {
       "path": "nektulos.s3d",
       "sha256": "6cfb7612bfe2703242add44d7cff285a37e08423df8082fffe10ce3dd84c7f21",
       "size": 966169,
-      "url": "https://qa.nightcap.invalid/release/2026093001/nektulos.s3d",
+      "url": "https://qa.nightcap.invalid/release/2026093005/nektulos.s3d",
       "required": true
     },
     {
       "path": "nektulos_obj.s3d",
       "sha256": "980717cdf70834429ed9667c14321a93f15aa38f78e331e8b6a15938f626969c",
       "size": 951436,
-      "url": "https://qa.nightcap.invalid/release/2026093001/nektulos_obj.s3d",
+      "url": "https://qa.nightcap.invalid/release/2026093005/nektulos_obj.s3d",
       "required": true
     },
     {
       "path": "dbstr_us.txt",
       "sha256": "ed077151c4bbfd8828708e6dd812095cdf4b69dbdd3c9f29f078062b51520a0f",
       "size": 6368726,
-      "url": "https://qa.nightcap.invalid/release/2026093001/dbstr_us.txt",
+      "url": "https://qa.nightcap.invalid/release/2026093005/dbstr_us.txt",
       "required": true
     },
     {
       "path": "maps/ecommons_3.txt",
       "sha256": "db69717986bcaa83ff6f1c8a88f42884aa7b06b35d488e0d091f58ed5d095d69",
       "size": 1736,
-      "url": "https://qa.nightcap.invalid/release/2026093001/maps/ecommons_3.txt",
+      "url": "https://qa.nightcap.invalid/release/2026093005/maps/ecommons_3.txt",
       "required": true
     },
     {
       "path": "lavastorm.s3d",
       "sha256": "daa1053f71320e1f5882417f3dadc0b65c55fb64c75f3a806bceb57bbceb24c3",
       "size": 839387,
-      "url": "https://qa.nightcap.invalid/release/2026093001/lavastorm.s3d",
+      "url": "https://qa.nightcap.invalid/release/2026093005/lavastorm.s3d",
       "required": true
     },
     {
       "path": "lavastorm_obj.s3d",
       "sha256": "6476962179483d940cde99ef60fee43477d95c158aa28ccc1bc0e14d396b7b1f",
       "size": 315859,
-      "url": "https://qa.nightcap.invalid/release/2026093001/lavastorm_obj.s3d",
+      "url": "https://qa.nightcap.invalid/release/2026093005/lavastorm_obj.s3d",
       "required": true
     },
     {
       "path": "poknowledge_chr.txt",
       "sha256": "75d478e5585952b4a6d5a65d96c5999de5a577fd97c59f96b26cfb108a340690",
       "size": 246,
-      "url": "https://qa.nightcap.invalid/release/2026093001/poknowledge_chr.txt",
+      "url": "https://qa.nightcap.invalid/release/2026093005/poknowledge_chr.txt",
       "required": true
     },
     {
       "path": "mur.eqg",
       "sha256": "f16e0cc1238aed5341db915191e23f8ef899ccfdb07845631544c77b2b130b81",
       "size": 2538532,
-      "url": "https://qa.nightcap.invalid/release/2026093001/mur.eqg",
+      "url": "https://qa.nightcap.invalid/release/2026093005/mur.eqg",
       "required": true
     },
     {
       "path": "scu.eqg",
       "sha256": "ef25cc9574fc6e86b739f33189cb4e8b417109350ffd27e2b2ea85bb7dcd41cd",
       "size": 3453594,
-      "url": "https://qa.nightcap.invalid/release/2026093001/scu.eqg",
+      "url": "https://qa.nightcap.invalid/release/2026093005/scu.eqg",
       "required": true
     },
     {
       "path": "frd.eqg",
       "sha256": "cec07cab1aee916d9ad67a78cc7733ddb3407f7c20609ce9e1241c4e78c97680",
       "size": 2528730,
-      "url": "https://qa.nightcap.invalid/release/2026093001/frd.eqg",
+      "url": "https://qa.nightcap.invalid/release/2026093005/frd.eqg",
       "required": true
     },
     {
       "path": "ddv.eqg",
       "sha256": "095e723a4aee74c518921fcb4c134ccec547cb4463538385b4bfd997c3609972",
       "size": 2374012,
-      "url": "https://qa.nightcap.invalid/release/2026093001/ddv.eqg",
+      "url": "https://qa.nightcap.invalid/release/2026093005/ddv.eqg",
       "required": true
     },
     {
       "path": "srn.eqg",
       "sha256": "5a5cc71322234a3a26f6d7f34b996ba17a6d190ef46d8d84567c2ca0371bc18f",
       "size": 1878012,
-      "url": "https://qa.nightcap.invalid/release/2026093001/srn.eqg",
+      "url": "https://qa.nightcap.invalid/release/2026093005/srn.eqg",
+      "required": true
+    },
+    {
+      "path": "ncm01_chr.s3d",
+      "sha256": "c9f1506a40364e937f056f6988b8f47ada3ba944475aa75c9113834c08bbcc67",
+      "size": 7302833,
+      "url": "https://qa.nightcap.invalid/release/2026093005/ncm01_chr.s3d",
+      "required": true
+    },
+    {
+      "path": "ncm02_chr.s3d",
+      "sha256": "add375a687e9c7295b079f283b8e3731a4136ad20c4ed91d07c2d55f9982757e",
+      "size": 2460804,
+      "url": "https://qa.nightcap.invalid/release/2026093005/ncm02_chr.s3d",
+      "required": true
+    },
+    {
+      "path": "ncm03_chr.s3d",
+      "sha256": "ec08e913d9116861ad6b4a6e92e636d02f4bc379bfdbb79c324723c0ce6c6d0b",
+      "size": 2531342,
+      "url": "https://qa.nightcap.invalid/release/2026093005/ncm03_chr.s3d",
+      "required": true
+    },
+    {
+      "path": "ncm04_chr.s3d",
+      "sha256": "0c05e9ec3cc0ad22fd65bfc92a31b83395922fa6162726023b69e3ce6e6d9528",
+      "size": 2063504,
+      "url": "https://qa.nightcap.invalid/release/2026093005/ncm04_chr.s3d",
+      "required": true
+    },
+    {
+      "path": "ncm05_chr.s3d",
+      "sha256": "44629dc3a7e0d28451975b4cb4045b73e33d32dc72c8c8cc6cfd9c5fd0549358",
+      "size": 2469197,
+      "url": "https://qa.nightcap.invalid/release/2026093005/ncm05_chr.s3d",
+      "required": true
+    },
+    {
+      "path": "ncm06_chr.s3d",
+      "sha256": "fea7a0b176e2a227b90464f865f79dfe906a1ee26198334f13dd658bc0130244",
+      "size": 6366944,
+      "url": "https://qa.nightcap.invalid/release/2026093005/ncm06_chr.s3d",
+      "required": true
+    },
+    {
+      "path": "ncm07_chr.s3d",
+      "sha256": "1dcd8b69d8aee1539e99e09cbf01f3f7b6c75e9d2aad63cc9a7783a4cfae1fe5",
+      "size": 2597612,
+      "url": "https://qa.nightcap.invalid/release/2026093005/ncm07_chr.s3d",
+      "required": true
+    },
+    {
+      "path": "ncm08_chr.s3d",
+      "sha256": "b26c3f61773a5d2f4c5e67aa191c9c72b7d136e9f155184503066892dce7c32e",
+      "size": 2499302,
+      "url": "https://qa.nightcap.invalid/release/2026093005/ncm08_chr.s3d",
+      "required": true
+    },
+    {
+      "path": "ncm09_chr.s3d",
+      "sha256": "1e46ad3ae4c0046763ab9dbc19ea0cd2cdf6af83fa112849b465a4cad8045c63",
+      "size": 2741081,
+      "url": "https://qa.nightcap.invalid/release/2026093005/ncm09_chr.s3d",
+      "required": true
+    },
+    {
+      "path": "ncm10_chr.s3d",
+      "sha256": "ea0e9e8184a29d87082ceba6105806de7023bc6c3abf56df09dd41a05093da71",
+      "size": 4384922,
+      "url": "https://qa.nightcap.invalid/release/2026093005/ncm10_chr.s3d",
+      "required": true
+    },
+    {
+      "path": "ncm11_chr.s3d",
+      "sha256": "23c03b153256ee5b9c46fa15081e3af4a2679a188eca46d9c6822c3ae0a41848",
+      "size": 3237002,
+      "url": "https://qa.nightcap.invalid/release/2026093005/ncm11_chr.s3d",
+      "required": true
+    },
+    {
+      "path": "ncm12_chr.s3d",
+      "sha256": "ff5575b4a45ffa1f3dcf16ba2b5069c7086942ffa64042c4972138e4a5a48d61",
+      "size": 2711688,
+      "url": "https://qa.nightcap.invalid/release/2026093005/ncm12_chr.s3d",
+      "required": true
+    },
+    {
+      "path": "ncm13_chr.s3d",
+      "sha256": "64f5a0c76a49c49660c53ddb92c960660bb96252b8365722061e4fba11a22d73",
+      "size": 2480771,
+      "url": "https://qa.nightcap.invalid/release/2026093005/ncm13_chr.s3d",
+      "required": true
+    },
+    {
+      "path": "ncm14_chr.s3d",
+      "sha256": "9cf9acdbe2f6a500b80e56235dbd35268148d7094855145665dea9e860517976",
+      "size": 4295342,
+      "url": "https://qa.nightcap.invalid/release/2026093005/ncm14_chr.s3d",
+      "required": true
+    },
+    {
+      "path": "ncm15_chr.s3d",
+      "sha256": "86c7230f2e61d3103895386566993f81e61da2dbca5ee1486b4987b1ca43dc61",
+      "size": 6502624,
+      "url": "https://qa.nightcap.invalid/release/2026093005/ncm15_chr.s3d",
+      "required": true
+    },
+    {
+      "path": "ncm16_chr.s3d",
+      "sha256": "fc6c84da219c9ece3ffe44dea2508519a012aaa6624955dbc95d74847bad282e",
+      "size": 2060182,
+      "url": "https://qa.nightcap.invalid/release/2026093005/ncm16_chr.s3d",
+      "required": true
+    },
+    {
+      "path": "ncm17_chr.s3d",
+      "sha256": "ccff01684980eef2fdd6560a3d6acc04b86bc98d8f4afd4b9114cc04b3c1aa48",
+      "size": 3076597,
+      "url": "https://qa.nightcap.invalid/release/2026093005/ncm17_chr.s3d",
+      "required": true
+    },
+    {
+      "path": "ncm18_chr.s3d",
+      "sha256": "cd2dcdf2d487b1740b47ee648799f2a01df5cc7f3a68bb382f45e14d9056ad18",
+      "size": 1720046,
+      "url": "https://qa.nightcap.invalid/release/2026093005/ncm18_chr.s3d",
+      "required": true
+    },
+    {
+      "path": "ncm19_chr.s3d",
+      "sha256": "a549fcde7b75b9f751262f631f087c252d9e197c92024a9aaabd6ac26971885e",
+      "size": 7255462,
+      "url": "https://qa.nightcap.invalid/release/2026093005/ncm19_chr.s3d",
+      "required": true
+    },
+    {
+      "path": "ncm20_chr.s3d",
+      "sha256": "b3071970aa5461f903acf1c969755ace79737ae101b148c60eecb541fe372795",
+      "size": 7337109,
+      "url": "https://qa.nightcap.invalid/release/2026093005/ncm20_chr.s3d",
+      "required": true
+    },
+    {
+      "path": "ncm21_chr.s3d",
+      "sha256": "7d7d7283bd84361f558631b05948d5e38762217493e0690fb2350dc288ae11cc",
+      "size": 7237679,
+      "url": "https://qa.nightcap.invalid/release/2026093005/ncm21_chr.s3d",
+      "required": true
+    },
+    {
+      "path": "ncm22_chr.s3d",
+      "sha256": "cd2e350ee53d12e6287d84d9f700436ce66462b1a9a6b1a2020558e430dab9a5",
+      "size": 7381252,
+      "url": "https://qa.nightcap.invalid/release/2026093005/ncm22_chr.s3d",
+      "required": true
+    },
+    {
+      "path": "nightcap_models_chr.txt",
+      "sha256": "b3ac03507bf6dad1807155386eb248904bdb0c7055af6c6da9f14aea52e5bec5",
+      "size": 2148,
+      "url": "https://qa.nightcap.invalid/release/2026093005/nightcap_models_chr.txt",
       "required": true
     }
   ],
   "key_id": "local-qa-5224a68297890a76",
-  "manifest_sha256": "ddd24727746e818e2aff8109a79341a991499161eef4b308efd15659379ce91a",
+  "manifest_sha256": "858e7a9d0373ccc2a4428b81a6e653e2a6417d4fff2820846d5ba65eb0c08340",
   "preflight": {
     "supported_executable": true,
     "configuration_valid": true,
-    "sites_verified": 58,
+    "sites_verified": 63,
     "static_preflight_valid": true,
     "ready_to_play": false
   },
   "public_key": "e4e2164637c7389d372c2ffeb7d8f358dab09b244e22439b79a030e50be86178",
   "public_key_sha256": "5224a68297890a76c6694bb459b5611eee51524052895a730d543a69cdda4623",
-  "release": 2026093001,
+  "release": 2026093005,
   "scope": "LOCAL QA CANDIDATE; package signature is not Windows Authenticode or gameplay acceptance"
 }

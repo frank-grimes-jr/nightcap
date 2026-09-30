@@ -1,0 +1,144 @@
+{
+  "date": "2026-09-30",
+  "recorded_at": "2026-09-30T19:46:09.923930+00:00",
+  "status": "published_visual_QA_open",
+  "authorization": "Owner explicitly requested Push to main and server; visual acceptance remains open.",
+  "main_commit_at_publication": "c67ee0e2eeaeeeecf8d70003a0a81666e9e2c5a9",
+  "promotion_prs": [
+    88,
+    89,
+    90
+  ],
+  "proxy_version": "0.7.0-dev",
+  "publication": {
+    "release": 2026093004,
+    "verified_files": 46,
+    "channel_sha256": "9b7fcf0d79c5ba6fef677f58ea7585ebc79161faa964961dd95145c357c3b57a",
+    "previous_release": 2026092201,
+    "services_unchanged": true,
+    "desktop_starter_guide_unchanged": true
+  },
+  "local_verification": {
+    "channel_sha256": "9b7fcf0d79c5ba6fef677f58ea7585ebc79161faa964961dd95145c357c3b57a",
+    "expires": "2026-10-30T19:21:38Z",
+    "hosted": false,
+    "release": 2026093004,
+    "signature": "valid against shipped production public key",
+    "total_bytes": 148621472,
+    "verified_files": 46
+  },
+  "hosted_verification": {
+    "channel_sha256": "9b7fcf0d79c5ba6fef677f58ea7585ebc79161faa964961dd95145c357c3b57a",
+    "expires": "2026-10-30T19:21:38Z",
+    "hosted": true,
+    "release": 2026093004,
+    "signature": "valid against shipped production public key",
+    "total_bytes": 148621472,
+    "verified_files": 46
+  },
+  "new_files": [
+    "ncm01_chr.s3d",
+    "ncm02_chr.s3d",
+    "ncm03_chr.s3d",
+    "ncm04_chr.s3d",
+    "ncm05_chr.s3d",
+    "ncm06_chr.s3d",
+    "ncm07_chr.s3d",
+    "ncm08_chr.s3d",
+    "ncm09_chr.s3d",
+    "ncm10_chr.s3d",
+    "ncm11_chr.s3d",
+    "ncm12_chr.s3d",
+    "ncm13_chr.s3d",
+    "ncm14_chr.s3d",
+    "ncm15_chr.s3d",
+    "ncm16_chr.s3d",
+    "ncm17_chr.s3d",
+    "ncm18_chr.s3d",
+    "ncm19_chr.s3d",
+    "ncm20_chr.s3d",
+    "ncm21_chr.s3d",
+    "ncm22_chr.s3d",
+    "nightcap_models_chr.txt"
+  ],
+  "changed_files": [
+    "dinput8.dll",
+    "nightcap-bootstrap.exe",
+    "nightcap-patches.cfg",
+    "nightcap-patch-sites.json",
+    "uifiles/nightcap/equi_petinfowindow.xml"
+  ],
+  "unchanged_managed_files": 18,
+  "user_ini_files_in_inventory": 0,
+  "core_artifacts": {
+    "dinput8.dll": {
+      "size": 526848,
+      "sha256": "6bc05569c4d7f956877901348e90156cc7c6480d12d3497a0d71e4489e74606e"
+    },
+    "nightcap-bootstrap.exe": {
+      "size": 119808,
+      "sha256": "b5460e212c571f4ecbfefb636e93161ad9d6f1a0f5af1c961392960e0c4b88d1"
+    },
+    "nightcap-patches.cfg": {
+      "size": 256,
+      "sha256": "2ffb36255bfd5374c5d8aa5dcec7364ad33547b98fb6934c4c598f57bd8dd233"
+    },
+    "nightcap-patch-sites.json": {
+      "size": 4201,
+      "sha256": "29178abe9f595dde3c67f6c123be54bc3cfc0c5fdbbb6b7a03cc8a0c90c24d93"
+    }
+  },
+  "desktop_release": 2026092701,
+  "desktop_version": "0.3.1",
+  "services_after": {
+    "db": {
+      "id": "5c34a0594d5015209f7667d4421c00ef492b80298842829b2edb69c69449d96f",
+      "image_id": "sha256:7f22313fc130a377a44999965bcb0a08dd5b21e8502824c1b864f792f9bc66ab",
+      "started_at": "2026-09-20T17:47:54.935680589Z",
+      "restarts": 0,
+      "running": true,
+      "health": "healthy",
+      "oom_killed": false
+    },
+    "game": {
+      "id": "c968b9d9cd561d5141e46f6fd952bc82acd42b88b4a5a84c3761a3ac699379ab",
+      "image_id": "sha256:d9aadb51fc2d1b6cb773c102baea1747b734b764028a84e044cde03090e19806",
+      "started_at": "2026-09-30T16:03:33.991786673Z",
+      "restarts": 1,
+      "running": true,
+      "health": "healthy",
+      "oom_killed": false
+    },
+    "gateway": {
+      "id": "9ba6a7761ccc44e146f6679f40cb54828ae8c9562e325ea374d9d2f117e8bb9a",
+      "image_id": "sha256:c36fa37c7d0b24055eaeb42ebd7370e313c2b41b96fa03256e0cbafee91fc58a",
+      "started_at": "2026-09-27T20:48:20.755924147Z",
+      "restarts": 0,
+      "running": true,
+      "health": null,
+      "oom_killed": false
+    },
+    "web": {
+      "id": "d8fb0c7da13aea642ae505b0c8bed74b529107185d43dbf35406f6b025d4d71d",
+      "image_id": "sha256:7377697a821c131a924a7105fafbe7414db4e9fcc77a6f08f776f33f141ec3f8",
+      "started_at": "2026-09-20T17:47:54.765116169Z",
+      "restarts": 0,
+      "running": true,
+      "health": null,
+      "oom_killed": false
+    },
+    "tunnel": {
+      "id": "30b1d25ff56bffa77a5b05d1b3d2f6c37b8a87dc05ef098721b6be6555235aac",
+      "image_id": "sha256:ff69a2225ad7c6f85ed84fbd5f3087df46202426b2388ec60214098e0adf05e9",
+      "started_at": "2026-09-20T17:53:43.445441644Z",
+      "restarts": 0,
+      "running": true,
+      "health": null,
+      "oom_killed": false
+    }
+  },
+  "services_match_before": true,
+  "rollback": "Publish prior reviewed bytes and inventory at a game release above 2026093004; preserve user INIs and server/player state.",
+  "graphical_QA": "pending",
+  "qa_record": "verification.json"
+}

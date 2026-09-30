@@ -6,9 +6,19 @@ recipe against production or the read-only `Client_RoF2_Dev` installation.
 No promotion to `test` or `main` is recorded by this document.
 
 The separate client and signed launcher are packaged under
-`E:/EQ_Local_Dev/artifacts/advloot-20260930/qa/` (release 2026093001).
-Installation and startup passed; the isolated gameplay server at `127.0.0.1:15998`
-still needs to be prepared before executing this matrix. See [package evidence](qa-package.json).
+`E:/EQ_Local_Dev/artifacts/advloot-20260930/qa/` (release 2026093005).
+Installation and startup passed. The isolated login/world/ecommons services are
+running, with hashes and fixture-only database state in [service evidence](gameplay-qa.json).
+The QA client targets `127.0.0.1:15998`, but client access is deliberately inactive
+until world port 9000 is freed and published for QA. The live local game-server
+container currently owns that port. A temporary cutover requires owner approval
+because it interrupts that server; it has not been performed.
+
+Use fresh accounts `advloota` and `advlootb`; their generated credentials are in
+the private local artifact directory, outside the package and Git. The isolated
+quest directory is empty except canonical hand-in helpers, so production quest
+acceptance requires separately staged fixtures. No production characters were copied.
+See [package evidence](qa-package.json).
 
 ## Fixed fixtures
 

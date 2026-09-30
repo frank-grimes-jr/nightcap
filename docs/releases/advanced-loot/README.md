@@ -1,11 +1,12 @@
 # Advanced loot implementation
 
 Date: 2026-09-30. Branch: `feature/advanced-loot`, based on `origin/main`
-`20608bb`. **In progress; not usable as a released feature and not deployed.**
+`20608bb`, integrated with dev `ffac9ba`. **Implemented candidate; native gameplay
+acceptance remains open. Not deployed live.**
 The original RoF2 installation remains read-only. No live database migration,
 gameplay binary replacement, signed publication or main promotion occurred.
 
-Scope and acceptance requirements: [ADR 0048](../../adr/0048-advanced-loot-client-server-contract.md).
+Scope and acceptance requirements: [ADR 0049](../../adr/0049-advanced-loot-client-server-contract.md).
 
 ## Current evidence
 
@@ -19,25 +20,28 @@ Scope and acceptance requirements: [ADR 0048](../../adr/0048-advanced-loot-clien
   Existing pet controls are retained. XML generation is not proof of native
   rendering or usable layout.
 - Proxy `0.7.0-dev` and the generated launcher catalog require `advanced_loot`.
-  The catalog has 58 sites, each at most 64 bytes. Runtime verification rebases
+  The integrated catalog has 63 sites, each at most 64 bytes. Runtime verification rebases
   the command/constructor SEH immediates and every native vtable pointer.
 - Build command, source hashes and artifact hashes are in
   [client-build.json](client-build.json). The signed QA package installs in an
-  independent copy and actual RoF2 startup reports all 14 required patches active.
-  [Package evidence](qa-package.json) records the 23 files, hashes and clean shutdown.
+  independent copy and actual RoF2 startup reports all 15 required patches active.
+  [Package evidence](qa-package.json) records the 46 files, hashes and clean shutdown.
 - All three current focused C++ fixtures pass: snapshot protocol, personal/shared
   decision policy including saved roll checkpoints, and the x86 screen ABI/lifetime
   fixture (1,000 reload cycles). The screen fixture substitutes native dependencies;
   native skin reload, zoning and real message traffic remain untested in eqgame.
 - The zone queue, command handler, per-character preferences, native corpse
   adapter, checked inventory placement, coin transfers and saved-state extension
-  are wired into the candidate source. An intermediate integrated zone compiled
-  and linked. The final clean paired world/zone build also passed with unchanged
-  source fingerprints before/after compilation: [server-build.json](server-build.json).
+  are wired into the candidate source. A clean paired world/zone build passed,
+  followed by an incremental integration of the current enchanter command fix.
+  Source fingerprints remained unchanged during compilation:
+  [server-build.json](server-build.json).
   All 73 overlay files match the build; the complete source manifest is retained
   in [compressed form](server-source-manifest.json.gz).
-  This retained build predates the final classic-loot/master review corrections;
-  the reviewed rebuild is running and will replace this evidence before release.
+  The build includes the final classic-loot/master review corrections. An initial
+  incremental attempt skipped a file because its copied timestamp was older than
+  its object. This was detected before installation; the verified file was
+  recompiled, zone relinked, and its changed binary hash checked.
 - `tools/tests/test_advanced_loot_inventory.py` compiles the actual production
   inventory translation unit with dependency fakes. Its checks cover complete
   metadata, stack merging/splitting, bag placement, full/stale slots, evolving
@@ -64,6 +68,11 @@ Scope and acceptance requirements: [ADR 0048](../../adr/0048-advanced-loot-clien
   authorized GM recovery, and replace disconnected masters from the existing
   eligible roster. [Review record](REVIEW.md); production access helpers pass the
   [access fixture](access-rehearsal.json). Native acceptance remains open.
+- The isolated login server, world and East Commonlands zone boot successfully
+  with matching running binary hashes and no startup errors. The fresh content
+  database has two fixture accounts and zero characters, inventory or saved states.
+  [Service evidence](gameplay-qa.json). Empty quests mean production quest behavior
+  is still outside this startup check. Client access remains gated by port 9000.
 
 ## Native ABI evidence
 
@@ -179,9 +188,13 @@ an uncertain award. Normal feature → dev → test → main gates remain in for
 
 Launcher: `E:/EQ_Local_Dev/artifacts/advloot-20260930/qa/nightcap-launcher-qa.exe`.
 Client: `E:/EQ_Local_Dev/artifacts/advloot-20260930/qa/client/everquest_rof2`.
-Release **2026093001**, signed manifest expires **2026-10-30 18:44:12 UTC**.
+Release **2026093005**; the signed manifest expiry is recorded in
+[package evidence](qa-package.json).
 This is a locally signed offline package, not an Authenticode or public release.
-The copied client targets `127.0.0.1:15998`; no server is running there yet.
-Do not change that target to production to bypass the remaining isolation work.
+The copied client targets `127.0.0.1:15998`. Isolated services are running, but the
+client login listener deliberately uses an unpublished port until QA world access
+is enabled. RoF2 requires world port 9000, which the live local container occupies.
+An explicit temporary cutover is needed before the owner can enter this QA server;
+do not change the client's login target to production to bypass the gate.
 Candidate world/zone and SQL are under the artifact root's `server` directory.
 Private signing material is outside the package and must not be copied into it.

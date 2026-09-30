@@ -1,4 +1,4 @@
-# ADR 0048: Advanced loot in the RoF2 client
+# ADR 0049: Advanced loot in the RoF2 client
 
 Date: 2026-09-30. Status: implementation in progress; not deployed.
 

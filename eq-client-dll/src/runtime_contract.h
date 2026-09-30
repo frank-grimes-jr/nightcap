@@ -3,12 +3,12 @@
 #include <cstddef>
 #include <cstdint>
 namespace nightcap {
-enum RequiredFeature : size_t {Feature_caster_chassis,Feature_combat_ability_window,Feature_actions_skills,Feature_skill_value,Feature_hotbutton_skills,Feature_monk_attacks,Feature_equipment,Feature_mana_cache,Feature_mana_gauge,Feature_class_ui,Feature_pet_armor,Feature_auto_ui,Feature_multiclass_spell_access,Feature_advanced_loot};
-static const char* const kRequiredFeatures[] = {"caster_chassis","combat_ability_window","actions_skills","skill_value","hotbutton_skills","monk_attacks","equipment","mana_cache","mana_gauge","class_ui","pet_armor","auto_ui","multiclass_spell_access","advanced_loot"};
+enum RequiredFeature : size_t {Feature_caster_chassis,Feature_combat_ability_window,Feature_actions_skills,Feature_skill_value,Feature_hotbutton_skills,Feature_monk_attacks,Feature_equipment,Feature_mana_cache,Feature_mana_gauge,Feature_class_ui,Feature_pet_armor,Feature_auto_ui,Feature_multiclass_spell_access,Feature_classic_models,Feature_advanced_loot};
+static const char* const kRequiredFeatures[] = {"caster_chassis","combat_ability_window","actions_skills","skill_value","hotbutton_skills","monk_attacks","equipment","mana_cache","mana_gauge","class_ui","pet_armor","auto_ui","multiclass_spell_access","classic_models","advanced_loot"};
 static const size_t kRequiredFeatureCount = sizeof(kRequiredFeatures) / sizeof(kRequiredFeatures[0]);
 static const uint32_t kRequiredMask = (uint32_t(1) << kRequiredFeatureCount) - 1;
 static_assert(kRequiredFeatureCount > 0 && kRequiredFeatureCount < 32, "feature mask capacity");
-static const char kCatalogSHA256[] = "829d8f90965be47166c1f8ca5348a27c1784f99e92ba4f091b51f97208248e53";
+static const char kCatalogSHA256[] = "ad821dc33f2d1c0c370a2a60ad6c70ea0c3f29400d157559835a8285e2b47243";
 static const char kProxyVersion[] = "0.7.0-dev";
 static const unsigned kRuntimeSchema = 1;
 }

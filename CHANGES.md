@@ -1,5 +1,18 @@
 # CHANGES
 
+## 2026-09-30 - Advanced-loot integrated QA candidate
+
+Integrate dev `ffac9ba`, retaining current classic models, pet UI and enchanter
+commands. Resolve the shared catalog to 63 sites and 15 required features.
+Signed offline QA release 2026093005 installs 46 files in the separate client and
+passes actual RoF2 startup and clean shutdown. Original client hashes are unchanged.
+Verify all 73 server overlays against the clean-build-plus-integration manifest.
+Detect and repair an incremental timestamp skip before installing any QA binaries.
+Boot isolated login/world/ecommons services against a fresh content database with
+two fixture accounts and no copied characters or inventory. Client access remains
+disabled until an approved temporary world-port cutover; native in-game QA and
+receipt-aware rollback remain open. No live deployment or gameplay promotion.
+
 ## 2026-09-30 - Advanced-loot server integration (candidate)
 
 Wire the native window to a zone-owned corpse queue and `#advloot` protocol:
@@ -35,7 +48,66 @@ per-character preference storage. The corpse queue, checked item transfers,
 server integration and in-game QA remain unfinished; nothing is deployed.
 The original client stays read-only. Preserve full item metadata and existing
 loot rights when completing the server adapter. Evidence and requirements:
-`docs/releases/advanced-loot/README.md`; design: ADR 0048.
+`docs/releases/advanced-loot/README.md`; design: ADR 0049.
+
+## 2026-09-30 - Classic client model defaults deployed
+
+The owner explicitly requested main/server publication. Promoted through PRs
+88, 89 and 90 and published signed game release 2026093004 on OVH. Existing
+launchers apply its 46 managed files before Play. Preserve the current compact
+Pet Info layout from main. The game services, desktop launcher, starter and
+guide remain unchanged. Activation and recovery: see
+`docs/releases/classic-models-20260930/PRODUCTION.md`.
+
+Follow-up audit adds classic counterparts for later Human (566), Ogre (624),
+Erudite (678), and scaled-wolf (481) models. Preserve native player actor names
+for armor handling; select the original scaled-wolf female variant explicitly.
+The mapping now has 98 entries. The owner clarified on September 30 that races
+without old models use their existing models. The candidate already follows
+this rule; no binary or asset changes are needed for the clarification.
+
+Add required proxy `0.7.0-dev` classic-model policy. Existing Luclin preferences
+cannot silently enable modern visuals; a deliberate `[Nightcap]`
+`UseModernModels=TRUE` opt-in restores native model selection after restart.
+Generate 22 isolated classic archives plus a global import list, preserving the
+four magician elemental palettes and mapping skeleton/spectre/other remakes to
+their original counterparts. Namespaced textures avoid newer equipment archives
+overriding classic skeleton art. Source client and user INIs remain untouched.
+
+Proxy, launcher catalog and generated asset hashes form one required release.
+Publish them together. Creatures and playable races without an original
+counterpart retain their existing models under the accepted policy.
+Native and archive checks pass; rendered QA remains open after the explicitly
+authorized deployment. See `docs/releases/classic-models-20260930/QA.md` and ADR 0048.
+
+## 2026-09-30 - Enable standard commands for Enchanter animations
+
+Enchanter animation pets now accept the standard pet command set, including
+attack, back off, follow, guard, sit and stop, without requiring a PetCommands
+AA unlock. Detection covers both Enchanter characters and Enchanter class pets
+in a multiclass roster. Advanced controls that are AA-gated for other pets remain
+gated. Requires a matching zone rebuild and restart; in-game command behavior
+still needs owner QA.
+
+## 2026-09-30 - Compact three-pet management window
+
+Reduced the default Pet Info window from 330×458 to 350×350, arranged the 14
+commands in a compact three-column grid, and moved the native buff panel beside
+the roster. Short button captions retain their full command names in tooltips.
+The layout preserves native pet status widgets and starts at a smaller footprint;
+manual in-game resize and visibility QA is still required.
+
+## 2026-09-30 - Owner confirms Merrin travel fix
+
+The owner confirmed Merrin is fixed and authorized main/server publication.
+His gameplay changes were already merged through PR 75; all three active quest
+files match main exactly. Revalidated the installed handler and current native
+runtime, retaining the September 27 pet release. No gameplay files, SQL or client
+assets needed replacement, and no restart was required. Record the reported
+hail/click issue as resolved; all-destination, appearance and pet acceptance are
+not inferred from that report. Evidence: `docs/releases/tunnel-travel-alcove/OWNER-QA.json`.
+The September 22 travel recovery helper is pinned to the older native image;
+do not run it unchanged against the current server.
 
 ## 2026-09-27 - Casting-bar diagnosis and repair QA
 
@@ -65,7 +137,6 @@ native caps, so a Wizard/Monk does not leave Dual Wield stuck at its seeded valu
 Native-method regressions, independent review and the full world/zone build
 pass. Source and object provenance are verified. Manual acceptance remains open;
 this candidate has not been deployed.
-
 ## 2026-09-27 - Deploy three-pet management for live QA
 
 Activated the owner-approved paired server/client release on OVH. Pet Info lists
