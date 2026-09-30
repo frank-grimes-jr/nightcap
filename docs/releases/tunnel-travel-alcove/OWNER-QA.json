@@ -1,0 +1,95 @@
+{
+  "verified_at_utc": "2026-09-30T15:08:11.436016+00:00",
+  "source_commit": "20608bb2c9fb1eefe082e88ee78995f345becde6",
+  "owner_report_date": "2026-09-30",
+  "owner_report": "Merrin is fixed",
+  "scope": "Reported hail/destination-click issue; no claim of all ten round trips or full appearance/pet QA",
+  "health": {
+    "image_id": "sha256:d9aadb51fc2d1b6cb773c102baea1747b734b764028a84e044cde03090e19806",
+    "native_processes": 15,
+    "running_hashes": [
+      [
+        "loginserver",
+        "a9c97271ce27bcbd4fc4003126af12a7c11821ef97d5aa8dff1be0dc1b4fffd8"
+      ],
+      [
+        "world",
+        "2e205df5d2cc7b78d3897e1741287c1c5acf501c444bf84350a825b03e83b1ba"
+      ],
+      [
+        "ucs",
+        "96757b356eca25c539bdd6e036c635ab79fee383e7a5ec9e27b14bb5138f5583"
+      ],
+      [
+        "zone",
+        "3603c2907df5a30142e5c07fe91a1877839e5984983086af619bac6df4dd8e1e"
+      ],
+      [
+        "zone",
+        "3603c2907df5a30142e5c07fe91a1877839e5984983086af619bac6df4dd8e1e"
+      ],
+      [
+        "zone",
+        "3603c2907df5a30142e5c07fe91a1877839e5984983086af619bac6df4dd8e1e"
+      ],
+      [
+        "zone",
+        "3603c2907df5a30142e5c07fe91a1877839e5984983086af619bac6df4dd8e1e"
+      ],
+      [
+        "zone",
+        "3603c2907df5a30142e5c07fe91a1877839e5984983086af619bac6df4dd8e1e"
+      ],
+      [
+        "zone",
+        "3603c2907df5a30142e5c07fe91a1877839e5984983086af619bac6df4dd8e1e"
+      ],
+      [
+        "zone",
+        "3603c2907df5a30142e5c07fe91a1877839e5984983086af619bac6df4dd8e1e"
+      ],
+      [
+        "zone",
+        "3603c2907df5a30142e5c07fe91a1877839e5984983086af619bac6df4dd8e1e"
+      ],
+      [
+        "zone",
+        "3603c2907df5a30142e5c07fe91a1877839e5984983086af619bac6df4dd8e1e"
+      ],
+      [
+        "zone",
+        "3603c2907df5a30142e5c07fe91a1877839e5984983086af619bac6df4dd8e1e"
+      ],
+      [
+        "zone",
+        "3603c2907df5a30142e5c07fe91a1877839e5984983086af619bac6df4dd8e1e"
+      ],
+      [
+        "zone",
+        "3603c2907df5a30142e5c07fe91a1877839e5984983086af619bac6df4dd8e1e"
+      ]
+    ],
+    "started_at": "2026-09-27T20:47:20.833455437Z",
+    "restart_count": 0,
+    "errors": {
+      "quest_api": 0,
+      "native": 0,
+      "database": 0
+    }
+  },
+  "gateway_running": true,
+  "runtime_files": {
+    "plugins/tunnel_travel.pl": "b3e9307c8fa65baaf93fb12ea4423849b063d89c604e9fd18c012a80fc216774",
+    "plugins/tunnel_travel_data.pl": "945dd266a4ae400486571004adc4b537bac289fab2a763065cd6bd3b983de1ea",
+    "quests/ecommons/999810.pl": "24e11a058daaf16adcfb1c9d47881b5ca85ce5cf48c8e083f79b9211d81b08b8"
+  },
+  "installed_quest_test": {
+    "exit_code": 0,
+    "stdout": "ok 1 - hail offers ten destinations\nok 2 - preserves qeynos2 exact landing and heading\nok 3 - preserves freportw exact landing and heading\nok 4 - preserves gfaydark exact landing and heading\nok 5 - preserves butcher exact landing and heading\nok 6 - preserves everfrost exact landing and heading\nok 7 - preserves misty exact landing and heading\nok 8 - preserves nektulos exact landing and heading\nok 9 - preserves feerrott exact landing and heading\nok 10 - preserves innothule exact landing and heading\nok 11 - preserves tox exact landing and heading\nok 12 - repeat click does not issue another zone request\nok 13 - forged and unsupported destinations never move player\nok 14 - unavailable player state blocks travel\nok 15 - unavailable player state blocks travel\nok 16 - unavailable player state blocks travel\nok 17 - unavailable player state blocks travel\nok 18 - unavailable player state blocks travel\nok 19 - unavailable player state blocks travel\nok 20 - unavailable player state blocks travel\nok 21 - unavailable player state blocks travel\nok 22 - unavailable player state blocks travel\nok 23 - unavailable player state blocks travel\nok 24 - wrong NPC cannot provide city travel\nok 25 - numeric quest adapter exposes the menu\n1..25\n",
+    "stderr": "# Installed runtime: /srv/nightcap/plugins/tunnel_travel.pl; /srv/nightcap/plugins/tunnel_travel_data.pl; /srv/nightcap/quests/ecommons/999810.pl\n"
+  },
+  "static_travel_content_matches": true,
+  "server_changes_required": false,
+  "server_restarted": false,
+  "sql_written": false
+}

@@ -14,6 +14,13 @@ outside its configured plugin path. Corrected the deployment and restarted at
 and passes 25 quest assertions; four regression cases catch path mistakes.
 [Incident, verification and current rollback](../releases/tunnel-travel-alcove/HAIL-FIX.md).
 
+September 30: the owner confirmed Merrin is fixed. The gameplay revision was
+already on main and the three active quest files matched it on the newer pet
+runtime. Reverified installed dialogue/destination handling, static content and
+native hashes without changing or restarting production. The report resolves
+the hail/click issue, while the full QA matrix below remains unclaimed.
+[Current evidence](../releases/tunnel-travel-alcove/OWNER-QA.json).
+
 Built one human travel guide and three rustic Commonlands props in place of the
 ten PoK city stones. The guide preserves all ten exact landings and leaves all
 twelve return/PoK books and existing services intact. Added guarded migration,
