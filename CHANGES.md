@@ -1,5 +1,16 @@
 # CHANGES
 
+## 2026-09-30 - Advanced-loot client foundation (in progress)
+
+Add a native RoF2 Advanced Loot screen, exact `/advloot` hook, atomic server
+snapshot model, filter/search/settings controls and a guarded client/launcher
+catalog. The x86 proxy builds. Add shared loot-decision policy and candidate
+per-character preference storage. The corpse queue, checked item transfers,
+server integration and in-game QA remain unfinished; nothing is deployed.
+The original client stays read-only. Preserve full item metadata and existing
+loot rights when completing the server adapter. Evidence and requirements:
+`docs/releases/advanced-loot/README.md`; design: ADR 0048.
+
 ## 2026-09-27 - Casting-bar diagnosis and repair QA
 
 Owner confirms the personal bar freezes for every non-instant spell even outside
