@@ -105,6 +105,22 @@ All commands run from `akk-stack/`:
   `tools/check_living_economy_binary.py <world>` before installation, then verify
   the actual startup rotation and running world/zone hashes.
 
+### Advanced-loot candidate
+
+The owner explicitly authorized direct main and hosted live deployment on
+September 30, 2026, with manual acceptance to follow live. This is release-specific;
+retain all open gameplay QA and receipt-aware recovery gates.
+
+The candidate lives in `eq-client-dll` and the tracked `server-mods/code` overlay;
+the original RoF2 installation remains read-only. The server owns physical-drop
+IDs, corpse permissions, filters, rolls and checked transfers. Never award items
+from client row data or open the classic corpse window as an automatic substitute.
+Item/coin receipts commit with inventory/currency and survive saved-state replay.
+Retain receipt tables; an older receipt-unaware binary must not load unreconciled
+NPC checkpoints. Current scope, evidence and exact native QA:
+`docs/releases/advanced-loot/README.md` and `docs/releases/advanced-loot/QA.md`.
+This is candidate guidance, not a deployment or manual-acceptance record.
+
 ### Multiclass release candidate
 
 The AA ownership feature uses `Client::ReleaseMulticlassSlot(slot)` to commit

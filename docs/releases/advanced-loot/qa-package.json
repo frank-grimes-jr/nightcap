@@ -1,0 +1,66 @@
+{
+  "date": "2026-09-30",
+  "release": 2026093005,
+  "status": "isolated_client_startup_passed_not_gameplay_acceptance",
+  "package": "E:\\EQ_Local_Dev\\artifacts\\advloot-20260930\\qa",
+  "client": "E:\\EQ_Local_Dev\\artifacts\\advloot-20260930\\qa\\client\\everquest_rof2",
+  "isolated_login_target": "127.0.0.1:15998",
+  "server_started": true,
+  "expires": "2026-10-30T20:17:37Z",
+  "files": 46,
+  "hashes": {
+    "nightcap-launcher-qa.exe": "93334f905aa71d32628906e7e2dfef5dce4d68ba8b0547359136769cdb725525",
+    "nightcap-qa-check.exe": "a64a33c28427de5834b8529388f4122a3d1efe89a017af5ba2185d9218347898",
+    "manifest.json": "858e7a9d0373ccc2a4428b81a6e653e2a6417d4fff2820846d5ba65eb0c08340",
+    "signature.json": "358dd239b11e5ab07586d88457a1cb687fd9fa7c4f4ef39acac35beddc6343ab",
+    "audit.json": "12261b8080550ff1561ec4e485dbfcda0b11fe5bd19be9906aa0f5aec0b2e83e"
+  },
+  "runtime": {
+    "pid": 22624,
+    "process_created": "134352731825234390",
+    "nonce": "f95d7df8a1d0a6bf9a7fd893c17ad104",
+    "proxy_version": "0.7.0-dev",
+    "state": "ready",
+    "required_mask": 32767,
+    "enabled_mask": 32767,
+    "applied_mask": 32767,
+    "catalog_sha256": "ad821dc33f2d1c0c370a2a60ad6c70ea0c3f29400d157559835a8285e2b47243",
+    "config_sha256": "74fb0152599f7dd162fa2d315ff0480370a90d8b70f92a275d7764b202731fa0"
+  },
+  "controller_phases": [
+    "launching",
+    "playing",
+    "stopped"
+  ],
+  "original_client_preserved": {
+    "eqgame.exe": "2a8702ad9f722704f01355c0750be7d6f164a8b9c9128ba0cf286ea32b405b0e",
+    "spells_us.txt": "fd0a88825eaacb46d438bb3739ffe4bc05607f9e3122a3a34f4520fc05551599",
+    "eqhost.txt": "5840a290965fabd67d76d1cca020a81d9ceca298eedda65843867b630d932c99",
+    "dinput8.dll": "2b79dbf868ed9580dc55e3598f28a7403f3fb8e689439e6a9f67b6c9b1fbd8cd"
+  },
+  "verification": {
+    "focused_cpp_fixtures": 3,
+    "runtime_python_tests": 5,
+    "disposable_sql_checks": 16,
+    "production_body_fault_fixtures": [
+      "inventory",
+      "currency",
+      "saved_state",
+      "access"
+    ],
+    "go_packages": [
+      "internal/preflight",
+      "internal/manifest",
+      "cmd/nightcap-package"
+    ]
+  },
+  "remaining": [
+    "Native in-game window rendering and skin reload",
+    "End-to-end native server loot transfer and quest/lifecycle checks",
+    "Approved temporary local world-port cutover",
+    "Owner manual QA",
+    "Release branch promotion and live deployment"
+  ],
+  "integrated_dev": "ffac9ba",
+  "client_access_active": false
+}

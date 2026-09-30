@@ -3,6 +3,11 @@ cmake_minimum_required(VERSION 3.20)
 set(zone_sources
     aa.cpp
     aa_ability.cpp
+    advanced_loot.cpp
+    advanced_loot_currency.cpp
+    advanced_loot_inventory.cpp
+    advanced_loot_preferences.cpp
+    advanced_loot_saved_state.cpp
     aggro.cpp
     aggromanager.cpp
     api_service.cpp
@@ -32,6 +37,7 @@ set(zone_sources
     living_economy.cpp
     combat_record.cpp
     corpse.cpp
+    corpse_advanced_loot.cpp
     dialogue_window.cpp
     doors.cpp
     dynamic_zone.cpp

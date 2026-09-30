@@ -3,6 +3,17 @@
 Updated September 30, 2026. This is the current status index; dated studies and
 QA reports preserve their original evidence and are not live-state promises.
 
+## Advanced loot candidate awaiting native QA
+
+The [advanced-loot candidate](releases/advanced-loot/README.md) has a native
+RoF2 window and server queue, saved filters, personal/shared controls, checked
+item/coin transfers and saved-state receipt protection. Focused fixtures and
+the disposable SQL rehearsal pass. The clean world/zone build and locally signed
+QA package pass compilation, installation and actual RoF2 startup. Isolated
+login/world/ecommons services boot successfully. The owner now authorizes direct main promotion and hosted live deployment for
+testing, superseding the isolated port cutover. Production preparation is in progress;
+native gameplay acceptance remains open. No live activation is recorded yet.
+
 ## Classic models deployed
 
 The [classic-model release](releases/classic-models-20260930/PRODUCTION.md)

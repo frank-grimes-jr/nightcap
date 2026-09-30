@@ -1196,10 +1196,10 @@ bool Client::TryStacking(EQ::ItemInstance* item, uint8 type, bool try_worn, bool
 // Locate an available space in inventory to place an item
 // and then put the item there
 // The change will be saved to the database
-bool Client::AutoPutLootInInventory(EQ::ItemInstance& inst, bool try_worn, bool try_cursor, LootItem** bag_item_data)
+int16 Client::FindLootEquipSlot(const EQ::ItemInstance &inst)
 {
 	// #1: Try to auto equip
-	if (try_worn && CanEquipItem(inst.GetItem()) && inst.GetItem()->ReqLevel <= level && (!inst.GetItem()->Attuneable || inst.IsAttuned()) && inst.GetItem()->ItemType != EQ::item::ItemTypeAugmentation) {
+	if (CanEquipItem(inst.GetItem()) && inst.GetItem()->ReqLevel <= level && (!inst.GetItem()->Attuneable || inst.IsAttuned()) && inst.GetItem()->ItemType != EQ::item::ItemTypeAugmentation) {
 		for (int16 i = EQ::invslot::EQUIPMENT_BEGIN; i <= EQ::invslot::EQUIPMENT_END; i++) {
 			if ((((uint64)1 << i) & GetInv().GetLookup()->PossessionsBitmask) == 0)
 				continue;
@@ -1246,21 +1246,36 @@ bool Client::AutoPutLootInInventory(EQ::ItemInstance& inst, bool try_worn, bool 
 				}
 
 				if (inst.IsEquipable(i)) { // Equippable at this slot?
-					//send worn to everyone...
-					PutLootInInventory(i, inst);
-					uint8 worn_slot_material = EQ::InventoryProfile::CalcMaterialFromSlot(i);
-					if (worn_slot_material != EQ::textures::materialInvalid) {
-						SendWearChange(worn_slot_material);
-					}
-
-					if (parse->ItemHasQuestSub(&inst, EVENT_EQUIP_ITEM)) {
-						parse->EventItem(EVENT_EQUIP_ITEM, this, &inst, nullptr, "", i);
-					}
-
-					return true;
+					return i;
 				}
 			}
 		}
+	}
+
+	return EQ::invslot::SLOT_INVALID;
+}
+
+void Client::NotifyLootEquipped(EQ::ItemInstance &inst, int16 i)
+{
+	uint8 worn_slot_material = EQ::InventoryProfile::CalcMaterialFromSlot(i);
+	if (worn_slot_material != EQ::textures::materialInvalid) {
+		SendWearChange(worn_slot_material);
+	}
+
+	if (parse->ItemHasQuestSub(&inst, EVENT_EQUIP_ITEM)) {
+		parse->EventItem(EVENT_EQUIP_ITEM, this, &inst, nullptr, "", i);
+	}
+
+}
+
+bool Client::AutoPutLootInInventory(EQ::ItemInstance& inst, bool try_worn, bool try_cursor, LootItem** bag_item_data)
+{
+	// #1: Try to auto equip using the same selection as checked corpse transfers.
+	const int16 equip = try_worn ? FindLootEquipSlot(inst) : EQ::invslot::SLOT_INVALID;
+	if (equip != EQ::invslot::SLOT_INVALID) {
+		PutLootInInventory(equip, inst);
+		NotifyLootEquipped(inst, equip);
+		return true;
 	}
 
 	// #2: Stackable item?

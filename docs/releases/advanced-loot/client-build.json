@@ -1,0 +1,74 @@
+{
+  "date": "2026-09-30",
+  "status": "built_installed_and_startup_verified_in_separate_qa_copy",
+  "branch": "feature/advanced-loot",
+  "base": "20608bb",
+  "compiler": "MSVC 14.44.35207 x86, /W4 /O2 /EHsc /MT /std:c++17 /LD",
+  "build_command": "cmd /c eq-client-dll\\build.bat",
+  "build_exit_code": 0,
+  "catalog_sites": 63,
+  "required_features": 15,
+  "client": {
+    "file": "eqgame.exe",
+    "size": 8774656,
+    "sha256": "2a8702ad9f722704f01355c0750be7d6f164a8b9c9128ba0cf286ea32b405b0e"
+  },
+  "artifacts": {
+    "dinput8.dll": {
+      "sha256": "5e91625fd01df681d7e7740a07ba3fe3e3f46c9f2b4ab71427d558acba9f9dbc",
+      "size": 572928
+    },
+    "nightcap-bootstrap.exe": {
+      "sha256": "013e24424d403e42051355f0de25aee0f4da4494d2dc4b1418feaec7e44f27fa",
+      "size": 119808
+    },
+    "equi_petinfowindow.xml": {
+      "sha256": "2315f62110f2f84aa424e2861acf7d29147fdfbe8ad0b0f0948854cce0ec9fd1",
+      "size": 95989
+    },
+    "patch-sites.json": {
+      "sha256": "ad821dc33f2d1c0c370a2a60ad6c70ea0c3f29400d157559835a8285e2b47243",
+      "size": 5967
+    }
+  },
+  "sources": {
+    "eq-client-dll/config/classic-models.json": "955048a2b5bc0dc07bc6a63fe9945fa16c8e8212c9d342d4487a7294fbd56117",
+    "eq-client-dll/config/nightcap-patches.cfg": "74fb0152599f7dd162fa2d315ff0480370a90d8b70f92a275d7764b202731fa0",
+    "eq-client-dll/config/patch-sites.json": "ad821dc33f2d1c0c370a2a60ad6c70ea0c3f29400d157559835a8285e2b47243",
+    "eq-client-dll/src/advanced_loot_screen.h": "201ec1d5e0b66c778054cfdf0f5ce9fc25ff630577771f4d31df489e9750a5c8",
+    "eq-client-dll/src/advanced_loot_state.h": "5b3d93d27414f282ff47953ba70035e99f0715b2c0f237d114c4e6aa4d282d0d",
+    "eq-client-dll/src/advanced_loot_ui.h": "e253c9a07861449d8407ad0f441cf9875b6672831bcde954da5df544488caf89",
+    "eq-client-dll/src/dinput8.def": "dc6b65fa89e4939f6690fac87c303408787b26e419c4460feb62aed67c6b4b41",
+    "eq-client-dll/src/dllmain.cpp": "e2d0c4a7ee7b8b71f437ac4e64e261f488eb7fe61409783d815c953f36abf7e9",
+    "eq-client-dll/src/equipment_scope.h": "46a7a7f5b1eaab03ef880746ee5a5928e58afba12c65460253172418f5142d49",
+    "eq-client-dll/src/model_catalog.h": "bb31a8bdc10ace95defba37568f034c335c2803e897143f0e0cd2461961fb9b9",
+    "eq-client-dll/src/model_hooks.h": "84a986d644b41f6c007f9507e21c0455663579369c9eebac16a8e4030075c6e5",
+    "eq-client-dll/src/model_policy.h": "5efa927a781aa50bcfbd2e349c3de239f61a37df7112dc7970db743d14c5147f",
+    "eq-client-dll/src/patch_catalog.h": "45d1d208c1dbf622c5d838e4f1b4bc17b3eb8b5f58febd0e025db1a9cf3c79ef",
+    "eq-client-dll/src/pet_management.h": "1bde623bce8ead26a6d6d9ea01575700553dfaca53270cb126b6d7ff352d80d2",
+    "eq-client-dll/src/pet_state.h": "46b73d019b470ceadf1bb92e8022a868f769a68412855b2cb6d8a6e079b90751",
+    "eq-client-dll/src/runtime_config.h": "54233206c146ee1009006c4e3781b53cb2b9d8c2d22a5046b7935fa9f45a259f",
+    "eq-client-dll/src/runtime_contract.h": "57f18d50955e6bfbf6c3ca3b06260599eaa298583dacde4de079449f749af2f1",
+    "eq-client-dll/src/runtime_health.h": "cd1e8745ebefae65c78f8dea5c4683c72a008292bc7b823a8c7f103028f2640a",
+    "eq-client-dll/src/spell_access.h": "0d6d7d7ad6325cf9fdc20dd795b590544549f560a02cdbdac29ad4744a6c7857",
+    "eq-client-dll/src/ui_hooks.h": "e510c83e6175cbac8a099c2e349589340fd2149956d5d96e118df91dea34799d",
+    "eq-client-dll/src/ui_state.h": "d466a9f1d0d22ae6b7ffe29e1953a97bfbcf2ca68b76eb785e9e37b791b3b770",
+    "eq-client-dll/src/verified_patch.h": "c614683301f7bef0beeee17f2afd5edbcbc7b8986d13dc3c0b7b5fa22dfe288c",
+    "server-mods/code/common/advanced_loot_protocol.h": "6689843ddcae4c72e455541e09fa5f01f01943f81d4d86194fda21f0f4057f41",
+    "tools/classic_model_archives.py": "69a60163e78431c05f65aca5b50000ba8f5643b8cafbcace419cc7054fed5f76",
+    "tools/client_advanced_loot_ui.py": "1aefabbab370135643930ee00d8f800a2217dab8843901c7ba77b530f0c4fafb",
+    "tools/client_classic_models.py": "8d98f57ddf2797e77fd4eac8d7dccf1e335508227936e5b6a34b3303873610ed",
+    "tools/client_gameplay_assets.py": "e7423210eb2680e854a46ced60d2323ab3d26a8b84a4258b83647cd3c69e219a",
+    "tools/client_pet_armor_ui.py": "72f8893aecb273ad057f7febcfb12159142acc7138cea7805b6227febebb8046",
+    "tools/client_pet_management_ui.py": "635951448eab2ec4d22fd5d4073a4c8c7cca77afffb46c6cade00211f58934ad",
+    "tools/generate-client-patch-catalog.py": "21dbce6e3438579d91856e277f1e86ab9b409021e064aa59a631e2864a04b5db"
+  },
+  "not_established": [
+    "native in-game rendering",
+    "skin reload in eqgame",
+    "end-to-end server loot transfer",
+    "owner QA acceptance",
+    "public release publication"
+  ],
+  "integrated_dev": "ffac9ba"
+}

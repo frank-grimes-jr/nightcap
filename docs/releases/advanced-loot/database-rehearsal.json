@@ -1,0 +1,30 @@
+{
+  "status": "passed",
+  "scope": "isolated schema; SQL storage only, no native client or server execution",
+  "migration_sha256": "c3ac708181b5cd9c2fdf10d2890991a66b1ebf13d86b129ccb2196627487fe4f",
+  "checks": [
+    "all fixture transfer tables use InnoDB",
+    "reapplying the migration fails on existing names",
+    "rejected migration replay preserves existing data",
+    "new character settings default to enabled, filters and auto-show",
+    "invalid setting bits rejected by database",
+    "per-character filter update leaves the other character unchanged",
+    "invalid filter value rejected by database",
+    "Ask removes the saved automatic choice",
+    "rollback removes both inventory change and drop receipt",
+    "item metadata and receipt commit together",
+    "duplicate physical drop cannot commit a second inventory award",
+    "receipt uniqueness spans all characters",
+    "interrupted split leaves every wallet unchanged",
+    "coin split conserves all seven fixture copper, including the remainder",
+    "coin receipt prevents replay of a saved corpse purse",
+    "award receipts and player preferences remain available for rollback and recovery"
+  ],
+  "schema_template_engines": [
+    "character_advloot_claims\tInnoDB",
+    "character_advloot_filters\tInnoDB",
+    "character_advloot_settings\tInnoDB",
+    "character_currency\tInnoDB",
+    "inventory\tInnoDB"
+  ]
+}

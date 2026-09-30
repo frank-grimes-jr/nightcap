@@ -1,0 +1,9 @@
+{
+  "status": "passed",
+  "scope": "production functions with dependency fakes; no native zone execution",
+  "sources": {
+    "server-mods\\code\\zone\\corpse_advanced_loot.cpp": "0c1f5cba952333622d2370f3c1c7e9964e13c12dc5b81b20c08b7dd10306ebb9",
+    "server-mods\\code\\zone\\advanced_loot.cpp": "8a79fe074d66d5c3de73a88153777c4881f8d6ca27f8a3b5c5119883c2794334"
+  },
+  "result": "PASS: actual corpse access, classic GM authority, quarantined/locked/busy/range/state restrictions and connected master selection"
+}
