@@ -10,6 +10,8 @@ Start with [current status](status.md), not a dated candidate report.
 
 ## Players and testers
 
+- [Tunnel class courts and Khaleid candidate: layout, evidence and exact QA](releases/tunnel-class-courts/README.md)
+
 - [Advanced loot: live deployment, recovery and owner QA](releases/advanced-loot/PRODUCTION.md)
 - [Classic model defaults: live release, opt-in and graphical QA](releases/classic-models-20260930/PRODUCTION.md)
 - [Enchanter animation commands: live deployment, recovery and QA](releases/enchanter-animation-pet-commands-20260930/PRODUCTION.md)

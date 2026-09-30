@@ -3,6 +3,14 @@
 Updated September 30, 2026. This is the current status index; dated studies and
 QA reports preserve their original evidence and are not live-state promises.
 
+## Tunnel class courts candidate
+
+[Eight class courts and Khaleid](releases/tunnel-class-courts/README.md) are
+implemented and checked, not deployed. Matching uniforms, Roman supply pages,
+Khalure's subtitle and a Classic Dark Elf wizard porter address presentation.
+SQL recovery, quest guards and native geometry pass; nine maps match production.
+Owner approved main/OVH activation on September 30; exact visual/interaction QA remains open.
+
 ## Advanced loot deployed for owner live QA
 
 The [advanced-loot release](releases/advanced-loot/PRODUCTION.md) has a native

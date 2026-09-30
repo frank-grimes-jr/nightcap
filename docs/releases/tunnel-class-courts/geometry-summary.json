@@ -1,0 +1,11 @@
+{
+  "npc_positions": 55,
+  "court_ground_samples": 550,
+  "approach_rays": 55,
+  "spire_destinations": 8,
+  "spire_ground_samples": 40,
+  "minimum_patrol_clearance": 12.122,
+  "minimum_furniture_or_npc_clearance": 10.848,
+  "status": "geometry_passed_visual_QA_pending",
+  "snapshot_sha256": "4c9a0429fcb3b243ef35c0156fd8830abdffd08f8f650f263e53d8fc1ffee69c"
+}
