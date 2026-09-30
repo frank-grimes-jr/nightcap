@@ -68,6 +68,8 @@ All commands run from `akk-stack/`:
 
 - **OVH owner-test host**: `/opt/nightcap/deploy/production` runs the private
   database/game/gateway/web/tunnel Compose stack for `play.nightcapgame.org`.
+  Requests to "push to the server" target this OVH stack; the local akk-stack
+  is a separate development deployment.
   Use `sudo docker compose`; no host game or database ports are published.
   Stop `gateway game` for gameplay downtime; never use `down -v` on this data.
   SSH, Cloudflare and gateway allowlists need coordinated owner-IP changes.

@@ -1,5 +1,15 @@
 # CHANGES
 
+## 2026-09-30 - Enchanter animation fix deployed to OVH
+
+Deployed main fix `1ce04d0` to `play.nightcapgame.org` from a fresh production
+zone build. Nine isolated native animation checks, the selection regression and
+19 rollout failure tests passed. All 15 running native hashes matched; a complete
+backup restore, player/rule/merchant preservation and four public encrypted handshakes
+passed. Previous production image retained for rollback; owner gameplay QA stays
+open. No client update is needed. Evidence and scoped recovery:
+`docs/releases/enchanter-animation-pet-commands-20260930/PRODUCTION.md`.
+
 ## 2026-09-30 - Classic client model defaults deployed
 
 The owner explicitly requested main/server publication. Promoted through PRs

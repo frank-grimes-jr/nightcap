@@ -15,6 +15,14 @@ counterpart retain their existing model, as the owner explicitly requested on
 September 30. The policy choice is resolved; see the [coverage audit](releases/classic-models-20260930/scope-audit.md)
 for the mapping scope and remaining visual acceptance.
 
+## Enchanter animation commands deployed
+
+Enchanter animations now accept standard pet commands without an AA unlock on
+the live OVH server, including when Enchanter is a secondary class. The fresh
+zone build, native command checks, backup restore, preservation and live process
+checks passed. No client update is required. [Deployment and recovery evidence](releases/enchanter-animation-pet-commands-20260930/PRODUCTION.md);
+[owner in-game QA](releases/enchanter-animation-pet-commands-20260930/QA.md) remains open.
+
 ## Combat and item repair candidate
 
 [Monk fists and tier spell/heal fixes](releases/combat-item-fixes-20260922/README.md)
