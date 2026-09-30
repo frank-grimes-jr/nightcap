@@ -2,13 +2,16 @@
 
 September 22, 2026. The owner explicitly authorized main promotion and production
 deployment. Installed on `play.nightcapgame.org`; see
-[production activation and rollback](PRODUCTION.md). Manual in-game acceptance
-remains open. The earlier [local QA activation](ACTIVATION.md) is preserved as
-dated evidence.
+[production activation and rollback](PRODUCTION.md). The owner confirmed Merrin
+is fixed on September 30. His three live quest files already match main; see
+[current verification](OWNER-QA.json). The full appearance, ten-round-trip and
+pet QA matrix remains open. The earlier [local QA activation](ACTIVATION.md) is
+preserved as dated evidence.
 
 The initial production install had a plugin-directory error, corrected in the
 [September 22 hail fix](HAIL-FIX.md). Reconnect and hail Merrin; no client patch
-is needed. Current full rollback uses the hail-fix wrapper linked there.
+is needed. Its recovery wrapper is pinned to the September 22 image; follow the
+current-target caveat in that guide before considering rollback.
 
 ## What changes
 
@@ -98,7 +101,7 @@ from the newer NPC/patrol plan. It does not render the RoF2 client.
 
 ## Activation and rollback
 
-For the deployed production release use the pinned wrapper in [HAIL-FIX.md](HAIL-FIX.md).
+Read the image restriction in [HAIL-FIX.md](HAIL-FIX.md) before production recovery.
 For a new authorized target:
 
 1. Target the authorized environment. Check no players are online, gracefully
