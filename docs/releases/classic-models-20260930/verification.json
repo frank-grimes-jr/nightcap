@@ -1,0 +1,70 @@
+{
+  "date": "2026-09-30",
+  "status": "candidate_not_deployed_graphical_QA_open",
+  "implementation_commit": "1d18749e03d85adc4271b5bb886cab814d70fb33",
+  "qa_release": 2026093002,
+  "proxy_version": "0.7.0-dev",
+  "classic_archives": 22,
+  "classic_assets": 23,
+  "race_gender_registrations": 144,
+  "remake_mappings": 94,
+  "checks": {
+    "x86_proxy_build": "pass",
+    "native_runtime_suite": "pass",
+    "exact_client_sites": 48,
+    "inverse_wld_and_texture_integrity": "pass",
+    "launcher_go_suite": "pass",
+    "gameplay_python_suite": "pass",
+    "frontend_and_wails_build": "pass",
+    "signed_install_and_update": "pass",
+    "missing_archive_repair": "pass",
+    "ini_opt_in_preserved_during_repair": "pass",
+    "graphical_QA": "pending"
+  },
+  "startup_modes": {
+    "classic": {
+      "proxy_version": "0.7.0-dev",
+      "state": "ready",
+      "required_mask": 16383,
+      "enabled_mask": 16383,
+      "applied_mask": 16383,
+      "reason": ""
+    },
+    "modern": {
+      "proxy_version": "0.7.0-dev",
+      "state": "ready",
+      "required_mask": 16383,
+      "enabled_mask": 16383,
+      "applied_mask": 16383,
+      "reason": ""
+    }
+  },
+  "artifacts": {
+    "proxy": {
+      "size": 526336,
+      "sha256": "efe5ccb5b634270e681d3693f93f635da93a8b636f295ca52796bc5ae10e7f75"
+    },
+    "bootstrap": {
+      "size": 119808,
+      "sha256": "b5460e212c571f4ecbfefb636e93161ad9d6f1a0f5af1c961392960e0c4b88d1"
+    },
+    "catalog": {
+      "size": 4201,
+      "sha256": "29178abe9f595dde3c67f6c123be54bc3cfc0c5fdbbb6b7a03cc8a0c90c24d93"
+    },
+    "model_plan": {
+      "size": 37096,
+      "sha256": "3b6b19c82be56d42700f744927a53f55e19acea351b690123cbbf4137c8c0be2"
+    },
+    "launcher": {
+      "size": 161184768,
+      "sha256": "27871d58239cc1ad93d1aad6c10f635a442f820e23f367db0f369d1e1dd2a9cf"
+    },
+    "signed_manifest": {
+      "size": 9572,
+      "sha256": "c551ea9926d777df302c5ae40a4d06da33cac4354f0ee01c31cb4a46510b0fe9"
+    }
+  },
+  "qa_launcher": "E:\\EQ_Local_Dev\\artifacts\\classic-models-20260930\\qa\\nightcap-launcher-qa.exe",
+  "qa_client": "E:\\EQ_Local_Dev\\artifacts\\classic-models-20260930\\qa\\client"
+}

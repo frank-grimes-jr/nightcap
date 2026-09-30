@@ -1,7 +1,16 @@
 # Current Nightcap status
 
-Updated September 27, 2026. This is the current status index; dated studies and
+Updated September 30, 2026. This is the current status index; dated studies and
 QA reports preserve their original evidence and are not live-state promises.
+
+## Classic models candidate
+
+The [classic-model default candidate](releases/classic-models-20260930/QA.md)
+adds a mandatory client policy, 22 isolated classic archives, original elemental
+palettes and 94 remake mappings. Existing INI settings cannot silently opt in.
+Native x86, archive integrity and packaging checks pass. Rendering and owner
+acceptance remain open; this candidate is not deployed. Creatures with no old
+counterpart retain their available model pending an explicit replacement policy.
 
 ## Combat and item repair candidate
 

@@ -144,6 +144,17 @@ formatting. Rehearse forward and rollback against captured schemas before apply.
 
 ## Launcher delivery
 
+Classic-model candidate policy lives in `eq-client-dll/config/classic-models.json`.
+Generate isolated archives with `tools/client_classic_models.py`, verify their
+inverse WLD/texture integrity with `tools/verify_classic_models.py`, then regenerate
+the shared proxy/packager hashes with `tools/generate-classic-model-contract.py`.
+Do not rename or delete stock archives or overwrite user INIs. Modern visuals
+require `[Nightcap] UseModernModels=TRUE`; missing/invalid values force the
+classic defaults. This restores native preferences when enabled. Publish the
+matching proxy, config, catalog and generated assets together only after the
+gates in `docs/releases/classic-models-20260930/QA.md`. Original client stays
+read-only; later-only races without original counterparts need a separate policy.
+
 `eq-launcher/` is the Nightcap Wails/Go patcher (separate from the expansion
 switcher). Its stable starter verifies a separate signed desktop channel; the
 desktop checks on opening and patches before Play. Game release counters, launcher
