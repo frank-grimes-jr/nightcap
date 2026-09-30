@@ -1,0 +1,1827 @@
+{
+  "schema": 1,
+  "preference": "[Nightcap] UseModernModels=TRUE",
+  "scope": "original counterparts; later-only creatures retain their available model",
+  "stock_imports": [
+    "liz,liz_chr",
+    "skn,skn_chr",
+    "mos,mos_chr",
+    "kgo,kgo_chr",
+    "ise,ise_chr",
+    "tac,tac_chr",
+    "cub,cub_chr",
+    "com,com_chr",
+    "cof,cof_chr",
+    "rif,rif_chr",
+    "sdf,sdf_chr",
+    "hss,hss_chr",
+    "rea,rea_chr"
+  ],
+  "archives": [
+    {
+      "source": "global_chr.s3d",
+      "source_sha256": "6de89b8bea0c4ed387f8ef92774018a44a35c1fb440aa0a3052c56ce680a2eed",
+      "output": "ncm01_chr.s3d",
+      "aliases": {
+        "BAF": "ZAA",
+        "BAM": "ZAB",
+        "BIN": "ZAC",
+        "BOA": "ZAD",
+        "CHA": "ZAE",
+        "CLK": "ZAF",
+        "DAF": "ZAG",
+        "DAM": "ZAH",
+        "DWF": "ZAI",
+        "DWM": "ZAJ",
+        "ELE": "ZAK",
+        "ELF": "ZAL",
+        "ELM": "ZAM",
+        "ERF": "ZAN",
+        "ERM": "ZAO",
+        "EYE": "ZAP",
+        "GNF": "ZAQ",
+        "GNM": "ZAR",
+        "HAF": "ZAS",
+        "HAM": "ZAT",
+        "HEL": "ZAU",
+        "HIF": "ZAV",
+        "HIM": "ZAW",
+        "HOF": "ZAX",
+        "HOM": "ZAY",
+        "HUF": "ZAZ",
+        "HUM": "ZBA",
+        "IVM": "ZBB",
+        "MAG": "ZBD",
+        "OGF": "ZBE",
+        "OGM": "ZBF",
+        "SKE": "ZBG",
+        "TRF": "ZBH",
+        "TRM": "ZBI",
+        "WER": "ZBJ",
+        "WOE": "ZBK"
+      },
+      "imports": [
+        "zak,ncm01_chr",
+        "zap,ncm01_chr",
+        "zbb,ncm01_chr",
+        "zbg,ncm01_chr",
+        "zbj,ncm01_chr",
+        "zbk,ncm01_chr"
+      ]
+    },
+    {
+      "source": "global4_chr.s3d",
+      "source_sha256": "a828808b84d44c3abbcfff66aac8706ad18b37bc058b4f95a162e1abb9b0819b",
+      "output": "ncm02_chr.s3d",
+      "aliases": {
+        "BAF": "ZBL",
+        "BAM": "ZBM",
+        "CHA": "ZBN",
+        "CLK": "ZBO",
+        "IKF": "ZBP",
+        "IKM": "ZBQ",
+        "IKS": "ZBR",
+        "SPE": "ZBS"
+      },
+      "imports": [
+        "zbr,ncm02_chr",
+        "zbs,ncm02_chr"
+      ]
+    },
+    {
+      "source": "fearplane_chr.s3d",
+      "source_sha256": "a49a0258377d83549dd1cb9c35eb122e5d339b423692acab04d7e9e081e87dbd",
+      "output": "ncm03_chr.s3d",
+      "aliases": {
+        "BEH": "ZBT",
+        "CAZ": "ZBU",
+        "CUB": "ZBV",
+        "DEN": "ZBW",
+        "DRU": "ZBX",
+        "FRG": "ZBY",
+        "GHU": "ZBZ",
+        "GOL": "ZCA",
+        "GOR": "ZCB",
+        "GRG": "ZCC",
+        "IMP": "ZCD",
+        "REA": "ZCE",
+        "SCA": "ZCF",
+        "SPE": "ZCG",
+        "SPI": "ZCH",
+        "TEN": "ZCI",
+        "UNI": "ZCJ",
+        "WIL": "ZCK",
+        "ZOF": "ZCL",
+        "ZOM": "ZCM"
+      },
+      "imports": [
+        "zbt,ncm03_chr",
+        "zbu,ncm03_chr",
+        "zbv,ncm03_chr",
+        "zbw,ncm03_chr",
+        "zbx,ncm03_chr",
+        "zby,ncm03_chr",
+        "zbz,ncm03_chr",
+        "zca,ncm03_chr",
+        "zcb,ncm03_chr",
+        "zcc,ncm03_chr",
+        "zcd,ncm03_chr",
+        "zce,ncm03_chr",
+        "zcf,ncm03_chr",
+        "zch,ncm03_chr",
+        "zci,ncm03_chr",
+        "zcj,ncm03_chr",
+        "zck,ncm03_chr",
+        "zcl,ncm03_chr",
+        "zcm,ncm03_chr"
+      ]
+    },
+    {
+      "source": "airplane_chr.s3d",
+      "source_sha256": "16d7f67923dbfe6735e73dcefe230553e4f4254db6f34aad7a8eb0a3e6b74c29",
+      "output": "ncm04_chr.s3d",
+      "aliases": {
+        "AVI": "ZCN",
+        "AXE": "ZCO",
+        "BEH": "ZCP",
+        "BIX": "ZCQ",
+        "DAG": "ZCR",
+        "DER": "ZCS",
+        "DJI": "ZCT",
+        "DRI": "ZCU",
+        "DRK": "ZCV",
+        "EFR": "ZCW",
+        "FAF": "ZCX",
+        "FDR": "ZCY",
+        "GRG": "ZCZ",
+        "GRI": "ZDA",
+        "HAR": "ZDB",
+        "IMP": "ZDC",
+        "KIT": "ZDD",
+        "PEG": "ZDE",
+        "PIF": "ZDF",
+        "ROC": "ZDG",
+        "SCI": "ZDH",
+        "SHI": "ZDI",
+        "SKU": "ZDJ",
+        "SPH": "ZDK",
+        "SWO": "ZDL",
+        "WAS": "ZDM",
+        "WID": "ZDN",
+        "WIL": "ZDO"
+      },
+      "imports": [
+        "zcn,ncm04_chr",
+        "zcq,ncm04_chr",
+        "zcs,ncm04_chr",
+        "zct,ncm04_chr",
+        "zcu,ncm04_chr",
+        "zcv,ncm04_chr",
+        "zcw,ncm04_chr",
+        "zcx,ncm04_chr",
+        "zcy,ncm04_chr",
+        "zda,ncm04_chr",
+        "zdb,ncm04_chr",
+        "zde,ncm04_chr",
+        "zdf,ncm04_chr",
+        "zdk,ncm04_chr",
+        "zdm,ncm04_chr"
+      ]
+    },
+    {
+      "source": "everfrost_chr.s3d",
+      "source_sha256": "e97995456c0025167917e27ff418f03b388d88f804edce2761edd0c90af13654",
+      "output": "ncm05_chr.s3d",
+      "aliases": {
+        "BEA": "ZDP",
+        "GIA": "ZDQ",
+        "GNN": "ZDR",
+        "GOB": "ZDS",
+        "HLF": "ZDT",
+        "HLM": "ZDU",
+        "MAM": "ZDV",
+        "ORC": "ZDW",
+        "PUM": "ZDX",
+        "SPI": "ZDY",
+        "WOL": "ZDZ"
+      },
+      "imports": [
+        "zdp,ncm05_chr",
+        "zdq,ncm05_chr",
+        "zdr,ncm05_chr",
+        "zds,ncm05_chr",
+        "zdt,ncm05_chr",
+        "zdu,ncm05_chr",
+        "zdv,ncm05_chr",
+        "zdw,ncm05_chr",
+        "zdx,ncm05_chr",
+        "zdz,ncm05_chr"
+      ]
+    },
+    {
+      "source": "necropolis_chr.s3d",
+      "source_sha256": "975dcc41c5fb238558e0324fbdab949c941575a1e1083b05d76ac5f9bf082452",
+      "output": "ncm06_chr.s3d",
+      "aliases": {
+        "BAT": "ZEA",
+        "BET": "ZEC",
+        "CCD": "ZED",
+        "COM": "ZEE",
+        "DR2": "ZEF",
+        "DRA": "ZEG",
+        "DRK": "ZEH",
+        "DRU": "ZEI",
+        "GOO": "ZEJ",
+        "RAT": "ZEK",
+        "SNA": "ZEM",
+        "SPI": "ZEN",
+        "TRK": "ZEO",
+        "VRM": "ZEP",
+        "WUR": "ZEQ",
+        "WYV": "ZER"
+      },
+      "imports": [
+        "zea,ncm06_chr",
+        "zec,ncm06_chr",
+        "zed,ncm06_chr",
+        "zee,ncm06_chr",
+        "zef,ncm06_chr",
+        "zeg,ncm06_chr",
+        "zej,ncm06_chr",
+        "zek,ncm06_chr",
+        "zem,ncm06_chr",
+        "zeo,ncm06_chr",
+        "zep,ncm06_chr",
+        "zeq,ncm06_chr",
+        "zer,ncm06_chr"
+      ]
+    },
+    {
+      "source": "nurga_chr.s3d",
+      "source_sha256": "51c58f56cb70086dfe67beacc8071bfa8812528c146396c0d490044406a564c8",
+      "output": "ncm07_chr.s3d",
+      "aliases": {
+        "ALL": "ZES",
+        "BAC": "ZET",
+        "BRN": "ZEU",
+        "CUB": "ZEV",
+        "DNC": "ZEW",
+        "DRF": "ZEX",
+        "DRM": "ZEY",
+        "GOB": "ZEZ",
+        "KGO": "ZFA",
+        "LAU": "ZFB",
+        "LEE": "ZFC",
+        "MOS": "ZFD",
+        "RAT": "ZFE",
+        "SPI": "ZFF",
+        "WOF": "ZFG"
+      },
+      "imports": [
+        "zes,ncm07_chr",
+        "zet,ncm07_chr",
+        "zeu,ncm07_chr",
+        "zex,ncm07_chr",
+        "zey,ncm07_chr",
+        "zfa,ncm07_chr",
+        "zfc,ncm07_chr",
+        "zfd,ncm07_chr",
+        "zfg,ncm07_chr"
+      ]
+    },
+    {
+      "source": "erudnext_chr.s3d",
+      "source_sha256": "8f2982e95d3ca027bfab45c2680a0ac0acbee160c0604a25da8975c1dfb53563",
+      "output": "ncm08_chr.s3d",
+      "aliases": {
+        "AFT": "ZFH",
+        "ARM": "ZFI",
+        "BOA": "ZFJ",
+        "BOW": "ZFK",
+        "BRO": "ZFL",
+        "CAB": "ZFM",
+        "CAZ": "ZFN",
+        "CPF": "ZFO",
+        "CPM": "ZFP",
+        "DEC": "ZFQ",
+        "DHC": "ZFR",
+        "DHW": "ZFS",
+        "DJI": "ZFT",
+        "DRI": "ZFU",
+        "EFR": "ZFV",
+        "EGM": "ZFW",
+        "ERB": "ZFX",
+        "EYE": "ZFY",
+        "FIS": "ZFZ",
+        "GAR": "ZGA",
+        "GOL": "ZGB",
+        "IMP": "ZGC",
+        "INN": "ZGD",
+        "KOB": "ZGE",
+        "LAU": "ZGF",
+        "MAS": "ZGG",
+        "MER": "ZGH",
+        "MHO": "ZGI",
+        "PIR": "ZGJ",
+        "PRE": "ZGK",
+        "REA": "ZGL",
+        "SAI": "ZGM",
+        "SEA": "ZGN",
+        "SHA": "ZGO",
+        "SHI": "ZGP",
+        "STE": "ZGQ",
+        "SWO": "ZGR",
+        "WBT": "ZGS",
+        "WIN": "ZGT"
+      },
+      "imports": [
+        "zfo,ncm08_chr",
+        "zfp,ncm08_chr",
+        "zfw,ncm08_chr",
+        "zfz,ncm08_chr",
+        "zga,ncm08_chr",
+        "zgd,ncm08_chr",
+        "zge,ncm08_chr",
+        "zgh,ncm08_chr",
+        "zgj,ncm08_chr",
+        "zgk,ncm08_chr",
+        "zgn,ncm08_chr",
+        "zgo,ncm08_chr",
+        "zgr,ncm08_chr"
+      ]
+    },
+    {
+      "source": "qeynos_chr.s3d",
+      "source_sha256": "673f64551d452b59a4266cfd3d12fb4462b41ae1d3de3c570ea6694b30f908cb",
+      "output": "ncm09_chr.s3d",
+      "aliases": {
+        "AFT": "ZGU",
+        "ARM": "ZGV",
+        "BEA": "ZGW",
+        "BGM": "ZGX",
+        "BOA": "ZGY",
+        "BOW": "ZGZ",
+        "BRO": "ZHA",
+        "CAB": "ZHB",
+        "CEN": "ZHC",
+        "DEC": "ZHD",
+        "DHC": "ZHE",
+        "DHW": "ZHF",
+        "EYE": "ZHG",
+        "FIS": "ZHH",
+        "GNN": "ZHI",
+        "GOL": "ZHJ",
+        "GOR": "ZHK",
+        "LIM": "ZHL",
+        "MAS": "ZHM",
+        "MHO": "ZHN",
+        "MIN": "ZHO",
+        "PIR": "ZHP",
+        "PRE": "ZHQ",
+        "QCF": "ZHR",
+        "QCM": "ZHS",
+        "RAT": "ZHT",
+        "SAI": "ZHU",
+        "SHA": "ZHV",
+        "SHI": "ZHW",
+        "STE": "ZHX",
+        "TIG": "ZHY",
+        "WIN": "ZHZ"
+      },
+      "imports": [
+        "zgx,ncm09_chr",
+        "zhc,ncm09_chr",
+        "zhl,ncm09_chr",
+        "zho,ncm09_chr",
+        "zhr,ncm09_chr",
+        "zhs,ncm09_chr",
+        "zhy,ncm09_chr"
+      ]
+    },
+    {
+      "source": "dreadlands_chr.s3d",
+      "source_sha256": "35762b22ce02c31b740b8ed0ab733170857a6fed83ee679a67f56c05ff1c01dd",
+      "output": "ncm10_chr.s3d",
+      "aliases": {
+        "COC": "ZIA",
+        "DRA": "ZIB",
+        "DRF": "ZIC",
+        "DRM": "ZID",
+        "FGI": "ZIE",
+        "KGO": "ZIF",
+        "LYC": "ZIG",
+        "RAP": "ZIH",
+        "SRW": "ZII",
+        "SSK": "ZIJ",
+        "YET": "ZIK"
+      },
+      "imports": [
+        "zia,ncm10_chr",
+        "zie,ncm10_chr",
+        "zig,ncm10_chr",
+        "zih,ncm10_chr",
+        "zii,ncm10_chr",
+        "zij,ncm10_chr",
+        "zik,ncm10_chr"
+      ]
+    },
+    {
+      "source": "thurgadina_chr.s3d",
+      "source_sha256": "10c4f01778cfb265559b29840ea03aa410935591d45b206689a6243e5afc4f36",
+      "output": "ncm11_chr.s3d",
+      "aliases": {
+        "BAT": "ZIL",
+        "COF": "ZIM",
+        "COM": "ZIN",
+        "DIW": "ZIO",
+        "FSG": "ZIP",
+        "GDM": "ZIQ",
+        "GOO": "ZIR",
+        "OTM": "ZIS",
+        "RAT": "ZIT",
+        "SPI": "ZIU",
+        "WOL": "ZIV"
+      },
+      "imports": [
+        "zim,ncm11_chr",
+        "zio,ncm11_chr",
+        "zip,ncm11_chr",
+        "ziq,ncm11_chr",
+        "zis,ncm11_chr"
+      ]
+    },
+    {
+      "source": "butcher_chr.s3d",
+      "source_sha256": "b9d736b40acf399051e2f3d006121a3bef1282a849356a85cb101720cca00c86",
+      "output": "ncm12_chr.s3d",
+      "aliases": {
+        "AFT": "ZIW",
+        "ALL": "ZIX",
+        "ARM": "ZIY",
+        "AVI": "ZIZ",
+        "BAT": "ZJA",
+        "BET": "ZJB",
+        "BOA": "ZJC",
+        "BOW": "ZJD",
+        "BRF": "ZJE",
+        "BRM": "ZJF",
+        "BRO": "ZJG",
+        "CAB": "ZJH",
+        "CAZ": "ZJI",
+        "DEC": "ZJJ",
+        "DHC": "ZJK",
+        "DHW": "ZJL",
+        "DRK": "ZJM",
+        "EYE": "ZJN",
+        "GOB": "ZJO",
+        "INN": "ZJP",
+        "KAF": "ZJQ",
+        "KAM": "ZJR",
+        "MAS": "ZJS",
+        "MHO": "ZJT",
+        "ORC": "ZJU",
+        "PRE": "ZJV",
+        "SAI": "ZJW",
+        "SHI": "ZJX",
+        "SKU": "ZJY",
+        "SNA": "ZJZ",
+        "SPI": "ZKA",
+        "STE": "ZKB",
+        "UNI": "ZKC",
+        "WIN": "ZKD"
+      },
+      "imports": [
+        "zje,ncm12_chr",
+        "zjf,ncm12_chr",
+        "zjq,ncm12_chr",
+        "zjr,ncm12_chr",
+        "zjy,ncm12_chr"
+      ]
+    },
+    {
+      "source": "eastkarana_chr.s3d",
+      "source_sha256": "7e346df382fdf5ef97436a47acb464a1d6969966bdf316d587aaa309b56b44c1",
+      "output": "ncm13_chr.s3d",
+      "aliases": {
+        "BEH": "ZKE",
+        "GIA": "ZKF",
+        "GNN": "ZKG",
+        "GRI": "ZKH",
+        "LIF": "ZKI",
+        "LIM": "ZKJ",
+        "QCF": "ZKK",
+        "QCM": "ZKL",
+        "SNA": "ZKM",
+        "SPI": "ZKN",
+        "TRE": "ZKO",
+        "WIL": "ZKP",
+        "WOL": "ZKQ",
+        "ZOM": "ZKR"
+      },
+      "imports": [
+        "zki,ncm13_chr",
+        "zko,ncm13_chr"
+      ]
+    },
+    {
+      "source": "fieldofbone_chr.s3d",
+      "source_sha256": "5d14383c1ef0370a2526e1c3042e16507dc492b3571ddefbfedcafce2d25aa90",
+      "output": "ncm14_chr.s3d",
+      "aliases": {
+        "BET": "ZKS",
+        "BGG": "ZKT",
+        "BRN": "ZKU",
+        "DRA": "ZKV",
+        "GEF": "ZKW",
+        "GOR": "ZKX",
+        "ICF": "ZKY",
+        "ICM": "ZKZ",
+        "ICN": "ZLA",
+        "SCR": "ZLB",
+        "SED": "ZLC",
+        "SPI": "ZLD",
+        "WOF": "ZLE"
+      },
+      "imports": [
+        "zkt,ncm14_chr",
+        "zkw,ncm14_chr",
+        "zky,ncm14_chr",
+        "zkz,ncm14_chr",
+        "zla,ncm14_chr",
+        "zlb,ncm14_chr",
+        "zlc,ncm14_chr"
+      ]
+    },
+    {
+      "source": "wakening_chr.s3d",
+      "source_sha256": "c02900d47b606dc833002f444f5850fa4b17505d851bb3d31c3bb3ab2eb10cbd",
+      "output": "ncm15_chr.s3d",
+      "aliases": {
+        "BRF": "ZLF",
+        "DR2": "ZLG",
+        "DRA": "ZLH",
+        "DRI": "ZLI",
+        "ENA": "ZLJ",
+        "FDR": "ZLK",
+        "FMO": "ZLL",
+        "FSG": "ZLM",
+        "GOO": "ZLN",
+        "PIF": "ZLO",
+        "PUM": "ZLP",
+        "RAP": "ZLQ",
+        "RGM": "ZLR",
+        "STG": "ZLS",
+        "UNI": "ZLT",
+        "YAK": "ZLU"
+      },
+      "imports": [
+        "zlj,ncm15_chr",
+        "zll,ncm15_chr",
+        "zlr,ncm15_chr",
+        "zls,ncm15_chr",
+        "zlu,ncm15_chr"
+      ]
+    },
+    {
+      "source": "mistmoore_chr.s3d",
+      "source_sha256": "28c1b15f8ba63282f53dabdc43c8ec209828855e69371454431234b9cc17f967",
+      "output": "ncm16_chr.s3d",
+      "aliases": {
+        "CAZ": "ZLV",
+        "DVM": "ZLW",
+        "FIS": "ZLX",
+        "GAR": "ZLY",
+        "GOL": "ZLZ",
+        "IMP": "ZMA",
+        "INN": "ZMB",
+        "MIM": "ZMC",
+        "QCF": "ZMD",
+        "REA": "ZME",
+        "SPI": "ZMG",
+        "UNI": "ZMH",
+        "VSF": "ZMI",
+        "VSM": "ZMJ",
+        "WIL": "ZMK",
+        "ZOF": "ZML",
+        "ZOM": "ZMN"
+      },
+      "imports": [
+        "zlw,ncm16_chr",
+        "zmc,ncm16_chr",
+        "zmi,ncm16_chr",
+        "zmj,ncm16_chr"
+      ]
+    },
+    {
+      "source": "sirens_chr.s3d",
+      "source_sha256": "3714b774499023245107fffd9ba4e0c28dbae9a4fe4229cc08f118bbc86d4134",
+      "output": "ncm17_chr.s3d",
+      "aliases": {
+        "BAC": "ZMO",
+        "BRF": "ZMP",
+        "DRA": "ZMQ",
+        "DRI": "ZMR",
+        "ENA": "ZMS",
+        "FDR": "ZMT",
+        "FIS": "ZMU",
+        "MER": "ZMV",
+        "SEA": "ZMW",
+        "SHA": "ZMX",
+        "SIR": "ZMY",
+        "SWO": "ZMZ",
+        "WAL": "ZNA",
+        "WIL": "ZNB",
+        "WLM": "ZNC"
+      },
+      "imports": [
+        "zmy,ncm17_chr",
+        "zna,ncm17_chr",
+        "znc,ncm17_chr"
+      ]
+    },
+    {
+      "source": "global2_chr.s3d",
+      "source_sha256": "c5aa16cf273576a337dbd383906975370b6c452eda46813fbcb64aaf76ba1d29",
+      "output": "ncm18_chr.s3d",
+      "aliases": {
+        "BEA": "ZND",
+        "BRI": "ZNE",
+        "CAZ": "ZNF",
+        "ERO": "ZNG",
+        "HOO": "ZNH",
+        "IMP": "ZNI",
+        "INN": "ZNJ",
+        "RAL": "ZNK",
+        "SCA": "ZNL",
+        "SOL": "ZNM",
+        "TRI": "ZNN",
+        "TUN": "ZNO"
+      },
+      "imports": [
+        "zne,ncm18_chr",
+        "zng,ncm18_chr",
+        "znk,ncm18_chr",
+        "znm,ncm18_chr",
+        "znn,ncm18_chr",
+        "zno,ncm18_chr"
+      ]
+    },
+    {
+      "source": "global_chr.s3d",
+      "source_sha256": "6de89b8bea0c4ed387f8ef92774018a44a35c1fb440aa0a3052c56ce680a2eed",
+      "output": "ncm19_chr.s3d",
+      "aliases": {
+        "BAF": "ZNP",
+        "BAM": "ZNQ",
+        "BIN": "ZNR",
+        "BOA": "ZNS",
+        "CHA": "ZNT",
+        "CLK": "ZNU",
+        "DAF": "ZNV",
+        "DAM": "ZNW",
+        "DWF": "ZNX",
+        "DWM": "ZNY",
+        "ELE": "ZNZ",
+        "ELF": "ZOA",
+        "ELM": "ZOB",
+        "ERF": "ZOC",
+        "ERM": "ZOD",
+        "EYE": "ZOE",
+        "GNF": "ZOG",
+        "GNM": "ZOH",
+        "HAF": "ZOI",
+        "HAM": "ZOJ",
+        "HEL": "ZOK",
+        "HIF": "ZOL",
+        "HIM": "ZON",
+        "HOF": "ZOO",
+        "HOM": "ZOP",
+        "HUF": "ZOQ",
+        "HUM": "ZOR",
+        "IVM": "ZOS",
+        "MAG": "ZOT",
+        "OGF": "ZOU",
+        "OGM": "ZOV",
+        "SKE": "ZOW",
+        "TRF": "ZOX",
+        "TRM": "ZOY",
+        "WER": "ZOZ",
+        "WOE": "ZPA"
+      },
+      "imports": [
+        "znz,ncm19_chr"
+      ],
+      "element_texture": 0
+    },
+    {
+      "source": "global_chr.s3d",
+      "source_sha256": "6de89b8bea0c4ed387f8ef92774018a44a35c1fb440aa0a3052c56ce680a2eed",
+      "output": "ncm20_chr.s3d",
+      "aliases": {
+        "BAF": "ZPB",
+        "BAM": "ZPC",
+        "BIN": "ZPD",
+        "BOA": "ZPE",
+        "CHA": "ZPF",
+        "CLK": "ZPG",
+        "DAF": "ZPH",
+        "DAM": "ZPI",
+        "DWF": "ZPJ",
+        "DWM": "ZPK",
+        "ELE": "ZPL",
+        "ELF": "ZPM",
+        "ELM": "ZPN",
+        "ERF": "ZPO",
+        "ERM": "ZPP",
+        "EYE": "ZPQ",
+        "GNF": "ZPR",
+        "GNM": "ZPS",
+        "HAF": "ZPT",
+        "HAM": "ZPU",
+        "HEL": "ZPV",
+        "HIF": "ZPW",
+        "HIM": "ZPX",
+        "HOF": "ZPY",
+        "HOM": "ZPZ",
+        "HUF": "ZQA",
+        "HUM": "ZQB",
+        "IVM": "ZQC",
+        "MAG": "ZQD",
+        "OGF": "ZQE",
+        "OGM": "ZQF",
+        "SKE": "ZQG",
+        "TRF": "ZQH",
+        "TRM": "ZQI",
+        "WER": "ZQJ",
+        "WOE": "ZQK"
+      },
+      "imports": [
+        "zpl,ncm20_chr"
+      ],
+      "element_texture": 1
+    },
+    {
+      "source": "global_chr.s3d",
+      "source_sha256": "6de89b8bea0c4ed387f8ef92774018a44a35c1fb440aa0a3052c56ce680a2eed",
+      "output": "ncm21_chr.s3d",
+      "aliases": {
+        "BAF": "ZQL",
+        "BAM": "ZQM",
+        "BIN": "ZQN",
+        "BOA": "ZQO",
+        "CHA": "ZQP",
+        "CLK": "ZQQ",
+        "DAF": "ZQR",
+        "DAM": "ZQS",
+        "DWF": "ZQT",
+        "DWM": "ZQU",
+        "ELE": "ZQV",
+        "ELF": "ZQW",
+        "ELM": "ZQX",
+        "ERF": "ZQY",
+        "ERM": "ZQZ",
+        "EYE": "ZRA",
+        "GNF": "ZRB",
+        "GNM": "ZRC",
+        "HAF": "ZRD",
+        "HAM": "ZRE",
+        "HEL": "ZRF",
+        "HIF": "ZRG",
+        "HIM": "ZRH",
+        "HOF": "ZRI",
+        "HOM": "ZRJ",
+        "HUF": "ZRK",
+        "HUM": "ZRL",
+        "IVM": "ZRM",
+        "MAG": "ZRN",
+        "OGF": "ZRO",
+        "OGM": "ZRP",
+        "SKE": "ZRQ",
+        "TRF": "ZRR",
+        "TRM": "ZRS",
+        "WER": "ZRT",
+        "WOE": "ZRU"
+      },
+      "imports": [
+        "zqv,ncm21_chr"
+      ],
+      "element_texture": 2
+    },
+    {
+      "source": "global_chr.s3d",
+      "source_sha256": "6de89b8bea0c4ed387f8ef92774018a44a35c1fb440aa0a3052c56ce680a2eed",
+      "output": "ncm22_chr.s3d",
+      "aliases": {
+        "BAF": "ZRV",
+        "BAM": "ZRW",
+        "BIN": "ZRX",
+        "BOA": "ZRY",
+        "CHA": "ZRZ",
+        "CLK": "ZSA",
+        "DAF": "ZSB",
+        "DAM": "ZSC",
+        "DWF": "ZSD",
+        "DWM": "ZSE",
+        "ELE": "ZSF",
+        "ELF": "ZSG",
+        "ELM": "ZSH",
+        "ERF": "ZSI",
+        "ERM": "ZSJ",
+        "EYE": "ZSK",
+        "GNF": "ZSL",
+        "GNM": "ZSM",
+        "HAF": "ZSN",
+        "HAM": "ZSO",
+        "HEL": "ZSP",
+        "HIF": "ZSQ",
+        "HIM": "ZSR",
+        "HOF": "ZSS",
+        "HOM": "ZST",
+        "HUF": "ZSU",
+        "HUM": "ZSV",
+        "IVM": "ZSW",
+        "MAG": "ZSX",
+        "OGF": "ZSY",
+        "OGM": "ZSZ",
+        "SKE": "ZTA",
+        "TRF": "ZTB",
+        "TRM": "ZTC",
+        "WER": "ZTD",
+        "WOE": "ZTE"
+      },
+      "imports": [
+        "zsf,ncm22_chr"
+      ],
+      "element_texture": 3
+    }
+  ],
+  "registrations": [
+    {
+      "race": 13,
+      "gender": 2,
+      "original": "AVI",
+      "alias": "ZCN"
+    },
+    {
+      "race": 14,
+      "gender": 2,
+      "original": "WER",
+      "alias": "ZBJ"
+    },
+    {
+      "race": 15,
+      "gender": 0,
+      "original": "BRM",
+      "alias": "ZJF"
+    },
+    {
+      "race": 15,
+      "gender": 1,
+      "original": "BRF",
+      "alias": "ZJE"
+    },
+    {
+      "race": 16,
+      "gender": 2,
+      "original": "CEN",
+      "alias": "ZHC"
+    },
+    {
+      "race": 17,
+      "gender": 2,
+      "original": "GOL",
+      "alias": "ZCA"
+    },
+    {
+      "race": 18,
+      "gender": 2,
+      "original": "GIA",
+      "alias": "ZDQ"
+    },
+    {
+      "race": 19,
+      "gender": 2,
+      "original": "TRK",
+      "alias": "ZEO"
+    },
+    {
+      "race": 21,
+      "gender": 2,
+      "original": "BEH",
+      "alias": "ZBT"
+    },
+    {
+      "race": 22,
+      "gender": 2,
+      "original": "BET",
+      "alias": "ZEC"
+    },
+    {
+      "race": 23,
+      "gender": 0,
+      "original": "CPM",
+      "alias": "ZFP"
+    },
+    {
+      "race": 23,
+      "gender": 1,
+      "original": "CPF",
+      "alias": "ZFO"
+    },
+    {
+      "race": 24,
+      "gender": 2,
+      "original": "FIS",
+      "alias": "ZFZ"
+    },
+    {
+      "race": 25,
+      "gender": 1,
+      "original": "FAF",
+      "alias": "ZCX"
+    },
+    {
+      "race": 27,
+      "gender": 2,
+      "original": "FRG",
+      "alias": "ZBY"
+    },
+    {
+      "race": 29,
+      "gender": 2,
+      "original": "GAR",
+      "alias": "ZGA"
+    },
+    {
+      "race": 30,
+      "gender": 2,
+      "original": "BEH",
+      "alias": "ZBT"
+    },
+    {
+      "race": 31,
+      "gender": 2,
+      "original": "CUB",
+      "alias": "ZBV"
+    },
+    {
+      "race": 33,
+      "gender": 2,
+      "original": "GHU",
+      "alias": "ZBZ"
+    },
+    {
+      "race": 34,
+      "gender": 2,
+      "original": "BAT",
+      "alias": "ZEA"
+    },
+    {
+      "race": 36,
+      "gender": 2,
+      "original": "RAT",
+      "alias": "ZEK"
+    },
+    {
+      "race": 37,
+      "gender": 2,
+      "original": "SNA",
+      "alias": "ZEM"
+    },
+    {
+      "race": 38,
+      "gender": 2,
+      "original": "SPI",
+      "alias": "ZCH"
+    },
+    {
+      "race": 39,
+      "gender": 2,
+      "original": "GNN",
+      "alias": "ZDR"
+    },
+    {
+      "race": 40,
+      "gender": 2,
+      "original": "GOB",
+      "alias": "ZDS"
+    },
+    {
+      "race": 41,
+      "gender": 2,
+      "original": "GOR",
+      "alias": "ZCB"
+    },
+    {
+      "race": 42,
+      "gender": 1,
+      "original": "WOF",
+      "alias": "ZFG"
+    },
+    {
+      "race": 42,
+      "gender": 2,
+      "original": "WOL",
+      "alias": "ZDZ"
+    },
+    {
+      "race": 43,
+      "gender": 2,
+      "original": "BEA",
+      "alias": "ZDP"
+    },
+    {
+      "race": 46,
+      "gender": 2,
+      "original": "IMP",
+      "alias": "ZCD"
+    },
+    {
+      "race": 47,
+      "gender": 2,
+      "original": "GRI",
+      "alias": "ZDA"
+    },
+    {
+      "race": 48,
+      "gender": 2,
+      "original": "KOB",
+      "alias": "ZGE"
+    },
+    {
+      "race": 49,
+      "gender": 2,
+      "original": "DRA",
+      "alias": "ZEG"
+    },
+    {
+      "race": 50,
+      "gender": 0,
+      "original": "LIM",
+      "alias": "ZHL"
+    },
+    {
+      "race": 50,
+      "gender": 1,
+      "original": "LIF",
+      "alias": "ZKI"
+    },
+    {
+      "race": 52,
+      "gender": 0,
+      "original": "MIM",
+      "alias": "ZMC"
+    },
+    {
+      "race": 53,
+      "gender": 2,
+      "original": "MIN",
+      "alias": "ZHO"
+    },
+    {
+      "race": 54,
+      "gender": 2,
+      "original": "ORC",
+      "alias": "ZDW"
+    },
+    {
+      "race": 55,
+      "gender": 0,
+      "original": "BGM",
+      "alias": "ZGX"
+    },
+    {
+      "race": 56,
+      "gender": 1,
+      "original": "PIF",
+      "alias": "ZDF"
+    },
+    {
+      "race": 57,
+      "gender": 0,
+      "original": "DRM",
+      "alias": "ZEY"
+    },
+    {
+      "race": 57,
+      "gender": 1,
+      "original": "DRF",
+      "alias": "ZEX"
+    },
+    {
+      "race": 58,
+      "gender": 2,
+      "original": "SOL",
+      "alias": "ZNM"
+    },
+    {
+      "race": 59,
+      "gender": 2,
+      "original": "BGG",
+      "alias": "ZKT"
+    },
+    {
+      "race": 60,
+      "gender": 2,
+      "original": "SKE",
+      "alias": "ZBG"
+    },
+    {
+      "race": 61,
+      "gender": 2,
+      "original": "SHA",
+      "alias": "ZGO"
+    },
+    {
+      "race": 62,
+      "gender": 2,
+      "original": "TUN",
+      "alias": "ZNO"
+    },
+    {
+      "race": 63,
+      "gender": 2,
+      "original": "TIG",
+      "alias": "ZHY"
+    },
+    {
+      "race": 64,
+      "gender": 2,
+      "original": "TRE",
+      "alias": "ZKO"
+    },
+    {
+      "race": 65,
+      "gender": 0,
+      "original": "DVM",
+      "alias": "ZLW"
+    },
+    {
+      "race": 66,
+      "gender": 2,
+      "original": "RAL",
+      "alias": "ZNK"
+    },
+    {
+      "race": 68,
+      "gender": 2,
+      "original": "TEN",
+      "alias": "ZCI"
+    },
+    {
+      "race": 69,
+      "gender": 2,
+      "original": "WIL",
+      "alias": "ZCK"
+    },
+    {
+      "race": 70,
+      "gender": 0,
+      "original": "ZOM",
+      "alias": "ZCM"
+    },
+    {
+      "race": 70,
+      "gender": 1,
+      "original": "ZOF",
+      "alias": "ZCL"
+    },
+    {
+      "race": 71,
+      "gender": 0,
+      "original": "QCM",
+      "alias": "ZHS"
+    },
+    {
+      "race": 71,
+      "gender": 1,
+      "original": "QCF",
+      "alias": "ZHR"
+    },
+    {
+      "race": 72,
+      "gender": 1,
+      "original": "PRE",
+      "alias": "ZGK"
+    },
+    {
+      "race": 72,
+      "gender": 2,
+      "original": "PRE",
+      "alias": "ZGK"
+    },
+    {
+      "race": 74,
+      "gender": 2,
+      "original": "PIR",
+      "alias": "ZGJ"
+    },
+    {
+      "race": 75,
+      "gender": 2,
+      "original": "ELE",
+      "alias": "ZAK"
+    },
+    {
+      "race": 76,
+      "gender": 2,
+      "original": "PUM",
+      "alias": "ZDX"
+    },
+    {
+      "race": 78,
+      "gender": 0,
+      "original": "EGM",
+      "alias": "ZFW"
+    },
+    {
+      "race": 79,
+      "gender": 2,
+      "original": "BIX",
+      "alias": "ZCQ"
+    },
+    {
+      "race": 80,
+      "gender": 2,
+      "original": "REA",
+      "alias": "ZCE"
+    },
+    {
+      "race": 82,
+      "gender": 2,
+      "original": "SCA",
+      "alias": "ZCF"
+    },
+    {
+      "race": 83,
+      "gender": 2,
+      "original": "SKU",
+      "alias": "ZJY"
+    },
+    {
+      "race": 85,
+      "gender": 2,
+      "original": "SPE",
+      "alias": "ZBS"
+    },
+    {
+      "race": 86,
+      "gender": 2,
+      "original": "SPH",
+      "alias": "ZDK"
+    },
+    {
+      "race": 89,
+      "gender": 2,
+      "original": "DRK",
+      "alias": "ZCV"
+    },
+    {
+      "race": 90,
+      "gender": 0,
+      "original": "HLM",
+      "alias": "ZDU"
+    },
+    {
+      "race": 90,
+      "gender": 1,
+      "original": "HLF",
+      "alias": "ZDT"
+    },
+    {
+      "race": 91,
+      "gender": 2,
+      "original": "ALL",
+      "alias": "ZES"
+    },
+    {
+      "race": 94,
+      "gender": 0,
+      "original": "KAM",
+      "alias": "ZJR"
+    },
+    {
+      "race": 94,
+      "gender": 1,
+      "original": "KAF",
+      "alias": "ZJQ"
+    },
+    {
+      "race": 95,
+      "gender": 2,
+      "original": "CAZ",
+      "alias": "ZBU"
+    },
+    {
+      "race": 96,
+      "gender": 2,
+      "original": "COC",
+      "alias": "ZIA"
+    },
+    {
+      "race": 98,
+      "gender": 0,
+      "original": "VSM",
+      "alias": "ZMJ"
+    },
+    {
+      "race": 98,
+      "gender": 1,
+      "original": "VSF",
+      "alias": "ZMI"
+    },
+    {
+      "race": 99,
+      "gender": 2,
+      "original": "DEN",
+      "alias": "ZBW"
+    },
+    {
+      "race": 100,
+      "gender": 2,
+      "original": "DER",
+      "alias": "ZCS"
+    },
+    {
+      "race": 101,
+      "gender": 2,
+      "original": "EFR",
+      "alias": "ZCW"
+    },
+    {
+      "race": 104,
+      "gender": 2,
+      "original": "LEE",
+      "alias": "ZFC"
+    },
+    {
+      "race": 105,
+      "gender": 2,
+      "original": "SWO",
+      "alias": "ZGR"
+    },
+    {
+      "race": 107,
+      "gender": 2,
+      "original": "MAM",
+      "alias": "ZDV"
+    },
+    {
+      "race": 108,
+      "gender": 2,
+      "original": "EYE",
+      "alias": "ZAP"
+    },
+    {
+      "race": 109,
+      "gender": 2,
+      "original": "WAS",
+      "alias": "ZDM"
+    },
+    {
+      "race": 110,
+      "gender": 2,
+      "original": "MER",
+      "alias": "ZGH"
+    },
+    {
+      "race": 111,
+      "gender": 2,
+      "original": "HAR",
+      "alias": "ZDB"
+    },
+    {
+      "race": 113,
+      "gender": 2,
+      "original": "DRI",
+      "alias": "ZCU"
+    },
+    {
+      "race": 116,
+      "gender": 2,
+      "original": "SEA",
+      "alias": "ZGN"
+    },
+    {
+      "race": 117,
+      "gender": 0,
+      "original": "GDM",
+      "alias": "ZIQ"
+    },
+    {
+      "race": 118,
+      "gender": 1,
+      "original": "GEF",
+      "alias": "ZKW"
+    },
+    {
+      "race": 120,
+      "gender": 2,
+      "original": "WOE",
+      "alias": "ZBK"
+    },
+    {
+      "race": 121,
+      "gender": 2,
+      "original": "GRG",
+      "alias": "ZCC"
+    },
+    {
+      "race": 122,
+      "gender": 2,
+      "original": "DRU",
+      "alias": "ZBX"
+    },
+    {
+      "race": 123,
+      "gender": 2,
+      "original": "INN",
+      "alias": "ZGD"
+    },
+    {
+      "race": 124,
+      "gender": 2,
+      "original": "UNI",
+      "alias": "ZCJ"
+    },
+    {
+      "race": 125,
+      "gender": 2,
+      "original": "PEG",
+      "alias": "ZDE"
+    },
+    {
+      "race": 126,
+      "gender": 2,
+      "original": "DJI",
+      "alias": "ZCT"
+    },
+    {
+      "race": 127,
+      "gender": 0,
+      "original": "IVM",
+      "alias": "ZBB"
+    },
+    {
+      "race": 129,
+      "gender": 2,
+      "original": "SCR",
+      "alias": "ZLB"
+    },
+    {
+      "race": 131,
+      "gender": 2,
+      "original": "SRW",
+      "alias": "ZII"
+    },
+    {
+      "race": 133,
+      "gender": 2,
+      "original": "LYC",
+      "alias": "ZIG"
+    },
+    {
+      "race": 134,
+      "gender": 2,
+      "original": "MOS",
+      "alias": "ZFD"
+    },
+    {
+      "race": 137,
+      "gender": 2,
+      "original": "KGO",
+      "alias": "ZFA"
+    },
+    {
+      "race": 138,
+      "gender": 2,
+      "original": "YET",
+      "alias": "ZIK"
+    },
+    {
+      "race": 139,
+      "gender": 0,
+      "original": "ICM",
+      "alias": "ZKZ"
+    },
+    {
+      "race": 139,
+      "gender": 1,
+      "original": "ICF",
+      "alias": "ZKY"
+    },
+    {
+      "race": 139,
+      "gender": 2,
+      "original": "ICN",
+      "alias": "ZLA"
+    },
+    {
+      "race": 140,
+      "gender": 2,
+      "original": "FGI",
+      "alias": "ZIE"
+    },
+    {
+      "race": 144,
+      "gender": 2,
+      "original": "BRN",
+      "alias": "ZEU"
+    },
+    {
+      "race": 145,
+      "gender": 2,
+      "original": "GOO",
+      "alias": "ZEJ"
+    },
+    {
+      "race": 148,
+      "gender": 2,
+      "original": "BAC",
+      "alias": "ZET"
+    },
+    {
+      "race": 150,
+      "gender": 2,
+      "original": "ERO",
+      "alias": "ZNG"
+    },
+    {
+      "race": 151,
+      "gender": 2,
+      "original": "TRI",
+      "alias": "ZNN"
+    },
+    {
+      "race": 153,
+      "gender": 2,
+      "original": "BRI",
+      "alias": "ZNE"
+    },
+    {
+      "race": 154,
+      "gender": 2,
+      "original": "FDR",
+      "alias": "ZCY"
+    },
+    {
+      "race": 155,
+      "gender": 2,
+      "original": "SSK",
+      "alias": "ZIJ"
+    },
+    {
+      "race": 156,
+      "gender": 2,
+      "original": "VRM",
+      "alias": "ZEP"
+    },
+    {
+      "race": 157,
+      "gender": 2,
+      "original": "WYV",
+      "alias": "ZER"
+    },
+    {
+      "race": 158,
+      "gender": 2,
+      "original": "WUR",
+      "alias": "ZEQ"
+    },
+    {
+      "race": 161,
+      "gender": 2,
+      "original": "IKS",
+      "alias": "ZBR"
+    },
+    {
+      "race": 163,
+      "gender": 2,
+      "original": "RAP",
+      "alias": "ZIH"
+    },
+    {
+      "race": 165,
+      "gender": 2,
+      "original": "SED",
+      "alias": "ZLC"
+    },
+    {
+      "race": 168,
+      "gender": 2,
+      "original": "FMO",
+      "alias": "ZLL"
+    },
+    {
+      "race": 171,
+      "gender": 2,
+      "original": "DIW",
+      "alias": "ZIO"
+    },
+    {
+      "race": 175,
+      "gender": 2,
+      "original": "ENA",
+      "alias": "ZLJ"
+    },
+    {
+      "race": 177,
+      "gender": 2,
+      "original": "WAL",
+      "alias": "ZNA"
+    },
+    {
+      "race": 178,
+      "gender": 2,
+      "original": "RGM",
+      "alias": "ZLR"
+    },
+    {
+      "race": 181,
+      "gender": 2,
+      "original": "YAK",
+      "alias": "ZLU"
+    },
+    {
+      "race": 183,
+      "gender": 0,
+      "original": "COM",
+      "alias": "ZEE"
+    },
+    {
+      "race": 183,
+      "gender": 1,
+      "original": "COF",
+      "alias": "ZIM"
+    },
+    {
+      "race": 184,
+      "gender": 2,
+      "original": "DR2",
+      "alias": "ZEF"
+    },
+    {
+      "race": 187,
+      "gender": 2,
+      "original": "SIR",
+      "alias": "ZMY"
+    },
+    {
+      "race": 188,
+      "gender": 2,
+      "original": "FSG",
+      "alias": "ZIP"
+    },
+    {
+      "race": 189,
+      "gender": 2,
+      "original": "STG",
+      "alias": "ZLS"
+    },
+    {
+      "race": 190,
+      "gender": 2,
+      "original": "OTM",
+      "alias": "ZIS"
+    },
+    {
+      "race": 191,
+      "gender": 2,
+      "original": "WLM",
+      "alias": "ZNC"
+    },
+    {
+      "race": 192,
+      "gender": 2,
+      "original": "CCD",
+      "alias": "ZED"
+    },
+    {
+      "race": 209,
+      "gender": 2,
+      "original": "EEL",
+      "alias": "ZNZ"
+    },
+    {
+      "race": 210,
+      "gender": 2,
+      "original": "AEL",
+      "alias": "ZSF"
+    },
+    {
+      "race": 211,
+      "gender": 2,
+      "original": "WEL",
+      "alias": "ZQV"
+    },
+    {
+      "race": 212,
+      "gender": 2,
+      "original": "FEL",
+      "alias": "ZPL"
+    }
+  ],
+  "remakes": {
+    "208": 65,
+    "234": 60,
+    "241": 14,
+    "244": 64,
+    "247": 58,
+    "305": 43,
+    "320": 101,
+    "327": 38,
+    "349": 60,
+    "360": 65,
+    "367": 60,
+    "372": 100,
+    "374": 17,
+    "375": 21,
+    "420": 53,
+    "430": 89,
+    "431": 100,
+    "432": 89,
+    "433": 40,
+    "439": 76,
+    "440": 38,
+    "441": 38,
+    "450": 38,
+    "451": 38,
+    "453": 18,
+    "454": 14,
+    "455": 48,
+    "458": 54,
+    "461": 57,
+    "464": 29,
+    "468": 37,
+    "469": 21,
+    "470": 53,
+    "471": 70,
+    "473": 25,
+    "475": 210,
+    "476": 209,
+    "477": 212,
+    "478": 211,
+    "479": 91,
+    "480": 43,
+    "481": 42,
+    "482": 42,
+    "483": 120,
+    "484": 60,
+    "485": 85,
+    "490": 140,
+    "493": 125,
+    "496": 64,
+    "497": 65,
+    "517": 124,
+    "519": 124,
+    "520": 79,
+    "521": 16,
+    "523": 18,
+    "524": 39,
+    "525": 47,
+    "527": 111,
+    "528": 107,
+    "547": 145,
+    "548": 145,
+    "549": 145,
+    "558": 13,
+    "559": 22,
+    "560": 41,
+    "562": 23,
+    "564": 187,
+    "565": 86,
+    "566": 1,
+    "568": 15,
+    "571": 33,
+    "574": 53,
+    "575": 82,
+    "578": 68,
+    "581": 157,
+    "584": 76,
+    "602": 144,
+    "604": 122,
+    "606": 161,
+    "609": 163,
+    "610": 131,
+    "611": 129,
+    "613": 158,
+    "617": 39,
+    "624": 10,
+    "626": 18,
+    "645": 183,
+    "646": 183,
+    "670": 95,
+    "678": 3,
+    "704": 100,
+    "712": 31,
+    "715": 168,
+    "716": 22,
+    "718": 156,
+    "726": 100,
+    "727": 100,
+    "732": 125
+  },
+  "remake_genders": {
+    "481": 1
+  }
+}

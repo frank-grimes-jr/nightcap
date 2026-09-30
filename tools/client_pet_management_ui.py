@@ -4,6 +4,9 @@ import xml.etree.ElementTree as ET
 COMMANDS = ('Attack', 'Follow', 'Guard', 'Taunt', 'Sit / Stand', 'Stop',
             'Regroup', 'Back off', 'Hold', 'Greater hold', 'Focus', 'Spell hold',
             'Health', 'Dismiss')
+COMMAND_LABELS = ('Attack', 'Follow', 'Guard', 'Taunt', 'Sit/Up', 'Stop',
+                  'Group', 'Back', 'Hold', 'G.Hold', 'Focus', 'S.Hold',
+                  'Health', 'Remove')
 
 
 def add_pet_management(root):
@@ -25,7 +28,7 @@ def add_pet_management(root):
             for name, number in fields:
                 value(parent, name, number)
 
-    def control(tag, name, text, x, y, width, height, eqtype=None):
+    def control(tag, name, text, x, y, width, height, eqtype=None, tooltip=None):
         node = ET.SubElement(root, tag, item=name)
         for key, setting in [('ScreenID', name), ('RelativePosition', 'true'), ('Font', 2), ('Text', text)]:
             value(node, key, setting)
@@ -38,7 +41,7 @@ def add_pet_management(root):
         if tag == 'Button':
             value(node, 'Template', 'BDT_Normal')
             value(node, 'Style_Checkbox', 'false')
-            value(node, 'TooltipReference', text or 'Select this pet; click again for All pets')
+            value(node, 'TooltipReference', tooltip or text or 'Select this pet; click again for All pets')
         else:
             value(node, 'NoWrap', 'true')
         ET.SubElement(screen, 'Pieces').text = name
@@ -53,21 +56,24 @@ def add_pet_management(root):
             raise ValueError('Missing native pet command button')
         box(button, -10000, -10000, 1, 1)
     value(screen, 'Text', 'Pets')
-    value(screen, 'MinHSize', 330)
-    value(screen, 'MinVSize', 458)
-    box(screen, 50, 160, 330, 458)
+    value(screen, 'MinHSize', 350)
+    value(screen, 'MinVSize', 350)
+    box(screen, 50, 160, 350, 350)
     for index in range(3):
-        control('Button', f'NCPM_Pet{index}', '', 6, 6+index*28, 310, 26)
-        control('Label', f'NCPM_Pet{index}Name', 'Pets loading', 12, 11+index*28, 298, 20, 10031+index)
-    control('Label', 'NCPM_Scope', 'Commands: All pets', 8, 95, 228, 20, 10030)
-    control('Button', 'NCPM_All', 'All pets', 244, 90, 72, 26)
+        control('Button', f'NCPM_Pet{index}', '', 6, 6+index*28, 338, 26)
+        control('Label', f'NCPM_Pet{index}Name', 'Pets loading', 12, 11+index*28, 326, 20, 10031+index)
+    control('Label', 'NCPM_Scope', 'Commands: All pets', 8, 95, 230, 20, 10030)
+    control('Button', 'NCPM_All', 'All pets', 244, 90, 96, 26)
     for name, bounds in [('PIW_PetHPGauge', (6, 122, 152, 26)),
                          ('PIW_PetTargetHPGauge', (6, 153, 152, 28)),
-                         ('PIW_BuffWindow', (172, 122, 144, 280))]:
+                         ('PIW_BuffWindow', (180, 6, 164, 280))]:
         node = next((node for node in root if node.get('item') == name), None)
         if node is None:
             raise ValueError('Missing native pet status widget')
         box(node, *bounds)
     for index, title in enumerate(COMMANDS):
-        control('Button', f'NCPM_Command{index}', title, 6+(index%2)*78, 188+(index//2)*30, 74, 27)
-    control('Label', 'NCPM_Help', 'Select a name or pet. Clear target for All pets.', 6, 409, 312, 20)
+        label = COMMAND_LABELS[index]
+        control('Button', f'NCPM_Command{index}', label,
+                6+(index%3)*56, 184+(index//3)*28, 54, 25,
+                tooltip=title)
+    control('Label', 'NCPM_Help', 'Clear target = All pets', 180, 292, 164, 20)

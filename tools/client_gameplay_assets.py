@@ -172,13 +172,15 @@ def main():
         if not archive.is_file() or not 0 < archive.stat().st_size < 32*1024*1024:
             raise ValueError('Missing or unsupported model archive: '+model['archive'])
         files[model['archive']] = archive.read_bytes()
+    from client_classic_models import model_files
+    files.update(model_files(client))
     # Validate all inputs before creating any output. Existing user skins stay intact.
     output.mkdir(parents=True)
     for name, data in files.items():
         target = output/name
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_bytes(data)
-    audit = {'schema':1, 'features':['three_classes','aa_class_column','instant_dots','pet_armor','compact_hub_models','ecommons_tunnel_hub','ancient_attunement_recall','classic_nektulos','classic_lavastorm'],
+    audit = {'schema':1, 'features':['three_classes','aa_class_column','instant_dots','pet_armor','compact_hub_models','ecommons_tunnel_hub','ancient_attunement_recall','classic_nektulos','classic_lavastorm','classic_models'],
              'status':'generated_not_installed',
              'source_spells_sha256':hashlib.sha256(raw).hexdigest(),
              'canonical_spell_source_sha256':SOURCE_SHA256, 'restored_spell_class_ids':restored,
