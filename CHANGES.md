@@ -15,6 +15,25 @@ runtime plugin installation and zone restart, no native/client build. Checks pas
 not deployed and manual acceptance remains open. Evidence and exact QA:
 `docs/releases/tunnel-class-courts/README.md`.
 
+## 2026-09-30 - Advanced loot deployed to main and OVH
+
+Per the owner's explicit live-test instruction, merge PR 91 to main and deploy
+matching hardened world/zone plus signed client release 2026093006. Add the three
+preference/filter/receipt tables after a full private PEQ backup and successful
+isolated restore/migration rehearsal. All 47 existing-data fingerprints, runtime
+quest hashes, 15 native process hashes, game-account database probes, 46 hosted
+client files/signature and four public encrypted handshakes pass. Thirteen
+isolated orchestration fault tests and final independent review pass.
+
+Restart through the usual starter, then use `/advloot`. Native rendering and
+gameplay acceptance remain with the owner; exact natural-kill live QA is recorded.
+The original client and local world-port cutover remain untouched. Receipt-aware
+recovery is mandatory: do not swap to an old binary, drop claims or restore an
+old dump over later player progress. Full backup/evidence stays private on the
+host; automatic approval review declined a local copy of detailed host metadata.
+Release outcomes, public artifact hashes, operations and recovery:
+`docs/releases/advanced-loot/PRODUCTION.md`.
+
 ## 2026-09-30 - Advanced-loot live-test promotion authorized
 
 The owner explicitly requested direct main promotion and live server deployment,

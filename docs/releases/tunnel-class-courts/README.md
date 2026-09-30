@@ -69,8 +69,9 @@ python tools/tests/probe_tunnel_courts.py --snapshot FULL_TUNNEL_CAPTURE.json --
 
 ## Deployment and recovery
 
-Normal feature → dev → test → main policy applies. Current owner sign-off is
-required for main/OVH; previous release exceptions are not general approval.
+The owner explicitly approved main promotion and server deployment on September
+30, 2026: "Approved. push to main and to the server". This authorizes activation
+for live QA; it does not record manual acceptance.
 No native build, shared-memory rebuild or client publication is required.
 
 1. At authorized activation, retain the three runtime file preimages and take a

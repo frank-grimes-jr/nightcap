@@ -1,10 +1,10 @@
 # Advanced loot implementation
 
-Date: 2026-09-30. Branch: `feature/advanced-loot`, based on `origin/main`
-`20608bb`, integrated with dev `ffac9ba`. **Implemented candidate; native gameplay
-acceptance remains open. Not deployed live.**
-The original RoF2 installation remains read-only. No live database migration,
-gameplay binary replacement, signed publication or main promotion occurred.
+Date: 2026-09-30. **Deployed to main and the hosted live server for owner QA.**
+PR 91 merged at `0f7d089`; signed game release **2026093006** is published.
+[Production evidence and recovery](PRODUCTION.md); [owner live QA](LIVE-QA.md).
+Native gameplay acceptance remains open. The original RoF2 installation remains
+read-only. The earlier candidate evidence below retains its isolated scope.
 
 Scope and acceptance requirements: [ADR 0049](../../adr/0049-advanced-loot-client-server-contract.md).
 
@@ -147,20 +147,23 @@ only; none grant server permissions.
   repeatable IDs. Receipts suppress awarded drops after a checkpoint replay.
   Malformed records are retained and locked for recovery instead of rerolled.
 
-## Remaining release gates
+## Remaining acceptance gates
 
 1. Exercise native server command/session, saved-state and coin paths with fault
    cases. The production-body fixtures do not prove real packets, quests or lifecycle
    behavior. Inspect disconnected masters/winners and changed group/raid membership.
 2. Validate actual native rendering, `/advloot`, skin reload, zoning and gameplay
-   with the packaged QA client. Signed installation/startup alone does not establish
+   with the managed live client. Signed installation/startup alone does not establish
    those behaviors. The original client stays read-only.
-3. Complete saved-state rollback/recovery review. An older server that ignores
-   receipts is unsafe with a checkpoint containing already awarded items.
+3. Exercise native saved-state replay and recovery in isolation. Operational
+   review now requires receipt-aware recovery; an older server must not consume
+   unreconciled checkpoints containing already awarded items.
 
 ## Manual acceptance plan (not executed)
 
-Use the separate QA client and an isolated database/server candidate.
+The owner will test the deployed release using [LIVE-QA.md](LIVE-QA.md).
+For synthetic fixtures and injected faults, use the separate QA client and an
+isolated database/server candidate.
 [Exact native QA](QA.md) pins zone 22, NPC 22003 and items
 13073/1068/1041 with commands, expected results and remaining operator fault gates.
 
@@ -182,9 +185,11 @@ Behavior rollback disables advanced loot while retaining a receipt-aware server
 and all preference/claim data. A previous server binary requires a separately
 reviewed reconciliation of NPC saved-state checkpoints before activation; a
 binary swap alone can resurrect awarded loot. Do not delete receipts to unblock
-an uncertain award. Normal feature → dev → test → main gates remain in force.
+an uncertain award. The owner explicitly authorized direct main/live deployment
+for this release; that exception does not record native acceptance or change the
+default branch policy for future releases.
 
-## Local QA package
+## Historical local QA package (cutover not performed)
 
 Launcher: `E:/EQ_Local_Dev/artifacts/advloot-20260930/qa/nightcap-launcher-qa.exe`.
 Client: `E:/EQ_Local_Dev/artifacts/advloot-20260930/qa/client/everquest_rof2`.
@@ -196,7 +201,8 @@ client login listener deliberately uses an unpublished port until QA world acces
 is enabled. RoF2 requires world port 9000, which the live local container occupies.
 An explicit temporary cutover is needed before the owner can enter this QA server;
 do not change the client's login target to production to bypass the gate.
-The [access and restoration handoff](QA-ACCESS.md) records the proposed switch,
-preservation steps and approval boundary. It has not been executed.
+The [access and restoration handoff](QA-ACCESS.md) records the historical proposal.
+The owner superseded it with main/live deployment; do not perform that cutover
+for the current live acceptance run.
 Candidate world/zone and SQL are under the artifact root's `server` directory.
 Private signing material is outside the package and must not be copied into it.

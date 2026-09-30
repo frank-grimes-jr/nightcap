@@ -1,0 +1,72 @@
+{
+  "date": "2026-09-30",
+  "image": "nightcap-game:advanced-loot-20260930",
+  "image_id": "sha256:c02b2b3ceb1e64ea99226384cd22a6d51c8e9da82b264580f41b0cc901de7d5f",
+  "preflight": "passed",
+  "activation": "server_ready_gateway_closed",
+  "open": "live",
+  "preserved_tables": 47,
+  "native_processes_verified": 15,
+  "binaries": {
+    "loginserver": "a9c97271ce27bcbd4fc4003126af12a7c11821ef97d5aa8dff1be0dc1b4fffd8",
+    "world": "12c11b3f34f65e994c1ed06e02c45c0a9162fd05e640322acb70a67eab34b70e",
+    "zone": "8414c0f5885b944d5971ca28fc950c8c6847b64f87741b22e28df9f994ae02f6",
+    "ucs": "96757b356eca25c539bdd6e036c635ab79fee383e7a5ec9e27b14bb5138f5583",
+    "shared_memory": "3e45b9b1f8444eba773ff4375cd55089d8c5fff78cc3eb93e639a8aba9ef6f21"
+  },
+  "backup_restore_rehearsal": "passed as a required activation gate",
+  "additive_schema": "three tables applied and matched isolated rehearsal",
+  "actual_game_db_account_probe": "passed as required activation and opening gates; transaction rolled back",
+  "runtime_quest_preservation": "passed as required activation and opening gates",
+  "receipt_aware_recovery_boundary": "recorded before new server start",
+  "client_publication": {
+    "release": 2026093006,
+    "verified_files": 46,
+    "previous_release": 2026093004,
+    "matching_server_ready_gateway_closed": true,
+    "desktop_starter_guide_unchanged": true
+  },
+  "evidence_scope": "Summary of successful command outcomes and public/local artifact verification. Detailed production records and backup remain private on the host; local export was declined by automatic approval review.",
+  "source_commit": "0f7d089610a1a3e33ff7324e187f04c19079a846",
+  "authorization": "Owner explicitly requested direct main and live server deployment; owner tests live.",
+  "manual_gameplay_acceptance": "not executed",
+  "client_hosted_verification": {
+    "channel_sha256": "4698296da56f328241c96ab7051f7458585da603c6c8307f623ee838a807fa99",
+    "expires": "2026-10-30T20:58:22Z",
+    "hosted": true,
+    "release": 2026093006,
+    "signature": "valid against shipped production public key",
+    "total_bytes": 148693711,
+    "verified_files": 46
+  },
+  "transport": [
+    {
+      "port": 5998,
+      "native_session": "passed",
+      "tls": "verified"
+    },
+    {
+      "port": 9000,
+      "native_session": "passed",
+      "tls": "verified"
+    },
+    {
+      "port": 7778,
+      "native_session": "passed",
+      "tls": "verified"
+    },
+    {
+      "port": 7000,
+      "native_session": "passed",
+      "tls": "verified"
+    }
+  ],
+  "server_package": {
+    "archive": "advanced-loot-server-20260930.tar.gz",
+    "sha256": "e7e26efd91a7443ad43504582233db60e9e40d78654ac9f4299d529e001835ef",
+    "bytes": 173306895,
+    "manifest_sha256": "c9adca365aa1da9f689e458adda3a82a2d7a668ae74b174e5ec93eee9287b511"
+  },
+  "isolated_rollout_tests": 13,
+  "review": "Final independent source/rollout review reported no concrete blockers; native acceptance remains open."
+}

@@ -170,3 +170,9 @@ tools/templates/vendor_restock-archetype.sql text eol=lf
 # Production Linux scripts/configs and patch context must survive Windows checkout.
 deploy/production/* text eol=lf
 deploy/production/native-hardening.patch text eol=lf -whitespace
+
+# Preserve the exact archived advanced-loot deployment inputs and hash manifests.
+docs/releases/advanced-loot/production*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+docs/releases/advanced-loot/ops/*.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+docs/releases/advanced-loot/ops/*.go -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+docs/releases/advanced-loot/ops/*.log -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

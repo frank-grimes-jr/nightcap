@@ -6,11 +6,13 @@ deployment authorization. This local cutover was not executed.**
 The [candidate services](gameplay-qa.json) boot successfully. Client access is
 deliberately gated: RoF2 needs world port 9000, currently published by
 `akk-stack-eqemu-server-1`. Stopping that container disconnects local players.
-The owner has been asked to approve that interruption; silence is not approval.
+Approval was sought for that local interruption. The owner instead authorized
+direct main/live deployment; this historical proposal is not a pending request.
 
 ## Prepared candidate
 
-- PR: <https://github.com/frank-grimes-jr/nightcap/pull/91>, draft to `dev`.
+- PR at preparation time: <https://github.com/frank-grimes-jr/nightcap/pull/91>,
+  draft to `dev`; subsequently merged to main under the live-test authorization.
 - Candidate container: `nightcap-advloot-qa-20260930`.
 - Runtime: `/opt/nightcap-advloot-qa` inside that container.
 - Database: `nightcap_advloot_qa_20260930`; its separate user has grants only there.

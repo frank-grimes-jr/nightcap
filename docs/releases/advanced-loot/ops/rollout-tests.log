@@ -1,0 +1,22 @@
+test_actual_app_account_failure_keeps_access_closed (__main__.RolloutFaultTests.test_actual_app_account_failure_keeps_access_closed) ... ok
+test_after_new_start_never_selects_old (__main__.RolloutFaultTests.test_after_new_start_never_selects_old) ... ok
+test_direct_port_or_host_network_rejected_before_shutdown (__main__.RolloutFaultTests.test_direct_port_or_host_network_rejected_before_shutdown) ... ok
+test_drift_never_stops_services (__main__.RolloutFaultTests.test_drift_never_stops_services) ... ok
+test_emergency_hold_survives_corrupt_staging (__main__.RolloutFaultTests.test_emergency_hold_survives_corrupt_staging) ... ok
+test_emergency_hold_with_absent_gateway_stops_game (__main__.RolloutFaultTests.test_emergency_hold_with_absent_gateway_stops_game) ... ok
+test_failed_closure_is_not_reported_as_closed (__main__.RolloutFaultTests.test_failed_closure_is_not_reported_as_closed) ... ok
+test_migration_requires_three_transactional_tables_and_no_triggers (__main__.RolloutFaultTests.test_migration_requires_three_transactional_tables_and_no_triggers) ... ok
+test_new_tables_reject_triggers (__main__.RolloutFaultTests.test_new_tables_reject_triggers) ... ok
+{"status": "server_ready_gateway_closed", "image_id": "new-id", "preserved_tables": 1}
+test_open_failure_recloses_gateway_without_old_image (__main__.RolloutFaultTests.test_open_failure_recloses_gateway_without_old_image) ... ok
+test_pre_open_rejects_unexpected_restart (__main__.RolloutFaultTests.test_pre_open_rejects_unexpected_restart) ... ok
+{"status": "server_ready_gateway_closed", "image_id": "new-id", "preserved_tables": 1}
+{"status": "server_ready_gateway_closed", "image_id": "new-id", "preserved_tables": 1}
+{"status": "live", "client_release": 2026093006, "image_id": "new-id"}
+test_pre_start_failures_restore_old_without_database_restore (__main__.RolloutFaultTests.test_pre_start_failures_restore_old_without_database_restore) ... ok
+test_success_stays_closed_until_matching_client_publication (__main__.RolloutFaultTests.test_success_stays_closed_until_matching_client_publication) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.036s
+
+OK

@@ -9,25 +9,30 @@ QA reports preserve their original evidence and are not live-state promises.
 implemented and checked, not deployed. Matching uniforms, Roman supply pages,
 Khalure's subtitle and a Classic Dark Elf wizard porter address presentation.
 SQL recovery, quest guards and native geometry pass; nine maps match production.
-Exact visual/interaction QA and current main/OVH authorization remain required.
+Owner approved main/OVH activation on September 30; exact visual/interaction QA remains open.
 
-## Advanced loot candidate awaiting native QA
+## Advanced loot deployed for owner live QA
 
-The [advanced-loot candidate](releases/advanced-loot/README.md) has a native
+The [advanced-loot release](releases/advanced-loot/PRODUCTION.md) has a native
 RoF2 window and server queue, saved filters, personal/shared controls, checked
 item/coin transfers and saved-state receipt protection. Focused fixtures and
 the disposable SQL rehearsal pass. The clean world/zone build and locally signed
 QA package pass compilation, installation and actual RoF2 startup. Isolated
-login/world/ecommons services boot successfully. The owner now authorizes direct main promotion and hosted live deployment for
-testing, superseding the isolated port cutover. Production preparation is in progress;
-native gameplay acceptance remains open. No live activation is recorded yet.
+login/world/ecommons services boot successfully. Per the owner's explicit request,
+PR 91 merged to main and the paired hardened production build is live on OVH.
+Signed game release **2026093006** is published through the usual starter.
+Backup restore/migration rehearsal, 47 preservation checks, all 15 native process
+hashes, application-account permissions, all 46 hosted client files/signature
+and four public native handshakes passed. [Owner live QA](releases/advanced-loot/LIVE-QA.md)
+remains open. The isolated port cutover was superseded and not performed.
 
 ## Classic models deployed
 
 The [classic-model release](releases/classic-models-20260930/PRODUCTION.md)
 adds a mandatory client policy, 22 isolated classic archives, original elemental
 palettes and 98 remake mappings. Existing INI settings cannot silently opt in.
-Signed game release **2026093004** is live through the existing patcher after
+Signed game release **2026093004** introduced this policy, retained in the current
+**2026093006** release through the existing patcher after
 the owner's explicit main/server instruction. Native x86, archive integrity
 and packaging checks pass. Rendering and owner acceptance remain open. Creatures with no old
 counterpart retain their existing model, as the owner explicitly requested on

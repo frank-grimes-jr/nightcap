@@ -3,7 +3,9 @@
 **Not executed.** Use a separate QA client, candidate world/zone, isolated database
 and isolated quest directory. These commands create test loot; do not run this
 recipe against production or the read-only `Client_RoF2_Dev` installation.
-No promotion to `test` or `main` is recorded by this document.
+This document records isolated fixtures, not promotion or acceptance. The owner
+subsequently authorized main/live deployment; use [LIVE-QA.md](LIVE-QA.md) for
+ordinary live checks and [PRODUCTION.md](PRODUCTION.md) for deployment evidence.
 
 The separate client and signed launcher are packaged under
 `E:/EQ_Local_Dev/artifacts/advloot-20260930/qa/` (release 2026093005).
@@ -13,8 +15,8 @@ The QA client targets `127.0.0.1:15998`, but client access is deliberately inact
 until world port 9000 is freed and published for QA. The live local game-server
 container currently owns that port. A temporary cutover requires owner approval
 because it interrupts that server; it has not been performed.
-The concrete [access and restore plan](QA-ACCESS.md) preserves the isolated
-runtime and database and returns the live container to its prior running state.
+The historical [access and restore plan](QA-ACCESS.md) was superseded by the
+owner's live-test request; that local cutover was not performed.
 
 Use fresh accounts `advloota` and `advlootb`; their generated credentials are in
 the private local artifact directory, outside the package and Git. The isolated

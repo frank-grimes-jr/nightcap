@@ -46,6 +46,10 @@ Exact hashes, counts and bounded evidence: [production.json](production.json).
 
 ## Recovery
 
+**Superseded by the September 30 [advanced-loot deployment](../advanced-loot/PRODUCTION.md).**
+Do not run this old image-pair rollback against the current receipt-aware server.
+The procedure below remains historical evidence for the enchanter release.
+
 The previous image `nightcap-game:pet-management-20260922` remains available at
 `sha256:d9aadb51fc2d1b6cb773c102baea1747b734b764028a84e044cde03090e19806`. Host package:
 `/opt/nightcap/releases/enchanter-animation-20260930`; private backup/evidence:

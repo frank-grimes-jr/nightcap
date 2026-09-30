@@ -1,15 +1,34 @@
-# Phase 40: Tunnel class courts and Khaleid
+# Phase 40: Advanced loot live deployment
 
-Built eight class courts, matching class/profession uniforms, Roman stock-page
-subtitles, Khalure's druid-ring label and Khaleid's Classic wizard travel.
-Guarded migration/recovery preserves stock, prices, player data, rules and class
-functions. [Evidence and exact QA](../releases/tunnel-class-courts/README.md).
+Date: 2026-09-30. Owner-authorized direct main/OVH release; gameplay QA pending.
 
-Passed 13 new Python tests, 19 MariaDB checks, 26 wizard/21 resident assertions,
-8 existing service tests, 550 court samples, 55 approach rays and 40 landing
-samples. All nine maps match production hashes.
+## Built and deployed
 
-Cut: custom wall signage/client publication; native subtitles and uniforms provide
-identification. Other named residents retain their prior lineup. Still uncertain:
-rendered outfits/staff, label readability and authenticated runtime interactions.
-Owner QA and current main/OVH authorization remain required; not deployed.
+PR 91 is merged to main. Fresh paired world/zone preserve the prior production
+hardening and unchanged login/UCS/shared-memory binaries. Additive loot schema,
+signed game release 2026093006 and matching server are live with access open.
+The existing launcher installs all 46 files; no separate launcher update is needed.
+
+Private full-backup restore and migration rehearsal passed, followed by 47
+existing-data preservation checks, actual game-account transaction probes,
+15 native process hash checks, complete hosted client signature/file checks
+and four public native handshakes. Thirteen isolated rollout fault tests and
+independent source/operations review passed. Detailed host evidence remains
+private; the public record uses command outcomes and public/local artifact hashes.
+
+## Cut / superseded
+
+The isolated local port-9000 cutover was superseded by the owner's live-test
+request and was not performed. No requested core feature was cut. Native loot
+rights, range and progression balance remain intact.
+
+## Shaky / incomplete
+
+Native rendering, real looting and lifecycle, quest restrictions, NO TRADE/lore,
+raid transitions and checkpoint fault/replay acceptance remain open. The owner
+will test ordinary gameplay live; injected faults stay isolated. After the new
+server starts, recovery must preserve receipt-aware code and current data.
+An older binary or pre-release database dump is not a routine rollback.
+
+[Production and recovery](../releases/advanced-loot/PRODUCTION.md) Â·
+[Exact owner live QA](../releases/advanced-loot/LIVE-QA.md).
