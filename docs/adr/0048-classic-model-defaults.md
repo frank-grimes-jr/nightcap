@@ -53,15 +53,19 @@ aliases; mesh data, fragment indices, bone suffixes and animation data retain
 their original bytes. Inverse WLD transforms verify exact restoration.
 
 The native registry hook registers aliases for 144 race/gender pairs so reverse
-lookups remain meaningful. The lookup hook maps 94 later race IDs to original
+lookups remain meaningful. The lookup hook maps 98 later race IDs to original
 counterparts and normalizes unsupported old genders. Race data on the server is
-unchanged. Stock global imports remain in the generated import list.
+unchanged. Later Human, Ogre and Erudite NPCs use the native original player
+registry, preserving armor handling. Scaled wolf uses race 42, gender 1 (WOF).
+Stock global imports remain in the generated import list.
 
 The opt-in permits native preferences; users can retain old player models while
 opting into modern NPCs. Removing it restores classic defaults. Creatures and
 playable races with no original model keep their available model; selecting an
-unrelated replacement remains a separate owner decision. This is an explicit
-scope limit, not a claim that every model in all expansions is original-era art.
+unrelated replacement remains a separate owner decision. This is an unfinished
+part of the full old-only objective, not an accepted reduction of that objective.
+The [scope audit](../releases/classic-models-20260930/scope-audit.md) records the
+remaining native passthrough and the replacement choices needed.
 
 See [release QA](../releases/classic-models-20260930/QA.md) for checks, evidence,
 manual acceptance and rollback. Production publication remains pending.

@@ -6,7 +6,7 @@ Status: candidate only; not published or accepted in game.
 
 Open `E:/EQ_Local_Dev/artifacts/classic-models-20260930/qa/nightcap-launcher-qa.exe`.
 It is already configured for its isolated `qa/client` copy and signed release
-`2026093002`. Its adjacent launcher state is separate from the production
+`2026093003`. Its adjacent launcher state is separate from the production
 launcher. The copy is restored to classic defaults and all 46 managed files
 are current. Keep the normal installation for production play.
 
@@ -19,13 +19,15 @@ No authentication, rendered model inspection or gameplay acceptance was automate
 ## Intended behavior
 
 All Nightcap clients receiving this signed release default to classic player,
-magician elemental, skeleton and spectre models. The catalog also covers 94
+magician elemental, skeleton and spectre models. The catalog also covers 98
 later remake race IDs, including wolves, bears, orcs, goblins, giants, vampires,
 werewolves and other original counterparts. The full mapping and source hashes
 are in `eq-client-dll/config/classic-models.json`.
 
 Later-only creatures and playable races with no original counterpart retain
 their available model. The owner has not chosen unrelated classic substitutes.
+This is an outstanding part of the original request. [Coverage and replacement
+choices](scope-audit.md) must be resolved before claiming all-old coverage.
 
 Modern models require a deliberate edit to the game folder's `eqclient.ini`,
 followed by a complete client restart:
@@ -99,6 +101,9 @@ proxy `0.7.0-dev`; required/enabled/applied masks must all be 16383.
    skin variations, heads and equipment. Also spot-check remakes 479, 480, 482,
    458, 433 and 524 on the GM test character. No invisible actors, modern texture
    overlays, frozen poses or missing equipment are acceptable.
+   Also cover 481 (original scaled wolf, race 42/gender 1), 566 (classic Human),
+   624 (classic Ogre) and 678 (classic Erudite). Test both humanoid sexes, armor,
+   held weapons and casting; modern opt-in must restore their native variants.
 6. **Lifecycle:** zone between East Commonlands and Plane of Knowledge five
    times; camp and switch characters. Verify models and animations stay correct
    and the client does not crash. Check corpses and resurrected pets as well.
