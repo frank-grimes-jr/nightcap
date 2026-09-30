@@ -8,6 +8,12 @@ server-authorized UI chassis.
 
 ## Status
 
+September 30 candidate: proxy `0.7.0-dev` adds the native Advanced Loot window,
+`/advloot`, filters and server-authorized actions. It requires the matching
+server, SQL migration and generated Pet Info XML. A signed QA copy passes
+installation and real RoF2 startup; in-game rendering and loot acceptance remain
+open. See [advanced-loot evidence](../docs/releases/advanced-loot/README.md).
+
 September 30 candidate: proxy `0.7.0-dev` requires the classic model asset set.
 Old player/elemental models are the default, with isolated classic textures and
 race lookup remapping for creature remakes. `[Nightcap] UseModernModels=TRUE` in

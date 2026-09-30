@@ -23,7 +23,7 @@ No production files or SQL were changed.
   stations, utility functions and client files remain unchanged.
 
 Race choices are recognizable archetypes, not measured popularity statistics.
-[Design and alternatives](../../adr/0049-tunnel-class-courts.md). Wall signs are
+[Design and alternatives](../../adr/0050-tunnel-class-courts.md). Wall signs are
 optional: the existing archive lacks class-sign actors; they need packaged
 geometry/materials as described by the [EQEmu custom-zone guide](https://docs.eqemu.dev/client/guides/custom-zone-editing/)
 and [Blender object properties](https://docs.eqemu.dev/client/eqgzi/blender-custom-properties/).

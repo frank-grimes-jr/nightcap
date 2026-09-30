@@ -1,0 +1,383 @@
+{
+  "status": "deployed_for_owner_gameplay_QA",
+  "source_commit": "1ce04d0",
+  "server": {
+    "backup.json": {
+      "sha256": "efe3be52815ddf9b60bd6abdfd09d3124c72de5e21d23376a9b3825a934974e8",
+      "uncompressed_bytes": 444030076
+    },
+    "rehearsal.json": {
+      "full_backup_restored": true,
+      "preserved_tables": 46
+    },
+    "epoch-before.json": {
+      "epoch": 10
+    },
+    "verified-before-open.json": {
+      "image_id": "sha256:5a2263643ce4660b632cc033558e9108473fb551fa1436767e2e4aee26622964",
+      "native_processes": 15,
+      "running_hashes": [
+        [
+          "loginserver",
+          "a9c97271ce27bcbd4fc4003126af12a7c11821ef97d5aa8dff1be0dc1b4fffd8"
+        ],
+        [
+          "world",
+          "2e205df5d2cc7b78d3897e1741287c1c5acf501c444bf84350a825b03e83b1ba"
+        ],
+        [
+          "ucs",
+          "96757b356eca25c539bdd6e036c635ab79fee383e7a5ec9e27b14bb5138f5583"
+        ],
+        [
+          "zone",
+          "8079ef1c11c488d01aba9cf18160520146978298768cf9189c983f8374c6d110"
+        ],
+        [
+          "zone",
+          "8079ef1c11c488d01aba9cf18160520146978298768cf9189c983f8374c6d110"
+        ],
+        [
+          "zone",
+          "8079ef1c11c488d01aba9cf18160520146978298768cf9189c983f8374c6d110"
+        ],
+        [
+          "zone",
+          "8079ef1c11c488d01aba9cf18160520146978298768cf9189c983f8374c6d110"
+        ],
+        [
+          "zone",
+          "8079ef1c11c488d01aba9cf18160520146978298768cf9189c983f8374c6d110"
+        ],
+        [
+          "zone",
+          "8079ef1c11c488d01aba9cf18160520146978298768cf9189c983f8374c6d110"
+        ],
+        [
+          "zone",
+          "8079ef1c11c488d01aba9cf18160520146978298768cf9189c983f8374c6d110"
+        ],
+        [
+          "zone",
+          "8079ef1c11c488d01aba9cf18160520146978298768cf9189c983f8374c6d110"
+        ],
+        [
+          "zone",
+          "8079ef1c11c488d01aba9cf18160520146978298768cf9189c983f8374c6d110"
+        ],
+        [
+          "zone",
+          "8079ef1c11c488d01aba9cf18160520146978298768cf9189c983f8374c6d110"
+        ],
+        [
+          "zone",
+          "8079ef1c11c488d01aba9cf18160520146978298768cf9189c983f8374c6d110"
+        ],
+        [
+          "zone",
+          "8079ef1c11c488d01aba9cf18160520146978298768cf9189c983f8374c6d110"
+        ]
+      ],
+      "started_at": "2026-09-30T20:17:58.67600417Z",
+      "restart_count": 0,
+      "errors": {
+        "quest_api": 0,
+        "native": 0,
+        "database": 0
+      },
+      "epoch": 11,
+      "preserved_tables": 46,
+      "runtime_files": 8134,
+      "backup_sha256": "efe3be52815ddf9b60bd6abdfd09d3124c72de5e21d23376a9b3825a934974e8"
+    },
+    "activated.json": {
+      "image_id": "sha256:5a2263643ce4660b632cc033558e9108473fb551fa1436767e2e4aee26622964",
+      "native_processes": 15,
+      "running_hashes": [
+        [
+          "loginserver",
+          "a9c97271ce27bcbd4fc4003126af12a7c11821ef97d5aa8dff1be0dc1b4fffd8"
+        ],
+        [
+          "world",
+          "2e205df5d2cc7b78d3897e1741287c1c5acf501c444bf84350a825b03e83b1ba"
+        ],
+        [
+          "ucs",
+          "96757b356eca25c539bdd6e036c635ab79fee383e7a5ec9e27b14bb5138f5583"
+        ],
+        [
+          "zone",
+          "8079ef1c11c488d01aba9cf18160520146978298768cf9189c983f8374c6d110"
+        ],
+        [
+          "zone",
+          "8079ef1c11c488d01aba9cf18160520146978298768cf9189c983f8374c6d110"
+        ],
+        [
+          "zone",
+          "8079ef1c11c488d01aba9cf18160520146978298768cf9189c983f8374c6d110"
+        ],
+        [
+          "zone",
+          "8079ef1c11c488d01aba9cf18160520146978298768cf9189c983f8374c6d110"
+        ],
+        [
+          "zone",
+          "8079ef1c11c488d01aba9cf18160520146978298768cf9189c983f8374c6d110"
+        ],
+        [
+          "zone",
+          "8079ef1c11c488d01aba9cf18160520146978298768cf9189c983f8374c6d110"
+        ],
+        [
+          "zone",
+          "8079ef1c11c488d01aba9cf18160520146978298768cf9189c983f8374c6d110"
+        ],
+        [
+          "zone",
+          "8079ef1c11c488d01aba9cf18160520146978298768cf9189c983f8374c6d110"
+        ],
+        [
+          "zone",
+          "8079ef1c11c488d01aba9cf18160520146978298768cf9189c983f8374c6d110"
+        ],
+        [
+          "zone",
+          "8079ef1c11c488d01aba9cf18160520146978298768cf9189c983f8374c6d110"
+        ],
+        [
+          "zone",
+          "8079ef1c11c488d01aba9cf18160520146978298768cf9189c983f8374c6d110"
+        ],
+        [
+          "zone",
+          "8079ef1c11c488d01aba9cf18160520146978298768cf9189c983f8374c6d110"
+        ]
+      ],
+      "started_at": "2026-09-30T20:17:58.67600417Z",
+      "restart_count": 0,
+      "errors": {
+        "quest_api": 0,
+        "native": 0,
+        "database": 0
+      },
+      "epoch": 11,
+      "preserved_tables": 46,
+      "runtime_files": 8134,
+      "backup_sha256": "efe3be52815ddf9b60bd6abdfd09d3124c72de5e21d23376a9b3825a934974e8"
+    },
+    "manifest": {
+      "source_commit": "1ce04d0",
+      "old_image": "nightcap-game:pet-management-20260922",
+      "old_image_id": "sha256:d9aadb51fc2d1b6cb773c102baea1747b734b764028a84e044cde03090e19806",
+      "old_restart_count": 1,
+      "old_started_at": "2026-09-30T16:03:33.991786673Z",
+      "old_hashes": {
+        "bin/loginserver": "a9c97271ce27bcbd4fc4003126af12a7c11821ef97d5aa8dff1be0dc1b4fffd8",
+        "bin/zone": "3603c2907df5a30142e5c07fe91a1877839e5984983086af619bac6df4dd8e1e",
+        "bin/ucs": "96757b356eca25c539bdd6e036c635ab79fee383e7a5ec9e27b14bb5138f5583",
+        "bin/shared_memory": "3e45b9b1f8444eba773ff4375cd55089d8c5fff78cc3eb93e639a8aba9ef6f21",
+        "bin/world": "2e205df5d2cc7b78d3897e1741287c1c5acf501c444bf84350a825b03e83b1ba",
+        "start.py": "ca4099eb898730141e7941d3afc366d59c4bc8351eea74c5b6fd9560c24b815f",
+        "configure.py": "90873958dfb013201dd9c9552beaccdd88984a2e55739da07874fa4a95a84e57",
+        "accounts.py": "400d4e7a5d0bedeed47ffdb33b142a4a62a3f939a35466da66ce3201ae52ef5c"
+      },
+      "new_image": "nightcap-game:enchanter-animation-20260930",
+      "binaries": {
+        "loginserver": "a9c97271ce27bcbd4fc4003126af12a7c11821ef97d5aa8dff1be0dc1b4fffd8",
+        "world": "2e205df5d2cc7b78d3897e1741287c1c5acf501c444bf84350a825b03e83b1ba",
+        "zone": "8079ef1c11c488d01aba9cf18160520146978298768cf9189c983f8374c6d110",
+        "ucs": "96757b356eca25c539bdd6e036c635ab79fee383e7a5ec9e27b14bb5138f5583",
+        "shared_memory": "3e45b9b1f8444eba773ff4375cd55089d8c5fff78cc3eb93e639a8aba9ef6f21"
+      },
+      "hardening_sha256": "219f556bb1e55a719f8a3f5150c95723ce46ab9a8b69c93c2bc0f54ff1262b2e"
+    },
+    "manifest_sha256": "f433a82c9a7247158ad42929fb4ec63012a5e0f96f27bfd540cdec0e7614acf0",
+    "post_deployment": {
+      "image_id": "sha256:5a2263643ce4660b632cc033558e9108473fb551fa1436767e2e4aee26622964",
+      "native_processes": 15,
+      "running_hashes": [
+        [
+          "loginserver",
+          "a9c97271ce27bcbd4fc4003126af12a7c11821ef97d5aa8dff1be0dc1b4fffd8"
+        ],
+        [
+          "world",
+          "2e205df5d2cc7b78d3897e1741287c1c5acf501c444bf84350a825b03e83b1ba"
+        ],
+        [
+          "ucs",
+          "96757b356eca25c539bdd6e036c635ab79fee383e7a5ec9e27b14bb5138f5583"
+        ],
+        [
+          "zone",
+          "8079ef1c11c488d01aba9cf18160520146978298768cf9189c983f8374c6d110"
+        ],
+        [
+          "zone",
+          "8079ef1c11c488d01aba9cf18160520146978298768cf9189c983f8374c6d110"
+        ],
+        [
+          "zone",
+          "8079ef1c11c488d01aba9cf18160520146978298768cf9189c983f8374c6d110"
+        ],
+        [
+          "zone",
+          "8079ef1c11c488d01aba9cf18160520146978298768cf9189c983f8374c6d110"
+        ],
+        [
+          "zone",
+          "8079ef1c11c488d01aba9cf18160520146978298768cf9189c983f8374c6d110"
+        ],
+        [
+          "zone",
+          "8079ef1c11c488d01aba9cf18160520146978298768cf9189c983f8374c6d110"
+        ],
+        [
+          "zone",
+          "8079ef1c11c488d01aba9cf18160520146978298768cf9189c983f8374c6d110"
+        ],
+        [
+          "zone",
+          "8079ef1c11c488d01aba9cf18160520146978298768cf9189c983f8374c6d110"
+        ],
+        [
+          "zone",
+          "8079ef1c11c488d01aba9cf18160520146978298768cf9189c983f8374c6d110"
+        ],
+        [
+          "zone",
+          "8079ef1c11c488d01aba9cf18160520146978298768cf9189c983f8374c6d110"
+        ],
+        [
+          "zone",
+          "8079ef1c11c488d01aba9cf18160520146978298768cf9189c983f8374c6d110"
+        ],
+        [
+          "zone",
+          "8079ef1c11c488d01aba9cf18160520146978298768cf9189c983f8374c6d110"
+        ]
+      ],
+      "started_at": "2026-09-30T20:17:58.67600417Z",
+      "restart_count": 0,
+      "errors": {
+        "quest_api": 0,
+        "native": 0,
+        "database": 0
+      },
+      "gateway_running": true
+    },
+    "runtime_unchanged": true
+  },
+  "native_animation_checks": {
+    "database": "nightcap_balance_20260912",
+    "binary_sha256": "04f0673986f1d99bd08d10b56fcd809e3cd23c106db8bed4cd189ae4afa93d4d",
+    "command_source_sha256": "3ce946d7b709020e7fbd9e5cd1eb1b96fb61e49c4d0c5104e813c503e5059523",
+    "passed": 9,
+    "no_aa_ranks_granted": true,
+    "synthetic_rows_remaining": 0,
+    "cases": [
+      {
+        "id": "primary-standard",
+        "actions": 27,
+        "commands": 22,
+        "final_pets": 0
+      },
+      {
+        "id": "baseline-primary-standard",
+        "baseline_rejected_animation_guard": true
+      },
+      {
+        "id": "primary-attack-2-80",
+        "actions": 4,
+        "commands": 4,
+        "final_pets": 3,
+        "ordered_pet_ids": [
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "id": "primary-attack-3-80",
+        "actions": 4,
+        "commands": 4,
+        "final_pets": 3,
+        "ordered_pet_ids": [
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "id": "primary-attack-2-500",
+        "actions": 4,
+        "commands": 4,
+        "final_pets": 3,
+        "ordered_pet_ids": []
+      },
+      {
+        "id": "secondary-standard",
+        "actions": 27,
+        "commands": 22,
+        "final_pets": 0
+      },
+      {
+        "id": "secondary-attack-2-80",
+        "actions": 4,
+        "commands": 4,
+        "final_pets": 3,
+        "ordered_pet_ids": [
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "id": "secondary-attack-3-80",
+        "actions": 4,
+        "commands": 4,
+        "final_pets": 3,
+        "ordered_pet_ids": [
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "id": "secondary-attack-2-500",
+        "actions": 4,
+        "commands": 4,
+        "final_pets": 3,
+        "ordered_pet_ids": []
+      }
+    ]
+  },
+  "transport": [
+    {
+      "native_session": "passed",
+      "port": 5998,
+      "tls": "verified"
+    },
+    {
+      "native_session": "passed",
+      "port": 9000,
+      "tls": "verified"
+    },
+    {
+      "native_session": "passed",
+      "port": 7778,
+      "tls": "verified"
+    },
+    {
+      "native_session": "passed",
+      "port": 7000,
+      "tls": "verified"
+    }
+  ],
+  "rollout_fault_tests_passed": 19,
+  "pet_selection_regression_passed": true,
+  "client_update_required": false,
+  "manual_gameplay_acceptance": "pending"
+}

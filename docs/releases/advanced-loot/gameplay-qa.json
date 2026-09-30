@@ -1,0 +1,133 @@
+{
+  "status": "isolated_services_booted_client_access_gated",
+  "container": "nightcap-advloot-qa-20260930",
+  "database": "nightcap_advloot_qa_20260930",
+  "runtime": {
+    "processes": {
+      "loginserver": {
+        "pid": 153,
+        "sha256": "67687a7d0fd0aaa796ab77d06f12adb02b433e321f3816f8c6e15b71f0022936"
+      },
+      "world": {
+        "pid": 154,
+        "sha256": "b4780ac44df0dce186e75d3bddc01c6c988ebcf45afc5016a516b4d5f4a5656d"
+      },
+      "zone": {
+        "pid": 155,
+        "sha256": "81efa292bfd5ca75c51a17f692638bd9af0647cad5d849b3674679dc8b4072db"
+      }
+    },
+    "checks": {
+      "login_started": true,
+      "world_registered": true,
+      "world_connected_login": true,
+      "world_connected_zone": true,
+      "zone_booted": true,
+      "zone_listening": true
+    },
+    "startup_error_lines": {
+      "loginserver": [],
+      "world": [],
+      "zone": []
+    }
+  },
+  "binary_sha256": {
+    "world": "b4780ac44df0dce186e75d3bddc01c6c988ebcf45afc5016a516b4d5f4a5656d",
+    "zone": "81efa292bfd5ca75c51a17f692638bd9af0647cad5d849b3674679dc8b4072db",
+    "shared_memory": "3411871a9c03e6ce0285eeafc252411e9d8dcb55fdfd282ba26a4c05a342c0b0",
+    "loginserver": "67687a7d0fd0aaa796ab77d06f12adb02b433e321f3816f8c6e15b71f0022936"
+  },
+  "pids": {
+    "loginserver": 153,
+    "world": 154,
+    "zone": 155
+  },
+  "fixture_accounts": [
+    "advloota",
+    "advlootb"
+  ],
+  "world_port_published": false,
+  "live_services_changed": false,
+  "quests": "empty; canonical hand-in helpers only",
+  "optional_market": "empty QA marker preserved as qa_unused_nightcap_market_state; no procedures or stock imported",
+  "login_target": "127.0.0.1:15998 (not active until cutover)",
+  "internal_login_udp_port": 15997,
+  "gameplay_gate": "Live local port 9000 remains occupied; explicit cutover and login UDP listener activation still required",
+  "table_counts": {
+    "account": 2,
+    "login_accounts": 2,
+    "character_data": 0,
+    "inventory": 0,
+    "zone_state_spawns": 0
+  },
+  "bindings": {
+    "17000/udp": [
+      {
+        "HostIp": "127.0.0.1",
+        "HostPort": "17000"
+      }
+    ],
+    "17001/udp": [
+      {
+        "HostIp": "127.0.0.1",
+        "HostPort": "17001"
+      }
+    ],
+    "17002/udp": [
+      {
+        "HostIp": "127.0.0.1",
+        "HostPort": "17002"
+      }
+    ],
+    "17003/udp": [
+      {
+        "HostIp": "127.0.0.1",
+        "HostPort": "17003"
+      }
+    ],
+    "17004/udp": [
+      {
+        "HostIp": "127.0.0.1",
+        "HostPort": "17004"
+      }
+    ],
+    "17005/udp": [
+      {
+        "HostIp": "127.0.0.1",
+        "HostPort": "17005"
+      }
+    ],
+    "17006/udp": [
+      {
+        "HostIp": "127.0.0.1",
+        "HostPort": "17006"
+      }
+    ],
+    "17007/udp": [
+      {
+        "HostIp": "127.0.0.1",
+        "HostPort": "17007"
+      }
+    ],
+    "17008/udp": [
+      {
+        "HostIp": "127.0.0.1",
+        "HostPort": "17008"
+      }
+    ],
+    "17009/udp": [
+      {
+        "HostIp": "127.0.0.1",
+        "HostPort": "17009"
+      }
+    ],
+    "5998/udp": [
+      {
+        "HostIp": "127.0.0.1",
+        "HostPort": "15998"
+      }
+    ]
+  },
+  "native_gameplay_acceptance": false,
+  "client_login_active": false
+}
