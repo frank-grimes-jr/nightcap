@@ -1,8 +1,8 @@
 # Tunnel class courts and Khaleid
 
-September 30, 2026 candidate. **Not deployed; in-game acceptance is open.**
-Based on a read-only OVH capture, not the older local PEQ services roster.
-No production files or SQL were changed.
+**Deployed September 30, 2026; in-game acceptance is open.**
+[Production evidence and recovery](PRODUCTION.md). The candidate evidence below
+records the earlier read-only capture; deployment used a fresh stopped target.
 
 ![Affected groups; existing traders and furnishings retained](layout.png)
 

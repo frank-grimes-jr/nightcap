@@ -1,0 +1,120 @@
+{
+  "status": "deployed_for_owner_QA",
+  "source_commit": "453e61bf150fcabc75ef34ef8ada199c2f15fd15",
+  "runtime": {
+    "image_id": "sha256:c02b2b3ceb1e64ea99226384cd22a6d51c8e9da82b264580f41b0cc901de7d5f",
+    "native_processes": 15,
+    "hashes_match": true,
+    "started_at": "2026-09-30T23:54:32.404571423Z",
+    "restart_count": 0,
+    "errors": {
+      "quest_api": 0,
+      "native": 0,
+      "database": 0
+    },
+    "gateway_running": true
+  },
+  "verification": {
+    "preserved_tables": 50,
+    "runtime_files": 3,
+    "exact_static_afterimages": true,
+    "epoch": 13,
+    "installed_quest_assertions": 26
+  },
+  "backup": {
+    "sha256": "f1f6352418255a4e1168fae1c90f3e7c2d0c579bddb50612da2b02ec78ccf1ad",
+    "uncompressed_bytes": 444032895,
+    "full_restore_verified": true
+  },
+  "database_checks": [
+    "case-only NPC drift rejected",
+    "rejected row drift performs no writes",
+    "dangling Khaleid reference blocks installation",
+    "reference collision preserves database",
+    "npc_types exact afterimage",
+    "npc_types_tint exact afterimage",
+    "spawngroup exact afterimage",
+    "spawnentry exact afterimage",
+    "spawn2 exact afterimage",
+    "zone_state_spawns exact afterimage",
+    "replay rejected",
+    "replay preserves installed content",
+    "immediate rollback restores exact preimage",
+    "stale rollback stops after new zone activity",
+    "corpse/other-zone/other-instance dependencies block rollback",
+    "blocked rollback preserves all referenced states",
+    "fresh scoped rollback removes Khaleid cached state",
+    "unrelated/corpse/other-instance saved states preserved",
+    "player inventory/currency, merchant stock and era rule preserved"
+  ],
+  "exact_full_database_forward": true,
+  "exact_full_database_rollback": true,
+  "porters": [
+    {
+      "npc_id": "999525",
+      "name": "Khalure_Ser`Tiras",
+      "subtitle": "Druid Rings",
+      "race": "4",
+      "gender": "0",
+      "texture": "1",
+      "primary_weapon_model": "0",
+      "x": "-311.000000",
+      "y": "-1561.000000",
+      "z": "3.750000"
+    },
+    {
+      "npc_id": "999527",
+      "name": "Khaleid",
+      "subtitle": "Wizard Spires",
+      "race": "6",
+      "gender": "0",
+      "texture": "15",
+      "primary_weapon_model": "122",
+      "x": "-279.000000",
+      "y": "-1567.000000",
+      "z": "3.750000"
+    }
+  ],
+  "manual_acceptance": "pending",
+  "package": {
+    "source_commit": "453e61bf150fcabc75ef34ef8ada199c2f15fd15",
+    "archive_sha256": "eb776ec180bed24d564338f99504ca087b354374a991c190d5029c848451efc0",
+    "manifest_sha256": "da2c10dfe6fd42329ef5cb7d3085dc5a9583370dc87c22318d125b24411b22ea",
+    "files": 14
+  },
+  "geometry": {
+    "npc_positions": 55,
+    "court_ground_samples": 550,
+    "approach_rays": 55,
+    "spire_destinations": 8,
+    "spire_ground_samples": 40,
+    "minimum_patrol_clearance": 12.122,
+    "minimum_furniture_or_npc_clearance": 10.848,
+    "status": "geometry_passed_visual_QA_pending",
+    "snapshot_sha256": "4c5f84df91c2e1aaceee9698e637bdfb6637b449ddd32c828d70d013539ea550"
+  },
+  "fault_tests": 21,
+  "transport": [
+    {
+      "native_session": "passed",
+      "tls": "verified",
+      "port": 5998
+    },
+    {
+      "native_session": "passed",
+      "tls": "verified",
+      "port": 9000
+    },
+    {
+      "native_session": "passed",
+      "tls": "verified",
+      "port": 7778
+    },
+    {
+      "native_session": "passed",
+      "tls": "verified",
+      "port": 7000
+    }
+  ],
+  "verification_recovery_sha256": "f652706530b554799e30e5f38f3fc6c46bef984fec98aab0e6aa26761d68c7fa"
+}

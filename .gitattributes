@@ -176,3 +176,8 @@ docs/releases/advanced-loot/production*.json -text whitespace=blank-at-eol,blank
 docs/releases/advanced-loot/ops/*.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 docs/releases/advanced-loot/ops/*.go -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 docs/releases/advanced-loot/ops/*.log -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+
+# Preserve pinned tunnel deployment helper and package manifest bytes.
+docs/releases/tunnel-class-courts/ops/rollout.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+docs/releases/tunnel-class-courts/ops/verify_open.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+docs/releases/tunnel-class-courts/ops/package*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

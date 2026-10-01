@@ -1,0 +1,134 @@
+{
+  "source_commit": "453e61bf150fcabc75ef34ef8ada199c2f15fd15",
+  "image": "nightcap-game:advanced-loot-20260930",
+  "image_id": "sha256:c02b2b3ceb1e64ea99226384cd22a6d51c8e9da82b264580f41b0cc901de7d5f",
+  "binaries": {
+    "bin/loginserver": "a9c97271ce27bcbd4fc4003126af12a7c11821ef97d5aa8dff1be0dc1b4fffd8",
+    "bin/world": "12c11b3f34f65e994c1ed06e02c45c0a9162fd05e640322acb70a67eab34b70e",
+    "bin/zone": "8414c0f5885b944d5971ca28fc950c8c6847b64f87741b22e28df9f994ae02f6",
+    "bin/ucs": "96757b356eca25c539bdd6e036c635ab79fee383e7a5ec9e27b14bb5138f5583",
+    "bin/shared_memory": "3e45b9b1f8444eba773ff4375cd55089d8c5fff78cc3eb93e639a8aba9ef6f21",
+    "start.py": "ca4099eb898730141e7941d3afc366d59c4bc8351eea74c5b6fd9560c24b815f",
+    "configure.py": "90873958dfb013201dd9c9552beaccdd88984a2e55739da07874fa4a95a84e57",
+    "accounts.py": "400d4e7a5d0bedeed47ffdb33b142a4a62a3f939a35466da66ce3201ae52ef5c"
+  },
+  "scene_sha256": "b2f79dfc54363eafebb76fe231e3a63c6641669890556ec7782cb232106753de",
+  "runtime": [
+    {
+      "source": "server-mods/plugins/tunnel_spires.pl",
+      "target": "plugins/tunnel_spires.pl",
+      "sha256": "a99e76bed1c70d033dc588f003ebf8984ed8498f171ffcba5cc67691b50abff9"
+    },
+    {
+      "source": "server-mods/plugins/tunnel_spire_data.pl",
+      "target": "plugins/tunnel_spire_data.pl",
+      "sha256": "b74db845b87b9198bd2d18c53619e8cfbe4e999b33d7f5a35c53a9b3890c8b15"
+    },
+    {
+      "source": "server-mods/quests/ecommons/999527.pl",
+      "target": "quests/ecommons/999527.pl",
+      "sha256": "8d6df21fb656625ca009f87708d4fe6b9ae39b47ffd77364b5a4b0681e8d57aa"
+    }
+  ],
+  "maps": {
+    "ecommons.map": "861fa497df139138b13d08b6e16f2d50c6f1a0ccc3f0fa4ce0afadddb6a17915",
+    "cazicthule.map": "fb6390b8862a25862fa839940191c1bb7fa9c2bb3031f430362a87bc3dd6434a",
+    "commons.map": "3c05f50d69db462a9726469f251819c5dfdfbe2045439732b00a9bbcdfca6f14",
+    "gfaydark.map": "c2f1d379d6b470401eed28d25a45028e2aadfedeefdbf7f405c1898b727a8181",
+    "nektulos_classic.map": "559351c3a5b54c3cfb9e715b48d861cc55ac74ecdeb3c5abd48e55d7bfc9d1c7",
+    "northkarana.map": "da01b1b34efbfbcfeb42948cb6f221172219b581c724754d4445e6c1c1fb4757",
+    "nro.map": "2a72643f2748328ba4abac6c07c58c929a0ae5d8451a2a5a88343138cf7707c5",
+    "qey2hh1.map": "f1baa75532bc8599ca8f39207529d93e2d9e0340be5dc8296f005d80172d98c3",
+    "tox.map": "14885be4b9147c561f279533b3cf3c1ed10476e01548079933c9ebdb8194314f"
+  },
+  "zones": {
+    "cazicthule": [
+      "cazicthule",
+      "48",
+      "cazicthule",
+      "0",
+      "0",
+      "0"
+    ],
+    "commons": [
+      "commons",
+      "21",
+      "commons",
+      "0",
+      "0",
+      "0"
+    ],
+    "gfaydark": [
+      "gfaydark",
+      "54",
+      "gfaydark",
+      "0",
+      "0",
+      "0"
+    ],
+    "nektulos": [
+      "nektulos",
+      "25",
+      "nektulos_classic",
+      "0",
+      "0",
+      "0"
+    ],
+    "northkarana": [
+      "northkarana",
+      "13",
+      "northkarana",
+      "0",
+      "0",
+      "0"
+    ],
+    "nro": [
+      "nro",
+      "34",
+      "nro",
+      "0",
+      "0",
+      "0"
+    ],
+    "qey2hh1": [
+      "qey2hh1",
+      "12",
+      "qey2hh1",
+      "0",
+      "0",
+      "0"
+    ],
+    "tox": [
+      "tox",
+      "38",
+      "tox",
+      "0",
+      "0",
+      "0"
+    ],
+    "ecommons": [
+      "ecommons",
+      "22",
+      "ecommons",
+      "0",
+      "0",
+      "0"
+    ]
+  },
+  "files": {
+    "rollout.py": "c20a262fd6234b6083facd28e41585ad46cad8cc0bb2f8fca5f72fdccb2b1559",
+    "tools/generate_living_economy.py": "05c6df0212c9ec8caa894be752ffa6755d6c73e518f472a8db5415bd5fa95c43",
+    "tools/living_economy.py": "4d96c3d3629ad8d2ac076783005d9d998f72dcc4a4573da61c7519e3346f0043",
+    "tools/pok_hub.py": "51cfffceadc22a73a01a84ac96fc427f3f271603bda5a4bf26b87ab90aca4c91",
+    "tools/pok_hub_migration.py": "184b72772950d60eccdd1a4fff36905f222bc2fb0fa4b1efc915f4946383d528",
+    "tools/tunnel_courts.py": "4c047ecb481833c57e25bf57314da6f1d1c0a693a4943eb7bdcb65883e60a6e4",
+    "tools/tunnel_services.py": "dc072c65afee5a2e81533ab90ceba29937554afc6b3356851b5ca33bb2e91200",
+    "tools/tests/rehearse_living_economy.py": "3271e271d7339ba709a6988ed2d869f7d2637d206c8bae705216411dd32953a1",
+    "tools/tests/rehearse_tunnel_courts.py": "68ec76951a31cdb57584afff95e42959ae2c439bf78c48a387e1d1fb47e4ac20",
+    "tools/tests/tunnel_spires_quests.t": "32d61054d1bc174c1f6b1c77bb8ced6e38e46c7f55871f1e86033c94cfb30331",
+    "server-mods/plugins/tunnel_spires.pl": "a99e76bed1c70d033dc588f003ebf8984ed8498f171ffcba5cc67691b50abff9",
+    "server-mods/plugins/tunnel_spire_data.pl": "b74db845b87b9198bd2d18c53619e8cfbe4e999b33d7f5a35c53a9b3890c8b15",
+    "server-mods/quests/ecommons/999527.pl": "8d6df21fb656625ca009f87708d4fe6b9ae39b47ffd77364b5a4b0681e8d57aa",
+    "docs/ecommons-hub/plan.json": "ac4ff84f6e0d54fa588e3b3a08e995a363273b182a543c31c54606e68ba1b7b5"
+  }
+}
