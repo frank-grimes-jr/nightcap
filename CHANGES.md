@@ -1,5 +1,17 @@
 # CHANGES
 
+## 2026-10-01 - Repair Play failure caused by classic-model archives
+
+The generated model archives declared PFS version 2 but used 64 KiB blocks.
+RoF2 permits only 8 KiB blocks for that version and aborted while reading
+`ncm01_chr.wld`. Generate native-sized blocks, reject incompatible archives
+during validation, and regenerate the matching proxy/packager hash contracts.
+All 14,858 extracted entries remain byte-identical; mappings and imports are
+unchanged. The signed repair retains current advanced-loot and gameplay files.
+Independent boundary regressions reproduce the defect and pass with the fix.
+Production publication and exact startup QA are recorded in
+`docs/releases/launcher-play-20261001/README.md`.
+
 ## 2026-09-30 - Tunnel class courts and Khaleid deployed
 
 Owner-approved PR 94 is on main and OVH. Applied the eight class courts, matching

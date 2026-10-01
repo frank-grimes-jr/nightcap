@@ -10,6 +10,9 @@ import zlib
 XOR = bytes.fromhex('953ac52a957a956a')
 DIRECTORY_CRC = 0x61580AC9
 MAX_ENTRY = 64 * 1024 * 1024
+# RoF2's PFS reader expects the native 8 KiB block size, including the
+# filename table. Larger zlib blocks round-trip here but fail in the client.
+PFS_BLOCK_SIZE = 8192
 
 
 def crc_name(name):
@@ -45,7 +48,7 @@ def read_pfs(raw):
                 raise ValueError('Truncated PFS block')
             packed, unpacked = struct.unpack_from('<II', raw, pos)
             pos += 8
-            if not packed or not unpacked or len(result) + unpacked > size or pos + packed > directory:
+            if not packed or not 0 < unpacked <= PFS_BLOCK_SIZE or len(result) + unpacked > size or pos + packed > directory:
                 raise ValueError('Invalid PFS block size')
             decoder = zlib.decompressobj()
             block = decoder.decompress(raw[pos:pos + packed], unpacked + 1)
@@ -99,8 +102,8 @@ def write_pfs(files):
         if not content or len(content) > MAX_ENTRY:
             raise ValueError('Invalid output entry size')
         offset = len(raw)
-        for pos in range(0, len(content), 65536):
-            block = content[pos:pos + 65536]
+        for pos in range(0, len(content), PFS_BLOCK_SIZE):
+            block = content[pos:pos + PFS_BLOCK_SIZE]
             packed = zlib.compress(block, 9)
             raw.extend(struct.pack('<II', len(packed), len(block)) + packed)
         entries.append((crc, offset, len(content)))
