@@ -1,5 +1,36 @@
 # CHANGES
 
+## 2026-10-01 - Adventure Journal and archetype Epic 0.5 candidate
+
+Added eight native journal tasks through the East Commonlands Chronicler: three
+shared Classic expeditions and five independently earned archetype paths. One
+all-class charm supports Guardian, Striker, Arcanist, Warden and Binder, with
+hub-only switching and a shared character cooldown committed before effects.
+Recovery preserves task history and cannot reset the timer. Binder empowers one
+owned target; timed effects have a narrow native exception to permanent buffs.
+
+The package starts disabled and includes guarded additive SQL, retained-data
+disable, six staged client spells, Perl/native tests and a disposable MariaDB
+rehearsal. Review caught and corrected the Explore/Touch task mismatch, a
+later-expansion Binder spawn and a two-tick duration formula. Native build tooling
+now accepts an optional reviewed hardening patch across Windows line endings.
+Client regeneration preserves exact reviewed Epic rows without making them
+learnable. No era policy or original-client files changed. Activation, exact
+encounter/balance QA and remaining acceptance: `docs/adventure-journal/`.
+
+## 2026-10-01 - Repair pre-character-select model material crash
+
+The live crash dump resolves to EQGraphicsDX9's material palette constructor:
+the per-actor importer skipped shared materials in seven classic models and
+then dereferenced a null material. Scope each missing material/bitmap dependency
+to its importing actor and preserve existing skin names, ordered palette values,
+texture bytes, geometry and animations. Six native-filter regressions pass in
+the local incident evidence (the cancelled managed test write was not retried);
+all 22 archives verify through the updated generator/release checks. Signed
+repair 2026100103 pairs seven archives with proxy 0.7.2-dev; all 67 existing native patch sites and gameplay behavior are retained.
+Publication status and exact character-loading QA:
+`docs/releases/character-select-crash-20261001/README.md`.
+
 ## 2026-10-01 - Filter unusable classes from spell-scroll inspection
 
 Audited all 40,723 packaged spells and 11,719 hosted scroll items. Among scrolls

@@ -10,6 +10,10 @@ Start with [current status](status.md), not a dated candidate report.
 
 ## Players and testers
 
+- [Adventure Journal and archetype Epic 0.5: candidate, routes and exact QA](adventure-journal/README.md)
+
+- [October 1 character-selection crash: deployed material repair and exact login/world QA](releases/character-select-crash-20261001/README.md)
+
 - [Spell inspection: deployed correction, full catalog audit and exact QA](releases/spell-inspection-20261001.md)
 
 - [October 1 Play incident: deployed archive repair and exact startup QA](releases/launcher-play-20261001/README.md)

@@ -70,6 +70,7 @@ Copyright (C) 2001-2002 EQEMu Development Team (http://eqemu.org)
 
 #include "common/bodytypes.h"
 #include "common/classes.h"
+#include "common/epic05.h"
 #include "common/data_bucket.h"
 #include "common/data_verification.h"
 #include "common/eqemu_logsys.h"
@@ -3006,6 +3007,9 @@ int Mob::CalcBuffDuration(Mob *caster, Mob *target, uint16 spell_id, int32 caste
 
 int32 Mob::GetBuffDurationForTarget(uint16 spell_id, int32 duration) const
 {
+	if (Epic05::IsEffect(spell_id)) {
+		return Epic05::BoundDuration(duration);
+	}
 	// Auras retain range-managed expiry; duration zero is not a buff.
 	if (duration != 0 && duration != -4 && IsValidSpell(spell_id) &&
 		(IsClient() || IsPetOwnerClient()) && IsBeneficialSpell(spell_id)) {

@@ -74,6 +74,14 @@ sub _show_preview {
 
 sub EVENT_SAY {
     my $say     = lc($text);
+    if ($say =~ /^journal(?:\s|$)/) {
+        plugin::epic05_dialogue($client, $npc, $text);
+        return;
+    }
+    if ($say =~ /hail/) {
+        $client->Message(15, 'Your adventures can earn an archetype Epic 0.5. [' .
+            quest::saylink('journal', 0, 'Open the Adventure Journal') . ']');
+    }
     my $char_id = $client->CharacterID();
     my $base    = $client->GetClass();
     my ($c2, $c3) = plugin::mc_get_classes($char_id);

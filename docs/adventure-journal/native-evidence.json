@@ -1,0 +1,36 @@
+{
+  "status": "built_not_installed",
+  "scope": "full isolated world/zone compilation plus focused native fixtures; no in-game acceptance",
+  "container": "akk-stack-eqemu-server-1",
+  "build_directory": "/tmp/nightcap-market-epic05-20261001-v2",
+  "source_files_count": 2804,
+  "source_unchanged_during_build": true,
+  "hardening_forward_and_reverse_checks": "passed with LF patch and --ignore-space-change",
+  "hardening_patch_sha256": "219f556bb1e55a719f8a3f5150c95723ce46ab9a8b69c93c2bc0f54ff1262b2e",
+  "manifest_sha256": "a5f6f57e6d1a54b7a69a161db525af367468e705e9467c7df6a1eda2786f535d",
+  "binaries": {
+    "world": "9e7d1db540247c2fa097de09fb90d3752deba5ff2d8ab5b146cb79bb8e868050",
+    "zone": "48aabf385ebe811fc5e4330fd4cfb45a26c2d91950a17f857cc42911ff1fe170"
+  },
+  "epic_sources_match_feature_checkout": {
+    "common/epic05.h": "95d55d80748ca617dccdc5bc042d6e215474e5e67483000050d2c2e8b27e1465",
+    "zone/spells.cpp": "bfd14d979acd729129746e4cd6ca712930a13682c670dabef5d2024cee8ce661",
+    "zone/perl_client.cpp": "2cb10a0df01f68b149a3c143e8bab696e6267e5fc0c1842cc373e7a967b66843"
+  },
+  "checks": {
+    "world_current_market_contract": "passed",
+    "epic_content_and_actual_native_function_tests": 10,
+    "client_generation_tests": 6,
+    "existing_gameplay_policy_tests": 2,
+    "build_provenance_tests": 3,
+    "perl_quest_assertions": 51,
+    "chronicler_regression_assertions": 16,
+    "perl_mariadb_assertions": 20,
+    "independent_review": "no remaining code blockers after exploration, era and duration corrections"
+  },
+  "remaining_gates": [
+    "matched candidate installation and native plugin discovery",
+    "RoF2 journal/effect/inventory acceptance",
+    "representative legal-build encounter measurements and balance acceptance"
+  ]
+}

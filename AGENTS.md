@@ -53,6 +53,16 @@ All commands run from `akk-stack/`:
 
 ## Server ops
 
+- **Epic 0.5 journal candidate**: native Tasks own progress; the character
+  `nightcap_epic05_state` row owns only attunement/cooldown. Pair the native
+  `Epic05Contract()` duration guard, three plugins, `global/items/900501.pl`,
+  tasks 9500–9507 and spells 42800–42805. The SQL gate starts disabled. Native
+  task history and proximity rules are required; Explore=5 credits movement,
+  while Touch=11 is a dynamic-zone switch. Preserve owned definitions/history
+  on rollback. Verify Classic gates on both spawn2 and spawnentry; spawn2 has
+  no enabled column. Install plugins via configured plugin paths. Full scope,
+  rehearsal and manual test route: `docs/adventure-journal/README.md`.
+
 - **Spell access is per character in production release 2026092005**: use
   `common/spell_class_catalog.h`, generated from the pinned original spell file,
   for learnable spell levels and ownership. Never widen shared `spells_new` class
@@ -176,10 +186,18 @@ process/health pass or a short timed launch does not prove global models loaded;
 verify through native login/character loading. Incident evidence:
 `docs/releases/launcher-play-20261001/README.md`.
 
+RoF2's per-actor WLD importer also filters bitmap (03), material (30) and palette
+(31) fragments by the actor's three-letter prefix. Zone archives can reference
+shared materials outside that prefix. `classic_model_materials.py` scopes those
+dependencies while retaining ordered material graphs and geometry/animation
+bytes. Validate every imported actor's dependency closure, not only PFS integrity
+or reversible renaming. The native null-material crash and regression evidence:
+`docs/releases/character-select-crash-20261001/README.md`.
+
 Classic-model candidate policy lives in `eq-client-dll/config/classic-models.json`.
 Generate isolated archives with `tools/client_classic_models.py`, verify their
-inverse WLD/texture integrity with `tools/verify_classic_models.py`, then regenerate
-the shared proxy/packager hashes with `tools/generate-classic-model-contract.py`.
+WLD material/geometry/texture integrity with `tools/verify_classic_models.py`,
+then regenerate the shared proxy/packager hashes with `tools/generate-classic-model-contract.py`.
 Do not rename or delete stock archives or overwrite user INIs. Modern visuals
 require `[Nightcap] UseModernModels=TRUE`; missing/invalid values force the
 classic defaults. This restores native preferences when enabled. Publish the
