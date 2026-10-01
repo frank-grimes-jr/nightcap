@@ -1,5 +1,21 @@
 # CHANGES
 
+## 2026-10-01 - Nightcap player guide on OVH
+
+Rebuild the player guide in racing green/cream using two original loading screens,
+21 deployed feature entries, six workbench areas, recent updates and player FAQ.
+Keep deployed-for-testing distinct from undeployed candidates. Cover the older
+corpse, instance, selling, blessing and progression conveniences as well as the
+latest loot/pet/hub/client releases. Guard Nightcap-only public branding.
+
+Publish five static files with no JavaScript or external assets, guarded packaging,
+keyboard/mobile checks, isolated public virtual host, private rollback receipts
+and graceful web reloads. Preserve game services, patch channels, guide and ZIP.
+Source review caught and fixed stale-pointer rollback; HTTPS checking caught edge
+analytics injection and added website-only no-transform headers. The page is on
+OVH at the existing restricted play hostname; apex/www routing awaits Cloudflare
+sign-in. No gameplay promotion or database change. Runbook: docs/ops/player-website.md.
+
 ## 2026-10-01 - Filter unusable classes from spell-scroll inspection
 
 Audited all 40,723 packaged spells and 11,719 hosted scroll items. Among scrolls
