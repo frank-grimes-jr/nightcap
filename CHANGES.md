@@ -1,5 +1,17 @@
 # CHANGES
 
+## 2026-09-30 - Tunnel class courts and Khaleid deployed
+
+Owner-approved PR 94 is on main and OVH. Applied the eight class courts, matching
+uniforms, Roman stock-page subtitles, Khalure label and Classic Dark Elf wizard
+porter against fresh stopped production preimages. Verified full backup restore,
+19 SQL checks, 50 preservation fingerprints, 26 installed-file quest assertions,
+15 unchanged native hashes and four public handshakes. Kept the advanced-loot
+receipt-aware image and data. A Docker-copy verification failure kept access
+closed until the exec/tmpfs recovery checks passed. Manual visual/interaction
+acceptance remains open. Evidence and scoped rollback:
+`docs/releases/tunnel-class-courts/PRODUCTION.md`.
+
 ## 2026-09-30 - Tunnel class courts and wizard porter candidate
 
 Organized sixteen trainer/shop pairs into eight courts with matching race,

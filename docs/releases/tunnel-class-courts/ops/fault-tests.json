@@ -1,0 +1,6 @@
+{
+  "tests": 21,
+  "status": "passed",
+  "helper_sha256": "c20a262fd6234b6083facd28e41585ad46cad8cc0bb2f8fca5f72fdccb2b1559",
+  "scope": "Isolated orchestration failure tests; no production calls."
+}
