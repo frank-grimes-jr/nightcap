@@ -9,6 +9,7 @@ import json
 from pathlib import Path
 
 from classic_model_archives import actor_names, read_pfs, rename_wld, write_pfs
+from classic_model_materials import scope_materials, validate_material_preservation
 
 ROOT = Path(__file__).resolve().parent.parent
 PLAN = ROOT / 'eq-client-dll/config/classic-models.json'
@@ -40,6 +41,9 @@ def model_files(client):
                 expected = {aliases.get(a[:3], a[:3]) + a[3:] for a in actor_names(source[name])}
                 if set(actor_names(data)) != expected:
                     raise ValueError('Classic actor rename failed')
+                renamed = data
+                data = scope_materials(data, [line.split(',')[0] for line in archive['imports']])
+                validate_material_preservation(renamed, data)
             else:
                 target = filenames[name]
                 # Typed modern elementals encode their element in the race ID,
