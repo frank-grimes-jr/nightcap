@@ -52,7 +52,7 @@ Start with [current status](status.md), not a dated candidate report.
 
 - [Consolidated test release and exact QA](releases/test-consolidation-20260915.md)
 
-- [Player website](https://frank-grimes-jr.github.io/nightcap/)
+- [Player website — approved player IPs](https://play.nightcapgame.org/)
 - [Project overview and player guide](../README.md)
 - [Complete live QA checklist](releases/live-qa-20260915/QA.md)
 - [PoK hub layout and merchant counts](pok/hub-layout.md)

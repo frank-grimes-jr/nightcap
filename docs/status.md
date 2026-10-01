@@ -349,14 +349,14 @@ Numbers are a dated snapshot. [Live issue tracker](https://github.com/frank-grim
 
 ## Website and documentation
 
-The owner explicitly approved updating and publicly publishing the HTML through
-GitHub Pages. The standalone site uses Home, Features, Major Changes and FAQ tabs.
-It identifies the release as live testing and contains player-facing information.
-Publication verification is recorded in [the website runbook](ops/player-website.md).
-The static payload is committed on `gh-pages`, but GitHub rejected activation
-with HTTP 422 because this plan does not support Pages for the private repository.
-The public URL is not live. A hosting choice remains, independent of the
-owner-authorized gameplay promotion.
+The October 1 player guide is deployed on OVH at https://play.nightcapgame.org/
+under its existing approved-IP restriction. It uses the green/cream design,
+original loading artwork, 21 feature entries and six workbench areas. Local and
+HTTPS browser suites, origin isolation and rollback rehearsal pass. Deployed
+remains distinct from manual gameplay acceptance. Apex/www have isolated Nginx
+roots and passed origin probes; DNS/tunnel routing awaits Cloudflare sign-in.
+The earlier GitHub Pages limitation is historical. Website publication does not
+promote gameplay. [Publication and rollback](ops/player-website.md).
 
 ## Operational lessons
 

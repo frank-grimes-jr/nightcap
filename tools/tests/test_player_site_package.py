@@ -1,0 +1,73 @@
+import importlib.util
+import json
+from pathlib import Path
+import tarfile
+import tempfile
+import unittest
+from unittest.mock import patch
+
+ROOT = Path(__file__).resolve().parents[2]
+spec = importlib.util.spec_from_file_location('player_site_package', ROOT/'tools/player_site_package.py')
+package = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(package)
+
+
+class PublicPayloadTests(unittest.TestCase):
+    def setUp(self):
+        self.temp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.temp.cleanup)
+        self.root = Path(self.temp.name)
+        for name in package.FILES:
+            target = self.root/name
+            target.parent.mkdir(exist_ok=True)
+            target.write_text('Nightcap')
+        (self.root/'.env').write_text('PRIVATE_SENTINEL')
+        (self.root/'database.sql').write_text('PRIVATE_SENTINEL')
+        self.output = self.root/'public.tar.gz'
+        self.root_patch = patch.object(package, 'ROOT', self.root)
+        self.root_patch.start()
+        self.addCleanup(self.root_patch.stop)
+
+    def test_private_files_are_never_published(self):
+        package.package(self.output)
+        with tarfile.open(self.output) as archive:
+            self.assertEqual(set(archive.getnames()), set(package.FILES))
+            for member in archive:
+                self.assertNotIn(b'PRIVATE_SENTINEL', archive.extractfile(member).read())
+
+    def test_branding_in_hidden_metadata_blocks_package(self):
+        (self.root/'index.html').write_text('<meta content="E' + 'Q"><p>Nightcap</p>')
+        with self.assertRaisesRegex(ValueError, 'Brand restriction'):
+            package.package(self.output)
+        self.assertFalse(self.output.exists())
+
+    def test_existing_release_cannot_be_overwritten(self):
+        package.package(self.output)
+        original = self.output.read_bytes()
+        (self.root/'index.html').write_text('A different page')
+        with self.assertRaisesRegex(ValueError, 'immutable'):
+            package.package(self.output)
+        self.assertEqual(original, self.output.read_bytes())
+
+    def test_manifest_matches_every_uploaded_byte(self):
+        import hashlib
+        package.package(self.output)
+        manifest = json.loads(self.output.with_suffix('.json').read_text())
+        with tarfile.open(self.output) as archive:
+            for member in archive:
+                self.assertEqual(manifest[member.name], hashlib.sha256(archive.extractfile(member).read()).hexdigest())
+
+
+class DeploymentPreconditionsTests(unittest.TestCase):
+    def test_stale_pointer_fails_before_service_action(self):
+        spec = importlib.util.spec_from_file_location('site_deploy', ROOT/'deploy/production/player-site-deploy.py')
+        deploy = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(deploy)
+        with patch.object(deploy, 'current_pointer', return_value='20261001-newer'), \
+             patch.object(deploy, 'compose', side_effect=AssertionError('Unexpected service action')):
+            with self.assertRaisesRegex(AssertionError, 'pointer changed'):
+                deploy.check_activation_preconditions({'previous':'20261001-older'}, ROOT)
+
+
+if __name__ == '__main__':
+    unittest.main()
