@@ -15,6 +15,11 @@ all 46 managed files; current gameplay assets and bootstrap helper are preserved
 Cut: changing gameplay eligibility, removing valid future-level classes,
 rewriting item/spell rows and modifying the read-only reference client.
 
-Still open: rendered in-game owner QA, main promotion and production publication.
-The isolated installation fixture is not a complete playable client. Hosted
-2026100101 remains active. [Evidence, candidate delivery and exact QA](../releases/spell-inspection-20261001.md).
+Owner-approved PR 101 merged to main and signed production release 2026100102
+is live on OVH. All 46 public files/signature verify, and the existing production
+controller installs them successfully. Only the DLL and catalog changed; all
+five service fingerprints and other assets are preserved. Twelve publisher
+interruption/drift checks pass. No database writes or service restarts were needed.
+
+Still open: rendered in-game owner QA. The isolated installation fixture is not
+a complete playable client. [Deployment evidence and exact QA](../releases/spell-inspection-20261001.md).
