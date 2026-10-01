@@ -15,6 +15,7 @@ from client_hub_models import add_models, MODELS
 from client_ecommons_hub import recall_spell, hub_files, ROOT
 from client_lavastorm import lavastorm_files
 from generate_pet_spell_catalog import SOURCE_SHA256
+from epic05 import load_catalog as epic05_catalog, spell_fields as epic05_fields
 
 
 def restore_spell_classes(raw, original):
@@ -25,6 +26,7 @@ def restore_spell_classes(raw, original):
         # custom ID is not part of the original class catalog.
         arrival = json.loads((ROOT/'docs/ecommons-hub/plan.json').read_bytes())['arrival']
         recall_spell(raw, arrival)
+    epic_rows = {str(key): row.decode('latin1') for key, row in epic05_fields(epic05_catalog()).items()}
     native = {}
     for line in original.decode('latin1').splitlines():
         fields = line.split('^')
@@ -40,6 +42,11 @@ def restore_spell_classes(raw, original):
         if len(fields) != 237 or fields[0] in seen:
             raise ValueError('Malformed or duplicate packaged spell')
         seen.add(fields[0])
+        if fields[0] in epic_rows:
+            if '^'.join(fields) != epic_rows[fields[0]]:
+                raise ValueError('Epic 0.5 spell differs from the reviewed catalog: '+fields[0])
+            output.append('^'.join(fields)+ending)
+            continue
         if fields[0] == '42604':
             output.append('^'.join(fields)+ending)
             continue
