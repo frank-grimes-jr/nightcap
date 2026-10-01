@@ -165,6 +165,14 @@ formatting. Rehearse forward and rollback against captured schemas before apply.
 
 ## Launcher delivery
 
+PFS version 2 (`0x20000`) requires decompressed blocks no larger than 8192
+bytes, including its filename table. A Python zlib round-trip alone does not
+prove native compatibility. Run `test_classic_model_pfs.py` and validate the
+generated assets before regenerating the proxy/packager hashes. An owned
+process/health pass or a short timed launch does not prove global models loaded;
+verify through native login/character loading. Incident evidence:
+`docs/releases/launcher-play-20261001/README.md`.
+
 Classic-model candidate policy lives in `eq-client-dll/config/classic-models.json`.
 Generate isolated archives with `tools/client_classic_models.py`, verify their
 inverse WLD/texture integrity with `tools/verify_classic_models.py`, then regenerate
