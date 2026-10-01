@@ -1,0 +1,44 @@
+{
+  "release": 2026100102,
+  "previous_release": 2026100101,
+  "main_pr": "https://github.com/frank-grimes-jr/nightcap/pull/101",
+  "main_merge": "e74ceb831f36d50a18b1591a144440b126c18059",
+  "source_commit": "5cab06fa8e4619ee31deb2e056d807cd61a8cf3e",
+  "proxy_version": "0.7.1-dev",
+  "patch_sites": 67,
+  "publication": {
+    "release": 2026100102,
+    "verified_files": 46,
+    "channel_sha256": "1524969f5b7e31e535985df14aabc490268c8e4bcd02da1a1cdeabe567ad9010",
+    "previous_release": 2026100101,
+    "services_unchanged": true,
+    "desktop_starter_guide_unchanged": true
+  },
+  "public_https": {
+    "channel_sha256": "1524969f5b7e31e535985df14aabc490268c8e4bcd02da1a1cdeabe567ad9010",
+    "expires": "2026-10-31T18:58:48Z",
+    "hosted": true,
+    "release": 2026100102,
+    "signature": "valid against shipped production public key",
+    "total_bytes": 149779243,
+    "verified_files": 46
+  },
+  "changed_files": [
+    "dinput8.dll",
+    "nightcap-patch-sites.json"
+  ],
+  "unchanged_managed_files": 44,
+  "all_files_match_tested_qa": true,
+  "production_controller_install": {
+    "release": 2026100102,
+    "verified_files": 46,
+    "recovery_needed": false,
+    "controller_sha256": "aa2da21de492138c4117510e564fd486123437fe72fd94dc4cd4b0f0adf78404",
+    "scope": "Existing production controller, public HTTPS, isolated minimal client fixture; no game launched"
+  },
+  "five_services_unchanged": true,
+  "desktop_starter_guide_unchanged": true,
+  "database_mutations": false,
+  "owner_rendered_qa": "open",
+  "recovery": "Retained previous channel in private server staging; publish corrective bytes with a higher release counter."
+}
