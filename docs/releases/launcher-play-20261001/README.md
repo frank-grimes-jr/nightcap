@@ -38,7 +38,7 @@ Channel SHA256:
 Expiry: **2026-10-31 11:11:00 UTC**. The signature verifies against the already
 shipped production public key; no new launcher download or key migration is
 needed. The first incomplete local packaging attempt was retained and never
-published; `production-publish-final` is the verified candidate.
+published; `production-publish-final` contains the published release.
 
 ## Verification and limits
 
@@ -60,13 +60,21 @@ published; `production-publish-final` is the verified candidate.
   failure; it applies its `.text` RVA/file offset delta to `.rdata`. The Go
   verifier uses PE section mapping and checks the same 63 sites successfully.
   No patch-site or client executable change is included in this repair.
+- Twelve publisher tests pass: public/service drift refusal, channel-last
+  activation, interrupted-copy and rename recovery, immutable-file corruption
+  refusal and original backup retention. Windows lock/directory-fsync stubs
+  limit those tests; real staging and publication completed on the Linux host.
+- Visible launcher acceptance remains open. The desktop was locked during
+  isolated verification; the later computer-control request to open Nightcap
+  was denied. No alternative game-launch method was used after that denial.
 
 Local evidence: `E:/EQ_Local_Dev/artifacts/launcher-play-20261001/`, including
 `native-pfs-v2-capacity.txt`, `pfs-regression-red-green.txt`,
 `archive-independent-verification.json`, `final-contract-review.json`,
 `go-tests.txt`, `native-agreement-tests.txt`, `qa-update.txt`, `qa-play.txt`,
-and `local-verification.json`. Private signing seeds are outside that directory
-and excluded from the upload.
+`local-verification.json`, `publisher-test-results.txt`, `published.json`,
+`hosted-verification.json` and `preservation-verification.json`. Private signing
+seeds are outside that directory and excluded from the upload.
 
 ## Publication and recovery
 
@@ -77,8 +85,21 @@ Unexpected baseline or immutable-file drift must stop publication. Retrying
 the same reviewed candidate is safe after an interrupted copy. No game restart
 or database write is part of this deployment.
 
-Target stage: `/opt/nightcap/releases/launcher-play-2026100101`.
-Final publication and HTTPS verification are recorded alongside this report.
+Release **2026100101** is active on OVH. The publisher verified all 46 assets
+before activating its channel. A fresh post-publication snapshot confirms all
+five service identities, images, start times, restart counts and health states
+match the pre-publication baseline. Game and database remain healthy. The
+desktop launcher channel, starter ZIP and guide hashes are unchanged.
+
+Independent public HTTPS verification downloaded all 46 signed assets
+(149,778,397 bytes), checked every size/hash and verified the channel signature
+against the production key already shipped in launcher 0.3.1. The public channel
+matches the reviewed release exactly. [Recorded verification](verification.json).
+Source repair and deployment evidence are tracked in
+[PR 98](https://github.com/frank-grimes-jr/nightcap/pull/98).
+
+Host stage: `/opt/nightcap/releases/launcher-play-2026100101`.
+Immutable assets: `/opt/nightcap/deploy/production/data/public/release/2026100101`.
 Do not restore the lower release counter or republish the malformed original
 archives. If another repair is needed, preserve current gameplay/receipt
 contracts and publish reviewed corrected bytes under a **higher** game release.
