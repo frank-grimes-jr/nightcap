@@ -14,13 +14,29 @@ recorded with the candidate; client spells are staged separately. Native client
 and balance acceptance remain open in the [exact QA route](adventure-journal/QA.md).
 This entry does not record a production deployment.
 
+## Character-selection crash repair deployed for owner QA
+
+The [October 1 material repair](releases/character-select-crash-20261001/README.md)
+fixes missing shared materials in seven imported classic models. The player's
+crash dump identified a null material after login, before character selection.
+Signed production release **2026100103**, proxy **0.7.2-dev**, is live through the
+existing launcher: opening it and clicking **Play** applies the patch before
+starting the game. No reinstall is needed. All 22 archives pass material,
+geometry, animation and texture preservation checks; the independent review,
+six focused regressions, full Go and native tests pass. All five production
+services and the starter/desktop/guide are preserved. All 46 hosted files and
+the signature verify; the existing updater installed 2026100103 into E:/Nightcap
+with all INIs and original executables preserved. Actual character-screen
+and world-entry acceptance remain open with exact steps in the incident report.
+
 ## Spell inspection correction deployed for owner QA
 
 The [spell inspection audit and fix](releases/spell-inspection-20261001.md)
 removes 18,990 unusable original-class entries across 7,636 scroll items. Both
 native inspection paths and all canonical class levels pass automated checks.
 Owner-approved PR 101 is on main. Signed production release **2026100102**,
-proxy **0.7.1-dev**, is live on OVH through the usual patcher, with 67 patch sites.
+proxy **0.7.1-dev**, introduced this fix on OVH with 67 patch sites. Current
+release **2026100103** retains it with proxy **0.7.2-dev**.
 All 46 hosted files/signature and installation through the existing production
 controller pass. Only the DLL and patch catalog changed; all five services and
 other assets are preserved. Close the game and reopen the patcher to update.
@@ -30,9 +46,10 @@ Rendered owner acceptance remains open with exact merchant/inventory QA linked.
 
 The [October 1 startup repair](releases/launcher-play-20261001/README.md) fixes
 PFS version-2 archives exceeding RoF2's 8 KiB block limit. Signed game release
-**2026100101** introduced the repair, retained in current **2026100102**. All 22 archives and
-their matching proxy are replaced; all 14,858 extracted entries and the other
-23 managed files retain their contents. Production services, desktop/starter
+**2026100101** introduced the repair, retained in current **2026100103**. That
+repair replaced all 22 archives and their matching proxy, preserving all 14,858
+extracted entries and the other 23 managed files. The material repair above
+subsequently updated seven WLDs. Production services, desktop/starter
 and guide are unchanged. Regression, native, Go and publisher checks pass;
 all 46 hosted files and the existing production signature verify over HTTPS.
 Visible Play and post-login model loading still require the exact linked QA;
@@ -57,7 +74,7 @@ QA package pass compilation, installation and actual RoF2 startup. Isolated
 login/world/ecommons services boot successfully. Per the owner's explicit request,
 PR 91 merged to main and the paired hardened production build is live on OVH.
 Signed game release **2026093006** introduced this client content; the current
-**2026100102** release preserves it through the usual starter.
+**2026100103** release preserves it through the usual starter.
 Backup restore/migration rehearsal, 47 preservation checks, all 15 native process
 hashes, application-account permissions, all 46 hosted client files/signature
 and four public native handshakes passed. [Owner live QA](releases/advanced-loot/LIVE-QA.md)
@@ -69,7 +86,7 @@ The [classic-model release](releases/classic-models-20260930/PRODUCTION.md)
 adds a mandatory client policy, 22 isolated classic archives, original elemental
 palettes and 98 remake mappings. Existing INI settings cannot silently opt in.
 Signed game release **2026093004** introduced this policy, retained in the current
-**2026100102** release through the existing patcher after
+**2026100103** release through the existing patcher after
 the owner's explicit main/server instruction. Native x86, archive integrity
 and packaging checks pass. Rendering and owner acceptance remain open. Creatures with no old
 counterpart retain their existing model, as the owner explicitly requested on
@@ -164,7 +181,7 @@ Players keep their game folder and use the same shortcut. That historical releas
 verified launcher 2026092001 and game 2026092006, with 22 managed game files;
 it did not restart production. Its native/Go/UI checks and 63 publication failure
 rehearsals passed. The current launcher is 0.3.1 / release 2026092701 and the game
-is **2026100101** with 46 files, as recorded in the startup repair above. Owner in-game
+is **2026100103** with 46 files, as recorded in the incident repairs above. Owner in-game
 acceptance remains open. [Release operations](ops/permanent-patcher.md).
 
 ## Production NPC and spell-access repair deployed

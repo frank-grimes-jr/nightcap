@@ -7,6 +7,7 @@ import hashlib
 import json
 from pathlib import Path
 from classic_model_archives import actor_names, read_pfs, rename_wld
+from classic_model_materials import validate_materials, validate_material_preservation
 
 ROOT = Path(__file__).resolve().parent.parent
 parser = argparse.ArgumentParser(description=__doc__)
@@ -36,7 +37,10 @@ for archive in plan['archives']:
     inverse_files={v:k for k,v in filenames.items()}
     original_wld=original[archive['source'][:-4]+'.wld']
     output_wld=output[archive['output'][:-4]+'.wld']
-    assert rename_wld(output_wld,reverse,inverse_files)==original_wld, 'WLD geometry/reference/animation drift'
+    renamed = rename_wld(original_wld, aliases, filenames)
+    assert rename_wld(renamed,reverse,inverse_files)==original_wld, 'WLD rename drift'
+    validate_material_preservation(renamed, output_wld)
+    validate_materials(output_wld, [line.split(',')[0] for line in archive['imports']])
     assert len(output)==len(original)
     actors=set(actor_names(output_wld))
     for imp in archive['imports']:
@@ -64,4 +68,4 @@ for race,texture in ((209,0),(210,3),(211,2),(212,1)):
     reg=next(r for r in plan['registrations'] if r['race']==race)
     archive=next(a for a in plan['archives'] if a.get('element_texture')==texture)
     assert archive['aliases']['ELE']==reg['alias']
-print('PASS: %d archives; lossless inverse WLDs; preserved textures; elemental palettes; imports; all configured skeletons and remakes' % len(plan['archives']))
+print('PASS: %d archives; preserved geometry/animation/material graphs; native material closure; textures; elemental palettes; imports; all configured skeletons and remakes' % len(plan['archives']))

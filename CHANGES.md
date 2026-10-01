@@ -18,6 +18,19 @@ Client regeneration preserves exact reviewed Epic rows without making them
 learnable. No era policy or original-client files changed. Activation, exact
 encounter/balance QA and remaining acceptance: `docs/adventure-journal/`.
 
+## 2026-10-01 - Repair pre-character-select model material crash
+
+The live crash dump resolves to EQGraphicsDX9's material palette constructor:
+the per-actor importer skipped shared materials in seven classic models and
+then dereferenced a null material. Scope each missing material/bitmap dependency
+to its importing actor and preserve existing skin names, ordered palette values,
+texture bytes, geometry and animations. Six native-filter regressions pass in
+the local incident evidence (the cancelled managed test write was not retried);
+all 22 archives verify through the updated generator/release checks. Signed
+repair 2026100103 pairs seven archives with proxy 0.7.2-dev; all 67 existing native patch sites and gameplay behavior are retained.
+Publication status and exact character-loading QA:
+`docs/releases/character-select-crash-20261001/README.md`.
+
 ## 2026-10-01 - Filter unusable classes from spell-scroll inspection
 
 Audited all 40,723 packaged spells and 11,719 hosted scroll items. Among scrolls
