@@ -9,8 +9,11 @@ each original class's own level, without the character's held-class projection.
 Merchant/scribing/casting access, spell data and the database remain unchanged.
 Both exact native loops reproduce the old defect and pass with the correction;
 all 250,720 canonical class-level combinations pass. Proxy 0.7.1-dev and its
-67-site signed catalog are staged in isolated QA release 2026100102. Publication
-and rendered owner QA remain pending; see `docs/releases/spell-inspection-20261001.md`.
+67-site signed catalog are live in production release 2026100102 after the
+owner-approved PR 101 main merge. All 46 hosted files/signature and installation
+through the existing production controller verify. Only the DLL/catalog changed;
+all five services stayed unchanged with no restarts or database writes. Rendered
+owner QA remains open; see `docs/releases/spell-inspection-20261001.md`.
 
 ## 2026-10-01 - Repair Play failure caused by classic-model archives
 

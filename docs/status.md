@@ -3,20 +3,23 @@
 Updated October 1, 2026. This is the current status index; dated studies and
 QA reports preserve their original evidence and are not live-state promises.
 
-## Spell inspection correction ready for QA
+## Spell inspection correction deployed for owner QA
 
 The [spell inspection audit and fix](releases/spell-inspection-20261001.md)
 removes 18,990 unusable original-class entries across 7,636 scroll items. Both
 native inspection paths and all canonical class levels pass automated checks.
-Signed local QA release **2026100102**, proxy **0.7.1-dev**, installs all 46 files
-and verifies 67 patch sites. It is not published; rendered owner QA and main/live
-approval remain open. Hosted release **2026100101** remains the live generation.
+Owner-approved PR 101 is on main. Signed production release **2026100102**,
+proxy **0.7.1-dev**, is live on OVH through the usual patcher, with 67 patch sites.
+All 46 hosted files/signature and installation through the existing production
+controller pass. Only the DLL and patch catalog changed; all five services and
+other assets are preserved. Close the game and reopen the patcher to update.
+Rendered owner acceptance remains open with exact merchant/inventory QA linked.
 
 ## High-impact Play incident repair deployed
 
 The [October 1 startup repair](releases/launcher-play-20261001/README.md) fixes
 PFS version-2 archives exceeding RoF2's 8 KiB block limit. Signed game release
-**2026100101** is active on OVH through the usual patcher. All 22 archives and
+**2026100101** introduced the repair, retained in current **2026100102**. All 22 archives and
 their matching proxy are replaced; all 14,858 extracted entries and the other
 23 managed files retain their contents. Production services, desktop/starter
 and guide are unchanged. Regression, native, Go and publisher checks pass;
@@ -43,7 +46,7 @@ QA package pass compilation, installation and actual RoF2 startup. Isolated
 login/world/ecommons services boot successfully. Per the owner's explicit request,
 PR 91 merged to main and the paired hardened production build is live on OVH.
 Signed game release **2026093006** introduced this client content; the current
-**2026100101** repair preserves it through the usual starter.
+**2026100102** release preserves it through the usual starter.
 Backup restore/migration rehearsal, 47 preservation checks, all 15 native process
 hashes, application-account permissions, all 46 hosted client files/signature
 and four public native handshakes passed. [Owner live QA](releases/advanced-loot/LIVE-QA.md)
@@ -55,7 +58,7 @@ The [classic-model release](releases/classic-models-20260930/PRODUCTION.md)
 adds a mandatory client policy, 22 isolated classic archives, original elemental
 palettes and 98 remake mappings. Existing INI settings cannot silently opt in.
 Signed game release **2026093004** introduced this policy, retained in the current
-**2026100101** release through the existing patcher after
+**2026100102** release through the existing patcher after
 the owner's explicit main/server instruction. Native x86, archive integrity
 and packaging checks pass. Rendering and owner acceptance remain open. Creatures with no old
 counterpart retain their existing model, as the owner explicitly requested on

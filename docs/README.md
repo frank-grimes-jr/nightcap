@@ -10,7 +10,7 @@ Start with [current status](status.md), not a dated candidate report.
 
 ## Players and testers
 
-- [Spell inspection: full catalog audit, correction candidate and exact QA](releases/spell-inspection-20261001.md)
+- [Spell inspection: deployed correction, full catalog audit and exact QA](releases/spell-inspection-20261001.md)
 
 - [October 1 Play incident: deployed archive repair and exact startup QA](releases/launcher-play-20261001/README.md)
 

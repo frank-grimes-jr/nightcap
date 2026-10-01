@@ -1,7 +1,8 @@
 # Spell inspection class audit — October 1, 2026
 
-Verified implementation and signed local QA candidate; not published. The owner reported
-unusable classes with level 255 in the in-game inspection window.
+Published signed game release **2026100102** on OVH after the owner's explicit
+October 1 main/server approval. The owner reported unusable classes with level
+255 in the in-game inspection window. Rendered owner acceptance remains open.
 
 ## Accepted behavior and scope
 
@@ -15,7 +16,7 @@ No database/class-catalog rewrite or original-client modification is required.
 Implemented display-only mask and level redirects in `ui_hooks.h`/`dllmain.cpp`
 and bound all four exact call sites into the shared signed catalog. The x86
 reproduction, complete native runtime suite, full launcher suite and isolated
-signed installation pass. Rendered owner QA remains open before publication.
+signed installation pass. Rendered owner QA remains open after approved publication.
 The main risk is accidentally applying the character's primary-class projection
 to an original-class label. Keep that projection confined to existing access
 queries. Regression tests must cover shared spells, unknown spells, stale or
@@ -89,21 +90,54 @@ access semantics and fail to address the wrong item-mask enumeration.
   `artifacts/spell-inspection-20261001/install-check`. This is an installation
   fixture, not a complete playable client. The existing game helper and all 42
   gameplay assets retain their hosted 2026100101 contents. Only the proxy and
-  patch catalog differ. No live client, hosted channel or database was changed.
+  patch catalog differ. This initial isolated QA step changed no live client,
+  hosted channel or database; production publication is recorded below.
 
 The locally signed bundle is under this worktree's
 `eq-launcher/internal/launcher/qabundle`; the QA controller is
 `E:/EQ_Local_Dev/artifacts/spell-inspection-20261001/nightcap-qa-check.exe`.
-It uses an isolated QA key, not production trust. Publishing through the usual
-launcher requires main/live approval and signing under the existing production
-key. Before publication, recheck the live channel and select a higher counter
-if another release has used 2026100102. Preserve the 42 gameplay assets and helper.
+It uses an isolated QA key, not production trust. The subsequent approved
+publication uses the existing production key and preserves all 42 gameplay
+assets and the helper.
 If recovery is necessary after clients update, publish a higher-numbered
 corrective release; do not lower the channel or change player/server state.
 
-## Exact owner QA (required before main promotion)
+## Approved production publication
 
-1. Use the isolated signed candidate client, enter East Commonlands, and inspect
+[PR 101](https://github.com/frank-grimes-jr/nightcap/pull/101) merged the tested
+tree to main at `e74ceb831f36d50a18b1591a144440b126c18059`. The owner explicitly
+requested main/server publication before rendered acceptance. This approval
+does not close the in-game checks below.
+
+The existing production key signed release **2026100102**, proxy **0.7.1-dev**.
+All 46 file contents match the tested QA bundle; only `dinput8.dll` and
+`nightcap-patch-sites.json` differ from hosted 2026100101. The publisher's 12
+interruption/drift tests pass. It verified the captured baseline under the shared
+deployment lock, retained the previous channel, installed immutable files, and
+atomically switched the channel last. All 46 public HTTPS files and the signature
+verify against the public key already shipped in launcher 0.3.1.
+
+The existing production controller downloaded and installed all 46 live files
+into a fresh isolated installation fixture, with no recovery required. This
+confirms delivery through the existing launcher without a desktop update.
+The fixture is not a playable client, and no game was launched by this check.
+Players receive the fix by closing the game and reopening the usual patcher.
+
+All five production services retained their container/image identities, start
+times, restart counts and health. No database mutation or server restart was
+needed. Desktop channel, starter ZIP and guide hashes are unchanged. Evidence:
+[verified production record](spell-inspection-20261001/verification.json) and
+[guarded publisher](spell-inspection-20261001/publish.py). Full local evidence is
+in `E:/EQ_Local_Dev/artifacts/spell-inspection-20261001/`.
+The server retains the previous channel at
+`/opt/nightcap/releases/spell-inspection-2026100102/previous-channel.json`.
+Recovery must sign the retained previous file contents with a higher counter;
+never roll the public counter backward.
+
+## Exact owner QA (open after approved main/live promotion)
+
+1. Close the game, reopen the usual patcher and receive release **2026100102**.
+   Enter East Commonlands and inspect
    Summon Waterstone at a Magician spell merchant or from a scroll/link. Its
    original list must say **Magician (17)** only, regardless of held classes.
 2. Inspect Light Healing: **Cleric (4), Paladin (12), Ranger (21), Druid (9),
@@ -115,6 +149,6 @@ corrective release; do not lower the channel or change player/server state.
 4. Confirm the usable-only merchant filter and scribing a held-class scroll
    still work. An unheld spell and an above-level held spell stay restricted.
    Check an ordinary weapon/armor inspection retains its original class list.
-5. Zone and relog, then repeat inspection. Record the candidate release and
+5. Zone and relog, then repeat inspection. Record the installed release and
    fresh proxy log. Database writes, character respecs and gameplay promotion
    are not prerequisites for this display-only verification.
