@@ -60,6 +60,9 @@ All commands run from `akk-stack/`:
   The matching signed client handles merchant and scribing gates; ship both.
   New custom learnable spells require a reviewed catalog entry. Rollout and
   exact QA: `docs/releases/production-bugfixes-20260920.md`.
+  Scroll inspection has separate canonical mask/level hooks: legacy item masks
+  can include unusable classes, and the held-primary level projection must never
+  label an original class. Audit/QA: `docs/releases/spell-inspection-20261001.md`.
 
 - **Quest API compatibility is a release gate**: a successful Perl mock test
   does not prove the running zone exposes its mocked methods. Production startup

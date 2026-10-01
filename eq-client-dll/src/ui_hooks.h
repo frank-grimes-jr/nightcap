@@ -75,8 +75,9 @@ inline bool CurrentIdentity() {
     return ReadIdentity(spawn, name) && state.Matches(spawn, name);
 }
 inline uint8_t __fastcall SpellLevelHook(void* spell, void*, int queried_class) {
-    // Only replace the local character's primary-class query. Class-list
-    // enumeration and queries before identity arrives retain native behavior.
+    // Only replace the local character's primary-class access query. Inspection
+    // class lists use the separate canonical hooks below; queries before identity
+    // arrives retain native behavior.
     const bool current = CurrentIdentity();
     if (!current) RequestRefresh();
     if (current && queried_class == static_cast<int>(state.PrimaryClass())) {
@@ -98,6 +99,28 @@ inline uint32_t __fastcall MerchantClassesHook(void* item, void*, bool flag1, bo
         const auto id = scroll ? reinterpret_cast<ItemSpell>(base+kItemSpellRva)(item,4) : 0;
         return MerchantClassMask(stock,state.PrimaryClass(),state.ClassMask(),scroll,id);
     } __except(EXCEPTION_EXECUTE_HANDLER) { return 0; }
+}
+// These hooks belong only to the two native scroll-inspection class lists.
+// Item masks can contain legacy extra classes; the list must use spell
+// eligibility, without projecting a held class onto the character's base class.
+inline uint32_t __fastcall InspectionClassesHook(void* item, void*, bool flag1, bool flag2) {
+    if (!item) return 0;
+    using ItemClasses = uint32_t (__thiscall *)(void*, bool, bool);
+    using ItemType = int (__thiscall *)(void*);
+    using ItemSpell = int (__thiscall *)(void*, int);
+    __try {
+        const auto stock = reinterpret_cast<ItemClasses>(base+kItemClassesRva)(item,flag1,flag2);
+        if (!stock || reinterpret_cast<ItemType>(base+kItemTypeRva)(item) != 20) return stock;
+        const auto spell = reinterpret_cast<ItemSpell>(base+kItemSpellRva)(item,4);
+        return NightcapSpellClasses::Mask(spell);
+    } __except(EXCEPTION_EXECUTE_HANDLER) { return 0; }
+}
+inline uint8_t __fastcall InspectionSpellLevelHook(void* spell, void*, int queried_class) {
+    if (!spell) return 255;
+    __try {
+        return NightcapSpellClasses::Level(
+            *reinterpret_cast<uint32_t*>(static_cast<BYTE*>(spell)+0x174), queried_class);
+    } __except(EXCEPTION_EXECUTE_HANDLER) { return 255; }
 }
 inline uint32_t ScribeClassMask(uint32_t stock, const void* item, bool flag1, bool flag2) {
     if (!stock || !item || item != ActiveSpellItem() || !flag1 || flag2 || !CurrentIdentity()) return stock;
