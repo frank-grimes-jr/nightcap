@@ -3,6 +3,17 @@
 Updated October 1, 2026. This is the current status index; dated studies and
 QA reports preserve their original evidence and are not live-state promises.
 
+## Adventure Journal / Epic 0.5 candidate
+
+The [Adventure Journal](adventure-journal/README.md) adds eight native tasks and
+one archetype charm through the EC Chronicler. Guardian, Striker, Arcanist,
+Warden and Binder are earned independently of primary class, with one durable
+shared cooldown and hub-only attunement changes. The release gate starts
+disabled. Content, quest, native-function and disposable database checks are
+recorded with the candidate; client spells are staged separately. Native client
+and balance acceptance remain open in the [exact QA route](adventure-journal/QA.md).
+This entry does not record a production deployment.
+
 ## Spell inspection correction deployed for owner QA
 
 The [spell inspection audit and fix](releases/spell-inspection-20261001.md)
