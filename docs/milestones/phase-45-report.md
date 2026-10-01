@@ -27,8 +27,8 @@ Native fixtures run the actual movement matching and duration code. Review
 corrected the wrong exploration type, expansion-gated Greshvoule and the initial
 duration formula. Client staging retains the entire original input prefix.
 
-Full paired build evidence belongs in `docs/adventure-journal/native-evidence.json`
-once complete. Native UI, encounter difficulty, natural spawn waits, interaction
+The full paired hardened build passed with stable source hashes; evidence is in
+`docs/adventure-journal/native-evidence.json`. Native UI, encounter difficulty, natural spawn waits, interaction
 with the legal AA/gear pool and perceived reward value require the documented
 in-game QA. No production balance or rendered acceptance is asserted.
 

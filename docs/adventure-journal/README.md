@@ -36,6 +36,8 @@ or random tiers. Additional paths unlock choices on the same charm.
   237-field client/server spell match, durable cooldown and concurrent reservations.
 - [Staged client evidence](client-evidence.json): six appended spells; every
   existing source byte retained. This is an asset candidate, not a signed release.
+- [Native build evidence](native-evidence.json): full world/zone build, unchanged
+  source fingerprints and matching feature-source hashes; not installed.
 - [Exact native and balance QA](QA.md); [installation/recovery](RELEASE.md).
 
 The campaign uses existing open-world Classic named encounters. Normal group
