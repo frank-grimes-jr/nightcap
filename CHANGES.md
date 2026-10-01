@@ -1,5 +1,17 @@
 # CHANGES
 
+## 2026-10-01 - Filter unusable classes from spell-scroll inspection
+
+Audited all 40,723 packaged spells and 11,719 hosted scroll items. Among scrolls
+with packaged spells, 7,636 items had 18,990 extra class entries resolving to
+level 255. Both native inspection builders now use canonical spell classes and
+each original class's own level, without the character's held-class projection.
+Merchant/scribing/casting access, spell data and the database remain unchanged.
+Both exact native loops reproduce the old defect and pass with the correction;
+all 250,720 canonical class-level combinations pass. Proxy 0.7.1-dev and its
+67-site signed catalog are staged in isolated QA release 2026100102. Publication
+and rendered owner QA remain pending; see `docs/releases/spell-inspection-20261001.md`.
+
 ## 2026-10-01 - Repair Play failure caused by classic-model archives
 
 The generated model archives declared PFS version 2 but used 64 KiB blocks.

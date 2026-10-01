@@ -3,6 +3,15 @@
 Updated October 1, 2026. This is the current status index; dated studies and
 QA reports preserve their original evidence and are not live-state promises.
 
+## Spell inspection correction ready for QA
+
+The [spell inspection audit and fix](releases/spell-inspection-20261001.md)
+removes 18,990 unusable original-class entries across 7,636 scroll items. Both
+native inspection paths and all canonical class levels pass automated checks.
+Signed local QA release **2026100102**, proxy **0.7.1-dev**, installs all 46 files
+and verifies 67 patch sites. It is not published; rendered owner QA and main/live
+approval remain open. Hosted release **2026100101** remains the live generation.
+
 ## High-impact Play incident repair deployed
 
 The [October 1 startup repair](releases/launcher-play-20261001/README.md) fixes

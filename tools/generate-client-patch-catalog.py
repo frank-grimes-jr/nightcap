@@ -20,6 +20,10 @@ assert len(sites) > 0 and sorted(sites,key=lambda x:x["rva"]) == catalog["sites"
 # Names already consumed by the proxy. Keeping these declarations generated
 # binds launcher preflight and runtime original-byte guards to one catalog.
 symbols = {
+ 0x2A39CE:("kInspectionClassesRva","kExpectedInspectionClasses"),
+ 0x2A39E0:("kInspectionLevelRva","kExpectedInspectionLevel"),
+ 0x2A6D11:("kInspectionClasses2Rva","kExpectedInspectionClasses2"),
+ 0x2A6D21:("kInspectionLevel2Rva","kExpectedInspectionLevel2"),
  0x11FCE0:("kLootCommandRva","kExpectedLootCommand"),
  0x45F070:("kLootConstructRva","kExpectedLootConstruct"),
  0x45DCF0:("kLootChildrenRva","kExpectedLootChildren"),
