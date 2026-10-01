@@ -1,15 +1,37 @@
 # Current Nightcap status
 
-Updated September 30, 2026. This is the current status index; dated studies and
+Updated October 1, 2026. This is the current status index; dated studies and
 QA reports preserve their original evidence and are not live-state promises.
 
-## Tunnel class courts candidate
+## Spell inspection correction ready for QA
 
-[Eight class courts and Khaleid](releases/tunnel-class-courts/README.md) are
-implemented and checked, not deployed. Matching uniforms, Roman supply pages,
-Khalure's subtitle and a Classic Dark Elf wizard porter address presentation.
-SQL recovery, quest guards and native geometry pass; nine maps match production.
-Owner approved main/OVH activation on September 30; exact visual/interaction QA remains open.
+The [spell inspection audit and fix](releases/spell-inspection-20261001.md)
+removes 18,990 unusable original-class entries across 7,636 scroll items. Both
+native inspection paths and all canonical class levels pass automated checks.
+Signed local QA release **2026100102**, proxy **0.7.1-dev**, installs all 46 files
+and verifies 67 patch sites. It is not published; rendered owner QA and main/live
+approval remain open. Hosted release **2026100101** remains the live generation.
+
+## High-impact Play incident repair deployed
+
+The [October 1 startup repair](releases/launcher-play-20261001/README.md) fixes
+PFS version-2 archives exceeding RoF2's 8 KiB block limit. Signed game release
+**2026100101** is active on OVH through the usual patcher. All 22 archives and
+their matching proxy are replaced; all 14,858 extracted entries and the other
+23 managed files retain their contents. Production services, desktop/starter
+and guide are unchanged. Regression, native, Go and publisher checks pass;
+all 46 hosted files and the existing production signature verify over HTTPS.
+Visible Play and post-login model loading still require the exact linked QA;
+computer-control access to Nightcap was denied after the isolated login-UI run.
+
+## Tunnel class courts deployed for owner QA
+
+[Eight class courts and Khaleid](releases/tunnel-class-courts/PRODUCTION.md) are
+live on OVH after the owner's main/server approval. Matching class/profession
+uniforms, Roman supply pages, Khalure's Druid Rings subtitle and Khaleid's Classic
+wizard travel are installed. Fresh backup restore, 19 SQL checks, 50 preservation
+fingerprints, 26 installed-file quest assertions, 15 native hashes and four
+public handshakes pass. Exact visual/interaction QA remains open.
 
 ## Advanced loot deployed for owner live QA
 
@@ -20,7 +42,8 @@ the disposable SQL rehearsal pass. The clean world/zone build and locally signed
 QA package pass compilation, installation and actual RoF2 startup. Isolated
 login/world/ecommons services boot successfully. Per the owner's explicit request,
 PR 91 merged to main and the paired hardened production build is live on OVH.
-Signed game release **2026093006** is published through the usual starter.
+Signed game release **2026093006** introduced this client content; the current
+**2026100101** repair preserves it through the usual starter.
 Backup restore/migration rehearsal, 47 preservation checks, all 15 native process
 hashes, application-account permissions, all 46 hosted client files/signature
 and four public native handshakes passed. [Owner live QA](releases/advanced-loot/LIVE-QA.md)
@@ -32,7 +55,7 @@ The [classic-model release](releases/classic-models-20260930/PRODUCTION.md)
 adds a mandatory client policy, 22 isolated classic archives, original elemental
 palettes and 98 remake mappings. Existing INI settings cannot silently opt in.
 Signed game release **2026093004** introduced this policy, retained in the current
-**2026093006** release through the existing patcher after
+**2026100101** release through the existing patcher after
 the owner's explicit main/server instruction. Native x86, archive integrity
 and packaging checks pass. Rendering and owner acceptance remain open. Creatures with no old
 counterpart retain their existing model, as the owner explicitly requested on
@@ -127,7 +150,7 @@ Players keep their game folder and use the same shortcut. That historical releas
 verified launcher 2026092001 and game 2026092006, with 22 managed game files;
 it did not restart production. Its native/Go/UI checks and 63 publication failure
 rehearsals passed. The current launcher is 0.3.1 / release 2026092701 and the game
-is 2026092201 with 23 files, as recorded in the pet release above. Owner in-game
+is **2026100101** with 46 files, as recorded in the startup repair above. Owner in-game
 acceptance remains open. [Release operations](ops/permanent-patcher.md).
 
 ## Production NPC and spell-access repair deployed

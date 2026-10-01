@@ -1,5 +1,41 @@
 # CHANGES
 
+## 2026-10-01 - Filter unusable classes from spell-scroll inspection
+
+Audited all 40,723 packaged spells and 11,719 hosted scroll items. Among scrolls
+with packaged spells, 7,636 items had 18,990 extra class entries resolving to
+level 255. Both native inspection builders now use canonical spell classes and
+each original class's own level, without the character's held-class projection.
+Merchant/scribing/casting access, spell data and the database remain unchanged.
+Both exact native loops reproduce the old defect and pass with the correction;
+all 250,720 canonical class-level combinations pass. Proxy 0.7.1-dev and its
+67-site signed catalog are staged in isolated QA release 2026100102. Publication
+and rendered owner QA remain pending; see `docs/releases/spell-inspection-20261001.md`.
+
+## 2026-10-01 - Repair Play failure caused by classic-model archives
+
+The generated model archives declared PFS version 2 but used 64 KiB blocks.
+RoF2 permits only 8 KiB blocks for that version and aborted while reading
+`ncm01_chr.wld`. Generate native-sized blocks, reject incompatible archives
+during validation, and regenerate the matching proxy/packager hash contracts.
+All 14,858 extracted entries remain byte-identical; mappings and imports are
+unchanged. The signed repair retains current advanced-loot and gameplay files.
+Independent boundary regressions reproduce the defect and pass with the fix.
+Production publication and exact startup QA are recorded in
+`docs/releases/launcher-play-20261001/README.md`.
+
+## 2026-09-30 - Tunnel class courts and Khaleid deployed
+
+Owner-approved PR 94 is on main and OVH. Applied the eight class courts, matching
+uniforms, Roman stock-page subtitles, Khalure label and Classic Dark Elf wizard
+porter against fresh stopped production preimages. Verified full backup restore,
+19 SQL checks, 50 preservation fingerprints, 26 installed-file quest assertions,
+15 unchanged native hashes and four public handshakes. Kept the advanced-loot
+receipt-aware image and data. A Docker-copy verification failure kept access
+closed until the exec/tmpfs recovery checks passed. Manual visual/interaction
+acceptance remains open. Evidence and scoped rollback:
+`docs/releases/tunnel-class-courts/PRODUCTION.md`.
+
 ## 2026-09-30 - Tunnel class courts and wizard porter candidate
 
 Organized sixteen trainer/shop pairs into eight courts with matching race,

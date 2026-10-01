@@ -1517,7 +1517,15 @@ static BOOL CALLBACK InitializeRuntime(PINIT_ONCE, PVOID, PVOID*)
             ApplyGuardedRelativeCall(eq_base,kScribeCanUseRva,kExpectedScribeCanUse,
                 reinterpret_cast<uintptr_t>(&nightcap::client_ui::CanUseSpellItem),"Spellbook scribe classes") &&
             ApplyGuardedRelativeCall(eq_base,kScrollPlacementCanUseRva,kExpectedScrollPlacementCanUse,
-                reinterpret_cast<uintptr_t>(&nightcap::client_ui::CanUseSpellItem),"Scroll inventory placement classes");
+                reinterpret_cast<uintptr_t>(&nightcap::client_ui::CanUseSpellItem),"Scroll inventory placement classes") &&
+            ApplyGuardedRelativeCall(eq_base,kInspectionClassesRva,kExpectedInspectionClasses,
+                reinterpret_cast<uintptr_t>(&nightcap::client_ui::InspectionClassesHook),"Scroll inspection classes") &&
+            ApplyGuardedRelativeCall(eq_base,kInspectionLevelRva,kExpectedInspectionLevel,
+                reinterpret_cast<uintptr_t>(&nightcap::client_ui::InspectionSpellLevelHook),"Scroll inspection class levels") &&
+            ApplyGuardedRelativeCall(eq_base,kInspectionClasses2Rva,kExpectedInspectionClasses2,
+                reinterpret_cast<uintptr_t>(&nightcap::client_ui::InspectionClassesHook),"Scroll inspection classes (second path)") &&
+            ApplyGuardedRelativeCall(eq_base,kInspectionLevel2Rva,kExpectedInspectionLevel2,
+                reinterpret_cast<uintptr_t>(&nightcap::client_ui::InspectionSpellLevelHook),"Scroll inspection class levels (second path)");
     }
     RequirePatch(nightcap::Feature_multiclass_spell_access,spell_access_ok);
     nightcap::client_ui::skin_assign = reinterpret_cast<nightcap::client_ui::AssignString>(eq_base+kUIStringAssignRva);

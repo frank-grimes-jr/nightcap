@@ -10,7 +10,11 @@ Start with [current status](status.md), not a dated candidate report.
 
 ## Players and testers
 
-- [Tunnel class courts and Khaleid candidate: layout, evidence and exact QA](releases/tunnel-class-courts/README.md)
+- [Spell inspection: full catalog audit, correction candidate and exact QA](releases/spell-inspection-20261001.md)
+
+- [October 1 Play incident: deployed archive repair and exact startup QA](releases/launcher-play-20261001/README.md)
+
+- [Tunnel class courts and Khaleid: live deployment, layout and owner QA](releases/tunnel-class-courts/PRODUCTION.md)
 
 - [Advanced loot: live deployment, recovery and owner QA](releases/advanced-loot/PRODUCTION.md)
 - [Classic model defaults: live release, opt-in and graphical QA](releases/classic-models-20260930/PRODUCTION.md)
