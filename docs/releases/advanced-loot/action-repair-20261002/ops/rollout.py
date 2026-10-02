@@ -77,8 +77,13 @@ def preflight():
     assert public()=={n:v['sha256'] for n,v in old['public'].items()}
     assert image_hashes(m['old_image_id'])==m['old_hashes']
     running(m['old_image_id'],{n:m['old_hashes']['bin/'+n] for n in m['binaries']})
+    assert out('docker','image','inspect','--format','{{.Id}}',m['old_image']).strip()==m['old_image_id'],'Base image tag drift'
     call('docker','build','--network','none','-t',m['new_image'],str(STAGE))
+    assert out('docker','image','inspect','--format','{{.Id}}',m['old_image']).strip()==m['old_image_id'],'Base image tag drift during build'
     image=out('docker','image','inspect','--format','{{.Id}}',m['new_image']).strip()
+    layers=lambda i:json.loads(out('docker','image','inspect',i))[0]['RootFS']['Layers']
+    base_layers=layers(m['old_image_id']);new_layers=layers(image)
+    assert new_layers[:len(base_layers)]==base_layers and len(new_layers)==len(base_layers)+1,'Unexpected image ancestry'
     expected={**m['old_hashes'],**{'bin/'+n:h for n,h in m['binaries'].items()}}
     assert image_hashes(image)==expected
     call('docker','run','--rm','--network','none','--entrypoint','python3',image,'-c',"import sys;sys.path.insert(0,'/opt/nightcap');import start;start.validate_native()")

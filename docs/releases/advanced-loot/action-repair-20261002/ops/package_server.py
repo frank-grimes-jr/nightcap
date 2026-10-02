@@ -15,7 +15,7 @@ for n,h in build['binaries'].items():
 stage=r/'server-stage';stage.mkdir();(stage/'native-bin').mkdir()
 for n in ('world','zone'):shutil.copyfile(r/n,stage/'native-bin'/n)
 for n in ('native-build-manifest.json','production-source.patch','build.py','resume_build.py','rollout.py','test_rollout.py'):shutil.copyfile(r/n,stage/n)
-(stage/'Dockerfile').write_text('FROM '+old['image_id']+'\nCOPY --chmod=0555 native-bin/ /opt/nightcap/bin/\n')
+(stage/'Dockerfile').write_text('FROM '+old['image']+'\nCOPY --chmod=0555 native-bin/ /opt/nightcap/bin/\n')
 client=json.loads((r/'production-publish/release-audit.json').read_bytes())
 m={'source_commit':build['source_commit'],'old_image':old['image'],'old_image_id':old['image_id'],'old_hashes':old['hashes'],'new_image':'nightcap-game:advanced-loot-actions-20261002','binaries':build['binaries'],'baseline':baseline,'client_release':2026100203,'client_channel_sha256':client['channel_sha256'],'hardening_sha256':build['hardening_sha256'],'files':{p.relative_to(stage).as_posix():sha(p) for p in stage.rglob('*') if p.is_file()}}
 (stage/'manifest.json').write_text(json.dumps(m,indent=2)+'\n')
