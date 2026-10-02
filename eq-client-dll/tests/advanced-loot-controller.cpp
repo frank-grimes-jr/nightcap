@@ -68,7 +68,7 @@ int main() {
 		controls.emplace("NCAL_" + id, std::move(control));
 	};
 	for (const char *id : {"Status", "Selected", "Help", "Drops", "Filters", "Options", "Previous", "Next", "Page", "All", "SearchText", "Search", "Clear", "Refresh", "Take", "Rule", "More", "Back", "PanelTitle", "Empty", "Leave", "Need", "Greed", "Pass", "Roll", "FreeGrab", "Inspect", "Assign", "Find"}) { add(id); }
-	for (unsigned i = 0; i < 8; ++i) { add("Row" + std::to_string(i)); add("Source" + std::to_string(i)); }
+	for (unsigned i = 0; i < 8; ++i) { add("Row" + std::to_string(i)); add("Source" + std::to_string(i)); add("Ignore" + std::to_string(i)); }
 	for (unsigned i = 0; i < 6; ++i) { add("Setting" + std::to_string(i)); add("SettingHelp" + std::to_string(i)); }
 	for (unsigned i = 0; i < 5; ++i) { add("Filter" + std::to_string(i)); add("FilterHelp" + std::to_string(i)); }
 	LootScreenAPI api{&Allocate, reinterpret_cast<LootScreenAPI::Construct>(&Construct), reinterpret_cast<LootScreenAPI::Children>(&Children),
@@ -120,6 +120,22 @@ int main() {
 		Click(choice.first); assert(requests.back() == expected); SnapshotReady(s);
 	}
 	Click("Back"); Click("All"); assert(requests.back() == "#advloot all 1 " + std::to_string(s.revision)); SnapshotReady(s);
+	// Direct Ignore needs no selected-item submenu; bulk consent needs the
+	// server prompt and is cancelled by navigation, revision changes or expiry.
+	Click("Ignore0"); assert(requests.back() == "#advloot filter 1 " + std::to_string(s.revision) + " 13073 2"); SnapshotReady(s);
+	Click("All"); SnapshotReady(s);
+	assert(!AdvancedLootUI::Consume("Advanced loot: Confirm NO TRADE for 1 item(s). Looted 0; 0 unavailable.")); Pulse();
+	assert(Text("All") == "Confirm NO TRADE");
+	Click("All"); assert(requests.back() == "#advloot allconfirm 1 " + std::to_string(s.revision)); SnapshotReady(s);
+	Click("All"); SnapshotReady(s);
+	AdvancedLootUI::Consume("Advanced loot: Confirm NO TRADE for 1 item(s). Looted 0; 0 unavailable."); Pulse();
+	Click("Options"); Click("Back"); assert(Text("All") == "Loot All");
+	Click("All"); SnapshotReady(s);
+	AdvancedLootUI::Consume("Advanced loot: Confirm NO TRADE for 1 item(s). Looted 0; 0 unavailable."); Pulse();
+	SnapshotReady(s); assert(Text("All") == "Loot All");
+	Click("All"); SnapshotReady(s);
+	AdvancedLootUI::Consume("Advanced loot: Confirm NO TRADE for 1 item(s). Looted 0; 0 unavailable."); Pulse(30001);
+	assert(Text("All") == "Loot All");
 	// A partial response must fail closed and expose Retry; never resend an award.
 	Click("Take"); Click("Take");
 	const auto awards = requests.size();
@@ -140,6 +156,8 @@ int main() {
 	s.rows[0].corpse = s.rows[0].quantity = 0; s.rows[0].phase = Phase::FilterRecord;
 	s.rows[0].capabilities = Capability(Action::Inspect) | Capability(Action::EditFilter);
 	SnapshotReady(s); assert(!Visible("Rule") && !Visible("More") && Text("Selected").empty());
+	assert(Text("Ignore0") == "Remove"); Click("Ignore0");
+	assert(requests.back() == "#advloot filter 1 " + std::to_string(s.revision) + " " + std::to_string(old_token) + " 0"); SnapshotReady(s);
 	assert(!AdvancedLootUI::Consume("ordinary chat"));
 	AdvancedLootScreen::Destroy(); assert(!AdvancedLootScreen::Window());
 	std::cout << "PASS: controller through native notification ABI; panels, timeout/retry, commands, snapshots and NO TRADE\n";

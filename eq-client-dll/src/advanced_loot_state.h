@@ -127,7 +127,7 @@ public:
 	std::string SettingsCommand(uint32_t settings) const {
 		return !Ready() || (settings & ~NightcapLoot::AllSettings) ? std::string{} : Prefix("settings") + " " + std::to_string(settings);
 	}
-	std::string TakeAllCommand() const { return Ready() ? Prefix("all") : std::string{}; }
+	std::string TakeAllCommand(bool confirmed = false) const { return Ready() && active_.view == NightcapLoot::View::Drops ? Prefix(confirmed ? "allconfirm" : "all") : std::string{}; }
 	std::string AssignTargetCommand(std::size_t row) const {
 		if (!Ready() || row >= active_.rows.size() || !(active_.rows[row].capabilities & NightcapLoot::Capability(NightcapLoot::Action::Assign))) { return {}; }
 		// Zero means resolve the server's current target, never trust a client pointer.

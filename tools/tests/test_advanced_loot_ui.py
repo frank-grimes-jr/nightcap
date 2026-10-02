@@ -13,7 +13,7 @@ class AdvancedLootUI(unittest.TestCase):
 
     def test_complete_unique_control_inventory(self):
         expected = set('Status Selected Help Drops Filters Options Previous Next Page All SearchText Search Clear Refresh Take Rule More Back PanelTitle Empty Leave Need Greed Pass Roll FreeGrab Inspect Assign Find'.split())
-        expected |= {f'{prefix}{i}' for prefix in ('Row', 'Source') for i in range(8)}
+        expected |= {f'{prefix}{i}' for prefix in ('Row', 'Source', 'Ignore') for i in range(8)}
         expected |= {f'{prefix}{i}' for prefix in ('Setting', 'SettingHelp') for i in range(6)}
         expected |= {f'{prefix}{i}' for prefix in ('Filter', 'FilterHelp') for i in range(5)}
         self.assertEqual(set(self.controls), expected)
@@ -35,9 +35,10 @@ class AdvancedLootUI(unittest.TestCase):
             self.assertLessEqual(y + h, height - 28, name)
 
     def test_visible_buttons_do_not_overlap_in_each_panel(self):
-        navigation = {'Drops', 'Filters', 'Options', 'Refresh'}
+        navigation = {'Filters', 'Options', 'Refresh'}
         panels = [
-            {'Search', 'Clear', 'Previous', 'Next', 'Take', 'Rule', 'More', 'All'} | {f'Row{i}' for i in range(8)},
+            {'Previous', 'Next', 'Take', 'Rule', 'More', 'All'} | {f'{p}{i}' for p in ('Row', 'Ignore') for i in range(8)},
+            {'Drops', 'Search', 'Clear', 'Previous', 'Next', 'Rule', 'More'} | {f'{p}{i}' for p in ('Row', 'Ignore') for i in range(8)},
             {'Back'} | {f'Filter{i}' for i in range(5)},
             {'Back'} | {f'Setting{i}' for i in range(6)},
             {'Back', 'Inspect', 'Leave', 'Find', 'Need', 'Greed', 'Pass', 'Roll', 'FreeGrab', 'Assign'},

@@ -46,11 +46,12 @@ struct Entities {std::map<uint32,Client*> clients;Client* GetClientByCharID(uint
 void *zone=reinterpret_cast<void*>(1);
 float DistanceSquaredNoZ(float a,float b){return (a-b)*(a-b);}
 struct Corpse {
- bool npc=true,become=false,m_player_corpse_depop=false,m_is_locked=false,m_advanced_loot_busy=false,being=false,own=true,rights=true,invalid=false;
+ bool npc=true,become=false,m_player_corpse_depop=false,m_is_locked=false,m_advanced_loot_busy=false,being=false,own=true,has_rights=true,invalid=false;
  uint32 decay=100;float position=0;LootRequestType m_loot_request_type=LootRequestType::Forbidden;
  bool IsNPCCorpse(){return npc;}bool IsBecomeNPCCorpse(){return become;}uint32 GetDecayTime(){return decay;}
  std::string GetEntityVariable(const char*){return invalid?"invalid":"";}bool IsBeingLooted(){return being;}bool IsBeingLootedBy(Client*){return being&&own;}
- bool CanPlayerLoot(uint32){return rights;}float GetPosition(){return position;}
+ std::vector<uint32> allowed;std::vector<uint32> AdvancedLootRights(){return allowed;}
+ bool CanPlayerLoot(uint32){return has_rights;}float GetPosition(){return position;}
  bool ClassicLootOverride(Client*);bool AdvancedLootAccessible(Client*,bool=false,bool=false);
 };
 // ACTUAL_FUNCTIONS
@@ -61,9 +62,15 @@ int main(){
  party.leader=&new_leader;assert(Master({1,2,3})==3);assert(Master({1,2})==2);
  b.loaded=false;assert(Master({1,2})==0);a.connected=true;b.loaded=true;
  Corpse c;assert(c.AdvancedLootAccessible(&a));a.position=25;assert(c.AdvancedLootAccessible(&a));a.position=25.01f;assert(!c.AdvancedLootAccessible(&a));a.position=0;
+ // Explicit earned corpse rights allow advanced collection anywhere in this
+ // zone, while public looting and native corpse clicks keep their old range.
+ a.position=1000;c.allowed={a.id};assert(c.AdvancedLootAccessible(&a));
+ assert(!c.AdvancedLootAccessible(&a,false,true));
+ c.allowed={b.id};assert(!c.AdvancedLootAccessible(&a));
+ c.allowed.clear();assert(!c.AdvancedLootAccessible(&a));a.position=0;
  c.m_is_locked=true;assert(!c.AdvancedLootAccessible(&a,false,true));a.admin=100;
  assert(c.AdvancedLootAccessible(&a,false,true)&&!c.AdvancedLootAccessible(&a));
- c.rights=false;c.being=true;c.m_loot_request_type=LootRequestType::GMAllowed;
+ c.has_rights=false;c.being=true;c.m_loot_request_type=LootRequestType::GMAllowed;
  assert(!c.AdvancedLootAccessible(&a,false,true));a.gm=true;
  assert(c.ClassicLootOverride(&a)&&c.AdvancedLootAccessible(&a,false,true)&&!c.AdvancedLootAccessible(&a));
  c.own=false;assert(!c.ClassicLootOverride(&a)&&!c.AdvancedLootAccessible(&a,false,true));c.own=true;

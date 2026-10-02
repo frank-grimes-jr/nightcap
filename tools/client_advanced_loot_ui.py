@@ -39,7 +39,7 @@ def add_advanced_loot(root):
             value(node, 'DrawTemplate', 'WDT_Inner')
             value(node, 'Style_Border', 'true')
         else:
-            value(node, 'NoWrap', 'true')
+            value(node, 'NoWrap', 'false' if suffix == 'Help' else 'true')
         value(node, 'TooltipReference', tooltip or text)
         value(screen, 'Pieces', name)
 
@@ -56,22 +56,24 @@ def add_advanced_loot(root):
     box(screen, 12, 12, 588, 430)
     control('Label', 'Status', 'Connecting to loot...', 10, 8, 474, 18)
     control('Button', 'Refresh', 'Refresh', 490, 6, 76, 22)
-    control('Button', 'Drops', 'Loot', 10, 32, 100)
-    control('Button', 'Filters', 'Saved rules', 114, 32, 120)
-    control('Button', 'Options', 'Settings', 238, 32, 100)
-    control('Label', 'Page', '', 344, 35, 144, 18)
-    control('Button', 'Previous', '<', 502, 32, 30)
-    control('Button', 'Next', '>', 536, 32, 30)
+    control('Button', 'Drops', '< Back to loot', 10, 32, 164)
+    control('Button', 'All', 'Loot All', 10, 32, 164, tooltip='Collect eligible drops from your kills throughout this zone')
+    control('Button', 'Filters', 'Filters', 180, 32, 116)
+    control('Button', 'Options', 'Settings', 466, 32, 100)
+    control('Label', 'Page', '', 326, 291, 170, 18)
+    control('Button', 'Previous', '<', 502, 288, 30)
+    control('Button', 'Next', '>', 536, 288, 30)
     control('Editbox', 'SearchText', '', 10, 62, 374, 22, 'Search item names (32 characters)')
     control('Button', 'Search', 'Search', 390, 62, 88, 22)
     control('Button', 'Clear', 'Clear', 484, 62, 82, 22)
     for index in range(8):
-        control('Button', f'Row{index}', '', 10, 90 + index * 24, 326, 22, 'Select this item')
-        control('Label', f'Source{index}', '', 344, 93 + index * 24, 222, 18)
+        control('Button', f'Row{index}', '', 10, 90 + index * 24, 270, 22, 'Select this item')
+        control('Label', f'Source{index}', '', 288, 93 + index * 24, 194, 18)
+        control('Button', f'Ignore{index}', 'Ignore', 490, 90 + index * 24, 76, 22, 'Ignore future drops of this item; remove its saved rule from Filters')
     control('Label', 'Empty', 'No items waiting. Loot from your kills appears here.', 22, 126, 532, 22)
-    control('Label', 'Selected', '', 10, 288, 556, 20)
+    control('Label', 'Selected', '', 10, 288, 306, 20)
     for suffix, title, x, width in [('Take', 'Loot item', 10, 124), ('Rule', 'Item rule...', 140, 132),
-                                   ('More', 'More...', 278, 100), ('All', 'Loot all', 432, 134)]:
+                                   ('More', 'More...', 278, 100)]:
         control('Button', suffix, title, x, 314, width, 28)
     control('Label', 'Help', '', 10, 354, 556, 40)
 
