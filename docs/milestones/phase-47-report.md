@@ -9,7 +9,8 @@ Checks pass: 16 MariaDB forward/recovery cases, 24 rollout fault tests,
 75 resident/porter assertions, 65 ground samples and six approach rays against
 119 actors and eight walking routes. Native CAMPFIRE is verified in the installed
 archive. Independent review found no blocking defect. Direct main/server release
-is authorized; production evidence follows activation.
+is complete via PR 115. Automated deployment checks passed. Detailed operational
+evidence is retained privately.
 
 Remaining: rendered fire height/scale/click behavior, Glorphyndel's appearance,
 and Nalin's intermittent sword pose across idle cycles and zoning/reconnect.

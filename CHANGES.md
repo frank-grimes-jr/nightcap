@@ -21,7 +21,8 @@ CAMPFIRE. Correct Glorphyndel from Erudite to High Elf while retaining full
 Valorium, Falchion and Trueheart Shield. Suppress Nalin's idle emotes and correct
 SoulFire's two-handed attack skill. Scoped preimage guards and fresh-state
 rollback protect other content and player progress. Direct main/server promotion
-is owner-authorized. Rendered sword/fire acceptance remains open. See
+is complete via PR 115, with automated deployment checks passed. Rendered
+sword/fire acceptance remains open. See
 `docs/releases/tunnel-campfire-20261002/README.md`.
 
 ## 2026-10-02 - Simplify advanced loot and recover unresponsive controls

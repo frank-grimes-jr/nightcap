@@ -1,5 +1,8 @@
 # Resident campfire correction — October 2, 2026
 
+**Deployed:** PR 115 is on main and the server update is complete. Automated
+deployment checks passed; rendered acceptance remains open.
+
 The owner requested Nalin, Rekk, Sortre, Camil, Trift and Glorphyndel closer
 together around a fire, corrected Glorphyndel's race, and reported Nalin's sword
 occasionally pointing sideways before recovering. Direct main and OVH deployment
@@ -59,7 +62,8 @@ Rendered acceptance remains open until observed in the installed game:
 1. Enter East Commonlands and approach the tunnel circle. EQ `/loc` reports
    Y, X, Z: approximately **-1707, -274, 4**.
 2. Confirm all six named residents are standing around one visible, grounded
-   small fire with clear space between bodies, flame and weapons. Walk around
+   small fire with clear space between bodies, flame and weapons. Click the fire
+   and confirm it stays visually correct and does not obstruct passage. Walk around
    and approach each resident; confirm hails and normal passage remain usable.
 3. Inspect Glorphyndel: male High Elf, complete blue/lavender Valorium plate,
    Falchion of the Koada'Vie and Trueheart Shield.
