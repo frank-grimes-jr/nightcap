@@ -1,4 +1,4 @@
-# ADR 0051: Social gatherings in the East Commonlands tunnel
+# ADR 0052: Social gatherings in the East Commonlands tunnel
 
 Date: 2026-10-01. Status: accepted intent; implementation under verification.
 
