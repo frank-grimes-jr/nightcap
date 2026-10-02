@@ -77,3 +77,15 @@ Its exact pre-removal files are retained under local
 
 Implementation status and outstanding work live in
 `docs/releases/advanced-loot/README.md`; this ADR is not completion evidence.
+
+## October 2 interaction repair
+
+Separate current loot, saved rules, settings and item-specific actions. The
+screen must fit 640 x 480 and local navigation must not depend on a completed
+network request. Five-second timeouts expose a state-only Retry; never replay
+an award automatically. Refresh preserves consent only for the unchanged
+NO TRADE row. A view change or vanished row clears selection and closes the
+detail panel; drop tokens and saved-filter item IDs are different namespaces.
+Treat native callback fixtures and XML geometry checks as bounded evidence,
+and require an actual rendered click/request/acknowledgment before acceptance.
+[Repair status and exact QA](../releases/advanced-loot/UI-REPAIR.md).

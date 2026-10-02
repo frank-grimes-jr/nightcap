@@ -32,3 +32,12 @@ An older binary or pre-release database dump is not a routine rollback.
 
 [Production and recovery](../releases/advanced-loot/PRODUCTION.md) ·
 [Exact owner live QA](../releases/advanced-loot/LIVE-QA.md).
+
+## October 2 repair follow-up
+
+The owner rejected the deployed interaction: controls appeared inert and the
+screen was crowded. A compact panel-based client repair, timeout recovery,
+selection guards and controller coverage are prepared. The original live
+failure still requires a rendered request/acknowledgment check. This does not
+retroactively establish acceptance of the September 30 deployment.
+[Repair report and live QA](../releases/advanced-loot/UI-REPAIR.md).
