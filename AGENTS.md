@@ -131,6 +131,10 @@ NPC checkpoints. Current scope, evidence and exact native QA:
 `docs/releases/advanced-loot/README.md` and `docs/releases/advanced-loot/LIVE-QA.md`.
 Matching hardened world/zone and signed game 2026093006 are deployed on OVH;
 `docs/releases/advanced-loot/PRODUCTION.md` owns activation and recovery evidence.
+The October 2 client interaction repair is signed generation 2026100201. Its
+timeout retry refreshes state and must never replay an uncertain award. Native
+click/render/acknowledgment acceptance is separate from controller fixtures and
+publication checks; see `docs/releases/advanced-loot/UI-REPAIR.md`.
 Keep injected faults/synthetic loot in the isolated `QA.md` plan. A previous
 deployment's binary rollback helper is not valid after this receipt boundary.
 
