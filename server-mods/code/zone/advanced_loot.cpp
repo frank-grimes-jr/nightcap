@@ -436,8 +436,10 @@ void LootAll(Session &session, bool confirmed) {
 	session.ClearConfirmation();
 	uint32 delivered = 0, unavailable = 0;
 	bool uncertain = false;
-	for (const auto &[entry, drop] : selected) {
-		if (!Present(*entry, *drop)) { ++unavailable; continue; }
+	for (const auto &selection : selected) {
+		const auto &entry = selection.first;
+		const auto &drop = selection.second;
+		if (!Visible(session, *entry, *drop)) { ++unavailable; continue; }
 		if (confirmed && !std::any_of(confirmation.begin(), confirmation.end(), [&](const PendingLoot &pending) {
 			return pending.entry == entry && pending.drop == drop && SamePending(pending);
 		})) { ++unavailable; continue; }
