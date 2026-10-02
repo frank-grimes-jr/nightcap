@@ -40,6 +40,12 @@ ok(!(grep { $_->[1]<35 || $_->[1]>80 } @quest::timers),'idle cadence stays betwe
 my %delays=map { $_->[1]=>1 } @quest::timers;
 ok(keys(%delays)>10,'cadence varies instead of synchronized ticks');
 is(scalar @quest::ooc,0,'social gestures produce no OOC spam');
+my $nalin=bless {id=>999523,faced=>[],animations=>[],vars=>{}},'Actor';
+my $before_timers=@quest::timers;
+for (1..100) { plugin::tunnel_social_idle($nalin,$entities,'tunnel_social_idle'); }
+is(scalar @{$nalin->{faced}},100,'Nalin still turns toward his companions');
+is(scalar @{$nalin->{animations}},0,'Nalin never emotes with SoulFire equipped');
+is(scalar @quest::timers,$before_timers+100,'Nalin keeps his social cadence');
 my $faced=@{$npc->{faced}};
 $client->{x}=10;plugin::tunnel_social_idle($npc,$entities,'tunnel_social_idle');
 is(scalar @{$npc->{faced}},$faced,'nearby interacting player prevents distraction');

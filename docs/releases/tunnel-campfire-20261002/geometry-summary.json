@@ -1,0 +1,16 @@
+{
+  "actors": 119,
+  "changed_residents": 6,
+  "fire": {
+    "model": "CAMPFIRE",
+    "size": 65,
+    "x": -274,
+    "y": -1707
+  },
+  "ground_samples": 65,
+  "rays": 6,
+  "walking_routes": 8,
+  "minimum_resident_clearance": 13.0,
+  "issues": [],
+  "snapshot_sha256": "0f15bac998efc4409cde9553d67c8f5015fe94579af2ac27a8e17abda0b1924a"
+}
