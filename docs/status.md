@@ -351,7 +351,8 @@ Numbers are a dated snapshot. [Live issue tracker](https://github.com/frank-grim
 
 The October 1 player guide is deployed on OVH at https://play.nightcapgame.org/
 under its existing approved-IP restriction. It uses the green/cream design,
-original loading artwork, 21 feature entries and six workbench areas. Local and
+original loading artwork, 21 feature entries and six workbench areas. The reading
+pass uses plain language, “Ready to try” labels, short lists and clearer typography. Local and
 HTTPS browser suites, origin isolation and rollback rehearsal pass. Deployed
 remains distinct from manual gameplay acceptance. The owner explicitly requires
 private access: apex/www and unknown hosts return 404, unapproved play access

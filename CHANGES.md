@@ -1,5 +1,18 @@
 # CHANGES
 
+## 2026-10-01 - A friendlier player guide
+
+Rewrite the player guide in everyday language, with shorter explanations,
+clearer feature headings and “Ready to try” labels. Keep the full feature list,
+commands, prices, limitations and unfinished-work distinctions. Break commands,
+travel choices and starting gear into readable lists; increase detail text size,
+contrast and line spacing. Keep the green/cream theme, original loading artwork,
+script-free page and private approved-IP access.
+
+Verify with the existing responsive/keyboard/branding browser suite, exact hosted
+payload hashes and the guarded OVH deployment with rollback rehearsal. Website
+text and styling only; no gameplay changes.
+
 ## 2026-10-01 - Nightcap player guide on OVH
 
 Rebuild the player guide in racing green/cream using two original loading screens,

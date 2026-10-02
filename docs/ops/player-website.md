@@ -10,7 +10,7 @@ using repository loading artwork and Nightcap-only player-facing branding. The o
   No public apex/www site, new DNS route or Cloudflare sign-in is needed.
 - Apex/www and unknown Host headers return 404 at the origin. The unused public
   virtual host was removed before closing this task. No DNS/WAF rules changed.
-- Active release: `20261001-player-guide-private`, selected by
+- Active release: `20261001-player-guide-friendly`, selected by
   `/opt/nightcap/deploy/production/data/public/player-site/current`.
 - All five container identities/start times, both patch channels, existing player
   guide and friend ZIP are preserved. No game restart or database mutation.
@@ -24,7 +24,8 @@ text, metadata, attributes and static code. Both images were inspected visually.
 
 Twenty-one feature entries cover the older conveniences and recent deployments.
 Six workbench entries separate undeployed candidates, planned content and open
-verification. Deployed means installed for live testing, not manual acceptance.
+verification. The readability update uses “Ready to try” labels, conversational
+explanations, lists for commands and travel choices, and larger, darker detail text. Deployed means installed for live testing, not manual acceptance.
 
 | Area | Evidence to check before updating |
 |---|---|
@@ -97,18 +98,20 @@ is unchanged. [Documented edge behavior](https://developers.cloudflare.com/web-a
 ## Private access verification and recovery
 
 October 1 evidence: `E:/EQ_Local_Dev/artifacts/player-website-20261001/`.
-Forward/rollback and final activation passed for `20261001-player-guide-private`.
+Forward/rollback and final activation passed for `20261001-player-guide-friendly`.
 The full HTTPS browser suite passed from the approved connection, including all
-five exact payload bytes and private cache headers. The OVH-source play request
+five exact payload bytes and private cache headers. Readability review confirmed
+all 21 features and six workbench entries, with material warnings preserved. The OVH-source play request
 returned 403; apex/www/unknown-host origin probes returned 404. The guide is
 complete at the restricted play address. Public root-domain setup was cancelled
 by the owner's explicit private-only instruction.
 
 Receipts and the matching deployment helper are saved outside the served tree at
-`/opt/nightcap/deploy/production/website-history/20261001-player-guide-private/`.
-Rolling back this configuration would restore the prior unused apex/www virtual
-host, so retain the private-only configuration when reverting page content. Do
-not add public routes or loosen the player IP restriction without owner approval.
+`/opt/nightcap/deploy/production/website-history/20261001-player-guide-friendly/`.
+This release changes HTML and CSS only. Its previous release is
+`20261001-player-guide-private`; both use the same private-only Nginx configuration,
+so the recorded rollback preserves access restrictions. Do not add public routes
+or loosen the player IP restriction without owner approval.
 
 ---
 
