@@ -115,3 +115,5 @@ Historical documents describe their capture date. A passed offline/native test
 is not an in-game sign-off; a deployed candidate is not accepted main gameplay.
 
 - [East Commonlands tunnel hub QA](releases/ecommons-hub-20260920/README.md)
+
+- [Social tunnel revision: complete roster, placement map and exact QA](releases/tunnel-social-20261001/README.md).

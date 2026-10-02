@@ -1,0 +1,23 @@
+{
+  "checks": [
+    "case-only source drift rejected",
+    "drift rejection writes nothing",
+    "new merchant name collision rejected",
+    "name collision preserves all data",
+    "new external NPC reference rejected",
+    "exact native numeric afterimages for all eight content tables",
+    "replay rejected",
+    "replay preserves installed scene",
+    "immediate rollback restores content without old moved NPC caches",
+    "rollback blocks ambiguous saved state: is_corpse",
+    "rollback blocks ambiguous saved state: is_zone",
+    "rollback blocks ambiguous saved state: instance_id",
+    "rollback blocks ambiguous saved state: zone_id",
+    "fresh rollback invalidates newly saved moved NPC",
+    "fresh unrelated native cache survives rollback",
+    "all unchanged native saved states retained",
+    "player items/money, merchant stock and era preserved"
+  ],
+  "schema": "nightcap_social_test_c22e93b496",
+  "removed": true
+}

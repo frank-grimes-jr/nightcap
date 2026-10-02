@@ -1,5 +1,18 @@
 # CHANGES
 
+## 2026-10-01 - Social tunnel gatherings and tradeskill corner
+
+Revisit all 119 tunnel actors after owner visual feedback. Replace class rows
+with inward-facing groups and give all 16 class merchants individual names;
+retain class uniforms, role subtitles, stock and prices. Return Sortre, Camil,
+Rekk, Nalin, Trift and Glorphyndel to an uneven social ring with quiet, staggered
+gestures. Move the Chronicler beside Shady, disperse market traders, revise all
+eight walking routes, and gather every supply page and six crafting stations in
+one corner. Saved-state invalidation is restricted to the 93 moved actors;
+unchanged native NPCs and their caches remain intact. Guarded SQL/rollback,
+geometry, identity checks and quest fixtures pass. Candidate, not yet deployed;
+see `docs/releases/tunnel-social-20261001/README.md` for all NPCs and exact QA.
+
 ## 2026-10-01 - Adventure Journal and archetype Epic 0.5 candidate
 
 Added eight native journal tasks through the East Commonlands Chronicler: three
