@@ -353,8 +353,10 @@ The October 1 player guide is deployed on OVH at https://play.nightcapgame.org/
 under its existing approved-IP restriction. It uses the green/cream design,
 original loading artwork, 21 feature entries and six workbench areas. Local and
 HTTPS browser suites, origin isolation and rollback rehearsal pass. Deployed
-remains distinct from manual gameplay acceptance. Apex/www have isolated Nginx
-roots and passed origin probes; DNS/tunnel routing awaits Cloudflare sign-in.
+remains distinct from manual gameplay acceptance. The owner explicitly requires
+private access: apex/www and unknown hosts return 404, unapproved play access
+returns 403, and website responses disable shared caching. No public DNS route
+or Cloudflare sign-in is needed. The private guide is complete.
 The earlier GitHub Pages limitation is historical. Website publication does not
 promote gameplay. [Publication and rollback](ops/player-website.md).
 

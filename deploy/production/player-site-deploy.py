@@ -65,18 +65,38 @@ def check_activation_preconditions(receipt, directory):
         assert sha((SITES/receipt['target']/name).read_bytes()) == digest, 'Staged file changed'
 
 
-def probe(host, path, expected=200, digest=None):
+def probe(host, path, expected=200, digest=None, private=False):
     req = urllib.request.Request('http://10.88.1.4:8080' + path, headers={'Host': host})
     try:
         with urllib.request.urlopen(req, timeout=10) as response:
             status, data = response.status, response.read()
             if expected == 200:
                 assert "default-src 'none'" in response.headers['Content-Security-Policy']
+                if private:
+                    directives = {v.strip().lower() for v in response.headers.get('Cache-Control', '').split(',')}
+                    assert {'private', 'no-store', 'no-transform'} <= directives, 'Website cache privacy missing'
+                    assert 'public' not in directives, 'Shared website caching enabled'
     except urllib.error.HTTPError as error:
         status, data = error.code, error.read()
     assert status == expected, (host, path, status, expected)
     if digest:
         assert sha(data) == digest, (host, path, 'hash mismatch')
+
+
+def verify_routes(receipt):
+    for name, digest in receipt['files'].items():
+        route = '/' if name == 'index.html' else '/' + name
+        probe('play.nightcapgame.org', route, digest=digest, private=True)
+    for path in ('/player-site', '/player-site/current/index.html',
+                 '/player-site/current/site-assets/site.css',
+                 f"/player-site/{receipt['target']}/index.html",
+                 f"/player-site/{receipt['target']}/site-assets/site.css"):
+        probe('play.nightcapgame.org', path, 404)
+    for host in ('nightcapgame.org', 'www.nightcapgame.org', 'unknown.invalid'):
+        for path in ('/', '/index.html', '/site-assets/site.css', '/channel.json',
+                     '/launcher-channel.json', '/guide.html', '/nightcap-friends.zip',
+                     '/connect', '/.env', '/release/', '/website-history/'):
+            probe(host, path, 404)
 
 
 def restore(receipt, directory):
@@ -102,19 +122,12 @@ def activate(receipt, directory):
     import time
     for attempt in range(10):
         try:
-            for name, digest in receipt['files'].items():
-                for host in ('nightcapgame.org', 'play.nightcapgame.org'):
-                    route = '/' if name == 'index.html' else '/' + name
-                    probe(host, route, digest=digest)
+            verify_routes(receipt)
             break
         except (AssertionError, OSError):
             if attempt == 9:
                 raise
             time.sleep(.2)
-    for path in ('/channel.json', '/launcher-channel.json', '/guide.html',
-                 '/nightcap-friends.zip', '/connect', '/.env', '/release/', '/website-history/'):
-        probe('nightcapgame.org', path, 403 if path == '/.env' else 404)
-    probe('unknown.invalid', '/', 404)
     for name, digest in receipt['protected'].items():
         probe('play.nightcapgame.org', '/' + name, digest=digest)
     assert containers() == receipt['containers'], 'Service identity/start time changed'

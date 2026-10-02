@@ -321,8 +321,9 @@ Candidate activation and exact QA: `docs/releases/pet-management-20260922/`.
 Use `docs/status.md` for current deployment and issue status; `docs/README.md`
 indexes operational guides and dated evidence. Preserve historical report scope.
 The standalone `index.html` and `site-assets/` publish as an exact static allowlist
-on OVH. The play hostname retains approved-IP access; the public apex/www use a
-separate website-only root. See `docs/ops/player-website.md` for current routing
+on OVH. The owner requires private access: only the play hostname serves the
+guide under the existing approved-IP restriction; apex/www and unknown hosts
+return 404. Do not add public routing without explicit owner authorization. See `docs/ops/player-website.md` for current routing
 status, branding guards, deployment and rollback. Website publication does not
 promote gameplay to main or replace owner in-game QA.
 

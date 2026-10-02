@@ -5,7 +5,7 @@ loading art, with Nightcap-only public text and hosting on the existing OVH serv
 
 Built: 21 grouped feature entries, six workbench areas, recent changes and FAQ;
 native accessible disclosures and anchors; two original artworks; static-only
-packaging and branding guard; isolated public virtual host; drift-aware serialized
+packaging and branding guard; private-only hostname routing; drift-aware serialized
 deployment with private receipts and rehearsed rollback. Existing play-host access,
 game services, signed channels, setup guide and ZIP are retained.
 
@@ -18,13 +18,16 @@ review led to fuller older-feature coverage, precise candidate labels and a
 stale-pointer guard. The edge-injected analytics script was eliminated using the
 website-only no-transform header, including the rewritten index URI.
 
-Deployed: release `20261001-player-guide-v3` at https://play.nightcapgame.org/ for
+Deployed: release `20261001-player-guide-private` at https://play.nightcapgame.org/ for
 approved player IPs. No game restart, data mutation or gameplay promotion.
 
-Remaining: apex/www public routing needs authenticated Cloudflare access. The
-available dashboard is at sign-in, and root/www had no address records. Public
-reachability from a non-approved network is not claimed. Original PNGs make the
-payload about 5.3 MB; no artwork was altered. Gameplay acceptance remains as
-recorded in the individual release guides.
+Private access: the owner explicitly declined public hosting. The unused apex/www
+virtual host was removed, alternative hostnames return 404, an unapproved network
+receives 403 on play, and approved HTTPS/browser checks pass. Website responses
+disable shared caching and storage. No DNS/WAF changes or dashboard sign-in are
+needed. The requested website is complete.
+
+Limits: original PNGs make the payload about 5.3 MB; no artwork was altered.
+Gameplay acceptance remains as recorded in the individual release guides.
 
 Runbook, content sources, exact checks and recovery: [player website](../ops/player-website.md).

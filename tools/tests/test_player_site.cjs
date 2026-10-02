@@ -15,6 +15,7 @@ const forbidden = /ever\s*quest|\beq\b|eqemu|rof2|macroquest/i;
     const name = new URL(req.url, 'http://localhost').pathname.slice(1) || 'index.html';
     if (!assets.includes(name)) { res.writeHead(404); return res.end(); }
     res.setHeader('Content-Security-Policy', csp);
+    res.setHeader('Cache-Control', 'private, no-store, no-transform');
     res.setHeader('Content-Type', {'.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8','.svg':'image/svg+xml','.png':'image/png'}[path.extname(name)]);
     res.end(fs.readFileSync(path.join(root, name)));
   });
@@ -96,8 +97,11 @@ const forbidden = /ever\s*quest|\beq\b|eqemu|rof2|macroquest/i;
     for (const name of assets) {
       const asset = await page.request.get(new URL(name === 'index.html' ? './' : name, url).href);
       assert.equal(asset.status(), 200, `Asset unavailable: ${name}`);
+      const cache = asset.headers()['cache-control'].split(',').map(value => value.trim().toLowerCase());
+      assert.ok(['private','no-store','no-transform'].every(value => cache.includes(value)), `Private cache directives missing: ${name}`);
+      assert.ok(!cache.includes('public'), `Shared caching enabled: ${name}`);
       assert.deepEqual(await asset.body(), fs.readFileSync(path.join(root,name)), `Hosted bytes differ: ${name}`);
     }
-    console.log(JSON.stringify({result:'PASS',url,checks:['brand and metadata guard','21 feature entries / 6 workbench entries','all anchor targets','keyboard disclosures','history and deep links','5 responsive widths','200% text reflow','images','no JavaScript needed','strict CSP','clean console/network']},null,2));
+    console.log(JSON.stringify({result:'PASS',url,checks:['brand and metadata guard','21 feature entries / 6 workbench entries','all anchor targets','keyboard disclosures','history and deep links','5 responsive widths','200% text reflow','images','no JavaScript needed','strict CSP','private non-caching responses','clean console/network']},null,2));
   } finally { if(browser) await browser.close(); server.close(); }
 })().catch(error => { console.error(error); process.exitCode=1; });

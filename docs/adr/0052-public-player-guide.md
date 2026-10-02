@@ -2,7 +2,8 @@
 
 Date: October 1, 2026. Accepted intent: the owner requested a racing-green and
 cream player guide using the repository's loading art and Nightcap-only branding,
-hosted on the existing OVH server/domain.
+hosted on the existing OVH server/domain. The owner explicitly clarified that
+the guide must stay private.
 
 Retain canonical `index.html`, with local CSS, a favicon, and two unmodified
 loading-screen PNGs. Native anchor navigation and details disclosures work without
@@ -10,10 +11,11 @@ JavaScript, a framework build, cookies, external fonts, analytics, or an account
 service. The existing strict web Content Security Policy remains intact.
 
 Publish an exact five-file allowlist into a versioned website directory. A symlink
-selects the release. The public apex/www virtual host serves only this directory;
-the player-IP-restricted play host retains signed patches, the guide, and gateway
-routing. Unknown Host headers fail closed. Cloudflare routes public website hosts
-to web only, preserving the existing play routes and access controls.
+selects the release. Only the existing approved-player-IP play hostname serves
+the guide and its assets. Existing signed patches and gateway routing remain.
+Apex, www and unknown Host headers fail closed with 404; no public DNS/tunnel
+routes are added. The existing Cloudflare IP allowlist remains enforced. Website
+responses use private, no-store, no-transform cache directives.
 
 Content differentiates deployed-for-testing from undeployed candidates and open
 verification. Source history alone is insufficient evidence of live behavior.

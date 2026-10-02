@@ -1,17 +1,16 @@
 # Nightcap player website on OVH
 
 Updated October 1, 2026. The owner requested the green/cream player guide on OVH,
-using repository loading artwork and Nightcap-only public branding.
+using repository loading artwork and Nightcap-only player-facing branding. The owner explicitly requires private access.
 
 ## Current publication
 
 - **Hosted:** https://play.nightcapgame.org/ under its existing approved-IP access.
-- **Intended public domain:** https://nightcapgame.org/ and www. The separate OVH
-  virtual host is prepared and origin-tested. DNS/tunnel routing still needs an
-  authenticated Cloudflare session. The available dashboard is at sign-in.
-- No apex/www address records were present at inspection. Do not call the apex
-  live until public HTTPS and a non-approved network verify it.
-- Active release: `20261001-player-guide-v3`, selected by
+- **Private by owner instruction:** retain the existing approved player IP list.
+  No public apex/www site, new DNS route or Cloudflare sign-in is needed.
+- Apex/www and unknown Host headers return 404 at the origin. The unused public
+  virtual host was removed before closing this task. No DNS/WAF rules changed.
+- Active release: `20261001-player-guide-private`, selected by
   `/opt/nightcap/deploy/production/data/public/player-site/current`.
 - All five container identities/start times, both patch channels, existing player
   guide and friend ZIP are preserved. No game restart or database mutation.
@@ -64,7 +63,8 @@ Set `SITE_URL` to test HTTPS. The suite passes locally and on the play hostname:
 strict CSP, no scripts, branding, all anchors, keyboard disclosures, history,
 deep links, 320/390/768/1024/1440 widths, 200% text, images and clean console/network.
 Package tests cover private-file exclusion, forbidden hidden metadata, immutable
-releases, manifest bytes and rejection of stale website pointers. Independent
+releases, manifest bytes, rejection of stale website pointers, denied alternative
+hostnames and private cache directives. Independent
 content/deployment review findings were fixed before final activation.
 
 Upload only the generated tar/JSON manifest, reviewed Nginx config and
@@ -83,40 +83,39 @@ origin plus rollback before activation. Keep the helper with its receipt for
 recovery. The bind-mounted Nginx config must be written in place to preserve its
 inode; validate with `nginx -t` before a graceful web-only reload.
 
-Apex/www serve only the isolated website root. Origin probes prove patch channels,
-downloads, setup guide, gateway and private history return 404; dotfiles return
-403, and unknown hostnames 404. Existing play downloads are fetched and hashed,
-and all five service IDs/start times remain unchanged. No game access rule changes.
+Only play serves the guide. Origin probes require 404 for apex, www and unknown
+hosts across the website, assets, patch channels, downloads, setup guide, gateway,
+dotfiles and private history. Existing play downloads are fetched and hashed, and
+all five service IDs/start times remain unchanged. The existing Cloudflare IP
+allowlist remains the access boundary; no game or website access rules changed.
 
-Cloudflare initially injected an analytics script. Website-only
-`Cache-Control: public, no-cache, no-transform` suppresses it while retaining the
-strict CSP. Include `/index.html` in the cache map: `try_files` changes the URI.
-[Documented edge behavior](https://developers.cloudflare.com/web-analytics/faq/).
+Website-only `Cache-Control: private, no-store, no-transform` prevents shared
+caching and edge analytics injection while retaining strict CSP. Include
+`/index.html` in the cache map: `try_files` changes the URI. Signed release caching
+is unchanged. [Documented edge behavior](https://developers.cloudflare.com/web-analytics/faq/).
 
-## Remaining root-domain setup
-
-Sign in to Cloudflare and inspect current tunnel/WAF rules. Add apex/www routes
-to the existing tunnel using `http://web:8080`, retaining the incoming Host.
-Preserve play `/connect` to the gateway, remaining play paths to web and the final
-catch-all. Create proxied DNS records for the same tunnel. Keep play's allow/deny
-protections; scope any zone-wide IP restriction to play instead of disabling it.
-
-Verify apex/www HTTPS, all five file hashes, script-free HTML, browser suite,
-public access from a non-approved network and denial of private paths. Recheck
-that a non-approved network still gets 403 on play. Root-domain publication is
-not complete merely because origin checks passed.
-
-References: [tunnel DNS](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/routing-to-tunnel/dns/),
-[Nginx host matching](https://nginx.org/en/docs/http/server_names.html).
+## Private access verification and recovery
 
 October 1 evidence: `E:/EQ_Local_Dev/artifacts/player-website-20261001/`.
-Forward/rollback and final activation passed for v3. The full play-host HTTPS
-suite passed. The OVH-source play request returned 403, preserving restricted
-access. Apex/www routing remains pending authentication.
+Forward/rollback and final activation passed for `20261001-player-guide-private`.
+The full HTTPS browser suite passed from the approved connection, including all
+five exact payload bytes and private cache headers. The OVH-source play request
+returned 403; apex/www/unknown-host origin probes returned 404. The guide is
+complete at the restricted play address. Public root-domain setup was cancelled
+by the owner's explicit private-only instruction.
+
+Receipts and the matching deployment helper are saved outside the served tree at
+`/opt/nightcap/deploy/production/website-history/20261001-player-guide-private/`.
+Rolling back this configuration would restore the prior unused apex/www virtual
+host, so retain the private-only configuration when reverting page content. Do
+not add public routes or loosen the player IP restriction without owner approval.
 
 ---
 
 # Historical September 15 GitHub Pages attempt
+
+Superseded by the October 1 private-only OVH decision above. Do not follow these
+historical publication instructions for current updates.
 
 The owner explicitly authorized updating the HTML/documentation and public
 GitHub Pages publication on September 15, 2026. The earlier automatic-review

@@ -69,5 +69,60 @@ class DeploymentPreconditionsTests(unittest.TestCase):
                 deploy.check_activation_preconditions({'previous':'20261001-older'}, ROOT)
 
 
+
+class PrivateRouteTests(unittest.TestCase):
+    def setUp(self):
+        import io
+        import urllib.error
+        from types import SimpleNamespace
+        from unittest.mock import MagicMock
+        spec = importlib.util.spec_from_file_location('site_deploy', ROOT/'deploy/production/player-site-deploy.py')
+        self.deploy = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(self.deploy)
+        self.leaking_host = None
+        self.leaking_alias = False
+        self.cache = 'private, no-store, no-transform'
+
+        def origin(request, timeout):
+            host = request.get_header('Host')
+            storage = '/player-site' in request.full_url
+            if (host == 'play.nightcapgame.org' and (not storage or self.leaking_alias)) or host == self.leaking_host:
+                response = MagicMock()
+                response.__enter__.return_value = SimpleNamespace(
+                    status=200, read=lambda: b'Nightcap', headers={
+                        'Content-Security-Policy': "default-src 'none'",
+                        'Cache-Control': self.cache})
+                return response
+            raise urllib.error.HTTPError(request.full_url, 404, 'Not Found', {}, io.BytesIO(b''))
+
+        self.urlopen = patch.object(self.deploy.urllib.request, 'urlopen', side_effect=origin)
+        self.urlopen.start()
+        self.addCleanup(self.urlopen.stop)
+        self.receipt = {'target': '20261001-private-test', 'files': {'index.html': self.deploy.sha(b'Nightcap')}}
+
+    def test_restricted_player_host_with_closed_alternative_hosts_passes(self):
+        self.deploy.verify_routes(self.receipt)
+
+    def test_website_exposure_on_another_hostname_fails_verification(self):
+        for host in ('nightcapgame.org', 'www.nightcapgame.org', 'unknown.invalid'):
+            with self.subTest(host=host):
+                self.leaking_host = host
+                with self.assertRaises(AssertionError):
+                    self.deploy.verify_routes(self.receipt)
+
+    def test_storage_alias_exposure_fails_verification(self):
+        self.leaking_alias = True
+        with self.assertRaises(AssertionError):
+            self.deploy.verify_routes(self.receipt)
+
+    def test_cacheable_website_response_fails_verification(self):
+        for cache in ('public, no-cache, no-transform', 'private, no-store',
+                      'private, no-cache, no-transform', 'private, no-store, no-transform, public'):
+            with self.subTest(cache=cache):
+                self.cache = cache
+                with self.assertRaises(AssertionError):
+                    self.deploy.verify_routes(self.receipt)
+
+
 if __name__ == '__main__':
     unittest.main()

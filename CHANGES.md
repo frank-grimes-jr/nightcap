@@ -9,12 +9,14 @@ corpse, instance, selling, blessing and progression conveniences as well as the
 latest loot/pet/hub/client releases. Guard Nightcap-only public branding.
 
 Publish five static files with no JavaScript or external assets, guarded packaging,
-keyboard/mobile checks, isolated public virtual host, private rollback receipts
+keyboard/mobile checks, private-only hostname routing, private rollback receipts
 and graceful web reloads. Preserve game services, patch channels, guide and ZIP.
 Source review caught and fixed stale-pointer rollback; HTTPS checking caught edge
 analytics injection and added website-only no-transform headers. The page is on
-OVH at the existing restricted play hostname; apex/www routing awaits Cloudflare
-sign-in. No gameplay promotion or database change. Runbook: docs/ops/player-website.md.
+OVH at the existing restricted play hostname. The owner explicitly declined public
+hosting: remove the unused apex/www virtual host, enforce 404 on other hosts and
+private/no-store caching on website responses. Approved HTTPS and unapproved-IP
+denial pass; no DNS/WAF changes or Cloudflare sign-in are needed. No gameplay promotion or database change. Runbook: docs/ops/player-website.md.
 
 ## 2026-10-01 - Filter unusable classes from spell-scroll inspection
 
