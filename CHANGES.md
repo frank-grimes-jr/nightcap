@@ -1,5 +1,17 @@
 # CHANGES
 
+## 2026-10-02 - Repair compact pet window native anchors
+
+Correct the stock AutoStretch anchors that overrode the compact buff panel's
+position and covered roster/status/command controls. Keep the 350 x 350 minimum,
+place buffs below the roster beside commands, and move the clear-target hint
+into the All pets tooltip. Preserve all 85 native buff buttons, advanced loot
+and command behavior. Signed production release 2026100104 changes only this UI
+asset; all 46 hosted files verify and production services retain their state.
+Existing saved window sizes are preserved. Rendered owner acceptance remains
+pending; see `docs/releases/pet-window-layout-20261001.md`.
+
+
 ## 2026-10-01 - Repair pre-character-select model material crash
 
 The live crash dump resolves to EQGraphicsDX9's material palette constructor:
