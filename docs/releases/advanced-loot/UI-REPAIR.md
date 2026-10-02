@@ -44,14 +44,31 @@ local log: `ADVLOOT control-click:<control>`, `request-sent:<verb>`,
 `request-sent` proves only invocation of the client's serializer, not server receipt.
 No item names, character names, chat, credentials or packet bodies are logged.
 
-## Release candidate
+## Published release
 
-Prepared client generation **2026100201**, proxy **0.7.3-dev**. It retains all
+Published client generation **2026100201**, proxy **0.7.3-dev**. It retains all
 67 patch sites and 15 required features. Only the proxy, its versioned catalog
 and the advanced-loot definitions in `equi_petinfowindow.xml` change from live
 2026100104. The recent pet-window anchor repair, other UI definitions, model
-archives, spells, bootstrap and configuration are preserved. Publication and
-native acceptance must be recorded separately; preparation is not deployment.
+archives, spells, bootstrap and configuration are preserved.
+
+[PR 113](https://github.com/frank-grimes-jr/nightcap/pull/113) merged to main at
+`2f530209b463225d12029db2853b2d158924a414`. The client was published on October 2;
+all 46 public HTTPS files and the signature verify against the previously shipped
+production key. All five services retained their identities, images, start times
+and restart counts throughout publication. Desktop, starter, guide and previous
+release assets remain intact. [Publication evidence](ui-repair-20261002/publication.json).
+
+Staging initially refused a concurrent game-container recreation and gateway
+restart. Inspection confirmed unchanged images and public files and healthy
+services. The original baseline was retained, and the inspected service state
+was recorded under the deployment lock before staging passed. This client repair
+did not restart services or alter the database. The concurrent tunnel deployment
+is recorded separately in its October 2 production report.
+
+The managed local client was not altered by this publication. Close EverQuest
+normally and click Play in the existing launcher to apply the update. Native
+rendering, clicks and server acknowledgment remain unaccepted.
 
 No server restart or database migration is required. Original
 `Client_RoF2_Dev` files remain read-only. Receipt-aware recovery restrictions in
@@ -91,8 +108,9 @@ in-game steps below.
    server acknowledgment and survive closing/reopening. Restore the preference
    you want. Capture the status and proxy log if a five-second Retry appears.
 4. Kill a natural skeleton near the tunnel, approach within collection range,
-   and select Bone Chips. The row must highlight. Loot item must add the item
-   once and remove the awarded row. More -> Inspect must open its item window.
+   and select Bone Chips. The row must highlight. Before looting, use More ->
+   Inspect to open its item window. Return to the list; Loot item must add the
+   item once and remove the awarded row.
 5. On a later Bone Chips drop, choose Item rule -> Never loot. The rule must
    appear in Saved rules, survive reconnect, and leave a later drop on its corpse.
    Change to Always loot and confirm a later eligible drop collects once. Change

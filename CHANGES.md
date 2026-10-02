@@ -7,10 +7,12 @@ Settings and contextual item panels. Keep navigation responsive during requests,
 show an explicit five-second timeout and safe state-only retry, preserve NO TRADE
 confirmation across unchanged refreshes, and clear stale/cross-view selection.
 Add controller/geometry regressions and bounded local diagnostic labels for the
-unlocalized live click/transport failure. Candidate 2026100201 / proxy 0.7.3-dev
-preserves the newer pet repair and all server loot safety. Native acceptance and
-publication are tracked in `docs/releases/advanced-loot/UI-REPAIR.md`; automated
-fixtures do not prove rendered buttons or actual server delivery.
+unlocalized live click/transport failure. Signed release 2026100201 / proxy
+0.7.3-dev is on main and live; all 46 hosted files and signature verify. It
+preserves the newer pet repair and all server loot safety without a server
+restart or database change. Exact native acceptance remains open in
+`docs/releases/advanced-loot/UI-REPAIR.md`; automated fixtures do not prove
+rendered buttons or actual server delivery.
 
 ## 2026-10-02 - Social tunnel and tradeskill corner activated
 

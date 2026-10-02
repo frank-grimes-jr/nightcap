@@ -3,6 +3,18 @@
 Updated October 2, 2026. This is the current status index; dated studies and
 QA reports preserve their original evidence and are not live-state promises.
 
+## Advanced loot interaction repair deployed for owner QA
+
+Signed release **2026100201**, proxy **0.7.3-dev**, is live through the existing
+launcher after PR 113 merged to main. It replaces the crowded loot screen with
+compact panels, keeps navigation usable during requests, adds timeout/retry
+feedback and prevents stale selection from targeting another item. All 46 hosted
+files and the signature verify. Exactly three files changed from 2026100104;
+the pet repair, other 43 assets and all five running services are preserved.
+Close EverQuest and click Play to update, then enter `/advloot`. Actual native
+clicks, rendering and server acknowledgments remain open; the original button
+failure has not been localized. [Exact QA and evidence](releases/advanced-loot/UI-REPAIR.md).
+
 ## Compact pet window repair deployed for owner QA
 
 Signed production release **2026100104** corrects native buff-panel resize
@@ -18,7 +30,7 @@ The [October 1 material repair](releases/character-select-crash-20261001/README.
 fixes missing shared materials in seven imported classic models. The player's
 crash dump identified a null material after login, before character selection.
 Signed production release **2026100103**, proxy **0.7.2-dev**, introduced this
-repair, retained in **2026100104** through the existing launcher: opening it and clicking **Play** applies the patch before
+repair, retained in **2026100201** through the existing launcher: opening it and clicking **Play** applies the patch before
 starting the game. No reinstall is needed. All 22 archives pass material,
 geometry, animation and texture preservation checks; the independent review,
 six focused regressions, full Go and native tests pass. All five production
@@ -34,17 +46,18 @@ removes 18,990 unusable original-class entries across 7,636 scroll items. Both
 native inspection paths and all canonical class levels pass automated checks.
 Owner-approved PR 101 is on main. Signed production release **2026100102**,
 proxy **0.7.1-dev**, introduced this fix on OVH with 67 patch sites. Current
-release **2026100104** retains it with proxy **0.7.2-dev**.
-All 46 hosted files/signature and installation through the existing production
-controller pass. Only the DLL and patch catalog changed; all five services and
-other assets are preserved. Close the game and reopen the patcher to update.
+release **2026100201** retains it with proxy **0.7.3-dev**.
+The original spell-inspection release passed hosted checks for all 46 files,
+signature verification and installation through the production controller. That
+release changed only the DLL and patch catalog, preserving all five services and
+other assets. Close the game and reopen the patcher to apply the current update.
 Rendered owner acceptance remains open with exact merchant/inventory QA linked.
 
 ## High-impact Play incident repair deployed
 
 The [October 1 startup repair](releases/launcher-play-20261001/README.md) fixes
 PFS version-2 archives exceeding RoF2's 8 KiB block limit. Signed game release
-**2026100101** introduced the repair, retained in current **2026100104**. That
+**2026100101** introduced the repair, retained in current **2026100201**. That
 repair replaced all 22 archives and their matching proxy, preserving all 14,858
 extracted entries and the other 23 managed files. The material repair above
 subsequently updated seven WLDs. Production services, desktop/starter
@@ -84,7 +97,8 @@ QA package pass compilation, installation and actual RoF2 startup. Isolated
 login/world/ecommons services boot successfully. Per the owner's explicit request,
 PR 91 merged to main and the paired hardened production build is live on OVH.
 Signed game release **2026093006** introduced this client content; the current
-**2026100103** release preserves it through the usual starter.
+**2026100201** release retains the server contract and includes the client
+interaction repair above through the usual starter.
 Backup restore/migration rehearsal, 47 preservation checks, all 15 native process
 hashes, application-account permissions, all 46 hosted client files/signature
 and four public native handshakes passed. [Owner live QA](releases/advanced-loot/LIVE-QA.md)
@@ -96,7 +110,7 @@ The [classic-model release](releases/classic-models-20260930/PRODUCTION.md)
 adds a mandatory client policy, 22 isolated classic archives, original elemental
 palettes and 98 remake mappings. Existing INI settings cannot silently opt in.
 Signed game release **2026093004** introduced this policy, retained in the current
-**2026100103** release through the existing patcher after
+**2026100201** release through the existing patcher after
 the owner's explicit main/server instruction. Native x86, archive integrity
 and packaging checks pass. Rendering and owner acceptance remain open. Creatures with no old
 counterpart retain their existing model, as the owner explicitly requested on
@@ -191,7 +205,7 @@ Players keep their game folder and use the same shortcut. That historical releas
 verified launcher 2026092001 and game 2026092006, with 22 managed game files;
 it did not restart production. Its native/Go/UI checks and 63 publication failure
 rehearsals passed. The current launcher is 0.3.1 / release 2026092701 and the game
-is **2026100103** with 46 files, as recorded in the incident repairs above. Owner in-game
+is **2026100201** with 46 files, as recorded in the incident repairs above. Owner in-game
 acceptance remains open. [Release operations](ops/permanent-patcher.md).
 
 ## Production NPC and spell-access repair deployed

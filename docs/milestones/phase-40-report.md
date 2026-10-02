@@ -37,7 +37,9 @@ An older binary or pre-release database dump is not a routine rollback.
 
 The owner rejected the deployed interaction: controls appeared inert and the
 screen was crowded. A compact panel-based client repair, timeout recovery,
-selection guards and controller coverage are prepared. The original live
+selection guards and controller coverage are deployed in release 2026100201
+through merged PR 113. All 46 hosted files/signature verify and all five service
+states were preserved throughout publication. The original live
 failure still requires a rendered request/acknowledgment check. This does not
 retroactively establish acceptance of the September 30 deployment.
 [Repair report and live QA](../releases/advanced-loot/UI-REPAIR.md).
