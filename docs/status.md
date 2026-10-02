@@ -3,13 +3,16 @@
 Updated October 2, 2026. This is the current status index; dated studies and
 QA reports preserve their original evidence and are not live-state promises.
 
-## Compact tunnel service layout prepared
+## Compact tunnel service layout deployed for visual QA
 
-The owner accepted the six-resident campfire arrangement. The next revision
+The owner accepted the six-resident campfire arrangement. PR 119 is on main and
+the server update is complete. The new layout
 pairs trainers and merchants in four compact gatherings, tightens the tradeskill
 workshop by about 48%, groups traders and reroutes walkers. All 119 actors and
-their functions remain. Automated layout and recovery checks are in progress;
-main/server deployment is already authorized. [Layout and exact owner QA](releases/tunnel-compact-20261002/README.md).
+their functions remain. Full backup restoration, guarded forward/rollback,
+data preservation, installed quests and server/public-session checks passed.
+No client update is needed; rendered crowding and station interaction QA remain
+open. [Layout and exact owner QA](releases/tunnel-compact-20261002/README.md).
 
 ## Spell-selection menu cache correction deployed for owner QA
 

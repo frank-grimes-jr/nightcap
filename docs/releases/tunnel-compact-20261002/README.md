@@ -2,8 +2,10 @@
 
 The owner accepted the six-resident campfire group and requested the same
 intentional organization for trainers, spell merchants and tradeskills. This
-revision is prepared for the already-authorized main/server deployment. Visual
-acceptance of the new service layout remains open.
+revision is deployed from main through PR 119. The full production backup was
+restored in isolation; forward/rollback, preserved data, installed quests, native
+health and public connections all passed. Visual acceptance of the new service
+layout remains open.
 
 ![Compact tunnel placement diagram](layout.png)
 
@@ -38,9 +40,13 @@ native CAMPFIRE at size 45. There are no new gameplay effects or items.
 
 The complete scene passes 2,205 native-map ground samples and 151 approach/path
 rays, plus NPC, furniture and station clearances. Seven focused unit tests and
-24 rollout failure tests pass. A disposable MariaDB rehearsal checks exact
+24 rollout failure tests pass. All 19 real MariaDB rehearsal cases pass, covering exact
 forward/rollback images, case drift, global and cross-version door collisions,
-replay rejection and correct saved-state preservation.
+replay rejection and correct saved-state preservation. The live rollout also
+passed all 75 installed quest assertions, verified all 15 native processes and
+retained the current loot-server build and runtime files. Detailed evidence is
+kept privately. A local shared-database cleanup lock was resolved; the successful
+local rehearsal ran in a separate disposable container and removed its schema.
 
 `tools/tunnel_compact.py` captures fresh preimages and generates guarded,
 serializable SQL. Only service poses, eight existing routes, six station poses,
