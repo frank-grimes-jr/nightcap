@@ -41,7 +41,8 @@ The access fixture and four UI geometry checks pass. These do not establish
 native rendered or real inventory acceptance. Independent review found no
 remaining concrete correctness or consent-expansion blocker.
 
-Fresh paired world/zone build and signed client release are pending. The
+Fresh paired world/zone build and signed client release 2026100203 / proxy
+0.7.5-dev pass; both are staged for deployment. The
 candidate retains current main's spell-menu fix and current production assets.
 No database schema/rule/quest mutation is required. Rollback may use only a
 receipt-aware server image; never restore a pre-award database or erase receipts.
@@ -61,3 +62,5 @@ receipt-aware server image; never restore a pre-award database or erase receipts
    without deleting/duplicating items. Public/unowned corpses remain range-bound.
 
 Manual gameplay acceptance is pending the owner's live session.
+
+[Build, signature and regression evidence](action-repair-20261002/candidate.json).

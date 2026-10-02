@@ -1,3 +1,5 @@
+# CHANGES
+
 ## 2026-10-02 — Advanced loot action repair
 
 Correct the mismatch between zone-wide earned-drop display and 25-unit collection.
@@ -6,8 +8,6 @@ has Ignore/Remove for persistent filters. Preserve receipt/rights/inventory chec
 classic/public range and current spell-menu changes. Paired server/client candidate;
 owner authorized main/live, manual acceptance remains pending. See
 `docs/releases/advanced-loot/ACTION-REPAIR.md` for scope, regression evidence and QA.
-
-# CHANGES
 
 ## 2026-10-02 - Refresh cached spell selection levels
 
