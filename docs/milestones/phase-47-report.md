@@ -1,15 +1,16 @@
-# Phase 47: Spell-selection menu cache correction
+# Phase 47: Compact resident campfire
 
-Read-only inspection of the reported live client confirms three cached level-255
-rows, including Elementalkin: Water. The native menu copies spell levels before
-class metadata arrives and does not refresh them when the snapshot arrives.
-The correction invalidates accepted snapshots and rebuilds on the next safe
-native frame, refreshing both labels and ordering.
+The six named residents gather closer around a native small campfire.
+Glorphyndel becomes a High Elf with his existing Valorium and sword/shield.
+Nalin keeps social facing without full-body emotes; SoulFire uses the correct
+two-handed attack skill. No client asset or progression changes.
 
-Independent native RED/GREEN reproduction, lifecycle and trampoline tests,
-all five runtime checks, four loot fixtures, the full launcher suite and all
-70 exact signatures pass. The signed candidate preserves the current release's
-44 other files. No database, spellbook, access-policy or server-binary change
-is needed. Rendered owner acceptance remains open after approved publication.
+Checks pass: 16 MariaDB forward/recovery cases, 24 rollout fault tests,
+75 resident/porter assertions, 65 ground samples and six approach rays against
+119 actors and eight walking routes. Native CAMPFIRE is verified in the installed
+archive. Independent review found no blocking defect. Direct main/server release
+is authorized; production evidence follows activation.
 
-[Release evidence, recovery and exact in-game QA](../releases/spell-menu-20261002.md).
+Remaining: rendered fire height/scale/click behavior, Glorphyndel's appearance,
+and Nalin's intermittent sword pose across idle cycles and zoning/reconnect.
+[Scope and exact QA](../releases/tunnel-campfire-20261002/README.md).
