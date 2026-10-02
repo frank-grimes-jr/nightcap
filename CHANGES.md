@@ -1,5 +1,17 @@
 # CHANGES
 
+## 2026-10-02 - Simplify advanced loot and recover unresponsive controls
+
+Replace the oversized all-controls loot window with compact Loot, Saved rules,
+Settings and contextual item panels. Keep navigation responsive during requests,
+show an explicit five-second timeout and safe state-only retry, preserve NO TRADE
+confirmation across unchanged refreshes, and clear stale/cross-view selection.
+Add controller/geometry regressions and bounded local diagnostic labels for the
+unlocalized live click/transport failure. Candidate 2026100201 / proxy 0.7.3-dev
+preserves the newer pet repair and all server loot safety. Native acceptance and
+publication are tracked in `docs/releases/advanced-loot/UI-REPAIR.md`; automated
+fixtures do not prove rendered buttons or actual server delivery.
+
 ## 2026-10-02 - Social tunnel and tradeskill corner activated
 
 Deployed the approved main revision to OVH after full backup restoration and

@@ -498,7 +498,7 @@ inline bool MatchLootNative() {
         return true;
     } __except(EXCEPTION_EXECUTE_HANDLER) { return false; }
 }
-inline bool InstallAdvancedLoot() {
+inline bool InstallAdvancedLoot(void (*trace)(const char*) = nullptr) {
     install_failure = "advanced_loot_native_guards";
     if (!MatchLootNative()) return false;
     LootScreenAPI api;
@@ -513,7 +513,7 @@ inline bool InstallAdvancedLoot() {
     original_command = reinterpret_cast<InterpretCommand>(SEHEntryHook(base+kLootCommandRva,
         kExpectedLootCommand, reinterpret_cast<void*>(&CommandHook), base));
     if (!original_command) return false;
-    AdvancedLootUI::Initialize(&ExecuteUIRequest, &LootNotice);
+    AdvancedLootUI::Initialize(&ExecuteUIRequest, &LootNotice, trace);
     return true;
 }
 }

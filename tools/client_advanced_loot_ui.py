@@ -50,36 +50,55 @@ def add_advanced_loot(root):
                          ('Style_Minimizebox', 'false'), ('Style_Transparent', 'false'),
                          ('Style_VScroll', 'false'), ('Style_HScroll', 'false')]:
         value(screen, key, setting)
-    box(screen, 40, 40, 720, 578)
-    control('Label', 'Status', 'Connecting to advanced loot...', 8, 8, 692, 20)
-    control('Button', 'Drops', 'Loot', 8, 32, 58)
-    control('Button', 'Filters', 'Filters', 70, 32, 62)
-    control('Editbox', 'SearchText', '', 140, 32, 228, tooltip='Search item names, up to 32 characters')
-    control('Button', 'Search', 'Search', 372, 32, 64)
-    control('Button', 'Clear', 'Clear', 440, 32, 54)
-    control('Button', 'Previous', '<', 510, 32, 30)
-    control('Button', 'Next', '>', 544, 32, 30)
-    control('Button', 'Refresh', 'Refresh', 578, 32, 122)
+    # Fits the supported 640x480 viewport, including the native title bar.
+    # Settings, item rules and extra actions replace the list instead of
+    # competing with it. The paired controller owns child visibility.
+    box(screen, 12, 12, 588, 430)
+    control('Label', 'Status', 'Connecting to loot...', 10, 8, 474, 18)
+    control('Button', 'Refresh', 'Refresh', 490, 6, 76, 22)
+    control('Button', 'Drops', 'Loot', 10, 32, 100)
+    control('Button', 'Filters', 'Saved rules', 114, 32, 120)
+    control('Button', 'Options', 'Settings', 238, 32, 100)
+    control('Label', 'Page', '', 344, 35, 144, 18)
+    control('Button', 'Previous', '<', 502, 32, 30)
+    control('Button', 'Next', '>', 536, 32, 30)
+    control('Editbox', 'SearchText', '', 10, 62, 374, 22, 'Search item names (32 characters)')
+    control('Button', 'Search', 'Search', 390, 62, 88, 22)
+    control('Button', 'Clear', 'Clear', 484, 62, 82, 22)
     for index in range(8):
-        control('Button', f'Row{index}', '', 8, 66 + index * 29, 374, 26, 'Select this item')
-        control('Label', f'Source{index}', '', 390, 71 + index * 29, 310, 20)
-    control('Label', 'Selected', 'Select an item to loot, share or change its saved filter.', 8, 306, 692, 20)
-    for suffix, title, x, width in [('Take', 'Loot', 8, 114), ('Leave', 'Leave', 126, 88),
-                                   ('Inspect', 'Inspect', 218, 88), ('Find', 'Find corpse', 310, 122),
-                                   ('All', 'Loot all personal', 436, 264)]:
-        control('Button', suffix, title, x, 332, width, 26)
-    shared = [('Need', 'Need'), ('Greed', 'Greed'), ('Pass', 'Pass'),
-              ('Roll', 'Ask to roll'), ('FreeGrab', 'Free grab'), ('Assign', 'Assign target')]
-    for index, (suffix, title) in enumerate(shared):
-        tooltip = 'Master looter: assign to your currently targeted group or raid member' if suffix == 'Assign' else title
-        control('Button', suffix, title, 8 + index * 116, 364, 112, 26, tooltip)
-    for index, title in enumerate(['Ask', 'Always loot', 'Never', 'Always need', 'Always greed']):
-        control('Button', f'Filter{index}', title, 8 + index * 139, 402, 135, 26,
-                'Save this preference for this item on this character: ' + title)
-    settings = ['Advanced loot', 'Apply filters', 'Auto show', 'Auto loot all', 'Split coin', 'New items only']
-    for index, title in enumerate(settings):
-        control('Button', f'Setting{index}', '[ ] ' + title, 8 + (index % 3) * 232,
-                442 + (index // 3) * 30, 228, 26)
-    control('Label', 'Help', 'Never leaves items on the corpse. Shared loot keeps the group\'s loot permissions.',
-            8, 516, 692, 22)
+        control('Button', f'Row{index}', '', 10, 90 + index * 24, 326, 22, 'Select this item')
+        control('Label', f'Source{index}', '', 344, 93 + index * 24, 222, 18)
+    control('Label', 'Empty', 'No items waiting. Loot from your kills appears here.', 22, 126, 532, 22)
+    control('Label', 'Selected', '', 10, 288, 556, 20)
+    for suffix, title, x, width in [('Take', 'Loot item', 10, 124), ('Rule', 'Item rule...', 140, 132),
+                                   ('More', 'More...', 278, 100), ('All', 'Loot all', 432, 134)]:
+        control('Button', suffix, title, x, 314, width, 28)
+    control('Label', 'Help', '', 10, 354, 556, 40)
+
+    # Detail panels share this body; only one panel is visible at a time.
+    control('Button', 'Back', '< Back', 10, 62, 92)
+    control('Label', 'PanelTitle', '', 112, 66, 454, 20)
+    choices = [('Ask each time', 'Show this item so you can choose.'),
+               ('Always loot', 'Collect this item automatically when allowed.'),
+               ('Never loot', 'Leave this item on the corpse.'),
+               ('Always need', 'Choose Need when this item is rolled.'),
+               ('Always greed', 'Choose Greed when this item is rolled.')]
+    for index, (title, description) in enumerate(choices):
+        control('Button', f'Filter{index}', title, 16, 102 + index * 44, 160, 28)
+        control('Label', f'FilterHelp{index}', description, 188, 107 + index * 44, 370, 22)
+    extras = [('Inspect', 'Inspect item'), ('Leave', 'Leave on corpse'), ('Find', 'Find corpse'),
+              ('Need', 'Need'), ('Greed', 'Greed'), ('Pass', 'Pass'),
+              ('Roll', 'Start group roll'), ('FreeGrab', 'Allow anyone to loot'), ('Assign', 'Give to target')]
+    for index, (suffix, title) in enumerate(extras):
+        control('Button', suffix, title, 16 + (index % 3) * 184,
+                114 + (index // 3) * 56, 176, 34)
+    settings = [('Advanced loot', 'Use this window to collect loot.'),
+                ('Use saved rules', 'Apply your Always and Never choices.'),
+                ('Open on new loot', 'Show this window when new loot arrives.'),
+                ('Loot everything', 'Auto-collect all eligible personal loot.'),
+                ('Split coin', 'Share collected coin with your group.'),
+                ('Unfiltered items only', 'Hide items that already have a saved rule.')]
+    for index, (title, description) in enumerate(settings):
+        control('Button', f'Setting{index}', title, 16, 100 + index * 42, 208, 28)
+        control('Label', f'SettingHelp{index}', description, 236, 105 + index * 42, 330, 22)
     root.append(screen)
