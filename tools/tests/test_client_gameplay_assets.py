@@ -17,6 +17,16 @@ def spell(spell_id=1, **changes):
 
 
 class SpellAssets(unittest.TestCase):
+    def test_epic_spells_survive_regeneration_without_widening_eligibility(self):
+        from epic05 import client_spells, load_catalog
+        native = spell().encode()
+        generated = client_spells(native, load_catalog())
+        with patch.object(assets, 'SOURCE_SHA256', hashlib.sha256(native).hexdigest()):
+            self.assertEqual(assets.restore_spell_classes(generated, native), (generated, []))
+            self.assertEqual(assets.restore_spell_classes(native, native), (native, []))
+            with self.assertRaises(ValueError):
+                assets.restore_spell_classes(generated.replace(b'42800^Awaken the Oath', b'42800^Wrong'), native)
+
     def test_previously_generated_recall_remains_valid(self):
         fields=spell(3134).strip().split('^')
         fields[16:18]=['0','0'];fields[86:98]=['83']+['254']*11;fields[98]='6'

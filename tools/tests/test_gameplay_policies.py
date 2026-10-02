@@ -118,7 +118,8 @@ class GameplayPolicies(unittest.TestCase):
         )]
         with tempfile.TemporaryDirectory(prefix="nightcap-policy-") as tmp:
             out = Path(tmp)
-            (out / "test.cpp").write_text(FIXTURE + "\n".join(bodies) + CONTROLS)
+            header = (ROOT / "server-mods/code/common/epic05.h").as_posix()
+            (out / "test.cpp").write_text('#include "' + header + '"\n' + FIXTURE + "\n".join(bodies) + CONTROLS)
             if os.name == "nt":
                 compiler_env = Path("C:/BuildTools/VC/Auxiliary/Build/vcvars32.bat")
                 self.assertTrue(compiler_env.is_file(), "MSVC x86 build tools missing")

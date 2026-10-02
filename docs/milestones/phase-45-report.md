@@ -1,19 +1,35 @@
-# Phase 45: Social tunnel revision
+# Phase 45 — Adventure Journal and archetype Epic 0.5
 
-The owner-directed redo replaces rigid class rows with small gatherings, names
-all 16 class merchants, restores six off-tunnel residents as an uneven social
-ring, moves the Chronicler beside Shady, disperses traders and creates a complete
-tradeskill corner. All119 actors are accounted for, including native services.
-Eight revised patrols vary their pauses; the resident group makes silent,
-staggered nods/waves and turns while retaining its established dialogue.
+Date: October 1, 2026. Candidate; manual acceptance and production activation open.
 
-Candidate checks pass: 2,260 native terrain samples, 157 rays, 27 Python tests,
-46 Perl assertions and 17 disposable MariaDB migration/recovery checks.
-Independent source review found no blocking defect; its additional merchant
-identity/stock-link guard is included.
+## Built
 
-No custom wall signage or client asset changes are needed for this revision.
-Production activation and rendered owner acceptance are still pending. The
-existing main/server authorization remains applicable to this ongoing correction.
+Eight native Classic adventures, preparation notes, earned archetype choices,
+one recoverable all-class charm, hub-only switching, durable shared cooldown,
+one-pet Binder targeting, bounded native spell durations and compatibility gate.
+Added guarded content generation, disabled-by-default schema, retained-data
+recovery, exact client spell additions and package-regeneration compatibility.
+Recorded SQL fault/concurrency evidence and exact player/balance QA.
 
-[Complete release scope and exact in-game QA](../releases/tunnel-social-20261001/README.md).
+## Scope decisions
+
+Used the existing Tasks window and existing named encounters. One physical
+charm with stored attunement avoids inventory exchanges and five-item stacking.
+No bespoke wave instances, account-wide discoveries or automated gear advice
+are claimed. These can follow the first campaign's player/balance measurements.
+
+## Verification and remaining work
+
+Perl quest controls cover progression, hub restrictions, recovery, invalid clicks
+and pet ownership. MariaDB controls cover occupied IDs, expansion gates,
+mid-write rollback, uncertain acknowledgement, reconnect and concurrent clicks.
+Native fixtures run the actual movement matching and duration code. Review
+corrected the wrong exploration type, expansion-gated Greshvoule and the initial
+duration formula. Client staging retains the entire original input prefix.
+
+The full paired hardened build passed with stable source hashes; evidence is in
+`docs/adventure-journal/native-evidence.json`. Native UI, encounter difficulty, natural spawn waits, interaction
+with the legal AA/gear pool and perceived reward value require the documented
+in-game QA. No production balance or rendered acceptance is asserted.
+
+Operational guide: [Adventure Journal](../adventure-journal/README.md).
