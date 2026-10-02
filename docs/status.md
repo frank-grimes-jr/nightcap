@@ -1,15 +1,24 @@
 # Current Nightcap status
 
-Updated October 1, 2026. This is the current status index; dated studies and
+Updated October 2, 2026. This is the current status index; dated studies and
 QA reports preserve their original evidence and are not live-state promises.
+
+## Compact pet window repair deployed for owner QA
+
+Signed production release **2026100104** corrects native buff-panel resize
+anchors that covered the compact roster and commands. All 46 hosted files
+verify; only the pet UI changed from 2026100103. Production services and other
+assets are preserved. Close the game and click Play in the normal launcher to
+apply it. Existing saved window sizes remain; resize down if needed. Rendered
+acceptance remains open in the [repair report](releases/pet-window-layout-20261001.md).
 
 ## Character-selection crash repair deployed for owner QA
 
 The [October 1 material repair](releases/character-select-crash-20261001/README.md)
 fixes missing shared materials in seven imported classic models. The player's
 crash dump identified a null material after login, before character selection.
-Signed production release **2026100103**, proxy **0.7.2-dev**, is live through the
-existing launcher: opening it and clicking **Play** applies the patch before
+Signed production release **2026100103**, proxy **0.7.2-dev**, introduced this
+repair, retained in **2026100104** through the existing launcher: opening it and clicking **Play** applies the patch before
 starting the game. No reinstall is needed. All 22 archives pass material,
 geometry, animation and texture preservation checks; the independent review,
 six focused regressions, full Go and native tests pass. All five production
@@ -25,7 +34,7 @@ removes 18,990 unusable original-class entries across 7,636 scroll items. Both
 native inspection paths and all canonical class levels pass automated checks.
 Owner-approved PR 101 is on main. Signed production release **2026100102**,
 proxy **0.7.1-dev**, introduced this fix on OVH with 67 patch sites. Current
-release **2026100103** retains it with proxy **0.7.2-dev**.
+release **2026100104** retains it with proxy **0.7.2-dev**.
 All 46 hosted files/signature and installation through the existing production
 controller pass. Only the DLL and patch catalog changed; all five services and
 other assets are preserved. Close the game and reopen the patcher to update.
@@ -35,7 +44,7 @@ Rendered owner acceptance remains open with exact merchant/inventory QA linked.
 
 The [October 1 startup repair](releases/launcher-play-20261001/README.md) fixes
 PFS version-2 archives exceeding RoF2's 8 KiB block limit. Signed game release
-**2026100101** introduced the repair, retained in current **2026100103**. That
+**2026100101** introduced the repair, retained in current **2026100104**. That
 repair replaced all 22 archives and their matching proxy, preserving all 14,858
 extracted entries and the other 23 managed files. The material repair above
 subsequently updated seven WLDs. Production services, desktop/starter
