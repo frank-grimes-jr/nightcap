@@ -12,6 +12,7 @@ one corner. Saved-state invalidation is restricted to the 93 moved actors;
 unchanged native NPCs and their caches remain intact. Guarded SQL/rollback,
 geometry, identity checks and quest fixtures pass. Candidate, not yet deployed;
 see `docs/releases/tunnel-social-20261001/README.md` for all NPCs and exact QA.
+
 ## 2026-10-01 - Adventure Journal and archetype Epic 0.5 candidate
 
 Added eight native journal tasks through the East Commonlands Chronicler: three
