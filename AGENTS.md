@@ -89,15 +89,15 @@ All commands run from `akk-stack/`:
   correct-instance cache rows; retain unrelated states. Evidence and scoped
   rollback rehearsal: `docs/releases/live-qa-20260915/`.
 
-- **Current tunnel layout**: `tools/tunnel_social.py` and
-  `tools/tunnel_social_layout.py` own the complete 119-actor social arrangement.
-  Preserve the six named residents and all native services; older court layouts
-  are historical. Capture fresh stopped-server preimages and invalidate only
-  affected non-corpse instance-0 states. Current deployment and exact QA:
-  `docs/releases/tunnel-social-20261001/PRODUCTION.md`. The scoped follow-up
-  `tools/tunnel_campfire.py` owns the compact six-resident ring and native fire;
-  do not rerun the old layout migration over it. Follow-up status and QA:
-  `docs/releases/tunnel-campfire-20261002/README.md`.
+- **Current tunnel layout**: `tools/tunnel_compact.py` and
+  `tools/tunnel_compact_layout.py` own the compact class/service areas and
+  tradeskill workshop. All 119 actors remain. The accepted six-resident ring,
+  costumes and native fire from `tools/tunnel_campfire.py` must be preserved;
+  do not rerun older social/court layout migrations over them. Capture fresh
+  stopped-server preimages, invalidate only relocated actors' non-corpse
+  instance-0 states, and retain fresh caches for unchanged actors on rollback.
+  Current deployment and exact QA:
+  `docs/releases/tunnel-compact-20261002/README.md`.
 
 - **Docker data disk**: stored at `E:\Docker\wsl\disk\docker_data.vhdx`; the original `%LOCALAPPDATA%\Docker\wsl\disk` is a directory junction to that folder. Keep E: available before starting Docker. Migration evidence and rollback details: `docs/ops/docker-data-migration-20260913.md`.
 - **Era lock is declarative**: `era.json` (repo root) is the source of truth; `tools/apply-era.ps1` applies it idempotently (+`-Check` for drift, `-CapCharacters` to de-level). Change era = edit era.json, commit, run the script. Do not set expansion rules by hand or via the GM tool.
