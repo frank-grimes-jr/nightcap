@@ -44,6 +44,14 @@ all 46 hosted files and the existing production signature verify over HTTPS.
 Visible Play and post-login model loading still require the exact linked QA;
 computer-control access to Nightcap was denied after the isolated login-UI run.
 
+## Social tunnel revision under verification
+
+[The revised gathering layout](releases/tunnel-social-20261001/README.md)
+accounts for all 119 actors, names class merchants, restores the six missing
+residents, groups crafting in one corner and places the Chronicler by Shady.
+Geometry, guarded database recovery and silent resident behavior checks pass.
+This candidate has not yet replaced the September 30 production layout below.
+
 ## Tunnel class courts deployed for owner QA
 
 [Eight class courts and Khaleid](releases/tunnel-class-courts/PRODUCTION.md) are
@@ -319,14 +327,14 @@ This source promotion does not deploy a client or enable the default preview.
 |---|---|---|
 | PoK hub | Compact 22-service exotic hub; 16 class merchants, 1,747 listings / 1,229 unique items | Grounding, paths, Find, shop and quest interactions |
 | Class guidance | Primary/Second/Third on login, hail and commands; both extra slots selectable from level 1 | Normal-account selection, confirmation, release and persistence |
-| Bags | 22 positive prices, base 10–7,500 platinum; flags/stock retained | Quotes, wallets, restrictions, resale refusal and economy |
+| Bags | 22 positive prices, base 10â€“7,500 platinum; flags/stock retained | Quotes, wallets, restrictions, resale refusal and economy |
 | Earned AAs | Purchases/grants/refunds and atomic native class release; paired binary/plugin | In-game counters/effects, reconnect, failure recovery and rendering |
 | Five server fixes | Held-class weapon damage, extra-pet ownership/orders, direct-AA duration and owned-AA profile handling | Exact per-build gameplay matrix |
 | Skills | Canonical 58,359-row caps; value-1 unlock policy, existing held-Monk slice | Full class/slot coverage and client Skills/trainers |
 | AA XP | Minimum level 1 survives matching world startup | Actual XP award/allocation and persistence |
 | Waypoints | Marker discovery quest and relocated PoK travel service | Discovery, recall, safe arrivals and Explorer completion |
 
-[Exact live QA checklist](releases/live-qa-20260915/QA.md) ·
+[Exact live QA checklist](releases/live-qa-20260915/QA.md) Â·
 [Deployment and rollback](releases/live-qa-20260915/README.md).
 The server release entered dev/test in PR #49. The owner subsequently authorized
 all gameplay to move to main for live testing; [promotion record](releases/main-live-qa-20260915.md).
@@ -338,7 +346,7 @@ supersedes those portions of the live baseline.
 
 **14 open issues** at the latest September 15 query. Six completed issues closed after evidence publication:
 #8, #9, #12, #21, #24 and #25. Three reports were administratively consolidated:
-#38 → #13 (equipment), #39 → #36 (trainers), #20 → #19 (song landing).
+#38 â†’ #13 (equipment), #39 â†’ #36 (trainers), #20 â†’ #19 (song landing).
 Their unresolved acceptance was preserved; consolidation did not fix the bugs.
 
 | Open issue | What remains |
