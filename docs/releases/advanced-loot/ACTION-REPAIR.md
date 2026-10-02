@@ -42,8 +42,8 @@ native rendered or real inventory acceptance. Independent review found no
 remaining concrete correctness or consent-expansion blocker.
 
 Fresh paired world/zone build and signed client release 2026100203 / proxy
-0.7.5-dev pass; both are staged for deployment. The
-candidate retains current main's spell-menu fix and current production assets.
+0.7.5-dev pass and are deployed live. The release retains the spell-menu fix
+and all other current production assets.
 No database schema/rule/quest mutation is required. Rollback may use only a
 receipt-aware server image; never restore a pre-award database or erase receipts.
 
@@ -64,3 +64,25 @@ receipt-aware server image; never restore a pre-award database or erase receipts
 Manual gameplay acceptance is pending the owner's live session.
 
 [Build, signature and regression evidence](action-repair-20261002/candidate.json).
+
+## Published for owner live QA
+
+Source was pushed directly to main at `89c51b3` under the owner's explicit
+authorization. Signed client **2026100203 / 0.7.5-dev** is live. All 46 public
+files and the signature verify against the previously shipped production key.
+The proxy, catalog version and advanced-loot XML changed; the other 43 assets
+and all 70 native patch sites are preserved, including the spell-menu fix.
+
+The game service uses `nightcap-game:advanced-loot-actions-20261002`. World,
+all 12 zone processes, loginserver and UCS match the expected binary hashes;
+health is green with zero restarts and no detected startup native/quest/SQL
+errors. Account/character/inventory/receipt/filter/rule/saved-corpse fingerprints
+match across boot while the gateway was closed. Quest/plugin files are unchanged.
+DB, web and tunnel services were not restarted. No database restore or schema
+change occurred; the existing launcher/starter/guide stayed intact.
+
+Close EverQuest and click Play in the existing launcher to install the paired
+client. This release did not overwrite a running local game client. Native
+rendering and actual award/filter acceptance remain for the owner's live test.
+
+[Publication and running-process evidence](action-repair-20261002/publication.json).

@@ -138,8 +138,15 @@ The October 2 client interaction repair is signed generation 2026100201. Its
 timeout retry refreshes state and must never replay an uncertain award. Native
 click/render/acknowledgment acceptance is separate from controller fixtures and
 publication checks; see `docs/releases/advanced-loot/UI-REPAIR.md`.
-Keep injected faults/synthetic loot in the isolated `QA.md` plan. A previous
-deployment's binary rollback helper is not valid after this receipt boundary.
+The subsequent action repair is paired world/zone plus signed game 2026100203.
+Earned advanced loot (including existing auto-coin collection) is zone-wide;
+classic/public loot keeps its 25-unit range. Bulk NO TRADE confirmation binds
+session/revision and physical preimages, including bag contents; recheck after
+each quest callback and never replay uncertain transfers. Current evidence and
+owner acceptance: `docs/releases/advanced-loot/ACTION-REPAIR.md`.
+Keep injected faults/synthetic loot in the isolated `QA.md` plan. Roll back only
+to an explicitly verified receipt-aware image while retaining current data;
+pre-receipt deployment rollback helpers are invalid after this boundary.
 
 ### Multiclass release candidate
 

@@ -5,8 +5,9 @@
 Correct the mismatch between zone-wide earned-drop display and 25-unit collection.
 Loot All reports outcomes, supports bounded bulk NO TRADE consent, and each row
 has Ignore/Remove for persistent filters. Preserve receipt/rights/inventory checks,
-classic/public range and current spell-menu changes. Paired server/client candidate;
-owner authorized main/live, manual acceptance remains pending. See
+classic/public range and current spell-menu changes. Paired world/zone and signed
+2026100203 / 0.7.5-dev are on main/live; all hosted files and running hashes verify.
+Player/receipt/saved-corpse state is preserved; manual acceptance remains pending. See
 `docs/releases/advanced-loot/ACTION-REPAIR.md` for scope, regression evidence and QA.
 
 ## 2026-10-02 - Refresh cached spell selection levels

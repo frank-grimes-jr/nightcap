@@ -89,3 +89,16 @@ detail panel; drop tokens and saved-filter item IDs are different namespaces.
 Treat native callback fixtures and XML geometry checks as bounded evidence,
 and require an actual rendered click/request/acknowledgment before acceptance.
 [Repair status and exact QA](../releases/advanced-loot/UI-REPAIR.md).
+
+## October 2 action repair
+
+The list already exposes earned drops across the current zone/instance. Collection
+now uses explicit current corpse-right membership for the same scope, including
+automatic earned coins; public and classic collection retain their range gate.
+The server reports All outcomes. Bulk NO TRADE consent is one-use, lasts 30 seconds,
+and binds session/revision to complete physical preimages plus corpse generation.
+Changed snapshots, commands, rights or physical items invalidate it. Each transfer
+is revalidated after preceding quest callbacks. UI feedback grants no authority.
+Ignore/Remove directly save Never/Ask; existing Use saved rules controls application.
+The prior receipt-aware image is a valid binary rollback with current data retained.
+Never restore pre-award data or remove receipts. See ACTION-REPAIR.md and its evidence.
