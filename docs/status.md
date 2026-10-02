@@ -3,14 +3,13 @@
 Updated October 2, 2026. This is the current status index; dated studies and
 QA reports preserve their original evidence and are not live-state promises.
 
-## Resident campfire correction deployed for visual QA
+## Compact tunnel service layout prepared
 
-PR 115 is merged to main and the server update is complete. Six residents form a
-compact circle around a native campfire at /loc -1707, -274. Glorphyndel is a
-High Elf in the requested Valorium with his sword and shield. Nalin keeps social
-facing without idle emotes. Automated deployment checks passed; no client patch
-is needed. The intermittent sword pose and rendered fire/armor still need
-in-game inspection. [Exact visual QA](releases/tunnel-campfire-20261002/README.md).
+The owner accepted the six-resident campfire arrangement. The next revision
+pairs trainers and merchants in four compact gatherings, tightens the tradeskill
+workshop by about 48%, groups traders and reroutes walkers. All 119 actors and
+their functions remain. Automated layout and recovery checks are in progress;
+main/server deployment is already authorized. [Layout and exact owner QA](releases/tunnel-compact-20261002/README.md).
 
 ## Spell-selection menu cache correction deployed for owner QA
 
