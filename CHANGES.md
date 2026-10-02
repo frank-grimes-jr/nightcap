@@ -1,5 +1,17 @@
 # CHANGES
 
+## 2026-10-02 - Refresh cached spell selection levels
+
+Rebuild the native spell-selection menu on its next safe frame after an accepted
+multiclass snapshot. Previously a menu built before class metadata retained 255
+even though memorized gems reported the correct level. Refresh both labels and
+native ordering; retain canonical scroll inspection and access restrictions.
+Proxy 0.7.4-dev adds three guarded sites (70 total). Native reproduction, runtime,
+launcher, loot and publication checks pass. Also correct the exact-byte verifier
+to map data-section addresses through PE sections. Candidate release 2026100202
+preserves all 44 other live assets; deployment and exact owner QA are recorded in
+`docs/releases/spell-menu-20261002.md`.
+
 ## 2026-10-02 - Simplify advanced loot and recover unresponsive controls
 
 Replace the oversized all-controls loot window with compact Loot, Saved rules,
