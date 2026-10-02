@@ -17,8 +17,10 @@ even though memorized gems reported the correct level. Refresh both labels and
 native ordering; retain canonical scroll inspection and access restrictions.
 Proxy 0.7.4-dev adds three guarded sites (70 total). Native reproduction, runtime,
 launcher, loot and publication checks pass. Also correct the exact-byte verifier
-to map data-section addresses through PE sections. Candidate release 2026100202
-preserves all 44 other live assets; deployment and exact owner QA are recorded in
+to map data-section addresses through PE sections. Release 2026100202 is on main
+and live; all 46 public files and the existing updater verify. All 44 other
+assets and five services are preserved. Rendered
+owner QA remains open; evidence and exact steps are recorded in
 `docs/releases/spell-menu-20261002.md`.
 
 ## 2026-10-02 - Compact resident campfire and paladin appearance correction
