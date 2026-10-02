@@ -222,6 +222,12 @@ rollback: `docs/ops/permanent-patcher.md`.
 
 ## Non-obvious gotchas
 
+- **Spell selection caches levels**: the RoF2 menu stores labels and ordering
+  before multiclass metadata may arrive. Accepted class snapshots invalidate it;
+  rebuild on a safe native cast-window frame after identity/profile checks.
+  A correct gem level does not prove the menu cache is current. Native trace,
+  regression and exact QA: `docs/releases/spell-menu-20261002.md`.
+
 - **Finite living economy**: `docs/economy/policy.json` and the reviewed catalog
   define prices and eligibility. Regenerate guarded SQL with
   `tools/generate_living_economy.py`; never rotate offers on zone boot or quest

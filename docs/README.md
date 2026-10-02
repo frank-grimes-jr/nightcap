@@ -10,6 +10,8 @@ Start with [current status](status.md), not a dated candidate report.
 
 ## Players and testers
 
+- [Spell selection menu: cached level-255 correction and exact QA](releases/spell-menu-20261002.md)
+
 - [October 1 character-selection crash: deployed material repair and exact login/world QA](releases/character-select-crash-20261001/README.md)
 
 - [Spell inspection: deployed correction, full catalog audit and exact QA](releases/spell-inspection-20261001.md)

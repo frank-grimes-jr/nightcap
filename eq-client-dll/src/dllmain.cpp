@@ -1525,7 +1525,9 @@ static BOOL CALLBACK InitializeRuntime(PINIT_ONCE, PVOID, PVOID*)
             ApplyGuardedRelativeCall(eq_base,kInspectionClasses2Rva,kExpectedInspectionClasses2,
                 reinterpret_cast<uintptr_t>(&nightcap::client_ui::InspectionClassesHook),"Scroll inspection classes (second path)") &&
             ApplyGuardedRelativeCall(eq_base,kInspectionLevel2Rva,kExpectedInspectionLevel2,
-                reinterpret_cast<uintptr_t>(&nightcap::client_ui::InspectionSpellLevelHook),"Scroll inspection class levels (second path)");
+                reinterpret_cast<uintptr_t>(&nightcap::client_ui::InspectionSpellLevelHook),"Scroll inspection class levels (second path)") &&
+            nightcap::client_ui::InstallSpellMenu();
+        if (spell_access_ok) Log("Spell selection menu refresh APPLIED: accepted class snapshots rebuild cached labels and ordering on the native frame");
     }
     RequirePatch(nightcap::Feature_multiclass_spell_access,spell_access_ok);
     nightcap::client_ui::skin_assign = reinterpret_cast<nightcap::client_ui::AssignString>(eq_base+kUIStringAssignRva);
