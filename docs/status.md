@@ -12,11 +12,22 @@ facing without idle emotes. Automated deployment checks passed; no client patch
 is needed. The intermittent sword pose and rendered fire/armor still need
 in-game inspection. [Exact visual QA](releases/tunnel-campfire-20261002/README.md).
 
+## Spell-selection menu cache correction deployed for owner QA
+
+Signed release **2026100202**, proxy **0.7.4-dev**, is live after PR 116 merged to
+main. It refreshes native menu labels and ordering after class snapshots, fixing
+cached 255 levels while preserving canonical scroll inspection. All 70 patch
+sites, native regressions, runtime/launcher/loot suites, 46 hosted files and
+existing-updater installation pass. The other 44 assets and all five production
+services are preserved. Close EverQuest and click Play to update; check that
+Pet > Sum: Water shows **02 - Elementalkin: Water** before memorization and after
+zoning. [Evidence and exact owner QA](releases/spell-menu-20261002.md).
+
 ## Advanced loot interaction repair deployed for owner QA
 
-Signed release **2026100201**, proxy **0.7.3-dev**, is live through the existing
-launcher after PR 113 merged to main. It replaces the crowded loot screen with
-compact panels, keeps navigation usable during requests, adds timeout/retry
+Signed release **2026100201**, proxy **0.7.3-dev**, introduced this repair
+after PR 113 merged to main; current **2026100202** retains it. It replaces the
+crowded loot screen with compact panels, keeps navigation usable during requests, adds timeout/retry
 feedback and prevents stale selection from targeting another item. All 46 hosted
 files and the signature verify. Exactly three files changed from 2026100104;
 the pet repair, other 43 assets and all five running services are preserved.
@@ -39,7 +50,7 @@ The [October 1 material repair](releases/character-select-crash-20261001/README.
 fixes missing shared materials in seven imported classic models. The player's
 crash dump identified a null material after login, before character selection.
 Signed production release **2026100103**, proxy **0.7.2-dev**, introduced this
-repair, retained in **2026100201** through the existing launcher: opening it and clicking **Play** applies the patch before
+repair, retained in **2026100202** through the existing launcher: opening it and clicking **Play** applies the patch before
 starting the game. No reinstall is needed. All 22 archives pass material,
 geometry, animation and texture preservation checks; the independent review,
 six focused regressions, full Go and native tests pass. All five production
@@ -55,7 +66,7 @@ removes 18,990 unusable original-class entries across 7,636 scroll items. Both
 native inspection paths and all canonical class levels pass automated checks.
 Owner-approved PR 101 is on main. Signed production release **2026100102**,
 proxy **0.7.1-dev**, introduced this fix on OVH with 67 patch sites. Current
-release **2026100201** retains it with proxy **0.7.3-dev**.
+release **2026100202** retains it with proxy **0.7.4-dev**.
 The original spell-inspection release passed hosted checks for all 46 files,
 signature verification and installation through the production controller. That
 release changed only the DLL and patch catalog, preserving all five services and
@@ -66,7 +77,7 @@ Rendered owner acceptance remains open with exact merchant/inventory QA linked.
 
 The [October 1 startup repair](releases/launcher-play-20261001/README.md) fixes
 PFS version-2 archives exceeding RoF2's 8 KiB block limit. Signed game release
-**2026100101** introduced the repair, retained in current **2026100201**. That
+**2026100101** introduced the repair, retained in current **2026100202**. That
 repair replaced all 22 archives and their matching proxy, preserving all 14,858
 extracted entries and the other 23 managed files. The material repair above
 subsequently updated seven WLDs. Production services, desktop/starter
