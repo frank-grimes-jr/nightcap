@@ -1,5 +1,15 @@
 # CHANGES
 
+## 2026-10-02 — Restore RoF2 buff effects after reconnect (candidate)
+
+Restore authoritative player buff slots after client-ready using native OP_Buff
+mode 3. Ordinary updates only modify existing native effects, which cannot repair
+missing effects behind surviving icons. Preserve spell duration/charges and the
+current permanent-buff policy; do not recast or re-charge Matron/Magus blessings.
+Native packet regression and local save/load evidence accompany exact owner QA
+in `docs/releases/blessing-relogin-20261002/README.md`. Candidate only: complete
+login behavior, main promotion and live deployment remain gated.
+
 ## 2026-10-02 — Advanced loot action repair
 
 Correct the mismatch between zone-wide earned-drop display and 25-unit collection.

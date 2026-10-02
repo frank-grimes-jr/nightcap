@@ -1,0 +1,492 @@
+{
+  "scope": "Existing pinned native zone objects; new diagnostic adapter; no production writes or real client",
+  "binary_sha256": "e65e16410b7f74403f7c8f9ec711637629947cabdd5eabde088500c76716697a",
+  "cases": [
+    {
+      "level": 1,
+      "after": {
+        "ac": 8,
+        "buffs": [
+          {
+            "spell": 278,
+            "ticks": -1000
+          },
+          {
+            "spell": 26,
+            "ticks": -1000
+          },
+          {
+            "spell": 144,
+            "ticks": -1000
+          },
+          {
+            "spell": 697,
+            "ticks": -1000
+          }
+        ],
+        "hp_regen": 5,
+        "mana_regen": 1,
+        "max_hp": 42,
+        "run_speed": 36,
+        "spell_ac": 10,
+        "spell_hp": 0,
+        "spell_speed": 30
+      },
+      "before": {
+        "ac": 5,
+        "buffs": [],
+        "hp_regen": 0,
+        "mana_regen": 0,
+        "max_hp": 31,
+        "run_speed": 28,
+        "spell_ac": 0,
+        "spell_hp": 0,
+        "spell_speed": 0
+      },
+      "cleared": {
+        "ac": 5,
+        "buffs": [],
+        "hp_regen": 0,
+        "mana_regen": 0,
+        "max_hp": 31,
+        "run_speed": 28,
+        "spell_ac": 0,
+        "spell_hp": 0,
+        "spell_speed": 0
+      },
+      "reloaded": {
+        "ac": 8,
+        "buffs": [
+          {
+            "spell": 278,
+            "ticks": -1000
+          },
+          {
+            "spell": 26,
+            "ticks": -1000
+          },
+          {
+            "spell": 144,
+            "ticks": -1000
+          },
+          {
+            "spell": 697,
+            "ticks": -1000
+          }
+        ],
+        "hp_regen": 5,
+        "mana_regen": 1,
+        "max_hp": 42,
+        "run_speed": 36,
+        "spell_ac": 10,
+        "spell_hp": 0,
+        "spell_speed": 30
+      }
+    },
+    {
+      "level": 10,
+      "after": {
+        "ac": 35,
+        "buffs": [
+          {
+            "spell": 278,
+            "ticks": -1000
+          },
+          {
+            "spell": 263,
+            "ticks": -1000
+          },
+          {
+            "spell": 144,
+            "ticks": -1000
+          },
+          {
+            "spell": 697,
+            "ticks": -1000
+          }
+        ],
+        "hp_regen": 5,
+        "mana_regen": 3,
+        "max_hp": 315,
+        "run_speed": 37,
+        "spell_ac": 21,
+        "spell_hp": 0,
+        "spell_speed": 35
+      },
+      "before": {
+        "ac": 28,
+        "buffs": [],
+        "hp_regen": 0,
+        "mana_regen": 0,
+        "max_hp": 265,
+        "run_speed": 28,
+        "spell_ac": 0,
+        "spell_hp": 0,
+        "spell_speed": 0
+      },
+      "cleared": {
+        "ac": 28,
+        "buffs": [],
+        "hp_regen": 0,
+        "mana_regen": 0,
+        "max_hp": 265,
+        "run_speed": 28,
+        "spell_ac": 0,
+        "spell_hp": 0,
+        "spell_speed": 0
+      },
+      "reloaded": {
+        "ac": 35,
+        "buffs": [
+          {
+            "spell": 278,
+            "ticks": -1000
+          },
+          {
+            "spell": 263,
+            "ticks": -1000
+          },
+          {
+            "spell": 144,
+            "ticks": -1000
+          },
+          {
+            "spell": 697,
+            "ticks": -1000
+          }
+        ],
+        "hp_regen": 5,
+        "mana_regen": 3,
+        "max_hp": 315,
+        "run_speed": 37,
+        "spell_ac": 21,
+        "spell_hp": 0,
+        "spell_speed": 35
+      }
+    },
+    {
+      "level": 20,
+      "after": {
+        "ac": 57,
+        "buffs": [
+          {
+            "spell": 278,
+            "ticks": -1000
+          },
+          {
+            "spell": 89,
+            "ticks": -1000
+          },
+          {
+            "spell": 144,
+            "ticks": -1000
+          },
+          {
+            "spell": 174,
+            "ticks": -1000
+          }
+        ],
+        "hp_regen": 5,
+        "mana_regen": 6,
+        "max_hp": 609,
+        "run_speed": 39,
+        "spell_ac": 27,
+        "spell_hp": 0,
+        "spell_speed": 40
+      },
+      "before": {
+        "ac": 48,
+        "buffs": [],
+        "hp_regen": 0,
+        "mana_regen": 0,
+        "max_hp": 524,
+        "run_speed": 28,
+        "spell_ac": 0,
+        "spell_hp": 0,
+        "spell_speed": 0
+      },
+      "cleared": {
+        "ac": 48,
+        "buffs": [],
+        "hp_regen": 0,
+        "mana_regen": 0,
+        "max_hp": 524,
+        "run_speed": 28,
+        "spell_ac": 0,
+        "spell_hp": 0,
+        "spell_speed": 0
+      },
+      "reloaded": {
+        "ac": 57,
+        "buffs": [
+          {
+            "spell": 278,
+            "ticks": -1000
+          },
+          {
+            "spell": 89,
+            "ticks": -1000
+          },
+          {
+            "spell": 144,
+            "ticks": -1000
+          },
+          {
+            "spell": 174,
+            "ticks": -1000
+          }
+        ],
+        "hp_regen": 5,
+        "mana_regen": 6,
+        "max_hp": 609,
+        "run_speed": 39,
+        "spell_ac": 27,
+        "spell_hp": 0,
+        "spell_speed": 40
+      }
+    },
+    {
+      "level": 30,
+      "after": {
+        "ac": 81,
+        "buffs": [
+          {
+            "spell": 278,
+            "ticks": -1000
+          },
+          {
+            "spell": 422,
+            "ticks": -1000
+          },
+          {
+            "spell": 144,
+            "ticks": -1000
+          },
+          {
+            "spell": 174,
+            "ticks": -1000
+          }
+        ],
+        "hp_regen": 5,
+        "mana_regen": 8,
+        "max_hp": 945,
+        "run_speed": 40,
+        "spell_ac": 40,
+        "spell_hp": 0,
+        "spell_speed": 45
+      },
+      "before": {
+        "ac": 68,
+        "buffs": [],
+        "hp_regen": 0,
+        "mana_regen": 0,
+        "max_hp": 785,
+        "run_speed": 28,
+        "spell_ac": 0,
+        "spell_hp": 0,
+        "spell_speed": 0
+      },
+      "cleared": {
+        "ac": 68,
+        "buffs": [],
+        "hp_regen": 0,
+        "mana_regen": 0,
+        "max_hp": 785,
+        "run_speed": 28,
+        "spell_ac": 0,
+        "spell_hp": 0,
+        "spell_speed": 0
+      },
+      "reloaded": {
+        "ac": 81,
+        "buffs": [
+          {
+            "spell": 278,
+            "ticks": -1000
+          },
+          {
+            "spell": 422,
+            "ticks": -1000
+          },
+          {
+            "spell": 144,
+            "ticks": -1000
+          },
+          {
+            "spell": 174,
+            "ticks": -1000
+          }
+        ],
+        "hp_regen": 5,
+        "mana_regen": 8,
+        "max_hp": 945,
+        "run_speed": 40,
+        "spell_ac": 40,
+        "spell_hp": 0,
+        "spell_speed": 45
+      }
+    },
+    {
+      "level": 40,
+      "after": {
+        "ac": 103,
+        "buffs": [
+          {
+            "spell": 278,
+            "ticks": -1000
+          },
+          {
+            "spell": 423,
+            "ticks": -1000
+          },
+          {
+            "spell": 145,
+            "ticks": -1000
+          },
+          {
+            "spell": 174,
+            "ticks": -1000
+          }
+        ],
+        "hp_regen": 12,
+        "mana_regen": 9,
+        "max_hp": 1275,
+        "run_speed": 42,
+        "spell_ac": 45,
+        "spell_hp": 0,
+        "spell_speed": 50
+      },
+      "before": {
+        "ac": 88,
+        "buffs": [],
+        "hp_regen": 0,
+        "mana_regen": 0,
+        "max_hp": 1045,
+        "run_speed": 28,
+        "spell_ac": 0,
+        "spell_hp": 0,
+        "spell_speed": 0
+      },
+      "cleared": {
+        "ac": 88,
+        "buffs": [],
+        "hp_regen": 0,
+        "mana_regen": 0,
+        "max_hp": 1045,
+        "run_speed": 28,
+        "spell_ac": 0,
+        "spell_hp": 0,
+        "spell_speed": 0
+      },
+      "reloaded": {
+        "ac": 103,
+        "buffs": [
+          {
+            "spell": 278,
+            "ticks": -1000
+          },
+          {
+            "spell": 423,
+            "ticks": -1000
+          },
+          {
+            "spell": 145,
+            "ticks": -1000
+          },
+          {
+            "spell": 174,
+            "ticks": -1000
+          }
+        ],
+        "hp_regen": 12,
+        "mana_regen": 9,
+        "max_hp": 1275,
+        "run_speed": 42,
+        "spell_ac": 45,
+        "spell_hp": 0,
+        "spell_speed": 50
+      }
+    },
+    {
+      "level": 50,
+      "after": {
+        "ac": 121,
+        "buffs": [
+          {
+            "spell": 278,
+            "ticks": -1000
+          },
+          {
+            "spell": 423,
+            "ticks": -1000
+          },
+          {
+            "spell": 145,
+            "ticks": -1000
+          },
+          {
+            "spell": 174,
+            "ticks": -1000
+          }
+        ],
+        "hp_regen": 12,
+        "mana_regen": 9,
+        "max_hp": 1815,
+        "run_speed": 43,
+        "spell_ac": 55,
+        "spell_hp": 0,
+        "spell_speed": 55
+      },
+      "before": {
+        "ac": 103,
+        "buffs": [],
+        "hp_regen": 0,
+        "mana_regen": 0,
+        "max_hp": 1565,
+        "run_speed": 28,
+        "spell_ac": 0,
+        "spell_hp": 0,
+        "spell_speed": 0
+      },
+      "cleared": {
+        "ac": 103,
+        "buffs": [],
+        "hp_regen": 0,
+        "mana_regen": 0,
+        "max_hp": 1565,
+        "run_speed": 28,
+        "spell_ac": 0,
+        "spell_hp": 0,
+        "spell_speed": 0
+      },
+      "reloaded": {
+        "ac": 121,
+        "buffs": [
+          {
+            "spell": 278,
+            "ticks": -1000
+          },
+          {
+            "spell": 423,
+            "ticks": -1000
+          },
+          {
+            "spell": 145,
+            "ticks": -1000
+          },
+          {
+            "spell": 174,
+            "ticks": -1000
+          }
+        ],
+        "hp_regen": 12,
+        "mana_regen": 9,
+        "max_hp": 1815,
+        "run_speed": 43,
+        "spell_ac": 55,
+        "spell_hp": 0,
+        "spell_speed": 55
+      }
+    }
+  ]
+}

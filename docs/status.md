@@ -3,6 +3,14 @@
 Updated October 2, 2026. This is the current status index; dated studies and
 QA reports preserve their original evidence and are not live-state promises.
 
+## Blessing reconnect repair candidate
+
+The owner reports Matron/Magus icons surviving logout while their effects vanish;
+re-hailing restores them. A RoF2 candidate explicitly restores saved native effect
+slots after login. Native packet and local save/load controls support the repair;
+full in-game login acceptance and live deployment are pending. Existing permanent
+duration and death policies are preserved. [Evidence and exact QA](releases/blessing-relogin-20261002/README.md).
+
 ## Resident campfire correction deployed for visual QA
 
 PR 115 is merged to main and the server update is complete. Six residents form a

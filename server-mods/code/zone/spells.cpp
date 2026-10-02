@@ -6585,12 +6585,27 @@ int Mob::GetCasterLevel(uint16 spell_id) {
 	return std::max(1, level);
 }
 
+void Client::RestoreBuffEffects()
+{
+	if (ClientVersion() != EQ::versions::ClientVersion::RoF2) {
+		return;
+	}
+
+	// The profile/icons alone can leave RoF2 without active native effects.
+	// Restore the saved state by slot, without casting or refreshing durations.
+	for (int slot = 0; slot < GetMaxTotalSlots(); ++slot) {
+		if (IsValidSpell(buffs[slot].spellid)) {
+			SendBuffDurationPacket(buffs[slot], slot, true);
+		}
+	}
+}
+
 //This member function sets the buff duration on the client
 //however it does not work if sent quickly after an action packets, which is what one might perfer to do
 //Thus I use this in the buff process to update the correct duration once after casting
 //this allows AAs and focus effects that increase buff duration to work correctly, but could probably
 //be used for other things as well
-void Client::SendBuffDurationPacket(Buffs_Struct &buff, int slot)
+void Client::SendBuffDurationPacket(Buffs_Struct &buff, int slot, bool restore)
 {
 	EQApplicationPacket* outapp = nullptr;
 	outapp = new EQApplicationPacket(OP_Buff, sizeof(SpellBuffPacket_Struct));
@@ -6619,7 +6634,8 @@ void Client::SendBuffDurationPacket(Buffs_Struct &buff, int slot)
 	sbf->buff.z = buff.caston_z;
 
 	sbf->slotid = slot;
-	sbf->bufffade = 0;
+	// RoF2 mode 2 only updates an existing effect; mode 3 installs this slot.
+	sbf->bufffade = restore && ClientVersion() == EQ::versions::ClientVersion::RoF2 ? 3 : 0;
 	FastQueuePacket(&outapp);
 }
 

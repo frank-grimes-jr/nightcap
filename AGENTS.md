@@ -443,3 +443,11 @@ For a full restore rehearsal, wait for MariaDB's final PID 1 process, not its
 temporary bootstrap server. Copy the compressed dump into the isolated container
 and use pipefail with a private error file; captured stderr pipes can fill with
 large SQL statement diagnostics and deadlock a streaming restore.
+
+### RoF2 buff reconnect state
+
+Buff icons do not establish active native effects. OP_Buff mode 2 updates an
+existing matching effect; mode 3 installs a slot. Restore saved player state only
+after client-ready, without recasting or refreshing duration/charges. Keep the
+permanent-buff sentinel policy. Exact-client regression and unresolved login QA:
+`docs/releases/blessing-relogin-20261002/README.md`.

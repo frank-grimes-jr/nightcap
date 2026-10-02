@@ -519,6 +519,7 @@ void Client::CompleteConnect()
 	UpdateWho();
 	client_state = CLIENT_CONNECTED;
 	SendAllPackets();
+	RestoreBuffEffects();
 	hpupdate_timer.Start();
 	autosave_timer.Start();
 	SetDuelTarget(0);

@@ -1,0 +1,62 @@
+{
+  "status": "built_not_installed",
+  "base_manifest_sha256": "4c0448a43d8c6a88073147ce2cd04477160c9b2cb9009630cba582cc7fef4288",
+  "hardening_sha256": "219f556bb1e55a719f8a3f5150c95723ce46ab9a8b69c93c2bc0f54ff1262b2e",
+  "patch_sha256": "dba88abafbcaa90d19ae4af697774cba41300a78a104fed3a83d2a4830a72551",
+  "binaries": {
+    "loginserver": "a9c97271ce27bcbd4fc4003126af12a7c11821ef97d5aa8dff1be0dc1b4fffd8",
+    "world": "589195bcdd7dd873489905e880c32ac7b695b92c350ad36592470c9f7a32bec8",
+    "zone": "0f2269488a7e5a6b9443b252d12c74e5654d6b87d310cfd476694800586ee5ab",
+    "ucs": "96757b356eca25c539bdd6e036c635ab79fee383e7a5ec9e27b14bb5138f5583",
+    "shared_memory": "3e45b9b1f8444eba773ff4375cd55089d8c5fff78cc3eb93e639a8aba9ef6f21"
+  },
+  "changed_source_files": [
+    "common/patches/rof2.cpp",
+    "zone/client.h",
+    "zone/client_packet.cpp",
+    "zone/spells.cpp"
+  ],
+  "built_targets": [
+    "world",
+    "zone"
+  ],
+  "cmake_flags": [
+    "-DCMAKE_BUILD_TYPE=RelWithDebInfo",
+    "-DCMAKE_CXX_COMPILER=/usr/bin/clang++",
+    "-DCMAKE_C_COMPILER=/usr/bin/clang",
+    "-DVCPKG_MANIFEST_INSTALL=OFF",
+    "-DVCPKG_MANIFEST_MODE=OFF",
+    "-DCMAKE_TOOLCHAIN_FILE=/home/eqemu/code/submodules/vcpkg/scripts/buildsystems/vcpkg.cmake",
+    "-DVCPKG_INSTALLED_DIR=/home/eqemu/code/build/vcpkg_installed",
+    "-DEQEMU_ADDITIVE_LFIB_PRNG=OFF",
+    "-DEQEMU_ADD_PROFILER=OFF",
+    "-DEQEMU_BIASED_INT_DIST=OFF",
+    "-DEQEMU_BUILD_CLIENT_FILES=ON",
+    "-DEQEMU_BUILD_LOGIN=ON",
+    "-DEQEMU_BUILD_LUA=ON",
+    "-DEQEMU_BUILD_PCH=ON",
+    "-DEQEMU_BUILD_PERL=ON",
+    "-DEQEMU_BUILD_SERVER=ON",
+    "-DEQEMU_BUILD_TESTS=OFF",
+    "-DEQEMU_CUSTOM_PRNG_ENGINE=",
+    "-DEQEMU_BUILD_LOGIN=ON"
+  ],
+  "source_commit_before_change": "06ce345",
+  "scope": "Fresh hardened paired world/zone build, local only; no in-game acceptance or installation",
+  "changed_source_sha256": {
+    "common/patches/rof2.cpp": "fc034578be6564306ca7a88fc8690025c077e9301da6ddfed496d35bec011944",
+    "zone/client.h": "54a2cbaa6e08a6429d939b37edefc8e5843880cad28d3a96d414f39a1eae46f0",
+    "zone/client_packet.cpp": "648862ffe4b49291dd166d6ed28136b2bfe7cad1dec46112ae016772fb9dc5d1",
+    "zone/spells.cpp": "2437e7504cac8bc1dbb03235c6a7f31a87e92e8c1b863c90b6139a6df62ea0c1"
+  },
+  "tests": {
+    "server_packet_fixture": "2 passed",
+    "gameplay_policies": "2 passed",
+    "pinned_native_client": "240 cases and update/fade/idempotence controls passed",
+    "server_persistence": "6 bracket cases passed; prior September 30 native objects, rolled-back local SQL"
+  },
+  "log_sha256": {
+    "native-build.log": "6091df6874448fecc7a736911b70331d14415ee50f7e86fdcf72d84a8611417e",
+    "native-configure.log": "e259b25ddaa0979f75612adfaec907d8f08de9c883148cd79982430dc2e868a6"
+  }
+}

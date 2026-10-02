@@ -684,7 +684,12 @@ namespace RoF2
 		// TODO: implement slot_data stuff
 		if (emu->bufffade == 1)
 			eq->bufffade = 1;
-		else
+		else if (emu->bufffade == 3) {
+			// Explicit reconnect restore, not an update of a matching effect.
+			eq->bufffade = 3;
+			// Match the profile's first counter slot; do not reset saved counters.
+			eq->buff.slot_data[0] = emu->buff.counters;
+		} else
 			eq->bufffade = 2;
 
 		// Bit of a hack. OP_Buff appears to add/remove the buff while OP_BuffCreate adds/removes the actual buff icon
