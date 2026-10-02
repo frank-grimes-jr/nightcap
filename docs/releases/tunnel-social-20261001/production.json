@@ -1,0 +1,130 @@
+{
+  "activation": {
+    "image_id": "sha256:c02b2b3ceb1e64ea99226384cd22a6d51c8e9da82b264580f41b0cc901de7d5f",
+    "native_processes": 15,
+    "hashes_match": true,
+    "started_at": "2026-10-02T13:26:19.310606323Z",
+    "restart_count": 0,
+    "errors": {
+      "quest_api": 0,
+      "native": 0,
+      "database": 0
+    },
+    "source_commit": "9a353d3399b07a4dbf9072da514b6e67d3ccdd5d",
+    "preserved_tables": 59,
+    "runtime_files": 7,
+    "exact_static_afterimages": true,
+    "epoch": 15,
+    "gateway_running": true,
+    "public_transport": [
+      {
+        "port": 5998,
+        "tls": "verified",
+        "native_session": "passed"
+      },
+      {
+        "port": 9000,
+        "tls": "verified",
+        "native_session": "passed"
+      },
+      {
+        "port": 7778,
+        "tls": "verified",
+        "native_session": "passed"
+      },
+      {
+        "port": 7000,
+        "tls": "verified",
+        "native_session": "passed"
+      }
+    ]
+  },
+  "rehearsal": {
+    "full_backup_restored": true,
+    "checks": [
+      "case-only source drift rejected",
+      "drift rejection writes nothing",
+      "new merchant name collision rejected",
+      "name collision preserves all data",
+      "new external NPC reference rejected",
+      "exact native numeric afterimages for all eight content tables",
+      "replay rejected",
+      "replay preserves installed scene",
+      "immediate rollback restores content without old moved NPC caches",
+      "rollback blocks ambiguous saved state: is_corpse",
+      "rollback blocks ambiguous saved state: is_zone",
+      "rollback blocks ambiguous saved state: instance_id",
+      "rollback blocks ambiguous saved state: zone_id",
+      "fresh rollback invalidates newly saved moved NPC",
+      "fresh unrelated native cache survives rollback",
+      "all unchanged native saved states retained",
+      "player items/money, merchant stock and era preserved"
+    ],
+    "exact_full_database_forward": true,
+    "exact_full_database_rollback": true,
+    "preserved_tables": 59
+  },
+  "backup": {
+    "sha256": "2e58249c3b1efe66b0adccc2a021f1f9c3fcde16bd9a6cffe5aa6dc22ea94575",
+    "uncompressed_bytes": 444493359
+  },
+  "content": {
+    "npc_types": {
+      "before": 119,
+      "after": 119,
+      "updated": 16,
+      "inserted": 0,
+      "deleted": 0
+    },
+    "spawngroup": {
+      "before": 119,
+      "after": 119,
+      "updated": 0,
+      "inserted": 0,
+      "deleted": 0
+    },
+    "spawnentry": {
+      "before": 119,
+      "after": 119,
+      "updated": 0,
+      "inserted": 0,
+      "deleted": 0
+    },
+    "spawn2": {
+      "before": 119,
+      "after": 119,
+      "updated": 93,
+      "inserted": 0,
+      "deleted": 0
+    },
+    "grid": {
+      "before": 8,
+      "after": 8,
+      "updated": 8,
+      "inserted": 0,
+      "deleted": 0
+    },
+    "grid_entries": {
+      "before": 32,
+      "after": 32,
+      "updated": 32,
+      "inserted": 0,
+      "deleted": 0
+    },
+    "object": {
+      "before": 6,
+      "after": 6,
+      "updated": 6,
+      "inserted": 0,
+      "deleted": 0
+    },
+    "zone_state_spawns": {
+      "before": 97,
+      "after": 4,
+      "updated": 0,
+      "inserted": 0,
+      "deleted": 93
+    }
+  },
+  "recorded_utc": "2026-10-02T13:54:32.546043+00:00"
+}
