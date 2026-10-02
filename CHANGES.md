@@ -1,5 +1,15 @@
 # CHANGES
 
+## 2026-10-02 - Compact resident campfire and paladin appearance correction
+
+Bring Nalin, Rekk, Sortre, Camil, Trift and Glorphyndel closer around a native
+CAMPFIRE. Correct Glorphyndel from Erudite to High Elf while retaining full
+Valorium, Falchion and Trueheart Shield. Suppress Nalin's idle emotes and correct
+SoulFire's two-handed attack skill. Scoped preimage guards and fresh-state
+rollback protect other content and player progress. Direct main/server promotion
+is owner-authorized. Rendered sword/fire acceptance remains open. See
+`docs/releases/tunnel-campfire-20261002/README.md`.
+
 ## 2026-10-02 - Simplify advanced loot and recover unresponsive controls
 
 Replace the oversized all-controls loot window with compact Loot, Saved rules,

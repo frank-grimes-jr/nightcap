@@ -36,6 +36,9 @@ sub tunnel_social_idle {
     $npc->SetEntityVariable('tunnel_social_partner',$peer->GetNPCTypeID());
     # Classic gestures from zone/dialogue_window.h: 48 = nod, 29 = wave.
     # Silent, staggered gestures; existing OOC coordination is unchanged.
+    # SoulFire can retain a sideways attachment after full-body emotes in RoF2.
+    # Nalin still faces his companions; keep his weapon in its normal idle pose.
+    return if $npc->GetNPCTypeID()==999523;
     $npc->DoAnim(rand()<0.85 ? 48 : 29) if rand()<0.65;
 }
 

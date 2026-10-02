@@ -3,6 +3,14 @@
 Updated October 2, 2026. This is the current status index; dated studies and
 QA reports preserve their original evidence and are not live-state promises.
 
+## Resident campfire correction prepared for authorized deployment
+
+Six residents form a compact circle around native CAMPFIRE. Glorphyndel becomes
+a High Elf in existing Valorium and weapons; Nalin keeps social facing without
+idle emotes to address his reported sword pose. Checks pass: 16 MariaDB cases,
+24 rollout fault tests, 75 quest assertions and native geometry.
+[Scope, recovery and exact rendered QA](releases/tunnel-campfire-20261002/README.md).
+
 ## Advanced loot interaction repair deployed for owner QA
 
 Signed release **2026100201**, proxy **0.7.3-dev**, is live through the existing
