@@ -1,6 +1,7 @@
 # Social tunnel revision
 
-Status: candidate; not deployed. This corrects the owner's live visual QA of the
+Status: [deployed October 2](PRODUCTION.md); rendered owner acceptance remains
+open. This corrects the owner's live visual QA of the
 September 30 class-court layout. The owner requested social congregations, real
 class merchant names, dispersed traders, wandering residents, the Chronicler by
 Shady, an imperfect gathering of the six named residents, and a tradeskill corner.
@@ -98,4 +99,5 @@ recreated.
 
 The existing owner instruction to push the ongoing tunnel work to main and the
 server is retained. That authorization is separate from acceptance of the new
-in-game appearance. Production evidence will be recorded after deployment.
+in-game appearance. [Production evidence](PRODUCTION.md) records the completed
+activation and remaining owner QA.

@@ -89,6 +89,13 @@ All commands run from `akk-stack/`:
   correct-instance cache rows; retain unrelated states. Evidence and scoped
   rollback rehearsal: `docs/releases/live-qa-20260915/`.
 
+- **Current tunnel layout**: `tools/tunnel_social.py` and
+  `tools/tunnel_social_layout.py` own the complete 119-actor social arrangement.
+  Preserve the six named residents and all native services; older court layouts
+  are historical. Capture fresh stopped-server preimages and invalidate only
+  affected non-corpse instance-0 states. Current deployment and exact QA:
+  `docs/releases/tunnel-social-20261001/PRODUCTION.md`.
+
 - **Docker data disk**: stored at `E:\Docker\wsl\disk\docker_data.vhdx`; the original `%LOCALAPPDATA%\Docker\wsl\disk` is a directory junction to that folder. Keep E: available before starting Docker. Migration evidence and rollback details: `docs/ops/docker-data-migration-20260913.md`.
 - **Era lock is declarative**: `era.json` (repo root) is the source of truth; `tools/apply-era.ps1` applies it idempotently (+`-Check` for drift, `-CapCharacters` to de-level). Change era = edit era.json, commit, run the script. Do not set expansion rules by hand or via the GM tool.
 - **PoK class hub**: `tools/pok_hub.py` plans from `docs/pok/hub-stock-audit.json` (original class levels, not widened `spells_new` columns). `tools/pok_hub_migration.py` generates guarded forward/rollback SQL; `tools/pok_hub_restock.py` generates the canonical restock. `docs/pok/catalog-policy.json` gates era promotion before writes. Current catalog preserves the existing expansion-0, level-50 item pool; extending it requires review and regeneration. Activation/rollback and exact player QA: `docs/pok/QA.md`. Candidate only until the recorded in-game QA passes.
