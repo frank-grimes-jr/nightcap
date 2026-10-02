@@ -1,17 +1,15 @@
 # CHANGES
 
-## 2026-10-01 - Social tunnel gatherings and tradeskill corner
+## 2026-10-02 - Social tunnel and tradeskill corner activated
 
-Revisit all 119 tunnel actors after owner visual feedback. Replace class rows
-with inward-facing groups and give all 16 class merchants individual names;
-retain class uniforms, role subtitles, stock and prices. Return Sortre, Camil,
-Rekk, Nalin, Trift and Glorphyndel to an uneven social ring with quiet, staggered
-gestures. Move the Chronicler beside Shady, disperse market traders, revise all
-eight walking routes, and gather every supply page and six crafting stations in
-one corner. Saved-state invalidation is restricted to the 93 moved actors;
-unchanged native NPCs and their caches remain intact. Guarded SQL/rollback,
-geometry, identity checks and quest fixtures pass. Candidate, not yet deployed;
-see `docs/releases/tunnel-social-20261001/README.md` for all NPCs and exact QA.
+Deployed the approved main revision to OVH after full backup restoration and
+scoped forward/rollback rehearsal. All 119 actors remain; class merchants have
+names, six residents gather socially, supplies surround six crafting stations,
+and the Chronicler stands by Shady. Preserved all 59 checked data scopes and the
+native image. Installed quest assertions (72), native hashes (15) and all four
+public handshakes pass. Invalidated only 93 moved-actor cached states and retained
+four unchanged native states. Rendered owner QA remains open; evidence and
+recovery: `docs/releases/tunnel-social-20261001/PRODUCTION.md`.
 
 ## 2026-10-02 - Repair compact pet window native anchors
 
@@ -24,6 +22,19 @@ asset; all 46 hosted files verify and production services retain their state.
 Existing saved window sizes are preserved. Rendered owner acceptance remains
 pending; see `docs/releases/pet-window-layout-20261001.md`.
 
+
+## 2026-10-01 - Social tunnel gatherings and tradeskill corner
+
+Revisit all 119 tunnel actors after owner visual feedback. Replace class rows
+with inward-facing groups and give all 16 class merchants individual names;
+retain class uniforms, role subtitles, stock and prices. Return Sortre, Camil,
+Rekk, Nalin, Trift and Glorphyndel to an uneven social ring with quiet, staggered
+gestures. Move the Chronicler beside Shady, disperse market traders, revise all
+eight walking routes, and gather every supply page and six crafting stations in
+one corner. Saved-state invalidation is restricted to the 93 moved actors;
+unchanged native NPCs and their caches remain intact. Guarded SQL/rollback,
+geometry, identity checks and quest fixtures pass. Candidate, not yet deployed;
+see `docs/releases/tunnel-social-20261001/README.md` for all NPCs and exact QA.
 
 ## 2026-10-01 - Repair pre-character-select model material crash
 

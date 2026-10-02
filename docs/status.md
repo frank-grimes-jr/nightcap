@@ -53,18 +53,22 @@ all 46 hosted files and the existing production signature verify over HTTPS.
 Visible Play and post-login model loading still require the exact linked QA;
 computer-control access to Nightcap was denied after the isolated login-UI run.
 
-## Social tunnel revision under verification
+## Social tunnel revision deployed for owner QA
 
 [The revised gathering layout](releases/tunnel-social-20261001/README.md)
 accounts for all 119 actors, names class merchants, restores the six missing
 residents, groups crafting in one corner and places the Chronicler by Shady.
 Geometry, guarded database recovery and silent resident behavior checks pass.
-This candidate has not yet replaced the September 30 production layout below.
+[Activated October 2](releases/tunnel-social-20261001/PRODUCTION.md) after a full
+backup restore, 17 SQL checks, 59 preservation checks, 72 installed quest
+assertions and four public handshakes. The native image is preserved. This
+supersedes the September 30 placement; rendered owner acceptance remains open.
 
-## Tunnel class courts deployed for owner QA
+## Tunnel class courts baseline
 
 [Eight class courts and Khaleid](releases/tunnel-class-courts/PRODUCTION.md) are
-live on OVH after the owner's main/server approval. Matching class/profession
+the September 30 baseline, with placements superseded by the social revision
+above. Matching class/profession
 uniforms, Roman supply pages, Khalure's Druid Rings subtitle and Khaleid's Classic
 wizard travel are installed. Fresh backup restore, 19 SQL checks, 50 preservation
 fingerprints, 26 installed-file quest assertions, 15 native hashes and four
