@@ -1,15 +1,17 @@
 # Current Nightcap status
 
-Updated October 2, 2026. This is the current status index; dated studies and
+Updated October 3, 2026. This is the current status index; dated studies and
 QA reports preserve their original evidence and are not live-state promises.
 
-## Blessing reconnect repair candidate
+## Blessing reconnect repair deployed for owner QA
 
-The owner reports Matron/Magus icons surviving logout while their effects vanish;
-re-hailing restores them. A RoF2 candidate explicitly restores saved native effect
-slots after login. Native packet and local save/load controls support the repair;
-full in-game login acceptance and live deployment are pending. Existing permanent
-duration and death policies are preserved. [Evidence and exact QA](releases/blessing-relogin-20261002/README.md).
+Main `61890bf` and matching world/zone binaries are live as of October 3. RoF2
+restores saved player buff effects after client-ready, without recasting or
+renewing blessings. Native tests and closed-gateway deployment checks pass;
+player/receipt/saved-corpse state, current tunnel layout, quests and client release
+2026100203 are preserved. Camp and log back in without re-hailing, then compare
+speed, max HP/AC and regeneration. Actual Matron/Magus relog acceptance remains
+pending. [Evidence and exact QA](releases/blessing-relogin-20261002/README.md).
 
 ## Compact tunnel service layout deployed for visual QA
 

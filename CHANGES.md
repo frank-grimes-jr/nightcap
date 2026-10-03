@@ -1,5 +1,14 @@
 # CHANGES
 
+## 2026-10-03 — Blessing reconnect repair deployed
+
+Owner-authorized main promotion and OVH deployment restore saved RoF2 player
+buff effects after login. Matching world/zone hashes, healthy processes and
+closed-gateway player/receipt/corpse preservation checks pass. Existing tunnel
+layout, quests, public client release and database schema remain intact. No
+recasting, extra payment or duration refresh; owner relog QA is still pending.
+Evidence: `docs/releases/blessing-relogin-20261002/README.md`.
+
 ## 2026-10-02 — Restore RoF2 buff effects after reconnect (candidate)
 
 Restore authoritative player buff slots after client-ready using native OP_Buff

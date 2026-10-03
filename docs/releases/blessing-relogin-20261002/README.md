@@ -1,11 +1,12 @@
-# Blessing reconnect repair candidate — October 2, 2026
+# Blessing reconnect repair — October 2–3, 2026
 
 ## Intent and diagnosis
 
 Matron Restora and Magus Goldwind buffs should retain their effects across camp,
 full logout and zoning, without another hail or payment. The owner reports that
 icons survive and re-hailing Matron immediately restores the lost speed/stats.
-This is a candidate, not a deployed or manually accepted repair.
+The owner authorized main promotion and server deployment on October 3. It is
+now live for in-game QA; manual acceptance remains pending.
 
 The native server diagnostic grants the actual bracket spells at levels 1, 10,
 20, 30, 40 and 50, calls SaveBuffs, clears all buffs, calls LoadBuffs and recalculates
@@ -69,13 +70,13 @@ Alternatives considered:
   loot action source passed. Exactly four source files changed; source hashes were
   verified before and after compilation, and the preserved production baseline
   was unchanged. [Build and binary hashes](build.json). Existing compiler warnings
-  remain. Binaries are built locally, not installed. No production diagnostics or
-  changes were performed by this candidate work.
+  remain. This records the predeployment candidate check; the October 3 activation
+  is recorded below.
 
 The added regression covers missing native state rather than the whole reported
 login. Actual run speed, regeneration, XP gain and profile timing need owner QA.
 
-## Exact in-game QA before main promotion
+## Exact owner in-game QA
 
 1. In East Commonlands, use Matron Restora (999237). Record unbuffed max HP, AC,
    run speed and resting HP/mana regeneration on a normal character. Hail, then
@@ -102,8 +103,8 @@ login. Actual run speed, regeneration, XP gain and profile timing need owner QA.
 
 ## Rollout and rollback
 
-Default branch flow remains feature → dev → test → owner QA → main. This report
-does not authorize main promotion or production deployment. Activation requires
+Default branch flow remains feature → dev → test → owner QA → main. The owner
+authorized an October 3 exception to deploy this repair for live QA. Activation requires
 current-production drift checks, the matching hardened world/zone pair, a closed
 gateway during restart and running executable hash verification. Recheck recent
 loot receipt and other feature contracts before rollout; never deploy the older
@@ -131,3 +132,24 @@ main promotion and live deployment before their in-game relog acceptance.
 The October 2 compact tunnel changes on main are retained. The blessing phase
 report is phase 51; phase 50 belongs to that tunnel release. Live verification
 will be recorded after activation, without claiming completed player QA.
+
+## Deployed October 3 for owner QA
+
+Main `61890bf` contains the fix and retains the newer compact tunnel release.
+The live game image is `nightcap-game:blessing-relogin-20261003`. World and all
+12 zone processes match the candidate binary hashes; loginserver and UCS match
+their preserved hashes. Health is green, restarts are zero, and startup checks
+found no native, quest or SQL errors. Gateway access reopened only after saved
+player/receipt/filter/rule/corpse fingerprints matched across the restart.
+
+Quests/plugins, database/web/tunnel services and the public launcher/channel
+files were preserved. Client release 2026100203 remains in place. No database
+restore, migration, spell-file edit or client update was performed. The previous
+receipt-aware game image remains available for rollback. Five rollout fault
+tests pass, including channel drift rejection and data-drift containment.
+
+Now camp fully out and log back in **without re-hailing** Matron or paying Magus.
+Compare run speed, max HP/AC and regeneration with the values before logout.
+Follow the complete QA steps above for XP, repeated relogs, click-off and death.
+Actual player acceptance remains open; process/hash verification alone does not
+prove the reported gameplay issue resolved. [Deployment evidence](deployment.json).

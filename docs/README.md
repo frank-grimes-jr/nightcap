@@ -10,7 +10,7 @@ Start with [current status](status.md), not a dated candidate report.
 
 ## Players and testers
 
-- [Blessing reconnect candidate: native evidence and exact QA](releases/blessing-relogin-20261002/README.md)
+- [Blessing reconnect repair: live deployment and exact QA](releases/blessing-relogin-20261002/README.md)
 
 - [Compact tunnel services: layout, complete roster and exact QA](releases/tunnel-compact-20261002/README.md)
 
