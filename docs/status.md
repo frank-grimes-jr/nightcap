@@ -11,14 +11,16 @@ slots after login. Native packet and local save/load controls support the repair
 full in-game login acceptance and live deployment are pending. Existing permanent
 duration and death policies are preserved. [Evidence and exact QA](releases/blessing-relogin-20261002/README.md).
 
-## Resident campfire correction deployed for visual QA
+## Compact tunnel service layout deployed for visual QA
 
-PR 115 is merged to main and the server update is complete. Six residents form a
-compact circle around a native campfire at /loc -1707, -274. Glorphyndel is a
-High Elf in the requested Valorium with his sword and shield. Nalin keeps social
-facing without idle emotes. Automated deployment checks passed; no client patch
-is needed. The intermittent sword pose and rendered fire/armor still need
-in-game inspection. [Exact visual QA](releases/tunnel-campfire-20261002/README.md).
+The owner accepted the six-resident campfire arrangement. PR 119 is on main and
+the server update is complete. The new layout
+pairs trainers and merchants in four compact gatherings, tightens the tradeskill
+workshop by about 48%, groups traders and reroutes walkers. All 119 actors and
+their functions remain. Full backup restoration, guarded forward/rollback,
+data preservation, installed quests and server/public-session checks passed.
+No client update is needed; rendered crowding and station interaction QA remain
+open. [Layout and exact owner QA](releases/tunnel-compact-20261002/README.md).
 
 ## Spell-selection menu cache correction deployed for owner QA
 

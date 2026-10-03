@@ -10,6 +10,17 @@ Native packet regression and local save/load evidence accompany exact owner QA
 in `docs/releases/blessing-relogin-20261002/README.md`. Candidate only: complete
 login behavior, main promotion and live deployment remain gated.
 
+## 2026-10-02 - Compact tunnel class areas and tradeskill workshop
+
+Pair each trainer with its merchant in four compact gatherings around native
+fires; shrink the tradeskill workshop by about 48%, group sixteen traders and
+reroute eight walkers. Preserve all 119 actors, stock, costumes, Roman suffixes,
+and the six-resident campfire arrangement accepted by the owner. Guarded SQL
+and fresh-state rollback protect unrelated content and player progress. PR 119
+is on main and live after full-backup restoration and verified activation.
+Rendered acceptance remains open; exact QA is recorded in
+`docs/releases/tunnel-compact-20261002/README.md`.
+
 ## 2026-10-02 — Advanced loot action repair
 
 Correct the mismatch between zone-wide earned-drop display and 25-unit collection.

@@ -123,3 +123,11 @@ test's copy/refresh behavior, while retaining full-login and rune/charge QA gate
 Privacy review confirmed committed evidence has only anonymous fixture values
 and hashes. No human or gameplay approval is claimed; the production gate remains
 open.
+
+## October 3 deployment authorization
+
+The owner explicitly requested: "Push to main and the server." This authorizes
+main promotion and live deployment before their in-game relog acceptance.
+The October 2 compact tunnel changes on main are retained. The blessing phase
+report is phase 51; phase 50 belongs to that tunnel release. Live verification
+will be recorded after activation, without claiming completed player QA.
