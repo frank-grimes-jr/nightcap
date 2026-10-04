@@ -4,6 +4,30 @@ Status: separately signed QA release **2026100402** is installed in an isolated
 copy; not published or accepted in game. All 48 managed files verify. The source
 baseline includes current main e37b7fa and its published winged helmet assets.
 
+## Owner-authorized live promotion
+
+On October 4 the owner requested: "Push to main and the server for me to test."
+This authorizes this repair's main promotion and hosted client publication before
+visual acceptance. It supersedes the isolated-only promotion boundary below;
+the native QA matrix remains open. Production release 2026100403 is prepared
+against current main e7aea514 and preserves helmet repair 2026100402.
+
+The rebuild passes all five runtime groups, 288 actual native resolver cases,
+71 exact-client signatures, both generated contracts and Go preflight/package
+tests. The unsigned inventory contains 48 files; only dinput8.dll and
+nightcap-patch-sites.json change from production 2026100402. There is no server
+binary or database change and static publication needs no service restart.
+
+Publication is pending: automatic approval review rejected discovery of the
+production signing seed's filename. No key was read, no channel was signed or
+published, and the hosted release remains unchanged by this task. Explicit
+approval to use the existing production signing key is needed to finish.
+
+After publication, close EQ and use the normal launcher, confirm release
+2026100403 and run the exact QA below. If repair is needed after any client sees
+that release, publish the prior proxy/catalog in a higher signed generation;
+retain all current helmet assets and never lower the public release counter.
+
 ## Ready-to-play isolated candidate
 
 Close the normal game, then open:
