@@ -289,6 +289,13 @@ claims about live state).
 
 `feature/<name>` → `dev` → `test` → `main`
 
+**October 4 helmet exception:** the owner explicitly requested "I want to do
+this on the server. Push to main and the server." This authorizes direct main
+promotion and hosted deployment of the winged Paladin helmet, including Camil's
+head appearance and signed client archives, before native gameplay QA. Retain
+the open visual/equip checks in `docs/helmets/winged-paladin.md`; do not treat
+publication as successful native acceptance or a permanent branch-policy change.
+
 - **feature branch**: temporary, one system/feature each.
 - **dev**: Codex merges here and runs automated testing against the codebase.
 - **test**: pause. The user runs manual in-game QA. Every promotion to `test` MUST include an explicit spike-out of exactly what to QA in game (steps, NPCs, zones, expected results).

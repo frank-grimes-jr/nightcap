@@ -4,6 +4,11 @@ Status: QA candidate, October 4, 2026. The item exists in the live database
 and the live shared-memory cache after the owner-approved game restart.
 No native wear verification or Camil appearance change is claimed.
 
+The owner's latest instruction is to deploy to main and the live server for
+testing. This supersedes the earlier requirement to finish the isolated native
+wear test first. Promotion, client publication and Camil's appearance update
+are authorized now; native appearance/equip acceptance remains open.
+
 The owner's four classic character-window references are the visual authority:
 silver domed shell, gold perimeter and face edging, dark open face, narrow nasal
 guard, and two tall ivory/silver feathered wings. Model the front, side and rear;
@@ -79,8 +84,8 @@ the new helmet name is present in shared/items, and the gateway reopened.
 Local and remote refresh.json record this verification. This supersedes the
 earlier automatic-review restart rejection; no further restart approval is
 pending. The unrelated player-record query that review rejected was omitted.
-Player selection/temporary grant still awaits the owner's choice; login is
-handed to the owner because the Computer Use skill forbids auth automation.
+Player selection/temporary grant has not occurred. The owner elected to test
+on the live server instead of continuing the isolated login workflow.
 
 Production release 2026100401 is signed and prepared locally, not published.
 Independent verification against the public key shipped in launcher 0.3.1
@@ -95,7 +100,8 @@ stage is local; recapture its service baseline after any later game restart.
 1. Completed: approved game-service restart, unchanged native binaries, healthy
    game service, all new zone processes, the helmet name in shared/items, and
    reopened gateway. This proves cache loading, not native client wear.
-2. Owner logs into E:/Nightcap_QA and designates a test character. Preserve its
+2. After patching through the normal launcher, the owner logs into the live
+   server with a test character. Preserve its
    existing head item. On a build with Paladin, summon 990500 and equip it.
    Verify displayed stats, head attachment, front/side/rear shape, animation,
    lighting, removal/re-equipping, zoning and reconnect. Reject on missing head,
@@ -105,10 +111,9 @@ stage is local; recapture its service baseline after any later game restart.
    rejection on a character with no Paladin class. No later races are included.
    Current evidence is decoded-archive rendering for all 24, not native play.
 4. Compare the four supplied reference images with the native render. The owner
-   delegated confirmation to Codex and authorized main/server promotion after
-   that confirmation; another owner visual sign-off is not required. Unity and
-   Blender rendering are not substitutes for native wearable verification.
-5. Only after the wearable check, capture fresh Camil 999521 preimages, apply
+   explicitly requested live deployment before this test. Unity and Blender
+   rendering are not substitutes for native wearable verification.
+5. Under the latest live-deployment authorization, capture fresh Camil 999521 preimages, apply
    head material 90 while preserving face, body, tint, weapons and position.
    Refresh East Commonlands and preserve its saved state unless a fresh capture
    shows a specific equipment conflict. The October 4 Camil cache row 66432

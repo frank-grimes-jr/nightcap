@@ -22,8 +22,10 @@ The game mesh is 3,765 triangles before the retained native face, under 4,096
 total per fit. This is denser than stock Classic heads; crowded-zone performance
 remains a native QA check. Material 90 availability and direct mesh lookup have
 been inspected in the pinned client, but archive decoding alone cannot prove
-successful equip behavior. Do not deploy Camil's new appearance or publish the
-production archives until native wearable and visual checks pass.
+successful equip behavior. The owner subsequently requested direct main and
+live deployment to perform these checks on the server. Camil's appearance and
+the production archives may be deployed under that release-specific exception;
+native wearable and visual acceptance must remain explicitly open.
 
 The item is a modest Classic raid reward using a guarded Valorium clone.
 Paladin ownership is required through the existing Nightcap class handling;
