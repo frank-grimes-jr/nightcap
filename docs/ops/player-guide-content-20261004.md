@@ -1,7 +1,7 @@
 # Player guide content audit — October 4, 2026
 
 The owner requested a clean list of custom changes followed by a separate list
-of implemented custom quests. The guide now has 43 visible changes in six groups,
+of implemented custom quests. The expanded guide now has 67 feature/control entries in eight system sections,
 two installed quest lines, and eight built but unreleased journal quests.
 The game source/status baseline is main `f9ab114`, merged into the website branch.
 This is a website-only publication; no gameplay promotion or acceptance is implied.
@@ -10,12 +10,14 @@ This is a website-only publication; no gameplay promotion or acceptance is impli
 
 | Guide group | Current evidence |
 |---|---|
-| Character / progression (8) | July changelog; `docs/releases/main-live-qa-20260915.md`; October 1 spell inspection and October 2 spell-menu repair; multiclass plugin/source |
-| Loot / gear / money (11) | July changelog; `docs/releases/advanced-loot/ACTION-REPAIR.md`; current helmet publication records; hosted rules below |
-| Combat / buffs / recovery (5) | `docs/releases/client-gameplay-20260919.md`; current reconnect and permanent-lifetime repair records in `docs/status.md`; October 1 death-rule audit |
-| Pets (4) | `docs/releases/pet-management-20260922/`; Enchanter animation command release; pet-window layout repair in `CHANGES.md` |
-| Tunnel / travel / services (9) | Current tunnel workshop, class gatherings, residents, market and travel records linked from `docs/status.md`; October 1 installed Keeper and buff-script audit |
-| Updates / interface / appearance (6) | Launcher, Classic models and startup release records; `docs/releases/npc-animation-20261004/enchanter.md`; loading artwork sources in the hosting runbook |
+| Custom loot window (8) | `docs/releases/advanced-loot/{README.md,ACTION-REPAIR.md}`; current `tools/client_advanced_loot_ui.py` labels and deployed currency/loot code |
+| Multiple pets & custom pet window (9) | `docs/releases/pet-management-20260922/{README.md,QA.md,PRODUCTION.md}`; ADRs 0038/0039; Enchanter animation-command release |
+| Classes, skills & progression (12) | July/August changelog; September 8 held-Monk acceptance; September 15 combined live release; current spell-menu and inspection releases |
+| Custom gear, bags & selling (9) | July/September item, heroic and merchant changes; current helmet publication; hosted October 4 gear/stat checks below |
+| Combat, buffs & recovery (6) | September 19 gameplay release and ADR 0038; current blessing reconnect/lifetime release records |
+| Tunnel life, shops & services (9) | Current tunnel class/workshop/social layout and market release records linked from `docs/status.md` |
+| Travel & private adventures (7) | Current Merrin/travel alcove records; installed Keeper audit; waypoint content below |
+| Launcher, interface & appearance (7) | Current launcher/model/startup releases; established caster UI in September 15 combined live QA; native animation repair release |
 | Ascension | Installed `quests/ecommons/Epic_Forgemaster.pl` read directly; NPC 999226 spawned in ecommons version 0 |
 | Waypoint Explorer | Installed Waypoint Master and marker scripts; hosted waypoint/title records below |
 | Journal / Epic 0.5 | Candidate `docs/adventure-journal/{SPEC.md,catalog.json,RELEASE.md,native-evidence.json}` in local `adventure-journal-epic05` worktree; hosted absence checks below |
@@ -65,7 +67,29 @@ percentage gear-bonus and raised-stat-cap additions.
 
 ## Website validation
 
-The browser suite checks the 43 visible changes, two installed quests, eight
+The browser suite checks the 67 visible feature/control entries, two installed quests, eight
 unreleased quests, important warnings, anchors, keyboard FAQ, history, deep links,
 five viewport widths, 200% text, original images, no runtime scripts and strict
 branding/CSP. The hosting runbook records the activation and private-access result.
+
+## Systems coverage follow-up
+
+The owner's loot-window/multiple-pets/custom-pet-window examples were present in
+the initial list but too compressed. Each now has explicit named entries and a
+front-of-section shortcut. The audit covers the complete changelog from June
+through October, cross-checking current release scope rather than repeating every
+historical repair as a separate feature.
+
+The current loot UI defines all five saved rule choices and six settings. Leave
+does not change a saved rule; Ignore does. Automatic personal collection, new-loot
+opening, unfiltered-only display, saved rules, split coin and classic fallback
+are documented. Pet scope matches both window and slash commands; armor selection
+is independent. Class-pet persistence supersedes the older summon-again limit.
+Temporary summoned armor is rejected by managed slots. Player and owned-pet
+beneficial buffs share the permanence policy. The broader combat/skill candidate
+remains undeployed, including Beastlord and Monk fist corrections.
+
+Independent review checked the expanded draft and identified these final
+clarifications. Desktop/mobile views and the featured-link behavior were inspected.
+This inventory covers custom player systems and their controls; infrastructure,
+GM tools, historical superseded layouts and build-only experiments are excluded.

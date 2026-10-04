@@ -19,7 +19,7 @@
 <main id="main">
   <section class="hero" id="home" aria-labelledby="hero-title"><div class="wrap hero-grid">
     <div class="hero-copy"><p class="eyebrow">Make yourself at home</p><h1 id="hero-title">What’s different<br><em>in Nightcap.</em></h1>
-      <p class="lead">All our custom changes in one place, followed by the quests we’ve built and where to begin.</p>
+      <p class="lead">Three classes. Multiple pets. Custom loot and pet windows. A world full of changes to make your own.</p>
       <p>Pick a topic below. You’ll find what each change does, useful commands, and a clear note when something is still being tested or hasn’t been released.</p>
       <div class="hero-actions"><a class="button" href="#features">Browse the changes</a><a class="text-link" href="#quests">Find a custom quest →</a></div>
     </div>
@@ -27,79 +27,114 @@
   </div></section>
   <div class="facts"><div class="wrap facts-inner"><p><strong>3</strong> classes. One character.</p><p><strong>50</strong> current level cap</p><p><strong>Classic</strong> progression era</p><p><strong>Solo preferred.</strong> Friends welcome.</p></div></div>
   <section class="section wrap" id="features" aria-labelledby="features-title">
+    <nav class="system-shortcuts" aria-label="Major custom systems"><a href="#advanced-loot"><strong>Custom loot window</strong><span>Loot All, filters &amp; group rolls</span></a><a href="#pets"><strong>Multiple pets</strong><span>Up to three class companions</span></a><a href="#pet-window"><strong>Custom pet window</strong><span>Health, selection &amp; shared orders</span></a><a href="#pet-armor"><strong>Pet Armor tab</strong><span>Separate, recoverable loadouts</span></a></nav>
     <span id="changes" class="anchor-alias" aria-hidden="true"></span>
-    <div class="section-heading"><div><p class="eyebrow">01 / Custom changes</p><h2 id="features-title">The full change list.</h2></div><p>43 player-facing changes, grouped by what you do in the game. All entries are visible—no need to open each one.</p></div>
+    <div class="section-heading"><div><p class="eyebrow">01 / Custom changes</p><h2 id="features-title">Explore the custom systems.</h2></div><p>From the loot window to three-pet control, explore each system and the features inside it. Everything is listed here, with custom quests in their own section below.</p></div>
     <aside class="status-key"><strong>Available, with testing ongoing</strong><p>These changes are installed on the server or delivered by the launcher. Update before playing. Bugs, balance, and some character combinations still need testing; any availability limits are noted below.</p></aside>
-    <nav class="topic-nav" aria-label="Change categories"><a href="#character">Character &amp; progression</a><a href="#items">Loot, gear &amp; money</a><a href="#adventuring">Combat, buffs &amp; recovery</a><a href="#companions">Pets &amp; companions</a><a href="#hub">The tunnel, travel &amp; services</a><a href="#client">Updates, interface &amp; appearance</a></nav>
+    <nav class="topic-nav" aria-label="Change categories"><a href="#looting">Custom loot window</a><a href="#companions">Multiple pets &amp; custom pet window</a><a href="#character">Classes, skills &amp; progression</a><a href="#items">Custom gear, bags &amp; selling</a><a href="#adventuring">Combat, buffs &amp; recovery</a><a href="#hub">Tunnel life, shops &amp; services</a><a href="#travel-services">Travel &amp; private adventures</a><a href="#client">Launcher, interface &amp; appearance</a></nav>
     <div class="change-grid">
+      <section class="change-group" id="looting" aria-labelledby="looting-title">
+        <h3 id="looting-title">Custom loot window</h3>
+        <ul class="change-list" role="list">
+          <li id="advanced-loot"><strong>Custom loot window</strong><p>Open <code>/advloot</code> to see personal and shared drops together. Inspect an item, find its corpse, or leave that drop behind without changing its saved rule. Drops stay organized across pages.</p></li>
+          <li id="loot-all"><strong>Loot All for earned drops</strong><p>Collect eligible drops you have earned across the current zone or instance, with a result message. A second bulk click confirms the displayed NO TRADE items. Bag space, lore, cursor, and loot rights still matter; ordinary and public-corpse looting remain range-limited.</p></li>
+          <li id="loot-filters"><strong>Ignore unwanted drops</strong><p>Click Ignore beside an item to save Never for your character. Remove it from Filters to return to Ask. Turn on Use saved rules to apply your choices.</p></li>
+          <li id="saved-loot"><strong>Saved loot preferences and filter search</strong><p>Choose Ask, Always loot, or Never for an item, with saved Need and Greed choices for shared rolls. Search the Filters list to find a saved choice. Preferences stay with that character after reconnecting.</p></li>
+          <li id="loot-rolls"><strong>Need, Greed, and Pass</strong><p>Shared loot supports timed rolls. Need takes priority over Greed, and only eligible players can win. You can pass on an item you do not want.</p></li>
+          <li id="loot-assignment"><strong>Group assignment and free grab</strong><p>The eligible loot leader can assign a shared drop to an eligible player or open it for manual free grab. Existing loot rights still apply.</p></li>
+          <li id="loot-coins"><strong>Automatic coin collection and optional splitting</strong><p>Eligible earned coins can be collected through advanced loot. Auto Split shares them with connected group or raid members in the current zone; the looter keeps any remainder.</p></li>
+          <li id="loot-settings"><strong>Choose how the loot window behaves</strong><p>Use <strong>Open on new loot</strong> to show the window automatically, <strong>Loot everything</strong> to collect eligible personal drops, or <strong>Unfiltered items only</strong> to focus on undecided items. Settings also control saved rules, coin splitting, and whether advanced loot is enabled. Turn it off to use ordinary corpse looting.</p></li>
+        </ul>
+      </section>
+      <section class="change-group" id="companions" aria-labelledby="companions-title">
+        <h3 id="companions-title">Multiple pets &amp; custom pet window</h3>
+        <ul class="change-list" role="list">
+          <li id="pets"><strong>Multiple pets on one character</strong><p>Keep up to three permanent summoned pets at once: one for each pet-summoning class you hold. Your class choices decide which companions you can bring.</p></li>
+          <li id="pet-window"><strong>Custom pet window</strong><p>The compact Pet Info window shows all three pets with their class, name, and health. A visible <strong>Commands:</strong> line tells you whether orders will affect one pet or all of them.</p></li>
+          <li id="pet-orders"><strong>Control one pet or all pets</strong><p>Click a pet’s name or target your pet to select it. Targeting an enemy keeps that selection. Click <strong>All pets</strong>, click the selected name again, or clear your target to return to shared orders.</p></li>
+          <li id="pet-controls"><strong>Window buttons and /pet commands work together</strong><p>Attack, Back off, Guard, Follow, Sit / Stand, Taunt, and other orders use the displayed selection. Your <code>/pet</code> commands use it too. Advanced controls still need their ability unlocks; ownership, range, and control effects still apply.</p></li>
+          <li id="pet-details"><strong>Health and buffs for the selected pet</strong><p>Selecting a pet updates the detailed gauges and buff display while keeping the complete roster visible. The repaired layout keeps the roster, command buttons, and buff panel clear of one another.</p></li>
+          <li id="animation-commands"><strong>Commands for Enchanter animations</strong><p>Enchanter animations accept normal pet commands without an ability unlock, including when Enchanter is an extra class.</p></li>
+          <li id="pet-armor"><strong>Custom Pet Armor tab</strong><p>Open <strong>Inventory → Pet Armor</strong> for eight equipment slots per permanent class pet. Previous / Next switches between loadouts. Inspect, equip, and remove compatible armor; choosing an armor loadout does not change your command selection.</p></li>
+          <li id="pet-armor-recovery"><strong>Recover your pet’s stored equipment</strong><p>Stored armor reapplies when you summon its class pet and remains available to inspect and remove while the pet is inactive or its class has been released. Equip from an otherwise empty cursor. Temporary summoned items cannot go in these stored armor slots. Charm and swarm pets are excluded; combat, distance, cursor, and item restrictions apply. Start with inexpensive gear during testing.</p></li>
+          <li id="pet-persistence"><strong>Pets that travel with you</strong><p>Valid class pets, their buffs, and separate armor loadouts are saved across zoning and camping. After returning, commands start on All pets. Death removes summoned pets; stored armor remains recoverable. Lifecycle testing continues.</p></li>
+        </ul>
+      </section>
       <section class="change-group" id="character" aria-labelledby="character-title">
-        <h3 id="character-title">Character &amp; progression</h3>
+        <h3 id="character-title">Classes, skills &amp; progression</h3>
         <ul class="change-list" role="list">
           <li id="three-classes"><strong>Three classes from level 1</strong><p>Keep your starting class and choose two different extra classes with the Ancient Chronicler in the tunnel.</p></li>
           <li id="class-display"><strong>Your whole build in view</strong><p>See Primary, Second, and Third in Inventory and with <code>#classes</code>. Class information refreshes when you make a choice.</p></li>
-          <li id="class-awareness"><strong>Spells, stats, and gear for your classes</strong><p>Your build uses the best base health and mana calculations among your classes. Spell access, eligible equipment, and spell-shop choices also account for your classes. Buy and learn spells, songs, and tomes; right-click eligible spell scrolls to scribe them.</p></li>
+          <li id="class-awareness"><strong>Best base health and mana from your classes</strong><p>Your character uses the strongest base-health and base-mana calculations among the classes you hold. A melee starting class can gain a mana pool through a caster class.</p></li>
+          <li id="spell-access"><strong>Learn and cast spells from your classes</strong><p>Spell access and spell-shop choices account for your held classes. You still buy and learn spells, songs, and tomes. Right-click an eligible spell scroll to scribe it.</p></li>
+          <li id="equipment-access"><strong>Equipment access across your classes</strong><p>Server equipment checks recognize your held classes. Some combinations still need client-side and in-game testing; off-class equipment issues remain on the testing list.</p></li>
           <li id="spell-levels"><strong>Clearer spell levels</strong><p>Scroll inspection removes unusable classes and shows the correct levels. The spell-selection menu also refreshes after a class change, fixing stale level-255 labels.</p></li>
           <li id="earned-skills"><strong>Skills earned through play</strong><p>Eligible skills unlock at their usual levels, starting at 1. Improve them through use or training. Extra-class trainers and dual wield still need checks.</p></li>
-          <li id="alternate-abilities"><strong>Ability experience from level 1</strong><p>Use <code>#aaexp 50</code> for a 50% combat-experience split, <code>#aaexp off</code> to stop, or <code>#aaexp</code> to check it. The ability window has a Class column; class and ability requirements still apply.</p></li>
+          <li id="skill-buttons"><strong>Extra-class skills and combat hotbuttons</strong><p>Eligible skills appear in Actions → Abilities and can be assigned to hotbuttons. Extra-class Monk attacks and disciplines have custom support. Broader class combinations, trainers, and dual wield still need testing.</p></li>
+          <li id="alternate-abilities"><strong>Earn ability experience from level 1</strong><p>Use <code>#aaexp 50</code> for a 50% combat-experience split, <code>#aaexp off</code> to stop, or <code>#aaexp</code> to check it. Class and ability requirements still apply.</p></li>
+          <li id="ability-class-column"><strong>A Class column in the ability window</strong><p>The ability window identifies class origins in a dedicated Class column across its four tabs, making a multiclass build easier to browse.</p></li>
           <li id="class-release"><strong>Extra-class changes and ability refunds</strong><p>The Chronicler can remove an extra class, refund eligible earned ability points, and adjust skill limits. Shared abilities and scribed spells remain; your remaining classes govern spell use. <strong class="inline">Try a spare character first while this is being tested.</strong></p></li>
           <li id="starter-provisions"><strong>A useful starting kit</strong><p>New characters begin in the tunnel with 100 platinum, a starting-class weapon, and a robe with 10 armor class and +5 to their main stat. These are one-time creation rewards.</p></li>
         </ul>
       </section>
       <section class="change-group" id="items" aria-labelledby="items-title">
-        <h3 id="items-title">Loot, gear &amp; money</h3>
+        <h3 id="items-title">Custom gear, bags &amp; selling</h3>
         <ul class="change-list" role="list">
-          <li id="item-tiers"><strong>Polished, Exalted, and Ascended loot</strong><p>Custom item tiers give you stronger versions of eligible dropped equipment and bags. Ascended gear adds heroic stats.</p></li>
+          <li id="item-tiers"><strong>Polished, Exalted, and Ascended loot</strong><p>Eligible dropped equipment and bags can appear in three stronger custom tiers. Their health, mana, defenses, and offensive stats scale by item family.</p></li>
+          <li id="heroic-gear"><strong>Heroic stats on Ascended equipment</strong><p>Ascended gear and Ascended epics add heroic stats on top of their improved base stats. Polished and Exalted tiers do not receive these custom heroic additions.</p></li>
           <li id="caster-gear"><strong>Gear bonuses for casters and healers</strong><p>Item Spell Damage and Heal Amount work as percentage bonuses, including damage-over-time and healing-over-time spells. Each item-bonus total is currently capped at 250. Corrections to some tiered items are still in the works.</p></li>
           <li id="stat-cap"><strong>More room for core stats</strong><p>The normal core-stat cap is raised to 425, with heroic stat effects handled separately.</p></li>
           <li id="summoned-gear"><strong>Ascended summoned equipment</strong><p>Eligible summoned gear becomes Ascended when a matching version exists.</p></li>
           <li id="bags"><strong>More room in your bags</strong><p>Buy bags up to 40 slots, with base prices from 10 to 7,500 platinum. Merchant price adjustments, special bag restrictions, and NO TRADE rules still apply.</p></li>
           <li id="merchant-payouts"><strong>Better merchant payouts</strong><p>Merchants pay more for the loot you sell.</p></li>
           <li id="selling"><strong>Bulk selling with #sellall</strong><p>Sell eligible items from main inventory and bags without targeting a merchant. Bags, NO TRADE, temporary, and worthless items stay. <strong class="inline">Sales are immediate and can include valuable gear. Bank anything you want to keep first.</strong></p></li>
-          <li id="advanced-loot"><strong>A custom advanced-loot window</strong><p>Open <code>/advloot</code> for personal and shared drops, item inspection, corpse finding, saved Ask / Always loot / Never choices, group assignment, Need / Greed / Pass, free grab, and optional coin splitting.</p></li>
-          <li id="loot-all"><strong>Loot All for earned drops</strong><p>Collect eligible drops you have earned across the current zone or instance, with a result message and a separate bulk NO TRADE confirmation. Bag space, lore, cursor, and loot rights still matter. Ordinary and public-corpse looting remain range-limited.</p></li>
-          <li id="loot-filters"><strong>Ignore and manage saved loot choices</strong><p>Use Ignore on an item to save Never for your character. Remove it from Filters to return to Ask. Turn on Use saved rules to apply those choices.</p></li>
           <li id="winged-helmet"><strong>Winged Helm of the Dawn</strong><p>A custom Paladin helmet for the twelve original races, with both gender fits. The item and updated appearance are installed for visual testing. <strong class="inline">No acquisition quest or loot source has been added yet.</strong></p></li>
         </ul>
       </section>
       <section class="change-group" id="adventuring" aria-labelledby="adventuring-title">
         <h3 id="adventuring-title">Combat, buffs &amp; recovery</h3>
         <ul class="change-list" role="list">
-          <li id="buffs"><strong>Beneficial buffs without timer upkeep</strong><p>Your beneficial buffs no longer expire from their normal countdown. Death, dispels, replacement, stacking rules, charges, and aura range still matter. Debuffs and hostile NPC buffs keep their timers.</p></li>
+          <li id="buffs"><strong>Beneficial buffs without timer upkeep</strong><p>Beneficial buffs on you and your owned pets no longer expire from their normal countdown. Death, dispels, replacement, stacking rules, charges, and aura range still matter. Debuffs and hostile NPC buffs keep their timers.</p></li>
+          <li id="bard-songs"><strong>Long-lasting beneficial Bard songs</strong><p>Beneficial Bard song effects are included in the lasting-buff changes, reducing repeated upkeep. Harmful effects such as damage, charm, and mez keep their normal rules. Movement-song behavior is still being checked.</p></li>
           <li id="blessing-repair"><strong>Blessing effects that survive reconnects</strong><p>Repairs restore saved buff effects after login and stop permanent blessings expiring on the next tick. You should not need another hail or payment; player retesting continues.</p></li>
           <li id="casting"><strong>Instant damage-over-time casts</strong><p>Your damage-over-time spells cast instantly, while keeping mana costs, target and resistance checks, and reuse limits. Direct-damage spells keep their normal cast times.</p></li>
           <li id="melee-casting"><strong>Melee attacks during casting</strong><p>Main-hand and offhand autoattacks can continue while you cast. Range, stuns, fear, and other control effects still apply.</p></li>
           <li id="death-recovery"><strong>Keep your belongings after death</strong><p>Return to your bind point with equipment, inventory, and money. You still lose beneficial buffs; other death rules are unchanged.</p></li>
         </ul>
       </section>
-      <section class="change-group" id="companions" aria-labelledby="companions-title">
-        <h3 id="companions-title">Pets &amp; companions</h3>
-        <ul class="change-list" role="list">
-          <li id="pets"><strong>Up to three permanent pets</strong><p>Each pet-summoning class you hold can keep one permanent pet, up to three in total.</p></li>
-          <li id="pet-orders"><strong>Shared or individual pet orders</strong><p>The compact pet window shows your roster. Orders go to all pets by default; select one by name or world target to command it alone. A layout repair keeps the roster and controls clear of the buff panel.</p></li>
-          <li id="animation-commands"><strong>Commands for Enchanter animations</strong><p>Enchanter animations accept normal pet commands without an ability unlock, including when Enchanter is an extra class.</p></li>
-          <li id="pet-armor"><strong>Recoverable armor for each pet</strong><p>Inventory’s Pet Armor tab has eight slots per permanent class pet. Equip compatible items from an otherwise empty cursor and recover stored armor even when the pet is inactive. Charm and swarm pets are excluded; combat, distance, cursor, and item checks apply. Start with inexpensive gear during testing.</p></li>
-        </ul>
-      </section>
       <section class="change-group" id="hub" aria-labelledby="hub-title">
-        <h3 id="hub-title">The tunnel, travel &amp; services</h3>
+        <h3 id="hub-title">Tunnel life, shops &amp; services</h3>
         <ul class="change-list" role="list">
           <li id="class-courts"><strong>A shared tunnel home base</strong><p>The East Commonlands tunnel brings all 16 trainer-and-spell-shop pairs together in four compact gatherings around campfires. Matching outfits help you find each pair.</p></li>
-          <li id="crafting"><strong>One tradeskill workshop</strong><p>Find 22 supply merchants, six crafting stations, and the Epic Forgemaster together. Numbered shop pages help keep large spell and supply selections manageable.</p></li>
+          <li id="crafting"><strong>A dedicated tradeskill workshop</strong><p>Find 22 supply merchants, six crafting stations, and the Epic Forgemaster together in the tunnel’s workshop.</p></li>
+          <li id="shop-pages"><strong>More complete shops through numbered pages</strong><p>Large spell and tradeskill catalogs use numbered shop pages so the available stock fits into usable merchant windows.</p></li>
           <li id="residents"><strong>A livelier gathering place</strong><p>Named residents share a campfire. Traders are grouped around the tunnel, with eight walkers following routes around the service areas.</p></li>
-          <li id="living-market"><strong>Limited market finds and offers</strong><p>Custom tunnel traders have finite buy and sell offers, with two offers per trader. City merchants can also receive limited finds. Stock and prices remain part of balance testing.</p></li>
-          <li id="blessings"><strong>Free buffs and an optional experience blessing</strong><p>Hail Matron Restora for free movement, health, armor, and regeneration buffs suited to your level. Check back every ten levels. Magus Goldwind offers the same package plus an experience blessing for 100 platinum.</p></li>
-          <li id="travel"><strong>City travel, rings, and spires</strong><p>Merrin offers ten city routes with return books. Khalure provides available Druid Rings, and Khaleid offers eight Classic Wizard Spires destinations. The Plane of Knowledge connection remains available.</p></li>
+          <li id="resident-chat"><strong>Residents with local conversation</strong><p>Named residents bring occasional local conversation and auction calls to the tunnel, alongside the walking routes and campfire gatherings.</p></li>
+          <li id="living-market"><strong>Finite tunnel-trader offers</strong><p>Custom tunnel traders have limited buy and sell offers, with two offers per trader. Stock can run out; prices and earning rates remain part of balance testing.</p></li>
+          <li id="city-market"><strong>Limited finds at city merchants</strong><p>City merchants can receive small quantities of special finds as part of the custom market. Availability changes with the market’s stock.</p></li>
+          <li id="blessings"><strong>Free buffs for your level</strong><p>Hail Matron Restora for movement, health, armor, regeneration, and mana-regeneration buffs suited to your level. Check back every ten levels for the next package.</p></li>
+          <li id="experience-blessing"><strong>An optional experience blessing</strong><p>Magus Goldwind offers the same buff package plus an experience blessing for 100 platinum. Recent reconnect and permanent-effect repairs are installed; player retesting continues.</p></li>
+        </ul>
+      </section>
+      <section class="change-group" id="travel-services" aria-labelledby="travel-services-title">
+        <h3 id="travel-services-title">Travel &amp; private adventures</h3>
+        <ul class="change-list" role="list">
+          <li id="travel"><strong>Ten city routes with return books</strong><p>Speak to Merrin in the tunnel for ten city destinations. Return books bring you back to the shared hub.</p></li>
+          <li id="druid-rings"><strong>Druid Ring travel</strong><p>Khalure offers the currently available Classic Druid Rings. Only destinations ready for use are offered.</p></li>
+          <li id="wizard-spires"><strong>Wizard Spire travel</strong><p>Khaleid offers eight Classic Wizard Spire destinations from the tunnel travel area.</p></li>
+          <li id="knowledge-bridge"><strong>A Plane of Knowledge connection</strong><p>A dedicated travel connection keeps the Plane of Knowledge reachable alongside the tunnel’s city routes.</p></li>
           <li id="recall"><strong>Nightcap Recall</strong><p>Make a hotkey for Ancient Attunement in the General abilities tab. It returns you to the tunnel with a five-second cast and ten-minute reuse, preserving your bind point and other home destinations.</p></li>
           <li id="waypoint-travel"><strong>Travel to places you have discovered</strong><p>Find waypoint markers to unlock return destinations with the Waypoint Master. Discovering them all is a <a href="#waypoint-explorer">custom exploration quest</a>.</p></li>
           <li id="instances"><strong>Private dungeon runs</strong><p>Instance Keepers offer Befallen, Unrest, High Keep, Najena, Cazic-Thule, Permafrost, and Nagafen’s Lair. Hail to enter or join your group leader; use <code>#instances</code> for open runs and timers. Resets ask for confirmation.</p></li>
         </ul>
       </section>
       <section class="change-group" id="client" aria-labelledby="client-title">
-        <h3 id="client-title">Updates, interface &amp; appearance</h3>
+        <h3 id="client-title">Launcher, interface &amp; appearance</h3>
         <ul class="change-list" role="list">
           <li id="updates"><strong>One shortcut and automatic updates</strong><p>Your usual Nightcap shortcut updates the launcher and game before Play. Keep your existing game folder; another game installation can stay running during an update.</p></li>
           <li id="interface"><strong>The Nightcap interface loads automatically</strong><p>Class labels, the ability Class column, and custom pet and loot controls load with the game. Background interface requests no longer clutter local chat.</p></li>
-          <li id="classic-models"><strong>Classic character and creature appearances</strong><p>Supported older models are used where available, including original elemental colors. Creatures without an older counterpart retain their appearance.</p></li>
+          <li id="caster-interface"><strong>Spellbook, spell gems, and mana for your build</strong><p>A melee starting class can use the spellbook and spell gems when your held classes provide spell access. The mana gauge follows your actual mana pool.</p></li>
+          <li id="classic-models"><strong>Classic character and creature appearances</strong><p>Supported older models are used where available, including original elemental colors. Creatures without an older counterpart retain their appearance. The game’s model configuration also supports opting into modern appearances; a full restart is required.</p></li>
           <li id="loading-art"><strong>Original Nightcap loading artwork</strong><p>Custom loading screens give the world its own look, including the artwork used on this page.</p></li>
           <li id="startup-repairs"><strong>Startup and character-selection repairs</strong><p>Updates repair model archives and missing materials behind the recent Play and character-selection failures. Install through the usual launcher; no reinstall is needed.</p></li>
           <li id="animation-repairs"><strong>Creature and pet animation repairs</strong><p>The latest updates repair shared creature animations and Enchanter weapon-pet identity. Beetle walking and death were confirmed fixed; pet motion and wider visual checks continue.</p></li>
@@ -139,7 +174,7 @@
   <section class="work-section" id="roadmap" aria-labelledby="roadmap-title"><div class="wrap section">
     <div class="section-heading"><div><p class="eyebrow">03 / Still in the works</p><h2 id="roadmap-title">What isn’t finished yet.</h2></div><p>The journal quests above and these remaining changes are kept separate from the installed list.</p></div>
     <ul class="work-list">
-      <li><strong>Combat and item corrections.</strong> Monk fist and item-tier spell-damage/healing fixes have a tested candidate, but are not deployed. The frozen personal casting bar is still being investigated.</li>
+      <li><strong>Combat and item corrections.</strong> Monk and Beastlord fist, skill-progression, and item-tier spell-damage/healing fixes have a tested candidate, but are not deployed. The frozen personal casting bar is still being investigated.</li>
       <li><strong>Augment progression.</strong> The design is approved; the content has not been deployed.</li>
       <li><strong>Multiclass and balance work.</strong> Equipment restrictions, extra-class trainers, dual wield, stats, regeneration, missing ability names, and Bard movement/songs still need checks or fixes. Ability pools and rank limits are being evaluated alongside gear, buffs, pets, and encounter difficulty.</li>
       <li><strong>Player testing.</strong> Fresh installs, travel round trips, waypoint completion, loot restrictions, pets, reconnects, and new appearances still need wider testing. Installed does not mean every interaction has been accepted.</li>

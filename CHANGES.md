@@ -1,5 +1,20 @@
 # CHANGES
 
+## 2026-10-04 — Make custom loot and pet systems prominent in the player guide
+
+Expand the compressed overview into eight system sections and 67 explained
+features/controls. Put the custom loot window, multiple pets, custom pet window
+and Pet Armor tab first, with direct shortcuts. Cover saved loot rules, rolls,
+assignment/free grab, coin collection/splitting and settings; pet health/buffs,
+shared/individual orders, persistence, separate armor selection/recovery and
+temporary-item restrictions. Restore explicit caster-interface, combat-hotbutton,
+ability-column, Bard, market and travel coverage. Quests remain separate and
+unreleased work stays labeled. No game behavior or access changes.
+
+Browser checks exercise the four prominent system links and key control semantics,
+in addition to existing responsive/access/branding coverage. Current sources and
+review evidence are in `docs/ops/player-guide-content-20261004.md`.
+
 ## 2026-10-04 — Separate custom changes and custom quests in the player guide
 
 Replace per-feature disclosures with 43 visible custom changes grouped into six

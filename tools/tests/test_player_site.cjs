@@ -36,7 +36,22 @@ const forbidden = /ever\s*quest|\beq\b|eqemu|rof2|macroquest/i;
     assert.equal(await page.locator('h1').count(), 1);
     assert.equal(await page.locator('script,iframe,form').count(), 0);
     assert.ok(!forbidden.test(await page.locator('html').textContent()), 'Public text brand leak');
-    assert.equal(await page.locator('.change-list > li').count(), 43);
+    assert.equal(await page.locator('.change-list > li').count(), 67);
+    const featuredSystems = [
+      ['#advanced-loot', 'Custom loot window'], ['#pets', 'Multiple pets'],
+      ['#pet-window', 'Custom pet window'], ['#pet-armor', 'Pet Armor tab']
+    ];
+    for (const [target, title] of featuredSystems) {
+      const shortcut = page.locator(`.system-shortcuts a[href="${target}"]`);
+      assert.ok((await shortcut.innerText()).includes(title));
+      await shortcut.click();
+      assert.ok(page.url().endsWith(target));
+      assert.ok((await page.locator(target + ' > strong').innerText()).includes(title));
+    }
+    assert.ok((await page.locator('#pet-window').innerText()).includes('class, name, and health'));
+    assert.ok((await page.locator('#pet-orders').innerText()).includes('Targeting an enemy keeps that selection'));
+    assert.ok((await page.locator('#pet-armor').innerText()).includes('does not change your command selection'));
+    assert.ok((await page.locator('#saved-loot').innerText()).includes('after reconnecting'));
     assert.equal(await page.locator('.quest-list > li').count(), 2);
     assert.equal(await page.locator('.candidate-list > li').count(), 8);
     assert.equal(await page.locator('#features details, #quests details').count(), 0, 'Lists must be readable without opening disclosures');
@@ -50,6 +65,7 @@ const forbidden = /ever\s*quest|\beq\b|eqemu|rof2|macroquest/i;
       assert.ok(href.startsWith('#'), `Unexpected external link ${href}`);
       assert.equal(await page.locator(href).count(), 1, `Broken target ${href}`);
     }
+    await page.goto(url);
     await page.keyboard.press('Tab');
     assert.equal(await page.locator('.skip').evaluate(el => el === document.activeElement), true);
     await page.locator('nav a[href="#faq"]').click();
@@ -94,10 +110,14 @@ const forbidden = /ever\s*quest|\beq\b|eqemu|rof2|macroquest/i;
       await page.screenshot({path:path.join(output,'desktop-full.png'),fullPage:true});
       await page.locator('#quests').screenshot({path:path.join(output,'quests.png')});
       await page.locator('#character').screenshot({path:path.join(output,'changes.png')});
+      await page.locator('#looting').screenshot({path:path.join(output,'loot-window.png')});
+      await page.locator('#companions').screenshot({path:path.join(output,'pet-systems.png')});
+      await page.locator('.system-shortcuts').screenshot({path:path.join(output,'featured-systems.png')});
       await page.setViewportSize({width:390,height:844});
       await page.screenshot({path:path.join(output,'mobile-top.png')});
       await page.screenshot({path:path.join(output,'mobile.png'),fullPage:true});
       await page.locator('#quests').screenshot({path:path.join(output,'mobile-quests.png')});
+      await page.locator('#companions').screenshot({path:path.join(output,'mobile-pets.png')});
     }
     for (const img of await page.locator('img').all()) {
       await img.scrollIntoViewIfNeeded();
@@ -113,6 +133,6 @@ const forbidden = /ever\s*quest|\beq\b|eqemu|rof2|macroquest/i;
       assert.ok(!cache.includes('public'), `Shared caching enabled: ${name}`);
       assert.deepEqual(await asset.body(), fs.readFileSync(path.join(root,name)), `Hosted bytes differ: ${name}`);
     }
-    console.log(JSON.stringify({result:'PASS',url,checks:['brand and metadata guard','43 visible custom changes / 2 installed quests / 8 unreleased quests','all anchor targets','keyboard disclosures','history and deep links','5 responsive widths','200% text reflow','images','no JavaScript needed','strict CSP','private non-caching responses','clean console/network']},null,2));
+    console.log(JSON.stringify({result:'PASS',url,checks:['brand and metadata guard','67 visible custom changes / 2 installed quests / 8 unreleased quests','all anchor targets','keyboard disclosures','history and deep links','5 responsive widths','200% text reflow','images','no JavaScript needed','strict CSP','private non-caching responses','clean console/network']},null,2));
   } finally { if(browser) await browser.close(); server.close(); }
 })().catch(error => { console.error(error); process.exitCode=1; });

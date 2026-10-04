@@ -55,3 +55,24 @@ nine package/deployment tests, origin activation/rollback, exact file hashes,
 protected downloads and unchanged service identities all pass. Unapproved access
 remains 403. Review and desktop/mobile inspection completed. Recovery retains the
 prior private release and a matching helper beside the new private receipt.
+
+## October 4 — custom systems coverage follow-up
+
+The first list compressed major systems too far. Expanded to eight named sections
+with 67 feature/control entries and prominent custom loot, multiple pets, custom
+pet window and armor shortcuts. Added the missing control, persistence and caster
+interface details; preserved quest separation, content status and private access.
+Independent source review and desktop/mobile checks pass. No gameplay changes.
+
+Deployed as `20261004-player-guide-systems`; prior release
+`20261004-player-guide-lists` is retained for rollback. The full HTTPS browser
+suite passes, including featured links, exact five-file bytes, private cache
+headers, 67 entries, two installed/eight unreleased quests, five viewport widths,
+200% text, keyboard/history, branding and clean console/network. Nine package/
+deployment tests pass. Origin activation and rollback passed with protected
+downloads preserved and all five service identities/start times unchanged.
+An unapproved source still receives 403. No game restart, database mutation,
+DNS/WAF change or public route. Matching receipt and recovery helper are under
+`/opt/nightcap/deploy/production/website-history/20261004-player-guide-systems/`.
+Evidence: `E:/EQ_Local_Dev/artifacts/player-website-20261004/expanded-https-screenshots/`
+and `systems-verification.json` in the same artifact root.

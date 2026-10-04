@@ -10,7 +10,7 @@ using repository loading artwork and Nightcap-only player-facing branding. The o
   No public apex/www site, new DNS route or Cloudflare sign-in is needed.
 - Apex/www and unknown Host headers return 404 at the origin. The unused public
   virtual host was removed before closing this task. No DNS/WAF rules changed.
-- Active release: `20261004-player-guide-lists`, selected by
+- Active release: `20261004-player-guide-systems`, selected by
   `/opt/nightcap/deploy/production/data/public/player-site/current`.
 - All five container identities/start times, both patch channels, existing player
   guide and friend ZIP are preserved. No game restart or database mutation.
@@ -22,7 +22,9 @@ and two unmodified loading-screen PNGs. Native anchors and details work without
 JavaScript, external fonts, cookies, forms or analytics. Brand checks cover public
 text, metadata, attributes and static code. Both images were inspected visually.
 
-Forty-three custom changes appear as visible lists in six groups. A separate quest
+Sixty-seven feature/control entries appear in eight custom-system sections.
+Loot and pet systems come first, with direct links to the custom loot window,
+multiple pets, custom pet window and Pet Armor tab. A separate quest
 section covers Ascension and Waypoint Explorer, with starting points, requirements
 and rewards. Eight built journal quests are listed in their own unreleased panel.
 The guide retains plain language, larger detail text and material warnings.
@@ -97,7 +99,28 @@ caching and edge analytics injection while retaining strict CSP. Include
 `/index.html` in the cache map: `try_files` changes the URI. Signed release caching
 is unchanged. [Documented edge behavior](https://developers.cloudflare.com/web-analytics/faq/).
 
-## October 4 list update
+## October 4 systems coverage update
+
+Release `20261004-player-guide-systems` expands the previous list release's
+compressed descriptions. Only HTML and CSS payloads change; the five-file package,
+private host routing and loading images remain. Local browser checks pass for the
+system shortcuts, 67 entries, two installed quest lines and eight unreleased quests.
+Independent content review and desktop/mobile inspection are complete.
+
+Deployed as `20261004-player-guide-systems`; prior release
+`20261004-player-guide-lists` is retained for rollback. The full HTTPS browser
+suite passes, including featured links, exact five-file bytes, private cache
+headers, 67 entries, two installed/eight unreleased quests, five viewport widths,
+200% text, keyboard/history, branding and clean console/network. Nine package/
+deployment tests pass. Origin activation and rollback passed with protected
+downloads preserved and all five service identities/start times unchanged.
+An unapproved source still receives 403. No game restart, database mutation,
+DNS/WAF change or public route. Matching receipt and recovery helper are under
+`/opt/nightcap/deploy/production/website-history/20261004-player-guide-systems/`.
+Evidence: `E:/EQ_Local_Dev/artifacts/player-website-20261004/expanded-https-screenshots/`
+and `systems-verification.json` in the same artifact root.
+
+## Historical October 4 initial list update
 
 Release `20261004-player-guide-lists` replaces `20261001-player-guide-friendly`.
 Only HTML and CSS payload bytes change. The deployment retains the same private
