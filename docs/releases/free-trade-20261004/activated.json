@@ -1,0 +1,101 @@
+{
+  "image_id": "sha256:292dea4dcdf8c546c3bcfc0a4f84cd341a2ad44b18f5015dca119b951305d2f6",
+  "started_at": "2026-10-04T21:43:46.214625821Z",
+  "restart_count": 0,
+  "processes": [
+    [
+      "loginserver",
+      "1687b96dcbbff46b332c7ade8a24b47db8831b373ab5079d855e0dff8f7be061"
+    ],
+    [
+      "world",
+      "80fb2097c8a1fcaba80d5cfead3156a027cfdb7f8b6ebf247dc4b836c25883ab"
+    ],
+    [
+      "ucs",
+      "c7f6afc89b29ffa3ab2d8a519e7b5d4922d6eb5d69957dec8dee7aee198c8f92"
+    ],
+    [
+      "zone",
+      "ecba82e22dd088028fe6d64b87e9332ec96e2c21771f4c250c44147faf3d4904"
+    ],
+    [
+      "zone",
+      "ecba82e22dd088028fe6d64b87e9332ec96e2c21771f4c250c44147faf3d4904"
+    ],
+    [
+      "zone",
+      "ecba82e22dd088028fe6d64b87e9332ec96e2c21771f4c250c44147faf3d4904"
+    ],
+    [
+      "zone",
+      "ecba82e22dd088028fe6d64b87e9332ec96e2c21771f4c250c44147faf3d4904"
+    ],
+    [
+      "zone",
+      "ecba82e22dd088028fe6d64b87e9332ec96e2c21771f4c250c44147faf3d4904"
+    ],
+    [
+      "zone",
+      "ecba82e22dd088028fe6d64b87e9332ec96e2c21771f4c250c44147faf3d4904"
+    ],
+    [
+      "zone",
+      "ecba82e22dd088028fe6d64b87e9332ec96e2c21771f4c250c44147faf3d4904"
+    ],
+    [
+      "zone",
+      "ecba82e22dd088028fe6d64b87e9332ec96e2c21771f4c250c44147faf3d4904"
+    ],
+    [
+      "zone",
+      "ecba82e22dd088028fe6d64b87e9332ec96e2c21771f4c250c44147faf3d4904"
+    ],
+    [
+      "zone",
+      "ecba82e22dd088028fe6d64b87e9332ec96e2c21771f4c250c44147faf3d4904"
+    ],
+    [
+      "zone",
+      "ecba82e22dd088028fe6d64b87e9332ec96e2c21771f4c250c44147faf3d4904"
+    ],
+    [
+      "zone",
+      "ecba82e22dd088028fe6d64b87e9332ec96e2c21771f4c250c44147faf3d4904"
+    ]
+  ],
+  "errors": {
+    "native": 0,
+    "quest": 0,
+    "database": 0
+  },
+  "client_release": 2026100406,
+  "client_channel_sha256": "aaa3f574d4535bd49f69f995d6ababf85845df920dbc40ad871d083f36247909",
+  "player_tables_preserved": 47,
+  "quest_files_preserved": 8139,
+  "database_restored": false,
+  "gateway_open": true,
+  "cache": {
+    "items_checked": 308961,
+    "fixed_payout_items": 171561,
+    "all_items_tradable": true,
+    "fixed_payout_copper": 1000,
+    "item_struct_bytes": 1332,
+    "cache_sha256": "aa5094d51b984a95ba93ddbd0e482c32bb0e53ba9fea1c67d925c8a94ef1bca3",
+    "catalog_flags_sha256": "672def068fbf25dea72d99674d4e939162a754be1f238923ac950633f90ddfcb"
+  },
+  "content_preserved": {
+    "peq.items": "788367684",
+    "peq.spells_new": "4267609982",
+    "peq.npc_types": "2740314227",
+    "peq.spawn2": "428342276",
+    "peq.merchantlist": "2453951956"
+  },
+  "backup": {
+    "path": "/opt/nightcap/releases/free-trade-20261004/private-backup/peq-before.sql.gz",
+    "sha256": "d8cfc1b412dc44dee13d0b971bcf9685bda3391a46104f021fc051f4236d130b",
+    "compressed_bytes": 62524218,
+    "uncompressed_bytes": 444895620,
+    "gzip_integrity": "passed"
+  }
+}

@@ -1,6 +1,6 @@
 # CHANGES
 
-## 2026-10-04 - Prepare universal item trading and one-platinum NO DROP resale
+## 2026-10-04 - Deploy universal item trading and one-platinum NO DROP resale
 
 All items receive effective tradable flags, including existing attuned instances,
 containers and augments. Original NO DROP definitions sell for exactly 1pp per
@@ -8,8 +8,11 @@ physical unit at merchants and through #sellall. Ordinary pricing remains; a
 converted-item purchase floor prevents buyback profit. Raw SQL flags and saved
 attunement remain available for rollback. Summoned/free rewards are included.
 Requires all matching native binaries, regenerated shared memory and restart;
-merchant preview can differ from the fixed receipt. Candidate only, not deployed;
-see docs/releases/free-trade-20261004/README.md for evidence and exact owner QA.
+merchant preview can differ from the fixed receipt. Deployed to OVH after explicit
+owner approval: all 308,961 hosted items verified tradable, 171,561 fixed payouts,
+all five binaries and 12 zones checked, fresh backup and player/content/client
+preservation verified. Native player QA remains open. See
+docs/releases/free-trade-20261004/README.md for evidence and exact owner QA.
 
 ## 2026-10-04 — Preserve the Enchanter pet's native invisible-actor identity
 
