@@ -613,50 +613,6 @@ td.numeric {
 .loot-group h3 {
   font-size: 12px;
 }
-.spawn-plot {
-  margin-bottom: 24px;
-}
-.spawn-plot select {
-  width: auto;
-  font-size: 11px;
-  padding: 6px;
-}
-.spawn-plot svg {
-  background: #193a34;
-  width: 100%;
-  border-radius: 5px;
-  max-height: 280px;
-}
-.plot-grid {
-  color: #548372;
-}
-.plot-label {
-  fill: #d5e4d9;
-  font:
-    11px Consolas,
-    monospace;
-}
-.plot-original {
-  fill: #e7f3e8;
-  stroke: #18352c;
-  stroke-width: 2;
-}
-.plot-proposed {
-  fill: #e2ac58;
-  stroke: #211e14;
-  stroke-width: 2;
-}
-.plot-move {
-  stroke: #e2ac58;
-  stroke-width: 2;
-  stroke-dasharray: 5 4;
-}
-.spawn-plot g {
-  cursor: pointer;
-}
-.spawn-plot g:focus-visible {
-  outline: 2px solid #efc57d;
-}
 .review-layout {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 365px;

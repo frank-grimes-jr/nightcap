@@ -38,6 +38,10 @@ All commands run from `akk-stack/`:
 
 ## eq-npc-admin
 
+- Zone maps read `mapDirectory` from ignored local config; optional `mapAliases`
+  keys are `zone:version`. Client map assets stay read-only and out of Git.
+  World-to-map coordinates are `(-X, -Y)`; `/loc` order is `Y, X, Z`.
+
 - `Start NPC Admin.cmd` or `npm run build` then `npm start` — loopback UI/API on 3100.
 - `npm test`; `npm run test:database` writes only disposable `npc_admin_test` on 3317.
 - `config.local.json` and `.local/` contain private connection settings/drafts/receipts; never commit them.

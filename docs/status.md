@@ -12,6 +12,11 @@ writes were rehearsed in a disposable MariaDB, including browser apply/rollback.
 No hosted deployment or live NPC content change is recorded by this release.
 Activation and owner in-game acceptance remain separate in its [QA guide](../eq-npc-admin/QA.md).
 
+Zone maps now read the locally configured client map folder, with pan/zoom,
+height filtering and current/staged spawn markers. OVH is connected through the
+owner's local SSH tunnel; verification uses read-only NPC queries. No game runtime
+restart or live content write accompanies the map feature. Details: [phase 48](milestones/phase-48-report.md).
+
 ## Adventure Journal / Epic 0.5 candidate
 
 The [Adventure Journal](adventure-journal/README.md) adds eight native tasks and

@@ -258,7 +258,7 @@ watch(target, () => {
               :key="`${target}-${refreshKey}`"
               :target="target"
               :connected="connected"
-              :changes="draft?.changes ?? []"
+              :changes="draft?.source === target ? draft.changes : []"
               @edit="edit"
               @error="error = $event"
             />

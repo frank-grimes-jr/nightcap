@@ -1,5 +1,19 @@
 # CHANGES
 
+## 2026-10-04 - NPC Admin zone maps
+
+Replace the coordinate-only spawn plot with local client map outlines, optional
+labels/layers, clickable spawn markers, pan/zoom, keyboard navigation and Z-range
+filtering. Current and staged positions remain distinct and use the same
+coordinate scale; local drafts no longer overlay another browse target. The map
+reader validates basenames, confines real paths, bounds input size and caches
+four maps. Client files are read-only, configured privately and excluded from Git.
+
+Missing maps keep a labeled coordinate fallback. Map layers are not floors and
+client labels may be stale; maps do not establish ground clearance, pathing or
+live NPC position. Gameplay writes and service activation are unchanged. Tests,
+browser checks and remaining limits: phase 48 report and `eq-npc-admin/QA.md`.
+
 ## 2026-10-04 - Local NPC administration workbench
 
 Added `eq-npc-admin`, a local Vue/Express utility for NPC placement, respawns,

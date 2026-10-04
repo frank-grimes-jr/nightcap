@@ -64,3 +64,28 @@ title; never substitute these fixture IDs blindly into a live database.
 
 Record pass/fail, exact target, IDs, timestamp, activation performed and any
 unexpected effects. Pending manual acceptance is not evidence of a live defect.
+
+
+## Zone map acceptance — October 4, 2026
+
+1. With the local client map folder configured, select a target and search an NPC.
+   Open Locations: the client map filename and selected zone/version must match.
+2. PoK Banker Ceridan (202146): world X=484, Y=447 maps to -484,-447; `/loc` shows
+   447,484,-124.125 in the inspected OVH snapshot. Read fresh values before edits.
+3. Select a marker and the spawn picker; both identify the same row. Zoom, drag
+   and arrow-key pan must not change coordinates or draft revision.
+4. Existing local "Move swashbuckler" draft: current X=-141 and staged X=-180
+   are distinct circle/diamond markers with matching /loc values. Do not apply
+   this draft for map testing. Switching to OVH must remove the local overlay.
+5. Enable Limit height: a range excluding the spawn Z hides its markers; a range
+   including Z restores them. Minimum above maximum produces a visible error.
+   Map lines crossing the selected interval are clipped, not discarded whole.
+6. Toggle map labels/layers; Fit zone and Fit spawns remain usable. A missing
+   map gives an explicit coordinate fallback and does not block the editor.
+7. Check 320px and desktop widths: controls wrap, the map stays inside the page,
+   and keyboard selection/pan/zoom remains available.
+
+Automated map/API tests and build pass; map checks do not require database writes.
+Do not infer native floor/pathing acceptance from these display checks. OVH's
+supervisor restarts the full runtime when a native child exits; no process exit
+or zone refresh is part of this map verification.

@@ -29,21 +29,48 @@ the app opens a setup screen. Never commit `config.local.json` or `.local/`.
 
 ## Everyday tasks
 
-| Task | Workflow |
-|---|---|
-| Move an NPC | Search name/ID and zone → Locations → marker or Move / edit. Paste `/loc` in **Y, X, Z** order; the editor maps axes. Set heading in 0–511 units. The plot is a coordinate schematic, without terrain. |
-| Adjust respawn | Locations → Move / edit → respawn seconds, variance, path grid or animation. The UI shows other NPCs sharing the spawn group. |
-| Edit loot | Loot → table/cash, group probability and drop limits, or item odds/charges/era gates. `+ Item` searches item names; attach an existing group by ID. Shared NPCs and global-loot rules appear in preflight. |
-| Edit NPC stats/models | Details → Edit details or Edit combat. Every spawn using that NPC template changes. Race, class, texture and faction values are database IDs. |
-| Stock a merchant | Merchant → assign merchant ID/class or add/edit/remove stock. Class 41 opens a merchant shop. The sixteen curated PoK class merchants remain managed by the catalog/restock tooling. |
-| Review or share | Changes → before/after diff, Unstage, Export change set, View SQL or Import JSON. Up to 200 records per draft. Drafts survive restart. |
-| Undo a server change | Deployment history → Preview rollback → inspect drift/activation → confirm the exact target name. Rollback refuses newer content or conflicting saved state. |
+| Task                  | Workflow                                                                                                                                                                                                                                 |
+| --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Move an NPC           | Search name/ID and zone → Locations → select a map marker → Move / edit selected spawn. Paste `/loc` in **Y, X, Z** order; the editor maps axes. Set heading in 0–511 units. Current circles and staged diamonds show the proposed move. |
+| Adjust respawn        | Locations → Move / edit → respawn seconds, variance, path grid or animation. The UI shows other NPCs sharing the spawn group.                                                                                                            |
+| Edit loot             | Loot → table/cash, group probability and drop limits, or item odds/charges/era gates. `+ Item` searches item names; attach an existing group by ID. Shared NPCs and global-loot rules appear in preflight.                               |
+| Edit NPC stats/models | Details → Edit details or Edit combat. Every spawn using that NPC template changes. Race, class, texture and faction values are database IDs.                                                                                            |
+| Stock a merchant      | Merchant → assign merchant ID/class or add/edit/remove stock. Class 41 opens a merchant shop. The sixteen curated PoK class merchants remain managed by the catalog/restock tooling.                                                     |
+| Review or share       | Changes → before/after diff, Unstage, Export change set, View SQL or Import JSON. Up to 200 records per draft. Drafts survive restart.                                                                                                   |
+| Undo a server change  | Deployment history → Preview rollback → inspect drift/activation → confirm the exact target name. Rollback refuses newer content or conflicting saved state.                                                                             |
 
 This replaces repetitive SQL requests to Codex with immediate context and review.
 Use Codex for new quests, C++/schema changes, encounter analysis, unusual data
 repairs, new NPC/spawn creation, or cloning independent loot tables. This release
 edits existing NPCs and spawn records; it adds/removes loot and merchant entries.
 It does not create NPC templates, spawn groups, path grids or new loot containers.
+
+## Zone maps
+
+Set `mapDirectory` in the ignored `config.local.json` to your client's `maps`
+folder, for example `E:/EQ_Local_Dev/Client_RoF2_Dev/everquest_rof2/maps`, then
+restart NPC Admin. Relative paths resolve from the app folder. The backend reads
+`zone.txt` and optional `zone_1.txt` through `zone_3.txt`; client files remain
+read-only and are not copied to Git. Missing maps retain a labeled coordinate view.
+
+Locations shows the selected NPC's configured spawns for one zone/version.
+Drag to pan, scroll or use +/− to zoom, and use Fit zone / Fit spawns. Focus the map
+and use arrow keys to pan. Select a marker or the spawn picker, then use the
+existing location editor to stage a move. Navigation never changes coordinates.
+Staged moves show current circles, proposed diamonds and connecting lines.
+Map labels and layers can be toggled; **Limit height** clips outlines and markers
+to a Z interval. **Height near selected spawn** starts at its proposed Z ±20.
+
+These are database spawn positions, not live roaming NPCs. Client map labels can
+be outdated and are separate from NPC data. Map layer numbers are file layers,
+not reliable floor numbers. Height filtering helps with overlapping floors but
+does not prove ground clearance, line of sight, collision or pathing. Verify
+placement in game. Zone maps default to the zone short name for all versions;
+match the chosen map to the actual era/client terrain. For alternate maps set
+`mapAliases`, for example `{"lavastorm:0":"lavastorm_classic"}` when those files
+exist. A target's `mapAliases` overrides the global alias set. Only map basenames
+are accepted; absolute paths, traversal and files outside the folder are refused.
+The app limits a map to 8 MB / 120,000 lines / 5,000 labels and caches four maps.
 
 ## Push to GitHub
 
@@ -127,6 +154,10 @@ Database applied does **not** mean the running zone loaded the change:
 
 The app never kills zones or changes era rules. The exact acceptance rehearsal and
 dated test evidence are in [QA.md](QA.md). Manual live acceptance remains owner work.
+
+On OVH, a native child exiting restarts the entire game runtime under
+`/opt/nightcap/start.py`. Use its supported zone-unload mechanism or the approved
+maintenance procedure; local eqlaunch single-zone restart behavior does not apply.
 
 ## Verification
 

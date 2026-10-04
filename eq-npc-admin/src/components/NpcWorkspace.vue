@@ -352,6 +352,8 @@ watch(
             <SpawnPlot
               :spawns="detail.spawns"
               :changes="changes"
+              :target="target"
+              :npc-name="detail.npc.name.replaceAll('_', ' ')"
               @edit="editSpawn"
             />
             <div class="table-wrap">
