@@ -3,12 +3,13 @@
 Updated October 4, 2026. This is the current status index; dated studies and
 QA reports preserve their original evidence and are not live-state promises.
 
-## Passive AA leveling candidate
+## Passive AA leveling release prepared
 
 Implemented additive AA at 1% of the full AA award while preserving leveling XP,
-with 0%/100% focus allocation and both quest reward paths covered. Feature branch
-only: no production deployment or manual acceptance. Historical balance evidence
-hash failures and a full matched release build remain promotion gates.
+with 0%/100% focus allocation and both quest reward paths covered. The owner has
+authorized main/server deployment; a fresh five-binary build, 71 native checks
+and nine rollout failure tests pass. Historical report hash failures are audited
+status-note drift. OVH activation and manual gameplay acceptance remain pending.
 [Behavior, automated evidence and exact owner QA](releases/passive-aa-20261004.md).
 
 ## Nightcap loading artwork published

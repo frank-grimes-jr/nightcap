@@ -1,6 +1,6 @@
 # CHANGES
 
-## 2026-10-04 - Passive AA experience while leveling (candidate)
+## 2026-10-04 - Passive AA experience while leveling
 
 Add AA:PassiveExpPercent (default 1% of a full AA award) alongside unchanged
 normal XP from kills and raw/percentage quest/task rewards. AA allocation is
@@ -9,9 +9,10 @@ valid historical partial allocations become 100%. Focused mode grants the full
 AA award without an extra passive bonus. Respect minimum level, XP disablement,
 AA modifiers and caps; resurrection earns no passive AA. Guard bank-cap crossing
 without deleting already earned points. Tiny passive awards round down.
-Matching world/zone builds are required for the new rule. Implementation and
-focused tests are isolated; production is unchanged and native acceptance remains
-open. Evidence, calibration and exact QA: docs/releases/passive-aa-20261004.md.
+Matching world/zone builds are required for the new rule. The owner authorized
+main/server deployment; all five binaries are freshly linked with production
+hardening preserved. Native and rollout checks pass; activation and gameplay QA
+remain pending. Evidence, calibration and exact QA: docs/releases/passive-aa-20261004.md.
 
 ## 2026-10-04 — Replace the complete loading gallery with Nightcap artwork
 

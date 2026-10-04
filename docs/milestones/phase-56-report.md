@@ -9,10 +9,14 @@ server translation-unit compile tooling. Independent review found and resolved
 percentage reward modifier and missing-row edge cases.
 
 Cut: a guaranteed minimum award (farmable), persisted fractional XP/schema changes,
-client binary/UI patching, AA availability/rank retuning and production deployment.
+client binary/UI patching and AA availability/rank retuning.
 
-Shaky/open: 5 pre-existing historical evidence-hash checks in the broader 352-test
-suite; a fresh linked matched-binary release build; actual RoF2 display, persistence,
-task-completion integration and comparative progression/combat acceptance.
+Follow-up: the owner authorized main/server deployment. All five native binaries
+now link from a fresh, production-preserving source tree, with 71 native checks
+and nine rollout failure tests passing. The five broader-suite failures are
+audited historical status-note drift; all pinned non-document artifacts match.
+
+Shaky/open: OVH activation and actual RoF2 display, persistence, task-completion
+integration and comparative progression/combat acceptance.
 
 [Release evidence and exact QA](../releases/passive-aa-20261004.md).

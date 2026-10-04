@@ -1,0 +1,65 @@
+{
+  "base_manifest_sha256": "9145605c2a8fa5890710bd3e0239835a128ba68a113f9b4ccf41517f9708e54b",
+  "hardening_sha256": "219f556bb1e55a719f8a3f5150c95723ce46ab9a8b69c93c2bc0f54ff1262b2e",
+  "binaries": {
+    "world": "5d2111a0dede69ac243338d2305c0b00207c0f1cd6a88f4f09d6d5e2bb6b0280",
+    "zone": "6f87e5ca42a74a49d4f45906f095cf9c90338dbb3e75411e34faa351d1062ed3",
+    "shared_memory": "fd9d2da3677dc8375d80085d3aa19c265cc8d13d44729ae2fb913bd3621682e8",
+    "ucs": "4fcfd170f03dd78e0758e47d0c943bd1aabc3f8188239683cd85e00589ca2abe",
+    "loginserver": "36cfc9a638ddf5a999217465b2bbd6c4636ddbd518cf94a35a14ab24fc493226"
+  },
+  "changed_source_files": [
+    "common/ruletypes.h",
+    "zone/aa.cpp",
+    "zone/client.cpp",
+    "zone/client.h",
+    "zone/client_packet.cpp",
+    "zone/exp.cpp",
+    "zone/gm_commands/aa_exp.cpp",
+    "zone/zonedb.cpp"
+  ],
+  "built_targets": [
+    "world",
+    "zone",
+    "shared_memory",
+    "ucs",
+    "loginserver"
+  ],
+  "cmake_flags": [
+    "-DCMAKE_BUILD_TYPE=RelWithDebInfo",
+    "-DCMAKE_CXX_COMPILER=/usr/bin/clang++",
+    "-DCMAKE_C_COMPILER=/usr/bin/clang",
+    "-DVCPKG_MANIFEST_INSTALL=OFF",
+    "-DVCPKG_MANIFEST_MODE=OFF",
+    "-DCMAKE_TOOLCHAIN_FILE=/home/eqemu/code/submodules/vcpkg/scripts/buildsystems/vcpkg.cmake",
+    "-DVCPKG_INSTALLED_DIR=/home/eqemu/code/build/vcpkg_installed",
+    "-DEQEMU_ADDITIVE_LFIB_PRNG=OFF",
+    "-DEQEMU_ADD_PROFILER=OFF",
+    "-DEQEMU_BIASED_INT_DIST=OFF",
+    "-DEQEMU_BUILD_CLIENT_FILES=ON",
+    "-DEQEMU_BUILD_LOGIN=ON",
+    "-DEQEMU_BUILD_LUA=ON",
+    "-DEQEMU_BUILD_PCH=ON",
+    "-DEQEMU_BUILD_PERL=ON",
+    "-DEQEMU_BUILD_SERVER=ON",
+    "-DEQEMU_BUILD_TESTS=OFF",
+    "-DEQEMU_CUSTOM_PRNG_ENGINE=",
+    "-DEQEMU_BUILD_LOGIN=ON"
+  ],
+  "patch_sha256": "4a06efaa6b0ff06b321b62b96faa15fe908f51b43f69f018a757c942ee768a20",
+  "feature_commit": "f8037ab",
+  "status": "built_not_installed",
+  "private_login_crypto_self_test": "passed",
+  "full_manifest_sha256": "cae9a3f696ee7f266993958c4d0cdf5b463eeea58dd5f7a0805aaa42b2ae3714",
+  "native_contract_checks": "passed",
+  "changed_source_sha256": {
+    "common/ruletypes.h": "61b00c370fdd70b486873f0a0dd22ed8722e753551d6e4dd2ef3cc14afa87d85",
+    "zone/aa.cpp": "4d9e898c7bc6ea139d568d8282cefa5e511c0741079328fc3345aa69feffd9c9",
+    "zone/client.cpp": "866826016d866aa6220fb0ff1bdd25fc359f2c650ec0da1765b750f0b54bb72b",
+    "zone/client.h": "d170399d78d1d590eb84a0856dbd52f5ba1caeb944b5f9a4fbcb6dfba8d438c0",
+    "zone/client_packet.cpp": "c36520648a2d57af4a7e3487a90150ecd1019fadb641d4f4b94307db061e6c70",
+    "zone/exp.cpp": "5aebbfe89e74e026082f25cbfcab2264d239ddc97653f0838e4d1f4aa477b0b2",
+    "zone/gm_commands/aa_exp.cpp": "160ae47f07c257f725d30d8cb35616c7c70f3dd70e5fa0abbe3245ac10fb8259",
+    "zone/zonedb.cpp": "9dd2152d6f0c6c5435c25f2ddb641a8eabf4d3f50cd55dea0cf7004d9bdde88e"
+  }
+}

@@ -1,7 +1,9 @@
-# Passive AA experience candidate — October 4, 2026
+# Passive AA experience release — October 4, 2026
 
-Status: implemented on `feature/passive-aa-experience`; not deployed or promoted
-to main. No PEQ writes, installed binary changes, service restarts or client edits.
+Status: implementation and fresh release build verified. On October 4 the owner
+explicitly requested "Deploy to main and server", authorizing this release's main
+promotion and OVH activation before manual acceptance. Deployment is pending;
+the exact in-game QA below remains open.
 The managed worktree was based on fetched main `f44047f`, not the older local main.
 
 ## Player behavior
@@ -35,7 +37,9 @@ they do not take raw kill/zone multipliers a second time.
 Read-only local PEQ observation: minimum AA level 1, AA XP/point 50,000, normal
 XP multiplier 0.65, AA multiplier approximately 0.65, modern acceleration and
 normalized AA disabled, final multiplier 1, both AA caps disabled.
-This is local tuning, not a claim about current OVH rules.
+The read-only OVH preflight also confirms minimum AA level 1, XP/point 50,000,
+normal/AA multipliers approximately 0.65, modern/normalized AA disabled and both
+AA caps disabled. Its absent RuleSet variable selects the default ruleset (1).
 
 With matching level/AA multipliers, no XP cap/penalty and kills only, the native
 curve requires 164,708,608 level XP to reach 50: approximately 32.94 passive AAs
@@ -58,14 +62,26 @@ same encounters before/after. Do not add unrestricted AAs to this acceptance run
 - **Eight full translation units compile** using configured server flags and an
   isolated source overlay: exp, client, client_packet, aa, zonedb, aa_exp,
   common/rulesys and world/main. CMake's implicit headers are included as text;
-  no old precompiled header or installed object is reused. This is not a linked
-  release build. See `passive-aa-20261004-build.json` for source/object hashes.
+  no old precompiled header or installed object is reused. See
+  `passive-aa-20261004-build.json` for the original source/object hashes.
+- A separate fresh release build links **world, zone, shared_memory, ucs and
+  loginserver** from the fingerprinted current production source plus exactly
+  the eight-file feature patch. Existing production hardening is retained.
+  The login crypto self-test passes; the native-method harness also passes
+  **71/71 against this exact production source**. Nine rollout failure tests
+  cover successful activation, rollback and fail-closed preservation behavior.
+  See [build summary](passive-aa-20261004/build-summary.json) and
+  [native checks](passive-aa-20261004/native-tests.json).
 - Broader balance suite: **352 run, 347 passed, 5 failed**. All five failures are
   historical evidence document hashes; their tests and flagged documents are
   unchanged from base `f44047f`: test_aa_bulk_evidence, test_aa_class_release_evidence,
   test_aa_owned_core_evidence, test_aa_purchase_evidence, test_aa_removal_evidence.
-  Do not rewrite historical expected hashes to make this feature green. Resolve
-  the pre-existing evidence policy before branch promotion.
+  Audit: all 72 pinned non-document artifacts match; nine Markdown reports gained
+  the same September 15 deployment-status note in commit `9f6f48b`. Removing only
+  that note in memory reproduces all nine original hashes. This is pre-existing
+  narrative drift, not a feature regression or deployment blocker. Historical
+  expectations remain unchanged; executable bytes from those old releases were
+  not rehashed. [Audit](passive-aa-20261004/historical-evidence-audit.json).
 - Independent review found two related percentage-reward modifier issues; both
   were corrected and regression-tested. Final review has no actionable findings.
 - Windows Strawberry g++ cannot accept C++20; native proof used the configured
@@ -82,8 +98,9 @@ python3 compile_passive_aa.py --candidate /tmp/nightcap-passive-aa/server-mods/c
 
 ## Exact in-game QA (pending)
 
-First build matching world/zone from a fresh source snapshot and activate only on
-an isolated QA deployment. Preserve/recheck rule values after world startup:
+Matching release binaries are built. Run rule-changing and synthetic-reward QA
+on an isolated deployment; ordinary live smoke checks may use a disposable owner
+character. Preserve/recheck rule values after world startup:
 minimum AA level 1, passive percent 1, XP/point 50,000, normal/AA multipliers 0.65,
 final 1, normalized/modern scaling off, caps -1. Set ShowExpValues=2 for measurement;
 record and later restore every QA-only rule value. Never alter the era rules.
@@ -122,14 +139,18 @@ record and later restore every QA-only rule value. Never alter the era rules.
    task IDs used for completion-path smoke tests in the acceptance log. Remove the
    QA fixture and despawn its synthetic NPCs; do not publish them to production.
 
-## Rollout and rollback (not executed)
+## Rollout and rollback (activation pending)
 
-Keep this feature candidate pending the recorded gates; do not merge into main
-without owner QA sign-off. For rollout, build every required runtime binary from
-one fresh pinned source tree; at minimum world and zone must share the new rule
-catalog. Preserve current production image, hashes and rule preimages, then verify
-the new rule and minimum level survive startup. OVH start.py restarts the whole
-runtime when a child exits: use the established coordinated deployment procedure.
+The owner's explicit deployment request authorizes main promotion and OVH rollout
+for this release. It does not mark the manual QA above complete. The reviewed
+[transaction](passive-aa-20261004/ops/rollout.py) closes the gateway, stops the game
+cleanly, records player/content fingerprints, inserts only the 1% passive rule,
+and starts the matched image. It checks all runtime hashes, twelve zones, rule
+preservation, player data, existing free-trade cache, quests and public client
+artifacts before reopening access. A verified full PEQ backup precedes activation.
+Failures roll back to the previous free-trade image and remove only this release's
+owned rule, without restoring or rewriting player data. OVH start.py supervises
+the whole runtime; individual process exits are not used for deployment.
 
 No schema migration or existing-character bulk update is required. To disable
 passive earning on matching binaries, set PassiveExpPercent=0 and reload rules.

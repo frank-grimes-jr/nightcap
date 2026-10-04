@@ -53,7 +53,7 @@ All commands run from `akk-stack/`:
 
 ## Server ops
 
-- **Passive AA candidate**: `AA:PassiveExpPercent` controls additive kill/quest/task
+- **Passive AA experience**: `AA:PassiveExpPercent` controls additive kill/quest/task
   AA at 0% allocation; `#aaexp on|off` selects 100% or 0%. Tiny gains round down.
   Percentage rewards must preserve independent level/AA modifiers and missing-row
   behavior. Rebuild matching world/zone for the rule; this candidate is not deployed.

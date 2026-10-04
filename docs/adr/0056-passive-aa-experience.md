@@ -1,7 +1,7 @@
 # 0056: Passive AA experience while leveling
 
 Date: 2026-10-04
-Status: Implementation candidate; owner in-game acceptance pending.
+Status: Owner-authorized release; in-game acceptance pending.
 
 ## Intent
 
@@ -30,7 +30,8 @@ AA pool or changing rank caps, purchase costs, or the experience cost per point.
   while larger kills/quests begin accumulating AA. No schema/fractional bank.
 - A full AA bank turns focus off before splitting the next award; retain earned
   points and partial XP, and prevent a single large award crossing the bank cap.
-- No changes to the binary game client, era policy or production state.
+- No changes to the binary game client or era policy. The owner explicitly
+  authorized main/server deployment after implementation on October 4.
 
 ## Implementation plan
 
@@ -41,7 +42,8 @@ AA pool or changing rank caps, purchase costs, or the experience cost per point.
 3. Test normal/normalized XP, quests/tasks, 0/100 modes, eligibility, resurrection,
    modifiers, caps and low-value rounding. Compile affected server units.
 4. Review independently; record calibration, exact in-game QA and rollout/rollback.
-   Commit one feature candidate; broader suite failures remain promotion gates.
+   The broader failures were subsequently traced to historical status notes;
+   pinned non-document artifacts match. Preserve those original expected hashes.
 
 ## Alternatives
 

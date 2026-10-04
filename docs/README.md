@@ -10,7 +10,7 @@ Start with [current status](status.md), not a dated candidate report.
 
 ## Players and testers
 
-- [Passive AA while leveling: candidate behavior, verification and exact QA](releases/passive-aa-20261004.md)
+- [Passive AA while leveling: release behavior, verification and exact QA](releases/passive-aa-20261004.md)
 
 - [Nightcap loading artwork: live release, update instructions and visual checks](releases/loading-screens-20261004.md)
 
