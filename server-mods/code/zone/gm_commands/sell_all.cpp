@@ -1,9 +1,10 @@
 #include "zone/client.h"
 #include "common/rulesys.h"
+#include "common/item_trade_policy.h"
 
 // #35: player-facing #sellall -- vendors everything in general inventory and
 // bag contents, keeping the bags themselves. No merchant target needed; pays
-// flat items.price * Merchant:BuyCostMod like a vendor sale.
+// fixed resale for former NO DROP items; ordinary items retain their flat rate.
 // ponytail: skips the CHA/faction price mod (CalcPriceMod needs a merchant
 // target) -- add a targeted-merchant mode if the ±4% ever matters.
 static uint64 SellAllSlot(Client *c, int16 slot_id)
@@ -18,18 +19,18 @@ static uint64 SellAllSlot(Client *c, int16 slot_id)
 		return 0;
 	}
 
-	// keep bags; skip no-drop (vendors won't buy), temporary (free money from
-	// summoned gear, see #33), and worthless items
-	if (item->IsClassBag() || !item->NoDrop || !item->NoRent || !item->Price) {
+	// Keep containers. The universal former-NO-DROP policy includes summoned items.
+	if (item->IsClassBag() || !item->NoDrop || (!item->NoRent && !item->FixedSellPrice) || !item->Price) {
 		return 0;
 	}
 
-	uint32 quantity = 1;
-	if (inst->IsStackable() && inst->GetCharges() > 0) {
-		quantity = inst->GetCharges();
-	}
+	const uint32 quantity = EQ::ItemTradePolicy::SaleUnits(inst->IsStackable(), inst->IsCharged(),
+		inst->GetCharges(), inst->IsStackable() ? inst->GetCharges() : 1);
+	if (!quantity) { return 0; }
 
-	auto price = (uint64)((uint64)item->Price * quantity * RuleR(Merchant, BuyCostMod) + 0.5);
+	const uint64 price = item->FixedSellPrice ? EQ::ItemTradePolicy::FixedSalePrice(*item, quantity) :
+		(uint64)((uint64)item->Price * quantity * RuleR(Merchant, BuyCostMod) + 0.5);
+	if (!price) { return 0; }
 
 	c->AddMoneyToPP(price, true);
 	c->DeleteItemInInventory(slot_id, inst->IsStackable() ? inst->GetCharges() : 0, true);
@@ -63,7 +64,7 @@ void command_sell_all(Client *c, const Seperator *sep)
 	}
 
 	if (!sold) {
-		c->Message(Chat::White, "Nothing sellable in your bags (bags, no-drop, and temporary items are kept).");
+		c->Message(Chat::White, "Nothing sellable in your inventory. Containers are kept; ordinary temporary and zero-value items are skipped.");
 		return;
 	}
 

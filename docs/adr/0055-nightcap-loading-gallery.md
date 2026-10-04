@@ -1,4 +1,4 @@
-# 0054: Replace RoF2's native loading gallery through signed assets
+# 0055: Replace RoF2's native loading gallery through signed assets
 
 Accepted October 4, 2026 for the owner's requested main/server publication.
 

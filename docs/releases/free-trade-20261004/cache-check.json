@@ -1,0 +1,28 @@
+{
+  "status": "passed",
+  "scope": "Local disposable full item catalog; real native shared-memory loader; not hosted activation",
+  "database": "nightcap_free_trade_774db57034e7",
+  "passes": [
+    {
+      "policy": true,
+      "items_checked": 308928,
+      "fixed_payout_items": 171528,
+      "item_struct_bytes": 1332,
+      "cache_sha256": "c869aa80e5ef8a956bd1cf4f7a89742de4f31b34703e4f8ce4b8693c699bae81"
+    },
+    {
+      "policy": false,
+      "items_checked": 308928,
+      "fixed_payout_items": 0,
+      "item_struct_bytes": 1332,
+      "cache_sha256": "dfadcbe78813a22973cba9d92acec43462355621c370575728925ff698791cec"
+    },
+    {
+      "policy": true,
+      "items_checked": 308928,
+      "fixed_payout_items": 171528,
+      "item_struct_bytes": 1332,
+      "cache_sha256": "c869aa80e5ef8a956bd1cf4f7a89742de4f31b34703e4f8ce4b8693c699bae81"
+    }
+  ]
+}

@@ -6504,7 +6504,7 @@ namespace RoF2
 		hdr.charges        = (inst->IsStackable() ? (item->MaxCharges ? 1 : 0) : ((inst->GetCharges() > 254)
 			? 0xFFFFFFFF
 			: inst->GetCharges()));
-		hdr.inst_nodrop    = (inst->IsAttuned() ? 1 : 0);
+		hdr.inst_nodrop    = (inst->IsAttunedForTrade() ? 1 : 0);
 		hdr.unknown044     = 0;
 		hdr.unknown048     = 0;
 		hdr.unknown052     = 0;

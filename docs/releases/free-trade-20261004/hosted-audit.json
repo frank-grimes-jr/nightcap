@@ -1,0 +1,227 @@
+{
+  "totals": [
+    {
+      "items": 308961,
+      "no_drop": 171561,
+      "attuneable": 50688,
+      "no_transfer": 932,
+      "former_no_drop_zero_price": 152292,
+      "former_no_drop_stackable": 5454,
+      "former_no_drop_temporary": 1464,
+      "stackable_charged": 1
+    }
+  ],
+  "rules": [
+    {
+      "ruleset": 1,
+      "name": "Items:DisableAttuneable",
+      "value": "false"
+    },
+    {
+      "ruleset": 1,
+      "name": "Items:DisableNoDrop",
+      "value": "false"
+    },
+    {
+      "ruleset": 1,
+      "name": "Items:DisableNoTransfer",
+      "value": "false"
+    },
+    {
+      "ruleset": 1,
+      "name": "Merchant:AllowCorpse",
+      "value": "false"
+    },
+    {
+      "ruleset": 1,
+      "name": "Merchant:BuyCostMod",
+      "value": "2.5"
+    },
+    {
+      "ruleset": 1,
+      "name": "Merchant:ChaBonusMod",
+      "value": "3.4500000476837"
+    },
+    {
+      "ruleset": 1,
+      "name": "Merchant:ChaPenaltyMod",
+      "value": "1.5199999809265"
+    },
+    {
+      "ruleset": 1,
+      "name": "Merchant:EnableAltCurrencySell",
+      "value": "true"
+    },
+    {
+      "ruleset": 1,
+      "name": "Merchant:PriceBonusPct",
+      "value": "4"
+    },
+    {
+      "ruleset": 1,
+      "name": "Merchant:PricePenaltyPct",
+      "value": "4"
+    },
+    {
+      "ruleset": 1,
+      "name": "Merchant:SellCostMod",
+      "value": "1.0499999523163"
+    },
+    {
+      "ruleset": 1,
+      "name": "Merchant:UseClassicPriceMod",
+      "value": "false"
+    },
+    {
+      "ruleset": 1,
+      "name": "Merchant:UsePriceMod",
+      "value": "true"
+    },
+    {
+      "ruleset": 1,
+      "name": "World:FVNoDropFlag",
+      "value": "0"
+    }
+  ],
+  "zero_price_stock": [
+    {
+      "items": 2479
+    }
+  ],
+  "named_items": [
+    {
+      "id": 1001,
+      "name": "Cloth Cap",
+      "nodrop": 1,
+      "norent": 1,
+      "attuneable": 0,
+      "notransfer": 0,
+      "price": 200,
+      "sellrate": 1,
+      "stackable": 0,
+      "maxcharges": 0
+    },
+    {
+      "id": 1004,
+      "name": "Cloth Shirt",
+      "nodrop": 1,
+      "norent": 1,
+      "attuneable": 0,
+      "notransfer": 0,
+      "price": 500,
+      "sellrate": 1,
+      "stackable": 0,
+      "maxcharges": 0
+    },
+    {
+      "id": 1057,
+      "name": "Mystic Cloak",
+      "nodrop": 0,
+      "norent": 1,
+      "attuneable": 0,
+      "notransfer": 0,
+      "price": 0,
+      "sellrate": 2.5,
+      "stackable": 0,
+      "maxcharges": 10
+    },
+    {
+      "id": 17969,
+      "name": "Hand Made Backpack",
+      "nodrop": 1,
+      "norent": 1,
+      "attuneable": 0,
+      "notransfer": 0,
+      "price": 900,
+      "sellrate": 1,
+      "stackable": 0,
+      "maxcharges": 0
+    },
+    {
+      "id": 53684,
+      "name": "Kregnad's Knapsack",
+      "nodrop": 0,
+      "norent": 1,
+      "attuneable": 0,
+      "notransfer": 0,
+      "price": 10000,
+      "sellrate": 1,
+      "stackable": 0,
+      "maxcharges": 0
+    },
+    {
+      "id": 990500,
+      "name": "Winged Helm of the Dawn",
+      "nodrop": 0,
+      "norent": 1,
+      "attuneable": 0,
+      "notransfer": 0,
+      "price": 0,
+      "sellrate": 20,
+      "stackable": 0,
+      "maxcharges": 0
+    }
+  ],
+  "merchants": [
+    {
+      "id": 999225,
+      "name": "Bartholomew_Packwell",
+      "class": 41,
+      "merchant_id": 99225
+    }
+  ],
+  "examples": [
+    {
+      "category": "stack",
+      "id": 1425,
+      "name": "Tundrabear Sandwich",
+      "charges": 0
+    },
+    {
+      "category": "stack",
+      "id": 1426,
+      "name": "Frost Bunny Stew",
+      "charges": 0
+    },
+    {
+      "category": "stack",
+      "id": 1427,
+      "name": "Ulthork Meat Pie",
+      "charges": 0
+    }
+  ],
+  "attuneable": [
+    {
+      "id": 11602,
+      "name": "White Dragon Scales",
+      "nodrop": 1
+    },
+    {
+      "id": 11622,
+      "name": "Red Dragon Scales",
+      "nodrop": 1
+    },
+    {
+      "id": 15802,
+      "name": "Cloak of Greater Pernicity",
+      "nodrop": 1
+    }
+  ],
+  "no_transfer": [
+    {
+      "id": 13555,
+      "name": "Ancient Longhandled Frostreaver",
+      "nodrop": 0
+    },
+    {
+      "id": 17707,
+      "name": "Fire Starter",
+      "nodrop": 0
+    },
+    {
+      "id": 17836,
+      "name": "Swirling Staff of Flame",
+      "nodrop": 0
+    }
+  ]
+}

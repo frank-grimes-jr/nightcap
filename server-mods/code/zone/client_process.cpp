@@ -1,3 +1,4 @@
+#include "../common/item_trade_policy.h"
 #include "zone/advanced_loot.h"
 /*	EQEMu: Everquest Server Emulator
 	Copyright (C) 2001-2003 EQEMu Development Team (http://eqemulator.net)
@@ -947,6 +948,7 @@ void Client::BulkSendMerchantInventory(int merchant_id, int npcid) {
 				inst->SetCharges(item_charges);
 				inst->SetMerchantCount(-1);
 				inst->SetMerchantSlot(ml.slot);
+				item_price = EQ::ItemTradePolicy::PurchasePrice(*item, item_price);
 				inst->SetPrice(item_price);
 
 				SendItemPacket(ml.slot - 1, inst, ItemPacketMerchant);
@@ -998,6 +1000,7 @@ void Client::BulkSendMerchantInventory(int merchant_id, int npcid) {
 				inst->SetCharges(item_charges);
 				inst->SetMerchantCount(ml.charges);
 				inst->SetMerchantSlot(ml.slot);
+				item_price = EQ::ItemTradePolicy::PurchasePrice(*item, item_price);
 				inst->SetPrice(item_price);
 
 				SendItemPacket(ml.slot - 1, inst, ItemPacketMerchant);
