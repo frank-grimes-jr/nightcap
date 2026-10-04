@@ -1,8 +1,8 @@
 # Universal item trading — October 4, 2026 candidate
 
-**Not deployed.** Implemented on `feature/all-items-tradable`; main promotion
-and hosted activation still need the owner's release sign-off under AGENTS.md.
-Native gameplay acceptance is not claimed.
+**Approved for main and hosted activation; deployment pending.** The owner
+explicitly approved "Push to main and server" on October 4, 2026. This authorizes
+live QA before manual acceptance. Native gameplay acceptance is not claimed.
 
 ## Behavior
 
@@ -138,3 +138,11 @@ its old-format caches. Preserve current player progress and award receipts; do
 not restore a historical database simply to reverse this policy. Completed trades
 remain completed. A policy-only disable also requires cache regeneration and a
 coordinated restart. A rule reload alone is insufficient.
+
+The approved rollout uses the unchanged blessing-lifetime native image as its
+rollback baseline and preserves client release 2026100406. Nine deployment fault
+tests cover startup, health, cache mismatch, gateway failure, data drift, scoped
+rule ownership and content-snapshot failure. The production cache verifier also
+passed against the actual 308,928-item local cache. Activation checks all hosted
+rows before reopening access. Only the new ruleset-1 Items:FreeTrade row is added;
+item definitions are retained. See ops/rollout.py and ops/test_rollout.py.

@@ -53,6 +53,11 @@ All commands run from `akk-stack/`:
 
 ## Server ops
 
+- **OVH zone exits restart the whole runtime.** The deployed start.py supervises
+  every native child. Use a supported zone-unload mechanism for a single-zone
+  refresh; do not assume local eqlaunch restart behavior applies to production.
+  Evidence: docs/ops/camil-silvermist-20261004.md.
+
 - **Universal item trading candidate**: Items:FreeTrade projects effective item
   flags and fixed former-NO-DROP resale from original SQL definitions. Preserve
   raw SQL flags and IsAttuned() persistence; use IsAttunedForTrade() for restrictions.
