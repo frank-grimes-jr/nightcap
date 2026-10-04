@@ -29,6 +29,9 @@ int main() {
     memcpy(memory+kModelTagRva,kExpectedModelTag,sizeof(kExpectedModelTag));
     const BYTE tag_tail[]={0x89,0x19,0x8b,0x44,0x24,0x10,0x89,0x41,4,0x5b,0xc2,0x0c,0};
     memcpy(memory+kModelTagRva+5,tag_tail,sizeof(tag_tail));
+    memcpy(memory+kModelAnimationRva,kExpectedModelAnimation,sizeof(kExpectedModelAnimation));
+    const BYTE animation_tail[]={0x5e,0x5b,0xb0,1,0xc2,0x0c,0};
+    memcpy(memory+kModelAnimationRva+6,animation_tail,sizeof(animation_tail));
     assert(Install(reinterpret_cast<uintptr_t>(memory)));
     const auto profile=reinterpret_cast<ProfileString>(memory+kModelProfileRva);
     const auto registration=reinterpret_cast<RegisterActor>(memory+kModelRegisterRva);

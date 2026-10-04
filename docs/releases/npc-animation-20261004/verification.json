@@ -1,0 +1,24 @@
+{
+  "status": "isolated_candidate_installed_gameplay_unverified",
+  "release": 2026100402,
+  "files_verified": 48,
+  "manifest_sha256": "32cb544a6047e59eb8f6c91bafd6f9ff1b37d67ef9651352dc924d076bde04ec",
+  "launcher_sha256": "85cac5e6cec846b4143ba7ae4c7410e5095d1bcc242b5ea357a25538849c8813",
+  "proxy_sha256": "a75e03548b5235466caac03447c8e925562bccf899cdc4b6fb741720af28e179",
+  "proxy_version": "0.7.6-dev",
+  "native_tests": {
+    "fixed": {
+      "exit_code": 0,
+      "output": "PASS: beetle, enchanter, elemental and 288 native family/flag cases; modern/native passthrough"
+    },
+    "unpatched": {
+      "exit_code": 1,
+      "output": "FAIL: beetle must inherit imported spider animation family"
+    }
+  },
+  "runtime_groups_passed": 5,
+  "catalog_sites_verified": 71,
+  "package_tests": "preflight and nightcap-package passed after current-main rebase",
+  "rendered_acceptance": "pending owner QA",
+  "normal_installation_modified": false
+}

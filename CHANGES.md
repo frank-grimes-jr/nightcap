@@ -1,5 +1,20 @@
 # CHANGES
 
+## 2026-10-04 - Restore shared animations for classic NPC models (candidate)
+
+Classic model aliases bypassed RoF2's native animation-family lookup. Beetles
+lost their spider animation fallback, and invisible-man Enchanter pets lost
+their humanoid fallback and native sharing flag. Resolve aliased actors using
+their actual source skeleton, then translate imported parent families back to
+their aliases. Typed elemental clones retain their ELE skeleton identity.
+Native names and explicit modern mode keep their existing behavior.
+
+The guarded x86 proxy candidate passes the pinned client's actual resolver for
+all 144 registrations in both native modes, plus the runtime and packaging
+checks. No asset, server, database or installed client change is required by
+the source patch. This is not a published fix or completed in-game acceptance.
+See `docs/releases/npc-animation-20261004/README.md` for evidence and exact QA.
+
 ## 2026-10-04 — Repair Classic winged-helmet registration
 
 The owner reported Camil bareheaded with Classic models forced. Installed

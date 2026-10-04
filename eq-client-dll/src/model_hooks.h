@@ -13,7 +13,29 @@ static ProfileString original_profile = nullptr;
 static RegisterActor original_register = nullptr;
 static ActorTag original_tag = nullptr;
 static LoadImports original_imports = nullptr;
+using AnimationSource = bool (__thiscall *)(void*, const char*, char*, bool);
+static AnimationSource original_animation = nullptr;
 static bool modern = false;
+inline bool __fastcall AnimationHook(void* self, void*, const char* code, char* output, bool variant) {
+    // The native resolver recognizes original model codes, not our aliases.
+    // Resolve the underlying skeleton (ELE for every typed elemental clone),
+    // retain the native return flag, and name any imported parent consistently.
+    const Registration* actor = nullptr;
+    if (!modern && code) for (const auto& entry : kRegistrations)
+        if (!_stricmp(code, entry.alias)) { actor = &entry; break; }
+    if (!actor) return original_animation(self, code, output, variant);
+    const bool shared = original_animation(self, actor->skeleton, output, variant);
+    if (!_stricmp(output, actor->skeleton)) {
+        memcpy(output, actor->alias, 4);
+    } else {
+        for (const auto& parent : kRegistrations)
+            if (!_stricmp(output, parent.skeleton)) {
+                memcpy(output, parent.alias, 4);
+                break;
+            }
+    }
+    return shared;
+}
 
 inline const Registration* Registered(int race, int gender) {
     for (const auto& entry : kRegistrations)
@@ -69,6 +91,9 @@ inline bool Install(uintptr_t base) {
     original_tag = reinterpret_cast<ActorTag>(client_ui::EntryHook(base+kModelTagRva,
         kExpectedModelTag, reinterpret_cast<void*>(&TagHook)));
     if (!original_tag) return false;
+    original_animation = reinterpret_cast<AnimationSource>(client_ui::EntryHook(base+kModelAnimationRva,
+        kExpectedModelAnimation, reinterpret_cast<void*>(&AnimationHook)));
+    if (!original_animation) return false;
     original_imports = reinterpret_cast<LoadImports>(base+kModelImportsTargetRva);
     return true;
 }
