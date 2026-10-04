@@ -2,6 +2,9 @@
 
 Start with [current status](status.md), not a dated candidate report.
 
+- [NPC Admin: local content workbench, Git publication and server apply](../eq-npc-admin/README.md)
+- [NPC Admin verification and exact owner QA](../eq-npc-admin/QA.md)
+
 - [Start here: OVH + Cloudflare setup](../deploy/production/QUICKSTART.md)
 - [Hosted owner-test activation and recovery](releases/ovh-activation-20260920.md)
 - [Coordinated main/server/client update](releases/hosted-main-update-20260920.md)

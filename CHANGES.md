@@ -1,5 +1,24 @@
 # CHANGES
 
+## 2026-10-04 - Local NPC administration workbench
+
+Added `eq-npc-admin`, a local Vue/Express utility for NPC placement, respawns,
+stats/appearance, loot and merchant stock. Persistent drafts, shared-resource
+impact, item search, `/loc` parsing and before/after review replace repetitive
+manual SQL. Selected drafts publish as four-file content feature branches in
+isolated Git worktrees; unrelated staged work and retry-time extra commits are
+excluded. Server application uses fresh target comparisons, locked before-images,
+InnoDB transactions, scoped non-corpse saved-state handling, and a recoverable
+deployment ledger. Receipt-based rollback refuses intervening changes.
+
+Gotchas: FLOAT precision and BIGINT/text representations are schema-aware;
+nullable defaults and hidden merchant metadata are preserved. Curated class-hub
+stock still requires its catalog workflow. Database apply does not restart zones
+or regenerate shared memory. Local PEQ was inspected read-only; browser writes
+and rollback used an isolated database on 3317. No live gameplay or client changes.
+Launcher, configuration, hosted tunnel guidance, limitations and pending in-game
+acceptance: `eq-npc-admin/README.md`, `eq-npc-admin/QA.md` and phase 47 report.
+
 ## 2026-10-01 - Social tunnel gatherings and tradeskill corner
 
 Revisit all 119 tunnel actors after owner visual feedback. Replace class rows

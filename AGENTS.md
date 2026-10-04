@@ -4,12 +4,13 @@ This file provides guidance to Codex (Codex.ai/code) when working with code in t
 
 ## Repo overview
 
-Personal EverQuest emulator dev workspace — five independent subprojects in one directory. Each has its own dependencies and tooling; there is no root `package.json` or shared build system. Always `cd` into the subproject before running commands.
+Personal EverQuest emulator dev workspace — independent subprojects in one directory. Each has its own dependencies and tooling; there is no root `package.json` or shared build system. Always `cd` into the subproject before running commands.
 
 | Subproject | Stack | Purpose |
 |---|---|---|
 | `akk-stack/` | Docker Compose + C++ (vcpkg) | Containerized EQEmu server |
 | `eq-solo-gm/` | Vue3 + Vite + Express | Web GM tool |
+| `eq-npc-admin/` | Vue3 + Vite + Express + mysql2 | Local NPC content drafts, Git publication and guarded server apply/rollback |
 | `eq-expansion-switcher/` | Go + Wails + Vue-TS | Windows desktop EQ expansion switcher |
 | `eqemu-monocle/` | PHP/Laravel | Zone tools web app |
 | `eqemu-install-v2/` | Go | Spire installer |
@@ -34,6 +35,15 @@ All commands run from `akk-stack/`:
 - `npm run dev` — starts API on port 3001 and Vite on port 5173 concurrently
 - MariaDB is on **port 3307** (not 3306); database is `peq`
 - DB credentials are **hardcoded in `api/server.cjs`** — there is no `.env` for this project
+
+## eq-npc-admin
+
+- `Start NPC Admin.cmd` or `npm run build` then `npm start` — loopback UI/API on 3100.
+- `npm test`; `npm run test:database` writes only disposable `npc_admin_test` on 3317.
+- `config.local.json` and `.local/` contain private connection settings/drafts/receipts; never commit them.
+- Draft staging is local. Git exports use isolated feature branches. Server apply requires fresh target preflight and writes an InnoDB receipt ledger.
+- Preserve schema-aware, lossless before-images, transactionality and saved-state scope. Placement requires stopped zones; activation is separate from database application.
+- Curated class-hub stock remains governed by `docs/pok/catalog-policy.json`. Runbook and exact owner QA: `eq-npc-admin/README.md` and `eq-npc-admin/QA.md`.
 
 ## eq-expansion-switcher
 
