@@ -11,8 +11,9 @@ Native names and explicit modern mode keep their existing behavior.
 
 The guarded x86 proxy candidate passes the pinned client's actual resolver for
 all 144 registrations in both native modes, plus the runtime and packaging
-checks. No asset, server, database or installed client change is required by
-the source patch. This is not a published fix or completed in-game acceptance.
+checks. No model asset, server or database changes are needed. The normal
+installation has not been updated; applying this fix requires the matching
+proxy/catalog update. This is not a published fix or completed in-game acceptance.
 See `docs/releases/npc-animation-20261004/README.md` for evidence and exact QA.
 
 ## 2026-10-04 — Repair Classic winged-helmet registration
