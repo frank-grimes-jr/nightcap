@@ -1,0 +1,57 @@
+{
+  "format": 1,
+  "id": "bb872f05-6dfc-45b3-87fc-1269946728db",
+  "title": "Move swashbuckler",
+  "source": "local",
+  "revision": 2,
+  "changes": [
+    {
+      "table": "spawn2",
+      "key": {
+        "id": 6897
+      },
+      "before": {
+        "id": 6897,
+        "spawngroupID": 712,
+        "zone": "ecommons",
+        "version": 0,
+        "x": -141,
+        "y": -1677,
+        "z": 3.75,
+        "heading": 208,
+        "respawntime": 640,
+        "variance": 0,
+        "pathgrid": 0,
+        "path_when_zone_idle": 0,
+        "_condition": 0,
+        "cond_value": 1,
+        "animation": 0,
+        "min_expansion": -1,
+        "max_expansion": -1,
+        "content_flags": null,
+        "content_flags_disabled": null
+      },
+      "after": {
+        "id": 6897,
+        "spawngroupID": 712,
+        "zone": "ecommons",
+        "version": 0,
+        "x": -180,
+        "y": -1677,
+        "z": 3.75,
+        "heading": 208,
+        "respawntime": 640,
+        "variance": 0,
+        "pathgrid": 0,
+        "path_when_zone_idle": 0,
+        "_condition": 0,
+        "cond_value": 1,
+        "animation": 0,
+        "min_expansion": -1,
+        "max_expansion": -1,
+        "content_flags": null,
+        "content_flags_disabled": null
+      }
+    }
+  ]
+}
