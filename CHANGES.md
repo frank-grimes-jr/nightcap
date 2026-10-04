@@ -1,13 +1,13 @@
 # CHANGES
 
-## 2026-10-04 — Winged Paladin helmet QA candidate
+## 2026-10-04 — Winged Paladin helmet deployed for live QA
 
 Created an editable Blender helmet and Unity FBX inspection scene from the
 owner's classic reference images, using the original EQ human plate texture.
 Native WLD/PFS generation adds head material 90 for both genders of the twelve
 original races, preserving existing geometry and textures. Later races are
-excluded at the owner's request. Signed local QA release 2026100401 is installed
-only in E:/Nightcap_QA; the public client release remains 2026100203.
+excluded at the owner's request. The owner requested direct main and live-server
+deployment for testing; source e250828 and signed release 2026100401 are public.
 
 Guarded, backup-rehearsed creation of item 990500 (Winged Helm of the Dawn)
 completed in the live database: PAL, original races, AC 18, HP/mana 25,
@@ -16,14 +16,17 @@ The owner-approved server restart loaded the new item into shared memory,
 preserved the native binaries, refreshed all zones, and reopened the gateway.
 The signed production candidate independently verifies against the shipped
 launcher public key; all 46 baseline files are unchanged and two archives are
-added. It remains local pending native verification. Native wear/visual QA,
-Camil's appearance update, and production client publication remain pending.
-The owner authorized main/server promotion after Codex confirms the result.
+added. All 48 public files passed HTTPS signature/hash verification. Camil's
+helmtexture changed from 3 to 90 after a fresh stopped-server full backup and
+rolled-back rehearsal. Position, tint, weapons, item stats and the saved-state
+row are preserved; all game processes restarted and the gateway reopened.
+Native wear/visual QA remains open for the owner's live test.
 Independent review caught and fixed canonical asset generation omitting the
 new mandatory archives. The shared builder now feeds its validated files and
 provenance into the normal gameplay audit; fresh generation reproduces all
 44 gameplay assets exactly, with a candidate-hash regression test.
 No acquisition quest or loot source was added. See docs/helmets/winged-paladin.md.
+Deployment and recovery: docs/releases/winged-helmet-20261004/README.md.
 
 ## 2026-10-03 — Blessing reconnect repair deployed
 

@@ -3,16 +3,17 @@
 Updated October 4, 2026. This is the current status index; dated studies and
 QA reports preserve their original evidence and are not live-state promises.
 
-## Winged Paladin helmet candidate awaiting native QA
+## Winged Paladin helmet deployed for live QA
 
 Blender/Unity assets and all 24 original-race/gender fits are built. Item 990500
 exists in the live database and shared-memory cache with Classic raid stats.
-The owner-approved restart passed with unchanged native binaries. Signed local
-QA release 2026100401 is installed in E:/Nightcap_QA; a 48-file production
-package is signed and verified locally, while the public release remains
-2026100203. Owner login/test-character selection, native wear/reference checks,
-Camil's subsequent appearance update and production client publication remain
-open. The owner authorized main/server promotion after Codex verification.
+Main source e250828 and signed client release 2026100401 are published under
+the owner's explicit live-testing instruction. All 48 public files passed
+signature/hash verification; all 46 prior files are unchanged. Camil 999521 now
+uses head material 90, with position, tint, weapons and saved state preserved.
+The approved restart passed with unchanged native binaries and healthy game/DB.
+Native wear, reference-image fidelity and race/gender checks remain open.
+[Deployment evidence](releases/winged-helmet-20261004/README.md).
 [Current evidence and exact QA](helmets/winged-paladin.md).
 
 ## Blessing reconnect repair deployed for owner QA

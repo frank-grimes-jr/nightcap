@@ -1,4 +1,4 @@
-"""Guarded, Classic-only item plan. Camil appearance is a separate QA-gated step."""
+"""Guarded, Classic-only item plan. Camil appearance is a separate scoped change."""
 import argparse
 import json
 from pathlib import Path

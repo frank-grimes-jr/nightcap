@@ -1,13 +1,14 @@
 # Winged Paladin helmet
 
-Status: QA candidate, October 4, 2026. The item exists in the live database
-and the live shared-memory cache after the owner-approved game restart.
-No native wear verification or Camil appearance change is claimed.
+Status: deployed to main and OVH for live QA, October 4, 2026. Item 990500
+is loaded in the live shared-memory cache, Camil uses head material 90, and
+signed client release 2026100401 is public. Native wear/visual QA remains open.
 
 The owner's latest instruction is to deploy to main and the live server for
 testing. This supersedes the earlier requirement to finish the isolated native
 wear test first. Promotion, client publication and Camil's appearance update
-are authorized now; native appearance/equip acceptance remains open.
+were completed; native appearance/equip acceptance remains open.
+[Deployment and recovery evidence](../releases/winged-helmet-20261004/README.md).
 
 The owner's four classic character-window references are the visual authority:
 silver domed shell, gold perimeter and face edging, dark open face, narrow nasal
@@ -28,13 +29,13 @@ The source mesh is editable in Blender, exported to FBX and imported into a
 separate visible Unity inspection scene. The reduced game mesh has 3,765
 triangles. All metal uses the unchanged humch0301.bmp human plate bitmap.
 
-Current candidate is client-candidate-05, installed only into E:/Nightcap_QA
-as signed local QA release 2026100401. It preserves the verified public
-2026100203 release's 46 existing files and adds the two global archives.
-The public channel and E:/Nightcap remain unchanged. The native launcher
-bootstrap passed; the client is open at its login screen.
+Published geometry is client-candidate-05, previously installed into
+E:/Nightcap_QA for bootstrap validation. The separate production-signed release
+2026100401 preserves release 2026100203's 46 files and adds two global archives.
+The normal launcher downloads those archives before Play. The original
+Client_RoF2_Dev installation remains unchanged.
 All original Classic WLD fragments and archive textures
-are retained byte-for-byte. Camil remains at head material 3.
+are retained byte-for-byte. Camil now uses head material 90.
 The later-race native Hero's Forge experiment is superseded and is not part of
 the deliverable; no changes to native armor tables are needed for this scope.
 
@@ -87,13 +88,17 @@ pending. The unrelated player-record query that review rejected was omitted.
 Player selection/temporary grant has not occurred. The owner elected to test
 on the live server instead of continuing the isolated login workflow.
 
-Production release 2026100401 is signed and prepared locally, not published.
+Production release 2026100401 is signed and published on play.nightcapgame.org.
 Independent verification against the public key shipped in launcher 0.3.1
-passed for all 48 files (160,550,091 bytes). The 46 prior files have identical
+passed over public HTTPS for all 48 files (160,550,091 bytes). The 46 prior files have identical
 sizes and SHA-256 hashes; only global_chr.s3d and global4_chr.s3d are added.
 Channel SHA-256: b08a777d02cba20d9daec640d839b22e81caa518597857ff78845779a5c129bc.
-The signature expires November 3, 2026 at 14:54:51 UTC. The guarded publication
-stage is local; recapture its service baseline after any later game restart.
+The signature expires November 3, 2026 at 14:54:51 UTC. Publication preserved
+the desktop launcher, starter ZIP and guide. A subsequent controlled refresh
+activated Camil's guarded helmtexture 3-to-90 change, preserved his one saved
+state row, and verified healthy game/database and running gateway/web/tunnel.
+Fresh backup: /opt/nightcap/backups/winged-helmet-20261004/camil-live/peq-before.sql.gz.
+SHA-256: 14f910dc73b67a2c6fd0caa1f6fd57facbea39baebb88e16d7e4b2b117e3d5a0.
 
 ## In-game QA still required
 
@@ -113,18 +118,13 @@ stage is local; recapture its service baseline after any later game restart.
 4. Compare the four supplied reference images with the native render. The owner
    explicitly requested live deployment before this test. Unity and Blender
    rendering are not substitutes for native wearable verification.
-5. Under the latest live-deployment authorization, capture fresh Camil 999521 preimages, apply
-   head material 90 while preserving face, body, tint, weapons and position.
-   Refresh East Commonlands and preserve its saved state unless a fresh capture
-   shows a specific equipment conflict. The October 4 Camil cache row 66432
-   has no saved loot/equipped item instances, and the cache schema has no helmet
-   appearance column; deletion is not presently justified. Recheck after the
-   final zone shutdown. Prepared forward/rollback SQL is in the local evidence
-   directory's camil-plan folder and has not been applied.
-   Verify Camil in person at the current compact tunnel class area. No quest,
-   loot source or acquisition mechanic is added.
-6. Publish a signed production client release through the existing pipeline
-   after acceptance; verify unchanged baseline files and reversible installation.
+5. Camil's deployment is complete: fresh stopped-server capture, full backup,
+   rolled-back rehearsal, and exact afterimage prove only helmtexture changed.
+   His saved state had no loot/equipped instances and was retained. Verify his
+   rendered head in person at the compact East Commonlands tunnel class area.
+   No quest, loot source or acquisition mechanic is added.
+6. Publication is complete and all public file hashes verify. Confirm the normal
+   launcher displays release 2026100401 and applies the update before Play.
 
 ## Reproduction and known limits
 

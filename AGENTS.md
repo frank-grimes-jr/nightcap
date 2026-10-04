@@ -195,9 +195,10 @@ builder live under `assets/winged-helmet/` and `tools/*winged_helmet*`.
 It appends head material 90 for the twelve original races, both genders;
 High Elf uses HIM/HIF, not Wood Elf ELM/ELF. Build outside the read-only source
 client, preserve existing archive fragments/textures, and install through the
-signed launcher. Item 990500 is loaded in SQL and shared memory after the approved
-restart; native wear and Camil acceptance
-remain pending. Do not infer deployment from a Blender render or item row.
+signed launcher. Release 2026100401 is live; item 990500 is loaded in SQL/shared
+memory and Camil 999521 uses head material 90, with his saved state retained.
+Native wear and rendered Camil acceptance remain pending. Deployment evidence:
+`docs/releases/winged-helmet-20261004/README.md`.
 
 PFS version 2 (`0x20000`) requires decompressed blocks no larger than 8192
 bytes, including its filename table. A Python zlib round-trip alone does not
