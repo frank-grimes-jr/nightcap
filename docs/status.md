@@ -6,12 +6,14 @@ QA reports preserve their original evidence and are not live-state promises.
 ## Winged Paladin helmet candidate awaiting native QA
 
 Blender/Unity assets and all 24 original-race/gender fits are built. Item 990500
-exists in the live database with Classic raid stats, but its required item-cache
-restart awaits explicit approval after automatic review blocked potential player
-interruption. Signed local QA release 2026100401 is installed in E:/Nightcap_QA;
-the public release remains 2026100203. Native wear/reference-image acceptance,
+exists in the live database and shared-memory cache with Classic raid stats.
+The owner-approved restart passed with unchanged native binaries. Signed local
+QA release 2026100401 is installed in E:/Nightcap_QA; a 48-file production
+package is signed and verified locally, while the public release remains
+2026100203. Owner login/test-character selection, native wear/reference checks,
 Camil's subsequent appearance update and production client publication remain
-open. [Current evidence and exact QA](helmets/winged-paladin.md).
+open. The owner authorized main/server promotion after Codex verification.
+[Current evidence and exact QA](helmets/winged-paladin.md).
 
 ## Blessing reconnect repair deployed for owner QA
 

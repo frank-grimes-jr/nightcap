@@ -1,7 +1,7 @@
 # Winged Paladin helmet
 
-Status: QA candidate, October 4, 2026. The item exists in the live database;
-the required item-cache refresh is awaiting explicit restart approval.
+Status: QA candidate, October 4, 2026. The item exists in the live database
+and the live shared-memory cache after the owner-approved game restart.
 No native wear verification or Camil appearance change is claimed.
 
 The owner's four classic character-window references are the visual authority:
@@ -27,7 +27,7 @@ Current candidate is client-candidate-05, installed only into E:/Nightcap_QA
 as signed local QA release 2026100401. It preserves the verified public
 2026100203 release's 46 existing files and adds the two global archives.
 The public channel and E:/Nightcap remain unchanged. The native launcher
-bootstrap passed; the client is open at its EULA/login flow.
+bootstrap passed; the client is open at its login screen.
 All original Classic WLD fragments and archive textures
 are retained byte-for-byte. Camil remains at head material 3.
 The later-race native Hero's Forge experiment is superseded and is not part of
@@ -71,18 +71,30 @@ Backup SHA-256: 8a63123584ac7e48ec820aee71c0deea7320130e7bd91af23c1b5a81afd089d8
 Remote evidence: /opt/nightcap/backups/winged-helmet-20261004/.
 Local evidence: E:/EQ_Local_Dev/artifacts/winged-helmet-20261004/.
 
-Automatic approval review rejected a live gateway stop/game restart because
-the initial zone-log check did not establish that connected players would be
-unaffected. No service was stopped. Explicit restart approval is pending.
-The earlier unrelated player-record lookup was also rejected and omitted;
-all subsequent content queries were restricted to Camil, the template and
-the reserved item. Player selection/temporary grant awaits the owner's choice.
+The owner subsequently approved the restart and explicitly authorized main
+promotion and server publication once Codex confirms the result. The graceful
+game-service restart completed: world and all twelve zones have new process
+start times, all three native binary hashes are unchanged, game health passed,
+the new helmet name is present in shared/items, and the gateway reopened.
+Local and remote refresh.json record this verification. This supersedes the
+earlier automatic-review restart rejection; no further restart approval is
+pending. The unrelated player-record query that review rejected was omitted.
+Player selection/temporary grant still awaits the owner's choice; login is
+handed to the owner because the Computer Use skill forbids auth automation.
+
+Production release 2026100401 is signed and prepared locally, not published.
+Independent verification against the public key shipped in launcher 0.3.1
+passed for all 48 files (160,550,091 bytes). The 46 prior files have identical
+sizes and SHA-256 hashes; only global_chr.s3d and global4_chr.s3d are added.
+Channel SHA-256: b08a777d02cba20d9daec640d839b22e81caa518597857ff78845779a5c129bc.
+The signature expires November 3, 2026 at 14:54:51 UTC. The guarded publication
+stage is local; recapture its service baseline after any later game restart.
 
 ## In-game QA still required
 
-1. Approve and perform the brief game-service restart. Verify identical native
-   binaries, healthy login/world/zones, the new name in shared/items, and reopen
-   the gateway. Do not treat the database row alone as loaded server content.
+1. Completed: approved game-service restart, unchanged native binaries, healthy
+   game service, all new zone processes, the helmet name in shared/items, and
+   reopened gateway. This proves cache loading, not native client wear.
 2. Owner logs into E:/Nightcap_QA and designates a test character. Preserve its
    existing head item. On a build with Paladin, summon 990500 and equip it.
    Verify displayed stats, head attachment, front/side/rear shape, animation,
@@ -92,8 +104,10 @@ the reserved item. Player selection/temporary grant awaits the owner's choice.
    or test characters. Verify Paladin secondary/tertiary-class eligibility and
    rejection on a character with no Paladin class. No later races are included.
    Current evidence is decoded-archive rendering for all 24, not native play.
-4. Compare the four supplied reference images with the native render; obtain
-   owner visual acceptance. Unity and Blender rendering are not substitutes.
+4. Compare the four supplied reference images with the native render. The owner
+   delegated confirmation to Codex and authorized main/server promotion after
+   that confirmation; another owner visual sign-off is not required. Unity and
+   Blender rendering are not substitutes for native wearable verification.
 5. Only after the wearable check, capture fresh Camil 999521 preimages, apply
    head material 90 while preserving face, body, tint, weapons and position.
    Refresh East Commonlands and preserve its saved state unless a fresh capture
@@ -122,16 +136,25 @@ tools/build_winged_helmet_client.py --client <read-only-client> --mesh
 assets/winged-helmet/helmet-game-mesh.json --output <new-directory>.
 The original archives are intentionally excluded from version control.
 Install through the signed launcher, not by modifying Client_RoF2_Dev.
+The canonical tools/client_gameplay_assets.py generator calls the same native
+helmet builder before writing its audit. A fresh generation reproduced all
+44 gameplay files byte-for-byte from the prepared release, including the two
+globals; future releases do not require manual archive/audit composition.
 Nightcap's existing native model policy forces Classic player models even
 when older eqclient.ini preferences contain UseLuclin*=TRUE.
 
-Validation: 12 helmet archive/item tests and three PFS block-format tests pass;
-nightcap-package Go tests pass.
+Validation: 13 helmet archive/item tests, five gameplay-generator tests and
+three PFS block-format tests pass; nightcap-package Go tests pass. Independent
+code review found the missing canonical-generator integration; it is fixed
+and verified by a fresh full asset generation. The source export currently
+assumes the supplied object transforms: apply object rotation/scale before
+future edits because the exporter emits local corner normals with world-space
+positions. The reviewed source round-trip is unaffected.
 Reopening the packed Blender source in a separate headless process reproduces
 the exact native mesh SHA-256 8d387f742f1f7ef571926abe3f0d9938cb04ee993a0a1c41d9df4354d3db909c.
 The local evidence directory also contains camil-high-elf-packaged.png, a
 three-quarter inspection of the decoded HIM head. This is a Blender preview
-of packaged geometry, not an in-game screenshot or owner visual acceptance.
+of packaged geometry, not an in-game screenshot or native visual acceptance.
 The packaged mesh stays below 4,096 triangles including the retained face for
 each fit; all original fragments/strings survive, bone indices and material
 dependencies validate, and malformed/colliding inputs fail closed.

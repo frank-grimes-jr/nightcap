@@ -85,6 +85,16 @@ class HelmetTests(unittest.TestCase):
         self.assertEqual(builder.to_native_axes('DWM',(0,-1,0)),(1,0,0))
         self.assertEqual(builder.to_native_axes('HIM',(0,-1,0)),(0,-1,0))
 
+    def test_reusable_archive_generation_matches_reviewed_candidate(self):
+        files, audit = builder.helmet_files(CLIENT, self.game)
+        candidate = json.loads((ROOT/'assets/winged-helmet/candidate.json').read_bytes())
+        self.assertEqual(set(files), {'global_chr.s3d', 'global4_chr.s3d'})
+        for name, raw in files.items():
+            self.assertEqual(hashlib.sha256(raw).hexdigest(),
+                             candidate['archives'][name]['output_sha256'])
+            self.assertEqual(audit[name]['output_sha256'],
+                             candidate['archives'][name]['output_sha256'])
+
     def test_nonfinite_attributes_rejected(self):
         broken=dict(self.game);broken['uv']=[list(v) for v in broken['uv']]
         broken['uv'][0][0]=float('nan')

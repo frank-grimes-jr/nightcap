@@ -174,16 +174,9 @@ def add_helmet(raw, game, codes):
     return output,audit
 
 
-def main():
-    parser=argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--client',type=Path,required=True)
-    parser.add_argument('--mesh',type=Path,required=True)
-    parser.add_argument('--output',type=Path,required=True)
-    args=parser.parse_args()
-    source=args.client.resolve();out=args.output.resolve()
-    if out==source or source in out.parents or out.exists():
-        raise ValueError('Output must be new and outside the source client')
-    game=json.loads(args.mesh.read_bytes());archives={};outputs={}
+def helmet_files(source, game):
+    """Return validated archive bytes and provenance without writing client files."""
+    archives={};outputs={}
     for name,digest in SOURCE_DIGESTS.items():
         if hashlib.sha256((source/name).read_bytes()).hexdigest()!=digest:
             raise ValueError('Source archive does not match supported RoF2: '+name)
@@ -201,6 +194,20 @@ def main():
             raise AssertionError('Original texture changed')
         outputs[archive]=packed
         archives[archive]=dict(source_sha256=hashlib.sha256(raw).hexdigest(),output_sha256=hashlib.sha256(packed).hexdigest(),models=audit)
+    return outputs,archives
+
+
+def main():
+    parser=argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--client',type=Path,required=True)
+    parser.add_argument('--mesh',type=Path,required=True)
+    parser.add_argument('--output',type=Path,required=True)
+    args=parser.parse_args()
+    source=args.client.resolve();out=args.output.resolve()
+    if out==source or source in out.parents or out.exists():
+        raise ValueError('Output must be new and outside the source client')
+    game=json.loads(args.mesh.read_bytes())
+    outputs,archives=helmet_files(source,game)
     out.mkdir(parents=True)
     for archive,packed in outputs.items():(out/archive).write_bytes(packed)
     report=dict(status='staged_not_installed_or_game_verified',mesh_sha256=hashlib.sha256(args.mesh.read_bytes()).hexdigest(),archives=archives)

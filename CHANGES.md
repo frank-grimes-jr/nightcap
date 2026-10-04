@@ -12,9 +12,17 @@ only in E:/Nightcap_QA; the public client release remains 2026100203.
 Guarded, backup-rehearsed creation of item 990500 (Winged Helm of the Dawn)
 completed in the live database: PAL, original races, AC 18, HP/mana 25,
 STA 5, WIS 7, MR 10, FR/CR 5, without later-era effects or augments.
-The server item-cache refresh awaits explicit approval after automatic review
-blocked a potentially player-interrupting restart. Native wear/visual QA,
+The owner-approved server restart loaded the new item into shared memory,
+preserved the native binaries, refreshed all zones, and reopened the gateway.
+The signed production candidate independently verifies against the shipped
+launcher public key; all 46 baseline files are unchanged and two archives are
+added. It remains local pending native verification. Native wear/visual QA,
 Camil's appearance update, and production client publication remain pending.
+The owner authorized main/server promotion after Codex confirms the result.
+Independent review caught and fixed canonical asset generation omitting the
+new mandatory archives. The shared builder now feeds its validated files and
+provenance into the normal gameplay audit; fresh generation reproduces all
+44 gameplay assets exactly, with a candidate-hash regression test.
 No acquisition quest or loot source was added. See docs/helmets/winged-paladin.md.
 
 ## 2026-10-03 — Blessing reconnect repair deployed
