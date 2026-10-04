@@ -44,6 +44,7 @@ int main() {
         assert(profile("Defaults","WindowedMode","TRUE",output,sizeof(output),"eqclient.ini")==123);
         assert(registration(seen,60,2,"SKE",7,9)==123);
         lookup(seen,output,484,0); assert(seen[0]==60 && seen[1]==2);
+        lookup(seen,output,600,0); assert(seen[0]==600 && seen[1]==0);
         lookup(seen,output,606,1); assert(seen[0]==161 && seen[1]==2);
         lookup(seen,output,485,2); assert(seen[0]==85 && seen[1]==2);
         lookup(seen,output,566,1); assert(seen[0]==1 && seen[1]==1);
@@ -61,7 +62,7 @@ int main() {
     modern=false;
     for(const auto& entry:kRegistrations) {
         assert(RegisterHook(seen,nullptr,entry.race,entry.gender,entry.original,7,9)==123);
-        assert(!strcmp(captured_code,entry.alias));
+        assert(!strcmp(captured_code,!strcmp(entry.original,"IVM") ? "IVM" : entry.alias));
         assert(captured_race==entry.race && captured_gender==entry.gender && captured_a==7 && captured_b==9);
     }
     for(const auto& entry:kRemakes) for(int sex=0;sex<3;++sex) {
