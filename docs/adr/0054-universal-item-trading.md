@@ -1,6 +1,6 @@
 # ADR 0054: Universal item trading and fixed NO DROP resale
 
-Date: October 4, 2026. Status: implemented candidate; gameplay promotion pending.
+Date: October 4, 2026. Status: deployed after explicit owner approval; player acceptance pending.
 
 ## Intent
 

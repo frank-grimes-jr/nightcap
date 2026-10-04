@@ -3,6 +3,18 @@
 Updated October 4, 2026. This is the current status index; dated studies and
 QA reports preserve their original evidence and are not live-state promises.
 
+## Universal trading and one-platinum NO DROP resale deployed
+
+After explicit owner approval, main `1a5c0fe` and OVH image
+`nightcap-game:free-trade-20261004` are live. All 308,961 hosted definitions have
+effective tradable flags, including saved attunement; the 171,561 original NO
+DROP definitions sell for 1pp per unit at merchants and through `#sellall`.
+Full-catalog verification, all five binary hashes, 12 zone workers, backup and
+player/content/client preservation checks pass. Client 2026100406 is retained.
+Ordinary prices remain; merchant previews may differ from the fixed receipt.
+Player trade/sale acceptance and repeatable-reward economy QA remain open.
+[Deployment, rollback and exact QA](releases/free-trade-20261004/README.md).
+
 ## NPC animation follow-up published for pet retest
 
 The owner confirmed that 2026100404 repaired beetle walking/death, while

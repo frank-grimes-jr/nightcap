@@ -1,8 +1,9 @@
-# Universal item trading — October 4, 2026 candidate
+# Universal item trading — October 4, 2026 deployment
 
-**Approved for main and hosted activation; deployment pending.** The owner
-explicitly approved "Push to main and server" on October 4, 2026. This authorizes
-live QA before manual acceptance. Native gameplay acceptance is not claimed.
+**Deployed to OVH after the owner's October 4 approval to push to main and
+server.** Main source promotion is `1a5c0fe`; all five matching native binaries
+run in `nightcap-game:free-trade-20261004`. Manual gameplay acceptance remains
+open; the owner authorized activation for live QA.
 
 ## Behavior
 
@@ -78,7 +79,8 @@ the policy enabled, disabled and enabled again; the two enabled caches are
 byte-identical. The hosted catalog has 33 additional definitions covered by the
 same policy. The first fixture attempt stopped on missing zone/instance tables;
 adding those isolated dependencies resolved it. Both temporary schemas/accounts
-were removed. No live game/cache/item data was modified.
+were removed. These local verification steps did not modify live game/cache/item
+data; the later approved hosted activation is recorded below.
 
 Evidence: [build](build-summary.json), [cache passes](cache-check.json),
 [tests](tests.json), [hosted audit](hosted-audit.json),
@@ -86,6 +88,28 @@ Evidence: [build](build-summary.json), [cache passes](cache-check.json),
 The 220,837,734-byte package contains all five matching binaries. Operations
 scripts in ops/ archive this exact run and reference its local evidence paths;
 they are not general deployment commands. Local operation evidence is under `E:/EQ_Local_Dev/artifacts/all-items-tradable-20261004/`.
+
+## Verified hosted activation
+
+The new runtime started at **2026-10-04T21:43:46.214625821Z**. Every one of
+**308,961 hosted items** has effective tradable flags; all
+**171,561 original NO DROP items** carry the 1,000-copper
+fixed payout. The actual loaded cache was checked row by row against SQL before
+reopening gateway access. All 12 zone workers plus world, UCS and loginserver
+match the verified build; the new runtime has zero restarts and no detected
+native, quest or SQL startup errors.
+
+A fresh full PEQ backup passed gzip/completion verification before activation.
+Closed-gateway checks preserved 47 player, receipt,
+settings and saved-state tables; 8139 quest/plugin files;
+the item, spell, NPC, spawn and merchant tables; and client release 2026100406.
+Database, web and tunnel services retained their identities and start times.
+The only intentional database change is ruleset 1 **Items:FreeTrade=true**.
+No database restore or item-definition rewrite occurred.
+
+[Activation](activated.json), [complete hosted cache](hosted-cache.json),
+[fresh runtime report](live-report.json), [backup and preflight](preflight.json),
+[closed-gateway verification](verified-closed.json), [uploaded package](server-package.json).
 
 ## Exact in-game QA spike
 
@@ -139,7 +163,7 @@ not restore a historical database simply to reverse this policy. Completed trade
 remain completed. A policy-only disable also requires cache regeneration and a
 coordinated restart. A rule reload alone is insufficient.
 
-The approved rollout uses the unchanged blessing-lifetime native image as its
+The completed rollout used the unchanged blessing-lifetime native image as its
 rollback baseline and preserves client release 2026100406. Nine deployment fault
 tests cover startup, health, cache mismatch, gateway failure, data drift, scoped
 rule ownership and content-snapshot failure. The production cache verifier also

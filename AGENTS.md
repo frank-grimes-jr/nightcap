@@ -58,7 +58,7 @@ All commands run from `akk-stack/`:
   refresh; do not assume local eqlaunch restart behavior applies to production.
   Evidence: docs/ops/camil-silvermist-20261004.md.
 
-- **Universal item trading candidate**: Items:FreeTrade projects effective item
+- **Universal item trading**: Items:FreeTrade projects effective item
   flags and fixed former-NO-DROP resale from original SQL definitions. Preserve
   raw SQL flags and IsAttuned() persistence; use IsAttunedForTrade() for restrictions.
   ItemData layout changed: pair all native binaries with a regenerated cache,
