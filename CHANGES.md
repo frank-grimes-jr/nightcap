@@ -1,5 +1,16 @@
 # CHANGES
 
+## 2026-10-04 — Replace the complete loading gallery with Nightcap artwork
+
+Add the ten approved paintings, including the SoulFire Paladin and three-pet
+gnome. Generate full-frame baseline JPEG replacements for all 55 RoF2 numbered
+loading slots and the resource fallback. Extend the signed launcher scope only
+for these 56 exact image paths; other default UI files remain protected. Desktop
+0.4.0 is required and delivered through the existing self-updating starter.
+Preserve the previous 48 game files and player settings. No server restart or
+database change is needed. Generation, rollout, recovery and verification:
+`docs/releases/loading-screens-20261004.md`.
+
 ## 2026-10-04 - Deploy universal item trading and one-platinum NO DROP resale
 
 All items receive effective tradable flags, including existing attuned instances,

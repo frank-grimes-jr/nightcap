@@ -12,7 +12,23 @@ import (
 )
 
 func profileFixture() productionProfile {
-	return productionProfile{BaseURL: "https://play.nightcapgame.com", GuideURL: "https://play.nightcapgame.com/guide.html", RelayURL: "https://play.nightcapgame.com/connect", Version: "0.2.0", KeyNotBefore: time.Now().Add(-time.Hour), KeyNotAfter: time.Now().Add(365 * 24 * time.Hour)}
+	return productionProfile{BaseURL: "https://play.nightcapgame.com", GuideURL: "https://play.nightcapgame.com/guide.html", RelayURL: "https://play.nightcapgame.com/connect", Version: "0.4.0", KeyNotBefore: time.Now().Add(-time.Hour), KeyNotAfter: time.Now().Add(365 * 24 * time.Hour)}
+}
+
+func TestProductionLoadingScreenCompatibilityFloor(t *testing.T) {
+	for _, minimum := range []string{"", "0.4.0", "0.4.1", "0.10.0", "1.0.0", "0.3.99", "0.2.0"} {
+		p := profileFixture()
+		p.MinLauncher = minimum
+		want := minimum != "0.3.99" && minimum != "0.2.0"
+		if (p.validate() == nil) != want {
+			t.Fatalf("minimum %q accepted=%v", minimum, !want)
+		}
+	}
+	p := profileFixture()
+	p.Version = "0.3.1"
+	if p.validate() == nil {
+		t.Fatal("old compiled desktop accepted")
+	}
 }
 func TestProductionProfileRejectsUnsafeEndpoints(t *testing.T) {
 	for _, bad := range []string{"http://play.nightcapgame.com", "https://play.example", "https://127.0.0.1", "https://play.nightcapgame.com/", "https://play.nightcapgame.com:443", "https://play.nightcapgame.com?x=1"} {
