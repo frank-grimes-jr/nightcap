@@ -216,6 +216,12 @@ bytes. Validate every imported actor's dependency closure, not only PFS integrit
 or reversible renaming. The native null-material crash and regression evidence:
 `docs/releases/character-select-crash-20261001/README.md`.
 
+Classic NPC aliases must preserve RoF2's animation-family lookup (RVA 0x6A60).
+Use the actual source skeleton code, including ELE for typed elemental clones,
+and retain the native sharing flag. Archive/frame-byte integrity alone does not
+prove animated rendering. Run the pinned-client `model-animation-native` test
+and the visual matrix in `docs/releases/npc-animation-20261004/README.md`.
+
 Classic-model candidate policy lives in `eq-client-dll/config/classic-models.json`.
 Generate isolated archives with `tools/client_classic_models.py`, verify their
 WLD material/geometry/texture integrity with `tools/verify_classic_models.py`,
