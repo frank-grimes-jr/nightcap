@@ -1,5 +1,21 @@
 # Enchanter weapon twitch: native actor identity follow-up
 
+**Live follow-up:** PR 123 merged to main at 42b9b2c. Signed production release
+**2026100406 / proxy 0.7.7-dev** is published for the owner's retest. All 48 files
+passed independent HTTPS signature/hash verification. Only the proxy/catalog
+changed from 2026100405; all current helmet assets, desktop distribution and
+five service identities/start times are preserved. Game/DB remain healthy.
+[Hosted verification](enchanter-hosted-verification.json),
+[publication receipt](enchanter-published.json),
+[regression and service evidence](enchanter-deployment.json).
+
+The new native identity regression, all five runtime groups, 288 family/flag
+checks, 71 pinned client sites and Go preflight/package tests pass. This adds
+the graphics identity check missed by the first repair; actual pet motion still
+requires the live retest below. Close EQ and use the normal launcher to install
+**2026100406**. No separate QA copy is needed.
+
+
 October 4, 2026. The owner reports that release 2026100404 fixed beetle walking
 and death, but the first two Enchanter animation pets still twitch. Their
 nameplates stay stationary while their sword/shield move. E:/Nightcap's proxy
@@ -37,7 +53,7 @@ The repaired registration must pass, alongside remake, modern-mode and beetle
 preservation checks. This tests the newly discovered native contract, not
 rendered motion or completed player acceptance.
 
-Candidate proxy 0.7.7-dev must ship with its matching signed patch catalog.
+Proxy 0.7.7-dev is published with its matching signed patch catalog.
 No graphics DLL patch, server binary, database or model-asset change is needed.
 The owner's main/server live-testing authorization continues to cover this
 follow-up; preserve all concurrently published helmet updates in the package.
@@ -58,3 +74,8 @@ the original goal complete based only on native branch tests.
 
 Recovery is a higher signed release with the prior reviewed proxy/catalog and
 all current model assets; never lower the channel or restart unrelated services.
+
+
+Publication artifacts: E:/EQ_Local_Dev/artifacts/enchanter-identity-20261004/.
+Prior public channel retained at
+/opt/nightcap/releases/enchanter-identity-2026100406/previous-channel.json.

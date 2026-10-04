@@ -1,5 +1,12 @@
 # Classic NPC shared-animation repair — live for owner QA
 
+**Current follow-up: 2026100406 / proxy 0.7.7-dev.** The owner confirmed that
+2026100404 fixed beetles but Enchanter weapons still twitched. The second repair
+preserves the graphics engine's native invisible-actor identity; it is live and
+awaits pet retest. See [cause, deployment and QA](enchanter.md). The 2026100404
+publication record below describes the first repair.
+
+
 October 4, 2026. PR 121 merged into main at a7ee8d8. Signed production game
 release **2026100404**, proxy **0.7.6-dev**, is published at play.nightcapgame.org.
 The owner requested "Push to main and the server for me to test", then approved
@@ -10,7 +17,7 @@ the pet/NPC rendering checks have passed.
 ## Use the normal launcher
 
 Exit EverQuest fully, open the normal Nightcap launcher and press Play. Confirm
-game release **2026100404**. No new launcher download or separate QA copy is
+game release **2026100406**. No new launcher download or separate QA copy is
 needed. In East Commonlands check the first two Enchanter animation pets at
 rest, following and fighting; observe fire-beetle legs while moving and a flipped
 corpse after death. Repeat after zoning/reconnecting. Check skeleton posture and
@@ -119,8 +126,8 @@ Local evidence and build experiments: `E:/EQ_Local_Dev/artifacts/npc-animation-2
 
 ## Exact in-game QA still required
 
-Use production release 2026100404 with classic defaults. Confirm its proxy log says
-`0.7.6-dev` and `Model policy: classic defaults`.
+Use production release 2026100406 with classic defaults. Confirm its proxy log says
+`0.7.7-dev` and `Model policy: classic defaults`.
 
 1. In East Commonlands, summon the first two available Enchanter animation pets
    (the owner's reported tiers). Watch each standing still for 30 seconds,

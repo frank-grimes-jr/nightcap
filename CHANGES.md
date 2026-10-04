@@ -13,8 +13,12 @@ animation-family repair. Native race 600 remains unchanged.
 The new regression executes the pinned EQGraphicsDX9 prefix-check instructions
 in a private buffer. It reproduces the failure with published registration and
 checks that repaired registration takes the native invisible-actor path. No
-graphics DLL patch or model-asset edit is introduced. Candidate proxy 0.7.7-dev
-requires its matching signed catalog; visual pet retesting remains open.
+graphics DLL patch or model-asset edit is introduced. PR 123 and signed release
+2026100406 / proxy 0.7.7-dev are now live under the owner's continuing deployment
+authorization. All 48 public files verify; only the proxy/catalog changed from
+2026100405, preserving current helmet assets and all services. The native
+identity regression, five runtime groups, 288 family cases, 71 pinned sites and
+launcher checks pass. Visual pet retesting remains open.
 Evidence and exact retest: docs/releases/npc-animation-20261004/enchanter.md.
 
 ## 2026-10-04 - Tighten the winged Paladin helmet around Classic faces
