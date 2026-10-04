@@ -1,5 +1,22 @@
 # CHANGES
 
+## 2026-10-04 — Preserve the Enchanter pet's native invisible-actor identity
+
+Owner testing of 2026100404 confirms beetle walking/death is repaired, but
+Enchanter weapons still twitch under a stationary nameplate. The installed
+proxy hash and startup log confirm 0.7.6 loaded. The graphics engine separately
+exempts IVM/IVF actor names from automatic animation-controller startup; the
+ZBB alias bypasses that native exemption. Preserve IVM registration and its
+native global rig while retaining every other classic alias and the shared
+animation-family repair. Native race 600 remains unchanged.
+
+The new regression executes the pinned EQGraphicsDX9 prefix-check instructions
+in a private buffer. It reproduces the failure with published registration and
+checks that repaired registration takes the native invisible-actor path. No
+graphics DLL patch or model-asset edit is introduced. Candidate proxy 0.7.7-dev
+requires its matching signed catalog; visual pet retesting remains open.
+Evidence and exact retest: docs/releases/npc-animation-20261004/enchanter.md.
+
 ## 2026-10-04 - Tighten the winged Paladin helmet around Classic faces
 
 Owner screenshots confirm the helmet renders on Camil with Classic models,
