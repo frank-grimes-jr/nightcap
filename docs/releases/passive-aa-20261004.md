@@ -1,9 +1,9 @@
 # Passive AA experience release — October 4, 2026
 
-Status: implementation and fresh release build verified. On October 4 the owner
-explicitly requested "Deploy to main and server", authorizing this release's main
-promotion and OVH activation before manual acceptance. Deployment is pending;
-the exact in-game QA below remains open.
+Status: **deployed to main and OVH** under the owner's explicit October 4 request
+"Deploy to main and server". [PR 125](https://github.com/frank-grimes-jr/nightcap/pull/125) merged as `a8304ccc`.
+Image `nightcap-game:passive-aa-20261004` is healthy with the gateway open.
+The exact in-game QA below remains open; deployment is not manual acceptance.
 The managed worktree was based on fetched main `f44047f`, not the older local main.
 
 ## Player behavior
@@ -139,7 +139,7 @@ record and later restore every QA-only rule value. Never alter the era rules.
    task IDs used for completion-path smoke tests in the acceptance log. Remove the
    QA fixture and despawn its synthetic NPCs; do not publish them to production.
 
-## Rollout and rollback (activation pending)
+## Rollout and rollback (deployment verified)
 
 The owner's explicit deployment request authorizes main promotion and OVH rollout
 for this release. It does not mark the manual QA above complete. The reviewed
@@ -157,3 +157,25 @@ passive earning on matching binaries, set PassiveExpPercent=0 and reload rules.
 Binary rollback restores the previous matched image/rule preimage; keep all earned
 AA progress. Already-normalized saved allocations remain 0/100 after rollback;
 do not mass-rewrite player choices. Client assets are unchanged.
+
+## Hosted verification
+
+All five native executables match the fresh build. World, UCS, loginserver and
+twelve zone workers run without restarts or detected native/quest/SQL errors.
+The default ruleset retains `AA:PassiveExpPercent=1`, `Character:AAExpMinLevel=1`,
+XP/point 50,000 and all existing XP rules after startup. The absent RuleSet
+variable continues to select default (1); no variable row was added.
+
+The closed-gateway comparison preserved all 47 player/settings/receipt/rule/state
+tables and five content-table checksums. Quest/plugin hashes match. All 308,961
+cached items retain free trade, including 171,561 fixed NO DROP payouts. DB, web
+and tunnel container identities/start times are unchanged. Public game 2026100407,
+desktop 0.4.0, the friends download and guide are unchanged; no client update is
+required. The full PEQ backup passed gzip and completion checks. No rollback or
+database restoration was needed.
+
+[Deployment identities, rules, hashes and backup receipt](passive-aa-20261004/deployment-summary.json).
+The private backup and full preimages remain under
+`/opt/nightcap/releases/passive-aa-20261004/` on OVH. The previous immutable
+free-trade image remains available for rollback. Rollback preserves all earned
+AA and other player progress; it never restores the old database snapshot.

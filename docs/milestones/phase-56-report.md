@@ -16,7 +16,10 @@ now link from a fresh, production-preserving source tree, with 71 native checks
 and nine rollout failure tests passing. The five broader-suite failures are
 audited historical status-note drift; all pinned non-document artifacts match.
 
-Shaky/open: OVH activation and actual RoF2 display, persistence, task-completion
+Deployed: PR 125 on main and the matching OVH image, with persisted rules, twelve
+zones, zero restarts and player/content/quest/client preservation verified.
+
+Shaky/open: actual RoF2 display, persistence, task-completion
 integration and comparative progression/combat acceptance.
 
 [Release evidence and exact QA](../releases/passive-aa-20261004.md).

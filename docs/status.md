@@ -3,13 +3,15 @@
 Updated October 4, 2026. This is the current status index; dated studies and
 QA reports preserve their original evidence and are not live-state promises.
 
-## Passive AA leveling release prepared
+## Passive AA leveling deployed
 
 Implemented additive AA at 1% of the full AA award while preserving leveling XP,
-with 0%/100% focus allocation and both quest reward paths covered. The owner has
-authorized main/server deployment; a fresh five-binary build, 71 native checks
-and nine rollout failure tests pass. Historical report hash failures are audited
-status-note drift. OVH activation and manual gameplay acceptance remain pending.
+with 0%/100% focus allocation and both quest reward paths covered. Owner-authorized
+PR 125 is on main (`a8304ccc`), and the matching five-binary OVH image is healthy.
+71 native checks and nine rollout failure tests pass; all 47 player/state tables,
+quests, content, existing free trade and client 2026100407 are preserved. Rules
+survived startup and twelve zones are running. Native gameplay acceptance remains
+open; use #aaexp off for passive gains or #aaexp on for full AA focus.
 [Behavior, automated evidence and exact owner QA](releases/passive-aa-20261004.md).
 
 ## Nightcap loading artwork published
@@ -26,8 +28,8 @@ tests pass; viewport appearance and progress-text placement remain player QA.
 
 ## Universal trading and one-platinum NO DROP resale deployed
 
-After explicit owner approval, main `1a5c0fe` and OVH image
-`nightcap-game:free-trade-20261004` are live. All 308,961 hosted definitions have
+The policy deployed from main `1a5c0fe` remains active in the current passive-AA
+OVH image, with its full-catalog verification repeated after the newer rollout. All 308,961 hosted definitions have
 effective tradable flags, including saved attunement; the 171,561 original NO
 DROP definitions sell for 1pp per unit at merchants and through `#sellall`.
 Full-catalog verification, all five binary hashes, 12 zone workers, backup and
