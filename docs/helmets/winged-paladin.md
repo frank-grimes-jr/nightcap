@@ -96,7 +96,12 @@ the reserved item. Player selection/temporary grant awaits the owner's choice.
    owner visual acceptance. Unity and Blender rendering are not substitutes.
 5. Only after the wearable check, capture fresh Camil 999521 preimages, apply
    head material 90 while preserving face, body, tint, weapons and position.
-   Refresh East Commonlands with scoped non-corpse saved-state handling.
+   Refresh East Commonlands and preserve its saved state unless a fresh capture
+   shows a specific equipment conflict. The October 4 Camil cache row 66432
+   has no saved loot/equipped item instances, and the cache schema has no helmet
+   appearance column; deletion is not presently justified. Recheck after the
+   final zone shutdown. Prepared forward/rollback SQL is in the local evidence
+   directory's camil-plan folder and has not been applied.
    Verify Camil in person at the current compact tunnel class area. No quest,
    loot source or acquisition mechanic is added.
 6. Publish a signed production client release through the existing pipeline
@@ -124,6 +129,9 @@ Validation: 12 helmet archive/item tests and three PFS block-format tests pass;
 nightcap-package Go tests pass.
 Reopening the packed Blender source in a separate headless process reproduces
 the exact native mesh SHA-256 8d387f742f1f7ef571926abe3f0d9938cb04ee993a0a1c41d9df4354d3db909c.
+The local evidence directory also contains camil-high-elf-packaged.png, a
+three-quarter inspection of the decoded HIM head. This is a Blender preview
+of packaged geometry, not an in-game screenshot or owner visual acceptance.
 The packaged mesh stays below 4,096 triangles including the retained face for
 each fit; all original fragments/strings survive, bone indices and material
 dependencies validate, and malformed/colliding inputs fail closed.
