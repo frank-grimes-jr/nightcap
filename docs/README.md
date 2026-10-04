@@ -10,6 +10,8 @@ Start with [current status](status.md), not a dated candidate report.
 
 ## Players and testers
 
+- [Winged Paladin helmet: original-race candidate and exact in-game QA](helmets/winged-paladin.md)
+
 - [Blessing reconnect repair: live deployment and exact QA](releases/blessing-relogin-20261002/README.md)
 
 - [Compact tunnel services: layout, complete roster and exact QA](releases/tunnel-compact-20261002/README.md)

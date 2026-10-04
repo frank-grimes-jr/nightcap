@@ -17,6 +17,7 @@ var gameplayNames = append([]string{
 	"uifiles/nightcap/equi_petinfowindow.xml",
 	"ecommons_chr.txt", "ecommons_assets.txt", "poknowledge_obj.s3d", "nektulos.s3d", "nektulos_obj.s3d", "dbstr_us.txt", "maps/ecommons_3.txt",
 	"lavastorm.s3d", "lavastorm_obj.s3d",
+	"global_chr.s3d", "global4_chr.s3d",
 	"poknowledge_chr.txt", "mur.eqg", "scu.eqg", "frd.eqg", "ddv.eqg", "srn.eqg",
 }, classicModelNames...)
 

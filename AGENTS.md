@@ -189,6 +189,15 @@ formatting. Rehearse forward and rollback against captured schemas before apply.
 
 ## Launcher delivery
 
+The winged Paladin helmet candidate is documented in
+`docs/helmets/winged-paladin.md`. Its Blender/Unity assets and pinned native WLD
+builder live under `assets/winged-helmet/` and `tools/*winged_helmet*`.
+It appends head material 90 for the twelve original races, both genders;
+High Elf uses HIM/HIF, not Wood Elf ELM/ELF. Build outside the read-only source
+client, preserve existing archive fragments/textures, and install through the
+signed launcher. Item 990500 exists in SQL; native wear and Camil acceptance
+remain pending. Do not infer deployment from a Blender render or item row.
+
 PFS version 2 (`0x20000`) requires decompressed blocks no larger than 8192
 bytes, including its filename table. A Python zlib round-trip alone does not
 prove native compatibility. Run `test_classic_model_pfs.py` and validate the

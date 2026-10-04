@@ -1,7 +1,17 @@
 # Current Nightcap status
 
-Updated October 3, 2026. This is the current status index; dated studies and
+Updated October 4, 2026. This is the current status index; dated studies and
 QA reports preserve their original evidence and are not live-state promises.
+
+## Winged Paladin helmet candidate awaiting native QA
+
+Blender/Unity assets and all 24 original-race/gender fits are built. Item 990500
+exists in the live database with Classic raid stats, but its required item-cache
+restart awaits explicit approval after automatic review blocked potential player
+interruption. Signed local QA release 2026100401 is installed in E:/Nightcap_QA;
+the public release remains 2026100203. Native wear/reference-image acceptance,
+Camil's subsequent appearance update and production client publication remain
+open. [Current evidence and exact QA](helmets/winged-paladin.md).
 
 ## Blessing reconnect repair deployed for owner QA
 

@@ -10,6 +10,17 @@ import (
 )
 
 func TestGameplayAssetGenerationIsCompleteAndBoundToInputs(t *testing.T) {
+	for _, required := range []string{"global_chr.s3d", "global4_chr.s3d"} {
+		found := false
+		for _, name := range gameplayNames {
+			if name == required {
+				found = true
+			}
+		}
+		if !found {
+			t.Fatalf("wearable helmet archive missing from signed release: %s", required)
+		}
+	}
 	root := t.TempDir()
 	client := t.TempDir()
 	spells := []byte("original spells")

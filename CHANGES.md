@@ -1,5 +1,22 @@
 # CHANGES
 
+## 2026-10-04 — Winged Paladin helmet QA candidate
+
+Created an editable Blender helmet and Unity FBX inspection scene from the
+owner's classic reference images, using the original EQ human plate texture.
+Native WLD/PFS generation adds head material 90 for both genders of the twelve
+original races, preserving existing geometry and textures. Later races are
+excluded at the owner's request. Signed local QA release 2026100401 is installed
+only in E:/Nightcap_QA; the public client release remains 2026100203.
+
+Guarded, backup-rehearsed creation of item 990500 (Winged Helm of the Dawn)
+completed in the live database: PAL, original races, AC 18, HP/mana 25,
+STA 5, WIS 7, MR 10, FR/CR 5, without later-era effects or augments.
+The server item-cache refresh awaits explicit approval after automatic review
+blocked a potentially player-interrupting restart. Native wear/visual QA,
+Camil's appearance update, and production client publication remain pending.
+No acquisition quest or loot source was added. See docs/helmets/winged-paladin.md.
+
 ## 2026-10-03 — Blessing reconnect repair deployed
 
 Owner-authorized main promotion and OVH deployment restore saved RoF2 player
