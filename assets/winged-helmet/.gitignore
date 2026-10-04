@@ -1,0 +1,12 @@
+# Generated client archives and exploratory fits stay local.
+client-candidate-*/
+modern-candidate-*/
+source-textures/*
+!source-textures/humch0301.bmp
+*.blend1
+winged-paladin-helmet.blend
+camil-head-fit.png
+classic-26-fit-sheet*.png
+helmet-front.png
+helmet-native-metal.png
+winged-paladin-helmet-front-refined.png

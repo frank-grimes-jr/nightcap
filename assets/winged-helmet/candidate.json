@@ -1,0 +1,551 @@
+{
+  "status": "candidate_native_wear_not_verified",
+  "item_id": 990500,
+  "head_material": 90,
+  "races": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "local_qa_release": 2026100401,
+  "source_roundtrip_verified": true,
+  "files": {
+    "winged-paladin-source.blend": {
+      "bytes": 170033,
+      "sha256": "4d18d5ae5ca1f0771c20d7edb4f58ce4672d2c78bcf9d81ac660f9824ad7916f"
+    },
+    "winged-paladin-helmet.fbx": {
+      "bytes": 303900,
+      "sha256": "b4c8328e1ac2ceabc9a88b29d75862fc81b7b114ef23d2d099aa3adebee737a4"
+    },
+    "helmet-game-mesh.json": {
+      "bytes": 395230,
+      "sha256": "8d387f742f1f7ef571926abe3f0d9938cb04ee993a0a1c41d9df4354d3db909c"
+    },
+    "source-textures/humch0301.bmp": {
+      "bytes": 9270,
+      "sha256": "70e8c9b275dcea34fb9ce29bc6774754bd399d8b9f54469578f66c27675c468e"
+    },
+    "classic-24-fit-sheet-v4.png": {
+      "bytes": 3310267,
+      "sha256": "ec605068a7abce5427c50fc8e91368e835a1b8b84c001cb648a0f140dc1b3104"
+    }
+  },
+  "archives": {
+    "global_chr.s3d": {
+      "source_sha256": "6de89b8bea0c4ed387f8ef92774018a44a35c1fb440aa0a3052c56ce680a2eed",
+      "output_sha256": "f7ed77735fc98b01e9105b2b5b690443acfa64ab222fb5d2822dfc33d11c792a",
+      "models": [
+        {
+          "code": "HUM",
+          "head_material": 90,
+          "vertices": 2021,
+          "triangles": 3789,
+          "stock_face_triangles": 24,
+          "head_bone": 17,
+          "fit_scale": [
+            1.8991524832589286,
+            2.110884817023026,
+            2.325575759925558
+          ],
+          "fit_shift": [
+            0.00384521484375,
+            -0.119384765625,
+            -0.19677734375
+          ],
+          "front": "-Y"
+        },
+        {
+          "code": "HUF",
+          "head_material": 90,
+          "vertices": 2037,
+          "triangles": 3809,
+          "stock_face_triangles": 44,
+          "head_bone": 13,
+          "fit_scale": [
+            1.9007568359375,
+            1.7625186317845394,
+            1.8163941338399503
+          ],
+          "fit_shift": [
+            0.00469970703125,
+            -0.00567626953125,
+            -0.0792236328125
+          ],
+          "front": "-Y"
+        },
+        {
+          "code": "BAM",
+          "head_material": 90,
+          "vertices": 2056,
+          "triangles": 3829,
+          "stock_face_triangles": 64,
+          "head_bone": 17,
+          "fit_scale": [
+            1.9280308314732142,
+            2.1714702405427633,
+            2.3283018959367245
+          ],
+          "fit_shift": [
+            0.01104736328125,
+            -0.109375,
+            -0.171875
+          ],
+          "front": "-Y"
+        },
+        {
+          "code": "BAF",
+          "head_material": 90,
+          "vertices": 2036,
+          "triangles": 3809,
+          "stock_face_triangles": 44,
+          "head_bone": 13,
+          "fit_scale": [
+            1.6613071986607142,
+            1.5028140419407894,
+            2.0553853908188584
+          ],
+          "fit_shift": [
+            0.0050048828125,
+            -0.0791015625,
+            -0.115478515625
+          ],
+          "front": "-Y"
+        },
+        {
+          "code": "ERM",
+          "head_material": 90,
+          "vertices": 2034,
+          "triangles": 3804,
+          "stock_face_triangles": 39,
+          "head_bone": 17,
+          "fit_scale": [
+            1.7663922991071428,
+            2.1766421669407894,
+            2.3910030241935485
+          ],
+          "fit_shift": [
+            -0.008056640625,
+            -0.1435546875,
+            -0.1572265625
+          ],
+          "front": "-Y"
+        },
+        {
+          "code": "ERF",
+          "head_material": 90,
+          "vertices": 2032,
+          "triangles": 3801,
+          "stock_face_triangles": 36,
+          "head_bone": 13,
+          "fit_scale": [
+            2.7442452566964284,
+            1.9801089638157892,
+            2.520343032723325
+          ],
+          "fit_shift": [
+            0.029541015625,
+            0.00390625,
+            -0.20947265625
+          ],
+          "front": "-Y"
+        },
+        {
+          "code": "ELM",
+          "head_material": 90,
+          "vertices": 2041,
+          "triangles": 3818,
+          "stock_face_triangles": 53,
+          "head_bone": 17,
+          "fit_scale": [
+            2.3,
+            2.3,
+            2.3
+          ],
+          "fit_shift": [
+            0,
+            -0.03,
+            -0.19
+          ],
+          "front": "-Y"
+        },
+        {
+          "code": "ELF",
+          "head_material": 90,
+          "vertices": 2037,
+          "triangles": 3808,
+          "stock_face_triangles": 43,
+          "head_bone": 13,
+          "fit_scale": [
+            2.0307094029017856,
+            1.6668379934210524,
+            1.7521784855769231
+          ],
+          "fit_shift": [
+            0.00457763671875,
+            -0.0543212890625,
+            -0.0413818359375
+          ],
+          "front": "-Y"
+        },
+        {
+          "code": "HIM",
+          "head_material": 90,
+          "vertices": 2046,
+          "triangles": 3822,
+          "stock_face_triangles": 57,
+          "head_bone": 17,
+          "fit_scale": [
+            2.3,
+            2.3,
+            2.3
+          ],
+          "fit_shift": [
+            0,
+            -0.03,
+            -0.19
+          ],
+          "front": "-Y"
+        },
+        {
+          "code": "HIF",
+          "head_material": 90,
+          "vertices": 2040,
+          "triangles": 3814,
+          "stock_face_triangles": 49,
+          "head_bone": 13,
+          "fit_scale": [
+            1.814121791294643,
+            1.7662128649259867,
+            1.959667726426799
+          ],
+          "fit_shift": [
+            0.00799560546875,
+            -0.03143310546875,
+            -0.0751953125
+          ],
+          "front": "-Y"
+        },
+        {
+          "code": "DAM",
+          "head_material": 90,
+          "vertices": 2059,
+          "triangles": 3822,
+          "stock_face_triangles": 57,
+          "head_bone": 17,
+          "fit_scale": [
+            2.254917689732143,
+            2.4189838610197367,
+            2.572745424937965
+          ],
+          "fit_shift": [
+            -0.0118408203125,
+            -0.083251953125,
+            -0.3157958984375
+          ],
+          "front": "-Y"
+        },
+        {
+          "code": "DAF",
+          "head_material": 90,
+          "vertices": 2070,
+          "triangles": 3823,
+          "stock_face_triangles": 58,
+          "head_bone": 13,
+          "fit_scale": [
+            1.9681396484374998,
+            1.6527999074835524,
+            1.7755020936724566
+          ],
+          "fit_shift": [
+            0.00457763671875,
+            -0.052001953125,
+            -0.05078125
+          ],
+          "front": "-Y"
+        },
+        {
+          "code": "HAM",
+          "head_material": 90,
+          "vertices": 2035,
+          "triangles": 3810,
+          "stock_face_triangles": 45,
+          "head_bone": 17,
+          "fit_scale": [
+            1.7956717354910714,
+            2.2047183388157894,
+            2.3837333281637716
+          ],
+          "fit_shift": [
+            -0.01177978515625,
+            -0.11865234375,
+            -0.160888671875
+          ],
+          "front": "-Y"
+        },
+        {
+          "code": "HAF",
+          "head_material": 90,
+          "vertices": 2078,
+          "triangles": 3845,
+          "stock_face_triangles": 80,
+          "head_bone": 13,
+          "fit_scale": [
+            1.746738978794643,
+            1.6675768400493418,
+            1.9242279582816377
+          ],
+          "fit_shift": [
+            -0.00250244140625,
+            -0.0477294921875,
+            -0.056884765625
+          ],
+          "front": "-Y"
+        },
+        {
+          "code": "DWM",
+          "head_material": 90,
+          "vertices": 2055,
+          "triangles": 3819,
+          "stock_face_triangles": 54,
+          "head_bone": 13,
+          "fit_scale": [
+            4.135219029017857,
+            4.297870836759868,
+            3.6335152372828783
+          ],
+          "fit_shift": [
+            -0.0191650390625,
+            -0.1541748046875,
+            -0.56005859375
+          ],
+          "front": "+X"
+        },
+        {
+          "code": "DWF",
+          "head_material": 90,
+          "vertices": 2044,
+          "triangles": 3814,
+          "stock_face_triangles": 49,
+          "head_bone": 13,
+          "fit_scale": [
+            3.8087332589285716,
+            4.6835487767269735,
+            3.788602085918114
+          ],
+          "fit_shift": [
+            0.0283203125,
+            0.0517578125,
+            -0.1484375
+          ],
+          "front": "+X"
+        },
+        {
+          "code": "TRM",
+          "head_material": 90,
+          "vertices": 2058,
+          "triangles": 3839,
+          "stock_face_triangles": 74,
+          "head_bone": 4,
+          "fit_scale": [
+            7.088832310267857,
+            6.892700195312499,
+            4.206609607630273
+          ],
+          "fit_shift": [
+            -0.0003662109375,
+            -0.5638427734375,
+            -0.533935546875
+          ],
+          "front": "+X"
+        },
+        {
+          "code": "TRF",
+          "head_material": 90,
+          "vertices": 2059,
+          "triangles": 3849,
+          "stock_face_triangles": 84,
+          "head_bone": 4,
+          "fit_scale": [
+            4.970284598214286,
+            5.0987805818256575,
+            3.5347685328784118
+          ],
+          "fit_shift": [
+            -0.000244140625,
+            -0.5308837890625,
+            -0.4326171875
+          ],
+          "front": "+X"
+        },
+        {
+          "code": "OGM",
+          "head_material": 90,
+          "vertices": 2050,
+          "triangles": 3834,
+          "stock_face_triangles": 69,
+          "head_bone": 4,
+          "fit_scale": [
+            4.684709821428571,
+            5.837627210115131,
+            3.4941793967121586
+          ],
+          "fit_shift": [
+            -0.042724609375,
+            -0.4617919921875,
+            -0.46484375
+          ],
+          "front": "+X"
+        },
+        {
+          "code": "OGF",
+          "head_material": 90,
+          "vertices": 2047,
+          "triangles": 3822,
+          "stock_face_triangles": 57,
+          "head_bone": 4,
+          "fit_scale": [
+            5.718715122767857,
+            5.215518349095395,
+            3.721963205645161
+          ],
+          "fit_shift": [
+            -0.0489501953125,
+            -0.3167724609375,
+            -0.176513671875
+          ],
+          "front": "+X"
+        },
+        {
+          "code": "HOM",
+          "head_material": 90,
+          "vertices": 2033,
+          "triangles": 3811,
+          "stock_face_triangles": 46,
+          "head_bone": 13,
+          "fit_scale": [
+            3.3980189732142856,
+            3.768856650904605,
+            3.100101291098015
+          ],
+          "fit_shift": [
+            0.0126953125,
+            -0.071044921875,
+            -0.19580078125
+          ],
+          "front": "+X"
+        },
+        {
+          "code": "HOF",
+          "head_material": 90,
+          "vertices": 2031,
+          "triangles": 3799,
+          "stock_face_triangles": 34,
+          "head_bone": 13,
+          "fit_scale": [
+            4.5511474609375,
+            5.549477025082236,
+            3.7673988058312653
+          ],
+          "fit_shift": [
+            -0.00042724609375,
+            0.1231689453125,
+            -0.1619873046875
+          ],
+          "front": "+X"
+        },
+        {
+          "code": "GNM",
+          "head_material": 90,
+          "vertices": 2111,
+          "triangles": 3875,
+          "stock_face_triangles": 110,
+          "head_bone": 13,
+          "fit_scale": [
+            5.344499860491071,
+            4.057376259251645,
+            3.0985867710918114
+          ],
+          "fit_shift": [
+            -6.103515625e-05,
+            -0.22491455078125,
+            -0.2742919921875
+          ],
+          "front": "+X"
+        },
+        {
+          "code": "GNF",
+          "head_material": 90,
+          "vertices": 2066,
+          "triangles": 3839,
+          "stock_face_triangles": 74,
+          "head_bone": 13,
+          "fit_scale": [
+            3.8705008370535716,
+            5.2040662263569075,
+            3.9082491664081886
+          ],
+          "fit_shift": [
+            0.0006103515625,
+            0.05938720703125,
+            -0.1787109375
+          ],
+          "front": "+X"
+        }
+      ]
+    },
+    "global4_chr.s3d": {
+      "source_sha256": "a828808b84d44c3abbcfff66aac8706ad18b37bc058b4f95a162e1abb9b0819b",
+      "output_sha256": "1a540301ffd355c1bbd83600f97b3f955e25b5dfeea797060ec4cff88a2c7663",
+      "models": [
+        {
+          "code": "BAM",
+          "head_material": 90,
+          "vertices": 2056,
+          "triangles": 3829,
+          "stock_face_triangles": 64,
+          "head_bone": 17,
+          "fit_scale": [
+            1.9280308314732142,
+            2.1714702405427633,
+            2.3283018959367245
+          ],
+          "fit_shift": [
+            0.01104736328125,
+            -0.109375,
+            -0.171875
+          ],
+          "front": "-Y"
+        },
+        {
+          "code": "BAF",
+          "head_material": 90,
+          "vertices": 2036,
+          "triangles": 3809,
+          "stock_face_triangles": 44,
+          "head_bone": 13,
+          "fit_scale": [
+            1.6613071986607142,
+            1.5028140419407894,
+            2.0553853908188584
+          ],
+          "fit_shift": [
+            0.0050048828125,
+            -0.0791015625,
+            -0.115478515625
+          ],
+          "front": "-Y"
+        }
+      ]
+    }
+  }
+}
