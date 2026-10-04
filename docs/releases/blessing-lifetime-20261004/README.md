@@ -52,8 +52,11 @@ and `python tools/tests/probe_rof2_buff_lifetime.py --repo . --client <eqgame.ex
 Use the same arguments for `probe_rof2_buff_restore.py`. Six rollout failure tests
 pass with `python docs/releases/blessing-lifetime-20261004/ops/test_rollout.py -v`.
 
-A fresh paired hardened world/zone build and deployment evidence will be
-recorded here when complete. The owner's October 3 main/server instruction
+A fresh paired hardened world/zone build passed over the preserved October 3
+production source, with exactly three changed files. Source fingerprints stayed
+identical across compilation and the baseline was unchanged. Existing compiler
+warnings remain. [Build provenance and binary hashes](build.json). Deployment
+verification will be recorded after activation. The owner's October 3 main/server instruction
 authorizes this follow-up; manual acceptance remains open.
 
 ## Exact live QA

@@ -5,8 +5,9 @@ showed that reconnect restoration alone failed on the next tick. Keep icon
 countdowns, permanent server policy and ordinary finite timers unchanged.
 
 Built: a narrow profile/OP_Buff helper, server regression and exact native
-expiry/decrement probe. Independent review found no blocker. Fresh paired build
-and authorized live deployment are in progress.
+expiry/decrement probe. Independent review found no blocker. Fresh paired hardened
+world/zone build and all focused regressions pass; authorized live deployment
+is the remaining operational step.
 
 Cut: recasting, giant positive timers, client spell-file changes and inventory
 hooks; no evidence justifies those changes. Shaky/open: full native login/UI,

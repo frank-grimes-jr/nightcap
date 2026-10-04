@@ -38,7 +38,7 @@ The owner's October 4 retest found the October 3 reconnect repair insufficient:
 both speed and stats disappear shortly after inventory inspection. Native tick
 code expires the -1 duration used for finite-formula blessings. The follow-up
 preserves -1000 in native effect state while keeping icon countdowns unchanged.
-Regression tests pass; fresh paired build/deployment and owner QA are pending.
+Regression tests and fresh paired build pass; deployment and owner QA are pending.
 [Root cause and exact QA](releases/blessing-lifetime-20261004/README.md).
 
 ## Compact tunnel service layout deployed for visual QA
