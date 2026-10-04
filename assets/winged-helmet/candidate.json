@@ -1,5 +1,6 @@
 {
-  "status": "candidate_native_wear_not_verified",
+  "status": "classic_head_registration_repaired_native_visual_pending",
+  "production_release": 2026100402,
   "item_id": 990500,
   "head_material": 90,
   "races": [
@@ -43,7 +44,7 @@
   "archives": {
     "global_chr.s3d": {
       "source_sha256": "6de89b8bea0c4ed387f8ef92774018a44a35c1fb440aa0a3052c56ce680a2eed",
-      "output_sha256": "f7ed77735fc98b01e9105b2b5b690443acfa64ab222fb5d2822dfc33d11c792a",
+      "output_sha256": "931ecab1081aa93c9d3b55fed275624dcec2f042d07b61c8e2a36f0b0404f3f4",
       "models": [
         {
           "code": "HUM",
@@ -505,7 +506,7 @@
     },
     "global4_chr.s3d": {
       "source_sha256": "a828808b84d44c3abbcfff66aac8706ad18b37bc058b4f95a162e1abb9b0819b",
-      "output_sha256": "1a540301ffd355c1bbd83600f97b3f955e25b5dfeea797060ec4cff88a2c7663",
+      "output_sha256": "6bd94c366fd4613583258459b2d1329d17a39573f549dee02f996cd5a972b548",
       "models": [
         {
           "code": "BAM",

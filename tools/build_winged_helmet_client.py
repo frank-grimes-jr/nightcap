@@ -1,4 +1,4 @@
-"""Append a new numbered helmet; retain every pre-existing WLD fragment.
+"""Add a numbered helmet to each Classic actor's native mesh block.
 
 Produces a separate staging archive. The source RoF2 client is always read-only.
 Material 90 is below the native Velious remapping range (240..255).
@@ -13,6 +13,7 @@ import struct
 from classic_model_archives import crypt, read_pfs, write_pfs, wld_parts
 from classic_model_materials import _Wld
 from helmet_wld import decode_mesh, encode_mesh
+from helmet_wld_layout import mesh_block, registered_meshes, reorder
 
 HEAD_MATERIAL = 90
 SOURCE_DIGESTS = {
@@ -104,6 +105,7 @@ def add_helmet(raw, game, codes):
         if mat not in (0,1,2) or len({a,b,c})!=3 or any(not 0<=i<nv for i in (a,b,c)):
             raise ValueError('Invalid game triangle index or material')
     w=_Wld(raw);fragments=list(w.fragments);strings=bytearray(w.strings);audit=[]
+    before_block={};after_block={}
     def name_ref(name):
         if name in w.by_name:raise ValueError('Fragment name already exists: '+name)
         offset=len(strings);strings.extend(name.encode('ascii')+b'\0');return -offset
@@ -116,6 +118,10 @@ def add_helmet(raw, game, codes):
         target=f'{code}HE{HEAD_MATERIAL:02d}_DMSPRITEDEF'
         if target in w.by_name:raise ValueError('Helmet head already exists: '+target)
         source_id=w.by_name[code+'HE00_DMSPRITEDEF'][0]
+        first,last=mesh_block(w,source_id)
+        if first in before_block:
+            raise ValueError('Actors unexpectedly share a mesh block')
+        added_start=len(fragments)+1
         original=decode_mesh(w.fragments[source_id-1]);m=bare_face(w,code)
         palette_id=struct.unpack_from('<I',m['header'],16)[0]
         palette=w.fragments[palette_id-1]
@@ -162,7 +168,10 @@ def add_helmet(raw, game, codes):
         m['scale']=min(13,int(math.floor(math.log2(32760/largest))))
         newmesh=encode_mesh(m,name_ref(target),new_palette)
         fragments.append(newmesh)
+        mesh_id=len(fragments)
         append(0x2d,f'{code}HE{HEAD_MATERIAL:02d}_DMSPRITE',struct.pack('<II',len(fragments),0))
+        before_block[first]=list(range(added_start,mesh_id))
+        after_block[last]=[mesh_id,len(fragments)]
         audit.append(dict(code=code,head_material=HEAD_MATERIAL,vertices=len(m['vertices']),triangles=len(m['polygons']),stock_face_triangles=len(m['polygons'])-len(game['triangles']),head_bone=head_bone,fit_scale=scale,fit_shift=shift,front='+X' if code in POSITIVE_X_FRONT else '-Y'))
     strings.extend(bytes((-len(strings))%4))
     header=bytearray(w.header)
@@ -171,6 +180,18 @@ def add_helmet(raw, game, codes):
     after=_Wld(output)
     if after.fragments[:len(w.fragments)]!=w.fragments:
         raise AssertionError('Original fragments changed')
+    # The Classic loader enumerates consecutive 0x36 records around the stock
+    # head. Keep material dependencies before that block and the new head in it.
+    order=[]
+    for index in range(1,len(w.fragments)+1):
+        order.extend(before_block.get(index,[]))
+        order.append(index)
+        order.extend(after_block.get(index,[]))
+    output=reorder(output,order)
+    after=_Wld(output)
+    for code in codes:
+        if f'{code}HE{HEAD_MATERIAL:02d}_DMSPRITEDEF' not in registered_meshes(after,code):
+            raise AssertionError('Helmet is outside the native actor mesh block')
     return output,audit
 
 

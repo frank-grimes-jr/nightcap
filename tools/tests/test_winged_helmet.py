@@ -10,6 +10,7 @@ sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
 from classic_model_archives import read_pfs, wld_parts
 from classic_model_materials import _Wld, validate_materials
 from helmet_wld import decode_mesh
+from helmet_wld_layout import reference_fields, registered_meshes, reorder
 from build_winged_helmet_client import add_helmet, HEAD_MATERIAL
 import build_winged_helmet_client as builder
 
@@ -24,10 +25,51 @@ class HelmetTests(unittest.TestCase):
         cls.game = json.loads((ROOT/'assets/winged-helmet/helmet-game-mesh.json').read_text())
         cls.output,cls.audit = add_helmet(cls.source,cls.game,['ELM'])
 
+    def assert_originals_preserved(self,before,after):
+        added=set()
+        for i,name in enumerate(after.names,1):
+            if '_WING_' in name or 'HE90_DMSPRITE' in name:
+                added.add(i)
+                if after.kind(i)==0x30:
+                    ref=after.references(i)[0][1]
+                    added.add(ref)
+                    added.add(after.references(ref)[0][1])
+        kept=[i for i in range(1,len(after.fragments)+1) if i not in added]
+        self.assertEqual(len(kept),len(before.fragments))
+        inverse={new:old for old,new in enumerate(kept,1)}
+        for old,new in enumerate(kept,1):
+            fragment=bytearray(after.fragments[new-1])
+            for offset in reference_fields(after,new):
+                ref=struct.unpack_from('<i',fragment,offset)[0]
+                if ref>0:struct.pack_into('<i',fragment,offset,inverse[ref])
+            self.assertEqual(bytes(fragment),before.fragments[old-1],f'original fragment {old}')
+
     def test_all_existing_fragments_and_strings_preserved(self):
         before,after = _Wld(self.source),_Wld(self.output)
-        self.assertEqual(after.fragments[:len(before.fragments)],before.fragments)
+        self.assert_originals_preserved(before,after)
         self.assertEqual(after.strings[:len(before.strings)],before.strings)
+
+    def test_native_loader_discovers_head_from_skeleton(self):
+        before,after=_Wld(self.source),_Wld(self.output)
+        self.assertNotIn('ELMHE90_DMSPRITEDEF',registered_meshes(before,'ELM'))
+        self.assertIn('ELMHE90_DMSPRITEDEF',registered_meshes(after,'ELM'))
+        self.assertEqual([n for n in registered_meshes(after,'ELM') if 'HE90_' not in n],
+                         registered_meshes(before,'ELM'))
+
+    def test_appended_head_reproduces_original_registration_failure(self):
+        w=_Wld(self.output)
+        head=w.by_name['ELMHE90_DMSPRITEDEF'][0]
+        order=[i for i in range(1,len(w.fragments)+1) if i!=head]+[head]
+        broken=_Wld(reorder(self.output,order))
+        self.assertIn('ELMHE90_DMSPRITEDEF',broken.by_name)
+        self.assertNotIn('ELMHE90_DMSPRITEDEF',registered_meshes(broken,'ELM'))
+
+    def test_fragment_relocation_rejects_unknown_kinds(self):
+        raw=bytearray(self.source)
+        _,parts=wld_parts(raw)
+        struct.pack_into('<I',raw,parts[0][0]+4,0x777)
+        with self.assertRaisesRegex(ValueError,'Unsupported WLD fragment'):
+            reorder(bytes(raw),list(range(1,len(parts)+1)))
 
     def test_native_mesh_indices_groups_and_head_attachment(self):
         w = _Wld(self.output)
@@ -70,9 +112,10 @@ class HelmetTests(unittest.TestCase):
             source=read_pfs(raw)[archive[:-4]+'.wld']
             output,audit=add_helmet(source,self.game,codes)
             before,after=_Wld(source),_Wld(output)
-            self.assertEqual(after.fragments[:len(before.fragments)],before.fragments)
+            self.assert_originals_preserved(before,after)
             for entry in audit:
                 code=entry['code']
+                self.assertIn(code+'HE90_DMSPRITEDEF',registered_meshes(after,code))
                 mesh=decode_mesh(after.fragments[after.by_name[code+'HE90_DMSPRITEDEF'][0]-1])
                 skeleton=before.fragments[before.by_name[code+'_HS_DEF'][0]-1]
                 bone_count=struct.unpack_from('<I',skeleton,16)[0]

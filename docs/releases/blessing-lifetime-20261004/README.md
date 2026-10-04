@@ -80,7 +80,7 @@ production service/public-file identities, validate hardening and native feature
 contracts, close the gateway, stop game cleanly, fingerprint saved player/rule/
 receipt/corpse data locally on the server, start the new pair and verify running
 hashes, healthy processes and unchanged data before reopening. Preserve current
-helmet client release 2026100401, Camil, tunnel layout, quests and player progress.
+helmet client release 2026100402, Camil, tunnel layout, quests and player progress.
 
 Rollback uses the exact previous receipt-aware image after closing access;
 never restore the database or downgrade to pre-receipt binaries. A rollback
