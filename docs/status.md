@@ -3,6 +3,16 @@
 Updated October 4, 2026. This is the current status index; dated studies and
 QA reports preserve their original evidence and are not live-state promises.
 
+## NPC animation repair authorized for live testing
+
+The owner requested main promotion and server publication before in-game QA.
+The repair restores native animation-family sharing for classic model aliases,
+including Enchanter pets and beetles. Native/runtime/packaging checks pass.
+Prepared game release 2026100403 preserves all assets from 2026100402; publication
+awaits explicit approval to use the existing production signing key after an
+automatic approval rejection. Visual acceptance remains pending.
+[Repair, authorization and exact QA](releases/npc-animation-20261004/README.md).
+
 ## Winged Paladin helmet deployed for live QA
 
 Owner QA found Camil bareheaded on Classic models despite installed release
