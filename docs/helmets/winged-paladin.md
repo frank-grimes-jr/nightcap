@@ -2,11 +2,11 @@
 
 Status: deployed to main and OVH for live QA, October 4, 2026. Item 990500
 is loaded in the live shared-memory cache, Camil uses head material 90, and
-signed client release 2026100402 is public. Native wear/visual QA remains open.
+signed client release 2026100403 is public. Native wear/visual QA remains open.
 
 The 2026100402 retest shows the new face cutout but invisible metal. Native
 actors use their first mesh's material palette; HE90's separate new palette
-was ignored. A shared-palette extension is prepared for 2026100403.
+was ignored. The shared-palette extension is published in 2026100403.
 [Material repair and retest](../releases/winged-helmet-materials-20261004/README.md).
 
 Live QA found Camil bareheaded: the appended HE90 meshes were outside the
@@ -40,8 +40,9 @@ separate visible Unity inspection scene. The reduced game mesh has 3,765
 triangles. All metal uses the unchanged humch0301.bmp human plate bitmap.
 
 Published geometry is client-candidate-05, with the corrected native mesh-block
-layout in production release 2026100402. This supersedes the append-only layout
-in 2026100401 and preserves the other 46 client files.
+layout and shared-palette extension in production release 2026100403. This
+supersedes the native registration/material failures in 2026100401/02 and
+preserves the other 46 client files.
 The normal launcher downloads those archives before Play. The original
 Client_RoF2_Dev installation remains unchanged.
 The repair retains all original Classic WLD data except relocated fragment IDs

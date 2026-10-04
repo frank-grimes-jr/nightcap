@@ -6,6 +6,15 @@ baseline includes current main e37b7fa and its published winged helmet assets.
 
 ## Owner-authorized live promotion
 
+Publication coordination update: the helmet material repair has now published
+2026100403, with global_chr SHA256
+52bd794548e12f90e147d17f4f16871286564fea9a38a907246adec71d1026af and global4_chr
+11952fc236d99e0e7e79a81a388da9e5d07e0ab4a48adcebe7946def6e4b413e.
+The animation candidate described below remains unpublished and must be
+regenerated with a higher release counter and these current helmet archives.
+Do not replay its old 2026100403 publication plan. Its pending signing approval
+is unchanged. See ../winged-helmet-materials-20261004/README.md.
+
 On October 4 the owner requested: "Push to main and the server for me to test."
 This authorizes this repair's main promotion and hosted client publication before
 visual acceptance. It supersedes the isolated-only promotion boundary below;

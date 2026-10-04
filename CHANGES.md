@@ -42,7 +42,9 @@ Extend each actor's original shared palette by three materials, preserving
 existing slots, and use it for HE90. Insert dependencies before the palette.
 A regression failed on the published package and passes with this correction;
 all original race/gender fits retain the original mesh data and material order.
-Prepare signed client repair 2026100403; native visual/equip QA remains pending.
+Source 292aef4 and signed client repair 2026100403 are published. All 25 tests
+pass. Only the two global archives changed; running services and the other 46
+client files are preserved. Native visual/equip QA remains pending.
 [Evidence and retest](docs/releases/winged-helmet-materials-20261004/README.md).
 
 ## 2026-10-04 — Repair Classic winged-helmet registration

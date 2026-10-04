@@ -1,6 +1,7 @@
 # Classic helmet shared-material repair
 
-October 4, 2026. Prepared for the owner's authorized main/live deployment.
+October 4, 2026. Source 292aef4 is on main and signed release 2026100403 is
+published under the owner's authorized main/live deployment.
 The owner tested 2026100402 and showed Camil's new face cutout without visible
 helmet surfaces. Installed archive hashes match that release. The native
 registration repair works, but rendered appearance still fails acceptance.
@@ -38,12 +39,23 @@ Independent review checked all 26 archive fits (24 original race/gender fits
 plus the two Barbarian duplicates in global4), dependency closure/order,
 original mesh preservation and native discovery range.
 
-Prepared release 2026100403 changes only global_chr.s3d and global4_chr.s3d:
+Published release 2026100403 changes only global_chr.s3d and global4_chr.s3d:
 
 | Archive | SHA256 |
 |---|---|
 | global_chr.s3d | 52bd794548e12f90e147d17f4f16871286564fea9a38a907246adec71d1026af |
 | global4_chr.s3d | 11952fc236d99e0e7e79a81a388da9e5d07e0ab4a48adcebe7946def6e4b413e |
+
+All 25 relevant Python tests passed. The 48-file signed release verifies against
+the key shipped in launcher 0.3.1. Channel SHA256:
+53daa6e91ed0197319022da5bde6174e9afd89ba105fa96a160e01cd0739db8d.
+Publication used the deployment lock and preserved the captured service
+identities/start times and other 46 client files. Game and DB are healthy.
+
+The separate animation task also prepared an unpublished generation numbered
+2026100403. Its next publication must use a higher counter and retain these
+helmet archives. Its source was preserved during integration; its proxy/catalog
+candidate and signing approval are separate from this helmet-only publication.
 
 ## Native retest
 

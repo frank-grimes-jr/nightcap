@@ -8,32 +8,25 @@ QA reports preserve their original evidence and are not live-state promises.
 The owner requested main promotion and server publication before in-game QA.
 The repair restores native animation-family sharing for classic model aliases,
 including Enchanter pets and beetles. Native/runtime/packaging checks pass.
-Prepared game release 2026100403 preserves all assets from 2026100402; publication
-awaits explicit approval to use the existing production signing key after an
-automatic approval rejection. Visual acceptance remains pending.
+The animation candidate prepared as 2026100403 is now superseded by the helmet
+material publication using that release number. Regenerate the animation update
+as a higher release preserving the current helmet archives. Its signing-key
+approval remains pending after an automatic approval rejection. Visual
+acceptance remains pending.
 [Repair, authorization and exact QA](releases/npc-animation-20261004/README.md).
 
 ## Winged Paladin helmet deployed for live QA
 
-Owner QA of 2026100402 confirms the head changes but the helmet metal is
-invisible. Native tracing found that HE90's private material palette is ignored
-in favor of the actor's shared stock palette. The shared-palette repair is
-prepared for 2026100403. [Evidence and retest](releases/winged-helmet-materials-20261004/README.md).
-
-Owner QA found Camil bareheaded on Classic models despite installed release
-2026100401 and correct server material 90. The Classic loader requires alternate
-heads inside its contiguous mesh block; source cc78f96 and signed archive repair
-2026100402 are now published. Game/DB remain healthy without restarting services.
-Native visual retest is pending. [Repair and retest](releases/winged-helmet-display-20261004/README.md).
-
 Blender/Unity assets and all 24 original-race/gender fits are built. Item 990500
 exists in the live database and shared-memory cache with Classic raid stats.
-Main source cc78f96 and signed client release 2026100402 are published under
-the owner's explicit live-testing instruction. All 48 public files passed
-signature/hash verification; all 46 prior files are unchanged. Camil 999521 now
-uses head material 90, with position, tint, weapons and saved state preserved.
-The approved restart passed with unchanged native binaries and healthy game/DB.
-Native wear, reference-image fidelity and race/gender checks remain open.
+Owner QA exposed two native requirements: contiguous head meshes and the actor's
+shared material palette. Both are repaired in source 292aef4 and signed client
+release 2026100403, published under the owner's live-testing instruction.
+All 25 tests pass; 46 other client files and service identities/start times are
+preserved. Game/DB are healthy. Camil 999521 uses head material 90.
+Native wear, reference-image fidelity and race/gender checks remain open after
+the owner's 2026100402 screenshot showed only the exposed face cutout.
+[Material repair and retest](releases/winged-helmet-materials-20261004/README.md).
 [Deployment evidence](releases/winged-helmet-20261004/README.md).
 [Current evidence and exact QA](helmets/winged-paladin.md).
 
