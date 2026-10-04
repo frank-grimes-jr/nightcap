@@ -1,6 +1,6 @@
 # CHANGES
 
-## 2026-10-04 - Restore shared animations for classic NPC models (candidate)
+## 2026-10-04 - Restore shared animations for classic NPC models (live promotion authorized)
 
 Classic model aliases bypassed RoF2's native animation-family lookup. Beetles
 lost their spider animation fallback, and invisible-man Enchanter pets lost
@@ -15,6 +15,10 @@ checks. No model asset, server or database changes are needed. The normal
 installation has not been updated; applying this fix requires the matching
 proxy/catalog update. This is not a published fix or completed in-game acceptance.
 See `docs/releases/npc-animation-20261004/README.md` for evidence and exact QA.
+The owner subsequently authorized main and hosted publication for live testing.
+The rebased repair preserves helmet release 2026100402; prepared generation
+2026100403 awaits approval to use the existing production signing key.
+Visual acceptance remains open.
 
 ## 2026-10-04 — Repair Classic winged-helmet registration
 
