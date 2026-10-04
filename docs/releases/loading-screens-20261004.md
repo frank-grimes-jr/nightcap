@@ -1,5 +1,10 @@
 # Nightcap loading gallery
 
+**Published October 4, 2026:** [PR 124](https://github.com/frank-grimes-jr/nightcap/pull/124)
+merged to main at `70fd26a6ce6e22be9f6b6bdbdf4a6762291ef3b6`. Signed game
+**2026100407** and launcher **0.4.0 / channel 2026100401** are live on OVH.
+Fully exit EQ and the launcher, then reopen the normal Nightcap shortcut.
+
 The owner requested publication to main and the hosted server of all ten approved
 paintings. Acceptance: every pinned RoF2 loading slot uses this set, all ten scenes
 are included, the signed production launcher installs them, main contains the
@@ -46,7 +51,7 @@ full image visibility, readable native progress text, and the gnome's three pets
 Test fixed/default load-screen modes too. Publication/hash checks and native image
 decoding do not by themselves record visual player acceptance.
 
-## Candidate verification
+## Verification
 
 Game release **2026100407** contains 104 files (48 unchanged plus 56 JPEGs),
 211,896,707 total bytes, and requires desktop **0.4.0**. Its signature verifies
@@ -74,4 +79,29 @@ Independent review found and resolved the initial packager-version floor and
 canonical-generator integration gaps; the final implementation and publisher have
 no remaining required findings.
 
-Status: verified candidate; live publication receipt follows after activation.
+## Production receipt
+
+The user explicitly approved both the GitHub repository/main publication and
+OVH destination/payload after automatic approval review requested those details.
+The 63-file upload contained only new artwork, launcher, metadata and publisher;
+the 48 existing client files were reused on-host after signed hash verification.
+The publication lock and fresh baseline checks preserved the concurrently deployed
+universal-trading server. Immutable assets preceded the desktop channel and then
+the game channel. No game, database, gateway, web or tunnel restart occurred.
+
+Independent HTTPS verification read all 104 files (211,896,707 bytes), checked the
+game signature against the shipped production key, and verified desktop channel
+signature and executable bytes. All 56 image hashes match the approved gallery,
+all ten paintings are represented, and all 48 prior game files are byte-identical.
+The stable starter ZIP and guide are unchanged. Game and database are healthy.
+
+- [Deployment checks](loading-screens-20261004/deployment.json)
+- [Public game verification](loading-screens-20261004/hosted-verification.json)
+- [Public launcher verification](loading-screens-20261004/hosted-launcher-verification.json)
+- [On-host publication receipt](loading-screens-20261004/published.json)
+
+Prior channels remain under `/opt/nightcap/releases/loading-screens-2026100407/`
+as `previous-channel.json` and `previous-launcher-channel.json`. Retained stock
+loading images and local release evidence are in the artifact directory above.
+Rollback remains a new higher signed release; never republish the older counters.
+Native in-game viewport appearance has not been recorded as accepted.

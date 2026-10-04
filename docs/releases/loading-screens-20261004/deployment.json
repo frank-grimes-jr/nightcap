@@ -1,0 +1,18 @@
+{
+  "source_merge": "70fd26a6ce6e22be9f6b6bdbdf4a6762291ef3b6",
+  "pr": "https://github.com/frank-grimes-jr/nightcap/pull/124",
+  "game_release": 2026100407,
+  "launcher_release": 2026100401,
+  "launcher_version": "0.4.0",
+  "game_files_verified_over_https": 104,
+  "loading_images": 56,
+  "distinct_paintings": 10,
+  "existing_game_files_preserved": 48,
+  "desktop_https_bytes_verified": true,
+  "all_five_services_unchanged": true,
+  "game_healthy": true,
+  "database_healthy": true,
+  "starter_zip_and_guide_unchanged": true,
+  "native_viewport_acceptance": "not claimed",
+  "rollback_metadata": "/opt/nightcap/releases/loading-screens-2026100407/previous-{launcher-channel,channel}.json"
+}

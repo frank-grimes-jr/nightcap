@@ -8,7 +8,11 @@ loading slots and the resource fallback. Extend the signed launcher scope only
 for these 56 exact image paths; other default UI files remain protected. Desktop
 0.4.0 is required and delivered through the existing self-updating starter.
 Preserve the previous 48 game files and player settings. No server restart or
-database change is needed. Generation, rollout, recovery and verification:
+database change is needed. PR 124 merged to main and signed game 2026100407 /
+desktop 0.4.0 are deployed to OVH. All 104 game files and the desktop verify over
+HTTPS; all five service identities/start times are unchanged and game/DB are
+healthy. Close EQ and the launcher, then reopen the normal shortcut to update.
+Generation, rollout, recovery and verification:
 `docs/releases/loading-screens-20261004.md`.
 
 ## 2026-10-04 - Deploy universal item trading and one-platinum NO DROP resale
