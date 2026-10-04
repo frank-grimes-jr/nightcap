@@ -37,6 +37,16 @@ class Scenario:
         with patch.multiple(r,**replacements),patch.object(r.time,'sleep',lambda n:None):r.activate()
 
 class RolloutTests(unittest.TestCase):
+    def test_prior_restart_must_be_explicit_and_new_runtime_still_requires_zero(self):
+        i={'Id':'container','Image':'id','RestartCount':1,'State':{'Running':True,'Health':{'Status':'healthy'},'StartedAt':'now'}}
+        binaries={n:n for n in ('world','zone','ucs','loginserver')}
+        rows=[['zone','zone']]*12+[[n,n] for n in ('world','ucs','loginserver')]
+        def out(*args):return r.json.dumps(rows) if args[0:2]==('docker','exec') else ''
+        with patch.object(r,'state',lambda s:i),patch.object(r,'out',out):
+            with self.assertRaises(AssertionError):r.running('id',binaries)
+            self.assertEqual(r.running('id',binaries,expected_restarts=1)['restart_count'],1)
+            i['RestartCount']=2
+            with self.assertRaises(AssertionError):r.running('id',binaries,expected_restarts=1)
     def test_recreated_gateway_with_host_ports_is_held_closed(self):
         s=Scenario('ports')
         with self.assertRaises(RuntimeError):s.run()

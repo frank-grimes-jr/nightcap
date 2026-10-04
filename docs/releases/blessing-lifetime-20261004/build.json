@@ -53,7 +53,7 @@
     "gameplay_policies": "2 passed",
     "native_restore": "320 cases plus update/fade/idempotence controls",
     "native_lifetime": "51 cases with all 16 blessing formulas, old mapping expires, new mapping survives repeated ticks",
-    "rollout_fault_tests": "6 passed"
+    "rollout_fault_tests": "7 passed"
   },
   "log_sha256": {
     "native-build.log": "e571241a3ed1798474bda1b976e35499a16088502cffd3e6f9515e0093de7720",

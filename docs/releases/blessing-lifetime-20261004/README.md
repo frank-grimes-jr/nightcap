@@ -49,7 +49,7 @@ Native results: [lifetime](native-lifetime.txt), [packet restoration](native-res
 Commands: `python -m unittest discover -s tools/tests -p test_buff_restore.py -v`,
 `python -m unittest discover -s tools/tests -p test_gameplay_policies.py -v`,
 and `python tools/tests/probe_rof2_buff_lifetime.py --repo . --client <eqgame.exe> --out <scratch>`.
-Use the same arguments for `probe_rof2_buff_restore.py`. Six rollout failure tests
+Use the same arguments for `probe_rof2_buff_restore.py`. Seven rollout failure tests
 pass with `python docs/releases/blessing-lifetime-20261004/ops/test_rollout.py -v`.
 
 A fresh paired hardened world/zone build passed over the preserved October 3
@@ -93,3 +93,20 @@ never restore the database or downgrade to pre-receipt binaries. A rollback
 restores the known tick-expiry bug. The rollout fault tests cover start/health/
 gateway failure, channel drift and data drift; unexplained data drift holds
 access closed. No raw hosted player rows enter the committed evidence.
+
+## Preflight stopped on a pre-existing restart
+
+The first staged archive did not activate: preflight found the old game service
+had automatically restarted at 17:00:23 UTC, after one native child exited.
+Its image, binaries and public release were unchanged; it was healthy with no
+OOM, segfault, assertion, quest or SQL matches in the diagnostic window.
+The specific exiting child is not established by this summary.
+[Read-only diagnostic](preexisting-restart.json).
+
+The refreshed baseline pins that exact startup identity and restart count.
+Only preflight accepts the explicitly captured prior count; the new deployment,
+rollback and report still require zero restarts. A seventh fault test rejects
+an unapproved or additional restart. The original failed stage is retained and
+the fresh package uses a separate r2 directory. No service was stopped by the
+failed preflight. This existing runtime-exit observation is separate from the
+client duration bug and is not claimed fixed by the blessing change.

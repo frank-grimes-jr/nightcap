@@ -1,0 +1,40 @@
+{
+  "state": {
+    "StartedAt": "2026-10-04T17:00:23.581114032Z",
+    "FinishedAt": "2026-10-04T17:00:23.424709394Z",
+    "ExitCode": 0,
+    "OOMKilled": false,
+    "Error": ""
+  },
+  "restart_count": 1,
+  "log_matches": {
+    "segfault": [],
+    "native_exit": [
+      "a native process exited; restarting the complete runtime')",
+      "a native process exited; restarting the complete runtime"
+    ],
+    "oom": [],
+    "assertion": [],
+    "shutdown": [
+      "Shutting down",
+      "Shutting down",
+      "Shutting down",
+      "Caught signal",
+      "Caught signal",
+      "Shutting down",
+      "Shutting down",
+      "Shutting down",
+      "Shutting down",
+      "Shutting down",
+      "Shutting down",
+      "Shutting down",
+      "Shutting down",
+      "Shutting down",
+      "Shutting down",
+      "Shutting down",
+      "Shutting down"
+    ],
+    "quest": [],
+    "sql": []
+  }
+}

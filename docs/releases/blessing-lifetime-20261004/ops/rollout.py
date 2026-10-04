@@ -3,7 +3,7 @@ import argparse,fcntl,hashlib,json,os,re,subprocess,time
 from pathlib import Path
 
 ROOT=Path('/opt/nightcap/deploy/production')
-STAGE=Path('/opt/nightcap/releases/blessing-lifetime-server-20261004')
+STAGE=Path('/opt/nightcap/releases/blessing-lifetime-server-20261004-r2')
 EVIDENCE=STAGE/'evidence'
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 def out(*args):return subprocess.check_output(args,cwd=ROOT,text=True)
@@ -48,8 +48,8 @@ def player_data():
 def closed_ports():
     for service in ('game','gateway'):
         i=state(service);assert not i['HostConfig'].get('PortBindings') and i['HostConfig']['NetworkMode']!='host'
-def running(image,binaries):
-    i=state('game');assert i['Image']==image and i['RestartCount']==0 and i['State']['Running'] and not i['State'].get('OOMKilled') and i['State']['Health']['Status']=='healthy'
+def running(image,binaries,expected_restarts=0):
+    i=state('game');assert i['Image']==image and i['RestartCount']==expected_restarts and i['State']['Running'] and not i['State'].get('OOMKilled') and i['State']['Health']['Status']=='healthy'
     code="from pathlib import Path;import hashlib,json;r=[]\nfor p in Path('/proc').iterdir():\n if p.name.isdigit():\n  try:\n   e=p/'exe';n=e.resolve().name\n   if n in {'world','zone','ucs','loginserver'}:r.append([n,hashlib.sha256(e.read_bytes()).hexdigest()])\n  except (FileNotFoundError,PermissionError):pass\nprint(json.dumps(r))"
     rows=json.loads(out('docker','exec',i['Id'],'python3','-c',code))
     assert sum(n=='zone' for n,h in rows)==12
@@ -58,7 +58,7 @@ def running(image,binaries):
     logs=out('docker','compose','logs','--no-color','--since',i['State']['StartedAt'],'game')
     patterns={'native':r'Segmentation fault|core dumped|a native process exited','quest':r"Can't locate object method|Undefined subroutine|Perl runtime error",'database':r'Unknown column|SQL syntax'}
     errors={n:len(re.findall(p,logs,re.I)) for n,p in patterns.items()};assert not any(errors.values()),errors
-    return {'image_id':image,'started_at':i['State']['StartedAt'],'restart_count':0,'processes':rows,'errors':errors}
+    return {'image_id':image,'started_at':i['State']['StartedAt'],'restart_count':i['RestartCount'],'processes':rows,'errors':errors}
 def untouched(p):
     for service in ('db','web','tunnel'):assert compact(service)==p['services'][service],service
     assert runtime()==p['runtime'],'Quest/plugin drift'
@@ -76,7 +76,8 @@ def preflight():
     for service in ('gateway','db','web','tunnel'):assert compact(service)==old['services'][service]
     assert public()=={n:v['sha256'] for n,v in old['public'].items()}
     assert image_hashes(m['old_image_id'])==m['old_hashes']
-    running(m['old_image_id'],{n:m['old_hashes']['bin/'+n] for n in m['binaries']})
+    # An explicitly captured prior restart is baseline history, not a new-release pass.
+    running(m['old_image_id'],{n:m['old_hashes']['bin/'+n] for n in m['binaries']},expected_restarts=old['services']['game']['restarts'])
     assert out('docker','image','inspect','--format','{{.Id}}',m['old_image']).strip()==m['old_image_id'],'Base image tag drift'
     call('docker','build','--network','none','-t',m['new_image'],str(STAGE))
     assert out('docker','image','inspect','--format','{{.Id}}',m['old_image']).strip()==m['old_image_id'],'Base image tag drift during build'
