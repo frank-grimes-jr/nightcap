@@ -1,0 +1,25 @@
+{
+  "name": "nightcap-npc-admin",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.12"
+  },
+  "scripts": {
+    "dev": "node scripts/dev.mjs",
+    "start": "node api/server.mjs",
+    "build": "vite build",
+    "test": "node --test tests/*.test.mjs",
+    "test:database": "node --test tests/database.integration.mjs"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "mysql2": "^3.15.0",
+    "vue": "^3.5.22"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^6.0.1",
+    "vite": "^7.1.9"
+  }
+}

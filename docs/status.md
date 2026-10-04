@@ -1,7 +1,21 @@
 # Current Nightcap status
 
-Updated October 1, 2026. This is the current status index; dated studies and
+Updated October 4, 2026. This is the current status index; dated studies and
 QA reports preserve their original evidence and are not live-state promises.
+
+## Local NPC Admin utility
+
+[NPC Admin](../eq-npc-admin/README.md) runs locally on port 3100 and supports
+NPC/spawn, loot and merchant drafts, isolated Git content branches, and guarded
+selected-target apply/rollback. Local PEQ compatibility was inspected read-only;
+writes were rehearsed in a disposable MariaDB, including browser apply/rollback.
+No hosted deployment or live NPC content change is recorded by this release.
+Activation and owner in-game acceptance remain separate in its [QA guide](../eq-npc-admin/QA.md).
+
+Zone maps now read the locally configured client map folder, with pan/zoom,
+height filtering and current/staged spawn markers. OVH is connected through the
+owner's local SSH tunnel; verification uses read-only NPC queries. No game runtime
+restart or live content write accompanies the map feature. Details: [phase 48](milestones/phase-48-report.md).
 
 ## Adventure Journal / Epic 0.5 candidate
 

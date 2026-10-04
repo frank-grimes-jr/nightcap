@@ -1,0 +1,33 @@
+{
+  "port": 3100,
+  "repository": "..",
+  "gitRemote": "origin",
+  "gitBase": "main",
+  "mapDirectory": "",
+  "mapAliases": {},
+  "targets": [
+    {
+      "id": "local",
+      "label": "Local Docker",
+      "database": {
+        "host": "127.0.0.1",
+        "port": 3307,
+        "user": "eqemu",
+        "password": "REPLACE_LOCALLY",
+        "database": "peq"
+      }
+    },
+    {
+      "id": "hosted",
+      "label": "Hosted Nightcap (SSH tunnel)",
+      "production": true,
+      "database": {
+        "host": "127.0.0.1",
+        "port": 3308,
+        "user": "REPLACE_LOCALLY",
+        "password": "REPLACE_LOCALLY",
+        "database": "peq"
+      }
+    }
+  ]
+}
