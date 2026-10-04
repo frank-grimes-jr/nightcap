@@ -1,5 +1,16 @@
 # CHANGES
 
+## 2026-10-04 - Prepare universal item trading and one-platinum NO DROP resale
+
+All items receive effective tradable flags, including existing attuned instances,
+containers and augments. Original NO DROP definitions sell for exactly 1pp per
+physical unit at merchants and through #sellall. Ordinary pricing remains; a
+converted-item purchase floor prevents buyback profit. Raw SQL flags and saved
+attunement remain available for rollback. Summoned/free rewards are included.
+Requires all matching native binaries, regenerated shared memory and restart;
+merchant preview can differ from the fixed receipt. Candidate only, not deployed;
+see docs/releases/free-trade-20261004/README.md for evidence and exact owner QA.
+
 ## 2026-10-04 - Tighten the winged Paladin helmet around Classic faces
 
 Owner screenshots confirm the helmet renders on Camil with Classic models,

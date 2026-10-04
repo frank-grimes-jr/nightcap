@@ -1,0 +1,47 @@
+{
+  "baseline_manifest_sha256": "073a2e15ae27117138654e78c3f88ad530c175ef19cff975a251a828807b19a5",
+  "imported_overlay_files": {
+    "common/item_data.h": {
+      "production_base_sha256": "121a6a301e0ceeb7de13487e4f6eb813211e3f8fa241e25b8047e086764c5ab9",
+      "candidate_sha256": "718b221df436f49a7eb44baa20d2205b4cb8e0a90515721d141b8f23adbaaeda"
+    },
+    "common/item_instance.cpp": {
+      "production_base_sha256": "f8dec73c5b3f0c77e7e964a2e233efd35d3180b3dcc41d4cf1edebeda9b2b3b8",
+      "candidate_sha256": "6d11733a7b6287643e93906568ad319d9a51c04d21e61be16ba39d5f01ae9bb0"
+    },
+    "common/item_instance.h": {
+      "production_base_sha256": "47309ebb9b8e6c18940fc7df4696f3b0eb3e7feea263a51f31eb5d33878f042c",
+      "candidate_sha256": "f0915c818edc35f0342d5cbaed56c2b85b080fdee3513c7c7246925b5c99257f"
+    },
+    "common/item_trade_policy.h": {
+      "production_base_sha256": null,
+      "candidate_sha256": "cd69ac05400f6dfbac69fc5e09b5f2223170d7d63fcfffbfec6c5e1a52621ea7"
+    },
+    "common/patches/rof.cpp": {
+      "production_base_sha256": "d7eb5d80b2cff9246f06fbc10bffecac435b8d52d61e7ad90a9aab952bda7b2e",
+      "candidate_sha256": "df81ee6f0d4c24ae7525bdac29b7219f54a5a1b55117f78d2fd6024a18900deb"
+    },
+    "common/patches/sod.cpp": {
+      "production_base_sha256": "4ee6a2e2b49ef1e3f4713732a79f51ef81d93ae29e87cda2600a4b00938a9225",
+      "candidate_sha256": "30369f3326a3aac6b96e483e3c888abc24d664f60d39f9173b553356284f9f8e"
+    },
+    "common/patches/sof.cpp": {
+      "production_base_sha256": "561f4a8e45a77b64640c1ebe3088a2fce570ccb60cb1430567202813eaa61c1a",
+      "candidate_sha256": "6e6eb0844bd09ec23abafc6e39a3c3d25bd754619914eddd4431a568972d598f"
+    },
+    "common/patches/titanium.cpp": {
+      "production_base_sha256": "614ce52eecb632dbcb19194d8b199e05ad422371c2834e310d07268f6177bb51",
+      "candidate_sha256": "54f8ce168f5cdc42b3cb600b9c237263c17127a77b2314db8f6889138f7fdb58"
+    },
+    "common/patches/uf.cpp": {
+      "production_base_sha256": "63d25298f25864c5b508367c736fb07066e3c313cde1e2f55a3f1ccac1be7b1c",
+      "candidate_sha256": "1c7874465c7e6e3d6670096a4ef22652e726480c93b8c06e6a916d83d5ef10c2"
+    },
+    "common/shareddb.cpp": {
+      "production_base_sha256": "6e90160c9f10edfb61f5d6280375e1bc0a9dde45ad03532adfd1a48e0d759a43",
+      "candidate_sha256": "15fbaf12ddee61f8bfdb6c481f61aaa40a9a10ab1b889b955b821f0abed2af9d"
+    }
+  },
+  "existing_overlays": "Exact patch applied with --fuzz=0, preserving production hardening",
+  "scope": "Source provenance, not gameplay acceptance"
+}

@@ -1150,6 +1150,7 @@ RULE_BOOL(Doors, RequireKeyOnCursor, false, "Enable this to require pre-keyring 
 RULE_CATEGORY_END()
 
 RULE_CATEGORY(Items)
+RULE_BOOL(Items, FreeTrade, true, "All items are tradable; original NO DROP items sell for 1 platinum. Requires shared-memory regeneration and world/zone restart.")
 RULE_BOOL(Items, DisableAttuneable, false, "Enable this to disable Attuneable Items")
 RULE_BOOL(Items, DisableBardFocusEffects, false, "Enable this to disable Bard Focus Effects on Items")
 RULE_BOOL(Items, DisableLore, false, "Enable this to disable Lore Items")

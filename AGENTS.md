@@ -53,6 +53,13 @@ All commands run from `akk-stack/`:
 
 ## Server ops
 
+- **Universal item trading candidate**: Items:FreeTrade projects effective item
+  flags and fixed former-NO-DROP resale from original SQL definitions. Preserve
+  raw SQL flags and IsAttuned() persistence; use IsAttunedForTrade() for restrictions.
+  ItemData layout changed: pair all native binaries with a regenerated cache,
+  including on rollback. Merchant and #sellall share the fixed payout. Scope and
+  QA: docs/releases/free-trade-20261004/README.md.
+
 - **Spell access is per character in production release 2026092005**: use
   `common/spell_class_catalog.h`, generated from the pinned original spell file,
   for learnable spell levels and ownership. Never widen shared `spells_new` class
