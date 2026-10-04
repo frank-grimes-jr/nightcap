@@ -30,6 +30,14 @@ type productionProfile struct {
 	publish      string
 }
 
+const loadingScreensMinimumLauncher = "0.4.0"
+
+func supportsLoadingScreens(version string) bool {
+	var major, minor, patch uint64
+	n, err := fmt.Sscanf(version, "%d.%d.%d", &major, &minor, &patch)
+	return err == nil && n == 3 && (major > 0 || minor >= 4)
+}
+
 func loadProfile(path, publish string) (*productionProfile, error) {
 	if path == "" {
 		if publish != "" {
@@ -88,6 +96,9 @@ func (p productionProfile) validate() error {
 	}
 	if p.MinLauncher != "" && !regexp.MustCompile(`^[0-9]+\.[0-9]+\.[0-9]+$`).MatchString(p.MinLauncher) {
 		return fmt.Errorf("three-part minimum launcher version required")
+	}
+	if !supportsLoadingScreens(p.Version) || (p.MinLauncher != "" && !supportsLoadingScreens(p.MinLauncher)) {
+		return fmt.Errorf("loading-screen releases require launcher %s or newer", loadingScreensMinimumLauncher)
 	}
 	if p.KeyNotBefore.IsZero() || !p.KeyNotAfter.After(p.KeyNotBefore) || p.KeyNotAfter.Sub(p.KeyNotBefore) > 3*366*24*time.Hour {
 		return fmt.Errorf("explicit signing-key window of at most three years required")

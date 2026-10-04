@@ -2,7 +2,8 @@
   "base_url": "https://play.REPLACE.example",
   "guide_url": "https://play.REPLACE.example/guide.html",
   "relay_url": "https://play.REPLACE.example/connect",
-  "version": "0.2.1",
+  "version": "0.4.0",
+  "minimum_launcher": "0.4.0",
   "key_not_before": "2026-09-20T00:00:00Z",
   "key_not_after": "2028-09-20T00:00:00Z"
 }

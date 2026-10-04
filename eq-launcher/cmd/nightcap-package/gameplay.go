@@ -12,14 +12,14 @@ import (
 	"nightcap/eq-launcher/internal/manifest"
 )
 
-var gameplayNames = append([]string{
+var gameplayNames = append(append([]string{
 	"spells_us.txt", "uifiles/nightcap/equi_inventory.xml", "uifiles/nightcap/equi_aawindow.xml",
 	"uifiles/nightcap/equi_petinfowindow.xml",
 	"ecommons_chr.txt", "ecommons_assets.txt", "poknowledge_obj.s3d", "nektulos.s3d", "nektulos_obj.s3d", "dbstr_us.txt", "maps/ecommons_3.txt",
 	"lavastorm.s3d", "lavastorm_obj.s3d",
 	"global_chr.s3d", "global4_chr.s3d",
 	"poknowledge_chr.txt", "mur.eqg", "scu.eqg", "frd.eqg", "ddv.eqg", "srn.eqg",
-}, classicModelNames...)
+}, classicModelNames...), manifest.LoadingScreenPaths()...)
 
 type gameplayFile struct {
 	Size   int64  `json:"size"`
