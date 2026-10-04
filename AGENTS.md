@@ -53,6 +53,12 @@ All commands run from `akk-stack/`:
 
 ## Server ops
 
+- **Passive AA candidate**: `AA:PassiveExpPercent` controls additive kill/quest/task
+  AA at 0% allocation; `#aaexp on|off` selects 100% or 0%. Tiny gains round down.
+  Percentage rewards must preserve independent level/AA modifiers and missing-row
+  behavior. Rebuild matching world/zone for the rule; this candidate is not deployed.
+  Tests, calibration and exact QA: `docs/releases/passive-aa-20261004.md`.
+
 - **OVH zone exits restart the whole runtime.** The deployed start.py supervises
   every native child. Use a supported zone-unload mechanism for a single-zone
   refresh; do not assume local eqlaunch restart behavior applies to production.

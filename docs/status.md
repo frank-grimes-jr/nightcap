@@ -3,6 +3,14 @@
 Updated October 4, 2026. This is the current status index; dated studies and
 QA reports preserve their original evidence and are not live-state promises.
 
+## Passive AA leveling candidate
+
+Implemented additive AA at 1% of the full AA award while preserving leveling XP,
+with 0%/100% focus allocation and both quest reward paths covered. Feature branch
+only: no production deployment or manual acceptance. Historical balance evidence
+hash failures and a full matched release build remain promotion gates.
+[Behavior, automated evidence and exact owner QA](releases/passive-aa-20261004.md).
+
 ## Nightcap loading artwork published
 
 PR 124 is merged into main (`70fd26a`). Signed game **2026100407** and desktop
