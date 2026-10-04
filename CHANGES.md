@@ -1,5 +1,21 @@
 # CHANGES
 
+## 2026-10-04 — Repair Classic winged-helmet registration
+
+The owner reported Camil bareheaded with Classic models forced. Installed
+archives matched release 2026100401 and Camil's live material was 90. Native
+EQGraphicsDX9 inspection identified the actual failure: alternate heads are
+discovered only within the contiguous mesh block referenced by the skeleton.
+The first package appended HE90 outside that block.
+
+Place each HE90 inside its original actor's mesh block, with materials before
+the block, and relocate typed fragment references. Preserve all original data
+apart from those relocated IDs. Add regression coverage reproducing the old
+failure, all 24 race/gender discovery checks, and exact inverse relocation
+checks. Classic graphics remain the supported mode. Prepare signed repair
+2026100402; native appearance and wearable-item acceptance remain pending.
+[Incident and repair evidence](docs/releases/winged-helmet-display-20261004/README.md).
+
 ## 2026-10-04 — Winged Paladin helmet deployed for live QA
 
 Created an editable Blender helmet and Unity FBX inspection scene from the

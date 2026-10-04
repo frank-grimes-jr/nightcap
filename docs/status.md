@@ -5,6 +5,11 @@ QA reports preserve their original evidence and are not live-state promises.
 
 ## Winged Paladin helmet deployed for live QA
 
+Owner QA found Camil bareheaded on Classic models despite installed release
+2026100401 and correct server material 90. The Classic loader requires alternate
+heads inside its contiguous mesh block; the archive layout repair is prepared
+for 2026100402. [Repair and retest](releases/winged-helmet-display-20261004/README.md).
+
 Blender/Unity assets and all 24 original-race/gender fits are built. Item 990500
 exists in the live database and shared-memory cache with Classic raid stats.
 Main source e250828 and signed client release 2026100401 are published under

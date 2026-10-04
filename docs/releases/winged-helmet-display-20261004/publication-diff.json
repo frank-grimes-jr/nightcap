@@ -1,0 +1,10 @@
+{
+  "release": 2026100402,
+  "previous_release": 2026100401,
+  "changed": [
+    "global4_chr.s3d",
+    "global_chr.s3d"
+  ],
+  "unchanged_files": 46,
+  "status": "prepared_locally_not_published"
+}

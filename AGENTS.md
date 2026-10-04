@@ -240,6 +240,12 @@ rollback: `docs/ops/permanent-patcher.md`.
 
 ## Non-obvious gotchas
 
+- **Classic alternate heads require contiguous meshes.** RoF2 discovers head
+  variants in the consecutive WLD 0x36 block around the skeleton's first mesh.
+  Appending a named HE90 elsewhere does not register it. Preserve typed fragment
+  references when inserting; see `tools/helmet_wld_layout.py` and
+  `docs/releases/winged-helmet-display-20261004/`.
+
 - **Spell selection caches levels**: the RoF2 menu stores labels and ordering
   before multiclass metadata may arrive. Accepted class snapshots invalidate it;
   rebuild on a safe native cast-window frame after identity/profile checks.
