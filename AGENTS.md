@@ -250,7 +250,10 @@ rollback: `docs/ops/permanent-patcher.md`.
   variants in the consecutive WLD 0x36 block around the skeleton's first mesh.
   Appending a named HE90 elsewhere does not register it. Preserve typed fragment
   references when inserting; see `tools/helmet_wld_layout.py` and
-  `docs/releases/winged-helmet-display-20261004/`.
+  `docs/releases/winged-helmet-display-20261004/`. All head variants also use the
+  first mesh's material palette: extend that shared palette without renumbering
+  its existing slots. A private HE90 palette leaves new surfaces invisible;
+  see `docs/releases/winged-helmet-materials-20261004/`.
 
 - **Spell selection caches levels**: the RoF2 menu stores labels and ordering
   before multiclass metadata may arrive. Accepted class snapshots invalidate it;

@@ -31,6 +31,20 @@ The rebased repair preserves helmet release 2026100402; prepared generation
 2026100403 awaits approval to use the existing production signing key.
 Visual acceptance remains open.
 
+## 2026-10-04 — Repair invisible Classic helmet materials
+
+Owner QA of 2026100402 showed the new face cutout but no helmet shell or wings.
+The new head was selected, but the native actor used the first stock mesh's
+material palette. HE90's private palette added material indices outside that
+actor palette (HIM slots 26–28 with only 26 available slots).
+
+Extend each actor's original shared palette by three materials, preserving
+existing slots, and use it for HE90. Insert dependencies before the palette.
+A regression failed on the published package and passes with this correction;
+all original race/gender fits retain the original mesh data and material order.
+Prepare signed client repair 2026100403; native visual/equip QA remains pending.
+[Evidence and retest](docs/releases/winged-helmet-materials-20261004/README.md).
+
 ## 2026-10-04 — Repair Classic winged-helmet registration
 
 The owner reported Camil bareheaded with Classic models forced. Installed

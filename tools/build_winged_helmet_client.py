@@ -105,7 +105,7 @@ def add_helmet(raw, game, codes):
         if mat not in (0,1,2) or len({a,b,c})!=3 or any(not 0<=i<nv for i in (a,b,c)):
             raise ValueError('Invalid game triangle index or material')
     w=_Wld(raw);fragments=list(w.fragments);strings=bytearray(w.strings);audit=[]
-    before_block={};after_block={}
+    before_fragment={};after_block={};used_blocks=set();modified_palettes={}
     def name_ref(name):
         if name in w.by_name:raise ValueError('Fragment name already exists: '+name)
         offset=len(strings);strings.extend(name.encode('ascii')+b'\0');return -offset
@@ -119,13 +119,19 @@ def add_helmet(raw, game, codes):
         if target in w.by_name:raise ValueError('Helmet head already exists: '+target)
         source_id=w.by_name[code+'HE00_DMSPRITEDEF'][0]
         first,last=mesh_block(w,source_id)
-        if first in before_block:
+        if first in used_blocks:
             raise ValueError('Actors unexpectedly share a mesh block')
+        used_blocks.add(first)
         added_start=len(fragments)+1
         original=decode_mesh(w.fragments[source_id-1]);m=bare_face(w,code)
         palette_id=struct.unpack_from('<I',m['header'],16)[0]
         palette=w.fragments[palette_id-1]
         old_refs=[ref for _,ref in w.references(palette_id)]
+        if palette_id in modified_palettes:
+            raise ValueError('Actors unexpectedly share a material palette')
+        if any(struct.unpack_from('<I',w.fragments[i-1],16)[0]!=palette_id
+               for i in range(first,last+1)):
+            raise ValueError('Actor meshes do not share the stock material palette')
         # Existing human plate metal bitmap, unmodified. These archives retain
         # the native full-global loader and original cross-race materials.
         texname=(game['texture']+'\0').encode('ascii')
@@ -137,7 +143,17 @@ def add_helmet(raw, game, codes):
         for suffix in ('SILVER','GOLD','IVORY'):
             payload=bytearray(sample[12:]);struct.pack_into('<I',payload,20,bitmap_ref)
             new_refs.append(append(0x30,code+'_WING_'+suffix,payload))
-        new_palette=append(0x31,code+'_WING_MP',struct.pack('<II',0,len(old_refs)+3)+struct.pack('<'+'I'*(len(old_refs)+3),*(old_refs+new_refs)))
+        # Classic actors select the FIRST mesh's palette for every variant.
+        # A private palette on HE90 leaves its new material indices invisible.
+        # Extend the shared stock palette; keep all original slots in place.
+        expanded=bytearray(palette)
+        if len(expanded)!=20+4*len(old_refs):
+            raise ValueError('Unsupported stock material palette layout')
+        expanded.extend(struct.pack('<3I',*new_refs))
+        struct.pack_into('<I',expanded,0,len(expanded)-8)
+        struct.pack_into('<I',expanded,16,len(old_refs)+3)
+        modified_palettes[palette_id]=bytes(expanded)
+        fragments[palette_id-1]=bytes(expanded)
         head_bone=max(original['bones'])[1]
         offset=0;head=[]
         for count,bone in original['bones']:
@@ -166,11 +182,11 @@ def add_helmet(raw, game, codes):
         m['aux']=[];m['colors']=[];m['vertex_materials']=[]
         largest=max(abs(v) for p in m['vertices'] for v in p)
         m['scale']=min(13,int(math.floor(math.log2(32760/largest))))
-        newmesh=encode_mesh(m,name_ref(target),new_palette)
+        newmesh=encode_mesh(m,name_ref(target),palette_id)
         fragments.append(newmesh)
         mesh_id=len(fragments)
         append(0x2d,f'{code}HE{HEAD_MATERIAL:02d}_DMSPRITE',struct.pack('<II',len(fragments),0))
-        before_block[first]=list(range(added_start,mesh_id))
+        before_fragment[palette_id]=list(range(added_start,mesh_id))
         after_block[last]=[mesh_id,len(fragments)]
         audit.append(dict(code=code,head_material=HEAD_MATERIAL,vertices=len(m['vertices']),triangles=len(m['polygons']),stock_face_triangles=len(m['polygons'])-len(game['triangles']),head_bone=head_bone,fit_scale=scale,fit_shift=shift,front='+X' if code in POSITIVE_X_FRONT else '-Y'))
     strings.extend(bytes((-len(strings))%4))
@@ -178,13 +194,14 @@ def add_helmet(raw, game, codes):
     struct.pack_into('<I',header,8,len(fragments));struct.pack_into('<I',header,20,len(strings))
     output=bytes(header)+crypt(strings)+b''.join(fragments)+w.trailer
     after=_Wld(output)
-    if after.fragments[:len(w.fragments)]!=w.fragments:
+    expected=[modified_palettes.get(i,data) for i,data in enumerate(w.fragments,1)]
+    if after.fragments[:len(w.fragments)]!=expected:
         raise AssertionError('Original fragments changed')
     # The Classic loader enumerates consecutive 0x36 records around the stock
     # head. Keep material dependencies before that block and the new head in it.
     order=[]
     for index in range(1,len(w.fragments)+1):
-        order.extend(before_block.get(index,[]))
+        order.extend(before_fragment.get(index,[]))
         order.append(index)
         order.extend(after_block.get(index,[]))
     output=reorder(output,order)
@@ -192,6 +209,13 @@ def add_helmet(raw, game, codes):
     for code in codes:
         if f'{code}HE{HEAD_MATERIAL:02d}_DMSPRITEDEF' not in registered_meshes(after,code):
             raise AssertionError('Helmet is outside the native actor mesh block')
+        actor=after.by_name[registered_meshes(after,code)[0]][0]
+        actor_palette=struct.unpack_from('<I',after.fragments[actor-1],16)[0]
+        head=after.fragments[after.by_name[f'{code}HE{HEAD_MATERIAL:02d}_DMSPRITEDEF'][0]-1]
+        if struct.unpack_from('<I',head,16)[0]!=actor_palette:
+            raise AssertionError('Helmet materials are outside the native actor palette')
+        if any(mat>=len(after.references(actor_palette)) for _,mat in decode_mesh(head)['polygon_materials']):
+            raise AssertionError('Helmet material index exceeds native actor palette')
     return output,audit
 
 
