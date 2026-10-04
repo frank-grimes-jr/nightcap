@@ -1,5 +1,16 @@
 # CHANGES
 
+## 2026-10-04 — Preserve permanent blessing effects across client ticks
+
+Follow up the insufficient October 3 reconnect repair: RoF2 expires native -1
+effects on the next tick unless the spell itself has permanent duration formula
+50. Preserve the policy -1000 sentinel in native player profile/OP_Buff state;
+keep icon countdowns at -1. Finite durations and older clients are unchanged.
+Added exact-client expiry/decrement evidence and server packet regression.
+Owner-authorized main/live follow-up; gameplay acceptance remains open.
+Evidence and exact delayed/inventory/relog QA:
+`docs/releases/blessing-lifetime-20261004/README.md`.
+
 ## 2026-10-04 — Winged Paladin helmet deployed for live QA
 
 Created an editable Blender helmet and Unity FBX inspection scene from the

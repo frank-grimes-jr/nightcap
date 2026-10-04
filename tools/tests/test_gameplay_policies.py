@@ -143,7 +143,7 @@ class GameplayPolicies(unittest.TestCase):
         self.assertIn("if (IsInstantCastDot(spell_id))", cast)
         self.assertIn("cast_time = orgcasttime = 0;", cast)
         for statement in (
-            "sbf->buff.duration = BuffDurationForClient(buff.ticsremaining);",
+            "sbf->buff.duration = BuffEffectDurationForClient(buff.ticsremaining);",
             "bi->entries[0].tics_remaining = BuffDurationForClient(buff.ticsremaining);",
             "pbs->ticsremaining[buffslot] = BuffDurationForClient(buffs[buffslot].ticsremaining);",
             "buff->entries[index].tics_remaining = BuffDurationForClient(buffs[i].ticsremaining);",

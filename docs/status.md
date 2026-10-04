@@ -16,15 +16,14 @@ Native wear, reference-image fidelity and race/gender checks remain open.
 [Deployment evidence](releases/winged-helmet-20261004/README.md).
 [Current evidence and exact QA](helmets/winged-paladin.md).
 
-## Blessing reconnect repair deployed for owner QA
+## Blessing lifetime follow-up in progress
 
-Main `61890bf` and matching world/zone binaries are live as of October 3. RoF2
-restores saved player buff effects after client-ready, without recasting or
-renewing blessings. Native tests and closed-gateway deployment checks pass;
-player/receipt/saved-corpse state, current tunnel layout, quests and client release
-2026100203 are preserved. Camp and log back in without re-hailing, then compare
-speed, max HP/AC and regeneration. Actual Matron/Magus relog acceptance remains
-pending. [Evidence and exact QA](releases/blessing-relogin-20261002/README.md).
+The owner's October 4 retest found the October 3 reconnect repair insufficient:
+both speed and stats disappear shortly after inventory inspection. Native tick
+code expires the -1 duration used for finite-formula blessings. The follow-up
+preserves -1000 in native effect state while keeping icon countdowns unchanged.
+Regression tests pass; fresh paired build/deployment and owner QA are pending.
+[Root cause and exact QA](releases/blessing-lifetime-20261004/README.md).
 
 ## Compact tunnel service layout deployed for visual QA
 

@@ -1,5 +1,10 @@
 # Blessing reconnect repair — October 2–3, 2026
 
+> October 4 follow-up: owner retesting found this repair insufficient. The
+> native client tick expires finite-formula -1 effects; earlier formula probes
+> did not exercise that path. See [lifetime repair](../blessing-lifetime-20261004/README.md).
+> The historical evidence below describes packet restoration, not resolved QA.
+
 ## Intent and diagnosis
 
 Matron Restora and Magus Goldwind buffs should retain their effects across camp,

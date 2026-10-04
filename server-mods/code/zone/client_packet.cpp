@@ -1576,7 +1576,7 @@ void Client::Handle_Connect_OP_ZoneEntry(const EQApplicationPacket *app)
 				m_pp.buffs[i].player_id = 0x2211;
 				m_pp.buffs[i].level = buffs[i].casterlevel;
 				m_pp.buffs[i].unknown003 = 0;
-				m_pp.buffs[i].duration = BuffDurationForClient(buffs[i].ticsremaining);
+				m_pp.buffs[i].duration = BuffEffectDurationForClient(buffs[i].ticsremaining);
 				m_pp.buffs[i].counters = buffs[i].counters;
 				m_pp.buffs[i].num_hits = buffs[i].hit_number;
 			}

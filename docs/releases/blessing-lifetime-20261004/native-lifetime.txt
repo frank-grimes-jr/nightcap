@@ -1,0 +1,2 @@
+PASS 51 pinned native expiry/tick cases; 16 installed blessing formulas; old mapping red, RoF2 effect mapping green
+Exit code: 0

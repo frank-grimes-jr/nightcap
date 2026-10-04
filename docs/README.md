@@ -127,3 +127,5 @@ is not an in-game sign-off; a deployed candidate is not accepted main gameplay.
 - [Social tunnel revision: complete roster, placement map and exact QA](releases/tunnel-social-20261001/README.md).
 
 - [Resident campfire correction and exact visual QA](releases/tunnel-campfire-20261002/README.md).
+
+- [Blessing lifetime follow-up: native tick evidence and live QA](releases/blessing-lifetime-20261004/README.md)

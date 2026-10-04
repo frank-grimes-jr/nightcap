@@ -1342,6 +1342,7 @@ public:
 	//Doesn't appear to work directly after the client recieves an action packet.
 	void SendBuffDurationPacket(Buffs_Struct &buff, int slot, bool restore = false);
 	void RestoreBuffEffects();
+	int32 BuffEffectDurationForClient(int32 duration) const;
 	void SendBuffNumHitPacket(Buffs_Struct &buff, int slot);
 
 	void ProcessInspectRequest(Client* requestee, Client* requester);

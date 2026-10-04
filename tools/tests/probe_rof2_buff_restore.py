@@ -125,7 +125,7 @@ int main() {
   // Repeat for Matron/Magus's full rank ladder, finite/permanent durations,
   // metadata/counter preservation, sparse slots and the short-buff boundary.
   for(auto id : {26,89,144,145,174,202,219,244,263,278,312,421,422,423,697,21030}) {
-   for(auto slot : {0,2,41,42,96}) for(auto duration : {-1,60,2400}) {
+   for(auto slot : {0,2,41,42,96}) for(auto duration : {-1000,-1,60,2400}) {
     p.slotid=slot; p.buff.spell=id; p.buff.duration=duration; p.buff.hits=7;
     p.buff.slot_data[0]=42; p.buff.y=2; p.buff.x=3; p.buff.z=4;
     slots[slot]={}; Run(0,0,&p);
@@ -138,7 +138,7 @@ int main() {
   check(slots[p.slotid].duration==19,"existing duration update broken");
   p.bufffade=EncodeMode(1); Run(0,0,&p);
   check(slots[p.slotid].type==0,"fade no longer removes effects");
-  puts("PASS: exact RoF2 handler; 240 restoration cases plus update/fade/idempotence controls");
+  puts("PASS: exact RoF2 handler; 320 restoration cases plus update/fade/idempotence controls");
  } catch(const std::exception& e) { fprintf(stderr,"%s\n",e.what()); return 1; }
 }
 '''.replace('#include <cstdio>', '#include <cstdio>\n#include <initializer_list>')

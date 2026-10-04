@@ -469,3 +469,8 @@ existing matching effect; mode 3 installs a slot. Restore saved player state onl
 after client-ready, without recasting or refreshing duration/charges. Keep the
 permanent-buff sentinel policy. Exact-client regression and unresolved login QA:
 `docs/releases/blessing-relogin-20261002/README.md`.
+
+RoF2 native player profile/OP_Buff duration differs from icon countdowns: preserve
+the server policy -1000 for effects, since -1 expires on a tick unless the spell
+has duration formula 50. Icons still use -1. Test native ticking, not only formula
+arithmetic or slot restoration. Evidence: `docs/releases/blessing-lifetime-20261004/README.md`.

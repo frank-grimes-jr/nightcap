@@ -3016,8 +3016,18 @@ int32 Mob::GetBuffDurationForTarget(uint16 spell_id, int32 duration) const
 
 int32 Mob::BuffDurationForClient(int32 duration)
 {
-	// Engine override sentinel -1000 is RoF2's no-countdown value -1 on the wire.
+	// Buff icons use -1 for no countdown; native effect state has a separate encoding.
 	return duration == PERMANENT_BUFF_DURATION ? -1 : duration;
+}
+
+int32 Client::BuffEffectDurationForClient(int32 duration) const
+{
+	// RoF2 expires -1 on its next tick unless the spell's own formula is 50.
+	// Keep our server-policy sentinel for native effects; icons still use -1.
+	if (ClientVersion() == EQ::versions::ClientVersion::RoF2 && duration == PERMANENT_BUFF_DURATION) {
+		return PERMANENT_BUFF_DURATION;
+	}
+	return BuffDurationForClient(duration);
 }
 
 bool Mob::IsInstantCastDot(uint16 spell_id) const
@@ -6618,7 +6628,7 @@ void Client::SendBuffDurationPacket(Buffs_Struct &buff, int slot, bool restore)
 	sbf->buff.level = buff.casterlevel > 0 ? buff.casterlevel : GetLevel();
 	sbf->buff.bard_modifier = buff.instrument_mod;
 	sbf->buff.spellid = buff.spellid;
-	sbf->buff.duration = BuffDurationForClient(buff.ticsremaining);
+	sbf->buff.duration = BuffEffectDurationForClient(buff.ticsremaining);
 	if (buff.dot_rune)
 		sbf->buff.counters = buff.dot_rune;
 	else if (buff.magic_rune)
