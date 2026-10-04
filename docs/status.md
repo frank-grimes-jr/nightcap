@@ -15,6 +15,11 @@ automatic approval rejection. Visual acceptance remains pending.
 
 ## Winged Paladin helmet deployed for live QA
 
+Owner QA of 2026100402 confirms the head changes but the helmet metal is
+invisible. Native tracing found that HE90's private material palette is ignored
+in favor of the actor's shared stock palette. The shared-palette repair is
+prepared for 2026100403. [Evidence and retest](releases/winged-helmet-materials-20261004/README.md).
+
 Owner QA found Camil bareheaded on Classic models despite installed release
 2026100401 and correct server material 90. The Classic loader requires alternate
 heads inside its contiguous mesh block; source cc78f96 and signed archive repair

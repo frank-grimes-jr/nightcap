@@ -4,6 +4,11 @@ Status: deployed to main and OVH for live QA, October 4, 2026. Item 990500
 is loaded in the live shared-memory cache, Camil uses head material 90, and
 signed client release 2026100402 is public. Native wear/visual QA remains open.
 
+The 2026100402 retest shows the new face cutout but invisible metal. Native
+actors use their first mesh's material palette; HE90's separate new palette
+was ignored. A shared-palette extension is prepared for 2026100403.
+[Material repair and retest](../releases/winged-helmet-materials-20261004/README.md).
+
 Live QA found Camil bareheaded: the appended HE90 meshes were outside the
 Classic loader's contiguous alternate-head blocks. The layout repair for
 2026100402 is published; Classic models remain supported and required for this
@@ -39,7 +44,8 @@ layout in production release 2026100402. This supersedes the append-only layout
 in 2026100401 and preserves the other 46 client files.
 The normal launcher downloads those archives before Play. The original
 Client_RoF2_Dev installation remains unchanged.
-The repair retains all original Classic WLD data except relocated fragment IDs;
+The repair retains all original Classic WLD data except relocated fragment IDs
+and three appended shared-palette entries per actor;
 archive textures remain byte-identical. Camil uses head material 90.
 The later-race native Hero's Forge experiment is superseded and is not part of
 the deliverable; no changes to native armor tables are needed for this scope.

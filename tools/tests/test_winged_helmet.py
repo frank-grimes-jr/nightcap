@@ -39,7 +39,16 @@ class HelmetTests(unittest.TestCase):
         inverse={new:old for old,new in enumerate(kept,1)}
         for old,new in enumerate(kept,1):
             fragment=bytearray(after.fragments[new-1])
-            for offset in reference_fields(after,new):
+            original=before.fragments[old-1]
+            if before.kind(old)==0x31 and len(fragment)!=len(original):
+                self.assertEqual(len(fragment),len(original)+12)
+                self.assertEqual(struct.unpack_from('<I',fragment,16)[0],
+                                 struct.unpack_from('<I',original,16)[0]+3)
+                self.assertTrue(all(ref in added for ref in struct.unpack_from('<3I',fragment,len(original))))
+                fragment=fragment[:len(original)]
+                fragment[0:4]=original[0:4]
+                fragment[16:20]=original[16:20]
+            for offset in reference_fields(before,old):
                 ref=struct.unpack_from('<i',fragment,offset)[0]
                 if ref>0:struct.pack_into('<i',fragment,offset,inverse[ref])
             self.assertEqual(bytes(fragment),before.fragments[old-1],f'original fragment {old}')
@@ -55,6 +64,17 @@ class HelmetTests(unittest.TestCase):
         self.assertIn('ELMHE90_DMSPRITEDEF',registered_meshes(after,'ELM'))
         self.assertEqual([n for n in registered_meshes(after,'ELM') if 'HE90_' not in n],
                          registered_meshes(before,'ELM'))
+
+    def test_helmet_materials_are_in_the_native_actor_palette(self):
+        w=_Wld(self.output)
+        first=w.by_name[registered_meshes(w,'ELM')[0]][0]
+        head=w.by_name['ELMHE90_DMSPRITEDEF'][0]
+        actor_palette=struct.unpack_from('<I',w.fragments[first-1],16)[0]
+        head_palette=struct.unpack_from('<I',w.fragments[head-1],16)[0]
+        self.assertEqual(head_palette,actor_palette)
+        count=len(w.references(actor_palette))
+        mesh=decode_mesh(w.fragments[head-1])
+        self.assertTrue(all(0<=mat<count for _,mat in mesh['polygon_materials']))
 
     def test_appended_head_reproduces_original_registration_failure(self):
         w=_Wld(self.output)
@@ -116,7 +136,12 @@ class HelmetTests(unittest.TestCase):
             for entry in audit:
                 code=entry['code']
                 self.assertIn(code+'HE90_DMSPRITEDEF',registered_meshes(after,code))
-                mesh=decode_mesh(after.fragments[after.by_name[code+'HE90_DMSPRITEDEF'][0]-1])
+                raw_mesh=after.fragments[after.by_name[code+'HE90_DMSPRITEDEF'][0]-1]
+                mesh=decode_mesh(raw_mesh)
+                first=after.by_name[registered_meshes(after,code)[0]][0]
+                actor_palette=struct.unpack_from('<I',after.fragments[first-1],16)[0]
+                self.assertEqual(struct.unpack_from('<I',raw_mesh,16)[0],actor_palette)
+                self.assertTrue(all(mat<len(after.references(actor_palette)) for _,mat in mesh['polygon_materials']))
                 skeleton=before.fragments[before.by_name[code+'_HS_DEF'][0]-1]
                 bone_count=struct.unpack_from('<I',skeleton,16)[0]
                 self.assertTrue(all(0<=bone<bone_count for _,bone in mesh['bones']),code)
