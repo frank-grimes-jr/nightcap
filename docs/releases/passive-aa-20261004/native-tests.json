@@ -1,0 +1,7 @@
+{
+  "native_checks": 71,
+  "failures": 0,
+  "test_sha256": "1788f1731754fcc555748d91f3902da620245cc6e231a7e8299dad14371d4144",
+  "source": "fresh hardened production candidate",
+  "output": "71 checks, 0 failures"
+}

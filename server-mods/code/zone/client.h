@@ -803,6 +803,8 @@ public:
 
 	uint64 GetExperienceForKill(Mob *against);
 	void AddEXP(ExpSource exp_source, uint64 in_add_exp, uint8 conlevel = 0xFF, bool resexp = false, NPC* npc = nullptr);
+	void NormalizeAAAllocation();
+	uint64 FinalizeAAExperience(uint64 aaexp, bool passive);
 	uint64 CalcEXP(uint8 conlevel = 0xFF, bool ignore_mods = false);
 	void CalculateNormalizedAAExp(uint64 &add_aaxp, uint8 conlevel, bool resexp);
 	void CalculateStandardAAExp(uint64 &add_aaxp, uint8 conlevel, bool resexp);
@@ -1176,7 +1178,7 @@ public:
 	void SendClearPlayerAA();
 	inline uint32 GetAAXP() const { return m_pp.expAA; }
 	inline uint32 GetAAPercent() const { return m_epp.perAA; }
-	void SetAAExperiencePercent(uint8 percent); // #aaexp command: set AA XP split server-side (client hides the toggle < 51)
+	void SetAAExperiencePercent(uint32 percent); // 0 = leveling plus passive AA; 1-100 = focused AA
 	void SetAATitle(std::string title);
 	void SetTitleSuffix(std::string suffix);
 	void MemorizeSpell(uint32 slot, uint32 spell_id, uint32 scribing, uint32 reduction = 0);
