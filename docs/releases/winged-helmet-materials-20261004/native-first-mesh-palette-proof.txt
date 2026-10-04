@@ -1,0 +1,76 @@
+Native Classic actor palette selection evidence
+SHA256 ade556b68e98f6f39c5578f70431e11c0b9babcc15b8571eb22cf1e2b654417e
+ImageBase 0x10000000
+
+0x36 parser reads raw16 paletteRef and stores loaded palette pointer at parsedMesh+0x58.
+Skeleton mesh collection copies the first non-null parsedMesh+0x58 into skeletonSource+0x14; subsequent mesh palettes do not replace it.
+
+100bfae0: mov      eax, dword ptr [esp + 8]
+100bfae4: push     ebx
+100bfae5: push     esi
+100bfae6: mov      esi, dword ptr [esp + 0xc]
+100bfaea: lea      esi, [esi + esi*4]
+100bfaed: add      esi, esi
+100bfaef: mov      ebx, ecx
+100bfaf1: mov      dword ptr [eax], 0
+100bfaf7: mov      ecx, dword ptr [ebx + 0x34]
+100bfafa: add      esi, esi
+100bfafc: mov      eax, dword ptr [esi + ecx + 4]
+100bfb00: cmp      eax, 0x2c
+100bfb03: je       0x100bfde6
+100bfb09: cmp      eax, 0x36
+100bfb0c: je       0x100bfb16
+100bfb0e: pop      esi
+100bfb0f: or       eax, 0xffffffff
+100bfb12: pop      ebx
+100bfb13: ret      8
+
+100bfb31: mov      edx, dword ptr [ebx + 0x34]
+100bfb34: mov      eax, dword ptr [esi + edx + 8]
+100bfb38: add      esp, 0xc
+100bfb3b: test     eax, eax
+100bfb3d: je       0x100bfb42
+100bfb3f: mov      dword ptr [ebp], eax
+100bfb42: mov      eax, dword ptr [ebx + 0x34]
+100bfb45: mov      edi, dword ptr [esi + eax + 0xc]
+
+100bfc50: mov      eax, dword ptr [edi + 8]
+100bfc53: test     eax, eax
+100bfc55: jns      0x100bfc7e
+100bfc57: mov      esi, dword ptr [ebx + 0x28]
+100bfc5a: mov      edx, dword ptr [ebx + 0x14]
+100bfc5d: sub      esi, eax
+100bfc5f: mov      eax, 1
+100bfc64: cmp      edx, eax
+100bfc66: jb       0x100bfc7c
+100bfc68: mov      ecx, dword ptr [ebx + 0x34]
+100bfc6b: add      ecx, 0x1c
+100bfc6e: mov      edi, edi
+100bfc70: cmp      dword ptr [ecx], esi
+100bfc72: je       0x100bfc7e
+100bfc74: inc      eax
+100bfc75: add      ecx, 0x14
+100bfc78: cmp      eax, edx
+100bfc7a: jbe      0x100bfc70
+100bfc7c: xor      eax, eax
+100bfc7e: lea      edx, [eax + eax*4]
+100bfc81: mov      eax, dword ptr [ebx + 0x34]
+100bfc84: mov      ecx, dword ptr [eax + edx*4 + 0x10]
+100bfc88: mov      dword ptr [ebp + 0x58], ecx
+
+1001e6d6: lea      edx, [esp + 0x58]
+1001e6da: push     edx
+1001e6db: lea      eax, [ebx + edi]
+1001e6de: push     eax
+1001e6df: mov      ecx, esi
+1001e6e1: mov      dword ptr [esp + 0x60], 0
+1001e6e9: call     0x100bfae0
+1001e6ee: cmp      eax, -1
+1001e6f1: je       0x1001e828
+1001e6f7: mov      eax, dword ptr [esp + 0x58]
+1001e6fb: test     eax, eax
+1001e6fd: je       0x1001e764
+1001e6ff: cmp      dword ptr [ebp + 0x14], 0
+1001e703: jne      0x1001e70b
+1001e705: mov      ecx, dword ptr [eax + 0x58]
+1001e708: mov      dword ptr [ebp + 0x14], ecx

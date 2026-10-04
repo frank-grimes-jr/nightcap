@@ -1,0 +1,83 @@
+{
+  "release": 2026100201,
+  "proxy_version": "0.7.3-dev",
+  "source_base": "4b7505e154b32313a9d8a8ea0434b3ac39f5eedc",
+  "proxy_sha256": "042d44d407c908b212e513d15f21c56f4f871d7ec78603b4d93e91a9cd876aa8",
+  "proxy_source_sha256": {
+    "eq-client-dll/src/advanced_loot_screen.h": "b3f393a12924baf4b6fee22c0fa8b307fc6bd9aa1428afd471bdb03b1a3e8847",
+    "eq-client-dll/src/advanced_loot_state.h": "b7990f0bfcfae8cfbccb6689d427807abae2a2dee73407c7f4e60e36407b4eab",
+    "eq-client-dll/src/advanced_loot_ui.h": "d227e8279d1a01883e1a7d4751602f405f96ae6a563110d3d2a6570973265446",
+    "eq-client-dll/src/dinput8.def": "dc6b65fa89e4939f6690fac87c303408787b26e419c4460feb62aed67c6b4b41",
+    "eq-client-dll/src/dllmain.cpp": "31b76b50d77d1a956ed8074410d52a202522489b82958c24b812ec1cec48f2fa",
+    "eq-client-dll/src/equipment_scope.h": "46a7a7f5b1eaab03ef880746ee5a5928e58afba12c65460253172418f5142d49",
+    "eq-client-dll/src/model_catalog.h": "c254b4a6ff6f05ce3cfd0a1b4f7844fe288735fd19a161f7f285f00d6cb2dbcc",
+    "eq-client-dll/src/model_hooks.h": "84a986d644b41f6c007f9507e21c0455663579369c9eebac16a8e4030075c6e5",
+    "eq-client-dll/src/model_policy.h": "5efa927a781aa50bcfbd2e349c3de239f61a37df7112dc7970db743d14c5147f",
+    "eq-client-dll/src/patch_catalog.h": "aadd3ad131f02e857d4365670f9ad76d629ba219d4da4bc582170164e99579aa",
+    "eq-client-dll/src/pet_management.h": "1bde623bce8ead26a6d6d9ea01575700553dfaca53270cb126b6d7ff352d80d2",
+    "eq-client-dll/src/pet_state.h": "46b73d019b470ceadf1bb92e8022a868f769a68412855b2cb6d8a6e079b90751",
+    "eq-client-dll/src/runtime_config.h": "54233206c146ee1009006c4e3781b53cb2b9d8c2d22a5046b7935fa9f45a259f",
+    "eq-client-dll/src/runtime_contract.h": "8fd926f0698ca28e87814b72f341e166c95c9213403d279ff85c8861065edb3b",
+    "eq-client-dll/src/runtime_health.h": "cd1e8745ebefae65c78f8dea5c4683c72a008292bc7b823a8c7f103028f2640a",
+    "eq-client-dll/src/spell_access.h": "0d6d7d7ad6325cf9fdc20dd795b590544549f560a02cdbdac29ad4744a6c7857",
+    "eq-client-dll/src/ui_hooks.h": "c44926dc0ef38c7386b42c71d3a0426bd9c17ce68f4dced06a91be6da4a9c940",
+    "eq-client-dll/src/ui_state.h": "d466a9f1d0d22ae6b7ffe29e1953a97bfbcf2ca68b76eb785e9e37b791b3b770",
+    "eq-client-dll/src/verified_patch.h": "c614683301f7bef0beeee17f2afd5edbcbc7b8986d13dc3c0b7b5fa22dfe288c"
+  },
+  "generated_ui_matches_current_source": true,
+  "advanced_loot_fixtures": [
+    {
+      "fixture": "advanced-loot-state",
+      "stdout": "PASS: advanced loot snapshot identity, atomic publication, replay, capabilities, paging, auto-show, NO TRADE confirmation and malformed frames"
+    },
+    {
+      "fixture": "advanced-loot-policy",
+      "stdout": "PASS: advanced loot personal/shared decisions, need/greed priority, access loss, replay and uncertain-transfer quarantine"
+    },
+    {
+      "fixture": "advanced-loot-screen",
+      "stdout": "PASS: native advanced loot screen x86 ABI, callbacks, 1000 reload lifetimes and missing-screen cleanup"
+    },
+    {
+      "fixture": "advanced-loot-controller",
+      "stdout": "PASS: controller through native notification ABI; panels, timeout/retry, commands, snapshots and NO TRADE"
+    }
+  ],
+  "native_runtime_tests": {
+    "tests": 5,
+    "outcome": "passed"
+  },
+  "xml_ui_tests": {
+    "tests": 11,
+    "outcome": "passed"
+  },
+  "launcher_go_tests": "go test ./... passed",
+  "publisher_tests": {
+    "tests": 12,
+    "outcome": "passed",
+    "scope": "local fixtures; Windows locking/fsync stubbed"
+  },
+  "independent_review": "no remaining concrete blocker after selection fixes",
+  "native_rendering_and_actual_click_reply": "pending; fixtures do not prove this acceptance",
+  "local_signature_and_files": {
+    "channel_sha256": "d0ec35d7badafbe2ecfd9391ad24aa524547b767625b8edfcf018f9c9ad18426",
+    "expires": "2026-11-01T12:37:14Z",
+    "hosted": false,
+    "release": 2026100201,
+    "signature": "valid against shipped production public key",
+    "total_bytes": 149807497,
+    "verified_files": 46
+  },
+  "publication_delta": {
+    "release": 2026100201,
+    "previous_release": 2026100104,
+    "changed": [
+      "dinput8.dll",
+      "nightcap-patch-sites.json",
+      "uifiles/nightcap/equi_petinfowindow.xml"
+    ],
+    "unchanged_files": 43,
+    "native_patch_sites_unchanged": 67,
+    "native_acceptance": "pending actual in-game clicks and rendering"
+  }
+}

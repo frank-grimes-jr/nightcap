@@ -1,7 +1,108 @@
 # Current Nightcap status
 
-Updated October 1, 2026. This is the current status index; dated studies and
+Updated October 4, 2026. This is the current status index; dated studies and
 QA reports preserve their original evidence and are not live-state promises.
+
+## NPC animation follow-up published for pet retest
+
+The owner confirmed that 2026100404 repaired beetle walking/death, while
+Enchanter weapons still twitched under stationary nameplates. PR 123 preserves
+the graphics engine's native IVM identity, a second requirement beyond the
+animation-family repair. Signed release **2026100406 / 0.7.7-dev** is public;
+all 48 hosted files verify and all services/current helmet assets are preserved.
+Close EQ and press Play in the normal launcher to update. Pet idle/follow/combat,
+zoning/relog and broader NPC visual acceptance remain open.
+[Native cause, deployment and exact retest](releases/npc-animation-20261004/enchanter.md).
+
+## Winged Paladin helmet snug-fit update
+
+Blender/Unity assets and all 24 original-race/gender fits are built. Item 990500
+exists in the live database and shared-memory cache with Classic raid stats.
+Owner QA exposed two native requirements: contiguous head meshes and the actor's
+shared material palette. Both are repaired in source 292aef4 and signed client
+release 2026100403, published under the owner's live-testing instruction.
+All 25 tests pass; 46 other client files and service identities/start times are
+preserved. Game/DB are healthy. Camil 999521 uses head material 90.
+The owner's latest screenshot confirms native Classic rendering on Camil, but
+the shell is too wide. The revised fit narrows High Elf male by 22.9% and all
+24 fits by 5.7-25%. Blender/Unity previews, 27 regressions and actual crown-plane
+clearance checks pass. Signed candidate 2026100405 is prepared; publication
+verification is pending. Native fit, player wear and reference fidelity remain
+open. [Snug-fit evidence and QA](releases/winged-helmet-snug-20261004/README.md).
+[Material repair and retest](releases/winged-helmet-materials-20261004/README.md).
+[Deployment evidence](releases/winged-helmet-20261004/README.md).
+[Current evidence and exact QA](helmets/winged-paladin.md).
+
+## Blessing lifetime repair deployed for owner retest
+
+The October 3 reconnect repair was insufficient: RoF2 expired finite-formula
+blessings on its next tick because native effects used duration -1. Main
+`7a645ebf` and fresh paired world/zone now preserve policy duration -1000 in
+native effects; icon countdowns are unchanged. Exact native regressions and
+closed-gateway hash/data-preservation checks pass. Current helmet client release
+2026100403, Camil, tunnel quests and player progress are retained. Wait at least
+30 seconds after hailing, open inventory, then relog without another hail and
+compare speed/stats. Actual player acceptance remains open.
+[Evidence and exact QA](releases/blessing-lifetime-20261004/README.md).
+
+## Compact tunnel service layout deployed for visual QA
+
+The owner accepted the six-resident campfire arrangement. PR 119 is on main and
+the server update is complete. The new layout
+pairs trainers and merchants in four compact gatherings, tightens the tradeskill
+workshop by about 48%, groups traders and reroutes walkers. All 119 actors and
+their functions remain. Full backup restoration, guarded forward/rollback,
+data preservation, installed quests and server/public-session checks passed.
+No client update is needed; rendered crowding and station interaction QA remain
+open. [Layout and exact owner QA](releases/tunnel-compact-20261002/README.md).
+
+## Spell-selection menu cache correction deployed for owner QA
+
+Signed release **2026100202**, proxy **0.7.4-dev**, introduced this repair,
+retained in current **2026100203 / 0.7.5-dev**, after PR 116 merged to
+main. It refreshes native menu labels and ordering after class snapshots, fixing
+cached 255 levels while preserving canonical scroll inspection. All 70 patch
+sites, native regressions, runtime/launcher/loot suites, 46 hosted files and
+existing-updater installation pass. The other 44 assets and all five production
+services are preserved. Close EverQuest and click Play to update; check that
+Pet > Sum: Water shows **02 - Elementalkin: Water** before memorization and after
+zoning. [Evidence and exact owner QA](releases/spell-menu-20261002.md).
+
+## Advanced loot action repair deployed for owner QA
+
+Signed client **2026100203 / 0.7.5-dev** and matching world/zone binaries are
+live from main. Loot All collects eligible earned drops across the current zone,
+reports its result and offers one bulk NO TRADE confirmation. Each row has
+Ignore; Filters has Remove. Corpse rights, receipts, bag/lore/cursor checks and
+classic/public range remain enforced. All 46 hosted files, native process hashes
+and closed-gateway data preservation checks pass. This retains the spell-menu,
+pet, model and tunnel/campfire repairs. Close EverQuest, click Play and use
+`/advloot`; real inventory/filter acceptance is pending the owner's test.
+[Diagnosis, evidence and exact QA](releases/advanced-loot/ACTION-REPAIR.md).
+
+## Compact pet window repair deployed for owner QA
+
+Signed production release **2026100104** corrects native buff-panel resize
+anchors that covered the compact roster and commands. All 46 hosted files
+verify; only the pet UI changed from 2026100103. Production services and other
+assets are preserved. Close the game and click Play in the normal launcher to
+apply it. Existing saved window sizes remain; resize down if needed. Rendered
+acceptance remains open in the [repair report](releases/pet-window-layout-20261001.md).
+
+## Character-selection crash repair deployed for owner QA
+
+The [October 1 material repair](releases/character-select-crash-20261001/README.md)
+fixes missing shared materials in seven imported classic models. The player's
+crash dump identified a null material after login, before character selection.
+Signed production release **2026100103**, proxy **0.7.2-dev**, introduced this
+repair, retained in **2026100203** through the existing launcher: opening it and clicking **Play** applies the patch before
+starting the game. No reinstall is needed. All 22 archives pass material,
+geometry, animation and texture preservation checks; the independent review,
+six focused regressions, full Go and native tests pass. All five production
+services and the starter/desktop/guide are preserved. All 46 hosted files and
+the signature verify; the existing updater installed 2026100103 into E:/Nightcap
+with all INIs and original executables preserved. Actual character-screen
+and world-entry acceptance remain open with exact steps in the incident report.
 
 ## Spell inspection correction deployed for owner QA
 
@@ -9,28 +110,43 @@ The [spell inspection audit and fix](releases/spell-inspection-20261001.md)
 removes 18,990 unusable original-class entries across 7,636 scroll items. Both
 native inspection paths and all canonical class levels pass automated checks.
 Owner-approved PR 101 is on main. Signed production release **2026100102**,
-proxy **0.7.1-dev**, is live on OVH through the usual patcher, with 67 patch sites.
-All 46 hosted files/signature and installation through the existing production
-controller pass. Only the DLL and patch catalog changed; all five services and
-other assets are preserved. Close the game and reopen the patcher to update.
+proxy **0.7.1-dev**, introduced this fix on OVH with 67 patch sites. Current
+release **2026100203** retains it with proxy **0.7.5-dev**.
+The original spell-inspection release passed hosted checks for all 46 files,
+signature verification and installation through the production controller. That
+release changed only the DLL and patch catalog, preserving all five services and
+other assets. Close the game and reopen the patcher to apply the current update.
 Rendered owner acceptance remains open with exact merchant/inventory QA linked.
 
 ## High-impact Play incident repair deployed
 
 The [October 1 startup repair](releases/launcher-play-20261001/README.md) fixes
 PFS version-2 archives exceeding RoF2's 8 KiB block limit. Signed game release
-**2026100101** introduced the repair, retained in current **2026100102**. All 22 archives and
-their matching proxy are replaced; all 14,858 extracted entries and the other
-23 managed files retain their contents. Production services, desktop/starter
+**2026100101** introduced the repair, retained in current **2026100203**. That
+repair replaced all 22 archives and their matching proxy, preserving all 14,858
+extracted entries and the other 23 managed files. The material repair above
+subsequently updated seven WLDs. Production services, desktop/starter
 and guide are unchanged. Regression, native, Go and publisher checks pass;
 all 46 hosted files and the existing production signature verify over HTTPS.
 Visible Play and post-login model loading still require the exact linked QA;
 computer-control access to Nightcap was denied after the isolated login-UI run.
 
-## Tunnel class courts deployed for owner QA
+## Social tunnel revision deployed for owner QA
+
+[The revised gathering layout](releases/tunnel-social-20261001/README.md)
+accounts for all 119 actors, names class merchants, restores the six missing
+residents, groups crafting in one corner and places the Chronicler by Shady.
+Geometry, guarded database recovery and silent resident behavior checks pass.
+[Activated October 2](releases/tunnel-social-20261001/PRODUCTION.md) after a full
+backup restore, 17 SQL checks, 59 preservation checks, 72 installed quest
+assertions and four public handshakes. The native image is preserved. This
+supersedes the September 30 placement; rendered owner acceptance remains open.
+
+## Tunnel class courts baseline
 
 [Eight class courts and Khaleid](releases/tunnel-class-courts/PRODUCTION.md) are
-live on OVH after the owner's main/server approval. Matching class/profession
+the September 30 baseline, with placements superseded by the social revision
+above. Matching class/profession
 uniforms, Roman supply pages, Khalure's Druid Rings subtitle and Khaleid's Classic
 wizard travel are installed. Fresh backup restore, 19 SQL checks, 50 preservation
 fingerprints, 26 installed-file quest assertions, 15 native hashes and four
@@ -46,7 +162,8 @@ QA package pass compilation, installation and actual RoF2 startup. Isolated
 login/world/ecommons services boot successfully. Per the owner's explicit request,
 PR 91 merged to main and the paired hardened production build is live on OVH.
 Signed game release **2026093006** introduced this client content; the current
-**2026100102** release preserves it through the usual starter.
+**2026100201** release retains the server contract and includes the client
+interaction repair above through the usual starter.
 Backup restore/migration rehearsal, 47 preservation checks, all 15 native process
 hashes, application-account permissions, all 46 hosted client files/signature
 and four public native handshakes passed. [Owner live QA](releases/advanced-loot/LIVE-QA.md)
@@ -58,7 +175,7 @@ The [classic-model release](releases/classic-models-20260930/PRODUCTION.md)
 adds a mandatory client policy, 22 isolated classic archives, original elemental
 palettes and 98 remake mappings. Existing INI settings cannot silently opt in.
 Signed game release **2026093004** introduced this policy, retained in the current
-**2026100102** release through the existing patcher after
+**2026100201** release through the existing patcher after
 the owner's explicit main/server instruction. Native x86, archive integrity
 and packaging checks pass. Rendering and owner acceptance remain open. Creatures with no old
 counterpart retain their existing model, as the owner explicitly requested on
@@ -153,7 +270,7 @@ Players keep their game folder and use the same shortcut. That historical releas
 verified launcher 2026092001 and game 2026092006, with 22 managed game files;
 it did not restart production. Its native/Go/UI checks and 63 publication failure
 rehearsals passed. The current launcher is 0.3.1 / release 2026092701 and the game
-is **2026100101** with 46 files, as recorded in the startup repair above. Owner in-game
+is **2026100201** with 46 files, as recorded in the incident repairs above. Owner in-game
 acceptance remains open. [Release operations](ops/permanent-patcher.md).
 
 ## Production NPC and spell-access repair deployed
@@ -302,14 +419,14 @@ This source promotion does not deploy a client or enable the default preview.
 |---|---|---|
 | PoK hub | Compact 22-service exotic hub; 16 class merchants, 1,747 listings / 1,229 unique items | Grounding, paths, Find, shop and quest interactions |
 | Class guidance | Primary/Second/Third on login, hail and commands; both extra slots selectable from level 1 | Normal-account selection, confirmation, release and persistence |
-| Bags | 22 positive prices, base 10–7,500 platinum; flags/stock retained | Quotes, wallets, restrictions, resale refusal and economy |
+| Bags | 22 positive prices, base 10â€“7,500 platinum; flags/stock retained | Quotes, wallets, restrictions, resale refusal and economy |
 | Earned AAs | Purchases/grants/refunds and atomic native class release; paired binary/plugin | In-game counters/effects, reconnect, failure recovery and rendering |
 | Five server fixes | Held-class weapon damage, extra-pet ownership/orders, direct-AA duration and owned-AA profile handling | Exact per-build gameplay matrix |
 | Skills | Canonical 58,359-row caps; value-1 unlock policy, existing held-Monk slice | Full class/slot coverage and client Skills/trainers |
 | AA XP | Minimum level 1 survives matching world startup | Actual XP award/allocation and persistence |
 | Waypoints | Marker discovery quest and relocated PoK travel service | Discovery, recall, safe arrivals and Explorer completion |
 
-[Exact live QA checklist](releases/live-qa-20260915/QA.md) ·
+[Exact live QA checklist](releases/live-qa-20260915/QA.md) Â·
 [Deployment and rollback](releases/live-qa-20260915/README.md).
 The server release entered dev/test in PR #49. The owner subsequently authorized
 all gameplay to move to main for live testing; [promotion record](releases/main-live-qa-20260915.md).
@@ -321,7 +438,7 @@ supersedes those portions of the live baseline.
 
 **14 open issues** at the latest September 15 query. Six completed issues closed after evidence publication:
 #8, #9, #12, #21, #24 and #25. Three reports were administratively consolidated:
-#38 → #13 (equipment), #39 → #36 (trainers), #20 → #19 (song landing).
+#38 â†’ #13 (equipment), #39 â†’ #36 (trainers), #20 â†’ #19 (song landing).
 Their unresolved acceptance was preserved; consolidation did not fix the bugs.
 
 | Open issue | What remains |

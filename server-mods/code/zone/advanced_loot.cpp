@@ -42,6 +42,11 @@ struct CorpseEntry {
 	bool invalid = false;
 	uint64 next_coin = 0;
 };
+struct PendingLoot {
+	std::shared_ptr<CorpseEntry> entry;
+	std::shared_ptr<Drop> drop;
+	std::vector<LootItem> items;
+};
 struct Session {
 	Client *client = nullptr;
 	Preferences preferences;
@@ -49,6 +54,10 @@ struct Session {
 	std::string search, signature;
 	uint64 next_command = 0;
 	bool loaded = false;
+	std::vector<PendingLoot> pending_no_trade;
+	uint32 pending_revision = 0;
+	uint64 pending_until = 0;
+	void ClearConfirmation() { pending_no_trade.clear(); pending_revision = 0; pending_until = 0; }
 };
 std::map<Client *, Session> sessions;
 std::map<Corpse *, std::shared_ptr<CorpseEntry>> corpses;
@@ -344,6 +353,9 @@ void Publish(Session &session, bool force) {
 	if (!force && session.signature == encoded) { return; }
 	session.signature = std::move(encoded);
 	if (snapshot.revision == UINT32_MAX) { session.client->Message(Chat::Yellow, "Reconnect to renew your advanced loot session."); return; }
+	// A prompt belongs to one exact published list. A changed/forced snapshot
+	// invalidates it; an All request arms a new prompt only after publication.
+	if (session.pending_revision) { session.ClearConfirmation(); }
 	++snapshot.revision;
 	const auto send = [&](const std::string &text) { if (text.size() <= MaxMessage) { session.client->Message(Chat::White, "%s", text.c_str()); } };
 	send(Begin(snapshot)); for (const auto &row : snapshot.rows) { send(Item(snapshot, row)); } send(End(snapshot));
@@ -370,6 +382,90 @@ void Discover() {
 }
 void RefreshAll(bool force = false) {
 	for (auto &[client, session] : sessions) { Publish(session, force); }
+}
+std::vector<LootItem> PhysicalItems(const CorpseEntry &entry, const Drop &drop) {
+	std::vector<LootItem> items{*drop.item};
+	const auto data = database.GetItem(drop.item->item_id);
+	if (data && data->ItemClass == EQ::item::ItemClassBag && EQ::InventoryProfile::SupportsContainers(drop.item->equip_slot)) {
+		const int16 first = EQ::InventoryProfile::CalcSlotId(drop.item->equip_slot, 0);
+		for (const auto child : entry.corpse->GetLootItems()) {
+			if (child != drop.item && child->equip_slot >= first && child->equip_slot < first + EQ::invbag::SLOT_COUNT) { items.push_back(*child); }
+		}
+	}
+	std::sort(items.begin(), items.end(), [](const LootItem &a, const LootItem &b) { return a.advanced_loot_id < b.advanced_loot_id; });
+	return items;
+}
+bool SamePending(const PendingLoot &pending) {
+	if (!Present(*pending.entry, *pending.drop)) { return false; }
+	const auto current = PhysicalItems(*pending.entry, *pending.drop);
+	return current.size() == pending.items.size() && std::equal(current.begin(), current.end(), pending.items.begin(), SamePhysicalLoot);
+}
+void LootAll(Session &session, bool confirmed) {
+	auto client = session.client;
+	std::vector<std::pair<std::shared_ptr<CorpseEntry>, std::shared_ptr<Drop>>> selected;
+	if (confirmed) {
+		if (!session.pending_revision || session.pending_revision != session.snapshot.revision ||
+			Now() >= session.pending_until || session.pending_no_trade.empty() ||
+			!std::all_of(session.pending_no_trade.begin(), session.pending_no_trade.end(), [&](const PendingLoot &pending) {
+				return SamePending(pending) && Visible(session, *pending.entry, *pending.drop) &&
+					CanTake(session, *pending.entry, *pending.drop) && RequiresConsent(pending.entry->corpse, pending.drop->item);
+			})) {
+			session.ClearConfirmation(); Publish(session, true);
+			client->Message(Chat::Yellow, "Advanced loot: The list changed. Click Loot All to review NO TRADE items again."); return;
+		}
+		// Never expand consent to drops that arrived after the prompt.
+		for (const auto &pending : session.pending_no_trade) { selected.emplace_back(pending.entry, pending.drop); }
+	} else {
+		for (const auto &[corpse, entry] : corpses) {
+			for (const auto &[id, drop] : entry->drops) {
+				if (!Visible(session, *entry, *drop)) { continue; }
+				const auto item = database.GetItem(drop->item->item_id);
+				if (!item || (session.preferences.settings & ShowNewOnly && session.preferences.Saved(item->ID) != Filter::Ask) ||
+					Strings::ToLower(item->Name).find(Strings::ToLower(session.search)) == std::string::npos) { continue; }
+				selected.emplace_back(entry, drop);
+			}
+		}
+	}
+	// Match the complete paged list's order and bound; never confirm drops
+	// omitted by the UI result limit. Further drops appear after this batch.
+	std::sort(selected.begin(), selected.end(), [](const auto &a, const auto &b) { return a.second->token < b.second->token; });
+	if (selected.size() > MaxResults) { selected.resize(MaxResults); }
+	// Retain the physical preimages for revalidation after each quest callback.
+	const auto confirmation = session.pending_no_trade;
+	// Consume a confirmation before any transfer so a replay cannot reuse it.
+	session.ClearConfirmation();
+	uint32 delivered = 0, unavailable = 0;
+	bool uncertain = false;
+	for (const auto &selection : selected) {
+		const auto &entry = selection.first;
+		const auto &drop = selection.second;
+		if (!Visible(session, *entry, *drop)) { ++unavailable; continue; }
+		if (confirmed && !std::any_of(confirmation.begin(), confirmation.end(), [&](const PendingLoot &pending) {
+			return pending.entry == entry && pending.drop == drop && SamePending(pending);
+		})) { ++unavailable; continue; }
+		const auto caps = MakeRow(session, *entry, *drop).capabilities;
+		if (!confirmed && (caps & Capability(Action::TakeNoTrade))) {
+			session.pending_no_trade.push_back({entry, drop, PhysicalItems(*entry, *drop)}); continue;
+		}
+		if (!(caps & Capability(confirmed ? Action::TakeNoTrade : Action::Take))) { ++unavailable; continue; }
+		const auto result = Take(session, entry, drop, confirmed, false);
+		if (result == TransferResult::Delivered) { ++delivered; }
+		else if (result == TransferResult::Declined) { ++unavailable; }
+		else { uncertain = true; break; }
+	}
+	Discover(); RefreshAll(); Publish(session, true);
+	if (uncertain) {
+		session.ClearConfirmation();
+		client->Message(Chat::Red, "Advanced loot: A transfer could not be confirmed. Reconnect before looting again.");
+	} else if (!session.pending_no_trade.empty()) {
+		session.pending_revision = session.snapshot.revision; session.pending_until = Now() + 30000;
+		client->Message(Chat::Yellow, "Advanced loot: Confirm NO TRADE for %u item(s). Looted %u; %u unavailable.",
+			static_cast<uint32>(session.pending_no_trade.size()), delivered, unavailable);
+	} else if (unavailable) {
+		client->Message(Chat::Yellow, "Advanced loot: Looted %u item(s); %u unavailable. Check bags, lore, cursor or group rights.", delivered, unavailable);
+	} else {
+		client->Message(Chat::Yellow, "Advanced loot: Looted %u item(s).", delivered);
+	}
 }
 }
 
@@ -444,7 +540,10 @@ TransferResult TakeClassic(Corpse *corpse, Client *client, LootItem *item, bool 
 void Command(Client *client, const Seperator *arguments) {
 	if (!client || !client->Connected() || !client->ClientDataLoaded() || !zone || !arguments) { return; }
 	auto &session = sessions[client]; session.client = client;
-	if (Now() < session.next_command) { return; }
+	if (Now() < session.next_command) {
+		session.ClearConfirmation();
+		client->Message(Chat::Yellow, "Advanced loot: Please wait a moment before trying again."); return;
+	}
 	session.next_command = Now() + 100;
 	try {
 		if (!session.loaded) {
@@ -453,11 +552,13 @@ void Command(Client *client, const Seperator *arguments) {
 		}
 		Discover();
 		const std::string verb = arguments->arg[1];
+		if (verb != "allconfirm") { session.ClearConfirmation(); }
 		uint32 sid = 0, revision = 0;
 		const bool refresh = arguments->argnum == 0 || (arguments->argnum == 1 && verb == "refresh");
 		if (!refresh && (!Number(arguments->arg[2], sid) || !Number(arguments->arg[3], revision) ||
 			sid != session.snapshot.session || revision != session.snapshot.revision)) {
-			client->Message(Chat::Yellow, "The loot list changed. Select the item again."); Publish(session, true); return;
+			session.ClearConfirmation(); Publish(session, true);
+			client->Message(Chat::Yellow, "Advanced loot: The list changed. Select the item again."); return;
 		}
 		uint32 a = 0, b = 0, recipient = 0;
 		if (refresh) {
@@ -477,13 +578,14 @@ void Command(Client *client, const Seperator *arguments) {
 			std::string search;
 			if (std::string(arguments->arg[6]) != "-" && !Unhex(arguments->arg[6], search, 32)) { Publish(session, true); return; }
 			session.search = search; session.snapshot.view = static_cast<View>(a); session.snapshot.page = b;
-		} else if ((verb == "act" && arguments->argnum == 6 && Number(arguments->arg[4], a) && Number(arguments->arg[5], b) &&
-			Number(arguments->arg[6], recipient) && b <= static_cast<uint32>(Action::EditFilter)) || (verb == "all" && arguments->argnum == 3)) {
-			const bool all = verb == "all";
-			if (all && session.snapshot.view != View::Drops) { Publish(session, true); return; }
+		} else if ((verb == "all" || verb == "allconfirm") && arguments->argnum == 3) {
+			if (session.snapshot.view != View::Drops) { session.ClearConfirmation(); Publish(session, true); return; }
+			LootAll(session, verb == "allconfirm"); return;
+		} else if (verb == "act" && arguments->argnum == 6 && Number(arguments->arg[4], a) && Number(arguments->arg[5], b) &&
+			Number(arguments->arg[6], recipient) && b <= static_cast<uint32>(Action::EditFilter)) {
 			const auto action = static_cast<Action>(b);
-			if (!all && action != Action::Assign && recipient) { Publish(session, true); return; }
-			if (!all) {
+			if (action != Action::Assign && recipient) { Publish(session, true); return; }
+			{
 				const auto row = std::find_if(session.snapshot.rows.begin(), session.snapshot.rows.end(), [&](const Row &r) { return r.token == a && (r.capabilities & Capability(action)); });
 				if (row == session.snapshot.rows.end()) { Publish(session, true); return; }
 				if (session.snapshot.view == View::Filters) {
@@ -493,22 +595,13 @@ void Command(Client *client, const Seperator *arguments) {
 			}
 			std::vector<std::pair<std::shared_ptr<CorpseEntry>, std::shared_ptr<Drop>>> selected;
 			for (const auto &[corpse, entry] : corpses) {
-				for (const auto &[id, drop] : entry->drops) { if ((all || drop->token == a) && Visible(session, *entry, *drop)) {
-					if (all) {
-						const auto item = database.GetItem(drop->item->item_id);
-						if (!item || (session.preferences.settings & ShowNewOnly && session.preferences.Saved(item->ID) != Filter::Ask) ||
-							Strings::ToLower(item->Name).find(Strings::ToLower(session.search)) == std::string::npos) { continue; }
-					}
+				for (const auto &[id, drop] : entry->drops) { if (drop->token == a && Visible(session, *entry, *drop)) {
 					selected.emplace_back(entry, drop);
 				} }
 			}
 			for (const auto &[entry, drop] : selected) {
 				if (!Present(*entry, *drop)) { continue; }
 				const auto caps = MakeRow(session, *entry, *drop).capabilities;
-				if (all) {
-					if (caps & Capability(Action::Take)) { Take(session, entry, drop, false, false); }
-					continue;
-				}
 				if (!(caps & Capability(action))) { continue; }
 				const auto character = client->CharacterID();
 				if (action == Action::Take || action == Action::TakeNoTrade) {
@@ -532,6 +625,11 @@ void Command(Client *client, const Seperator *arguments) {
 			}
 		} else { client->Message(Chat::Yellow, "Use /advloot to manage loot and saved item filters."); }
 		Discover(); RefreshAll(); Publish(session, true);
+		if (verb == "filter") {
+			client->Message(Chat::Yellow, b == static_cast<uint32>(Filter::Never) ?
+				"Advanced loot: Item added to your ignore filter." : !b ?
+				"Advanced loot: Item removed from your filter list." : "Advanced loot: Item rule saved.");
+		}
 	} catch (const std::exception &error) { LogError("Advanced loot command stopped: [{}]", error.what()); client->Message(Chat::Red, "Advanced loot could not finish that action. Refresh the window."); }
 }
 }

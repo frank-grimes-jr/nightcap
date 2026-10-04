@@ -16,7 +16,7 @@ STOP_CODE = 0x4E430001
 
 class RuntimeTests(unittest.TestCase):
     def test_ui_state_and_hooks(self):
-        for name in ("ui-state", "ui-hooks", "pet-state", "pet-management", "spell-access", "spell-inspection", "model-policy", "model-hooks"):
+        for name in ("ui-state", "ui-hooks", "pet-state", "pet-management", "spell-access", "spell-inspection", "spell-menu", "model-policy", "model-hooks"):
             with self.subTest(name=name):
                 result = subprocess.run([ROOT / f"build/tests/{name}.exe"], capture_output=True, timeout=15)
                 self.assertEqual(result.returncode, 0, result.stdout + result.stderr)

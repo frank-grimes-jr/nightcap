@@ -1,0 +1,429 @@
+{
+  "mesh_sha256": "8d387f742f1f7ef571926abe3f0d9938cb04ee993a0a1c41d9df4354d3db909c",
+  "crown_planes": 758,
+  "tolerance_source_units": 1e-05,
+  "models": [
+    {
+      "archive": "global_chr.s3d",
+      "code": "HUM",
+      "checks": {
+        "unquantized_fit": {
+          "clipped_vertices": 14,
+          "maximum_signed_plane_distance": -0.011260842014853223,
+          "passed": true
+        },
+        "encoded_candidate": {
+          "clipped_vertices": 14,
+          "maximum_signed_plane_distance": -0.011251350391113468,
+          "passed": true
+        }
+      }
+    },
+    {
+      "archive": "global_chr.s3d",
+      "code": "HUF",
+      "checks": {
+        "unquantized_fit": {
+          "clipped_vertices": 54,
+          "maximum_signed_plane_distance": -0.0028296006646997274,
+          "passed": true
+        },
+        "encoded_candidate": {
+          "clipped_vertices": 54,
+          "maximum_signed_plane_distance": -0.0028363928311687103,
+          "passed": true
+        }
+      }
+    },
+    {
+      "archive": "global_chr.s3d",
+      "code": "BAM",
+      "checks": {
+        "unquantized_fit": {
+          "clipped_vertices": 88,
+          "maximum_signed_plane_distance": -0.006851934709092761,
+          "passed": true
+        },
+        "encoded_candidate": {
+          "clipped_vertices": 88,
+          "maximum_signed_plane_distance": -0.006848931831877403,
+          "passed": true
+        }
+      }
+    },
+    {
+      "archive": "global_chr.s3d",
+      "code": "BAF",
+      "checks": {
+        "unquantized_fit": {
+          "clipped_vertices": 26,
+          "maximum_signed_plane_distance": -0.016048851801524877,
+          "passed": true
+        },
+        "encoded_candidate": {
+          "clipped_vertices": 26,
+          "maximum_signed_plane_distance": -0.016063119460088815,
+          "passed": true
+        }
+      }
+    },
+    {
+      "archive": "global_chr.s3d",
+      "code": "ERM",
+      "checks": {
+        "unquantized_fit": {
+          "clipped_vertices": 37,
+          "maximum_signed_plane_distance": -0.010051295004846,
+          "passed": true
+        },
+        "encoded_candidate": {
+          "clipped_vertices": 37,
+          "maximum_signed_plane_distance": -0.010009947041984268,
+          "passed": true
+        }
+      }
+    },
+    {
+      "archive": "global_chr.s3d",
+      "code": "ERF",
+      "checks": {
+        "unquantized_fit": {
+          "clipped_vertices": 26,
+          "maximum_signed_plane_distance": -0.02253423028448831,
+          "passed": true
+        },
+        "encoded_candidate": {
+          "clipped_vertices": 26,
+          "maximum_signed_plane_distance": -0.022532496259908386,
+          "passed": true
+        }
+      }
+    },
+    {
+      "archive": "global_chr.s3d",
+      "code": "ELM",
+      "checks": {
+        "unquantized_fit": {
+          "clipped_vertices": 34,
+          "maximum_signed_plane_distance": -0.0031845477792810106,
+          "passed": true
+        },
+        "encoded_candidate": {
+          "clipped_vertices": 34,
+          "maximum_signed_plane_distance": -0.003174681504443777,
+          "passed": true
+        }
+      }
+    },
+    {
+      "archive": "global_chr.s3d",
+      "code": "ELF",
+      "checks": {
+        "unquantized_fit": {
+          "clipped_vertices": 40,
+          "maximum_signed_plane_distance": -0.005103778028459349,
+          "passed": true
+        },
+        "encoded_candidate": {
+          "clipped_vertices": 40,
+          "maximum_signed_plane_distance": -0.005087462337661941,
+          "passed": true
+        }
+      }
+    },
+    {
+      "archive": "global_chr.s3d",
+      "code": "HIM",
+      "checks": {
+        "unquantized_fit": {
+          "clipped_vertices": 40,
+          "maximum_signed_plane_distance": -0.002975537224700675,
+          "passed": true
+        },
+        "encoded_candidate": {
+          "clipped_vertices": 40,
+          "maximum_signed_plane_distance": -0.0030105757647750364,
+          "passed": true
+        }
+      }
+    },
+    {
+      "archive": "global_chr.s3d",
+      "code": "HIF",
+      "checks": {
+        "unquantized_fit": {
+          "clipped_vertices": 26,
+          "maximum_signed_plane_distance": -0.02635568507785685,
+          "passed": true
+        },
+        "encoded_candidate": {
+          "clipped_vertices": 26,
+          "maximum_signed_plane_distance": -0.026364832154264467,
+          "passed": true
+        }
+      }
+    },
+    {
+      "archive": "global_chr.s3d",
+      "code": "DAM",
+      "checks": {
+        "unquantized_fit": {
+          "clipped_vertices": 28,
+          "maximum_signed_plane_distance": -0.0198852676384057,
+          "passed": true
+        },
+        "encoded_candidate": {
+          "clipped_vertices": 28,
+          "maximum_signed_plane_distance": -0.01989824833487225,
+          "passed": true
+        }
+      }
+    },
+    {
+      "archive": "global_chr.s3d",
+      "code": "DAF",
+      "checks": {
+        "unquantized_fit": {
+          "clipped_vertices": 40,
+          "maximum_signed_plane_distance": -0.014218797307251951,
+          "passed": true
+        },
+        "encoded_candidate": {
+          "clipped_vertices": 40,
+          "maximum_signed_plane_distance": -0.014182371326678211,
+          "passed": true
+        }
+      }
+    },
+    {
+      "archive": "global_chr.s3d",
+      "code": "HAM",
+      "checks": {
+        "unquantized_fit": {
+          "clipped_vertices": 40,
+          "maximum_signed_plane_distance": -0.0028685342139659342,
+          "passed": true
+        },
+        "encoded_candidate": {
+          "clipped_vertices": 40,
+          "maximum_signed_plane_distance": -0.0028830887911807934,
+          "passed": true
+        }
+      }
+    },
+    {
+      "archive": "global_chr.s3d",
+      "code": "HAF",
+      "checks": {
+        "unquantized_fit": {
+          "clipped_vertices": 20,
+          "maximum_signed_plane_distance": -0.014061839880410265,
+          "passed": true
+        },
+        "encoded_candidate": {
+          "clipped_vertices": 20,
+          "maximum_signed_plane_distance": -0.014060793444785724,
+          "passed": true
+        }
+      }
+    },
+    {
+      "archive": "global_chr.s3d",
+      "code": "DWM",
+      "checks": {
+        "unquantized_fit": {
+          "clipped_vertices": 31,
+          "maximum_signed_plane_distance": -0.008465496393808614,
+          "passed": true
+        },
+        "encoded_candidate": {
+          "clipped_vertices": 31,
+          "maximum_signed_plane_distance": -0.008452227501622805,
+          "passed": true
+        }
+      }
+    },
+    {
+      "archive": "global_chr.s3d",
+      "code": "DWF",
+      "checks": {
+        "unquantized_fit": {
+          "clipped_vertices": 20,
+          "maximum_signed_plane_distance": -0.015573260418742185,
+          "passed": true
+        },
+        "encoded_candidate": {
+          "clipped_vertices": 20,
+          "maximum_signed_plane_distance": -0.015572518885430597,
+          "passed": true
+        }
+      }
+    },
+    {
+      "archive": "global_chr.s3d",
+      "code": "TRM",
+      "checks": {
+        "unquantized_fit": {
+          "clipped_vertices": 60,
+          "maximum_signed_plane_distance": -0.01836094978723196,
+          "passed": true
+        },
+        "encoded_candidate": {
+          "clipped_vertices": 60,
+          "maximum_signed_plane_distance": -0.01836534466588735,
+          "passed": true
+        }
+      }
+    },
+    {
+      "archive": "global_chr.s3d",
+      "code": "TRF",
+      "checks": {
+        "unquantized_fit": {
+          "clipped_vertices": 104,
+          "maximum_signed_plane_distance": -0.0032046764339264677,
+          "passed": true
+        },
+        "encoded_candidate": {
+          "clipped_vertices": 104,
+          "maximum_signed_plane_distance": -0.0031859599492560786,
+          "passed": true
+        }
+      }
+    },
+    {
+      "archive": "global_chr.s3d",
+      "code": "OGM",
+      "checks": {
+        "unquantized_fit": {
+          "clipped_vertices": 82,
+          "maximum_signed_plane_distance": -0.015647623062035848,
+          "passed": true
+        },
+        "encoded_candidate": {
+          "clipped_vertices": 82,
+          "maximum_signed_plane_distance": -0.015654867302392045,
+          "passed": true
+        }
+      }
+    },
+    {
+      "archive": "global_chr.s3d",
+      "code": "OGF",
+      "checks": {
+        "unquantized_fit": {
+          "clipped_vertices": 52,
+          "maximum_signed_plane_distance": -0.023387142206692663,
+          "passed": true
+        },
+        "encoded_candidate": {
+          "clipped_vertices": 52,
+          "maximum_signed_plane_distance": -0.023386005292946432,
+          "passed": true
+        }
+      }
+    },
+    {
+      "archive": "global_chr.s3d",
+      "code": "HOM",
+      "checks": {
+        "unquantized_fit": {
+          "clipped_vertices": 28,
+          "maximum_signed_plane_distance": -0.01035355032540708,
+          "passed": true
+        },
+        "encoded_candidate": {
+          "clipped_vertices": 28,
+          "maximum_signed_plane_distance": -0.010348972060873762,
+          "passed": true
+        }
+      }
+    },
+    {
+      "archive": "global_chr.s3d",
+      "code": "HOF",
+      "checks": {
+        "unquantized_fit": {
+          "clipped_vertices": 14,
+          "maximum_signed_plane_distance": -0.02013296306905285,
+          "passed": true
+        },
+        "encoded_candidate": {
+          "clipped_vertices": 14,
+          "maximum_signed_plane_distance": -0.020127401782751048,
+          "passed": true
+        }
+      }
+    },
+    {
+      "archive": "global_chr.s3d",
+      "code": "GNM",
+      "checks": {
+        "unquantized_fit": {
+          "clipped_vertices": 66,
+          "maximum_signed_plane_distance": -0.01135757569506679,
+          "passed": true
+        },
+        "encoded_candidate": {
+          "clipped_vertices": 66,
+          "maximum_signed_plane_distance": -0.011352528238678772,
+          "passed": true
+        }
+      }
+    },
+    {
+      "archive": "global_chr.s3d",
+      "code": "GNF",
+      "checks": {
+        "unquantized_fit": {
+          "clipped_vertices": 31,
+          "maximum_signed_plane_distance": -0.002767097153925868,
+          "passed": true
+        },
+        "encoded_candidate": {
+          "clipped_vertices": 31,
+          "maximum_signed_plane_distance": -0.002814209926078476,
+          "passed": true
+        }
+      }
+    },
+    {
+      "archive": "global4_chr.s3d",
+      "code": "BAM",
+      "checks": {
+        "unquantized_fit": {
+          "clipped_vertices": 88,
+          "maximum_signed_plane_distance": -0.006851934709092761,
+          "passed": true
+        },
+        "encoded_candidate": {
+          "clipped_vertices": 88,
+          "maximum_signed_plane_distance": -0.006848931831877403,
+          "passed": true
+        }
+      }
+    },
+    {
+      "archive": "global4_chr.s3d",
+      "code": "BAF",
+      "checks": {
+        "unquantized_fit": {
+          "clipped_vertices": 26,
+          "maximum_signed_plane_distance": -0.016048851801524877,
+          "passed": true
+        },
+        "encoded_candidate": {
+          "clipped_vertices": 26,
+          "maximum_signed_plane_distance": -0.016063119460088815,
+          "passed": true
+        }
+      }
+    }
+  ],
+  "limitations": [
+    "Checks retained head-bone HE0001 face triangles above crown base.",
+    "Does not check ears, animated jaw, feathers or other armor intersections.",
+    "Geometric containment does not replace native visual acceptance."
+  ],
+  "passed": true
+}

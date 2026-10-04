@@ -1,0 +1,55 @@
+{
+  "status": "built_and_staged_not_yet_live",
+  "client_release": 2026100203,
+  "proxy_version": "0.7.5-dev",
+  "build_source_commit": "66a15aa78c08c7b757b9f61075d67a78574c67d4",
+  "native_binaries": {
+    "loginserver": "a9c97271ce27bcbd4fc4003126af12a7c11821ef97d5aa8dff1be0dc1b4fffd8",
+    "world": "630ae49a31a7c601bbc2d96060233e965a8734cf0d9f096a775a0d284a630efd",
+    "zone": "392a8e289f4ee7a41251364ecb404716c2a14d1d60b7d9382880fd450b63ac7e",
+    "ucs": "96757b356eca25c539bdd6e036c635ab79fee383e7a5ec9e27b14bb5138f5583",
+    "shared_memory": "3e45b9b1f8444eba773ff4375cd55089d8c5fff78cc3eb93e639a8aba9ef6f21"
+  },
+  "production_base_manifest_sha256": "007da2bb06fd470c5a8f3647ea3b30b63ef51cc689e128a8f43d52c5caf2b592",
+  "hardening_sha256": "219f556bb1e55a719f8a3f5150c95723ce46ab9a8b69c93c2bc0f54ff1262b2e",
+  "server_source_sha256": {
+    "zone/advanced_loot.cpp": "2a83af0d8161527f459b5d48a57d206800959625e7523f357ad0ebe51660be2c",
+    "zone/corpse_advanced_loot.cpp": "00f8a41672b7fac9b4a27d43e0e5e9c05a7ba2973fc5ae506021c252ed9c049c"
+  },
+  "production_source_patch_sha256": "50f480ca43098fa6c95565fcf0ff3957f8b0a3ffce46acb333182d5c71372ed0",
+  "dll_sha256": "21998a6e7d3768b626ef4ef7d79e9c89dc7aa9de33133310b48a7671d1aa694a",
+  "local_signature": {
+    "channel_sha256": "4bf13e4ce24e5aefbb01a1473a45a829dcf01fdca683068dd59712b86836ebdb",
+    "expires": "2026-11-01T16:24:18Z",
+    "hosted": false,
+    "release": 2026100203,
+    "signature": "valid against shipped production public key",
+    "total_bytes": 149818349,
+    "verified_files": 46
+  },
+  "publication_diff": {
+    "release": 2026100203,
+    "previous_release": 2026100202,
+    "changed": [
+      "dinput8.dll",
+      "nightcap-patch-sites.json",
+      "uifiles/nightcap/equi_petinfowindow.xml"
+    ],
+    "unchanged_files": 43,
+    "patch_sites_unchanged": 70
+  },
+  "checks": {
+    "access": "passed; red before fix",
+    "bulk": "passed actual production function fixture",
+    "inventory": "passed actual production transfer fixture",
+    "currency_saved_state": "passed actual production body fixtures",
+    "native_loot_fixtures": "4 passed",
+    "ui_geometry": "4 passed",
+    "runtime": "5 passed",
+    "launcher": "go test ./... passed after sandbox permission rerun",
+    "rollout_faults": "4 passed, Docker/SQL mocked",
+    "native_build": "world and zone passed after C++17 correction"
+  },
+  "native_gameplay_acceptance": "pending owner live testing",
+  "review": "no remaining concrete blocker; visibility and saved-corpse preservation findings corrected"
+}

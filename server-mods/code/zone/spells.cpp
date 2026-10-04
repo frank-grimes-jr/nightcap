@@ -3016,8 +3016,18 @@ int32 Mob::GetBuffDurationForTarget(uint16 spell_id, int32 duration) const
 
 int32 Mob::BuffDurationForClient(int32 duration)
 {
-	// Engine override sentinel -1000 is RoF2's no-countdown value -1 on the wire.
+	// Buff icons use -1 for no countdown; native effect state has a separate encoding.
 	return duration == PERMANENT_BUFF_DURATION ? -1 : duration;
+}
+
+int32 Client::BuffEffectDurationForClient(int32 duration) const
+{
+	// RoF2 expires -1 on its next tick unless the spell's own formula is 50.
+	// Keep our server-policy sentinel for native effects; icons still use -1.
+	if (ClientVersion() == EQ::versions::ClientVersion::RoF2 && duration == PERMANENT_BUFF_DURATION) {
+		return PERMANENT_BUFF_DURATION;
+	}
+	return BuffDurationForClient(duration);
 }
 
 bool Mob::IsInstantCastDot(uint16 spell_id) const
@@ -6585,12 +6595,27 @@ int Mob::GetCasterLevel(uint16 spell_id) {
 	return std::max(1, level);
 }
 
+void Client::RestoreBuffEffects()
+{
+	if (ClientVersion() != EQ::versions::ClientVersion::RoF2) {
+		return;
+	}
+
+	// The profile/icons alone can leave RoF2 without active native effects.
+	// Restore the saved state by slot, without casting or refreshing durations.
+	for (int slot = 0; slot < GetMaxTotalSlots(); ++slot) {
+		if (IsValidSpell(buffs[slot].spellid)) {
+			SendBuffDurationPacket(buffs[slot], slot, true);
+		}
+	}
+}
+
 //This member function sets the buff duration on the client
 //however it does not work if sent quickly after an action packets, which is what one might perfer to do
 //Thus I use this in the buff process to update the correct duration once after casting
 //this allows AAs and focus effects that increase buff duration to work correctly, but could probably
 //be used for other things as well
-void Client::SendBuffDurationPacket(Buffs_Struct &buff, int slot)
+void Client::SendBuffDurationPacket(Buffs_Struct &buff, int slot, bool restore)
 {
 	EQApplicationPacket* outapp = nullptr;
 	outapp = new EQApplicationPacket(OP_Buff, sizeof(SpellBuffPacket_Struct));
@@ -6603,7 +6628,7 @@ void Client::SendBuffDurationPacket(Buffs_Struct &buff, int slot)
 	sbf->buff.level = buff.casterlevel > 0 ? buff.casterlevel : GetLevel();
 	sbf->buff.bard_modifier = buff.instrument_mod;
 	sbf->buff.spellid = buff.spellid;
-	sbf->buff.duration = BuffDurationForClient(buff.ticsremaining);
+	sbf->buff.duration = BuffEffectDurationForClient(buff.ticsremaining);
 	if (buff.dot_rune)
 		sbf->buff.counters = buff.dot_rune;
 	else if (buff.magic_rune)
@@ -6619,7 +6644,8 @@ void Client::SendBuffDurationPacket(Buffs_Struct &buff, int slot)
 	sbf->buff.z = buff.caston_z;
 
 	sbf->slotid = slot;
-	sbf->bufffade = 0;
+	// RoF2 mode 2 only updates an existing effect; mode 3 installs this slot.
+	sbf->bufffade = restore && ClientVersion() == EQ::versions::ClientVersion::RoF2 ? 3 : 0;
 	FastQueuePacket(&outapp);
 }
 

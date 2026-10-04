@@ -1,0 +1,9 @@
+{
+  "status": "passed",
+  "scope": "actual bulk functions with dependency fakes, not native gameplay",
+  "sources": {
+    "server-mods\\code\\zone\\advanced_loot.cpp": "ee74cf74dae5dedf7c9ff74b135eaf12215e4a2db42612cdd640d1e4bed3b405",
+    "server-mods\\code\\common\\loot.h": "04c69dfef8af9dbc5b7bb9831873684a205a49d8ec0c2dc418e6c6f5268635e1"
+  },
+  "result": "PASS: actual LootAll batching, outcomes, physical/bag consent, expiry, revision, new drops and callback mutation guards"
+}

@@ -1496,7 +1496,7 @@ static BOOL CALLBACK InitializeRuntime(PINIT_ONCE, PVOID, PVOID*)
     if (!class_ui_ok) Log("Class UI initialization failed at %s; image base=0x%08X", nightcap::client_ui::install_failure, static_cast<unsigned>(eq_base));
     RequirePatch(nightcap::Feature_class_ui,class_ui_ok);
     RequirePatch(nightcap::Feature_pet_armor,nightcap::client_ui::InstallPetArmor());
-    const bool advanced_loot_ok = nightcap::client_ui::InstallAdvancedLoot();
+    const bool advanced_loot_ok = nightcap::client_ui::InstallAdvancedLoot([](const char* event) { Log("ADVLOOT %s", event); });
     if (!advanced_loot_ok) Log("Advanced loot initialization failed at %s", nightcap::client_ui::install_failure);
     RequirePatch(nightcap::Feature_advanced_loot,advanced_loot_ok);
     // Guard every accessor before installing any multiclass redirection.
@@ -1525,7 +1525,9 @@ static BOOL CALLBACK InitializeRuntime(PINIT_ONCE, PVOID, PVOID*)
             ApplyGuardedRelativeCall(eq_base,kInspectionClasses2Rva,kExpectedInspectionClasses2,
                 reinterpret_cast<uintptr_t>(&nightcap::client_ui::InspectionClassesHook),"Scroll inspection classes (second path)") &&
             ApplyGuardedRelativeCall(eq_base,kInspectionLevel2Rva,kExpectedInspectionLevel2,
-                reinterpret_cast<uintptr_t>(&nightcap::client_ui::InspectionSpellLevelHook),"Scroll inspection class levels (second path)");
+                reinterpret_cast<uintptr_t>(&nightcap::client_ui::InspectionSpellLevelHook),"Scroll inspection class levels (second path)") &&
+            nightcap::client_ui::InstallSpellMenu();
+        if (spell_access_ok) Log("Spell selection menu refresh APPLIED: accepted class snapshots rebuild cached labels and ordering on the native frame");
     }
     RequirePatch(nightcap::Feature_multiclass_spell_access,spell_access_ok);
     nightcap::client_ui::skin_assign = reinterpret_cast<nightcap::client_ui::AssignString>(eq_base+kUIStringAssignRva);

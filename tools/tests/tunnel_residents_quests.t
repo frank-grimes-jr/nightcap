@@ -87,5 +87,5 @@ is(scalar @$stories,6,'Trift has six story variations');
 ok(!(grep { !/corpse/ || !/Butcherblock/ || !/goblin/i } @$stories),'every variation retains corpse, zone and cause');
 $TriftQuest::npc=$npc;$TriftQuest::client=$client;
 TriftQuest::EVENT_ITEM();is($npc->{returned},1,'wrong items and money use native return path');
-ok(!TriftQuest->can('EVENT_TIMER'),'only the shared coordinator owns OOC cadence');
+ok(TriftQuest->can('EVENT_TIMER'),'resident now has a separate silent social timer');
 done_testing();

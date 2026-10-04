@@ -1,0 +1,331 @@
+{
+  "installed_archive_sha256": "931ecab1081aa93c9d3b55fed275624dcec2f042d07b61c8e2a36f0b0404f3f4",
+  "stock_palette_ownership": [
+    {
+      "archive": "global_chr.s3d",
+      "code": "HUM",
+      "palette": 11964,
+      "slots": 22,
+      "block_palettes": [
+        11964
+      ],
+      "other_actor_prefixes": []
+    },
+    {
+      "archive": "global_chr.s3d",
+      "code": "HUF",
+      "palette": 11582,
+      "slots": 22,
+      "block_palettes": [
+        11582
+      ],
+      "other_actor_prefixes": []
+    },
+    {
+      "archive": "global_chr.s3d",
+      "code": "BAM",
+      "palette": 2911,
+      "slots": 22,
+      "block_palettes": [
+        2911
+      ],
+      "other_actor_prefixes": []
+    },
+    {
+      "archive": "global_chr.s3d",
+      "code": "BAF",
+      "palette": 2524,
+      "slots": 21,
+      "block_palettes": [
+        2524
+      ],
+      "other_actor_prefixes": []
+    },
+    {
+      "archive": "global_chr.s3d",
+      "code": "ERM",
+      "palette": 8542,
+      "slots": 18,
+      "block_palettes": [
+        8542
+      ],
+      "other_actor_prefixes": []
+    },
+    {
+      "archive": "global_chr.s3d",
+      "code": "ERF",
+      "palette": 8196,
+      "slots": 21,
+      "block_palettes": [
+        8196
+      ],
+      "other_actor_prefixes": []
+    },
+    {
+      "archive": "global_chr.s3d",
+      "code": "ELM",
+      "palette": 17963,
+      "slots": 17,
+      "block_palettes": [
+        17963
+      ],
+      "other_actor_prefixes": []
+    },
+    {
+      "archive": "global_chr.s3d",
+      "code": "ELF",
+      "palette": 15542,
+      "slots": 18,
+      "block_palettes": [
+        15542
+      ],
+      "other_actor_prefixes": []
+    },
+    {
+      "archive": "global_chr.s3d",
+      "code": "HIM",
+      "palette": 11242,
+      "slots": 26,
+      "block_palettes": [
+        11242
+      ],
+      "other_actor_prefixes": []
+    },
+    {
+      "archive": "global_chr.s3d",
+      "code": "HIF",
+      "palette": 10888,
+      "slots": 23,
+      "block_palettes": [
+        10888
+      ],
+      "other_actor_prefixes": []
+    },
+    {
+      "archive": "global_chr.s3d",
+      "code": "DAM",
+      "palette": 3740,
+      "slots": 23,
+      "block_palettes": [
+        3740
+      ],
+      "other_actor_prefixes": []
+    },
+    {
+      "archive": "global_chr.s3d",
+      "code": "DAF",
+      "palette": 3398,
+      "slots": 23,
+      "block_palettes": [
+        3398
+      ],
+      "other_actor_prefixes": []
+    },
+    {
+      "archive": "global_chr.s3d",
+      "code": "HAM",
+      "palette": 9917,
+      "slots": 17,
+      "block_palettes": [
+        9917
+      ],
+      "other_actor_prefixes": []
+    },
+    {
+      "archive": "global_chr.s3d",
+      "code": "HAF",
+      "palette": 9600,
+      "slots": 17,
+      "block_palettes": [
+        9600
+      ],
+      "other_actor_prefixes": []
+    },
+    {
+      "archive": "global_chr.s3d",
+      "code": "DWM",
+      "palette": 6067,
+      "slots": 17,
+      "block_palettes": [
+        6067
+      ],
+      "other_actor_prefixes": []
+    },
+    {
+      "archive": "global_chr.s3d",
+      "code": "DWF",
+      "palette": 4060,
+      "slots": 17,
+      "block_palettes": [
+        4060
+      ],
+      "other_actor_prefixes": []
+    },
+    {
+      "archive": "global_chr.s3d",
+      "code": "TRM",
+      "palette": 15131,
+      "slots": 16,
+      "block_palettes": [
+        15131
+      ],
+      "other_actor_prefixes": []
+    },
+    {
+      "archive": "global_chr.s3d",
+      "code": "TRF",
+      "palette": 14724,
+      "slots": 17,
+      "block_palettes": [
+        14724
+      ],
+      "other_actor_prefixes": []
+    },
+    {
+      "archive": "global_chr.s3d",
+      "code": "OGM",
+      "palette": 14409,
+      "slots": 18,
+      "block_palettes": [
+        14409
+      ],
+      "other_actor_prefixes": []
+    },
+    {
+      "archive": "global_chr.s3d",
+      "code": "OGF",
+      "palette": 12470,
+      "slots": 17,
+      "block_palettes": [
+        12470
+      ],
+      "other_actor_prefixes": []
+    },
+    {
+      "archive": "global_chr.s3d",
+      "code": "HOM",
+      "palette": 10511,
+      "slots": 16,
+      "block_palettes": [
+        10511
+      ],
+      "other_actor_prefixes": []
+    },
+    {
+      "archive": "global_chr.s3d",
+      "code": "HOF",
+      "palette": 10224,
+      "slots": 14,
+      "block_palettes": [
+        10224
+      ],
+      "other_actor_prefixes": []
+    },
+    {
+      "archive": "global_chr.s3d",
+      "code": "GNM",
+      "palette": 9245,
+      "slots": 24,
+      "block_palettes": [
+        9245
+      ],
+      "other_actor_prefixes": []
+    },
+    {
+      "archive": "global_chr.s3d",
+      "code": "GNF",
+      "palette": 8902,
+      "slots": 25,
+      "block_palettes": [
+        8902
+      ],
+      "other_actor_prefixes": []
+    },
+    {
+      "archive": "global4_chr.s3d",
+      "code": "BAM",
+      "palette": 1423,
+      "slots": 22,
+      "block_palettes": [
+        1423
+      ],
+      "other_actor_prefixes": []
+    },
+    {
+      "archive": "global4_chr.s3d",
+      "code": "BAF",
+      "palette": 1036,
+      "slots": 21,
+      "block_palettes": [
+        1036
+      ],
+      "other_actor_prefixes": []
+    }
+  ],
+  "him_winding": [
+    {
+      "mesh": "HIMHE03_DMSPRITEDEF",
+      "material": 0,
+      "triangles": 57,
+      "positive": 0,
+      "negative": 57,
+      "degenerate": 0
+    },
+    {
+      "mesh": "HIMHE03_DMSPRITEDEF",
+      "material": 1,
+      "triangles": 38,
+      "positive": 0,
+      "negative": 38,
+      "degenerate": 0
+    },
+    {
+      "mesh": "HIMHE03_DMSPRITEDEF",
+      "material": 2,
+      "triangles": 12,
+      "positive": 2,
+      "negative": 10,
+      "degenerate": 0
+    },
+    {
+      "mesh": "HIMHE03_DMSPRITEDEF",
+      "material": 3,
+      "triangles": 16,
+      "positive": 2,
+      "negative": 14,
+      "degenerate": 0
+    },
+    {
+      "mesh": "HIMHE90_DMSPRITEDEF",
+      "material": 0,
+      "triangles": 57,
+      "positive": 0,
+      "negative": 57,
+      "degenerate": 0
+    },
+    {
+      "mesh": "HIMHE90_DMSPRITEDEF",
+      "material": 26,
+      "triangles": 1018,
+      "positive": 0,
+      "negative": 1018,
+      "degenerate": 0
+    },
+    {
+      "mesh": "HIMHE90_DMSPRITEDEF",
+      "material": 27,
+      "triangles": 1111,
+      "positive": 0,
+      "negative": 1111,
+      "degenerate": 0
+    },
+    {
+      "mesh": "HIMHE90_DMSPRITEDEF",
+      "material": 28,
+      "triangles": 1636,
+      "positive": 23,
+      "negative": 1613,
+      "degenerate": 0
+    }
+  ]
+}

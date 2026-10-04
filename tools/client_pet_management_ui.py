@@ -63,17 +63,27 @@ def add_pet_management(root):
         control('Button', f'NCPM_Pet{index}', '', 6, 6+index*28, 338, 26)
         control('Label', f'NCPM_Pet{index}Name', 'Pets loading', 12, 11+index*28, 326, 20, 10031+index)
     control('Label', 'NCPM_Scope', 'Commands: All pets', 8, 95, 230, 20, 10030)
-    control('Button', 'NCPM_All', 'All pets', 244, 90, 96, 26)
+    control('Button', 'NCPM_All', 'All pets', 244, 90, 96, 26,
+            tooltip='Command all pets. Clearing your target also selects all pets.')
     for name, bounds in [('PIW_PetHPGauge', (6, 122, 152, 26)),
                          ('PIW_PetTargetHPGauge', (6, 153, 152, 28)),
-                         ('PIW_BuffWindow', (180, 6, 164, 280))]:
+                         ('PIW_BuffWindow', (180, 122, 164, 200))]:
         node = next((node for node in root if node.get('item') == name), None)
         if node is None:
             raise ValueError('Missing native pet status widget')
         box(node, *bounds)
+        if name == 'PIW_BuffWindow':
+            # RoF2 uses these stock AutoStretch anchors instead of Location/Size.
+            # Keep buffs below the full-width roster and beside the command grid;
+            # resizing should expand only the buff area into the available space.
+            for tag, setting in [('AutoStretch', 'true'),
+                                 ('LeftAnchorOffset', 180), ('TopAnchorOffset', 122),
+                                 ('RightAnchorOffset', 6), ('BottomAnchorOffset', 4),
+                                 ('LeftAnchorToLeft', 'true'), ('TopAnchorToTop', 'true'),
+                                 ('RightAnchorToLeft', 'false'), ('BottomAnchorToTop', 'false')]:
+                value(node, tag, setting)
     for index, title in enumerate(COMMANDS):
         label = COMMAND_LABELS[index]
         control('Button', f'NCPM_Command{index}', label,
                 6+(index%3)*56, 184+(index//3)*28, 54, 25,
                 tooltip=title)
-    control('Label', 'NCPM_Help', 'Clear target = All pets', 180, 292, 164, 20)

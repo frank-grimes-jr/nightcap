@@ -1,0 +1,12 @@
+{
+  "release": 2026100401,
+  "previous_release": 2026100203,
+  "added": [
+    "global4_chr.s3d",
+    "global_chr.s3d"
+  ],
+  "changed": [],
+  "unchanged_files": 46,
+  "status": "prepared_locally_not_published",
+  "baseline_note": "Recapture service baseline after any later game restart before publication."
+}

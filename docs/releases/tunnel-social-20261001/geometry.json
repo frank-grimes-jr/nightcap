@@ -1,0 +1,10 @@
+{
+  "actors": 119,
+  "repositioned": 85,
+  "walkers": 8,
+  "stations": 6,
+  "ground_samples": 2260,
+  "rays": 157,
+  "issues": [],
+  "snapshot_sha256": "62c9cdf368fe8564566c8ca86be7438d46a19f3f3e919b22b234a1fe83ae2d97"
+}

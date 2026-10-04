@@ -10,6 +10,18 @@ Start with [current status](status.md), not a dated candidate report.
 
 ## Players and testers
 
+- [Winged Paladin helmet: live release and exact in-game QA](helmets/winged-paladin.md)
+
+- [Blessing reconnect repair: live deployment and exact QA](releases/blessing-relogin-20261002/README.md)
+
+- [Compact tunnel services: layout, complete roster and exact QA](releases/tunnel-compact-20261002/README.md)
+
+- [Advanced loot Loot All/Ignore action repair: deployment and owner QA](releases/advanced-loot/ACTION-REPAIR.md)
+
+- [Spell selection menu: cached level-255 correction and exact QA](releases/spell-menu-20261002.md)
+
+- [October 1 character-selection crash: deployed material repair and exact login/world QA](releases/character-select-crash-20261001/README.md)
+
 - [Spell inspection: deployed correction, full catalog audit and exact QA](releases/spell-inspection-20261001.md)
 
 - [October 1 Play incident: deployed archive repair and exact startup QA](releases/launcher-play-20261001/README.md)
@@ -111,3 +123,9 @@ Historical documents describe their capture date. A passed offline/native test
 is not an in-game sign-off; a deployed candidate is not accepted main gameplay.
 
 - [East Commonlands tunnel hub QA](releases/ecommons-hub-20260920/README.md)
+
+- [Social tunnel revision: complete roster, placement map and exact QA](releases/tunnel-social-20261001/README.md).
+
+- [Resident campfire correction and exact visual QA](releases/tunnel-campfire-20261002/README.md).
+
+- [Blessing lifetime follow-up: native tick evidence and live QA](releases/blessing-lifetime-20261004/README.md)

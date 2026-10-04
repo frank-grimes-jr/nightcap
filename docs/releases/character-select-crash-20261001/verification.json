@@ -1,0 +1,45 @@
+{
+  "publication": {
+    "release": 2026100103,
+    "verified_files": 46,
+    "channel_sha256": "a16273c7be18f1c0dc0258abd71b517adac0b6687af708f59147e8043ecbb46c",
+    "previous_release": 2026100102,
+    "services_unchanged": true,
+    "desktop_starter_guide_unchanged": true
+  },
+  "hosted": {
+    "channel_sha256": "a16273c7be18f1c0dc0258abd71b517adac0b6687af708f59147e8043ecbb46c",
+    "expires": "2026-10-31T22:02:15Z",
+    "hosted": true,
+    "release": 2026100103,
+    "signature": "valid against shipped production public key",
+    "total_bytes": 149786199,
+    "verified_files": 46
+  },
+  "installed": {
+    "release": 2026100103,
+    "verified_files": 46,
+    "preserved_ini_and_executable_files": 36,
+    "signed_manifest_matches_production": true,
+    "game_launched": false,
+    "character_selection_acceptance": "pending owner retry"
+  },
+  "regressions": {
+    "old_pipeline_reproduces_native_missing_material": true,
+    "fixed_regressions_passed": 6,
+    "tests_location": "E:\\EQ_Local_Dev\\artifacts\\character-select-crash-20261001\\test_material_regression.py",
+    "source_test_write": "Prior managed test write was cancelled; no retry. Executable regression evidence retained here."
+  },
+  "independent_review": {
+    "outcome": "approved, no blocking findings",
+    "all_archives": 22,
+    "idempotent": true,
+    "appended_native_scan_bounds_confirmed": true
+  },
+  "acceptance": {
+    "character_selection": "pending owner retry",
+    "enter_world": "pending owner retry"
+  },
+  "production_services_match_before": true,
+  "protected_public_files_match_before": true
+}

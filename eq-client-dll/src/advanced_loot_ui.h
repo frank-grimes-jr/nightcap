@@ -2,114 +2,231 @@
 #include "advanced_loot_state.h"
 #include "advanced_loot_screen.h"
 #include <unordered_set>
+#include <unordered_map>
 
 namespace nightcap {
-// Presentation/controller only. The zone validates every command and owns all
-// item state. No client inventory mutation or simulated corpse-loot packets.
+// Presentation only. The zone remains authoritative for rights and transfers.
 class AdvancedLootUI {
 	using Screen = AdvancedLootScreen;
 	using Send = bool (*)(const std::string &);
 	using Notice = void (*)(const char *);
+	enum class Panel { List, Settings, Rule, More };
+	enum class Fault { None, Send, Timeout, Snapshot, Search };
 	inline static AdvancedLootState state_;
 	inline static Send send_ = nullptr;
-	inline static Notice notice_ = nullptr;
+	inline static Notice notice_ = nullptr, trace_ = nullptr;
 	inline static uint64_t now_ = 0, next_pulse_ = 0, next_refresh_ = 0, next_create_ = 0, sent_at_ = 0;
 	inline static uint32_t selected_ = 0, confirm_ = 0, spawn_ = 0;
-	inline static std::string name_, search_;
+	inline static std::string name_, search_, feedback_;
+	inline static uint64_t feedback_until_ = 0, all_confirm_until_ = 0;
+	inline static uint32_t all_confirm_revision_ = 0;
+	inline static bool awaiting_all_ = false;
+	inline static std::unordered_map<void *, std::string> controls_;
 	inline static std::unordered_set<uint32_t> seen_;
-	inline static std::unordered_set<void *> controls_;
 	inline static bool busy_ = false, dirty_ = true, configured_ = false, want_show_ = false, failed_ = false;
+	inline static Panel panel_ = Panel::List;
+	inline static Fault fault_ = Fault::None;
+	inline static NightcapLoot::View desired_view_ = NightcapLoot::View::Drops;
 	static const char *FilterName(NightcapLoot::Filter filter) {
-		static const char *names[] = {"Ask", "Always loot", "Never", "Always need", "Always greed"};
+		static const char *names[] = {"Ask each time", "Always loot", "Never loot", "Always need", "Always greed"};
 		return names[static_cast<unsigned>(filter)];
 	}
-	static const char *PhaseName(NightcapLoot::Phase phase) {
-		static const char *names[] = {"Personal", "Shared", "Rolling", "Awarded", "Free grab", "Saved filter"};
-		return names[static_cast<unsigned>(phase)];
-	}
-	static void Text(const std::string &id, const std::string &text) { Screen::Text(Screen::Child(id), text); }
-	static void Enable(const std::string &id, bool enabled) { Screen::Enable(Screen::Child(id), enabled); }
+	static void Trace(const char *event) { if (trace_) { trace_(event); } }
+	static void Text(const std::string &id, const std::string &text) { Screen::Text(Screen::Child("NCAL_" + id), text); }
+	static void Enable(const std::string &id, bool enabled) { Screen::Enable(Screen::Child("NCAL_" + id), enabled); }
+	static void Visible(const std::string &id, bool visible) { Screen::Visible(Screen::Child("NCAL_" + id), visible); }
 	static std::size_t Selected() {
 		const auto &rows = state_.Current().rows;
 		for (std::size_t i = 0; i < rows.size(); ++i) { if (rows[i].token == selected_) { return i; } }
 		return rows.size();
 	}
-	static bool Available() { return state_.Ready() && !busy_; }
-	static void Submit(const std::string &command) {
-		if (!command.empty() && send_ && send_(command)) {
-			busy_ = true; sent_at_ = now_; dirty_ = true; confirm_ = 0;
-		}
+	static bool Available() { return state_.Ready() && !busy_ && fault_ != Fault::Snapshot && fault_ != Fault::Timeout; }
+	static void SetFault(Fault fault, const char *event) { fault_ = fault; dirty_ = true; Trace(event); }
+	static void Submit(const std::string &command, bool clear_confirmation = true) {
+		if (command.empty()) { return; }
+		all_confirm_revision_ = 0; awaiting_all_ = false; feedback_.clear();
+		dirty_ = true;
+		if (!send_ || !send_(command)) { SetFault(Fault::Send, "send-unavailable"); return; }
+		busy_ = true; sent_at_ = now_; dirty_ = true; fault_ = Fault::None;
+		awaiting_all_ = command.rfind("#advloot all ", 0) == 0 || command.rfind("#advloot allconfirm ", 0) == 0;
+		if (clear_confirmation) { confirm_ = 0; }
+		Trace(("request-sent:" + command.substr(9, command.find(' ', 9) - 9)).c_str());
 	}
-	static void Refresh() {
-		if (now_ < next_refresh_) { return; }
-		if (send_ && send_("#advloot refresh")) { next_refresh_ = now_ + 5000; }
+	static void Refresh(bool manual = false) {
+		// Never interrupt a request with a second command. A retry asks for state;
+		// it never repeats a loot/assignment operation with an unknown outcome.
+		if (busy_ || (!manual && now_ < next_refresh_)) { return; }
+		Submit("#advloot refresh", false);
+		next_refresh_ = now_ + (busy_ ? 10000 : 1000);
+	}
+	static void RequestView(NightcapLoot::View view) {
+		desired_view_ = view; panel_ = Panel::List; selected_ = confirm_ = all_confirm_revision_ = 0; dirty_ = true;
+		if (view == NightcapLoot::View::Drops) { search_.clear(); Text("SearchText", ""); }
+		if (Available()) { Submit(state_.ViewCommand(view, 0, search_)); }
+		else { Refresh(); }
 	}
 	static void Render() {
 		using namespace NightcapLoot;
 		const auto &s = state_.Current();
 		const auto index = Selected();
-		const Row *selected = index < s.rows.size() ? &s.rows[index] : nullptr;
-		const bool ready = Available();
-		Text("NCAL_Status", !state_.Ready() ? "Connecting to advanced loot..." : busy_ ? "Waiting for server..." :
-			std::string(s.view == View::Drops ? "Loot" : "Saved filters") + " - " + std::to_string(s.total) +
-			" items - page " + std::to_string(s.page + 1) + "/" + std::to_string((std::max)(1u, (s.total + 7) / 8)));
+		const Row *row = index < s.rows.size() ? &s.rows[index] : nullptr;
+		const bool ready = Available(), matching = s.view == desired_view_;
+		if (!row && (panel_ == Panel::Rule || panel_ == Panel::More)) { panel_ = Panel::List; }
+		const bool list = panel_ == Panel::List, settings = panel_ == Panel::Settings;
+		const bool rule = panel_ == Panel::Rule, more = panel_ == Panel::More;
+		const bool drops = desired_view_ == View::Drops;
+		auto can = [&](Action action) { return row && (row->capabilities & Capability(action)); };
+		std::string status;
+		if (fault_ == Fault::Timeout) { status = "No reply from the server. Click Retry."; }
+		else if (fault_ == Fault::Send) { status = "Could not send the request. Click Retry."; }
+		else if (fault_ == Fault::Snapshot) { status = "Loot data could not be read. Click Retry."; }
+		else if (fault_ == Fault::Search) { status = "Search accepts up to 32 plain-text characters."; }
+		else if (busy_) { status = state_.Current().revision ? "Updating loot..." : "Connecting to loot..."; }
+		else if (!state_.Ready()) { status = "Connecting to loot..."; }
+		else if (!(s.settings & Enabled)) { status = "Advanced loot is off. Enable it in Settings."; }
+		else { status = drops ? std::to_string(s.total) + " items waiting" : "Your saved filters"; }
+		Text("Status", status);
+		Text("Refresh", fault_ == Fault::None ? "Refresh" : "Retry"); Enable("Refresh", !busy_);
+		Text("Drops", "< Back to loot"); Visible("Drops", !list || !drops);
+		Text("Filters", std::string(list && !drops ? "> " : "") + "Filters");
+		Text("Options", std::string(settings ? "> " : "") + "Settings");
+		// Local navigation never depends on a server reply.
+		for (const char *id : {"Drops", "Filters", "Options", "Back"}) { Enable(id, true); }
+		for (const char *id : {"SearchText", "Search", "Clear"}) { Visible(id, list && !drops); }
+		for (const char *id : {"Previous", "Next", "Page", "Selected"}) { Visible(id, list); }
+		for (const char *id : {"Search", "Clear"}) { Enable(id, ready && matching); }
+		Text("Page", matching && state_.Ready() ? std::to_string(s.total) + " items  " + std::to_string(s.page + 1) + "/" +
+			std::to_string((std::max)(1u, (s.total + 7) / 8)) : "");
+		Enable("Previous", ready && matching && s.page > 0);
+		Enable("Next", ready && matching && (s.page + 1) * PageSize < s.total);
 		for (std::size_t i = 0; i < PageSize; ++i) {
 			const auto suffix = std::to_string(i);
-			const bool exists = i < s.rows.size();
-			Text("NCAL_Row" + suffix, !exists ? "" : (s.rows[i].token == selected_ ? "> " : "") + s.rows[i].name +
-				(s.view == View::Drops ? " x" + std::to_string(s.rows[i].quantity) : ""));
-			Text("NCAL_Source" + suffix, !exists ? "" : s.rows[i].source + " - " + PhaseName(s.rows[i].phase));
-			Enable("NCAL_Row" + suffix, ready && exists);
+			const bool exists = matching && i < s.rows.size();
+			Visible("Row" + suffix, list && exists); Visible("Source" + suffix, list && exists);
+			Visible("Ignore" + suffix, list && exists);
+			if (!exists) { continue; }
+			const auto &item = s.rows[i];
+			Text("Row" + suffix, std::string(item.token == selected_ ? "> " : "") + item.name + (drops ? " x" + std::to_string(item.quantity) : ""));
+			Text("Source" + suffix, drops ? (item.capabilities & Capability(Action::Take) ? "Ready" :
+				item.capabilities & Capability(Action::TakeNoTrade) ? "NO TRADE" :
+				item.phase == Phase::Shared || item.phase == Phase::Rolling ? "Group loot" : "Unavailable") : FilterName(item.filter));
+			Text("Ignore" + suffix, drops ? "Ignore" : "Remove");
+			Enable("Ignore" + suffix, ready && (item.capabilities & Capability(Action::EditFilter)));
+			Enable("Row" + suffix, true);
 		}
-		Text("NCAL_Selected", !selected ? "Select an item to loot, share or change its saved filter." :
-			selected->name + " | " + FilterName(selected->filter));
-		Text("NCAL_Help", confirm_ ? "NO TRADE: click Confirm loot to accept this item, or select another item to cancel." :
-			"Never leaves items on the corpse. Shared loot keeps the group's loot permissions.");
-		static const char *actions[] = {"Take", "Leave", "Need", "Greed", "Pass", "Roll", "FreeGrab", "Inspect", "Assign", "Find"};
-		for (unsigned i = 0; i < 10; ++i) {
-			const uint32_t capability = Capability(static_cast<Action>(i)) | (i == 0 ? Capability(Action::TakeNoTrade) : 0);
-			Enable(std::string("NCAL_") + actions[i], ready && selected && (selected->capabilities & capability));
-		}
-		Text("NCAL_Take", confirm_ ? "Confirm loot" : "Loot");
+		Visible("Empty", list && (!matching || s.rows.empty()));
+		Text("Empty", !state_.Ready() || !matching ? "Waiting for the loot list..." : !search_.empty() ? "No items match your search." :
+			drops ? "No items waiting. Loot from your kills appears here." : "No saved rules. Select a dropped item to create one.");
+		Text("Selected", row && matching ? row->source : "");
+		Visible("Take", list && drops && row && matching);
+		Enable("Take", ready && (can(Action::Take) || can(Action::TakeNoTrade)));
+		Text("Take", confirm_ ? "Confirm NO TRADE" : "Loot item");
+		Visible("Rule", list && row && matching && can(Action::EditFilter)); Enable("Rule", row != nullptr);
+		Visible("More", list && row && matching); Enable("More", row != nullptr);
+		Visible("All", list && drops); Enable("All", ready && matching && s.total > 0);
+		Text("All", all_confirm_revision_ ? "Confirm NO TRADE" : "Loot All");
+		Visible("Back", !list); Visible("PanelTitle", !list);
+		Text("PanelTitle", settings ? "Loot settings" : row ? row->name : "");
+		static const char *extras[] = {"Inspect", "Leave", "Find", "Need", "Greed", "Pass", "Roll", "FreeGrab", "Assign"};
+		static const Action actions[] = {Action::Inspect, Action::Leave, Action::FindCorpse, Action::Need, Action::Greed,
+			Action::Pass, Action::Roll, Action::FreeGrab, Action::Assign};
+		for (unsigned i = 0; i < 9; ++i) { Visible(extras[i], more && can(actions[i])); Enable(extras[i], ready && can(actions[i])); }
 		for (unsigned i = 0; i < 5; ++i) {
-			const std::string id = "NCAL_Filter" + std::to_string(i);
-			Enable(id, ready && selected && (selected->capabilities & Capability(Action::EditFilter)));
-			Text(id, std::string(selected && static_cast<unsigned>(selected->filter) == i ? "* " : "") + FilterName(static_cast<Filter>(i)));
+			const std::string suffix = std::to_string(i);
+			const bool visible = rule;
+			Visible("Filter" + suffix, visible); Visible("FilterHelp" + suffix, visible);
+			Enable("Filter" + suffix, ready && can(Action::EditFilter));
+			Text("Filter" + suffix, std::string(row && static_cast<unsigned>(row->filter) == i ? "> " : "") + FilterName(static_cast<Filter>(i)));
 		}
-		static const char *settings[] = {"Advanced loot", "Apply filters", "Auto show", "Auto loot all", "Split coin", "New items only"};
+		static const char *labels[] = {"Advanced loot", "Use saved rules", "Open on new loot", "Loot everything", "Split coin", "Unfiltered items only"};
 		for (unsigned i = 0; i < 6; ++i) {
-			const std::string id = "NCAL_Setting" + std::to_string(i);
-			Text(id, std::string(s.settings & (1u << i) ? "[x] " : "[ ] ") + settings[i]); Enable(id, ready);
+			const std::string suffix = std::to_string(i);
+			Visible("Setting" + suffix, settings); Visible("SettingHelp" + suffix, settings);
+			Text("Setting" + suffix, std::string(s.settings & (1u << i) ? "[On] " : "[Off] ") + labels[i]); Enable("Setting" + suffix, ready);
 		}
-		for (const char *id : {"NCAL_Drops", "NCAL_Filters", "NCAL_Search", "NCAL_Clear"}) { Enable(id, ready); }
-		Enable("NCAL_Previous", ready && s.page > 0);
-		Enable("NCAL_Next", ready && (s.page + 1) * PageSize < s.total);
-		Enable("NCAL_All", ready && s.view == View::Drops && s.total > 0);
+		Text("Help", all_confirm_revision_ ? "NO TRADE items remain. Click Confirm NO TRADE to accept them, or choose another action to cancel." :
+			!feedback_.empty() && now_ < feedback_until_ ? feedback_ :
+			confirm_ ? "NO TRADE: click Confirm to accept. Selecting another item cancels." :
+			settings ? "Settings and item rules are saved for this character." :
+			rule ? "Choose how to handle this item next time. Never leaves it on the corpse." :
+			more ? "Group actions appear only when your loot permissions allow them." :
+			drops ? "Loot All collects your eligible drops in this zone. Ignore saves an item in Filters." :
+			"Remove deletes a saved filter. Select an item for other automatic loot choices.");
 		dirty_ = false;
 	}
 	static bool Configure() {
-		// A partial/outdated skin must not leave unlabeled active controls.
 		controls_.clear();
-		auto include = [](const std::string &id) { auto control = Screen::Child(id); if (control) { controls_.insert(control); } return control != nullptr; };
-		for (const char *id : {"Status", "Selected", "Help", "Drops", "Filters", "Previous", "Next", "All", "SearchText",
-			"Search", "Clear", "Refresh", "Take", "Leave", "Need", "Greed", "Pass", "Roll", "FreeGrab", "Inspect", "Assign", "Find"}) {
-			if (!include(std::string("NCAL_") + id)) { return false; }
+		auto include = [](const std::string &id) { auto control = Screen::Child("NCAL_" + id); if (control) { controls_.emplace(control, id); } return control != nullptr; };
+		for (const char *id : {"Status", "Selected", "Help", "Drops", "Filters", "Options", "Previous", "Next", "Page", "All", "SearchText",
+			"Search", "Clear", "Refresh", "Take", "Rule", "More", "Back", "PanelTitle", "Empty", "Leave", "Need", "Greed", "Pass", "Roll", "FreeGrab", "Inspect", "Assign", "Find"}) {
+			if (!include(id)) { return false; }
 		}
-		for (unsigned i = 0; i < 8; ++i) {
-			if (!include("NCAL_Row" + std::to_string(i)) || !include("NCAL_Source" + std::to_string(i))) { return false; }
+		for (unsigned i = 0; i < 8; ++i) { if (!include("Row" + std::to_string(i)) || !include("Source" + std::to_string(i)) || !include("Ignore" + std::to_string(i))) { return false; } }
+		for (unsigned i = 0; i < 6; ++i) { if (!include("Setting" + std::to_string(i)) || !include("SettingHelp" + std::to_string(i))) { return false; } }
+		for (unsigned i = 0; i < 5; ++i) { if (!include("Filter" + std::to_string(i)) || !include("FilterHelp" + std::to_string(i))) { return false; } }
+		Text("SearchText", search_); Screen::EditLimit(Screen::Child("NCAL_SearchText"));
+		return true;
+	}
+	static bool Handle(void *sender, uint32_t message) {
+		using namespace NightcapLoot;
+		if (!sender || !Screen::Window() || !controls_.count(sender)) { return false; }
+		auto clicked = [&](const std::string &id) { return Screen::Child("NCAL_" + id) == sender; };
+		const bool search = (message == 1 && clicked("Search")) || (message == 6 && clicked("SearchText"));
+		if (message != 1 && !search) { return true; }
+		Trace(("control-click:" + controls_.at(sender)).c_str());
+		if (!clicked("All")) { all_confirm_revision_ = 0; awaiting_all_ = false; dirty_ = true; }
+		if (clicked("Options")) { panel_ = Panel::Settings; confirm_ = 0; dirty_ = true; return true; }
+		if (clicked("Back")) { panel_ = Panel::List; confirm_ = 0; dirty_ = true; return true; }
+		if (clicked("Drops")) { RequestView(View::Drops); return true; }
+		if (clicked("Filters")) { RequestView(View::Filters); return true; }
+		if (clicked("Refresh")) { Refresh(true); return true; }
+		const auto &s = state_.Current();
+		for (std::size_t i = 0; i < s.rows.size(); ++i) {
+			if (clicked("Row" + std::to_string(i))) { selected_ = s.rows[i].token; confirm_ = 0; dirty_ = true; return true; }
 		}
-		for (unsigned i = 0; i < 6; ++i) { if (!include("NCAL_Setting" + std::to_string(i))) { return false; } }
-		for (unsigned i = 0; i < 5; ++i) { if (!include("NCAL_Filter" + std::to_string(i))) { return false; } }
-		Text("NCAL_SearchText", search_);
-		Screen::EditLimit(Screen::Child("NCAL_SearchText"));
+		if (clicked("Rule") || clicked("More")) { panel_ = clicked("Rule") ? Panel::Rule : Panel::More; confirm_ = 0; dirty_ = true; return true; }
+		if (!Available()) { return true; }
+		for (std::size_t i = 0; i < s.rows.size(); ++i) {
+			if (clicked("Ignore" + std::to_string(i))) {
+				Submit(state_.FilterCommand(i, s.view == View::Drops ? Filter::Never : Filter::Ask)); return true;
+			}
+		}
+		if (clicked("Previous") && s.page) { Submit(state_.ViewCommand(s.view, s.page - 1, search_)); return true; }
+		if (clicked("Next") && (s.page + 1) * PageSize < s.total) { Submit(state_.ViewCommand(s.view, s.page + 1, search_)); return true; }
+		if (search) {
+			char input[33]{};
+			if (Screen::EditText(Screen::Child("NCAL_SearchText"), input)) { search_ = input; Submit(state_.ViewCommand(s.view, 0, search_)); }
+			else { SetFault(Fault::Search, "search-rejected"); }
+			return true;
+		}
+		if (clicked("Clear")) { search_.clear(); Text("SearchText", ""); Submit(state_.ViewCommand(s.view, 0)); return true; }
+		if (clicked("All")) { Submit(state_.TakeAllCommand(all_confirm_revision_ == s.revision && now_ < all_confirm_until_)); return true; }
+		for (unsigned i = 0; i < 6; ++i) { if (clicked("Setting" + std::to_string(i))) { Submit(state_.SettingsCommand(s.settings ^ (1u << i))); return true; } }
+		const auto index = Selected();
+		if (index == s.rows.size()) { return true; }
+		for (unsigned i = 0; i < 5; ++i) {
+			if (clicked("Filter" + std::to_string(i))) { Submit(state_.FilterCommand(index, static_cast<Filter>(i))); return true; }
+		}
+		static const char *actions[] = {"Take", "Leave", "Need", "Greed", "Pass", "Roll", "FreeGrab", "Inspect", "Assign", "Find"};
+		for (unsigned i = 0; i < 10; ++i) {
+			if (!clicked(actions[i])) { continue; }
+			auto action = static_cast<Action>(i);
+			if (action == Action::Take && (s.rows[index].capabilities & Capability(Action::TakeNoTrade))) {
+				if (confirm_ != selected_) { confirm_ = selected_; dirty_ = true; return true; }
+				action = Action::TakeNoTrade;
+			}
+			Submit(action == Action::Assign ? state_.AssignTargetCommand(index) : state_.Command(index, action)); return true;
+		}
 		return true;
 	}
 public:
-	static void Initialize(Send send, Notice notice) { send_ = send; notice_ = notice; }
+	static void Initialize(Send send, Notice notice, Notice trace = nullptr) { send_ = send; notice_ = notice; trace_ = trace; }
 	static void Reset() {
-		state_.Clear(); selected_ = confirm_ = spawn_ = 0; name_.clear(); search_.clear(); seen_.clear();
+		state_.Clear(); selected_ = confirm_ = spawn_ = all_confirm_revision_ = 0; name_.clear(); search_.clear(); seen_.clear();
+		feedback_.clear(); awaiting_all_ = false; feedback_until_ = all_confirm_until_ = 0;
 		busy_ = false; dirty_ = true; want_show_ = false; failed_ = false; next_refresh_ = 0;
-		if (configured_) { Text("NCAL_SearchText", ""); }
+		panel_ = Panel::List; desired_view_ = NightcapLoot::View::Drops; fault_ = Fault::None;
+		if (configured_) { Text("SearchText", ""); }
 		Screen::Show(false);
 	}
 	static void Destroyed() { configured_ = false; controls_.clear(); dirty_ = true; next_create_ = now_ + 1000; }
@@ -123,12 +240,17 @@ public:
 		if (Screen::Broken() || now < next_create_) { return; }
 		if (!Screen::Create() || (!configured_ && !Configure())) {
 			Screen::Destroy(); next_create_ = now + 5000;
-			if (!failed_ && notice_) { notice_("Advanced loot could not load its window. Repair the Nightcap client UI if this persists."); }
-			failed_ = true;
-			return;
+			if (!failed_ && notice_) { notice_("Advanced loot could not load. Repair the Nightcap client UI."); }
+			failed_ = true; return;
 		}
 		configured_ = true; failed_ = false;
-		if (!state_.Ready() || (busy_ && now - sent_at_ > 5000)) { Refresh(); }
+		if (all_confirm_revision_ && now >= all_confirm_until_) { all_confirm_revision_ = 0; dirty_ = true; }
+		if (!feedback_.empty() && now >= feedback_until_) { feedback_.clear(); dirty_ = true; }
+		if (busy_ && now - sent_at_ >= 5000) {
+			busy_ = false; awaiting_all_ = false; next_refresh_ = now + 10000; SetFault(Fault::Timeout, "reply-timeout");
+		}
+		if (!busy_ && (!state_.Ready() || fault_ == Fault::Timeout || fault_ == Fault::Snapshot)) { Refresh(); }
+		if (Available() && desired_view_ != state_.Current().view) { Submit(state_.ViewCommand(desired_view_, 0, search_)); }
 		if (dirty_) { Render(); }
 		if (want_show_) { Screen::Show(true); want_show_ = false; }
 	}
@@ -136,66 +258,44 @@ public:
 		if (!spawn_) { return; }
 		if (Screen::Window()) { Screen::Show(!Screen::Visible()); }
 		else { want_show_ = true; }
-		Refresh();
+		Refresh(); if (configured_ && dirty_) { Render(); }
 	}
 	static bool Consume(std::string_view message) {
+		if (message.substr(0, 15) == "Advanced loot: " && message.size() <= 240) {
+			feedback_ = std::string(message.substr(15)); feedback_until_ = now_ + 12000;
+			all_confirm_revision_ = awaiting_all_ && state_.Ready() &&
+				message.substr(15, 17) == "Confirm NO TRADE " ? state_.Current().revision : 0;
+			if (all_confirm_revision_) { all_confirm_until_ = now_ + 30000; }
+			awaiting_all_ = false; busy_ = false; dirty_ = true;
+			// Human feedback stays visible in chat, including for older clients.
+			// It never authorizes inventory changes; the server owns consent.
+			return false;
+		}
 		if (message.substr(0, 7) != "[NCAL1]") { return false; }
 		const auto before = state_.Current();
-		state_.Consume(message); dirty_ = true;
+		if (!state_.Consume(message)) {
+			busy_ = false; next_refresh_ = now_ + 10000; SetFault(Fault::Snapshot, state_.Error()); return true;
+		}
+		dirty_ = true;
 		if (state_.Ready() && state_.Current().revision != before.revision) {
-			busy_ = false;
+			busy_ = false; fault_ = Fault::None; all_confirm_revision_ = 0; Trace("snapshot-accepted");
 			const auto &s = state_.Current();
 			if (!KeepNoTradeConfirmation(before, s, confirm_)) { confirm_ = 0; }
 			const bool fresh = NewAdvancedLoot(before, s, seen_);
 			if (fresh && (s.settings & NightcapLoot::Enabled) && (s.settings & NightcapLoot::AutoShow)) { want_show_ = true; }
-			if (Selected() == s.rows.size()) { selected_ = s.rows.empty() ? 0 : s.rows[0].token; }
-		}
-		return true; // reserved metadata never leaks into chat, even if malformed
-	}
-	static bool Notify(void *sender, uint32_t message, void *) {
-		using namespace NightcapLoot;
-		if (!sender || !Screen::Window() || !controls_.count(sender)) { return false; }
-		auto clicked = [&](const std::string &id) { return Screen::Child(id) == sender; };
-		// Only our controls reach this callback. Suppress native drag/hotbutton
-		// notifications, which assume the sending control belongs to a stock UI.
-		if (message != 1) { return true; }
-		if (clicked("NCAL_Refresh")) { Refresh(); return true; }
-		if (!Available()) { Refresh(); return true; }
-		const auto &s = state_.Current();
-		for (std::size_t i = 0; i < s.rows.size(); ++i) {
-			if (clicked("NCAL_Row" + std::to_string(i))) { selected_ = s.rows[i].token; confirm_ = 0; dirty_ = true; return true; }
-		}
-		auto view = [&](View target, uint32_t page) { Submit(state_.ViewCommand(target, page, search_)); };
-		if (clicked("NCAL_Drops")) { view(View::Drops, 0); return true; }
-		if (clicked("NCAL_Filters")) { view(View::Filters, 0); return true; }
-		if (clicked("NCAL_Previous") && s.page) { view(s.view, s.page - 1); return true; }
-		if (clicked("NCAL_Next") && (s.page + 1) * PageSize < s.total) { view(s.view, s.page + 1); return true; }
-		if (clicked("NCAL_Search")) {
-			char input[33]{};
-			if (Screen::EditText(Screen::Child("NCAL_SearchText"), input)) { search_ = input; view(s.view, 0); }
-			return true;
-		}
-		if (clicked("NCAL_Clear")) { search_.clear(); Text("NCAL_SearchText", ""); view(s.view, 0); return true; }
-		if (clicked("NCAL_All")) { Submit(state_.TakeAllCommand()); return true; }
-		for (unsigned i = 0; i < 6; ++i) {
-			if (clicked("NCAL_Setting" + std::to_string(i))) { Submit(state_.SettingsCommand(s.settings ^ (1u << i))); return true; }
-		}
-		const auto index = Selected();
-		if (index == s.rows.size()) { return true; }
-		for (unsigned i = 0; i < 5; ++i) {
-			if (clicked("NCAL_Filter" + std::to_string(i))) { Submit(state_.FilterCommand(index, static_cast<Filter>(i))); return true; }
-		}
-		static const char *actions[] = {"Take", "Leave", "Need", "Greed", "Pass", "Roll", "FreeGrab", "Inspect", "Assign", "Find"};
-		for (unsigned i = 0; i < 10; ++i) {
-			if (!clicked(std::string("NCAL_") + actions[i])) { continue; }
-			auto action = static_cast<Action>(i);
-			if (action == Action::Take && (s.rows[index].capabilities & Capability(Action::TakeNoTrade))) {
-				if (confirm_ != selected_) { confirm_ = selected_; dirty_ = true; return true; }
-				action = Action::TakeNoTrade;
+			// Drop tokens and saved-rule item IDs are different namespaces. A
+			// vanished selection must never retarget a pending detail-panel click.
+			if (before.view != s.view || Selected() == s.rows.size()) {
+				selected_ = confirm_ = 0;
+				if (panel_ == Panel::Rule || panel_ == Panel::More) { panel_ = Panel::List; }
 			}
-			Submit(action == Action::Assign ? state_.AssignTargetCommand(index) : state_.Command(index, action)); return true;
 		}
 		return true;
+	}
+	static bool Notify(void *sender, uint32_t message, void *) {
+		const bool handled = Handle(sender, message);
+		if (handled && configured_ && dirty_) { Render(); }
+		return handled;
 	}
 };
 }

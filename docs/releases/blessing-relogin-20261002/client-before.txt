@@ -1,0 +1,2 @@
+reconnect packet failed to restore native effect
+Exit code: 1

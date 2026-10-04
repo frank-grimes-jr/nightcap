@@ -1,0 +1,738 @@
+{
+  "status": "snug_fit_preview_native_retest_pending",
+  "production_release": 2026100405,
+  "item_id": 990500,
+  "head_material": 90,
+  "races": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "local_qa_release": 2026100401,
+  "source_roundtrip_verified": true,
+  "files": {
+    "winged-paladin-source.blend": {
+      "bytes": 170033,
+      "sha256": "4d18d5ae5ca1f0771c20d7edb4f58ce4672d2c78bcf9d81ac660f9824ad7916f"
+    },
+    "winged-paladin-helmet.fbx": {
+      "bytes": 303900,
+      "sha256": "b4c8328e1ac2ceabc9a88b29d75862fc81b7b114ef23d2d099aa3adebee737a4"
+    },
+    "helmet-game-mesh.json": {
+      "bytes": 395230,
+      "sha256": "8d387f742f1f7ef571926abe3f0d9938cb04ee993a0a1c41d9df4354d3db909c"
+    },
+    "source-textures/humch0301.bmp": {
+      "bytes": 9270,
+      "sha256": "70e8c9b275dcea34fb9ce29bc6774754bd399d8b9f54469578f66c27675c468e"
+    },
+    "classic-24-snug-fits.png": {
+      "bytes": 3247300,
+      "sha256": "0d93ebb06374d4a1f82cadb4c4361df9b0ff92e7f5eceb1a75a7ff8c57038b8d"
+    },
+    "camil-snug-comparison.png": {
+      "bytes": 1621632,
+      "sha256": "cc69610fb85acd19d5e9a74ac5815f3c67416f7c82d881bcc9405e35395a61d7"
+    }
+  },
+  "archives": {
+    "global_chr.s3d": {
+      "source_sha256": "6de89b8bea0c4ed387f8ef92774018a44a35c1fb440aa0a3052c56ce680a2eed",
+      "output_sha256": "d0d830128dc0d306818441d5aa199a32f6b20cb91815a86a62936f9a6e9724f1",
+      "models": [
+        {
+          "code": "HUM",
+          "head_material": 90,
+          "vertices": 2021,
+          "triangles": 3789,
+          "stock_face_triangles": 24,
+          "head_bone": 17,
+          "fit_scale": [
+            1.4243643624441966,
+            2.110884817023026,
+            2.325575759925558
+          ],
+          "fit_shift": [
+            0.0040283203125,
+            -0.119384765625,
+            -0.19677734375
+          ],
+          "lateral_fit": {
+            "previous_shell_width": 0.664703369140625,
+            "face_width": 0.39794921875,
+            "shell_width": 0.49852752685546875,
+            "width_reduction": 0.25,
+            "forehead_depth_shift": 0.0
+          },
+          "front": "-Y"
+        },
+        {
+          "code": "HUF",
+          "head_material": 90,
+          "vertices": 2037,
+          "triangles": 3809,
+          "stock_face_triangles": 44,
+          "head_bone": 13,
+          "fit_scale": [
+            1.425567626953125,
+            1.7625186317845394,
+            1.8163941338399503
+          ],
+          "fit_shift": [
+            0.00732421875,
+            -0.058498168365379355,
+            -0.0792236328125
+          ],
+          "lateral_fit": {
+            "previous_shell_width": 0.6652648925781249,
+            "face_width": 0.40673828125,
+            "shell_width": 0.49894866943359373,
+            "width_reduction": 0.25,
+            "forehead_depth_shift": -0.052821898834129355
+          },
+          "front": "-Y"
+        },
+        {
+          "code": "BAM",
+          "head_material": 90,
+          "vertices": 2056,
+          "triangles": 3829,
+          "stock_face_triangles": 64,
+          "head_bone": 17,
+          "fit_scale": [
+            1.754171316964286,
+            2.1714702405427633,
+            2.3283018959367245
+          ],
+          "fit_shift": [
+            0.00189208984375,
+            -0.109375,
+            -0.171875
+          ],
+          "lateral_fit": {
+            "previous_shell_width": 0.6748107910156249,
+            "face_width": 0.5684814453125,
+            "shell_width": 0.6139599609375,
+            "width_reduction": 0.09017465471549624,
+            "forehead_depth_shift": 0.0
+          },
+          "front": "-Y"
+        },
+        {
+          "code": "BAF",
+          "head_material": 90,
+          "vertices": 2036,
+          "triangles": 3809,
+          "stock_face_triangles": 44,
+          "head_bone": 13,
+          "fit_scale": [
+            1.2459803989955356,
+            1.5028140419407894,
+            2.0553853908188584
+          ],
+          "fit_shift": [
+            0.0069580078125,
+            -0.0791015625,
+            -0.115478515625
+          ],
+          "lateral_fit": {
+            "previous_shell_width": 0.5814575195312499,
+            "face_width": 0.396728515625,
+            "shell_width": 0.43609313964843743,
+            "width_reduction": 0.25,
+            "forehead_depth_shift": 0.0
+          },
+          "front": "-Y"
+        },
+        {
+          "code": "ERM",
+          "head_material": 90,
+          "vertices": 2034,
+          "triangles": 3804,
+          "stock_face_triangles": 39,
+          "head_bone": 17,
+          "fit_scale": [
+            1.6648995535714288,
+            2.1766421669407894,
+            2.3910030241935485
+          ],
+          "fit_shift": [
+            -0.008056640625,
+            -0.1435546875,
+            -0.1572265625
+          ],
+          "lateral_fit": {
+            "previous_shell_width": 0.6182373046874999,
+            "face_width": 0.53955078125,
+            "shell_width": 0.58271484375,
+            "width_reduction": 0.057457647198199124,
+            "forehead_depth_shift": 0.0
+          },
+          "front": "-Y"
+        },
+        {
+          "code": "ERF",
+          "head_material": 90,
+          "vertices": 2032,
+          "triangles": 3801,
+          "stock_face_triangles": 36,
+          "head_bone": 13,
+          "fit_scale": [
+            2.058183942522321,
+            1.9801089638157892,
+            2.520343032723325
+          ],
+          "fit_shift": [
+            0.00689697265625,
+            0.00390625,
+            -0.20947265625
+          ],
+          "lateral_fit": {
+            "previous_shell_width": 0.9604858398437499,
+            "face_width": 0.3934326171875,
+            "shell_width": 0.7203643798828124,
+            "width_reduction": 0.25,
+            "forehead_depth_shift": 0.0
+          },
+          "front": "-Y"
+        },
+        {
+          "code": "ELM",
+          "head_material": 90,
+          "vertices": 2041,
+          "triangles": 3818,
+          "stock_face_triangles": 53,
+          "head_bone": 17,
+          "fit_scale": [
+            1.725,
+            2.3,
+            2.3
+          ],
+          "fit_shift": [
+            0.0020751953125,
+            -0.03152758468600886,
+            -0.19
+          ],
+          "lateral_fit": {
+            "previous_shell_width": 0.8049999999999999,
+            "face_width": 0.53515625,
+            "shell_width": 0.60375,
+            "width_reduction": 0.2499999999999999,
+            "forehead_depth_shift": -0.0015275846860088593
+          },
+          "front": "-Y"
+        },
+        {
+          "code": "ELF",
+          "head_material": 90,
+          "vertices": 2037,
+          "triangles": 3808,
+          "stock_face_triangles": 43,
+          "head_bone": 13,
+          "fit_scale": [
+            1.5230320521763392,
+            1.6668379934210524,
+            1.7521784855769231
+          ],
+          "fit_shift": [
+            0.00701904296875,
+            -0.0543212890625,
+            -0.0413818359375
+          ],
+          "lateral_fit": {
+            "previous_shell_width": 0.7107482910156249,
+            "face_width": 0.4205322265625,
+            "shell_width": 0.5330612182617187,
+            "width_reduction": 0.2499999999999999,
+            "forehead_depth_shift": 0.0
+          },
+          "front": "-Y"
+        },
+        {
+          "code": "HIM",
+          "head_material": 90,
+          "vertices": 2046,
+          "triangles": 3822,
+          "stock_face_triangles": 57,
+          "head_bone": 17,
+          "fit_scale": [
+            1.7737583705357145,
+            2.3,
+            2.3
+          ],
+          "fit_shift": [
+            0.00201416015625,
+            -0.059730506470779654,
+            -0.19
+          ],
+          "lateral_fit": {
+            "previous_shell_width": 0.8049999999999999,
+            "face_width": 0.5748291015625,
+            "shell_width": 0.6208154296875,
+            "width_reduction": 0.22880070846273282,
+            "forehead_depth_shift": -0.029730506470779655
+          },
+          "front": "-Y"
+        },
+        {
+          "code": "HIF",
+          "head_material": 90,
+          "vertices": 2040,
+          "triangles": 3814,
+          "stock_face_triangles": 49,
+          "head_bone": 13,
+          "fit_scale": [
+            1.4441685267857145,
+            1.7662128649259867,
+            1.959667726426799
+          ],
+          "fit_shift": [
+            0.0069580078125,
+            -0.03143310546875,
+            -0.0751953125
+          ],
+          "lateral_fit": {
+            "previous_shell_width": 0.634942626953125,
+            "face_width": 0.468017578125,
+            "shell_width": 0.505458984375,
+            "width_reduction": 0.20392967345643997,
+            "forehead_depth_shift": 0.0
+          },
+          "front": "-Y"
+        },
+        {
+          "code": "DAM",
+          "head_material": 90,
+          "vertices": 2059,
+          "triangles": 3822,
+          "stock_face_triangles": 57,
+          "head_bone": 17,
+          "fit_scale": [
+            1.691188267299107,
+            2.4189838610197367,
+            2.572745424937965
+          ],
+          "fit_shift": [
+            0.0029296875,
+            -0.083251953125,
+            -0.3157958984375
+          ],
+          "lateral_fit": {
+            "previous_shell_width": 0.7892211914062499,
+            "face_width": 0.460205078125,
+            "shell_width": 0.5919158935546874,
+            "width_reduction": 0.25,
+            "forehead_depth_shift": 0.0
+          },
+          "front": "-Y"
+        },
+        {
+          "code": "DAF",
+          "head_material": 90,
+          "vertices": 2070,
+          "triangles": 3823,
+          "stock_face_triangles": 58,
+          "head_bone": 13,
+          "fit_scale": [
+            1.727427455357143,
+            1.6527999074835524,
+            1.7755020936724566
+          ],
+          "fit_shift": [
+            0.0050048828125,
+            -0.052001953125,
+            -0.05078125
+          ],
+          "lateral_fit": {
+            "previous_shell_width": 0.6888488769531249,
+            "face_width": 0.559814453125,
+            "shell_width": 0.604599609375,
+            "width_reduction": 0.12230442757019688,
+            "forehead_depth_shift": 0.0
+          },
+          "front": "-Y"
+        },
+        {
+          "code": "HAM",
+          "head_material": 90,
+          "vertices": 2035,
+          "triangles": 3810,
+          "stock_face_triangles": 45,
+          "head_bone": 17,
+          "fit_scale": [
+            1.4223214285714287,
+            2.2047183388157894,
+            2.3837333281637716
+          ],
+          "fit_shift": [
+            -0.008056640625,
+            -0.12309248220181962,
+            -0.160888671875
+          ],
+          "lateral_fit": {
+            "previous_shell_width": 0.6284851074218749,
+            "face_width": 0.4609375,
+            "shell_width": 0.49781250000000005,
+            "width_reduction": 0.20791679210651526,
+            "forehead_depth_shift": -0.00444013845181962
+          },
+          "front": "-Y"
+        },
+        {
+          "code": "HAF",
+          "head_material": 90,
+          "vertices": 2078,
+          "triangles": 3845,
+          "stock_face_triangles": 80,
+          "head_bone": 13,
+          "fit_scale": [
+            1.3100542340959822,
+            1.6675768400493418,
+            1.9242279582816377
+          ],
+          "fit_shift": [
+            0.00689697265625,
+            -0.0477294921875,
+            -0.056884765625
+          ],
+          "lateral_fit": {
+            "previous_shell_width": 0.611358642578125,
+            "face_width": 0.3934326171875,
+            "shell_width": 0.45851898193359375,
+            "width_reduction": 0.25,
+            "forehead_depth_shift": 0.0
+          },
+          "front": "-Y"
+        },
+        {
+          "code": "DWM",
+          "head_material": 90,
+          "vertices": 2055,
+          "triangles": 3819,
+          "stock_face_triangles": 54,
+          "head_bone": 13,
+          "fit_scale": [
+            3.149748883928572,
+            4.297870836759868,
+            3.6335152372828783
+          ],
+          "fit_shift": [
+            -0.0335693359375,
+            -0.1541748046875,
+            -0.56005859375
+          ],
+          "lateral_fit": {
+            "previous_shell_width": 1.4473266601562498,
+            "face_width": 1.020751953125,
+            "shell_width": 1.1024121093750001,
+            "width_reduction": 0.23831147471850866,
+            "forehead_depth_shift": 0.0
+          },
+          "front": "+X"
+        },
+        {
+          "code": "DWF",
+          "head_material": 90,
+          "vertices": 2044,
+          "triangles": 3814,
+          "stock_face_triangles": 49,
+          "head_bone": 13,
+          "fit_scale": [
+            3.3147321428571432,
+            4.6835487767269735,
+            3.788602085918114
+          ],
+          "fit_shift": [
+            -0.008056640625,
+            0.0517578125,
+            -0.1484375
+          ],
+          "lateral_fit": {
+            "previous_shell_width": 1.333056640625,
+            "face_width": 1.07421875,
+            "shell_width": 1.16015625,
+            "width_reduction": 0.12970220871030358,
+            "forehead_depth_shift": 0.0
+          },
+          "front": "+X"
+        },
+        {
+          "code": "TRM",
+          "head_material": 90,
+          "vertices": 2058,
+          "triangles": 3839,
+          "stock_face_triangles": 74,
+          "head_bone": 4,
+          "fit_scale": [
+            5.316624232700893,
+            6.892700195312499,
+            4.206609607630273
+          ],
+          "fit_shift": [
+            -0.00048828125,
+            -0.5638427734375,
+            -0.533935546875
+          ],
+          "lateral_fit": {
+            "previous_shell_width": 2.48109130859375,
+            "face_width": 1.55810546875,
+            "shell_width": 1.8608184814453124,
+            "width_reduction": 0.25,
+            "forehead_depth_shift": 0.0
+          },
+          "front": "+X"
+        },
+        {
+          "code": "TRF",
+          "head_material": 90,
+          "vertices": 2059,
+          "triangles": 3849,
+          "stock_face_triangles": 84,
+          "head_bone": 4,
+          "fit_scale": [
+            3.727713448660714,
+            5.0987805818256575,
+            3.5347685328784118
+          ],
+          "fit_shift": [
+            0.013916015625,
+            -0.46151408516882525,
+            -0.4326171875
+          ],
+          "lateral_fit": {
+            "previous_shell_width": 1.739599609375,
+            "face_width": 1.142578125,
+            "shell_width": 1.3046997070312498,
+            "width_reduction": 0.2500000000000001,
+            "forehead_depth_shift": 0.06936970389367475
+          },
+          "front": "+X"
+        },
+        {
+          "code": "OGM",
+          "head_material": 90,
+          "vertices": 2050,
+          "triangles": 3834,
+          "stock_face_triangles": 69,
+          "head_bone": 4,
+          "fit_scale": [
+            4.320452008928572,
+            5.837627210115131,
+            3.4941793967121586
+          ],
+          "fit_shift": [
+            -0.0072021484375,
+            -0.4617919921875,
+            -0.46484375
+          ],
+          "lateral_fit": {
+            "previous_shell_width": 1.6396484374999998,
+            "face_width": 1.400146484375,
+            "shell_width": 1.512158203125,
+            "width_reduction": 0.07775461584276344,
+            "forehead_depth_shift": 0.0
+          },
+          "front": "+X"
+        },
+        {
+          "code": "OGF",
+          "head_material": 90,
+          "vertices": 2047,
+          "triangles": 3822,
+          "stock_face_triangles": 57,
+          "head_bone": 4,
+          "fit_scale": [
+            5.184542410714286,
+            5.215518349095395,
+            3.721963205645161
+          ],
+          "fit_shift": [
+            -0.018798828125,
+            -0.3167724609375,
+            -0.176513671875
+          ],
+          "lateral_fit": {
+            "previous_shell_width": 2.0015502929687496,
+            "face_width": 1.68017578125,
+            "shell_width": 1.81458984375,
+            "width_reduction": 0.0934078198661924,
+            "forehead_depth_shift": 0.0
+          },
+          "front": "+X"
+        },
+        {
+          "code": "HOM",
+          "head_material": 90,
+          "vertices": 2033,
+          "triangles": 3811,
+          "stock_face_triangles": 46,
+          "head_bone": 13,
+          "fit_scale": [
+            2.5485142299107144,
+            3.768856650904605,
+            3.100101291098015
+          ],
+          "fit_shift": [
+            -0.0001220703125,
+            -0.071044921875,
+            -0.19580078125
+          ],
+          "lateral_fit": {
+            "previous_shell_width": 1.189306640625,
+            "face_width": 0.79248046875,
+            "shell_width": 0.8919799804687499,
+            "width_reduction": 0.25,
+            "forehead_depth_shift": 0.0
+          },
+          "front": "+X"
+        },
+        {
+          "code": "HOF",
+          "head_material": 90,
+          "vertices": 2031,
+          "triangles": 3799,
+          "stock_face_triangles": 34,
+          "head_bone": 13,
+          "fit_scale": [
+            3.4133605957031246,
+            5.549477025082236,
+            3.7673988058312653
+          ],
+          "fit_shift": [
+            0.0,
+            0.1231689453125,
+            -0.1619873046875
+          ],
+          "lateral_fit": {
+            "previous_shell_width": 1.592901611328125,
+            "face_width": 0.837646484375,
+            "shell_width": 1.1946762084960936,
+            "width_reduction": 0.2500000000000001,
+            "forehead_depth_shift": 0.0
+          },
+          "front": "+X"
+        },
+        {
+          "code": "GNM",
+          "head_material": 90,
+          "vertices": 2111,
+          "triangles": 3875,
+          "stock_face_triangles": 110,
+          "head_bone": 13,
+          "fit_scale": [
+            4.008374895368303,
+            4.057376259251645,
+            3.0985867710918114
+          ],
+          "fit_shift": [
+            -6.103515625e-05,
+            -0.22491455078125,
+            -0.2742919921875
+          ],
+          "lateral_fit": {
+            "previous_shell_width": 1.8705749511718748,
+            "face_width": 0.9754638671875,
+            "shell_width": 1.402931213378906,
+            "width_reduction": 0.25,
+            "forehead_depth_shift": 0.0
+          },
+          "front": "+X"
+        },
+        {
+          "code": "GNF",
+          "head_material": 90,
+          "vertices": 2066,
+          "triangles": 3839,
+          "stock_face_triangles": 74,
+          "head_bone": 13,
+          "fit_scale": [
+            2.902875627790179,
+            5.2040662263569075,
+            3.9082491664081886
+          ],
+          "fit_shift": [
+            0.0,
+            -0.037131334008649375,
+            -0.1787109375
+          ],
+          "lateral_fit": {
+            "previous_shell_width": 1.35467529296875,
+            "face_width": 0.912353515625,
+            "shell_width": 1.0160064697265625,
+            "width_reduction": 0.25,
+            "forehead_depth_shift": -0.09651854103989937
+          },
+          "front": "+X"
+        }
+      ]
+    },
+    "global4_chr.s3d": {
+      "source_sha256": "a828808b84d44c3abbcfff66aac8706ad18b37bc058b4f95a162e1abb9b0819b",
+      "output_sha256": "7b2c2a2e95229e2fcd755b49042e0ae8fab5908b03a1567b2c97cb60f249c2e1",
+      "models": [
+        {
+          "code": "BAM",
+          "head_material": 90,
+          "vertices": 2056,
+          "triangles": 3829,
+          "stock_face_triangles": 64,
+          "head_bone": 17,
+          "fit_scale": [
+            1.754171316964286,
+            2.1714702405427633,
+            2.3283018959367245
+          ],
+          "fit_shift": [
+            0.00189208984375,
+            -0.109375,
+            -0.171875
+          ],
+          "lateral_fit": {
+            "previous_shell_width": 0.6748107910156249,
+            "face_width": 0.5684814453125,
+            "shell_width": 0.6139599609375,
+            "width_reduction": 0.09017465471549624,
+            "forehead_depth_shift": 0.0
+          },
+          "front": "-Y"
+        },
+        {
+          "code": "BAF",
+          "head_material": 90,
+          "vertices": 2036,
+          "triangles": 3809,
+          "stock_face_triangles": 44,
+          "head_bone": 13,
+          "fit_scale": [
+            1.2459803989955356,
+            1.5028140419407894,
+            2.0553853908188584
+          ],
+          "fit_shift": [
+            0.0069580078125,
+            -0.0791015625,
+            -0.115478515625
+          ],
+          "lateral_fit": {
+            "previous_shell_width": 0.5814575195312499,
+            "face_width": 0.396728515625,
+            "shell_width": 0.43609313964843743,
+            "width_reduction": 0.25,
+            "forehead_depth_shift": 0.0
+          },
+          "front": "-Y"
+        }
+      ]
+    }
+  }
+}
