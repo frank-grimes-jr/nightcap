@@ -1,6 +1,7 @@
 # Classic winged helmet registration repair
 
-October 4, 2026. Prepared for the owner's already-authorized main/live deployment.
+October 4, 2026. Source cc78f96 is on main and signed release 2026100402 is public
+under the owner's already-authorized main/live deployment.
 The owner reported Camil Swiftwolf bareheaded in East Commonlands with Classic
 models forced. Newer/Luclin models are not required for this asset.
 
@@ -34,12 +35,19 @@ fragment byte after inverse relocation. Independent review also verified all
 new material dependencies precede their consumers and every HE90 is within the
 native scan range. Canonical generation changes only the two global archives.
 
-Candidate release 2026100402:
+Published release 2026100402:
 
 | Archive | SHA256 |
 |---|---|
 | global_chr.s3d | 931ecab1081aa93c9d3b55fed275624dcec2f042d07b61c8e2a36f0b0404f3f4 |
 | global4_chr.s3d | 6bd94c366fd4613583258459b2d1329d17a39573f549dee02f996cd5a972b548 |
+
+All 24 Python tests passed. Independent signature/hash verification covers the
+48-file release against the key shipped in launcher 0.3.1. Public channel SHA256:
+6d4acb96980ba7f1292c6f11c6ebfdc5c7cb0ae3efaf6a6ad27a15678dada867.
+Publication preserved all service identities/start times; game and DB are
+healthy, and gateway/web/tunnel are running. Database content, server binaries,
+desktop launcher and the other 46 client files are unchanged.
 
 ## Exact native QA still required
 

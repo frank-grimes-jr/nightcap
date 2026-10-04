@@ -12,8 +12,9 @@ Place each HE90 inside its original actor's mesh block, with materials before
 the block, and relocate typed fragment references. Preserve all original data
 apart from those relocated IDs. Add regression coverage reproducing the old
 failure, all 24 race/gender discovery checks, and exact inverse relocation
-checks. Classic graphics remain the supported mode. Prepare signed repair
-2026100402; native appearance and wearable-item acceptance remain pending.
+checks. Classic graphics remain the supported mode. Source cc78f96 and signed
+repair 2026100402 are published. All 46 other client files and running services
+are unchanged; native appearance and wearable-item acceptance remain pending.
 [Incident and repair evidence](docs/releases/winged-helmet-display-20261004/README.md).
 
 ## 2026-10-04 — Winged Paladin helmet deployed for live QA

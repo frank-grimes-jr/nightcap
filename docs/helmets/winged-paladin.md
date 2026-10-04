@@ -2,11 +2,11 @@
 
 Status: deployed to main and OVH for live QA, October 4, 2026. Item 990500
 is loaded in the live shared-memory cache, Camil uses head material 90, and
-signed client release 2026100401 is public. Native wear/visual QA remains open.
+signed client release 2026100402 is public. Native wear/visual QA remains open.
 
 Live QA found Camil bareheaded: the appended HE90 meshes were outside the
 Classic loader's contiguous alternate-head blocks. The layout repair for
-2026100402 is prepared; Classic models remain supported and required for this
+2026100402 is published; Classic models remain supported and required for this
 scope. [Repair evidence and retest](../releases/winged-helmet-display-20261004/README.md).
 
 The owner's latest instruction is to deploy to main and the live server for
@@ -34,9 +34,9 @@ The source mesh is editable in Blender, exported to FBX and imported into a
 separate visible Unity inspection scene. The reduced game mesh has 3,765
 triangles. All metal uses the unchanged humch0301.bmp human plate bitmap.
 
-Published geometry is client-candidate-05, previously installed into
-E:/Nightcap_QA for bootstrap validation. The separate production-signed release
-2026100401 preserves release 2026100203's 46 files and adds two global archives.
+Published geometry is client-candidate-05, with the corrected native mesh-block
+layout in production release 2026100402. This supersedes the append-only layout
+in 2026100401 and preserves the other 46 client files.
 The normal launcher downloads those archives before Play. The original
 Client_RoF2_Dev installation remains unchanged.
 The repair retains all original Classic WLD data except relocated fragment IDs;
