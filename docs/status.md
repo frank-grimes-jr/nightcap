@@ -30,14 +30,17 @@ the owner's 2026100402 screenshot showed only the exposed face cutout.
 [Deployment evidence](releases/winged-helmet-20261004/README.md).
 [Current evidence and exact QA](helmets/winged-paladin.md).
 
-## Blessing lifetime follow-up in progress
+## Blessing lifetime repair deployed for owner retest
 
-The owner's October 4 retest found the October 3 reconnect repair insufficient:
-both speed and stats disappear shortly after inventory inspection. Native tick
-code expires the -1 duration used for finite-formula blessings. The follow-up
-preserves -1000 in native effect state while keeping icon countdowns unchanged.
-Regression tests and fresh paired build pass; deployment and owner QA are pending.
-[Root cause and exact QA](releases/blessing-lifetime-20261004/README.md).
+The October 3 reconnect repair was insufficient: RoF2 expired finite-formula
+blessings on its next tick because native effects used duration -1. Main
+`7a645ebf` and fresh paired world/zone now preserve policy duration -1000 in
+native effects; icon countdowns are unchanged. Exact native regressions and
+closed-gateway hash/data-preservation checks pass. Current helmet client release
+2026100403, Camil, tunnel quests and player progress are retained. Wait at least
+30 seconds after hailing, open inventory, then relog without another hail and
+compare speed/stats. Actual player acceptance remains open.
+[Evidence and exact QA](releases/blessing-lifetime-20261004/README.md).
 
 ## Compact tunnel service layout deployed for visual QA
 

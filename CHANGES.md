@@ -7,7 +7,9 @@ effects on the next tick unless the spell itself has permanent duration formula
 50. Preserve the policy -1000 sentinel in native player profile/OP_Buff state;
 keep icon countdowns at -1. Finite durations and older clients are unchanged.
 Added exact-client expiry/decrement evidence and server packet regression.
-Owner-authorized main/live follow-up; gameplay acceptance remains open.
+Owner-authorized follow-up is deployed to main and OVH with matching world/zone
+hashes, healthy processes and unchanged player/receipt/corpse state. Current
+helmet publication is retained. Gameplay acceptance remains open.
 Evidence and exact delayed/inventory/relog QA:
 `docs/releases/blessing-lifetime-20261004/README.md`.
 

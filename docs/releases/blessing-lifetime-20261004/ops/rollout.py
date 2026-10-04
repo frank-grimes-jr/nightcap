@@ -3,7 +3,7 @@ import argparse,fcntl,hashlib,json,os,re,subprocess,time
 from pathlib import Path
 
 ROOT=Path('/opt/nightcap/deploy/production')
-STAGE=Path('/opt/nightcap/releases/blessing-lifetime-server-20261004-r2')
+STAGE=Path('/opt/nightcap/releases/blessing-lifetime-server-20261004-r3')
 EVIDENCE=STAGE/'evidence'
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 def out(*args):return subprocess.check_output(args,cwd=ROOT,text=True)

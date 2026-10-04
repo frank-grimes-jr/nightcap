@@ -110,3 +110,26 @@ an unapproved or additional restart. The original failed stage is retained and
 the fresh package uses a separate r2 directory. No service was stopped by the
 failed preflight. This existing runtime-exit observation is separate from the
 client duration bug and is not claimed fixed by the blessing change.
+
+## Deployed for live retest
+
+Main `7a645ebf` and `nightcap-game:blessing-lifetime-20261004` are live.
+World and all 12 zones match the freshly built hashes, with healthy game/DB,
+zero restarts and no native, quest or SQL startup errors. Gateway access reopened
+only after 47 player/rule/receipt/corpse tables and
+8139 quest/plugin files were verified unchanged.
+Current signed helmet release 2026100403, public files and DB/web/tunnel service
+identities were preserved. No data restore or client update was performed.
+[Deployment evidence](deployment.json).
+
+The owner still needs to verify actual speed/stats after waiting, opening
+inventory, zoning and relogging. Do not mark the gameplay issue accepted solely
+from the successful native regression or rollout.
+
+The r2 preflight also stopped before downtime because a separate publication
+changed the client channel. Final r3 staging pinned release 2026100403 and its
+exact channel hash. Its small metadata archive reused the already-staged native
+binaries only after verifying the pinned r2 manifest and both old/new binary
+hashes; every final staged file was checked. Independent review found no blocker.
+The deployment record includes that archive hash and reused-manifest identity.
+The operations copies here are the actual r3 scripts used for activation.

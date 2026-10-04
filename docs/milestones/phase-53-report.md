@@ -6,8 +6,9 @@ countdowns, permanent server policy and ordinary finite timers unchanged.
 
 Built: a narrow profile/OP_Buff helper, server regression and exact native
 expiry/decrement probe. Independent review found no blocker. Fresh paired hardened
-world/zone build and all focused regressions pass; authorized live deployment
-is the remaining operational step.
+world/zone build and all focused regressions pass. Authorized main and OVH
+deployment completed with verified native hashes and preserved player state.
+Owner delayed/inventory/relog acceptance remains open.
 
 Cut: recasting, giant positive timers, client spell-file changes and inventory
 hooks; no evidence justifies those changes. Shaky/open: full native login/UI,
