@@ -13,7 +13,7 @@ services are preserved. Exit EQ and press Play in the normal launcher to update.
 Pet stability, beetle walking/death and broader native NPC visual QA remain open.
 [Repair, deployment and exact QA](releases/npc-animation-20261004/README.md).
 
-## Winged Paladin helmet deployed for live QA
+## Winged Paladin helmet snug-fit update
 
 Blender/Unity assets and all 24 original-race/gender fits are built. Item 990500
 exists in the live database and shared-memory cache with Classic raid stats.
@@ -22,8 +22,12 @@ shared material palette. Both are repaired in source 292aef4 and signed client
 release 2026100403, published under the owner's live-testing instruction.
 All 25 tests pass; 46 other client files and service identities/start times are
 preserved. Game/DB are healthy. Camil 999521 uses head material 90.
-Native wear, reference-image fidelity and race/gender checks remain open after
-the owner's 2026100402 screenshot showed only the exposed face cutout.
+The owner's latest screenshot confirms native Classic rendering on Camil, but
+the shell is too wide. The revised fit narrows High Elf male by 22.9% and all
+24 fits by 5.7-25%. Blender/Unity previews, 27 regressions and actual crown-plane
+clearance checks pass. Signed candidate 2026100405 is prepared; publication
+verification is pending. Native fit, player wear and reference fidelity remain
+open. [Snug-fit evidence and QA](releases/winged-helmet-snug-20261004/README.md).
 [Material repair and retest](releases/winged-helmet-materials-20261004/README.md).
 [Deployment evidence](releases/winged-helmet-20261004/README.md).
 [Current evidence and exact QA](helmets/winged-paladin.md).

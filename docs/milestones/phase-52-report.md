@@ -46,3 +46,12 @@ one-off release composition script.
 The operational guide and exact in-game checks are in
 [winged-paladin.md](../helmets/winged-paladin.md).
 [Deployment and recovery](../releases/winged-helmet-20261004/README.md).
+
+October 4 follow-up: owner screenshots now confirm Camil's native Classic
+helmet rendering after the mesh-block/shared-palette repairs. The owner rejected
+the broad fit. A face-based lateral fit reduces High Elf male width by 22.9%
+and the full original-race/gender set by 5.7-25%, with small forehead clearance
+position corrections. Blender/Unity previews, 27 regressions and 26 actual
+faceted-crown containment checks pass. Signed candidate 2026100405 preserves
+the live 0.7.6 animation proxy. Native snug-fit acceptance remains open.
+[Follow-up evidence](../releases/winged-helmet-snug-20261004/README.md).

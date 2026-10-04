@@ -14,8 +14,9 @@ importlib.reload(build_winged_helmet_client)
 from build_winged_helmet_client import CLASSIC_RACES,from_native_axes
 
 OUT=ROOT/'assets/winged-helmet'
-candidate=OUT/'client-candidate-04'
-name='Packaged helmet - 24 original race fits v4'
+candidate=Path(globals().get('CANDIDATE',OUT/'client-candidate-04'))
+name=globals().get('SCENE_NAME','Packaged helmet - 24 original race fits v4')
+render_path=Path(globals().get('RENDER_PATH',OUT/'classic-24-fit-sheet-v4.png'))
 if name in bpy.data.scenes:raise ValueError('Fit scene already exists')
 scene=bpy.data.scenes.new(name);bpy.context.window.scene=scene
 world=bpy.data.worlds.new(name);world.use_nodes=True
@@ -99,7 +100,7 @@ for location,power,size in [((2,-8,6),2000,8),((6,-4,-1),1000,6)]:
     light.rotation_euler=(Vector((3,0,-1))-light.location).to_track_quat('-Z','Y').to_euler()
 scene.render.engine='CYCLES';scene.cycles.samples=16
 scene.render.resolution_x=2100;scene.render.resolution_y=1400;scene.render.resolution_percentage=100
-scene.render.image_settings.file_format='PNG';scene.render.filepath=str(OUT/'classic-24-fit-sheet-v4.png')
-bpy.ops.wm.save_as_mainfile(filepath=str(OUT/'winged-paladin-helmet.blend'))
+scene.render.image_settings.file_format='PNG';scene.render.filepath=str(render_path)
+bpy.ops.wm.save_as_mainfile(filepath=str(render_path.with_suffix('.blend')))
 bpy.ops.render.render(write_still=True)
 result={'render':scene.render.filepath,'status':'packaged geometry preview; native game check pending'}

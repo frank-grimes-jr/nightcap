@@ -1,5 +1,18 @@
 # CHANGES
 
+## 2026-10-04 - Tighten the winged Paladin helmet around Classic faces
+
+Owner screenshots confirm the helmet renders on Camil with Classic models,
+but the shell was too wide. Fit to the exposed face instead of hair/ear bounds:
+High Elf male is 22.9% narrower; all 24 fits tighten by 5.7-25%. Wing roots and
+cheek plates move inward together. Small depth-position corrections keep the
+forehead inside the crown; shell height/depth, face meshes, textures and stats
+are retained. Blender front/side/rear previews, Unity's 24-head import, 27 tests
+and an independent check against 758 actual crown planes pass. Signed release
+2026100405 is prepared against 2026100404; only the two global model archives
+change. Native fit and player equip/unequip acceptance remain open.
+Evidence and exact QA: `docs/releases/winged-helmet-snug-20261004/README.md`.
+
 ## 2026-10-04 — Preserve permanent blessing effects across client ticks
 
 Follow up the insufficient October 3 reconnect repair: RoF2 expires native -1

@@ -2,7 +2,12 @@
 
 Status: deployed to main and OVH for live QA, October 4, 2026. Item 990500
 is loaded in the live shared-memory cache, Camil uses head material 90, and
-signed client release 2026100403 is public. Native wear/visual QA remains open.
+the owner confirms the helmet is visible with Classic models. The shell was too
+wide. A narrower fit is prepared as signed release 2026100405, retaining the
+current 2026100404 animation proxy. High Elf male is 22.9% narrower; the other
+fits are tailored to their exposed face widths. Publication verification and
+native fit/player wear QA remain open.
+[Snug-fit evidence and exact QA](../releases/winged-helmet-snug-20261004/README.md).
 
 The 2026100402 retest shows the new face cutout but invisible metal. Native
 actors use their first mesh's material palette; HE90's separate new palette

@@ -92,6 +92,49 @@ def bare_face(w, code):
     return m
 
 
+def snug_fit(w, code, face, head_bone, scale, shift):
+    """Fit to the exposed face, not ears, hair or ornamental stock head fins.
+
+    Preserve the established brow height and shell depth. Leave 8% lateral clearance
+    around the skin surface and limit the first refinement to 25% per actor.
+    This also moves the wing roots inward with their supporting shell.
+    """
+    refs=w.references(struct.unpack_from('<I',face['header'],16)[0])
+    labels=[bone for n,bone in face['bones'] for _ in range(n)]
+    vertices=set();offset=0
+    for count,material in face['polygon_materials']:
+        if w.names[refs[material][1]-1]==code+'HE0001_MDF':
+            vertices.update(v for polygon in face['polygons'][offset:offset+count]
+                            for v in polygon[1:] if labels[v]==head_bone)
+        offset+=count
+    if not vertices:raise ValueError('Missing facial fit surface for '+code)
+    points=[from_native_axes(code,face['vertices'][v]) for v in vertices]
+    xs=[p[0] for p in points]
+    face_width=max(xs)-min(xs)
+    old_width=.35*scale[0]
+    width=min(old_width,max(old_width*.75,face_width*1.08))
+    scale[0]=width/.35
+    shift[0]=(max(xs)+min(xs))/2
+    # Narrowing an elliptical dome reduces its clearance at the forehead.
+    # Translate it just enough to contain the retained upper facial surface;
+    # 0.96 leaves room for the faceted crown and native vertex quantization.
+    # These radii and brow height match the Blender source dome.
+    previous_depth_shift=shift[1]
+    low,high=-math.inf,math.inf
+    for x,y,z in points:
+        if z<.245*scale[2]+shift[2]:continue
+        cross=((x-shift[0])/(.175*scale[0]))**2
+        cross+=((z-shift[2]-.238*scale[2])/(.165*scale[2]))**2
+        if cross>=.96:raise ValueError('Crown too narrow for forehead: '+code)
+        clearance=.19*scale[1]*math.sqrt(.96-cross)
+        low=max(low,y-clearance);high=min(high,y+clearance)
+    if low>high:raise ValueError('No crown clearance for '+code)
+    shift[1]=max(low,min(high,shift[1]))
+    return dict(previous_shell_width=old_width,face_width=face_width,
+                shell_width=width,width_reduction=1-width/old_width,
+                forehead_depth_shift=shift[1]-previous_depth_shift)
+
+
 def add_helmet(raw, game, codes):
     if struct.unpack_from('<I',raw,4)[0] != 0x15500:
         raise ValueError('Only pinned Classic WLD is supported')
@@ -165,6 +208,7 @@ def add_helmet(raw, game, codes):
         scale=[(highs[0]-lows[0])*1.15/.35,(highs[1]-lows[1])*1.15/.38,(highs[2]-lows[2]+.05)/.403]
         shift=[(highs[0]+lows[0])/2,(highs[1]+lows[1])/2,lows[2]]
         if code in ('HIM','ELM'):scale=[2.3]*3;shift=[0,-.03,-.19]
+        fit=snug_fit(w,code,m,head_bone,scale,shift)
         start=len(m['vertices'])
         for p,n,uv in zip(game['vertices'],game['normals'],game['uv']):
             m['vertices'].append(to_native_axes(code,[p[k]*scale[k]+shift[k] for k in range(3)]))
@@ -188,7 +232,7 @@ def add_helmet(raw, game, codes):
         append(0x2d,f'{code}HE{HEAD_MATERIAL:02d}_DMSPRITE',struct.pack('<II',len(fragments),0))
         before_fragment[palette_id]=list(range(added_start,mesh_id))
         after_block[last]=[mesh_id,len(fragments)]
-        audit.append(dict(code=code,head_material=HEAD_MATERIAL,vertices=len(m['vertices']),triangles=len(m['polygons']),stock_face_triangles=len(m['polygons'])-len(game['triangles']),head_bone=head_bone,fit_scale=scale,fit_shift=shift,front='+X' if code in POSITIVE_X_FRONT else '-Y'))
+        audit.append(dict(code=code,head_material=HEAD_MATERIAL,vertices=len(m['vertices']),triangles=len(m['polygons']),stock_face_triangles=len(m['polygons'])-len(game['triangles']),head_bone=head_bone,fit_scale=scale,fit_shift=shift,lateral_fit=fit,front='+X' if code in POSITIVE_X_FRONT else '-Y'))
     strings.extend(bytes((-len(strings))%4))
     header=bytearray(w.header)
     struct.pack_into('<I',header,8,len(fragments));struct.pack_into('<I',header,20,len(strings))

@@ -148,6 +148,35 @@ class HelmetTests(unittest.TestCase):
                 self.assertEqual(sum(n for n,_ in mesh['bones']),len(mesh['vertices']))
                 self.assertLess(len(mesh['polygons']),4096)
                 self.assertGreater(entry['stock_face_triangles'],0)
+                # Fit refinement must preserve the face and leave measured
+                # clearance, including races whose forward axis is native +X.
+                face=builder.bare_face(before,code)
+                for actual,stock in zip(mesh['vertices'],face['vertices']):
+                    for a,b in zip(actual,stock):
+                        self.assertAlmostEqual(a,b,delta=2**(-mesh['scale']-1))
+                fit=entry['lateral_fit']
+                self.assertGreaterEqual(fit['shell_width'],fit['face_width']*1.08-1e-9)
+                self.assertGreater(fit['width_reduction'],0)
+                self.assertLessEqual(fit['width_reduction'],.25+1e-9)
+
+    def test_camil_width_matches_classic_face_without_lowering_brow(self):
+        _,audit=add_helmet(self.source,self.game,['HIM'])
+        fit=audit[0]
+        self.assertTrue(.22<fit['lateral_fit']['width_reduction']<.24)
+        self.assertEqual(fit['fit_scale'][1:],[2.3,2.3])
+        self.assertEqual(fit['fit_shift'][2],-.19)
+        self.assertTrue(-.065<fit['fit_shift'][1]<-.055)
+        # This retained temple vertex broke through the first narrow candidate.
+        x,y,z=(-.179443359375,-.375244140625,.4755859375)
+        sx,sy,sz=fit['fit_scale'];dx,dy,dz=fit['fit_shift']
+        radius=((x-dx)/(.175*sx))**2+((y-dy)/(.19*sy))**2+((z-dz-.238*sz)/(.165*sz))**2
+        self.assertLess(radius,.961)
+
+    def test_missing_face_fit_material_fails_closed(self):
+        w=_Wld(self.source);face=builder.bare_face(w,'HIM')
+        face['polygon_materials']=[]
+        with self.assertRaisesRegex(ValueError,'Missing facial fit surface'):
+            builder.snug_fit(w,'HIM',face,17,[2.3]*3,[0,0,0])
 
     def test_small_race_fits_rotate_front_to_native_positive_x(self):
         self.assertEqual(builder.to_native_axes('DWM',(0,-1,0)),(1,0,0))

@@ -1,0 +1,14 @@
+{
+  "status": "Decoded native fits imported and rendered in Unity; native wearer QA pending",
+  "heads": 24,
+  "materials": 39,
+  "unity": "6000.5.7f1",
+  "classic-24-snug-fits.fbx": {
+    "bytes": 2564764,
+    "sha256": "225875ab4f8e270fe42c645befd6d0018f68341d22724b05e4e33494fdd99211"
+  },
+  "unity-snug-fits.png": {
+    "bytes": 522681,
+    "sha256": "b40207a02c233b2472ab4723a562636e2965ec3ccc4a8cb58ee777f74f0c3f3c"
+  }
+}
