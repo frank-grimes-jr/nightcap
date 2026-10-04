@@ -80,6 +80,9 @@ int main() {
   }
   c.RestoreBuffEffects(); check(c.packets.size()==12,"repeat restore missing");
   check(std::memcmp(before,c.buffs,sizeof before)==0,"restore mutated authoritative buff state");
+  c.packets.clear();
+  c.SendBuffDurationPacket(c.buffs[0],0);
+  check(c.packets.back().bufffade==0 && c.packets.back().buff.duration==-1000,"deferred permanent duration update expires native effect");
   c.packets.clear(); c.version=EQ::versions::ClientVersion::RoF;
   c.RestoreBuffEffects(); check(c.packets.empty(),"older client received restore");
   c.SendBuffDurationPacket(c.buffs[0],0,true); check(c.packets.back().bufffade==0 && c.packets.back().buff.duration==-1,"older packet duration/mode changed");

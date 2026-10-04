@@ -13,6 +13,9 @@ zero, then -1. It marks -1 expired unless the spell's duration formula is 50
 (DF_Permanent). Matron's normal spell definitions have finite formulas, so the
 server's conversion of policy sentinel -1000 to -1 removed their native effects
 on the next tick. Icons have separate storage and could remain visible.
+AddBuff marks policy-permanent buffs UpdateClient; BuffProcess later sends the
+duration through the same OP_Buff helper. Thus the old deferred update could
+remove effects shortly after a fresh hail, independently of logout or inventory.
 
 Client::BuffEffectDurationForClient preserves -1000 for RoF2 native player
 profile and OP_Buff effect state. The client neither expires nor decrements it
