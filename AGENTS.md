@@ -223,6 +223,12 @@ bytes. Validate every imported actor's dependency closure, not only PFS integrit
 or reversible renaming. The native null-material crash and regression evidence:
 `docs/releases/character-select-crash-20261001/README.md`.
 
+Invisible actors must retain native IVM/IVF registration: EQGraphicsDX9 has a
+separate prefix check at RVA 0x44EA2 that excludes them from automatic animation
+startup. A renamed IVM still twitches after restoring its animation family.
+The pinned native regression is `model-invisible-native`; user retest is
+recorded in `docs/releases/npc-animation-20261004/enchanter.md`.
+
 Classic NPC aliases must preserve RoF2's animation-family lookup (RVA 0x6A60).
 Use the actual source skeleton code, including ELE for typed elemental clones,
 and retain the native sharing flag. Archive/frame-byte integrity alone does not

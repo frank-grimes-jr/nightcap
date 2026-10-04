@@ -1,0 +1,10 @@
+{
+  "release": 2026100406,
+  "previous_release": 2026100405,
+  "changed": [
+    "dinput8.dll",
+    "nightcap-patch-sites.json"
+  ],
+  "unchanged_files": 46,
+  "status": "prepared_locally_not_published"
+}

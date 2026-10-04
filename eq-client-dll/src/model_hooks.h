@@ -71,7 +71,12 @@ inline int __fastcall RegisterHook(void* self, void*, int race, int gender, cons
     const auto entry = modern ? nullptr : Registered(race, gender);
     // Register the alias in the native table so reverse model lookups remain
     // valid as well. Later remakes resolve to this original registration.
-    if (entry && code && !_stricmp(code, entry->original)) code = entry->alias;
+    // EQGraphicsDX9 0x10044EA2 exempts native IVM/IVF actors from its
+    // automatic animation controller. Aliasing IVM to ZBB bypasses that
+    // exemption even when eqgame's shared-animation family is restored.
+    // Native globals already supply these invisible actors and their rig.
+    const bool invisible = code && (!_stricmp(code, "IVM") || !_stricmp(code, "IVF"));
+    if (entry && !invisible && code && !_stricmp(code, entry->original)) code = entry->alias;
     return original_register(self, race, gender, code, a, b);
 }
 inline void __fastcall TagHook(void* self, void*, char* output, int race, int gender) {
