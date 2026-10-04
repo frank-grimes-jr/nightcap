@@ -36,3 +36,22 @@ Limits: original PNGs make the payload about 5.3 MB; no artwork was altered.
 Gameplay acceptance remains as recorded in the individual release guides.
 
 Runbook, content sources, exact checks and recovery: [player website](../ops/player-website.md).
+
+## October 4 — visible changes and separate quests
+
+Built: 43 visible changes in six topic groups; separate Ascension and Waypoint
+Explorer entries; all eight unreleased journal quests with levels and objectives.
+Updated older tunnel/loot descriptions, recent client repairs, and gear/stat
+customizations. Read-only hosted checks confirm quest installation and current
+rule values. Independent review found the older health/gear/stat omissions, now
+included. Existing loading artwork, theme and private access are retained.
+
+Limits: installed gameplay still needs the acceptance checks in its release
+records. Journal quests remain built but not installed; the helmet has no reward
+source. The website does not release any gameplay changes.
+
+Deployed: `20261004-player-guide-lists`. Final local and HTTPS browser checks,
+nine package/deployment tests, origin activation/rollback, exact file hashes,
+protected downloads and unchanged service identities all pass. Unapproved access
+remains 403. Review and desktop/mobile inspection completed. Recovery retains the
+prior private release and a matching helper beside the new private receipt.

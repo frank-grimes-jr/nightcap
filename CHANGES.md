@@ -1,5 +1,17 @@
 # CHANGES
 
+## 2026-10-04 — Separate custom changes and custom quests in the player guide
+
+Replace per-feature disclosures with 43 visible custom changes grouped into six
+topics, followed by two installed quest lines with start, requirements and rewards.
+List all eight built journal quests in an explicitly unreleased section. Refresh
+loot range, tunnel layout, buff repairs and appearance notes from current release
+records; verify quest availability and gear/stat rules through read-only hosted
+checks. Preserve immediate-sale and class-change warnings, green/cream styling,
+original loading art and approved-IP-only access. No game changes or public route.
+Browser coverage checks list completeness, availability labels and responsive
+reading. Content ledger: `docs/ops/player-guide-content-20261004.md`.
+
 ## 2026-10-04 — Preserve the Enchanter pet's native invisible-actor identity
 
 Owner testing of 2026100404 confirms beetle walking/death is repaired, but

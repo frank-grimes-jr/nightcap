@@ -36,8 +36,15 @@ const forbidden = /ever\s*quest|\beq\b|eqemu|rof2|macroquest/i;
     assert.equal(await page.locator('h1').count(), 1);
     assert.equal(await page.locator('script,iframe,form').count(), 0);
     assert.ok(!forbidden.test(await page.locator('html').textContent()), 'Public text brand leak');
-    assert.equal(await page.locator('.catalog-group details').count(), 21);
-    assert.equal(await page.locator('#roadmap article').count(), 6);
+    assert.equal(await page.locator('.change-list > li').count(), 43);
+    assert.equal(await page.locator('.quest-list > li').count(), 2);
+    assert.equal(await page.locator('.candidate-list > li').count(), 8);
+    assert.equal(await page.locator('#features details, #quests details').count(), 0, 'Lists must be readable without opening disclosures');
+    assert.ok((await page.locator('#journal-candidate').innerText()).includes('not installed on the server'));
+    assert.ok((await page.locator('#selling').innerText()).includes('Sales are immediate'));
+    assert.ok((await page.locator('#ascension').innerText()).includes('100,000 platinum'));
+    assert.ok((await page.locator('#waypoint-explorer').innerText()).includes('72'));
+    assert.ok((await page.locator('#loot-all').innerText()).includes('current zone or instance'));
     const links = await page.locator('a').evaluateAll(items => items.map(a => a.getAttribute('href')));
     for (const href of links) {
       assert.ok(href.startsWith('#'), `Unexpected external link ${href}`);
@@ -52,19 +59,20 @@ const forbidden = /ever\s*quest|\beq\b|eqemu|rof2|macroquest/i;
     assert.equal(await faq.getAttribute('open'), '');
     await faq.locator('summary').press('Space');
     assert.equal(await faq.getAttribute('open'), null);
-    await page.locator('nav a[href="#changes"]').click();
+    await page.locator('nav a[href="#quests"]').click();
     await page.goBack();
     assert.ok(page.url().endsWith('#faq'));
     await page.goto(url + '#pets');
-    await page.locator('#pets summary').press('Enter');
-    assert.ok(await page.locator('#pets .detail-body').isVisible());
+    assert.ok(await page.locator('#pets').isVisible());
+    await page.goto(url + '#journal-candidate');
+    assert.ok(await page.locator('#journal-candidate').isVisible());
     for (const detail of await page.locator('details').all()) {
       if (await detail.getAttribute('open') === null) await detail.locator('summary').click();
     }
     for (const width of [320,390,768,1024,1440]) {
       await page.setViewportSize({width,height:1000});
       assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), `${width}px overflow`);
-      const clipped = await page.locator('summary,nav,.roadmap-grid article,.detail-body').evaluateAll(els => els.filter(e => e.scrollWidth > e.clientWidth + 1).map(e => e.textContent.slice(0,60)));
+      const clipped = await page.locator('summary,nav,.change-list li,.quest-list>li,.candidate-list li,.detail-body').evaluateAll(els => els.filter(e => e.scrollWidth > e.clientWidth + 1).map(e => e.textContent.slice(0,60)));
       assert.deepEqual(clipped, [], `${width}px clipped content`);
     }
     // Reflow at 200% text size; all disclosures remain usable without scripts.
@@ -84,9 +92,12 @@ const forbidden = /ever\s*quest|\beq\b|eqemu|rof2|macroquest/i;
       await page.goto(url);
       await page.screenshot({path:path.join(output,'desktop.png')});
       await page.screenshot({path:path.join(output,'desktop-full.png'),fullPage:true});
+      await page.locator('#quests').screenshot({path:path.join(output,'quests.png')});
+      await page.locator('#character').screenshot({path:path.join(output,'changes.png')});
       await page.setViewportSize({width:390,height:844});
       await page.screenshot({path:path.join(output,'mobile-top.png')});
       await page.screenshot({path:path.join(output,'mobile.png'),fullPage:true});
+      await page.locator('#quests').screenshot({path:path.join(output,'mobile-quests.png')});
     }
     for (const img of await page.locator('img').all()) {
       await img.scrollIntoViewIfNeeded();
@@ -102,6 +113,6 @@ const forbidden = /ever\s*quest|\beq\b|eqemu|rof2|macroquest/i;
       assert.ok(!cache.includes('public'), `Shared caching enabled: ${name}`);
       assert.deepEqual(await asset.body(), fs.readFileSync(path.join(root,name)), `Hosted bytes differ: ${name}`);
     }
-    console.log(JSON.stringify({result:'PASS',url,checks:['brand and metadata guard','21 feature entries / 6 workbench entries','all anchor targets','keyboard disclosures','history and deep links','5 responsive widths','200% text reflow','images','no JavaScript needed','strict CSP','private non-caching responses','clean console/network']},null,2));
+    console.log(JSON.stringify({result:'PASS',url,checks:['brand and metadata guard','43 visible custom changes / 2 installed quests / 8 unreleased quests','all anchor targets','keyboard disclosures','history and deep links','5 responsive widths','200% text reflow','images','no JavaScript needed','strict CSP','private non-caching responses','clean console/network']},null,2));
   } finally { if(browser) await browser.close(); server.close(); }
 })().catch(error => { console.error(error); process.exitCode=1; });

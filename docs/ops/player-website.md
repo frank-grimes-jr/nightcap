@@ -1,6 +1,6 @@
 # Nightcap player website on OVH
 
-Updated October 1, 2026. The owner requested the green/cream player guide on OVH,
+Updated October 4, 2026. The owner requested the green/cream player guide on OVH,
 using repository loading artwork and Nightcap-only player-facing branding. The owner explicitly requires private access.
 
 ## Current publication
@@ -10,7 +10,7 @@ using repository loading artwork and Nightcap-only player-facing branding. The o
   No public apex/www site, new DNS route or Cloudflare sign-in is needed.
 - Apex/www and unknown Host headers return 404 at the origin. The unused public
   virtual host was removed before closing this task. No DNS/WAF rules changed.
-- Active release: `20261001-player-guide-friendly`, selected by
+- Active release: `20261004-player-guide-lists`, selected by
   `/opt/nightcap/deploy/production/data/public/player-site/current`.
 - All five container identities/start times, both patch channels, existing player
   guide and friend ZIP are preserved. No game restart or database mutation.
@@ -22,10 +22,12 @@ and two unmodified loading-screen PNGs. Native anchors and details work without
 JavaScript, external fonts, cookies, forms or analytics. Brand checks cover public
 text, metadata, attributes and static code. Both images were inspected visually.
 
-Twenty-one feature entries cover the older conveniences and recent deployments.
-Six workbench entries separate undeployed candidates, planned content and open
-verification. The readability update uses “Ready to try” labels, conversational
-explanations, lists for commands and travel choices, and larger, darker detail text. Deployed means installed for live testing, not manual acceptance.
+Forty-three custom changes appear as visible lists in six groups. A separate quest
+section covers Ascension and Waypoint Explorer, with starting points, requirements
+and rewards. Eight built journal quests are listed in their own unreleased panel.
+The guide retains plain language, larger detail text and material warnings.
+Installed means available for live testing, not manual acceptance.
+Current evidence: [October 4 content ledger](player-guide-content-20261004.md).
 
 | Area | Evidence to check before updating |
 |---|---|
@@ -95,7 +97,26 @@ caching and edge analytics injection while retaining strict CSP. Include
 `/index.html` in the cache map: `try_files` changes the URI. Signed release caching
 is unchanged. [Documented edge behavior](https://developers.cloudflare.com/web-analytics/faq/).
 
-## Private access verification and recovery
+## October 4 list update
+
+Release `20261004-player-guide-lists` replaces `20261001-player-guide-friendly`.
+Only HTML and CSS payload bytes change. The deployment retains the same private
+Nginx configuration and exact five-file package. Local and live HTTPS browser
+suites pass for all 43 changes, two installed quests and eight unreleased quests,
+including five widths, 200% text, keyboard/history/deep links, image loading,
+branding, strict CSP, exact payload bytes and private cache headers. Nine package/
+deployment tests pass. Desktop/mobile rendering and independent content review pass.
+
+OVH staging exercised activation and rollback, then final activation verified all
+five files, protected downloads, alternative-host/storage-route denial and unchanged
+IDs/start times for all five containers. An unapproved OVH-source request still
+returns HTTP 403. No DNS/WAF, database or gameplay changes occurred.
+Receipt, configuration preimages and matching rollback helper:
+`/opt/nightcap/deploy/production/website-history/20261004-player-guide-lists/`.
+Local evidence: `E:/EQ_Local_Dev/artifacts/player-website-20261004/`.
+The previous private release remains available for rollback.
+
+## Historical October 1 access verification and recovery
 
 October 1 evidence: `E:/EQ_Local_Dev/artifacts/player-website-20261001/`.
 Forward/rollback and final activation passed for `20261001-player-guide-friendly`.

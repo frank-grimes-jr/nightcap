@@ -466,17 +466,19 @@ Numbers are a dated snapshot. [Live issue tracker](https://github.com/frank-grim
 
 ## Website and documentation
 
-The October 1 player guide is deployed on OVH at https://play.nightcapgame.org/
-under its existing approved-IP restriction. It uses the green/cream design,
-original loading artwork, 21 feature entries and six workbench areas. The reading
-pass uses plain language, “Ready to try” labels, short lists and clearer typography. Local and
-HTTPS browser suites, origin isolation and rollback rehearsal pass. Deployed
-remains distinct from manual gameplay acceptance. The owner explicitly requires
-private access: apex/www and unknown hosts return 404, unapproved play access
-returns 403, and website responses disable shared caching. No public DNS route
-or Cloudflare sign-in is needed. The private guide is complete.
-The earlier GitHub Pages limitation is historical. Website publication does not
-promote gameplay. [Publication and rollback](ops/player-website.md).
+The October 4 player guide is deployed on OVH at https://play.nightcapgame.org/
+under its existing approved-IP restriction. It uses the green/cream design and
+original loading artwork. There are 43 visible custom changes, a separate list
+of two installed quest lines, and eight built journal quests clearly marked as
+unreleased. Quest requirements and current content were checked against hosted
+scripts, content records and current release documentation.
+Installed remains distinct from manual gameplay acceptance. The owner explicitly
+requires private access: apex/www and unknown hosts return 404, unapproved play
+access returns 403, and website responses disable shared caching. No public DNS
+route or Cloudflare sign-in is needed. The earlier GitHub Pages limitation is
+historical. Website publication does not promote gameplay.
+[Publication and rollback](ops/player-website.md) ·
+[Current content ledger](ops/player-guide-content-20261004.md).
 
 ## Operational lessons
 
