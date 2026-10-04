@@ -3,17 +3,15 @@
 Updated October 4, 2026. This is the current status index; dated studies and
 QA reports preserve their original evidence and are not live-state promises.
 
-## NPC animation repair authorized for live testing
+## NPC animation repair published for live testing
 
-The owner requested main promotion and server publication before in-game QA.
-The repair restores native animation-family sharing for classic model aliases,
-including Enchanter pets and beetles. Native/runtime/packaging checks pass.
-The animation candidate prepared as 2026100403 is now superseded by the helmet
-material publication using that release number. Regenerate the animation update
-as a higher release preserving the current helmet archives. Its signing-key
-approval remains pending after an automatic approval rejection. Visual
-acceptance remains pending.
-[Repair, authorization and exact QA](releases/npc-animation-20261004/README.md).
+PR 121 is merged into main and signed game release **2026100404 / 0.7.6-dev**
+is public. It restores native animation-family sharing for classic NPC aliases,
+including Enchanter pets and beetles. All 48 hosted files verify; only the proxy
+and patch catalog change from 2026100403. Current helmet assets and all game
+services are preserved. Exit EQ and press Play in the normal launcher to update.
+Pet stability, beetle walking/death and broader native NPC visual QA remain open.
+[Repair, deployment and exact QA](releases/npc-animation-20261004/README.md).
 
 ## Winged Paladin helmet deployed for live QA
 

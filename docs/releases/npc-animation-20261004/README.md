@@ -1,43 +1,49 @@
-# Classic NPC shared-animation repair — October 4, 2026
+# Classic NPC shared-animation repair — live for owner QA
 
-Status: separately signed QA release **2026100402** is installed in an isolated
-copy; not published or accepted in game. All 48 managed files verify. The source
-baseline includes current main e37b7fa and its published winged helmet assets.
+October 4, 2026. PR 121 merged into main at a7ee8d8. Signed production game
+release **2026100404**, proxy **0.7.6-dev**, is published at play.nightcapgame.org.
+The owner requested "Push to main and the server for me to test", then approved
+continuing with the existing production signing key after an approval gate.
+This authorizes this release before visual acceptance; it does not claim that
+the pet/NPC rendering checks have passed.
 
-## Owner-authorized live promotion
+## Use the normal launcher
 
-Publication coordination update: the helmet material repair has now published
-2026100403, with global_chr SHA256
-52bd794548e12f90e147d17f4f16871286564fea9a38a907246adec71d1026af and global4_chr
-11952fc236d99e0e7e79a81a388da9e5d07e0ab4a48adcebe7946def6e4b413e.
-The animation candidate described below remains unpublished and must be
-regenerated with a higher release counter and these current helmet archives.
-Do not replay its old 2026100403 publication plan. Its pending signing approval
-is unchanged. See ../winged-helmet-materials-20261004/README.md.
+Exit EverQuest fully, open the normal Nightcap launcher and press Play. Confirm
+game release **2026100404**. No new launcher download or separate QA copy is
+needed. In East Commonlands check the first two Enchanter animation pets at
+rest, following and fighting; observe fire-beetle legs while moving and a flipped
+corpse after death. Repeat after zoning/reconnecting. Check skeleton posture and
+the broader NPC/elemental matrix below. Report the zone, spell/NPC and action
+for any remaining failure.
 
-On October 4 the owner requested: "Push to main and the server for me to test."
-This authorizes this repair's main promotion and hosted client publication before
-visual acceptance. It supersedes the isolated-only promotion boundary below;
-the native QA matrix remains open. Production release 2026100403 is prepared
-against current main e7aea514 and preserves helmet repair 2026100402.
+## Publication and preservation
 
-The rebuild passes all five runtime groups, 288 actual native resolver cases,
-71 exact-client signatures, both generated contracts and Go preflight/package
-tests. The unsigned inventory contains 48 files; only dinput8.dll and
-nightcap-patch-sites.json change from production 2026100402. There is no server
-binary or database change and static publication needs no service restart.
+The native resolver repair passed five runtime groups, 288 actual native
+family/flag comparisons, all 71 pinned client signatures, both generated
+contracts and Go preflight/package checks. Independent verification downloaded
+all 48 public files over HTTPS and checked the signature against the key shipped
+in launcher 0.3.1. See [hosted verification](hosted-verification.json),
+[publication receipt](published.json) and [service evidence](deployment.json).
 
-Publication is pending: automatic approval review rejected discovery of the
-production signing seed's filename. No key was read, no channel was signed or
-published, and the hosted release remains unchanged by this task. Explicit
-approval to use the existing production signing key is needed to finish.
+Only dinput8.dll and nightcap-patch-sites.json changed from current production
+2026100403. All 46 other files remain identical, including the latest helmet
+material repair. All five services kept their identities/start times; game and
+database are healthy. No server binary, SQL, restart or gameplay balance change
+was needed. The desktop channel, starter ZIP and guide are unchanged.
 
-After publication, close EQ and use the normal launcher, confirm release
-2026100403 and run the exact QA below. If repair is needed after any client sees
-that release, publish the prior proxy/catalog in a higher signed generation;
-retain all current helmet assets and never lower the public release counter.
+The earlier animation generation 2026100403 was signed locally but never
+uploaded: the baseline guard detected that the helmet release had already
+used that counter. It was superseded by 2026100404 with current assets.
+Deployment artifacts: E:/EQ_Local_Dev/artifacts/npc-animation-20261004-production-0404/.
 
-## Ready-to-play isolated candidate
+Recovery: retain the previous channel at
+/opt/nightcap/releases/npc-animation-2026100404/previous-channel.json. To reverse
+the animation change after clients have observed it, publish the previous
+reviewed proxy/catalog and current helmet assets in a higher signed generation.
+Never move the channel backward or reset client checkpoints.
+
+## Historical isolated candidate
 
 Close the normal game, then open:
 `E:/EQ_Local_Dev/artifacts/npc-animation-20261003/qa/Play animation QA.cmd`.
@@ -111,9 +117,9 @@ From `eq-client-dll/`, build with `build.bat` and
 Add `--unpatched` to replay the failing baseline (expected exit 1).
 Local evidence and build experiments: `E:/EQ_Local_Dev/artifacts/npc-animation-20261003/`.
 
-## Exact in-game QA before main/publication
+## Exact in-game QA still required
 
-Use the isolated candidate with classic defaults. Confirm its proxy log says
+Use production release 2026100404 with classic defaults. Confirm its proxy log says
 `0.7.6-dev` and `Model policy: classic defaults`.
 
 1. In East Commonlands, summon the first two available Enchanter animation pets
@@ -141,8 +147,9 @@ each failure. Native runtime health alone does not close these checks.
 
 ## Promotion and recovery
 
-Follow feature → dev → test, then owner in-game sign-off before main. Historical
-September release exceptions do not authorize this new publication. A rollback
+The owner explicitly authorized main and hosted publication before visual QA
+on October 4. PR 121 is merged and release 2026100404 is published; the
+remaining native visual acceptance checks above are still open. A rollback
 after publication must use a higher signed release containing the prior reviewed
 proxy/catalog; never lower the release counter. An isolated QA candidate can be
 closed without changing the normal installation. Preserve its evidence.

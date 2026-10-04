@@ -13,7 +13,7 @@ helmet publication is retained. Gameplay acceptance remains open.
 Evidence and exact delayed/inventory/relog QA:
 `docs/releases/blessing-lifetime-20261004/README.md`.
 
-## 2026-10-04 - Restore shared animations for classic NPC models (live promotion authorized)
+## 2026-10-04 - Restore shared animations for classic NPC models (published for live QA)
 
 Classic model aliases bypassed RoF2's native animation-family lookup. Beetles
 lost their spider animation fallback, and invisible-man Enchanter pets lost
@@ -22,16 +22,17 @@ their actual source skeleton, then translate imported parent families back to
 their aliases. Typed elemental clones retain their ELE skeleton identity.
 Native names and explicit modern mode keep their existing behavior.
 
-The guarded x86 proxy candidate passes the pinned client's actual resolver for
-all 144 registrations in both native modes, plus the runtime and packaging
-checks. No model asset, server or database changes are needed. The normal
-installation has not been updated; applying this fix requires the matching
-proxy/catalog update. This is not a published fix or completed in-game acceptance.
-See `docs/releases/npc-animation-20261004/README.md` for evidence and exact QA.
-The owner subsequently authorized main and hosted publication for live testing.
-The rebased repair preserves helmet release 2026100402; prepared generation
-2026100403 awaits approval to use the existing production signing key.
-Visual acceptance remains open.
+The guarded x86 proxy passes 288 pinned-client resolver cases, five runtime
+groups, 71 exact-client signatures and generated-contract/package checks.
+The owner authorized main and live publication before visual acceptance.
+PR 121 is merged and signed release 2026100404 / proxy 0.7.6-dev is public;
+all 48 hosted files verify. Only the proxy/catalog changed from 2026100403,
+preserving the latest helmet assets and all five running services. No server
+binary, SQL or restart was needed. Exit EQ and use the normal launcher to update.
+Pet/NPC rendered acceptance remains open. The earlier local 2026100403 package
+was never uploaded because its baseline guard detected a concurrent release.
+Evidence, exact QA and higher-generation rollback:
+`docs/releases/npc-animation-20261004/README.md`.
 
 ## 2026-10-04 — Repair invisible Classic helmet materials
 
