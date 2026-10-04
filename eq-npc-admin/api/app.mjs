@@ -33,6 +33,7 @@ import {
   rollbackDraft,
 } from "./changes.mjs";
 import { publishDraft } from "./git.mjs";
+import { MapStore } from "./maps.mjs";
 
 const summary = (receipt) => ({
   id: receipt.id,
@@ -80,6 +81,7 @@ export function createApp(config, localRoot) {
   const drafts = new DraftStore(path.join(localRoot, "drafts"));
   const receipts = new DraftStore(path.join(localRoot, "receipts"));
   const pools = new Map();
+  const maps = new MapStore(config.mapDirectory);
   const previews = new Map();
   let actionQueue = Promise.resolve();
   const exclusive = (work) => {
@@ -164,6 +166,24 @@ export function createApp(config, localRoot) {
         production: !!t.production,
       })),
       configured: config.targets.length > 0,
+    }),
+  );
+  app.get(
+    "/api/targets/:target/maps/:zone",
+    route(async (req, res) => {
+      const selected = target(req.params.target);
+      const version = req.query.version ?? "0";
+      assert(
+        typeof version === "string" && /^-?\d+$/.test(version),
+        "Invalid zone version",
+      );
+      res.json(
+        await maps.get(
+          req.params.zone,
+          Number(version),
+          selected.mapAliases ?? config.mapAliases ?? {},
+        ),
+      );
     }),
   );
   app.get(

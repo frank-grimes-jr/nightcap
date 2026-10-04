@@ -3,6 +3,8 @@
   "repository": "..",
   "gitRemote": "origin",
   "gitBase": "main",
+  "mapDirectory": "",
+  "mapAliases": {},
   "targets": [
     {
       "id": "local",

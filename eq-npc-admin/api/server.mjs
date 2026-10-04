@@ -29,6 +29,10 @@ assert(
   "Invalid target profiles",
 );
 config.repository = path.resolve(root, config.repository ?? "..");
+if (config.mapDirectory) {
+  assert(typeof config.mapDirectory === "string", "Invalid client map folder");
+  config.mapDirectory = path.resolve(root, config.mapDirectory);
+}
 const port = Number(process.env.NPC_ADMIN_PORT ?? config.port ?? 3100);
 assert(
   Number.isInteger(port) && port >= 1024 && port <= 65535,
