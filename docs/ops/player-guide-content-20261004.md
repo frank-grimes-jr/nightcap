@@ -1,9 +1,9 @@
 # Player guide content audit — October 4, 2026
 
 The owner requested a clean list of custom changes followed by a separate list
-of implemented custom quests. The expanded guide now has 67 feature/control entries in eight system sections,
+of implemented custom quests. The expanded guide now has 70 feature/control entries in eight system sections,
 two installed quest lines, and eight built but unreleased journal quests.
-The game source/status baseline is main `f9ab114`, merged into the website branch.
+The game source/status baseline is main `b1110e8`, merged into the website branch.
 This is a website-only publication; no gameplay promotion or acceptance is implied.
 
 ## Content ledger
@@ -12,8 +12,8 @@ This is a website-only publication; no gameplay promotion or acceptance is impli
 |---|---|
 | Custom loot window (8) | `docs/releases/advanced-loot/{README.md,ACTION-REPAIR.md}`; current `tools/client_advanced_loot_ui.py` labels and deployed currency/loot code |
 | Multiple pets & custom pet window (9) | `docs/releases/pet-management-20260922/{README.md,QA.md,PRODUCTION.md}`; ADRs 0038/0039; Enchanter animation-command release |
-| Classes, skills & progression (12) | July/August changelog; September 8 held-Monk acceptance; September 15 combined live release; current spell-menu and inspection releases |
-| Custom gear, bags & selling (9) | July/September item, heroic and merchant changes; current helmet publication; hosted October 4 gear/stat checks below |
+| Classes, skills & progression (13) | July/August changelog; September 8 held-Monk acceptance; September 15 combined live release; current spell-menu and inspection releases |
+| Custom gear, bags & selling (11) | July/September item, heroic and merchant changes; current helmet publication; hosted October 4 gear/stat checks below |
 | Combat, buffs & recovery (6) | September 19 gameplay release and ADR 0038; current blessing reconnect/lifetime release records |
 | Tunnel life, shops & services (9) | Current tunnel class/workshop/social layout and market release records linked from `docs/status.md` |
 | Travel & private adventures (7) | Current Merrin/travel alcove records; installed Keeper audit; waypoint content below |
@@ -67,7 +67,7 @@ percentage gear-bonus and raised-stat-cap additions.
 
 ## Website validation
 
-The browser suite checks the 67 visible feature/control entries, two installed quests, eight
+The browser suite checks the 70 visible feature/control entries, two installed quests, eight
 unreleased quests, important warnings, anchors, keyboard FAQ, history, deep links,
 five viewport widths, 200% text, original images, no runtime scripts and strict
 branding/CSP. The hosting runbook records the activation and private-access result.
@@ -93,3 +93,26 @@ Independent review checked the expanded draft and identified these final
 clarifications. Desktop/mobile views and the featured-link behavior were inspected.
 This inventory covers custom player systems and their controls; infrastructure,
 GM tools, historical superseded layouts and build-only experiments are excluded.
+
+## Latest live release reconciliation
+
+Current main `b1110e8` adds three deployed releases. `docs/releases/passive-aa-20261004.md`
+defines additive 1% of the full AA award at focus off, full allocation at focus on,
+and conversion of historical partial allocations to 100%. The earlier `#aaexp 50`
+example is removed. Tiny passive awards can round down to zero.
+
+`docs/releases/free-trade-20261004/README.md` and the current native sell-all path
+establish all-item trading, one-platinum resale per physical original-NO-DROP item,
+container retention, and removal of obsolete advanced-loot NO TRADE consent.
+Previously protected former-NO-DROP items, including temporary/free rewards, can
+now be sold. Ordinary temporary/zero-value exclusions do not protect those items.
+Equipment eligibility, lore, capacity, temporary expiration and Pet Armor limits
+remain. Merchant preview can differ from the actual fixed payout.
+
+`docs/releases/loading-screens-20261004.md` verifies game 2026100407 and desktop
+0.4.0: ten paintings cover 55 numbered loading slots and the fallback. Both game
+and launcher must be fully closed before reopening the normal shortcut to update.
+The website continues using its two original images without payload expansion.
+The passive-AA deployment repeated full-catalog free-trade verification and retained
+the gallery/client files. These are deployed changes with manual gameplay QA open.
+Independent content review identified every obsolete website claim before editing.

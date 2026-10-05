@@ -1,5 +1,16 @@
 # CHANGES
 
+## 2026-10-04 — Refresh the private player guide for the latest live releases
+
+Document additive passive ability XP, on/off focus, universal item trading,
+fixed one-platinum former-NO-DROP resale and the complete ten-painting loading
+gallery. Remove obsolete partial-allocation, bulk confirmation and protected-sale
+claims. Keep immediate-sale, item eligibility, pet-armor and native-quote caveats.
+The guide now has 70 feature/control entries; implemented and unreleased quests
+remain separate. Source baseline is current main b1110e8. Website-only publication;
+no gameplay, database, or private-access changes. Browser regressions check the
+new guidance and reject the old 50% command example.
+
 ## 2026-10-04 - Passive AA experience while leveling
 
 Add AA:PassiveExpPercent (default 1% of a full AA award) alongside unchanged

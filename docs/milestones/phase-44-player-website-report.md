@@ -76,3 +76,24 @@ DNS/WAF change or public route. Matching receipt and recovery helper are under
 `/opt/nightcap/deploy/production/website-history/20261004-player-guide-systems/`.
 Evidence: `E:/EQ_Local_Dev/artifacts/player-website-20261004/expanded-https-screenshots/`
 and `systems-verification.json` in the same artifact root.
+
+## October 4 — latest gameplay and shareable text
+
+Refresh the guide for the deployed passive-AA, free-trade/resale and loading-gallery
+releases. Correct stale command, consent and sell-all instructions, preserving
+important restrictions and warnings. The user also requested a complete shareable
+bullet summary in chat; its prepared text is checked against the same source ledger.
+
+Deployed `20261004-player-guide-latest`; previous `20261004-player-guide-systems`
+is retained for rollback. Local and live HTTPS browser checks pass, including
+70 entries, two installed/eight unreleased quests, current trading/XP guidance,
+featured links, exact five-file bytes, private headers, five viewport widths,
+200% text, keyboard/history, branding and clean console/network. Origin staging,
+rollback and final activation passed. Protected download hashes and all five
+service IDs/start times were preserved. Unapproved play access remains HTTP 403.
+No gameplay, database, DNS/WAF or public-routing changes occurred.
+The matching receipt and recovery helper are retained at
+`/opt/nightcap/deploy/production/website-history/20261004-player-guide-latest/`.
+Local evidence is under `E:/EQ_Local_Dev/artifacts/player-website-20261004/`:
+`latest-https-screenshots/`, `latest-verification.json`, and the reviewed
+`shareable-changes.txt` (54 bullets, checked for prohibited branding).

@@ -36,7 +36,7 @@ const forbidden = /ever\s*quest|\beq\b|eqemu|rof2|macroquest/i;
     assert.equal(await page.locator('h1').count(), 1);
     assert.equal(await page.locator('script,iframe,form').count(), 0);
     assert.ok(!forbidden.test(await page.locator('html').textContent()), 'Public text brand leak');
-    assert.equal(await page.locator('.change-list > li').count(), 67);
+    assert.equal(await page.locator('.change-list > li').count(), 70);
     const featuredSystems = [
       ['#advanced-loot', 'Custom loot window'], ['#pets', 'Multiple pets'],
       ['#pet-window', 'Custom pet window'], ['#pet-armor', 'Pet Armor tab']
@@ -60,6 +60,15 @@ const forbidden = /ever\s*quest|\beq\b|eqemu|rof2|macroquest/i;
     assert.ok((await page.locator('#ascension').innerText()).includes('100,000 platinum'));
     assert.ok((await page.locator('#waypoint-explorer').innerText()).includes('72'));
     assert.ok((await page.locator('#loot-all').innerText()).includes('current zone or instance'));
+    assert.ok((await page.locator('#passive-abilities').innerText()).includes('full normal experience plus 1%'));
+    assert.ok((await page.locator('#alternate-abilities').innerText()).includes('#aaexp on'));
+    assert.ok(!(await page.locator('body').innerText()).includes('#aaexp 50'), 'Obsolete partial XP allocation');
+    assert.ok((await page.locator('#free-trade').innerText()).includes('already-attuned'));
+    assert.ok((await page.locator('#fixed-resale').innerText()).includes('1 platinum per physical item'));
+    assert.ok((await page.locator('#selling').innerText()).includes('temporary summoned rewards'));
+    assert.ok((await page.locator('#loot-all').innerText()).includes('no longer require a NO TRADE confirmation'));
+    assert.ok((await page.locator('#loading-art').innerText()).includes('55 numbered loading screens'));
+    assert.ok((await page.locator('#updates').innerText()).includes('fully close both the game and launcher'));
     const links = await page.locator('a').evaluateAll(items => items.map(a => a.getAttribute('href')));
     for (const href of links) {
       assert.ok(href.startsWith('#'), `Unexpected external link ${href}`);
@@ -133,6 +142,6 @@ const forbidden = /ever\s*quest|\beq\b|eqemu|rof2|macroquest/i;
       assert.ok(!cache.includes('public'), `Shared caching enabled: ${name}`);
       assert.deepEqual(await asset.body(), fs.readFileSync(path.join(root,name)), `Hosted bytes differ: ${name}`);
     }
-    console.log(JSON.stringify({result:'PASS',url,checks:['brand and metadata guard','67 visible custom changes / 2 installed quests / 8 unreleased quests','all anchor targets','keyboard disclosures','history and deep links','5 responsive widths','200% text reflow','images','no JavaScript needed','strict CSP','private non-caching responses','clean console/network']},null,2));
+    console.log(JSON.stringify({result:'PASS',url,checks:['brand and metadata guard','70 visible custom changes / 2 installed quests / 8 unreleased quests','all anchor targets','keyboard disclosures','history and deep links','5 responsive widths','200% text reflow','images','no JavaScript needed','strict CSP','private non-caching responses','clean console/network']},null,2));
   } finally { if(browser) await browser.close(); server.close(); }
 })().catch(error => { console.error(error); process.exitCode=1; });

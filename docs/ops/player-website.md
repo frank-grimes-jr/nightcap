@@ -10,7 +10,7 @@ using repository loading artwork and Nightcap-only player-facing branding. The o
   No public apex/www site, new DNS route or Cloudflare sign-in is needed.
 - Apex/www and unknown Host headers return 404 at the origin. The unused public
   virtual host was removed before closing this task. No DNS/WAF rules changed.
-- Active release: `20261004-player-guide-systems`, selected by
+- Active release: `20261004-player-guide-latest`, selected by
   `/opt/nightcap/deploy/production/data/public/player-site/current`.
 - All five container identities/start times, both patch channels, existing player
   guide and friend ZIP are preserved. No game restart or database mutation.
@@ -22,7 +22,7 @@ and two unmodified loading-screen PNGs. Native anchors and details work without
 JavaScript, external fonts, cookies, forms or analytics. Brand checks cover public
 text, metadata, attributes and static code. Both images were inspected visually.
 
-Sixty-seven feature/control entries appear in eight custom-system sections.
+Seventy feature/control entries appear in eight custom-system sections.
 Loot and pet systems come first, with direct links to the custom loot window,
 multiple pets, custom pet window and Pet Armor tab. A separate quest
 section covers Ascension and Waypoint Explorer, with starting points, requirements
@@ -99,7 +99,29 @@ caching and edge analytics injection while retaining strict CSP. Include
 `/index.html` in the cache map: `try_files` changes the URI. Signed release caching
 is unchanged. [Documented edge behavior](https://developers.cloudflare.com/web-analytics/faq/).
 
-## October 4 systems coverage update
+## October 4 latest gameplay update
+
+Release `20261004-player-guide-latest` reconciles current main b1110e8: passive
+ability XP and binary focus, universal trading/fixed resale, and the complete
+loading gallery. The 70-entry guide preserves its separate quest lists and
+private-only route. Browser checks assert the new behaviors and reject stale
+partial-allocation guidance. The package remains exactly five files.
+
+Deployed `20261004-player-guide-latest`; previous `20261004-player-guide-systems`
+is retained for rollback. Local and live HTTPS browser checks pass, including
+70 entries, two installed/eight unreleased quests, current trading/XP guidance,
+featured links, exact five-file bytes, private headers, five viewport widths,
+200% text, keyboard/history, branding and clean console/network. Origin staging,
+rollback and final activation passed. Protected download hashes and all five
+service IDs/start times were preserved. Unapproved play access remains HTTP 403.
+No gameplay, database, DNS/WAF or public-routing changes occurred.
+The matching receipt and recovery helper are retained at
+`/opt/nightcap/deploy/production/website-history/20261004-player-guide-latest/`.
+Local evidence is under `E:/EQ_Local_Dev/artifacts/player-website-20261004/`:
+`latest-https-screenshots/`, `latest-verification.json`, and the reviewed
+`shareable-changes.txt` (54 bullets, checked for prohibited branding).
+
+## Historical October 4 systems coverage update
 
 Release `20261004-player-guide-systems` expands the previous list release's
 compressed descriptions. Only HTML and CSS payloads change; the five-file package,

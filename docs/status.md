@@ -505,8 +505,9 @@ Numbers are a dated snapshot. [Live issue tracker](https://github.com/frank-grim
 
 The October 4 player guide is deployed on OVH at https://play.nightcapgame.org/
 under its existing approved-IP restriction. It uses the green/cream design and
-original loading artwork. There are eight named system sections with 67 feature/control entries,
-including prominent custom loot and pet window coverage, a separate list
+original loading artwork. There are eight named system sections with 70 feature/control entries,
+including the latest passive ability XP, universal trading/resale and complete
+loading gallery, prominent loot/pet window coverage, a separate list
 of two installed quest lines, and eight built journal quests clearly marked as
 unreleased. Quest requirements and current content were checked against hosted
 scripts, content records and current release documentation.
