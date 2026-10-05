@@ -1,5 +1,50 @@
 # CHANGES
 
+## 2026-10-04 - Passive AA experience while leveling
+
+Add AA:PassiveExpPercent (default 1% of a full AA award) alongside unchanged
+normal XP from kills and raw/percentage quest/task rewards. AA allocation is
+now 0% or 100% through packets, saved profiles, quest setters and #aaexp on/off;
+valid historical partial allocations become 100%. Focused mode grants the full
+AA award without an extra passive bonus. Respect minimum level, XP disablement,
+AA modifiers and caps; resurrection earns no passive AA. Guard bank-cap crossing
+without deleting already earned points. Tiny passive awards round down.
+Matching world/zone builds are required for the new rule. The owner authorized
+main/server deployment; all five binaries are freshly linked with production
+hardening preserved. PR 125 is merged to main and OVH is deployed and healthy:
+all runtime hashes/rules, twelve zones, 47 player/state tables, quests, content,
+free-trade cache and current client preservation verify. Backup is retained;
+no database restoration was needed. Gameplay QA remains open. Evidence and QA: docs/releases/passive-aa-20261004.md.
+
+## 2026-10-04 — Replace the complete loading gallery with Nightcap artwork
+
+Add the ten approved paintings, including the SoulFire Paladin and three-pet
+gnome. Generate full-frame baseline JPEG replacements for all 55 RoF2 numbered
+loading slots and the resource fallback. Extend the signed launcher scope only
+for these 56 exact image paths; other default UI files remain protected. Desktop
+0.4.0 is required and delivered through the existing self-updating starter.
+Preserve the previous 48 game files and player settings. No server restart or
+database change is needed. PR 124 merged to main and signed game 2026100407 /
+desktop 0.4.0 are deployed to OVH. All 104 game files and the desktop verify over
+HTTPS; all five service identities/start times are unchanged and game/DB are
+healthy. Close EQ and the launcher, then reopen the normal shortcut to update.
+Generation, rollout, recovery and verification:
+`docs/releases/loading-screens-20261004.md`.
+
+## 2026-10-04 - Deploy universal item trading and one-platinum NO DROP resale
+
+All items receive effective tradable flags, including existing attuned instances,
+containers and augments. Original NO DROP definitions sell for exactly 1pp per
+physical unit at merchants and through #sellall. Ordinary pricing remains; a
+converted-item purchase floor prevents buyback profit. Raw SQL flags and saved
+attunement remain available for rollback. Summoned/free rewards are included.
+Requires all matching native binaries, regenerated shared memory and restart;
+merchant preview can differ from the fixed receipt. Deployed to OVH after explicit
+owner approval: all 308,961 hosted items verified tradable, 171,561 fixed payouts,
+all five binaries and 12 zones checked, fresh backup and player/content/client
+preservation verified. Native player QA remains open. See
+docs/releases/free-trade-20261004/README.md for evidence and exact owner QA.
+
 ## 2026-10-04 — Make custom loot and pet systems prominent in the player guide
 
 Expand the compressed overview into eight system sections and 67 explained

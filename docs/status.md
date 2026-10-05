@@ -3,13 +3,50 @@
 Updated October 4, 2026. This is the current status index; dated studies and
 QA reports preserve their original evidence and are not live-state promises.
 
+## Passive AA leveling deployed
+
+Implemented additive AA at 1% of the full AA award while preserving leveling XP,
+with 0%/100% focus allocation and both quest reward paths covered. Owner-authorized
+PR 125 is on main (`a8304ccc`), and the matching five-binary OVH image is healthy.
+71 native checks and nine rollout failure tests pass; all 47 player/state tables,
+quests, content, existing free trade and client 2026100407 are preserved. Rules
+survived startup and twelve zones are running. Native gameplay acceptance remains
+open; use #aaexp off for passive gains or #aaexp on for full AA focus.
+[Behavior, automated evidence and exact owner QA](releases/passive-aa-20261004.md).
+
+## Nightcap loading artwork published
+
+PR 124 is merged into main (`70fd26a`). Signed game **2026100407** and desktop
+**0.4.0** are live on OVH. All 55 numbered loading screens and the resource
+fallback now use the ten approved Nightcap paintings. All 104 public game files
+and the desktop executable verify over HTTPS; the previous 48 game files,
+stable starter, player settings and running services are preserved.
+Fully close EQ and the launcher, then reopen the normal Nightcap shortcut to
+receive the desktop and game update. Native decoding and installation/recovery
+tests pass; viewport appearance and progress-text placement remain player QA.
+[Release evidence, rollback and exact visual checks](releases/loading-screens-20261004.md).
+
+## Universal trading and one-platinum NO DROP resale deployed
+
+The policy deployed from main `1a5c0fe` remains active in the current passive-AA
+OVH image, with its full-catalog verification repeated after the newer rollout. All 308,961 hosted definitions have
+effective tradable flags, including saved attunement; the 171,561 original NO
+DROP definitions sell for 1pp per unit at merchants and through `#sellall`.
+Full-catalog verification, all five binary hashes, 12 zone workers, backup and
+player/content/client preservation checks pass. That deployment retained client
+2026100406; its game files are also preserved in loading-gallery release 2026100407.
+Ordinary prices remain; merchant previews may differ from the fixed receipt.
+Player trade/sale acceptance and repeatable-reward economy QA remain open.
+[Deployment, rollback and exact QA](releases/free-trade-20261004/README.md).
+
 ## NPC animation follow-up published for pet retest
 
 The owner confirmed that 2026100404 repaired beetle walking/death, while
 Enchanter weapons still twitched under stationary nameplates. PR 123 preserves
 the graphics engine's native IVM identity, a second requirement beyond the
-animation-family repair. Signed release **2026100406 / 0.7.7-dev** is public;
-all 48 hosted files verify and all services/current helmet assets are preserved.
+animation-family repair. Proxy **0.7.7-dev**, first published in 2026100406,
+remains unchanged in current release 2026100407, alongside all 48 prior files
+and the existing helmet assets.
 Close EQ and press Play in the normal launcher to update. Pet idle/follow/combat,
 zoning/relog and broader NPC visual acceptance remain open.
 [Native cause, deployment and exact retest](releases/npc-animation-20261004/enchanter.md).

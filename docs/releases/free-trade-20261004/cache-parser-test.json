@@ -1,0 +1,9 @@
+{
+  "items_checked": 308928,
+  "fixed_payout_items": 171528,
+  "all_items_tradable": true,
+  "fixed_payout_copper": 1000,
+  "item_struct_bytes": 1332,
+  "cache_sha256": "c869aa80e5ef8a956bd1cf4f7a89742de4f31b34703e4f8ce4b8693c699bae81",
+  "catalog_flags_sha256": "b5ea2f0c50ec9871e4dd431511f84daa4c8bcac2f18a8a7d556f4a436e151162"
+}

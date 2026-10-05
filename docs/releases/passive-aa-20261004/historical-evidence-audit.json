@@ -1,0 +1,124 @@
+{
+  "audit_date": "2026-10-04",
+  "baseline_commit": "f44047f",
+  "scope": "Independent read-only audit of five pre-existing historical balance evidence failures. This evidence file is the only requested file change.",
+  "risk_classification": "Low-risk historical documentation drift. No archived source or recorded binary-evidence corruption found; these failures alone do not block passive-AA deployment.",
+  "focused_test_result": {
+    "tests_run": 14,
+    "passed": 9,
+    "failed": 5,
+    "execution_note": "Executed during this review with Python unittest. Each failure occurred at its final manifest-document hash assertion, after substantive archive/source/harness/build provenance assertions passed.",
+    "failing_tests": [
+      "test_aa_bulk_evidence.AABulkEvidenceTests.test_archived_source_and_fresh_build_provenance",
+      "test_aa_class_release_evidence.ClassReleaseEvidenceTests.test_diagnostic_and_evidence_bytes_are_pinned",
+      "test_aa_owned_core_evidence.EarnedCoreEvidenceTests.test_fresh_full_build_and_diagnostic_provenance",
+      "test_aa_purchase_evidence.AAPurchaseEvidenceTests.test_fresh_build_source_patch_and_evidence_hashes",
+      "test_aa_removal_evidence.AARemovalEvidenceTests.test_archived_source_and_fresh_build_provenance"
+    ]
+  },
+  "manifest_totals": {
+    "manifests": 5,
+    "unique_pinned_files": 81,
+    "matching_expected_hashes": 72,
+    "mismatched_markdown_documents": 9,
+    "non_markdown_mismatches": 0,
+    "all_manifests_and_affected_tests_unchanged_from_baseline": true,
+    "all_pinned_files_unchanged_from_baseline": true
+  },
+  "introducing_commit": "9f6f48b4da79134cd674138d24d80630823e5b88",
+  "introducing_commit_subject": "docs: refresh player site and deployed release guidance",
+  "introducing_commit_date": "2026-09-15",
+  "cause": "A common Current status (2026-09-15) deployment note was added to nine pinned Markdown documents. Removing only that note in memory exactly reproduces all nine original expected SHA-256 values.",
+  "all_nine_status_note_removals_match_expected_hashes": true,
+  "changed_markdown_documents": [
+    {
+      "path": "docs/adr/0023-refund-earned-aas-and-guard-profile-saves.md",
+      "manifest": "docs/balance/aa-bulk-evidence-manifest.json",
+      "expected_sha256": "8d5ed80bac9eafae67e2bb723a73ee8d5fc97099188b1b606fb112950267be69",
+      "current_and_baseline_sha256": "81f23aaa5b49e77887e8ebeb686fc0b5ba51ecded794de29ba4014f819bffa5f",
+      "original_hash_matching_commit": "702561466128a4490563b8d0e6cefa59f406e78a",
+      "status_note_removal_matches_expected": true
+    },
+    {
+      "path": "docs/balance/native-aa-bulk.md",
+      "manifest": "docs/balance/aa-bulk-evidence-manifest.json",
+      "expected_sha256": "99bf8a1229daaf82cb224afaf41baa45f40aee7de6fc97746f1b7b4250b820fa",
+      "current_and_baseline_sha256": "534aaa2845ad09a4843ecf32221416317ad5e27e6dc23ddf60c323d12e9866b3",
+      "original_hash_matching_commit": "702561466128a4490563b8d0e6cefa59f406e78a",
+      "status_note_removal_matches_expected": true
+    },
+    {
+      "path": "docs/balance/native-aa-class-release.md",
+      "manifest": "docs/balance/aa-release-before-evidence-manifest.json",
+      "expected_sha256": "27f38be08ec1e05cc3c68c22f0157319e81ecc3a6f31f15dd31fd8cc4339a760",
+      "current_and_baseline_sha256": "bce5e6a476cd742b0dae531752b50a607a1b50d74277613cae6167379b283cc6",
+      "original_hash_matching_commit": "eedc168e3e6a00bbb6af5d52e7c8bd3a1248e932",
+      "status_note_removal_matches_expected": true
+    },
+    {
+      "path": "docs/adr/0026-atomic-multiclass-release.md",
+      "manifest": "docs/balance/aa-release-before-evidence-manifest.json",
+      "expected_sha256": "25114b1cc92a867ec94abe63d9612fbda68aac3e571cd5ae65eb7233eedc542c",
+      "current_and_baseline_sha256": "93bb4487904afc08aeccc0f0cde9c91029db800f5c6b11199302aa6f092c0ace",
+      "original_hash_matching_commit": "82866d12f503baf91a0e3dc7230c123967030d3c",
+      "status_note_removal_matches_expected": true
+    },
+    {
+      "path": "docs/balance/native-aa-owned-core.md",
+      "manifest": "docs/balance/aa-owned-core-evidence-manifest.json",
+      "expected_sha256": "f3e692921f7a15950e28ab48c7133f857e127b167e1c678127ed2ac36055c817",
+      "current_and_baseline_sha256": "c498b0d876d2cab6b0d51e037cdf1125bbe0ed31b7ded15a221227373dd87452",
+      "original_hash_matching_commit": "8baa1c0cbc4d1aa777fc764aa52f74982f6c7bf4",
+      "status_note_removal_matches_expected": true
+    },
+    {
+      "path": "docs/balance/native-aa-purchase.md",
+      "manifest": "docs/balance/aa-purchase-evidence-manifest.json",
+      "expected_sha256": "32f11f9ac490861880f4f5a75b6c419ba94a527f6df3265a2c81505911be975e",
+      "current_and_baseline_sha256": "c121fa16f08af7cc7325df8adb15f80c28a7d92ce8e985ab0f329f527de412da",
+      "original_hash_matching_commit": "d7c56136e7dfb84f668775e33d6d0fdb4efef0c9",
+      "status_note_removal_matches_expected": true
+    },
+    {
+      "path": "docs/adr/0025-durable-aa-purchases-and-grants.md",
+      "manifest": "docs/balance/aa-purchase-evidence-manifest.json",
+      "expected_sha256": "7b8e632d7972e56e274a3f1e4e5c8cd87b86885cc8eb829a5c411f8e70a89231",
+      "current_and_baseline_sha256": "371e6abb36606b3208aaf3b77498cf12fe1edbdeb452f2a26614dcdb43388d2f",
+      "original_hash_matching_commit": "d7c56136e7dfb84f668775e33d6d0fdb4efef0c9",
+      "status_note_removal_matches_expected": true
+    },
+    {
+      "path": "docs/adr/0022-atomic-earned-aa-removal.md",
+      "manifest": "docs/balance/aa-removal-evidence-manifest.json",
+      "expected_sha256": "c58fbf23ea432c3ed1f96178d7f9ac66d2d33a779efc7a1c3d0d1537e5143420",
+      "current_and_baseline_sha256": "140568298d33831dde222b25b1d4fb3675fb5cf5e2896aae422545d0618766a7",
+      "original_hash_matching_commit": "7d7bcf4c3903e44a10629c6a6fe2dc525af64302",
+      "status_note_removal_matches_expected": true
+    },
+    {
+      "path": "docs/balance/native-aa-removal.md",
+      "manifest": "docs/balance/aa-removal-evidence-manifest.json",
+      "expected_sha256": "e307abc11a13b59afe862b28fff02f82eef36aaa42425146184cc8ea8dbdb13d",
+      "current_and_baseline_sha256": "aaf6464b6f03c1a61b797dd8fb8f8401be877ae1b9dab2b9d33a6dd0b323d6dc",
+      "original_hash_matching_commit": "7d7bcf4c3903e44a10629c6a6fe2dc525af64302",
+      "status_note_removal_matches_expected": true
+    }
+  ],
+  "evidence_findings": [
+    "All five manifest files, affected test files, and all 81 pinned files equal f44047f, so the nine document mismatches predate this feature.",
+    "Archived source/harness bytes, source patches, build records and logs, and native result evidence retain their pinned hashes.",
+    "Original document hashes are recoverable from the listed September 13 commits."
+  ],
+  "limits": [
+    "Historical executable binary bytes were not independently rehashed; recorded binary identities and archived evidence were checked.",
+    "This audit does not validate a new production binary or replace fresh build, deployment, and in-game checks.",
+    "The historical suite remains non-green. Expected hashes were not rewritten and failures were not suppressed."
+  ],
+  "packaging_review": {
+    "reviewed_file": "artifacts/passive-aa-20261004/package_server.py",
+    "exact_reviewed_patch_sha256_assertion_present": true,
+    "reviewed_changed_file_set_assertion_present": true,
+    "remaining_actionable_findings": [],
+    "scope": "Read-only script review; concrete package validation is a separate step."
+  }
+}

@@ -997,6 +997,7 @@ RULE_INT(Adventure, LDoNLootCountModifier, 10, "LDoN Loot Count Modifier, lower 
 RULE_CATEGORY_END()
 
 RULE_CATEGORY(AA)
+RULE_INT(AA, PassiveExpPercent, 1, "Percent of a full AA XP award also earned from kills/quests/tasks at 0% AA allocation, without reducing level XP. Clamped to 0-100; 0 disables passive gains.")
 RULE_INT(AA, ExpPerPoint, 23976503, "Amount of experience per AA. Is the same as the amount of experience to go from level 51 to level 52")
 RULE_BOOL(AA, NormalizedAAEnabled, false, "TSS+ change to AA that normalizes AA experience to a fixed # of white con kills independent of level")
 RULE_INT(AA, NormalizedAANumberOfWhiteConPerAA, 25, "The number of white con kills per AA point")
@@ -1150,6 +1151,7 @@ RULE_BOOL(Doors, RequireKeyOnCursor, false, "Enable this to require pre-keyring 
 RULE_CATEGORY_END()
 
 RULE_CATEGORY(Items)
+RULE_BOOL(Items, FreeTrade, true, "All items are tradable; original NO DROP items sell for 1 platinum. Requires shared-memory regeneration and world/zone restart.")
 RULE_BOOL(Items, DisableAttuneable, false, "Enable this to disable Attuneable Items")
 RULE_BOOL(Items, DisableBardFocusEffects, false, "Enable this to disable Bard Focus Effects on Items")
 RULE_BOOL(Items, DisableLore, false, "Enable this to disable Lore Items")

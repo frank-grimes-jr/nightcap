@@ -2302,9 +2302,10 @@ void Client::SetSkill(EQ::skills::SkillType skillid, uint16 value) {
 // Set the AA-experience split server-side. The RoF2 client hides the AA-XP toggle
 // below level 51, so the #aaexp command drives this instead of OP_AAAction. exp.cpp
 // still enforces Character:AAExpMinLevel, so this only "sticks" at/above that level.
-void Client::SetAAExperiencePercent(uint8 percent)
+void Client::SetAAExperiencePercent(uint32 percent)
 {
-	m_epp.perAA = percent > 100 ? 100 : percent;
+	m_epp.perAA = percent;
+	NormalizeAAAllocation();
 	MessageString(Chat::White, m_epp.perAA == 0 ? AA_OFF : AA_ON);
 	SendAlternateAdvancementStats();
 	SendAlternateAdvancementTable();
@@ -13418,19 +13419,7 @@ std::string Client::SplitCommandHelpText(std::vector<std::string> msg, std::stri
 
 void Client::SetAAEXPPercentage(uint8 percentage)
 {
-	const uint32 before_percentage = m_epp.perAA;
-
-	if (before_percentage > 0 && percentage == 0) {
-		MessageString(Chat::White, AA_OFF);
-	}
-	else if (before_percentage == 0 && percentage > 0) {
-		MessageString(Chat::White, AA_ON);
-	}
-
-	m_epp.perAA = EQ::Clamp(static_cast<int>(percentage), 0, 100);
-
-	SendAlternateAdvancementStats();
-	SendAlternateAdvancementTable();
+	SetAAExperiencePercent(percentage);
 }
 
 void Client::BroadcastPositionUpdate()

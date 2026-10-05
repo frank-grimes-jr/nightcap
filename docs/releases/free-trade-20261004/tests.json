@@ -1,0 +1,36 @@
+{
+  "free_trade_native_tests": {
+    "passed": 6,
+    "scope": "Actual trade gate, merchant pricing, sellall, consent and pure policy"
+  },
+  "existing_gameplay_policy_tests": {
+    "passed": 2
+  },
+  "advanced_loot_bulk": {
+    "status": "passed",
+    "scope": "actual bulk functions with dependency fakes, not native gameplay",
+    "sources": {
+      "server-mods\\code\\zone\\advanced_loot.cpp": "ff5f1adb579ddcac7136ad53751ed274e2082be64c31540fa006dbf0f7013cf4",
+      "server-mods\\code\\common\\loot.h": "dff64cc59e0d2955ab2345ef6368e81ffb00a1cec1772edb2b4cd54a83329863"
+    },
+    "result": "PASS: actual LootAll batching, outcomes, physical/bag consent, expiry, revision, new drops and callback mutation guards"
+  },
+  "advanced_loot_access": {
+    "status": "passed",
+    "scope": "production functions with dependency fakes; no native zone execution",
+    "sources": {
+      "server-mods\\code\\zone\\corpse_advanced_loot.cpp": "cf6bfa47f01526f1e32548d351d2907a343513a8d4a816cef6040aef21076a69",
+      "server-mods\\code\\zone\\advanced_loot.cpp": "ff5f1adb579ddcac7136ad53751ed274e2082be64c31540fa006dbf0f7013cf4"
+    },
+    "result": "PASS: actual corpse access, classic GM authority, quarantined/locked/busy/range/state restrictions and connected master selection"
+  },
+  "independent_review": {
+    "blocking_findings": 0,
+    "resolved": [
+      "sellall fixed payout",
+      "stackable charge handling",
+      "command help"
+    ]
+  },
+  "manual_gameplay": "pending"
+}

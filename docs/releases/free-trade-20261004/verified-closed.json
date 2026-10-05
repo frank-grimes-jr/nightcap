@@ -1,0 +1,74 @@
+{
+  "image_id": "sha256:292dea4dcdf8c546c3bcfc0a4f84cd341a2ad44b18f5015dca119b951305d2f6",
+  "started_at": "2026-10-04T21:43:46.214625821Z",
+  "restart_count": 0,
+  "processes": [
+    [
+      "loginserver",
+      "1687b96dcbbff46b332c7ade8a24b47db8831b373ab5079d855e0dff8f7be061"
+    ],
+    [
+      "world",
+      "80fb2097c8a1fcaba80d5cfead3156a027cfdb7f8b6ebf247dc4b836c25883ab"
+    ],
+    [
+      "ucs",
+      "c7f6afc89b29ffa3ab2d8a519e7b5d4922d6eb5d69957dec8dee7aee198c8f92"
+    ],
+    [
+      "zone",
+      "ecba82e22dd088028fe6d64b87e9332ec96e2c21771f4c250c44147faf3d4904"
+    ],
+    [
+      "zone",
+      "ecba82e22dd088028fe6d64b87e9332ec96e2c21771f4c250c44147faf3d4904"
+    ],
+    [
+      "zone",
+      "ecba82e22dd088028fe6d64b87e9332ec96e2c21771f4c250c44147faf3d4904"
+    ],
+    [
+      "zone",
+      "ecba82e22dd088028fe6d64b87e9332ec96e2c21771f4c250c44147faf3d4904"
+    ],
+    [
+      "zone",
+      "ecba82e22dd088028fe6d64b87e9332ec96e2c21771f4c250c44147faf3d4904"
+    ],
+    [
+      "zone",
+      "ecba82e22dd088028fe6d64b87e9332ec96e2c21771f4c250c44147faf3d4904"
+    ],
+    [
+      "zone",
+      "ecba82e22dd088028fe6d64b87e9332ec96e2c21771f4c250c44147faf3d4904"
+    ],
+    [
+      "zone",
+      "ecba82e22dd088028fe6d64b87e9332ec96e2c21771f4c250c44147faf3d4904"
+    ],
+    [
+      "zone",
+      "ecba82e22dd088028fe6d64b87e9332ec96e2c21771f4c250c44147faf3d4904"
+    ],
+    [
+      "zone",
+      "ecba82e22dd088028fe6d64b87e9332ec96e2c21771f4c250c44147faf3d4904"
+    ],
+    [
+      "zone",
+      "ecba82e22dd088028fe6d64b87e9332ec96e2c21771f4c250c44147faf3d4904"
+    ],
+    [
+      "zone",
+      "ecba82e22dd088028fe6d64b87e9332ec96e2c21771f4c250c44147faf3d4904"
+    ]
+  ],
+  "errors": {
+    "native": 0,
+    "quest": 0,
+    "database": 0
+  },
+  "player_tables_preserved": 47,
+  "quest_files_preserved": 8139
+}

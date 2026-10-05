@@ -1152,6 +1152,7 @@ void Client::SendAlternateAdvancementRank(int aa_id, int level) {
 }
 
 void Client::SendAlternateAdvancementStats() {
+	NormalizeAAAllocation();
 	auto outapp = new EQApplicationPacket(OP_AAExpUpdate, sizeof(AltAdvStats_Struct));
 	AltAdvStats_Struct *aps = (AltAdvStats_Struct *)outapp->pBuffer;
 	aps->experience = (uint32)(((float)330.0f * (float)m_pp.expAA) / (float)GetRequiredAAExperience());

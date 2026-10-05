@@ -53,6 +53,24 @@ All commands run from `akk-stack/`:
 
 ## Server ops
 
+- **Passive AA experience**: `AA:PassiveExpPercent` controls additive kill/quest/task
+  AA at 0% allocation; `#aaexp on|off` selects 100% or 0%. Tiny gains round down.
+  Percentage rewards must preserve independent level/AA modifiers and missing-row
+  behavior. Rebuild matching world/zone for the rule; this candidate is not deployed.
+  Tests, calibration and exact QA: `docs/releases/passive-aa-20261004.md`.
+
+- **OVH zone exits restart the whole runtime.** The deployed start.py supervises
+  every native child. Use a supported zone-unload mechanism for a single-zone
+  refresh; do not assume local eqlaunch restart behavior applies to production.
+  Evidence: docs/ops/camil-silvermist-20261004.md.
+
+- **Universal item trading**: Items:FreeTrade projects effective item
+  flags and fixed former-NO-DROP resale from original SQL definitions. Preserve
+  raw SQL flags and IsAttuned() persistence; use IsAttunedForTrade() for restrictions.
+  ItemData layout changed: pair all native binaries with a regenerated cache,
+  including on rollback. Merchant and #sellall share the fixed payout. Scope and
+  QA: docs/releases/free-trade-20261004/README.md.
+
 - **Spell access is per character in production release 2026092005**: use
   `common/spell_class_catalog.h`, generated from the pinned original spell file,
   for learnable spell levels and ownership. Never widen shared `spells_new` class

@@ -1,0 +1,23 @@
+{
+  "checked_utc": "2026-10-04T20:51:16.1290578Z",
+  "harness": "verify_native_surface.cpp",
+  "native_dependency": "C:/Windows/SysWOW64/d3dx9_30.dll",
+  "dependency_sha256": "5edeed79f2359527a55b8189cfa8b9b121cd608d44eead905a0f3436938ad532",
+  "client_graphics_sha256": "ade556b68e98f6f39c5578f70431e11c0b9babcc15b8571eb22cf1e2b654417e",
+  "harness_sha256": "827b867800d32f55dc147233621bdba9414c7387a3bd5d16b843b6be125091ab",
+  "architecture": "x86",
+  "api": "D3DXLoadSurfaceFromFileInMemory",
+  "generated_files": 56,
+  "generated_dimensions": [
+    1672,
+    941
+  ],
+  "stock_control_dimensions": [
+    1024,
+    768
+  ],
+  "decoding_failures": 0,
+  "pixel_hashes": 10,
+  "gpu_test": "D3DERR_NOTAVAILABLE at CreateDevice in execution environment",
+  "limitation": "CPU-backed lockable D3D9 surface proves native JPEG pixel decoding. It does not verify in-game viewport aspect, loading progress text placement or player visual acceptance."
+}

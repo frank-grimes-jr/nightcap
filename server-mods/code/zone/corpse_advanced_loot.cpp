@@ -49,10 +49,10 @@ bool LoreConflict(Client *c, const EQ::ItemInstance &item)
 }
 bool ConsentNeeded(const EQ::ItemInstance &item)
 {
-	if (!item.GetItem()->NoDrop || item.GetItem()->NoTransfer || item.IsAttuned()) { return true; }
+	if (!item.GetItem()->NoDrop || item.GetItem()->NoTransfer || item.IsAttunedForTrade()) { return true; }
 	for (int i = 0; i < EQ::invaug::SOCKET_COUNT; ++i) {
 		const auto augment = item.GetAugment(i);
-		if (augment && (!augment->GetItem()->NoDrop || augment->GetItem()->NoTransfer || augment->IsAttuned())) { return true; }
+		if (augment && (!augment->GetItem()->NoDrop || augment->GetItem()->NoTransfer || augment->IsAttunedForTrade())) { return true; }
 	}
 	for (uint8 i = 0; i < EQ::invbag::SLOT_COUNT; ++i) {
 		if (const auto child = item.GetItem(i); child && ConsentNeeded(*child)) { return true; }

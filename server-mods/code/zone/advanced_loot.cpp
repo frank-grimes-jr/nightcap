@@ -109,7 +109,7 @@ std::string Text(std::string value, size_t maximum = 63) {
 }
 bool Consent(const LootItem &loot) {
 	const auto item = database.GetItem(loot.item_id);
-	if (!item || !item->NoDrop || item->NoTransfer || loot.attuned) { return true; }
+	if (!item || !item->NoDrop || item->NoTransfer || (loot.attuned && !item->FreeTrade)) { return true; }
 	for (auto id : {loot.aug_1, loot.aug_2, loot.aug_3, loot.aug_4, loot.aug_5, loot.aug_6}) {
 		if (!id) { continue; }
 		const auto augment = database.GetItem(id);

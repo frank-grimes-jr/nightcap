@@ -186,7 +186,7 @@ func buildConfigured(client, assets, keyPath string, create bool, release uint64
 	m.MinLauncher = version
 	if profile != nil {
 		trust.ReleaseInventory = true
-		m.MinLauncher = "0.3.0"
+		m.MinLauncher = loadingScreensMinimumLauncher
 		if profile.MinLauncher != "" {
 			m.MinLauncher = profile.MinLauncher
 		}
