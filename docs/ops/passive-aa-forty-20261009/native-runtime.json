@@ -1,0 +1,7 @@
+{
+  "tested_production_manifest_matches_hosted_binaries": true,
+  "binaries": {
+    "world": "efd54a1023a569274a76f65d3d2a18a173906762472a1bce186e3e14629d3c18",
+    "zone": "54689a1ad67e8bb753a9e8ad897c3b1cebf51642c8e7a3f0ea5eeb1c96b1d5b1"
+  }
+}

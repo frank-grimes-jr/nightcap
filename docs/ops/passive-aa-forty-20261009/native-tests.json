@@ -1,0 +1,128 @@
+{
+  "source": "/tmp/nightcap-zone-hunt-hardened-build-20261009/source",
+  "source_files_verified": [
+    "zone/exp.cpp",
+    "zone/client.cpp",
+    "zone/client_packet.cpp",
+    "zone/zonedb.cpp",
+    "zone/gm_commands/aa_exp.cpp",
+    "common/server_reload_types.h",
+    "common/rulesys.cpp",
+    "world/zonelist.cpp",
+    "zone/worldserver.cpp"
+  ],
+  "native_checks": 129,
+  "failures": 0,
+  "test_sha256": "37f6af9f8fd9fbb296c4a77623efd1fa6bf16f975b363ef4580f91fcb4e8b256",
+  "base_curve_before_per_award_rounding": [
+    {
+      "level": 5,
+      "total_level_xp": 64000,
+      "aa_at_1_percent": 0.0128,
+      "aa_at_3_percent": 0.0384,
+      "aa_at_5_percent": 0.064,
+      "aa_at_20_percent": 0.256,
+      "aa_at_40_percent": 0.512
+    },
+    {
+      "level": 7,
+      "total_level_xp": 216000,
+      "aa_at_1_percent": 0.0432,
+      "aa_at_3_percent": 0.1296,
+      "aa_at_5_percent": 0.216,
+      "aa_at_20_percent": 0.864,
+      "aa_at_40_percent": 1.728
+    },
+    {
+      "level": 8,
+      "total_level_xp": 343000,
+      "aa_at_1_percent": 0.0686,
+      "aa_at_3_percent": 0.2058,
+      "aa_at_5_percent": 0.343,
+      "aa_at_20_percent": 1.372,
+      "aa_at_40_percent": 2.744
+    },
+    {
+      "level": 10,
+      "total_level_xp": 729000,
+      "aa_at_1_percent": 0.1458,
+      "aa_at_3_percent": 0.4374,
+      "aa_at_5_percent": 0.729,
+      "aa_at_20_percent": 2.916,
+      "aa_at_40_percent": 5.832
+    },
+    {
+      "level": 11,
+      "total_level_xp": 1000000,
+      "aa_at_1_percent": 0.2,
+      "aa_at_3_percent": 0.6,
+      "aa_at_5_percent": 1.0,
+      "aa_at_20_percent": 4.0,
+      "aa_at_40_percent": 8.0
+    },
+    {
+      "level": 13,
+      "total_level_xp": 1728000,
+      "aa_at_1_percent": 0.3456,
+      "aa_at_3_percent": 1.0368,
+      "aa_at_5_percent": 1.728,
+      "aa_at_20_percent": 6.912,
+      "aa_at_40_percent": 13.824
+    },
+    {
+      "level": 18,
+      "total_level_xp": 4913000,
+      "aa_at_1_percent": 0.9826,
+      "aa_at_3_percent": 2.9478,
+      "aa_at_5_percent": 4.913,
+      "aa_at_20_percent": 19.652,
+      "aa_at_40_percent": 39.304
+    },
+    {
+      "level": 19,
+      "total_level_xp": 5832000,
+      "aa_at_1_percent": 1.1664,
+      "aa_at_3_percent": 3.4992,
+      "aa_at_5_percent": 5.832,
+      "aa_at_20_percent": 23.328,
+      "aa_at_40_percent": 46.656
+    },
+    {
+      "level": 20,
+      "total_level_xp": 6859000,
+      "aa_at_1_percent": 1.3718,
+      "aa_at_3_percent": 4.1154,
+      "aa_at_5_percent": 6.859,
+      "aa_at_20_percent": 27.436,
+      "aa_at_40_percent": 54.872
+    },
+    {
+      "level": 30,
+      "total_level_xp": 24389000,
+      "aa_at_1_percent": 4.8778,
+      "aa_at_3_percent": 14.6334,
+      "aa_at_5_percent": 24.389,
+      "aa_at_20_percent": 97.556,
+      "aa_at_40_percent": 195.112
+    },
+    {
+      "level": 40,
+      "total_level_xp": 71182800,
+      "aa_at_1_percent": 14.23656,
+      "aa_at_3_percent": 42.70968,
+      "aa_at_5_percent": 71.1828,
+      "aa_at_20_percent": 284.7312,
+      "aa_at_40_percent": 569.4624
+    },
+    {
+      "level": 50,
+      "total_level_xp": 164708608,
+      "aa_at_1_percent": 32.9417216,
+      "aa_at_3_percent": 98.82516480000001,
+      "aa_at_5_percent": 164.708608,
+      "aa_at_20_percent": 658.834432,
+      "aa_at_40_percent": 1317.668864
+    }
+  ],
+  "limits": "Kills with equal normal/AA modifiers, no deaths/penalties/bonuses; not a player-session or combat-balance test"
+}

@@ -251,6 +251,32 @@ int main() {
     c.AddEXP(Kill,1,ConsiderColor::White);
     check(c.last_aa==0,"twenty-percent tiny rewards retain no minimum stipend");
 
+    // Owner-requested second tuning: 20 -> 40, retaining accumulated XP.
+    reset(); rules["AA:PassiveExpPercent"]=20; c=Client{}; c.level=5; c.m_pp.expAA=1049;
+    c.AddEXP(Kill,10000,ConsiderColor::White);
+    rules["AA:PassiveExpPercent"]=40;
+    c.AddEXP(Kill,10000,ConsiderColor::White);
+    check(c.m_pp.expAA==4949 && c.GetEXP()==13000,"forty-percent reload retains prior progress and normal XP");
+    for(auto level : {5,10,30,50}) {
+        for(auto source : {Kill,Quest,Task}) {
+            reset(); rules["AA:PassiveExpPercent"]=40; c=Client{}; c.level=level;
+            c.AddEXP(source,10000,ConsiderColor::White);
+            check(c.last_exp==6500 && c.last_aa==2600,"forty-percent kill/quest/task at progression levels");
+            c=Client{}; c.level=level; c.SetAAExperiencePercent(100);
+            c.AddEXP(source,10000,ConsiderColor::White);
+            check(c.last_exp==0 && c.last_aa==6500,"forty-percent tuning retains full focus award");
+        }
+    }
+    for(auto source : {Quest,Task}) {
+        reset(); rules["AA:PassiveExpPercent"]=40; c=Client{}; c.AddLevelBasedExp(source,10);
+        auto award=(c.GetEXPForLevel(31)-c.GetEXPForLevel(30))/10;
+        check(c.last_exp==award && c.last_aa==uint64(award*0.65f)*40/100,"forty-percent percentage quest/task rewards");
+    }
+    reset(); rules["AA:PassiveExpPercent"]=40; c=Client{}; c.AddEXP(Kill,1,ConsiderColor::White);
+    check(c.last_aa==0,"forty-percent tiny awards retain no minimum stipend");
+    c=Client{}; c.m_pp.expAA=49000; c.AddEXP(Quest,10000);
+    check(c.m_pp.aapoints==1 && c.m_pp.expAA==1600 && c.last_exp==6500,"forty-percent AA boundary keeps remainder and level XP");
+
     std::cout<<checks<<" checks, "<<failures<<" failures\n";
     return failures?1:0;
 }
