@@ -1,5 +1,15 @@
 # CHANGES
 
+## 2026-10-09 - Increase passive AA experience to 20%
+
+At the owner's explicit request, change OVH AA:PassiveExpPercent from 1 to 20
+in default ruleset 1. Preserve full leveling XP, existing AA progress and the
+100% focus award. A full backup, inverse rehearsal, exact rule-table comparison,
+100 native checks and eight operation tests passed. World and all 12 zones
+reloaded without restarting; every other rule is unchanged. The compiled fallback
+remains 1%, so preserve the DB override. Native gameplay/balance acceptance is
+still open. Evidence and QA: docs/ops/passive-aa-tuning-20261009/README.md.
+
 ## 2026-10-09 - Classic zone hunt deployed and private guide updated
 
 Owner-authorized PR #132 promoted hunt/forge to main. The fresh five-binary OVH

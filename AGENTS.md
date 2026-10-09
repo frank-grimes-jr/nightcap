@@ -56,7 +56,9 @@ All commands run from `akk-stack/`:
 - **Passive AA experience**: `AA:PassiveExpPercent` controls additive kill/quest/task
   AA at 0% allocation; `#aaexp on|off` selects 100% or 0%. Tiny gains round down.
   Percentage rewards must preserve independent level/AA modifiers and missing-row
-  behavior. Rebuild matching world/zone for the rule; this candidate is not deployed.
+  behavior. Catalog changes require matching world/zone. Existing values use
+  `#reload rules global`; OVH uses 20% as of October 9 (compiled fallback 1%).
+  Tuning and recovery: `docs/ops/passive-aa-tuning-20261009/README.md`.
   Tests, calibration and exact QA: `docs/releases/passive-aa-20261004.md`.
 
 - **OVH zone exits restart the whole runtime.** The deployed start.py supervises

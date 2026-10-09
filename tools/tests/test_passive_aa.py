@@ -223,6 +223,34 @@ int main() {
     c=Client{}; c.AddLevelBasedExp(Task,10,20,true);
     auto limited=(c.GetEXPForLevel(21)-c.GetEXPForLevel(20))/10;
     check(c.last_exp==limited && c.last_aa==uint64(limited*0.65f)/100,"max reward level and ignore-mods remain effective");
+
+    // October 9 live tuning: rule reload applies to the next reward, without
+    // rewriting existing AA progress or reducing the normal leveling award.
+    reset(); c=Client{}; c.level=5; c.m_pp.expAA=1049;
+    c.AddEXP(Kill,10000,ConsiderColor::White);
+    check(c.m_pp.expAA==1114 && c.GetEXP()==6500,"one-percent preimage at level five");
+    rules["AA:PassiveExpPercent"]=20;
+    c.AddEXP(Kill,10000,ConsiderColor::White);
+    check(c.m_pp.expAA==2414 && c.GetEXP()==13000,"twenty-percent reload keeps prior progress and level XP");
+    for(auto level : {5,10,30,50}) {
+        for(auto source : {Kill,Quest,Task}) {
+            reset(); rules["AA:PassiveExpPercent"]=20; c=Client{}; c.level=level;
+            c.AddEXP(source,10000,ConsiderColor::White);
+            check(c.last_exp==6500 && c.last_aa==1300,"twenty-percent kill/quest/task at progression levels");
+            c=Client{}; c.level=level; c.SetAAExperiencePercent(100);
+            c.AddEXP(source,10000,ConsiderColor::White);
+            check(c.last_exp==0 && c.last_aa==6500,"twenty-percent tuning does not boost full focus");
+        }
+    }
+    for(auto source : {Quest,Task}) {
+        reset(); rules["AA:PassiveExpPercent"]=20; c=Client{}; c.AddLevelBasedExp(source,10);
+        auto award=(c.GetEXPForLevel(31)-c.GetEXPForLevel(30))/10;
+        check(c.last_exp==award && c.last_aa==uint64(award*0.65f)*20/100,"twenty-percent percentage quest/task rewards");
+    }
+    reset(); rules["AA:PassiveExpPercent"]=20; c=Client{};
+    c.AddEXP(Kill,1,ConsiderColor::White);
+    check(c.last_aa==0,"twenty-percent tiny rewards retain no minimum stipend");
+
     std::cout<<checks<<" checks, "<<failures<<" failures\n";
     return failures?1:0;
 }

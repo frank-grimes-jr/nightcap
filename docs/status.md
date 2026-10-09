@@ -35,16 +35,15 @@ failure tests pass. Owner-authorized PR #127 is merged to main and deployed to O
 Post-deployment health checks passed and access is open. Gameplay QA remains
 outstanding. [Scope and exact QA](releases/throw-stone-20261009.md).
 
-## Passive AA leveling deployed
+## Passive AA leveling: 20% live
 
-Implemented additive AA at 1% of the full AA award while preserving leveling XP,
-with 0%/100% focus allocation and both quest reward paths covered. Owner-authorized
-PR 125 is on main (`a8304ccc`), and the matching five-binary OVH image is healthy.
-71 native checks and nine rollout failure tests pass; all 47 player/state tables,
-quests, content, existing free trade and client 2026100407 are preserved. Rules
-survived startup and twelve zones are running. Native gameplay acceptance remains
-open; use #aaexp off for passive gains or #aaexp on for full AA focus.
-[Behavior, automated evidence and exact owner QA](releases/passive-aa-20261004.md).
+The owner selected 20% passive AA on October 9, increased from 1%, alongside
+unchanged full leveling XP. AA focus remains 0/100. The guarded rule update,
+100 native-method checks and eight operation tests pass; world and all twelve
+zones reloaded without restarting. Existing AA progress and other rules remain.
+In-game reward/persistence and combined build balance acceptance remain open.
+[Tuning, evidence and exact QA](ops/passive-aa-tuning-20261009/README.md).
+[Original implementation](releases/passive-aa-20261004.md).
 
 ## Nightcap loading artwork published
 

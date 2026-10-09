@@ -1,0 +1,133 @@
+{
+  "changed_rows": 1,
+  "rule": "AA:PassiveExpPercent",
+  "value": "20",
+  "previous_value": "1",
+  "ruleset_id": 1,
+  "other_rules_unchanged": true,
+  "rollback_rehearsed": true,
+  "backup_sha256": "d7d7def0d7da2598750a6f7bb2951c1185a65dfd4f6ac35b82993f722c08a18b",
+  "backup_directory": "/opt/nightcap/backups/passive-aa-tuning-20261009",
+  "backup_uncompressed_bytes": 447115485,
+  "status": "activated_verified",
+  "reload": {
+    "reload": "Rules",
+    "global": true,
+    "world_broadcast_received": true
+  },
+  "reload_logs": {
+    "26": [
+      "[10-09-2026 14:05:56] [World] [Info] Sending reload to all zones for type [Rules]",
+      "[10-09-2026 14:05:56] [World] [Info] Loaded [1,008] rules(s) in rule_set [default] id [1]"
+    ],
+    "28": [
+      "[10-09-2026 14:05:56] [Zone] [Info] Queuing reload for [Rules] (24) to reload in [1 Second]",
+      "[10-09-2026 14:05:58] [Zone] [Info] Reloading [Rules] (24) zone booted required [false]",
+      "[10-09-2026 14:05:58] [Zone] [Info] Loaded [1,008] rules(s) in rule_set [default] id [1]",
+      "[10-09-2026 14:05:58] [Zone] [Info] Reloaded [Rules] (24)"
+    ],
+    "29": [
+      "[10-09-2026 14:05:56] [Zone] [Info] Queuing reload for [Rules] (24) to reload in [1 Second]",
+      "[10-09-2026 14:05:58] [Zone] [Info] Reloading [Rules] (24) zone booted required [false]",
+      "[10-09-2026 14:05:58] [Zone] [Info] Loaded [1,008] rules(s) in rule_set [default] id [1]",
+      "[10-09-2026 14:05:58] [Zone] [Info] Reloaded [Rules] (24)"
+    ],
+    "30": [
+      "[10-09-2026 14:05:56] [Zone] [Info] Queuing reload for [Rules] (24) to reload in [2 Seconds]",
+      "[10-09-2026 14:05:59] [Zone] [Info] Reloading [Rules] (24) zone booted required [false]",
+      "[10-09-2026 14:05:59] [Zone] [Info] Loaded [1,008] rules(s) in rule_set [default] id [1]",
+      "[10-09-2026 14:05:59] [Zone] [Info] Reloaded [Rules] (24)"
+    ],
+    "31": [
+      "[10-09-2026 14:05:56] [Zone] [Info] Queuing reload for [Rules] (24) to reload in [1 Second]",
+      "[10-09-2026 14:05:58] [Zone] [Info] Reloading [Rules] (24) zone booted required [false]",
+      "[10-09-2026 14:05:58] [Zone] [Info] Loaded [1,008] rules(s) in rule_set [default] id [1]",
+      "[10-09-2026 14:05:58] [Zone] [Info] Reloaded [Rules] (24)"
+    ],
+    "32": [
+      "[10-09-2026 14:05:56] [Zone] [Info] Queuing reload for [Rules] (24) to reload in [1 Second]",
+      "[10-09-2026 14:05:58] [Zone] [Info] Reloading [Rules] (24) zone booted required [false]",
+      "[10-09-2026 14:05:58] [Zone] [Info] Loaded [1,008] rules(s) in rule_set [default] id [1]",
+      "[10-09-2026 14:05:58] [Zone] [Info] Reloaded [Rules] (24)"
+    ],
+    "33": [
+      "[10-09-2026 14:05:56] [Zone] [Info] Queuing reload for [Rules] (24) to reload in [1 Second]",
+      "[10-09-2026 14:05:58] [Zone] [Info] Reloading [Rules] (24) zone booted required [false]",
+      "[10-09-2026 14:05:58] [Zone] [Info] Loaded [1,008] rules(s) in rule_set [default] id [1]",
+      "[10-09-2026 14:05:58] [Zone] [Info] Reloaded [Rules] (24)"
+    ],
+    "34": [
+      "[10-09-2026 14:05:56] [Zone] [Info] Queuing reload for [Rules] (24) to reload in [1 Second]",
+      "[10-09-2026 14:05:58] [Zone] [Info] Reloading [Rules] (24) zone booted required [false]",
+      "[10-09-2026 14:05:58] [Zone] [Info] Loaded [1,008] rules(s) in rule_set [default] id [1]",
+      "[10-09-2026 14:05:58] [Zone] [Info] Reloaded [Rules] (24)"
+    ],
+    "39": [
+      "[10-09-2026 14:05:56] [Zone] [Info] Queuing reload for [Rules] (24) to reload in [1 Second]",
+      "[10-09-2026 14:05:58] [Zone] [Info] Reloading [Rules] (24) zone booted required [false]",
+      "[10-09-2026 14:05:58] [Zone] [Info] Loaded [1,008] rules(s) in rule_set [default] id [1]",
+      "[10-09-2026 14:05:58] [Zone] [Info] Reloaded [Rules] (24)"
+    ],
+    "40": [
+      "[10-09-2026 14:05:56] [Zone] [Info] Queuing reload for [Rules] (24) to reload in [2 Seconds]",
+      "[10-09-2026 14:05:59] [Zone] [Info] Reloading [Rules] (24) zone booted required [false]",
+      "[10-09-2026 14:05:59] [Zone] [Info] Loaded [1,008] rules(s) in rule_set [default] id [1]",
+      "[10-09-2026 14:05:59] [Zone] [Info] Reloaded [Rules] (24)"
+    ],
+    "41": [
+      "[10-09-2026 14:05:56] [Zone] [Info] Queuing reload for [Rules] (24) to reload in [1 Second]",
+      "[10-09-2026 14:05:58] [Zone] [Info] Reloading [Rules] (24) zone booted required [false]",
+      "[10-09-2026 14:05:58] [Zone] [Info] Loaded [1,008] rules(s) in rule_set [default] id [1]",
+      "[10-09-2026 14:05:58] [Zone] [Info] Reloaded [Rules] (24)"
+    ],
+    "42": [
+      "[10-09-2026 14:05:56] [Zone] [Info] Queuing reload for [Rules] (24) to reload in [1 Second]",
+      "[10-09-2026 14:05:58] [Zone] [Info] Reloading [Rules] (24) zone booted required [false]",
+      "[10-09-2026 14:05:58] [Zone] [Info] Loaded [1,008] rules(s) in rule_set [default] id [1]",
+      "[10-09-2026 14:05:58] [Zone] [Info] Reloaded [Rules] (24)"
+    ],
+    "43": [
+      "[10-09-2026 14:05:56] [Zone] [Info] Queuing reload for [Rules] (24) to reload in [1 Second]",
+      "[10-09-2026 14:05:58] [Zone] [Info] Reloading [Rules] (24) zone booted required [false]",
+      "[10-09-2026 14:05:58] [Zone] [Info] Loaded [1,008] rules(s) in rule_set [default] id [1]",
+      "[10-09-2026 14:05:58] [Zone] [Info] Reloaded [Rules] (24)"
+    ]
+  },
+  "processes_unchanged": true,
+  "services": [
+    {
+      "Service": "db",
+      "State": "running",
+      "Health": "healthy"
+    },
+    {
+      "Service": "game",
+      "State": "running",
+      "Health": "healthy"
+    },
+    {
+      "Service": "gateway",
+      "State": "running",
+      "Health": ""
+    },
+    {
+      "Service": "tunnel",
+      "State": "running",
+      "Health": ""
+    },
+    {
+      "Service": "web",
+      "State": "running",
+      "Health": ""
+    }
+  ],
+  "verified_rules": [
+    "1\tAA:ExpPerPoint\t50000",
+    "1\tAA:PassiveExpPercent\t20",
+    "1\tCharacter:AAExpMinLevel\t1",
+    "1\tCharacter:AAExpMultiplier\t0.6499999761581",
+    "1\tCharacter:ExpMultiplier\t0.65",
+    "10\tCharacter:AAExpMultiplier\t0.65",
+    "10\tCharacter:ExpMultiplier\t0.65"
+  ]
+}
