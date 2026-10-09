@@ -154,6 +154,16 @@ verify; only the pet UI changed from 2026100103. Production services and other
 assets are preserved. Close the game and click Play in the normal launcher to
 apply it. Existing saved window sizes remain; resize down if needed. Rendered
 acceptance remains open in the [repair report](releases/pet-window-layout-20261001.md).
+## Adventure Journal / Epic 0.5 candidate
+
+The [Adventure Journal](adventure-journal/README.md) adds eight native tasks and
+one archetype charm through the EC Chronicler. Guardian, Striker, Arcanist,
+Warden and Binder are earned independently of primary class, with one durable
+shared cooldown and hub-only attunement changes. The release gate starts
+disabled. Content, quest, native-function and disposable database checks are
+recorded with the candidate; client spells are staged separately. Native client
+and balance acceptance remain open in the [exact QA route](adventure-journal/QA.md).
+This entry does not record a production deployment.
 
 ## Character-selection crash repair deployed for owner QA
 

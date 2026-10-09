@@ -1,5 +1,14 @@
 # Nightcap local character notes
 
+## Wayfarer's Oath
+
+October 1, 2026 candidate: the Ancient Chronicler records a character's journeys
+and forges them into Wayfarer's Oath, an Epic 0.5 charm with five earned
+archetype attunements. This is local gameplay flavor, not a new claim about
+EverQuest canon. No class ancestry or exclusive deity allegiance is implied.
+Extended lore and bespoke wave trials remain undesigned; current scope is in
+`docs/adventure-journal/SPEC.md`.
+
 ## East Commonlands tunnel residents
 
 Owner-requested characters, September 20, 2026. These are server-local residents,

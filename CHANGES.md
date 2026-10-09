@@ -339,6 +339,24 @@ unchanged native NPCs and their caches remain intact. Guarded SQL/rollback,
 geometry, identity checks and quest fixtures pass. Candidate, not yet deployed;
 see `docs/releases/tunnel-social-20261001/README.md` for all NPCs and exact QA.
 
+## 2026-10-01 - Adventure Journal and archetype Epic 0.5 candidate
+
+Added eight native journal tasks through the East Commonlands Chronicler: three
+shared Classic expeditions and five independently earned archetype paths. One
+all-class charm supports Guardian, Striker, Arcanist, Warden and Binder, with
+hub-only switching and a shared character cooldown committed before effects.
+Recovery preserves task history and cannot reset the timer. Binder empowers one
+owned target; timed effects have a narrow native exception to permanent buffs.
+
+The package starts disabled and includes guarded additive SQL, retained-data
+disable, six staged client spells, Perl/native tests and a disposable MariaDB
+rehearsal. Review caught and corrected the Explore/Touch task mismatch, a
+later-expansion Binder spawn and a two-tick duration formula. Native build tooling
+now accepts an optional reviewed hardening patch across Windows line endings.
+Client regeneration preserves exact reviewed Epic rows without making them
+learnable. No era policy or original-client files changed. Activation, exact
+encounter/balance QA and remaining acceptance: `docs/adventure-journal/`.
+
 ## 2026-10-01 - Repair pre-character-select model material crash
 
 The live crash dump resolves to EQGraphicsDX9's material palette constructor:

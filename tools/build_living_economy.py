@@ -30,12 +30,19 @@ def main():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument('--overlay', type=Path, required=True)
     p.add_argument('--output', type=Path, required=True)
+    p.add_argument('--patch', type=Path, help='Reviewed native hardening patch for this build')
     a = p.parse_args()
     base = Path('/home/eqemu/code')
     out = a.output.resolve()
     if out.parent != Path('/tmp') or not out.name.startswith('nightcap-market-'):
         raise ValueError('Build must be in an isolated /tmp/nightcap-market-* directory')
     source = stage_source(base,a.overlay,out)
+    if a.patch:
+        # Patch headers need LF; context may come from CRLF Windows sources.
+        patch = out/'native-hardening.patch'
+        patch.write_text(a.patch.read_text(), newline='\n')
+        for args in (['--check'], []):
+            subprocess.run(['git','apply','--ignore-space-change',*args,str(patch)],cwd=source,check=True)
     build = out/'build'
     flags = ['-DCMAKE_BUILD_TYPE=RelWithDebInfo', '-DCMAKE_CXX_COMPILER=/usr/bin/clang++',
              '-DCMAKE_C_COMPILER=/usr/bin/clang', '-DVCPKG_MANIFEST_INSTALL=OFF', '-DVCPKG_MANIFEST_MODE=OFF',

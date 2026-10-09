@@ -1,0 +1,38 @@
+{
+  "scope": "isolated local MariaDB content and Perl/DBI boundary; not native gameplay",
+  "schema": "nightcap_epic05_qa_d302b1061fae",
+  "checks": [
+    "occupied ID refuses setup before content changes",
+    "later-expansion spawn refuses setup",
+    "injected content-write failure rolls back every content row; empty DDL remains",
+    "all content inserted; release disabled",
+    "reapplication refuses overwrite",
+    "all 237 server/client fields match for six spells",
+    "Perl store: durable cooldown, SQL errors, uncertain acknowledgement, four-way concurrent reserve",
+    "disable preserves attunement, cooldown, owned content definitions and unrelated rows"
+  ],
+  "store_tests": [
+    "ok 1 - release starts disabled",
+    "ok 2 - disabled release blocks first attunement",
+    "ok 3 - enabled candidate recognized",
+    "ok 4 - first attunement persisted",
+    "ok 5 - read returns persisted attunement",
+    "ok 6 - earned caller can switch ready state",
+    "ok 7 - stale path cannot reserve",
+    "ok 8 - one activation reserves cooldown",
+    "ok 9 - repeated activation refused",
+    "ok 10 - switch cannot reset cooldown",
+    "ok 11 - new DB connection sees durable cooldown",
+    "ok 12 - SQL exception fails closed",
+    "ok 13 - failed execution writes no timer",
+    "ok 14 - uncertain acknowledgement fails closed",
+    "ok 15 - lost acknowledgement never authorizes free retry",
+    "ok 16 - four concurrent connections grant exactly one activation",
+    "ok 17 - one committed use after concurrent attempts",
+    "ok 18 - disable races cannot grant power",
+    "ok 19 - disable races cannot switch path",
+    "ok 20 - disable retains attunement",
+    "1..20"
+  ],
+  "passed": true
+}

@@ -70,6 +70,15 @@ All commands run from `akk-stack/`:
   ItemData layout changed: pair all native binaries with a regenerated cache,
   including on rollback. Merchant and #sellall share the fixed payout. Scope and
   QA: docs/releases/free-trade-20261004/README.md.
+- **Epic 0.5 journal candidate**: native Tasks own progress; the character
+  `nightcap_epic05_state` row owns only attunement/cooldown. Pair the native
+  `Epic05Contract()` duration guard, three plugins, `global/items/900501.pl`,
+  tasks 9500–9507 and spells 42800–42805. The SQL gate starts disabled. Native
+  task history and proximity rules are required; Explore=5 credits movement,
+  while Touch=11 is a dynamic-zone switch. Preserve owned definitions/history
+  on rollback. Verify Classic gates on both spawn2 and spawnentry; spawn2 has
+  no enabled column. Install plugins via configured plugin paths. Full scope,
+  rehearsal and manual test route: `docs/adventure-journal/README.md`.
 
 - **Spell access is per character in production release 2026092005**: use
   `common/spell_class_catalog.h`, generated from the pinned original spell file,
