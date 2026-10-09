@@ -9,12 +9,16 @@ from check_living_economy_binary import verify_world
 
 p=argparse.ArgumentParser(description=__doc__)
 p.add_argument('--overlay',type=Path,required=True);p.add_argument('--build-root',type=Path,required=True)
+p.add_argument('--previous-manifest',type=Path,help='Recorded manifest for an already finalized candidate before reviewed integration')
 a=p.parse_args();root=a.build_root.resolve()
 if root.parent!=Path('/tmp') or not root.name.startswith('nightcap-market-zone-hunt-'):
     raise ValueError('Only this feature isolated build is permitted')
-source=root/'source';previous=json.loads((root/'manifest.json').read_text())
+source=root/'source';prior=a.previous_manifest.resolve() if a.previous_manifest else root/'manifest.json'
+if prior.parent!=root or prior.name not in ('manifest.json','final-manifest.json'):
+    raise ValueError('Previous manifest must belong to this isolated build')
+previous=json.loads(prior.read_text());previous_hash=hashlib.sha256(prior.read_bytes()).hexdigest()
 if source_fingerprints(source)!=previous['source_files']:
-    raise ValueError('Initial fresh build source changed outside the recorded build')
+    raise ValueError('Candidate source changed outside the recorded build')
 changed=[]
 for f in a.overlay.rglob('*'):
     if not f.is_file(): continue
@@ -33,6 +37,7 @@ if before!=source_fingerprints(source): raise RuntimeError('Source changed durin
 verify_world((root/'build/bin/world').read_bytes())
 binaries={name:hashlib.sha256((root/'build/bin'/name).read_bytes()).hexdigest() for name in targets}
 manifest=dict(status='built_not_installed',source_files=before,binaries=binaries,reviewed_fix_files=changed,
+              previous_manifest_sha256=previous_hash,
               provenance='Fresh isolated build created for this feature, followed by dependency-tracked reviewed fixes; no pre-existing release objects imported.')
 (root/'final-manifest.json').write_text(json.dumps(manifest,indent=2)+'\n')
 print(json.dumps(dict(status=manifest['status'],binaries=binaries)))

@@ -16,7 +16,7 @@ source and binary hashes. An independent review found and verified the repair
 of a mercenary cap regression; no remaining P1/P2 issue was reported.
 
 Twenty-four synthetic native loadouts also passed paired stat checks; six
-endgame augments add approximately 23–38% HP and 25–32% mana in zero-AA controls.
+endgame augments add approximately 23â€“38% HP and 25â€“32% mana in zero-AA controls.
 The 280 output cap held. This material combined power is an encounter QA gate,
 not evidence of final balance acceptance.
 
@@ -27,3 +27,8 @@ labels. Rollback preserves earned definitions/sockets/stats and disables
 acquisition; removing earned power is outside this release.
 
 See [scope, evidence and exact QA](../releases/zone-loot-20261009/README.md).
+
+Integration preserves latest main and the existing Adventure Journal candidate.
+All 25 affected Python/native tests and 51 quest assertions passed after merge;
+all five combined binaries rebuilt with exact overlay fingerprints. Independent
+integration review found no P1/P2 issue. Production remains unchanged.
