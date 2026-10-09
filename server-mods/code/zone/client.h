@@ -520,6 +520,8 @@ public:
 	void RefreshNightcapUI();
 	bool LoadPetArmor();
 	void QuarantineItemTransfer(const char *message);
+	void ZoneForge(const std::string &request_id);
+	std::map<std::string, std::vector<std::pair<int16_t, uint32_t>>> m_zone_forge_quotes;
 	NPC *GetArmorPet(uint8 pet_class);
 	void ApplyPetArmor();
 	void SendPetArmor();

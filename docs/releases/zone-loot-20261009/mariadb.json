@@ -1,0 +1,22 @@
+{
+  "status": "passed",
+  "scope": "Disposable MariaDB schemas; production and player rows untouched",
+  "install_sha256": "c598636e5983a01d143d39bca586821953b1255cd210d76cb5d9e971aad468b8",
+  "checks": [
+    "448 exact variants, 48 audited zones and 6056 native source pairs installed",
+    "installation leaves acquisition disabled until matching runtime activation",
+    "migration replay refuses existing feature ownership",
+    "rollback after native write 10 restores inputs and removes output/receipt",
+    "rollback after native write 11 restores inputs and removes output/receipt",
+    "rollback after native write 12 restores inputs and removes output/receipt",
+    "rollback after native write 13 restores inputs and removes output/receipt",
+    "rollback after native write 14 restores inputs and removes output/receipt",
+    "actual native SQL commits one bound upgrade and one receipt",
+    "duplicate forge receipt cannot grant another output",
+    "operational rollback preserves awarded inventory and forge receipts",
+    "operational rollback disables acquisition and retains item definitions",
+    "socket preimage drift rejects installation",
+    "failed migration rolls back every inserted item and state row",
+    "failed late socket edit rolls back earlier socket changes"
+  ]
+}

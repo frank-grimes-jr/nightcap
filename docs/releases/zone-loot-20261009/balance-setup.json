@@ -1,0 +1,9 @@
+{
+  "database": "nightcap_zone_hunt_20261009",
+  "runtime": "/tmp/nightcap-balance-zone-hunt-20261009",
+  "player_rows": 0,
+  "account_rows": 0,
+  "builds": 24,
+  "aa_policy": "0 AA control",
+  "content_scope": "Local PEQ content with captured production socket preimages and captured cap rules; not a production clone."
+}

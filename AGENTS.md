@@ -405,6 +405,18 @@ Format: date header, area, description. Most recent entry at the top.
 
 ## Current documentation and player website
 
+Classic zone hunt/forge is a test candidate in `docs/releases/zone-loot-20261009/`.
+`tools/zone_hunt.py` generates guarded item/socket SQL from an explicit production
+content capture. Do not attach its rewards to global loot tables: native death
+rolls are exactly 0.5% per family and intentionally bypass GlobalLootMultiplier.
+Keep restored corpses, owned NPCs and non-native clones excluded. Type-22 cap
+credit is limited to six armor locations; preserve nonplayer cap behavior.
+Forging uses the advanced-loot inventory serializer, exact persisted preimages,
+single-use choices and commit-uncertainty quarantine. Universal trading remains
+in force; new rewards cannot be sold to merchants. Acquisition rollback retains
+owned definitions, sockets and receipts. Access-check zones remain disabled until
+their separate source/access QA passes. No live deployment is implied by this entry.
+
 Tunnel court follow-ups use `tools/tunnel_courts.py`, not regeneration of the
 historical services release. Verify terrain plus DB furniture and patrol paths.
 Local PEQ has an older services roster than OVH: capture the actual target, stop

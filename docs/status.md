@@ -3,6 +3,16 @@
 Updated October 9, 2026. This is the current status index; dated studies and
 QA reports preserve their original evidence and are not live-state promises.
 
+## Classic zone hunt and forge candidate
+
+The approved hunt/forge option is implemented for 48 audited Classic combat
+zones, with independent 0.5% augment/gear rolls, four qualities, six-location
+augment support and atomic three-copy upgrades. Eight access-check zones remain
+disabled; cities/hubs remain reserved. Five native binaries, compiled transaction
+failure controls, cap/death tests and disposable MariaDB rehearsals pass. This
+candidate is not deployed to OVH and has no owner gameplay acceptance. Existing
+universal trading is preserved. [Scope, evidence and exact QA](releases/zone-loot-20261009/README.md).
+
 ## Advanced loot row controls candidate
 
 Always Loot/Never Loot toggles are directly on each main-page item row, and a

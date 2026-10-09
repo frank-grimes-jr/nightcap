@@ -1,5 +1,24 @@
 # CHANGES
 
+## 2026-10-09 - Classic zone hunt and forge candidate
+
+Added two independent 0.5% death rolls for zone-specific augment and new wearable
+families, with 60/30/8/2 Base/Polished/Exalted/Ascension quality. Forty-eight
+audited Classic combat zones use exact native spawn/NPC pairs; eight access-check
+zones remain gated, and city/hub concepts remain reserved. New IDs bypass legacy
+quality upgrading and the global loot multiplier. Restored corpses and owned or
+script-created victims do not reroll.
+
+Added type-22 sockets on eligible six-location Classic armor, bounded heroic
+INT/WIS output-cap headroom, and `#zoneforge` for atomic three-copy upgrades.
+Forging preserves binding, rejects customized/socketed inputs, commits a durable
+receipt with inventory, and quarantines uncertain results. Universal trading is
+preserved; these new rewards have zero merchant resale. Rollback retains earned
+items/sockets/receipts and disables acquisition. Matching binaries and regenerated
+shared item memory are required. This is a test candidate, not OVH deployment or
+manual acceptance. Scope, source audit, automated evidence and exact owner QA:
+`docs/releases/zone-loot-20261009/README.md`.
+
 ## 2026-10-09 - Advanced loot row rules and empty-window close
 
 The main loot list now has Always Loot and Never Loot toggles on every row.
