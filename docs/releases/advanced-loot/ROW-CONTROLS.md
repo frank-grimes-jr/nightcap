@@ -1,6 +1,8 @@
 # Advanced loot row controls — October 9, 2026
 
-Candidate source and build, not deployed or accepted in game.
+The owner authorized main and server deployment on October 9 with "Deploy to
+main and server". Release 2026100901 / proxy 0.7.8-dev is being prepared;
+publication and owner in-game acceptance are recorded separately below.
 
 ## Behavior
 
