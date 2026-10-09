@@ -1,0 +1,11 @@
+{
+  "schema": 1,
+  "kind": "nightcap-desktop",
+  "platform": "windows-amd64",
+  "release": 2026100401,
+  "version": "0.4.0",
+  "expires": "2026-11-03T20:50:31Z",
+  "size": 12552192,
+  "sha256": "cfa47e5151753c42a29a4d9ce5ade0d5fa27060e41fecc0728a40c3cd8e021c0",
+  "url": "https://play.nightcapgame.org/launcher/2026100401/nightcap-desktop.exe"
+}

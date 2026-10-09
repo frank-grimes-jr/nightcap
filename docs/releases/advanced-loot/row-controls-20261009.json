@@ -1,0 +1,33 @@
+{
+  "date": "2026-10-09",
+  "status": "candidate_not_deployed",
+  "base_commit": "ff16696",
+  "branch": "feature/advanced-loot-controls",
+  "artifact_directory": "E:/EQ_Local_Dev/artifacts/advanced-loot-controls-20261009",
+  "source_xml_sha256": "b03279029809c84a565a0a3c67ef243d3d4cdaa92beaeb2722489b8dd0886604",
+  "files": {
+    "dinput8.dll": {
+      "bytes": 595968,
+      "sha256": "acf4e3b16aa2aa2c6f193e6492807f86f74867ac25836a0b6500e88220fa88ae"
+    },
+    "uifiles/nightcap/equi_petinfowindow.xml": {
+      "bytes": 117059,
+      "sha256": "5270baf0467bc90332a9df9ef73896e81a7438449fb30648512485182e69d7a1"
+    },
+    "layout-preview.png": {
+      "sha256": "5fed2a78f4f0ce772043ed5a5ac6a436e5930c104ff45e7ce6c03a124a27c590",
+      "kind": "generated XML geometry preview, not a native screenshot"
+    }
+  },
+  "verification": {
+    "x86_advanced_loot_fixtures": "4 passed; MSVC /W4 /WX",
+    "advanced_loot_xml_tests": "5 passed",
+    "pet_management_ui_tests": "3 passed",
+    "client_gameplay_ui_tests": "4 passed",
+    "client_gameplay_asset_tests": "5 passed",
+    "x86_dll_build": "passed",
+    "git_diff_check": "passed",
+    "native_gameplay": "pending",
+    "signed_publication": "not performed"
+  }
+}

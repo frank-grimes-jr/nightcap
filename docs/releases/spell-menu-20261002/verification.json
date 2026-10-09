@@ -1,0 +1,50 @@
+{
+  "release": 2026100202,
+  "previous_release": 2026100201,
+  "main_pr": "https://github.com/frank-grimes-jr/nightcap/pull/116",
+  "main_merge": "1c3cb0d1bb7afbb20dd07cc543f55a506c101d5b",
+  "source_commit": "819bb3c9e36e0f62630a08dec251ba91126433ff",
+  "proxy_version": "0.7.4-dev",
+  "patch_sites": 70,
+  "publication": {
+    "release": 2026100202,
+    "verified_files": 46,
+    "channel_sha256": "6a78c3e7340838880a5ea3ff1b656d53309eba1542407a2750c0413990ba6140",
+    "previous_release": 2026100201,
+    "services_unchanged": true,
+    "desktop_starter_guide_unchanged": true
+  },
+  "public_https": {
+    "channel_sha256": "6a78c3e7340838880a5ea3ff1b656d53309eba1542407a2750c0413990ba6140",
+    "expires": "2026-11-01T15:56:51Z",
+    "hosted": true,
+    "release": 2026100202,
+    "signature": "valid against shipped production public key",
+    "total_bytes": 149808247,
+    "verified_files": 46
+  },
+  "changed_files": [
+    "dinput8.dll",
+    "nightcap-patch-sites.json"
+  ],
+  "unchanged_managed_files": 44,
+  "dll_matches_tested_build": true,
+  "runtime_checks": 5,
+  "loot_fixtures": 4,
+  "publisher_tests": 12,
+  "full_go_suite": "passed",
+  "independent_review": "no required findings",
+  "production_controller_install": {
+    "release": 2026100202,
+    "verified_files": 46,
+    "recovery_needed": false,
+    "controller_sha256": "aa2da21de492138c4117510e564fd486123437fe72fd94dc4cd4b0f0adf78404",
+    "scope": "Existing production controller, public HTTPS, isolated minimal client fixture; no game launched"
+  },
+  "five_services_unchanged": true,
+  "desktop_starter_guide_unchanged": true,
+  "database_mutations": false,
+  "baseline_note": "Recaptured healthy matching service images after concurrent campfire deployment; initial baseline retained. Public assets unchanged across recapture.",
+  "owner_rendered_qa": "open",
+  "recovery": "Retained previous channel in private server staging; publish corrective bytes with a higher release counter."
+}

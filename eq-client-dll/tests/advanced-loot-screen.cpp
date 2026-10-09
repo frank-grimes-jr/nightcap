@@ -14,7 +14,7 @@ static std::string last_text;
 static void *control_table = nullptr;
 static void *__cdecl Allocate(std::size_t size) { assert(size == 0x220); ++allocations; return std::calloc(1, size); }
 static void *__fastcall Construct(void *self, void *, void *parent, const LootScreenString *screen, int flags, int version, const char *block) {
-	assert(!parent && !flags && version == 1 && !block);
+	assert(!parent && !flags && version == 2 && !block);
 	assert(std::string(static_cast<const char *>(screen->rep)) == "NightcapAdvancedLootWnd");
 	*static_cast<void ***>(self) = native_table;
 	*reinterpret_cast<void **>(static_cast<unsigned char *>(self) + 0x1e0) = has_xml ? self : nullptr;

@@ -51,6 +51,14 @@ static UpdateAA original_aa = nullptr;
 static ULONGLONG next_refresh = 0;
 using SpellLevel = uint8_t (__thiscall *)(void*, int);
 static SpellLevel original_spell_level = nullptr;
+using SpellMenuFrame = int (__thiscall *)(void*);
+using RebuildSpellMenu = void (__thiscall *)(void*);
+using CurrentSpellProfile = void* (__thiscall *)(void*);
+static SpellMenuFrame original_spell_menu_frame = nullptr;
+static RebuildSpellMenu rebuild_spell_menu = nullptr;
+static CurrentSpellProfile current_spell_profile = nullptr;
+static bool spell_menu_dirty = true;
+static bool spell_menu_refreshing = false;
 inline void RequestRefresh();
 inline const void*& ActiveSpellItem() {
     static thread_local const void* item = nullptr;
@@ -86,6 +94,32 @@ inline uint8_t __fastcall SpellLevelHook(void* spell, void*, int queried_class) 
         } __except(EXCEPTION_EXECUTE_HANDLER) { return 255; }
     }
     return original_spell_level(spell, queried_class);
+}
+inline bool SpellMenuContextReady(void* window) {
+    if (!window || !current_spell_profile || !CurrentIdentity()) return false;
+    __try {
+        if (window != *reinterpret_cast<void**>(base+0x91FC84) ||
+            !*reinterpret_cast<void**>(base+0xA646B0) ||
+            !*reinterpret_cast<void**>(base+0x11D391C)) return false;
+        auto character = *reinterpret_cast<BYTE**>(base+0x9D261C);
+        if (!character) return false;
+        const auto vbase = *reinterpret_cast<const int32_t**>(character+8);
+        if (!vbase) return false;
+        // Same virtual-base/profile traversal as the native menu builder.
+        auto profile = static_cast<BYTE*>(current_spell_profile(character+vbase[1]+12));
+        return profile && profile[0x3374] == state.PrimaryClass();
+    } __except(EXCEPTION_EXECUTE_HANDLER) { return false; }
+}
+inline int __fastcall SpellMenuFrameHook(void* window, void*) {
+    // The native menu caches both labels and ordering before class metadata
+    // arrives. Rebuild on its own UI frame, never inside snapshot dispatch.
+    if (spell_menu_dirty && !spell_menu_refreshing && rebuild_spell_menu && SpellMenuContextReady(window)) {
+        spell_menu_dirty = false;
+        spell_menu_refreshing = true;
+        __try { rebuild_spell_menu(window); }
+        __finally { spell_menu_refreshing = false; }
+    }
+    return original_spell_menu_frame(window);
 }
 inline uint32_t __fastcall MerchantClassesHook(void* item, void*, bool flag1, bool flag2) {
     using ItemClasses = uint32_t (__thiscall *)(void*, bool, bool);
@@ -330,12 +364,16 @@ inline void __fastcall ChatHook(void* self, void*, const char* message, int colo
     LootPulse();
     if (message && AdvancedLootUI::Consume(message)) return;
     if (pet_management.Consume(message)) { management_received = GetTickCount64(); return; }
-    if (state.Consume(message) || pets.Consume(message)) return;
+    if (state.Consume(message)) {
+        if (message[7] == 'S') spell_menu_dirty = true;
+        return;
+    }
+    if (pets.Consume(message)) return;
     original_chat(self, message, color, log, convert);
 }
 inline void __fastcall StateHook(void* self, void*, int next) {
     if (next != 5) AdvancedLootUI::Reset();
-    if (next != 5) { state.Clear(); pets.Clear(); pet_management.Clear(); next_refresh = 0; next_pet_refresh = 0; next_management_refresh = 0; management_received = 0; }
+    if (next != 5) { state.Clear(); spell_menu_dirty = true; pets.Clear(); pet_management.Clear(); next_refresh = 0; next_pet_refresh = 0; next_management_refresh = 0; management_received = 0; }
     original_state(self, next);
     if (next == 5) RequestRefresh();
 }
@@ -432,6 +470,17 @@ template<size_t N> inline void* SEHEntryHook(uintptr_t address, const BYTE (&ori
     if (!RebaseSEH(original, image_base, expected)) return nullptr;
     return EntryHook(address, expected, hook);
 }
+inline bool InstallSpellMenu() {
+    __try {
+        if (memcmp(reinterpret_cast<void*>(base+kSpellMenuBuildRva), kExpectedSpellMenuBuild, sizeof(kExpectedSpellMenuBuild)) ||
+            memcmp(reinterpret_cast<void*>(base+kSpellMenuProfileRva), kExpectedSpellMenuProfile, sizeof(kExpectedSpellMenuProfile))) return false;
+    } __except(EXCEPTION_EXECUTE_HANDLER) { return false; }
+    rebuild_spell_menu = reinterpret_cast<RebuildSpellMenu>(base+kSpellMenuBuildRva);
+    current_spell_profile = reinterpret_cast<CurrentSpellProfile>(base+kSpellMenuProfileRva);
+    original_spell_menu_frame = reinterpret_cast<SpellMenuFrame>(EntryHook(base+kSpellMenuFrameRva,
+        kExpectedSpellMenuFrame, reinterpret_cast<void*>(&SpellMenuFrameHook)));
+    return original_spell_menu_frame != nullptr;
+}
 inline bool InstallPetArmor() {
     __try {
         if (memcmp(reinterpret_cast<void*>(base+kUIChildRva), kExpectedUIChild, sizeof(kExpectedUIChild))) return false;
@@ -498,7 +547,7 @@ inline bool MatchLootNative() {
         return true;
     } __except(EXCEPTION_EXECUTE_HANDLER) { return false; }
 }
-inline bool InstallAdvancedLoot() {
+inline bool InstallAdvancedLoot(void (*trace)(const char*) = nullptr) {
     install_failure = "advanced_loot_native_guards";
     if (!MatchLootNative()) return false;
     LootScreenAPI api;
@@ -513,7 +562,7 @@ inline bool InstallAdvancedLoot() {
     original_command = reinterpret_cast<InterpretCommand>(SEHEntryHook(base+kLootCommandRva,
         kExpectedLootCommand, reinterpret_cast<void*>(&CommandHook), base));
     if (!original_command) return false;
-    AdvancedLootUI::Initialize(&ExecuteUIRequest, &LootNotice);
+    AdvancedLootUI::Initialize(&ExecuteUIRequest, &LootNotice, trace);
     return true;
 }
 }

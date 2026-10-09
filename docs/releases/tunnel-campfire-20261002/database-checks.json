@@ -1,0 +1,22 @@
+{
+  "checks": [
+    "case-only NPC drift rejected without writes",
+    "global fire ID collision rejected without writes",
+    "door ID in another version collision rejected without writes",
+    "external resident spawn reference rejected",
+    "exact MariaDB forward afterimages",
+    "owned saved spawn invalidated",
+    "unrelated saved spawn preserved",
+    "replay rejected without writes",
+    "immediate rollback restores six residents and removes only owned fire",
+    "rollback rejects ambiguous state: is_corpse",
+    "rollback rejects ambiguous state: is_zone",
+    "rollback rejects ambiguous state: instance_id",
+    "rollback rejects ambiguous state: zone_id",
+    "rollback rejects ambiguous state: spawn2_id",
+    "rollback rejects edited fire",
+    "fresh rollback removes new owned cache and preserves unrelated cache"
+  ],
+  "schema": "nightcap_campfire_test_0d34232114",
+  "removed": true
+}

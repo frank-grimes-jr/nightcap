@@ -29,6 +29,9 @@ int main() {
     memcpy(memory+kModelTagRva,kExpectedModelTag,sizeof(kExpectedModelTag));
     const BYTE tag_tail[]={0x89,0x19,0x8b,0x44,0x24,0x10,0x89,0x41,4,0x5b,0xc2,0x0c,0};
     memcpy(memory+kModelTagRva+5,tag_tail,sizeof(tag_tail));
+    memcpy(memory+kModelAnimationRva,kExpectedModelAnimation,sizeof(kExpectedModelAnimation));
+    const BYTE animation_tail[]={0x5e,0x5b,0xb0,1,0xc2,0x0c,0};
+    memcpy(memory+kModelAnimationRva+6,animation_tail,sizeof(animation_tail));
     assert(Install(reinterpret_cast<uintptr_t>(memory)));
     const auto profile=reinterpret_cast<ProfileString>(memory+kModelProfileRva);
     const auto registration=reinterpret_cast<RegisterActor>(memory+kModelRegisterRva);
@@ -41,6 +44,7 @@ int main() {
         assert(profile("Defaults","WindowedMode","TRUE",output,sizeof(output),"eqclient.ini")==123);
         assert(registration(seen,60,2,"SKE",7,9)==123);
         lookup(seen,output,484,0); assert(seen[0]==60 && seen[1]==2);
+        lookup(seen,output,600,0); assert(seen[0]==600 && seen[1]==0);
         lookup(seen,output,606,1); assert(seen[0]==161 && seen[1]==2);
         lookup(seen,output,485,2); assert(seen[0]==85 && seen[1]==2);
         lookup(seen,output,566,1); assert(seen[0]==1 && seen[1]==1);
@@ -58,7 +62,7 @@ int main() {
     modern=false;
     for(const auto& entry:kRegistrations) {
         assert(RegisterHook(seen,nullptr,entry.race,entry.gender,entry.original,7,9)==123);
-        assert(!strcmp(captured_code,entry.alias));
+        assert(!strcmp(captured_code,!strcmp(entry.original,"IVM") ? "IVM" : entry.alias));
         assert(captured_race==entry.race && captured_gender==entry.gender && captured_a==7 && captured_b==9);
     }
     for(const auto& entry:kRemakes) for(int sex=0;sex<3;++sex) {

@@ -7,8 +7,27 @@ $ErrorActionPreference = 'Stop'
 $expectedSize = 8774656
 $expectedSha256 = '2A8702AD9F722704F01355C0750BE7D6F164A8B9C9128BA0CF286EA32B405B0E'
 $imageBase = 0x00400000
-$textRva = 0x00001000
-$textFileOffset = 0x00000400
+
+function Get-RvaFileOffset {
+	param([byte[]]$Image, [uint32]$Rva, [int]$Length)
+	# Catalog sites include .rdata vtables as well as .text instructions.
+	$peOffset = [BitConverter]::ToInt32($Image, 0x3C)
+	$sectionCount = [BitConverter]::ToUInt16($Image, $peOffset + 6)
+	$optionalSize = [BitConverter]::ToUInt16($Image, $peOffset + 20)
+	$sections = $peOffset + 24 + $optionalSize
+	for ($section = 0; $section -lt $sectionCount; $section++) {
+		$header = $sections + 40 * $section
+		$virtualAddress = [BitConverter]::ToUInt32($Image, $header + 12)
+		$rawSize = [BitConverter]::ToUInt32($Image, $header + 16)
+		$rawPointer = [BitConverter]::ToUInt32($Image, $header + 20)
+		if ($Rva -ge $virtualAddress -and ([uint64]$Rva + $Length) -le ([uint64]$virtualAddress + $rawSize)) {
+			$offset = [uint64]$rawPointer + $Rva - $virtualAddress
+			if ($offset + $Length -gt $Image.Length) { throw 'RVA exceeds file bounds.' }
+			return [int]$offset
+		}
+	}
+	throw ('RVA 0x{0:X8} is not backed by a file section.' -f $Rva)
+}
 
 function Assert-Bytes {
 	param(
@@ -18,7 +37,7 @@ function Assert-Bytes {
 		[string]$Label
 	)
 
-	$fileOffset = $textFileOffset + ($Rva - $textRva)
+	$fileOffset = Get-RvaFileOffset $Image $Rva $Expected.Length
 	for ($i = 0; $i -lt $Expected.Length; $i++) {
 		if ($Image[$fileOffset + $i] -ne $Expected[$i]) {
 			throw ('{0} signature mismatch at RVA 0x{1:X8} byte {2}' -f $Label, $Rva, $i)
@@ -44,7 +63,7 @@ Assert-Bytes $image 0x30EA00 ([byte[]](0x8B,0x44,0x24,0x04,0x83,0xF8,0x22)) 'UIP
 # Decode the pinned switch jump table, rather than assuming UI slot == command.
 $petCommands = @(0,1,2,3,4,5,6,9,31,12,15,18,21,24,27,28,29,30)
 for ($index = 0; $index -lt $petCommands.Count; $index++) {
-	$tableOffset = $textFileOffset + 0x30F26C - $textRva + 4 * $index
+	$tableOffset = Get-RvaFileOffset $image (0x30F26C + 4 * $index) 4
 	$caseRva = [BitConverter]::ToUInt32($image, $tableOffset) - $imageBase
 	if ($index -eq 0) {
 		Assert-Bytes $image $caseRva ([byte[]](0x33,0xC0,0xC2,0x04,0x00)) 'Pet command zero'
@@ -81,7 +100,7 @@ Assert-Bytes $image 0x00049FE0 ([byte[]](0x51,0x56,0x57,0x8B,0x7C,0x24,0x10,0x8B
 Assert-Bytes $image 0x001BAB10 ([byte[]](0x8B,0x44,0x24,0x04,0x83,0xF8,0x63)) 'CSkillMgr combat classification'
 Assert-Bytes $image 0x001BABD0 ([byte[]](0x8B,0x44,0x24,0x04,0x83,0xF8,0x63)) 'CSkillMgr activated classification'
 
-$callFileOffset = $textFileOffset + (0x00318E93 - $textRva)
+$callFileOffset = Get-RvaFileOffset $image 0x00318E93 5
 $relative = [BitConverter]::ToInt32($image, $callFileOffset + 1)
 $callTarget = $imageBase + 0x00318E93 + 5 + $relative
 if ($callTarget -ne 0x0059FB90) {
@@ -349,5 +368,10 @@ Assert-Bytes $image 0x00011FB0 ([byte[]](0x81,0xC1,0xA8,0x01,0x00,0x00,0xE9,0xD5
 Assert-Bytes $image 0x00460EF0 ([byte[]](0x8B,0x44,0x24,0x18,0x56)) 'Model profile string entry'
 Assert-Bytes $image 0x0010A440 ([byte[]](0x53,0x55,0x56,0x6A,0x30)) 'Model registration entry'
 Assert-Bytes $image 0x0010A2D0 ([byte[]](0x53,0x8B,0x5C,0x24,0x0C)) 'Model actor tag entry'
+Assert-Bytes $image 0x00006A60 ([byte[]](0x53,0x56,0x8B,0x74,0x24,0x0C)) 'Model animation family entry'
 Assert-Bytes $image 0x000934AC ([byte[]](0xE8,0xCF,0x96,0xFF,0xFF)) 'Global model imports call'
 Assert-Bytes $image 0x0008CB80 ([byte[]](0x6A,0xFF,0x68,0x48,0x52,0x97,0x00)) 'Global model imports target'
+Assert-Bytes $image 0x00248200 ([byte[]](0x83,0xEC,0x0C,0x53,0x55,0x56,0x57)) 'Spell menu rebuild entry'
+Assert-Bytes $image 0x002488A0 ([byte[]](0x56,0x8B,0xF1,0x80,0xBE,0x96,0x01,0x00,0x00,0x00)) 'Spell menu frame entry'
+Assert-Bytes $image 0x003DB210 ([byte[]](0x8B,0x01,0x85,0xC0,0x74,0x15)) 'Spell menu current profile'
+Write-Output 'PASS: all native UI, model, loot and spell-menu signatures verified.'

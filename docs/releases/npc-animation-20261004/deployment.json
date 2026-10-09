@@ -1,0 +1,57 @@
+{
+  "release": 2026100404,
+  "source_merge": "a7ee8d8c1696e4a2bdb4c5b49c589b02d3f25cdc",
+  "baseline_source": "728c3da",
+  "status": "published_for_owner_qa",
+  "services_unchanged": true,
+  "services": {
+    "db": {
+      "id": "5c34a0594d5015209f7667d4421c00ef492b80298842829b2edb69c69449d96f",
+      "image_id": "sha256:7f22313fc130a377a44999965bcb0a08dd5b21e8502824c1b864f792f9bc66ab",
+      "started_at": "2026-09-20T17:47:54.935680589Z",
+      "restarts": 0,
+      "running": true,
+      "health": "healthy",
+      "oom_killed": false
+    },
+    "game": {
+      "id": "70856bca0059cb1ac200905ace2607b4ff64546bc73ec94d83ce99b9c633e193",
+      "image_id": "sha256:a45063bc51b2df0a2087c280c1eb8a8fc0642735cf77a4ea0baa0f22fd3e218b",
+      "started_at": "2026-10-04T17:27:40.234833343Z",
+      "restarts": 0,
+      "running": true,
+      "health": "healthy",
+      "oom_killed": false
+    },
+    "gateway": {
+      "id": "9ba6a7761ccc44e146f6679f40cb54828ae8c9562e325ea374d9d2f117e8bb9a",
+      "image_id": "sha256:c36fa37c7d0b24055eaeb42ebd7370e313c2b41b96fa03256e0cbafee91fc58a",
+      "started_at": "2026-10-04T17:28:40.976736791Z",
+      "restarts": 0,
+      "running": true,
+      "health": null,
+      "oom_killed": false
+    },
+    "web": {
+      "id": "d8fb0c7da13aea642ae505b0c8bed74b529107185d43dbf35406f6b025d4d71d",
+      "image_id": "sha256:7377697a821c131a924a7105fafbe7414db4e9fcc77a6f08f776f33f141ec3f8",
+      "started_at": "2026-09-20T17:47:54.765116169Z",
+      "restarts": 0,
+      "running": true,
+      "health": null,
+      "oom_killed": false
+    },
+    "tunnel": {
+      "id": "30b1d25ff56bffa77a5b05d1b3d2f6c37b8a87dc05ef098721b6be6555235aac",
+      "image_id": "sha256:ff69a2225ad7c6f85ed84fbd5f3087df46202426b2388ec60214098e0adf05e9",
+      "started_at": "2026-09-20T17:53:43.445441644Z",
+      "restarts": 0,
+      "running": true,
+      "health": null,
+      "oom_killed": false
+    }
+  },
+  "desktop_starter_guide_unchanged": true,
+  "rendered_acceptance": "pending owner QA",
+  "rollback": "Publish prior proxy/catalog with current assets in a higher signed release"
+}

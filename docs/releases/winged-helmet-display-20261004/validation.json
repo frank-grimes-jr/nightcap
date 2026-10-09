@@ -1,0 +1,13 @@
+{
+  "source_commit": "cc78f96",
+  "python_command": "python -m unittest tools.tests.test_winged_helmet tools.tests.test_winged_helmet_item tools.tests.test_classic_model_pfs tools.tests.test_client_gameplay_assets -v",
+  "tests_passed": 24,
+  "tests_failed": 0,
+  "original_race_gender_variants": 24,
+  "original_data_inverse_relocation_verified": true,
+  "old_append_only_failure_reproduced": true,
+  "canonical_unchanged_asset_count": 42,
+  "canonical_changed_assets": ["global_chr.s3d", "global4_chr.s3d"],
+  "independent_review": "No blocking defects; material dependencies precede consumers and HE90 is within each native mesh scan range.",
+  "native_visual_acceptance": "pending"
+}

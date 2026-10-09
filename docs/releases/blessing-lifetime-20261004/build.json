@@ -1,0 +1,62 @@
+{
+  "base_manifest_sha256": "49e43ff6ff1934b4ba47bc7e91f2a0bef6bd553e5de3e3803093148c3acff428",
+  "hardening_sha256": "219f556bb1e55a719f8a3f5150c95723ce46ab9a8b69c93c2bc0f54ff1262b2e",
+  "patch_sha256": "6e3452e6cdc4860625fb8b674b5b21c50717122a0a48cdf990d4cc3dfa069ecc",
+  "binaries": {
+    "loginserver": "a9c97271ce27bcbd4fc4003126af12a7c11821ef97d5aa8dff1be0dc1b4fffd8",
+    "world": "fe1148d9671ce3061a9ec8c632f6d04f0944101ea1ad0d665dcc3a698d0b93c2",
+    "zone": "191e8b9bead3e85d2aa0fc717abfb7db519b530f34e868f60c866145c4210a12",
+    "ucs": "96757b356eca25c539bdd6e036c635ab79fee383e7a5ec9e27b14bb5138f5583",
+    "shared_memory": "3e45b9b1f8444eba773ff4375cd55089d8c5fff78cc3eb93e639a8aba9ef6f21"
+  },
+  "changed_source_files": [
+    "zone/client.h",
+    "zone/client_packet.cpp",
+    "zone/spells.cpp"
+  ],
+  "built_targets": [
+    "world",
+    "zone"
+  ],
+  "cmake_flags": [
+    "-DCMAKE_BUILD_TYPE=RelWithDebInfo",
+    "-DCMAKE_CXX_COMPILER=/usr/bin/clang++",
+    "-DCMAKE_C_COMPILER=/usr/bin/clang",
+    "-DVCPKG_MANIFEST_INSTALL=OFF",
+    "-DVCPKG_MANIFEST_MODE=OFF",
+    "-DCMAKE_TOOLCHAIN_FILE=/home/eqemu/code/submodules/vcpkg/scripts/buildsystems/vcpkg.cmake",
+    "-DVCPKG_INSTALLED_DIR=/home/eqemu/code/build/vcpkg_installed",
+    "-DEQEMU_ADDITIVE_LFIB_PRNG=OFF",
+    "-DEQEMU_ADD_PROFILER=OFF",
+    "-DEQEMU_BIASED_INT_DIST=OFF",
+    "-DEQEMU_BUILD_CLIENT_FILES=ON",
+    "-DEQEMU_BUILD_LOGIN=ON",
+    "-DEQEMU_BUILD_LUA=ON",
+    "-DEQEMU_BUILD_PCH=ON",
+    "-DEQEMU_BUILD_PERL=ON",
+    "-DEQEMU_BUILD_SERVER=ON",
+    "-DEQEMU_BUILD_TESTS=OFF",
+    "-DEQEMU_CUSTOM_PRNG_ENGINE=",
+    "-DEQEMU_BUILD_LOGIN=ON"
+  ],
+  "unchanged_binary_source": "/tmp/nightcap-pet-management-production-20260922/build/bin",
+  "status": "built_not_installed",
+  "source_commit_before_change": "e37b7fa",
+  "scope": "Fresh paired hardened build; no gameplay acceptance implied",
+  "changed_source_sha256": {
+    "zone/client.h": "02d9500c535e84e42678543021d80e554b1a7cf75f0933eddb00c346f021c5a3",
+    "zone/client_packet.cpp": "b3a4cd91159f8771a9423b39ab93c5b845145c9b59899b68271f8e35144eea3a",
+    "zone/spells.cpp": "7605b9a03e6aa1166be32f265e9f79909a4f340520f17211a3c6eeae9ba6de89"
+  },
+  "tests": {
+    "server_packet_fixture": "3 passed",
+    "gameplay_policies": "2 passed",
+    "native_restore": "320 cases plus update/fade/idempotence controls",
+    "native_lifetime": "51 cases with all 16 blessing formulas, old mapping expires, new mapping survives repeated ticks",
+    "rollout_fault_tests": "7 passed"
+  },
+  "log_sha256": {
+    "native-build.log": "e571241a3ed1798474bda1b976e35499a16088502cffd3e6f9515e0093de7720",
+    "native-configure.log": "f059e9b502e6e4869793281dddc25ece35e96d630fbe5bec6aac630a8fc10679"
+  }
+}

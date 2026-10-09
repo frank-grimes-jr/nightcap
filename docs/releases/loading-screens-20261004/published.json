@@ -1,0 +1,12 @@
+{
+  "release": 2026100407,
+  "launcher_release": 2026100401,
+  "launcher_version": "0.4.0",
+  "verified_game_files": 104,
+  "new_loading_images": 56,
+  "preserved_game_files": 48,
+  "channel_sha256": "65ed53e0819f3ad368fdfd52062f810cdd83046371c9e8e86a5d0d0888f675d3",
+  "launcher_channel_sha256": "f9f6db7daf622649becd60957adbb5999850184442a1696d5911e537e83cf3e1",
+  "services_unchanged": true,
+  "starter_zip_guide_unchanged": true
+}

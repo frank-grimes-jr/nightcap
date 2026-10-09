@@ -10,6 +10,26 @@ Start with [current status](status.md), not a dated candidate report.
 
 ## Players and testers
 
+- [Classic zone augments, new gear and forge: test candidate and exact QA](releases/zone-loot-20261009/README.md)
+
+- [Throw Stone Spell Damage: live deployment and exact QA](releases/throw-stone-20261009.md)
+
+- [Passive AA while leveling: release behavior, verification and exact QA](releases/passive-aa-20261004.md)
+
+- [Nightcap loading artwork: live release, update instructions and visual checks](releases/loading-screens-20261004.md)
+
+- [Universal item trading: live deployment, resale and exact QA](releases/free-trade-20261004/README.md)
+
+- [Winged Paladin helmet: live release and exact in-game QA](helmets/winged-paladin.md)
+
+- [Blessing reconnect repair: live deployment and exact QA](releases/blessing-relogin-20261002/README.md)
+
+- [Compact tunnel services: layout, complete roster and exact QA](releases/tunnel-compact-20261002/README.md)
+
+- [Advanced loot direct Always/Never controls and empty-window close: deployment and QA](releases/advanced-loot/ROW-CONTROLS.md)
+- [Advanced loot Loot All/Ignore action repair: deployment and owner QA](releases/advanced-loot/ACTION-REPAIR.md)
+
+- [Spell selection menu: cached level-255 correction and exact QA](releases/spell-menu-20261002.md)
 - [Adventure Journal and archetype Epic 0.5: candidate, routes and exact QA](adventure-journal/README.md)
 
 - [October 1 character-selection crash: deployed material repair and exact login/world QA](releases/character-select-crash-20261001/README.md)
@@ -117,3 +137,7 @@ is not an in-game sign-off; a deployed candidate is not accepted main gameplay.
 - [East Commonlands tunnel hub QA](releases/ecommons-hub-20260920/README.md)
 
 - [Social tunnel revision: complete roster, placement map and exact QA](releases/tunnel-social-20261001/README.md).
+
+- [Resident campfire correction and exact visual QA](releases/tunnel-campfire-20261002/README.md).
+
+- [Blessing lifetime follow-up: native tick evidence and live QA](releases/blessing-lifetime-20261004/README.md)

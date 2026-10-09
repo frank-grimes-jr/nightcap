@@ -28,6 +28,7 @@ def run(root: Path, output: Path):
         evidence = {'status': 'passed', 'scope': 'production inventory translation unit with dependency fakes; no native gameplay execution',
                     'source_sha256': hashlib.sha256(source.read_bytes()).hexdigest(),
                     'queries': [line[4:] for line in result.stdout.splitlines() if line.startswith('SQL:')],
+                    'forge_queries': [line[10:] for line in result.stdout.splitlines() if line.startswith('FORGE_SQL:')],
                     'result': result.stdout.splitlines()[-1]}
         output.parent.mkdir(parents=True, exist_ok=True)
         output.write_text(json.dumps(evidence, indent=2) + '\n')

@@ -1,0 +1,81 @@
+EQGraphicsDX9.dll image base 0x10000000
+10044e6d: mov      ecx, dword ptr [esp + 0x234]
+10044e74: mov      edx, dword ptr [ecx]
+10044e76: mov      eax, dword ptr [edx]
+10044e78: call     eax
+10044e7a: mov      edx, dword ptr [esi + 0xe0]
+10044e80: mov      ebp, eax
+10044e82: mov      eax, dword ptr [edx + 0x40]
+10044e85: lea      ecx, [esi + 0xe0]
+10044e8b: call     eax
+10044e8d: mov      edx, dword ptr [eax]
+10044e8f: mov      ecx, eax
+10044e91: mov      eax, dword ptr [edx + 8]
+10044e94: call     eax
+10044e96: cmp      dword ptr [eax + 0x84], ebx
+10044e9c: je       0x10044f76
+10044ea2: cmp      byte ptr [ebp], 0x49
+10044ea6: jne      0x10044ec1
+10044ea8: cmp      byte ptr [ebp + 1], 0x56
+10044eac: jne      0x10044ec1
+10044eae: mov      al, byte ptr [ebp + 2]
+10044eb1: cmp      al, 0x4d
+10044eb3: je       0x10044f76
+10044eb9: cmp      al, 0x46
+10044ebb: je       0x10044f76
+10044ec1: push     6
+10044ec3: push     0x101373a8
+10044ec8: push     ebp
+10044ec9: call     0x1010fcfd
+10044ece: add      esp, 0xc
+10044ed1: test     eax, eax
+10044ed3: je       0x10044f76
+10044ed9: mov      edx, dword ptr [esi + 0xe0]
+10044edf: mov      eax, dword ptr [edx + 0x40]
+10044ee2: lea      ecx, [esi + 0xe0]
+10044ee8: call     eax
+10044eea: mov      edx, dword ptr [eax]
+10044eec: mov      ecx, eax
+10044eee: mov      eax, dword ptr [edx + 8]
+10044ef1: call     eax
+10044ef3: mov      ebp, dword ptr [eax + 0x84]
+10044ef9: cmp      byte ptr [esp + 0x24c], bl
+10044f00: je       0x10044f14
+10044f02: mov      ecx, dword ptr [0x101791f8]
+10044f08: push     ebp
+10044f09: push     esi
+10044f0a: call     0x100528b0
+10044f0f: jmp      0x100450f5
+10044f14: mov      edx, dword ptr [ebp]
+10044f17: mov      eax, dword ptr [edx]
+10044f19: mov      ecx, ebp
+10044f1b: call     eax
+10044f1d: fstp     dword ptr [esp + 0x18]
+10044f21: call     0x1011060e
+10044f26: mov      dword ptr [esp + 0x14], eax
+10044f2a: fild     dword ptr [esp + 0x14]
+10044f2e: push     1
+10044f30: push     1
+10044f32: fmul     dword ptr [0x101345f0]
+10044f38: push     ebx
+10044f39: mov      ecx, esi
+10044f3b: fmul     dword ptr [esp + 0x24]
+10044f3f: fstp     dword ptr [esp + 0x24]
+10044f43: call     0x10041070
+10044f48: mov      ecx, dword ptr [esi + 0x1f8]
+10044f4e: mov      edx, dword ptr [ecx]
+10044f50: mov      eax, dword ptr [edx + 0x14]
+10044f53: push     ebp
+10044f54: call     eax
+10044f56: fld1     
+10044f58: mov      ecx, dword ptr [esi + 0x1f8]
+10044f5e: mov      edx, dword ptr [ecx]
+10044f60: mov      eax, dword ptr [edx + 0xc]
+10044f63: push     3
+10044f65: push     ebx
+10044f66: push     ecx
+10044f67: fstp     dword ptr [esp]
+10044f6a: push     ebp
+10044f6b: call     eax
+10044f6d: fld      dword ptr [esp + 0x18]
+10044f71: jmp      0x100450e6

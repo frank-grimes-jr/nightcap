@@ -1,3 +1,4 @@
+#include "common/zone_hunt_catalog.h"
 /*	EQEMu: Everquest Server Emulator
 Copyright (C) 2001-2016 EQEMu Development Team (http://eqemulator.net)
 
@@ -15,6 +16,7 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 */
 
+#include "../common/item_trade_policy.h"
 #include "client.h"
 
 #include "common/data_bucket.h"
@@ -519,6 +521,7 @@ void Client::CompleteConnect()
 	UpdateWho();
 	client_state = CLIENT_CONNECTED;
 	SendAllPackets();
+	RestoreBuffEffects();
 	hpupdate_timer.Start();
 	autosave_timer.Start();
 	SetDuelTarget(0);
@@ -1575,7 +1578,7 @@ void Client::Handle_Connect_OP_ZoneEntry(const EQApplicationPacket *app)
 				m_pp.buffs[i].player_id = 0x2211;
 				m_pp.buffs[i].level = buffs[i].casterlevel;
 				m_pp.buffs[i].unknown003 = 0;
-				m_pp.buffs[i].duration = BuffDurationForClient(buffs[i].ticsremaining);
+				m_pp.buffs[i].duration = BuffEffectDurationForClient(buffs[i].ticsremaining);
 				m_pp.buffs[i].counters = buffs[i].counters;
 				m_pp.buffs[i].num_hits = buffs[i].hit_number;
 			}
@@ -1909,23 +1912,10 @@ void Client::Handle_OP_AAAction(const EQApplicationPacket *app)
 		PurchaseAlternateAdvancementRank(action->ability);
 	}
 	else if (action->action == aaActionDisableEXP) { //Turn Off AA Exp
-		if (m_epp.perAA > 0) {
-			MessageString(Chat::White, AA_OFF);
-		}
-
-		m_epp.perAA = 0;
-		SendAlternateAdvancementStats();
+		SetAAExperiencePercent(0);
 	}
 	else if (action->action == aaActionSetEXP) {
-		if (m_epp.perAA == 0)
-			MessageString(Chat::White, AA_ON);
-		m_epp.perAA = action->exp_value;
-		if (m_epp.perAA < 0 || m_epp.perAA > 100)
-			m_epp.perAA = 0;	// stop exploit with sanity check
-
-								// send an update
-		SendAlternateAdvancementStats();
-		SendAlternateAdvancementTable();
+		SetAAExperiencePercent(action->exp_value);
 	}
 	else {
 		LogAA("Unknown AA action : [{}] [{}] [{}] [{}]", action->action, action->ability, action->target_id, action->exp_value);
@@ -7798,7 +7788,7 @@ void Client::Handle_OP_GuildBank(const EQApplicationPacket *app)
 			}
 
 			if (!cursor_item->NoDrop ||
-				cursor_item_inst->IsAttuned() ||
+				cursor_item_inst->IsAttunedForTrade() ||
 				cursor_item_inst->IsNoneEmptyContainer() ||
 				cursor_item->NoRent == 0 ||
 				(cursor_item->LoreFlag && GuildBanks->HasItem(GuildID(), cursor_item->ID))
@@ -14144,8 +14134,9 @@ void Client::Handle_OP_ShopPlayerBuy(const EQApplicationPacket *app)
 		return;
 	}
 
-	if (tmpmer_used && (mp->quantity > prevcharges || item->MaxCharges > 1)) {
-		if (prevcharges > item->MaxCharges && item->MaxCharges > 1) {
+	const bool charged_item = !item->Stackable && item->MaxCharges > 1;
+	if (tmpmer_used && (mp->quantity > prevcharges || charged_item)) {
+		if (prevcharges > item->MaxCharges && charged_item) {
 			mp->quantity = item->MaxCharges;
 		} else {
 			mp->quantity = prevcharges;
@@ -14185,7 +14176,11 @@ void Client::Handle_OP_ShopPlayerBuy(const EQApplicationPacket *app)
 		single_price *= Client::CalcPriceMod(tmp, false);
 	}
 
-	if (item->MaxCharges > 1) {
+	if (single_price >= 0) {
+		single_price = EQ::ItemTradePolicy::PurchasePrice(*item, single_price);
+	}
+
+	if (charged_item) {
 		mpo->price = single_price;
 	} else {
 		mpo->price = single_price * mp->quantity;
@@ -14336,6 +14331,10 @@ void Client::Handle_OP_ShopPlayerSell(const EQApplicationPacket *app)
 
 	uint32 price = 0;
 	uint32 itemid = GetItemIDAt(mp->itemslot);
+	if (NightcapHunt::IsReward(itemid)) {
+		Message(Chat::Yellow, "Zone hunt rewards cannot be sold to merchants.");
+		return;
+	}
 	if (itemid == 0)
 		return;
 	const EQ::ItemData* item = database.GetItem(itemid);
@@ -14344,24 +14343,26 @@ void Client::Handle_OP_ShopPlayerSell(const EQApplicationPacket *app)
 		Message(Chat::Red, "You seemed to have misplaced that item..");
 		return;
 	}
-	if (mp->quantity > 1)
-	{
-		if ((inst->GetCharges() < 0) || (mp->quantity > (uint32)inst->GetCharges()))
-			return;
-	}
+	const bool is_stackable = inst->IsStackable();
+	const bool is_charged = !is_stackable && inst->IsCharged();
+	const uint32 sale_units = EQ::ItemTradePolicy::SaleUnits(
+		is_stackable, is_charged, inst->GetCharges(), mp->quantity);
+	if (!sale_units) { return; }
 
 	if (!item->NoDrop) {
 		//Message(Chat::Red,"%s tells you, 'LOL NOPE'", vendor->GetName());
 		return;
 	}
 
-	uint32 cost_quantity = mp->quantity;
-	if (inst->IsCharged())
-		uint32 cost_quantity = 1;
+	uint32 cost_quantity = sale_units;
 
 	uint32 i;
 
-	if (RuleB(Merchant, UsePriceMod)) {
+	if (item->FixedSellPrice) {
+		price = EQ::ItemTradePolicy::FixedSalePrice(*item, cost_quantity);
+		if (!price) { return; }
+	}
+	else if (RuleB(Merchant, UsePriceMod)) {
 		for (i = 1; i <= cost_quantity; i++) {
 			price = (uint32)(item->Price * i) * Client::CalcPriceMod(vendor, true);
 
@@ -14392,10 +14393,10 @@ void Client::Handle_OP_ShopPlayerSell(const EQApplicationPacket *app)
 
 	AddMoneyToPP(price);
 
-	if (inst->IsStackable() || inst->IsCharged())
+	if (is_stackable || is_charged)
 	{
 		unsigned int i_quan = inst->GetCharges();
-		if (mp->quantity > i_quan || inst->IsCharged())
+		if (mp->quantity > i_quan || is_charged)
 			mp->quantity = i_quan;
 	}
 	else
@@ -14432,6 +14433,7 @@ void Client::Handle_OP_ShopPlayerSell(const EQApplicationPacket *app)
 					price *= Client::CalcPriceMod(vendor, false);
 				}
 
+				price = EQ::ItemTradePolicy::PurchasePrice(*item, price);
 				inst2->SetPrice(price);
 				inst2->SetMerchantSlot(freeslot);
 
@@ -14485,7 +14487,7 @@ void Client::Handle_OP_ShopPlayerSell(const EQApplicationPacket *app)
 	DeleteItemInInventory(
 		mp->itemslot,
 		(
-			!inst->IsStackable() ?
+			!is_stackable ?
 			0 :
 			mp->quantity
 		)
@@ -14493,7 +14495,7 @@ void Client::Handle_OP_ShopPlayerSell(const EQApplicationPacket *app)
 
 
 	//This forces the price to show up correctly for charged items.
-	if (inst->IsCharged())
+	if (is_charged)
 		mp->quantity = 1;
 
 	auto outapp = new EQApplicationPacket(OP_ShopPlayerSell, sizeof(Merchant_Purchase_Struct));
@@ -14619,6 +14621,9 @@ void Client::Handle_OP_ShopRequest(const EQApplicationPacket *app)
 	if (action == MerchantActions::Open) {
 		BulkSendMerchantInventory(merchant_id, tmp->GetNPCTypeID());
 		SetMerchantSessionEntityID(tmp->GetID());
+		if (RuleB(Items, FreeTrade)) {
+			Message(Chat::Yellow, "Former NO DROP items sell for exactly 1 platinum each (one per stack unit, not per charge). This overrides the standard merchant quote.");
+		}
 
 		if ((tabs_to_display & Parcel) == Parcel) {
 			SendBulkParcels();
