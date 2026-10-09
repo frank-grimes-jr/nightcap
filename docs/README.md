@@ -14,6 +14,7 @@ Start with [current status](status.md), not a dated candidate report.
 
 - [Throw Stone Spell Damage: live deployment and exact QA](releases/throw-stone-20261009.md)
 
+- [20% passive AA tuning: activation, evidence and QA](ops/passive-aa-tuning-20261009/README.md)
 - [Passive AA while leveling: release behavior, verification and exact QA](releases/passive-aa-20261004.md)
 
 - [Nightcap loading artwork: live release, update instructions and visual checks](releases/loading-screens-20261004.md)
