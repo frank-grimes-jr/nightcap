@@ -1,7 +1,14 @@
 # Current Nightcap status
 
-Updated October 4, 2026. This is the current status index; dated studies and
+Updated October 9, 2026. This is the current status index; dated studies and
 QA reports preserve their original evidence and are not live-state promises.
+
+## Throw Stone source candidate
+
+Throw Stone now adds effective Spell Damage directly: 251 ordinary damage at
+250 Spell Damage before other modifiers. 108 compiled production-method checks
+pass. Full server build, deployment and owner gameplay QA remain outstanding;
+the live runtime has not changed. [Scope, evidence and exact QA](releases/throw-stone-20261009.md).
 
 ## Passive AA leveling deployed
 

@@ -1,5 +1,17 @@
 # CHANGES
 
+## 2026-10-09 - Throw Stone scales directly with Spell Damage
+
+Throw Stone (5225) now adds the caster's nonnegative, already-capped Spell Damage
+stat to its normal hit for players, bots and mercenaries. Its one-point base now
+deals 251 damage at 250 Spell Damage before other modifiers, instead of rounding
+to 3 under Nightcap's percentage rules. The bonus participates in existing spell
+criticals and respects the spell's explicit item-modifier opt-out. Other spells,
+NPC casts, reflection, global caps, cooldowns and spell data retain their behavior.
+108 compiled production-method checks pass. Source candidate only: full zone
+build, deployment and owner gameplay QA remain outstanding. No database or client
+change is needed. Exact scope and QA: `docs/releases/throw-stone-20261009.md`.
+
 ## 2026-10-04 - Passive AA experience while leveling
 
 Add AA:PassiveExpPercent (default 1% of a full AA award) alongside unchanged
