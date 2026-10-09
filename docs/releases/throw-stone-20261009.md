@@ -1,12 +1,13 @@
-# Throw Stone Spell Damage candidate — October 9, 2026
+# Throw Stone Spell Damage release — October 9, 2026
 
-Status: fresh hardened zone build and automated checks passed; **not deployed**.
-Main promotion and OVH activation are authorized. In-game acceptance remains open.
+Status: **merged to main and deployed to OVH** under the owner's October 9
+instruction. [PR #127](https://github.com/frank-grimes-jr/nightcap/pull/127) merged
+as `d9c6234`; post-deployment health checks passed and access is open.
+In-game acceptance remains open.
 
 The owner subsequently requested **"Push to main and server"** on October 9,
 authorizing this release's direct main promotion and OVH activation. This does not
-record completed gameplay QA. Native build evidence is recorded below; deployment
-verification will be added after activation.
+record completed gameplay QA. Build and hosted verification are recorded below.
 
 ## Behavior
 
@@ -125,3 +126,12 @@ The owner's October 9 instruction authorizes main and OVH for this release,
 before the manual QA above. Do not kill an OVH zone to refresh it: its supervisor
 restarts the entire runtime when any child exits. Use the prepared closed-gateway
 image rollout and retain the immediately prior image for rollback.
+
+## Hosted verification
+
+The owner-authorized deployment completed successfully. Post-deployment health
+checks passed and access is open. No client update is required. In-game acceptance
+remains pending under the QA steps above.
+
+Detailed operational evidence and recovery receipts are retained locally and on
+the server; they are not included in this published release record.

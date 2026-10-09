@@ -10,8 +10,9 @@ criticals and respects the spell's explicit item-modifier opt-out. Other spells,
 NPC casts, reflection, global caps, cooldowns and spell data retain their behavior.
 The fresh hardened Linux zone build, 108 production-method checks, 12 spell
 regressions and eight rollout failure tests pass. The owner authorized main and
-OVH promotion; activation and gameplay QA remain outstanding. No database or
-client change is needed. Exact scope and QA: `docs/releases/throw-stone-20261009.md`.
+OVH promotion. PR #127 is merged and deployed successfully. Post-deployment
+health checks passed. No SQL or client change was needed; manual gameplay QA
+remains outstanding. Exact scope and QA: `docs/releases/throw-stone-20261009.md`.
 
 ## 2026-10-04 - Passive AA experience while leveling
 

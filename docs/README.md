@@ -10,7 +10,7 @@ Start with [current status](status.md), not a dated candidate report.
 
 ## Players and testers
 
-- [Throw Stone Spell Damage: source candidate and exact QA](releases/throw-stone-20261009.md)
+- [Throw Stone Spell Damage: live deployment and exact QA](releases/throw-stone-20261009.md)
 
 - [Passive AA while leveling: release behavior, verification and exact QA](releases/passive-aa-20261004.md)
 

@@ -1,7 +1,7 @@
 # 0057: Give Throw Stone a flat Spell Damage contribution
 
-Date: 2026-10-09. Status: accepted for main/server promotion by the owner;
-gameplay acceptance pending.
+Date: 2026-10-09. Status: merged to main and deployed on OVH under owner
+authorization; gameplay acceptance pending.
 
 The owner requested that Throw Stone use Spell Damage. Spell 5225 already reaches
 the direct-damage handler with base damage 1. The pinned October 4 client spell
