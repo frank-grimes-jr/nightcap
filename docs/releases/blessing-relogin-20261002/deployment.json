@@ -1,0 +1,210 @@
+{
+  "source_commit": "61890bf45e4f132c875727a7bffd66d436544d00",
+  "date": "2026-10-03",
+  "image": "nightcap-game:blessing-relogin-20261003",
+  "archive": {
+    "sha256": "0ad667219505473ab3e9233dfb12c956255698780142629d1766df1273f07be2",
+    "bytes": 165658028,
+    "source_commit": "61890bf45e4f132c875727a7bffd66d436544d00"
+  },
+  "verification": {
+    "deployment": {
+      "image_id": "sha256:fccb9c244e5028a50146f126777d23266a762fe61748ed8c6b9ae8b01467e292",
+      "started_at": "2026-10-03T11:46:35.517447778Z",
+      "restart_count": 0,
+      "processes": [
+        [
+          "loginserver",
+          "a9c97271ce27bcbd4fc4003126af12a7c11821ef97d5aa8dff1be0dc1b4fffd8"
+        ],
+        [
+          "world",
+          "589195bcdd7dd873489905e880c32ac7b695b92c350ad36592470c9f7a32bec8"
+        ],
+        [
+          "ucs",
+          "96757b356eca25c539bdd6e036c635ab79fee383e7a5ec9e27b14bb5138f5583"
+        ],
+        [
+          "zone",
+          "0f2269488a7e5a6b9443b252d12c74e5654d6b87d310cfd476694800586ee5ab"
+        ],
+        [
+          "zone",
+          "0f2269488a7e5a6b9443b252d12c74e5654d6b87d310cfd476694800586ee5ab"
+        ],
+        [
+          "zone",
+          "0f2269488a7e5a6b9443b252d12c74e5654d6b87d310cfd476694800586ee5ab"
+        ],
+        [
+          "zone",
+          "0f2269488a7e5a6b9443b252d12c74e5654d6b87d310cfd476694800586ee5ab"
+        ],
+        [
+          "zone",
+          "0f2269488a7e5a6b9443b252d12c74e5654d6b87d310cfd476694800586ee5ab"
+        ],
+        [
+          "zone",
+          "0f2269488a7e5a6b9443b252d12c74e5654d6b87d310cfd476694800586ee5ab"
+        ],
+        [
+          "zone",
+          "0f2269488a7e5a6b9443b252d12c74e5654d6b87d310cfd476694800586ee5ab"
+        ],
+        [
+          "zone",
+          "0f2269488a7e5a6b9443b252d12c74e5654d6b87d310cfd476694800586ee5ab"
+        ],
+        [
+          "zone",
+          "0f2269488a7e5a6b9443b252d12c74e5654d6b87d310cfd476694800586ee5ab"
+        ],
+        [
+          "zone",
+          "0f2269488a7e5a6b9443b252d12c74e5654d6b87d310cfd476694800586ee5ab"
+        ],
+        [
+          "zone",
+          "0f2269488a7e5a6b9443b252d12c74e5654d6b87d310cfd476694800586ee5ab"
+        ],
+        [
+          "zone",
+          "0f2269488a7e5a6b9443b252d12c74e5654d6b87d310cfd476694800586ee5ab"
+        ]
+      ],
+      "errors": {
+        "native": 0,
+        "quest": 0,
+        "database": 0
+      },
+      "client_release": 2026100203,
+      "client_channel_sha256": "4bf13e4ce24e5aefbb01a1473a45a829dcf01fdca683068dd59712b86836ebdb",
+      "player_tables_preserved": 47,
+      "quest_files_preserved": 8139,
+      "database_restored": false,
+      "gateway_open": true
+    },
+    "current": {
+      "image_id": "sha256:fccb9c244e5028a50146f126777d23266a762fe61748ed8c6b9ae8b01467e292",
+      "started_at": "2026-10-03T11:46:35.517447778Z",
+      "restart_count": 0,
+      "processes": [
+        [
+          "loginserver",
+          "a9c97271ce27bcbd4fc4003126af12a7c11821ef97d5aa8dff1be0dc1b4fffd8"
+        ],
+        [
+          "world",
+          "589195bcdd7dd873489905e880c32ac7b695b92c350ad36592470c9f7a32bec8"
+        ],
+        [
+          "ucs",
+          "96757b356eca25c539bdd6e036c635ab79fee383e7a5ec9e27b14bb5138f5583"
+        ],
+        [
+          "zone",
+          "0f2269488a7e5a6b9443b252d12c74e5654d6b87d310cfd476694800586ee5ab"
+        ],
+        [
+          "zone",
+          "0f2269488a7e5a6b9443b252d12c74e5654d6b87d310cfd476694800586ee5ab"
+        ],
+        [
+          "zone",
+          "0f2269488a7e5a6b9443b252d12c74e5654d6b87d310cfd476694800586ee5ab"
+        ],
+        [
+          "zone",
+          "0f2269488a7e5a6b9443b252d12c74e5654d6b87d310cfd476694800586ee5ab"
+        ],
+        [
+          "zone",
+          "0f2269488a7e5a6b9443b252d12c74e5654d6b87d310cfd476694800586ee5ab"
+        ],
+        [
+          "zone",
+          "0f2269488a7e5a6b9443b252d12c74e5654d6b87d310cfd476694800586ee5ab"
+        ],
+        [
+          "zone",
+          "0f2269488a7e5a6b9443b252d12c74e5654d6b87d310cfd476694800586ee5ab"
+        ],
+        [
+          "zone",
+          "0f2269488a7e5a6b9443b252d12c74e5654d6b87d310cfd476694800586ee5ab"
+        ],
+        [
+          "zone",
+          "0f2269488a7e5a6b9443b252d12c74e5654d6b87d310cfd476694800586ee5ab"
+        ],
+        [
+          "zone",
+          "0f2269488a7e5a6b9443b252d12c74e5654d6b87d310cfd476694800586ee5ab"
+        ],
+        [
+          "zone",
+          "0f2269488a7e5a6b9443b252d12c74e5654d6b87d310cfd476694800586ee5ab"
+        ],
+        [
+          "zone",
+          "0f2269488a7e5a6b9443b252d12c74e5654d6b87d310cfd476694800586ee5ab"
+        ]
+      ],
+      "errors": {
+        "native": 0,
+        "quest": 0,
+        "database": 0
+      }
+    },
+    "services": {
+      "game": {
+        "id": "26485cdda656fc17c8439ea6ed982df8d77e4cc76fe774e59717c424fd62e3df",
+        "image_id": "sha256:fccb9c244e5028a50146f126777d23266a762fe61748ed8c6b9ae8b01467e292",
+        "started_at": "2026-10-03T11:46:35.517447778Z",
+        "restarts": 0,
+        "running": true,
+        "health": "healthy",
+        "oom_killed": false
+      },
+      "gateway": {
+        "id": "9ba6a7761ccc44e146f6679f40cb54828ae8c9562e325ea374d9d2f117e8bb9a",
+        "image_id": "sha256:c36fa37c7d0b24055eaeb42ebd7370e313c2b41b96fa03256e0cbafee91fc58a",
+        "started_at": "2026-10-03T11:47:37.44286223Z",
+        "restarts": 0,
+        "running": true,
+        "health": null,
+        "oom_killed": false
+      },
+      "db": {
+        "id": "5c34a0594d5015209f7667d4421c00ef492b80298842829b2edb69c69449d96f",
+        "image_id": "sha256:7f22313fc130a377a44999965bcb0a08dd5b21e8502824c1b864f792f9bc66ab",
+        "started_at": "2026-09-20T17:47:54.935680589Z",
+        "restarts": 0,
+        "running": true,
+        "health": "healthy",
+        "oom_killed": false
+      },
+      "web": {
+        "id": "d8fb0c7da13aea642ae505b0c8bed74b529107185d43dbf35406f6b025d4d71d",
+        "image_id": "sha256:7377697a821c131a924a7105fafbe7414db4e9fcc77a6f08f776f33f141ec3f8",
+        "started_at": "2026-09-20T17:47:54.765116169Z",
+        "restarts": 0,
+        "running": true,
+        "health": null,
+        "oom_killed": false
+      },
+      "tunnel": {
+        "id": "30b1d25ff56bffa77a5b05d1b3d2f6c37b8a87dc05ef098721b6be6555235aac",
+        "image_id": "sha256:ff69a2225ad7c6f85ed84fbd5f3087df46202426b2388ec60214098e0adf05e9",
+        "started_at": "2026-09-20T17:53:43.445441644Z",
+        "restarts": 0,
+        "running": true,
+        "health": null,
+        "oom_killed": false
+      }
+    }
+  },
+  "owner_gameplay_acceptance": "pending"
+}

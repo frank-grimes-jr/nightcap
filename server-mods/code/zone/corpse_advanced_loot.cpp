@@ -49,10 +49,10 @@ bool LoreConflict(Client *c, const EQ::ItemInstance &item)
 }
 bool ConsentNeeded(const EQ::ItemInstance &item)
 {
-	if (!item.GetItem()->NoDrop || item.GetItem()->NoTransfer || item.IsAttuned()) { return true; }
+	if (!item.GetItem()->NoDrop || item.GetItem()->NoTransfer || item.IsAttunedForTrade()) { return true; }
 	for (int i = 0; i < EQ::invaug::SOCKET_COUNT; ++i) {
 		const auto augment = item.GetAugment(i);
-		if (augment && (!augment->GetItem()->NoDrop || augment->GetItem()->NoTransfer || augment->IsAttuned())) { return true; }
+		if (augment && (!augment->GetItem()->NoDrop || augment->GetItem()->NoTransfer || augment->IsAttunedForTrade())) { return true; }
 	}
 	for (uint8 i = 0; i < EQ::invbag::SLOT_COUNT; ++i) {
 		if (const auto child = item.GetItem(i); child && ConsentNeeded(*child)) { return true; }
@@ -69,6 +69,10 @@ bool Corpse::ClassicLootOverride(Client *c)
 
 bool Corpse::AdvancedLootAccessible(Client *c, bool own_transfer, bool classic)
 {
+	// The advanced list already contains earned drops throughout this zone.
+	// Public corpses and classic corpse clicks still require native loot range.
+	const auto rights = AdvancedLootRights();
+	const bool earned = c && !classic && std::find(rights.begin(), rights.end(), c->CharacterID()) != rights.end();
 	return c && zone && IsNPCCorpse() && !IsBecomeNPCCorpse() && !m_player_corpse_depop && GetDecayTime() != 0 &&
 		GetEntityVariable("nightcap:advloot-invalid-state").empty() && (!m_is_locked || (classic && c->Admin() >= AccountStatus::GMAdmin)) &&
 		(!m_advanced_loot_busy || own_transfer) && (!IsBeingLooted() || IsBeingLootedBy(c)) &&
@@ -76,7 +80,7 @@ bool Corpse::AdvancedLootAccessible(Client *c, bool own_transfer, bool classic)
 		!c->IsStunned() && !c->IsMezzed() && !c->IsFeared() && !c->GetFeigned() && !c->IsTrader() && !c->IsBuyer() &&
 		!(c->trade && c->trade->With()) && !c->GetTradeskillObject() &&
 		(CanPlayerLoot(c->CharacterID()) || (classic && ClassicLootOverride(c))) &&
-		DistanceSquaredNoZ(c->GetPosition(), GetPosition()) <= 625;
+		(earned || DistanceSquaredNoZ(c->GetPosition(), GetPosition()) <= 625);
 }
 
 NightcapLoot::TransferResult Corpse::LootAdvancedItem(Client *c, LootItem *selected, bool consent, bool automatic, NightcapLoot::Destination destination)

@@ -15,6 +15,7 @@ from client_hub_models import add_models, MODELS
 from client_ecommons_hub import recall_spell, hub_files, ROOT
 from client_lavastorm import lavastorm_files
 from generate_pet_spell_catalog import SOURCE_SHA256
+from build_winged_helmet_client import helmet_files
 from epic05 import load_catalog as epic05_catalog, spell_fields as epic05_fields
 
 
@@ -183,17 +184,25 @@ def main():
         files[model['archive']] = archive.read_bytes()
     from client_classic_models import model_files
     files.update(model_files(client))
+    helmet_mesh = (ROOT/'assets/winged-helmet/helmet-game-mesh.json').read_bytes()
+    helmets, helmet_audit = helmet_files(client, json.loads(helmet_mesh))
+    files.update(helmets)
+    from client_loading_screens import loading_files
+    gallery, gallery_audit = loading_files()
+    files.update(gallery)
     # Validate all inputs before creating any output. Existing user skins stay intact.
     output.mkdir(parents=True)
     for name, data in files.items():
         target = output/name
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_bytes(data)
-    audit = {'schema':1, 'features':['three_classes','aa_class_column','instant_dots','pet_armor','advanced_loot','compact_hub_models','ecommons_tunnel_hub','ancient_attunement_recall','classic_nektulos','classic_lavastorm','classic_models'],
+    audit = {'schema':1, 'features':['three_classes','aa_class_column','instant_dots','pet_armor','advanced_loot','compact_hub_models','ecommons_tunnel_hub','ancient_attunement_recall','classic_nektulos','classic_lavastorm','classic_models','winged_paladin_helmet'],
              'status':'generated_not_installed',
              'source_spells_sha256':hashlib.sha256(raw).hexdigest(),
              'canonical_spell_source_sha256':SOURCE_SHA256, 'restored_spell_class_ids':restored,
              'instant_dot_ids':ids, 'skin_activation':'automatic_at_native_ui_load',
+             'helmet_mesh_sha256':hashlib.sha256(helmet_mesh).hexdigest(), 'helmet_archives':helmet_audit,
+             'loading_screens': gallery_audit,
              'files':{name:{'size':len(data),'sha256':hashlib.sha256(data).hexdigest()} for name,data in files.items()}}
     (output/'audit.json').write_text(json.dumps(audit,indent=2)+'\n')
     print(json.dumps({'status':audit['status'],'instant_dots':len(ids),'files':list(files)}))

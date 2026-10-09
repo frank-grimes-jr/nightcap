@@ -13,6 +13,8 @@
 #include <string>
 #include <vector>
 #include "ADVANCED_LOOT_POLICY_PATH"
+#include "common/zone_hunt_catalog.h"
+#include "common/zone_hunt_policy.h"
 using uint8=uint8_t; using uint16=uint16_t; using uint32=uint32_t; using uint64=uint64_t; using int16=int16_t;
 void check(bool value,const char *message) { if(!value) throw std::runtime_error(message); }
 struct InventoryRepository {
@@ -36,6 +38,7 @@ template<class T,class... Rest> std::string format(std::string text,const T &val
 }
 }
 namespace EQ {
+namespace invaug { constexpr uint8 SOCKET_COUNT=6; }
 namespace invslot { constexpr int16 EQUIPMENT_BEGIN=0,EQUIPMENT_END=22,GENERAL_BEGIN=23,GENERAL_END=32,slotCursor=33,SLOT_INVALID=-1; }
 namespace invbag { constexpr uint8 SLOT_COUNT=10; constexpr int16 CURSOR_BAG_BEGIN=351,CURSOR_BAG_END=360; }
 struct ItemData { uint32 ID=1001; int16 StackSize=20; uint8 BagSlots=0; int Size=1,BagSize=10; };
@@ -50,6 +53,7 @@ struct ItemInstance {
 	uint32 GetColor()const{return row.color;}
 	uint32 GetAugmentItemID(int i)const{return std::array<uint32,6>{row.augment_one,row.augment_two,row.augment_three,row.augment_four,row.augment_five,row.augment_six}[i];}
 	bool IsAttuned()const{return row.instnodrop!=0;} std::string GetCustomDataString()const{return row.custom_data;}
+	void SetAttuned(bool b){row.instnodrop=b;} bool IsScaling()const{return false;} bool IsClassCommon()const{return !IsClassBag();}
 	uint32 GetOrnamentationIcon()const{return row.ornament_icon;} uint32 GetOrnamentationIDFile()const{return row.ornament_idfile;}
 	int GetOrnamentHeroModel()const{return row.ornament_hero_model;} uint32 GetSerialNumber()const{return row.guid;} void SetSerialNumber(uint32 id){row.guid=id;}
 	bool IsClassBag()const{return data.BagSlots>0;} bool IsStackable()const{return stackable;} ItemInstance *Clone()const{return new ItemInstance(*this);}
@@ -84,13 +88,16 @@ struct Result {
 	Iterator begin()const{return {&cells,0};}Iterator end()const{return {&cells,cells.size()};}
 };
 struct ZoneDatabase {
-	std::vector<std::string> queries;Cells inventory;int fail=0,throw_at=0;bool committed=false,active=false,claimed=false,wrong_engine=false;
+	std::vector<std::string> queries;Cells inventory;int fail=0,throw_at=0,zero_at=0;bool committed=false,active=false,claimed=false,wrong_engine=false,forged=false,rollback_fail=false;
+	EQ::ItemInstance *CreateItem(uint32 id,int charges){EQ::ItemData data;data.ID=id;return new EQ::ItemInstance(&data,static_cast<int16>(charges));}
 	Result QueryDatabase(const std::string &q,bool retry) {
 		check(!retry,"a transaction query enabled retry");queries.push_back(q);Result result;
 		if(queries.size()==static_cast<size_t>(throw_at))throw std::runtime_error("injected database exception");
 		if(queries.size()==static_cast<size_t>(fail)){result.success=false;return result;}
+		if(queries.size()==static_cast<size_t>(zero_at))result.affected=0;
+		if(q=="ROLLBACK" && rollback_fail){result.success=false;return result;}
 		if(q.rfind("SHOW COLUMNS",0)==0){for(const auto &column:InventoryRepository::Columns())result.cells.push_back({column});}
-		else if(q.find("information_schema.TABLES")!=std::string::npos)result.cells={{wrong_engine?"2":"3"}};
+		else if(q.find("information_schema.TABLES")!=std::string::npos)result.cells={{wrong_engine?"0":q.find("nightcap_zone_hunt_state")!=std::string::npos?"2":"3"}};
 		else if(q.find("information_schema.TRIGGERS")!=std::string::npos)result.cells={{"0"}};
 		else if(q=="SELECT @@in_transaction")result.cells={{active?"1":"0"}};
 		else if(q=="START TRANSACTION")active=true;
@@ -99,6 +106,8 @@ struct ZoneDatabase {
 		else if(q.find("FROM inventory WHERE")!=std::string::npos)result.cells=inventory;
 		else if(q=="SELECT LAST_INSERT_ID()")result.cells={{"12345"}};
 		else if(q.rfind("SELECT drop_id",0)==0 && claimed)result.cells={{"11111111-1111-1111-1111-111111111111"}};
+		else if(q.rfind("SELECT revision",0)==0)result.cells={{"2026100901"}};
+		else if(q.rfind("SELECT request_id",0)==0 && forged)result.cells={{"11111111-1111-1111-1111-111111111111"}};
 		return result;
 	}
 } database;
@@ -111,6 +120,8 @@ struct Client {
 	void QuarantineItemTransfer(const char*){quarantined=true;}
 	void SendItemPacket(int16,const EQ::ItemInstance*,int){check(database.committed,"packet preceded acknowledged commit");++packets;}
 	void CalcBonuses(){check(database.committed,"bonuses preceded acknowledged commit");++bonuses;}
+	bool CheckLoreConflict(const EQ::ItemData*){return false;}
+	void DeleteItemInInventory(int16 slot,int,bool update,bool persist){check(database.committed&&!persist,"delete preceded commit or persisted twice");inventory.items.erase(slot);if(update)++packets;}
 	int16 FindLootEquipSlot(const EQ::ItemInstance &) { return equip_slot; }
 	void NotifyLootEquipped(EQ::ItemInstance &,int16 slot) { check(database.committed&&inventory.GetItem(slot),"equip event preceded committed item install");++equip_notifications; }
 };
@@ -123,6 +134,60 @@ static EQ::ItemInstance Item(bool stack=false,int count=1) {
 static void SaveRow(int16 slot,const EQ::ItemInstance &item) {
 	auto values=NightcapLoot::Values(NightcapLoot::FromItem(77,slot,item));
 	values[12]=item.GetCustomDataString();database.inventory.push_back(values);
+}
+static std::vector<NightcapLoot::ForgeInput> PrepareForge(Client &c) {
+	c.inventory.lookup.PossessionsBitmask|=uint64{1}<<25;
+	std::vector<NightcapLoot::ForgeInput> inputs;
+	for(int16 slot:{23,24,25}) {
+		auto item=Item();item.row.item_id=item.data.ID=940024;item.row.guid=900+slot;
+		item.SetAttuned(slot==24);c.inventory.items[slot]=std::make_shared<EQ::ItemInstance>(item);
+		SaveRow(slot,item);database.inventory.back()[16]=std::to_string(700+slot); // saved GUID differs after login
+		inputs.emplace_back(slot,item.GetSerialNumber());
+	}
+	return inputs;
+}
+static void TestForge() {
+	using namespace NightcapLoot;
+	database={};Client c;auto inputs=PrepareForge(c);
+	check(ForgeItems(&c,inputs,id)==TransferResult::Delivered,"three-copy forge failed");
+	check(c.inventory.items.size()==1&&c.inventory.GetItem(23)->GetID()==940025&&c.inventory.GetItem(23)->IsAttuned(),"forge output/count/binding mismatch");
+	check(c.inventory.puts==1&&c.packets==4&&c.bonuses==1,"forge published incorrect inventory updates");
+	const auto successful=database.queries;
+	check(std::count_if(successful.begin(),successful.end(),[](const auto&q){return q.rfind("DELETE FROM inventory",0)==0;})==3,"did not delete exactly three preimages");
+	for(size_t step=1;step<=successful.size();++step) {
+		database={};Client attempt;auto copies=PrepareForge(attempt);database.fail=static_cast<int>(step);
+		const auto result=ForgeItems(&attempt,copies,id);
+		const bool uncertain=successful[step-1]=="COMMIT"||successful[step-1]=="SELECT @@in_transaction"||successful[step-1]=="START TRANSACTION";
+		check(result==(uncertain?TransferResult::Uncertain:TransferResult::Declined),"incorrect forge failure classification");
+		check(attempt.quarantined==uncertain&&attempt.inventory.items.size()==3&&!attempt.inventory.puts&&!attempt.packets,"forge failure published items or lost quarantine");
+	}
+	for(size_t step=1;step<=successful.size();++step) {
+		database={};Client attempt;auto copies=PrepareForge(attempt);database.throw_at=static_cast<int>(step);
+		check(ForgeItems(&attempt,copies,id)==TransferResult::Uncertain&&attempt.quarantined,"forge exception not quarantined");
+		check(attempt.inventory.items.size()==3&&!attempt.packets,"exception published forge inventory");
+	}
+	for(size_t step=1;step<=successful.size();++step) {
+		if(successful[step-1].rfind("DELETE ",0)!=0&&successful[step-1].rfind("INSERT ",0)!=0)continue;
+		database={};Client attempt;auto copies=PrepareForge(attempt);database.zero_at=static_cast<int>(step);
+		check(ForgeItems(&attempt,copies,id)==TransferResult::Declined&&!attempt.packets,"forge ignored affected-row failure");
+	}
+	database={};Client duplicate;auto copies=PrepareForge(duplicate);copies[2]=copies[1];
+	check(ForgeItems(&duplicate,copies,id)==TransferResult::Declined&&database.queries.empty(),"duplicate source consumed");
+	database={};Client stale;copies=PrepareForge(stale);database.inventory[1][12]="changed";
+	check(ForgeItems(&stale,copies,id)==TransferResult::Declined&&!stale.packets,"stale instance consumed");
+	database={};Client stale_quote;copies=PrepareForge(stale_quote);++copies[1].second;
+	check(ForgeItems(&stale_quote,copies,id)==TransferResult::Declined&&database.queries.empty(),"stale quote consumed replacement");
+	database={};Client payload;copies=PrepareForge(payload);payload.inventory.items[24]->row.augment_one=123;
+	check(ForgeItems(&payload,copies,id)==TransferResult::Declined&&database.queries.empty(),"socketed input consumed");
+	database={};Client top;copies=PrepareForge(top);top.inventory.items[24]->row.item_id=940027;
+	check(ForgeItems(&top,copies,id)==TransferResult::Declined&&database.queries.empty(),"mixed or top-tier input consumed");
+	database={};Client replay;copies=PrepareForge(replay);database.forged=true;
+	check(ForgeItems(&replay,copies,id)==TransferResult::Declined&&!replay.packets,"request receipt replayed");
+	database={};Client rollback;copies=PrepareForge(rollback);database.inventory[0][2]="1";database.rollback_fail=true;
+	check(ForgeItems(&rollback,copies,id)==TransferResult::Uncertain&&rollback.quarantined,"failed rollback not quarantined");
+	database={};Client broken_publish;copies=PrepareForge(broken_publish);broken_publish.inventory.fail_put=true;
+	check(ForgeItems(&broken_publish,copies,id)==TransferResult::Uncertain&&broken_publish.quarantined&&database.committed,"post-commit failure not quarantined");
+	for(const auto&q:successful)std::cout<<"FORGE_SQL:"<<q<<"\n";
 }
 int main() { try {
 	using namespace NightcapLoot;
@@ -199,7 +264,8 @@ int main() { try {
 	database={};Client duplicate;
 	check(ReceiveItem(&duplicate,source,{id,id})==TransferResult::Declined && database.queries.empty(),"duplicate physical IDs accepted");
 	check(!ValidDropID("wrong") && ValidDropID(id),"drop identity validation failed");
+	TestForge();
 	for(const auto &query:successful)std::cout<<"SQL:"<<query<<"\n";
-	std::cout<<"PASS: actual inventory transfer body, placement, metadata and every database failure/exception boundary\n";
+	std::cout<<"PASS: actual loot and forge translation unit; inventory preimages, binding, replay, placement and every database failure/exception boundary\n";
 	return 0;
 } catch(const std::exception &error) { std::cerr<<error.what()<<"\n";return 1; } }

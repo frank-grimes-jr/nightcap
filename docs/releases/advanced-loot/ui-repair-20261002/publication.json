@@ -1,0 +1,63 @@
+{
+  "release": 2026100201,
+  "source_pr": "https://github.com/frank-grimes-jr/nightcap/pull/113",
+  "source_head": "5f14610933cf4231e95e0c4b91d5c067437a2b1f",
+  "main_merge": "2f530209b463225d12029db2853b2d158924a414",
+  "publication": {
+    "release": 2026100201,
+    "verified_files": 46,
+    "channel_sha256": "d0ec35d7badafbe2ecfd9391ad24aa524547b767625b8edfcf018f9c9ad18426",
+    "previous_release": 2026100104,
+    "services_unchanged": true,
+    "desktop_starter_guide_unchanged": true
+  },
+  "hosted_verification": {
+    "channel_sha256": "d0ec35d7badafbe2ecfd9391ad24aa524547b767625b8edfcf018f9c9ad18426",
+    "expires": "2026-11-01T12:37:14Z",
+    "hosted": true,
+    "release": 2026100201,
+    "signature": "valid against shipped production public key",
+    "total_bytes": 149807497,
+    "verified_files": 46
+  },
+  "baseline_refresh": {
+    "baseline_refreshed": true,
+    "public_unchanged": true,
+    "service_images_unchanged": true,
+    "prior_baseline_sha256": "df359593bf17d33f0381083980c7c1fb87b3d6f8075d503ac6bfdd3513b0d353",
+    "fresh_baseline_sha256": "05f74cb86cd64c0e9439782ac26c4100dd45e020cf66bebe58708ccee5c71467"
+  },
+  "staging": {
+    "staged_files": 47,
+    "production_unchanged": true
+  },
+  "services_preserved": {
+    "db": {
+      "running": true,
+      "health": "healthy",
+      "unchanged_during_publication": true
+    },
+    "game": {
+      "running": true,
+      "health": "healthy",
+      "unchanged_during_publication": true
+    },
+    "gateway": {
+      "running": true,
+      "health": null,
+      "unchanged_during_publication": true
+    },
+    "web": {
+      "running": true,
+      "health": null,
+      "unchanged_during_publication": true
+    },
+    "tunnel": {
+      "running": true,
+      "health": null,
+      "unchanged_during_publication": true
+    }
+  },
+  "native_click_render_and_reply_acceptance": "pending owner live QA",
+  "local_client_installation": "not performed; normal launcher Play applies the release"
+}

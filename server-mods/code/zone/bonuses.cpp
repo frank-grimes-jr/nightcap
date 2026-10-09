@@ -1,3 +1,4 @@
+#include "zone/zone_hunt.h"
 /*	EQEMu: Everquest Server Emulator
 	Copyright (C) 2001-2004 EQEMu Development Team (http://eqemu.org)
 
@@ -238,12 +239,11 @@ void Mob::ProcessItemCaps()
 
 	itembonuses.ATK = std::min(itembonuses.ATK, CalcItemATKCap());
 
-	if (IsOfClientBotMerc() && itembonuses.SpellDmg > RuleI(Character, ItemSpellDmgCap)) {
-		itembonuses.SpellDmg = RuleI(Character, ItemSpellDmgCap);
-	}
-
-	if (IsOfClientBotMerc() && itembonuses.HealAmt > RuleI(Character, ItemHealAmtCap)) {
-		itembonuses.HealAmt = RuleI(Character, ItemHealAmtCap);
+	if (IsOfClientBotMerc()) {
+		const int spell_headroom = IsClient() ? NightcapHunt::OutputHeadroom(*CastToClient(), false) : 0;
+		const int heal_headroom = IsClient() ? NightcapHunt::OutputHeadroom(*CastToClient(), true) : 0;
+		itembonuses.SpellDmg = std::min(itembonuses.SpellDmg, RuleI(Character, ItemSpellDmgCap) + spell_headroom);
+		itembonuses.HealAmt = std::min(itembonuses.HealAmt, RuleI(Character, ItemHealAmtCap) + heal_headroom);
 	}
 }
 
@@ -355,8 +355,9 @@ void Mob::AddItemBonuses(const EQ::ItemInstance* inst, StatBonuses* b, bool is_a
 	b->HitChance        = CalcCappedItemBonus(b->HitChance, item->Accuracy, RuleI(Character, ItemAccuracyCap));
 	b->ProcChance       = CalcCappedItemBonus(b->ProcChance, item->CombatEffects, RuleI(Character, ItemCombatEffectsCap));
 	b->DoTShielding     = CalcCappedItemBonus(b->DoTShielding, item->DotShielding, RuleI(Character, ItemDoTShieldingCap));
-	b->HealAmt          = CalcCappedItemBonus(b->HealAmt, item->HealAmt, RuleI(Character, ItemHealAmtCap));
-	b->SpellDmg         = CalcCappedItemBonus(b->SpellDmg, item->SpellDmg, RuleI(Character, ItemSpellDmgCap));
+	// Preserve raw totals until all equipment/augments have been inspected.
+	b->HealAmt          = IsClient() ? b->HealAmt + CalcItemBonus(item->HealAmt) : CalcCappedItemBonus(b->HealAmt, item->HealAmt, RuleI(Character, ItemHealAmtCap));
+	b->SpellDmg         = IsClient() ? b->SpellDmg + CalcItemBonus(item->SpellDmg) : CalcCappedItemBonus(b->SpellDmg, item->SpellDmg, RuleI(Character, ItemSpellDmgCap));
 	b->Clairvoyance     = CalcCappedItemBonus(b->Clairvoyance, item->Clairvoyance, RuleI(Character, ItemClairvoyanceCap));
 	b->DSMitigation     = CalcCappedItemBonus(b->DSMitigation, item->DSMitigation, RuleI(Character, ItemDSMitigationCap));
 

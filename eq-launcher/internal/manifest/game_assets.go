@@ -19,6 +19,9 @@ func GameAssetPath(name string) bool {
 			return true
 		}
 	}
+	if loadingScreenPath(name) {
+		return true
+	}
 	if !strings.Contains(name, "/") {
 		switch name {
 		case "spells_us.txt", "dbstr_us.txt", "ecommons_assets.txt":

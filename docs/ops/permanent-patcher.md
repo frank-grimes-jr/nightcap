@@ -9,7 +9,7 @@ The desktop checks on opening/selecting a client. Play checks fresh signed game 
 ## Release counters and compatibility
 
 - Game manifests use their own increasing `release`. Production inventories can evolve within compiled game-asset scopes; the four core patch files stay mandatory. New EXEs/DLLs outside those core paths, user INIs and broad deletions are rejected.
-- The production profile's `version` identifies the desktop. `minimum_launcher` identifies the game-update protocol minimum and defaults to `0.3.0`; do not increase it for an ordinary compatible content patch.
+- The production profile's `version` identifies the desktop. `minimum_launcher` identifies the game-update protocol minimum. Loading-gallery releases require `0.4.0` because earlier desktops reject stock loading-image paths. The packager enforces this floor; ordinary compatible content patches do not need a further increase.
 - Launcher channels use a separate increasing release counter, signed kind `nightcap-desktop`, schema 1 and platform `windows-amd64`. Game metadata cannot authorize an executable update.
 - Launcher/game metadata expires after 30 days. Publish a newly signed higher release before expiry, even when its file hashes are unchanged. There is currently no automatic renewal job.
 - The starter's compiled production trust expires September 20, 2028. Arrange a reviewed trust-key/starter migration before then. A protocol or trust-root change can require a new starter; routine desktop and gameplay releases do not. Downloads use Ed25519 verification, not Windows Authenticode.

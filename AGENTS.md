@@ -53,6 +53,23 @@ All commands run from `akk-stack/`:
 
 ## Server ops
 
+- **Passive AA experience**: `AA:PassiveExpPercent` controls additive kill/quest/task
+  AA at 0% allocation; `#aaexp on|off` selects 100% or 0%. Tiny gains round down.
+  Percentage rewards must preserve independent level/AA modifiers and missing-row
+  behavior. Rebuild matching world/zone for the rule; this candidate is not deployed.
+  Tests, calibration and exact QA: `docs/releases/passive-aa-20261004.md`.
+
+- **OVH zone exits restart the whole runtime.** The deployed start.py supervises
+  every native child. Use a supported zone-unload mechanism for a single-zone
+  refresh; do not assume local eqlaunch restart behavior applies to production.
+  Evidence: docs/ops/camil-silvermist-20261004.md.
+
+- **Universal item trading**: Items:FreeTrade projects effective item
+  flags and fixed former-NO-DROP resale from original SQL definitions. Preserve
+  raw SQL flags and IsAttuned() persistence; use IsAttunedForTrade() for restrictions.
+  ItemData layout changed: pair all native binaries with a regenerated cache,
+  including on rollback. Merchant and #sellall share the fixed payout. Scope and
+  QA: docs/releases/free-trade-20261004/README.md.
 - **Epic 0.5 journal candidate**: native Tasks own progress; the character
   `nightcap_epic05_state` row owns only attunement/cooldown. Pair the native
   `Epic05Contract()` duration guard, three plugins, `global/items/900501.pl`,
@@ -99,6 +116,16 @@ All commands run from `akk-stack/`:
   correct-instance cache rows; retain unrelated states. Evidence and scoped
   rollback rehearsal: `docs/releases/live-qa-20260915/`.
 
+- **Current tunnel layout**: `tools/tunnel_compact.py` and
+  `tools/tunnel_compact_layout.py` own the compact class/service areas and
+  tradeskill workshop. All 119 actors remain. The accepted six-resident ring,
+  costumes and native fire from `tools/tunnel_campfire.py` must be preserved;
+  do not rerun older social/court layout migrations over them. Capture fresh
+  stopped-server preimages, invalidate only relocated actors' non-corpse
+  instance-0 states, and retain fresh caches for unchanged actors on rollback.
+  Current deployment and exact QA:
+  `docs/releases/tunnel-compact-20261002/README.md`.
+
 - **Docker data disk**: stored at `E:\Docker\wsl\disk\docker_data.vhdx`; the original `%LOCALAPPDATA%\Docker\wsl\disk` is a directory junction to that folder. Keep E: available before starting Docker. Migration evidence and rollback details: `docs/ops/docker-data-migration-20260913.md`.
 - **Era lock is declarative**: `era.json` (repo root) is the source of truth; `tools/apply-era.ps1` applies it idempotently (+`-Check` for drift, `-CapCharacters` to de-level). Change era = edit era.json, commit, run the script. Do not set expansion rules by hand or via the GM tool.
 - **PoK class hub**: `tools/pok_hub.py` plans from `docs/pok/hub-stock-audit.json` (original class levels, not widened `spells_new` columns). `tools/pok_hub_migration.py` generates guarded forward/rollback SQL; `tools/pok_hub_restock.py` generates the canonical restock. `docs/pok/catalog-policy.json` gates era promotion before writes. Current catalog preserves the existing expansion-0, level-50 item pool; extending it requires review and regeneration. Activation/rollback and exact player QA: `docs/pok/QA.md`. Candidate only until the recorded in-game QA passes.
@@ -134,8 +161,19 @@ NPC checkpoints. Current scope, evidence and exact native QA:
 `docs/releases/advanced-loot/README.md` and `docs/releases/advanced-loot/LIVE-QA.md`.
 Matching hardened world/zone and signed game 2026093006 are deployed on OVH;
 `docs/releases/advanced-loot/PRODUCTION.md` owns activation and recovery evidence.
-Keep injected faults/synthetic loot in the isolated `QA.md` plan. A previous
-deployment's binary rollback helper is not valid after this receipt boundary.
+The October 2 client interaction repair is signed generation 2026100201. Its
+timeout retry refreshes state and must never replay an uncertain award. Native
+click/render/acknowledgment acceptance is separate from controller fixtures and
+publication checks; see `docs/releases/advanced-loot/UI-REPAIR.md`.
+The subsequent action repair is paired world/zone plus signed game 2026100203.
+Earned advanced loot (including existing auto-coin collection) is zone-wide;
+classic/public loot keeps its 25-unit range. Bulk NO TRADE confirmation binds
+session/revision and physical preimages, including bag contents; recheck after
+each quest callback and never replay uncertain transfers. Current evidence and
+owner acceptance: `docs/releases/advanced-loot/ACTION-REPAIR.md`.
+Keep injected faults/synthetic loot in the isolated `QA.md` plan. Roll back only
+to an explicitly verified receipt-aware image while retaining current data;
+pre-receipt deployment rollback helpers are invalid after this boundary.
 
 ### Multiclass release candidate
 
@@ -178,6 +216,17 @@ formatting. Rehearse forward and rollback against captured schemas before apply.
 
 ## Launcher delivery
 
+The winged Paladin helmet candidate is documented in
+`docs/helmets/winged-paladin.md`. Its Blender/Unity assets and pinned native WLD
+builder live under `assets/winged-helmet/` and `tools/*winged_helmet*`.
+It appends head material 90 for the twelve original races, both genders;
+High Elf uses HIM/HIF, not Wood Elf ELM/ELF. Build outside the read-only source
+client, preserve existing archive fragments/textures, and install through the
+signed launcher. Release 2026100401 is live; item 990500 is loaded in SQL/shared
+memory and Camil 999521 uses head material 90, with his saved state retained.
+Native wear and rendered Camil acceptance remain pending. Deployment evidence:
+`docs/releases/winged-helmet-20261004/README.md`.
+
 PFS version 2 (`0x20000`) requires decompressed blocks no larger than 8192
 bytes, including its filename table. A Python zlib round-trip alone does not
 prove native compatibility. Run `test_classic_model_pfs.py` and validate the
@@ -193,6 +242,18 @@ dependencies while retaining ordered material graphs and geometry/animation
 bytes. Validate every imported actor's dependency closure, not only PFS integrity
 or reversible renaming. The native null-material crash and regression evidence:
 `docs/releases/character-select-crash-20261001/README.md`.
+
+Invisible actors must retain native IVM/IVF registration: EQGraphicsDX9 has a
+separate prefix check at RVA 0x44EA2 that excludes them from automatic animation
+startup. A renamed IVM still twitches after restoring its animation family.
+The pinned native regression is `model-invisible-native`; user retest is
+recorded in `docs/releases/npc-animation-20261004/enchanter.md`.
+
+Classic NPC aliases must preserve RoF2's animation-family lookup (RVA 0x6A60).
+Use the actual source skeleton code, including ELE for typed elemental clones,
+and retain the native sharing flag. Archive/frame-byte integrity alone does not
+prove animated rendering. Run the pinned-client `model-animation-native` test
+and the visual matrix in `docs/releases/npc-animation-20261004/README.md`.
 
 Classic-model candidate policy lives in `eq-client-dll/config/classic-models.json`.
 Generate isolated archives with `tools/client_classic_models.py`, verify their
@@ -217,6 +278,21 @@ inventory for old recovery journals. Signing/build/publication and forward-only
 rollback: `docs/ops/permanent-patcher.md`.
 
 ## Non-obvious gotchas
+
+- **Classic alternate heads require contiguous meshes.** RoF2 discovers head
+  variants in the consecutive WLD 0x36 block around the skeleton's first mesh.
+  Appending a named HE90 elsewhere does not register it. Preserve typed fragment
+  references when inserting; see `tools/helmet_wld_layout.py` and
+  `docs/releases/winged-helmet-display-20261004/`. All head variants also use the
+  first mesh's material palette: extend that shared palette without renumbering
+  its existing slots. A private HE90 palette leaves new surfaces invisible;
+  see `docs/releases/winged-helmet-materials-20261004/`.
+
+- **Spell selection caches levels**: the RoF2 menu stores labels and ordering
+  before multiclass metadata may arrive. Accepted class snapshots invalidate it;
+  rebuild on a safe native cast-window frame after identity/profile checks.
+  A correct gem level does not prove the menu cache is current. Native trace,
+  regression and exact QA: `docs/releases/spell-menu-20261002.md`.
 
 - **Finite living economy**: `docs/economy/policy.json` and the reviewed catalog
   define prices and eligibility. Regenerate guarded SQL with
@@ -261,6 +337,24 @@ claims about live state).
 ### Branch flow
 
 `feature/<name>` → `dev` → `test` → `main`
+
+**October 9 advanced-loot controls exception:** the owner explicitly requested
+"Deploy to main and server" for direct Always/Never row controls and empty-queue
+auto-close. This authorizes main promotion and signed client publication before
+owner gameplay QA. Retain the pending native checks and paired DLL/XML rollback
+in `docs/releases/advanced-loot/ROW-CONTROLS.md`; no game-runtime restart is needed.
+
+**October 9 Throw Stone exception:** the owner explicitly requested "Push to main
+and server." This authorizes main promotion and OVH deployment of Throw Stone's
+Spell Damage scaling before in-game acceptance. Preserve the remaining QA in
+`docs/releases/throw-stone-20261009.md`; this is not a general branch-policy change.
+
+**October 4 helmet exception:** the owner explicitly requested "I want to do
+this on the server. Push to main and the server." This authorizes direct main
+promotion and hosted deployment of the winged Paladin helmet, including Camil's
+head appearance and signed client archives, before native gameplay QA. Retain
+the open visual/equip checks in `docs/helmets/winged-paladin.md`; do not treat
+publication as successful native acceptance or a permanent branch-policy change.
 
 - **feature branch**: temporary, one system/feature each.
 - **dev**: Codex merges here and runs automated testing against the codebase.
@@ -319,6 +413,18 @@ matching client publication. Manual gameplay acceptance remains open; see
 Format: date header, area, description. Most recent entry at the top.
 
 ## Current documentation and player website
+
+Classic zone hunt/forge is a test candidate in `docs/releases/zone-loot-20261009/`.
+`tools/zone_hunt.py` generates guarded item/socket SQL from an explicit production
+content capture. Do not attach its rewards to global loot tables: native death
+rolls are exactly 0.5% per family and intentionally bypass GlobalLootMultiplier.
+Keep restored corpses, owned NPCs and non-native clones excluded. Type-22 cap
+credit is limited to six armor locations; preserve nonplayer cap behavior.
+Forging uses the advanced-loot inventory serializer, exact persisted preimages,
+single-use choices and commit-uncertainty quarantine. Universal trading remains
+in force; new rewards cannot be sold to merchants. Acquisition rollback retains
+owned definitions, sockets and receipts. Access-check zones remain disabled until
+their separate source/access QA passes. No live deployment is implied by this entry.
 
 Tunnel court follow-ups use `tools/tunnel_courts.py`, not regeneration of the
 historical services release. Verify terrain plus DB furniture and patrol paths.
@@ -426,3 +532,16 @@ For a full restore rehearsal, wait for MariaDB's final PID 1 process, not its
 temporary bootstrap server. Copy the compressed dump into the isolated container
 and use pipefail with a private error file; captured stderr pipes can fill with
 large SQL statement diagnostics and deadlock a streaming restore.
+
+### RoF2 buff reconnect state
+
+Buff icons do not establish active native effects. OP_Buff mode 2 updates an
+existing matching effect; mode 3 installs a slot. Restore saved player state only
+after client-ready, without recasting or refreshing duration/charges. Keep the
+permanent-buff sentinel policy. Exact-client regression and unresolved login QA:
+`docs/releases/blessing-relogin-20261002/README.md`.
+
+RoF2 native player profile/OP_Buff duration differs from icon countdowns: preserve
+the server policy -1000 for effects, since -1 expires on a tick unless the spell
+has duration formula 50. Icons still use -1. Test native ticking, not only formula
+arithmetic or slot restoration. Evidence: `docs/releases/blessing-lifetime-20261004/README.md`.

@@ -1,5 +1,331 @@
 # CHANGES
 
+## 2026-10-09 - Classic zone hunt and forge candidate
+
+Added two independent 0.5% death rolls for zone-specific augment and new wearable
+families, with 60/30/8/2 Base/Polished/Exalted/Ascension quality. Forty-eight
+audited Classic combat zones use exact native spawn/NPC pairs; eight access-check
+zones remain gated, and city/hub concepts remain reserved. New IDs bypass legacy
+quality upgrading and the global loot multiplier. Restored corpses and owned or
+script-created victims do not reroll.
+
+Added type-22 sockets on eligible six-location Classic armor, bounded heroic
+INT/WIS output-cap headroom, and `#zoneforge` for atomic three-copy upgrades.
+Forging preserves binding, rejects customized/socketed inputs, commits a durable
+receipt with inventory, and quarantines uncertain results. Universal trading is
+preserved; these new rewards have zero merchant resale. Rollback retains earned
+items/sockets/receipts and disables acquisition. Matching binaries and regenerated
+shared item memory are required. This is a test candidate, not OVH deployment or
+manual acceptance. Scope, source audit, automated evidence and exact owner QA:
+`docs/releases/zone-loot-20261009/README.md`.
+
+## 2026-10-09 - Advanced loot row rules and empty-window close
+
+The main loot list now has Always Loot and Never Loot toggles on every row.
+Either choice saves the existing per-character rule directly; clicking its
+checked choice returns to Ask each time. Checks reflect acknowledged server
+state, and Filters retains Remove. The window closes after a complete server
+snapshot changes the loot queue from nonempty to empty, including Loot All
+across pages. Pending/failed transfers, Settings, Filters, changed settings and
+explicitly reopening an empty window retain their existing access.
+Client-only release 2026100901 / proxy 0.7.8-dev is published under the owner's
+explicit main/server authorization; PR #129 is merged. It pairs the DLL, catalog
+and regenerated Pet Info XML while preserving the other 101 assets and every
+service's identity/start time. Build, loot/runtime/layout, packaging and recovery
+checks pass. No game restart was performed; native in-game acceptance remains
+pending. Scope, evidence and QA:
+`docs/releases/advanced-loot/ROW-CONTROLS.md`.
+
+## 2026-10-09 - Throw Stone scales directly with Spell Damage
+
+Throw Stone (5225) now adds the caster's nonnegative, already-capped Spell Damage
+stat to its normal hit for players, bots and mercenaries. Its one-point base now
+deals 251 damage at 250 Spell Damage before other modifiers, instead of rounding
+to 3 under Nightcap's percentage rules. The bonus participates in existing spell
+criticals and respects the spell's explicit item-modifier opt-out. Other spells,
+NPC casts, reflection, global caps, cooldowns and spell data retain their behavior.
+The fresh hardened Linux zone build, 108 production-method checks, 12 spell
+regressions and eight rollout failure tests pass. The owner authorized main and
+OVH promotion. PR #127 is merged and deployed successfully. Post-deployment
+health checks passed. No SQL or client change was needed; manual gameplay QA
+remains outstanding. Exact scope and QA: `docs/releases/throw-stone-20261009.md`.
+
+## 2026-10-04 - Passive AA experience while leveling
+
+Add AA:PassiveExpPercent (default 1% of a full AA award) alongside unchanged
+normal XP from kills and raw/percentage quest/task rewards. AA allocation is
+now 0% or 100% through packets, saved profiles, quest setters and #aaexp on/off;
+valid historical partial allocations become 100%. Focused mode grants the full
+AA award without an extra passive bonus. Respect minimum level, XP disablement,
+AA modifiers and caps; resurrection earns no passive AA. Guard bank-cap crossing
+without deleting already earned points. Tiny passive awards round down.
+Matching world/zone builds are required for the new rule. The owner authorized
+main/server deployment; all five binaries are freshly linked with production
+hardening preserved. PR 125 is merged to main and OVH is deployed and healthy:
+all runtime hashes/rules, twelve zones, 47 player/state tables, quests, content,
+free-trade cache and current client preservation verify. Backup is retained;
+no database restoration was needed. Gameplay QA remains open. Evidence and QA: docs/releases/passive-aa-20261004.md.
+
+## 2026-10-04 — Replace the complete loading gallery with Nightcap artwork
+
+Add the ten approved paintings, including the SoulFire Paladin and three-pet
+gnome. Generate full-frame baseline JPEG replacements for all 55 RoF2 numbered
+loading slots and the resource fallback. Extend the signed launcher scope only
+for these 56 exact image paths; other default UI files remain protected. Desktop
+0.4.0 is required and delivered through the existing self-updating starter.
+Preserve the previous 48 game files and player settings. No server restart or
+database change is needed. PR 124 merged to main and signed game 2026100407 /
+desktop 0.4.0 are deployed to OVH. All 104 game files and the desktop verify over
+HTTPS; all five service identities/start times are unchanged and game/DB are
+healthy. Close EQ and the launcher, then reopen the normal shortcut to update.
+Generation, rollout, recovery and verification:
+`docs/releases/loading-screens-20261004.md`.
+
+## 2026-10-04 - Deploy universal item trading and one-platinum NO DROP resale
+
+All items receive effective tradable flags, including existing attuned instances,
+containers and augments. Original NO DROP definitions sell for exactly 1pp per
+physical unit at merchants and through #sellall. Ordinary pricing remains; a
+converted-item purchase floor prevents buyback profit. Raw SQL flags and saved
+attunement remain available for rollback. Summoned/free rewards are included.
+Requires all matching native binaries, regenerated shared memory and restart;
+merchant preview can differ from the fixed receipt. Deployed to OVH after explicit
+owner approval: all 308,961 hosted items verified tradable, 171,561 fixed payouts,
+all five binaries and 12 zones checked, fresh backup and player/content/client
+preservation verified. Native player QA remains open. See
+docs/releases/free-trade-20261004/README.md for evidence and exact owner QA.
+
+## 2026-10-04 — Preserve the Enchanter pet's native invisible-actor identity
+
+Owner testing of 2026100404 confirms beetle walking/death is repaired, but
+Enchanter weapons still twitch under a stationary nameplate. The installed
+proxy hash and startup log confirm 0.7.6 loaded. The graphics engine separately
+exempts IVM/IVF actor names from automatic animation-controller startup; the
+ZBB alias bypasses that native exemption. Preserve IVM registration and its
+native global rig while retaining every other classic alias and the shared
+animation-family repair. Native race 600 remains unchanged.
+
+The new regression executes the pinned EQGraphicsDX9 prefix-check instructions
+in a private buffer. It reproduces the failure with published registration and
+checks that repaired registration takes the native invisible-actor path. No
+graphics DLL patch or model-asset edit is introduced. PR 123 and signed release
+2026100406 / proxy 0.7.7-dev are now live under the owner's continuing deployment
+authorization. All 48 public files verify; only the proxy/catalog changed from
+2026100405, preserving current helmet assets and all services. The native
+identity regression, five runtime groups, 288 family cases, 71 pinned sites and
+launcher checks pass. Visual pet retesting remains open.
+Evidence and exact retest: docs/releases/npc-animation-20261004/enchanter.md.
+
+## 2026-10-04 - Tighten the winged Paladin helmet around Classic faces
+
+Owner screenshots confirm the helmet renders on Camil with Classic models,
+but the shell was too wide. Fit to the exposed face instead of hair/ear bounds:
+High Elf male is 22.9% narrower; all 24 fits tighten by 5.7-25%. Wing roots and
+cheek plates move inward together. Small depth-position corrections keep the
+forehead inside the crown; shell height/depth, face meshes, textures and stats
+are retained. Blender front/side/rear previews, Unity's 24-head import, 27 tests
+and an independent check against 758 actual crown planes pass. Signed release
+2026100405 is prepared against 2026100404; only the two global model archives
+change. Native fit and player equip/unequip acceptance remain open.
+Evidence and exact QA: `docs/releases/winged-helmet-snug-20261004/README.md`.
+
+## 2026-10-04 — Preserve permanent blessing effects across client ticks
+
+Follow up the insufficient October 3 reconnect repair: RoF2 expires native -1
+effects on the next tick unless the spell itself has permanent duration formula
+50. Preserve the policy -1000 sentinel in native player profile/OP_Buff state;
+keep icon countdowns at -1. Finite durations and older clients are unchanged.
+Added exact-client expiry/decrement evidence and server packet regression.
+Owner-authorized follow-up is deployed to main and OVH with matching world/zone
+hashes, healthy processes and unchanged player/receipt/corpse state. Current
+helmet publication is retained. Gameplay acceptance remains open.
+Evidence and exact delayed/inventory/relog QA:
+`docs/releases/blessing-lifetime-20261004/README.md`.
+
+## 2026-10-04 - Restore shared animations for classic NPC models (published for live QA)
+
+Classic model aliases bypassed RoF2's native animation-family lookup. Beetles
+lost their spider animation fallback, and invisible-man Enchanter pets lost
+their humanoid fallback and native sharing flag. Resolve aliased actors using
+their actual source skeleton, then translate imported parent families back to
+their aliases. Typed elemental clones retain their ELE skeleton identity.
+Native names and explicit modern mode keep their existing behavior.
+
+The guarded x86 proxy passes 288 pinned-client resolver cases, five runtime
+groups, 71 exact-client signatures and generated-contract/package checks.
+The owner authorized main and live publication before visual acceptance.
+PR 121 is merged and signed release 2026100404 / proxy 0.7.6-dev is public;
+all 48 hosted files verify. Only the proxy/catalog changed from 2026100403,
+preserving the latest helmet assets and all five running services. No server
+binary, SQL or restart was needed. Exit EQ and use the normal launcher to update.
+Pet/NPC rendered acceptance remains open. The earlier local 2026100403 package
+was never uploaded because its baseline guard detected a concurrent release.
+Evidence, exact QA and higher-generation rollback:
+`docs/releases/npc-animation-20261004/README.md`.
+
+## 2026-10-04 — Repair invisible Classic helmet materials
+
+Owner QA of 2026100402 showed the new face cutout but no helmet shell or wings.
+The new head was selected, but the native actor used the first stock mesh's
+material palette. HE90's private palette added material indices outside that
+actor palette (HIM slots 26–28 with only 26 available slots).
+
+Extend each actor's original shared palette by three materials, preserving
+existing slots, and use it for HE90. Insert dependencies before the palette.
+A regression failed on the published package and passes with this correction;
+all original race/gender fits retain the original mesh data and material order.
+Source 292aef4 and signed client repair 2026100403 are published. All 25 tests
+pass. Only the two global archives changed; running services and the other 46
+client files are preserved. Native visual/equip QA remains pending.
+[Evidence and retest](docs/releases/winged-helmet-materials-20261004/README.md).
+
+## 2026-10-04 — Repair Classic winged-helmet registration
+
+The owner reported Camil bareheaded with Classic models forced. Installed
+archives matched release 2026100401 and Camil's live material was 90. Native
+EQGraphicsDX9 inspection identified the actual failure: alternate heads are
+discovered only within the contiguous mesh block referenced by the skeleton.
+The first package appended HE90 outside that block.
+
+Place each HE90 inside its original actor's mesh block, with materials before
+the block, and relocate typed fragment references. Preserve all original data
+apart from those relocated IDs. Add regression coverage reproducing the old
+failure, all 24 race/gender discovery checks, and exact inverse relocation
+checks. Classic graphics remain the supported mode. Source cc78f96 and signed
+repair 2026100402 are published. All 46 other client files and running services
+are unchanged; native appearance and wearable-item acceptance remain pending.
+[Incident and repair evidence](docs/releases/winged-helmet-display-20261004/README.md).
+
+## 2026-10-04 — Winged Paladin helmet deployed for live QA
+
+Created an editable Blender helmet and Unity FBX inspection scene from the
+owner's classic reference images, using the original EQ human plate texture.
+Native WLD/PFS generation adds head material 90 for both genders of the twelve
+original races, preserving existing geometry and textures. Later races are
+excluded at the owner's request. The owner requested direct main and live-server
+deployment for testing; source e250828 and signed release 2026100401 are public.
+
+Guarded, backup-rehearsed creation of item 990500 (Winged Helm of the Dawn)
+completed in the live database: PAL, original races, AC 18, HP/mana 25,
+STA 5, WIS 7, MR 10, FR/CR 5, without later-era effects or augments.
+The owner-approved server restart loaded the new item into shared memory,
+preserved the native binaries, refreshed all zones, and reopened the gateway.
+The signed production candidate independently verifies against the shipped
+launcher public key; all 46 baseline files are unchanged and two archives are
+added. All 48 public files passed HTTPS signature/hash verification. Camil's
+helmtexture changed from 3 to 90 after a fresh stopped-server full backup and
+rolled-back rehearsal. Position, tint, weapons, item stats and the saved-state
+row are preserved; all game processes restarted and the gateway reopened.
+Native wear/visual QA remains open for the owner's live test.
+Independent review caught and fixed canonical asset generation omitting the
+new mandatory archives. The shared builder now feeds its validated files and
+provenance into the normal gameplay audit; fresh generation reproduces all
+44 gameplay assets exactly, with a candidate-hash regression test.
+No acquisition quest or loot source was added. See docs/helmets/winged-paladin.md.
+Deployment and recovery: docs/releases/winged-helmet-20261004/README.md.
+
+## 2026-10-03 — Blessing reconnect repair deployed
+
+Owner-authorized main promotion and OVH deployment restore saved RoF2 player
+buff effects after login. Matching world/zone hashes, healthy processes and
+closed-gateway player/receipt/corpse preservation checks pass. Existing tunnel
+layout, quests, public client release and database schema remain intact. No
+recasting, extra payment or duration refresh; owner relog QA is still pending.
+Evidence: `docs/releases/blessing-relogin-20261002/README.md`.
+
+## 2026-10-02 — Restore RoF2 buff effects after reconnect (candidate)
+
+Restore authoritative player buff slots after client-ready using native OP_Buff
+mode 3. Ordinary updates only modify existing native effects, which cannot repair
+missing effects behind surviving icons. Preserve spell duration/charges and the
+current permanent-buff policy; do not recast or re-charge Matron/Magus blessings.
+Native packet regression and local save/load evidence accompany exact owner QA
+in `docs/releases/blessing-relogin-20261002/README.md`. Candidate only: complete
+login behavior, main promotion and live deployment remain gated.
+
+## 2026-10-02 - Compact tunnel class areas and tradeskill workshop
+
+Pair each trainer with its merchant in four compact gatherings around native
+fires; shrink the tradeskill workshop by about 48%, group sixteen traders and
+reroute eight walkers. Preserve all 119 actors, stock, costumes, Roman suffixes,
+and the six-resident campfire arrangement accepted by the owner. Guarded SQL
+and fresh-state rollback protect unrelated content and player progress. PR 119
+is on main and live after full-backup restoration and verified activation.
+Rendered acceptance remains open; exact QA is recorded in
+`docs/releases/tunnel-compact-20261002/README.md`.
+
+## 2026-10-02 — Advanced loot action repair
+
+Correct the mismatch between zone-wide earned-drop display and 25-unit collection.
+Loot All reports outcomes, supports bounded bulk NO TRADE consent, and each row
+has Ignore/Remove for persistent filters. Preserve receipt/rights/inventory checks,
+classic/public range and current spell-menu changes. Paired world/zone and signed
+2026100203 / 0.7.5-dev are on main/live; all hosted files and running hashes verify.
+Player/receipt/saved-corpse state is preserved; manual acceptance remains pending. See
+`docs/releases/advanced-loot/ACTION-REPAIR.md` for scope, regression evidence and QA.
+
+## 2026-10-02 - Refresh cached spell selection levels
+
+Rebuild the native spell-selection menu on its next safe frame after an accepted
+multiclass snapshot. Previously a menu built before class metadata retained 255
+even though memorized gems reported the correct level. Refresh both labels and
+native ordering; retain canonical scroll inspection and access restrictions.
+Proxy 0.7.4-dev adds three guarded sites (70 total). Native reproduction, runtime,
+launcher, loot and publication checks pass. Also correct the exact-byte verifier
+to map data-section addresses through PE sections. Release 2026100202 is on main
+and live; all 46 public files and the existing updater verify. All 44 other
+assets and five services are preserved. Rendered
+owner QA remains open; evidence and exact steps are recorded in
+`docs/releases/spell-menu-20261002.md`.
+
+## 2026-10-02 - Compact resident campfire and paladin appearance correction
+
+Bring Nalin, Rekk, Sortre, Camil, Trift and Glorphyndel closer around a native
+CAMPFIRE. Correct Glorphyndel from Erudite to High Elf while retaining full
+Valorium, Falchion and Trueheart Shield. Suppress Nalin's idle emotes and correct
+SoulFire's two-handed attack skill. Scoped preimage guards and fresh-state
+rollback protect other content and player progress. Direct main/server promotion
+is complete via PR 115, with automated deployment checks passed. Rendered
+sword/fire acceptance remains open. See
+`docs/releases/tunnel-campfire-20261002/README.md`.
+
+## 2026-10-02 - Simplify advanced loot and recover unresponsive controls
+
+Replace the oversized all-controls loot window with compact Loot, Saved rules,
+Settings and contextual item panels. Keep navigation responsive during requests,
+show an explicit five-second timeout and safe state-only retry, preserve NO TRADE
+confirmation across unchanged refreshes, and clear stale/cross-view selection.
+Add controller/geometry regressions and bounded local diagnostic labels for the
+unlocalized live click/transport failure. Signed release 2026100201 / proxy
+0.7.3-dev is on main and live; all 46 hosted files and signature verify. It
+preserves the newer pet repair and all server loot safety without a server
+restart or database change. Exact native acceptance remains open in
+`docs/releases/advanced-loot/UI-REPAIR.md`; automated fixtures do not prove
+rendered buttons or actual server delivery.
+
+## 2026-10-02 - Social tunnel and tradeskill corner activated
+
+Deployed the approved main revision to OVH after full backup restoration and
+scoped forward/rollback rehearsal. All 119 actors remain; class merchants have
+names, six residents gather socially, supplies surround six crafting stations,
+and the Chronicler stands by Shady. Preserved all 59 checked data scopes and the
+native image. Installed quest assertions (72), native hashes (15) and all four
+public handshakes pass. Invalidated only 93 moved-actor cached states and retained
+four unchanged native states. Rendered owner QA remains open; evidence and
+recovery: `docs/releases/tunnel-social-20261001/PRODUCTION.md`.
+
+## 2026-10-02 - Repair compact pet window native anchors
+
+Correct the stock AutoStretch anchors that overrode the compact buff panel's
+position and covered roster/status/command controls. Keep the 350 x 350 minimum,
+place buffs below the roster beside commands, and move the clear-target hint
+into the All pets tooltip. Preserve all 85 native buff buttons, advanced loot
+and command behavior. Signed production release 2026100104 changes only this UI
+asset; all 46 hosted files verify and production services retain their state.
+Existing saved window sizes are preserved. Rendered owner acceptance remains
+pending; see `docs/releases/pet-window-layout-20261001.md`.
+
+
 ## 2026-10-01 - Social tunnel gatherings and tradeskill corner
 
 Revisit all 119 tunnel actors after owner visual feedback. Replace class rows

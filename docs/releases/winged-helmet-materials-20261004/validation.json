@@ -1,0 +1,16 @@
+{
+  "source_commit": "292aef4",
+  "tests_passed": 25,
+  "tests_failed": 0,
+  "regression_failed_before_fix": true,
+  "regression": "HE90 must use the palette selected from the native actor's first mesh, with every polygon material index in range.",
+  "original_race_gender_variants": 24,
+  "archive_fits_including_barbarian_duplicates": 26,
+  "original_meshes_unchanged": true,
+  "original_palette_slots_preserved_in_order": true,
+  "material_dependencies_precede_consumers": true,
+  "canonical_unchanged_assets": 42,
+  "canonical_changed_assets": ["global_chr.s3d", "global4_chr.s3d"],
+  "independent_review": "No blocking defects found in the shared-palette repair.",
+  "native_visual_acceptance": "pending"
+}

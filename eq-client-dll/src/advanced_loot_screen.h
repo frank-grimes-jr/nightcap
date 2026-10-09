@@ -94,7 +94,7 @@ public:
 		if (!storage) { return false; }
 		LootScreenString name{};
 		api_.assign(&name, "NightcapAdvancedLootWnd");
-		void *created = api_.construct(storage, nullptr, &name, 0, 1, nullptr);
+		void *created = api_.construct(storage, nullptr, &name, 0, 2, nullptr);
 		api_.assign(&name, "");
 		if (created != storage || *static_cast<void ***>(created) != api_.vtable) {
 			// This contradicts the pinned constructor contract. Do not free or
@@ -137,6 +137,12 @@ public:
 	static void Enable(void *control, bool enabled) {
 		// CXWnd::Enabled, pinned by the exact May 2013 class layout.
 		if (window_ && control) { *reinterpret_cast<bool *>(static_cast<unsigned char *>(control) + 0x1a) = enabled; }
+	}
+	static void Visible(void *control, bool visible) {
+		if (!window_ || !control) { return; }
+		if (*reinterpret_cast<bool *>(static_cast<unsigned char *>(control) + 0x196) == visible) { return; }
+		const auto table = *static_cast<void ***>(control);
+		reinterpret_cast<ShowMethod>(table[0xd8 / 4])(control, visible, false, true);
 	}
 	static bool Visible() {
 		// CXWnd::dShow, see the native layout used by the proxy.

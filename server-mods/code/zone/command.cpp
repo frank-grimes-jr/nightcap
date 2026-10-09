@@ -82,6 +82,7 @@ int command_init(void)
 		command_add("nightcapui", "Refresh your class display.", AccountStatus::Player, command_nightcapui) ||
 		command_add("aaexp", "[0-100|off] - Set the %% of combat XP routed to AA (the client hides this toggle below level 51)", AccountStatus::Player, command_aa_exp) ||
 		command_add("advloot", "Advanced loot window protocol", AccountStatus::Player, command_advloot) ||
+		command_add("zoneforge", "Combine three identical zone rewards into the next quality.", AccountStatus::Player, command_zoneforge) ||
 		command_add("acceptrules", "[acceptrules] - Accept the EQEmu Agreement", AccountStatus::Player, command_acceptrules) ||
 		command_add("advnpcspawn", "[maketype|makegroup|addgroupentry|addgroupspawn][removegroupspawn|movespawn|editgroupbox|cleargroupbox]", AccountStatus::GMLeadAdmin, command_advnpcspawn) ||
 		command_add("aggrozone", "[aggro] - Aggro every mob in the zone with X aggro. Default is 0. Not recommend if you're not invulnerable.", AccountStatus::GMAdmin, command_aggrozone) ||
@@ -208,7 +209,7 @@ int command_init(void)
 		command_add("scale", "Handles NPC scaling", AccountStatus::GMLeadAdmin, command_scale) ||
 		command_add("scribespell", "[Spell ID] - Scribe a spell by ID to your or your target's spell book.", AccountStatus::GMCoder, command_scribespell) ||
 		command_add("scribespells", "[Max level] [Min level] - Scribe all spells for you or your player target that are usable by them, up to level specified. (may freeze client for a few seconds)", AccountStatus::GMLeadAdmin, command_scribespells) ||
-		command_add("sellall", "Sell everything in your bags to the void (keeps bags, no-drop, and temporary items)", AccountStatus::Player, command_sell_all) ||
+		command_add("sellall", "Sell saleable carried items and bag contents (keeps containers; uses current resale rules)", AccountStatus::Player, command_sell_all) ||
 		command_add("sendzonespawns", "Refresh spawn list for all clients in zone", AccountStatus::GMLeadAdmin, command_sendzonespawns) ||
 		command_add("sensetrap", "Analog for ldon sense trap for the newer clients since we still don't have it working.", AccountStatus::Player, command_sensetrap) ||
 		command_add("serverrules", "Show server rules", AccountStatus::Player, command_serverrules) ||

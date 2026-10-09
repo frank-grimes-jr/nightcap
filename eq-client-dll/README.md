@@ -8,6 +8,11 @@ server-authorized UI chassis.
 
 ## Status
 
+October 9: signed game `2026100901` / proxy `0.7.8-dev` is deployed with
+Always Loot/Never Loot directly beside each item and automatic close when the
+offered loot queue empties. The DLL and generated Pet Info XML must be paired.
+[Publication and pending native QA](../docs/releases/advanced-loot/ROW-CONTROLS.md).
+
 September 30 candidate: proxy `0.7.0-dev` adds the native Advanced Loot window,
 `/advloot`, filters and server-authorized actions. It requires the matching
 server, SQL migration and generated Pet Info XML. A signed QA copy passes

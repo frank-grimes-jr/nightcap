@@ -77,3 +77,28 @@ Its exact pre-removal files are retained under local
 
 Implementation status and outstanding work live in
 `docs/releases/advanced-loot/README.md`; this ADR is not completion evidence.
+
+## October 2 interaction repair
+
+Separate current loot, saved rules, settings and item-specific actions. The
+screen must fit 640 x 480 and local navigation must not depend on a completed
+network request. Five-second timeouts expose a state-only Retry; never replay
+an award automatically. Refresh preserves consent only for the unchanged
+NO TRADE row. A view change or vanished row clears selection and closes the
+detail panel; drop tokens and saved-filter item IDs are different namespaces.
+Treat native callback fixtures and XML geometry checks as bounded evidence,
+and require an actual rendered click/request/acknowledgment before acceptance.
+[Repair status and exact QA](../releases/advanced-loot/UI-REPAIR.md).
+
+## October 2 action repair
+
+The list already exposes earned drops across the current zone/instance. Collection
+now uses explicit current corpse-right membership for the same scope, including
+automatic earned coins; public and classic collection retain their range gate.
+The server reports All outcomes. Bulk NO TRADE consent is one-use, lasts 30 seconds,
+and binds session/revision to complete physical preimages plus corpse generation.
+Changed snapshots, commands, rights or physical items invalidate it. Each transfer
+is revalidated after preceding quest callbacks. UI feedback grants no authority.
+Ignore/Remove directly save Never/Ask; existing Use saved rules controls application.
+The prior receipt-aware image is a valid binary rollback with current data retained.
+Never restore pre-award data or remove receipts. See ACTION-REPAIR.md and its evidence.

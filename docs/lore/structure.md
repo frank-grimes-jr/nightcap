@@ -20,6 +20,8 @@ not new claims about EverQuest canon. Implementation and appearance choices:
 - Rekk Diver: Halfling rogue in black chain with two daggers.
 - Nalin Shadowbane: High Elf paladin in Classic planar Valorium; SoulFire chosen
   as the otherwise unspecified two-handed sword.
+- Glorphyndel: male High Elf paladin in full Valorium, carrying the Falchion of
+  the Koada'Vie and Trueheart Shield; joins the resident campfire circle.
 - Trift: level-12 Human warrior in Bronze. A goblin killed him in Butcherblock;
   he lost his corpse and repeatedly tells other travelers about it.
 - Khalure Ser`Tiras: Wood Elf druid in leather and Golden Efreeti Boots; offers

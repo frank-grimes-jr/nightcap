@@ -1,0 +1,2 @@
+PASS: exact RoF2 handler; 240 restoration cases plus update/fade/idempotence controls
+Exit code: 0
