@@ -181,3 +181,10 @@ docs/releases/advanced-loot/ops/*.log -text whitespace=blank-at-eol,blank-at-eof
 docs/releases/tunnel-class-courts/ops/rollout.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 docs/releases/tunnel-class-courts/ops/verify_open.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 docs/releases/tunnel-class-courts/ops/package*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+
+# Exact private website payload and zone-hunt production provenance.
+index.html -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+site-assets/* -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+docs/releases/zone-loot-20261009/production*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+docs/releases/zone-loot-20261009/website*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+docs/releases/zone-loot-20261009/ops/* -text -whitespace

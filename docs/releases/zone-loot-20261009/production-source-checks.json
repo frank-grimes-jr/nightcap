@@ -1,0 +1,6 @@
+{
+  "source": "/tmp/nightcap-zone-hunt-hardened-build-20261009/source",
+  "native_zone_hunt_and_trading_tests": 10,
+  "throw_stone_checks": 108,
+  "result": "passed"
+}
