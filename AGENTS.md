@@ -329,6 +329,12 @@ claims about live state).
 
 `feature/<name>` → `dev` → `test` → `main`
 
+**October 9 advanced-loot controls exception:** the owner explicitly requested
+"Deploy to main and server" for direct Always/Never row controls and empty-queue
+auto-close. This authorizes main promotion and signed client publication before
+owner gameplay QA. Retain the pending native checks and paired DLL/XML rollback
+in `docs/releases/advanced-loot/ROW-CONTROLS.md`; no game-runtime restart is needed.
+
 **October 9 Throw Stone exception:** the owner explicitly requested "Push to main
 and server." This authorizes main promotion and OVH deployment of Throw Stone's
 Spell Damage scaling before in-game acceptance. Preserve the remaining QA in

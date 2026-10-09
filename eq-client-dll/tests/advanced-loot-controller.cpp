@@ -68,7 +68,9 @@ int main() {
 		controls.emplace("NCAL_" + id, std::move(control));
 	};
 	for (const char *id : {"Status", "Selected", "Help", "Drops", "Filters", "Options", "Previous", "Next", "Page", "All", "SearchText", "Search", "Clear", "Refresh", "Take", "Rule", "More", "Back", "PanelTitle", "Empty", "Leave", "Need", "Greed", "Pass", "Roll", "FreeGrab", "Inspect", "Assign", "Find"}) { add(id); }
-	for (unsigned i = 0; i < 8; ++i) { add("Row" + std::to_string(i)); add("Source" + std::to_string(i)); add("Ignore" + std::to_string(i)); }
+	for (unsigned i = 0; i < 8; ++i) {
+		for (const char *prefix : {"Row", "Source", "Ignore", "Always", "Never"}) { add(prefix + std::to_string(i)); }
+	}
 	for (unsigned i = 0; i < 6; ++i) { add("Setting" + std::to_string(i)); add("SettingHelp" + std::to_string(i)); }
 	for (unsigned i = 0; i < 5; ++i) { add("Filter" + std::to_string(i)); add("FilterHelp" + std::to_string(i)); }
 	LootScreenAPI api{&Allocate, reinterpret_cast<LootScreenAPI::Construct>(&Construct), reinterpret_cast<LootScreenAPI::Children>(&Children),
@@ -120,9 +122,10 @@ int main() {
 		Click(choice.first); assert(requests.back() == expected); SnapshotReady(s);
 	}
 	Click("Back"); Click("All"); assert(requests.back() == "#advloot all 1 " + std::to_string(s.revision)); SnapshotReady(s);
-	// Direct Ignore needs no selected-item submenu; bulk consent needs the
+	// Direct Never needs no selected-item submenu; bulk consent needs the
 	// server prompt and is cancelled by navigation, revision changes or expiry.
-	Click("Ignore0"); assert(requests.back() == "#advloot filter 1 " + std::to_string(s.revision) + " 13073 2"); SnapshotReady(s);
+	s.rows[0].filter = Filter::Ask; SnapshotReady(s);
+	Click("Never0"); assert(requests.back() == "#advloot filter 1 " + std::to_string(s.revision) + " 13073 2"); SnapshotReady(s);
 	Click("All"); SnapshotReady(s);
 	assert(!AdvancedLootUI::Consume("Advanced loot: Confirm NO TRADE for 1 item(s). Looted 0; 0 unavailable.")); Pulse();
 	assert(Text("All") == "Confirm NO TRADE");
@@ -158,7 +161,62 @@ int main() {
 	SnapshotReady(s); assert(!Visible("Rule") && !Visible("More") && Text("Selected").empty());
 	assert(Text("Ignore0") == "Remove"); Click("Ignore0");
 	assert(requests.back() == "#advloot filter 1 " + std::to_string(s.revision) + " " + std::to_string(old_token) + " 0"); SnapshotReady(s);
+	// Inline choices act on their own row without changing the selected item.
+	Click("Drops"); s.view = View::Drops; s.settings = Enabled | ApplyFilters | AutoShow;
+	row.token = 101; row.filter = Filter::Ask; s.rows = {row, row}; s.rows[1].token = 102; s.rows[1].item = 1068; s.total = 2;
+	SnapshotReady(s); assert(AdvancedLootScreen::Visible());
+	assert(Visible("Always0") && Visible("Never0") && !Visible("Ignore0") && !Visible("Always2"));
+	assert(Text("Always0") == "[ ] Always Loot" && Text("Never0") == "[ ] Never Loot");
+	Click("Row0"); Click("Always1");
+	assert(requests.back() == "#advloot filter 1 " + std::to_string(s.revision) + " 1068 1");
+	assert(Text("Always1") == "[ ] Always Loot" && !IsEnabled("Always0") && !IsEnabled("Never1"));
+	const auto sent = requests.size(); AdvancedLootUI::Notify(controls.at("NCAL_Never0")->bytes, 1, nullptr);
+	assert(requests.size() == sent);
+	s.rows[1].filter = Filter::AlwaysTake; SnapshotReady(s);
+	assert(Text("Always1") == "[x] Always Loot" && Text("Never1") == "[ ] Never Loot");
+	assert(Text("Row0").find("> ") == 0 && !Visible("Back"));
+	Click("Never1"); assert(requests.back() == "#advloot filter 1 " + std::to_string(s.revision) + " 1068 2");
+	s.rows[1].filter = Filter::Never; SnapshotReady(s);
+	assert(Text("Always1") == "[ ] Always Loot" && Text("Never1") == "[x] Never Loot");
+	Click("Never1"); assert(requests.back() == "#advloot filter 1 " + std::to_string(s.revision) + " 1068 0");
+	s.rows[1].filter = Filter::Ask; SnapshotReady(s);
+	Click("Always1"); s.rows[1].filter = Filter::AlwaysTake; SnapshotReady(s);
+	Click("Always1"); assert(requests.back() == "#advloot filter 1 " + std::to_string(s.revision) + " 1068 0"); SnapshotReady(s);
+	send_ok = false; Click("Never1");
+	assert(Text("Always1") == "[x] Always Loot" && Text("Never1") == "[ ] Never Loot");
+	assert(Text("Status").find("Could not send") != std::string::npos);
+	send_ok = true; Click("Refresh"); SnapshotReady(s);
+	s.rows[1].capabilities = Capability(Action::Inspect); SnapshotReady(s);
+	assert(!IsEnabled("Always1") && !IsEnabled("Never1"));
+	const auto denied = requests.size(); AdvancedLootUI::Notify(controls.at("NCAL_Always1")->bytes, 1, nullptr);
+	assert(requests.size() == denied);
+	Click("Options"); assert(!Visible("Always0") && !Visible("Never0")); Click("Back");
+	// A missing or failed award response cannot close the window. Only a
+	// complete nonempty-to-empty drop snapshot may do that, across all pages.
+	Click("All"); assert(AdvancedLootScreen::Visible()); SnapshotReady(s); assert(AdvancedLootScreen::Visible());
+	s.rows = {row}; s.total = 9; s.page = 1; SnapshotReady(s);
+	Click("All"); s.rows.clear(); s.total = s.page = 0; ++s.revision;
+	assert(AdvancedLootUI::Consume(Begin(s))); assert(AdvancedLootScreen::Visible());
+	assert(AdvancedLootUI::Consume(End(s))); Pulse(); assert(!AdvancedLootScreen::Visible());
+	// Explicitly opening an empty window must allow settings/filter access.
+	AdvancedLootUI::Toggle(); SnapshotReady(s); assert(AdvancedLootScreen::Visible());
+	s.rows = {row}; s.total = 1; ++s.revision;
+	AdvancedLootUI::Consume(Begin(s)); AdvancedLootUI::Consume(Item(s, row)); AdvancedLootUI::Consume(End(s));
+	// Auto-show queued by new loot must be cancelled if it disappears before a frame.
+	s.rows.clear(); s.total = 0; ++s.revision;
+	AdvancedLootUI::Consume(Begin(s)); AdvancedLootUI::Consume(End(s)); Pulse(); assert(!AdvancedLootScreen::Visible());
+	s.rows = {row}; s.total = 1; SnapshotReady(s); assert(AdvancedLootScreen::Visible());
+	Click("Options"); s.rows.clear(); s.total = 0; SnapshotReady(s);
+	assert(AdvancedLootScreen::Visible() && Visible("Setting0")); Click("Back");
+	// Hiding rows through settings is not a completed loot operation.
+	s.rows = {row}; s.total = 1; SnapshotReady(s);
+	s.settings |= ShowNewOnly; s.rows.clear(); s.total = 0; SnapshotReady(s); assert(AdvancedLootScreen::Visible());
+	// Navigating to Filters during an in-flight loot request keeps navigation open.
+	s.settings &= ~ShowNewOnly; s.rows = {row}; s.total = 1; SnapshotReady(s);
+	Click("All"); Click("Filters"); s.rows.clear(); s.total = 0; SnapshotReady(s); assert(AdvancedLootScreen::Visible());
+	s.view = View::Filters; SnapshotReady(s); assert(AdvancedLootScreen::Visible() && Visible("Empty"));
+	assert(!Visible("Always0") && !Visible("Never0"));
 	assert(!AdvancedLootUI::Consume("ordinary chat"));
 	AdvancedLootScreen::Destroy(); assert(!AdvancedLootScreen::Window());
-	std::cout << "PASS: controller through native notification ABI; panels, timeout/retry, commands, snapshots and NO TRADE\n";
+	std::cout << "PASS: native notification ABI; panels, timeout/retry, commands, snapshots, NO TRADE, inline rule toggles and empty-queue auto-close\n";
 }

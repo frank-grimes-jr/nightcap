@@ -67,9 +67,14 @@ def add_advanced_loot(root):
     control('Button', 'Search', 'Search', 390, 62, 88, 22)
     control('Button', 'Clear', 'Clear', 484, 62, 82, 22)
     for index in range(8):
-        control('Button', f'Row{index}', '', 10, 90 + index * 24, 270, 22, 'Select this item')
-        control('Label', f'Source{index}', '', 288, 93 + index * 24, 194, 18)
-        control('Button', f'Ignore{index}', 'Ignore', 490, 90 + index * 24, 76, 22, 'Ignore future drops of this item; remove its saved rule from Filters')
+        control('Button', f'Row{index}', '', 10, 90 + index * 24, 240, 22, 'Select this item')
+        control('Label', f'Source{index}', '', 256, 93 + index * 24, 90, 18)
+        control('Button', f'Always{index}', '[ ] Always Loot', 352, 90 + index * 24, 106, 22,
+                'Always loot this item when allowed; click again for Ask each time')
+        control('Button', f'Never{index}', '[ ] Never Loot', 464, 90 + index * 24, 102, 22,
+                'Never loot this item; click again for Ask each time')
+        control('Button', f'Ignore{index}', 'Remove', 490, 90 + index * 24, 76, 22,
+                'Remove this saved rule and return to Ask each time')
     control('Label', 'Empty', 'No items waiting. Loot from your kills appears here.', 22, 126, 532, 22)
     control('Label', 'Selected', '', 10, 288, 306, 20)
     for suffix, title, x, width in [('Take', 'Loot item', 10, 124), ('Rule', 'Item rule...', 140, 132),

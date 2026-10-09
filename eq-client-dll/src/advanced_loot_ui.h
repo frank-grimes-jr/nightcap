@@ -103,14 +103,20 @@ class AdvancedLootUI {
 			const auto suffix = std::to_string(i);
 			const bool exists = matching && i < s.rows.size();
 			Visible("Row" + suffix, list && exists); Visible("Source" + suffix, list && exists);
-			Visible("Ignore" + suffix, list && exists);
+			Visible("Ignore" + suffix, list && exists && !drops);
+			Visible("Always" + suffix, list && exists && drops);
+			Visible("Never" + suffix, list && exists && drops);
 			if (!exists) { continue; }
 			const auto &item = s.rows[i];
 			Text("Row" + suffix, std::string(item.token == selected_ ? "> " : "") + item.name + (drops ? " x" + std::to_string(item.quantity) : ""));
 			Text("Source" + suffix, drops ? (item.capabilities & Capability(Action::Take) ? "Ready" :
 				item.capabilities & Capability(Action::TakeNoTrade) ? "NO TRADE" :
 				item.phase == Phase::Shared || item.phase == Phase::Rolling ? "Group loot" : "Unavailable") : FilterName(item.filter));
-			Text("Ignore" + suffix, drops ? "Ignore" : "Remove");
+			Text("Always" + suffix, std::string(item.filter == Filter::AlwaysTake ? "[x] " : "[ ] ") + "Always Loot");
+			Text("Never" + suffix, std::string(item.filter == Filter::Never ? "[x] " : "[ ] ") + "Never Loot");
+			Enable("Always" + suffix, ready && (item.capabilities & Capability(Action::EditFilter)));
+			Enable("Never" + suffix, ready && (item.capabilities & Capability(Action::EditFilter)));
+			Text("Ignore" + suffix, "Remove");
 			Enable("Ignore" + suffix, ready && (item.capabilities & Capability(Action::EditFilter)));
 			Enable("Row" + suffix, true);
 		}
@@ -150,7 +156,7 @@ class AdvancedLootUI {
 			settings ? "Settings and item rules are saved for this character." :
 			rule ? "Choose how to handle this item next time. Never leaves it on the corpse." :
 			more ? "Group actions appear only when your loot permissions allow them." :
-			drops ? "Loot All collects your eligible drops in this zone. Ignore saves an item in Filters." :
+			drops ? "Always Loot and Never Loot save item rules. Click a checked choice to ask each time." :
 			"Remove deletes a saved filter. Select an item for other automatic loot choices.");
 		dirty_ = false;
 	}
@@ -161,7 +167,11 @@ class AdvancedLootUI {
 			"Search", "Clear", "Refresh", "Take", "Rule", "More", "Back", "PanelTitle", "Empty", "Leave", "Need", "Greed", "Pass", "Roll", "FreeGrab", "Inspect", "Assign", "Find"}) {
 			if (!include(id)) { return false; }
 		}
-		for (unsigned i = 0; i < 8; ++i) { if (!include("Row" + std::to_string(i)) || !include("Source" + std::to_string(i)) || !include("Ignore" + std::to_string(i))) { return false; } }
+		for (unsigned i = 0; i < 8; ++i) {
+			for (const char *prefix : {"Row", "Source", "Ignore", "Always", "Never"}) {
+				if (!include(prefix + std::to_string(i))) { return false; }
+			}
+		}
 		for (unsigned i = 0; i < 6; ++i) { if (!include("Setting" + std::to_string(i)) || !include("SettingHelp" + std::to_string(i))) { return false; } }
 		for (unsigned i = 0; i < 5; ++i) { if (!include("Filter" + std::to_string(i)) || !include("FilterHelp" + std::to_string(i))) { return false; } }
 		Text("SearchText", search_); Screen::EditLimit(Screen::Child("NCAL_SearchText"));
@@ -187,8 +197,14 @@ class AdvancedLootUI {
 		if (clicked("Rule") || clicked("More")) { panel_ = clicked("Rule") ? Panel::Rule : Panel::More; confirm_ = 0; dirty_ = true; return true; }
 		if (!Available()) { return true; }
 		for (std::size_t i = 0; i < s.rows.size(); ++i) {
-			if (clicked("Ignore" + std::to_string(i))) {
-				Submit(state_.FilterCommand(i, s.view == View::Drops ? Filter::Never : Filter::Ask)); return true;
+			if (panel_ != Panel::List || s.view != desired_view_) { break; }
+			const auto suffix = std::to_string(i);
+			if (s.view == View::Drops && (clicked("Always" + suffix) || clicked("Never" + suffix))) {
+				const auto filter = clicked("Always" + suffix) ? Filter::AlwaysTake : Filter::Never;
+				Submit(state_.FilterCommand(i, s.rows[i].filter == filter ? Filter::Ask : filter)); return true;
+			}
+			if (s.view == View::Filters && clicked("Ignore" + suffix)) {
+				Submit(state_.FilterCommand(i, Filter::Ask)); return true;
 			}
 		}
 		if (clicked("Previous") && s.page) { Submit(state_.ViewCommand(s.view, s.page - 1, search_)); return true; }
@@ -288,6 +304,15 @@ public:
 			if (before.view != s.view || Selected() == s.rows.size()) {
 				selected_ = confirm_ = 0;
 				if (panel_ == Panel::Rule || panel_ == Panel::More) { panel_ = Panel::List; }
+			}
+			// Close only after a complete drop snapshot empties the whole queue.
+			// Navigation, changed filters/settings and explicit empty opens stay usable.
+			if (panel_ == Panel::List && desired_view_ == NightcapLoot::View::Drops && search_.empty() &&
+				before.view == NightcapLoot::View::Drops && s.view == NightcapLoot::View::Drops &&
+				before.session == s.session && before.identity == s.identity && before.settings == s.settings &&
+				before.total > 0 && s.total == 0) {
+				want_show_ = false; confirm_ = all_confirm_revision_ = 0; awaiting_all_ = false;
+				Screen::Show(false); Trace("loot-empty-close");
 			}
 		}
 		return true;

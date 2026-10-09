@@ -1,5 +1,19 @@
 # CHANGES
 
+## 2026-10-09 - Advanced loot row rules and empty-window close
+
+The main loot list now has Always Loot and Never Loot toggles on every row.
+Either choice saves the existing per-character rule directly; clicking its
+checked choice returns to Ask each time. Checks reflect acknowledged server
+state, and Filters retains Remove. The window closes after a complete server
+snapshot changes the loot queue from nonempty to empty, including Loot All
+across pages. Pending/failed transfers, Settings, Filters, changed settings and
+explicitly reopening an empty window retain their existing access.
+Client-only candidate: build and native controller/layout regressions pass;
+ship the DLL with regenerated Pet Info XML. No live deployment or native
+in-game acceptance is claimed. Scope, evidence and QA:
+`docs/releases/advanced-loot/ROW-CONTROLS.md`.
+
 ## 2026-10-09 - Throw Stone scales directly with Spell Damage
 
 Throw Stone (5225) now adds the caster's nonnegative, already-capped Spell Damage
