@@ -550,3 +550,14 @@ RoF2 native player profile/OP_Buff duration differs from icon countdowns: preser
 the server policy -1000 for effects, since -1 expires on a tick unless the spell
 has duration formula 50. Icons still use -1. Test native ticking, not only formula
 arithmetic or slot restoration. Evidence: `docs/releases/blessing-lifetime-20261004/README.md`.
+
+### Official public wiki
+
+`wiki/` owns the separate public guide at `wiki.nightcapgame.org`. Maintain reviewed
+article JSON and the public reward projection, then generate/package only `dist/`.
+Never expose raw exports, source ledgers, operations files or private game downloads.
+Keep play-host IP restrictions and apex/www 404 routes. Wiki and player-site
+publishers must share `deploy/production/website-history/.lock`; preserve the
+bind-mounted Nginx config inode, relative release symlinks and rollback preimages.
+Origin release is installed; public DNS/tunnel/WAF setup remains pending in
+`docs/ops/nightcap-wiki.md`. Website deployment does not promote gameplay.

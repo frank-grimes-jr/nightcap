@@ -1,5 +1,16 @@
 # CHANGES
 
+## 2026-10-09 - Official public wiki on an isolated OVH host
+
+Add the owner-maintained Nightcap wiki: 17 guide pages, 48 enabled reward zones,
+384 item variants, article/category navigation and browser search. Preserve current
+40% passive AA and live-testing/unreleased labels. Publish only the 461-file static
+payload to an isolated wiki origin, with archive validation, shared website lock,
+rollback rehearsal and exact private-download/container preservation. Origin
+release 20261009-wiki-v2 passes; Cloudflare sign-in and public hostname routing
+remain pending. No gameplay, database, client or private player-guide changes.
+Build, tests, content provenance and recovery: docs/ops/nightcap-wiki.md.
+
 ## 2026-10-09 - Classic zone hunt deployed and private guide updated
 
 Owner-authorized PR #132 promoted hunt/forge to main. The fresh five-binary OVH

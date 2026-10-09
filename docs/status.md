@@ -3,6 +3,16 @@
 Updated October 9, 2026. This is the current status index; dated studies and
 QA reports preserve their original evidence and are not live-state promises.
 
+## Official public wiki prepared
+
+The owner requested an official guide maintained by us. `wiki/` builds 454 pages
+covering custom systems, 48 enabled reward zones and 384 obtainable item variants.
+OVH origin release `20261009-wiki-v2` is byte-verified with rollback rehearsal;
+all five service identities/start times and private downloads are preserved.
+`wiki.nightcapgame.org` still needs authenticated Cloudflare DNS/tunnel and scoped
+IP-rule setup. Public HTTPS is not yet live-verified. The existing play host remains
+private. [Build, verification, remaining setup and recovery](ops/nightcap-wiki.md).
+
 ## Classic zone hunt and forge deployed for live QA
 
 Owner-authorized PR #132 is on main and deployed to OVH. Forty-eight audited
