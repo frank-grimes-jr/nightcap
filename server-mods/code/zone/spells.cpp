@@ -105,6 +105,61 @@ extern QueryServ    *QServ;
 
 using EQ::spells::CastingSlot;
 
+static Mob* ResolvePlayerHealTarget(Mob* caster, uint16 spell_id, Mob* spell_target)
+{
+	if (!caster->IsClient() || !spell_target || !spell_target->IsNPC() ||
+		!IsValidSpell(spell_id) || !IsBeneficialSpell(spell_id)) {
+		return spell_target;
+	}
+
+	// Classify healing effects directly: the AI classifier omits some instant,
+	// regeneration, target-type and triggered-heal variants.
+	bool heals = false;
+	for (const auto effect : {SpellEffect::CurrentHP, SpellEffect::CurrentHPOnce,
+		SpellEffect::HealOverTime, SpellEffect::CompleteHeal, SpellEffect::PercentalHeal}) {
+		for (const auto heal_id : {spell_id, GetSpellTriggerSpellID(spell_id, effect)}) {
+			if (!IsValidSpell(heal_id) || !IsBeneficialSpell(heal_id)) {
+				continue;
+			}
+			for (int i = 0; i < EFFECT_COUNT; ++i) {
+				if (spells[heal_id].effect_id[i] == effect && spells[heal_id].base_value[i] > 0) {
+					heals = true;
+					break;
+				}
+			}
+			if (heals) {
+				break;
+			}
+		}
+		if (heals) {
+			break;
+		}
+	}
+	if (!heals) {
+		return spell_target;
+	}
+
+	// Only change the cast recipient, never the player's selected combat target.
+	// Pet-only, corpse, body-type and target's-target spells keep their native rules.
+	switch (spells[spell_id].target_type) {
+		case ST_Target:
+		case ST_TargetOptional:
+		case ST_Self:
+		case ST_AETarget:
+		case ST_AECaster:
+		case ST_AEClientV1:
+		case ST_AreaClientOnly:
+		case ST_Group:
+		case ST_GroupTeleport:
+		case ST_GroupNoPets:
+		case ST_GroupClientAndPet:
+		case ST_AEBard:
+			return caster;
+		default:
+			return spell_target;
+	}
+}
+
 // this is run constantly for every mob
 void Mob::SpellProcess()
 {
@@ -171,6 +226,11 @@ bool Mob::CastSpell(uint16 spell_id, uint16 target_id, CastingSlot slot,
 			IsValidSpell(spell_id), casting_spell_id, delaytimer, spellend_timer.Enabled());
 		StopCastSpell(spell_id, send_spellbar_enable);
 		return false;
+	}
+
+	// Resolve heals before implied targeting and all target-specific cast checks.
+	if (auto heal_target = ResolvePlayerHealTarget(this, spell_id, entity_list.GetMobID(target_id))) {
+		target_id = heal_target->GetID();
 	}
 
 	//Goal of Spells:UseSpellImpliedTargeting is to replicate the EQ2 feature where spells will 'pass through' invalid targets to target's target to try to find a valid target.
@@ -2416,6 +2476,9 @@ bool Mob::SpellFinished(uint16 spell_id, Mob *spell_target, CastingSlot slot, in
 
 	if(!IsValidSpell(spell_id))
 		return false;
+
+	// Instant AAs, item effects and triggered spells can bypass CastSpell.
+	spell_target = ResolvePlayerHealTarget(this, spell_id, spell_target);
 
 	//Death Touch targets the pet owner instead of the pet when said pet is tanking.
 	if ((RuleB(Spells, CazicTouchTargetsPetOwner) && spell_target && spell_target->HasOwner()) && !spell_target->IsBot() && (spell_id == SPELL_CAZIC_TOUCH || spell_id == SPELL_TOUCH_OF_VINITRAS)) {
