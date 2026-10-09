@@ -35,6 +35,8 @@ set(zone_sources
     client_process.cpp
     client_living_economy.cpp
     living_economy.cpp
+    zone_hunt.cpp
+    zone_hunt_forge.cpp
     combat_record.cpp
     corpse.cpp
     corpse_advanced_loot.cpp

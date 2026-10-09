@@ -10,6 +10,8 @@ Start with [current status](status.md), not a dated candidate report.
 
 ## Players and testers
 
+- [Classic zone augments, new gear and forge: test candidate and exact QA](releases/zone-loot-20261009/README.md)
+
 - [Throw Stone Spell Damage: live deployment and exact QA](releases/throw-stone-20261009.md)
 
 - [Passive AA while leveling: release behavior, verification and exact QA](releases/passive-aa-20261004.md)
@@ -28,6 +30,7 @@ Start with [current status](status.md), not a dated candidate report.
 - [Advanced loot Loot All/Ignore action repair: deployment and owner QA](releases/advanced-loot/ACTION-REPAIR.md)
 
 - [Spell selection menu: cached level-255 correction and exact QA](releases/spell-menu-20261002.md)
+- [Adventure Journal and archetype Epic 0.5: candidate, routes and exact QA](adventure-journal/README.md)
 
 - [October 1 character-selection crash: deployed material repair and exact login/world QA](releases/character-select-crash-20261001/README.md)
 

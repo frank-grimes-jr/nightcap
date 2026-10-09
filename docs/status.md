@@ -3,6 +3,16 @@
 Updated October 9, 2026. This is the current status index; dated studies and
 QA reports preserve their original evidence and are not live-state promises.
 
+## Classic zone hunt and forge candidate
+
+The approved hunt/forge option is implemented for 48 audited Classic combat
+zones, with independent 0.5% augment/gear rolls, four qualities, six-location
+augment support and atomic three-copy upgrades. Eight access-check zones remain
+disabled; cities/hubs remain reserved. Five native binaries, compiled transaction
+failure controls, cap/death tests and disposable MariaDB rehearsals pass. This
+candidate is not deployed to OVH and has no owner gameplay acceptance. Existing
+universal trading is preserved. [Scope, evidence and exact QA](releases/zone-loot-20261009/README.md).
+
 ## Advanced loot row controls deployed for live QA
 
 Always Loot/Never Loot toggles are directly on each main-page item row, and a
@@ -144,6 +154,16 @@ verify; only the pet UI changed from 2026100103. Production services and other
 assets are preserved. Close the game and click Play in the normal launcher to
 apply it. Existing saved window sizes remain; resize down if needed. Rendered
 acceptance remains open in the [repair report](releases/pet-window-layout-20261001.md).
+## Adventure Journal / Epic 0.5 candidate
+
+The [Adventure Journal](adventure-journal/README.md) adds eight native tasks and
+one archetype charm through the EC Chronicler. Guardian, Striker, Arcanist,
+Warden and Binder are earned independently of primary class, with one durable
+shared cooldown and hub-only attunement changes. The release gate starts
+disabled. Content, quest, native-function and disposable database checks are
+recorded with the candidate; client spells are staged separately. Native client
+and balance acceptance remain open in the [exact QA route](adventure-journal/QA.md).
+This entry does not record a production deployment.
 
 ## Character-selection crash repair deployed for owner QA
 

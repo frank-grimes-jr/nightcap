@@ -70,6 +70,15 @@ All commands run from `akk-stack/`:
   ItemData layout changed: pair all native binaries with a regenerated cache,
   including on rollback. Merchant and #sellall share the fixed payout. Scope and
   QA: docs/releases/free-trade-20261004/README.md.
+- **Epic 0.5 journal candidate**: native Tasks own progress; the character
+  `nightcap_epic05_state` row owns only attunement/cooldown. Pair the native
+  `Epic05Contract()` duration guard, three plugins, `global/items/900501.pl`,
+  tasks 9500–9507 and spells 42800–42805. The SQL gate starts disabled. Native
+  task history and proximity rules are required; Explore=5 credits movement,
+  while Touch=11 is a dynamic-zone switch. Preserve owned definitions/history
+  on rollback. Verify Classic gates on both spawn2 and spawnentry; spawn2 has
+  no enabled column. Install plugins via configured plugin paths. Full scope,
+  rehearsal and manual test route: `docs/adventure-journal/README.md`.
 
 - **Spell access is per character in production release 2026092005**: use
   `common/spell_class_catalog.h`, generated from the pinned original spell file,
@@ -404,6 +413,18 @@ matching client publication. Manual gameplay acceptance remains open; see
 Format: date header, area, description. Most recent entry at the top.
 
 ## Current documentation and player website
+
+Classic zone hunt/forge is a test candidate in `docs/releases/zone-loot-20261009/`.
+`tools/zone_hunt.py` generates guarded item/socket SQL from an explicit production
+content capture. Do not attach its rewards to global loot tables: native death
+rolls are exactly 0.5% per family and intentionally bypass GlobalLootMultiplier.
+Keep restored corpses, owned NPCs and non-native clones excluded. Type-22 cap
+credit is limited to six armor locations; preserve nonplayer cap behavior.
+Forging uses the advanced-loot inventory serializer, exact persisted preimages,
+single-use choices and commit-uncertainty quarantine. Universal trading remains
+in force; new rewards cannot be sold to merchants. Acquisition rollback retains
+owned definitions, sockets and receipts. Access-check zones remain disabled until
+their separate source/access QA passes. No live deployment is implied by this entry.
 
 Tunnel court follow-ups use `tools/tunnel_courts.py`, not regeneration of the
 historical services release. Verify terrain plus DB furniture and patrol paths.

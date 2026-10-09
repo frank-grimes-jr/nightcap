@@ -18,6 +18,7 @@
 
 #include "shareddb.h"
 #include "item_trade_policy.h"
+#include "zone_hunt_catalog.h"
 
 #include "common/classes.h"
 #include "common/data_verification.h"
@@ -1245,6 +1246,12 @@ void SharedDatabase::LoadItems(void *data, uint32 size, int32 items, uint32 max_
 		item.ScriptFileID = e.scriptfileid;
 
 		EQ::ItemTradePolicy::Apply(item, RuleB(Items, FreeTrade), e.nodrop == 0);
+		if (NightcapHunt::IsReward(item.ID)) {
+			// These progression rewards are tradable under the existing server policy,
+			// but deliberately have no merchant resale value (including converted augments).
+			item.Price = 0;
+			item.FixedSellPrice = 0;
+		}
 
 		try {
 			hash.insert(item.ID, item);

@@ -1,3 +1,4 @@
+#include "common/zone_hunt_catalog.h"
 /*	EQEMu: Everquest Server Emulator
 Copyright (C) 2001-2016 EQEMu Development Team (http://eqemulator.net)
 
@@ -14330,6 +14331,10 @@ void Client::Handle_OP_ShopPlayerSell(const EQApplicationPacket *app)
 
 	uint32 price = 0;
 	uint32 itemid = GetItemIDAt(mp->itemslot);
+	if (NightcapHunt::IsReward(itemid)) {
+		Message(Chat::Yellow, "Zone hunt rewards cannot be sold to merchants.");
+		return;
+	}
 	if (itemid == 0)
 		return;
 	const EQ::ItemData* item = database.GetItem(itemid);

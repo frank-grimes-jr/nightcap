@@ -82,6 +82,7 @@ int command_init(void)
 		command_add("nightcapui", "Refresh your class display.", AccountStatus::Player, command_nightcapui) ||
 		command_add("aaexp", "[0-100|off] - Set the %% of combat XP routed to AA (the client hides this toggle below level 51)", AccountStatus::Player, command_aa_exp) ||
 		command_add("advloot", "Advanced loot window protocol", AccountStatus::Player, command_advloot) ||
+		command_add("zoneforge", "Combine three identical zone rewards into the next quality.", AccountStatus::Player, command_zoneforge) ||
 		command_add("acceptrules", "[acceptrules] - Accept the EQEmu Agreement", AccountStatus::Player, command_acceptrules) ||
 		command_add("advnpcspawn", "[maketype|makegroup|addgroupentry|addgroupspawn][removegroupspawn|movespawn|editgroupbox|cleargroupbox]", AccountStatus::GMLeadAdmin, command_advnpcspawn) ||
 		command_add("aggrozone", "[aggro] - Aggro every mob in the zone with X aggro. Default is 0. Not recommend if you're not invulnerable.", AccountStatus::GMAdmin, command_aggrozone) ||

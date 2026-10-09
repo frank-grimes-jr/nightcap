@@ -1,0 +1,494 @@
+{
+  "revision": 2026100901,
+  "items": 448,
+  "sockets": 2290,
+  "source_sha256": "b9931657afe75d87815cb6439acbf44bc8ce5bb2ce9dcd69bd46af7c56ed45ed",
+  "zones": [
+    {
+      "zone": "qeynos",
+      "status": "City reserve",
+      "eligible_sources": 0,
+      "enabled": false
+    },
+    {
+      "zone": "qeynos2",
+      "status": "City reserve",
+      "eligible_sources": 0,
+      "enabled": false
+    },
+    {
+      "zone": "qrg",
+      "status": "City reserve",
+      "eligible_sources": 0,
+      "enabled": false
+    },
+    {
+      "zone": "qeytoqrg",
+      "status": "Hunt draft",
+      "eligible_sources": 302,
+      "enabled": true
+    },
+    {
+      "zone": "highpass",
+      "status": "Access check",
+      "eligible_sources": 0,
+      "enabled": false
+    },
+    {
+      "zone": "highkeep",
+      "status": "Hunt draft",
+      "eligible_sources": 13,
+      "enabled": true
+    },
+    {
+      "zone": "freportn",
+      "status": "City reserve",
+      "eligible_sources": 0,
+      "enabled": false
+    },
+    {
+      "zone": "freportw",
+      "status": "City reserve",
+      "eligible_sources": 0,
+      "enabled": false
+    },
+    {
+      "zone": "freporte",
+      "status": "City reserve",
+      "eligible_sources": 0,
+      "enabled": false
+    },
+    {
+      "zone": "runnyeye",
+      "status": "Hunt draft",
+      "eligible_sources": 185,
+      "enabled": true
+    },
+    {
+      "zone": "qey2hh1",
+      "status": "Hunt draft",
+      "eligible_sources": 44,
+      "enabled": true
+    },
+    {
+      "zone": "northkarana",
+      "status": "Hunt draft",
+      "eligible_sources": 15,
+      "enabled": true
+    },
+    {
+      "zone": "southkarana",
+      "status": "Hunt draft",
+      "eligible_sources": 372,
+      "enabled": true
+    },
+    {
+      "zone": "eastkarana",
+      "status": "Hunt draft",
+      "eligible_sources": 2,
+      "enabled": true
+    },
+    {
+      "zone": "beholder",
+      "status": "Hunt draft",
+      "eligible_sources": 62,
+      "enabled": true
+    },
+    {
+      "zone": "blackburrow",
+      "status": "Hunt draft",
+      "eligible_sources": 42,
+      "enabled": true
+    },
+    {
+      "zone": "paw",
+      "status": "Access check",
+      "eligible_sources": 0,
+      "enabled": false
+    },
+    {
+      "zone": "rivervale",
+      "status": "City reserve",
+      "eligible_sources": 0,
+      "enabled": false
+    },
+    {
+      "zone": "kithicor",
+      "status": "Hunt draft",
+      "eligible_sources": 66,
+      "enabled": true
+    },
+    {
+      "zone": "commons",
+      "status": "Hunt draft",
+      "eligible_sources": 97,
+      "enabled": true
+    },
+    {
+      "zone": "ecommons",
+      "status": "Hunt draft",
+      "eligible_sources": 240,
+      "enabled": true
+    },
+    {
+      "zone": "erudnint",
+      "status": "City reserve",
+      "eligible_sources": 0,
+      "enabled": false
+    },
+    {
+      "zone": "erudnext",
+      "status": "City reserve",
+      "eligible_sources": 0,
+      "enabled": false
+    },
+    {
+      "zone": "nektulos",
+      "status": "Hunt draft",
+      "eligible_sources": 430,
+      "enabled": true
+    },
+    {
+      "zone": "cshome",
+      "status": "Excluded",
+      "eligible_sources": 0,
+      "enabled": false
+    },
+    {
+      "zone": "lavastorm",
+      "status": "Hunt draft",
+      "eligible_sources": 43,
+      "enabled": true
+    },
+    {
+      "zone": "halas",
+      "status": "City reserve",
+      "eligible_sources": 0,
+      "enabled": false
+    },
+    {
+      "zone": "everfrost",
+      "status": "Hunt draft",
+      "eligible_sources": 113,
+      "enabled": true
+    },
+    {
+      "zone": "soldunga",
+      "status": "Hunt draft",
+      "eligible_sources": 149,
+      "enabled": true
+    },
+    {
+      "zone": "soldungb",
+      "status": "Hunt draft",
+      "eligible_sources": 55,
+      "enabled": true
+    },
+    {
+      "zone": "misty",
+      "status": "Hunt draft",
+      "eligible_sources": 431,
+      "enabled": true
+    },
+    {
+      "zone": "nro",
+      "status": "Hunt draft",
+      "eligible_sources": 49,
+      "enabled": true
+    },
+    {
+      "zone": "sro",
+      "status": "Hunt draft",
+      "eligible_sources": 11,
+      "enabled": true
+    },
+    {
+      "zone": "befallen",
+      "status": "Hunt draft",
+      "eligible_sources": 193,
+      "enabled": true
+    },
+    {
+      "zone": "oasis",
+      "status": "Hunt draft",
+      "eligible_sources": 87,
+      "enabled": true
+    },
+    {
+      "zone": "tox",
+      "status": "Hunt draft",
+      "eligible_sources": 325,
+      "enabled": true
+    },
+    {
+      "zone": "hole",
+      "status": "Hunt draft",
+      "eligible_sources": 313,
+      "enabled": true
+    },
+    {
+      "zone": "neriaka",
+      "status": "City reserve",
+      "eligible_sources": 0,
+      "enabled": false
+    },
+    {
+      "zone": "neriakb",
+      "status": "City reserve",
+      "eligible_sources": 0,
+      "enabled": false
+    },
+    {
+      "zone": "neriakc",
+      "status": "City reserve",
+      "eligible_sources": 0,
+      "enabled": false
+    },
+    {
+      "zone": "najena",
+      "status": "Hunt draft",
+      "eligible_sources": 63,
+      "enabled": true
+    },
+    {
+      "zone": "qcat",
+      "status": "Hunt draft",
+      "eligible_sources": 21,
+      "enabled": true
+    },
+    {
+      "zone": "innothule",
+      "status": "Hunt draft",
+      "eligible_sources": 201,
+      "enabled": true
+    },
+    {
+      "zone": "feerrott",
+      "status": "Hunt draft",
+      "eligible_sources": 171,
+      "enabled": true
+    },
+    {
+      "zone": "cazicthule",
+      "status": "Access check",
+      "eligible_sources": 0,
+      "enabled": false
+    },
+    {
+      "zone": "oggok",
+      "status": "City reserve",
+      "eligible_sources": 0,
+      "enabled": false
+    },
+    {
+      "zone": "rathemtn",
+      "status": "Hunt draft",
+      "eligible_sources": 23,
+      "enabled": true
+    },
+    {
+      "zone": "lakerathe",
+      "status": "Hunt draft",
+      "eligible_sources": 84,
+      "enabled": true
+    },
+    {
+      "zone": "grobb",
+      "status": "City reserve",
+      "eligible_sources": 0,
+      "enabled": false
+    },
+    {
+      "zone": "gfaydark",
+      "status": "Hunt draft",
+      "eligible_sources": 412,
+      "enabled": true
+    },
+    {
+      "zone": "akanon",
+      "status": "City reserve",
+      "eligible_sources": 0,
+      "enabled": false
+    },
+    {
+      "zone": "steamfont",
+      "status": "Hunt draft",
+      "eligible_sources": 77,
+      "enabled": true
+    },
+    {
+      "zone": "lfaydark",
+      "status": "Hunt draft",
+      "eligible_sources": 21,
+      "enabled": true
+    },
+    {
+      "zone": "crushbone",
+      "status": "Hunt draft",
+      "eligible_sources": 48,
+      "enabled": true
+    },
+    {
+      "zone": "mistmoore",
+      "status": "Hunt draft",
+      "eligible_sources": 284,
+      "enabled": true
+    },
+    {
+      "zone": "kaladima",
+      "status": "City reserve",
+      "eligible_sources": 0,
+      "enabled": false
+    },
+    {
+      "zone": "felwithea",
+      "status": "City reserve",
+      "eligible_sources": 0,
+      "enabled": false
+    },
+    {
+      "zone": "felwitheb",
+      "status": "City reserve",
+      "eligible_sources": 0,
+      "enabled": false
+    },
+    {
+      "zone": "unrest",
+      "status": "Hunt draft",
+      "eligible_sources": 142,
+      "enabled": true
+    },
+    {
+      "zone": "kedge",
+      "status": "Hunt draft",
+      "eligible_sources": 6,
+      "enabled": true
+    },
+    {
+      "zone": "guktop",
+      "status": "Hunt draft",
+      "eligible_sources": 186,
+      "enabled": true
+    },
+    {
+      "zone": "gukbottom",
+      "status": "Hunt draft",
+      "eligible_sources": 12,
+      "enabled": true
+    },
+    {
+      "zone": "kaladimb",
+      "status": "City reserve",
+      "eligible_sources": 0,
+      "enabled": false
+    },
+    {
+      "zone": "butcher",
+      "status": "Hunt draft",
+      "eligible_sources": 76,
+      "enabled": true
+    },
+    {
+      "zone": "oot",
+      "status": "Hunt draft",
+      "eligible_sources": 51,
+      "enabled": true
+    },
+    {
+      "zone": "cauldron",
+      "status": "Hunt draft",
+      "eligible_sources": 15,
+      "enabled": true
+    },
+    {
+      "zone": "airplane",
+      "status": "Hunt draft",
+      "eligible_sources": 64,
+      "enabled": true
+    },
+    {
+      "zone": "fearplane",
+      "status": "Hunt draft",
+      "eligible_sources": 141,
+      "enabled": true
+    },
+    {
+      "zone": "permafrost",
+      "status": "Hunt draft",
+      "eligible_sources": 37,
+      "enabled": true
+    },
+    {
+      "zone": "kerraridge",
+      "status": "Hunt draft",
+      "eligible_sources": 80,
+      "enabled": true
+    },
+    {
+      "zone": "paineel",
+      "status": "City reserve",
+      "eligible_sources": 0,
+      "enabled": false
+    },
+    {
+      "zone": "hateplane",
+      "status": "Hunt draft",
+      "eligible_sources": 142,
+      "enabled": true
+    },
+    {
+      "zone": "arena",
+      "status": "Excluded",
+      "eligible_sources": 0,
+      "enabled": false
+    },
+    {
+      "zone": "erudsxing",
+      "status": "Hunt draft",
+      "eligible_sources": 60,
+      "enabled": true
+    },
+    {
+      "zone": "jaggedpine",
+      "status": "Access check",
+      "eligible_sources": 0,
+      "enabled": false
+    },
+    {
+      "zone": "nedaria",
+      "status": "Access check",
+      "eligible_sources": 0,
+      "enabled": false
+    },
+    {
+      "zone": "hateplaneb",
+      "status": "Access check",
+      "eligible_sources": 0,
+      "enabled": false
+    },
+    {
+      "zone": "shadowrest",
+      "status": "Excluded",
+      "eligible_sources": 0,
+      "enabled": false
+    },
+    {
+      "zone": "tutoriala",
+      "status": "Access check",
+      "eligible_sources": 0,
+      "enabled": false
+    },
+    {
+      "zone": "tutorialb",
+      "status": "Access check",
+      "eligible_sources": 0,
+      "enabled": false
+    },
+    {
+      "zone": "poknowledge",
+      "status": "Hub reserve",
+      "eligible_sources": 0,
+      "enabled": false
+    }
+  ]
+}

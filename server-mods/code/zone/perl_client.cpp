@@ -1,4 +1,6 @@
 #include "common/features.h"
+#include "common/epic05.h"
+#include "common/rulesys.h"
 
 #ifdef EMBPERL_XS_CLASSES
 
@@ -7,6 +9,20 @@
 #include "zone/dynamic_zone.h"
 #include "zone/embperl.h"
 #include "zone/titles.h"
+
+int Perl_Client_Epic05Contract(Client* self)
+{
+	if (!self || !RuleB(TaskSystem, EnableTaskSystem) || !RuleB(TaskSystem, RecordCompletedTasks) ||
+		!RuleB(TaskSystem, EnableTaskProximity)) {
+		return 0;
+	}
+	for (uint16 spell_id = Epic05::InvokeSpell; spell_id <= Epic05::LastEffect; ++spell_id) {
+		if (!IsValidSpell(spell_id)) {
+			return 0;
+		}
+	}
+	return Epic05::Contract;
+}
 
 void Perl_Client_LivingEconomy(Client* self, uint32 npc_entity_id, const char* text)
 {
@@ -3467,6 +3483,7 @@ void perl_register_client()
 	package.add("ClearNameChange", (bool(*)(Client*))&Perl_Client_ClearNameChange);
 	package.add("CharacterID", &Perl_Client_CharacterID);
 	package.add("LivingEconomy", &Perl_Client_LivingEconomy);
+	package.add("Epic05Contract", &Perl_Client_Epic05Contract);
 	package.add("MarketAnnouncement", &Perl_Client_MarketAnnouncement);
 	package.add("TunnelChatter", &Perl_Client_TunnelChatter);
 	package.add("CheckIncreaseSkill", (bool(*)(Client*, int))&Perl_Client_CheckIncreaseSkill);

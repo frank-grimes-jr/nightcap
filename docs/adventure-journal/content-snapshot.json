@@ -1,0 +1,3327 @@
+{
+  "scope": "read-only local PEQ content; not production acceptance",
+  "npcs": [
+    {
+      "id": 11015,
+      "name": "#Battlelord_Paluk",
+      "level": 28,
+      "hp": 1064,
+      "mindmg": 11,
+      "maxdmg": 60,
+      "npc_spells_id": 0,
+      "special_abilities": "",
+      "spawn_min_expansion": -1,
+      "spawn_max_expansion": -1,
+      "spawn_content_flags": null,
+      "spawn_content_flags_disabled": null,
+      "entry_min_expansion": -1,
+      "entry_max_expansion": -1,
+      "entry_content_flags": null,
+      "entry_content_flags_disabled": null,
+      "condition": 0,
+      "chance": 25,
+      "min_time": 0,
+      "max_time": 0,
+      "zone": "runnyeye",
+      "version": 0
+    },
+    {
+      "id": 11017,
+      "name": "#Lord_Pickclaw",
+      "level": 32,
+      "hp": 1644,
+      "mindmg": 13,
+      "maxdmg": 68,
+      "npc_spells_id": 0,
+      "special_abilities": "",
+      "spawn_min_expansion": -1,
+      "spawn_max_expansion": -1,
+      "spawn_content_flags": null,
+      "spawn_content_flags_disabled": null,
+      "entry_min_expansion": -1,
+      "entry_max_expansion": -1,
+      "entry_content_flags": null,
+      "entry_content_flags_disabled": null,
+      "condition": 0,
+      "chance": 20,
+      "min_time": 0,
+      "max_time": 0,
+      "zone": "runnyeye",
+      "version": 0
+    },
+    {
+      "id": 11086,
+      "name": "#Battlewizard_Unak",
+      "level": 30,
+      "hp": 1200,
+      "mindmg": 12,
+      "maxdmg": 64,
+      "npc_spells_id": 2,
+      "special_abilities": "",
+      "spawn_min_expansion": -1,
+      "spawn_max_expansion": -1,
+      "spawn_content_flags": null,
+      "spawn_content_flags_disabled": null,
+      "entry_min_expansion": -1,
+      "entry_max_expansion": -1,
+      "entry_content_flags": null,
+      "entry_content_flags_disabled": null,
+      "condition": 0,
+      "chance": 25,
+      "min_time": 0,
+      "max_time": 0,
+      "zone": "runnyeye",
+      "version": 0
+    },
+    {
+      "id": 11086,
+      "name": "#Battlewizard_Unak",
+      "level": 30,
+      "hp": 1200,
+      "mindmg": 12,
+      "maxdmg": 64,
+      "npc_spells_id": 2,
+      "special_abilities": "",
+      "spawn_min_expansion": -1,
+      "spawn_max_expansion": -1,
+      "spawn_content_flags": null,
+      "spawn_content_flags_disabled": null,
+      "entry_min_expansion": -1,
+      "entry_max_expansion": -1,
+      "entry_content_flags": null,
+      "entry_content_flags_disabled": null,
+      "condition": 0,
+      "chance": 34,
+      "min_time": 0,
+      "max_time": 0,
+      "zone": "runnyeye",
+      "version": 0
+    },
+    {
+      "id": 59089,
+      "name": "Lasna_Cheroon",
+      "level": 36,
+      "hp": 1656,
+      "mindmg": 14,
+      "maxdmg": 76,
+      "npc_spells_id": 3,
+      "special_abilities": "21,1",
+      "spawn_min_expansion": -1,
+      "spawn_max_expansion": -1,
+      "spawn_content_flags": null,
+      "spawn_content_flags_disabled": null,
+      "entry_min_expansion": -1,
+      "entry_max_expansion": -1,
+      "entry_content_flags": null,
+      "entry_content_flags_disabled": null,
+      "condition": 0,
+      "chance": 5,
+      "min_time": 0,
+      "max_time": 0,
+      "zone": "mistmoore",
+      "version": 0
+    },
+    {
+      "id": 59115,
+      "name": "Maid_Issis",
+      "level": 34,
+      "hp": 1496,
+      "mindmg": 14,
+      "maxdmg": 72,
+      "npc_spells_id": 3336,
+      "special_abilities": "",
+      "spawn_min_expansion": -1,
+      "spawn_max_expansion": -1,
+      "spawn_content_flags": null,
+      "spawn_content_flags_disabled": null,
+      "entry_min_expansion": -1,
+      "entry_max_expansion": -1,
+      "entry_content_flags": null,
+      "entry_content_flags_disabled": null,
+      "condition": 0,
+      "chance": 50,
+      "min_time": 0,
+      "max_time": 0,
+      "zone": "mistmoore",
+      "version": 0
+    },
+    {
+      "id": 59116,
+      "name": "Butler_Syncall",
+      "level": 32,
+      "hp": 1344,
+      "mindmg": 13,
+      "maxdmg": 68,
+      "npc_spells_id": 0,
+      "special_abilities": "",
+      "spawn_min_expansion": -1,
+      "spawn_max_expansion": -1,
+      "spawn_content_flags": null,
+      "spawn_content_flags_disabled": null,
+      "entry_min_expansion": -1,
+      "entry_max_expansion": -1,
+      "entry_content_flags": null,
+      "entry_content_flags_disabled": null,
+      "condition": 0,
+      "chance": 50,
+      "min_time": 0,
+      "max_time": 0,
+      "zone": "mistmoore",
+      "version": 0
+    },
+    {
+      "id": 59150,
+      "name": "Mynthi_Davissi",
+      "level": 32,
+      "hp": 1344,
+      "mindmg": 13,
+      "maxdmg": 68,
+      "npc_spells_id": 517,
+      "special_abilities": "",
+      "spawn_min_expansion": -1,
+      "spawn_max_expansion": -1,
+      "spawn_content_flags": null,
+      "spawn_content_flags_disabled": null,
+      "entry_min_expansion": -1,
+      "entry_max_expansion": -1,
+      "entry_content_flags": null,
+      "entry_content_flags_disabled": null,
+      "condition": 0,
+      "chance": 34,
+      "min_time": 0,
+      "max_time": 0,
+      "zone": "mistmoore",
+      "version": 0
+    },
+    {
+      "id": 59151,
+      "name": "Garton_Viswin",
+      "level": 37,
+      "hp": 1739,
+      "mindmg": 14,
+      "maxdmg": 78,
+      "npc_spells_id": 9,
+      "special_abilities": "21,1",
+      "spawn_min_expansion": -1,
+      "spawn_max_expansion": -1,
+      "spawn_content_flags": null,
+      "spawn_content_flags_disabled": null,
+      "entry_min_expansion": -1,
+      "entry_max_expansion": -1,
+      "entry_content_flags": null,
+      "entry_content_flags_disabled": null,
+      "condition": 0,
+      "chance": 10,
+      "min_time": 0,
+      "max_time": 0,
+      "zone": "mistmoore",
+      "version": 0
+    },
+    {
+      "id": 59152,
+      "name": "Xicotl",
+      "level": 39,
+      "hp": 3911,
+      "mindmg": 16,
+      "maxdmg": 82,
+      "npc_spells_id": 9,
+      "special_abilities": "",
+      "spawn_min_expansion": -1,
+      "spawn_max_expansion": -1,
+      "spawn_content_flags": null,
+      "spawn_content_flags_disabled": null,
+      "entry_min_expansion": -1,
+      "entry_max_expansion": -1,
+      "entry_content_flags": null,
+      "entry_content_flags_disabled": null,
+      "condition": 0,
+      "chance": 20,
+      "min_time": 0,
+      "max_time": 0,
+      "zone": "mistmoore",
+      "version": 0
+    },
+    {
+      "id": 63062,
+      "name": "Garanel_Rucksif",
+      "level": 35,
+      "hp": 1975,
+      "mindmg": 14,
+      "maxdmg": 74,
+      "npc_spells_id": 0,
+      "special_abilities": "10,1^21,1^23,1^45,1",
+      "spawn_min_expansion": -1,
+      "spawn_max_expansion": -1,
+      "spawn_content_flags": null,
+      "spawn_content_flags_disabled": null,
+      "entry_min_expansion": -1,
+      "entry_max_expansion": -1,
+      "entry_content_flags": null,
+      "entry_content_flags_disabled": null,
+      "condition": 0,
+      "chance": 20,
+      "min_time": 0,
+      "max_time": 0,
+      "zone": "unrest",
+      "version": 0
+    },
+    {
+      "id": 63082,
+      "name": "Khrix_Fritchoff",
+      "level": 35,
+      "hp": 1575,
+      "mindmg": 14,
+      "maxdmg": 74,
+      "npc_spells_id": 515,
+      "special_abilities": "",
+      "spawn_min_expansion": -1,
+      "spawn_max_expansion": -1,
+      "spawn_content_flags": null,
+      "spawn_content_flags_disabled": null,
+      "entry_min_expansion": -1,
+      "entry_max_expansion": -1,
+      "entry_content_flags": null,
+      "entry_content_flags_disabled": null,
+      "condition": 0,
+      "chance": 100,
+      "min_time": 0,
+      "max_time": 0,
+      "zone": "unrest",
+      "version": 0
+    },
+    {
+      "id": 63086,
+      "name": "reclusive_ghoul_magus",
+      "level": 23,
+      "hp": 859,
+      "mindmg": 1,
+      "maxdmg": 50,
+      "npc_spells_id": 3547,
+      "special_abilities": "10,1^21,1^23,1^45,1",
+      "spawn_min_expansion": -1,
+      "spawn_max_expansion": -1,
+      "spawn_content_flags": null,
+      "spawn_content_flags_disabled": null,
+      "entry_min_expansion": -1,
+      "entry_max_expansion": -1,
+      "entry_content_flags": null,
+      "entry_content_flags_disabled": null,
+      "condition": 0,
+      "chance": 22,
+      "min_time": 0,
+      "max_time": 0,
+      "zone": "unrest",
+      "version": 0
+    },
+    {
+      "id": 65104,
+      "name": "the_froglok_warden",
+      "level": 25,
+      "hp": 875,
+      "mindmg": 1,
+      "maxdmg": 54,
+      "npc_spells_id": 0,
+      "special_abilities": "",
+      "spawn_min_expansion": -1,
+      "spawn_max_expansion": -1,
+      "spawn_content_flags": null,
+      "spawn_content_flags_disabled": null,
+      "entry_min_expansion": -1,
+      "entry_max_expansion": -1,
+      "entry_content_flags": null,
+      "entry_content_flags_disabled": null,
+      "condition": 0,
+      "chance": 50,
+      "min_time": 0,
+      "max_time": 0,
+      "zone": "guktop",
+      "version": 0
+    },
+    {
+      "id": 65128,
+      "name": "the_froglok_shin_lord",
+      "level": 30,
+      "hp": 1200,
+      "mindmg": 12,
+      "maxdmg": 64,
+      "npc_spells_id": 8,
+      "special_abilities": "",
+      "spawn_min_expansion": -1,
+      "spawn_max_expansion": -1,
+      "spawn_content_flags": null,
+      "spawn_content_flags_disabled": null,
+      "entry_min_expansion": -1,
+      "entry_max_expansion": -1,
+      "entry_content_flags": null,
+      "entry_content_flags_disabled": null,
+      "condition": 0,
+      "chance": 25,
+      "min_time": 0,
+      "max_time": 0,
+      "zone": "guktop",
+      "version": 0
+    },
+    {
+      "id": 73006,
+      "name": "High_Priest_Zaharn",
+      "level": 30,
+      "hp": 1200,
+      "mindmg": 12,
+      "maxdmg": 64,
+      "npc_spells_id": 1,
+      "special_abilities": "",
+      "spawn_min_expansion": -1,
+      "spawn_max_expansion": -1,
+      "spawn_content_flags": null,
+      "spawn_content_flags_disabled": null,
+      "entry_min_expansion": -1,
+      "entry_max_expansion": -1,
+      "entry_content_flags": null,
+      "entry_content_flags_disabled": null,
+      "condition": 0,
+      "chance": 50,
+      "min_time": 0,
+      "max_time": 0,
+      "zone": "permafrost",
+      "version": 0
+    },
+    {
+      "id": 73013,
+      "name": "the_goblin_sage",
+      "level": 28,
+      "hp": 1064,
+      "mindmg": 11,
+      "maxdmg": 60,
+      "npc_spells_id": 2,
+      "special_abilities": "",
+      "spawn_min_expansion": -1,
+      "spawn_max_expansion": -1,
+      "spawn_content_flags": null,
+      "spawn_content_flags_disabled": null,
+      "entry_min_expansion": -1,
+      "entry_max_expansion": -1,
+      "entry_content_flags": null,
+      "entry_content_flags_disabled": null,
+      "condition": 0,
+      "chance": 100,
+      "min_time": 0,
+      "max_time": 0,
+      "zone": "permafrost",
+      "version": 0
+    },
+    {
+      "id": 73103,
+      "name": "King_Thex`Ka_IV",
+      "level": 31,
+      "hp": 1271,
+      "mindmg": 13,
+      "maxdmg": 66,
+      "npc_spells_id": 0,
+      "special_abilities": "",
+      "spawn_min_expansion": -1,
+      "spawn_max_expansion": -1,
+      "spawn_content_flags": null,
+      "spawn_content_flags_disabled": null,
+      "entry_min_expansion": -1,
+      "entry_max_expansion": -1,
+      "entry_content_flags": null,
+      "entry_content_flags_disabled": null,
+      "condition": 0,
+      "chance": 45,
+      "min_time": 0,
+      "max_time": 0,
+      "zone": "permafrost",
+      "version": 0
+    }
+  ],
+  "schemas": {
+    "tasks": [
+      {
+        "name": "id",
+        "type": "int(11) unsigned",
+        "default": "0"
+      },
+      {
+        "name": "type",
+        "type": "tinyint(4)",
+        "default": "0"
+      },
+      {
+        "name": "duration",
+        "type": "int(11) unsigned",
+        "default": "0"
+      },
+      {
+        "name": "duration_code",
+        "type": "tinyint(4)",
+        "default": "0"
+      },
+      {
+        "name": "title",
+        "type": "varchar(100)",
+        "default": ""
+      },
+      {
+        "name": "description",
+        "type": "text",
+        "default": null
+      },
+      {
+        "name": "reward_text",
+        "type": "varchar(64)",
+        "default": ""
+      },
+      {
+        "name": "reward_id_list",
+        "type": "text",
+        "default": null
+      },
+      {
+        "name": "cash_reward",
+        "type": "int(11) unsigned",
+        "default": "0"
+      },
+      {
+        "name": "exp_reward",
+        "type": "int(10)",
+        "default": "0"
+      },
+      {
+        "name": "reward_method",
+        "type": "tinyint(3) unsigned",
+        "default": "0"
+      },
+      {
+        "name": "reward_points",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "reward_point_type",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "min_level",
+        "type": "tinyint(3) unsigned",
+        "default": "0"
+      },
+      {
+        "name": "max_level",
+        "type": "tinyint(3) unsigned",
+        "default": "0"
+      },
+      {
+        "name": "level_spread",
+        "type": "int(10) unsigned",
+        "default": "0"
+      },
+      {
+        "name": "min_players",
+        "type": "int(10) unsigned",
+        "default": "0"
+      },
+      {
+        "name": "max_players",
+        "type": "int(10) unsigned",
+        "default": "0"
+      },
+      {
+        "name": "repeatable",
+        "type": "tinyint(1) unsigned",
+        "default": "1"
+      },
+      {
+        "name": "faction_reward",
+        "type": "int(10)",
+        "default": "0"
+      },
+      {
+        "name": "completion_emote",
+        "type": "varchar(512)",
+        "default": ""
+      },
+      {
+        "name": "replay_timer_group",
+        "type": "int(10) unsigned",
+        "default": "0"
+      },
+      {
+        "name": "replay_timer_seconds",
+        "type": "int(10) unsigned",
+        "default": "0"
+      },
+      {
+        "name": "request_timer_group",
+        "type": "int(10) unsigned",
+        "default": "0"
+      },
+      {
+        "name": "request_timer_seconds",
+        "type": "int(10) unsigned",
+        "default": "0"
+      },
+      {
+        "name": "dz_template_id",
+        "type": "int(10) unsigned",
+        "default": "0"
+      },
+      {
+        "name": "lock_activity_id",
+        "type": "int(11)",
+        "default": "-1"
+      },
+      {
+        "name": "faction_amount",
+        "type": "int(10)",
+        "default": "0"
+      },
+      {
+        "name": "enabled",
+        "type": "smallint(6)",
+        "default": "1"
+      }
+    ],
+    "task_activities": [
+      {
+        "name": "taskid",
+        "type": "int(11) unsigned",
+        "default": "0"
+      },
+      {
+        "name": "activityid",
+        "type": "int(11) unsigned",
+        "default": "0"
+      },
+      {
+        "name": "req_activity_id",
+        "type": "int(11)",
+        "default": "-1"
+      },
+      {
+        "name": "step",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "activitytype",
+        "type": "tinyint(3) unsigned",
+        "default": "0"
+      },
+      {
+        "name": "target_name",
+        "type": "varchar(64)",
+        "default": ""
+      },
+      {
+        "name": "goalmethod",
+        "type": "int(10) unsigned",
+        "default": "0"
+      },
+      {
+        "name": "goalcount",
+        "type": "int(11)",
+        "default": "1"
+      },
+      {
+        "name": "description_override",
+        "type": "varchar(128)",
+        "default": ""
+      },
+      {
+        "name": "npc_match_list",
+        "type": "text",
+        "default": null
+      },
+      {
+        "name": "item_id_list",
+        "type": "text",
+        "default": null
+      },
+      {
+        "name": "item_list",
+        "type": "varchar(128)",
+        "default": ""
+      },
+      {
+        "name": "dz_switch_id",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "min_x",
+        "type": "float",
+        "default": "0"
+      },
+      {
+        "name": "min_y",
+        "type": "float",
+        "default": "0"
+      },
+      {
+        "name": "min_z",
+        "type": "float",
+        "default": "0"
+      },
+      {
+        "name": "max_x",
+        "type": "float",
+        "default": "0"
+      },
+      {
+        "name": "max_y",
+        "type": "float",
+        "default": "0"
+      },
+      {
+        "name": "max_z",
+        "type": "float",
+        "default": "0"
+      },
+      {
+        "name": "skill_list",
+        "type": "varchar(64)",
+        "default": "-1"
+      },
+      {
+        "name": "spell_list",
+        "type": "varchar(64)",
+        "default": "0"
+      },
+      {
+        "name": "zones",
+        "type": "varchar(64)",
+        "default": ""
+      },
+      {
+        "name": "zone_version",
+        "type": "int(11)",
+        "default": "-1"
+      },
+      {
+        "name": "optional",
+        "type": "tinyint(1)",
+        "default": "0"
+      },
+      {
+        "name": "list_group",
+        "type": "tinyint(3) unsigned",
+        "default": "0"
+      }
+    ],
+    "spells_new": [
+      {
+        "name": "id",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "name",
+        "type": "varchar(64)",
+        "default": null
+      },
+      {
+        "name": "player_1",
+        "type": "varchar(64)",
+        "default": "BLUE_TRAIL"
+      },
+      {
+        "name": "teleport_zone",
+        "type": "varchar(64)",
+        "default": null
+      },
+      {
+        "name": "you_cast",
+        "type": "varchar(120)",
+        "default": null
+      },
+      {
+        "name": "other_casts",
+        "type": "varchar(120)",
+        "default": null
+      },
+      {
+        "name": "cast_on_you",
+        "type": "varchar(120)",
+        "default": null
+      },
+      {
+        "name": "cast_on_other",
+        "type": "varchar(120)",
+        "default": null
+      },
+      {
+        "name": "spell_fades",
+        "type": "varchar(120)",
+        "default": null
+      },
+      {
+        "name": "range",
+        "type": "int(11)",
+        "default": "100"
+      },
+      {
+        "name": "aoerange",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "pushback",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "pushup",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "cast_time",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "recovery_time",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "recast_time",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "buffdurationformula",
+        "type": "int(11)",
+        "default": "7"
+      },
+      {
+        "name": "buffduration",
+        "type": "int(11)",
+        "default": "65"
+      },
+      {
+        "name": "AEDuration",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "mana",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "effect_base_value1",
+        "type": "int(11)",
+        "default": "100"
+      },
+      {
+        "name": "effect_base_value2",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "effect_base_value3",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "effect_base_value4",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "effect_base_value5",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "effect_base_value6",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "effect_base_value7",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "effect_base_value8",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "effect_base_value9",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "effect_base_value10",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "effect_base_value11",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "effect_base_value12",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "effect_limit_value1",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "effect_limit_value2",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "effect_limit_value3",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "effect_limit_value4",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "effect_limit_value5",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "effect_limit_value6",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "effect_limit_value7",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "effect_limit_value8",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "effect_limit_value9",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "effect_limit_value10",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "effect_limit_value11",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "effect_limit_value12",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "max1",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "max2",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "max3",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "max4",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "max5",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "max6",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "max7",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "max8",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "max9",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "max10",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "max11",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "max12",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "icon",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "memicon",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "components1",
+        "type": "int(11)",
+        "default": "-1"
+      },
+      {
+        "name": "components2",
+        "type": "int(11)",
+        "default": "-1"
+      },
+      {
+        "name": "components3",
+        "type": "int(11)",
+        "default": "-1"
+      },
+      {
+        "name": "components4",
+        "type": "int(11)",
+        "default": "-1"
+      },
+      {
+        "name": "component_counts1",
+        "type": "int(11)",
+        "default": "1"
+      },
+      {
+        "name": "component_counts2",
+        "type": "int(11)",
+        "default": "1"
+      },
+      {
+        "name": "component_counts3",
+        "type": "int(11)",
+        "default": "1"
+      },
+      {
+        "name": "component_counts4",
+        "type": "int(11)",
+        "default": "1"
+      },
+      {
+        "name": "NoexpendReagent1",
+        "type": "int(11)",
+        "default": "-1"
+      },
+      {
+        "name": "NoexpendReagent2",
+        "type": "int(11)",
+        "default": "-1"
+      },
+      {
+        "name": "NoexpendReagent3",
+        "type": "int(11)",
+        "default": "-1"
+      },
+      {
+        "name": "NoexpendReagent4",
+        "type": "int(11)",
+        "default": "-1"
+      },
+      {
+        "name": "formula1",
+        "type": "int(11)",
+        "default": "100"
+      },
+      {
+        "name": "formula2",
+        "type": "int(11)",
+        "default": "100"
+      },
+      {
+        "name": "formula3",
+        "type": "int(11)",
+        "default": "100"
+      },
+      {
+        "name": "formula4",
+        "type": "int(11)",
+        "default": "100"
+      },
+      {
+        "name": "formula5",
+        "type": "int(11)",
+        "default": "100"
+      },
+      {
+        "name": "formula6",
+        "type": "int(11)",
+        "default": "100"
+      },
+      {
+        "name": "formula7",
+        "type": "int(11)",
+        "default": "100"
+      },
+      {
+        "name": "formula8",
+        "type": "int(11)",
+        "default": "100"
+      },
+      {
+        "name": "formula9",
+        "type": "int(11)",
+        "default": "100"
+      },
+      {
+        "name": "formula10",
+        "type": "int(11)",
+        "default": "100"
+      },
+      {
+        "name": "formula11",
+        "type": "int(11)",
+        "default": "100"
+      },
+      {
+        "name": "formula12",
+        "type": "int(11)",
+        "default": "100"
+      },
+      {
+        "name": "LightType",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "goodEffect",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "Activated",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "resisttype",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "effectid1",
+        "type": "int(11)",
+        "default": "254"
+      },
+      {
+        "name": "effectid2",
+        "type": "int(11)",
+        "default": "254"
+      },
+      {
+        "name": "effectid3",
+        "type": "int(11)",
+        "default": "254"
+      },
+      {
+        "name": "effectid4",
+        "type": "int(11)",
+        "default": "254"
+      },
+      {
+        "name": "effectid5",
+        "type": "int(11)",
+        "default": "254"
+      },
+      {
+        "name": "effectid6",
+        "type": "int(11)",
+        "default": "254"
+      },
+      {
+        "name": "effectid7",
+        "type": "int(11)",
+        "default": "254"
+      },
+      {
+        "name": "effectid8",
+        "type": "int(11)",
+        "default": "254"
+      },
+      {
+        "name": "effectid9",
+        "type": "int(11)",
+        "default": "254"
+      },
+      {
+        "name": "effectid10",
+        "type": "int(11)",
+        "default": "254"
+      },
+      {
+        "name": "effectid11",
+        "type": "int(11)",
+        "default": "254"
+      },
+      {
+        "name": "effectid12",
+        "type": "int(11)",
+        "default": "254"
+      },
+      {
+        "name": "targettype",
+        "type": "int(11)",
+        "default": "2"
+      },
+      {
+        "name": "basediff",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "skill",
+        "type": "int(11)",
+        "default": "98"
+      },
+      {
+        "name": "zonetype",
+        "type": "int(11)",
+        "default": "-1"
+      },
+      {
+        "name": "EnvironmentType",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "TimeOfDay",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "classes1",
+        "type": "int(11)",
+        "default": "255"
+      },
+      {
+        "name": "classes2",
+        "type": "int(11)",
+        "default": "255"
+      },
+      {
+        "name": "classes3",
+        "type": "int(11)",
+        "default": "255"
+      },
+      {
+        "name": "classes4",
+        "type": "int(11)",
+        "default": "255"
+      },
+      {
+        "name": "classes5",
+        "type": "int(11)",
+        "default": "255"
+      },
+      {
+        "name": "classes6",
+        "type": "int(11)",
+        "default": "255"
+      },
+      {
+        "name": "classes7",
+        "type": "int(11)",
+        "default": "255"
+      },
+      {
+        "name": "classes8",
+        "type": "int(11)",
+        "default": "255"
+      },
+      {
+        "name": "classes9",
+        "type": "int(11)",
+        "default": "255"
+      },
+      {
+        "name": "classes10",
+        "type": "int(11)",
+        "default": "255"
+      },
+      {
+        "name": "classes11",
+        "type": "int(11)",
+        "default": "255"
+      },
+      {
+        "name": "classes12",
+        "type": "int(11)",
+        "default": "255"
+      },
+      {
+        "name": "classes13",
+        "type": "int(11)",
+        "default": "255"
+      },
+      {
+        "name": "classes14",
+        "type": "int(11)",
+        "default": "255"
+      },
+      {
+        "name": "classes15",
+        "type": "int(11)",
+        "default": "255"
+      },
+      {
+        "name": "classes16",
+        "type": "int(11)",
+        "default": "255"
+      },
+      {
+        "name": "CastingAnim",
+        "type": "int(11)",
+        "default": "44"
+      },
+      {
+        "name": "TargetAnim",
+        "type": "int(11)",
+        "default": "13"
+      },
+      {
+        "name": "TravelType",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "SpellAffectIndex",
+        "type": "int(11)",
+        "default": "-1"
+      },
+      {
+        "name": "disallow_sit",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "deities0",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "deities1",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "deities2",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "deities3",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "deities4",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "deities5",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "deities6",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "deities7",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "deities8",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "deities9",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "deities10",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "deities11",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "deities12",
+        "type": "int(12)",
+        "default": "0"
+      },
+      {
+        "name": "deities13",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "deities14",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "deities15",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "deities16",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "field142",
+        "type": "int(11)",
+        "default": "100"
+      },
+      {
+        "name": "field143",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "new_icon",
+        "type": "int(11)",
+        "default": "161"
+      },
+      {
+        "name": "spellanim",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "uninterruptable",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "ResistDiff",
+        "type": "int(11)",
+        "default": "-150"
+      },
+      {
+        "name": "dot_stacking_exempt",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "deleteable",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "RecourseLink",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "no_partial_resist",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "field152",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "field153",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "short_buff_box",
+        "type": "int(11)",
+        "default": "-1"
+      },
+      {
+        "name": "descnum",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "typedescnum",
+        "type": "int(11)",
+        "default": null
+      },
+      {
+        "name": "effectdescnum",
+        "type": "int(11)",
+        "default": null
+      },
+      {
+        "name": "effectdescnum2",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "npc_no_los",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "field160",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "reflectable",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "bonushate",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "field163",
+        "type": "int(11)",
+        "default": "100"
+      },
+      {
+        "name": "field164",
+        "type": "int(11)",
+        "default": "-150"
+      },
+      {
+        "name": "ldon_trap",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "EndurCost",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "EndurTimerIndex",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "IsDiscipline",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "field169",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "field170",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "field171",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "field172",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "HateAdded",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "EndurUpkeep",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "numhitstype",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "numhits",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "pvpresistbase",
+        "type": "int(11)",
+        "default": "-150"
+      },
+      {
+        "name": "pvpresistcalc",
+        "type": "int(11)",
+        "default": "100"
+      },
+      {
+        "name": "pvpresistcap",
+        "type": "int(11)",
+        "default": "-150"
+      },
+      {
+        "name": "spell_category",
+        "type": "int(11)",
+        "default": "-99"
+      },
+      {
+        "name": "pvp_duration",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "pvp_duration_cap",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "pcnpc_only_flag",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "cast_not_standing",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "can_mgb",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "nodispell",
+        "type": "int(11)",
+        "default": "-1"
+      },
+      {
+        "name": "npc_category",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "npc_usefulness",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "MinResist",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "MaxResist",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "viral_targets",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "viral_timer",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "nimbuseffect",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "ConeStartAngle",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "ConeStopAngle",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "sneaking",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "not_extendable",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "field198",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "field199",
+        "type": "int(11)",
+        "default": "1"
+      },
+      {
+        "name": "suspendable",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "viral_range",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "songcap",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "field203",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "field204",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "no_block",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "field206",
+        "type": "int(11)",
+        "default": "-1"
+      },
+      {
+        "name": "spellgroup",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "rank",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "field209",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "field210",
+        "type": "int(11)",
+        "default": "1"
+      },
+      {
+        "name": "CastRestriction",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "allowrest",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "InCombat",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "OutofCombat",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "field215",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "field216",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "field217",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "aemaxtargets",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "maxtargets",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "field220",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "field221",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "field222",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "field223",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "persistdeath",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "field225",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "field226",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "min_dist",
+        "type": "float",
+        "default": "0"
+      },
+      {
+        "name": "min_dist_mod",
+        "type": "float",
+        "default": "0"
+      },
+      {
+        "name": "max_dist",
+        "type": "float",
+        "default": "0"
+      },
+      {
+        "name": "max_dist_mod",
+        "type": "float",
+        "default": "0"
+      },
+      {
+        "name": "min_range",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "field232",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "field233",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "field234",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "field235",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "field236",
+        "type": "int(11)",
+        "default": "0"
+      }
+    ],
+    "items": [
+      {
+        "name": "id",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "minstatus",
+        "type": "smallint(5)",
+        "default": "0"
+      },
+      {
+        "name": "Name",
+        "type": "varchar(64)",
+        "default": ""
+      },
+      {
+        "name": "aagi",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "ac",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "accuracy",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "acha",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "adex",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "aint",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "artifactflag",
+        "type": "tinyint(3) unsigned",
+        "default": "0"
+      },
+      {
+        "name": "asta",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "astr",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "attack",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "augrestrict",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "augslot1type",
+        "type": "tinyint(3)",
+        "default": "0"
+      },
+      {
+        "name": "augslot1visible",
+        "type": "tinyint(3)",
+        "default": "0"
+      },
+      {
+        "name": "augslot2type",
+        "type": "tinyint(3)",
+        "default": "0"
+      },
+      {
+        "name": "augslot2visible",
+        "type": "tinyint(3)",
+        "default": "0"
+      },
+      {
+        "name": "augslot3type",
+        "type": "tinyint(3)",
+        "default": "0"
+      },
+      {
+        "name": "augslot3visible",
+        "type": "tinyint(3)",
+        "default": "0"
+      },
+      {
+        "name": "augslot4type",
+        "type": "tinyint(3)",
+        "default": "0"
+      },
+      {
+        "name": "augslot4visible",
+        "type": "tinyint(3)",
+        "default": "0"
+      },
+      {
+        "name": "augslot5type",
+        "type": "tinyint(3)",
+        "default": "0"
+      },
+      {
+        "name": "augslot5visible",
+        "type": "tinyint(3)",
+        "default": "0"
+      },
+      {
+        "name": "augslot6type",
+        "type": "tinyint(3)",
+        "default": "0"
+      },
+      {
+        "name": "augslot6visible",
+        "type": "tinyint(3)",
+        "default": "0"
+      },
+      {
+        "name": "augtype",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "avoidance",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "awis",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "bagsize",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "bagslots",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "bagtype",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "bagwr",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "banedmgamt",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "banedmgraceamt",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "banedmgbody",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "banedmgrace",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "bardtype",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "bardvalue",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "book",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "casttime",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "casttime_",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "charmfile",
+        "type": "varchar(32)",
+        "default": ""
+      },
+      {
+        "name": "charmfileid",
+        "type": "varchar(32)",
+        "default": ""
+      },
+      {
+        "name": "classes",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "color",
+        "type": "int(10) unsigned",
+        "default": "0"
+      },
+      {
+        "name": "combateffects",
+        "type": "varchar(10)",
+        "default": ""
+      },
+      {
+        "name": "extradmgskill",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "extradmgamt",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "price",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "cr",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "damage",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "damageshield",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "deity",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "delay",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "augdistiller",
+        "type": "int(11) unsigned",
+        "default": "0"
+      },
+      {
+        "name": "dotshielding",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "dr",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "clicktype",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "clicklevel2",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "elemdmgtype",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "elemdmgamt",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "endur",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "factionamt1",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "factionamt2",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "factionamt3",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "factionamt4",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "factionmod1",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "factionmod2",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "factionmod3",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "factionmod4",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "filename",
+        "type": "varchar(32)",
+        "default": ""
+      },
+      {
+        "name": "focuseffect",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "fr",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "fvnodrop",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "haste",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "clicklevel",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "hp",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "regen",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "icon",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "idfile",
+        "type": "varchar(30)",
+        "default": ""
+      },
+      {
+        "name": "itemclass",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "itemtype",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "ldonprice",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "ldontheme",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "ldonsold",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "light",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "lore",
+        "type": "varchar(80)",
+        "default": ""
+      },
+      {
+        "name": "loregroup",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "magic",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "mana",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "manaregen",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "enduranceregen",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "material",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "herosforgemodel",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "maxcharges",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "mr",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "nodrop",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "norent",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "pendingloreflag",
+        "type": "tinyint(3) unsigned",
+        "default": "0"
+      },
+      {
+        "name": "pr",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "procrate",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "races",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "range",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "reclevel",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "recskill",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "reqlevel",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "sellrate",
+        "type": "float",
+        "default": "0"
+      },
+      {
+        "name": "shielding",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "size",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "skillmodtype",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "skillmodvalue",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "slots",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "clickeffect",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "spellshield",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "strikethrough",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "stunresist",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "summonedflag",
+        "type": "tinyint(3) unsigned",
+        "default": "0"
+      },
+      {
+        "name": "tradeskills",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "favor",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "weight",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "UNK012",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "UNK013",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "benefitflag",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "UNK054",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "UNK059",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "booktype",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "recastdelay",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "recasttype",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "guildfavor",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "UNK123",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "UNK124",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "attuneable",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "nopet",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "updated",
+        "type": "datetime",
+        "default": null
+      },
+      {
+        "name": "comment",
+        "type": "varchar(255)",
+        "default": ""
+      },
+      {
+        "name": "UNK127",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "pointtype",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "potionbelt",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "potionbeltslots",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "stacksize",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "notransfer",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "stackable",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "UNK134",
+        "type": "varchar(255)",
+        "default": ""
+      },
+      {
+        "name": "UNK137",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "proceffect",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "proctype",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "proclevel2",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "proclevel",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "UNK142",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "worneffect",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "worntype",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "wornlevel2",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "wornlevel",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "UNK147",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "focustype",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "focuslevel2",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "focuslevel",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "UNK152",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "scrolleffect",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "scrolltype",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "scrolllevel2",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "scrolllevel",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "UNK157",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "serialized",
+        "type": "datetime",
+        "default": null
+      },
+      {
+        "name": "verified",
+        "type": "datetime",
+        "default": null
+      },
+      {
+        "name": "serialization",
+        "type": "text",
+        "default": null
+      },
+      {
+        "name": "source",
+        "type": "varchar(20)",
+        "default": ""
+      },
+      {
+        "name": "UNK033",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "lorefile",
+        "type": "varchar(32)",
+        "default": ""
+      },
+      {
+        "name": "UNK014",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "svcorruption",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "skillmodmax",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "UNK060",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "augslot1unk2",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "augslot2unk2",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "augslot3unk2",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "augslot4unk2",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "augslot5unk2",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "augslot6unk2",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "UNK120",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "UNK121",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "questitemflag",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "UNK132",
+        "type": "text",
+        "default": null
+      },
+      {
+        "name": "clickunk5",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "clickunk6",
+        "type": "varchar(32)",
+        "default": ""
+      },
+      {
+        "name": "clickunk7",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "procunk1",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "procunk2",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "procunk3",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "procunk4",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "procunk6",
+        "type": "varchar(32)",
+        "default": ""
+      },
+      {
+        "name": "procunk7",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "wornunk1",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "wornunk2",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "wornunk3",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "wornunk4",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "wornunk5",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "wornunk6",
+        "type": "varchar(32)",
+        "default": ""
+      },
+      {
+        "name": "wornunk7",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "focusunk1",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "focusunk2",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "focusunk3",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "focusunk4",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "focusunk5",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "focusunk6",
+        "type": "varchar(32)",
+        "default": ""
+      },
+      {
+        "name": "focusunk7",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "scrollunk1",
+        "type": "int(11) unsigned",
+        "default": "0"
+      },
+      {
+        "name": "scrollunk2",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "scrollunk3",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "scrollunk4",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "scrollunk5",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "scrollunk6",
+        "type": "varchar(32)",
+        "default": ""
+      },
+      {
+        "name": "scrollunk7",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "UNK193",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "purity",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "evoitem",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "evoid",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "evolvinglevel",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "evomax",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "clickname",
+        "type": "varchar(64)",
+        "default": ""
+      },
+      {
+        "name": "procname",
+        "type": "varchar(64)",
+        "default": ""
+      },
+      {
+        "name": "wornname",
+        "type": "varchar(64)",
+        "default": ""
+      },
+      {
+        "name": "focusname",
+        "type": "varchar(64)",
+        "default": ""
+      },
+      {
+        "name": "scrollname",
+        "type": "varchar(64)",
+        "default": ""
+      },
+      {
+        "name": "dsmitigation",
+        "type": "smallint(6)",
+        "default": "0"
+      },
+      {
+        "name": "heroic_str",
+        "type": "smallint(6)",
+        "default": "0"
+      },
+      {
+        "name": "heroic_int",
+        "type": "smallint(6)",
+        "default": "0"
+      },
+      {
+        "name": "heroic_wis",
+        "type": "smallint(6)",
+        "default": "0"
+      },
+      {
+        "name": "heroic_agi",
+        "type": "smallint(6)",
+        "default": "0"
+      },
+      {
+        "name": "heroic_dex",
+        "type": "smallint(6)",
+        "default": "0"
+      },
+      {
+        "name": "heroic_sta",
+        "type": "smallint(6)",
+        "default": "0"
+      },
+      {
+        "name": "heroic_cha",
+        "type": "smallint(6)",
+        "default": "0"
+      },
+      {
+        "name": "heroic_pr",
+        "type": "smallint(6)",
+        "default": "0"
+      },
+      {
+        "name": "heroic_dr",
+        "type": "smallint(6)",
+        "default": "0"
+      },
+      {
+        "name": "heroic_fr",
+        "type": "smallint(6)",
+        "default": "0"
+      },
+      {
+        "name": "heroic_cr",
+        "type": "smallint(6)",
+        "default": "0"
+      },
+      {
+        "name": "heroic_mr",
+        "type": "smallint(6)",
+        "default": "0"
+      },
+      {
+        "name": "heroic_svcorrup",
+        "type": "smallint(6)",
+        "default": "0"
+      },
+      {
+        "name": "healamt",
+        "type": "smallint(6)",
+        "default": "0"
+      },
+      {
+        "name": "spelldmg",
+        "type": "smallint(6)",
+        "default": "0"
+      },
+      {
+        "name": "clairvoyance",
+        "type": "smallint(6)",
+        "default": "0"
+      },
+      {
+        "name": "backstabdmg",
+        "type": "smallint(6)",
+        "default": "0"
+      },
+      {
+        "name": "created",
+        "type": "varchar(64)",
+        "default": ""
+      },
+      {
+        "name": "elitematerial",
+        "type": "smallint(6)",
+        "default": "0"
+      },
+      {
+        "name": "ldonsellbackrate",
+        "type": "smallint(6)",
+        "default": "0"
+      },
+      {
+        "name": "scriptfileid",
+        "type": "mediumint(6)",
+        "default": "0"
+      },
+      {
+        "name": "expendablearrow",
+        "type": "smallint(6)",
+        "default": "0"
+      },
+      {
+        "name": "powersourcecapacity",
+        "type": "mediumint(7)",
+        "default": "0"
+      },
+      {
+        "name": "bardeffect",
+        "type": "mediumint(6)",
+        "default": "0"
+      },
+      {
+        "name": "bardeffecttype",
+        "type": "smallint(6)",
+        "default": "0"
+      },
+      {
+        "name": "bardlevel2",
+        "type": "smallint(6)",
+        "default": "0"
+      },
+      {
+        "name": "bardlevel",
+        "type": "smallint(6)",
+        "default": "0"
+      },
+      {
+        "name": "bardunk1",
+        "type": "smallint(6)",
+        "default": "0"
+      },
+      {
+        "name": "bardunk2",
+        "type": "smallint(6)",
+        "default": "0"
+      },
+      {
+        "name": "bardunk3",
+        "type": "smallint(6)",
+        "default": "0"
+      },
+      {
+        "name": "bardunk4",
+        "type": "smallint(6)",
+        "default": "0"
+      },
+      {
+        "name": "bardunk5",
+        "type": "smallint(6)",
+        "default": "0"
+      },
+      {
+        "name": "bardname",
+        "type": "varchar(64)",
+        "default": ""
+      },
+      {
+        "name": "bardunk7",
+        "type": "smallint(6)",
+        "default": "0"
+      },
+      {
+        "name": "UNK214",
+        "type": "smallint(6)",
+        "default": "0"
+      },
+      {
+        "name": "subtype",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "UNK220",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "UNK221",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "heirloom",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "UNK223",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "UNK224",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "UNK225",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "UNK226",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "UNK227",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "UNK228",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "UNK229",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "UNK230",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "UNK231",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "UNK232",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "UNK233",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "UNK234",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "placeable",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "UNK236",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "UNK237",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "UNK238",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "UNK239",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "UNK240",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "UNK241",
+        "type": "int(11)",
+        "default": "0"
+      },
+      {
+        "name": "epicitem",
+        "type": "int(11)",
+        "default": "0"
+      }
+    ]
+  }
+}

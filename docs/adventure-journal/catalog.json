@@ -1,0 +1,93 @@
+{
+  "version": 1,
+  "era": 0,
+  "hub_zone": 22,
+  "guide_npc": 999220,
+  "cooldown_seconds": 600,
+  "invoke_spell": 42800,
+  "item": {"id": 900501, "name": "Wayfarer's Oath [Epic 0.5]", "level": 35},
+  "shared": [
+    {
+      "task": 9500, "level": 20, "title": "The First Pages",
+      "description": "Every oath begins with a journey. Explore Upper Guk, Unrest and Runnyeye. Find their entrances, learn the way home, and prepare escape and recovery tools before going deeper. Your Tasks window records each visit. Return to the Ancient Chronicler in the East Commonlands tunnel for the next chapter.",
+      "objectives": [
+        {"zone": 65, "short_name": "guktop", "era": 0, "label": "Enter Upper Guk"},
+        {"zone": 63, "short_name": "unrest", "era": 0, "label": "Enter the Estate of Unrest"},
+        {"zone": 11, "short_name": "runnyeye", "era": 0, "label": "Enter Runnyeye Citadel"}
+      ]
+    },
+    {
+      "task": 9501, "level": 25, "title": "Beneath the Surface",
+      "description": "Earn your first dungeon victories. Defeat the froglok warden in Upper Guk and the reclusive ghoul magus in Unrest. Plan around linked pulls, runners and spell interruption. Victory itself is the proof; you do not need a rare quest drop. Ordinary group and pet kill credit applies to your individual journal.",
+      "objectives": [
+        {"zone": 65, "short_name": "guktop", "era": 0, "npc": 65104, "name": "the_froglok_warden", "level": 25, "label": "Defeat the froglok warden"},
+        {"zone": 63, "short_name": "unrest", "era": 0, "npc": 63086, "name": "reclusive_ghoul_magus", "level": 23, "label": "Defeat the reclusive ghoul magus"}
+      ]
+    },
+    {
+      "task": 9502, "level": 30, "title": "Steel and Sorcery",
+      "description": "Face Battlelord Paluk in Runnyeye and the goblin sage in Permafrost. Prepare for physical pressure and hostile magic, manage recovery between pulls, and learn when to retreat. After both victories, return to the Ancient Chronicler. At level 35, five archetype paths become available, regardless of your Primary class.",
+      "objectives": [
+        {"zone": 11, "short_name": "runnyeye", "era": 0, "npc": 11015, "name": "#Battlelord_Paluk", "level": 28, "label": "Defeat Battlelord Paluk"},
+        {"zone": 73, "short_name": "permafrost", "era": 0, "npc": 73013, "name": "the_goblin_sage", "level": 28, "label": "Defeat the goblin sage"}
+      ]
+    }
+  ],
+  "paths": [
+    {
+      "key": "guardian", "task": 9503, "level": 35, "title": "Guardian: The Unbroken Oath",
+      "description": "Learn to survive pressure without exhausting your recovery. Defeat the froglok shin lord in Upper Guk and Lord Pickclaw in Runnyeye, then face Xicotl in Mistmoore. Prepare a safe fighting position and reserve a defensive answer for the final pull. Completion unlocks the Guardian attunement. Return to the Chronicler to forge or attune your Epic 0.5 charm.",
+      "spell": 42801, "ability": "Oathguard", "effect_text": "Absorb 15% of melee damage, up to 200 damage total, for at most 3 ticks.",
+      "duration": 3, "target": "self", "effects": [[162, 15, 0, 200]],
+      "objectives": [
+        {"zone": 65, "short_name": "guktop", "era": 0, "npc": 65128, "name": "the_froglok_shin_lord", "level": 30, "label": "Defeat the froglok shin lord"},
+        {"zone": 11, "short_name": "runnyeye", "era": 0, "npc": 11017, "name": "#Lord_Pickclaw", "level": 32, "label": "Defeat Lord Pickclaw"},
+        {"zone": 59, "short_name": "mistmoore", "era": 0, "npc": 59152, "name": "Xicotl", "level": 39, "label": "Final trial: defeat Xicotl"}
+      ]
+    },
+    {
+      "key": "striker", "task": 9504, "level": 35, "title": "Striker: A Decisive Hand",
+      "description": "Master controlled aggression in Mistmoore. Defeat Butler Syncall and Maid Issis before facing Garton Viswin. Choose where you fight, prevent runners from widening a pull, and keep enough endurance for the next engagement. Completion unlocks the Striker attunement; return to the Chronicler to claim it.",
+      "spell": 42802, "ability": "Decisive Hand", "effect_text": "Gain a 6% melee damage modifier for at most 3 ticks; normal stacking rules apply.",
+      "duration": 3, "target": "self", "effects": [[185, 6, -1, 0]],
+      "objectives": [
+        {"zone": 59, "short_name": "mistmoore", "era": 0, "npc": 59116, "name": "Butler_Syncall", "level": 32, "label": "Defeat Butler Syncall"},
+        {"zone": 59, "short_name": "mistmoore", "era": 0, "npc": 59115, "name": "Maid_Issis", "level": 34, "label": "Defeat Maid Issis"},
+        {"zone": 59, "short_name": "mistmoore", "era": 0, "npc": 59151, "name": "Garton_Viswin", "level": 37, "label": "Final trial: defeat Garton Viswin"}
+      ]
+    },
+    {
+      "key": "arcanist", "task": 9505, "level": 35, "title": "Arcanist: The Measured Flame",
+      "description": "Win with deliberate use of magic and resources. Defeat Battlewizard Unak in Runnyeye and High Priest Zaharn in Permafrost, then face Lasna Cheroon in Mistmoore. Vary your damage types, consider control and interruption, and plan your mana recovery. Completion unlocks the Arcanist attunement; return to the Chronicler to claim it.",
+      "spell": 42803, "ability": "Measured Flame", "effect_text": "Gain a 5% spell damage focus for direct damage and DoTs for at most 3 ticks; normal stacking rules apply.",
+      "duration": 3, "target": "self", "effects": [[124, 5, 5, 0]],
+      "objectives": [
+        {"zone": 11, "short_name": "runnyeye", "era": 0, "npc": 11086, "name": "#Battlewizard_Unak", "level": 30, "label": "Defeat Battlewizard Unak"},
+        {"zone": 73, "short_name": "permafrost", "era": 0, "npc": 73006, "name": "High_Priest_Zaharn", "level": 30, "label": "Defeat High Priest Zaharn"},
+        {"zone": 59, "short_name": "mistmoore", "era": 0, "npc": 59089, "name": "Lasna_Cheroon", "level": 36, "label": "Final trial: defeat Lasna Cheroon"}
+      ]
+    },
+    {
+      "key": "warden", "task": 9506, "level": 35, "title": "Warden: The Last Light",
+      "description": "Balance recovery against the cost of staying in the fight. Defeat Khrix Fritchoff in Unrest and Maid Issis in Mistmoore, then return to Unrest to face Garanel Rucksif. Keep an emergency resource in reserve and avoid turning each pull into a battle of attrition. Completion unlocks the Warden attunement; return to the Chronicler to claim it.",
+      "spell": 42804, "ability": "Last Light", "effect_text": "Instantly restore 10% of your maximum HP, capped at 400 base healing before normal healing bonuses.",
+      "duration": 0, "target": "self", "effects": [[147, 10, 0, 400]],
+      "objectives": [
+        {"zone": 63, "short_name": "unrest", "era": 0, "npc": 63082, "name": "Khrix_Fritchoff", "level": 35, "label": "Defeat Khrix Fritchoff"},
+        {"zone": 59, "short_name": "mistmoore", "era": 0, "npc": 59115, "name": "Maid_Issis", "level": 34, "label": "Defeat Maid Issis"},
+        {"zone": 63, "short_name": "unrest", "era": 0, "npc": 63062, "name": "Garanel_Rucksif", "level": 35, "label": "Final trial: defeat Garanel Rucksif"}
+      ]
+    },
+    {
+      "key": "binder", "task": 9507, "level": 35, "title": "Binder: An Unbroken Bond",
+      "description": "Practice precise pet control and keep yourself alive alongside your companions. Defeat King Thex'Ka IV in Permafrost and Mynthi Davissi in Mistmoore, then face Xicotl. Plan pet positioning, retreats and recovery; additional pets should never pull more than you can manage. Completion unlocks the Binder attunement; return to the Chronicler to claim it.",
+      "spell": 42805, "ability": "Unbroken Bond", "effect_text": "One targeted owned pet gains an 8% melee damage modifier and 10% melee absorption (150 damage cap), for at most 3 ticks.",
+      "duration": 3, "target": "owned_pet", "effects": [[185, 8, -1, 0], [162, 10, 0, 150]],
+      "objectives": [
+        {"zone": 73, "short_name": "permafrost", "era": 0, "npc": 73103, "name": "King_Thex`Ka_IV", "level": 31, "label": "Defeat King Thex'Ka IV"},
+        {"zone": 59, "short_name": "mistmoore", "era": 0, "npc": 59150, "name": "Mynthi_Davissi", "level": 32, "label": "Defeat Mynthi Davissi"},
+        {"zone": 59, "short_name": "mistmoore", "era": 0, "npc": 59152, "name": "Xicotl", "level": 39, "label": "Final trial: defeat Xicotl"}
+      ]
+    }
+  ]
+}

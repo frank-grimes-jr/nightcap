@@ -1,5 +1,24 @@
 # CHANGES
 
+## 2026-10-09 - Classic zone hunt and forge candidate
+
+Added two independent 0.5% death rolls for zone-specific augment and new wearable
+families, with 60/30/8/2 Base/Polished/Exalted/Ascension quality. Forty-eight
+audited Classic combat zones use exact native spawn/NPC pairs; eight access-check
+zones remain gated, and city/hub concepts remain reserved. New IDs bypass legacy
+quality upgrading and the global loot multiplier. Restored corpses and owned or
+script-created victims do not reroll.
+
+Added type-22 sockets on eligible six-location Classic armor, bounded heroic
+INT/WIS output-cap headroom, and `#zoneforge` for atomic three-copy upgrades.
+Forging preserves binding, rejects customized/socketed inputs, commits a durable
+receipt with inventory, and quarantines uncertain results. Universal trading is
+preserved; these new rewards have zero merchant resale. Rollback retains earned
+items/sockets/receipts and disables acquisition. Matching binaries and regenerated
+shared item memory are required. This is a test candidate, not OVH deployment or
+manual acceptance. Scope, source audit, automated evidence and exact owner QA:
+`docs/releases/zone-loot-20261009/README.md`.
+
 ## 2026-10-09 - Advanced loot row rules and empty-window close
 
 The main loot list now has Always Loot and Never Loot toggles on every row.
@@ -319,6 +338,24 @@ one corner. Saved-state invalidation is restricted to the 93 moved actors;
 unchanged native NPCs and their caches remain intact. Guarded SQL/rollback,
 geometry, identity checks and quest fixtures pass. Candidate, not yet deployed;
 see `docs/releases/tunnel-social-20261001/README.md` for all NPCs and exact QA.
+
+## 2026-10-01 - Adventure Journal and archetype Epic 0.5 candidate
+
+Added eight native journal tasks through the East Commonlands Chronicler: three
+shared Classic expeditions and five independently earned archetype paths. One
+all-class charm supports Guardian, Striker, Arcanist, Warden and Binder, with
+hub-only switching and a shared character cooldown committed before effects.
+Recovery preserves task history and cannot reset the timer. Binder empowers one
+owned target; timed effects have a narrow native exception to permanent buffs.
+
+The package starts disabled and includes guarded additive SQL, retained-data
+disable, six staged client spells, Perl/native tests and a disposable MariaDB
+rehearsal. Review caught and corrected the Explore/Touch task mismatch, a
+later-expansion Binder spawn and a two-tick duration formula. Native build tooling
+now accepts an optional reviewed hardening patch across Windows line endings.
+Client regeneration preserves exact reviewed Epic rows without making them
+learnable. No era policy or original-client files changed. Activation, exact
+encounter/balance QA and remaining acceptance: `docs/adventure-journal/`.
 
 ## 2026-10-01 - Repair pre-character-select model material crash
 

@@ -1,0 +1,18 @@
+{
+  "status": "staged_not_installed",
+  "source": "E:\\EQ_Local_Dev\\artifacts\\spell-inspection-20261001\\production-publish\\release\\2026100102\\spells_us.txt",
+  "output": "E:\\EQ_Local_Dev\\artifacts\\epic05-20261001\\client\\spells_us.txt",
+  "source_sha256": "56915e0e489422a7befb1f3255610a8f6c1cb2163252aa05476a6dfea4270456",
+  "output_sha256": "536392758e77dd1bfb272e3ebfb910e217a999912c74e9d58095b1b2e610ee7a",
+  "preserved_source_bytes": 28139043,
+  "added_spells": 6,
+  "roF2_fields": 237,
+  "spell_ids": [
+    42800,
+    42801,
+    42802,
+    42803,
+    42804,
+    42805
+  ]
+}

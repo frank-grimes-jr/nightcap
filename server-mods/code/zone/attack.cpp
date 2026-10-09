@@ -1,3 +1,4 @@
+#include "zone/zone_hunt.h"
 /*	EQEMu: Everquest Server Emulator
 Copyright (C) 2001-2002 EQEMu Development Team (http://eqemulator.net)
 
@@ -2504,6 +2505,8 @@ void NPC::Damage(Mob* other, int64 damage, uint16 spell_id, EQ::skills::SkillTyp
 
 bool NPC::Death(Mob* killer_mob, int64 damage, uint16 spell, EQ::skills::SkillType attack_skill, KilledByTypes killed_by, bool is_buff_tic)
 {
+	// Capture ownership before death callbacks and charm/buff cleanup can erase it.
+	const bool hunt_owned = HasOwner() || IsPet() || IsMerc() || GetSwarmInfo() || GetSwarmOwner();
 	LogCombat(
 		"Fatal blow dealt by [{}] with [{}] damage, spell [{}], skill [{}]",
 		(killer_mob ? killer_mob->GetName() : "[nullptr]"),
@@ -2861,6 +2864,7 @@ bool NPC::Death(Mob* killer_mob, int64 damage, uint16 spell, EQ::skills::SkillTy
 
 		entity_list.RemoveFromAutoXTargets(this);
 
+		NightcapHunt::Award(*this, hunt_owned, m_zone_hunt_rolled);
 		corpse = new Corpse(
 			this,
 			&m_loot_items,
