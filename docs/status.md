@@ -3,15 +3,18 @@
 Updated October 9, 2026. This is the current status index; dated studies and
 QA reports preserve their original evidence and are not live-state promises.
 
-## Classic zone hunt and forge candidate
+## Classic zone hunt and forge deployed for live QA
 
-The approved hunt/forge option is implemented for 48 audited Classic combat
-zones, with independent 0.5% augment/gear rolls, four qualities, six-location
-augment support and atomic three-copy upgrades. Eight access-check zones remain
-disabled; cities/hubs remain reserved. Five native binaries, compiled transaction
-failure controls, cap/death tests and disposable MariaDB rehearsals pass. This
-candidate is not deployed to OVH and has no owner gameplay acceptance. Existing
-universal trading is preserved. [Scope, evidence and exact QA](releases/zone-loot-20261009/README.md).
+Owner-authorized PR #132 is on main and deployed to OVH. Forty-eight audited
+Classic combat zones now have independent 0.5% augment/gear rolls, four qualities,
+six-location augment support and atomic three-copy upgrades with `#zoneforge`.
+Eight access-check zones stay disabled; cities/hubs stay reserved. All 448 item
+definitions and 2,290 socket edits passed exact checks. Five hardened native
+binaries, twelve healthy zones, full item-cache checks and closed-gateway
+player/content/receipt preservation passed. The private player guide includes
+the 48-zone catalog and current mechanics. Client/socket/encounter acceptance
+remains open. [Deployment and recovery](releases/zone-loot-20261009/PRODUCTION.md)
+and [exact owner QA](releases/zone-loot-20261009/QA.md).
 
 ## Advanced loot row controls deployed for live QA
 
@@ -57,14 +60,14 @@ tests pass; viewport appearance and progress-text placement remain player QA.
 
 ## Universal trading and one-platinum NO DROP resale deployed
 
-The policy deployed from main `1a5c0fe` remains active in the current passive-AA
-OVH image, with its full-catalog verification repeated after the newer rollout. All 308,961 hosted definitions have
+The policy deployed from main `1a5c0fe` remains active in the current zone-hunt
+OVH image, with full-catalog verification repeated after that rollout. All 309,409 hosted definitions have
 effective tradable flags, including saved attunement; the 171,561 original NO
 DROP definitions sell for 1pp per unit at merchants and through `#sellall`.
 Full-catalog verification, all five binary hashes, 12 zone workers, backup and
 player/content/client preservation checks pass. That deployment retained client
 2026100406; its game files are also preserved in loading-gallery release 2026100407.
-Ordinary prices remain; merchant previews may differ from the fixed receipt.
+Ordinary prices remain; the 448 new zone-hunt definitions have zero resale. Merchant previews may differ from the fixed receipt.
 Player trade/sale acceptance and repeatable-reward economy QA remain open.
 [Deployment, rollback and exact QA](releases/free-trade-20261004/README.md).
 

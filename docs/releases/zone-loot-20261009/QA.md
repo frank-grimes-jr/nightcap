@@ -1,4 +1,6 @@
-# Required in-game acceptance before main
+# Required in-game acceptance after owner-authorized live deployment
+
+Main/OVH promotion was explicitly authorized October 9, 2026 before manual acceptance. The following gameplay checks remain open; see [deployment evidence](PRODUCTION.md).
 
 Use a normal-status test character for player behavior and a separate GM for fixture setup. Record build hashes, active rules, classes, level, equipped items, augments, allowed AA ranks and actual spent AA, buffs/pets, and the observed result. Do not run artificial item grants or spawn loops against the production player economy.
 
