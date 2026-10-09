@@ -1,8 +1,8 @@
 # Advanced loot row controls — October 9, 2026
 
 The owner authorized main and server deployment on October 9 with "Deploy to
-main and server". Release 2026100901 / proxy 0.7.8-dev is being prepared;
-publication and owner in-game acceptance are recorded separately below.
+main and server". Release **2026100901 / proxy 0.7.8-dev is published**;
+owner in-game acceptance remains pending.
 
 ## Behavior
 
@@ -47,9 +47,11 @@ is cancelled when the queue empties before the next frame.
   UI and five client asset tests. The real stock Pet Info XML generates and
   parses successfully, preserving the original file byte-for-byte.
 
-The paired local candidate and inspected preview are staged in
+The initial paired local candidate and inspected preview are retained in
 `E:/EQ_Local_Dev/artifacts/advanced-loot-controls-20261009/`.
-[Candidate hashes and verification](row-controls-20261009.json).
+[Initial candidate hashes and verification](row-controls-20261009.json).
+The versioned signed release and operational receipts are in its `deployment/`
+subdirectory; the initial candidate DLL is historical, not the published binary.
 
 Review found no additional authorization, inventory or protocol surface: row
 choices call the same server FilterCommand and the close operation only hides
@@ -58,6 +60,59 @@ An older XML lacks required controls and cannot configure this candidate window.
 Publish through the existing signed launcher workflow after the normal release
 gate; never overwrite the original RoF2 installation or a running client.
 Rollback the pair together. Existing server-side saved rules remain valid.
+
+## Production release and recovery
+
+PR [129](https://github.com/frank-grimes-jr/nightcap/pull/129) merged into main
+at `081c4d8`. Signed game generation **2026100901 / proxy 0.7.8-dev** changes
+only `dinput8.dll`, `nightcap-patch-sites.json`, and the Pet Info XML. The other
+101 files retain their exact deployed hashes, including all loading images,
+model/helmet assets, bootstrap, spells and configuration. All 71 native patch
+sites and the non-loot Pet Info controls are unchanged.
+
+The release uses the production key already shipped in launcher 0.4.0 and
+retains the 0.4.0 minimum launcher. Native loot/runtime checks, the three Go
+manifest/preflight/packaging packages and 12 publication recovery tests pass.
+The local signature and all 104 payload hashes verify. Publication uses the
+existing deployment lock, refuses baseline drift, commits immutable files before
+the channel, and preserves the preceding channel in its staging directory.
+No game-runtime, database, launcher-desktop, starter, guide or ZIP change is needed.
+
+Publication completed successfully. The public HTTPS channel signature and all
+104 payload hashes (211,906,857 bytes) verify against the shipped production key.
+All five services retained their identities, images, start times and restart
+counts; game/database health remained healthy with zero container restarts.
+The desktop channel, starter ZIP and guide are byte-for-byte unchanged. No
+running local client or original installation was modified. Fully exit EverQuest
+and click Play to install the update through the existing launcher.
+[Verified publication and service evidence](row-controls-publication-20261009.json).
+
+If the client fails to load or the new controls regress, use the retained
+2026100407 DLL/catalog/XML with the other current assets and sign them as a
+new game release **greater than 2026100901**. Verify every file and the shipped
+public key before atomic channel publication. Do not republish an older counter
+or alter receipt/filter data. Old immutable files and metadata are retained at
+`/opt/nightcap/deploy/production/data/public/release/2026100407` and
+`/opt/nightcap/releases/advanced-loot-controls-2026100901/previous-channel.json`.
+
+## Owner live QA after publication (pending)
+
+Fully exit EverQuest and click Play in the existing Nightcap launcher. In East
+Commonlands, open `/advloot` and kill a normal eligible skeleton for Bone Chips:
+
+1. Verify Always Loot and Never Loot are readable and clickable directly on its
+   row. With Use saved rules temporarily off, select each choice and click it
+   again: exactly one or neither should be checked after acknowledgment.
+2. Restore Use saved rules and verify Always collects eligible future chips,
+   Never leaves them, and Filters > Remove restores Ask. Camp/reconnect and
+   verify saved preferences; another character retains its own rules.
+3. Collect the last offered item, then repeat with Loot All across multiple
+   pages: the window closes after the queue empties. Inventory restrictions
+   leave the item/error visible. Reopening an empty window, Settings and an
+   empty Filters search must remain usable.
+
+Use ordinary earned loot on production. Controlled spawns and injected faults
+belong exclusively to the isolated plan below.
 
 ## Exact in-game QA (pending)
 
