@@ -3,6 +3,10 @@
 Status: source implemented and focused checks passed; **not deployed**. Full zone
 compilation and owner in-game acceptance remain open. No main promotion is claimed.
 
+The owner subsequently requested **"Push to main and server"** on October 9,
+authorizing this release's direct main promotion and OVH activation. This does not
+record completed gameplay QA. Build and deployment evidence will be recorded below.
+
 ## Behavior
 
 Throw Stone (spell 5225) adds nonnegative effective Spell Damage directly to its
@@ -94,6 +98,7 @@ catalog requires a world change. Verify the newly built zone hash after activati
 Retain the prior zone binary/image for rollback; restoring it removes this behavior
 without undoing player progress, SQL or client files.
 
-Follow `feature -> dev -> test`; owner QA/sign-off precedes main under the normal
-policy. Do not kill an OVH zone to refresh it: its supervisor restarts the entire
-runtime when any child exits. Deployment is a separate authorized operation.
+The owner's October 9 instruction authorizes main and OVH for this release,
+before the manual QA above. Do not kill an OVH zone to refresh it: its supervisor
+restarts the entire runtime when any child exits. Use the prepared closed-gateway
+image rollout and retain the immediately prior image for rollback.

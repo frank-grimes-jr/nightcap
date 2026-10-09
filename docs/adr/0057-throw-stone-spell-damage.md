@@ -1,6 +1,7 @@
 # 0057: Give Throw Stone a flat Spell Damage contribution
 
-Date: 2026-10-09. Status: implemented source candidate; gameplay acceptance pending.
+Date: 2026-10-09. Status: accepted for main/server promotion by the owner;
+gameplay acceptance pending.
 
 The owner requested that Throw Stone use Spell Damage. Spell 5225 already reaches
 the direct-damage handler with base damage 1. The pinned October 4 client spell
@@ -11,7 +12,8 @@ scaling. Neither snapshot is a fresh production query.
 
 Use `base damage + max(0, effective Spell Damage)` for ordinary player, bot and
 mercenary casts of this spell. This is the stated working interpretation of the
-request; the optional clarification had no answer when implemented. Preserve
+request; the owner subsequently authorized main/server promotion of the completed
+change. Preserve
 the already-applied stat cap, existing spell-critical multiplier and downstream
 defenses. Respect `no_heal_damage_item_mod`; do not apply the usual percentage
 bonus a second time. NPC casts and the separate reflection path remain unchanged.
