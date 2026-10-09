@@ -1,0 +1,45 @@
+{
+  "base_manifest_sha256": "cae9a3f696ee7f266993958c4d0cdf5b463eeea58dd5f7a0805aaa42b2ae3714",
+  "hardening_sha256": "219f556bb1e55a719f8a3f5150c95723ce46ab9a8b69c93c2bc0f54ff1262b2e",
+  "binaries": {
+    "zone": "5b129ab5f9ee5aae11ca0353b2af64b426e9877515fc4311323695c4acf70e0f"
+  },
+  "unchanged_binaries": {
+    "world": "5d2111a0dede69ac243338d2305c0b00207c0f1cd6a88f4f09d6d5e2bb6b0280",
+    "shared_memory": "fd9d2da3677dc8375d80085d3aa19c265cc8d13d44729ae2fb913bd3621682e8",
+    "ucs": "4fcfd170f03dd78e0758e47d0c943bd1aabc3f8188239683cd85e00589ca2abe",
+    "loginserver": "36cfc9a638ddf5a999217465b2bbd6c4636ddbd518cf94a35a14ab24fc493226"
+  },
+  "changed_source_files": [
+    "zone/effects.cpp"
+  ],
+  "cmake_flags": [
+    "-DCMAKE_BUILD_TYPE=RelWithDebInfo",
+    "-DCMAKE_CXX_COMPILER=/usr/bin/clang++",
+    "-DCMAKE_C_COMPILER=/usr/bin/clang",
+    "-DVCPKG_MANIFEST_INSTALL=OFF",
+    "-DVCPKG_MANIFEST_MODE=OFF",
+    "-DCMAKE_TOOLCHAIN_FILE=/home/eqemu/code/submodules/vcpkg/scripts/buildsystems/vcpkg.cmake",
+    "-DVCPKG_INSTALLED_DIR=/home/eqemu/code/build/vcpkg_installed",
+    "-DEQEMU_ADDITIVE_LFIB_PRNG=OFF",
+    "-DEQEMU_ADD_PROFILER=OFF",
+    "-DEQEMU_BIASED_INT_DIST=OFF",
+    "-DEQEMU_BUILD_CLIENT_FILES=ON",
+    "-DEQEMU_BUILD_LOGIN=ON",
+    "-DEQEMU_BUILD_LUA=ON",
+    "-DEQEMU_BUILD_PCH=ON",
+    "-DEQEMU_BUILD_PERL=ON",
+    "-DEQEMU_BUILD_SERVER=ON",
+    "-DEQEMU_BUILD_TESTS=OFF",
+    "-DEQEMU_CUSTOM_PRNG_ENGINE=",
+    "-DEQEMU_BUILD_LOGIN=ON"
+  ],
+  "patch_sha256": "50a5bc9d9bbdbd10bd7ef92d769a08241d9b2d2f22d8ac141b2f9fe00e2127fb",
+  "feature_commit": "8899f6c",
+  "native_checks": 108,
+  "status": "built_not_installed",
+  "full_manifest_sha256": "882050bbacc318f2cc348c2e6817f14b6e03c5e003cad008ee5c15dadc19aa54",
+  "changed_source_sha256": {
+    "zone/effects.cpp": "4bdda167740f57943cdc6437777e01437d27e0c1c8eed6b516e54f3b69d941f8"
+  }
+}

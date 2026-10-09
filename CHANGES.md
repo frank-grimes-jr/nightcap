@@ -8,9 +8,10 @@ deals 251 damage at 250 Spell Damage before other modifiers, instead of rounding
 to 3 under Nightcap's percentage rules. The bonus participates in existing spell
 criticals and respects the spell's explicit item-modifier opt-out. Other spells,
 NPC casts, reflection, global caps, cooldowns and spell data retain their behavior.
-108 compiled production-method checks pass. Source candidate only: full zone
-build, deployment and owner gameplay QA remain outstanding. No database or client
-change is needed. Exact scope and QA: `docs/releases/throw-stone-20261009.md`.
+The fresh hardened Linux zone build, 108 production-method checks, 12 spell
+regressions and eight rollout failure tests pass. The owner authorized main and
+OVH promotion; activation and gameplay QA remain outstanding. No database or
+client change is needed. Exact scope and QA: `docs/releases/throw-stone-20261009.md`.
 
 ## 2026-10-04 - Passive AA experience while leveling
 

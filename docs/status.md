@@ -3,12 +3,13 @@
 Updated October 9, 2026. This is the current status index; dated studies and
 QA reports preserve their original evidence and are not live-state promises.
 
-## Throw Stone source candidate
+## Throw Stone ready for authorized deployment
 
 Throw Stone now adds effective Spell Damage directly: 251 ordinary damage at
-250 Spell Damage before other modifiers. 108 compiled production-method checks
-pass. Full server build, deployment and owner gameplay QA remain outstanding;
-the live runtime has not changed. [Scope, evidence and exact QA](releases/throw-stone-20261009.md).
+250 Spell Damage before other modifiers. The fresh hardened Linux zone build,
+108 compiled production-method checks, 12 spell regressions and eight rollout
+failure tests pass. The owner authorized main and OVH; activation and gameplay
+QA remain outstanding. The live runtime has not changed. [Scope, evidence and exact QA](releases/throw-stone-20261009.md).
 
 ## Passive AA leveling deployed
 

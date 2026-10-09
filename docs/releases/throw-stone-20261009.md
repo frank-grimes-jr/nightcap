@@ -1,11 +1,12 @@
 # Throw Stone Spell Damage candidate — October 9, 2026
 
-Status: source implemented and focused checks passed; **not deployed**. Full zone
-compilation and owner in-game acceptance remain open. No main promotion is claimed.
+Status: fresh hardened zone build and automated checks passed; **not deployed**.
+Main promotion and OVH activation are authorized. In-game acceptance remains open.
 
 The owner subsequently requested **"Push to main and server"** on October 9,
 authorizing this release's direct main promotion and OVH activation. This does not
-record completed gameplay QA. Build and deployment evidence will be recorded below.
+record completed gameplay QA. Native build evidence is recorded below; deployment
+verification will be added after activation.
 
 ## Behavior
 
@@ -47,9 +48,31 @@ python tools/tests/test_throw_stone.py --compiler cl
 ```
 
 On a host with a modern GCC/Clang, use `--compiler g++` or `--compiler clang++`.
-The local Strawberry GCC 4.9 cannot compile the C++17 harness. Docker was stopped;
-no full server build or installed-runtime check was performed. These method tests
-do not prove packet delivery, target defenses, native hotbar use or encounter balance.
+The initial Windows check used Visual C++ because Strawberry GCC 4.9 cannot
+compile the C++17 harness. A subsequent fresh Linux build links the full zone
+executable from the fingerprinted production source plus exactly `zone/effects.cpp`.
+No prior object directory is reused; source hashes are stable through compilation.
+The same 108 method checks pass under clang++ against this exact hardened candidate.
+The existing world, shared_memory, UCS and loginserver binaries remain byte-identical.
+See [build summary](throw-stone-20261009/build-summary.json),
+[native checks](throw-stone-20261009/native-tests.json) and the
+[reproducible build](throw-stone-20261009/ops/build.py).
+
+Eight rollout failure tests pass, covering successful activation, startup/health/
+gateway/cache failures, input drift and preservation failures. The
+[rollout](throw-stone-20261009/ops/rollout.py) never writes SQL. It keeps the gateway
+closed while validating all five process binaries, player/receipt/state/rule
+fingerprints, content, quests, client artifacts and existing free-trade cache.
+Failures restore the immediately preceding image without restoring the database;
+uncertain preservation leaves access closed. [Failure tests](throw-stone-20261009/ops/test_rollout.py).
+
+The fresh OVH read-only baseline matches the retained production manifest and
+confirms Throw Stone base -1, CurrentHP effect 0, reuse 10000 ms and item-modifier
+opt-out 0. The legacy SQL column `maxtargets` is loaded as the native
+`no_heal_damage_item_mod` field (column 219). The active item cap is 250 and all
+three generic scaling rules are true. Twelve zone workers and the existing cache
+verify, with no detected native/quest/SQL errors. No live files or rows changed
+during these checks. Native hotbar behavior and encounter balance still require QA.
 
 ## Exact in-game QA before acceptance
 
