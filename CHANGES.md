@@ -1,5 +1,16 @@
 # CHANGES
 
+## 2026-10-09 - Increase passive AA experience to 40%
+
+At the owner's explicit request, increase OVH AA:PassiveExpPercent from 20 to 40
+in default ruleset 1. Future passive awards double before rounding; full leveling
+XP, accumulated AA and the 100% focus award remain unchanged. All 129 native checks
+and eight operation tests pass. Fresh backup, inverse rehearsal, exact one-row
+comparison and global reload passed on world plus all 12 zones without restart.
+Keep the DB override: the compiled fallback remains 1%. Gameplay and combined
+build balance acceptance remain open. Evidence and QA:
+docs/ops/passive-aa-forty-20261009/README.md.
+
 ## 2026-10-09 - Increase passive AA experience to 20%
 
 At the owner's explicit request, change OVH AA:PassiveExpPercent from 1 to 20

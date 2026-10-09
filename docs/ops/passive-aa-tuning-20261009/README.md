@@ -1,6 +1,9 @@
 # Passive AA tuning — October 9, 2026
 
-Status: **20% active on OVH**, explicitly selected by the owner. Normal leveling
+Historical record: superseded later October 9 by the owner's
+[40% tuning](../passive-aa-forty-20261009/README.md).
+
+Status at this activation: **20% active on OVH**, explicitly selected by the owner. Normal leveling
 XP is unchanged. AA focus remains binary: off earns the additive passive award;
 on earns the existing full AA award. The compiled fallback remains 1%; the
 persistent default-ruleset override is now `AA:PassiveExpPercent=20`.
