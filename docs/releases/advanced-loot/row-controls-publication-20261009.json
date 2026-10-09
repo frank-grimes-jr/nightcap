@@ -1,0 +1,108 @@
+{
+  "status": "deployed_for_owner_live_qa",
+  "date": "2026-10-09",
+  "pull_request": "https://github.com/frank-grimes-jr/nightcap/pull/129",
+  "main_merge_commit": "081c4d8e1ef5a084f8631aceae4655299c4dcf03",
+  "source_commit": "bbd2ab55fcc27d7334e98c4f4162a8baf07db952",
+  "release": 2026100901,
+  "proxy_version": "0.7.8-dev",
+  "previous_release": 2026100407,
+  "changed_files": [
+    {
+      "path": "dinput8.dll",
+      "sha256": "7f0a6cdc2b5e3fe7d3f1fb2ede055bb6bf7fb2f920fb65acab5cd91e9cc1ae82",
+      "size": 595968,
+      "url": "https://play.nightcapgame.org/release/2026100901/dinput8.dll",
+      "required": true
+    },
+    {
+      "path": "nightcap-patch-sites.json",
+      "sha256": "8ffdfefc9c2ec317438bc7148bae1ab564770cdce319ac1d72f9e2663e5458ed",
+      "size": 6617,
+      "url": "https://play.nightcapgame.org/release/2026100901/nightcap-patch-sites.json",
+      "required": true
+    },
+    {
+      "path": "uifiles/nightcap/equi_petinfowindow.xml",
+      "sha256": "5270baf0467bc90332a9df9ef73896e81a7438449fb30648512485182e69d7a1",
+      "size": 117059,
+      "url": "https://play.nightcapgame.org/release/2026100901/uifiles/nightcap/equi_petinfowindow.xml",
+      "required": true
+    }
+  ],
+  "unchanged_files": 101,
+  "preserved_native_patch_sites": 71,
+  "public_verification": {
+    "channel_sha256": "f88908053ac9f4123b08322f8881f48b84b56f70555778777fdddfdfc9c88fca",
+    "expires": "2026-11-08T15:02:34Z",
+    "hosted": true,
+    "release": 2026100901,
+    "signature": "valid against shipped production public key",
+    "total_bytes": 211906857,
+    "verified_files": 104
+  },
+  "publication_receipt": {
+    "release": 2026100901,
+    "verified_files": 104,
+    "channel_sha256": "f88908053ac9f4123b08322f8881f48b84b56f70555778777fdddfdfc9c88fca",
+    "previous_release": 2026100407,
+    "services_unchanged": true,
+    "desktop_starter_guide_unchanged": true
+  },
+  "services": {
+    "db": {
+      "running": true,
+      "health": "healthy",
+      "restarts": 0,
+      "started_at": "2026-09-20T17:47:54.935680589Z"
+    },
+    "game": {
+      "running": true,
+      "health": "healthy",
+      "restarts": 0,
+      "started_at": "2026-10-09T13:10:49.90180843Z"
+    },
+    "gateway": {
+      "running": true,
+      "health": null,
+      "restarts": 0,
+      "started_at": "2026-10-09T13:12:02.089728181Z"
+    },
+    "web": {
+      "running": true,
+      "health": null,
+      "restarts": 0,
+      "started_at": "2026-09-20T17:47:54.765116169Z"
+    },
+    "tunnel": {
+      "running": true,
+      "health": null,
+      "restarts": 0,
+      "started_at": "2026-09-20T17:53:43.445441644Z"
+    }
+  },
+  "tests": {
+    "advanced_loot_x86_fixtures": 4,
+    "runtime_unittests": 5,
+    "ui_asset_unittests": 17,
+    "go_packages": [
+      "internal/manifest",
+      "internal/preflight",
+      "cmd/nightcap-package"
+    ],
+    "publication_recovery_cases": 12,
+    "dll_build": "passed",
+    "catalog_consistency": "passed"
+  },
+  "operations": {
+    "game_restart": false,
+    "database_changes": false,
+    "launcher_desktop_changed": false,
+    "original_client_modified": false,
+    "artifact_directory": "E:/EQ_Local_Dev/artifacts/advanced-loot-controls-20261009/deployment",
+    "publisher_sha256": "5dc4e447d2fab0fa96392823601553b59d337218f5c6da9f10022239319cc391",
+    "archive_sha256": "596bebeb451d0326d7d26ba65de788f8c0a1557e9fcb3734de22145f575e5e03",
+    "publisher_test_log_sha256": "56b880b391ae6631bd47fa1264268996ad32cdd6d4991aff619a6afb4f879005"
+  },
+  "manual_gameplay_qa": "pending"
+}

@@ -3,12 +3,15 @@
 Updated October 9, 2026. This is the current status index; dated studies and
 QA reports preserve their original evidence and are not live-state promises.
 
-## Advanced loot row controls candidate
+## Advanced loot row controls deployed for live QA
 
 Always Loot/Never Loot toggles are directly on each main-page item row, and a
-confirmed empty loot queue closes the window. Client build and automated
-controller/layout checks pass. The paired DLL/XML is not deployed; native
-rendering and gameplay QA remain pending. [Scope and exact QA](releases/advanced-loot/ROW-CONTROLS.md).
+confirmed empty loot queue closes the window. Owner-authorized PR #129 is on
+main, and signed release 2026100901 / proxy 0.7.8-dev is published. Client build,
+controller/runtime/layout, packaging and publication-recovery checks pass.
+The other 101 assets and game services are preserved. Fully exit EverQuest and
+click Play to update. Native rendering/gameplay QA remains pending.
+[Scope, deployment evidence and exact QA](releases/advanced-loot/ROW-CONTROLS.md).
 
 ## Throw Stone deployed for live QA
 

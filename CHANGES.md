@@ -9,9 +9,12 @@ state, and Filters retains Remove. The window closes after a complete server
 snapshot changes the loot queue from nonempty to empty, including Loot All
 across pages. Pending/failed transfers, Settings, Filters, changed settings and
 explicitly reopening an empty window retain their existing access.
-Client-only candidate: build and native controller/layout regressions pass;
-ship the DLL with regenerated Pet Info XML. No live deployment or native
-in-game acceptance is claimed. Scope, evidence and QA:
+Client-only release 2026100901 / proxy 0.7.8-dev is published under the owner's
+explicit main/server authorization; PR #129 is merged. It pairs the DLL, catalog
+and regenerated Pet Info XML while preserving the other 101 assets and every
+service's identity/start time. Build, loot/runtime/layout, packaging and recovery
+checks pass. No game restart was performed; native in-game acceptance remains
+pending. Scope, evidence and QA:
 `docs/releases/advanced-loot/ROW-CONTROLS.md`.
 
 ## 2026-10-09 - Throw Stone scales directly with Spell Damage
