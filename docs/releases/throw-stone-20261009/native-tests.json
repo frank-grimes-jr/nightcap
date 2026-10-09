@@ -1,0 +1,7 @@
+{
+  "native_checks": 108,
+  "failures": 0,
+  "source": "fresh hardened production candidate",
+  "output": "108 checks, 0 failures",
+  "log_sha256": "d9bedf2cc2d984a9367e785afdcbba2aa5cdda7cc519b01c8ec1d1fcf8a8363e"
+}

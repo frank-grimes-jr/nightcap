@@ -329,6 +329,11 @@ claims about live state).
 
 `feature/<name>` → `dev` → `test` → `main`
 
+**October 9 Throw Stone exception:** the owner explicitly requested "Push to main
+and server." This authorizes main promotion and OVH deployment of Throw Stone's
+Spell Damage scaling before in-game acceptance. Preserve the remaining QA in
+`docs/releases/throw-stone-20261009.md`; this is not a general branch-policy change.
+
 **October 4 helmet exception:** the owner explicitly requested "I want to do
 this on the server. Push to main and the server." This authorizes direct main
 promotion and hosted deployment of the winged Paladin helmet, including Camil's

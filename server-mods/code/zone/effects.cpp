@@ -42,6 +42,12 @@ int64 Mob::GetActSpellDamage(uint16 spell_id, int64 value, Mob* target) {
 		return value;
 	}
 
+	// Throw Stone's one-point base needs a flat bonus, independent of the
+	// general spell percentage/timing/level rules. GetSpellDmg is already capped.
+	const bool use_throw_stone_bonus = spell_id == 5225 && IsOfClientBotMerc();
+	const int64 throw_stone_bonus = use_throw_stone_bonus && !spells[spell_id].no_heal_damage_item_mod
+		? std::max(0, GetSpellDmg()) : 0;
+
 	if (IsNPC()) {
 		value += value * CastToNPC()->GetSpellFocusDMG() / 100;
 
@@ -133,7 +139,9 @@ int64 Mob::GetActSpellDamage(uint16 spell_id, int64 value, Mob* target) {
 				value -= GetSkillDmgAmt(spells[spell_id].skill) * ratio / 100;
 			}
 
-			if (RuleB(Spells, IgnoreSpellDmgLvlRestriction) && !spells[spell_id].no_heal_damage_item_mod && itembonuses.SpellDmg) {
+			if (use_throw_stone_bonus) {
+				value -= throw_stone_bonus * ratio / 100;
+			} else if (RuleB(Spells, IgnoreSpellDmgLvlRestriction) && !spells[spell_id].no_heal_damage_item_mod && itembonuses.SpellDmg) {
 				value -= GetExtraSpellAmt(spell_id, itembonuses.SpellDmg, base_value) * ratio / 100;
 
 			} else if (!spells[spell_id].no_heal_damage_item_mod && itembonuses.SpellDmg && spells[spell_id].classes[(GetClass() % 17) - 1] >= GetLevel() - 5) {
@@ -182,7 +190,9 @@ int64 Mob::GetActSpellDamage(uint16 spell_id, int64 value, Mob* target) {
 		value -= GetSkillDmgAmt(spells[spell_id].skill);
 	}
 
-	if (RuleB(Spells, IgnoreSpellDmgLvlRestriction) && !spells[spell_id].no_heal_damage_item_mod && itembonuses.SpellDmg)
+	if (use_throw_stone_bonus)
+		value -= throw_stone_bonus;
+	else if (RuleB(Spells, IgnoreSpellDmgLvlRestriction) && !spells[spell_id].no_heal_damage_item_mod && itembonuses.SpellDmg)
 		value -= GetExtraSpellAmt(spell_id, itembonuses.SpellDmg, base_value);
 
 	else if (
