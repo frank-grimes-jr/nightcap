@@ -1,6 +1,6 @@
-# Classic hunt and forge candidate
+# Classic hunt and forge
 
-Approved October 9, 2026. Implemented for test-branch QA; not deployed to OVH.
+Approved and deployed October 9, 2026 under explicit owner authorization. Main `77f5d63` and the matching production build are live on OVH. [Deployment, preservation and recovery evidence](PRODUCTION.md). Manual gameplay acceptance remains open.
 
 Forty-eight audited Classic combat zones have one new augment and one new wearable family. There are 384 droppable variants, plus 64 definitions reserved for the eight access-check zones. The 21 city concepts and noncombat hubs remain outside the acquisition pool. See [the original approved catalog](approved-catalog.json), [exact new item rows](generated/items.json), and [zone/source audit](generated/audit.json).
 
@@ -33,7 +33,7 @@ The existing universal-trading policy remains in force, including for augments a
 
 ## Activation and recovery
 
-1. Use the reviewed candidate source and all five matching binaries from the combined integration build manifest. Confirm current main has not introduced another native contract before promotion.
+1. Use the production build manifest and reviewed patch over the fingerprinted live source. Preserve production authentication hardening; the older development/integration manifests are not deployment artifacts.
 2. Stop target writers using the documented supervisor procedure, back up PEQ, and recapture target content using the source audit tool. Regenerate and compare the proposed SQL. The attached preimages are the October 9 capture, not a promise that a later target has not changed.
 3. Apply `generated/install.sql`. It refuses reserved-ID collisions, existing feature ownership, nontransactional item storage and socket preimage drift. Acquisition remains disabled. Preserve all existing character, corpse, advanced-loot receipt and saved-state data.
 4. Generate matching shared item memory, install the candidate binaries, apply `generated/activate.sql`, and start/reload the supported runtime. Zone source eligibility is cached on zone initialization. Verify the active Classic era through the existing era tool; do not alter expansion rules by hand.
@@ -46,7 +46,7 @@ Operational rollback is `generated/rollback.sql`, followed by a supported zone r
 - [Measured native balance](BALANCE.md): 24 synthetic loadouts, bounded output caps and material HP/mana growth; encounter acceptance remains open.
 - [Native loot and forge failure injection](inventory-native.json): actual production translation unit, with fake dependencies.
 - [MariaDB rehearsal](mariadb.json): generated SQL, late-preimage rollback, exact native forge queries, receipt replay and operational rollback.
-- [Combined five-binary build manifest](integration-build-manifest.json): final candidate including pending test-branch work; every overlay fingerprint matches. [Original feature build](build-manifest.json) retains its earlier scope. Binaries were not installed.
+- [Production build manifest](production-build-manifest.json): the deployed five-binary set, retaining existing production hardening. [Combined development build](integration-build-manifest.json) and [original feature build](build-manifest.json) retain their historical candidate scope and were not installed.
 - [Verification and integration review](VERIFICATION.md): checks, branch ancestry and remaining acceptance gates.
 - `tools/tests/test_zone_hunt.py`: approved data, source exclusions, socket preservation.
 - `tools/tests/test_zone_hunt_native.py`: actual death award, cap methods and recommended-level calculation, plus integration gates.

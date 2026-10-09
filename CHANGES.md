@@ -1,5 +1,26 @@
 # CHANGES
 
+## 2026-10-09 - Classic zone hunt deployed and private guide updated
+
+Owner-authorized PR #132 promoted hunt/forge to main. The fresh five-binary OVH
+build retains deployed authentication hardening and prior live combat behavior;
+the earlier development bundle was rejected before any gameplay writes. Active
+48-zone acquisition uses 0.5% independently per family and unchanged 60/30/8/2
+quality weights. Exact 448-item/2,290-socket checks, 12 healthy workers, full-cache
+trading/resale validation and player/receipt/content preservation passed after a
+verified full PEQ backup. No player snapshot was restored. Native gameplay and
+combined balance acceptance remain open.
+
+Published the private five-file player guide with all 48 reward pairs, socket/cap
+rules and `#zoneforge`; preserved access controls, downloads and game services.
+Reconciled the repository's older website source with the previously deployed
+guide before adding this release. Local/HTTPS browser and package checks pass.
+Fixed the capture CLI's argument shadowing and the website publisher's restrictive-
+umask directory permissions, with regression tests. Recovery
+must retain earned items, sockets and receipts; do not use the pre-opening
+inverse after players can receive rewards. Evidence and exact QA:
+`docs/releases/zone-loot-20261009/PRODUCTION.md`.
+
 ## 2026-10-09 - Classic zone hunt and forge candidate
 
 Added two independent 0.5% death rolls for zone-specific augment and new wearable

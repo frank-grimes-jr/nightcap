@@ -1,6 +1,6 @@
 # Candidate verification â€” October 9, 2026
 
-All checks below passed on the feature candidate. No binaries, gameplay SQL or quests were installed on OVH. Test-branch integration is recorded separately below when completed.
+Historical candidate evidence follows. These checks preceded deployment; current production build, installation and preservation evidence is in [PRODUCTION.md](PRODUCTION.md).
 
 | Check | Result and scope |
 |---|---|
@@ -11,7 +11,7 @@ All checks below passed on the feature candidate. No binaries, gameplay SQL or q
 | Gameplay policy regression | 2 tests passed |
 | Throw Stone regression | 108 compiled checks, zero failures |
 | Advanced loot adapters | Native currency and saved-state regression suites passed |
-| Native binaries | world, zone, shared_memory, loginserver and ucs built in a fresh isolated tree; source fingerprints stable; hardened world contract verified |
+| Native binaries | world, zone, shared_memory, loginserver and ucs built in a fresh isolated tree; source fingerprints stable; market/world startup contract verified (not an authentication-hardening check) |
 | Native equipped-stat diagnostic | 24 synthetic level-50 loadouts; 12 paired comparisons, six valid augments each; see BALANCE.md |
 | Independent code review | Read-only gpt-6-astra review. A mercenary cap regression was found and fixed by limiting raw accumulation/final headroom to clients. Follow-up review reported no remaining concrete P1/P2 issue. Reviewer did not independently rerun the parent execution evidence. |
 
@@ -23,6 +23,8 @@ Owner QA remains required for RoF2 display/socket/removal behavior, exact acquis
 
 Feature commit `99f88e4` was combined with current main `d5f273f` and existing test `9315ae5` (including dev `97f6f93`) in merge `8f2aa6c`. Current live-release fixes and the pending Adventure Journal were retained. Additive documentation/import conflicts were resolved by preserving both sides; historical Adventure Journal phase 45 and deployed social-tunnel phase 46 remain separate.
 
-The integrated candidate passed 25 affected Python/native tests (zone hunt, Epic 0.5, gameplay policy and client asset generation), plus all 51 Epic quest assertions. A fresh read-only independent integration review found no concrete P1/P2 issue or lost main/test functionality. The existing native object tree was verified against its recorded manifest before applying exactly three integrated files (`epic05.h`, `perl_client.cpp`, `spells.cpp`); all five binaries rebuilt and the source stayed stable. Every candidate overlay file matches the final source fingerprint exactly. See [combined build manifest](integration-build-manifest.json), the authoritative binary set for this integrated candidate. The earlier manifest and equipped-stat diagnostic retain their pre-integration scope; the merge changes only Epic contract/duration behavior, with no active buffs in the diagnostic.
+The integrated candidate passed 25 affected Python/native tests (zone hunt, Epic 0.5, gameplay policy and client asset generation), plus all 51 Epic quest assertions. A fresh read-only independent integration review found no concrete P1/P2 issue or lost main/test functionality. The existing native object tree was verified against its recorded manifest before applying exactly three integrated files (`epic05.h`, `perl_client.cpp`, `spells.cpp`); all five binaries rebuilt and the source stayed stable. Every candidate overlay file matches the final source fingerprint exactly. See [combined build manifest](integration-build-manifest.json), the historical development binary set for this integrated candidate, not the deployed set. The earlier manifest and equipped-stat diagnostic retain their pre-integration scope; the merge changes only Epic contract/duration behavior, with no active buffs in the diagnostic.
 
 Neither the Adventure Journal nor zone-hunt acquisition was activated by Git integration. Their independent installation and owner acceptance gates remain intact. No main promotion, production database write, client publication or runtime replacement occurred.
+
+The owner subsequently authorized PR #132/main and OVH deployment. The production build supersedes both development manifests for deployment. Gameplay QA remains open. Nine rollout failure tests, nine first-install inverse MariaDB checks, one capture regression and ten Linux website package/deployment tests passed; local and hosted browser suites passed.

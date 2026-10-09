@@ -1,0 +1,1 @@
+{"result": "ORIGIN_VERIFIED", "release": "20261009-zone-hunt", "files": 5, "rollback_rehearsal": "passed", "publisher_umask_regression": "reproduced_and_fixed", "private_routes": "verified", "service_identities": "preserved"}

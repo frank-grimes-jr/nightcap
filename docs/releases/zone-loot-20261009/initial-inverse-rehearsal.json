@@ -1,0 +1,16 @@
+{
+  "status": "passed",
+  "schema": "disposable, dropped after run",
+  "checks": [
+    "real generated installation",
+    "all 448 item value predicates",
+    "exact 6056 sources and 56 zone configs",
+    "all 2290 socket preimages and installed values",
+    "all original item columns preserved after normalization",
+    "activation gate",
+    "actual guarded initial inverse",
+    "byte-identical original item rows restored",
+    "all owned state rows empty"
+  ],
+  "rollout_sha256": "528765e2169a205fa76ec8799e854be95180f6ac4c62595522710213981885c7"
+}

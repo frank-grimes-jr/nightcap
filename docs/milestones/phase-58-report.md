@@ -32,3 +32,7 @@ Integration preserves latest main and the existing Adventure Journal candidate.
 All 25 affected Python/native tests and 51 quest assertions passed after merge;
 all five combined binaries rebuilt with exact overlay fingerprints. Independent
 integration review found no P1/P2 issue. Production remains unchanged.
+
+## Owner-authorized deployment follow-up
+
+The later explicit instruction authorized main and live rollout before manual acceptance. PR #132/main and the hardened production build are deployed; all 48 zones are enabled and the private guide is updated. The implementation/integration paragraphs above preserve their earlier candidate scope. Nine controller faults, nine real MariaDB initial-inverse checks, source-capture regression and local/HTTPS site checks pass. All player/receipt/content preservation checks passed before reopening. Client/socket/forge and combined encounter acceptance remain open. [Production evidence and recovery](../releases/zone-loot-20261009/PRODUCTION.md).
