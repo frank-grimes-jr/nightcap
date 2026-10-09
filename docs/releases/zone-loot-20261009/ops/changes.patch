@@ -1,0 +1,385 @@
+--- a/common/shareddb.cpp
++++ b/common/shareddb.cpp
+@@ -18,6 +18,7 @@
+ 
+ #include "shareddb.h"
+ #include "item_trade_policy.h"
++#include "zone_hunt_catalog.h"
+ 
+ #include "common/classes.h"
+ #include "common/data_verification.h"
+@@ -1245,6 +1246,12 @@
+ 		item.ScriptFileID = e.scriptfileid;
+ 
+ 		EQ::ItemTradePolicy::Apply(item, RuleB(Items, FreeTrade), e.nodrop == 0);
++		if (NightcapHunt::IsReward(item.ID)) {
++			// These progression rewards are tradable under the existing server policy,
++			// but deliberately have no merchant resale value (including converted augments).
++			item.Price = 0;
++			item.FixedSellPrice = 0;
++		}
+ 
+ 		try {
+ 			hash.insert(item.ID, item);
+--- a/zone/CMakeLists.txt
++++ b/zone/CMakeLists.txt
+@@ -35,6 +35,8 @@
+     client_process.cpp
+     client_living_economy.cpp
+     living_economy.cpp
++    zone_hunt.cpp
++    zone_hunt_forge.cpp
+     combat_record.cpp
+     corpse.cpp
+     corpse_advanced_loot.cpp
+--- a/zone/advanced_loot_inventory.cpp
++++ b/zone/advanced_loot_inventory.cpp
+@@ -4,6 +4,8 @@
+ #include "common/evolving_items.h"
+ #include "common/repositories/inventory_repository.h"
+ #include "common/util/uuid.h"
++#include "common/zone_hunt_catalog.h"
++#include "common/zone_hunt_policy.h"
+ #include <algorithm>
+ #include <limits>
+ #include <memory>
+@@ -316,4 +318,126 @@
+ 		return TransferResult::Uncertain;
+ 	}
+ }
+-}
++
++std::vector<int16_t> ForgeSlots(Client *c)
++{
++	std::vector<int16_t> result;
++	for (int16 slot = EQ::invslot::GENERAL_BEGIN; slot <= EQ::invslot::GENERAL_END; ++slot) {
++		if (!(c->GetInv().GetLookup()->PossessionsBitmask & (uint64{1} << slot))) { continue; }
++		result.push_back(slot);
++		const auto bag = c->GetInv().GetItem(slot);
++		if (!bag || !bag->IsClassBag()) { continue; }
++		for (uint8 i = 0; i < bag->GetItem()->BagSlots && i < EQ::invbag::SLOT_COUNT; ++i) {
++			result.push_back(EQ::InventoryProfile::CalcSlotId(slot, i));
++		}
++	}
++	return result;
++}
++
++bool PlainForgeItem(const EQ::ItemInstance *item)
++{
++	if (!item || !item->IsClassCommon() || !NightcapHunt::NextTier(item->GetID()) ||
++		item->IsStackable() || item->IsEvolving() || item->GetEvolveUniqueID() || item->IsScaling() || item->GetCharges() != 1 ||
++		item->GetColor() || !item->GetCustomDataString().empty() || item->GetOrnamentationIcon() ||
++		item->GetOrnamentationIDFile() || item->GetOrnamentHeroModel()) { return false; }
++	for (uint8 i = 0; i < EQ::invaug::SOCKET_COUNT; ++i) { if (item->GetAugmentItemID(i)) { return false; } }
++	return true;
++}
++
++static TransferResult ForgeItemsImpl(Client *c, const std::vector<ForgeInput> &inputs, const std::string &request_id)
++{
++	if (!c || !c->Connected() || !c->ClientDataLoaded() || inputs.size() != 3 || !ValidDropID(request_id)) { return TransferResult::Declined; }
++	const auto allowed = ForgeSlots(c);
++	std::set<int16> distinct;
++	uint32 input_id = 0;
++	bool bound = false;
++	for (const auto &[slot, serial] : inputs) {
++		const auto item = c->GetInv().GetItem(slot);
++		if (std::find(allowed.begin(), allowed.end(), slot) == allowed.end() || !distinct.insert(slot).second ||
++			!PlainForgeItem(item) || uint32(item->GetSerialNumber()) != serial || (input_id && item->GetID() != input_id)) { return TransferResult::Declined; }
++		input_id = item->GetID(); bound = bound || item->IsAttuned();
++	}
++	std::unique_ptr<EQ::ItemInstance> output(database.CreateItem(NightcapHunt::NextTier(input_id), 1));
++	if (!output || c->CheckLoreConflict(output->GetItem())) { return TransferResult::Declined; }
++	output->SetAttuned(bound);
++	const int16 destination = inputs.front().first;
++	if (destination > EQ::invslot::GENERAL_END) {
++		const auto bag = c->GetInv().GetItem(EQ::InventoryProfile::CalcSlotId(destination));
++		if (!bag || !EQ::InventoryProfile::CanItemFitInContainer(output->GetItem(), bag->GetItem())) { return TransferResult::Declined; }
++	}
++	if (!TransactionTablesReady()) { return TransferResult::Declined; }
++	auto tables = database.QueryDatabase(std::string("SELECT COUNT(*) FROM information_schema.TABLES WHERE TABLE_SCHEMA=DATABASE() "
++		"AND TABLE_NAME IN ('nightcap_zone_hunt_state','nightcap_zone_hunt_forges') AND ENGINE='InnoDB'"), false);
++	auto triggers = database.QueryDatabase(std::string("SELECT COUNT(*) FROM information_schema.TRIGGERS WHERE TRIGGER_SCHEMA=DATABASE() "
++		"AND EVENT_OBJECT_TABLE IN ('nightcap_zone_hunt_state','nightcap_zone_hunt_forges')"), false);
++	if (!tables.Success() || tables.RowCount()!=1 || !tables.begin()[0] || atoi(tables.begin()[0])!=2 ||
++		!triggers.Success() || triggers.RowCount()!=1 || !triggers.begin()[0] || atoi(triggers.begin()[0])!=0) { return TransferResult::Declined; }
++	auto uncertain = [&]() {
++		c->QuarantineItemTransfer("The forge result could not be confirmed. Reconnect to reload your inventory.");
++		return TransferResult::Uncertain;
++	};
++	auto active = database.QueryDatabase(std::string("SELECT @@in_transaction"), false);
++	if (!active.Success() || active.RowCount()!=1 || !active.begin()[0] || atoi(active.begin()[0]) ||
++		!database.QueryDatabase(std::string("START TRANSACTION"), false).Success()) { return uncertain(); }
++	RollbackGuard transaction;
++	auto reject = [&]() {
++		const bool confirmed = database.QueryDatabase(std::string("ROLLBACK"), false).Success();
++		transaction.Release();
++		return confirmed ? TransferResult::Declined : uncertain();
++	};
++	auto state = database.QueryDatabase(fmt::format("SELECT revision FROM nightcap_zone_hunt_state WHERE id=1 AND enabled=1 AND revision={} FOR UPDATE", NightcapHunt::Revision), false);
++	if (!state.Success() || state.RowCount()!=1) { return reject(); }
++	auto receipt = database.QueryDatabase(fmt::format("SELECT request_id FROM nightcap_zone_hunt_forges WHERE request_id='{}' FOR UPDATE", request_id), false);
++	if (!receipt.Success() || receipt.RowCount()) { return reject(); }
++	std::map<int16, InventoryRow> saved;
++	auto rows = database.QueryDatabase(fmt::format("SELECT {} FROM inventory WHERE character_id={} FOR UPDATE", InventoryRepository::ColumnsRaw(), c->CharacterID()), false);
++	if (!rows.Success()) { return reject(); }
++	for (auto row : rows) { auto r = ReadRow(row); if (!saved.emplace(r.slot_id,r).second) { return reject(); } }
++	std::string before;
++	for (const auto &[slot, serial] : inputs) {
++		const auto item = c->GetInv().GetItem(slot);
++		if (!saved.count(slot) || !SameItem(saved.at(slot), FromItem(c->CharacterID(), slot, *item))) { return reject(); }
++		if (slot > EQ::invslot::GENERAL_END) {
++			const int16 parent = EQ::InventoryProfile::CalcSlotId(slot);
++			const auto bag = c->GetInv().GetItem(parent);
++			if (!bag || !saved.count(parent) || !SameItem(saved.at(parent),FromItem(c->CharacterID(),parent,*bag))) { return reject(); }
++		}
++		before += Strings::Implode("|", Values(saved.at(slot))) + "\n";
++	}
++	// All three sources were validated before the first write. Persisted GUIDs are
++	// CAS preimages; runtime serials were checked only against the single-use quote.
++	for (const auto &[slot, serial] : inputs) {
++		const auto values = Values(saved.at(slot)); const auto columns = InventoryRepository::Columns();
++		std::vector<std::string> predicates;
++		for (size_t i=0; i<columns.size(); ++i) {
++			predicates.push_back((i==12 ? "BINARY COALESCE(custom_data,'')" : "`"+columns[i]+"`")+"="+values[i]);
++		}
++		auto removed = database.QueryDatabase("DELETE FROM inventory WHERE "+Strings::Implode(" AND ",predicates), false);
++		if (!removed.Success() || removed.RowsAffected()!=1) { return reject(); }
++	}
++	const auto next = Values(FromItem(c->CharacterID(),destination,*output));
++	auto added = database.QueryDatabase("INSERT INTO inventory ("+InventoryRepository::ColumnsRaw()+") VALUES ("+Strings::Implode(",",next)+")", false);
++	if (!added.Success() || added.RowsAffected()!=1) { return reject(); }
++	auto audit = database.QueryDatabase(fmt::format("INSERT INTO nightcap_zone_hunt_forges(request_id,character_id,input_id,output_id,inventory_before,inventory_after) "
++		"VALUES ('{}',{},{},{},X'{}',X'{}')", request_id,c->CharacterID(),input_id,output->GetID(),Hex(before),Hex(Strings::Implode("|",next))), false);
++	if (!audit.Success() || audit.RowsAffected()!=1) { return reject(); }
++	if (!database.QueryDatabase(std::string("COMMIT"), false).Success()) {
++		database.QueryDatabase(std::string("ROLLBACK"), false); transaction.Release(); return uncertain();
++	}
++	transaction.Release();
++	for (const auto &[slot, serial] : inputs) { c->DeleteItemInInventory(slot,0,true,false); }
++	if (c->GetInv().PutItem(destination,*output)!=destination) { return uncertain(); }
++	c->SendItemPacket(destination,c->GetInv().GetItem(destination),ItemPacketTrade);
++	c->CalcBonuses();
++	return TransferResult::Delivered;
++}
++
++TransferResult ForgeItems(Client *c, const std::vector<ForgeInput> &inputs, const std::string &request_id)
++{
++	try { return ForgeItemsImpl(c, inputs, request_id); }
++	catch (...) {
++		if (c) { c->QuarantineItemTransfer("The forge was interrupted. Reconnect to reload your inventory."); }
++		return TransferResult::Uncertain;
++	}
++}
++}
+--- a/zone/advanced_loot_inventory.h
++++ b/zone/advanced_loot_inventory.h
+@@ -2,6 +2,7 @@
+ #include "common/advanced_loot_policy.h"
+ #include <string>
+ #include <vector>
++#include <utility>
+ 
+ class Client;
+ namespace EQ { class ItemInstance; }
+@@ -17,4 +18,8 @@
+ // inventory destinations. No cursor overflow or auto-equip side effects.
+ TransferResult ReceiveItem(Client *client, const EQ::ItemInstance &item, const std::vector<std::string> &drop_ids, bool quiet = false,
+ 	Destination destination = Destination::Inventory);
++using ForgeInput = std::pair<int16_t, uint32_t>; // slot and current runtime serial
++std::vector<int16_t> ForgeSlots(Client *client);
++bool PlainForgeItem(const EQ::ItemInstance *item);
++TransferResult ForgeItems(Client *client, const std::vector<ForgeInput> &inputs, const std::string &request_id);
+ }
+--- a/zone/attack.cpp
++++ b/zone/attack.cpp
+@@ -1,3 +1,4 @@
++#include "zone/zone_hunt.h"
+ /*	EQEMu: Everquest Server Emulator
+ Copyright (C) 2001-2002 EQEMu Development Team (http://eqemulator.net)
+ 
+@@ -2504,6 +2505,8 @@
+ 
+ bool NPC::Death(Mob* killer_mob, int64 damage, uint16 spell, EQ::skills::SkillType attack_skill, KilledByTypes killed_by, bool is_buff_tic)
+ {
++	// Capture ownership before death callbacks and charm/buff cleanup can erase it.
++	const bool hunt_owned = HasOwner() || IsPet() || IsMerc() || GetSwarmInfo() || GetSwarmOwner();
+ 	LogCombat(
+ 		"Fatal blow dealt by [{}] with [{}] damage, spell [{}], skill [{}]",
+ 		(killer_mob ? killer_mob->GetName() : "[nullptr]"),
+@@ -2861,6 +2864,7 @@
+ 
+ 		entity_list.RemoveFromAutoXTargets(this);
+ 
++		NightcapHunt::Award(*this, hunt_owned, m_zone_hunt_rolled);
+ 		corpse = new Corpse(
+ 			this,
+ 			&m_loot_items,
+--- a/zone/bonuses.cpp
++++ b/zone/bonuses.cpp
+@@ -1,3 +1,4 @@
++#include "zone/zone_hunt.h"
+ /*	EQEMu: Everquest Server Emulator
+ 	Copyright (C) 2001-2004 EQEMu Development Team (http://eqemu.org)
+ 
+@@ -238,12 +239,11 @@
+ 
+ 	itembonuses.ATK = std::min(itembonuses.ATK, CalcItemATKCap());
+ 
+-	if (IsOfClientBotMerc() && itembonuses.SpellDmg > RuleI(Character, ItemSpellDmgCap)) {
+-		itembonuses.SpellDmg = RuleI(Character, ItemSpellDmgCap);
+-	}
+-
+-	if (IsOfClientBotMerc() && itembonuses.HealAmt > RuleI(Character, ItemHealAmtCap)) {
+-		itembonuses.HealAmt = RuleI(Character, ItemHealAmtCap);
++	if (IsOfClientBotMerc()) {
++		const int spell_headroom = IsClient() ? NightcapHunt::OutputHeadroom(*CastToClient(), false) : 0;
++		const int heal_headroom = IsClient() ? NightcapHunt::OutputHeadroom(*CastToClient(), true) : 0;
++		itembonuses.SpellDmg = std::min(itembonuses.SpellDmg, RuleI(Character, ItemSpellDmgCap) + spell_headroom);
++		itembonuses.HealAmt = std::min(itembonuses.HealAmt, RuleI(Character, ItemHealAmtCap) + heal_headroom);
+ 	}
+ }
+ 
+@@ -355,8 +355,9 @@
+ 	b->HitChance        = CalcCappedItemBonus(b->HitChance, item->Accuracy, RuleI(Character, ItemAccuracyCap));
+ 	b->ProcChance       = CalcCappedItemBonus(b->ProcChance, item->CombatEffects, RuleI(Character, ItemCombatEffectsCap));
+ 	b->DoTShielding     = CalcCappedItemBonus(b->DoTShielding, item->DotShielding, RuleI(Character, ItemDoTShieldingCap));
+-	b->HealAmt          = CalcCappedItemBonus(b->HealAmt, item->HealAmt, RuleI(Character, ItemHealAmtCap));
+-	b->SpellDmg         = CalcCappedItemBonus(b->SpellDmg, item->SpellDmg, RuleI(Character, ItemSpellDmgCap));
++	// Preserve raw totals until all equipment/augments have been inspected.
++	b->HealAmt          = IsClient() ? b->HealAmt + CalcItemBonus(item->HealAmt) : CalcCappedItemBonus(b->HealAmt, item->HealAmt, RuleI(Character, ItemHealAmtCap));
++	b->SpellDmg         = IsClient() ? b->SpellDmg + CalcItemBonus(item->SpellDmg) : CalcCappedItemBonus(b->SpellDmg, item->SpellDmg, RuleI(Character, ItemSpellDmgCap));
+ 	b->Clairvoyance     = CalcCappedItemBonus(b->Clairvoyance, item->Clairvoyance, RuleI(Character, ItemClairvoyanceCap));
+ 	b->DSMitigation     = CalcCappedItemBonus(b->DSMitigation, item->DSMitigation, RuleI(Character, ItemDSMitigationCap));
+ 
+--- a/zone/client.h
++++ b/zone/client.h
+@@ -520,6 +520,8 @@
+ 	void RefreshNightcapUI();
+ 	bool LoadPetArmor();
+ 	void QuarantineItemTransfer(const char *message);
++	void ZoneForge(const std::string &request_id);
++	std::map<std::string, std::vector<std::pair<int16_t, uint32_t>>> m_zone_forge_quotes;
+ 	NPC *GetArmorPet(uint8 pet_class);
+ 	void ApplyPetArmor();
+ 	void SendPetArmor();
+--- a/zone/client_packet.cpp
++++ b/zone/client_packet.cpp
+@@ -1,3 +1,4 @@
++#include "common/zone_hunt_catalog.h"
+ /*	EQEMu: Everquest Server Emulator
+ Copyright (C) 2001-2016 EQEMu Development Team (http://eqemulator.net)
+ 
+@@ -14330,6 +14331,10 @@
+ 
+ 	uint32 price = 0;
+ 	uint32 itemid = GetItemIDAt(mp->itemslot);
++	if (NightcapHunt::IsReward(itemid)) {
++		Message(Chat::Yellow, "Zone hunt rewards cannot be sold to merchants.");
++		return;
++	}
+ 	if (itemid == 0)
+ 		return;
+ 	const EQ::ItemData* item = database.GetItem(itemid);
+--- a/zone/command.cpp
++++ b/zone/command.cpp
+@@ -82,6 +82,7 @@
+ 		command_add("nightcapui", "Refresh your class display.", AccountStatus::Player, command_nightcapui) ||
+ 		command_add("aaexp", "[0-100|off] - Set the %% of combat XP routed to AA (the client hides this toggle below level 51)", AccountStatus::Player, command_aa_exp) ||
+ 		command_add("advloot", "Advanced loot window protocol", AccountStatus::Player, command_advloot) ||
++		command_add("zoneforge", "Combine three identical zone rewards into the next quality.", AccountStatus::Player, command_zoneforge) ||
+ 		command_add("acceptrules", "[acceptrules] - Accept the EQEmu Agreement", AccountStatus::Player, command_acceptrules) ||
+ 		command_add("advnpcspawn", "[maketype|makegroup|addgroupentry|addgroupspawn][removegroupspawn|movespawn|editgroupbox|cleargroupbox]", AccountStatus::GMLeadAdmin, command_advnpcspawn) ||
+ 		command_add("aggrozone", "[aggro] - Aggro every mob in the zone with X aggro. Default is 0. Not recommend if you're not invulnerable.", AccountStatus::GMAdmin, command_aggrozone) ||
+--- a/zone/command.h
++++ b/zone/command.h
+@@ -43,6 +43,7 @@
+ 
+ // Commands
+ void command_nightcapui(Client *c, const Seperator *sep);
++void command_zoneforge(Client *c, const Seperator *sep);
+ void command_nightcappet(Client *c, const Seperator *sep);
+ void command_aa_exp(Client *c, const Seperator *sep);
+ void command_acceptrules(Client *c, const Seperator *sep);
+--- a/zone/npc.h
++++ b/zone/npc.h
+@@ -604,6 +604,7 @@
+ 	// zone state save
+ 	inline void SetQueuedToCorpse() { m_queued_for_corpse = true; }
+ 	inline bool IsQueuedForCorpse() const { return m_queued_for_corpse; }
++	bool m_zone_hunt_rolled = false;
+ 	inline void SetResumedFromZoneSuspend(bool state = true) { m_resumed_from_zone_suspend = state; }
+ 	inline bool IsResumedFromZoneSuspend() const { return m_resumed_from_zone_suspend; }
+ 
+--- a/zone/perl_client.cpp
++++ b/zone/perl_client.cpp
+@@ -1,4 +1,6 @@
+ #include "common/features.h"
++#include "common/epic05.h"
++#include "common/rulesys.h"
+ 
+ #ifdef EMBPERL_XS_CLASSES
+ 
+@@ -7,6 +9,20 @@
+ #include "zone/dynamic_zone.h"
+ #include "zone/embperl.h"
+ #include "zone/titles.h"
++
++int Perl_Client_Epic05Contract(Client* self)
++{
++	if (!self || !RuleB(TaskSystem, EnableTaskSystem) || !RuleB(TaskSystem, RecordCompletedTasks) ||
++		!RuleB(TaskSystem, EnableTaskProximity)) {
++		return 0;
++	}
++	for (uint16 spell_id = Epic05::InvokeSpell; spell_id <= Epic05::LastEffect; ++spell_id) {
++		if (!IsValidSpell(spell_id)) {
++			return 0;
++		}
++	}
++	return Epic05::Contract;
++}
+ 
+ void Perl_Client_LivingEconomy(Client* self, uint32 npc_entity_id, const char* text)
+ {
+@@ -3467,6 +3483,7 @@
+ 	package.add("ClearNameChange", (bool(*)(Client*))&Perl_Client_ClearNameChange);
+ 	package.add("CharacterID", &Perl_Client_CharacterID);
+ 	package.add("LivingEconomy", &Perl_Client_LivingEconomy);
++	package.add("Epic05Contract", &Perl_Client_Epic05Contract);
+ 	package.add("MarketAnnouncement", &Perl_Client_MarketAnnouncement);
+ 	package.add("TunnelChatter", &Perl_Client_TunnelChatter);
+ 	package.add("CheckIncreaseSkill", (bool(*)(Client*, int))&Perl_Client_CheckIncreaseSkill);
+--- a/zone/spells.cpp
++++ b/zone/spells.cpp
+@@ -70,6 +70,7 @@
+ 
+ #include "common/bodytypes.h"
+ #include "common/classes.h"
++#include "common/epic05.h"
+ #include "common/data_bucket.h"
+ #include "common/data_verification.h"
+ #include "common/eqemu_logsys.h"
+@@ -3006,6 +3007,9 @@
+ 
+ int32 Mob::GetBuffDurationForTarget(uint16 spell_id, int32 duration) const
+ {
++	if (Epic05::IsEffect(spell_id)) {
++		return Epic05::BoundDuration(duration);
++	}
+ 	// Auras retain range-managed expiry; duration zero is not a buff.
+ 	if (duration != 0 && duration != -4 && IsValidSpell(spell_id) &&
+ 		(IsClient() || IsPetOwnerClient()) && IsBeneficialSpell(spell_id)) {
+--- a/zone/zone.cpp
++++ b/zone/zone.cpp
+@@ -1,3 +1,4 @@
++#include "zone/zone_hunt.h"
+ /*	EQEMu: Everquest Server Emulator
+ 	Copyright (C) 2001-2003 EQEMu Development Team (http://eqemulator.net)
+ 
+@@ -1161,6 +1162,7 @@
+ 	DynamicZone::CacheAllFromDatabase();
+ 
+ 	content_db.LoadGlobalLoot();
++	NightcapHunt::Load(*this);
+ 
+ 	npc_scale_manager->LoadScaleData();
+ 

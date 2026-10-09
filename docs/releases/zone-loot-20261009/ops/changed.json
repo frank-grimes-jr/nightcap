@@ -1,0 +1,1 @@
+["common/shareddb.cpp", "zone/CMakeLists.txt", "zone/advanced_loot_inventory.cpp", "zone/advanced_loot_inventory.h", "zone/attack.cpp", "zone/bonuses.cpp", "zone/client.h", "zone/client_packet.cpp", "zone/command.cpp", "zone/command.h", "zone/npc.h", "zone/perl_client.cpp", "zone/spells.cpp", "zone/zone.cpp"]

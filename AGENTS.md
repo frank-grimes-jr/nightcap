@@ -414,7 +414,7 @@ Format: date header, area, description. Most recent entry at the top.
 
 ## Current documentation and player website
 
-Classic zone hunt/forge is a test candidate in `docs/releases/zone-loot-20261009/`.
+Classic zone hunt/forge is live for owner QA; see `docs/releases/zone-loot-20261009/PRODUCTION.md`.
 `tools/zone_hunt.py` generates guarded item/socket SQL from an explicit production
 content capture. Do not attach its rewards to global loot tables: native death
 rolls are exactly 0.5% per family and intentionally bypass GlobalLootMultiplier.
@@ -424,7 +424,10 @@ Forging uses the advanced-loot inventory serializer, exact persisted preimages,
 single-use choices and commit-uncertainty quarantine. Universal trading remains
 in force; new rewards cannot be sold to merchants. Acquisition rollback retains
 owned definitions, sockets and receipts. Access-check zones remain disabled until
-their separate source/access QA passes. No live deployment is implied by this entry.
+their separate source/access QA passes. Preserve production hardening by building
+the scoped patch over the fingerprinted live source; a successful market/world
+contract check does not verify login authentication hardening. Run the private
+crypto self-test before activation.
 
 Tunnel court follow-ups use `tools/tunnel_courts.py`, not regeneration of the
 historical services release. Verify terrain plus DB furniture and patrol paths.
@@ -444,9 +447,11 @@ Candidate activation and exact QA: `docs/releases/pet-management-20260922/`.
 
 Use `docs/status.md` for current deployment and issue status; `docs/README.md`
 indexes operational guides and dated evidence. Preserve historical report scope.
-The standalone `index.html` publishes with `.nojekyll` from `gh-pages`; see
-`docs/ops/player-website.md`. Website publication does not promote gameplay to
-main or replace owner in-game QA.
+The five-file `index.html`/`site-assets/` guide publishes privately on the existing
+approved-IP `play.nightcapgame.org` host using `tools/player_site_package.py` and
+`deploy/production/player-site-deploy.py`; see `docs/ops/player-website.md`. Preserve
+private caching and closed apex/www routes. Website publication does not promote
+gameplay to main or replace owner in-game QA.
 
 ### Client UI request transport
 

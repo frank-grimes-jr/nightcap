@@ -27,8 +27,8 @@ out['quest_files']=[str(p.relative_to(quest_root)) for p in quest_root.glob('**/
 out['quest_hashes']={str(p.relative_to(quest_root)):hashlib.sha256(p.read_text(errors='replace').encode()).hexdigest() for z in ('fearplane','kithicor','soldunga','soldungb','highkeep','crushbone') for p in (quest_root/z).glob('*') if p.suffix in ('.pl','.lua')}
 print(json.dumps(out))
 '''.replace('QUERIES',repr(queries))
-args=[r'C:\Windows\System32\OpenSSH\ssh.exe','-i',r'C:\Users\verre\.ssh\nightcap_ovh','-o','BatchMode=yes','-o','ConnectTimeout=10','-o','StrictHostKeyChecking=yes','ubuntu@135.148.47.202','sudo -n python3 -']
-p=subprocess.run(args,input=remote,text=True,capture_output=True,timeout=120)
+command=[r'C:\Windows\System32\OpenSSH\ssh.exe','-i',r'C:\Users\verre\.ssh\nightcap_ovh','-o','BatchMode=yes','-o','ConnectTimeout=10','-o','StrictHostKeyChecking=yes','ubuntu@135.148.47.202','sudo -n python3 -']
+p=subprocess.run(command,input=remote,text=True,capture_output=True,timeout=120)
 if p.returncode: raise RuntimeError(p.stderr)
 data=json.loads(p.stdout)
 args.output.parent.mkdir(parents=True,exist_ok=True)
