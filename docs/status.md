@@ -3,6 +3,13 @@
 Updated October 9, 2026. This is the current status index; dated studies and
 QA reports preserve their original evidence and are not live-state promises.
 
+## Advanced loot row controls candidate
+
+Always Loot/Never Loot toggles are directly on each main-page item row, and a
+confirmed empty loot queue closes the window. Client build and automated
+controller/layout checks pass. The paired DLL/XML is not deployed; native
+rendering and gameplay QA remain pending. [Scope and exact QA](releases/advanced-loot/ROW-CONTROLS.md).
+
 ## Throw Stone deployed for live QA
 
 Throw Stone now adds effective Spell Damage directly: 251 ordinary damage at

@@ -13,7 +13,7 @@ class AdvancedLootUI(unittest.TestCase):
 
     def test_complete_unique_control_inventory(self):
         expected = set('Status Selected Help Drops Filters Options Previous Next Page All SearchText Search Clear Refresh Take Rule More Back PanelTitle Empty Leave Need Greed Pass Roll FreeGrab Inspect Assign Find'.split())
-        expected |= {f'{prefix}{i}' for prefix in ('Row', 'Source', 'Ignore') for i in range(8)}
+        expected |= {f'{prefix}{i}' for prefix in ('Row', 'Source', 'Ignore', 'Always', 'Never') for i in range(8)}
         expected |= {f'{prefix}{i}' for prefix in ('Setting', 'SettingHelp') for i in range(6)}
         expected |= {f'{prefix}{i}' for prefix in ('Filter', 'FilterHelp') for i in range(5)}
         self.assertEqual(set(self.controls), expected)
@@ -37,7 +37,7 @@ class AdvancedLootUI(unittest.TestCase):
     def test_visible_buttons_do_not_overlap_in_each_panel(self):
         navigation = {'Filters', 'Options', 'Refresh'}
         panels = [
-            {'Previous', 'Next', 'Take', 'Rule', 'More', 'All'} | {f'{p}{i}' for p in ('Row', 'Ignore') for i in range(8)},
+            {'Previous', 'Next', 'Take', 'Rule', 'More', 'All'} | {f'{p}{i}' for p in ('Row', 'Source', 'Always', 'Never') for i in range(8)},
             {'Drops', 'Search', 'Clear', 'Previous', 'Next', 'Rule', 'More'} | {f'{p}{i}' for p in ('Row', 'Ignore') for i in range(8)},
             {'Back'} | {f'Filter{i}' for i in range(5)},
             {'Back'} | {f'Setting{i}' for i in range(6)},
@@ -51,6 +51,13 @@ class AdvancedLootUI(unittest.TestCase):
                 for other, ox, oy, ow, oh in boxes:
                     self.assertFalse(x < ox + ow and ox < x + w and y < oy + oh and oy < y + h, (name, other))
                 boxes.append((name, x, y, w, h))
+
+    def test_inline_rules_are_labeled_and_explain_toggle_behavior(self):
+        for i in range(8):
+            for prefix, label in [('Always', 'Always Loot'), ('Never', 'Never Loot')]:
+                node = self.controls[f'{prefix}{i}']
+                self.assertEqual(node.findtext('Text'), '[ ] ' + label)
+                self.assertIn('Ask each time', node.findtext('TooltipReference'))
 
     def test_second_insertion_is_refused(self):
         with self.assertRaises(ValueError):
