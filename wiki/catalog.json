@@ -1,0 +1,7600 @@
+{
+  "updated": "2026-10-09",
+  "sources": [
+    "docs/releases/zone-loot-20261009/generated/items.json",
+    "docs/releases/zone-loot-20261009/generated/audit.json",
+    "docs/releases/zone-loot-20261009/PRODUCTION.md"
+  ],
+  "zones": [
+    {
+      "slug": "qeytoqrg",
+      "name": "The Qeynos Hills",
+      "slot": "Wrist"
+    },
+    {
+      "slug": "highkeep",
+      "name": "High Keep",
+      "slot": "Finger"
+    },
+    {
+      "slug": "runnyeye",
+      "name": "The Liberated Citadel of Runnyeye",
+      "slot": "Head"
+    },
+    {
+      "slug": "qey2hh1",
+      "name": "The Western Plains of Karana",
+      "slot": "Shoulders"
+    },
+    {
+      "slug": "northkarana",
+      "name": "The Northern Plains of Karana",
+      "slot": "Back"
+    },
+    {
+      "slug": "southkarana",
+      "name": "The Southern Plains of Karana",
+      "slot": "Waist"
+    },
+    {
+      "slug": "eastkarana",
+      "name": "Eastern Plains of Karana",
+      "slot": "Feet"
+    },
+    {
+      "slug": "beholder",
+      "name": "Gorge of King Xorbb",
+      "slot": "Face"
+    },
+    {
+      "slug": "blackburrow",
+      "name": "Blackburrow",
+      "slot": "Wrist"
+    },
+    {
+      "slug": "kithicor",
+      "name": "Kithicor Forest",
+      "slot": "Shoulders"
+    },
+    {
+      "slug": "commons",
+      "name": "West Commonlands",
+      "slot": "Waist"
+    },
+    {
+      "slug": "ecommons",
+      "name": "East Commonlands",
+      "slot": "Finger"
+    },
+    {
+      "slug": "nektulos",
+      "name": "The Nektulos Forest",
+      "slot": "Head"
+    },
+    {
+      "slug": "lavastorm",
+      "name": "Lavastorm Mountains",
+      "slot": "Hands"
+    },
+    {
+      "slug": "everfrost",
+      "name": "Everfrost Peaks",
+      "slot": "Back"
+    },
+    {
+      "slug": "soldunga",
+      "name": "Solusek's Eye",
+      "slot": "Arms"
+    },
+    {
+      "slug": "soldungb",
+      "name": "Nagafen's Lair",
+      "slot": "Neck"
+    },
+    {
+      "slug": "misty",
+      "name": "Misty Thicket",
+      "slot": "Feet"
+    },
+    {
+      "slug": "nro",
+      "name": "Northern Desert of Ro",
+      "slot": "Wrist"
+    },
+    {
+      "slug": "sro",
+      "name": "Southern Desert of Ro",
+      "slot": "Shoulders"
+    },
+    {
+      "slug": "befallen",
+      "name": "Befallen",
+      "slot": "Neck"
+    },
+    {
+      "slug": "oasis",
+      "name": "Oasis of Marr",
+      "slot": "Finger"
+    },
+    {
+      "slug": "tox",
+      "name": "Toxxulia Forest",
+      "slot": "Arms"
+    },
+    {
+      "slug": "hole",
+      "name": "The Hole",
+      "slot": "Arms"
+    },
+    {
+      "slug": "najena",
+      "name": "Najena",
+      "slot": "Arms"
+    },
+    {
+      "slug": "qcat",
+      "name": "The Qeynos Aqueduct System",
+      "slot": "Range"
+    },
+    {
+      "slug": "innothule",
+      "name": "Innothule Swamp",
+      "slot": "Waist"
+    },
+    {
+      "slug": "feerrott",
+      "name": "The Feerrott",
+      "slot": "Hands"
+    },
+    {
+      "slug": "rathemtn",
+      "name": "The Rathe Mountains",
+      "slot": "Legs"
+    },
+    {
+      "slug": "lakerathe",
+      "name": "Lake Rathetear",
+      "slot": "Head"
+    },
+    {
+      "slug": "gfaydark",
+      "name": "The Greater Faydark",
+      "slot": "Shoulders"
+    },
+    {
+      "slug": "steamfont",
+      "name": "Steamfont Mountains",
+      "slot": "Feet"
+    },
+    {
+      "slug": "lfaydark",
+      "name": "The Lesser Faydark",
+      "slot": "Shoulders"
+    },
+    {
+      "slug": "crushbone",
+      "name": "Crushbone",
+      "slot": "Hands"
+    },
+    {
+      "slug": "mistmoore",
+      "name": "The Castle of Mistmoore",
+      "slot": "Face"
+    },
+    {
+      "slug": "unrest",
+      "name": "The Estate of Unrest",
+      "slot": "Ear"
+    },
+    {
+      "slug": "kedge",
+      "name": "Kedge Keep",
+      "slot": "Finger"
+    },
+    {
+      "slug": "guktop",
+      "name": "The City of Guk",
+      "slot": "Chest"
+    },
+    {
+      "slug": "gukbottom",
+      "name": "The Ruins of Old Guk",
+      "slot": "Shoulders"
+    },
+    {
+      "slug": "butcher",
+      "name": "Butcherblock Mountains",
+      "slot": "Head"
+    },
+    {
+      "slug": "oot",
+      "name": "Ocean of Tears",
+      "slot": "Back"
+    },
+    {
+      "slug": "cauldron",
+      "name": "Dagnor's Cauldron",
+      "slot": "Waist"
+    },
+    {
+      "slug": "airplane",
+      "name": "The Plane of Sky",
+      "slot": "Feet"
+    },
+    {
+      "slug": "fearplane",
+      "name": "The Plane of Fear",
+      "slot": "Chest"
+    },
+    {
+      "slug": "permafrost",
+      "name": "The Permafrost Caverns",
+      "slot": "Head"
+    },
+    {
+      "slug": "kerraridge",
+      "name": "Kerra Isle",
+      "slot": "Hands"
+    },
+    {
+      "slug": "hateplane",
+      "name": "Plane of Hate",
+      "slot": "Hands"
+    },
+    {
+      "slug": "erudsxing",
+      "name": "Erud's Crossing",
+      "slot": "Range"
+    }
+  ],
+  "items": [
+    {
+      "id": 940024,
+      "zone": "qeytoqrg",
+      "kind": "Augment",
+      "tier": 0,
+      "name": "Hillside Dewstone",
+      "required_level": 1,
+      "recommended_level": 1,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 6,
+        "Mana": 6,
+        "Heroic AGI": 1,
+        "Heroic WIS": 1
+      }
+    },
+    {
+      "id": 940025,
+      "zone": "qeytoqrg",
+      "kind": "Augment",
+      "tier": 1,
+      "name": "Hillside Dewstone (Polished)",
+      "required_level": 1,
+      "recommended_level": 1,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 9,
+        "Mana": 9,
+        "Heroic AGI": 1,
+        "Heroic WIS": 1
+      }
+    },
+    {
+      "id": 940026,
+      "zone": "qeytoqrg",
+      "kind": "Augment",
+      "tier": 2,
+      "name": "Hillside Dewstone (Exalted)",
+      "required_level": 1,
+      "recommended_level": 1,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 12,
+        "Mana": 12,
+        "Heroic AGI": 2,
+        "Heroic WIS": 2
+      }
+    },
+    {
+      "id": 940027,
+      "zone": "qeytoqrg",
+      "kind": "Augment",
+      "tier": 3,
+      "name": "Hillside Dewstone (Ascension)",
+      "required_level": 1,
+      "recommended_level": 1,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 15,
+        "Mana": 15,
+        "Heroic AGI": 3,
+        "Heroic WIS": 3
+      }
+    },
+    {
+      "id": 940028,
+      "zone": "qeytoqrg",
+      "kind": "Gear",
+      "tier": 0,
+      "name": "Pathfinder's Barkwrap",
+      "required_level": 1,
+      "recommended_level": 1,
+      "slot": "Wrist",
+      "socket": false,
+      "stats": {
+        "HP": 8,
+        "Mana": 8,
+        "Armor class": 1,
+        "AGI": 1,
+        "WIS": 1,
+        "Poison resist": 2
+      }
+    },
+    {
+      "id": 940029,
+      "zone": "qeytoqrg",
+      "kind": "Gear",
+      "tier": 1,
+      "name": "Pathfinder's Barkwrap (Polished)",
+      "required_level": 1,
+      "recommended_level": 1,
+      "slot": "Wrist",
+      "socket": false,
+      "stats": {
+        "HP": 12,
+        "Mana": 12,
+        "Armor class": 1,
+        "Healing Amount": 1,
+        "AGI": 1,
+        "WIS": 1,
+        "Poison resist": 3
+      }
+    },
+    {
+      "id": 940030,
+      "zone": "qeytoqrg",
+      "kind": "Gear",
+      "tier": 2,
+      "name": "Pathfinder's Barkwrap (Exalted)",
+      "required_level": 1,
+      "recommended_level": 1,
+      "slot": "Wrist",
+      "socket": false,
+      "stats": {
+        "HP": 15,
+        "Mana": 15,
+        "Armor class": 2,
+        "Healing Amount": 2,
+        "AGI": 2,
+        "WIS": 2,
+        "Poison resist": 3
+      }
+    },
+    {
+      "id": 940031,
+      "zone": "qeytoqrg",
+      "kind": "Gear",
+      "tier": 3,
+      "name": "Pathfinder's Barkwrap (Ascension)",
+      "required_level": 1,
+      "recommended_level": 1,
+      "slot": "Wrist",
+      "socket": false,
+      "stats": {
+        "HP": 19,
+        "Mana": 19,
+        "Armor class": 2,
+        "Healing Amount": 3,
+        "AGI": 2,
+        "WIS": 2,
+        "Poison resist": 4,
+        "Heroic AGI": 1,
+        "Heroic WIS": 1,
+        "Heroic poison resist": 1
+      }
+    },
+    {
+      "id": 940040,
+      "zone": "highkeep",
+      "kind": "Augment",
+      "tier": 0,
+      "name": "Keepstone Seal",
+      "required_level": 30,
+      "recommended_level": 30,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 30,
+        "Mana": 30,
+        "Armor class": 1,
+        "Heroic STA": 3,
+        "Heroic AGI": 3
+      }
+    },
+    {
+      "id": 940041,
+      "zone": "highkeep",
+      "kind": "Augment",
+      "tier": 1,
+      "name": "Keepstone Seal (Polished)",
+      "required_level": 30,
+      "recommended_level": 30,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 44,
+        "Mana": 44,
+        "Armor class": 2,
+        "Heroic STA": 4,
+        "Heroic AGI": 4
+      }
+    },
+    {
+      "id": 940042,
+      "zone": "highkeep",
+      "kind": "Augment",
+      "tier": 2,
+      "name": "Keepstone Seal (Exalted)",
+      "required_level": 30,
+      "recommended_level": 30,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 57,
+        "Mana": 57,
+        "Armor class": 3,
+        "Heroic STA": 5,
+        "Heroic AGI": 5
+      }
+    },
+    {
+      "id": 940043,
+      "zone": "highkeep",
+      "kind": "Augment",
+      "tier": 3,
+      "name": "Keepstone Seal (Ascension)",
+      "required_level": 30,
+      "recommended_level": 30,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 72,
+        "Mana": 72,
+        "Armor class": 4,
+        "Heroic STA": 6,
+        "Heroic AGI": 6
+      }
+    },
+    {
+      "id": 940044,
+      "zone": "highkeep",
+      "kind": "Gear",
+      "tier": 0,
+      "name": "Goblinwatch Signet",
+      "required_level": 30,
+      "recommended_level": 30,
+      "slot": "Finger",
+      "socket": false,
+      "stats": {
+        "HP": 38,
+        "Mana": 38,
+        "Armor class": 10,
+        "STA": 5,
+        "AGI": 5,
+        "Magic resist": 6
+      }
+    },
+    {
+      "id": 940045,
+      "zone": "highkeep",
+      "kind": "Gear",
+      "tier": 1,
+      "name": "Goblinwatch Signet (Polished)",
+      "required_level": 30,
+      "recommended_level": 30,
+      "slot": "Finger",
+      "socket": false,
+      "stats": {
+        "HP": 55,
+        "Mana": 55,
+        "Armor class": 15,
+        "STA": 7,
+        "AGI": 7,
+        "Magic resist": 8
+      }
+    },
+    {
+      "id": 940046,
+      "zone": "highkeep",
+      "kind": "Gear",
+      "tier": 2,
+      "name": "Goblinwatch Signet (Exalted)",
+      "required_level": 30,
+      "recommended_level": 30,
+      "slot": "Finger",
+      "socket": false,
+      "stats": {
+        "HP": 72,
+        "Mana": 72,
+        "Armor class": 20,
+        "STA": 8,
+        "AGI": 8,
+        "Magic resist": 10
+      }
+    },
+    {
+      "id": 940047,
+      "zone": "highkeep",
+      "kind": "Gear",
+      "tier": 3,
+      "name": "Goblinwatch Signet (Ascension)",
+      "required_level": 30,
+      "recommended_level": 30,
+      "slot": "Finger",
+      "socket": false,
+      "stats": {
+        "HP": 91,
+        "Mana": 91,
+        "Armor class": 27,
+        "STA": 10,
+        "AGI": 10,
+        "Magic resist": 12,
+        "Heroic STA": 3,
+        "Heroic AGI": 3,
+        "Heroic magic resist": 3
+      }
+    },
+    {
+      "id": 940072,
+      "zone": "runnyeye",
+      "kind": "Augment",
+      "tier": 0,
+      "name": "Runnyeye Prism",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 20,
+        "Mana": 20,
+        "Spell Damage": 1,
+        "Heroic STA": 2,
+        "Heroic INT": 2
+      }
+    },
+    {
+      "id": 940073,
+      "zone": "runnyeye",
+      "kind": "Augment",
+      "tier": 1,
+      "name": "Runnyeye Prism (Polished)",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 29,
+        "Mana": 29,
+        "Spell Damage": 1,
+        "Heroic STA": 3,
+        "Heroic INT": 3
+      }
+    },
+    {
+      "id": 940074,
+      "zone": "runnyeye",
+      "kind": "Augment",
+      "tier": 2,
+      "name": "Runnyeye Prism (Exalted)",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 38,
+        "Mana": 38,
+        "Spell Damage": 2,
+        "Heroic STA": 4,
+        "Heroic INT": 4
+      }
+    },
+    {
+      "id": 940075,
+      "zone": "runnyeye",
+      "kind": "Augment",
+      "tier": 3,
+      "name": "Runnyeye Prism (Ascension)",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 48,
+        "Mana": 48,
+        "Spell Damage": 3,
+        "Heroic STA": 5,
+        "Heroic INT": 5
+      }
+    },
+    {
+      "id": 940076,
+      "zone": "runnyeye",
+      "kind": "Gear",
+      "tier": 0,
+      "name": "Prismwatch Hood",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Head",
+      "socket": true,
+      "stats": {
+        "HP": 26,
+        "Mana": 26,
+        "Armor class": 5,
+        "Spell Damage": 1,
+        "STA": 3,
+        "INT": 3,
+        "Magic resist": 4
+      }
+    },
+    {
+      "id": 940077,
+      "zone": "runnyeye",
+      "kind": "Gear",
+      "tier": 1,
+      "name": "Prismwatch Hood (Polished)",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Head",
+      "socket": true,
+      "stats": {
+        "HP": 38,
+        "Mana": 38,
+        "Armor class": 7,
+        "Spell Damage": 3,
+        "STA": 4,
+        "INT": 4,
+        "Magic resist": 5
+      }
+    },
+    {
+      "id": 940078,
+      "zone": "runnyeye",
+      "kind": "Gear",
+      "tier": 2,
+      "name": "Prismwatch Hood (Exalted)",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Head",
+      "socket": true,
+      "stats": {
+        "HP": 49,
+        "Mana": 49,
+        "Armor class": 8,
+        "Spell Damage": 5,
+        "STA": 5,
+        "INT": 5,
+        "Magic resist": 7
+      }
+    },
+    {
+      "id": 940079,
+      "zone": "runnyeye",
+      "kind": "Gear",
+      "tier": 3,
+      "name": "Prismwatch Hood (Ascension)",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Head",
+      "socket": true,
+      "stats": {
+        "HP": 62,
+        "Mana": 62,
+        "Armor class": 10,
+        "Spell Damage": 8,
+        "STA": 6,
+        "INT": 6,
+        "Magic resist": 8,
+        "Heroic STA": 2,
+        "Heroic INT": 2,
+        "Heroic magic resist": 2
+      }
+    },
+    {
+      "id": 940080,
+      "zone": "qey2hh1",
+      "kind": "Augment",
+      "tier": 0,
+      "name": "Plainsward Jasper",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 12,
+        "Mana": 12,
+        "Heroic STA": 1,
+        "Heroic AGI": 1
+      }
+    },
+    {
+      "id": 940081,
+      "zone": "qey2hh1",
+      "kind": "Augment",
+      "tier": 1,
+      "name": "Plainsward Jasper (Polished)",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 18,
+        "Mana": 18,
+        "Armor class": 1,
+        "Heroic STA": 2,
+        "Heroic AGI": 2
+      }
+    },
+    {
+      "id": 940082,
+      "zone": "qey2hh1",
+      "kind": "Augment",
+      "tier": 2,
+      "name": "Plainsward Jasper (Exalted)",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 24,
+        "Mana": 24,
+        "Armor class": 1,
+        "Heroic STA": 3,
+        "Heroic AGI": 3
+      }
+    },
+    {
+      "id": 940083,
+      "zone": "qey2hh1",
+      "kind": "Augment",
+      "tier": 3,
+      "name": "Plainsward Jasper (Ascension)",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 30,
+        "Mana": 30,
+        "Armor class": 2,
+        "Heroic STA": 4,
+        "Heroic AGI": 4
+      }
+    },
+    {
+      "id": 940084,
+      "zone": "qey2hh1",
+      "kind": "Gear",
+      "tier": 0,
+      "name": "Stormfield Shoulders",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Shoulders",
+      "socket": false,
+      "stats": {
+        "HP": 16,
+        "Mana": 16,
+        "Armor class": 3,
+        "STA": 2,
+        "AGI": 2,
+        "Magic resist": 3
+      }
+    },
+    {
+      "id": 940085,
+      "zone": "qey2hh1",
+      "kind": "Gear",
+      "tier": 1,
+      "name": "Stormfield Shoulders (Polished)",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Shoulders",
+      "socket": false,
+      "stats": {
+        "HP": 23,
+        "Mana": 23,
+        "Armor class": 6,
+        "STA": 3,
+        "AGI": 3,
+        "Magic resist": 4
+      }
+    },
+    {
+      "id": 940086,
+      "zone": "qey2hh1",
+      "kind": "Gear",
+      "tier": 2,
+      "name": "Stormfield Shoulders (Exalted)",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Shoulders",
+      "socket": false,
+      "stats": {
+        "HP": 30,
+        "Mana": 30,
+        "Armor class": 8,
+        "STA": 3,
+        "AGI": 3,
+        "Magic resist": 5
+      }
+    },
+    {
+      "id": 940087,
+      "zone": "qey2hh1",
+      "kind": "Gear",
+      "tier": 3,
+      "name": "Stormfield Shoulders (Ascension)",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Shoulders",
+      "socket": false,
+      "stats": {
+        "HP": 38,
+        "Mana": 38,
+        "Armor class": 11,
+        "STA": 4,
+        "AGI": 4,
+        "Magic resist": 6,
+        "Heroic STA": 1,
+        "Heroic AGI": 1,
+        "Heroic magic resist": 2
+      }
+    },
+    {
+      "id": 940088,
+      "zone": "northkarana",
+      "kind": "Augment",
+      "tier": 0,
+      "name": "Thunderplume Opal",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 20,
+        "Mana": 20,
+        "Attack": 1,
+        "Heroic AGI": 2,
+        "Heroic DEX": 2
+      }
+    },
+    {
+      "id": 940089,
+      "zone": "northkarana",
+      "kind": "Augment",
+      "tier": 1,
+      "name": "Thunderplume Opal (Polished)",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 29,
+        "Mana": 29,
+        "Attack": 1,
+        "Heroic AGI": 3,
+        "Heroic DEX": 3
+      }
+    },
+    {
+      "id": 940090,
+      "zone": "northkarana",
+      "kind": "Augment",
+      "tier": 2,
+      "name": "Thunderplume Opal (Exalted)",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 38,
+        "Mana": 38,
+        "Attack": 2,
+        "Heroic AGI": 4,
+        "Heroic DEX": 4
+      }
+    },
+    {
+      "id": 940091,
+      "zone": "northkarana",
+      "kind": "Augment",
+      "tier": 3,
+      "name": "Thunderplume Opal (Ascension)",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 48,
+        "Mana": 48,
+        "Attack": 3,
+        "Heroic AGI": 5,
+        "Heroic DEX": 5
+      }
+    },
+    {
+      "id": 940092,
+      "zone": "northkarana",
+      "kind": "Gear",
+      "tier": 0,
+      "name": "Griffonwind Cloak",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Back",
+      "socket": false,
+      "stats": {
+        "HP": 26,
+        "Mana": 26,
+        "Armor class": 5,
+        "Attack": 1,
+        "AGI": 3,
+        "DEX": 3,
+        "Disease resist": 4
+      }
+    },
+    {
+      "id": 940093,
+      "zone": "northkarana",
+      "kind": "Gear",
+      "tier": 1,
+      "name": "Griffonwind Cloak (Polished)",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Back",
+      "socket": false,
+      "stats": {
+        "HP": 38,
+        "Mana": 38,
+        "Armor class": 7,
+        "Attack": 3,
+        "AGI": 4,
+        "DEX": 4,
+        "Disease resist": 5
+      }
+    },
+    {
+      "id": 940094,
+      "zone": "northkarana",
+      "kind": "Gear",
+      "tier": 2,
+      "name": "Griffonwind Cloak (Exalted)",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Back",
+      "socket": false,
+      "stats": {
+        "HP": 49,
+        "Mana": 49,
+        "Armor class": 8,
+        "Attack": 5,
+        "AGI": 5,
+        "DEX": 5,
+        "Disease resist": 7
+      }
+    },
+    {
+      "id": 940095,
+      "zone": "northkarana",
+      "kind": "Gear",
+      "tier": 3,
+      "name": "Griffonwind Cloak (Ascension)",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Back",
+      "socket": false,
+      "stats": {
+        "HP": 62,
+        "Mana": 62,
+        "Armor class": 10,
+        "Attack": 8,
+        "AGI": 6,
+        "DEX": 6,
+        "Disease resist": 8,
+        "Heroic AGI": 2,
+        "Heroic DEX": 2,
+        "Heroic disease resist": 2
+      }
+    },
+    {
+      "id": 940096,
+      "zone": "southkarana",
+      "kind": "Augment",
+      "tier": 0,
+      "name": "Pridefang Amber",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 20,
+        "Mana": 20,
+        "Attack": 1,
+        "Heroic STR": 2,
+        "Heroic DEX": 2
+      }
+    },
+    {
+      "id": 940097,
+      "zone": "southkarana",
+      "kind": "Augment",
+      "tier": 1,
+      "name": "Pridefang Amber (Polished)",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 29,
+        "Mana": 29,
+        "Attack": 1,
+        "Heroic STR": 3,
+        "Heroic DEX": 3
+      }
+    },
+    {
+      "id": 940098,
+      "zone": "southkarana",
+      "kind": "Augment",
+      "tier": 2,
+      "name": "Pridefang Amber (Exalted)",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 38,
+        "Mana": 38,
+        "Attack": 2,
+        "Heroic STR": 4,
+        "Heroic DEX": 4
+      }
+    },
+    {
+      "id": 940099,
+      "zone": "southkarana",
+      "kind": "Augment",
+      "tier": 3,
+      "name": "Pridefang Amber (Ascension)",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 48,
+        "Mana": 48,
+        "Attack": 3,
+        "Heroic STR": 5,
+        "Heroic DEX": 5
+      }
+    },
+    {
+      "id": 940100,
+      "zone": "southkarana",
+      "kind": "Gear",
+      "tier": 0,
+      "name": "Lionstride Sash",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Waist",
+      "socket": false,
+      "stats": {
+        "HP": 26,
+        "Mana": 26,
+        "Armor class": 5,
+        "Attack": 1,
+        "STR": 3,
+        "DEX": 3,
+        "Fire resist": 4
+      }
+    },
+    {
+      "id": 940101,
+      "zone": "southkarana",
+      "kind": "Gear",
+      "tier": 1,
+      "name": "Lionstride Sash (Polished)",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Waist",
+      "socket": false,
+      "stats": {
+        "HP": 38,
+        "Mana": 38,
+        "Armor class": 7,
+        "Attack": 3,
+        "STR": 4,
+        "DEX": 4,
+        "Fire resist": 5
+      }
+    },
+    {
+      "id": 940102,
+      "zone": "southkarana",
+      "kind": "Gear",
+      "tier": 2,
+      "name": "Lionstride Sash (Exalted)",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Waist",
+      "socket": false,
+      "stats": {
+        "HP": 49,
+        "Mana": 49,
+        "Armor class": 8,
+        "Attack": 5,
+        "STR": 5,
+        "DEX": 5,
+        "Fire resist": 7
+      }
+    },
+    {
+      "id": 940103,
+      "zone": "southkarana",
+      "kind": "Gear",
+      "tier": 3,
+      "name": "Lionstride Sash (Ascension)",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Waist",
+      "socket": false,
+      "stats": {
+        "HP": 62,
+        "Mana": 62,
+        "Armor class": 10,
+        "Attack": 8,
+        "STR": 6,
+        "DEX": 6,
+        "Fire resist": 8,
+        "Heroic STR": 2,
+        "Heroic DEX": 2,
+        "Heroic fire resist": 2
+      }
+    },
+    {
+      "id": 940104,
+      "zone": "eastkarana",
+      "kind": "Augment",
+      "tier": 0,
+      "name": "Highwind Topaz",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 20,
+        "Mana": 20,
+        "Attack": 1,
+        "Heroic AGI": 2,
+        "Heroic DEX": 2
+      }
+    },
+    {
+      "id": 940105,
+      "zone": "eastkarana",
+      "kind": "Augment",
+      "tier": 1,
+      "name": "Highwind Topaz (Polished)",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 29,
+        "Mana": 29,
+        "Attack": 1,
+        "Heroic AGI": 3,
+        "Heroic DEX": 3
+      }
+    },
+    {
+      "id": 940106,
+      "zone": "eastkarana",
+      "kind": "Augment",
+      "tier": 2,
+      "name": "Highwind Topaz (Exalted)",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 38,
+        "Mana": 38,
+        "Attack": 2,
+        "Heroic AGI": 4,
+        "Heroic DEX": 4
+      }
+    },
+    {
+      "id": 940107,
+      "zone": "eastkarana",
+      "kind": "Augment",
+      "tier": 3,
+      "name": "Highwind Topaz (Ascension)",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 48,
+        "Mana": 48,
+        "Attack": 3,
+        "Heroic AGI": 5,
+        "Heroic DEX": 5
+      }
+    },
+    {
+      "id": 940108,
+      "zone": "eastkarana",
+      "kind": "Gear",
+      "tier": 0,
+      "name": "Gorgewalk Boots",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Feet",
+      "socket": true,
+      "stats": {
+        "HP": 26,
+        "Mana": 26,
+        "Armor class": 5,
+        "Attack": 1,
+        "AGI": 3,
+        "DEX": 3,
+        "Disease resist": 4
+      }
+    },
+    {
+      "id": 940109,
+      "zone": "eastkarana",
+      "kind": "Gear",
+      "tier": 1,
+      "name": "Gorgewalk Boots (Polished)",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Feet",
+      "socket": true,
+      "stats": {
+        "HP": 38,
+        "Mana": 38,
+        "Armor class": 7,
+        "Attack": 3,
+        "AGI": 4,
+        "DEX": 4,
+        "Disease resist": 5
+      }
+    },
+    {
+      "id": 940110,
+      "zone": "eastkarana",
+      "kind": "Gear",
+      "tier": 2,
+      "name": "Gorgewalk Boots (Exalted)",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Feet",
+      "socket": true,
+      "stats": {
+        "HP": 49,
+        "Mana": 49,
+        "Armor class": 8,
+        "Attack": 5,
+        "AGI": 5,
+        "DEX": 5,
+        "Disease resist": 7
+      }
+    },
+    {
+      "id": 940111,
+      "zone": "eastkarana",
+      "kind": "Gear",
+      "tier": 3,
+      "name": "Gorgewalk Boots (Ascension)",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Feet",
+      "socket": true,
+      "stats": {
+        "HP": 62,
+        "Mana": 62,
+        "Armor class": 10,
+        "Attack": 8,
+        "AGI": 6,
+        "DEX": 6,
+        "Disease resist": 8,
+        "Heroic AGI": 2,
+        "Heroic DEX": 2,
+        "Heroic disease resist": 2
+      }
+    },
+    {
+      "id": 940112,
+      "zone": "beholder",
+      "kind": "Augment",
+      "tier": 0,
+      "name": "Xorbb's Glass",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 12,
+        "Mana": 12,
+        "Heroic STA": 1,
+        "Heroic INT": 1
+      }
+    },
+    {
+      "id": 940113,
+      "zone": "beholder",
+      "kind": "Augment",
+      "tier": 1,
+      "name": "Xorbb's Glass (Polished)",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 18,
+        "Mana": 18,
+        "Spell Damage": 1,
+        "Heroic STA": 2,
+        "Heroic INT": 2
+      }
+    },
+    {
+      "id": 940114,
+      "zone": "beholder",
+      "kind": "Augment",
+      "tier": 2,
+      "name": "Xorbb's Glass (Exalted)",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 24,
+        "Mana": 24,
+        "Spell Damage": 1,
+        "Heroic STA": 3,
+        "Heroic INT": 3
+      }
+    },
+    {
+      "id": 940115,
+      "zone": "beholder",
+      "kind": "Augment",
+      "tier": 3,
+      "name": "Xorbb's Glass (Ascension)",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 30,
+        "Mana": 30,
+        "Spell Damage": 2,
+        "Heroic STA": 4,
+        "Heroic INT": 4
+      }
+    },
+    {
+      "id": 940116,
+      "zone": "beholder",
+      "kind": "Gear",
+      "tier": 0,
+      "name": "Gazershade Veil",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Face",
+      "socket": false,
+      "stats": {
+        "HP": 16,
+        "Mana": 16,
+        "Armor class": 3,
+        "STA": 2,
+        "INT": 2,
+        "Magic resist": 3
+      }
+    },
+    {
+      "id": 940117,
+      "zone": "beholder",
+      "kind": "Gear",
+      "tier": 1,
+      "name": "Gazershade Veil (Polished)",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Face",
+      "socket": false,
+      "stats": {
+        "HP": 23,
+        "Mana": 23,
+        "Armor class": 4,
+        "Spell Damage": 2,
+        "STA": 3,
+        "INT": 3,
+        "Magic resist": 4
+      }
+    },
+    {
+      "id": 940118,
+      "zone": "beholder",
+      "kind": "Gear",
+      "tier": 2,
+      "name": "Gazershade Veil (Exalted)",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Face",
+      "socket": false,
+      "stats": {
+        "HP": 30,
+        "Mana": 30,
+        "Armor class": 5,
+        "Spell Damage": 3,
+        "STA": 3,
+        "INT": 3,
+        "Magic resist": 5
+      }
+    },
+    {
+      "id": 940119,
+      "zone": "beholder",
+      "kind": "Gear",
+      "tier": 3,
+      "name": "Gazershade Veil (Ascension)",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Face",
+      "socket": false,
+      "stats": {
+        "HP": 38,
+        "Mana": 38,
+        "Armor class": 6,
+        "Spell Damage": 5,
+        "STA": 4,
+        "INT": 4,
+        "Magic resist": 6,
+        "Heroic STA": 1,
+        "Heroic INT": 1,
+        "Heroic magic resist": 2
+      }
+    },
+    {
+      "id": 940120,
+      "zone": "blackburrow",
+      "kind": "Augment",
+      "tier": 0,
+      "name": "Gnollfang Flint",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 12,
+        "Mana": 12,
+        "Heroic STR": 1,
+        "Heroic DEX": 1
+      }
+    },
+    {
+      "id": 940121,
+      "zone": "blackburrow",
+      "kind": "Augment",
+      "tier": 1,
+      "name": "Gnollfang Flint (Polished)",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 18,
+        "Mana": 18,
+        "Attack": 1,
+        "Heroic STR": 2,
+        "Heroic DEX": 2
+      }
+    },
+    {
+      "id": 940122,
+      "zone": "blackburrow",
+      "kind": "Augment",
+      "tier": 2,
+      "name": "Gnollfang Flint (Exalted)",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 24,
+        "Mana": 24,
+        "Attack": 1,
+        "Heroic STR": 3,
+        "Heroic DEX": 3
+      }
+    },
+    {
+      "id": 940123,
+      "zone": "blackburrow",
+      "kind": "Augment",
+      "tier": 3,
+      "name": "Gnollfang Flint (Ascension)",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 30,
+        "Mana": 30,
+        "Attack": 2,
+        "Heroic STR": 4,
+        "Heroic DEX": 4
+      }
+    },
+    {
+      "id": 940124,
+      "zone": "blackburrow",
+      "kind": "Gear",
+      "tier": 0,
+      "name": "Burrowrunner Bracer",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Wrist",
+      "socket": false,
+      "stats": {
+        "HP": 16,
+        "Mana": 16,
+        "Armor class": 3,
+        "STR": 2,
+        "DEX": 2,
+        "Fire resist": 3
+      }
+    },
+    {
+      "id": 940125,
+      "zone": "blackburrow",
+      "kind": "Gear",
+      "tier": 1,
+      "name": "Burrowrunner Bracer (Polished)",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Wrist",
+      "socket": false,
+      "stats": {
+        "HP": 23,
+        "Mana": 23,
+        "Armor class": 4,
+        "Attack": 2,
+        "STR": 3,
+        "DEX": 3,
+        "Fire resist": 4
+      }
+    },
+    {
+      "id": 940126,
+      "zone": "blackburrow",
+      "kind": "Gear",
+      "tier": 2,
+      "name": "Burrowrunner Bracer (Exalted)",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Wrist",
+      "socket": false,
+      "stats": {
+        "HP": 30,
+        "Mana": 30,
+        "Armor class": 5,
+        "Attack": 3,
+        "STR": 3,
+        "DEX": 3,
+        "Fire resist": 5
+      }
+    },
+    {
+      "id": 940127,
+      "zone": "blackburrow",
+      "kind": "Gear",
+      "tier": 3,
+      "name": "Burrowrunner Bracer (Ascension)",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Wrist",
+      "socket": false,
+      "stats": {
+        "HP": 38,
+        "Mana": 38,
+        "Armor class": 6,
+        "Attack": 5,
+        "STR": 4,
+        "DEX": 4,
+        "Fire resist": 6,
+        "Heroic STR": 1,
+        "Heroic DEX": 1,
+        "Heroic fire resist": 2
+      }
+    },
+    {
+      "id": 940144,
+      "zone": "kithicor",
+      "kind": "Augment",
+      "tier": 0,
+      "name": "Nightfall Soulglass",
+      "required_level": 40,
+      "recommended_level": 40,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 40,
+        "Mana": 40,
+        "Healing Amount": 2,
+        "Heroic STA": 4,
+        "Heroic WIS": 4
+      }
+    },
+    {
+      "id": 940145,
+      "zone": "kithicor",
+      "kind": "Augment",
+      "tier": 1,
+      "name": "Nightfall Soulglass (Polished)",
+      "required_level": 40,
+      "recommended_level": 40,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 58,
+        "Mana": 58,
+        "Healing Amount": 3,
+        "Heroic STA": 5,
+        "Heroic WIS": 5
+      }
+    },
+    {
+      "id": 940146,
+      "zone": "kithicor",
+      "kind": "Augment",
+      "tier": 2,
+      "name": "Nightfall Soulglass (Exalted)",
+      "required_level": 40,
+      "recommended_level": 40,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 76,
+        "Mana": 76,
+        "Healing Amount": 4,
+        "Heroic STA": 6,
+        "Heroic WIS": 6
+      }
+    },
+    {
+      "id": 940147,
+      "zone": "kithicor",
+      "kind": "Augment",
+      "tier": 3,
+      "name": "Nightfall Soulglass (Ascension)",
+      "required_level": 40,
+      "recommended_level": 40,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 96,
+        "Mana": 96,
+        "Healing Amount": 5,
+        "Heroic STA": 8,
+        "Heroic WIS": 8
+      }
+    },
+    {
+      "id": 940148,
+      "zone": "kithicor",
+      "kind": "Gear",
+      "tier": 0,
+      "name": "Duskward Mantle",
+      "required_level": 40,
+      "recommended_level": 40,
+      "slot": "Shoulders",
+      "socket": false,
+      "stats": {
+        "HP": 50,
+        "Mana": 50,
+        "Armor class": 11,
+        "Healing Amount": 3,
+        "STA": 6,
+        "WIS": 6,
+        "Cold resist": 8
+      }
+    },
+    {
+      "id": 940149,
+      "zone": "kithicor",
+      "kind": "Gear",
+      "tier": 1,
+      "name": "Duskward Mantle (Polished)",
+      "required_level": 40,
+      "recommended_level": 40,
+      "slot": "Shoulders",
+      "socket": false,
+      "stats": {
+        "HP": 73,
+        "Mana": 73,
+        "Armor class": 15,
+        "Healing Amount": 6,
+        "STA": 8,
+        "WIS": 8,
+        "Cold resist": 11
+      }
+    },
+    {
+      "id": 940150,
+      "zone": "kithicor",
+      "kind": "Gear",
+      "tier": 2,
+      "name": "Duskward Mantle (Exalted)",
+      "required_level": 40,
+      "recommended_level": 40,
+      "slot": "Shoulders",
+      "socket": false,
+      "stats": {
+        "HP": 95,
+        "Mana": 95,
+        "Armor class": 18,
+        "Healing Amount": 10,
+        "STA": 10,
+        "WIS": 10,
+        "Cold resist": 13
+      }
+    },
+    {
+      "id": 940151,
+      "zone": "kithicor",
+      "kind": "Gear",
+      "tier": 3,
+      "name": "Duskward Mantle (Ascension)",
+      "required_level": 40,
+      "recommended_level": 40,
+      "slot": "Shoulders",
+      "socket": false,
+      "stats": {
+        "HP": 120,
+        "Mana": 120,
+        "Armor class": 22,
+        "Healing Amount": 15,
+        "STA": 12,
+        "WIS": 12,
+        "Cold resist": 16,
+        "Heroic STA": 3,
+        "Heroic WIS": 3,
+        "Heroic cold resist": 4
+      }
+    },
+    {
+      "id": 940152,
+      "zone": "commons",
+      "kind": "Augment",
+      "tier": 0,
+      "name": "Dervish Bloodstone",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 12,
+        "Mana": 12,
+        "Heroic STR": 1,
+        "Heroic DEX": 1
+      }
+    },
+    {
+      "id": 940153,
+      "zone": "commons",
+      "kind": "Augment",
+      "tier": 1,
+      "name": "Dervish Bloodstone (Polished)",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 18,
+        "Mana": 18,
+        "Attack": 1,
+        "Heroic STR": 2,
+        "Heroic DEX": 2
+      }
+    },
+    {
+      "id": 940154,
+      "zone": "commons",
+      "kind": "Augment",
+      "tier": 2,
+      "name": "Dervish Bloodstone (Exalted)",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 24,
+        "Mana": 24,
+        "Attack": 1,
+        "Heroic STR": 3,
+        "Heroic DEX": 3
+      }
+    },
+    {
+      "id": 940155,
+      "zone": "commons",
+      "kind": "Augment",
+      "tier": 3,
+      "name": "Dervish Bloodstone (Ascension)",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 30,
+        "Mana": 30,
+        "Attack": 2,
+        "Heroic STR": 4,
+        "Heroic DEX": 4
+      }
+    },
+    {
+      "id": 940156,
+      "zone": "commons",
+      "kind": "Gear",
+      "tier": 0,
+      "name": "Dustroad Girdle",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Waist",
+      "socket": false,
+      "stats": {
+        "HP": 16,
+        "Mana": 16,
+        "Armor class": 3,
+        "STR": 2,
+        "DEX": 2,
+        "Fire resist": 3
+      }
+    },
+    {
+      "id": 940157,
+      "zone": "commons",
+      "kind": "Gear",
+      "tier": 1,
+      "name": "Dustroad Girdle (Polished)",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Waist",
+      "socket": false,
+      "stats": {
+        "HP": 23,
+        "Mana": 23,
+        "Armor class": 4,
+        "Attack": 2,
+        "STR": 3,
+        "DEX": 3,
+        "Fire resist": 4
+      }
+    },
+    {
+      "id": 940158,
+      "zone": "commons",
+      "kind": "Gear",
+      "tier": 2,
+      "name": "Dustroad Girdle (Exalted)",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Waist",
+      "socket": false,
+      "stats": {
+        "HP": 30,
+        "Mana": 30,
+        "Armor class": 5,
+        "Attack": 3,
+        "STR": 3,
+        "DEX": 3,
+        "Fire resist": 5
+      }
+    },
+    {
+      "id": 940159,
+      "zone": "commons",
+      "kind": "Gear",
+      "tier": 3,
+      "name": "Dustroad Girdle (Ascension)",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Waist",
+      "socket": false,
+      "stats": {
+        "HP": 38,
+        "Mana": 38,
+        "Armor class": 6,
+        "Attack": 5,
+        "STR": 4,
+        "DEX": 4,
+        "Fire resist": 6,
+        "Heroic STR": 1,
+        "Heroic DEX": 1,
+        "Heroic fire resist": 2
+      }
+    },
+    {
+      "id": 940160,
+      "zone": "ecommons",
+      "kind": "Augment",
+      "tier": 0,
+      "name": "Tunnelward Jasper",
+      "required_level": 1,
+      "recommended_level": 1,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 6,
+        "Mana": 6,
+        "Heroic STA": 1,
+        "Heroic AGI": 1
+      }
+    },
+    {
+      "id": 940161,
+      "zone": "ecommons",
+      "kind": "Augment",
+      "tier": 1,
+      "name": "Tunnelward Jasper (Polished)",
+      "required_level": 1,
+      "recommended_level": 1,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 9,
+        "Mana": 9,
+        "Heroic STA": 1,
+        "Heroic AGI": 1
+      }
+    },
+    {
+      "id": 940162,
+      "zone": "ecommons",
+      "kind": "Augment",
+      "tier": 2,
+      "name": "Tunnelward Jasper (Exalted)",
+      "required_level": 1,
+      "recommended_level": 1,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 12,
+        "Mana": 12,
+        "Heroic STA": 2,
+        "Heroic AGI": 2
+      }
+    },
+    {
+      "id": 940163,
+      "zone": "ecommons",
+      "kind": "Augment",
+      "tier": 3,
+      "name": "Tunnelward Jasper (Ascension)",
+      "required_level": 1,
+      "recommended_level": 1,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 15,
+        "Mana": 15,
+        "Heroic STA": 3,
+        "Heroic AGI": 3
+      }
+    },
+    {
+      "id": 940164,
+      "zone": "ecommons",
+      "kind": "Gear",
+      "tier": 0,
+      "name": "Ashen Trail Band",
+      "required_level": 1,
+      "recommended_level": 1,
+      "slot": "Finger",
+      "socket": false,
+      "stats": {
+        "HP": 8,
+        "Mana": 8,
+        "Armor class": 1,
+        "STA": 1,
+        "AGI": 1,
+        "Magic resist": 2
+      }
+    },
+    {
+      "id": 940165,
+      "zone": "ecommons",
+      "kind": "Gear",
+      "tier": 1,
+      "name": "Ashen Trail Band (Polished)",
+      "required_level": 1,
+      "recommended_level": 1,
+      "slot": "Finger",
+      "socket": false,
+      "stats": {
+        "HP": 12,
+        "Mana": 12,
+        "Armor class": 2,
+        "STA": 1,
+        "AGI": 1,
+        "Magic resist": 3
+      }
+    },
+    {
+      "id": 940166,
+      "zone": "ecommons",
+      "kind": "Gear",
+      "tier": 2,
+      "name": "Ashen Trail Band (Exalted)",
+      "required_level": 1,
+      "recommended_level": 1,
+      "slot": "Finger",
+      "socket": false,
+      "stats": {
+        "HP": 15,
+        "Mana": 15,
+        "Armor class": 4,
+        "STA": 2,
+        "AGI": 2,
+        "Magic resist": 3
+      }
+    },
+    {
+      "id": 940167,
+      "zone": "ecommons",
+      "kind": "Gear",
+      "tier": 3,
+      "name": "Ashen Trail Band (Ascension)",
+      "required_level": 1,
+      "recommended_level": 1,
+      "slot": "Finger",
+      "socket": false,
+      "stats": {
+        "HP": 19,
+        "Mana": 19,
+        "Armor class": 5,
+        "STA": 2,
+        "AGI": 2,
+        "Magic resist": 4,
+        "Heroic STA": 1,
+        "Heroic AGI": 1,
+        "Heroic magic resist": 1
+      }
+    },
+    {
+      "id": 940184,
+      "zone": "nektulos",
+      "kind": "Augment",
+      "tier": 0,
+      "name": "Shadowroot Shard",
+      "required_level": 1,
+      "recommended_level": 1,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 6,
+        "Mana": 6,
+        "Heroic STA": 1,
+        "Heroic INT": 1
+      }
+    },
+    {
+      "id": 940185,
+      "zone": "nektulos",
+      "kind": "Augment",
+      "tier": 1,
+      "name": "Shadowroot Shard (Polished)",
+      "required_level": 1,
+      "recommended_level": 1,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 9,
+        "Mana": 9,
+        "Heroic STA": 1,
+        "Heroic INT": 1
+      }
+    },
+    {
+      "id": 940186,
+      "zone": "nektulos",
+      "kind": "Augment",
+      "tier": 2,
+      "name": "Shadowroot Shard (Exalted)",
+      "required_level": 1,
+      "recommended_level": 1,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 12,
+        "Mana": 12,
+        "Heroic STA": 2,
+        "Heroic INT": 2
+      }
+    },
+    {
+      "id": 940187,
+      "zone": "nektulos",
+      "kind": "Augment",
+      "tier": 3,
+      "name": "Shadowroot Shard (Ascension)",
+      "required_level": 1,
+      "recommended_level": 1,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 15,
+        "Mana": 15,
+        "Heroic STA": 3,
+        "Heroic INT": 3
+      }
+    },
+    {
+      "id": 940188,
+      "zone": "nektulos",
+      "kind": "Gear",
+      "tier": 0,
+      "name": "Duskroot Cowl",
+      "required_level": 1,
+      "recommended_level": 1,
+      "slot": "Head",
+      "socket": true,
+      "stats": {
+        "HP": 8,
+        "Mana": 8,
+        "Armor class": 1,
+        "STA": 1,
+        "INT": 1,
+        "Magic resist": 2
+      }
+    },
+    {
+      "id": 940189,
+      "zone": "nektulos",
+      "kind": "Gear",
+      "tier": 1,
+      "name": "Duskroot Cowl (Polished)",
+      "required_level": 1,
+      "recommended_level": 1,
+      "slot": "Head",
+      "socket": true,
+      "stats": {
+        "HP": 12,
+        "Mana": 12,
+        "Armor class": 1,
+        "Spell Damage": 1,
+        "STA": 1,
+        "INT": 1,
+        "Magic resist": 3
+      }
+    },
+    {
+      "id": 940190,
+      "zone": "nektulos",
+      "kind": "Gear",
+      "tier": 2,
+      "name": "Duskroot Cowl (Exalted)",
+      "required_level": 1,
+      "recommended_level": 1,
+      "slot": "Head",
+      "socket": true,
+      "stats": {
+        "HP": 15,
+        "Mana": 15,
+        "Armor class": 2,
+        "Spell Damage": 2,
+        "STA": 2,
+        "INT": 2,
+        "Magic resist": 3
+      }
+    },
+    {
+      "id": 940191,
+      "zone": "nektulos",
+      "kind": "Gear",
+      "tier": 3,
+      "name": "Duskroot Cowl (Ascension)",
+      "required_level": 1,
+      "recommended_level": 1,
+      "slot": "Head",
+      "socket": true,
+      "stats": {
+        "HP": 19,
+        "Mana": 19,
+        "Armor class": 2,
+        "Spell Damage": 3,
+        "STA": 2,
+        "INT": 2,
+        "Magic resist": 4,
+        "Heroic STA": 1,
+        "Heroic INT": 1,
+        "Heroic magic resist": 1
+      }
+    },
+    {
+      "id": 940192,
+      "zone": "lavastorm",
+      "kind": "Augment",
+      "tier": 0,
+      "name": "Embervein Crystal",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 20,
+        "Mana": 20,
+        "Spell Damage": 1,
+        "Heroic STA": 2,
+        "Heroic INT": 2
+      }
+    },
+    {
+      "id": 940193,
+      "zone": "lavastorm",
+      "kind": "Augment",
+      "tier": 1,
+      "name": "Embervein Crystal (Polished)",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 29,
+        "Mana": 29,
+        "Spell Damage": 1,
+        "Heroic STA": 3,
+        "Heroic INT": 3
+      }
+    },
+    {
+      "id": 940194,
+      "zone": "lavastorm",
+      "kind": "Augment",
+      "tier": 2,
+      "name": "Embervein Crystal (Exalted)",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 38,
+        "Mana": 38,
+        "Spell Damage": 2,
+        "Heroic STA": 4,
+        "Heroic INT": 4
+      }
+    },
+    {
+      "id": 940195,
+      "zone": "lavastorm",
+      "kind": "Augment",
+      "tier": 3,
+      "name": "Embervein Crystal (Ascension)",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 48,
+        "Mana": 48,
+        "Spell Damage": 3,
+        "Heroic STA": 5,
+        "Heroic INT": 5
+      }
+    },
+    {
+      "id": 940196,
+      "zone": "lavastorm",
+      "kind": "Gear",
+      "tier": 0,
+      "name": "Cinderpath Gloves",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Hands",
+      "socket": true,
+      "stats": {
+        "HP": 26,
+        "Mana": 26,
+        "Armor class": 5,
+        "Spell Damage": 1,
+        "STA": 3,
+        "INT": 3,
+        "Magic resist": 4
+      }
+    },
+    {
+      "id": 940197,
+      "zone": "lavastorm",
+      "kind": "Gear",
+      "tier": 1,
+      "name": "Cinderpath Gloves (Polished)",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Hands",
+      "socket": true,
+      "stats": {
+        "HP": 38,
+        "Mana": 38,
+        "Armor class": 7,
+        "Spell Damage": 3,
+        "STA": 4,
+        "INT": 4,
+        "Magic resist": 5
+      }
+    },
+    {
+      "id": 940198,
+      "zone": "lavastorm",
+      "kind": "Gear",
+      "tier": 2,
+      "name": "Cinderpath Gloves (Exalted)",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Hands",
+      "socket": true,
+      "stats": {
+        "HP": 49,
+        "Mana": 49,
+        "Armor class": 8,
+        "Spell Damage": 5,
+        "STA": 5,
+        "INT": 5,
+        "Magic resist": 7
+      }
+    },
+    {
+      "id": 940199,
+      "zone": "lavastorm",
+      "kind": "Gear",
+      "tier": 3,
+      "name": "Cinderpath Gloves (Ascension)",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Hands",
+      "socket": true,
+      "stats": {
+        "HP": 62,
+        "Mana": 62,
+        "Armor class": 10,
+        "Spell Damage": 8,
+        "STA": 6,
+        "INT": 6,
+        "Magic resist": 8,
+        "Heroic STA": 2,
+        "Heroic INT": 2,
+        "Heroic magic resist": 2
+      }
+    },
+    {
+      "id": 940208,
+      "zone": "everfrost",
+      "kind": "Augment",
+      "tier": 0,
+      "name": "Icewind Garnet",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 12,
+        "Mana": 12,
+        "Heroic STA": 1,
+        "Heroic AGI": 1
+      }
+    },
+    {
+      "id": 940209,
+      "zone": "everfrost",
+      "kind": "Augment",
+      "tier": 1,
+      "name": "Icewind Garnet (Polished)",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 18,
+        "Mana": 18,
+        "Armor class": 1,
+        "Heroic STA": 2,
+        "Heroic AGI": 2
+      }
+    },
+    {
+      "id": 940210,
+      "zone": "everfrost",
+      "kind": "Augment",
+      "tier": 2,
+      "name": "Icewind Garnet (Exalted)",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 24,
+        "Mana": 24,
+        "Armor class": 1,
+        "Heroic STA": 3,
+        "Heroic AGI": 3
+      }
+    },
+    {
+      "id": 940211,
+      "zone": "everfrost",
+      "kind": "Augment",
+      "tier": 3,
+      "name": "Icewind Garnet (Ascension)",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 30,
+        "Mana": 30,
+        "Armor class": 2,
+        "Heroic STA": 4,
+        "Heroic AGI": 4
+      }
+    },
+    {
+      "id": 940212,
+      "zone": "everfrost",
+      "kind": "Gear",
+      "tier": 0,
+      "name": "Snowstalker Wrap",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Back",
+      "socket": false,
+      "stats": {
+        "HP": 16,
+        "Mana": 16,
+        "Armor class": 3,
+        "STA": 2,
+        "AGI": 2,
+        "Magic resist": 3
+      }
+    },
+    {
+      "id": 940213,
+      "zone": "everfrost",
+      "kind": "Gear",
+      "tier": 1,
+      "name": "Snowstalker Wrap (Polished)",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Back",
+      "socket": false,
+      "stats": {
+        "HP": 23,
+        "Mana": 23,
+        "Armor class": 6,
+        "STA": 3,
+        "AGI": 3,
+        "Magic resist": 4
+      }
+    },
+    {
+      "id": 940214,
+      "zone": "everfrost",
+      "kind": "Gear",
+      "tier": 2,
+      "name": "Snowstalker Wrap (Exalted)",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Back",
+      "socket": false,
+      "stats": {
+        "HP": 30,
+        "Mana": 30,
+        "Armor class": 8,
+        "STA": 3,
+        "AGI": 3,
+        "Magic resist": 5
+      }
+    },
+    {
+      "id": 940215,
+      "zone": "everfrost",
+      "kind": "Gear",
+      "tier": 3,
+      "name": "Snowstalker Wrap (Ascension)",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Back",
+      "socket": false,
+      "stats": {
+        "HP": 38,
+        "Mana": 38,
+        "Armor class": 11,
+        "STA": 4,
+        "AGI": 4,
+        "Magic resist": 6,
+        "Heroic STA": 1,
+        "Heroic AGI": 1,
+        "Heroic magic resist": 2
+      }
+    },
+    {
+      "id": 940216,
+      "zone": "soldunga",
+      "kind": "Augment",
+      "tier": 0,
+      "name": "Fireglass Carbuncle",
+      "required_level": 30,
+      "recommended_level": 30,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 30,
+        "Mana": 30,
+        "Attack": 1,
+        "Heroic STR": 3,
+        "Heroic DEX": 3
+      }
+    },
+    {
+      "id": 940217,
+      "zone": "soldunga",
+      "kind": "Augment",
+      "tier": 1,
+      "name": "Fireglass Carbuncle (Polished)",
+      "required_level": 30,
+      "recommended_level": 30,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 44,
+        "Mana": 44,
+        "Attack": 2,
+        "Heroic STR": 4,
+        "Heroic DEX": 4
+      }
+    },
+    {
+      "id": 940218,
+      "zone": "soldunga",
+      "kind": "Augment",
+      "tier": 2,
+      "name": "Fireglass Carbuncle (Exalted)",
+      "required_level": 30,
+      "recommended_level": 30,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 57,
+        "Mana": 57,
+        "Attack": 3,
+        "Heroic STR": 5,
+        "Heroic DEX": 5
+      }
+    },
+    {
+      "id": 940219,
+      "zone": "soldunga",
+      "kind": "Augment",
+      "tier": 3,
+      "name": "Fireglass Carbuncle (Ascension)",
+      "required_level": 30,
+      "recommended_level": 30,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 72,
+        "Mana": 72,
+        "Attack": 4,
+        "Heroic STR": 6,
+        "Heroic DEX": 6
+      }
+    },
+    {
+      "id": 940220,
+      "zone": "soldunga",
+      "kind": "Gear",
+      "tier": 0,
+      "name": "Cinderforge Armguards",
+      "required_level": 30,
+      "recommended_level": 30,
+      "slot": "Arms",
+      "socket": true,
+      "stats": {
+        "HP": 38,
+        "Mana": 38,
+        "Armor class": 8,
+        "Attack": 2,
+        "STR": 5,
+        "DEX": 5,
+        "Fire resist": 6
+      }
+    },
+    {
+      "id": 940221,
+      "zone": "soldunga",
+      "kind": "Gear",
+      "tier": 1,
+      "name": "Cinderforge Armguards (Polished)",
+      "required_level": 30,
+      "recommended_level": 30,
+      "slot": "Arms",
+      "socket": true,
+      "stats": {
+        "HP": 55,
+        "Mana": 55,
+        "Armor class": 11,
+        "Attack": 4,
+        "STR": 7,
+        "DEX": 7,
+        "Fire resist": 8
+      }
+    },
+    {
+      "id": 940222,
+      "zone": "soldunga",
+      "kind": "Gear",
+      "tier": 2,
+      "name": "Cinderforge Armguards (Exalted)",
+      "required_level": 30,
+      "recommended_level": 30,
+      "slot": "Arms",
+      "socket": true,
+      "stats": {
+        "HP": 72,
+        "Mana": 72,
+        "Armor class": 13,
+        "Attack": 7,
+        "STR": 8,
+        "DEX": 8,
+        "Fire resist": 10
+      }
+    },
+    {
+      "id": 940223,
+      "zone": "soldunga",
+      "kind": "Gear",
+      "tier": 3,
+      "name": "Cinderforge Armguards (Ascension)",
+      "required_level": 30,
+      "recommended_level": 30,
+      "slot": "Arms",
+      "socket": true,
+      "stats": {
+        "HP": 91,
+        "Mana": 91,
+        "Armor class": 16,
+        "Attack": 11,
+        "STR": 10,
+        "DEX": 10,
+        "Fire resist": 12,
+        "Heroic STR": 3,
+        "Heroic DEX": 3,
+        "Heroic fire resist": 3
+      }
+    },
+    {
+      "id": 940224,
+      "zone": "soldungb",
+      "kind": "Augment",
+      "tier": 0,
+      "name": "Emberheart Garnet",
+      "required_level": 50,
+      "recommended_level": 50,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 60,
+        "Mana": 60,
+        "Attack": 2,
+        "Heroic STR": 5,
+        "Heroic DEX": 5
+      }
+    },
+    {
+      "id": 940225,
+      "zone": "soldungb",
+      "kind": "Augment",
+      "tier": 1,
+      "name": "Emberheart Garnet (Polished)",
+      "required_level": 50,
+      "recommended_level": 50,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 87,
+        "Mana": 87,
+        "Attack": 3,
+        "Heroic STR": 6,
+        "Heroic DEX": 6
+      }
+    },
+    {
+      "id": 940226,
+      "zone": "soldungb",
+      "kind": "Augment",
+      "tier": 2,
+      "name": "Emberheart Garnet (Exalted)",
+      "required_level": 50,
+      "recommended_level": 50,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 114,
+        "Mana": 114,
+        "Attack": 5,
+        "Heroic STR": 8,
+        "Heroic DEX": 8
+      }
+    },
+    {
+      "id": 940227,
+      "zone": "soldungb",
+      "kind": "Augment",
+      "tier": 3,
+      "name": "Emberheart Garnet (Ascension)",
+      "required_level": 50,
+      "recommended_level": 50,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 144,
+        "Mana": 144,
+        "Attack": 6,
+        "Heroic STR": 10,
+        "Heroic DEX": 10
+      }
+    },
+    {
+      "id": 940228,
+      "zone": "soldungb",
+      "kind": "Gear",
+      "tier": 0,
+      "name": "Wyrmward Gorget",
+      "required_level": 50,
+      "recommended_level": 50,
+      "slot": "Neck",
+      "socket": false,
+      "stats": {
+        "HP": 60,
+        "Mana": 60,
+        "Armor class": 14,
+        "Attack": 4,
+        "STR": 8,
+        "DEX": 8,
+        "Fire resist": 10
+      }
+    },
+    {
+      "id": 940229,
+      "zone": "soldungb",
+      "kind": "Gear",
+      "tier": 1,
+      "name": "Wyrmward Gorget (Polished)",
+      "required_level": 50,
+      "recommended_level": 50,
+      "slot": "Neck",
+      "socket": false,
+      "stats": {
+        "HP": 87,
+        "Mana": 87,
+        "Armor class": 19,
+        "Attack": 8,
+        "STR": 11,
+        "DEX": 11,
+        "Fire resist": 14
+      }
+    },
+    {
+      "id": 940230,
+      "zone": "soldungb",
+      "kind": "Gear",
+      "tier": 2,
+      "name": "Wyrmward Gorget (Exalted)",
+      "required_level": 50,
+      "recommended_level": 50,
+      "slot": "Neck",
+      "socket": false,
+      "stats": {
+        "HP": 114,
+        "Mana": 114,
+        "Armor class": 23,
+        "Attack": 14,
+        "STR": 13,
+        "DEX": 13,
+        "Fire resist": 17
+      }
+    },
+    {
+      "id": 940231,
+      "zone": "soldungb",
+      "kind": "Gear",
+      "tier": 3,
+      "name": "Wyrmward Gorget (Ascension)",
+      "required_level": 50,
+      "recommended_level": 50,
+      "slot": "Neck",
+      "socket": false,
+      "stats": {
+        "HP": 144,
+        "Mana": 144,
+        "Armor class": 28,
+        "Attack": 20,
+        "STR": 16,
+        "DEX": 16,
+        "Fire resist": 20,
+        "Heroic STR": 4,
+        "Heroic DEX": 4,
+        "Heroic fire resist": 5
+      }
+    },
+    {
+      "id": 940232,
+      "zone": "misty",
+      "kind": "Augment",
+      "tier": 0,
+      "name": "Thicketseed Opal",
+      "required_level": 1,
+      "recommended_level": 1,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 6,
+        "Mana": 6,
+        "Heroic AGI": 1,
+        "Heroic WIS": 1
+      }
+    },
+    {
+      "id": 940233,
+      "zone": "misty",
+      "kind": "Augment",
+      "tier": 1,
+      "name": "Thicketseed Opal (Polished)",
+      "required_level": 1,
+      "recommended_level": 1,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 9,
+        "Mana": 9,
+        "Heroic AGI": 1,
+        "Heroic WIS": 1
+      }
+    },
+    {
+      "id": 940234,
+      "zone": "misty",
+      "kind": "Augment",
+      "tier": 2,
+      "name": "Thicketseed Opal (Exalted)",
+      "required_level": 1,
+      "recommended_level": 1,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 12,
+        "Mana": 12,
+        "Heroic AGI": 2,
+        "Heroic WIS": 2
+      }
+    },
+    {
+      "id": 940235,
+      "zone": "misty",
+      "kind": "Augment",
+      "tier": 3,
+      "name": "Thicketseed Opal (Ascension)",
+      "required_level": 1,
+      "recommended_level": 1,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 15,
+        "Mana": 15,
+        "Heroic AGI": 3,
+        "Heroic WIS": 3
+      }
+    },
+    {
+      "id": 940236,
+      "zone": "misty",
+      "kind": "Gear",
+      "tier": 0,
+      "name": "Briarstep Sandals",
+      "required_level": 1,
+      "recommended_level": 1,
+      "slot": "Feet",
+      "socket": true,
+      "stats": {
+        "HP": 8,
+        "Mana": 8,
+        "Armor class": 1,
+        "AGI": 1,
+        "WIS": 1,
+        "Poison resist": 2
+      }
+    },
+    {
+      "id": 940237,
+      "zone": "misty",
+      "kind": "Gear",
+      "tier": 1,
+      "name": "Briarstep Sandals (Polished)",
+      "required_level": 1,
+      "recommended_level": 1,
+      "slot": "Feet",
+      "socket": true,
+      "stats": {
+        "HP": 12,
+        "Mana": 12,
+        "Armor class": 1,
+        "Healing Amount": 1,
+        "AGI": 1,
+        "WIS": 1,
+        "Poison resist": 3
+      }
+    },
+    {
+      "id": 940238,
+      "zone": "misty",
+      "kind": "Gear",
+      "tier": 2,
+      "name": "Briarstep Sandals (Exalted)",
+      "required_level": 1,
+      "recommended_level": 1,
+      "slot": "Feet",
+      "socket": true,
+      "stats": {
+        "HP": 15,
+        "Mana": 15,
+        "Armor class": 2,
+        "Healing Amount": 2,
+        "AGI": 2,
+        "WIS": 2,
+        "Poison resist": 3
+      }
+    },
+    {
+      "id": 940239,
+      "zone": "misty",
+      "kind": "Gear",
+      "tier": 3,
+      "name": "Briarstep Sandals (Ascension)",
+      "required_level": 1,
+      "recommended_level": 1,
+      "slot": "Feet",
+      "socket": true,
+      "stats": {
+        "HP": 19,
+        "Mana": 19,
+        "Armor class": 2,
+        "Healing Amount": 3,
+        "AGI": 2,
+        "WIS": 2,
+        "Poison resist": 4,
+        "Heroic AGI": 1,
+        "Heroic WIS": 1,
+        "Heroic poison resist": 1
+      }
+    },
+    {
+      "id": 940240,
+      "zone": "nro",
+      "kind": "Augment",
+      "tier": 0,
+      "name": "Dunewind Quartz",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 12,
+        "Mana": 12,
+        "Heroic AGI": 1,
+        "Heroic DEX": 1
+      }
+    },
+    {
+      "id": 940241,
+      "zone": "nro",
+      "kind": "Augment",
+      "tier": 1,
+      "name": "Dunewind Quartz (Polished)",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 18,
+        "Mana": 18,
+        "Attack": 1,
+        "Heroic AGI": 2,
+        "Heroic DEX": 2
+      }
+    },
+    {
+      "id": 940242,
+      "zone": "nro",
+      "kind": "Augment",
+      "tier": 2,
+      "name": "Dunewind Quartz (Exalted)",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 24,
+        "Mana": 24,
+        "Attack": 1,
+        "Heroic AGI": 3,
+        "Heroic DEX": 3
+      }
+    },
+    {
+      "id": 940243,
+      "zone": "nro",
+      "kind": "Augment",
+      "tier": 3,
+      "name": "Dunewind Quartz (Ascension)",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 30,
+        "Mana": 30,
+        "Attack": 2,
+        "Heroic AGI": 4,
+        "Heroic DEX": 4
+      }
+    },
+    {
+      "id": 940244,
+      "zone": "nro",
+      "kind": "Gear",
+      "tier": 0,
+      "name": "Sandstrider Cuffs",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Wrist",
+      "socket": false,
+      "stats": {
+        "HP": 16,
+        "Mana": 16,
+        "Armor class": 3,
+        "AGI": 2,
+        "DEX": 2,
+        "Disease resist": 3
+      }
+    },
+    {
+      "id": 940245,
+      "zone": "nro",
+      "kind": "Gear",
+      "tier": 1,
+      "name": "Sandstrider Cuffs (Polished)",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Wrist",
+      "socket": false,
+      "stats": {
+        "HP": 23,
+        "Mana": 23,
+        "Armor class": 4,
+        "Attack": 2,
+        "AGI": 3,
+        "DEX": 3,
+        "Disease resist": 4
+      }
+    },
+    {
+      "id": 940246,
+      "zone": "nro",
+      "kind": "Gear",
+      "tier": 2,
+      "name": "Sandstrider Cuffs (Exalted)",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Wrist",
+      "socket": false,
+      "stats": {
+        "HP": 30,
+        "Mana": 30,
+        "Armor class": 5,
+        "Attack": 3,
+        "AGI": 3,
+        "DEX": 3,
+        "Disease resist": 5
+      }
+    },
+    {
+      "id": 940247,
+      "zone": "nro",
+      "kind": "Gear",
+      "tier": 3,
+      "name": "Sandstrider Cuffs (Ascension)",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Wrist",
+      "socket": false,
+      "stats": {
+        "HP": 38,
+        "Mana": 38,
+        "Armor class": 6,
+        "Attack": 5,
+        "AGI": 4,
+        "DEX": 4,
+        "Disease resist": 6,
+        "Heroic AGI": 1,
+        "Heroic DEX": 1,
+        "Heroic disease resist": 2
+      }
+    },
+    {
+      "id": 940248,
+      "zone": "sro",
+      "kind": "Augment",
+      "tier": 0,
+      "name": "Sunscar Ruby",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 20,
+        "Mana": 20,
+        "Attack": 1,
+        "Heroic STR": 2,
+        "Heroic DEX": 2
+      }
+    },
+    {
+      "id": 940249,
+      "zone": "sro",
+      "kind": "Augment",
+      "tier": 1,
+      "name": "Sunscar Ruby (Polished)",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 29,
+        "Mana": 29,
+        "Attack": 1,
+        "Heroic STR": 3,
+        "Heroic DEX": 3
+      }
+    },
+    {
+      "id": 940250,
+      "zone": "sro",
+      "kind": "Augment",
+      "tier": 2,
+      "name": "Sunscar Ruby (Exalted)",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 38,
+        "Mana": 38,
+        "Attack": 2,
+        "Heroic STR": 4,
+        "Heroic DEX": 4
+      }
+    },
+    {
+      "id": 940251,
+      "zone": "sro",
+      "kind": "Augment",
+      "tier": 3,
+      "name": "Sunscar Ruby (Ascension)",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 48,
+        "Mana": 48,
+        "Attack": 3,
+        "Heroic STR": 5,
+        "Heroic DEX": 5
+      }
+    },
+    {
+      "id": 940252,
+      "zone": "sro",
+      "kind": "Gear",
+      "tier": 0,
+      "name": "Dervishwind Shawl",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Shoulders",
+      "socket": false,
+      "stats": {
+        "HP": 26,
+        "Mana": 26,
+        "Armor class": 5,
+        "Attack": 1,
+        "STR": 3,
+        "DEX": 3,
+        "Fire resist": 4
+      }
+    },
+    {
+      "id": 940253,
+      "zone": "sro",
+      "kind": "Gear",
+      "tier": 1,
+      "name": "Dervishwind Shawl (Polished)",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Shoulders",
+      "socket": false,
+      "stats": {
+        "HP": 38,
+        "Mana": 38,
+        "Armor class": 7,
+        "Attack": 3,
+        "STR": 4,
+        "DEX": 4,
+        "Fire resist": 5
+      }
+    },
+    {
+      "id": 940254,
+      "zone": "sro",
+      "kind": "Gear",
+      "tier": 2,
+      "name": "Dervishwind Shawl (Exalted)",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Shoulders",
+      "socket": false,
+      "stats": {
+        "HP": 49,
+        "Mana": 49,
+        "Armor class": 8,
+        "Attack": 5,
+        "STR": 5,
+        "DEX": 5,
+        "Fire resist": 7
+      }
+    },
+    {
+      "id": 940255,
+      "zone": "sro",
+      "kind": "Gear",
+      "tier": 3,
+      "name": "Dervishwind Shawl (Ascension)",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Shoulders",
+      "socket": false,
+      "stats": {
+        "HP": 62,
+        "Mana": 62,
+        "Armor class": 10,
+        "Attack": 8,
+        "STR": 6,
+        "DEX": 6,
+        "Fire resist": 8,
+        "Heroic STR": 2,
+        "Heroic DEX": 2,
+        "Heroic fire resist": 2
+      }
+    },
+    {
+      "id": 940256,
+      "zone": "befallen",
+      "kind": "Augment",
+      "tier": 0,
+      "name": "Gravewhisper Onyx",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 12,
+        "Mana": 12,
+        "Heroic STA": 1,
+        "Heroic WIS": 1
+      }
+    },
+    {
+      "id": 940257,
+      "zone": "befallen",
+      "kind": "Augment",
+      "tier": 1,
+      "name": "Gravewhisper Onyx (Polished)",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 18,
+        "Mana": 18,
+        "Healing Amount": 1,
+        "Heroic STA": 2,
+        "Heroic WIS": 2
+      }
+    },
+    {
+      "id": 940258,
+      "zone": "befallen",
+      "kind": "Augment",
+      "tier": 2,
+      "name": "Gravewhisper Onyx (Exalted)",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 24,
+        "Mana": 24,
+        "Healing Amount": 1,
+        "Heroic STA": 3,
+        "Heroic WIS": 3
+      }
+    },
+    {
+      "id": 940259,
+      "zone": "befallen",
+      "kind": "Augment",
+      "tier": 3,
+      "name": "Gravewhisper Onyx (Ascension)",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 30,
+        "Mana": 30,
+        "Healing Amount": 2,
+        "Heroic STA": 4,
+        "Heroic WIS": 4
+      }
+    },
+    {
+      "id": 940260,
+      "zone": "befallen",
+      "kind": "Gear",
+      "tier": 0,
+      "name": "Ashcrypt Pendant",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Neck",
+      "socket": false,
+      "stats": {
+        "HP": 16,
+        "Mana": 16,
+        "Armor class": 3,
+        "STA": 2,
+        "WIS": 2,
+        "Cold resist": 3
+      }
+    },
+    {
+      "id": 940261,
+      "zone": "befallen",
+      "kind": "Gear",
+      "tier": 1,
+      "name": "Ashcrypt Pendant (Polished)",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Neck",
+      "socket": false,
+      "stats": {
+        "HP": 23,
+        "Mana": 23,
+        "Armor class": 4,
+        "Healing Amount": 2,
+        "STA": 3,
+        "WIS": 3,
+        "Cold resist": 4
+      }
+    },
+    {
+      "id": 940262,
+      "zone": "befallen",
+      "kind": "Gear",
+      "tier": 2,
+      "name": "Ashcrypt Pendant (Exalted)",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Neck",
+      "socket": false,
+      "stats": {
+        "HP": 30,
+        "Mana": 30,
+        "Armor class": 5,
+        "Healing Amount": 3,
+        "STA": 3,
+        "WIS": 3,
+        "Cold resist": 5
+      }
+    },
+    {
+      "id": 940263,
+      "zone": "befallen",
+      "kind": "Gear",
+      "tier": 3,
+      "name": "Ashcrypt Pendant (Ascension)",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Neck",
+      "socket": false,
+      "stats": {
+        "HP": 38,
+        "Mana": 38,
+        "Armor class": 6,
+        "Healing Amount": 5,
+        "STA": 4,
+        "WIS": 4,
+        "Cold resist": 6,
+        "Heroic STA": 1,
+        "Heroic WIS": 1,
+        "Heroic cold resist": 2
+      }
+    },
+    {
+      "id": 940264,
+      "zone": "oasis",
+      "kind": "Augment",
+      "tier": 0,
+      "name": "Marrspring Pearl",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 20,
+        "Mana": 20,
+        "Healing Amount": 1,
+        "Heroic STA": 2,
+        "Heroic WIS": 2
+      }
+    },
+    {
+      "id": 940265,
+      "zone": "oasis",
+      "kind": "Augment",
+      "tier": 1,
+      "name": "Marrspring Pearl (Polished)",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 29,
+        "Mana": 29,
+        "Healing Amount": 1,
+        "Heroic STA": 3,
+        "Heroic WIS": 3
+      }
+    },
+    {
+      "id": 940266,
+      "zone": "oasis",
+      "kind": "Augment",
+      "tier": 2,
+      "name": "Marrspring Pearl (Exalted)",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 38,
+        "Mana": 38,
+        "Healing Amount": 2,
+        "Heroic STA": 4,
+        "Heroic WIS": 4
+      }
+    },
+    {
+      "id": 940267,
+      "zone": "oasis",
+      "kind": "Augment",
+      "tier": 3,
+      "name": "Marrspring Pearl (Ascension)",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 48,
+        "Mana": 48,
+        "Healing Amount": 3,
+        "Heroic STA": 5,
+        "Heroic WIS": 5
+      }
+    },
+    {
+      "id": 940268,
+      "zone": "oasis",
+      "kind": "Gear",
+      "tier": 0,
+      "name": "Reedwater Signet",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Finger",
+      "socket": false,
+      "stats": {
+        "HP": 26,
+        "Mana": 26,
+        "Armor class": 5,
+        "Healing Amount": 1,
+        "STA": 3,
+        "WIS": 3,
+        "Cold resist": 4
+      }
+    },
+    {
+      "id": 940269,
+      "zone": "oasis",
+      "kind": "Gear",
+      "tier": 1,
+      "name": "Reedwater Signet (Polished)",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Finger",
+      "socket": false,
+      "stats": {
+        "HP": 38,
+        "Mana": 38,
+        "Armor class": 7,
+        "Healing Amount": 3,
+        "STA": 4,
+        "WIS": 4,
+        "Cold resist": 5
+      }
+    },
+    {
+      "id": 940270,
+      "zone": "oasis",
+      "kind": "Gear",
+      "tier": 2,
+      "name": "Reedwater Signet (Exalted)",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Finger",
+      "socket": false,
+      "stats": {
+        "HP": 49,
+        "Mana": 49,
+        "Armor class": 8,
+        "Healing Amount": 5,
+        "STA": 5,
+        "WIS": 5,
+        "Cold resist": 7
+      }
+    },
+    {
+      "id": 940271,
+      "zone": "oasis",
+      "kind": "Gear",
+      "tier": 3,
+      "name": "Reedwater Signet (Ascension)",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Finger",
+      "socket": false,
+      "stats": {
+        "HP": 62,
+        "Mana": 62,
+        "Armor class": 10,
+        "Healing Amount": 8,
+        "STA": 6,
+        "WIS": 6,
+        "Cold resist": 8,
+        "Heroic STA": 2,
+        "Heroic WIS": 2,
+        "Heroic cold resist": 2
+      }
+    },
+    {
+      "id": 940272,
+      "zone": "tox",
+      "kind": "Augment",
+      "tier": 0,
+      "name": "Toxroot Amethyst",
+      "required_level": 1,
+      "recommended_level": 1,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 6,
+        "Mana": 6,
+        "Heroic STA": 1,
+        "Heroic INT": 1
+      }
+    },
+    {
+      "id": 940273,
+      "zone": "tox",
+      "kind": "Augment",
+      "tier": 1,
+      "name": "Toxroot Amethyst (Polished)",
+      "required_level": 1,
+      "recommended_level": 1,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 9,
+        "Mana": 9,
+        "Heroic STA": 1,
+        "Heroic INT": 1
+      }
+    },
+    {
+      "id": 940274,
+      "zone": "tox",
+      "kind": "Augment",
+      "tier": 2,
+      "name": "Toxroot Amethyst (Exalted)",
+      "required_level": 1,
+      "recommended_level": 1,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 12,
+        "Mana": 12,
+        "Heroic STA": 2,
+        "Heroic INT": 2
+      }
+    },
+    {
+      "id": 940275,
+      "zone": "tox",
+      "kind": "Augment",
+      "tier": 3,
+      "name": "Toxroot Amethyst (Ascension)",
+      "required_level": 1,
+      "recommended_level": 1,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 15,
+        "Mana": 15,
+        "Heroic STA": 3,
+        "Heroic INT": 3
+      }
+    },
+    {
+      "id": 940276,
+      "zone": "tox",
+      "kind": "Gear",
+      "tier": 0,
+      "name": "Mistwoven Sleeves",
+      "required_level": 1,
+      "recommended_level": 1,
+      "slot": "Arms",
+      "socket": true,
+      "stats": {
+        "HP": 8,
+        "Mana": 8,
+        "Armor class": 1,
+        "STA": 1,
+        "INT": 1,
+        "Magic resist": 2
+      }
+    },
+    {
+      "id": 940277,
+      "zone": "tox",
+      "kind": "Gear",
+      "tier": 1,
+      "name": "Mistwoven Sleeves (Polished)",
+      "required_level": 1,
+      "recommended_level": 1,
+      "slot": "Arms",
+      "socket": true,
+      "stats": {
+        "HP": 12,
+        "Mana": 12,
+        "Armor class": 1,
+        "Spell Damage": 1,
+        "STA": 1,
+        "INT": 1,
+        "Magic resist": 3
+      }
+    },
+    {
+      "id": 940278,
+      "zone": "tox",
+      "kind": "Gear",
+      "tier": 2,
+      "name": "Mistwoven Sleeves (Exalted)",
+      "required_level": 1,
+      "recommended_level": 1,
+      "slot": "Arms",
+      "socket": true,
+      "stats": {
+        "HP": 15,
+        "Mana": 15,
+        "Armor class": 2,
+        "Spell Damage": 2,
+        "STA": 2,
+        "INT": 2,
+        "Magic resist": 3
+      }
+    },
+    {
+      "id": 940279,
+      "zone": "tox",
+      "kind": "Gear",
+      "tier": 3,
+      "name": "Mistwoven Sleeves (Ascension)",
+      "required_level": 1,
+      "recommended_level": 1,
+      "slot": "Arms",
+      "socket": true,
+      "stats": {
+        "HP": 19,
+        "Mana": 19,
+        "Armor class": 2,
+        "Spell Damage": 3,
+        "STA": 2,
+        "INT": 2,
+        "Magic resist": 4,
+        "Heroic STA": 1,
+        "Heroic INT": 1,
+        "Heroic magic resist": 1
+      }
+    },
+    {
+      "id": 940280,
+      "zone": "hole",
+      "kind": "Augment",
+      "tier": 0,
+      "name": "Understone Heart",
+      "required_level": 50,
+      "recommended_level": 50,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 60,
+        "Mana": 60,
+        "Armor class": 2,
+        "Heroic STA": 5,
+        "Heroic AGI": 5
+      }
+    },
+    {
+      "id": 940281,
+      "zone": "hole",
+      "kind": "Augment",
+      "tier": 1,
+      "name": "Understone Heart (Polished)",
+      "required_level": 50,
+      "recommended_level": 50,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 87,
+        "Mana": 87,
+        "Armor class": 3,
+        "Heroic STA": 6,
+        "Heroic AGI": 6
+      }
+    },
+    {
+      "id": 940282,
+      "zone": "hole",
+      "kind": "Augment",
+      "tier": 2,
+      "name": "Understone Heart (Exalted)",
+      "required_level": 50,
+      "recommended_level": 50,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 114,
+        "Mana": 114,
+        "Armor class": 5,
+        "Heroic STA": 8,
+        "Heroic AGI": 8
+      }
+    },
+    {
+      "id": 940283,
+      "zone": "hole",
+      "kind": "Augment",
+      "tier": 3,
+      "name": "Understone Heart (Ascension)",
+      "required_level": 50,
+      "recommended_level": 50,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 144,
+        "Mana": 144,
+        "Armor class": 6,
+        "Heroic STA": 10,
+        "Heroic AGI": 10
+      }
+    },
+    {
+      "id": 940284,
+      "zone": "hole",
+      "kind": "Gear",
+      "tier": 0,
+      "name": "Deepwarden Vambraces",
+      "required_level": 50,
+      "recommended_level": 50,
+      "slot": "Arms",
+      "socket": true,
+      "stats": {
+        "HP": 60,
+        "Mana": 60,
+        "Armor class": 18,
+        "STA": 8,
+        "AGI": 8,
+        "Magic resist": 10
+      }
+    },
+    {
+      "id": 940285,
+      "zone": "hole",
+      "kind": "Gear",
+      "tier": 1,
+      "name": "Deepwarden Vambraces (Polished)",
+      "required_level": 50,
+      "recommended_level": 50,
+      "slot": "Arms",
+      "socket": true,
+      "stats": {
+        "HP": 87,
+        "Mana": 87,
+        "Armor class": 27,
+        "STA": 11,
+        "AGI": 11,
+        "Magic resist": 14
+      }
+    },
+    {
+      "id": 940286,
+      "zone": "hole",
+      "kind": "Gear",
+      "tier": 2,
+      "name": "Deepwarden Vambraces (Exalted)",
+      "required_level": 50,
+      "recommended_level": 50,
+      "slot": "Arms",
+      "socket": true,
+      "stats": {
+        "HP": 114,
+        "Mana": 114,
+        "Armor class": 37,
+        "STA": 13,
+        "AGI": 13,
+        "Magic resist": 17
+      }
+    },
+    {
+      "id": 940287,
+      "zone": "hole",
+      "kind": "Gear",
+      "tier": 3,
+      "name": "Deepwarden Vambraces (Ascension)",
+      "required_level": 50,
+      "recommended_level": 50,
+      "slot": "Arms",
+      "socket": true,
+      "stats": {
+        "HP": 144,
+        "Mana": 144,
+        "Armor class": 48,
+        "STA": 16,
+        "AGI": 16,
+        "Magic resist": 20,
+        "Heroic STA": 4,
+        "Heroic AGI": 4,
+        "Heroic magic resist": 5
+      }
+    },
+    {
+      "id": 940312,
+      "zone": "najena",
+      "kind": "Augment",
+      "tier": 0,
+      "name": "Binding Ember",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 20,
+        "Mana": 20,
+        "Spell Damage": 1,
+        "Heroic STA": 2,
+        "Heroic INT": 2
+      }
+    },
+    {
+      "id": 940313,
+      "zone": "najena",
+      "kind": "Augment",
+      "tier": 1,
+      "name": "Binding Ember (Polished)",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 29,
+        "Mana": 29,
+        "Spell Damage": 1,
+        "Heroic STA": 3,
+        "Heroic INT": 3
+      }
+    },
+    {
+      "id": 940314,
+      "zone": "najena",
+      "kind": "Augment",
+      "tier": 2,
+      "name": "Binding Ember (Exalted)",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 38,
+        "Mana": 38,
+        "Spell Damage": 2,
+        "Heroic STA": 4,
+        "Heroic INT": 4
+      }
+    },
+    {
+      "id": 940315,
+      "zone": "najena",
+      "kind": "Augment",
+      "tier": 3,
+      "name": "Binding Ember (Ascension)",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 48,
+        "Mana": 48,
+        "Spell Damage": 3,
+        "Heroic STA": 5,
+        "Heroic INT": 5
+      }
+    },
+    {
+      "id": 940316,
+      "zone": "najena",
+      "kind": "Gear",
+      "tier": 0,
+      "name": "Jailerweave Sleeves",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Arms",
+      "socket": true,
+      "stats": {
+        "HP": 26,
+        "Mana": 26,
+        "Armor class": 5,
+        "Spell Damage": 1,
+        "STA": 3,
+        "INT": 3,
+        "Magic resist": 4
+      }
+    },
+    {
+      "id": 940317,
+      "zone": "najena",
+      "kind": "Gear",
+      "tier": 1,
+      "name": "Jailerweave Sleeves (Polished)",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Arms",
+      "socket": true,
+      "stats": {
+        "HP": 38,
+        "Mana": 38,
+        "Armor class": 7,
+        "Spell Damage": 3,
+        "STA": 4,
+        "INT": 4,
+        "Magic resist": 5
+      }
+    },
+    {
+      "id": 940318,
+      "zone": "najena",
+      "kind": "Gear",
+      "tier": 2,
+      "name": "Jailerweave Sleeves (Exalted)",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Arms",
+      "socket": true,
+      "stats": {
+        "HP": 49,
+        "Mana": 49,
+        "Armor class": 8,
+        "Spell Damage": 5,
+        "STA": 5,
+        "INT": 5,
+        "Magic resist": 7
+      }
+    },
+    {
+      "id": 940319,
+      "zone": "najena",
+      "kind": "Gear",
+      "tier": 3,
+      "name": "Jailerweave Sleeves (Ascension)",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Arms",
+      "socket": true,
+      "stats": {
+        "HP": 62,
+        "Mana": 62,
+        "Armor class": 10,
+        "Spell Damage": 8,
+        "STA": 6,
+        "INT": 6,
+        "Magic resist": 8,
+        "Heroic STA": 2,
+        "Heroic INT": 2,
+        "Heroic magic resist": 2
+      }
+    },
+    {
+      "id": 940320,
+      "zone": "qcat",
+      "kind": "Augment",
+      "tier": 0,
+      "name": "Aqueduct Moonstone",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 12,
+        "Mana": 12,
+        "Heroic STA": 1,
+        "Heroic WIS": 1
+      }
+    },
+    {
+      "id": 940321,
+      "zone": "qcat",
+      "kind": "Augment",
+      "tier": 1,
+      "name": "Aqueduct Moonstone (Polished)",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 18,
+        "Mana": 18,
+        "Healing Amount": 1,
+        "Heroic STA": 2,
+        "Heroic WIS": 2
+      }
+    },
+    {
+      "id": 940322,
+      "zone": "qcat",
+      "kind": "Augment",
+      "tier": 2,
+      "name": "Aqueduct Moonstone (Exalted)",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 24,
+        "Mana": 24,
+        "Healing Amount": 1,
+        "Heroic STA": 3,
+        "Heroic WIS": 3
+      }
+    },
+    {
+      "id": 940323,
+      "zone": "qcat",
+      "kind": "Augment",
+      "tier": 3,
+      "name": "Aqueduct Moonstone (Ascension)",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 30,
+        "Mana": 30,
+        "Healing Amount": 2,
+        "Heroic STA": 4,
+        "Heroic WIS": 4
+      }
+    },
+    {
+      "id": 940324,
+      "zone": "qcat",
+      "kind": "Gear",
+      "tier": 0,
+      "name": "Gutterlight Charm",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Range",
+      "socket": false,
+      "stats": {
+        "HP": 16,
+        "Mana": 16,
+        "Armor class": 3,
+        "STA": 2,
+        "WIS": 2,
+        "Cold resist": 3
+      }
+    },
+    {
+      "id": 940325,
+      "zone": "qcat",
+      "kind": "Gear",
+      "tier": 1,
+      "name": "Gutterlight Charm (Polished)",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Range",
+      "socket": false,
+      "stats": {
+        "HP": 23,
+        "Mana": 23,
+        "Armor class": 4,
+        "Healing Amount": 2,
+        "STA": 3,
+        "WIS": 3,
+        "Cold resist": 4
+      }
+    },
+    {
+      "id": 940326,
+      "zone": "qcat",
+      "kind": "Gear",
+      "tier": 2,
+      "name": "Gutterlight Charm (Exalted)",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Range",
+      "socket": false,
+      "stats": {
+        "HP": 30,
+        "Mana": 30,
+        "Armor class": 5,
+        "Healing Amount": 3,
+        "STA": 3,
+        "WIS": 3,
+        "Cold resist": 5
+      }
+    },
+    {
+      "id": 940327,
+      "zone": "qcat",
+      "kind": "Gear",
+      "tier": 3,
+      "name": "Gutterlight Charm (Ascension)",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Range",
+      "socket": false,
+      "stats": {
+        "HP": 38,
+        "Mana": 38,
+        "Armor class": 6,
+        "Healing Amount": 5,
+        "STA": 4,
+        "WIS": 4,
+        "Cold resist": 6,
+        "Heroic STA": 1,
+        "Heroic WIS": 1,
+        "Heroic cold resist": 2
+      }
+    },
+    {
+      "id": 940328,
+      "zone": "innothule",
+      "kind": "Augment",
+      "tier": 0,
+      "name": "Mireglow Pearl",
+      "required_level": 1,
+      "recommended_level": 1,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 6,
+        "Mana": 6,
+        "Heroic STA": 1,
+        "Heroic WIS": 1
+      }
+    },
+    {
+      "id": 940329,
+      "zone": "innothule",
+      "kind": "Augment",
+      "tier": 1,
+      "name": "Mireglow Pearl (Polished)",
+      "required_level": 1,
+      "recommended_level": 1,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 9,
+        "Mana": 9,
+        "Heroic STA": 1,
+        "Heroic WIS": 1
+      }
+    },
+    {
+      "id": 940330,
+      "zone": "innothule",
+      "kind": "Augment",
+      "tier": 2,
+      "name": "Mireglow Pearl (Exalted)",
+      "required_level": 1,
+      "recommended_level": 1,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 12,
+        "Mana": 12,
+        "Heroic STA": 2,
+        "Heroic WIS": 2
+      }
+    },
+    {
+      "id": 940331,
+      "zone": "innothule",
+      "kind": "Augment",
+      "tier": 3,
+      "name": "Mireglow Pearl (Ascension)",
+      "required_level": 1,
+      "recommended_level": 1,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 15,
+        "Mana": 15,
+        "Heroic STA": 3,
+        "Heroic WIS": 3
+      }
+    },
+    {
+      "id": 940332,
+      "zone": "innothule",
+      "kind": "Gear",
+      "tier": 0,
+      "name": "Bogthread Belt",
+      "required_level": 1,
+      "recommended_level": 1,
+      "slot": "Waist",
+      "socket": false,
+      "stats": {
+        "HP": 8,
+        "Mana": 8,
+        "Armor class": 1,
+        "STA": 1,
+        "WIS": 1,
+        "Cold resist": 2
+      }
+    },
+    {
+      "id": 940333,
+      "zone": "innothule",
+      "kind": "Gear",
+      "tier": 1,
+      "name": "Bogthread Belt (Polished)",
+      "required_level": 1,
+      "recommended_level": 1,
+      "slot": "Waist",
+      "socket": false,
+      "stats": {
+        "HP": 12,
+        "Mana": 12,
+        "Armor class": 1,
+        "Healing Amount": 1,
+        "STA": 1,
+        "WIS": 1,
+        "Cold resist": 3
+      }
+    },
+    {
+      "id": 940334,
+      "zone": "innothule",
+      "kind": "Gear",
+      "tier": 2,
+      "name": "Bogthread Belt (Exalted)",
+      "required_level": 1,
+      "recommended_level": 1,
+      "slot": "Waist",
+      "socket": false,
+      "stats": {
+        "HP": 15,
+        "Mana": 15,
+        "Armor class": 2,
+        "Healing Amount": 2,
+        "STA": 2,
+        "WIS": 2,
+        "Cold resist": 3
+      }
+    },
+    {
+      "id": 940335,
+      "zone": "innothule",
+      "kind": "Gear",
+      "tier": 3,
+      "name": "Bogthread Belt (Ascension)",
+      "required_level": 1,
+      "recommended_level": 1,
+      "slot": "Waist",
+      "socket": false,
+      "stats": {
+        "HP": 19,
+        "Mana": 19,
+        "Armor class": 2,
+        "Healing Amount": 3,
+        "STA": 2,
+        "WIS": 2,
+        "Cold resist": 4,
+        "Heroic STA": 1,
+        "Heroic WIS": 1,
+        "Heroic cold resist": 1
+      }
+    },
+    {
+      "id": 940336,
+      "zone": "feerrott",
+      "kind": "Augment",
+      "tier": 0,
+      "name": "Jungleheart Jade",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 12,
+        "Mana": 12,
+        "Heroic STA": 1,
+        "Heroic AGI": 1
+      }
+    },
+    {
+      "id": 940337,
+      "zone": "feerrott",
+      "kind": "Augment",
+      "tier": 1,
+      "name": "Jungleheart Jade (Polished)",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 18,
+        "Mana": 18,
+        "Armor class": 1,
+        "Heroic STA": 2,
+        "Heroic AGI": 2
+      }
+    },
+    {
+      "id": 940338,
+      "zone": "feerrott",
+      "kind": "Augment",
+      "tier": 2,
+      "name": "Jungleheart Jade (Exalted)",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 24,
+        "Mana": 24,
+        "Armor class": 1,
+        "Heroic STA": 3,
+        "Heroic AGI": 3
+      }
+    },
+    {
+      "id": 940339,
+      "zone": "feerrott",
+      "kind": "Augment",
+      "tier": 3,
+      "name": "Jungleheart Jade (Ascension)",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 30,
+        "Mana": 30,
+        "Armor class": 2,
+        "Heroic STA": 4,
+        "Heroic AGI": 4
+      }
+    },
+    {
+      "id": 940340,
+      "zone": "feerrott",
+      "kind": "Gear",
+      "tier": 0,
+      "name": "Vineguard Handwraps",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Hands",
+      "socket": true,
+      "stats": {
+        "HP": 16,
+        "Mana": 16,
+        "Armor class": 3,
+        "STA": 2,
+        "AGI": 2,
+        "Magic resist": 3
+      }
+    },
+    {
+      "id": 940341,
+      "zone": "feerrott",
+      "kind": "Gear",
+      "tier": 1,
+      "name": "Vineguard Handwraps (Polished)",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Hands",
+      "socket": true,
+      "stats": {
+        "HP": 23,
+        "Mana": 23,
+        "Armor class": 6,
+        "STA": 3,
+        "AGI": 3,
+        "Magic resist": 4
+      }
+    },
+    {
+      "id": 940342,
+      "zone": "feerrott",
+      "kind": "Gear",
+      "tier": 2,
+      "name": "Vineguard Handwraps (Exalted)",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Hands",
+      "socket": true,
+      "stats": {
+        "HP": 30,
+        "Mana": 30,
+        "Armor class": 8,
+        "STA": 3,
+        "AGI": 3,
+        "Magic resist": 5
+      }
+    },
+    {
+      "id": 940343,
+      "zone": "feerrott",
+      "kind": "Gear",
+      "tier": 3,
+      "name": "Vineguard Handwraps (Ascension)",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Hands",
+      "socket": true,
+      "stats": {
+        "HP": 38,
+        "Mana": 38,
+        "Armor class": 11,
+        "STA": 4,
+        "AGI": 4,
+        "Magic resist": 6,
+        "Heroic STA": 1,
+        "Heroic AGI": 1,
+        "Heroic magic resist": 2
+      }
+    },
+    {
+      "id": 940360,
+      "zone": "rathemtn",
+      "kind": "Augment",
+      "tier": 0,
+      "name": "Hillheart Tourmaline",
+      "required_level": 30,
+      "recommended_level": 30,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 30,
+        "Mana": 30,
+        "Armor class": 1,
+        "Heroic STA": 3,
+        "Heroic AGI": 3
+      }
+    },
+    {
+      "id": 940361,
+      "zone": "rathemtn",
+      "kind": "Augment",
+      "tier": 1,
+      "name": "Hillheart Tourmaline (Polished)",
+      "required_level": 30,
+      "recommended_level": 30,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 44,
+        "Mana": 44,
+        "Armor class": 2,
+        "Heroic STA": 4,
+        "Heroic AGI": 4
+      }
+    },
+    {
+      "id": 940362,
+      "zone": "rathemtn",
+      "kind": "Augment",
+      "tier": 2,
+      "name": "Hillheart Tourmaline (Exalted)",
+      "required_level": 30,
+      "recommended_level": 30,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 57,
+        "Mana": 57,
+        "Armor class": 3,
+        "Heroic STA": 5,
+        "Heroic AGI": 5
+      }
+    },
+    {
+      "id": 940363,
+      "zone": "rathemtn",
+      "kind": "Augment",
+      "tier": 3,
+      "name": "Hillheart Tourmaline (Ascension)",
+      "required_level": 30,
+      "recommended_level": 30,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 72,
+        "Mana": 72,
+        "Armor class": 4,
+        "Heroic STA": 6,
+        "Heroic AGI": 6
+      }
+    },
+    {
+      "id": 940364,
+      "zone": "rathemtn",
+      "kind": "Gear",
+      "tier": 0,
+      "name": "Giantstride Greaves",
+      "required_level": 30,
+      "recommended_level": 30,
+      "slot": "Legs",
+      "socket": true,
+      "stats": {
+        "HP": 38,
+        "Mana": 38,
+        "Armor class": 10,
+        "STA": 5,
+        "AGI": 5,
+        "Magic resist": 6
+      }
+    },
+    {
+      "id": 940365,
+      "zone": "rathemtn",
+      "kind": "Gear",
+      "tier": 1,
+      "name": "Giantstride Greaves (Polished)",
+      "required_level": 30,
+      "recommended_level": 30,
+      "slot": "Legs",
+      "socket": true,
+      "stats": {
+        "HP": 55,
+        "Mana": 55,
+        "Armor class": 15,
+        "STA": 7,
+        "AGI": 7,
+        "Magic resist": 8
+      }
+    },
+    {
+      "id": 940366,
+      "zone": "rathemtn",
+      "kind": "Gear",
+      "tier": 2,
+      "name": "Giantstride Greaves (Exalted)",
+      "required_level": 30,
+      "recommended_level": 30,
+      "slot": "Legs",
+      "socket": true,
+      "stats": {
+        "HP": 72,
+        "Mana": 72,
+        "Armor class": 20,
+        "STA": 8,
+        "AGI": 8,
+        "Magic resist": 10
+      }
+    },
+    {
+      "id": 940367,
+      "zone": "rathemtn",
+      "kind": "Gear",
+      "tier": 3,
+      "name": "Giantstride Greaves (Ascension)",
+      "required_level": 30,
+      "recommended_level": 30,
+      "slot": "Legs",
+      "socket": true,
+      "stats": {
+        "HP": 91,
+        "Mana": 91,
+        "Armor class": 27,
+        "STA": 10,
+        "AGI": 10,
+        "Magic resist": 12,
+        "Heroic STA": 3,
+        "Heroic AGI": 3,
+        "Heroic magic resist": 3
+      }
+    },
+    {
+      "id": 940368,
+      "zone": "lakerathe",
+      "kind": "Augment",
+      "tier": 0,
+      "name": "Reedchant Pearl",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 20,
+        "Mana": 20,
+        "Healing Amount": 1,
+        "Heroic STA": 2,
+        "Heroic WIS": 2
+      }
+    },
+    {
+      "id": 940369,
+      "zone": "lakerathe",
+      "kind": "Augment",
+      "tier": 1,
+      "name": "Reedchant Pearl (Polished)",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 29,
+        "Mana": 29,
+        "Healing Amount": 1,
+        "Heroic STA": 3,
+        "Heroic WIS": 3
+      }
+    },
+    {
+      "id": 940370,
+      "zone": "lakerathe",
+      "kind": "Augment",
+      "tier": 2,
+      "name": "Reedchant Pearl (Exalted)",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 38,
+        "Mana": 38,
+        "Healing Amount": 2,
+        "Heroic STA": 4,
+        "Heroic WIS": 4
+      }
+    },
+    {
+      "id": 940371,
+      "zone": "lakerathe",
+      "kind": "Augment",
+      "tier": 3,
+      "name": "Reedchant Pearl (Ascension)",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 48,
+        "Mana": 48,
+        "Healing Amount": 3,
+        "Heroic STA": 5,
+        "Heroic WIS": 5
+      }
+    },
+    {
+      "id": 940372,
+      "zone": "lakerathe",
+      "kind": "Gear",
+      "tier": 0,
+      "name": "Aviakwind Cowl",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Head",
+      "socket": true,
+      "stats": {
+        "HP": 26,
+        "Mana": 26,
+        "Armor class": 5,
+        "Healing Amount": 1,
+        "STA": 3,
+        "WIS": 3,
+        "Cold resist": 4
+      }
+    },
+    {
+      "id": 940373,
+      "zone": "lakerathe",
+      "kind": "Gear",
+      "tier": 1,
+      "name": "Aviakwind Cowl (Polished)",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Head",
+      "socket": true,
+      "stats": {
+        "HP": 38,
+        "Mana": 38,
+        "Armor class": 7,
+        "Healing Amount": 3,
+        "STA": 4,
+        "WIS": 4,
+        "Cold resist": 5
+      }
+    },
+    {
+      "id": 940374,
+      "zone": "lakerathe",
+      "kind": "Gear",
+      "tier": 2,
+      "name": "Aviakwind Cowl (Exalted)",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Head",
+      "socket": true,
+      "stats": {
+        "HP": 49,
+        "Mana": 49,
+        "Armor class": 8,
+        "Healing Amount": 5,
+        "STA": 5,
+        "WIS": 5,
+        "Cold resist": 7
+      }
+    },
+    {
+      "id": 940375,
+      "zone": "lakerathe",
+      "kind": "Gear",
+      "tier": 3,
+      "name": "Aviakwind Cowl (Ascension)",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Head",
+      "socket": true,
+      "stats": {
+        "HP": 62,
+        "Mana": 62,
+        "Armor class": 10,
+        "Healing Amount": 8,
+        "STA": 6,
+        "WIS": 6,
+        "Cold resist": 8,
+        "Heroic STA": 2,
+        "Heroic WIS": 2,
+        "Heroic cold resist": 2
+      }
+    },
+    {
+      "id": 940384,
+      "zone": "gfaydark",
+      "kind": "Augment",
+      "tier": 0,
+      "name": "Canopyseed Amber",
+      "required_level": 1,
+      "recommended_level": 1,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 6,
+        "Mana": 6,
+        "Heroic AGI": 1,
+        "Heroic WIS": 1
+      }
+    },
+    {
+      "id": 940385,
+      "zone": "gfaydark",
+      "kind": "Augment",
+      "tier": 1,
+      "name": "Canopyseed Amber (Polished)",
+      "required_level": 1,
+      "recommended_level": 1,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 9,
+        "Mana": 9,
+        "Heroic AGI": 1,
+        "Heroic WIS": 1
+      }
+    },
+    {
+      "id": 940386,
+      "zone": "gfaydark",
+      "kind": "Augment",
+      "tier": 2,
+      "name": "Canopyseed Amber (Exalted)",
+      "required_level": 1,
+      "recommended_level": 1,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 12,
+        "Mana": 12,
+        "Heroic AGI": 2,
+        "Heroic WIS": 2
+      }
+    },
+    {
+      "id": 940387,
+      "zone": "gfaydark",
+      "kind": "Augment",
+      "tier": 3,
+      "name": "Canopyseed Amber (Ascension)",
+      "required_level": 1,
+      "recommended_level": 1,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 15,
+        "Mana": 15,
+        "Heroic AGI": 3,
+        "Heroic WIS": 3
+      }
+    },
+    {
+      "id": 940388,
+      "zone": "gfaydark",
+      "kind": "Gear",
+      "tier": 0,
+      "name": "Mosslight Mantle",
+      "required_level": 1,
+      "recommended_level": 1,
+      "slot": "Shoulders",
+      "socket": false,
+      "stats": {
+        "HP": 8,
+        "Mana": 8,
+        "Armor class": 1,
+        "AGI": 1,
+        "WIS": 1,
+        "Poison resist": 2
+      }
+    },
+    {
+      "id": 940389,
+      "zone": "gfaydark",
+      "kind": "Gear",
+      "tier": 1,
+      "name": "Mosslight Mantle (Polished)",
+      "required_level": 1,
+      "recommended_level": 1,
+      "slot": "Shoulders",
+      "socket": false,
+      "stats": {
+        "HP": 12,
+        "Mana": 12,
+        "Armor class": 1,
+        "Healing Amount": 1,
+        "AGI": 1,
+        "WIS": 1,
+        "Poison resist": 3
+      }
+    },
+    {
+      "id": 940390,
+      "zone": "gfaydark",
+      "kind": "Gear",
+      "tier": 2,
+      "name": "Mosslight Mantle (Exalted)",
+      "required_level": 1,
+      "recommended_level": 1,
+      "slot": "Shoulders",
+      "socket": false,
+      "stats": {
+        "HP": 15,
+        "Mana": 15,
+        "Armor class": 2,
+        "Healing Amount": 2,
+        "AGI": 2,
+        "WIS": 2,
+        "Poison resist": 3
+      }
+    },
+    {
+      "id": 940391,
+      "zone": "gfaydark",
+      "kind": "Gear",
+      "tier": 3,
+      "name": "Mosslight Mantle (Ascension)",
+      "required_level": 1,
+      "recommended_level": 1,
+      "slot": "Shoulders",
+      "socket": false,
+      "stats": {
+        "HP": 19,
+        "Mana": 19,
+        "Armor class": 2,
+        "Healing Amount": 3,
+        "AGI": 2,
+        "WIS": 2,
+        "Poison resist": 4,
+        "Heroic AGI": 1,
+        "Heroic WIS": 1,
+        "Heroic poison resist": 1
+      }
+    },
+    {
+      "id": 940400,
+      "zone": "steamfont",
+      "kind": "Augment",
+      "tier": 0,
+      "name": "Steamcoil Citrine",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 12,
+        "Mana": 12,
+        "Heroic AGI": 1,
+        "Heroic DEX": 1
+      }
+    },
+    {
+      "id": 940401,
+      "zone": "steamfont",
+      "kind": "Augment",
+      "tier": 1,
+      "name": "Steamcoil Citrine (Polished)",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 18,
+        "Mana": 18,
+        "Attack": 1,
+        "Heroic AGI": 2,
+        "Heroic DEX": 2
+      }
+    },
+    {
+      "id": 940402,
+      "zone": "steamfont",
+      "kind": "Augment",
+      "tier": 2,
+      "name": "Steamcoil Citrine (Exalted)",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 24,
+        "Mana": 24,
+        "Attack": 1,
+        "Heroic AGI": 3,
+        "Heroic DEX": 3
+      }
+    },
+    {
+      "id": 940403,
+      "zone": "steamfont",
+      "kind": "Augment",
+      "tier": 3,
+      "name": "Steamcoil Citrine (Ascension)",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 30,
+        "Mana": 30,
+        "Attack": 2,
+        "Heroic AGI": 4,
+        "Heroic DEX": 4
+      }
+    },
+    {
+      "id": 940404,
+      "zone": "steamfont",
+      "kind": "Gear",
+      "tier": 0,
+      "name": "Cogspring Footwraps",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Feet",
+      "socket": true,
+      "stats": {
+        "HP": 16,
+        "Mana": 16,
+        "Armor class": 3,
+        "AGI": 2,
+        "DEX": 2,
+        "Disease resist": 3
+      }
+    },
+    {
+      "id": 940405,
+      "zone": "steamfont",
+      "kind": "Gear",
+      "tier": 1,
+      "name": "Cogspring Footwraps (Polished)",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Feet",
+      "socket": true,
+      "stats": {
+        "HP": 23,
+        "Mana": 23,
+        "Armor class": 4,
+        "Attack": 2,
+        "AGI": 3,
+        "DEX": 3,
+        "Disease resist": 4
+      }
+    },
+    {
+      "id": 940406,
+      "zone": "steamfont",
+      "kind": "Gear",
+      "tier": 2,
+      "name": "Cogspring Footwraps (Exalted)",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Feet",
+      "socket": true,
+      "stats": {
+        "HP": 30,
+        "Mana": 30,
+        "Armor class": 5,
+        "Attack": 3,
+        "AGI": 3,
+        "DEX": 3,
+        "Disease resist": 5
+      }
+    },
+    {
+      "id": 940407,
+      "zone": "steamfont",
+      "kind": "Gear",
+      "tier": 3,
+      "name": "Cogspring Footwraps (Ascension)",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Feet",
+      "socket": true,
+      "stats": {
+        "HP": 38,
+        "Mana": 38,
+        "Armor class": 6,
+        "Attack": 5,
+        "AGI": 4,
+        "DEX": 4,
+        "Disease resist": 6,
+        "Heroic AGI": 1,
+        "Heroic DEX": 1,
+        "Heroic disease resist": 2
+      }
+    },
+    {
+      "id": 940408,
+      "zone": "lfaydark",
+      "kind": "Augment",
+      "tier": 0,
+      "name": "Sporelight Opal",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 20,
+        "Mana": 20,
+        "Healing Amount": 1,
+        "Heroic AGI": 2,
+        "Heroic WIS": 2
+      }
+    },
+    {
+      "id": 940409,
+      "zone": "lfaydark",
+      "kind": "Augment",
+      "tier": 1,
+      "name": "Sporelight Opal (Polished)",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 29,
+        "Mana": 29,
+        "Healing Amount": 1,
+        "Heroic AGI": 3,
+        "Heroic WIS": 3
+      }
+    },
+    {
+      "id": 940410,
+      "zone": "lfaydark",
+      "kind": "Augment",
+      "tier": 2,
+      "name": "Sporelight Opal (Exalted)",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 38,
+        "Mana": 38,
+        "Healing Amount": 2,
+        "Heroic AGI": 4,
+        "Heroic WIS": 4
+      }
+    },
+    {
+      "id": 940411,
+      "zone": "lfaydark",
+      "kind": "Augment",
+      "tier": 3,
+      "name": "Sporelight Opal (Ascension)",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 48,
+        "Mana": 48,
+        "Healing Amount": 3,
+        "Heroic AGI": 5,
+        "Heroic WIS": 5
+      }
+    },
+    {
+      "id": 940412,
+      "zone": "lfaydark",
+      "kind": "Gear",
+      "tier": 0,
+      "name": "Mistbough Shawl",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Shoulders",
+      "socket": false,
+      "stats": {
+        "HP": 26,
+        "Mana": 26,
+        "Armor class": 5,
+        "Healing Amount": 1,
+        "AGI": 3,
+        "WIS": 3,
+        "Poison resist": 4
+      }
+    },
+    {
+      "id": 940413,
+      "zone": "lfaydark",
+      "kind": "Gear",
+      "tier": 1,
+      "name": "Mistbough Shawl (Polished)",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Shoulders",
+      "socket": false,
+      "stats": {
+        "HP": 38,
+        "Mana": 38,
+        "Armor class": 7,
+        "Healing Amount": 3,
+        "AGI": 4,
+        "WIS": 4,
+        "Poison resist": 5
+      }
+    },
+    {
+      "id": 940414,
+      "zone": "lfaydark",
+      "kind": "Gear",
+      "tier": 2,
+      "name": "Mistbough Shawl (Exalted)",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Shoulders",
+      "socket": false,
+      "stats": {
+        "HP": 49,
+        "Mana": 49,
+        "Armor class": 8,
+        "Healing Amount": 5,
+        "AGI": 5,
+        "WIS": 5,
+        "Poison resist": 7
+      }
+    },
+    {
+      "id": 940415,
+      "zone": "lfaydark",
+      "kind": "Gear",
+      "tier": 3,
+      "name": "Mistbough Shawl (Ascension)",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Shoulders",
+      "socket": false,
+      "stats": {
+        "HP": 62,
+        "Mana": 62,
+        "Armor class": 10,
+        "Healing Amount": 8,
+        "AGI": 6,
+        "WIS": 6,
+        "Poison resist": 8,
+        "Heroic AGI": 2,
+        "Heroic WIS": 2,
+        "Heroic poison resist": 2
+      }
+    },
+    {
+      "id": 940416,
+      "zone": "crushbone",
+      "kind": "Augment",
+      "tier": 0,
+      "name": "Crushbone Warshard",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 12,
+        "Mana": 12,
+        "Heroic STR": 1,
+        "Heroic DEX": 1
+      }
+    },
+    {
+      "id": 940417,
+      "zone": "crushbone",
+      "kind": "Augment",
+      "tier": 1,
+      "name": "Crushbone Warshard (Polished)",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 18,
+        "Mana": 18,
+        "Attack": 1,
+        "Heroic STR": 2,
+        "Heroic DEX": 2
+      }
+    },
+    {
+      "id": 940418,
+      "zone": "crushbone",
+      "kind": "Augment",
+      "tier": 2,
+      "name": "Crushbone Warshard (Exalted)",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 24,
+        "Mana": 24,
+        "Attack": 1,
+        "Heroic STR": 3,
+        "Heroic DEX": 3
+      }
+    },
+    {
+      "id": 940419,
+      "zone": "crushbone",
+      "kind": "Augment",
+      "tier": 3,
+      "name": "Crushbone Warshard (Ascension)",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 30,
+        "Mana": 30,
+        "Attack": 2,
+        "Heroic STR": 4,
+        "Heroic DEX": 4
+      }
+    },
+    {
+      "id": 940420,
+      "zone": "crushbone",
+      "kind": "Gear",
+      "tier": 0,
+      "name": "Orcbane Handwraps",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Hands",
+      "socket": true,
+      "stats": {
+        "HP": 16,
+        "Mana": 16,
+        "Armor class": 3,
+        "STR": 2,
+        "DEX": 2,
+        "Fire resist": 3
+      }
+    },
+    {
+      "id": 940421,
+      "zone": "crushbone",
+      "kind": "Gear",
+      "tier": 1,
+      "name": "Orcbane Handwraps (Polished)",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Hands",
+      "socket": true,
+      "stats": {
+        "HP": 23,
+        "Mana": 23,
+        "Armor class": 4,
+        "Attack": 2,
+        "STR": 3,
+        "DEX": 3,
+        "Fire resist": 4
+      }
+    },
+    {
+      "id": 940422,
+      "zone": "crushbone",
+      "kind": "Gear",
+      "tier": 2,
+      "name": "Orcbane Handwraps (Exalted)",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Hands",
+      "socket": true,
+      "stats": {
+        "HP": 30,
+        "Mana": 30,
+        "Armor class": 5,
+        "Attack": 3,
+        "STR": 3,
+        "DEX": 3,
+        "Fire resist": 5
+      }
+    },
+    {
+      "id": 940423,
+      "zone": "crushbone",
+      "kind": "Gear",
+      "tier": 3,
+      "name": "Orcbane Handwraps (Ascension)",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Hands",
+      "socket": true,
+      "stats": {
+        "HP": 38,
+        "Mana": 38,
+        "Armor class": 6,
+        "Attack": 5,
+        "STR": 4,
+        "DEX": 4,
+        "Fire resist": 6,
+        "Heroic STR": 1,
+        "Heroic DEX": 1,
+        "Heroic fire resist": 2
+      }
+    },
+    {
+      "id": 940424,
+      "zone": "mistmoore",
+      "kind": "Augment",
+      "tier": 0,
+      "name": "Bloodmoon Ruby",
+      "required_level": 30,
+      "recommended_level": 30,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 30,
+        "Mana": 30,
+        "Spell Damage": 1,
+        "Heroic STA": 3,
+        "Heroic INT": 3
+      }
+    },
+    {
+      "id": 940425,
+      "zone": "mistmoore",
+      "kind": "Augment",
+      "tier": 1,
+      "name": "Bloodmoon Ruby (Polished)",
+      "required_level": 30,
+      "recommended_level": 30,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 44,
+        "Mana": 44,
+        "Spell Damage": 2,
+        "Heroic STA": 4,
+        "Heroic INT": 4
+      }
+    },
+    {
+      "id": 940426,
+      "zone": "mistmoore",
+      "kind": "Augment",
+      "tier": 2,
+      "name": "Bloodmoon Ruby (Exalted)",
+      "required_level": 30,
+      "recommended_level": 30,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 57,
+        "Mana": 57,
+        "Spell Damage": 3,
+        "Heroic STA": 5,
+        "Heroic INT": 5
+      }
+    },
+    {
+      "id": 940427,
+      "zone": "mistmoore",
+      "kind": "Augment",
+      "tier": 3,
+      "name": "Bloodmoon Ruby (Ascension)",
+      "required_level": 30,
+      "recommended_level": 30,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 72,
+        "Mana": 72,
+        "Spell Damage": 4,
+        "Heroic STA": 6,
+        "Heroic INT": 6
+      }
+    },
+    {
+      "id": 940428,
+      "zone": "mistmoore",
+      "kind": "Gear",
+      "tier": 0,
+      "name": "Gloaming Court Mask",
+      "required_level": 30,
+      "recommended_level": 30,
+      "slot": "Face",
+      "socket": false,
+      "stats": {
+        "HP": 38,
+        "Mana": 38,
+        "Armor class": 8,
+        "Spell Damage": 2,
+        "STA": 5,
+        "INT": 5,
+        "Magic resist": 6
+      }
+    },
+    {
+      "id": 940429,
+      "zone": "mistmoore",
+      "kind": "Gear",
+      "tier": 1,
+      "name": "Gloaming Court Mask (Polished)",
+      "required_level": 30,
+      "recommended_level": 30,
+      "slot": "Face",
+      "socket": false,
+      "stats": {
+        "HP": 55,
+        "Mana": 55,
+        "Armor class": 11,
+        "Spell Damage": 4,
+        "STA": 7,
+        "INT": 7,
+        "Magic resist": 8
+      }
+    },
+    {
+      "id": 940430,
+      "zone": "mistmoore",
+      "kind": "Gear",
+      "tier": 2,
+      "name": "Gloaming Court Mask (Exalted)",
+      "required_level": 30,
+      "recommended_level": 30,
+      "slot": "Face",
+      "socket": false,
+      "stats": {
+        "HP": 72,
+        "Mana": 72,
+        "Armor class": 13,
+        "Spell Damage": 7,
+        "STA": 8,
+        "INT": 8,
+        "Magic resist": 10
+      }
+    },
+    {
+      "id": 940431,
+      "zone": "mistmoore",
+      "kind": "Gear",
+      "tier": 3,
+      "name": "Gloaming Court Mask (Ascension)",
+      "required_level": 30,
+      "recommended_level": 30,
+      "slot": "Face",
+      "socket": false,
+      "stats": {
+        "HP": 91,
+        "Mana": 91,
+        "Armor class": 16,
+        "Spell Damage": 11,
+        "STA": 10,
+        "INT": 10,
+        "Magic resist": 12,
+        "Heroic STA": 3,
+        "Heroic INT": 3,
+        "Heroic magic resist": 3
+      }
+    },
+    {
+      "id": 940456,
+      "zone": "unrest",
+      "kind": "Augment",
+      "tier": 0,
+      "name": "Haunted Hearthstone",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 20,
+        "Mana": 20,
+        "Healing Amount": 1,
+        "Heroic STA": 2,
+        "Heroic WIS": 2
+      }
+    },
+    {
+      "id": 940457,
+      "zone": "unrest",
+      "kind": "Augment",
+      "tier": 1,
+      "name": "Haunted Hearthstone (Polished)",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 29,
+        "Mana": 29,
+        "Healing Amount": 1,
+        "Heroic STA": 3,
+        "Heroic WIS": 3
+      }
+    },
+    {
+      "id": 940458,
+      "zone": "unrest",
+      "kind": "Augment",
+      "tier": 2,
+      "name": "Haunted Hearthstone (Exalted)",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 38,
+        "Mana": 38,
+        "Healing Amount": 2,
+        "Heroic STA": 4,
+        "Heroic WIS": 4
+      }
+    },
+    {
+      "id": 940459,
+      "zone": "unrest",
+      "kind": "Augment",
+      "tier": 3,
+      "name": "Haunted Hearthstone (Ascension)",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 48,
+        "Mana": 48,
+        "Healing Amount": 3,
+        "Heroic STA": 5,
+        "Heroic WIS": 5
+      }
+    },
+    {
+      "id": 940460,
+      "zone": "unrest",
+      "kind": "Gear",
+      "tier": 0,
+      "name": "Gravegarden Loop",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Ear",
+      "socket": false,
+      "stats": {
+        "HP": 26,
+        "Mana": 26,
+        "Armor class": 5,
+        "Healing Amount": 1,
+        "STA": 3,
+        "WIS": 3,
+        "Cold resist": 4
+      }
+    },
+    {
+      "id": 940461,
+      "zone": "unrest",
+      "kind": "Gear",
+      "tier": 1,
+      "name": "Gravegarden Loop (Polished)",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Ear",
+      "socket": false,
+      "stats": {
+        "HP": 38,
+        "Mana": 38,
+        "Armor class": 7,
+        "Healing Amount": 3,
+        "STA": 4,
+        "WIS": 4,
+        "Cold resist": 5
+      }
+    },
+    {
+      "id": 940462,
+      "zone": "unrest",
+      "kind": "Gear",
+      "tier": 2,
+      "name": "Gravegarden Loop (Exalted)",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Ear",
+      "socket": false,
+      "stats": {
+        "HP": 49,
+        "Mana": 49,
+        "Armor class": 8,
+        "Healing Amount": 5,
+        "STA": 5,
+        "WIS": 5,
+        "Cold resist": 7
+      }
+    },
+    {
+      "id": 940463,
+      "zone": "unrest",
+      "kind": "Gear",
+      "tier": 3,
+      "name": "Gravegarden Loop (Ascension)",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Ear",
+      "socket": false,
+      "stats": {
+        "HP": 62,
+        "Mana": 62,
+        "Armor class": 10,
+        "Healing Amount": 8,
+        "STA": 6,
+        "WIS": 6,
+        "Cold resist": 8,
+        "Heroic STA": 2,
+        "Heroic WIS": 2,
+        "Heroic cold resist": 2
+      }
+    },
+    {
+      "id": 940464,
+      "zone": "kedge",
+      "kind": "Augment",
+      "tier": 0,
+      "name": "Abyssal Thoughtpearl",
+      "required_level": 50,
+      "recommended_level": 50,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 60,
+        "Mana": 60,
+        "Spell Damage": 2,
+        "Heroic STA": 5,
+        "Heroic INT": 5
+      }
+    },
+    {
+      "id": 940465,
+      "zone": "kedge",
+      "kind": "Augment",
+      "tier": 1,
+      "name": "Abyssal Thoughtpearl (Polished)",
+      "required_level": 50,
+      "recommended_level": 50,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 87,
+        "Mana": 87,
+        "Spell Damage": 3,
+        "Heroic STA": 6,
+        "Heroic INT": 6
+      }
+    },
+    {
+      "id": 940466,
+      "zone": "kedge",
+      "kind": "Augment",
+      "tier": 2,
+      "name": "Abyssal Thoughtpearl (Exalted)",
+      "required_level": 50,
+      "recommended_level": 50,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 114,
+        "Mana": 114,
+        "Spell Damage": 5,
+        "Heroic STA": 8,
+        "Heroic INT": 8
+      }
+    },
+    {
+      "id": 940467,
+      "zone": "kedge",
+      "kind": "Augment",
+      "tier": 3,
+      "name": "Abyssal Thoughtpearl (Ascension)",
+      "required_level": 50,
+      "recommended_level": 50,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 144,
+        "Mana": 144,
+        "Spell Damage": 6,
+        "Heroic STA": 10,
+        "Heroic INT": 10
+      }
+    },
+    {
+      "id": 940468,
+      "zone": "kedge",
+      "kind": "Gear",
+      "tier": 0,
+      "name": "Tidebound Mindring",
+      "required_level": 50,
+      "recommended_level": 50,
+      "slot": "Finger",
+      "socket": false,
+      "stats": {
+        "HP": 60,
+        "Mana": 60,
+        "Armor class": 14,
+        "Spell Damage": 4,
+        "STA": 8,
+        "INT": 8,
+        "Magic resist": 10
+      }
+    },
+    {
+      "id": 940469,
+      "zone": "kedge",
+      "kind": "Gear",
+      "tier": 1,
+      "name": "Tidebound Mindring (Polished)",
+      "required_level": 50,
+      "recommended_level": 50,
+      "slot": "Finger",
+      "socket": false,
+      "stats": {
+        "HP": 87,
+        "Mana": 87,
+        "Armor class": 19,
+        "Spell Damage": 8,
+        "STA": 11,
+        "INT": 11,
+        "Magic resist": 14
+      }
+    },
+    {
+      "id": 940470,
+      "zone": "kedge",
+      "kind": "Gear",
+      "tier": 2,
+      "name": "Tidebound Mindring (Exalted)",
+      "required_level": 50,
+      "recommended_level": 50,
+      "slot": "Finger",
+      "socket": false,
+      "stats": {
+        "HP": 114,
+        "Mana": 114,
+        "Armor class": 23,
+        "Spell Damage": 14,
+        "STA": 13,
+        "INT": 13,
+        "Magic resist": 17
+      }
+    },
+    {
+      "id": 940471,
+      "zone": "kedge",
+      "kind": "Gear",
+      "tier": 3,
+      "name": "Tidebound Mindring (Ascension)",
+      "required_level": 50,
+      "recommended_level": 50,
+      "slot": "Finger",
+      "socket": false,
+      "stats": {
+        "HP": 144,
+        "Mana": 144,
+        "Armor class": 28,
+        "Spell Damage": 20,
+        "STA": 16,
+        "INT": 16,
+        "Magic resist": 20,
+        "Heroic STA": 4,
+        "Heroic INT": 4,
+        "Heroic magic resist": 5
+      }
+    },
+    {
+      "id": 940472,
+      "zone": "guktop",
+      "kind": "Augment",
+      "tier": 0,
+      "name": "Bogmoss Emerald",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 20,
+        "Mana": 20,
+        "Healing Amount": 1,
+        "Heroic AGI": 2,
+        "Heroic WIS": 2
+      }
+    },
+    {
+      "id": 940473,
+      "zone": "guktop",
+      "kind": "Augment",
+      "tier": 1,
+      "name": "Bogmoss Emerald (Polished)",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 29,
+        "Mana": 29,
+        "Healing Amount": 1,
+        "Heroic AGI": 3,
+        "Heroic WIS": 3
+      }
+    },
+    {
+      "id": 940474,
+      "zone": "guktop",
+      "kind": "Augment",
+      "tier": 2,
+      "name": "Bogmoss Emerald (Exalted)",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 38,
+        "Mana": 38,
+        "Healing Amount": 2,
+        "Heroic AGI": 4,
+        "Heroic WIS": 4
+      }
+    },
+    {
+      "id": 940475,
+      "zone": "guktop",
+      "kind": "Augment",
+      "tier": 3,
+      "name": "Bogmoss Emerald (Ascension)",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 48,
+        "Mana": 48,
+        "Healing Amount": 3,
+        "Heroic AGI": 5,
+        "Heroic WIS": 5
+      }
+    },
+    {
+      "id": 940476,
+      "zone": "guktop",
+      "kind": "Gear",
+      "tier": 0,
+      "name": "Reedwarden Tunic",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Chest",
+      "socket": true,
+      "stats": {
+        "HP": 26,
+        "Mana": 26,
+        "Armor class": 5,
+        "Healing Amount": 1,
+        "AGI": 3,
+        "WIS": 3,
+        "Poison resist": 4
+      }
+    },
+    {
+      "id": 940477,
+      "zone": "guktop",
+      "kind": "Gear",
+      "tier": 1,
+      "name": "Reedwarden Tunic (Polished)",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Chest",
+      "socket": true,
+      "stats": {
+        "HP": 38,
+        "Mana": 38,
+        "Armor class": 7,
+        "Healing Amount": 3,
+        "AGI": 4,
+        "WIS": 4,
+        "Poison resist": 5
+      }
+    },
+    {
+      "id": 940478,
+      "zone": "guktop",
+      "kind": "Gear",
+      "tier": 2,
+      "name": "Reedwarden Tunic (Exalted)",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Chest",
+      "socket": true,
+      "stats": {
+        "HP": 49,
+        "Mana": 49,
+        "Armor class": 8,
+        "Healing Amount": 5,
+        "AGI": 5,
+        "WIS": 5,
+        "Poison resist": 7
+      }
+    },
+    {
+      "id": 940479,
+      "zone": "guktop",
+      "kind": "Gear",
+      "tier": 3,
+      "name": "Reedwarden Tunic (Ascension)",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Chest",
+      "socket": true,
+      "stats": {
+        "HP": 62,
+        "Mana": 62,
+        "Armor class": 10,
+        "Healing Amount": 8,
+        "AGI": 6,
+        "WIS": 6,
+        "Poison resist": 8,
+        "Heroic AGI": 2,
+        "Heroic WIS": 2,
+        "Heroic poison resist": 2
+      }
+    },
+    {
+      "id": 940480,
+      "zone": "gukbottom",
+      "kind": "Augment",
+      "tier": 0,
+      "name": "Ghoulheart Opal",
+      "required_level": 50,
+      "recommended_level": 50,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 60,
+        "Mana": 60,
+        "Healing Amount": 2,
+        "Heroic STA": 5,
+        "Heroic WIS": 5
+      }
+    },
+    {
+      "id": 940481,
+      "zone": "gukbottom",
+      "kind": "Augment",
+      "tier": 1,
+      "name": "Ghoulheart Opal (Polished)",
+      "required_level": 50,
+      "recommended_level": 50,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 87,
+        "Mana": 87,
+        "Healing Amount": 3,
+        "Heroic STA": 6,
+        "Heroic WIS": 6
+      }
+    },
+    {
+      "id": 940482,
+      "zone": "gukbottom",
+      "kind": "Augment",
+      "tier": 2,
+      "name": "Ghoulheart Opal (Exalted)",
+      "required_level": 50,
+      "recommended_level": 50,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 114,
+        "Mana": 114,
+        "Healing Amount": 5,
+        "Heroic STA": 8,
+        "Heroic WIS": 8
+      }
+    },
+    {
+      "id": 940483,
+      "zone": "gukbottom",
+      "kind": "Augment",
+      "tier": 3,
+      "name": "Ghoulheart Opal (Ascension)",
+      "required_level": 50,
+      "recommended_level": 50,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 144,
+        "Mana": 144,
+        "Healing Amount": 6,
+        "Heroic STA": 10,
+        "Heroic WIS": 10
+      }
+    },
+    {
+      "id": 940484,
+      "zone": "gukbottom",
+      "kind": "Gear",
+      "tier": 0,
+      "name": "Gravewarden Mantle",
+      "required_level": 50,
+      "recommended_level": 50,
+      "slot": "Shoulders",
+      "socket": false,
+      "stats": {
+        "HP": 60,
+        "Mana": 60,
+        "Armor class": 14,
+        "Healing Amount": 4,
+        "STA": 8,
+        "WIS": 8,
+        "Cold resist": 10
+      }
+    },
+    {
+      "id": 940485,
+      "zone": "gukbottom",
+      "kind": "Gear",
+      "tier": 1,
+      "name": "Gravewarden Mantle (Polished)",
+      "required_level": 50,
+      "recommended_level": 50,
+      "slot": "Shoulders",
+      "socket": false,
+      "stats": {
+        "HP": 87,
+        "Mana": 87,
+        "Armor class": 19,
+        "Healing Amount": 8,
+        "STA": 11,
+        "WIS": 11,
+        "Cold resist": 14
+      }
+    },
+    {
+      "id": 940486,
+      "zone": "gukbottom",
+      "kind": "Gear",
+      "tier": 2,
+      "name": "Gravewarden Mantle (Exalted)",
+      "required_level": 50,
+      "recommended_level": 50,
+      "slot": "Shoulders",
+      "socket": false,
+      "stats": {
+        "HP": 114,
+        "Mana": 114,
+        "Armor class": 23,
+        "Healing Amount": 14,
+        "STA": 13,
+        "WIS": 13,
+        "Cold resist": 17
+      }
+    },
+    {
+      "id": 940487,
+      "zone": "gukbottom",
+      "kind": "Gear",
+      "tier": 3,
+      "name": "Gravewarden Mantle (Ascension)",
+      "required_level": 50,
+      "recommended_level": 50,
+      "slot": "Shoulders",
+      "socket": false,
+      "stats": {
+        "HP": 144,
+        "Mana": 144,
+        "Armor class": 28,
+        "Healing Amount": 20,
+        "STA": 16,
+        "WIS": 16,
+        "Cold resist": 20,
+        "Heroic STA": 4,
+        "Heroic WIS": 4,
+        "Heroic cold resist": 5
+      }
+    },
+    {
+      "id": 940496,
+      "zone": "butcher",
+      "kind": "Augment",
+      "tier": 0,
+      "name": "Cliffward Jasper",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 12,
+        "Mana": 12,
+        "Heroic STA": 1,
+        "Heroic AGI": 1
+      }
+    },
+    {
+      "id": 940497,
+      "zone": "butcher",
+      "kind": "Augment",
+      "tier": 1,
+      "name": "Cliffward Jasper (Polished)",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 18,
+        "Mana": 18,
+        "Armor class": 1,
+        "Heroic STA": 2,
+        "Heroic AGI": 2
+      }
+    },
+    {
+      "id": 940498,
+      "zone": "butcher",
+      "kind": "Augment",
+      "tier": 2,
+      "name": "Cliffward Jasper (Exalted)",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 24,
+        "Mana": 24,
+        "Armor class": 1,
+        "Heroic STA": 3,
+        "Heroic AGI": 3
+      }
+    },
+    {
+      "id": 940499,
+      "zone": "butcher",
+      "kind": "Augment",
+      "tier": 3,
+      "name": "Cliffward Jasper (Ascension)",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 30,
+        "Mana": 30,
+        "Armor class": 2,
+        "Heroic STA": 4,
+        "Heroic AGI": 4
+      }
+    },
+    {
+      "id": 940500,
+      "zone": "butcher",
+      "kind": "Gear",
+      "tier": 0,
+      "name": "Cliffwatch Cap",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Head",
+      "socket": true,
+      "stats": {
+        "HP": 16,
+        "Mana": 16,
+        "Armor class": 3,
+        "STA": 2,
+        "AGI": 2,
+        "Magic resist": 3
+      }
+    },
+    {
+      "id": 940501,
+      "zone": "butcher",
+      "kind": "Gear",
+      "tier": 1,
+      "name": "Cliffwatch Cap (Polished)",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Head",
+      "socket": true,
+      "stats": {
+        "HP": 23,
+        "Mana": 23,
+        "Armor class": 6,
+        "STA": 3,
+        "AGI": 3,
+        "Magic resist": 4
+      }
+    },
+    {
+      "id": 940502,
+      "zone": "butcher",
+      "kind": "Gear",
+      "tier": 2,
+      "name": "Cliffwatch Cap (Exalted)",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Head",
+      "socket": true,
+      "stats": {
+        "HP": 30,
+        "Mana": 30,
+        "Armor class": 8,
+        "STA": 3,
+        "AGI": 3,
+        "Magic resist": 5
+      }
+    },
+    {
+      "id": 940503,
+      "zone": "butcher",
+      "kind": "Gear",
+      "tier": 3,
+      "name": "Cliffwatch Cap (Ascension)",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Head",
+      "socket": true,
+      "stats": {
+        "HP": 38,
+        "Mana": 38,
+        "Armor class": 11,
+        "STA": 4,
+        "AGI": 4,
+        "Magic resist": 6,
+        "Heroic STA": 1,
+        "Heroic AGI": 1,
+        "Heroic magic resist": 2
+      }
+    },
+    {
+      "id": 940504,
+      "zone": "oot",
+      "kind": "Augment",
+      "tier": 0,
+      "name": "Seafury Sapphire",
+      "required_level": 40,
+      "recommended_level": 40,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 40,
+        "Mana": 40,
+        "Attack": 2,
+        "Heroic AGI": 4,
+        "Heroic DEX": 4
+      }
+    },
+    {
+      "id": 940505,
+      "zone": "oot",
+      "kind": "Augment",
+      "tier": 1,
+      "name": "Seafury Sapphire (Polished)",
+      "required_level": 40,
+      "recommended_level": 40,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 58,
+        "Mana": 58,
+        "Attack": 3,
+        "Heroic AGI": 5,
+        "Heroic DEX": 5
+      }
+    },
+    {
+      "id": 940506,
+      "zone": "oot",
+      "kind": "Augment",
+      "tier": 2,
+      "name": "Seafury Sapphire (Exalted)",
+      "required_level": 40,
+      "recommended_level": 40,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 76,
+        "Mana": 76,
+        "Attack": 4,
+        "Heroic AGI": 6,
+        "Heroic DEX": 6
+      }
+    },
+    {
+      "id": 940507,
+      "zone": "oot",
+      "kind": "Augment",
+      "tier": 3,
+      "name": "Seafury Sapphire (Ascension)",
+      "required_level": 40,
+      "recommended_level": 40,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 96,
+        "Mana": 96,
+        "Attack": 5,
+        "Heroic AGI": 8,
+        "Heroic DEX": 8
+      }
+    },
+    {
+      "id": 940508,
+      "zone": "oot",
+      "kind": "Gear",
+      "tier": 0,
+      "name": "Galesail Cloak",
+      "required_level": 40,
+      "recommended_level": 40,
+      "slot": "Back",
+      "socket": false,
+      "stats": {
+        "HP": 50,
+        "Mana": 50,
+        "Armor class": 11,
+        "Attack": 3,
+        "AGI": 6,
+        "DEX": 6,
+        "Disease resist": 8
+      }
+    },
+    {
+      "id": 940509,
+      "zone": "oot",
+      "kind": "Gear",
+      "tier": 1,
+      "name": "Galesail Cloak (Polished)",
+      "required_level": 40,
+      "recommended_level": 40,
+      "slot": "Back",
+      "socket": false,
+      "stats": {
+        "HP": 73,
+        "Mana": 73,
+        "Armor class": 15,
+        "Attack": 6,
+        "AGI": 8,
+        "DEX": 8,
+        "Disease resist": 11
+      }
+    },
+    {
+      "id": 940510,
+      "zone": "oot",
+      "kind": "Gear",
+      "tier": 2,
+      "name": "Galesail Cloak (Exalted)",
+      "required_level": 40,
+      "recommended_level": 40,
+      "slot": "Back",
+      "socket": false,
+      "stats": {
+        "HP": 95,
+        "Mana": 95,
+        "Armor class": 18,
+        "Attack": 10,
+        "AGI": 10,
+        "DEX": 10,
+        "Disease resist": 13
+      }
+    },
+    {
+      "id": 940511,
+      "zone": "oot",
+      "kind": "Gear",
+      "tier": 3,
+      "name": "Galesail Cloak (Ascension)",
+      "required_level": 40,
+      "recommended_level": 40,
+      "slot": "Back",
+      "socket": false,
+      "stats": {
+        "HP": 120,
+        "Mana": 120,
+        "Armor class": 22,
+        "Attack": 15,
+        "AGI": 12,
+        "DEX": 12,
+        "Disease resist": 16,
+        "Heroic AGI": 3,
+        "Heroic DEX": 3,
+        "Heroic disease resist": 4
+      }
+    },
+    {
+      "id": 940512,
+      "zone": "cauldron",
+      "kind": "Augment",
+      "tier": 0,
+      "name": "Cauldron Mistpearl",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 20,
+        "Mana": 20,
+        "Healing Amount": 1,
+        "Heroic STA": 2,
+        "Heroic WIS": 2
+      }
+    },
+    {
+      "id": 940513,
+      "zone": "cauldron",
+      "kind": "Augment",
+      "tier": 1,
+      "name": "Cauldron Mistpearl (Polished)",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 29,
+        "Mana": 29,
+        "Healing Amount": 1,
+        "Heroic STA": 3,
+        "Heroic WIS": 3
+      }
+    },
+    {
+      "id": 940514,
+      "zone": "cauldron",
+      "kind": "Augment",
+      "tier": 2,
+      "name": "Cauldron Mistpearl (Exalted)",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 38,
+        "Mana": 38,
+        "Healing Amount": 2,
+        "Heroic STA": 4,
+        "Heroic WIS": 4
+      }
+    },
+    {
+      "id": 940515,
+      "zone": "cauldron",
+      "kind": "Augment",
+      "tier": 3,
+      "name": "Cauldron Mistpearl (Ascension)",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 48,
+        "Mana": 48,
+        "Healing Amount": 3,
+        "Heroic STA": 5,
+        "Heroic WIS": 5
+      }
+    },
+    {
+      "id": 940516,
+      "zone": "cauldron",
+      "kind": "Gear",
+      "tier": 0,
+      "name": "Wavebreak Sash",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Waist",
+      "socket": false,
+      "stats": {
+        "HP": 26,
+        "Mana": 26,
+        "Armor class": 5,
+        "Healing Amount": 1,
+        "STA": 3,
+        "WIS": 3,
+        "Cold resist": 4
+      }
+    },
+    {
+      "id": 940517,
+      "zone": "cauldron",
+      "kind": "Gear",
+      "tier": 1,
+      "name": "Wavebreak Sash (Polished)",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Waist",
+      "socket": false,
+      "stats": {
+        "HP": 38,
+        "Mana": 38,
+        "Armor class": 7,
+        "Healing Amount": 3,
+        "STA": 4,
+        "WIS": 4,
+        "Cold resist": 5
+      }
+    },
+    {
+      "id": 940518,
+      "zone": "cauldron",
+      "kind": "Gear",
+      "tier": 2,
+      "name": "Wavebreak Sash (Exalted)",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Waist",
+      "socket": false,
+      "stats": {
+        "HP": 49,
+        "Mana": 49,
+        "Armor class": 8,
+        "Healing Amount": 5,
+        "STA": 5,
+        "WIS": 5,
+        "Cold resist": 7
+      }
+    },
+    {
+      "id": 940519,
+      "zone": "cauldron",
+      "kind": "Gear",
+      "tier": 3,
+      "name": "Wavebreak Sash (Ascension)",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Waist",
+      "socket": false,
+      "stats": {
+        "HP": 62,
+        "Mana": 62,
+        "Armor class": 10,
+        "Healing Amount": 8,
+        "STA": 6,
+        "WIS": 6,
+        "Cold resist": 8,
+        "Heroic STA": 2,
+        "Heroic WIS": 2,
+        "Heroic cold resist": 2
+      }
+    },
+    {
+      "id": 940520,
+      "zone": "airplane",
+      "kind": "Augment",
+      "tier": 0,
+      "name": "Skyward Starshard",
+      "required_level": 50,
+      "recommended_level": 50,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 60,
+        "Mana": 60,
+        "Attack": 2,
+        "Heroic AGI": 5,
+        "Heroic DEX": 5
+      }
+    },
+    {
+      "id": 940521,
+      "zone": "airplane",
+      "kind": "Augment",
+      "tier": 1,
+      "name": "Skyward Starshard (Polished)",
+      "required_level": 50,
+      "recommended_level": 50,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 87,
+        "Mana": 87,
+        "Attack": 3,
+        "Heroic AGI": 6,
+        "Heroic DEX": 6
+      }
+    },
+    {
+      "id": 940522,
+      "zone": "airplane",
+      "kind": "Augment",
+      "tier": 2,
+      "name": "Skyward Starshard (Exalted)",
+      "required_level": 50,
+      "recommended_level": 50,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 114,
+        "Mana": 114,
+        "Attack": 5,
+        "Heroic AGI": 8,
+        "Heroic DEX": 8
+      }
+    },
+    {
+      "id": 940523,
+      "zone": "airplane",
+      "kind": "Augment",
+      "tier": 3,
+      "name": "Skyward Starshard (Ascension)",
+      "required_level": 50,
+      "recommended_level": 50,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 144,
+        "Mana": 144,
+        "Attack": 6,
+        "Heroic AGI": 10,
+        "Heroic DEX": 10
+      }
+    },
+    {
+      "id": 940524,
+      "zone": "airplane",
+      "kind": "Gear",
+      "tier": 0,
+      "name": "Cloudstrider Boots",
+      "required_level": 50,
+      "recommended_level": 50,
+      "slot": "Feet",
+      "socket": true,
+      "stats": {
+        "HP": 60,
+        "Mana": 60,
+        "Armor class": 14,
+        "Attack": 4,
+        "AGI": 8,
+        "DEX": 8,
+        "Disease resist": 10
+      }
+    },
+    {
+      "id": 940525,
+      "zone": "airplane",
+      "kind": "Gear",
+      "tier": 1,
+      "name": "Cloudstrider Boots (Polished)",
+      "required_level": 50,
+      "recommended_level": 50,
+      "slot": "Feet",
+      "socket": true,
+      "stats": {
+        "HP": 87,
+        "Mana": 87,
+        "Armor class": 19,
+        "Attack": 8,
+        "AGI": 11,
+        "DEX": 11,
+        "Disease resist": 14
+      }
+    },
+    {
+      "id": 940526,
+      "zone": "airplane",
+      "kind": "Gear",
+      "tier": 2,
+      "name": "Cloudstrider Boots (Exalted)",
+      "required_level": 50,
+      "recommended_level": 50,
+      "slot": "Feet",
+      "socket": true,
+      "stats": {
+        "HP": 114,
+        "Mana": 114,
+        "Armor class": 23,
+        "Attack": 14,
+        "AGI": 13,
+        "DEX": 13,
+        "Disease resist": 17
+      }
+    },
+    {
+      "id": 940527,
+      "zone": "airplane",
+      "kind": "Gear",
+      "tier": 3,
+      "name": "Cloudstrider Boots (Ascension)",
+      "required_level": 50,
+      "recommended_level": 50,
+      "slot": "Feet",
+      "socket": true,
+      "stats": {
+        "HP": 144,
+        "Mana": 144,
+        "Armor class": 28,
+        "Attack": 20,
+        "AGI": 16,
+        "DEX": 16,
+        "Disease resist": 20,
+        "Heroic AGI": 4,
+        "Heroic DEX": 4,
+        "Heroic disease resist": 5
+      }
+    },
+    {
+      "id": 940528,
+      "zone": "fearplane",
+      "kind": "Augment",
+      "tier": 0,
+      "name": "Dreadheart Onyx",
+      "required_level": 50,
+      "recommended_level": 50,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 60,
+        "Mana": 60,
+        "Armor class": 2,
+        "Heroic STA": 5,
+        "Heroic AGI": 5
+      }
+    },
+    {
+      "id": 940529,
+      "zone": "fearplane",
+      "kind": "Augment",
+      "tier": 1,
+      "name": "Dreadheart Onyx (Polished)",
+      "required_level": 50,
+      "recommended_level": 50,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 87,
+        "Mana": 87,
+        "Armor class": 3,
+        "Heroic STA": 6,
+        "Heroic AGI": 6
+      }
+    },
+    {
+      "id": 940530,
+      "zone": "fearplane",
+      "kind": "Augment",
+      "tier": 2,
+      "name": "Dreadheart Onyx (Exalted)",
+      "required_level": 50,
+      "recommended_level": 50,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 114,
+        "Mana": 114,
+        "Armor class": 5,
+        "Heroic STA": 8,
+        "Heroic AGI": 8
+      }
+    },
+    {
+      "id": 940531,
+      "zone": "fearplane",
+      "kind": "Augment",
+      "tier": 3,
+      "name": "Dreadheart Onyx (Ascension)",
+      "required_level": 50,
+      "recommended_level": 50,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 144,
+        "Mana": 144,
+        "Armor class": 6,
+        "Heroic STA": 10,
+        "Heroic AGI": 10
+      }
+    },
+    {
+      "id": 940532,
+      "zone": "fearplane",
+      "kind": "Gear",
+      "tier": 0,
+      "name": "Terrorward Hauberk",
+      "required_level": 50,
+      "recommended_level": 50,
+      "slot": "Chest",
+      "socket": true,
+      "stats": {
+        "HP": 60,
+        "Mana": 60,
+        "Armor class": 18,
+        "STA": 8,
+        "AGI": 8,
+        "Magic resist": 10
+      }
+    },
+    {
+      "id": 940533,
+      "zone": "fearplane",
+      "kind": "Gear",
+      "tier": 1,
+      "name": "Terrorward Hauberk (Polished)",
+      "required_level": 50,
+      "recommended_level": 50,
+      "slot": "Chest",
+      "socket": true,
+      "stats": {
+        "HP": 87,
+        "Mana": 87,
+        "Armor class": 27,
+        "STA": 11,
+        "AGI": 11,
+        "Magic resist": 14
+      }
+    },
+    {
+      "id": 940534,
+      "zone": "fearplane",
+      "kind": "Gear",
+      "tier": 2,
+      "name": "Terrorward Hauberk (Exalted)",
+      "required_level": 50,
+      "recommended_level": 50,
+      "slot": "Chest",
+      "socket": true,
+      "stats": {
+        "HP": 114,
+        "Mana": 114,
+        "Armor class": 37,
+        "STA": 13,
+        "AGI": 13,
+        "Magic resist": 17
+      }
+    },
+    {
+      "id": 940535,
+      "zone": "fearplane",
+      "kind": "Gear",
+      "tier": 3,
+      "name": "Terrorward Hauberk (Ascension)",
+      "required_level": 50,
+      "recommended_level": 50,
+      "slot": "Chest",
+      "socket": true,
+      "stats": {
+        "HP": 144,
+        "Mana": 144,
+        "Armor class": 48,
+        "STA": 16,
+        "AGI": 16,
+        "Magic resist": 20,
+        "Heroic STA": 4,
+        "Heroic AGI": 4,
+        "Heroic magic resist": 5
+      }
+    },
+    {
+      "id": 940536,
+      "zone": "permafrost",
+      "kind": "Augment",
+      "tier": 0,
+      "name": "Rimeheart Diamond",
+      "required_level": 50,
+      "recommended_level": 50,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 60,
+        "Mana": 60,
+        "Healing Amount": 2,
+        "Heroic STA": 5,
+        "Heroic WIS": 5
+      }
+    },
+    {
+      "id": 940537,
+      "zone": "permafrost",
+      "kind": "Augment",
+      "tier": 1,
+      "name": "Rimeheart Diamond (Polished)",
+      "required_level": 50,
+      "recommended_level": 50,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 87,
+        "Mana": 87,
+        "Healing Amount": 3,
+        "Heroic STA": 6,
+        "Heroic WIS": 6
+      }
+    },
+    {
+      "id": 940538,
+      "zone": "permafrost",
+      "kind": "Augment",
+      "tier": 2,
+      "name": "Rimeheart Diamond (Exalted)",
+      "required_level": 50,
+      "recommended_level": 50,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 114,
+        "Mana": 114,
+        "Healing Amount": 5,
+        "Heroic STA": 8,
+        "Heroic WIS": 8
+      }
+    },
+    {
+      "id": 940539,
+      "zone": "permafrost",
+      "kind": "Augment",
+      "tier": 3,
+      "name": "Rimeheart Diamond (Ascension)",
+      "required_level": 50,
+      "recommended_level": 50,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 144,
+        "Mana": 144,
+        "Healing Amount": 6,
+        "Heroic STA": 10,
+        "Heroic WIS": 10
+      }
+    },
+    {
+      "id": 940540,
+      "zone": "permafrost",
+      "kind": "Gear",
+      "tier": 0,
+      "name": "Frostwarden Circlet",
+      "required_level": 50,
+      "recommended_level": 50,
+      "slot": "Head",
+      "socket": true,
+      "stats": {
+        "HP": 60,
+        "Mana": 60,
+        "Armor class": 14,
+        "Healing Amount": 4,
+        "STA": 8,
+        "WIS": 8,
+        "Cold resist": 10
+      }
+    },
+    {
+      "id": 940541,
+      "zone": "permafrost",
+      "kind": "Gear",
+      "tier": 1,
+      "name": "Frostwarden Circlet (Polished)",
+      "required_level": 50,
+      "recommended_level": 50,
+      "slot": "Head",
+      "socket": true,
+      "stats": {
+        "HP": 87,
+        "Mana": 87,
+        "Armor class": 19,
+        "Healing Amount": 8,
+        "STA": 11,
+        "WIS": 11,
+        "Cold resist": 14
+      }
+    },
+    {
+      "id": 940542,
+      "zone": "permafrost",
+      "kind": "Gear",
+      "tier": 2,
+      "name": "Frostwarden Circlet (Exalted)",
+      "required_level": 50,
+      "recommended_level": 50,
+      "slot": "Head",
+      "socket": true,
+      "stats": {
+        "HP": 114,
+        "Mana": 114,
+        "Armor class": 23,
+        "Healing Amount": 14,
+        "STA": 13,
+        "WIS": 13,
+        "Cold resist": 17
+      }
+    },
+    {
+      "id": 940543,
+      "zone": "permafrost",
+      "kind": "Gear",
+      "tier": 3,
+      "name": "Frostwarden Circlet (Ascension)",
+      "required_level": 50,
+      "recommended_level": 50,
+      "slot": "Head",
+      "socket": true,
+      "stats": {
+        "HP": 144,
+        "Mana": 144,
+        "Armor class": 28,
+        "Healing Amount": 20,
+        "STA": 16,
+        "WIS": 16,
+        "Cold resist": 20,
+        "Heroic STA": 4,
+        "Heroic WIS": 4,
+        "Heroic cold resist": 5
+      }
+    },
+    {
+      "id": 940544,
+      "zone": "kerraridge",
+      "kind": "Augment",
+      "tier": 0,
+      "name": "Pridewhisper Amber",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 20,
+        "Mana": 20,
+        "Attack": 1,
+        "Heroic AGI": 2,
+        "Heroic DEX": 2
+      }
+    },
+    {
+      "id": 940545,
+      "zone": "kerraridge",
+      "kind": "Augment",
+      "tier": 1,
+      "name": "Pridewhisper Amber (Polished)",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 29,
+        "Mana": 29,
+        "Attack": 1,
+        "Heroic AGI": 3,
+        "Heroic DEX": 3
+      }
+    },
+    {
+      "id": 940546,
+      "zone": "kerraridge",
+      "kind": "Augment",
+      "tier": 2,
+      "name": "Pridewhisper Amber (Exalted)",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 38,
+        "Mana": 38,
+        "Attack": 2,
+        "Heroic AGI": 4,
+        "Heroic DEX": 4
+      }
+    },
+    {
+      "id": 940547,
+      "zone": "kerraridge",
+      "kind": "Augment",
+      "tier": 3,
+      "name": "Pridewhisper Amber (Ascension)",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 48,
+        "Mana": 48,
+        "Attack": 3,
+        "Heroic AGI": 5,
+        "Heroic DEX": 5
+      }
+    },
+    {
+      "id": 940548,
+      "zone": "kerraridge",
+      "kind": "Gear",
+      "tier": 0,
+      "name": "Clawstep Handwraps",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Hands",
+      "socket": true,
+      "stats": {
+        "HP": 26,
+        "Mana": 26,
+        "Armor class": 5,
+        "Attack": 1,
+        "AGI": 3,
+        "DEX": 3,
+        "Disease resist": 4
+      }
+    },
+    {
+      "id": 940549,
+      "zone": "kerraridge",
+      "kind": "Gear",
+      "tier": 1,
+      "name": "Clawstep Handwraps (Polished)",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Hands",
+      "socket": true,
+      "stats": {
+        "HP": 38,
+        "Mana": 38,
+        "Armor class": 7,
+        "Attack": 3,
+        "AGI": 4,
+        "DEX": 4,
+        "Disease resist": 5
+      }
+    },
+    {
+      "id": 940550,
+      "zone": "kerraridge",
+      "kind": "Gear",
+      "tier": 2,
+      "name": "Clawstep Handwraps (Exalted)",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Hands",
+      "socket": true,
+      "stats": {
+        "HP": 49,
+        "Mana": 49,
+        "Armor class": 8,
+        "Attack": 5,
+        "AGI": 5,
+        "DEX": 5,
+        "Disease resist": 7
+      }
+    },
+    {
+      "id": 940551,
+      "zone": "kerraridge",
+      "kind": "Gear",
+      "tier": 3,
+      "name": "Clawstep Handwraps (Ascension)",
+      "required_level": 20,
+      "recommended_level": 20,
+      "slot": "Hands",
+      "socket": true,
+      "stats": {
+        "HP": 62,
+        "Mana": 62,
+        "Armor class": 10,
+        "Attack": 8,
+        "AGI": 6,
+        "DEX": 6,
+        "Disease resist": 8,
+        "Heroic AGI": 2,
+        "Heroic DEX": 2,
+        "Heroic disease resist": 2
+      }
+    },
+    {
+      "id": 940560,
+      "zone": "hateplane",
+      "kind": "Augment",
+      "tier": 0,
+      "name": "Spiteglass Prism",
+      "required_level": 50,
+      "recommended_level": 50,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 60,
+        "Mana": 60,
+        "Spell Damage": 2,
+        "Heroic STA": 5,
+        "Heroic INT": 5
+      }
+    },
+    {
+      "id": 940561,
+      "zone": "hateplane",
+      "kind": "Augment",
+      "tier": 1,
+      "name": "Spiteglass Prism (Polished)",
+      "required_level": 50,
+      "recommended_level": 50,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 87,
+        "Mana": 87,
+        "Spell Damage": 3,
+        "Heroic STA": 6,
+        "Heroic INT": 6
+      }
+    },
+    {
+      "id": 940562,
+      "zone": "hateplane",
+      "kind": "Augment",
+      "tier": 2,
+      "name": "Spiteglass Prism (Exalted)",
+      "required_level": 50,
+      "recommended_level": 50,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 114,
+        "Mana": 114,
+        "Spell Damage": 5,
+        "Heroic STA": 8,
+        "Heroic INT": 8
+      }
+    },
+    {
+      "id": 940563,
+      "zone": "hateplane",
+      "kind": "Augment",
+      "tier": 3,
+      "name": "Spiteglass Prism (Ascension)",
+      "required_level": 50,
+      "recommended_level": 50,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 144,
+        "Mana": 144,
+        "Spell Damage": 6,
+        "Heroic STA": 10,
+        "Heroic INT": 10
+      }
+    },
+    {
+      "id": 940564,
+      "zone": "hateplane",
+      "kind": "Gear",
+      "tier": 0,
+      "name": "Spitewoven Handwraps",
+      "required_level": 50,
+      "recommended_level": 50,
+      "slot": "Hands",
+      "socket": true,
+      "stats": {
+        "HP": 60,
+        "Mana": 60,
+        "Armor class": 14,
+        "Spell Damage": 4,
+        "STA": 8,
+        "INT": 8,
+        "Magic resist": 10
+      }
+    },
+    {
+      "id": 940565,
+      "zone": "hateplane",
+      "kind": "Gear",
+      "tier": 1,
+      "name": "Spitewoven Handwraps (Polished)",
+      "required_level": 50,
+      "recommended_level": 50,
+      "slot": "Hands",
+      "socket": true,
+      "stats": {
+        "HP": 87,
+        "Mana": 87,
+        "Armor class": 19,
+        "Spell Damage": 8,
+        "STA": 11,
+        "INT": 11,
+        "Magic resist": 14
+      }
+    },
+    {
+      "id": 940566,
+      "zone": "hateplane",
+      "kind": "Gear",
+      "tier": 2,
+      "name": "Spitewoven Handwraps (Exalted)",
+      "required_level": 50,
+      "recommended_level": 50,
+      "slot": "Hands",
+      "socket": true,
+      "stats": {
+        "HP": 114,
+        "Mana": 114,
+        "Armor class": 23,
+        "Spell Damage": 14,
+        "STA": 13,
+        "INT": 13,
+        "Magic resist": 17
+      }
+    },
+    {
+      "id": 940567,
+      "zone": "hateplane",
+      "kind": "Gear",
+      "tier": 3,
+      "name": "Spitewoven Handwraps (Ascension)",
+      "required_level": 50,
+      "recommended_level": 50,
+      "slot": "Hands",
+      "socket": true,
+      "stats": {
+        "HP": 144,
+        "Mana": 144,
+        "Armor class": 28,
+        "Spell Damage": 20,
+        "STA": 16,
+        "INT": 16,
+        "Magic resist": 20,
+        "Heroic STA": 4,
+        "Heroic INT": 4,
+        "Heroic magic resist": 5
+      }
+    },
+    {
+      "id": 940568,
+      "zone": "erudsxing",
+      "kind": "Augment",
+      "tier": 0,
+      "name": "Wispglow Pearl",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 12,
+        "Mana": 12,
+        "Heroic AGI": 1,
+        "Heroic WIS": 1
+      }
+    },
+    {
+      "id": 940569,
+      "zone": "erudsxing",
+      "kind": "Augment",
+      "tier": 1,
+      "name": "Wispglow Pearl (Polished)",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 18,
+        "Mana": 18,
+        "Healing Amount": 1,
+        "Heroic AGI": 2,
+        "Heroic WIS": 2
+      }
+    },
+    {
+      "id": 940570,
+      "zone": "erudsxing",
+      "kind": "Augment",
+      "tier": 2,
+      "name": "Wispglow Pearl (Exalted)",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 24,
+        "Mana": 24,
+        "Healing Amount": 1,
+        "Heroic AGI": 3,
+        "Heroic WIS": 3
+      }
+    },
+    {
+      "id": 940571,
+      "zone": "erudsxing",
+      "kind": "Augment",
+      "tier": 3,
+      "name": "Wispglow Pearl (Ascension)",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Head, arms, hands, chest, legs, feet",
+      "socket": false,
+      "stats": {
+        "HP": 30,
+        "Mana": 30,
+        "Healing Amount": 2,
+        "Heroic AGI": 4,
+        "Heroic WIS": 4
+      }
+    },
+    {
+      "id": 940572,
+      "zone": "erudsxing",
+      "kind": "Gear",
+      "tier": 0,
+      "name": "Lanternwake Charm",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Range",
+      "socket": false,
+      "stats": {
+        "HP": 16,
+        "Mana": 16,
+        "Armor class": 3,
+        "AGI": 2,
+        "WIS": 2,
+        "Poison resist": 3
+      }
+    },
+    {
+      "id": 940573,
+      "zone": "erudsxing",
+      "kind": "Gear",
+      "tier": 1,
+      "name": "Lanternwake Charm (Polished)",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Range",
+      "socket": false,
+      "stats": {
+        "HP": 23,
+        "Mana": 23,
+        "Armor class": 4,
+        "Healing Amount": 2,
+        "AGI": 3,
+        "WIS": 3,
+        "Poison resist": 4
+      }
+    },
+    {
+      "id": 940574,
+      "zone": "erudsxing",
+      "kind": "Gear",
+      "tier": 2,
+      "name": "Lanternwake Charm (Exalted)",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Range",
+      "socket": false,
+      "stats": {
+        "HP": 30,
+        "Mana": 30,
+        "Armor class": 5,
+        "Healing Amount": 3,
+        "AGI": 3,
+        "WIS": 3,
+        "Poison resist": 5
+      }
+    },
+    {
+      "id": 940575,
+      "zone": "erudsxing",
+      "kind": "Gear",
+      "tier": 3,
+      "name": "Lanternwake Charm (Ascension)",
+      "required_level": 10,
+      "recommended_level": 10,
+      "slot": "Range",
+      "socket": false,
+      "stats": {
+        "HP": 38,
+        "Mana": 38,
+        "Armor class": 6,
+        "Healing Amount": 5,
+        "AGI": 4,
+        "WIS": 4,
+        "Poison resist": 6,
+        "Heroic AGI": 1,
+        "Heroic WIS": 1,
+        "Heroic poison resist": 2
+      }
+    }
+  ]
+}
