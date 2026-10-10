@@ -102,6 +102,9 @@ class AdvancedLootUI {
 		for (std::size_t i = 0; i < PageSize; ++i) {
 			const auto suffix = std::to_string(i);
 			const bool exists = matching && i < s.rows.size();
+			const bool image = Screen::Icon(Screen::Child("NCAL_Icon" + suffix), exists ? s.rows[i].icon : 0);
+			Visible("Icon" + suffix, list && exists && image);
+			Enable("Icon" + suffix, true);
 			Visible("Row" + suffix, list && exists); Visible("Source" + suffix, list && exists);
 			Visible("Ignore" + suffix, list && exists && !drops);
 			Visible("Always" + suffix, list && exists && drops);
@@ -168,7 +171,7 @@ class AdvancedLootUI {
 			if (!include(id)) { return false; }
 		}
 		for (unsigned i = 0; i < 8; ++i) {
-			for (const char *prefix : {"Row", "Source", "Ignore", "Always", "Never"}) {
+			for (const char *prefix : {"Icon", "Row", "Source", "Ignore", "Always", "Never"}) {
 				if (!include(prefix + std::to_string(i))) { return false; }
 			}
 		}
@@ -192,7 +195,7 @@ class AdvancedLootUI {
 		if (clicked("Refresh")) { Refresh(true); return true; }
 		const auto &s = state_.Current();
 		for (std::size_t i = 0; i < s.rows.size(); ++i) {
-			if (clicked("Row" + std::to_string(i))) { selected_ = s.rows[i].token; confirm_ = 0; dirty_ = true; return true; }
+			if (clicked("Row" + std::to_string(i)) || clicked("Icon" + std::to_string(i))) { selected_ = s.rows[i].token; confirm_ = 0; dirty_ = true; return true; }
 		}
 		if (clicked("Rule") || clicked("More")) { panel_ = clicked("Rule") ? Panel::Rule : Panel::More; confirm_ = 0; dirty_ = true; return true; }
 		if (!Available()) { return true; }
