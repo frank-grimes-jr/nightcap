@@ -1,7 +1,8 @@
 # NPC-targeted heals default to the caster
 
-Status: source candidate on `feature/npc-heal-self`; not deployed. Owner in-game
-acceptance and approval for promotion to main remain required. This is a targeting
+Status: the owner explicitly authorized promotion to main and server deployment
+on October 9, 2026. Production build and activation are in progress; in-game
+acceptance remains separate. This is a targeting
 fix, with no changes to heal strength, mana, cast time, reuse, AA availability,
 expansion rules or database contents.
 
@@ -48,26 +49,12 @@ implied targeting on/off, idle NPCs, player/pet/NPC casters and targets, PC-only
 validation, triggered HP-once/percentage heals, final-slot effects, retargeting,
 invalid spells and null targets.
 
-Native compilation evidence is retained locally at
-`akk-stack/code/build/heal-targeting-20261009/compile.json` and `compile.log`.
-The final native compile passed on October 9, 2026 (Clang, C++20). Source SHA-256:
-`206ea477c07f9d2f11538e458e0eabb33cd09f8fef9b87b763a1f5bb9846760a`;
-object SHA-256:
-`1ab327fdd27dcbe9700bff3dd43adca8ead5e0b70e8bec26286e01f5d32c4e96`.
-The final native compile passed on October 9, 2026 (Clang, C++20). Source SHA-256:
-`206ea477c07f9d2f11538e458e0eabb33cd09f8fef9b87b763a1f5bb9846760a`;
-object SHA-256:
-`1ab327fdd27dcbe9700bff3dd43adca8ead5e0b70e8bec26286e01f5d32c4e96`.
-The changed translation unit is compiled with the real zone compiler flags and
-headers into a separate object. This is not a full clean server build or a
-deployable release. The running local zone executable's SHA-256 is checked before
-and after compilation to prove it was not replaced.
-
-Only the heal fix was applied to both `server-mods/code/zone/spells.cpp` and the
-local `akk-stack/code/zone/spells.cpp`. Their pre-existing unrelated differences
-are deliberately preserved; do not deploy the older mirror over the full live
-source. A release must apply this isolated patch to its pinned current source,
-build a candidate zone binary and retain the previous binary for rollback.
+The initial local translation-unit compile passed without changing the running
+local binary. The owner then authorized production promotion. A fresh production
+zone build is in progress against the exact retained deployed source; only
+`zone/spells.cpp` differs from that source manifest. The prior hardened source
+and binaries are retained. Deployment and recovery evidence will be recorded in
+[the release report](../ops/npc-heal-self-20261009/README.md).
 
 ## Exact in-game QA after candidate deployment
 
@@ -107,15 +94,10 @@ effect scans and source-mirror parity for the new helper. No new dependencies,
 database access, rule catalog entries or permission bypasses are introduced.
 Full server linking, client animations and gameplay acceptance remain unverified.
 
-Author review checked early target validation, cast-target persistence, unchanged
-per-recipient group application, explicit special target types, bounded spell
-effect scans and source-mirror parity for the new helper. No new dependencies,
-database access, rule catalog entries or permission bypasses are introduced.
-Full server linking, client animations and gameplay acceptance remain unverified.
-
 No production binary, service, database or client file was changed by this task.
-Normal branch policy is `feature -> dev -> test -> main`, with owner sign-off for
-main. The September 15 exception does not authorize this new gameplay promotion.
+The owner explicitly requested "Push to main and server" for this fix on
+October 9, authorizing this release before manual in-game acceptance. The default
+branch policy remains in place for unrelated future changes.
 For OVH, inspect the current supervisor before rollout: a child exit can restart
 the entire runtime. Do not kill one zone assuming only it will restart.
 
