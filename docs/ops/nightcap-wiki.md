@@ -4,10 +4,11 @@ Updated October 9, 2026.
 
 ## Current state
 
-- Intended public URL: `https://wiki.nightcapgame.org/`.
+- **Public URL: https://wiki.nightcapgame.org/** — live and verified October 9, 2026 (EDT).
 - **OVH origin installed and verified:** `20261009-wiki-v2`.
-- **Public hostname pending:** Cloudflare was signed out in the available browser;
-  no DNS/tunnel/WAF changes have been made and public HTTPS is not claimed live.
+- **Public hostname active:** the existing tunnel now routes the wiki to
+  `http://web:8080`; its proxied CNAME was created automatically. The existing
+  player-only WAF rule required no change.
 - Local preview: `http://127.0.0.1:8767/` while its development server runs.
 - 451 articles: 17 maintained guides, 48 enabled zone pages, 384 item pages and
   two catalog indexes. All articles, Search and 404 bring the build to 454 pages.
@@ -17,29 +18,45 @@ Updated October 9, 2026.
 Source and build commands: [wiki/README.md](../../wiki/README.md).
 Architecture: [ADR 0059](../adr/0059-official-public-wiki.md).
 
-## Finish the public hostname
+## Public launch — October 9, 2026
 
-Using the authenticated Cloudflare account for `nightcapgame.org`:
+The authenticated dashboard added the third published application route to
+`nightcap-production` (tunnel `3bc33805-1f74-487f-bc4b-621d07e8285c`):
 
-1. Inspect existing DNS, tunnel configuration and custom security rules first.
-2. In the existing `nightcap-production` tunnel, add a published application route
-   for `wiki.nightcapgame.org`, all paths, service **HTTP `web:8080`**. Preserve the
-   existing play `/connect` gateway route, other play routes and final 404 catch-all.
-   Do not override the origin Host header to the play hostname.
-3. Confirm a proxied DNS record for `wiki` targets that same tunnel. Let the tunnel
-   workflow create it when supported; do not create a direct public OVH A record.
-4. If a zone-wide approved-IP block includes the new hostname, amend only its scope
-   to exclude the exact wiki hostname. Preserve its existing IP expression and all
-   play/other-host restrictions. Do not disable WAF, add a broad skip rule, change
-   the gateway allowlist, or make downloads public.
-5. From an unapproved external source, verify the wiki and representative deep
-   links return 200 with the exact release bytes, CSP and no-transform cache policy.
-   Verify `/channel.json`, `/launcher-channel.json`, `/nightcap-friends.zip`,
-   `/guide.html`, `/connect`, `/player-site/current/index.html` and dotfiles are 404
-   on wiki. `/../channel.json` may be 400 because Nginx rejects the malformed URI.
-6. Confirm an unapproved source still receives 403 from the play hostname. Re-run
-   the browser search, navigation and mobile checks at the public URL. Record the
-   actual Cloudflare changes and final HTTPS verification here before declaring live.
+| Order | Host / path | Service |
+| --- | --- | --- |
+| 1 (preserved) | `play.nightcapgame.org/connect` | `http://gateway:8080` |
+| 2 (preserved) | `play.nightcapgame.org`, all paths | `http://web:8080` |
+| 3 (added) | `wiki.nightcapgame.org`, all paths | `http://web:8080` |
+
+All routes use default origin settings. Cloudflare created proxied CNAME `wiki`
+pointing to `3bc33805-1f74-487f-bc4b-621d07e8285c.cfargotunnel.com` with automatic TTL.
+The existing play DNS record was preserved. There is no direct public OVH A record.
+
+The active `Nightcap allow` Block rule (`46c8a12408e64acbadc6d1d8c64b21ce`)
+already restricts only `http.host eq "play.nightcapgame.org"` with the existing
+approved-IP set. **No WAF, gateway allowlist, origin configuration or runtime
+restart was needed for this public activation.**
+
+At 2026-10-10 00:30:40 UTC (October 9 EDT), external HTTPS checks from OVH's
+unapproved public egress passed all 461 SHA256 values, TLS validation, CSP and
+`no-transform` cache headers. Eight private/source paths returned 404 on wiki;
+POST returned 403. Play's homepage, channel, client archive and connection path
+all remained 403 from that same source. See the
+[machine-readable verification](../releases/wiki-public-20261009/verification.json).
+
+Live browser verification passed item search (six results, exact item first),
+item details/navigation, 390px item/home layouts without horizontal overflow,
+desktop visual inspection and an empty warning/error console. Screenshots and
+the read-only external verifier are in the local working evidence directory.
+
+The stock Python-urllib user-agent was rejected by Cloudflare with error 1010;
+the same identity reproduced the rejection in curl. Verification used installed
+curl's normal identity and passed, without disabling or bypassing a security rule.
+
+For public rollback, remove only the wiki application route and its DNS record.
+There is no wiki WAF exception to reverse. Keep the existing play routes, DNS,
+IP rule and gateway environment intact. Origin recovery is documented below.
 
 Provider references: [Tunnel routing](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/routing-to-tunnel/)
 and [IP allowlist custom rules](https://developers.cloudflare.com/waf/custom-rules/use-cases/allow-traffic-from-ips-in-allowlist/).
@@ -75,7 +92,7 @@ unchanged play resources/services. Remove `current` only after checking it point
 to this release; preserve release/receipt files for diagnosis. If any other website
 operation changed the config, do not overwrite it with an old preimage: prepare a
 scoped inverse that removes only the wiki host. After Cloudflare activation, also
-remove only the new wiki route/DNS and reverse only its scoped IP-rule exception.
+remove only the new wiki route/DNS; no IP-rule change was made.
 
 For later content updates, prepare a fresh immutable package/release and compare
 the active pointer/config under the same shared lock. Reuse archive/hash validation,

@@ -7,8 +7,11 @@ Add the owner-maintained Nightcap wiki: 17 guide pages, 48 enabled reward zones,
 40% passive AA and live-testing/unreleased labels. Publish only the 461-file static
 payload to an isolated wiki origin, with archive validation, shared website lock,
 rollback rehearsal and exact private-download/container preservation. Origin
-release 20261009-wiki-v2 passes; Cloudflare sign-in and public hostname routing
-remain pending. No gameplay, database, client or private player-guide changes.
+release 20261009-wiki-v2 passes. Public wiki.nightcapgame.org now routes through
+the existing Cloudflare tunnel with proxied DNS; all 461 files pass external HTTPS
+hash/header checks and live search/mobile checks pass. Existing player-only WAF
+and gateway policy are unchanged; private paths remain blocked. No gameplay,
+database, client or private player-guide changes.
 Build, tests, content provenance and recovery: docs/ops/nightcap-wiki.md.
 
 ## 2026-10-09 - Classic zone hunt deployed and private guide updated
