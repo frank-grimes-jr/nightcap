@@ -10,7 +10,7 @@ layouts. Seventeen guides cover current custom systems. The released catalog add
 48 zones and 384 item variants with stat tables, source zones and quality links.
 The output is 454 HTML pages and an exact 461-file static release.
 
-OVH origin release `20261009-wiki-v2` is installed and byte-verified. Separate host
+Initial OVH origin release `20261009-wiki-v2` was installed and byte-verified. Separate host
 root, shared publisher lock, strict CSP, read-only routes, archive/hash checks,
 rollback rehearsal and five-service/private-download preservation are verified.
 Public HTTPS is live at https://wiki.nightcapgame.org/ through the existing tunnel.
@@ -42,4 +42,7 @@ six existing search cases and sixteen Linux deployment/update cases pass.
 Browser checks cover combined filters, empty/reset states, pagination, quality
 links, Back restoration, mobile cards and 320/768/1024/1440 widths. Independent
 review found two rollback edges and one exact-name search issue; all were fixed
-and covered by regressions. Public rollout evidence is in the hosting runbook.
+and covered by regressions. Release `20261010-equipment-v1` is live; all 461
+public file hashes and headers pass. Rollback was rehearsed, private downloads
+and five service identities were preserved, and no Nginx reload was needed.
+Public rollout evidence is in the hosting runbook.

@@ -5,11 +5,13 @@ Updated October 9, 2026.
 ## Current state
 
 - **Public URL: https://wiki.nightcapgame.org/** — live and verified October 9, 2026 (EDT).
-- **OVH origin installed and verified:** `20261009-wiki-v2`.
+- **Active OVH origin release:** `20261010-equipment-v1`; previous release
+  `20261009-wiki-v2` is retained for recovery.
+- **Equipment:** 96 item families with four quality links each, gear/augment
+  views, name/slot/level/zone filters, sorting and 12-family pagination.
 - **Public hostname active:** the existing tunnel now routes the wiki to
   `http://web:8080`; its proxied CNAME was created automatically. The existing
   player-only WAF rule required no change.
-- Local preview: `http://127.0.0.1:8767/` while its development server runs.
 - 451 articles: 17 maintained guides, 48 enabled zone pages, 384 item pages and
   two catalog indexes. All articles, Search and 404 bring the build to 454 pages.
 - The exact publication contains 461 files. Private player guide and game access
@@ -17,6 +19,33 @@ Updated October 9, 2026.
 
 Source and build commands: [wiki/README.md](../../wiki/README.md).
 Architecture: [ADR 0059](../adr/0059-official-public-wiki.md).
+
+## Equipment update — October 9 EDT / October 10 UTC, 2026
+
+`20261010-equipment-v1` is active at [Equipment](https://wiki.nightcapgame.org/items.html).
+The catalog groups 384 variants into 96 families and keeps guides separate from
+item browsing. All quality URLs remain reachable in static markup without JavaScript.
+Mobile layouts use stacked cards; copied filter URLs and Back navigation retain
+the selected view. Exact-name search recognizes all four published variant names.
+
+The guarded content updater verified the new 461-file release, rehearsed rollback
+to `20261009-wiki-v2`, and reactivated the new pointer. Nginx configuration, private
+download hashes and all five container identities/start times stayed unchanged;
+no reload or service restart was required. See [origin verification](../releases/wiki-equipment-20261010/origin-verification.json).
+Current relative pointer: `data/public/wiki/current` → `releases/20261010-equipment-v1`.
+The immutable receipt is in
+`/opt/nightcap/deploy/production/website-history/20261010-equipment-v1/`.
+
+At 2026-10-10 01:01:29 UTC, public HTTPS matched all 461 file hashes and security/cache
+headers. Eight private/source paths returned 404 on wiki; POST returned 403;
+unapproved play access stayed 403. See [public verification](../releases/wiki-equipment-20261010/public-verification.json).
+Live combined filters returned the expected two head-slot gear families at level
+10 or below. Local browser checks also covered empty/reset states, pagination,
+quality links, Back restoration, exact variant names, mobile cards and four widths.
+
+Independent review identified config-drift recovery, interruption immediately
+after pointer replacement, and exact variant-name search issues. All three were
+fixed and regression-tested before publication; no material findings remained.
 
 ## Public launch — October 9, 2026
 
@@ -67,8 +96,9 @@ and [IP allowlist custom rules](https://developers.cloudflare.com/waf/custom-rul
 hostname and checks the exact Nginx preimage. It uses the existing publisher's
 `website-history/.lock`, validates all archive members/hashes with a 32 MB total
 uncompressed budget, stores immutable releases, writes the bind-mounted config in
-place, and reloads only Nginx. The active symlink is relative so it resolves inside
-the container mount:
+place, and reloads only Nginx. The initial installation used this relative
+symlink so it resolves inside the container mount (superseded by the Equipment
+update above):
 
 `/opt/nightcap/deploy/production/data/public/wiki/current` →
 `releases/20261009-wiki-v2`.
@@ -117,7 +147,12 @@ private-download and service checks. Keep all release and receipt directories.
 
 ## Verification evidence
 
-- Six complete-site/content/package tests pass across all 454 HTML pages.
+- Seven complete-site/content/package tests pass across all 454 HTML pages.
+- Seven Node Equipment cases cover all 384 exact variant names, combined
+  filters, sorting, pagination, level/slot semantics and unsafe-looking queries.
+- Eight content-update tests pass on Linux, including failed activation,
+  stale preimage, corrupt archive, unrelated pointer ownership, private-download
+  drift, config drift and interruption immediately after atomic replacement.
 - Eight deployment tests pass on Linux, including symlink cleanup when recovery
   reload fails, stale config rejection, archive traversal/symlink rejection, total
   memory bound and private-route denial.

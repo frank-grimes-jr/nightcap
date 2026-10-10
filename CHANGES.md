@@ -8,7 +8,10 @@ filters, sorting, shareable filter URLs and 12-family pages; retain all static
 item links and separate equipment/forging guides. Sidebar and category navigation
 now lead to the catalog. Full variant-name searches are covered for all 384 items.
 Add guarded content updates with atomic relative pointers and rollback regressions;
-no Nginx, access-policy, gameplay or database changes are required.
+no Nginx, access-policy, gameplay or database changes are required. Published
+release 20261010-equipment-v1 passes all 461 public hashes/header checks,
+rollback rehearsal and private-download/service preservation. Evidence:
+docs/releases/wiki-equipment-20261010/ and docs/ops/nightcap-wiki.md.
 
 
 ## 2026-10-09 - Official public wiki on an isolated OVH host

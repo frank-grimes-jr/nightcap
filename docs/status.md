@@ -7,7 +7,9 @@ QA reports preserve their original evidence and are not live-state promises.
 
 The owner requested an official guide maintained by us. `wiki/` builds 454 pages
 covering custom systems, 48 enabled reward zones and 384 obtainable item variants.
-OVH origin release `20261009-wiki-v2` is byte-verified with rollback rehearsal;
+Equipment groups all four qualities into 96 families with gear/augment views,
+name/slot/level/zone filters and 12-family pages. OVH origin release
+`20261010-equipment-v1` is byte-verified with rollback rehearsal;
 all five service identities/start times and private downloads are preserved.
 [wiki.nightcapgame.org](https://wiki.nightcapgame.org/) is live through the existing
 Cloudflare tunnel with a proxied CNAME. All 461 public files match release hashes;
