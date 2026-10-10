@@ -2,7 +2,8 @@
 
 The owner explicitly requested promotion to main and the OVH server for this
 release. In-game acceptance remains separate from deployment verification.
-Current status: production build in progress; activation has not run.
+Current status: fresh production build and 99 regression checks passed;
+activation has not run.
 
 ## Scope and verification
 

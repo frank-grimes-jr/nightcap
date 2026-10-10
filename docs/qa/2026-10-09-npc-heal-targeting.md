@@ -1,7 +1,7 @@
 # NPC-targeted heals default to the caster
 
 Status: the owner explicitly authorized promotion to main and server deployment
-on October 9, 2026. Production build and activation are in progress; in-game
+on October 9, 2026. The fresh production build passed; activation is pending. In-game
 acceptance remains separate. This is a targeting
 fix, with no changes to heal strength, mana, cast time, reuse, AA availability,
 expansion rules or database contents.
@@ -51,7 +51,7 @@ invalid spells and null targets.
 
 The initial local translation-unit compile passed without changing the running
 local binary. The owner then authorized production promotion. A fresh production
-zone build is in progress against the exact retained deployed source; only
+zone build passed against the exact retained deployed source; only
 `zone/spells.cpp` differs from that source manifest. The prior hardened source
 and binaries are retained. Deployment and recovery evidence will be recorded in
 [the release report](../ops/npc-heal-self-20261009/README.md).
@@ -92,7 +92,8 @@ Author review checked early target validation, cast-target persistence, unchange
 per-recipient group application, explicit special target types, bounded spell
 effect scans and source-mirror parity for the new helper. No new dependencies,
 database access, rule catalog entries or permission bypasses are introduced.
-Full server linking, client animations and gameplay acceptance remain unverified.
+The fresh zone executable linked successfully. Client animations and gameplay
+acceptance remain unverified.
 
 No production binary, service, database or client file was changed by this task.
 The owner explicitly requested "Push to main and server" for this fix on

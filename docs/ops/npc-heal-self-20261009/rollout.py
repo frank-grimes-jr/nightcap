@@ -35,6 +35,8 @@ def select(image):
     with temp.open('x') as f:f.write(data);f.flush();os.fsync(f.fileno())
     os.chmod(temp,st.st_mode & 0o777);os.chown(temp,st.st_uid,st.st_gid);os.replace(temp,p)
 def validate_image(image):
+    libraries=r.out('docker','run','--rm','--network','none','--entrypoint','ldd',image,'/opt/nightcap/bin/zone')
+    assert 'not found' not in libraries,'Missing zone runtime library'
     r.call('docker','run','--rm','--network','none','--entrypoint','python3',image,'-c',"import sys;sys.path.insert(0,'/opt/nightcap');import start;start.validate_native()")
     r.call('docker','run','--rm','--network','none','--entrypoint','/opt/nightcap/bin/loginserver',image,'--nightcap-crypto-self-test')
 def preflight():
