@@ -60,6 +60,22 @@ class WikiTests(unittest.TestCase):
                 self.assertEqual(sorted(i['tier'] for i in items if i['kind']==kind),[0,1,2,3])
         self.assertNotIn('highpass', [z['slug'] for z in data['zones']])
 
+    def test_equipment_groups_variants_and_keeps_every_item_reachable(self):
+        catalog = (self.out/'items.html').read_text(encoding='utf-8')
+        self.assertEqual(catalog.count('data-equipment-row '), 96)
+        ids = set(re.findall(r'href="item-(\d+)\.html"', catalog))
+        data = json.loads((build.ROOT/'catalog.json').read_text(encoding='utf-8'))
+        self.assertEqual(ids, {str(i['id']) for i in data['items']})
+        for control in ['equipment-query', 'equipment-slot', 'equipment-level', 'equipment-zone', 'equipment-reset']:
+            self.assertIn(control, self.pages['items.html'].ids)
+        directory = (self.out/'all-pages.html').read_text(encoding='utf-8')
+        equipment = directory.split('id="category-2"')[1].split('id="category-3"')[0]
+        self.assertNotIn('href="item-', equipment)
+        self.assertIn('href="items.html"', equipment)
+        self.assertIn('href="equipment.html"', equipment)
+        self.assertIn('href="zone-hunt.html"', equipment)
+        self.assertIn('selectFamilies', (self.out/'assets/search.js').read_text(encoding='utf-8'))
+
     def test_current_mechanics_and_unreleased_labels(self):
         self.assertIn('40%',self.articles['multiclass']['body'])
         self.assertNotIn('plus 1%',self.articles['multiclass']['body'])

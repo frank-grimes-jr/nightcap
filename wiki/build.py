@@ -12,6 +12,7 @@ from catalog import catalog_articles
 ROOT = Path(__file__).resolve().parent
 ORIGIN = 'https://wiki.nightcapgame.org'
 CATEGORIES = ['Getting started', 'Character', 'Equipment', 'Adventuring', 'World', 'Quests', 'Reference']
+ASSET_VERSION = hashlib.sha256(b''.join((ROOT/'assets'/name).read_bytes() for name in ['wiki.css', 'equipment.css', 'search.js', 'equipment.js'])).hexdigest()[:12]
 
 
 def plain(value):
@@ -42,15 +43,16 @@ def load_articles():
 def render(title, description, body, page, category='Reference', status='Reference', updated='2026-10-09', toc=''):
     e = html.escape
     nav = [('index', 'Main page'), ('getting-started', 'Getting started'), ('all-pages', 'All articles'),
-           ('zones', 'Zones & rewards'), ('items', 'Item index'), ('commands', 'Commands'), ('recent-changes', 'Recent changes')]
+           ('zones', 'Zones & rewards'), ('items', 'Equipment'), ('commands', 'Commands'), ('recent-changes', 'Recent changes')]
     navigation = ''.join(f'<a href="{slug}.html"'+(' aria-current="page"' if slug == page else '')+f'>{label}</a>' for slug, label in nav)
-    category_nav = ''.join(f'<a href="all-pages.html#category-{i}">{e(c)}</a>' for i, c in enumerate(CATEGORIES))
+    category_nav = ''.join(f'<a href="{"items.html" if c == "Equipment" else "all-pages.html#category-"+str(i)}">{e(c)}</a>' for i, c in enumerate(CATEGORIES))
+    breadcrumb = '<a href="items.html">Equipment</a>' if category == 'Equipment' and page != 'items' else e(category)
     badge = f'<span class="badge {"unreleased" if status == "Not released" else ""}">{e(status)}</span>'
     return f'''<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{e(title)} · Nightcap Wiki</title><meta name="description" content="{e(description, quote=True)}">
 <meta name="theme-color" content="#153e33"><link rel="canonical" href="{ORIGIN}/{page+'.html' if page != 'index' else ''}">
-<link rel="icon" href="assets/moon.svg"><link rel="stylesheet" href="assets/wiki.css"><script src="assets/search.js" defer></script></head>
+<link rel="icon" href="assets/moon.svg"><link rel="stylesheet" href="assets/wiki.css?v={ASSET_VERSION}"><script src="assets/search.js?v={ASSET_VERSION}" defer></script></head>
 <body><a class="skip" href="#content">Skip to content</a>
 <header class="masthead"><a class="brand" href="index.html"><span class="moon" aria-hidden="true">☾</span><span>NIGHTCAP<small>THE OFFICIAL WIKI</small></span></a>
 <form class="search" action="search.html" role="search"><label class="sr-only" for="wiki-search">Search the wiki</label><input type="search" id="wiki-search" name="q" placeholder="Search articles, zones, items…" maxlength="160"><button type="submit">Search</button></form>
@@ -59,7 +61,7 @@ def render(title, description, body, page, category='Reference', status='Referen
 <div class="sidebar-categories"><p class="side-label">EXPLORE NIGHTCAP</p><nav aria-label="Categories">{category_nav}</nav></div>
 <div class="era-note"><span class="side-label">CURRENT CHAPTER</span><strong>Classic</strong><span>Level cap 50</span><span>Solo preferred · Friends welcome</span></div></aside>
 <div class="page"><div class="page-tabs"><span>Article</span><a href="about.html">About this wiki</a><a href="recent-changes.html">Updates</a></div>
-<main id="content" tabindex="-1"><div class="breadcrumb"><a href="index.html">Nightcap Wiki</a><span aria-hidden="true"> / </span>{e(category)}</div>
+<main id="content" tabindex="-1"><div class="breadcrumb"><a href="index.html">Nightcap Wiki</a><span aria-hidden="true"> / </span>{breadcrumb}</div>
 <div class="title-row"><h1>{e(title)}</h1>{badge}</div><p class="subtitle">{e(description)}</p>
 {('<aside class="notice">This feature is built but not released. The details below describe the candidate.</aside>' if status == 'Not released' else '')}
 {toc}<article>{body}</article>
@@ -78,6 +80,9 @@ def build():
     (out / 'assets').mkdir(parents=True)
     for name in ['wiki.css', 'search.js', 'moon.svg', 'traders-at-dusk.png']:
         shutil.copyfile(ROOT / 'assets' / name, out / 'assets' / name)
+    # Keep the existing public asset allowlist: bundle the two small browser features.
+    (out/'assets/search.js').write_bytes((ROOT/'assets/search.js').read_bytes() + b'\n' + (ROOT/'assets/equipment.js').read_bytes())
+    (out/'assets/wiki.css').write_bytes((ROOT/'assets/wiki.css').read_bytes() + b'\n' + (ROOT/'assets/equipment.css').read_bytes())
     for a in articles:
         headings = re.findall(r'<h2 id="([^"]+)">(.+?)</h2>', a['body'])
         toc = '<nav class="contents" aria-label="On this page"><strong>Contents</strong><ol>'+''.join(f'<li><a href="#{id}">{title}</a></li>' for id, title in headings)+'</ol></nav>' if len(headings) > 1 else ''
@@ -85,6 +90,10 @@ def build():
     listing = ''
     for i, category in enumerate(CATEGORIES):
         group = sorted([a for a in articles if a['category'] == category], key=lambda a: a['title'].lower())
+        if category == 'Equipment':
+            group = [a for a in group if not a['slug'].startswith('item-')]
+            listing += f'<h2 id="category-{i}">Equipment</h2><div class="equipment-directory-link"><a class="button" href="items.html">Browse equipment →</a><p>384 rewards grouped into 96 item families. Filter by type, slot, required level and source zone; compare all four qualities together.</p></div><h3>Equipment guides</h3><ul class="article-list">'+''.join(f'<li>{link(a)}<small>{html.escape(a["summary"])}</small></li>' for a in group if a['slug'] != 'items')+'</ul>'
+            continue
         listing += f'<h2 id="category-{i}">{category}</h2><ul class="article-list">'+''.join(f'<li>{link(a)}<small>{html.escape(a["summary"])}</small></li>' for a in group)+'</ul>'
     (out / 'all-pages.html').write_text(render('All articles', f'{len(articles)} articles, organized by topic.', listing, 'all-pages'), encoding='utf-8')
     search_body = '<p id="search-status" role="status" aria-live="polite">Enter a name, command, or topic in the search above.</p><ol id="search-results" class="article-list"></ol><noscript><p>Search needs JavaScript. Browse <a href="all-pages.html">all articles</a>, the <a href="zones.html">zone directory</a> or <a href="items.html">item index</a> instead.</p></noscript>'

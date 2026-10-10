@@ -1,5 +1,16 @@
 # CHANGES
 
+## 2026-10-09 - Organized Equipment catalog
+
+Replace the 384-entry Equipment text dump with 96 item families, each containing
+its four quality links. Add gear/augment, slot, required-level, zone and name
+filters, sorting, shareable filter URLs and 12-family pages; retain all static
+item links and separate equipment/forging guides. Sidebar and category navigation
+now lead to the catalog. Full variant-name searches are covered for all 384 items.
+Add guarded content updates with atomic relative pointers and rollback regressions;
+no Nginx, access-policy, gameplay or database changes are required.
+
+
 ## 2026-10-09 - Official public wiki on an isolated OVH host
 
 Add the owner-maintained Nightcap wiki: 17 guide pages, 48 enabled reward zones,
