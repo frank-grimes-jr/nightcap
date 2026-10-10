@@ -1,0 +1,181 @@
+{
+  "verified_at_utc": "2026-10-10T01:08:32.344760+00:00",
+  "main_merge": "4493bb4c9998f65789f37eba280c6626aec8d763",
+  "pull_request": "https://github.com/frank-grimes-jr/nightcap/pull/139",
+  "preflight": {
+    "manifest_sha256": "4b970888f7b2c56d08668399f397532b6d74c187486290e162b6d572ebbc6b0e",
+    "old_image_id": "sha256:43b216727a5f4dad4492fa8da03ca81e2f22e5cb721428645e59b8e203dcdf5a",
+    "new_image_id": "sha256:0c8939425172b588af1c30ac9a1a4df0f193992bee80809e52e5c748f5ad069c",
+    "backup": {
+      "path": "/opt/nightcap/releases/npc-heal-self-20261009/private-backup/peq-before.sql.gz",
+      "sha256": "ca64b024fca80d9b6726f660f96de017bd540b815864931a8a2327ea3e59404a",
+      "compressed_bytes": 62905147,
+      "uncompressed_bytes": 447802715,
+      "gzip_integrity": "passed"
+    }
+  },
+  "rule_values_sha256": "06ac2cbdf223cb61968f733cc0407b42bbbc7197e9dfc8d97f1b08211652e6f8",
+  "activated": {
+    "runtime": {
+      "image_id": "sha256:0c8939425172b588af1c30ac9a1a4df0f193992bee80809e52e5c748f5ad069c",
+      "started_at": "2026-10-10T01:05:46.595156001Z",
+      "restart_count": 0,
+      "processes": [
+        [
+          "loginserver",
+          "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf"
+        ],
+        [
+          "world",
+          "efd54a1023a569274a76f65d3d2a18a173906762472a1bce186e3e14629d3c18"
+        ],
+        [
+          "ucs",
+          "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714"
+        ],
+        [
+          "zone",
+          "a3d23a90f7108f9bc030943669d809f04dd7542fc3a0a18af56cd02a8061a412"
+        ],
+        [
+          "zone",
+          "a3d23a90f7108f9bc030943669d809f04dd7542fc3a0a18af56cd02a8061a412"
+        ],
+        [
+          "zone",
+          "a3d23a90f7108f9bc030943669d809f04dd7542fc3a0a18af56cd02a8061a412"
+        ],
+        [
+          "zone",
+          "a3d23a90f7108f9bc030943669d809f04dd7542fc3a0a18af56cd02a8061a412"
+        ],
+        [
+          "zone",
+          "a3d23a90f7108f9bc030943669d809f04dd7542fc3a0a18af56cd02a8061a412"
+        ],
+        [
+          "zone",
+          "a3d23a90f7108f9bc030943669d809f04dd7542fc3a0a18af56cd02a8061a412"
+        ],
+        [
+          "zone",
+          "a3d23a90f7108f9bc030943669d809f04dd7542fc3a0a18af56cd02a8061a412"
+        ],
+        [
+          "zone",
+          "a3d23a90f7108f9bc030943669d809f04dd7542fc3a0a18af56cd02a8061a412"
+        ],
+        [
+          "zone",
+          "a3d23a90f7108f9bc030943669d809f04dd7542fc3a0a18af56cd02a8061a412"
+        ],
+        [
+          "zone",
+          "a3d23a90f7108f9bc030943669d809f04dd7542fc3a0a18af56cd02a8061a412"
+        ],
+        [
+          "zone",
+          "a3d23a90f7108f9bc030943669d809f04dd7542fc3a0a18af56cd02a8061a412"
+        ],
+        [
+          "zone",
+          "a3d23a90f7108f9bc030943669d809f04dd7542fc3a0a18af56cd02a8061a412"
+        ]
+      ],
+      "errors": {
+        "native": 0,
+        "quest": 0,
+        "database": 0
+      }
+    },
+    "gateway_open": true,
+    "player_tables_preserved": 47,
+    "custom_tables_preserved": 9,
+    "database_restored": false,
+    "backup": {
+      "path": "/opt/nightcap/releases/npc-heal-self-20261009/private-backup/peq-before.sql.gz",
+      "sha256": "ca64b024fca80d9b6726f660f96de017bd540b815864931a8a2327ea3e59404a",
+      "compressed_bytes": 62905147,
+      "uncompressed_bytes": 447802715,
+      "gzip_integrity": "passed"
+    }
+  },
+  "followup": {
+    "status": "healthy",
+    "runtime": {
+      "image_id": "sha256:0c8939425172b588af1c30ac9a1a4df0f193992bee80809e52e5c748f5ad069c",
+      "started_at": "2026-10-10T01:05:46.595156001Z",
+      "restart_count": 0,
+      "processes": [
+        [
+          "loginserver",
+          "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf"
+        ],
+        [
+          "world",
+          "efd54a1023a569274a76f65d3d2a18a173906762472a1bce186e3e14629d3c18"
+        ],
+        [
+          "ucs",
+          "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714"
+        ],
+        [
+          "zone",
+          "a3d23a90f7108f9bc030943669d809f04dd7542fc3a0a18af56cd02a8061a412"
+        ],
+        [
+          "zone",
+          "a3d23a90f7108f9bc030943669d809f04dd7542fc3a0a18af56cd02a8061a412"
+        ],
+        [
+          "zone",
+          "a3d23a90f7108f9bc030943669d809f04dd7542fc3a0a18af56cd02a8061a412"
+        ],
+        [
+          "zone",
+          "a3d23a90f7108f9bc030943669d809f04dd7542fc3a0a18af56cd02a8061a412"
+        ],
+        [
+          "zone",
+          "a3d23a90f7108f9bc030943669d809f04dd7542fc3a0a18af56cd02a8061a412"
+        ],
+        [
+          "zone",
+          "a3d23a90f7108f9bc030943669d809f04dd7542fc3a0a18af56cd02a8061a412"
+        ],
+        [
+          "zone",
+          "a3d23a90f7108f9bc030943669d809f04dd7542fc3a0a18af56cd02a8061a412"
+        ],
+        [
+          "zone",
+          "a3d23a90f7108f9bc030943669d809f04dd7542fc3a0a18af56cd02a8061a412"
+        ],
+        [
+          "zone",
+          "a3d23a90f7108f9bc030943669d809f04dd7542fc3a0a18af56cd02a8061a412"
+        ],
+        [
+          "zone",
+          "a3d23a90f7108f9bc030943669d809f04dd7542fc3a0a18af56cd02a8061a412"
+        ],
+        [
+          "zone",
+          "a3d23a90f7108f9bc030943669d809f04dd7542fc3a0a18af56cd02a8061a412"
+        ],
+        [
+          "zone",
+          "a3d23a90f7108f9bc030943669d809f04dd7542fc3a0a18af56cd02a8061a412"
+        ]
+      ],
+      "errors": {
+        "native": 0,
+        "quest": 0,
+        "database": 0
+      }
+    },
+    "gateway_open": true,
+    "player_tables_preserved": 47,
+    "custom_tables_preserved": 9
+  }
+}

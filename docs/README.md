@@ -2,6 +2,9 @@
 
 Start with [current status](status.md), not a dated candidate report.
 
+- [IP-independent player access: candidate, operator commands, rollout and QA](../deploy/production/PLAYER-ACCESS.md)
+- [Signed player-access candidate and isolated relay evidence](releases/player-access-20261010.md)
+
 - [Start here: OVH + Cloudflare setup](../deploy/production/QUICKSTART.md)
 - [Hosted owner-test activation and recovery](releases/ovh-activation-20260920.md)
 - [Coordinated main/server/client update](releases/hosted-main-update-20260920.md)
@@ -10,10 +13,16 @@ Start with [current status](status.md), not a dated candidate report.
 
 ## Players and testers
 
+- [NPC-targeted heal fallback: live deployment, recovery and exact QA](ops/npc-heal-self-20261009/README.md)
+
+- [Crushbone entrance waypoint: deployment, rollback and QA](ops/crushbone-waypoint-20261009/README.md)
+
 - [Classic zone augments, new gear and forge: live deployment and exact QA](releases/zone-loot-20261009/README.md)
 
 - [Throw Stone Spell Damage: live deployment and exact QA](releases/throw-stone-20261009.md)
 
+- [40% passive AA tuning: activation, evidence and QA](ops/passive-aa-forty-20261009/README.md)
+- [Earlier 20% passive AA activation record](ops/passive-aa-tuning-20261009/README.md)
 - [Passive AA while leveling: release behavior, verification and exact QA](releases/passive-aa-20261004.md)
 
 - [Nightcap loading artwork: live release, update instructions and visual checks](releases/loading-screens-20261004.md)

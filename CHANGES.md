@@ -1,5 +1,77 @@
 # CHANGES
 
+## 2026-10-10 - IP-independent player access candidate
+
+Replace gateway player-IP admission with individually revocable random access
+codes. The launcher remembers a code using Windows user-scoped DPAPI, keeps it
+out of UI status/logs and sends it only to the trusted TLS relay. The gateway
+checks hashed credentials and closes revoked sessions without a restart; limits
+follow player identity across address changes. Operator tooling, fail-closed
+registry reloads, deployment migration and rollback/QA accompany the change.
+Finite HTTP deadlines fix a review finding before public-route exposure. Patch
+source-map-js and select Go1.27.2 to clear dependency audits. Candidate only: signed
+publication, scoped Cloudflare migration and real-player acceptance remain gates.
+See [player access](deploy/production/PLAYER-ACCESS.md).
+
+## 2026-10-09 - NPC-targeted self-heals deployed to main and OVH
+
+At the owner's explicit request, PR #139 is merged to main and the fresh zone
+build is live on OVH. Heals aimed at NPCs default to the caster while retaining
+the selected combat target. All 99 compiled targeting checks and five recovery
+tests pass. A verified full backup, graceful restart, twelve process hash checks,
+closed-gateway data comparisons and follow-up health checks passed. Current
+player/receipt data, rules, content, other native binaries and client assets are
+preserved. In-game healing/animation acceptance remains pending; no client update
+is required. Evidence, exact owner QA and immutable-image recovery:
+`docs/ops/npc-heal-self-20261009/README.md`.
+
+## 2026-10-09 - Default NPC-targeted heals to the caster (source candidate)
+
+Player heals now resolve an NPC target to the caster before implied targeting,
+target validation and range checks, including instant/triggered heal paths.
+Direct, HP-once, complete, percentage and over-time healing effects are covered;
+the selected combat target remains unchanged. Ordinary heals aimed at NPC pets
+also default to self; pet-only and other special target types keep native rules.
+Player recipients, NPC AI healing and non-healing spells retain their behavior.
+Both tracked and local source copies pass 99 compiled regression checks; native
+translation-unit verification is isolated from the running zone binary. This
+candidate was initially source-only; the later deployment is recorded above.
+Scope, build evidence, rollout boundary and exact in-game steps:
+`docs/qa/2026-10-09-npc-heal-targeting.md`.
+
+## 2026-10-09 - Move Crushbone waypoint to the entrance
+
+At the owner's request, relocate Crushbone's waypoint and recall destination
+from the distant orc spawn to its existing entrance safe point, world
+X=158, Y=-644, Z=4 (`/loc -644, 158, 4`). Correct the waypoint's dungeon metadata
+without changing outdoor spell eligibility. Preserve discoveries and update only
+matching non-corpse base-instance marker state, retaining other spawns and loot.
+Four SQL scope tests pass. The reviewed deployment runner requires an empty
+server, full backup, forward/inverse/stale-preimage rehearsals, exact snapshots
+and healthy recovery. Production activation and manual QA remain pending until
+recorded in docs/ops/crushbone-waypoint-20261009/README.md.
+
+## 2026-10-09 - Increase passive AA experience to 40%
+
+At the owner's explicit request, increase OVH AA:PassiveExpPercent from 20 to 40
+in default ruleset 1. Future passive awards double before rounding; full leveling
+XP, accumulated AA and the 100% focus award remain unchanged. All 129 native checks
+and eight operation tests pass. Fresh backup, inverse rehearsal, exact one-row
+comparison and global reload passed on world plus all 12 zones without restart.
+Keep the DB override: the compiled fallback remains 1%. Gameplay and combined
+build balance acceptance remain open. Evidence and QA:
+docs/ops/passive-aa-forty-20261009/README.md.
+
+## 2026-10-09 - Increase passive AA experience to 20%
+
+At the owner's explicit request, change OVH AA:PassiveExpPercent from 1 to 20
+in default ruleset 1. Preserve full leveling XP, existing AA progress and the
+100% focus award. A full backup, inverse rehearsal, exact rule-table comparison,
+100 native checks and eight operation tests passed. World and all 12 zones
+reloaded without restarting; every other rule is unchanged. The compiled fallback
+remains 1%, so preserve the DB override. Native gameplay/balance acceptance is
+still open. Evidence and QA: docs/ops/passive-aa-tuning-20261009/README.md.
+
 ## 2026-10-09 - Classic zone hunt deployed and private guide updated
 
 Owner-authorized PR #132 promoted hunt/forge to main. The fresh five-binary OVH

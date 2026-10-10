@@ -17,6 +17,8 @@ export interface Status {
   can_update: boolean;
   can_recover: boolean;
   can_play: boolean;
+  access_required: boolean;
+  access_saved: boolean;
 }
 export interface NativeAPI {
   GetStatus(): Promise<Status>;
@@ -27,6 +29,8 @@ export interface NativeAPI {
   Cancel(): Promise<void>;
   Play(): Promise<void>;
   OpenGuide(): Promise<void>;
+  SetAccessCode(code: string): Promise<void>;
+  ForgetAccessCode(): Promise<void>;
 }
 declare global {
   interface Window {
@@ -52,6 +56,8 @@ export const initial: Status = {
   can_update: false,
   can_recover: false,
   can_play: false,
+  access_required: false,
+  access_saved: false,
 };
 export async function snapshot(): Promise<Status> {
   const api = native();
@@ -63,10 +69,15 @@ export async function snapshot(): Promise<Status> {
   };
 }
 export async function invoke(
-  action: Exclude<keyof NativeAPI, "GetStatus">,
+  action: Exclude<keyof NativeAPI, "GetStatus" | "SetAccessCode">,
 ): Promise<void> {
   const api = native();
   if (!api)
     throw new Error("This action is available in the desktop launcher.");
   await api[action]();
+}
+export async function saveAccessCode(code: string): Promise<void> {
+  const api = native();
+  if (!api) throw new Error("Open the desktop launcher to save your access code.");
+  await api.SetAccessCode(code);
 }

@@ -9,6 +9,7 @@ import (
 	"nightcap/eq-launcher/internal/gametunnel"
 	"nightcap/eq-launcher/internal/installer"
 	"nightcap/eq-launcher/internal/manifest"
+	"nightcap/eq-launcher/internal/playeraccess"
 	"nightcap/eq-launcher/internal/session"
 )
 
@@ -45,6 +46,13 @@ func (c *Controller) Play(ctx context.Context) (err error) {
 	if dir == "" {
 		return fmt.Errorf("choose your EverQuest folder first")
 	}
+	var accessCode string
+	if c.policy.RelayURL != "" {
+		accessCode, err = playeraccess.LoadCredential(c.home)
+		if err != nil {
+			return err
+		}
+	}
 	trust := c.policy.Trust
 	trust.Now = time.Now().UTC()
 	if c.policy.AutomaticUpdates {
@@ -59,7 +67,7 @@ func (c *Controller) Play(ctx context.Context) (err error) {
 	c.show("launching", "Verifying your installed release and starting Nightcap…")
 	var disconnected <-chan struct{}
 	if c.policy.RelayURL != "" {
-		tunnel, e := gametunnel.Start(ctx, c.policy.RelayURL, c.policy.Trust.Hosts)
+		tunnel, e := gametunnel.Start(ctx, c.policy.RelayURL, c.policy.Trust.Hosts, accessCode)
 		if e != nil {
 			return e
 		}

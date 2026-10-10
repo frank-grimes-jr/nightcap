@@ -14,8 +14,10 @@ does not establish the still-open native acceptance cases below.
   EQEmu connection occurs. All advertised endpoints are127.77.0.1 with fixed ports.
 - [ ] External scan shows no native UDP, DB or admin port. Only owner SSH allowed.
   Forged CF-Connecting-IP from outside the isolated proxy network is rejected.
-- [ ] Denied/non-allowed IP cannot download/connect. Allowed friend can. Revoke
-  an established session by restarting gateway; reconnect stays blocked.
+- [ ] Signed downloads work from an unlisted IPv4/IPv6 network. `/connect`
+  rejects missing, wrong and revoked codes, including from a formerly approved IP.
+  The same valid code works after address changes. Revoke an established session
+  without restarting gateway; it closes within five seconds and reconnect fails.
 - [ ] Fresh Windows machine: WebView2 present, complete supported RoF2 copied,
   ZIP extracted, folder selected, signed update installed, Play works without
   VPN installation, elevated rights, manual eqhost edits or slash commands.

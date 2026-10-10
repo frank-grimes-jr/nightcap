@@ -1,0 +1,45 @@
+{
+  "source_commit": "26a2e7d",
+  "base_manifest_sha256": "95e0094f27e1e3f58e393be15faac3ab6bd352e4d3c16eb19919a228d730f40c",
+  "changed_source_files": [
+    "zone/spells.cpp"
+  ],
+  "base_binaries": {
+    "world": "efd54a1023a569274a76f65d3d2a18a173906762472a1bce186e3e14629d3c18",
+    "zone": "54689a1ad67e8bb753a9e8ad897c3b1cebf51642c8e7a3f0ea5eeb1c96b1d5b1",
+    "shared_memory": "91664a87eac78306e8a76ab4cb923ba1f03c2d0da180278db6b6cf9b6607c0ef",
+    "ucs": "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714",
+    "loginserver": "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf"
+  },
+  "binaries": {
+    "world": "efd54a1023a569274a76f65d3d2a18a173906762472a1bce186e3e14629d3c18",
+    "zone": "a3d23a90f7108f9bc030943669d809f04dd7542fc3a0a18af56cd02a8061a412",
+    "shared_memory": "91664a87eac78306e8a76ab4cb923ba1f03c2d0da180278db6b6cf9b6607c0ef",
+    "ucs": "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714",
+    "loginserver": "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf"
+  },
+  "cmake_flags": [
+    "-DCMAKE_BUILD_TYPE=RelWithDebInfo",
+    "-DCMAKE_CXX_COMPILER=/usr/bin/clang++",
+    "-DCMAKE_C_COMPILER=/usr/bin/clang",
+    "-DVCPKG_MANIFEST_INSTALL=OFF",
+    "-DVCPKG_MANIFEST_MODE=OFF",
+    "-DCMAKE_TOOLCHAIN_FILE=/home/eqemu/code/submodules/vcpkg/scripts/buildsystems/vcpkg.cmake",
+    "-DVCPKG_INSTALLED_DIR=/home/eqemu/code/build/vcpkg_installed",
+    "-DEQEMU_ADDITIVE_LFIB_PRNG=OFF",
+    "-DEQEMU_ADD_PROFILER=OFF",
+    "-DEQEMU_BIASED_INT_DIST=OFF",
+    "-DEQEMU_BUILD_CLIENT_FILES=ON",
+    "-DEQEMU_BUILD_LOGIN=ON",
+    "-DEQEMU_BUILD_LUA=ON",
+    "-DEQEMU_BUILD_PCH=ON",
+    "-DEQEMU_BUILD_PERL=ON",
+    "-DEQEMU_BUILD_SERVER=ON",
+    "-DEQEMU_BUILD_TESTS=OFF",
+    "-DEQEMU_CUSTOM_PRNG_ENGINE=",
+    "-DEQEMU_BUILD_LOGIN=ON"
+  ],
+  "patch_sha256": "73607099e033d97b78e966b98ad2fec8731aa27e816996bc02b8cd4632c8922e",
+  "regressions": "99/99 passed on patched production source",
+  "status": "fresh_built_not_installed"
+}

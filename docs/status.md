@@ -1,7 +1,34 @@
 # Current Nightcap status
 
-Updated October 9, 2026. This is the current status index; dated studies and
+## Player access independent of changing IPs — candidate
+
+The launcher/gateway candidate uses individual, revocable access codes stored
+securely on Windows. Component tests, review and isolated Linux relay rehearsal
+pass. Signed desktop0.5.0/release2026101001 is built but unpublished; the live
+gateway still uses IP admission and Cloudflare still blocks unlisted sources.
+Production approval, publication, the scoped Cloudflare rule change and actual
+player acceptance remain pending. [Evidence](releases/player-access-20261010.md)
+and [migration and exact QA](../deploy/production/PLAYER-ACCESS.md).
+
+Updated October 10, 2026. This is the current status index; dated studies and
 QA reports preserve their original evidence and are not live-state promises.
+
+## NPC-targeted heals deployed for live QA
+
+Owner-authorized PR #139 is on main and deployed to OVH. Player heals aimed at
+NPCs resolve to the caster while retaining the combat target. The fresh build,
+99 compiled regressions, five rollout tests and all twelve zone process hashes
+pass. Saved player/custom data, rules, content and client assets are preserved;
+access is open and follow-up health checks pass. In-game HP/animation acceptance
+remains pending. No client update is required.
+[Deployment, recovery and exact QA](ops/npc-heal-self-20261009/README.md).
+
+## Crushbone entrance waypoint approved
+
+The owner approved moving the marker and recall destination to the existing
+entrance safe point (`/loc -644, 158, 4`) and publishing to main/OVH. SQL scope
+tests pass; production activation and in-game discovery/recall QA are pending.
+[Deployment, rollback and exact QA](ops/crushbone-waypoint-20261009/README.md).
 
 ## Classic zone hunt and forge deployed for live QA
 
@@ -35,16 +62,15 @@ failure tests pass. Owner-authorized PR #127 is merged to main and deployed to O
 Post-deployment health checks passed and access is open. Gameplay QA remains
 outstanding. [Scope and exact QA](releases/throw-stone-20261009.md).
 
-## Passive AA leveling deployed
+## Passive AA leveling: 40% live
 
-Implemented additive AA at 1% of the full AA award while preserving leveling XP,
-with 0%/100% focus allocation and both quest reward paths covered. Owner-authorized
-PR 125 is on main (`a8304ccc`), and the matching five-binary OVH image is healthy.
-71 native checks and nine rollout failure tests pass; all 47 player/state tables,
-quests, content, existing free trade and client 2026100407 are preserved. Rules
-survived startup and twelve zones are running. Native gameplay acceptance remains
-open; use #aaexp off for passive gains or #aaexp on for full AA focus.
-[Behavior, automated evidence and exact owner QA](releases/passive-aa-20261004.md).
+The owner increased passive AA from 20% to 40% on October 9, alongside unchanged
+full leveling XP. AA focus remains 0/100. The guarded rule update, 129 native-method
+checks and eight operation tests pass; world and all twelve zones reloaded without
+restarting. Existing AA progress and other rules remain. In-game reward/persistence
+and combined build balance acceptance remain open.
+[Tuning, evidence and exact QA](ops/passive-aa-forty-20261009/README.md).
+[Original implementation](releases/passive-aa-20261004.md).
 
 ## Nightcap loading artwork published
 

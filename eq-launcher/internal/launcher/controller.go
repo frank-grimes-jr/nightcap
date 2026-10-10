@@ -13,6 +13,7 @@ import (
 	"nightcap/eq-launcher/internal/client"
 	"nightcap/eq-launcher/internal/installer"
 	"nightcap/eq-launcher/internal/manifest"
+	"nightcap/eq-launcher/internal/playeraccess"
 	"nightcap/eq-launcher/internal/session"
 )
 
@@ -41,6 +42,8 @@ type Status struct {
 	CanUpdate        bool                `json:"can_update"`
 	CanRecover       bool                `json:"can_recover"`
 	CanPlay          bool                `json:"can_play"`
+	AccessRequired   bool                `json:"access_required"`
+	AccessSaved      bool                `json:"access_saved"`
 }
 type Controller struct {
 	locallyCurrent bool
@@ -80,6 +83,11 @@ func New(home string, p Policy) (*Controller, error) {
 	}
 	c := &Controller{home: home, policy: p, state: Status{Channel: p.Label, ClientDir: s.ClientDir, Phase: "choose", Message: "Choose your EverQuest folder to begin.", Configured: p.configured(), Files: []assets.FileStatus{}, Remove: []string{}, Events: []Event{}}, fetch: fetchRelease, local: installer.Inspect, diff: assets.Inspect, stage: assets.Stage, install: installer.Install, recover: installer.Recover}
 	c.state.Version = p.Trust.LauncherVersion
+	c.state.AccessRequired = p.RelayURL != ""
+	if c.state.AccessRequired {
+		_, accessErr := playeraccess.LoadCredential(home)
+		c.state.AccessSaved = accessErr == nil
+	}
 	if p.Bundle != nil {
 		c.stage = func(ctx context.Context, raw []byte, sig manifest.Signature, trust manifest.Trust, dir, parent string) (assets.Generation, error) {
 			return assets.StageBundle(ctx, raw, sig, trust, dir, parent, p.Bundle)
@@ -105,7 +113,7 @@ func (c *Controller) Snapshot() Status {
 	s.CanUpdate = !s.Busy && s.Supported && s.Configured && !s.RecoveryRequired && (s.Phase == "update" || s.Phase == "health_pending")
 	s.CanRecover = !s.Busy && s.Supported && s.Configured && s.RecoveryRequired
 	// Eligibility offers an attempt only; Play revalidates everything under a lease.
-	s.CanPlay = !s.Busy && s.Supported && (c.locallyCurrent || c.policy.AutomaticUpdates) && (!s.RecoveryRequired || c.policy.AutomaticUpdates) && c.policy.playConfigured()
+	s.CanPlay = !s.Busy && s.Supported && (c.locallyCurrent || c.policy.AutomaticUpdates) && (!s.RecoveryRequired || c.policy.AutomaticUpdates) && c.policy.playConfigured() && (!s.AccessRequired || s.AccessSaved)
 	return s
 }
 func (c *Controller) begin(ctx context.Context) (context.Context, string, error) {

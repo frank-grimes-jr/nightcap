@@ -53,10 +53,20 @@ All commands run from `akk-stack/`:
 
 ## Server ops
 
+- **Player access migration candidate:** individual revocable gateway credentials
+  replace dynamic player-IP allowlists; Windows DPAPI stores each launcher's code.
+  Mount the registry directory read-only so atomic replacements are visible.
+  Do not remove Cloudflare IP gates before the credential gateway and signed
+  launcher are ready. Keep native ports private and preserve other host rules.
+  This is not a deployment record; see `deploy/production/PLAYER-ACCESS.md` for
+  current gates, isolated rehearsal, scoped rollback and exact player QA.
+
 - **Passive AA experience**: `AA:PassiveExpPercent` controls additive kill/quest/task
   AA at 0% allocation; `#aaexp on|off` selects 100% or 0%. Tiny gains round down.
   Percentage rewards must preserve independent level/AA modifiers and missing-row
-  behavior. Rebuild matching world/zone for the rule; this candidate is not deployed.
+  behavior. Catalog changes require matching world/zone. Existing values use
+  `#reload rules global`; OVH uses 40% as of October 9 (compiled fallback 1%).
+  Tuning and recovery: `docs/ops/passive-aa-forty-20261009/README.md`.
   Tests, calibration and exact QA: `docs/releases/passive-aa-20261004.md`.
 
 - **OVH zone exits restart the whole runtime.** The deployed start.py supervises
