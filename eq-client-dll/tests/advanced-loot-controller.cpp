@@ -40,6 +40,8 @@ static bool Send(const std::string &request) { if (!send_ok) { return false; } r
 static void Trace(const char *event) { events.emplace_back(event); }
 static void Notice(const char *) { assert(false && "Unexpected UI setup error"); }
 static void Frame() {}
+static std::map<void *, uint32_t> images;
+static bool SetIcon(void *control, uint32_t icon) { images[control] = icon; return icon != 0; }
 static void Pulse(uint64_t advance = 100) { clock_ms += advance; AdvancedLootUI::Pulse(clock_ms, 7, "Fixture"); }
 static void Click(const char *id, uint32_t message = 1) {
 	assert(Visible(id) && IsEnabled(id));
@@ -69,12 +71,13 @@ int main() {
 	};
 	for (const char *id : {"Status", "Selected", "Help", "Drops", "Filters", "Options", "Previous", "Next", "Page", "All", "SearchText", "Search", "Clear", "Refresh", "Take", "Rule", "More", "Back", "PanelTitle", "Empty", "Leave", "Need", "Greed", "Pass", "Roll", "FreeGrab", "Inspect", "Assign", "Find"}) { add(id); }
 	for (unsigned i = 0; i < 8; ++i) {
-		for (const char *prefix : {"Row", "Source", "Ignore", "Always", "Never"}) { add(prefix + std::to_string(i)); }
+		for (const char *prefix : {"Icon", "Row", "Source", "Ignore", "Always", "Never"}) { add(prefix + std::to_string(i)); }
 	}
 	for (unsigned i = 0; i < 6; ++i) { add("Setting" + std::to_string(i)); add("SettingHelp" + std::to_string(i)); }
 	for (unsigned i = 0; i < 5; ++i) { add("Filter" + std::to_string(i)); add("FilterHelp" + std::to_string(i)); }
 	LootScreenAPI api{&Allocate, reinterpret_cast<LootScreenAPI::Construct>(&Construct), reinterpret_cast<LootScreenAPI::Children>(&Children),
 		reinterpret_cast<LootScreenAPI::Assign>(&Assign), reinterpret_cast<LootScreenAPI::Child>(&Child), native};
+	api.icon = &SetIcon;
 	assert(AdvancedLootScreen::Bind(api, &AdvancedLootUI::Notify, &Frame, &AdvancedLootUI::Destroyed));
 	AdvancedLootUI::Initialize(&Send, &Notice, &Trace);
 	Pulse(); Pulse(1100);
@@ -89,11 +92,15 @@ int main() {
 	s.settings = 3; SnapshotReady(s); assert(Text("Setting2") == "[Off] Open on new loot");
 	Click("Drops"); SnapshotReady(s); assert(Visible("Empty") && !Visible("Setting0"));
 	Row row; row.token = 11; row.corpse = 77; row.item = 13073; row.quantity = 2; row.name = "Bone Chips"; row.source = "a skeleton";
+	row.icon = 1234;
 	row.capabilities = Capability(Action::Take) | Capability(Action::Inspect) | Capability(Action::Leave) | Capability(Action::EditFilter);
-	s.rows = {row}; s.total = 1; SnapshotReady(s); assert(!Visible("Take")); Click("Row0");
+	s.rows = {row}; s.total = 1; SnapshotReady(s); assert(!Visible("Take"));
+	assert(Visible("Icon0") && !Visible("Icon1") && images[controls.at("NCAL_Icon0")->bytes] == 1234);
+	Click("Icon0");
 	assert(Visible("Row0") && !Visible("Row1") && !Visible("Empty") && Visible("Take") && !Visible("Leave"));
 	Click("Take"); assert(requests.back() == "#advloot act 1 4 11 0 0" && !IsEnabled("Take"));
 	SnapshotReady(s); Click("Rule"); assert(Visible("Filter0") && Visible("Filter3") && !Visible("Row0"));
+	assert(!Visible("Icon0"));
 	Click("Filter2"); assert(requests.back() == "#advloot filter 1 5 13073 2");
 	s.rows[0].filter = Filter::Never; SnapshotReady(s); assert(Text("Filter2") == "> Never loot");
 	Click("Back"); Click("More"); assert(Visible("Inspect") && Visible("Leave") && !Visible("Need") && !Visible("Setting0"));
@@ -106,7 +113,7 @@ int main() {
 	Click("Filters"); assert(requests.back() == "#advloot view 1 10 1 0 -");
 	s.view = View::Filters; s.rows[0].token = s.rows[0].item; s.rows[0].corpse = 0; s.rows[0].quantity = 0; s.rows[0].phase = Phase::FilterRecord;
 	s.rows[0].capabilities = Capability(Action::Inspect) | Capability(Action::EditFilter);
-	SnapshotReady(s); assert(!Visible("Rule")); Click("Row0"); assert(!Visible("Take") && !Visible("All") && Visible("Rule"));
+	SnapshotReady(s); assert(!Visible("Rule") && Visible("Icon0")); Click("Row0"); assert(!Visible("Take") && !Visible("All") && Visible("Rule"));
 	Click("Rule"); assert(Visible("Filter3")); Click("Back");
 	send_ok = false; Click("Refresh"); assert(Text("Status").find("Could not send") != std::string::npos);
 	send_ok = true; Click("Refresh");
@@ -216,6 +223,15 @@ int main() {
 	Click("All"); Click("Filters"); s.rows.clear(); s.total = 0; SnapshotReady(s); assert(AdvancedLootScreen::Visible());
 	s.view = View::Filters; SnapshotReady(s); assert(AdvancedLootScreen::Visible() && Visible("Empty"));
 	assert(!Visible("Always0") && !Visible("Never0"));
+	assert(!Visible("Icon0") && images[controls.at("NCAL_Icon0")->bytes] == 0);
+	s.rows = {row}; s.total = 1;
+	s.rows[0].token = row.item; s.rows[0].corpse = s.rows[0].quantity = 0;
+	s.rows[0].phase = Phase::FilterRecord;
+	s.rows[0].capabilities = Capability(Action::Inspect) | Capability(Action::EditFilter);
+	s.rows[0].icon = 4321; SnapshotReady(s);
+	assert(Visible("Icon0") && images[controls.at("NCAL_Icon0")->bytes] == 4321);
+	s.rows[0].icon = 0; SnapshotReady(s); assert(!Visible("Icon0"));
+	s.rows[0].icon = 1234; SnapshotReady(s); assert(Visible("Icon0"));
 	assert(!AdvancedLootUI::Consume("ordinary chat"));
 	AdvancedLootScreen::Destroy(); assert(!AdvancedLootScreen::Window());
 	std::cout << "PASS: native notification ABI; panels, timeout/retry, commands, snapshots, NO TRADE, inline rule toggles and empty-queue auto-close\n";

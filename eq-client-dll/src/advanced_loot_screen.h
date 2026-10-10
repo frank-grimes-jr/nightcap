@@ -23,6 +23,8 @@ struct LootScreenAPI {
 	Assign assign = nullptr;
 	Child child = nullptr;
 	void **vtable = nullptr;
+	using Icon = bool (*)(void *, uint32_t);
+	Icon icon = nullptr;
 };
 
 // The native allocator and native deleting destructor own object memory.
@@ -137,6 +139,9 @@ public:
 	static void Enable(void *control, bool enabled) {
 		// CXWnd::Enabled, pinned by the exact May 2013 class layout.
 		if (window_ && control) { *reinterpret_cast<bool *>(static_cast<unsigned char *>(control) + 0x1a) = enabled; }
+	}
+	static bool Icon(void *control, uint32_t icon) {
+		return window_ && control && api_.icon && api_.icon(control, icon);
 	}
 	static void Visible(void *control, bool visible) {
 		if (!window_ || !control) { return; }
