@@ -1,6 +1,10 @@
 const crypto = require('node:crypto')
 
-function ownerBoundary({ apiPort = 3001, uiPort = 5173 } = {}) {
+function ownerBoundary({
+  apiPort = 3001,
+  uiPort = 5173,
+  productionWrites = false,
+} = {}) {
   const token = crypto.randomBytes(32).toString('hex')
   const hosts = new Set([`127.0.0.1:${apiPort}`, `localhost:${apiPort}`])
   const origins = new Set(
@@ -30,6 +34,7 @@ function ownerBoundary({ apiPort = 3001, uiPort = 5173 } = {}) {
     ) {
       return res.json({
         token,
+        production_writes_enabled: productionWrites,
         environments: [
           { id: 'local', label: 'Local development' },
           { id: 'production', label: 'OVH production' },

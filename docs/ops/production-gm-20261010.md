@@ -1,7 +1,40 @@
 # Production GM controls — October 10, 2026
 
-Status: candidate, production reads verified; production writes disabled. This
+Status: owner-approved production GM activation; player gateway switch pending. This
 extends the [player-access release](../releases/player-access-20261010.md).
+
+## Activation receipt — October 10, 2026
+
+The owner explicitly approved merge and production activation. PR #143 merged at
+20:29 UTC as `d261daee8f78f39905865d15aaf5c4fc2c4be1d9`. The owner-local server now
+has production writes enabled. Explicit setup completed after backup
+`private/gm-backups/20261010T203049.039495Z.sql.gz` (43,898,704 bytes, mode0600,
+gzip contents verified). Both support tables are ready. No real account password,
+character, gameplay rule or content was changed.
+
+The reviewed `player_access.py` is installed and the empty private registry is
+initialized. The credential gateway image is staged as
+`sha256:2f3b9fc4d88afbb9612f7e1bb1202a31c6e975b1df4a76337cc280ac431ca36d`;
+UID65532 read access and read-only mount enforcement pass. Private rollback copies
+of Compose, environment, nginx and public channels are under
+`private/access-rollout-20261010`. The gateway and public launcher channel remain
+unchanged so players are not locked out before credentials are delivered.
+
+Cloudflare requires owner sign-in or a privately supplied scoped API token.
+Automatic approval review separately rejected issuing owner/Joe credentials without
+explicit recipient authorization; that authorization was requested and no codes
+were issued. These are outstanding access-rollout steps, not GM write restrictions.
+
+Use `eq-solo-gm/Start Nightcap GM Production.cmd` to reopen the approved app with
+production writes, including after a reboot. The ordinary shortcut starts a
+read-only preview if no server is running. Both reuse an already-running app
+without changing its mode; this was verified with its process ID unchanged.
+Write mode comes from the protected local session response, so reopening does not
+depend on production SSH/database health. An HTTP regression covers both modes
+while the remote dependencies fail. All five production container identities and
+start times, gateway/environment/nginx files and public channels were rechecked
+unchanged after GM setup. The activation receipt is recorded in
+[production-gm-activation-20261010.json](../releases/production-gm-activation-20261010.json).
 
 ## Owner entry point and flow
 
@@ -14,7 +47,7 @@ required; existing SSH-agent recovery is documented in AGENTS.md.
 The preview is at `http://127.0.0.1:3001/accounts?target=production` on this computer.
 It cannot be reached from a friend's computer. Do not expose port3001 or5173.
 
-After the reviewed release is approved and activated:
+Available GM flow (gateway-dependent player steps require its remaining rollout):
 
 1. **Player access:** enter a player label, Generate code, copy the one-time code
    and send it privately. It is not emailed automatically. The player uses
@@ -125,7 +158,8 @@ records the observed results and the remaining acceptance boundary.
 
 ## Promotion and exact owner QA
 
-Follow feature → dev → test. Main and production activation require owner sign-off.
+Follow feature → dev → test. Main and production activation require owner sign-off,
+which the owner supplied for this release. The GM activation above is complete.
 The startup script refuses its production-write flag unless HEAD is contained in
 origin/main. After approval, start the reviewed tool with production writes enabled
 and run the explicit setup action. The player registry/helper and gateway rollout

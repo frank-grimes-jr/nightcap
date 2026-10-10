@@ -14,7 +14,7 @@ function createApp({
 }) {
   const app = express()
   app.disable('x-powered-by')
-  const guard = ownerBoundary({ apiPort: port })
+  const guard = ownerBoundary({ apiPort: port, productionWrites })
   app.use((req, res, next) => {
     res.set('X-Frame-Options', 'DENY')
     res.set('X-Content-Type-Options', 'nosniff')
@@ -38,12 +38,10 @@ function createApp({
           req.method !== 'GET' &&
           !productionWrites
         )
-          return res
-            .status(409)
-            .json({
-              error:
-                'Production changes are disabled until the reviewed GM release is approved and enabled.',
-            })
+          return res.status(409).json({
+            error:
+              'Production changes are disabled until the reviewed GM release is approved and enabled.',
+          })
         next()
       },
       createRouter({
