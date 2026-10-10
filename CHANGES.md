@@ -1,5 +1,19 @@
 # CHANGES
 
+## 2026-10-09 - Default NPC-targeted heals to the caster (source candidate)
+
+Player heals now resolve an NPC target to the caster before implied targeting,
+target validation and range checks, including instant/triggered heal paths.
+Direct, HP-once, complete, percentage and over-time healing effects are covered;
+the selected combat target remains unchanged. Ordinary heals aimed at NPC pets
+also default to self; pet-only and other special target types keep native rules.
+Player recipients, NPC AI healing and non-healing spells retain their behavior.
+Both tracked and local source copies pass 99 compiled regression checks; native
+translation-unit verification is isolated from the running zone binary. This
+candidate is not deployed and requires release/owner QA before main promotion.
+Scope, build evidence, rollout boundary and exact in-game steps:
+`docs/qa/2026-10-09-npc-heal-targeting.md`.
+
 ## 2026-10-09 - Move Crushbone waypoint to the entrance
 
 At the owner's request, relocate Crushbone's waypoint and recall destination
