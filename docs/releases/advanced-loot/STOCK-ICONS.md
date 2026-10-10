@@ -1,6 +1,6 @@
 # Advanced loot stock icons — October 10, 2026
 
-Candidate in `feature/advanced-loot-stock-images`; not published or accepted in game.
+Merged to main and published for owner live QA; in-game acceptance is pending.
 
 Each Drops and Filters row shows the stock image identified by the existing
 server `Row.icon` field. The native item icon cache supplies the artwork; no
@@ -60,3 +60,27 @@ Do not modify `Client_RoF2_Dev` or an active game installation.
    to confirm row images do not overlap labels or inline rules.
 
 Native rendering and owner in-game acceptance are still pending.
+
+## Production publication — October 10, 2026
+
+The owner explicitly requested “Push to main and server.” PR #151 promoted
+`test` to `main` at `01453d593aec9862154515bad8a9b9431ff094d6`.
+The published production client release is `2026101001`, proxy `0.8.0-dev`.
+Its signed manifest contains 104 files (211,913,439 bytes); exactly three assets
+change from release `2026100901`: `dinput8.dll`, `nightcap-patch-sites.json`, and
+`uifiles/nightcap/equi_petinfowindow.xml`. The remaining 101 assets match.
+
+DLL SHA-256: `56b8e21c3d5226cdd1af05cc61673a318d5cf1bc3cd76b2489b37d333a1f9b23`.
+Channel SHA-256: `4432fa74642d2ae9856a22e80fd1a0d257cd19325b2a4d4ae741bcacf11ef9ed`.
+The manifest expires November 9, 2026 at 20:59:17 UTC. Independent verification
+uses the public production key already shipped in launcher 0.4.0. Twelve
+publication/recovery tests pass, including drift refusal and channel-last atomic
+publication. The publisher preserves the previous signed channel for rollback.
+Local evidence is under `artifacts/advanced-loot-stock-icons-20261010/deployment/`.
+
+Native rendering and the in-game checklist above remain pending owner acceptance.
+Restart EQ and use launcher Play to obtain the matching DLL, catalog and XML.
+
+Production publication verified all 104 files on the server. All five service
+identities, images, restart counts and health states remained unchanged; desktop
+channel, starter bundle and guide hashes also remained unchanged.
