@@ -3,6 +3,16 @@
 Updated October 9, 2026. This is the current status index; dated studies and
 QA reports preserve their original evidence and are not live-state promises.
 
+## NPC-targeted heals deployed for live QA
+
+Owner-authorized PR #139 is on main and deployed to OVH. Player heals aimed at
+NPCs resolve to the caster while retaining the combat target. The fresh build,
+99 compiled regressions, five rollout tests and all twelve zone process hashes
+pass. Saved player/custom data, rules, content and client assets are preserved;
+access is open and follow-up health checks pass. In-game HP/animation acceptance
+remains pending. No client update is required.
+[Deployment, recovery and exact QA](ops/npc-heal-self-20261009/README.md).
+
 ## Crushbone entrance waypoint approved
 
 The owner approved moving the marker and recall destination to the existing

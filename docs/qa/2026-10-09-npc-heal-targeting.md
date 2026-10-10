@@ -1,8 +1,8 @@
 # NPC-targeted heals default to the caster
 
 Status: the owner explicitly authorized promotion to main and server deployment
-on October 9, 2026. The fresh production build passed; activation is pending. In-game
-acceptance remains separate. This is a targeting
+on October 9, 2026. PR #139 is merged to main and deployed to OVH; all twelve zones and
+follow-up health checks passed. In-game acceptance remains pending. This is a targeting
 fix, with no changes to heal strength, mana, cast time, reuse, AA availability,
 expansion rules or database contents.
 
@@ -53,10 +53,10 @@ The initial local translation-unit compile passed without changing the running
 local binary. The owner then authorized production promotion. A fresh production
 zone build passed against the exact retained deployed source; only
 `zone/spells.cpp` differs from that source manifest. The prior hardened source
-and binaries are retained. Deployment and recovery evidence will be recorded in
+and binaries are retained. Deployment and recovery evidence is recorded in
 [the release report](../ops/npc-heal-self-20261009/README.md).
 
-## Exact in-game QA after candidate deployment
+## Exact in-game QA after deployment
 
 Use a normal account and only spells/AAs legal for its held classes and release.
 If a listed spell is unavailable, record that case as pending; do not grant
@@ -95,13 +95,16 @@ database access, rule catalog entries or permission bypasses are introduced.
 The fresh zone executable linked successfully. Client animations and gameplay
 acceptance remain unverified.
 
-No production binary, service, database or client file was changed by this task.
+The zone executable was deployed with a graceful whole-runtime restart.
+Persisted player/custom tables, rules, content, quests and client assets passed
+preservation checks; no database restore ran.
 The owner explicitly requested "Push to main and server" for this fix on
 October 9, authorizing this release before manual in-game acceptance. The default
 branch policy remains in place for unrelated future changes.
-For OVH, inspect the current supervisor before rollout: a child exit can restart
+The OVH supervisor was inspected before rollout: a child exit can restart
 the entire runtime. Do not kill one zone assuming only it will restart.
 
-After an approved rollout, verify every running zone uses the new binary and run
-the checklist above. Roll back by restoring the retained prior zone binary and
-using the supported runtime restart procedure. No database rollback is needed.
+Every running zone was verified against the new binary hash. Complete the
+checklist above for owner acceptance. Recovery selects the retained prior
+immutable game image using the guarded procedure in the release report, while
+retaining current SQL state.

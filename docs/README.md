@@ -10,6 +10,8 @@ Start with [current status](status.md), not a dated candidate report.
 
 ## Players and testers
 
+- [NPC-targeted heal fallback: live deployment, recovery and exact QA](ops/npc-heal-self-20261009/README.md)
+
 - [Crushbone entrance waypoint: deployment, rollback and QA](ops/crushbone-waypoint-20261009/README.md)
 
 - [Classic zone augments, new gear and forge: live deployment and exact QA](releases/zone-loot-20261009/README.md)

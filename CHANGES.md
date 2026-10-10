@@ -1,5 +1,17 @@
 # CHANGES
 
+## 2026-10-09 - NPC-targeted self-heals deployed to main and OVH
+
+At the owner's explicit request, PR #139 is merged to main and the fresh zone
+build is live on OVH. Heals aimed at NPCs default to the caster while retaining
+the selected combat target. All 99 compiled targeting checks and five recovery
+tests pass. A verified full backup, graceful restart, twelve process hash checks,
+closed-gateway data comparisons and follow-up health checks passed. Current
+player/receipt data, rules, content, other native binaries and client assets are
+preserved. In-game healing/animation acceptance remains pending; no client update
+is required. Evidence, exact owner QA and immutable-image recovery:
+`docs/ops/npc-heal-self-20261009/README.md`.
+
 ## 2026-10-09 - Default NPC-targeted heals to the caster (source candidate)
 
 Player heals now resolve an NPC target to the caster before implied targeting,
@@ -10,7 +22,7 @@ also default to self; pet-only and other special target types keep native rules.
 Player recipients, NPC AI healing and non-healing spells retain their behavior.
 Both tracked and local source copies pass 99 compiled regression checks; native
 translation-unit verification is isolated from the running zone binary. This
-candidate is not deployed and requires release/owner QA before main promotion.
+candidate was initially source-only; the later deployment is recorded above.
 Scope, build evidence, rollout boundary and exact in-game steps:
 `docs/qa/2026-10-09-npc-heal-targeting.md`.
 

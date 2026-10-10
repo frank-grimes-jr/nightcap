@@ -2,8 +2,9 @@
 
 The owner explicitly requested promotion to main and the OVH server for this
 release. In-game acceptance remains separate from deployment verification.
-Current status: fresh production build and 99 regression checks passed;
-activation has not run.
+Current status: PR #139 merged to main and deployed to OVH. All twelve
+zone processes use the new executable, the gateway is open and follow-up
+health checks pass with zero restarts or detected native/quest/SQL errors.
 
 ## Scope and verification
 
@@ -32,6 +33,23 @@ release, database definitions and rules are preserved.
   static checks because the unchanged world process owns market rotation.
   Character data, loot receipts, waypoints, custom content and other custom
   tables are compared while access is closed. No SQL restoration is performed.
+
+## Deployed release
+
+Main merge: `4493bb4c9998f65789f37eba280c6626aec8d763` ([PR #139](https://github.com/frank-grimes-jr/nightcap/pull/139)).
+Verified at `2026-10-10T01:08:32.344760+00:00` (October 9 local time).
+New immutable image: `sha256:0c8939425172b588af1c30ac9a1a4df0f193992bee80809e52e5c748f5ad069c`.
+New zone SHA-256: `a3d23a90f7108f9bc030943669d809f04dd7542fc3a0a18af56cd02a8061a412`.
+Package SHA-256: `f1f62cc60b8990b1fd2416e5912994133f4387b6b5700c321e54ed90d118af55`.
+
+The graceful stop succeeded. Before reopening access, comparisons preserved
+47 player/state tables and 9 custom tables,
+all rule values and content checksums. No database restore ran. The world,
+UCS, loginserver and shared_memory hashes match the prior production build.
+DB, web, tunnel, quests, client release and guide fingerprints are unchanged.
+The verified full backup remains private on OVH; safe metadata and both runtime
+checks are in [deployment-evidence.json](deployment-evidence.json).
+The launcher requires no client update for this server change.
 
 ## Evidence and recovery
 
