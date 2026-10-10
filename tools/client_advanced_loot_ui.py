@@ -67,7 +67,14 @@ def add_advanced_loot(root):
     control('Button', 'Search', 'Search', 390, 62, 88, 22)
     control('Button', 'Clear', 'Clear', 484, 62, 82, 22)
     for index in range(8):
-        control('Button', f'Row{index}', '', 10, 90 + index * 24, 240, 22, 'Select this item')
+        control('Button', f'Icon{index}', '', 10, 90 + index * 24, 22, 22, 'Select this item')
+        icon = root[-1]
+        for tag, pairs in [('DecalOffset', [('X', 1), ('Y', 1)]),
+                           ('DecalSize', [('CX', 20), ('CY', 20)])]:
+            node = ET.SubElement(icon, tag)
+            for key, number in pairs:
+                value(node, key, number)
+        control('Button', f'Row{index}', '', 36, 90 + index * 24, 214, 22, 'Select this item')
         control('Label', f'Source{index}', '', 256, 93 + index * 24, 90, 18)
         control('Button', f'Always{index}', '[ ] Always Loot', 352, 90 + index * 24, 106, 22,
                 'Always loot this item when allowed; click again for Ask each time')

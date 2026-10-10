@@ -13,7 +13,7 @@ class AdvancedLootUI(unittest.TestCase):
 
     def test_complete_unique_control_inventory(self):
         expected = set('Status Selected Help Drops Filters Options Previous Next Page All SearchText Search Clear Refresh Take Rule More Back PanelTitle Empty Leave Need Greed Pass Roll FreeGrab Inspect Assign Find'.split())
-        expected |= {f'{prefix}{i}' for prefix in ('Row', 'Source', 'Ignore', 'Always', 'Never') for i in range(8)}
+        expected |= {f'{prefix}{i}' for prefix in ('Icon', 'Row', 'Source', 'Ignore', 'Always', 'Never') for i in range(8)}
         expected |= {f'{prefix}{i}' for prefix in ('Setting', 'SettingHelp') for i in range(6)}
         expected |= {f'{prefix}{i}' for prefix in ('Filter', 'FilterHelp') for i in range(5)}
         self.assertEqual(set(self.controls), expected)
@@ -37,8 +37,8 @@ class AdvancedLootUI(unittest.TestCase):
     def test_visible_buttons_do_not_overlap_in_each_panel(self):
         navigation = {'Filters', 'Options', 'Refresh'}
         panels = [
-            {'Previous', 'Next', 'Take', 'Rule', 'More', 'All'} | {f'{p}{i}' for p in ('Row', 'Source', 'Always', 'Never') for i in range(8)},
-            {'Drops', 'Search', 'Clear', 'Previous', 'Next', 'Rule', 'More'} | {f'{p}{i}' for p in ('Row', 'Ignore') for i in range(8)},
+            {'Previous', 'Next', 'Take', 'Rule', 'More', 'All'} | {f'{p}{i}' for p in ('Icon', 'Row', 'Source', 'Always', 'Never') for i in range(8)},
+            {'Drops', 'Search', 'Clear', 'Previous', 'Next', 'Rule', 'More'} | {f'{p}{i}' for p in ('Icon', 'Row', 'Ignore') for i in range(8)},
             {'Back'} | {f'Filter{i}' for i in range(5)},
             {'Back'} | {f'Setting{i}' for i in range(6)},
             {'Back', 'Inspect', 'Leave', 'Find', 'Need', 'Greed', 'Pass', 'Roll', 'FreeGrab', 'Assign'},
@@ -62,6 +62,14 @@ class AdvancedLootUI(unittest.TestCase):
     def test_second_insertion_is_refused(self):
         with self.assertRaises(ValueError):
             add_advanced_loot(self.root)
+
+    def test_icons_fit_rows_and_use_native_decal_scaling(self):
+        for i in range(8):
+            icon = self.controls[f'Icon{i}']
+            self.assertEqual(icon.tag, 'Button')
+            self.assertEqual(icon.findtext('DecalSize/CX'), '20')
+            self.assertEqual(icon.findtext('DecalSize/CY'), '20')
+            self.assertEqual(icon.findtext('Location/Y'), self.controls[f'Row{i}'].findtext('Location/Y'))
 
 
 if __name__ == '__main__':

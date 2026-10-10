@@ -1,5 +1,15 @@
 # CHANGES
 
+## 2026-10-10 - Advanced loot stock item images candidate
+
+Added stock item icons to Drops and Filters rows using the existing server icon
+IDs and RoF2's native item cache. Images select their row, clear on row changes,
+and hide when unavailable. Native ABI and XML layout regressions and the x86
+build pass. Pair the DLL with regenerated Pet Info XML; publication and native
+in-game acceptance remain pending. See `docs/releases/advanced-loot/STOCK-ICONS.md`.
+The three new native icon signatures are shared by the runtime and launcher
+preflight through the canonical generated catalog (74 verified sites).
+
 ## 2026-10-10 - Production GM activation
 
 Owner-approved PR #143 is merged to main. Enabled the owner-local production GM

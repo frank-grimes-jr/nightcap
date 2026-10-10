@@ -5,6 +5,7 @@
 #include "verified_patch.h"
 #include "spell_access.h"
 #include "advanced_loot_ui.h"
+#include "advanced_loot_icons.h"
 
 namespace nightcap {
 namespace client_ui {
@@ -550,6 +551,16 @@ inline bool MatchLootNative() {
 inline bool InstallAdvancedLoot(void (*trace)(const char*) = nullptr) {
     install_failure = "advanced_loot_native_guards";
     if (!MatchLootNative()) return false;
+    // Exact native item cache and CButtonWnd decal assignment, independently
+    // recovered from the pinned executable and the RoF2 MQ2 symbol stubs.
+    install_failure = "advanced_loot_icon_guards";
+    __try {
+        if (memcmp(reinterpret_cast<void*>(base+kLootItemIconCacheRva), kExpectedLootItemIconCache, sizeof(kExpectedLootItemIconCache)) ||
+            !MatchSEH(base+kLootItemIconRva, kExpectedLootItemIcon, base) ||
+            memcmp(reinterpret_cast<void*>(base+kLootItemIconDecalsRva), kExpectedLootItemIconDecals, sizeof(kExpectedLootItemIconDecals))) return false;
+    } __except(EXCEPTION_EXECUTE_HANDLER) { return false; }
+    AdvancedLootIcons::cache = reinterpret_cast<AdvancedLootIcons::Cache>(base+kLootItemIconCacheRva);
+    AdvancedLootIcons::get = reinterpret_cast<AdvancedLootIcons::Get>(base+kLootItemIconRva);
     LootScreenAPI api;
     api.allocate = reinterpret_cast<LootScreenAPI::Allocate>(base+kLootAllocateRva);
     api.construct = reinterpret_cast<LootScreenAPI::Construct>(base+kLootConstructRva);
@@ -557,6 +568,7 @@ inline bool InstallAdvancedLoot(void (*trace)(const char*) = nullptr) {
     api.assign = reinterpret_cast<LootScreenAPI::Assign>(base+kUIStringAssignRva);
     api.child = reinterpret_cast<LootScreenAPI::Child>(base+kUIChildRva);
     api.vtable = reinterpret_cast<void**>(base+kLootTableRva+4);
+    api.icon = &AdvancedLootIcons::Set;
     if (!AdvancedLootScreen::Bind(api, &AdvancedLootUI::Notify, &LootPulse, &AdvancedLootUI::Destroyed)) return false;
     install_failure = "advanced_loot_command_entry";
     original_command = reinterpret_cast<InterpretCommand>(SEHEntryHook(base+kLootCommandRva,
