@@ -1,0 +1,42 @@
+{
+  "gateway": {
+    "candidate_gateway_sha256": "3ab5fa9f866896fdea5991d172174e1f4bcaaff24b5abb283ec3443db5e9e177",
+    "old_image": "sha256:c36fa37c7d0b24055eaeb42ebd7370e313c2b41b96fa03256e0cbafee91fc58a",
+    "candidate_image": "sha256:4e8546d0fae45f5d2dad37542a824aaade0c40f95eda698b632770caa73551a4",
+    "steps": [
+      {
+        "mode": "old",
+        "cases": 3,
+        "real_udp": true
+      },
+      {
+        "mode": "credential",
+        "cases": 5,
+        "real_udp": true
+      },
+      {
+        "mode": "old",
+        "cases": 3,
+        "real_udp": true
+      }
+    ],
+    "registry_preserved": true,
+    "published_ports": false,
+    "external_network": false,
+    "production_containers_unchanged": true,
+    "disposable_resources_removed": true
+  },
+  "launcher": {
+    "baseline_release": 2026100401,
+    "baseline_signature_verified": true,
+    "candidate_accepted_after_baseline": true,
+    "candidate_release": 2026101001,
+    "corrective_release": 2026101002,
+    "corrective_sha256": "cfa47e5151753c42a29a4d9ce5ade0d5fa27060e41fecc0728a40c3cd8e021c0",
+    "corrective_version": "0.4.0",
+    "higher_corrective_release_accepted": true,
+    "old_channel_rejected_after_candidate": true,
+    "original_executable_preserved": true,
+    "published": false
+  }
+}

@@ -55,9 +55,25 @@ share the candidate as a functioning live update before the coordinated rollout.
 - A separate production-style mount check proved UID65532 can read a root-owned
   0750/group65532 directory and 0640 registry, while its read-only mount rejects
   writes. Test directories and containers were removed afterwards.
+- Recovery rehearsal used the actual live gateway image and the new scratch image
+  in a disposable namespace: old image/config, credential image/config, then old
+  image/config again all passed real UDP exchanges and their expected admission
+  rules. New-client credentials were compatible with the old gateway during the
+  transition. No ports were published, the registry was preserved and all five
+  production containers (including web) retained their identities. Disposable
+  containers and the rehearsal image were removed.
+- The exact live desktop0.4.0/release2026100401 was captured and its signature and
+  bytes verified. A local, unpublished corrective release2026101002 wraps those
+  original bytes. The actual starter verifier accepted candidate2026101001 after
+  the baseline, rejected the old channel after the candidate, and accepted the
+  higher corrective release after the candidate. No production channel changed.
 
 Machine-readable rehearsal output is `rehearsal-result.json` in the local artifact
-directory; `govulncheck.txt` records the patched Go scan. These checks do not prove
+directory; `govulncheck.txt` records the patched Go scan. The sanitized
+[recovery receipt](player-access-recovery-20261010.json) records both recovery
+checks. The local `recovery-publish` directory contains the corrective bundle;
+revalidate counters and expiry before using it, and never publish it during a
+successful forward rollout. These checks do not prove
 actual public-edge traversal or a real player's login/character/zoning experience.
 
 ## Remaining acceptance and release gates
@@ -69,8 +85,10 @@ actual public-edge traversal or a real player's login/character/zoning experienc
    rules API credential; export the affected rules before making scoped changes.
    Fresh native-client requests from OVH's unlisted source still received403 from
    Cloudflare for `/launcher-channel.json` and `/channel.json` on October10.
-3. Revalidate live channels/config, retain exact preimages and rehearse the
-   gateway/config and signed-channel corrective-release recovery before activation.
+3. Revalidate live channels/config and retain exact preimages before activation.
+   Repeat the isolated gateway/signed-channel recovery checks if the live baseline
+   differs from the tested receipt. Cloudflare recovery still requires a fresh
+   export of the affected rules once access is available.
    Preserve concurrent player-site/wiki/nginx changes. Publish the launcher and
    replace only the gateway after private code distribution and a relay-disconnect
    announcement. Then adjust only the documented play-host routes at Cloudflare.

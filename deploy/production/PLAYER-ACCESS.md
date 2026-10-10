@@ -150,3 +150,11 @@ published. Live Cloudflare still returned403 for both update channels from an
 unlisted address on October10. Publication, scoped Cloudflare migration and
 actual player acceptance remain open. See the
 [candidate evidence](../../docs/releases/player-access-20261010.md).
+
+Recovery is also rehearsed: the live gateway image and new scratch image passed
+an isolated old/new/old transition with real UDP traffic and unchanged production
+containers. The original live desktop is preserved in a locally signed,
+unpublished higher corrective release2026101002. The starter's actual verifier
+rejects the old channel after candidate2026101001 and accepts this corrective
+release. Recheck counters, expiry and live baseline before using those artifacts;
+Cloudflare rule export/recovery remains pending authenticated dashboard/API access.
