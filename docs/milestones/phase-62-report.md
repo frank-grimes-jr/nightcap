@@ -2,6 +2,12 @@
 
 Date: 2026-10-10. Candidate, not production activation.
 
+Activation addendum: the owner later approved main and production. PR #143 merged,
+production GM writes/support tables are active after a verified backup, and the
+empty registry/helper are installed. The independent credential gateway rollout
+still awaits Cloudflare authentication and recipient-code authorization. The
+original candidate verification scope below remains historical.
+
 Built the owner-local Local/Production GM connection, access-code lifecycle,
 verified account password resets and the existing character/rule/progression/
 merchant/client controls. Added explicit setup, maintenance/recovery, private

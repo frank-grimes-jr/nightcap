@@ -119,3 +119,51 @@ test('production preview refuses every write before touching its database or run
   )
   assert.equal(reads, 1)
 })
+
+test('local startup capabilities remain available when production SSH and DB are down', async (t) => {
+  const unavailable = async () => {
+    throw new Error('Production is offline')
+  }
+  for (const productionWrites of [false, true]) {
+    let app
+    const server = http
+      .createServer((req, res) => app(req, res))
+      .listen(0, '127.0.0.1')
+    await new Promise((resolve) => server.once('listening', resolve))
+    t.after(() => server.close())
+    const port = server.address().port
+    app = createApp({
+      databases: {
+        local: { query: unavailable },
+        production: { query: unavailable },
+      },
+      operations: {
+        local: { status: unavailable },
+        production: { status: unavailable },
+      },
+      port,
+      productionWrites,
+    })
+    const url = `http://127.0.0.1:${port}`
+    const response = await fetch(url + '/api/session', {
+      headers: { 'x-nightcap-owner': '1' },
+    })
+    assert.equal(response.status, 200)
+    const session = await response.json()
+    assert.equal(session.production_writes_enabled, productionWrites)
+    const health = await fetch(url + '/api/production/status', {
+      headers: { 'x-nightcap-session': session.token },
+    })
+    assert.equal(health.status, 503)
+    assert.equal(
+      (
+        await (
+          await fetch(url + '/api/session', {
+            headers: { 'x-nightcap-owner': '1' },
+          })
+        ).json()
+      ).production_writes_enabled,
+      productionWrites
+    )
+  }
+})

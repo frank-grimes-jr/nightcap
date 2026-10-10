@@ -1,6 +1,7 @@
 # 0060: Owner-local GM controls for production
 
-Date: 2026-10-10. Status: verified release candidate, not activated in production.
+Date: 2026-10-10. Status: production GM activated after owner approval; the separate
+credential gateway rollout remains pending.
 
 ## Intent
 

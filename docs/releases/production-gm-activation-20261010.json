@@ -1,0 +1,34 @@
+{
+  "date": "2026-10-10",
+  "main_commit": "d261daee8f78f39905865d15aaf5c4fc2c4be1d9",
+  "production_pr": 143,
+  "owner_approved_merge_and_activation": true,
+  "gm_production_writes_enabled": true,
+  "gm_support_tables_ready": true,
+  "gm_support_tables_engine": "InnoDB",
+  "backup": {
+    "name": "20261010T203049.039495Z.sql.gz",
+    "compressed_bytes": 43898704,
+    "mode": "0600",
+    "gzip_contents_verified": true
+  },
+  "access_registry_initialized": true,
+  "credentials_issued": 0,
+  "staged_gateway_image": "sha256:2f3b9fc4d88afbb9612f7e1bb1202a31c6e975b1df4a76337cc280ac431ca36d",
+  "registry_uid65532_read_allowed": true,
+  "registry_mount_write_denied": true,
+  "production_container_ids_and_start_times_unchanged": true,
+  "gateway_environment_nginx_unchanged": true,
+  "public_channels_and_starter_unchanged": true,
+  "native_game_restarted": false,
+  "real_player_data_changed": false,
+  "credential_gateway_activated": false,
+  "launcher_candidate_published": false,
+  "cloudflare_changed": false,
+  "remaining": [
+    "Cloudflare dashboard sign-in or private scoped API token",
+    "Explicit authorization to issue owner and Joe credentials, as required by automatic approval review",
+    "Private credential delivery, coordinated gateway/launcher switch and scoped Cloudflare migration",
+    "Public-edge and real-player acceptance"
+  ]
+}

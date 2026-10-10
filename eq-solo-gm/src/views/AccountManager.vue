@@ -82,7 +82,7 @@ onMounted(load)
       <div>
         <h1 class="text-2xl font-bold">Accounts</h1>
         <p class="text-gray-400 text-sm mt-1">
-          Game login credentials Â· {{ labels[owner.environment] }}
+          Game login credentials · {{ labels[owner.environment] }}
         </p>
       </div>
       <button class="btn-ghost" @click="load" :disabled="loading">
@@ -103,7 +103,7 @@ onMounted(load)
     <form v-if="selected" class="card space-y-3" @submit.prevent="reset">
       <h2 class="font-bold">Reset password for {{ selected.account_name }}</h2>
       <p class="text-sm text-gray-400">
-        Account {{ selected.id }} Â· {{ selected.source_loginserver }} Â·
+        Account {{ selected.id }} · {{ selected.source_loginserver }} ·
         {{ labels[owner.environment] }}
       </p>
       <label class="block" for="new-password">New game password</label>
@@ -118,7 +118,7 @@ onMounted(load)
         autocomplete="new-password"
       />
       <p class="text-xs text-gray-400">
-        1â€“28 printable characters, without spaces.
+        1–28 printable characters, without spaces.
       </p>
       <div class="flex gap-2">
         <button class="btn-primary" :disabled="owner.busy || !password">
@@ -136,7 +136,7 @@ onMounted(load)
       placeholder="Account name"
       type="search"
     />
-    <p v-if="loading" role="status">Loading accountsâ€¦</p>
+    <p v-if="loading" role="status">Loading accounts…</p>
     <p v-else-if="!visible.length" class="text-gray-400">
       No matching accounts.
     </p>
@@ -149,7 +149,7 @@ onMounted(load)
         <div>
           <h2 class="font-semibold">{{ account.account_name }}</h2>
           <p class="text-xs text-gray-400">
-            ID {{ account.id }} Â· {{ account.source_loginserver }}
+            ID {{ account.id }} · {{ account.source_loginserver }}
           </p>
           <p class="text-xs text-gray-400 mt-1">
             Last login:

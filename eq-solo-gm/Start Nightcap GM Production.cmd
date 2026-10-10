@@ -1,0 +1,3 @@
+@echo off
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File "%~dp0..\tools\start-gm.ps1" -EnableProductionWrites
+if errorlevel 1 pause
