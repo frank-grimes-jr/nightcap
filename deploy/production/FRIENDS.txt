@@ -6,15 +6,16 @@ download contains the Nightcap launcher, not the complete EverQuest game.
 If the game reports missing D3DX libraries, install Microsoft's legacy DirectX
 runtime from https://www.microsoft.com/en-us/download/details.aspx?id=8109.
 
-1. Ask the server owner for your private Nightcap username/password and have
-   your current public IP approved. These are separate from EQEmu accounts.
+1. Ask the server owner for your private Nightcap username/password and a
+   personal access code. These are separate from public EQEmu accounts.
 2. Make a dedicated copy of your RoF2 folder, such as C:\Games\Nightcap.
    Keep it outside Program Files, OneDrive, and other synced folders.
 3. Extract nightcap-friends.zip. Run nightcap-launcher.exe as your normal user.
    Use only the owner's download and compare its SHA-256 if you need to verify it.
    The package is not currently Windows Authenticode signed; Windows may show
    an unknown-publisher warning. Do not disable antivirus or install exclusions.
-4. Choose the folder containing eqgame.exe. Updates are checked automatically.
+4. Paste your private code under Player access once, then choose the folder
+   containing eqgame.exe. Updates are checked automatically.
 5. Press Play to apply patches and start. Keep the launcher open and sign in.
    No VPN app, eqhost editing, /loadskin command, or other slash command is needed.
 
@@ -23,8 +24,9 @@ ends its game session. If the connection drops, reopen Play and log in again.
 The original eqhost.txt is restored after normal exit. If a previous run was
 interrupted, the launcher uses its saved original on the next successful run.
 
-If access is unavailable after changing networks, ask the owner to update your
-approved IP. If a local port is occupied, close another Nightcap launcher or
+Your saved access code works when your public Internet address changes. If a
+code is rejected, ask the owner for a replacement. If a local port is occupied,
+close another Nightcap launcher or
 local EQ server. Do not run two copies of this launcher on the same PC.
 
 An unsupported-client message means this eqgame.exe is not the supported RoF2
@@ -40,5 +42,7 @@ Players on 0.2.2 or earlier need this one-time starter download. Keep your
 existing game folder and select it again if prompted. Future routine updates
 do not require a new ZIP or game-client download.
 
-Never send anyone your password, complete log-in packets, or private server files.
+Keep your password and access code private. Never share complete log-in packets
+or private server files. Use Forget on this computer when removing saved access;
+ask the owner to revoke the code if it was exposed or a computer was lost.
 SERVER.txt contains the guide address for this release.

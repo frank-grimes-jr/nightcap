@@ -50,9 +50,9 @@ RoF2 -> launcher loopback -> WSS/TLS443 -> Cloudflare WAF -> named Tunnel
 
 Cloudflare terminates TLS and carries the origin leg through its encrypted tunnel.
 The web WAF inspects the upgrade request, not subsequent game datagrams. The
-gateway supplies fixed destinations, bounded frames/flows/traffic and deny-first
-IP checks. It does not prove an executable's identity: an approved IP can reach
-the login protocol, which still requires a private account. No account signup
+gateway supplies fixed destinations, bounded frames/flows/traffic and revocable
+player access codes. It does not prove an executable's identity: an authorized
+player can reach the login protocol, which still requires a private account. No account signup
 website or public EQEmu login fallback is enabled. Never set `LSPX`, even to `0`.
 
 Only cloudflared joins the outbound network. No Compose service publishes a
@@ -129,7 +129,12 @@ player IP; this design does not claim to rewrite that legacy behavior.
    `gateway`. Native crypto/config checks run on every start. Health proves
    listeners, not successful login. Complete the native acceptance matrix.
 
-## Cloudflare and IP rules
+## Cloudflare and player access
+
+The IP-independent implementation is a candidate until the rollout gates in
+[Player access](PLAYER-ACCESS.md) pass. Initialize its registry and issue codes
+before starting the new gateway; old gateways and launchers require coordinated
+migration. Never remove the live IP gate while the old gateway is still active.
 
 Create a named remotely managed Tunnel. Save its token as `private/tunnel_token`
 (owned by UID65532, mode0600); mount it as a Docker secret, never put it in `.env`, source or a
@@ -139,19 +144,19 @@ command line. Configure one real hostname, for example `play.<your-domain>`:
 - Second route: same hostname, all other paths, service `http://web:8080`.
 - No public routes for DB, admin tools or native game ports.
 
-On that hostname, create **Block** rules for explicitly denied IPs, then for IPs
-not in the approved friend list. Mirror those CIDRs in `.env` `ALLOW_CIDRS` and
-`DENY_CIDRS`. Use literal IP sets or the account's supported custom list; never use
-a bypass/Skip action as an allowlist. Avoid browser/JavaScript challenges on
-`/connect`, `/channel.json` and `/release/*`; the launcher is not a web browser.
+Player authorization belongs to the gateway credential registry. Remove player
+IP allowlisting only from reviewed launcher download routes and `/connect` after
+the credential gateway is verified. Optional emergency deny CIDRs remain in
+`DENY_CIDRS`. Preserve unrelated hosts and SSH policy. Avoid browser/JavaScript
+challenges on launcher routes; the launcher is not a web browser. Do not create
+a broad security-skip rule.
 Add an upgrade rate limit appropriate for reconnects (start with10/minute/IP).
 Do not cache `/channel.json`, and disable response compression for channel and
 release paths: the launcher requests and requires identity encoding.
 
-Update both allowlists when friends change networks. Restart/recreate `gateway`
-to immediately apply revocation to existing sockets; WAF edits alone affect new
-upgrades and may not terminate an established game connection. The small server
-currently disconnects all relay sessions on a gateway restart; announce it first.
+The operator tool revokes an individual credential without a gateway restart.
+The gateway refreshes registry state every second and rechecks existing relays
+every second. Gateway binary replacement still disconnects sessions; announce it.
 
 ## Build and publish the launcher
 

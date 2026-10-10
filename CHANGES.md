@@ -1,5 +1,18 @@
 # CHANGES
 
+## 2026-10-10 - IP-independent player access candidate
+
+Replace gateway player-IP admission with individually revocable random access
+codes. The launcher remembers a code using Windows user-scoped DPAPI, keeps it
+out of UI status/logs and sends it only to the trusted TLS relay. The gateway
+checks hashed credentials and closes revoked sessions without a restart; limits
+follow player identity across address changes. Operator tooling, fail-closed
+registry reloads, deployment migration and rollback/QA accompany the change.
+Finite HTTP deadlines fix a review finding before public-route exposure. Patch
+source-map-js and select Go1.27.2 to clear dependency audits. Candidate only: signed
+publication, scoped Cloudflare migration and real-player acceptance remain gates.
+See [player access](deploy/production/PLAYER-ACCESS.md).
+
 ## 2026-10-09 - NPC-targeted self-heals deployed to main and OVH
 
 At the owner's explicit request, PR #139 is merged to main and the fresh zone

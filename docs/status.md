@@ -1,6 +1,16 @@
 # Current Nightcap status
 
-Updated October 9, 2026. This is the current status index; dated studies and
+## Player access independent of changing IPs — candidate
+
+The launcher/gateway candidate uses individual, revocable access codes stored
+securely on Windows. Component tests, review and isolated Linux relay rehearsal
+pass. Signed desktop0.5.0/release2026101001 is built but unpublished; the live
+gateway still uses IP admission and Cloudflare still blocks unlisted sources.
+Production approval, publication, the scoped Cloudflare rule change and actual
+player acceptance remain pending. [Evidence](releases/player-access-20261010.md)
+and [migration and exact QA](../deploy/production/PLAYER-ACCESS.md).
+
+Updated October 10, 2026. This is the current status index; dated studies and
 QA reports preserve their original evidence and are not live-state promises.
 
 ## NPC-targeted heals deployed for live QA

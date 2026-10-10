@@ -63,8 +63,10 @@ services:
       GOMEMLIMIT: 192MiB
       GAME_TARGET: game
       TRUSTED_PROXIES: 10.88.1.2/32
-      ALLOW_CIDRS: ${ALLOW_CIDRS:?Explicit friend CIDRs required}
+      PLAYER_ACCESS_FILE: /run/nightcap-access/credentials.json
       DENY_CIDRS: ${DENY_CIDRS:-}
+    volumes:
+      - ./private/player-access:/run/nightcap-access:ro
     networks:
       edge: {ipv4_address: 10.88.1.3}
       game: {}

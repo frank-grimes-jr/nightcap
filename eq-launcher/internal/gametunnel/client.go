@@ -12,6 +12,7 @@ import (
 
 	"github.com/gorilla/websocket"
 	"nightcap/eq-launcher/internal/manifest"
+	"nightcap/eq-launcher/internal/playeraccess"
 )
 
 type localFlow struct {
@@ -33,21 +34,42 @@ type Client struct {
 
 // Start accepts only a compiled HTTPS endpoint and uses ordinary certificate
 // validation. HTTPS is converted to WSS here; redirects are not followed.
-func Start(ctx context.Context, address string, hosts []string) (*Client, error) {
+func Start(ctx context.Context, address string, hosts []string, token string) (*Client, error) {
+	d := websocket.Dialer{HandshakeTimeout: 15 * time.Second, TLSClientConfig: &tls.Config{MinVersion: tls.VersionTLS12}, Proxy: http.ProxyFromEnvironment}
+	c, err := dialAuthenticated(ctx, address, hosts, token, &d)
+	if err != nil {
+		return nil, err
+	}
+	return startClient(c, Loopback, Ports())
+}
+
+func dialAuthenticated(ctx context.Context, address string, hosts []string, token string, d *websocket.Dialer) (*websocket.Conn, error) {
 	if err := manifest.ValidateURL(address, hosts); err != nil {
 		return nil, err
 	}
+	if !playeraccess.ValidToken(token) {
+		return nil, playeraccess.ErrCodeRequired
+	}
 	u, _ := url.Parse(address)
 	u.Scheme = "wss"
-	d := websocket.Dialer{HandshakeTimeout: 15 * time.Second, TLSClientConfig: &tls.Config{MinVersion: tls.VersionTLS12}, Proxy: http.ProxyFromEnvironment}
-	c, response, err := d.DialContext(ctx, u.String(), nil)
+	c, response, err := d.DialContext(ctx, u.String(), http.Header{"Authorization": {"Bearer " + token}})
 	if err != nil {
 		if response != nil {
 			response.Body.Close()
+			switch response.StatusCode {
+			case http.StatusUnauthorized:
+				return nil, fmt.Errorf("your Nightcap access code was rejected; enter a current code from the server owner")
+			case http.StatusForbidden:
+				return nil, fmt.Errorf("Nightcap connection blocked by the gateway or Cloudflare (HTTP 403); contact the server owner")
+			case http.StatusTooManyRequests:
+				return nil, fmt.Errorf("Nightcap connection limit reached; close another game session and try again")
+			default:
+				return nil, fmt.Errorf("secure Nightcap connection unavailable (HTTP %d); try again shortly", response.StatusCode)
+			}
 		}
-		return nil, fmt.Errorf("secure Nightcap connection unavailable; check your Internet connection and approved IP: %w", err)
+		return nil, fmt.Errorf("secure Nightcap connection unavailable; check your Internet connection and try again: %w", err)
 	}
-	return startClient(c, Loopback, Ports())
+	return c, nil
 }
 
 func startClient(conn *websocket.Conn, address string, ports []int) (*Client, error) {
