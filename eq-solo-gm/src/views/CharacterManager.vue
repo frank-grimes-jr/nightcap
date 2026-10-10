@@ -1,14 +1,15 @@
 <template>
-  <div class="flex h-screen">
+  <div class="flex flex-col lg:flex-row min-h-screen">
     <!-- ── Character List ─────────────────────────────────────────── -->
     <div
-      class="w-64 bg-gray-900 border-r border-gray-800 flex flex-col shrink-0"
+      class="lg:w-64 bg-gray-900 border-r border-gray-800 flex flex-col shrink-0"
     >
       <div class="p-3 border-b border-gray-800">
         <input
           v-model="search"
           class="input"
           placeholder="Search characters…"
+          aria-label="Search characters"
         />
       </div>
       <div class="flex-1 overflow-y-auto">
@@ -503,7 +504,8 @@
 
 <script setup lang="ts">
 import { ref, computed, reactive, inject, onMounted } from 'vue'
-import axios from 'axios'
+import { useApi, owner } from '../api'
+const axios = useApi()
 
 const toast = inject<(msg: string, ok?: boolean) => void>('toast')!
 
@@ -727,6 +729,8 @@ async function loadZones() {
 }
 
 function selectChar(c: Character) {
+  if (owner.busy) return
+  owner.subject = c.name
   selected.value = { ...c }
   skillResult.value = ''
   loadProgression(c.id)
@@ -844,8 +848,10 @@ async function doTeleport() {
 async function loadProgression(charId: number) {
   try {
     const { data } = await axios.get(`/api/character/${charId}/progression`)
-    progKills.value = new Set(data.kills)
-  } catch {}
+    if (selected.value?.id === charId) progKills.value = new Set(data.kills)
+  } catch (e: any) {
+    toast('Progression unavailable: ' + e.message, false)
+  }
 }
 
 async function toggleKill(bossKey: string) {
@@ -881,29 +887,29 @@ async function toggleKill(bossKey: string) {
 }
 
 async function markAllInExp(exp: ProgExp) {
-  if (!selected.value) return
-  for (const boss of exp.bosses) {
-    if (!progKills.value.has(boss.key)) {
-      progKills.value.add(boss.key)
-      await axios
-        .post(`/api/character/${selected.value.id}/progression/${boss.key}`)
-        .catch(() => {})
-    }
-  }
-  progKills.value = new Set(progKills.value)
+  await setExpansionKills(exp, true)
 }
 
 async function unmarkAllInExp(exp: ProgExp) {
-  if (!selected.value) return
-  for (const boss of exp.bosses) {
-    if (progKills.value.has(boss.key)) {
-      progKills.value.delete(boss.key)
-      await axios
-        .delete(`/api/character/${selected.value.id}/progression/${boss.key}`)
-        .catch(() => {})
-    }
+  await setExpansionKills(exp, false)
+}
+
+async function setExpansionKills(exp: ProgExp, killed: boolean) {
+  const characterId = selected.value?.id
+  if (!characterId || loading.prog) return
+  loading.prog = true
+  try {
+    await axios.patch(`/api/character/${characterId}/progression`, {
+      keys: exp.bosses.map((b) => b.key),
+      killed,
+    })
+    await loadProgression(characterId)
+    toast(`${exp.short} progression saved`)
+  } catch (e: any) {
+    toast('Progression update failed: ' + e.message, false)
+  } finally {
+    loading.prog = false
   }
-  progKills.value = new Set(progKills.value)
 }
 
 // ── Init ─────────────────────────────────────────────────────────────────────

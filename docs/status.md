@@ -1,5 +1,15 @@
 # Current Nightcap status
 
+## Production GM controls — candidate
+
+The owner-local GM UI now reads OVH production over SSH and retains character,
+account, rule, progression, vendor and client-setting controls. It adds player
+access codes, verified password resets, maintenance/recovery and action history.
+Production writes are disabled pending owner release approval. Era activation
+remains governed by committed era.json and catalog review. Real fixture database,
+Chrome, helper recovery and disposable-container maintenance checks pass; no live
+player data was changed. [Entry point, evidence and exact QA](ops/production-gm-20261010.md).
+
 ## Player access independent of changing IPs — candidate
 
 The launcher/gateway candidate uses individual, revocable access codes stored

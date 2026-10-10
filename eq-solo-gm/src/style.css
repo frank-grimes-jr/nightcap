@@ -1,12 +1,20 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@config "../tailwind.config.js";
+
+@utility btn {
+  @apply px-3 py-1.5 rounded text-sm font-medium transition-all disabled:opacity-40 disabled:cursor-not-allowed;
+}
+@utility toast {
+  @apply fixed bottom-4 right-4 px-4 py-2 rounded-lg text-sm font-medium shadow-lg z-50 transition-all;
+}
 
 @layer base {
   body {
     @apply bg-gray-950 text-gray-100;
     font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
   }
+  :focus-visible { outline: 2px solid #fbbf24; outline-offset: 3px; }
+  button:not(:disabled), a, select { cursor: pointer; }
   ::-webkit-scrollbar { width: 6px; }
   ::-webkit-scrollbar-track { @apply bg-gray-900; }
   ::-webkit-scrollbar-thumb { @apply bg-gray-600 rounded; }
@@ -24,9 +32,6 @@
   }
   .card-title {
     @apply text-xs font-bold uppercase tracking-widest text-gray-500 mb-3;
-  }
-  .btn {
-    @apply px-3 py-1.5 rounded text-sm font-medium transition-all disabled:opacity-40 disabled:cursor-not-allowed;
   }
   .btn-primary {
     @apply btn bg-amber-600 hover:bg-amber-500 text-white;
@@ -50,9 +55,6 @@
     @apply bg-gray-800 border border-gray-700 rounded px-3 py-1.5 text-sm text-gray-100 focus:outline-none focus:border-amber-500;
   }
   .badge-class { @apply inline-block px-2 py-0.5 rounded text-xs font-bold; }
-  .toast {
-    @apply fixed bottom-4 right-4 px-4 py-2 rounded-lg text-sm font-medium shadow-lg z-50 transition-all;
-  }
   .toast-ok  { @apply toast bg-emerald-700 text-white; }
   .toast-err { @apply toast bg-red-700 text-white; }
 }

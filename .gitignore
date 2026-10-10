@@ -21,3 +21,6 @@ deploy/production/native-bin/
 
 # Python test/generator bytecode
 __pycache__/
+
+# Owner-local GM process logs and PID
+artifacts/gm-runtime/
