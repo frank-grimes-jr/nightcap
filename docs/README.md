@@ -10,6 +10,8 @@ Start with [current status](status.md), not a dated candidate report.
 
 ## Players and testers
 
+- [Crushbone entrance waypoint: deployment, rollback and QA](ops/crushbone-waypoint-20261009/README.md)
+
 - [Classic zone augments, new gear and forge: live deployment and exact QA](releases/zone-loot-20261009/README.md)
 
 - [Throw Stone Spell Damage: live deployment and exact QA](releases/throw-stone-20261009.md)

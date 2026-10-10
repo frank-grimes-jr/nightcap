@@ -1,5 +1,17 @@
 # CHANGES
 
+## 2026-10-09 - Move Crushbone waypoint to the entrance
+
+At the owner's request, relocate Crushbone's waypoint and recall destination
+from the distant orc spawn to its existing entrance safe point, world
+X=158, Y=-644, Z=4 (`/loc -644, 158, 4`). Correct the waypoint's dungeon metadata
+without changing outdoor spell eligibility. Preserve discoveries and update only
+matching non-corpse base-instance marker state, retaining other spawns and loot.
+Four SQL scope tests pass. The reviewed deployment runner requires an empty
+server, full backup, forward/inverse/stale-preimage rehearsals, exact snapshots
+and healthy recovery. Production activation and manual QA remain pending until
+recorded in docs/ops/crushbone-waypoint-20261009/README.md.
+
 ## 2026-10-09 - Increase passive AA experience to 40%
 
 At the owner's explicit request, increase OVH AA:PassiveExpPercent from 20 to 40

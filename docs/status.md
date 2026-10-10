@@ -3,6 +3,13 @@
 Updated October 9, 2026. This is the current status index; dated studies and
 QA reports preserve their original evidence and are not live-state promises.
 
+## Crushbone entrance waypoint approved
+
+The owner approved moving the marker and recall destination to the existing
+entrance safe point (`/loc -644, 158, 4`) and publishing to main/OVH. SQL scope
+tests pass; production activation and in-game discovery/recall QA are pending.
+[Deployment, rollback and exact QA](ops/crushbone-waypoint-20261009/README.md).
+
 ## Classic zone hunt and forge deployed for live QA
 
 Owner-authorized PR #132 is on main and deployed to OVH. Forty-eight audited
