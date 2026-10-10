@@ -1,190 +1,185 @@
 <script setup lang="ts">
 import { ref, computed, onMounted } from 'vue'
-
-interface Account {
+import { useApi, owner, labels } from '../api'
+const api = useApi()
+type Account = {
   id: number
   account_name: string
   source_loginserver: string
   last_login_date: string | null
-  created_at: string | null
 }
-
 const accounts = ref<Account[]>([])
-const loading = ref(false)
+const selected = ref<Account | null>(null)
+const password = ref('')
+const search = ref('')
+const loading = ref(true)
 const message = ref('')
-const messageType = ref<'success' | 'error'>('')
-const selectedId = ref<number | null>(null)
-const newPassword = ref('')
-const showPasswordForm = ref(false)
-
-const sortedAccounts = computed(() => {
-  return [...accounts.value].sort((a, b) => {
-    const dateA = a.last_login_date ? new Date(a.last_login_date).getTime() : 0
-    const dateB = b.last_login_date ? new Date(b.last_login_date).getTime() : 0
-    return dateB - dateA
-  })
-})
-
-const loadAccounts = async () => {
+const failed = ref(false)
+const visible = computed(() =>
+  accounts.value.filter((a) =>
+    a.account_name.toLowerCase().includes(search.value.toLowerCase())
+  )
+)
+async function load() {
   loading.value = true
-  message.value = ''
   try {
-    const res = await fetch('/api/accounts')
-    if (!res.ok) throw new Error(`HTTP ${res.status}`)
-    accounts.value = await res.json()
-  } catch (err) {
-    message.value = `Failed to load accounts: ${err}`
-    messageType.value = 'error'
+    accounts.value = (await api.get('/api/accounts')).data
+  } catch (error: any) {
+    message.value = error.message
+    failed.value = true
   } finally {
     loading.value = false
   }
 }
-
-const deleteAccount = async (id: number, name: string) => {
-  if (!confirm(`Delete account "${name}"? This cannot be undone.`)) return
+async function reset() {
+  const account = selected.value
+  if (!account) return
   try {
-    const res = await fetch(`/api/accounts/${id}`, { method: 'DELETE' })
-    if (!res.ok) throw new Error(`HTTP ${res.status}`)
-    const result = await res.json()
-    message.value = `Deleted account: ${result.deleted}`
-    messageType.value = 'success'
-    await loadAccounts()
-  } catch (err) {
-    message.value = `Failed to delete: ${err}`
-    messageType.value = 'error'
-  }
-}
-
-const changePassword = async () => {
-  if (!selectedId.value || !newPassword.value) {
-    message.value = 'Password required'
-    messageType.value = 'error'
-    return
-  }
-
-  try {
-    const res = await fetch(`/api/accounts/${selectedId.value}/password`, {
-      method: 'PATCH',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ new_password: newPassword.value }),
+    await api.patch(`/api/accounts/${account.id}/password`, {
+      account_name: account.account_name,
+      source_loginserver: account.source_loginserver,
+      new_password: password.value,
     })
-    if (!res.ok) throw new Error(`HTTP ${res.status}`)
-    const result = await res.json()
-    message.value = `Password updated for account ${selectedId.value}. Account will be updated to SCrypt on next login.`
-    messageType.value = 'success'
-    newPassword.value = ''
-    showPasswordForm.value = false
-    selectedId.value = null
-  } catch (err) {
-    message.value = `Failed to update password: ${err}`
-    messageType.value = 'error'
+    message.value = `Password reset and verified for ${account.account_name}. Share the new password privately.`
+    failed.value = false
+    selected.value = null
+  } catch (error: any) {
+    message.value = error.message
+    failed.value = true
+  } finally {
+    password.value = ''
   }
 }
-
-const showForm = (id: number) => {
-  selectedId.value = id
-  newPassword.value = ''
-  showPasswordForm.value = true
+async function remove(account: Account) {
+  try {
+    await api.delete(`/api/accounts/${account.id}`, {
+      data: {
+        account_name: account.account_name,
+        source_loginserver: account.source_loginserver,
+      },
+    })
+    message.value = `${account.account_name} deleted.`
+    failed.value = false
+    await load()
+  } catch (error: any) {
+    message.value = error.message
+    failed.value = true
+  }
 }
-
-const cancelForm = () => {
-  showPasswordForm.value = false
-  selectedId.value = null
-  newPassword.value = ''
+function cancelPassword() {
+  selected.value = null
+  password.value = ''
 }
-
-onMounted(() => loadAccounts())
+function selectAccount(account: Account) {
+  selected.value = account
+  password.value = ''
+}
+onMounted(load)
 </script>
-
 <template>
-  <div class="p-6 bg-gray-900 text-gray-100 min-h-screen">
-    <div class="max-w-6xl mx-auto">
-      <div class="flex items-center justify-between mb-6">
-        <h1 class="text-3xl font-bold flex items-center gap-2">
-          🔐 Account Management
-        </h1>
-        <button
-          @click="loadAccounts"
-          :disabled="loading"
-          class="px-4 py-2 bg-blue-600 hover:bg-blue-700 disabled:opacity-50 rounded font-semibold"
-        >
-          {{ loading ? 'Loading...' : 'Refresh' }}
+  <section class="p-6 max-w-5xl space-y-5">
+    <div class="flex justify-between gap-3">
+      <div>
+        <h1 class="text-2xl font-bold">Accounts</h1>
+        <p class="text-gray-400 text-sm mt-1">
+          Game login credentials Â· {{ labels[owner.environment] }}
+        </p>
+      </div>
+      <button class="btn-ghost" @click="load" :disabled="loading">
+        Refresh
+      </button>
+    </div>
+    <p class="text-sm text-gray-400">
+      Password resets work while the game is online. Launcher access codes are
+      managed under Player access.
+    </p>
+    <p
+      v-if="message"
+      role="status"
+      :class="failed ? 'text-red-300' : 'text-emerald-300'"
+    >
+      {{ message }}
+    </p>
+    <form v-if="selected" class="card space-y-3" @submit.prevent="reset">
+      <h2 class="font-bold">Reset password for {{ selected.account_name }}</h2>
+      <p class="text-sm text-gray-400">
+        Account {{ selected.id }} Â· {{ selected.source_loginserver }} Â·
+        {{ labels[owner.environment] }}
+      </p>
+      <label class="block" for="new-password">New game password</label>
+      <input
+        id="new-password"
+        class="input max-w-sm"
+        v-model="password"
+        type="password"
+        minlength="1"
+        maxlength="28"
+        required
+        autocomplete="new-password"
+      />
+      <p class="text-xs text-gray-400">
+        1â€“28 printable characters, without spaces.
+      </p>
+      <div class="flex gap-2">
+        <button class="btn-primary" :disabled="owner.busy || !password">
+          Reset password</button
+        ><button type="button" class="btn-ghost" @click="cancelPassword">
+          Cancel
         </button>
       </div>
-
-      <div v-if="message" :class="[
-        'p-4 rounded mb-4 font-semibold',
-        messageType === 'success' ? 'bg-green-900/50 text-green-300' : 'bg-red-900/50 text-red-300'
-      ]">
-        {{ message }}
-      </div>
-
-      <div v-if="showPasswordForm && selectedId" class="bg-gray-800 p-6 rounded mb-6 border border-gray-700">
-        <h3 class="text-xl font-bold mb-4">Change Password</h3>
-        <p class="text-gray-400 mb-4">Account ID: {{ selectedId }}</p>
-        <input
-          v-model="newPassword"
-          type="password"
-          placeholder="New password"
-          @keyup.enter="changePassword"
-          class="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded mb-4 text-white placeholder-gray-400 focus:outline-none focus:border-blue-500"
-        />
+    </form>
+    <label class="block text-sm" for="account-search">Find an account</label>
+    <input
+      id="account-search"
+      class="input max-w-sm"
+      v-model="search"
+      placeholder="Account name"
+      type="search"
+    />
+    <p v-if="loading" role="status">Loading accountsâ€¦</p>
+    <p v-else-if="!visible.length" class="text-gray-400">
+      No matching accounts.
+    </p>
+    <div v-else class="divide-y divide-gray-800 border-y border-gray-800">
+      <article
+        v-for="account in visible"
+        :key="`${account.source_loginserver}:${account.id}`"
+        class="py-4 flex flex-wrap items-center justify-between gap-3"
+      >
+        <div>
+          <h2 class="font-semibold">{{ account.account_name }}</h2>
+          <p class="text-xs text-gray-400">
+            ID {{ account.id }} Â· {{ account.source_loginserver }}
+          </p>
+          <p class="text-xs text-gray-400 mt-1">
+            Last login:
+            {{
+              account.last_login_date
+                ? new Date(account.last_login_date).toLocaleString()
+                : 'Never'
+            }}
+          </p>
+        </div>
         <div class="flex gap-2">
           <button
-            @click="changePassword"
-            class="px-4 py-2 bg-green-600 hover:bg-green-700 rounded font-semibold"
+            class="btn-blue"
+            :disabled="owner.busy || account.source_loginserver !== 'local'"
+            @click="selectAccount(account)"
           >
-            Save Password
-          </button>
-          <button
-            @click="cancelForm"
-            class="px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded font-semibold"
+            Reset password</button
+          ><button
+            class="btn-red"
+            :disabled="owner.busy || account.source_loginserver !== 'local'"
+            @click="remove(account)"
           >
-            Cancel
+            Delete
           </button>
         </div>
-      </div>
-
-      <div v-if="accounts.length === 0" class="text-center text-gray-400 py-12">
-        <p v-if="!loading" class="text-lg">No accounts found</p>
-      </div>
-
-      <div v-else class="space-y-3">
-        <div
-          v-for="acc in sortedAccounts"
-          :key="acc.id"
-          class="bg-gray-800 p-4 rounded border border-gray-700 hover:border-gray-500 transition flex items-center justify-between"
-        >
-          <div class="flex-1">
-            <div class="font-bold text-lg">{{ acc.account_name }}</div>
-            <div class="text-sm text-gray-400">
-              ID: {{ acc.id }} | Server: {{ acc.source_loginserver }}
-            </div>
-            <div class="text-xs text-gray-500 mt-1">
-              <div v-if="acc.last_login_date">
-                Last login: {{ new Date(acc.last_login_date).toLocaleString() }}
-              </div>
-              <div v-if="acc.created_at">
-                Created: {{ new Date(acc.created_at).toLocaleString() }}
-              </div>
-            </div>
-          </div>
-          <div class="flex gap-2">
-            <button
-              @click="showForm(acc.id)"
-              class="px-3 py-1 bg-blue-600 hover:bg-blue-700 rounded text-sm font-semibold"
-            >
-              Change Password
-            </button>
-            <button
-              @click="deleteAccount(acc.id, acc.account_name)"
-              class="px-3 py-1 bg-red-600 hover:bg-red-700 rounded text-sm font-semibold"
-            >
-              Delete
-            </button>
-          </div>
-        </div>
-      </div>
+      </article>
     </div>
-  </div>
+    <p class="text-xs text-gray-400">
+      Deletion requires maintenance and is blocked for accounts that own
+      characters.
+    </p>
+  </section>
 </template>

@@ -2,6 +2,8 @@
 
 Start with [current status](status.md), not a dated candidate report.
 
+- [Production-connected GM controls: entry point, rollout and exact QA](ops/production-gm-20261010.md)
+
 - [IP-independent player access: candidate, operator commands, rollout and QA](../deploy/production/PLAYER-ACCESS.md)
 - [Signed player-access candidate and isolated relay evidence](releases/player-access-20261010.md)
 
