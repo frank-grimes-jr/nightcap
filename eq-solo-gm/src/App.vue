@@ -1,14 +1,27 @@
 <template>
-  <div class="flex min-h-screen">
+  <div class="flex flex-col md:flex-row min-h-screen">
     <!-- Sidebar -->
     <aside
-      class="w-52 bg-gray-900 border-r border-gray-800 flex flex-col p-4 shrink-0"
+      class="md:w-56 bg-gray-900 border-r border-gray-800 flex flex-col p-4 shrink-0"
     >
       <div class="mb-6 px-1">
         <div class="text-amber-400 font-bold text-lg leading-none">
-          EQ Solo GM
+          Nightcap GM
         </div>
-        <div class="text-gray-600 text-xs mt-1">Local Dev Tools</div>
+        <div class="text-gray-400 text-xs mt-1">Owner controls</div>
+        <label for="environment" class="block text-xs mt-5 mb-2 text-gray-300"
+          >Environment</label
+        >
+        <select
+          id="environment"
+          class="select w-full"
+          :value="owner.environment"
+          :disabled="owner.busy || !!owner.uncertain"
+          @change="switchTarget"
+        >
+          <option value="local">Local development</option>
+          <option value="production">OVH production</option>
+        </select>
       </div>
 
       <nav class="flex-1 space-y-0.5">
@@ -18,6 +31,9 @@
         <router-link to="/accounts" class="nav-link">
           <span>🔐</span> Accounts
         </router-link>
+        <router-link to="/access" class="nav-link"
+          ><span>🔑</span> Player access</router-link
+        >
         <router-link to="/server" class="nav-link">
           <span>⚙</span> Server Tweaks
         </router-link>
@@ -27,21 +43,28 @@
       </nav>
 
       <div class="mt-auto pt-4 border-t border-gray-800">
-        <div class="text-gray-700 text-xs px-1">
-          MariaDB :3307 · Spire :3000
+        <div class="text-gray-400 text-xs px-1">
+          Runs on this computer.<br />Production connects through SSH.
         </div>
       </div>
     </aside>
 
     <!-- Main -->
-    <main class="flex-1 overflow-auto">
-      <router-view />
+    <main class="flex-1 min-w-0">
+      <RuntimePanel :key="owner.epoch" />
+      <fieldset :disabled="owner.busy || !!owner.uncertain" class="min-w-0">
+        <router-view :key="`${owner.epoch}:${route.path}`" />
+      </fieldset>
     </main>
   </div>
 
   <!-- Toast -->
   <Transition name="toast">
-    <div v-if="toast.visible" :class="toast.ok ? 'toast-ok' : 'toast-err'">
+    <div
+      v-if="toast.visible"
+      role="status"
+      :class="toast.ok ? 'toast-ok' : 'toast-err'"
+    >
       {{ toast.message }}
     </div>
   </Transition>
@@ -49,11 +72,25 @@
 
 <script setup lang="ts">
 import { reactive, provide } from 'vue'
+import { useRoute } from 'vue-router'
+import { owner, selectEnvironment, type Environment } from './api'
+import RuntimePanel from './components/RuntimePanel.vue'
+const route = useRoute()
+function switchTarget(event: Event) {
+  selectEnvironment((event.target as HTMLSelectElement).value as Environment)
+  toast.visible = false
+}
 
 const toast = reactive({ visible: false, message: '', ok: true })
 let toastTimer: ReturnType<typeof setTimeout> | null = null
 
 function showToast(message: string, ok = true) {
+  if (
+    message.includes('canceled') ||
+    message.includes('View changed') ||
+    message.includes('Action cancelled')
+  )
+    return
   if (toastTimer) clearTimeout(toastTimer)
   toast.message = message
   toast.ok = ok

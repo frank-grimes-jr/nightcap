@@ -18,6 +18,12 @@ class ComposeTests(unittest.TestCase):
         )
         config = json.loads(result.stdout)
         services = config['services']
+        gateway = services['gateway']
+        self.assertNotIn('ALLOW_CIDRS', gateway['environment'])
+        self.assertEqual(gateway['environment']['PLAYER_ACCESS_FILE'], '/run/nightcap-access/credentials.json')
+        credential_mount = next(m for m in gateway['volumes'] if m['target'] == '/run/nightcap-access')
+        self.assertTrue(credential_mount['read_only'])
+        self.assertTrue(credential_mount['source'].replace('\\', '/').endswith('/private/player-access'))
         self.assertEqual(services['game']['tmpfs'], ['/tmp:size=128m,mode=1777'])
         self.assertEqual(services['web']['tmpfs'], ['/tmp:size=16m,mode=1777'])
         for name, service in services.items():

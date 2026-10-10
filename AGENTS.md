@@ -33,7 +33,11 @@ All commands run from `akk-stack/`:
 
 - `npm run dev` — starts API on port 3001 and Vite on port 5173 concurrently
 - MariaDB is on **port 3307** (not 3306); database is `peq`
-- DB credentials are **hardcoded in `api/server.cjs`** — there is no `.env` for this project
+- Local DB credentials are in `api/lib/database.cjs`; production credentials are read into backend memory over pinned-host SSH, never sent to the browser.
+- `Start Nightcap GM.cmd` opens the owner-local UI. API binds only `127.0.0.1:3001`; Vite development binds loopback `5173`.
+- Production writes require the reviewed release on `origin/main` and `tools/start-gm.ps1 -EnableProductionWrites`. Default startup is a read-only production preview.
+- GM character/rule/vendor/deletion changes require explicit maintenance. A database advisory fence prevents resume while SQL is in flight. Do not bypass it or kill individual production zones.
+- `npm test`, `npm run typecheck`, `npm run build`, `npm run test:browser` are the GM checks. Real disposable-DB and maintenance rehearsal details: `docs/ops/production-gm-20261010.md`.
 
 ## eq-expansion-switcher
 
@@ -52,6 +56,14 @@ All commands run from `akk-stack/`:
 `.Codex/skills/eqemu/` — EQEmu/Nightcap server internals (caches/reloads, RoF2 client limits, Perl DB API) and the THJ replication spec with gap roadmap (`thj-blueprint.md`). Consult it before touching server systems; keep it updated as systems change.
 
 ## Server ops
+
+- **Player access migration candidate:** individual revocable gateway credentials
+  replace dynamic player-IP allowlists; Windows DPAPI stores each launcher's code.
+  Mount the registry directory read-only so atomic replacements are visible.
+  Do not remove Cloudflare IP gates before the credential gateway and signed
+  launcher are ready. Keep native ports private and preserve other host rules.
+  This is not a deployment record; see `deploy/production/PLAYER-ACCESS.md` for
+  current gates, isolated rehearsal, scoped rollback and exact player QA.
 
 - **Passive AA experience**: `AA:PassiveExpPercent` controls additive kill/quest/task
   AA at 0% allocation; `#aaexp on|off` selects 100% or 0%. Tiny gains round down.

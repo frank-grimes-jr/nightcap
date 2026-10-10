@@ -1,10 +1,12 @@
 <script setup lang="ts">
 import { computed, onMounted, onUnmounted, ref } from "vue";
-import { initial, invoke, native, snapshot, type NativeAPI } from "./bridge";
+import { initial, invoke, native, snapshot, saveAccessCode, type NativeAPI } from "./bridge";
 const state = ref({ ...initial });
 const pending = ref(false);
 const cancelling = ref(false);
 const error = ref("");
+const accessCode = ref("");
+const editingAccess = ref(false);
 const tab = ref<"client" | "activity">("client");
 let timer: ReturnType<typeof setInterval> | undefined;
 let reading = false;
@@ -53,12 +55,28 @@ async function refresh() {
     reading = false;
   }
 }
-async function run(action: Exclude<keyof NativeAPI, "GetStatus" | "Cancel">) {
+async function run(action: Exclude<keyof NativeAPI, "GetStatus" | "Cancel" | "SetAccessCode">) {
   if (busy.value) return;
   pending.value = true;
   error.value = "";
   try {
     await invoke(action);
+  } catch (e) {
+    error.value = e instanceof Error ? e.message : String(e);
+  } finally {
+    pending.value = false;
+    await refresh();
+  }
+}
+async function saveAccess() {
+  if (busy.value || !accessCode.value.trim()) return;
+  pending.value = true;
+  error.value = "";
+  const code = accessCode.value;
+  accessCode.value = "";
+  try {
+    await saveAccessCode(code);
+    editingAccess.value = false;
   } catch (e) {
     error.value = e instanceof Error ? e.message : String(e);
   } finally {
@@ -217,6 +235,25 @@ onUnmounted(() => {
             >
               {{ state.phase === "playing" ? "Stop game" : state.phase === "stopping" ? "Stopping…" : "Cancel" }}
             </button>
+          </div>
+        </section>
+        <section v-if="state.access_required" class="details access-panel" aria-labelledby="access-title">
+          <div class="section-heading">
+            <h2 id="access-title">Player access</h2>
+            <span v-if="state.access_saved" class="file-action verified">Code saved</span>
+          </div>
+          <p class="access-help" id="access-help">Enter the private access code from the server owner once. It stays saved for this Windows account when your Internet address changes. Your in-game login stays the same.</p>
+          <form v-if="!state.access_saved || editingAccess" @submit.prevent="saveAccess" class="access-form">
+            <label for="access-code">Private access code</label>
+            <input id="access-code" v-model="accessCode" type="password" autocomplete="off" spellcheck="false" autocapitalize="off" maxlength="256" aria-describedby="access-help" :disabled="busy" />
+            <div class="actions">
+              <button class="primary" type="submit" :disabled="!native() || busy || !accessCode.trim()">Save access code</button>
+              <button v-if="state.access_saved" class="secondary" type="button" :disabled="busy" @click="editingAccess = false; accessCode = ''">Keep saved code</button>
+            </div>
+          </form>
+          <div v-else class="actions">
+            <button class="secondary" :disabled="busy" @click="editingAccess = true">Change access code</button>
+            <button class="text-button" :disabled="busy" @click="run('ForgetAccessCode')">Forget on this computer</button>
           </div>
         </section>
         <section class="details" aria-labelledby="folder-title">

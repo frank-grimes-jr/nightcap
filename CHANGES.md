@@ -1,5 +1,34 @@
 # CHANGES
 
+## 2026-10-10 - Production GM controls candidate
+
+Connect the full existing GM tool to explicit Local development and OVH production
+targets over private SSH. Add access-code generation/revocation, verified scrypt
+password resets, maintenance/recovery controls and database action receipts.
+Correct namespace-qualified account deletion, canonical teleport IDs, multiclass
+skill eligibility, atomic progression/presets and target-switch races. Browser
+Host/Origin/session checks, cross-tab mutation locking, durable pending-action
+recovery, private backups and a database fence protect writes and game resume.
+Replace prohibited direct era mutations with previews and an era proposal;
+activation still follows committed era.json and the reviewed release process.
+Restore merchants using canonical guarded SQL; protect Client_RoF2_Dev.
+Update the GM build dependencies to clear the audit. Production reads verified;
+writes and player-access rollout remain gated. See
+[GM controls and exact QA](docs/ops/production-gm-20261010.md).
+
+## 2026-10-10 - IP-independent player access candidate
+
+Replace gateway player-IP admission with individually revocable random access
+codes. The launcher remembers a code using Windows user-scoped DPAPI, keeps it
+out of UI status/logs and sends it only to the trusted TLS relay. The gateway
+checks hashed credentials and closes revoked sessions without a restart; limits
+follow player identity across address changes. Operator tooling, fail-closed
+registry reloads, deployment migration and rollback/QA accompany the change.
+Finite HTTP deadlines fix a review finding before public-route exposure. Patch
+source-map-js and select Go1.27.2 to clear dependency audits. Candidate only: signed
+publication, scoped Cloudflare migration and real-player acceptance remain gates.
+See [player access](deploy/production/PLAYER-ACCESS.md).
+
 ## 2026-10-09 - NPC-targeted self-heals deployed to main and OVH
 
 At the owner's explicit request, PR #139 is merged to main and the fresh zone

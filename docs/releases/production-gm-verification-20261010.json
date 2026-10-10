@@ -1,0 +1,45 @@
+{
+  "date": "2026-10-10",
+  "scope": "Owner-local GM release candidate; no production mutations",
+  "record_kind": "Sanitized summary of observed command results",
+  "checks": {
+    "vue_typecheck": "passed",
+    "production_build": "passed",
+    "npm_audit_vulnerabilities": 0,
+    "http_and_ssh_tests_passed": 4,
+    "isolated_mariadb_scenarios_passed": 12,
+    "python_helper_tests_passed": 6,
+    "chrome_tests_passed": 7,
+    "independent_review_recovery_tests_passed": 3,
+    "independent_review_remaining_coding_blockers": 0
+  },
+  "disposable_runtime_rehearsal": {
+    "maintenance_shutdown": true,
+    "backup_gzip_verified": true,
+    "database_fence_prevents_resume": true,
+    "health_gated_resume": true,
+    "production_containers_unchanged": true,
+    "fixture_resources_removed": true,
+    "limitation": "QA game/gateway workers were harmless Python processes, not the native game"
+  },
+  "production_read_only_observation": {
+    "accounts": 6,
+    "characters": 14,
+    "base_zones": 482,
+    "configured_editable_rules": 4,
+    "active_ruleset": 1,
+    "password_mode": 14,
+    "game_running": true,
+    "gateway_running": true,
+    "maintenance_active": false,
+    "setup_ready": false,
+    "access_registry_ready": false,
+    "credential_gateway_active": false,
+    "writes_enabled": false
+  },
+  "pending": [
+    "Owner sign-off for main and production activation",
+    "Player-access helper/gateway publication and scoped Cloudflare migration",
+    "Real game account and character acceptance in the documented QA window"
+  ]
+}

@@ -35,7 +35,9 @@ Once the VPS and domain are ready, provide the domain, VPS public IP, SSH userna
 and the local path to the SSH key or an already configured SSH host alias.
 Keep private key contents, passwords and API/tunnel tokens out of chat.
 The remaining secrets are created and stored through local files or provider dashboards.
-We will collect approved player IPs and account names during onboarding.
+Collect account names and issue individual player access codes during onboarding.
+See [the credential rollout and operator guide](PLAYER-ACCESS.md); this replaces
+the older deployment's IP allowlists only after its migration gates pass.
 
 ## 4. Install the prepared stack — deployment work
 
@@ -57,8 +59,10 @@ secret file. Configure these published routes in order:
 | `play.<your-domain>` | `/connect` | `http://gateway:8080` |
 | `play.<your-domain>` | All other paths | `http://web:8080` |
 
-Use Block rules for denied IPs and all IPs outside the approved list; mirror the
-list in the gateway. Keep interactive browser challenges off launcher routes.
+The gateway requires an individual player credential for `/connect`. Reviewed
+signed downloads must be reachable before the player enters a code. Remove player
+IP restrictions from those routes only after the credential gateway is active.
+Keep interactive browser challenges off launcher routes and preserve other hosts.
 [Cloudflare tunnel setup](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/get-started/create-remote-tunnel/)
 
 Enable R2 and create a private Standard bucket for encrypted database/configuration

@@ -6,6 +6,7 @@ import (
 	"net/http"
 	"net/netip"
 	"strconv"
+	"strings"
 	"sync"
 	"sync/atomic"
 	"time"
@@ -14,14 +15,19 @@ import (
 )
 
 // Gateway must only be reachable by a trusted reverse proxy on an isolated
-// Docker network. The executable requires explicit proxy and player CIDRs.
+// Docker network. Player admission uses independently revocable credentials.
+type AccessVerifier interface {
+	Authenticate(string) (string, bool)
+}
+
 type Gateway struct {
-	Target                      string
-	dial                        func(int) (*net.UDPConn, error)
-	TrustedProxies, Allow, Deny []netip.Prefix
-	mu                          sync.Mutex
-	sessions                    map[netip.Addr]int
-	total                       int
+	Target               string
+	dial                 func(int) (*net.UDPConn, error)
+	TrustedProxies, Deny []netip.Prefix
+	Access               AccessVerifier
+	mu                   sync.Mutex
+	sessions             map[string]int
+	total                int
 }
 
 func contains(prefixes []netip.Prefix, ip netip.Addr) bool {
@@ -32,51 +38,85 @@ func contains(prefixes []netip.Prefix, ip netip.Addr) bool {
 	}
 	return false
 }
-func (g *Gateway) acquire(ip netip.Addr) bool {
+func (g *Gateway) acquire(player string) bool {
 	g.mu.Lock()
 	defer g.mu.Unlock()
-	if g.total >= 20 || g.sessions[ip] >= 10 {
+	if g.total >= 20 || g.sessions[player] >= 10 {
 		return false
 	}
 	if g.sessions == nil {
-		g.sessions = map[netip.Addr]int{}
+		g.sessions = map[string]int{}
 	}
-	g.sessions[ip]++
+	g.sessions[player]++
 	g.total++
 	return true
 }
-func (g *Gateway) release(ip netip.Addr) {
+func (g *Gateway) release(player string) {
 	g.mu.Lock()
 	defer g.mu.Unlock()
 	g.total--
-	g.sessions[ip]--
-	if g.sessions[ip] == 0 {
-		delete(g.sessions, ip)
+	g.sessions[player]--
+	if g.sessions[player] == 0 {
+		delete(g.sessions, player)
 	}
 }
 func (g *Gateway) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	host, _, err := net.SplitHostPort(r.RemoteAddr)
 	peer, e := netip.ParseAddr(host)
 	ip, e2 := netip.ParseAddr(r.Header.Get("CF-Connecting-IP"))
-	if err != nil || e != nil || e2 != nil || !contains(g.TrustedProxies, peer.Unmap()) || contains(g.Deny, ip.Unmap()) || !contains(g.Allow, ip.Unmap()) {
+	if err != nil || e != nil || e2 != nil || len(r.Header.Values("CF-Connecting-IP")) != 1 || !contains(g.TrustedProxies, peer.Unmap()) || contains(g.Deny, ip.Unmap()) {
 		http.Error(w, "Access unavailable", http.StatusForbidden)
 		return
 	}
-	if r.Method != "GET" || r.URL.Path != "/connect" || r.URL.RawQuery != "" || r.Header.Get("Origin") != "" {
+	if r.Method != "GET" || r.URL.Path != "/connect" || r.URL.RawQuery != "" || r.URL.ForceQuery || r.URL.RawPath != "" || r.Header.Get("Origin") != "" || r.ContentLength != 0 || len(r.TransferEncoding) != 0 {
 		http.Error(w, "Invalid connection request", http.StatusBadRequest)
 		return
 	}
-	if !g.acquire(ip) {
+	w.Header().Set("Cache-Control", "no-store")
+	values := r.Header.Values("Authorization")
+	token := strings.TrimPrefix(r.Header.Get("Authorization"), "Bearer ")
+	player, authorized := "", false
+	if g.Access != nil && len(values) == 1 && strings.HasPrefix(values[0], "Bearer ") {
+		player, authorized = g.Access.Authenticate(token)
+	}
+	if !authorized || player == "" {
+		w.Header().Set("WWW-Authenticate", `Bearer realm="Nightcap"`)
+		http.Error(w, "Player access required", http.StatusUnauthorized)
+		return
+	}
+	if !g.acquire(player) {
 		http.Error(w, "Connection limit reached", http.StatusTooManyRequests)
 		return
 	}
-	defer g.release(ip)
+	defer g.release(player)
 	u := websocket.Upgrader{HandshakeTimeout: 10 * time.Second, CheckOrigin: func(r *http.Request) bool { return r.Header.Get("Origin") == "" }}
 	c, err := u.Upgrade(w, r, nil)
 	if err != nil {
 		return
 	}
+	// Revocation also closes established relays. This goroutine owns no game
+	// state; the regular wire cleanup releases every UDP flow and session slot.
+	done, checked := make(chan struct{}), make(chan struct{})
+	go func() {
+		defer close(checked)
+		ticker := time.NewTicker(time.Second)
+		defer ticker.Stop()
+		for {
+			select {
+			case <-done:
+				return
+			case <-ticker.C:
+				current, ok := g.Access.Authenticate(token)
+				if !ok || current != player {
+					_ = c.Close()
+					return
+				}
+			}
+		}
+	}()
 	g.serve(c)
+	close(done)
+	<-checked
 }
 
 type remoteFlow struct {
