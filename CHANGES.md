@@ -1,5 +1,15 @@
 # CHANGES
 
+## 2026-10-10 - Advanced loot stock images published
+
+Owner authorized main and server publication. PR #151 is merged; signed client
+release 2026101001 delivers proxy 0.8.0-dev, the 74-site patch catalog and matching
+Pet Info XML. Exactly three assets change; 101 retain their production hashes.
+Server publication verifies all 104 files and preserves the previous channel for
+rollback. Game services remain unchanged. Restart EQ and use launcher Play;
+stock icon visual acceptance remains pending. See
+`docs/releases/advanced-loot/STOCK-ICONS.md` for hashes and exact in-game QA.
+
 ## 2026-10-10 - Advanced loot stock item images candidate
 
 Added stock item icons to Drops and Filters rows using the existing server icon

@@ -1,5 +1,13 @@
 # Current Nightcap status
 
+## Advanced loot stock images — published October 10
+
+Owner-approved PR #151 is merged to main. Signed client release 2026101001
+(proxy 0.8.0-dev) publishes the stock item icons, matching patch catalog and
+Pet Info XML. Server verification covers all 104 files; no game service restart
+was needed. Restart EQ and use launcher Play. Native visual acceptance remains
+pending; [exact QA and release evidence](releases/advanced-loot/STOCK-ICONS.md).
+
 ## Production GM controls — activated October 10
 
 The owner-local GM UI now reads OVH production over SSH and retains character,
