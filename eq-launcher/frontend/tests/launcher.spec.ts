@@ -1,9 +1,34 @@
 import { test, expect, type Page } from "@playwright/test";
 import type { Status } from "../src/bridge";
 
+test("player access is entered once, hidden, replaceable and forgettable", async ({ page }) => {
+  await desktop(page, "access");
+  await page.goto("/");
+  const field = page.getByLabel("Private access code", { exact: true });
+  await expect(field).toHaveAttribute("type", "password");
+  await field.fill("invalid-code");
+  await page.getByRole("button", { name: "Save access code", exact: true }).click();
+  await expect(page.getByRole("alert")).toContainText("Access code is not valid");
+  await expect(field).toHaveValue("");
+  const fakeCode = "nc1." + "a".repeat(32) + "." + "A".repeat(43);
+  await field.fill(fakeCode);
+  await page.getByRole("button", { name: "Save access code", exact: true }).click();
+  await expect(page.getByText("Code saved", { exact: true })).toBeVisible();
+  await expect(field).toHaveCount(0);
+  await expect(page.locator("body")).not.toContainText(fakeCode);
+  await page.getByRole("button", { name: "Change access code", exact: true }).click();
+  await expect(field).toHaveValue("");
+  await page.getByRole("button", { name: "Keep saved code", exact: true }).click();
+  await page.screenshot({ path: "test-results/player-access-saved.png", fullPage: true });
+  await page.getByRole("button", { name: "Forget on this computer", exact: true }).click();
+  await expect(field).toBeVisible();
+  await expect(field).toHaveValue("");
+  await page.screenshot({ path: "test-results/player-access-entry.png", fullPage: true });
+});
+
 async function desktop(
   page: Page,
-  mode: "normal" | "cancel" | "recovery" | "error" | "play" = "normal",
+  mode: "normal" | "cancel" | "recovery" | "error" | "play" | "access" = "normal",
 ) {
   await page.addInitScript((mode) => {
     const state = {
@@ -24,6 +49,8 @@ async function desktop(
       can_update: false,
       can_recover: false,
       can_play: false,
+      access_required: mode === "access",
+      access_saved: false,
     } as Status;
     let finishUpdate: undefined | (() => void);
     let finishPlay: undefined | (() => void);
@@ -130,6 +157,11 @@ async function desktop(
             event("Recovery completed.");
           },
           async OpenGuide() {},
+          async SetAccessCode(code: string) {
+            if (code === "invalid-code") throw new Error("Access code is not valid; paste the complete code from the server owner.");
+            state.access_saved = true;
+          },
+          async ForgetAccessCode() { state.access_saved = false; },
         },
       },
     };

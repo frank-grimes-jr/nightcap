@@ -87,6 +87,18 @@ func (a *App) Play() error {
 	}
 	return a.controller.Play(a.ctx)
 }
+func (a *App) SetAccessCode(code string) error {
+	if err := a.available(); err != nil {
+		return err
+	}
+	return a.controller.SetAccessCode(a.ctx, code)
+}
+func (a *App) ForgetAccessCode() error {
+	if err := a.available(); err != nil {
+		return err
+	}
+	return a.controller.ForgetAccessCode(a.ctx)
+}
 func (a *App) Cancel() {
 	if a.controller != nil {
 		a.controller.Cancel()

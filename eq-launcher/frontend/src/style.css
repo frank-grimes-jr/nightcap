@@ -28,6 +28,20 @@ button:focus-visible {
   outline: 2px solid var(--gold);
   outline-offset: 4px;
 }
+.access-help {
+  color: var(--muted);
+  line-height: 1.6;
+  margin: 12px 0 18px;
+  max-width: 72ch;
+}
+.access-form { display: grid; gap: 12px; }
+.access-form label { font-weight: 600; font-size: 14px; }
+.access-form input {
+  width: 100%; max-width: 560px; min-width: 0;
+  padding: 12px 14px; border: 1px solid var(--border); border-radius: 5px;
+  background: #0b1310; color: #e4ebe6; font: inherit;
+}
+.access-form input:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
 h1,
 h2,
 p {

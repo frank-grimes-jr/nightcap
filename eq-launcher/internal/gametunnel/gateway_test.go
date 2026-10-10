@@ -28,23 +28,26 @@ func TestProtocolRejectsUnboundedAndForeignDestinations(t *testing.T) {
 }
 func TestGatewayRejectsUntrustedAndDeniedClients(t *testing.T) {
 	proxy, _ := Prefixes([]string{"127.0.0.1/32"})
-	allow, _ := Prefixes([]string{"198.51.100.0/24"})
+	access, token, _ := testAccess(t)
 	deny, _ := Prefixes([]string{"198.51.100.2/32"})
-	g := &Gateway{Target: "127.0.0.1", TrustedProxies: proxy, Allow: allow, Deny: deny}
+	g := &Gateway{Target: "127.0.0.1", TrustedProxies: proxy, Access: access, Deny: deny}
 	for _, c := range []struct {
 		remote, ip, path, origin string
 		status                   int
 	}{
 		{"10.0.0.1:123", "198.51.100.1", "/connect", "", 403},
 		{"127.0.0.1:123", "198.51.100.2", "/connect", "", 403},
-		{"127.0.0.1:123", "203.0.113.1", "/connect", "", 403},
+		{"127.0.0.1:123", "", "/connect", "", 403},
 		{"127.0.0.1:123", "198.51.100.1", "/connect?target=secret", "", 400},
+		{"127.0.0.1:123", "198.51.100.1", "/connect?", "", 400},
+		{"127.0.0.1:123", "198.51.100.1", "/con%6eect", "", 400},
 		{"127.0.0.1:123", "198.51.100.1", "/connect", "https://evil.test", 400},
 	} {
 		r := httptest.NewRequest("GET", c.path, nil)
 		r.RemoteAddr = c.remote
 		r.Header.Set("CF-Connecting-IP", c.ip)
 		r.Header.Set("Origin", c.origin)
+		r.Header.Set("Authorization", "Bearer "+token)
 		w := httptest.NewRecorder()
 		g.ServeHTTP(w, r)
 		if w.Code != c.status {
@@ -54,7 +57,7 @@ func TestGatewayRejectsUntrustedAndDeniedClients(t *testing.T) {
 }
 func TestTLSClientRejectsInvalidCertificateAndUnsafeURLs(t *testing.T) {
 	for _, address := range []string{"http://nightcap.test/connect", "https://elsewhere.test/connect", "https://nightcap.test/connect?target=foo"} {
-		if _, err := Start(context.Background(), address, []string{"nightcap.test"}); err == nil {
+		if _, err := Start(context.Background(), address, []string{"nightcap.test"}, ""); err == nil {
 			t.Fatal("unsafe URL accepted")
 		}
 	}

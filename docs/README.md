@@ -2,6 +2,9 @@
 
 Start with [current status](status.md), not a dated candidate report.
 
+- [IP-independent player access: candidate, operator commands, rollout and QA](../deploy/production/PLAYER-ACCESS.md)
+- [Signed player-access candidate and isolated relay evidence](releases/player-access-20261010.md)
+
 - [Start here: OVH + Cloudflare setup](../deploy/production/QUICKSTART.md)
 - [Hosted owner-test activation and recovery](releases/ovh-activation-20260920.md)
 - [Coordinated main/server/client update](releases/hosted-main-update-20260920.md)
