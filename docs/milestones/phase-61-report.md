@@ -28,5 +28,18 @@ The catalog does not claim every ordinary item, NPC, map or quest.
 
 ## Shaky / remaining
 
-Later content updates need the documented guarded pointer-update mode. In-game
+The guarded content-update command is now implemented and covered by Linux
+rollback tests. Content remains limited to the documented custom reward catalog. In-game
 acceptance and balance gates remain with their original gameplay releases.
+
+## Equipment organization follow-up
+
+Replaced the flat Equipment category with a focused catalog: 96 families, four
+quality links per family, gear/augment tabs, slot/level/zone/name filters, sorting
+and 12-family pagination. Guide links are separate and visible before browsing.
+Seven site tests, seven catalog cases (including all 384 exact variant names),
+six existing search cases and sixteen Linux deployment/update cases pass.
+Browser checks cover combined filters, empty/reset states, pagination, quality
+links, Back restoration, mobile cards and 320/768/1024/1440 widths. Independent
+review found two rollback edges and one exact-name search issue; all were fixed
+and covered by regressions. Public rollout evidence is in the hosting runbook.

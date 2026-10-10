@@ -10,8 +10,9 @@ Run from this `wiki/` directory; Python 3.10+ and Node are sufficient. No packag
 database, server APIs or account system are needed.
 
 ```powershell
-python -B -m unittest -v test_wiki test_deploy
+python -B -m unittest -v test_wiki test_deploy test_update
 node test_search.cjs
+node test_equipment.cjs
 python -B build.py --package ABSOLUTE_NEW_FILENAME.tar.gz
 python -B -m http.server 8767 --bind 127.0.0.1 --directory dist
 ```
@@ -39,7 +40,13 @@ deployment. Packaging emits an exact SHA256 manifest alongside the immutable tar
 - `assets/traders-at-dusk.png` and `moon.svg` are unchanged approved site artwork.
   CSS and browser search are local. No third-party trackers or dependencies.
 
-The first version builds 451 articles plus All articles, Search, and 404 pages.
+The build contains 451 articles plus All articles, Search, and 404 pages.
+`items.html` is the Equipment catalog: 96 item families with their four qualities
+together, type/slot/level/zone/name filters, sorting and 12-family pagination.
+The URL preserves filters; all item links remain in static HTML without JavaScript.
+`equipment.py` generates the directory. Its small CSS/JS files are bundled into
+the existing public assets by `build.py`, with content-based cache versioning.
+Run `test_equipment.cjs` for filtering, paging and all 384 exact variant names.
 This is a custom-system and reward wiki; it is not the full ordinary game database.
 
 ## Verification contract

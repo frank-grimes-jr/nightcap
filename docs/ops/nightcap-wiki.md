@@ -94,12 +94,26 @@ operation changed the config, do not overwrite it with an old preimage: prepare 
 scoped inverse that removes only the wiki host. After Cloudflare activation, also
 remove only the new wiki route/DNS; no IP-rule change was made.
 
-For later content updates, prepare a fresh immutable package/release and compare
-the active pointer/config under the same shared lock. Reuse archive/hash validation,
-switch `current` atomically to a relative release path, and verify all bytes plus
-private-route denial. Preserve the previous target for pointer rollback. Extend
-the installer with a tested update mode before automating this; do not rerun the
-initial installer or manually merge old play-only configs over the wiki host.
+For content updates, `wiki/update.py` reuses archive validation and origin probes.
+Run the Linux deployment/update tests first, then as root invoke:
+
+```sh
+python3 update.py NEW.tar.gz NEW.tar.json NEW_RELEASE EXPECTED_PREVIOUS_RELEASE EXPECTED_CONFIG_SHA256
+```
+
+It holds the same `website-history/.lock`, checks exact Nginx bytes and the relative
+current pointer, verifies the previous release and private/service baseline, then
+stages an immutable release. It atomically replaces only `wiki/current`, verifies
+every new file, rehearses the previous pointer, and reapplies the new release.
+Nginx, DNS/WAF and game services are untouched. Any failed activation restores the
+owned pointer; concurrent config is preserved and reported for attention. An
+unrelated concurrent pointer is never overwritten. Receipts include the previous
+target and exact manifests for recovery. Do not rerun the initial installer.
+
+For manual content rollback, hold the shared lock, require the expected current
+pointer/config, validate the previous immutable release, and atomically replace
+the pointer with that previous relative target. Re-run its manifest, private-route,
+private-download and service checks. Keep all release and receipt directories.
 
 ## Verification evidence
 

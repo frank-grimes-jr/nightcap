@@ -559,5 +559,9 @@ Never expose raw exports, source ledgers, operations files or private game downl
 Keep play-host IP restrictions and apex/www 404 routes. Wiki and player-site
 publishers must share `deploy/production/website-history/.lock`; preserve the
 bind-mounted Nginx config inode, relative release symlinks and rollback preimages.
-Origin release is installed; public DNS/tunnel/WAF setup remains pending in
-`docs/ops/nightcap-wiki.md`. Website deployment does not promote gameplay.
+Public HTTPS is active. `wiki/update.py` performs guarded content-only updates
+with an atomic relative pointer, exact config/previous-release checks and rehearsed
+rollback; it does not reload Nginx or restart services. Run its POSIX tests on Linux.
+Keep equipment variants grouped in `items.html`; do not reintroduce flat item dumps
+into category navigation. See `docs/ops/nightcap-wiki.md` for current release and
+recovery. Website deployment does not promote gameplay.
