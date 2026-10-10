@@ -1,5 +1,17 @@
 # CHANGES
 
+## 2026-10-10 - Production GM activation
+
+Owner-approved PR #143 is merged to main. Enabled the owner-local production GM
+controls and initialized its two support tables after a verified private backup.
+Installed the reviewed registry helper and initialized an empty access registry;
+the gateway image and rollback files are staged. Credential issuance and
+authenticated Cloudflare access remain required before the gateway/client switch.
+No real player data or running game service was changed. Add a production shortcut,
+fix reopening an already-active production app without changing its mode, and
+correct Accounts text encoding. See the dated activation receipt in
+`docs/ops/production-gm-20261010.md`.
+
 ## 2026-10-10 - Production GM controls candidate
 
 Connect the full existing GM tool to explicit Local development and OVH production
