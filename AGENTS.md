@@ -35,6 +35,7 @@ All commands run from `akk-stack/`:
 - MariaDB is on **port 3307** (not 3306); database is `peq`
 - Local DB credentials are in `api/lib/database.cjs`; production credentials are read into backend memory over pinned-host SSH, never sent to the browser.
 - `Start Nightcap GM.cmd` opens the owner-local UI. API binds only `127.0.0.1:3001`; Vite development binds loopback `5173`.
+- `Start Nightcap GM Production.cmd` starts the owner-approved main release with production writes. Both shortcuts reuse the existing process without changing its mode; local session capabilities let the UI open even when SSH/DB is unavailable.
 - Production writes require the reviewed release on `origin/main` and `tools/start-gm.ps1 -EnableProductionWrites`. Default startup is a read-only production preview.
 - GM character/rule/vendor/deletion changes require explicit maintenance. A database advisory fence prevents resume while SQL is in flight. Do not bypass it or kill individual production zones.
 - `npm test`, `npm run typecheck`, `npm run build`, `npm run test:browser` are the GM checks. Real disposable-DB and maintenance rehearsal details: `docs/ops/production-gm-20261010.md`.

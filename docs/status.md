@@ -1,14 +1,17 @@
 # Current Nightcap status
 
-## Production GM controls — candidate
+## Production GM controls — activated October 10
 
 The owner-local GM UI now reads OVH production over SSH and retains character,
 account, rule, progression, vendor and client-setting controls. It adds player
 access codes, verified password resets, maintenance/recovery and action history.
-Production writes are disabled pending owner release approval. Era activation
-remains governed by committed era.json and catalog review. Real fixture database,
-Chrome, helper recovery and disposable-container maintenance checks pass; no live
-player data was changed. [Entry point, evidence and exact QA](ops/production-gm-20261010.md).
+Owner-approved PR #143 is merged to main. Production GM writes and the two support
+tables are active, with a verified private database backup. The empty player-access
+registry is initialized. Password resets and the existing GM controls are available;
+offline edits still require maintenance. No real player was changed. Era activation
+remains governed by committed era.json and catalog review. The separate credential
+gateway/launcher/Cloudflare switch remains pending code issuance authorization and
+authenticated Cloudflare access. [Entry point, evidence and exact QA](ops/production-gm-20261010.md).
 
 ## Player access independent of changing IPs — candidate
 
@@ -16,8 +19,8 @@ The launcher/gateway candidate uses individual, revocable access codes stored
 securely on Windows. Component tests, review and isolated Linux relay rehearsal
 pass. Signed desktop0.5.0/release2026101001 is built but unpublished; the live
 gateway still uses IP admission and Cloudflare still blocks unlisted sources.
-Production approval, publication, the scoped Cloudflare rule change and actual
-player acceptance remain pending. [Evidence](releases/player-access-20261010.md)
+Production approval is recorded in merged PR #143. Publication, credential issuance,
+the scoped Cloudflare rule change and actual player acceptance remain pending. [Evidence](releases/player-access-20261010.md)
 and [migration and exact QA](../deploy/production/PLAYER-ACCESS.md).
 
 Updated October 10, 2026. This is the current status index; dated studies and
