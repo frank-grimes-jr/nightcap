@@ -1,6 +1,6 @@
 # Advanced loot stock icons — October 10, 2026
 
-Candidate in `feature/advanced-loot-images`; not published or accepted in game.
+Candidate in `feature/advanced-loot-stock-images`; not published or accepted in game.
 
 Each Drops and Filters row shows the stock image identified by the existing
 server `Row.icon` field. The native item icon cache supplies the artwork; no
@@ -34,6 +34,10 @@ Five x86 production-header fixtures pass with `/W4 /WX`, including native cache
 bounds, all six decal states, missing cache, stale-image clearing, selection by
 icon and visibility in list/filter/detail panels. Six Python XML checks pass,
 including viewport, non-overlap and decal scaling. The x86 DLL build passes.
+The four shared client UI tests, ten native UI/model regression executables and
+launcher preflight, manifest and assets packages pass. The asset package requires
+loopback HTTP and temporary junction permissions; the sandboxed run was blocked,
+and the permitted rerun passed with the repository's Go 1.27.2 toolchain.
 
 Deliver the DLL together with a newly generated
 `uifiles/nightcap/equi_petinfowindow.xml` through the signed launcher workflow.
