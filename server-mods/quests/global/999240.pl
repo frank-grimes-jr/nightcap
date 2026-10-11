@@ -13,11 +13,32 @@
 # =============================================================================
 
 sub EVENT_SPAWN {
+    waypoint_visual();
     my $x = $npc->GetX();
     my $y = $npc->GetY();
     my $z = $npc->GetZ();
     # 25u horizontal, 30u vertical — matches the old global_player proximity check.
     quest::set_proximity($x - 25, $x + 25, $y - 25, $y + 25, $z - 30, $z + 30);
+}
+
+sub waypoint_visual {
+    # IVM is in global_chr; unlike zone-specific NPC models it needs no client
+    # asset update. Keep the nameplate and proximity on this same marker entity.
+    if ($npc->GetRace() != 127) {
+        $npc->SendIllusionPacket({ race => 127, gender => 0, texture => 0,
+            helmtexture => 0, size => 6 });
+    }
+    # RoF2 spellsnew.eff 178 = WizardPortal. Nimbus state is sent to late joiners
+    # by EntityList::SendNimbusEffects; avoid stacking it on live refreshes.
+    unless (grep { $_ == 178 } ($npc->GetNimbusEffect1(),
+            $npc->GetNimbusEffect2(), $npc->GetNimbusEffect3())) {
+        $npc->AddNimbusEffect(178);
+    }
+}
+
+sub EVENT_SIGNAL {
+    return unless $signal == 20261011;
+    waypoint_visual();
 }
 
 sub EVENT_ENTER {
