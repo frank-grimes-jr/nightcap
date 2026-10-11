@@ -296,6 +296,12 @@ rollback: `docs/ops/permanent-patcher.md`.
 
 ## Non-obvious gotchas
 
+- **Food/drink removal candidate (2026-10-11):** hunger/thirst/starvation predicates
+  always return false; login and stamina/setter packets report both meters full.
+  Legacy nutrition rules cannot restore this system. Consume packets preserve
+  inventory; optional edible bonuses remain. Zone rollout and RoF2 QA are still
+  required: `docs/qa/2026-10-11-food-drink-removal.md`.
+
 - **Classic alternate heads require contiguous meshes.** RoF2 discovers head
   variants in the consecutive WLD 0x36 block around the skeleton's first mesh.
   Appending a named HE90 elsewhere does not register it. Preserve typed fragment
@@ -352,6 +358,11 @@ The current project assessment and observed balance baseline are recorded in
 claims about live state).
 
 ### Branch flow
+
+**October 11 food/drink exception:** the owner explicitly approved "Merge to main
+and server" for the removal of hunger/thirst requirements, penalties and warnings.
+This authorizes main promotion and OVH rollout before manual acceptance. Preserve
+the outstanding client checks in `docs/qa/2026-10-11-food-drink-removal.md`.
 
 `feature/<name>` → `dev` → `test` → `main`
 

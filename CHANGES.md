@@ -1,5 +1,19 @@
 # CHANGES
 
+## 2026-10-11 - Remove character food and drink requirements
+
+Removed hunger/thirst depletion, starvation eligibility and food/drink inventory
+consumption. Initial profiles, stamina updates and quest setters always report
+full meters so empty inventory cannot trigger the client's food/water warnings.
+Legacy hunger rules cannot re-enable penalties. Optional edible item bonuses,
+recipes, quest items and alcohol behavior are retained. No SQL or client patch.
+
+Compiled regression: 250/250 checks pass (37/250 before the change), plus a login
+profile ordering guard. A fresh full zone build and all 99 healing regressions
+also pass on fingerprinted retained release source. The verified binary package
+is local only; rollout and owner in-game acceptance remain pending. Exact QA and activation/rollback guidance:
+`docs/qa/2026-10-11-food-drink-removal.md`; decision: ADR 0028.
+
 ## 2026-10-11 - Crushbone entrance waypoint deployed
 
 Published the approved relocation to main and OVH: the waypoint marker, recall
