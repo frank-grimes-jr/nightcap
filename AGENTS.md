@@ -359,6 +359,11 @@ claims about live state).
 
 ### Branch flow
 
+**October 11 food/drink exception:** the owner explicitly approved "Merge to main
+and server" for the removal of hunger/thirst requirements, penalties and warnings.
+This authorizes main promotion and OVH rollout before manual acceptance. Preserve
+the outstanding client checks in `docs/qa/2026-10-11-food-drink-removal.md`.
+
 `feature/<name>` → `dev` → `test` → `main`
 
 **October 9 advanced-loot controls exception:** the owner explicitly requested

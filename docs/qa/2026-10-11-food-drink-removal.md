@@ -1,6 +1,7 @@
 # Food and drink removal — October 11, 2026
 
-Status: fully built candidate; not deployed and not manually accepted.
+Status: fully built and explicitly approved for main/OVH deployment on October 11;
+activation has not run. Manual in-game acceptance remains pending.
 
 ## Behavior and scope
 
@@ -93,8 +94,9 @@ cannot activate this C++ change. There is no SQL migration, world catalog change
 shared-memory refresh or client update. Saved meters converge through normal
 character saves; no bulk character update is necessary.
 
-Follow feature -> dev -> test; owner manual sign-off is required before main
-unless the owner explicitly authorizes another live-QA promotion. On OVH, use
+The owner explicitly approved this release: "Approved. Merge to main and server"
+on October 11. This authorizes main promotion and OVH deployment before manual
+in-game acceptance; it does not change the general branch policy. On OVH, use
 the controlled game-runtime rollout with current-image capture and backup, not
 a single-zone process kill (the supervisor restarts the entire runtime).
 Rollback restores the immediately preceding zone image while retaining current
