@@ -1375,6 +1375,9 @@ void Client::Handle_Connect_OP_ZoneEntry(const EQApplicationPacket *app)
 	database.LoadCharacterPotionBelt(cid, &m_pp); /* Load Character Potion Belt */
 	database.LoadCharacterCurrency(cid, &m_pp); /* Load Character Currency into PP */
 	database.LoadCharacterData(cid, &m_pp, &m_epp); /* Load Character Data from DB into PP as well as E_PP */
+	// Repair legacy empty meters before the initial profile reaches the client.
+	m_pp.hunger_level = 6000;
+	m_pp.thirst_level = 6000;
 	database.LoadCharacterSkills(cid, &m_pp); /* Load Character Skills */
 	database.LoadCharacterInspectMessage(cid, &m_inspect_message); /* Load Character Inspect Message */
 	database.LoadCharacterSpellBook(cid, &m_pp); /* Load Character Spell Book */
@@ -5352,73 +5355,13 @@ void Client::Handle_OP_ConsiderCorpse(const EQApplicationPacket *app)
 
 void Client::Handle_OP_Consume(const EQApplicationPacket *app)
 {
-	if (app->size != sizeof(Consume_Struct))
-	{
+	if (app->size != sizeof(Consume_Struct)) {
 		LogError("OP size error: OP_Consume expected:[{}] got:[{}]", sizeof(Consume_Struct), app->size);
 		return;
 	}
-	Consume_Struct* pcs = (Consume_Struct*)app->pBuffer;
-	if (pcs->type == 0x01)
-	{
-		if (m_pp.hunger_level > 6000)
-		{
-			EQApplicationPacket *outapp = nullptr;
-			outapp = new EQApplicationPacket(OP_Stamina, sizeof(Stamina_Struct));
-			Stamina_Struct* sta = (Stamina_Struct*)outapp->pBuffer;
-			sta->food = m_pp.hunger_level > 6000 ? 6000 : m_pp.hunger_level;
-			sta->water = m_pp.thirst_level > 6000 ? 6000 : m_pp.thirst_level;
 
-			QueuePacket(outapp);
-			safe_delete(outapp);
-			return;
-		}
-	}
-	else if (pcs->type == 0x02)
-	{
-		if (m_pp.thirst_level > 6000)
-		{
-			EQApplicationPacket *outapp = nullptr;
-			outapp = new EQApplicationPacket(OP_Stamina, sizeof(Stamina_Struct));
-			Stamina_Struct* sta = (Stamina_Struct*)outapp->pBuffer;
-			sta->food = m_pp.hunger_level > 6000 ? 6000 : m_pp.hunger_level;
-			sta->water = m_pp.thirst_level > 6000 ? 6000 : m_pp.thirst_level;
-
-			QueuePacket(outapp);
-			safe_delete(outapp);
-			return;
-		}
-	}
-
-	EQ::ItemInstance *myitem = GetInv().GetItem(pcs->slot);
-	if (myitem == nullptr) {
-		LogError("Consuming from empty slot [{}]", pcs->slot);
-		return;
-	}
-
-	const EQ::ItemData* eat_item = myitem->GetItem();
-	if (pcs->type == 0x01) {
-		Consume(eat_item, EQ::item::ItemTypeFood, pcs->slot, (pcs->auto_consumed == 0xffffffff));
-	}
-	else if (pcs->type == 0x02) {
-		Consume(eat_item, EQ::item::ItemTypeDrink, pcs->slot, (pcs->auto_consumed == 0xffffffff));
-	}
-	else {
-		LogError("OP_Consume: unknown type, type:[{}]", (int)pcs->type);
-		return;
-	}
-	if (m_pp.hunger_level > 50000)
-		m_pp.hunger_level = 50000;
-	if (m_pp.thirst_level > 50000)
-		m_pp.thirst_level = 50000;
-	EQApplicationPacket *outapp = nullptr;
-	outapp = new EQApplicationPacket(OP_Stamina, sizeof(Stamina_Struct));
-	Stamina_Struct* sta = (Stamina_Struct*)outapp->pBuffer;
-	sta->food = m_pp.hunger_level > 6000 ? 6000 : m_pp.hunger_level;
-	sta->water = m_pp.thirst_level > 6000 ? 6000 : m_pp.thirst_level;
-
-	QueuePacket(outapp);
-	safe_delete(outapp);
-	return;
+	// A delayed/manual client request must not remove inventory or lower meters.
+	SetConsumption(6000, 6000);
 }
 
 void Client::Handle_OP_ControlBoat(const EQApplicationPacket *app)
