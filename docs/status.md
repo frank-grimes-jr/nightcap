@@ -1,5 +1,15 @@
 # Current Nightcap status
 
+## Waypoint portal visuals — deployed October 11
+
+Owner-approved PR #163 is on main and live on OVH. Waypoint markers now apply
+the stock portal effect over an invisible actor; the overlapping Instance Keeper
+in Befallen remains available. All 24 automated checks passed. The quest hash
+matches main, all 12 zone workers reloaded without reported quest errors, and
+native processes were not restarted. No client update is needed. Portal rendering,
+late-arrival visibility and discovery/recall remain owner in-game acceptance.
+[Deployment, rollback and exact QA](ops/waypoint-visuals-20261011/README.md).
+
 ## Food and drink requirements — removed October 11
 
 Owner-approved PR #162 is merged and live on OVH. Hunger/thirst penalties and
