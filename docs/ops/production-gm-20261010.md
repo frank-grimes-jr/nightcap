@@ -1,7 +1,9 @@
 # Production GM controls — October 10, 2026
 
-Status: owner-approved production GM activation; player gateway switch pending. This
-extends the [player-access release](../releases/player-access-20261010.md).
+Status update October11: production GM and player-access gateway are active.
+[October11 activation, verification and recovery](player-access-20261011.md).
+The dated October10 receipt below preserves the prior state and extends the
+[player-access release](../releases/player-access-20261010.md).
 
 ## Activation receipt — October 10, 2026
 
@@ -47,7 +49,7 @@ required; existing SSH-agent recovery is documented in AGENTS.md.
 The preview is at `http://127.0.0.1:3001/accounts?target=production` on this computer.
 It cannot be reached from a friend's computer. Do not expose port3001 or5173.
 
-Available GM flow (gateway-dependent player steps require its remaining rollout):
+Available GM flow (credential gateway activated October11):
 
 1. **Player access:** enter a player label, Generate code, copy the one-time code
    and send it privately. It is not emailed automatically. The player uses

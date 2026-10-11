@@ -1,5 +1,15 @@
 # CHANGES
 
+## 2026-10-11 - Player access codes activated
+
+Issue the two owner-requested codes privately and activate signed desktop0.5.0,
+credential-based gateway admission and scoped Cloudflare native-client routes.
+Changing player IPs no longer requires allowlist edits for launcher/play traffic.
+Both real codes pass public WSS/native UDP checks; invalid codes fail. Preserve
+the game release, native runtime after the separately authorized maintenance
+resume, database, wiki and player site. Exact evidence, recovery and outstanding
+Joe Windows/in-game QA: `docs/ops/player-access-20261011.md`.
+
 ## 2026-10-10 - Advanced loot stock item images candidate
 
 Added stock item icons to Drops and Filters rows using the existing server icon

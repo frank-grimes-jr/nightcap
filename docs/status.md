@@ -6,24 +6,23 @@ The owner-local GM UI now reads OVH production over SSH and retains character,
 account, rule, progression, vendor and client-setting controls. It adds player
 access codes, verified password resets, maintenance/recovery and action history.
 Owner-approved PR #143 is merged to main. Production GM writes and the two support
-tables are active, with a verified private database backup. The empty player-access
-registry is initialized. Password resets and the existing GM controls are available;
-offline edits still require maintenance. No real player was changed. Era activation
-remains governed by committed era.json and catalog review. The separate credential
-gateway/launcher/Cloudflare switch remains pending code issuance authorization and
-authenticated Cloudflare access. [Entry point, evidence and exact QA](ops/production-gm-20261010.md).
+tables are active, with a verified private database backup. The registry now holds
+the two owner-requested player codes, and the credential gateway is active. Password
+resets and existing GM controls are available; offline edits require maintenance.
+Era activation remains governed by committed era.json and catalog review.
+[Entry point, evidence and exact QA](ops/production-gm-20261010.md).
 
-## Player access independent of changing IPs — candidate
+## Player access independent of changing IPs — activated October 11
 
-The launcher/gateway candidate uses individual, revocable access codes stored
-securely on Windows. Component tests, review and isolated Linux relay rehearsal
-pass. Signed desktop0.5.0/release2026101001 is built but unpublished; the live
-gateway still uses IP admission and Cloudflare still blocks unlisted sources.
-Production approval is recorded in merged PR #143. Publication, credential issuance,
-the scoped Cloudflare rule change and actual player acceptance remain pending. [Evidence](releases/player-access-20261010.md)
-and [migration and exact QA](../deploy/production/PLAYER-ACCESS.md).
+Signed desktop0.5.0/release2026101001 and the credential gateway are live. Owner and
+Joe codes were issued privately. Cloudflare exempts only native GET/HEAD routes
+from its player-IP check; both real codes passed public TLS WebSocket/native UDP
+checks from an unlisted address, and invalid codes fail. Downloads and service
+health passed. Joe's Windows login, remembered code and changed-network acceptance
+remain open. [Activation and recovery](ops/player-access-20261011.md) and
+[exact player QA](../deploy/production/PLAYER-ACCESS.md#exact-player-qa).
 
-Updated October 10, 2026. This is the current status index; dated studies and
+Updated October 11, 2026. This is the current status index; dated studies and
 QA reports preserve their original evidence and are not live-state promises.
 
 ## NPC-targeted heals deployed for live QA
