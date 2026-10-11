@@ -1,6 +1,7 @@
 # Waypoint visual repair — October 11, 2026
 
-Candidate: **not deployed**. The owner reported two human males in Befallen.
+Owner approved main promotion and server activation on October 11, 2026.
+Deployment verification is pending. The owner reported two human males in Befallen.
 Production inspection found marker NPC 999240 and Instance Keeper 999227 at
 world X=35, Y=-82, Z=3. Both intentionally use race 1, gender 0. This is not
 a duplicate waypoint or a missing-model fallback. All 72 marker spawn rows
@@ -68,6 +69,6 @@ constitute an in-game effect acknowledgement.
 6. Check Crushbone `/loc -644, 158, 4` and one outdoor waypoint. Verify no new
    human marker, duplicate effect, discovery change or relocation.
 
-The standard `feature → dev → test → main` gate applies. Promotion to main and
-production activation await owner sign-off; the earlier release exceptions do
-not authorize this candidate.
+The candidate passed `feature → dev → test`. The owner explicitly approved
+main promotion and server activation on October 11; rendered acceptance remains
+an open live QA check.

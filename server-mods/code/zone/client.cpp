@@ -9087,30 +9087,12 @@ bool Client::RemoveRespawnOption(uint8 position)
 
 void Client::SetHunger(int32 in_hunger)
 {
-	EQApplicationPacket *outapp = nullptr;
-	outapp = new EQApplicationPacket(OP_Stamina, sizeof(Stamina_Struct));
-	Stamina_Struct* sta = (Stamina_Struct*)outapp->pBuffer;
-	sta->food = in_hunger;
-	sta->water = m_pp.thirst_level > 6000 ? 6000 : m_pp.thirst_level;
-
-	m_pp.hunger_level = in_hunger;
-
-	QueuePacket(outapp);
-	safe_delete(outapp);
+	SetConsumption(6000, 6000);
 }
 
 void Client::SetThirst(int32 in_thirst)
 {
-	EQApplicationPacket *outapp = nullptr;
-	outapp = new EQApplicationPacket(OP_Stamina, sizeof(Stamina_Struct));
-	Stamina_Struct* sta = (Stamina_Struct*)outapp->pBuffer;
-	sta->food = m_pp.hunger_level > 6000 ? 6000 : m_pp.hunger_level;
-	sta->water = in_thirst;
-
-	m_pp.thirst_level = in_thirst;
-
-	QueuePacket(outapp);
-	safe_delete(outapp);
+	SetConsumption(6000, 6000);
 }
 
 void Client::SetIntoxication(int32 in_intoxication)
@@ -9120,55 +9102,21 @@ void Client::SetIntoxication(int32 in_intoxication)
 
 void Client::SetConsumption(int32 in_hunger, int32 in_thirst)
 {
-	EQApplicationPacket *outapp = nullptr;
-	outapp = new EQApplicationPacket(OP_Stamina, sizeof(Stamina_Struct));
-	Stamina_Struct* sta = (Stamina_Struct*)outapp->pBuffer;
-	sta->food = in_hunger;
-	sta->water = in_thirst;
-
-	m_pp.hunger_level = in_hunger;
-	m_pp.thirst_level = in_thirst;
-
-	QueuePacket(outapp);
-	safe_delete(outapp);
+	// Keep the quest API, but never send hunger/thirst values that trigger
+	// client starvation warnings or automatic consumption.
+	m_pp.hunger_level = 6000;
+	m_pp.thirst_level = 6000;
+	auto outapp = new EQApplicationPacket(OP_Stamina, sizeof(Stamina_Struct));
+	auto sta = (Stamina_Struct*) outapp->pBuffer;
+	sta->food = m_pp.hunger_level;
+	sta->water = m_pp.thirst_level;
+	FastQueuePacket(&outapp);
 }
 
 void Client::Consume(const EQ::ItemData *item, uint8 type, int16 slot, bool auto_consume)
 {
-	if (!item)
-		return;
-
-	int increase = item->CastTime_ * 100;
-	if (!auto_consume) // force feeding is half as effective
-		increase /= 2;
-
-	if (increase < 0) // wasn't food? oh well
-		return;
-
-	if (type == EQ::item::ItemTypeFood) {
-		m_pp.hunger_level += increase;
-
-		LogFood("Consuming food, points added to hunger_level: [{}] - current_hunger: [{}]", increase, m_pp.hunger_level);
-
-		DeleteItemInInventory(slot, 1);
-
-		if (!auto_consume) // no message if the client consumed for us
-			entity_list.MessageCloseString(this, true, 50, 0, EATING_MESSAGE, GetName(), item->Name);
-
-		LogFood("Eating from slot: [{}]", (int)slot);
-
-	} else {
-		m_pp.thirst_level += increase;
-
-		DeleteItemInInventory(slot, 1);
-
-		LogFood("Consuming drink, points added to thirst_level: [{}] current_thirst: [{}]", increase, m_pp.thirst_level);
-
-		if (!auto_consume) // no message if the client consumed for us
-			entity_list.MessageCloseString(this, true, 50, 0, DRINKING_MESSAGE, GetName(), item->Name);
-
-		LogFood("Drinking from slot: [{}]", (int)slot);
-	}
+	// Food and drink remain optional stat/crafting items; eating never spends them.
+	SetConsumption(6000, 6000);
 }
 
 void Client::SendMarqueeMessage(uint32 type, std::string message, uint32 duration)
