@@ -116,7 +116,7 @@ async function fixture(
       }
     return route.fulfill({ json: data })
   })
-  page.on('dialog', (dialog) => dialog.accept())
+  page.on('dialog', (dialog) => dialog.dismiss())
   return calls
 }
 
@@ -140,6 +140,10 @@ test('production reset captures exact account identity and target', async ({
   await page
     .locator('form')
     .getByRole('button', { name: 'Reset password', exact: true })
+    .click()
+  await page
+    .getByRole('dialog')
+    .getByRole('button', { name: 'Confirm action', exact: true })
     .click()
   await expect(page.getByRole('status')).toContainText(
     'Password reset and verified for joe'
@@ -195,6 +199,10 @@ test('ambiguous mutation survives reload and blocks new grants until inspected',
     .locator('form')
     .getByRole('button', { name: 'Reset password', exact: true })
     .click()
+  await page
+    .getByRole('dialog')
+    .getByRole('button', { name: 'Confirm action', exact: true })
+    .click()
   await expect(
     page.getByText('The last action could not be confirmed.', { exact: false })
   ).toBeVisible()
@@ -237,6 +245,10 @@ test('access code is delivered once and cleared on environment change', async ({
     .selectOption('production')
   await page.getByLabel('Player name').fill('Joe')
   await page.getByRole('button', { name: 'Generate code', exact: true }).click()
+  await page
+    .getByRole('dialog')
+    .getByRole('button', { name: 'Confirm action', exact: true })
+    .click()
   await expect(page.getByLabel('Generated access code')).toHaveValue(
     'nc1.fixture.code-for-ui-only'
   )
@@ -296,6 +308,10 @@ test('a second tab cannot overwrite the first tab pending action', async ({
   await page
     .locator('form')
     .getByRole('button', { name: 'Reset password', exact: true })
+    .click()
+  await page
+    .getByRole('dialog')
+    .getByRole('button', { name: 'Confirm action', exact: true })
     .click()
   await entered
   const firstPending = await page.evaluate(() =>

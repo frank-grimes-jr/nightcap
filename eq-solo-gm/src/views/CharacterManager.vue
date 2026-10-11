@@ -776,11 +776,15 @@ async function grantPlat(amount: number) {
   if (!selected.value || !amount) return
   loading.currency = true
   try {
-    await axios.post(`/api/character/${selected.value.id}/currency`, {
-      platinum: amount,
-    })
-    if (selected.value.platinum === undefined) selected.value.platinum = 0
-    selected.value.platinum += amount
+    const { data } = await axios.post(
+      `/api/character/${selected.value.id}/currency`,
+      {
+        platinum: amount,
+      }
+    )
+    selected.value.platinum = data.platinum
+    const character = chars.value.find((c) => c.id === selected.value!.id)
+    if (character) character.platinum = data.platinum
     toast(
       `Granted ${amount.toLocaleString()} platinum to ${selected.value.name}`
     )
@@ -798,9 +802,13 @@ async function grantAA(points: number) {
   if (!selected.value || !points) return
   loading.aa = true
   try {
-    await axios.post(`/api/character/${selected.value.id}/aa`, { points })
-    if (selected.value.aa_points === undefined) selected.value.aa_points = 0
-    selected.value.aa_points += points
+    const { data } = await axios.post(
+      `/api/character/${selected.value.id}/aa`,
+      { points }
+    )
+    selected.value.aa_points = data.aa_points
+    const character = chars.value.find((c) => c.id === selected.value!.id)
+    if (character) character.aa_points = data.aa_points
     toast(`Granted ${points.toLocaleString()} AA to ${selected.value.name}`)
   } catch (e: any) {
     toast('AA grant failed: ' + (e.response?.data?.error ?? e.message), false)
