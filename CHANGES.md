@@ -1,5 +1,17 @@
 # CHANGES
 
+## 2026-10-11 - Waypoint portal visual candidate
+
+Replace marker NPC 999240's human mesh with the global invisible actor plus
+the stock WizardPortal effect. Befallen's second human is its overlapping
+Instance Keeper, not a duplicate waypoint. Keep that service and all discovery,
+recall, placement and Explorer behavior unchanged. The quest applies the visual
+on spawn and supports an idempotent live refresh; no client patch, database write
+or runtime restart is required. Sixteen Perl regression assertions pass.
+Owner approved main and server activation on October 11; deployment verification
+and in-game rendering acceptance remain pending.
+Rollout, rollback and exact QA: `docs/ops/waypoint-visuals-20261011/README.md`.
+
 ## 2026-10-11 - Remove character food and drink requirements
 
 Removed hunger/thirst depletion, starvation eligibility and food/drink inventory
