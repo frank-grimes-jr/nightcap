@@ -33,7 +33,13 @@ static void* __fastcall fake_ui_child(void*, void*, const nightcap::client_ui::E
     return it == management_controls.end() ? nullptr : it->second;
 }
 static int __fastcall fake_pet_window(void*, void*, void*, uint32_t, void*) { ++native_pet_calls; return 7; }
-static bool __fastcall fake_pet_available(void*, void*, unsigned) { return false; }
+static void* available_self = nullptr;
+static unsigned available_command = 0;
+static bool native_available = false;
+static bool __fastcall fake_pet_available(void* self, void*, unsigned command) {
+    available_self = self; available_command = command;
+    return native_available;
+}
 static unsigned stock_level_calls=0, item_calls=0;
 static uint32_t item_mask=65535;
 static int item_type=20, item_spell=4;
@@ -168,6 +174,31 @@ static void TestSilentRequests() {
     VirtualFree(host,0,MEM_RELEASE); base = 0; send_request = nullptr;
 }
 
+// The native pet-arrival caller at RoF2 VA 0x70F74F reuses ECX for the
+// preference getter at 0x70F400 without reloading the pet-window pointer.
+static bool CheckPetAvailableRegisters(void* self, unsigned command) {
+    auto hook = &nightcap::client_ui::PetAvailableHook;
+    uintptr_t before = 0, after = 0, returned_self = 0, returned_edx = 0;
+    unsigned char result = 0;
+    __asm {
+        mov before, esp
+        mov ecx, self
+        mov edx, 13579BDFh
+        push command
+        call hook
+        mov result, al
+        mov returned_self, ecx
+        mov returned_edx, edx
+        mov after, esp
+    }
+    if (returned_self != reinterpret_cast<uintptr_t>(self) ||
+        returned_edx != 0x13579BDF || before != after) {
+        std::cerr << "Pet availability hook corrupted native caller registers/stack\n";
+        std::exit(2);
+    }
+    return result != 0;
+}
+
 static void TestPetManagementABI() {
     using namespace nightcap::client_ui;
     auto host = static_cast<BYTE*>(VirtualAlloc(nullptr,0xA68000,MEM_COMMIT|MEM_RESERVE,PAGE_READWRITE));
@@ -189,9 +220,13 @@ static void TestPetManagementABI() {
     expected_eq = eq; sent_requests.clear(); pet_management.Clear();
     ChatHook(eq,nullptr,"[NCPM1]|77|1|19|22|0|7|54657374|0|3|10|101|95|537069726974|11|102|80|426f6e6573|13|103|100|5761746572",0,false,false);
     assert(CurrentManagementIdentity());
-    auto available = reinterpret_cast<PetAvailable>(&PetAvailableHook);
+    auto available = &CheckPetAvailableRegisters;
     for (int repeat = 0; repeat < 1000; ++repeat) assert(available(eq,2));
     assert(!available(eq,30) && !available(eq,34));
+    assert(available_self == eq && available_command == 34);
+    native_available = true;
+    assert(available(eq,30) && available_self == eq && available_command == 30);
+    native_available = false;
     auto notify = reinterpret_cast<InventoryNotify>(&PetWindowHook);
     management_controls["NCPM_Pet1Name"] = reinterpret_cast<void*>(1);
     management_controls["NCPM_All"] = reinterpret_cast<void*>(2);
@@ -222,10 +257,14 @@ static void TestPetManagementABI() {
     next_management_refresh = GetTickCount64()+3000;
     management_received = GetTickCount64()-6000;
     assert(!available(eq,2));
+    assert(available_self == eq && available_command == 2);
     assert(notify(eq,reinterpret_cast<void*>(3),1,nullptr) == 1 && sent_requests.size() == count);
     management_received = GetTickCount64();
     *reinterpret_cast<uint32_t*>(player+0x148) = 8;
     assert(!available(eq,2));
+    pet_management.Clear();
+    *reinterpret_cast<uint32_t*>(player+0x148) = 7;
+    assert(!available(eq,2)); // an empty roster must still use the native predicate
     pet_management.Clear(); management_controls.clear(); send_request = nullptr;
     VirtualFree(host,0,MEM_RELEASE); base = 0;
 }

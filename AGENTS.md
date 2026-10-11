@@ -462,6 +462,13 @@ automatically. Deliberate selection keeps the token so a quick select/order pair
 uses the latest player input without waiting for a snapshot round trip.
 Candidate activation and exact QA: `docs/releases/pet-management-20260922/`.
 
+RoF2's pet-arrival caller relies on ECX surviving the availability predicate,
+even though ordinary C++ calling conventions permit clobbering it. Keep the
+register-preserving bridge and compiled register/stack tests around
+`PetAvailableHook`; bool-result tests alone missed a summon crash. Initial fault
+and later crash-reporter recursion must be distinguished. Evidence and QA:
+`docs/ops/darthy-pet-crash-20261011.md`.
+
 Use `docs/status.md` for current deployment and issue status; `docs/README.md`
 indexes operational guides and dated evidence. Preserve historical report scope.
 The five-file `index.html`/`site-assets/` guide publishes privately on the existing
