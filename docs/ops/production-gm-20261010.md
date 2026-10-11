@@ -5,6 +5,33 @@ Status update October11: production GM and player-access gateway are active.
 The dated October10 receipt below preserves the prior state and extends the
 [player-access release](../releases/player-access-20261010.md).
 
+## Confirmation and status follow-up — October 11, 2026
+
+The owner reported Resume and Darthy platinum/AA controls cancelling, with an
+outdated maintenance/gateway banner. The live API showed game running and the
+credential gateway active. Browser regressions reproduced cancellation with
+native confirmation suppressed and stale status after returning to the window.
+
+Actions now open a page dialog showing the environment, action and subject;
+platinum/AA grants include the amount. Cancel/Escape performs no write or pending
+receipt, and the cross-tab lock is held while confirmation is open. Navigation and
+environment switching remain blocked until the action finishes. Status refreshes
+on focus/visibility and every30s; a fresh read follows any older in-flight status
+response after Resume. Successful grants show the server's committed totals.
+
+Typecheck, production frontend build, five HTTP/SSH checks and twelve isolated
+browser cases pass. Independent review caught and resolved the in-flight status
+race. The owner-local UI was rebuilt and verified against production: Game running,
+no stale gateway warning, and Darthy's grant dialog opens and cancels correctly.
+Darthy remained at92 platinum,0 bank platinum and0 unspent/spent AA; no character
+write or server restart was performed for this UI repair. Actual grants still
+require the operator's intended amount and maintenance.
+
+Refresh the GM page, select OVH production, Start maintenance and confirm, select
+Darthy, choose the grant amount and confirm it, then Resume game and confirm.
+The game stays stopped during character edits so native saves cannot overwrite
+those changes. This repair retains that existing maintenance requirement.
+
 ## Activation receipt — October 10, 2026
 
 The owner explicitly approved merge and production activation. PR #143 merged at

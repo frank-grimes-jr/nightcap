@@ -1,12 +1,21 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
+import { pendingConfirmation } from '../confirmation'
 import { useApi, owner, labels, resolvePendingAction } from '../api'
 const api = useApi()
 const status = ref<any>(null)
 const message = ref('')
 const loading = ref(false)
 const receipt = ref('')
+let refreshQueued = false
+let disposed = false
 async function refresh() {
+  if (disposed || owner.busy) return
+  if (loading.value) {
+    refreshQueued = true
+    return
+  }
+  refreshQueued = false
   loading.value = true
   try {
     status.value = (await api.get('/api/status')).data
@@ -16,6 +25,7 @@ async function refresh() {
     message.value = error.message
   } finally {
     loading.value = false
+    if (refreshQueued && !disposed) await refresh()
   }
 }
 async function action(url: string) {
@@ -23,7 +33,7 @@ async function action(url: string) {
     await api.post(url)
     await refresh()
   } catch (error: any) {
-    message.value = error.message
+    message.value = error.message === 'Action cancelled' ? '' : error.message
   }
 }
 async function inspectReceipt() {
@@ -45,7 +55,22 @@ async function resolvePending() {
     receipt.value = error.message
   }
 }
-onMounted(refresh)
+function refreshVisible() {
+  if (document.visibilityState === 'visible') void refresh()
+}
+let refreshTimer: ReturnType<typeof setInterval> | undefined
+onMounted(() => {
+  void refresh()
+  window.addEventListener('focus', refreshVisible)
+  document.addEventListener('visibilitychange', refreshVisible)
+  refreshTimer = setInterval(refreshVisible, 30000)
+})
+onUnmounted(() => {
+  disposed = true
+  window.removeEventListener('focus', refreshVisible)
+  document.removeEventListener('visibilitychange', refreshVisible)
+  clearInterval(refreshTimer)
+})
 </script>
 <template>
   <div class="px-5 py-3 border-b border-gray-800 bg-gray-900 space-y-2 text-sm">
@@ -115,7 +140,11 @@ onMounted(refresh)
     >
       The IP-independent player gateway has not been activated yet.
     </p>
-    <p v-if="owner.busy" role="status" class="text-amber-300">
+    <p
+      v-if="owner.busy && !pendingConfirmation"
+      role="status"
+      class="text-amber-300"
+    >
       Applying action. Keep this window open…
     </p>
     <div

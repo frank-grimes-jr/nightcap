@@ -58,6 +58,8 @@
     </main>
   </div>
 
+  <ActionConfirmation />
+
   <!-- Toast -->
   <Transition name="toast">
     <div
@@ -75,6 +77,7 @@ import { reactive, provide } from 'vue'
 import { useRoute } from 'vue-router'
 import { owner, selectEnvironment, type Environment } from './api'
 import RuntimePanel from './components/RuntimePanel.vue'
+import ActionConfirmation from './components/ActionConfirmation.vue'
 const route = useRoute()
 function switchTarget(event: Event) {
   selectEnvironment((event.target as HTMLSelectElement).value as Environment)

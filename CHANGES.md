@@ -1,5 +1,16 @@
 # CHANGES
 
+## 2026-10-11 - GM confirmation and status recovery
+
+Replace browser popup confirmations with an accessible page dialog so blocked
+popups do not silently cancel Resume or character grants. Preserve the cross-tab
+mutation lock, environment/route guards and explicit confirmation. Refresh runtime
+status on focus, visibility and every30s, queueing a fresh read after an older
+in-flight response. Platinum/AA displays use committed backend totals. Browser
+regressions reproduce the original failures and cover cancellation, mobile layout,
+concurrent windows and stale-response ordering. See the October11 follow-up in
+`docs/ops/production-gm-20261010.md`.
+
 ## 2026-10-11 - Player access codes activated
 
 Issue the two owner-requested codes privately and activate signed desktop0.5.0,
