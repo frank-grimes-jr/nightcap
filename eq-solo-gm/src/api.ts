@@ -1,5 +1,6 @@
 import axios, { type AxiosRequestConfig } from 'axios'
 import { reactive, onUnmounted } from 'vue'
+import { requestConfirmation } from './confirmation'
 
 export type Environment = 'local' | 'production'
 export const owner = reactive({
@@ -139,13 +140,30 @@ export function useApi() {
         throw new Error('Finish the pending action first')
       const subject =
         (data as any)?.account_name || (data as any)?.player || owner.subject
-      if (
-        !confirm(
-          `${actionName(url, method)}${subject ? ` for ${subject}` : ''}?\n\nTarget: ${labels[environment]}`
-        )
-      )
-        throw new Error('Action cancelled')
+      // Hold the cross-tab lease and prevent navigation while the page dialog is open.
       owner.busy = true
+      try {
+        const amount = url.endsWith('/currency')
+          ? (data as any)?.platinum
+          : url.endsWith('/aa')
+            ? (data as any)?.points
+            : undefined
+        const approved = await requestConfirmation({
+          action: actionName(url, method),
+          subject,
+          environment: labels[environment],
+          detail:
+            typeof amount === 'number' && Number.isFinite(amount)
+              ? `${amount.toLocaleString()} ${url.endsWith('/currency') ? 'platinum' : 'AA points'}`
+              : '',
+        })
+        if (!approved) throw new Error('Action cancelled')
+        if (disposed || owner.epoch !== epoch)
+          throw new Error('View changed; reload this page')
+      } catch (error) {
+        owner.busy = false
+        throw error
+      }
     }
     try {
       const sessionToken = await token()
