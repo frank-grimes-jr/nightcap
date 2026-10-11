@@ -2,8 +2,29 @@
 
 Owner-authorized relocation to the existing entrance safe point:
 **world X=158, Y=-644, Z=4, heading=0**, or **`/loc -644, 158, 4`**.
-Implementation prepared for OVH production; deployment evidence will be added
-after activation. Manual rendering, discovery and recall acceptance remains open.
+Deployed to OVH production on **October 11, 2026**, from main commit
+`e8f40d1b1e63fe4471c1b85f04e50d539e7be6d1`. Manual rendering, discovery and recall
+acceptance remains open.
+
+## Production verification — October 11
+
+The approved migration committed the entrance coordinates to the waypoint,
+marker spawn and its matching saved marker row. All columns in the
+scoped waypoint, Crushbone spawn and Crushbone saved-state snapshots matched
+the expected result after commit and again after game startup. Existing gateway
+and game containers restarted successfully; all five services are running,
+game/database are healthy, and all 12 native zone workers are available.
+
+Eight automated tests passed. Live MariaDB forward, exact inverse and stale-row
+rollback rehearsals passed before commit. The verified full PEQ backup contains
+449,093,530 uncompressed bytes. Backup SHA-256:
+`2d1a516bcfce98fc679db2cd721f80bd062ebeea85ae9b9631a5289fa33ecbe2`.
+
+[Machine-readable deployment result](deployment-result.json). Full private
+backup, snapshots, payloads and exact rollback are retained in the evidence
+directory below. The original failed-attempt backup is preserved separately.
+No client, quest or binary update was required. Player acceptance steps remain
+listed below; database and runtime checks do not replace them.
 
 ## Scope and cause
 

@@ -43,11 +43,13 @@ access is open and follow-up health checks pass. In-game HP/animation acceptance
 remains pending. No client update is required.
 [Deployment, recovery and exact QA](ops/npc-heal-self-20261009/README.md).
 
-## Crushbone entrance waypoint approved
+## Crushbone entrance waypoint deployed
 
-The owner approved moving the marker and recall destination to the existing
-entrance safe point (`/loc -644, 158, 4`) and publishing to main/OVH. SQL scope
-tests pass; production activation and in-game discovery/recall QA are pending.
+Published to main and deployed to OVH on October 11. The marker, saved marker
+state and recall destination now use the entrance safe point
+(`/loc -644, 158, 4`). Eight tests, three live transaction/rollback rehearsals,
+exact database comparisons and service/12-worker health checks passed.
+In-game grounding, discovery and recall acceptance remains pending.
 [Deployment, rollback and exact QA](ops/crushbone-waypoint-20261009/README.md).
 
 ## Classic zone hunt and forge deployed for live QA

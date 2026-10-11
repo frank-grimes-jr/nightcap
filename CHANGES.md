@@ -1,5 +1,16 @@
 # CHANGES
 
+## 2026-10-11 - Crushbone entrance waypoint deployed
+
+Published the approved relocation to main and OVH: the waypoint marker, recall
+destination and matching saved marker state now use the entrance safe point
+(`/loc -644, 158, 4`). Eight tests, all three live transaction/rollback rehearsals
+and exact before/after comparisons passed; all five services and 12 zone workers
+returned successfully. Verified full PEQ backup and exact inverse are retained.
+No client, quest or binary update is needed. Grounding, discovery and recall
+still require in-game acceptance. Evidence and exact QA:
+`docs/ops/crushbone-waypoint-20261009/README.md`.
+
 ## 2026-10-11 - Correct Crushbone deployment snapshot comparison
 
 The first production attempt rolled its rehearsal back and restored service
@@ -8,8 +19,8 @@ differently in the verifier. Compare snapshots by stable row identity while
 retaining every field comparison. The regression fails against the old sorter;
 all six tests and temporary-table MariaDB reproduction now pass. Preserve the
 failed-attempt backup and use a separate October 11 evidence directory for the
-retry. Main relocation remains approved; activation is recorded after success
-in docs/ops/crushbone-waypoint-20261009/README.md.
+retry. The successful activation is recorded above and in
+docs/ops/crushbone-waypoint-20261009/README.md.
 
 A subsequent pre-maintenance status read found stray bytes after the native
 zone summary (`fmt::memory_buffer.data()` sent through a `strlen` API). Read
