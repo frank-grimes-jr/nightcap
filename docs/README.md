@@ -4,7 +4,8 @@ Start with [current status](status.md), not a dated candidate report.
 
 - [Production-connected GM controls: entry point, rollout and exact QA](ops/production-gm-20261010.md)
 
-- [IP-independent player access: candidate, operator commands, rollout and QA](../deploy/production/PLAYER-ACCESS.md)
+- [Live player access codes: activation, verification and recovery](ops/player-access-20261011.md)
+- [IP-independent player access: operator commands, rollout and QA](../deploy/production/PLAYER-ACCESS.md)
 - [Signed player-access candidate and isolated relay evidence](releases/player-access-20261010.md)
 
 - [Start here: OVH + Cloudflare setup](../deploy/production/QUICKSTART.md)

@@ -1,7 +1,10 @@
 # Player access without IP allowlists
 
-Candidate dated 2026-10-10. **Not deployed.** Production still uses IP admission
-until the coordinated migration below is approved and verified.
+**Activated October 11, 2026.** Signed desktop0.5.0, credential gateway and scoped
+Cloudflare native-client routes are live. Both owner-requested codes pass public
+WSS/native UDP checks; actual Windows/in-game acceptance remains open.
+[Live activation and recovery](../../docs/ops/player-access-20261011.md).
+The October10 evidence below preserves the original candidate/rehearsal scope.
 [Design and threat model](../../docs/adr/0059-player-access-independent-of-ip.md).
 
 Players receive a personal access code, enter it once in the launcher and keep
@@ -11,6 +14,11 @@ IPv4/IPv6 addresses does not require an administrator. A network drop can still
 end a running game session; use Play to reconnect when connectivity returns.
 
 ## Operator commands
+
+For ordinary issuance and revocation, use the owner-local GM tool's **Player access**
+section with OVH production selected. Generate a personal code and deliver it
+privately; no server-console work is needed. The commands below are the underlying
+operator/recovery interface.
 
 Run on the OVH host using Python 3, with an operator-owned registry parent. These
 commands modify only the credential registry, not MariaDB or game accounts.

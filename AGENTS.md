@@ -58,13 +58,14 @@ All commands run from `akk-stack/`:
 
 ## Server ops
 
-- **Player access migration candidate:** individual revocable gateway credentials
-  replace dynamic player-IP allowlists; Windows DPAPI stores each launcher's code.
-  Mount the registry directory read-only so atomic replacements are visible.
-  Do not remove Cloudflare IP gates before the credential gateway and signed
-  launcher are ready. Keep native ports private and preserve other host rules.
-  This is not a deployment record; see `deploy/production/PLAYER-ACCESS.md` for
-  current gates, isolated rehearsal, scoped rollback and exact player QA.
+- **Player access codes are live (October11):** issue/revoke personal codes from
+  the owner-local production GM tool. Gateway `PLAYER_ACCESS_FILE` replaces
+  `ALLOW_CIDRS`; Windows DPAPI remembers each launcher's code. Mount the registry
+  directory read-only so atomic replacements are visible. Cloudflare exempts only
+  native GET/HEAD paths from its player-IP check; other route/host protections
+  remain. Do not add changing player IPs as the access lifecycle. Native ports
+  stay private. Deployment/recovery: `docs/ops/player-access-20261011.md`; exact
+  player QA and operator recovery: `deploy/production/PLAYER-ACCESS.md`.
 
 - **Passive AA experience**: `AA:PassiveExpPercent` controls additive kill/quest/task
   AA at 0% allocation; `#aaexp on|off` selects 100% or 0%. Tiny gains round down.
@@ -117,7 +118,8 @@ All commands run from `akk-stack/`:
   is a separate development deployment.
   Use `sudo docker compose`; no host game or database ports are published.
   Stop `gateway game` for gameplay downtime; never use `down -v` on this data.
-  SSH, Cloudflare and gateway allowlists need coordinated owner-IP changes.
+  SSH retains its separate owner-access policy; player launcher/play traffic uses
+  access codes as of October11, independently of changing player IP addresses.
   Initial activation, verified account namespace migration and open native/R2
   acceptance gates: `docs/releases/ovh-activation-20260920.md`.
 
