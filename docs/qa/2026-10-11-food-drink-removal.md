@@ -1,6 +1,6 @@
 # Food and drink removal — October 11, 2026
 
-Status: implemented candidate; not deployed and not manually accepted.
+Status: fully built candidate; not deployed and not manually accepted.
 
 ## Behavior and scope
 
@@ -37,6 +37,29 @@ Actual RoF2 rendering must be accepted using the checks below.
   real Perl/Lua/dependency flags. Retained source hashes are unchanged. Existing
   unrelated warnings remain. This is not a linked release binary or a rollout.
   Local evidence: E:/EQ_Local_Dev/artifacts/remove-food-drink/compile-check.log.
+
+## Full candidate build
+
+A fresh CMake `zone` build also compiled and linked successfully. Its baseline
+is the fingerprinted source retained from the October 9 NPC-heal release, whose
+zone binary hash matches that release's deployment evidence. The source copy
+contains exactly four changed files: `client.cpp`, `client.h`,
+`client_packet.cpp` and `client_process.cpp`. No prebuilt zone objects were reused.
+All source fingerprints matched before and after compilation, and the retained
+baseline source and binary were unchanged.
+
+The actual candidate source passed the 250 nutrition checks, login ordering
+guard and all 99 existing heal-targeting checks before compilation. The test
+runner's `--source-dir` option supports verification of release source directly.
+Compiler warnings in unrelated legacy code remain; the build exited zero.
+
+The binary, source patch, test runners, build script, fingerprints and test logs
+are packaged locally in
+`E:/EQ_Local_Dev/artifacts/remove-food-drink/food-drink-removal-20261011.tar.gz`.
+Compact hashes and provenance: [build evidence](2026-10-11-food-drink-build.json).
+This package has not been uploaded or installed. Current OVH image compatibility
+must be checked again during the approved rollout; dated baseline evidence is
+not proof of current live state. In-game warning rendering remains unverified.
 
 ## Exact in-game QA
 

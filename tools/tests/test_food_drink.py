@@ -3,6 +3,7 @@
 Run: python tools/tests/test_food_drink.py (CXX or g++ required).
 This tests server packet values; RoF2 warning rendering requires in-game QA.
 """
+import argparse
 import os
 from pathlib import Path
 import re
@@ -10,7 +11,9 @@ import subprocess
 import tempfile
 
 ROOT = Path(__file__).resolve().parents[2]
-SOURCE = ROOT / 'server-mods/code/zone'
+parser = argparse.ArgumentParser(description=__doc__)
+parser.add_argument('--source-dir', type=Path, default=ROOT / 'server-mods/code/zone')
+SOURCE = parser.parse_args().source_dir
 
 
 def function(source, signature):

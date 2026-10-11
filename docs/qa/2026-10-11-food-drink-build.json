@@ -1,0 +1,23 @@
+{
+  "status": "built_not_installed",
+  "zone_sha256": "989e64c181b002a4f34562af71389ed3b54a93ce707856cb85e9a19cab0fcf03",
+  "package_sha256": "ae03fdbcbb9e0027abffd8ceda6aa96d828689b6fe7be4fd03969725d684eef3",
+  "package_bytes": 90403905,
+  "regressions": {
+    "food_drink": "250/250 plus login ordering",
+    "heal_targeting": "99/99"
+  },
+  "source_commit": "7e21d9e",
+  "baseline_zone_sha256": "a3d23a90f7108f9bc030943669d809f04dd7542fc3a0a18af56cd02a8061a412",
+  "changed_source_files": [
+    "zone/client.cpp",
+    "zone/client.h",
+    "zone/client_packet.cpp",
+    "zone/client_process.cpp"
+  ],
+  "patch_sha256": "08609c0cd19a5ec20f5dabb6060fc283bb77910550915b3c262813cd6ac7c6c5",
+  "baseline_and_candidate_source_fingerprints_verified": true,
+  "full_zone_build": "passed",
+  "deployment": "not performed",
+  "in_game_qa": "pending owner acceptance"
+}

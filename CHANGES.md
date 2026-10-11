@@ -9,8 +9,9 @@ Legacy hunger rules cannot re-enable penalties. Optional edible item bonuses,
 recipes, quest items and alcohol behavior are retained. No SQL or client patch.
 
 Compiled regression: 250/250 checks pass (37/250 before the change), plus a login
-profile ordering guard. Candidate only: zone build/rollout and owner in-game
-acceptance remain separate. Exact QA and activation/rollback guidance:
+profile ordering guard. A fresh full zone build and all 99 healing regressions
+also pass on fingerprinted retained release source. The verified binary package
+is local only; rollout and owner in-game acceptance remain pending. Exact QA and activation/rollback guidance:
 `docs/qa/2026-10-11-food-drink-removal.md`; decision: ADR 0028.
 
 ## 2026-10-11 - Crushbone entrance waypoint deployed
