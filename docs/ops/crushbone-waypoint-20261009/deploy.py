@@ -13,7 +13,7 @@ import time
 from pathlib import Path
 
 ROOT=Path('/opt/nightcap/deploy/production')
-OUT=Path('/opt/nightcap/backups/crushbone-waypoint-entrance-20261009')
+OUT=Path('/opt/nightcap/backups/crushbone-waypoint-entrance-20261011')
 COMPOSE=['docker','compose']
 DB=COMPOSE+['exec','-T','db','mariadb','--defaults-extra-file=/run/secrets/db_backup_config','--batch','--raw','--skip-column-names','peq']
 SCOPES={'nightcap_waypoints':'1=1','spawn2':"zone='crushbone'",'zone_state_spawns':'zone_id=58'}
@@ -64,7 +64,8 @@ def json_query(table,where):
 def snapshot(queries):
     return {t:[json.loads(line) for line in sql(q).splitlines()] for t,q in queries.items()}
 def canonical(data):
-    return {t:sorted(rows,key=lambda r:json.dumps(r,sort_keys=True)) for t,rows in data.items()}
+    # Stable row identity keeps numerically equal 0 and 0.0 from changing order.
+    return {t:sorted(rows,key=lambda r:r['zone'] if t=='nightcap_waypoints' else r['id']) for t,rows in data.items()}
 def marker(r):
     return r['zone_id']==58 and r['instance_id']==0 and r['is_corpse']==0 and r['is_zone']==0 and r['npc_id'] in (0,999240) and r['spawn2_id']==3266061 and r['spawngroup_id']==999240
 def guard():

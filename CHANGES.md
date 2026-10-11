@@ -1,5 +1,45 @@
 # CHANGES
 
+## 2026-10-11 - Waypoint portal visual candidate
+
+Replace marker NPC 999240's human mesh with the global invisible actor plus
+the stock WizardPortal effect. Befallen's second human is its overlapping
+Instance Keeper, not a duplicate waypoint. Keep that service and all discovery,
+recall, placement and Explorer behavior unchanged. The quest applies the visual
+on spawn and supports an idempotent live refresh; no client patch, database write
+or runtime restart is required. Sixteen Perl regression assertions pass.
+Not deployed: main promotion and in-game rendering acceptance remain pending.
+Rollout, rollback and exact QA: `docs/ops/waypoint-visuals-20261011/README.md`.
+
+## 2026-10-11 - Crushbone entrance waypoint deployed
+
+Published the approved relocation to main and OVH: the waypoint marker, recall
+destination and matching saved marker state now use the entrance safe point
+(`/loc -644, 158, 4`). Eight tests, all three live transaction/rollback rehearsals
+and exact before/after comparisons passed; all five services and 12 zone workers
+returned successfully. Verified full PEQ backup and exact inverse are retained.
+No client, quest or binary update is needed. Grounding, discovery and recall
+still require in-game acceptance. Evidence and exact QA:
+`docs/ops/crushbone-waypoint-20261009/README.md`.
+
+## 2026-10-11 - Correct Crushbone deployment snapshot comparison
+
+The first production attempt rolled its rehearsal back and restored service
+without moving the waypoint: equivalent integer/float coordinates sorted rows
+differently in the verifier. Compare snapshots by stable row identity while
+retaining every field comparison. The regression fails against the old sorter;
+all six tests and temporary-table MariaDB reproduction now pass. Preserve the
+failed-attempt backup and use a separate October 11 evidence directory for the
+retry. The successful activation is recorded above and in
+docs/ops/crushbone-waypoint-20261009/README.md.
+
+A subsequent pre-maintenance status read found stray bytes after the native
+zone summary (`fmt::memory_buffer.data()` sent through a `strlen` API). Read
+through the explicit terminal before strict decoding; require a complete summary,
+matching row totals and unique workers so malformed occupancy data fails closed.
+Eight tests and the live read-only status check pass. No binary change is needed
+for this bounded 12-worker deployment helper.
+
 ## 2026-10-11 - GM confirmation and status recovery
 
 Replace browser popup confirmations with an accessible page dialog so blocked
@@ -20,6 +60,16 @@ Both real codes pass public WSS/native UDP checks; invalid codes fail. Preserve
 the game release, native runtime after the separately authorized maintenance
 resume, database, wiki and player site. Exact evidence, recovery and outstanding
 Joe Windows/in-game QA: `docs/ops/player-access-20261011.md`.
+
+## 2026-10-10 - Advanced loot stock images published
+
+Owner authorized main and server publication. PR #151 is merged; signed client
+release 2026101001 delivers proxy 0.8.0-dev, the 74-site patch catalog and matching
+Pet Info XML. Exactly three assets change; 101 retain their production hashes.
+Server publication verifies all 104 files and preserves the previous channel for
+rollback. Game services remain unchanged. Restart EQ and use launcher Play;
+stock icon visual acceptance remains pending. See
+`docs/releases/advanced-loot/STOCK-ICONS.md` for hashes and exact in-game QA.
 
 ## 2026-10-10 - Advanced loot stock item images candidate
 
