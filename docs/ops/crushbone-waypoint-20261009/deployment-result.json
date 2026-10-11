@@ -1,0 +1,38 @@
+{
+  "commit": "e8f40d1b1e63fe4471c1b85f04e50d539e7be6d1",
+  "backup_directory": "/opt/nightcap/backups/crushbone-waypoint-entrance-20261011",
+  "backup_sha256": "2d1a516bcfce98fc679db2cd721f80bd062ebeea85ae9b9631a5289fa33ecbe2",
+  "uncompressed_bytes": 449093530,
+  "rehearsals_passed": 3,
+  "saved_marker_rows": 1,
+  "state": "deployed",
+  "services": [
+    {
+      "Service": "db",
+      "State": "running",
+      "Health": "healthy"
+    },
+    {
+      "Service": "game",
+      "State": "running",
+      "Health": "healthy"
+    },
+    {
+      "Service": "gateway",
+      "State": "running",
+      "Health": ""
+    },
+    {
+      "Service": "tunnel",
+      "State": "running",
+      "Health": ""
+    },
+    {
+      "Service": "web",
+      "State": "running",
+      "Health": ""
+    }
+  ],
+  "zone_workers": 12,
+  "all_scoped_rows_match": true
+}

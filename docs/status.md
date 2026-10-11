@@ -1,5 +1,13 @@
 # Current Nightcap status
 
+## Advanced loot stock images — published October 10
+
+Owner-approved PR #151 is merged to main. Signed client release 2026101001
+(proxy 0.8.0-dev) publishes the stock item icons, matching patch catalog and
+Pet Info XML. Server verification covers all 104 files; no game service restart
+was needed. Restart EQ and use launcher Play. Native visual acceptance remains
+pending; [exact QA and release evidence](releases/advanced-loot/STOCK-ICONS.md).
+
 ## Production GM controls — activated October 10
 
 The owner-local GM UI now reads OVH production over SSH and retains character,
@@ -35,11 +43,13 @@ access is open and follow-up health checks pass. In-game HP/animation acceptance
 remains pending. No client update is required.
 [Deployment, recovery and exact QA](ops/npc-heal-self-20261009/README.md).
 
-## Crushbone entrance waypoint approved
+## Crushbone entrance waypoint deployed
 
-The owner approved moving the marker and recall destination to the existing
-entrance safe point (`/loc -644, 158, 4`) and publishing to main/OVH. SQL scope
-tests pass; production activation and in-game discovery/recall QA are pending.
+Published to main and deployed to OVH on October 11. The marker, saved marker
+state and recall destination now use the entrance safe point
+(`/loc -644, 158, 4`). Eight tests, three live transaction/rollback rehearsals,
+exact database comparisons and service/12-worker health checks passed.
+In-game grounding, discovery and recall acceptance remains pending.
 [Deployment, rollback and exact QA](ops/crushbone-waypoint-20261009/README.md).
 
 ## Classic zone hunt and forge deployed for live QA
