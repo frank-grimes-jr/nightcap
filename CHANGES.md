@@ -1,5 +1,16 @@
 # CHANGES
 
+## 2026-10-11 - Correct Crushbone deployment snapshot comparison
+
+The first production attempt rolled its rehearsal back and restored service
+without moving the waypoint: equivalent integer/float coordinates sorted rows
+differently in the verifier. Compare snapshots by stable row identity while
+retaining every field comparison. The regression fails against the old sorter;
+all six tests and temporary-table MariaDB reproduction now pass. Preserve the
+failed-attempt backup and use a separate October 11 evidence directory for the
+retry. Main relocation remains approved; activation is recorded after success
+in docs/ops/crushbone-waypoint-20261009/README.md.
+
 ## 2026-10-11 - GM confirmation and status recovery
 
 Replace browser popup confirmations with an accessible page dialog so blocked

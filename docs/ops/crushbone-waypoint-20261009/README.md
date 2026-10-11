@@ -40,7 +40,7 @@ stale-preimage failure before committing. It compares every column in all
 waypoint rows, Crushbone spawn rows and Crushbone saved-state rows against the
 expected result. Only marker coordinates and classification may differ.
 
-Evidence: `/opt/nightcap/backups/crushbone-waypoint-entrance-20261009/`.
+Evidence: `/opt/nightcap/backups/crushbone-waypoint-entrance-20261011/`.
 It contains the full dump, before/after snapshots, exact saved-state inverse,
 SQL payloads, service snapshots and result. If an operation fails, inspect
 `result.json` and live data before retrying; the runner refuses to overwrite
@@ -76,3 +76,17 @@ After service recovery:
    new arrival. The old orc at world 610,292,2 remains normal, without a waypoint.
 
 Database/restart verification does not constitute these player acceptance checks.
+
+## October 11 verification repair
+
+The first October 11 attempt used the original `...-20261009` evidence directory.
+Its full backup passed, but a forward rehearsal assertion failed. The SQL was
+rolled back and automatic recovery verified the original snapshots before and
+after game startup, then reopened the gateway. No waypoint row was committed.
+
+Temporary copies of the live MariaDB tables proved that every resulting field
+was correct; sorting serialized rows compared integer `0` with float `0.0` and
+changed row order. The verifier now sorts by each table's primary identity and
+still compares every field. A regression fails on the original comparator,
+six tests pass after correction, and the same temporary-table reproduction now
+passes. The retry uses the separate `...-20261011` directory above.

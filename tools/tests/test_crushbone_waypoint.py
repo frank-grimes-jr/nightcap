@@ -1,4 +1,6 @@
 """Exercise the shipped UPDATE statements against neighboring placement/state rows."""
+import ast
+import json
 import sqlite3
 import unittest
 import sys
@@ -10,6 +12,26 @@ if len(sys.argv)>1 and sys.argv[1]=='--sql-dir':
     del sys.argv[1:3]
 
 class WaypointMigrationTest(unittest.TestCase):
+    def test_snapshot_order_uses_identity_not_numeric_rendering(self):
+        tree=ast.parse((SQL/'deploy.py').read_text())
+        definition=next(n for n in tree.body if isinstance(n,ast.FunctionDef) and n.name=='canonical')
+        namespace={'json':json}
+        exec(compile(ast.Module(body=[definition],type_ignores=[]),'canonical','exec'),namespace)
+        canonical=namespace['canonical']
+        expected={'spawn2':[{'id':1,'heading':0.0,'x':100.0},{'id':2,'heading':0,'x':158}]}
+        actual={'spawn2':[{'id':1,'heading':0.0,'x':100.0},{'id':2,'heading':0.0,'x':158.0}]}
+        self.assertEqual(canonical(expected),canonical(actual))
+        actual['spawn2'][1]['x']=159.0
+        self.assertNotEqual(canonical(expected),canonical(actual))
+
+    def test_waypoint_snapshot_order_uses_zone_name(self):
+        tree=ast.parse((SQL/'deploy.py').read_text())
+        definition=next(n for n in tree.body if isinstance(n,ast.FunctionDef) and n.name=='canonical')
+        namespace={'json':json}
+        exec(compile(ast.Module(body=[definition],type_ignores=[]),'canonical','exec'),namespace)
+        rows={'nightcap_waypoints':[{'zone':'crushbone','x':158},{'zone':'blackburrow','x':200}]}
+        self.assertEqual([r['zone'] for r in namespace['canonical'](rows)['nightcap_waypoints']],['blackburrow','crushbone'])
+
     def setUp(self):
         self.db = sqlite3.connect(':memory:')
         self.db.executescript('''
@@ -35,6 +57,9 @@ class WaypointMigrationTest(unittest.TestCase):
 
     def rows(self, table):
         return self.db.execute(f'SELECT * FROM {table} ORDER BY 1').fetchall()
+
+    def tearDown(self):
+        self.db.close()
 
     def test_forward_changes_only_marker_and_destination(self):
         before = {t:self.rows(t) for t in ('spawn2','nightcap_waypoints','zone_state_spawns')}
