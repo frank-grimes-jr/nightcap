@@ -11,6 +11,13 @@ failed-attempt backup and use a separate October 11 evidence directory for the
 retry. Main relocation remains approved; activation is recorded after success
 in docs/ops/crushbone-waypoint-20261009/README.md.
 
+A subsequent pre-maintenance status read found stray bytes after the native
+zone summary (`fmt::memory_buffer.data()` sent through a `strlen` API). Read
+through the explicit terminal before strict decoding; require a complete summary,
+matching row totals and unique workers so malformed occupancy data fails closed.
+Eight tests and the live read-only status check pass. No binary change is needed
+for this bounded 12-worker deployment helper.
+
 ## 2026-10-11 - GM confirmation and status recovery
 
 Replace browser popup confirmations with an accessible page dialog so blocked

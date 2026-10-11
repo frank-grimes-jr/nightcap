@@ -1,6 +1,7 @@
 """Exercise the shipped UPDATE statements against neighboring placement/state rows."""
 import ast
 import json
+import re
 import sqlite3
 import unittest
 import sys
@@ -31,6 +32,30 @@ class WaypointMigrationTest(unittest.TestCase):
         exec(compile(ast.Module(body=[definition],type_ignores=[]),'canonical','exec'),namespace)
         rows={'nightcap_waypoints':[{'zone':'crushbone','x':158},{'zone':'blackburrow','x':200}]}
         self.assertEqual([r['zone'] for r in namespace['canonical'](rows)['nightcap_waypoints']],['blackburrow','crushbone'])
+
+    def status_helpers(self):
+        tree=ast.parse((SQL/'world_status.py').read_text(encoding='utf-8'))
+        definitions=[n for n in tree.body if isinstance(n,ast.FunctionDef) and n.name in ('decode_status','parse_status')]
+        namespace={'re':re}
+        exec(compile(ast.Module(body=definitions,type_ignores=[]),'status_helpers','exec'),namespace)
+        return namespace
+
+    def test_status_decodes_only_through_summary_terminal(self):
+        decode=self.status_helpers()['decode_status']
+        self.assertEqual(decode(b'12 zones available.\xc1\0'),'12 zones available.')
+        with self.assertRaises(UnicodeDecodeError):
+            decode(b'bad \xc1 status 12 zones available.')
+
+    def test_status_requires_every_reported_row(self):
+        parse=self.status_helpers()['parse_status']
+        rows=[f'#{i} :: D :: 127.0.0.1:9000 :: {int(i==3)} :: :0 ::  :: ({i+100})' for i in range(1,13)]
+        summary='12 servers listed. 12 servers online.^0 zones are static zones, 0 zones are booted zones, 12 zones available.'
+        parsed=parse('^'.join(rows)+'^'+summary)
+        self.assertEqual(sum(r['players'] for r in parsed),1)
+        with self.assertRaisesRegex(AssertionError,'Incomplete'):
+            parse('^'.join(rows[:2]+rows[3:])+'^'+summary)
+        with self.assertRaisesRegex(AssertionError,'Unrecognized'):
+            parse('^'.join(rows[:2]+[rows[1]]+rows[3:])+'^'+summary)
 
     def setUp(self):
         self.db = sqlite3.connect(':memory:')

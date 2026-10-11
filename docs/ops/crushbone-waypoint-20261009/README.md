@@ -90,3 +90,11 @@ changed row order. The verifier now sorts by each table's primary identity and
 still compares every field. A regression fails on the original comparator,
 six tests pass after correction, and the same temporary-table reproduction now
 passes. The retry uses the separate `...-20261011` directory above.
+
+The next retry aborted before maintenance when native zone status included
+non-UTF-8 bytes after its completed summary. Source inspection found that the
+native status sender passes an unterminated `fmt::memory_buffer` to a `strlen`
+API. The helper now decodes only through the explicit terminal, validates the
+entire summary and requires matching row totals and unique server IDs. This is
+bounded to the current small status response; malformed intermediate chunks
+still fail closed. Eight tests and an exact live read-only check pass.
