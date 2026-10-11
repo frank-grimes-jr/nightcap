@@ -10,8 +10,11 @@ recipes, quest items and alcohol behavior are retained. No SQL or client patch.
 
 Compiled regression: 250/250 checks pass (37/250 before the change), plus a login
 profile ordering guard. A fresh full zone build and all 99 healing regressions
-also pass on fingerprinted retained release source. The verified binary package
-is local only; rollout and owner in-game acceptance remain pending. Exact QA and activation/rollback guidance:
+also pass on fingerprinted retained release source. Owner-approved PR #162 is on
+main and deployed on OVH. Eight rollout/maintenance tests, a verified full backup,
+all 12 process hashes, saved-data preservation and follow-up health checks passed.
+Access is open; no client update. Manual client acceptance remains pending.
+Deployment/rollback: `docs/ops/food-drink-removal-20261011/README.md`. Exact QA:
 `docs/qa/2026-10-11-food-drink-removal.md`; decision: ADR 0028.
 
 ## 2026-10-11 - Crushbone entrance waypoint deployed

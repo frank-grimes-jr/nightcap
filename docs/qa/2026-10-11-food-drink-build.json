@@ -1,5 +1,5 @@
 {
-  "status": "built_not_installed",
+  "status": "deployed",
   "zone_sha256": "989e64c181b002a4f34562af71389ed3b54a93ce707856cb85e9a19cab0fcf03",
   "package_sha256": "ae03fdbcbb9e0027abffd8ceda6aa96d828689b6fe7be4fd03969725d684eef3",
   "package_bytes": 90403905,
@@ -18,6 +18,10 @@
   "patch_sha256": "08609c0cd19a5ec20f5dabb6060fc283bb77910550915b3c262813cd6ac7c6c5",
   "baseline_and_candidate_source_fingerprints_verified": true,
   "full_zone_build": "passed",
-  "deployment": "not performed",
-  "in_game_qa": "pending owner acceptance"
+  "deployment": "OVH verified; PR #162 merged",
+  "in_game_qa": "pending owner acceptance",
+  "deployment_image": "sha256:a72aa7931198ec96f67f69432ecccabc78640ce20de75d3da6f23e647c5be903",
+  "deployment_package_sha256": "521a7151f0118ea341ed1467963318745940d0ef9915250345724fbf9c39348d",
+  "main_merge": "d05886fa84279ee3c10e90d4db9afe4bd7fb8cda",
+  "deployment_evidence": "../ops/food-drink-removal-20261011/deployment-evidence.json"
 }

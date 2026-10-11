@@ -1,6 +1,6 @@
 # ADR 0028: Remove character hunger and thirst
 
-Date: 2026-10-11. Status: accepted intent, implemented candidate.
+Date: 2026-10-11. Status: accepted and deployed for owner QA; native client acceptance pending.
 
 The owner requested complete removal of food/drink requirements, their penalties
 and empty-food/water text. The existing EnableFoodRequirement rule guards hunger
@@ -18,6 +18,7 @@ client string edits, neither of which fixes every runtime path.
 Optional food/drink item bonuses, recipes and quest items remain. Stat food has
 no consumption cost; no new stats or higher caps are introduced. Nutrition-only
 spells/AAs become redundant, consistent with removal of the system. This is a
-server build change and requires manual client acceptance before promotion.
+server build change deployed under explicit owner approval for live QA; manual
+client acceptance remains pending.
 
-Evidence and exact QA: [food/drink candidate](../qa/2026-10-11-food-drink-removal.md).
+Evidence and exact QA: [food/drink release](../qa/2026-10-11-food-drink-removal.md).

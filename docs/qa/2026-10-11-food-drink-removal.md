@@ -1,7 +1,8 @@
 # Food and drink removal — October 11, 2026
 
-Status: fully built and explicitly approved for main/OVH deployment on October 11;
-activation has not run. Manual in-game acceptance remains pending.
+Status: PR #162 is merged to main and deployed on OVH. All 12 zones and follow-up
+health/preservation checks pass; access is open. Manual in-game acceptance remains
+pending. [Deployment and rollback](../ops/food-drink-removal-20261011/README.md).
 
 ## Behavior and scope
 
@@ -36,7 +37,7 @@ Actual RoF2 rendering must be accepted using the checks below.
 - All three modified C++ translation units pass Clang C++20 syntax checks
   against an isolated patched copy of the retained production source, with its
   real Perl/Lua/dependency flags. Retained source hashes are unchanged. Existing
-  unrelated warnings remain. This is not a linked release binary or a rollout.
+  unrelated warnings remain. The subsequent complete build and rollout are recorded below.
   Local evidence: E:/EQ_Local_Dev/artifacts/remove-food-drink/compile-check.log.
 
 ## Full candidate build
@@ -58,9 +59,10 @@ The binary, source patch, test runners, build script, fingerprints and test logs
 are packaged locally in
 `E:/EQ_Local_Dev/artifacts/remove-food-drink/food-drink-removal-20261011.tar.gz`.
 Compact hashes and provenance: [build evidence](2026-10-11-food-drink-build.json).
-This package has not been uploaded or installed. Current OVH image compatibility
-must be checked again during the approved rollout; dated baseline evidence is
-not proof of current live state. In-game warning rendering remains unverified.
+That dated build-only archive was followed by a deployment bundle with tested
+rollout/recovery scripts. OVH verified its baseline and installed the same zone
+binary; the [deployment record](../ops/food-drink-removal-20261011/README.md) identifies
+the exact deployed package. In-game warning rendering remains owner acceptance.
 
 ## Exact in-game QA
 
@@ -88,9 +90,9 @@ food/water meters were already depleted. No NPC interaction is required.
 
 ## Activation and rollback
 
-Build the candidate zone executable against the current approved server source.
-All zone processes need the new binary; `#reload rules` or quest reload alone
-cannot activate this C++ change. There is no SQL migration, world catalog change,
+The fresh zone executable was deployed against the verified current server
+baseline; all 12 running zone hashes match it. `#reload rules` or quest reload
+alone cannot activate this C++ change. There is no SQL migration, world catalog change,
 shared-memory refresh or client update. Saved meters converge through normal
 character saves; no bulk character update is necessary.
 

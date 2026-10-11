@@ -16,6 +16,8 @@ Start with [current status](status.md), not a dated candidate report.
 
 ## Players and testers
 
+- [Food/drink removal: live deployment, recovery and exact QA](ops/food-drink-removal-20261011/README.md)
+
 - [NPC-targeted heal fallback: live deployment, recovery and exact QA](ops/npc-heal-self-20261009/README.md)
 
 - [Crushbone entrance waypoint: deployment, rollback and QA](ops/crushbone-waypoint-20261009/README.md)
