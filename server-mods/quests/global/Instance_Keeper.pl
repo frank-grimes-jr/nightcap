@@ -75,6 +75,23 @@ sub _enter_instance {
 
 # ── Events ────────────────────────────────────────────────────────────────────
 
+sub keeper_visual {
+    # Eye of Zomm (EYE) is in global_chr: no zone-specific model or client patch.
+    # Keep the targetable service NPC and its destination lastname unchanged.
+    return if $npc->GetRace() == 108;
+    $npc->SendIllusionPacket({ race => 108, gender => 2, texture => 0,
+        helmtexture => 0, size => 3 });
+}
+
+sub EVENT_SPAWN {
+    keeper_visual();
+}
+
+sub EVENT_SIGNAL {
+    return unless $signal == 20261014;
+    keeper_visual();
+}
+
 sub EVENT_SAY {
     my $say     = lc($text);
     my $name    = $client->GetName();
