@@ -1,5 +1,17 @@
 # CHANGES
 
+## 2026-10-12 - Activate durable boosts and repair Darthy
+
+Owner-approved PR #177 is merged and the production-enabled GM has the corrected
+XP writer. During protected maintenance, the guarded repair restored Darthy to
+level50/XP165592026/250 training points, retaining883418 earned XP and adding225
+previously omitted training points. Fresh backup/gzip verification, exactly-once
+receipt and ten preservation hashes passed; pets were already absent at the
+stopped preimage and were left unchanged. The repaired state survived startup.
+All services are running and native world/all12 zone hashes preserve the existing
+item-upgrade release. Client kill/zoning/relog acceptance remains pending. Evidence:
+`docs/ops/darthy-boost-20261012/deployment.json`.
+
 ## 2026-10-12 - Correct GM boosts to persist native level XP
 
 Candidate: boosts atomically write native-compatible cumulative XP, retain valid
