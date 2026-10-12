@@ -1,5 +1,20 @@
 # CHANGES
 
+## 2026-10-12 - Reusable four-for-one item upgrade candidate
+
+Artisan Veyra supplies a free four-slot Reforging Box in the East Commonlands
+tunnel. Four identical Polished copies produce one Exalted item; four Exalted
+copies produce the top tier for legacy loot or Classic zone rewards. Native
+transactions commit inputs, output and receipt together; rejected combines keep
+their contents and uncertain results quarantine the session. The reusable box
+preserves binding and rejects augmented/customized items. Bags cannot nest.
+Higher-tier `#zoneforge` recipes also cost four; the base recipe remains three.
+Installation is guarded and disabled by default; shared item memory and matching
+native zone are required. Automated policy, inventory, quest, disposable database
+and native object checks pass. No live deployment or in-game acceptance is
+claimed. Evidence, rollout, rollback and QA:
+`docs/releases/item-upgrades-20261012/`.
+
 ## 2026-10-11 - Preserve native pet-window registers on summon
 
 Fixed the client pet-availability hook's stronger native calling contract:
@@ -8,12 +23,16 @@ C++ hook could overwrite it. A small x86 bridge preserves ECX/EDX, stack cleanup
 and the boolean result around the unchanged permission policy. This addresses
 the initial fault in Darthy's saved pet-summon crash log. Compiled regression
 fails before the fix and passes afterward; runtime and exact-client checks pass.
-Signed launcher publication and live summon acceptance remain pending. No server,
-database or installed-client mutation. Evidence and exact QA:
+Owner-approved PR #166 is merged into main and signed client release 2026101101
+is published. All 104 hosted assets and the production signature verify; only
+the proxy payload changed. All 13 publication recovery tests pass. Game services
+were not restarted. Update through the launcher; live summon acceptance remains
+pending. Evidence and exact QA:
 `docs/ops/darthy-pet-crash-20261011.md`.
 
 
-## 2026-10-11 - Waypoint portal visual candidate
+
+## 2026-10-11 - Waypoint portal visuals deployed
 
 Replace marker NPC 999240's human mesh with the global invisible actor plus
 the stock WizardPortal effect. Befallen's second human is its overlapping
@@ -21,8 +40,28 @@ Instance Keeper, not a duplicate waypoint. Keep that service and all discovery,
 recall, placement and Explorer behavior unchanged. The quest applies the visual
 on spawn and supports an idempotent live refresh; no client patch, database write
 or runtime restart is required. Sixteen Perl regression assertions pass.
-Not deployed: main promotion and in-game rendering acceptance remain pending.
+Owner-approved PR #163 is on main and deployed to OVH. Exact quest hashes match;
+all 12 zone workers reloaded without quest errors or native process restarts.
+All five services remain running, with game/database healthy. The original quest
+is backed up for scoped rollback. In-game rendering acceptance remains pending.
 Rollout, rollback and exact QA: `docs/ops/waypoint-visuals-20261011/README.md`.
+
+## 2026-10-11 - Remove character food and drink requirements
+
+Removed hunger/thirst depletion, starvation eligibility and food/drink inventory
+consumption. Initial profiles, stamina updates and quest setters always report
+full meters so empty inventory cannot trigger the client's food/water warnings.
+Legacy hunger rules cannot re-enable penalties. Optional edible item bonuses,
+recipes, quest items and alcohol behavior are retained. No SQL or client patch.
+
+Compiled regression: 250/250 checks pass (37/250 before the change), plus a login
+profile ordering guard. A fresh full zone build and all 99 healing regressions
+also pass on fingerprinted retained release source. Owner-approved PR #162 is on
+main and deployed on OVH. Eight rollout/maintenance tests, a verified full backup,
+all 12 process hashes, saved-data preservation and follow-up health checks passed.
+Access is open; no client update. Manual client acceptance remains pending.
+Deployment/rollback: `docs/ops/food-drink-removal-20261011/README.md`. Exact QA:
+`docs/qa/2026-10-11-food-drink-removal.md`; decision: ADR 0028.
 
 ## 2026-10-11 - Crushbone entrance waypoint deployed
 

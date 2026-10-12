@@ -296,6 +296,12 @@ rollback: `docs/ops/permanent-patcher.md`.
 
 ## Non-obvious gotchas
 
+- **Food/drink removal deployed (2026-10-11):** hunger/thirst/starvation predicates
+  always return false; login and stamina/setter packets report both meters full.
+  Legacy nutrition rules cannot restore this system. Consume packets preserve
+  inventory; optional edible bonuses remain. OVH rollout passed; RoF2 rendering
+  remains owner QA. Evidence: `docs/ops/food-drink-removal-20261011/README.md`.
+
 - **Classic alternate heads require contiguous meshes.** RoF2 discovers head
   variants in the consecutive WLD 0x36 block around the skeleton's first mesh.
   Appending a named HE90 elsewhere does not register it. Preserve typed fragment
@@ -352,6 +358,11 @@ The current project assessment and observed balance baseline are recorded in
 claims about live state).
 
 ### Branch flow
+
+**October 11 food/drink exception:** the owner explicitly approved "Merge to main
+and server" for the removal of hunger/thirst requirements, penalties and warnings.
+This authorizes main promotion and OVH rollout before manual acceptance. Preserve
+the outstanding client checks in `docs/qa/2026-10-11-food-drink-removal.md`.
 
 `feature/<name>` → `dev` → `test` → `main`
 
@@ -424,6 +435,15 @@ matching client publication. Manual gameplay acceptance remains open; see
 - **Lore**: when lore details are needed (rare — systems here are new, not canon), keep a running doc at `docs/lore/structure.md`, noting anything left mid-design/interrupted.
 
 ## Changelog
+
+### Reusable item upgrades candidate
+
+The Reforging Box candidate uses native inventory transactions, not NPC ingredient
+hand-ins: four Polished or Exalted copies yield one next-tier item. Box 900620 is
+supplied by tunnel NPC 999820. Higher-tier `#zoneforge` costs also become four;
+base remains three. Installation starts disabled and needs matching zone/item
+cache/quest deployment. Evidence and required manual QA:
+`docs/releases/item-upgrades-20261012/`. This is not a live deployment record.
 
 **Always update `CHANGES.md`** when making significant changes — C++ patches, database schema changes, quest script additions, or SQL setup file corrections. Include: what changed, why, any gotchas. This is the primary audit trail for this repo since many changes touch the live database or compiled binaries and aren't fully captured by git diffs alone.
 

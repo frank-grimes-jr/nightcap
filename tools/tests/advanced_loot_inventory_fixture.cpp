@@ -15,6 +15,7 @@
 #include "ADVANCED_LOOT_POLICY_PATH"
 #include "common/zone_hunt_catalog.h"
 #include "common/zone_hunt_policy.h"
+#include "common/item_upgrade_policy.h"
 using uint8=uint8_t; using uint16=uint16_t; using uint32=uint32_t; using uint64=uint64_t; using int16=int16_t;
 void check(bool value,const char *message) { if(!value) throw std::runtime_error(message); }
 struct InventoryRepository {
@@ -39,14 +40,14 @@ template<class T,class... Rest> std::string format(std::string text,const T &val
 }
 namespace EQ {
 namespace invaug { constexpr uint8 SOCKET_COUNT=6; }
-namespace invslot { constexpr int16 EQUIPMENT_BEGIN=0,EQUIPMENT_END=22,GENERAL_BEGIN=23,GENERAL_END=32,slotCursor=33,SLOT_INVALID=-1; }
+namespace invslot { constexpr int16 EQUIPMENT_BEGIN=0,EQUIPMENT_END=22,GENERAL_BEGIN=23,GENERAL_END=32,slotCursor=33,SLOT_INVALID=-1,TRADE_BEGIN=3000,TRADE_NPC_END=3003; }
 namespace invbag { constexpr uint8 SLOT_COUNT=10; constexpr int16 CURSOR_BAG_BEGIN=351,CURSOR_BAG_END=360; }
-struct ItemData { uint32 ID=1001; int16 StackSize=20; uint8 BagSlots=0; int Size=1,BagSize=10; };
+struct ItemData { uint32 ID=1001; int16 StackSize=20,MaxCharges=0; uint8 BagSlots=0,BagType=13; int Size=1,BagSize=10; std::string Name; bool Stackable=false; };
 struct ItemInstance {
 	ItemData data; InventoryRepository::Inventory row; int16 charges=1; bool stackable=false,evolving=false,equipped=false;
 	uint64 evolve_id=0; std::map<uint8,std::shared_ptr<ItemInstance>> contents;
 	ItemInstance() { row.item_id=data.ID; row.guid=901; }
-	ItemInstance(const ItemData *item,int16 count):data(*item),charges(count) { static uint32 next=902;row.item_id=data.ID;row.guid=next++; }
+	ItemInstance(const ItemData *item,int16 count):data(*item),charges(count),stackable(item->Stackable) { static uint32 next=902;row.item_id=data.ID;row.guid=next++; }
 	const ItemData *GetItem()const{return &data;}
 	const ItemInstance *GetItem(uint8 slot)const{auto i=contents.find(slot);return i==contents.end()?nullptr:i->second.get();}
 	uint32 GetID()const{return row.item_id;} int16 GetCharges()const{return charges;} void SetCharges(int value){charges=static_cast<int16>(value);}
@@ -88,8 +89,10 @@ struct Result {
 	Iterator begin()const{return {&cells,0};}Iterator end()const{return {&cells,cells.size()};}
 };
 struct ZoneDatabase {
+	std::map<uint32,EQ::ItemData> definitions;
+	const EQ::ItemData *GetItem(uint32 id){auto i=definitions.find(id);return i==definitions.end()?nullptr:&i->second;}
 	std::vector<std::string> queries;Cells inventory;int fail=0,throw_at=0,zero_at=0;bool committed=false,active=false,claimed=false,wrong_engine=false,forged=false,rollback_fail=false;
-	EQ::ItemInstance *CreateItem(uint32 id,int charges){EQ::ItemData data;data.ID=id;return new EQ::ItemInstance(&data,static_cast<int16>(charges));}
+	EQ::ItemInstance *CreateItem(uint32 id,int charges){EQ::ItemData data;data.ID=id;if(definitions.count(id))data=definitions[id];return new EQ::ItemInstance(&data,static_cast<int16>(charges));}
 	Result QueryDatabase(const std::string &q,bool retry) {
 		check(!retry,"a transaction query enabled retry");queries.push_back(q);Result result;
 		if(queries.size()==static_cast<size_t>(throw_at))throw std::runtime_error("injected database exception");
@@ -97,7 +100,7 @@ struct ZoneDatabase {
 		if(queries.size()==static_cast<size_t>(zero_at))result.affected=0;
 		if(q=="ROLLBACK" && rollback_fail){result.success=false;return result;}
 		if(q.rfind("SHOW COLUMNS",0)==0){for(const auto &column:InventoryRepository::Columns())result.cells.push_back({column});}
-		else if(q.find("information_schema.TABLES")!=std::string::npos)result.cells={{wrong_engine?"0":q.find("nightcap_zone_hunt_state")!=std::string::npos?"2":"3"}};
+		else if(q.find("information_schema.TABLES")!=std::string::npos)result.cells={{wrong_engine?"0":q.find("nightcap_zone_hunt_state")!=std::string::npos||q.find("nightcap_item_upgrade_state")!=std::string::npos?"2":"3"}};
 		else if(q.find("information_schema.TRIGGERS")!=std::string::npos)result.cells={{"0"}};
 		else if(q=="SELECT @@in_transaction")result.cells={{active?"1":"0"}};
 		else if(q=="START TRANSACTION")active=true;
@@ -114,13 +117,21 @@ struct ZoneDatabase {
 namespace Chat { constexpr int Red=1; }
 constexpr int ItemPacketTrade=1;
 struct Client {
+	struct TradeState { bool active=false; bool With(){return active;} } trade_state;
+	TradeState *trade=&trade_state;
+	bool busy=false;
+	bool IsDead()const{return busy;} bool IsEngaged()const{return busy;} bool AutoAttackEnabled()const{return busy;}
+	bool IsCasting()const{return false;} bool IsStunned()const{return false;} bool IsMezzed()const{return false;}
+	bool IsFeared()const{return false;} bool IsAIControlled()const{return false;} bool IsLooting()const{return false;}
+	int GetMerchantSessionEntityID()const{return 0;} bool GetTradeskillObject()const{return false;}
+	bool lore_conflict=false;
 	EQ::InventoryProfile inventory;bool quarantined=false;unsigned packets=0,bonuses=0,equip_notifications=0;int16 equip_slot=EQ::invslot::SLOT_INVALID;
 	bool Connected()const{return !quarantined;}bool ClientDataLoaded()const{return !quarantined;}uint32 CharacterID()const{return 77;}
 	EQ::InventoryProfile &GetInv(){return inventory;}void Message(int,const char*){}
 	void QuarantineItemTransfer(const char*){quarantined=true;}
 	void SendItemPacket(int16,const EQ::ItemInstance*,int){check(database.committed,"packet preceded acknowledged commit");++packets;}
 	void CalcBonuses(){check(database.committed,"bonuses preceded acknowledged commit");++bonuses;}
-	bool CheckLoreConflict(const EQ::ItemData*){return false;}
+	bool CheckLoreConflict(const EQ::ItemData*){return lore_conflict;}
 	void DeleteItemInInventory(int16 slot,int,bool update,bool persist){check(database.committed&&!persist,"delete preceded commit or persisted twice");inventory.items.erase(slot);if(update)++packets;}
 	int16 FindLootEquipSlot(const EQ::ItemInstance &) { return equip_slot; }
 	void NotifyLootEquipped(EQ::ItemInstance &,int16 slot) { check(database.committed&&inventory.GetItem(slot),"equip event preceded committed item install");++equip_notifications; }
@@ -188,6 +199,95 @@ static void TestForge() {
 	database={};Client broken_publish;copies=PrepareForge(broken_publish);broken_publish.inventory.fail_put=true;
 	check(ForgeItems(&broken_publish,copies,id)==TransferResult::Uncertain&&broken_publish.quarantined&&database.committed,"post-commit failure not quarantined");
 	for(const auto&q:successful)std::cout<<"FORGE_SQL:"<<q<<"\n";
+	for(uint32 source:{940025u,940026u}) {
+		database={};Client higher;auto recipe=PrepareForge(higher);database.inventory.clear();
+		for(const auto &[slot,serial]:recipe) {
+			auto &item=*higher.inventory.items[slot];item.row.item_id=item.data.ID=source;SaveRow(slot,item);
+		}
+		check(ForgeItems(&higher,recipe,id)==TransferResult::Declined&&database.queries.empty(),"three-copy higher-tier bypass accepted");
+		higher.inventory.lookup.PossessionsBitmask|=uint64{1}<<26;
+		auto fourth=Item();fourth.row.item_id=fourth.data.ID=source;fourth.row.guid=926;
+		higher.inventory.items[26]=std::make_shared<EQ::ItemInstance>(fourth);SaveRow(26,fourth);
+		recipe.emplace_back(26,fourth.GetSerialNumber());
+		check(ForgeItems(&higher,recipe,id)==TransferResult::Delivered&&higher.inventory.items.size()==1&&higher.inventory.GetItem(23)->GetID()==source+1,"four-copy higher-tier forge failed");
+	}
+}
+static void PrepareCombine(Client &c,uint32 source=201001) {
+	const uint32 target=source<600000?source+200000:source+1;
+	database.definitions[source].ID=source;
+	database.definitions[source].Name=source<400000?"Cloth Cap (Polished)":"Cloth Cap (Exalted)";
+	database.definitions[target].ID=target;
+	database.definitions[target].Name=source<400000?"Cloth Cap (Exalted)":"Cloth Cap (Ascended)";
+	auto box=Item();box.row.item_id=box.data.ID=NightcapUpgrade::ContainerID;box.data.BagSlots=4;
+	c.inventory.items[23]=std::make_shared<EQ::ItemInstance>(box);SaveRow(23,box);
+	for(int16 slot=251;slot<=254;++slot) {
+		auto item=Item();item.row.item_id=item.data.ID=source;item.row.guid=900+slot;
+		item.SetAttuned(slot==252);c.inventory.items[slot]=std::make_shared<EQ::ItemInstance>(item);
+		SaveRow(slot,item);
+	}
+}
+static void TestCombine() {
+	using namespace NightcapLoot;
+	for(uint32 source:{201001u,401001u,940025u,940026u}) {
+		database={};Client c;PrepareCombine(c,source);
+		check(CombineUpgrade(&c,23,id)==TransferResult::Delivered,"four-copy combine failed");
+		check(c.inventory.items.size()==2&&c.inventory.GetItem(251)->GetID()==(source<600000?source+200000:source+1),"wrong next-tier item");
+		check(c.inventory.GetItem(23)->GetID()==NightcapUpgrade::ContainerID,"reusable box consumed");
+		check(c.inventory.GetItem(251)->IsAttuned(),"binding lost");
+		const auto queries=database.queries;
+		for(size_t step=1;step<=queries.size();++step) {
+			if(queries[step-1].rfind("DELETE ",0)!=0&&queries[step-1].rfind("INSERT ",0)!=0)continue;
+			database={};Client attempt;PrepareCombine(attempt,source);database.zero_at=static_cast<int>(step);
+			check(CombineUpgrade(&attempt,23,id)==TransferResult::Declined&&attempt.inventory.items.size()==5&&!attempt.packets,"combine ignored affected-row failure");
+		}
+		if(source==201001)for(const auto&q:queries)std::cout<<"UPGRADE_SQL:"<<q<<"\n";
+		for(size_t step=1;step<=queries.size();++step) {
+			database={};Client attempt;PrepareCombine(attempt,source);database.fail=static_cast<int>(step);
+			const auto result=CombineUpgrade(&attempt,23,id);
+			check(result!=TransferResult::Delivered,"failed query delivered upgrade");
+			check(attempt.inventory.items.size()==5&&!attempt.packets,"failure consumed inputs or published reward");
+			check(attempt.quarantined==(result==TransferResult::Uncertain),"missing quarantine");
+		}
+		for(size_t step=1;step<=queries.size();++step) {
+			database={};Client attempt;PrepareCombine(attempt,source);database.throw_at=static_cast<int>(step);
+			check(CombineUpgrade(&attempt,23,id)==TransferResult::Uncertain&&attempt.quarantined,"exception not quarantined");
+			check(attempt.inventory.items.size()==5&&!attempt.packets,"exception changed items");
+		}
+	}
+	database={};Client partial;PrepareCombine(partial);partial.inventory.items.erase(254);
+	check(CombineUpgrade(&partial,23,id)==TransferResult::Declined&&database.queries.empty(),"three copies accepted");
+	database={};Client mixed;PrepareCombine(mixed);mixed.inventory.items[253]->row.item_id=201002;
+	check(CombineUpgrade(&mixed,23,id)==TransferResult::Declined,"mixed combine accepted");
+	database={};Client lore;PrepareCombine(lore);lore.lore_conflict=true;
+	check(CombineUpgrade(&lore,23,id)==TransferResult::Declined&&database.queries.empty(),"lore conflict consumed items");
+	database={};Client full;PrepareCombine(full);full.inventory.items[24]=std::make_shared<EQ::ItemInstance>(Item());
+	check(CombineUpgrade(&full,23,id)==TransferResult::Delivered,"full inventory prevents in-box output");
+	database={};Client wrong_name;PrepareCombine(wrong_name);database.definitions[401001].Name="Wrong (Exalted)";
+	check(CombineUpgrade(&wrong_name,23,id)==TransferResult::Declined,"cross-family target accepted");
+	for(int kind=0;kind<8;++kind) {
+		database={};Client invalid;PrepareCombine(invalid);auto &item=*invalid.inventory.items[252];
+		if(kind==0)item.row.augment_one=123;
+		if(kind==1)item.row.custom_data="owned";
+		if(kind==2)item.row.color=123;
+		if(kind==3)item.evolving=true;
+		if(kind==4)item.row.ornament_icon=123;
+		if(kind==5)invalid.trade_state.active=true;
+		if(kind==6)invalid.busy=true;
+		if(kind==7)invalid.inventory.items[23]->row.item_id=1;
+		check(CombineUpgrade(&invalid,23,id)==TransferResult::Declined&&database.queries.empty(),"invalid context or payload accepted");
+	}
+	database={};Client stack;PrepareCombine(stack);stack.inventory.items[251]->stackable=true;stack.inventory.items[251]->SetCharges(4);
+	for(int16 slot:{252,253,254})stack.inventory.items.erase(slot);
+	database.inventory.clear();SaveRow(23,*stack.inventory.GetItem(23));SaveRow(251,*stack.inventory.GetItem(251));
+	database.definitions[401001].Stackable=true;database.definitions[401001].MaxCharges=20;
+	check(CombineUpgrade(&stack,23,id)==TransferResult::Delivered,"four stackable units rejected");
+	check(stack.inventory.GetItem(251)->IsStackable()&&stack.inventory.GetItem(251)->GetCharges()==1,"stackable output was not exactly one unit");
+	database={};Client stale;PrepareCombine(stale);database.inventory[0][2]="1";
+	check(CombineUpgrade(&stale,23,id)==TransferResult::Declined&&!stale.packets,"changed container preimage accepted");
+	database={};Client replay;PrepareCombine(replay);database.forged=true;
+	check(CombineUpgrade(&replay,23,id)==TransferResult::Declined&&!replay.packets,"receipt replayed");
+	database={};Client publish;PrepareCombine(publish);publish.inventory.fail_put=true;
+	check(CombineUpgrade(&publish,23,id)==TransferResult::Uncertain&&publish.quarantined,"publish failure not quarantined");
 }
 int main() { try {
 	using namespace NightcapLoot;
@@ -265,6 +365,7 @@ int main() { try {
 	check(ReceiveItem(&duplicate,source,{id,id})==TransferResult::Declined && database.queries.empty(),"duplicate physical IDs accepted");
 	check(!ValidDropID("wrong") && ValidDropID(id),"drop identity validation failed");
 	TestForge();
+	TestCombine();
 	for(const auto &query:successful)std::cout<<"SQL:"<<query<<"\n";
 	std::cout<<"PASS: actual loot and forge translation unit; inventory preimages, binding, replay, placement and every database failure/exception boundary\n";
 	return 0;
