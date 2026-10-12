@@ -1,5 +1,15 @@
 # Current Nightcap status
 
+## Instance Keeper visual follow-up — deployed October 12
+
+Permafrost player QA confirmed the waypoint portal is visible and functional;
+the remaining human was the separate Instance Keeper. PR #181 gives all seven
+custom dungeon Keepers a small floating-eye appearance, preserving instance
+controls and the portal. All 29 Perl assertions pass. Quest hashes, 12 completed
+reloads, process continuity and service health were verified. No client update
+or restart was needed; the eye's in-game rendering remains owner acceptance.
+[Evidence, rollback and exact QA](ops/keeper-visuals-20261012/README.md).
+
 ## Remove all item LORE - deployed October 12
 
 Owner-approved PR #180 is on main and Items:DisableLore=true is live on OVH.

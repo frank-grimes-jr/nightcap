@@ -57,4 +57,17 @@ checks are deployment evidence, not client rendering acceptance.
 4. Check Befallen `/loc -82, 35, 3` and one other Keeper. Discovery and recall
    should remain unchanged. Native unrelated NPCs are not part of this change.
 
-Deployment pending; rendered acceptance remains open.
+## Deployment result
+
+PR #181 merged to main and was activated on OVH October 12 at approximately
+2:32 p.m. Eastern. Deployed commit `63c8335ec9ba378a80bacebc460bce642b1abfe2`;
+the host and in-container quest SHA-256 both match
+`8ae628f60cc5913f55811cd4c3f0287873c792d904240f580624560418026d0f`.
+All 12 zone workers logged completed quest reloads; no quest/Perl errors were
+found in the bounded deployment window. World/zone PIDs and start ticks were
+unchanged. All five services stayed running and game/database remained healthy.
+The waypoint quest hash is unchanged. Refresh signals were sent to all seven
+Keeper types. [Sanitized evidence](deployment-evidence.json) records these checks.
+
+The earlier main/server authorization covers this corrective follow-up. The
+user-confirmed portal remains intact; floating-eye rendering acceptance is open.

@@ -1,0 +1,44 @@
+{
+  "deployment": {
+    "action": "apply",
+    "commit": "63c8335ec9ba378a80bacebc460bce642b1abfe2",
+    "sha256": "8ae628f60cc5913f55811cd4c3f0287873c792d904240f580624560418026d0f",
+    "quest_verified": true,
+    "signal_sent": true,
+    "rendered_acceptance": false
+  },
+  "observed_at_utc": "2026-10-12T18:32:48.843286+00:00",
+  "world_and_zone_processes_unchanged": true,
+  "waypoint_quest_unchanged": true,
+  "quest_hash_verified": true,
+  "quest_reload_completions": 12,
+  "quest_errors_in_window": 0,
+  "services": [
+    {
+      "Service": "db",
+      "State": "running",
+      "Health": "healthy"
+    },
+    {
+      "Service": "game",
+      "State": "running",
+      "Health": "healthy"
+    },
+    {
+      "Service": "gateway",
+      "State": "running",
+      "Health": ""
+    },
+    {
+      "Service": "tunnel",
+      "State": "running",
+      "Health": ""
+    },
+    {
+      "Service": "web",
+      "State": "running",
+      "Health": ""
+    }
+  ],
+  "rendered_acceptance": false
+}

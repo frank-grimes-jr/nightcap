@@ -6,8 +6,11 @@ Permafrost player QA confirmed the waypoint portal works, but the separate
 Instance Keeper still appears human. Give all seven custom dungeon Keepers a
 small globally loaded floating-eye appearance through their shared quest.
 Preserve the name, destination, targetability and all instance dialogue/control
-code. Thirteen new Keeper and 16 waypoint checks pass. This follows the existing
-main/server approval; live rendering acceptance remains open. Activation,
+code. Thirteen new Keeper and 16 waypoint checks pass. Under the existing
+main/server approval, PR #181 is merged and live on OVH. Exact quest hashes match,
+12 zone reloads completed without reported quest errors, all native processes
+stayed running, and the portal quest is unchanged. Eye rendering acceptance
+remains open. Activation,
 rollback and exact QA: `docs/ops/keeper-visuals-20261012/README.md`.
 
 ## 2026-10-12 - All-item LORE removal deployed

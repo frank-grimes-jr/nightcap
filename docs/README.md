@@ -16,6 +16,8 @@ Start with [current status](status.md), not a dated candidate report.
 
 ## Players and testers
 
+- [Instance Keeper visual follow-up: live deployment, rollback and QA](ops/keeper-visuals-20261012/README.md)
+
 - [Reusable Reforging Box: live deployment, recovery and exact QA](releases/item-upgrades-20261012/README.md)
 
 - [Waypoint portal visuals: live deployment, rollback and exact QA](ops/waypoint-visuals-20261011/README.md)
