@@ -261,11 +261,25 @@ inline void RequestManagementRefresh() {
     if (GetTickCount64() < next_management_refresh) return;
     if (ExecuteUIRequest("#nightcappet manage")) next_management_refresh = GetTickCount64() + 3000;
 }
-inline bool __fastcall PetAvailableHook(void* self, void*, unsigned command) {
+__declspec(noinline) inline bool __fastcall PetAvailablePolicy(void* self, void*, unsigned command) {
     // Let the authoritative server validate each pet's permissions. RoF2's
     // cached singular-pet flags cannot describe a mixed class roster.
     if (command < 34 && command != 30 && CurrentManagementIdentity() && pet_management.HasPets()) return true;
     return original_pet_available(self, command);
+}
+// RoF2's pet-arrival loop (VA 0x70F74F) calls the preference getter next
+// without reloading ECX. Its original leaf predicate preserves ECX/EDX;
+// an ordinary C++ hook may clobber them even with the correct __thiscall ABI.
+__declspec(naked) inline bool __fastcall PetAvailableHook(void*, void*, unsigned) {
+    __asm {
+        push ecx
+        push edx
+        push dword ptr [esp + 12]
+        call PetAvailablePolicy
+        pop edx
+        pop ecx
+        ret 4
+    }
 }
 inline bool NativePetCommand(void* window, void* sender, unsigned& command) {
     // CPetInfoWnd maps configurable native buttons into this capability array.

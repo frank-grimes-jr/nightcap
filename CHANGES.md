@@ -1,5 +1,19 @@
 # CHANGES
 
+## 2026-10-11 - Preserve native pet-window registers on summon
+
+Fixed the client pet-availability hook's stronger native calling contract:
+RoF2 reuses ECX immediately after this predicate when a pet arrives, while the
+C++ hook could overwrite it. A small x86 bridge preserves ECX/EDX, stack cleanup
+and the boolean result around the unchanged permission policy. This addresses
+the initial fault in Darthy's saved pet-summon crash log. Compiled regression
+fails before the fix and passes afterward; runtime and exact-client checks pass.
+Signed launcher publication and live summon acceptance remain pending. No server,
+database or installed-client mutation. Evidence and exact QA:
+`docs/ops/darthy-pet-crash-20261011.md`.
+
+
+
 ## 2026-10-11 - Waypoint portal visuals deployed
 
 Replace marker NPC 999240's human mesh with the global invisible actor plus
