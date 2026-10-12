@@ -1,5 +1,24 @@
 # CHANGES
 
+## 2026-10-12 - Deploy reusable item upgrades for owner live QA
+
+The owner approved main promotion and live deployment, including a full-game
+reconnect. PR #171 merged; the matched zone, Veyra quest, box/NPC rows and feature
+tables are installed and revision 2026101201 is enabled. All 12 zone processes
+match the linked release, the gateway is open, and the follow-up health check
+found zero restarts or detected native/quest/database errors. A fresh verified
+backup precedes installation; no database restore was performed.
+
+All 47 player-state tables, nine existing custom tables, unrelated content/rules,
+quests, published client files and existing item-cache records passed preservation
+checks. The new cache contains 309,410 items including box 900620. Eight rollout
+tests pass locally and on the host. Independent review tightened recovery to
+hold access closed after unexplained data or receipt changes before reopening;
+uncertain gateway acknowledgments retain subsequent player activity. The prior
+image and disable-only SQL are retained. Real client Combine, NPC appearance and
+progression-balance acceptance remain pending. Evidence and exact QA:
+`docs/releases/item-upgrades-20261012/deployment.json` and `QA.md`.
+
 ## 2026-10-12 - Reusable four-for-one item upgrade candidate
 
 Artisan Veyra supplies a free four-slot Reforging Box in the East Commonlands
