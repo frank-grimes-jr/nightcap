@@ -169,6 +169,7 @@ int main() {
     def test_actual_sellall_uses_same_fixed_payout(self):
         source = (CODE/'zone/gm_commands/sell_all.cpp').read_text(encoding='utf-8')
         method = body(source, 'static uint64 SellAllSlot(')
+        supplies = body(source, 'static bool IsSellAllSupply(')
         self.compile_run('''
 #include "common/item_trade_policy.h"
 #include <cassert>
@@ -176,8 +177,9 @@ int main() {
 using uint64=uint64_t; using uint32=uint32_t; using int16=int16_t;
 #define RuleR(category, name) 2.5
 namespace EQ {
+namespace item { enum { ItemTypeFood=14,ItemTypeDrink=15 }; }
 struct ItemData {
- uint32 Price=0,FixedSellPrice=0; bool NoDrop=true,NoRent=true,bag=false;
+ uint32 ID=100,Price=0,FixedSellPrice=0; int ItemType=0; bool NoDrop=true,NoRent=true,bag=false;
  bool IsClassBag() const { return bag; }
 };
 struct ItemInstance {
@@ -194,7 +196,9 @@ struct Client {
  void AddMoneyToPP(uint64 price, bool) { money+=price; }
  void DeleteItemInInventory(int16, int quantity, bool) { deleted=quantity; }
 };
-''' + method + '''
+struct Spell { int component[4]={-1,-1,-1,-1}; int no_expend_reagent[4]={-1,-1,-1,-1}; };
+Spell records[1]; const Spell *spells=records; int SPDAT_RECORDS=1;
+''' + supplies + '\n' + method + '''
 int main() {
  EQ::ItemInstance item; Client c{{&item}};
  item.item.Price=7500000; item.item.FixedSellPrice=1000;

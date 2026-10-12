@@ -1,6 +1,31 @@
 #include "zone/client.h"
 #include "common/rulesys.h"
 #include "common/item_trade_policy.h"
+#include "common/spdat.h"
+
+static bool IsSellAllSupply(const EQ::ItemData *item)
+{
+	if (item->ItemType == EQ::item::ItemTypeFood || item->ItemType == EQ::item::ItemTypeDrink) {
+		return true;
+	}
+
+	// Fail closed until spell data is available. Read the current table so a
+	// spell reload cannot leave a stale reagent cache. Protect every class/era.
+	if (!spells || SPDAT_RECORDS <= 0) {
+		return true;
+	}
+	for (int spell_id = 0; spell_id < SPDAT_RECORDS; ++spell_id) {
+		for (int slot = 0; slot < 4; ++slot) {
+			if ((spells[spell_id].component[slot] > 0 &&
+				static_cast<uint32>(spells[spell_id].component[slot]) == item->ID) ||
+				(spells[spell_id].no_expend_reagent[slot] > 4 &&
+				static_cast<uint32>(spells[spell_id].no_expend_reagent[slot]) == item->ID)) {
+				return true;
+			}
+		}
+	}
+	return false;
+}
 
 // #35: player-facing #sellall -- vendors everything in general inventory and
 // bag contents, keeping the bags themselves. No merchant target needed; pays
@@ -20,7 +45,7 @@ static uint64 SellAllSlot(Client *c, int16 slot_id)
 	}
 
 	// Keep containers. The universal former-NO-DROP policy includes summoned items.
-	if (item->IsClassBag() || !item->NoDrop || (!item->NoRent && !item->FixedSellPrice) || !item->Price) {
+	if (item->IsClassBag() || !item->NoDrop || (!item->NoRent && !item->FixedSellPrice) || !item->Price || IsSellAllSupply(item)) {
 		return 0;
 	}
 
@@ -64,7 +89,7 @@ void command_sell_all(Client *c, const Seperator *sep)
 	}
 
 	if (!sold) {
-		c->Message(Chat::White, "Nothing sellable in your inventory. Containers are kept; ordinary temporary and zero-value items are skipped.");
+		c->Message(Chat::White, "Nothing sellable in your inventory. Containers, food, drink, and spell reagents are kept; ordinary temporary and zero-value items are skipped.");
 		return;
 	}
 

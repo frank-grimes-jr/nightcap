@@ -1,5 +1,16 @@
 # CHANGES
 
+## 2026-10-12 - Sell-all preserves food and spell reagents
+
+`#sellall` keeps food, drink, loaded spell reagents (including Bone Chips), and
+casting focus items in general inventory and bags, including fixed-resale
+supplies. Current ordinary and former-NO-DROP payouts remain unchanged. Spell
+reloads refresh protection automatically; unavailable spell data blocks sales.
+Command help and empty-sale messages list the exclusions. Owner authorized main
+and server deployment; exact QA and release evidence:
+`docs/ops/sellall-supplies-20261012/README.md`. Manual acceptance remains pending.
+
+
 ## 2026-10-12 - Sell All button on merchant windows
 
 Added a shared Nightcap merchant footer button that invokes the existing
