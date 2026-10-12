@@ -16,6 +16,8 @@ Start with [current status](status.md), not a dated candidate report.
 
 ## Players and testers
 
+- [Reusable Reforging Box: live deployment, recovery and exact QA](releases/item-upgrades-20261012/README.md)
+
 - [Waypoint portal visuals: live deployment, rollback and exact QA](ops/waypoint-visuals-20261011/README.md)
 
 - [Food/drink removal: live deployment, recovery and exact QA](ops/food-drink-removal-20261011/README.md)

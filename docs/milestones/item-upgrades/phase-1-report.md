@@ -9,9 +9,9 @@ Policy, actual inventory translation-unit failures, six quest assertions,
 pass. Independent review's stackable quantity finding is fixed and regression
 covered. Evidence: `docs/releases/item-upgrades-20261012/`.
 
-Pending: native binary deployment, real client Combine behavior,
-appearance/placement acceptance, progression balance and owner sign-off. No
-production changes were made. Exact manual steps are in the release QA guide.
+Pending: real client Combine behavior, appearance/placement acceptance,
+progression balance and owner acceptance. Exact manual steps are in the release
+QA guide. The initial candidate stage made no production changes.
 
 Follow-up release preparation verified production identities/templates and all
 12 live zone hashes read-only. The isolated full-build packager preserves the
@@ -22,5 +22,13 @@ regressions pass. Stale disabled-spawn and respawn-timer guards are rehearsed.
 The complete zone server now links successfully with resolved runtime libraries.
 The retained 90,319,484-byte archive passed exact member/hash checks both in the
 container and after copying to the local artifact folder. `linked-build.json`
-records the binary, archive, native source and payload provenance. No live
-installation, restart or player acceptance has occurred.
+records the binary, archive, native source and payload provenance.
+
+The owner subsequently approved main promotion and live deployment for QA.
+PR #171 merged and the guarded rollout completed, including a verified fresh
+backup, brief full-runtime reconnect, cache regeneration and feature activation.
+All 12 zones match the release, zero new-runtime restarts/errors were detected,
+and preservation checks passed for all 47 player-state tables and nine custom
+tables. Independent rollout review's recovery preservation finding is fixed;
+eight rollout tests pass locally and on the host. Player access is open. Native
+deployment is complete; manual acceptance remains pending.

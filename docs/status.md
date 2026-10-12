@@ -1,14 +1,18 @@
 # Current Nightcap status
 
-## Reusable item upgrades — test candidate, October 12
+## Reusable item upgrades — deployed for live QA, October 12
 
-The Reforging Box feature is on test through PR #168. Artisan Veyra supplies the
+Owner-approved PR #171 is merged into main and deployed. Artisan Veyra supplies the
 free reusable box in the East Commonlands tunnel: four Polished copies become
 one Exalted item, and four Exalted copies become one top-tier item. The complete
 zone build and verified local deployment bundle pass, along with native inventory
-regressions, 28 disposable database checks, quest and packaging tests. Production
-has only been inspected read-only; no installation or restart has occurred.
-Main/live promotion and real client acceptance remain owner gates.
+regressions, 28 disposable database checks, quest and packaging tests. The fresh
+backup and eight rollout recovery tests passed. The gateway is open, all 12 zone
+processes match the release, and the new runtime has zero restarts or detected
+native/quest/database errors. All 47 player-state tables, nine existing custom
+tables and unrelated cached items passed preservation checks. Revision 2026101201
+is enabled. Real client Combine, NPC appearance and balance acceptance remain
+pending; deployment approval is not manual acceptance.
 [Evidence, activation and rollback](releases/item-upgrades-20261012/README.md) ·
 [Exact in-game QA](releases/item-upgrades-20261012/QA.md).
 
