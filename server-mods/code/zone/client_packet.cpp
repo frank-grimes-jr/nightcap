@@ -1,4 +1,6 @@
 #include "common/zone_hunt_catalog.h"
+#include "common/item_upgrade_policy.h"
+#include "zone/advanced_loot_inventory.h"
 /*	EQEMu: Everquest Server Emulator
 Copyright (C) 2001-2016 EQEMu Development Team (http://eqemulator.net)
 
@@ -15359,6 +15361,7 @@ void Client::Handle_OP_TradeAcceptClick(const EQApplicationPacket *app)
 		QueuePacket(outapp);
 		safe_delete(outapp);
 		if (with->IsNPC()) {
+
 			FinishTrade(with->CastToNPC());
 		}
 		// TODO: Log Bot trades
@@ -15708,6 +15711,18 @@ void Client::Handle_OP_TradeSkillCombine(const EQApplicationPacket *app)
 
 	// Delegate to tradeskill object to perform combine
 	NewCombine_Struct* in_combine = (NewCombine_Struct*)app->pBuffer;
+	const auto container = m_inv.GetItem(in_combine->container_slot);
+	if (container && container->GetID() == NightcapUpgrade::ContainerID) {
+		const auto result = NightcapLoot::CombineUpgrade(this, in_combine->container_slot, NightcapLoot::NewDropID());
+		if (result == NightcapLoot::TransferResult::Uncertain) { return; }
+		Message(result == NightcapLoot::TransferResult::Delivered ? Chat::Green : Chat::Yellow,
+			result == NightcapLoot::TransferResult::Delivered
+				? "Four copies became one upgraded item inside your reforging box. The box can be used again."
+				: "No items were changed. Combine exactly four identical Polished or Exalted items. Remove augments and customization, and finish combat or trading first.");
+		auto reply = new EQApplicationPacket(OP_TradeSkillCombine, 0);
+		QueuePacket(reply); safe_delete(reply);
+		return;
+	}
 	Object::HandleCombine(this, in_combine, m_tradeskill_object);
 	return;
 }

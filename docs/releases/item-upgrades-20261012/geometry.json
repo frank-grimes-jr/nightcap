@@ -1,0 +1,62 @@
+{
+  "map": "/home/eqemu/server/maps/base/ecommons.map",
+  "points": [
+    {
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": 0.0,
+          "headroom": 30.0
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": 0.0,
+          "headroom": 30.0
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": 0.0,
+          "headroom": 30.0
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": true,
+          "ground_z": 0.0,
+          "headroom": 30.0
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": true,
+          "ground_z": 0.0,
+          "headroom": 30.0
+        }
+      ],
+      "x": -385,
+      "y": -1818,
+      "z": 3.75
+    }
+  ],
+  "segments": [
+    {
+      "blocked": false,
+      "from": [
+        -385,
+        -1806,
+        7.5
+      ],
+      "to": [
+        -385,
+        -1818,
+        7.5
+      ]
+    }
+  ]
+}

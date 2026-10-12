@@ -436,6 +436,15 @@ matching client publication. Manual gameplay acceptance remains open; see
 
 ## Changelog
 
+### Reusable item upgrades candidate
+
+The Reforging Box candidate uses native inventory transactions, not NPC ingredient
+hand-ins: four Polished or Exalted copies yield one next-tier item. Box 900620 is
+supplied by tunnel NPC 999820. Higher-tier `#zoneforge` costs also become four;
+base remains three. Installation starts disabled and needs matching zone/item
+cache/quest deployment. Evidence and required manual QA:
+`docs/releases/item-upgrades-20261012/`. This is not a live deployment record.
+
 **Always update `CHANGES.md`** when making significant changes — C++ patches, database schema changes, quest script additions, or SQL setup file corrections. Include: what changed, why, any gotchas. This is the primary audit trail for this repo since many changes touch the live database or compiled binaries and aren't fully captured by git diffs alone.
 
 Format: date header, area, description. Most recent entry at the top.

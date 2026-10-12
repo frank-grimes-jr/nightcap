@@ -1,0 +1,71 @@
+{
+  "status": "passed",
+  "scope": "Native object compilation and native map raycast; not deployed gameplay",
+  "sources": {
+    "advanced_loot_inventory.cpp": "461efebc67647852399f311169ef133b802d3db24f3c3b5929ca23cf98bc2416",
+    "client_packet.cpp": "d2b425dc522d7b179be2c394228834a4062a4fe76771fc599dd4fada43743b5b",
+    "zone_hunt_forge.cpp": "23cb42e02252bf197636908cb0bc6eb9c32c0fac910e3fd16a3cd14287139262"
+  },
+  "geometry": {
+    "map": "/home/eqemu/server/maps/base/ecommons.map",
+    "points": [
+      {
+        "samples": [
+          {
+            "dx": 0.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": 0.0,
+            "headroom": 30.0
+          },
+          {
+            "dx": 4.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": 0.0,
+            "headroom": 30.0
+          },
+          {
+            "dx": -4.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": 0.0,
+            "headroom": 30.0
+          },
+          {
+            "dx": 0.0,
+            "dy": 4.0,
+            "ground_hit": true,
+            "ground_z": 0.0,
+            "headroom": 30.0
+          },
+          {
+            "dx": 0.0,
+            "dy": -4.0,
+            "ground_hit": true,
+            "ground_z": 0.0,
+            "headroom": 30.0
+          }
+        ],
+        "x": -385,
+        "y": -1818,
+        "z": 3.75
+      }
+    ],
+    "segments": [
+      {
+        "blocked": false,
+        "from": [
+          -385,
+          -1806,
+          7.5
+        ],
+        "to": [
+          -385,
+          -1818,
+          7.5
+        ]
+      }
+    ]
+  }
+}
