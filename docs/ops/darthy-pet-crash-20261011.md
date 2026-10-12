@@ -1,10 +1,11 @@
-# Darthy pet summon crash — October 11, 2026
+# Darthy pet summon crash â€” October 11, 2026
 
 ## Status and scope
 
 Client proxy fix prepared on `feature/pet-summon-crash`; not installed or
 published. Production and the installed `E:\Nightcap` client remain unchanged.
-Owner in-game acceptance and main/hosted promotion remain pending.
+Owner approved main promotion and server publication on October 11, 2026.
+In-game acceptance remains pending; publication evidence will be recorded below.
 
 ## Evidence
 

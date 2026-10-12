@@ -1,0 +1,182 @@
+{
+  "verified_at_utc": "2026-10-11T23:31:51.524358+00:00",
+  "main_merge": "d05886fa84279ee3c10e90d4db9afe4bd7fb8cda",
+  "pull_request": "https://github.com/frank-grimes-jr/nightcap/pull/162",
+  "preflight": {
+    "manifest_sha256": "66eebb7f63a8d67c3ac11b1a83b351e4f93e0c2693c1ea45010e636574f8ba0b",
+    "old_image_id": "sha256:0c8939425172b588af1c30ac9a1a4df0f193992bee80809e52e5c748f5ad069c",
+    "new_image_id": "sha256:a72aa7931198ec96f67f69432ecccabc78640ce20de75d3da6f23e647c5be903",
+    "backup": {
+      "path": "/opt/nightcap/releases/food-drink-removal-20261011/private-backup/peq-before.sql.gz",
+      "sha256": "66bc98e77f36e8baedf1d3d1c062c52d3a5893a6fc3e7a4625a415d2798d3f9a",
+      "compressed_bytes": 63013994,
+      "uncompressed_bytes": 448710293,
+      "gzip_integrity": "passed"
+    }
+  },
+  "rule_values_sha256": "06ac2cbdf223cb61968f733cc0407b42bbbc7197e9dfc8d97f1b08211652e6f8",
+  "baseline_restarts": 1,
+  "activated": {
+    "runtime": {
+      "image_id": "sha256:a72aa7931198ec96f67f69432ecccabc78640ce20de75d3da6f23e647c5be903",
+      "started_at": "2026-10-11T23:29:37.874426248Z",
+      "restart_count": 0,
+      "processes": [
+        [
+          "loginserver",
+          "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf"
+        ],
+        [
+          "world",
+          "efd54a1023a569274a76f65d3d2a18a173906762472a1bce186e3e14629d3c18"
+        ],
+        [
+          "ucs",
+          "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714"
+        ],
+        [
+          "zone",
+          "989e64c181b002a4f34562af71389ed3b54a93ce707856cb85e9a19cab0fcf03"
+        ],
+        [
+          "zone",
+          "989e64c181b002a4f34562af71389ed3b54a93ce707856cb85e9a19cab0fcf03"
+        ],
+        [
+          "zone",
+          "989e64c181b002a4f34562af71389ed3b54a93ce707856cb85e9a19cab0fcf03"
+        ],
+        [
+          "zone",
+          "989e64c181b002a4f34562af71389ed3b54a93ce707856cb85e9a19cab0fcf03"
+        ],
+        [
+          "zone",
+          "989e64c181b002a4f34562af71389ed3b54a93ce707856cb85e9a19cab0fcf03"
+        ],
+        [
+          "zone",
+          "989e64c181b002a4f34562af71389ed3b54a93ce707856cb85e9a19cab0fcf03"
+        ],
+        [
+          "zone",
+          "989e64c181b002a4f34562af71389ed3b54a93ce707856cb85e9a19cab0fcf03"
+        ],
+        [
+          "zone",
+          "989e64c181b002a4f34562af71389ed3b54a93ce707856cb85e9a19cab0fcf03"
+        ],
+        [
+          "zone",
+          "989e64c181b002a4f34562af71389ed3b54a93ce707856cb85e9a19cab0fcf03"
+        ],
+        [
+          "zone",
+          "989e64c181b002a4f34562af71389ed3b54a93ce707856cb85e9a19cab0fcf03"
+        ],
+        [
+          "zone",
+          "989e64c181b002a4f34562af71389ed3b54a93ce707856cb85e9a19cab0fcf03"
+        ],
+        [
+          "zone",
+          "989e64c181b002a4f34562af71389ed3b54a93ce707856cb85e9a19cab0fcf03"
+        ]
+      ],
+      "errors": {
+        "native": 0,
+        "quest": 0,
+        "database": 0
+      }
+    },
+    "gateway_open": true,
+    "player_tables_preserved": 47,
+    "custom_tables_preserved": 9,
+    "database_restored": false,
+    "backup": {
+      "path": "/opt/nightcap/releases/food-drink-removal-20261011/private-backup/peq-before.sql.gz",
+      "sha256": "66bc98e77f36e8baedf1d3d1c062c52d3a5893a6fc3e7a4625a415d2798d3f9a",
+      "compressed_bytes": 63013994,
+      "uncompressed_bytes": 448710293,
+      "gzip_integrity": "passed"
+    }
+  },
+  "followup": {
+    "status": "healthy",
+    "runtime": {
+      "image_id": "sha256:a72aa7931198ec96f67f69432ecccabc78640ce20de75d3da6f23e647c5be903",
+      "started_at": "2026-10-11T23:29:37.874426248Z",
+      "restart_count": 0,
+      "processes": [
+        [
+          "loginserver",
+          "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf"
+        ],
+        [
+          "world",
+          "efd54a1023a569274a76f65d3d2a18a173906762472a1bce186e3e14629d3c18"
+        ],
+        [
+          "ucs",
+          "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714"
+        ],
+        [
+          "zone",
+          "989e64c181b002a4f34562af71389ed3b54a93ce707856cb85e9a19cab0fcf03"
+        ],
+        [
+          "zone",
+          "989e64c181b002a4f34562af71389ed3b54a93ce707856cb85e9a19cab0fcf03"
+        ],
+        [
+          "zone",
+          "989e64c181b002a4f34562af71389ed3b54a93ce707856cb85e9a19cab0fcf03"
+        ],
+        [
+          "zone",
+          "989e64c181b002a4f34562af71389ed3b54a93ce707856cb85e9a19cab0fcf03"
+        ],
+        [
+          "zone",
+          "989e64c181b002a4f34562af71389ed3b54a93ce707856cb85e9a19cab0fcf03"
+        ],
+        [
+          "zone",
+          "989e64c181b002a4f34562af71389ed3b54a93ce707856cb85e9a19cab0fcf03"
+        ],
+        [
+          "zone",
+          "989e64c181b002a4f34562af71389ed3b54a93ce707856cb85e9a19cab0fcf03"
+        ],
+        [
+          "zone",
+          "989e64c181b002a4f34562af71389ed3b54a93ce707856cb85e9a19cab0fcf03"
+        ],
+        [
+          "zone",
+          "989e64c181b002a4f34562af71389ed3b54a93ce707856cb85e9a19cab0fcf03"
+        ],
+        [
+          "zone",
+          "989e64c181b002a4f34562af71389ed3b54a93ce707856cb85e9a19cab0fcf03"
+        ],
+        [
+          "zone",
+          "989e64c181b002a4f34562af71389ed3b54a93ce707856cb85e9a19cab0fcf03"
+        ],
+        [
+          "zone",
+          "989e64c181b002a4f34562af71389ed3b54a93ce707856cb85e9a19cab0fcf03"
+        ]
+      ],
+      "errors": {
+        "native": 0,
+        "quest": 0,
+        "database": 0
+      }
+    },
+    "gateway_open": true,
+    "player_tables_preserved": 47,
+    "custom_tables_preserved": 9
+  }
+}

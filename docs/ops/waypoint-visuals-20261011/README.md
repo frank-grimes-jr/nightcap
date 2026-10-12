@@ -1,6 +1,7 @@
 # Waypoint visual repair — October 11, 2026
 
-Candidate: **not deployed**. The owner reported two human males in Befallen.
+Owner-approved PR #163 was merged and deployed on October 11, 2026.
+In-game rendering acceptance remains pending. The owner reported two human males in Befallen.
 Production inspection found marker NPC 999240 and Instance Keeper 999227 at
 world X=35, Y=-82, Z=3. Both intentionally use race 1, gender 0. This is not
 a duplicate waypoint or a missing-model fallback. All 72 marker spawn rows
@@ -34,7 +35,27 @@ Run `perl tools/tests/waypoint_visuals.t` and
 The regression initially failed for missing mesh replacement, missing effect
 and missing live refresh. All 16 assertions now pass, including unchanged
 discovery bounds, duplicate discovery silence, Explorer completion and refresh
-idempotence. No production writes have occurred.
+idempotence. Eight adjacent Crushbone placement regressions also passed.
+
+## Production verification
+
+Activated main commit `fd7307ea1334ff923700c29b2bd5347865edafd0` at approximately
+7:40 p.m. Eastern on October 11. The host file and in-container quest both have
+SHA-256 `f8fe9a8783e28b6685104a73769cf083c17ef5c411c9bc616e9fc3a420684e65`.
+All 12 zone workers logged completed quest reloads. No quest/Perl errors appeared
+in the bounded deployment log window. World and all 12 zones retained the exact
+same PIDs and process start ticks. All five services remained running, with game
+and database healthy. The scoped refresh signal was sent to NPC type 999240;
+this is delivery evidence, not a rendered-client acknowledgement.
+
+The original quest and candidate are retained under
+`/opt/nightcap/backups/waypoint-visuals-20261011/`. The original hash is
+`78edf254f2b484c6d8855059b1ecddb062b5dae6f64f3c70f7a771fb9f0ec0b4`.
+Sanitized [deployment evidence](deployment-evidence.json) records the hashes,
+process continuity, service health and reload count. Raw before/after captures
+and read-only audit helper are in `artifacts/waypoint-visuals-20261011/` locally.
+
+## Activation and recovery commands
 
 Use `python docs/ops/waypoint-visuals-20261011/run.py check` for the packaged
 syntax/regression checks. After owner approval and promotion to main, `apply`
@@ -68,6 +89,6 @@ constitute an in-game effect acknowledgement.
 6. Check Crushbone `/loc -644, 158, 4` and one outdoor waypoint. Verify no new
    human marker, duplicate effect, discovery change or relocation.
 
-The standard `feature → dev → test → main` gate applies. Promotion to main and
-production activation await owner sign-off; the earlier release exceptions do
-not authorize this candidate.
+The candidate passed `feature → dev → test`. The owner explicitly approved
+main promotion and server activation on October 11; rendered acceptance remains
+an open live QA check.
