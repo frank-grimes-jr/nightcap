@@ -1,0 +1,134 @@
+{
+  "release": "item-upgrades-20261012",
+  "captured_at": "2026-10-12T14:07:40.717948+00:00",
+  "status": "deployed_for_owner_game_qa",
+  "manual_acceptance": "pending",
+  "authorization": "Owner approved main promotion and live deployment for QA, including a brief full-game reconnect.",
+  "main_pr": "https://github.com/frank-grimes-jr/nightcap/pull/171",
+  "main_merge": "2887f0a64723ed2c43535bd7cf990e23fad19fb6",
+  "image_id": "sha256:5e8a26cf1275758dc78ae4327f520389c98e01dcba3ffaed42e8f84ce7502022",
+  "rollback_image_id": "sha256:a72aa7931198ec96f67f69432ecccabc78640ce20de75d3da6f23e647c5be903",
+  "feature_state": {
+    "id": 1,
+    "revision": 2026101201,
+    "enabled": 1
+  },
+  "runtime": {
+    "image_id": "sha256:5e8a26cf1275758dc78ae4327f520389c98e01dcba3ffaed42e8f84ce7502022",
+    "started_at": "2026-10-12T14:02:55.775372961Z",
+    "restart_count": 0,
+    "processes": [
+      [
+        "loginserver",
+        "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf"
+      ],
+      [
+        "world",
+        "efd54a1023a569274a76f65d3d2a18a173906762472a1bce186e3e14629d3c18"
+      ],
+      [
+        "ucs",
+        "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714"
+      ],
+      [
+        "zone",
+        "f44c318a551186cf9f8c5099d6649326910050a9640e19507cda1ef6392c8aeb"
+      ],
+      [
+        "zone",
+        "f44c318a551186cf9f8c5099d6649326910050a9640e19507cda1ef6392c8aeb"
+      ],
+      [
+        "zone",
+        "f44c318a551186cf9f8c5099d6649326910050a9640e19507cda1ef6392c8aeb"
+      ],
+      [
+        "zone",
+        "f44c318a551186cf9f8c5099d6649326910050a9640e19507cda1ef6392c8aeb"
+      ],
+      [
+        "zone",
+        "f44c318a551186cf9f8c5099d6649326910050a9640e19507cda1ef6392c8aeb"
+      ],
+      [
+        "zone",
+        "f44c318a551186cf9f8c5099d6649326910050a9640e19507cda1ef6392c8aeb"
+      ],
+      [
+        "zone",
+        "f44c318a551186cf9f8c5099d6649326910050a9640e19507cda1ef6392c8aeb"
+      ],
+      [
+        "zone",
+        "f44c318a551186cf9f8c5099d6649326910050a9640e19507cda1ef6392c8aeb"
+      ],
+      [
+        "zone",
+        "f44c318a551186cf9f8c5099d6649326910050a9640e19507cda1ef6392c8aeb"
+      ],
+      [
+        "zone",
+        "f44c318a551186cf9f8c5099d6649326910050a9640e19507cda1ef6392c8aeb"
+      ],
+      [
+        "zone",
+        "f44c318a551186cf9f8c5099d6649326910050a9640e19507cda1ef6392c8aeb"
+      ],
+      [
+        "zone",
+        "f44c318a551186cf9f8c5099d6649326910050a9640e19507cda1ef6392c8aeb"
+      ]
+    ],
+    "errors": {
+      "native": 0,
+      "quest": 0,
+      "database": 0
+    }
+  },
+  "gateway_open": true,
+  "backup": {
+    "path": "/opt/nightcap/releases/item-upgrades-20261012/private-backup/peq-before.sql.gz",
+    "sha256": "95504e78d3e36f4665408dad09d3bd68919a86b0b2c85649cc6bfa3deb177365",
+    "compressed_bytes": 62970706,
+    "uncompressed_bytes": 448333506,
+    "gzip_integrity": "passed"
+  },
+  "database_restored": false,
+  "player_tables_preserved": 47,
+  "custom_tables_preserved": 9,
+  "unrelated_content_preserved": [
+    "items",
+    "npc_types",
+    "spawngroup",
+    "spawn2",
+    "spawnentry",
+    "spells_new",
+    "merchantlist"
+  ],
+  "other_quest_plugin_files_preserved": 8139,
+  "published_client_files_preserved": [
+    "channel.json",
+    "launcher-channel.json",
+    "nightcap-friends.zip",
+    "guide.html"
+  ],
+  "services_preserved": [
+    "db",
+    "web",
+    "tunnel"
+  ],
+  "cache": {
+    "items_checked": 309410,
+    "box_verified": true,
+    "other_items_sha256": "74702ab11c8017c89b7d7d424c01cdeaeb99e759cc63c148659d0c44733c4219"
+  },
+  "npc_spawn_rows_verified": true,
+  "npc_client_appearance": "pending",
+  "rollout_tests": 8,
+  "independent_review": "passed after recovery preservation gate correction",
+  "package": {
+    "sha256": "049e9fa74bdc739e2af5f7060e699d76068344a7f13d713363e06ff0a6140da0",
+    "bytes": 90440713,
+    "rollout_tests": 8
+  }
+}
