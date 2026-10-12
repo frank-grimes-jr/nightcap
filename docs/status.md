@@ -1,5 +1,18 @@
 # Current Nightcap status
 
+## Sell-all supply protection — deployed October 12
+
+Owner-approved PR #183 is on main and live on OVH. `#sellall` and the merchant
+Sell All button preserve food, drink, spell reagents such as Bone Chips, and
+casting focus items in carried slots and bags. Existing loot payouts remain.
+The compiled command passes 33 checks, seven existing resale/upgrade tests pass,
+and eight recovery tests pass. All 12 running zone hashes match; gateway access
+is open with zero new restarts or detected native/quest/database errors. A fresh
+verified backup and closed-gateway player/content/rule preservation checks passed.
+No client update is needed. Real inventory, payout and relog acceptance remains
+owner in-game QA. [Deployment, recovery and exact QA](ops/sellall-supplies-20261012/README.md).
+
+
 ## Merchant Sell All button — published October 12
 
 Owner-approved PR #182 is on main. Signed client release 2026101201 adds a

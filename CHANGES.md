@@ -6,8 +6,11 @@
 casting focus items in general inventory and bags, including fixed-resale
 supplies. Current ordinary and former-NO-DROP payouts remain unchanged. Spell
 reloads refresh protection automatically; unavailable spell data blocks sales.
-Command help and empty-sale messages list the exclusions. Owner authorized main
-and server deployment; exact QA and release evidence:
+Command help and empty-sale messages list the exclusions. Owner-authorized
+PR #183 is merged to main and deployed on OVH. All 33 command checks, seven
+existing policy tests, eight recovery tests and 12 running zone hashes pass.
+The gateway is open and saved-data/rule/content checks passed after a verified
+backup and graceful restart. Exact QA and release evidence:
 `docs/ops/sellall-supplies-20261012/README.md`. Manual acceptance remains pending.
 
 

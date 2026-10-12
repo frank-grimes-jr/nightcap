@@ -1,6 +1,9 @@
 # Sell-all supply protection — October 12, 2026
 
 The owner explicitly authorized main promotion and production deployment.
+[PR #183](https://github.com/frank-grimes-jr/nightcap/pull/183) is merged and the release is live on OVH.
+All 12 zone hashes match, access is open and follow-up health checks pass.
+Manual client acceptance remains pending.
 `#sellall` preserves food, drink, every loaded spell reagent (including
 Bone Chips), and casting focus items, in general slots and bag contents. This
 applies to all classes and eras and overrides fixed resale eligibility. The
@@ -55,3 +58,23 @@ restarts the full runtime when a native child exits, so do not kill one zone.
 
 Deployment verification and manual client acceptance are separate; QA remains
 pending until the owner reports results.
+
+## Verified deployment
+
+Verified at `2026-10-12T19:56:39.250907+00:00`. Main merge: `890a9c0708dfdc4e967340c4b3b6bcc0889a8b9c`.
+New immutable image: `sha256:4c0f464d64b6eb5dc787aaff380f4fbee41f2de8365e2622cb5fcc11cb940541`.
+Zone SHA-256: `6a548967fb7af03b60144c4b40c61f383d003011ac3b313370a907d10b7d7537`.
+
+The full backup passed gzip integrity and completion checks before downtime.
+The graceful game stop passed; 47 player/state tables and
+11 custom tables matched after restart while access was closed. All rules
+and content checksums matched. Other native binaries, supervisor, quests,
+client release and database/web/tunnel services passed preservation checks.
+The gateway is open with zero new runtime restarts or detected native, quest
+or database errors. No SQL restore ran and no client update is needed.
+
+Remote release: `/opt/nightcap/releases/sellall-supplies-20261012/`.
+Local complete build/deployment evidence: `E:/EQ_Local_Dev/artifacts/sellall-supplies-20261012/`.
+Rollback image: `sha256:5e8a26cf1275758dc78ae4327f520389c98e01dcba3ffaed42e8f84ce7502022`;
+rollback zone hash: `f44c318a551186cf9f8c5099d6649326910050a9640e19507cda1ef6392c8aeb`. Use the recovery procedure above
+with those recorded identities and retain current player data.
