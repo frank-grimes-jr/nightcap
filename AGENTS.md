@@ -37,6 +37,12 @@ All commands run from `akk-stack/`:
 - `Start Nightcap GM.cmd` opens the owner-local UI. API binds only `127.0.0.1:3001`; Vite development binds loopback `5173`.
 - `Start Nightcap GM Production.cmd` starts the owner-approved main release with production writes. Both shortcuts reuse the existing process without changing its mode; local session capabilities let the UI open even when SSH/DB is unavailable.
 - Production writes require the reviewed release on `origin/main` and `tools/start-gm.ps1 -EnableProductionWrites`. Default startup is a read-only production preview.
+- Character boosts must set cumulative XP using the native float32 threshold,
+  preserve valid same-level progress and highest attained level, and credit new
+  lifetime training points once. Never set `exp=0` for a level above1. Run
+  `tools/tests/test_boost_xp.py` against changed native XP formulas; zone/Lua
+  curve changes require revalidating the GM adapter. Incident and repair:
+  `docs/ops/darthy-boost-20261012/README.md`.
 - GM character/rule/vendor/deletion changes require explicit maintenance. A database advisory fence prevents resume while SQL is in flight. Do not bypass it or kill individual production zones.
 - `npm test`, `npm run typecheck`, `npm run build`, `npm run test:browser` are the GM checks. Real disposable-DB and maintenance rehearsal details: `docs/ops/production-gm-20261010.md`.
 

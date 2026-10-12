@@ -5,8 +5,9 @@
 Owner-approved [PR #166](https://github.com/frank-grimes-jr/nightcap/pull/166)
 is merged into main (`ba3881766d50159966f0e0a98fda7dc0ac57b57d`). Signed
 client release **2026101101** is published on OVH, replacing 2026101001.
-The launcher must update the installed client before testing. In-game acceptance
-remains pending; no successful live summon is claimed.
+On October 12, 2026, the owner confirmed that the reported pet-summon crash
+is resolved after publication. This closes the reported crash; the confirmation
+does not independently attest to every broader control/zone checklist step below.
 
 ## Evidence
 
@@ -57,8 +58,8 @@ identity, mismatched identity, and empty roster fallback. The runtime suite
 and exact installed-client signature verification passed. Independent review
 found no implementation defect; its fallback coverage suggestion was added.
 
-This proves the register-preservation fix in the compiled fixture. It does not
-claim an observed successful pet summon in the live game.
+The automated checks prove register preservation in the compiled fixture.
+The subsequent owner confirmation above supplies acceptance for the reported crash.
 
 ## Publication evidence
 
