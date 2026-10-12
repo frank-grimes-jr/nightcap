@@ -1,0 +1,40 @@
+{
+  "release": "item-upgrades-20261012",
+  "main_merge": "2887f0a64723ed2c43535bd7cf990e23fad19fb6",
+  "authorization": "Owner: Approve live deployment for QA (2026-10-12), including main promotion and brief full-game reconnect",
+  "runtime_helper_sha256": "a3242bee3e8d4a7e60ea81bbd6fd34587201b712247665f3c03673733b95a811",
+  "base_binaries": {
+    "world": "efd54a1023a569274a76f65d3d2a18a173906762472a1bce186e3e14629d3c18",
+    "zone": "989e64c181b002a4f34562af71389ed3b54a93ce707856cb85e9a19cab0fcf03",
+    "shared_memory": "91664a87eac78306e8a76ab4cb923ba1f03c2d0da180278db6b6cf9b6607c0ef",
+    "ucs": "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714",
+    "loginserver": "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf"
+  },
+  "binaries": {
+    "world": "efd54a1023a569274a76f65d3d2a18a173906762472a1bce186e3e14629d3c18",
+    "zone": "f44c318a551186cf9f8c5099d6649326910050a9640e19507cda1ef6392c8aeb",
+    "shared_memory": "91664a87eac78306e8a76ab4cb923ba1f03c2d0da180278db6b6cf9b6607c0ef",
+    "ucs": "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714",
+    "loginserver": "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf"
+  },
+  "item_layout": {
+    "sizeof": 1332,
+    "ItemClass": 264,
+    "BagType": 488,
+    "BagSlots": 489,
+    "BagSize": 490
+  },
+  "candidate_archive_sha256": "ba603b0da5a2fea3036d13e1cefd6762d5b1f4c3e8fb9d8a4e7f9d2ccb459071",
+  "files": {
+    "bin/zone": "f44c318a551186cf9f8c5099d6649326910050a9640e19507cda1ef6392c8aeb",
+    "build-manifest.json": "f619b56a10475f7248b0b49d5948d86b773be524d2f44e585d6a7325627e695e",
+    "quests/ecommons/999820.pl": "57063b8bd7355594fb3e6e297bbb746caacff574e2ce4989650b6014565fb65b",
+    "sql/install.sql": "699e71f9af3417c7ac8665bc3b3b0170fda698e31de0655b5c6c6653b632873d",
+    "sql/activate.sql": "42c2b68ac93afb5e352e60d8df280faef3a030b8370ff03ff14e33049d3379f2",
+    "sql/rollback.sql": "fa3e9407688f8ceed4b51960f2e8d9554763fdaee5eae233ba76a010c085b4fb",
+    "rollout.py": "717f607472b6485c4157631559e468ce1f5f6c065ee23d696ce06d0858c036d8",
+    "test_rollout.py": "59e362b5c2795ac9166d8e7e4efb77bd10d475a23e535de713466dac2460fed2",
+    "prepare_rollout.py": "d0f216f7d3455b384ffd161fa29b081e406c63b404f804be86407844bfc5dfb5",
+    "item_layout.cpp": "1352765784bca3820704f3f171009646ee1f0b4f02d43a63d75a1043d57c80a7"
+  }
+}

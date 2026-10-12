@@ -1,6 +1,7 @@
 # In-game acceptance: Reforging Box
 
-Pending. Use a matched test installation and disposable QA items/characters.
+Pending. The matched release is live for owner-approved QA. Use disposable QA
+items/characters; keep disable/failure-injection tests on an isolated server.
 Record client/server versions, character, item IDs, before/after inventory and
 receipt IDs. Automated evidence is not acceptance.
 
@@ -38,5 +39,6 @@ receipt IDs. Automated evidence is not acceptance.
 12. Play representative solo builds through this progression and record whether
     four copies remains a worthwhile earned upgrade without trivial encounters.
 
-Owner sign-off must identify skipped steps and blockers. This document does
-not record approval for main or production.
+Owner acceptance must identify skipped steps and blockers. Main/live deployment
+was approved October 12 and completed; that approval does not record in-game
+acceptance of these steps. See deployment.json for operational verification.

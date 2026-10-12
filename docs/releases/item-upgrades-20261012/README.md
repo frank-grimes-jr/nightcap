@@ -1,6 +1,9 @@
 # Reusable item upgrades
 
-Release candidate; not deployed or accepted in game.
+Deployed to production for owner in-game QA on October 12, 2026. Manual
+acceptance remains pending. The owner explicitly approved main promotion and
+the live reconnect; [PR #171](https://github.com/frank-grimes-jr/nightcap/pull/171)
+merged as `2887f0a64723ed2c43535bd7cf990e23fad19fb6`.
 
 Artisan Veyra supplies a free, reusable Reforging Box in the East Commonlands
 tunnel workshop beside the Epic Forgemaster. Keep it in a main inventory slot,
@@ -82,6 +85,29 @@ python -m unittest discover -s tools/tests -p test_item_upgrade_package.py
 
 ## Activation and rollback
 
+The approved deployment completed with a fresh verified database backup and
+revision `(1,2026101201,1)` enabled. Image
+`sha256:5e8a26cf1275758dc78ae4327f520389c98e01dcba3ffaed42e8f84ce7502022`
+started at 14:02:55 UTC; the follow-up check found zero restarts and no detected
+native, quest or database errors. The gateway is open and all 12 zone process
+hashes match the retained binary. Shared memory contains 309,410 items, including
+the verified box; every other item record matches its previous bytes. All 47
+player-state tables, nine existing custom tables, unrelated content, quests,
+client files, rules and database/web/tunnel services passed preservation checks.
+No database restore or saved-spawn invalidation was needed. See
+[deployment.json](deployment.json) and [deployment-manifest.json](deployment-manifest.json).
+
+The retained remote release is `/opt/nightcap/releases/item-upgrades-20261012`.
+[rollout.py](rollout.py) records the executed activation/recovery logic and
+[test_rollout.py](test_rollout.py) covers eight checks. Independent review caught
+and resolved a recovery gate that could otherwise reopen access after unexplained
+data drift. Recovery now holds access closed on drift or unexpected receipts
+before any gateway-open attempt; after an attempted opening, it preserves new
+player activity. A lost installation acknowledgment is handled by inspecting
+durable state before disabling the feature. The previous image is retained.
+
+For operational reference (installation has already run; do not repeat it):
+
 1. Promote through dev and test with [exact client QA](QA.md). Main/production
    promotion requires owner sign-off under AGENTS.md.
 2. Inspect the target supervisor/deployment layout, take a fresh backup, and
@@ -105,5 +131,7 @@ python -m unittest discover -s tools/tests -p test_item_upgrade_package.py
    and receipts. Never restore old player inventory. This SQL does not revert
    the native zone-forge price change; that needs a matched earlier binary.
 
-All install/build/database rehearsal resources were isolated and local. No
-running game binary, live database or production server was changed.
+Build/database rehearsals were isolated and local. The subsequent owner-approved
+production installation added the box, NPC and feature tables, installed the
+matching quest/zone, regenerated shared memory and enabled the feature. Execute
+the [client QA](QA.md) before recording gameplay acceptance.

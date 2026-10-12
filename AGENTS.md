@@ -436,14 +436,17 @@ matching client publication. Manual gameplay acceptance remains open; see
 
 ## Changelog
 
-### Reusable item upgrades candidate
+### Reusable item upgrades
 
-The Reforging Box candidate uses native inventory transactions, not NPC ingredient
+The Reforging Box uses native inventory transactions, not NPC ingredient
 hand-ins: four Polished or Exalted copies yield one next-tier item. Box 900620 is
 supplied by tunnel NPC 999820. Higher-tier `#zoneforge` costs also become four;
 base remains three. Installation starts disabled and needs matching zone/item
 cache/quest deployment. Evidence and required manual QA:
-`docs/releases/item-upgrades-20261012/`. This is not a live deployment record.
+`docs/releases/item-upgrades-20261012/`. Owner-approved PR #171 and live deployment
+completed October 12; revision 2026101201 is enabled. Real client acceptance is
+pending. Recovery must preserve player/receipt state and hold the gateway closed
+if unexplained data drift is detected before player access resumes.
 
 **Always update `CHANGES.md`** when making significant changes — C++ patches, database schema changes, quest script additions, or SQL setup file corrections. Include: what changed, why, any gotchas. This is the primary audit trail for this repo since many changes touch the live database or compiled binaries and aren't fully captured by git diffs alone.
 
