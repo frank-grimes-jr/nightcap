@@ -36,8 +36,8 @@ fails before the fix and passes afterward; runtime and exact-client checks pass.
 Owner-approved PR #166 is merged into main and signed client release 2026101101
 is published. All 104 hosted assets and the production signature verify; only
 the proxy payload changed. All 13 publication recovery tests pass. Game services
-were not restarted. Update through the launcher; live summon acceptance remains
-pending. Evidence and exact QA:
+were not restarted. The owner confirmed the reported crash resolved on
+October 12, 2026. Evidence and exact QA:
 `docs/ops/darthy-pet-crash-20261011.md`.
 
 

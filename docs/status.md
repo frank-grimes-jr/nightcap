@@ -12,15 +12,14 @@ Main/live promotion and real client acceptance remain owner gates.
 [Evidence, activation and rollback](releases/item-upgrades-20261012/README.md) ·
 [Exact in-game QA](releases/item-upgrades-20261012/QA.md).
 
-## Pet summon client crash — fix published October 11
+## Pet summon client crash — resolved October 12
 
 Owner-approved PR #166 is merged into main. Signed client release 2026101101
 preserves registers required by RoF2 when a pet arrives, addressing Darthy's
 recorded crash. All 104 hosted files and the production signature verify;
 runtime, ABI regression and 13 publisher recovery checks pass. No game restart
-was needed. Fully exit EQ and update through the launcher before testing
-Cackling Bones and Kintaz's Animation on Darthy. Live summon acceptance remains
-pending. [Diagnosis, publication evidence and exact QA](ops/darthy-pet-crash-20261011.md).
+was needed. The owner confirmed the reported crash resolved on October 12.
+Players receive the fix through the launcher. [Diagnosis, publication evidence and exact QA](ops/darthy-pet-crash-20261011.md).
 
 ## Waypoint portal visuals — deployed October 11
 
