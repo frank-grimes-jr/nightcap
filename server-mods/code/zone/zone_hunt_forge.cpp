@@ -3,6 +3,7 @@
 #include "zone/advanced_loot_inventory.h"
 #include "common/zone_hunt_catalog.h"
 #include "common/zone_hunt_policy.h"
+#include "common/item_upgrade_policy.h"
 #include "common/content/world_content_service.h"
 #include "common/say_link.h"
 #include "common/seperator.h"
@@ -30,7 +31,7 @@ void Client::ZoneForge(const std::string &request_id)
 		m_zone_forge_quotes.clear(); // Never reuse an old choice, even after a rejected attempt.
 		const auto result = NightcapLoot::ForgeItems(this, inputs, request_id);
 		if (result==NightcapLoot::TransferResult::Delivered) {
-			Message(Chat::Green,"Three copies became one upgraded reward. Type #zoneforge to see more choices.");
+			Message(Chat::Green,"Your copies became one upgraded reward. Type #zoneforge to see more choices.");
 		} else if (result==NightcapLoot::TransferResult::Declined) {
 			Message(Chat::Yellow,"The forge could not complete that choice. No items were exchanged. Type #zoneforge to refresh.");
 		}
@@ -44,17 +45,18 @@ void Client::ZoneForge(const std::string &request_id)
 		const auto item = m_inv.GetItem(slot);
 		if (NightcapLoot::PlainForgeItem(item)) { families[item->GetID()].emplace_back(slot,item->GetSerialNumber()); }
 	}
-	Message(Chat::White,"Choose an upgrade: consume three identical copies from your bags for one next-quality copy, with no fee. Equipped, socketed and customized items are excluded.");
+	Message(Chat::White,"Choose an upgrade: three Base copies or four Polished/Exalted copies become one next-quality item, with no fee. Equipped, socketed and customized items are excluded.");
 	for (const auto &[id, copies] : families) {
-		if (copies.size()<3) { continue; }
+		const auto needed = NightcapUpgrade::ZoneCopies(id);
+		if (copies.size()<needed) { continue; }
 		const auto output = database.GetItem(NightcapHunt::NextTier(id));
 		const auto input = database.GetItem(id);
 		if (!output || !input) { continue; }
 		const auto token = NightcapLoot::NewDropID();
-		m_zone_forge_quotes[token] = {copies.begin(),copies.begin()+3};
+		m_zone_forge_quotes[token] = {copies.begin(),copies.begin()+needed};
 		EQ::SayLinkEngine link; link.SetLinkType(EQ::saylink::SayLinkItemData); link.SetItemData(output);
-		const auto action = Saylink::Silent("#zoneforge "+token,"Forge three");
-		Message(Chat::White,"3 x %s -> %s. %s",input->Name,link.GenerateLink().c_str(),action.c_str());
+		const auto action = Saylink::Silent("#zoneforge "+token,"Forge "+std::to_string(needed));
+		Message(Chat::White,"%u x %s -> %s. %s",needed,input->Name,link.GenerateLink().c_str(),action.c_str());
 	}
-	if (m_zone_forge_quotes.empty()) { Message(Chat::Yellow,"You do not have three eligible copies of any upgradeable zone reward."); }
+	if (m_zone_forge_quotes.empty()) { Message(Chat::Yellow,"You need three identical Base copies or four identical Polished/Exalted copies of an eligible zone reward."); }
 }

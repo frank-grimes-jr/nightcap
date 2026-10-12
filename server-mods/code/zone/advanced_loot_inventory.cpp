@@ -6,6 +6,7 @@
 #include "common/util/uuid.h"
 #include "common/zone_hunt_catalog.h"
 #include "common/zone_hunt_policy.h"
+#include "common/item_upgrade_policy.h"
 #include <algorithm>
 #include <limits>
 #include <memory>
@@ -344,32 +345,69 @@ bool PlainForgeItem(const EQ::ItemInstance *item)
 	return true;
 }
 
-static TransferResult ForgeItemsImpl(Client *c, const std::vector<ForgeInput> &inputs, const std::string &request_id)
+static uint32 UpgradeTarget(uint32 id)
 {
-	if (!c || !c->Connected() || !c->ClientDataLoaded() || inputs.size() != 3 || !ValidDropID(request_id)) { return TransferResult::Declined; }
-	const auto allowed = ForgeSlots(c);
+	const auto next = NightcapUpgrade::LegacyTarget(id);
+	const auto source = database.GetItem(id);
+	const auto target = database.GetItem(next ? next : NightcapUpgrade::ZoneTarget(id));
+	if (!source || !target) { return 0; }
+	if (next && !NightcapUpgrade::NamesMatch(source->Name, target->Name, id > 400000)) { return 0; }
+	return target->ID;
+}
+
+static bool PlainUpgradeItem(const EQ::ItemInstance *item)
+{
+	if (!item || !item->IsClassCommon() ||
+		item->IsEvolving() || item->GetEvolveUniqueID() || item->IsScaling() || item->GetColor() ||
+		!item->GetCustomDataString().empty() || item->GetOrnamentationIcon() ||
+		item->GetOrnamentationIDFile() || item->GetOrnamentHeroModel()) { return false; }
+	for (uint8 i = 0; i < EQ::invaug::SOCKET_COUNT; ++i) { if (item->GetAugmentItemID(i)) { return false; } }
+	for (uint8 i = 0; i < EQ::invbag::SLOT_COUNT; ++i) { if (item->GetItem(i)) { return false; } }
+	return true;
+}
+
+static TransferResult ForgeItemsImpl(Client *c, const std::vector<ForgeInput> &inputs, const std::string &request_id, int16 container_slot)
+{
+	const bool upgrade = container_slot != EQ::invslot::SLOT_INVALID;
+	if (!c || !c->Connected() || !c->ClientDataLoaded() || inputs.empty() || !ValidDropID(request_id)) { return TransferResult::Declined; }
+	auto allowed = ForgeSlots(c);
+	if (upgrade) {
+		allowed.clear();
+		for (uint8 i = 0; i < NightcapUpgrade::Copies; ++i) { allowed.push_back(EQ::InventoryProfile::CalcSlotId(container_slot, i)); }
+	}
 	std::set<int16> distinct;
 	uint32 input_id = 0;
+	unsigned quantity = 0;
 	bool bound = false;
 	for (const auto &[slot, serial] : inputs) {
 		const auto item = c->GetInv().GetItem(slot);
 		if (std::find(allowed.begin(), allowed.end(), slot) == allowed.end() || !distinct.insert(slot).second ||
-			!PlainForgeItem(item) || uint32(item->GetSerialNumber()) != serial || (input_id && item->GetID() != input_id)) { return TransferResult::Declined; }
+			!(upgrade ? PlainUpgradeItem(item) : PlainForgeItem(item)) || uint32(item->GetSerialNumber()) != serial || (input_id && item->GetID() != input_id)) { return TransferResult::Declined; }
 		input_id = item->GetID(); bound = bound || item->IsAttuned();
+		if (upgrade && item->IsStackable() && item->GetCharges() <= 0) { return TransferResult::Declined; }
+		quantity += upgrade && item->IsStackable() ? item->GetCharges() : 1;
 	}
-	std::unique_ptr<EQ::ItemInstance> output(database.CreateItem(NightcapHunt::NextTier(input_id), 1));
+	if (quantity != (upgrade ? NightcapUpgrade::Copies : NightcapUpgrade::ZoneCopies(input_id))) { return TransferResult::Declined; }
+	const uint32 target_id = upgrade ? UpgradeTarget(input_id) : NightcapHunt::NextTier(input_id);
+	if (!target_id) { return TransferResult::Declined; }
+	const auto definition = upgrade ? database.GetItem(target_id) : nullptr;
+	std::unique_ptr<EQ::ItemInstance> output(database.CreateItem(target_id, definition && definition->MaxCharges ? definition->MaxCharges : 1));
 	if (!output || c->CheckLoreConflict(output->GetItem())) { return TransferResult::Declined; }
+	if (output->IsStackable()) { output->SetCharges(1); }
 	output->SetAttuned(bound);
-	const int16 destination = inputs.front().first;
+	int16 destination = inputs.front().first;
+
 	if (destination > EQ::invslot::GENERAL_END) {
 		const auto bag = c->GetInv().GetItem(EQ::InventoryProfile::CalcSlotId(destination));
 		if (!bag || !EQ::InventoryProfile::CanItemFitInContainer(output->GetItem(), bag->GetItem())) { return TransferResult::Declined; }
 	}
 	if (!TransactionTablesReady()) { return TransferResult::Declined; }
-	auto tables = database.QueryDatabase(std::string("SELECT COUNT(*) FROM information_schema.TABLES WHERE TABLE_SCHEMA=DATABASE() "
-		"AND TABLE_NAME IN ('nightcap_zone_hunt_state','nightcap_zone_hunt_forges') AND ENGINE='InnoDB'"), false);
-	auto triggers = database.QueryDatabase(std::string("SELECT COUNT(*) FROM information_schema.TRIGGERS WHERE TRIGGER_SCHEMA=DATABASE() "
-		"AND EVENT_OBJECT_TABLE IN ('nightcap_zone_hunt_state','nightcap_zone_hunt_forges')"), false);
+	const std::string state_table = upgrade ? "nightcap_item_upgrade_state" : "nightcap_zone_hunt_state";
+	const std::string receipts = upgrade ? "nightcap_item_upgrades" : "nightcap_zone_hunt_forges";
+	auto tables = database.QueryDatabase("SELECT COUNT(*) FROM information_schema.TABLES WHERE TABLE_SCHEMA=DATABASE() "
+		"AND TABLE_NAME IN ('" + state_table + "','" + receipts + "') AND ENGINE='InnoDB'", false);
+	auto triggers = database.QueryDatabase("SELECT COUNT(*) FROM information_schema.TRIGGERS WHERE TRIGGER_SCHEMA=DATABASE() "
+		"AND EVENT_OBJECT_TABLE IN ('" + state_table + "','" + receipts + "')", false);
 	if (!tables.Success() || tables.RowCount()!=1 || !tables.begin()[0] || atoi(tables.begin()[0])!=2 ||
 		!triggers.Success() || triggers.RowCount()!=1 || !triggers.begin()[0] || atoi(triggers.begin()[0])!=0) { return TransferResult::Declined; }
 	auto uncertain = [&]() {
@@ -385,14 +423,26 @@ static TransferResult ForgeItemsImpl(Client *c, const std::vector<ForgeInput> &i
 		transaction.Release();
 		return confirmed ? TransferResult::Declined : uncertain();
 	};
-	auto state = database.QueryDatabase(fmt::format("SELECT revision FROM nightcap_zone_hunt_state WHERE id=1 AND enabled=1 AND revision={} FOR UPDATE", NightcapHunt::Revision), false);
+	auto state = database.QueryDatabase(fmt::format("SELECT revision FROM {} WHERE id=1 AND enabled=1 AND revision={} FOR UPDATE", state_table, upgrade ? NightcapUpgrade::Revision : NightcapHunt::Revision), false);
 	if (!state.Success() || state.RowCount()!=1) { return reject(); }
-	auto receipt = database.QueryDatabase(fmt::format("SELECT request_id FROM nightcap_zone_hunt_forges WHERE request_id='{}' FOR UPDATE", request_id), false);
+	if (upgrade && NightcapUpgrade::ZoneTarget(input_id)) {
+		auto hunt = database.QueryDatabase(fmt::format("SELECT revision FROM nightcap_zone_hunt_state WHERE id=1 AND enabled=1 AND revision={} FOR UPDATE", NightcapHunt::Revision), false);
+		if (!hunt.Success() || hunt.RowCount()!=1) { return reject(); }
+	}
+	auto receipt = database.QueryDatabase(fmt::format("SELECT request_id FROM {} WHERE request_id='{}' FOR UPDATE", receipts, request_id), false);
 	if (!receipt.Success() || receipt.RowCount()) { return reject(); }
 	std::map<int16, InventoryRow> saved;
 	auto rows = database.QueryDatabase(fmt::format("SELECT {} FROM inventory WHERE character_id={} FOR UPDATE", InventoryRepository::ColumnsRaw(), c->CharacterID()), false);
 	if (!rows.Success()) { return reject(); }
 	for (auto row : rows) { auto r = ReadRow(row); if (!saved.emplace(r.slot_id,r).second) { return reject(); } }
+	if (upgrade) {
+		for (uint8 i = 0; i < EQ::invbag::SLOT_COUNT; ++i) {
+			const int16 slot = EQ::InventoryProfile::CalcSlotId(container_slot,i);
+			const auto item = c->GetInv().GetItem(slot);
+			if (item ? (!saved.count(slot) || !SameItem(saved.at(slot),FromItem(c->CharacterID(),slot,*item))) : saved.count(slot)) { return reject(); }
+		}
+	}
+
 	std::string before;
 	for (const auto &[slot, serial] : inputs) {
 		const auto item = c->GetInv().GetItem(slot);
@@ -404,7 +454,7 @@ static TransferResult ForgeItemsImpl(Client *c, const std::vector<ForgeInput> &i
 		}
 		before += Strings::Implode("|", Values(saved.at(slot))) + "\n";
 	}
-	// All three sources were validated before the first write. Persisted GUIDs are
+	// Every source was validated before the first write. Persisted GUIDs are
 	// CAS preimages; runtime serials were checked only against the single-use quote.
 	for (const auto &[slot, serial] : inputs) {
 		const auto values = Values(saved.at(slot)); const auto columns = InventoryRepository::Columns();
@@ -418,8 +468,8 @@ static TransferResult ForgeItemsImpl(Client *c, const std::vector<ForgeInput> &i
 	const auto next = Values(FromItem(c->CharacterID(),destination,*output));
 	auto added = database.QueryDatabase("INSERT INTO inventory ("+InventoryRepository::ColumnsRaw()+") VALUES ("+Strings::Implode(",",next)+")", false);
 	if (!added.Success() || added.RowsAffected()!=1) { return reject(); }
-	auto audit = database.QueryDatabase(fmt::format("INSERT INTO nightcap_zone_hunt_forges(request_id,character_id,input_id,output_id,inventory_before,inventory_after) "
-		"VALUES ('{}',{},{},{},X'{}',X'{}')", request_id,c->CharacterID(),input_id,output->GetID(),Hex(before),Hex(Strings::Implode("|",next))), false);
+	auto audit = database.QueryDatabase(fmt::format("INSERT INTO {}(request_id,character_id,input_id,output_id,inventory_before,inventory_after) "
+		"VALUES ('{}',{},{},{},X'{}',X'{}')", receipts,request_id,c->CharacterID(),input_id,output->GetID(),Hex(before),Hex(Strings::Implode("|",next))), false);
 	if (!audit.Success() || audit.RowsAffected()!=1) { return reject(); }
 	if (!database.QueryDatabase(std::string("COMMIT"), false).Success()) {
 		database.QueryDatabase(std::string("ROLLBACK"), false); transaction.Release(); return uncertain();
@@ -434,9 +484,37 @@ static TransferResult ForgeItemsImpl(Client *c, const std::vector<ForgeInput> &i
 
 TransferResult ForgeItems(Client *c, const std::vector<ForgeInput> &inputs, const std::string &request_id)
 {
-	try { return ForgeItemsImpl(c, inputs, request_id); }
+	try { return ForgeItemsImpl(c, inputs, request_id, EQ::invslot::SLOT_INVALID); }
 	catch (...) {
 		if (c) { c->QuarantineItemTransfer("The forge was interrupted. Reconnect to reload your inventory."); }
+		return TransferResult::Uncertain;
+	}
+}
+
+TransferResult CombineUpgrade(Client *c, int16_t container_slot, const std::string &request_id)
+{
+	try {
+		if (!c || !c->Connected() || !c->ClientDataLoaded() || c->IsDead() || c->IsEngaged() ||
+			c->AutoAttackEnabled() || c->IsCasting() || c->IsStunned() || c->IsMezzed() ||
+			c->IsFeared() || c->IsAIControlled() || (c->trade && c->trade->With()) ||
+			c->IsLooting() || c->GetMerchantSessionEntityID() || c->GetTradeskillObject() ||
+			container_slot < EQ::invslot::GENERAL_BEGIN || container_slot > EQ::invslot::GENERAL_END ||
+			!(c->GetInv().GetLookup()->PossessionsBitmask & (uint64{1} << container_slot))) { return TransferResult::Declined; }
+		const auto box = c->GetInv().GetItem(container_slot);
+		if (!box || !box->IsClassBag() || box->GetID() != NightcapUpgrade::ContainerID ||
+			box->GetItem()->BagSlots != NightcapUpgrade::Copies || box->GetItem()->BagType != 13) { return TransferResult::Declined; }
+		std::vector<ForgeInput> inputs;
+		for (uint8 i = 0; i < EQ::invbag::SLOT_COUNT; ++i) {
+			const int16 slot = EQ::InventoryProfile::CalcSlotId(container_slot, i);
+			const auto item = c->GetInv().GetItem(slot);
+			if (!item) { continue; }
+			if (i >= NightcapUpgrade::Copies) { return TransferResult::Declined; }
+			inputs.emplace_back(slot, item->GetSerialNumber());
+		}
+		return ForgeItemsImpl(c, inputs, request_id, container_slot);
+	}
+	catch (...) {
+		if (c) { c->QuarantineItemTransfer("The combine was interrupted. Reconnect to reload your inventory."); }
 		return TransferResult::Uncertain;
 	}
 }

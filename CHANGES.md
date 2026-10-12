@@ -1,5 +1,30 @@
 # CHANGES
 
+## 2026-10-12 - Reusable four-for-one item upgrade candidate
+
+Artisan Veyra supplies a free four-slot Reforging Box in the East Commonlands
+tunnel. Four identical Polished copies produce one Exalted item; four Exalted
+copies produce the top tier for legacy loot or Classic zone rewards. Native
+transactions commit inputs, output and receipt together; rejected combines keep
+their contents and uncertain results quarantine the session. The reusable box
+preserves binding and rejects augmented/customized items. Bags cannot nest.
+Higher-tier `#zoneforge` recipes also cost four; the base recipe remains three.
+Installation is guarded and disabled by default; shared item memory and matching
+native zone are required. Automated policy, inventory, quest, disposable database
+and native object checks pass. No live deployment or in-game acceptance is
+claimed. Evidence, rollout, rollback and QA:
+`docs/releases/item-upgrades-20261012/`.
+
+Release preparation adds a scoped native build packager with complete source
+fingerprints and exact quest/SQL/archive validation. Three provenance tests and
+28 disposable database checks pass. Installation also rejects stale disabled
+spawn and respawn-timer ownership. Read-only production checks confirm free IDs,
+matching templates, QA items and the retained baseline on all 12 zone workers.
+The complete zone build, runtime library resolution and exact archive checks
+also pass. The verified local bundle and binary hashes are recorded in
+`docs/releases/item-upgrades-20261012/linked-build.json`. Production remains
+unchanged; deployment and real client acceptance still require owner sign-off.
+
 ## 2026-10-11 - Preserve native pet-window registers on summon
 
 Fixed the client pet-availability hook's stronger native calling contract:
