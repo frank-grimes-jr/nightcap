@@ -10,6 +10,7 @@ from pathlib import Path
 import xml.etree.ElementTree as ET
 from client_pet_armor_ui import add_pet_page
 from client_pet_management_ui import add_pet_management
+from client_merchant_ui import add_sell_all
 from client_advanced_loot_ui import add_advanced_loot
 from client_hub_models import add_models, MODELS
 from client_ecommons_hub import recall_spell, hub_files, ROOT
@@ -107,6 +108,8 @@ def ui_xml(raw, kind):
     elif kind == 'pets':
         add_pet_management(root)
         add_advanced_loot(root)
+    elif kind == 'merchant':
+        add_sell_all(root)
     elif kind == 'aa':
         for name in ('AAW_GeneralList','AAW_ArchList','AAW_ClassList','AAW_SpecialList'):
             matches = root.findall(f"Listbox[@item='{name}']")
@@ -174,7 +177,7 @@ def main():
     files = {'spells_us.txt': recall_spell(spells,plan['arrival'])}
     files.update(hub_files(client,plan))
     files.update(lavastorm_files(args.lavastorm,client))
-    for filename, kind in [('EQUI_Inventory.xml','inventory'),('EQUI_AAWindow.xml','aa'),('EQUI_PetInfoWindow.xml','pets')]:
+    for filename, kind in [('EQUI_Inventory.xml','inventory'),('EQUI_AAWindow.xml','aa'),('EQUI_PetInfoWindow.xml','pets'),('EQUI_MerchantWnd.xml','merchant')]:
         files['uifiles/nightcap/'+filename.lower()] = ui_xml((client/'uifiles/default'/filename).read_bytes(),kind)
     files['poknowledge_chr.txt'] = add_models((client/'poknowledge_chr.txt').read_bytes())
     for model in MODELS.values():
@@ -196,7 +199,7 @@ def main():
         target = output/name
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_bytes(data)
-    audit = {'schema':1, 'features':['three_classes','aa_class_column','instant_dots','pet_armor','advanced_loot','compact_hub_models','ecommons_tunnel_hub','ancient_attunement_recall','classic_nektulos','classic_lavastorm','classic_models','winged_paladin_helmet'],
+    audit = {'schema':1, 'features':['three_classes','aa_class_column','instant_dots','pet_armor','merchant_sell_all','advanced_loot','compact_hub_models','ecommons_tunnel_hub','ancient_attunement_recall','classic_nektulos','classic_lavastorm','classic_models','winged_paladin_helmet'],
              'status':'generated_not_installed',
              'source_spells_sha256':hashlib.sha256(raw).hexdigest(),
              'canonical_spell_source_sha256':SOURCE_SHA256, 'restored_spell_class_ids':restored,

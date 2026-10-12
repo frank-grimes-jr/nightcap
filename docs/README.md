@@ -16,6 +16,8 @@ Start with [current status](status.md), not a dated candidate report.
 
 ## Players and testers
 
+- [Merchant Sell All button: candidate, packaging and exact QA](releases/merchant-sell-all-20261012.md)
+
 - [Instance Keeper visual follow-up: live deployment, rollback and QA](ops/keeper-visuals-20261012/README.md)
 
 - [Reusable Reforging Box: live deployment, recovery and exact QA](releases/item-upgrades-20261012/README.md)

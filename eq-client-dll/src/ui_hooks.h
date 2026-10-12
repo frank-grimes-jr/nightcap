@@ -38,6 +38,7 @@ static PetManagement pet_management;
 using InventoryNotify = int (__thiscall *)(void*, void*, uint32_t, void*);
 static InventoryNotify original_inventory = nullptr;
 static InventoryNotify original_pet_window = nullptr;
+static InventoryNotify original_merchant = nullptr;
 using PetAvailable = bool (__thiscall *)(void*, unsigned);
 static PetAvailable original_pet_available = nullptr;
 static ULONGLONG next_management_refresh = 0;
@@ -256,6 +257,15 @@ inline bool CurrentManagementIdentity() {
     char name[64] = {};
     return ReadIdentity(spawn, name) && pet_management.Matches(spawn, name) &&
         GetTickCount64() - management_received < 5000;
+}
+inline int __fastcall MerchantWindowHook(void* self, void*, void* sender, uint32_t message, void* data) {
+    // Resolve against this window each time: no cached child survives a skin
+    // reload. Consume only our control; all stock merchant notifications pass on.
+    if (self && sender && IsArmorControl(self, sender, "NC_MerchantSellAll")) {
+        if (message == 1) ExecuteUIRequest("#sellall");
+        return 1;
+    }
+    return original_merchant(self, sender, message, data);
 }
 inline void RequestManagementRefresh() {
     if (GetTickCount64() < next_management_refresh) return;
@@ -495,6 +505,11 @@ inline bool InstallSpellMenu() {
     original_spell_menu_frame = reinterpret_cast<SpellMenuFrame>(EntryHook(base+kSpellMenuFrameRva,
         kExpectedSpellMenuFrame, reinterpret_cast<void*>(&SpellMenuFrameHook)));
     return original_spell_menu_frame != nullptr;
+}
+inline bool InstallMerchantSellAll() {
+    original_merchant = reinterpret_cast<InventoryNotify>(EntryHook(base+kUIMerchantNotifyRva,
+        kExpectedUIMerchantNotify, reinterpret_cast<void*>(&MerchantWindowHook)));
+    return original_merchant != nullptr;
 }
 inline bool InstallPetArmor() {
     __try {

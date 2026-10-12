@@ -1,5 +1,16 @@
 # CHANGES
 
+## 2026-10-12 - Sell All button on merchant windows
+
+Added a shared Nightcap merchant footer button that invokes the existing
+`#sellall` command through the native client UI request path. The exact-client
+guarded handler preserves stock merchant actions and resolves controls afresh
+after skin reloads. Server sale rules and NPC content are unchanged. The client
+DLL, generated merchant XML, runtime config and launcher patch catalog must ship
+together. Build, native callback/runtime, XML and signature checks passed;
+publication and in-game acceptance remain pending. Implementation, packaging,
+recovery and exact QA: `docs/releases/merchant-sell-all-20261012.md`.
+
 ## 2026-10-12 - Complete waypoint-area service visuals
 
 Permafrost player QA confirmed the waypoint portal works, but the separate

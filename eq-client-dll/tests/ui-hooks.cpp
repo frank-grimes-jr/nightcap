@@ -269,7 +269,50 @@ static void TestPetManagementABI() {
     VirtualFree(host,0,MEM_RELEASE); base = 0;
 }
 
+static void TestMerchantSellAllABI() {
+    using namespace nightcap::client_ui;
+    auto host = static_cast<BYTE*>(VirtualAlloc(nullptr,0xA68000,MEM_COMMIT|MEM_RESERVE,PAGE_READWRITE));
+    assert(host);
+    alignas(4) BYTE eq[0x600]={}, player[0x150]={}, profile[4]={}, connection[4]={};
+    base = reinterpret_cast<uintptr_t>(host);
+    *reinterpret_cast<void**>(host+0xA67CCC)=eq;
+    *reinterpret_cast<void**>(host+0x9D2630)=player;
+    *reinterpret_cast<void**>(host+0x9D261C)=profile;
+    *reinterpret_cast<void**>(host+0x9D25AC)=connection;
+    *reinterpret_cast<int*>(eq+0x5C8)=5;
+    *reinterpret_cast<uint32_t*>(player+0x148)=7;
+    memcpy(player+0xA4,"Test",5);
+    JumpTo(host+kUIStringAssignRva,reinterpret_cast<void*>(&fake_ui_assign));
+    JumpTo(host+kUIChildRva,reinterpret_cast<void*>(&fake_ui_child));
+    original_merchant=reinterpret_cast<InventoryNotify>(&fake_pet_window);
+    send_request=reinterpret_cast<SendRequest>(&fake_request_sender);
+    expected_eq=eq; sent_requests.clear(); native_pet_calls=0;
+    auto notify=reinterpret_cast<InventoryNotify>(&MerchantWindowHook);
+    auto button=reinterpret_cast<void*>(123);
+    management_controls["NC_MerchantSellAll"]=button;
+    // Actual x86 notification ABI, many calls to catch stack imbalance.
+    for (int i=0;i<1000;++i) assert(notify(eq,button,1,nullptr)==1);
+    assert(sent_requests.size()==1000 && native_pet_calls==0);
+    for (const auto& request:sent_requests) assert(request=="#sellall");
+    for (uint32_t message:{0u,2u,3u,0x17u}) assert(notify(eq,button,message,nullptr)==1);
+    assert(sent_requests.size()==1000); // only left-click submits
+    assert(notify(eq,reinterpret_cast<void*>(124),1,nullptr)==7);
+    assert(notify(eq,nullptr,1,nullptr)==7 && native_pet_calls==2);
+    *reinterpret_cast<int*>(eq+0x5C8)=1;
+    assert(notify(eq,button,1,nullptr)==1 && sent_requests.size()==1000);
+    *reinterpret_cast<int*>(eq+0x5C8)=5;
+    *reinterpret_cast<void**>(host+0x9D25AC)=nullptr;
+    assert(notify(eq,button,1,nullptr)==1 && sent_requests.size()==1000);
+    // Skin reload replaced the control; the old address cannot issue a sale.
+    management_controls["NC_MerchantSellAll"]=reinterpret_cast<void*>(125);
+    assert(notify(eq,button,1,nullptr)==7 && native_pet_calls==3);
+    management_controls.clear(); send_request=nullptr;
+    sent_requests.clear(); native_pet_calls=0;
+    VirtualFree(host,0,MEM_RELEASE); base=0;
+}
+
 int main() {
+    TestMerchantSellAllABI();
     TestSpellAccessABI();
     TestSilentRequests();
     TestPetManagementABI();
