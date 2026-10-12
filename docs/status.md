@@ -1,5 +1,14 @@
 # Current Nightcap status
 
+## Merchant Sell All button — published October 12
+
+Owner-approved PR #182 is on main. Signed client release 2026101201 adds a
+Sell All button to the shared merchant window, invoking the existing server
+command. All 105 host files verified; 101 existing assets, all five services,
+the desktop channel and starter were preserved. Close EQ and use launcher Play
+to update. Native rendering/sale acceptance remains pending.
+[Evidence, recovery and exact QA](releases/merchant-sell-all-20261012.md).
+
 ## Instance Keeper visual follow-up — deployed October 12
 
 Permafrost player QA confirmed the waypoint portal is visible and functional;

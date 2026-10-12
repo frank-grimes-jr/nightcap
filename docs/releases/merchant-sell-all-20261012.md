@@ -1,4 +1,9 @@
-# Merchant Sell All button — implementation candidate
+# Merchant Sell All button — deployed for live QA
+
+The owner explicitly requested main and server publication on October 12.
+PR [#182](https://github.com/frank-grimes-jr/nightcap/pull/182) merged at
+`e43c5c8d57d1897d7d26a100eadbb0ee19e1b3fa`. Signed production client release
+**2026101201** is active on OVH. Native in-game acceptance remains pending.
 
 The shared Nightcap merchant window has a **Sell All** button in the spare
 footer below the stock action row. A left click sends exactly `#sellall` through
@@ -51,8 +56,9 @@ embedded preflight catalog advance together.
 Candidate DLL SHA-256:
 `c3823ec3af4a7d49de42e9c4753c83d256ce7ed8246758923872402462c7e24b`.
 
-Native in-game rendering and sales remain unaccepted. No installed client,
-server process or hosted release has been changed.
+Native in-game rendering and sales remain unaccepted. Publication changes the
+hosted client release; installed clients update through launcher Play. No game
+or database process was restarted.
 
 ## Packaging and recovery
 
@@ -91,4 +97,35 @@ release if clients have already observed the new channel version).
    and ordinary sale tests; no crash, stale click target or duplicate sale.
 6. Run `#sellall` directly and confirm it retains the deployed server behavior.
 
-Owner acceptance is required before the normal test-to-main promotion.
+This release's direct main/live-QA promotion was explicitly authorized. The
+normal test-to-main owner acceptance rule remains in effect for future releases.
+
+## Production publication
+
+Published 105 signed files totaling 211,935,357 bytes. Relative to the captured
+live release 2026101101, only `dinput8.dll`, `nightcap-patches.cfg` and
+`nightcap-patch-sites.json` changed; `uifiles/nightcap/equi_merchantwnd.xml` was
+added. The other 101 assets match exactly. The original reference client stays
+read-only. The current 0.5.0 desktop's signed-catalog and managed-XML support is
+unchanged from its recorded source receipt; no desktop replacement was needed.
+
+Channel SHA-256:
+`31acef5490dbb1755072589e262e7d3ac6a43d3b6e059e86ed5d39a65049fac2`.
+The manifest expires November 11, 2026 at 19:19:03 UTC. Independent verification
+used the existing production public key, not regenerated trust. All 12 publisher
+recovery/drift tests passed. The host verified every file before atomically
+switching the channel under the deployment lock.
+
+All five production service identities, images, start times, restart counts and
+health states matched the captured baseline after publication. Desktop channel,
+starter ZIP and guide were preserved. No SQL, quest or native-server deployment
+was required. Local evidence: `artifacts/merchant-sell-all/deployment/`.
+Private host evidence and old channel:
+`/opt/nightcap/releases/merchant-sell-all-2026101201/previous-channel.json`.
+The complete prior release remains at `data/public/release/2026101101`.
+
+For recovery after clients observe this release, publish the complete verified
+prior contents under a higher signed release number; do not move the channel
+counter backward. Recheck the current channel and service baseline first.
+Players should fully close EQ, reopen the normal launcher and use Play to update,
+then follow the merchant checklist above.

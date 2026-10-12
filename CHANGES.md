@@ -8,7 +8,10 @@ guarded handler preserves stock merchant actions and resolves controls afresh
 after skin reloads. Server sale rules and NPC content are unchanged. The client
 DLL, generated merchant XML, runtime config and launcher patch catalog must ship
 together. Build, native callback/runtime, XML and signature checks passed;
-publication and in-game acceptance remain pending. Implementation, packaging,
+PR #182 is merged under the owner's explicit main/server authorization; signed
+client release 2026101201 is live on OVH. All 105 host files verified and all five
+service identities/health states were preserved. Native in-game acceptance
+remains pending. Implementation, packaging,
 recovery and exact QA: `docs/releases/merchant-sell-all-20261012.md`.
 
 ## 2026-10-12 - Complete waypoint-area service visuals
