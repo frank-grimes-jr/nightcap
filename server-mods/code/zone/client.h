@@ -1254,14 +1254,15 @@ public:
 	void BreakFeignDeathWhenCastOn(bool IsResisted);
 	void LeaveGroup();
 
-	bool Hungry() const {if (GetGM() || !RuleB(Character, EnableFoodRequirement)) return false; return m_pp.hunger_level <= 3000;}
-	bool Thirsty() const {if (GetGM() || !RuleB(Character, EnableFoodRequirement)) return false; return m_pp.thirst_level <= 3000;}
+	// Nightcap has no hunger/thirst requirement, regardless of legacy rules.
+	bool Hungry() const { return false; }
+	bool Thirsty() const { return false; }
 	int32 GetHunger() const { return m_pp.hunger_level; }
 	int32 GetThirst() const { return m_pp.thirst_level; }
 	void SetHunger(int32 in_hunger);
 	void SetThirst(int32 in_thirst);
 	void SetConsumption(int32 in_hunger, int32 in_thirst);
-	bool IsStarved() const { if (GetGM() || !RuleB(Character, EnableFoodRequirement) || !RuleB(Character, EnableHungerPenalties)) return false; return m_pp.hunger_level == 0 || m_pp.thirst_level == 0; }
+	bool IsStarved() const { return false; }
 	int32 GetIntoxication() const { return m_pp.intoxication; }
 
 	bool CheckTradeLoreConflict(Client* other);

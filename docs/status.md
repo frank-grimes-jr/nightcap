@@ -1,5 +1,35 @@
 # Current Nightcap status
 
+## Pet summon client crash — fix published October 11
+
+Owner-approved PR #166 is merged into main. Signed client release 2026101101
+preserves registers required by RoF2 when a pet arrives, addressing Darthy's
+recorded crash. All 104 hosted files and the production signature verify;
+runtime, ABI regression and 13 publisher recovery checks pass. No game restart
+was needed. Fully exit EQ and update through the launcher before testing
+Cackling Bones and Kintaz's Animation on Darthy. Live summon acceptance remains
+pending. [Diagnosis, publication evidence and exact QA](ops/darthy-pet-crash-20261011.md).
+
+## Waypoint portal visuals — deployed October 11
+
+Owner-approved PR #163 is on main and live on OVH. Waypoint markers now apply
+the stock portal effect over an invisible actor; the overlapping Instance Keeper
+in Befallen remains available. All 24 automated checks passed. The quest hash
+matches main, all 12 zone workers reloaded without reported quest errors, and
+native processes were not restarted. No client update is needed. Portal rendering,
+late-arrival visibility and discovery/recall remain owner in-game acceptance.
+[Deployment, rollback and exact QA](ops/waypoint-visuals-20261011/README.md).
+
+## Food and drink requirements — removed October 11
+
+Owner-approved PR #162 is merged and live on OVH. Hunger/thirst penalties and
+depletion are removed; nutrition packets stay full and eating/drinking requests
+preserve inventory. Optional item bonuses remain. The full build, 349 compiled
+regressions, eight rollout tests and all 12 running zone hashes passed. Player
+access is open; saved-data checks and follow-up health checks passed. No client
+update is needed. Native warning rendering remains owner acceptance.
+[Deployment, recovery and exact QA](ops/food-drink-removal-20261011/README.md).
+
 ## Advanced loot stock images — published October 10
 
 Owner-approved PR #151 is merged to main. Signed client release 2026101001

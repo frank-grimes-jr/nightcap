@@ -1,0 +1,31 @@
+{
+  "status": "passed",
+  "scope": "Disposable schemas only; no gameplay database writes",
+  "install_sha256": "16cb95df0eddd4a418691fbded4633e1a5278eb7a5ce49b24317d71e4dda137d",
+  "checks": [
+    "free reusable four-slot box installed",
+    "one NPC installed at verified tunnel workshop point",
+    "installation remains disabled",
+    "repeat installation refuses ownership",
+    "rollback after native write 10 retains all ingredients and box",
+    "rollback after native write 11 retains all ingredients and box",
+    "rollback after native write 12 retains all ingredients and box",
+    "rollback after native write 13 retains all ingredients and box",
+    "rollback after native write 14 retains all ingredients and box",
+    "rollback after native write 15 retains all ingredients and box",
+    "native SQL commits one bound upgrade, reusable box and receipt",
+    "duplicate receipt cannot award twice",
+    "disable rollback retains awarded inventory and receipt",
+    "disabled feature retains owned box definition",
+    "item collision refuses install",
+    "item rejection leaves no feature activation or spawn",
+    "npc collision refuses install",
+    "npc rejection leaves no feature activation or spawn",
+    "spawn_reference collision refuses install",
+    "spawn_reference rejection leaves no feature activation or spawn",
+    "saved_state collision refuses install",
+    "saved_state rejection leaves no feature activation or spawn",
+    "recipe collision refuses install",
+    "recipe rejection leaves no feature activation or spawn"
+  ]
+}
