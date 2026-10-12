@@ -1,0 +1,192 @@
+{
+  "environment": "production",
+  "captured_at": "2026-10-12T13:04:11.903079+00:00",
+  "read_only": true,
+  "box_identity": [],
+  "box_recipe_references": [
+    {
+      "count": "0"
+    }
+  ],
+  "npc_identity": [],
+  "group_identity": [],
+  "spawnentry_references": [
+    {
+      "count": "0"
+    }
+  ],
+  "spawn_references": [
+    {
+      "count": "0"
+    }
+  ],
+  "saved_spawn_references": [
+    {
+      "count": "0"
+    }
+  ],
+  "disabled_spawn_references": [
+    {
+      "count": "0"
+    }
+  ],
+  "respawn_timer_references": [
+    {
+      "count": "0"
+    }
+  ],
+  "box_template": [
+    {
+      "id": "17339",
+      "Name": "Stone Vial",
+      "itemclass": "1",
+      "bagtype": "13",
+      "bagslots": "4"
+    }
+  ],
+  "npc_template": [
+    {
+      "id": "22033",
+      "name": "Bubar",
+      "race": "1",
+      "gender": "0",
+      "texture": "2",
+      "helmtexture": "0"
+    }
+  ],
+  "qa_items": [
+    {
+      "id": "201001",
+      "Name": "Cloth Cap (Polished)",
+      "itemclass": "0",
+      "stackable": "0",
+      "loregroup": "0"
+    },
+    {
+      "id": "401001",
+      "Name": "Cloth Cap (Exalted)",
+      "itemclass": "0",
+      "stackable": "0",
+      "loregroup": "0"
+    },
+    {
+      "id": "601001",
+      "Name": "Cloth Cap (Ascended)",
+      "itemclass": "0",
+      "stackable": "0",
+      "loregroup": "0"
+    },
+    {
+      "id": "940025",
+      "Name": "Hillside Dewstone (Polished)",
+      "itemclass": "0",
+      "stackable": "0",
+      "loregroup": "0"
+    },
+    {
+      "id": "940026",
+      "Name": "Hillside Dewstone (Exalted)",
+      "itemclass": "0",
+      "stackable": "0",
+      "loregroup": "0"
+    },
+    {
+      "id": "940027",
+      "Name": "Hillside Dewstone (Ascension)",
+      "itemclass": "0",
+      "stackable": "0",
+      "loregroup": "0"
+    }
+  ],
+  "zone_hunt_state": [
+    {
+      "id": "1",
+      "revision": "2026100901",
+      "enabled": "1"
+    }
+  ],
+  "feature_tables": [],
+  "storage": [
+    {
+      "TABLE_NAME": "inventory",
+      "ENGINE": "InnoDB"
+    },
+    {
+      "TABLE_NAME": "spawnentry",
+      "ENGINE": "InnoDB"
+    },
+    {
+      "TABLE_NAME": "spawn2",
+      "ENGINE": "InnoDB"
+    },
+    {
+      "TABLE_NAME": "items",
+      "ENGINE": "InnoDB"
+    },
+    {
+      "TABLE_NAME": "spawngroup",
+      "ENGINE": "InnoDB"
+    },
+    {
+      "TABLE_NAME": "npc_types",
+      "ENGINE": "InnoDB"
+    }
+  ],
+  "triggers": [],
+  "workshop": [
+    {
+      "id": "3266028",
+      "name": "Epic_Forgemaster",
+      "x": "-372.000000",
+      "y": "-1818.000000",
+      "z": "3.750000"
+    }
+  ],
+  "services": {
+    "game": {
+      "image": "sha256:a72aa7931198ec96f67f69432ecccabc78640ce20de75d3da6f23e647c5be903",
+      "running": true,
+      "health": "healthy",
+      "restarts": 1
+    },
+    "gateway": {
+      "image": "sha256:2f3b9fc4d88afbb9612f7e1bb1202a31c6e975b1df4a76337cc280ac431ca36d",
+      "running": true,
+      "health": null,
+      "restarts": 0
+    },
+    "db": {
+      "image": "sha256:7f22313fc130a377a44999965bcb0a08dd5b21e8502824c1b864f792f9bc66ab",
+      "running": true,
+      "health": "healthy",
+      "restarts": 0
+    },
+    "web": {
+      "image": "sha256:7377697a821c131a924a7105fafbe7414db4e9fcc77a6f08f776f33f141ec3f8",
+      "running": true,
+      "health": null,
+      "restarts": 0
+    },
+    "tunnel": {
+      "image": "sha256:ff69a2225ad7c6f85ed84fbd5f3087df46202426b2388ec60214098e0adf05e9",
+      "running": true,
+      "health": null,
+      "restarts": 0
+    }
+  },
+  "running_zone_hashes": [
+    "989e64c181b002a4f34562af71389ed3b54a93ce707856cb85e9a19cab0fcf03",
+    "989e64c181b002a4f34562af71389ed3b54a93ce707856cb85e9a19cab0fcf03",
+    "989e64c181b002a4f34562af71389ed3b54a93ce707856cb85e9a19cab0fcf03",
+    "989e64c181b002a4f34562af71389ed3b54a93ce707856cb85e9a19cab0fcf03",
+    "989e64c181b002a4f34562af71389ed3b54a93ce707856cb85e9a19cab0fcf03",
+    "989e64c181b002a4f34562af71389ed3b54a93ce707856cb85e9a19cab0fcf03",
+    "989e64c181b002a4f34562af71389ed3b54a93ce707856cb85e9a19cab0fcf03",
+    "989e64c181b002a4f34562af71389ed3b54a93ce707856cb85e9a19cab0fcf03",
+    "989e64c181b002a4f34562af71389ed3b54a93ce707856cb85e9a19cab0fcf03",
+    "989e64c181b002a4f34562af71389ed3b54a93ce707856cb85e9a19cab0fcf03",
+    "989e64c181b002a4f34562af71389ed3b54a93ce707856cb85e9a19cab0fcf03",
+    "989e64c181b002a4f34562af71389ed3b54a93ce707856cb85e9a19cab0fcf03"
+  ],
+  "quest_path_exists": false
+}
