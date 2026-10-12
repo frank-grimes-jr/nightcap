@@ -32,18 +32,35 @@ Disabled or mismatched feature revisions reject combines.
 
 Passed: compiled policy tests; actual inventory translation-unit tests covering
 all transitions, binding, stacks, rejection, stale state, replay, SQL failures
-and exceptions; 24 disposable MariaDB checks; six Perl quest assertions; all
+and exceptions; 28 disposable MariaDB checks; six Perl quest assertions; all
 three changed native object compilations; native floor/headroom/approach probes.
 Independent review's stackable quantity finding was corrected and covered by a
 target with MaxCharges=20 that must still yield one unit. See `mariadb.json`,
 `inventory-native.json`, `native-build.json` and `geometry.json`. Object
 compilation does not constitute a linked binary or real client acceptance.
 
+The October 12 read-only production preflight found all proposed identities and
+references free, matching native templates, all six QA items present and the
+zone-hunt catalog enabled. All 12 running zones match the retained food/drink
+release binary. See `production-preflight.json`; it is dated evidence, not
+authorization or a substitute for fresh deployment checks. The retained source
+adds new spawn2 rows when loading saved state, so existing NPC/corpse state does
+not need to be cleared for this addition. Installation also refuses stale
+disabled-spawn and respawn-timer ownership.
+
+`tools/build_item_upgrade_candidate.py` prepares a complete zone build from the
+fingerprinted retained release plus exactly five Git source files. It rejects
+extra source files and verifies four allowlisted quest/SQL payloads and every
+archive member. Three package-provenance regression tests pass. The script never
+installs or starts its output. Build and package results must be recorded before
+claiming a linked release artifact is ready.
+
 ```powershell
 python -m unittest discover -s tools/tests -p test_item_upgrade_policy.py
 python tools/tests/test_advanced_loot_inventory.py --root . --output docs/releases/item-upgrades-20261012/inventory-native.json
 python tools/tests/rehearse_item_upgrades.py --release docs/releases/item-upgrades-20261012
 perl tools/tests/test_reforging_box.pl
+python -m unittest discover -s tools/tests -p test_item_upgrade_package.py
 ```
 
 ## Activation and rollback
