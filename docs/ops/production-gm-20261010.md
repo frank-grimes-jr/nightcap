@@ -102,7 +102,9 @@ rejects ownership of any character, including soft-deleted characters.
 
 ## Existing feature corrections and boundaries
 
-- Levels respect the active era cap; changing level resets that level's XP.
+- Level correction candidate: persist the native cumulative XP floor, preserve
+  valid same-level progress, highest level and once-only training points.
+  Activation remains pending; see [boost repair](darthy-boost-20261012/README.md).
 - Platinum and AA grants are bounded, transactional and recorded exactly once
   per request ID. Receipts are scoped to the explicit environment.
 - Teleport uses `zone.zoneidnumber`, version0, and clears the saved instance.

@@ -1,5 +1,10 @@
 const express = require('express')
 const {
+  levelRules,
+  boostedState,
+  validateLevelAcrossZones,
+} = require('./character-level.cjs')
+const {
   assert,
   id,
   integer,
@@ -173,7 +178,7 @@ function createRouter({
       const password = req.body.new_password
       assert(
         typeof password === 'string' && /^[\x21-\x7e]{1,28}$/.test(password),
-        'Use 1–28 printable ASCII characters without spaces'
+        'Use 1â€“28 printable ASCII characters without spaces'
       )
       const hash = await ops.hashPassword(password)
       const result = await mutations.mutate(
@@ -306,27 +311,19 @@ function createRouter({
       const requested = integer(req.body.level, 1, 125, 'Level')
       const row = await character(conn, req.params.id)
       const set = await activeRuleset(conn)
-      const [[cap]] = await conn.query(
-        "SELECT rule_value FROM rule_values WHERE ruleset_id=? AND rule_name='Character:MaxLevel'",
-        [set]
-      )
-      const maxLevel = integer(
-        Number(cap?.rule_value),
-        1,
-        125,
-        'Active level cap'
-      )
-      const level = Math.min(requested, maxLevel)
+      const rules = await levelRules(conn, set)
+      const next = boostedState(row, requested, rules)
+      await validateLevelAcrossZones(conn, row, next, rules, set)
       await conn.query(
-        'UPDATE character_data SET level=?,level2=?,exp=0 WHERE id=?',
-        [level, level, row.id]
+        'UPDATE character_data SET level=?,level2=?,exp=?,points=? WHERE id=?',
+        [next.level, next.level2, next.exp, next.points, row.id]
       )
       return {
         success: true,
         character: row.name,
-        level,
-        maxLevel,
-        capped: level < requested,
+        ...next,
+        maxLevel: rules.maxLevel,
+        capped: next.level < requested,
       }
     })
   )

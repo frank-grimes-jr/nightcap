@@ -1,5 +1,17 @@
 # CHANGES
 
+## 2026-10-12 - Correct GM boosts to persist native level XP
+
+Candidate: boosts atomically write native-compatible cumulative XP, retain valid
+same-level progress and highest level, and award training points only once per
+new lifetime level. Rule inheritance, native versus administrative caps, zone
+compatibility and uint32 overflow are checked before mutation. The original
+zero-XP path caused Darthy to fall from50 to8 on an XP award. Native parity and
+real database regressions cover the correction; the guarded one-time repair
+preserves earned XP and restores omitted training points. Main/activation and
+manual gameplay acceptance are pending. Evidence, constraints and exact QA:
+`docs/ops/darthy-boost-20261012/README.md`.
+
 ## 2026-10-12 - Deploy reusable item upgrades for owner live QA
 
 The owner approved main promotion and live deployment, including a full-game

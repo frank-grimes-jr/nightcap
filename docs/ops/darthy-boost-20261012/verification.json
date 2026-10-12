@@ -1,0 +1,19 @@
+{
+  "status": "candidate",
+  "production_changed": false,
+  "gm_tests": {
+    "passed": 62,
+    "failed": 0,
+    "skipped": 0
+  },
+  "native_threshold_comparisons": 129024,
+  "native_stable_profiles": 110774,
+  "native_overflow_rejections": 17226,
+  "browser_tests_passed": 12,
+  "maintenance_helper_tests_passed": 6,
+  "typecheck": "passed",
+  "build": "passed",
+  "manual_gameplay": "pending",
+  "review": "Implementation approved; repair clean-source gate added after review",
+  "native_checks": 1219543
+}
