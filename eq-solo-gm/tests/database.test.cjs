@@ -40,7 +40,7 @@ test(
         for (const ddl of [
           'CREATE TABLE login_accounts(id INT,account_name VARCHAR(50),source_loginserver VARCHAR(64),account_password VARCHAR(128),last_login_date DATETIME,created_at DATETIME,PRIMARY KEY(id,source_loginserver)) ENGINE=InnoDB',
           'CREATE TABLE account(id INT PRIMARY KEY,lsaccount_id INT,ls_id VARCHAR(64)) ENGINE=InnoDB',
-          'CREATE TABLE character_data(id INT PRIMARY KEY,account_id INT,name VARCHAR(64),level INT,level2 INT,class INT,aa_points INT DEFAULT 0,aa_points_spent INT DEFAULT 0,exp INT DEFAULT 0,zone_id INT DEFAULT 1,zone_instance INT DEFAULT 0,x FLOAT,y FLOAT,z FLOAT,heading FLOAT,deleted_at DATETIME) ENGINE=InnoDB',
+          'CREATE TABLE character_data(id INT PRIMARY KEY,account_id INT,name VARCHAR(64),level INT,level2 INT,class INT,race INT DEFAULT 1,points INT DEFAULT 0,aa_points INT DEFAULT 0,aa_points_spent INT DEFAULT 0,exp INT UNSIGNED DEFAULT 0,zone_id INT DEFAULT 1,zone_instance INT DEFAULT 0,x FLOAT,y FLOAT,z FLOAT,heading FLOAT,deleted_at DATETIME) ENGINE=InnoDB',
           'CREATE TABLE character_currency(id INT PRIMARY KEY,platinum INT DEFAULT 0) ENGINE=InnoDB',
           'CREATE TABLE character_skills(id INT,skill_id INT,value INT,PRIMARY KEY(id,skill_id)) ENGINE=InnoDB',
           'CREATE TABLE character_multiclass(character_id INT PRIMARY KEY,class2 INT,class3 INT) ENGINE=InnoDB',
@@ -48,7 +48,7 @@ test(
           'CREATE TABLE variables(varname VARCHAR(64) PRIMARY KEY,value VARCHAR(512)) ENGINE=InnoDB',
           'CREATE TABLE rule_sets(ruleset_id INT PRIMARY KEY,name VARCHAR(64)) ENGINE=InnoDB',
           'CREATE TABLE rule_values(ruleset_id INT,rule_name VARCHAR(100),rule_value VARCHAR(100),notes VARCHAR(255),PRIMARY KEY(ruleset_id,rule_name)) ENGINE=InnoDB',
-          'CREATE TABLE zone(id INT,zoneidnumber INT,version INT) ENGINE=InnoDB',
+          'CREATE TABLE zone(id INT,zoneidnumber INT,version INT,ruleset INT DEFAULT 0) ENGINE=InnoDB',
         ])
           await db.query(ddl)
         await setup(db)
@@ -72,7 +72,9 @@ test(
           'INSERT INTO skill_caps VALUES (1,30,0,120),(2,30,18,150),(12,30,18,175),(12,30,43,200)'
         )
         await db.query('INSERT INTO character_skills VALUES (100,0,180)')
-        await db.query('INSERT INTO zone VALUES (999,202,0)')
+        await db.query(
+          'INSERT INTO zone(id,zoneidnumber,version) VALUES (999,202,0)'
+        )
         operations[environment] = {
           status: async () => ({
             environment,
@@ -267,6 +269,56 @@ test(
             'SELECT level,zone_id,zone_instance FROM character_data WHERE id=100'
           )
           assert.deepEqual(row, { level: 50, zone_id: 202, zone_instance: 0 })
+        }
+      )
+      await require('./boost-fixture.cjs')({
+        t,
+        call,
+        query,
+        db: pools.production,
+        state: state.production,
+      })
+      await t.test(
+        'Darthy repair preserves earned XP and unrelated fields and rejects stale preimages',
+        async () => {
+          const {
+            repair,
+          } = require('../../docs/ops/darthy-boost-20261012/repair.cjs')
+          await pools.production.query(
+            "INSERT INTO character_data(id,account_id,name,level,level2,exp,points,race,class,aa_points) VALUES (24,10,'Darthy',10,50,883418,25,12,11,37)"
+          )
+          const conn = await pools.production.getConnection()
+          try {
+            await conn.beginTransaction()
+            const result = await repair(conn)
+            assert.deepEqual(result.after, {
+              level: 50,
+              level2: 50,
+              exp: 165592026,
+              points: 250,
+            })
+            assert.equal(
+              (
+                await conn.query(
+                  'SELECT aa_points FROM character_data WHERE id=24'
+                )
+              )[0][0].aa_points,
+              37
+            )
+            await assert.rejects(repair(conn), /changed since capture/)
+            await conn.rollback()
+            assert.equal(
+              (await query('SELECT exp FROM character_data WHERE id=24'))[0]
+                .exp,
+              883418
+            )
+          } finally {
+            await conn.rollback()
+            conn.release()
+            await pools.production.query(
+              'DELETE FROM character_data WHERE id=24'
+            )
+          }
         }
       )
       await t.test(
