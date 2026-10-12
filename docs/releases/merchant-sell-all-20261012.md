@@ -59,8 +59,10 @@ server process or hosted release has been changed.
 Build `eq-client-dll/build.bat` and generate the gameplay assets with
 `tools/client_gameplay_assets.py`. Include `uifiles/nightcap/equi_merchantwnd.xml`
 alongside the candidate DLL, `nightcap-patches.cfg` and patch catalog in the next
-signed client release. Rebuild the launcher against its synchronized embedded
-catalog. A partial DLL/config/catalog update is rejected by preflight/runtime.
+signed client release. The current desktop supports authenticated signed catalog
+evolution and Nightcap XML assets, so this change needs no replacement desktop.
+Its embedded catalog remains synchronized for future builds. A partial
+DLL/config/catalog update is rejected by preflight/runtime.
 Restart the client to load the DLL. No server rebuild is needed for this button.
 Use the existing signed release procedure; do not copy files into the protected
 `Client_RoF2_Dev` reference tree. Before publication, retain the complete previous

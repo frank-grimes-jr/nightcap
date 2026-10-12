@@ -10,7 +10,7 @@ import (
 )
 
 func TestGameplayAssetGenerationIsCompleteAndBoundToInputs(t *testing.T) {
-	for _, required := range []string{"global_chr.s3d", "global4_chr.s3d"} {
+	for _, required := range []string{"global_chr.s3d", "global4_chr.s3d", "uifiles/nightcap/equi_merchantwnd.xml"} {
 		found := false
 		for _, name := range gameplayNames {
 			if name == required {
@@ -18,7 +18,7 @@ func TestGameplayAssetGenerationIsCompleteAndBoundToInputs(t *testing.T) {
 			}
 		}
 		if !found {
-			t.Fatalf("wearable helmet archive missing from signed release: %s", required)
+			t.Fatalf("required gameplay asset missing from signed release: %s", required)
 		}
 	}
 	root := t.TempDir()
