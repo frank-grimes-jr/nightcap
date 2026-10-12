@@ -1,0 +1,183 @@
+{
+  "verified_at_utc": "2026-10-12T19:56:39.250907+00:00",
+  "source_commit": "7e3b8b940df85eba6417d8da78ad618f20ce67ae",
+  "preflight": {
+    "manifest_sha256": "7308cd138eca6e69dac1213b053f05da5dbe0d4696e825ce8d477704f5adee88",
+    "old_image_id": "sha256:5e8a26cf1275758dc78ae4327f520389c98e01dcba3ffaed42e8f84ce7502022",
+    "new_image_id": "sha256:4c0f464d64b6eb5dc787aaff380f4fbee41f2de8365e2622cb5fcc11cb940541",
+    "backup": {
+      "path": "/opt/nightcap/releases/sellall-supplies-20261012/private-backup/peq-before.sql.gz",
+      "sha256": "0d61ae164fe8a69a811e84034a130d30c4e5eec92c9efa29a31a99192d96de4e",
+      "compressed_bytes": 63307544,
+      "uncompressed_bytes": 451151836,
+      "gzip_integrity": "passed"
+    }
+  },
+  "rule_values_sha256": "e14a0d186ab1aa6451e98328b1045e7d0d71201f3da28f7869de13adc663c90a",
+  "content_preserved": true,
+  "activated": {
+    "runtime": {
+      "image_id": "sha256:4c0f464d64b6eb5dc787aaff380f4fbee41f2de8365e2622cb5fcc11cb940541",
+      "started_at": "2026-10-12T19:53:54.362106972Z",
+      "restart_count": 0,
+      "processes": [
+        [
+          "loginserver",
+          "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf"
+        ],
+        [
+          "world",
+          "efd54a1023a569274a76f65d3d2a18a173906762472a1bce186e3e14629d3c18"
+        ],
+        [
+          "ucs",
+          "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714"
+        ],
+        [
+          "zone",
+          "6a548967fb7af03b60144c4b40c61f383d003011ac3b313370a907d10b7d7537"
+        ],
+        [
+          "zone",
+          "6a548967fb7af03b60144c4b40c61f383d003011ac3b313370a907d10b7d7537"
+        ],
+        [
+          "zone",
+          "6a548967fb7af03b60144c4b40c61f383d003011ac3b313370a907d10b7d7537"
+        ],
+        [
+          "zone",
+          "6a548967fb7af03b60144c4b40c61f383d003011ac3b313370a907d10b7d7537"
+        ],
+        [
+          "zone",
+          "6a548967fb7af03b60144c4b40c61f383d003011ac3b313370a907d10b7d7537"
+        ],
+        [
+          "zone",
+          "6a548967fb7af03b60144c4b40c61f383d003011ac3b313370a907d10b7d7537"
+        ],
+        [
+          "zone",
+          "6a548967fb7af03b60144c4b40c61f383d003011ac3b313370a907d10b7d7537"
+        ],
+        [
+          "zone",
+          "6a548967fb7af03b60144c4b40c61f383d003011ac3b313370a907d10b7d7537"
+        ],
+        [
+          "zone",
+          "6a548967fb7af03b60144c4b40c61f383d003011ac3b313370a907d10b7d7537"
+        ],
+        [
+          "zone",
+          "6a548967fb7af03b60144c4b40c61f383d003011ac3b313370a907d10b7d7537"
+        ],
+        [
+          "zone",
+          "6a548967fb7af03b60144c4b40c61f383d003011ac3b313370a907d10b7d7537"
+        ],
+        [
+          "zone",
+          "6a548967fb7af03b60144c4b40c61f383d003011ac3b313370a907d10b7d7537"
+        ]
+      ],
+      "errors": {
+        "native": 0,
+        "quest": 0,
+        "database": 0
+      }
+    },
+    "gateway_open": true,
+    "player_tables_preserved": 47,
+    "custom_tables_preserved": 11,
+    "database_restored": false,
+    "backup": {
+      "path": "/opt/nightcap/releases/sellall-supplies-20261012/private-backup/peq-before.sql.gz",
+      "sha256": "0d61ae164fe8a69a811e84034a130d30c4e5eec92c9efa29a31a99192d96de4e",
+      "compressed_bytes": 63307544,
+      "uncompressed_bytes": 451151836,
+      "gzip_integrity": "passed"
+    }
+  },
+  "followup": {
+    "status": "healthy",
+    "runtime": {
+      "image_id": "sha256:4c0f464d64b6eb5dc787aaff380f4fbee41f2de8365e2622cb5fcc11cb940541",
+      "started_at": "2026-10-12T19:53:54.362106972Z",
+      "restart_count": 0,
+      "processes": [
+        [
+          "loginserver",
+          "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf"
+        ],
+        [
+          "world",
+          "efd54a1023a569274a76f65d3d2a18a173906762472a1bce186e3e14629d3c18"
+        ],
+        [
+          "ucs",
+          "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714"
+        ],
+        [
+          "zone",
+          "6a548967fb7af03b60144c4b40c61f383d003011ac3b313370a907d10b7d7537"
+        ],
+        [
+          "zone",
+          "6a548967fb7af03b60144c4b40c61f383d003011ac3b313370a907d10b7d7537"
+        ],
+        [
+          "zone",
+          "6a548967fb7af03b60144c4b40c61f383d003011ac3b313370a907d10b7d7537"
+        ],
+        [
+          "zone",
+          "6a548967fb7af03b60144c4b40c61f383d003011ac3b313370a907d10b7d7537"
+        ],
+        [
+          "zone",
+          "6a548967fb7af03b60144c4b40c61f383d003011ac3b313370a907d10b7d7537"
+        ],
+        [
+          "zone",
+          "6a548967fb7af03b60144c4b40c61f383d003011ac3b313370a907d10b7d7537"
+        ],
+        [
+          "zone",
+          "6a548967fb7af03b60144c4b40c61f383d003011ac3b313370a907d10b7d7537"
+        ],
+        [
+          "zone",
+          "6a548967fb7af03b60144c4b40c61f383d003011ac3b313370a907d10b7d7537"
+        ],
+        [
+          "zone",
+          "6a548967fb7af03b60144c4b40c61f383d003011ac3b313370a907d10b7d7537"
+        ],
+        [
+          "zone",
+          "6a548967fb7af03b60144c4b40c61f383d003011ac3b313370a907d10b7d7537"
+        ],
+        [
+          "zone",
+          "6a548967fb7af03b60144c4b40c61f383d003011ac3b313370a907d10b7d7537"
+        ],
+        [
+          "zone",
+          "6a548967fb7af03b60144c4b40c61f383d003011ac3b313370a907d10b7d7537"
+        ]
+      ],
+      "errors": {
+        "native": 0,
+        "quest": 0,
+        "database": 0
+      }
+    },
+    "gateway_open": true,
+    "player_tables_preserved": 47,
+    "custom_tables_preserved": 11
+  },
+  "main_merge": "890a9c0708dfdc4e967340c4b3b6bcc0889a8b9c",
+  "pull_request": "https://github.com/frank-grimes-jr/nightcap/pull/183"
+}
