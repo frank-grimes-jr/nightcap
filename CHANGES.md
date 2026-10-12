@@ -8,8 +8,11 @@ C++ hook could overwrite it. A small x86 bridge preserves ECX/EDX, stack cleanup
 and the boolean result around the unchanged permission policy. This addresses
 the initial fault in Darthy's saved pet-summon crash log. Compiled regression
 fails before the fix and passes afterward; runtime and exact-client checks pass.
-Signed launcher publication and live summon acceptance remain pending. No server,
-database or installed-client mutation. Evidence and exact QA:
+Owner-approved PR #166 is merged into main and signed client release 2026101101
+is published. All 104 hosted assets and the production signature verify; only
+the proxy payload changed. All 13 publication recovery tests pass. Game services
+were not restarted. Update through the launcher; live summon acceptance remains
+pending. Evidence and exact QA:
 `docs/ops/darthy-pet-crash-20261011.md`.
 
 

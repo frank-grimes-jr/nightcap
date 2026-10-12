@@ -2,10 +2,11 @@
 
 ## Status and scope
 
-Client proxy fix prepared on `feature/pet-summon-crash`; not installed or
-published. Production and the installed `E:\Nightcap` client remain unchanged.
-Owner approved main promotion and server publication on October 11, 2026.
-In-game acceptance remains pending; publication evidence will be recorded below.
+Owner-approved [PR #166](https://github.com/frank-grimes-jr/nightcap/pull/166)
+is merged into main (`ba3881766d50159966f0e0a98fda7dc0ac57b57d`). Signed
+client release **2026101101** is published on OVH, replacing 2026101001.
+The launcher must update the installed client before testing. In-game acceptance
+remains pending; no successful live summon is claimed.
 
 ## Evidence
 
@@ -59,17 +60,44 @@ found no implementation defect; its fallback coverage suggestion was added.
 This proves the register-preservation fix in the compiled fixture. It does not
 claim an observed successful pet summon in the live game.
 
+## Publication evidence
+
+Publication completed October 11, 2026 (America/New_York). The production
+signature and all 104 hosted files (211,913,439 bytes) passed independent
+verification through public HTTPS. The managed path inventory is unchanged;
+only `dinput8.dll` differs from the previous release's payloads.
+
+- DLL SHA-256: `3d5d8e5fef6a0fb96b6d2f57f8c2520a32e491544db4a9719588bfa59d54e57d`.
+- Channel SHA-256: `66491d1337f3a46f40f5ea09cdb786ca5083d5c1d81f54cfbf821784e35082ea`.
+- Channel expires November 11, 2026 at 00:04:10 UTC.
+- Five runtime integration checks, the compiled ABI regression, and the exact
+  installed RoF2 signature checks passed. All 13 publisher recovery tests passed.
+  Publisher tests stub Linux directory fsync and Docker on Windows; production
+  publication executes actual Linux fsync under the deployment lock.
+- Reviewer feedback added bottom-up fsync for intermediate asset directories
+  before the immutable release rename; its regression checks ordering.
+- Service identities, image IDs, start times, restart counts and health match
+  the prepublication baseline. Game/database remain healthy; no restart occurred.
+- Desktop launcher channel, starter archive and guide hashes remain unchanged.
+
+The production staging directory is
+`/opt/nightcap/releases/pet-summon-crash-2026101101`. It retains the previous
+channel, inventory, release audit, baseline and publication result. Local
+`hosted-verification.json`, `production-after.json` and
+`publisher-test-results.txt` retain verification evidence. The signed archive
+SHA-256 is `ded36dcca8108590857c89fd965a60947f68a44576700688f5c5fb96c039c474`.
+
 ## Release and exact owner QA
 
-Publish only the rebuilt proxy through a new signed launcher generation, keeping
-the existing catalog, configuration, UI, models, spells and server untouched.
+The signed launcher generation changes only the rebuilt proxy, preserving
+the existing catalog, configuration, UI, models, spells and game server.
 Do not replace the installed DLL manually: the signed manifest must match it.
-Capture the current hosted channel immediately before staging, retain its
-assets, and compare the new inventory so only `dinput8.dll` changes. A client
+The predecessor channel and its assets are retained; inventory comparison
+confirmed that only `dinput8.dll` changed. A client
 that consumed a new generation needs a higher-numbered corrective release for
 rollback; do not merely lower the channel number.
 
-After approved publication, fully exit the game and update with the launcher:
+Fully exit the game and update with the launcher before this acceptance check:
 
 1. Log Darthy into East Commonlands. Verify restored pets and the Pet Info window.
 2. Dismiss and summon Cackling Bones (495), then Kintaz's Animation (690),

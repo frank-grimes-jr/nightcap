@@ -1,5 +1,15 @@
 # Current Nightcap status
 
+## Pet summon client crash — fix published October 11
+
+Owner-approved PR #166 is merged into main. Signed client release 2026101101
+preserves registers required by RoF2 when a pet arrives, addressing Darthy's
+recorded crash. All 104 hosted files and the production signature verify;
+runtime, ABI regression and 13 publisher recovery checks pass. No game restart
+was needed. Fully exit EQ and update through the launcher before testing
+Cackling Bones and Kintaz's Animation on Darthy. Live summon acceptance remains
+pending. [Diagnosis, publication evidence and exact QA](ops/darthy-pet-crash-20261011.md).
+
 ## Waypoint portal visuals — deployed October 11
 
 Owner-approved PR #163 is on main and live on OVH. Waypoint markers now apply
