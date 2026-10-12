@@ -1,7 +1,7 @@
 # Sell-all supply protection — October 12, 2026
 
 The owner explicitly authorized main promotion and production deployment.
-Candidate: `#sellall` preserves food, drink, every loaded spell reagent (including
+`#sellall` preserves food, drink, every loaded spell reagent (including
 Bone Chips), and casting focus items, in general slots and bag contents. This
 applies to all classes and eras and overrides fixed resale eligibility. The
 existing ordinary and former-NO-DROP resale prices and inventory bounds remain.
@@ -21,6 +21,8 @@ recorded here after verification; this candidate does not claim activation.
 
 The server candidate is built against the fingerprinted retained item-upgrade
 release, changing only `zone/command.cpp` and `zone/gm_commands/sell_all.cpp`.
+Only the two affected command-library unity objects are rebuilt; all retained
+objects, archives and source files are fingerprinted before and after linking.
 Existing runtime libraries, world, shared-memory loader, quests, rules, item
 upgrades and player data are retained. Deployment uses an immutable image over
 the current live image, a verified database backup, graceful full-game restart,
