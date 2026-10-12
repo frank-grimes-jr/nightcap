@@ -1,0 +1,57 @@
+{
+  "status": "passed",
+  "scope": "Complete linked zone build; not installed or accepted in game",
+  "candidate_commit": "f17a30d1e3277826cf510b84ce3a3bb3ad11b040",
+  "payload_commit": "e2ef13b3f72289f57dc4fb97cd77dc3515288804",
+  "baseline_manifest_sha256": "3856580fbfde409e1c8d535f4a9bca4e7c8dbfb1e92ad3630a85186ca5995439",
+  "zone_sha256": "f44c318a551186cf9f8c5099d6649326910050a9640e19507cda1ef6392c8aeb",
+  "zone_bytes": 311471416,
+  "changed_sources": {
+    "common/item_upgrade_policy.h": {
+      "base": null,
+      "candidate": "b86d766e0c62d53226568c7f703fce1c2f4a0c00d59e82b483a349ce2fdc3938"
+    },
+    "zone/advanced_loot_inventory.cpp": {
+      "base": "dc4a4332c9859060df11a4feba2fe5a5ff6847b9f35c9524888562f67c9fdc42",
+      "candidate": "bd4c2b4fca43f83060b2cf617e9238725eb4972d82bab347e41f08cf11aa0fe5"
+    },
+    "zone/advanced_loot_inventory.h": {
+      "base": "905a7b67e7b8a058b7dac9c423960d9bf2ff7fcf0a44db667257ee7f482a622c",
+      "candidate": "01879ba6de15a20285cc4b826aacce9c7b889e1449095bddae97759985feafe2"
+    },
+    "zone/client_packet.cpp": {
+      "base": "78db06fbdeb0880ec1455a8c84af41f7a1cffdb308a0f59096e476529c6d48af",
+      "candidate": "893ce3f18fe99b58ce644fdb2d2958266d4db6b8c6591d1c824ea3bb27014180"
+    },
+    "zone/zone_hunt_forge.cpp": {
+      "base": "56c95954155b05a3437c57029f2d767fbac558abd10552554e9865a0372327f5",
+      "candidate": "6a4b809f28b3cdaed96d0c8b94bbf6085b1f989c774df77ee638f7da60330a0d"
+    }
+  },
+  "payloads": {
+    "quests/ecommons/999820.pl": "57063b8bd7355594fb3e6e297bbb746caacff574e2ce4989650b6014565fb65b",
+    "sql/install.sql": "699e71f9af3417c7ac8665bc3b3b0170fda698e31de0655b5c6c6653b632873d",
+    "sql/activate.sql": "42c2b68ac93afb5e352e60d8df280faef3a030b8370ff03ff14e33049d3379f2",
+    "sql/rollback.sql": "fa3e9407688f8ceed4b51960f2e8d9554763fdaee5eae233ba76a010c085b4fb"
+  },
+  "complete_source_membership_verified": true,
+  "configure_command": [
+    "cmake",
+    "-S",
+    "/tmp/nightcap-item-upgrades-release-build-20261012/source",
+    "-B",
+    "/tmp/nightcap-item-upgrades-release-build-20261012/build",
+    "-DCMAKE_BUILD_TYPE=RelWithDebInfo",
+    "-DCMAKE_CXX_COMPILER=/usr/bin/clang++",
+    "-DCMAKE_CXX_COMPILER_LAUNCHER=/usr/bin/ccache",
+    "-DCMAKE_TOOLCHAIN_FILE=/home/eqemu/code/submodules/vcpkg/scripts/buildsystems/vcpkg.cmake",
+    "-DVCPKG_INSTALLED_DIR=/home/eqemu/code/build/vcpkg_installed",
+    "-DVCPKG_MANIFEST_MODE=OFF",
+    "-DEQEMU_BUILD_PERL=ON",
+    "-DEQEMU_BUILD_LUA=ON"
+  ],
+  "build_command": "cmake --build build --target zone -j2",
+  "world_rule_catalog_changed": false,
+  "package_sha256": "ba603b0da5a2fea3036d13e1cefd6762d5b1f4c3e8fb9d8a4e7f9d2ccb459071",
+  "package_bytes": 90319484
+}

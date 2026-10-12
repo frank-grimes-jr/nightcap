@@ -33,6 +33,8 @@ BEGIN
     OR EXISTS (SELECT 1 FROM spawngroup WHERE id=999820 OR name='NightcapItemUpgrades')
     OR EXISTS (SELECT 1 FROM spawnentry WHERE spawngroupID=999820 OR npcID=999820)
     OR EXISTS (SELECT 1 FROM spawn2 WHERE id=999820 OR spawngroupID=999820)
+    OR EXISTS (SELECT 1 FROM spawn2_disabled WHERE spawn2_id=999820)
+    OR EXISTS (SELECT 1 FROM respawn_times WHERE id=999820)
     OR EXISTS (SELECT 1 FROM zone_state_spawns WHERE npc_id=999820 OR spawngroup_id=999820 OR spawn2_id=999820) THEN
   SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT='Upgrade identity or feature ownership collision';
  END IF;

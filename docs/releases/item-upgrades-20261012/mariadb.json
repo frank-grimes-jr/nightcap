@@ -1,7 +1,7 @@
 {
   "status": "passed",
   "scope": "Disposable schemas only; no gameplay database writes",
-  "install_sha256": "16cb95df0eddd4a418691fbded4633e1a5278eb7a5ce49b24317d71e4dda137d",
+  "install_sha256": "699e71f9af3417c7ac8665bc3b3b0170fda698e31de0655b5c6c6653b632873d",
   "checks": [
     "free reusable four-slot box installed",
     "one NPC installed at verified tunnel workshop point",
@@ -26,6 +26,10 @@
     "saved_state collision refuses install",
     "saved_state rejection leaves no feature activation or spawn",
     "recipe collision refuses install",
-    "recipe rejection leaves no feature activation or spawn"
+    "recipe rejection leaves no feature activation or spawn",
+    "disabled_spawn collision refuses install",
+    "disabled_spawn rejection leaves no feature activation or spawn",
+    "respawn_timer collision refuses install",
+    "respawn_timer rejection leaves no feature activation or spawn"
   ]
 }

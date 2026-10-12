@@ -1,5 +1,17 @@
 # Current Nightcap status
 
+## Reusable item upgrades — test candidate, October 12
+
+The Reforging Box feature is on test through PR #168. Artisan Veyra supplies the
+free reusable box in the East Commonlands tunnel: four Polished copies become
+one Exalted item, and four Exalted copies become one top-tier item. The complete
+zone build and verified local deployment bundle pass, along with native inventory
+regressions, 28 disposable database checks, quest and packaging tests. Production
+has only been inspected read-only; no installation or restart has occurred.
+Main/live promotion and real client acceptance remain owner gates.
+[Evidence, activation and rollback](releases/item-upgrades-20261012/README.md) ·
+[Exact in-game QA](releases/item-upgrades-20261012/QA.md).
+
 ## Pet summon client crash — fix published October 11
 
 Owner-approved PR #166 is merged into main. Signed client release 2026101101

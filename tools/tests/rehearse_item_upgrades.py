@@ -27,13 +27,13 @@ def run(release):
 
     ddl = (release / 'install.sql').read_text()
     trace = json.loads((release / 'inventory-native.json').read_text())['upgrade_queries']
-    for collision in (None, 'item', 'npc', 'spawn_reference', 'saved_state', 'recipe'):
+    for collision in (None, 'item', 'npc', 'spawn_reference', 'saved_state', 'recipe', 'disabled_spawn', 'respawn_timer'):
         schema = 'nightcap_item_upgrade_test_' + secrets.token_hex(6)
         assert re.fullmatch(r'nightcap_item_upgrade_test_[0-9a-f]{12}', schema)
         sql(None, f'CREATE DATABASE `{schema}`;')
         try:
             tables = ('items', 'npc_types', 'spawngroup', 'spawnentry', 'spawn2',
-                      'zone_state_spawns', 'inventory', 'tradeskill_recipe_entries')
+                      'zone_state_spawns', 'inventory', 'tradeskill_recipe_entries', 'spawn2_disabled', 'respawn_times')
             sql(schema, '\n'.join(f'CREATE TABLE `{t}` LIKE peq.`{t}`; ALTER TABLE `{t}` ENGINE=InnoDB;' for t in tables))
             sql(schema, '''INSERT INTO items SELECT * FROM peq.items WHERE id=17339;
 INSERT INTO npc_types SELECT * FROM peq.npc_types WHERE id=22033;
@@ -45,6 +45,8 @@ CREATE TABLE character_evolving_items (id INT PRIMARY KEY) ENGINE=InnoDB;''')
                 'spawn_reference': 'INSERT INTO spawnentry(spawngroupID,npcID,chance) VALUES(1,999820,100);',
                 'saved_state': 'INSERT INTO zone_state_spawns(npc_id,zone_id,instance_id,spawn2_id,spawngroup_id,x,y,z,heading,respawn_time,variance) VALUES(999820,22,0,0,0,0,0,0,0,60,0);',
                 'recipe': 'INSERT INTO tradeskill_recipe_entries(recipe_id,item_id,iscontainer) VALUES(1,900620,1);',
+                'disabled_spawn': 'INSERT INTO spawn2_disabled(spawn2_id,instance_id,disabled) VALUES(999820,0,1);',
+                'respawn_timer': 'INSERT INTO respawn_times(id,start,duration,instance_id) VALUES(999820,1,600,0);',
             }
             if collision:
                 sql(schema, collisions[collision])
