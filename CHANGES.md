@@ -20,7 +20,10 @@ fingerprints and exact quest/SQL/archive validation. Three provenance tests and
 28 disposable database checks pass. Installation also rejects stale disabled
 spawn and respawn-timer ownership. Read-only production checks confirm free IDs,
 matching templates, QA items and the retained baseline on all 12 zone workers.
-Production remains unchanged; linked-build evidence is tracked in the release.
+The complete zone build, runtime library resolution and exact archive checks
+also pass. The verified local bundle and binary hashes are recorded in
+`docs/releases/item-upgrades-20261012/linked-build.json`. Production remains
+unchanged; deployment and real client acceptance still require owner sign-off.
 
 ## 2026-10-11 - Preserve native pet-window registers on summon
 
