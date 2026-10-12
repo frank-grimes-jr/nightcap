@@ -1,0 +1,175 @@
+{
+  "status": "deployed_for_owner_game_qa",
+  "authorization": "Owner explicitly requested push to main and server on October12,2026.",
+  "main_pr": "https://github.com/frank-grimes-jr/nightcap/pull/177",
+  "main_merge": "7f0992a362cf4c6c3b020073edebc12aa07a8e94",
+  "repair_receipt": "e7d73a80-1c6f-4f97-8b8b-f34a7675f41f",
+  "repair_result": {
+    "success": true,
+    "character": "Darthy",
+    "before": {
+      "id": 24,
+      "name": "Darthy",
+      "level": 10,
+      "level2": 50,
+      "exp": 883418,
+      "points": 25,
+      "race": 12,
+      "class": 11
+    },
+    "after": {
+      "level": 50,
+      "level2": 50,
+      "exp": 165592026,
+      "points": 250
+    },
+    "preserved_earned_xp": 883418,
+    "restored_training_points": 225,
+    "request_id": "e7d73a80-1c6f-4f97-8b8b-f34a7675f41f",
+    "environment": "production"
+  },
+  "backup": {
+    "backup": "20261012T163109.043691Z.sql.gz",
+    "gzip_verified": true,
+    "compressed_bytes": 5776,
+    "uncompressed_bytes": 21653,
+    "sha256": "1a9e279fcfd48cf40a98efb7966a88065446d59e1629217eb2db926797ca4515"
+  },
+  "preservation_hashes": {
+    "other_characters": "cc0eeba96c15d7e8eaab27b40b30f576b9636e0dfaec3c4e14b84651a3456bf7",
+    "darthy_other_fields": "a4b75c9bf0cfb7809686e68918571400a9f7598be9cab110f49473efc1691ef1",
+    "character_pet_info": "46b593b4e6b2d3b46bb4bb3fda4e1ea6bf15b0d89e3eecf7cc9afee9be88b62b",
+    "character_pet_buffs": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "character_pet_inventory": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "character_currency": "405ae212d38468a45d017927d967430256212dba3e94a92aed45049233bb0b4c",
+    "inventory": "e05ad631af143fec0dd5e7d828b980cfb232efaae556079898df0109778f6379",
+    "character_skills": "f87360155a4fa39d46f1cff9e68f9e12c614160a7fd59a5b3161ae9ca55737cb",
+    "character_alternate_abilities": "0ef6abafd1afdfcbcf2b830f20fcb584c1874033a981f2a2428c8c2dcae4a5cb",
+    "character_multiclass": "4eb6af5b6f94d7255f252988341a426d2a6bdcd0a5e283d48d6950c8d9892031"
+  },
+  "preservation_passed": true,
+  "pet_records_before": 0,
+  "pet_records_after": 0,
+  "post_restart_character": {
+    "id": 24,
+    "name": "Darthy",
+    "level": 50,
+    "level2": 50,
+    "exp": 165592026,
+    "points": 250
+  },
+  "runtime": {
+    "services": [
+      {
+        "name": "/nightcap-production-db-1",
+        "image": "sha256:7f22313fc130a377a44999965bcb0a08dd5b21e8502824c1b864f792f9bc66ab",
+        "running": true,
+        "health": "healthy",
+        "started_at": "2026-09-20T17:47:54.935680589Z",
+        "restart_count": 0
+      },
+      {
+        "name": "/nightcap-production-game-1",
+        "image": "sha256:5e8a26cf1275758dc78ae4327f520389c98e01dcba3ffaed42e8f84ce7502022",
+        "running": true,
+        "health": "healthy",
+        "started_at": "2026-10-12T16:32:04.950737041Z",
+        "restart_count": 0
+      },
+      {
+        "name": "/nightcap-production-gateway-1",
+        "image": "sha256:2f3b9fc4d88afbb9612f7e1bb1202a31c6e975b1df4a76337cc280ac431ca36d",
+        "running": true,
+        "health": null,
+        "started_at": "2026-10-12T16:32:20.753685042Z",
+        "restart_count": 0
+      },
+      {
+        "name": "/nightcap-production-web-1",
+        "image": "sha256:7377697a821c131a924a7105fafbe7414db4e9fcc77a6f08f776f33f141ec3f8",
+        "running": true,
+        "health": null,
+        "started_at": "2026-09-20T17:47:54.765116169Z",
+        "restart_count": 0
+      },
+      {
+        "name": "/nightcap-production-tunnel-1",
+        "image": "sha256:ff69a2225ad7c6f85ed84fbd5f3087df46202426b2388ec60214098e0adf05e9",
+        "running": true,
+        "health": null,
+        "started_at": "2026-09-20T17:53:43.445441644Z",
+        "restart_count": 0
+      }
+    ],
+    "native_processes": [
+      {
+        "name": "loginserver",
+        "sha256": "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf"
+      },
+      {
+        "name": "world",
+        "sha256": "efd54a1023a569274a76f65d3d2a18a173906762472a1bce186e3e14629d3c18"
+      },
+      {
+        "name": "ucs",
+        "sha256": "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714"
+      },
+      {
+        "name": "zone",
+        "sha256": "f44c318a551186cf9f8c5099d6649326910050a9640e19507cda1ef6392c8aeb"
+      },
+      {
+        "name": "zone",
+        "sha256": "f44c318a551186cf9f8c5099d6649326910050a9640e19507cda1ef6392c8aeb"
+      },
+      {
+        "name": "zone",
+        "sha256": "f44c318a551186cf9f8c5099d6649326910050a9640e19507cda1ef6392c8aeb"
+      },
+      {
+        "name": "zone",
+        "sha256": "f44c318a551186cf9f8c5099d6649326910050a9640e19507cda1ef6392c8aeb"
+      },
+      {
+        "name": "zone",
+        "sha256": "f44c318a551186cf9f8c5099d6649326910050a9640e19507cda1ef6392c8aeb"
+      },
+      {
+        "name": "zone",
+        "sha256": "f44c318a551186cf9f8c5099d6649326910050a9640e19507cda1ef6392c8aeb"
+      },
+      {
+        "name": "zone",
+        "sha256": "f44c318a551186cf9f8c5099d6649326910050a9640e19507cda1ef6392c8aeb"
+      },
+      {
+        "name": "zone",
+        "sha256": "f44c318a551186cf9f8c5099d6649326910050a9640e19507cda1ef6392c8aeb"
+      },
+      {
+        "name": "zone",
+        "sha256": "f44c318a551186cf9f8c5099d6649326910050a9640e19507cda1ef6392c8aeb"
+      },
+      {
+        "name": "zone",
+        "sha256": "f44c318a551186cf9f8c5099d6649326910050a9640e19507cda1ef6392c8aeb"
+      },
+      {
+        "name": "zone",
+        "sha256": "f44c318a551186cf9f8c5099d6649326910050a9640e19507cda1ef6392c8aeb"
+      },
+      {
+        "name": "zone",
+        "sha256": "f44c318a551186cf9f8c5099d6649326910050a9640e19507cda1ef6392c8aeb"
+      }
+    ]
+  },
+  "gm_checkout": "C:/Users/verre/.codex/worktrees/player-access/EQ_Local_Dev",
+  "gm_process_id": 27188,
+  "gm_production_writes_enabled": true,
+  "gm_files": {
+    "eq-solo-gm/api/lib/character-level.cjs": "5bb95941558b60a4e841131490077b69c3790fdab7a71341a2fb1f34cb5c8371",
+    "eq-solo-gm/api/lib/router.cjs": "fa1ee95bdd4acebf1cdeb44ea4b7a6eff3a1ca5d07badb9150ae76a572cc6ff7"
+  },
+  "manual_acceptance": "pending actual client login, XP-awarding kills, zoning and relog"
+}
