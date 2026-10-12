@@ -1,7 +1,10 @@
 # Remove LORE from every item
 
-October 12, 2026 candidate. The owner explicitly selected **every item**, including
-base items, tier rewards, quest items and shared lore groups. Not deployed.
+Deployed October 12, 2026 after explicit owner approval to push to main and the
+server. [PR #180](https://github.com/frank-grimes-jr/nightcap/pull/180) merged as
+`e3da88a0a2777ca0f1be8eedf0c87ced9d91f1fe`. The owner selected **every item**,
+including base items, tier rewards, quest items and shared lore groups.
+Manual client/combine and balance acceptance remains pending.
 
 Enable the existing `Items:DisableLore` rule in default ruleset 1. The native
 item loader projects `LoreGroup=0` and `LoreFlag=false` for every definition,
@@ -17,6 +20,23 @@ weapons and augments can increase player power; numerical balance is not claimed
 The rule does not make bags nestable or evolving/customized items combinable.
 Native legacy lore-group evolution initialization is an unimplemented stub;
 CharmFileID scaling remains a separate path. Include special items in QA.
+
+## Live verification
+
+The same production image restarted at 17:29:07 UTC (1:29 PM America/New_York).
+The gateway is open. All 309,410 cached item definitions now have LoreGroup=0
+and LoreFlag=false, including all 160,783 formerly restricted definitions.
+Every byte outside those two fields matches the prior cache. SQL item rows,
+other rules, 46 player-state tables, 11 custom tables and 8,140 quest/plugin files
+were preserved. Database/web/tunnel services and client artifacts were unchanged.
+
+World, all 12 zones, loginserver and UCS retain their verified native hashes.
+Follow-up checks found zero restarts and no detected native/quest/database errors.
+The fresh 448,801,039-byte SQL backup passed gzip/completion checks. No restore
+was performed. [Deployment evidence](deployment.json) records hashes and counts.
+[Executed rollout](rollout.py) holds access closed on failed checks and never
+re-enables LORE automatically. Its cache verifier passed [corruption/preservation
+regressions](test_rollout.py) both locally and on the production host.
 
 ## Dated production preflight
 
@@ -44,7 +64,7 @@ Recheck this baseline immediately before activation.
   and verifies exact cache restoration after rollback. `cache-check.json` records
   counts/hashes. Local catalog evidence is not a production-cache verification.
 
-## Activation after main/live approval
+## Activation procedure (already executed; do not repeat)
 
 1. Recheck active image, rules, variable overrides and item counts. Take a fresh
    verified database backup and save exact rule rows and current cache hash.

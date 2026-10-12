@@ -1,12 +1,14 @@
 # Current Nightcap status
 
-## Remove all item LORE - tested candidate, October 12
+## Remove all item LORE - deployed October 12
 
-The owner selected all items to support duplicate-item combining. The existing
-native rule passed compiled ownership checks, eight disposable database scenarios
-and all 308,928 local cached definitions, with exact immediate rollback. Production
-still has Items:DisableLore=false; activation requires approval and a reconnect.
-[Scope, evidence and exact QA](releases/remove-item-lore-20261012/README.md).
+Owner-approved PR #180 is on main and Items:DisableLore=true is live on OVH.
+All 309,410 cached definitions have no LORE flag/group, including the 160,783
+previously restricted definitions. All other item bytes, 46 player-state tables
+and 11 custom tables were preserved. Fresh backup, all 12 zone hashes and
+follow-up health checks passed; access is open. No client update is needed.
+Manual combine/duplicate-equipment balance QA remains pending.
+[Evidence and exact QA](releases/remove-item-lore-20261012/README.md).
 
 ## Character boost correction — deployed October 12
 

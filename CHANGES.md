@@ -1,5 +1,17 @@
 # CHANGES
 
+## 2026-10-12 - All-item LORE removal deployed
+
+Owner-approved PR #180 is on main and Items:DisableLore=true is live on OVH.
+The same native image rebuilt shared memory: all 309,410 definitions now have
+no effective LORE flag/group. All other cached item bytes, original SQL item
+rows, other rules, 46 player-state tables, 11 custom tables and 8,140 quest/plugin
+files were preserved. A fresh verified backup, world/all 12 zone native hashes
+and post-reconnect health checks passed; gateway access is open. No client
+update or database restore. Manual combining and duplicate-equipment balance
+acceptance remain pending. Post-activity rollback must reconcile duplicates
+before re-enabling LORE. Evidence: docs/releases/remove-item-lore-20261012/.
+
 ## 2026-10-12 - Remove item LORE restrictions (candidate)
 
 Prepared the existing Items:DisableLore rule for every item so duplicate loot

@@ -1,6 +1,6 @@
 # In-game QA: all items without LORE
 
-Pending; requires approved activation. Use a normal account and disposable QA
+Deployed with owner approval; manual acceptance pending. Use a normal account and disposable QA
 items. Record IDs, inventory before/after, receipts and client/server versions.
 
 1. In East Commonlands, inspect a formerly LORE base item and its Polished,

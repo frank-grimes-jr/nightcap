@@ -86,6 +86,13 @@ All commands run from `akk-stack/`:
   refresh; do not assume local eqlaunch restart behavior applies to production.
   Evidence: docs/ops/camil-silvermist-20261004.md.
 
+- **All-item LORE removal**: OVH uses Items:DisableLore=true as of October 12.
+  The native shared-memory loader clears effective LoreFlag/LoreGroup while
+  preserving original SQL definitions. Rebuild cache/restart game for changes;
+  rules reload alone is insufficient. Never blindly re-enable LORE after players
+  acquire duplicates: native cursor checks can delete conflicts. Evidence and
+  exact QA: docs/releases/remove-item-lore-20261012/README.md.
+
 - **Universal item trading**: Items:FreeTrade projects effective item
   flags and fixed former-NO-DROP resale from original SQL definitions. Preserve
   raw SQL flags and IsAttuned() persistence; use IsAttunedForTrade() for restrictions.

@@ -1,0 +1,201 @@
+{
+  "activation": {
+    "runtime": {
+      "image_id": "sha256:5e8a26cf1275758dc78ae4327f520389c98e01dcba3ffaed42e8f84ce7502022",
+      "started_at": "2026-10-12T17:29:07.956295856Z",
+      "restart_count": 0,
+      "processes": [
+        [
+          "loginserver",
+          "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf"
+        ],
+        [
+          "world",
+          "efd54a1023a569274a76f65d3d2a18a173906762472a1bce186e3e14629d3c18"
+        ],
+        [
+          "ucs",
+          "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714"
+        ],
+        [
+          "zone",
+          "f44c318a551186cf9f8c5099d6649326910050a9640e19507cda1ef6392c8aeb"
+        ],
+        [
+          "zone",
+          "f44c318a551186cf9f8c5099d6649326910050a9640e19507cda1ef6392c8aeb"
+        ],
+        [
+          "zone",
+          "f44c318a551186cf9f8c5099d6649326910050a9640e19507cda1ef6392c8aeb"
+        ],
+        [
+          "zone",
+          "f44c318a551186cf9f8c5099d6649326910050a9640e19507cda1ef6392c8aeb"
+        ],
+        [
+          "zone",
+          "f44c318a551186cf9f8c5099d6649326910050a9640e19507cda1ef6392c8aeb"
+        ],
+        [
+          "zone",
+          "f44c318a551186cf9f8c5099d6649326910050a9640e19507cda1ef6392c8aeb"
+        ],
+        [
+          "zone",
+          "f44c318a551186cf9f8c5099d6649326910050a9640e19507cda1ef6392c8aeb"
+        ],
+        [
+          "zone",
+          "f44c318a551186cf9f8c5099d6649326910050a9640e19507cda1ef6392c8aeb"
+        ],
+        [
+          "zone",
+          "f44c318a551186cf9f8c5099d6649326910050a9640e19507cda1ef6392c8aeb"
+        ],
+        [
+          "zone",
+          "f44c318a551186cf9f8c5099d6649326910050a9640e19507cda1ef6392c8aeb"
+        ],
+        [
+          "zone",
+          "f44c318a551186cf9f8c5099d6649326910050a9640e19507cda1ef6392c8aeb"
+        ],
+        [
+          "zone",
+          "f44c318a551186cf9f8c5099d6649326910050a9640e19507cda1ef6392c8aeb"
+        ]
+      ],
+      "errors": {
+        "native": 0,
+        "quest": 0,
+        "database": 0
+      }
+    },
+    "cache": {
+      "items_checked": 309410,
+      "raw_lore_items": 160783,
+      "effective_lore_items": 0,
+      "non_lore_fields_sha256": "82be5fb57c249e8364ffd360838dca05bd06dda33ef3b64e4166949c39c5484e",
+      "cache_sha256": "6586a64a1ad15f772b87bfae796613ebf57982066d0b277bc4b019f3037ba633"
+    },
+    "player_tables_preserved": 46,
+    "custom_tables_preserved": 11,
+    "backup": {
+      "path": "/opt/nightcap/releases/remove-item-lore-20261012/private-backup/peq-before.sql.gz",
+      "sha256": "a8376a7efb068c6f56eaacfb77148685d495f4a4dd955f93d46e9431ceaaa4f3",
+      "compressed_bytes": 63031508,
+      "uncompressed_bytes": 448801039,
+      "gzip_integrity": "passed"
+    },
+    "gateway_open": true,
+    "database_restored": false
+  },
+  "followup": {
+    "status": "healthy",
+    "runtime": {
+      "image_id": "sha256:5e8a26cf1275758dc78ae4327f520389c98e01dcba3ffaed42e8f84ce7502022",
+      "started_at": "2026-10-12T17:29:07.956295856Z",
+      "restart_count": 0,
+      "processes": [
+        [
+          "loginserver",
+          "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf"
+        ],
+        [
+          "world",
+          "efd54a1023a569274a76f65d3d2a18a173906762472a1bce186e3e14629d3c18"
+        ],
+        [
+          "ucs",
+          "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714"
+        ],
+        [
+          "zone",
+          "f44c318a551186cf9f8c5099d6649326910050a9640e19507cda1ef6392c8aeb"
+        ],
+        [
+          "zone",
+          "f44c318a551186cf9f8c5099d6649326910050a9640e19507cda1ef6392c8aeb"
+        ],
+        [
+          "zone",
+          "f44c318a551186cf9f8c5099d6649326910050a9640e19507cda1ef6392c8aeb"
+        ],
+        [
+          "zone",
+          "f44c318a551186cf9f8c5099d6649326910050a9640e19507cda1ef6392c8aeb"
+        ],
+        [
+          "zone",
+          "f44c318a551186cf9f8c5099d6649326910050a9640e19507cda1ef6392c8aeb"
+        ],
+        [
+          "zone",
+          "f44c318a551186cf9f8c5099d6649326910050a9640e19507cda1ef6392c8aeb"
+        ],
+        [
+          "zone",
+          "f44c318a551186cf9f8c5099d6649326910050a9640e19507cda1ef6392c8aeb"
+        ],
+        [
+          "zone",
+          "f44c318a551186cf9f8c5099d6649326910050a9640e19507cda1ef6392c8aeb"
+        ],
+        [
+          "zone",
+          "f44c318a551186cf9f8c5099d6649326910050a9640e19507cda1ef6392c8aeb"
+        ],
+        [
+          "zone",
+          "f44c318a551186cf9f8c5099d6649326910050a9640e19507cda1ef6392c8aeb"
+        ],
+        [
+          "zone",
+          "f44c318a551186cf9f8c5099d6649326910050a9640e19507cda1ef6392c8aeb"
+        ],
+        [
+          "zone",
+          "f44c318a551186cf9f8c5099d6649326910050a9640e19507cda1ef6392c8aeb"
+        ]
+      ],
+      "errors": {
+        "native": 0,
+        "quest": 0,
+        "database": 0
+      }
+    },
+    "cache": {
+      "items_checked": 309410,
+      "raw_lore_items": 160783,
+      "effective_lore_items": 0,
+      "non_lore_fields_sha256": "82be5fb57c249e8364ffd360838dca05bd06dda33ef3b64e4166949c39c5484e",
+      "cache_sha256": "6586a64a1ad15f772b87bfae796613ebf57982066d0b277bc4b019f3037ba633"
+    },
+    "gateway_open": true
+  },
+  "baseline": {
+    "cache": {
+      "items_checked": 309410,
+      "raw_lore_items": 160783,
+      "effective_lore_items": 160783,
+      "non_lore_fields_sha256": "82be5fb57c249e8364ffd360838dca05bd06dda33ef3b64e4166949c39c5484e",
+      "cache_sha256": "9ba82ee244541ad067e0b66fee59968df061fe6e2ee7b6f85a0e946abc46d3bc"
+    },
+    "image": "sha256:5e8a26cf1275758dc78ae4327f520389c98e01dcba3ffaed42e8f84ce7502022",
+    "binaries": {
+      "world": "efd54a1023a569274a76f65d3d2a18a173906762472a1bce186e3e14629d3c18",
+      "zone": "f44c318a551186cf9f8c5099d6649326910050a9640e19507cda1ef6392c8aeb",
+      "ucs": "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714",
+      "loginserver": "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf",
+      "shared_memory": "91664a87eac78306e8a76ab4cb923ba1f03c2d0da180278db6b6cf9b6607c0ef"
+    },
+    "activate_sha256": "dfa9444f0c2fe64d15c31683913060a8f29b4622370bb08578eb6e0e99a6225d",
+    "quest_files_preserved": 8140,
+    "other_services_preserved": [
+      "db",
+      "web",
+      "tunnel"
+    ]
+  }
+}
