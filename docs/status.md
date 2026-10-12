@@ -1,12 +1,21 @@
 # Current Nightcap status
 
-## Character boost correction — candidate, October 12
+## Remove all item LORE - tested candidate, October 12
 
-The faulty GM boost set total XP to zero, causing Darthy to fall from50 to8 on
-an XP award. The replacement persists native XP and progression bookkeeping,
-with database/native regressions and a guarded repair prepared. Main promotion,
-production activation and manual acceptance remain pending; Darthy is still10.
-[Evidence, repair and exact QA](ops/darthy-boost-20261012/README.md).
+The owner selected all items to support duplicate-item combining. The existing
+native rule passed compiled ownership checks, eight disposable database scenarios
+and all 308,928 local cached definitions, with exact immediate rollback. Production
+still has Items:DisableLore=false; activation requires approval and a reconnect.
+[Scope, evidence and exact QA](releases/remove-item-lore-20261012/README.md).
+
+## Character boost correction — deployed October 12
+
+Owner-approved PR #177 is on main and the updated production GM is running.
+Darthy is restored to level50 with165592026XP and250 training points, retaining
+his earned XP and crediting225 omitted training points. Fresh backup, ten data
+preservation hashes and post-restart checks passed. All services are running;
+world/all12 zones preserve the existing item-upgrade release. Actual client kill,
+zone and relog acceptance remain pending. [Evidence and exact QA](ops/darthy-boost-20261012/README.md).
 
 ## Reusable item upgrades — deployed for live QA, October 12
 

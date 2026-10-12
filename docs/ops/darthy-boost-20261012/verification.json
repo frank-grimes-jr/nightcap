@@ -1,6 +1,6 @@
 {
-  "status": "candidate",
-  "production_changed": false,
+  "status": "deployed_for_owner_game_qa",
+  "production_changed": true,
   "gm_tests": {
     "passed": 62,
     "failed": 0,
@@ -14,6 +14,6 @@
   "typecheck": "passed",
   "build": "passed",
   "manual_gameplay": "pending",
-  "review": "Implementation approved; repair clean-source gate added after review",
+  "review": "Independent implementation and repair reviews addressed; clean-source and main ancestry gates verified before application.",
   "native_checks": 1219543
 }

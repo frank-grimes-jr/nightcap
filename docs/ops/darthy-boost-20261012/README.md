@@ -1,8 +1,32 @@
 # Durable character boosts — October 12, 2026
 
-Status: tested release candidate; main promotion, production activation and owner
-in-game acceptance remain pending. Production Darthy is still level 10. No live
-character writes or game restarts were performed during development.
+Status: owner-approved PR #177 merged into main and deployed October12,2026.
+Darthy is restored to level50, XP165592026 and training points250. The same state
+persisted after restart; game/database are healthy and access is open. Actual
+client login, XP-awarding kills, zoning and relog acceptance remain pending.
+
+## Activation receipt
+
+The existing owner-local GM checkout was fast-forwarded to the approved main
+release, rebuilt and started with production writes enabled (PID27188). The
+approved main gate, tracked/clean source guard and exact character preimage passed.
+The protected GM controls stopped the complete game and gateway for maintenance.
+The repair committed once under receipt `e7d73a80-1c6f-4f97-8b8b-f34a7675f41f` with
+fresh backup `20261012T163109.043691Z.sql.gz`; gzip validation and SHA256 passed.
+Ten preservation hashes prove unrelated character fields, other characters, pets,
+inventory, currency, skills, AAs and multiclass rows were unchanged by the repair.
+
+The pre-repair stopped-server snapshot contained zero Darthy pet rows, unlike the
+three seen during the earlier diagnosis. The repair also left zero: it did not
+remove pets or replay stale pets from the earlier snapshot. The source of that
+intervening pet-state change was not established by this boost repair.
+
+Production resumed at12:32PM America/New_York. All five services are running;
+world and all12 zone executable hashes match the existing item-upgrade release,
+with zero container restarts. Darthy retained the repaired state after startup.
+[Deployment evidence and hashes](deployment.json). No native/client binary update
+was needed; the defective path was the owner-local GM writer.
+
 
 ## Incident and accepted behavior
 
@@ -95,8 +119,8 @@ the original result without repeating the 225-point credit.
 4. Run the repair with `--apply`. It takes a fresh character_data backup under
    the existing private GM backup path, obtains the shared DB fence and SSH lease,
    and commits the state and receipt atomically. Preserve the receipt/backup name.
-5. Inspect the receipt and fresh character row; verify the three saved pets still
-   have spell IDs495/635/690. Resume with the GM, verify game/gateway health and
+5. Inspect the receipt and fresh character row; compare saved pets against the fresh pre-repair snapshot (zero
+   Darthy pet rows in this activation). Resume with the GM, verify game/gateway health and
    use the exact in-game QA below. Preserve the latest item-upgrade release.
 
 Rollback of the GM tool means stop its owner-local process and return to the

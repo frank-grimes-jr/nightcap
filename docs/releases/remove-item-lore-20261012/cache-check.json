@@ -1,0 +1,32 @@
+{
+  "status": "passed",
+  "scope": "Local disposable full item catalog; real native shared-memory loader; not hosted activation",
+  "database": "nightcap_no_lore_0af0b6b524c8",
+  "loader_sha256": "91664a87eac78306e8a76ab4cb923ba1f03c2d0da180278db6b6cf9b6607c0ef",
+  "passes": [
+    {
+      "policy": false,
+      "items_checked": 308928,
+      "raw_lore_items": 160782,
+      "non_lore_fields_sha256": "7bb628cc3529fe2a7893402cc7ad2bd4482c00ae3a884e8046f117fe224cb33b",
+      "item_struct_bytes": 1332,
+      "cache_sha256": "c869aa80e5ef8a956bd1cf4f7a89742de4f31b34703e4f8ce4b8693c699bae81"
+    },
+    {
+      "policy": true,
+      "items_checked": 308928,
+      "raw_lore_items": 160782,
+      "non_lore_fields_sha256": "7bb628cc3529fe2a7893402cc7ad2bd4482c00ae3a884e8046f117fe224cb33b",
+      "item_struct_bytes": 1332,
+      "cache_sha256": "52f901c30f1201e444ea796a6f8d8b618c47af5cdd377979ea969014c4eda6e0"
+    },
+    {
+      "policy": false,
+      "items_checked": 308928,
+      "raw_lore_items": 160782,
+      "non_lore_fields_sha256": "7bb628cc3529fe2a7893402cc7ad2bd4482c00ae3a884e8046f117fe224cb33b",
+      "item_struct_bytes": 1332,
+      "cache_sha256": "c869aa80e5ef8a956bd1cf4f7a89742de4f31b34703e4f8ce4b8693c699bae81"
+    }
+  ]
+}
