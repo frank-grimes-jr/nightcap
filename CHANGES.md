@@ -1,5 +1,18 @@
 # CHANGES
 
+## 2026-10-12 - Remove item LORE restrictions (candidate)
+
+Prepared the existing Items:DisableLore rule for every item so duplicate loot
+can be collected for the Reforging Box. Native cache projection retains original
+SQL definitions and clears effective LORE flags/groups, including future items.
+Two native regression tests, eight isolated migration scenarios and a full
+308,928-item local cache activation/rollback rehearsal pass; all other cached
+item bytes are identical. No binary/client update is needed; a game restart and
+cache rebuild are required. Not yet deployed. Re-enabling LORE after players
+collect duplicates can destroy cursor copies; post-activity recovery requires
+ownership reconciliation. Scope, evidence and exact gameplay/balance QA:
+docs/releases/remove-item-lore-20261012/README.md.
+
 ## 2026-10-12 - Activate durable boosts and repair Darthy
 
 Owner-approved PR #177 is merged and the production-enabled GM has the corrected

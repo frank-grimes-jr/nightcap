@@ -1,0 +1,14 @@
+{
+  "status": "passed",
+  "scope": "Disposable schema; PEQ unchanged",
+  "checks": [
+    "activation changes only requested value; immediate rollback restores exact rows",
+    "missing rule rejected without rule changes",
+    "already enabled rejected without rule changes",
+    "case drift rejected without rule changes",
+    "other ruleset rejected without rule changes",
+    "legacy override rejected without rule changes",
+    "selected ruleset rejected without rule changes",
+    "renamed default rejected without rule changes"
+  ]
+}
