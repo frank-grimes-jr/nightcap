@@ -1,5 +1,15 @@
 # CHANGES
 
+## 2026-10-12 - Complete waypoint-area service visuals
+
+Permafrost player QA confirmed the waypoint portal works, but the separate
+Instance Keeper still appears human. Give all seven custom dungeon Keepers a
+small globally loaded floating-eye appearance through their shared quest.
+Preserve the name, destination, targetability and all instance dialogue/control
+code. Thirteen new Keeper and 16 waypoint checks pass. This follows the existing
+main/server approval; live rendering acceptance remains open. Activation,
+rollback and exact QA: `docs/ops/keeper-visuals-20261012/README.md`.
+
 ## 2026-10-12 - All-item LORE removal deployed
 
 Owner-approved PR #180 is on main and Items:DisableLore=true is live on OVH.
