@@ -1,0 +1,40 @@
+{
+  "source_commit": "7e3b8b940df85eba6417d8da78ad618f20ce67ae",
+  "base_manifest_sha256": "f619b56a10475f7248b0b49d5948d86b773be524d2f44e585d6a7325627e695e",
+  "changed_source_files": [
+    "zone/command.cpp",
+    "zone/gm_commands/sell_all.cpp"
+  ],
+  "base_binaries": {
+    "world": "efd54a1023a569274a76f65d3d2a18a173906762472a1bce186e3e14629d3c18",
+    "zone": "f44c318a551186cf9f8c5099d6649326910050a9640e19507cda1ef6392c8aeb",
+    "ucs": "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714",
+    "loginserver": "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf",
+    "shared_memory": "91664a87eac78306e8a76ab4cb923ba1f03c2d0da180278db6b6cf9b6607c0ef"
+  },
+  "binaries": {
+    "world": "efd54a1023a569274a76f65d3d2a18a173906762472a1bce186e3e14629d3c18",
+    "zone": "6a548967fb7af03b60144c4b40c61f383d003011ac3b313370a907d10b7d7537",
+    "ucs": "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714",
+    "loginserver": "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf",
+    "shared_memory": "91664a87eac78306e8a76ab4cb923ba1f03c2d0da180278db6b6cf9b6607c0ef"
+  },
+  "regressions": "33/33 sell-all checks passed",
+  "world_rule_catalog_changed": false,
+  "status": "build_and_regressions_passed_not_deployed",
+  "recompiled_unity_groups": [
+    "unity_1_cxx.cxx",
+    "unity_6_cxx.cxx"
+  ],
+  "retained_unity_objects_verified": 12,
+  "link_inputs_verified": 141,
+  "existing_policy_tests": 7,
+  "rollout_recovery_tests": 8,
+  "package": {
+    "package_sha256": "25fbbbd43500c0c2d5d7f7a6043b666847b87f0d81e9e160be6c1dfb525df807",
+    "package_bytes": 90448824,
+    "zone_sha256": "6a548967fb7af03b60144c4b40c61f383d003011ac3b313370a907d10b7d7537",
+    "source_commit": "7e3b8b940df85eba6417d8da78ad618f20ce67ae"
+  },
+  "compiler_warnings": "Existing header/unity warnings; no errors in successful compile/link"
+}
