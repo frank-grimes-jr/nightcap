@@ -1,0 +1,45 @@
+{
+  "date": "2026-10-13",
+  "status": "built_tested_not_deployed",
+  "base_revision": "e69cdf11ecc782fc70253babb9f510fd83648386",
+  "server": {
+    "experimental_tests": {"groups": 18, "scenarios": 22, "result": "pass"},
+    "automatic_tests": {"groups": 7, "scenarios": 52, "result": "pass"},
+    "baseline_red": "Original experimental source fails stacked, split, exhaustion and callback regression cases; unstacked control passes.",
+    "sql_engine": "SQLite using emitted production SQL, not a rewritten matching algorithm",
+    "isolated_compile_link": "pass",
+    "ldd": "no missing dependencies",
+    "zone_sha256": "6317ba70619dbb0d012ec9f58a4a91a096374af0b20d411eccb44fc6ac20fbf3",
+    "container_build": "/tmp/nightcap-tradeskill-build-20261013-v2",
+    "provenance": "build-manifest.json",
+    "warnings": "Retained source headers emit existing override and C++20 comparison warnings. Compile exits successfully; no new build errors."
+  },
+  "client": {
+    "proxy_build": "pass, MSVC x86",
+    "runtime_fixture_build": "pass, /W4 /WX, 17 fixtures",
+    "runtime_suite": "6 groups pass; UI hooks and repeat controller included",
+    "exact_client_signatures": "pass",
+    "generated_catalog": "94 sites pass generator --check",
+    "stock_tradeskill_xml_tests": "5 pass",
+    "adjacent_gameplay_asset_tests": "6 pass",
+    "launcher_preflight_and_manifest": "Go tests pass",
+    "staged_assets": "client-audit.json",
+    "signed_or_installed": false
+  },
+  "independent_review": {
+    "corrected": [
+      "Allow null parent ItemData for native world stations while validating portable bag identity.",
+      "Recover immediately from known-unsent native local rejection; only uncertain dispatched operations require session reset."
+    ],
+    "result": "No remaining high-confidence implementation findings; exact-native ABI verified independently."
+  },
+  "database_mutations": false,
+  "services_restarted": false,
+  "protected_client_modified": false,
+  "qa_pending": [
+    "Native RoF2 rendering, real decoded packet path and transport/inventory timing.",
+    "In-game recipe outcomes, stack persistence, cancellation and cursor-full behavior.",
+    "Owner gameplay/visual acceptance and authorized paired deployment."
+  ],
+  "limits": "Fixture TradeskillExecute is deterministic and recipe-by-ID metadata loading is mocked. Full native compile proves integration, not live MariaDB transaction failure behavior. Ordinary native persistence semantics are retained; no receipt/atomicity claim."
+}

@@ -1,5 +1,24 @@
 # CHANGES
 
+## 2026-10-13 - Stacked tradeskills and Craft All candidate
+
+Ordinary experimental combines accept material stacks, consume exact recipe
+quantities and retain leftovers in portable bags and world stations. The recipe
+browser gains Craft One, Craft All and Stop; repetition uses native inventory
+materials and waits for each completed attempt before placing output and crafting
+again. Exhaustion, invalid context, full inventory or missing acknowledgement
+ends the run without replay. Native success, failure, salvage and skill gains
+remain. Server validation checks real containers, character requirements and
+fresh inputs after quest callbacks. Reforging Box/molds/augmentation retain their
+separate behavior; container-consuming recipes require exact Experiment inputs.
+
+Isolated zone and proxy builds, 25 server test groups, six runtime groups, 11
+asset tests, 94 exact-client catalog guards and launcher preflight/manifest tests
+pass. Independent review corrected world-station representation and unsent-client
+rejection handling. Paired zone and signed client publication is required;
+candidate only, no deployment or native gameplay acceptance yet. Full provenance,
+rollback and exact owner QA: `docs/tradeskills/README.md`.
+
 ## 2026-10-13 - Unrest entrance waypoint deployed
 
 Diagnosed the Unrest eye as the entrance Instance Keeper while the portal and

@@ -17,12 +17,13 @@ static nightcap::client_ui::EqString* __fastcall fake_skin_assign(nightcap::clie
 
 static std::vector<std::string> sent_requests;
 static unsigned displayed_lines = 0;
+static std::vector<std::string> displayed_messages;
 static void* expected_eq = nullptr;
 static void __fastcall fake_request_sender(void* self, void*, int channel, const char* target, const char* text, int unknown) {
     assert(self == expected_eq && channel == 8 && target == nullptr && unknown == 0);
     sent_requests.emplace_back(text);
 }
-static void __fastcall fake_chat(void*, void*, const char*, int, bool, bool) { ++displayed_lines; }
+static void __fastcall fake_chat(void*, void*, const char* message, int, bool, bool) { ++displayed_lines;displayed_messages.emplace_back(message); }
 static std::map<std::string, void*> management_controls;
 static unsigned native_pet_calls = 0;
 static nightcap::client_ui::EqString* __fastcall fake_ui_assign(nightcap::client_ui::EqString* self, void*, const char* text) {
@@ -360,7 +361,125 @@ static void TestMerchantSellAllABI() {
     VirtualFree(host,0,MEM_RELEASE); base=0;
 }
 
+static void* expected_craft_window=nullptr;
+static void* expected_combine=nullptr;
+static void* expected_autoinventory=nullptr;
+static uint32_t selected_recipe=47;
+static int* native_craft_pending=nullptr;
+static unsigned craft_calls=0,autoinventory_calls=0,other_craft_calls=0,craft_frames=0;
+static bool reject_native_craft=false;
+static const uint32_t* __fastcall fake_craft_selected(void* self,void*) {
+    assert(self==expected_craft_window);return &selected_recipe;
+}
+static int __fastcall fake_craft_notify(void* self,void*,void* sender,uint32_t message,void*) {
+    assert(self==expected_craft_window);
+    if(sender==expected_combine && message==1) {
+        ++craft_calls;if(!reject_native_craft)++*native_craft_pending;
+    } else if(sender==expected_autoinventory && message==1)++autoinventory_calls;
+    else ++other_craft_calls;
+    return 17;
+}
+static int __fastcall fake_craft_frame(void* self,void*) {
+    assert(self==expected_craft_window);++craft_frames;return 19;
+}
+static void TestTradeskillABI() {
+    using namespace nightcap::client_ui;
+    auto host=static_cast<BYTE*>(VirtualAlloc(nullptr,0xA68000,MEM_COMMIT|MEM_RESERVE,PAGE_READWRITE));
+    assert(host);
+    alignas(4) BYTE eq[0x600]={},player[0x150]={},profile[4]={},connection[4]={},window[0x430]={};
+    alignas(4) BYTE combine[0x30]={},autoinventory[0x30]={},container[4]={};
+    base=reinterpret_cast<uintptr_t>(host);
+    *reinterpret_cast<void**>(host+0xA67CCC)=eq;
+    *reinterpret_cast<void**>(host+0x9D2630)=player;
+    *reinterpret_cast<void**>(host+0x9D261C)=profile;
+    *reinterpret_cast<void**>(host+0x9D25AC)=connection;
+    *reinterpret_cast<int*>(eq+0x5C8)=5;
+    *reinterpret_cast<uint32_t*>(player+0x148)=7;memcpy(player+0xA4,"Crafter",8);
+    window[0x196]=1;combine[0x1a]=1;
+    *reinterpret_cast<void**>(window+0x424)=container;
+    *reinterpret_cast<void**>(window+0x278)=combine;
+    *reinterpret_cast<void**>(window+0x240)=autoinventory;
+    native_craft_pending=reinterpret_cast<int*>(host+0xA635AC);
+    expected_craft_window=window;expected_combine=combine;expected_autoinventory=autoinventory;
+    JumpTo(host+kUIStringAssignRva,reinterpret_cast<void*>(&fake_ui_assign));
+    JumpTo(host+kUIChildRva,reinterpret_cast<void*>(&fake_ui_child));
+    JumpTo(host+kCraftSelectedRva,reinterpret_cast<void*>(&fake_craft_selected));
+    original_tradeskill=reinterpret_cast<InventoryNotify>(&fake_craft_notify);
+    original_tradeskill_frame=reinterpret_cast<TradeskillFrame>(&fake_craft_frame);
+    original_chat=reinterpret_cast<DisplayChat>(&fake_chat);
+    const auto notify=reinterpret_cast<InventoryNotify>(&TradeskillWindowHook);
+    const auto frame=reinterpret_cast<TradeskillFrame>(&TradeskillFrameHook);
+    auto all=reinterpret_cast<void*>(101),stop=reinterpret_cast<void*>(102),search=reinterpret_cast<void*>(103);
+    management_controls["NC_CraftAll"]=all;management_controls["NC_CraftStop"]=stop;
+    management_controls["CombineButton"]=combine;
+    craft_repeat.Reset();craft_calls=autoinventory_calls=other_craft_calls=craft_frames=0;
+    void* found=nullptr;uint32_t recipe=0;bool ready=false;
+    assert(ReadCraftContext(window,found,recipe,ready)&&found==container&&recipe==47&&ready);
+    selected_recipe=0;assert(!ReadCraftContext(window,found,recipe,ready));selected_recipe=47;
+    window[0x196]=0;assert(!ReadCraftContext(window,found,recipe,ready));window[0x196]=1;
+    combine[0x1a]=0;assert(ReadCraftContext(window,found,recipe,ready)&&!ready);combine[0x1a]=1;
+    *native_craft_pending=1;assert(ReadCraftContext(window,found,recipe,ready)&&!ready);*native_craft_pending=0;
+    for(uint32_t message:{0u,2u,3u,0x17u})assert(notify(window,all,message,nullptr)==1);
+    assert(craft_calls==0);
+    assert(notify(window,all,1,nullptr)==1&&craft_calls==1&&craft_repeat.Active()&&craft_repeat.Pending());
+    assert(craft_window==window&&craft_container==container&&craft_recipe==47&&craft_spawn==7);
+    for(int i=0;i<1000;++i)assert(frame(window)==19);
+    assert(craft_calls==1&&autoinventory_calls==0&&craft_frames==1000); // frames cannot replay without server completion
+    assert(notify(window,stop,1,nullptr)==1&&!craft_repeat.Active()&&craft_repeat.Pending());
+    assert(notify(window,all,1,nullptr)==1&&craft_calls==1);
+    assert(notify(window,combine,1,nullptr)==1&&craft_calls==1); // manual native combine blocked while outstanding
+    assert(ConsumeCraftReply("[NCTS1]|8|47|1")&&craft_repeat.Pending());
+    assert(ConsumeCraftReply("[NCTS1]|7|48|1")&&craft_repeat.Pending());
+    assert(ConsumeCraftReply("[NCTS1]|4294967303|47|1")&&craft_repeat.Pending());
+    assert(!ConsumeCraftReply("ordinary chat"));
+    *native_craft_pending=0;assert(ConsumeCraftReply("[NCTS1]|7|47|1")&&!craft_repeat.Pending());
+    assert(frame(window)==19&&craft_calls==1&&autoinventory_calls==0); // stopped result does not resume
+    reject_native_craft=true;
+    assert(notify(window,all,1,nullptr)==1&&craft_calls==2);
+    assert(!craft_repeat.Active()&&!craft_repeat.Pending()&&!craft_repeat.Uncertain());
+    reject_native_craft=false;
+    assert(notify(window,all,1,nullptr)==1&&craft_calls==3&&craft_repeat.Pending());
+    *native_craft_pending=0;assert(ConsumeCraftReply("[NCTS1]|7|47|0")&&!craft_repeat.Active());
+
+    // Seed elapsed time deterministically, then exercise the actual frame hook
+    // through both native auto-inventory and the next native combine dispatch.
+    craft_repeat.Reset();assert(craft_repeat.Start(GetTickCount64()-2300,7,47));
+    assert(ConsumeCraftReply("[NCTS1]|7|47|1"));
+    assert(frame(window)==19&&autoinventory_calls==1&&craft_calls==3);
+    Sleep(320);
+    assert(frame(window)==19&&craft_calls==4&&craft_repeat.Pending());
+    assert(ConsumeCraftReply("[NCTS1]|7|47|1")&&craft_repeat.Completed()==2);
+    assert(ConsumeCraftReply("[NCTS1]|7|47|1")&&craft_repeat.Completed()==2); // duplicate completion ignored
+    *native_craft_pending=0;
+    for(uint32_t message:{1u,3u,6u,15u}) {
+        craft_repeat.Reset();assert(craft_repeat.Start(GetTickCount64(),7,47));
+        assert(notify(window,search,message,nullptr)==17&&!craft_repeat.Active()&&craft_repeat.Pending());
+        assert(ConsumeCraftReply("[NCTS1]|7|47|1")&&!craft_repeat.Pending());
+    }
+    assert(other_craft_calls==4);
+    for(int changed=0;changed<4;++changed) {
+        craft_repeat.Reset();assert(craft_repeat.Start(GetTickCount64(),7,47));
+        if(changed==0)selected_recipe=48;
+        if(changed==1)*reinterpret_cast<void**>(window+0x424)=eq;
+        if(changed==2)*reinterpret_cast<uint32_t*>(player+0x148)=8;
+        if(changed==3)window[0x196]=0;
+        assert(frame(window)==19&&!craft_repeat.Active()&&craft_repeat.Pending());
+        selected_recipe=47;*reinterpret_cast<void**>(window+0x424)=container;
+        *reinterpret_cast<uint32_t*>(player+0x148)=7;window[0x196]=1;
+    }
+    craft_repeat.Reset();assert(craft_repeat.Start(GetTickCount64()-15001,7,47));
+    assert(frame(window)==19&&craft_repeat.Uncertain()&&!craft_repeat.Pending());
+    assert(displayed_messages.back().find("Zone or relog")!=std::string::npos);
+    const auto before=craft_calls;assert(notify(window,all,1,nullptr)==1&&craft_calls==before);
+    assert(displayed_messages.back().find("Zone or relog")!=std::string::npos);
+    craft_repeat.Reset();management_controls.clear();original_tradeskill=nullptr;original_tradeskill_frame=nullptr;
+    craft_window=craft_container=nullptr;craft_recipe=craft_spawn=0;craft_name[0]=0;
+    displayed_lines=0;displayed_messages.clear();
+    VirtualFree(host,0,MEM_RELEASE);base=0;
+}
+
 int main() {
+    TestTradeskillABI();
     TestMerchantSellAllABI();
     TestSpellAccessABI();
     TestSilentRequests();
