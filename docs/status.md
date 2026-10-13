@@ -6,7 +6,7 @@ Owner confirms the previous trainer window opens, but purchases, natural gains
 and offhand use fail. The corrective release fixes missed native purchase and
 equipment checks and retained primary-only server progression/empty-fist logic.
 Both old-client failures and deployed-source failures reproduce; candidate
-native tests pass. Full build and paired deployment are in progress. No DB skill
+native tests pass. Full 126-object zone build and client package checks pass; paired deployment is in progress. No DB skill
 or point grants. [Cause, evidence and exact QA](releases/multiclass-skills-20261013/README.md).
 
 ## Launcher patch summaries — published October 12

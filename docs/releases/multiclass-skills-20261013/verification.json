@@ -1,6 +1,6 @@
 {
   "date": "2026-10-13",
-  "status": "candidate_build_in_progress",
+  "status": "built_reviewed_ready_for_approved_deployment",
   "owner_qa": {
     "previous_release": "trainer window opens; purchases, natural skill gains and offhand fail",
     "corrective_release": "pending"
@@ -23,7 +23,14 @@
   "trainer_hail_tests": "2 passed",
   "rollout_tests": "9 passed",
   "publication_tests": "12 passed",
-  "server_build": "running, all126 zone TUs with fresh candidate PCH",
+  "server_build": {
+    "result": "pass",
+    "zone_objects_rebuilt": 126,
+    "candidate_pch": "fresh; independently reviewed",
+    "zone_sha256": "c2bcd33b771112b6c5ecf1b4f7c179f22e749c9d144ab75b1384a2293e7a6766",
+    "ldd": "no missing dependencies",
+    "base_manifest_sha256": "5429e11191ed6b07cee4d01f5658a54022d068a742435a76cf924f13142d0682"
+  },
   "database_mutations": false,
   "independent_review": "server/client reviewed; stale underlevel Warrior offhand case corrected",
   "signed_client_local_verification": {
@@ -35,5 +42,6 @@
     ],
     "signature": "valid against shipped production public key",
     "channel_sha256": "06931c05fddf6e0729db7a7bcd4e91d929416384e431b817b71414fb92d4b692"
-  }
+  },
+  "combat_call_path": "Read actual retained OPCombatAbility: current-level held-class authorization already present; skill gains flow to corrected CheckIncreaseSkill."
 }

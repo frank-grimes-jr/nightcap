@@ -48,7 +48,9 @@ retain previous Monk/Beastlord slot, level, specialization and release coverage.
 purchase/cap/offhand paths; both new failures reproduce before the patch and
 pass after it. Cap exhaustion, native tradeskill limits, scope isolation, raw
 skill absence and stale/released identity cases are covered. The protected
-reference executable is unchanged. See `verification.json` for final results.
+reference executable is unchanged. The complete 126-object zone build and dependency check pass, along with the full
+launcher suite, nine rollout tests and twelve publication tests. See
+`verification.json` and `build-manifest.json` for final results.
 
 `tools/build_skill_progression_candidate.py` builds from the retained trainer
 release into an isolated directory. Changed staged source is exactly client.h,
