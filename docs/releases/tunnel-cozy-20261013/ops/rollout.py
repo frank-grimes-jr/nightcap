@@ -78,6 +78,19 @@ def market_boot(previous,query=r.sql):
     invalid=query("SELECT COUNT(*) FROM nightcap_market_offers o LEFT JOIN nightcap_market_actors a ON a.npc_id=o.npc_id LEFT JOIN nightcap_market_catalog c ON c.item_id=o.item_id JOIN nightcap_market_state s ON s.id=1 WHERE a.npc_id IS NULL OR c.item_id IS NULL OR o.epoch<>s.epoch OR o.zone_id<>a.zone_id OR o.kind<>a.kind OR o.remaining<>1 OR c.pool<>IF(o.kind='find','find','tunnel') OR c.min_expansion>s.expansion OR (c.max_expansion>=0 AND c.max_expansion<s.expansion) OR o.price_cp<>CASE o.kind WHEN 'find' THEN c.find_cp WHEN 'sell' THEN c.sell_cp ELSE c.buy_cp END;").strip()
     assert invalid=='0','Invalid rotated market offers'
     return current
+def precise_character_positions(query=r.sql):
+    # mysqldump emits FLOAT's display precision, which can lose binary bits.
+    # Promote to DOUBLE for round-trip text; this sidecar is for backup restore
+    # only. Never apply old player coordinates to the live database.
+    rows=query('SELECT id,y+0e0,x+0e0,z+0e0,heading+0e0 FROM character_data ORDER BY id;').splitlines()
+    statements=[]
+    for row in rows:
+        ident,*values=row.split('\t')
+        assert ident.isdigit() and len(values)==4
+        assert all(re.fullmatch(r'-?\d+(?:\.\d+)?(?:[eE][+-]?\d+)?',v) for v in values)
+        assignments=','.join('`'+key+'`='+value for key,value in zip(('y','x','z','heading'),values))
+        statements.append('UPDATE character_data SET '+assignments+' WHERE id='+ident+';')
+    return 'START TRANSACTION;\n'+'\n'.join(statements)+'\nCOMMIT;\n'
 def health(p):
     game=p['services']['game']
     return r.running(game['image_id'],p['binaries'],expected_restarts=game['restarts'])
@@ -121,6 +134,9 @@ def restore_rehearsal(before,after,backup):
             result=subprocess.run(['docker','exec','-i',REHEARSAL,'mariadb','-uroot','--batch','--raw','--skip-column-names','peq'],input=sql,text=True,capture_output=True,timeout=180)
             assert result.returncode==0,'Isolated SQL failed'
             return result.stdout
+        sidecar=Path(backup['position_precision']['path'])
+        assert sha(sidecar)==backup['position_precision']['sha256']
+        query(sidecar.read_text())
         baseline=load('preservation-before.json');states=load('outside-states-before.json');market_before=load('market-before.json')
         exact(before,query);assert preservation(query)==baseline and outside_states(query)==states and market(query)==market_before
         query(content.patch_sql(before,after));exact(after,query)
@@ -162,7 +178,11 @@ def activate():
         save('before-content.json',before);save('after-content.json',after)
         save('preservation-before.json',baseline);save('outside-states-before.json',states)
         save('market-before.json',market_before)
-        backup=r.database_backup();save('backup.json',backup)
+        backup=r.database_backup()
+        sidecar=Path(backup['path']).with_name('character-position-precision.sql')
+        with sidecar.open('x') as handle:handle.write(precise_character_positions())
+        backup['position_precision']=dict(path=str(sidecar),sha256=sha(sidecar))
+        save('backup.json',backup)
         (r.EVIDENCE/'forward.sql').write_text(content.patch_sql(before,after))
         restore_rehearsal(before,after,backup)
         exact(before);assert preservation()==baseline and outside_states()==states and market()==market_before;guard(p)

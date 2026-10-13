@@ -84,11 +84,20 @@ acceptance remains separate. PR #194 tracks the approved release.
 `ops/rollout.py` retains the original game/gateway containers and all binaries,
 uses both deployment/GM file locks and checks the GM SQL fence, takes a stopped
 full backup, and restores it into an isolated temporary MariaDB container before
-the forward/inverse rehearsal. Twelve fault-injection tests in `ops/test_rollout.py`
+the forward/inverse rehearsal. Thirteen fault-injection tests in `ops/test_rollout.py`
 cover absent recovery baselines, uncertain SQL commit, rehearsal failure, fresh
 activity after possible access, player/cache drift and recovery reopening errors.
 An unverified recovery leaves the gateway closed. Market rows are exact around
 SQL/rehearsal; startup may rotate the epoch/offers while policy remains unchanged.
+
+The first maintenance attempt restored its backup successfully but aborted before
+live layout SQL because `mariadb-dump` rounded binary FLOAT character coordinates.
+Recovery preserved the original content and player tables and reopened access.
+An isolated diagnostic confirmed identical displayed fields, differing precise
+coordinates, and exact original checksums after restoring a precision companion.
+The backup now includes `character-position-precision.sql`, generated with
+DOUBLE-promoted values while stopped. Apply it only as part of a full isolated
+backup restore; never replay old character positions against the live database.
 
 After approval, use the current production maintenance/deployment fence and
 retain the current image, binaries, client release, quests and all other runtime
