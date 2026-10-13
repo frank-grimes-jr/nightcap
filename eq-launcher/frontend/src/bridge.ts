@@ -1,3 +1,8 @@
+export interface PatchNote {
+  release: number;
+  date: string;
+  changes: { kind: "feature" | "fix"; text: string }[];
+}
 export interface Status {
 	version?: string;
   channel: string;
@@ -9,6 +14,7 @@ export interface Status {
   busy: boolean;
   release: number;
   installed_release: number;
+  patch_notes?: PatchNote[];
   recovery_required: boolean;
   files: { path: string; state: "current" | "changed" | "missing" }[];
   remove: string[];

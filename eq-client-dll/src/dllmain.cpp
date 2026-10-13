@@ -1517,6 +1517,8 @@ static BOOL CALLBACK InitializeRuntime(PINIT_ONCE, PVOID, PVOID*)
                 reinterpret_cast<uintptr_t>(&nightcap::client_ui::MerchantClassesHook),"Merchant usable classes") &&
             ApplyGuardedRelativeCall(eq_base,kScribeCanUseRva,kExpectedScribeCanUse,
                 reinterpret_cast<uintptr_t>(&nightcap::client_ui::CanUseSpellItem),"Spellbook scribe classes") &&
+            ApplyGuardedRelativeCall(eq_base,kScribeLevelRva,kExpectedScribeLevel,
+                reinterpret_cast<uintptr_t>(&nightcap::client_ui::ScribeSpellLevelHook),"Spellbook early scribing") &&
             ApplyGuardedRelativeCall(eq_base,kScrollPlacementCanUseRva,kExpectedScrollPlacementCanUse,
                 reinterpret_cast<uintptr_t>(&nightcap::client_ui::CanUseSpellItem),"Scroll inventory placement classes") &&
             ApplyGuardedRelativeCall(eq_base,kInspectionClassesRva,kExpectedInspectionClasses,

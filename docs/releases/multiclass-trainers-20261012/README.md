@@ -47,8 +47,8 @@ Pair the rebuilt zone with the candidate proxy and generated signed patch
 catalog. A rule or quest reload cannot install either change. The server-only
 hail path does not fix the old client's skill-list/purchase restrictions.
 The protected RoF2 executable is a read-only test input and stays unchanged.
-This branch starts at `4e3acd8`; the separate early-scribing `0.8.1-dev`
-candidate is not included. Reconcile any newly promoted client/server changes
+This branch started at `4e3acd8` and now integrates main `69252d9`, including
+early scribing and launcher patch history. Reconcile any newly promoted changes
 before publication; do not overwrite another candidate or live release.
 
 The live game image observed during diagnosis was
@@ -56,9 +56,10 @@ The live game image observed during diagnosis was
 `tools/build_trainer_candidate.py` builds in a separate local container directory
 against its retained sell-all source and fingerprinted objects. Main's single-
 argument `MaxSkill` union differs from that release's primary-class inline
-overload; only the trainer additions are staged onto retained source. That
+overload; the trainer additions and approved early-scribing changes are staged onto
+retained source. That
 unrelated difference is explicitly preserved, not silently promoted or removed.
-The candidate adds no fields or virtual methods; only the two changed native
+The candidate adds no fields or virtual methods; only the three changed native
 translation units require recompilation, without a stale precompiled header.
 
 Activation requires owner approval for main/production. Recheck live image,
@@ -66,7 +67,10 @@ server source and signed game channel first. Follow the established immutable
 image, fresh backup, closed-gateway, graceful full-game restart and preservation
 checks from `docs/ops/sellall-supplies-20261012/README.md`. Publish the paired
 client through `docs/ops/permanent-patcher.md`, preserving the complete current
-asset inventory. Players close EQ and use launcher Play to update. Never kill
+asset inventory and published patch-note history. Public channel 2026101203 was
+observed after integration; proposed trainer notes use 2026101204 with launcher
+minimum 0.6.0. Recheck the actual counter before signing. Players close EQ and
+use launcher Play to update. Never kill
 one production zone: its supervisor restarts the whole runtime.
 
 Rollback selects the freshly captured prior server image and republishes prior

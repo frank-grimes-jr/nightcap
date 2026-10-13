@@ -12,8 +12,9 @@ import subprocess
 BASE = Path('/tmp/nightcap-item-upgrades-release-build-20261012')
 LIVE = Path('/tmp/nightcap-sellall-build-20261012-v3')
 INPUT = Path('/tmp/nightcap-trainer-input-20261012')
-OUT = Path('/tmp/nightcap-trainer-build-20261012')
-CHANGED = ['zone/client.cpp', 'zone/client.h', 'zone/client_process.cpp']
+OUT = Path('/tmp/nightcap-trainer-build-20261012-v2')
+# Retain the concurrently promoted early-scribing change in client_process/effects.
+CHANGED = ['zone/client.cpp', 'zone/client.h', 'zone/client_process.cpp', 'zone/effects.cpp']
 
 
 def sha(path):
@@ -64,7 +65,7 @@ def main():
                 for arg in link[1:] if arg.endswith(('.o', '.a', '.so')) and (BASE / 'build/zone' / arg).is_file()}
     assert retained == prior['unchanged_link_inputs'], 'Link inputs differ from the deployed build evidence'
     commands = {}
-    for name in ['client.cpp', 'client_process.cpp']:
+    for name in ['client.cpp', 'client_process.cpp', 'effects.cpp']:
         obj = OUT / (name + '.o')
         args = ['/usr/bin/clang++'] + flags['CXX_DEFINES'] + flags['CXX_INCLUDES'] + flags['CXX_FLAGS']
         args += ['-c', str(source / 'zone' / name), '-o', str(obj)]

@@ -24,26 +24,27 @@ type Event struct {
 	Message string `json:"message"`
 }
 type Status struct {
-	Version          string              `json:"version"`
-	Channel          string              `json:"channel"`
-	ClientDir        string              `json:"client_dir"`
-	Phase            string              `json:"phase"`
-	Message          string              `json:"message"`
-	Supported        bool                `json:"supported"`
-	Configured       bool                `json:"configured"`
-	Busy             bool                `json:"busy"`
-	Release          uint64              `json:"release"`
-	InstalledRelease uint64              `json:"installed_release"`
-	RecoveryRequired bool                `json:"recovery_required"`
-	Files            []assets.FileStatus `json:"files"`
-	Remove           []string            `json:"remove"`
-	Events           []Event             `json:"events"`
-	CanCheck         bool                `json:"can_check"`
-	CanUpdate        bool                `json:"can_update"`
-	CanRecover       bool                `json:"can_recover"`
-	CanPlay          bool                `json:"can_play"`
-	AccessRequired   bool                `json:"access_required"`
-	AccessSaved      bool                `json:"access_saved"`
+	Version          string               `json:"version"`
+	Channel          string               `json:"channel"`
+	ClientDir        string               `json:"client_dir"`
+	Phase            string               `json:"phase"`
+	Message          string               `json:"message"`
+	Supported        bool                 `json:"supported"`
+	Configured       bool                 `json:"configured"`
+	Busy             bool                 `json:"busy"`
+	Release          uint64               `json:"release"`
+	InstalledRelease uint64               `json:"installed_release"`
+	PatchNotes       []manifest.PatchNote `json:"patch_notes"`
+	RecoveryRequired bool                 `json:"recovery_required"`
+	Files            []assets.FileStatus  `json:"files"`
+	Remove           []string             `json:"remove"`
+	Events           []Event              `json:"events"`
+	CanCheck         bool                 `json:"can_check"`
+	CanUpdate        bool                 `json:"can_update"`
+	CanRecover       bool                 `json:"can_recover"`
+	CanPlay          bool                 `json:"can_play"`
+	AccessRequired   bool                 `json:"access_required"`
+	AccessSaved      bool                 `json:"access_saved"`
 }
 type Controller struct {
 	locallyCurrent bool
@@ -109,6 +110,7 @@ func (c *Controller) Snapshot() Status {
 	s.Files = append([]assets.FileStatus{}, s.Files...)
 	s.Remove = append([]string{}, s.Remove...)
 	s.Events = append([]Event{}, s.Events...)
+	s.PatchNotes = manifest.ClonePatchNotes(s.PatchNotes)
 	s.CanCheck = !s.Busy && s.ClientDir != ""
 	s.CanUpdate = !s.Busy && s.Supported && s.Configured && !s.RecoveryRequired && (s.Phase == "update" || s.Phase == "health_pending")
 	s.CanRecover = !s.Busy && s.Supported && s.Configured && s.RecoveryRequired
@@ -185,6 +187,7 @@ func (c *Controller) SelectClient(ctx context.Context, dir string) (err error) {
 	c.mu.Lock()
 	c.state.ClientDir = dir
 	c.state.Release = 0
+	c.state.PatchNotes = nil
 	c.state.InstalledRelease = 0
 	c.state.RecoveryRequired = false
 	c.state.Files = []assets.FileStatus{}
@@ -291,6 +294,7 @@ func (c *Controller) prepare(ctx context.Context, dir string) ([]byte, manifest.
 	}
 	c.mu.Lock()
 	c.state.Release = m.Release
+	c.state.PatchNotes = manifest.ClonePatchNotes(m.PatchNotes)
 	c.state.Files = diff.Files
 	c.state.Remove = diff.Remove
 	c.mu.Unlock()

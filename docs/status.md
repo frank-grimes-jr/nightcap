@@ -9,6 +9,27 @@ hail. Native regression evidence reproduces Joren's rejection before the fix.
 No production installation, signed publication or player acceptance is claimed.
 [Build evidence, pairing and exact QA](releases/multiclass-trainers-20261012/README.md).
 
+## Launcher patch summaries — published October 12
+
+The patcher now presents concise Feature/Bug fix summaries for the latest signed
+release and expandable previous patches, including during updates. Five recent
+client releases are curated in `eq-launcher/patch-notes.json`. Go regressions,
+desktop compilation, frontend build and 11 Chrome UI tests pass; rendered
+patching layout was inspected. Owner-approved PR #186 is on main. Signed desktop
+0.6.0/channel 2026101201 and game 2026101202 are hosted; all 105 client assets,
+starter ZIP, guide and running services were preserved. Close EQ and the launcher,
+then reopen the normal shortcut. Native player acceptance remains pending.
+[Evidence, recovery and QA](releases/launcher-patch-history-20261012/README.md).
+
+## Early spell scribing — candidate October 12
+
+Selected-class spells can be scribed before their required level; gems and
+casting remain level-gated. Both server paths and the dedicated client check
+are updated. Compiled regressions, complete zone/client builds, runtime tests,
+76 patch-site checks and independent source review pass. Requires paired native
+zone and signed client delivery; no deployment or in-game acceptance yet.
+[Candidate, activation/recovery and exact QA](releases/early-spell-scribing-20261012/README.md).
+
 ## Sell-all supply protection — deployed October 12
 
 Owner-approved PR #183 is on main and live on OVH. `#sellall` and the merchant

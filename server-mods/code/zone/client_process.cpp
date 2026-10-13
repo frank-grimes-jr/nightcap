@@ -1188,13 +1188,14 @@ void Client::OPMemorizeSpell(const EQApplicationPacket* app)
 		return;
 	}
 
-	// Multiclass: gate on the best (lowest) required level across held classes
+	// Scribing requires a held class; only memorization requires its spell level.
 	const uint8 spell_min_level = GetSpellMinLevel(m->spell_id);
 	if (
 		m->scribing != memSpellForget &&
 		(
 			!IsPlayerClass(GetClass()) ||
-			GetLevel() < spell_min_level
+			spell_min_level == 255 ||
+			(m->scribing != memSpellScribing && GetLevel() < spell_min_level)
 		)
 	) {
 		MessageString(

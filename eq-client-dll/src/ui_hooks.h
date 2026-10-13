@@ -97,6 +97,18 @@ inline uint8_t __fastcall SpellLevelHook(void* spell, void*, int queried_class) 
     }
     return original_spell_level(spell, queried_class);
 }
+// Only the native spellbook's scribing-level call uses this projection. The
+// shared level accessor, inspection, menu, memorization and casting keep the
+// original held-class level. Missing identity must not grant early scribing.
+inline uint8_t __fastcall ScribeSpellLevelHook(void* spell, void*, int queried_class) {
+    if (!CurrentIdentity()) { RequestRefresh(); return 255; }
+    if (queried_class != static_cast<int>(state.PrimaryClass())) return 255;
+    __try {
+        const auto level = HeldSpellLevel(
+            *reinterpret_cast<uint32_t*>(static_cast<BYTE*>(spell)+0x174), state.ClassMask());
+        return level == 255 ? 255 : 1;
+    } __except(EXCEPTION_EXECUTE_HANDLER) { return 255; }
+}
 inline bool SpellMenuContextReady(void* window) {
     if (!window || !current_spell_profile || !CurrentIdentity()) return false;
     __try {

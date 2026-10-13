@@ -23,12 +23,15 @@ func fixture(t *testing.T) (*Controller, []byte, manifest.Signature) {
 	}
 	now := time.Now().UTC()
 	m := manifest.Manifest{Schema: 1, Release: 2, MinLauncher: "0.1.0", Expires: now.Add(time.Hour), Files: []manifest.File{{Path: "dinput8.dll", Size: 3, SHA256: manifest.Digest([]byte("dll")), URL: "https://release.test/dinput8.dll", Required: true}}, Tombstones: []string{}}
+	m.MinLauncher = "0.6.0"
+	m.PatchNotes = []manifest.PatchNote{{Release: 2, Date: "2026-10-12", Changes: []manifest.PatchChange{{Kind: "feature", Text: "Added patch summaries."}}}}
 	raw, err := manifest.Canonical(m)
 	if err != nil {
 		t.Fatal(err)
 	}
 	sig := manifest.Signature{KeyID: "test", Bytes: ed25519.Sign(priv, raw)}
 	policy := Policy{ManifestURL: "https://release.test/manifest.json", SignatureURL: "https://release.test/signature.json", Trust: manifest.Trust{Keys: []manifest.Key{{ID: "test", Public: pub, NotBefore: now.Add(-time.Hour), NotAfter: now.Add(time.Hour)}}, LauncherVersion: "0.1.0", Inventory: map[string]bool{"dinput8.dll": true}, Hosts: []string{"release.test"}}}
+	policy.Trust.LauncherVersion = "0.6.0"
 	c, err := New(t.TempDir(), policy)
 	if err != nil {
 		t.Fatal(err)

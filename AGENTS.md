@@ -246,6 +246,16 @@ formatting. Rehearse forward and rollback against captured schemas before apply.
 
 ## Launcher delivery
 
+Player-facing client releases must maintain `eq-launcher/patch-notes.json`:
+newest release first, dated, concise `feature`/`fix` bullets, retaining history.
+Include it using `nightcap-package -patch-notes patch-notes.json`. Notes are part
+of the signed game manifest; never edit a published release in place. Notes need
+desktop/minimum launcher 0.6.0+, published through the stable starter before the
+game channel. Verify actual channel counters before assigning the next release.
+Desktop 0.6.0 and game release 2026101202 were published October 12 under explicit
+owner approval. Future releases must preserve/update notes and the 0.6.0 floor.
+See `docs/ops/permanent-patcher.md` for publishing and exact visual QA.
+
 The winged Paladin helmet candidate is documented in
 `docs/helmets/winged-paladin.md`. Its Blender/Unity assets and pinned native WLD
 builder live under `assets/winged-helmet/` and `tools/*winged_helmet*`.

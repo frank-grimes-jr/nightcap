@@ -76,6 +76,42 @@ static void JumpTo(BYTE* address, void* function) {
     assert(FlushInstructionCache(GetCurrentProcess(),address,5));
 }
 
+struct ScribeCharacter { void** table; unsigned level; };
+static unsigned __fastcall ScribeCharacterLevel(void* self,void*) {
+    return static_cast<ScribeCharacter*>(self)->level;
+}
+static bool NativeScribeLevelCheck(nightcap::client_ui::SpellLevel hook,void* spell,unsigned level) {
+    // Exact RVA 0x35E081..0x35E09C: call the level accessor, read character
+    // level through its vtable, then branch on the signed comparison. Only
+    // relocate the call and rejection destination; keep register usage intact.
+    const BYTE native[]={0x50,0x8B,0xCE,0xE8,0x77,0x16,0xD5,0xFF,0x8B,0x17,
+        0x0F,0xB6,0xD8,0x8B,0x42,0x68,0x8B,0xCF,0xFF,0xD0,0x3B,0xD8,
+        0x0F,0x8F,0x20,0x04,0,0};
+    void* table[27]={};table[26]=reinterpret_cast<void*>(&ScribeCharacterLevel);
+    ScribeCharacter character{table,level};
+    std::vector<BYTE> code={0x53,0x56,0x57}; // save EBX/ESI/EDI
+    const auto immediate=[&](BYTE opcode,uint32_t value) {
+        code.push_back(opcode);const auto bytes=reinterpret_cast<const BYTE*>(&value);
+        code.insert(code.end(),bytes,bytes+4);
+    };
+    immediate(0xBE,reinterpret_cast<uint32_t>(spell));
+    immediate(0xBF,reinterpret_cast<uint32_t>(&character));
+    immediate(0xB8,2); // primary Cleric, held Magician supplied by NCUI1
+    const auto start=code.size();code.insert(code.end(),native,native+sizeof(native));
+    immediate(0xB8,1);
+    const BYTE success[]={0x5F,0x5E,0x5B,0xC3};code.insert(code.end(),success,success+sizeof(success));
+    const auto rejected=code.size();
+    const BYTE failure[]={0x33,0xC0,0x5F,0x5E,0x5B,0xC3};code.insert(code.end(),failure,failure+sizeof(failure));
+    auto memory=static_cast<BYTE*>(VirtualAlloc(nullptr,4096,MEM_COMMIT|MEM_RESERVE,PAGE_EXECUTE_READWRITE));
+    assert(memory);memcpy(memory,code.data(),code.size());
+    const auto call=static_cast<int32_t>(reinterpret_cast<uintptr_t>(hook)-reinterpret_cast<uintptr_t>(memory+start+8));
+    const auto branch=static_cast<int32_t>(rejected-start-sizeof(native));
+    memcpy(memory+start+4,&call,4);memcpy(memory+start+24,&branch,4);
+    assert(FlushInstructionCache(GetCurrentProcess(),memory,code.size()));
+    const bool result=reinterpret_cast<int (__cdecl *)()>(memory)()!=0;
+    VirtualFree(memory,0,MEM_RELEASE);return result;
+}
+
 static void TestSpellAccessABI() {
     using namespace nightcap::client_ui;
     auto host=static_cast<BYTE*>(VirtualAlloc(nullptr,0xA68000,MEM_COMMIT|MEM_RESERVE,PAGE_READWRITE));
@@ -91,6 +127,13 @@ static void TestSpellAccessABI() {
     assert(state.Consume("[NCUI1]S|1|19|22|0|7|2|13|11|Monktest"));
     original_spell_level=reinterpret_cast<SpellLevel>(&fake_spell_level);
     const auto level_hook=reinterpret_cast<SpellLevel>(&SpellLevelHook);
+    const auto scribe_level=reinterpret_cast<SpellLevel>(&ScribeSpellLevelHook);
+    assert(scribe_level(spell,2)==1 && scribe_level(spell,13)==255);
+    assert(scribe_level(nullptr,2)==255);
+    assert(!NativeScribeLevelCheck(level_hook,spell,1)); // old level-17 rejection
+    assert(NativeScribeLevelCheck(scribe_level,spell,1));
+    assert(!NativeScribeLevelCheck(level_hook,spell,16));
+    assert(NativeScribeLevelCheck(level_hook,spell,17)); // ordinary levels stay real
     for(int i=0;i<1000;++i) assert(level_hook(spell,2)==17);
     assert(stock_level_calls==0 && level_hook(spell,13)==123 && stock_level_calls==1);
     using Classes=uint32_t (__thiscall *)(void*,bool,bool);
@@ -123,11 +166,17 @@ static void TestSpellAccessABI() {
     item_mask=65535;
     assert(state.Consume("[NCUI1]S|2|19|22|0|7|2|0|11|Monktest"));
     assert(level_hook(spell,2)==255 && mask_hook(item,false,false)==(1u<<12));
+    assert(scribe_level(spell,2)==255); // class release removes early scribing
+    assert(!NativeScribeLevelCheck(scribe_level,spell,50));
+    *reinterpret_cast<uint32_t*>(spell+0x174)=44999;
+    assert(scribe_level(spell,2)==255);
+    *reinterpret_cast<uint32_t*>(spell+0x174)=4;
     item_spell=44999; assert(mask_hook(item,false,false)==0); item_spell=4;
     item_type=0; item_mask=1u<<10;
     assert(mask_hook(item,false,false)==((1u<<10)|(1u<<1)));
     *reinterpret_cast<uint32_t*>(player+0x148)=8; // old metadata cannot affect next spawn
     assert(level_hook(spell,2)==123 && mask_hook(item,false,false)==item_mask);
+    assert(scribe_level(spell,2)==255); // stale character snapshot
     *reinterpret_cast<uint32_t*>(player+0x148)=7;
     *reinterpret_cast<int*>(eq+0x5C8)=1;
     assert(level_hook(spell,2)==123 && mask_hook(item,false,false)==item_mask);

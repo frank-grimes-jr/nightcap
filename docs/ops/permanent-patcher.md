@@ -22,6 +22,57 @@ Build with `./build-production.ps1 -Destination <new friends directory> -Profile
 
 For future releases, reuse the shipped starter instead of requiring players to replace it. Run unit/native/UI checks and independently review executable update changes. Upload immutable game and desktop paths first; verify every size/hash, then publish the launcher channel, ZIP/guide and game channel atomically. Hosted files already work with the existing nginx configuration (`no-cache` for new launcher paths). No game-server restart is needed for static launcher publication. Do not put private keys on the server.
 
+## Player patch summaries (published October 12)
+
+The desktop displays **Latest update** above client/file details, followed by
+keyboard-accessible **Previous patches**. Each dated patch has short Feature or
+Bug fix bullets. History remains usable while patching and after completion.
+Only verified signed game metadata supplies notes; older releases without notes
+show an explicit empty state. An available release without its own summary is
+never labeled with an older patch's summary. Session Activity remains diagnostic.
+
+Maintain `eq-launcher/patch-notes.json` in each player-facing release. Use concise
+single-line descriptions (maximum 240 characters), `feature` or `fix`, newest
+release first. Retain up to 100 patches, each with up to 12 bullets. Include only
+implemented player changes, with deployment evidence for historical entries.
+The initial catalog covers five recent client patches: merchant Sell All,
+pet-summon crash, stock loot icons, loot-row controls and loading artwork. Sources
+are the corresponding entries in `docs/status.md`. Its first entry, 2026101202,
+was published with desktop 0.6.0 on October 12. Verify live counters and add a new
+dated summary before signing future releases. Publication is not player acceptance.
+
+Package with `-patch-notes patch-notes.json` alongside the normal game arguments.
+The packager enforces desktop version 0.6.0+ and raises the minimum launcher to
+0.6.0 (preserving a higher configured minimum). A new desktop must be published
+before a game channel containing notes because older desktops reject unknown
+manifest fields. The existing stable starter understands the unchanged desktop
+channel and can deliver this desktop. Omitted notes retain the exact legacy
+manifest encoding; no trust keys, managed-file scope or recovery policy change.
+For custom publication scripts, explicitly carry forward/update `patch_notes`
+and the minimum version before signing; do not merely copy stale summaries.
+
+No game-server restart, database migration or new client DLL is needed. Publish
+new higher desktop and game counters, retaining current game assets. Once notes
+have shipped, recovery of their signed journals requires a notes-aware desktop;
+use a corrected 0.6.0+ build for rollback rather than reverting to 0.5.0.
+
+Candidate checks: `go test ./...`, desktop compile, `npm run build`, and all 11
+Chrome tests passed October 12. Tests cover legacy signatures, invalid/order/
+future notes, publisher input, signature rejection, isolated snapshots, client
+switches, keyboard history during patching, text escaping and narrow layout.
+Rendered patching layout was inspected. Owner-approved PR #186 is on main and
+the signed release is hosted; all 105 game assets and running services were
+preserved. [Deployment evidence](../releases/launcher-patch-history-20261012/README.md).
+Native player acceptance remains pending; approval of this release is not
+standing permission for later deployments.
+
+Exact player QA after approved publication: reopen the normal shortcut, verify
+desktop 0.6.0+, choose the existing client and check for updates. Confirm the
+latest date/bullets match the signed release; expand Previous patches with mouse
+and keyboard before and during Install/Play. Confirm progress/Cancel still work,
+notes remain after installation, and normal Play works. At minimum window size,
+confirm readable wrapping, scrollable history and accessible Play controls.
+
 ## Recovery and rollback
 
 Keep previous public metadata, ZIP/guide and immutable binaries. Publication interrupted between channel renames is safe: each channel references files already present; the new desktop understands the previous game release. Resume the same reviewed publication after confirming current channels are either their expected old or new bytes. Never publish an older counter after clients may have observed the newer one.

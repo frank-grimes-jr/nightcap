@@ -12,6 +12,32 @@ proxy/catalog release; no rules, class slots or skills are rewritten. Candidate
 only: production and owner gameplay QA are pending. Exact regression/build
 proof, retained-source differences and QA: `docs/releases/multiclass-trainers-20261012/README.md`.
 
+## 2026-10-12 - Concise launcher patch summaries — published
+
+The launcher shows the latest signed patch's Feature/Bug fix bullets above file
+details and expandable dated history, usable throughout patching. The curated
+catalog includes five recent client patches. `nightcap-package -patch-notes`
+signs reviewed notes with the game manifest; validation bounds/order checks and
+plain-text rendering preserve trust and readability. Legacy releases still work.
+Notes require desktop 0.6.0+, delivered before the game channel through the
+existing starter. Full Go tests, desktop compile, frontend build and 11 Chrome
+tests pass; rendered layout inspected. Owner-approved PR #186 is on main and
+desktop 0.6.0/game 2026101202 are hosted. All 105 game assets, the starter/guide
+and five service identities were preserved. Native player acceptance remains
+open. See `docs/releases/launcher-patch-history-20261012/README.md` for evidence
+and `docs/ops/permanent-patcher.md` for future maintenance and exact player QA.
+
+## 2026-10-12 - Scribe selected-class spells before their required level
+
+Players can store owned-class scrolls in the spellbook early, avoiding repeated
+hub visits each level. Gem memorization and casting still require the original
+level for a held class. Both native scroll-scribing paths and the RoF2 spellbook
+check are updated; unowned/unknown spells remain blocked. The zone candidate
+and client proxy build, compiled authorization regressions and runtime/patch
+checks pass. Requires paired zone and signed client delivery; not deployed.
+Evidence, activation/recovery and exact QA:
+`docs/releases/early-spell-scribing-20261012/README.md`.
+
 ## 2026-10-12 - Sell-all preserves food and spell reagents
 
 `#sellall` keeps food, drink, loaded spell reagents (including Bone Chips), and

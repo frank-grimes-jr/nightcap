@@ -16,6 +16,10 @@ Start with [current status](status.md), not a dated candidate report.
 
 ## Players and testers
 
+- [Launcher latest updates and patch history: publication, recovery and QA](releases/launcher-patch-history-20261012/README.md)
+
+- [Early spell scribing: paired candidate and exact QA](releases/early-spell-scribing-20261012/README.md)
+
 - [Merchant Sell All button: live publication, recovery and exact QA](releases/merchant-sell-all-20261012.md)
 
 - [Instance Keeper visual follow-up: live deployment, rollback and QA](ops/keeper-visuals-20261012/README.md)

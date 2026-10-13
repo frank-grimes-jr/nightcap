@@ -20,27 +20,36 @@
     "existing_trainer_policy": "passed",
     "skill_lifecycle": "passed",
     "stock_native_client_reproduction": "expected failure at Joren comparison",
-    "client_runtime_suite": "6 groups passed, including trainer-native and repeated native ABI checks",
+    "client_runtime_suite": "6 groups passed after merge, including trainer-native and early-scribe ui-hooks",
     "client_x86_build": "passed",
     "client_runtime_test_build": "passed with /W4 /WX",
     "exact_client_signature_verifier": "passed",
-    "catalog_agreement": "86 sites passed",
-    "server_full_link": "passed, ldd has no missing libraries",
+    "catalog_agreement": "87 sites passed",
+    "server_full_link": "v2 passed, retaining early scribing; ldd has no missing libraries",
     "retained_production_link_inputs": "141 digests match deployed build manifest and candidate snapshot",
     "independent_review": "passed after retained-link provenance assertion; no remaining code findings",
-    "hail_native_response_path": "reviewed pinned handler VA0x4B49C0: packet NPC lookup, distance, success byte412, trainer pointer initialization, caps+8 list and show; no prior right-click required"
+    "hail_native_response_path": "reviewed pinned handler VA0x4B49C0: packet NPC lookup, distance, success byte412, trainer pointer initialization, caps+8 list and show; no prior right-click required",
+    "candidate_early_scribing": "1 compiled native packet/item test passed after merge",
+    "integration_review": "passed: exact87-site union, early-scribing preserved, generated contracts match"
   },
   "artifacts": {
-    "proxy_sha256": "dd120424d5ede54351c483e62d9e6334eb5eb1088be7e386235e2f35f1647979",
-    "zone_sha256": "0dbd0b9dfcdec78d55f50eabfa73873aca5a2a192bd2638d9e8c2b625be99b5c",
-    "build_manifest_sha256": "066436252b126f4c0de9afd9ec5ff41e4021652e2cd19b63f2712a7c0b1267e4",
-    "patch_catalog_sha256": "a012e8e392a6f5763b67c687d19ae8f33957c27a7a88beaa6b3ab80b109bc37f"
+    "proxy_sha256": "e00616941c80f34d92ffce8bb3289e11a0cb2a292f6a1ef1793a4e4b3f91d2c6",
+    "zone_sha256": "adfffd9aab5d1e745c23e74381176dd19dfea1d9d63d5bcfb83a4764fa0e5cc0",
+    "build_manifest_sha256": "5429e11191ed6b07cee4d01f5658a54022d068a742435a76cf924f13142d0682",
+    "patch_catalog_sha256": "2607e797600044f311da2c03dab1d75c0fe120699f7650ff544fa0eca52dd83f"
   },
   "limits": [
     "No production deployment or signed publication",
     "No actual trainer window / spending / persistence player QA",
     "Full Go suite unavailable: Go not on PATH; generated catalog comparison passed",
-    "Retained production MaxSkill inline overload preserved; main has a different union overload",
-    "Build began before provenance assertion was added; all 141 live evidence hashes and candidate manifest inputs were independently compared during and after link, with no drift"
-  ]
+    "Retained production MaxSkill inline overload preserved; main has a different union overload"
+  ],
+  "integrated_main_revision": "69252d9",
+  "build_provenance": "v2 asserts all 141 retained link-input digests against deployed manifest before compilation, checks retained input/source hashes again after link, and retains approved early-scribing methods",
+  "public_channel_observation": {
+    "release": 2026101203,
+    "minimum_launcher": "0.6.0",
+    "scope": "counter/history observation only; not a new cryptographic verification",
+    "candidate_next_release": 2026101204
+  }
 }

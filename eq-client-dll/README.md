@@ -11,7 +11,7 @@ server-authorized UI chassis.
 October 12 trainer candidate: proxy `0.8.2-dev` corrects primary-class gates
 only in the trainer right-click, list, display, button and purchase paths, using
 current server-confirmed held classes. Pair it with the trainer-hail zone build
-and signed catalog. Separate early-scribing candidate is not included. Not yet
+and signed catalog. Includes the early-scribing changes now on main. Not yet
 published or player-accepted. [Evidence and exact QA](../docs/releases/multiclass-trainers-20261012/README.md).
 
 October 9: signed game `2026100901` / proxy `0.7.8-dev` is deployed with
