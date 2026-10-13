@@ -1,0 +1,39 @@
+{
+  "date": "2026-10-13",
+  "status": "candidate_build_in_progress",
+  "owner_qa": {
+    "previous_release": "trainer window opens; purchases, natural skill gains and offhand fail",
+    "corrective_release": "pending"
+  },
+  "client": {
+    "dll_build": "pass",
+    "runtime_tests_build": "pass",
+    "runtime_suite": {
+      "command": "python eq-client-dll/tests/test_runtime.py --eqgame E:/EQ_Local_Dev/Client_RoF2_Dev/everquest_rof2/eqgame.exe",
+      "result": "6 tests passed",
+      "environment": "TEMP and TMP set to workspace artifacts/test-temp; initial default sandbox temp attempt failed permissions"
+    },
+    "exact_client_verifier": "pass",
+    "catalog_generator_check": "91 signatures passed",
+    "independent_client_review": "trainer_review: no remaining findings after current-level offhand gate correction"
+  },
+  "client_dll_sha256": "d0e5784a882fb76c457e6d36229bb62d359875af241ca70ba2cbaddf6e4b31e6",
+  "catalog_sha256": "77769d45519921ad1cabdb28719bdcc85c32548d3f967b779f9ee3ff665fd047",
+  "launcher_full_go_suite": "pass",
+  "trainer_hail_tests": "2 passed",
+  "rollout_tests": "9 passed",
+  "publication_tests": "12 passed",
+  "server_build": "running, all126 zone TUs with fresh candidate PCH",
+  "database_mutations": false,
+  "independent_review": "server/client reviewed; stale underlevel Warrior offhand case corrected",
+  "signed_client_local_verification": {
+    "release": 2026101301,
+    "files": 105,
+    "changed": [
+      "dinput8.dll",
+      "nightcap-patch-sites.json"
+    ],
+    "signature": "valid against shipped production public key",
+    "channel_sha256": "06931c05fddf6e0729db7a7bcd4e91d929416384e431b817b71414fb92d4b692"
+  }
+}

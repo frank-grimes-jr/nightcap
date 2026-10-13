@@ -16,6 +16,8 @@ Start with [current status](status.md), not a dated candidate report.
 
 ## Players and testers
 
+- [Multiclass skill progression and offhand corrective release](releases/multiclass-skills-20261013/README.md)
+
 - [Multiclass trainers: live paired release, recovery and Palwar QA](releases/multiclass-trainers-20261012/README.md)
 
 - [Launcher latest updates and patch history: publication, recovery and QA](releases/launcher-patch-history-20261012/README.md)

@@ -20,6 +20,10 @@ assert len(sites) > 0 and sorted(sites,key=lambda x:x["rva"]) == catalog["sites"
 # Names already consumed by the proxy. Keeping these declarations generated
 # binds launcher preflight and runtime original-byte guards to one catalog.
 symbols = {
+ 0x184E50:("kTrainerAtCapRva","kExpectedTrainerAtCap"),
+ 0x185955:("kTrainerAtCapCallRva","kExpectedTrainerAtCapCall"),
+ 0x184C2B:("kTrainerCurrentCapCallRva","kExpectedTrainerCurrentCapCall"),
+ 0x183445:("kOffhandDualWieldCallRva","kExpectedOffhandDualWieldCall"),
  0x1374AC:("kTrainerClassRva","kExpectedTrainerClass"),
  0x1BAEC0:("kTrainerCapRva","kExpectedTrainerCap"),
  0x1BAA20:("kTrainerLevelRva","kExpectedTrainerLevel"),
@@ -90,8 +94,8 @@ symbols = {
  0x28CA21:("kHotButtonSkillActivationCallRva","kExpectedHotButtonSkillActivationCall"),
  0x1A2FD0:("kSpecialAttackSkillPredicateCallRva","kExpectedSpecialAttackSkillPredicateCall"),
  0x1A5000:("kSpecialAttackSubmitRva",None),
- 0x4A1B0:("kCharacterHasSkillRva",None),
- 0x49C80:("kCharacterGetBaseSkillRva",None),
+ 0x4A1B0:("kCharacterHasSkillRva","kExpectedCharacterHasSkill"),
+ 0x49C80:("kCharacterGetBaseSkillRva","kExpectedCharacterGetBaseSkill"),
  0x49FE0:("kCharacterGetSkillRva",None),
  0x1BAB10:("kSkillIsCombatRva",None),
  0x1BABD0:("kSkillIsActivatedRva",None),

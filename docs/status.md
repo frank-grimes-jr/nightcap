@@ -1,16 +1,13 @@
 # Current Nightcap status
 
-## Multiclass trainer access — deployed
+## Multiclass skills — corrective candidate
 
-Owner-approved PR #189 is on main and live on OVH with signed game release
-**2026101204**. Held Monk/Warrior trainers now have guarded client right-click
-and skill-list/purchase access; hailing delegates to normal server training.
-Points, coin costs, level caps and unheld-class rejection remain authoritative.
-All 12 zones match, 47 player and 11 custom tables were preserved, and access
-is open with zero detected runtime errors. The paired 105-file client release
-changes only DLL/catalog and retains prior patch history and launcher 0.6.0.
-Close EQ and use launcher Play. Palwar/Joren training, spending and relog QA
-remain pending. [Deployment, recovery and exact QA](releases/multiclass-trainers-20261012/README.md).
+Owner confirms the previous trainer window opens, but purchases, natural gains
+and offhand use fail. The corrective release fixes missed native purchase and
+equipment checks and retained primary-only server progression/empty-fist logic.
+Both old-client failures and deployed-source failures reproduce; candidate
+native tests pass. Full build and paired deployment are in progress. No DB skill
+or point grants. [Cause, evidence and exact QA](releases/multiclass-skills-20261013/README.md).
 
 ## Launcher patch summaries — published October 12
 
