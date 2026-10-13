@@ -1,6 +1,6 @@
 # Relaxed tradeskill workshop — October 13, 2026 candidate
 
-**Prepared and verified; not deployed or player-accepted.** The owner requested
+**Owner-approved for main and live QA; activation pending.** The owner requested
 less rigid tradeskill rows, room to move, a cozy atmosphere, and the Chronicler,
 bag merchant and spell reagent vendor beside the buff bots. This candidate is
 based on current production content captured October 13 at 12:32 UTC, including
@@ -65,7 +65,7 @@ native services, Artisan Veyra and all eight walking routes are preserved.
 
 Private source snapshots, generated SQL and full probe output are retained in
 `E:/EQ_Local_Dev/artifacts/tunnel-cozy-20261013/`. The public proof contains no player
-snapshots. The live server was read only throughout this candidate work.
+snapshots. The live server was read only throughout the initial candidate work.
 
 Focused commands (from this checkout):
 
@@ -77,9 +77,18 @@ python tools/tests/probe_tunnel_cozy.py --snapshot <fresh-snapshot.json> --evide
 
 ## Application and recovery boundary
 
-Repository flow remains feature -> dev -> test -> main after owner sign-off.
-No previous live-QA exception authorizes this release. The concrete candidate
-can be approved for live QA; neither tests nor this document imply that approval.
+The owner explicitly approved this candidate's promotion to main and deployment
+for live QA on October 13. This is release-specific authorization; owner visual
+acceptance remains separate. PR #194 tracks the approved release.
+
+`ops/rollout.py` retains the original game/gateway containers and all binaries,
+uses both deployment/GM file locks and checks the GM SQL fence, takes a stopped
+full backup, and restores it into an isolated temporary MariaDB container before
+the forward/inverse rehearsal. Twelve fault-injection tests in `ops/test_rollout.py`
+cover absent recovery baselines, uncertain SQL commit, rehearsal failure, fresh
+activity after possible access, player/cache drift and recovery reopening errors.
+An unverified recovery leaves the gateway closed. Market rows are exact around
+SQL/rehearsal; startup may rotate the epoch/offers while policy remains unchanged.
 
 After approval, use the current production maintenance/deployment fence and
 retain the current image, binaries, client release, quests and all other runtime

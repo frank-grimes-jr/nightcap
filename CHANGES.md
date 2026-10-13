@@ -7,8 +7,10 @@ and a small native fire/barrel/lantern. The Chronicler, bag merchant and reagent
 vendor move beside the existing buffers. Guarded pose-only SQL and fresh-state
 rollback preserve stock, gameplay, other services, corpses and other instances.
 Nine unit tests, eleven real MariaDB rehearsal checks and native geometry checks
-pass. This is a candidate: production activation and owner visual acceptance
-remain pending. See `docs/releases/tunnel-cozy-20261013/README.md`.
+pass. The owner approved main/live QA; activation and visual acceptance remain
+pending. The data-only operator has twelve fault-injection tests and restores
+a fresh stopped backup in isolation before applying. It holds access closed
+on unverified recovery. See `docs/releases/tunnel-cozy-20261013/README.md`.
 
 ## 2026-10-13 - Waypoint visuals accepted
 
