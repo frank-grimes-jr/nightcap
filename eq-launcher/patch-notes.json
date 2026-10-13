@@ -1,5 +1,55 @@
 [
   {
+    "release": 2026101304,
+    "date": "2026-10-13",
+    "changes": [
+      {
+        "kind": "feature",
+        "text": "Tradeskills now accept stacks of materials and preserve unused ingredients."
+      },
+      {
+        "kind": "feature",
+        "text": "Choose a recipe and Craft All to keep crafting until supplies run out. Stop ends the run after the current attempt."
+      }
+    ]
+  },
+  {
+    "release": 2026101303,
+    "date": "2026-10-13",
+    "changes": [
+      {
+        "kind": "feature",
+        "text": "Expanded 26 AA lines with 110 additional ranks, including Slay Undead through rank 9 and Master Wu through rank 5. Every allowed rank remains available from level 1."
+      },
+      {
+        "kind": "fix",
+        "text": "Triple Backstab now works below level 55 when you own the AA. Its normal weapon, positioning, and double-attack checks still apply."
+      },
+      {
+        "kind": "fix",
+        "text": "Existing AA purchases, points, and charges are preserved. Previously purchased ranks included in the expanded pool become usable again when you reconnect."
+      }
+    ]
+  },
+  {
+    "release": 2026101302,
+    "date": "2026-10-13",
+    "changes": [
+      {
+        "kind": "fix",
+        "text": "All allowed AA abilities and ranks are available from level 1. Choose where to spend your points; character level no longer hides or locks them."
+      },
+      {
+        "kind": "feature",
+        "text": "The AA pool uses The Buried Sea cutoff with selected utility and pet exceptions, release rank limits, and deferred high-power abilities."
+      },
+      {
+        "kind": "fix",
+        "text": "Existing AA purchases and points are preserved. Previously purchased ranks allowed by this release become usable again when you reconnect."
+      }
+    ]
+  },
+  {
     "release": 2026101301,
     "date": "2026-10-13",
     "changes": [

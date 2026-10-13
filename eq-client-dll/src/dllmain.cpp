@@ -1497,6 +1497,7 @@ static BOOL CALLBACK InitializeRuntime(PINIT_ONCE, PVOID, PVOID*)
     RequirePatch(nightcap::Feature_class_ui,class_ui_ok && nightcap::client_ui::InstallTrainer());
     RequirePatch(nightcap::Feature_pet_armor,nightcap::client_ui::InstallPetArmor());
     RequirePatch(nightcap::Feature_merchant_sell_all,nightcap::client_ui::InstallMerchantSellAll());
+    RequirePatch(nightcap::Feature_tradeskill_repeat,nightcap::client_ui::InstallTradeskillRepeat());
     const bool advanced_loot_ok = nightcap::client_ui::InstallAdvancedLoot([](const char* event) { Log("ADVLOOT %s", event); });
     if (!advanced_loot_ok) Log("Advanced loot initialization failed at %s", nightcap::client_ui::install_failure);
     RequirePatch(nightcap::Feature_advanced_loot,advanced_loot_ok);

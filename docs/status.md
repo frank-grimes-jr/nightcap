@@ -1,5 +1,16 @@
 # Current Nightcap status
 
+## Stacked tradeskills and Craft All — tested candidate
+
+Ordinary tradeskills now preserve unused stack quantities. The native recipe
+browser adds Craft One, Craft All and Stop, with one acknowledged attempt at a
+time and native output placement. Server restrictions and recipe outcomes remain
+authoritative. Isolated zone/client builds, 25 server regression groups, six
+runtime groups, 11 asset tests, 94 catalog guards and launcher validation pass;
+independent review has no remaining findings. No deployment or signed publication
+has occurred. Paired activation and owner gameplay/visual QA remain pending.
+[Behavior, build provenance, recovery and exact QA](tradeskills/README.md).
+
 ## Unrest waypoint — entrance relocation deployed October 13
 
 Live inspection found the portal/recall 921 units from the floating-eye Keeper.

@@ -415,6 +415,12 @@ publication as successful native acceptance or a permanent branch-policy change.
 
 Codex is free to commit, open PRs, and merge autonomously **up to `test`** when tests pass. `test` → `main` requires user sign-off.
 
+**October 13 tradeskill exception:** the owner explicitly requested "Push to main
+and server for live QA." This authorizes PR #200's stacked tradeskills/Craft All
+release and its paired native/client publication before manual acceptance.
+Retain pending in-game checks in `docs/tradeskills/README.md`; this is specific
+to this release and does not change the standing promotion policy.
+
 **September 15, 2026 exception:** the owner explicitly requested all gameplay
 changes move into main so they can test live. This authorizes the current
 `test` release promotion before manual acceptance; retain all unresolved QA
