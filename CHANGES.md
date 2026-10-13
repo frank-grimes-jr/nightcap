@@ -12,6 +12,17 @@ existing starter. Full Go tests, desktop compile, frontend build and 11 Chrome
 tests pass; rendered layout inspected. No publication or native acceptance yet.
 See `docs/ops/permanent-patcher.md` for future maintenance and exact player QA.
 
+## 2026-10-12 - Scribe selected-class spells before their required level
+
+Players can store owned-class scrolls in the spellbook early, avoiding repeated
+hub visits each level. Gem memorization and casting still require the original
+level for a held class. Both native scroll-scribing paths and the RoF2 spellbook
+check are updated; unowned/unknown spells remain blocked. The zone candidate
+and client proxy build, compiled authorization regressions and runtime/patch
+checks pass. Requires paired zone and signed client delivery; not deployed.
+Evidence, activation/recovery and exact QA:
+`docs/releases/early-spell-scribing-20261012/README.md`.
+
 ## 2026-10-12 - Sell-all preserves food and spell reagents
 
 `#sellall` keeps food, drink, loaded spell reagents (including Bone Chips), and

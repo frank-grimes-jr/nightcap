@@ -11,6 +11,15 @@ must be published together in desktop-first order. Main promotion, publication
 and native player acceptance remain pending.
 [Publishing and exact QA](ops/permanent-patcher.md#player-patch-summaries-october-12-candidate).
 
+## Early spell scribing — candidate October 12
+
+Selected-class spells can be scribed before their required level; gems and
+casting remain level-gated. Both server paths and the dedicated client check
+are updated. Compiled regressions, complete zone/client builds, runtime tests,
+76 patch-site checks and independent source review pass. Requires paired native
+zone and signed client delivery; no deployment or in-game acceptance yet.
+[Candidate, activation/recovery and exact QA](releases/early-spell-scribing-20261012/README.md).
+
 ## Sell-all supply protection — deployed October 12
 
 Owner-approved PR #183 is on main and live on OVH. `#sellall` and the merchant

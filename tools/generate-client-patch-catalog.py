@@ -50,6 +50,7 @@ symbols = {
  0x310800:("kUIPetNotifyRva","kExpectedUIPetNotify"),
  0x30EA00:("kUIPetAvailableRva","kExpectedUIPetAvailable"),
  0x35DF6A:("kScribeCanUseRva","kExpectedScribeCanUse"),
+ 0x35E084:("kScribeLevelRva","kExpectedScribeLevel"),
  0x296095:("kScrollPlacementCanUseRva","kExpectedScrollPlacementCanUse"),
  0xAF700:("kSpellLevelRva","kExpectedSpellLevel"),
  0x2F0D9E:("kMerchantLevelMaskRva","kExpectedMerchantLevelMask"),
