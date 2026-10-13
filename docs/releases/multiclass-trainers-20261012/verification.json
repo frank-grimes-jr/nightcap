@@ -1,6 +1,6 @@
 {
   "date": "2026-10-12",
-  "status": "built_tested_not_deployed",
+  "status": "deployed_player_acceptance_pending",
   "baseline_revision": "4e3acd83019a915b04a9ec1f222c3bc2543d0bfe",
   "production_probe_utc": "2026-10-13T01:15:19.361627+00:00",
   "production_facts": {
@@ -31,7 +31,13 @@
     "hail_native_response_path": "reviewed pinned handler VA0x4B49C0: packet NPC lookup, distance, success byte412, trainer pointer initialization, caps+8 list and show; no prior right-click required",
     "candidate_early_scribing": "1 compiled native packet/item test passed after merge",
     "integration_review": "passed: exact87-site union, early-scribing preserved, generated contracts match",
-    "launcher_go_suite": "go test ./... passed with cached Go 1.27.2 and normal Windows permissions; initial sandbox run blocked local socket/junction/atomic-file fixtures"
+    "launcher_go_suite": "go test ./... passed with cached Go 1.27.2 and normal Windows permissions; initial sandbox run blocked local socket/junction/atomic-file fixtures",
+    "native_rollout_recovery": "9 passed",
+    "client_publication_recovery": "12 passed",
+    "deployment_review": "independent operator and final105-file signed payload reviews passed",
+    "production_native": "all12 zones match;47 player and11 custom tables preserved;gateway open;zero restarts/errors",
+    "public_https": "shipped-key signature and105/105 files verified;211938403 bytes",
+    "publication_preservation": "all five service identities and desktop/starter/guide preserved; prior notes exact"
   },
   "artifacts": {
     "proxy_sha256": "e00616941c80f34d92ffce8bb3289e11a0cb2a292f6a1ef1793a4e4b3f91d2c6",
@@ -40,7 +46,6 @@
     "patch_catalog_sha256": "2607e797600044f311da2c03dab1d75c0fe120699f7650ff544fa0eca52dd83f"
   },
   "limits": [
-    "No production deployment or signed publication",
     "No actual trainer window / spending / persistence player QA",
     "Retained production MaxSkill inline overload preserved; main has a different union overload"
   ],
@@ -57,5 +62,14 @@
     "scope": "imported deployment evidence; not a new live probe",
     "image": "sha256:058330bce1e2539612d705b95b726d5143daa7ca5e6897debe0f598ba470558f",
     "zone_sha256": "43d7c1edea922bb268b8cb5eac7492bbb09a8919bccf2328051b2fd7e35b0463"
+  },
+  "deployment": {
+    "merge_commit": "7df224d4ce901c15b5f178eae768831406a52c82",
+    "image": "sha256:1eef609e4daed95ad84fcbd193e56c0f7abbefedf325813f58316be5da558578",
+    "game_release": 2026101204,
+    "minimum_launcher": "0.6.0",
+    "database_restored": false,
+    "owner_approval": "Approved merge to main and server",
+    "player_acceptance": "pending; see exact QA in README"
   }
 }
