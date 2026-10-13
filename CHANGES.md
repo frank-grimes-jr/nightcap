@@ -1,6 +1,6 @@
 # CHANGES
 
-## 2026-10-12 - Concise launcher patch summaries (candidate)
+## 2026-10-12 - Concise launcher patch summaries — published
 
 The launcher shows the latest signed patch's Feature/Bug fix bullets above file
 details and expandable dated history, usable throughout patching. The curated
@@ -9,8 +9,11 @@ signs reviewed notes with the game manifest; validation bounds/order checks and
 plain-text rendering preserve trust and readability. Legacy releases still work.
 Notes require desktop 0.6.0+, delivered before the game channel through the
 existing starter. Full Go tests, desktop compile, frontend build and 11 Chrome
-tests pass; rendered layout inspected. No publication or native acceptance yet.
-See `docs/ops/permanent-patcher.md` for future maintenance and exact player QA.
+tests pass; rendered layout inspected. Owner-approved PR #186 is on main and
+desktop 0.6.0/game 2026101202 are hosted. All 105 game assets, the starter/guide
+and five service identities were preserved. Native player acceptance remains
+open. See `docs/releases/launcher-patch-history-20261012/README.md` for evidence
+and `docs/ops/permanent-patcher.md` for future maintenance and exact player QA.
 
 ## 2026-10-12 - Scribe selected-class spells before their required level
 
