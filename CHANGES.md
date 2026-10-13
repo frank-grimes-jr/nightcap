@@ -22,7 +22,11 @@ hub visits each level. Gem memorization and casting still require the original
 level for a held class. Both native scroll-scribing paths and the RoF2 spellbook
 check are updated; unowned/unknown spells remain blocked. The zone candidate
 and client proxy build, compiled authorization regressions and runtime/patch
-checks pass. Requires paired zone and signed client delivery; not deployed.
+checks pass. Owner-approved PR #185 is on main and deployed to OVH with signed
+client release 2026101203. All 12 zone hashes and all 105 hosted client files
+verify; saved player/custom data, rules/content and other services were preserved.
+The launcher retains prior patch history and displays the new scribing summary.
+Native owner gameplay acceptance remains pending.
 Evidence, activation/recovery and exact QA:
 `docs/releases/early-spell-scribing-20261012/README.md`.
 

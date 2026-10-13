@@ -1,5 +1,12 @@
 [
   {
+    "release": 2026101203,
+    "date": "2026-10-12",
+    "changes": [
+      { "kind": "feature", "text": "Scribe spells for your selected classes before their required level. Spell gems still require the normal level." }
+    ]
+  },
+  {
     "release": 2026101202,
     "date": "2026-10-12",
     "changes": [

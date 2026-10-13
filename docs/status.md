@@ -12,14 +12,18 @@ starter ZIP, guide and running services were preserved. Close EQ and the launche
 then reopen the normal shortcut. Native player acceptance remains pending.
 [Evidence, recovery and QA](releases/launcher-patch-history-20261012/README.md).
 
-## Early spell scribing — candidate October 12
+## Early spell scribing — deployed October 12
 
-Selected-class spells can be scribed before their required level; gems and
-casting remain level-gated. Both server paths and the dedicated client check
-are updated. Compiled regressions, complete zone/client builds, runtime tests,
-76 patch-site checks and independent source review pass. Requires paired native
-zone and signed client delivery; no deployment or in-game acceptance yet.
-[Candidate, activation/recovery and exact QA](releases/early-spell-scribing-20261012/README.md).
+PR #185 is on main and live on OVH with signed game release **2026101203**.
+Selected-class scrolls can enter the spellbook before their required level;
+gem memorization and casting retain canonical levels. All 12 running zones
+match, player/custom tables and rules/content were preserved, and the gateway
+is open with zero new restarts or detected errors. Public HTTPS verifies the
+signature and all 105 client files. Only DLL/catalog changed; launcher 0.6.0,
+existing patch history and all other assets were preserved. Compiled regressions,
+client/runtime and Go tests, 76 patch checks and independent reviews pass.
+Owner scribe/relog/gem gameplay acceptance remains pending.
+[Deployment, recovery and exact QA](releases/early-spell-scribing-20261012/README.md).
 
 ## Sell-all supply protection — deployed October 12
 
