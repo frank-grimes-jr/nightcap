@@ -18,6 +18,8 @@ Start with [current status](status.md), not a dated candidate report.
 
 - [Unrest entrance waypoint: placement diagnosis, candidate correction and QA](ops/unrest-waypoint-20261013/README.md)
 
+- [Ascended divine summons: live resale protection, verification and exact QA](releases/divine-summons-20261013/README.md)
+
 - [Passive AA reduced to 20%: live tuning, recovery and Palwar QA](ops/passive-aa-twenty-20261013/README.md)
 
 - [Relaxed tradeskill workshop: live layout, service moves and exact QA](releases/tunnel-cozy-20261013/README.md)

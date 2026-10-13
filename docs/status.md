@@ -9,6 +9,17 @@ placement tests and 29 visual/discovery/Keeper checks pass. Main promotion,
 production activation and owner gameplay QA remain pending; current live placement
 has not changed. [Cause, scope, activation and QA](ops/unrest-waypoint-20261013/README.md).
 
+## Divine summoned weapons — deployed October 13
+
+Owner-approved PR #197 is on main and live. Existing Paladin/Cleric hammer spells
+already select Ascended definitions; the new item loader closes their FreeTrade
+resale loophole without changing combat or spell access. All 44 definitions have
+zero resale; every other byte in the 309,410-item cache is preserved. Native
+forward/rollback rehearsal passed. Preserved 47 player / 11 custom tables and
+current native binaries; all 12 zones are healthy and player access is open.
+No client update is needed. In-game balance and visual acceptance remain pending.
+[Scope, evidence and exact QA](releases/divine-summons-20261013/README.md).
+
 ## Passive AA — 20% deployed October 13
 
 Owner-approved passive AA decreased from 40% to **20%**. Normal leveling XP,

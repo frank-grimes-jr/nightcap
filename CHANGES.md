@@ -10,6 +10,24 @@ instance state is retained. Placement, preservation and visual regressions pass.
 Production is unchanged pending main/activation approval and owner QA; no client
 update or native build is needed. Runbook: `docs/ops/unrest-waypoint-20261013/README.md`.
 
+## 2026-10-13 - Ascended divine summons and zero resale
+
+Confirmed Paladin/Cleric item-summoning hammers already select their existing
+Ascended variants. Added native regression coverage and an item-loader policy
+that removes both merchant price and FreeTrade's former-NO-DROP fixed payout
+from all 44 definitions in the eleven hammer families. This closes an unlimited
+summon-to-platinum path while preserving raw SQL, combat stats, spell access,
+procs, bane damage and temporary lifetime. Ascended summons have no box/forge
+successor; the audited definitions have no tradeskill recipes. Ordinary merchant
+packets may discard a hammer for zero coin; `#sellall` retains it.
+PR #197 merged and deployed on OVH. Only the shared-memory loader changed;
+the existing runtime/client pairing remains. All 309,410 cached definitions were
+verified, preserving every byte outside the 88 owned price fields. Native
+forward/rollback rehearsal passed. Preserved 47 player / 11 custom tables;
+all 12 zones healthy with player access reopened. No client download or SQL
+migration. Production evidence and exact pending in-game balance QA:
+`docs/releases/divine-summons-20261013/README.md`.
+
 ## 2026-10-13 - Passive AA reduced to 20%
 
 Reduced OVH `AA:PassiveExpPercent` from 40 to 20 after the owner reported four

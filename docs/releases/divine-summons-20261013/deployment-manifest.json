@@ -1,0 +1,39 @@
+{
+  "release": "divine-summons-20261013",
+  "source_commit": "686ee7c4607d8c0ecf4ac8250eed3e8f289df246",
+  "base_binaries": {
+    "world": "efd54a1023a569274a76f65d3d2a18a173906762472a1bce186e3e14629d3c18",
+    "zone": "5dfe3d8a944a29ac963644298eb7a1563a08748ae72ae210edd78268ea106681",
+    "ucs": "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714",
+    "loginserver": "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf",
+    "shared_memory": "91664a87eac78306e8a76ab4cb923ba1f03c2d0da180278db6b6cf9b6607c0ef"
+  },
+  "binaries": {
+    "world": "efd54a1023a569274a76f65d3d2a18a173906762472a1bce186e3e14629d3c18",
+    "zone": "5dfe3d8a944a29ac963644298eb7a1563a08748ae72ae210edd78268ea106681",
+    "ucs": "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714",
+    "loginserver": "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf",
+    "shared_memory": "139194a9e2f2f3384a9831670c91787a99049526168b206dafb886c7fe8a5c86"
+  },
+  "runtime_helper_sha256": "a3242bee3e8d4a7e60ea81bbd6fd34587201b712247665f3c03673733b95a811",
+  "item_size": 1332,
+  "offsets": {
+    "ID": 440,
+    "Price": 456,
+    "FixedSellPrice": 4,
+    "Damage": 576,
+    "Delay": 569,
+    "SpellDmg": 984,
+    "HealAmt": 980
+  },
+  "files": {
+    "build-manifest.json": "d63993850857b612ba0d5751b148f58d1bf58b33ca8d1ac5d06a2b0921ec03a9",
+    "build_candidate.py": "183349b9d22eeee5b45a0d15463974edda952e2594e951ab502c4fcf071ec84a",
+    "cache_check.py": "b6e35e5f9b02d7711e29950d57c4424417ae4e5acff62ed1b007246e782b4feb",
+    "catalog-audit.json": "7acc86dd7e7894646697d280fc12171a154a946411c0229e85cfa40ff9c33f32",
+    "rollout.py": "9c9562d1b8f6a7e0121e35b556ea25a6cfdbcca08b7050ba53506442b9d0259c",
+    "shared_memory": "139194a9e2f2f3384a9831670c91787a99049526168b206dafb886c7fe8a5c86",
+    "test_cache_check.py": "82706455a529f044821193f7d31c3aab395f3c45f395586ec5c11ff2a42133f4",
+    "test_rollout.py": "667412102b8246ff1a1b6dc4e26687a9c59e83f8dba0749e0a409755bda48623"
+  }
+}
