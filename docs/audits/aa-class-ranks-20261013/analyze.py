@@ -100,7 +100,7 @@ def closed(rows, mask):
 
 
 def main():
-    config = json.loads((ROOT / 'config/aa-policy.json').read_text())
+    config = json.loads((HERE / 'baseline-policy.json').read_text())
     catalog = json.loads(gzip.decompress((ROOT / config['catalog']).read_bytes()))
     snap_path = HERE.parent / 'aa-tbs-20261013/production-snapshot.json.gz'
     snapshot = json.loads(gzip.decompress(snap_path.read_bytes()))

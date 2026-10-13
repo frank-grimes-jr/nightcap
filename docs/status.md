@@ -1,5 +1,12 @@
 # Current Nightcap status
 
+## October 13 class AA expansion — prepared for authorized OVH QA
+
+The [26-line implementation and Triple Backstab repair](releases/aa-class-ranks-20261013/README.md)
+passes native and policy tests. All1,051 ranks remain available at level1;
+purchases are preserved. Deployment/notes publication are authorized but recorded
+separately from this prepared state. Gameplay acceptance remains pending.
+
 ## October 13 class AA rank audit — recommendation only
 
 The [class-rank re-audit](audits/aa-class-ranks-20261013/README.md) recommends

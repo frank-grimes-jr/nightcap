@@ -54,14 +54,27 @@ class PolicyTests(unittest.TestCase):
             policy.compile_policy(tables, self.config)
 
     def test_entire_legal_pool_available_at_creation(self):
-        self.assertEqual(len(self.rows), 941)
-        self.assertEqual(len({r['ability_id'] for r in self.rows}), 390)
+        self.assertEqual(len(self.rows), 1051)
+        self.assertEqual(len({r['ability_id'] for r in self.rows}), 394)
         self.assertEqual({r['level'] for r in self.rows}, {1})
         # Content updates cannot silently restore character-level gating.
         high_levels = json.loads(json.dumps(self.catalog))
         for rank in high_levels['aa_ranks']:
             rank['level_req'] = 255
         self.assertEqual(policy.compile_policy(high_levels, self.config), self.rows)
+
+    def test_reviewed_class_depth_preserves_every_prior_legal_rank(self):
+        audited = json.loads((ROOT / 'docs/audits/aa-class-ranks-20261013/candidate-policy.json').read_text())
+        self.assertEqual(self.rows, policy.compile_policy(self.catalog, audited))
+        prior = json.loads((ROOT / 'docs/audits/aa-class-ranks-20261013/baseline-policy.json').read_text())
+        old = policy.compile_policy(self.catalog, prior)
+        self.assertEqual(len(old), 941)
+        self.assertTrue({r['rank_id'] for r in old} <= {r['rank_id'] for r in self.rows})
+        for aid in (359,516,541):
+            self.assertFalse(any(a == aid for a,_ in self.by_key))
+        self.assertIn((75,9), self.by_key)
+        self.assertNotIn((75,10), self.by_key)
+        self.assertIn((281,9), self.by_key)
 
     def test_generated_header_is_current(self):
         self.assertEqual((ROOT / 'server-mods/code/common/nightcap_aa_policy.h').read_text(), policy.header(self.rows, self.config, self.catalog))

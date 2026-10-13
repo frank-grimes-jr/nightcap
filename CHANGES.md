@@ -1,5 +1,16 @@
 # CHANGES
 
+## 2026-10-13 — Expanded class AA ranks and Triple Backstab
+
+Implements the 26 reviewed lines: 394 families/1,051 ranks, including Slay Undead9,
+Master Wu5 and Triple Backstab9. Every allowed rank is available at level1; all
+previous legal ranks, purchases, charges, costs and prerequisites are preserved.
+Clients with an earned Triple Backstab AA can use it below55, retaining native
+double-attack, weapon and positioning checks. No global rule or catalog changes.
+Native/policy and guarded recovery checks pass. OVH deployment and signed notes
+2026101303 are authorized for owner QA; receipts track activation separately.
+[Release, recovery and exact QA](docs/releases/aa-class-ranks-20261013/README.md).
+
 ## 2026-10-13 — Class AA rank-depth re-audit (recommendation only)
 
 Slay Undead has nine contiguous Buried Sea-era ranks; the one-rank cap was our

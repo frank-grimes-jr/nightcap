@@ -209,6 +209,8 @@ See [source evidence](source-evidence.json) and the
 [release manifest](../../releases/aa-tbs-level1-20261013/build-manifest.json).
 
 Reproduce with `python -X utf8 docs/audits/aa-class-ranks-20261013/analyze.py`.
+The original [baseline policy](baseline-policy.json) is pinned so later approved
+changes to the active config cannot rewrite these historical audit results.
 The script writes only this audit directory. It uses the production policy
 compiler, preserves identity and prerequisite closure, asserts level 1 for every
 candidate row, retains every current legal rank, and admits no explicitly

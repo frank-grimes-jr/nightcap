@@ -222,7 +222,46 @@ int main() {
  c.aa_ranks.clear();
  c.SendAlternateAdvancementTable();
  assert(c.refresh==std::vector<int>({1,2,3,4,5,6}));
- std::cout << "{\"native_eligibility_cases\":" << checked << ",\"projection_checks\":9,\"passed\":true}\n";
+ // Previously earned Slay 10 survives while the expanded legal prefix restores 9.
+ // Use the actual generated identities and costs; the excluded next rank is retained.
+ std::map<std::pair<int,int>,AA::Rank> expanded;
+ for(int aid : {30,75}) {
+  auto& ability=zone->abilities[aid];ability.id=aid;ability.classes=0x1fffe;
+  for(const auto& p:NightcapAA::Ranks) if(p.ability_id==aid) {
+   auto& r=expanded[{aid,p.ordinal}];r={p.rank_id,p.ordinal,p.expansion,255,&ability,nullptr};
+   if(aid==75) { r.cost=p.ordinal==1?3:p.ordinal==2?6:p.ordinal==3?9:7;r.prereqs[30]=3; }
+   else r.cost=p.ordinal*2;
+  }
+  AA::Rank* previous=nullptr;int total=0;
+  for(auto& p:expanded) if(p.first.first==aid) {
+   auto& r=p.second;r.prev=previous;total+=r.cost;r.total_cost=total;
+   if(previous)previous->next=&r;else ability.first=&r;
+   previous=&r;
+  }
+  ability.first_rank_id=ability.first->id;
+ }
+ auto& slay=zone->abilities.at(75);
+ AA::Rank slay_later{15141,10,19,255,&slay,nullptr};slay_later.cost=9;slay_later.total_cost=69;
+ expanded.at({75,9}).next=&slay_later;slay_later.prev=&expanded.at({75,9});
+ c.m_earned_aa_ranks.clear();c.aa_ranks.clear();c.mask=8;
+ c.m_earned_aa_ranks[slay.first_rank_id]={10,0};
+ c.m_earned_aa_ranks[zone->abilities.at(30).first_rank_id]={3,0};
+ c.m_pp.aapoints_spent=86; // Slay10=69, Combat Fury3=12, prior expended=5.
+ for(int level : {1,50,1}) {
+  c.level=level;assert(c.ReprojectEarnedAAs());assert(c.aa_ranks.at(75).first==9);
+  assert(c.m_earned_aa_ranks.at(slay.first_rank_id).first==10);
+  assert(c.SaveAA());
+  auto saved=std::find_if(CharacterAlternateAbilitiesRepository::saved.begin(),CharacterAlternateAbilitiesRepository::saved.end(),
+    [&](const auto& row){return row.aa_id==unsigned(slay.first_rank_id);});
+  assert(saved!=CharacterAlternateAbilitiesRepository::saved.end() && saved->aa_value==10);
+  assert(c.GetAAPoints()==17 && c.m_pp.aapoints_spent==86);
+  assert(!c.CanPurchaseAlternateAdvancementRank(&expanded.at({75,9}),true,true));
+ }
+ c.m_earned_aa_ranks[slay.first_rank_id].first=8;c.aa_ranks[75].first=8;
+ c.m_pp.aapoints=6;assert(!c.CanPurchaseAlternateAdvancementRank(&expanded.at({75,9}),true,true));
+ c.m_pp.aapoints=7;assert(c.CanPurchaseAlternateAdvancementRank(&expanded.at({75,9}),true,true));
+ c.aa_ranks.erase(30);assert(!c.CanPurchaseAlternateAdvancementRank(&expanded.at({75,9}),true,true));
+ std::cout << "{\"native_eligibility_cases\":" << checked << ",\"projection_checks\":9,\"restored_earned_rank_cases\":3,\"passed\":true}\n";
 }
 '''
 
