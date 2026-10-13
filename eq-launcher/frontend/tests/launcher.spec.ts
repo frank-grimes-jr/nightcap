@@ -28,7 +28,7 @@ test("player access is entered once, hidden, replaceable and forgettable", async
 
 async function desktop(
   page: Page,
-  mode: "normal" | "cancel" | "recovery" | "error" | "play" | "access" = "normal",
+  mode: "normal" | "cancel" | "recovery" | "error" | "play" | "access" | "legacy" | "notes-text" = "normal",
 ) {
   await page.addInitScript((mode) => {
     const state = {
@@ -90,6 +90,10 @@ async function desktop(
               phase: "update",
               message: "Release 2 is ready. 2 file changes to apply.",
               release: 2,
+              patch_notes: [
+                { release: 2, date: "2026-10-12", changes: [{ kind: "feature", text: "Added a Sell All button to merchant windows." }] },
+                { release: 1, date: "2026-10-11", changes: [{ kind: "fix", text: "Fixed a crash when summoning pets." }] },
+              ],
               files: [
                 { path: "dinput8.dll", state: "missing" },
                 { path: "uifiles/nightcap/window.xml", state: "current" },
@@ -98,6 +102,8 @@ async function desktop(
               can_update: true,
             });
             event("Verified signed release 2.");
+            if (mode === "legacy") state.patch_notes = [];
+            if (mode === "notes-text") state.patch_notes![0]!.changes[0]!.text = '<img src=x onerror="window.injected=true">';
             if (mode === "play") Object.assign(state, {can_play: true, installed_release: 2, phase: "health_pending", files: state.files.map((f) => ({...f, state: "current"})), remove: []});
           },
           async Update() {
@@ -234,6 +240,12 @@ test("cancel remains clickable while native Update promise is pending", async ({
     .getByRole("button", { name: "Install update", exact: true })
     .click();
   await expect(page.getByRole("progressbar")).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Latest update" })).toBeVisible();
+  await expect(page.getByText("Added a Sell All button to merchant windows.")).toBeVisible();
+  await page.locator("summary").filter({ hasText: "Previous patches" }).focus();
+  await page.keyboard.press("Enter");
+  await expect(page.getByText("Fixed a crash when summoning pets.")).toBeVisible();
+  await page.screenshot({ path: "test-results/patch-notes-patching.png", fullPage: true });
   await expect(
     page.getByRole("button", { name: "Change folder", exact: true }),
   ).toBeDisabled();
@@ -330,3 +342,19 @@ test("Play remains pending while Stop game stays available and edits are locked"
  await expect(page.locator(".preview-badge")).toHaveText("LOCAL QA CANDIDATE");
  await expect(page.locator(".build")).toContainText("LOCAL QA CANDIDATE");
  });
+
+test("legacy releases explain missing notes without blocking updates", async ({ page }) => {
+  await desktop(page, "legacy");
+  await expect(page.getByText("Patch summaries will appear after checking for updates.")).toBeVisible();
+  await page.getByRole("button", { name: "Check for updates", exact: true }).click();
+  await expect(page.getByText("No summary was published for this patch.")).toBeVisible();
+  await expect(page.locator("summary")).toHaveCount(0);
+  await expect(page.getByRole("button", { name: "Install update", exact: true })).toBeEnabled();
+});
+
+test("patch summaries render markup as plain text", async ({ page }) => {
+  await desktop(page, "notes-text");
+  await page.getByRole("button", { name: "Check for updates", exact: true }).click();
+  await expect(page.locator(".patch-notes")).toContainText('<img src=x onerror="window.injected=true">');
+  await expect(page.locator(".patch-notes img")).toHaveCount(0);
+});

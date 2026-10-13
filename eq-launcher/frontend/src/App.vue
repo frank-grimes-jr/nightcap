@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed, onMounted, onUnmounted, ref } from "vue";
+import PatchNotes from "./PatchNotes.vue";
 import { initial, invoke, native, snapshot, saveAccessCode, type NativeAPI } from "./bridge";
 const state = ref({ ...initial });
 const pending = ref(false);
@@ -237,6 +238,7 @@ onUnmounted(() => {
             </button>
           </div>
         </section>
+        <PatchNotes :notes="state.patch_notes ?? []" :release="state.release" />
         <section v-if="state.access_required" class="details access-panel" aria-labelledby="access-title">
           <div class="section-heading">
             <h2 id="access-title">Player access</h2>

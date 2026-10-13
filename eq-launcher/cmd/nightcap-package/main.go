@@ -33,13 +33,18 @@ func main() {
 	profilePath := flag.String("production-profile", "", "reviewed production profile JSON; otherwise build offline QA")
 	publish := flag.String("publish", "", "new directory for hosted production files")
 	launcherExe := flag.String("launcher-exe", "", "sign this desktop EXE into a separate launcher channel instead of packaging game files")
+	notesPath := flag.String("patch-notes", "", "reviewed JSON patch history to include in the signed game manifest")
 	flag.Parse()
 	profile, err := loadProfile(*profilePath, *publish)
 	if err == nil {
 		if *launcherExe != "" {
 			err = buildLauncher(*launcherExe, *keyPath, *release, profile)
 		} else {
-			err = buildConfigured(*client, *assets, *keyPath, *newKey, *release, *output, profile)
+			var notes []manifest.PatchNote
+			notes, err = loadPatchNotes(*notesPath, *release)
+			if err == nil {
+				err = buildWithNotes(*client, *assets, *keyPath, *newKey, *release, *output, profile, notes)
+			}
 		}
 	}
 	if err != nil {
@@ -103,6 +108,16 @@ func build(client, assets, keyPath string, create bool, release uint64, output s
 }
 
 func buildConfigured(client, assets, keyPath string, create bool, release uint64, output string, profile *productionProfile) error {
+	return buildWithNotes(client, assets, keyPath, create, release, output, profile, nil)
+}
+
+func buildWithNotes(client, assets, keyPath string, create bool, release uint64, output string, profile *productionProfile, notes []manifest.PatchNote) error {
+	if err := manifest.ValidatePatchNotes(notes, release); err != nil {
+		return err
+	}
+	if len(notes) > 0 && profile != nil && !manifest.SupportsPatchNotes(profile.Version) {
+		return fmt.Errorf("patch notes require desktop version 0.6.0 or newer")
+	}
 	if client == "" || release == 0 {
 		return fmt.Errorf("client and nonzero release required")
 	}
@@ -172,6 +187,9 @@ func buildConfigured(client, assets, keyPath string, create bool, release uint64
 	now := time.Now().UTC().Truncate(time.Second)
 	key := manifest.Key{ID: "local-qa-" + manifest.Digest(public)[:16], Public: public, NotBefore: now.Add(-time.Hour), NotAfter: now.Add(90 * 24 * time.Hour)}
 	baseURL, version := "https://qa.nightcap.invalid", "0.1.0"
+	if len(notes) > 0 {
+		version = manifest.PatchNotesMinimumLauncher
+	}
 	hosts := []string{"qa.nightcap.invalid"}
 	if profile != nil {
 		key = manifest.Key{ID: "production-" + manifest.Digest(public)[:16], Public: public, NotBefore: profile.KeyNotBefore, NotAfter: profile.KeyNotAfter}
@@ -181,7 +199,7 @@ func buildConfigured(client, assets, keyPath string, create bool, release uint64
 		}
 	}
 	trust := manifest.Trust{Keys: []manifest.Key{key}, Now: now, LauncherVersion: "0.1.0", Hosts: []string{"qa.nightcap.invalid"}, Inventory: map[string]bool{}, Retired: map[string]bool{"nektulos.eqg": true, "lavastorm.eqg": true}, RetiredSHA256: map[string]string{"nektulos.eqg": classicNektulosRetirementSHA256, "lavastorm.eqg": classicLavastormRetirementSHA256}}
-	m := manifest.Manifest{Schema: 1, Release: release, MinLauncher: "0.1.0", Expires: now.Add(30 * 24 * time.Hour), Tombstones: []string{"nektulos.eqg", "lavastorm.eqg"}}
+	m := manifest.Manifest{Schema: 1, Release: release, MinLauncher: "0.1.0", Expires: now.Add(30 * 24 * time.Hour), Tombstones: []string{"nektulos.eqg", "lavastorm.eqg"}, PatchNotes: notes}
 	trust.Keys, trust.Hosts, trust.LauncherVersion = []manifest.Key{key}, hosts, version
 	m.MinLauncher = version
 	if profile != nil {
@@ -192,6 +210,9 @@ func buildConfigured(client, assets, keyPath string, create bool, release uint64
 		}
 	}
 
+	if len(notes) > 0 && !manifest.SupportsPatchNotes(m.MinLauncher) {
+		m.MinLauncher = manifest.PatchNotesMinimumLauncher
+	}
 	for _, name := range names {
 		trust.Inventory[name] = true
 		m.Files = append(m.Files, manifest.File{Path: name, SHA256: manifest.Digest(data[name]), Size: int64(len(data[name])), URL: fmt.Sprintf("%s/release/%d/%s", baseURL, release, name), Required: true})
@@ -211,7 +232,7 @@ func buildConfigured(client, assets, keyPath string, create bool, release uint64
 	if err != nil {
 		return err
 	}
-	source, err := policySource(key, release, names)
+	source, err := policySource(key, release, names, version)
 	if err != nil {
 		return err
 	}
@@ -257,7 +278,7 @@ func buildConfigured(client, assets, keyPath string, create bool, release uint64
 	return nil
 }
 
-func policySource(key manifest.Key, release uint64, names []string) ([]byte, error) {
+func policySource(key manifest.Key, release uint64, names []string, version string) ([]byte, error) {
 	var inventory strings.Builder
 	for _, name := range names {
 		fmt.Fprintf(&inventory, "%q:true,", name)
@@ -273,12 +294,12 @@ func DefaultPolicy() Policy {
  bundle, err := fs.Sub(qaBundle,"qabundle"); if err != nil { panic(err) }
  public, err := hex.DecodeString(%q); if err != nil { panic(err) }
  return Policy{Bundle:bundle, Label:"LOCAL QA CANDIDATE", EnablePlay:true, Trust:manifest.Trust{
- LauncherVersion:"0.1.0", Hosts:[]string{"qa.nightcap.invalid"},
+ LauncherVersion:%q, Hosts:[]string{"qa.nightcap.invalid"},
  Keys:[]manifest.Key{{ID:%q,Public:public,NotBefore:time.Unix(%d,0),NotAfter:time.Unix(%d,0)}},
  Inventory:map[string]bool{%s}, Retired:map[string]bool{"nektulos.eqg":true,"lavastorm.eqg":true}, RetiredSHA256:map[string]string{"nektulos.eqg":%q,"lavastorm.eqg":%q},
  }}
 }
 // Embedded release: %d
-`, hex.EncodeToString(key.Public), key.ID, key.NotBefore.Unix(), key.NotAfter.Unix(), inventory.String(), classicNektulosRetirementSHA256, classicLavastormRetirementSHA256, release)
+`, hex.EncodeToString(key.Public), version, key.ID, key.NotBefore.Unix(), key.NotAfter.Unix(), inventory.String(), classicNektulosRetirementSHA256, classicLavastormRetirementSHA256, release)
 	return format.Source([]byte(source))
 }

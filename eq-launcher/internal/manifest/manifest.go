@@ -31,12 +31,13 @@ type File struct {
 	Required bool   `json:"required"`
 }
 type Manifest struct {
-	Schema      int       `json:"schema"`
-	Release     uint64    `json:"release"`
-	MinLauncher string    `json:"minimum_launcher"`
-	Expires     time.Time `json:"expires"`
-	Files       []File    `json:"files"`
-	Tombstones  []string  `json:"tombstones"`
+	Schema      int         `json:"schema"`
+	Release     uint64      `json:"release"`
+	MinLauncher string      `json:"minimum_launcher"`
+	Expires     time.Time   `json:"expires"`
+	Files       []File      `json:"files"`
+	Tombstones  []string    `json:"tombstones"`
+	PatchNotes  []PatchNote `json:"patch_notes,omitempty"`
 }
 type Signature struct {
 	KeyID string
@@ -123,6 +124,12 @@ func verify(raw []byte, signature Signature, trust Trust, recovery bool) (Manife
 	}
 	if m.Schema != 1 || m.Release == 0 {
 		return fail("unsupported schema or release")
+	}
+	if err := ValidatePatchNotes(m.PatchNotes, m.Release); err != nil {
+		return fail(err.Error())
+	}
+	if len(m.PatchNotes) > 0 && !SupportsPatchNotes(m.MinLauncher) {
+		return fail("patch notes require minimum launcher 0.6.0")
 	}
 	if !recovery && !trust.Now.Before(m.Expires) {
 		return fail("release metadata expired")

@@ -1,5 +1,17 @@
 # CHANGES
 
+## 2026-10-12 - Concise launcher patch summaries (candidate)
+
+The launcher shows the latest signed patch's Feature/Bug fix bullets above file
+details and expandable dated history, usable throughout patching. The curated
+catalog includes five recent client patches. `nightcap-package -patch-notes`
+signs reviewed notes with the game manifest; validation bounds/order checks and
+plain-text rendering preserve trust and readability. Legacy releases still work.
+Notes require desktop 0.6.0+, delivered before the game channel through the
+existing starter. Full Go tests, desktop compile, frontend build and 11 Chrome
+tests pass; rendered layout inspected. No publication or native acceptance yet.
+See `docs/ops/permanent-patcher.md` for future maintenance and exact player QA.
+
 ## 2026-10-12 - Scribe selected-class spells before their required level
 
 Players can store owned-class scrolls in the spellbook early, avoiding repeated
