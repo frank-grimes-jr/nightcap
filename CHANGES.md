@@ -7,8 +7,10 @@ Master Wu5 and Triple Backstab9. Every allowed rank is available at level1; all
 previous legal ranks, purchases, charges, costs and prerequisites are preserved.
 Clients with an earned Triple Backstab AA can use it below55, retaining native
 double-attack, weapon and positioning checks. No global rule or catalog changes.
-Native/policy and guarded recovery checks pass. OVH deployment and signed notes
-2026101303 are authorized for owner QA; receipts track activation separately.
+Native/policy and guarded recovery checks pass. Deployed on all 12 OVH zones
+for owner QA, preserving 47 player and 11 custom tables. Signed notes 2026101303
+are published; the production signature and all 105 hosted files verify.
+Gameplay acceptance is pending.
 [Release, recovery and exact QA](docs/releases/aa-class-ranks-20261013/README.md).
 
 ## 2026-10-13 — Class AA rank-depth re-audit (recommendation only)

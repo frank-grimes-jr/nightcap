@@ -2,7 +2,9 @@
 
 The owner authorized implementation, signed patch notes and OVH deployment for
 in-game QA. This is not gameplay acceptance or permission to promote to main.
-Status: built and native-tested; deployment receipts will record activation.
+Status: deployed to OVH for owner QA; all 12 zones verified. Signed notes
+2026101303 are published and all 105 public files verified. Gameplay acceptance
+remains pending.
 
 ## Behavior
 
@@ -62,6 +64,34 @@ the finished build was rechecked and its metadata completed without changing the
 binary. Current and prior checks both verified that library's exact hash.
 
 ## Deployment, publication and recovery
+
+Implementation commit `67253a2fbbe0cb3fab8ea07eea9f946f1434bb05` is integrated into
+the local dev and test branches. Main was not promoted. The activated OVH image
+is `sha256:cf9c62310b746be2bd95d9039e6fb975d00f61aa2c42e76ed86ce823f3f119ff`.
+Fresh preflight resolved 242 ownership rows / 1,200 earned ranks; activation
+preserved all 47 player tables and 11 custom tables, including ownership,
+wallets, charges and spent accounting. No database restore occurred. Twelve
+running zone hashes match the candidate, with zero restarts and zero detected
+native/quest/database errors in the recorded check. See [preflight](preflight.json),
+[activation](activated.json), [runtime verification](runtime-verification.json)
+and [independent review](review.json). Backup integrity and the retained prior
+image are recorded with those receipts.
+
+The notes publisher encountered the shared deployment lock held by a separate
+tunnel-layout rollout. It made no public change during those attempts. After
+that operation restarted the runtime, the publisher refreshed service identities
+and verified unchanged public content. It preserved the intervening operation.
+[Final runtime verification](final-runtime-verification.json) reconfirms the
+AA binary in all 12 zones, unchanged rules/catalog, healthy open gateway, and
+zero restarts/detected errors for the current runtime.
+
+Signed notes **2026101303** are [published](notes-published.json). Public HTTPS
+verification checked the production signature, complete prior history and all
+105 hosted files (211,940,790 bytes): [verification receipt](hosted-notes-verification.json).
+The signed channel SHA-256 is
+`aacf67eb9a10fd16544d4031ccd4bb8c63a2a651d0fff58083a191a87f402a28`.
+Desktop channel, starter ZIP, guide, assets and service identities were unchanged
+by notes publication. Reopen the normal launcher shortcut to see the new notes.
 
 The guarded operator checks the freshly captured OVH base binary hashes and
 complete AA catalog, tests candidate/rollback native startup and crypto contracts,
