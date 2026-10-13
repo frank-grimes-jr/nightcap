@@ -1,5 +1,17 @@
 # CHANGES
 
+## 2026-10-13 - Passive AA reduced to 20%
+
+Reduced OVH `AA:PassiveExpPercent` from 40 to 20 after the owner reported four
+AA from a blue skeleton on Palwar in Befallen. This halves passive AA awards
+before rounding while retaining full normal XP, full focused AA, 4,000 XP per
+point and all existing progress. The owner approved direct main/server delivery.
+129 native checks and nine recovery tests pass; independent review found no
+blockers. Fresh full backup, guarded forward/inverse rehearsal and global rules
+reload verified world/all 12 zones with unchanged processes. No restart or
+client update. Gameplay/balance QA remains pending. Evidence and recovery:
+`docs/ops/passive-aa-twenty-20261013/README.md`.
+
 ## 2026-10-13 - Relaxed tradeskill workshop deployed
 
 Deployed staggered East Commonlands crafting groups, six repositioned stations,

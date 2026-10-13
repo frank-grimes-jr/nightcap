@@ -1,0 +1,8 @@
+{
+  "scope": "40 to 20 passive AA; retained cost 4000, progress and runtime",
+  "reviewer": "independent review agent",
+  "verdict": "no blockers",
+  "independent_operation_tests": 9,
+  "native_checks": 129,
+  "owner_gameplay_acceptance": "pending"
+}

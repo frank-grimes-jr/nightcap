@@ -1,0 +1,28 @@
+{
+  "observed_utc": "2026-10-13T15:17:01.643890+00:00",
+  "release": "aa-class-ranks-20261013",
+  "source_commit": "67253a2fbbe0cb3fab8ea07eea9f946f1434bb05",
+  "runtime_binaries": {
+    "world": "efd54a1023a569274a76f65d3d2a18a173906762472a1bce186e3e14629d3c18",
+    "zone": "5dfe3d8a944a29ac963644298eb7a1563a08748ae72ae210edd78268ea106681"
+  },
+  "source_files": {
+    "zone/exp.cpp": "1f58270b6df0bd49ac3435e104fd46202e020f45ddc7971802b675bcada67ebf",
+    "zone/client.cpp": "a4fcd19fea8965f8a5a67f6a2cc44f7c83d6a55c32d9e8995ed95330b3ee61f8",
+    "zone/client_packet.cpp": "893ce3f18fe99b58ce644fdb2d2958266d4db6b8c6591d1c824ea3bb27014180",
+    "zone/zonedb.cpp": "9dd2152d6f0c6c5435c25f2ddb641a8eabf4d3f50cd55dea0cf7004d9bdde88e",
+    "zone/aa.cpp": "a932830ad8ce3b4a1cbb02a0be32a7c4caec9c955058d928e8932d0261bc9e0b",
+    "zone/gm_commands/aa_exp.cpp": "160ae47f07c257f725d30d8cb35616c7c70f3dd70e5fa0abbe3245ac10fb8259",
+    "common/ruletypes.h": "61b00c370fdd70b486873f0a0dd22ed8722e753551d6e4dd2ef3cc14afa87d85"
+  },
+  "native_test_source": "/tmp/nightcap-aa-class-ranks-build-20261013-v2/source",
+  "native_tests": {
+    "checks": 129,
+    "failures": 0,
+    "boundary": "Existing extracted production-method checks include 20% and 40% kill/quest/task rates, full normal XP, focused allocation and saved progress; owner gameplay QA pending."
+  },
+  "operation_tests": {
+    "tests": 9,
+    "failures": 0
+  }
+}

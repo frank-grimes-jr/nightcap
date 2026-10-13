@@ -77,8 +77,9 @@ All commands run from `akk-stack/`:
   AA at 0% allocation; `#aaexp on|off` selects 100% or 0%. Tiny gains round down.
   Percentage rewards must preserve independent level/AA modifiers and missing-row
   behavior. Catalog changes require matching world/zone. Existing values use
-  `#reload rules global`; OVH uses 40% as of October 9 (compiled fallback 1%).
-  Tuning and recovery: `docs/ops/passive-aa-forty-20261009/README.md`.
+  `#reload rules global`; OVH uses 20% as of October 13 (compiled fallback 1%),
+  with `AA:ExpPerPoint=4000`. Preserve points and partial XP; reload never rewrites
+  player progress. Tuning and recovery: `docs/ops/passive-aa-twenty-20261013/README.md`.
   Tests, calibration and exact QA: `docs/releases/passive-aa-20261004.md`.
 
 - **OVH zone exits restart the whole runtime.** The deployed start.py supervises

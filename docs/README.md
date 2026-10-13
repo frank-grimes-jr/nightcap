@@ -16,6 +16,8 @@ Start with [current status](status.md), not a dated candidate report.
 
 ## Players and testers
 
+- [Passive AA reduced to 20%: live tuning, recovery and Palwar QA](ops/passive-aa-twenty-20261013/README.md)
+
 - [Relaxed tradeskill workshop: live layout, service moves and exact QA](releases/tunnel-cozy-20261013/README.md)
 
 - [Multiclass skill progression and offhand corrective release](releases/multiclass-skills-20261013/README.md)

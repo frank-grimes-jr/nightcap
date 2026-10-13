@@ -1,5 +1,14 @@
 # Current Nightcap status
 
+## Passive AA — 20% deployed October 13
+
+Owner-approved passive AA decreased from 40% to **20%**. Normal leveling XP,
+full AA focus, 4,000 XP per point and existing progress are preserved. All 12
+zones and world reloaded successfully without restarting; all five services
+remain running. 129 native checks, nine recovery tests and independent review
+pass. Palwar/Befallen gameplay and later-level balance QA remain pending.
+[Evidence, rollback and exact QA](ops/passive-aa-twenty-20261013/README.md).
+
 ## Relaxed tradeskill workshop — deployed October 13
 
 Owner-approved PRs #194/#195 are on main and live. Twenty-five NPCs form looser
