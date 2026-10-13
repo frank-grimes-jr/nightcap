@@ -1,5 +1,9 @@
 # AA availability for Classic solo QA
 
+## Owner correction — October 13, 2026
+
+The level-staging decision below was rejected in live QA. All legal AA ranks must be available from character level 1; players choose their spending. The release pool and numeric rank ceilings remain. Policy JSON now holds rank counts; DB level requirements cannot reinstate client gates. See [correction](../releases/aa-tbs-level1-20261013/README.md). Earlier evidence below describes the superseded candidate.
+
 Status: accepted implementation intent, October 13, 2026; gameplay acceptance pending.
 
 The owner requested the Buried Sea cutoff, the audit's conservative exceptions,

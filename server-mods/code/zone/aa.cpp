@@ -54,7 +54,7 @@ extern QueryServ* QServ;
 // after a zone. Upgrade path: cache invalidation if we add an in-zone reclass command.
 void Client::LoadMulticlassMask() {
 	// Bit format MUST match the in-memory ability->classes, which is loaded as
-	// (db_classes << 1) — i.e. bit N = class N ("EQ client format"). The old
+	// (db_classes << 1) â€” i.e. bit N = class N ("EQ client format"). The old
 	// (1 << (GetClass()-1)) mask was off by one bit against that: every character
 	// was granted the AAs of class_id-1 instead of their own (the root cause of
 	// the recurring vanish/wrong-class-AA bugs).
@@ -1159,7 +1159,8 @@ void Client::SendAlternateAdvancementRank(int aa_id, int level) {
 	uint32 my_class_bit = 1 << GetClass();
 	bool single_class = (ability->classes != 0) && ((ability->classes & (ability->classes - 1)) == 0);
 	aai->classes = single_class ? my_class_bit : (ability->classes | my_class_bit);
-	aai->level_req = std::max(rank->level_req, NightcapAA::RequiredLevel(rank->id, ability->id, rank->current_value, rank->expansion));
+	// Nightcap opens every allowed AA rank at character creation.
+	aai->level_req = NightcapAA::RequiredLevel(rank->id, ability->id, rank->current_value, rank->expansion);
 	aai->current_level = level;
 	aai->max_level = ability->GetMaxLevel(this);
 	aai->prev_id = rank->prev_id;
@@ -1804,7 +1805,7 @@ bool Mob::CanUseAlternateAdvancementRank(AA::Rank *rank)
 
 	if (IsClient()) {
 		const auto required = NightcapAA::RequiredLevel(rank->id, a->id, rank->current_value, rank->expansion);
-		if (!required || GetLevel() < required || GetLevel() < rank->level_req) { return false; }
+		if (!required) { return false; }
 	}
 
 	uint32 class_mask = IsClient() ? CastToClient()->GetClassMask() : (1 << GetClass());
@@ -1899,7 +1900,7 @@ bool Mob::CanPurchaseAlternateAdvancementRank(AA::Rank *rank, bool check_price, 
 		return false;
 	}
 
-	if (rank->level_req > GetLevel()) {
+	if (!IsClient() && rank->level_req > GetLevel()) {
 		return false;
 	}
 
@@ -2334,12 +2335,11 @@ void Client::AutoGrantAAPoints() {
 			continue;
 		}
 
-		auto level = GetLevel();
 		auto p = 1;
 		auto rank = ability->first;
 		while (rank != nullptr) {
 			if (CanUseAlternateAdvancementRank(rank)) {
-				if (rank->expansion <= auto_grant_expansion && rank->level_req <= level && !HasAlreadyPurchasedRank(rank)) {
+				if (rank->expansion <= auto_grant_expansion && !HasAlreadyPurchasedRank(rank)) {
 					if (!FinishAlternateAdvancementPurchase(rank, true, false)) {
 						return;
 					}
@@ -2395,7 +2395,7 @@ void Client::GrantAllAAPoints(uint8 unlock_level, bool skip_grant_only)
 			continue;
 		}
 
-		const uint8 level = unlock_level ? unlock_level : GetLevel();
+		// An explicit GM content-level filter is separate from player access.
 
 		AA::Rank* rank = ability->first;
 		while (rank) {
@@ -2403,7 +2403,7 @@ void Client::GrantAllAAPoints(uint8 unlock_level, bool skip_grant_only)
 				break;
 			}
 
-			if (rank->level_req <= level && !HasAlreadyPurchasedRank(rank)) {
+			if ((!unlock_level || rank->level_req <= unlock_level) && !HasAlreadyPurchasedRank(rank)) {
 				if (!FinishAlternateAdvancementPurchase(rank, true, false)) {
 					return;
 				}

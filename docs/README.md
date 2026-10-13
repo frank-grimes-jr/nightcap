@@ -1,5 +1,7 @@
 # Nightcap documentation
 
+Current AA correction: [all allowed ranks at level 1](releases/aa-tbs-level1-20261013/README.md).
+
 Start with [current status](status.md), not a dated candidate report.
 
 - [Production-connected GM controls: entry point, rollout and exact QA](ops/production-gm-20261010.md)

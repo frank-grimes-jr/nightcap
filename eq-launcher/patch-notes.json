@@ -1,5 +1,23 @@
 [
   {
+    "release": 2026101302,
+    "date": "2026-10-13",
+    "changes": [
+      {
+        "kind": "fix",
+        "text": "All allowed AA abilities and ranks are available from level 1. Choose where to spend your points; character level no longer hides or locks them."
+      },
+      {
+        "kind": "feature",
+        "text": "The AA pool uses The Buried Sea cutoff with selected utility and pet exceptions, release rank limits, and deferred high-power abilities."
+      },
+      {
+        "kind": "fix",
+        "text": "Existing AA purchases and points are preserved. Previously purchased ranks allowed by this release become usable again when you reconnect."
+      }
+    ]
+  },
+  {
     "release": 2026101301,
     "date": "2026-10-13",
     "changes": [

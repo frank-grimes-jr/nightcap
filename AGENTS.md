@@ -4,7 +4,7 @@ This file provides guidance to Codex (Codex.ai/code) when working with code in t
 
 ## Repo overview
 
-Personal EverQuest emulator dev workspace — five independent subprojects in one directory. Each has its own dependencies and tooling; there is no root `package.json` or shared build system. Always `cd` into the subproject before running commands.
+Personal EverQuest emulator dev workspace â€” five independent subprojects in one directory. Each has its own dependencies and tooling; there is no root `package.json` or shared build system. Always `cd` into the subproject before running commands.
 
 | Subproject | Stack | Purpose |
 |---|---|---|
@@ -13,25 +13,25 @@ Personal EverQuest emulator dev workspace — five independent subprojects in on
 | `eq-expansion-switcher/` | Go + Wails + Vue-TS | Windows desktop EQ expansion switcher |
 | `eqemu-monocle/` | PHP/Laravel | Zone tools web app |
 | `eqemu-install-v2/` | Go | Spire installer |
-| `Client_RoF2_Dev/` | Binary | RoF2 game client — do not modify or build |
+| `Client_RoF2_Dev/` | Binary | RoF2 game client â€” do not modify or build |
 
 ## akk-stack
 
 All commands run from `akk-stack/`:
 
-- `make up` / `make down` — start/stop Docker containers
-- `make bash` — shell into eqemu-server container
-- `make mc` — MariaDB console
-- `make mysql-backup` — dump database
-- `make install` — first-time full install
-- `make env-scramble-secrets` — initialize `.env` secrets
-- `make env-transplant` — merge `.env.example` into existing `.env`
+- `make up` / `make down` â€” start/stop Docker containers
+- `make bash` â€” shell into eqemu-server container
+- `make mc` â€” MariaDB console
+- `make mysql-backup` â€” dump database
+- `make install` â€” first-time full install
+- `make env-scramble-secrets` â€” initialize `.env` secrets
+- `make env-transplant` â€” merge `.env.example` into existing `.env`
 
-**C++ source** (`akk-stack/code/`): uses **tab indentation** (not spaces). The `vcpkg/` subdirectory is a large git submodule — do not modify or delete it.
+**C++ source** (`akk-stack/code/`): uses **tab indentation** (not spaces). The `vcpkg/` subdirectory is a large git submodule â€” do not modify or delete it.
 
 ## eq-solo-gm
 
-- `npm run dev` — starts API on port 3001 and Vite on port 5173 concurrently
+- `npm run dev` â€” starts API on port 3001 and Vite on port 5173 concurrently
 - MariaDB is on **port 3307** (not 3306); database is `peq`
 - Local DB credentials are in `api/lib/database.cjs`; production credentials are read into backend memory over pinned-host SSH, never sent to the browser.
 - `Start Nightcap GM.cmd` opens the owner-local UI. API binds only `127.0.0.1:3001`; Vite development binds loopback `5173`.
@@ -48,19 +48,19 @@ All commands run from `akk-stack/`:
 
 ## eq-expansion-switcher
 
-- `wails build -platform=windows/amd64` — local Windows build
-- `make ci-build` — full release (requires `GH_RELEASE_GITHUB_API_TOKEN` in `.env`)
+- `wails build -platform=windows/amd64` â€” local Windows build
+- `make ci-build` â€” full release (requires `GH_RELEASE_GITHUB_API_TOKEN` in `.env`)
 - CI runs on Drone.io, triggers on push to `main`
 
 ## eqemu-monocle
 
-- Copy `.env.example` → `.env` and set DB credentials before first use
-- `docker-compose up -d workspace` — start dev container
-- `php artisan zonetools:*` — zone-related artisan commands
+- Copy `.env.example` â†’ `.env` and set DB credentials before first use
+- `docker-compose up -d workspace` â€” start dev container
+- `php artisan zonetools:*` â€” zone-related artisan commands
 
 ## Domain knowledge
 
-`.Codex/skills/eqemu/` — EQEmu/Nightcap server internals (caches/reloads, RoF2 client limits, Perl DB API) and the THJ replication spec with gap roadmap (`thj-blueprint.md`). Consult it before touching server systems; keep it updated as systems change.
+`.Codex/skills/eqemu/` â€” EQEmu/Nightcap server internals (caches/reloads, RoF2 client limits, Perl DB API) and the THJ replication spec with gap roadmap (`thj-blueprint.md`). Consult it before touching server systems; keep it updated as systems change.
 
 ## Server ops
 
@@ -102,7 +102,7 @@ All commands run from `akk-stack/`:
 - **Epic 0.5 journal candidate**: native Tasks own progress; the character
   `nightcap_epic05_state` row owns only attunement/cooldown. Pair the native
   `Epic05Contract()` duration guard, three plugins, `global/items/900501.pl`,
-  tasks 9500–9507 and spells 42800–42805. The SQL gate starts disabled. Native
+  tasks 9500â€“9507 and spells 42800â€“42805. The SQL gate starts disabled. Native
   task history and proximity rules are required; Explore=5 credits movement,
   while Touch=11 is a dynamic-zone switch. Preserve owned definitions/history
   on rollback. Verify Classic gates on both spawn2 and spawnentry; spawn2 has
@@ -158,7 +158,7 @@ All commands run from `akk-stack/`:
 
 - **Docker data disk**: stored at `E:\Docker\wsl\disk\docker_data.vhdx`; the original `%LOCALAPPDATA%\Docker\wsl\disk` is a directory junction to that folder. Keep E: available before starting Docker. Migration evidence and rollback details: `docs/ops/docker-data-migration-20260913.md`.
 - **Era lock is declarative**: `era.json` (repo root) is the source of truth; `tools/apply-era.ps1` applies it idempotently (+`-Check` for drift, `-CapCharacters` to de-level). Change era = edit era.json, commit, run the script. Do not set expansion rules by hand or via the GM tool.
-- **AA offering has a separate compiled policy**: `era.json.aa_policy` selects `config/aa-policy.json`; `tools/aa_tbs_policy.py` generates the native rank/level allowlist. Regenerate and rebuild/deploy zone after changes; era SQL and AA/rule reloads do not install compiled caps. Preserve full AA definitions and canonical earned ranks/charges—do not disable definitions or truncate chains to hide purchases. Exact limits, guarded OVH restart, rollback and owner QA: `docs/releases/aa-tbs-20261013/README.md`.
+- **AA offering has a separate compiled policy**: `era.json.aa_policy` selects `config/aa-policy.json`; `tools/aa_tbs_policy.py` generates the native rank/level allowlist. Regenerate and rebuild/deploy zone after changes; era SQL and AA/rule reloads do not install compiled caps. Preserve full AA definitions and canonical earned ranks/chargesâ€”do not disable definitions or truncate chains to hide purchases. Exact limits, guarded OVH restart, rollback and owner QA: `docs/releases/aa-tbs-20261013/README.md`.
 - **PoK class hub**: `tools/pok_hub.py` plans from `docs/pok/hub-stock-audit.json` (original class levels, not widened `spells_new` columns). `tools/pok_hub_migration.py` generates guarded forward/rollback SQL; `tools/pok_hub_restock.py` generates the canonical restock. `docs/pok/catalog-policy.json` gates era promotion before writes. Current catalog preserves the existing expansion-0, level-50 item pool; extending it requires review and regeneration. Activation/rollback and exact player QA: `docs/pok/QA.md`. Candidate only until the recorded in-game QA passes.
 - **DB backups**: `tools/backup-peq.ps1`, scheduled daily 04:00 (task `NightcapPeqBackup`), 14-day retention, includes the era drift check. Take a manual backup before destructive SQL.
 - **Ring geometry**: validate against `zone.map_file_name`, not only the short
@@ -349,8 +349,8 @@ rollback: `docs/ops/permanent-patcher.md`.
   before activation/rollback; preserve player progress and trade audit.
 
 - MariaDB is always on **port 3307**, not the default 3306
-- `Client_RoF2_Dev/` is binary EQ client data — never try to build, lint, or modify it
-- No root `package.json` — do not run `npm install` or `npm run` from the repo root
+- `Client_RoF2_Dev/` is binary EQ client data â€” never try to build, lint, or modify it
+- No root `package.json` â€” do not run `npm install` or `npm run` from the repo root
 - Subproject AGENTS.md files can be added per-directory for module-specific instructions
 
 ## Working agreement
@@ -364,6 +364,7 @@ change, including quality-of-life features and reward systems.
 
 - Evaluate the combined power of multiclass abilities, AAs, gear tiers, heroics,
   augments, buffs, pets, and sustain; do not tune each system in isolation.
+- **All allowed AAs and ranks are available at character level 1.** Players choose where and when to spend points. Never add character-level AA gates; balance with the explicit expansion pool, release rank ceilings, costs and prerequisites. The owner reaffirmed this invariant on October 13, 2026 after rejecting the early-level gating candidate.
 - Curate AA availability by expansion: remove overpowered interactions and unlock
   additional abilities/ranks with later releases. Balance against an explicit legal
   pool and rank caps; "all AAs" means all allowed in that release. Keep unrestricted
@@ -388,7 +389,7 @@ and server" for the removal of hunger/thirst requirements, penalties and warning
 This authorizes main promotion and OVH rollout before manual acceptance. Preserve
 the outstanding client checks in `docs/qa/2026-10-11-food-drink-removal.md`.
 
-`feature/<name>` → `dev` → `test` → `main`
+`feature/<name>` â†’ `dev` â†’ `test` â†’ `main`
 
 **October 9 advanced-loot controls exception:** the owner explicitly requested
 "Deploy to main and server" for direct Always/Never row controls and empty-queue
@@ -413,7 +414,7 @@ publication as successful native acceptance or a permanent branch-policy change.
 - **test**: pause. The user runs manual in-game QA. Every promotion to `test` MUST include an explicit spike-out of exactly what to QA in game (steps, NPCs, zones, expected results).
 - **main**: only after user sign-off on the manual QA.
 
-Codex is free to commit, open PRs, and merge autonomously **up to `test`** when tests pass. `test` → `main` requires user sign-off.
+Codex is free to commit, open PRs, and merge autonomously **up to `test`** when tests pass. `test` â†’ `main` requires user sign-off.
 
 **September 15, 2026 exception:** the owner explicitly requested all gameplay
 changes move into main so they can test live. This authorizes the current
@@ -449,14 +450,14 @@ matching client publication. Manual gameplay acceptance remains open; see
 `docs/releases/production-bugfixes-20260920.md`.
 
 - Small commits/PRs. One system or feature per commit, **with tests**.
-- If a task is ambiguous, propose 2–3 options with tradeoffs in the PR/commit description rather than silently choosing.
+- If a task is ambiguous, propose 2â€“3 options with tradeoffs in the PR/commit description rather than silently choosing.
 
 ### Documentation duties
 
 - **This file**: keep conventions, commands, and architecture summary current. Update as decisions are made.
 - **ADRs**: record significant decisions as short ADRs in `docs/adr/` (`NNNN-title.md`).
-- **Milestone reports**: every phase ends with `docs/milestones/phase-N-report.md` — what was built, what was cut, what's shaky.
-- **Lore**: when lore details are needed (rare — systems here are new, not canon), keep a running doc at `docs/lore/structure.md`, noting anything left mid-design/interrupted.
+- **Milestone reports**: every phase ends with `docs/milestones/phase-N-report.md` â€” what was built, what was cut, what's shaky.
+- **Lore**: when lore details are needed (rare â€” systems here are new, not canon), keep a running doc at `docs/lore/structure.md`, noting anything left mid-design/interrupted.
 
 ## Changelog
 
@@ -472,7 +473,7 @@ completed October 12; revision 2026101201 is enabled. Real client acceptance is
 pending. Recovery must preserve player/receipt state and hold the gateway closed
 if unexplained data drift is detected before player access resumes.
 
-**Always update `CHANGES.md`** when making significant changes — C++ patches, database schema changes, quest script additions, or SQL setup file corrections. Include: what changed, why, any gotchas. This is the primary audit trail for this repo since many changes touch the live database or compiled binaries and aren't fully captured by git diffs alone.
+**Always update `CHANGES.md`** when making significant changes â€” C++ patches, database schema changes, quest script additions, or SQL setup file corrections. Include: what changed, why, any gotchas. This is the primary audit trail for this repo since many changes touch the live database or compiled binaries and aren't fully captured by git diffs alone.
 
 Format: date header, area, description. Most recent entry at the top.
 

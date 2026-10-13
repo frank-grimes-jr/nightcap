@@ -1,5 +1,7 @@
 # Buried Sea AA candidate — October 13, 2026
 
+> Superseded after owner QA: this historical candidate’s level gates were rejected. See [level-1 correction](../aa-tbs-level1-20261013/README.md).
+
 The owner-authorized policy is **live on OVH for QA**, from the feature/dev/test
 candidate. It started at 11:09:24 UTC October 13. Native build, independent review
 and deployment checks passed. Gameplay acceptance and promotion to main remain

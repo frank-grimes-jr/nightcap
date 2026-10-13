@@ -153,10 +153,11 @@ int main() {
  int checked=0;
  for(const auto& p:NightcapAA::Ranks) {
   a.id=p.ability_id;
-  AA::Rank rank{p.rank_id,p.ordinal,p.expansion,1,&a,nullptr};
+  AA::Rank rank{p.rank_id,p.ordinal,p.expansion,255,&a,nullptr};
   for(int level: {1,10,20,30,40,50}) {
    c.level=level;
-   assert(c.CanUseAlternateAdvancementRank(&rank)==(level>=p.level));
+   assert(p.level==1);
+   assert(c.CanUseAlternateAdvancementRank(&rank));
    ++checked;
   }
   c.level=50; a.classes=4;
@@ -167,7 +168,7 @@ int main() {
  }
  a.id=515; AA::Rank forbidden{1,1,17,1,&a,nullptr};
  assert(!c.CanUseAlternateAdvancementRank(&forbidden));
- // Real policy ranks for Natural Durability: 1/20/30, higher ranks dormant.
+ // Real policy ranks for Natural Durability: all at creation, higher release-excluded ranks dormant.
  std::map<int,AA::Rank> ranks;
  auto& durability=zone->abilities[28]; durability.id=28; durability.classes=0x1fffe;
  AA::Rank* tail=nullptr;
@@ -179,7 +180,7 @@ int main() {
  durability.first_rank_id=durability.first->id;
  auto first=durability.first_rank_id;
  c.m_earned_aa_ranks[first]={4,7};
- for(auto pair: {std::pair<int,int>{1,1},{20,2},{30,3},{10,1},{50,3}}) {
+ for(auto pair: {std::pair<int,int>{1,3},{20,3},{30,3},{10,3},{50,3}}) {
   c.level=pair.first;
   assert(c.ReprojectEarnedAAs());
   assert(c.aa_ranks.at(28).first==unsigned(pair.second));
@@ -192,7 +193,7 @@ int main() {
   assert(c.HasAlreadyPurchasedRank(durability.first));
   assert(!c.CanPurchaseAlternateAdvancementRank(durability.first,true,true));
  }
- // Retain consumed charges when suspending for a class/level restriction.
+ // Retain consumed charges when suspending for a class restriction.
  c.aa_ranks.at(28).second=2; c.mask=0;
  assert(c.ReprojectEarnedAAs()); assert(c.aa_ranks.empty());
  assert(c.m_pp.aa_array[0].AA==0);
@@ -205,13 +206,20 @@ int main() {
  c.valid=true; c.m_earned_aa_ranks[first].first=5;
  assert(!c.ReprojectEarnedAAs()); assert(!c.valid); assert(c.aa_ranks==before);
  c.valid=true; c.m_earned_aa_ranks.clear(); c.aa_ranks.clear(); c.level=1;
+ durability.first->level_req=255;
  durability.first->prereqs[99999]=1;
  assert(!c.CanPurchaseAlternateAdvancementRank(durability.first,false,true));
  durability.first->prereqs.clear();
  assert(c.CanPurchaseAlternateAdvancementRank(durability.first,true,true));
  c.m_pp.aapoints=0; assert(!c.CanPurchaseAlternateAdvancementRank(durability.first,true,true));
- c.level=19; auto* second=durability.first->next;
- assert(!c.CanPurchaseAlternateAdvancementRank(second,false,false));
+ auto* second=durability.first->next;
+ second->prev=durability.first; second->level_req=255;
+ assert(!c.CanPurchaseAlternateAdvancementRank(second,false,true));
+ c.aa_ranks[28]={1,0}; c.m_pp.aapoints=17;
+ assert(c.CanPurchaseAlternateAdvancementRank(second,true,true));
+ assert(c.CanPurchaseAlternateAdvancementRank(second,false,false));
+ c.client=false; assert(!c.CanPurchaseAlternateAdvancementRank(second,false,false)); c.client=true;
+ c.aa_ranks.clear();
  c.SendAlternateAdvancementTable();
  assert(c.refresh==std::vector<int>({1,2,3,4,5,6}));
  std::cout << "{\"native_eligibility_cases\":" << checked << ",\"projection_checks\":9,\"passed\":true}\n";

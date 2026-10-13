@@ -20,18 +20,18 @@ class PolicyTests(unittest.TestCase):
 
     def test_core_caps_and_exact_later_exceptions(self):
         for aid in (28, 33, 34):
-            self.assertEqual([self.by_key[aid, n]['level'] for n in (1, 2, 3)], [1, 20, 30])
+            self.assertEqual([self.by_key[aid, n]['level'] for n in (1, 2, 3)], [1, 1, 1])
             self.assertNotIn((aid, 4), self.by_key)
         self.assertEqual({r['ability_id'] for r in self.rows if r['expansion'] > 13}, set(self.config['later_exceptions']))
         for aid in self.config['deferred_abilities']:
             self.assertFalse(any(a == aid for a, _ in self.by_key))
 
     def test_pet_control_and_shallow_defense(self):
-        self.assertEqual(self.by_key[3202, 1]['level'], 20)
-        self.assertEqual(self.by_key[195, 3]['level'], 20)
+        self.assertEqual(self.by_key[3202, 1]['level'], 1)
+        self.assertEqual(self.by_key[195, 3]['level'], 1)
         for aid in (3512, 3818):
-            self.assertEqual([self.by_key[aid, n]['level'] for n in (1, 2, 3)], [30, 40, 50])
-        self.assertEqual(self.by_key[1403, 1]['level'], 50)
+            self.assertEqual([self.by_key[aid, n]['level'] for n in (1, 2, 3)], [1, 1, 1])
+        self.assertEqual(self.by_key[1403, 1]['level'], 1)
         self.assertEqual(self.by_key[938, 8]['level'], 1)
 
     def test_prefix_and_dependency_closure(self):
@@ -52,6 +52,16 @@ class PolicyTests(unittest.TestCase):
         tables['aa_ranks'][0]['next_id'] = 10
         with self.assertRaisesRegex(ValueError, 'cycle'):
             policy.compile_policy(tables, self.config)
+
+    def test_entire_legal_pool_available_at_creation(self):
+        self.assertEqual(len(self.rows), 941)
+        self.assertEqual(len({r['ability_id'] for r in self.rows}), 390)
+        self.assertEqual({r['level'] for r in self.rows}, {1})
+        # Content updates cannot silently restore character-level gating.
+        high_levels = json.loads(json.dumps(self.catalog))
+        for rank in high_levels['aa_ranks']:
+            rank['level_req'] = 255
+        self.assertEqual(policy.compile_policy(high_levels, self.config), self.rows)
 
     def test_generated_header_is_current(self):
         self.assertEqual((ROOT / 'server-mods/code/common/nightcap_aa_policy.h').read_text(), policy.header(self.rows, self.config, self.catalog))

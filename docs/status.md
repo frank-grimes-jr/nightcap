@@ -1,5 +1,9 @@
 # Current Nightcap status
 
+## October 13 AA correction: level-1 access
+
+Owner QA rejected the initial AA level gates. The correction opens all allowed ranks at creation and retains purchases. [Correction and QA](releases/aa-tbs-level1-20261013/README.md); activation evidence pending. The earlier small starter-list policy is superseded, not accepted.
+
 ## Buried Sea AA caps — live for owner QA
 
 The TBS cutoff, six utility/pet exceptions and early rank caps are implemented

@@ -24,8 +24,7 @@ def compile_policy(tables, config):
     for aid, ability in sorted(abilities.items()):
         if not ability.get('enabled'):
             continue
-        levels = config['rank_levels'].get(str(aid), config['core_rank_levels']
-            if aid in config['core_abilities'] else config['default_rank_levels'])
+        max_ranks = config['rank_caps'].get(str(aid), config['default_max_ranks'])
         permitted = (aid > 0 and ability.get('category') not in (3, 4)
                      and aid not in config['deferred_abilities'] and not ability.get('charges', 0)
                      and (not ability.get('grant_only') or aid in config['grant_only_exceptions']))
@@ -41,11 +40,11 @@ def compile_policy(tables, config):
             ordinal += 1
             for dep, count in prereqs[rid].items():
                 inherited[dep] = max(inherited.get(dep, 0), count)
-            permitted = permitted and ordinal <= len(levels) and (
+            permitted = permitted and ordinal <= max_ranks and (
                 rank['expansion'] <= config['expansion_max'] or aid in config['later_exceptions'])
             if permitted:
                 candidates[aid, ordinal] = {'rank_id': rid, 'ability_id': aid, 'ordinal': ordinal,
-                    'level': max(levels[ordinal - 1], rank['level_req']), 'expansion': rank['expansion'],
+                    'level': 1, 'expansion': rank['expansion'],
                     'classes': ability['classes'], 'name': ability.get('name', str(aid)),
                     'prereqs': dict(inherited)}
             rid = rank['next_id']
