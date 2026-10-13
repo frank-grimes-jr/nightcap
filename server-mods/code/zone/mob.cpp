@@ -4680,7 +4680,7 @@ bool Mob::CanThisClassDualWield(void) const {
 
 		// Dual-Wielding Empty Fists
 		if(!pinst && !sinst)
-			if(GetHandToHandClass() != Class::Monk && class_ != Class::MonkGM && GetHandToHandClass() != Class::Beastlord && class_ != Class::BeastlordGM)
+			if(!CastToClient()->IsMulticlassMember(Class::Monk) && class_ != Class::MonkGM && !CastToClient()->IsMulticlassMember(Class::Beastlord) && class_ != Class::BeastlordGM)
 				return false;
 
 		return true;

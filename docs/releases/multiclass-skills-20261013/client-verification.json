@@ -1,0 +1,59 @@
+{
+  "date": "2026-10-13",
+  "version": "0.8.3-dev",
+  "client_reference": {
+    "path": "E:/EQ_Local_Dev/Client_RoF2_Dev/everquest_rof2/eqgame.exe",
+    "sha256": "2a8702ad9f722704f01355c0750be7d6f164a8b9c9128ba0cf286ea32b405b0e",
+    "access": "read-only"
+  },
+  "red": [
+    {
+      "binary": "artifacts/trainer-purchase-red.exe",
+      "exit": 1,
+      "failure": "Palwar skill1 below held Monk level4 cap25 must allow trainer buy"
+    },
+    {
+      "binary": "artifacts/trainer-offhand-red.exe",
+      "arguments": [
+        "--offhand-only"
+      ],
+      "exit": 1,
+      "failure": "offhand weapon must pass with server-granted Dual Wield1"
+    }
+  ],
+  "verification": {
+    "dll_build": "pass",
+    "runtime_tests_build": "pass",
+    "runtime_suite": {
+      "command": "python eq-client-dll/tests/test_runtime.py --eqgame E:/EQ_Local_Dev/Client_RoF2_Dev/everquest_rof2/eqgame.exe",
+      "result": "6 tests passed",
+      "environment": "TEMP and TMP set to workspace artifacts/test-temp; initial default sandbox temp attempt failed permissions"
+    },
+    "exact_client_verifier": "pass",
+    "catalog_generator_check": "91 signatures passed",
+    "independent_client_review": "trainer_review: no remaining findings after current-level offhand gate correction"
+  },
+  "coverage": [
+    "native trainer buy current-level cap path",
+    "native offhand equip caller and HasSkill/GetSkill/raw accessor",
+    "current cap boundary",
+    "stock class passthrough",
+    "unheld/released/stale/missing metadata rejection",
+    "future Warrior cap cannot preserve stale skill after Monk release",
+    "scoped cap leaves other native callers unchanged",
+    "native tradeskill over200 restriction retained",
+    "x86 calling convention and stack cleanup"
+  ],
+  "qa_boundary": "No client launched, no deployment or signed publication by this subagent; visible gameplay acceptance pending. Fixture levels/caps are synthetic and are not live balance claims.",
+  "files": {
+    "eq-client-dll/src/trainer_hooks.h": "543ea2f5a74227d3cfb4121b95fcbbc9f2706e0dc23136734fb89c77fa715ec3",
+    "eq-client-dll/tests/trainer-native.cpp": "882342d5a967ad39f719be77d44cbf40e27ba3d10a430febffd53104335f5b5e",
+    "eq-client-dll/config/patch-sites.json": "77769d45519921ad1cabdb28719bdcc85c32548d3f967b779f9ee3ff665fd047",
+    "eq-client-dll/src/patch_catalog.h": "ed88b3481700736dbb89c06e1a8cd901da89e50a9a69882c117f5433898d4939",
+    "eq-client-dll/src/runtime_contract.h": "9da34e90543f2c31bff987d69b654fb7e3d12a5ea749c5105f340386457384a6",
+    "eq-client-dll/tests/verify-exact-client-patch-sites.ps1": "17bce68cdf0210cc5f63ac8f4a81e516352e1063881e9ae4e3f952b40c4932a7",
+    "tools/generate-client-patch-catalog.py": "36d792f6361357cf0e75115c94e1d9838d4996219ca1e690db66c72b119d0809",
+    "eq-launcher/internal/preflight/catalog.json": "77769d45519921ad1cabdb28719bdcc85c32548d3f967b779f9ee3ff665fd047",
+    "eq-client-dll/build/dinput8.dll": "d0e5784a882fb76c457e6d36229bb62d359875af241ca70ba2cbaddf6e4b31e6"
+  }
+}

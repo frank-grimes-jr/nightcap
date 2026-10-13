@@ -40,9 +40,85 @@ static BYTE* LoadClient(const char* path) {
     auto sec=IMAGE_FIRST_SECTION(nt);
     for(unsigned i=0;i<nt->FileHeader.NumberOfSections;++i)
         memcpy(image+sec[i].VirtualAddress,raw.data()+sec[i].PointerToRawData,sec[i].SizeOfRawData);
-    // The comparison slice contains no absolute addresses or external calls.
-    // Its internal relative rejection branch remains valid in this image.
+    const auto relocation=nt->OptionalHeader.DataDirectory[IMAGE_DIRECTORY_ENTRY_BASERELOC];
+    for(DWORD pos=relocation.VirtualAddress;pos<relocation.VirtualAddress+relocation.Size;) {
+        auto block=reinterpret_cast<IMAGE_BASE_RELOCATION*>(image+pos);
+        Check(block->SizeOfBlock>=8,"native relocation block");
+        auto entries=reinterpret_cast<WORD*>(block+1);
+        for(unsigned i=0;i<(block->SizeOfBlock-8)/2;++i)
+            if(entries[i]>>12==IMAGE_REL_BASED_HIGHLOW)
+                *reinterpret_cast<DWORD*>(image+block->VirtualAddress+(entries[i]&4095)) +=
+                    reinterpret_cast<DWORD>(image)-nt->OptionalHeader.ImageBase;
+        pos+=block->SizeOfBlock;
+    }
     return image;
+}
+static BYTE* purchase_profile=nullptr;
+static void* __fastcall PurchaseProfile(void*,void*) { return purchase_profile; }
+static int __fastcall PurchaseLevel(void*,void*) { return 4; }
+static int __fastcall NoBonus(void*,void*,int,int,int,int,int) { return 0; }
+static int __fastcall TradeskillCap(void*,void*,void*,int,int,int,int,int,int) { return 250; }
+static int __fastcall NoSkillBonus(void*,void*,int) { return 0; }
+static void* __fastcall NoCharacter(void*,void*) { return nullptr; }
+static void Jump(BYTE* site,const void* target) {
+    site[0]=0xe9;
+    *reinterpret_cast<int32_t*>(site+1)=static_cast<int32_t>(reinterpret_cast<uintptr_t>(target)-reinterpret_cast<uintptr_t>(site+5));
+}
+static void PurchaseCurrentCap(BYTE* image,BYTE* player) {
+    using namespace nightcap::client_ui;
+    // Native buy validator calls this predicate at 0x585955. It must reject
+    // only current value >= the held-class cap at the character's CURRENT
+    // level; the separate level-100 availability hook does not establish that.
+    using AtCap=bool (__thiscall*)(void*,int);
+    const auto call=image+0x185955;
+    Check(call[0]==0xe8,"native purchase current-cap call");
+    const auto at_cap=reinterpret_cast<AtCap>(call+5+*reinterpret_cast<int32_t*>(call+1));
+    std::vector<BYTE> manager(0x180000,0), definition(0x200,0), character(0x3400,0), profile(0x3500,0);
+    uintptr_t vtable[32]={};
+    vtable[0x68/4]=reinterpret_cast<uintptr_t>(&PurchaseLevel);
+    *reinterpret_cast<void**>(character.data()+8)=vtable;
+    purchase_profile=profile.data();
+    profile[0x3374]=3;
+    *reinterpret_cast<void**>(image+0xA64610)=manager.data();
+    Jump(image+0x3DB210,reinterpret_cast<void*>(&PurchaseProfile));
+    Jump(image+0x38990,reinterpret_cast<void*>(&NoBonus));
+    Check(FlushInstructionCache(GetCurrentProcess(),image,0x400000)!=0,"purchase fixture instruction cache");
+    *reinterpret_cast<uint32_t*>(player+0x148)=7;
+    state.Clear();
+    Check(state.Consume("[NCUI1]S|1|19|22|0|7|3|1|7|Palwar"),"purchase Palwar identity");
+    for(int skill : {22,30}) { // Dual Wield and Kick
+        *reinterpret_cast<void**>(manager.data()+skill*4)=definition.data();
+        definition[0x21]=1;
+        *reinterpret_cast<int*>(profile.data()+0x30A0+skill*4)=1;
+        *reinterpret_cast<int*>(manager.data()+0x190+((7*100+skill)*101+4)*4)=25;
+        Check(!at_cap(character.data(),skill),"Palwar skill1 below held Monk level4 cap25 must allow trainer buy");
+        Check(TrainerPurchaseCharacter()==nullptr,"purchase scope restored after native call");
+        Check(reinterpret_cast<AtCap>(image+0x184E50)(character.data(),skill),"non-trainer native current-cap caller stays primary-only");
+        *reinterpret_cast<int*>(profile.data()+0x30A0+skill*4)=25;
+        Check(at_cap(character.data(),skill),"trainer still rejects value at effective current-level cap");
+    }
+    *reinterpret_cast<int*>(profile.data()+0x30A0+22*4)=1;
+    Check(state.Consume("[NCUI1]S|2|19|22|0|7|3|1|0|Palwar"),"purchase released Monk");
+    Check(at_cap(character.data(),22),"released skill cannot use former Monk cap");
+    Check(state.Consume("[NCUI1]S|3|19|22|0|7|3|1|7|Palwar"),"purchase Monk restored");
+    *reinterpret_cast<uint32_t*>(player+0x148)=8;
+    Check(at_cap(character.data(),22),"stale purchase identity preserves primary cap");
+    *reinterpret_cast<uint32_t*>(player+0x148)=7;
+    // Native cross-tradeskill restrictions must still overrule a generous
+    // held-class cap. Stub only that cap service; execute the native restriction.
+    auto previous_cap=trainer_skill_cap;
+    trainer_skill_cap=reinterpret_cast<TrainerSkillCap>(&TradeskillCap);
+    *reinterpret_cast<void**>(manager.data()+60*4)=definition.data();
+    definition[0x21]=0;
+    *reinterpret_cast<int*>(profile.data()+0x30A0+60*4)=201;
+    *reinterpret_cast<int*>(profile.data()+0x30A0+61*4)=201;
+    Check(at_cap(character.data(),60),"native one-tradeskill-over200 restriction preserved");
+    *reinterpret_cast<int*>(profile.data()+0x30A0+60*4)=199;
+    Check(!at_cap(character.data(),60),"native restricted tradeskill still trainable below200");
+    *reinterpret_cast<int*>(profile.data()+0x30A0+60*4)=201;
+    *reinterpret_cast<int*>(profile.data()+0x30A0+61*4)=0;
+    Check(!at_cap(character.data(),60),"native first tradeskill can use cap250");
+    trainer_skill_cap=previous_cap;
 }
 static bool Compare(BYTE* site, BYTE* profile, unsigned npc_class) {
     const DWORD expected_ecx=0x5A7C0000u|npc_class;
@@ -107,8 +183,67 @@ static void SkillNativeABI(BYTE* image, BYTE* player) {
     Check(level(manager.data(),skill,3)==0,"stale identity preserves native training level");
     Check(cap(manager.data(),nullptr,100,3,skill,1,1,1)==0,"stale identity preserves native cap");
 }
+static bool RunOffhand(BYTE* site,void* character) {
+    DWORD result=0,before=0,after=0;
+    __asm {
+        push edi
+        mov before,esp
+        mov edi,character
+        call site
+        movzx eax,al
+        mov result,eax
+        mov after,esp
+        pop edi
+    }
+    Check(before==after,"offhand native caller stack balance");
+    return result!=0;
+}
+static void OffhandDualWield(BYTE* image,BYTE* player) {
+    using namespace nightcap::client_ui;
+    std::vector<BYTE> manager(0x180000,0),definition(0x200,0),character(0x3000,0),profile(0x3500,0);
+    uintptr_t vtable[32]={};
+    vtable[0x68/4]=reinterpret_cast<uintptr_t>(&PurchaseLevel);
+    vtable[0x4c/4]=reinterpret_cast<uintptr_t>(&NoCharacter);
+    void* zone=character.data()+0x2dc8;
+    *reinterpret_cast<void**>(character.data()+0x2dc8+4)=vtable;
+    purchase_profile=profile.data();
+    profile[0x3374]=3;
+    *reinterpret_cast<void**>(manager.data()+22*4)=definition.data();
+    *reinterpret_cast<int*>(profile.data()+0x30a0+22*4)=1;
+    *reinterpret_cast<int*>(definition.data()+0x24+7*4)=1;
+    *reinterpret_cast<int*>(manager.data()+0x190+((7*100+22)*101+100)*4)=200;
+    *reinterpret_cast<int*>(manager.data()+0x190+((7*100+22)*101+4)*4)=25;
+    *reinterpret_cast<int*>(manager.data()+0x190+((1*100+22)*101+100)*4)=200;
+    *reinterpret_cast<void**>(image+0xA64610)=manager.data();
+    Jump(image+0x3DB210,reinterpret_cast<void*>(&PurchaseProfile));
+    Jump(image+0x44BD0,reinterpret_cast<void*>(&NoSkillBonus));
+    using Has=bool (__thiscall*)(void*,int);
+    using Base=int (__thiscall*)(void*,int,int);
+    Check(reinterpret_cast<Base>(image+0x49C80)(zone,22,0)==1,"native raw Dual Wield is1");
+    Check(!reinterpret_cast<Has>(image+0x4A1B0)(zone,22),"native primary-only HasSkill hides raw Dual Wield");
+    const BYTE accepted[]={0xb0,1,0xc3},rejected[]={0x32,0xc0,0xc3};
+    memcpy(image+0x183452,accepted,sizeof(accepted));
+    memcpy(image+0x18350A,rejected,sizeof(rejected));
+    Check(FlushInstructionCache(GetCurrentProcess(),image,0x400000)!=0,"offhand fixture instruction cache");
+    *reinterpret_cast<uint32_t*>(player+0x148)=7;
+    state.Clear();
+    Check(state.Consume("[NCUI1]S|1|19|22|0|7|3|1|7|Palwar"),"offhand Palwar identity");
+    Check(RunOffhand(image+0x18343D,character.data()),"offhand weapon must pass with server-granted Dual Wield1");
+    *reinterpret_cast<int*>(profile.data()+0x30a0+22*4)=0;
+    Check(!RunOffhand(image+0x18343D,character.data()),"offhand weapon rejected without server Dual Wield");
+    *reinterpret_cast<int*>(profile.data()+0x30a0+22*4)=1;
+    Check(state.Consume("[NCUI1]S|2|19|22|0|7|3|1|0|Palwar"),"offhand released Monk");
+    Check(!RunOffhand(image+0x18343D,character.data()),"released Monk cannot borrow future Warrior cap for stale raw Dual Wield");
+    Check(state.Consume("[NCUI1]S|3|19|22|0|7|3|1|7|Palwar"),"offhand Monk restored");
+    *reinterpret_cast<uint32_t*>(player+0x148)=8;
+    Check(!RunOffhand(image+0x18343D,character.data()),"offhand stale identity fails closed");
+    state.Clear();
+    Check(!RunOffhand(image+0x18343D,character.data()),"offhand missing identity fails closed");
+    profile[0x3374]=7;
+    Check(RunOffhand(image+0x18343D,character.data()),"stock Monk offhand allowed without multiclass metadata");
+}
 int main(int argc,char** argv) {
-    Check(argc==2,"usage: trainer-native eqgame.exe");
+    Check(argc==2||(argc==3&&!strcmp(argv[2],"--offhand-only")),"usage: trainer-native eqgame.exe [--offhand-only]");
     using namespace nightcap::client_ui;
     BYTE* image=LoadClient(argv[1]);
     base=reinterpret_cast<uintptr_t>(image);
@@ -144,6 +279,8 @@ int main(int argc,char** argv) {
     state.Clear();
     Check(!Compare(image+0x1374AC,profile,26),"missing metadata cannot expose Monk trainer");
     SkillNativeABI(image,player);
+    if(argc!=3) PurchaseCurrentCap(image,player);
+    OffhandDualWield(image,player);
     VirtualFree(image,0,MEM_RELEASE);
     std::cout << "PASS: native trainer comparison, held/released classes, identity and ABI\n";
 }
