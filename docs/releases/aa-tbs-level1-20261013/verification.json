@@ -1,5 +1,5 @@
 {
-  "status": "built_for_authorized_live_qa",
+  "status": "deployed_for_owner_qa",
   "owner_correction": "All legal AAs and ranks available at creation; no character level gating",
   "legal_families": 390,
   "legal_ranks": 941,
@@ -13,6 +13,10 @@
     "common/nightcap_aa_policy.h",
     "zone/aa.cpp"
   ],
-  "manual_qa": "pending",
-  "cross_model": "declined by owner"
+  "manual_qa": "owner rejected prior level gating; corrected gameplay QA pending",
+  "cross_model": "declined by owner",
+  "image_id": "sha256:add0bddfa77e93b299b691d6c3d932de92a0b6146a42f92bffd934dafc730fb7",
+  "notes_release": 2026101302,
+  "notes_publication_tests": 7,
+  "independent_review": "No blocking native findings; added required public-baseline guard from notes review"
 }

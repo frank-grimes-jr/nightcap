@@ -1,0 +1,32 @@
+{
+  "release": "aa-tbs-level1-20261013",
+  "source_commit": "902a5fdb67fcf49efc26684be01b9287b7194ee3",
+  "base_binaries": {
+    "world": "efd54a1023a569274a76f65d3d2a18a173906762472a1bce186e3e14629d3c18",
+    "zone": "0737959ab3ebce1b31ad687cdb41e7d69bc7c3a30620e884e543051859bde143",
+    "ucs": "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714",
+    "loginserver": "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf",
+    "shared_memory": "91664a87eac78306e8a76ab4cb923ba1f03c2d0da180278db6b6cf9b6607c0ef"
+  },
+  "binaries": {
+    "world": "efd54a1023a569274a76f65d3d2a18a173906762472a1bce186e3e14629d3c18",
+    "zone": "c4a1f73b251da5bfa88f3f3a9ffdb7f30686b26365ad8a6a71943d940ba5ad10",
+    "ucs": "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714",
+    "loginserver": "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf",
+    "shared_memory": "91664a87eac78306e8a76ab4cb923ba1f03c2d0da180278db6b6cf9b6607c0ef"
+  },
+  "runtime_helper_sha256": "a3242bee3e8d4a7e60ea81bbd6fd34587201b712247665f3c03673733b95a811",
+  "files": {
+    "aa-catalog.json.gz": "d8aed4acd218554bd13fb40f68f56829b1c1ad58cf5866ce9544cef760fb66e7",
+    "aa-policy.json": "fbb6582deca26309fe906677df64715e98c491fc805dfa6924a5599182de5ad5",
+    "aa_preflight.py": "f1fae327d78c27966ef058674c5d3f5e2829371a43f5f365acedf9e3f207e2af",
+    "aa_tbs_policy.py": "92e0ab9cc6e30cf3483d2aee512964276f79de212c5b8a8d7c10a761850b41c2",
+    "build-manifest.json": "93578291032f2ee9fd33e7225f7a4fbcbef4ccde0f1342483276d3d7a7d2f838",
+    "build_candidate.py": "21d5103784987f57072e45a80f8073ac4aafa4da3171031e034b34c2daaf57e8",
+    "rollout.py": "599b6796b9fa6b37f02ee329aad703b48beb7be8b085f683a97ee4ec24fce9fe",
+    "test_aa_preflight.py": "cdfd614a4032b1a1042b14edf880a3771a4100eebc03312175e919e9eaaa9314",
+    "test_rollout.py": "11daf71acad32fe3d784d84730ed852e95e06a3486165a0696552198a8c2572d",
+    "verification.json": "e74f4bc470113f60567e330083424bd72bf3c2012171b55ff0409f307e654c72",
+    "zone": "c4a1f73b251da5bfa88f3f3a9ffdb7f30686b26365ad8a6a71943d940ba5ad10"
+  }
+}

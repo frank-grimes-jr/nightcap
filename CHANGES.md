@@ -2,7 +2,7 @@
 
 ## 2026-10-13 — AA level-1 access correction
 
-Removed the rejected character-level gates from every allowed Buried Sea AA rank. The 390-family/941-rank legal pool, release ceilings and existing purchases remain intact. Offers, purchases, use and default grants open at creation. Added regressions and the missing launcher notes. [Release and exact QA](docs/releases/aa-tbs-level1-20261013/README.md). Activation and owner acceptance remain pending.
+Removed the rejected character-level gates from every allowed Buried Sea AA rank. The 390-family/941-rank legal pool, release ceilings and existing purchases remain intact. Offers, purchases, use and default grants open at creation. Added regressions and the missing launcher notes. [Release and exact QA](docs/releases/aa-tbs-level1-20261013/README.md). Deployed on OVH; all 12 zones and 239 ownership rows verified. Signed launcher notes 2026101302 published. Owner acceptance remains pending.
 
 ## 2026-10-13 - Buried Sea AA policy deployed for live QA
 

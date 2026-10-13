@@ -2,20 +2,11 @@
 
 ## October 13 AA correction: level-1 access
 
-Owner QA rejected the initial AA level gates. The correction opens all allowed ranks at creation and retains purchases. [Correction and QA](releases/aa-tbs-level1-20261013/README.md); activation evidence pending. The earlier small starter-list policy is superseded, not accepted.
+Owner QA rejected the initial AA level gates. The correction opens all allowed ranks at creation and retains purchases. [Correction and QA](releases/aa-tbs-level1-20261013/README.md); live on OVH with all 12 zones verified and 239 purchases preserved. Signed notes release 2026101302 is published. Owner acceptance remains pending. The earlier small starter-list policy is superseded, not accepted.
 
-## Buried Sea AA caps — live for owner QA
+## Earlier AA staging candidate — rejected in owner QA
 
-The TBS cutoff, six utility/pet exceptions and early rank caps are implemented
-and deployed on OVH from the feature/dev/test candidate. Sampled triples begin with nine AA families.
-Purchases, charges and spent points remain recorded; higher ranks and veteran
-rewards become dormant. Policy/native/ownership tests and independent review
-passed. All 12 zone hashes match; 47 player and 11 custom tables were preserved.
-All 239 ownership rows remain recorded. Access is open, with zero restarts or
-detected native/quest/database errors. The concurrent skill/offhand correction
-and signed client 2026101301 remain intact. Reconnect to test.
-Owner in-game balance/readability acceptance and main promotion remain pending.
-[Caps, deployment evidence, rollback and exact QA](releases/aa-tbs-20261013/README.md).
+The initial small starter list and character-level gates are superseded by the correction above. Historical deployment/preservation evidence remains in [the original receipt](releases/aa-tbs-20261013/README.md).
 
 ## Multiclass skills — corrective release deployed
 

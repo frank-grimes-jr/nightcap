@@ -5,7 +5,7 @@ Nightcap opens customization at level 1: **every allowed AA and rank in the
 release is available at character creation**, subject to class eligibility,
 points and AA prerequisites. Character level never determines access.
 
-This correction is built and awaiting the guarded OVH activation recorded below.
+This correction is live on OVH for owner QA. Activated `sha256:add0bddfa77e93b299b691d6c3d932de92a0b6146a42f92bffd934dafc730fb7` at 2026-10-13T11:47:03.598022955Z. All 12 zones match `c4a1f73b251da5bfa88f3f3a9ffdb7f30686b26365ad8a6a71943d940ba5ad10`; zero restarts or detected native/quest/database errors. Preserved 47 player tables, 11 custom tables and all 239 AA ownership rows (1193 earned ranks). No SQL was restored.
 It does not constitute owner gameplay acceptance or permission to promote main.
 
 ## Correction
@@ -88,3 +88,9 @@ Combined balance/enjoyment QA remains open. Test earned builds and gear against
 appropriate Classic camps; record actual spent points, survival, kill time,
 resource use and recovery. Do not substitute level locks for the owner's
 level-1 customization invariant in later tuning.
+
+## Publication and operational evidence
+
+Signed game metadata 2026101302 publishes the AA correction and previously missing TBS summary. Existing 105 file records (including URLs), prior patch history, desktop/starter/guide and services remain unchanged. Public HTTPS verification is recorded separately. Native activation finished before the notes-only publication. The native operator’s historical public-baseline guard predates this authorized metadata change; later checks must use the new channel hash instead of treating the expected notes update as unexplained drift.
+
+Preflight caught root-only staging mode on the candidate zone binary before any live stop. Corrected staging to 0755, rebuilt the image and reran the entire preflight successfully. The earlier incomplete-upload hash check also failed closed before extraction; the final complete bundle verified.

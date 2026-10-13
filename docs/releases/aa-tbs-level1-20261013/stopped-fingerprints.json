@@ -1,0 +1,205 @@
+{
+  "player": {
+    "account": {
+      "rows": 6,
+      "sha256": "59375097817bc4dea0a422bf3cb04f12f4c1395fbadc84e0d94c97798927c86e"
+    },
+    "character_activities": {
+      "rows": 30,
+      "sha256": "196a9e3e2ea360105cb712fb9429e04bc458fad09e8a0dcde8f5b9d8fe5afc01"
+    },
+    "character_advloot_claims": {
+      "rows": 1334,
+      "sha256": "ce3f9bb4ba32dd1747d1459b52068737b6a799cb43f5498c954c39ac6336d206"
+    },
+    "character_advloot_filters": {
+      "rows": 176,
+      "sha256": "255460f243606916d97d17a730dd241360093c14823318b80dd40a931c3b9b94"
+    },
+    "character_advloot_settings": {
+      "rows": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "character_alternate_abilities": {
+      "rows": 239,
+      "sha256": "de066e093e5c85b8e7cb8f13ffeb0868f67942579f35fe4921e5072dfe8de1b5"
+    },
+    "character_alt_currency": {
+      "rows": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "character_auras": {
+      "rows": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "character_bandolier": {
+      "rows": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "character_bind": {
+      "rows": 145,
+      "sha256": "0fa9f8678e2a3d5095bf81d14d4f9b574904339e614c953efc596dd722040260"
+    },
+    "character_buffs": {
+      "rows": 63,
+      "sha256": "8216ca807f04418099514b35b21ea82eac647a33138e13eb737c5c3be615a9ec"
+    },
+    "character_corpses": {
+      "rows": 1,
+      "sha256": "d2f4b831eccbe1e62cd78ecf6d9e587a81b096bf6448e6f2b68ff4f539e473bd"
+    },
+    "character_corpse_items": {
+      "rows": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "character_currency": {
+      "rows": 27,
+      "sha256": "0bedd2616cba35a8b590c4941b7d451bcd23c5569247f130974f1c43dd0cb327"
+    },
+    "character_data": {
+      "rows": 29,
+      "sha256": "135abdb06f278e699fbf6cc616af0cab2d9c9c77928ffbaed3247f8ecc4a77b0"
+    },
+    "character_disciplines": {
+      "rows": 3,
+      "sha256": "b2fa03e3dd44d626cecaefacc0156c8863689cc5f53a60d2354a2033d5926b0a"
+    },
+    "character_enabledtasks": {
+      "rows": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "character_evolving_items": {
+      "rows": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "character_expedition_lockouts": {
+      "rows": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "character_exp_modifiers": {
+      "rows": 156,
+      "sha256": "2b1256ca8fb14d72daa95bfb91dd23a6cf1f0b83478670d6e22de835ae40c057"
+    },
+    "character_inspect_messages": {
+      "rows": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "character_instance_safereturns": {
+      "rows": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "character_item_recast": {
+      "rows": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "character_languages": {
+      "rows": 812,
+      "sha256": "e1da97c25c52a518c828e480980690cb065af9b130828298696ab9d44a654fb2"
+    },
+    "character_leadership_abilities": {
+      "rows": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "character_material": {
+      "rows": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "character_memmed_spells": {
+      "rows": 56,
+      "sha256": "67215a891e1733467238e52dea10a60ec380800725175b61b5961ad9bdbd0dad"
+    },
+    "character_multiclass": {
+      "rows": 20,
+      "sha256": "3c3c766327e9ce056417402ff5edfeac0322af9a655b058cfe80fb45e16dd6f5"
+    },
+    "character_parcels": {
+      "rows": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "character_parcels_containers": {
+      "rows": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "character_peqzone_flags": {
+      "rows": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "character_pet_armor": {
+      "rows": 1,
+      "sha256": "4aa08e3d128593dbab38a2fcf556648af1df3ee2e869f3fa7dfc8c7a7a021df4"
+    },
+    "character_pet_buffs": {
+      "rows": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "character_pet_info": {
+      "rows": 40,
+      "sha256": "389db04f17d322c1cf889eaa5fe490e501a5da552e1bf74d6eceb2001430b2c6"
+    },
+    "character_pet_inventory": {
+      "rows": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "character_pet_name": {
+      "rows": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "character_potionbelt": {
+      "rows": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "character_skills": {
+      "rows": 2787,
+      "sha256": "3998cffdfa5b5c9cf2fbafe9ce44f7181caf106cacc27cae50e776c9607b4351"
+    },
+    "character_spells": {
+      "rows": 174,
+      "sha256": "81e81a31cbdff8a494c0dce021af6e0bf20b0182751248cc8c9bc98d9fede4a1"
+    },
+    "character_stats_record": {
+      "rows": 28,
+      "sha256": "3e70ce716514bea08b0f4f0c7d292fa9f0612ac3cb08a9d6582fa83a954b12f5"
+    },
+    "character_tasks": {
+      "rows": 14,
+      "sha256": "76282a22b5eb65d79b12cce1df6d754d96e908e4e4c92c75ef2f1e7651e5ba4d"
+    },
+    "character_task_timers": {
+      "rows": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "character_tribute": {
+      "rows": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "inventory": {
+      "rows": 305,
+      "sha256": "8409d07756b70f0b99e7ebe1eeeb97061da1b1af0b97202c539fa95b194a4406"
+    },
+    "quest_globals": {
+      "rows": 74,
+      "sha256": "be5ad13398fbff1b05b07cd111f8a99ad9a15e8cc9919c48d971545291b07b4a"
+    },
+    "rule_values": {
+      "rows": 1072,
+      "sha256": "82b76d55b3a22f4502a07b34c0a1199558884b0afb208125ea8fea3301515039"
+    },
+    "zone_state_spawns": {
+      "rows": 3458,
+      "sha256": "600f1a625651a2cfef296ae64a9870d7bdc9e44a6c90308dc02db082864b9756"
+    }
+  },
+  "custom": {
+    "nightcap_character_waypoints": "1760485313",
+    "nightcap_item_upgrades": "0",
+    "nightcap_item_upgrade_state": "3922938649",
+    "nightcap_market_actors": "2103247938",
+    "nightcap_market_catalog": "2802422057",
+    "nightcap_market_trades": "4165000061",
+    "nightcap_waypoints": "801699470",
+    "nightcap_zone_hunt_forges": "0",
+    "nightcap_zone_hunt_sources": "184912978",
+    "nightcap_zone_hunt_state": "2285295966",
+    "nightcap_zone_hunt_zones": "2855611396"
+  }
+}
