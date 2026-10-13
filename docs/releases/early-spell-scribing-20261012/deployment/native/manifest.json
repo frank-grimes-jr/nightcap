@@ -1,0 +1,30 @@
+{
+  "release": "early-scribing-20261012-v2",
+  "source_commit": "5ae9cb02976fe0a017b6bf90837958387cbf4ca1",
+  "base_binaries": {
+    "world": "efd54a1023a569274a76f65d3d2a18a173906762472a1bce186e3e14629d3c18",
+    "zone": "6a548967fb7af03b60144c4b40c61f383d003011ac3b313370a907d10b7d7537",
+    "ucs": "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714",
+    "loginserver": "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf",
+    "shared_memory": "91664a87eac78306e8a76ab4cb923ba1f03c2d0da180278db6b6cf9b6607c0ef"
+  },
+  "binaries": {
+    "world": "efd54a1023a569274a76f65d3d2a18a173906762472a1bce186e3e14629d3c18",
+    "zone": "43d7c1edea922bb268b8cb5eac7492bbb09a8919bccf2328051b2fd7e35b0463",
+    "ucs": "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714",
+    "loginserver": "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf",
+    "shared_memory": "91664a87eac78306e8a76ab4cb923ba1f03c2d0da180278db6b6cf9b6607c0ef"
+  },
+  "runtime_helper_sha256": "a3242bee3e8d4a7e60ea81bbd6fd34587201b712247665f3c03673733b95a811",
+  "files": {
+    "zone": "43d7c1edea922bb268b8cb5eac7492bbb09a8919bccf2328051b2fd7e35b0463",
+    "rollout.py": "ade49c47935c50e9d0029ce65383d8e72853309afcdd140b9c0ecf1aaf9f23b4",
+    "test_rollout.py": "fa9a43a93b4f240190de9347f2a91e62b5dff18276e65e85d169cd624004c9dd",
+    "build_candidate.py": "64fc9c2eac884198521523859ec25596d7b9e848f0b4f5fb3872506e292c2a18",
+    "build-manifest.json": "88ccbaee7749c5f6b399509d736279b1fb7c2fbfed5ccc3c98234ae93275ccdf",
+    "compile-client_process.log": "a5f8e7905652e52099f0b7f704df23f15f1afddc7e073d966d2e9ceade396476",
+    "compile-effects.log": "be464233b2c0a29e160db1133a1e3adbd3051a32a72606c66b7cd3d5682f4629",
+    "verification.json": "44d796aa3fbdfe68372544ff576d8d6ac98cf3781507b6a427f8c6813f0befaf",
+    "ldd.log": "62daf32233f897567ce901fb9fb14aaad68c2907622f3643edd00ebcba8eb1fd"
+  }
+}

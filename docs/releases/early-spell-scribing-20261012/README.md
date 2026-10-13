@@ -1,6 +1,8 @@
 # Early spell scribing — October 12, 2026
 
-Implementation candidate; not deployed or accepted in game. Players can scribe
+Owner-approved PR #185 is on main and deployed to OVH on October 12
+(October 13 UTC), paired with signed client release **2026101203**. Native
+in-game acceptance remains pending. Players can scribe
 scrolls for any of their currently selected classes at any level. Memorizing a
 spell gem and casting from that gem still require the lowest original spell
 level among the held classes. This reduces repeated hub visits without granting
@@ -56,31 +58,58 @@ Build recipe: [build_candidate.py](build_candidate.py). The isolated local Docke
 output is `/tmp/nightcap-early-scribing-build-20261012/`; input and original
 sources are retained. This is a build check, not a running server/DB round trip.
 
-Independent source review found no required changes. Native gameplay and
-persistence acceptance remain pending. No production rollout has occurred.
-[Compact build/test fingerprints](verification.json) record the candidate.
-The full launcher Go suite was unavailable because no Go executable was found;
-its changed embedded catalog passed the generated-agreement check.
+Independent source, deployment and publisher reviews have no remaining required
+findings. The full launcher Go suite passes; package/manifest/launcher tests
+were rerun after integration with the newly shipped patch-history feature.
+Nine native recovery tests and twelve publisher recovery tests pass.
+[Compact verification](verification.json) separates automated/live deployment
+evidence from pending owner gameplay and persistence acceptance.
 
-## Activation and recovery boundary
+## Production activation and recovery
 
-Requires the new zone binary and a signed client publication containing proxy
-`0.8.1-dev` and its matching catalog. A rule or quest reload cannot activate it.
-The world rule catalog and shared-memory ABI are unchanged. Preserve the current
-production image/source and all intervening releases when packaging the zone.
-Recheck live source hashes against the retained build before using this candidate.
+The owner explicitly approved main and server publication. Native activation
+uses `/opt/nightcap/releases/early-scribing-20261012-v2`; v1 was preflight-only.
+The new immutable image is
+`sha256:058330bce1e2539612d705b95b726d5143daa7ca5e6897debe0f598ba470558f`.
+It layers only zone onto the retained live image
+`sha256:4c0f464d64b6eb5dc787aaff380f4fbee41f2de8365e2622cb5fcc11cb940541`;
+world, loginserver, UCS and shared-memory binaries remain byte-identical.
 
-After owner approval, use a fresh verified backup and the established closed
-gateway/graceful whole-game restart procedure; do not kill one OVH zone process.
-Verify current player-state/content/rule preservation, all running zone hashes
-and service health before reopening access. Publish the paired client through
-the signed launcher flow, preserving all current assets/preferences. Close EQ
-and use launcher Play to receive it. An old client still blocks early scribing;
-a new client with an old server will have its early scribe request rejected.
+A fresh verified gzip SQL backup preceded a closed-gateway graceful whole-game
+restart. All 12 running zone hashes match, 47 player tables and 11 custom tables
+passed stopped-state preservation checks, and rules/content/runtime files and
+supporting DB/web/tunnel services were preserved. Access reopened with zero
+restarts and no detected native/quest/database errors. No SQL was restored.
+[Server receipt](server-receipt.json) records the backup and runtime evidence.
 
-Rollback selects the retained prior image after a graceful stop and publishes
-prior client contents in a higher-numbered signed release. Preserve current
-player data and already scribed books; do not restore pre-release player snapshots.
+During preparation, another authorized release published launcher 0.6.0 and
+game metadata 2026101202. The prepublication baseline check detected this.
+This release advanced to **2026101203**, retaining its six history entries,
+minimum launcher 0.6.0, desktop channel, starter ZIP and guide. A new concise
+early-scribing summary is included in `eq-launcher/patch-notes.json`.
+Only `dinput8.dll` (proxy 0.8.1-dev) and `nightcap-patch-sites.json` change among
+the 105 game files. Publication at `/opt/nightcap/releases/early-scribing-2026101203`
+validates a fresh post-restart service baseline, writes immutable assets first,
+and atomically replaces the signed channel last. All five services remain
+unchanged by client publication. [Publication receipt](client-receipt.json) and
+[public HTTPS verification](hosted-verification.json) confirm the shipped-key
+signature and every file's size/hash. The game channel expires November 12 UTC.
+
+Close EQ and use the normal launcher Play flow to receive the paired client.
+Rule/quest reloads cannot activate this native change. Old clients still block
+early scribing; new clients paired with old servers have early requests rejected.
+
+The exact reviewed native and publication operators and tests are retained under
+`deployment/`. They are release-specific, baseline-guarded scripts, not reusable
+instructions to rerun activation. Native checks finish before client publication
+because they compare the preflight public channel. For a future recovery, obtain
+fresh evidence and authorization, close the gateway, stop the whole game
+gracefully and select the retained image. Preserve all subsequent player activity
+and already scribed books; never restore an old SQL snapshot. If player/custom
+drift detected before any access remains after image rollback, keep the gateway
+closed and investigate. Once access may have opened, do not compare against an
+old player snapshot. Client rollback must re-sign prior contents with a higher
+release counter, preserving patch history and the notes-aware 0.6.0+ desktop.
 Original level checks continue to protect gem use after rollback.
 
 ## Exact owner in-game QA
