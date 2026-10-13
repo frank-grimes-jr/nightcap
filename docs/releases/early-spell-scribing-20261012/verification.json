@@ -1,0 +1,41 @@
+{
+  "date": "2026-10-12",
+  "status": "built_tested_not_deployed",
+  "baseline_commit": "4e3acd83019a915b04a9ec1f222c3bc2543d0bfe",
+  "server": {
+    "zone_sha256": "43d7c1edea922bb268b8cb5eac7492bbb09a8919bccf2328051b2fd7e35b0463",
+    "base_manifest_sha256": "0290edfae3cb9a0a0673eb22d8d1d29fbf4ab7a015a9af9d37621f382e33e979",
+    "base_binaries": {
+      "world": "efd54a1023a569274a76f65d3d2a18a173906762472a1bce186e3e14629d3c18",
+      "zone": "6a548967fb7af03b60144c4b40c61f383d003011ac3b313370a907d10b7d7537",
+      "ucs": "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714",
+      "loginserver": "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf",
+      "shared_memory": "91664a87eac78306e8a76ab4cb923ba1f03c2d0da180278db6b6cf9b6607c0ef"
+    },
+    "changed_source_files": [
+      "zone/client_process.cpp",
+      "zone/effects.cpp"
+    ],
+    "retained_inputs_verified": 141,
+    "ldd": "all dependencies resolved"
+  },
+  "checks": {
+    "baseline_early_scribing": "expected assertion failure: c.scribes==1 && c.deletes==1",
+    "candidate_early_scribing": "PASS; actual packet and item methods compiled with C++20",
+    "multiclass_spell_access": "PASS; 2 compiled tests",
+    "client_runtime": "PASS; 5 tests, including exact native scribing compare fixture",
+    "client_build": "PASS; x86 proxy and all runtime fixtures",
+    "patch_sites": "PASS; all 76 sites, executable SHA256 and generated catalog agreement",
+    "independent_review": "no required source findings",
+    "full_launcher_go_suite": "not run: Go executable unavailable",
+    "in_game_acceptance": "pending"
+  },
+  "files": {
+    "server-mods/code/zone/client_process.cpp": "5fdf1da24f2ce47c7e2949901f333441892078499ae632dbde8209d1c0089a1a",
+    "server-mods/code/zone/effects.cpp": "319eca78381f4944c90a1f630f15cf8f0fc166a919ad5e5cd20e43b12a922f38",
+    "eq-client-dll/src/ui_hooks.h": "e3ab8a93937231ad66430ec03a09d90e0dec1bdba15905f9052efc833dd27298",
+    "eq-client-dll/src/dllmain.cpp": "d248344161415f05830afa4f48b1fe1d54874ccd8e00bee46cfab92d76fdd2a9",
+    "eq-client-dll/config/patch-sites.json": "393974f602e233d55e4b7bb5249c3ad27366d4fe5ade413eb0643e92f2cf2d92",
+    "eq-client-dll/build/dinput8.dll": "c211f64595f9cbf5b990d2adc659d75eee451d99e81bb058d52f62f3c5f790bf"
+  }
+}

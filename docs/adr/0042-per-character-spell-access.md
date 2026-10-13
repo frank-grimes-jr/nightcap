@@ -27,10 +27,16 @@ The pinned RoF2 proxy uses the validated NCUI1 character identity/classes to
 project only local primary-class spell queries. Merchant level/usable checks and
 scoped scroll scribing/placement recognize the held-class union. Scroll masks
 come from the canonical catalog even when item masks were globally widened.
-Native zero masks, race/deity/level restrictions, other queried classes and
+Native zero masks, race/deity/item restrictions, other queried classes and
 non-scroll item behavior stay native. No client item or spell memory is globally
 rewritten. The signed spell asset restores only original class-level fields;
 the separately generated recall is validated and preserved.
+
+October 12 early-scribing candidate: selected-class scrolls can enter the book
+before their canonical spell level. Only the server scribing comparisons and
+the client's dedicated spellbook level query change. Canonical ownership,
+inspection/menu levels, gem memorization and gem casting remain level-gated.
+See [paired candidate and QA](../releases/early-spell-scribing-20261012/README.md).
 
 All added offsets and whole instructions are verified against the exact supported
 executable and signed catalog. A required runtime feature stops startup if any

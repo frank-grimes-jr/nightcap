@@ -48,12 +48,12 @@ int main() {
 '''
         self.compile_and_run('#include <initializer_list>\n'+fixture+body+controls)
 
-    def compile_and_run(self, code):
+    def compile_and_run(self, code, standard='c++17'):
         with tempfile.TemporaryDirectory(prefix='nightcap-spell-gate-') as tmp:
             out=Path(tmp)
             (out/'test.cpp').write_text(code)
             include=ROOT/'server-mods/code/common'
-            (out/'build.cmd').write_text('@echo off\ncall "C:/BuildTools/VC/Auxiliary/Build/vcvars32.bat" >nul || exit /b 1\ncl /nologo /EHsc /W4 /std:c++17 /I"'+str(include)+'" test.cpp /Fe:test.exe >build.log 2>&1\nexit /b %errorlevel%\n')
+            (out/'build.cmd').write_text('@echo off\ncall "C:/BuildTools/VC/Auxiliary/Build/vcvars32.bat" >nul || exit /b 1\ncl /nologo /EHsc /W4 /std:'+standard+' /I"'+str(include)+'" test.cpp /Fe:test.exe >build.log 2>&1\nexit /b %errorlevel%\n')
             build=subprocess.run(['cmd','/d','/c',str(out/'build.cmd')],cwd=out)
             self.assertEqual(build.returncode,0,(out/'build.log').read_text())
             result=subprocess.run([out/'test.exe'],capture_output=True,text=True)

@@ -794,11 +794,7 @@ bool Client::MemorizeSpellFromItem(uint32 item_id) {
 		return false;
 	}
 
-	if (level_to_use > GetLevel()) {
-		Message(Chat::Red, fmt::format("You must be at least level {} to learn this spell.", level_to_use).c_str());
-		SummonItem(item_id);
-		return false;
-	}
+	// Learning stores the spell only. Gem memorization and casting enforce level.
 
 	for (int index = 0; index < EQ::spells::SPELLBOOK_SIZE; index++) {
 		if (!HasSpellScribed(spell_id)) {
