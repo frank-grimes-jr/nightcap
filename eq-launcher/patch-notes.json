@@ -1,0 +1,45 @@
+[
+  {
+    "release": 2026101202,
+    "date": "2026-10-12",
+    "changes": [
+      { "kind": "feature", "text": "See what changed in the latest update and browse previous patches while patching." }
+    ]
+  },
+  {
+    "release": 2026101201,
+    "date": "2026-10-12",
+    "changes": [
+      { "kind": "feature", "text": "Added a Sell All button to merchant windows." }
+    ]
+  },
+  {
+    "release": 2026101101,
+    "date": "2026-10-11",
+    "changes": [
+      { "kind": "fix", "text": "Fixed a client crash when summoning pets." }
+    ]
+  },
+  {
+    "release": 2026101001,
+    "date": "2026-10-10",
+    "changes": [
+      { "kind": "fix", "text": "Restored stock item icons in Advanced Loot and the Pet Info window." }
+    ]
+  },
+  {
+    "release": 2026100901,
+    "date": "2026-10-09",
+    "changes": [
+      { "kind": "feature", "text": "Added Always Loot and Never Loot controls to each Advanced Loot item row." },
+      { "kind": "fix", "text": "Advanced Loot now closes when the loot queue is confirmed empty." }
+    ]
+  },
+  {
+    "release": 2026100407,
+    "date": "2026-10-04",
+    "changes": [
+      { "kind": "feature", "text": "Added Nightcap artwork to the game's loading screens." }
+    ]
+  }
+]

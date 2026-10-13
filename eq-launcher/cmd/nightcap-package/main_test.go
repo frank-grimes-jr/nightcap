@@ -33,7 +33,7 @@ func TestPrivateKeyExclusiveAndStable(t *testing.T) {
 
 func TestClassicLavastormPolicyIncludesPinnedRetirement(t *testing.T) {
 	key := manifest.Key{Public: make(ed25519.PublicKey, ed25519.PublicKeySize)}
-	source, err := policySource(key, 2026092003, gameplayNames)
+	source, err := policySource(key, 2026092003, gameplayNames, "0.1.0")
 	if err != nil {
 		t.Fatal(err)
 	}
