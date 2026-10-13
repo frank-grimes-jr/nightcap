@@ -1,0 +1,203 @@
+{
+  "release": "divine-summons-20261013",
+  "main_merge_commit": "743bfe6b9d65f29e541469e5bee66a632845da1a",
+  "pull_request": "https://github.com/frank-grimes-jr/nightcap/pull/197",
+  "status": "deployed",
+  "manual_acceptance": "pending",
+  "preflight": {
+    "manifest_sha256": "184b338875e8c1e957872aab2c3a889b038ef0c394d942720c407406acb60bd1",
+    "old_image_id": "sha256:cf9c62310b746be2bd95d9039e6fb975d00f61aa2c42e76ed86ce823f3f119ff",
+    "new_image_id": "sha256:61824b6edda0716c778b97eea10e045bcc439032d5fca31e9acb92dfad73d2d7",
+    "cache": {
+      "items_checked": 309410,
+      "weapons_checked": 44,
+      "zero_resale": false,
+      "preserved_fields_sha256": "aafea72de107f1a64d9d9789f187818e0ecc904ceb7ff8fabbace79facac2711",
+      "cache_sha256": "6586a64a1ad15f772b87bfae796613ebf57982066d0b277bc4b019f3037ba633"
+    },
+    "backup": {
+      "path": "/opt/nightcap/releases/divine-summons-20261013/private-backup/peq-before.sql.gz",
+      "sha256": "4a5efc3743f260b7cc9013418413fab91cb84bb3f97c009006953ff07db0b0cb",
+      "compressed_bytes": 63419959,
+      "uncompressed_bytes": 452033878,
+      "gzip_integrity": "passed"
+    }
+  },
+  "activation": {
+    "runtime": {
+      "image_id": "sha256:61824b6edda0716c778b97eea10e045bcc439032d5fca31e9acb92dfad73d2d7",
+      "started_at": "2026-10-13T17:17:04.127736496Z",
+      "restart_count": 0,
+      "processes": [
+        [
+          "loginserver",
+          "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf"
+        ],
+        [
+          "world",
+          "efd54a1023a569274a76f65d3d2a18a173906762472a1bce186e3e14629d3c18"
+        ],
+        [
+          "ucs",
+          "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714"
+        ],
+        [
+          "zone",
+          "5dfe3d8a944a29ac963644298eb7a1563a08748ae72ae210edd78268ea106681"
+        ],
+        [
+          "zone",
+          "5dfe3d8a944a29ac963644298eb7a1563a08748ae72ae210edd78268ea106681"
+        ],
+        [
+          "zone",
+          "5dfe3d8a944a29ac963644298eb7a1563a08748ae72ae210edd78268ea106681"
+        ],
+        [
+          "zone",
+          "5dfe3d8a944a29ac963644298eb7a1563a08748ae72ae210edd78268ea106681"
+        ],
+        [
+          "zone",
+          "5dfe3d8a944a29ac963644298eb7a1563a08748ae72ae210edd78268ea106681"
+        ],
+        [
+          "zone",
+          "5dfe3d8a944a29ac963644298eb7a1563a08748ae72ae210edd78268ea106681"
+        ],
+        [
+          "zone",
+          "5dfe3d8a944a29ac963644298eb7a1563a08748ae72ae210edd78268ea106681"
+        ],
+        [
+          "zone",
+          "5dfe3d8a944a29ac963644298eb7a1563a08748ae72ae210edd78268ea106681"
+        ],
+        [
+          "zone",
+          "5dfe3d8a944a29ac963644298eb7a1563a08748ae72ae210edd78268ea106681"
+        ],
+        [
+          "zone",
+          "5dfe3d8a944a29ac963644298eb7a1563a08748ae72ae210edd78268ea106681"
+        ],
+        [
+          "zone",
+          "5dfe3d8a944a29ac963644298eb7a1563a08748ae72ae210edd78268ea106681"
+        ],
+        [
+          "zone",
+          "5dfe3d8a944a29ac963644298eb7a1563a08748ae72ae210edd78268ea106681"
+        ]
+      ],
+      "errors": {
+        "native": 0,
+        "quest": 0,
+        "database": 0
+      }
+    },
+    "gateway_open": true,
+    "player_tables_preserved": 47,
+    "custom_tables_preserved": 11,
+    "database_restored": false,
+    "backup": {
+      "path": "/opt/nightcap/releases/divine-summons-20261013/private-backup/peq-before.sql.gz",
+      "sha256": "4a5efc3743f260b7cc9013418413fab91cb84bb3f97c009006953ff07db0b0cb",
+      "compressed_bytes": 63419959,
+      "uncompressed_bytes": 452033878,
+      "gzip_integrity": "passed"
+    },
+    "cache": {
+      "items_checked": 309410,
+      "weapons_checked": 44,
+      "zero_resale": true,
+      "preserved_fields_sha256": "aafea72de107f1a64d9d9789f187818e0ecc904ceb7ff8fabbace79facac2711",
+      "cache_sha256": "65aa96372d2b713355277faddfa73d42342351f48ef131ef51940d9d040592df"
+    }
+  },
+  "followup": {
+    "status": "healthy",
+    "runtime": {
+      "image_id": "sha256:61824b6edda0716c778b97eea10e045bcc439032d5fca31e9acb92dfad73d2d7",
+      "started_at": "2026-10-13T17:17:04.127736496Z",
+      "restart_count": 0,
+      "processes": [
+        [
+          "loginserver",
+          "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf"
+        ],
+        [
+          "world",
+          "efd54a1023a569274a76f65d3d2a18a173906762472a1bce186e3e14629d3c18"
+        ],
+        [
+          "ucs",
+          "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714"
+        ],
+        [
+          "zone",
+          "5dfe3d8a944a29ac963644298eb7a1563a08748ae72ae210edd78268ea106681"
+        ],
+        [
+          "zone",
+          "5dfe3d8a944a29ac963644298eb7a1563a08748ae72ae210edd78268ea106681"
+        ],
+        [
+          "zone",
+          "5dfe3d8a944a29ac963644298eb7a1563a08748ae72ae210edd78268ea106681"
+        ],
+        [
+          "zone",
+          "5dfe3d8a944a29ac963644298eb7a1563a08748ae72ae210edd78268ea106681"
+        ],
+        [
+          "zone",
+          "5dfe3d8a944a29ac963644298eb7a1563a08748ae72ae210edd78268ea106681"
+        ],
+        [
+          "zone",
+          "5dfe3d8a944a29ac963644298eb7a1563a08748ae72ae210edd78268ea106681"
+        ],
+        [
+          "zone",
+          "5dfe3d8a944a29ac963644298eb7a1563a08748ae72ae210edd78268ea106681"
+        ],
+        [
+          "zone",
+          "5dfe3d8a944a29ac963644298eb7a1563a08748ae72ae210edd78268ea106681"
+        ],
+        [
+          "zone",
+          "5dfe3d8a944a29ac963644298eb7a1563a08748ae72ae210edd78268ea106681"
+        ],
+        [
+          "zone",
+          "5dfe3d8a944a29ac963644298eb7a1563a08748ae72ae210edd78268ea106681"
+        ],
+        [
+          "zone",
+          "5dfe3d8a944a29ac963644298eb7a1563a08748ae72ae210edd78268ea106681"
+        ],
+        [
+          "zone",
+          "5dfe3d8a944a29ac963644298eb7a1563a08748ae72ae210edd78268ea106681"
+        ]
+      ],
+      "errors": {
+        "native": 0,
+        "quest": 0,
+        "database": 0
+      }
+    },
+    "gateway_open": true,
+    "player_tables_preserved": 47,
+    "custom_tables_preserved": 11,
+    "cache": {
+      "items_checked": 309410,
+      "weapons_checked": 44,
+      "zero_resale": true,
+      "preserved_fields_sha256": "aafea72de107f1a64d9d9789f187818e0ecc904ceb7ff8fabbace79facac2711",
+      "cache_sha256": "65aa96372d2b713355277faddfa73d42342351f48ef131ef51940d9d040592df"
+    }
+  }
+}

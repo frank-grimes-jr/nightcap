@@ -1,8 +1,9 @@
 # Paladin and Cleric Ascended summons
 
 Owner authorized implementation, main promotion and production deployment on
-October 13, 2026. Candidate verification is in progress; gameplay acceptance
-remains pending.
+October 13, 2026. PR [#197](https://github.com/frank-grimes-jr/nightcap/pull/197)
+merged to main as `743bfe6b9d65f29e541469e5bee66a632845da1a` and deployed on OVH.
+Gameplay acceptance remains pending.
 
 Paladin/Cleric item-summoning hammers directly produce their existing Ascended
 variant. This was already implemented in both `SpellEffect::SummonItem` and
@@ -35,8 +36,9 @@ Epic Forgemaster accepts its explicit epic catalog, not these hammers.
 branches, including missing variant, missing base, non-equipment and already-tiered
 controls. It compiles the real FreeTrade/resale policies with all 44 IDs, tests
 unchanged combat/trade fields and unrelated-item payout controls, and checks
-Ascended upgrade rejection. The native loader/cache comparison must additionally
-verify every existing item byte outside the two approved price fields.
+Ascended upgrade rejection. The native loader/cache comparison verified every
+existing cache byte outside the two approved price fields for the 44 definitions,
+including lookup metadata and unused regions.
 
 `build_candidate.py` rebuilds only shared_memory using the exact retained
 production loader source and link inputs, replacing one archive member. The
@@ -45,11 +47,32 @@ verified active image, preserving current world/zone/login/UCS binaries. The
 supported full game restart regenerates the cache; rule/quest reload is insufficient.
 No SQL content migration or client download is needed.
 
-Before activation, verify backup, maintenance fences, exact active image and native
-hashes, complete cache preimage and current player/custom tables. Close gateway,
-stop game gracefully, select candidate image, start and verify all twelve zones,
-cache deltas and preserved state before reopening. Rollback selects the retained
-image and regenerates its cache; it never restores player inventory or SQL.
+Activation verified a fresh full backup, maintenance fences, exact active image
+and native hashes, complete cache preimage and player/custom tables. The gateway
+closed for a graceful full-game restart and reopened only after verification.
+Rollback selects the retained image and regenerates its cache; it never restores
+player inventory or SQL.
+
+Recorded evidence:
+
+- [Automated verification](verification.json): 3 summon/resale, 6 FreeTrade,
+  1 upgrade-policy, 2 cache and 12 rollout/recovery tests passed. Independent
+  review found no remaining blockers.
+- [Native cache rehearsal](cache-rehearsal.json): old/new/old loaders over
+  308,928 disposable local definitions changed only the 88 owned price fields;
+  rollback reproduced the original cache byte for byte.
+- [Production deployment and follow-up](deployment.json): 309,410 definitions
+  compared; all 44 hammers have zero resale and every other cache byte matches.
+  Preserved 47 player tables, 11 custom tables, rules/content and runtime/public
+  fingerprints. All twelve zones, world/login/UCS and player access are healthy;
+  zero new restarts or detected native/quest/database errors.
+
+Active image: `sha256:61824b6edda0716c778b97eea10e045bcc439032d5fca31e9acb92dfad73d2d7`.
+Loader SHA-256: `139194a9e2f2f3384a9831670c91787a99049526168b206dafb886c7fe8a5c86`.
+The [deployment manifest](deployment-manifest.json) pairs it with the unchanged
+current native binaries, including the October 13 AA-rank zone repair. Do not
+replace those binaries with older main-checkout builds. The ItemData ABI remains
+1,332 bytes; only the matching item loader/cache needed replacement.
 
 ## Exact in-game QA
 

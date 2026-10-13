@@ -10,8 +10,13 @@ summon-to-platinum path while preserving raw SQL, combat stats, spell access,
 procs, bane damage and temporary lifetime. Ascended summons have no box/forge
 successor; the audited definitions have no tradeskill recipes. Ordinary merchant
 packets may discard a hammer for zero coin; `#sellall` retains it.
-Candidate build, full-cache preservation/rollback checks, production evidence
-and exact pending in-game QA: `docs/releases/divine-summons-20261013/README.md`.
+PR #197 merged and deployed on OVH. Only the shared-memory loader changed;
+the existing runtime/client pairing remains. All 309,410 cached definitions were
+verified, preserving every byte outside the 88 owned price fields. Native
+forward/rollback rehearsal passed. Preserved 47 player / 11 custom tables;
+all 12 zones healthy with player access reopened. No client download or SQL
+migration. Production evidence and exact pending in-game balance QA:
+`docs/releases/divine-summons-20261013/README.md`.
 
 ## 2026-10-13 - Passive AA reduced to 20%
 

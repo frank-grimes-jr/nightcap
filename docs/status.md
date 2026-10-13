@@ -1,12 +1,14 @@
 # Current Nightcap status
 
-## Divine summoned weapons — release verification October 13
+## Divine summoned weapons — deployed October 13
 
-Owner authorized main/server delivery. Existing Paladin/Cleric hammer spells
-already select Ascended definitions; the candidate item loader closes their
-FreeTrade resale loophole without changing combat or spell access. Full cache
-preservation and rollback evidence are being verified. In-game balance and
-visual acceptance remain pending.
+Owner-approved PR #197 is on main and live. Existing Paladin/Cleric hammer spells
+already select Ascended definitions; the new item loader closes their FreeTrade
+resale loophole without changing combat or spell access. All 44 definitions have
+zero resale; every other byte in the 309,410-item cache is preserved. Native
+forward/rollback rehearsal passed. Preserved 47 player / 11 custom tables and
+current native binaries; all 12 zones are healthy and player access is open.
+No client update is needed. In-game balance and visual acceptance remain pending.
 [Scope, evidence and exact QA](releases/divine-summons-20261013/README.md).
 
 ## Passive AA — 20% deployed October 13
