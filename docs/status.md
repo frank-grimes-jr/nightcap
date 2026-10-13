@@ -1,5 +1,16 @@
 # Current Nightcap status
 
+## Relaxed tradeskill workshop — prepared October 13
+
+Candidate places tradeskill suppliers in looser work groups and moves the
+Chronicler, bag merchant and Tessa beside the buffers. Six crafting stations and
+three native ornaments complete the layout. Nine unit tests, eleven MariaDB
+rehearsal checks, 945 ground samples and 67 approach/path rays pass; independent
+review findings have regressions. The owner approved main/live QA; production
+activation and owner visual acceptance remain pending. Twelve deployment
+failure tests cover recovery and data preservation.
+[Preview, rollback and exact QA](releases/tunnel-cozy-20261013/README.md).
+
 ## Multiclass skills — corrective release deployed
 
 Owner-approved PR #191 is merged to main and deployed with signed game release

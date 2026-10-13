@@ -1,0 +1,10 @@
+{
+  "moved_npcs": 25,
+  "stations": 6,
+  "ornaments": 3,
+  "ground_samples": 945,
+  "rays": 67,
+  "minimum_static_separation": 14.099638860623383,
+  "issues": [],
+  "snapshot_sha256": "1acba9a0834debbcfc725efa84f6df0306a3c31d912ca1eec33e6c46878f9073"
+}
