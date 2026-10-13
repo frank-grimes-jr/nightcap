@@ -1,5 +1,18 @@
 # CHANGES
 
+## 2026-10-13 - Buried Sea AA policy candidate for live QA
+
+Add a generated, prerequisite-closed TBS AA allowlist with six named utility/pet
+exceptions and staged Classic rank caps. Native display, purchases, grants,
+activation and usable-rank projection honor the same policy. Canonical earned
+ranks/charges/spent points survive suspension, saving and level changes. Missing
+prerequisite definitions now reject purchases; clearing refreshes resend ownership
+and statistics. Veteran grants become dormant, and pet HP caps apply on summon.
+No catalog, class mask, price or character SQL changes. Only a matching zone build
+is needed; world rules and signed client remain unchanged. The owner authorized
+OVH live QA, with gameplay acceptance/main promotion pending. Build, independent
+review, recovery, exact caps and QA: `docs/releases/aa-tbs-20261013/README.md`.
+
 ## 2026-10-12 - Held-class trainer access deployed
 
 Palwar's Monk/Warrior trainers were blocked before server authorization: RoF2

@@ -1,5 +1,15 @@
 # Current Nightcap status
 
+## Buried Sea AA caps — prepared for owner-authorized OVH QA
+
+The TBS cutoff, six utility/pet exceptions and early rank caps are implemented
+and built in an isolated candidate. Sampled triples begin with nine AA families.
+Purchases, charges and spent points remain recorded; higher ranks and veteran
+rewards become dormant. Policy/native/ownership tests and independent review
+passed. OVH activation evidence will be recorded after the guarded rollout.
+Owner in-game balance/readability acceptance and main promotion remain pending.
+[Caps, deployment evidence, rollback and exact QA](releases/aa-tbs-20261013/README.md).
+
 ## Multiclass trainer access — deployed
 
 Owner-approved PR #189 is on main and live on OVH with signed game release

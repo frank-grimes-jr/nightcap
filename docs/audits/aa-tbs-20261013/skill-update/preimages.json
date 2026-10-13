@@ -1,0 +1,14 @@
+{
+  "references/balance.md": {
+    "before_sha256": "1bfe7d14280969abc3c23de090b177a835607bc3d1f4d0d1d4cb12c5652047ec",
+    "after_sha256": "da557429b2471f70a4d09e299695f022fd318061b5ccc467f0aa888661de7aec"
+  },
+  "references/multiclass.md": {
+    "before_sha256": "f41ef9d4152d6b0c1765c96676be0533ecbffb13e8827a0215ef01d495f5bf8c",
+    "after_sha256": "244a86c34d1a596982ca429c242d3539d720054b6b20158d098fd46a9fa9ac4a"
+  },
+  "references/sources.json": {
+    "before_sha256": "ee2d4c719fe2380aaabba56de4daa5d8c2bd434bb30543fb085009865f8a0e95",
+    "after_sha256": "119eafe9f51a12ad437664c346337c6c74f7c95d64d7c1d2113b9319ec9fb3c7"
+  }
+}

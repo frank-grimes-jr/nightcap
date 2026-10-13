@@ -1,0 +1,838 @@
+{
+  "WAR": {
+    "1": {
+      "visible_families": 8,
+      "purchase_closed_families": 8,
+      "ranks": 15,
+      "maximum_spend": 9
+    },
+    "10": {
+      "visible_families": 10,
+      "purchase_closed_families": 10,
+      "ranks": 18,
+      "maximum_spend": 14
+    },
+    "20": {
+      "visible_families": 10,
+      "purchase_closed_families": 10,
+      "ranks": 25,
+      "maximum_spend": 36
+    },
+    "30": {
+      "visible_families": 78,
+      "purchase_closed_families": 78,
+      "ranks": 99,
+      "maximum_spend": 302
+    },
+    "40": {
+      "visible_families": 78,
+      "purchase_closed_families": 78,
+      "ranks": 151,
+      "maximum_spend": 485
+    },
+    "50": {
+      "visible_families": 84,
+      "purchase_closed_families": 84,
+      "ranks": 218,
+      "maximum_spend": 798
+    }
+  },
+  "CLR": {
+    "1": {
+      "visible_families": 9,
+      "purchase_closed_families": 9,
+      "ranks": 16,
+      "maximum_spend": 11
+    },
+    "10": {
+      "visible_families": 13,
+      "purchase_closed_families": 13,
+      "ranks": 21,
+      "maximum_spend": 20
+    },
+    "20": {
+      "visible_families": 13,
+      "purchase_closed_families": 13,
+      "ranks": 31,
+      "maximum_spend": 54
+    },
+    "30": {
+      "visible_families": 81,
+      "purchase_closed_families": 81,
+      "ranks": 108,
+      "maximum_spend": 334
+    },
+    "40": {
+      "visible_families": 81,
+      "purchase_closed_families": 81,
+      "ranks": 163,
+      "maximum_spend": 542
+    },
+    "50": {
+      "visible_families": 84,
+      "purchase_closed_families": 83,
+      "ranks": 223,
+      "maximum_spend": 827
+    }
+  },
+  "PAL": {
+    "1": {
+      "visible_families": 9,
+      "purchase_closed_families": 9,
+      "ranks": 16,
+      "maximum_spend": 11
+    },
+    "10": {
+      "visible_families": 15,
+      "purchase_closed_families": 15,
+      "ranks": 23,
+      "maximum_spend": 24
+    },
+    "20": {
+      "visible_families": 15,
+      "purchase_closed_families": 15,
+      "ranks": 35,
+      "maximum_spend": 66
+    },
+    "30": {
+      "visible_families": 83,
+      "purchase_closed_families": 83,
+      "ranks": 114,
+      "maximum_spend": 363
+    },
+    "40": {
+      "visible_families": 84,
+      "purchase_closed_families": 84,
+      "ranks": 168,
+      "maximum_spend": 574
+    },
+    "50": {
+      "visible_families": 88,
+      "purchase_closed_families": 87,
+      "ranks": 226,
+      "maximum_spend": 851
+    }
+  },
+  "RNG": {
+    "1": {
+      "visible_families": 9,
+      "purchase_closed_families": 9,
+      "ranks": 16,
+      "maximum_spend": 11
+    },
+    "10": {
+      "visible_families": 14,
+      "purchase_closed_families": 14,
+      "ranks": 22,
+      "maximum_spend": 22
+    },
+    "20": {
+      "visible_families": 14,
+      "purchase_closed_families": 14,
+      "ranks": 33,
+      "maximum_spend": 60
+    },
+    "30": {
+      "visible_families": 90,
+      "purchase_closed_families": 90,
+      "ranks": 119,
+      "maximum_spend": 373
+    },
+    "40": {
+      "visible_families": 90,
+      "purchase_closed_families": 90,
+      "ranks": 180,
+      "maximum_spend": 608
+    },
+    "50": {
+      "visible_families": 93,
+      "purchase_closed_families": 92,
+      "ranks": 247,
+      "maximum_spend": 942
+    }
+  },
+  "SHD": {
+    "1": {
+      "visible_families": 9,
+      "purchase_closed_families": 9,
+      "ranks": 16,
+      "maximum_spend": 11
+    },
+    "10": {
+      "visible_families": 14,
+      "purchase_closed_families": 14,
+      "ranks": 22,
+      "maximum_spend": 26
+    },
+    "20": {
+      "visible_families": 15,
+      "purchase_closed_families": 15,
+      "ranks": 33,
+      "maximum_spend": 65
+    },
+    "30": {
+      "visible_families": 90,
+      "purchase_closed_families": 90,
+      "ranks": 118,
+      "maximum_spend": 370
+    },
+    "40": {
+      "visible_families": 91,
+      "purchase_closed_families": 91,
+      "ranks": 179,
+      "maximum_spend": 600
+    },
+    "50": {
+      "visible_families": 95,
+      "purchase_closed_families": 95,
+      "ranks": 246,
+      "maximum_spend": 913
+    }
+  },
+  "DRU": {
+    "1": {
+      "visible_families": 9,
+      "purchase_closed_families": 9,
+      "ranks": 16,
+      "maximum_spend": 11
+    },
+    "10": {
+      "visible_families": 13,
+      "purchase_closed_families": 13,
+      "ranks": 21,
+      "maximum_spend": 20
+    },
+    "20": {
+      "visible_families": 13,
+      "purchase_closed_families": 13,
+      "ranks": 31,
+      "maximum_spend": 54
+    },
+    "30": {
+      "visible_families": 82,
+      "purchase_closed_families": 82,
+      "ranks": 109,
+      "maximum_spend": 349
+    },
+    "40": {
+      "visible_families": 82,
+      "purchase_closed_families": 82,
+      "ranks": 161,
+      "maximum_spend": 540
+    },
+    "50": {
+      "visible_families": 85,
+      "purchase_closed_families": 84,
+      "ranks": 218,
+      "maximum_spend": 807
+    }
+  },
+  "MNK": {
+    "1": {
+      "visible_families": 8,
+      "purchase_closed_families": 8,
+      "ranks": 15,
+      "maximum_spend": 9
+    },
+    "10": {
+      "visible_families": 10,
+      "purchase_closed_families": 10,
+      "ranks": 18,
+      "maximum_spend": 14
+    },
+    "20": {
+      "visible_families": 10,
+      "purchase_closed_families": 10,
+      "ranks": 25,
+      "maximum_spend": 36
+    },
+    "30": {
+      "visible_families": 80,
+      "purchase_closed_families": 80,
+      "ranks": 101,
+      "maximum_spend": 304
+    },
+    "40": {
+      "visible_families": 80,
+      "purchase_closed_families": 80,
+      "ranks": 158,
+      "maximum_spend": 524
+    },
+    "50": {
+      "visible_families": 82,
+      "purchase_closed_families": 82,
+      "ranks": 221,
+      "maximum_spend": 839
+    }
+  },
+  "BRD": {
+    "1": {
+      "visible_families": 9,
+      "purchase_closed_families": 9,
+      "ranks": 16,
+      "maximum_spend": 11
+    },
+    "10": {
+      "visible_families": 12,
+      "purchase_closed_families": 12,
+      "ranks": 20,
+      "maximum_spend": 18
+    },
+    "20": {
+      "visible_families": 12,
+      "purchase_closed_families": 12,
+      "ranks": 29,
+      "maximum_spend": 48
+    },
+    "30": {
+      "visible_families": 83,
+      "purchase_closed_families": 83,
+      "ranks": 108,
+      "maximum_spend": 326
+    },
+    "40": {
+      "visible_families": 83,
+      "purchase_closed_families": 83,
+      "ranks": 165,
+      "maximum_spend": 549
+    },
+    "50": {
+      "visible_families": 86,
+      "purchase_closed_families": 86,
+      "ranks": 228,
+      "maximum_spend": 871
+    }
+  },
+  "ROG": {
+    "1": {
+      "visible_families": 8,
+      "purchase_closed_families": 8,
+      "ranks": 15,
+      "maximum_spend": 9
+    },
+    "10": {
+      "visible_families": 9,
+      "purchase_closed_families": 9,
+      "ranks": 17,
+      "maximum_spend": 12
+    },
+    "20": {
+      "visible_families": 9,
+      "purchase_closed_families": 9,
+      "ranks": 23,
+      "maximum_spend": 30
+    },
+    "30": {
+      "visible_families": 84,
+      "purchase_closed_families": 84,
+      "ranks": 103,
+      "maximum_spend": 315
+    },
+    "40": {
+      "visible_families": 84,
+      "purchase_closed_families": 84,
+      "ranks": 161,
+      "maximum_spend": 529
+    },
+    "50": {
+      "visible_families": 87,
+      "purchase_closed_families": 87,
+      "ranks": 226,
+      "maximum_spend": 847
+    }
+  },
+  "SHM": {
+    "1": {
+      "visible_families": 9,
+      "purchase_closed_families": 9,
+      "ranks": 16,
+      "maximum_spend": 11
+    },
+    "10": {
+      "visible_families": 14,
+      "purchase_closed_families": 14,
+      "ranks": 22,
+      "maximum_spend": 26
+    },
+    "20": {
+      "visible_families": 15,
+      "purchase_closed_families": 15,
+      "ranks": 33,
+      "maximum_spend": 65
+    },
+    "30": {
+      "visible_families": 80,
+      "purchase_closed_families": 80,
+      "ranks": 108,
+      "maximum_spend": 338
+    },
+    "40": {
+      "visible_families": 81,
+      "purchase_closed_families": 81,
+      "ranks": 163,
+      "maximum_spend": 551
+    },
+    "50": {
+      "visible_families": 86,
+      "purchase_closed_families": 85,
+      "ranks": 226,
+      "maximum_spend": 859
+    }
+  },
+  "NEC": {
+    "1": {
+      "visible_families": 9,
+      "purchase_closed_families": 9,
+      "ranks": 16,
+      "maximum_spend": 11
+    },
+    "10": {
+      "visible_families": 12,
+      "purchase_closed_families": 12,
+      "ranks": 20,
+      "maximum_spend": 22
+    },
+    "20": {
+      "visible_families": 13,
+      "purchase_closed_families": 13,
+      "ranks": 29,
+      "maximum_spend": 53
+    },
+    "30": {
+      "visible_families": 88,
+      "purchase_closed_families": 88,
+      "ranks": 112,
+      "maximum_spend": 367
+    },
+    "40": {
+      "visible_families": 89,
+      "purchase_closed_families": 89,
+      "ranks": 168,
+      "maximum_spend": 575
+    },
+    "50": {
+      "visible_families": 94,
+      "purchase_closed_families": 94,
+      "ranks": 235,
+      "maximum_spend": 887
+    }
+  },
+  "WIZ": {
+    "1": {
+      "visible_families": 9,
+      "purchase_closed_families": 9,
+      "ranks": 16,
+      "maximum_spend": 11
+    },
+    "10": {
+      "visible_families": 11,
+      "purchase_closed_families": 11,
+      "ranks": 19,
+      "maximum_spend": 16
+    },
+    "20": {
+      "visible_families": 11,
+      "purchase_closed_families": 11,
+      "ranks": 27,
+      "maximum_spend": 42
+    },
+    "30": {
+      "visible_families": 84,
+      "purchase_closed_families": 84,
+      "ranks": 107,
+      "maximum_spend": 348
+    },
+    "40": {
+      "visible_families": 84,
+      "purchase_closed_families": 84,
+      "ranks": 165,
+      "maximum_spend": 593
+    },
+    "50": {
+      "visible_families": 86,
+      "purchase_closed_families": 86,
+      "ranks": 229,
+      "maximum_spend": 917
+    }
+  },
+  "MAG": {
+    "1": {
+      "visible_families": 9,
+      "purchase_closed_families": 9,
+      "ranks": 16,
+      "maximum_spend": 11
+    },
+    "10": {
+      "visible_families": 13,
+      "purchase_closed_families": 13,
+      "ranks": 21,
+      "maximum_spend": 27
+    },
+    "20": {
+      "visible_families": 14,
+      "purchase_closed_families": 14,
+      "ranks": 30,
+      "maximum_spend": 58
+    },
+    "30": {
+      "visible_families": 102,
+      "purchase_closed_families": 102,
+      "ranks": 126,
+      "maximum_spend": 441
+    },
+    "40": {
+      "visible_families": 103,
+      "purchase_closed_families": 103,
+      "ranks": 191,
+      "maximum_spend": 706
+    },
+    "50": {
+      "visible_families": 106,
+      "purchase_closed_families": 106,
+      "ranks": 261,
+      "maximum_spend": 1068
+    }
+  },
+  "ENC": {
+    "1": {
+      "visible_families": 10,
+      "purchase_closed_families": 10,
+      "ranks": 17,
+      "maximum_spend": 15
+    },
+    "10": {
+      "visible_families": 12,
+      "purchase_closed_families": 12,
+      "ranks": 21,
+      "maximum_spend": 23
+    },
+    "20": {
+      "visible_families": 13,
+      "purchase_closed_families": 13,
+      "ranks": 31,
+      "maximum_spend": 57
+    },
+    "30": {
+      "visible_families": 86,
+      "purchase_closed_families": 86,
+      "ranks": 111,
+      "maximum_spend": 364
+    },
+    "40": {
+      "visible_families": 87,
+      "purchase_closed_families": 87,
+      "ranks": 167,
+      "maximum_spend": 581
+    },
+    "50": {
+      "visible_families": 94,
+      "purchase_closed_families": 94,
+      "ranks": 240,
+      "maximum_spend": 943
+    }
+  },
+  "BST": {
+    "1": {
+      "visible_families": 9,
+      "purchase_closed_families": 9,
+      "ranks": 16,
+      "maximum_spend": 11
+    },
+    "10": {
+      "visible_families": 17,
+      "purchase_closed_families": 17,
+      "ranks": 25,
+      "maximum_spend": 35
+    },
+    "20": {
+      "visible_families": 18,
+      "purchase_closed_families": 18,
+      "ranks": 38,
+      "maximum_spend": 82
+    },
+    "30": {
+      "visible_families": 90,
+      "purchase_closed_families": 90,
+      "ranks": 122,
+      "maximum_spend": 404
+    },
+    "40": {
+      "visible_families": 91,
+      "purchase_closed_families": 91,
+      "ranks": 180,
+      "maximum_spend": 634
+    },
+    "50": {
+      "visible_families": 94,
+      "purchase_closed_families": 93,
+      "ranks": 238,
+      "maximum_spend": 907
+    }
+  },
+  "BER": {
+    "1": {
+      "visible_families": 8,
+      "purchase_closed_families": 8,
+      "ranks": 15,
+      "maximum_spend": 9
+    },
+    "10": {
+      "visible_families": 10,
+      "purchase_closed_families": 10,
+      "ranks": 18,
+      "maximum_spend": 14
+    },
+    "20": {
+      "visible_families": 10,
+      "purchase_closed_families": 10,
+      "ranks": 25,
+      "maximum_spend": 36
+    },
+    "30": {
+      "visible_families": 75,
+      "purchase_closed_families": 75,
+      "ranks": 96,
+      "maximum_spend": 270
+    },
+    "40": {
+      "visible_families": 75,
+      "purchase_closed_families": 75,
+      "ranks": 151,
+      "maximum_spend": 477
+    },
+    "50": {
+      "visible_families": 81,
+      "purchase_closed_families": 81,
+      "ranks": 221,
+      "maximum_spend": 828
+    }
+  },
+  "WAR/CLR/WIZ": {
+    "1": {
+      "visible_families": 9,
+      "purchase_closed_families": 9,
+      "ranks": 16,
+      "maximum_spend": 11
+    },
+    "10": {
+      "visible_families": 15,
+      "purchase_closed_families": 15,
+      "ranks": 23,
+      "maximum_spend": 24
+    },
+    "20": {
+      "visible_families": 15,
+      "purchase_closed_families": 15,
+      "ranks": 35,
+      "maximum_spend": 66
+    },
+    "30": {
+      "visible_families": 143,
+      "purchase_closed_families": 143,
+      "ranks": 174,
+      "maximum_spend": 643
+    },
+    "40": {
+      "visible_families": 143,
+      "purchase_closed_families": 143,
+      "ranks": 270,
+      "maximum_spend": 1058
+    },
+    "50": {
+      "visible_families": 152,
+      "purchase_closed_families": 152,
+      "ranks": 389,
+      "maximum_spend": 1692
+    }
+  },
+  "WAR/CLR/MNK": {
+    "1": {
+      "visible_families": 9,
+      "purchase_closed_families": 9,
+      "ranks": 16,
+      "maximum_spend": 11
+    },
+    "10": {
+      "visible_families": 15,
+      "purchase_closed_families": 15,
+      "ranks": 23,
+      "maximum_spend": 24
+    },
+    "20": {
+      "visible_families": 15,
+      "purchase_closed_families": 15,
+      "ranks": 35,
+      "maximum_spend": 66
+    },
+    "30": {
+      "visible_families": 133,
+      "purchase_closed_families": 133,
+      "ranks": 164,
+      "maximum_spend": 573
+    },
+    "40": {
+      "visible_families": 133,
+      "purchase_closed_families": 133,
+      "ranks": 255,
+      "maximum_spend": 949
+    },
+    "50": {
+      "visible_families": 143,
+      "purchase_closed_families": 142,
+      "ranks": 369,
+      "maximum_spend": 1556
+    }
+  },
+  "MAG/NEC/SHM": {
+    "1": {
+      "visible_families": 9,
+      "purchase_closed_families": 9,
+      "ranks": 16,
+      "maximum_spend": 11
+    },
+    "10": {
+      "visible_families": 15,
+      "purchase_closed_families": 15,
+      "ranks": 23,
+      "maximum_spend": 31
+    },
+    "20": {
+      "visible_families": 16,
+      "purchase_closed_families": 16,
+      "ranks": 34,
+      "maximum_spend": 70
+    },
+    "30": {
+      "visible_families": 135,
+      "purchase_closed_families": 135,
+      "ranks": 163,
+      "maximum_spend": 616
+    },
+    "40": {
+      "visible_families": 136,
+      "purchase_closed_families": 136,
+      "ranks": 247,
+      "maximum_spend": 970
+    },
+    "50": {
+      "visible_families": 143,
+      "purchase_closed_families": 143,
+      "ranks": 348,
+      "maximum_spend": 1506
+    }
+  },
+  "PAL/WAR/MNK": {
+    "1": {
+      "visible_families": 9,
+      "purchase_closed_families": 9,
+      "ranks": 16,
+      "maximum_spend": 11
+    },
+    "10": {
+      "visible_families": 15,
+      "purchase_closed_families": 15,
+      "ranks": 23,
+      "maximum_spend": 24
+    },
+    "20": {
+      "visible_families": 15,
+      "purchase_closed_families": 15,
+      "ranks": 35,
+      "maximum_spend": 66
+    },
+    "30": {
+      "visible_families": 128,
+      "purchase_closed_families": 128,
+      "ranks": 159,
+      "maximum_spend": 558
+    },
+    "40": {
+      "visible_families": 129,
+      "purchase_closed_families": 129,
+      "ranks": 245,
+      "maximum_spend": 917
+    },
+    "50": {
+      "visible_families": 140,
+      "purchase_closed_families": 139,
+      "ranks": 353,
+      "maximum_spend": 1491
+    }
+  },
+  "SHD/SHM/BRD": {
+    "1": {
+      "visible_families": 9,
+      "purchase_closed_families": 9,
+      "ranks": 16,
+      "maximum_spend": 11
+    },
+    "10": {
+      "visible_families": 16,
+      "purchase_closed_families": 16,
+      "ranks": 24,
+      "maximum_spend": 30
+    },
+    "20": {
+      "visible_families": 17,
+      "purchase_closed_families": 17,
+      "ranks": 37,
+      "maximum_spend": 77
+    },
+    "30": {
+      "visible_families": 134,
+      "purchase_closed_families": 134,
+      "ranks": 166,
+      "maximum_spend": 580
+    },
+    "40": {
+      "visible_families": 135,
+      "purchase_closed_families": 135,
+      "ranks": 259,
+      "maximum_spend": 965
+    },
+    "50": {
+      "visible_families": 142,
+      "purchase_closed_families": 142,
+      "ranks": 364,
+      "maximum_spend": 1525
+    }
+  },
+  "RNG/DRU/ENC": {
+    "1": {
+      "visible_families": 10,
+      "purchase_closed_families": 10,
+      "ranks": 17,
+      "maximum_spend": 15
+    },
+    "10": {
+      "visible_families": 15,
+      "purchase_closed_families": 15,
+      "ranks": 24,
+      "maximum_spend": 29
+    },
+    "20": {
+      "visible_families": 16,
+      "purchase_closed_families": 16,
+      "ranks": 37,
+      "maximum_spend": 75
+    },
+    "30": {
+      "visible_families": 137,
+      "purchase_closed_families": 137,
+      "ranks": 168,
+      "maximum_spend": 614
+    },
+    "40": {
+      "visible_families": 138,
+      "purchase_closed_families": 138,
+      "ranks": 258,
+      "maximum_spend": 983
+    },
+    "50": {
+      "visible_families": 147,
+      "purchase_closed_families": 147,
+      "ranks": 370,
+      "maximum_spend": 1572
+    }
+  }
+}

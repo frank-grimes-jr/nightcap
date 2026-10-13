@@ -3,5 +3,6 @@
   "name": "Classic",
   "max_level": 50,
   "aa_open": true,
+  "aa_policy": "config/aa-policy.json",
   "luclin_models": false
 }
