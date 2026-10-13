@@ -1,0 +1,18 @@
+{
+  "observed_utc": "2026-10-13T14:54:41.436720+00:00",
+  "public_files": {
+    "channel.json": {
+      "status": 200,
+      "sha256": "aacf67eb9a10fd16544d4031ccd4bb8c63a2a651d0fff58083a191a87f402a28"
+    },
+    "launcher-channel.json": {
+      "status": 200,
+      "sha256": "67a94a6d56fca08d21c0d808a2929855ec9e20bf8891ccd390f23cf1f18c3e8e"
+    },
+    "guide.html": {
+      "status": 200,
+      "sha256": "c6160072c279b82c420f1c14122cb9bce2d9e5c6edb772db8d8d534ed3b4f675"
+    }
+  },
+  "unauthenticated_gateway_status": 401
+}
