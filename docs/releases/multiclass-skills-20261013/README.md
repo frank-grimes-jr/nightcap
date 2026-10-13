@@ -1,10 +1,16 @@
 # Multiclass skill progression and offhand repair — October 13, 2026
 
-Corrective candidate for Palwar's failed purchases, skills stuck at 1, and blocked
-offhand weapons. The owner confirmed that the October 12 trainer patch opens the
-window, but its training/purchase claim was incomplete. This repair uses the
-same-session approval to merge to main and deploy the paired server/client fix.
-Native tests and deployment checks are separate from owner gameplay acceptance.
+Owner-approved PR #191 is merged to main at `f34b385` and the paired correction
+is deployed on OVH with signed game release **2026101301**, proxy **0.8.3-dev**.
+All 12 zones match the full rebuild; the signed channel and all 105 hosted files
+verify. Saved data across 47 player and 11 custom tables was preserved, with
+zero new runtime restarts or detected errors. Only DLL/catalog changed among
+client assets; launcher 0.6.0, prior patch history and all other files remain.
+
+The owner confirmed that the October 12 patch opens the trainer window but does
+not allow purchases or progression. This repair addresses those failures and
+offhand access. Close EQ fully and use launcher Play to receive both sides.
+Owner training, natural gains, offhand combat and relog acceptance remain pending.
 
 ## Root causes and scope
 
@@ -34,7 +40,7 @@ rows are granted or rewritten.
   now checks held membership directly; this avoids importing an undeployed
   hand-to-hand helper. Other hand-to-hand damage formulas are outside this fix.
 
-Client proxy **0.8.3-dev**, 91 guarded signatures/catalog sites. Intended signed
+Client proxy **0.8.3-dev**, 91 guarded signatures/catalog sites. Published signed
 game release **2026101301**. Pair both sides: rule/quest reload cannot install
 native changes, and an old client still blocks the corrected server.
 
@@ -54,7 +60,8 @@ launcher suite, nine rollout tests and twelve publication tests. See
 
 `tools/build_skill_progression_candidate.py` builds from the retained trainer
 release into an isolated directory. Changed staged source is exactly client.h,
-client.cpp and mob.cpp. No world/rule/ABI change is needed. The deployment recipe
+client.cpp and mob.cpp. No world/rule/ABI change is needed. The candidate image is
+`sha256:67b3114b9142ba19a0ead71948a053eb482818638564c408b1ebab1503f0336b`. The deployment recipe
 creates a zone-only layer, validates both images and takes an integrity-checked
 backup. Close gateway, gracefully stop the whole game, preserve saved data,
 start and verify all 12 zones, then reopen access. Never kill one production
@@ -62,6 +69,10 @@ zone: its supervisor restarts the entire runtime. Retain the previous image for
 rollback; never restore an old player snapshot. Publish the signed client
 channel last and preserve all unrelated assets and launcher history. A client
 rollback needs a new monotonically increasing release number.
+
+The copied rollout used a legacy build-only base alias during preflight. Its
+previous image was restored before activation; candidate and rollback remain
+pinned by immutable image IDs. See `legacy-tag-restored.json`.
 
 ## Owner gameplay QA
 

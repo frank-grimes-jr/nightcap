@@ -1,13 +1,16 @@
 # Current Nightcap status
 
-## Multiclass skills — corrective candidate
+## Multiclass skills — corrective release deployed
 
-Owner confirms the previous trainer window opens, but purchases, natural gains
-and offhand use fail. The corrective release fixes missed native purchase and
-equipment checks and retained primary-only server progression/empty-fist logic.
-Both old-client failures and deployed-source failures reproduce; candidate
-native tests pass. Full 126-object zone build and client package checks pass; paired deployment is in progress. No DB skill
-or point grants. [Cause, evidence and exact QA](releases/multiclass-skills-20261013/README.md).
+Owner-approved PR #191 is merged to main and deployed with signed game release
+**2026101301** / proxy **0.8.3-dev**. It fixes missed native purchase/offhand gates
+and retained primary-only server skill progression/empty-fist checks. All 126
+zone objects were rebuilt; all 12 running zones and 105 hosted client assets
+verify. Preserved 47 player / 11 custom tables, zero new restarts/detected errors.
+No skill/point/coin grants or cap rewrites. Close EQ and use launcher Play.
+The owner confirmed the prior window opens; corrective purchase, natural gain,
+offhand combat and relog QA remain pending.
+[Cause, deployment, recovery and exact QA](releases/multiclass-skills-20261013/README.md).
 
 ## Launcher patch summaries — published October 12
 

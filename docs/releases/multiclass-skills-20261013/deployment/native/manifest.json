@@ -1,0 +1,27 @@
+{
+  "release": "multiclass-skills-20261013",
+  "source_commit": "f34b385d676174096a203ec8266b6915a2fd4ac9",
+  "base_binaries": {
+    "world": "efd54a1023a569274a76f65d3d2a18a173906762472a1bce186e3e14629d3c18",
+    "zone": "adfffd9aab5d1e745c23e74381176dd19dfea1d9d63d5bcfb83a4764fa0e5cc0",
+    "ucs": "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714",
+    "loginserver": "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf",
+    "shared_memory": "91664a87eac78306e8a76ab4cb923ba1f03c2d0da180278db6b6cf9b6607c0ef"
+  },
+  "binaries": {
+    "world": "efd54a1023a569274a76f65d3d2a18a173906762472a1bce186e3e14629d3c18",
+    "zone": "c2bcd33b771112b6c5ecf1b4f7c179f22e749c9d144ab75b1384a2293e7a6766",
+    "ucs": "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714",
+    "loginserver": "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf",
+    "shared_memory": "91664a87eac78306e8a76ab4cb923ba1f03c2d0da180278db6b6cf9b6607c0ef"
+  },
+  "runtime_helper_sha256": "a3242bee3e8d4a7e60ea81bbd6fd34587201b712247665f3c03673733b95a811",
+  "files": {
+    "zone": "c2bcd33b771112b6c5ecf1b4f7c179f22e749c9d144ab75b1384a2293e7a6766",
+    "build-manifest.json": "5826de00b6dfe21f8014b2d289bfeb51eb8f3970bb0bae6509173f71c7caa22a",
+    "build_candidate.py": "29d5650f6433cbf12c071987e94f77eea94f7b3c90e3ad8cb79423cfbed713c6",
+    "verification.json": "5a0788d8d30ee2bc30bf24f45947d20913c88615aac0f5620febe9acbb1fdac2",
+    "rollout.py": "dd30318a01f673684071d42a22efda5226ffaa9283c43c8f48cc71b9f81a60c2",
+    "test_rollout.py": "255a59d32367d9a18e440c612b3fe7eb1984c0b21a218276db65319172579340"
+  }
+}
