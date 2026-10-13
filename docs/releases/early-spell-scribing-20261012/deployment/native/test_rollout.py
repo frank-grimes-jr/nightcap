@@ -97,4 +97,3 @@ class MaintenanceTests(unittest.TestCase):
             q.require_no_gm_work()
 
 if __name__=='__main__':unittest.main(verbosity=2)
-

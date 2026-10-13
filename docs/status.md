@@ -1,5 +1,14 @@
 # Current Nightcap status
 
+## Multiclass trainer access - October 12 candidate
+
+Palwar's held Monk and Warrior trainers pass server policy but RoF2 blocks the
+right-click and skill-list/purchase paths by primary class. A paired candidate
+adds narrowly guarded held-class client queries and normal server training on
+hail. Native regression evidence reproduces Joren's rejection before the fix.
+No production installation, signed publication or player acceptance is claimed.
+[Build evidence, pairing and exact QA](releases/multiclass-trainers-20261012/README.md).
+
 ## Launcher patch summaries — published October 12
 
 The patcher now presents concise Feature/Bug fix summaries for the latest signed

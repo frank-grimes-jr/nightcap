@@ -2,6 +2,7 @@
 Never loads the candidate into eqgame or changes the installed game client.
 """
 import hashlib
+import argparse
 import json
 import os
 from pathlib import Path
@@ -9,12 +10,21 @@ import shutil
 import subprocess
 import tempfile
 import unittest
+import sys
 
 ROOT = Path(__file__).resolve().parents[1]
 CONFIG = (ROOT / "config/nightcap-patches.cfg").read_bytes()
 STOP_CODE = 0x4E430001
+EXACT_CLIENT = os.environ.get("NIGHTCAP_TEST_EQGAME")
 
 class RuntimeTests(unittest.TestCase):
+    def test_native_multiclass_trainers(self):
+        self.assertIsNotNone(EXACT_CLIENT, "Pass --eqgame PATH or set NIGHTCAP_TEST_EQGAME to the read-only pinned client")
+        client = Path(EXACT_CLIENT)
+        self.assertTrue(client.is_file(), f"Exact client not found: {client}")
+        result = subprocess.run([ROOT / "build/tests/trainer-native.exe", client], capture_output=True, timeout=15)
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+
     def test_ui_state_and_hooks(self):
         for name in ("ui-state", "ui-hooks", "pet-state", "pet-management", "spell-access", "spell-inspection", "spell-menu", "model-policy", "model-hooks"):
             with self.subTest(name=name):
@@ -93,4 +103,9 @@ class RuntimeTests(unittest.TestCase):
             self.assertFalse(list(Path(temp).glob("*.tmp")))
 
 if __name__ == "__main__":
-    unittest.main(verbosity=2)
+    parser = argparse.ArgumentParser(add_help=False)
+    parser.add_argument("--eqgame")
+    args, remaining = parser.parse_known_args()
+    if args.eqgame:
+        EXACT_CLIENT = args.eqgame
+    unittest.main(argv=[sys.argv[0], *remaining], verbosity=2)

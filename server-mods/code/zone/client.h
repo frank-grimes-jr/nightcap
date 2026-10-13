@@ -1672,6 +1672,7 @@ public:
 	void UpdateLDoNWinLoss(uint32 theme_id, bool win = false, bool remove = false);
 	void CheckLDoNHail(NPC* n);
 	void CheckEmoteHail(NPC* n, const char* message);
+	void CheckTrainerHail(NPC* trainer, const char* message);
 
 	void HandleLDoNOpen(NPC *target);
 	void HandleLDoNSenseTraps(NPC *target, uint16 skill, uint8 type);

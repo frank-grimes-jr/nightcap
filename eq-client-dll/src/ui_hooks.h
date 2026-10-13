@@ -620,3 +620,5 @@ inline bool InstallAdvancedLoot(void (*trace)(const char*) = nullptr) {
 }
 }
 }
+
+#include "trainer_hooks.h"

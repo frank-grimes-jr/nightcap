@@ -1876,6 +1876,7 @@ void Client::ChannelMessageReceived(uint8 chan_num, uint8 language, uint8 lang_s
 			if (t->IsNPC() && !is_engaged) {
 				CheckLDoNHail(t->CastToNPC());
 				CheckEmoteHail(t->CastToNPC(), message);
+				CheckTrainerHail(t->CastToNPC(), message);
 
 				if (RuleB(TaskSystem, EnableTaskSystem)) {
 					if (UpdateTasksOnSpeakWith(t->CastToNPC())) {

@@ -1,0 +1,61 @@
+{
+  "date": "2026-10-12",
+  "status": "built_tested_not_deployed",
+  "baseline_revision": "4e3acd83019a915b04a9ec1f222c3bc2543d0bfe",
+  "production_probe_utc": "2026-10-13T01:15:19.361627+00:00",
+  "production_facts": {
+    "character": "Palwar",
+    "primary_class": 3,
+    "class2": 1,
+    "class3": 7,
+    "level": 4,
+    "training_points": 20,
+    "joren_id": 999656,
+    "joren_class": 26,
+    "joren_quest": false,
+    "allow_cross_class_trainers": false
+  },
+  "checks": {
+    "server_hail_native_tests": "2 passed",
+    "existing_trainer_policy": "passed",
+    "skill_lifecycle": "passed",
+    "stock_native_client_reproduction": "expected failure at Joren comparison",
+    "client_runtime_suite": "6 groups passed after merge, including trainer-native and early-scribe ui-hooks",
+    "client_x86_build": "passed",
+    "client_runtime_test_build": "passed with /W4 /WX",
+    "exact_client_signature_verifier": "passed",
+    "catalog_agreement": "87 sites passed",
+    "server_full_link": "v2 passed, retaining early scribing; ldd has no missing libraries",
+    "retained_production_link_inputs": "141 digests match deployed build manifest and candidate snapshot",
+    "independent_review": "passed after retained-link provenance assertion; no remaining code findings",
+    "hail_native_response_path": "reviewed pinned handler VA0x4B49C0: packet NPC lookup, distance, success byte412, trainer pointer initialization, caps+8 list and show; no prior right-click required",
+    "candidate_early_scribing": "1 compiled native packet/item test passed after merge",
+    "integration_review": "passed: exact87-site union, early-scribing preserved, generated contracts match",
+    "launcher_go_suite": "go test ./... passed with cached Go 1.27.2 and normal Windows permissions; initial sandbox run blocked local socket/junction/atomic-file fixtures"
+  },
+  "artifacts": {
+    "proxy_sha256": "e00616941c80f34d92ffce8bb3289e11a0cb2a292f6a1ef1793a4e4b3f91d2c6",
+    "zone_sha256": "adfffd9aab5d1e745c23e74381176dd19dfea1d9d63d5bcfb83a4764fa0e5cc0",
+    "build_manifest_sha256": "5429e11191ed6b07cee4d01f5658a54022d068a742435a76cf924f13142d0682",
+    "patch_catalog_sha256": "2607e797600044f311da2c03dab1d75c0fe120699f7650ff544fa0eca52dd83f"
+  },
+  "limits": [
+    "No production deployment or signed publication",
+    "No actual trainer window / spending / persistence player QA",
+    "Retained production MaxSkill inline overload preserved; main has a different union overload"
+  ],
+  "integrated_main_revision": "ffaba1b2c49054ed2bd7fccf5355d6fc34a628c6",
+  "build_provenance": "v2 asserts all 141 retained link-input digests against deployed manifest before compilation, checks retained input/source hashes again after link, and retains approved early-scribing methods",
+  "public_channel_observation": {
+    "release": 2026101203,
+    "minimum_launcher": "0.6.0",
+    "scope": "counter/history observation only; not a new cryptographic verification",
+    "candidate_next_release": 2026101204
+  },
+  "documented_live_baseline": {
+    "source": "docs/releases/early-spell-scribing-20261012/server-receipt.json",
+    "scope": "imported deployment evidence; not a new live probe",
+    "image": "sha256:058330bce1e2539612d705b95b726d5143daa7ca5e6897debe0f598ba470558f",
+    "zone_sha256": "43d7c1edea922bb268b8cb5eac7492bbb09a8919bccf2328051b2fd7e35b0463"
+  }
+}

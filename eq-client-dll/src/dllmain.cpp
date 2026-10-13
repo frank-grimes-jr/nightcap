@@ -1494,7 +1494,7 @@ static BOOL CALLBACK InitializeRuntime(PINIT_ONCE, PVOID, PVOID*)
     RequirePatch(nightcap::Feature_mana_gauge,ApplyPlayerManaGaugePredicateHook(eq_base,mana_hook_ok));
     const bool class_ui_ok = nightcap::client_ui::Install(eq_base);
     if (!class_ui_ok) Log("Class UI initialization failed at %s; image base=0x%08X", nightcap::client_ui::install_failure, static_cast<unsigned>(eq_base));
-    RequirePatch(nightcap::Feature_class_ui,class_ui_ok);
+    RequirePatch(nightcap::Feature_class_ui,class_ui_ok && nightcap::client_ui::InstallTrainer());
     RequirePatch(nightcap::Feature_pet_armor,nightcap::client_ui::InstallPetArmor());
     RequirePatch(nightcap::Feature_merchant_sell_all,nightcap::client_ui::InstallMerchantSellAll());
     const bool advanced_loot_ok = nightcap::client_ui::InstallAdvancedLoot([](const char* event) { Log("ADVLOOT %s", event); });

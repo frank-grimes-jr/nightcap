@@ -1,5 +1,17 @@
 # CHANGES
 
+## 2026-10-12 - Held-class trainer access candidate
+
+Palwar's Monk/Warrior trainers were blocked before server authorization: RoF2
+used primary class for right-click and training list/button/purchase checks.
+Guarded trainer-only client hooks now use identity-matched held classes; native
+trainer hails open through the existing server authorization/cap path. Points,
+coins, level gates and unheld-class rejection remain. Invalid trainer-open
+packets also release their response allocation. Requires paired zone and signed
+proxy/catalog release; no rules, class slots or skills are rewritten. Candidate
+only: production and owner gameplay QA are pending. Exact regression/build
+proof, retained-source differences and QA: `docs/releases/multiclass-trainers-20261012/README.md`.
+
 ## 2026-10-12 - Concise launcher patch summaries — published
 
 The launcher shows the latest signed patch's Feature/Bug fix bullets above file
