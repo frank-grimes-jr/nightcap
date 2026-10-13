@@ -47,9 +47,16 @@ Pair the rebuilt zone with the candidate proxy and generated signed patch
 catalog. A rule or quest reload cannot install either change. The server-only
 hail path does not fix the old client's skill-list/purchase restrictions.
 The protected RoF2 executable is a read-only test input and stays unchanged.
-This branch started at `4e3acd8` and now integrates main `69252d9`, including
+This branch started at `4e3acd8` and now integrates main `ffaba1b`, including
 early scribing and launcher patch history. Reconcile any newly promoted changes
 before publication; do not overwrite another candidate or live release.
+
+Imported early-scribing deployment receipts on main record server image
+`sha256:058330bce1e2539612d705b95b726d5143daa7ca5e6897debe0f598ba470558f`
+and signed client release 2026101203. The v2 trainer build already includes
+those native/client source changes; this latest merge adds deployment evidence
+and updates the patch-history packaging test. The full launcher `go test ./...`
+suite passes using cached Go 1.27.2 with normal Windows permissions.
 
 The live game image observed during diagnosis was
 `sha256:4c0f464d64b6eb5dc787aaff380f4fbee41f2de8365e2622cb5fcc11cb940541`.

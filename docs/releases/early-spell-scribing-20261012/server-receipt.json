@@ -1,0 +1,181 @@
+{
+  "verified_at_utc": "2026-10-13T01:30:57.875748+00:00",
+  "source_commit": "5ae9cb02976fe0a017b6bf90837958387cbf4ca1",
+  "preflight": {
+    "manifest_sha256": "77d0b7eb425dbcb932cce0a1e1a14f13173eec40baba262ce0e7d5ed9ea8e4ae",
+    "old_image_id": "sha256:4c0f464d64b6eb5dc787aaff380f4fbee41f2de8365e2622cb5fcc11cb940541",
+    "new_image_id": "sha256:058330bce1e2539612d705b95b726d5143daa7ca5e6897debe0f598ba470558f",
+    "backup": {
+      "path": "/opt/nightcap/releases/early-scribing-20261012-v2/private-backup/peq-before.sql.gz",
+      "sha256": "3700e2e3792a6cab8c7bee41f5ea2b0cbd5dfa696ea563364fdb6f47469f5746",
+      "compressed_bytes": 63460008,
+      "uncompressed_bytes": 452451343,
+      "gzip_integrity": "passed"
+    }
+  },
+  "rule_values_sha256": "362f011191a04462c361574296d8618551ca4e03af9998a7f1e4e25ad603fc63",
+  "content_preserved": true,
+  "activated": {
+    "runtime": {
+      "image_id": "sha256:058330bce1e2539612d705b95b726d5143daa7ca5e6897debe0f598ba470558f",
+      "started_at": "2026-10-13T01:28:51.784598471Z",
+      "restart_count": 0,
+      "processes": [
+        [
+          "loginserver",
+          "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf"
+        ],
+        [
+          "world",
+          "efd54a1023a569274a76f65d3d2a18a173906762472a1bce186e3e14629d3c18"
+        ],
+        [
+          "ucs",
+          "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714"
+        ],
+        [
+          "zone",
+          "43d7c1edea922bb268b8cb5eac7492bbb09a8919bccf2328051b2fd7e35b0463"
+        ],
+        [
+          "zone",
+          "43d7c1edea922bb268b8cb5eac7492bbb09a8919bccf2328051b2fd7e35b0463"
+        ],
+        [
+          "zone",
+          "43d7c1edea922bb268b8cb5eac7492bbb09a8919bccf2328051b2fd7e35b0463"
+        ],
+        [
+          "zone",
+          "43d7c1edea922bb268b8cb5eac7492bbb09a8919bccf2328051b2fd7e35b0463"
+        ],
+        [
+          "zone",
+          "43d7c1edea922bb268b8cb5eac7492bbb09a8919bccf2328051b2fd7e35b0463"
+        ],
+        [
+          "zone",
+          "43d7c1edea922bb268b8cb5eac7492bbb09a8919bccf2328051b2fd7e35b0463"
+        ],
+        [
+          "zone",
+          "43d7c1edea922bb268b8cb5eac7492bbb09a8919bccf2328051b2fd7e35b0463"
+        ],
+        [
+          "zone",
+          "43d7c1edea922bb268b8cb5eac7492bbb09a8919bccf2328051b2fd7e35b0463"
+        ],
+        [
+          "zone",
+          "43d7c1edea922bb268b8cb5eac7492bbb09a8919bccf2328051b2fd7e35b0463"
+        ],
+        [
+          "zone",
+          "43d7c1edea922bb268b8cb5eac7492bbb09a8919bccf2328051b2fd7e35b0463"
+        ],
+        [
+          "zone",
+          "43d7c1edea922bb268b8cb5eac7492bbb09a8919bccf2328051b2fd7e35b0463"
+        ],
+        [
+          "zone",
+          "43d7c1edea922bb268b8cb5eac7492bbb09a8919bccf2328051b2fd7e35b0463"
+        ]
+      ],
+      "errors": {
+        "native": 0,
+        "quest": 0,
+        "database": 0
+      }
+    },
+    "gateway_open": true,
+    "player_tables_preserved": 47,
+    "custom_tables_preserved": 11,
+    "database_restored": false,
+    "backup": {
+      "path": "/opt/nightcap/releases/early-scribing-20261012-v2/private-backup/peq-before.sql.gz",
+      "sha256": "3700e2e3792a6cab8c7bee41f5ea2b0cbd5dfa696ea563364fdb6f47469f5746",
+      "compressed_bytes": 63460008,
+      "uncompressed_bytes": 452451343,
+      "gzip_integrity": "passed"
+    }
+  },
+  "followup": {
+    "status": "healthy",
+    "runtime": {
+      "image_id": "sha256:058330bce1e2539612d705b95b726d5143daa7ca5e6897debe0f598ba470558f",
+      "started_at": "2026-10-13T01:28:51.784598471Z",
+      "restart_count": 0,
+      "processes": [
+        [
+          "loginserver",
+          "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf"
+        ],
+        [
+          "world",
+          "efd54a1023a569274a76f65d3d2a18a173906762472a1bce186e3e14629d3c18"
+        ],
+        [
+          "ucs",
+          "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714"
+        ],
+        [
+          "zone",
+          "43d7c1edea922bb268b8cb5eac7492bbb09a8919bccf2328051b2fd7e35b0463"
+        ],
+        [
+          "zone",
+          "43d7c1edea922bb268b8cb5eac7492bbb09a8919bccf2328051b2fd7e35b0463"
+        ],
+        [
+          "zone",
+          "43d7c1edea922bb268b8cb5eac7492bbb09a8919bccf2328051b2fd7e35b0463"
+        ],
+        [
+          "zone",
+          "43d7c1edea922bb268b8cb5eac7492bbb09a8919bccf2328051b2fd7e35b0463"
+        ],
+        [
+          "zone",
+          "43d7c1edea922bb268b8cb5eac7492bbb09a8919bccf2328051b2fd7e35b0463"
+        ],
+        [
+          "zone",
+          "43d7c1edea922bb268b8cb5eac7492bbb09a8919bccf2328051b2fd7e35b0463"
+        ],
+        [
+          "zone",
+          "43d7c1edea922bb268b8cb5eac7492bbb09a8919bccf2328051b2fd7e35b0463"
+        ],
+        [
+          "zone",
+          "43d7c1edea922bb268b8cb5eac7492bbb09a8919bccf2328051b2fd7e35b0463"
+        ],
+        [
+          "zone",
+          "43d7c1edea922bb268b8cb5eac7492bbb09a8919bccf2328051b2fd7e35b0463"
+        ],
+        [
+          "zone",
+          "43d7c1edea922bb268b8cb5eac7492bbb09a8919bccf2328051b2fd7e35b0463"
+        ],
+        [
+          "zone",
+          "43d7c1edea922bb268b8cb5eac7492bbb09a8919bccf2328051b2fd7e35b0463"
+        ],
+        [
+          "zone",
+          "43d7c1edea922bb268b8cb5eac7492bbb09a8919bccf2328051b2fd7e35b0463"
+        ]
+      ],
+      "errors": {
+        "native": 0,
+        "quest": 0,
+        "database": 0
+      }
+    },
+    "gateway_open": true,
+    "player_tables_preserved": 47,
+    "custom_tables_preserved": 11
+  }
+}

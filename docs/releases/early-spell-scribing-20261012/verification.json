@@ -1,6 +1,6 @@
 {
   "date": "2026-10-12",
-  "status": "built_tested_not_deployed",
+  "status": "deployed_owner_in_game_acceptance_pending",
   "baseline_commit": "4e3acd83019a915b04a9ec1f222c3bc2543d0bfe",
   "server": {
     "zone_sha256": "43d7c1edea922bb268b8cb5eac7492bbb09a8919bccf2328051b2fd7e35b0463",
@@ -26,9 +26,11 @@
     "client_runtime": "PASS; 5 tests, including exact native scribing compare fixture",
     "client_build": "PASS; x86 proxy and all runtime fixtures",
     "patch_sites": "PASS; all 76 sites, executable SHA256 and generated catalog agreement",
-    "independent_review": "no required source findings",
-    "full_launcher_go_suite": "not run: Go executable unavailable",
-    "in_game_acceptance": "pending"
+    "independent_review": "No remaining required source, native rollout or publisher findings",
+    "full_launcher_go_suite": "PASS: go test ./...; package/manifest/launcher rerun after patch-history integration",
+    "in_game_acceptance": "pending",
+    "native_recovery": "PASS: 9 tests, including persistent player/custom drift and uncertain gateway acknowledgment",
+    "publication_recovery": "PASS: 12 tests"
   },
   "files": {
     "server-mods/code/zone/client_process.cpp": "5fdf1da24f2ce47c7e2949901f333441892078499ae632dbde8209d1c0089a1a",
@@ -37,5 +39,18 @@
     "eq-client-dll/src/dllmain.cpp": "d248344161415f05830afa4f48b1fe1d54874ccd8e00bee46cfab92d76fdd2a9",
     "eq-client-dll/config/patch-sites.json": "393974f602e233d55e4b7bb5249c3ad27366d4fe5ade413eb0643e92f2cf2d92",
     "eq-client-dll/build/dinput8.dll": "c211f64595f9cbf5b990d2adc659d75eee451d99e81bb058d52f62f3c5f790bf"
+  },
+  "main_feature_merge": "d6c5b654b3dc70ab4fd7c96f9a188b56c9f7c0c6",
+  "deployment": {
+    "server_image": "sha256:058330bce1e2539612d705b95b726d5143daa7ca5e6897debe0f598ba470558f",
+    "client_release": 2026101203,
+    "channel_sha256": "0eec4a931806f61e8b23d0ee9c7cd916c35bb1befa9196df150596b141764cdb",
+    "zone_processes": 12,
+    "player_tables_preserved": 47,
+    "custom_tables_preserved": 11,
+    "database_restored": false,
+    "hosted_files_verified": 105,
+    "native_stage": "/opt/nightcap/releases/early-scribing-20261012-v2",
+    "client_stage": "/opt/nightcap/releases/early-scribing-2026101203"
   }
 }

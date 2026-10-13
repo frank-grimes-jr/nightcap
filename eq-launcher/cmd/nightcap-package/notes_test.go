@@ -9,8 +9,8 @@ import (
 )
 
 func TestLoadPatchHistory(t *testing.T) {
-	notes, err := loadPatchNotes("../../patch-notes.json", 2026101202)
-	if err != nil || len(notes) != 6 {
+	notes, err := loadPatchNotes("../../patch-notes.json", 2026101204)
+	if err != nil || len(notes) != 8 {
 		t.Fatalf("catalog: %v, %d entries", err, len(notes))
 	}
 	for _, data := range []string{"[]", "null", `[{"release":1,"date":"2026-10-12","changes":[{"kind":"feature","text":"Added notes."}],"unknown":true}]`, `[] {}`} {
@@ -22,7 +22,7 @@ func TestLoadPatchHistory(t *testing.T) {
 			t.Fatalf("accepted %s", data)
 		}
 	}
-	if _, err := loadPatchNotes("../../patch-notes.json", 2026101201); err == nil {
+	if _, err := loadPatchNotes("../../patch-notes.json", 2026101203); err == nil {
 		t.Fatal("accepted future notes")
 	}
 }

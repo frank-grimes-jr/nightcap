@@ -30,7 +30,8 @@
     "independent_review": "passed after retained-link provenance assertion; no remaining code findings",
     "hail_native_response_path": "reviewed pinned handler VA0x4B49C0: packet NPC lookup, distance, success byte412, trainer pointer initialization, caps+8 list and show; no prior right-click required",
     "candidate_early_scribing": "1 compiled native packet/item test passed after merge",
-    "integration_review": "passed: exact87-site union, early-scribing preserved, generated contracts match"
+    "integration_review": "passed: exact87-site union, early-scribing preserved, generated contracts match",
+    "launcher_go_suite": "go test ./... passed with cached Go 1.27.2 and normal Windows permissions; initial sandbox run blocked local socket/junction/atomic-file fixtures"
   },
   "artifacts": {
     "proxy_sha256": "e00616941c80f34d92ffce8bb3289e11a0cb2a292f6a1ef1793a4e4b3f91d2c6",
@@ -41,15 +42,20 @@
   "limits": [
     "No production deployment or signed publication",
     "No actual trainer window / spending / persistence player QA",
-    "Full Go suite unavailable: Go not on PATH; generated catalog comparison passed",
     "Retained production MaxSkill inline overload preserved; main has a different union overload"
   ],
-  "integrated_main_revision": "69252d9",
+  "integrated_main_revision": "ffaba1b2c49054ed2bd7fccf5355d6fc34a628c6",
   "build_provenance": "v2 asserts all 141 retained link-input digests against deployed manifest before compilation, checks retained input/source hashes again after link, and retains approved early-scribing methods",
   "public_channel_observation": {
     "release": 2026101203,
     "minimum_launcher": "0.6.0",
     "scope": "counter/history observation only; not a new cryptographic verification",
     "candidate_next_release": 2026101204
+  },
+  "documented_live_baseline": {
+    "source": "docs/releases/early-spell-scribing-20261012/server-receipt.json",
+    "scope": "imported deployment evidence; not a new live probe",
+    "image": "sha256:058330bce1e2539612d705b95b726d5143daa7ca5e6897debe0f598ba470558f",
+    "zone_sha256": "43d7c1edea922bb268b8cb5eac7492bbb09a8919bccf2328051b2fd7e35b0463"
   }
 }
