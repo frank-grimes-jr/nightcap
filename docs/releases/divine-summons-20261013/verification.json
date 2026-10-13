@@ -1,0 +1,23 @@
+{
+  "status": "passed",
+  "scope": "Automated implementation and recovery; gameplay acceptance pending",
+  "native_summon_and_resale_tests": 3,
+  "adjacent_free_trade_tests": 6,
+  "adjacent_upgrade_policy_tests": 1,
+  "cache_tests": 2,
+  "rollout_recovery_tests": 12,
+  "independent_review": {
+    "verdict": "no_remaining_blockers",
+    "corrected_findings": [
+      "Hash complete cache except 88 owned price fields, including unused lookup slots and trailer",
+      "Close gateway after failure during recovery reopening or evidence persistence"
+    ]
+  },
+  "source_change": "Only common/shareddb.cpp plus new divine_summoned_weapon_policy.h; no ItemData ABI, combat, spell or SQL change",
+  "builder": {
+    "archive_members_preserved": 126,
+    "item_size": 1332,
+    "loader_sha256": "139194a9e2f2f3384a9831670c91787a99049526168b206dafb886c7fe8a5c86"
+  },
+  "manual_qa": "README.md#exact-in-game-qa"
+}

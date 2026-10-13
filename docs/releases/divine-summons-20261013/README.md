@@ -67,6 +67,8 @@ image and regenerates its cache; it never restores player inventory or SQL.
 5. Try an ordinary merchant sale and `#sellall`. Hammers must yield no coin;
    `#sellall` must retain them. Sell an unrelated formerly NO DROP item as a
    control and confirm its ordinary one-platinum payout remains.
+   An explicit ordinary merchant sale packet can discard the hammer for zero
+   coin; the policy guarantees zero payout, not refusal of every sale packet.
 6. For later unlocked hammer lines, verify the original proc and item-level gates
    with a legal character. Their present definitions do not authorize early use.
 
