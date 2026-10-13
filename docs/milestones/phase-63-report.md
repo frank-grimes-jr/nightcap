@@ -8,8 +8,10 @@ for the sampled triples. No AA catalog, purchase, price, rule or client rewrite.
 Native compilation/link, 5,646 rank/level checks, save/purchase/projection cases,
 five policy tests and thirteen deployment/preflight recovery tests passed.
 Independent review found missing-prerequisite and incomplete-refresh cases;
-both were fixed and regression tested. Rollout remains subject to fresh production
-catalog, source and ownership checks; current activation evidence is in the release.
+both were fixed and regression tested. Fresh production catalog/source/ownership
+preflight and backup passed. OVH activation preserved all239 ownership rows,
+47 player/11 custom tables, all12 zone hashes and the concurrent skill correction.
+Runtime health passed with access open; exact activation evidence is in the release.
 
 Deferred: later burst/resource engines, veteran grants, deep offense/defense,
 starter UI filters and a new combat simulation campaign. Existing pet HP changes

@@ -1,0 +1,12 @@
+{
+  "manifest_sha256": "82437010d909cf5776b4f63dc116befacc67a7b3a47a5c364b11f02b86ac4772",
+  "old_image_id": "sha256:67b3114b9142ba19a0ead71948a053eb482818638564c408b1ebab1503f0336b",
+  "new_image_id": "sha256:5555000c74665f13eb3c99facc657b2e38c3983eff745a9ffe65a5439440f025",
+  "backup": {
+    "path": "/opt/nightcap/releases/aa-tbs-20261013/private-backup/peq-before.sql.gz",
+    "sha256": "80b7449402d8af749a687da56b2d00460e0a89df52f456c95779dc5fa716a6ee",
+    "compressed_bytes": 63406907,
+    "uncompressed_bytes": 451962516,
+    "gzip_integrity": "passed"
+  }
+}

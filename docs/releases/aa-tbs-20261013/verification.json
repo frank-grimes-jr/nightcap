@@ -1,5 +1,5 @@
 {
-  "status": "verified_candidate_not_yet_deployed",
+  "status": "deployed_for_owner_qa",
   "policy_tests": 5,
   "native": {
     "native_eligibility_cases": 5646,
@@ -25,5 +25,14 @@
   },
   "owner_gameplay_acceptance": false,
   "cross_model_review": "declined by owner",
-  "preserved_concurrent_release": "October 13 skill-progression rebuild; main b203fba and all 126 corrected zone object hashes retained in v3"
+  "preserved_concurrent_release": "October 13 skill-progression rebuild; main b203fba and all 126 corrected zone object hashes retained in v3",
+  "preserved_skill_scenarios": 9,
+  "deployment": {
+    "image_id": "sha256:5555000c74665f13eb3c99facc657b2e38c3983eff745a9ffe65a5439440f025",
+    "all_zone_hashes": 12,
+    "player_tables_preserved": 47,
+    "custom_tables_preserved": 11,
+    "ownership_rows_preserved": 239,
+    "owner_gameplay_acceptance": false
+  }
 }

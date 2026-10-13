@@ -1,6 +1,6 @@
 # CHANGES
 
-## 2026-10-13 - Buried Sea AA policy candidate for live QA
+## 2026-10-13 - Buried Sea AA policy deployed for live QA
 
 Add a generated, prerequisite-closed TBS AA allowlist with six named utility/pet
 exceptions and staged Classic rank caps. Native display, purchases, grants,
@@ -10,7 +10,9 @@ prerequisite definitions now reject purchases; clearing refreshes resend ownersh
 and statistics. Veteran grants become dormant, and pet HP caps apply on summon.
 No catalog, class mask, price or character SQL changes. Only a matching zone build
 is needed; world rules and signed client remain unchanged. The owner authorized
-OVH live QA, with gameplay acceptance/main promotion pending. Build, independent
+OVH live QA; all 12 zones match, 47 player/11 custom tables and all 239 AA ownership
+rows were preserved. The newly deployed skill/offhand correction was integrated
+before activation. Gameplay acceptance/main promotion remain pending. Build, independent
 review, recovery, exact caps and QA: `docs/releases/aa-tbs-20261013/README.md`.
 
 ## 2026-10-13 - Multiclass skill progression and offhand repair

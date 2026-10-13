@@ -1,12 +1,15 @@
 # Current Nightcap status
 
-## Buried Sea AA caps — prepared for owner-authorized OVH QA
+## Buried Sea AA caps — live for owner QA
 
 The TBS cutoff, six utility/pet exceptions and early rank caps are implemented
-and built in an isolated candidate. Sampled triples begin with nine AA families.
+and deployed on OVH from the feature/dev/test candidate. Sampled triples begin with nine AA families.
 Purchases, charges and spent points remain recorded; higher ranks and veteran
 rewards become dormant. Policy/native/ownership tests and independent review
-passed. OVH activation evidence will be recorded after the guarded rollout.
+passed. All 12 zone hashes match; 47 player and 11 custom tables were preserved.
+All 239 ownership rows remain recorded. Access is open, with zero restarts or
+detected native/quest/database errors. The concurrent skill/offhand correction
+and signed client 2026101301 remain intact. Reconnect to test.
 Owner in-game balance/readability acceptance and main promotion remain pending.
 [Caps, deployment evidence, rollback and exact QA](releases/aa-tbs-20261013/README.md).
 

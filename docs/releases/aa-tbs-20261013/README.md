@@ -1,8 +1,9 @@
 # Buried Sea AA candidate — October 13, 2026
 
-The owner authorized this policy for OVH live QA. Native build and independent
-review passed; deployment evidence is recorded below when activated. Gameplay
-acceptance and promotion to main remain pending.
+The owner-authorized policy is **live on OVH for QA**, from the feature/dev/test
+candidate. It started at 11:09:24 UTC October 13. Native build, independent review
+and deployment checks passed. Gameplay acceptance and promotion to main remain
+pending. Reconnect with the current launcher client to test.
 
 ## Behavior
 
@@ -114,6 +115,22 @@ See [build](build-manifest.json), [native tests](native-tests.json),
 
 ## Deploy and recover
 
+Activated image: `sha256:5555000c74665f13eb3c99facc657b2e38c3983eff745a9ffe65a5439440f025`.
+All twelve zone processes match, with zero runtime restarts and zero detected
+native/quest/database errors. Closed-state fingerprints preserved 47 player and
+11 custom tables. Rules, complete AA catalog, quests/plugins, public client files
+and DB/web/tunnel services remained unchanged. The prior image is the October 13
+skill correction, `sha256:67b3114b9142ba19a0ead71948a053eb482818638564c408b1ebab1503f0336b`.
+
+Fresh preflight validated **239 ownership rows / 1,193 earned ranks**: 45 rows
+fully usable, 28 partially usable and 166 dormant under the new policy. All rows
+were retained. Saved charges were zero in this capture; synthetic native checks
+also verified nonzero charge retention. Backup gzip integrity passed (63.4 MB
+compressed). See [activation](server-receipt.json), [health](final-health.json),
+[ownership preflight](production-preflight.json),
+[backup/image receipt](rollout-preflight.json) and
+[stopped fingerprints](stopped-fingerprints.json).
+
 `deployment/rollout.py` uses the established production runtime helper under
 deployment/GM locks. Preflight verifies current native hashes, exact AA catalog,
 anonymous ownership validity, supporting services and a fresh gzip-tested SQL
@@ -135,3 +152,8 @@ Future policy changes edit `era.json`/`config/aa-policy.json`, capture/review th
 catalog, regenerate the header and rebuild/deploy zone. `apply-era.ps1 -Check`
 only checks source generation, not running binary identity. A generic AA/rules
 reload cannot replace compiled policy. The protected RoF2 reference is unchanged.
+
+Retained build evidence fingerprints all 126 zone objects and 15 recorded library
+inputs. Its inherited suffix filter excludes directly named versioned libperl;
+the unchanged image supplies that runtime dependency and dependency checks passed.
+This is not a claim that every system library file was separately fingerprinted.

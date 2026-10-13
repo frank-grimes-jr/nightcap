@@ -1,0 +1,78 @@
+{
+  "status": "healthy",
+  "runtime": {
+    "image_id": "sha256:5555000c74665f13eb3c99facc657b2e38c3983eff745a9ffe65a5439440f025",
+    "started_at": "2026-10-13T11:09:24.669511989Z",
+    "restart_count": 0,
+    "processes": [
+      [
+        "loginserver",
+        "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf"
+      ],
+      [
+        "world",
+        "efd54a1023a569274a76f65d3d2a18a173906762472a1bce186e3e14629d3c18"
+      ],
+      [
+        "ucs",
+        "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714"
+      ],
+      [
+        "zone",
+        "0737959ab3ebce1b31ad687cdb41e7d69bc7c3a30620e884e543051859bde143"
+      ],
+      [
+        "zone",
+        "0737959ab3ebce1b31ad687cdb41e7d69bc7c3a30620e884e543051859bde143"
+      ],
+      [
+        "zone",
+        "0737959ab3ebce1b31ad687cdb41e7d69bc7c3a30620e884e543051859bde143"
+      ],
+      [
+        "zone",
+        "0737959ab3ebce1b31ad687cdb41e7d69bc7c3a30620e884e543051859bde143"
+      ],
+      [
+        "zone",
+        "0737959ab3ebce1b31ad687cdb41e7d69bc7c3a30620e884e543051859bde143"
+      ],
+      [
+        "zone",
+        "0737959ab3ebce1b31ad687cdb41e7d69bc7c3a30620e884e543051859bde143"
+      ],
+      [
+        "zone",
+        "0737959ab3ebce1b31ad687cdb41e7d69bc7c3a30620e884e543051859bde143"
+      ],
+      [
+        "zone",
+        "0737959ab3ebce1b31ad687cdb41e7d69bc7c3a30620e884e543051859bde143"
+      ],
+      [
+        "zone",
+        "0737959ab3ebce1b31ad687cdb41e7d69bc7c3a30620e884e543051859bde143"
+      ],
+      [
+        "zone",
+        "0737959ab3ebce1b31ad687cdb41e7d69bc7c3a30620e884e543051859bde143"
+      ],
+      [
+        "zone",
+        "0737959ab3ebce1b31ad687cdb41e7d69bc7c3a30620e884e543051859bde143"
+      ],
+      [
+        "zone",
+        "0737959ab3ebce1b31ad687cdb41e7d69bc7c3a30620e884e543051859bde143"
+      ]
+    ],
+    "errors": {
+      "native": 0,
+      "quest": 0,
+      "database": 0
+    }
+  },
+  "gateway_open": true,
+  "player_tables_preserved": 47,
+  "custom_tables_preserved": 11
+}

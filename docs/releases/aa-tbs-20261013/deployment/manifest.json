@@ -1,0 +1,32 @@
+{
+  "release": "aa-tbs-20261013",
+  "source_commit": "83ed0b574798443cf36f9d48ac33763f99cf6a7b",
+  "base_binaries": {
+    "world": "efd54a1023a569274a76f65d3d2a18a173906762472a1bce186e3e14629d3c18",
+    "zone": "c2bcd33b771112b6c5ecf1b4f7c179f22e749c9d144ab75b1384a2293e7a6766",
+    "ucs": "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714",
+    "loginserver": "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf",
+    "shared_memory": "91664a87eac78306e8a76ab4cb923ba1f03c2d0da180278db6b6cf9b6607c0ef"
+  },
+  "binaries": {
+    "world": "efd54a1023a569274a76f65d3d2a18a173906762472a1bce186e3e14629d3c18",
+    "zone": "0737959ab3ebce1b31ad687cdb41e7d69bc7c3a30620e884e543051859bde143",
+    "ucs": "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714",
+    "loginserver": "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf",
+    "shared_memory": "91664a87eac78306e8a76ab4cb923ba1f03c2d0da180278db6b6cf9b6607c0ef"
+  },
+  "runtime_helper_sha256": "a3242bee3e8d4a7e60ea81bbd6fd34587201b712247665f3c03673733b95a811",
+  "files": {
+    "aa-catalog.json.gz": "d8aed4acd218554bd13fb40f68f56829b1c1ad58cf5866ce9544cef760fb66e7",
+    "aa-policy.json": "2fdd5d95b323feb1b75ce51e3f1507fe1b3ecbe4c05c7c4ca57e08e76c9c27b4",
+    "aa_preflight.py": "f1fae327d78c27966ef058674c5d3f5e2829371a43f5f365acedf9e3f207e2af",
+    "aa_tbs_policy.py": "d0a440add3c3f5a6878e9835b3733981e75c6b180864e1f46d1d93f0d9d2a8ca",
+    "build-manifest.json": "cab1a2e0991148202f0aa286b181bc0dd511ef6518cf87d44076db640cc870ee",
+    "build_candidate.py": "32f4a22c3690c34582f9968aed59a1ab991713b9d95d2a34f00422a3de3f6e6d",
+    "rollout.py": "b0fcdf610adaa4c2c5d3416b79e4107375ede6174ef0faf4c1e39c5582623d25",
+    "test_aa_preflight.py": "cdfd614a4032b1a1042b14edf880a3771a4100eebc03312175e919e9eaaa9314",
+    "test_rollout.py": "11daf71acad32fe3d784d84730ed852e95e06a3486165a0696552198a8c2572d",
+    "verification.json": "8b346e3fe9999131062df13ceaeeabdd8de5c8b1903ea9c45a9e51885d57d832",
+    "zone": "0737959ab3ebce1b31ad687cdb41e7d69bc7c3a30620e884e543051859bde143"
+  }
+}
