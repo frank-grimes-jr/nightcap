@@ -16,8 +16,8 @@ and retained primary-only server skill progression/empty-fist checks. All 126
 zone objects were rebuilt; all 12 running zones and 105 hosted client assets
 verify. Preserved 47 player / 11 custom tables, zero new restarts/detected errors.
 No skill/point/coin grants or cap rewrites. Close EQ and use launcher Play.
-The owner confirmed the prior window opens; corrective purchase, natural gain,
-offhand combat and relog QA remain pending.
+Owner confirmed the reported Palwar issue **resolved** on October 13, 2026.
+Individual control/relog QA steps were not separately enumerated.
 [Cause, deployment, recovery and exact QA](releases/multiclass-skills-20261013/README.md).
 
 ## Launcher patch summaries — published October 12
@@ -58,23 +58,27 @@ No client update is needed. Real inventory, payout and relog acceptance remains
 owner in-game QA. [Deployment, recovery and exact QA](ops/sellall-supplies-20261012/README.md).
 
 
-## Merchant Sell All button — published October 12
+## Merchant Sell All button — resolved October 13
 
-Owner-approved PR #182 is on main. Signed client release 2026101201 adds a
+Owner confirmed the merchant button resolved on October 13. Owner-approved
+PR #182 is on main. Initial signed client release 2026101201 added a
 Sell All button to the shared merchant window, invoking the existing server
 command. All 105 host files verified; 101 existing assets, all five services,
 the desktop channel and starter were preserved. Close EQ and use launcher Play
-to update. Native rendering/sale acceptance remains pending.
+to update. The owner confirmation closes this button issue; the checklist
+remains available for regression testing.
 [Evidence, recovery and exact QA](releases/merchant-sell-all-20261012.md).
 
-## Instance Keeper visual follow-up — deployed October 12
+## Instance Keeper and waypoint visuals — resolved October 13
 
 Permafrost player QA confirmed the waypoint portal is visible and functional;
 the remaining human was the separate Instance Keeper. PR #181 gives all seven
 custom dungeon Keepers a small floating-eye appearance, preserving instance
 controls and the portal. All 29 Perl assertions pass. Quest hashes, 12 completed
 reloads, process continuity and service health were verified. No client update
-or restart was needed; the eye's in-game rendering remains owner acceptance.
+or restart was needed. On October 13 the owner confirmed the reported visual
+issue resolved after the Permafrost follow-up; this closes its acceptance gate.
+The reply does not separately attest every zone or optional QA case.
 [Evidence, rollback and exact QA](ops/keeper-visuals-20261012/README.md).
 
 ## Remove all item LORE - deployed October 12
@@ -127,8 +131,10 @@ Owner-approved PR #163 is on main and live on OVH. Waypoint markers now apply
 the stock portal effect over an invisible actor; the overlapping Instance Keeper
 in Befallen remains available. All 24 automated checks passed. The quest hash
 matches main, all 12 zone workers reloaded without reported quest errors, and
-native processes were not restarted. No client update is needed. Portal rendering,
-late-arrival visibility and discovery/recall remain owner in-game acceptance.
+native processes were not restarted. No client update is needed. The owner
+confirmed Permafrost portal visibility/function October 12 and the combined
+visual issue resolved October 13 after the Keeper follow-up. Detailed optional
+QA cases are not individually attested by that reply.
 [Deployment, rollback and exact QA](ops/waypoint-visuals-20261011/README.md).
 
 ## Food and drink requirements — removed October 11

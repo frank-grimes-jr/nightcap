@@ -19,6 +19,20 @@ rows were preserved. The newly deployed skill/offhand correction was integrated
 before activation. Gameplay acceptance/main promotion remain pending. Build, independent
 review, recovery, exact caps and QA: `docs/releases/aa-tbs-20261013/README.md`.
 
+## 2026-10-13 - Waypoint visuals accepted
+
+The owner confirmed the waypoint/Instance Keeper visual issue is resolved after
+the portal and floating-eye repairs. This closes the reported issue following
+the Permafrost follow-up. No additional runtime changes were needed. The reply
+does not separately attest every zone or optional QA case. Evidence and scope:
+`docs/ops/keeper-visuals-20261012/README.md`.
+
+## 2026-10-13 - Merchant Sell All owner acceptance
+
+Owner confirmed the shared merchant Sell All button resolved. Updated the
+release and status records to close its pending acceptance, retaining the
+original publication evidence and regression checklist. No deployment changed.
+
 ## 2026-10-13 - Multiclass skill progression and offhand repair
 
 Corrects the incomplete trainer release: native purchase validation and offhand
@@ -29,8 +43,8 @@ ownership. No player points/skills or DB caps are granted. Requires paired
 zone and proxy 0.8.3-dev/signed catalog. Reproductions, release evidence and exact
 owner QA: `docs/releases/multiclass-skills-20261013/README.md`.
 Owner-approved PR #191 is merged and deployed with signed game 2026101301. All 12
-zones and 105 hosted assets verify; player/custom data was preserved. Corrective
-gameplay acceptance remains pending.
+zones and 105 hosted assets verify; player/custom data was preserved. Owner
+reported the Palwar trainer/progression/offhand issue resolved on October 13.
 
 ## 2026-10-12 - Held-class trainer access deployed
 
@@ -114,8 +128,8 @@ Preserve the name, destination, targetability and all instance dialogue/control
 code. Thirteen new Keeper and 16 waypoint checks pass. Under the existing
 main/server approval, PR #181 is merged and live on OVH. Exact quest hashes match,
 12 zone reloads completed without reported quest errors, all native processes
-stayed running, and the portal quest is unchanged. Eye rendering acceptance
-remains open. Activation,
+stayed running, and the portal quest is unchanged. Eye rendering was subsequently
+accepted October 13 when the owner confirmed the reported issue resolved. Activation,
 rollback and exact QA: `docs/ops/keeper-visuals-20261012/README.md`.
 
 ## 2026-10-12 - All-item LORE removal deployed

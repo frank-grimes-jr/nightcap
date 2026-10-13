@@ -69,5 +69,13 @@ unchanged. All five services stayed running and game/database remained healthy.
 The waypoint quest hash is unchanged. Refresh signals were sent to all seven
 Keeper types. [Sanitized evidence](deployment-evidence.json) records these checks.
 
-The earlier main/server authorization covers this corrective follow-up. The
-user-confirmed portal remains intact; floating-eye rendering acceptance is open.
+The earlier main/server authorization covers this corrective follow-up.
+
+## Owner acceptance — October 13, 2026
+
+After the Permafrost report identified the remaining human as Instance Keeper
+and the floating-eye correction was deployed, the owner replied **"resolved"**.
+This closes the reported waypoint/keeper visual issue and its rendering
+acceptance gate. No further runtime change was needed. The confirmation does
+not separately attest every zone, client setting or checklist step above.
+The dated deployment JSON retains its original pre-acceptance scope.

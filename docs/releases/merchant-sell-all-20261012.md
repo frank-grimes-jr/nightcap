@@ -1,9 +1,12 @@
-# Merchant Sell All button — deployed for live QA
+# Merchant Sell All button — owner confirmed resolved October 13
 
 The owner explicitly requested main and server publication on October 12.
 PR [#182](https://github.com/frank-grimes-jr/nightcap/pull/182) merged at
 `e43c5c8d57d1897d7d26a100eadbb0ee19e1b3fa`. Signed production client release
-**2026101201** is active on OVH. Native in-game acceptance remains pending.
+**2026101201** first published the button on OVH on October 12. The owner
+confirmed the merchant Sell All feature resolved on October 13. Later signed
+client releases supersede this initial publication; its evidence below remains
+a dated release record.
 
 The shared Nightcap merchant window has a **Sell All** button in the spare
 footer below the stock action row. A left click sends exactly `#sellall` through
@@ -56,9 +59,10 @@ embedded preflight catalog advance together.
 Candidate DLL SHA-256:
 `c3823ec3af4a7d49de42e9c4753c83d256ce7ed8246758923872402462c7e24b`.
 
-Native in-game rendering and sales remain unaccepted. Publication changes the
-hosted client release; installed clients update through launcher Play. No game
-or database process was restarted.
+The owner reported this feature resolved on October 13. The confirmation closes
+the reported merchant button issue; individual regression checklist results were
+not separately recorded. Installed clients update through launcher Play. The
+October 12 publication restarted no game or database process.
 
 ## Packaging and recovery
 
