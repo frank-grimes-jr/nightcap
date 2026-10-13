@@ -1,5 +1,14 @@
 # Current Nightcap status
 
+## Unrest waypoint — entrance relocation candidate October 13
+
+Live inspection found the portal/recall 921 units from the floating-eye Keeper.
+The prepared guarded correction moves the waypoint to `/loc -38,52,3`, preserving
+player discoveries and unrelated saved state. Five focused tests, eight adjacent
+placement tests and 29 visual/discovery/Keeper checks pass. Main promotion,
+production activation and owner gameplay QA remain pending; current live placement
+has not changed. [Cause, scope, activation and QA](ops/unrest-waypoint-20261013/README.md).
+
 ## Divine summoned weapons — deployed October 13
 
 Owner-approved PR #197 is on main and live. Existing Paladin/Cleric hammer spells
