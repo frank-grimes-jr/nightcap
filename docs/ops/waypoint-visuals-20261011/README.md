@@ -1,7 +1,9 @@
 # Waypoint visual repair — October 11, 2026
 
 Owner-approved PR #163 was merged and deployed on October 11, 2026.
-In-game rendering acceptance remains pending. The owner reported two human males in Befallen.
+The owner confirmed the combined visual issue resolved October 13 after the
+[Instance Keeper follow-up](../keeper-visuals-20261012/README.md).
+Originally the owner reported two human males in Befallen.
 Production inspection found marker NPC 999240 and Instance Keeper 999227 at
 world X=35, Y=-82, Z=3. Both intentionally use race 1, gender 0. This is not
 a duplicate waypoint or a missing-model fallback. All 72 marker spawn rows
@@ -17,7 +19,8 @@ effect 178. The same entity retains its nameplate and 25/30-unit discovery box.
 The native nimbus mechanism sends the effect to players entering later; repeated
 refreshes do not stack it. Signal 20261011 refreshes an already spawned marker.
 No timer, new NPC, spell cast, client patch, database migration or binary build
-is needed. Instance Keeper service and appearance remain intact. Positions,
+is needed. This initial repair retained the Instance Keeper appearance; the
+October 12 follow-up replaced its human model with a floating eye. Positions,
 recall destinations, discoveries, Explorer rewards and combat data are unchanged.
 This fixes the two-human presentation without deleting either service.
 
@@ -90,5 +93,8 @@ constitute an in-game effect acknowledgement.
    human marker, duplicate effect, discovery change or relocation.
 
 The candidate passed `feature → dev → test`. The owner explicitly approved
-main promotion and server activation on October 11; rendered acceptance remains
-an open live QA check.
+main promotion and server activation on October 11. Permafrost portal visibility
+and function were owner-confirmed October 12. On October 13 the owner replied
+**"resolved"** after the Keeper correction, closing the reported visual issue.
+This does not separately attest every optional checklist step or every zone;
+the deployment evidence retains its original dated scope.

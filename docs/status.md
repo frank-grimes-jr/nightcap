@@ -59,14 +59,16 @@ the desktop channel and starter were preserved. Close EQ and use launcher Play
 to update. Native rendering/sale acceptance remains pending.
 [Evidence, recovery and exact QA](releases/merchant-sell-all-20261012.md).
 
-## Instance Keeper visual follow-up — deployed October 12
+## Instance Keeper and waypoint visuals — resolved October 13
 
 Permafrost player QA confirmed the waypoint portal is visible and functional;
 the remaining human was the separate Instance Keeper. PR #181 gives all seven
 custom dungeon Keepers a small floating-eye appearance, preserving instance
 controls and the portal. All 29 Perl assertions pass. Quest hashes, 12 completed
 reloads, process continuity and service health were verified. No client update
-or restart was needed; the eye's in-game rendering remains owner acceptance.
+or restart was needed. On October 13 the owner confirmed the reported visual
+issue resolved after the Permafrost follow-up; this closes its acceptance gate.
+The reply does not separately attest every zone or optional QA case.
 [Evidence, rollback and exact QA](ops/keeper-visuals-20261012/README.md).
 
 ## Remove all item LORE - deployed October 12
@@ -119,8 +121,10 @@ Owner-approved PR #163 is on main and live on OVH. Waypoint markers now apply
 the stock portal effect over an invisible actor; the overlapping Instance Keeper
 in Befallen remains available. All 24 automated checks passed. The quest hash
 matches main, all 12 zone workers reloaded without reported quest errors, and
-native processes were not restarted. No client update is needed. Portal rendering,
-late-arrival visibility and discovery/recall remain owner in-game acceptance.
+native processes were not restarted. No client update is needed. The owner
+confirmed Permafrost portal visibility/function October 12 and the combined
+visual issue resolved October 13 after the Keeper follow-up. Detailed optional
+QA cases are not individually attested by that reply.
 [Deployment, rollback and exact QA](ops/waypoint-visuals-20261011/README.md).
 
 ## Food and drink requirements — removed October 11

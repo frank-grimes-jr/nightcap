@@ -1,5 +1,13 @@
 # CHANGES
 
+## 2026-10-13 - Waypoint visuals accepted
+
+The owner confirmed the waypoint/Instance Keeper visual issue is resolved after
+the portal and floating-eye repairs. This closes the reported issue following
+the Permafrost follow-up. No additional runtime changes were needed. The reply
+does not separately attest every zone or optional QA case. Evidence and scope:
+`docs/ops/keeper-visuals-20261012/README.md`.
+
 ## 2026-10-13 - Multiclass skill progression and offhand repair
 
 Corrects the incomplete trainer release: native purchase validation and offhand
@@ -95,8 +103,8 @@ Preserve the name, destination, targetability and all instance dialogue/control
 code. Thirteen new Keeper and 16 waypoint checks pass. Under the existing
 main/server approval, PR #181 is merged and live on OVH. Exact quest hashes match,
 12 zone reloads completed without reported quest errors, all native processes
-stayed running, and the portal quest is unchanged. Eye rendering acceptance
-remains open. Activation,
+stayed running, and the portal quest is unchanged. Eye rendering was subsequently
+accepted October 13 when the owner confirmed the reported issue resolved. Activation,
 rollback and exact QA: `docs/ops/keeper-visuals-20261012/README.md`.
 
 ## 2026-10-12 - All-item LORE removal deployed
