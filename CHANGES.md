@@ -10,8 +10,8 @@ ownership. No player points/skills or DB caps are granted. Requires paired
 zone and proxy 0.8.3-dev/signed catalog. Reproductions, release evidence and exact
 owner QA: `docs/releases/multiclass-skills-20261013/README.md`.
 Owner-approved PR #191 is merged and deployed with signed game 2026101301. All 12
-zones and 105 hosted assets verify; player/custom data was preserved. Corrective
-gameplay acceptance remains pending.
+zones and 105 hosted assets verify; player/custom data was preserved. Owner
+reported the Palwar trainer/progression/offhand issue resolved on October 13.
 
 ## 2026-10-12 - Held-class trainer access deployed
 

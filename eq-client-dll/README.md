@@ -12,8 +12,8 @@ October 13 corrective deployment: proxy `0.8.3-dev` repairs the additional nativ
 trainer at-cap purchase gate and offhand Dual Wield placement check. Scoped
 trainer queries preserve native restrictions; offhand access requires a server
 skill and a current held-class cap. Pair with the full zone progression rebuild
-and signed catalog. Native regressions and 91 guards pass; gameplay acceptance
-remains pending. Published as signed game `2026101301`, paired with the live
+and signed catalog. Native regressions and 91 guards pass; the owner reported the issue
+resolved on October 13. Published as signed game `2026101301`, paired with the live
 zone repair. [Evidence and exact QA](../docs/releases/multiclass-skills-20261013/README.md).
 
 October 9: signed game `2026100901` / proxy `0.7.8-dev` is deployed with
