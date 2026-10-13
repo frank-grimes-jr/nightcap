@@ -8,9 +8,11 @@ vendor move beside the existing buffers. Guarded pose-only SQL and fresh-state
 rollback preserve stock, gameplay, other services, corpses and other instances.
 Nine unit tests, eleven real MariaDB rehearsal checks and native geometry checks
 pass. The owner approved main/live QA; activation and visual acceptance remain
-pending. The data-only operator has twelve fault-injection tests and restores
+pending. The data-only operator has thirteen fault-injection tests and restores
 a fresh stopped backup in isolation before applying. It holds access closed
-on unverified recovery. See `docs/releases/tunnel-cozy-20261013/README.md`.
+on unverified recovery. The first rehearsal caught dump rounding of character
+coordinates before live writes; an exact-precision backup companion fixes that
+without relaxing preservation checks. See `docs/releases/tunnel-cozy-20261013/README.md`.
 
 ## 2026-10-13 - Waypoint visuals accepted
 

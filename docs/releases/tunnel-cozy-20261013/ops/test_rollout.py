@@ -25,7 +25,7 @@ class RecoveryTests(unittest.TestCase):
         self.p={'manifest_sha256':'hash','services':{'game':{'id':'game'},'gateway':{'id':'gateway'}}}
         r=types.ModuleType('runtime_ops');r.ROOT=self.stage
         r.sql=self.sql;r.compact=lambda name:self.p['services'][name]
-        r.compose=lambda *args:self.close();r.database_backup=lambda:{'path':'private'}
+        r.compose=lambda *args:self.close();r.database_backup=lambda:{'path':str(self.stage/'private.sql.gz')}
         spec=importlib.util.spec_from_file_location('cozy_operator',Path(__file__).with_name('rollout.py'))
         self.op=importlib.util.module_from_spec(spec)
         with patch.dict(sys.modules,{'fcntl':types.ModuleType('fcntl'),'runtime_ops':r}):spec.loader.exec_module(self.op)
@@ -57,6 +57,7 @@ class RecoveryTests(unittest.TestCase):
             if self.fail_sql:self.fail_sql=False;raise RuntimeError('Lost acknowledgment after commit')
             return ''
         if query.startswith('SELECT COUNT(*)'):return '0'
+        if query.startswith('SELECT id,y+0e0'):return '1\t3.750000238418579\t-141\t4\t0\n'
         raise AssertionError('Unexpected query')
     def assert_original(self):
         for table in self.op.content.KEYS:
@@ -131,5 +132,11 @@ class RecoveryTests(unittest.TestCase):
         with patch.object(self.op.r,'sql',sql):
             with self.assertRaises(AssertionError):self.op.activate()
         self.assertNotIn('start',self.events);self.assertFalse(self.gateway)
+    def test_backup_sidecar_keeps_round_trip_precision_and_rejects_bad_fields(self):
+        sql=self.op.precise_character_positions()
+        self.assertIn('`y`=3.750000238418579',sql)
+        self.assertTrue(sql.startswith('START TRANSACTION;'))
+        for malformed in ('1\tNaN\t0\t0\t0','1\t0;DELETE FROM inventory\t0\t0\t0','bad\t0\t0\t0\t0'):
+            with self.assertRaises(AssertionError):self.op.precise_character_positions(lambda query:malformed)
 
 if __name__=='__main__':unittest.main()
