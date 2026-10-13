@@ -8,6 +8,12 @@ server-authorized UI chassis.
 
 ## Status
 
+October 12 trainer candidate: proxy `0.8.2-dev` corrects primary-class gates
+only in the trainer right-click, list, display, button and purchase paths, using
+current server-confirmed held classes. Pair it with the trainer-hail zone build
+and signed catalog. Separate early-scribing candidate is not included. Not yet
+published or player-accepted. [Evidence and exact QA](../docs/releases/multiclass-trainers-20261012/README.md).
+
 October 9: signed game `2026100901` / proxy `0.7.8-dev` is deployed with
 Always Loot/Never Loot directly beside each item and automatic close when the
 offered loot queue empties. The DLL and generated Pet Info XML must be paired.

@@ -1632,6 +1632,26 @@ void Client::OPMoveCoin(const EQApplicationPacket* app)
 	SaveCurrency();
 }
 
+void Client::CheckTrainerHail(NPC* trainer, const char* message)
+{
+	if (!trainer || !message || trainer->IsEngaged() || IsInvisible(trainer) ||
+		trainer->GetClass() < Class::WarriorGM || trainer->GetClass() > Class::BerserkerGM) {
+		return;
+	}
+	// Accept the native "Hail, Name" greeting or a plain /say hail.
+	if (strcasecmp(message, "hail") != 0 && strncasecmp(message, "hail, ", 6) != 0) {
+		return;
+	}
+
+	// Reuse the normal open handler: held classes, current caps and distance
+	// remain authoritative, including for clients that reject a right-click.
+	EQApplicationPacket request(OP_GMTraining, sizeof(GMTrainee_Struct));
+	auto* trainee = reinterpret_cast<GMTrainee_Struct*>(request.pBuffer);
+	trainee->npcid = trainer->GetID();
+	trainee->playerid = GetID();
+	OPGMTraining(&request);
+}
+
 void Client::OPGMTraining(const EQApplicationPacket *app)
 {
 
@@ -1641,6 +1661,7 @@ void Client::OPGMTraining(const EQApplicationPacket *app)
 	Mob* pTrainer = entity_list.GetMob(gmtrain->npcid);
 
 	if (!pTrainer || !pTrainer->IsNPC() || pTrainer->GetClass() < Class::WarriorGM || pTrainer->GetClass() > Class::BerserkerGM) {
+		safe_delete(outapp);
 		return;
 	}
 
