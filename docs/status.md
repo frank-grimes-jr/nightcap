@@ -1,5 +1,14 @@
 # Current Nightcap status
 
+## Unrest waypoint — entrance relocation candidate October 13
+
+Live inspection found the portal/recall 921 units from the floating-eye Keeper.
+The prepared guarded correction moves the waypoint to `/loc -38,52,3`, preserving
+player discoveries and unrelated saved state. Five focused tests, eight adjacent
+placement tests and 29 visual/discovery/Keeper checks pass. Main promotion,
+production activation and owner gameplay QA remain pending; current live placement
+has not changed. [Cause, scope, activation and QA](ops/unrest-waypoint-20261013/README.md).
+
 ## Passive AA — 20% deployed October 13
 
 Owner-approved passive AA decreased from 40% to **20%**. Normal leveling XP,

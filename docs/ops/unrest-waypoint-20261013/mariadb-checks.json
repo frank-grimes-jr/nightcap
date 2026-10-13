@@ -1,0 +1,14 @@
+{
+  "checks": [
+    "forward portal/recall and discoveries",
+    "inverse preserves newer activity and restores durable placement",
+    "preimage rejection preserves all synthetic tables: UPDATE spawn2 SET x=x+1 WHERE id=3266123;",
+    "preimage rejection preserves all synthetic tables: UPDATE nightcap_waypoints SET x=x+1 WHERE zone='unrest';",
+    "preimage rejection preserves all synthetic tables: UPDATE spawn2 SET x=x+1 WHERE id=3266037;",
+    "repeat fails closed without further changes",
+    "absent saved state"
+  ],
+  "passed": 7,
+  "version": "10.5.4-MariaDB-1:10.5.4+maria~focal",
+  "scope": "Synthetic fixture in disposable local network-isolated MariaDB; not production deployment or gameplay QA."
+}
