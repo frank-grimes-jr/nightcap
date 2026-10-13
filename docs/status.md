@@ -8,8 +8,8 @@ and retained primary-only server skill progression/empty-fist checks. All 126
 zone objects were rebuilt; all 12 running zones and 105 hosted client assets
 verify. Preserved 47 player / 11 custom tables, zero new restarts/detected errors.
 No skill/point/coin grants or cap rewrites. Close EQ and use launcher Play.
-The owner confirmed the prior window opens; corrective purchase, natural gain,
-offhand combat and relog QA remain pending.
+Owner confirmed the reported Palwar issue **resolved** on October 13, 2026.
+Individual control/relog QA steps were not separately enumerated.
 [Cause, deployment, recovery and exact QA](releases/multiclass-skills-20261013/README.md).
 
 ## Launcher patch summaries — published October 12

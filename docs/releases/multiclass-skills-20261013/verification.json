@@ -1,9 +1,14 @@
 {
   "date": "2026-10-13",
-  "status": "merged_deployed_player_acceptance_pending",
+  "status": "merged_deployed_owner_reported_resolved",
   "owner_qa": {
     "previous_release": "trainer window opens; purchases, natural skill gains and offhand fail",
-    "corrective_release": "pending"
+    "corrective_release": {
+      "date": "2026-10-13",
+      "response": "resolved",
+      "scope": "reported Palwar trainer, progression and offhand issue",
+      "limits": "Individual relog, release and negative-control QA steps were not separately enumerated."
+    }
   },
   "client": {
     "dll_build": "pass",

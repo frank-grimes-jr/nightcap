@@ -10,7 +10,7 @@ client assets; launcher 0.6.0, prior patch history and all other files remain.
 The owner confirmed that the October 12 patch opens the trainer window but does
 not allow purchases or progression. This repair addresses those failures and
 offhand access. Close EQ fully and use launcher Play to receive both sides.
-Owner training, natural gains, offhand combat and relog acceptance remain pending.
+Owner reported the issue **resolved** on October 13, 2026.
 
 ## Root causes and scope
 
@@ -91,5 +91,6 @@ pinned by immutable image IDs. See `legacy-tag-restored.json`.
 6. With a disposable QA character, release the class that uniquely owns a skill
    and verify skill/access removal. Do not release Palwar's classes for this test.
 
-Current owner acceptance: trainer window opens on the previous release; buying,
-natural skill gains and offhand gameplay on this corrective release are pending.
+Owner acceptance (October 13, 2026): "resolved" after the paired correction.
+This closes the reported Palwar trainer/progression/offhand issue. Individual
+relog, class-release and negative-control steps were not separately enumerated.
