@@ -1,5 +1,9 @@
 # Multiclass trainers — October 12, 2026 release
 
+**October 13 owner QA:** the window opens, but purchase, progression and offhand
+checks remain broken. See the [corrective release](../multiclass-skills-20261013/README.md).
+The primary-only MaxSkill baseline difference below was causal, not unrelated.
+
 Owner-approved PR #189 is merged to main at `7df224d` and deployed to OVH,
 paired with signed client release **2026101204**. Palwar can use the new
 held-class trainer paths by hailing or right-clicking Joren in East Commonlands.

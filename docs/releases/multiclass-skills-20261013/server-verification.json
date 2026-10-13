@@ -1,0 +1,120 @@
+{
+  "date": "2026-10-13",
+  "status": "native_fixture_verified_full_build_pending",
+  "review": "independent server reproduction and staged-source/build/client review",
+  "test": "tools/tests/test_multiclass_skill_progression.py",
+  "test_sha256": "a973de414f3e437b47f329e5c891a1a58377a896b1f66991a3b5bb9c351478c3",
+  "sources": {
+    "retained": {
+      "root": "E:\\EQ_Local_Dev\\artifacts\\multiclass-skill-progression-20261013\\retained",
+      "sha256": {
+        "zone/client.h": "8d78ac3d967fd36c83c8b3b4fe1f43e53eeeb5437b4b74401231d4c55d1d7c8c",
+        "zone/client.cpp": "cbc5425c26beab424449ff85757701a9a82b07eb47438fbc863efb8fe549fb18",
+        "zone/mob.cpp": "37a87390a20ed27ef20f0b79a8bc4285b35e533d28a26d37b855412588d9cd8f",
+        "zone/attack.cpp": "f96a9684d68e1de14de59058408ddd3043e9e989724978efb7df992014100890"
+      }
+    },
+    "staged": {
+      "root": "E:\\EQ_Local_Dev\\artifacts\\multiclass-skill-progression-20261013\\input",
+      "sha256": {
+        "zone/client.h": "f8bc662efa8c8b61577f2659a9a72c55f60820f8e33fb5fefb7ba0f502e409b8",
+        "zone/client.cpp": "a4fcd19fea8965f8a5a67f6a2cc44f7c83d6a55c32d9e8995ed95330b3ee61f8",
+        "zone/mob.cpp": "be3e22457233e50f288e81aaa500918049fa5e1453b3efaf74877ecdd057d41a"
+      }
+    },
+    "repository": {
+      "root": "server-mods/code",
+      "sha256": {
+        "zone/client.h": "f8bc662efa8c8b61577f2659a9a72c55f60820f8e33fb5fefb7ba0f502e409b8",
+        "zone/client.cpp": "a4fcd19fea8965f8a5a67f6a2cc44f7c83d6a55c32d9e8995ed95330b3ee61f8",
+        "zone/mob.cpp": "be3e22457233e50f288e81aaa500918049fa5e1453b3efaf74877ecdd057d41a"
+      }
+    }
+  },
+  "results": {
+    "retained": {
+      "caps": "expected_failure",
+      "advance": "expected_failure",
+      "add": "expected_failure",
+      "raw": "passed",
+      "fists": "expected_failure",
+      "weapons": "passed",
+      "membership": "passed",
+      "guards": "passed",
+      "legacy_caps": "expected_failure"
+    },
+    "staged": {
+      "caps": "passed",
+      "advance": "passed",
+      "add": "passed",
+      "raw": "passed",
+      "fists": "passed",
+      "weapons": "passed",
+      "membership": "passed",
+      "guards": "passed",
+      "legacy_caps": "passed"
+    },
+    "repository": {
+      "caps": "passed",
+      "advance": "passed",
+      "add": "passed",
+      "raw": "passed",
+      "fists": "passed",
+      "weapons": "passed",
+      "membership": "passed",
+      "guards": "passed",
+      "legacy_caps": "passed"
+    }
+  },
+  "reproduced": {
+    "caps": "Retained inline MaxSkill(skill) selects primary Paladin cap0 for held Monk DW/Kick.",
+    "advance": "Actual CheckIncreaseSkill fails before deterministic favorable roll because current held cap is hidden.",
+    "add": "Actual AddSkill clamps held Kick to0; this is a separate API regression, not the trainer purchase cause (trainer calls SetSkill).",
+    "fists": "Retained CanThisClassDualWield rejects empty fists using primary class despite savedDW1 and held Monk.",
+    "raw": "Actual GetSkill and HasSkill already expose savedDW1. No server GetSkill clamp defect was reproduced.",
+    "legacy_caps": "Previous Monk/Beastlord slot2/3,level1/2/50,H2H/DW/Offense,specialization and release controls retained."
+  },
+  "extracted_methods": [
+    "Client::MaxSkill(one-argument)",
+    "Client::MaxSkill(three-argument)",
+    "Client::GetSkill",
+    "Client::CanHaveSkill",
+    "Client::HasSkill",
+    "Client::CheckIncreaseSkill",
+    "Client::AddSkill",
+    "Mob::CanThisClassDualWield",
+    "Mob::GetHandToHandClass only if selected source calls it"
+  ],
+  "fixture_limits": [
+    "Explicit cap rows model production Palwar level6 DW47/Kick30 plus prior dated cap controls; not a live DB test.",
+    "Transport,persistence,logging,quest callbacks,item bonuses and specialization cap service are controlled fixtures.",
+    "Random roll fixed favorable to isolate eligibility; no assertion about real skill-up probability.",
+    "Inventory records and membership access are fixtures; actual weapon/fists gate runs.",
+    "No trainer packet purchase,real combat/offhand swing timing,gameplay UI,full binary build or deployment acceptance established by these tests.",
+    "Windows MSVC C++20; TEMP/TMP redirected inside workspace because sandbox temp ACL blocked default path."
+  ],
+  "reviewed_changes": {
+    "server_delta": "Exactly client.h inline declaration replacement,client.cpp held-class MaxSkill definition,mob.cpp direct held Monk/Beastlord empty-fists predicate.",
+    "dependency_resolution": "Retained attack.cpp lacks GetHandToHandClass; direct membership predicate avoids importing that undeployed helper.",
+    "builder": {
+      "path": "tools/build_skill_progression_candidate.py",
+      "sha256": "29d5650f6433cbf12c071987e94f77eea94f7b3c90e3ad8cb79423cfbed713c6",
+      "verdict": "No remaining blocker in recipe; full build result is separate.",
+      "scope": "Verifies retained source/binary/manifest/link inputs; rebuilds all126 zone TUs with fresh candidate PCH; links in isolated directory; no runtime/database changes."
+    },
+    "pch": {
+      "wrapper_sha256": "374c71779c24d7978c9a06dfc0e1ed1af6d4d01ad8a2ea36cc40cb6fdd35f4a5",
+      "compiled_sha256": "106fb9900ad7ecf55a030071820104645872163e91876440a81ca8207ee99019",
+      "observation": "Read directly from local build container. All3 includes point into /tmp/nightcap-skills-build-20261013-v2/source: common/pch/app-pch.h,common/pch/std-pch.h,zone/pch/pch.h. No retained source paths."
+    },
+    "client": {
+      "path": "eq-client-dll/src/trainer_hooks.h",
+      "sha256": "543ea2f5a74227d3cfb4121b95fcbbc9f2706e0dc23136734fb89c77fa715ec3",
+      "finding": "Original proposed offhand fallback queried level100 caps; future Warrior cap could authorize staleDW1 after Monk release.",
+      "resolution": "Queries actual current level and matches primary identity; native test now provides Warrior futurecap200/currentcap0. Native virtual-base/profile/level ABI independently matched disassembly44A077..44A0A4. Trainer scope wraps original at-cap predicate, retaining tradeskill restriction.",
+      "catalog_check": "91 sites passed tools/generate-client-patch-catalog.py --check.",
+      "verdict": "No remaining code finding; client agent owns full runtime/build evidence."
+    }
+  },
+  "player_acceptance": "pending"
+}

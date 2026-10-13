@@ -1,0 +1,210 @@
+Source (read only): E:\EQ_Local_Dev\Client_RoF2_Dev\everquest_rof2\eqgame.exe
+SHA256: 2a8702ad9f722704f01355c0750be7d6f164a8b9c9128ba0cf286ea32b405b0e
+Native preferred base: 0x400000
+Generated 2026-10-13; static exact-client evidence, not visible gameplay QA.
+
+Trainer purchase at-cap rejection (eqstr12930)
+00585952 57                       push edi
+00585953 8bce                     mov ecx, esi
+00585955 e8f6f4ffff               call 0x584e50
+0058595A 84c0                     test al, al
+0058595C 744c                     je 0x5859aa
+0058595E 8b355826dd00             mov esi, dword ptr [0xdd2658]
+00585964 8b0d1046e600             mov ecx, dword ptr [0xe64610]
+0058596A 6a00                     push 0
+0058596C 6a00                     push 0
+0058596E 6a00                     push 0
+00585970 6a00                     push 0
+00585972 6a00                     push 0
+00585974 6a00                     push 0
+00585976 6a00                     push 0
+00585978 6a00                     push 0
+0058597A 57                       push edi
+0058597B 81c6a4000000             add esi, 0xa4
+00585981 e82a510300               call 0x5baab0
+00585986 8b0dc425dd00             mov ecx, dword ptr [0xdd25c4]
+0058598C 50                       push eax
+0058598D e8ceac2400               call 0x7d0660
+00585992 8b0dcc7ce600             mov ecx, dword ptr [0xe67ccc]
+00585998 50                       push eax
+00585999 56                       push esi
+0058599A e83119f9ff               call 0x5172d0
+0058599F 50                       push eax
+005859A0 6882320000               push 0x3282
+005859A5 e906feffff               jmp 0x5857b0
+
+Native at-cap compares raw skill against current-level max
+00584E50 53                       push ebx
+00584E51 56                       push esi
+00584E52 57                       push edi
+00584E53 8b7c2410                 mov edi, dword ptr [esp + 0x10]
+00584E57 57                       push edi
+00584E58 8bf1                     mov esi, ecx
+00584E5A e881fdffff               call 0x584be0
+00584E5F 8bd8                     mov ebx, eax
+00584E61 8b4608                   mov eax, dword ptr [esi + 8]
+00584E64 8b4804                   mov ecx, dword ptr [eax + 4]
+00584E67 8d4c3108                 lea ecx, [ecx + esi + 8]
+00584E6B 8d4904                   lea ecx, [ecx + 4]
+00584E6E e89d632500               call 0x7db210
+00584E73 83ff64                   cmp edi, 0x64
+00584E76 7201                     jb 0x584e79
+00584E78 cc                       int3
+00584E79 33d2                     xor edx, edx
+00584E7B 399cb8a0300000           cmp dword ptr [eax + edi*4 + 0x30a0], ebx
+00584E82 5f                       pop edi
+00584E83 5e                       pop esi
+00584E84 0f9dc0                   setge al
+00584E87 5b                       pop ebx
+00584E88 c20400                   ret 4
+
+Current max loads PRIMARY class and calls skill cap
+00584BE0 83ec28                   sub esp, 0x28
+00584BE3 53                       push ebx
+00584BE4 55                       push ebp
+00584BE5 56                       push esi
+00584BE6 8bf1                     mov esi, ecx
+00584BE8 8b4608                   mov eax, dword ptr [esi + 8]
+00584BEB 8b4804                   mov ecx, dword ptr [eax + 4]
+00584BEE 8d4c3108                 lea ecx, [ecx + esi + 8]
+00584BF2 57                       push edi
+00584BF3 8d4904                   lea ecx, [ecx + 4]
+00584BF6 e815662500               call 0x7db210
+00584BFB 8b5608                   mov edx, dword ptr [esi + 8]
+00584BFE 8a8074330000             mov al, byte ptr [eax + 0x3374]
+00584C04 8b4a04                   mov ecx, dword ptr [edx + 4]
+00584C07 8b5c243c                 mov ebx, dword ptr [esp + 0x3c]
+00584C0B 6a01                     push 1
+00584C0D 6a01                     push 1
+00584C0F 0fb6d0                   movzx edx, al
+00584C12 8b443108                 mov eax, dword ptr [ecx + esi + 8]
+00584C16 6a01                     push 1
+00584C18 8d4c3108                 lea ecx, [ecx + esi + 8]
+00584C1C 53                       push ebx
+00584C1D 52                       push edx
+00584C1E 8b5068                   mov edx, dword ptr [eax + 0x68]
+00584C21 ffd2                     call edx
+00584C23 8b0d1046e600             mov ecx, dword ptr [0xe64610]
+00584C29 50                       push eax
+00584C2A 56                       push esi
+00584C2B e890620300               call 0x5baec0
+00584C30 8b0d1046e600             mov ecx, dword ptr [0xe64610]
+00584C36 53                       push ebx
+00584C37 89442424                 mov dword ptr [esp + 0x24], eax
+00584C3B e8405e0300               call 0x5baa80
+00584C40 84c0                     test al, al
+
+Trainer server-provided cap guard retained
+005859AA 8b4e08                   mov ecx, dword ptr [esi + 8]
+005859AD 8b5104                   mov edx, dword ptr [ecx + 4]
+005859B0 57                       push edi
+005859B1 8d4c3208                 lea ecx, [edx + esi + 8]
+005859B5 e856c7ebff               call 0x442110
+005859BA 3b84240c010000           cmp eax, dword ptr [esp + 0x10c]
+005859C1 7c31                     jl 0x5859f4
+005859C3 a15826dd00               mov eax, dword ptr [0xdd2658]
+005859C8 8b0dcc7ce600             mov ecx, dword ptr [0xe67ccc]
+005859CE 6a00                     push 0
+005859D0 6a00                     push 0
+005859D2 6a00                     push 0
+005859D4 6a00                     push 0
+005859D6 6a00                     push 0
+005859D8 6a00                     push 0
+005859DA 6a00                     push 0
+005859DC 05a4000000               add eax, 0xa4
+005859E1 6a00                     push 0
+005859E3 50                       push eax
+005859E4 e8e718f9ff               call 0x5172d0
+005859E9 50                       push eax
+005859EA 6883320000               push 0x3283
+005859EF e9eefbffff               jmp 0x5855e2
+005859F4 5f                       pop edi
+005859F5 b801000000               mov eax, 1
+005859FA 5e                       pop esi
+005859FB 81c400010000             add esp, 0x100
+
+Offhand weapon predicate before patched CanUseItem
+00583432 8b0e                     mov ecx, dword ptr [esi]
+00583434 e887cf2200               call 0x7b03c0
+00583439 84c0                     test al, al
+0058343B 7415                     je 0x583452
+0058343D 6a16                     push 0x16
+0058343F 8d8fc82d0000             lea ecx, [edi + 0x2dc8]
+00583445 e8666decff               call 0x44a1b0
+0058344A 84c0                     test al, al
+0058344C 0f84b8000000             je 0x58350a
+
+Native HasSkill
+0044A1B0 8b442404                 mov eax, dword ptr [esp + 4]
+0044A1B4 50                       push eax
+0044A1B5 e826feffff               call 0x449fe0
+0044A1BA 33c9                     xor ecx, ecx
+0044A1BC 85c0                     test eax, eax
+0044A1BE 0f9fc0                   setg al
+0044A1C1 c20400                   ret 4
+
+Native GetSkill primary-class cap query
+0044A103 8b4204                   mov eax, dword ptr [edx + 4]
+0044A106 8d4c3004                 lea ecx, [eax + esi + 4]
+0044A10A 8d4904                   lea ecx, [ecx + 4]
+0044A10D e8fe103900               call 0x7db210
+0044A112 8a8074330000             mov al, byte ptr [eax + 0x3374]
+0044A118 8b4e04                   mov ecx, dword ptr [esi + 4]
+0044A11B 8b5104                   mov edx, dword ptr [ecx + 4]
+0044A11E 6a01                     push 1
+0044A120 6a01                     push 1
+0044A122 6a01                     push 1
+0044A124 0fb6c0                   movzx eax, al
+0044A127 8d4c3204                 lea ecx, [edx + esi + 4]
+0044A12B 8b11                     mov edx, dword ptr [ecx]
+0044A12D 57                       push edi
+0044A12E 50                       push eax
+0044A12F 8b424c                   mov eax, dword ptr [edx + 0x4c]
+0044A132 6a64                     push 0x64
+0044A134 ffd0                     call eax
+0044A136 8b0d1046e600             mov ecx, dword ptr [0xe64610]
+0044A13C 50                       push eax
+0044A13D e87e0d1700               call 0x5baec0
+0044A142 85c0                     test eax, eax
+0044A144 741e                     je 0x44a164
+0044A146 8b742410                 mov esi, dword ptr [esp + 0x10]
+0044A14A 85f6                     test esi, esi
+0044A14C 7520                     jne 0x44a16e
+0044A14E 8b4c2418                 mov ecx, dword ptr [esp + 0x18]
+0044A152 51                       push ecx
+0044A153 8b0d1046e600             mov ecx, dword ptr [0xe64610]
+0044A159 57                       push edi
+0044A15A e8c1081700               call 0x5baa20
+0044A15F 83f801                   cmp eax, 1
+0044A162 7e0a                     jle 0x44a16e
+0044A164 8bc5                     mov eax, ebp
+0044A166 5d                       pop ebp
+0044A167 5b                       pop ebx
+0044A168 5f                       pop edi
+0044A169 5e                       pop esi
+0044A16A 59                       pop ecx
+0044A16B c20400                   ret 4
+
+Raw server skill accessor
+00449C80 8b4104                   mov eax, dword ptr [ecx + 4]
+00449C83 8b5004                   mov edx, dword ptr [eax + 4]
+00449C86 8d4c0a04                 lea ecx, [edx + ecx + 4]
+00449C8A 8d4904                   lea ecx, [ecx + 4]
+00449C8D e87e153900               call 0x7db210
+00449C92 8b4c2404                 mov ecx, dword ptr [esp + 4]
+00449C96 83f964                   cmp ecx, 0x64
+00449C99 7201                     jb 0x449c9c
+00449C9B cc                       int3
+00449C9C 56                       push esi
+00449C9D 8bb488a0300000           mov esi, dword ptr [eax + ecx*4 + 0x30a0]
+00449CA4 81fefc000000             cmp esi, 0xfc
+00449CAA 7e15                     jle 0x449cc1
+00449CAC 51                       push ecx
+00449CAD 8b0d1046e600             mov ecx, dword ptr [0xe64610]
+00449CB3 e878051700               call 0x5ba230
+00449CB8 84c0                     test al, al
+00449CBA b8fc000000               mov eax, 0xfc
+00449CBF 7502                     jne 0x449cc3
+00449CC1 8bc6                     mov eax, esi
+00449CC3 5e                       pop esi
+00449CC4 c20800                   ret 8

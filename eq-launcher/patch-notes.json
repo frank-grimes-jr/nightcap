@@ -1,5 +1,19 @@
 [
   {
+    "release": 2026101301,
+    "date": "2026-10-13",
+    "changes": [
+      {
+        "kind": "fix",
+        "text": "Fixed training and natural skill gains for selected classes, including Kick and Dual Wield."
+      },
+      {
+        "kind": "fix",
+        "text": "Fixed equipping offhand weapons and using Monk or Beastlord unarmed dual wield with another primary class."
+      }
+    ]
+  },
+  {
     "release": 2026101204,
     "date": "2026-10-12",
     "changes": [

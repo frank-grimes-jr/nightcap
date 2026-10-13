@@ -17,6 +17,7 @@ Start with [current status](status.md), not a dated candidate report.
 ## Players and testers
 
 - [Buried Sea AA cutoff: candidate caps, preservation and exact in-game QA](releases/aa-tbs-20261013/README.md)
+- [Multiclass skill progression and offhand corrective release](releases/multiclass-skills-20261013/README.md)
 
 - [Multiclass trainers: live paired release, recovery and Palwar QA](releases/multiclass-trainers-20261012/README.md)
 

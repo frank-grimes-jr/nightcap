@@ -13,6 +13,19 @@ is needed; world rules and signed client remain unchanged. The owner authorized
 OVH live QA, with gameplay acceptance/main promotion pending. Build, independent
 review, recovery, exact caps and QA: `docs/releases/aa-tbs-20261013/README.md`.
 
+## 2026-10-13 - Multiclass skill progression and offhand repair
+
+Corrects the incomplete trainer release: native purchase validation and offhand
+placement still used primary-class skill caps, while retained server skill gains
+and empty-fist checks differed from main. Scoped client hooks retain native
+limits; a full zone rebuild installs held-class progression and empty-fist
+ownership. No player points/skills or DB caps are granted. Requires paired
+zone and proxy 0.8.3-dev/signed catalog. Reproductions, release evidence and exact
+owner QA: `docs/releases/multiclass-skills-20261013/README.md`.
+Owner-approved PR #191 is merged and deployed with signed game 2026101301. All 12
+zones and 105 hosted assets verify; player/custom data was preserved. Corrective
+gameplay acceptance remains pending.
+
 ## 2026-10-12 - Held-class trainer access deployed
 
 Palwar's Monk/Warrior trainers were blocked before server authorization: RoF2

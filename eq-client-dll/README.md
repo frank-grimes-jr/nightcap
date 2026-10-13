@@ -8,11 +8,13 @@ server-authorized UI chassis.
 
 ## Status
 
-October 12 trainer candidate: proxy `0.8.2-dev` corrects primary-class gates
-only in the trainer right-click, list, display, button and purchase paths, using
-current server-confirmed held classes. Pair it with the trainer-hail zone build
-and signed catalog. Includes the early-scribing changes now on main. Not yet
-published or player-accepted. [Evidence and exact QA](../docs/releases/multiclass-trainers-20261012/README.md).
+October 13 corrective deployment: proxy `0.8.3-dev` repairs the additional native
+trainer at-cap purchase gate and offhand Dual Wield placement check. Scoped
+trainer queries preserve native restrictions; offhand access requires a server
+skill and a current held-class cap. Pair with the full zone progression rebuild
+and signed catalog. Native regressions and 91 guards pass; gameplay acceptance
+remains pending. Published as signed game `2026101301`, paired with the live
+zone repair. [Evidence and exact QA](../docs/releases/multiclass-skills-20261013/README.md).
 
 October 9: signed game `2026100901` / proxy `0.7.8-dev` is deployed with
 Always Loot/Never Loot directly beside each item and automatic close when the

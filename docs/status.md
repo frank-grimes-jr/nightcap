@@ -10,17 +10,17 @@ passed. OVH activation evidence will be recorded after the guarded rollout.
 Owner in-game balance/readability acceptance and main promotion remain pending.
 [Caps, deployment evidence, rollback and exact QA](releases/aa-tbs-20261013/README.md).
 
-## Multiclass trainer access — deployed
+## Multiclass skills — corrective release deployed
 
-Owner-approved PR #189 is on main and live on OVH with signed game release
-**2026101204**. Held Monk/Warrior trainers now have guarded client right-click
-and skill-list/purchase access; hailing delegates to normal server training.
-Points, coin costs, level caps and unheld-class rejection remain authoritative.
-All 12 zones match, 47 player and 11 custom tables were preserved, and access
-is open with zero detected runtime errors. The paired 105-file client release
-changes only DLL/catalog and retains prior patch history and launcher 0.6.0.
-Close EQ and use launcher Play. Palwar/Joren training, spending and relog QA
-remain pending. [Deployment, recovery and exact QA](releases/multiclass-trainers-20261012/README.md).
+Owner-approved PR #191 is merged to main and deployed with signed game release
+**2026101301** / proxy **0.8.3-dev**. It fixes missed native purchase/offhand gates
+and retained primary-only server skill progression/empty-fist checks. All 126
+zone objects were rebuilt; all 12 running zones and 105 hosted client assets
+verify. Preserved 47 player / 11 custom tables, zero new restarts/detected errors.
+No skill/point/coin grants or cap rewrites. Close EQ and use launcher Play.
+The owner confirmed the prior window opens; corrective purchase, natural gain,
+offhand combat and relog QA remain pending.
+[Cause, deployment, recovery and exact QA](releases/multiclass-skills-20261013/README.md).
 
 ## Launcher patch summaries — published October 12
 

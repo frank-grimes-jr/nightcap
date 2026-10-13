@@ -1,0 +1,12 @@
+{
+  "manifest_sha256": "66062e26af0fca5c1e04e6667e50e4a0df2ee4b20b2372d90eac155382845654",
+  "old_image_id": "sha256:1eef609e4daed95ad84fcbd193e56c0f7abbefedf325813f58316be5da558578",
+  "new_image_id": "sha256:67b3114b9142ba19a0ead71948a053eb482818638564c408b1ebab1503f0336b",
+  "backup": {
+    "path": "/opt/nightcap/releases/multiclass-skills-20261013/private-backup/peq-before.sql.gz",
+    "sha256": "377e599bee43d0d5d81cb33044a22422e0a6855cf02ba108dda1c5b64bdd42b8",
+    "compressed_bytes": 63408262,
+    "uncompressed_bytes": 451982218,
+    "gzip_integrity": "passed"
+  }
+}
