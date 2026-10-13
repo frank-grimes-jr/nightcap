@@ -1,15 +1,16 @@
 # Current Nightcap status
 
-## Launcher patch summaries — candidate October 12
+## Launcher patch summaries — published October 12
 
 The patcher now presents concise Feature/Bug fix summaries for the latest signed
 release and expandable previous patches, including during updates. Five recent
 client releases are curated in `eq-launcher/patch-notes.json`. Go regressions,
 desktop compilation, frontend build and 11 Chrome UI tests pass; rendered
-patching layout was inspected. Signed desktop 0.6.0+ and a higher game channel
-must be published together in desktop-first order. Main promotion, publication
-and native player acceptance remain pending.
-[Publishing and exact QA](ops/permanent-patcher.md#player-patch-summaries-october-12-candidate).
+patching layout was inspected. Owner-approved PR #186 is on main. Signed desktop
+0.6.0/channel 2026101201 and game 2026101202 are hosted; all 105 client assets,
+starter ZIP, guide and running services were preserved. Close EQ and the launcher,
+then reopen the normal shortcut. Native player acceptance remains pending.
+[Evidence, recovery and QA](releases/launcher-patch-history-20261012/README.md).
 
 ## Early spell scribing — candidate October 12
 

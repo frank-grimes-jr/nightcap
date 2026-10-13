@@ -22,7 +22,7 @@ Build with `./build-production.ps1 -Destination <new friends directory> -Profile
 
 For future releases, reuse the shipped starter instead of requiring players to replace it. Run unit/native/UI checks and independently review executable update changes. Upload immutable game and desktop paths first; verify every size/hash, then publish the launcher channel, ZIP/guide and game channel atomically. Hosted files already work with the existing nginx configuration (`no-cache` for new launcher paths). No game-server restart is needed for static launcher publication. Do not put private keys on the server.
 
-## Player patch summaries (October 12 candidate)
+## Player patch summaries (published October 12)
 
 The desktop displays **Latest update** above client/file details, followed by
 keyboard-accessible **Previous patches**. Each dated patch has short Feature or
@@ -38,8 +38,8 @@ implemented player changes, with deployment evidence for historical entries.
 The initial catalog covers five recent client patches: merchant Sell All,
 pet-summon crash, stock loot icons, loot-row controls and loading artwork. Sources
 are the corresponding entries in `docs/status.md`. Its first entry, 2026101202,
-is a proposed candidate counter/date; verify the live counter and revise before
-signing. It is not a claim of publication or player acceptance.
+was published with desktop 0.6.0 on October 12. Verify live counters and add a new
+dated summary before signing future releases. Publication is not player acceptance.
 
 Package with `-patch-notes patch-notes.json` alongside the normal game arguments.
 The packager enforces desktop version 0.6.0+ and raises the minimum launcher to
@@ -60,8 +60,11 @@ Candidate checks: `go test ./...`, desktop compile, `npm run build`, and all 11
 Chrome tests passed October 12. Tests cover legacy signatures, invalid/order/
 future notes, publisher input, signature rejection, isolated snapshots, client
 switches, keyboard history during patching, text escaping and narrow layout.
-Rendered patching layout was inspected. Native signed publication and owner
-acceptance remain pending; this record grants no deployment permission.
+Rendered patching layout was inspected. Owner-approved PR #186 is on main and
+the signed release is hosted; all 105 game assets and running services were
+preserved. [Deployment evidence](../releases/launcher-patch-history-20261012/README.md).
+Native player acceptance remains pending; approval of this release is not
+standing permission for later deployments.
 
 Exact player QA after approved publication: reopen the normal shortcut, verify
 desktop 0.6.0+, choose the existing client and check for updates. Confirm the

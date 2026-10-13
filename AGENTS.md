@@ -252,7 +252,8 @@ Include it using `nightcap-package -patch-notes patch-notes.json`. Notes are par
 of the signed game manifest; never edit a published release in place. Notes need
 desktop/minimum launcher 0.6.0+, published through the stable starter before the
 game channel. Verify actual channel counters before assigning the next release.
-The October 12 patch-history implementation is a candidate, not a deployment.
+Desktop 0.6.0 and game release 2026101202 were published October 12 under explicit
+owner approval. Future releases must preserve/update notes and the 0.6.0 floor.
 See `docs/ops/permanent-patcher.md` for publishing and exact visual QA.
 
 The winged Paladin helmet candidate is documented in
