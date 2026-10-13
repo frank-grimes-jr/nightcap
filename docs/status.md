@@ -1,13 +1,16 @@
 # Current Nightcap status
 
-## Multiclass trainer access - October 12 candidate
+## Multiclass trainer access — deployed
 
-Palwar's held Monk and Warrior trainers pass server policy but RoF2 blocks the
-right-click and skill-list/purchase paths by primary class. A paired candidate
-adds narrowly guarded held-class client queries and normal server training on
-hail. Native regression evidence reproduces Joren's rejection before the fix.
-No production installation, signed publication or player acceptance is claimed.
-[Build evidence, pairing and exact QA](releases/multiclass-trainers-20261012/README.md).
+Owner-approved PR #189 is on main and live on OVH with signed game release
+**2026101204**. Held Monk/Warrior trainers now have guarded client right-click
+and skill-list/purchase access; hailing delegates to normal server training.
+Points, coin costs, level caps and unheld-class rejection remain authoritative.
+All 12 zones match, 47 player and 11 custom tables were preserved, and access
+is open with zero detected runtime errors. The paired 105-file client release
+changes only DLL/catalog and retains prior patch history and launcher 0.6.0.
+Close EQ and use launcher Play. Palwar/Joren training, spending and relog QA
+remain pending. [Deployment, recovery and exact QA](releases/multiclass-trainers-20261012/README.md).
 
 ## Launcher patch summaries — published October 12
 

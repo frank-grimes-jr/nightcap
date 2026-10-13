@@ -1,0 +1,9 @@
+{
+  "channel_sha256": "c2c2dd07ac14210fd3085071d9ff2243ece5782a8ddb33951104bf25eed2ee3a",
+  "expires": "2026-11-12T02:15:16Z",
+  "hosted": true,
+  "release": 2026101204,
+  "signature": "valid against shipped production public key",
+  "total_bytes": 211938403,
+  "verified_files": 105
+}

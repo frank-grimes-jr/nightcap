@@ -1,0 +1,100 @@
+{
+  "source_commit": "7df224d4ce901c15b5f178eae768831406a52c82",
+  "old_image_id": "sha256:058330bce1e2539612d705b95b726d5143daa7ca5e6897debe0f598ba470558f",
+  "new_image_id": "sha256:1eef609e4daed95ad84fcbd193e56c0f7abbefedf325813f58316be5da558578",
+  "activation": {
+    "runtime": {
+      "image_id": "sha256:1eef609e4daed95ad84fcbd193e56c0f7abbefedf325813f58316be5da558578",
+      "started_at": "2026-10-13T02:16:15.74994872Z",
+      "restart_count": 0,
+      "processes": [
+        [
+          "loginserver",
+          "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf"
+        ],
+        [
+          "world",
+          "efd54a1023a569274a76f65d3d2a18a173906762472a1bce186e3e14629d3c18"
+        ],
+        [
+          "ucs",
+          "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714"
+        ],
+        [
+          "zone",
+          "adfffd9aab5d1e745c23e74381176dd19dfea1d9d63d5bcfb83a4764fa0e5cc0"
+        ],
+        [
+          "zone",
+          "adfffd9aab5d1e745c23e74381176dd19dfea1d9d63d5bcfb83a4764fa0e5cc0"
+        ],
+        [
+          "zone",
+          "adfffd9aab5d1e745c23e74381176dd19dfea1d9d63d5bcfb83a4764fa0e5cc0"
+        ],
+        [
+          "zone",
+          "adfffd9aab5d1e745c23e74381176dd19dfea1d9d63d5bcfb83a4764fa0e5cc0"
+        ],
+        [
+          "zone",
+          "adfffd9aab5d1e745c23e74381176dd19dfea1d9d63d5bcfb83a4764fa0e5cc0"
+        ],
+        [
+          "zone",
+          "adfffd9aab5d1e745c23e74381176dd19dfea1d9d63d5bcfb83a4764fa0e5cc0"
+        ],
+        [
+          "zone",
+          "adfffd9aab5d1e745c23e74381176dd19dfea1d9d63d5bcfb83a4764fa0e5cc0"
+        ],
+        [
+          "zone",
+          "adfffd9aab5d1e745c23e74381176dd19dfea1d9d63d5bcfb83a4764fa0e5cc0"
+        ],
+        [
+          "zone",
+          "adfffd9aab5d1e745c23e74381176dd19dfea1d9d63d5bcfb83a4764fa0e5cc0"
+        ],
+        [
+          "zone",
+          "adfffd9aab5d1e745c23e74381176dd19dfea1d9d63d5bcfb83a4764fa0e5cc0"
+        ],
+        [
+          "zone",
+          "adfffd9aab5d1e745c23e74381176dd19dfea1d9d63d5bcfb83a4764fa0e5cc0"
+        ],
+        [
+          "zone",
+          "adfffd9aab5d1e745c23e74381176dd19dfea1d9d63d5bcfb83a4764fa0e5cc0"
+        ]
+      ],
+      "errors": {
+        "native": 0,
+        "quest": 0,
+        "database": 0
+      }
+    },
+    "gateway_open": true,
+    "player_tables_preserved": 47,
+    "custom_tables_preserved": 11,
+    "database_restored": false,
+    "backup": {
+      "path": "/opt/nightcap/releases/multiclass-trainers-20261012/private-backup/peq-before.sql.gz",
+      "sha256": "6fce0fd770e67f812b34ca31db0d243d83131de253209f89c22696d32451a5ae",
+      "compressed_bytes": 63493935,
+      "uncompressed_bytes": 452738959,
+      "gzip_integrity": "passed"
+    }
+  },
+  "manifest_sha256": "9703861c7ff8fdfb83b50be1288b28edb218de72f5356856b09ee881a753d2b3",
+  "runtime_files_preserved": 8140,
+  "content_preserved": {
+    "peq.items": "1228978734",
+    "peq.spells_new": "4267609982",
+    "peq.npc_types": "2915951902",
+    "peq.spawn2": "1020095018",
+    "peq.merchantlist": "2453951956"
+  },
+  "rules_sha256": "362f011191a04462c361574296d8618551ca4e03af9998a7f1e4e25ad603fc63"
+}

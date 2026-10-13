@@ -1,8 +1,10 @@
-# Multiclass trainers — October 12, 2026 candidate
+# Multiclass trainers — October 12, 2026 release
 
-Status: implemented candidate; not deployed or player-accepted. Palwar should be
-able to hail or right-click Joren in East Commonlands and train eligible skills
-using his existing training points and coins. Primary class remains Paladin.
+Owner-approved PR #189 is merged to main at `7df224d` and deployed to OVH,
+paired with signed client release **2026101204**. Palwar can use the new
+held-class trainer paths by hailing or right-clicking Joren in East Commonlands.
+Training still uses existing points and coins; primary class remains Paladin.
+Visible trainer access, spending and relog acceptance remain pending owner QA.
 
 ## Cause and verified production facts
 
@@ -69,16 +71,35 @@ unrelated difference is explicitly preserved, not silently promoted or removed.
 The candidate adds no fields or virtual methods; only the three changed native
 translation units require recompilation, without a stale precompiled header.
 
-Activation requires owner approval for main/production. Recheck live image,
-server source and signed game channel first. Follow the established immutable
-image, fresh backup, closed-gateway, graceful full-game restart and preservation
-checks from `docs/ops/sellall-supplies-20261012/README.md`. Publish the paired
-client through `docs/ops/permanent-patcher.md`, preserving the complete current
-asset inventory and published patch-note history. Public channel 2026101203 was
-observed after integration; proposed trainer notes use 2026101204 with launcher
-minimum 0.6.0. Recheck the actual counter before signing. Players close EQ and
-use launcher Play to update. Never kill
-one production zone: its supervisor restarts the whole runtime.
+The owner explicitly approved main and server deployment. The reviewed operator
+at `/opt/nightcap/releases/multiclass-trainers-20261012` layered only zone onto
+the observed early-scribing image. New immutable image:
+`sha256:1eef609e4daed95ad84fcbd193e56c0f7abbefedf325813f58316be5da558578`.
+A fresh gzip-verified SQL backup preceded the closed-gateway graceful whole-game
+restart. All 12 running zones match the candidate hash; 47 player tables and
+11 custom tables passed stopped-state preservation checks. Rules, content,
+quests/plugins and supporting DB/web/tunnel services were preserved. Access
+reopened with zero restarts and no detected native, quest or database errors.
+No SQL was restored. See [server receipt](server-receipt.json) and
+[final health](final-health.json).
+
+Signed game release **2026101204** publishes proxy 0.8.2-dev and the 87-site
+catalog. DLL/catalog are the only changed assets among 105 files. Existing
+patch history, minimum launcher 0.6.0, desktop channel, starter ZIP and guide
+are preserved. Publisher service identities were captured after the restart;
+all five services remained unchanged by publication. Public HTTPS verification
+checks the shipped-key signature and every size/hash. See
+[client receipt](client-receipt.json) and [hosted verification](hosted-verification.json).
+The game channel expires November 12 UTC. Close EQ and use launcher Play to
+receive the paired client; old clients retain their primary-class restrictions.
+
+The exact reviewed operators and tests are retained under `deployment/`.
+Nine native recovery tests and twelve publisher recovery tests pass. These are
+release-specific records, not instructions to replay activation. Native reports
+finish before client publication because they pin the previous public channel;
+final health checks use the post-publication state. For a future deployment,
+recheck live image, source and signed channel before staging. Never kill one
+production zone: its supervisor restarts the whole runtime.
 
 Rollback selects the freshly captured prior server image and republishes prior
 client bytes with a higher signed game release counter. Preserve all skill,
