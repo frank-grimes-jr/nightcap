@@ -1,14 +1,16 @@
 # CHANGES
 
-## 2026-10-13 - Unrest entrance waypoint candidate
+## 2026-10-13 - Unrest entrance waypoint deployed
 
 Diagnosed the Unrest eye as the entrance Instance Keeper while the portal and
-recall destination were about 921 units away. Prepared guarded forward/inverse
+recall destination were about 921 units away. Deployed guarded forward/inverse
 SQL to align both at `/loc -38,52,3`, preserving discoveries and all unrelated
 state. Matching base-zone saved marker poses move with it; existing private
-instance state is retained. Placement, preservation and visual regressions pass.
-Production is unchanged pending main/activation approval and owner QA; no client
-update or native build is needed. Runbook: `docs/ops/unrest-waypoint-20261013/README.md`.
+instance state is retained. Owner-approved PR #198 is live: 68 local checks,
+independent review, full stopped-backup restore/forward/inverse rehearsal and
+closed-access preservation checks pass. All 12 zones are healthy and access is
+open. Owner in-game acceptance remains pending; no client update or native build.
+Runbook and production receipt: `docs/ops/unrest-waypoint-20261013/README.md`.
 
 ## 2026-10-13 - Ascended divine summons and zero resale
 

@@ -1,0 +1,29 @@
+{
+  "observed_utc": "2026-10-13T17:44:34.655694+00:00",
+  "pull_request": 198,
+  "source_commit": "2e8cee8711c829b5b73f163bd1c7b718c9296b85",
+  "gateway_open": true,
+  "preserved_fingerprints": 64,
+  "rehearsal": {
+    "full_backup_restored": true,
+    "exact_forward": true,
+    "exact_rollback": true,
+    "preserved_fingerprints": 64
+  },
+  "quest_files_preserved": 8140,
+  "client_update": false,
+  "gameplay_acceptance": "pending owner portal/discovery/recall QA",
+  "waypoint": "unrest\t63\t52\t-38\t3\t0",
+  "marker": "3266123\t999240\t52.000000\t-38.000000\t3.000000\t0.000000",
+  "keeper": "3266037\t999228\t52.000000\t-38.000000\t3.000000\t0.000000",
+  "runtime_healthy": true,
+  "zone_workers": 12,
+  "new_runtime_errors": {
+    "native": 0,
+    "quest": 0,
+    "database": 0
+  },
+  "runtime_pairing_preserved": true,
+  "backup_integrity": "passed",
+  "private_backup_restored_only_in_isolation": true
+}
