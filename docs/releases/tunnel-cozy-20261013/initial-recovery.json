@@ -1,0 +1,76 @@
+{
+  "runtime": {
+    "image_id": "sha256:cf9c62310b746be2bd95d9039e6fb975d00f61aa2c42e76ed86ce823f3f119ff",
+    "started_at": "2026-10-13T14:27:05.594253911Z",
+    "restart_count": 0,
+    "processes": [
+      [
+        "loginserver",
+        "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf"
+      ],
+      [
+        "world",
+        "efd54a1023a569274a76f65d3d2a18a173906762472a1bce186e3e14629d3c18"
+      ],
+      [
+        "ucs",
+        "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714"
+      ],
+      [
+        "zone",
+        "5dfe3d8a944a29ac963644298eb7a1563a08748ae72ae210edd78268ea106681"
+      ],
+      [
+        "zone",
+        "5dfe3d8a944a29ac963644298eb7a1563a08748ae72ae210edd78268ea106681"
+      ],
+      [
+        "zone",
+        "5dfe3d8a944a29ac963644298eb7a1563a08748ae72ae210edd78268ea106681"
+      ],
+      [
+        "zone",
+        "5dfe3d8a944a29ac963644298eb7a1563a08748ae72ae210edd78268ea106681"
+      ],
+      [
+        "zone",
+        "5dfe3d8a944a29ac963644298eb7a1563a08748ae72ae210edd78268ea106681"
+      ],
+      [
+        "zone",
+        "5dfe3d8a944a29ac963644298eb7a1563a08748ae72ae210edd78268ea106681"
+      ],
+      [
+        "zone",
+        "5dfe3d8a944a29ac963644298eb7a1563a08748ae72ae210edd78268ea106681"
+      ],
+      [
+        "zone",
+        "5dfe3d8a944a29ac963644298eb7a1563a08748ae72ae210edd78268ea106681"
+      ],
+      [
+        "zone",
+        "5dfe3d8a944a29ac963644298eb7a1563a08748ae72ae210edd78268ea106681"
+      ],
+      [
+        "zone",
+        "5dfe3d8a944a29ac963644298eb7a1563a08748ae72ae210edd78268ea106681"
+      ],
+      [
+        "zone",
+        "5dfe3d8a944a29ac963644298eb7a1563a08748ae72ae210edd78268ea106681"
+      ],
+      [
+        "zone",
+        "5dfe3d8a944a29ac963644298eb7a1563a08748ae72ae210edd78268ea106681"
+      ]
+    ],
+    "errors": {
+      "native": 0,
+      "quest": 0,
+      "database": 0
+    }
+  },
+  "gateway_open": true,
+  "full_database_restored": false
+}

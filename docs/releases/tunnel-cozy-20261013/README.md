@@ -1,12 +1,30 @@
-# Relaxed tradeskill workshop — October 13, 2026 candidate
+# Relaxed tradeskill workshop — October 13, 2026
 
-**Owner-approved for main and live QA; activation pending.** The owner requested
+**Deployed for owner visual QA; player acceptance remains pending.** The owner requested
 less rigid tradeskill rows, room to move, a cozy atmosphere, and the Chronicler,
-bag merchant and spell reagent vendor beside the buff bots. This candidate is
+bag merchant and spell reagent vendor beside the buff bots. This layout is
 based on current production content captured October 13 at 12:32 UTC, including
 Artisan Veyra. It does not reapply the October 2 full-tunnel layout.
 
 ![Proposed workshop and buffer services](layout.png)
+
+## Production result
+
+Owner-approved PRs #194 and #195 are merged. The corrected operator at
+`/opt/nightcap/releases/tunnel-cozy-20261013-r2` deployed the exact 25 NPC poses,
+six station poses and three ornaments. The fresh stopped backup was fully
+restored in isolation and passed exact forward/inverse checks. It retains a
+precision companion for character coordinates; no old character data was
+restored to production. Only 25 exact owned cache rows were invalidated.
+
+All 69 preservation fingerprints, 8140 runtime files,
+the existing image/binaries, supporting services and public client files were
+preserved. Twelve zones plus world/UCS/login are healthy with zero detected
+native, quest or database errors. The market performed its expected single
+startup rotation while policy stayed unchanged. [Production proof](production.json).
+The public game/launcher channels and guide return their preserved bytes, and
+the gateway correctly requires a player code. [Public probe](public-probe.json).
+No client update is required. The six in-game checks below remain owner QA.
 
 ## Arrangement
 

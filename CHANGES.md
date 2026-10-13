@@ -1,18 +1,17 @@
 # CHANGES
 
-## 2026-10-13 - Relaxed tradeskill workshop candidate
+## 2026-10-13 - Relaxed tradeskill workshop deployed
 
-Prepared staggered East Commonlands crafting groups, six repositioned stations,
+Deployed staggered East Commonlands crafting groups, six repositioned stations,
 and a small native fire/barrel/lantern. The Chronicler, bag merchant and reagent
-vendor move beside the existing buffers. Guarded pose-only SQL and fresh-state
-rollback preserve stock, gameplay, other services, corpses and other instances.
-Nine unit tests, eleven real MariaDB rehearsal checks and native geometry checks
-pass. The owner approved main/live QA; activation and visual acceptance remain
-pending. The data-only operator has thirteen fault-injection tests and restores
-a fresh stopped backup in isolation before applying. It holds access closed
-on unverified recovery. The first rehearsal caught dump rounding of character
-coordinates before live writes; an exact-precision backup companion fixes that
-without relaxing preservation checks. See `docs/releases/tunnel-cozy-20261013/README.md`.
+vendor now sit beside the existing buffers. Exact preimage guards and scoped
+saved-state handling preserve gameplay, merchants, other services and player data.
+Nine layout tests, thirteen operator tests, eleven local SQL checks, native
+geometry checks and a fresh full-backup forward/rollback rehearsal pass.
+The first rehearsal caught SQL-dump FLOAT rounding before live writes; the
+backup's precision companion restores exact coordinates only in isolation.
+The current runtime/client release is preserved. Owner visual acceptance remains
+pending. See `docs/releases/tunnel-cozy-20261013/README.md`.
 
 ## 2026-10-13 - Waypoint visuals accepted
 
