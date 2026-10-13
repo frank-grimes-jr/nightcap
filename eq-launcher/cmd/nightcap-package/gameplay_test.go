@@ -10,7 +10,7 @@ import (
 )
 
 func TestGameplayAssetGenerationIsCompleteAndBoundToInputs(t *testing.T) {
-	for _, required := range []string{"global_chr.s3d", "global4_chr.s3d", "uifiles/nightcap/equi_merchantwnd.xml"} {
+	for _, required := range []string{"global_chr.s3d", "global4_chr.s3d", "uifiles/nightcap/equi_merchantwnd.xml", "uifiles/nightcap/equi_tradeskillwnd.xml"} {
 		found := false
 		for _, name := range gameplayNames {
 			if name == required {

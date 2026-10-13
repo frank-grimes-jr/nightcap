@@ -4,6 +4,13 @@ Implementation candidate, October 13, 2026. The owner's accepted goal is to remo
 stack splitting and repeated clicking from ordinary tradeskills. Recipe balance,
 success/failure, salvage, discovery and earned skill gains stay native.
 
+Owner explicitly authorized "Push to main and server for live QA" on October 13.
+This authorizes the paired rollout before native gameplay acceptance. Operators
+and recovery tests are in deployment/native and deployment/client. Activation
+keeps the gateway closed until the exact signed client channel and every asset
+are verified; opening is a separate guarded action. Preserve this release's
+remaining gameplay checks after publication.
+
 ## Player behavior and acceptance
 
 - Experimental combines count physical units in stackable ingredients, consume
