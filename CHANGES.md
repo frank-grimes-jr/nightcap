@@ -1,5 +1,15 @@
 # CHANGES
 
+## 2026-10-13 - Relaxed tradeskill workshop candidate
+
+Prepared staggered East Commonlands crafting groups, six repositioned stations,
+and a small native fire/barrel/lantern. The Chronicler, bag merchant and reagent
+vendor move beside the existing buffers. Guarded pose-only SQL and fresh-state
+rollback preserve stock, gameplay, other services, corpses and other instances.
+Nine unit tests, eleven real MariaDB rehearsal checks and native geometry checks
+pass. This is a candidate: production activation and owner visual acceptance
+remain pending. See `docs/releases/tunnel-cozy-20261013/README.md`.
+
 ## 2026-10-13 - Waypoint visuals accepted
 
 The owner confirmed the waypoint/Instance Keeper visual issue is resolved after
