@@ -1,8 +1,22 @@
 # Unrest entrance waypoint — October 13, 2026
 
-The owner approved publication, main promotion, production activation and a
-controlled restart on October 13. Activation evidence is pending. No client
-update, quest change or native rebuild.
+Owner-approved PR #198 is merged and deployed on October 13. The controlled
+restart completed and player access is open. No client update, quest change or
+native rebuild. Owner portal/discovery/recall acceptance remains pending.
+
+## Deployment result
+
+Deployed commit `2e8cee8711c829b5b73f163bd1c7b718c9296b85` with the current runtime
+image retained. Fresh stopped full backup, precision-preserving isolated restore,
+exact forward/inverse rehearsal, fresh-preimage commit, closed-access preservation
+checks and all twelve zone-worker health checks passed before reopening access.
+The marker and recall destination are now DB XYZ `52,-38,3`, beside the unchanged
+Keeper. The saved base marker pose moved with them; no discovery records changed.
+The 68 local SQL, placement, visual, generator and recovery checks passed and
+independent review found no blockers. [Sanitized production receipt](production.json)
+records current positions, health, preservation counts and verification boundary.
+Private backup and full snapshots remain only on OVH under
+`/opt/nightcap/releases/unrest-waypoint-20261013/`.
 
 ## Cause and intended behavior
 

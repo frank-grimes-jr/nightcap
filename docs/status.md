@@ -1,13 +1,14 @@
 # Current Nightcap status
 
-## Unrest waypoint — entrance relocation candidate October 13
+## Unrest waypoint — entrance relocation deployed October 13
 
 Live inspection found the portal/recall 921 units from the floating-eye Keeper.
-The prepared guarded correction moves the waypoint to `/loc -38,52,3`, preserving
-player discoveries and unrelated saved state. Five focused tests, eight adjacent
-placement tests and 29 visual/discovery/Keeper checks pass. Main promotion,
-production activation and owner gameplay QA remain pending; current live placement
-has not changed. [Cause, scope, activation and QA](ops/unrest-waypoint-20261013/README.md).
+Owner-approved PR #198 moved the waypoint and recall to `/loc -38,52,3`, preserving
+player discoveries and unrelated saved state. All 68 local checks, independent
+review, fresh full-backup restore/forward/inverse rehearsal and closed-access
+preservation checks pass. The current runtime/client pairing is unchanged; all
+12 zones are healthy and access is open. Owner portal/discovery/recall QA remains
+pending. [Cause, production evidence and QA](ops/unrest-waypoint-20261013/README.md).
 
 ## Divine summoned weapons — deployed October 13
 
