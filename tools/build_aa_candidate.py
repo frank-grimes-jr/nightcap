@@ -7,9 +7,9 @@ import shutil
 import subprocess
 
 BASE = Path('/tmp/nightcap-item-upgrades-release-build-20261012')
-LIVE = Path('/tmp/nightcap-trainer-build-20261012-v2')
-INPUT = Path('/tmp/nightcap-aa-input-20261013-v2')
-OUT = Path('/tmp/nightcap-aa-build-20261013-v2')
+LIVE = Path('/tmp/nightcap-skills-build-20261013-v2')
+INPUT = Path('/tmp/nightcap-aa-input-20261013-v3')
+OUT = Path('/tmp/nightcap-aa-build-20261013-v3')
 CHANGED = ['zone/aa.cpp', 'zone/client.h', 'zone/exp.cpp']
 ADDED = ['common/nightcap_aa_policy.h']
 
@@ -59,30 +59,21 @@ def main():
     link = list(prior['link_command'])
     retained = {str((BASE / 'build/zone' / arg).resolve()): sha((BASE / 'build/zone' / arg).resolve())
                 for arg in link[1:] if arg.endswith(('.o', '.a', '.so')) and (BASE / 'build/zone' / arg).is_file()}
-    # The previous builder recorded inherited objects before replacing its three
-    # TUs. Recompile those three using their original source/flags and compare
-    # object bytes; every other link input must match its recorded hash.
+    # Preserve every TU from the complete held-class skill rebuild. Compile the
+    # two AA TUs without its PCH so the new nonvirtual declaration is visible.
     for path, value in retained.items():
-        if path in prior['unchanged_link_inputs']:
-            assert prior['unchanged_link_inputs'][path] == value, path
+        if Path(path).is_relative_to(LIVE / 'objects'):
+            name = Path(path).relative_to(LIVE / 'objects').as_posix().removesuffix('.o')
+            assert prior['candidate_objects'][name] == value, path
         else:
-            name = Path(path).name.removesuffix('.o')
-            command = list(prior['compile_commands'][name])
-            assert command[command.index('-o') + 1] == path
-            command[command.index('-o') + 1] = str(OUT / ('verified-' + name + '.o'))
-            verified = Path('/tmp/nightcap-aa-build-20261013') / ('verified-' + name + '.o')
-            if verified.is_file() and sha(verified) == value:
-                shutil.copyfile(verified, command[command.index('-o') + 1])
-            else:
-                run('verify-retained-' + name, command, BASE / 'build')
-            assert sha(Path(command[command.index('-o') + 1])) == value, path
+            assert prior['unchanged_link_inputs'][path] == value, path
     commands = {}
     for name in ['aa.cpp', 'exp.cpp']:
         obj = OUT / (name + '.o')
         args = ['/usr/bin/clang++'] + flags['CXX_DEFINES'] + flags['CXX_INCLUDES'] + flags['CXX_FLAGS']
         args += ['-c', str(source / 'zone' / name), '-o', str(obj)]
         run('compile-' + name, args, BASE / 'build')
-        old = 'CMakeFiles/zone.dir/' + name + '.o'
+        old = str(LIVE / 'objects' / (name + '.o'))
         assert link.count(old) == 1
         link[link.index(old)] = str(obj)
         commands[name] = args

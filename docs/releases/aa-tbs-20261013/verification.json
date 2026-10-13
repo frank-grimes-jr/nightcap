@@ -20,9 +20,10 @@
     "server-mods/code/zone/aa.cpp": "094fc0799382e8b819f9e8891051e85f9c7da7efd9b7ad1be71871f8d52d3977",
     "server-mods/code/zone/exp.cpp": "1f58270b6df0bd49ac3435e104fd46202e020f45ddc7971802b675bcada67ebf",
     "server-mods/code/zone/client.h": "0f79268ff72d277db09cfa03225b77679ddea88724a2fde2aa91c50140a74158",
-    "tools/build_aa_candidate.py": "1ea045a3f6744d3fcea1fa038d1cb8b9b68c39cb25200330d1f04439c53c2713",
+    "tools/build_aa_candidate.py": "32f4a22c3690c34582f9968aed59a1ab991713b9d95d2a34f00422a3de3f6e6d",
     "tools/tests/verify_aa_tbs_native.py": "859c11d311c8f6ced8f85c1ebb6441c202bf4dcc67b898ecb25f081a99448dae"
   },
   "owner_gameplay_acceptance": false,
-  "cross_model_review": "declined by owner"
+  "cross_model_review": "declined by owner",
+  "preserved_concurrent_release": "October 13 skill-progression rebuild; main b203fba and all 126 corrected zone object hashes retained in v3"
 }

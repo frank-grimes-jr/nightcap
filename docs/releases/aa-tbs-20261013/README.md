@@ -69,21 +69,23 @@ harness build hit signedness warnings in test doubles; the final harness compile
 under its documented flags. Full zone compilation/link and runtime library checks
 pass. These checks do not simulate a full player session or prove encounter balance.
 
-The build uses retained production source from the trainer release, preserving
-its existing `MaxSkill` header difference from main. Only aa.cpp and exp.cpp are
-recompiled; client.h adds a nonvirtual method and no layout changes. The previous
-builder's three unrecorded replaced object hashes were independently reproduced
-from its original commands; other inherited objects match recorded hashes. The
-final manifest records all link input hashes. No stale precompiled header is used.
+The final v3 build uses retained production source from the October 13 full
+skill-progression correction. That release arrived while the initial AA candidate
+was building; the older AA binary was never activated. Main b203fba was integrated
+and all 126 corrected zone object hashes were verified. Only aa.cpp and exp.cpp
+are recompiled; client.h adds a nonvirtual method and no layout changes. Other
+link inputs match recorded hashes, and the final manifest records every linked
+object. The two changed units compile without a stale precompiled header. Trainer
+purchases, skill progression, offhand fixes and signed client 2026101301 are retained.
 
-Native zone SHA256: `f5111944a155548c0e6d3df7adeb6bc9155a70bc0746d602eafe498841cf9f3f`.
+Native zone SHA256: `0737959ab3ebce1b31ad687cdb41e7d69bc7c3a30620e884e543051859bde143`.
 See [build](build-manifest.json), [native tests](native-tests.json),
 [original audit](../../audits/aa-tbs-20261013/README.md), and
 [decision](../../adr/0046-aa-tbs-policy.md).
 
 ## Exact in-game QA
 
-1. Reconnect using the current signed client (2026101204); no new client patch is
+1. Reconnect using the current signed client (2026101301); no new client patch is
    required. On an existing low-level character, open every AA tab and confirm the
    compact list, owned usable prefix and unchanged unspent/spent totals. Try old
    Headshot/burn/veteran hotkeys: dormant abilities must not activate or consume
