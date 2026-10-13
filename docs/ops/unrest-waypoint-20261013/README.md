@@ -1,7 +1,8 @@
 # Unrest entrance waypoint — October 13, 2026
 
-Candidate only. Production placement is unchanged; main promotion and activation
-require owner approval. No client update, quest change or native rebuild.
+The owner approved publication, main promotion, production activation and a
+controlled restart on October 13. Activation evidence is pending. No client
+update, quest change or native rebuild.
 
 ## Cause and intended behavior
 
@@ -51,6 +52,17 @@ for the required fresh production-backup rehearsal. No gameplay acceptance yet.
 
 ## Activation after approval
 
+`run.py stage`, `preflight`, `activate`, and `report` package the committed
+release and run the verified operator. The operator adapts the current workshop
+deployment's locks, backup/restore precision companion, runtime preservation and
+activity-safe recovery. `tools/unrest_waypoint.py` generates the same reviewed
+pose change from fresh full-row preimages, using the existing `content_patch`
+transaction engine to reject engine/trigger/count/row drift. Static SQL remains
+the readable migration contract; the operator executes the stronger generated
+transaction. Six generator contract tests and 13 operator recovery tests pass.
+Run them with `python tools/tests/test_unrest_waypoint_content.py` and
+`python docs/ops/unrest-waypoint-20261013/ops/test_rollout.py`.
+
 1. Promote the reviewed change through the repository's approval gate. Acquire
    `/opt/nightcap/deploy/production/.deployment.lock` and check current services,
    active native image, quest hashes and the player's opportunity to log out.
@@ -62,8 +74,8 @@ for the required fresh production-backup rehearsal. No gameplay acceptance yet.
    only pose changes on marker, waypoint and exact saved-state identities;
    preserve unrelated rows and all player data. Retain backup float-precision
    handling from the current workshop runbook when comparing full checksums.
-4. Feed `forward.sql` to **one fail-fast MariaDB connection without `--force`**.
-   Its exact durable preimage and Keeper guards abort stale/partial/repeated
+4. Feed the freshly generated `evidence/forward.sql` to **one fail-fast MariaDB
+   connection without `--force`**. Its exact preimage and Keeper guards abort stale/partial/repeated
    application. An error requires disconnect/rollback and inspection; never
    continue individual statements manually. Maintain the lock and closed access.
 5. Compare fresh afterimages and preservation fingerprints before starting game.
