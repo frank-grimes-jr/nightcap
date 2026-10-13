@@ -1,5 +1,6 @@
 # CHANGES
 
+<<<<<<< HEAD
 ## 2026-10-13 - Waypoint visuals accepted
 
 The owner confirmed the waypoint/Instance Keeper visual issue is resolved after
@@ -7,6 +8,13 @@ the portal and floating-eye repairs. This closes the reported issue following
 the Permafrost follow-up. No additional runtime changes were needed. The reply
 does not separately attest every zone or optional QA case. Evidence and scope:
 `docs/ops/keeper-visuals-20261012/README.md`.
+=======
+## 2026-10-13 - Merchant Sell All owner acceptance
+
+Owner confirmed the shared merchant Sell All button resolved. Updated the
+release and status records to close its pending acceptance, retaining the
+original publication evidence and regression checklist. No deployment changed.
+>>>>>>> b615a78 (docs: record merchant sell-all owner resolution)
 
 ## 2026-10-13 - Multiclass skill progression and offhand repair
 

@@ -50,13 +50,15 @@ No client update is needed. Real inventory, payout and relog acceptance remains
 owner in-game QA. [Deployment, recovery and exact QA](ops/sellall-supplies-20261012/README.md).
 
 
-## Merchant Sell All button — published October 12
+## Merchant Sell All button — resolved October 13
 
-Owner-approved PR #182 is on main. Signed client release 2026101201 adds a
+Owner confirmed the merchant button resolved on October 13. Owner-approved
+PR #182 is on main. Initial signed client release 2026101201 added a
 Sell All button to the shared merchant window, invoking the existing server
 command. All 105 host files verified; 101 existing assets, all five services,
 the desktop channel and starter were preserved. Close EQ and use launcher Play
-to update. Native rendering/sale acceptance remains pending.
+to update. The owner confirmation closes this button issue; the checklist
+remains available for regression testing.
 [Evidence, recovery and exact QA](releases/merchant-sell-all-20261012.md).
 
 ## Instance Keeper and waypoint visuals — resolved October 13
