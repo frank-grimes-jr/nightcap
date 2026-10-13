@@ -1,5 +1,14 @@
 # Current Nightcap status
 
+## October 13 class AA rank audit — recommendation only
+
+The [class-rank re-audit](audits/aa-class-ranks-20261013/README.md) recommends
+Slay Undead 9 and deeper progression in 25 other lines, preserving level-1 access.
+The target catalog adds 110 ranks; it is not deployed or encounter-validated.
+Triple Backstab's native level-55 activation gate is above the active level-50
+cap and must be repaired/tested before its proposed expansion. The live policy
+remains the level-1 correction below. THJ's exact Slay cap remains unverified.
+
 ## October 13 AA correction: level-1 access
 
 Owner QA rejected the initial AA level gates. The correction opens all allowed ranks at creation and retains purchases. [Correction and QA](releases/aa-tbs-level1-20261013/README.md); live on OVH with all 12 zones verified and 239 purchases preserved. Signed notes release 2026101302 is published. Owner acceptance remains pending. The earlier small starter-list policy is superseded, not accepted.

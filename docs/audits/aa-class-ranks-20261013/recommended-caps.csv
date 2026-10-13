@@ -1,0 +1,27 @@
+﻿ability_id,name,classes,current_legal_cap,proposed_legal_cap,tbs_contiguous_prefix,all_catalog_ranks,current_points,proposed_points,tbs_zero_cost_ranks,current_effects,proposed_effects,tbs_top_effects,next_rank_prereqs,explicitly_deferred,recommendation
+18,Healing Adept,CLR/PAL/RNG/DRU/SHM/BST,3,9,9,17,12,42,0,ImprovedHeal=10/10; LimitEffect=0/0; LimitInstant=1/0; LimitSpell=-6233/0; LimitSpell=-6265/0; ImprovedHeal=10/10; LimitEffect=147/0; LimitInstant=1/0,ImprovedHeal=28/28; LimitEffect=0/0; LimitInstant=1/0; LimitSpell=-6233/0; LimitSpell=-6265/0; ImprovedHeal=28/28; LimitEffect=147/0; LimitInstant=1/0,ImprovedHeal=28/28; LimitEffect=0/0; LimitInstant=1/0; LimitSpell=-6233/0; LimitSpell=-6265/0; ImprovedHeal=28/28; LimitEffect=147/0; LimitInstant=1/0,{},False,recommend higher rank depth for measured QA
+19,Healing Gift,CLR/PAL/RNG/DRU/SHM/BST,3,12,12,25,12,57,0,CriticalHealChance=10/0,CriticalHealChance=28/0,CriticalHealChance=28/0,{},False,recommend higher rank depth for measured QA
+75,[PAL] Slay Undead,PAL,1,9,9,10,3,60,0,SlayUndead=225/680,SlayUndead=390/2300,SlayUndead=390/2300,"{""30"": 3}",False,recommend higher rank depth for measured QA
+89,[SHD] Soul Abrasion,SHD,3,6,6,13,18,33,0,FcDamagePctCrit=200/200; LimitSpellGroup=99/0,FcDamagePctCrit=250/250; LimitSpellGroup=99/0,FcDamagePctCrit=250/250; LimitSpellGroup=99/0,{},False,recommend higher rank depth for measured QA
+90,[BRD] Instrument Mastery,BRD,3,4,4,4,18,27,0,AddSingingMod=6/23; AddSingingMod=6/24; AddSingingMod=6/25; AddSingingMod=6/26,AddSingingMod=8/23; AddSingingMod=8/24; AddSingingMod=8/25; AddSingingMod=8/26,AddSingingMod=8/23; AddSingingMod=8/24; AddSingingMod=8/25; AddSingingMod=8/26,{},False,recommend higher rank depth for measured QA
+103,[ROG] Poison Mastery,ROG,3,4,4,4,18,30,0,ReduceTradeskillFail=50/56; ReduceApplyPoisonTime=2500/0,ReduceTradeskillFail=75/56; ReduceApplyPoisonTime=1000/0,ReduceTradeskillFail=75/56; ReduceApplyPoisonTime=1000/0,{},False,recommend higher rank depth for measured QA
+114,[WIZ] Spell Casting Fury Mastery,WIZ,3,11,11,15,18,58,0,CriticalSpellChance=6/100,CriticalSpellChance=17/100,CriticalSpellChance=17/100,"{""23"": 3}",False,recommend higher rank depth for measured QA
+118,[BRD] Singing Mastery,BRD,3,4,4,4,18,27,0,AddSingingMod=6/50,AddSingingMod=8/50,AddSingingMod=8/50,{},False,recommend higher rank depth for measured QA
+186,[BST] Bestial Frenzy,BST,3,10,10,14,6,35,0,GiveDoubleAttack=9/0,GiveDoubleAttack=30/0,GiveDoubleAttack=30/0,{},False,recommend higher rank depth for measured QA
+187,[BRD] Harmonious Attack,BRD,3,10,10,11,6,35,0,GiveDoubleAttack=9/0,GiveDoubleAttack=30/0,GiveDoubleAttack=30/0,{},False,recommend higher rank depth for measured QA
+206,[MNK] Technique of Master Wu,MNK,3,5,5,15,6,10,0,DoubleSpecialAttack=60/0,DoubleSpecialAttack=100/0,DoubleSpecialAttack=100/0,{},False,recommend higher rank depth for measured QA
+215,Fury of Magic,CLR/PAL/RNG/SHD/DRU/BRD/SHM/NEC/MAG/ENC/BST,3,9,9,19,18,54,0,CriticalSpellChance=6/100,CriticalSpellChance=15/100,CriticalSpellChance=15/100,"{""23"": 3}",False,recommend higher rank depth for measured QA
+227,[BRD] Extended Notes,BRD,3,6,6,9,18,24,0,BardSongRange=25/0,BardSongRange=65/0,BardSongRange=65/0,{},False,recommend higher rank depth for measured QA
+248,[BST] Warder's Fury,BST,3,10,10,21,9,30,0,PetCriticalHit=3/0,PetCriticalHit=10/0,PetCriticalHit=10/0,{},False,recommend higher rank depth for measured QA
+259,Critical Affliction,CLR/RNG/SHD/DRU/BRD/SHM/NEC/ENC/BST,3,6,6,9,18,36,0,CriticalDoTChance=9/0,CriticalDoTChance=18/0,CriticalDoTChance=18/0,{},False,recommend higher rank depth for measured QA
+262,[ENC] Enhanced Forgetfulness,ENC,3,5,5,5,9,15,0,IncreaseChanceMemwipe=30/0,IncreaseChanceMemwipe=50/0,IncreaseChanceMemwipe=50/0,{},False,recommend higher rank depth for measured QA
+266,[MAG] Elemental Fury,MAG,3,10,10,26,9,30,0,PetCriticalHit=3/0,PetCriticalHit=10/0,PetCriticalHit=10/0,{},False,recommend higher rank depth for measured QA
+278,Death's Fury,SHD/NEC,3,5,5,5,9,15,0,PetCriticalHit=3/0,PetCriticalHit=5/0,PetCriticalHit=5/0,{},False,recommend higher rank depth for measured QA
+281,[ROG] Triple Backstab,ROG,3,9,9,19,18,54,0,TripleBackstab=15/0,TripleBackstab=45/0,TripleBackstab=45/0,{},False,recommend higher rank depth for measured QA
+504,[BER] Conservation,BER,3,5,5,5,15,25,0,ReduceReagentCost=30/30; LimitEffect=32/0; LimitCombatSkills=1/0,ReduceReagentCost=50/50; LimitEffect=32/0; LimitCombatSkills=1/0,ReduceReagentCost=50/50; LimitEffect=32/0; LimitCombatSkills=1/0,{},False,recommend higher rank depth for measured QA
+526,Affliction Mastery,DRU/SHM/NEC,0,3,3,4,0,21,0,,CriticalDoTChance=6/0,CriticalDoTChance=6/0,"{""259"": 6}",False,recommend higher rank depth for measured QA
+557,[RNG] Trick Shot,RNG,3,6,6,19,18,36,0,DoubleRangedAttack=6/0,DoubleRangedAttack=12/0,DoubleRangedAttack=12/0,"{""82"": 3}",False,recommend higher rank depth for measured QA
+605,[WAR] Shield Specialist,WAR,3,5,5,13,15,25,0,ShieldEquipDmgMod=15/0,ShieldEquipDmgMod=25/0,ShieldEquipDmgMod=25/0,"{""435"": 3}",False,recommend higher rank depth for measured QA
+628,[NEC] Greater Blood Tithe,NEC,0,3,3,6,0,15,0,,CriticalDoTChance=3/0,CriticalDoTChance=3/0,"{""740"": 3}",False,recommend higher rank depth for measured QA
+665,[NEC] Death's Wrath,NEC,0,5,5,24,0,15,0,,PetCriticalHit=5/0,PetCriticalHit=5/0,"{""278"": 5}",False,recommend higher rank depth for measured QA
+740,Blood Tithe,DRU/SHM/NEC,0,3,3,6,0,21,0,,CriticalDoTChance=4/0,CriticalDoTChance=4/0,"{""526"": 3}",False,recommend higher rank depth for measured QA
