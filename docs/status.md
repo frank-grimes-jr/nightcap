@@ -1,15 +1,15 @@
 # Current Nightcap status
 
-## Stacked tradeskills and Craft All — tested candidate
+## Stacked tradeskills and Craft All — deployed for live QA October 13
 
-Ordinary tradeskills now preserve unused stack quantities. The native recipe
-browser adds Craft One, Craft All and Stop, with one acknowledged attempt at a
-time and native output placement. Server restrictions and recipe outcomes remain
-authoritative. Isolated zone/client builds, 25 server regression groups, six
-runtime groups, 11 asset tests, 94 catalog guards and launcher validation pass;
-independent review has no remaining findings. No deployment or signed publication
-has occurred. Paired activation and owner gameplay/visual QA remain pending.
-[Behavior, build provenance, recovery and exact QA](tradeskills/README.md).
+Owner-authorized PR #200 is on main and OVH with signed game release **2026101304**
+and proxy **0.9.0-dev**. Material stacks retain leftovers; Craft All repeats the
+selected recipe with native requirements, outcomes and output placement. All 12
+zones and 106 hosted signed assets verify, with zero candidate restarts/detected
+errors. Closed-access checks preserved 47 player / 11 custom tables, current
+rules/content/quests and other binaries, including the divine-summon loader.
+Player access is open. Close EQ and use launcher Play. Owner gameplay and visual
+acceptance remain pending. [Behavior, evidence, recovery and exact QA](tradeskills/README.md).
 
 ## Unrest waypoint — entrance relocation deployed October 13
 

@@ -1,6 +1,6 @@
 # Stacked materials and Craft All
 
-Implementation candidate, October 13, 2026. The owner's accepted goal is to remove
+Deployed on main and OVH for live QA, October 13, 2026. The owner's accepted goal is to remove
 stack splitting and repeated clicking from ordinary tradeskills. Recipe balance,
 success/failure, salvage, discovery and earned skill gains stay native.
 
@@ -29,7 +29,7 @@ remaining gameplay checks after publication.
 - Reforging Box, transformation molds and augmentation devices retain their
   distinct behavior. Container-consuming recipes require exact ingredients.
 
-## Implementation plan
+## Implementation
 
 1. Add the reviewed full-source tradeskills translation unit to the tracked
    customization overlay. Replace slot-count matching and blanket deletion with
@@ -41,8 +41,8 @@ remaining gameplay checks after publication.
 4. Compile native regressions and proxy/runtime fixtures, verify all new exact
    executable signatures, and stage paired server/client outputs for review.
 5. Review independently, update CHANGES/status and the installed Nightcap skill,
-   and provide exact in-game QA. Production and main promotion require owner QA
-   authorization under the repository's standing branch policy.
+   and provide exact in-game QA. The owner explicitly authorized main and OVH
+   delivery before gameplay acceptance for this release.
 
 ## Source and commands
 
@@ -138,11 +138,38 @@ These checks do not establish real RoF2 rendering, transport timing, MariaDB
 persistence under failure, or owner gameplay acceptance. Ordinary tradeskills
 retain their native inventory/DB persistence behavior; this change does not add
 an atomic receipt system. Reforging Box and zoneforge keep their separate receipt
-contracts. No game deployment or signed client publication has been performed.
+contracts. Main and OVH delivery is verified below; owner gameplay remains pending.
+
+## Production delivery, October 13
+
+Owner-authorized PR #200 merged to main at `40da0107962655f8e7a8db78eb10f6e19ea5aaac`.
+The supported full-game refresh deployed the reviewed zone together with signed
+game release **2026101304**, proxy **0.9.0-dev**, and the new tradeskill window.
+Player access reopened after both sides were verified. Close EQ and use launcher
+**Play** to install the matching client; use the managed Nightcap skin.
+
+Fresh full SQL backup passed gzip/completeness verification. All 12 running zones
+match the new binary; native/quest/database error scans are clear and the new
+runtime has zero restarts. All 47 player tables and 11 custom tables were preserved
+while access was closed. Other binaries, the divine-summon loader, quests/plugins,
+rules, checked content and supporting services were preserved. No migration or
+SQL restore was performed. This backup was not separately restore-rehearsed.
+
+All 106 hosted assets and the channel signature verify against the shipped
+production public key. Exactly DLL/config/catalog changed and tradeskill XML was
+added; 102 existing assets, prior patch history and tombstones were preserved.
+The desktop launcher, starter archive and guide are unchanged. The local signed
+package, native manifest, 31 operator recovery tests and 13 publisher tests passed
+independent review before activation.
+
+Evidence: [deployment receipt](deployment.json), [native manifest](deployment-manifest.json),
+[signed asset audit](signed-release-audit.json), [hosted verification](hosted-verification.json),
+and [publication comparison](publication-diff.json). These establish deployment
+and transport integrity; the exact gameplay and rendering checks below remain open.
 
 ## Paired activation and recovery
 
-After owner authorization, follow the current production runbook using fresh
+For a subsequent authorized change, follow the current production runbook using fresh
 runtime/public/data preimages. Rebase the candidate if the retained zone inputs
 have advanced. Preserve the current October 13 divine-summon shared-memory
 loader/cache and all other binaries. This change needs a rebuilt zone and a
@@ -163,7 +190,7 @@ higher signed counter. Preserve all earned inventory, recipe history and skill
 progress. Never restore old player SQL. Repetition stops on disconnect; no
 queued batch is stored server-side to replay after a restart.
 
-## Exact in-game QA before main acceptance
+## Exact in-game QA for owner acceptance
 
 Use an owner test character at the six crafting stations in the East Commonlands
 tunnel workshop. Artisan Veyra (NPC 999820) supplies the separate Reforging Box

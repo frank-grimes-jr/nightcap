@@ -1,6 +1,6 @@
 # CHANGES
 
-## 2026-10-13 - Stacked tradeskills and Craft All candidate
+## 2026-10-13 - Stacked tradeskills and Craft All deployed for live QA
 
 Ordinary experimental combines accept material stacks, consume exact recipe
 quantities and retain leftovers in portable bags and world stations. The recipe
@@ -15,9 +15,13 @@ separate behavior; container-consuming recipes require exact Experiment inputs.
 Isolated zone and proxy builds, 25 server test groups, six runtime groups, 11
 asset tests, 94 exact-client catalog guards and launcher preflight/manifest tests
 pass. Independent review corrected world-station representation and unsent-client
-rejection handling. Paired zone and signed client publication is required;
-candidate only, no deployment or native gameplay acceptance yet. Full provenance,
-rollback and exact owner QA: `docs/tradeskills/README.md`.
+rejection handling. Owner-authorized PR #200 merged to main and deployed with
+signed game release 2026101304 / proxy0.9.0-dev. Fresh full backup, 31 native
+operator tests, 13 publication tests and independent stage review passed. All 12
+zones and 106 hosted signed assets verify; 47 player / 11 custom tables and
+unrelated runtime/client state were preserved. Access is open; close EQ and use
+launcher Play. Native gameplay acceptance remains pending. Full provenance,
+recovery and exact owner QA: `docs/tradeskills/README.md`.
 
 ## 2026-10-13 - Unrest entrance waypoint deployed
 

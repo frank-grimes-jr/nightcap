@@ -16,6 +16,8 @@ Start with [current status](status.md), not a dated candidate report.
 
 ## Players and testers
 
+- [Stacked materials and Craft All: paired deployment, recovery and exact QA](tradeskills/README.md)
+
 - [Unrest entrance waypoint: deployed correction, preservation evidence and QA](ops/unrest-waypoint-20261013/README.md)
 
 - [Ascended divine summons: live resale protection, verification and exact QA](releases/divine-summons-20261013/README.md)
