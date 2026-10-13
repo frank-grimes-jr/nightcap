@@ -1,5 +1,14 @@
 # Current Nightcap status
 
+## Divine summoned weapons — release verification October 13
+
+Owner authorized main/server delivery. Existing Paladin/Cleric hammer spells
+already select Ascended definitions; the candidate item loader closes their
+FreeTrade resale loophole without changing combat or spell access. Full cache
+preservation and rollback evidence are being verified. In-game balance and
+visual acceptance remain pending.
+[Scope, evidence and exact QA](releases/divine-summons-20261013/README.md).
+
 ## Passive AA — 20% deployed October 13
 
 Owner-approved passive AA decreased from 40% to **20%**. Normal leveling XP,
