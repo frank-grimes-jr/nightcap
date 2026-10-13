@@ -1,6 +1,6 @@
 {
   "date": "2026-10-13",
-  "status": "built_reviewed_ready_for_approved_deployment",
+  "status": "merged_deployed_player_acceptance_pending",
   "owner_qa": {
     "previous_release": "trainer window opens; purchases, natural skill gains and offhand fail",
     "corrective_release": "pending"
@@ -43,5 +43,22 @@
     "signature": "valid against shipped production public key",
     "channel_sha256": "06931c05fddf6e0729db7a7bcd4e91d929416384e431b817b71414fb92d4b692"
   },
-  "combat_call_path": "Read actual retained OPCombatAbility: current-level held-class authorization already present; skill gains flow to corrected CheckIncreaseSkill."
+  "combat_call_path": "Read actual retained OPCombatAbility: current-level held-class authorization already present; skill gains flow to corrected CheckIncreaseSkill.",
+  "source_main_merge": "f34b385d676174096a203ec8266b6915a2fd4ac9",
+  "server_image": "sha256:67b3114b9142ba19a0ead71948a053eb482818638564c408b1ebab1503f0336b",
+  "live_server": "12 zone processes verified; zero new restarts or detected errors",
+  "data_preserved": {
+    "player_tables": 47,
+    "custom_tables": 11,
+    "database_restored": false
+  },
+  "signed_client_hosted_verification": {
+    "channel_sha256": "06931c05fddf6e0729db7a7bcd4e91d929416384e431b817b71414fb92d4b692",
+    "expires": "2026-11-12T10:08:35Z",
+    "hosted": true,
+    "release": 2026101301,
+    "signature": "valid against shipped production public key",
+    "total_bytes": 211940790,
+    "verified_files": 105
+  }
 }
