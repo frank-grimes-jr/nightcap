@@ -1,0 +1,68 @@
+{
+  "date": "2026-10-15",
+  "status": "verified_candidate_not_published_not_owner_accepted",
+  "base_revision": "1e3bf44",
+  "proxy_version": "0.9.1-dev",
+  "scope": "Client-only equipment eligibility and inspection; no production mutation",
+  "production_read_only_probe": {
+    "utc": "2026-10-15T09:09:27.463796+00:00",
+    "explicit_owner_permission": true,
+    "finding": "Paladin/Warrior/Monk and Forged Javelin masks permit ranged/ammo equip"
+  },
+  "red": {
+    "test": "equipment-native",
+    "checks": 22,
+    "failures": 6,
+    "cases": [
+      "javelin cursor placement",
+      "unheld equip",
+      "unheld green inspection",
+      "released-class equip",
+      "released-class green inspection",
+      "missing-identity off-primary equip"
+    ]
+  },
+  "green": {
+    "native_equipment_checks": 37,
+    "class_combinations": 4096,
+    "x86_proxy_build": "pass",
+    "x86_runtime_fixture_builds": 19,
+    "runtime_unittest_groups": 7,
+    "exact_client_guards": 95,
+    "generated_catalog_check": "pass",
+    "full_launcher_go_suite": "pass"
+  },
+  "environment_notes": [
+    "Runtime suite initially failed because sandbox TEMP blocked native file writes and cleanup; all seven groups passed with task-local TEMP/TMP.",
+    "Full Go suite initially hit sandbox localhost/junction/DPAPI restrictions; the complete suite passed in an approved unsandboxed run with task-local TEMP/TMP."
+  ],
+  "independent_review": {
+    "status": "no_remaining_actionable_findings",
+    "fixed_finding": "Execute native inspection type dispatch instead of forced branches; use realistic direct-path types and remove artificial scroll-color assertion",
+    "second_model": "declined_by_owner"
+  },
+  "exact_client": {
+    "path": "E:/EQ_Local_Dev/Client_RoF2_Dev/everquest_rof2/eqgame.exe",
+    "sha256": "2a8702ad9f722704f01355c0750be7d6f164a8b9c9128ba0cf286ea32b405b0e",
+    "modified": false
+  },
+  "source_sha256": {
+    "eq-client-dll/src/dllmain.cpp": "40e8df822a85cafdafbdd55d5115bc97b4bc0d06c28457ad37fadfa2d66ef651",
+    "eq-client-dll/src/equipment_scope.h": "1121cbd9d55beb3c9e91083b838aa72b9b0d0e7162c33901827f43aeff38cc8b",
+    "eq-client-dll/tests/equipment-native.cpp": "ce956c83cd8e942f49fef2a8f1d8b0b96f8e6b10ea9158035b6b99b21f167a80",
+    "eq-client-dll/tests/equipment-scope.cpp": "39c1e45b7d3c1ac0e5a0702815ac01b3677de1387fc42719f55c510130e3c748",
+    "eq-client-dll/tests/build-runtime-tests.bat": "6356e5fc6a8443ae82777ad8e69ce8f00a871e312e5ce4032769ced62ee6e3ed",
+    "eq-client-dll/tests/test_runtime.py": "8bcb946f5f1cf6342a99618693be1f35ae56b9f05dc4bcf03a409a071de8dfae",
+    "eq-client-dll/tests/verify-exact-client-patch-sites.ps1": "9a25da1357b6fea6e0b4dc792f3de72e239c302c0c51b9805863e0f6326e2677",
+    "eq-client-dll/config/patch-sites.json": "edd85fb8e9de69248048e099a578b7ff8f9e2daf8e30c496a43f8977d356184a",
+    "eq-client-dll/src/patch_catalog.h": "7b0d60ea9d3967cef3a8eaa966cee74336c9bbccf181cf879af1cb477573e8ae",
+    "eq-client-dll/src/runtime_contract.h": "5c1dd2a467da2ad4f4f36fb54112af848ffbd25bcd6fb5fbd57e573b4df477da",
+    "eq-launcher/internal/preflight/catalog.json": "edd85fb8e9de69248048e099a578b7ff8f9e2daf8e30c496a43f8977d356184a",
+    "tools/generate-client-patch-catalog.py": "043e614d905afe76d81fe495470cf5fad0e78c729f8b9d43146f1bdce9811b9e"
+  },
+  "binary_sha256": "b32c3d9956deec32bf4a37261bc622c98d8e47fe99131ad3831d20c8c7dfed92",
+  "pending": [
+    "owner authorization for main promotion and signed game publication",
+    "native gameplay and visible inspection acceptance"
+  ]
+}

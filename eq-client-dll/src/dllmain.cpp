@@ -91,7 +91,7 @@ static const uintptr_t kLocalPlayerSlotRva = 0x009D2630;
 // owns visibility continuously and bases it on the server-cached maximum.
 
 // #13: CanEquipItem -> CanUseItem and its class-mask accessor. These calls
-// scope a permissive class result to equip submission, never global item data.
+// project held-class eligibility for equipment and inspection, never item data.
 
 static HMODULE g_real_dinput8 = nullptr;
 static FILE*   g_log          = nullptr;
@@ -1052,7 +1052,13 @@ extern "C" __declspec(noinline) uint32_t __fastcall EquipScopedItemClasses(
     if (item == nightcap::client_ui::ActiveSpellItem()) {
         return nightcap::client_ui::ScribeClassMask(stock,item,flag1,flag2);
     }
-    return nightcap::EquipClassMask(stock, item, flag1, flag2);
+    if (!item || item != nightcap::ActiveEquipItem()) return stock;
+    if (!nightcap::client_ui::CurrentIdentity()) {
+        nightcap::client_ui::RequestRefresh();
+        return stock;
+    }
+    return nightcap::EquipClassMask(stock, item, flag1, flag2,
+        nightcap::client_ui::state.PrimaryClass(), nightcap::client_ui::state.ClassMask());
 }
 
 extern "C" __declspec(noinline) BYTE __fastcall CanUseItemForEquip(
@@ -1079,6 +1085,22 @@ extern "C" __declspec(noinline) BYTE __fastcall CanUseItemForEquip(
         nightcap::SetActiveEquipItem(previous);
     }
     return result;
+}
+
+// Cursor placement handles ordinary equipment as well as scrolls. Preserve the
+// canonical spell policy for scrolls; other items use held equipment classes.
+extern "C" __declspec(noinline) BYTE __fastcall CanUseInventoryItem(
+    void* character, void*, const void* item_ref, bool required, bool output)
+{
+    if (!character || !item_ref) return 0;
+    __try {
+        auto item = *reinterpret_cast<void* const*>(item_ref);
+        if (!item) return 0;
+        using ItemType = int (__thiscall *)(void*);
+        if (reinterpret_cast<ItemType>(g_eq_base + kItemTypeRva)(item) == 20)
+            return nightcap::client_ui::CanUseSpellItem(character, nullptr, item_ref, required, output);
+    } __except (EXCEPTION_EXECUTE_HANDLER) { return 0; }
+    return CanUseItemForEquip(character, nullptr, item_ref, required, output);
 }
 
 static bool ApplyEquipSubmissionPatches(uintptr_t eq_base, bool version_ok)
@@ -1114,7 +1136,7 @@ static bool ApplyEquipSubmissionPatches(uintptr_t eq_base, bool version_ok)
             rollback_ok ? "verified" : "FAILED");
         return false;
     }
-    Log("G013 equip submission APPLIED: item/thread-scoped class check; native restrictions and server authorization retained");
+    Log("G013 equip submission APPLIED: held-class item/thread scope; native restrictions and server authorization retained");
     return true;
 }
 
@@ -1521,7 +1543,9 @@ static BOOL CALLBACK InitializeRuntime(PINIT_ONCE, PVOID, PVOID*)
             ApplyGuardedRelativeCall(eq_base,kScribeLevelRva,kExpectedScribeLevel,
                 reinterpret_cast<uintptr_t>(&nightcap::client_ui::ScribeSpellLevelHook),"Spellbook early scribing") &&
             ApplyGuardedRelativeCall(eq_base,kScrollPlacementCanUseRva,kExpectedScrollPlacementCanUse,
-                reinterpret_cast<uintptr_t>(&nightcap::client_ui::CanUseSpellItem),"Scroll inventory placement classes") &&
+                reinterpret_cast<uintptr_t>(&CanUseInventoryItem),"Held-class inventory placement") &&
+            ApplyGuardedRelativeCall(eq_base,kInspectionCanUseRva,kExpectedInspectionCanUse,
+                reinterpret_cast<uintptr_t>(&CanUseInventoryItem),"Held-class inspection eligibility") &&
             ApplyGuardedRelativeCall(eq_base,kInspectionClassesRva,kExpectedInspectionClasses,
                 reinterpret_cast<uintptr_t>(&nightcap::client_ui::InspectionClassesHook),"Scroll inspection classes") &&
             ApplyGuardedRelativeCall(eq_base,kInspectionLevelRva,kExpectedInspectionLevel,
