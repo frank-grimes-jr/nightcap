@@ -18,6 +18,11 @@ STOP_CODE = 0x4E430001
 EXACT_CLIENT = os.environ.get("NIGHTCAP_TEST_EQGAME")
 
 class RuntimeTests(unittest.TestCase):
+    def test_native_multiclass_equipment(self):
+        self.assertIsNotNone(EXACT_CLIENT, "Pass --eqgame PATH for the read-only pinned client")
+        result = subprocess.run([ROOT / "build/tests/equipment-native.exe", EXACT_CLIENT], capture_output=True, timeout=15)
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+
     def test_native_multiclass_trainers(self):
         self.assertIsNotNone(EXACT_CLIENT, "Pass --eqgame PATH or set NIGHTCAP_TEST_EQGAME to the read-only pinned client")
         client = Path(EXACT_CLIENT)
@@ -26,7 +31,7 @@ class RuntimeTests(unittest.TestCase):
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
 
     def test_ui_state_and_hooks(self):
-        for name in ("ui-state", "ui-hooks", "tradeskill-repeat", "pet-state", "pet-management", "spell-access", "spell-inspection", "spell-menu", "model-policy", "model-hooks"):
+        for name in ("ui-state", "ui-hooks", "tradeskill-repeat", "pet-state", "pet-management", "spell-access", "spell-inspection", "spell-menu", "model-policy", "model-hooks", "equipment-scope"):
             with self.subTest(name=name):
                 result = subprocess.run([ROOT / f"build/tests/{name}.exe"], capture_output=True, timeout=15)
                 self.assertEqual(result.returncode, 0, result.stdout + result.stderr)

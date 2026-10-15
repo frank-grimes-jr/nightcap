@@ -1,5 +1,10 @@
 # Equipment client candidate QA - September 15, 2026
 
+This is historical QA for the original permissive submission hook. Its all-class
+bypass is superseded by the [October 15 held-class correction](../../docs/releases/multiclass-equipment-20261015/README.md),
+which also covers cursor placement and inspection colors. Use that release's
+verification and QA for the current candidate; publication remains pending.
+
 Status: built/reviewed candidate; not deployed or manually accepted. #13 remains
 open. Use an isolated RoF2 client and matching Nightcap server. The development
 binary client directory is read-only; release/health gates remain in #14/#15.
