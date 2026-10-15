@@ -1,0 +1,50 @@
+{
+  "status": "built_tested_not_deployed",
+  "date": "2026-10-15",
+  "branch": "fix/aa-temporary-buffs-20261015",
+  "base_revision_reviewed": "1e3bf44897f8dbd32f026c9d37f69d6cd1c2e8b8",
+  "native_zone_sha256": "19cd3387952f21d1d1bcc18916e76a1d7738148de086849e3d3befe3a0df2ae1",
+  "tests": {
+    "aa_temporary_buffs": 19,
+    "gameplay_policies": 2,
+    "epic05_native": 1,
+    "buff_restore": 3,
+    "historical_aa_duration": 5
+  },
+  "test_result": "all_30_pass",
+  "red_evidence": [
+    "Seven original runtime failures before production edits; modeled six-tick on-kill AA returned -1000.",
+    "Three cure/numhit follow-on tests failed before adding native edges.",
+    "Spell-kill trigger and unsupported-AA operand tests failed before their corrections."
+  ],
+  "production_content_check": "Owner-approved read-only AA/spell definitions; no player rows or writes. See content-check.json.",
+  "independent_review": "Required missing edge/failed-catalog fixes applied; no blocking findings remain.",
+  "build": "Complete modified translation unit and full retained-zone link; ldd resolved; original inputs preserved. See build-manifest.json.",
+  "limits": [
+    "Fixture effects, packet transport and fade side effects are stubbed.",
+    "Native countdown/expiry and suspension decisions execute; in-game behavior remains owner QA.",
+    "No production image, restart, SQL mutation, client publication or main promotion performed."
+  ],
+  "source_sha256": {
+    "server-mods/code/zone/spells.cpp": "b5181a274dbe390f1012bc5d8a296e151118fe5370f4dea32f55f4eca9131456",
+    "server-mods/code/zone/spell_effects.cpp": "43c46bd8d14f8b8732b8e7db707ea3de24ed730750b91d9239b02d1bff4cfd30",
+    "server-mods/code/zone/zonedb.cpp": "9dd2152d6f0c6c5435c25f2ddb641a8eabf4d3f50cd55dea0cf7004d9bdde88e",
+    "server-mods/code/zone/pets.cpp": "da1126ebc95db863b1fb8eeb76dfb383af8ce7e880dd1b19010103282d3ba4c7",
+    "tools/tests/test_aa_temporary_buffs.py": "eb60a34b3d29d3fcf2fb25de6f650821d9def5cb375a3a9fbbad22293634d537",
+    "tools/tests/test_gameplay_policies.py": "8333051d89f2195b0a73ac08a9ff2ec96c48dbcf872bc3f242cf555c380f484a",
+    "tools/tests/test_epic05_native.py": "3fd93fc4c5a314a140fb1324193653bd4761111c9b681c08cbbfc78729120e0f",
+    "tools/tests/test_buff_restore.py": "2943be9ff4b4b4c9752b895aa28b78b5e262c64b30cbf0a5acbc475d4415c105",
+    "tools/build_aa_temporary_buffs_candidate.py": "f0e5345b00b943b7a62972ac239452d4ed029fc6b52a962b6e0ef90a477c5594"
+  },
+  "line_ending_only_checkout_differences": {
+    "tools/tests/test_aa_temporary_buffs.py": {
+      "tested_lf_sha256": "eb60a34b3d29d3fcf2fb25de6f650821d9def5cb375a3a9fbbad22293634d537",
+      "checkout_crlf_sha256": "49daab9bea9cc19aeded76fc8e638b6c7364cf8d06a7adb0d4021b3e133244f2"
+    },
+    "tools/build_aa_temporary_buffs_candidate.py": {
+      "tested_lf_sha256": "f0e5345b00b943b7a62972ac239452d4ed029fc6b52a962b6e0ef90a477c5594",
+      "checkout_crlf_sha256": "1b694f1ef9adb48023d24f0468ba5207ab9c9a806558dab99f0b497ce3725b9c"
+    }
+  },
+  "integrated_main_revision": "f1c9271f61723b9359d7fa1cb2b7cb2872f61e1e"
+}

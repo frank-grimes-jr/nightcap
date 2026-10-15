@@ -12,6 +12,25 @@ groups and 95 catalog guards pass. Client-only DLL/catalog publication and owner
 gameplay QA remain pending; no server/data change. See
 `docs/releases/multiclass-equipment-20261015/README.md`.
 
+## 2026-10-15 - Keep temporary AA buffs temporary (built candidate)
+
+Corrected the blanket player/pet permanence policy so activated AA spells,
+passive on-kill buffs such as Killing Spree, and recursive AA proc/recourse
+effects retain native timers. Disciplines and short-box effects retain timers
+too. Ordinary blessings remain permanent. Spell links follow native effect
+operands; cycles terminate and AA/spell reloads cannot leave stale classification.
+An unavailable/empty catalog conservatively withholds permanence.
+
+Affected finite-formula buffs previously saved as -1000/-1 receive one remaining
+native tick on player/pet restoration; positive remaining durations, charges and
+native permanent/aura formulas are retained. No SQL, ownership, costs, proc
+chances or client assets change. Native regression tests reproduce the old
+failure and verify the candidate. All 30 focused checks, full retained-zone build
+and read-only production content check pass. Owner gameplay QA remains open;
+this is not deployed. Activation needs
+a coordinated zone binary/runtime update. See
+`docs/releases/aa-temporary-buffs-20261015/README.md`.
+
 ## 2026-10-13 - Stacked tradeskills and Craft All deployed for live QA
 
 Ordinary experimental combines accept material stacks, consume exact recipe

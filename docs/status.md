@@ -9,6 +9,16 @@ native restrictions and canonical scroll access remain. Native regressions,
 scope coverage, x86 builds and catalog checks pass. **Not published or installed**;
 owner authorization and live gameplay QA remain pending. No server/DB change.
 
+## Temporary AA buffs — built candidate October 15
+
+Killing Spree and related activated/proc/recourse buffs now bypass blanket
+player/pet permanence in the candidate. Native positive timers remain unchanged;
+affected saved permanent sentinels receive one remaining tick. Ordinary blessings
+retain permanence. All 30 focused checks, full retained-source zone link and
+read-only production content verification pass. Deployment and owner QA remain
+open. See the
+[release evidence and exact QA](releases/aa-temporary-buffs-20261015/README.md).
+
 ## Stacked tradeskills and Craft All — deployed for live QA October 13
 
 Owner-authorized PR #200 is on main and OVH with signed game release **2026101304**
