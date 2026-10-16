@@ -1,6 +1,6 @@
 # CHANGES
 
-## 2026-10-15 - Multiclass equipment and item colors candidate
+## 2026-10-15 - Multiclass equipment and item colors published for live QA
 
 Fix ordinary equipment cursor placement using only the primary class and item
 inspection treating every class as eligible. Client proxy 0.9.1-dev projects only
@@ -8,8 +8,10 @@ currently held classes, preserves native restrictions and canonical scroll
 ownership, and covers the separate direct inspection path. Forged Javelin is
 legal for Paladin/Warrior/Monk; production definitions require no change.
 37 exact-client checks, 4,096 scope combinations, full x86 builds, seven runtime
-groups and 95 catalog guards pass. Client-only DLL/catalog publication and owner
-gameplay QA remain pending; no server/data change. See
+groups and 95 catalog guards pass. PR #202 is merged; signed client 2026101501
+verifies all 106 hosted assets and preserves 104 unchanged assets. Thirteen
+publisher recovery tests pass; server services remain unchanged. Launcher
+installation and owner gameplay QA remain pending; no server/data change. See
 `docs/releases/multiclass-equipment-20261015/README.md`.
 
 ## 2026-10-13 - Stacked tradeskills and Craft All deployed for live QA

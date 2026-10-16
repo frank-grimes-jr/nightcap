@@ -1,5 +1,19 @@
 [
   {
+    "release": 2026101501,
+    "date": "2026-10-15",
+    "changes": [
+      {
+        "kind": "fix",
+        "text": "Equip items using any of your held classes, including Forged Javelin for Warrior combinations."
+      },
+      {
+        "kind": "fix",
+        "text": "Inventory and item inspection now use your held classes when showing whether equipment is usable."
+      }
+    ]
+  },
+  {
     "release": 2026101304,
     "date": "2026-10-13",
     "changes": [
