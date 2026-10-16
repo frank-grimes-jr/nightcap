@@ -1,9 +1,9 @@
 {
   "date": "2026-10-15",
-  "status": "verified_candidate_not_published_not_owner_accepted",
+  "status": "published_hosted_verified_owner_gameplay_pending",
   "base_revision": "1e3bf44",
   "proxy_version": "0.9.1-dev",
-  "scope": "Client-only equipment eligibility and inspection; no production mutation",
+  "scope": "Client-only signed equipment eligibility and inspection update; no server or database change",
   "production_read_only_probe": {
     "utc": "2026-10-15T09:09:27.463796+00:00",
     "explicit_owner_permission": true,
@@ -62,7 +62,24 @@
   },
   "binary_sha256": "b32c3d9956deec32bf4a37261bc622c98d8e47fe99131ad3831d20c8c7dfed92",
   "pending": [
-    "owner authorization for main promotion and signed game publication",
-    "native gameplay and visible inspection acceptance"
-  ]
+    "player launcher installation and native gameplay/visible inspection acceptance"
+  ],
+  "publication": {
+    "release": 2026101501,
+    "proxy_version": "0.9.1-dev",
+    "pull_request": 202,
+    "merge_commit": "f1c9271f61723b9359d7fa1cb2b7cb2872f61e1e",
+    "hosted_files": 106,
+    "changed_assets": [
+      "dinput8.dll",
+      "nightcap-patch-sites.json"
+    ],
+    "unchanged_assets": 104,
+    "publisher_recovery_tests": 13,
+    "publication_review": "intermediate directory fsync gap corrected; no remaining findings",
+    "signature": "valid against shipped production public key",
+    "channel_sha256": "8212a46460273a640e807da0df7c9322c8d1ce6adf912ee419dde65083b4beab",
+    "expires": "2026-11-14T09:47:47Z",
+    "services_unchanged": true
+  }
 }
