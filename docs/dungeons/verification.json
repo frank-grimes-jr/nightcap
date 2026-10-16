@@ -2,7 +2,7 @@
   "date": "2026-10-16",
   "implemented": true,
   "automated_verification": "passed within the scopes below",
-  "source_revision": "2fc80a18b7ab6a3c94b86f29cee2566156354a04",
+  "source_revision": "0ef0b0e82a4c19b52c335ec8d02d88b06ccaee38",
   "native_binaries": {
     "zone": "40bc343044c4a22292fe2e4377c3b1b33ddc323541236642d615298273f1b95c",
     "world": "70cceaca060ed6338cb72acc726bb24ccae162b42ba88dfb89432b609c7ef8e5",
@@ -12,7 +12,7 @@
   "evidence": {
     "activation-verification.json": {
       "status": "passed",
-      "sha256": "c2c7a1eb2b0a4574e1b1287ab127847eca4a3658d0d9f4c233faa7dcb128e9e5"
+      "sha256": "a235fa6c8a6cd3b218a33d56bcb5b51e30a3e634c1b8599af9a56b853fdfe681"
     },
     "cache-verification.json": {
       "status": "passed",
@@ -20,7 +20,7 @@
     },
     "concurrency-verification.json": {
       "status": "passed",
-      "sha256": "90a861d5c79df3dfba68b408c56b1a544579a97b738ac16d0945d2730c34cefa"
+      "sha256": "ff9b9f3f4fc3c5f26accf3b644edef799c270146503e334e58fe287eb1d6c303"
     },
     "inventory-verification.json": {
       "status": "passed",
