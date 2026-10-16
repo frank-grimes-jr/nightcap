@@ -46,5 +46,12 @@
       "checkout_crlf_sha256": "1b694f1ef9adb48023d24f0468ba5207ab9c9a806558dab99f0b497ce3725b9c"
     }
   },
-  "integrated_main_revision": "f1c9271f61723b9359d7fa1cb2b7cb2872f61e1e"
+  "integrated_main_revision": "f1c9271f61723b9359d7fa1cb2b7cb2872f61e1e",
+  "deployment": {
+    "status": "deployed_for_owner_gameplay_QA",
+    "verified_at": "2026-10-16T09:38:53.992615+00:00",
+    "receipt": "deployment.json",
+    "native_sha256": "19cd3387952f21d1d1bcc18916e76a1d7738148de086849e3d3befe3a0df2ae1",
+    "owner_gameplay_acceptance": "pending"
+  }
 }

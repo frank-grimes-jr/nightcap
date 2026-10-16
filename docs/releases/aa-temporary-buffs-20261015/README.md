@@ -1,7 +1,17 @@
 # Temporary AA buff duration repair — October 15, 2026
 
-Status: built and tested candidate. Not deployed; owner gameplay acceptance
-remains pending. The approved production content check completed read-only.
+Status: **deployed to OVH for owner gameplay QA on October 16, 2026**.
+The owner explicitly requested "Push to main and server". Main promotion is
+`7b0939b`; source candidate `248bf5c` is unchanged. The new runtime image is
+`sha256:043d7168127782bf7c384329af85ff0679f02d0e7d6510b47096f047bc223b03`.
+All 12 running zone hashes match the tested candidate, with zero restarts and
+zero detected native, quest or database errors. Access is open. Closed-access
+checks preserved 47 player and 11 custom tables, quests, content,
+rules and supporting services. The prior image and verified backup are retained;
+no SQL was restored. Signed client 2026101501 and all 106 assets are unchanged.
+Thirty behavior checks and 33 rollout/recovery checks pass. Owner gameplay
+acceptance remains pending. [Deployment receipt](deployment.json) and
+[guarded operator/recovery](deployment/README.md).
 
 ## Problem and behavior
 
@@ -12,7 +22,7 @@ promotes every beneficial player/owned-pet buff to the permanent sentinel in
 passive on-kill effect, so checking only activated `aa_ranks.spell` is also
 insufficient.
 
-The candidate keeps native, focus-adjusted durations for direct AA spells,
+The deployed fix keeps native, focus-adjusted durations for direct AA spells,
 AA effect procs, and their recursive recourse/trigger descendants. It also
 restores finite discipline and short-box durations. Classification uses the
 zone's current AA catalog, including unowned ranks, so another caster's buffs
@@ -85,8 +95,9 @@ Candidate zone SHA-256:
 `19cd3387952f21d1d1bcc18916e76a1d7738148de086849e3d3befe3a0df2ae1`.
 The isolated binary is `/tmp/nightcap-aa-temporary-buffs-build-20261015/zone`
 inside local `akk-stack-eqemu-server-1`; [manifest](build-manifest.json).
-No running production binary parity, live countdown, client rendering, or owner
-acceptance is claimed from build/fixture/content checks.
+The October16 deployment separately verifies running production binary parity.
+Live countdown, combat-effect expiry, client rendering and owner acceptance
+remain the exact gameplay checks below.
 
 ## Activation and recovery boundary
 

@@ -2,10 +2,12 @@
 
 > Superseded implementation scope (October 15, 2026): the current integrated
 > `GetBuffDurationForTarget` blanket permanence policy bypassed this older direct-AA
-> exclusion. The new [temporary AA candidate](../releases/aa-temporary-buffs-20261015/README.md)
+> exclusion. The new [temporary AA repair](../releases/aa-temporary-buffs-20261015/README.md)
 > restores timers there and includes passive procs and recursive recourse/trigger
 > spells, with one-tick expiry for affected saved permanent sentinels. Ordinary
-> player/pet blessings remain permanent. Candidate only; no new deployment claimed.
+> player/pet blessings remain permanent. Owner-authorized main/OVH deployment
+> completed October16; running hashes and preservation checks pass. Owner
+> gameplay acceptance remains pending.
 
 > Current status (2026-09-15): implemented server/AA/PoK candidates are deployed for live QA; main gameplay acceptance remains pending. See [current status](../status.md). The dated evidence below retains its original scope and is not a current deployment checklist.
 

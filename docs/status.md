@@ -11,14 +11,16 @@ signed release **2026101501** verifies all 106 hosted assets and the production
 signature. Only DLL/catalog changed; all five services are unchanged. Launcher
 installation and live gameplay QA remain pending. No server/DB change.
 
-## Temporary AA buffs — built candidate October 15
+## Temporary AA buffs — deployed for live QA October 16
 
 Killing Spree and related activated/proc/recourse buffs now bypass blanket
-player/pet permanence in the candidate. Native positive timers remain unchanged;
+player/pet permanence in the deployed fix. Native positive timers remain unchanged;
 affected saved permanent sentinels receive one remaining tick. Ordinary blessings
 retain permanence. All 30 focused checks, full retained-source zone link and
-read-only production content verification pass. Deployment and owner QA remain
-open. See the
+read-only production content verification pass. Owner-authorized main/OVH
+rollout and 33 recovery checks pass: all 12 zones match the new binary, with zero
+restarts/detected errors and access open. Player/custom data, quests, rules and
+signed client 2026101501 are preserved. Owner gameplay QA remains open. See the
 [release evidence and exact QA](releases/aa-temporary-buffs-20261015/README.md).
 
 ## Stacked tradeskills and Craft All — deployed for live QA October 13
