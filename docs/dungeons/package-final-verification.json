@@ -1,0 +1,12 @@
+{
+  "status": "passed",
+  "archive_sha256": "5dac68fb09d932ecc8d45d4e20b7448c24446c489750d9b66831d2b8b1a97244",
+  "members": 18,
+  "executable_modes": {
+    "bin/shared_memory": "0o755",
+    "bin/world": "0o755",
+    "bin/zone": "0o755"
+  },
+  "all_final_member_hashes_verified": true,
+  "sql_matches_checkout": true
+}
