@@ -19,6 +19,7 @@
 #include "shareddb.h"
 #include "item_trade_policy.h"
 #include "divine_summoned_weapon_policy.h"
+#include "equipment_race_policy.h"
 #include "zone_hunt_catalog.h"
 
 #include "common/classes.h"
@@ -1125,6 +1126,7 @@ void SharedDatabase::LoadItems(void *data, uint32 size, int32 items, uint32 max_
 		item.RecSkill    = static_cast<uint8>(e.recskill);
 		item.ReqLevel    = static_cast<uint8>(e.reqlevel);
 		item.Slots       = e.slots;
+		NightcapEquipment::ApplyRacePolicy(item);
 
 		// Skill Modifier
 		item.SkillModValue = e.skillmodvalue;
