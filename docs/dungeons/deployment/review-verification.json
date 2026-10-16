@@ -1,0 +1,23 @@
+{
+  "status": "passed",
+  "native_provenance": {
+    "retained_paths": 2813,
+    "overlay_fingerprints": 104,
+    "meaningful_differences_reviewed": true,
+    "equipment_loader_equivalent_except_dungeon_changes": true,
+    "regressions_found": []
+  },
+  "operator_tests": 17,
+  "review_fixes": [
+    "native spawn2 identifier accepted",
+    "equipment helper import and cache helper pinned",
+    "uncertain opening marker holds access without replay",
+    "items non-null UNIQUE ID key supported"
+  ],
+  "gameplay_accepted": false,
+  "resource_controls": [
+    "streamed compact SQL row digests",
+    "128 MiB per-session SQL memory limit",
+    "credential-bearing errors withheld"
+  ]
+}
