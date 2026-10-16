@@ -1,5 +1,13 @@
 # CHANGES
 
+## 2026-10-16 - Befallen Keeper entrance check confirmed
+
+Palwar confirmed selecting Instance_Keeper and seeing Raid/Grind in its hail
+menu. Document direct targeting when the colocated waypoint obscures the Keeper.
+Run entry, Tasks, combat, rewards and all other dungeon acceptance remain open.
+This records partial owner QA; no gameplay, cache or client release changed.
+The wiki's existing Live testing status remains correct. See `docs/dungeons/QA.md`.
+
 ## 2026-10-16 - Raid and Grind player wiki published
 
 Publish the deployed dungeon guide and related Features, travel, reward and
