@@ -1,11 +1,12 @@
-# Dungeon test release: exact acceptance route
+# Dungeon live-test release: exact acceptance route
 
-All gameplay rows below are **pending**. Automated checks and a compiled package
-are recorded separately in README.md and the verification JSON files. Use a
-closed, disposable test environment with the matching binaries, item cache,
-schema, content, task definitions and Keeper quest. Do not inject failures,
-modify run deadlines, or recycle IDs on production. Main promotion and a
-production restart need separate owner authorization.
+All gameplay rows below are **pending**. The owner-authorized main/OVH release
+is deployed and enabled; access is open. Native binaries, production cache, SQL
+and Keeper quest are paired and verified in deployment/. No new client assets
+are required. For normal in-game testing, start at step 3 below. Steps 1–2 are
+operator setup, already completed on OVH. Use a closed, disposable environment
+for fault injection, deadline changes or forced ID recycling; never perform
+those experiments on the live server.
 
 ## Installation and first Befallen run
 

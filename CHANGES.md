@@ -1,6 +1,6 @@
 # CHANGES
 
-## 2026-10-16 - Raid and Grind dungeon candidate
+## 2026-10-16 - Raid and Grind dungeons deployed for live QA
 
 Add fixed twelve-hour Raid/Grind runs to all seven existing dungeon Keepers,
 with authoritative per-character boss credit, Tasks display, permanent completion
@@ -17,9 +17,14 @@ dungeon. Private Cazic-Thule restores 188 pinned Classic spawn points without
 changing public populations. Guarded SQL starts disabled; deployment requires
 matching native binaries/cache/quests. Isolated database, concurrency, native
 policy/credit and receipt-adapter checks are recorded in `docs/dungeons/`.
-The candidate preserves the separately deployed AA catalog and authentication-log
+The release preserves the separately deployed AA catalog and authentication-log
 redaction when reconciling main/dev/retained source. Full in-game and level-50
-Vox/Nagafen acceptance remain pending. No production promotion or restart.
+Vox/Nagafen acceptance remain pending. Owner-authorized main promotion and OVH
+deployment are complete: matching binaries, production cache and Keeper quest,
+enabled revision 2026101601, and access open. All 309,410 existing cache entries
+are preserved with 330 additions. The earlier preflight database OOM restart
+recovered before feature SQL; the corrected streamed, memory-capped rehearsal
+and deployment pass. See `docs/dungeons/deployment/` for separate evidence.
 See `docs/dungeons/README.md` and `docs/dungeons/QA.md`.
 
 ## 2026-10-16 - Equipment race policy deployed for live QA

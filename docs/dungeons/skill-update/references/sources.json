@@ -179,6 +179,27 @@
         "role": "thirteen failure, preservation and precision-sidecar tests",
         "revision": "7f72778023bec0106b820603f48362754f6ba6e8",
         "sha256": "51d3691fe3bd2c3e5e66054c98af353341f6b03c1a0ad9566957a797958658dd"
+      },
+      {
+        "root": "C:/Users/verre/Documents/Codex/2026-10-16/p/work/dungeon-modes",
+        "path": "docs/dungeons/deployment/README.md",
+        "role": "Reviewed Raid/Grind production deployment; owner gameplay acceptance pending",
+        "revision": "7ae42801af295931e73b52908cdb4965167d7de9",
+        "sha256": "524719431df5bee33f72c7beb5246d9ebd4847e558ca244d4729d69289312275"
+      },
+      {
+        "root": "C:/Users/verre/Documents/Codex/2026-10-16/p/work/dungeon-modes",
+        "path": "docs/dungeons/deployment/rollout.py",
+        "role": "Reviewed Raid/Grind production deployment; owner gameplay acceptance pending",
+        "revision": "7ae42801af295931e73b52908cdb4965167d7de9",
+        "sha256": "fc56831ff9b31ba3f2cf4deaf01198bd1079ce7b1eddec447b0786b5774ad933"
+      },
+      {
+        "root": "C:/Users/verre/Documents/Codex/2026-10-16/p/work/dungeon-modes",
+        "path": "docs/dungeons/deployment/production-verification.json",
+        "role": "Reviewed Raid/Grind production deployment; owner gameplay acceptance pending",
+        "revision": "7ae42801af295931e73b52908cdb4965167d7de9",
+        "sha256": "8db6554b02d4aba4876442609730eff960d89ff8f508a426a3a1d0d788aa2466"
       }
     ],
     "multiclass": [
@@ -926,8 +947,8 @@
       {
         "root": "C:/Users/verre/Documents/Codex/2026-10-16/p/work/dungeon-modes",
         "path": "server-mods/code/common/shareddb.cpp",
-        "role": "Reviewed Raid/Grind candidate; automated evidence, not deployment or owner acceptance",
-        "revision": "916b39e265ab36d0da92074c3d61d4bba132dadb",
+        "role": "Reviewed Raid/Grind production deployment; owner gameplay acceptance pending",
+        "revision": "7ae42801af295931e73b52908cdb4965167d7de9",
         "sha256": "ecec44c9237ea93c50c4c0d32edd2473598000347fc48078ec4359648965e461"
       },
       {
@@ -1241,51 +1262,86 @@
       {
         "root": "C:/Users/verre/Documents/Codex/2026-10-16/p/work/dungeon-modes",
         "path": "server-mods/code/common/dungeon_policy.h",
-        "role": "Reviewed Raid/Grind candidate; automated evidence, not deployment or owner acceptance",
-        "revision": "916b39e265ab36d0da92074c3d61d4bba132dadb",
+        "role": "Reviewed Raid/Grind production deployment; owner gameplay acceptance pending",
+        "revision": "7ae42801af295931e73b52908cdb4965167d7de9",
         "sha256": "dfe1ecf5163a46c8c27de70c1cded80da64b853f525b922e882150dbb943136f"
       },
       {
         "root": "C:/Users/verre/Documents/Codex/2026-10-16/p/work/dungeon-modes",
         "path": "server-mods/code/common/dungeon_contract.h",
-        "role": "Reviewed Raid/Grind candidate; automated evidence, not deployment or owner acceptance",
-        "revision": "916b39e265ab36d0da92074c3d61d4bba132dadb",
-        "sha256": "50b244b3243ae6cee02e7fa8f82ff28b908df460e06e9618366f50b16f2d3f21"
+        "role": "Reviewed Raid/Grind production deployment; owner gameplay acceptance pending",
+        "revision": "7ae42801af295931e73b52908cdb4965167d7de9",
+        "sha256": "a34fec6a56e0f2afd43b791b6a0b093c5caf8453a5b111f79048cea64291e8f1"
       },
       {
         "root": "C:/Users/verre/Documents/Codex/2026-10-16/p/work/dungeon-modes",
         "path": "tools/dungeon_catalog.py",
-        "role": "Reviewed Raid/Grind candidate; automated evidence, not deployment or owner acceptance",
-        "revision": "916b39e265ab36d0da92074c3d61d4bba132dadb",
+        "role": "Reviewed Raid/Grind production deployment; owner gameplay acceptance pending",
+        "revision": "7ae42801af295931e73b52908cdb4965167d7de9",
         "sha256": "24847582abf388f0675a21641ffd7b95771b7ed2e6e9e320240d72849dd455b0"
       },
       {
         "root": "C:/Users/verre/Documents/Codex/2026-10-16/p/work/dungeon-modes",
         "path": "docs/dungeons/catalog.json",
-        "role": "Reviewed Raid/Grind candidate; automated evidence, not deployment or owner acceptance",
-        "revision": "916b39e265ab36d0da92074c3d61d4bba132dadb",
+        "role": "Reviewed Raid/Grind production deployment; owner gameplay acceptance pending",
+        "revision": "7ae42801af295931e73b52908cdb4965167d7de9",
         "sha256": "b7cf1e0f2ac75891d8d723a5a964b7fd6a06180e3599fb406293d67614c1f500"
       },
       {
         "root": "C:/Users/verre/Documents/Codex/2026-10-16/p/work/dungeon-modes",
         "path": "docs/dungeons/cache-verification.json",
-        "role": "Reviewed Raid/Grind candidate; automated evidence, not deployment or owner acceptance",
-        "revision": "916b39e265ab36d0da92074c3d61d4bba132dadb",
+        "role": "Archived local-content test evidence; production build/cache pairing is recorded separately under deployment/",
+        "revision": "7ae42801af295931e73b52908cdb4965167d7de9",
         "sha256": "032c411e0f9e09999f0261cc32fbc8ba71b96df1497e08254311d4a1fcc135e8"
       },
       {
         "root": "C:/Users/verre/Documents/Codex/2026-10-16/p/work/dungeon-modes",
         "path": "docs/dungeons/activation-verification.json",
-        "role": "Reviewed Raid/Grind candidate; automated evidence, not deployment or owner acceptance",
-        "revision": "916b39e265ab36d0da92074c3d61d4bba132dadb",
-        "sha256": "a235fa6c8a6cd3b218a33d56bcb5b51e30a3e634c1b8599af9a56b853fdfe681"
+        "role": "Reviewed Raid/Grind production deployment; owner gameplay acceptance pending",
+        "revision": "7ae42801af295931e73b52908cdb4965167d7de9",
+        "sha256": "d4c82f94ce32ad12f8d8a39ccff94a930fd613125bc5522104e116e3006ed062"
       },
       {
         "root": "C:/Users/verre/Documents/Codex/2026-10-16/p/work/dungeon-modes",
         "path": "docs/dungeons/package-manifest.json",
-        "role": "Reviewed Raid/Grind candidate; automated evidence, not deployment or owner acceptance",
-        "revision": "916b39e265ab36d0da92074c3d61d4bba132dadb",
+        "role": "Archived local-content test evidence; production build/cache pairing is recorded separately under deployment/",
+        "revision": "7ae42801af295931e73b52908cdb4965167d7de9",
         "sha256": "56f8170916ee060d6b04a35bd2cdabae9ad95e3916c5858b5a5d2c5b34d919e7"
+      },
+      {
+        "root": "C:/Users/verre/Documents/Codex/2026-10-16/p/work/dungeon-modes",
+        "path": "docs/dungeons/deployment/rehearsal.json",
+        "role": "Reviewed Raid/Grind production deployment; owner gameplay acceptance pending",
+        "revision": "7ae42801af295931e73b52908cdb4965167d7de9",
+        "sha256": "6563e4f9ea74f85bf52a4b0eb3414322b7fab5b9d6fb9d1376c34e041ec4251a"
+      },
+      {
+        "root": "C:/Users/verre/Documents/Codex/2026-10-16/p/work/dungeon-modes",
+        "path": "docs/dungeons/deployment/release-manifest.json",
+        "role": "Reviewed Raid/Grind production deployment; owner gameplay acceptance pending",
+        "revision": "7ae42801af295931e73b52908cdb4965167d7de9",
+        "sha256": "86a245a132d3ec13b13c936e1fc9c3eec35024c33bde8d2be98b894acd3ba5f4"
+      },
+      {
+        "root": "C:/Users/verre/Documents/Codex/2026-10-16/p/work/dungeon-modes",
+        "path": "docs/dungeons/deployment/production-package-verification.json",
+        "role": "Reviewed Raid/Grind production deployment; owner gameplay acceptance pending",
+        "revision": "7ae42801af295931e73b52908cdb4965167d7de9",
+        "sha256": "15b57d244b2e11b2e9b283d95f65ff470416195b2aea30bdf964bce036391fd6"
+      },
+      {
+        "root": "C:/Users/verre/Documents/Codex/2026-10-16/p/work/dungeon-modes",
+        "path": "docs/dungeons/native-build-manifest.json",
+        "role": "Reviewed Raid/Grind production deployment; owner gameplay acceptance pending",
+        "revision": "7ae42801af295931e73b52908cdb4965167d7de9",
+        "sha256": "c7b9d843ca1235b92c2495ba089faaa2b324fd1ae269db335c84d3c4ef119e34"
+      },
+      {
+        "root": "C:/Users/verre/Documents/Codex/2026-10-16/p/work/dungeon-modes",
+        "path": "tools/tests/test_dungeon_contract.py",
+        "role": "Reviewed Raid/Grind production deployment; owner gameplay acceptance pending",
+        "revision": "7ae42801af295931e73b52908cdb4965167d7de9",
+        "sha256": "9de359b29ed39a1bbc413795ea041f90b17743ff2e670f2e80b5358c5e1326d6"
       }
     ],
     "world": [
@@ -1299,8 +1355,8 @@
       {
         "root": "C:/Users/verre/Documents/Codex/2026-10-16/p/work/dungeon-modes",
         "path": "server-mods/quests/global/Instance_Keeper.pl",
-        "role": "Reviewed Raid/Grind candidate; automated evidence, not deployment or owner acceptance",
-        "revision": "916b39e265ab36d0da92074c3d61d4bba132dadb",
+        "role": "Reviewed Raid/Grind production deployment; owner gameplay acceptance pending",
+        "revision": "7ae42801af295931e73b52908cdb4965167d7de9",
         "sha256": "b4fc39bd29cbc0856b8ec9bd0072285e5cade672fa43cf853bf96009d30bf7a9"
       },
       {
@@ -1574,58 +1630,86 @@
       {
         "root": "C:/Users/verre/Documents/Codex/2026-10-16/p/work/dungeon-modes",
         "path": "server-mods/code/zone/dungeon_service.cpp",
-        "role": "Reviewed Raid/Grind candidate; automated evidence, not deployment or owner acceptance",
-        "revision": "916b39e265ab36d0da92074c3d61d4bba132dadb",
+        "role": "Reviewed Raid/Grind production deployment; owner gameplay acceptance pending",
+        "revision": "7ae42801af295931e73b52908cdb4965167d7de9",
         "sha256": "6c3944084a89b2dd9d0c07a8dbbc65fb495f31423e4afa3cb3454f8d2cec0e23"
       },
       {
         "root": "C:/Users/verre/Documents/Codex/2026-10-16/p/work/dungeon-modes",
         "path": "server-mods/code/zone/spawn2.cpp",
-        "role": "Reviewed Raid/Grind candidate; automated evidence, not deployment or owner acceptance",
-        "revision": "916b39e265ab36d0da92074c3d61d4bba132dadb",
+        "role": "Reviewed Raid/Grind production deployment; owner gameplay acceptance pending",
+        "revision": "7ae42801af295931e73b52908cdb4965167d7de9",
         "sha256": "8e8153fde89960b57132653fd5b495608fee71b2a436af08714a4d70e6d0270d"
       },
       {
         "root": "C:/Users/verre/Documents/Codex/2026-10-16/p/work/dungeon-modes",
         "path": "server-mods/code/zone/zone_save_state.cpp",
-        "role": "Reviewed Raid/Grind candidate; automated evidence, not deployment or owner acceptance",
-        "revision": "916b39e265ab36d0da92074c3d61d4bba132dadb",
+        "role": "Reviewed Raid/Grind production deployment; owner gameplay acceptance pending",
+        "revision": "7ae42801af295931e73b52908cdb4965167d7de9",
         "sha256": "fc8ec9a75e16e2992da21c57ea9f7cda225d3cbe3ecb28ac42b8c3792c575d34"
       },
       {
         "root": "C:/Users/verre/Documents/Codex/2026-10-16/p/work/dungeon-modes",
         "path": "server-mods/sql/20261016_dungeons.sql",
-        "role": "Reviewed Raid/Grind candidate; automated evidence, not deployment or owner acceptance",
-        "revision": "916b39e265ab36d0da92074c3d61d4bba132dadb",
+        "role": "Reviewed Raid/Grind production deployment; owner gameplay acceptance pending",
+        "revision": "7ae42801af295931e73b52908cdb4965167d7de9",
         "sha256": "2e1803cf6fd4d058599e767907cbbc60ca92642888eae7f4c860cd04b3ca681f"
       },
       {
         "root": "C:/Users/verre/Documents/Codex/2026-10-16/p/work/dungeon-modes",
         "path": "tools/tests/test_dungeon_lifecycle.py",
-        "role": "Reviewed Raid/Grind candidate; automated evidence, not deployment or owner acceptance",
-        "revision": "916b39e265ab36d0da92074c3d61d4bba132dadb",
+        "role": "Reviewed Raid/Grind production deployment; owner gameplay acceptance pending",
+        "revision": "7ae42801af295931e73b52908cdb4965167d7de9",
         "sha256": "104ed8bf884008719fee88f85fc0c4a82adb08e871feec12f3245a2c32b23c7e"
       },
       {
         "root": "C:/Users/verre/Documents/Codex/2026-10-16/p/work/dungeon-modes",
         "path": "docs/dungeons/README.md",
-        "role": "Reviewed Raid/Grind candidate; automated evidence, not deployment or owner acceptance",
-        "revision": "916b39e265ab36d0da92074c3d61d4bba132dadb",
-        "sha256": "26c6bbadf93f809c7824714f6d572446112a6092a3df5c52ae46715c77f4b29c"
+        "role": "Reviewed Raid/Grind production deployment; owner gameplay acceptance pending",
+        "revision": "7ae42801af295931e73b52908cdb4965167d7de9",
+        "sha256": "8b6daceb7ce6a63f7661f5a64a413fec364092e89249c6f618694b805829e495"
       },
       {
         "root": "C:/Users/verre/Documents/Codex/2026-10-16/p/work/dungeon-modes",
         "path": "docs/dungeons/QA.md",
-        "role": "Reviewed Raid/Grind candidate; automated evidence, not deployment or owner acceptance",
-        "revision": "916b39e265ab36d0da92074c3d61d4bba132dadb",
-        "sha256": "ef587f7a62901e403a631e5ccbf45643a3a8e03fecef6226b81646bc2781dfa5"
+        "role": "Reviewed Raid/Grind production deployment; owner gameplay acceptance pending",
+        "revision": "7ae42801af295931e73b52908cdb4965167d7de9",
+        "sha256": "d20672699ac0a3f012d606195208be7f7bbc462abd364d75ec67c76295828954"
       },
       {
         "root": "C:/Users/verre/Documents/Codex/2026-10-16/p/work/dungeon-modes",
         "path": "docs/dungeons/concurrency-verification.json",
-        "role": "Reviewed Raid/Grind candidate; automated evidence, not deployment or owner acceptance",
-        "revision": "916b39e265ab36d0da92074c3d61d4bba132dadb",
+        "role": "Reviewed Raid/Grind production deployment; owner gameplay acceptance pending",
+        "revision": "7ae42801af295931e73b52908cdb4965167d7de9",
         "sha256": "ff9b9f3f4fc3c5f26accf3b644edef799c270146503e334e58fe287eb1d6c303"
+      },
+      {
+        "root": "C:/Users/verre/Documents/Codex/2026-10-16/p/work/dungeon-modes",
+        "path": "docs/dungeons/deployment/production-verification.json",
+        "role": "Reviewed Raid/Grind production deployment; owner gameplay acceptance pending",
+        "revision": "7ae42801af295931e73b52908cdb4965167d7de9",
+        "sha256": "8db6554b02d4aba4876442609730eff960d89ff8f508a426a3a1d0d788aa2466"
+      },
+      {
+        "root": "C:/Users/verre/Documents/Codex/2026-10-16/p/work/dungeon-modes",
+        "path": "docs/dungeons/deployment/README.md",
+        "role": "Reviewed Raid/Grind production deployment; owner gameplay acceptance pending",
+        "revision": "7ae42801af295931e73b52908cdb4965167d7de9",
+        "sha256": "524719431df5bee33f72c7beb5246d9ebd4847e558ca244d4729d69289312275"
+      },
+      {
+        "root": "C:/Users/verre/Documents/Codex/2026-10-16/p/work/dungeon-modes",
+        "path": "docs/dungeons/deployment/rollout.py",
+        "role": "Reviewed Raid/Grind production deployment; owner gameplay acceptance pending",
+        "revision": "7ae42801af295931e73b52908cdb4965167d7de9",
+        "sha256": "fc56831ff9b31ba3f2cf4deaf01198bd1079ce7b1eddec447b0786b5774ad933"
+      },
+      {
+        "root": "C:/Users/verre/Documents/Codex/2026-10-16/p/work/dungeon-modes",
+        "path": "docs/dungeons/deployment/test_rollout.py",
+        "role": "Reviewed Raid/Grind production deployment; owner gameplay acceptance pending",
+        "revision": "7ae42801af295931e73b52908cdb4965167d7de9",
+        "sha256": "6d368b234865fbb680d79ef5c34cd4f58c82ab48d9da0d576065a7e0738c325b"
       }
     ],
     "client": [
@@ -2929,9 +3013,9 @@
       {
         "root": "C:/Users/verre/.codex/worktrees/nightcap-wiki/EQ_Local_Dev",
         "path": "wiki/content-review.json",
-        "role": "Reviewed local dungeon candidate guide; not published; source patch in docs/dungeons/wiki-update",
-        "revision": "916b39e265ab36d0da92074c3d61d4bba132dadb",
-        "sha256": "b5008d2a5e0442c78d0c24de0feccc2c34a6a639c33e6216c2286241210b88eb"
+        "role": "Reviewed local dungeon live-QA guide; not published; source patch in docs/dungeons/wiki-update",
+        "revision": "7ae42801af295931e73b52908cdb4965167d7de9",
+        "sha256": "af7f4b546556da75f97559cff451d303e975b50dd08bc96e052b73904950a535"
       },
       {
         "root": "C:/Users/verre/.codex/worktrees/nightcap-wiki/EQ_Local_Dev",
@@ -3069,37 +3153,37 @@
       {
         "root": "C:/Users/verre/.codex/worktrees/nightcap-wiki/EQ_Local_Dev",
         "path": "wiki/articles/equipment.json",
-        "role": "Reviewed wiki source, maintenance contract or dated publication evidence",
-        "revision": "1048a5c427782d5c3fbf63e17fb63ce934a05eb7 plus publication evidence",
-        "sha256": "5fdfe0e4aad61585c17f87968a87eca4c2f7f85f866dd87a9debbfbb5d56f487"
+        "role": "Reviewed local dungeon live-QA guide; not published; source patch in docs/dungeons/wiki-update",
+        "revision": "7ae42801af295931e73b52908cdb4965167d7de9",
+        "sha256": "65dd5c095cb78906f27406e3b22a356b94d8e5978619c6f6a671af31f587b844"
       },
       {
         "root": "C:/Users/verre/.codex/worktrees/nightcap-wiki/EQ_Local_Dev",
         "path": "wiki/articles/features.json",
-        "role": "Reviewed local dungeon candidate guide; not published; source patch in docs/dungeons/wiki-update",
-        "revision": "916b39e265ab36d0da92074c3d61d4bba132dadb",
-        "sha256": "d12c113604b62a6802594945867252f0cfaec79c7e983fd41aa1bd7832fdb0b7"
+        "role": "Reviewed local dungeon live-QA guide; not published; source patch in docs/dungeons/wiki-update",
+        "revision": "7ae42801af295931e73b52908cdb4965167d7de9",
+        "sha256": "e39b18cf46866c7db907f9a33eb4ced53ed5fa6b18cc1a37734eb89db8a278aa"
       },
       {
         "root": "C:/Users/verre/.codex/worktrees/nightcap-wiki/EQ_Local_Dev",
         "path": "wiki/articles/getting-started.json",
-        "role": "Reviewed wiki source, maintenance contract or dated publication evidence",
-        "revision": "1048a5c427782d5c3fbf63e17fb63ce934a05eb7 plus publication evidence",
-        "sha256": "79fafc48d787ec17b523fb6d6fd5dcbdc8a08315400924b409109b47b1dc2980"
+        "role": "Reviewed local dungeon live-QA guide; not published; source patch in docs/dungeons/wiki-update",
+        "revision": "7ae42801af295931e73b52908cdb4965167d7de9",
+        "sha256": "0c32c53bc86a5ebde6be2c790364fcea0ae2d06f9f3adf0b1d36b2eb885d0272"
       },
       {
         "root": "C:/Users/verre/.codex/worktrees/nightcap-wiki/EQ_Local_Dev",
         "path": "wiki/articles/index.json",
-        "role": "Reviewed wiki source, maintenance contract or dated publication evidence",
-        "revision": "1048a5c427782d5c3fbf63e17fb63ce934a05eb7 plus publication evidence",
-        "sha256": "d11032224d4c28a6f5c0452e2ece03d8683b0120a4e86956d3ad653c6b4632b9"
+        "role": "Reviewed local dungeon live-QA guide; not published; source patch in docs/dungeons/wiki-update",
+        "revision": "7ae42801af295931e73b52908cdb4965167d7de9",
+        "sha256": "158ef0c09d0fb1de2b0156db1f42348b12ceb0de994e544988c967fd2bf4cd7d"
       },
       {
         "root": "C:/Users/verre/.codex/worktrees/nightcap-wiki/EQ_Local_Dev",
         "path": "wiki/articles/item-upgrades.json",
-        "role": "Reviewed wiki source, maintenance contract or dated publication evidence",
-        "revision": "1048a5c427782d5c3fbf63e17fb63ce934a05eb7 plus publication evidence",
-        "sha256": "95dc231f50721952cef8837f8e3105538cfcb8597974b035b5e3a3f24ef0f7b1"
+        "role": "Reviewed local dungeon live-QA guide; not published; source patch in docs/dungeons/wiki-update",
+        "revision": "7ae42801af295931e73b52908cdb4965167d7de9",
+        "sha256": "3181725cbfc3a963a1cf8bbdb22cac5c571127cf6ddc8c0457aaeaa7365ca49e"
       },
       {
         "root": "C:/Users/verre/.codex/worktrees/nightcap-wiki/EQ_Local_Dev",
@@ -3125,9 +3209,9 @@
       {
         "root": "C:/Users/verre/.codex/worktrees/nightcap-wiki/EQ_Local_Dev",
         "path": "wiki/articles/recent-changes.json",
-        "role": "Reviewed local dungeon candidate guide; not published; source patch in docs/dungeons/wiki-update",
-        "revision": "916b39e265ab36d0da92074c3d61d4bba132dadb",
-        "sha256": "63540e4a18c5be5e6db6b34778c7e1e4488fea33d8746bca9e18152e153c7226"
+        "role": "Reviewed local dungeon live-QA guide; not published; source patch in docs/dungeons/wiki-update",
+        "revision": "7ae42801af295931e73b52908cdb4965167d7de9",
+        "sha256": "38fe256833207b09b8bb8271b86191b996577212ad857793d276b59eff538e5e"
       },
       {
         "root": "C:/Users/verre/.codex/worktrees/nightcap-wiki/EQ_Local_Dev",
@@ -3139,9 +3223,9 @@
       {
         "root": "C:/Users/verre/.codex/worktrees/nightcap-wiki/EQ_Local_Dev",
         "path": "wiki/articles/travel.json",
-        "role": "Reviewed local dungeon candidate guide; not published; source patch in docs/dungeons/wiki-update",
-        "revision": "916b39e265ab36d0da92074c3d61d4bba132dadb",
-        "sha256": "851dac72fb96fd51766d714ed48216774bcb7a0166d0a6131e26dae294da60ae"
+        "role": "Reviewed local dungeon live-QA guide; not published; source patch in docs/dungeons/wiki-update",
+        "revision": "7ae42801af295931e73b52908cdb4965167d7de9",
+        "sha256": "127e273b678234c57a047ab3784c68ba415833a01b84178dd8c48088e6b2a7d8"
       },
       {
         "root": "C:/Users/verre/.codex/worktrees/nightcap-wiki/EQ_Local_Dev",
@@ -3153,9 +3237,9 @@
       {
         "root": "C:/Users/verre/.codex/worktrees/nightcap-wiki/EQ_Local_Dev",
         "path": "wiki/articles/unreleased.json",
-        "role": "Reviewed local dungeon candidate guide; not published; source patch in docs/dungeons/wiki-update",
-        "revision": "916b39e265ab36d0da92074c3d61d4bba132dadb",
-        "sha256": "85c43fe8ed77572a932e45234033fdec7246c01b01775a55bbfab40f60cf10bd"
+        "role": "Reviewed local dungeon live-QA guide; not published; source patch in docs/dungeons/wiki-update",
+        "revision": "7ae42801af295931e73b52908cdb4965167d7de9",
+        "sha256": "6522ad24364716133de6583c4ae3c680af8466b863ff4c25c6811322e15591ab"
       },
       {
         "root": "C:/Users/verre/.codex/worktrees/nightcap-wiki/EQ_Local_Dev",
@@ -3174,9 +3258,9 @@
       {
         "root": "C:/Users/verre/.codex/worktrees/nightcap-wiki/EQ_Local_Dev",
         "path": "wiki/articles/dungeon-modes.json",
-        "role": "Reviewed local dungeon candidate guide; not published; source patch in docs/dungeons/wiki-update",
-        "revision": "916b39e265ab36d0da92074c3d61d4bba132dadb",
-        "sha256": "77e90de0f5b0edd82cf5d70b13458c65bb0595e5fd610a002d2873623358ee28"
+        "role": "Reviewed local dungeon live-QA guide; not published; source patch in docs/dungeons/wiki-update",
+        "revision": "7ae42801af295931e73b52908cdb4965167d7de9",
+        "sha256": "872e94e9973ae171f458f4f7d37cfac149f9b8e95933ce7b81dad3dea3490eef"
       }
     ]
   }

@@ -46,11 +46,13 @@ remains owned by each release. Broad combat-item and Adventure Journal candidate
 stay unreleased. Existing item stats were not regenerated in this refresh.
 
 
-Dungeon candidate source update October 16: the maintained local wiki now has a
-Not released Raid & Grind guide, linked from Features, Travel, In development
-and Recent changes. Full-site Python/link and Node search/equipment checks pass.
-Live catalog stats and live website release remain unchanged; publication is
-pending. Exact preimages, installed source receipt and whole-wiki assessment:
+
+Dungeon deployment source update October 16: the maintained local wiki has a
+Live testing Raid & Grind guide, linked from Features, Travel and Recent changes.
+The unreleased candidate notice was removed. The existing generated equipment
+catalog remains specific to hunt rewards; dungeon rewards have a separate guide.
+Full-site Python/link and Node search/equipment checks pass. Website publication
+is pending. Exact preimages, installed source receipt and whole-wiki assessment:
 `docs/dungeons/wiki-update/` and `docs/dungeons/wiki-review.md` in dungeon-modes.
 
 ## Tests, publication and recovery

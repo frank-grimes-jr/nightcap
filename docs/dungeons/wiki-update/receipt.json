@@ -2,11 +2,15 @@
   "status": "local_source_updated_not_published",
   "target": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\wiki",
   "files": {
-    "articles/unreleased.json": "85c43fe8ed77572a932e45234033fdec7246c01b01775a55bbfab40f60cf10bd",
-    "articles/travel.json": "851dac72fb96fd51766d714ed48216774bcb7a0166d0a6131e26dae294da60ae",
-    "articles/features.json": "d12c113604b62a6802594945867252f0cfaec79c7e983fd41aa1bd7832fdb0b7",
-    "articles/recent-changes.json": "63540e4a18c5be5e6db6b34778c7e1e4488fea33d8746bca9e18152e153c7226",
-    "articles/dungeon-modes.json": "77e90de0f5b0edd82cf5d70b13458c65bb0595e5fd610a002d2873623358ee28",
-    "content-review.json": "b5008d2a5e0442c78d0c24de0feccc2c34a6a639c33e6216c2286241210b88eb"
+    "articles/unreleased.json": "6522ad24364716133de6583c4ae3c680af8466b863ff4c25c6811322e15591ab",
+    "articles/travel.json": "127e273b678234c57a047ab3784c68ba415833a01b84178dd8c48088e6b2a7d8",
+    "articles/features.json": "e39b18cf46866c7db907f9a33eb4ced53ed5fa6b18cc1a37734eb89db8a278aa",
+    "articles/recent-changes.json": "38fe256833207b09b8bb8271b86191b996577212ad857793d276b59eff538e5e",
+    "articles/dungeon-modes.json": "872e94e9973ae171f458f4f7d37cfac149f9b8e95933ce7b81dad3dea3490eef",
+    "articles/equipment.json": "65dd5c095cb78906f27406e3b22a356b94d8e5978619c6f6a671af31f587b844",
+    "articles/item-upgrades.json": "3181725cbfc3a963a1cf8bbdb22cac5c571127cf6ddc8c0457aaeaa7365ca49e",
+    "articles/index.json": "158ef0c09d0fb1de2b0156db1f42348b12ceb0de994e544988c967fd2bf4cd7d",
+    "articles/getting-started.json": "0c32c53bc86a5ebde6be2c790364fcea0ae2d06f9f3adf0b1d36b2eb885d0272",
+    "content-review.json": "af7f4b546556da75f97559cff451d303e975b50dd08bc96e052b73904950a535"
   }
 }

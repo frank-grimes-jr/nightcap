@@ -1,0 +1,14 @@
+{
+  "duration_seconds": 76.06318157399073,
+  "native_flush_confirmed": false,
+  "note": "Container exit zero does not prove native flush; supervisor may kill children after 75 seconds.",
+  "previous_game": {
+    "id": "0aff90dc67d11aff1297e17473decd129b0b4b8e82b7ef42e0b4ce538c681c42",
+    "image_id": "sha256:581322f072922e95deb728600e7eceaa4cdff2b1ec93b87544d6a946f734b500",
+    "started_at": "2026-10-16T17:04:51.766916239Z",
+    "restarts": 1,
+    "running": true,
+    "health": "unhealthy",
+    "oom_killed": false
+  }
+}

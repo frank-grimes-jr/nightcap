@@ -17,7 +17,7 @@ Audited 2026-10-12. Placement history has several revisions; use current feature
 | Druid rings / Khalure | Find exact ID/name quest in `quests/ecommons/` and current tunnel release | Distinct from Merrin and wizard travel; no response requires checking actual binding/API/quest error, not guessing a new destination |
 | Wizard spires / Khaleid | `plugins/tunnel_spires.pl`, `tunnel_spire_data.pl`, class-courts release | Eight normal Classic routes; no planes/future expansions |
 | Waypoint discovery | `quests/global/999240.pl` | Marker owns proximity discovery in all catalog zones; don't move it to shadowed global_player.pl |
-| Personal dungeon instances | `zone/dungeon_service.cpp`, `quests/global/Instance_Keeper.pl`, `docs/dungeons/` | Raid/Grind is a test candidate; existing live legacy runs retain version-zero content and twelve-hour lifetime |
+| Personal dungeon instances | `zone/dungeon_service.cpp`, `quests/global/Instance_Keeper.pl`, `docs/dungeons/` | Raid/Grind is deployed for live QA; existing legacy runs retain version-zero content and twelve-hour lifetime |
 | Reforging | `quests/ecommons/999820.pl` | Veyra gives a reusable container; native inventory handler performs atomic combines |
 
 Waypoint marker 999240 uses invisible actor race 127 and WizardPortal nimbus 178; live-refresh signal 20261011 is idempotent. It retains nameplate/proximity/discovery and late-joiner effects. Progress is in `nightcap_character_waypoints`; destinations in `nightcap_waypoints`; Explorer title is 100. The old 72 count is a dated catalog count, not a permanent completion constant.
@@ -49,9 +49,9 @@ from verified deployment. Source, tests, public-safe receipt and exact QA:
 
 The other human at Befallen/Permafrost was an overlapping **Instance Keeper**, not a duplicate marker. October 12 keeper quest adds a small floating-eye appearance (race 108, gender 2, size 3), retaining its interaction; refresh signal 20261014 covers existing Keepers. Both repairs use quest reload plus scoped signals, with no client update or native restart. Permafrost portal visibility/function was owner-confirmed October 12. On October 13 the owner confirmed "resolved" after the Keeper follow-up, closing the reported visual issue; the reply does not individually attest every zone or optional QA case. The 16 waypoint and 13 Keeper regression assertions are in `tools/tests/waypoint_visuals.t` and `tools/tests/instance_keeper_visuals.t`. `docs/ops/waypoint-visuals-20261011/README.md`, `docs/ops/keeper-visuals-20261012/README.md`. Crushbone marker, recall and matching saved state moved together to entrance `/loc -644,158,4`; `/loc` display ordering differs from DB x/y. See `docs/ops/crushbone-waypoint-20261009/README.md`.
 
-## Raid and Grind dungeon candidate
+## Raid and Grind dungeons deployed for live QA
 
-October 16 candidate: `docs/dungeons/README.md` and `QA.md` in the dungeon-modes
+October 16 deployed release: `docs/dungeons/README.md` and `QA.md` in the dungeon-modes
 checkout own current evidence. Native `zone/dungeon_service.cpp` validates Keeper
 operations and owns twelve-hour, six-participant, fixed-mode runs for all seven
 dungeons. UUID + native allocation start + `nc-dungeon:<UUID>` identifies a run;
@@ -78,12 +78,16 @@ refuse activation/new runs/managed boot. Classic CT's pinned private 188-point,
 29-NPC restoration does not change public spawn/door definitions.
 
 Ship matching zone/world/shared_memory, regenerated target-content cache, SQL and
-Keeper quest. The packaged cache is local-test content, not production content.
+Keeper quest. Production startup regenerated its own cache; the older local-test
+package cache must not replace it. Production preserved all 309,410 existing
+item records and added exactly 330. See `docs/dungeons/deployment/` for native
+hashes, cache pairing, recovery and the separately recorded preflight DB restart.
 No client assets; a quest reload cannot install native hooks/cache. Automated
 native policy/credit/spawn, receipt adapters, SQL/fault/concurrency and build/cache
 evidence are separate from deployment. Fourteen-mode gameplay, CT path/door QA,
-level-50 Vox/Nagafen balance and owner acceptance remain open. Source flow ends
-at test; main/production restart and wiki publication require separate release.
+level-50 Vox/Nagafen balance and owner acceptance remain open. Source flow ran
+through dev/test to owner-authorized main and production deployment. The gateway
+is open. Website publication remains separate; owner gameplay is not accepted.
 
 ## Travel failure diagnosis and current QA
 

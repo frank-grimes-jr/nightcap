@@ -1,6 +1,6 @@
 # Current Nightcap status
 
-## Raid and Grind dungeons — test candidate, not deployed
+## Raid and Grind dungeons — deployed for live QA October 16
 
 The [dungeon release](dungeons/README.md) adds seven dungeon modes, 52 explicit
 objectives, 330 reward definitions, private Classic Cazic-Thule and durable
@@ -8,9 +8,15 @@ UUID-based progress/corpse/reward recovery. Guarded installation/enablement and
 concurrent allocation, enrollment, reset and duplicate-receipt checks pass in
 an isolated local database. Native policy/credit/spawn and inventory/corpse
 adapter checks are separate from the [fourteen-mode in-game QA](dungeons/QA.md).
-Test deployment, CT terrain/path validation, level-50 Vox/Nagafen balance and
-owner acceptance remain pending. Production promotion/restart is not authorized
-by this candidate. Existing unmanaged instances retain their legacy behavior.
+Owner-authorized main promotion and OVH deployment are complete. All twelve
+zone workers and world match the paired build, revision 2026101601 is enabled,
+and access is open. The regenerated cache preserves 309,410 old items and adds
+330; stopped checks preserve 47 player and 11 existing custom tables. Signed
+client 2026101501 remains unchanged. The initial preflight DB memory-limit
+restart recovered before feature SQL; its cause and correction are recorded in
+[deployment evidence](dungeons/deployment/README.md). CT terrain/path validation,
+level-50 Vox/Nagafen balance and owner acceptance remain pending. Existing
+unmanaged instances retain their legacy behavior.
 
 ## Equipment race policy — deployed for live QA October 16
 

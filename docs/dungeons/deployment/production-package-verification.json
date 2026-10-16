@@ -1,0 +1,11 @@
+{
+  "status": "verified",
+  "archive_name": "dungeons-20261016-production-pair.tar.gz",
+  "archive_sha256": "449ee95c35d26ec87526ab61cda994218af988867a43904051cb9a531a52d106",
+  "bytes": 174000679,
+  "members": 11,
+  "cache_sha256": "9e4873cf8f8357d4c8b885b53d2f4ac639a2567b55c77fe6ffc17d12cda9ce4b",
+  "source_commit": "a1eab404afcb5862d14351ac652343a3b544747d",
+  "image_id": "sha256:f924e3840379fa8d37866da6a257e8d45e5c24f7f7c9abe9e390ede6197bbe48",
+  "owner_gameplay_accepted": false
+}

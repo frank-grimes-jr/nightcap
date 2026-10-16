@@ -19,6 +19,40 @@ redaction and the exact equipment-loader source after removing the two dungeon
 additions. Divine-summon, FreeTrade, DisableLore, race policy and the 1,332-byte
 ItemData definition are preserved. Gameplay acceptance is still pending.
 
+## Verified deployment
+
+Main release PR #208 follows dev #206 and test #207. OVH is enabled at revision
+2026101601 with access open. The deployed image is
+`sha256:f924e3840379fa8d37866da6a257e8d45e5c24f7f7c9abe9e390ede6197bbe48`. All twelve zone workers, world, UCS and loginserver
+match the expected binaries. The new game container has zero restarts and no
+detected native/quest/database errors as of `2026-10-16T20:00:34.113378+00:00`.
+
+The production cache SHA-256 is `9e4873cf8f8357d4c8b885b53d2f4ac639a2567b55c77fe6ffc17d12cda9ce4b`. Both rehearsal and live
+startup preserve all 309,410 existing item records and add exactly 330. All
+23 pre-existing public content tables, 47 player and
+11 existing custom tables pass preservation checks. A complete gzip-verified
+stopped backup is retained privately. `shutdown-verification.json` records the
+old runtime stop without assuming native flush. No database snapshot was restored.
+Signed client 2026101501 and supporting services/publication are preserved
+relative to the separately recorded recovery baseline. The earlier DB incident and old-world health failure below
+are separate from these candidate-runtime checks.
+
+`release-manifest.json` pins staged inputs and the source revision;
+`../native-build-manifest.json` pins every retained source and binary;
+`rehearsal.json`, `preflight-verification.json` and
+`production-verification.json` record distinct checks. Owner gameplay acceptance
+remains pending. The installed wiki source is updated for live testing;
+public website publication remains pending.
+
+The exact production pair is retained as
+`/opt/nightcap/releases/dungeons-20261016/dungeons-20261016-production-pair.tar.gz`,
+SHA-256 `449ee95c35d26ec87526ab61cda994218af988867a43904051cb9a531a52d106`.
+All eleven archive members were read back and hash-verified. It includes the
+three replaced binaries, production item cache, SQL, Keeper quest and manifests;
+unchanged support binaries remain pinned in the retained base image. Only
+hash-verified duplicate staging inputs were removed afterward, leaving about
+2.2 GB of free host disk. The stopped backup and successful rehearsal remain.
+
 ## Staging and phases
 
 The host stage is `/opt/nightcap/releases/dungeons-20261016`. Verify the original
