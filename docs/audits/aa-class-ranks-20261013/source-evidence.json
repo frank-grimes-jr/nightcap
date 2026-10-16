@@ -1,0 +1,111 @@
+{
+  "status": "read_only_source_verification",
+  "source_base_commit": "353a618",
+  "manifest": "docs/releases/aa-tbs-level1-20261013/build-manifest.json",
+  "manifest_sha256": "93578291032f2ee9fd33e7225f7a4fbcbef4ccde0f1342483276d3d7a7d2f838",
+  "sources": [
+    {
+      "path": "common/spdat.h",
+      "retained_path": "/tmp/nightcap-aa-level1-build-20261013/source/common/spdat.h",
+      "sha256": "c7977ab7b236587b13e2bc110a735032095cc82b994d540397c8ee961c24da56",
+      "matches_release_build_manifest": true,
+      "excerpts": []
+    },
+    {
+      "path": "common/ruletypes.h",
+      "retained_path": "/tmp/nightcap-aa-level1-build-20261013/source/common/ruletypes.h",
+      "sha256": "61b00c370fdd70b486873f0a0dd22ed8722e753551d6e4dd2ef3cc14afa87d85",
+      "matches_release_build_manifest": true,
+      "excerpts": []
+    },
+    {
+      "path": "common/random.h",
+      "retained_path": "/tmp/nightcap-aa-level1-build-20261013/source/common/random.h",
+      "sha256": "b84ec4364a3f90d10d95b8c68fc0e74c89fa9e305488e67650ca471e6ef139fc",
+      "matches_release_build_manifest": true,
+      "excerpts": [
+        {
+          "line": 74,
+          "text": "\t\tbool Roll(const int required)\n\t\t{\n\t\t\treturn Int(0, 99) < required;\n\t\t}\n\n\t\t// valid values 0.0 - 1.0\n\t\tbool Roll(const double required)\n\t\t{\n\t\t\treturn Real(0.0, 1.0) <= required;\n\t\t}"
+        },
+        {
+          "line": 80,
+          "text": "\t\tbool Roll(const double required)\n\t\t{\n\t\t\treturn Real(0.0, 1.0) <= required;\n\t\t}\n\n\t\t// same range as client's roll0\n\t\t// This is their main high level RNG function\n\t\tint Roll0(int max)\n\t\t{\n\t\t\tif (max - 1 > 0)"
+        }
+      ]
+    },
+    {
+      "path": "zone/attack.cpp",
+      "retained_path": "/tmp/nightcap-aa-level1-build-20261013/source/zone/attack.cpp",
+      "sha256": "f96a9684d68e1de14de59058408ddd3043e9e989724978efb7df992014100890",
+      "matches_release_build_manifest": true,
+      "excerpts": [
+        {
+          "line": 5416,
+          "text": "\t// 1: Try Slay Undead\n\tif (defender->GetBodyType() == BodyType::Undead || defender->GetBodyType() == BodyType::SummonedUndead ||\n\t\tdefender->GetBodyType() == BodyType::Vampire) {\n\t\tint slay_rate_bonus = aabonuses.SlayUndead[SBIndex::SLAYUNDEAD_RATE_MOD] + itembonuses.SlayUndead[SBIndex::SLAYUNDEAD_RATE_MOD] + spellbonuses.SlayUndead[SBIndex::SLAYUNDEAD_RATE_MOD];\n\n\t\tLogCombatDetail(\"Slayundead hit rate [{}]\", slay_rate_bonus);\n\n\t\tif (slay_rate_bonus) {\n\t\t\tfloat slay_chance = ((static_cast<float>(slay_rate_bonus) / 10000.0f) * RuleR(Combat, SlayRateMultiplier));\n\n\t\t\tif (zone->random.Roll(slay_chance)) {\n\t\t\t\tint slay_damage_bonus = aabonuses.SlayUndead[SBIndex::SLAYUNDEAD_DMG_MOD] + itembonuses.SlayUndead[SBIndex::SLAYUNDEAD_DMG_MOD] + spellbonuses.SlayUndead[SBIndex::SLAYUNDEAD_DMG_MOD];\n\n\t\t\t\tLogCombatDetail(\"Slayundead damage bonus [{}]\", slay_damage_bonus);\n\n\t\t\t\thit.damage_done = std::max(hit.damage_done, hit.base_damage) + 5;\n\t\t\t\thit.damage_done = (hit.damage_done * slay_damage_bonus) / 100;\n\t\t\t\thit.damage_done = static_cast<int>(hit.damage_done * RuleR(Combat, SlayDamageMultiplier));\n\n\t\t\t\tint min_slay = (hit.min_damage + 5) * slay_damage_bonus / 100;\n\n\t\t\t\tLogCombatDetail(\" Calculated Slayundead damage [{}] - Min Slay Undead Damage [{}]\", hit.damage_done, min_slay);\n\n\t\t\t\tif (hit.damage_done < min_slay) {\n\t\t\t\t\thit.damage_done = min_slay;\n\t\t\t\t}\n\n\t\t\t\tLogCombatDetail(\"Final Slayundead damage [{}]\", hit.damage_done);\n\n\t\t\t\tint slay_sex = GetGender() == Gender::Female ? FEMALE_SLAYUNDEAD : MALE_SLAYUNDEAD;\n\n\t\t\t\tentity_list.FilteredMessageCloseString(\n\t\t\t\t\tthis, /* Sender */\n\t\t\t\t\tfalse, /* Skip Sender */\n\t\t\t\t\tRuleI(Range, CriticalDamage),\n\t\t\t\t\tChat::MeleeCrit, /* Type: 301 */\n\t\t\t\t\tFilterMeleeCrits, /* FilterType: 12 */\n\t\t\t\t\tslay_sex,\n\t\t\t\t\t0,\n\t\t\t\t\tGetCleanName(), /* Message1 */\n\t\t\t\t\titoa(hit.damage_done) /* Message2 */\n\t\t\t\t\t);\n\t\t\t\treturn;\n\t\t\t}\n\t\t}\n\t}\n\n\t// 2: Try Melee Critical\n\t// a lot of good info: http://giline.versus.jp/shiden/damage_e.htm, http://giline.versus.jp/shiden/su.htm\n\n\t// We either require an innate crit chance or some SPA 169 to crit\n\tbool innate_crit = false;\n\tint crit_chance = GetCriticalChanceBonus(hit.skill);"
+        },
+        {
+          "line": 3951,
+          "text": "bool Client::CheckDoubleAttack()\n{\n\t//Check for bonuses that give you a double attack chance regardless of skill (ie Bestial Frenzy/Harmonious Attack AA)\n\tuint32 bonus_give_double_attack = aabonuses.GiveDoubleAttack + spellbonuses.GiveDoubleAttack + itembonuses.GiveDoubleAttack;\n\n\tif (!HasSkill(EQ::skills::SkillDoubleAttack) && !bonus_give_double_attack) {\n\t\treturn false;\n\t}\n\n\tfloat chance = 0.0f;\n\tuint16 skill = GetSkill(EQ::skills::SkillDoubleAttack);\n\n\tint32 bonus_double_attack = 0;\n\tif ((GetClass() == Class::Paladin || GetClass() == Class::ShadowKnight) && (!HasTwoHanderEquipped())) {\n\t\tLogCombatDetail(\"Knight class without a 2 hand weapon equipped = No DA Bonus!\");\n\t} else {\n\t\tbonus_double_attack = aabonuses.DoubleAttackChance + spellbonuses.DoubleAttackChance + itembonuses.DoubleAttackChance;\n\t}\n\n\t//Use skill calculations otherwise, if you only have AA applied GiveDoubleAttack chance then use that value as the base.\n\tif (skill) {\n\t\tchance = (float(skill + GetLevel()) * (float(100.0f + bonus_double_attack + bonus_give_double_attack) / 100.0f)) / 500.0f;\n\t} else {\n\t\tchance = (float(bonus_give_double_attack + bonus_double_attack) / 100.0f);\n\t}\n\n\tLogCombatDetail(\n\t\t\"skill [{}] bonus_give_double_attack [{}] bonus_double_attack [{}] chance [{}]\",\n\t\tskill,\n\t\tbonus_give_double_attack,\n\t\tbonus_double_attack,\n\t\tchance"
+        }
+      ]
+    },
+    {
+      "path": "zone/bonuses.cpp",
+      "retained_path": "/tmp/nightcap-aa-level1-build-20261013/source/zone/bonuses.cpp",
+      "sha256": "f90822f8f92b9d9090e696a0d486de3b686a99fee55737dbbf59e6293880cb95",
+      "matches_release_build_manifest": true,
+      "excerpts": [
+        {
+          "line": 1227,
+          "text": "\t\tcase SpellEffect::SlayUndead: {\n\t\t\tif (newbon->SlayUndead[SBIndex::SLAYUNDEAD_DMG_MOD] < base_value) {\n\t\t\t\tnewbon->SlayUndead[SBIndex::SLAYUNDEAD_DMG_MOD] = base_value; // Rate\n\t\t\t\tnewbon->SlayUndead[SBIndex::SLAYUNDEAD_RATE_MOD] = limit_value; // Damage Modifier\n\t\t\t}\n\t\t\tbreak;\n\t\t}\n\n\t\tcase SpellEffect::DoubleRiposte: {"
+        },
+        {
+          "line": 917,
+          "text": "\t\tcase SpellEffect::PetCriticalHit:\n\t\t\tnewbon->PetCriticalHit += base_value;\n\t\t\tbreak;"
+        },
+        {
+          "line": 990,
+          "text": "\t\tcase SpellEffect::PetFlurry:\n\t\t\tnewbon->PetFlurry += base_value;\n\t\t\tbreak;"
+        },
+        {
+          "line": 1153,
+          "text": "\t\tcase SpellEffect::CriticalSpellChance: {\n\t\t\tnewbon->CriticalSpellChance += base_value;\n\n\t\t\tif (limit_value > newbon->SpellCritDmgIncNoStack)\n\t\t\t\tnewbon->SpellCritDmgIncNoStack = limit_value;\n\n\t\t\tbreak;\n\t\t}\n"
+        },
+        {
+          "line": 1781,
+          "text": "\t\tcase SpellEffect::ReduceApplyPoisonTime:\n\t\t\tbreak;\n\t\tcase SpellEffect::NimbleEvasion:\n\t\t\tbreak;\n"
+        },
+        {
+          "line": 1522,
+          "text": "\t\tcase SpellEffect::ReduceTradeskillFail:{\n\n\t\t\tif (limit_value > EQ::skills::HIGHEST_SKILL)\n\t\t\t\tbreak;\n"
+        }
+      ]
+    },
+    {
+      "path": "zone/special_attacks.cpp",
+      "retained_path": "/tmp/nightcap-aa-level1-build-20261013/source/zone/special_attacks.cpp",
+      "sha256": "54cc714a0efbb8216cd2febeb325ec9d1ce48ded8ee914846142ac65c26d89a5",
+      "matches_release_build_manifest": true,
+      "excerpts": [
+        {
+          "line": 560,
+          "text": "\t\t// Live AA - Technique of Master Wu\n\t\tint wu_chance = (\n\t\t\titembonuses.DoubleSpecialAttack +\n\t\t\tspellbonuses.DoubleSpecialAttack +\n\t\t\taabonuses.DoubleSpecialAttack\n\t\t);\n\n\t\tif (wu_chance) {\n\t\t\tconst int monk_special_attacks[5] = {\n\t\t\t\tEQ::skills::SkillFlyingKick,\n\t\t\t\tEQ::skills::SkillDragonPunch,\n\t\t\t\tEQ::skills::SkillEagleStrike,\n\t\t\t\tEQ::skills::SkillTigerClaw,\n\t\t\t\tEQ::skills::SkillRoundKick\n\t\t\t};\n\n\t\t\tint extra = 0;\n\t\t\t// always 1/4 of the double attack chance, 25% at rank 5 (100/4)\n\t\t\twhile (wu_chance > 0) {\n\t\t\t\tif (zone->random.Roll(wu_chance)) {\n\t\t\t\t\t++extra;\n\t\t\t\t} else {\n\t\t\t\t\tbreak;\n\t\t\t\t}\n\n\t\t\t\twu_chance /= 4;\n\t\t\t}\n\n\t\t\tif (extra) {\n\t\t\t\tSendColoredText(\n\t\t\t\t\t400,\n\t\t\t\t\tfmt::format(\n\t\t\t\t\t\t\"The spirit of Master Wu fills you! You gain {} additional attack{}.\",\n\t\t\t\t\t\textra,\n\t\t\t\t\t\textra != 1 ? \"s\" : \"\"\n\t\t\t\t\t)\n\t\t\t\t);\n\t\t\t}"
+        },
+        {
+          "line": 783,
+          "text": "\t\tif (level >= RuleI(Combat, DoubleBackstabLevelRequirement)) {\n\t\t\t// TODO: 55-59 doesn't appear to match just checking double attack, 60+ does though\n\t\t\tif(IsOfClientBot() && CastToClient()->CheckDoubleAttack()) {\n\t\t\t\tif (other->GetHP() > 0) {\n\t\t\t\t\tRogueBackstab(other, false, ReuseTime);\n\t\t\t\t}\n\n\t\t\t\tif (tripleChance && other->GetHP() > 0 && zone->random.Roll(tripleChance)) {\n\t\t\t\t\tRogueBackstab(other, false, ReuseTime);\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\n\t\tif (IsClient()) {\n\t\t\tCastToClient()->CheckIncreaseSkill(EQ::skills::SkillBackstab, other, 10);\n\t\t}\n\n\t}\n\t//Live AA - Chaotic Backstab\n\telse if(aabonuses.FrontalBackstabMinDmg || itembonuses.FrontalBackstabMinDmg || spellbonuses.FrontalBackstabMinDmg) {"
+        },
+        {
+          "line": 213,
+          "text": "void Mob::DoSpecialAttackDamage(Mob *who, EQ::skills::SkillType skill, int32 base_damage, int32 min_damage,\n\t\t\t\tint32 hate_override, int ReuseTime)\n{\n\t// this really should go through the same code as normal melee damage to\n\t// pick up all the special behavior there\n\n\tif ((who == nullptr ||\n\t     ((IsClient() && CastToClient()->dead) || (who->IsClient() && who->CastToClient()->dead)) || HasDied() ||\n\t     (!IsAttackAllowed(who))))\n\t\treturn;\n\n\tDamageHitInfo my_hit;\n\tmy_hit.damage_done = 1; // min 1 dmg\n\tmy_hit.base_damage = base_damage;\n\tmy_hit.min_damage = min_damage;\n\tmy_hit.skill = skill;\n\n\tif (my_hit.base_damage == 0)\n\t\tmy_hit.base_damage = GetBaseSkillDamage(my_hit.skill);\n\n\tif (base_damage == DMG_INVULNERABLE)\n\t\tmy_hit.damage_done = DMG_INVULNERABLE;\n\n\tif (who->GetInvul() || who->GetSpecialAbility(SpecialAbility::MeleeImmunity))\n\t\tmy_hit.damage_done = DMG_INVULNERABLE;\n\n\tif (who->GetSpecialAbility(SpecialAbility::MeleeImmunityExceptBane) && skill != EQ::skills::SkillBackstab)\n\t\tmy_hit.damage_done = DMG_INVULNERABLE;\n\n\tint64 hate = my_hit.base_damage;\n\tif (hate_override > -1)\n\t\thate = hate_override;\n\n\tif (skill == EQ::skills::SkillBash) {\n\t\tif (IsClient()) {\n\t\t\tEQ::ItemInstance *item = CastToClient()->GetInv().GetItem(EQ::invslot::slotSecondary);\n\t\t\tif (item) {\n\t\t\t\tif (item->GetItem()->ItemType == EQ::item::ItemTypeShield) {\n\t\t\t\t\thate += item->GetItem()->AC;\n\t\t\t\t}\n\t\t\t\tconst EQ::ItemData *itm = item->GetItem();\n\t\t\t\tauto fbash = GetSpellFuriousBash(itm->Focus.Effect);\n\t\t\t\thate = hate * (100 + fbash) / 100;\n\t\t\t\tif (fbash)\n\t\t\t\t\tMessageString(Chat::FocusEffect, GLOWS_RED, itm->Name);\n\t\t\t}\n\t\t}\n\t}\n\n\tmy_hit.offense = offense(my_hit.skill);\n\tmy_hit.tohit = GetTotalToHit(my_hit.skill, 0);\n\n\t// Rogue Backstab Haste Correction\n\t// Haste should only provide a max of a 2 s reduction to Backstab cooldown, but it seems that while BackstabReuseTimer can be reduced, there is another timer (repop on the button)\n\t// that is controlling the actual cooldown.  I'm not sure how this is implemented, but it is impacted by spell haste (including bard v2 and v3), but not worn haste.\n\t// This code applies an adjustment to backstab accuracy to compensate for this so that Rogue DPS doesn't significantly outclass other classes.\n\n\tif (\n\t\tRuleB(Combat, RogueBackstabHasteCorrection) &&\n\t\tskill == EQ::skills::SkillBackstab &&\n\t\tGetHaste() > 100\n\t) {\n\t\tint haste_spell = spellbonuses.haste - spellbonuses.inhibitmelee + spellbonuses.hastetype2 + spellbonuses.hastetype3;\n\t\tint haste_worn = itembonuses.haste;\n\n\t\t// Compute Intended Cooldown.  100% Spell = 1 s reduction (max), 40% Worn = 1 s reduction (max).\n\t\tint reduction_intended_spell = haste_spell > 100 ? 100 : haste_spell;\n\t\tint reduction_intended_worn = 2.5 * (haste_worn > 40 ? 40 : haste_worn);\n\t\tint16 intended_cooldown = 1000 - reduction_intended_spell - reduction_intended_worn;\n\n\t\t// Compute Actual Cooldown.  Actual only impacted by spell haste ( + v2 + v3), and is 10 s / (100 + haste)\n\t\tint actual_cooldown = 100000 / (100 + haste_spell);\n\n\t\t// Compute Accuracy Adjustment\n\t\tint backstab_accuracy_adjust = actual_cooldown * 1000 / intended_cooldown;\n\n\t\t// orig_accuracy = my_hit.tohit;\n\t\tint adjusted_accuracy = my_hit.tohit * backstab_accuracy_adjust / 1000;\n\t\tmy_hit.tohit = adjusted_accuracy;\n\t}\n\n\tmy_hit.hand = EQ::invslot::slotPrimary; // Avoid checks hand for throwing/archery exclusion, primary should\n\t\t\t\t\t\t  // work for most\n\tif (skill == EQ::skills::SkillThrowing || skill == EQ::skills::SkillArchery) {\n\t\tmy_hit.hand = EQ::invslot::slotRange;\n\t}\n\n\tDoAttack(who, my_hit);\n\n\twho->AddToHateList(this, hate, 0);\n\twho->Damage(this, my_hit.damage_done, SPELL_UNKNOWN, skill, false);\n\n\t// Make sure 'this' has not killed the target and 'this' is not dead (Damage shield ect).\n\tif (!GetTarget()) {\n\t\treturn;\n\t}\n\n\tif (HasDied()) {\n\t\treturn;\n\t}\n\n\tTryCastOnSkillUse(who, skill);\n\n\tif (HasSkillProcs()) {\n\t\tTrySkillProc(who, skill, ReuseTime * 1000);"
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "Retained build source matched, not an assumption that the tracked overlay is current.",
+    "Source snippets are evidence, not a replacement engine implementation.",
+    "Production check canonical AA checksum and policy compiler JSON checksum use different representations; both are retained with their originating method."
+  ]
+}

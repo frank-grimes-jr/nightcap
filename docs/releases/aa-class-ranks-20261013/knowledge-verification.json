@@ -1,0 +1,29 @@
+{
+  "operations": {
+    "reviewed_files": 18,
+    "unchanged": 18,
+    "unrelated_drift_left_for_its_owner": []
+  },
+  "balance": {
+    "reviewed_files": 51,
+    "unchanged": 50,
+    "unrelated_drift_left_for_its_owner": [
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\merchant-sell-all\\server-mods\\code\\zone\\effects.cpp",
+        "role": "percentage scaling and Throw Stone exception",
+        "state": "changed: review implementation and evidence"
+      }
+    ]
+  },
+  "multiclass": {
+    "reviewed_files": 86,
+    "unchanged": 86,
+    "unrelated_drift_left_for_its_owner": []
+  },
+  "client": {
+    "reviewed_files": 75,
+    "unchanged": 75,
+    "unrelated_drift_left_for_its_owner": []
+  },
+  "installed_skill_validator": "passed"
+}

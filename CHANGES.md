@@ -127,6 +127,30 @@ backup's precision companion restores exact coordinates only in isolation.
 The current runtime/client release is preserved. Owner visual acceptance remains
 pending. See `docs/releases/tunnel-cozy-20261013/README.md`.
 
+## 2026-10-13 — Expanded class AA ranks and Triple Backstab
+
+Implements the 26 reviewed lines: 394 families/1,051 ranks, including Slay Undead9,
+Master Wu5 and Triple Backstab9. Every allowed rank is available at level1; all
+previous legal ranks, purchases, charges, costs and prerequisites are preserved.
+Clients with an earned Triple Backstab AA can use it below55, retaining native
+double-attack, weapon and positioning checks. No global rule or catalog changes.
+Native/policy and guarded recovery checks pass. Deployed on all 12 OVH zones
+for owner QA, preserving 47 player and 11 custom tables. Signed notes 2026101303
+are published; the production signature and all 105 hosted files verify.
+Gameplay acceptance is pending.
+[Release, recovery and exact QA](docs/releases/aa-class-ranks-20261013/README.md).
+
+## 2026-10-13 — Class AA rank-depth re-audit (recommendation only)
+
+Slay Undead has nine contiguous Buried Sea-era ranks; the one-rank cap was our
+policy choice. Audited 188 truncated/blocked families and proposed 26 class and
+shared lines totaling 110 additional ranks, all available at level 1. Identified
+prerequisite side effects, pet/critical stacking, free-rank outliers and a live
+level-55 native activation blocker for Triple Backstab under the level-50 cap.
+THJ's documented Master Wu progression supports broader class depth, but its
+exact Slay ceiling was not verified. No gameplay or live policy changed; native
+activation repair and encounter QA remain required. [Audit and exact candidates](docs/audits/aa-class-ranks-20261013/README.md).
+
 ## 2026-10-13 — AA level-1 access correction
 
 Removed the rejected character-level gates from every allowed Buried Sea AA rank. The 390-family/941-rank legal pool, release ceilings and existing purchases remain intact. Offers, purchases, use and default grants open at creation. Added regressions and the missing launcher notes. [Release and exact QA](docs/releases/aa-tbs-level1-20261013/README.md). Deployed on OVH; all 12 zones and 239 ownership rows verified. Signed launcher notes 2026101302 published. Owner acceptance remains pending.

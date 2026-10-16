@@ -1,0 +1,95 @@
+{
+  "status": "healthy",
+  "runtime": {
+    "image_id": "sha256:cf9c62310b746be2bd95d9039e6fb975d00f61aa2c42e76ed86ce823f3f119ff",
+    "started_at": "2026-10-13T14:27:05.594253911Z",
+    "restart_count": 0,
+    "processes": [
+      [
+        "loginserver",
+        "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf"
+      ],
+      [
+        "world",
+        "efd54a1023a569274a76f65d3d2a18a173906762472a1bce186e3e14629d3c18"
+      ],
+      [
+        "ucs",
+        "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714"
+      ],
+      [
+        "zone",
+        "5dfe3d8a944a29ac963644298eb7a1563a08748ae72ae210edd78268ea106681"
+      ],
+      [
+        "zone",
+        "5dfe3d8a944a29ac963644298eb7a1563a08748ae72ae210edd78268ea106681"
+      ],
+      [
+        "zone",
+        "5dfe3d8a944a29ac963644298eb7a1563a08748ae72ae210edd78268ea106681"
+      ],
+      [
+        "zone",
+        "5dfe3d8a944a29ac963644298eb7a1563a08748ae72ae210edd78268ea106681"
+      ],
+      [
+        "zone",
+        "5dfe3d8a944a29ac963644298eb7a1563a08748ae72ae210edd78268ea106681"
+      ],
+      [
+        "zone",
+        "5dfe3d8a944a29ac963644298eb7a1563a08748ae72ae210edd78268ea106681"
+      ],
+      [
+        "zone",
+        "5dfe3d8a944a29ac963644298eb7a1563a08748ae72ae210edd78268ea106681"
+      ],
+      [
+        "zone",
+        "5dfe3d8a944a29ac963644298eb7a1563a08748ae72ae210edd78268ea106681"
+      ],
+      [
+        "zone",
+        "5dfe3d8a944a29ac963644298eb7a1563a08748ae72ae210edd78268ea106681"
+      ],
+      [
+        "zone",
+        "5dfe3d8a944a29ac963644298eb7a1563a08748ae72ae210edd78268ea106681"
+      ],
+      [
+        "zone",
+        "5dfe3d8a944a29ac963644298eb7a1563a08748ae72ae210edd78268ea106681"
+      ],
+      [
+        "zone",
+        "5dfe3d8a944a29ac963644298eb7a1563a08748ae72ae210edd78268ea106681"
+      ]
+    ],
+    "errors": {
+      "native": 0,
+      "quest": 0,
+      "database": 0
+    }
+  },
+  "gateway_open": true,
+  "aa_catalog_unchanged": true,
+  "rules_unchanged": true,
+  "public": {
+    "channel.json": "aacf67eb9a10fd16544d4031ccd4bb8c63a2a651d0fff58083a191a87f402a28",
+    "launcher-channel.json": "67a94a6d56fca08d21c0d808a2929855ec9e20bf8891ccd390f23cf1f18c3e8e",
+    "nightcap-friends.zip": "bad2fd8d91c74c41e3be84c8e3a985159c1b2eb980c4fddce47780b2a310f452",
+    "guide.html": "c6160072c279b82c420f1c14122cb9bce2d9e5c6edb772db8d8d534ed3b4f675"
+  },
+  "aa_ownership": {
+    "ownership_rows": 242,
+    "earned_rank_count": 1200,
+    "saved_charges": 0,
+    "dormant": 126,
+    "partially_usable": 45,
+    "fully_usable": 71
+  },
+  "activation_player_tables_preserved": 47,
+  "activation_custom_tables_preserved": 11,
+  "separate_maintenance_restarted_runtime": true
+}

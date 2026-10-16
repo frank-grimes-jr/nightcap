@@ -87,6 +87,25 @@ full-backup restore and forward/rollback rehearsal pass. All 12 zones are health
 No client update is needed. Owner in-game appearance and interaction QA remains
 pending. [Evidence, layout and exact QA](releases/tunnel-cozy-20261013/README.md).
 
+## October 13 class AA expansion — deployed for OVH QA
+
+The [26-line implementation and Triple Backstab repair](releases/aa-class-ranks-20261013/README.md)
+is live on all 12 OVH zones. All 1,051 ranks remain available at level 1;
+47 player and 11 custom tables were preserved, including purchases and points.
+Native/policy, independent review and runtime checks pass. Signed notes 2026101303
+are published; the signature and all 105 hosted files verify. All 12 AA zone
+hashes were rechecked after separate tunnel maintenance restarted the runtime.
+Gameplay acceptance remains pending; main was not promoted.
+
+## October 13 class AA rank audit — implemented above
+
+The [class-rank re-audit](audits/aa-class-ranks-20261013/README.md) recommends
+Slay Undead 9 and deeper progression in 25 other lines, preserving level-1 access.
+The target catalog adds 110 ranks. The implementation above repairs and tests
+Triple Backstab's native level-55 activation gate for earned AA bonuses at any
+level. The audit remains historical recommendation evidence; encounter balance
+and THJ's exact Slay cap remain unverified.
+
 ## October 13 AA correction: level-1 access
 
 Owner QA rejected the initial AA level gates. The correction opens all allowed ranks at creation and retains purchases. [Correction and QA](releases/aa-tbs-level1-20261013/README.md); live on OVH with all 12 zones verified and 239 purchases preserved. Signed notes release 2026101302 is published. Owner acceptance remains pending. The earlier small starter-list policy is superseded, not accepted.

@@ -1,0 +1,189 @@
+﻿ability_id,name,classes,current_legal_cap,proposed_legal_cap,tbs_contiguous_prefix,all_catalog_ranks,current_points,proposed_points,tbs_zero_cost_ranks,current_effects,proposed_effects,tbs_top_effects,next_rank_prereqs,explicitly_deferred,recommendation
+1,Innate Strength,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,3,3,15,15,3,3,0,STR=6/0,STR=6/0,STR=30/0,{},False,retain; no specific higher-cap recommendation
+2,Innate Stamina,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,3,3,15,15,3,3,0,STA=6/0,STA=6/0,STA=30/0,{},False,retain; no specific higher-cap recommendation
+3,Innate Agility,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,3,3,15,15,3,3,0,AGI=6/0,AGI=6/0,AGI=30/0,{},False,retain; no specific higher-cap recommendation
+4,Innate Dexterity,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,3,3,15,15,3,3,0,DEX=6/0,DEX=6/0,DEX=30/0,{},False,retain; no specific higher-cap recommendation
+5,Innate Intelligence,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,3,3,15,15,3,3,0,INT=6/0,INT=6/0,INT=30/0,{},False,retain; no specific higher-cap recommendation
+6,Innate Wisdom,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,3,3,15,15,3,3,0,WIS=6/0,WIS=6/0,WIS=30/0,{},False,retain; no specific higher-cap recommendation
+7,Innate Charisma,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,3,3,15,15,3,3,0,CHA=6/0,CHA=6/0,CHA=30/0,{},False,retain; no specific higher-cap recommendation
+8,Innate Fire Protection,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,3,3,15,15,3,3,0,ResistFire=6/0,ResistFire=6/0,ResistFire=30/0,{},False,retain; no specific higher-cap recommendation
+9,Innate Cold Protection,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,3,3,15,15,3,3,0,ResistCold=6/0,ResistCold=6/0,ResistCold=30/0,{},False,retain; no specific higher-cap recommendation
+10,Innate Magic Protection,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,3,3,15,15,3,3,0,ResistMagic=6/0,ResistMagic=6/0,ResistMagic=30/0,{},False,retain; no specific higher-cap recommendation
+11,Innate Poison Protection,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,3,3,15,15,3,3,0,ResistPoison=6/0,ResistPoison=6/0,ResistPoison=30/0,{},False,retain; no specific higher-cap recommendation
+12,Innate Disease Protection,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,3,3,15,15,3,3,0,ResistDisease=6/0,ResistDisease=6/0,ResistDisease=30/0,{},False,retain; no specific higher-cap recommendation
+13,Innate Run Speed,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,3,3,5,5,3,3,0,BaseMovementSpeed=21/0,BaseMovementSpeed=21/0,BaseMovementSpeed=35/0,{},False,retain; no specific higher-cap recommendation
+16,Innate Lung Capacity,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,3,3,6,6,3,3,0,SetBreathLevel=150/0,SetBreathLevel=150/0,WaterBreathing=1/0; SetBreathLevel=350/0,{},False,retain; no specific higher-cap recommendation
+18,Healing Adept,CLR/PAL/RNG/DRU/SHM/BST,3,9,9,17,12,42,0,ImprovedHeal=10/10; LimitEffect=0/0; LimitInstant=1/0; LimitSpell=-6233/0; LimitSpell=-6265/0; ImprovedHeal=10/10; LimitEffect=147/0; LimitInstant=1/0,ImprovedHeal=28/28; LimitEffect=0/0; LimitInstant=1/0; LimitSpell=-6233/0; LimitSpell=-6265/0; ImprovedHeal=28/28; LimitEffect=147/0; LimitInstant=1/0,ImprovedHeal=28/28; LimitEffect=0/0; LimitInstant=1/0; LimitSpell=-6233/0; LimitSpell=-6265/0; ImprovedHeal=28/28; LimitEffect=147/0; LimitInstant=1/0,{},False,recommend higher rank depth for measured QA
+19,Healing Gift,CLR/PAL/RNG/DRU/SHM/BST,3,12,12,25,12,57,0,CriticalHealChance=10/0,CriticalHealChance=28/0,CriticalHealChance=28/0,{},False,recommend higher rank depth for measured QA
+21,Spell Casting Reinforcement,CLR/PAL/RNG/SHD/DRU/SHM/NEC/WIZ/MAG/ENC/BST,3,3,4,5,12,12,0,IncreaseSpellDuration=30/30; LimitSpellType=1/0; LimitMinDur=1/0; LimitSpell=-2741/0; LimitSpell=-16843/0; LimitSpellGroup=-16192/0; LimitSpellGroup=-10547/0; LimitSpellGroup=-13543/0,IncreaseSpellDuration=30/30; LimitSpellType=1/0; LimitMinDur=1/0; LimitSpell=-2741/0; LimitSpell=-16843/0; LimitSpellGroup=-16192/0; LimitSpellGroup=-10547/0; LimitSpellGroup=-13543/0,IncreaseSpellDuration=50/50; LimitSpellType=1/0; LimitMinDur=1/0; LimitSpell=-2741/0; LimitSpell=-16843/0; LimitSpellGroup=-16192/0; LimitSpellGroup=-10547/0; LimitSpellGroup=-13543/0,{},False,retain; no specific higher-cap recommendation
+25,Spell Casting Subtlety,CLR/DRU/SHM/NEC/WIZ/MAG/ENC,3,3,6,16,12,12,0,ChangeAggro=-20/0,ChangeAggro=-20/0,ChangeAggro=-50/0,{},False,retain; no specific higher-cap recommendation
+30,Combat Fury,WAR/PAL/SHD/MNK/BRD/BST/BER,3,3,6,6,12,12,0,CriticalHitChance=75/-1,CriticalHitChance=75/-1,CriticalHitChance=150/-1,{},False,retain; no specific higher-cap recommendation
+32,Finishing Blow,WAR/PAL/RNG/SHD/MNK/BRD/ROG/BST/BER,0,0,12,27,0,0,0,,,FinishingBlow=670/41300; FinishingBlowLvl=70/100,{},True,retain; no specific higher-cap recommendation
+33,Combat Stability,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,3,3,18,39,12,12,0,CombatStability=10/0,CombatStability=10/0,CombatStability=45/0,{},False,retain; no specific higher-cap recommendation
+34,Combat Agility,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,3,3,18,40,12,12,0,AvoidMeleeChance=10/0,AvoidMeleeChance=10/0,AvoidMeleeChance=39/0,{},False,retain; no specific higher-cap recommendation
+38,[CLR] Celestial Regeneration,CLR,3,3,9,21,14,14,0,,,,"{""19"": 3}",False,"Celestial Regeneration: measure triggered healing, uptime and mana-free sustain."
+47,[SHM] Cannibalization,SHM,0,0,2,9,0,0,0,,,,"{""224"": 3}",True,retain; no specific higher-cap recommendation
+52,[WIZ] Improved Familiar,WIZ,3,3,4,7,27,27,0,,,,{},False,retain; no specific higher-cap recommendation
+57,[ENC] Gather Mana,ENC,0,0,1,1,0,0,0,,,,"{""224"": 3}",True,retain; no specific higher-cap recommendation
+68,[NEC] Life Burn,NEC,0,0,1,1,0,0,0,,,,{},True,retain; no specific higher-cap recommendation
+75,[PAL] Slay Undead,PAL,1,9,9,10,3,60,0,SlayUndead=225/680,SlayUndead=390/2300,SlayUndead=390/2300,"{""30"": 3}",False,recommend higher rank depth for measured QA
+89,[SHD] Soul Abrasion,SHD,3,6,6,13,18,33,0,FcDamagePctCrit=200/200; LimitSpellGroup=99/0,FcDamagePctCrit=250/250; LimitSpellGroup=99/0,FcDamagePctCrit=250/250; LimitSpellGroup=99/0,{},False,recommend higher rank depth for measured QA
+90,[BRD] Instrument Mastery,BRD,3,4,4,4,18,27,0,AddSingingMod=6/23; AddSingingMod=6/24; AddSingingMod=6/25; AddSingingMod=6/26,AddSingingMod=8/23; AddSingingMod=8/24; AddSingingMod=8/25; AddSingingMod=8/26,AddSingingMod=8/23; AddSingingMod=8/24; AddSingingMod=8/25; AddSingingMod=8/26,{},False,recommend higher rank depth for measured QA
+97,[MNK] Critical Mend,MNK,3,3,6,8,18,18,0,CriticalMend=30/0,CriticalMend=30/0,CriticalMend=84/0,"{""17"": 3}",False,Critical Mend jumps from 30 to 68 at rank 4; inspect sustain before increasing.
+103,[ROG] Poison Mastery,ROG,3,4,4,4,18,30,0,ReduceTradeskillFail=50/56; ReduceApplyPoisonTime=2500/0,ReduceTradeskillFail=75/56; ReduceApplyPoisonTime=1000/0,ReduceTradeskillFail=75/56; ReduceApplyPoisonTime=1000/0,{},False,recommend higher rank depth for measured QA
+104,Double Riposte,WAR/PAL/RNG/SHD/MNK/ROG/BST/BER,3,3,6,6,18,18,0,GiveDoubleRiposte=50/0,GiveDoubleRiposte=50/0,GiveDoubleRiposte=130/0,{},False,retain; no specific higher-cap recommendation
+108,Flurry,WAR/BER,0,0,12,19,0,0,0,,,Flurry=30/0,"{""309"": 3}",True,retain; no specific higher-cap recommendation
+114,[WIZ] Spell Casting Fury Mastery,WIZ,3,11,11,15,18,58,0,CriticalSpellChance=6/100,CriticalSpellChance=17/100,CriticalSpellChance=17/100,"{""23"": 3}",False,recommend higher rank depth for measured QA
+118,[BRD] Singing Mastery,BRD,3,4,4,4,18,27,0,AddSingingMod=6/50,AddSingingMod=8/50,AddSingingMod=8/50,{},False,recommend higher rank depth for measured QA
+128,[BST] Paragon of Spirit,BST,3,3,7,17,16,16,0,,,,{},False,Paragon: resource refill/regen can erase attrition; measure full recovery cycle.
+141,New Tanaan Crafting Mastery,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,3,3,6,6,9,9,0,TradeSkillMastery=3/0,TradeSkillMastery=3/0,TradeSkillMastery=6/0,{},False,retain; no specific higher-cap recommendation
+142,Planar Power,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,3,3,15,20,6,6,0,RaiseStatCap=15/0; RaiseStatCap=15/1; RaiseStatCap=15/2; RaiseStatCap=15/3; RaiseStatCap=15/4; RaiseStatCap=15/5; RaiseStatCap=15/6,RaiseStatCap=15/0; RaiseStatCap=15/1; RaiseStatCap=15/2; RaiseStatCap=15/3; RaiseStatCap=15/4; RaiseStatCap=15/5; RaiseStatCap=15/6,RaiseStatCap=75/0; RaiseStatCap=75/1; RaiseStatCap=75/2; RaiseStatCap=75/3; RaiseStatCap=75/4; RaiseStatCap=75/5; RaiseStatCap=75/6,{},False,retain; no specific higher-cap recommendation
+144,Innate Enlightenment,CLR/DRU/SHM/NEC/WIZ/MAG/ENC,3,3,5,5,9,9,0,RaiseStatCap=30/5; RaiseStatCap=30/4,RaiseStatCap=30/5; RaiseStatCap=30/4,RaiseStatCap=50/5; RaiseStatCap=50/4,{},False,retain; no specific higher-cap recommendation
+150,Mastery of the Past,CLR/PAL/RNG/SHD/DRU/BRD/SHM/NEC/WIZ/MAG/ENC/BST,3,3,9,21,9,9,0,MasteryofPast=58/0,MasteryofPast=58/0,MasteryofPast=71/0,"{""26"": 3}",False,retain; no specific higher-cap recommendation
+153,Radiant Cure,CLR/DRU/SHM,3,3,9,9,12,12,0,,,,{},False,retain; no specific higher-cap recommendation
+157,[ENC] Hastened Gathering,ENC,0,0,3,5,0,0,0,,,HastenedAASkill=2592/57; HastenedAASkill=2592/616,"{""57"": 1}",False,retain; no specific higher-cap recommendation
+160,[WIZ] Hastened Root,WIZ,3,3,6,6,6,6,0,HastenedAASkill=1296/117,HastenedAASkill=1296/117,HastenedAASkill=3096/117; RootBreakChance=45/0,"{""117"": 1}",False,retain; no specific higher-cap recommendation
+166,[ROG] Hasty Exit,ROG,3,3,5,9,6,6,0,HastenedAASkill=432/102,HastenedAASkill=432/102,HastenedAASkill=720/102,"{""102"": 1}",False,retain; no specific higher-cap recommendation
+173,[ENC] Eldritch Rune,ENC,3,3,8,16,9,9,0,,,,{},False,Eldritch Rune 1500 to 3000 absorption; test duration and effective AA buff behavior.
+174,[MAG] Servant of Ro,MAG,3,3,6,18,9,9,0,,,,{},False,Servant of Ro: requires swarm NPC data and spell behavior.
+177,[SHM] Spirit Call,SHM,3,3,5,18,9,9,0,,,,{},False,Spirit Call: requires swarm NPC data and owner-pet bonus routing.
+180,[PAL] Hand of Piety,PAL,0,0,12,25,0,0,0,,,,"{""6001"": 11}",False,retain; no specific higher-cap recommendation
+184,[RNG] Guardian of the Forest,RNG,3,3,9,18,9,9,0,,,,{},False,retain; no specific higher-cap recommendation
+185,[DRU] Spirit of the Wood,DRU,3,3,9,19,9,9,0,,,,{},False,"Spirit of the Wood: measure regen, damage shield and AA buff lifetime."
+186,[BST] Bestial Frenzy,BST,3,10,10,14,6,35,0,GiveDoubleAttack=9/0,GiveDoubleAttack=30/0,GiveDoubleAttack=30/0,{},False,recommend higher rank depth for measured QA
+187,[BRD] Harmonious Attack,BRD,3,10,10,11,6,35,0,GiveDoubleAttack=9/0,GiveDoubleAttack=30/0,GiveDoubleAttack=30/0,{},False,recommend higher rank depth for measured QA
+188,Knight's Advantage,PAL/SHD,3,3,6,6,12,12,0,DoubleAttackChance=9/-1,DoubleAttackChance=9/-1,DoubleAttackChance=24/-1,{},False,retain; no specific higher-cap recommendation
+189,Ferocity,WAR/RNG/MNK/ROG/BER,3,3,6,6,9,9,0,DoubleAttackChance=9/-1,DoubleAttackChance=9/-1,DoubleAttackChance=24/-1,{},False,retain; no specific higher-cap recommendation
+198,[SHD] Consumption of the Soul,SHD,3,3,8,21,9,9,0,FcDamageAmtCrit=1500/1500; LimitSpell=2766/0,FcDamageAmtCrit=1500/1500; LimitSpell=2766/0,FcDamageAmtCrit=4000/4000; LimitSpell=2766/0,"{""87"": 1}",False,retain; no specific higher-cap recommendation
+199,[BRD] Boastful Bellow,BRD,3,3,16,30,12,12,0,,,,"{""30"": 1}",False,retain; no specific higher-cap recommendation
+200,[PAL] Fervent Blessing,PAL,0,0,3,4,0,0,0,,,HastenedAASkill=2160/6001; HastenedAASkill=2160/3676,"{""6001"": 11}",False,retain; no specific higher-cap recommendation
+201,[SHD] Touch of the Wicked,SHD,0,0,3,4,0,0,0,,,HastenedAASkill=2160/6000; HastenedAASkill=2160/87,"{""6000"": 11}",False,retain; no specific higher-cap recommendation
+202,Punishing Blade,WAR/RNG/MNK/BER,3,3,6,16,12,12,0,ExtraAttackChance=8/0,ExtraAttackChance=8/0,ExtraAttackChance=17/0,{},False,retain; no specific higher-cap recommendation
+203,Speed of the Knight,PAL/SHD,3,3,9,16,9,9,0,ExtraAttackChance=8/0,ExtraAttackChance=8/0,ExtraAttackChance=29/0,{},False,retain; no specific higher-cap recommendation
+205,[ROG] Nimble Evasion,ROG,3,3,5,5,3,3,0,NimbleEvasion=60/0,NimbleEvasion=60/0,NimbleEvasion=100/0,{},False,retain; no specific higher-cap recommendation
+206,[MNK] Technique of Master Wu,MNK,3,5,5,15,6,10,0,DoubleSpecialAttack=60/0,DoubleSpecialAttack=100/0,DoubleSpecialAttack=100/0,{},False,recommend higher rank depth for measured QA
+207,[MAG] Host of the Elements,MAG,3,3,6,16,12,12,0,,,,{},False,Host of the Elements: requires swarm NPC data and spell behavior.
+208,[WIZ] Call of Xuzl,WIZ,3,3,5,14,6,6,0,,,,{},False,retain; no specific higher-cap recommendation
+210,Ingenuity,WAR/MNK/ROG/BER,3,3,6,9,6,6,0,CriticalSpellChance=9/100,CriticalSpellChance=9/100,CriticalSpellChance=15/100,{},False,retain; no specific higher-cap recommendation
+213,Tactical Mastery,WAR/BER,3,3,9,9,9,9,0,StrikeThrough2=45/0,StrikeThrough2=45/0,StrikeThrough2=75/0,{},False,retain; no specific higher-cap recommendation
+214,Theft of Life,SHD/NEC,3,3,11,20,6,6,0,CriticalHealChance=10/0,CriticalHealChance=10/0,CriticalHealChance=26/0,{},False,Theft of Life adds heal crit and stacks with Healing Gift; audit sustain.
+215,Fury of Magic,CLR/PAL/RNG/SHD/DRU/BRD/SHM/NEC/MAG/ENC/BST,3,9,9,19,18,54,0,CriticalSpellChance=6/100,CriticalSpellChance=15/100,CriticalSpellChance=15/100,"{""23"": 3}",False,recommend higher rank depth for measured QA
+218,[RNG] Headshot,RNG,0,0,7,16,0,0,0,,,HeadShot=0/60280; HeadShotLevel=70/40,"{""82"": 1}",True,Retune fixed-damage Headshot before admission; not equivalent to Slay.
+224,Mental Clarity,CLR/PAL/RNG/SHD/DRU/BRD/SHM/NEC/WIZ/MAG/ENC/BST,3,3,8,29,12,12,0,CurrentMana=3/0,CurrentMana=3/0,CurrentMana=8/0,{},False,retain; no specific higher-cap recommendation
+225,Innate Regeneration,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,3,3,15,31,3,3,0,CurrentHP=3/0,CurrentHP=3/0,CurrentHP=15/0,{},False,retain; no specific higher-cap recommendation
+227,[BRD] Extended Notes,BRD,3,6,6,9,18,24,0,BardSongRange=25/0,BardSongRange=65/0,BardSongRange=65/0,{},False,recommend higher rank depth for measured QA
+233,Packrat,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,3,3,5,11,9,9,0,Packrat=9/0,Packrat=9/0,Packrat=15/0,{},False,retain; no specific higher-cap recommendation
+234,Heightened Endurance,WAR/MNK/ROG/BER,3,3,11,19,18,18,0,CurrentEndurance=3/0,CurrentEndurance=3/0,CurrentEndurance=11/0,{},False,retain; no specific higher-cap recommendation
+235,Weapon Affinity,WAR/PAL/RNG/SHD/MNK/BRD/ROG/BST/BER,3,3,5,7,15,15,0,ProcChance=30/0,ProcChance=30/0,ProcChance=50/0,{},False,retain; no specific higher-cap recommendation
+238,[BRD] Tune of Pursuance,BRD,3,3,5,6,12,12,0,RaiseSkillCap=30/53,RaiseSkillCap=30/53,RaiseSkillCap=50/53,{},False,retain; no specific higher-cap recommendation
+248,[BST] Warder's Fury,BST,3,10,10,21,9,30,0,PetCriticalHit=3/0,PetCriticalHit=10/0,PetCriticalHit=10/0,{},False,recommend higher rank depth for measured QA
+249,[BST] Warder's Alacrity,BST,3,3,11,21,15,15,0,PetFlurry=12/0,PetFlurry=12/0,PetFlurry=56/0,{},False,Pet flurry stacks across held classes: audit combined cap/routing first.
+254,[CLR] Divine Avatar,CLR,3,3,6,16,18,18,0,,,,{},False,"Divine Avatar: large melee modifiers, test held-WAR/MNK combinations and uptime."
+255,[CLR] Exquisite Benediction,CLR,3,3,8,9,15,15,0,,,,{},False,retain; no specific higher-cap recommendation
+257,[DRU] Nature's Boon,DRU,3,3,11,18,15,15,0,,,,{},False,"Nature's Boon: requires ward NPC/pet data, not only the AA spell record."
+258,[DRU] Advanced Tracking,DRU,3,3,5,5,12,12,0,RaiseSkillCap=30/53,RaiseSkillCap=30/53,RaiseSkillCap=50/53,{},False,retain; no specific higher-cap recommendation
+259,Critical Affliction,CLR/RNG/SHD/DRU/BRD/SHM/NEC/ENC/BST,3,6,6,9,18,36,0,CriticalDoTChance=9/0,CriticalDoTChance=18/0,CriticalDoTChance=18/0,{},False,recommend higher rank depth for measured QA
+262,[ENC] Enhanced Forgetfulness,ENC,3,5,5,5,9,15,0,IncreaseChanceMemwipe=30/0,IncreaseChanceMemwipe=50/0,IncreaseChanceMemwipe=50/0,{},False,recommend higher rank depth for measured QA
+265,[MAG] Shared Health,MAG,3,3,5,6,15,15,0,,,,{},False,retain; no specific higher-cap recommendation
+266,[MAG] Elemental Fury,MAG,3,10,10,26,9,30,0,PetCriticalHit=3/0,PetCriticalHit=10/0,PetCriticalHit=10/0,{},False,recommend higher rank depth for measured QA
+267,[MAG] Elemental Alacrity,MAG,3,3,11,26,15,15,0,PetFlurry=12/0,PetFlurry=12/0,PetFlurry=50/0,{},False,Pet flurry stacks across held classes: audit combined cap/routing first.
+271,[MNK] Strikethrough,MNK,3,3,6,15,18,18,0,StrikeThrough2=15/0,StrikeThrough2=15/0,StrikeThrough2=30/0,{},False,retain; no specific higher-cap recommendation
+272,[MNK] Stonewall,MNK,3,3,10,11,15,15,0,FeignedCastOnChance=30/0,FeignedCastOnChance=30/0,FeignedCastOnChance=60/0,{},False,retain; no specific higher-cap recommendation
+273,[MNK] Rapid Strikes,MNK,0,0,10,19,0,0,0,,,Flurry=28/0,{},True,retain; no specific higher-cap recommendation
+274,[MNK] Kick Mastery,MNK,3,3,9,22,18,18,0,SkillDamageAmount=30/26; SkillDamageAmount=30/30; SkillDamageAmount=30/38,SkillDamageAmount=30/26; SkillDamageAmount=30/30; SkillDamageAmount=30/38,SkillDamageAmount=90/26; SkillDamageAmount=90/30; SkillDamageAmount=90/38,{},False,Flat kick damage multiplies the benefit of Master Wu; tune together.
+275,[MNK] Heightened Awareness,MNK,3,3,5,5,15,15,0,BlockBehind=60/0,BlockBehind=60/0,BlockBehind=100/0,{},False,retain; no specific higher-cap recommendation
+278,Death's Fury,SHD/NEC,3,5,5,5,9,15,0,PetCriticalHit=3/0,PetCriticalHit=5/0,PetCriticalHit=5/0,{},False,recommend higher rank depth for measured QA
+279,[NEC] Quickening of Death,NEC,3,3,5,20,15,15,0,PetFlurry=12/0,PetFlurry=12/0,PetFlurry=20/0,{},False,Pet flurry stacks across held classes: audit combined cap/routing first.
+281,[ROG] Triple Backstab,ROG,3,9,9,19,18,54,0,TripleBackstab=15/0,TripleBackstab=45/0,TripleBackstab=45/0,{},False,recommend higher rank depth for measured QA
+282,[PAL] Hastened Piety,PAL,0,0,3,6,0,0,0,,,HastenedAASkill=720/180,"{""180"": 3}",False,retain; no specific higher-cap recommendation
+284,Vicious Smash,PAL/SHD,3,3,5,16,15,15,0,SkillDamageAmount=15/10,SkillDamageAmount=15/10,SkillDamageAmount=25/10,{},False,retain; no specific higher-cap recommendation
+285,[PAL] Radiant Cure,PAL,3,3,6,6,18,18,0,,,,{},False,retain; no specific higher-cap recommendation
+287,[RNG] Precision of the Pathfinder,RNG,3,3,9,15,18,18,0,Accuracy=30/0; Accuracy=30/1; Accuracy=30/2; Accuracy=30/3; Accuracy=30/10; Accuracy=30/28; Accuracy=30/30; Accuracy=30/36; Accuracy=30/77,Accuracy=30/0; Accuracy=30/1; Accuracy=30/2; Accuracy=30/3; Accuracy=30/10; Accuracy=30/28; Accuracy=30/30; Accuracy=30/36; Accuracy=30/77,Accuracy=75/0; Accuracy=75/1; Accuracy=75/2; Accuracy=75/3; Accuracy=75/10; Accuracy=75/28; Accuracy=75/30; Accuracy=75/36; Accuracy=75/77,{},False,retain; no specific higher-cap recommendation
+288,[RNG] Coat of Thistles,RNG,3,3,5,13,15,15,0,DamageShield=-9/0,DamageShield=-9/0,DamageShield=-15/0,{},False,retain; no specific higher-cap recommendation
+292,[ROG] Trap Circumvention,ROG,3,3,5,5,9,9,0,TrapCircumvention=30/0,TrapCircumvention=30/0,TrapCircumvention=50/0,{},False,retain; no specific higher-cap recommendation
+294,[ROG] Virulent Venom,ROG,3,3,5,6,9,9,0,SpellProcChance=30/0,SpellProcChance=30/0,SpellProcChance=50/0,{},False,retain; no specific higher-cap recommendation
+296,[SHD] Intense Hatred,SHD,3,3,5,20,15,15,0,DamageShield=-9/0,DamageShield=-9/0,DamageShield=-15/0,{},False,retain; no specific higher-cap recommendation
+299,[WAR] Sturdiness,WAR,3,3,10,10,15,15,0,TotalHP=300/0,TotalHP=300/0,TotalHP=1000/0,{},False,Flat HP can replace gear progression; measure early-level survival first.
+300,[WAR] Warlord's Tenacity,WAR,0,0,6,13,0,0,0,,,,{},True,retain; no specific higher-cap recommendation
+307,[WIZ] Ward of Destruction,WIZ,3,3,5,7,9,9,0,,,,{},False,retain; no specific higher-cap recommendation
+308,[WIZ] Frenzied Devastation,WIZ,0,0,3,3,0,0,0,,,,"{""23"": 1}",True,retain; no specific higher-cap recommendation
+310,[ROG] Combat Fury,ROG,3,3,6,6,12,12,0,CriticalHitChance=75/0; CriticalHitChance=75/1; CriticalHitChance=75/2; CriticalHitChance=75/3; CriticalHitChance=75/7; CriticalHitChance=75/8; CriticalHitChance=75/10; CriticalHitChance=75/28; CriticalHitChance=75/30; CriticalHitChance=75/36; CriticalHitChance=60/51,CriticalHitChance=75/0; CriticalHitChance=75/1; CriticalHitChance=75/2; CriticalHitChance=75/3; CriticalHitChance=75/7; CriticalHitChance=75/8; CriticalHitChance=75/10; CriticalHitChance=75/28; CriticalHitChance=75/30; CriticalHitChance=75/36; CriticalHitChance=60/51,CriticalHitChance=225/0; CriticalHitChance=225/1; CriticalHitChance=225/2; CriticalHitChance=225/3; CriticalHitChance=225/7; CriticalHitChance=225/8; CriticalHitChance=225/10; CriticalHitChance=225/28; CriticalHitChance=225/30; CriticalHitChance=225/36; CriticalHitChance=198/51,{},False,retain; no specific higher-cap recommendation
+311,[RNG] Combat Fury,RNG,3,3,6,6,12,12,0,CriticalHitChance=75/0; CriticalHitChance=75/1; CriticalHitChance=75/2; CriticalHitChance=75/3; CriticalHitChance=60/7; CriticalHitChance=75/8; CriticalHitChance=75/10; CriticalHitChance=75/28; CriticalHitChance=75/30; CriticalHitChance=75/36; CriticalHitChance=75/51; CriticalHitChance=75/77,CriticalHitChance=75/0; CriticalHitChance=75/1; CriticalHitChance=75/2; CriticalHitChance=75/3; CriticalHitChance=60/7; CriticalHitChance=75/8; CriticalHitChance=75/10; CriticalHitChance=75/28; CriticalHitChance=75/30; CriticalHitChance=75/36; CriticalHitChance=75/51; CriticalHitChance=75/77,CriticalHitChance=225/0; CriticalHitChance=225/1; CriticalHitChance=225/2; CriticalHitChance=225/3; CriticalHitChance=213/7; CriticalHitChance=225/8; CriticalHitChance=225/10; CriticalHitChance=225/28; CriticalHitChance=225/30; CriticalHitChance=225/36; CriticalHitChance=225/51; CriticalHitChance=225/77,{},False,retain; no specific higher-cap recommendation
+314,[RNG] Veteran's Wrath,RNG,0,0,6,14,0,0,0,,,CriticalDamageMob=105/0; CriticalDamageMob=105/1; CriticalDamageMob=105/2; CriticalDamageMob=105/3; CriticalDamageMob=105/28; CriticalDamageMob=105/36; CriticalDamageMob=105/77,"{""311"": 3}",True,retain; no specific higher-cap recommendation
+319,[CLR] Touch of the Divine,CLR,3,3,5,14,15,15,0,DivineSave=6/4544,DivineSave=6/4544,DivineSave=10/4544,{},False,retain; no specific higher-cap recommendation
+321,[SHM] Call of the Ancients,SHM,3,3,8,9,15,15,0,,,,{},False,retain; no specific higher-cap recommendation
+333,Discordant Defiance,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,3,3,5,16,15,15,0,RaiseStatCap=15/7; RaiseStatCap=15/8; RaiseStatCap=15/9; RaiseStatCap=15/10; RaiseStatCap=15/11,RaiseStatCap=15/7; RaiseStatCap=15/8; RaiseStatCap=15/9; RaiseStatCap=15/10; RaiseStatCap=15/11,RaiseStatCap=25/7; RaiseStatCap=25/8; RaiseStatCap=25/9; RaiseStatCap=25/10; RaiseStatCap=25/11,{},False,retain; no specific higher-cap recommendation
+334,Mystical Attuning,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,3,3,5,13,15,15,0,MysticalAttune=3/0,MysticalAttune=3/0,MysticalAttune=5/0,{},False,retain; no specific higher-cap recommendation
+335,Delay Death,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,3,3,15,31,9,9,0,DelayDeath=150/0,DelayDeath=150/0,DelayDeath=750/0,{},False,retain; no specific higher-cap recommendation
+338,Veteran's Wrath,PAL/SHD/MNK/BRD/BST,0,0,6,16,0,0,0,,,CriticalDamageMob=105/0; CriticalDamageMob=105/1; CriticalDamageMob=105/2; CriticalDamageMob=105/3; CriticalDamageMob=105/28; CriticalDamageMob=105/36; CriticalDamageMob=105/77,"{""30"": 6}",True,Veteran's Wrath: crit damage multiplies attack-frequency gains; separate campaign.
+339,[ROG] Veteran's Wrath,ROG,0,0,6,16,0,0,0,,,CriticalDamageMob=105/0; CriticalDamageMob=105/1; CriticalDamageMob=105/2; CriticalDamageMob=105/3; CriticalDamageMob=105/28; CriticalDamageMob=105/36,"{""310"": 6}",True,retain; no specific higher-cap recommendation
+341,Veteran's Wrath,WAR/BER,0,0,6,13,0,0,0,,,CriticalDamageMob=80/0; CriticalDamageMob=80/1; CriticalDamageMob=80/2; CriticalDamageMob=80/3; CriticalDamageMob=80/28; CriticalDamageMob=80/36; CriticalDamageMob=80/77,"{""309"": 6}",True,retain; no specific higher-cap recommendation
+348,Expansive Mind,CLR/PAL/RNG/SHD/DRU/BRD/SHM/NEC/WIZ/MAG/ENC/BST,3,3,10,31,15,15,0,ItemManaRegenCapIncrease=3/0,ItemManaRegenCapIncrease=3/0,ItemManaRegenCapIncrease=10/0,{},False,retain; no specific higher-cap recommendation
+354,Slippery Attacks,WAR/RNG/MNK/BRD/ROG/BST,3,3,5,5,9,9,0,OffhandRiposteFail=-60/0,OffhandRiposteFail=-60/0,OffhandRiposteFail=-100/0,{},False,retain; no specific higher-cap recommendation
+359,[BRD] Dance of Blades,BRD,0,0,3,16,0,0,0,,,,"{""187"": 5}",False,preserve current blocked state; review incidental unlock separately
+361,[BRD] Shield of Notes,BRD,3,3,6,19,18,18,0,,,,{},False,retain; no specific higher-cap recommendation
+362,[BST] Roar of Thunder,BST,3,3,6,16,18,18,0,,,,{},False,retain; no specific higher-cap recommendation
+368,[BER] Blur of Axes,BER,3,3,13,24,12,12,0,SkillDamageAmount=96/74,SkillDamageAmount=96/74,SkillDamageAmount=416/74,{},False,Flat Frenzy damage is very large for early content; tune rather than blind unlock.
+388,Shielding Resistance,WAR/RNG/MNK/BRD/ROG/BST,3,3,5,5,9,9,0,MitigateDamageShield=-60/0,MitigateDamageShield=-60/0,MitigateDamageShield=-100/0,{},False,retain; no specific higher-cap recommendation
+389,Healing Boon,CLR/PAL/SHM,3,3,6,19,18,18,0,CriticalHealOverTime=10/0,CriticalHealOverTime=10/0,CriticalHealOverTime=16/0,{},False,retain; no specific higher-cap recommendation
+391,[CLR] Celestial Hammer,CLR,3,3,6,16,15,15,0,,,,{},False,retain; no specific higher-cap recommendation
+397,[WIZ] Destructive Fury,WIZ,0,0,9,16,0,0,0,,,CriticalSpellChance=0/165,"{""114"": 6}",True,Destructive Fury: keep explicit deferral while testing increased crit frequency.
+398,Destructive Fury,CLR/PAL/RNG/SHD/DRU/BRD/SHM/NEC/MAG/ENC/BST,0,0,6,19,0,0,0,,,CriticalSpellChance=0/140,"{""215"": 6}",True,Destructive Fury: keep explicit deferral while testing increased crit frequency.
+406,Nature's Bounty,RNG/DRU,3,3,6,6,6,6,0,ForageAdditionalItems=75/0,ForageAdditionalItems=75/0,ForageAdditionalItems=100/0,{},False,retain; no specific higher-cap recommendation
+434,Steadfast Will,PAL/SHD,3,3,6,8,18,18,0,StunResist=50/0,StunResist=50/0,StunResist=80/0,{},False,retain; no specific higher-cap recommendation
+437,[RNG] Tracking Mastery,RNG,3,3,5,5,9,9,0,RaiseSkillCap=60/53,RaiseSkillCap=60/53,RaiseSkillCap=100/53,{},False,retain; no specific higher-cap recommendation
+440,[ROG] Nerves of Steel,ROG,3,3,5,11,15,15,0,NoBreakAESneak=30/0,NoBreakAESneak=30/0,NoBreakAESneak=50/0,{},False,retain; no specific higher-cap recommendation
+442,[SHD] Touch of the Cursed,SHD,3,3,6,25,18,18,0,WeaponProc=6039/0,WeaponProc=6039/0,WeaponProc=11623/0,{},False,Touch of the Cursed higher proc spells: measure lifetap and Soul Abrasion together.
+446,[SHM] Spiritual Channeling,SHM,0,0,1,1,0,0,0,,,,"{""47"": 1}",False,retain; no specific higher-cap recommendation
+447,[SHM] Ancestral Aid,SHM,3,3,6,16,15,15,0,,,,{},False,Ancestral Aid: heal procs plus melee modifiers; verify actual AA buff lifetime.
+452,[WIZ] Prolonged Destruction,WIZ,0,0,3,7,0,0,0,,,,"{""308"": 3}",False,retain; no specific higher-cap recommendation
+462,[RNG] Auspice of the Hunter,RNG,3,3,6,14,15,15,0,,,,{},False,retain; no specific higher-cap recommendation
+469,[MNK] Stunning Kick,MNK,3,3,6,19,18,18,0,,,,{},False,retain; no specific higher-cap recommendation
+495,Gift of Mana,CLR/PAL/RNG/SHD/DRU/SHM/NEC/WIZ/MAG/ENC/BST,3,3,4,8,18,18,0,TriggerOnCast=10/8105; LimitMinLevel=65/0; LimitCombatSkills=0/0; LimitMaxLevel=70/0; LimitManaMin=10/0; LimitEffect=0/0; TriggerOnCast=10/8105; LimitMinLevel=65/0; LimitCombatSkills=0/0; LimitMaxLevel=70/0; LimitManaMin=10/0; LimitEffect=100/0; TriggerOnCast=10/8105; LimitMinLevel=65/0; LimitCombatSkills=0/0; LimitMaxLevel=70/0; LimitManaMin=10/0; LimitEffect=79/0; TriggerOnCast=10/8105; LimitMinLevel=65/0; LimitCombatSkills=0/0; LimitMaxLevel=70/0; LimitManaMin=10/0; LimitEffect=147/0,TriggerOnCast=10/8105; LimitMinLevel=65/0; LimitCombatSkills=0/0; LimitMaxLevel=70/0; LimitManaMin=10/0; LimitEffect=0/0; TriggerOnCast=10/8105; LimitMinLevel=65/0; LimitCombatSkills=0/0; LimitMaxLevel=70/0; LimitManaMin=10/0; LimitEffect=100/0; TriggerOnCast=10/8105; LimitMinLevel=65/0; LimitCombatSkills=0/0; LimitMaxLevel=70/0; LimitManaMin=10/0; LimitEffect=79/0; TriggerOnCast=10/8105; LimitMinLevel=65/0; LimitCombatSkills=0/0; LimitMaxLevel=70/0; LimitManaMin=10/0; LimitEffect=147/0,TriggerOnCast=10/8105; LimitMinLevel=65/0; LimitCombatSkills=0/0; LimitMaxLevel=70/0; LimitManaMin=10/0; LimitEffect=0/0; TriggerOnCast=10/8105; LimitMinLevel=65/0; LimitCombatSkills=0/0; LimitMaxLevel=70/0; LimitManaMin=10/0; LimitEffect=100/0; TriggerOnCast=10/8105; LimitMinLevel=65/0; LimitCombatSkills=0/0; LimitMaxLevel=70/0; LimitManaMin=10/0; LimitEffect=79/0; TriggerOnCast=10/8105; LimitMinLevel=65/0; LimitCombatSkills=0/0; LimitMaxLevel=70/0; LimitManaMin=10/0; LimitEffect=147/0; TriggerOnCast=10/11404; LimitMinLevel=71/0; LimitCombatSkills=0/0; LimitMaxLevel=75/0; LimitManaMin=10/0; LimitEffect=0/0; TriggerOnCast=10/11404; LimitMinLevel=71/0; LimitCombatSkills=0/0; LimitMaxLevel=75/0; LimitManaMin=10/0; LimitEffect=100/0; TriggerOnCast=10/11404; LimitMinLevel=71/0; LimitCombatSkills=0/0; LimitMaxLevel=75/0; LimitManaMin=10/0; LimitEffect=79/0; TriggerOnCast=10/11404; LimitMinLevel=71/0; LimitCombatSkills=0/0; LimitMaxLevel=75/0; LimitManaMin=10/0; LimitEffect=147/0,"{""20"": 3}",False,retain; no specific higher-cap recommendation
+496,Field Dressing,WAR/BER,3,3,5,5,9,9,0,ImprovedBindWound=60/0,ImprovedBindWound=60/0,ImprovedBindWound=100/0,"{""181"": 2}",False,retain; no specific higher-cap recommendation
+497,Bandage Wounds,CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST,3,3,5,5,9,9,0,ImprovedBindWound=60/0,ImprovedBindWound=60/0,ImprovedBindWound=100/0,"{""17"": 3}",False,retain; no specific higher-cap recommendation
+498,Enhanced Aggression,WAR/PAL/RNG/SHD/MNK/BRD/ROG/BST/BER,3,3,10,31,15,15,0,ItemAttackCapIncrease=30/0,ItemAttackCapIncrease=30/0,ItemAttackCapIncrease=100/0,{},False,retain; no specific higher-cap recommendation
+499,[BER] Cascading Rage,BER,3,3,5,10,15,15,0,,,,"{""374"": 3}",False,retain; no specific higher-cap recommendation
+500,Silent Casting,CLR/DRU/SHM/NEC/WIZ/MAG/ENC,3,3,5,6,15,15,0,,,,{},False,retain; no specific higher-cap recommendation
+503,[BST] Hastened Thunder,BST,3,3,5,7,15,15,0,HastenedAASkill=270/362,HastenedAASkill=270/362,HastenedAASkill=450/362,"{""362"": 1}",False,retain; no specific higher-cap recommendation
+504,[BER] Conservation,BER,3,5,5,5,15,25,0,ReduceReagentCost=30/30; LimitEffect=32/0; LimitCombatSkills=1/0,ReduceReagentCost=50/50; LimitEffect=32/0; LimitCombatSkills=1/0,ReduceReagentCost=50/50; LimitEffect=32/0; LimitCombatSkills=1/0,{},False,recommend higher rank depth for measured QA
+506,[CLR] Ward of Purity,CLR,0,0,6,12,0,0,0,,,,"{""255"": 5}",False,retain; no specific higher-cap recommendation
+516,Abundant Healing,CLR/DRU/SHM,0,0,5,23,0,0,0,,,TriggerOnCast=9/8169; LimitSpellType=1/0; LimitInstant=1/0; LimitMinLevel=60/0; LimitEffect=0/0; LimitCombatSkills=0/0; LimitMaxLevel=75/0; LimitSpell=-265/0; LimitSpell=-754/0; LimitSpell=-1332/0; LimitSpell=-1572/0; LimitSpell=-2749/0; LimitSpell=-4979/0; LimitSpell=-5418/0; LimitSpell=-5403/0; LimitManaMin=10/0,"{""19"": 7}",False,preserve current blocked state; review incidental unlock separately
+519,[DRU] Convergence of Spirits,DRU,0,0,6,13,0,0,0,,,,"{""185"": 6}",False,retain; no specific higher-cap recommendation
+520,[DRU] Nature's Guardian,DRU,3,3,6,16,18,18,0,,,,{},False,retain; no specific higher-cap recommendation
+526,Affliction Mastery,DRU/SHM/NEC,0,3,3,4,0,21,0,,CriticalDoTChance=6/0,CriticalDoTChance=6/0,"{""259"": 6}",False,recommend higher rank depth for measured QA
+532,Willful Death,SHD/NEC,3,3,10,11,15,15,0,FeignedCastOnChance=40/0,FeignedCastOnChance=40/0,FeignedCastOnChance=60/0,{},False,retain; no specific higher-cap recommendation
+537,[ROG] Precise Strikes,ROG,3,3,6,21,15,15,0,SkillDamageAmount=30/8,SkillDamageAmount=30/8,SkillDamageAmount=60/8,"{""439"": 3}",False,retain; no specific higher-cap recommendation
+538,[MNK] Hastened Death,MNK,3,3,6,8,15,15,0,HastenedAASkill=360/420,HastenedAASkill=360/420,HastenedAASkill=720/420,"{""420"": 1}",False,retain; no specific higher-cap recommendation
+540,[MNK] Weightless Steps,MNK,0,0,3,3,0,0,0,,,BaseMovementSpeed=15/0,"{""13"": 5}",False,retain; no specific higher-cap recommendation
+541,[BRD] Hastened Blades,BRD,0,0,3,6,0,0,0,,,HastenedAASkill=720/359,"{""359"": 3}",False,preserve current blocked state; review incidental unlock separately
+545,[ENC] Deep Sleep,ENC,3,3,5,9,15,15,0,TriggerOnCast=6/8263; LimitSpellType=0/0; LimitEffect=31/0; LimitCombatSkills=0/0,TriggerOnCast=6/8263; LimitSpellType=0/0; LimitEffect=31/0; LimitCombatSkills=0/0,TriggerOnCast=10/8265; LimitSpellType=0/0; LimitEffect=31/0; LimitCombatSkills=0/0,"{""263"": 1}",False,Deep Sleep adds stronger triggered debuffs; inspect stacking against bosses.
+548,[WAR] Hastened Defiance,WAR,0,0,5,5,0,0,0,,,HastenedAASkill=1800/300,"{""300"": 6}",False,retain; no specific higher-cap recommendation
+551,[WIZ] Hastened Mind Crash,WIZ,3,3,5,6,15,15,0,HastenedAASkill=1296/451,HastenedAASkill=1296/451,HastenedAASkill=2160/451,"{""451"": 1}",False,retain; no specific higher-cap recommendation
+553,[BRD] Cacophony,BRD,3,3,6,19,18,18,0,,,,{},False,retain; no specific higher-cap recommendation
+555,[ROG] Anatomy,ROG,0,0,8,20,0,0,0,,,Assassinate=0/65440; AssassinateLevel=66/50,{},True,Retune fixed-damage Assassinate before admission; not equivalent to Slay.
+557,[RNG] Trick Shot,RNG,3,6,6,19,18,36,0,DoubleRangedAttack=6/0,DoubleRangedAttack=12/0,DoubleRangedAttack=12/0,"{""82"": 3}",False,recommend higher rank depth for measured QA
+558,[CLR] Turn Undead,CLR,3,3,6,11,18,18,0,,,,{},False,Turn Undead: inspect linked damage spell and actual cooldown before expansion.
+559,[MAG] Turn Summoned,MAG,3,3,8,9,18,18,0,,,,{},False,Turn Summoned: inspect linked damage spell and actual cooldown before expansion.
+560,[BRD] Selo's Enduring Cadence,BRD,0,0,3,3,0,0,0,,,BaseMovementSpeed=15/0,"{""13"": 5}",False,retain; no specific higher-cap recommendation
+562,[RNG] Lightning Strikes,RNG,3,3,10,18,15,15,0,Flurry=15/0,Flurry=15/0,Flurry=28/0,{},False,retain; no specific higher-cap recommendation
+565,[WIZ] Mana Burn,WIZ,0,0,1,1,0,0,0,,,,"{""224"": 3}",True,retain; no specific higher-cap recommendation
+579,Combat Medic,CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST,0,0,5,5,0,0,0,,,ImprovedBindWound=100/0,"{""497"": 5}",False,retain; no specific higher-cap recommendation
+605,[WAR] Shield Specialist,WAR,3,5,5,13,15,25,0,ShieldEquipDmgMod=15/0,ShieldEquipDmgMod=25/0,ShieldEquipDmgMod=25/0,"{""435"": 3}",False,recommend higher rank depth for measured QA
+612,[NEC] Soul Seeker,NEC,0,0,3,12,0,0,0,,,HastenedAASkill=1800/68,"{""68"": 1}",False,retain; no specific higher-cap recommendation
+616,[ENC] Mana Draw,ENC,0,0,1,5,0,0,0,,,,"{""57"": 1}",True,retain; no specific higher-cap recommendation
+625,[WIZ] Volatile Mana Blaze,WIZ,0,0,3,9,0,0,0,,,,"{""794"": 1}",False,retain; no specific higher-cap recommendation
+628,[NEC] Greater Blood Tithe,NEC,0,3,3,6,0,15,0,,CriticalDoTChance=3/0,CriticalDoTChance=3/0,"{""740"": 3}",False,recommend higher rank depth for measured QA
+665,[NEC] Death's Wrath,NEC,0,5,5,24,0,15,0,,PetCriticalHit=5/0,PetCriticalHit=5/0,"{""278"": 5}",False,recommend higher rank depth for measured QA
+689,Combat Medic,WAR/BER,0,0,5,5,0,0,0,,,ImprovedBindWound=100/0,"{""496"": 5}",False,retain; no specific higher-cap recommendation
+697,[SHD] Mortal Coil,SHD,0,0,3,12,0,0,0,,,ProcOnKillShot=25/11299,{},True,Mortal Coil: kill-trigger sustain risks runaway camp clearing; separate campaign.
+740,Blood Tithe,DRU/SHM/NEC,0,3,3,6,0,21,0,,CriticalDoTChance=4/0,CriticalDoTChance=4/0,"{""526"": 3}",False,recommend higher rank depth for measured QA
+783,Energetic Attunement,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,3,3,5,16,15,15,0,ItemHPRegenCapIncrease=3/0,ItemHPRegenCapIncrease=3/0,ItemHPRegenCapIncrease=5/0,{},False,retain; no specific higher-cap recommendation
+790,[ROG] Seized Opportunity,ROG,3,3,9,15,18,18,0,FrontalBackstabChance=30/0,FrontalBackstabChance=30/0,FrontalBackstabChance=65/0,{},False,retain; no specific higher-cap recommendation
+791,[ENC] Veil of Mindshadow,ENC,0,0,3,16,0,0,0,,,,"{""173"": 8}",False,retain; no specific higher-cap recommendation
+792,[NEC] Army of the Dead,NEC,3,3,6,19,18,18,0,,,,"{""175"": 3}",False,retain; no specific higher-cap recommendation
+793,[WIZ] Mana Blast,WIZ,0,0,1,1,0,0,0,,,,"{""565"": 1}",True,retain; no specific higher-cap recommendation
+794,[WIZ] Mana Blaze,WIZ,0,0,1,1,0,0,0,,,,"{""793"": 1}",True,retain; no specific higher-cap recommendation
+6000,[SHD] Harm Touch,SHD,3,3,18,21,0,0,10,,,,{},False,"Harm Touch: first ten ranks free, formula-based damage; needs explicit redesign audit."
+6001,[PAL] Lay on Hands,PAL,3,3,17,21,0,0,10,,,,{},False,Lay on Hands: first ten ranks free; cap blocks Hand of Piety/Fervent Blessing.
+6002,[RNG] Hunter's Attack Power,RNG,3,3,26,34,0,0,26,ATK=12/0,ATK=12/0,ATK=104/0,{},False,Hunter's Attack Power: all 26 in-era ranks free; earned-point scarcity cannot balance it.

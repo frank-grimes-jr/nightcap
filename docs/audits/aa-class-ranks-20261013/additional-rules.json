@@ -1,0 +1,22 @@
+{
+  "recorded_at": "2026-10-13T13:18:00.975032+00:00",
+  "environment": "OVH production",
+  "query": "rule_values for DoubleBackstabLevelRequirement, ClassicMasterWu, UseLiveCombatRounds",
+  "rows": [
+    {
+      "ruleset_id": "1",
+      "rule_name": "Combat:ClassicMasterWu",
+      "rule_value": "false"
+    },
+    {
+      "ruleset_id": "1",
+      "rule_name": "Combat:DoubleBackstabLevelRequirement",
+      "rule_value": "55"
+    },
+    {
+      "ruleset_id": "1",
+      "rule_name": "Combat:UseLiveCombatRounds",
+      "rule_value": "true"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "release": 2026101303,
+  "channel_sha256": "aacf67eb9a10fd16544d4031ccd4bb8c63a2a651d0fff58083a191a87f402a28",
+  "signer": "existing production Ed25519 key, previous metadata signature verified",
+  "file_records_preserved": 105,
+  "prior_history_preserved": true
+}
