@@ -1,5 +1,27 @@
 # CHANGES
 
+## 2026-10-16 - Raid and Grind dungeon candidate
+
+Add fixed twelve-hour Raid/Grind runs to all seven existing dungeon Keepers,
+with authoritative per-character boss credit, Tasks display, permanent completion
+counts and receipt-backed rewards. Raid scales HP/damage, unlocks the final boss
+after minibosses and permanently records defeated spawns; Grind preserves native
+timers and permits missed-boss catch-up. Run UUIDs, finalized corpse envelopes,
+respawn deadlines and immutable reward identities survive restart and native-ID
+reuse. Earned claims survive reset/expiry; reset rejects players, pending entries
+and recoverable player corpses.
+
+The explicit Classic catalog has 52 objectives and 330 new items: 24 shared
+designs at four bands/three qualities, plus three exclusive Raid designs per
+dungeon. Private Cazic-Thule restores 188 pinned Classic spawn points without
+changing public populations. Guarded SQL starts disabled; deployment requires
+matching native binaries/cache/quests. Isolated database, concurrency, native
+policy/credit and receipt-adapter checks are recorded in `docs/dungeons/`.
+The candidate preserves the separately deployed AA catalog and authentication-log
+redaction when reconciling main/dev/retained source. Full in-game and level-50
+Vox/Nagafen acceptance remain pending. No production promotion or restart.
+See `docs/dungeons/README.md` and `docs/dungeons/QA.md`.
+
 ## 2026-10-16 - Equipment race policy deployed for live QA
 
 Bronze Knuckles matched Palwar's Monk class but excluded Half Elf. Apply the
@@ -126,6 +148,49 @@ The first rehearsal caught SQL-dump FLOAT rounding before live writes; the
 backup's precision companion restores exact coordinates only in isolation.
 The current runtime/client release is preserved. Owner visual acceptance remains
 pending. See `docs/releases/tunnel-cozy-20261013/README.md`.
+
+## 2026-10-13 — Expanded class AA ranks and Triple Backstab
+
+Implements the 26 reviewed lines: 394 families/1,051 ranks, including Slay Undead9,
+Master Wu5 and Triple Backstab9. Every allowed rank is available at level1; all
+previous legal ranks, purchases, charges, costs and prerequisites are preserved.
+Clients with an earned Triple Backstab AA can use it below55, retaining native
+double-attack, weapon and positioning checks. No global rule or catalog changes.
+Native/policy and guarded recovery checks pass. Deployed on all 12 OVH zones
+for owner QA, preserving 47 player and 11 custom tables. Signed notes 2026101303
+are published; the production signature and all 105 hosted files verify.
+Gameplay acceptance is pending.
+[Release, recovery and exact QA](docs/releases/aa-class-ranks-20261013/README.md).
+
+## 2026-10-13 — Class AA rank-depth re-audit (recommendation only)
+
+Slay Undead has nine contiguous Buried Sea-era ranks; the one-rank cap was our
+policy choice. Audited 188 truncated/blocked families and proposed 26 class and
+shared lines totaling 110 additional ranks, all available at level 1. Identified
+prerequisite side effects, pet/critical stacking, free-rank outliers and a live
+level-55 native activation blocker for Triple Backstab under the level-50 cap.
+THJ's documented Master Wu progression supports broader class depth, but its
+exact Slay ceiling was not verified. No gameplay or live policy changed; native
+activation repair and encounter QA remain required. [Audit and exact candidates](docs/audits/aa-class-ranks-20261013/README.md).
+
+## 2026-10-13 — AA level-1 access correction
+
+Removed the rejected character-level gates from every allowed Buried Sea AA rank. The 390-family/941-rank legal pool, release ceilings and existing purchases remain intact. Offers, purchases, use and default grants open at creation. Added regressions and the missing launcher notes. [Release and exact QA](docs/releases/aa-tbs-level1-20261013/README.md). Deployed on OVH; all 12 zones and 239 ownership rows verified. Signed launcher notes 2026101302 published. Owner acceptance remains pending.
+
+## 2026-10-13 - Buried Sea AA policy deployed for live QA
+
+Add a generated, prerequisite-closed TBS AA allowlist with six named utility/pet
+exceptions and staged Classic rank caps. Native display, purchases, grants,
+activation and usable-rank projection honor the same policy. Canonical earned
+ranks/charges/spent points survive suspension, saving and level changes. Missing
+prerequisite definitions now reject purchases; clearing refreshes resend ownership
+and statistics. Veteran grants become dormant, and pet HP caps apply on summon.
+No catalog, class mask, price or character SQL changes. Only a matching zone build
+is needed; world rules and signed client remain unchanged. The owner authorized
+OVH live QA; all 12 zones match, 47 player/11 custom tables and all 239 AA ownership
+rows were preserved. The newly deployed skill/offhand correction was integrated
+before activation. Gameplay acceptance/main promotion remain pending. Build, independent
+review, recovery, exact caps and QA: `docs/releases/aa-tbs-20261013/README.md`.
 
 ## 2026-10-13 - Waypoint visuals accepted
 

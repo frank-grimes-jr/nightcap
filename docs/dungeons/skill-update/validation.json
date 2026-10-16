@@ -1,0 +1,9 @@
+{
+  "status": "passed",
+  "skill_validator": "Skill is valid!",
+  "world_fingerprints": 49,
+  "items_fingerprints": 61,
+  "wiki_fingerprints": 40,
+  "drift": [],
+  "installed_files_match_receipt": true
+}

@@ -1,0 +1,9 @@
+{
+  "status": "passed",
+  "scope": "Local public content only; not a production cache or gameplay acceptance",
+  "database": "nightcap_dungeon_cache_bfe6566bbbf8",
+  "custom_items_checked": 330,
+  "existing_items_preserved": 308928,
+  "item_struct_bytes": 1332,
+  "item_cache_sha256": "fa695df4bf26007503a42dcd80c7ef6ec5920bf4a6563268600dd2f3a679efa3"
+}

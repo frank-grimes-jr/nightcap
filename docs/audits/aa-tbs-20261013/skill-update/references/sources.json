@@ -1,0 +1,975 @@
+{
+  "schema_version": 1,
+  "audited_at": "2026-10-12",
+  "basis": "Local reviewed sources and dated runbooks; AA point-cost entries refreshed with production rule/runtime evidence on 2026-10-12. Other topics retain their original audit scope. AA TBS catalog audit refreshed October 13 from read-only production content and reviewed integrated AA/attack source; no new combat or deployment acceptance.",
+  "observed_revisions": {
+    "integrated": "eeb79ddebd69bdc4bda1725e7ccf5fa6e18591d1",
+    "default_checkout": "ce161c5e600992037adb66037b56047ef8c330dd",
+    "origin_main_observed": "890a9c0",
+    "aa_point_cost_20261012": "e5f28f9653a935dc13ed5ffaeed908ef90a51f61",
+    "travel_client_audit_20261012": "4e3acd83019a915b04a9ec1f222c3bc2543d0bfe",
+    "launcher_patch_history_20261012": "55c20ccf1e364266c574518703dd7d77f5c254c1",
+    "early_spell_scribing_20261012": "5ae9cb02976fe0a017b6bf90837958387cbf4ca1",
+    "trainer_access_20261012": "114c730f246d771b5a480c515d9c1da94d3800c5",
+    "early_spell_scribing_deployed_20261012": "45d24a6fa8a0c37a179810ae54f1ed6fbb6b1a02",
+    "aa_tbs_audit_source_20261013": "114c730f246d771b5a480c515d9c1da94d3800c5"
+  },
+  "topics": {
+    "operations": [
+      {
+        "root": "C:/Users/verre/Documents/Codex/2026-10-12/go/work/aa-point-cost",
+        "path": "AGENTS.md",
+        "role": "current integrated operating contract",
+        "revision": "e5f28f9653a935dc13ed5ffaeed908ef90a51f61",
+        "sha256": "b63f749c2ccf62f223e0b5b9b4531ae5a0f0c206517993e09344263d3e33e74b"
+      },
+      {
+        "root": "C:/Users/verre/Documents/Codex/2026-10-12/go/work/aa-point-cost",
+        "path": "docs/status.md",
+        "role": "dated deployments and remaining acceptance",
+        "revision": "e5f28f9653a935dc13ed5ffaeed908ef90a51f61",
+        "sha256": "9c55723b9f7fcbdc323e5b1ec15c032e364d125dbe05ba14252fd692f923af09"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/merchant-sell-all",
+        "path": "docs/releases/item-upgrades-20261012/README.md",
+        "role": "retained source/build and activity-preserving recovery",
+        "sha256": "f2e78950969f690b149932e71f333c7b996e577278c120ff7a058f7c9a3d8bbc"
+      },
+      {
+        "root": "E:/EQ_Local_Dev",
+        "path": "plugins/nightcap-eqemu/README.md",
+        "role": "existing lookup plugin and availability fallback",
+        "sha256": "e15f8a6dda0c980d3af7828982442480e485e8af390dea0589bf51935366f4b7"
+      },
+      {
+        "root": "E:\\EQ_Local_Dev",
+        "path": "artifacts/karl-rescue-20261012/rescue.py",
+        "role": "reviewed one-shot rescue with backup, preimage and preservation guards",
+        "revision": "ce161c5e600992037adb66037b56047ef8c330dd + reviewed working files",
+        "sha256": "6ab93c6cdceab210312686277ef20691cf6620e7210abdc4a66715721ff07948"
+      },
+      {
+        "root": "E:\\EQ_Local_Dev",
+        "path": "docs/ops/karl-rescue-20261012.md",
+        "role": "Karl server rescue and screenshot-confirmed commons client failure; installation and QA pending",
+        "revision": "ce161c5e600992037adb66037b56047ef8c330dd + reviewed working files",
+        "sha256": "b3bee1cf7fa3e17d28427515c0538363f5dabb0020945cbe932c98938a32a170"
+      },
+      {
+        "root": "E:\\EQ_Local_Dev",
+        "path": "artifacts/karl-rescue-20261012/commons-package-validation.json",
+        "role": "manual two-archive package integrity evidence; no remote installation or signed publication",
+        "revision": "ce161c5e600992037adb66037b56047ef8c330dd + reviewed working files",
+        "sha256": "528114f70923a1e105de4de8a4bc702dffeda8ffe54300a7e47565208f9082e8"
+      },
+      {
+        "root": "C:/Users/verre/Documents/Codex/2026-10-12/g-2/work/early-spell-scribing",
+        "path": "docs/releases/early-spell-scribing-20261012/README.md",
+        "role": "paired native/client activation and recovery",
+        "revision": "45d24a6fa8a0c37a179810ae54f1ed6fbb6b1a02",
+        "sha256": "74ed23729c3b7cf529e283ec3c41ea9f61e26d04e3c5f7e0e6826bef3b8f8f59"
+      },
+      {
+        "root": "C:/Users/verre/Documents/Codex/2026-10-12/g-2/work/early-spell-scribing",
+        "path": "docs/releases/early-spell-scribing-20261012/server-receipt.json",
+        "role": "verified backup, running hashes and preservation",
+        "revision": "45d24a6fa8a0c37a179810ae54f1ed6fbb6b1a02",
+        "sha256": "ac80ad71ee5f100b2fad0c90360196f15975adf456509b25d1fe7287acdc8fad"
+      },
+      {
+        "root": "C:/Users/verre/Documents/Codex/2026-10-12/g-2/work/early-spell-scribing",
+        "path": "docs/releases/early-spell-scribing-20261012/deployment/native/rollout.py",
+        "role": "data-preserving recovery; closed on unresolved drift",
+        "revision": "45d24a6fa8a0c37a179810ae54f1ed6fbb6b1a02",
+        "sha256": "ade49c47935c50e9d0029ce65383d8e72853309afcdd140b9c0ecf1aaf9f23b4"
+      },
+      {
+        "root": "C:/Users/verre/Documents/Codex/2026-10-12/g-2/work/early-spell-scribing",
+        "path": "docs/releases/early-spell-scribing-20261012/deployment/native/test_rollout.py",
+        "role": "nine native recovery tests",
+        "revision": "45d24a6fa8a0c37a179810ae54f1ed6fbb6b1a02",
+        "sha256": "fa9a43a93b4f240190de9347f2a91e62b5dff18276e65e85d169cd624004c9dd"
+      }
+    ],
+    "multiclass": [
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/merchant-sell-all",
+        "path": "server-mods/plugins/multiclass.pl",
+        "role": "canonical class membership and atomic release caller",
+        "sha256": "e3c30f45db984578c0fe6c8179b5a836580927ed8b4dfecaacc33b4aa7c76596"
+      },
+      {
+        "root": "C:/Users/verre/Documents/Codex/2026-10-12/go/work/aa-point-cost",
+        "path": "server-mods/code/zone/aa.cpp",
+        "role": "earned ownership and AA progress packet; production source matched",
+        "revision": "e5f28f9653a935dc13ed5ffaeed908ef90a51f61",
+        "sha256": "4d9e898c7bc6ea139d568d8282cefa5e511c0741079328fc3345aa69feffd9c9"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/merchant-sell-all",
+        "path": "server-mods/code/common/spell_class_catalog.h",
+        "role": "original class-level catalog",
+        "sha256": "eb8b3967d9d454a2f6cb6b7f5426c7e2308ddbeb10d0151494840f2bec1b40f7"
+      },
+      {
+        "root": "C:/Users/verre/Documents/Codex/2026-10-12/g-2/work/early-spell-scribing",
+        "path": "docs/adr/0042-per-character-spell-access.md",
+        "role": "per-character ownership with explicit early-scribing exception",
+        "revision": "45d24a6fa8a0c37a179810ae54f1ed6fbb6b1a02",
+        "sha256": "0f4c21642bf5cbc6b9dfc687a431a45854578ed2d2508a7b67249c822a07a373"
+      },
+      {
+        "root": "C:/Users/verre/Documents/Codex/2026-10-12/go/work/aa-point-cost",
+        "path": "server-mods/code/zone/exp.cpp",
+        "role": "XP allocation, partial AA conversion and point threshold; production source matched",
+        "revision": "e5f28f9653a935dc13ed5ffaeed908ef90a51f61",
+        "sha256": "dceb9598136e5d8d753a20f30e3d165bf7e93bc5ce5a7b0f8358ffd5d0dfbe5e"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/merchant-sell-all",
+        "path": "docs/ops/passive-aa-forty-20261009/README.md",
+        "role": "40 percent production override evidence",
+        "sha256": "1285e84e5be154671a238fbd3352fe377df00cb46295993fb3858570e9f979a6"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/merchant-sell-all",
+        "path": "tools/tests/test_passive_aa.py",
+        "role": "native XP verification route",
+        "sha256": "37f6af9f8fd9fbb296c4a77623efd1fa6bf16f975b363ef4580f91fcb4e8b256"
+      },
+      {
+        "root": "C:/Users/verre/Documents/Codex/2026-10-12/go/work/aa-point-cost",
+        "path": "docs/ops/aa-point-cost-20261012/README.md",
+        "role": "current 4000 XP/AA production behavior, recovery, pairing and pending QA",
+        "revision": "e5f28f9653a935dc13ed5ffaeed908ef90a51f61",
+        "sha256": "5c50378fdcc07cdf89b0c176c25b58d52ddfe566b3a7d4fa8093a5b592c4f468"
+      },
+      {
+        "root": "C:/Users/verre/Documents/Codex/2026-10-12/go/work/aa-point-cost",
+        "path": "docs/ops/aa-point-cost-20261012/result.json",
+        "role": "verified one-row activation and world/all-zone reload evidence",
+        "revision": "e5f28f9653a935dc13ed5ffaeed908ef90a51f61",
+        "sha256": "c26db278558350a48e879e2015bcf6e3ec2ef99c7e67947beee2e0767405efe3"
+      },
+      {
+        "root": "C:/Users/verre/Documents/Codex/2026-10-12/go/work/aa-point-cost",
+        "path": "docs/ops/aa-point-cost-20261012/verification.json",
+        "role": "fresh rule and Palwar saved-state verification; live conversion pending",
+        "revision": "e5f28f9653a935dc13ed5ffaeed908ef90a51f61",
+        "sha256": "ba6e78b8b30a1ccb860a17901da2236ae9ddbe28cd1446d84239425503bcbcfa"
+      },
+      {
+        "root": "C:/Users/verre/Documents/Codex/2026-10-12/go/work/aa-point-cost",
+        "path": "docs/ops/aa-point-cost-20261012/ops/apply.py",
+        "role": "guarded rule tuning and evidence-write-safe recovery",
+        "revision": "e5f28f9653a935dc13ed5ffaeed908ef90a51f61",
+        "sha256": "b615434e86cd69705d0147c1420b4cb20fb0f9c8a94015c794f6395d292880dd"
+      },
+      {
+        "root": "C:/Users/verre/Documents/Codex/2026-10-12/go/work/aa-point-cost",
+        "path": "tools/tests/test_aa_point_cost.py",
+        "role": "162 native-method/point-conversion regression checks",
+        "revision": "e5f28f9653a935dc13ed5ffaeed908ef90a51f61",
+        "sha256": "6beeede7f58464e48cabd195c815697a698d9d5e819d8432ebf443b8dc45f793"
+      },
+      {
+        "root": "C:/Users/verre/Documents/Codex/2026-10-12/go/work/aa-point-cost",
+        "path": "docs/ops/aa-point-cost-20261012/ops/test_apply.py",
+        "role": "nine operation and recovery checks",
+        "revision": "e5f28f9653a935dc13ed5ffaeed908ef90a51f61",
+        "sha256": "6961d9e5bc9d3a7252087f2d421d50ef40f09d1ce638f2d3c292e1cd5e9fbe6d"
+      },
+      {
+        "root": "C:/Users/verre/Documents/Codex/2026-10-12/go/work/aa-point-cost",
+        "path": "server-mods/code/common/ruletypes.h",
+        "role": "compiled AA defaults differ from persistent production overrides",
+        "revision": "e5f28f9653a935dc13ed5ffaeed908ef90a51f61",
+        "sha256": "89a0f6e313c3aa16390a5f3ea8bfaf74c1bd7f855674a0d8841a0d406a4524d2"
+      },
+      {
+        "root": "C:/Users/verre/Documents/Codex/2026-10-12/go/work/aa-point-cost",
+        "path": "server-mods/code/zone/gm_commands/aa_exp.cpp",
+        "role": "0/100 focus contract; passive mode retains full normal XP",
+        "revision": "e5f28f9653a935dc13ed5ffaeed908ef90a51f61",
+        "sha256": "86e6af36871712eb5db29e6f38a0a20f6634c70c5532fceb09d95d0629f5068e"
+      },
+      {
+        "root": "C:/Users/verre/Documents/Codex/2026-10-12/g-2/work/early-spell-scribing",
+        "path": "server-mods/code/zone/client_process.cpp",
+        "role": "server scribing ownership and separate gem level gate",
+        "revision": "45d24a6fa8a0c37a179810ae54f1ed6fbb6b1a02",
+        "sha256": "5fdf1da24f2ce47c7e2949901f333441892078499ae632dbde8209d1c0089a1a"
+      },
+      {
+        "root": "C:/Users/verre/Documents/Codex/2026-10-12/g-2/work/early-spell-scribing",
+        "path": "server-mods/code/zone/effects.cpp",
+        "role": "item-to-book scribing preserves ownership without level gate",
+        "revision": "45d24a6fa8a0c37a179810ae54f1ed6fbb6b1a02",
+        "sha256": "319eca78381f4944c90a1f630f15cf8f0fc166a919ad5e5cd20e43b12a922f38"
+      },
+      {
+        "root": "C:/Users/verre/Documents/Codex/2026-10-12/g-2/work/early-spell-scribing",
+        "path": "server-mods/code/zone/client_packet.cpp",
+        "role": "unchanged canonical gem-cast authorization",
+        "revision": "45d24a6fa8a0c37a179810ae54f1ed6fbb6b1a02",
+        "sha256": "893ce3f18fe99b58ce644fdb2d2958266d4db6b8c6591d1c824ea3bb27014180"
+      },
+      {
+        "root": "C:/Users/verre/Documents/Codex/2026-10-12/g-2/work/early-spell-scribing",
+        "path": "tools/tests/test_early_spell_scribing.py",
+        "role": "actual packet/item early-scribing and gem-level regressions",
+        "revision": "45d24a6fa8a0c37a179810ae54f1ed6fbb6b1a02",
+        "sha256": "23e09b0c7deb06a9e9a59bb2fb0c8c9172590d81cf6ac07c4d2ac77183fdf0ec"
+      },
+      {
+        "root": "C:/Users/verre/Documents/Codex/2026-10-12/g-2/work/early-spell-scribing",
+        "path": "tools/tests/test_multiclass_spell_access.py",
+        "role": "canonical ownership and server gem-cast regressions",
+        "revision": "45d24a6fa8a0c37a179810ae54f1ed6fbb6b1a02",
+        "sha256": "b4472df700da6b1235fff3b377101d91011c28ed5dbeb92a770afaa268f1685a"
+      },
+      {
+        "root": "C:/Users/verre/Documents/Codex/2026-10-12/g-2/work/early-spell-scribing",
+        "path": "eq-client-dll/src/ui_hooks.h",
+        "role": "scoped early-scribing hook, canonical shared levels and identity checks",
+        "revision": "45d24a6fa8a0c37a179810ae54f1ed6fbb6b1a02",
+        "sha256": "e3ab8a93937231ad66430ec03a09d90e0dec1bdba15905f9052efc833dd27298"
+      },
+      {
+        "root": "C:/Users/verre/Documents/Codex/2026-10-12/g-2/work/early-spell-scribing",
+        "path": "eq-client-dll/src/dllmain.cpp",
+        "role": "required guarded scribing call registration",
+        "revision": "45d24a6fa8a0c37a179810ae54f1ed6fbb6b1a02",
+        "sha256": "d248344161415f05830afa4f48b1fe1d54874ccd8e00bee46cfab92d76fdd2a9"
+      },
+      {
+        "root": "C:/Users/verre/Documents/Codex/2026-10-12/g-2/work/early-spell-scribing",
+        "path": "eq-client-dll/tests/ui-hooks.cpp",
+        "role": "exact native scribe comparison and x86 ABI controls",
+        "revision": "45d24a6fa8a0c37a179810ae54f1ed6fbb6b1a02",
+        "sha256": "0260b10e71073c011aca34c8fb02f74ef60df58b55bb276113552b725e1b5afd"
+      },
+      {
+        "root": "C:/Users/verre/Documents/Codex/2026-10-12/g-2/work/early-spell-scribing",
+        "path": "eq-client-dll/config/patch-sites.json",
+        "role": "76 exact sites, paired proxy 0.8.1-dev catalog",
+        "revision": "45d24a6fa8a0c37a179810ae54f1ed6fbb6b1a02",
+        "sha256": "393974f602e233d55e4b7bb5249c3ad27366d4fe5ade413eb0643e92f2cf2d92"
+      },
+      {
+        "root": "C:/Users/verre/Documents/Codex/2026-10-12/g-2/work/early-spell-scribing",
+        "path": "docs/releases/early-spell-scribing-20261012/README.md",
+        "role": "candidate pairing, recovery and exact owner QA; not deployed",
+        "revision": "45d24a6fa8a0c37a179810ae54f1ed6fbb6b1a02",
+        "sha256": "74ed23729c3b7cf529e283ec3c41ea9f61e26d04e3c5f7e0e6826bef3b8f8f59"
+      },
+      {
+        "root": "C:/Users/verre/Documents/Codex/2026-10-12/g-2/work/early-spell-scribing",
+        "path": "docs/releases/early-spell-scribing-20261012/verification.json",
+        "role": "compiled native and client evidence; in-game acceptance pending",
+        "revision": "45d24a6fa8a0c37a179810ae54f1ed6fbb6b1a02",
+        "sha256": "1e41316b245a9c224f0937c884c75ffbe26e4351c1b91de4543dd14b4ea5e3bd"
+      },
+      {
+        "root": "C:/Users/verre/Documents/Codex/2026-10-12/g-2/work/early-spell-scribing",
+        "path": "docs/releases/early-spell-scribing-20261012/server-receipt.json",
+        "role": "deployed zone and saved-state preservation",
+        "revision": "45d24a6fa8a0c37a179810ae54f1ed6fbb6b1a02",
+        "sha256": "ac80ad71ee5f100b2fad0c90360196f15975adf456509b25d1fe7287acdc8fad"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/multiclass-trainer-access",
+        "path": "server-mods/code/zone/client.cpp",
+        "role": "reviewed trainer access release; deployed, player acceptance pending",
+        "revision": "114c730f246d771b5a480c515d9c1da94d3800c5",
+        "sha256": "a4fcd19fea8965f8a5a67f6a2cc44f7c83d6a55c32d9e8995ed95330b3ee61f8"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/multiclass-trainer-access",
+        "path": "server-mods/code/zone/client.h",
+        "role": "reviewed trainer access release; deployed, player acceptance pending",
+        "revision": "114c730f246d771b5a480c515d9c1da94d3800c5",
+        "sha256": "f8bc662efa8c8b61577f2659a9a72c55f60820f8e33fb5fefb7ba0f502e409b8"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/multiclass-trainer-access",
+        "path": "server-mods/code/zone/client_process.cpp",
+        "role": "reviewed trainer access release; deployed, player acceptance pending",
+        "revision": "114c730f246d771b5a480c515d9c1da94d3800c5",
+        "sha256": "70597fbcecd1ef8b44a2f7c584630adc14623e462ee4ab0f9045d251a925db7e"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/multiclass-trainer-access",
+        "path": "tools/tests/test_trainer_hail.py",
+        "role": "reviewed trainer access release; deployed, player acceptance pending",
+        "revision": "114c730f246d771b5a480c515d9c1da94d3800c5",
+        "sha256": "d9261a57a9f6a1808d330a1bbf3047f67c283b6fce2950dcb2345e2dc9109446"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/multiclass-trainer-access",
+        "path": "tools/build_trainer_candidate.py",
+        "role": "reviewed trainer access release; deployed, player acceptance pending",
+        "revision": "114c730f246d771b5a480c515d9c1da94d3800c5",
+        "sha256": "6d135f123994bd89f45e256f9dc0f9a23dbb529b3a7254f96c1befc7dc3e91dc"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/multiclass-trainer-access",
+        "path": "docs/releases/multiclass-trainers-20261012/deployment/native/rollout.py",
+        "role": "reviewed trainer access release; deployed, player acceptance pending",
+        "revision": "114c730f246d771b5a480c515d9c1da94d3800c5",
+        "sha256": "b81f4e05f87ef0962e0e966794ba11723c84ff93b1847c04154a869e874e43c9"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/multiclass-trainer-access",
+        "path": "docs/releases/multiclass-trainers-20261012/deployment/native/test_rollout.py",
+        "role": "reviewed trainer access release; deployed, player acceptance pending",
+        "revision": "114c730f246d771b5a480c515d9c1da94d3800c5",
+        "sha256": "255a59d32367d9a18e440c612b3fe7eb1984c0b21a218276db65319172579340"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/multiclass-trainer-access",
+        "path": "docs/releases/multiclass-trainers-20261012/deployment/native/manifest.json",
+        "role": "reviewed trainer access release; deployed, player acceptance pending",
+        "revision": "114c730f246d771b5a480c515d9c1da94d3800c5",
+        "sha256": "9703861c7ff8fdfb83b50be1288b28edb218de72f5356856b09ee881a753d2b3"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/multiclass-trainer-access",
+        "path": "docs/releases/multiclass-trainers-20261012/README.md",
+        "role": "reviewed trainer access release; deployed, player acceptance pending",
+        "revision": "114c730f246d771b5a480c515d9c1da94d3800c5",
+        "sha256": "c0035642cf631a0e01293ab45b9a3f549da425588b22a7b0a88929a0668f0bca"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/multiclass-trainer-access",
+        "path": "docs/releases/multiclass-trainers-20261012/verification.json",
+        "role": "reviewed trainer access release; deployed, player acceptance pending",
+        "revision": "114c730f246d771b5a480c515d9c1da94d3800c5",
+        "sha256": "e8ed7a61dfd12bf46d3fa6caae1ddf4e931d9f1df43ad711b9a85b2a33bfcad5"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/multiclass-trainer-access",
+        "path": "docs/releases/multiclass-trainers-20261012/server-receipt.json",
+        "role": "reviewed trainer access release; deployed, player acceptance pending",
+        "revision": "114c730f246d771b5a480c515d9c1da94d3800c5",
+        "sha256": "93e05288885d543bb185af71e4e5d51ac0e0f159a08f272a72781d6dba242b27"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/multiclass-trainer-access",
+        "path": "docs/releases/multiclass-trainers-20261012/client-receipt.json",
+        "role": "reviewed trainer access release; deployed, player acceptance pending",
+        "revision": "114c730f246d771b5a480c515d9c1da94d3800c5",
+        "sha256": "bd895f012628acfaa6568e40c1d980b792c4cf2ee3005bc19bb8cdf2f79ee855"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/multiclass-trainer-access",
+        "path": "docs/releases/multiclass-trainers-20261012/hosted-verification.json",
+        "role": "reviewed trainer access release; deployed, player acceptance pending",
+        "revision": "114c730f246d771b5a480c515d9c1da94d3800c5",
+        "sha256": "359a502c8bc52bd17815fdb0f9ef3f1cff54d37743acac1400d738fa5cb97216"
+      }
+    ],
+    "items": [
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/merchant-sell-all",
+        "path": "server-mods/code/common/item_upgrade_policy.h",
+        "role": "current four-copy and base-three costs",
+        "sha256": "e3008c8cb7ac6536005befc3cd0c639fb43058f20b4fedb89f1c9dfafe8b89e2"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/merchant-sell-all",
+        "path": "server-mods/code/zone/advanced_loot_inventory.cpp",
+        "role": "atomic inventory/forge/box receipt implementation",
+        "sha256": "461efebc67647852399f311169ef133b802d3db24f3c3b5929ca23cf98bc2416"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/merchant-sell-all",
+        "path": "server-mods/code/zone/zone_hunt.cpp",
+        "role": "drop and augment-cap integration",
+        "sha256": "db738314c72e209f18a9c19a8d5d5ca8a46348675052de36cdad17a1ef7a9a89"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/merchant-sell-all",
+        "path": "server-mods/code/common/item_trade_policy.h",
+        "role": "effective trading and unit resale policy",
+        "sha256": "151ce25cafcfc3bff4670960213f7a9a228eae83716e002cb1f24d27f0455957"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/merchant-sell-all",
+        "path": "docs/releases/remove-item-lore-20261012/README.md",
+        "role": "LORE deployment and recovery constraints",
+        "sha256": "3fc4f243433aa1540726b802faed7ee1024ab06083021ee3f1e36b42c109810c"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/merchant-sell-all",
+        "path": "docs/releases/zone-loot-20261009/PRODUCTION.md",
+        "role": "hunt acquisition deployment record",
+        "sha256": "d2c1a5eee50e7b5b776308212f02712db3610094d1438e09828d720ed590585b"
+      },
+      {
+        "root": "C:/Users/verre/.codex/worktrees/sellall-supplies/EQ_Local_Dev",
+        "path": "server-mods/code/zone/gm_commands/sell_all.cpp",
+        "role": "newest supply protection command",
+        "sha256": "4da94c462758a695b8c0d82f951631227966900a936c9b8066fe32abffc90b3c"
+      },
+      {
+        "root": "C:/Users/verre/.codex/worktrees/sellall-supplies/EQ_Local_Dev",
+        "path": "docs/ops/sellall-supplies-20261012/README.md",
+        "role": "concurrent release; recheck deployment status",
+        "sha256": "ba65fdae33fb46b3d940e57ce7faddedccf260a705a2e5f03aba39adb4019e2c"
+      }
+    ],
+    "world": [
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/merchant-sell-all",
+        "path": "server-mods/quests/global/999240.pl",
+        "role": "waypoint proximity and portal effects",
+        "sha256": "6ee9197054e3f8c6b77254b05ff766205c59eb39af4b73a6bf73b60e8123f80a"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/merchant-sell-all",
+        "path": "server-mods/quests/global/Instance_Keeper.pl",
+        "role": "independent dungeon keeper service",
+        "sha256": "d230dc5196374f59f62663b33d3a01d0b6113aee9101f44725489a6ed4e586ea"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/merchant-sell-all",
+        "path": "server-mods/plugins/tunnel_travel.pl",
+        "role": "Merrin route and player-state gates",
+        "sha256": "c4393c1fed3f37274c22a27d55f46d714bfeb47ccef17e96b0107731d6bacec4"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/merchant-sell-all",
+        "path": "server-mods/plugins/tunnel_travel_data.pl",
+        "role": "exact ten-city route catalog",
+        "sha256": "ffc39f145595e2a29280ae6f9019536d4580c884dab7b3e6276055d0ca4cc69d"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/merchant-sell-all",
+        "path": "server-mods/plugins/tunnel_spire_data.pl",
+        "role": "separate wizard route catalog",
+        "sha256": "e91a492977ffcf404c9a10fd829e2740e0dbef96ead744b284bc548337bbb1ae"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/merchant-sell-all",
+        "path": "docs/releases/tunnel-compact-20261002/README.md",
+        "role": "current deployed layout reference",
+        "sha256": "be9df510a034cc02a187ae83ee5662f43c4bdbe859c6d06aafad675b9594b393"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/merchant-sell-all",
+        "path": "docs/adventure-journal/README.md",
+        "role": "candidate task/attunement system, not deployed",
+        "sha256": "ef1a8d9eaa3d21c54b3d6c2d6b549ffd54706a2579db753f42583d61fabe88ec"
+      },
+      {
+        "root": "C:/Users/verre/Documents/Codex/2026-10-12/g/work/travel-client-audit",
+        "path": "docs/ops/travel-client-audit-20261012/README.md",
+        "role": "October 12 travel audit and local missing-terrain repair; Khalure Toxxulia owner-accepted; other gameplay QA and signed delivery pending",
+        "revision": "4e3acd83019a915b04a9ec1f222c3bc2543d0bfe + uncommitted audit documentation",
+        "sha256": "8b08758937dac6fc0e9c067c79e6a3ef3b2453d7226c8556113ebf00d9754cee"
+      },
+      {
+        "root": "C:/Users/verre/Documents/Codex/2026-10-12/g/work/travel-client-audit",
+        "path": "docs/ops/travel-client-audit-20261012/asset-audit.json",
+        "role": "October 12 travel audit and local missing-terrain repair; Khalure Toxxulia owner-accepted; other gameplay QA and signed delivery pending",
+        "revision": "4e3acd83019a915b04a9ec1f222c3bc2543d0bfe + uncommitted audit documentation",
+        "sha256": "baf5de0a645d0e1274b77e76b98a6503ac234c6cd6135cc2030bdb918c45d959"
+      },
+      {
+        "root": "C:/Users/verre/Documents/Codex/2026-10-12/g/work/travel-client-audit",
+        "path": "docs/ops/travel-client-audit-20261012/install-receipt.json",
+        "role": "October 12 travel audit and local missing-terrain repair; Khalure Toxxulia owner-accepted; other gameplay QA and signed delivery pending",
+        "revision": "4e3acd83019a915b04a9ec1f222c3bc2543d0bfe + uncommitted audit documentation",
+        "sha256": "50ef4e7357eeedfefc021a26e4e9cb1ab9d49f1f63b397c2e8eaf0ba4a132817"
+      },
+      {
+        "root": "C:/Users/verre/Documents/Codex/2026-10-12/g/work/travel-client-audit",
+        "path": "docs/ops/travel-client-audit-20261012/archive-checks.json",
+        "role": "34 complete PFS/WLD checks after local travel asset repair; not live zoning acceptance",
+        "revision": "4e3acd83019a915b04a9ec1f222c3bc2543d0bfe + uncommitted audit documentation",
+        "sha256": "04c56a65fa8fc7e487f93de589f1409f782bc784d903c1c77538d29564cad44a"
+      }
+    ],
+    "client": [
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/merchant-sell-all",
+        "path": "eq-client-dll/src/pet_management.h",
+        "role": "client roster/native availability contract",
+        "sha256": "1bde623bce8ead26a6d6d9ea01575700553dfaca53270cb126b6d7ff352d80d2"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/merchant-sell-all",
+        "path": "server-mods/code/zone/client_class_pets.cpp",
+        "role": "server pet lifecycle and command ownership",
+        "sha256": "7cc33a94f2d522d65f2d35600d29f3768de831da4374cbca8ca646a6fe706f77"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/merchant-sell-all",
+        "path": "eq-client-dll/src/advanced_loot_state.h",
+        "role": "acknowledged client loot state",
+        "sha256": "d2739c1739bc5983784b39545e938d237f699a57da26fe27c0e3e215713b5ba9"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/merchant-sell-all",
+        "path": "tools/client_merchant_ui.py",
+        "role": "generated merchant SIDL",
+        "sha256": "e531bcd28c50d8c7830feb07d39c43d7af8a91705eb42c0786e44b56cf058ed6"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/merchant-sell-all",
+        "path": "docs/releases/merchant-sell-all-20261012.md",
+        "role": "latest audited signed client pairing",
+        "sha256": "2c80f9681b2b56f2ff74027cb13f472a3a76f44bc1360db5c9d9fbd706e7dd99"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/merchant-sell-all",
+        "path": "docs/ops/darthy-pet-crash-20261011.md",
+        "role": "register contract and scoped owner confirmation",
+        "sha256": "11b65fcc262288452a454ca6920e40d0126ceb40ee387fe866772bde4f602a2f"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/merchant-sell-all",
+        "path": "docs/releases/blessing-lifetime-20261004/README.md",
+        "role": "native -1000 versus icon -1",
+        "sha256": "98a3275d079f6f5f51a2993f678f883900c8db3db1a14aefb3c351ce35094210"
+      },
+      {
+        "root": "E:\\EQ_Local_Dev",
+        "path": "docs/ops/karl-rescue-20261012.md",
+        "role": "Karl server rescue and screenshot-confirmed commons client failure; installation and QA pending",
+        "revision": "ce161c5e600992037adb66037b56047ef8c330dd + reviewed working files",
+        "sha256": "b3bee1cf7fa3e17d28427515c0538363f5dabb0020945cbe932c98938a32a170"
+      },
+      {
+        "root": "E:\\EQ_Local_Dev",
+        "path": "artifacts/karl-rescue-20261012/commons-package-validation.json",
+        "role": "manual two-archive package integrity evidence; no remote installation or signed publication",
+        "revision": "ce161c5e600992037adb66037b56047ef8c330dd + reviewed working files",
+        "sha256": "528114f70923a1e105de4de8a4bc702dffeda8ffe54300a7e47565208f9082e8"
+      },
+      {
+        "root": "C:/Users/verre/Documents/Codex/2026-10-12/g-2/work/early-spell-scribing",
+        "path": "eq-client-dll/src/ui_hooks.h",
+        "role": "scoped early-scribing hook, canonical shared levels and identity checks",
+        "revision": "45d24a6fa8a0c37a179810ae54f1ed6fbb6b1a02",
+        "sha256": "e3ab8a93937231ad66430ec03a09d90e0dec1bdba15905f9052efc833dd27298"
+      },
+      {
+        "root": "C:/Users/verre/Documents/Codex/2026-10-12/g-2/work/early-spell-scribing",
+        "path": "eq-client-dll/src/dllmain.cpp",
+        "role": "required guarded scribing call registration",
+        "revision": "45d24a6fa8a0c37a179810ae54f1ed6fbb6b1a02",
+        "sha256": "d248344161415f05830afa4f48b1fe1d54874ccd8e00bee46cfab92d76fdd2a9"
+      },
+      {
+        "root": "C:/Users/verre/Documents/Codex/2026-10-12/g-2/work/early-spell-scribing",
+        "path": "eq-client-dll/tests/ui-hooks.cpp",
+        "role": "exact native scribe comparison and x86 ABI controls",
+        "revision": "45d24a6fa8a0c37a179810ae54f1ed6fbb6b1a02",
+        "sha256": "0260b10e71073c011aca34c8fb02f74ef60df58b55bb276113552b725e1b5afd"
+      },
+      {
+        "root": "C:/Users/verre/Documents/Codex/2026-10-12/g-2/work/early-spell-scribing",
+        "path": "eq-client-dll/config/patch-sites.json",
+        "role": "76 exact sites, paired proxy 0.8.1-dev catalog",
+        "revision": "45d24a6fa8a0c37a179810ae54f1ed6fbb6b1a02",
+        "sha256": "393974f602e233d55e4b7bb5249c3ad27366d4fe5ade413eb0643e92f2cf2d92"
+      },
+      {
+        "root": "C:/Users/verre/Documents/Codex/2026-10-12/g-2/work/early-spell-scribing",
+        "path": "docs/releases/early-spell-scribing-20261012/README.md",
+        "role": "candidate pairing, recovery and exact owner QA; not deployed",
+        "revision": "45d24a6fa8a0c37a179810ae54f1ed6fbb6b1a02",
+        "sha256": "74ed23729c3b7cf529e283ec3c41ea9f61e26d04e3c5f7e0e6826bef3b8f8f59"
+      },
+      {
+        "root": "C:/Users/verre/Documents/Codex/2026-10-12/g-2/work/early-spell-scribing",
+        "path": "docs/releases/early-spell-scribing-20261012/verification.json",
+        "role": "compiled native and client evidence; in-game acceptance pending",
+        "revision": "45d24a6fa8a0c37a179810ae54f1ed6fbb6b1a02",
+        "sha256": "1e41316b245a9c224f0937c884c75ffbe26e4351c1b91de4543dd14b4ea5e3bd"
+      },
+      {
+        "root": "C:/Users/verre/Documents/Codex/2026-10-12/g-2/work/early-spell-scribing",
+        "path": "docs/releases/early-spell-scribing-20261012/client-receipt.json",
+        "role": "signed publication and service preservation",
+        "revision": "45d24a6fa8a0c37a179810ae54f1ed6fbb6b1a02",
+        "sha256": "24832d9f3114710f26530edc1837a5b6b7ac5371da8f79af0a6b4e43ecbd7c14"
+      },
+      {
+        "root": "C:/Users/verre/Documents/Codex/2026-10-12/g-2/work/early-spell-scribing",
+        "path": "docs/releases/early-spell-scribing-20261012/hosted-verification.json",
+        "role": "public HTTPS signature and 105 exact files",
+        "revision": "45d24a6fa8a0c37a179810ae54f1ed6fbb6b1a02",
+        "sha256": "44ac41b11ddcf968b5bea81bd08b0afa38ea09667f5eb0488d3a8f848f934e93"
+      },
+      {
+        "root": "C:/Users/verre/Documents/Codex/2026-10-12/g-2/work/early-spell-scribing",
+        "path": "docs/releases/early-spell-scribing-20261012/deployment/client/stage/publish.py",
+        "role": "atomic channel-last publisher",
+        "revision": "45d24a6fa8a0c37a179810ae54f1ed6fbb6b1a02",
+        "sha256": "174d703e190f45313af57e94119099fc95564f03115f16befe1cc8712a691d6e"
+      },
+      {
+        "root": "C:/Users/verre/Documents/Codex/2026-10-12/g-2/work/early-spell-scribing",
+        "path": "docs/releases/early-spell-scribing-20261012/deployment/client/test_publish.py",
+        "role": "twelve publication recovery tests",
+        "revision": "45d24a6fa8a0c37a179810ae54f1ed6fbb6b1a02",
+        "sha256": "42136bfc09258467886f65062a5e84142aa728826fd9ad7e7088d70f28cf68ba"
+      },
+      {
+        "root": "C:/Users/verre/Documents/Codex/2026-10-12/g-2/work/early-spell-scribing",
+        "path": "eq-launcher/patch-notes.json",
+        "role": "published early-scribing summary and retained history",
+        "revision": "45d24a6fa8a0c37a179810ae54f1ed6fbb6b1a02",
+        "sha256": "9df4573d75768914946555352a110d88fe14461e5db4d3021044b3d0d5067e04"
+      },
+      {
+        "root": "C:/Users/verre/Documents/Codex/2026-10-12/g-2/work/early-spell-scribing",
+        "path": "eq-launcher/cmd/nightcap-package/notes_test.go",
+        "role": "seven-entry current signed history validation",
+        "revision": "45d24a6fa8a0c37a179810ae54f1ed6fbb6b1a02",
+        "sha256": "b696189e7b8a05e07297e08d2896fc667cd201daf7e756affd3951f92f84f0e4"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/multiclass-trainer-access",
+        "path": "eq-client-dll/src/trainer_hooks.h",
+        "role": "reviewed trainer access release; deployed, player acceptance pending",
+        "revision": "114c730f246d771b5a480c515d9c1da94d3800c5",
+        "sha256": "428d9d0c13d9dd0b9c5c47f64364132f9a38112859c6362fd3d2c4570ca49987"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/multiclass-trainer-access",
+        "path": "eq-client-dll/src/ui_hooks.h",
+        "role": "reviewed trainer access release; deployed, player acceptance pending",
+        "revision": "114c730f246d771b5a480c515d9c1da94d3800c5",
+        "sha256": "29721b5ebca6798a50cc0ac68ece0beca8dbc922c925fbf95bad96c20440d04b"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/multiclass-trainer-access",
+        "path": "eq-client-dll/src/dllmain.cpp",
+        "role": "reviewed trainer access release; deployed, player acceptance pending",
+        "revision": "114c730f246d771b5a480c515d9c1da94d3800c5",
+        "sha256": "51128e3535c1d8489c688c4847dd66e292c887f1757a6b2f8748eda4eaa36db9"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/multiclass-trainer-access",
+        "path": "eq-client-dll/config/patch-sites.json",
+        "role": "reviewed trainer access release; deployed, player acceptance pending",
+        "revision": "114c730f246d771b5a480c515d9c1da94d3800c5",
+        "sha256": "2607e797600044f311da2c03dab1d75c0fe120699f7650ff544fa0eca52dd83f"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/multiclass-trainer-access",
+        "path": "eq-client-dll/tests/trainer-native.cpp",
+        "role": "reviewed trainer access release; deployed, player acceptance pending",
+        "revision": "114c730f246d771b5a480c515d9c1da94d3800c5",
+        "sha256": "39fa7e53abbfaae5f5fc83421e8872b41794eaf301aced2287e6d7b29bf7c161"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/multiclass-trainer-access",
+        "path": "eq-client-dll/tests/test_runtime.py",
+        "role": "reviewed trainer access release; deployed, player acceptance pending",
+        "revision": "114c730f246d771b5a480c515d9c1da94d3800c5",
+        "sha256": "2128fb64b1ab2180f39e6ede0f70d71d42a787eb7a7d6247a24f888d5f4485ba"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/multiclass-trainer-access",
+        "path": "eq-launcher/patch-notes.json",
+        "role": "reviewed trainer access release; deployed, player acceptance pending",
+        "revision": "114c730f246d771b5a480c515d9c1da94d3800c5",
+        "sha256": "ff391b2111ed5442956979af1f4f02d996a725970910515f0a4866b7b3d3106a"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/multiclass-trainer-access",
+        "path": "eq-launcher/cmd/nightcap-package/notes_test.go",
+        "role": "reviewed trainer access release; deployed, player acceptance pending",
+        "revision": "114c730f246d771b5a480c515d9c1da94d3800c5",
+        "sha256": "0741e7e5ea4a8f3d17774e34f7b5715c811a8fae74775fe26a71c575cdf88ca5"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/multiclass-trainer-access",
+        "path": "docs/releases/multiclass-trainers-20261012/deployment/client/stage/publish.py",
+        "role": "reviewed trainer access release; deployed, player acceptance pending",
+        "revision": "114c730f246d771b5a480c515d9c1da94d3800c5",
+        "sha256": "86c7f52dcc59d80395e173d644cb713eef06e3f271703f2a5a091ecce29c9a4d"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/multiclass-trainer-access",
+        "path": "docs/releases/multiclass-trainers-20261012/deployment/client/test_publish.py",
+        "role": "reviewed trainer access release; deployed, player acceptance pending",
+        "revision": "114c730f246d771b5a480c515d9c1da94d3800c5",
+        "sha256": "30caf9ecc34c4a5eb873f2dae156bba81a46d005d042ea43314cc064abba0407"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/multiclass-trainer-access",
+        "path": "docs/releases/multiclass-trainers-20261012/deployment/client/verify-production.go",
+        "role": "reviewed trainer access release; deployed, player acceptance pending",
+        "revision": "114c730f246d771b5a480c515d9c1da94d3800c5",
+        "sha256": "a44bad70ddd6fa9fa2250faa9e018aa8d0edb980cc9b9507cc2496141502e7fd"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/multiclass-trainer-access",
+        "path": "docs/releases/multiclass-trainers-20261012/README.md",
+        "role": "reviewed trainer access release; deployed, player acceptance pending",
+        "revision": "114c730f246d771b5a480c515d9c1da94d3800c5",
+        "sha256": "c0035642cf631a0e01293ab45b9a3f549da425588b22a7b0a88929a0668f0bca"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/multiclass-trainer-access",
+        "path": "docs/releases/multiclass-trainers-20261012/verification.json",
+        "role": "reviewed trainer access release; deployed, player acceptance pending",
+        "revision": "114c730f246d771b5a480c515d9c1da94d3800c5",
+        "sha256": "e8ed7a61dfd12bf46d3fa6caae1ddf4e931d9f1df43ad711b9a85b2a33bfcad5"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/multiclass-trainer-access",
+        "path": "docs/releases/multiclass-trainers-20261012/server-receipt.json",
+        "role": "reviewed trainer access release; deployed, player acceptance pending",
+        "revision": "114c730f246d771b5a480c515d9c1da94d3800c5",
+        "sha256": "93e05288885d543bb185af71e4e5d51ac0e0f159a08f272a72781d6dba242b27"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/multiclass-trainer-access",
+        "path": "docs/releases/multiclass-trainers-20261012/client-receipt.json",
+        "role": "reviewed trainer access release; deployed, player acceptance pending",
+        "revision": "114c730f246d771b5a480c515d9c1da94d3800c5",
+        "sha256": "bd895f012628acfaa6568e40c1d980b792c4cf2ee3005bc19bb8cdf2f79ee855"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/multiclass-trainer-access",
+        "path": "docs/releases/multiclass-trainers-20261012/hosted-verification.json",
+        "role": "reviewed trainer access release; deployed, player acceptance pending",
+        "revision": "114c730f246d771b5a480c515d9c1da94d3800c5",
+        "sha256": "359a502c8bc52bd17815fdb0f9ef3f1cff54d37743acac1400d738fa5cb97216"
+      }
+    ],
+    "admin": [
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/merchant-sell-all",
+        "path": "docs/ops/production-gm-20261010.md",
+        "role": "local owner UI and production maintenance fence",
+        "sha256": "a374ff475c103680383757c04490bd4f30d820fad3381d54e1d7f7a56115bd19"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/merchant-sell-all",
+        "path": "docs/ops/player-access-20261011.md",
+        "role": "credential admission supersedes IP lifecycle",
+        "sha256": "07b4d514a43d77035371c9caef96c28f4f53d74b905da7056e0b664592326f04"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/merchant-sell-all",
+        "path": "deploy/production/PLAYER-ACCESS.md",
+        "role": "access code operator/recovery contract",
+        "sha256": "0ff0960fd095a09f79aca5116169808f84f69a93e80a990adb76efcc4c324213"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/merchant-sell-all",
+        "path": "docs/ops/darthy-boost-20261012/README.md",
+        "role": "native XP boost parity and exactly-once points",
+        "sha256": "8054cdf064dbfe0ee0e59e3ccd99e98533d92893c0288ef6087ae5748926b42c"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/merchant-sell-all",
+        "path": "tools/tests/test_boost_xp.py",
+        "role": "native boost parity checks",
+        "sha256": "c968c0fcccb86733069f426996cc28b7b3ea17f24a645db6696e1fd7c9db4a36"
+      },
+      {
+        "root": "C:/Users/verre/Documents/Codex/2026-10-12/th/work/launcher-patch-history",
+        "path": "docs/ops/permanent-patcher.md",
+        "role": "patch summaries: signed delivery, protocol floor and publication and player QA",
+        "revision": "55c20ccf1e364266c574518703dd7d77f5c254c1",
+        "sha256": "4579408e3508aed9e57d6db6a46316bbb803287168412943d742fbcb271a4d46"
+      },
+      {
+        "root": "C:/Users/verre/Documents/Codex/2026-10-12/th/work/launcher-patch-history",
+        "path": "eq-launcher/internal/manifest/manifest.go",
+        "role": "legacy-compatible signed patch history field and verification",
+        "revision": "55c20ccf1e364266c574518703dd7d77f5c254c1",
+        "sha256": "bfcfc7818197c7177f31c4c10ae230b80cbe23a05992182d30a41911e0d621e9"
+      },
+      {
+        "root": "C:/Users/verre/Documents/Codex/2026-10-12/th/work/launcher-patch-history",
+        "path": "eq-launcher/internal/manifest/notes.go",
+        "role": "bounded chronological feature and fix summaries",
+        "revision": "55c20ccf1e364266c574518703dd7d77f5c254c1",
+        "sha256": "235c7870b16c80e7bfbc17d14f0a2805424bcea2d67dfc877a4748fa9bebfc14"
+      },
+      {
+        "root": "C:/Users/verre/Documents/Codex/2026-10-12/th/work/launcher-patch-history",
+        "path": "eq-launcher/internal/manifest/notes_test.go",
+        "role": "notes validation and legacy encoding regression",
+        "revision": "55c20ccf1e364266c574518703dd7d77f5c254c1",
+        "sha256": "7b54ec11458ac34792bf1e374f864bc6787e2c04d7b6b408891e1ae3f4e2e319"
+      },
+      {
+        "root": "C:/Users/verre/Documents/Codex/2026-10-12/th/work/launcher-patch-history",
+        "path": "eq-launcher/internal/launcher/controller.go",
+        "role": "verified notes and immutable status snapshots",
+        "revision": "55c20ccf1e364266c574518703dd7d77f5c254c1",
+        "sha256": "3a147d2c75b331190b144e84aadf4df51ee1c31eb01702d54a769f6f603e8763"
+      },
+      {
+        "root": "C:/Users/verre/Documents/Codex/2026-10-12/th/work/launcher-patch-history",
+        "path": "eq-launcher/internal/launcher/notes_test.go",
+        "role": "signature rejection, patching persistence and folder reset",
+        "revision": "55c20ccf1e364266c574518703dd7d77f5c254c1",
+        "sha256": "568a9c5272f069653ce145b74934931ba7c0b1ec05d5289e2b5184b9a7d03f60"
+      },
+      {
+        "root": "C:/Users/verre/Documents/Codex/2026-10-12/th/work/launcher-patch-history",
+        "path": "eq-launcher/cmd/nightcap-package/main.go",
+        "role": "notes-aware packaging and desktop compatibility floor",
+        "revision": "55c20ccf1e364266c574518703dd7d77f5c254c1",
+        "sha256": "f36d00723f32cc13bcebbd216202fe2980de247dd2f3ca47e8362b9e359d10bd"
+      },
+      {
+        "root": "C:/Users/verre/Documents/Codex/2026-10-12/th/work/launcher-patch-history",
+        "path": "eq-launcher/cmd/nightcap-package/notes.go",
+        "role": "bounded publisher history input",
+        "revision": "55c20ccf1e364266c574518703dd7d77f5c254c1",
+        "sha256": "8fccbf020aadc9ea98638894641fe36ae374a6fd130357c96f7452b0eaf7a17d"
+      },
+      {
+        "root": "C:/Users/verre/Documents/Codex/2026-10-12/th/work/launcher-patch-history",
+        "path": "eq-launcher/cmd/nightcap-package/notes_test.go",
+        "role": "curated history and packaging compatibility regression",
+        "revision": "55c20ccf1e364266c574518703dd7d77f5c254c1",
+        "sha256": "0eb6a7ca6b2d0e89768b279c1cfe0bb4363ee1bdceb9139f8e3e23039f55894e"
+      },
+      {
+        "root": "C:/Users/verre/Documents/Codex/2026-10-12/th/work/launcher-patch-history",
+        "path": "eq-launcher/frontend/src/PatchNotes.vue",
+        "role": "latest summary and keyboard-expandable patch history",
+        "revision": "55c20ccf1e364266c574518703dd7d77f5c254c1",
+        "sha256": "c97f8fed4fed280238c65df197c3e2cc5c88b33323cfdcccddd16aae30419c68"
+      },
+      {
+        "root": "C:/Users/verre/Documents/Codex/2026-10-12/th/work/launcher-patch-history",
+        "path": "eq-launcher/frontend/tests/launcher.spec.ts",
+        "role": "Chrome patching, legacy and text-rendering checks",
+        "revision": "55c20ccf1e364266c574518703dd7d77f5c254c1",
+        "sha256": "4ca3ba06a45167b0ca0a3eb20a24c561dbf0bf755ced077676423fde2c84fdd0"
+      },
+      {
+        "root": "C:/Users/verre/Documents/Codex/2026-10-12/th/work/launcher-patch-history",
+        "path": "eq-launcher/patch-notes.json",
+        "role": "reviewed recent client history with published latest entry",
+        "revision": "55c20ccf1e364266c574518703dd7d77f5c254c1",
+        "sha256": "e82e13513b5d6861773bc169158a7927565c622ab125f90613d83196a754c402"
+      },
+      {
+        "root": "C:/Users/verre/Documents/Codex/2026-10-12/th/work/launcher-patch-history",
+        "path": "docs/releases/launcher-patch-history-20261012/README.md",
+        "role": "main and signed publication, unchanged assets and player QA",
+        "revision": "55c20ccf1e364266c574518703dd7d77f5c254c1",
+        "sha256": "887c8e65e340606c07b2ce94c8bb2a08f9ae766a048c9157c8109c2ab9c9e80b"
+      },
+      {
+        "root": "C:/Users/verre/Documents/Codex/2026-10-12/th/work/launcher-patch-history",
+        "path": "docs/releases/launcher-patch-history-20261012/hosted-verification.json",
+        "role": "public HTTPS signatures and all game/desktop hashes",
+        "revision": "55c20ccf1e364266c574518703dd7d77f5c254c1",
+        "sha256": "64c1177f2f5bbfb00c8f7dbef1284c87037f02623453db8dd608ccee5d112bb1"
+      },
+      {
+        "root": "C:/Users/verre/Documents/Codex/2026-10-12/th/work/launcher-patch-history",
+        "path": "docs/releases/launcher-patch-history-20261012/published.json",
+        "role": "on-host counters, preservation and publication receipt",
+        "revision": "55c20ccf1e364266c574518703dd7d77f5c254c1",
+        "sha256": "5ac04290ac62ca0347b843c540ebf525d81a1e08fa844e653cbb18dffddfb8a1"
+      }
+    ],
+    "balance": [
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/merchant-sell-all",
+        "path": "tools/balance/README.md",
+        "role": "native oracle/harness commands and isolation boundaries",
+        "sha256": "fd6d63429f0672a7112285160237d5f2a141e491cf0f65fb8c9ab2ba7982d52d"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/merchant-sell-all",
+        "path": "server-mods/code/zone/effects.cpp",
+        "role": "percentage scaling and Throw Stone exception",
+        "sha256": "8529b352956fa5e6fed3f8303679dabe88da36e65f17a434eb49a3ae9acab24f"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/merchant-sell-all",
+        "path": "docs/releases/zone-loot-20261009/BALANCE.md",
+        "role": "scoped augment headroom and synthetic limits",
+        "sha256": "b64f1d9d74637bdb4d6ae113e9bb3b851c402ebb0fec8819f1213cb5375327cd"
+      },
+      {
+        "root": "E:/EQ_Local_Dev",
+        "path": "docs/balance/native-aa-session-recovery.md",
+        "role": "dated native ownership recovery evidence",
+        "sha256": "04625ed8ca02b0d7185618f48362576d268164cea091e42ab606e102d833f484"
+      },
+      {
+        "root": "E:/EQ_Local_Dev",
+        "path": "docs/adr/0020-retain-caps-after-matched-sensitivity.md",
+        "role": "dated cap experiment decision",
+        "sha256": "1e16055bf5eb67dd10e505e940ccada2d104d30bb0eb43529c23a7f1a3ba3da2"
+      },
+      {
+        "root": "E:/EQ_Local_Dev",
+        "path": "docs/audits/aa-tbs-20261013/README.md",
+        "role": "TBS audit findings, recommendations and exact unresolved gameplay QA",
+        "revision": "ce161c5 + reviewed AA audit working files (2026-10-13)",
+        "sha256": "c8238d39ebf537bedcde536d09594e1fc470c37f806d44a1b96d336ca496f1fb"
+      },
+      {
+        "root": "E:/EQ_Local_Dev",
+        "path": "docs/audits/aa-tbs-20261013/summary.json",
+        "role": "Fresh catalog/rule counts and anonymous purchase conflict classification",
+        "revision": "ce161c5 + reviewed AA audit working files (2026-10-13)",
+        "sha256": "ee74545ab0162ba99ecc1797d1b1c30273834d72b6a5a9e8d4d8c3fd4cbc9c3f"
+      },
+      {
+        "root": "E:/EQ_Local_Dev",
+        "path": "docs/audits/aa-tbs-20261013/production-snapshot.json.gz",
+        "role": "Read-only production content/rules and anonymous ownership captured 2026-10-13",
+        "revision": "ce161c5 + reviewed AA audit working files (2026-10-13)",
+        "sha256": "c5f89640b447d513bef706ecb26cda5ec88fa8b850d5c3f9c68b7cfa1ca08a84"
+      },
+      {
+        "root": "E:/EQ_Local_Dev",
+        "path": "docs/audits/aa-tbs-20261013/analyze.py",
+        "role": "Reviewed linked-rank prefixes, inherited prerequisite closure and class-union census",
+        "revision": "ce161c5 + reviewed AA audit working files (2026-10-13)",
+        "sha256": "e5a49a59a79a7599ee4c32630c3ad9c883a7dd0cd79518199fcb2bfd04d6e8ac"
+      },
+      {
+        "root": "E:/EQ_Local_Dev",
+        "path": "docs/audits/aa-tbs-20261013/review.py",
+        "role": "Later-family inventory triage and 45 named content/source recommendations",
+        "revision": "ce161c5 + reviewed AA audit working files (2026-10-13)",
+        "sha256": "05735303301b1e9673219cf757e3e607feccd48fba6a9251c53d0c40a7ffcf8a"
+      },
+      {
+        "root": "E:/EQ_Local_Dev",
+        "path": "docs/audits/aa-tbs-20261013/test_analysis.py",
+        "role": "Eight policy-audit boundary and snapshot closure checks",
+        "revision": "ce161c5 + reviewed AA audit working files (2026-10-13)",
+        "sha256": "54c94bcb037802cf32d3643c8881e5a4e54193a8b9c1df454f16cd83491c5ac3"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/multiclass-trainer-access",
+        "path": "server-mods/code/zone/aa.cpp",
+        "role": "Reviewed AA loading, inherited prerequisites, offer/purchase/use and expansion gates",
+        "revision": "114c730f246d771b5a480c515d9c1da94d3800c5",
+        "sha256": "4d9e898c7bc6ea139d568d8282cefa5e511c0741079328fc3345aa69feffd9c9"
+      },
+      {
+        "root": "E:/EQ_Local_Dev/_worktrees/multiclass-trainer-access",
+        "path": "server-mods/code/zone/attack.cpp",
+        "role": "Reviewed pet AC/avoidance and AC softcap inputs; not a fresh production binary probe",
+        "revision": "114c730f246d771b5a480c515d9c1da94d3800c5",
+        "sha256": "500af288d4463c98c2ce6b0d7f68b4b8a9f9098eaab741da9faf5cb54e3a4acf"
+      }
+    ]
+  }
+}

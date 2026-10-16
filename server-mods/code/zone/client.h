@@ -518,6 +518,7 @@ public:
 	inline uint8 GetClass2() const { return m_class2; }
 	inline uint8 GetClass3() const { return m_class3; }
 	void RefreshNightcapUI();
+	bool ReprojectEarnedAAs();
 	bool LoadPetArmor();
 	void QuarantineItemTransfer(const char *message);
 	void ZoneForge(const std::string &request_id);

@@ -1,3 +1,4 @@
+#include "zone/dungeon_service.h"
 #include "zone/zone_hunt.h"
 /*	EQEMu: Everquest Server Emulator
 Copyright (C) 2001-2002 EQEMu Development Team (http://eqemulator.net)
@@ -2540,6 +2541,7 @@ bool NPC::Death(Mob* killer_mob, int64 damage, uint16 spell, EQ::skills::SkillTy
 		SetHP(0);
 		return false;
 	}
+	if (NightcapDungeon::Managed() && !GetEntityVariable("nightcap:dungeon-death-committed").empty()) { return false; }
 
 	if (IsMultiQuestEnabled()) {
 		for (auto &i: m_hand_in.items) {
@@ -2549,6 +2551,142 @@ bool NPC::Death(Mob* killer_mob, int64 damage, uint16 spell, EQ::skills::SkillTy
 				lde.item_charges = i.item->GetCharges();
 				AddLootDrop(i.item->GetItem(), lde, true);
 			}
+		}
+	}
+
+	auto* killer = GetHateDamageTop(this);
+	const bool allow_merchant_corpse = RuleB(Merchant, AllowCorpse);
+	const bool is_merchant = (class_ == Class::Merchant || class_ == Class::AdventureMerchant || MerchantType != 0);
+	const bool is_ldon_treasure = GetClass() == Class::LDoNTreasure;
+	Corpse* corpse = nullptr;
+	const auto leaves_corpse = [&]() { return (
+		(
+			!HasOwner() &&
+			!IsMerc() &&
+			!GetSwarmInfo() &&
+			(!is_merchant || allow_merchant_corpse) &&
+			(
+				(
+					killer &&
+					(
+						killer->IsClient() ||
+						(
+							killer->HasOwner() &&
+							killer->GetUltimateOwner()->IsClient()
+						) ||
+						(
+							killer->IsNPC() &&
+							killer->CastToNPC()->GetSwarmInfo() &&
+							killer->CastToNPC()->GetSwarmInfo()->GetOwner() &&
+							killer->CastToNPC()->GetSwarmInfo()->GetOwner()->IsClient()
+						)
+					)
+				) ||
+				(
+					killer_mob && is_ldon_treasure
+				)
+			)
+		)
+		|| IsQueuedForCorpse()
+		); };
+	auto prepare_corpse = [&]() {
+		if (killer) {
+			if (killer->GetOwner() != 0 && killer->GetOwner()->IsClient()) {
+				killer = killer->GetOwner();
+			}
+
+			if (killer->IsClient() && !killer->CastToClient()->GetGM()) {
+				CheckTrivialMinMaxLevelDrop(killer);
+			}
+		}
+
+		NightcapHunt::Award(*this, hunt_owned, m_zone_hunt_rolled);
+		if (!NightcapDungeon::PrepareLoot(this, hunt_owned)) { return false; }
+		corpse = new Corpse(
+			this,
+			&m_loot_items,
+			GetNPCTypeID(),
+			&NPCTypedata,
+			(
+				level > 54 ?
+				RuleI(NPC, MajorNPCCorpseDecayTime) :
+				RuleI(NPC, MinorNPCCorpseDecayTime)
+			)
+		);
+
+		if (killer && killer->IsClient()) {
+			corpse->AllowPlayerLoot(killer, 0);
+			if (killer->IsGrouped()) {
+				Group* g = entity_list.GetGroupByClient(killer->CastToClient());
+				if (g) {
+					uint8 slot_id = 0;
+
+					for (const auto &m : g->members) {
+						if (m) {
+							corpse->AllowPlayerLoot(m, slot_id);
+						}
+
+						slot_id++;
+					}
+				}
+			} else if (killer->IsRaidGrouped()) {
+				Raid* r = entity_list.GetRaidByClient(killer->CastToClient());
+				if (r) {
+					uint8 slot_id = 0;
+
+					for (const auto &m : r->members) {
+						if (m.is_bot) {
+							continue;
+						}
+
+						switch (r->GetLootType()) {
+							case RaidLootType::LeaderOnly:
+								if (m.member && m.is_raid_leader) {
+									corpse->AllowPlayerLoot(m.member, slot_id);
+									slot_id++;
+								}
+								break;
+							case RaidLootType::LeaderAndGroupLeadersOnly:
+								if (m.member && (m.is_raid_leader || m.is_group_leader)) {
+									corpse->AllowPlayerLoot(m.member, slot_id);
+									slot_id++;
+								}
+								break;
+							case RaidLootType::LeaderSelected:
+								if (m.member && m.is_looter) {
+									corpse->AllowPlayerLoot(m.member, slot_id);
+									slot_id++;
+								}
+								break;
+							case RaidLootType::EntireRaid:
+							default:
+								if (m.member) {
+									corpse->AllowPlayerLoot(m.member, slot_id);
+									slot_id++;
+								}
+								break;
+						}
+					}
+				}
+			}
+		} else if (killer_mob && is_ldon_treasure) {
+			Mob* ultimate_owner = killer_mob->GetUltimateOwner();
+			if (ultimate_owner->IsClient()) {
+				corpse->AllowPlayerLoot(ultimate_owner, 0);
+			}
+		}
+
+		return true;
+	};
+	// Managed deaths finalize exactly the native corpse before publishing death,
+	// XP or respawn state. The same object is committed and then published below.
+	const bool prepared_dungeon_death = NightcapDungeon::Managed() && !IsQueuedForCorpse();
+	if (prepared_dungeon_death) {
+		if ((leaves_corpse() && !prepare_corpse()) ||
+			!NightcapDungeon::BeforeDeath(this, killer, hunt_owned, corpse)) {
+			safe_delete(corpse);
+			SetHP(1);
+			return false;
 		}
 	}
 
@@ -2584,7 +2722,6 @@ bool NPC::Death(Mob* killer_mob, int64 damage, uint16 spell, EQ::skills::SkillTy
 		}
 	}
 
-	auto* killer = GetHateDamageTop(this);
 
 	entity_list.RemoveFromTargets(this, p_depop);
 
@@ -2696,7 +2833,6 @@ bool NPC::Death(Mob* killer_mob, int64 damage, uint16 spell, EQ::skills::SkillTy
 		hate_list.DoFactionHits(GetNPCFactionID(), GetPrimaryFaction(), GetFactionAmount());
 	}
 
-	const bool is_ldon_treasure = GetClass() == Class::LDoNTreasure;
 
 	if (give_exp_client && !IsCorpse()) {
 		Group* killer_group = entity_list.GetGroupByClient(give_exp_client);
@@ -2815,68 +2951,10 @@ bool NPC::Death(Mob* killer_mob, int64 damage, uint16 spell, EQ::skills::SkillTy
 		}
 	}
 
-	const bool allow_merchant_corpse = RuleB(Merchant, AllowCorpse);
-	const bool is_merchant           = (class_ == Class::Merchant || class_ == Class::AdventureMerchant || MerchantType != 0);
-
-	Corpse* corpse = nullptr;
-
 	const uint16 entity_id = GetID();
-
-	if (
-		(
-			!HasOwner() &&
-			!IsMerc() &&
-			!GetSwarmInfo() &&
-			(!is_merchant || allow_merchant_corpse) &&
-			(
-				(
-					killer &&
-					(
-						killer->IsClient() ||
-						(
-							killer->HasOwner() &&
-							killer->GetUltimateOwner()->IsClient()
-						) ||
-						(
-							killer->IsNPC() &&
-							killer->CastToNPC()->GetSwarmInfo() &&
-							killer->CastToNPC()->GetSwarmInfo()->GetOwner() &&
-							killer->CastToNPC()->GetSwarmInfo()->GetOwner()->IsClient()
-						)
-					)
-				) ||
-				(
-					killer_mob && is_ldon_treasure
-				)
-			)
-		)
-		|| IsQueuedForCorpse()
-		) {
-		if (killer) {
-			if (killer->GetOwner() != 0 && killer->GetOwner()->IsClient()) {
-				killer = killer->GetOwner();
-			}
-
-			if (killer->IsClient() && !killer->CastToClient()->GetGM()) {
-				CheckTrivialMinMaxLevelDrop(killer);
-			}
-		}
-
+	if (prepared_dungeon_death ? corpse != nullptr : leaves_corpse()) {
+		if (!prepared_dungeon_death && !prepare_corpse()) { return false; }
 		entity_list.RemoveFromAutoXTargets(this);
-
-		NightcapHunt::Award(*this, hunt_owned, m_zone_hunt_rolled);
-		corpse = new Corpse(
-			this,
-			&m_loot_items,
-			GetNPCTypeID(),
-			&NPCTypedata,
-			(
-				level > 54 ?
-				RuleI(NPC, MajorNPCCorpseDecayTime) :
-				RuleI(NPC, MinorNPCCorpseDecayTime)
-			)
-		);
-
 		if (killer_mob && emoteid) {
 			DoNPCEmote(EQ::constants::EmoteEventTypes::AfterDeath, emoteid, killer_mob);
 		}
@@ -2898,67 +2976,6 @@ bool NPC::Death(Mob* killer_mob, int64 damage, uint16 spell, EQ::skills::SkillTy
 		SetID(0);
 		ApplyIllusionToCorpse(illusion_spell_id, corpse);
 
-		if (killer && killer->IsClient()) {
-			corpse->AllowPlayerLoot(killer, 0);
-			if (killer->IsGrouped()) {
-				Group* g = entity_list.GetGroupByClient(killer->CastToClient());
-				if (g) {
-					uint8 slot_id = 0;
-
-					for (const auto &m : g->members) {
-						if (m) {
-							corpse->AllowPlayerLoot(m, slot_id);
-						}
-
-						slot_id++;
-					}
-				}
-			} else if (killer->IsRaidGrouped()) {
-				Raid* r = entity_list.GetRaidByClient(killer->CastToClient());
-				if (r) {
-					uint8 slot_id = 0;
-
-					for (const auto &m : r->members) {
-						if (m.is_bot) {
-							continue;
-						}
-
-						switch (r->GetLootType()) {
-							case RaidLootType::LeaderOnly:
-								if (m.member && m.is_raid_leader) {
-									corpse->AllowPlayerLoot(m.member, slot_id);
-									slot_id++;
-								}
-								break;
-							case RaidLootType::LeaderAndGroupLeadersOnly:
-								if (m.member && (m.is_raid_leader || m.is_group_leader)) {
-									corpse->AllowPlayerLoot(m.member, slot_id);
-									slot_id++;
-								}
-								break;
-							case RaidLootType::LeaderSelected:
-								if (m.member && m.is_looter) {
-									corpse->AllowPlayerLoot(m.member, slot_id);
-									slot_id++;
-								}
-								break;
-							case RaidLootType::EntireRaid:
-							default:
-								if (m.member) {
-									corpse->AllowPlayerLoot(m.member, slot_id);
-									slot_id++;
-								}
-								break;
-						}
-					}
-				}
-			}
-		} else if (killer_mob && is_ldon_treasure) {
-			Mob* ultimate_owner = killer_mob->GetUltimateOwner();
-			if (ultimate_owner->IsClient()) {
-				corpse->AllowPlayerLoot(ultimate_owner, 0);
-			}
-		}
 
 		if (zone && zone->adv_data) {
 			auto sr = (ServerZoneAdventureDataReply_Struct *) zone->adv_data;
@@ -4081,6 +4098,7 @@ void Mob::CommonDamage(Mob* attacker, int64 &damage, const uint16 spell_id, cons
 		damage = lua_ret;
 	}
 #endif
+	if (damage > 0 && NightcapDungeon::RaidNPC(attacker)) { damage = NightcapDungeon::Scale(damage, 115); }
 	// This method is called with skill_used=ABJURE for Damage Shield damage.
 	bool FromDamageShield = (skill_used == EQ::skills::SkillAbjuration);
 	bool ignore_invul = false;

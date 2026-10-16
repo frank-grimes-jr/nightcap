@@ -1,0 +1,9 @@
+{
+  "status": "installed",
+  "audit_revision": "b1bbb3f275f94ac0c4c1a5d922f5ed46dcc28a95",
+  "files": {
+    "C:\\Users\\verre\\.codex\\skills\\nightcap-development\\references\\balance.md": "ba0fb5e8aec2bb45c6a6e4de59d6902c5781e3abde2d3779042fb4e2221ae8f8",
+    "C:\\Users\\verre\\.codex\\skills\\nightcap-development\\references\\sources.json": "9ceee185db9ea48a41894d827df24e6e9544e5eaa2b6dee9f23f62130a77c4b3"
+  },
+  "scope": "balance reference and new reviewed audit entries; unrelated fingerprints preserved"
+}

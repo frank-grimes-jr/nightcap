@@ -159,6 +159,7 @@ All commands run from `akk-stack/`:
 
 - **Docker data disk**: stored at `E:\Docker\wsl\disk\docker_data.vhdx`; the original `%LOCALAPPDATA%\Docker\wsl\disk` is a directory junction to that folder. Keep E: available before starting Docker. Migration evidence and rollback details: `docs/ops/docker-data-migration-20260913.md`.
 - **Era lock is declarative**: `era.json` (repo root) is the source of truth; `tools/apply-era.ps1` applies it idempotently (+`-Check` for drift, `-CapCharacters` to de-level). Change era = edit era.json, commit, run the script. Do not set expansion rules by hand or via the GM tool.
+- **AA offering has a separate compiled policy**: `era.json.aa_policy` selects `config/aa-policy.json`; `tools/aa_tbs_policy.py` generates the native rank/level allowlist. Every allowed rank opens at level 1. Regenerate and rebuild/deploy zone after changes; era SQL and AA/rule reloads do not install compiled caps. Preserve full AA definitions and canonical earned ranks/charges—do not disable definitions or truncate chains to hide purchases. The 26-line class expansion pairs the policy with `special_attacks.cpp` so earned Triple Backstab works below the native level-55 gate. Exact limits, guarded OVH restart, rollback and owner QA: `docs/releases/aa-class-ranks-20261013/README.md`.
 - **PoK class hub**: `tools/pok_hub.py` plans from `docs/pok/hub-stock-audit.json` (original class levels, not widened `spells_new` columns). `tools/pok_hub_migration.py` generates guarded forward/rollback SQL; `tools/pok_hub_restock.py` generates the canonical restock. `docs/pok/catalog-policy.json` gates era promotion before writes. Current catalog preserves the existing expansion-0, level-50 item pool; extending it requires review and regeneration. Activation/rollback and exact player QA: `docs/pok/QA.md`. Candidate only until the recorded in-game QA passes.
 - **DB backups**: `tools/backup-peq.ps1`, scheduled daily 04:00 (task `NightcapPeqBackup`), 14-day retention, includes the era drift check. Take a manual backup before destructive SQL.
 - **Ring geometry**: validate against `zone.map_file_name`, not only the short
@@ -364,6 +365,7 @@ change, including quality-of-life features and reward systems.
 
 - Evaluate the combined power of multiclass abilities, AAs, gear tiers, heroics,
   augments, buffs, pets, and sustain; do not tune each system in isolation.
+- **All allowed AAs and ranks are available at character level 1.** Players choose where and when to spend points. Never add character-level AA gates; balance with the explicit expansion pool, release rank ceilings, costs and prerequisites. The owner reaffirmed this invariant on October 13, 2026 after rejecting the early-level gating candidate.
 - Curate AA availability by expansion: remove overpowered interactions and unlock
   additional abilities/ranks with later releases. Balance against an explicit legal
   pool and rank caps; "all AAs" means all allowed in that release. Keep unrestricted
@@ -414,6 +416,13 @@ publication as successful native acceptance or a permanent branch-policy change.
 - **main**: only after user sign-off on the manual QA.
 
 Codex is free to commit, open PRs, and merge autonomously **up to `test`** when tests pass. `test` → `main` requires user sign-off.
+
+**October 16 dungeon release exception:** the owner explicitly requested main
+promotion and server deployment with matching binaries and item cache for
+in-game testing. This authorizes the Raid/Grind release and controlled restart
+before gameplay acceptance. Preserve the pending fourteen-mode and dragon
+balance checks in `docs/dungeons/QA.md`; see `docs/dungeons/deployment/` for the
+production-content rehearsal, access boundary and receipt-preserving recovery.
 
 **October 13 tradeskill exception:** the owner explicitly requested "Push to main
 and server for live QA." This authorizes PR #200's stacked tradeskills/Craft All

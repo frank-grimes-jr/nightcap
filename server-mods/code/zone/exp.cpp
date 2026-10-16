@@ -945,6 +945,12 @@ void Client::SetLevel(uint8 set_level, bool command)
 	}
 
 	m_pp.level = set_level;
+	// Re-evaluate usable ranks before bonuses or a profile save, retaining paid ranks.
+	if (ReprojectEarnedAAs()) {
+		SendClearPlayerAA();
+		SendLoadedAlternateAdvancementTable();
+		SendAlternateAdvancementPoints();
+	}
 
 	if (command) {
 		m_pp.exp = GetEXPForLevel(set_level);

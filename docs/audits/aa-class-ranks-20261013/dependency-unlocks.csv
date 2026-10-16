@@ -1,0 +1,8 @@
+﻿ability_id,name,current_cap,unguarded_cap,proposed_cap,first_rank_prereqs
+359,[BRD] Dance of Blades,0,3,0,"{""187"": 5}"
+516,Abundant Healing,0,3,0,"{""19"": 7}"
+526,Affliction Mastery,0,3,3,"{""259"": 6}"
+541,[BRD] Hastened Blades,0,3,0,"{""359"": 3}"
+628,[NEC] Greater Blood Tithe,0,3,3,"{""740"": 3}"
+665,[NEC] Death's Wrath,0,5,5,"{""278"": 5}"
+740,Blood Tithe,0,3,3,"{""526"": 3}"

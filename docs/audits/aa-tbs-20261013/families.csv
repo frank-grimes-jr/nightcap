@@ -1,0 +1,1571 @@
+﻿ability_id,name,enabled,classes,first_rank_id,first_expansion,grant_only,charges,native_ranks,legal_open_ranks,tbs_ranks,tbs_top_rank_id,tbs_cost,post_tbs_ranks,first_later_rank_id,first_later_ordinal,tbs_top_effects,first_later_effects,first_later_spell,first_later_cooldown
+0,Unknown AA -1,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,49999,0,0,0,1,0,0,,0,0,,,,,,
+1,Innate Strength,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,2,3,0,0,15,15,15,301,15,0,,,STR=30/0,,,
+2,Innate Stamina,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,7,3,0,0,15,15,15,311,15,0,,,STA=30/0,,,
+3,Innate Agility,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,12,3,0,0,15,15,15,321,15,0,,,AGI=30/0,,,
+4,Innate Dexterity,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,17,3,0,0,15,15,15,331,15,0,,,DEX=30/0,,,
+5,Innate Intelligence,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,22,3,0,0,15,15,15,341,15,0,,,INT=30/0,,,
+6,Innate Wisdom,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,27,3,0,0,15,15,15,351,15,0,,,WIS=30/0,,,
+7,Innate Charisma,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,32,3,0,0,15,15,15,361,15,0,,,CHA=30/0,,,
+8,Innate Fire Protection,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,37,3,0,0,15,15,15,371,15,0,,,ResistFire=30/0,,,
+9,Innate Cold Protection,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,42,3,0,0,15,15,15,381,15,0,,,ResistCold=30/0,,,
+10,Innate Magic Protection,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,47,3,0,0,15,15,15,391,15,0,,,ResistMagic=30/0,,,
+11,Innate Poison Protection,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,52,3,0,0,15,15,15,401,15,0,,,ResistPoison=30/0,,,
+12,Innate Disease Protection,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,57,3,0,0,15,15,15,411,15,0,,,ResistDisease=30/0,,,
+13,Innate Run Speed,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,62,3,0,0,5,5,5,673,13,0,,,BaseMovementSpeed=35/0,,,
+15,Innate Metabolism,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,68,3,0,0,3,3,3,70,3,0,,,Metabolism=150/0,,,
+16,Innate Lung Capacity,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,71,3,0,0,6,6,6,978,13,0,,,WaterBreathing=1/0; SetBreathLevel=350/0,,,
+17,First Aid,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,74,3,0,0,3,3,3,76,3,0,,,MaxBindWound=30/0,,,
+18,Healing Adept,1,CLR/PAL/RNG/DRU/SHM/BST,77,3,0,0,17,17,9,1085,42,8,12449,10,ImprovedHeal=28/28; LimitEffect=0/0; LimitInstant=1/0; LimitSpell=-6233/0; LimitSpell=-6265/0; ImprovedHeal=28/28; LimitEffect=147/0; LimitInstant=1/0,ImprovedHeal=31/31; LimitEffect=0/0; LimitInstant=1/0; LimitSpell=-6233/0; LimitSpell=-6265/0; ImprovedHeal=31/31; LimitEffect=147/0; LimitInstant=1/0,,0
+19,Healing Gift,1,CLR/PAL/RNG/DRU/SHM/BST,80,3,0,0,25,25,12,4781,57,13,5592,13,CriticalHealChance=28/0,CriticalHealChance=30/0,,0
+20,Spell Casting Mastery,1,CLR/PAL/RNG/SHD/DRU/SHM/NEC/WIZ/MAG/ENC/BST,83,3,0,0,4,4,3,85,12,1,13099,4,ReduceManaCost=10/10,ReduceManaCost=15/15,,0
+21,Spell Casting Reinforcement,1,CLR/PAL/RNG/SHD/DRU/SHM/NEC/WIZ/MAG/ENC/BST,86,3,0,0,5,5,4,266,20,1,10467,5,IncreaseSpellDuration=50/50; LimitSpellType=1/0; LimitMinDur=1/0; LimitSpell=-2741/0; LimitSpell=-16843/0; LimitSpellGroup=-16192/0; LimitSpellGroup=-10547/0; LimitSpellGroup=-13543/0,IncreaseSpellDuration=70/70; LimitSpellType=1/0; LimitMinDur=1/0; LimitSpell=-2741/0; LimitSpell=-16843/0; LimitSpellGroup=-16192/0; LimitSpellGroup=-10547/0; LimitSpellGroup=-13543/0,,0
+23,Spell Casting Fury,1,CLR/PAL/RNG/SHD/DRU/BRD/SHM/NEC/WIZ/MAG/ENC/BST,92,3,0,0,3,3,3,94,12,0,,,CriticalSpellChance=7/100,,,
+25,Spell Casting Subtlety,1,CLR/DRU/SHM/NEC/WIZ/MAG/ENC,98,3,0,0,16,16,6,4769,24,10,5586,7,ChangeAggro=-50/0,ChangeAggro=-53/0,,0
+26,Spell Casting Expertise,1,SHD/BRD/NEC/WIZ/MAG/ENC,101,3,0,0,3,3,3,103,12,0,,,MasteryofPast=52/0,,,
+27,Spell Casting Deftness,1,SHD/NEC/WIZ/MAG,104,3,0,0,3,3,3,106,12,0,,,IncreaseSpellHaste=50/50; LimitSpellType=1/0; LimitMinDur=1/0; LimitCastTimeMin=3000/0,,,
+28,Natural Durability,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,107,3,0,0,6,6,3,109,12,3,7541,4,MaxHPChange=1000/0,MaxHPChange=1100/0,,0
+29,Natural Healing,1,WAR/PAL/RNG/SHD/MNK/BRD/ROG/BST/BER,110,3,0,0,3,3,3,112,12,0,,,CurrentHP=3/0,,,
+30,Combat Fury,1,WAR/PAL/SHD/MNK/BRD/BST/BER,113,3,0,0,6,6,6,445,21,0,,,CriticalHitChance=150/-1,,,
+31,Fear Resistance,1,WAR/PAL/RNG/SHD/MNK/BRD/ROG/BST/BER,116,3,0,0,3,3,3,118,12,0,,,ResistFearChance=25/0,,,
+32,Finishing Blow,1,WAR/PAL/RNG/SHD/MNK/BRD/ROG/BST/BER,119,3,0,0,27,27,12,4724,36,15,5554,13,FinishingBlow=670/41300; FinishingBlowLvl=70/100,FinishingBlow=700/44340; FinishingBlowLvl=71/100,,0
+33,Combat Stability,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,122,3,0,0,39,39,18,1403,77,21,5524,19,CombatStability=45/0,CombatStability=46/0,,0
+34,Combat Agility,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,125,3,0,0,40,40,18,1398,77,22,5519,19,AvoidMeleeChance=39/0,AvoidMeleeChance=40/0,,0
+35,Mass Group Buff,1,CLR/PAL/RNG/DRU/SHM/NEC/MAG/ENC/BST,128,3,0,0,1,1,1,128,9,0,,,,,,
+36,[CLR] Divine Resurrection,1,CLR,129,3,0,0,1,1,1,129,5,0,,,,,,
+37,Innate Invis to Undead,1,CLR/NEC,130,3,0,0,1,1,1,130,3,0,,,,,,
+38,[CLR] Celestial Regeneration,1,CLR,131,3,0,0,21,21,9,5072,44,12,5791,10,,,Celestial Regeneration,900
+39,[CLR] Bestow Divine Aura,1,CLR,132,3,0,0,1,1,1,132,6,0,,,,,,
+41,[CLR] Purify Soul,1,CLR,136,3,0,0,2,2,1,136,5,1,15341,2,,,Purify Soul,1800
+42,Quick Evacuation,1,DRU/WIZ,137,3,0,0,3,3,3,139,18,0,,,IncreaseSpellHaste=50/50; LimitEffect=88/0,,,
+43,Exodus,1,DRU/WIZ,140,3,0,0,1,1,1,140,6,0,,,,,,
+44,Quick Damage,1,DRU/WIZ/MAG,141,3,0,0,5,5,3,143,18,2,12863,4,IncreaseSpellHaste=10/10; LimitEffect=0/0; LimitSpellType=0/0; LimitInstant=1/0; LimitCastTimeMin=3000/0; IncreaseSpellHaste=10/10; LimitSpellGroup=16555/0; LimitSpellGroup=16655/0,IncreaseSpellHaste=15/15; LimitEffect=0/0; LimitSpellType=0/0; LimitInstant=1/0; LimitCastTimeMin=3000/0; IncreaseSpellHaste=15/15; LimitSpellGroup=16555/0; LimitSpellGroup=16655/0,,0
+45,[DRU] Enhanced Root,1,DRU,144,3,0,0,1,1,1,144,5,0,,,RootBreakChance=50/0,,,
+46,[ENC] Dire Charm,1,ENC,145,3,0,0,1,1,1,145,9,0,,,,,,
+47,[SHM] Cannibalization,1,SHM,146,3,0,0,9,9,2,5069,10,7,6102,3,,,Cannibalization,180
+48,Quick Buff,1,CLR/PAL/RNG/DRU/SHM/ENC/BST,147,3,0,0,3,3,3,149,18,0,,,IncreaseSpellHaste=50/50; LimitSpellType=1/0; LimitMinDur=1/0; LimitCastTimeMin=3000/0,,,
+49,[SHM] Alchemy Mastery,1,SHM,150,3,0,0,3,3,3,152,18,0,,,ReduceTradeskillFail=50/59,,,
+50,[SHM] Rabid Bear,1,SHM,153,3,0,0,9,9,3,5068,23,6,6101,4,,,Rabid Bear,2160
+52,[WIZ] Improved Familiar,1,WIZ,155,3,0,0,7,7,4,5279,39,3,5289,5,,,Improved Familiar,60
+53,[WIZ] Nexus Gate,1,WIZ,156,3,0,0,1,1,1,156,6,0,,,,,,
+55,[ENC] Permanent Illusion,1,ENC,158,3,0,0,1,1,1,158,3,0,,,IllusionPersistence=1/0,,,
+56,[ENC] Jewel Craft Mastery,1,ENC,159,3,0,0,3,3,3,161,12,0,,,ReduceTradeskillFail=50/68,,,
+57,[ENC] Gather Mana,1,ENC,162,3,0,0,1,1,1,162,5,0,,,,,,
+58,Mend Companion,1,NEC/MAG/BST,163,3,0,0,1,1,1,163,5,0,,,,,,
+60,[MAG] Frenzied Burnout,1,MAG,167,3,0,0,6,6,1,167,6,5,5879,2,,,Frenzied Burnout,900
+61,[MAG] Elemental Form: Fire,1,MAG,168,3,0,0,4,4,3,170,18,1,15241,4,,,Elemental Form: Fire,10
+62,[MAG] Elemental Form: Water,1,MAG,171,3,0,0,4,4,3,173,18,1,15244,4,,,Elemental Form: Water,10
+63,[MAG] Elemental Form: Earth,1,MAG,174,3,0,0,4,4,3,176,18,1,15247,4,,,Elemental Form: Earth,10
+64,[MAG] Elemental Form: Air,1,MAG,177,3,0,0,4,4,3,179,18,1,15250,4,,,Elemental Form: Air,10
+67,[MAG] Elemental Pact,1,MAG,182,3,0,0,1,1,1,182,5,0,,,ReduceReagentCost=100/0; LimitEffect=33/0,,,
+68,[NEC] Life Burn,1,NEC,183,3,0,0,1,1,1,183,9,0,,,,,,
+69,[NEC] Dead Mesmerization,1,NEC,184,3,0,0,3,3,1,184,3,2,5953,2,,,Dead Mesmirization,4320
+70,[NEC] Fear Storm,1,NEC,185,3,0,0,1,1,1,185,5,0,,,,,,
+71,[NEC] Flesh to Bone,1,NEC,186,3,0,0,1,1,1,186,3,0,,,,,,
+72,[NEC] Call to Corpse,1,NEC,187,3,0,0,1,1,1,187,6,0,,,,,,
+73,[PAL] Divine Stun,1,PAL,188,3,0,0,7,7,3,5044,27,4,7339,4,,,Divine Stun,30
+75,[PAL] Slay Undead,1,PAL,190,3,0,0,10,10,9,5040,60,1,15141,10,SlayUndead=390/2300,SlayUndead=420/2400,,0
+76,[PAL] Act of Valor,1,PAL,193,3,0,0,1,1,1,193,3,0,,,,,,
+77,[PAL] Holy Steed,1,PAL,194,3,0,0,1,1,1,194,5,0,,,,,,
+78,Fearless,1,PAL/SHD,195,3,0,0,1,1,1,195,6,0,,,ResistFearChance=100/0,,,
+79,2 Hand Bash,1,PAL/SHD,196,3,0,0,1,1,1,196,6,0,,,TwoHandBash=1/0,,,
+80,Innate Camouflage,1,RNG/DRU,197,3,0,0,1,1,1,197,5,0,,,,,,
+81,Ambidexterity,1,WAR/RNG/MNK/BRD/ROG/BST,198,3,0,0,1,1,1,198,9,0,,,Ambidexterity=32/0,,,
+82,[RNG] Archery Mastery,1,RNG,199,3,0,0,4,4,3,201,18,1,12507,4,ArcheryDamageModifier=100/0,ArcheryDamageModifier=120/0,,0
+84,[RNG] Endless Quiver,1,RNG,205,3,0,0,1,1,1,205,9,0,,,ConsumeProjectile=100/0,,,
+85,[SHD] Unholy Steed,1,SHD,206,3,0,0,1,1,1,206,5,0,,,,,,
+87,[SHD] Leech Touch,1,SHD,208,3,0,0,1,1,1,208,6,0,,,,,,
+89,[SHD] Soul Abrasion,1,SHD,210,3,0,0,13,13,6,1318,33,7,6072,7,FcDamagePctCrit=250/250; LimitSpellGroup=99/0,FcDamagePctCrit=266/266; LimitSpellGroup=99/0,,0
+90,[BRD] Instrument Mastery,1,BRD,213,3,0,0,4,4,4,700,27,0,,,AddSingingMod=8/23; AddSingingMod=8/24; AddSingingMod=8/25; AddSingingMod=8/26,,,
+94,[BRD] Jam Fest,1,BRD,225,3,0,0,3,3,3,227,18,0,,,CastingLevel2=5/0,,,
+97,[MNK] Critical Mend,1,MNK,230,3,0,0,8,8,6,541,30,2,12677,7,CriticalMend=84/0,CriticalMend=92/0,,0
+98,[MNK] Purify Body,1,MNK,233,3,0,0,1,1,1,233,9,0,,,,,,
+100,[MNK] Rapid Feign,1,MNK,237,3,0,0,3,3,3,239,18,0,,,ReduceSkillTimer=5/25,,,
+101,[MNK] Return Kick,1,MNK,240,3,0,0,3,3,3,242,18,0,,,GiveDoubleRiposte=50/26; RiposteChance=3/0,,,
+102,[ROG] Escape,1,ROG,243,3,0,0,1,1,1,243,9,0,,,,,,
+103,[ROG] Poison Mastery,1,ROG,244,3,0,0,4,4,4,8328,30,0,,,ReduceTradeskillFail=75/56; ReduceApplyPoisonTime=1000/0,,,
+104,Double Riposte,1,WAR/PAL/RNG/SHD/MNK/ROG/BST/BER,247,3,0,0,6,6,6,506,27,0,,,GiveDoubleRiposte=130/0,,,
+107,[ROG] Purge Poison,1,ROG,254,3,0,0,1,1,1,254,5,0,,,,,,
+108,Flurry,1,WAR/BER,255,3,0,0,19,0,0,,0,7,5595,13,,Flurry=31/0,,0
+109,Rampage,1,WAR/BER,258,3,0,0,2,2,1,258,5,1,10578,2,,,Rampage,600
+110,[WAR] Area Taunt,1,WAR,259,3,0,0,1,1,1,259,5,0,,,,,,
+111,[WAR] War Cry,1,WAR,260,3,0,0,6,6,3,262,18,3,8309,4,,,War Cry,2160
+112,Bandage Wound,1,WAR/BER,263,3,0,0,3,3,3,265,18,0,,,ImprovedBindWound=50/0,,,
+114,[WIZ] Spell Casting Fury Mastery,1,WIZ,267,3,0,0,15,15,11,5135,58,4,5617,12,CriticalSpellChance=17/100,CriticalSpellChance=18/100,,0
+116,[MNK] Dragon Punch,1,MNK,273,3,0,0,1,1,1,273,5,0,,,SkillAttackProc=1000/21,,,
+117,[WIZ] Strong Root,1,WIZ,274,3,0,0,1,1,1,274,5,0,,,,,,
+118,[BRD] Singing Mastery,1,BRD,275,3,0,0,4,4,4,701,27,0,,,AddSingingMod=8/50,,,
+119,Body and Mind Rejuvenation,1,PAL/RNG/SHD/BRD/BST,278,3,0,0,1,1,1,278,5,0,,,CurrentHP=1/0; CurrentMana=1/0,,,
+120,Physical Enhancement,1,WAR/PAL/RNG/SHD/MNK/BRD/ROG/BST/BER,279,3,0,0,2,2,1,279,5,1,18972,2,MaxHPChange=200/0; CombatStability=2/0; AvoidMeleeChance=2/0,MaxHPChange=210/0; CombatStability=5/0; AvoidMeleeChance=5/0,,0
+121,Adv. Trap Negotiation,1,BRD/ROG,280,3,0,0,3,3,3,282,18,0,,,ReduceSkillTimer=5/62; ReduceSkillTimer=5/17,,,
+122,Acrobatics,1,MNK/BRD/ROG,283,3,0,0,3,3,3,285,18,0,,,ReduceFallDamage=30/0,,,
+123,[BRD] Scribble Notes,1,BRD,286,3,0,0,1,1,1,286,3,0,,,CHA=0/0,,,
+124,[ROG] Chaotic Stab,1,ROG,287,3,0,0,1,1,1,287,6,0,,,FrontalBackstabMinDmg=1/0,,,
+125,Pet Discipline,1,SHD/SHM/NEC/MAG/BST,288,3,0,0,1,1,1,288,6,0,,,PetDiscipline=1/0; AddPetCommand=1/31; AddPetCommand=1/32; AddPetCommand=1/33; AddPetCommand=1/15; AddPetCommand=1/16; AddPetCommand=1/17; AddPetCommand=1/18; AddPetCommand=1/19; AddPetCommand=1/20,,,
+126,[BST] Hobble of Spirits,1,BST,289,3,0,0,4,4,2,1607,14,2,5742,3,,,Hobble of Spirits,300
+127,[BST] Frenzy of Spirit,1,BST,290,3,0,0,2,2,1,290,4,1,13173,2,,,Frenzy of Spirit,720
+128,[BST] Paragon of Spirit,1,BST,291,3,0,0,17,17,7,4971,36,10,5743,8,,,Paragon of Spirit,900
+129,[PAL] Chains of Purity,1,PAL,10348,16,0,0,4,4,0,,0,4,10348,1,,RootBreakChance=60/0,,0
+130,[WAR] Resplendent Glory,1,WAR,8300,16,0,0,4,4,0,,0,4,8300,1,,,Resplendent Glory 1,900
+131,[WAR] Rage of Rallos Zek,1,WAR,8303,16,0,0,1,0,0,,0,1,8303,1,,,Rage of Rallos Zek,1800
+132,[WAR] Enhanced Area Taunt,1,WAR,8312,16,0,0,1,1,0,,0,1,8312,1,,,Enhanced Area Taunt,900
+133,[BER] Decapitation,1,BER,14200,18,0,0,1,1,0,,0,1,14200,1,,SkillAttackProc=15/2; SkillAttackProc=15/3; SkillAttackProc=15/51; SkillAttackProc=15/77,Decapitation,0
+134,[BER] Hastened Berserking Disciplines,1,BER,14203,18,0,0,1,1,0,,0,1,14203,1,,ReduceReuseTimer=150000/0; LimitSpellGroup=3419/0; LimitSpellGroup=14005/0; LimitSpellGroup=3519/0; LimitClass=65536/0,,0
+135,[CLR] Quiet Miracle,1,CLR,14206,18,0,0,1,1,0,,0,1,14206,1,,,Quiet Miracle,600
+136,[CLR] Repel the Wicked,1,CLR,14207,18,0,0,1,1,0,,0,1,14207,1,,,Repel the Wicked,180
+137,[CLR] Beacon of Life,1,CLR,14208,18,0,0,1,1,0,,0,1,14208,1,,,Beacon of Life,180
+138,[CLR] Blessed Chains,1,CLR,14209,18,0,0,1,1,0,,0,1,14209,1,,,Root,3
+139,[CLR] Hastened Focused Celestial Regeneration,1,CLR,14213,18,0,0,1,1,0,,0,1,14213,1,,HastenedAASkill=120/1065,,0
+140,[SHM] Quickened Spirit Calling,1,SHM,14225,18,0,0,1,1,0,,0,1,14225,1,,IncreaseSpellHaste=16/0; LimitSpellGroup=3283/0; LimitClass=1024/0,,0
+141,New Tanaan Crafting Mastery,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,412,3,0,0,6,6,6,417,18,0,,,TradeSkillMastery=6/0,,,
+142,Planar Power,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,418,4,0,0,20,20,15,4682,60,5,7547,16,RaiseStatCap=75/0; RaiseStatCap=75/1; RaiseStatCap=75/2; RaiseStatCap=75/3; RaiseStatCap=75/4; RaiseStatCap=75/5; RaiseStatCap=75/6,RaiseStatCap=80/0; RaiseStatCap=80/1; RaiseStatCap=80/2; RaiseStatCap=80/3; RaiseStatCap=80/4; RaiseStatCap=80/5; RaiseStatCap=80/6,,0
+143,[WAR] Planar Durability,1,WAR,423,4,0,0,3,3,3,425,9,0,,,MaxHPChange=450/0,,,
+144,Innate Enlightenment,1,CLR/DRU/SHM/NEC/WIZ/MAG/ENC,426,4,0,0,5,5,5,430,15,0,,,RaiseStatCap=50/5; RaiseStatCap=50/4,,,
+146,Unknown AA 8001,0,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,8000,8,0,0,1,0,0,,0,0,,,,,,
+147,[SHM] Spiritual Rebuke,1,SHM,14231,18,0,0,1,1,0,,0,1,14231,1,,,Spiritual Rebuke,6
+148,[SHM] Pathosis,1,SHM,14232,18,0,0,1,1,0,,0,1,14232,1,,,Pathosis,6
+149,Preincarnation,1,DRU/SHM,14233,18,0,0,1,1,0,,0,1,14233,1,,,Preincarnation,30
+150,Mastery of the Past,1,CLR/PAL/RNG/SHD/DRU/BRD/SHM/NEC/WIZ/MAG/ENC/BST,446,4,0,0,21,21,9,7055,45,12,7063,10,MasteryofPast=71/0,MasteryofPast=72/0,,0
+151,[SHM] Spiritual Blessing,1,SHM,14234,18,0,0,1,1,0,,0,1,14234,1,,,Spiritual Blessing,1800
+152,[SHM] Communion of the Cheetah,1,SHM,14237,18,0,0,1,1,0,,0,1,14237,1,,,Spirit of Cheetah,10
+153,Radiant Cure,1,CLR/DRU/SHM,459,4,0,0,9,9,9,5064,48,0,,,,,,
+154,[CLR] Hastened Divinity,1,CLR,462,4,0,0,5,5,3,464,6,2,7994,4,HastenedAASkill=180/39; HastenedAASkill=2592/1061,HastenedAASkill=240/39; HastenedAASkill=3456/1061,,0
+156,[CLR] Hastened Purification of the Soul,1,CLR,468,4,0,0,8,8,3,470,6,5,6439,4,HastenedAASkill=540/41,HastenedAASkill=720/41,,0
+157,[ENC] Hastened Gathering,1,ENC,471,4,0,0,5,5,3,473,6,2,12899,4,HastenedAASkill=2592/57; HastenedAASkill=2592/616,HastenedAASkill=3456/57; HastenedAASkill=3456/616,,0
+158,[SHM] Hastened Rabidity,1,SHM,474,4,0,0,4,4,3,476,6,1,15359,4,HastenedAASkill=720/50,HastenedAASkill=960/50,,0
+159,Hastened Exodus,1,DRU/WIZ,477,4,0,0,7,7,3,479,6,4,6233,4,HastenedAASkill=1296/43,HastenedAASkill=1728/43,,0
+160,[WIZ] Hastened Root,1,WIZ,480,4,0,0,6,6,6,4923,12,0,,,HastenedAASkill=3096/117; RootBreakChance=45/0,,,
+161,Hastened Mending,1,NEC/MAG/BST,483,4,0,0,3,3,3,485,6,0,,,HastenedAASkill=1620/58; HastenedAASkill=1620/418,,,
+163,[WAR] Hastened Instigation,1,WAR,489,4,0,0,6,6,3,491,9,3,7116,4,HastenedAASkill=270/110,HastenedAASkill=360/110,,0
+164,Hastened Rampage,1,WAR/BER,492,4,0,0,7,7,3,494,6,4,7128,4,HastenedAASkill=180/109,HastenedAASkill=240/109,,0
+165,[MNK] Hastened Purification of the Body,1,MNK,495,4,0,0,10,10,3,497,6,7,6260,4,HastenedAASkill=540/98,HastenedAASkill=720/98,,0
+166,[ROG] Hasty Exit,1,ROG,498,4,0,0,9,9,5,887,16,4,975,6,HastenedAASkill=720/102,HastenedAASkill=864/102,,0
+167,[ROG] Hastened Purification,1,ROG,501,4,0,0,7,7,3,503,6,4,6319,4,HastenedAASkill=1296/107,HastenedAASkill=1728/107,,0
+168,[DRU] Hastened Nature's Fury,1,DRU,14241,18,0,0,1,1,0,,0,1,14241,1,,HastenedAASkill=180/386,,0
+169,[CLR] Divine Arbitration,1,CLR,507,4,0,0,3,3,3,509,9,0,,,,,,
+170,[DRU] Wrath of the Wild,1,DRU,510,4,0,0,10,10,3,512,9,7,7425,4,,,Wrath of the Wild,240
+171,[SHM] Virulent Paralysis,1,SHM,513,4,0,0,9,9,3,515,9,6,6095,4,,,Virulent Paralysis,120
+172,[WIZ] Harvest of Druzzil,1,WIZ,516,4,0,0,5,5,1,516,2,4,6398,2,,,Harvest of Druzzil,480
+173,[ENC] Eldritch Rune,1,ENC,517,4,0,0,16,16,8,1444,34,8,7296,9,,,Eldritch Rune,600
+174,[MAG] Servant of Ro,1,MAG,520,4,0,0,18,18,6,1509,27,12,5883,7,,LimitSpell=2754/1,Servant of Ro,540
+175,[NEC] Wake the Dead,1,NEC,523,4,0,0,3,3,3,525,12,0,,,,,,
+176,Suspended Minion,1,SHD/SHM/NEC/MAG/ENC/BST,526,4,0,0,2,2,2,527,8,0,,,,,,
+177,[SHM] Spirit Call,1,SHM,528,4,0,0,18,18,5,901,19,13,6103,6,,,Spirit Call,720
+178,[DRU] Wrath of the Forest Walker,1,DRU,14244,18,0,0,1,1,0,,0,1,14244,1,,FcDamageAmt=100/0; LimitSpellType=0/0; LimitCastTimeMin=1/0; LimitManaMin=1/0; LimitClass=64/0,,0
+179,[DRU] Gift of Sylvan Spirits,1,DRU,14249,18,0,0,1,1,0,,0,1,14249,1,,FcHealAmt=200/0; LimitSpellType=1/0; LimitManaMin=1/0,,0
+180,[PAL] Hand of Piety,1,PAL,534,4,0,0,25,25,12,5043,57,13,5969,13,,,Hand of Piety,2160
+181,Mithaniel's Binding,1,WAR/BER,537,4,0,0,2,2,2,538,6,0,,,ImprovedBindWound=75/0,,,
+182,Summon Personal Tribute Master,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,5006,0,1,0,1,0,0,,0,0,,,,,,
+183,[DRU] Extended Vinelash Cascade,1,DRU,14254,18,0,0,1,1,0,,0,1,14254,1,,SpellDurationIncByTic=1/0; LimitSpellGroup=2025/0; LimitSpellGroup=5121/0; LimitSpellGroup=5221/0; LimitSpellGroup=5562/0,,0
+184,[RNG] Guardian of the Forest,1,RNG,545,4,0,0,18,18,9,4999,45,9,6000,10,,,Guardian of the Forest,900
+185,[DRU] Spirit of the Wood,1,DRU,548,4,0,0,19,19,9,5056,39,10,5829,10,,,Spirit of the Wood,900
+186,[BST] Bestial Frenzy,1,BST,551,4,0,0,14,14,10,1637,35,4,6905,11,GiveDoubleAttack=30/0,GiveDoubleAttack=33/0,,0
+187,[BRD] Harmonious Attack,1,BRD,556,4,0,0,11,11,10,1567,35,1,17004,11,GiveDoubleAttack=30/0,GiveDoubleAttack=35/0,,0
+188,Knight's Advantage,1,PAL/SHD,561,4,0,0,6,6,6,1626,33,0,,,DoubleAttackChance=24/-1,,,
+189,Ferocity,1,WAR/RNG/MNK/ROG/BER,564,4,0,0,6,6,6,1623,30,0,,,DoubleAttackChance=24/-1,,,
+190,[DRU] Viscid Roots,1,DRU,567,4,0,0,3,3,2,5061,10,1,5825,3,RootBreakChance=-25/0,RootBreakChance=-40/0,,0
+193,[NEC] Feigned Minion,1,NEC,574,4,0,0,4,4,3,576,9,1,7718,4,FeignedMinion=75/0,FeignedMinion=90/0,,0
+194,[CLR] Unfailing Divinity,1,CLR,577,4,0,0,3,3,3,579,12,0,,,UnfailingDivinity=60/0,,,
+195,[ENC] Animation Empathy,1,ENC,580,4,0,0,3,3,3,582,9,0,,,AddPetCommand=1/0; AddPetCommand=1/1; AddPetCommand=1/2; AddPetCommand=1/3; AddPetCommand=1/4; AddPetCommand=1/4; AddPetCommand=1/5; AddPetCommand=1/6; AddPetCommand=1/7; AddPetCommand=1/8; AddPetCommand=1/9; AddPetCommand=1/10; AddPetCommand=1/11; AddPetCommand=1/12; AddPetCommand=1/13; AddPetCommand=1/14; AddPetCommand=1/28; AddPetCommand=1/29; AddPetCommand=1/30,,,
+196,[PAL] Rush to Judgment,1,PAL,583,4,0,0,3,3,3,585,6,0,,,HastenedAASkill=21/73; HastenedAASkill=21/702; HastenedAASkill=21/3826; HastenedAASkill=21/7712,,,
+197,[WAR] Living Shield,1,WAR,586,4,0,0,6,6,3,588,12,3,6130,4,ShieldDuration=36/0,ShieldDuration=48/0,,0
+198,[SHD] Consumption of the Soul,1,SHD,589,4,0,0,21,21,8,5272,40,13,6063,9,FcDamageAmtCrit=4000/4000; LimitSpell=2766/0,FcDamageAmtCrit=4500/4500; LimitSpell=2766/0,,0
+199,[BRD] Boastful Bellow,1,BRD,592,4,0,0,30,30,16,4979,51,14,5702,17,,,Boastful Bellow,18
+200,[PAL] Fervent Blessing,1,PAL,593,4,0,0,4,4,3,595,9,1,5972,4,HastenedAASkill=2160/6001; HastenedAASkill=2160/3676,HastenedAASkill=2880/6001; HastenedAASkill=2880/3676,,0
+201,[SHD] Touch of the Wicked,1,SHD,596,4,0,0,4,4,3,598,12,1,5973,4,HastenedAASkill=2160/6000; HastenedAASkill=2160/87,HastenedAASkill=2880/6000; HastenedAASkill=2880/87,,0
+202,Punishing Blade,1,WAR/RNG/MNK/BER,599,4,0,0,16,16,6,1538,30,10,5534,7,ExtraAttackChance=17/0,ExtraAttackChance=18/0,,0
+203,Speed of the Knight,1,PAL/SHD,602,4,0,0,16,16,9,4760,45,7,5580,10,ExtraAttackChance=29/0,ExtraAttackChance=30/0,,0
+204,[ROG] Shroud of Stealth,1,ROG,605,4,0,0,1,1,1,605,6,0,,,ShroudofStealth=1/0,,,
+205,[ROG] Nimble Evasion,1,ROG,606,4,0,0,5,5,5,610,5,0,,,NimbleEvasion=100/0,,,
+206,[MNK] Technique of Master Wu,1,MNK,611,4,0,0,15,15,5,615,10,10,7175,6,DoubleSpecialAttack=100/0,DoubleSpecialAttack=120/0,,0
+207,[MAG] Host of the Elements,1,MAG,616,4,0,0,16,16,6,1250,30,10,6254,7,,,Host of the Elements,900
+208,[WIZ] Call of Xuzl,1,WIZ,619,4,0,0,14,14,5,722,16,9,6296,6,,,Call of Xuzl,900
+209,[ROG] Hastened Stealth,1,ROG,622,4,0,0,4,4,3,624,9,1,8329,4,ReduceSkillTimer=3/29; ReduceSkillTimer=3/42,ReduceSkillTimer=4/29; ReduceSkillTimer=4/42,,0
+210,Ingenuity,1,WAR/MNK/ROG/BER,625,4,0,0,9,9,6,4735,15,3,7641,7,CriticalSpellChance=15/100,CriticalSpellChance=17/100,,0
+211,[BRD] Fleet of Foot,1,BRD,628,4,0,0,2,2,2,629,6,0,,,IncreaseRunSpeedCap=10/0,,,
+212,[BRD] Fading Memories,1,BRD,630,4,0,0,1,1,1,630,6,0,,,,,,
+213,Tactical Mastery,1,WAR/BER,631,4,0,0,9,9,9,4800,39,0,,,StrikeThrough2=75/0,,,
+214,Theft of Life,1,SHD/NEC,634,4,0,0,20,20,11,5034,46,9,5611,12,CriticalHealChance=26/0,CriticalHealChance=28/0,,0
+215,Fury of Magic,1,CLR/PAL/RNG/SHD/DRU/BRD/SHM/NEC/MAG/ENC/BST,637,4,0,0,19,19,9,4751,54,10,5571,10,CriticalSpellChance=15/100,CriticalSpellChance=16/100,,0
+216,[DRU] Extended Spirit of the Bear,1,DRU,14259,18,0,0,1,1,0,,0,1,14259,1,,SpellDurationIncByTic=1/0; LimitSpell=23585/0,,0
+217,[ENC] Project Illusion,1,ENC,643,4,0,0,1,1,1,643,4,0,,,,,,
+218,[RNG] Headshot,1,RNG,644,4,0,0,16,16,7,4988,34,9,6017,8,HeadShot=0/60280; HeadShotLevel=70/40,HeadShot=0/65440; HeadShotLevel=72/28,,0
+219,Entrap,1,RNG/DRU,645,4,0,0,4,4,1,645,4,3,5999,2,,,Entrap,5
+220,[BRD] Sonic Displacement,1,BRD,13528,18,0,0,1,1,0,,0,1,13528,1,,,Sonic Displacement,60
+221,[ENC] Total Domination,1,ENC,649,4,0,0,6,6,3,651,12,3,5860,4,CharmBreakChance=35/0,CharmBreakChance=40/0,,0
+222,Stalwart Endurance,1,WAR/BER,652,4,0,0,3,3,3,654,12,0,,,StunResist=75/0,,,
+223,[MAG] Quick Summoning,1,MAG,655,3,0,0,3,3,3,657,18,0,,,IncreaseSpellHaste=50/50; LimitEffect=32/0; IncreaseSpellHaste=50/50; LimitEffect=33/0; IncreaseSpellHaste=50/50; LimitEffect=82/0; IncreaseSpellHaste=10/10; LimitEffect=152/0; LimitCastTimeMin=3000/0,,,
+224,Mental Clarity,1,CLR/PAL/RNG/SHD/DRU/BRD/SHM/NEC/WIZ/MAG/ENC/BST,658,3,0,0,29,29,8,5310,37,21,5623,9,CurrentMana=8/0,CurrentMana=9/0,,0
+225,Innate Regeneration,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,661,3,0,0,31,31,15,4697,39,16,6390,16,CurrentHP=15/0,CurrentHP=16/0,,0
+227,[BRD] Extended Notes,1,BRD,665,3,0,0,9,9,6,670,24,3,7612,7,BardSongRange=65/0,BardSongRange=70/0,,0
+228,[BST] Hastened Warder's Gift,1,BST,13463,18,0,0,1,1,0,,0,1,13463,1,,HastenedAASkill=90/458,,0
+229,[MAG] Improved Reclaim Energy,1,MAG,671,3,0,0,1,1,1,671,3,0,,,ImprovedReclaimEnergy=95/0,,,
+230,[BST] Hastened Possum,1,BST,13449,18,0,0,1,1,0,,0,1,13449,1,,HastenedAASkill=2/11073,,0
+231,[BRD] Shauri's Sonorious Clouding,1,BRD,13527,18,0,0,1,1,0,,0,1,13527,1,,,Shauri's Sonorous Clouding,9
+232,[DRU] Veil of the Underbrush,1,DRU,14262,18,0,0,1,1,0,,0,1,14262,1,,,Veil of the Underbrush,180
+233,Packrat,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,678,7,0,0,11,11,5,682,15,6,6518,6,Packrat=15/0,Packrat=18/0,,0
+234,Heightened Endurance  ,1,WAR/MNK/ROG/BER,683,7,0,0,19,19,11,5305,58,8,6080,12,CurrentEndurance=11/0,CurrentEndurance=12/0,,0
+235,Weapon Affinity,1,WAR/PAL/RNG/SHD/MNK/BRD/ROG/BST/BER,686,7,0,0,7,7,5,690,25,2,7640,6,ProcChance=50/0,ProcChance=60/0,,0
+236,Secondary Forte,1,CLR/DRU/SHM/NEC/WIZ/MAG/ENC,691,7,0,0,1,1,1,691,9,0,,,SecondaryForte=100/0,,,
+237,Persistent Casting,1,CLR/PAL/RNG/SHD/DRU/BRD/SHM/NEC/WIZ/MAG/ENC/BST,692,7,0,0,13,13,3,694,18,10,7647,4,PersistantCasting=15/0,PersistantCasting=20/0,,0
+238,[BRD] Tune of Pursuance,1,BRD,695,7,0,0,6,6,5,699,20,1,15529,6,RaiseSkillCap=50/53,RaiseSkillCap=60/53,,0
+239,[BST] Hastened Companion's Sacrifice,1,BST,13474,18,0,0,1,1,0,,0,1,13474,1,,HastenedAASkill=120/444,,0
+240,[BST] Cheetah's Pounce,1,BST,13483,18,0,0,1,1,0,,0,1,13483,1,,,Cheetah's Pounce,20
+241,[BST] Bloodlust,1,BST,13484,18,0,0,1,1,0,,0,1,13484,1,,,Bloodlust,720
+242,[BST] Primal Fury,1,BST,13485,18,0,0,1,1,0,,0,1,13485,1,,Flurry=3/0,,0
+244,[BRD] Lure of the Siren's Song,1,BRD,13529,18,0,0,1,1,0,,0,1,13529,1,,,Lure of the Siren's Song,120
+245,[BST] Bestial Alignment,1,BST,718,7,0,0,5,5,3,720,18,2,1019,4,,,Bestial Alignment,4320
+246,[DRU] Hidden Communion of the Cheetah,1,DRU,14265,18,0,0,1,1,0,,0,1,14265,1,,,Hidden Communion of the Cheetah,30
+247,[BST] Feral Swipe,1,BST,723,7,0,0,6,6,2,4963,18,4,5737,3,,,Feral Swipe,30
+248,[BST] Warder's Fury,1,BST,724,7,0,0,21,21,10,5258,30,11,5729,11,PetCriticalHit=10/0,PetCriticalHit=11/0,,0
+249,[BST] Warder's Alacrity,1,BST,729,7,0,0,21,21,11,4962,61,10,5738,12,PetFlurry=56/0,PetFlurry=62/0,,0
+250,Pet Affinity,1,SHD/SHM/NEC/MAG/ENC/BST,734,7,0,0,1,1,1,734,12,0,,,GivePetGroupTarget=1/0,,,
+251,Mastery of the Past,0,CLR/PAL/RNG/DRU/SHM/BST,735,7,0,0,21,0,0,,0,12,7066,10,,MasteryofPast=72/0,,0
+252,Spell Casting Subtlety,0,CLR/DRU/SHM,738,7,0,0,13,0,0,,0,7,5628,7,,ChangeAggro=-53/0,,0
+254,[CLR] Divine Avatar,1,CLR,746,7,0,0,16,16,6,1493,36,10,5800,7,,,Divine Avatar,2160
+255,[CLR] Exquisite Benediction,1,CLR,749,7,0,0,9,9,8,1208,40,1,17298,9,,,,1800
+256,Hastened Curing,1,CLR/DRU/SHM,754,7,0,0,6,6,3,756,18,3,7659,4,HastenedAASkill=54/153,HastenedAASkill=72/153,,0
+257,[DRU] Nature's Boon,1,DRU,757,7,0,0,18,18,11,5053,55,7,5822,12,,,Nature's Boon,1800
+258,[DRU] Advanced Tracking,1,DRU,762,7,0,0,5,5,5,766,20,0,,,RaiseSkillCap=50/53,,,
+259,Critical Affliction,1,CLR/RNG/SHD/DRU/BRD/SHM/NEC/ENC/BST,767,7,0,0,9,9,6,1101,36,3,12423,7,CriticalDoTChance=18/0,CriticalDoTChance=21/0,,0
+260,[RNG] Glacial Arrow,1,RNG,13549,18,0,0,1,1,0,,0,1,13549,1,,,Glacial Arrow,180
+261,[ENC] Doppelganger,1,ENC,773,7,0,0,13,13,3,775,18,10,5854,4,,,Doppelganger,1800
+262,[ENC] Enhanced Forgetfulness,1,ENC,776,7,0,0,5,5,5,780,15,0,,,IncreaseChanceMemwipe=50/0,,,
+263,[ENC] Mesmerization Mastery,1,ENC,781,7,0,0,4,4,1,781,12,3,5850,2,SpellDurationIncByTic=1/1; LimitEffect=31/0; LimitTarget=5/0,SpellDurationIncByTic=2/1; LimitEffect=31/0; LimitTarget=5/0,,0
+264,[ENC] Quick Mass Group Buff,1,ENC,782,7,0,0,3,3,3,784,18,0,,,HastenedAASkill=1296/35,,,
+265,[MAG] Shared Health,1,MAG,785,7,0,0,6,6,5,789,25,1,15235,6,,,Shared Health ,900
+266,[MAG] Elemental Fury,1,MAG,790,7,0,0,26,26,10,5263,30,16,5320,11,PetCriticalHit=10/0,PetCriticalHit=11/0,,0
+267,[MAG] Elemental Alacrity  ,1,MAG,795,7,0,0,26,26,11,4899,61,15,5889,12,PetFlurry=50/0,PetFlurry=51/0,,0
+268,[MAG] Elemental Agility,1,MAG,800,7,0,0,3,3,3,802,18,0,,,PetAvoidance=10/0,,,
+269,[MAG] Elemental Durability,1,MAG,803,7,0,0,3,3,3,805,18,0,,,PetMaxHP=10/0,,,
+270,Sinister Strikes,1,WAR/RNG/MNK/BRD/ROG/BST,806,7,0,0,1,1,1,806,12,0,,,SecondaryDmgInc=1/0,,,
+271,[MNK] Strikethrough,1,MNK,807,7,0,0,15,15,6,1270,33,9,5922,7,StrikeThrough2=30/0,StrikeThrough2=35/0,,0
+272,[MNK] Stonewall,1,MNK,810,7,0,0,11,11,10,4828,50,1,15426,11,FeignedCastOnChance=60/0,FeignedCastOnChance=62/0,,0
+273,[MNK] Rapid Strikes ,1,MNK,815,7,0,0,19,19,10,5145,45,9,5909,11,Flurry=28/0,Flurry=29/0,,0
+274,[MNK] Kick Mastery,1,MNK,820,7,0,0,22,22,9,4815,48,13,5917,10,SkillDamageAmount=90/26; SkillDamageAmount=90/30; SkillDamageAmount=90/38,SkillDamageAmount=100/26; SkillDamageAmount=100/30; SkillDamageAmount=100/38,,0
+275,[MNK] Heightened Awareness,1,MNK,823,7,0,0,5,5,5,827,25,0,,,BlockBehind=100/0,,,
+276,[MNK] Destructive Force  ,1,MNK,828,7,0,0,4,4,3,830,18,1,16250,4,,,Destructive Force,3600
+278,Death's Fury  ,1,SHD/NEC,834,7,0,0,5,5,5,838,15,0,,,PetCriticalHit=5/0,,,
+279,[NEC] Quickening of Death  ,1,NEC,839,7,0,0,20,20,5,843,25,15,5325,6,PetFlurry=20/0,PetFlurry=27/0,,0
+280,Group Perfected Invisibility to Undead,1,WIZ/MAG/ENC,14281,18,0,0,1,1,0,,0,1,14281,1,,,Group Perfected Invisibility to Undead,15
+281,[ROG] Triple Backstab,1,ROG,846,7,0,0,19,19,9,4950,54,10,6035,10,TripleBackstab=45/0,TripleBackstab=48/0,,0
+282,[PAL] Hastened Piety,1,PAL,849,7,0,0,6,6,3,851,18,3,10621,4,HastenedAASkill=720/180,HastenedAASkill=960/180,,0
+283,Immobilizing Bash,1,PAL/SHD,852,7,0,0,13,13,3,854,15,10,5500,4,StunBashChance=3/0,StunBashChance=5/0,,0
+284,Vicious Smash,1,PAL/SHD,855,7,0,0,16,16,5,859,25,11,7673,6,SkillDamageAmount=25/10,SkillDamageAmount=50/10,,0
+285,[PAL] Radiant Cure,1,PAL,860,7,0,0,6,6,6,5132,36,0,,,,,,
+286,[PAL] Purification  ,1,PAL,863,7,0,0,1,1,1,863,12,0,,,,,,
+287,[RNG] Precision of the Pathfinder,1,RNG,864,7,0,0,15,15,9,4985,54,6,6011,10,Accuracy=75/0; Accuracy=75/1; Accuracy=75/2; Accuracy=75/3; Accuracy=75/10; Accuracy=75/28; Accuracy=75/30; Accuracy=75/36; Accuracy=75/77,Accuracy=95/0; Accuracy=95/1; Accuracy=95/2; Accuracy=95/3; Accuracy=95/10; Accuracy=95/28; Accuracy=95/30; Accuracy=95/36; Accuracy=95/77,,0
+288,[RNG] Coat of Thistles,1,RNG,867,7,0,0,13,13,5,871,25,8,7362,6,DamageShield=-15/0,DamageShield=-18/0,,0
+289,[RNG] Flaming Arrows,1,RNG,872,7,0,0,9,9,3,874,18,6,7367,4,,,Flaming Arrows,180
+290,[RNG] Frost Arrows,1,RNG,875,7,0,0,9,9,3,877,18,6,7370,4,,,Frost Arrows,180
+291,Perfected Invisibility to Undead,1,WIZ/MAG/ENC,14282,18,0,0,1,1,0,,0,1,14282,1,,,Perfected Invisibility to Undead,7
+292,[ROG] Trap Circumvention  ,1,ROG,881,7,0,0,5,5,5,885,15,0,,,TrapCircumvention=50/0,,,
+293,[ENC] Quickened Stasis,1,ENC,14283,18,0,0,1,1,0,,0,1,14283,1,,IncreaseSpellHaste=17/0; LimitSpellGroup=3151/0; LimitSpellGroup=5887/0,,0
+294,[ROG] Virulent Venom  ,1,ROG,888,7,0,0,6,6,5,892,15,1,16267,6,SpellProcChance=50/0,SpellProcChance=52/0,,0
+295,[ENC] Extended Dreary Deeds,1,ENC,14286,18,0,0,1,1,0,,0,1,14286,1,,SpellDurationIncByTic=1/0; LimitSpellGroup=4877/0,,0
+296,[SHD] Intense Hatred,1,SHD,895,7,0,0,20,20,5,899,25,15,6075,6,DamageShield=-15/0,DamageShield=-18/0,,0
+297,[MAG] Quickened Frenzied Burnout,1,MAG,14289,18,0,0,1,1,0,,0,1,14289,1,,IncreaseSpellHaste=10/0; LimitSpellGroup=2754/0,,0
+299,[WAR] Sturdiness,1,WAR,907,7,0,0,10,10,10,5247,60,0,,,TotalHP=1000/0,,,
+300,[WAR] Warlord's Tenacity  ,1,WAR,912,7,0,0,13,13,6,1332,36,7,7119,7,,,Warlord's Tenacity,3600
+301,Strengthened Strike,1,WAR/RNG,915,7,0,0,3,3,3,917,18,0,,,SkillDamageAmount=15/10; SkillDamageAmount=15/30,,,
+302,[WAR] Extended Shielding,1,WAR,918,7,0,0,3,3,3,920,18,0,,,ExtendedShielding=6/0,,,
+303,[WIZ] Ro's Flaming Familiar  ,1,WIZ,921,7,0,0,5,5,3,5280,33,2,6149,4,,,Ro's Flaming Familiar,60
+304,[WIZ] E'ci's Icy Familiar  ,1,WIZ,922,7,0,0,5,5,3,5281,33,2,6150,4,,,E'ci's Icy Familiar,60
+305,[WIZ] Druzzil's Mystical Familiar  ,1,WIZ,923,7,0,0,5,5,3,5282,33,2,6151,4,,,Druzzil's Mystical Familiar,60
+306,[RNG] Unknown AA 15819,1,RNG,15819,20,0,0,1,1,0,,0,1,15819,1,,,Bulwark of the Brownies,900
+307,[WIZ] Ward of Destruction  ,1,WIZ,926,7,0,0,7,7,5,930,15,2,14991,6,,,Ward of Greater Destruction I,1800
+308,[WIZ] Frenzied Devastation,1,WIZ,931,7,0,0,3,3,3,933,18,0,,,,,,
+309,Combat Fury,0,WAR/BER,934,3,0,0,6,0,0,,0,0,,,,,,
+310,[ROG] Combat Fury,1,ROG,937,3,0,0,6,6,6,948,21,0,,,CriticalHitChance=225/0; CriticalHitChance=225/1; CriticalHitChance=225/2; CriticalHitChance=225/3; CriticalHitChance=225/7; CriticalHitChance=225/8; CriticalHitChance=225/10; CriticalHitChance=225/28; CriticalHitChance=225/30; CriticalHitChance=225/36; CriticalHitChance=198/51,,,
+311,[RNG] Combat Fury,1,RNG,940,3,0,0,6,6,6,951,21,0,,,CriticalHitChance=225/0; CriticalHitChance=225/1; CriticalHitChance=225/2; CriticalHitChance=225/3; CriticalHitChance=213/7; CriticalHitChance=225/8; CriticalHitChance=225/10; CriticalHitChance=225/28; CriticalHitChance=225/30; CriticalHitChance=225/36; CriticalHitChance=225/51; CriticalHitChance=225/77,,,
+312,[MAG] Quickened Host of the Elements,1,MAG,14292,18,0,0,1,1,0,,0,1,14292,1,,IncreaseSpellHaste=10/0; LimitSpellGroup=3286/0,,0
+313,Hastened Companion's Relocation,1,SHD/SHM/NEC/MAG/ENC/BST,14295,18,0,0,1,1,0,,0,1,14295,1,,HastenedAASkill=1/3816,,0
+314,[RNG] Veteran's Wrath,1,RNG,1047,8,0,0,14,14,6,4715,36,8,5548,7,CriticalDamageMob=105/0; CriticalDamageMob=105/1; CriticalDamageMob=105/2; CriticalDamageMob=105/3; CriticalDamageMob=105/28; CriticalDamageMob=105/36; CriticalDamageMob=105/77,CriticalDamageMob=110/0; CriticalDamageMob=110/1; CriticalDamageMob=110/2; CriticalDamageMob=110/3; CriticalDamageMob=110/28; CriticalDamageMob=110/36; CriticalDamageMob=110/77,,0
+315,Planar Durability,1,PAL/SHD/BER,952,4,0,0,3,3,3,954,9,0,,,MaxHPChange=375/0,,,
+316,Innate Enlightenment,0,CLR/DRU/SHM,955,4,0,0,5,0,0,,0,0,,,,,,
+317,[DRU] Dire Charm,1,DRU,960,3,0,0,1,1,1,960,9,0,,,,,,
+318,[NEC] Dire Charm,1,NEC,961,3,0,0,1,1,1,961,9,0,,,,,,
+319,[CLR] Touch of the Divine,1,CLR,962,7,0,0,14,14,5,966,25,9,6223,6,DivineSave=10/4544,DivineSave=11/4544,,0
+320,[NEC] Swarm of Decay,1,NEC,967,7,0,0,16,16,3,969,18,13,6464,4,,,Swarm of Decay,1800
+321,[SHM] Call of the Ancients,1,SHM,970,7,0,0,9,9,8,1326,40,1,17311,9,,,,1800
+322,Innate See Invis,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,1388,10,0,0,1,1,1,1388,9,0,,,SeeInvis=1/0,,,
+323,[MAG] Virulent Talon,1,MAG,14307,18,0,0,1,1,0,,0,1,14307,1,,,Virulent Talon,1200
+324,Blacksmithing Mastery,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,979,8,0,0,3,3,3,981,18,0,,,ReduceTradeskillFail=50/63,,,
+325,Baking Mastery,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,982,8,0,0,3,3,3,984,18,0,,,ReduceTradeskillFail=50/60,,,
+326,Brewing Mastery,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,985,8,0,0,3,3,3,987,18,0,,,ReduceTradeskillFail=50/65,,,
+327,Fletching Mastery,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,988,8,0,0,3,3,3,990,18,0,,,ReduceTradeskillFail=50/64,,,
+328,Pottery Mastery,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,991,8,0,0,3,3,3,993,18,0,,,ReduceTradeskillFail=50/69,,,
+329,Tailoring Mastery,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,994,8,0,0,3,3,3,996,18,0,,,ReduceTradeskillFail=50/61,,,
+330,Salvage,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,997,8,0,0,6,6,3,999,15,3,1113,4,Salvage=25/0,Salvage=30/0,,0
+331,Origin,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,1000,0,0,0,1,1,1,1000,0,0,,,,,,
+333,Discordant Defiance,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,1006,8,0,0,16,16,5,1010,25,11,7516,6,RaiseStatCap=25/7; RaiseStatCap=25/8; RaiseStatCap=25/9; RaiseStatCap=25/10; RaiseStatCap=25/11,RaiseStatCap=30/7; RaiseStatCap=30/8; RaiseStatCap=30/9; RaiseStatCap=30/10; RaiseStatCap=30/11,,0
+334,Mystical Attuning,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,1021,8,0,0,13,13,5,1025,25,8,6521,6,MysticalAttune=5/0,MysticalAttune=6/0,,0
+335,Delay Death,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,1026,8,0,0,31,31,15,4687,65,16,6523,16,DelayDeath=750/0,DelayDeath=800/0,,0
+336,Earthen Brawn,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,8263,16,0,0,16,16,0,,0,16,8263,1,,RaiseStatCap=5/0,,0
+337,[RNG] Unknown AA 15798,1,RNG,15798,20,0,0,1,1,0,,0,1,15798,1,,,Ferocious Kick,18
+338,Veteran's Wrath,1,PAL/SHD/MNK/BRD/BST,1041,8,0,0,16,16,6,4709,36,10,5542,7,CriticalDamageMob=105/0; CriticalDamageMob=105/1; CriticalDamageMob=105/2; CriticalDamageMob=105/3; CriticalDamageMob=105/28; CriticalDamageMob=105/36; CriticalDamageMob=105/77,CriticalDamageMob=110/0; CriticalDamageMob=110/1; CriticalDamageMob=110/2; CriticalDamageMob=110/3; CriticalDamageMob=110/28; CriticalDamageMob=110/36; CriticalDamageMob=110/77,,0
+339,[ROG] Veteran's Wrath,1,ROG,1044,8,0,0,16,16,6,4712,36,10,5545,7,CriticalDamageMob=105/0; CriticalDamageMob=105/1; CriticalDamageMob=105/2; CriticalDamageMob=105/3; CriticalDamageMob=105/28; CriticalDamageMob=105/36,CriticalDamageMob=110/0; CriticalDamageMob=110/1; CriticalDamageMob=110/2; CriticalDamageMob=110/3; CriticalDamageMob=110/28; CriticalDamageMob=110/36,,0
+340,[CLR] Unknown AA 15833,1,CLR,15833,20,0,0,1,1,0,,0,1,15833,1,,HastenedAASkill=60/2045,,0
+341,Veteran's Wrath,1,WAR/BER,1050,8,0,0,13,0,0,,0,7,5551,7,,CriticalDamageMob=85/0; CriticalDamageMob=85/1; CriticalDamageMob=85/2; CriticalDamageMob=85/3; CriticalDamageMob=85/28; CriticalDamageMob=85/36; CriticalDamageMob=85/77,,0
+342,Staff Block,1,NEC/WIZ/MAG/ENC,14301,18,0,0,1,1,0,,0,1,14301,1,,TwoHandBluntBlock=5/0,,0
+343,[NEC] Hastened Pestilent Paralysis,1,NEC,14308,18,0,0,1,1,0,,0,1,14308,1,,HastenedAASkill=20/431,,0
+344,[NEC] Hastened Mercurial Torment,1,NEC,14311,18,0,0,1,1,0,,0,1,14311,1,,HastenedAASkill=360/430,,0
+345,[PAL] Unknown AA 15768,1,PAL,15768,20,0,0,1,1,0,,0,1,15768,1,,ImprovedHeal=1/2; LimitTarget=46/0,,0
+346,Unknown AA 15771,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,15771,20,0,0,1,1,0,,0,1,15771,1,,,Identify,3
+347,Mnemonic Retention,1,CLR/PAL/RNG/SHD/DRU/BRD/SHM/NEC/WIZ/MAG/ENC/BST,1071,8,0,0,4,4,1,1071,3,3,4764,2,SpellSlotIncrease=1/0,SpellSlotIncrease=2/0,,0
+348,Expansive Mind,1,CLR/PAL/RNG/SHD/DRU/BRD/SHM/NEC/WIZ/MAG/ENC/BST,1072,8,0,0,31,31,10,4748,50,21,5566,11,ItemManaRegenCapIncrease=10/0,ItemManaRegenCapIncrease=11/0,,0
+350,[NEC] Death's Malaise,1,NEC,14321,18,0,0,1,1,0,,0,1,14321,1,,,Death's Malaise,8
+351,[NEC] Dying Grasp,1,NEC,14322,18,0,0,1,1,0,,0,1,14322,1,,,Dying Grasp,2160
+352,Arcane Tongues,1,NEC/WIZ/MAG/ENC,1089,8,0,0,3,3,3,1091,18,0,,,ReduceTradeskillFail=50/58,,,
+353,Master of Disguise,1,BRD/ROG,1092,8,0,0,1,1,1,1092,7,0,,,IllusionPersistence=1/0,,,
+354,Slippery Attacks,1,WAR/RNG/MNK/BRD/ROG/BST,1093,8,0,0,5,5,5,1097,15,0,,,OffhandRiposteFail=-100/0,,,
+355,[CLR] Unknown AA 15836,1,CLR,15836,20,0,0,1,1,0,,0,1,15836,1,,HastenedAASkill=60/463,,0
+357,[RNG] Unknown AA 16176,1,RNG,16176,20,0,0,1,1,0,,0,1,16176,1,,HastenedAASkill=2/337,,0
+358,Fury of Magic,0,PAL/RNG/SHD/BRD/BST,1107,8,0,0,16,0,0,,0,10,6403,7,,CriticalSpellChance=11/100,,0
+359,[BRD] Dance of Blades,1,BRD,1110,8,0,0,16,16,3,1112,18,13,6400,4,,,Dance of Blades,2160
+360,[SHD] Bloodthirsty Blade,1,SHD,13616,18,0,0,3,3,0,,0,3,13616,1,,SkillDamageAmount=150/2; SkillDamageAmount=150/3; SkillDamageAmount=150/77,,0
+361,[BRD] Shield of Notes,1,BRD,1116,8,0,0,19,19,6,4982,36,13,5699,7,,,Shield of Notes,2160
+362,[BST] Roar of Thunder,1,BST,1119,8,0,0,16,16,6,4966,36,10,5734,7,,,Roar of Thunder,900
+363,[RNG] Unknown AA 16179,1,RNG,16179,20,0,0,1,1,0,,0,1,16179,1,,SkillAttackProc=8/7,Heavy Arrow,0
+364,Persistent Minion,1,SHD/SHM/NEC/MAG/ENC/BST,1122,8,0,0,1,1,1,1122,7,0,,,ZoneSuspendMinion=1/0,,,
+365,[WIZ] A Hole In Space,1,WIZ,14323,18,0,0,1,1,0,,0,1,14323,1,,,Hole in Space,150
+366,Advanced Pet Discipline,1,SHD/SHM/NEC/MAG/BST,1129,8,0,0,2,2,2,1130,8,0,,,AddPetCommand=1/18; AddPetCommand=1/19; AddPetCommand=1/20; AddPetCommand=1/21; AddPetCommand=1/22; AddPetCommand=1/23; AddPetCommand=1/24; AddPetCommand=1/25; AddPetCommand=1/26,,,
+367,[BER] Throwing Mastery,1,BER,1131,3,0,0,8,8,3,1133,18,5,11082,4,DamageModifier=30/51,DamageModifier=40/51,,0
+368,[BER] Blur of Axes,1,BER,1134,4,0,0,24,24,13,4794,57,11,4804,14,SkillDamageAmount=416/74,SkillDamageAmount=448/74,,0
+369,[BER] Hastened War Cry,1,BER,1137,3,0,0,3,3,3,1139,18,0,,,ReduceReuseTimer=540000/0; LimitSpell=5027/0; ReduceReuseTimer=540000/0; LimitSpell=5028/0; ReduceReuseTimer=540000/0; LimitSpell=5029/0; ReduceReuseTimer=540000/0; LimitSpell=5030/0; ReduceReuseTimer=540000/0; LimitSpell=5031/0; ReduceReuseTimer=540000/0; LimitSpell=5032/0; ReduceReuseTimer=540000/0; LimitSpell=8476/0,,,
+370,[BER] Dead Aim,1,BER,1140,4,0,0,3,3,3,1142,9,0,,,Accuracy=30/51,,,
+371,[BER] Frenzied Defense,1,BER,1166,15,0,0,6,6,0,,0,6,1166,1,,GiveDoubleRiposte=20/74; RiposteChance=1/0,,0
+372,[BER] Tireless Sprint,1,BER,1146,3,0,0,3,3,3,1148,18,0,,,,,,
+373,[BER] Desperation,1,BER,1149,7,0,0,1,1,1,1149,12,0,,,,,,
+374,[BER] Untamed Rage,1,BER,1150,7,0,0,3,3,3,1152,18,0,,,,,,
+375,[BER] Echoing Cries,1,BER,1155,7,0,0,3,3,3,1157,18,0,,,IncreaseSpellDuration=100/0; LimitSpell=5027/0; IncreaseSpellDuration=100/0; LimitSpell=5028/0; IncreaseSpellDuration=100/0; LimitSpell=5029/0; IncreaseSpellDuration=100/0; LimitSpell=5030/0; IncreaseSpellDuration=100/0; LimitSpell=5031/0; IncreaseSpellDuration=100/0; LimitSpell=5032/0; IncreaseSpellDuration=100/0; LimitSpell=8476/0,,,
+376,[MNK] Distant Strike,1,MNK,14372,18,0,0,1,1,0,,0,1,14372,1,,,Distant Strike,6
+377,Earthen Stability,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,8268,16,0,0,16,16,0,,0,16,8268,1,,RaiseStatCap=5/1,,0
+378,Earthen Alacrity,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,8273,16,0,0,16,16,0,,0,16,8273,1,,RaiseStatCap=5/2,,0
+379,Earthen Artistry,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,8278,16,0,0,16,16,0,,0,16,8278,1,,RaiseStatCap=5/3,,0
+380,Earthen Sagacity,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,8283,16,0,0,16,16,0,,0,16,8283,1,,RaiseStatCap=5/4,,0
+381,Earthen Brilliance,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,8288,16,0,0,16,16,0,,0,16,8288,1,,RaiseStatCap=5/5,,0
+382,Earthen Allure,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,8293,16,0,0,16,16,0,,0,16,8293,1,,RaiseStatCap=5/6,,0
+383,[DRU] Extended Spirit of the Wood,1,DRU,12646,17,0,0,1,1,0,,0,1,12646,1,,SpellDurationIncByTic=1/0; LimitSpellGroup=3277/0; SpellDurationIncByTic=1/0; LimitSpellGroup=21816/0,,0
+384,[DRU] Spirit of the Bear,1,DRU,12651,17,0,0,1,1,0,,0,1,12651,1,,,Spirit of the Bear,600
+385,Twinheal,1,CLR/PAL/RNG/DRU/SHM/BST,12652,17,0,0,4,4,0,,0,4,12652,1,,FcTwincast=1/0; LimitSpellType=1/0; LimitEffect=0/0; LimitManaMin=10/0; LimitCombatSkills=0/0; LimitInstant=1/0; LimitMaxLevel=254/0; LimitEffect=-39/0,,0
+386,[DRU] Nature's Fury,1,DRU,12661,17,0,0,1,1,0,,0,1,12661,1,,,Nature's Fury,2700
+387,[BER] Blood Pact,1,BER,1178,8,0,0,13,13,3,1180,18,10,5779,4,,,Blood Pact,900
+388,Shielding Resistance,1,WAR/RNG/MNK/BRD/ROG/BST,1181,8,0,0,5,5,5,1185,15,0,,,MitigateDamageShield=-100/0,,,
+389,Healing Boon,1,CLR/PAL/SHM,1186,8,0,0,19,19,6,4778,36,13,5589,7,CriticalHealOverTime=16/0,CriticalHealOverTime=17/0,,0
+390,[MAG] Elemental Union,1,MAG,13695,18,0,0,1,1,0,,0,1,13695,1,,,Elemental Union,1320
+391,[CLR] Celestial Hammer,1,CLR,1192,8,0,0,16,16,6,5078,30,10,5794,7,,,Celestial Hammer,1320
+392,[CLR] Divine Retribution,1,CLR,1195,8,0,0,6,6,2,5079,21,4,5790,3,,,Divine Retribution,2160
+393,[DRU] Nature's Blessing,1,DRU,12655,17,0,0,1,1,0,,0,1,12655,1,,,Nature's Blessing,1800
+394,[DRU] Extended Convergence of Spirit,1,DRU,12645,17,0,0,1,1,0,,0,1,12645,1,,SpellDurationIncByTic=1/0; LimitSpellGroup=8190/0; SpellDurationIncByTic=1/0; LimitSpellGroup=21818/0; LimitClass=64/0,,0
+395,[DRU] Hastened Storm Strike,1,DRU,12664,17,0,0,1,1,0,,0,1,12664,1,,HastenedAASkill=2/3728,,0
+396,[CLR] Sanctuary,1,CLR,1209,8,0,0,1,1,1,1209,12,0,,,,,,
+397,[WIZ] Destructive Fury,1,WIZ,1210,8,0,0,16,16,9,4754,60,7,5574,10,CriticalSpellChance=0/165,CriticalSpellChance=0/170,,0
+398,Destructive Fury,1,CLR/PAL/RNG/SHD/DRU/BRD/SHM/NEC/MAG/ENC/BST,1213,8,0,0,19,19,6,4757,36,13,5577,7,CriticalSpellChance=0/140,CriticalSpellChance=0/145,,0
+399,[RNG] Unknown AA 16180,1,RNG,16180,20,0,0,1,1,0,,0,1,16180,1,,HastenedAASkill=5/584,,0
+400,Hastened Improved Twincast,1,CLR/DRU/WIZ/MAG/ENC,14331,18,0,0,1,1,0,,0,1,14331,1,,HastenedAASkill=120/515,,0
+401,[MNK] Extended Heel of Kanji,1,MNK,12688,17,0,0,1,1,0,,0,1,12688,1,,SpellDurationIncByTic=1/0; LimitSpellGroup=8473/0; LimitSpellGroup=8318/0; LimitSpellGroup=8418/0; LimitSpellGroup=8518/0; LimitClass=128/0,,0
+402,[MNK] Extended Scaledfist,1,MNK,12691,17,0,0,1,1,0,,0,1,12691,1,,SpellDurationIncByTic=1/0; LimitSpellGroup=15007/0; LimitClass=128/0; LimitSpellGroup=8316/0,,0
+403,Paralytic Spores,1,DRU/SHM,14264,18,0,0,1,1,0,,0,1,14264,1,,,Paralytic Spores,120
+404,Call of the Wild,1,DRU/SHM,1228,8,0,0,1,1,1,1228,9,0,,,,,,
+405,Secondary Recall,1,DRU/WIZ,1229,8,0,0,1,1,1,1229,7,0,,,,,,
+406,Nature's Bounty,1,RNG/DRU,1230,8,0,0,6,6,6,5002,12,0,,,ForageAdditionalItems=100/0,,,
+407,[MNK] Extended Speed Focus,1,MNK,7884,16,0,0,2,2,0,,0,2,7884,1,,SpellDurationIncByTic=1/0; LimitSpell=4691/0; LimitClass=128/0,,0
+408,[MNK] Extended Crystalpalm,1,MNK,7885,16,0,0,2,2,0,,0,2,7885,1,,SpellDurationIncByTic=1/0; LimitSpellGroup=8111/0; LimitSpellGroup=15008/0; LimitSpellGroup=8411/0; LimitSpellGroup=8511/0; LimitClass=128/0,,0
+409,[ENC] Stasis,1,ENC,1233,8,0,0,3,3,3,1235,18,0,,,,,,
+410,[MNK] Fists of Steel,1,MNK,12706,17,0,0,4,4,0,,0,4,12706,1,,SkillDamageAmount=60/28; SkillDamageAmount=60/0; SkillProcAttempt=23598/3; LimitToSkill=28/0; LimitToSkill=0/0,,0
+411,[BRD] Extended Deftdance,1,BRD,12709,17,0,0,1,1,0,,0,1,12709,1,,SpellDurationIncByTic=1/0; LimitSpell=4516/0; LimitClass=256/0,,0
+412,[ENC] Color Shock,1,ENC,1239,8,0,0,4,4,1,1239,12,3,5868,2,,,Color Shock,600
+413,[ENC] Mind Over Matter,1,ENC,1242,8,0,0,13,13,3,1244,18,10,5857,4,,,Mind Over Matter,1320
+414,[ENC] Soothing Words,1,ENC,1245,8,0,0,4,4,3,1247,18,1,15459,4,,,Soothing Words,2160
+415,[BRD] Hastened Deftdance,1,BRD,12710,17,0,0,4,4,0,,0,4,12710,1,,ReduceReuseTimer=360000/0; LimitSpell=4516/0; LimitClass=256/0,,0
+416,[BRD] Hastened Lyre Leap,1,BRD,12713,17,0,0,3,3,0,,0,3,12713,1,,HastenedAASkill=2/8202,,0
+417,[BRD] Hastened Quick Time,1,BRD,12716,17,0,0,4,4,0,,0,4,12716,1,,HastenedAASkill=30/3702,,0
+418,Replenish Companion,1,NEC/MAG/BST,1126,8,0,0,10,10,3,1128,18,7,5513,4,,,Replenish Companion,2160
+419,[BRD] Extended Quick Time,1,BRD,12719,17,0,0,1,1,0,,0,1,12719,1,,IncreaseSpellDuration=10/0; LimitSpellGroup=12769/0; LimitClass=256/0,,0
+420,[MNK] Imitate Death,1,MNK,1255,8,0,0,1,1,1,1255,9,0,,,,,,
+424,[BRD] Extended Fierce Eye,1,BRD,12720,17,0,0,1,1,0,,0,1,12720,1,,SpellDurationIncByTic=1/0; LimitSpell=12519/0; LimitClass=256/0,,0
+425,[BRD] Hastened Fierce Eye,1,BRD,12721,17,0,0,4,4,0,,0,4,12721,1,,HastenedAASkill=60/3506,,0
+426,Unknown AA 15904,1,DRU/WIZ,15904,20,0,0,1,1,0,,0,1,15904,1,,,Tertiary Recall,600
+427,[BRD] Resounding Dirge,1,BRD,12737,17,0,0,4,4,0,,0,4,12737,1,,IncreaseRange=5/0; LimitSpellGroup=12768/0; LimitClass=256/0,,0
+428,Death Peace,1,SHD/NEC,1272,8,0,0,2,2,1,1272,5,1,6378,2,,,Death Peace,5
+429,[MNK] Unknown AA 15908,1,MNK,15908,20,0,0,3,3,0,,0,3,15908,1,,SkillDamageAmount=125/0; SkillDamageAmount=200/2,,0
+430,[NEC] Mercurial Torment,1,NEC,12766,17,0,0,2,2,0,,0,2,12766,1,,,Mercurial Torment,3600
+431,[NEC] Pestilent Paralysis,1,NEC,12770,17,0,0,3,3,0,,0,3,12770,1,,,Pestilent Paralysis,120
+432,Hastened Divine Companion Aura,1,SHD/SHM/NEC/MAG/ENC/BST,12773,17,0,0,5,5,0,,0,5,12773,1,,HastenedAASkill=60/1580,,0
+433,[NEC] Embalmer's Carapace,1,NEC,12778,17,0,0,2,2,0,,0,2,12778,1,,,Embalmer's Carapace,1200
+434,Steadfast Will,1,PAL/SHD,1284,8,0,0,8,8,6,5037,36,2,5013,7,StunResist=80/0,StunResist=90/0,,0
+435,Shield Block,1,WAR/CLR/PAL/RNG/SHD/DRU/BRD/ROG/SHM/NEC/WIZ/MAG/ENC,1287,8,0,0,13,13,3,1289,18,10,5516,4,ShieldBlock=5/0,ShieldBlock=6/0,,0
+436,[NEC] Hastened Encroaching Darkness,1,NEC,12779,17,0,0,3,3,0,,0,3,12779,1,,HastenedAASkill=0/826,,0
+437,[RNG] Tracking Mastery,1,RNG,1296,8,0,0,5,5,5,1300,15,0,,,RaiseSkillCap=100/53,,,
+438,[NEC] Expanding Darkness,1,NEC,12782,17,0,0,3,3,0,,0,3,12782,1,,IncreaseRange=10/0; LimitSpellGroup=16106/0,,0
+439,[ROG] Precision,1,ROG,1304,8,0,0,15,15,3,1306,18,12,6029,4,Accuracy=150/8,Accuracy=200/8,,0
+440,[ROG] Nerves of Steel,1,ROG,1307,8,0,0,11,11,5,1311,25,6,6660,6,NoBreakAESneak=50/0,NoBreakAESneak=55/0,,0
+441,Aegis of Kildrukaun,1,NEC/MAG,12785,17,0,0,2,2,0,,0,2,12785,1,,,Aegis of Kildrukaun,30
+442,[SHD] Touch of the Cursed,1,SHD,1313,8,0,0,25,25,6,5031,36,19,6066,7,WeaponProc=11623/0,WeaponProc=12629/0,,0
+443,[BST] Bestial Bloodrage,1,BST,12804,17,0,0,1,1,0,,0,1,12804,1,,,Bestial Bloodrage,900
+444,[BST] Companion's Sacrifice,1,BST,12807,17,0,0,1,1,0,,0,1,12807,1,,,Companion's Sacrifice,1200
+445,[BST] Shield Block,1,BST,12813,17,0,0,4,4,0,,0,4,12813,1,,ShieldBlock=2/0,,0
+446,[SHM] Spiritual Channeling,1,SHM,1323,8,0,0,1,1,1,1323,12,0,,,,,,
+447,[SHM] Ancestral Aid,1,SHM,1327,8,0,0,16,16,6,5316,30,10,6098,7,,,Ancestral Aid,900
+448,[BST] Extended Feralgia,1,BST,12816,17,0,0,1,1,0,,0,1,12816,1,,IncreaseSpellDuration=1/0; LimitSpellGroup=2223/0; LimitSpellGroup=2323/0; LimitSpellGroup=2240/0; LimitSpellGroup=2340/0; LimitSpellGroup=2440/0; LimitSpellGroup=2540/0; SwarmPetDuration=6000/0; LimitSpellGroup=11872/0; LimitSpellGroup=14154/0; LimitSpellGroup=18166/0; LimitSpellGroup=27225/0; LimitSpellGroup=2419/0; LimitSpellGroup=2427/0; LimitSpellGroup=30374/0; LimitSpellGroup=2527/0; LimitSpellGroup=36431/0,,0
+450,[BST] Hastened Protective Spirit,1,BST,12819,17,0,0,2,2,0,,0,2,12819,1,,ReduceReuseTimer=23400/0; LimitSpell=4671/0; LimitClass=32768/0,,0
+451,[WIZ] Mind Crash,1,WIZ,1334,8,0,0,13,13,3,1336,18,10,6152,4,,,Mind Crash,4320
+452,[WIZ] Prolonged Destruction,1,WIZ,1337,8,0,0,7,7,3,1339,15,4,6158,4,,,Prolonged Destruction,4320
+453,Summon Permutation Peddler,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,9032,0,1,0,1,0,0,,0,0,,,,,,
+454,[BST] Hastened Empathic Fury,1,BST,12822,17,0,0,1,1,0,,0,1,12822,1,,ReduceReuseTimer=153000/0; LimitSpell=8233/0; ReduceReuseTimer=120000/0; LimitSpellGroup=2439/0; LimitSpellGroup=2539/0; LimitClass=32768/0,,0
+455,[RNG] Convergence of Spirits,1,RNG,13556,18,0,0,1,1,0,,0,1,13556,1,,,Convergence of Spirits,600
+456,[WIZ] Teleport Bind,1,WIZ,1343,8,0,0,1,1,1,1343,9,0,,,,,,
+457,[BST] Quickened Paragon of Spirit,1,BST,12831,17,0,0,1,1,0,,0,1,12831,1,,IncreaseSpellHaste=17/0; LimitSpellGroup=3291/0; LimitSpellGroup=3817/0; LimitClass=32768/0,,0
+458,[BST] Warder's Gift,1,BST,12837,17,0,0,1,1,0,,0,1,12837,1,,,Warder's Gift,420
+459,[BST] Gelid Rending,1,BST,12846,17,0,0,1,1,0,,0,1,12846,1,,SkillAttackProc=20/28; SkillAttackProc=20/0,Gelid Claw,0
+460,[BST] Quickened Nature's Salve,1,BST,12849,17,0,0,1,1,0,,0,1,12849,1,,IncreaseSpellHaste=14/0; LimitSpellGroup=16794/0; LimitClass=32768/0,,0
+462,[RNG] Auspice of the Hunter,1,RNG,1345,8,0,0,14,14,6,5005,30,8,6008,7,,,Auspice of the Hunter,900
+463,[CLR] Divine Guardian,1,CLR,13385,18,0,0,1,1,0,,0,1,13385,1,,,Divine Guardian,600
+464,[CLR] Divine Peace,1,CLR,13388,18,0,0,1,1,0,,0,1,13388,1,,,Divine Peace,180
+465,[BER] Savage Spirit,1,BER,1348,8,0,0,7,7,3,1350,18,4,5770,4,,,Savage Spirit,3600
+466,Trials of Mata Muram,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,1011,8,1,0,6,0,0,,0,0,,,,,,
+467,[WAR] Press the Attack,1,WAR,1351,8,0,0,4,4,1,1351,5,3,6133,2,,,Press the Attack,30
+468,[MNK] Crippling Strike,1,MNK,1352,8,0,0,16,16,3,1354,18,13,6313,4,,,Crippling Strike,60
+469,[MNK] Stunning Kick,1,MNK,1355,8,0,0,19,19,6,5242,36,13,5914,7,,,Stunning Kick,60
+470,[MNK] Eye Gouge,1,MNK,1358,8,0,0,16,16,3,1360,18,13,6307,4,,,Eye Gouge,60
+471,Gift of the Dark Reign,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,1361,3,1,0,1,0,0,,0,0,,,,,,
+472,Tenacity of the Dark Reign,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,1362,3,1,0,1,0,0,,0,0,,,,,,
+473,Embrace of the Dark Reign,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,1363,3,1,0,1,0,0,,0,0,,,,,,
+474,Power of the Dark Reign,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,1364,3,1,0,1,0,0,,0,0,,,,,,
+475,Fervor of the Dark Reign,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,1365,3,1,0,1,0,0,,0,0,,,,,,
+476,Gift of the Keepers,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,1366,3,1,0,1,0,0,,0,0,,,,,,
+477,Valor of the Keepers,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,1367,3,1,0,1,0,0,,0,0,,,,,,
+478,Embrace of the Keepers,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,1368,3,1,0,1,0,0,,0,0,,,,,,
+479,Power of the Keepers,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,1369,3,1,0,1,0,0,,0,0,,,,,,
+480,Sanctity of the Keepers,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,1370,3,1,0,1,0,0,,0,0,,,,,,
+481,Lesson of the Devoted,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,1371,0,1,0,1,0,0,,0,0,,,,,,
+482,Infusion of the Faithful,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,1372,0,1,0,1,0,0,,0,0,,,,,,
+483,Chaotic Jester,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,1373,0,1,0,1,0,0,,0,0,,,,,,
+484,Expedient Recovery,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,1374,0,1,0,1,0,0,,0,0,,,,,,
+485,Steadfast Servant,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,1375,0,1,0,1,0,0,,0,0,,,,,,
+486,Staunch Recovery,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,1376,0,1,0,1,0,0,,0,0,,,,,,
+487,Intensity of the Resolute,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,1377,0,1,0,1,0,0,,0,0,,,,,,
+488,Curse of Blood,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,1378,10,1,0,5,0,0,,0,0,,,,,,
+489,Yaulp,1,CLR/PAL,13389,18,0,0,1,1,0,,0,1,13389,1,,,Yaulp,12
+490,[WIZ] Abscond,1,WIZ,12864,17,0,0,2,2,0,,0,2,12864,1,,,Abscond,10
+491,[WIZ] Atol's Unresistable Shackles,1,WIZ,12865,17,0,0,1,1,0,,0,1,12865,1,,,Atol's Unresistable Shackles,6
+492,Dimensional Shield,1,WIZ/MAG/ENC,12866,17,0,0,2,2,0,,0,2,12866,1,,,Dimensional Shield,1800
+493,[WIZ] Improved Sustained Destruction,1,WIZ,12867,17,0,0,1,1,0,,0,1,12867,1,,,Improved Sustained Destruction,4320
+494,Silent Casting,0,CLR/DRU/SHM,1409,10,0,0,5,0,0,,0,0,,,,,,
+495,Gift of Mana,1,CLR/PAL/RNG/SHD/DRU/SHM/NEC/WIZ/MAG/ENC/BST,1435,10,0,0,8,8,4,4773,27,4,6517,5,TriggerOnCast=10/8105; LimitMinLevel=65/0; LimitCombatSkills=0/0; LimitMaxLevel=70/0; LimitManaMin=10/0; LimitEffect=0/0; TriggerOnCast=10/8105; LimitMinLevel=65/0; LimitCombatSkills=0/0; LimitMaxLevel=70/0; LimitManaMin=10/0; LimitEffect=100/0; TriggerOnCast=10/8105; LimitMinLevel=65/0; LimitCombatSkills=0/0; LimitMaxLevel=70/0; LimitManaMin=10/0; LimitEffect=79/0; TriggerOnCast=10/8105; LimitMinLevel=65/0; LimitCombatSkills=0/0; LimitMaxLevel=70/0; LimitManaMin=10/0; LimitEffect=147/0; TriggerOnCast=10/11404; LimitMinLevel=71/0; LimitCombatSkills=0/0; LimitMaxLevel=75/0; LimitManaMin=10/0; LimitEffect=0/0; TriggerOnCast=10/11404; LimitMinLevel=71/0; LimitCombatSkills=0/0; LimitMaxLevel=75/0; LimitManaMin=10/0; LimitEffect=100/0; TriggerOnCast=10/11404; LimitMinLevel=71/0; LimitCombatSkills=0/0; LimitMaxLevel=75/0; LimitManaMin=10/0; LimitEffect=79/0; TriggerOnCast=10/11404; LimitMinLevel=71/0; LimitCombatSkills=0/0; LimitMaxLevel=75/0; LimitManaMin=10/0; LimitEffect=147/0,TriggerOnCast=10/8105; LimitMinLevel=65/0; LimitCombatSkills=0/0; LimitMaxLevel=70/0; LimitManaMin=10/0; LimitEffect=0/0; TriggerOnCast=10/8105; LimitMinLevel=65/0; LimitCombatSkills=0/0; LimitMaxLevel=70/0; LimitManaMin=10/0; LimitEffect=100/0; TriggerOnCast=10/8105; LimitMinLevel=65/0; LimitCombatSkills=0/0; LimitMaxLevel=70/0; LimitManaMin=10/0; LimitEffect=79/0; TriggerOnCast=10/8105; LimitMinLevel=65/0; LimitCombatSkills=0/0; LimitMaxLevel=70/0; LimitManaMin=10/0; LimitEffect=147/0; TriggerOnCast=10/11404; LimitMinLevel=71/0; LimitCombatSkills=0/0; LimitMaxLevel=75/0; LimitManaMin=10/0; LimitEffect=0/0; TriggerOnCast=10/11404; LimitMinLevel=71/0; LimitCombatSkills=0/0; LimitMaxLevel=75/0; LimitManaMin=10/0; LimitEffect=100/0; TriggerOnCast=10/11404; LimitMinLevel=71/0; LimitCombatSkills=0/0; LimitMaxLevel=75/0; LimitManaMin=10/0; LimitEffect=79/0; TriggerOnCast=10/11404; LimitMinLevel=71/0; LimitCombatSkills=0/0; LimitMaxLevel=75/0; LimitManaMin=10/0; LimitEffect=147/0; TriggerOnCast=10/13199; LimitMinLevel=76/0; LimitCombatSkills=0/0; LimitMaxLevel=80/0; LimitManaMin=10/0; LimitEffect=0/0; TriggerOnCast=10/13199; LimitMinLevel=76/0; LimitCombatSkills=0/0; LimitMaxLevel=80/0; LimitManaMin=10/0; LimitEffect=100/0; TriggerOnCast=10/13199; LimitMinLevel=76/0; LimitCombatSkills=0/0; LimitMaxLevel=80/0; LimitManaMin=10/0; LimitEffect=79/0; TriggerOnCast=10/13199; LimitMinLevel=76/0; LimitCombatSkills=0/0; LimitMaxLevel=80/0; LimitManaMin=10/0; LimitEffect=147/0,,0
+496,Field Dressing,1,WAR/BER,1611,10,0,0,5,5,5,1615,15,0,,,ImprovedBindWound=100/0,,,
+497,Bandage Wounds,1,CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST,1420,10,0,0,5,5,5,1424,15,0,,,ImprovedBindWound=100/0,,,
+498,Enhanced Aggression,1,WAR/PAL/RNG/SHD/MNK/BRD/ROG/BST/BER,1592,10,0,0,31,31,10,4729,50,21,5557,11,ItemAttackCapIncrease=100/0,ItemAttackCapIncrease=110/0,,0
+499,[BER] Cascading Rage,1,BER,1425,10,0,0,10,10,5,1429,25,5,5759,6,,,Cascading Rage VI - 1,2160
+500,Silent Casting,1,CLR/DRU/SHM/NEC/WIZ/MAG/ENC,1404,10,0,0,6,6,5,1408,25,1,12880,6,,,Silent Casting,2160
+501,[WIZ] E'ci's Icy Blessing,1,WIZ,12886,17,0,0,1,1,0,,0,1,12886,1,,CHA=0/0,,0
+503,[BST] Hastened Thunder,1,BST,1471,10,0,0,7,7,5,1475,25,2,6442,6,HastenedAASkill=450/362,HastenedAASkill=540/362,,0
+504,[BER] Conservation,1,BER,1453,10,0,0,5,5,5,1457,25,0,,,ReduceReagentCost=50/50; LimitEffect=32/0; LimitCombatSkills=1/0,,,
+505,[BER] Cry of Battle,1,BER,1458,10,0,0,1,1,1,1458,12,0,,,,,,
+506,[CLR] Ward of Purity,1,CLR,1459,10,0,0,12,12,6,5082,36,6,5803,7,,,Ward of Purity,1800
+507,[WIZ] Ro's Fiery Blessing,1,WIZ,12887,17,0,0,1,1,0,,0,1,12887,1,,CHA=0/0,,0
+508,[WIZ] Druzzil's Mystical Blessing,1,WIZ,12888,17,0,0,1,1,0,,0,1,12888,1,,CHA=0/0,,0
+509,[WIZ] Kerafyrm's Favor,1,WIZ,12889,17,0,0,2,2,0,,0,2,12889,1,,CHA=0/0,,0
+510,[WIZ] Kerafyrm's Prismatic Familiar,1,WIZ,12892,17,0,0,1,0,0,,0,1,12892,1,,,Kerafyrm's Prismatic Familiar,60
+511,Throne of Heroes,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,4665,0,1,0,1,0,0,,0,0,,,,,,
+512,[WIZ] Translocational Anchor,1,WIZ,1630,10,0,0,3,3,3,1632,18,0,,,,,,
+513,[ENC] Hastened Phantasmal Opponent,1,ENC,12894,17,0,0,1,1,0,,0,1,12894,1,,HastenedAASkill=30/1122,,0
+514,[WIZ] Pyromancy,1,WIZ,1478,10,0,0,13,13,3,1480,18,10,6161,4,,,Pyromancy,1
+515,Improved Twincast,1,CLR/DRU/WIZ/MAG/ENC,12893,17,0,0,2,2,0,,0,2,12893,1,,,Twincast,1800
+516,Abundant Healing,1,CLR/DRU/SHM,1486,10,0,0,23,23,5,1490,25,18,5529,6,TriggerOnCast=9/8169; LimitSpellType=1/0; LimitInstant=1/0; LimitMinLevel=60/0; LimitEffect=0/0; LimitCombatSkills=0/0; LimitMaxLevel=75/0; LimitSpell=-265/0; LimitSpell=-754/0; LimitSpell=-1332/0; LimitSpell=-1572/0; LimitSpell=-2749/0; LimitSpell=-4979/0; LimitSpell=-5418/0; LimitSpell=-5403/0; LimitManaMin=10/0,TriggerOnCast=11/12680; LimitSpellType=1/0; LimitInstant=1/0; LimitMinLevel=60/0; LimitEffect=0/0; LimitCombatSkills=0/0; LimitMaxLevel=80/0; LimitSpell=-265/0; LimitSpell=-754/0; LimitSpell=-1332/0; LimitSpell=-1572/0; LimitSpell=-2749/0; LimitSpell=-4979/0; LimitSpell=-5418/0; LimitSpell=-5403/0; LimitManaMin=10/0,,0
+517,[ENC] Hastened First Spire of Enchantment,1,ENC,12902,17,0,0,2,2,0,,0,2,12902,1,,HastenedAASkill=30/1380,,0
+518,Shared Camouflage,1,RNG/DRU,1494,10,0,0,1,1,1,1494,12,0,,,,,,
+519,[DRU] Convergence of Spirits,1,DRU,1495,10,0,0,13,13,6,5313,33,7,5826,7,,,Convergence of Spirits,900
+520,[DRU] Nature's Guardian,1,DRU,1498,10,0,0,16,16,6,5060,36,10,5819,7,,,Nature's Guardian,1320
+521,[ENC] Edict of Command,1,ENC,1501,10,0,0,7,7,3,1503,18,4,1558,4,,,Edict of Command,4320
+522,[MAG] Extended Burnout,1,MAG,1504,10,0,0,9,9,3,1506,15,6,5880,4,SpellDurationIncByTic=6/0; LimitSpellGroup=2754/1,SpellDurationIncByTic=8/0; LimitSpellGroup=2754/1,,0
+523,[ENC] Hastened Second Spire of Enchantment,1,ENC,12907,17,0,0,2,2,0,,0,2,12907,1,,HastenedAASkill=30/1381,,0
+524,[NEC] Blood Magic,1,NEC,1510,10,0,0,3,3,1,1510,12,2,7202,2,,,Blood Magic,2160
+525,[NEC] Graverobbing,1,NEC,1511,10,0,0,6,6,3,1513,15,3,5950,4,HastenedAASkill=180/175; HastenedAASkill=180/792,HastenedAASkill=240/175; HastenedAASkill=240/792,,0
+526,Affliction Mastery,1,DRU/SHM/NEC,1514,10,0,0,4,4,3,1516,21,1,13404,4,CriticalDoTChance=6/0,CriticalDoTChance=8/0,,0
+527,[ENC] Hastened Third Spire of Enchantment,1,ENC,12912,17,0,0,2,2,0,,0,2,12912,1,,HastenedAASkill=30/1382,,0
+528,[SHM] Ancestral Guard,1,SHM,1520,10,0,0,16,16,3,1522,18,13,6449,4,,,Ancestral Guard,900
+529,[PAL] Cloak of Light,1,PAL,1523,10,0,0,1,1,1,1523,12,0,,,,,,
+530,[ENC] Profound Visage,1,ENC,12920,17,0,0,1,1,0,,0,1,12920,1,,SpellHateMod=10/10; LimitSpell=2569/0; SpellHateMod=-10/-10; LimitSpell=2568/0,,0
+531,Cloak of Shadows,1,SHD/NEC,1527,10,0,0,1,1,1,1527,12,0,,,,,,
+532,Willful Death,1,SHD/NEC,1528,10,0,0,11,11,10,4823,50,1,15188,11,FeignedCastOnChance=60/0,FeignedCastOnChance=62/0,,0
+533,[NEC] Unknown AA 16016,1,NEC,16016,20,0,0,1,1,0,,0,1,16016,1,,,Perfected Dead Men Floating,12
+534,[ENC] Calculated Insanity,1,ENC,12931,17,0,0,1,1,0,,0,1,12931,1,,,Calculated Insanity,3600
+535,[ENC] Crippling Aurora,1,ENC,12937,17,0,0,1,1,0,,0,1,12937,1,,,Crippling Sparkle,420
+536,[ROG] Appraisal,1,ROG,1542,10,0,0,1,1,1,1542,3,0,,,,,,
+537,[ROG] Precise Strikes,1,ROG,1543,10,0,0,21,21,6,4953,30,15,6042,7,SkillDamageAmount=60/8,SkillDamageAmount=70/8,,0
+538,[MNK] Hastened Death,1,MNK,1546,10,0,0,8,8,6,4831,30,2,6441,7,HastenedAASkill=720/420,HastenedAASkill=840/420,,0
+539,[MNK] Unflinching Resolve,1,MNK,1549,10,0,0,3,3,3,1551,18,0,,,FrontalStunResist=75/0,,,
+540,[MNK] Weightless Steps,1,MNK,1552,10,0,0,3,3,3,1554,18,0,,,BaseMovementSpeed=15/0,,,
+541,[BRD] Hastened Blades,1,BRD,1555,10,0,0,6,6,3,1557,15,3,12727,4,HastenedAASkill=720/359,HastenedAASkill=960/359,,0
+542,[ENC] Unknown AA 16071,1,ENC,16071,20,0,0,1,0,0,,0,1,16071,1,,,Reactive Rune Trigger,1800
+543,Diminutive Companion,1,MAG/BST,12941,17,0,0,1,1,0,,0,1,12941,1,,,Diminutive Companion,1
+544,[BRD] Song of Stone,1,BRD,1569,10,0,0,13,13,3,1571,18,10,5713,4,,,Song of Stone,1800
+545,[ENC] Deep Sleep,1,ENC,1572,10,0,0,9,9,5,1576,25,4,10554,6,TriggerOnCast=10/8265; LimitSpellType=0/0; LimitEffect=31/0; LimitCombatSkills=0/0,TriggerOnCast=12/8265; LimitSpellType=0/0; LimitEffect=31/0; LimitCombatSkills=0/0,,0
+546,[MAG] Companion's Gift,1,MAG,1577,10,0,0,13,13,3,1579,18,10,5886,4,CriticalHealChance=10/0,CriticalHealChance=12/0,,0
+547,Unknown AA 16081,1,NEC/WIZ/MAG/ENC,16081,20,0,0,1,1,0,,0,1,16081,1,,,Eradicate Magic,6
+548,[WAR] Hastened Defiance,1,WAR,1583,10,0,0,5,5,5,1587,25,0,,,HastenedAASkill=1800/300,,,
+549,[WAR] Dauntless Perseverance,1,WAR,1591,10,0,0,1,1,1,1591,12,0,,,FrontalStunResist=25/0,,,
+550,[BST] Steadfast Resolve,1,BST,14275,18,0,0,1,1,0,,0,1,14275,1,,FeignedCastOnChance=20/0,,0
+551,[WIZ] Hastened Mind Crash,1,WIZ,1414,10,0,0,6,6,5,1418,25,1,12874,6,HastenedAASkill=2160/451,HastenedAASkill=2572/451,,0
+552,[WAR] Call of Challenge,1,WAR,1597,10,0,0,3,3,1,1597,9,2,6606,2,,,Call of Challenge,10
+553,[BRD] Cacophony,1,BRD,1598,10,0,0,19,19,6,4974,36,13,5710,7,,,Cacophony,900
+554,[ENC] Hastened Nightmare Stasis,1,ENC,14341,18,0,0,1,1,0,,0,1,14341,1,,HastenedAASkill=360/748,,0
+555,[ROG] Anatomy,1,ROG,1604,10,0,0,20,20,8,5294,40,12,6032,9,Assassinate=0/65440; AssassinateLevel=66/50,Assassinate=0/70880; AssassinateLevel=68/50,,0
+556,[ENC] Scintillating Beam,1,ENC,14346,18,0,0,1,1,0,,0,1,14346,1,,,Scintillating Beam,12
+557,[RNG] Trick Shot,1,RNG,1608,10,0,0,19,19,6,4991,36,13,7378,7,DoubleRangedAttack=12/0,DoubleRangedAttack=14/0,,0
+558,[CLR] Turn Undead,1,CLR,1383,3,0,0,11,11,6,5084,48,5,5789,7,,,Turn Undead,300
+559,[MAG] Turn Summoned,1,MAG,1462,3,0,0,9,9,8,4902,54,1,14739,9,,,Turn Summoned,300
+560,[BRD] Selo's Enduring Cadence,1,BRD,1627,10,0,0,3,3,3,1629,18,0,,,BaseMovementSpeed=15/0,,,
+561,[WIZ] Hastened Harvest of Druzzil,1,WIZ,12881,17,0,0,1,1,0,,0,1,12881,1,,HastenedAASkill=45/172,,0
+562,[RNG] Lightning Strikes,1,RNG,1616,10,0,0,18,18,10,4996,50,8,6003,11,Flurry=28/0,Flurry=29/0,,0
+563,Concentration,1,WAR/MNK/ROG/BER,1588,10,0,0,3,3,3,1590,18,0,,,ChannelChanceItems=150/0,,,
+565,[WIZ] Mana Burn,1,WIZ,1638,3,0,0,1,1,1,1638,5,0,,,,,,
+567,[CLR] Unknown AA 16146,1,CLR,16146,20,0,0,1,1,0,,0,1,16146,1,,TriggerOnCast=2/41107; LimitMinLevel=95/0; LimitSpellType=1/0; LimitEffect=0/0; LimitManaMin=10/0; LimitInstant=1/0,,0
+568,[ROG] Thief's Intuition,1,ROG,1641,3,0,0,1,1,1,1641,15,0,,,PassiveSenseTrap=100/0,,,
+569,[BRD] Thief's Intuition,1,BRD,1642,3,0,0,1,1,1,1642,15,0,,,PassiveSenseTrap=60/0,,,
+570,[PAL] Valiant Steed,1,PAL,1645,3,0,0,1,1,1,1645,9,0,,,,,,
+571,[SHD] Abyssal Steed,1,SHD,1646,3,0,0,1,1,1,1646,9,0,,,,,,
+572,[PAL] Holy Warhorse,1,PAL,1643,11,1,0,1,0,0,,0,0,,,,,,
+573,[SHD] Unholy Warhorse,1,SHD,1644,11,1,0,1,0,0,,0,0,,,,,,
+574,Harmonic Dissonance,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,1647,3,1,0,1,0,0,,0,0,,,,,,
+575,Tinkering Mastery,1,WAR/CLR/PAL/SHD/ROG/NEC/WIZ/MAG/ENC,4672,8,1,0,3,0,0,,0,0,,,,,,
+576,Jewel Craft Mastery ,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/BST/BER,4675,3,0,0,3,3,3,4677,18,0,,,ReduceTradeskillFail=50/68,,,
+577,[WIZ] Concussive Intuition,1,WIZ,12885,17,0,0,1,1,0,,0,1,12885,1,,,Concussive Intuition,90
+578,[ENC] Glyph Spray,1,ENC,12939,17,0,0,1,1,0,,0,1,12939,1,,,Glyph Spray,1800
+579,Combat Medic ,1,CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST,4688,12,0,0,5,5,5,4692,15,0,,,ImprovedBindWound=100/0,,,
+580,[RNG] Hastened Outrider's Accuracy,1,RNG,13565,18,0,0,1,1,0,,0,1,13565,1,,HastenedAASkill=60/3804,,0
+581,Quick Draw,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,4698,12,0,0,2,2,1,4698,5,1,6545,2,PotionBeltSlots=1/0,PotionBeltSlots=2/0,,0
+582,Battle Ready,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,4699,12,0,0,4,4,1,4699,5,3,6540,2,BandolierSlots=1/0,BandolierSlots=2/0,,0
+583,[RNG] Hastened Outrider's Evasion,1,RNG,13568,18,0,0,1,1,0,,0,1,13568,1,,HastenedAASkill=60/876,,0
+584,[RNG] Grasp of Sylvan Spirits,1,RNG,13571,18,0,0,1,1,0,,0,1,13571,1,,,Grasp of Sylvan Spirits,60
+585,Glyph of Dragon Scales,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,4702,12,0,1,1,1,1,4702,3,0,,,,,,
+586,Glyph of Indeterminable Reward,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,13788,3,0,1,1,1,1,13788,25,0,,,,,,
+587,Glyph of Arcane Secrets,1,CLR/PAL/RNG/SHD/DRU/SHM/NEC/WIZ/MAG/ENC/BST,4704,12,0,1,1,1,1,4704,4,0,,,,,,
+588,Glyph of Draconic Potential,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,4705,12,0,1,1,1,1,4705,3,0,,,,,,
+589,Glyph of Destruction,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,4706,12,0,1,1,1,1,4706,3,0,,,,,,
+590,Breath of Atathus,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,5150,3,1,0,1,0,0,,0,0,,,,,,
+591,Breath of Draton'ra,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,5165,3,1,0,1,0,0,,0,0,,,,,,
+592,Breath of Osh'vir,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,5180,3,1,0,1,0,0,,0,0,,,,,,
+593,Breath of Venesh,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,5195,3,1,0,1,0,0,,0,0,,,,,,
+594,Breath of Mysaphar,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,5210,3,1,0,1,0,0,,0,0,,,,,,
+595,Breath of Keikolin,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,5225,3,1,0,1,0,0,,0,0,,,,,,
+596,[MAG] Small Modulation Shard,1,MAG,12963,17,0,0,1,1,0,,0,1,12963,1,,,Small Modulating Shard,5
+597,[MAG] Medium Modulation Shard,1,MAG,12964,17,0,0,1,1,0,,0,1,12964,1,,,Medium Modulating Shard,5
+598,[MAG] Large Modulation Shard,1,MAG,12965,17,0,0,1,1,0,,0,1,12965,1,,,Large Modulating Shard,5
+599,Hastened Malosinete,1,SHM/MAG,12968,17,0,0,4,4,0,,0,4,12968,1,,HastenedAASkill=3/1041,,0
+600,Blessing of the Devoted,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,9033,0,1,0,1,0,0,,0,0,,,,,,
+601,Grappling Strike,1,WAR/MNK,4836,12,0,0,1,1,1,4836,5,0,,,,,,
+602,[ENC] Mental Contortion,1,ENC,12938,17,0,0,1,1,0,,0,1,12938,1,,,Mental Contortion,2700
+603,[MAG] Shield of the Elements,1,MAG,12971,17,0,0,5,5,0,,0,5,12971,1,,,Shield of the Elements,2160
+604,Extended Malosinete,1,SHM/MAG,12977,17,0,0,6,6,0,,0,6,12977,1,,SpellDurationIncByTic=2/0; LimitSpellGroup=16188/0,,0
+605,[WAR] Shield Specialist,1,WAR,4844,12,0,0,13,13,5,4848,25,8,7122,6,ShieldEquipDmgMod=25/0,ShieldEquipDmgMod=30/0,,0
+606,[WAR] Mark of the Mage Hunter,1,WAR,4849,12,0,0,4,4,1,4849,9,3,6134,2,,,Mark of the Mage Hunter,1800
+609,[BER] Uncanny Resilience,1,BER,4854,12,0,0,13,13,3,4856,18,10,5764,4,,,Uncanny Resilience,600
+610,[BER] Blinding Fury,1,BER,4857,12,0,0,7,7,3,4859,18,4,5767,4,,,Blinding Fury,600
+611,Battle Leap,1,WAR/BER,4860,12,0,0,3,3,1,4860,9,2,5606,2,,,Battle Leap,60
+612,[NEC] Soul Seeker,1,NEC,4861,12,0,0,12,12,3,4863,18,9,5954,4,HastenedAASkill=1800/68,HastenedAASkill=2400/68,,0
+613,[NEC] Lingering Death,1,NEC,13096,17,0,0,4,4,0,,0,4,13096,1,,SpellDurationIncByTic=1/0; LimitMinDur=3/0; LimitManaMin=1/0; LimitSpellType=0/0; LimitEffect=0/0,,0
+614,[SHM] Spirit Guardian,1,SHM,5369,18,0,0,1,1,0,,0,1,5369,1,,,Spirit Guardian,600
+615,[ENC] Surreality,1,ENC,4887,12,0,0,3,3,3,4889,18,0,,,HastenedAASkill=360/413,,,
+616,[ENC] Mana Draw,1,ENC,4890,12,0,0,5,5,1,4890,9,4,5869,2,,,Mana Draw,8640
+617,[ENC] Doppelganger's Beckon,1,ENC,5127,12,0,0,3,3,3,5129,9,0,,,HastenedAASkill=900/261,,,
+618,[SHM] Armor of Ancestral Spirits,1,SHM,12989,17,0,0,4,4,0,,0,4,12989,1,,,Armor of Ancestral Spirits,1800
+619,[SHM] Group Pact of the Wolf,1,SHM,12992,17,0,0,4,4,0,,0,4,12992,1,,,Group Pact of the Wolf,1
+620,[SHM] Hastened Inconspicuous Totem,1,SHM,13001,17,0,0,4,4,0,,0,4,13001,1,,HastenedAASkill=60/9504,,0
+621,[MAG] Fire Core,1,MAG,4903,12,0,0,6,6,1,4903,9,5,5892,2,,,Fire Core,1320
+622,[MAG] Vapor Core,1,MAG,4906,12,0,0,6,6,1,4906,9,5,5893,2,,,Vapor Core,1320
+623,[MAG] Ice Core ,1,MAG,4909,12,0,0,6,6,1,4909,9,5,5894,2,,,Ice Core,1320
+624,[MAG] Stone Core ,1,MAG,4912,12,0,0,6,6,1,4912,9,5,5895,2,,,Stone Core,1320
+625,[WIZ] Volatile Mana Blaze,1,WIZ,4915,12,0,0,9,9,3,4917,27,6,5607,4,,,Volatile Mana Blaze,4320
+626,Purified Spirits,1,CLR/DRU/SHM,13004,17,0,0,2,2,0,,0,2,13004,1,,,Purified Spirits,300
+627,[SHM] Group Spirit Walk,1,SHM,13008,17,0,0,1,1,0,,0,1,13008,1,,,Group Spirit Walk,300
+628,[NEC] Greater Blood Tithe,1,NEC,4924,12,0,0,6,6,3,4926,15,3,5944,4,CriticalDoTChance=3/0,CriticalDoTChance=4/0,,0
+629,[NEC] Gathering Dusk,1,NEC,4927,12,0,0,3,3,1,4927,9,2,7209,2,,,Gathering Dusk,600
+630,[SHM] Group Silent Presence,1,SHM,13009,17,0,0,1,1,0,,0,1,13009,1,,,Group Silent Presence,1
+631,[SHM] Double Attack,1,SHM,5366,18,0,0,1,1,0,,0,1,5366,1,,RaiseSkillCap=75/20,,0
+632,[ENC] Sanguine Mind Crystal,1,ENC,4934,12,0,0,4,4,1,4934,7,3,7295,2,,,Sanguine Mind Crystal,300
+633,[ENC] Azure Mind Crystal,1,ENC,4935,12,0,0,4,4,1,4935,7,3,7294,2,,,Azure Mind Crystal,300
+634,[SHM] Hastened Cannibalization,1,SHM,13010,17,0,0,4,4,0,,0,4,13010,1,,HastenedAASkill=10/47,,0
+635,[SHM] Hastened Spirit Channeling,1,SHM,13013,17,0,0,3,3,0,,0,3,13013,1,,HastenedAASkill=120/446,,0
+636,Arcane Whisper,1,WIZ/MAG/ENC,4938,12,0,0,5,5,1,4938,9,4,5610,2,,,Arcane Whisper,1800
+637,Vengeful Spirits,1,SHD/DRU/SHM/NEC/ENC,13017,17,0,0,4,4,0,,0,4,13017,1,,DotCritDmgIncrease=15/0,,0
+638,[SHM] Crippling Apparition,1,SHM,13020,17,0,0,1,1,0,,0,1,13020,1,,,Crippling Apparition,420
+639,Dimensional Instability,1,WIZ/MAG/ENC,4943,12,0,0,1,1,1,4943,7,0,,,,,,
+640,[WIZ] Cryomancy,1,WIZ,4944,12,0,0,13,13,3,4946,18,10,6155,4,,,Cryomancy,1
+641,[BER] Hastened Self Preservation,1,BER,13055,17,0,0,1,1,0,,0,1,13055,1,,HastenedAASkill=60/8400,,0
+642,[BER] Binding Axe,1,BER,13065,17,0,0,1,1,0,,0,1,13065,1,,,Binding Axe,90
+643,[BER] Agony of Absolution,1,BER,13066,17,0,0,1,1,0,,0,1,13066,1,,,Agony of Absolution,1800
+644,[BER] Hastened Absolution,1,BER,13067,17,0,0,1,1,0,,0,1,13067,1,,HastenedAASkill=120/643,,0
+645,[ENC] Hastened Calculated Insanity,1,ENC,13753,18,0,0,1,1,0,,0,1,13753,1,,HastenedAASkill=360/534,,0
+646,[ENC] Hastened Mental Contortion,1,ENC,13758,18,0,0,1,1,0,,0,1,13758,1,,HastenedAASkill=360/602,,0
+647,[ENC] Hastened Crippling Aurora,1,ENC,13764,18,0,0,1,1,0,,0,1,13764,1,,HastenedAASkill=60/535,,0
+649,[SHD] Hastened Leech Touch,1,SHD,14046,18,0,0,1,1,0,,0,1,14046,1,,HastenedAASkill=90/87,,0
+650,[SHD] Bony Grasp of Death,1,SHD,14051,18,0,0,1,1,0,,0,1,14051,1,,,Bony Grasp of Death,8
+651,[SHD] Thought Leech,1,SHD,14052,18,0,0,1,1,0,,0,1,14052,1,,,Thought Leech,1440
+652,[SHD] Hastened Leechcurse Discipline,1,SHD,14056,18,0,0,1,1,0,,0,1,14056,1,,ReduceReuseTimer=360000/0; LimitSpell=4504/0,,0
+653,[SHD] Hastened Unholy Aura Discipline,1,SHD,14059,18,0,0,1,1,0,,0,1,14059,1,,ReduceReuseTimer=-180000/0; LimitSpell=4520/0,,0
+654,Hastened Harmshield,1,SHD/NEC,14062,18,0,0,1,1,0,,0,1,14062,1,,HastenedAASkill=60/821,,0
+655,[SHD] Hastened Projection of Doom,1,SHD,14065,18,0,0,1,1,0,,0,1,14065,1,,HastenedAASkill=60/3215,,0
+656,[PAL] Hastened Projection of Piety,1,PAL,14068,18,0,0,1,1,0,,0,1,14068,1,,HastenedAASkill=60/3216,,0
+657,[PAL] Shield of Brilliance,1,PAL,14071,18,0,0,1,1,0,,0,1,14071,1,,,Shield of Brilliance,600
+658,[PAL] Hastened Sanctification Discipline,1,PAL,14076,18,0,0,1,1,0,,0,1,14076,1,,ReduceReuseTimer=480000/0; LimitSpell=4518/0,,0
+659,[PAL] Speed of the Savior,1,PAL,14080,18,0,0,1,1,0,,0,1,14080,1,,,Speed of the Savior,900
+660,[PAL] Divine Call,1,PAL,14081,18,0,0,1,1,0,,0,1,14081,1,,,Divine Call,120
+661,[RNG] Hunter's Fury,1,RNG,5248,12,0,0,10,10,3,5250,18,7,6014,4,ProcOnKillShot=30/11232,ProcOnKillShot=40/12617,,0
+662,[SHM] Union of Spirits,1,SHM,5251,12,0,0,13,13,3,5253,15,10,6092,4,,,Union of Spirits,900
+663,[PAL] Quickened Stuns,1,PAL,14100,18,0,0,1,1,0,,0,1,14100,1,,IncreaseSpellHaste=50/0; LimitEffect=21/0; LimitCastTimeMin=1/0; LimitMaxLevel=253/0; LimitManaMin=1/0,,0
+664,[RNG] Extended Outrider's Attack,1,RNG,14115,18,0,0,1,1,0,,0,1,14115,1,,SpellDurationIncByTic=1/0; LimitSpellGroup=16130/0,,0
+665,[NEC] Death's Wrath,1,NEC,5264,12,0,0,24,24,5,5268,15,19,5939,6,PetCriticalHit=5/0,PetCriticalHit=6/0,,0
+666,[BST] Taste of Blood,1,BST,5015,12,0,0,5,5,1,5015,5,4,5741,2,,,Taste of Blood,900
+667,[MAG] Summoner's Beckon,1,MAG,5269,12,0,0,1,1,1,5269,3,0,,,ReduceReagentCost=50/50; LimitEffect=82/0,,,
+668,[BRD] Hymn of the Last Stand,1,BRD,5017,12,0,0,10,10,3,5019,18,7,7454,4,,,Hymn of the Last Stand,600
+669,[BRD] Bladed Song,1,BRD,5020,12,0,0,5,5,1,5020,9,4,5716,2,,,Bladed Song,300
+670,[ROG] Twisted Shank,1,ROG,5021,12,0,0,9,9,1,5021,9,8,10868,2,,,Twisted Shank,60
+671,[ROG] Dirty Fighting,1,ROG,5022,12,0,0,7,7,3,5024,18,4,6038,4,,,Dirty Fighting,600
+672,[ROG] Ligament Slice,1,ROG,5025,12,0,0,3,3,3,5027,18,0,,,,,,
+673,[ROG] Tumble,1,ROG,5028,12,0,0,2,2,1,5028,9,1,6041,2,,,Tumble,900
+674,[CLR] Unknown AA 16149,1,CLR,16149,20,0,0,1,1,0,,0,1,16149,1,,IncreaseRange=20/0; LimitSpellGroup=4357/0; LimitSpellGroup=4457/0; LimitSpellGroup=4557/0; LimitClass=4/0,,0
+675,[SHM] Shrink,1,SHM,14224,18,0,0,1,1,0,,0,1,14224,1,,,Shrink,5
+676,[NEC] Convergence,1,NEC,14358,18,0,0,1,1,0,,0,1,14358,1,,,Convergence,300
+677,[NEC] Gift of Deathly Resolve,1,NEC,14359,18,0,0,1,1,0,,0,1,14359,1,,,Gift of Deathly Resolve,1200
+678,Unknown AA 16082,1,DRU/WIZ,16082,20,0,0,1,1,0,,0,1,16082,1,,,Mark of Travel,6
+679,Unknown AA 16083,1,CLR/DRU/SHM/NEC/WIZ/MAG/ENC,16083,20,0,0,1,1,0,,0,1,16083,1,,,Bind Affinity,6
+680,[WIZ] Unknown AA 16084,1,WIZ,16084,20,0,0,1,1,0,,0,1,16084,1,,Reflect=1/0,,0
+681,[WIZ] Unknown AA 16087,1,WIZ,16087,20,0,0,1,1,0,,0,1,16087,1,,HastenedAASkill=432/53,,6
+682,[RNG] Unknown AA 16096,1,RNG,16096,20,0,0,1,1,0,,0,1,16096,1,,,Entropy of Nature,6
+683,[RNG] Unknown AA 16097,1,RNG,16097,20,0,0,1,1,0,,0,1,16097,1,,,Empowered Blades,600
+684,[WAR] Unknown AA 16104,1,WAR,16104,20,0,0,1,1,0,,0,1,16104,1,,CHA=0/0,,0
+685,[WAR] Unknown AA 16105,1,WAR,16105,20,0,0,1,1,0,,0,1,16105,1,,,Two-Handed Proficiency,30
+686,[WAR] Unknown AA 16106,1,WAR,16106,20,0,0,1,1,0,,0,1,16106,1,,,Dual-Wielding Proficiency,30
+687,[WAR] Unknown AA 16107,1,WAR,16107,20,0,0,1,1,0,,0,1,16107,1,,,Defensive Proficiency,30
+688,[WAR] Unknown AA 16108,1,WAR,16108,20,0,0,1,1,0,,0,1,16108,1,,,Rage of the Forsaken,120
+689,Combat Medic ,1,WAR/BER,5136,12,0,0,5,5,5,5140,15,0,,,ImprovedBindWound=100/0,,,
+690,[WAR] Unknown AA 16109,1,WAR,16109,20,0,0,1,1,0,,0,1,16109,1,,TotalHP=3000/0,,0
+691,[WAR] Unknown AA 16113,1,WAR,16113,20,0,0,1,1,0,,0,1,16113,1,,,Battle Stomp,60
+692,[WAR] Unknown AA 16114,1,WAR,16114,20,0,0,1,1,0,,0,1,16114,1,,ChangeAggro=2/0,,0
+693,[WAR] Unknown AA 16117,1,WAR,16117,20,0,0,1,0,0,,0,1,16117,1,,CrippBlowChance=2/0,,0
+694,[WAR] Unknown AA 16120,1,WAR,16120,21,0,0,1,1,0,,0,1,16120,1,,TwoHandBash=1/0,,0
+695,[CLR] Unknown AA 16152,1,CLR,16152,20,0,0,1,1,0,,0,1,16152,1,,TriggerOnCast=3/41108; LimitMinLevel=90/0; LimitSpellType=0/0; LimitEffect=0/0; LimitManaMin=10/0; LimitInstant=1/0,,0
+696,[CLR] Unknown AA 16156,1,CLR,16156,20,0,0,1,1,0,,0,1,16156,1,,FcHealAmt=1000/0; LimitSpellGroup=32341/0,,0
+697,[SHD] Mortal Coil,1,SHD,5085,12,0,0,12,12,3,5087,18,9,6406,4,ProcOnKillShot=25/11299,ProcOnKillShot=25/13201,,0
+698,Hastened Purified Spirits,1,CLR/DRU/SHM,13416,18,0,0,1,1,0,,0,1,13416,1,,HastenedAASkill=20/626,,0
+699,[DRU] Swarm of Fireflies,1,DRU,13419,18,0,0,1,1,0,,0,1,13419,1,,,Swirl of Fireflies,600
+700,[CLR] Unknown AA 16159,1,CLR,16159,20,0,0,1,1,0,,0,1,16159,1,,SpellDurationIncByTic=1/0; LimitSpellGroup=32307/0,,0
+701,[PAL] Armor of the Inquisitor,1,PAL,5095,12,0,0,13,13,3,5097,18,10,5975,4,,,Armor of the Inquisitor,900
+702,[PAL] Hand of Disruption,1,PAL,5098,12,0,0,1,1,1,5098,9,0,,,,,,
+703,[NEC] Quickened Death Bloom,1,NEC,14318,18,0,0,1,1,0,,0,1,14318,1,,IncreaseSpellHaste=10/0; LimitSpell=21754/0,,0
+704,Hero's Barracks,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,14367,0,1,0,1,0,0,,0,0,,,,,,
+705,[DRU] Spirit of the White Wolf,1,DRU,5105,12,0,0,5,5,1,5105,9,4,5832,2,,,Spirit of the White Wolf,600
+706,[CLR] Unknown AA 16160,1,CLR,16160,20,0,0,1,1,0,,0,1,16160,1,,,Channeling the Divine,900
+707,[SHM] Pact of the Wolf,1,SHM,5109,12,0,0,5,5,1,5109,9,4,6448,2,,,Pact of the Wolf,1
+708,[ENC] Enchant Alaran Metal,1,ENC,13271,18,1,0,1,0,0,,0,1,13271,1,,,Enchant Alaran Metal,3600
+709,[ENC] Mass Enchant Alaran Metal,1,ENC,13272,18,1,0,1,0,0,,0,1,13272,1,,,Mass Enchant Alaran Metal,28800
+710,[NEC] Funeral Pyre,1,NEC,14360,18,0,0,1,1,0,,0,1,14360,1,,,Smoldering Fury,1800
+711,[CLR] Unknown AA 16162,1,CLR,16162,20,0,0,1,1,0,,0,1,16162,1,,,Smite the Wicked,180
+712,[CLR] Hastened Sanctuary,1,CLR,5118,12,0,0,6,6,3,5120,9,3,5797,4,HastenedAASkill=2160/396; HastenedAASkill=2160/8504; HastenedAASkill=2160/8505,HastenedAASkill=2520/396; HastenedAASkill=2520/8504; HastenedAASkill=2520/8505,,0
+713,[ROG] Etherium Blades,1,ROG,14129,18,0,0,2,2,0,,0,2,14129,1,,SkillDamageAmount=60/36; SkillProcAttempt=32327/3; LimitToSkill=36/0,,0
+714,[ROG] Hastened Assassination Disciplines,1,ROG,14135,18,0,0,1,1,0,,0,1,14135,1,,ReduceReuseTimer=132000/0; LimitSpellGroup=13005/0; LimitSpellGroup=12423/0; LimitSpellGroup=12504/0; ReduceReuseTimer=132000/0; LimitSpell=4676/0; LimitClass=512/0,,0
+715,[ROG] Cunning Disguise: Shissar,1,ROG,14139,18,0,0,1,1,0,,0,1,14139,1,,,Cunning Disguise: Shissar,60
+716,[ROG] Scout's Mastery of Piercing,1,ROG,14141,18,0,0,1,1,0,,0,1,14141,1,,DamageModifier=2/36,,0
+717,[ROG] Extended Envenomed Blades,1,ROG,14144,18,0,0,1,1,0,,0,1,14144,1,,SpellDurationIncByTic=1/0; LimitSpellGroup=13204/0; LimitClass=512/0,,0
+718,[MNK] Heel of Brithrax,1,MNK,14151,18,0,0,1,1,0,,0,1,14151,1,,DamageModifier=2/26; SkillDamageAmount=100/26,,0
+719,[MNK] Extended Zan Fi's Whistle,1,MNK,14163,18,0,0,1,1,0,,0,1,14163,1,,SpellDurationIncByTic=1/0; LimitSpellGroup=16178/0; LimitClass=128/0,,0
+720,[PAL] Hastened Marr's Salvation,1,PAL,14088,18,0,0,1,1,0,,0,1,14088,1,,HastenedAASkill=30/769,,0
+721,[PAL] Hastened Armor of the Inquisitor,1,PAL,14091,18,0,0,1,1,0,,0,1,14091,1,,HastenedAASkill=120/701,,0
+722,[MAG] Hastened Drape of Shadows,1,MAG,14304,18,0,0,1,1,0,,0,1,14304,1,,HastenedAASkill=45/8341,,0
+723,[RNG] Unknown AA 16185,1,RNG,16185,20,0,0,1,1,0,,0,1,16185,1,,,Scout's Mastery of Elements,600
+724,[ENC] Hastened Eldritch Rune,1,ENC,14364,18,0,0,1,1,0,,0,1,14364,1,,HastenedAASkill=90/173,,0
+725,[PAL] Unknown AA 16124,1,PAL,16124,20,0,0,1,1,0,,0,1,16124,1,,HastenedAASkill=2/3711,,0
+726,[PAL] Unknown AA 16128,1,PAL,16128,20,0,0,1,1,0,,0,1,16128,1,,IncreaseSpellHaste=8/0; LimitSpell=13143/0,,0
+727,[PAL] Unknown AA 16131,1,PAL,16131,20,0,0,1,1,0,,0,1,16131,1,,SpellHateMod=10/0; LimitSpellGroup=18000/0,,0
+728,[PAL] Unknown AA 16137,1,PAL,16137,20,0,0,1,1,0,,0,1,16137,1,,SpellDurationIncByTic=1/0; LimitSpellGroup=21821/0,,0
+729,Unknown AA 16140,1,CLR/PAL,16140,20,0,0,1,1,0,,0,1,16140,1,,SpellDurationIncByTic=1/0; LimitSpellGroup=30666/0,,0
+730,Unknown AA 16186,1,WAR/RNG,16186,20,0,0,1,1,0,,0,1,16186,1,,SkillAttackProc=100/30,Stunning Kick,0
+731,[SHD] Unknown AA 16188,1,SHD,16188,20,0,0,1,1,0,,0,1,16188,1,,,Stream of Hatred,180
+732,[SHD] Unknown AA 16195,1,SHD,16195,20,0,0,1,1,0,,0,1,16195,1,,,Mindless Hatred,60
+733,Killing Spree,1,WAR/MNK/ROG/BER,4739,12,0,0,9,9,3,4741,18,6,5562,4,ProcOnKillShot=30/11023,ProcOnKillShot=40/11023,,0
+734,Hold the Line,1,WAR/MNK/BER,4742,12,0,0,2,2,1,4742,9,1,5565,2,,,Hold the Line,600
+735,[CLR] Battle Frenzy,1,CLR,13134,17,0,0,3,3,0,,0,3,13134,1,,,Battle Frenzy,900
+737,Quickened Silent Casting,1,CLR/DRU/SHM/NEC/WIZ/MAG/ENC,13143,17,0,0,3,3,0,,0,3,13143,1,,IncreaseSpellHaste=17/0; LimitSpellGroup=8054/0,,0
+738,Quickened Silent Casting,0,CLR/DRU/SHM,13146,17,0,0,3,0,0,,0,3,13146,1,,IncreaseSpellHaste=17/0; LimitSpellGroup=8054/0,,0
+739,[PAL] Balefire Burst,1,PAL,13164,17,0,0,1,1,0,,0,1,13164,1,,,Blinding Balefire,180
+740,Blood Tithe,1,DRU/SHM/NEC,4761,12,0,0,6,6,3,4763,21,3,6500,4,CriticalDoTChance=4/0,CriticalDoTChance=5/0,,0
+741,[PAL] Leap of Faith,1,PAL,13202,17,0,0,2,2,0,,0,2,13202,1,,,Leap of Faith,20
+742,[SHD] Unknown AA 16196,1,SHD,16196,20,0,0,1,1,0,,0,1,16196,1,,,T'Vyl's Resolve,900
+743,[SHD] Hastened Explosion of Hatred,1,SHD,13166,17,0,0,3,3,0,,0,3,13166,1,,HastenedAASkill=5/749; HastenedAASkill=5/822; HastenedAASkill=5/1274; HastenedAASkill=5/1275,,0
+744,[WAR] Howl of the Warlord,1,WAR,13169,17,0,0,1,1,0,,0,1,13169,1,,,Howl of the Warlord,180
+745,[BRD] Hastened Tune In Your Head,1,BRD,13204,17,0,0,4,4,0,,0,4,13204,1,,HastenedAASkill=180/8261,,0
+746,[SHD] Unknown AA 16197,1,SHD,16197,20,0,0,1,1,0,,0,1,16197,1,,,Reinforced Malaise,900
+747,[SHD] Unknown AA 16200,1,SHD,16200,20,0,0,1,1,0,,0,1,16200,1,,,Visage of Decay,900
+748,[ENC] Nightmare Stasis,1,ENC,4894,12,0,0,10,10,3,4896,18,7,6352,4,,,Nightmare Stasis,2160
+749,[SHD] Explosion of Spite,1,SHD,13165,17,0,0,1,1,0,,0,1,13165,1,,,Explosion of Spite,60
+751,[NEC] Scent of Terris,1,NEC,13225,17,0,0,2,2,0,,0,2,13225,1,,,Scent of Terris,4
+752,[BER] Bloodfury,1,BER,13224,17,0,0,1,1,0,,0,1,13224,1,,,Bloodfury,1
+753,[ENC] Dreary Deeds,1,ENC,13252,17,0,0,1,1,0,,0,1,13252,1,,,Dreary Deeds,4
+754,[ENC] Enchant Feymetal,1,ENC,13260,17,1,0,1,0,0,,0,1,13260,1,,,Enchant Feymetal,3600
+755,[ENC] Mass Enchant Feymetal,1,ENC,13261,17,1,0,1,0,0,,0,1,13261,1,,,Mass Enchant Feymetal,28800
+756,Enlightened Focus of Arcanum,1,DRU/SHM/NEC/WIZ/MAG/ENC,13646,18,0,0,1,1,0,,0,1,13646,1,,,Enlightened Focus of Arcanum,600
+757,[MAG] Shifting Elements,1,MAG,5276,12,0,0,4,4,3,5278,18,1,15238,4,HastenedAASkill=180/621; HastenedAASkill=180/622; HastenedAASkill=180/623; HastenedAASkill=180/784; HastenedAASkill=180/785; HastenedAASkill=180/786; HastenedAASkill=180/787; HastenedAASkill=180/624,HastenedAASkill=240/621; HastenedAASkill=240/622; HastenedAASkill=240/623; HastenedAASkill=240/784; HastenedAASkill=240/785; HastenedAASkill=240/786; HastenedAASkill=240/787; HastenedAASkill=240/624,,0
+758,Extended Silent Casting,1,NEC/WIZ/MAG/ENC,13667,18,0,0,1,1,0,,0,1,13667,1,,SpellDurationIncByTic=1/0; LimitSpellGroup=8054/0,,0
+759,[WIZ] Fury of Kerafyrm,1,WIZ,13670,18,0,0,1,1,0,,0,1,13670,1,,,Fury of Kerafyrm,1800
+760,Unknown AA 16203,1,DRU/SHM,16203,20,0,0,1,1,0,,0,1,16203,1,,,Paralytic Spray,120
+761,Unknown AA 16208,1,RNG/DRU/SHM,16208,20,0,0,1,1,0,,0,1,16208,1,,RaiseSkillCap=5/27,,0
+762,Shield Block,0,CLR/DRU/SHM,5283,12,0,0,10,0,0,,0,7,5620,4,,ShieldBlock=6/0,,0
+763,Mirrored Pestilence,1,SHD/SHM/NEC,13684,18,0,0,3,3,0,,0,3,13684,1,,FcTwincast=2/0; LimitMinDur=2/0; LimitManaMin=10/0; LimitSpellType=0/0; LimitEffect=-152/0; LimitEffect=-39/0,,0
+764,[NEC] Embrace The Decay,1,NEC,13687,18,0,0,1,1,0,,0,1,13687,1,,,Embrace The Decay,300
+765,[NEC] Quickened Scent of Terris,1,NEC,13689,18,0,0,1,1,0,,0,1,13689,1,,IncreaseSpellHaste=10/0; LimitSpell=27592/0; LimitSpell=31548/0,,0
+766,[NEC] Frenzy of the Dead,1,NEC,13693,18,0,0,1,1,0,,0,1,13693,1,,,Frenzy of the Dead,500
+767,[SHM] Unknown AA 16211,1,SHM,16211,20,0,0,1,1,0,,0,1,16211,1,,SpellDurationIncByTic=1/0; LimitSpell=23581/0; LimitSpell=32359/0,,0
+768,[DRU] Unknown AA 16215,1,DRU,16215,20,0,0,1,1,0,,0,1,16215,1,,,Season's Wrath,300
+769,[PAL] Marr's Salvation,1,PAL,13100,17,0,0,2,2,0,,0,2,13100,1,,,Marr's Salvation,300
+770,[PAL] Blessing of the Faithful,1,PAL,13101,17,0,0,4,4,0,,0,4,13101,1,,ProcOnKillShot=25/27537,,0
+771,[SHD] Unbridled Strike of Fear,1,SHD,13108,17,0,0,1,1,0,,0,1,13108,1,,,Unbridled Strike of Fear,30
+772,[BRD] Noteworthy Disguise: Drake,1,BRD,14192,18,0,0,1,1,0,,0,1,14192,1,,,Noteworthy Disguise: Blue Drake,12
+773,[NEC] Death's Effigy,1,NEC,13133,17,0,0,1,1,0,,0,1,13133,1,,,Death's Effigy,120
+774,Empowered Focus of Arcanum,1,DRU/SHM/NEC/WIZ/MAG/ENC,14690,19,0,0,1,1,0,,0,1,14690,1,,,Empowered Focus of Arcanum,600
+775,[NEC] Unknown AA 16342,1,NEC,16342,20,0,0,1,1,0,,0,1,16342,1,,IncreaseSpellHaste=10/0; LimitSpellGroup=38115/0,,0
+776,[WIZ] Arcane Overkill,1,WIZ,5295,12,0,0,13,13,3,5297,18,10,6531,4,ProcOnKillShot=30/11629,ProcOnKillShot=40/11629,,0
+777,[BRD] Funeral Dirge,1,BRD,5298,12,0,0,16,16,3,5300,18,13,5707,4,,,Funeral Dirge,1800
+778,[RNG] Protection of the Spirit Wolf,1,RNG,5007,12,0,0,14,14,3,5009,18,11,6425,4,,,Protection of the Spirit Wolf ,2160
+779,[BER] Hastened Juggernaut Surge,1,BER,13873,18,0,0,1,1,0,,0,1,13873,1,,HastenedAASkill=30/961,,0
+780,[BER] Hastened Resilience,1,BER,13878,18,0,0,1,1,0,,0,1,13878,1,,HastenedAASkill=60/609,,0
+781,[BER] Hastened Blood Pact,1,BER,13881,18,0,0,1,1,0,,0,1,13881,1,,HastenedAASkill=60/387,,0
+782,[BER] Unknown AA 16317,1,BER,16317,20,0,0,1,1,0,,0,1,16317,1,,SkillDamageAmount=100/-1,,0
+783,Energetic Attunement,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,1056,12,0,0,16,16,5,1060,25,11,6431,6,ItemHPRegenCapIncrease=5/0,ItemHPRegenCapIncrease=6/0,,0
+784,[MAG] Heart of Flames,1,MAG,1251,8,0,0,1,1,1,1251,9,0,,,,,,
+785,[MAG] Heart of Vapor,1,MAG,1252,8,0,0,1,1,1,1252,9,0,,,,,,
+786,[MAG] Heart of Ice,1,MAG,1253,8,0,0,1,1,1,1253,9,0,,,,,,
+787,[MAG] Heart of Stone,1,MAG,1254,8,0,0,1,1,1,1254,9,0,,,,,,
+789,[ROG] Stealthy Getaway,1,ROG,1477,10,0,0,1,1,1,1477,9,0,,,,,,
+790,[ROG] Seized Opportunity,1,ROG,878,7,0,0,15,15,9,4959,60,6,6331,10,FrontalBackstabChance=65/0,FrontalBackstabChance=70/0,,0
+791,[ENC] Veil of Mindshadow,1,ENC,4931,12,0,0,16,16,3,4933,18,13,6054,4,,,Veil of Mindshadow ,600
+792,[NEC] Army of the Dead,1,NEC,1274,8,0,0,19,19,6,4866,36,13,5947,7,,,Army of the Dead,540
+793,[WIZ] Mana Blast,1,WIZ,1639,4,0,0,1,1,1,1639,9,0,,,,,,
+794,[WIZ] Mana Blaze,1,WIZ,1640,10,0,0,1,1,1,1640,12,0,,,,,,
+795,Innate Corruption Protection,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,1662,17,0,0,5,5,0,,0,5,1662,1,,ResistCorruption=2/0,,0
+796,[MNK] Hastened Five Point Palm,1,MNK,13889,18,0,0,1,1,0,,0,1,13889,1,,HastenedAASkill=60/1012,,0
+797,[MNK] Moving Mountains,1,MNK,13130,18,0,0,1,1,0,,0,1,13130,1,,HastenedAASkill=1440/7003,Moving Mountains,30
+798,[CLR] Veturika's Perseverance,1,CLR,14229,19,0,0,1,1,0,,0,1,14229,1,,,Veturika's Perseverance,600
+799,[SHD] Unknown AA 16644,1,SHD,16644,21,0,0,1,1,0,,0,1,16644,1,,HastenedAASkill=60/747,,0
+800,Vehement Rage,1,WAR/BER,6607,15,0,0,4,4,0,,0,4,6607,1,,,Vehement Rage,600
+801,[WAR] Knee Strike,1,WAR,6610,15,0,0,3,3,0,,0,3,6610,1,,,Knee Strike,30
+802,[WAR] Hastened Fortitude Discipline,1,WAR,6611,15,0,0,7,7,0,,0,7,6611,1,,ReduceReuseTimer=120000/0; LimitSpell=4670/0,,0
+803,[WAR] Hastened Furious Discipline,1,WAR,6614,15,0,0,6,6,0,,0,6,6614,1,,ReduceReuseTimer=120000/0; LimitSpell=4674/0,,0
+804,[WAR] Warlord's Bravery,1,WAR,6617,15,0,0,2,2,0,,0,2,6617,1,,,Warlord's Bravery,3600
+805,[MNK] Hastened Speed Focus,1,MNK,14148,18,0,0,1,1,0,,0,1,14148,1,,ReduceReuseTimer=90000/0; LimitSpell=4691/0,,0
+806,[MNK] Hastened Zan Fi's Whistle,1,MNK,14160,18,0,0,1,1,0,,0,1,14160,1,,HastenedAASkill=60/7001,,0
+807,[MNK] Pressure Points,1,MNK,14157,18,0,0,1,1,0,,0,1,14157,1,,Accuracy=150/26,,0
+808,[MNK] Hastened Thunder,1,MNK,14166,18,0,0,1,1,0,,0,1,14166,1,,HastenedAASkill=60/945,,0
+809,[BRD] Allegretto of Battle,1,BRD,14181,18,0,0,1,0,0,,0,1,14181,1,,RaiseSkillCap=25/20,,0
+810,[BRD] Vivace of Conflict,1,BRD,14186,18,0,0,1,0,0,,0,1,14186,1,,RaiseSkillCap=25/76,,0
+811,Unknown AA 16218,1,DRU/SHM,16218,20,0,0,1,1,0,,0,1,16218,1,,HastenedAASkill=10/403,,0
+812,[DRU] Unknown AA 16221,1,DRU,16221,20,0,0,1,1,0,,0,1,16221,1,,SpellDurationIncByTic=1/0; LimitSpellGroup=23586/0,,0
+813,[DRU] Unknown AA 16222,1,DRU,16222,20,0,0,1,1,0,,0,1,16222,1,,,Mistwalk,30
+814,[DRU] Unknown AA 16225,1,DRU,16225,20,0,0,1,1,0,,0,1,16225,1,,HastenedAASkill=1/219,,0
+815,[BST] Unknown AA 16230,1,BST,16230,20,0,0,1,1,0,,0,1,16230,1,,ReduceReuseTimer=1000/0; LimitSpellGroup=2431/0; LimitSpellGroup=2531/0; LimitSpellGroup=2545/0; LimitSpellGroup=2631/0,,0
+816,[BST] Unknown AA 16235,1,BST,16235,20,0,0,1,1,0,,0,1,16235,1,,SpellResistReduction=35/0; LimitMaxLevel=100/0; LimitResist=3/0,,0
+817,[BST] Unknown AA 16238,1,BST,16238,20,0,0,1,1,0,,0,1,16238,1,,SpellDurationIncByTic=2/0; LimitSpellGroup=23693/0; Ff_Override_NotFocusable=1/0,,0
+818,[MNK] Unknown AA 16257,1,MNK,16257,20,0,0,1,0,0,,0,1,16257,1,,SkillProcSuccess=37114/2; LimitToSkill=52/0,,0
+819,[SHD] Unknown AA 16666,1,SHD,16666,21,0,0,1,1,0,,0,1,16666,1,,HastenedAASkill=60/742,,0
+820,[SHD] Death's Revenge,1,SHD,6630,15,0,0,11,11,0,,0,11,6630,1,,PetCriticalHit=1/0,,0
+821,Harmshield,1,SHD/NEC,6635,15,0,0,1,1,0,,0,1,6635,1,,,Harmshield,600
+822,[SHD] Explosion of Hatred,1,SHD,6640,15,0,0,2,2,0,,0,2,6640,1,,,Explosion of Hatred,60
+823,[SHD] Cascading Theft of Defense,1,SHD,6641,15,0,0,7,7,0,,0,7,6641,1,,TriggerOnCast=10/16101; LimitSpellType=0/0; LimitMinLevel=70/0; LimitSpellClass=4/0; LimitManaMin=1/0; LimitSpellSubclass=2/0; LimitInstant=1/0,,0
+824,[SHD] Hate Step,1,SHD,6644,15,0,0,2,2,0,,0,2,6644,1,,,Hate Step,20
+825,[SHD] Vicious Bite of Chaos,1,SHD,6645,15,0,0,3,3,0,,0,3,6645,1,,,Vicious Bite of Chaos,60
+826,Encroaching Darkness,1,SHD/NEC,6646,15,0,0,1,1,0,,0,1,6646,1,,,Encroaching Darkness,6
+827,[CLR] Unknown AA 16745,1,CLR,16745,21,0,0,1,1,0,,0,1,16745,1,,HastenedAASkill=60/706,,0
+828,[MNK] Unknown AA 16260,1,MNK,16260,20,0,0,1,1,0,,0,1,16260,1,,SkillProcAttempt=41160/3; LimitToSkill=23/0,,0
+829,[ROG] Unknown AA 16263,1,ROG,16263,20,0,0,1,1,0,,0,1,16263,1,,,Rake's Rampage,600
+830,[ROG] Unknown AA 16272,1,ROG,16272,20,0,0,1,1,0,,0,1,16272,1,,ParryChance=2/0,,0
+831,[ROG] Unknown AA 16276,1,ROG,16276,20,0,0,1,1,0,,0,1,16276,1,,RaiseSkillCap=10/36,,0
+832,[BRD] Unknown AA 16287,1,BRD,16287,20,0,0,1,1,0,,0,1,16287,1,,HastenedAASkill=20/669,,0
+833,[SHD] Unknown AA 17252,1,SHD,17252,21,0,0,1,1,0,,0,1,17252,1,,ReduceReuseTimer=3000/0; LimitSpellGroup=13438/0; LimitSpellGroup=13538/0; LimitSpellGroup=13638/0,,0
+834,[BRD] Unknown AA 16296,1,BRD,16296,20,0,0,1,1,0,,0,1,16296,1,,,Dissonant Chord,30
+835,[BRD] Unknown AA 16300,1,BRD,16300,20,0,0,1,1,0,,0,1,16300,1,,HastenedAASkill=60/668,,0
+836,[BER] Unknown AA 16310,1,BER,16310,20,0,0,1,1,0,,0,1,16310,1,,,Juggernaut's Resolve,600
+837,[BER] Unknown AA 16330,1,BER,16330,20,0,0,1,1,0,,0,1,16330,1,,CriticalDamageMob=105/74,,0
+838,[RNG] Unknown AA 16163,1,RNG,16163,20,0,0,1,1,0,,0,1,16163,1,,,Elemental Arrow,180
+839,Unknown AA 16360,1,DRU/WIZ,16360,20,0,0,1,1,0,,0,1,16360,1,,,Teleport Guild Hall Anchor,6
+840,[WIZ] Unknown AA 16363,1,WIZ,16363,20,0,0,1,1,0,,0,1,16363,1,,,Arcane Fury Effect,1800
+841,[ROG] Sleight of Hand,1,ROG,6663,15,0,0,6,6,0,,0,6,6663,1,,,Sleight of Hand,600
+842,[ROG] Enduring Vision,1,ROG,6666,15,0,0,2,2,0,,0,2,6666,1,,SpellDurationIncByTic=2/0; LimitSpell=8001/0; LimitSpellGroup=12529/0,,0
+843,[ROG] Expertise of Blades,1,ROG,6668,15,0,0,3,3,0,,0,3,6668,1,,SpellDurationIncByTic=2/0; LimitSpell=11251/0; LimitSpell=11252/0; LimitSpell=11253/0,,0
+844,[ROG] Cunning Disguise: Human,1,ROG,6671,15,0,0,1,1,0,,0,1,6671,1,,,Cunning Disguise: Human,60
+845,[ROG] Cunning Disguise: Half-Elf,1,ROG,6672,15,0,0,1,1,0,,0,1,6672,1,,,Cunning Disguise: Half-Elf,60
+846,[ROG] Cunning Disguise: Barbarian,1,ROG,6673,15,0,0,1,1,0,,0,1,6673,1,,,Cunning Disguise: Barbarian,60
+847,[ROG] Cunning Disguise: Erudite,1,ROG,6674,15,0,0,1,1,0,,0,1,6674,1,,,Cunning Disguise: Erudite,60
+848,[ROG] Cunning Disguise: Troll,1,ROG,6675,15,0,0,1,1,0,,0,1,6675,1,,,Cunning Disguise: Troll,60
+849,[ROG] Cunning Disguise: Goblin,1,ROG,6676,15,0,0,1,1,0,,0,1,6676,1,,,Cunning Disguise: Goblin,60
+850,[WIZ] Unknown AA 16366,1,WIZ,16366,20,0,0,1,1,0,,0,1,16366,1,,FcDamageAmt=200/0; LimitSpellType=0/0; LimitCastTimeMin=1/0; LimitManaMin=10/0,,0
+851,[WIZ] Unknown AA 16369,1,WIZ,16369,20,0,0,1,1,0,,0,1,16369,1,,,Frost Shackles,12
+852,[MAG] Unknown AA 16370,1,MAG,16370,20,0,0,1,1,0,,0,1,16370,1,,,Velocity,12
+853,[MAG] Unknown AA 16371,1,MAG,16371,20,0,0,1,1,0,,0,1,16371,1,,IncreaseRange=20/0; LimitSpellGroup=2754/0,,0
+854,[SHD] Unknown AA 17256,1,SHD,17256,21,0,0,1,1,0,,0,1,17256,1,,,,360
+856,[SHM] Tigir's Insect Swarm,1,SHM,6691,15,0,0,1,1,0,,0,1,6691,1,,,Tigir's Insect Swarm,30
+857,[SHM] Dampen Resistance,1,SHM,6692,15,0,0,6,6,0,,0,6,6692,1,,,Dampen Resistance,600
+858,[SHM] Hastened Dampen Resistance,1,SHM,6697,15,0,0,5,5,0,,0,5,6697,1,,HastenedAASkill=30/857,,0
+859,[SHM] Spirit Walk,1,SHM,6702,15,0,0,1,1,0,,0,1,6702,1,,,Spirit Walk,120
+860,[SHM] Hastened Virulent Paralysis,1,SHM,6703,15,0,0,9,9,0,,0,9,6703,1,,HastenedAASkill=10/171,,0
+861,[SHM] Languid Bite,1,SHM,6706,15,0,0,7,7,0,,0,7,6706,1,,,Languid Bite,600
+862,[SHM] Quickened Blood of Nadox,1,SHM,6709,15,0,0,3,3,0,,0,3,6709,1,,IncreaseSpellHaste=5/0; LimitSpell=3842/0,,0
+863,[SHM] Hastened Spirit Call,1,SHM,6712,15,0,0,10,10,0,,0,10,6712,1,,HastenedAASkill=30/177,,0
+864,[BRD] Hastened Thousand Blades,1,BRD,14169,18,0,0,1,1,0,,0,1,14169,1,,ReduceReuseTimer=202500/0; LimitSpell=8030/0; LimitClass=256/0,,0
+865,[SHD] Unknown AA 17257,1,SHD,17257,21,0,0,1,1,0,,0,1,17257,1,,,,300
+866,[BRD] Extended Dance of Blades,1,BRD,14179,18,0,0,1,1,0,,0,1,14179,1,,SpellDurationIncByTic=1/0; LimitSpellGroup=5830/0; LimitClass=256/0,,0
+867,[BRD] Extended Thousand Blades,1,BRD,14180,18,0,0,1,1,0,,0,1,14180,1,,SpellDurationIncByTic=1/0; LimitSpell=8030/0; LimitClass=256/0,,0
+868,[MAG] Unknown AA 16380,1,MAG,16380,20,0,0,1,1,0,,0,1,16380,1,,HastenedAASkill=30/2061,,0
+869,Unknown AA 16386,1,SHM/MAG,16386,20,0,0,1,1,0,,0,1,16386,1,,HastenedAASkill=10/2064,,0
+870,[RNG] Harmonious Arrow,1,RNG,6750,15,0,0,2,2,0,,0,2,6750,1,,,Harmonious Arrow,120
+871,[RNG] Hastened Weapon Shield,1,RNG,6751,15,0,0,7,7,0,,0,7,6751,1,,ReduceReuseTimer=240000/0; LimitSpell=4519/0,,0
+872,[RNG] Outrider's Attack,1,RNG,6754,15,0,0,3,3,0,,0,3,6754,1,,,Outrider's Attack,1200
+873,[RNG] Group Guardian of the Forest,1,RNG,6755,15,0,0,4,4,0,,0,4,6755,1,,,Group Guardian of the Forest,900
+874,[RNG] Pack Hunt,1,RNG,6758,15,0,0,7,7,0,,0,7,6758,1,,,Pack Hunt,900
+875,[RNG] Keen Blade,1,RNG,6761,15,0,0,8,8,0,,0,8,6761,1,,StrikeThrough2=5/0,,0
+876,[RNG] Outrider's Evasion,1,RNG,6764,15,0,0,3,3,0,,0,3,6764,1,,,Outrider's Evasion,600
+877,[RNG] Ranged Finesse,1,RNG,6765,15,0,0,9,9,0,,0,9,6765,1,,CriticalDamageMob=15/7,,0
+878,[RNG] Bow Mastery,1,RNG,1196,15,0,0,8,8,0,,0,8,1196,1,,SkillDamageAmount=20/7,,0
+879,Unknown AA 17258,1,SHD/NEC,17258,21,0,0,1,1,0,,0,1,17258,1,,FcTwincast=2/0; LimitEffect=457/0; FcTwincast=2/0; LimitMaxLevel=253/0; LimitMinLevel=100/0; LimitSpellType=0/0; LimitTarget=13/0; LimitTarget=20/0; LimitEffect=-39/0,,0
+880,[ENC] Unknown AA 16392,1,ENC,16392,20,0,0,1,0,0,,0,1,16392,1,,HastenedAASkill=90/2202,,0
+881,Unknown AA 16395,1,RNG/WIZ/ENC,16395,20,0,0,1,1,0,,0,1,16395,1,,,Bind Sight,10
+882,[ENC] Unknown AA 16396,1,ENC,16396,20,0,0,1,1,0,,0,1,16396,1,,IncreaseSpellHaste=5/5; LimitEffect=0/0; LimitSpellType=0/0; LimitInstant=1/0,,0
+883,Unknown AA 16536,1,CLR/DRU/SHM,16536,21,0,0,1,1,0,,0,1,16536,1,,TwoHandBluntBlock=3/0,,0
+884,[WAR] Unknown AA 17209,1,WAR,17209,21,0,0,1,1,0,,0,1,17209,1,,HastenedAASkill=180/111,,0
+885,[WAR] Unknown AA 17212,1,WAR,17212,21,0,0,1,1,0,,0,1,17212,1,,HastenedAASkill=60/10367,,0
+886,[WAR] Unknown AA 17218,1,WAR,17218,21,0,0,1,1,0,,0,1,17218,1,,IncreaseSpellHaste=10/0; LimitSpell=27560/0,,0
+888,[NEC] Unknown AA 17555,1,NEC,17555,21,0,0,1,1,0,,0,1,17555,1,,FcDamageAmt=126/2; LimitSpellGroup=9606/0; FcDamageAmtCrit=252/0; LimitSpellGroup=9606/0,,0
+889,[PAL] Unknown AA 17229,1,PAL,17229,21,0,0,1,1,0,,0,1,17229,1,,SkillDamageAmount=900/3; SkillDamageAmount=900/2; SkillDamageAmount=900/77,,0
+890,[PAL] Unknown AA 17235,1,PAL,17235,21,0,0,1,1,0,,0,1,17235,1,,IncreaseSpellHaste=15/0; LimitSpellGroup=12609/0,,0
+891,[PAL] Healing Light,1,PAL,6791,15,0,0,10,10,0,,0,10,6791,1,,TriggerOnCast=20/16139; LimitEffect=21/0; LimitSpellGroup=-18000/0; TriggerOnCast=20/16139; LimitEffect=343/0; LimitSpellGroup=-18000/0,,0
+892,[PAL] Halt the Dead,1,PAL,6794,15,0,0,1,1,0,,0,1,6794,1,,,Halt The Dead,60
+894,[PAL] Unknown AA 17242,1,PAL,17242,21,0,0,1,1,0,,0,1,17242,1,,SpellEffectResistChance=1/22; SpellEffectResistChance=1/31; SpellEffectResistChance=1/3; SpellEffectResistChance=1/20,,0
+895,[SHD] Unknown AA 17245,1,SHD,17245,21,0,0,1,1,0,,0,1,17245,1,,SpellEffectResistChance=1/22; SpellEffectResistChance=1/31; SpellEffectResistChance=1/3; SpellEffectResistChance=1/20,,0
+896,[SHD] Unknown AA 17249,1,SHD,17249,21,0,0,1,1,0,,0,1,17249,1,,HastenedAASkill=120/651,,0
+897,Unknown AA 17199,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,17199,21,0,1,1,1,0,,0,1,17199,1,,,,2
+898,[SHD] Unknown AA 17267,1,SHD,17267,21,0,0,1,1,0,,0,1,17267,1,,IncreaseSpellHaste=10/0; LimitSpellGroup=13507/0; LimitSpellGroup=13107/0; LimitSpellGroup=13207/0; LimitSpellGroup=13307/0; LimitSpellGroup=13407/0; LimitSpellGroup=13607/0,,0
+899,[BRD] Unknown AA 17273,1,BRD,17273,21,0,0,1,1,0,,0,1,17273,1,,,,720
+900,[NEC] Rise of Bones,1,NEC,6815,15,0,0,10,10,0,,0,10,6815,1,,,Rise of Bones,600
+901,[NEC] Whisperwind,1,NEC,6818,15,0,0,1,1,0,,0,1,6818,1,,,Whisperwind,20
+902,[NEC] Hastened Blood Magic,1,NEC,6819,15,0,0,6,6,0,,0,6,6819,1,,HastenedAASkill=180/524,,0
+903,[NEC] Overpower Undead,1,NEC,6822,15,0,0,2,2,0,,0,2,6822,1,,,Overpower Undead,120
+904,[NEC] Hastened Swarm of Decay,1,NEC,6823,15,0,0,7,7,0,,0,7,6823,1,,HastenedAASkill=180/320,,0
+905,[NEC] Gift of the Grave,1,NEC,6828,15,0,0,3,3,0,,0,3,6828,1,,,Gift of the Grave,60
+906,[WAR] Hastened Gut Punch,1,WAR,10522,17,0,0,1,1,0,,0,1,10522,1,,HastenedAASkill=2/3732,,0
+907,[WAR] Hastened First Spire of the Warlord,1,WAR,10527,17,0,0,1,1,0,,0,1,10527,1,,HastenedAASkill=30/1400,,0
+908,[WAR] Hastened Second Spire of the Warlord,1,WAR,10532,17,0,0,1,1,0,,0,1,10532,1,,HastenedAASkill=30/1401,,0
+909,[WAR] Hastened Third Spire of the Warlord,1,WAR,10537,17,0,0,1,1,0,,0,1,10537,1,,HastenedAASkill=30/1402,,0
+910,[BRD] Unknown AA 17280,1,BRD,17280,21,0,0,1,0,0,,0,1,17280,1,,,,720
+911,[WAR] Warlord's Resurgence,1,WAR,10545,17,0,0,1,1,0,,0,1,10545,1,,,Warlord's Resurgence,600
+912,[WAR] Warlord's Fury,1,WAR,10546,17,0,0,1,1,0,,0,1,10546,1,,,Warlord's Fury,600
+914,[WAR] Improved Shield Specialist,1,WAR,10548,17,0,0,1,1,0,,0,1,10548,1,,ShieldEquipDmgMod=10/0; ProcChance=10/0; AddMeleeProc=27672/20,,0
+915,[BRD] Unknown AA 17281,1,BRD,17281,21,0,0,1,1,0,,0,1,17281,1,,SpellDurationIncByTic=1/0; LimitSpellGroup=16646/0,,0
+917,Hastened Grappling Strike,1,WAR/MNK,10588,17,0,0,6,6,0,,0,6,10588,1,,HastenedAASkill=2/601,,0
+918,[BRD] Furious Refrain,1,BRD,10627,3,0,0,3,3,3,10629,9,0,,,GiveDoubleRiposte=50/74; RiposteChance=3/0,,,
+919,[BER] Unknown AA 17554,1,BER,17554,21,0,0,1,1,0,,0,1,17554,1,,ReduceSkillTimer=2/74,,0
+920,[PAL] Valorous Rage,1,PAL,10711,17,0,0,4,4,0,,0,4,10711,1,,,Valorous Rage,1200
+921,[RNG] Hastened Group Guardian of the Forest,1,RNG,10714,17,0,0,2,2,0,,0,2,10714,1,,HastenedAASkill=90/873,,0
+922,[RNG] Hastened Outrider's Attack,1,RNG,10719,17,0,0,4,4,0,,0,4,10719,1,,HastenedAASkill=120/872,,0
+923,[RNG] Hastened Protection of the Spirit Wolf,1,RNG,10722,17,0,0,6,6,0,,0,6,10722,1,,HastenedAASkill=120/778,,0
+924,[RNG] Hastened Imbued Ferocity,1,RNG,10727,17,0,0,2,2,0,,0,2,10727,1,,HastenedAASkill=120/2235,,0
+925,[RNG] Hastened Harmonious Arrow,1,RNG,10730,17,0,0,2,2,0,,0,2,10730,1,,HastenedAASkill=10/870,,0
+926,[RNG] Hastened Entrap,1,RNG,10733,17,0,0,3,3,0,,0,3,10733,1,,HastenedAASkill=1/219,,0
+927,[RNG] Poison Arrows,1,RNG,10736,17,0,0,2,2,0,,0,2,10736,1,,,Poison Arrows,180
+928,[WAR] Merciless Blade,1,WAR,14026,18,0,0,1,1,0,,0,1,14026,1,,DamageModifier=3/2; DamageModifier=3/3; DamageModifier=3/77; SkillDamageAmount=50/2; SkillDamageAmount=50/3; SkillDamageAmount=50/77,,0
+929,[WAR] Combatant's Pact,1,WAR,14029,18,0,0,1,1,0,,0,1,14029,1,,FcHealPctCritIncoming=5/5; LimitSpellGroup=9758/0; LimitSpellGroup=9858/0; LimitSpellGroup=9958/0,,0
+930,[WAR] Warlord's Resolve,1,WAR,14032,18,0,0,1,1,0,,0,1,14032,1,,ResistFearChance=100/0,,0
+931,[SHD] Hastened Hate's Attraction,1,SHD,12582,17,0,0,4,4,0,,0,4,12582,1,,HastenedAASkill=10/9400,,0
+932,[CLR] Unknown AA 17289,1,CLR,17289,21,0,0,1,1,0,,0,1,17289,1,,HastenedAASkill=180/1062,,0
+933,Improved Death Peace,1,SHD/NEC,12635,17,0,0,1,1,0,,0,1,12635,1,,,Improved Death Peace,5
+934,[CLR] Unknown AA 17307,1,CLR,17307,21,0,0,1,1,0,,0,1,17307,1,,IncreaseSpellHaste=8/0; LimitSpell=38058/0,,0
+935,[DRU] Blessing of Ro,1,DRU,10789,17,0,0,1,1,0,,0,1,10789,1,,,Blessing of Ro,6
+936,Extended Wild Growth,1,DRU/SHM,10792,17,0,0,6,6,0,,0,6,10792,1,,SpellDurationIncByTic=1/0; LimitSpellGroup=5240/0; LimitSpellGroup=5340/0; LimitSpellGroup=5440/0; LimitSpellGroup=5540/0; LimitSpellGroup=5640/0,,0
+937,[SHM] Unknown AA 17317,1,SHM,17317,21,0,0,1,1,0,,0,1,17317,1,,HastenedAASkill=60/1270,,0
+938,Eyes Wide Open,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,12636,16,0,0,8,8,0,,0,8,12636,1,,IncreaseExtTargetWindow=1/0,,0
+939,[DRU] Communion of the Cheetah,1,DRU,12638,17,0,0,1,1,0,,0,1,12638,1,,,Spirit of Cheetah,10
+940,[BRD] Hastened Song of Stone,1,BRD,6870,15,0,0,6,6,0,,0,6,6870,1,,HastenedAASkill=180/544,,0
+941,[BRD] Flurry,1,BRD,6873,15,0,0,10,0,0,,0,10,6873,1,,Flurry=7/0,,0
+942,[BRD] Destructive Cascade,1,BRD,6876,15,0,0,10,10,0,,0,10,6876,1,,DotCritDmgIncrease=107/0,,0
+943,[BRD] Total Domination,1,BRD,6879,15,0,0,3,3,0,,0,3,6879,1,,CharmBreakChance=15/0,,0
+944,[BRD] Enhanced Forgetfulness,1,BRD,6882,15,0,0,3,3,0,,0,3,6882,1,,IncreaseChanceMemwipe=5/0,,0
+945,[MNK] Infusion of Thunder,1,MNK,10346,16,0,0,3,3,0,,0,3,10346,1,,,Infusion of Thunder,600
+946,[WAR] Hastened Warlord's Bravery,1,WAR,14037,18,0,0,1,1,0,,0,1,14037,1,,HastenedAASkill=180/804,,0
+947,[WAR] Hastened Warlord's Tenacity,1,WAR,14040,18,0,0,1,1,0,,0,1,14040,1,,HastenedAASkill=180/300,,0
+948,[SHM] Unknown AA 17328,1,SHM,17328,21,0,0,1,1,0,,0,1,17328,1,,,,600
+949,[SHM] Unknown AA 17329,1,SHM,17329,21,0,0,1,1,0,,0,1,17329,1,,,,20
+950,[SHM] Unknown AA 17336,1,SHM,17336,21,0,0,1,1,0,,0,1,17336,1,,SpellDurationIncByTic=1/0; LimitSpellGroup=32348/0,,0
+951,Unknown AA 17339,1,DRU/SHM,17339,21,0,0,1,1,0,,0,1,17339,1,,HastenedAASkill=12/760,,0
+952,[SHM] Unknown AA 17342,1,SHM,17342,21,0,0,1,1,0,,0,1,17342,1,,,,60
+953,[DRU] Unknown AA 17344,1,DRU,17344,21,0,0,1,1,0,,0,1,17344,1,,,,780
+954,[DRU] Unknown AA 17347,1,DRU,17347,21,0,0,1,1,0,,0,1,17347,1,,,,30
+955,Unknown AA 17357,1,CLR/SHM,17357,19,0,0,1,1,0,,0,1,17357,1,,SpellDurationIncByTic=1/0; LimitEffect=100/0; LimitSpellType=1/0,,0
+956,Unknown AA 17361,1,DRU/WIZ,17361,21,0,0,1,1,0,,0,1,17361,1,,HastenedAASkill=60/405; HastenedAASkill=60/426,,0
+957,[DRU] Unknown AA 17364,1,DRU,17364,21,0,0,1,0,0,,0,1,17364,1,,,,120
+958,[DRU] Unknown AA 17370,1,DRU,17370,21,0,0,1,1,0,,0,1,17370,1,,SpellDurationIncByTic=1/0; LimitSpellType=0/0; LimitEffect=0/0; LimitEffect=100/0; LimitMinDur=1/0; LimitManaMin=10/0,,0
+959,[DRU] Unknown AA 17372,1,DRU,17372,21,0,0,1,1,0,,0,1,17372,1,,,,300
+960,Stomping Leap,1,WAR/BER,6930,15,0,0,1,1,0,,0,1,6930,1,,,Stomping Leap,60
+961,[BER] Juggernaut Surge,1,BER,6931,15,0,0,3,3,0,,0,3,6931,1,,,Juggernaut Surge,600
+962,[BER] Distraction Attack,1,BER,6932,15,0,0,7,7,0,,0,7,6932,1,,,Distraction Attack,1200
+963,[BER] Hastened Savage Spirit,1,BER,6935,15,0,0,9,9,0,,0,9,6935,1,,HastenedAASkill=180/465,,0
+964,[BER] Dying Blow,1,BER,6938,15,0,0,3,3,0,,0,3,6938,1,,SpellOnDeath=65/16164,,0
+965,[WAR] Hastened Projection of Fury,1,WAR,10519,17,0,0,1,1,0,,0,1,10519,1,,HastenedAASkill=60/3213,,0
+966,[BST] Unknown AA 17373,1,BST,17373,21,0,0,1,1,0,,0,1,17373,1,,,,900
+967,[WAR] Blade Guardian,1,WAR,13444,18,0,0,1,1,0,,0,1,13444,1,,,Blade Guardian,600
+968,[BST] Unknown AA 17375,1,BST,17375,21,0,0,1,1,0,,0,1,17375,1,,IncreaseSpellHaste=10/0; LimitSpellGroup=38078/0,,0
+969,Unknown AA 17378,1,CLR/DRU/SHM/NEC/WIZ/MAG/ENC,17378,21,0,0,1,1,0,,0,1,17378,1,,,,3
+970,Unknown AA 17378,0,CLR/DRU/SHM,17379,21,0,0,1,0,0,,0,1,17379,1,,,,3
+971,[BST] Unknown AA 17378,1,BST,17380,21,0,0,1,1,0,,0,1,17380,1,,,,3
+972,[BST] Unknown AA 17384,1,BST,17384,21,0,0,1,1,0,,0,1,17384,1,,,,20
+974,[ROG] Unknown AA 17409,1,ROG,17409,21,0,0,1,1,0,,0,1,17409,1,,MaxHPChange=205/0; CombatStability=4/0; AvoidMeleeChance=4/0,,0
+975,[ROG] Unknown AA 17414,1,ROG,17414,21,0,0,1,1,0,,0,1,17414,1,,HastenedAASkill=120/673,,0
+976,[BER] Unknown AA 17418,1,BER,17418,21,0,0,1,1,0,,0,1,17418,1,,RaiseSkillCap=10/74,,0
+977,[NEC] Unknown AA 17558,1,NEC,17558,21,0,0,1,1,0,,0,1,17558,1,,FcBaseEffects=2/2; LimitSpellGroup=9603/0; LimitClass=2048/0,,0
+978,[BER] Unknown AA 17428,1,BER,17428,21,0,0,1,1,0,,0,1,17428,1,,SkillAttackProc=5/51,,0
+979,[BER] Unknown AA 17436,1,BER,17436,21,0,0,1,1,0,,0,1,17436,1,,HastenedAASkill=60/372,,0
+980,[BST] Natural Invisibility,1,BST,6970,15,0,0,1,1,0,,0,1,6970,1,,,Natural Invisibility,6
+981,[BST] Attack of the Warders,1,BST,6971,15,0,0,7,7,0,,0,7,6971,1,,,Attack of the Warders,600
+982,[BST] Hastened Feral Attacks,1,BST,6974,15,0,0,6,6,0,,0,6,6974,1,,HastenedAASkill=3/247; HastenedAASkill=2/986; HastenedAASkill=2/987; HastenedAASkill=2/988,,0
+983,[BST] Hastened Focused Paragon,1,BST,6977,15,0,0,5,5,0,,0,5,6977,1,,HastenedAASkill=6/3817,,0
+984,[BST] Hastened Paragon,1,BST,6980,15,0,0,5,5,0,,0,5,6980,1,,HastenedAASkill=45/128,,0
+985,[BST] Group Bestial Alignment,1,BST,6983,15,0,0,2,2,0,,0,2,6983,1,,,Group Bestial Alignment,720
+986,[BST] Bite of the Asp,1,BST,6984,15,0,0,4,4,0,,0,4,6984,1,,,Bite of the Asp,60
+987,[BST] Raven's Claw,1,BST,6985,15,0,0,4,4,0,,0,4,6985,1,,,Raven's Claw,60
+988,[BST] Gorilla Smash,1,BST,6986,15,0,0,4,4,0,,0,4,6986,1,,,Gorilla Smash,60
+989,[MNK] Stonefoot,1,MNK,10340,16,0,0,7,7,0,,0,7,10340,1,,SkillDamageAmount=100/26,,0
+990,[MNK] Hastened Stunning Kick,1,MNK,10343,16,0,0,4,4,0,,0,4,10343,1,,HastenedAASkill=5/469,,0
+991,[CLR] Quickened Turn Undead,1,CLR,10470,17,0,0,3,3,0,,0,3,10470,1,,IncreaseSpellHaste=10/0; LimitSpellGroup=8048/0,,0
+992,Tranquil Blessings,1,CLR/PAL/RNG/DRU/SHM/NEC/MAG/ENC/BST,3676,16,0,0,1,1,0,,0,1,3676,1,,,Tranquil Blessings,30
+993,[CLR] Righteous Zeal,1,CLR,6082,17,0,0,3,3,0,,0,3,6082,1,,RaiseSkillCap=50/20,,0
+994,[CLR] Hastened Divine Retribution,1,CLR,6088,17,0,0,3,3,0,,0,3,6088,1,,HastenedAASkill=180/392,,0
+995,Intrinsic Efficiency,1,CLR/RNG/SHD/NEC/WIZ/MAG/ENC,6112,17,0,0,4,4,0,,0,4,6112,1,,ReduceReagentCost=10/10; LimitManaMin=10/0; LimitEffect=-32/0,,0
+996,[CLR] Powerful Elixirs,1,CLR,6113,17,0,0,3,3,0,,0,3,6113,1,,SpellDurationIncByTic=2/0; LimitEffect=100/0; LimitSpellGroup=-4232/0; LimitSpellGroup=-4332/0; LimitSpell=-2741/0; LimitSpellGroup=-16192/0; LimitSpell=-16843/0,,0
+997,[CLR] Celestial Rapidity,1,CLR,6534,17,0,0,1,1,0,,0,1,6534,1,,,Celestial Rapidity,600
+998,[CLR] Hastened Celestial Regeneration,1,CLR,2400,17,0,0,4,4,0,,0,4,2400,1,,HastenedAASkill=90/38,,0
+999,[CLR] Improved Burst of Life,1,CLR,7765,17,0,0,4,4,0,,0,4,7765,1,,FcHealAmt=1000/0; LimitSpell=21820/0; LimitClass=4/0,,0
+1000,[BER] Unknown AA 17439,1,BER,17439,21,0,0,1,1,0,,0,1,17439,1,,SpellDurationIncByTic=1/0; LimitSpellGroup=6040/0,,0
+1001,[BER] Unknown AA 17445,1,BER,17445,21,0,0,1,1,0,,0,1,17445,1,,ReduceReuseTimer=60000/0; LimitSpellGroup=3312/0,,0
+1002,[BER] Unknown AA 17448,1,BER,17448,21,0,0,1,1,0,,0,1,17448,1,,SpellDurationIncByTic=1/0; LimitSpellGroup=14005/0; LimitSpellGroup=3519/0,,0
+1003,[RNG] Unknown AA 10478,1,RNG,10478,21,0,0,1,1,0,,0,1,10478,1,,ProcOnKillShot=3/46246,,0
+1004,[WIZ] Unknown AA 17492,1,WIZ,17492,21,0,0,1,1,0,,0,1,17492,1,,HastenedAASkill=120/840,,0
+1005,[WIZ] Unknown AA 17495,1,WIZ,17495,21,0,0,1,1,0,,0,1,17495,1,,HastenedAASkill=20/9702,,0
+1006,[MAG] Unknown AA 17515,1,MAG,17515,21,0,0,1,1,0,,0,1,17515,1,,IncreaseSpellHaste=25/0; LimitSpellGroup=7125/0,,0
+1007,Unknown AA 17517,1,NEC/MAG,17517,21,0,0,1,1,0,,0,1,17517,1,,IncreaseSpellHaste=17/0; LimitSpellGroup=23683/0; Ff_Override_NotFocusable=1/0,,0
+1008,[NEC] Unknown AA 17522,1,NEC,17522,21,0,0,1,1,0,,0,1,17522,1,,HastenedAASkill=30/764,,0
+1009,[NEC] Unknown AA 17533,1,NEC,17533,21,0,0,1,1,0,,0,1,17533,1,,SpellDurationIncByTic=1/0; LimitSpell=32399/0; Ff_Override_NotFocusable=1/0,,0
+1011,[MNK] Neshika's Blink,1,MNK,7869,15,0,0,3,3,0,,0,3,7869,1,,,Neshika's Blink,30
+1012,[MNK] Five Point Palm,1,MNK,7875,15,0,0,7,7,0,,0,7,7875,1,,,Five Point Palm,600
+1013,[BER] War Cry of the Braxi,1,BER,13872,18,0,0,1,1,0,,0,1,13872,1,,,War Cry of the Braxi,60
+1014,[NEC] Unknown AA 17538,1,NEC,17538,21,0,0,1,1,0,,0,1,17538,1,,,,1800
+1015,[ENC] Unknown AA 17547,1,ENC,17547,21,0,0,1,1,0,,0,1,17547,1,,SpellDurationIncByTic=1/0; LimitEffect=0/0; LimitEffect=100/0; LimitMinDur=2/0; LimitSpellType=0/0; LimitManaMin=10/0,,0
+1016,[ENC] Unknown AA 17549,1,ENC,17549,21,0,0,1,1,0,,0,1,17549,1,,HastenedAASkill=10/8700,,0
+1017,[PAL] Unknown AA 17238,1,PAL,17238,21,0,0,1,1,0,,0,1,17238,1,,,,900
+1018,[ENC] Unknown AA 17553,1,ENC,17553,21,0,0,1,1,0,,0,1,17553,1,,TriggerOnCast=8/41768; LimitSpellType=0/0; LimitInstant=1/0; LimitMaxLevel=253/0; LimitMinLevel=85/0; LimitCastTimeMin=1/0; LimitCombatSkills=0/0; LimitManaMin=1/0; LimitEffect=0/0,,0
+1019,[PAL] Unknown AA 17248,1,PAL,17248,21,0,0,1,1,0,,0,1,17248,1,,,,1080
+1020,Hastened Companion's Blessing,1,SHD/SHM/NEC/MAG/ENC/BST,12478,16,0,0,3,3,0,,0,3,12478,1,,HastenedAASkill=60/3705,,0
+1021,[WAR] Unknown AA 17215,1,WAR,17215,21,0,0,1,1,0,,0,1,17215,1,,SpellEffectResistChance=2/22; SpellEffectResistChance=2/31; SpellEffectResistChance=2/3; SpellEffectResistChance=2/20,,0
+1022,Destructive Fury,0,PAL/RNG/SHD/BRD/BST,6636,15,0,0,10,0,0,,0,10,6636,1,,CriticalSpellChance=0/107,,0
+1023,[PAL] Restoration of Life,1,PAL,14010,18,0,0,1,1,0,,0,1,14010,1,,,Restoration of Life,20
+1024,[PAL] Hastened Leap of Faith,1,PAL,14085,18,0,0,1,1,0,,0,1,14085,1,,HastenedAASkill=2/741,,0
+1025,[PAL] Hastened Beacon of the Righteous,1,PAL,14011,18,0,0,1,1,0,,0,1,14011,1,,HastenedAASkill=30/10394,,0
+1026,[NEC] Unknown AA 17561,1,NEC,17561,21,0,0,1,1,0,,0,1,17561,1,,FcBaseEffects=2/2; LimitSpellGroup=9609/0; LimitClass=2048/0,,0
+1027,[NEC] Unknown AA 17564,1,NEC,17564,21,0,0,1,1,0,,0,1,17564,1,,FcBaseEffects=2/2; LimitSpellGroup=9619/0; LimitClass=2048/0,,0
+1028,[NEC] Unknown AA 17567,1,NEC,17567,21,0,0,1,1,0,,0,1,17567,1,,FcBaseEffects=2/2; LimitSpellGroup=9613/0; LimitClass=2048/0,,0
+1029,[NEC] Unknown AA 17570,1,NEC,17570,21,0,0,1,1,0,,0,1,17570,1,,FcBaseEffects=2/2; LimitSpellGroup=9604/0; LimitClass=2048/0,,0
+1030,[NEC] Unknown AA 17573,1,NEC,17573,21,0,0,1,1,0,,0,1,17573,1,,FcBaseEffects=2/2; LimitSpellGroup=9651/0; LimitClass=2048/0,,0
+1031,[WIZ] Unknown AA 17576,1,WIZ,17576,21,0,0,1,1,0,,0,1,17576,1,,FcBaseEffects=2/2; LimitSpellGroup=16652/0; LimitClass=4096/0,,0
+1032,[WIZ] Unknown AA 17579,1,WIZ,17579,21,0,0,1,1,0,,0,1,17579,1,,FcBaseEffects=2/2; LimitSpellGroup=16629/0; LimitClass=4096/0,,0
+1033,[WIZ] Unknown AA 17582,1,WIZ,17582,21,0,0,1,1,0,,0,1,17582,1,,FcBaseEffects=2/2; LimitSpellGroup=16650/0; LimitClass=4096/0,,0
+1034,[WIZ] Unknown AA 17585,1,WIZ,17585,21,0,0,1,1,0,,0,1,17585,1,,FcBaseEffects=2/2; LimitSpellGroup=16608/0; LimitClass=4096/0,,0
+1035,[WIZ] Unknown AA 17588,1,WIZ,17588,21,0,0,1,1,0,,0,1,17588,1,,FcBaseEffects=2/2; LimitSpellGroup=16615/0; LimitClass=4096/0,,0
+1036,[WIZ] Unknown AA 17591,1,WIZ,17591,21,0,0,1,1,0,,0,1,17591,1,,FcBaseEffects=2/2; LimitSpellGroup=16618/0; LimitClass=4096/0,,0
+1037,[WIZ] Unknown AA 17594,1,WIZ,17594,21,0,0,1,1,0,,0,1,17594,1,,FcBaseEffects=2/2; LimitSpellGroup=16625/0; LimitClass=4096/0,,0
+1038,[MAG] Unknown AA 17597,1,MAG,17597,21,0,0,1,1,0,,0,1,17597,1,,FcDamageAmt=345/0; LimitSpellGroup=7604/0,,0
+1039,[MAG] Unknown AA 17600,1,MAG,17600,21,0,0,1,1,0,,0,1,17600,1,,FcBaseEffects=2/2; LimitSpellGroup=7608/0; LimitClass=8192/0,,0
+1040,[MAG] Theft of Essence,1,MAG,7900,15,0,0,6,6,0,,0,6,7900,1,,TriggerOnCast=45/16189; LimitTarget=11/0; SympatheticProc=45/16189; LimitSpellGroup=11012/0; SympatheticProc=45/16189; LimitSpellGroup=5130/0; SympatheticProc=45/16189; LimitSpellGroup=5230/0; SympatheticProc=45/16189; LimitTarget=22/0; SympatheticProc=45/16189; LimitSpellGroup=5330/0; LimitSpellGroup=5430/0; LimitSpellGroup=5530/0,,0
+1041,Malosinete,1,SHM/MAG,7903,15,0,0,3,3,0,,0,3,7903,1,,,Malosinete,30
+1042,[MAG] Unknown AA 17603,1,MAG,17603,21,0,0,1,1,0,,0,1,17603,1,,FcBaseEffects=2/2; LimitSpellGroup=7612/0; LimitClass=8192/0,,0
+1043,[MAG] Unknown AA 17606,1,MAG,17606,21,0,0,1,1,0,,0,1,17606,1,,FcHealAmt=419/0; LimitSpellGroup=7613/0; FcHealAmtCrit=838/0; LimitSpellGroup=7613/0,,0
+1044,[MAG] Unknown AA 17609,1,MAG,17609,21,0,0,1,1,0,,0,1,17609,1,,FcBaseEffects=2/2; LimitSpellGroup=7636/0; LimitClass=8192/0,,0
+1045,[MAG] Unknown AA 17612,1,MAG,17612,21,0,0,1,1,0,,0,1,17612,1,,FcBaseEffects=2/2; LimitSpellGroup=7618/0; LimitClass=8192/0,,0
+1046,[MAG] Unknown AA 17615,1,MAG,17615,21,0,0,1,1,0,,0,1,17615,1,,FcDamageAmt=539/0; LimitSpellGroup=7638/0,,0
+1047,[ENC] Unknown AA 17618,1,ENC,17618,21,0,0,1,1,0,,0,1,17618,1,,FcBaseEffects=2/2; LimitSpellGroup=6664/0; LimitClass=16384/0,,0
+1048,[ENC] Unknown AA 17621,1,ENC,17621,21,0,0,1,1,0,,0,1,17621,1,,FcBaseEffects=2/2; LimitSpellGroup=6648/0; LimitClass=16384/0,,0
+1049,[ENC] Unknown AA 17624,1,ENC,17624,21,0,0,1,1,0,,0,1,17624,1,,FcBaseEffects=2/2; LimitSpellGroup=6649/0; LimitClass=16384/0,,0
+1050,[ENC] Unknown AA 17627,1,ENC,17627,21,0,0,1,1,0,,0,1,17627,1,,FcBaseEffects=2/2; LimitSpellGroup=6611/0; LimitClass=16384/0,,0
+1051,[ENC] Unknown AA 17630,1,ENC,17630,21,0,0,1,1,0,,0,1,17630,1,,FcBaseEffects=2/2; LimitSpellGroup=6652/0; LimitClass=16384/0,,0
+1052,[ENC] Unknown AA 17633,1,ENC,17633,21,0,0,1,1,0,,0,1,17633,1,,FcBaseEffects=2/2; LimitSpellGroup=6655/0; LimitClass=16384/0,,0
+1053,[NEC] Unknown AA 10481,1,NEC,10481,21,0,0,1,1,0,,0,1,10481,1,,,,600
+1054,[WAR] Unknown AA 17639,1,WAR,17639,18,0,0,1,1,0,,0,1,17639,1,,DefensiveProc=37182/100,,0
+1060,[CLR] Hastened Turn Undead,1,CLR,7940,15,0,0,10,10,0,,0,10,7940,1,,HastenedAASkill=15/558,,0
+1061,[CLR] Cascading Divine Aura,1,CLR,7943,15,0,0,2,2,0,,0,2,7943,1,,,Cascading Divine Aura,8640
+1062,[CLR] Group Purify Soul,1,CLR,7944,15,0,0,1,1,0,,0,1,7944,1,,,Group Purify Soul,1800
+1063,[CLR] Hastened Renewal,1,CLR,7945,15,0,0,7,7,0,,0,7,7945,1,,ReduceReuseTimer=2000/0; LimitSpell=8007/0; ReduceReuseTimer=2000/0; LimitSpellGroup=4140/0; LimitSpellGroup=4240/0; LimitSpellGroup=4340/0; LimitSpellGroup=4440/0; LimitSpellGroup=4540/0; LimitSpellGroup=4640/0,,0
+1064,[CLR] Sanctified Blessing,1,CLR,7948,15,0,0,7,7,0,,0,7,7948,1,,TriggerOnCast=25/16197; LimitSpellType=1/0; LimitMinLevel=60/0; LimitEffect=35/0; LimitMaxLevel=75/0; TriggerOnCast=25/16197; LimitSpellType=1/0; LimitMinLevel=60/0; LimitEffect=36/0; LimitMaxLevel=75/0; TriggerOnCast=25/16197; LimitSpellType=1/0; LimitMinLevel=60/0; LimitEffect=369/0; LimitMaxLevel=75/0; TriggerOnCast=25/16197; LimitSpellType=1/0; LimitMinLevel=60/0; LimitEffect=116/0; LimitMaxLevel=75/0,,0
+1065,[CLR] Focused Celestial Regeneration,1,CLR,7951,15,0,0,9,9,0,,0,9,7951,1,,,Focused Celestial Regeneration,900
+1090,[DRU] Mastery of Nature,1,DRU,7980,15,0,0,3,3,0,,0,3,7980,1,,CharmBreakChance=15/0,,0
+1091,[DRU] Hastened Nature's Guardian,1,DRU,7983,15,0,0,6,6,0,,0,6,7983,1,,HastenedAASkill=120/520,,0
+1092,[DRU] Spirit of the Black Wolf,1,DRU,7986,15,0,0,5,5,0,,0,5,7986,1,,,Spirit of the Black Wolf,600
+1093,[DRU] Hastened Lycan Soul,1,DRU,7989,15,0,0,5,5,0,,0,5,7989,1,,HastenedAASkill=30/705; HastenedAASkill=30/1092; HastenedAASkill=30/10396; HastenedAASkill=30/10397,,0
+1113,Hastened Mass Group Buff,1,CLR/PAL/RNG/DRU/SHM/NEC/MAG/ENC/BST,5010,16,0,0,4,4,0,,0,4,5010,1,,HastenedAASkill=432/35,,0
+1115,Mystical Shield,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,5045,16,0,0,1,1,0,,0,1,5045,1,,ResistSpellChance=5/0,,0
+1120,[ENC] Self Stasis,1,ENC,8030,15,0,0,1,1,0,,0,1,8030,1,,,Self Stasis,900
+1121,[ENC] Hastened Veil of Mindshadow,1,ENC,8031,15,0,0,9,9,0,,0,9,8031,1,,HastenedAASkill=30/791,,0
+1122,[ENC] Phantasmal Opponent,1,ENC,8034,15,0,0,1,1,0,,0,1,8034,1,,,Phantasmal Opponent,600
+1123,[ENC] Hastened Edict of Command,1,ENC,8035,15,0,0,7,7,0,,0,7,8035,1,,HastenedAASkill=180/521,,0
+1124,[ENC] Fog of Memories,1,ENC,8038,15,0,0,2,2,0,,0,2,8038,1,,,Fog of Memories,12
+1125,[ENC] Bite of Tashani,1,ENC,8039,15,0,0,2,2,0,,0,2,8039,1,,,Bite of Tashani,7
+1150,[WIZ] Fury of Druzzil,1,WIZ,8060,15,0,0,7,7,0,,0,7,8060,1,,,Fury of Druzzil,1800
+1151,[WIZ] Fury of Eci,1,WIZ,8063,15,0,0,7,7,0,,0,7,8063,1,,,Fury of Eci,1800
+1152,[WIZ] Fury of Ro,1,WIZ,8066,15,0,0,7,7,0,,0,7,8066,1,,,Fury of Ro,1800
+1153,[WIZ] Fortified Entanglement,1,WIZ,8069,15,0,0,4,4,0,,0,4,8069,1,,RootBreakChance=-10/0,,0
+1154,[WIZ] Force of Will,1,WIZ,8072,15,0,0,7,7,0,,0,7,8072,1,,,Force of Will,20
+1155,[WIZ] Atol's Shackles,1,WIZ,8075,15,0,0,1,1,0,,0,1,8075,1,,,Atol's Shackles,6
+1156,[WIZ] Hastened Manaburn,1,WIZ,8076,15,0,0,6,6,0,,0,6,8076,1,,HastenedAASkill=360/565; HastenedAASkill=360/793; HastenedAASkill=360/794,,0
+1157,[WIZ] Hastened Call of Xuzl,1,WIZ,8082,15,0,0,6,6,0,,0,6,8082,1,,HastenedAASkill=60/208,,0
+1158,[PAL] Divine Steed,1,PAL,1667,16,0,0,1,1,0,,0,1,1667,1,,,Divine Steed,1
+1159,Hastened Leap,1,WAR/BER,11014,16,0,0,4,4,0,,0,4,11014,1,,HastenedAASkill=10/3899; HastenedAASkill=10/611; HastenedAASkill=10/960; HastenedAASkill=10/1252,,0
+1169,[NEC] Unknown AA 16336,1,NEC,16336,20,0,0,1,1,0,,0,1,16336,1,,HastenedAASkill=30/1257,,0
+1170,[NEC] Unknown AA 16339,1,NEC,16339,20,0,0,1,1,0,,0,1,16339,1,,HastenedAASkill=10/773,,0
+1171,[ROG] Hastened Counterattack Discipline,1,ROG,15502,19,0,0,1,1,0,,0,1,15502,1,,ReduceReuseTimer=240000/0; LimitSpell=4673/0; LimitClass=512/0,,0
+1173,[ROG] Hastened Onslaught,1,ROG,15509,19,0,0,1,1,0,,0,1,15509,1,,ReduceReuseTimer=3000/0; LimitSpellGroup=12315/0; LimitSpellGroup=12415/0; LimitSpellGroup=12515/0; LimitSpellGroup=12615/0; LimitClass=512/0,,0
+1174,[ROG] Mrylokar's Rigor,1,ROG,15512,19,0,0,1,1,0,,0,1,15512,1,,SkillAttackProc=50/8,Lethality,0
+1175,[ROG] Absorbing Agent,1,ROG,15515,19,0,0,1,1,0,,0,1,15515,1,,,Absorbing Agent,90
+1176,[BRD] Improved Requiem of Time,1,BRD,15516,19,0,0,1,1,0,,0,1,15516,1,,SpellResistReduction=20/0; LimitSpell=3066/0; LimitClass=256/0,,0
+1177,[BRD] Quickened Requiem of Time,1,BRD,15517,19,0,0,1,1,0,,0,1,15517,1,,IncreaseSpellHaste=16/0; LimitSpell=3066/0; LimitClass=256/0,,0
+1178,[BRD] Silent Displacement,1,BRD,15521,19,0,0,1,1,0,,0,1,15521,1,,,Silent Displacement,60
+1200,Companion's Alacrity,1,SHD/SHM/NEC/MAG/ENC/BST,8190,15,0,0,3,3,0,,0,3,8190,1,,PetFlurry=2/0,,0
+1201,Improved Intimidation,1,MNK/BRD/ROG/ENC/BER,8193,15,1,0,1,0,0,,0,1,8193,1,,TriggerOnCast=100/16225; LimitSpell=6838/0,,0
+1202,Perfected Levitation,1,RNG/DRU/SHM/WIZ/MAG/ENC/BST,8194,15,0,0,1,1,0,,0,1,8194,1,,,Perfected Levitation,12
+1203,Hastened Fortify Companion,1,SHD/SHM/NEC/MAG/ENC/BST,8195,15,0,0,6,6,0,,0,6,8195,1,,HastenedAASkill=120/3707,,0
+1204,Empowered Ingenuity,1,WAR/MNK/ROG/BER,8198,15,0,0,3,3,0,,0,3,8198,1,,CriticalSpellChance=0/110,,0
+1205,Companion's Fury,1,SHD/SHM/NEC/MAG/ENC/BST,8201,15,0,0,4,4,0,,0,4,8201,1,,PetCriticalHit=1/0,,0
+1206,Quickened Radiant Cure,1,CLR/DRU/SHM,8204,15,0,0,5,5,0,,0,5,8204,1,,IncreaseSpellHaste=10/0; LimitEffect=154/0; LimitSpellClass=2/0; LimitSpellSubclass=10/0,,0
+1207,[PAL] Quickened Radiant Cure,1,PAL,8207,15,0,0,5,5,0,,0,5,8207,1,,IncreaseSpellHaste=10/0; LimitEffect=154/0; LimitSpellClass=2/0; LimitSpellSubclass=10/0,,0
+1208,Mental Stamina,1,CLR/PAL/RNG/SHD/DRU/BRD/SHM/NEC/WIZ/MAG/ENC/BST,8210,15,0,0,16,16,0,,0,16,8210,1,,ManaPool=50/0,,0
+1209,Hardy Endurance,1,WAR/MNK/ROG/BER,8215,15,0,0,11,11,0,,0,11,8215,1,,EndurancePool=50/0,,0
+1210,Group Perfected Invisibility,1,WIZ/MAG/ENC,8220,15,0,0,1,1,0,,0,1,8220,1,,,Group Perfected Invisibility,15
+1211,Focus of Arcanum,1,DRU/SHM/NEC/WIZ/MAG/ENC,8221,15,0,0,1,1,0,,0,1,8221,1,,,Focus of Arcanum,600
+1212,Group Perfected Invisibility to Undead,1,CLR/PAL/SHD/NEC,8222,15,0,0,1,1,0,,0,1,8222,1,,,Group Perfected Invisibility to Undead,10
+1214,Cascade of Life,1,CLR/DRU/SHM,8224,15,0,0,4,4,0,,0,4,8224,1,,TriggerOnCast=10/16230; LimitSpellType=1/0; LimitInstant=1/0; LimitMinLevel=60/0; LimitEffect=0/0; LimitCombatSkills=0/0; LimitMaxLevel=80/0; LimitSpell=-265/0; LimitSpell=-754/0; LimitSpell=-1332/0; LimitSpell=-1572/0; LimitSpell=-2749/0; LimitSpell=-4979/0; LimitSpell=-5418/0; LimitSpell=-5403/0,,0
+1215,Summon Companion,1,SHD/SHM/NEC/MAG/ENC/BST,8227,15,0,0,4,4,0,,0,4,8227,1,,,Summon Companion,10
+1216,Mental Fortitude,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,8228,15,0,0,3,3,0,,0,3,8228,1,,SpellEffectResistChance=5/22,,0
+1217,Gate,1,CLR/DRU/SHM/NEC/WIZ/MAG/ENC,8231,15,0,0,1,1,0,,0,1,8231,1,,,Gate,60
+1218,[BRD] Extended Ingenuity,1,BRD,8040,15,0,0,6,6,0,,0,6,8040,1,,IncreaseSpellDuration=5/5; LimitSpellType=1/0; LimitMinDur=1/0; LimitCombatSkills=0/0; LimitClass=256/0; LimitEffect=-40/0; LimitManaMax=1/0,,0
+1219,[WAR] Armor of Wisdom,1,WAR,8235,15,0,0,11,11,0,,0,11,8235,1,,ArmorClass=29/0,,0
+1220,Armor of Wisdom,1,CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,8240,15,0,0,11,11,0,,0,11,8240,1,,ArmorClass=31/0,,0
+1221,Armor of Wisdom,0,CLR/RNG/MNK/BRD,8245,15,0,0,11,0,0,,0,11,8245,1,,ArmorClass=33/0,,0
+1222,Armor of Wisdom,0,ROG/SHM/BST/BER,8250,15,0,0,11,0,0,,0,11,8250,1,,ArmorClass=40/0,,0
+1223,Armor of Wisdom,0,DRU/NEC/WIZ/MAG/ENC,8255,15,0,0,11,0,0,,0,11,8255,1,,ArmorClass=50/0,,0
+1232,[MNK] Way of the Katori,1,MNK,15429,19,0,0,1,1,0,,0,1,15429,1,,SkillDamageAmount=135/2,,0
+1233,[MNK] Harmony of Battle,1,MNK,15432,19,0,0,1,1,0,,0,1,15432,1,,HitChance=5/-1,,0
+1234,[MNK] Hastened Ironfist,1,MNK,15438,19,0,0,1,1,0,,0,1,15438,1,,ReduceReuseTimer=180000/0; LimitSpellGroup=8316/0; LimitClass=128/0,,0
+1235,[MNK] Two-Finger Wasp Touch,1,MNK,15447,19,0,0,1,1,0,,0,1,15447,1,,,Two-Finger Wasp Touch,180
+1236,[MNK] Thunderfoot,1,MNK,15444,19,0,0,1,1,0,,0,1,15444,1,,SkillAttackProc=60/26,Thunderfoot,0
+1237,[BST] Extended Bloodlust,1,BST,15414,19,0,0,1,1,0,,0,1,15414,1,,SpellDurationIncByTic=1/0; LimitSpell=30736/0,,0
+1239,[BST] Consumption of Spirit,1,BST,15423,19,0,0,1,1,0,,0,1,15423,1,,,Consumption of Spirit,180
+1240,[BST] Frenzied Swipes,1,BST,15424,19,0,0,1,1,0,,0,1,15424,1,,,Frenzied Swipes,1200
+1242,[MNK] Hastened Synergy,1,MNK,15450,19,0,0,1,1,0,,0,1,15450,1,,ReduceReuseTimer=3000/0; LimitSpellGroup=8202/0; LimitSpellGroup=8302/0; LimitSpellGroup=8402/0; LimitSpellGroup=8502/0; LimitSpellGroup=8602/0; LimitClass=128/0,,0
+1243,[MNK] Hastened Crane Stance,1,MNK,15453,19,0,0,1,1,0,,0,1,15453,1,,ReduceReuseTimer=60000/0; LimitSpellGroup=8421/0; LimitClass=128/0,,0
+1244,[MNK] Hastened Eye Gouge,1,MNK,15456,19,0,0,1,1,0,,0,1,15456,1,,HastenedAASkill=5/470,,0
+1245,[BRD] Troubadour's Slashing Mastery,1,BRD,15540,19,0,0,1,1,0,,0,1,15540,1,,DamageModifier=5/1,,0
+1246,[BRD] Troubadour's Blunt Mastery,1,BRD,15543,19,0,0,1,1,0,,0,1,15543,1,,DamageModifier=5/0,,0
+1247,[BRD] Troubadour's Piercing Mastery,1,BRD,15546,19,0,0,1,1,0,,0,1,15546,1,,DamageModifier=5/36,,0
+1248,[BRD] Hastened Lure of the Siren's Song,1,BRD,15549,19,0,0,1,1,0,,0,1,15549,1,,HastenedAASkill=15/244,,0
+1249,[BER] Frenzied Axe of Rallos,1,BER,15555,19,0,0,1,1,0,,0,1,15555,1,,TriggerOnCast=5/38103; LimitSpellGroup=3208/0; LimitSpellGroup=3308/0; LimitSpellGroup=3408/0; LimitSpellGroup=3508/0,,0
+1250,[BER] Juggernaut's Mastery of Throwing,1,BER,15564,19,0,0,1,1,0,,0,1,15564,1,,SkillDamageAmount=68/51,,0
+1251,[BER] Furious Rampage,1,BER,15567,19,0,0,1,1,0,,0,1,15567,1,,,Furious Rampage,1200
+1252,[BER] Battle Stomp,1,BER,15569,19,0,0,1,1,0,,0,1,15569,1,,,Battle Stomp,60
+1253,[BER] Communion of Blood,1,BER,15570,19,0,0,1,1,0,,0,1,15570,1,,,Communion of Blood,600
+1254,[NEC] Hastened Dying Grasp,1,NEC,15571,19,0,0,1,1,0,,0,1,15571,1,,HastenedAASkill=180/351,,0
+1255,Rest the Dead,1,SHD/NEC,15574,15,0,0,4,4,0,,0,4,15574,1,,,Rest the Dead,4
+1256,Extended Encroaching Darkness,1,SHD/NEC,15579,19,0,0,1,1,0,,0,1,15579,1,,SpellDurationIncByTic=2/0; LimitSpell=16106/0,,0
+1257,[NEC] Hand of Death,1,NEC,15582,19,0,0,1,1,0,,0,1,15582,1,,,Hand of Death,600
+1258,[NEC] Quickened Levant,1,NEC,15591,19,0,0,1,1,0,,0,1,15591,1,,IncreaseSpellHaste=10/0; LimitSpell=16839/0,,0
+1259,[NEC] Cascade of Decay,1,NEC,15594,19,0,0,1,1,0,,0,1,15594,1,,,Cascade of Decay,30
+1261,[WIZ] Hastened Fury of the Gods,1,WIZ,15598,19,0,0,1,1,0,,0,1,15598,1,,HastenedAASkill=180/759; HastenedAASkill=180/1150; HastenedAASkill=180/1151; HastenedAASkill=180/1152,,0
+1262,[WIZ] Lower Element,1,WIZ,15601,19,0,0,1,1,0,,0,1,15601,1,,,Lower Element,6
+1263,[WIZ] Destructive Adept,1,WIZ,15602,19,0,0,1,1,0,,0,1,15602,1,,ImprovedDamage=1/0; LimitSpellType=0/0; LimitInstant=1/0; LimitManaMin=10/0,,0
+1264,[WIZ] Arcane Fusion,1,WIZ,15609,19,0,0,1,1,0,,0,1,15609,1,,SympatheticProc=10/38134; LimitInstant=1/0; LimitManaMin=10/0; LimitMinLevel=85/0; LimitCastTimeMin=3000/0,,0
+1265,[WIZ] Arcane Destruction,1,WIZ,15611,19,0,0,1,1,0,,0,1,15611,1,,,Arcane Destruction,900
+1266,[WIZ] Force of Flame,1,WIZ,15612,19,0,0,1,1,0,,0,1,15612,1,,,Force of Flame,20
+1267,[WIZ] Force of Ice,1,WIZ,15615,19,0,0,1,1,0,,0,1,15615,1,,,Force of Ice,20
+1269,[BST] Sha's Reprisal,1,BST,15425,19,0,0,1,1,0,,0,1,15425,1,,,Sha's Reprisal,6
+1270,[SHM] Crippling Spirit,1,SHM,15377,19,0,0,1,1,0,,0,1,15377,1,,,Crippling Spirit,420
+1271,[NEC] Quick Damage,1,NEC,15622,19,0,0,1,1,0,,0,1,15622,1,,IncreaseSpellHaste=5/5; LimitEffect=0/0; LimitSpellType=0/0; LimitInstant=1/0,,0
+1272,[ROG] Assassin's Wrath,1,ROG,15625,19,0,0,1,1,0,,0,1,15625,1,,CriticalDamageMob=10/8,,0
+1273,[ROG] Hastened Swiftblade,1,ROG,15634,19,0,0,2,2,0,,0,2,15634,1,,ReduceReuseTimer=1500/0; LimitSpellGroup=12110/0; LimitSpellGroup=12210/0; LimitSpellGroup=12310/0; LimitSpellGroup=12410/0; LimitSpellGroup=12510/0,,0
+1274,[SHD] Improved Explosion of Spite,1,SHD,15639,19,0,0,1,1,0,,0,1,15639,1,,,Explosion of Spite,60
+1275,[SHD] Improved Explosion of Hatred,1,SHD,15640,19,0,0,1,1,0,,0,1,15640,1,,,Explosion of Hatred,60
+1277,[SHD] Soul Touch,1,SHD,15642,19,0,0,1,1,0,,0,1,15642,1,,,Soul Touch,1440
+1278,[SHD] Soul Flay,1,SHD,15643,19,0,0,1,1,0,,0,1,15643,1,,,Soul Flay,600
+1279,[SHD] Ragged Bite of Agony,1,SHD,15646,19,0,0,1,1,0,,0,1,15646,1,,,Ragged Bite of Agony,60
+1281,[BER] Everburn,1,BER,15648,19,0,0,1,1,0,,0,1,15648,1,,DamageModifier=3/74,,0
+1282,[PAL] Marr's Gift,1,PAL,15619,19,0,0,1,1,0,,0,1,15619,1,,,Marr's Gift,600
+1300,[WIZ] Fundament of Intellect,1,WIZ,9100,15,0,0,9,9,0,,0,9,9100,1,,ManaPool=10/0; RaiseStatCap=1/5,,0
+1301,[NEC] Fundament of Intellect,1,NEC,9109,15,0,0,9,9,0,,0,9,9109,1,,TotalHP=10/0; RaiseStatCap=1/1,,0
+1302,[MAG] Fundament of Intellect,1,MAG,9118,15,0,0,9,9,0,,0,9,9118,1,,ManaPool=10/0; RaiseStatCap=1/5,,0
+1303,[ENC] Fundament of Intellect,1,ENC,9127,15,0,0,9,9,0,,0,9,9127,1,,TotalHP=10/0; RaiseStatCap=1/5,,0
+1304,[CLR] Fundament of Wisdom,1,CLR,9136,15,0,0,9,9,0,,0,9,9136,1,,ManaPool=10/0; RaiseStatCap=1/4,,0
+1305,[DRU] Fundament of Wisdom,1,DRU,9145,15,0,0,9,9,0,,0,9,9145,1,,ManaPool=10/0; RaiseStatCap=1/4,,0
+1306,[SHM] Fundament of Wisdom,1,SHM,9154,15,0,0,9,9,0,,0,9,9154,1,,TotalHP=10/0; RaiseStatCap=1/1,,0
+1307,[RNG] Fundament of Power,1,RNG,9163,15,0,0,9,9,0,,0,9,9163,1,,TotalHP=10/0; RaiseStatCap=1/3,,0
+1308,[SHD] Fundament of Power,1,SHD,9172,15,0,0,9,9,0,,0,9,9172,1,,TotalHP=10/0; RaiseStatCap=1/0,,0
+1309,[PAL] Fundament of Power,1,PAL,9181,15,0,0,9,9,0,,0,9,9181,1,,TotalHP=10/0; RaiseStatCap=1/0,,0
+1310,[BRD] Fundament of Power,1,BRD,9190,15,0,0,9,9,0,,0,9,9190,1,,TotalHP=10/0; RaiseStatCap=1/0,,0
+1311,[BST] Fundament of Power,1,BST,9199,15,0,0,9,9,0,,0,9,9199,1,,ManaPool=10/0; RaiseStatCap=1/0,,0
+1312,[WAR] Fundament of Combat,1,WAR,9208,15,0,0,9,9,0,,0,9,9208,1,,TotalHP=10/0; RaiseStatCap=1/0,,0
+1313,[MNK] Fundament of Combat,1,MNK,9217,15,0,0,9,9,0,,0,9,9217,1,,EndurancePool=10/0; RaiseStatCap=1/0,,0
+1314,[BER] Fundament of Combat,1,BER,9226,15,0,0,9,9,0,,0,9,9226,1,,TotalHP=10/0; RaiseStatCap=1/0,,0
+1315,[ROG] Fundament of Combat,1,ROG,9235,15,0,0,9,9,0,,0,9,9235,1,,EndurancePool=10/0; RaiseStatCap=1/0,,0
+1350,[WIZ] Fundament: First Spire of Arcanum,1,WIZ,9300,15,0,0,3,3,0,,0,3,9300,1,,,First Spire of Arcanum,600
+1351,[WIZ] Fundament: Second Spire of Arcanum,1,WIZ,9303,15,0,0,3,3,0,,0,3,9303,1,,,Second Spire of Arcanum,600
+1352,[WIZ] Fundament: Third Spire of Arcanum,1,WIZ,9306,15,0,0,3,3,0,,0,3,9306,1,,,Third Spire of Arcanum,600
+1360,[MNK] Fundament: First Spire of the Sensei,1,MNK,9309,15,0,0,3,3,0,,0,3,9309,1,,,First Spire of the Sensei,600
+1361,[MNK] Fundament: Second Spire of the Sensei,1,MNK,9312,15,0,0,3,3,0,,0,3,9312,1,,,Second Spire of the Sensei,600
+1362,[MNK] Fundament: Third Spire of the Sensei,1,MNK,9315,15,0,0,3,3,0,,0,3,9315,1,,,Third Spire of the Sensei,600
+1370,[MAG] Fundament: First Spire of the Elements,1,MAG,9318,15,0,0,3,3,0,,0,3,9318,1,,,First Spire of Elements,600
+1371,[MAG] Fundament: Second Spire of the Elements,1,MAG,9321,15,0,0,3,3,0,,0,3,9321,1,,,Second Spire of Elements,600
+1372,[MAG] Fundament: Third Spire of the Elements,1,MAG,9324,15,0,0,3,3,0,,0,3,9324,1,,,Third Spire of Elements,600
+1380,[ENC] Fundament: First Spire of Enchantment,1,ENC,9327,15,0,0,3,3,0,,0,3,9327,1,,,First Spire of Enchantment ,600
+1381,[ENC] Fundament: Second Spire of Enchantment,1,ENC,9330,15,0,0,3,3,0,,0,3,9330,1,,,Second Spire of Enchantment,600
+1382,[ENC] Fundament: Third Spire of Enchantment,1,ENC,9333,15,0,0,3,3,0,,0,3,9333,1,,,Third Spire of Enchantment ,600
+1390,[NEC] Fundament: First Spire of Necromancy,1,NEC,9336,15,0,0,3,3,0,,0,3,9336,1,,,First Spire of Necromancy,600
+1391,[NEC] Fundament: Second Spire of Necromancy,1,NEC,9339,15,0,0,3,3,0,,0,3,9339,1,,,Second Spire of Necromancy,600
+1392,[NEC] Fundament: Third Spire of Necromancy,1,NEC,9342,15,0,0,3,3,0,,0,3,9342,1,,,Third Spire of Necromancy,600
+1400,[WAR] Fundament: First Spire of the Warlord,1,WAR,9345,15,0,0,3,3,0,,0,3,9345,1,,,First Spire of the Warlord,600
+1401,[WAR] Fundament: Second Spire of the Warlord,1,WAR,9348,15,0,0,3,3,0,,0,3,9348,1,,,Second Spire of the Warlord,600
+1402,[WAR] Fundament: Third Spire of the Warlord,1,WAR,9351,15,0,0,3,3,0,,0,3,9351,1,,,Third Spire of the Warlord,600
+1403,Sturdy Companion,1,SHD/SHM/NEC/MAG/ENC/BST,9503,15,0,0,10,10,0,,0,10,9503,1,,PetMeleeMitigation=100/0,,0
+1404,Extended Swarm,1,CLR/SHD/DRU/SHM/NEC/WIZ/MAG/ENC/BST,9506,15,0,0,4,4,0,,0,4,9506,1,,SwarmPetDuration=1000/0; LimitEffect=152/0,,0
+1405,Twincast,1,CLR/DRU/SHM/NEC/WIZ/MAG/ENC,9509,15,0,0,5,5,0,,0,5,9509,1,,FcTwincast=1/0; LimitInstant=1/0; LimitSpellType=0/0; LimitMaxLevel=254/0; LimitManaMin=10/0; LimitEffect=0/0; LimitCombatSkills=0/0; LimitEffect=-152/0; LimitEffect=-39/0,,0
+1406,[MNK] Staff Block,1,MNK,9512,15,0,0,13,13,0,,0,13,9512,1,,TwoHandBluntBlock=1/0,,0
+1410,[ROG] Fundament: First Spire of the Rake,1,ROG,9354,15,0,0,4,4,0,,0,4,9354,1,,,First Spire of the Rake,600
+1411,[ROG] Fundament: Second Spire of the Rake,1,ROG,9357,15,0,0,4,4,0,,0,4,9357,1,,,Second Spire of the Rake,600
+1412,[ROG] Fundament: Third Spire of the Rake,1,ROG,9360,15,0,0,4,4,0,,0,4,9360,1,,,Third Spire of the Rake,600
+1420,[BRD] Fundament: First Spire of the Minstrels,1,BRD,9363,15,0,0,3,3,0,,0,3,9363,1,,,First Spire of the Minstrels,600
+1421,[BRD] Fundament: Second Spire of the Minstrels,1,BRD,9366,15,0,0,3,3,0,,0,3,9366,1,,,Second Spire of the Minstrels,600
+1422,[BRD] Fundament: Third Spire of the Minstrels,1,BRD,9369,15,0,0,3,3,0,,0,3,9369,1,,,Third Spire of the Minstrels,600
+1430,[BST] Fundament: First Spire of the Savage Lord,1,BST,9372,15,0,0,3,3,0,,0,3,9372,1,,,First Spire of the Savage Lord,600
+1431,[BST] Fundament: Second Spire of the Savage Lord,1,BST,9375,15,0,0,3,3,0,,0,3,9375,1,,,Second Spire of the Savage Lord,600
+1432,[BST] Fundament: Third Spire of the Savage Lord,1,BST,9378,15,0,0,3,3,0,,0,3,9378,1,,,Third Spire of the Savage Lord,600
+1433,Extended Ingenuity,1,WAR/MNK/ROG/BER,8232,15,0,0,6,6,0,,0,6,8232,1,,IncreaseSpellDuration=5/5; LimitSpellType=1/0; LimitMinDur=1/0; LimitCombatSkills=0/0; LimitClass=66434/0; LimitEffect=-40/0,,0
+1440,[PAL] Fundament: First Spire of Holiness,1,PAL,9381,15,0,0,3,3,0,,0,3,9381,1,,,First Spire of Holiness,600
+1441,[PAL] Fundament: Second Spire of Holiness,1,PAL,9384,15,0,0,3,3,0,,0,3,9384,1,,,Second Spire of Holiness,600
+1442,[PAL] Fundament: Third Spire of Holiness,1,PAL,9387,15,0,0,3,3,0,,0,3,9387,1,,,Third Spire of Holiness,600
+1450,[SHD] Fundament: First Spire of the Reavers,1,SHD,9390,15,0,0,3,3,0,,0,3,9390,1,,,First Spire of the Reavers,600
+1451,[SHD] Fundament: Second Spire of the Reavers,1,SHD,9393,15,0,0,3,3,0,,0,3,9393,1,,,Second Spire of the Reavers,600
+1452,[SHD] Fundament: Third Spire of the Reavers,1,SHD,9396,15,0,0,3,3,0,,0,3,9396,1,,,Third Spire of the Reavers,600
+1460,[RNG] Fundament: First Spire of the Pathfinders,1,RNG,9399,15,0,0,3,3,0,,0,3,9399,1,,,First Spire of the Pathfinders,600
+1461,[RNG] Fundament: Second Spire of the Pathfinders,1,RNG,9402,15,0,0,3,3,0,,0,3,9402,1,,,Second Spire of the Pathfinders,600
+1462,[RNG] Fundament: Third Spire of the Pathfinders,1,RNG,9405,15,0,0,3,3,0,,0,3,9405,1,,,Third Spire of the Pathfinders,600
+1470,[CLR] Fundament: First Spire of Divinity,1,CLR,9408,15,0,0,3,3,0,,0,3,9408,1,,,First Spire of Divinity,600
+1471,[CLR] Fundament: Second Spire of Divinity,1,CLR,9411,15,0,0,3,3,0,,0,3,9411,1,,,Second Spire of Divinity,600
+1472,[CLR] Fundament: Third Spire of Divinity,1,CLR,9414,15,0,0,3,3,0,,0,3,9414,1,,,Third Spire of Divinity,600
+1480,[DRU] Fundament: First Spire of Nature,1,DRU,9417,15,0,0,3,3,0,,0,3,9417,1,,,First Spire of Nature,600
+1481,[DRU] Fundament: Second Spire of Nature,1,DRU,9420,15,0,0,3,3,0,,0,3,9420,1,,,Second Spire of Nature,600
+1482,[DRU] Fundament: Third Spire of Nature,1,DRU,9423,15,0,0,3,3,0,,0,3,9423,1,,,Third Spire of Nature Effect,600
+1490,[SHM] Fundament: First Spire of Ancestors,1,SHM,9426,15,0,0,3,3,0,,0,3,9426,1,,,First Spire of Ancestors,600
+1491,[SHM] Fundament: Second Spire of Ancestors,1,SHM,9429,15,0,0,3,3,0,,0,3,9429,1,,,Second Spire of Ancestors,600
+1492,[SHM] Fundament: Third Spire of Ancestors,1,SHM,9432,15,0,0,3,3,0,,0,3,9432,1,,,Third Spire of Ancestors,600
+1500,[BER] Fundament: First Spire of Savagery,1,BER,9435,15,0,0,3,3,0,,0,3,9435,1,,,First Spire of Savagery,600
+1501,[BER] Fundament: Second Spire of Savagery,1,BER,9438,15,0,0,3,3,0,,0,3,9438,1,,,Second Spire of Savagery,600
+1502,[BER] Fundament: Third Spire of Savagery,1,BER,9441,15,0,0,3,3,0,,0,3,9441,1,,,Third Spire of Savagery,600
+1503,[PAL] Hallowed Steed,1,PAL,13673,18,0,0,1,1,0,,0,1,13673,1,,,Parade Armored Pegasus,1
+1504,[SHD] Wicked Steed,1,SHD,13674,18,0,0,1,1,0,,0,1,13674,1,,,Battle Armored Onyx Skystrider ,1
+1505,[NEC] Unknown AA 16103,1,NEC,16103,16,0,0,1,1,0,,0,1,16103,1,,,Death Blossom,180
+1580,Divine Companion Aura,1,SHD/SHM/NEC/MAG/ENC/BST,5809,16,0,0,1,1,0,,0,1,5809,1,,,Divine Companion Aura,900
+1662,Spell Casting Mastery,0,PAL/RNG/SHD/BST,1216,16,0,0,4,0,0,,0,4,1216,1,,ReduceManaCost=2/2,,0
+1663,Gift of Mana,0,PAL/RNG/SHD/BST,1219,16,0,0,8,0,0,,0,8,1219,1,,TriggerOnCast=3/8105; LimitMinLevel=65/0; LimitCombatSkills=0/0; LimitMaxLevel=70/0; LimitManaMin=10/0; LimitEffect=0/0; TriggerOnCast=3/8105; LimitMinLevel=65/0; LimitCombatSkills=0/0; LimitMaxLevel=70/0; LimitManaMin=10/0; LimitEffect=100/0; TriggerOnCast=3/8105; LimitMinLevel=65/0; LimitCombatSkills=0/0; LimitMaxLevel=70/0; LimitManaMin=10/0; LimitEffect=79/0; TriggerOnCast=3/8105; LimitMinLevel=65/0; LimitCombatSkills=0/0; LimitMaxLevel=70/0; LimitManaMin=10/0; LimitEffect=147/0,,0
+1664,Twinproc,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/BST/BER,12416,16,0,0,4,4,0,,0,4,12416,1,,FcTwincast=3/0; LimitInstant=1/0; LimitSpellType=0/0; LimitMinLevel=255/0; LimitManaMax=0/0; LimitCombatSkills=0/0; LimitEffect=-152/0; LimitClass=100350/0; LimitEffect=-39/0,,0
+1665,Tactical Mastery,1,PAL/SHD/MNK/BRD/BST,12419,16,0,0,5,5,0,,0,5,12419,1,,StrikeThrough2=15/0,,0
+1666,Group Perfected Levitation,1,RNG/DRU/SHM/WIZ/MAG/ENC/BST,12422,16,0,0,1,1,0,,0,1,12422,1,,,Group Perfected Levitation,12
+1667,Quickened Encroaching Darkness,1,SHD/NEC,6026,16,0,0,3,3,0,,0,3,6026,1,,IncreaseSpellHaste=10/0; LimitSpell=16106/0,,0
+1668,Acute Focus of Arcanum,1,DRU/SHM/NEC/WIZ/MAG/ENC,8260,16,0,0,1,1,0,,0,1,8260,1,,,Acute Focus of Arcanum,600
+1669,Flurry,1,PAL/SHD,5806,16,0,0,8,8,0,,0,8,5806,1,,Flurry=7/0,,0
+1680,[WAR] Hastened Flash of Anger,1,WAR,13905,18,0,0,1,1,0,,0,1,13905,1,,ReduceReuseTimer=24000/0; LimitSpellGroup=15319/0,,0
+1681,[WAR] Hastened Bazu Roar,1,WAR,13908,18,0,0,1,1,0,,0,1,13908,1,,ReduceReuseTimer=3000/0; LimitSpellGroup=15307/0; LimitSpellGroup=15407/0; LimitSpellGroup=15507/0; LimitSpellGroup=15607/0,,0
+1682,[WAR] Hastened Scowl,1,WAR,13911,18,0,0,1,1,0,,0,1,13911,1,,ReduceReuseTimer=3000/0; LimitSpellGroup=16005/0; ReduceReuseTimer=3000/0; LimitSpellGroup=15405/0; LimitSpellGroup=15505/0; LimitSpellGroup=15605/0; LimitClass=2/0,,0
+1683,[WAR] Hastened Mark of the Mage Hunter,1,WAR,13917,18,0,0,1,1,0,,0,1,13917,1,,HastenedAASkill=120/606,,0
+1684,Knowledge of Alaran Culture,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,14017,18,0,0,1,1,0,,0,1,14017,1,,TotalHP=10/0,,0
+1685,Knowledge of Alaran Culture - Advanced,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,14018,18,0,0,1,1,0,,0,1,14018,1,,TotalHP=10/0,,0
+1686,[WAR] Brace For Impact,1,WAR,14019,18,0,0,1,1,0,,0,1,14019,1,,,Brace For Impact,900
+1687,Summon Tome of the Hero's Journey,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,14371,0,1,0,1,0,0,,0,0,,,,,,
+1800,[ENC] Enchant Planar Alloy,1,ENC,14373,19,1,0,1,0,0,,0,1,14373,1,,,Enchant Planar Alloy,3600
+1801,[ENC] Mass Enchant Planar Alloy,1,ENC,14374,19,1,0,1,0,0,,0,1,14374,1,,,Mass Enchant Planar Alloy,28800
+2000,Armor of Experience,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,4700,0,1,0,1,0,0,,0,0,,,,,,
+2001,[WAR] Sneering Grin,1,WAR,15096,19,0,0,1,1,0,,0,1,15096,1,,,Sneering Grin,30
+2002,[WAR] Warlord's Grasp,1,WAR,15099,19,0,0,1,1,0,,0,1,15099,1,,,Warlord's Grasp,45
+2003,[WAR] Hastened Press the Attack,1,WAR,15100,19,0,0,1,1,0,,0,1,15100,1,,HastenedAASkill=2/467,,0
+2004,[WAR] Hastened Rage of Rallos Zek,1,WAR,15105,19,0,0,1,0,0,,0,1,15105,1,,HastenedAASkill=120/131,,0
+2005,[WAR] Hastened Unbroken Attention,1,WAR,15108,19,0,0,1,1,0,,0,1,15108,1,,ReduceReuseTimer=60000/0; LimitSpellGroup=15521/0; LimitClass=2/0,,0
+2006,[WAR] Extended Resplendant Glory,1,WAR,15113,19,0,0,1,1,0,,0,1,15113,1,,SpellDurationIncByTic=3/0; LimitSpellGroup=21778/0; LimitClass=2/0,,0
+2007,[WAR] Wars Sheol's Heroic Blade,1,WAR,15119,19,0,0,1,1,0,,0,1,15119,1,,,Heroic Blade,1200
+2008,[WAR] Hastened Vehement Rage,1,WAR,15120,19,0,0,1,1,0,,0,1,15120,1,,HastenedAASkill=60/800,,0
+2009,[WAR] Hastened Barbed Tongue,1,WAR,15123,19,0,0,1,1,0,,0,1,15123,1,,ReduceReuseTimer=120000/0; LimitSpellGroup=15422/0; LimitClass=2/0,,0
+2010,[WAR] Hastened Shield Topple,1,WAR,15126,19,0,0,1,1,0,,0,1,15126,1,,ReduceReuseTimer=1000/0; LimitSpellGroup=15212/0; LimitClass=2/0,,0
+2011,[WAR] Imperator's Command,1,WAR,15129,19,0,0,1,1,0,,0,1,15129,1,,,Imperator's Command,180
+2012,[WAR] Imperator's Charge,1,WAR,15130,19,0,0,1,1,0,,0,1,15130,1,,,Imperator's Charge,180
+2013,[WAR] Imperator's Precision,1,WAR,15131,19,0,0,1,1,0,,0,1,15131,1,,,Imperator's Precision,180
+2014,[PAL] Hastened Divine Call,1,PAL,15132,19,0,0,1,1,0,,0,1,15132,1,,HastenedAASkill=10/660,,0
+2015,[PAL] Extended Divine Call,1,PAL,15135,19,0,0,1,1,0,,0,1,15135,1,,SpellDurationIncByTic=1/0; LimitSpell=32313/0,,0
+2016,[PAL] Heroic Leap,1,PAL,15136,19,0,0,1,1,0,,0,1,15136,1,,,Heroic Leap,120
+2018,Helix of the Undying,1,PAL/SHD,15146,19,0,0,1,1,0,,0,1,15146,1,,,Helix of the Undying,9
+2019,[PAL] Group Armor of the Inquisitor,1,PAL,15147,19,0,0,1,1,0,,0,1,15147,1,,,Group Armor of the Inquisitor,1200
+2020,[PAL] Quickened Demand For Honor,1,PAL,15150,19,0,0,1,1,0,,0,1,15150,1,,IncreaseSpellHaste=10/0; LimitSpellGroup=10505/0; LimitSpellGroup=10105/0; LimitSpellGroup=10205/0; LimitSpellGroup=10305/0; LimitSpellGroup=10405/0; LimitSpellGroup=10605/0,,0
+2021,[PAL] Extended Sanctification,1,PAL,15153,19,0,0,1,1,0,,0,1,15153,1,,SpellDurationIncByTic=1/0; LimitSpell=4518/0,,0
+2022,[PAL] Extended Speed of the Savior,1,PAL,15154,19,0,0,1,1,0,,0,1,15154,1,,SpellDurationIncByTic=1/0; LimitSpell=32312/0,,0
+2023,[PAL] Extended Preservation of Marr,1,PAL,15155,19,0,0,1,1,0,,0,1,15155,1,,SpellDurationIncByTic=1/0; LimitSpellGroup=10320/0; LimitSpellGroup=10420/0; LimitSpellGroup=10520/0,,0
+2024,[PAL] Extended Shield of Brilliance,1,PAL,15158,19,0,0,1,1,0,,0,1,15158,1,,SpellDurationIncByTic=1/0; LimitSpellGroup=32307/0,,0
+2025,[PAL] Extended Blessing of the Faithful,1,PAL,15159,19,0,0,1,1,0,,0,1,15159,1,,SpellDurationIncByTic=1/0; LimitSpellGroup=27537/0,,0
+2026,[PAL] Hastened Speed of the Savior,1,PAL,15162,19,0,0,1,1,0,,0,1,15162,1,,HastenedAASkill=120/659,,0
+2028,[PAL] Hastened Shield of Brilliance,1,PAL,15168,19,0,0,1,1,0,,0,1,15168,1,,HastenedAASkill=60/657,,0
+2031,[SHD] Purity of Death,1,SHD,15177,19,0,0,1,1,0,,0,1,15177,1,,,Purity of Death,180
+2032,[SHD] Quickened Scourge Skin,1,SHD,15179,19,0,0,1,1,0,,0,1,15179,1,,IncreaseSpellHaste=10/0; LimitSpell=21804/0; LimitSpell=38280/0,,0
+2034,[SHD] Gift of the Quick Spear,1,SHD,15193,19,0,0,1,1,0,,0,1,15193,1,,,Gift of the Quick Spear,600
+2035,[SHD] Extended Provocation for Power,1,SHD,15194,19,0,0,1,1,0,,0,1,15194,1,,SpellDurationIncByTic=1/0; LimitSpellGroup=13407/0; LimitSpellGroup=13507/0,,0
+2036,[RNG] Quickened Auspice of the Hunter,1,RNG,15253,19,0,0,1,1,0,,0,1,15253,1,,IncreaseSpellHaste=10/0; LimitSpellGroup=32322/0,,0
+2037,[RNG] Chameleon's Gift,1,RNG,15304,19,0,0,1,1,0,,0,1,15304,1,,,Chameleon's Gift,360
+2040,[RNG] Hastened Enraging Kicks,1,RNG,15283,19,0,0,1,1,0,,0,1,15283,1,,ReduceReuseTimer=1000/0; LimitSpellGroup=11402/0; LimitSpellGroup=11502/0; LimitSpellGroup=11441/0; LimitSpellGroup=11541/0; LimitSpellGroup=11641/0,,0
+2041,[RNG] Close Combat Mastery,1,RNG,15288,19,0,0,1,1,0,,0,1,15288,1,,SkillDamageAmount=50/0; SkillDamageAmount=50/1; SkillDamageAmount=100/2; SkillDamageAmount=100/3; SkillDamageAmount=50/36; SkillDamageAmount=100/77,,0
+2042,[RNG] Quickened Cover Tracks,1,RNG,15295,19,0,0,1,1,0,,0,1,15295,1,,IncreaseSpellHaste=10/0; LimitSpellGroup=21654/0,,0
+2045,[CLR] Shield of Reverence,1,CLR,15338,19,0,0,1,1,0,,0,1,15338,1,,,Shield of Reverence,600
+2046,[CLR] Extended Healing Frenzy,1,CLR,15342,19,0,0,1,1,0,,0,1,15342,1,,SpellDurationIncByTic=1/0; LimitSpellGroup=23605/0,,0
+2047,[CLR] Call of the Herald,1,CLR,15343,19,0,0,1,1,0,,0,1,15343,1,,,Call of the Herald,300
+2048,Covenant of Spirit,1,DRU/SHM,15356,19,0,0,1,1,0,,0,1,15356,1,,DivineSave=20/4544,,0
+2049,[SHM] Talisman of Celerity,1,SHM,15357,19,0,0,1,1,0,,0,1,15357,1,,,Talisman of Celerity,2
+2050,[SHM] Extended Spiritual Blessing,1,SHM,15358,19,0,0,1,1,0,,0,1,15358,1,,SpellDurationIncByTic=1/0; LimitSpellGroup=32350/0,,0
+2051,Rejuvenation of Spirit,1,DRU/SHM,15362,19,0,0,1,1,0,,0,1,15362,1,,,Rejuvenation of Spirit,20
+2053,[SHM] Hastened Turgur's Swarm,1,SHM,15371,19,0,0,1,1,0,,0,1,15371,1,,HastenedAASkill=1/3729,,0
+2054,Shielding of Spirits,1,CLR/DRU/SHM/BST,15374,19,0,0,1,1,0,,0,1,15374,1,,StunResist=20/0,,0
+2055,[DRU] Hastened Lunar Healing,1,DRU,15383,19,0,0,1,1,0,,0,1,15383,1,,ReduceReuseTimer=1000/0; LimitSpellGroup=5132/0; LimitSpellGroup=5232/0; LimitSpellGroup=5332/0; LimitSpellGroup=5432/0; LimitSpellGroup=5532/0; LimitSpellGroup=5032/0; LimitSpellGroup=5632/0,,0
+2056,[DRU] Quickened Blessing of Ro,1,DRU,15389,19,0,0,1,1,0,,0,1,15389,1,,IncreaseSpellHaste=16/0; LimitSpellGroup=23575/0,,0
+2057,[DRU] Hastened Wall of Wind,1,DRU,15403,19,0,0,1,1,0,,0,1,15403,1,,HastenedAASkill=10/8604,,0
+2059,[BST] Quickened Focused Paragon of Spirit,1,BST,15406,19,0,0,1,1,0,,0,1,15406,1,,IncreaseSpellHaste=10/10; LimitSpellGroup=37097/0,,0
+2060,[MAG] Elemental Ward,1,MAG,15200,19,0,0,1,1,0,,0,1,15200,1,,,Elemental Shield,1080
+2061,[MAG] Cloak of Shadows,1,MAG,15203,19,0,0,1,1,0,,0,1,15203,1,,,Cloak of Shadows,480
+2062,[MAG] Hastened Elemental Union,1,MAG,15204,19,0,0,1,1,0,,0,1,15204,1,,HastenedAASkill=60/390,,0
+2063,[MAG] Hastened Virulent Talon,1,MAG,15207,19,0,0,1,1,0,,0,1,15207,1,,HastenedAASkill=60/323,,0
+2064,Wind of Malosinete,1,SHM/MAG,15210,19,0,0,1,1,0,,0,1,15210,1,,,Wind of Malosinete,120
+2065,[MAG] Mana Reserve,1,MAG,15213,19,0,0,1,1,0,,0,1,15213,1,,,Mana Reserve,1080
+2066,[MAG] Second Wind Ward,1,MAG,15214,19,0,0,1,1,0,,0,1,15214,1,,,Second Wind Ward,1800
+2076,[MAG] Steel Vengeance,1,MAG,15217,19,0,0,1,1,0,,0,1,15217,1,,TriggerOnCast=10/38319; LimitSpellGroup=11006/0; LimitSpellGroup=7108/0; LimitSpellGroup=7208/0; LimitSpellGroup=7308/0; LimitSpellGroup=7408/0; LimitSpellGroup=7508/0; LimitSpellGroup=7608/0,,0
+2077,[MAG] Extended Vapor Core,1,MAG,15220,19,0,0,1,1,0,,0,1,15220,1,,SpellDurationIncByTic=1/0; LimitSpellGroup=11065/0,,0
+2078,[MAG] Extended Stone Core,1,MAG,15223,19,0,0,1,1,0,,0,1,15223,1,,SpellDurationIncByTic=1/0; LimitSpellGroup=11067/0,,0
+2079,[MAG] Extended Fire Core,1,MAG,15226,19,0,0,1,1,0,,0,1,15226,1,,SpellDurationIncByTic=1/0; LimitSpellGroup=11064/0,,0
+2080,[MAG] Extended Ice Core,1,MAG,15229,19,0,0,1,1,0,,0,1,15229,1,,SpellDurationIncByTic=1/0; LimitSpellGroup=11066/0,,0
+2081,[MAG] Flames of Power,1,MAG,15232,19,0,0,1,1,0,,0,1,15232,1,,TriggerOnCast=100/38322; LimitSpellGroup=7518/0,,0
+2200,[ENC] Rune of Banishment,1,ENC,15475,20,0,0,1,1,0,,0,1,15475,1,,,Rune of Banishment,600
+2201,[ENC] Hastened Glyph Spray,1,ENC,15478,19,0,0,1,1,0,,0,1,15478,1,,HastenedAASkill=120/578,,0
+2202,[ENC] Illusions of Grandeur,1,ENC,15481,19,0,0,1,0,0,,0,1,15481,1,,,Illusions of Grandeur,1080
+2203,[ENC] Illusory Ally,1,ENC,15482,19,0,0,1,1,0,,0,1,15482,1,,,Illusory Ally,1800
+2204,[ENC] Gracious Gift of Mana,1,ENC,15485,19,0,0,1,0,0,,0,1,15485,1,,TriggerOnCast=10/38417; LimitMinLevel=96/0; LimitCombatSkills=0/0; LimitMaxLevel=105/0; LimitManaMin=10/0; LimitEffect=0/0; TriggerOnCast=10/38417; LimitMinLevel=96/0; LimitCombatSkills=0/0; LimitMaxLevel=105/0; LimitManaMin=10/0; LimitEffect=100/0; TriggerOnCast=10/38417; LimitMinLevel=96/0; LimitCombatSkills=0/0; LimitMaxLevel=105/0; LimitManaMin=10/0; LimitEffect=79/0; TriggerOnCast=10/38417; LimitMinLevel=96/0; LimitCombatSkills=0/0; LimitMaxLevel=105/0; LimitManaMin=10/0; LimitEffect=147/0,,0
+2205,[ENC] Chromatic Haze,1,ENC,15486,19,0,0,1,0,0,,0,1,15486,1,,,Chromatic Haze,600
+2206,[ENC] Blanket of Forgetfulness,1,ENC,15489,19,0,0,1,1,0,,0,1,15489,1,,,Blanket of Forgetfulness,10
+2207,[ENC] Ethereal Manipulation,1,ENC,15490,19,0,0,1,1,0,,0,1,15490,1,,,Ethereal Manipulation,10
+2208,[ENC] Quick Mezz,1,ENC,15493,19,0,0,1,1,0,,0,1,15493,1,,IncreaseSpellHaste=10/0; LimitEffect=31/0,,0
+2209,[ENC] Reactive Rune,1,ENC,15496,19,0,0,1,1,0,,0,1,15496,1,,,Reactive Rune,1800
+2220,Ancient Attunement,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,22200,0,0,0,1,1,1,22200,0,0,,,,,,
+2234,[RNG] Cover Tracks,1,RNG,10368,16,0,0,3,3,0,,0,3,10368,1,,,Cover Tracks,900
+2235,[RNG] Imbued Ferocity,1,RNG,10387,16,0,0,1,1,0,,0,1,10387,1,,,Imbued Ferocity,1200
+2709,[NEC] Perfected Dead Man Floating,1,NEC,13692,18,0,0,1,1,0,,0,1,13692,1,,,Perfected Dead Man Floating,12
+2899,[NEC] Levant,1,NEC,10700,16,0,0,1,1,0,,0,1,10700,1,,,Levant,10
+3000,[ENC] Auroria Mastery,1,ENC,6987,15,0,0,1,1,0,,0,1,6987,1,,AdditionalAura=1/0,,0
+3202,[ENC] Pet Discipline,1,ENC,7733,14,0,0,1,1,0,,0,1,7733,1,,PetDiscipline=1/0; AddPetCommand=1/31; AddPetCommand=1/32; AddPetCommand=1/33; AddPetCommand=1/15; AddPetCommand=1/16; AddPetCommand=1/17; AddPetCommand=1/18; AddPetCommand=1/19; AddPetCommand=1/20,,0
+3203,[ENC] Enchant Palladium Trio,1,ENC,7736,9,1,0,1,0,0,,0,0,,,,,,
+3204,[ENC] Mass Enchant Palladium,1,ENC,7737,9,1,0,1,0,0,,0,0,,,,,,
+3205,[ENC] Greater Mass Enchant Palladium,1,ENC,7738,9,1,0,1,0,0,,0,0,,,,,,
+3206,[ENC] Enchant Dwerium,1,ENC,7732,14,1,0,1,0,0,,0,1,7732,1,,,Enchant Dwerium,3600
+3207,[ENC] Mass Enchant Dwerium,1,ENC,7734,14,1,0,1,0,0,,0,1,7734,1,,,Mass Enchant Dwerium,28800
+3208,[ENC] Enchant Palladium,1,ENC,7735,9,1,0,1,0,0,,0,0,,,,,,
+3209,[ENC] Enchant Temporite,1,ENC,7739,0,1,0,1,0,0,,0,0,,,,,,
+3210,[ENC] Mass Enchant Temporite,1,ENC,7740,0,1,0,1,0,0,,0,0,,,,,,
+3211,[RNG] Nature's Reprieve,1,RNG,10388,16,0,0,2,2,0,,0,2,10388,1,,DefensiveProc=21850/0,,0
+3212,[CLR] Hastened Divine Intervention,1,CLR,10358,16,0,0,4,4,0,,0,4,10358,1,,ReduceReuseTimer=10000/0; LimitSpell=1546/0; ReduceReuseTimer=10000/0; LimitSpellGroup=4357/0; LimitSpellGroup=4457/0; LimitSpellGroup=4557/0; LimitSpellGroup=4657/0; LimitClass=4/0,,0
+3213,[WAR] Projection of Fury,1,WAR,10351,16,0,0,2,2,0,,0,2,10351,1,,,Projection of Fury,600
+3214,[CLR] Improved Atone,1,CLR,10364,16,0,0,5,5,0,,0,5,10364,1,,FcBaseEffects=-5/0; LimitSpell=480/0; LimitSpellGroup=4352/0; LimitSpellGroup=4452/0,,0
+3215,[SHD] Projection of Doom,1,SHD,10352,16,0,0,2,2,0,,0,2,10352,1,,,Projection of Doom,600
+3216,[PAL] Projection of Piety,1,PAL,10353,16,0,0,2,2,0,,0,2,10353,1,,,Projection of Piety,600
+3217,[RNG] Hastened Jolting Kicks,1,RNG,12500,16,0,0,5,5,0,,0,5,12500,1,,ReduceReuseTimer=1000/0; LimitSpellGroup=4004/0; LimitSpellGroup=11202/0; LimitSpellGroup=11302/0; LimitSpellGroup=11402/0; LimitSpellGroup=11502/0; LimitSpellGroup=11602/0,,0
+3218,[ENC] Enchant Cosgrite,1,ENC,7741,0,1,0,1,0,0,,0,0,,,,,,
+3219,[ENC] Mass Enchant Cosgrite,1,ENC,7742,0,1,0,1,0,0,,0,0,,,,,,
+3500,[PAL] Blessing of Light,1,PAL,10355,16,0,0,7,7,0,,0,7,10355,1,,ImprovedDamage=50/50; LimitSpellGroup=19/0; LimitCastTimeMax=0/0; LimitSpellClass=3/0; LimitSpellSubclass=48/0; LimitSpellGroup=-21768/0,,0
+3506,[BRD] Fierce Eye,1,BRD,5717,14,0,0,1,1,0,,0,1,5717,1,,,Fierce Eye Effect,600
+3511,[MNK] Punch Mastery,1,MNK,6020,14,0,0,24,24,0,,0,24,6020,1,,SkillDamageAmount=15/21; SkillDamageAmount=15/23; SkillDamageAmount=30/52; SkillDamageAmount=15/28,,0
+3512,Companion's Durability,1,SHD/SHM/NEC/MAG/ENC/BST,6051,14,0,0,13,13,0,,0,13,6051,1,,PetMaxHP=1/0,,0
+3513,[ROG] Rake's Deadly Aim,1,ROG,6322,14,0,0,3,3,0,,0,3,6322,1,,Accuracy=5/51,,0
+3514,[ROG] Rogue's Fury,1,ROG,6325,14,0,0,6,6,0,,0,6,6325,1,,,Rogue's Fury,600
+3515,[ROG] Envenomed Blades,1,ROG,6328,14,0,0,11,11,0,,0,11,6328,1,,,Envenomed Blades,600
+3516,[MAG] Companion of Necessity,1,MAG,6333,14,0,0,3,3,0,,0,3,6333,1,,,Companion of Necessity,600
+3517,[ROG] Rake's Powerful Aim,1,ROG,6334,14,0,0,3,3,0,,0,3,6334,1,,DamageModifier=5/51,,0
+3518,[BRD] Hastened Cacophony,1,BRD,6337,14,0,0,10,10,0,,0,10,6337,1,,HastenedAASkill=60/553,,0
+3519,[BRD] Hastened Funeral Dirge,1,BRD,6340,14,0,0,7,7,0,,0,7,6340,1,,HastenedAASkill=180/777,,0
+3520,[MNK] Master's Hastened Combination,1,MNK,6343,14,0,0,6,6,0,,0,6,6343,1,,HastenedAASkill=5/468; HastenedAASkill=5/469; HastenedAASkill=5/470,,0
+3521,Hastened Silent Casting,1,CLR/DRU/SHM/NEC/WIZ/MAG/ENC,6346,14,0,0,7,0,0,,0,7,6346,1,,HastenedAASkill=180/494,,0
+3522,Hastened Silent Casting,0,NEC/WIZ/MAG/ENC,6349,14,0,0,8,0,0,,0,8,6349,1,,HastenedAASkill=180/500,,0
+3525,[BER] Precise Blow,1,BER,5776,14,0,0,7,7,0,,0,7,5776,1,,CriticalHitChance=5/-1,,0
+3550,[ENC] Beguiler's Banishment,1,ENC,5849,14,0,0,3,3,0,,0,3,5849,1,,,Beguiler's Banishment,12
+3551,[ENC] Beguiler's Directed Banishment,1,ENC,5870,14,0,0,1,1,0,,0,1,5870,1,,,Beguiler's Directed Banishment,6
+3600,[WAR] Rapid Defiance,1,WAR,6136,10,1,0,1,0,0,,0,0,,,,,,
+3646,[WAR] Blast of Anger,1,WAR,6135,14,0,0,4,4,0,,0,4,6135,1,,,Blast of Anger,180
+3676,[PAL] Gift of Life,1,PAL,10354,16,0,0,2,2,0,,0,2,10354,1,,,Gift of Life,4320
+3701,[BRD] Dirge of the Sleepwalker,1,BRD,6200,14,0,0,7,7,0,,0,7,6200,1,,,Dirge of the Sleepwalker,600
+3702,[BRD] Quick Time,1,BRD,6201,14,0,0,3,3,0,,0,3,6201,1,,,Quick Time,900
+3703,[BRD] Steady Hands ,1,BRD,6202,14,0,0,3,3,0,,0,3,6202,1,,RaiseSkillCap=10/35,,0
+3704,[BRD] Selo's Sonata,1,BRD,6205,14,0,0,1,1,0,,0,1,6205,1,,,Selo's Sonata,5
+3705,Companion's Blessing ,1,SHD/SHM/NEC/MAG/ENC/BST,6206,14,0,0,13,13,0,,0,13,6206,1,,,Companion's Blessing,900
+3706,[BST] Hastened Bestial Alignment ,1,BST,6209,14,0,0,5,5,0,,0,5,6209,1,,HastenedAASkill=720/245,,0
+3707,Fortify Companion ,1,SHD/SHM/NEC/MAG/ENC/BST,6212,14,0,0,10,10,0,,0,10,6212,1,,,Fortify Companion ,1800
+3708,Burst of Power ,0,PAL/SHD,6215,14,0,0,13,0,0,,0,13,6215,1,,RaiseSkillCap=5/76,,0
+3709,[BST] Pact of the Wurine,1,BST,6218,14,0,0,3,3,0,,0,3,6218,1,,,Pact of the Wurine,1
+3710,[BER] Reckless Abandon ,1,BER,6219,14,0,0,3,3,0,,0,3,6219,1,,,Reckless Abandon,1800
+3711,[PAL] Gift of Resurrection,1,PAL,6222,14,0,0,1,1,0,,0,1,6222,1,,,Gift of Resurrection,25
+3713,Hastened Call of the Wild ,1,DRU/SHM,6228,14,0,0,4,4,0,,0,4,6228,1,,HastenedAASkill=120/404,,0
+3714,[DRU] Protection of Direwood,1,DRU,6232,14,0,0,2,2,0,,0,2,6232,1,,,Protection of Direwood,900
+3716,[ENC] Clinging Root ,1,ENC,6236,14,0,0,5,5,0,,0,5,6236,1,,SpellDurationIncByTic=1/0; LimitEffect=3/0; LimitEffect=99/0; LimitSpellType=0/0; RootBreakChance=50/0,,0
+3718,Critical Affliction,0,CLR/ENC,6240,14,0,0,9,0,0,,0,9,6240,1,,CriticalDoTChance=3/0,,0
+3720,[ENC] Mana Overburn ,1,ENC,6249,14,0,0,10,10,0,,0,10,6249,1,,ReduceReuseTimer=1000/0; LimitSpell=11903/0; ReduceReuseTimer=1000/0; LimitSpell=11904/0; ReduceReuseTimer=1000/0; LimitSpell=11905/0; ReduceReuseTimer=1000/0; LimitSpell=1362/0; ReduceReuseTimer=1000/0; LimitSpell=8032/0; ReduceReuseTimer=1000/0; LimitSpellGroup=6131/0; LimitSpellGroup=6231/0; LimitSpellGroup=6331/0; LimitSpellGroup=6431/0; LimitSpellGroup=6531/0; LimitSpellGroup=6631/0,,0
+3724,Knight's Return Strike ,1,PAL/SHD,6266,14,0,0,3,3,0,,0,3,6266,1,,GiveDoubleRiposte=20/10; RiposteChance=1/0,,0
+3725,[RNG] Hunter's Return Kick ,1,RNG,6269,14,0,0,3,3,0,,0,3,6269,1,,GiveDoubleRiposte=20/30; RiposteChance=1/0,,0
+3726,[ROG] Hastened Ligament Slice ,1,ROG,6272,14,0,0,6,6,0,,0,6,6272,1,,HastenedAASkill=15/672,,0
+3727,[ROG] Knave's Return Strike,1,ROG,6275,14,0,0,4,4,0,,0,4,6275,1,,GiveDoubleRiposte=20/8; RiposteChance=1/0,,0
+3728,[DRU] Storm Strike,1,DRU,6278,14,0,0,13,13,0,,0,13,6278,1,,,Storm Strike,30
+3729,[SHM] Turgur's Swarm,1,SHM,6281,14,0,0,2,2,0,,0,2,6281,1,,,Turgur's Swarm,8
+3730,[SHM] Silent Presence,1,SHM,6282,14,0,0,1,1,0,,0,1,6282,1,,,Silent Presence,1
+3731,[WAR] Infused by Rage ,1,WAR,6283,14,0,0,10,10,0,,0,10,6283,1,,WeaponProc=13200/0,,0
+3732,[WAR] Gut Punch,1,WAR,6286,14,0,0,4,4,0,,0,4,6286,1,,,Gut Punch,45
+3733,[WAR] Warlord's Return Kick,1,WAR,6287,14,0,0,3,3,0,,0,3,6287,1,,GiveDoubleRiposte=20/30; RiposteChance=1/0,,0
+3734,[WIZ] Arcomancy ,1,WIZ,6290,14,0,0,13,13,0,,0,13,6290,1,,,Arcomancy,1
+3800,[CLR] Blessing of Resurrection,1,CLR,6299,14,0,0,1,1,0,,0,1,6299,1,,,Blessing of Resurrection,12
+3801,General Sturdiness,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,6119,14,0,0,21,21,0,,0,21,6119,1,,TotalHP=100/0,,0
+3802,Shield Block,0,RNG/BRD/ROG,6124,12,0,0,10,0,0,,0,7,6127,4,,ShieldBlock=6/0,,0
+3803,[RNG] Hastened Trueshot,1,RNG,6355,14,0,0,7,7,0,,0,7,6355,1,,ReduceReuseTimer=360000/0; LimitSpell=4506/0; ReduceReuseTimer=360000/0; LimitSpellGroup=11122/0; LimitSpellGroup=11222/0; LimitSpellGroup=11322/0; LimitSpellGroup=11522/0,,0
+3804,[RNG] Outrider's Accuracy,1,RNG,6370,14,0,0,7,7,0,,0,7,6370,1,,,Outrider's Accuracy,600
+3805,[MNK] Hastened Mend,1,MNK,4801,14,0,0,11,11,0,,0,11,4801,1,,ReduceSkillTimer=30/32,,0
+3812,Perfected Invisibility,1,WIZ/MAG/ENC,7069,14,0,0,1,1,0,,0,1,7069,1,,,Perfected Invisibility,7
+3813,Spell Casting Reinforcement,0,NEC/WIZ/MAG,6257,14,0,0,5,0,0,,0,5,6257,1,,IncreaseSpellDuration=5/5; LimitSpellType=1/0; LimitMinDur=1/0; LimitSpell=-2741/0; LimitSpell=-16843/0; LimitSpellGroup=-16192/0,,0
+3815,Destructive Cascade,1,SHD/DRU/SHM/NEC/ENC,6375,14,0,0,12,12,0,,0,12,6375,1,,DotCritDmgIncrease=107/0,,0
+3816,Companion's Relocation,1,SHD/SHM/NEC/MAG/ENC/BST,6379,14,0,0,1,1,0,,0,1,6379,1,,,Companion Relocation,5
+3817,[BST] Focused Paragon of Spirits,1,BST,6380,14,0,0,10,10,0,,0,10,6380,1,,,Focused Paragon of Spirit,120
+3818,Companion's Agility,1,SHD/SHM/NEC/MAG/ENC/BST,6383,14,0,0,10,10,0,,0,10,6383,1,,PetAvoidance=5/0,,0
+3819,[BRD] Maestro's Concentration,1,BRD,6386,14,0,0,5,5,0,,0,5,6386,1,,FrontalStunResist=5/0,,0
+3820,[PAL] Blessing of Life,1,PAL,6395,14,0,0,13,13,0,,0,13,6395,1,,WeaponProc=13502/0,,0
+3821,[WIZ] Quickened Harvest of Druzzil,1,WIZ,6503,14,0,0,4,4,0,,0,4,6503,1,,IncreaseSpellHaste=12/0; LimitSpellGroup=3338/0,,0
+3822,[SHD] Chattering Bones,1,SHD,6508,14,0,0,10,10,0,,0,10,6508,1,,,Chattering Bones,600
+3823,[WAR] Warlord's Deadly Aim,1,WAR,6511,14,0,0,3,3,0,,0,3,6511,1,,Accuracy=5/7,,0
+3824,Quickened Call of the Wild,1,DRU/SHM,6514,14,0,0,3,3,0,,0,3,6514,1,,IncreaseSpellHaste=15/0; LimitSpell=5880/0,,0
+3826,[PAL] Force of Disruption,1,PAL,5984,14,0,0,6,6,0,,0,6,5984,1,,,Force of Disruption,30
+3830,[CLR] Hastened Divine Avatar,1,CLR,7100,14,0,0,9,9,0,,0,9,7100,1,,HastenedAASkill=180/254,,0
+3831,[PAL] Hastened Purification,1,PAL,7103,14,0,0,8,8,0,,0,8,7103,1,,HastenedAASkill=432/286; HastenedAASkill=432/10753; HastenedAASkill=432/9101,,0
+3832,[BST] Beastlords Feral Kick,1,BST,7106,14,0,0,3,3,0,,0,3,7106,1,,GiveDoubleRiposte=20/30; RiposteChance=1/0,,0
+3833,Burst of Power ,1,WAR/PAL/RNG/SHD/MNK/BRD/BST/BER,6409,14,0,0,18,18,0,,0,18,6409,1,,RaiseSkillCap=5/76,,0
+3834,[ROG] Burst of Power ,1,ROG,6419,14,0,0,11,11,0,,0,11,6419,1,,RaiseSkillCap=5/76,,0
+3835,Shield Block,0,NEC/WIZ/MAG/ENC,6428,14,0,0,10,0,0,,0,10,6428,1,,ShieldBlock=1/0,,0
+3836,[CLR] Holy Root,1,CLR,6436,14,0,0,6,6,0,,0,6,6436,1,,RootBreakChance=70/0,,0
+3837,Burst of Power ,0,BRD/BST,6060,14,0,0,11,0,0,,0,11,6060,1,,RaiseSkillCap=5/76,,0
+3838,Quickened Suspend Minion,1,SHD/SHM/NEC/MAG/ENC/BST,6445,14,0,0,3,3,0,,0,3,6445,1,,IncreaseSpellHaste=15/0; LimitSpell=3248/0; IncreaseSpellHaste=15/0; LimitSpell=3249/0,,0
+3839,[BER] Quickened Summon Axes,1,BER,6452,14,0,0,3,3,0,,0,3,6452,1,,ReduceReuseTimer=1000/0; LimitSpellClass=7/0; LimitSpellSubclass=35/0; LimitCastTimeMax=2000/0; ReduceReuseTimer=5000/0; LimitSpellClass=7/0; LimitSpellSubclass=35/0; LimitCastTimeMax=10000/0,,0
+3840,[CLR] Recourse of Life,1,CLR,6601,14,0,0,19,19,0,,0,19,6601,1,,TriggerOnCast=5/13519; LimitEffect=21/0,,0
+3841,[MAG] Call Hither,1,MAG,6455,14,0,0,3,3,0,,0,3,6455,1,,,Call Hither,30
+3842,[DRU] Fortified Survival,1,DRU,6458,14,0,0,3,3,0,,0,3,6458,1,,ReduceReuseTimer=30000/0; LimitSpellGroup=5137/0; LimitSpellGroup=5237/0; LimitSpellGroup=5337/0; LimitSpellGroup=5437/0; LimitSpellGroup=5537/0; LimitSpellGroup=5637/0; IncreaseSpellHaste=15/15; LimitSpellGroup=5137/0; LimitSpellGroup=5237/0; LimitSpellGroup=5337/0; LimitSpellGroup=5437/0; LimitSpellGroup=5537/0; LimitSpellGroup=5637/0,,0
+3843,[SHM] Fortified Intervention,1,SHM,6461,14,0,0,3,3,0,,0,3,6461,1,,IncreaseSpellHaste=15/0; LimitSpellGroup=14130/0; LimitSpellGroup=14230/0; LimitSpellGroup=14330/0; LimitSpellGroup=14430/0; LimitSpellGroup=14530/0; LimitSpellGroup=14630/0; ReduceReuseTimer=30000/0; LimitSpellGroup=14130/0; LimitSpellGroup=14230/0; LimitSpellGroup=14330/0; LimitSpellGroup=14430/0; LimitSpellGroup=14530/0; LimitSpellGroup=14630/0,,0
+3865,Planar Durability,1,RNG/MNK,6422,14,0,0,3,3,0,,0,3,6422,1,,MaxHPChange=100/0,,0
+3890,[WIZ] Hastened Force of Will,1,WIZ,7822,16,0,0,6,6,0,,0,6,7822,1,,HastenedAASkill=1/1154,,0
+3891,[MAG] Hastened Burnout,1,MAG,7832,16,0,0,5,5,0,,0,5,7832,1,,HastenedAASkill=60/60,,0
+3892,[MAG] Hastened Rumbling Servant,1,MAG,7828,16,0,0,3,3,0,,0,3,7828,1,,ReduceReuseTimer=2000/0; LimitSpellGroup=7225/0; LimitSpellGroup=7325/0; LimitSpellGroup=7425/0; LimitSpellGroup=7525/0; LimitSpellGroup=7625/0,,0
+3893,[MAG] Extended Rumbling Servant,1,MAG,7827,16,0,0,1,1,0,,0,1,7827,1,,SwarmPetDuration=9000/0; LimitSpellGroup=7225/0; LimitSpellGroup=7325/0; LimitSpellGroup=7425/0,,0
+3899,Furious Leap,1,WAR/BER,6499,14,0,0,1,1,0,,0,1,6499,1,,,Furious Leap,60
+4001,[BER] Undaunted Fury,1,BER,7407,16,0,0,1,1,0,,0,1,7407,1,,ResistFearChance=100/-1,,0
+4002,[BER] Frenzied Volley,1,BER,7818,16,0,0,2,2,0,,0,2,7818,1,,SkillAttackProc=200/51; SkillAttackProc=50/51,Frenzied Volley,0
+4200,Hastened Forceful Rejuvenation,1,CLR/PAL/RNG/SHD/DRU/SHM/NEC/WIZ/MAG/ENC/BST,12475,16,0,0,7,7,0,,0,7,12475,1,,HastenedAASkill=180/7003,,0
+4666,Shield Specialist,1,PAL/SHD,4666,16,0,0,5,5,0,,0,5,4666,1,,ShieldEquipDmgMod=5/0,,0
+5000,Glyph of Courage,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,7000,3,0,1,1,1,1,7000,4,0,,,,,,
+5002,Glyph of Stored Life,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,7002,3,0,1,1,1,1,7002,4,0,,,,,,
+5003,Glyph of Frantic Infusion,1,SHD/SHM/NEC/MAG/ENC/BST,7003,3,0,1,1,1,1,7003,4,0,,,,,,
+5004,Glyph of Angry Thoughts,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,7004,3,0,1,1,1,1,7004,4,0,,,,,,
+5005,Foraging,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,7062,0,0,0,1,1,1,7062,3,0,,,ForageSkill=50/0,,,
+6000,[SHD] Harm Touch,1,SHD,7800,0,0,0,21,21,18,7817,50,3,10786,19,,,Harm Touch,4320
+6001,[PAL] Lay on Hands,1,PAL,7850,0,0,0,21,21,17,7340,41,4,10618,18,,,Lay on Hands,4320
+6002,[RNG] Hunter's Attack Power,1,RNG,6546,3,0,0,34,34,26,6571,0,8,7373,27,ATK=104/0,ATK=108/0,,0
+6106,[WIZ] Sustained Destruction,1,WIZ,6106,16,0,0,6,6,0,,0,6,6106,1,,,Sustained Destruction,4320
+6302,[BER] Hastened Reckless Abandon,1,BER,6302,16,0,0,7,7,0,,0,7,6302,1,,HastenedAASkill=120/3710,,0
+6362,[BER] Hastened Recklessness,1,BER,6362,16,0,0,6,6,0,,0,6,6362,1,,ReduceReuseTimer=120000/0; LimitSpell=5040/0,,0
+6478,[CLR] Hastened Blessing of Resurrection,1,CLR,6478,16,0,0,3,3,0,,0,3,6478,1,,HastenedAASkill=1/3800,,0
+6481,[CLR] Hastened Divine Resurrection,1,CLR,6481,16,0,0,4,4,0,,0,4,6481,1,,HastenedAASkill=6480/36,,0
+6488,[CLR] Flurry of Life,1,CLR,6488,16,0,0,2,2,0,,0,2,6488,1,,,Flurry of Life,900
+6489,[PAL] Hastened Holyforge,1,PAL,6489,16,0,0,4,4,0,,0,4,6489,1,,ReduceReuseTimer=600000/0; LimitSpell=4500/0; LimitClass=8/0,,0
+6492,[PAL] Inquisitor's Judgement,1,PAL,6492,16,0,0,10,10,0,,0,10,6492,1,,,Inquisitor's Judgment,720
+6988,[BST] Extended Group Bestial Alignment,1,BST,6988,16,0,0,4,4,0,,0,4,6988,1,,SpellDurationIncByTic=1/0; LimitSpellGroup=16439/0; LimitClass=32768/0,,0
+7000,[SHD] Voice of Thule,1,SHD,6639,15,0,0,2,2,0,,0,2,6639,1,,,Voice of Thule,300
+7001,[MNK] Zan Fi's Whistle,1,MNK,7872,15,0,0,10,10,0,,0,10,7872,1,,,Zan Fi's Whistle,600
+7002,[NEC] Summon Remains,1,NEC,9500,15,0,0,1,1,0,,0,1,9500,1,,,Summon Remains,60
+7003,Forceful Rejuvenation,1,CLR/PAL/RNG/SHD/DRU/SHM/NEC/WIZ/MAG/ENC/BST,9502,15,0,0,1,1,0,,0,1,9502,1,,,Forceful Rejuvenation,3600
+7007,[SHD] Summon Remains,1,SHD,9501,15,0,0,1,1,0,,0,1,9501,1,,,Summon Remains,600
+7009,[DRU] Teleport Bind,1,DRU,1419,15,0,0,1,1,0,,0,1,1419,1,,,Teleport Bind,300
+7016,Glyph of the Master,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,7016,3,0,1,1,1,1,7016,5,0,,,,,,
+7017,Glyph of Lost Secrets,1,CLR/PAL/RNG/SHD/DRU/SHM/NEC/WIZ/MAG/ENC/BST,7017,3,0,1,1,1,1,7017,5,0,,,,,,
+7018,Glyph of Genari Might,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,7018,3,0,1,1,1,1,7018,5,0,,,,,,
+7019,Glyph of the Cataclysm,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,7019,3,0,1,1,1,1,7019,5,0,,,,,,
+7025,[BST] Group Shrink,1,BST,7669,15,0,0,1,1,0,,0,1,7669,1,,,Group Shrink,5
+7033,[WAR] Lasting Bravery,1,WAR,7033,16,0,0,4,4,0,,0,4,7033,1,,FcIncreaseNumHits=5/0; LimitSpell=16097/0; LimitSpell=23612/0; LimitSpell=32196/0; LimitSpell=32565/0; LimitUseType=6/0; LimitUseMin=5/0; LimitClass=2/0,,0
+7036,[WAR] Hastened Blast of Anger,1,WAR,7036,16,0,0,5,5,0,,0,5,7036,1,,HastenedAASkill=10/3646,,0
+7050,[MAG] Call of the Hero,1,MAG,1017,15,0,0,2,2,0,,0,2,1017,1,,,Call of the Hero,15
+7060,[BER] Precision of Axes,1,BER,4809,15,0,0,7,7,0,,0,7,4809,1,,Accuracy=40/74,,0
+7070,[BER] Hastened Distraction Attack,1,BER,6941,15,0,0,5,5,0,,0,5,6941,1,,HastenedAASkill=120/962,,0
+7105,Deathly Pact,1,SHD/NEC,976,15,0,0,1,1,0,,0,1,976,1,,ReduceReagentCost=100/0; LimitEffect=33/0,,0
+7106,Planar Durability,1,BRD/ROG/BST,6467,15,0,0,3,3,0,,0,3,6467,1,,MaxHPChange=100/0,,0
+7107,[ROG] Hastened Getaway,1,ROG,7005,15,0,0,4,4,0,,0,4,7005,1,,HastenedAASkill=432/789,,0
+7108,[PAL] Divine Aura,1,PAL,977,15,0,0,1,1,0,,0,1,977,1,,,Divine Aura,600
+7109,[DRU] Hastened Wrath of the Wild,1,DRU,7664,15,0,0,11,11,0,,0,11,7664,1,,HastenedAASkill=10/170,,0
+7689,[CLR] Burst of Life,1,CLR,7689,16,0,0,1,1,0,,0,1,7689,1,,,Burst of Life,180
+7690,[CLR] Spirit Mastery,1,CLR,7690,16,0,0,1,1,0,,0,1,7690,1,,AdditionalAura=1/0,,0
+7695,[SHM] Quickened Blood of Avoling,1,SHM,7695,16,0,0,3,3,0,,0,3,7695,1,,IncreaseSpellHaste=5/0; LimitSpellGroup=14232/0,,0
+7698,[NEC] Dead Man Floating,1,NEC,7698,16,0,0,1,1,0,,0,1,7698,1,,,Dead Man Floating,6
+7699,[NEC] Dread Incarnate,1,NEC,7699,16,0,0,1,1,0,,0,1,7699,1,,ResistFearChance=100/0,,0
+7700,[ROG] Flurry,1,ROG,7700,16,0,0,7,7,0,,0,7,7700,1,,Flurry=7/0,,0
+7703,[NEC] Death Bloom,1,NEC,7703,16,0,0,1,1,0,,0,1,7703,1,,,Death Bloom,600
+7712,[PAL] Disruptive Persecution,1,PAL,7712,16,0,0,3,3,0,,0,3,7712,1,,,Disruptive Persecution,30
+7715,[NEC] Hastened Whisperwind,1,NEC,7715,16,0,0,4,4,0,,0,4,7715,1,,HastenedAASkill=2/901,,0
+7743,[RNG] Hastened Guardian of the Forest,1,RNG,7743,16,0,0,6,6,0,,0,6,7743,1,,HastenedAASkill=90/184,,0
+7746,[RNG] Hastened Flusterbolt,1,RNG,7746,16,0,0,3,3,0,,0,3,7746,1,,ReduceReuseTimer=2000/0; LimitSpellGroup=11233/0; LimitSpellGroup=11333/0; LimitClass=16/0,,0
+7747,[RNG] Volatile Arrow,1,RNG,7747,16,0,0,1,1,0,,0,1,7747,1,,,Volatile Arrow,180
+7748,[RNG] Pathfinder's Grace,1,RNG,7748,16,0,0,3,3,0,,0,3,7748,1,,BaseMovementSpeed=5/0,,0
+7751,[RNG] Hastened Cover Tracks,1,RNG,7751,16,0,0,4,4,0,,0,4,7751,1,,HastenedAASkill=60/2234,,0
+7754,[SHD] Steed of Souls,1,SHD,7754,16,0,0,1,1,0,,0,1,7754,1,,,Steed of Souls,1
+7755,[SHD] Scourge Skin,1,SHD,7755,16,0,0,2,2,0,,0,2,7755,1,,,Scourge Skin,900
+7756,[SHD] Death's Effigy,1,SHD,7756,16,0,0,1,1,0,,0,1,7756,1,,,Death's Effigy,120
+7757,[SHD] Hastened Visage of Death,1,SHD,7757,16,0,0,7,7,0,,0,7,7757,1,,HastenedAASkill=120/9403,,0
+7760,[SHD] Hastened Hate Step,1,SHD,7760,16,0,0,3,3,0,,0,3,7760,1,,HastenedAASkill=2/824,,0
+7801,[BRD] Songwriting,1,BRD,9001,15,0,0,10,10,0,,0,10,9001,1,,RaiseSkillCap=10/58,,0
+7809,Hybrid Research,1,PAL/RNG/SHD/BST,9011,15,0,0,10,10,0,,0,10,9011,1,,RaiseSkillCap=10/58,,0
+7819,Written Prayer,1,CLR/DRU/SHM,9021,15,0,0,10,10,0,,0,10,9021,1,,RaiseSkillCap=10/58,,0
+7925,[BRD] Sionachie's Crescendo,1,BRD,1018,15,0,0,1,1,0,,0,1,1018,1,,,Sionachie's Crescendo,1
+8081,Summon Resupply Agent,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,9000,0,1,0,1,0,0,,0,0,,,,,,
+8130,Summon Clockwork Banker,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,9031,0,1,0,1,0,0,,0,0,,,,,,
+8200,[BRD] Hastened Dirge of the Sleepwalker,1,BRD,10329,16,0,0,3,3,0,,0,3,10329,1,,HastenedAASkill=60/3701,,0
+8201,[BRD] Vainglorious Shout ,1,BRD,10330,16,0,0,3,3,0,,0,3,10330,1,,,Vainglorious Shout,30
+8202,[BRD] Lyre Leap ,1,BRD,10331,16,0,0,1,1,0,,0,1,10331,1,,,Lyre Leap,20
+8203,[BRD] Domination Mastery ,1,BRD,10332,16,0,0,2,2,0,,0,2,10332,1,,SpellDurationIncByTic=1/0; LimitEffect=22/0; LimitClass=256/0,,0
+8204,[BRD] Lyrical Prankster,1,BRD,10333,16,0,0,7,7,0,,0,7,10333,1,,,Lyrical Prankster,120
+8205,[BRD] Selo's Kick ,1,BRD,10336,16,0,0,7,0,0,,0,7,10336,1,,,Selo's Kick,8
+8261,[BRD] A Tune Stuck In Your Head,1,BRD,10339,16,0,0,1,1,0,,0,1,10339,1,,,A Tune Stuck in Your Head,1800
+8262,[BRD] The Show Must Go On,1,BRD,7010,16,0,0,7,7,0,,0,7,7010,1,,SpellEffectResistChance=25/96,,0
+8300,[BST] Spell Casting Subtlety,1,BST,10370,16,0,0,4,4,0,,0,4,10370,1,,ChangeAggro=-5/0,,0
+8301,[BST] Improved Natural Invisibility,1,BST,10373,16,0,0,1,1,0,,0,1,10373,1,,,Improved Natural Invisibility,6
+8302,[BST] Protection of the Warder,1,BST,10374,16,0,0,5,5,0,,0,5,10374,1,,,Protection of the Warder,900
+8303,[BST] Nature's Salve,1,BST,10377,16,0,0,4,4,0,,0,4,10377,1,,,Nature's Salve,60
+8304,[BST] Focus of Animus,1,BST,10380,16,0,0,4,4,0,,0,4,10380,1,,SpellResistReduction=5/0; LimitMaxLevel=85/0; LimitResist=4/0; LimitResist=5/0,,0
+8314,[BRD] Fluid March,1,BRD,8314,16,0,0,4,4,0,,0,4,8314,1,,SpellEffectResistChance=2/3,,0
+8317,[BRD] Hastened Selo's Kick,1,BRD,8317,16,0,0,2,0,0,,0,2,8317,1,,HastenedAASkill=1/8205,,0
+8319,[BRD] Hastened Bellow,1,BRD,8319,16,0,0,3,3,0,,0,3,8319,1,,HastenedAASkill=2/199,,0
+8322,[BRD] Belltone Mind,1,BRD,8322,16,0,0,6,6,0,,0,6,8322,1,,SpellEffectResistChance=15/31,,0
+8325,[ROG] Subtle Blows,1,ROG,8325,16,0,0,7,7,0,,0,7,8325,1,,ChangeAggro=-3/0,,0
+8331,[ROG] Enhanced Thief's Eyes,1,ROG,8331,16,0,0,1,1,0,,0,1,8331,1,,FcBaseEffects=10/0; LimitSpell=8001/0; LimitSpellGroup=12529/0; LimitClass=512/0,,0
+8332,[SHM] Extended Languid Bite,1,SHM,8332,16,0,0,3,3,0,,0,3,8332,1,,SpellDurationIncByTic=1/0; LimitSpellGroup=116121/0,,0
+8335,[SHM] Quickened Malosinete,1,SHM,8335,16,0,0,5,5,0,,0,5,8335,1,,IncreaseSpellHaste=10/0; LimitSpellGroup=16188/0,,0
+8341,[MAG] Drape of Shadows,1,MAG,8341,16,0,0,1,1,0,,0,1,8341,1,,,Drape of Shadows,450
+8342,[MAG] Host in the Shell,1,MAG,8342,16,0,0,2,2,0,,0,2,8342,1,,,Host in the Shell,240
+8347,[ENC] Hastened Mana Draw,1,ENC,8347,16,0,0,3,3,0,,0,3,8347,1,,HastenedAASkill=600/616,,0
+8350,[ENC] Hastened Mezmerization,1,ENC,8350,16,0,0,1,1,0,,0,1,8350,1,,ReduceReuseTimer=1200/0; LimitSpellGroup=6212/0; ReduceReuseTimer=600/0; LimitSpellGroup=6215/0; ReduceReuseTimer=150/0; LimitSpellGroup=6218/0; ReduceReuseTimer=9000/0; LimitSpellGroup=6232/0; ReduceReuseTimer=600/0; LimitSpellGroup=6243/0; ReduceReuseTimer=150/0; LimitSpellGroup=6245/0; ReduceReuseTimer=1200/0; LimitSpellGroup=6412/0; ReduceReuseTimer=600/0; LimitSpellGroup=6415/0; ReduceReuseTimer=150/0; LimitSpellGroup=6418/0; ReduceReuseTimer=9000/0; LimitSpellGroup=6432/0; ReduceReuseTimer=600/0; LimitSpellGroup=6443/0; ReduceReuseTimer=150/0; LimitSpellGroup=6445/0,,0
+8400,[BER] Self Preservation,1,BER,10400,16,0,0,2,2,0,,0,2,10400,1,,,Self Preservation,900
+8401,[BER] Hastened Frenzy,1,BER,10401,16,0,0,4,4,0,,0,4,10401,1,,ReduceReuseTimer=30000/0; LimitSpellGroup=3107/0; LimitSpellGroup=3207/0; LimitSpellGroup=3307/0; LimitSpellGroup=3407/0; LimitSpellGroup=3507/0; LimitSpellGroup=3607/0,,0
+8402,[BER] Extended Havoc,1,BER,10404,16,0,0,2,2,0,,0,2,10404,1,,SpellDurationIncByTic=1/0; LimitSpell=8003/0,,0
+8500,[CLR] Healing Frenzy,1,CLR,10450,16,0,0,7,7,0,,0,7,10450,1,,,Healing Frenzy,900
+8501,Overpowering Strikes,1,CLR/PAL,10453,16,0,0,4,4,0,,0,4,10453,1,,SpellResistReduction=1/1; LimitEffect=21/0; StunBashChance=1/0,,0
+8502,[CLR] Quickened Blessing of Ressurection,1,CLR,10456,16,0,0,3,3,0,,0,3,10456,1,,IncreaseSpellHaste=15/15; LimitSpell=12786/0,,0
+8503,[CLR] Hastened Atonement,1,CLR,10459,16,0,0,3,3,0,,0,3,10459,1,,ReduceReuseTimer=3000/0; LimitSpell=480/0; ReduceReuseTimer=3000/0; LimitSpellGroup=4352/0; LimitSpellGroup=4452/0; LimitSpellGroup=4552/0,,0
+8504,[CLR] Improved Sanctuary,1,CLR,10462,16,0,0,1,1,0,,0,1,10462,1,,,Improved Sanctuary,4320
+8505,[CLR] Blessing of Sanctuary,1,CLR,10463,16,0,0,1,1,0,,0,1,10463,1,,,Blessing of Sanctuary,4320
+8506,[CLR] Hastened Celestial Hammer,1,CLR,10464,16,0,0,6,6,0,,0,6,10464,1,,HastenedAASkill=120/391,,0
+8600,Spirit of Eagle,1,RNG/DRU,10500,16,0,0,1,1,0,,0,1,10500,1,,,Spirit of Eagle,12
+8601,[DRU] Flight of Eagles,1,DRU,10501,16,0,0,1,1,0,,0,1,10501,1,,,Flight of Eagles,1
+8602,[DRU] Egress,1,DRU,10502,16,0,0,2,2,0,,0,2,10502,1,,,Egress,120
+8603,[DRU] Spirits of Nature,1,DRU,10503,16,0,0,4,4,0,,0,4,10503,1,,,Spirits of Nature,600
+8604,[DRU] Wall of Wind,1,DRU,10506,16,0,0,4,4,0,,0,4,10506,1,,,Wall of Wind,120
+8605,[DRU] Hastened Spirit of the Wood,1,DRU,10511,16,0,0,4,4,0,,0,4,10511,1,,HastenedAASkill=60/185; HastenedAASkill=60/10426,,0
+8606,[DRU] Hastened Convergence of Spirits,1,DRU,10514,16,0,0,4,4,0,,0,4,10514,1,,HastenedAASkill=60/519; HastenedAASkill=60/10427,,0
+8700,[ENC] Beam of Slumber,1,ENC,10550,16,0,0,2,2,0,,0,2,10550,1,,,Beam of Slumber,120
+8701,[ENC] Phantasmic Reflex,1,ENC,10551,16,0,0,4,4,0,,0,4,10551,1,,TriggerOnCast=10/16825; LimitEffect=31/0,,0
+8702,[ENC] Friendly Stasis,1,ENC,10557,16,0,0,1,1,0,,0,1,10557,1,,,Friendly Stasis,900
+8703,[ENC] Hastened Self Stasis,1,ENC,10558,16,0,0,4,4,0,,0,4,10558,1,,HastenedAASkill=60/1120,,0
+8704,[ENC] Forceful Banishment,1,ENC,10561,16,0,0,4,4,0,,0,4,10561,1,,SpellResistReduction=5/5; LimitSpell=12576/0; SpellResistReduction=5/5; LimitSpell=12828/0,,0
+8708,[BER] Hastened Cascading Rage,1,BER,6908,16,0,0,4,4,0,,0,4,6908,1,,HastenedAASkill=180/499,,0
+8800,[MAG] Force of Elements,1,MAG,10600,16,0,0,7,7,0,,0,7,10600,1,,,Force of Elements,20
+8801,Aspect of Zomm,1,WIZ/MAG,10603,16,0,0,1,1,0,,0,1,10603,1,,,Aspect of Zomm,6
+8802,[MAG] Extended Shared Health,1,MAG,10610,16,0,0,3,3,0,,0,3,10610,1,,IncreaseRange=25/25; LimitSpellGroup=100265/0,,0
+8900,[MNK] Agile Feet,1,MNK,10650,16,0,0,4,4,0,,0,4,10650,1,,SpellEffectResistChance=1/3,,0
+8901,[MNK] Hastened Defensive Poses,1,MNK,10653,16,0,0,4,4,0,,0,4,10653,1,,ReduceReuseTimer=120000/0; LimitSpell=4502/0; LimitSpell=4509/0,,0
+8902,[MNK] Extended Impenetrable Discipline,1,MNK,10656,16,0,0,2,2,0,,0,2,10656,1,,SpellDurationIncByTic=1/0; LimitSpellGroup=15002/0; LimitSpellGroup=15003/0; LimitClass=128/0,,0
+8903,[MNK] Hastened Destructive Force,1,MNK,10657,16,0,0,7,7,0,,0,7,10657,1,,HastenedAASkill=300/276,,0
+9001,[NEC] Reluctant Benevolence,1,NEC,10701,16,0,0,7,7,0,,0,7,10701,1,,,Reluctant Benevolence,360
+9100,[PAL] Bestow Divine Aura,1,PAL,10752,16,0,0,1,1,0,,0,1,10752,1,,,Divine Aura,600
+9101,[PAL] Blessing of Purification,1,PAL,10753,16,0,0,1,1,0,,0,1,10753,1,,,Blessing of Purification,4320
+9102,Sense the Dead,1,CLR/PAL/NEC,10754,16,0,0,1,1,0,,0,1,10754,1,,,Sense the Dead,5
+9200,[RNG] Hastened Auspice of the Hunter,1,RNG,10800,16,0,0,4,4,0,,0,4,10800,1,,HastenedAASkill=60/462,,0
+9201,[RNG] Clenched Jaw,1,RNG,10803,16,0,0,3,3,0,,0,3,10803,1,,FrontalStunResist=25/0,,0
+9202,[RNG] Scout's Mastery of Fire,1,RNG,10806,16,0,0,4,4,0,,0,4,10806,1,,,Scout's Mastery of Fire,540
+9203,[RNG] Scout's Mastery of Ice,1,RNG,10809,16,0,0,4,4,0,,0,4,10809,1,,,Scout's Mastery of Ice,540
+9205,[RNG] Scout's Mastery of Slashing,1,RNG,10815,16,0,0,5,5,0,,0,5,10815,1,,DamageModifier=2/1; DamageModifier=2/3,,0
+9206,[RNG] Scout's Mastery of Piercing,1,RNG,10818,16,0,0,5,5,0,,0,5,10818,1,,DamageModifier=1/36,,0
+9207,[RNG] Scout's Mastery of Blunt Weapons,1,RNG,10821,16,0,0,5,5,0,,0,5,10821,1,,DamageModifier=2/0; DamageModifier=2/2,,0
+9300,[ROG] Massive Strike,1,ROG,10850,16,0,0,7,7,0,,0,7,10850,1,,SkillAttackProc=100/8,Massive Strike,0
+9301,[ROG] Strikethrough,1,ROG,10853,16,0,0,13,13,0,,0,13,10853,1,,StrikeThrough2=5/0,,0
+9400,[SHD] Hate's Attraction,1,SHD,10900,16,0,0,4,4,0,,0,4,10900,1,,,Hate's Attraction,120
+9401,[SHD] Feigned Minion,1,SHD,10903,16,0,0,3,3,0,,0,3,10903,1,,FeignedMinion=25/0,,0
+9402,[SHD] Hastened Summon Remains,1,SHD,10909,16,0,0,3,3,0,,0,3,10909,1,,HastenedAASkill=60/7007,,0
+9403,[SHD] Visage of Death,1,SHD,10912,16,0,0,6,6,0,,0,6,10912,1,,,Visage of Death,1800
+9404,[SHD] Cascading Theft of Life,1,SHD,10915,16,0,0,4,4,0,,0,4,10915,1,,TriggerOnCast=10/16876; LimitSpellType=0/0; LimitMinLevel=70/0; LimitClass=32/0; LimitManaMin=1/0; LimitInstant=1/0,,0
+9500,[SHM] Extended Sloth,1,SHM,10950,16,0,0,1,1,0,,0,1,10950,1,,SpellDurationIncByTic=1/0; LimitSpellClass=4/0; LimitSpellSubclass=38/0; LimitManaMin=1/0; LimitEffect=11/0; LimitMinDur=2/0,,0
+9501,[SHM] Hastened Ancestral Aid,1,SHM,10951,16,0,0,4,4,0,,0,4,10951,1,,HastenedAASkill=60/447,,0
+9502,[SHM] Hastened Union of Spirits,1,SHM,10954,16,0,0,3,3,0,,0,3,10954,1,,HastenedAASkill=60/662,,0
+9503,[SHM] Group Shrink,1,SHM,10957,16,0,0,1,1,0,,0,1,10957,1,,,Group Shrink,5
+9504,[SHM] Inconspicuous Totem,1,SHM,10958,16,0,0,3,3,0,,0,3,10958,1,,,Inconspicuous Totem,900
+9505,[SHM] Extended Pestilence,1,SHM,10959,16,0,0,4,4,0,,0,4,10959,1,,,Extended Pestilence,600
+9600,[WAR] Hastened Taunt,1,WAR,11000,16,0,0,3,3,0,,0,3,11000,1,,ReduceSkillTimer=1/73,,0
+9601,[WAR] Extended Shield Reflect,1,WAR,11003,16,0,0,1,1,0,,0,1,11003,1,,SpellDurationIncByTic=1/0; LimitEffect=158/0; LimitClass=2/0,,0
+9602,[WAR] Extended Commanding Voice,1,WAR,11004,16,0,0,3,3,0,,0,3,11004,1,,SpellDurationIncByTic=1/0; LimitSpell=8000/0,,0
+9700,[WIZ] Hastened Destruction,1,WIZ,11050,16,0,0,7,7,0,,0,7,11050,1,,HastenedAASkill=360/452; HastenedAASkill=360/6106; HastenedAASkill=360/493,,0
+9701,[WIZ] Netherstep,1,WIZ,11055,16,0,0,1,1,0,,0,1,11055,1,,,Netherstep,20
+9702,[WIZ] Beam of Displacement,1,WIZ,11056,16,0,0,1,1,0,,0,1,11056,1,,,Beam of Displacement,180
+9703,[WIZ] Translocate,1,WIZ,11057,16,0,0,1,1,0,,0,1,11057,1,,,Translocate,10
+9704,[WIZ] Teleport,1,WIZ,11058,16,0,0,1,1,0,,0,1,11058,1,,,Teleport,10
+10367,[WAR] Ageless Enmity,1,WAR,10367,16,0,0,2,2,0,,0,2,10367,1,,,Ageless Enmity,360
+10389,[ROG] Extended Trickery,1,ROG,10389,16,0,0,3,3,0,,0,3,10389,1,,SpellDurationIncByTic=5/0; LimitSpellGroup=16107/0; LimitClass=512/0,,0
+10392,Ageless Enmity,1,PAL/SHD,10392,16,0,0,2,2,0,,0,2,10392,1,,,Ageless Enmity,480
+10393,[PAL] Shackles of Tunare,1,PAL,10393,16,0,0,1,1,0,,0,1,10393,1,,,Shackles of Tunare,2
+10394,[PAL] Beacon of the Righteous,1,PAL,10394,16,0,0,3,3,0,,0,3,10394,1,,,Beacon of the Righteous,600
+10395,[SHD] Bobbing Corpse,1,SHD,10395,16,0,0,2,2,0,,0,2,10395,1,,,Bobbing Corpse,5
+10396,[DRU] Group Spirit of the White Wolf,1,DRU,10396,16,0,0,2,2,0,,0,2,10396,1,,,Group Spirit of the White Wolf,600
+10397,[DRU] Group Spirit of the Black Wolf,1,DRU,10397,16,0,0,2,2,0,,0,2,10397,1,,,Group Spirit of the Black Wolf,600
+10405,Hastened Deflection Discipline,1,PAL/SHD,10405,16,0,0,10,10,0,,0,10,10405,1,,ReduceReuseTimer=120000/0; LimitSpell=4590/0,,0
+10410,[ROG] Rogue Triple Attack Skillup Test,1,ROG,10410,16,1,0,1,0,0,,0,1,10410,1,,RaiseSkillCap=130/76,,0
+10413,[MAG] Hastened Host of the Elements,1,MAG,10413,16,0,0,5,5,0,,0,5,10413,1,,HastenedAASkill=60/207,,0
+10424,[DRU] Hand of Ro,1,DRU,10424,16,0,0,1,1,0,,0,1,10424,1,,,Hand of Ro,6
+10425,[DRU] Fixation of Ro,1,DRU,10425,16,0,0,1,1,0,,0,1,10425,1,,,Fixation of Ro,6
+10426,[DRU] Peaceful Spirit of the Wood,1,DRU,10426,16,0,0,1,1,0,,0,1,10426,1,,,Peaceful Spirit of the Wood,900
+10427,[DRU] Peaceful Convergence of Spirits,1,DRU,10427,16,0,0,1,0,0,,0,1,10427,1,,,Peaceful Convergence of Spirits,900
+10434,[NEC] Quickened Army of the Dead,1,NEC,10434,16,0,0,3,3,0,,0,3,10434,1,,IncreaseSpellHaste=16/0; LimitSpellGroup=5921/0,,0
+11073,[BST] Playing Possum,1,BST,11073,16,0,0,2,2,0,,0,2,11073,1,,,Playing Possum,30
+11074,[BST] Cat-like Reflexes,1,BST,11074,16,0,0,3,3,0,,0,3,11074,1,,RaiseSkillCap=100/39,,0
+11077,[BST] Hastened Bite of the Asp,1,BST,11077,16,0,0,2,2,0,,0,2,11077,1,,HastenedAASkill=10/986,,0
+11078,[BST] Hastened Gorilla Smash,1,BST,11078,16,0,0,2,2,0,,0,2,11078,1,,HastenedAASkill=10/988,,0
+11079,[BST] Hastened Raven's Claw,1,BST,11079,16,0,0,2,2,0,,0,2,11079,1,,HastenedAASkill=10/987,,0
+11080,[BST] Chameleon Strike,1,BST,11080,16,0,0,2,2,0,,0,2,11080,1,,,Chameleon Strike,20
+11085,"[BER] Two Hands, No Mercy!",1,BER,11085,16,0,0,4,4,0,,0,4,11085,1,,RaiseSkillCap=20/2; RaiseSkillCap=20/3; RaiseSkillCap=20/77; SkillDamageAmount=25/77; SkillDamageAmount=25/2; SkillDamageAmount=25/3,,0
+11088,[BER] Hastened Cry of Battle,1,BER,11088,16,0,0,4,4,0,,0,4,11088,1,,HastenedAASkill=180/505,,0
+12600,[ROG] Hastened Frenzied Stabbing,1,ROG,12600,17,0,0,5,5,0,,0,5,12600,1,,ReduceReuseTimer=60000/0; LimitSpell=6197/0; LimitClass=512/0,,0
+12603,[ROG] Extended Frenzied Stabbing Discipline,1,ROG,12603,17,0,0,1,1,0,,0,1,12603,1,,SpellDurationIncByTic=1/0; LimitSpell=6197/0; LimitClass=512/0,,0
+12606,[ROG] Speed of the Scoundrel,1,ROG,12606,17,0,0,1,1,0,,0,1,12606,1,,BaseMovementSpeed=5/0,,0
+12607,[ROG] Hastened Pinpoint,1,ROG,12607,17,0,0,2,2,0,,0,2,12607,1,,ReduceReuseTimer=12000/0; LimitSpellGroup=13007/0; LimitSpellGroup=12105/0; LimitSpellGroup=12205/0; ReduceReuseTimer=36000/0; LimitSpellGroup=12305/0; LimitSpellGroup=12405/0; LimitSpellGroup=12505/0; LimitClass=512/0,,0
+12615,[ROG] Hastened Twisted Chance Discipline,1,ROG,12615,17,0,0,4,4,0,,0,4,12615,1,,ReduceReuseTimer=120000/0; LimitSpell=4695/0; LimitClass=512/0,,0
+15073,Banestrike,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,15073,19,1,0,1,0,0,,0,1,15073,1,,,Banestrike,60
+15074,Hastened Banestrike,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,15074,19,1,0,1,0,0,,0,1,15074,1,,HastenedAASkill=5/15073,,0
+30050,Unknown AA 30050,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,30050,0,1,0,1,0,0,,0,0,,,,,,
+30100,Unknown AA 30100,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,30100,0,1,0,1,0,0,,0,0,,,,,,
+30150,Unknown AA 30150,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,30150,0,1,0,1,0,0,,0,0,,,,,,
+30175,Unknown AA 30175,1,WAR/CLR/PAL/SHD/DRU/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,30175,0,1,0,1,0,0,,0,0,,,,,,
+30180,[BRD] Unknown AA 30180,1,BRD,30180,0,1,0,1,0,0,,0,0,,,,,,
+30185,[MNK] Unknown AA 30185,1,MNK,30185,0,1,0,1,0,0,,0,0,,,,,,
+30190,[RNG] Unknown AA 30190,1,RNG,30190,0,1,0,1,0,0,,0,0,,,,,,
+30195,Unknown AA 30195,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,30195,0,1,0,1,0,0,,0,0,,,,,,
+30196,Expeditious Dispatch,1,WAR/CLR/PAL/RNG/SHD/DRU/MNK/BRD/ROG/SHM/NEC/WIZ/MAG/ENC/BST/BER,50000,0,0,0,1,1,1,50000,1,0,,,,,,

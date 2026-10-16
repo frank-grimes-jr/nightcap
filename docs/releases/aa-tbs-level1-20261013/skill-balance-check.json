@@ -1,0 +1,148 @@
+{
+  "audited_at": "2026-10-12",
+  "scope": "Reviewed local files; not runtime or player QA evidence",
+  "topics": {
+    "balance": [
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\merchant-sell-all\\tools\\balance\\README.md",
+        "role": "native oracle/harness commands and isolation boundaries",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\merchant-sell-all\\server-mods\\code\\zone\\effects.cpp",
+        "role": "percentage scaling and Throw Stone exception",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\merchant-sell-all\\docs\\releases\\zone-loot-20261009\\BALANCE.md",
+        "role": "scoped augment headroom and synthetic limits",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\docs\\balance\\native-aa-session-recovery.md",
+        "role": "dated native ownership recovery evidence",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\docs\\adr\\0020-retain-caps-after-matched-sensitivity.md",
+        "role": "dated cap experiment decision",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\docs\\audits\\aa-tbs-20261013\\README.md",
+        "role": "TBS audit findings, recommendations and exact unresolved gameplay QA",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\docs\\audits\\aa-tbs-20261013\\summary.json",
+        "role": "Fresh catalog/rule counts and anonymous purchase conflict classification",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\docs\\audits\\aa-tbs-20261013\\production-snapshot.json.gz",
+        "role": "Read-only production content/rules and anonymous ownership captured 2026-10-13",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\docs\\audits\\aa-tbs-20261013\\analyze.py",
+        "role": "Reviewed linked-rank prefixes, inherited prerequisite closure and class-union census",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\docs\\audits\\aa-tbs-20261013\\review.py",
+        "role": "Later-family inventory triage and 45 named content/source recommendations",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\docs\\audits\\aa-tbs-20261013\\test_analysis.py",
+        "role": "Eight policy-audit boundary and snapshot closure checks",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\server-mods\\code\\zone\\aa.cpp",
+        "role": "Reviewed level-1 AA correction or signed publication evidence; owner QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\multiclass-trainer-access\\server-mods\\code\\zone\\attack.cpp",
+        "role": "Reviewed pet AC/avoidance and AC softcap inputs; not a fresh production binary probe",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\config\\aa-policy.json",
+        "role": "Reviewed level-1 AA correction or signed publication evidence; owner QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\server-mods\\code\\common\\nightcap_aa_policy.h",
+        "role": "Reviewed level-1 AA correction or signed publication evidence; owner QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\tools\\aa_tbs_policy.py",
+        "role": "Reviewed level-1 AA correction or signed publication evidence; owner QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\tools\\tests\\test_aa_tbs_policy.py",
+        "role": "Reviewed level-1 AA correction or signed publication evidence; owner QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\tools\\tests\\verify_aa_tbs_native.py",
+        "role": "Reviewed level-1 AA correction or signed publication evidence; owner QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\docs\\releases\\aa-tbs-20261013\\README.md",
+        "role": "verified deployment, preserved baseline, limits and exact owner QA",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\docs\\releases\\aa-tbs-20261013\\server-receipt.json",
+        "role": "closed-state player/custom preservation and twelve native hashes",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\docs\\releases\\aa-tbs-20261013\\final-health.json",
+        "role": "dated post-deployment runtime health; not gameplay acceptance",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\AGENTS.md",
+        "role": "Reviewed level-1 AA correction or signed publication evidence; owner QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\tools\\build_aa_level1_candidate.py",
+        "role": "Reviewed level-1 AA correction or signed publication evidence; owner QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\docs\\releases\\aa-tbs-level1-20261013\\README.md",
+        "role": "Reviewed level-1 AA correction or signed publication evidence; owner QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\docs\\releases\\aa-tbs-level1-20261013\\build-manifest.json",
+        "role": "Reviewed level-1 AA correction or signed publication evidence; owner QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\docs\\releases\\aa-tbs-level1-20261013\\verification.json",
+        "role": "Reviewed level-1 AA correction or signed publication evidence; owner QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\docs\\releases\\aa-tbs-level1-20261013\\server-receipt.json",
+        "role": "Reviewed level-1 AA correction or signed publication evidence; owner QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\docs\\releases\\aa-tbs-level1-20261013\\post-notes-health.json",
+        "role": "Reviewed level-1 AA correction or signed publication evidence; owner QA pending",
+        "state": "unchanged"
+      }
+    ]
+  }
+}

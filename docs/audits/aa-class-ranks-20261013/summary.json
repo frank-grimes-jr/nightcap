@@ -1,0 +1,25 @@
+{
+  "status": "audit_only_not_deployed_not_encounter_validated",
+  "source_policy_sha256": "7b706cd9b87f49c883366c17ece96216646fef58d0a6454de54ae7f9d5975c4e",
+  "catalog_sha256": "1bd1326899d44a07db5a0d168a84937647581319d81bd15a9b6a14a288dad17c",
+  "snapshot_file_sha256": "c5f89640b447d513bef706ecb26cda5ec88fa8b850d5c3f9c68b7cfa1ca08a84",
+  "current": {
+    "families": 390,
+    "ranks": 941
+  },
+  "candidate": {
+    "families": 394,
+    "ranks": 1051
+  },
+  "recommended_families": 26,
+  "current_blocked_guards": [
+    359,
+    516,
+    541
+  ],
+  "truncated_or_blocked_in_era_families": 188,
+  "implementation_blockers": [
+    "Triple Backstab native activation requires live DoubleBackstabLevelRequirement 55, above global MaxLevel 50; repair and test before inclusion."
+  ],
+  "checks": "baseline reproduced; identities preserved; all level 1; prerequisite closed; no deferred family admitted; no new later exception"
+}

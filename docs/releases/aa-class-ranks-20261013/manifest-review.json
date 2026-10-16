@@ -1,0 +1,11 @@
+{
+  "scope": "metadata completeness repair; binary unchanged",
+  "previous_manifest_sha256": "e68a7b71e35f43261b26d67a78262daaf062d4d3fad007821aacd479a12428e6",
+  "complete_manifest_sha256": "28245048bb6b43b4c3f017299786fd03d20e33ded426e9612ac80d8c5a26cd2c",
+  "added_fingerprints": {
+    "/usr/lib/x86_64-linux-gnu/libperl.so.5.36.0": "52856dc42241ec020d6c425df9fe3ef7eb402e1e0a23ed3c0b6d99a101fdacce"
+  },
+  "link_input_count": 142,
+  "zone_sha256": "5dfe3d8a944a29ac963644298eb7a1563a08748ae72ae210edd78268ea106681",
+  "source_and_prior_inputs_verified": true
+}

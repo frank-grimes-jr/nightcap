@@ -1,3 +1,4 @@
+#include "zone/dungeon_service.h"
 /*	EQEMu: Everquest Server Emulator
 	Copyright (C) 2001-2016 EQEMu Development Team (http://eqemu.org)
 
@@ -989,6 +990,7 @@ int64 Mob::CalcMaxHP() {
 	max_hp = (base_hp + itembonuses.HP);
 	max_hp += max_hp * ((aabonuses.PercentMaxHPChange + spellbonuses.PercentMaxHPChange + itembonuses.PercentMaxHPChange) / 10000.0f);
 	max_hp += spellbonuses.FlatMaxHPChange + itembonuses.FlatMaxHPChange + aabonuses.FlatMaxHPChange;
+	if (NightcapDungeon::RaidNPC(this)) { max_hp = NightcapDungeon::Scale(max_hp, 135); }
 
 	return max_hp;
 }

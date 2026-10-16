@@ -1,0 +1,172 @@
+{
+  "alternate_currency": [
+    "item_id"
+  ],
+  "buyer_buy_lines": [
+    "item_id"
+  ],
+  "buyer_trade_items": [
+    "item_id"
+  ],
+  "character_bandolier": [
+    "item_id"
+  ],
+  "character_corpse_items": [
+    "item_id"
+  ],
+  "character_evolving_items": [
+    "item_id"
+  ],
+  "character_parcels": [
+    "item_id"
+  ],
+  "character_parcels_containers": [
+    "item_id"
+  ],
+  "character_pet_armor": [
+    "item_id",
+    "augment_one",
+    "augment_two",
+    "augment_three",
+    "augment_four",
+    "augment_five",
+    "augment_six"
+  ],
+  "character_pet_inventory": [
+    "item_id"
+  ],
+  "character_potionbelt": [
+    "item_id"
+  ],
+  "discovered_items": [
+    "item_id"
+  ],
+  "guild_bank": [
+    "item_id"
+  ],
+  "inventory": [
+    "item_id",
+    "augment_one",
+    "augment_two",
+    "augment_three",
+    "augment_four",
+    "augment_five",
+    "augment_six"
+  ],
+  "items_evolving_details": [
+    "item_id"
+  ],
+  "keyring": [
+    "item_id"
+  ],
+  "lootdrop_entries": [
+    "item_id"
+  ],
+  "nightcap_market_catalog": [
+    "item_id"
+  ],
+  "nightcap_market_offers": [
+    "item_id"
+  ],
+  "nightcap_market_trades": [
+    "item_id"
+  ],
+  "pets_equipmentset_entries": [
+    "item_id"
+  ],
+  "player_event_loot_items": [
+    "item_id"
+  ],
+  "player_event_merchant_purchase": [
+    "item_id"
+  ],
+  "player_event_merchant_sell": [
+    "item_id"
+  ],
+  "player_event_npc_handin_entries": [
+    "item_id"
+  ],
+  "player_event_trade_entries": [
+    "item_id"
+  ],
+  "sharedbank": [
+    "item_id",
+    "augment_one",
+    "augment_two",
+    "augment_three",
+    "augment_four",
+    "augment_five",
+    "augment_six"
+  ],
+  "starting_items": [
+    "item_id",
+    "augment_one",
+    "augment_two",
+    "augment_three",
+    "augment_four",
+    "augment_five",
+    "augment_six"
+  ],
+  "titles": [
+    "item_id"
+  ],
+  "trader": [
+    "item_id"
+  ],
+  "tradeskill_recipe_entries": [
+    "item_id"
+  ],
+  "tribute_levels": [
+    "item_id"
+  ],
+  "veteran_reward_templates": [
+    "item_id"
+  ],
+  "character_advloot_claims": [
+    "item_id"
+  ],
+  "fishing": [
+    "itemid"
+  ],
+  "forage": [
+    "itemid"
+  ],
+  "inventory_snapshots": [
+    "itemid",
+    "augslot1",
+    "augslot2",
+    "augslot3",
+    "augslot4",
+    "augslot5",
+    "augslot6"
+  ],
+  "merchantlist_temp": [
+    "itemid"
+  ],
+  "object": [
+    "itemid"
+  ],
+  "object_contents": [
+    "itemid",
+    "augslot1",
+    "augslot2",
+    "augslot3",
+    "augslot4",
+    "augslot5",
+    "augslot6"
+  ],
+  "ground_spawns": [
+    "item"
+  ],
+  "merchantlist": [
+    "item"
+  ],
+  "nightcap_zone_hunt_forges": [
+    "input_id",
+    "output_id"
+  ],
+  "nightcap_item_upgrades": [
+    "input_id",
+    "output_id"
+  ]
+}

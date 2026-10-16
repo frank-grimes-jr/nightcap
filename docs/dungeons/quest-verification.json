@@ -1,0 +1,6 @@
+{
+  "status": "passed",
+  "assertions": 18,
+  "scope": "Actual Perl Keeper with native API doubles; native binding is separately compiled",
+  "output": "ok 1 - globally loaded floating eye replaces human\nok 2 - destination metadata retained\nok 3 - unrelated signal ignored\nok 4 - repeated refresh does not rebuild actor\nok 5 - already spawned human can refresh without respawn\nok 6 - appearance does not read or mutate instance state\nok 7 - hail still offers correct dungeon\nok 8 - same character and instance version\nok 9 - active instance recognized\nok 10 - status preserved\nok 11 - join validation preserved\nok 12 - reset still requires existing confirmation popup\nok 13 - reset without instance stays harmless\nok 14 - managed dialogue reaches native Keeper with normalized action\nok 15 - handled native action never reaches legacy lookup\nok 16 - legacy popup must pass native reset authorization\nok 17 - managed popup never reaches legacy destruction\nok 18 - unrelated popup ignored\n1..18\n"
+}

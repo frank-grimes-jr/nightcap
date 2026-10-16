@@ -14,11 +14,18 @@ param(
 
 $ErrorActionPreference = 'Stop'
 
-$Root    = 'E:\EQ_Local_Dev'
+$Root    = Split-Path -Parent $PSScriptRoot
 $Era     = Get-Content (Join-Path $Root 'era.json') -Raw | ConvertFrom-Json
 $Ini     = Join-Path $Root 'Client_RoF2_Dev\everquest_rof2\eqclient.ini'
 $AAOpen  = if ($Era.aa_open) { 'false' } else { 'true' }   # rule is UseCurrentExpansionAAOnly (inverted)
 $Luclin  = if ($Era.luclin_models) { 'FALSE' } else { 'TRUE' } # ini key is AllLuclinPcModelsOff (inverted)
+
+if ($Era.aa_policy) {
+    if ($Era.aa_policy -ne 'config/aa-policy.json') { throw 'Unsupported AA policy source.' }
+    python -B (Join-Path $Root 'tools/aa_tbs_policy.py') --check
+    if ($LASTEXITCODE -ne 0) { throw 'AA policy generation is stale; no era changes applied.' }
+    Write-Output 'AA policy source verified. Installing/changing this policy requires the matching zone build; era SQL does not install it.'
+}
 
 function Sql($query) {
     docker exec akk-stack-mariadb-1 mysql -ueqemu -peqemu peq -N -e $query

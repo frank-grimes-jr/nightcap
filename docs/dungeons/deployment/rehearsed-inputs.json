@@ -1,0 +1,45 @@
+{
+  "authorization": {
+    "instruction": "Push this to main and deploy it to the server with the matching binaries and item cache so I can test it in game.",
+    "date": "2026-10-16",
+    "gameplay_acceptance": false
+  },
+  "source_commit": "a1eab404afcb5862d14351ac652343a3b544747d",
+  "base_binaries": {
+    "world": "efd54a1023a569274a76f65d3d2a18a173906762472a1bce186e3e14629d3c18",
+    "zone": "19cd3387952f21d1d1bcc18916e76a1d7738148de086849e3d3befe3a0df2ae1",
+    "ucs": "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714",
+    "loginserver": "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf",
+    "shared_memory": "71dfdd18d12fba844bcc222c54125c621a3c5e895a61ef3ae258ecc3dfbbb5c8"
+  },
+  "binaries": {
+    "zone": "785faf9e08856bb5355ffd46e4d4aa6d93f687a8bbbc6b40c2fa3d1692d4c524",
+    "world": "70cceaca060ed6338cb72acc726bb24ccae162b42ba88dfb89432b609c7ef8e5",
+    "shared_memory": "ef1f399884387712113bf13163ddfcd35c47a29d0f0b9b194a6b7e265997ae35"
+  },
+  "baseline_restarts": 1,
+  "runtime_helper_sha256": "a3242bee3e8d4a7e60ea81bbd6fd34587201b712247665f3c03673733b95a811",
+  "previous_operator_sha256": "00a4bac1590abce29da01b2d99fd9e917567a3e0ae8f23560ff557bea8a049b8",
+  "previous_cache_helper_sha256": "3da6c7f556984c83b2efd339e5feb1d72d4f59d801ece5a37d00a057842f38a5",
+  "client_release": 2026101501,
+  "client_channel_sha256": "8212a46460273a640e807da0df7c9322c8d1ce6adf912ee419dde65083b4beab",
+  "files": {
+    "bin/shared_memory": "ef1f399884387712113bf13163ddfcd35c47a29d0f0b9b194a6b7e265997ae35",
+    "bin/world": "70cceaca060ed6338cb72acc726bb24ccae162b42ba88dfb89432b609c7ef8e5",
+    "bin/zone": "785faf9e08856bb5355ffd46e4d4aa6d93f687a8bbbc6b40c2fa3d1692d4c524",
+    "cache_check": "d62ff94011e02932228cf7657c07b35de44747bef191188cbe152bf91d2e31ab",
+    "client-verification.json": "55e95590ac83b74e5e75569b2d75c2bc63c3909c8fafe6634e8d658bdcc05684",
+    "install-rows.json": "ceca28729d0ab101a857ff0b13b34b309054370d7c77f919a3440e7d78172d33",
+    "item-references.json": "1308c94314fd5f8fddbaf4717495655b895e182c168488283d3ecb358872a191",
+    "native-build-manifest.json": "c7b9d843ca1235b92c2495ba089faaa2b324fd1ae269db335c84d3c4ef119e34",
+    "package-manifest.json": "101da766f50c5ed8d3675164957e5bb06ee4e36cb2511d20db9bf71992dcdc49",
+    "quests/global/Instance_Keeper.pl": "b4fc39bd29cbc0856b8ec9bd0072285e5cade672fa43cf853bf96009d30bf7a9",
+    "rollout.py": "be91ec075453904a1cf22fa08679e469af1ad9a0b13250fecbdc3964b7b197a4",
+    "sql/20261016_dungeon_content.sql": "94c37af00847d71412f332e4b9c6ae7a4bfe31b4302c86ac172042a9109a39e2",
+    "sql/20261016_dungeon_enable.sql": "9f85b67cac0b552cd7651b39f8f39afa4800d90c2054ed5fee1f580f32eee711",
+    "sql/20261016_dungeons.sql": "2e1803cf6fd4d058599e767907cbbc60ca92642888eae7f4c860cd04b3ca681f",
+    "target-content.json": "19d1668985f9b024d45f65c99c953f12fdf2f44932a12f97e35c4aaeb994a43b",
+    "test_rollout.py": "22d95fab469bdb4501dae9cee79135332acdbbb8245cd15be03467d4480aad72"
+  },
+  "refreshed_native_archive_sha256": "a6ece96fd0b8b7f686a5d6a19e24e9f028ecccf9f2b8417b37857cd136ddccae"
+}

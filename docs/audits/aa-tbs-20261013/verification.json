@@ -1,0 +1,61 @@
+{
+  "status": "audit_complete_recommendation_only",
+  "environment": "production content capture; offline analysis; source review",
+  "tests": {
+    "command": "python -B -m unittest discover -s docs/audits/aa-tbs-20261013 -p test_analysis.py -v",
+    "result": "passed",
+    "tests": 8,
+    "elapsed_seconds": 3.483
+  },
+  "independent_review": {
+    "counting_review": "One labeling issue: linked spells are not proof of active AAs. Renamed active_families to spell_linked_families.",
+    "proposal_review": "No consequential defect found after checking exception prerequisites, captured effects, native handlers and historical evidence.",
+    "cross_model": "Owner explicitly declined."
+  },
+  "runtime_changes": false,
+  "fresh_combat_trials": false,
+  "owner_gameplay_acceptance": false,
+  "snapshot_capture_utc": "2026-10-13T09:33:44.264598+00:00",
+  "artifacts": {
+    "capture.py": "9145580a552f9ecec591236b548098f90dd54361db4d57c6b3beb1df916d9bd7",
+    "analyze.py": "e5a49a59a79a7599ee4c32630c3ad9c883a7dd0cd79518199fcb2bfd04d6e8ac",
+    "review.py": "05735303301b1e9673219cf757e3e607feccd48fba6a9251c53d0c40a7ffcf8a",
+    "test_analysis.py": "54c94bcb037802cf32d3643c8881e5a4e54193a8b9c1df454f16cd83491c5ac3",
+    "README.md": "c8238d39ebf537bedcde536d09594e1fc470c37f806d44a1b96d336ca496f1fb",
+    "production-snapshot.json.gz": "c5f89640b447d513bef706ecb26cda5ec88fa8b850d5c3f9c68b7cfa1ca08a84",
+    "summary.json": "ee74545ab0162ba99ecc1797d1b1c30273834d72b6a5a9e8d4d8c3fd4cbc9c3f",
+    "class-coverage.csv": "32f42d3909c844f10799a3bc2a01ec3184636f8718f0fbe44b108ba413c59a45",
+    "families.csv": "2fdcb9b0c3253e5cd1a4ed13f10688cd8e7ef6e84cd125b725e197f4c73508ea",
+    "ranks.csv": "a049f6906c8a9b04c225846ffecb6812d23ba8e89330b21046d052c7038e34cf",
+    "later-review.csv": "eb3af2c069c231672f842a8d9fe5076dde08204ed8a1f6f9ee5a7ab741ba6d24",
+    "later-review-summary.json": "a70c6ba9415f09d726659500a3cb4810cf2cb2ff6d6608714ca32c04da412bbe",
+    "named-exceptions-and-deferrals.json": "f1e9eb3c4bc1bc7e617cb7b5fa26237e206576c821d4939bd167d143d4f26aa6"
+  },
+  "sources": {
+    "_worktrees/multiclass-trainer-access/server-mods/code/zone/aa.cpp": "4d9e898c7bc6ea139d568d8282cefa5e511c0741079328fc3345aa69feffd9c9",
+    "_worktrees/multiclass-trainer-access/server-mods/code/zone/attack.cpp": "500af288d4463c98c2ce6b0d7f68b4b8a9f9098eaab741da9faf5cb54e3a4acf",
+    "_worktrees/multiclass-trainer-access/server-mods/code/zone/bonuses.cpp": "1c3b3615ea87a587928ae0d975d57a0c135962a6122c222f6ef7ab84307b6897",
+    "akk-stack/code/zone/aa.h": "db97232f24eadd768795391da1b9fc7d25f3a8d9558cad7ca84aa47716c42146",
+    "akk-stack/code/common/content/world_content_service.h": "a3a75c51c04576fc130b1c25ab2f5f1d0951fd3c51222cd85d57bbeb635f86e2",
+    "akk-stack/code/common/spdat.h": "c7977ab7b236587b13e2bc110a735032095cc82b994d540397c8ee961c24da56",
+    "docs/balance/aa-release-candidates.json": "b2fbfbb1af2220b155208531366d0c7102804277a3fe79d74f2b93c1d8796243",
+    "docs/balance/native-aa-release-candidates.md": "2b37f93c47383229bf43d12022bbfc1a9be2d2915515b28dfef987d9241e188f",
+    "artifacts/passive-aa-forty-20261009/native-tests.json": "b5f81c2e187fb870ddbc66d351b7b669c1f03d219bc109149d7ce218bcedf5a8"
+  },
+  "knowledge_update": {
+    "installed": true,
+    "skill_validator": "passed",
+    "balance_fingerprints": "13 of 13 unchanged",
+    "multiclass_fingerprints": {
+      "checked": 40,
+      "drift": [
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\multiclass-trainer-access\\docs\\releases\\multiclass-trainers-20261012\\README.md",
+          "role": "reviewed trainer access release; deployed, player acceptance pending",
+          "state": "changed: review implementation and evidence"
+        }
+      ]
+    },
+    "installation_receipt": "skill-update/receipt.json"
+  }
+}

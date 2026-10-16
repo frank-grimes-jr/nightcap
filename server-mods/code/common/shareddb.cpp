@@ -1,3 +1,4 @@
+#include "common/dungeon_policy.h"
 /*	EQEMu: Everquest Server Emulator
 	Copyright (C) 2001-2016 EQEMu Development Team (http://eqemulator.org)
 
@@ -1250,7 +1251,7 @@ void SharedDatabase::LoadItems(void *data, uint32 size, int32 items, uint32 max_
 
 		EQ::ItemTradePolicy::Apply(item, RuleB(Items, FreeTrade), e.nodrop == 0);
 		NightcapDivineSummons::ApplyMerchantPolicy(item);
-		if (NightcapHunt::IsReward(item.ID)) {
+		if (NightcapHunt::IsReward(item.ID) || NightcapDungeon::IsReward(item.ID)) {
 			// These progression rewards are tradable under the existing server policy,
 			// but deliberately have no merchant resale value (including converted augments).
 			item.Price = 0;
