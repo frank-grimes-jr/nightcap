@@ -1,3 +1,4 @@
+#include "zone/dungeon_service.h"
 #include "common/zone_hunt_catalog.h"
 #include "common/item_upgrade_policy.h"
 #include "zone/advanced_loot_inventory.h"
@@ -801,6 +802,7 @@ void Client::CompleteConnect()
 
 	m_last_position_before_bulk_update = GetPosition();
 
+	NightcapDungeon::Connected(this);
 	/* This sub event is for if a player logs in for the first time since entering world. */
 	if (ingame) {
 		auto e = CharacterDataRepository::FindOne(

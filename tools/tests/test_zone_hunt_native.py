@@ -24,7 +24,11 @@ class NativeZoneHunt(unittest.TestCase):
         attack=(ROOT/'server-mods/code/zone/attack.cpp').read_text()
         death=native.body(attack,'bool NPC::Death(')
         self.assertLess(death.index('const bool hunt_owned'),death.index('EVENT_DEATH'))
-        self.assertLess(death.index('BuffFadeAll()'),death.index('NightcapHunt::Award'))
+        # Managed deaths stage the same native corpse before publication so its
+        # finalized hunt/native loot can commit with the durable death record.
+        self.assertLess(death.index('const bool hunt_owned'),death.index('BuffFadeAll()'))
+        self.assertLess(death.index('NightcapDungeon::BeforeDeath'),death.index('entity_list.QueueClients(killer_mob, app'))
+        self.assertIn('!prepared_dungeon_death && !prepare_corpse()',death)
         self.assertLess(death.index('NightcapHunt::Award'),death.index('corpse = new Corpse'))
         self.assertEqual(death.count('NightcapHunt::Award'),1)
         bonus=native.body((ROOT/'server-mods/code/zone/bonuses.cpp').read_text(),'void Mob::AddItemBonuses(')
@@ -35,7 +39,7 @@ class NativeZoneHunt(unittest.TestCase):
     def test_no_resale_survives_free_trade(self):
         shared=(ROOT/'server-mods/code/common/shareddb.cpp').read_text()
         start=shared.index('EQ::ItemTradePolicy::Apply(item,')
-        custom=shared.index('if (NightcapHunt::IsReward(item.ID))',start)
+        custom=shared.index('if (NightcapHunt::IsReward(item.ID) || NightcapDungeon::IsReward(item.ID))',start)
         self.assertIn('item.FixedSellPrice = 0;',shared[custom:custom+360])
         sell=native.body((ROOT/'server-mods/code/zone/client_packet.cpp').read_text(),'void Client::Handle_OP_ShopPlayerSell(')
         self.assertLess(sell.index('NightcapHunt::IsReward(itemid)'),sell.index('const EQ::ItemData* item'))

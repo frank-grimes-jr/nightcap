@@ -1,3 +1,4 @@
+#include "zone/dungeon_service.h"
 #include "common/features.h"
 #include "common/epic05.h"
 #include "common/rulesys.h"
@@ -22,6 +23,11 @@ int Perl_Client_Epic05Contract(Client* self)
 		}
 	}
 	return Epic05::Contract;
+}
+
+bool Perl_Client_DungeonAction(Client* self, uint32 npc_entity_id, const char* text)
+{
+	return NightcapDungeon::Keeper(self, entity_list.GetNPCByID(npc_entity_id), Strings::ToLower(text ? text : ""));
 }
 
 void Perl_Client_LivingEconomy(Client* self, uint32 npc_entity_id, const char* text)
@@ -3482,6 +3488,7 @@ void perl_register_client()
 	package.add("GrantPetNameChange", &Perl_Client_GrantPetNameChange);
 	package.add("ClearNameChange", (bool(*)(Client*))&Perl_Client_ClearNameChange);
 	package.add("CharacterID", &Perl_Client_CharacterID);
+	package.add("DungeonAction", &Perl_Client_DungeonAction);
 	package.add("LivingEconomy", &Perl_Client_LivingEconomy);
 	package.add("Epic05Contract", &Perl_Client_Epic05Contract);
 	package.add("MarketAnnouncement", &Perl_Client_MarketAnnouncement);

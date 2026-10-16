@@ -1,0 +1,16 @@
+{
+  "status": "passed",
+  "scope": "production currency and saved-state bodies; dependency fakes, no native gameplay",
+  "results": {
+    "currency": {
+      "source_sha256": "77d88244a9d55ac7275a07b16bb18d4735f5d4dc618c15138343969505b0e17b",
+      "fixture_sha256": "401c8817108101d9a1330050ebc87b2e658e65cb721e98d964551de2f014708f",
+      "result": "PASS: production currency split/remainders, solo/raid eligibility, every query failure, transaction exceptions, stale/overflow wallets and receipt replay"
+    },
+    "saved_state": {
+      "source_sha256": "818f85d03f0924d83d6c60466bf99d5dbbb23bb6a69281df987f99a4b246f68c",
+      "fixture_sha256": "9b35ae601b1944f5abe34a31e1d8691ab2f38acc48dfd2ebd2c58cb975bac1e9",
+      "result": "PASS: production saved-state complete metadata/rights/coin/distribution roundtrip, living NPCs, stable legacy replay IDs, malformed state and partial-restore quarantine"
+    }
+  }
+}
