@@ -7,12 +7,14 @@
     "equipment_loader_equivalent_except_dungeon_changes": true,
     "regressions_found": []
   },
-  "operator_tests": 18,
+  "operator_tests": 20,
   "review_fixes": [
     "native spawn2 identifier accepted",
     "equipment helper import and cache helper pinned",
     "uncertain opening marker holds access without replay",
-    "items non-null UNIQUE ID key supported"
+    "items non-null UNIQUE ID key supported",
+    "direct native health challenge supplements cached Docker health",
+    "shutdown receipt does not equate container exit zero with native save completion"
   ],
   "gameplay_accepted": false,
   "resource_controls": [
@@ -20,5 +22,6 @@
     "128 MiB per-session SQL memory limit",
     "credential-bearing errors withheld"
   ],
-  "configuration_mount_verified": true
+  "configuration_mount_verified": true,
+  "bounded_recovery_review": "explicit unhealthy baseline and fresh stopped-state gates; content/cache rehearsal retained separately"
 }

@@ -185,6 +185,11 @@ def cache_contract(image, path):
     assert result == '1332 330', result
 
 
+def challenge_health():
+    """Challenge the native world port now; Docker health can be stale."""
+    r.call('docker', 'exec', r.state('game')['Id'], 'python3', '/opt/nightcap/start.py', '--health')
+
+
 def audit_references():
     mapping = json.loads((STAGE / 'item-references.json').read_text())
     counts = {}
@@ -330,8 +335,13 @@ def activate():
     save('activation-started.json', {'authorized': True, 'database_restored': False})
     try:
         r.compose('stop', 'gateway')
+        shutdown_started = time.monotonic()
         r.compose('stop', '-t', '90', 'game')
         q.stopped()
+        save('shutdown.json', {'duration_seconds': time.monotonic() - shutdown_started,
+            'native_flush_confirmed': False,
+            'note': 'Container exit zero does not prove native flush; supervisor may kill children after 75 seconds.',
+            'previous_game': p['services']['game']})
         data = {'player': r.player_data(), 'custom': custom()}
         save('stopped-data.json', data)
         backup = r.database_backup()
@@ -353,16 +363,18 @@ def activate():
         os.replace(pending, old_quest)
         q.select(p['new_image_id'])
         r.compose('up', '-d', '--wait', '--wait-timeout', '240', 'game')
+        challenge_health()
         first = r.running(p['new_image_id'], binaries(p), expected_restarts=0)
         cache_path = ROOT / 'data/server/shared/items'
         cache_contract(p['new_image_id'], cache_path)
         cache = compare_cache(records(STAGE / 'rehearsal-runtime/before-items'), records(cache_path))
         assert cache['all_records_sha256'] == load('rehearsal.json')['all_records_sha256']
-        sql((STAGE / 'sql/20261016_dungeon_enable.sql').read_text())
-        assert sql('SELECT revision,enabled FROM nightcap_dungeon_state;').strip() == '2026101601\t1'
-        time.sleep(5)
+        time.sleep(16)
+        challenge_health()
         result = r.running(p['new_image_id'], binaries(p), expected_restarts=0)
         assert result['started_at'] == first['started_at']
+        sql((STAGE / 'sql/20261016_dungeon_enable.sql').read_text())
+        assert sql('SELECT revision,enabled FROM nightcap_dungeon_state;').strip() == '2026101601\t1'
         preserved(data); unchanged(p, True); q.verify_publication(m)
         assert not r.state('gateway')['State']['Running']
         save('activated-closed.json', {'runtime': result, 'game': r.compact('game'), 'cache': cache,
@@ -393,12 +405,14 @@ def open_access():
         assert sql('SELECT revision,enabled FROM nightcap_dungeon_state;').strip() == '2026101601\t1'
         assert sha(ROOT / 'data/server/shared/items') == a['cache_sha256']
         result = r.running(p['new_image_id'], binaries(p), expected_restarts=0)
+        challenge_health()
         publication = q.verify_publication(m)
         save('opening.json', {'runtime': result, 'publication': publication})
         access_uncertain = True
         r.compose('up', '-d', '--wait', '--wait-timeout', '60', 'gateway')
         assert r.state('gateway')['State']['Running']
         result = r.running(p['new_image_id'], binaries(p), expected_restarts=0)
+        challenge_health()
         assert result['started_at'] == a['runtime']['started_at']
         unchanged(p, True); r.closed_ports()
         # Never compare/restore player snapshots after the gateway open attempt.
@@ -413,6 +427,7 @@ def open_access():
 def report():
     m, p, a = manifest(), load('preflight.json'), load('activated.json')
     result = r.running(p['new_image_id'], binaries(p), expected_restarts=0)
+    challenge_health()
     assert result['started_at'] == a['runtime']['started_at'] and r.compact('gateway')['running']
     unchanged(p, True); r.closed_ports(); q.verify_publication(m)
     assert sha(ROOT / 'data/server/shared/items') == a['cache_sha256']

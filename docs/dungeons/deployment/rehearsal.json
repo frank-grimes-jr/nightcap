@@ -1,0 +1,10 @@
+{
+  "existing_items_preserved": 309410,
+  "custom_items_checked": 330,
+  "all_records_sha256": "23ac715b16f0f0facc35705ddd36436f9ceadd48e110f1c3f1dd75bb5e456f14",
+  "status": "passed",
+  "database": "nightcap_dungeon_stage_cd807d7bc134",
+  "public_content_preserved": true,
+  "item_cache_sha256": "9e4873cf8f8357d4c8b885b53d2f4ac639a2567b55c77fe6ffc17d12cda9ce4b",
+  "native_contract_activation": true
+}

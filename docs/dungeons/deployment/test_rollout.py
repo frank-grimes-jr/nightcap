@@ -25,6 +25,11 @@ with patch.object(importlib.util, 'spec_from_file_location', side_effect=source_
 
 
 class QueryTests(unittest.TestCase):
+    def test_health_challenge_executes_actual_probe(self):
+        with patch.object(d.r,'state',create=True,return_value={'Id':'exact-game'}),patch.object(d.r,'call',create=True) as call:
+            d.challenge_health()
+        call.assert_called_once_with('docker','exec','exact-game','python3','/opt/nightcap/start.py','--health')
+
     def test_configuration_uses_actual_readonly_private_mount(self):
         mounts={'Mounts':[{'Destination':'/srv/nightcap/eqemu_config.json','Source':str(d.ROOT/'private/eqemu_config.json'),'RW':False}]}
         with patch.object(d.r,'state',create=True,return_value=mounts),patch.object(Path,'read_text',return_value='{"server":{}}') as read:
@@ -102,6 +107,7 @@ class AccessTests(unittest.TestCase):
         apply(d,'sql',return_value='2026101601\t1')
         apply(d,'binaries',return_value={})
         apply(d.r,'running',side_effect=self.running)
+        apply(d,'challenge_health',side_effect=lambda: self.events.append('health-challenge'))
         apply(d.q,'verify_publication',return_value={'verified':True})
         apply(d.r,'closed_ports',return_value=None)
         apply(d,'save',side_effect=self.save)
@@ -170,6 +176,12 @@ class AccessTests(unittest.TestCase):
         with patch.object(d.r,'running',side_effect=RuntimeError('native mismatch')):
             with self.assertRaises(RuntimeError):d.open_access()
         self.assertNotIn('open',self.events)
+
+    def test_stale_healthy_status_does_not_bypass_direct_probe(self):
+        with patch.object(d,'challenge_health',side_effect=RuntimeError('world port timeout')):
+            with self.assertRaises(RuntimeError):d.open_access()
+        self.assertNotIn('open',self.events)
+        self.assertIn(('held',False),self.events)
 
     def test_replayed_open_refused(self):
         self.gateway=True

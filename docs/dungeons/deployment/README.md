@@ -42,11 +42,13 @@ active GM maintenance or an in-flight GM SQL action.
    Remove the temporary account and its private configuration on completion.
    The public-only clone is retained for diagnosis. Gameplay stays open.
 2. `activate`: recheck all preimages, close gateway and stop the complete game
-   cleanly. Capture stopped player/custom fingerprints and a verified full
+   under its supervisor. Record stop duration without assuming that a zero
+   container exit proves native save completion. Capture stopped player/custom fingerprints and a verified full
    private backup. Apply additive schema/content, atomically replace only the
    Keeper quest, select the image and let startup regenerate the item cache from
    the actual production database. Check all running hashes, cache contents,
-   public/player/custom preservation and signed client. Enable revision
+   public/player/custom preservation and signed client. Challenge the actual
+   native health port across at least one 15-second interval. Enable revision
    2026101601 only after those native/cache checks. Access remains closed.
 3. `open`: revalidate the activated process identity, all preserved data, cache,
    content, rules and signed publication. Persist the opening record before
@@ -78,7 +80,7 @@ The private backup is retained for disaster investigation, not routine rollback.
 The independent provenance review found no missing or regressed retained source.
 The operator review found and repaired native `spawn2` identifier validation,
 the equipment helper's explicit import/pinning, uncertain opening replay, and
-the native items table's UNIQUE ID index (which is not a primary key). All eighteen
+the native items table's UNIQUE ID index (which is not a primary key). All twenty
 offline checks pass, including schema failure after a verified backup, opening
 journal failure, lost acknowledgment, process failure, drift, duplicate opening,
 cache preservation the actual unique-index shape and the active read-only configuration mount. The owner retained the
@@ -89,7 +91,7 @@ The first complete raw-row content fingerprint exceeded the database container's
 MariaDB recovered and was ready at 18:53:04 UTC. Game/gateway containers did not
 restart. No feature migration or activation had begun. Fingerprints now stream
 compact SQL row digests, retain FLOAT precision through DOUBLE projection and
-limit each operator SQL session to 128 MiB. Eighteen offline controls pass,
+limit each operator SQL session to 128 MiB. Twenty offline controls pass,
 including the memory/streaming contract and credential-error redaction. Treat
 this incident separately from the later successful rollout health record.
 
@@ -107,3 +109,24 @@ also rejects a changed column length. See `schema-alias-verification.json` and
 `tools/tests/test_dungeon_contract.py`. All eleven focused dungeon tests pass.
 The [MariaDB collation reference](https://mariadb.com/docs/server/reference/data-types/string-data-types/character-sets/supported-character-sets-and-collations)
 documents the alias. No production column alteration is needed.
+
+The final content/cache rehearsal passed, including all 309,410 old item records
+and 330 new definitions. Its ordinary preflight then refused to continue because
+the old game changed from healthy to unhealthy. The old image, process start,
+container and restart count were unchanged; world waited on a futex and its
+9001 health port repeatedly timed out. The database and twelve zone processes
+remained running. No feature SQL had reached production. The stall's cause is
+not established; do not equate it with a failure in the uninstalled dungeon code.
+
+`complete_preflight.py` is a separately reviewed, one-shot recovery for that exact
+old container/start identity. It closes access, proves live feature tables are
+absent, reruns reserved-reference/configuration checks, compares public rows,
+schemas/indexes/triggers and rules/variables with the successful clone, verifies
+all old native processes and the candidate image/cache, and records an explicitly
+unhealthy baseline. It does not relabel the failed original preflight. Normal
+activation still captures fresh stopped player/custom state and backup before
+SQL. The supervisor can kill remaining children after 75 seconds; the shutdown
+receipt never claims native flush was confirmed. No old player snapshot is
+restored. Direct native health challenges now supplement cached Docker health
+before enablement, before/after opening and during reports; failed probes hold
+access. This avoids an unnecessary old-image restart before the requested release.
