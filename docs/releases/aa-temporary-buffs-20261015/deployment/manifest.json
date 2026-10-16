@@ -1,0 +1,31 @@
+{
+  "authorization": {
+    "date": "2026-10-16",
+    "instruction": "Push to main and server",
+    "gameplay_acceptance": false
+  },
+  "source_commit": "248bf5c5efc92c40c53a1a8eb06ccc14b4ebda8c",
+  "base_binaries": {
+    "world": "efd54a1023a569274a76f65d3d2a18a173906762472a1bce186e3e14629d3c18",
+    "zone": "6317ba70619dbb0d012ec9f58a4a91a096374af0b20d411eccb44fc6ac20fbf3",
+    "ucs": "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714",
+    "loginserver": "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf",
+    "shared_memory": "139194a9e2f2f3384a9831670c91787a99049526168b206dafb886c7fe8a5c86"
+  },
+  "binaries": {
+    "zone": "19cd3387952f21d1d1bcc18916e76a1d7738148de086849e3d3befe3a0df2ae1"
+  },
+  "baseline_restarts": 2,
+  "runtime_helper_sha256": "a3242bee3e8d4a7e60ea81bbd6fd34587201b712247665f3c03673733b95a811",
+  "client_release": 2026101501,
+  "client_channel_sha256": "8212a46460273a640e807da0df7c9322c8d1ce6adf912ee419dde65083b4beab",
+  "files": {
+    "zone": "19cd3387952f21d1d1bcc18916e76a1d7738148de086849e3d3befe3a0df2ae1",
+    "rollout.py": "6f33288b074a5daeb8714c4c7ed465c3a383db7a5157b2ca6117cb4b42f25e6b",
+    "test_rollout.py": "822a841a44dfdf00a4f5652b604c9be372733cf18c81f90438a52c5f11455c22",
+    "verify-client": "3196636f1c748a0917db9ced86a3c52f40a734e9649c649be4c9c9525aad4faf",
+    "verify-client.go": "684fb1001511f57fda0825a892f616103be757a352a2689f021296adf35b5ef3",
+    "shipped-policy.go": "8764b23c16af2ec725abba18e8a4a3df0d4acab9f1aeddfa82ec6a42ad621ea9",
+    "client-verification.json": "55e95590ac83b74e5e75569b2d75c2bc63c3909c8fafe6634e8d658bdcc05684"
+  }
+}
