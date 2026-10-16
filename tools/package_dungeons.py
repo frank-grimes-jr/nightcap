@@ -38,6 +38,18 @@ def main():
     parser.add_argument('--output',type=Path,required=True)
     args=parser.parse_args();args.output.mkdir(parents=True,exist_ok=True)
     catalog=json.loads((ROOT/'docs/dungeons/catalog.json').read_text())
+    overlay={str(p.relative_to(ROOT/'server-mods/code')).replace('\\','/'):
+             hashlib.sha256(p.read_bytes().replace(b'\r\n',b'\n')).hexdigest()
+             for p in (ROOT/'server-mods/code').rglob('*') if p.is_file()}
+    revision=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip()
+    remote('BUILD='+repr(BUILD)+'\nEXPECTED='+repr(overlay)+'\nREVISION='+repr(revision)+'''\nimport hashlib,json
+from pathlib import Path
+b=Path(BUILD);manifest=json.loads((b/'manifest.json').read_text())
+for path,digest in EXPECTED.items():
+ assert hashlib.sha256((b/'source'/path).read_bytes().replace(b'\\r\\n',b'\\n')).hexdigest()==digest,'Build overlay mismatch: '+path
+manifest.update(overlay_revision=REVISION,overlay_normalized_sha256=EXPECTED)
+(b/'manifest.json').write_text(json.dumps(manifest,indent=2)+'\\n')
+''')
     created=user_created=False
     prelude=f'BUILD={BUILD!r}\nRUNTIME={RUNTIME!r}\nDB={DB!r}\nUSER={USER!r}\nPASSWORD={PASSWORD!r}\n'
     try:
@@ -130,10 +142,12 @@ else:
         report=json.loads(remote(prelude+'STEP=1\n'+loader))
         (ROOT/'docs/dungeons/cache-verification.json').write_text(json.dumps(report,indent=2)+'\n')
         staging=RUNTIME+'/release'
-        remote(prelude+"from pathlib import Path\n(Path(RUNTIME)/'release/sql').mkdir(parents=True)\n(Path(RUNTIME)/'release/quests/global').mkdir(parents=True)\n")
+        remote(prelude+"from pathlib import Path\n(Path(RUNTIME)/'release/sql').mkdir(parents=True)\n(Path(RUNTIME)/'release/quests/global').mkdir(parents=True)\n(Path(RUNTIME)/'release/docs').mkdir(parents=True)\n")
         for path in sorted((ROOT/'server-mods/sql').glob('20261016_dungeon*.sql')):
             subprocess.run(['docker','cp',str(path),CONTAINER+':'+staging+'/sql/'+path.name],check=True)
         subprocess.run(['docker','cp',str(ROOT/'server-mods/quests/global/Instance_Keeper.pl'),CONTAINER+':'+staging+'/quests/global/Instance_Keeper.pl'],check=True)
+        for name in ('README.md','QA.md','SPEC.md','catalog.json','activation-verification.json','concurrency-verification.json'):
+            subprocess.run(['docker','cp',str(ROOT/'docs/dungeons'/name),CONTAINER+':'+staging+'/docs/'+name],check=True)
         remote(prelude+r'''
 import hashlib,json,shutil,tarfile
 from pathlib import Path
