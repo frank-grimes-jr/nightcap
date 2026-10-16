@@ -1,7 +1,12 @@
 # Dungeon live-test release: exact acceptance route
 
-All gameplay rows below are **pending**. The owner-authorized main/OVH release
-is deployed and enabled; access is open. Native binaries, production cache, SQL
+Owner check, October 16: **Palwar in public Befallen can select Instance_Keeper
+and see Raid/Grind in its hail menu**. The remaining checks below are **pending**,
+including run creation/entry, the Tasks checklist, combat and rewards. This is
+partial acceptance of the entrance interaction, not a completed dungeon run.
+
+The owner-authorized main/OVH release is deployed and enabled; access is open.
+Native binaries, production cache, SQL
 and Keeper quest are paired and verified in deployment/. No new client assets
 are required. For normal in-game testing, start at step 3 below. Steps 1–2 are
 operator setup, already completed on OVH. Use a closed, disposable environment
@@ -19,7 +24,9 @@ those experiments on the live server.
    `20261016_dungeon_enable.sql` only after verifying package hashes. The game
    and content connections must use the same database. Leave Classic active.
 3. At Befallen's entrance, hail the floating-eye Keeper, NPC **999227**. Verify
-   Raid, Grind, Enter, Join, Status, Claim Rewards and Reset links. Select Grind.
+   Raid, Grind, Enter, Join, Status, Claim Rewards and Reset links. The waypoint
+   shares its position and has no hail response; use `/target Instance_Keeper`
+   if the waypoint obscures selection. Select Grind to create and enter the run.
    Verify a fresh run is eligible immediately, has twelve hours remaining, and
    has a Befallen–Grind task with five required boss activities.
 4. Inspect/kill each name listed by Status. All five must be present initially,
@@ -36,6 +43,11 @@ those experiments on the live server.
    normal spawn polling interval (approximately five seconds). Kill him and
    verify at least one exclusive corpse item plus the separate personal reward.
    Raid items are Polished or Ascended. Defeated spawn points never repopulate.
+
+Whole-wiki impact review for this owner check: no publication change is needed.
+Features, travel, commands, rewards/catalogs and Recent changes retain their
+existing behavior and Live testing status. The published guide already directs
+players to the Keeper; this check confirms only its Befallen targeting/menu.
 
 ## Repeat in all seven dungeons and both modes
 

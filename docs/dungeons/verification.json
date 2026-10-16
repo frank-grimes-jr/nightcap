@@ -82,9 +82,20 @@
   "fourteen_mode_gameplay": "pending",
   "classic_ct_geometry_paths_doors": "pending in game; static identity/door checks passed",
   "level_50_vox_nagafen_balance": "pending",
-  "owner_acceptance": "pending",
+  "owner_acceptance": "partial: Befallen Keeper targeting and Raid/Grind menu confirmed; remaining gameplay pending",
+  "owner_confirmed_checks": [
+    {
+      "date": "2026-10-16",
+      "character": "Palwar",
+      "zone": "Befallen",
+      "instance": "public",
+      "check": "Instance_Keeper selection and Raid/Grind hail menu",
+      "owner_report": "Keeper selected and Raid/Grind appears",
+      "scope_excludes": "run creation/entry, other menu actions, Tasks, combat, rewards and other dungeons"
+    }
+  ],
   "production_promotion_restart": "owner authorized; main PR208 and controlled restart complete",
-  "wiki": "ten local source files updated and tested; publication pending",
+  "wiki": "published as 20261016-dungeons-v1; all 465 public files verified; evidence in wiki-publication/",
   "cache_scope": "production preserved 309410 old items and added 330; original local-cache evidence retained separately",
   "deployment_evidence": "deployment/production-verification.json"
 }
