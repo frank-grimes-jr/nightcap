@@ -1,21 +1,18 @@
 # Current Nightcap status
 
-Updated October 9, 2026. This is the current status index; dated studies and
+Updated October 16, 2026. This is the current status index; dated studies and
 QA reports preserve their original evidence and are not live-state promises.
 
 ## Official public wiki live
 
-The owner requested an official guide maintained by us. `wiki/` builds 454 pages
-covering custom systems, 48 enabled reward zones and 384 obtainable item variants.
-Equipment groups all four qualities into 96 families with gear/augment views,
-name/slot/level/zone filters and 12-family pages. OVH origin release
-`20261010-equipment-v1` is byte-verified with rollback rehearsal;
-all five service identities/start times and private downloads are preserved.
-[wiki.nightcapgame.org](https://wiki.nightcapgame.org/) is live through the existing
-Cloudflare tunnel with a proxied CNAME. All 461 public files match release hashes;
-search/mobile checks pass and private paths are denied. The existing play-only
-IP rule needed no change, and the play host remains private.
-[Build, public verification and recovery](ops/nightcap-wiki.md).
+[Features](https://wiki.nightcapgame.org/features.html) explains 17 major departures
+from Classic. The October 16 refresh adds upgrade/Craft All guides and reconciles
+current behavior across 457 pages, including 432 generated item/zone pages.
+Release `20261016-features-v1` passes all 464 public hashes/header checks and
+rollback rehearsal. Current access behavior, private downloads and all five service
+identities/start times are preserved. Every Nightcap change now requires a
+whole-wiki impact review; source-drift detection and the installed skill carry
+the maintenance contract. [Evidence and recovery](releases/wiki-features-20261016/README.md).
 
 ## Classic zone hunt and forge deployed for live QA
 

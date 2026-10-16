@@ -46,3 +46,14 @@ and covered by regressions. Release `20261010-equipment-v1` is live; all 461
 public file hashes and headers pass. Rollback was rehearsed, private downloads
 and five service identities were preserved, and no Nginx reload was needed.
 Public rollout evidence is in the hosting runbook.
+
+## Features and maintenance follow-up — October 16
+
+Published 17 grouped Features, dedicated upgrades/crafting guides, and a full
+content reconciliation through the October 16 release evidence. Generated reward
+instructions now agree with higher-tier four-copy costs. Nine site, five Git
+refresh, thirteen browser-script and sixteen Linux publication tests pass; browser
+layouts/navigation and all 464 public hashes pass. The owner’s per-change wiki
+maintenance requirement is in repository instructions and the installed skill.
+No gameplay was changed; existing owner acceptance gates remain. Full scope and
+proof: [release record](../releases/wiki-features-20261016/README.md).

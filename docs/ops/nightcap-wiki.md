@@ -1,28 +1,44 @@
 # Official Nightcap wiki — hosting and maintenance
 
-Updated October 9, 2026.
+Updated October 16, 2026.
 
 ## Current state
 
 - **Public URL: https://wiki.nightcapgame.org/** — live and verified October 9, 2026 (EDT).
-- **Active OVH origin release:** `20261010-equipment-v1`; previous release
-  `20261009-wiki-v2` is retained for recovery.
+- **Active OVH origin release:** `20261016-features-v1`; previous release
+  `20261010-equipment-v1` is retained for recovery.
+- **Features:** 17 major departures from Classic, with dedicated upgrade and crafting guides.
 - **Equipment:** 96 item families with four quality links each, gear/augment
   views, name/slot/level/zone filters, sorting and 12-family pagination.
 - **Public hostname active:** the existing tunnel now routes the wiki to
   `http://web:8080`; its proxied CNAME was created automatically. The existing
   player-only WAF rule required no change.
-- 451 articles: 17 maintained guides, 48 enabled zone pages, 384 item pages and
-  two catalog indexes. All articles, Search and 404 bring the build to 454 pages.
-- The exact publication contains 461 files. Private player guide and game access
-  remain on `play.nightcapgame.org` under the existing approved-IP policy.
+- 454 articles: 20 maintained guides, 48 enabled zone pages, 384 item pages and
+  two catalog indexes. All articles, Search and 404 bring the build to 457 pages.
+- The exact publication contains 464 files. Player access uses the current personal-code
+  policy; wiki updates preserve it. October 9 IP-only descriptions below are historical.
 
 Source and build commands: [wiki/README.md](../../wiki/README.md).
 Architecture: [ADR 0059](../adr/0059-official-public-wiki.md).
 
+## Features refresh — October 16, 2026
+
+The Features hub and guide refresh are live in `20261016-features-v1`. All 464
+public file hashes/headers pass; ten private/source wiki paths remain denied.
+Current player-host behavior, private downloads and five service identities are
+preserved. Rollback to `20261010-equipment-v1` was rehearsed; no Nginx reload.
+The full [release record](../releases/wiki-features-20261016/README.md) separates
+content, tests, production proof and remaining gameplay acceptance.
+
+Every future Nightcap change requires reviewing affected content across the wiki,
+including Features, commands, generated catalog pages and Recent changes. Run
+`wiki/check_refresh.py` against the actual source authority and follow
+`wiki/README.md`; do not blindly advance its recorded revision. No-impact changes
+need a recorded assessment, and unpublished updates remain explicitly pending.
+
 ## Equipment update — October 9 EDT / October 10 UTC, 2026
 
-`20261010-equipment-v1` is active at [Equipment](https://wiki.nightcapgame.org/items.html).
+The earlier `20261010-equipment-v1` was published at [Equipment](https://wiki.nightcapgame.org/items.html).
 The catalog groups 384 variants into 96 families and keeps guides separate from
 item browsing. All quality URLs remain reachable in static markup without JavaScript.
 Mobile layouts use stacked cards; copied filter URLs and Back navigation retain
@@ -32,7 +48,7 @@ The guarded content updater verified the new 461-file release, rehearsed rollbac
 to `20261009-wiki-v2`, and reactivated the new pointer. Nginx configuration, private
 download hashes and all five container identities/start times stayed unchanged;
 no reload or service restart was required. See [origin verification](../releases/wiki-equipment-20261010/origin-verification.json).
-Current relative pointer: `data/public/wiki/current` → `releases/20261010-equipment-v1`.
+That update used `data/public/wiki/current` → `releases/20261010-equipment-v1`.
 The immutable receipt is in
 `/opt/nightcap/deploy/production/website-history/20261010-equipment-v1/`.
 
@@ -147,7 +163,8 @@ private-download and service checks. Keep all release and receipt directories.
 
 ## Verification evidence
 
-- Seven complete-site/content/package tests pass across all 454 HTML pages.
+- Nine complete-site/content/package tests pass across all 457 HTML pages.
+- Five source-refresh tests cover committed, staged, unstaged and untracked changes.
 - Seven Node Equipment cases cover all 384 exact variant names, combined
   filters, sorting, pagination, level/slot semantics and unsafe-looking queries.
 - Eight content-update tests pass on Linux, including failed activation,
