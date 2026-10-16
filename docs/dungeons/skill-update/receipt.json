@@ -1,10 +1,11 @@
 {
   "status": "installed",
-  "revision": "916b39e265ab36d0da92074c3d61d4bba132dadb",
+  "revision": "7ae42801af295931e73b52908cdb4965167d7de9",
   "files": {
-    "references/world.md": "fb05da98026ce6e75566dc1069b92fb6cd87f95974d59689cbd6347cd75de115",
-    "references/items.md": "56a83297183337e964334b39447da3fc20bcdd700646f81f0ffba9b80e709d78",
-    "references/wiki.md": "c8d6c8e1832508efca064ca0edd76e26158e21cfd399932da2025315cf9c316b",
-    "references/sources.json": "86c9929904d395908be3466a4b90afa22716cbfc3132356039d1048775591488"
+    "references/world.md": "38c1ed197b507ccf43fe3ded1ff45950df6e6482a067edbc3361957de192924d",
+    "references/items.md": "8a0c7b2de143b1f6b7d6a96132304f7f9b1385fe98ba83e85a4b7790c13819bb",
+    "references/wiki.md": "0efd487d88f28ee60668a5356bdbbc7f715e513f0f93ee905a196eeef5b1e98c",
+    "references/sources.json": "ce401290ca38df9c60544a3bc353613884654dbc2351312d247a2150cd1e5273",
+    "references/operations.md": "46ab46067a24a516314852de7c6b46b8980e99add13aa923bbbb4b022c94b4fa"
   }
 }

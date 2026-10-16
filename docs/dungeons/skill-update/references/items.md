@@ -13,9 +13,9 @@ Item links must remain <=1,048,575. Prove IDs free across relevant tables and re
 
 Hunt type-22 augments fit eligible head/arms/hands/chest/legs/feet sockets. At player level >=50 only qualifying socketed hunt-augment heroic INT/WIS adds output-cap headroom: `min(30,floor(effective heroic total/2))` for Spell Damage/Healing Amount. It doesn't grant missing raw bonuses. Don't apply this credit to arbitrary gear, AAs, buffs, NPCs or other augments.
 
-## Dungeon reward catalog candidate
+## Dungeon reward catalog deployed for live QA
 
-October 16 candidate only; `docs/dungeons/{catalog.json,README.md,QA.md}` owns
+October 16 deployed; `docs/dungeons/{catalog.json,README.md,QA.md}` owns
 definitions and acceptance. IDs 960000–960329 remain below the RoF2 link ceiling.
 Twenty-four shared designs (8 armor, 8 weapons, 6 accessories, 2 bags) use bands
 20/30/40/50 and Normal/Polished/Ascended qualities: 288 definitions. Each dungeon
@@ -38,7 +38,9 @@ Source: `common/dungeon_{policy,catalog,contract}.h`, `zone/dungeon_service.cpp`
 20261016 dungeon SQL. Tests: `tools/tests/test_dungeon*.py`, rehearsal/activation/
 concurrency scripts, existing inventory/corpse adapter evidence and native cache
 verification. Pair all native binaries with the cache; no client asset changes.
-Local automated verification is not gameplay/balance acceptance or deployment.
+The regenerated production cache preserves all 309,410 old records and adds
+exactly 330 items. Deployment and continuing runtime checks pass; gameplay and
+balance acceptance remain open. `docs/dungeons/deployment/` pins the actual pair.
 
 ## Commonlands Leather Padding stock
 
