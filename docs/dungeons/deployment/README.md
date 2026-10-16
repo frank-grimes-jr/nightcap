@@ -78,10 +78,10 @@ The private backup is retained for disaster investigation, not routine rollback.
 The independent provenance review found no missing or regressed retained source.
 The operator review found and repaired native `spawn2` identifier validation,
 the equipment helper's explicit import/pinning, uncertain opening replay, and
-the native items table's UNIQUE ID index (which is not a primary key). All seventeen
+the native items table's UNIQUE ID index (which is not a primary key). All eighteen
 offline checks pass, including schema failure after a verified backup, opening
 journal failure, lost acknowledgment, process failure, drift, duplicate opening,
-cache preservation and the actual unique-index shape. The owner retained the
+cache preservation the actual unique-index shape and the active read-only configuration mount. The owner retained the
 current-model review; no additional model was requested.
 
 The first complete raw-row content fingerprint exceeded the database container's
@@ -89,7 +89,7 @@ The first complete raw-row content fingerprint exceeded the database container's
 MariaDB recovered and was ready at 18:53:04 UTC. Game/gateway containers did not
 restart. No feature migration or activation had begun. Fingerprints now stream
 compact SQL row digests, retain FLOAT precision through DOUBLE projection and
-limit each operator SQL session to 128 MiB. Seventeen offline controls pass,
+limit each operator SQL session to 128 MiB. Eighteen offline controls pass,
 including the memory/streaming contract and credential-error redaction. Treat
 this incident separately from the later successful rollout health record.
 

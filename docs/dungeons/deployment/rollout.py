@@ -198,6 +198,14 @@ def audit_references():
     return counts
 
 
+def runtime_config():
+    mounts = [v for v in r.state('game')['Mounts'] if v['Destination'] == '/srv/nightcap/eqemu_config.json']
+    assert len(mounts) == 1 and not mounts[0]['RW'], 'Unexpected configuration mount'
+    path = Path(mounts[0]['Source'])
+    assert path.resolve() == (ROOT / 'private/eqemu_config.json').resolve()
+    return json.loads(path.read_text())
+
+
 def rehearsal(p):
     database = 'nightcap_dungeon_stage_' + uuid.uuid4().hex[:12]
     username = 'nd_' + uuid.uuid4().hex[:12]
@@ -222,7 +230,7 @@ def rehearsal(p):
         sql(f"CREATE USER '{username}'@'%' IDENTIFIED BY '{password}';")
         created_user = True
         sql(f"GRANT ALL ON `{database}`.* TO '{username}'@'%';")
-        config = json.loads((ROOT / 'data/server/eqemu_config.json').read_text())
+        config = runtime_config()
         connection = config['server']['database']
         connection.update(db=database, username=username, password=password)
         config['server']['content_database'] = dict(connection)

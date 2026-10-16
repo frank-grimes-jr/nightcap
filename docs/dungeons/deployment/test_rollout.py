@@ -25,6 +25,15 @@ with patch.object(importlib.util, 'spec_from_file_location', side_effect=source_
 
 
 class QueryTests(unittest.TestCase):
+    def test_configuration_uses_actual_readonly_private_mount(self):
+        mounts={'Mounts':[{'Destination':'/srv/nightcap/eqemu_config.json','Source':str(d.ROOT/'private/eqemu_config.json'),'RW':False}]}
+        with patch.object(d.r,'state',create=True,return_value=mounts),patch.object(Path,'read_text',return_value='{"server":{}}') as read:
+            self.assertEqual(d.runtime_config(),{'server':{}})
+            read.assert_called_once()
+        mounts['Mounts'][0]['RW']=True
+        with patch.object(d.r,'state',create=True,return_value=mounts):
+            with self.assertRaises(AssertionError):d.runtime_config()
+
     def test_queries_stream_and_cap_session_memory(self):
         with patch.object(d.subprocess,'run',return_value=types.SimpleNamespace(returncode=0,stdout='',stderr='')) as run:
             d.sql('SELECT 1;')
