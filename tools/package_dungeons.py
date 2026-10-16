@@ -77,7 +77,7 @@ cfg['server']['content_database']=dict(db)
 cfg['server'].setdefault('directories',{}).update(shared_memory=str(r/'shared')+'/',logs=str(r/'logs')+'/')
 p=r/'eqemu_config.json';p.write_text(json.dumps(cfg));p.chmod(0o600)
 source=r/'cache_check.cpp'
-source.write_text("""
+source.write_text(r"""
 #include "common/dungeon_contract.h"
 #include <fstream>
 #include <vector>

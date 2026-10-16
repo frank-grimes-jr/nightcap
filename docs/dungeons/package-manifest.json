@@ -1,0 +1,25 @@
+{
+  "status": "packaged_for_local_test_not_installed",
+  "manual_gameplay_accepted": false,
+  "cache_scope": "Local public content snapshot; regenerate against a fresh target-content clone before any production release",
+  "files": {
+    "bin/shared_memory": "ef1f399884387712113bf13163ddfcd35c47a29d0f0b9b194a6b7e265997ae35",
+    "bin/world": "70cceaca060ed6338cb72acc726bb24ccae162b42ba88dfb89432b609c7ef8e5",
+    "bin/zone": "40bc343044c4a22292fe2e4377c3b1b33ddc323541236642d615298273f1b95c",
+    "cache-verification.json": "eac13e7442af76b391913011f032dde3bb3f477212fbd5ee11ba63bf414f072a",
+    "docs/QA.md": "ef587f7a62901e403a631e5ccbf45643a3a8e03fecef6226b81646bc2781dfa5",
+    "docs/README.md": "82e0cee0f9b223cfa96d503d95792e34095a74536fcee1f6a5285b1f9e481ad4",
+    "docs/SPEC.md": "70255dc4f0df9bb1540ad5e1a9db60dfa6cec3e71eb95e964bfa49f1b275aee3",
+    "docs/activation-verification.json": "c2c7a1eb2b0a4574e1b1287ab127847eca4a3658d0d9f4c233faa7dcb128e9e5",
+    "docs/catalog.json": "b7cf1e0f2ac75891d8d723a5a964b7fd6a06180e3599fb406293d67614c1f500",
+    "docs/concurrency-verification.json": "90a861d5c79df3dfba68b408c56b1a544579a97b738ac16d0945d2730c34cefa",
+    "docs/review.md": "02000d4e0f5985607e549df4ed703def941aead8b46ccd3b1568b473c108ce08",
+    "docs/verification.json": "2b3c965c8342d37f850cf79897af19c8587a141362af3c06b336c93dd749f5d4",
+    "native-build-manifest.json": "6e17f8dcaf9c64f4a4b3db960ac6aa849bf177c8cfbfe49a0536cb0da832937c",
+    "quests/global/Instance_Keeper.pl": "b4fc39bd29cbc0856b8ec9bd0072285e5cade672fa43cf853bf96009d30bf7a9",
+    "shared/items": "fa695df4bf26007503a42dcd80c7ef6ec5920bf4a6563268600dd2f3a679efa3",
+    "sql/20261016_dungeon_content.sql": "d6341eb0a4b3109f6d941497ae89008d2dceb878eef708b98a4ced5ae411768e",
+    "sql/20261016_dungeon_enable.sql": "466f082f9e2621f7f134bca64cbb236411734aad92b07f05f714673585dc0ce3",
+    "sql/20261016_dungeons.sql": "2e1803cf6fd4d058599e767907cbbc60ca92642888eae7f4c860cd04b3ca681f"
+  }
+}

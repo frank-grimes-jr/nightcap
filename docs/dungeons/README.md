@@ -1,6 +1,6 @@
 # Raid and Grind release candidate
 
-October 16, 2026. Feature branch only; installation, production activation and
+October 16, 2026. Test release candidate; operational installation, production activation and
 owner gameplay acceptance have not occurred. The accepted contract is
 [SPEC.md](SPEC.md). Do not describe a build or SQL rehearsal as gameplay QA.
 
@@ -73,7 +73,10 @@ an older receipt-unaware binary.
 
 `local-content.json` is a dated **local** public-content preimage, not a
 production capture. Installation guards selected existing objective identities
-and all reserved ranges. Runtime checks verify the schema columns/keys,
+and all reserved ranges, including dangling item references in native/custom
+inventory, loot, merchant, recipe and receipt tables. `reference-audit.json`
+records 77 clear local item-reference columns without copying player records.
+Runtime checks verify the schema columns/keys,
 explicit content rows and the matching item-cache projection. Drift refuses
 new runs and managed boot; investigate it instead of weakening the gate.
 
@@ -144,11 +147,24 @@ whole runtime. Use the authorized operational release procedure.
 the actual receipt/inventory and corpse/currency code with dependency fakes.
 `test_dungeon*.py` covers actual spawn selection, probability boundaries, item
 catalog, parser rejection and integration ordering. These are not live gameplay
-or balance evidence. Build/package evidence and manual QA must be recorded
-before this candidate is represented as ready or deployed.
+or balance evidence. `native-build-manifest.json` records the complete paired
+build and 2,820 retained source fingerprints. `cache-verification.json` checks
+all 330 custom definitions and preserves every byte of 308,928 existing local
+item records. The package contains matching binaries/cache, SQL, Keeper quest
+and the QA guide. It is a local-content test package, not a production cache.
 
 `activation-verification.json` verifies valid activation and refusal of altered
 items, schema and triggers. `concurrency-verification.json` executes concurrent
 real MariaDB sessions for allocation, the six-member cap, receipt rollback and
 reset versus entry. These tests use synthetic records in the isolated database.
 `wiki-review.md` records the whole-site assessment and the unreleased guide.
+The six reviewed wiki source files are installed locally; publication is pending.
+`verification.json` separates automated results from the still-open gameplay,
+test installation and owner acceptance gates. `package-verification.json` records
+member-by-member package verification after the final SQL/document refresh.
+
+Feature tables explicitly use utf8mb4, independently of the database default.
+The final rehearsal also uses a latin1 database default while preserving the
+separate native receipt dependency's captured utf8mb4 schema. Its generated
+native contract must remain identical to the compiled build; do not regenerate
+fingerprints from an arbitrary changed target to bypass a mismatch.

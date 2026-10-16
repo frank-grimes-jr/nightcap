@@ -5,6 +5,25 @@ from dungeon_prepare import sql
 
 ROOT=Path(__file__).resolve().parents[1]
 
+# Audited native/custom item-reference columns. Missing optional tables are
+# allowed; an occupied reference is a collision even when items has no row.
+ITEM_REFERENCES={table:['item_id'] for table in (
+    'alternate_currency buyer_buy_lines buyer_trade_items character_bandolier character_corpse_items '
+    'character_evolving_items character_parcels character_parcels_containers character_pet_armor '
+    'character_pet_inventory character_potionbelt discovered_items guild_bank inventory items_evolving_details '
+    'keyring lootdrop_entries nightcap_market_catalog nightcap_market_offers nightcap_market_trades '
+    'pets_equipmentset_entries player_event_loot_items player_event_merchant_purchase player_event_merchant_sell '
+    'player_event_npc_handin_entries player_event_trade_entries sharedbank starting_items titles trader '
+    'tradeskill_recipe_entries tribute_levels veteran_reward_templates character_advloot_claims').split()}
+ITEM_REFERENCES.update({table:['itemid'] for table in ('fishing','forage','inventory_snapshots','merchantlist_temp','object','object_contents')})
+ITEM_REFERENCES.update({table:['item'] for table in ('ground_spawns','merchantlist')})
+for table in ('inventory','sharedbank','character_pet_armor','starting_items'):
+    ITEM_REFERENCES[table]+=['augment_'+n for n in ('one','two','three','four','five','six')]
+for table in ('inventory_snapshots','object_contents'):
+    ITEM_REFERENCES[table]+=['augslot'+str(i) for i in range(1,7)]
+for table in ('nightcap_zone_hunt_forges','nightcap_item_upgrades'):
+    ITEM_REFERENCES[table]=['input_id','output_id']
+
 def insert(table,row):
     return 'INSERT INTO `'+table+'` ('+','.join('`'+k+'`' for k in row)+') VALUES ('+','.join(sql(v) for v in row.values())+');'
 
@@ -33,6 +52,9 @@ def generate():
          "DECLARE EXIT HANDLER FOR SQLEXCEPTION BEGIN ROLLBACK; RESIGNAL; END;",
          'START TRANSACTION;',
          "IF NOT EXISTS (SELECT 1 FROM nightcap_dungeon_state WHERE id=1 AND revision=2026101601 AND enabled=0) THEN SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT='Dungeon state/revision mismatch'; END IF;"]
+    for table,columns in sorted(ITEM_REFERENCES.items()):
+        for column in columns:
+            out.append(f"IF EXISTS (SELECT 1 FROM information_schema.columns WHERE table_schema=DATABASE() AND table_name='{table}' AND column_name='{column}') THEN IF EXISTS (SELECT 1 FROM `{table}` WHERE `{column}` BETWEEN 960000 AND 960329) THEN SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT='Reserved item reference collision: {table}.{column}'; END IF; END IF;")
     for table,data in tables.items():
         if not data:continue
         if table=='nightcap_dungeon_spawns':where='zone_id=48'

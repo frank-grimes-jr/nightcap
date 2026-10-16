@@ -5,7 +5,7 @@ CREATE TABLE nightcap_dungeon_state (
  revision BIGINT UNSIGNED NOT NULL,
  enabled TINYINT UNSIGNED NOT NULL DEFAULT 0,
  CHECK (id=1 AND enabled IN (0,1))
-) ENGINE=InnoDB;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 INSERT INTO nightcap_dungeon_state VALUES (1,2026101601,0);
 
 CREATE TABLE nightcap_dungeon_runs (
@@ -27,7 +27,7 @@ CREATE TABLE nightcap_dungeon_runs (
  UNIQUE KEY instance_generation(instance_id,instance_start),
  KEY owner_runs(owner_id,zone_id,expires_at),
  CHECK (mode IN (0,1) AND retired IN (0,1))
-) ENGINE=InnoDB;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 CREATE TABLE nightcap_dungeon_members (
  run_id CHAR(36) CHARACTER SET ascii COLLATE ascii_bin NOT NULL,
@@ -40,7 +40,7 @@ CREATE TABLE nightcap_dungeon_members (
  UNIQUE KEY reward_receipt(reward_drop_id),
  KEY character_runs(character_id,completed_at),
  FOREIGN KEY(run_id) REFERENCES nightcap_dungeon_runs(run_id)
-) ENGINE=InnoDB;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 CREATE TABLE nightcap_dungeon_kills (
  run_id CHAR(36) CHARACTER SET ascii COLLATE ascii_bin NOT NULL,
@@ -48,14 +48,14 @@ CREATE TABLE nightcap_dungeon_kills (
  boss_id INT UNSIGNED NOT NULL,
  PRIMARY KEY(run_id,character_id,boss_id),
  FOREIGN KEY(run_id) REFERENCES nightcap_dungeon_runs(run_id)
-) ENGINE=InnoDB;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 -- character_id=0 records the shared objective; real IDs are personal credit.
 CREATE TABLE nightcap_dungeon_deaths (
  run_id CHAR(36) CHARACTER SET ascii COLLATE ascii_bin NOT NULL,
  spawn_id INT UNSIGNED NOT NULL,
  PRIMARY KEY(run_id,spawn_id),
  FOREIGN KEY(run_id) REFERENCES nightcap_dungeon_runs(run_id)
-) ENGINE=InnoDB;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 CREATE TABLE nightcap_dungeon_loot (
  run_id CHAR(36) CHARACTER SET ascii COLLATE ascii_bin NOT NULL,
@@ -65,7 +65,7 @@ CREATE TABLE nightcap_dungeon_loot (
  PRIMARY KEY(run_id,ordinal),
  UNIQUE KEY physical_drop(drop_id),
  FOREIGN KEY(run_id) REFERENCES nightcap_dungeon_runs(run_id)
-) ENGINE=InnoDB;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Grind timers belong to a run generation too. Millisecond wall-clock deadlines
 -- are committed before publishing the death, alongside encounter credit.
@@ -76,7 +76,7 @@ CREATE TABLE nightcap_dungeon_respawns (
  died_at BIGINT UNSIGNED NOT NULL,
  PRIMARY KEY(run_id,spawn_id),
  FOREIGN KEY(run_id) REFERENCES nightcap_dungeon_runs(run_id)
-) ENGINE=InnoDB;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Copies of native spawn rows live here, never in public spawn2. CT uses only
 -- these private rows. Other dungeons use them for objective selection overrides.
@@ -92,7 +92,7 @@ CREATE TABLE nightcap_dungeon_spawns (
  grid_id INT UNSIGNED NOT NULL DEFAULT 0,
  PRIMARY KEY(zone_id,spawn_id),
  CHECK(is_final IN (0,1))
-) ENGINE=InnoDB;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Managed checkpoints are keyed by the permanent run UUID, never the recyclable
 -- native instance number. Old zone processes can only update their own run.
@@ -101,7 +101,7 @@ CREATE TABLE nightcap_dungeon_checkpoints (
  payload LONGTEXT NOT NULL,
  saved_at BIGINT UNSIGNED NOT NULL,
  FOREIGN KEY(run_id) REFERENCES nightcap_dungeon_runs(run_id)
-) ENGINE=InnoDB;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Written in the same transaction as every death. Stable physical IDs cover
 -- every native and bonus item, plus currency. Wall-clock decay is irreversible.
@@ -113,7 +113,7 @@ CREATE TABLE nightcap_dungeon_corpses (
  expires_at BIGINT UNSIGNED NOT NULL,
  PRIMARY KEY(run_id,corpse_id),
  FOREIGN KEY(run_id) REFERENCES nightcap_dungeon_runs(run_id)
-) ENGINE=InnoDB;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Disable acquisition to roll back behavior. Preserve catalogs, definitions,
 -- ledger and character_advloot_claims after any player access.

@@ -30,7 +30,9 @@ def main():
     target=json.loads((ROOT/'docs/dungeons/target-content.json').read_text())
     payload=json.loads((ROOT/'docs/dungeons/install-rows.json').read_text())
     tables=set(target['ddl'])|{'spawn2','faction_list','doors','inventory','character_evolving_items','character_data','character_corpses'}
-    query('CREATE DATABASE `'+name+'` CHARACTER SET utf8mb4;', 'information_schema')
+    # Match a legacy target default: feature tables must explicitly choose their
+    # own encoding instead of accidentally relying on the rehearsal DB default.
+    query('CREATE DATABASE `'+name+'` CHARACTER SET latin1;', 'information_schema')
     for table in sorted(tables):query(f'CREATE TABLE `{table}` LIKE peq.`{table}`;',name)
     for table in ('spawn2','spawnentry','spawngroup','npc_types','doors'):
         query('\n'.join(insert(table,r) for r in data[table]),name)
@@ -39,12 +41,22 @@ def main():
     query('\n'.join(insert('faction_list',r) for r in target['faction_list']),name)
     claims=(ROOT/'server-mods/sql/20260930_advanced_loot.sql').read_text()
     claims=re.search(r'CREATE TABLE character_advloot_claims \(.*?ENGINE=InnoDB;',claims,re.S)[0]
+    # The separately installed receipt dependency uses the captured PEQ default
+    # (utf8mb4_general_ci). Vary only the new feature's surrounding DB default.
+    claims=claims.replace('ENGINE=InnoDB;','ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;')
     query(claims,name)
     schema=(ROOT/'server-mods/sql/20261016_dungeons.sql').read_text()
     query(schema,name)
+    assert query("SELECT COUNT(*) FROM information_schema.tables WHERE table_schema=DATABASE() AND table_name LIKE 'nightcap_dungeon_%' AND table_collation='utf8mb4_general_ci';",name).stdout.strip()=='10'
     before={t:query(f'CHECKSUM TABLE `{t}` EXTENDED;',name).stdout.strip()
             for t in ('spawn2','doors','character_data','inventory')}
     migration=(ROOT/'server-mods/sql/20261016_dungeon_content.sql').read_text()
+    # A dangling player reference must block allocation of the reserved range.
+    # This synthetic row exists only in the otherwise empty rehearsal inventory.
+    query('INSERT INTO inventory(character_id,slot_id,item_id,charges) VALUES(4242,23,960000,1);',name)
+    occupied=query(migration,name,False)
+    assert occupied.returncode and 'Reserved item reference collision: inventory.item_id' in occupied.stderr
+    query('DELETE FROM inventory WHERE character_id=4242; DROP PROCEDURE nightcap_dungeon_content_20261016;',name)
     query(migration,name)
     counts={table:int(query(f'SELECT COUNT(*) FROM `{table}`;',name).stdout.strip()) for table in payload}
     assert counts['nightcap_dungeon_spawns']==188 and counts['tasks']==14 and counts['task_activities']==118
@@ -85,6 +97,8 @@ def main():
               'public_and_player_preservation':before==after,'repeat_install_rejected':True,
               'death_rollback_atomic':True,'duplicate_death_rejected':True,'earned_claim_retained_after_retirement':True,
               'grind_corpse_timer_rollback_atomic':True,'successive_corpses_coexist':True,'native_marker_fits':True,'instance_reuse_rejected':True}
+    evidence.update(database_default='latin1',feature_encoding_explicit=True,receipt_dependency_encoding='utf8mb4_general_ci')
+    evidence['dangling_inventory_reference_rejected']=True
     (ROOT/'docs/dungeons/rehearsal.json').write_text(json.dumps(evidence,indent=2)+'\n')
     print(json.dumps(evidence))
 
