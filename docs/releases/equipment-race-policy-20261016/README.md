@@ -101,8 +101,10 @@ unchanged other binary hashes, unchanged SQL/player/custom/rules/content/public
 assets and identical normalized old/new cache hashes. Recheck the signed client
 pair and healthy restart count. Persist evidence before reopening.
 
-Before access opens, a failed check restores the exact previous image/cache;
-never restore an old player DB. A lost gateway acknowledgment or post-open
+Before access opens, recovery selects the previous image and regenerates its
+cache. Reopen only after proving exact preflight cache equality; otherwise hold
+the gateway closed for reconciliation. Never restore stale cache or SQL.
+A lost gateway acknowledgment or post-open
 failure holds access closed for reconciliation without replaying old inventory
 or uncertain activation. Rollback reintroduces ordinary race restrictions and
 must account for gear equipped after this policy was active.
