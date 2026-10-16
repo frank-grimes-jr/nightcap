@@ -1,8 +1,8 @@
 # Multiclass equipment and inspection — October 15, 2026
 
-Status: **built and tested candidate; not published, installed or owner-accepted**.
+Status: **merged and published as signed game release 2026101501; owner gameplay QA pending**.
 Proxy 0.9.1-dev corrects cursor placement and inspection eligibility. This is a
-client-only change against integrated main `1e3bf44`; no server restart, cache
+client-only change merged in PR #202 (`f1c9271`); no server restart, cache
 refresh, item definition edit, character update or database migration is needed.
 
 ## Report and diagnosis
@@ -80,15 +80,26 @@ go test ./...
 
 ## Publication and recovery
 
-Publication requires owner authorization. Prepare a signed game update containing
-the matching `dinput8.dll` and `nightcap-patch-sites.json`; configuration and every
-unrelated asset come from the freshly verified latest signed inventory. Preserve
-Craft All, trainer and spell fixes, launcher minimum 0.6.0, prior notes and
-tombstones. Add the following dated fix notes to `eq-launcher/patch-notes.json`
-when selecting a fresh monotonic release counter:
+The owner explicitly authorized push, main merge and signed client publication.
+PR #202 merged tested source `55d6b43` as `f1c9271`. Game release **2026101501**,
+proxy **0.9.1-dev**, was published October 16 on `play.nightcapgame.org`. Its
+production-key signature and all **106 hosted assets** verify over HTTPS. Only `dinput8.dll`
+and `nightcap-patch-sites.json` changed from fresh live release 2026101304;
+104 other assets, launcher minimum 0.6.0, prior notes and tombstones are preserved.
+Desktop channel, stable starter, guide and all five service identities/start
+times/restart counts remain unchanged. No server restart or database write.
 
-- Equipment now recognizes all of your selected classes when placing items.
-- Item inspection colors correctly reflect your selected classes.
+The publisher holds the shared deployment lock, refuses public/service drift,
+verifies immutable assets before channel replacement, and fsyncs every nested
+directory deepest-first before publishing. All **13 recovery tests** pass;
+independent review of the publication flow has no remaining actionable findings.
+Evidence: `deployment.json`, `published.json`, `hosted-verification.json`,
+`publication-diff.json`, `signed-release-audit.json` and `verification.json`.
+Metadata expires **2026-11-14T09:47:47Z**; future renewal uses a new signed counter.
+The initial upload was interrupted before staging or channel publication. The
+next-day baseline refresh found only an independent healthy game restart on the
+same image; public bytes were unchanged. The final publication retained that
+refreshed runtime, without restarting any service.
 
 Use `docs/ops/permanent-patcher.md`. Upload immutable assets before replacing the
 signed channel; verify the signature and every hosted file. No native server or
@@ -97,7 +108,7 @@ publication. Rollback is the previous matching DLL/catalog in a newly signed
 release with a higher counter; preserve all items and subsequent player activity.
 The unsigned candidate delta is build evidence, not a manual-install release.
 
-## Owner gameplay QA — pending publication
+## Owner gameplay QA — pending after launcher update
 
 1. Close EQ, update through launcher Play, log in Palwar and confirm the inventory
    class labels read PAL/WAR/MNK. In East Commonlands inspect Forged Javelin

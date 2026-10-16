@@ -1,13 +1,15 @@
 # Current Nightcap status
 
-## Multiclass equipment and inspection — candidate October 15
+## Multiclass equipment and inspection — published for live QA October 16
 
 The [equipment correction](releases/multiclass-equipment-20261015/README.md) fixes
 Forged Javelin placement for Paladin/Warrior/Monk and unheld equipment appearing
 green. Proxy 0.9.1-dev uses current held classes in cursor and inspection paths;
 native restrictions and canonical scroll access remain. Native regressions,
-scope coverage, x86 builds and catalog checks pass. **Not published or installed**;
-owner authorization and live gameplay QA remain pending. No server/DB change.
+scope coverage, x86 builds, full Go suite and catalog checks pass. PR #202 merged;
+signed release **2026101501** verifies all 106 hosted assets and the production
+signature. Only DLL/catalog changed; all five services are unchanged. Launcher
+installation and live gameplay QA remain pending. No server/DB change.
 
 ## Temporary AA buffs — built candidate October 15
 

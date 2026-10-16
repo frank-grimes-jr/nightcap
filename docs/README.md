@@ -16,7 +16,7 @@ Start with [current status](status.md), not a dated candidate report.
 
 ## Players and testers
 
-- [Multiclass equipment and inspection: candidate, client publication and exact QA](releases/multiclass-equipment-20261015/README.md)
+- [Multiclass equipment and inspection: published client update and exact QA](releases/multiclass-equipment-20261015/README.md)
 
 - [Stacked materials and Craft All: paired deployment, recovery and exact QA](tradeskills/README.md)
 
