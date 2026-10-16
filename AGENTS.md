@@ -556,7 +556,7 @@ arithmetic or slot restoration. Evidence: `docs/releases/blessing-lifetime-20261
 `wiki/` owns the separate public guide at `wiki.nightcapgame.org`. Maintain reviewed
 article JSON and the public reward projection, then generate/package only `dist/`.
 Never expose raw exports, source ledgers, operations files or private game downloads.
-Keep play-host IP restrictions and apex/www 404 routes. Wiki and player-site
+Preserve the current credential-based player-access policy and apex/www 404 routes. Wiki and player-site
 publishers must share `deploy/production/website-history/.lock`; preserve the
 bind-mounted Nginx config inode, relative release symlinks and rollback preimages.
 Public HTTPS is active. `wiki/update.py` performs guarded content-only updates
@@ -565,3 +565,20 @@ rollback; it does not reload Nginx or restart services. Run its POSIX tests on L
 Keep equipment variants grouped in `items.html`; do not reintroduce flat item dumps
 into category navigation. See `docs/ops/nightcap-wiki.md` for current release and
 recovery. Website deployment does not promote gameplay.
+
+
+### Wiki maintenance with every change
+
+Every Nightcap feature, fix, tuning/content change, deployment and accepted player
+correction requires a wiki impact review before completion. Update affected guides,
+Features (major departures from Classic), home summaries, commands, generated
+item/zone pages, catalog values, release labels and Recent changes together. If
+there is no player-facing impact, record that assessment in the change evidence.
+Do not claim local edits are published; verify the authorized public release.
+
+Use the current wiki checkout and `wiki/README.md`; run `wiki/check_refresh.py`
+against the actual current source ref, including worktree changes when applicable.
+Source drift means review required, not permission to blindly advance the ledger.
+Check dated deployment/QA and outside-Git operations too. Preserve candidate labels,
+private operational data and the installed Nightcap skill's wiki knowledge.
+This is part of each change, not a scheduled job or gameplay deployment authority.

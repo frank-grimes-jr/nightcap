@@ -26,7 +26,7 @@ def catalog_articles():
         body += '</tbody></table></div><h2 id="finding-rewards">Finding these rewards</h2><p>Eligible native enemies have an independent 0.5% roll for the augment family and 0.5% for the gear family. Both may drop together. A successful family roll then chooses Base (60%), Polished (30%), Exalted (8%), or Ascension (2%). Ordinary loot remains.</p><p>Only the zone’s approved native enemies qualify. Pets, merchants, hub residents, summoned copies and city services do not. There is no guaranteed drop or pity timer.</p>'
         if z['slug'] == 'kithicor':
             body += '<p><strong>Kithicor requires eligible nighttime undead.</strong></p>'
-        body += '<h2 id="upgrading">Upgrading your finds</h2><p>Three identical unmodified copies can be forged into the next quality. Read <a href="zone-hunt.html#forging">the forging guide</a> before using <code>#zoneforge</code>. All new zone rewards have zero merchant resale value.</p><p><a href="zones.html">Browse all 48 reward zones →</a></p>'
+        body += '<h2 id="upgrading">Upgrading your finds</h2><p>Forge three identical Base copies into Polished, then four Polished into Exalted or four Exalted into Ascension. Read <a href="zone-hunt.html#forging">the forging guide</a> before using <code>#zoneforge</code>. All new zone rewards have zero merchant resale value.</p><p><a href="zones.html">Browse all 48 reward zones →</a></p>'
         add('zone-'+z['slug'], z['name'], 'Custom augment and equipment rewards · Classic era.', body, 'World')
         for i in rows:
             e = html.escape
@@ -42,7 +42,7 @@ def catalog_articles():
             for sibling in rows:
                 if sibling['kind'] == i['kind']:
                     body += f'<li><a href="item-{sibling["id"]}.html">{e(sibling["name"])}</a> · {QUALITIES[sibling["tier"]]}</li>'
-            body += '</ul><p>Use <a href="zone-hunt.html#forging">#zoneforge</a> to exchange three identical eligible copies for the next quality. Ascension is the final quality. These items can be traded, but cannot be sold to merchants.</p>'
+            body += '</ul><p>Use <a href="zone-hunt.html#forging">#zoneforge</a> with three identical Base copies or four identical Polished/Exalted copies for the next quality. The <a href="item-upgrades.html#box">Reforging Box</a> also handles the four-copy steps. Ascension is the final quality. These items can be traded, but cannot be sold to merchants.</p>'
             add('item-'+str(i['id']), i['name'], f'{QUALITIES[i["tier"]]} {i["kind"].lower()} · {z["name"]} · Required level {i["required_level"]}.', body, 'Equipment')
     zone_links = ''.join(f'<li><a href="zone-{z["slug"]}.html">{html.escape(z["name"])}</a></li>' for z in sorted(data['zones'], key=lambda z:z['name']))
     add('zones', 'Zones & rewards', 'Explore all 48 enabled Classic reward zones.', '<p>Each listed zone has one custom augment family and one equipment family. Click a zone for all four qualities and their item details. The level shown on an item is its required level, not a recommended adventuring level.</p><ul class="article-list">'+zone_links+'</ul><h2 id="excluded">Outside this reward release</h2><p>Highpass, Splitpaw, Cazic-Thule, Jaggedpine, Nedaria, Hate B and both tutorial zones remain outside the reward pool pending access checks. Cities and Plane of Knowledge have no new random drops. This does not mean every excluded zone is inaccessible.</p>', 'World')

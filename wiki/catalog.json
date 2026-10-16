@@ -1,9 +1,10 @@
 {
-  "updated": "2026-10-09",
+  "updated": "2026-10-16",
   "sources": [
     "docs/releases/zone-loot-20261009/generated/items.json",
     "docs/releases/zone-loot-20261009/generated/audit.json",
-    "docs/releases/zone-loot-20261009/PRODUCTION.md"
+    "docs/releases/zone-loot-20261009/PRODUCTION.md",
+    "server-mods/code/common/item_upgrade_policy.h and docs/releases/item-upgrades-20261012/README.md at origin/main 2df6823"
   ],
   "zones": [
     {

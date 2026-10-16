@@ -1,5 +1,15 @@
 # CHANGES
 
+## 2026-10-16 - Features and whole-wiki maintenance
+
+Add a Features hub, item-upgrade and Craft All guides, and primary navigation.
+Reconcile current AA, equipment/LORE, upgrade, buff, healing, travel and service
+rules across maintained guides and 432 generated reward pages. Add required wiki
+impact review to each Nightcap change plus source-drift detection covering new,
+deleted, staged, unstaged and untracked source. Retain deployment/QA distinctions.
+No gameplay, item-stat, access-policy or service changes. Publication evidence:
+`docs/releases/wiki-features-20261016/README.md`.
+
 ## 2026-10-09 - Organized Equipment catalog
 
 Replace the 384-entry Equipment text dump with 96 item families, each containing

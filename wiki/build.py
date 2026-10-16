@@ -40,9 +40,9 @@ def load_articles():
     return articles
 
 
-def render(title, description, body, page, category='Reference', status='Reference', updated='2026-10-09', toc=''):
+def render(title, description, body, page, category='Reference', status='Reference', updated='2026-10-16', toc=''):
     e = html.escape
-    nav = [('index', 'Main page'), ('getting-started', 'Getting started'), ('all-pages', 'All articles'),
+    nav = [('index', 'Main page'), ('getting-started', 'Getting started'), ('features', 'Features'), ('all-pages', 'All articles'),
            ('zones', 'Zones & rewards'), ('items', 'Equipment'), ('commands', 'Commands'), ('recent-changes', 'Recent changes')]
     navigation = ''.join(f'<a href="{slug}.html"'+(' aria-current="page"' if slug == page else '')+f'>{label}</a>' for slug, label in nav)
     category_nav = ''.join(f'<a href="{"items.html" if c == "Equipment" else "all-pages.html#category-"+str(i)}">{e(c)}</a>' for i, c in enumerate(CATEGORIES))

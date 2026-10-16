@@ -77,13 +77,34 @@ class WikiTests(unittest.TestCase):
         self.assertIn('selectFamilies', (self.out/'assets/search.js').read_text(encoding='utf-8'))
 
     def test_current_mechanics_and_unreleased_labels(self):
-        self.assertIn('40%',self.articles['multiclass']['body'])
+        self.assertIn('<strong>20%',self.articles['multiclass']['body'])
+        self.assertIn('4,000 AA experience',self.articles['multiclass']['body'])
         self.assertNotIn('plus 1%',self.articles['multiclass']['body'])
-        self.assertIn('40%',self.articles['commands']['body'])
+        self.assertIn('20%',self.articles['commands']['body'])
+        self.assertNotIn('40%',self.articles['commands']['body'])
         self.assertEqual(self.articles['unreleased']['status'],'Not released')
         self.assertIn('not installed',self.articles['unreleased']['body'])
         self.assertIn('no merchant resale value',self.articles['zone-hunt']['body'])
         self.assertIn('nighttime undead',self.articles['zone-kithicor']['body'])
+
+    def test_features_and_updated_guides_are_reachable(self):
+        for name, page in self.pages.items():
+            self.assertIn('features.html', page.links, name)
+        features = self.articles['features']['body']
+        for target in ['multiclass','item-upgrades','tradeskills','pets','combat','travel','equipment','launcher']:
+            self.assertIn(target+'.html',features)
+        self.assertIn('4 identical Polished',self.articles['item-upgrades']['body'])
+        self.assertIn('Craft All',self.articles['tradeskills']['body'])
+        self.assertIn('Temporary AA effects',self.articles['combat']['body'])
+        self.assertIn('LORE restrictions are disabled',self.articles['equipment']['body'])
+        self.assertNotIn('all 72',self.articles['waypoints']['body'])
+
+    def test_generated_reward_pages_use_current_upgrade_costs(self):
+        rewards = [a for slug,a in self.articles.items() if re.fullmatch(r'item-\d+|zone-(?!hunt$)[a-z0-9-]+',slug)]
+        self.assertEqual(len(rewards),432)
+        for a in rewards:
+            self.assertRegex(a['body'],r'[Ff]our (?:identical )?Polished',a['slug'])
+            self.assertNotIn('exchange three identical eligible copies',a['body'])
 
     def test_search_index_has_all_articles_without_internal_sources(self):
         index = json.loads((self.out/'search-index.json').read_text(encoding='utf-8'))

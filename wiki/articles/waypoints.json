@@ -1,13 +1,15 @@
 {
   "slug": "waypoints",
   "title": "Waypoint Explorer",
-  "summary": "Discover 72 waypoints and earn the Explorer title.",
-  "body": "<p>Explore the world, unlock return destinations, and earn a title.</p>\n        <ul class=\"quest-facts\"><li><strong>Start:</strong> Approach a marker named <strong>a waypoint</strong>. The Waypoint Master in the tunnel explains your progress.</li><li><strong>Goal:</strong> Discover all 72 Classic-zone waypoints by approaching their markers.</li><li><strong>Rewards:</strong> Each discovery unlocks a return destination with the Waypoint Master. Finding all 72 unlocks the title <strong>the Explorer</strong>.</li><li><strong>How it tracks:</strong> Discoveries are saved per character. Progress is tracked through discovery and NPC dialogue.</li></ul><p>See <a href=\"tunnel.html\">the tunnel guide</a> for services and <a href=\"travel.html\">travel options</a> for your next destination.</p>",
+  "summary": "Discover return destinations and earn the Explorer title.",
+  "body": "<p>Explore the world, unlock return destinations, and earn a title.</p>\n        <ul class=\"quest-facts\"><li><strong>Start:</strong> Approach a marker named <strong>a waypoint</strong>. The Waypoint Master in the tunnel explains your progress.</li><li><strong>Goal:</strong> Discover every waypoint shown in your current progress by approaching its marker.</li><li><strong>Rewards:</strong> Each discovery unlocks a return destination with the Waypoint Master. Completing the current catalog unlocks the title <strong>the Explorer</strong>.</li><li><strong>How it tracks:</strong> Discoveries are saved per character. Progress is tracked through discovery and NPC dialogue.</li></ul><p>See <a href=\"tunnel.html\">the tunnel guide</a> for services and <a href=\"travel.html\">travel options</a> for your next destination.</p><h2 id=\"markers\">Recognize the portal and Keeper</h2><p>The waypoint uses a portal effect. A nearby small floating eye is the separate Instance Keeper. At Unrest, the portal and recall destination are beside the entrance Keeper at <code>/loc -38, 52, 3</code>.</p>",
   "category": "Quests",
   "status": "Live testing",
-  "updated": "2026-10-09",
+  "updated": "2026-10-16",
   "sources": [
     "index.html at origin/main 19951a8",
-    "docs/status.md at origin/main 19951a8"
+    "docs/status.md at origin/main 19951a8",
+    "server-mods/quests/global/999240.pl and server-mods/quests/ecommons/Waypoint_Master.pl at origin/main 2df6823",
+    "docs/ops/keeper-visuals-20261012/README.md and docs/ops/unrest-waypoint-20261013/README.md at origin/main 2df6823"
   ]
 }
