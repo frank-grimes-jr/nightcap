@@ -1,0 +1,4703 @@
+{
+  "captured_at": "2026-10-13T09:33:44.264598+00:00",
+  "snapshot_sha256": "c5f89640b447d513bef706ecb26cda5ec88fa8b850d5c3f9c68b7cfa1ca08a84",
+  "method": "Enabled normal-player families; no shrouds/placeholder/grant-only. Sequential prefix and inherited prerequisite closure. All class masks include shared families only once. No race/deity restrictions in this snapshot. Charge families counted once, not repeat spending.",
+  "counts": [
+    {
+      "profile": "WAR",
+      "open_families": 193,
+      "open_ranks": 1124,
+      "open_points": 5660,
+      "open_spell_linked_families": 55,
+      "tbs_families": 97,
+      "tbs_ranks": 527,
+      "tbs_points": 1710,
+      "tbs_spell_linked_families": 23,
+      "family_reduction_percent": 49.74
+    },
+    {
+      "profile": "CLR",
+      "open_families": 202,
+      "open_ranks": 1344,
+      "open_points": 7580,
+      "open_spell_linked_families": 66,
+      "tbs_families": 98,
+      "tbs_ranks": 553,
+      "tbs_points": 1916,
+      "tbs_spell_linked_families": 31,
+      "family_reduction_percent": 51.49
+    },
+    {
+      "profile": "PAL",
+      "open_families": 207,
+      "open_ranks": 1388,
+      "open_points": 8050,
+      "open_spell_linked_families": 63,
+      "tbs_families": 105,
+      "tbs_ranks": 597,
+      "tbs_points": 2089,
+      "tbs_spell_linked_families": 27,
+      "family_reduction_percent": 49.28
+    },
+    {
+      "profile": "RNG",
+      "open_families": 202,
+      "open_ranks": 1466,
+      "open_points": 8282,
+      "open_spell_linked_families": 58,
+      "tbs_families": 108,
+      "tbs_ranks": 633,
+      "tbs_points": 2142,
+      "tbs_spell_linked_families": 24,
+      "family_reduction_percent": 46.53
+    },
+    {
+      "profile": "SHD",
+      "open_families": 228,
+      "open_ranks": 1521,
+      "open_points": 8848,
+      "open_spell_linked_families": 70,
+      "tbs_families": 110,
+      "tbs_ranks": 610,
+      "tbs_points": 2117,
+      "tbs_spell_linked_families": 23,
+      "family_reduction_percent": 51.75
+    },
+    {
+      "profile": "DRU",
+      "open_families": 215,
+      "open_ranks": 1298,
+      "open_points": 7169,
+      "open_spell_linked_families": 78,
+      "tbs_families": 101,
+      "tbs_ranks": 551,
+      "tbs_points": 1891,
+      "tbs_spell_linked_families": 31,
+      "family_reduction_percent": 53.02
+    },
+    {
+      "profile": "MNK",
+      "open_families": 163,
+      "open_ranks": 1223,
+      "open_points": 6065,
+      "open_spell_linked_families": 34,
+      "tbs_families": 96,
+      "tbs_ranks": 552,
+      "tbs_points": 1843,
+      "tbs_spell_linked_families": 22,
+      "family_reduction_percent": 41.1
+    },
+    {
+      "profile": "BRD",
+      "open_families": 181,
+      "open_ranks": 1332,
+      "open_points": 7223,
+      "open_spell_linked_families": 41,
+      "tbs_families": 102,
+      "tbs_ranks": 572,
+      "tbs_points": 1949,
+      "tbs_spell_linked_families": 22,
+      "family_reduction_percent": 43.65
+    },
+    {
+      "profile": "ROG",
+      "open_families": 170,
+      "open_ranks": 1179,
+      "open_points": 6082,
+      "open_spell_linked_families": 39,
+      "tbs_families": 100,
+      "tbs_ranks": 546,
+      "tbs_points": 1810,
+      "tbs_spell_linked_families": 21,
+      "family_reduction_percent": 41.18
+    },
+    {
+      "profile": "SHM",
+      "open_families": 229,
+      "open_ranks": 1428,
+      "open_points": 8293,
+      "open_spell_linked_families": 79,
+      "tbs_families": 101,
+      "tbs_ranks": 541,
+      "tbs_points": 1868,
+      "tbs_spell_linked_families": 31,
+      "family_reduction_percent": 55.9
+    },
+    {
+      "profile": "NEC",
+      "open_families": 237,
+      "open_ranks": 1362,
+      "open_points": 7756,
+      "open_spell_linked_families": 86,
+      "tbs_families": 111,
+      "tbs_ranks": 548,
+      "tbs_points": 1872,
+      "tbs_spell_linked_families": 35,
+      "family_reduction_percent": 53.16
+    },
+    {
+      "profile": "WIZ",
+      "open_families": 207,
+      "open_ranks": 1217,
+      "open_points": 6453,
+      "open_spell_linked_families": 88,
+      "tbs_families": 105,
+      "tbs_ranks": 532,
+      "tbs_points": 1864,
+      "tbs_spell_linked_families": 40,
+      "family_reduction_percent": 49.28
+    },
+    {
+      "profile": "MAG",
+      "open_families": 233,
+      "open_ranks": 1348,
+      "open_points": 7493,
+      "open_spell_linked_families": 88,
+      "tbs_families": 116,
+      "tbs_ranks": 558,
+      "tbs_points": 1971,
+      "tbs_spell_linked_families": 40,
+      "family_reduction_percent": 50.21
+    },
+    {
+      "profile": "ENC",
+      "open_families": 229,
+      "open_ranks": 1310,
+      "open_points": 7116,
+      "open_spell_linked_families": 82,
+      "tbs_families": 108,
+      "tbs_ranks": 529,
+      "tbs_points": 1793,
+      "tbs_spell_linked_families": 36,
+      "family_reduction_percent": 52.84
+    },
+    {
+      "profile": "BST",
+      "open_families": 212,
+      "open_ranks": 1409,
+      "open_points": 7808,
+      "open_spell_linked_families": 64,
+      "tbs_families": 105,
+      "tbs_ranks": 580,
+      "tbs_points": 1981,
+      "tbs_spell_linked_families": 27,
+      "family_reduction_percent": 50.47
+    },
+    {
+      "profile": "BER",
+      "open_families": 169,
+      "open_ranks": 1120,
+      "open_points": 5630,
+      "open_spell_linked_families": 46,
+      "tbs_families": 92,
+      "tbs_ranks": 520,
+      "tbs_points": 1677,
+      "tbs_spell_linked_families": 25,
+      "family_reduction_percent": 45.56
+    },
+    {
+      "profile": "WAR/CLR/WIZ",
+      "open_families": 434,
+      "open_ranks": 2205,
+      "open_points": 13424,
+      "open_spell_linked_families": 174,
+      "tbs_families": 178,
+      "tbs_ranks": 845,
+      "tbs_points": 3413,
+      "tbs_spell_linked_families": 65,
+      "family_reduction_percent": 58.99
+    },
+    {
+      "profile": "WAR/CLR/MNK",
+      "open_families": 391,
+      "open_ranks": 2187,
+      "open_points": 12947,
+      "open_spell_linked_families": 125,
+      "tbs_families": 164,
+      "tbs_ranks": 828,
+      "tbs_points": 3249,
+      "tbs_spell_linked_families": 48,
+      "family_reduction_percent": 58.06
+    },
+    {
+      "profile": "MAG/NEC/SHM",
+      "open_families": 423,
+      "open_ranks": 2087,
+      "open_points": 13243,
+      "open_spell_linked_families": 179,
+      "tbs_families": 162,
+      "tbs_ranks": 730,
+      "tbs_points": 2861,
+      "tbs_spell_linked_families": 66,
+      "family_reduction_percent": 61.7
+    },
+    {
+      "profile": "PAL/WAR/MNK",
+      "open_families": 385,
+      "open_ranks": 2107,
+      "open_points": 12499,
+      "open_spell_linked_families": 122,
+      "tbs_families": 162,
+      "tbs_ranks": 820,
+      "tbs_points": 3198,
+      "tbs_spell_linked_families": 44,
+      "family_reduction_percent": 57.92
+    },
+    {
+      "profile": "SHD/SHM/BRD",
+      "open_families": 429,
+      "open_ranks": 2375,
+      "open_points": 14973,
+      "open_spell_linked_families": 152,
+      "tbs_families": 165,
+      "tbs_ranks": 829,
+      "tbs_points": 3224,
+      "tbs_spell_linked_families": 46,
+      "family_reduction_percent": 61.54
+    },
+    {
+      "profile": "RNG/DRU/ENC",
+      "open_families": 429,
+      "open_ranks": 2256,
+      "open_points": 13736,
+      "open_spell_linked_families": 163,
+      "tbs_families": 168,
+      "tbs_ranks": 821,
+      "tbs_points": 3111,
+      "tbs_spell_linked_families": 55,
+      "family_reduction_percent": 60.84
+    },
+    {
+      "profile": "ALL_CLASSES_UNION",
+      "open_families": 1458,
+      "open_ranks": 6289,
+      "open_points": 42305,
+      "open_spell_linked_families": 622,
+      "tbs_families": 440,
+      "tbs_ranks": 1852,
+      "tbs_points": 8417,
+      "tbs_spell_linked_families": 195,
+      "family_reduction_percent": 69.82
+    }
+  ],
+  "raw_expansions": {
+    "0": 68,
+    "3": 361,
+    "4": 368,
+    "7": 261,
+    "8": 303,
+    "9": 4,
+    "10": 226,
+    "11": 2,
+    "12": 400,
+    "14": 694,
+    "15": 1218,
+    "16": 1062,
+    "17": 876,
+    "18": 370,
+    "19": 186,
+    "20": 125,
+    "21": 131
+  },
+  "raw_levels": {
+    "1": 6655
+  },
+  "rules": [
+    {
+      "ruleset": 1,
+      "name": "AA:ExpPerPoint",
+      "value": "4000"
+    },
+    {
+      "ruleset": 1,
+      "name": "AA:MaxAAEXPPerKill",
+      "value": "-1"
+    },
+    {
+      "ruleset": 1,
+      "name": "AA:ModernAAScalingAALimit",
+      "value": "4000"
+    },
+    {
+      "ruleset": 1,
+      "name": "AA:ModernAAScalingAAMinimum",
+      "value": "0"
+    },
+    {
+      "ruleset": 1,
+      "name": "AA:ModernAAScalingEnabled",
+      "value": "false"
+    },
+    {
+      "ruleset": 1,
+      "name": "AA:ModernAAScalingStartPercent",
+      "value": "1000.0000000000000"
+    },
+    {
+      "ruleset": 1,
+      "name": "AA:NormalizedAAEnabled",
+      "value": "false"
+    },
+    {
+      "ruleset": 1,
+      "name": "AA:NormalizedAANumberOfWhiteConPerAA",
+      "value": "25"
+    },
+    {
+      "ruleset": 1,
+      "name": "AA:PassiveExpPercent",
+      "value": "40"
+    },
+    {
+      "ruleset": 1,
+      "name": "AA:SoundForAAEarned",
+      "value": "false"
+    },
+    {
+      "ruleset": 1,
+      "name": "AA:UnusedAAPointCap",
+      "value": "-1"
+    },
+    {
+      "ruleset": 1,
+      "name": "Character:AAExpMinLevel",
+      "value": "1"
+    },
+    {
+      "ruleset": 1,
+      "name": "Character:AAExpMultiplier",
+      "value": "0.6499999761581"
+    },
+    {
+      "ruleset": 1,
+      "name": "Character:ExpMultiplier",
+      "value": "0.65"
+    },
+    {
+      "ruleset": 1,
+      "name": "Character:FinalExpMultiplier",
+      "value": "1"
+    },
+    {
+      "ruleset": 1,
+      "name": "Character:ItemHealAmtCap",
+      "value": "250"
+    },
+    {
+      "ruleset": 1,
+      "name": "Character:ItemSpellDmgCap",
+      "value": "250"
+    },
+    {
+      "ruleset": 1,
+      "name": "Character:MaxLevel",
+      "value": "50"
+    },
+    {
+      "ruleset": 1,
+      "name": "Expansion:AutoGrantAAExpansion",
+      "value": "-1"
+    },
+    {
+      "ruleset": 1,
+      "name": "Expansion:CurrentExpansion",
+      "value": "0"
+    },
+    {
+      "ruleset": 1,
+      "name": "Expansion:UseCurrentExpansionAAOnly",
+      "value": "false"
+    },
+    {
+      "ruleset": 1,
+      "name": "Spells:ItemExtraSpellAmtCalcAsPercent",
+      "value": "true"
+    },
+    {
+      "ruleset": 1,
+      "name": "World:ExpansionSettings",
+      "value": "2097151"
+    },
+    {
+      "ruleset": 10,
+      "name": "Character:AAExpMultiplier",
+      "value": "0.65"
+    },
+    {
+      "ruleset": 10,
+      "name": "Character:ExpMultiplier",
+      "value": "0.65"
+    },
+    {
+      "ruleset": 10,
+      "name": "Character:MaxLevel",
+      "value": "68"
+    }
+  ],
+  "blocked": {
+    "WAR": {
+      "open": [
+        {
+          "ability_id": 108,
+          "name": "Flurry",
+          "rank_id": 255,
+          "ordinal": 1,
+          "unmet": {
+            "309": 3
+          }
+        },
+        {
+          "ability_id": 131,
+          "name": "[WAR] Rage of Rallos Zek",
+          "rank_id": 8303,
+          "ordinal": 1,
+          "unmet": {
+            "309": 6
+          }
+        },
+        {
+          "ability_id": 341,
+          "name": "Veteran's Wrath",
+          "rank_id": 1050,
+          "ordinal": 1,
+          "unmet": {
+            "309": 6
+          }
+        },
+        {
+          "ability_id": 693,
+          "name": "[WAR] Unknown AA 16117",
+          "rank_id": 16117,
+          "ordinal": 1,
+          "unmet": {
+            "309": 6
+          }
+        },
+        {
+          "ability_id": 2004,
+          "name": "[WAR] Hastened Rage of Rallos Zek",
+          "rank_id": 15105,
+          "ordinal": 1,
+          "unmet": {
+            "131": 1
+          }
+        }
+      ],
+      "tbs": [
+        {
+          "ability_id": 108,
+          "name": "Flurry",
+          "rank_id": 255,
+          "ordinal": 1,
+          "unmet": {
+            "309": 3
+          }
+        },
+        {
+          "ability_id": 341,
+          "name": "Veteran's Wrath",
+          "rank_id": 1050,
+          "ordinal": 1,
+          "unmet": {
+            "309": 6
+          }
+        }
+      ]
+    },
+    "CLR": {
+      "open": [
+        {
+          "ability_id": 150,
+          "name": "Mastery of the Past",
+          "rank_id": 446,
+          "ordinal": 1,
+          "unmet": {
+            "26": 3
+          }
+        },
+        {
+          "ability_id": 3521,
+          "name": "Hastened Silent Casting",
+          "rank_id": 6346,
+          "ordinal": 1,
+          "unmet": {
+            "494": 3
+          }
+        }
+      ],
+      "tbs": [
+        {
+          "ability_id": 150,
+          "name": "Mastery of the Past",
+          "rank_id": 446,
+          "ordinal": 1,
+          "unmet": {
+            "26": 3
+          }
+        }
+      ]
+    },
+    "PAL": {
+      "open": [
+        {
+          "ability_id": 150,
+          "name": "Mastery of the Past",
+          "rank_id": 446,
+          "ordinal": 1,
+          "unmet": {
+            "26": 3
+          }
+        }
+      ],
+      "tbs": [
+        {
+          "ability_id": 150,
+          "name": "Mastery of the Past",
+          "rank_id": 446,
+          "ordinal": 1,
+          "unmet": {
+            "26": 3
+          }
+        }
+      ]
+    },
+    "RNG": {
+      "open": [
+        {
+          "ability_id": 150,
+          "name": "Mastery of the Past",
+          "rank_id": 446,
+          "ordinal": 1,
+          "unmet": {
+            "26": 3
+          }
+        }
+      ],
+      "tbs": [
+        {
+          "ability_id": 150,
+          "name": "Mastery of the Past",
+          "rank_id": 446,
+          "ordinal": 1,
+          "unmet": {
+            "26": 3
+          }
+        }
+      ]
+    },
+    "SHD": {
+      "open": [],
+      "tbs": []
+    },
+    "DRU": {
+      "open": [
+        {
+          "ability_id": 150,
+          "name": "Mastery of the Past",
+          "rank_id": 446,
+          "ordinal": 1,
+          "unmet": {
+            "26": 3
+          }
+        },
+        {
+          "ability_id": 957,
+          "name": "[DRU] Unknown AA 17364",
+          "rank_id": 17364,
+          "ordinal": 1,
+          "unmet": {
+            "935": 4
+          }
+        },
+        {
+          "ability_id": 3521,
+          "name": "Hastened Silent Casting",
+          "rank_id": 6346,
+          "ordinal": 1,
+          "unmet": {
+            "494": 3
+          }
+        },
+        {
+          "ability_id": 10427,
+          "name": "[DRU] Peaceful Convergence of Spirits",
+          "rank_id": 10427,
+          "ordinal": 1,
+          "unmet": {
+            "519": 15
+          }
+        }
+      ],
+      "tbs": [
+        {
+          "ability_id": 150,
+          "name": "Mastery of the Past",
+          "rank_id": 446,
+          "ordinal": 1,
+          "unmet": {
+            "26": 3
+          }
+        }
+      ]
+    },
+    "MNK": {
+      "open": [
+        {
+          "ability_id": 818,
+          "name": "[MNK] Unknown AA 16257",
+          "rank_id": 16257,
+          "ordinal": 1,
+          "unmet": {
+            "470": 20
+          }
+        }
+      ],
+      "tbs": []
+    },
+    "BRD": {
+      "open": [
+        {
+          "ability_id": 809,
+          "name": "[BRD] Allegretto of Battle",
+          "rank_id": 14181,
+          "ordinal": 1,
+          "unmet": {
+            "3837": 12
+          }
+        },
+        {
+          "ability_id": 810,
+          "name": "[BRD] Vivace of Conflict",
+          "rank_id": 14186,
+          "ordinal": 1,
+          "unmet": {
+            "809": 5
+          }
+        },
+        {
+          "ability_id": 910,
+          "name": "[BRD] Unknown AA 17280",
+          "rank_id": 17280,
+          "ordinal": 1,
+          "unmet": {
+            "8205": 1
+          }
+        },
+        {
+          "ability_id": 941,
+          "name": "[BRD] Flurry",
+          "rank_id": 6873,
+          "ordinal": 1,
+          "unmet": {
+            "3837": 3
+          }
+        },
+        {
+          "ability_id": 8205,
+          "name": "[BRD] Selo's Kick ",
+          "rank_id": 10336,
+          "ordinal": 1,
+          "unmet": {
+            "941": 1
+          }
+        },
+        {
+          "ability_id": 8317,
+          "name": "[BRD] Hastened Selo's Kick",
+          "rank_id": 8317,
+          "ordinal": 1,
+          "unmet": {
+            "8205": 1
+          }
+        }
+      ],
+      "tbs": []
+    },
+    "ROG": {
+      "open": [],
+      "tbs": []
+    },
+    "SHM": {
+      "open": [
+        {
+          "ability_id": 150,
+          "name": "Mastery of the Past",
+          "rank_id": 446,
+          "ordinal": 1,
+          "unmet": {
+            "26": 3
+          }
+        },
+        {
+          "ability_id": 3521,
+          "name": "Hastened Silent Casting",
+          "rank_id": 6346,
+          "ordinal": 1,
+          "unmet": {
+            "494": 3
+          }
+        }
+      ],
+      "tbs": [
+        {
+          "ability_id": 150,
+          "name": "Mastery of the Past",
+          "rank_id": 446,
+          "ordinal": 1,
+          "unmet": {
+            "26": 3
+          }
+        }
+      ]
+    },
+    "NEC": {
+      "open": [
+        {
+          "ability_id": 3521,
+          "name": "Hastened Silent Casting",
+          "rank_id": 6346,
+          "ordinal": 1,
+          "unmet": {
+            "494": 3
+          }
+        }
+      ],
+      "tbs": []
+    },
+    "WIZ": {
+      "open": [
+        {
+          "ability_id": 510,
+          "name": "[WIZ] Kerafyrm's Prismatic Familiar",
+          "rank_id": 12892,
+          "ordinal": 1,
+          "unmet": {
+            "509": 3
+          }
+        },
+        {
+          "ability_id": 3521,
+          "name": "Hastened Silent Casting",
+          "rank_id": 6346,
+          "ordinal": 1,
+          "unmet": {
+            "494": 3
+          }
+        }
+      ],
+      "tbs": []
+    },
+    "MAG": {
+      "open": [
+        {
+          "ability_id": 3521,
+          "name": "Hastened Silent Casting",
+          "rank_id": 6346,
+          "ordinal": 1,
+          "unmet": {
+            "494": 3
+          }
+        }
+      ],
+      "tbs": []
+    },
+    "ENC": {
+      "open": [
+        {
+          "ability_id": 542,
+          "name": "[ENC] Unknown AA 16071",
+          "rank_id": 16071,
+          "ordinal": 1,
+          "unmet": {
+            "2209": 3
+          }
+        },
+        {
+          "ability_id": 880,
+          "name": "[ENC] Unknown AA 16392",
+          "rank_id": 16392,
+          "ordinal": 1,
+          "unmet": {
+            "2202": 1
+          }
+        },
+        {
+          "ability_id": 2202,
+          "name": "[ENC] Illusions of Grandeur",
+          "rank_id": 15481,
+          "ordinal": 1,
+          "unmet": {
+            "398": 24
+          }
+        },
+        {
+          "ability_id": 2204,
+          "name": "[ENC] Gracious Gift of Mana",
+          "rank_id": 15485,
+          "ordinal": 1,
+          "unmet": {
+            "495": 9
+          }
+        },
+        {
+          "ability_id": 2205,
+          "name": "[ENC] Chromatic Haze",
+          "rank_id": 15486,
+          "ordinal": 1,
+          "unmet": {
+            "534": 3
+          }
+        },
+        {
+          "ability_id": 3521,
+          "name": "Hastened Silent Casting",
+          "rank_id": 6346,
+          "ordinal": 1,
+          "unmet": {
+            "494": 3
+          }
+        }
+      ],
+      "tbs": []
+    },
+    "BST": {
+      "open": [
+        {
+          "ability_id": 150,
+          "name": "Mastery of the Past",
+          "rank_id": 446,
+          "ordinal": 1,
+          "unmet": {
+            "26": 3
+          }
+        }
+      ],
+      "tbs": [
+        {
+          "ability_id": 150,
+          "name": "Mastery of the Past",
+          "rank_id": 446,
+          "ordinal": 1,
+          "unmet": {
+            "26": 3
+          }
+        }
+      ]
+    },
+    "BER": {
+      "open": [
+        {
+          "ability_id": 108,
+          "name": "Flurry",
+          "rank_id": 255,
+          "ordinal": 1,
+          "unmet": {
+            "309": 3
+          }
+        },
+        {
+          "ability_id": 341,
+          "name": "Veteran's Wrath",
+          "rank_id": 1050,
+          "ordinal": 1,
+          "unmet": {
+            "309": 6
+          }
+        }
+      ],
+      "tbs": [
+        {
+          "ability_id": 108,
+          "name": "Flurry",
+          "rank_id": 255,
+          "ordinal": 1,
+          "unmet": {
+            "309": 3
+          }
+        },
+        {
+          "ability_id": 341,
+          "name": "Veteran's Wrath",
+          "rank_id": 1050,
+          "ordinal": 1,
+          "unmet": {
+            "309": 6
+          }
+        }
+      ]
+    },
+    "WAR/CLR/WIZ": {
+      "open": [
+        {
+          "ability_id": 108,
+          "name": "Flurry",
+          "rank_id": 255,
+          "ordinal": 1,
+          "unmet": {
+            "309": 3
+          }
+        },
+        {
+          "ability_id": 131,
+          "name": "[WAR] Rage of Rallos Zek",
+          "rank_id": 8303,
+          "ordinal": 1,
+          "unmet": {
+            "309": 6
+          }
+        },
+        {
+          "ability_id": 341,
+          "name": "Veteran's Wrath",
+          "rank_id": 1050,
+          "ordinal": 1,
+          "unmet": {
+            "309": 6
+          }
+        },
+        {
+          "ability_id": 510,
+          "name": "[WIZ] Kerafyrm's Prismatic Familiar",
+          "rank_id": 12892,
+          "ordinal": 1,
+          "unmet": {
+            "509": 3
+          }
+        },
+        {
+          "ability_id": 693,
+          "name": "[WAR] Unknown AA 16117",
+          "rank_id": 16117,
+          "ordinal": 1,
+          "unmet": {
+            "309": 6
+          }
+        },
+        {
+          "ability_id": 2004,
+          "name": "[WAR] Hastened Rage of Rallos Zek",
+          "rank_id": 15105,
+          "ordinal": 1,
+          "unmet": {
+            "131": 1
+          }
+        },
+        {
+          "ability_id": 3521,
+          "name": "Hastened Silent Casting",
+          "rank_id": 6346,
+          "ordinal": 1,
+          "unmet": {
+            "494": 3
+          }
+        }
+      ],
+      "tbs": [
+        {
+          "ability_id": 108,
+          "name": "Flurry",
+          "rank_id": 255,
+          "ordinal": 1,
+          "unmet": {
+            "309": 3
+          }
+        },
+        {
+          "ability_id": 341,
+          "name": "Veteran's Wrath",
+          "rank_id": 1050,
+          "ordinal": 1,
+          "unmet": {
+            "309": 6
+          }
+        }
+      ]
+    },
+    "WAR/CLR/MNK": {
+      "open": [
+        {
+          "ability_id": 108,
+          "name": "Flurry",
+          "rank_id": 255,
+          "ordinal": 1,
+          "unmet": {
+            "309": 3
+          }
+        },
+        {
+          "ability_id": 131,
+          "name": "[WAR] Rage of Rallos Zek",
+          "rank_id": 8303,
+          "ordinal": 1,
+          "unmet": {
+            "309": 6
+          }
+        },
+        {
+          "ability_id": 150,
+          "name": "Mastery of the Past",
+          "rank_id": 446,
+          "ordinal": 1,
+          "unmet": {
+            "26": 3
+          }
+        },
+        {
+          "ability_id": 341,
+          "name": "Veteran's Wrath",
+          "rank_id": 1050,
+          "ordinal": 1,
+          "unmet": {
+            "309": 6
+          }
+        },
+        {
+          "ability_id": 693,
+          "name": "[WAR] Unknown AA 16117",
+          "rank_id": 16117,
+          "ordinal": 1,
+          "unmet": {
+            "309": 6
+          }
+        },
+        {
+          "ability_id": 818,
+          "name": "[MNK] Unknown AA 16257",
+          "rank_id": 16257,
+          "ordinal": 1,
+          "unmet": {
+            "470": 20
+          }
+        },
+        {
+          "ability_id": 2004,
+          "name": "[WAR] Hastened Rage of Rallos Zek",
+          "rank_id": 15105,
+          "ordinal": 1,
+          "unmet": {
+            "131": 1
+          }
+        },
+        {
+          "ability_id": 3521,
+          "name": "Hastened Silent Casting",
+          "rank_id": 6346,
+          "ordinal": 1,
+          "unmet": {
+            "494": 3
+          }
+        }
+      ],
+      "tbs": [
+        {
+          "ability_id": 108,
+          "name": "Flurry",
+          "rank_id": 255,
+          "ordinal": 1,
+          "unmet": {
+            "309": 3
+          }
+        },
+        {
+          "ability_id": 150,
+          "name": "Mastery of the Past",
+          "rank_id": 446,
+          "ordinal": 1,
+          "unmet": {
+            "26": 3
+          }
+        },
+        {
+          "ability_id": 341,
+          "name": "Veteran's Wrath",
+          "rank_id": 1050,
+          "ordinal": 1,
+          "unmet": {
+            "309": 6
+          }
+        }
+      ]
+    },
+    "MAG/NEC/SHM": {
+      "open": [
+        {
+          "ability_id": 3521,
+          "name": "Hastened Silent Casting",
+          "rank_id": 6346,
+          "ordinal": 1,
+          "unmet": {
+            "494": 3
+          }
+        }
+      ],
+      "tbs": []
+    },
+    "PAL/WAR/MNK": {
+      "open": [
+        {
+          "ability_id": 108,
+          "name": "Flurry",
+          "rank_id": 255,
+          "ordinal": 1,
+          "unmet": {
+            "309": 3
+          }
+        },
+        {
+          "ability_id": 131,
+          "name": "[WAR] Rage of Rallos Zek",
+          "rank_id": 8303,
+          "ordinal": 1,
+          "unmet": {
+            "309": 6
+          }
+        },
+        {
+          "ability_id": 150,
+          "name": "Mastery of the Past",
+          "rank_id": 446,
+          "ordinal": 1,
+          "unmet": {
+            "26": 3
+          }
+        },
+        {
+          "ability_id": 341,
+          "name": "Veteran's Wrath",
+          "rank_id": 1050,
+          "ordinal": 1,
+          "unmet": {
+            "309": 6
+          }
+        },
+        {
+          "ability_id": 693,
+          "name": "[WAR] Unknown AA 16117",
+          "rank_id": 16117,
+          "ordinal": 1,
+          "unmet": {
+            "309": 6
+          }
+        },
+        {
+          "ability_id": 818,
+          "name": "[MNK] Unknown AA 16257",
+          "rank_id": 16257,
+          "ordinal": 1,
+          "unmet": {
+            "470": 20
+          }
+        },
+        {
+          "ability_id": 2004,
+          "name": "[WAR] Hastened Rage of Rallos Zek",
+          "rank_id": 15105,
+          "ordinal": 1,
+          "unmet": {
+            "131": 1
+          }
+        }
+      ],
+      "tbs": [
+        {
+          "ability_id": 108,
+          "name": "Flurry",
+          "rank_id": 255,
+          "ordinal": 1,
+          "unmet": {
+            "309": 3
+          }
+        },
+        {
+          "ability_id": 150,
+          "name": "Mastery of the Past",
+          "rank_id": 446,
+          "ordinal": 1,
+          "unmet": {
+            "26": 3
+          }
+        },
+        {
+          "ability_id": 341,
+          "name": "Veteran's Wrath",
+          "rank_id": 1050,
+          "ordinal": 1,
+          "unmet": {
+            "309": 6
+          }
+        }
+      ]
+    },
+    "SHD/SHM/BRD": {
+      "open": [
+        {
+          "ability_id": 809,
+          "name": "[BRD] Allegretto of Battle",
+          "rank_id": 14181,
+          "ordinal": 1,
+          "unmet": {
+            "3837": 12
+          }
+        },
+        {
+          "ability_id": 810,
+          "name": "[BRD] Vivace of Conflict",
+          "rank_id": 14186,
+          "ordinal": 1,
+          "unmet": {
+            "809": 5
+          }
+        },
+        {
+          "ability_id": 910,
+          "name": "[BRD] Unknown AA 17280",
+          "rank_id": 17280,
+          "ordinal": 1,
+          "unmet": {
+            "8205": 1
+          }
+        },
+        {
+          "ability_id": 941,
+          "name": "[BRD] Flurry",
+          "rank_id": 6873,
+          "ordinal": 1,
+          "unmet": {
+            "3837": 3
+          }
+        },
+        {
+          "ability_id": 3521,
+          "name": "Hastened Silent Casting",
+          "rank_id": 6346,
+          "ordinal": 1,
+          "unmet": {
+            "494": 3
+          }
+        },
+        {
+          "ability_id": 8205,
+          "name": "[BRD] Selo's Kick ",
+          "rank_id": 10336,
+          "ordinal": 1,
+          "unmet": {
+            "941": 1
+          }
+        },
+        {
+          "ability_id": 8317,
+          "name": "[BRD] Hastened Selo's Kick",
+          "rank_id": 8317,
+          "ordinal": 1,
+          "unmet": {
+            "8205": 1
+          }
+        }
+      ],
+      "tbs": []
+    },
+    "RNG/DRU/ENC": {
+      "open": [
+        {
+          "ability_id": 542,
+          "name": "[ENC] Unknown AA 16071",
+          "rank_id": 16071,
+          "ordinal": 1,
+          "unmet": {
+            "2209": 3
+          }
+        },
+        {
+          "ability_id": 880,
+          "name": "[ENC] Unknown AA 16392",
+          "rank_id": 16392,
+          "ordinal": 1,
+          "unmet": {
+            "2202": 1
+          }
+        },
+        {
+          "ability_id": 957,
+          "name": "[DRU] Unknown AA 17364",
+          "rank_id": 17364,
+          "ordinal": 1,
+          "unmet": {
+            "935": 4
+          }
+        },
+        {
+          "ability_id": 2202,
+          "name": "[ENC] Illusions of Grandeur",
+          "rank_id": 15481,
+          "ordinal": 1,
+          "unmet": {
+            "398": 24
+          }
+        },
+        {
+          "ability_id": 2204,
+          "name": "[ENC] Gracious Gift of Mana",
+          "rank_id": 15485,
+          "ordinal": 1,
+          "unmet": {
+            "495": 9
+          }
+        },
+        {
+          "ability_id": 2205,
+          "name": "[ENC] Chromatic Haze",
+          "rank_id": 15486,
+          "ordinal": 1,
+          "unmet": {
+            "534": 3
+          }
+        },
+        {
+          "ability_id": 3521,
+          "name": "Hastened Silent Casting",
+          "rank_id": 6346,
+          "ordinal": 1,
+          "unmet": {
+            "494": 3
+          }
+        },
+        {
+          "ability_id": 10427,
+          "name": "[DRU] Peaceful Convergence of Spirits",
+          "rank_id": 10427,
+          "ordinal": 1,
+          "unmet": {
+            "519": 15
+          }
+        }
+      ],
+      "tbs": []
+    },
+    "ALL_CLASSES_UNION": {
+      "open": [
+        {
+          "ability_id": 108,
+          "name": "Flurry",
+          "rank_id": 255,
+          "ordinal": 1,
+          "unmet": {
+            "309": 3
+          }
+        },
+        {
+          "ability_id": 131,
+          "name": "[WAR] Rage of Rallos Zek",
+          "rank_id": 8303,
+          "ordinal": 1,
+          "unmet": {
+            "309": 6
+          }
+        },
+        {
+          "ability_id": 341,
+          "name": "Veteran's Wrath",
+          "rank_id": 1050,
+          "ordinal": 1,
+          "unmet": {
+            "309": 6
+          }
+        },
+        {
+          "ability_id": 510,
+          "name": "[WIZ] Kerafyrm's Prismatic Familiar",
+          "rank_id": 12892,
+          "ordinal": 1,
+          "unmet": {
+            "509": 3
+          }
+        },
+        {
+          "ability_id": 542,
+          "name": "[ENC] Unknown AA 16071",
+          "rank_id": 16071,
+          "ordinal": 1,
+          "unmet": {
+            "2209": 3
+          }
+        },
+        {
+          "ability_id": 693,
+          "name": "[WAR] Unknown AA 16117",
+          "rank_id": 16117,
+          "ordinal": 1,
+          "unmet": {
+            "309": 6
+          }
+        },
+        {
+          "ability_id": 809,
+          "name": "[BRD] Allegretto of Battle",
+          "rank_id": 14181,
+          "ordinal": 1,
+          "unmet": {
+            "3837": 12
+          }
+        },
+        {
+          "ability_id": 810,
+          "name": "[BRD] Vivace of Conflict",
+          "rank_id": 14186,
+          "ordinal": 1,
+          "unmet": {
+            "809": 5
+          }
+        },
+        {
+          "ability_id": 818,
+          "name": "[MNK] Unknown AA 16257",
+          "rank_id": 16257,
+          "ordinal": 1,
+          "unmet": {
+            "470": 20
+          }
+        },
+        {
+          "ability_id": 880,
+          "name": "[ENC] Unknown AA 16392",
+          "rank_id": 16392,
+          "ordinal": 1,
+          "unmet": {
+            "2202": 1
+          }
+        },
+        {
+          "ability_id": 910,
+          "name": "[BRD] Unknown AA 17280",
+          "rank_id": 17280,
+          "ordinal": 1,
+          "unmet": {
+            "8205": 1
+          }
+        },
+        {
+          "ability_id": 941,
+          "name": "[BRD] Flurry",
+          "rank_id": 6873,
+          "ordinal": 1,
+          "unmet": {
+            "3837": 3
+          }
+        },
+        {
+          "ability_id": 957,
+          "name": "[DRU] Unknown AA 17364",
+          "rank_id": 17364,
+          "ordinal": 1,
+          "unmet": {
+            "935": 4
+          }
+        },
+        {
+          "ability_id": 2004,
+          "name": "[WAR] Hastened Rage of Rallos Zek",
+          "rank_id": 15105,
+          "ordinal": 1,
+          "unmet": {
+            "131": 1
+          }
+        },
+        {
+          "ability_id": 2202,
+          "name": "[ENC] Illusions of Grandeur",
+          "rank_id": 15481,
+          "ordinal": 1,
+          "unmet": {
+            "398": 24
+          }
+        },
+        {
+          "ability_id": 2204,
+          "name": "[ENC] Gracious Gift of Mana",
+          "rank_id": 15485,
+          "ordinal": 1,
+          "unmet": {
+            "495": 9
+          }
+        },
+        {
+          "ability_id": 2205,
+          "name": "[ENC] Chromatic Haze",
+          "rank_id": 15486,
+          "ordinal": 1,
+          "unmet": {
+            "534": 3
+          }
+        },
+        {
+          "ability_id": 3521,
+          "name": "Hastened Silent Casting",
+          "rank_id": 6346,
+          "ordinal": 1,
+          "unmet": {
+            "494": 3
+          }
+        },
+        {
+          "ability_id": 8205,
+          "name": "[BRD] Selo's Kick ",
+          "rank_id": 10336,
+          "ordinal": 1,
+          "unmet": {
+            "941": 1
+          }
+        },
+        {
+          "ability_id": 8317,
+          "name": "[BRD] Hastened Selo's Kick",
+          "rank_id": 8317,
+          "ordinal": 1,
+          "unmet": {
+            "8205": 1
+          }
+        },
+        {
+          "ability_id": 10427,
+          "name": "[DRU] Peaceful Convergence of Spirits",
+          "rank_id": 10427,
+          "ordinal": 1,
+          "unmet": {
+            "519": 15
+          }
+        }
+      ],
+      "tbs": [
+        {
+          "ability_id": 108,
+          "name": "Flurry",
+          "rank_id": 255,
+          "ordinal": 1,
+          "unmet": {
+            "309": 3
+          }
+        },
+        {
+          "ability_id": 341,
+          "name": "Veteran's Wrath",
+          "rank_id": 1050,
+          "ordinal": 1,
+          "unmet": {
+            "309": 6
+          }
+        }
+      ]
+    }
+  },
+  "chain_issues": [
+    {
+      "ability_id": 0,
+      "missing_tail": 1
+    },
+    {
+      "ability_id": 18,
+      "missing_tail": 13298
+    },
+    {
+      "ability_id": 19,
+      "missing_tail": 13303
+    },
+    {
+      "ability_id": 25,
+      "missing_tail": 13922
+    },
+    {
+      "ability_id": 32,
+      "missing_tail": 13287
+    },
+    {
+      "ability_id": 33,
+      "missing_tail": 8441
+    },
+    {
+      "ability_id": 34,
+      "missing_tail": 8465
+    },
+    {
+      "ability_id": 38,
+      "missing_tail": 13374
+    },
+    {
+      "ability_id": 47,
+      "missing_tail": 14977
+    },
+    {
+      "ability_id": 52,
+      "missing_tail": 15610
+    },
+    {
+      "ability_id": 60,
+      "missing_tail": 13719
+    },
+    {
+      "ability_id": 61,
+      "missing_tail": 15242
+    },
+    {
+      "ability_id": 62,
+      "missing_tail": 15245
+    },
+    {
+      "ability_id": 63,
+      "missing_tail": 15248
+    },
+    {
+      "ability_id": 64,
+      "missing_tail": 15251
+    },
+    {
+      "ability_id": 73,
+      "missing_tail": 13587
+    },
+    {
+      "ability_id": 75,
+      "missing_tail": 15142
+    },
+    {
+      "ability_id": 89,
+      "missing_tail": 16658
+    },
+    {
+      "ability_id": 109,
+      "missing_tail": 16003
+    },
+    {
+      "ability_id": 114,
+      "missing_tail": 12861
+    },
+    {
+      "ability_id": 127,
+      "missing_tail": 13448
+    },
+    {
+      "ability_id": 128,
+      "missing_tail": 12829
+    },
+    {
+      "ability_id": 129,
+      "missing_tail": 13579
+    },
+    {
+      "ability_id": 130,
+      "missing_tail": 15112
+    },
+    {
+      "ability_id": 133,
+      "missing_tail": 14201
+    },
+    {
+      "ability_id": 134,
+      "missing_tail": 14204
+    },
+    {
+      "ability_id": 135,
+      "missing_tail": 15324
+    },
+    {
+      "ability_id": 137,
+      "missing_tail": 14568
+    },
+    {
+      "ability_id": 139,
+      "missing_tail": 14214
+    },
+    {
+      "ability_id": 140,
+      "missing_tail": 14226
+    },
+    {
+      "ability_id": 147,
+      "missing_tail": 16207
+    },
+    {
+      "ability_id": 148,
+      "missing_tail": 14674
+    },
+    {
+      "ability_id": 149,
+      "missing_tail": 15621
+    },
+    {
+      "ability_id": 150,
+      "missing_tail": 13309
+    },
+    {
+      "ability_id": 151,
+      "missing_tail": 14235
+    },
+    {
+      "ability_id": 157,
+      "missing_tail": 12901
+    },
+    {
+      "ability_id": 158,
+      "missing_tail": 15360
+    },
+    {
+      "ability_id": 159,
+      "missing_tail": 16095
+    },
+    {
+      "ability_id": 167,
+      "missing_tail": 6529
+    },
+    {
+      "ability_id": 168,
+      "missing_tail": 14242
+    },
+    {
+      "ability_id": 170,
+      "missing_tail": 10825
+    },
+    {
+      "ability_id": 172,
+      "missing_tail": 13659
+    },
+    {
+      "ability_id": 173,
+      "missing_tail": 12919
+    },
+    {
+      "ability_id": 177,
+      "missing_tail": 5358
+    },
+    {
+      "ability_id": 178,
+      "missing_tail": 14245
+    },
+    {
+      "ability_id": 179,
+      "missing_tail": 14250
+    },
+    {
+      "ability_id": 180,
+      "missing_tail": 13596
+    },
+    {
+      "ability_id": 183,
+      "missing_tail": 14255
+    },
+    {
+      "ability_id": 184,
+      "missing_tail": 10761
+    },
+    {
+      "ability_id": 185,
+      "missing_tail": 13159
+    },
+    {
+      "ability_id": 186,
+      "missing_tail": 12844
+    },
+    {
+      "ability_id": 187,
+      "missing_tail": 17005
+    },
+    {
+      "ability_id": 198,
+      "missing_tail": 15779
+    },
+    {
+      "ability_id": 199,
+      "missing_tail": 13500
+    },
+    {
+      "ability_id": 202,
+      "missing_tail": 13439
+    },
+    {
+      "ability_id": 203,
+      "missing_tail": 13611
+    },
+    {
+      "ability_id": 206,
+      "missing_tail": 13836
+    },
+    {
+      "ability_id": 207,
+      "missing_tail": 14731
+    },
+    {
+      "ability_id": 214,
+      "missing_tail": 15586
+    },
+    {
+      "ability_id": 215,
+      "missing_tail": 14362
+    },
+    {
+      "ability_id": 216,
+      "missing_tail": 14260
+    },
+    {
+      "ability_id": 218,
+      "missing_tail": 13265
+    },
+    {
+      "ability_id": 224,
+      "missing_tail": 13314
+    },
+    {
+      "ability_id": 225,
+      "missing_tail": 8436
+    },
+    {
+      "ability_id": 228,
+      "missing_tail": 13464
+    },
+    {
+      "ability_id": 230,
+      "missing_tail": 13450
+    },
+    {
+      "ability_id": 231,
+      "missing_tail": 15964
+    },
+    {
+      "ability_id": 234,
+      "missing_tail": 13306
+    },
+    {
+      "ability_id": 237,
+      "missing_tail": 17296
+    },
+    {
+      "ability_id": 238,
+      "missing_tail": 15530
+    },
+    {
+      "ability_id": 239,
+      "missing_tail": 13475
+    },
+    {
+      "ability_id": 241,
+      "missing_tail": 15879
+    },
+    {
+      "ability_id": 242,
+      "missing_tail": 13486
+    },
+    {
+      "ability_id": 245,
+      "missing_tail": 14855
+    },
+    {
+      "ability_id": 247,
+      "missing_tail": 14869
+    },
+    {
+      "ability_id": 248,
+      "missing_tail": 16891
+    },
+    {
+      "ability_id": 249,
+      "missing_tail": 16888
+    },
+    {
+      "ability_id": 251,
+      "missing_tail": 13885
+    },
+    {
+      "ability_id": 252,
+      "missing_tail": 13925
+    },
+    {
+      "ability_id": 254,
+      "missing_tail": 15322
+    },
+    {
+      "ability_id": 257,
+      "missing_tail": 12659
+    },
+    {
+      "ability_id": 261,
+      "missing_tail": 13735
+    },
+    {
+      "ability_id": 265,
+      "missing_tail": 15236
+    },
+    {
+      "ability_id": 266,
+      "missing_tail": 13714
+    },
+    {
+      "ability_id": 267,
+      "missing_tail": 13711
+    },
+    {
+      "ability_id": 272,
+      "missing_tail": 15427
+    },
+    {
+      "ability_id": 273,
+      "missing_tail": 15442
+    },
+    {
+      "ability_id": 274,
+      "missing_tail": 13821
+    },
+    {
+      "ability_id": 281,
+      "missing_tail": 13796
+    },
+    {
+      "ability_id": 283,
+      "missing_tail": 13602
+    },
+    {
+      "ability_id": 284,
+      "missing_tail": 13614
+    },
+    {
+      "ability_id": 288,
+      "missing_tail": 10756
+    },
+    {
+      "ability_id": 290,
+      "missing_tail": 13536
+    },
+    {
+      "ability_id": 293,
+      "missing_tail": 14284
+    },
+    {
+      "ability_id": 294,
+      "missing_tail": 16268
+    },
+    {
+      "ability_id": 295,
+      "missing_tail": 14287
+    },
+    {
+      "ability_id": 296,
+      "missing_tail": 13629
+    },
+    {
+      "ability_id": 297,
+      "missing_tail": 14290
+    },
+    {
+      "ability_id": 300,
+      "missing_tail": 10586
+    },
+    {
+      "ability_id": 307,
+      "missing_tail": 14993
+    },
+    {
+      "ability_id": 312,
+      "missing_tail": 14293
+    },
+    {
+      "ability_id": 313,
+      "missing_tail": 14296
+    },
+    {
+      "ability_id": 314,
+      "missing_tail": 13079
+    },
+    {
+      "ability_id": 319,
+      "missing_tail": 14219
+    },
+    {
+      "ability_id": 320,
+      "missing_tail": 17536
+    },
+    {
+      "ability_id": 321,
+      "missing_tail": 17312
+    },
+    {
+      "ability_id": 323,
+      "missing_tail": 14743
+    },
+    {
+      "ability_id": 333,
+      "missing_tail": 8471
+    },
+    {
+      "ability_id": 334,
+      "missing_tail": 13895
+    },
+    {
+      "ability_id": 335,
+      "missing_tail": 8431
+    },
+    {
+      "ability_id": 336,
+      "missing_tail": 13934
+    },
+    {
+      "ability_id": 337,
+      "missing_tail": 15799
+    },
+    {
+      "ability_id": 338,
+      "missing_tail": 13333
+    },
+    {
+      "ability_id": 339,
+      "missing_tail": 13327
+    },
+    {
+      "ability_id": 340,
+      "missing_tail": 15834
+    },
+    {
+      "ability_id": 341,
+      "missing_tail": 13024
+    },
+    {
+      "ability_id": 342,
+      "missing_tail": 14302
+    },
+    {
+      "ability_id": 343,
+      "missing_tail": 14309
+    },
+    {
+      "ability_id": 344,
+      "missing_tail": 14312
+    },
+    {
+      "ability_id": 345,
+      "missing_tail": 15769
+    },
+    {
+      "ability_id": 348,
+      "missing_tail": 13282
+    },
+    {
+      "ability_id": 350,
+      "missing_tail": 14781
+    },
+    {
+      "ability_id": 351,
+      "missing_tail": 14782
+    },
+    {
+      "ability_id": 355,
+      "missing_tail": 15837
+    },
+    {
+      "ability_id": 357,
+      "missing_tail": 16177
+    },
+    {
+      "ability_id": 358,
+      "missing_tail": 16490
+    },
+    {
+      "ability_id": 359,
+      "missing_tail": 13497
+    },
+    {
+      "ability_id": 360,
+      "missing_tail": 14786
+    },
+    {
+      "ability_id": 361,
+      "missing_tail": 13531
+    },
+    {
+      "ability_id": 362,
+      "missing_tail": 16884
+    },
+    {
+      "ability_id": 367,
+      "missing_tail": 13034
+    },
+    {
+      "ability_id": 368,
+      "missing_tail": 13036
+    },
+    {
+      "ability_id": 377,
+      "missing_tail": 13944
+    },
+    {
+      "ability_id": 378,
+      "missing_tail": 13954
+    },
+    {
+      "ability_id": 379,
+      "missing_tail": 13964
+    },
+    {
+      "ability_id": 380,
+      "missing_tail": 13974
+    },
+    {
+      "ability_id": 381,
+      "missing_tail": 13984
+    },
+    {
+      "ability_id": 382,
+      "missing_tail": 13994
+    },
+    {
+      "ability_id": 383,
+      "missing_tail": 15388
+    },
+    {
+      "ability_id": 384,
+      "missing_tail": 17352
+    },
+    {
+      "ability_id": 385,
+      "missing_tail": 13412
+    },
+    {
+      "ability_id": 386,
+      "missing_tail": 12662
+    },
+    {
+      "ability_id": 387,
+      "missing_tail": 13846
+    },
+    {
+      "ability_id": 389,
+      "missing_tail": 13300
+    },
+    {
+      "ability_id": 390,
+      "missing_tail": 13696
+    },
+    {
+      "ability_id": 391,
+      "missing_tail": 13364
+    },
+    {
+      "ability_id": 392,
+      "missing_tail": 15334
+    },
+    {
+      "ability_id": 393,
+      "missing_tail": 12656
+    },
+    {
+      "ability_id": 394,
+      "missing_tail": 15386
+    },
+    {
+      "ability_id": 395,
+      "missing_tail": 12665
+    },
+    {
+      "ability_id": 397,
+      "missing_tail": 12524
+    },
+    {
+      "ability_id": 398,
+      "missing_tail": 14350
+    },
+    {
+      "ability_id": 399,
+      "missing_tail": 16181
+    },
+    {
+      "ability_id": 400,
+      "missing_tail": 14332
+    },
+    {
+      "ability_id": 403,
+      "missing_tail": 14600
+    },
+    {
+      "ability_id": 410,
+      "missing_tail": 13814
+    },
+    {
+      "ability_id": 412,
+      "missing_tail": 13732
+    },
+    {
+      "ability_id": 413,
+      "missing_tail": 12935
+    },
+    {
+      "ability_id": 414,
+      "missing_tail": 15460
+    },
+    {
+      "ability_id": 415,
+      "missing_tail": 14174
+    },
+    {
+      "ability_id": 417,
+      "missing_tail": 15527
+    },
+    {
+      "ability_id": 418,
+      "missing_tail": 13724
+    },
+    {
+      "ability_id": 425,
+      "missing_tail": 16304
+    },
+    {
+      "ability_id": 427,
+      "missing_tail": 15962
+    },
+    {
+      "ability_id": 429,
+      "missing_tail": 15911
+    },
+    {
+      "ability_id": 435,
+      "missing_tail": 13324
+    },
+    {
+      "ability_id": 439,
+      "missing_tail": 13791
+    },
+    {
+      "ability_id": 442,
+      "missing_tail": 14044
+    },
+    {
+      "ability_id": 443,
+      "missing_tail": 12805
+    },
+    {
+      "ability_id": 444,
+      "missing_tail": 12808
+    },
+    {
+      "ability_id": 445,
+      "missing_tail": 16529
+    },
+    {
+      "ability_id": 447,
+      "missing_tail": 5331
+    },
+    {
+      "ability_id": 448,
+      "missing_tail": 12817
+    },
+    {
+      "ability_id": 450,
+      "missing_tail": 12821
+    },
+    {
+      "ability_id": 451,
+      "missing_tail": 12869
+    },
+    {
+      "ability_id": 452,
+      "missing_tail": 14339
+    },
+    {
+      "ability_id": 454,
+      "missing_tail": 12823
+    },
+    {
+      "ability_id": 455,
+      "missing_tail": 13557
+    },
+    {
+      "ability_id": 457,
+      "missing_tail": 12832
+    },
+    {
+      "ability_id": 458,
+      "missing_tail": 12838
+    },
+    {
+      "ability_id": 459,
+      "missing_tail": 12847
+    },
+    {
+      "ability_id": 460,
+      "missing_tail": 12850
+    },
+    {
+      "ability_id": 462,
+      "missing_tail": 10742
+    },
+    {
+      "ability_id": 463,
+      "missing_tail": 13386
+    },
+    {
+      "ability_id": 465,
+      "missing_tail": 7185
+    },
+    {
+      "ability_id": 468,
+      "missing_tail": 13808
+    },
+    {
+      "ability_id": 469,
+      "missing_tail": 13833
+    },
+    {
+      "ability_id": 470,
+      "missing_tail": 13811
+    },
+    {
+      "ability_id": 489,
+      "missing_tail": 15832
+    },
+    {
+      "ability_id": 495,
+      "missing_tail": 14491
+    },
+    {
+      "ability_id": 498,
+      "missing_tail": 13931
+    },
+    {
+      "ability_id": 509,
+      "missing_tail": 12891
+    },
+    {
+      "ability_id": 510,
+      "missing_tail": 13666
+    },
+    {
+      "ability_id": 513,
+      "missing_tail": 12895
+    },
+    {
+      "ability_id": 514,
+      "missing_tail": 13236
+    },
+    {
+      "ability_id": 515,
+      "missing_tail": 13664
+    },
+    {
+      "ability_id": 516,
+      "missing_tail": 7845
+    },
+    {
+      "ability_id": 517,
+      "missing_tail": 12904
+    },
+    {
+      "ability_id": 519,
+      "missing_tail": 10094
+    },
+    {
+      "ability_id": 520,
+      "missing_tail": 13402
+    },
+    {
+      "ability_id": 521,
+      "missing_tail": 13245
+    },
+    {
+      "ability_id": 523,
+      "missing_tail": 12909
+    },
+    {
+      "ability_id": 526,
+      "missing_tail": 13405
+    },
+    {
+      "ability_id": 527,
+      "missing_tail": 12914
+    },
+    {
+      "ability_id": 528,
+      "missing_tail": 5334
+    },
+    {
+      "ability_id": 530,
+      "missing_tail": 12921
+    },
+    {
+      "ability_id": 532,
+      "missing_tail": 15189
+    },
+    {
+      "ability_id": 534,
+      "missing_tail": 12932
+    },
+    {
+      "ability_id": 535,
+      "missing_tail": 13733
+    },
+    {
+      "ability_id": 537,
+      "missing_tail": 13783
+    },
+    {
+      "ability_id": 542,
+      "missing_tail": 16072
+    },
+    {
+      "ability_id": 544,
+      "missing_tail": 17277
+    },
+    {
+      "ability_id": 545,
+      "missing_tail": 16063
+    },
+    {
+      "ability_id": 546,
+      "missing_tail": 13708
+    },
+    {
+      "ability_id": 550,
+      "missing_tail": 14276
+    },
+    {
+      "ability_id": 551,
+      "missing_tail": 17490
+    },
+    {
+      "ability_id": 553,
+      "missing_tail": 13494
+    },
+    {
+      "ability_id": 554,
+      "missing_tail": 14342
+    },
+    {
+      "ability_id": 555,
+      "missing_tail": 13768
+    },
+    {
+      "ability_id": 556,
+      "missing_tail": 14347
+    },
+    {
+      "ability_id": 557,
+      "missing_tail": 16731
+    },
+    {
+      "ability_id": 558,
+      "missing_tail": 14581
+    },
+    {
+      "ability_id": 559,
+      "missing_tail": 16054
+    },
+    {
+      "ability_id": 561,
+      "missing_tail": 12882
+    },
+    {
+      "ability_id": 567,
+      "missing_tail": 16147
+    },
+    {
+      "ability_id": 577,
+      "missing_tail": 17491
+    },
+    {
+      "ability_id": 578,
+      "missing_tail": 14756
+    },
+    {
+      "ability_id": 580,
+      "missing_tail": 13566
+    },
+    {
+      "ability_id": 583,
+      "missing_tail": 13569
+    },
+    {
+      "ability_id": 590,
+      "missing_tail": 5151
+    },
+    {
+      "ability_id": 591,
+      "missing_tail": 5166
+    },
+    {
+      "ability_id": 592,
+      "missing_tail": 5181
+    },
+    {
+      "ability_id": 593,
+      "missing_tail": 5196
+    },
+    {
+      "ability_id": 594,
+      "missing_tail": 5211
+    },
+    {
+      "ability_id": 595,
+      "missing_tail": 5226
+    },
+    {
+      "ability_id": 599,
+      "missing_tail": 14239
+    },
+    {
+      "ability_id": 602,
+      "missing_tail": 13743
+    },
+    {
+      "ability_id": 604,
+      "missing_tail": 17335
+    },
+    {
+      "ability_id": 606,
+      "missing_tail": 13915
+    },
+    {
+      "ability_id": 609,
+      "missing_tail": 13060
+    },
+    {
+      "ability_id": 610,
+      "missing_tail": 17031
+    },
+    {
+      "ability_id": 613,
+      "missing_tail": 13128
+    },
+    {
+      "ability_id": 614,
+      "missing_tail": 5370
+    },
+    {
+      "ability_id": 616,
+      "missing_tail": 14776
+    },
+    {
+      "ability_id": 618,
+      "missing_tail": 5337
+    },
+    {
+      "ability_id": 619,
+      "missing_tail": 5351
+    },
+    {
+      "ability_id": 620,
+      "missing_tail": 15349
+    },
+    {
+      "ability_id": 621,
+      "missing_tail": 13699
+    },
+    {
+      "ability_id": 622,
+      "missing_tail": 13702
+    },
+    {
+      "ability_id": 623,
+      "missing_tail": 17147
+    },
+    {
+      "ability_id": 624,
+      "missing_tail": 13705
+    },
+    {
+      "ability_id": 631,
+      "missing_tail": 5367
+    },
+    {
+      "ability_id": 634,
+      "missing_tail": 16205
+    },
+    {
+      "ability_id": 636,
+      "missing_tail": 16031
+    },
+    {
+      "ability_id": 637,
+      "missing_tail": 13397
+    },
+    {
+      "ability_id": 640,
+      "missing_tail": 13233
+    },
+    {
+      "ability_id": 641,
+      "missing_tail": 13056
+    },
+    {
+      "ability_id": 644,
+      "missing_tail": 13068
+    },
+    {
+      "ability_id": 645,
+      "missing_tail": 13754
+    },
+    {
+      "ability_id": 646,
+      "missing_tail": 13759
+    },
+    {
+      "ability_id": 647,
+      "missing_tail": 13765
+    },
+    {
+      "ability_id": 649,
+      "missing_tail": 14047
+    },
+    {
+      "ability_id": 650,
+      "missing_tail": 15774
+    },
+    {
+      "ability_id": 651,
+      "missing_tail": 14793
+    },
+    {
+      "ability_id": 652,
+      "missing_tail": 14057
+    },
+    {
+      "ability_id": 653,
+      "missing_tail": 14060
+    },
+    {
+      "ability_id": 654,
+      "missing_tail": 14063
+    },
+    {
+      "ability_id": 655,
+      "missing_tail": 14066
+    },
+    {
+      "ability_id": 656,
+      "missing_tail": 14069
+    },
+    {
+      "ability_id": 657,
+      "missing_tail": 14072
+    },
+    {
+      "ability_id": 658,
+      "missing_tail": 14077
+    },
+    {
+      "ability_id": 660,
+      "missing_tail": 17240
+    },
+    {
+      "ability_id": 661,
+      "missing_tail": 16171
+    },
+    {
+      "ability_id": 662,
+      "missing_tail": 5364
+    },
+    {
+      "ability_id": 664,
+      "missing_tail": 14116
+    },
+    {
+      "ability_id": 665,
+      "missing_tail": 13676
+    },
+    {
+      "ability_id": 668,
+      "missing_tail": 14190
+    },
+    {
+      "ability_id": 669,
+      "missing_tail": 13491
+    },
+    {
+      "ability_id": 670,
+      "missing_tail": 13786
+    },
+    {
+      "ability_id": 671,
+      "missing_tail": 15629
+    },
+    {
+      "ability_id": 674,
+      "missing_tail": 16150
+    },
+    {
+      "ability_id": 675,
+      "missing_tail": 15860
+    },
+    {
+      "ability_id": 680,
+      "missing_tail": 16085
+    },
+    {
+      "ability_id": 681,
+      "missing_tail": 16088
+    },
+    {
+      "ability_id": 683,
+      "missing_tail": 16098
+    },
+    {
+      "ability_id": 690,
+      "missing_tail": 16110
+    },
+    {
+      "ability_id": 692,
+      "missing_tail": 16115
+    },
+    {
+      "ability_id": 693,
+      "missing_tail": 16118
+    },
+    {
+      "ability_id": 695,
+      "missing_tail": 16153
+    },
+    {
+      "ability_id": 696,
+      "missing_tail": 16157
+    },
+    {
+      "ability_id": 698,
+      "missing_tail": 13417
+    },
+    {
+      "ability_id": 699,
+      "missing_tail": 13420
+    },
+    {
+      "ability_id": 701,
+      "missing_tail": 13576
+    },
+    {
+      "ability_id": 703,
+      "missing_tail": 14319
+    },
+    {
+      "ability_id": 704,
+      "missing_tail": 14368
+    },
+    {
+      "ability_id": 705,
+      "missing_tail": 14023
+    },
+    {
+      "ability_id": 707,
+      "missing_tail": 17323
+    },
+    {
+      "ability_id": 710,
+      "missing_tail": 16334
+    },
+    {
+      "ability_id": 713,
+      "missing_tail": 14131
+    },
+    {
+      "ability_id": 714,
+      "missing_tail": 14136
+    },
+    {
+      "ability_id": 716,
+      "missing_tail": 14142
+    },
+    {
+      "ability_id": 717,
+      "missing_tail": 14145
+    },
+    {
+      "ability_id": 718,
+      "missing_tail": 14152
+    },
+    {
+      "ability_id": 719,
+      "missing_tail": 14164
+    },
+    {
+      "ability_id": 720,
+      "missing_tail": 14089
+    },
+    {
+      "ability_id": 721,
+      "missing_tail": 14092
+    },
+    {
+      "ability_id": 722,
+      "missing_tail": 14305
+    },
+    {
+      "ability_id": 723,
+      "missing_tail": 16729
+    },
+    {
+      "ability_id": 724,
+      "missing_tail": 14365
+    },
+    {
+      "ability_id": 725,
+      "missing_tail": 16125
+    },
+    {
+      "ability_id": 726,
+      "missing_tail": 16129
+    },
+    {
+      "ability_id": 727,
+      "missing_tail": 16132
+    },
+    {
+      "ability_id": 728,
+      "missing_tail": 16138
+    },
+    {
+      "ability_id": 735,
+      "missing_tail": 13380
+    },
+    {
+      "ability_id": 742,
+      "missing_tail": 16665
+    },
+    {
+      "ability_id": 744,
+      "missing_tail": 17221
+    },
+    {
+      "ability_id": 745,
+      "missing_tail": 14177
+    },
+    {
+      "ability_id": 746,
+      "missing_tail": 16198
+    },
+    {
+      "ability_id": 747,
+      "missing_tail": 16201
+    },
+    {
+      "ability_id": 748,
+      "missing_tail": 13248
+    },
+    {
+      "ability_id": 751,
+      "missing_tail": 15620
+    },
+    {
+      "ability_id": 752,
+      "missing_tail": 15559
+    },
+    {
+      "ability_id": 753,
+      "missing_tail": 16065
+    },
+    {
+      "ability_id": 757,
+      "missing_tail": 15239
+    },
+    {
+      "ability_id": 758,
+      "missing_tail": 13668
+    },
+    {
+      "ability_id": 759,
+      "missing_tail": 13671
+    },
+    {
+      "ability_id": 760,
+      "missing_tail": 16204
+    },
+    {
+      "ability_id": 761,
+      "missing_tail": 16209
+    },
+    {
+      "ability_id": 762,
+      "missing_tail": 15715
+    },
+    {
+      "ability_id": 763,
+      "missing_tail": 16653
+    },
+    {
+      "ability_id": 764,
+      "missing_tail": 17521
+    },
+    {
+      "ability_id": 765,
+      "missing_tail": 13690
+    },
+    {
+      "ability_id": 766,
+      "missing_tail": 17531
+    },
+    {
+      "ability_id": 767,
+      "missing_tail": 16212
+    },
+    {
+      "ability_id": 768,
+      "missing_tail": 16216
+    },
+    {
+      "ability_id": 770,
+      "missing_tail": 14083
+    },
+    {
+      "ability_id": 772,
+      "missing_tail": 15525
+    },
+    {
+      "ability_id": 774,
+      "missing_tail": 17479
+    },
+    {
+      "ability_id": 775,
+      "missing_tail": 16343
+    },
+    {
+      "ability_id": 776,
+      "missing_tail": 13227
+    },
+    {
+      "ability_id": 777,
+      "missing_tail": 13515
+    },
+    {
+      "ability_id": 778,
+      "missing_tail": 13121
+    },
+    {
+      "ability_id": 779,
+      "missing_tail": 13874
+    },
+    {
+      "ability_id": 780,
+      "missing_tail": 13879
+    },
+    {
+      "ability_id": 781,
+      "missing_tail": 13882
+    },
+    {
+      "ability_id": 782,
+      "missing_tail": 16318
+    },
+    {
+      "ability_id": 783,
+      "missing_tail": 16415
+    },
+    {
+      "ability_id": 791,
+      "missing_tail": 13242
+    },
+    {
+      "ability_id": 792,
+      "missing_tail": 14353
+    },
+    {
+      "ability_id": 796,
+      "missing_tail": 13890
+    },
+    {
+      "ability_id": 799,
+      "missing_tail": 16645
+    },
+    {
+      "ability_id": 800,
+      "missing_tail": 16325
+    },
+    {
+      "ability_id": 801,
+      "missing_tail": 13422
+    },
+    {
+      "ability_id": 802,
+      "missing_tail": 16122
+    },
+    {
+      "ability_id": 804,
+      "missing_tail": 14036
+    },
+    {
+      "ability_id": 805,
+      "missing_tail": 14149
+    },
+    {
+      "ability_id": 806,
+      "missing_tail": 14161
+    },
+    {
+      "ability_id": 807,
+      "missing_tail": 14158
+    },
+    {
+      "ability_id": 808,
+      "missing_tail": 14167
+    },
+    {
+      "ability_id": 809,
+      "missing_tail": 14182
+    },
+    {
+      "ability_id": 810,
+      "missing_tail": 14187
+    },
+    {
+      "ability_id": 811,
+      "missing_tail": 16219
+    },
+    {
+      "ability_id": 812,
+      "missing_tail": 16223
+    },
+    {
+      "ability_id": 814,
+      "missing_tail": 16226
+    },
+    {
+      "ability_id": 815,
+      "missing_tail": 16231
+    },
+    {
+      "ability_id": 816,
+      "missing_tail": 16236
+    },
+    {
+      "ability_id": 817,
+      "missing_tail": 16239
+    },
+    {
+      "ability_id": 818,
+      "missing_tail": 16258
+    },
+    {
+      "ability_id": 819,
+      "missing_tail": 16667
+    },
+    {
+      "ability_id": 820,
+      "missing_tail": 13622
+    },
+    {
+      "ability_id": 823,
+      "missing_tail": 16193
+    },
+    {
+      "ability_id": 825,
+      "missing_tail": 15178
+    },
+    {
+      "ability_id": 827,
+      "missing_tail": 16746
+    },
+    {
+      "ability_id": 828,
+      "missing_tail": 16261
+    },
+    {
+      "ability_id": 829,
+      "missing_tail": 16264
+    },
+    {
+      "ability_id": 830,
+      "missing_tail": 16273
+    },
+    {
+      "ability_id": 831,
+      "missing_tail": 16277
+    },
+    {
+      "ability_id": 832,
+      "missing_tail": 16288
+    },
+    {
+      "ability_id": 833,
+      "missing_tail": 17253
+    },
+    {
+      "ability_id": 835,
+      "missing_tail": 16301
+    },
+    {
+      "ability_id": 837,
+      "missing_tail": 16331
+    },
+    {
+      "ability_id": 838,
+      "missing_tail": 16695
+    },
+    {
+      "ability_id": 840,
+      "missing_tail": 16364
+    },
+    {
+      "ability_id": 850,
+      "missing_tail": 16367
+    },
+    {
+      "ability_id": 853,
+      "missing_tail": 16372
+    },
+    {
+      "ability_id": 857,
+      "missing_tail": 5343
+    },
+    {
+      "ability_id": 861,
+      "missing_tail": 5354
+    },
+    {
+      "ability_id": 864,
+      "missing_tail": 14170
+    },
+    {
+      "ability_id": 868,
+      "missing_tail": 16381
+    },
+    {
+      "ability_id": 869,
+      "missing_tail": 16387
+    },
+    {
+      "ability_id": 870,
+      "missing_tail": 15294
+    },
+    {
+      "ability_id": 871,
+      "missing_tail": 10771
+    },
+    {
+      "ability_id": 872,
+      "missing_tail": 14839
+    },
+    {
+      "ability_id": 873,
+      "missing_tail": 13543
+    },
+    {
+      "ability_id": 874,
+      "missing_tail": 13547
+    },
+    {
+      "ability_id": 875,
+      "missing_tail": 10765
+    },
+    {
+      "ability_id": 877,
+      "missing_tail": 13553
+    },
+    {
+      "ability_id": 878,
+      "missing_tail": 10746
+    },
+    {
+      "ability_id": 879,
+      "missing_tail": 17259
+    },
+    {
+      "ability_id": 880,
+      "missing_tail": 16393
+    },
+    {
+      "ability_id": 882,
+      "missing_tail": 16397
+    },
+    {
+      "ability_id": 883,
+      "missing_tail": 16537
+    },
+    {
+      "ability_id": 884,
+      "missing_tail": 17210
+    },
+    {
+      "ability_id": 885,
+      "missing_tail": 17213
+    },
+    {
+      "ability_id": 886,
+      "missing_tail": 17219
+    },
+    {
+      "ability_id": 888,
+      "missing_tail": 17556
+    },
+    {
+      "ability_id": 889,
+      "missing_tail": 17230
+    },
+    {
+      "ability_id": 890,
+      "missing_tail": 17236
+    },
+    {
+      "ability_id": 891,
+      "missing_tail": 13599
+    },
+    {
+      "ability_id": 894,
+      "missing_tail": 17243
+    },
+    {
+      "ability_id": 895,
+      "missing_tail": 17246
+    },
+    {
+      "ability_id": 896,
+      "missing_tail": 17250
+    },
+    {
+      "ability_id": 898,
+      "missing_tail": 17268
+    },
+    {
+      "ability_id": 900,
+      "missing_tail": 14356
+    },
+    {
+      "ability_id": 903,
+      "missing_tail": 14780
+    },
+    {
+      "ability_id": 906,
+      "missing_tail": 10523
+    },
+    {
+      "ability_id": 907,
+      "missing_tail": 10528
+    },
+    {
+      "ability_id": 908,
+      "missing_tail": 10533
+    },
+    {
+      "ability_id": 909,
+      "missing_tail": 10538
+    },
+    {
+      "ability_id": 914,
+      "missing_tail": 10549
+    },
+    {
+      "ability_id": 917,
+      "missing_tail": 17207
+    },
+    {
+      "ability_id": 920,
+      "missing_tail": 14007
+    },
+    {
+      "ability_id": 921,
+      "missing_tail": 10716
+    },
+    {
+      "ability_id": 922,
+      "missing_tail": 13563
+    },
+    {
+      "ability_id": 923,
+      "missing_tail": 15281
+    },
+    {
+      "ability_id": 924,
+      "missing_tail": 10729
+    },
+    {
+      "ability_id": 925,
+      "missing_tail": 10732
+    },
+    {
+      "ability_id": 927,
+      "missing_tail": 10738
+    },
+    {
+      "ability_id": 928,
+      "missing_tail": 14027
+    },
+    {
+      "ability_id": 929,
+      "missing_tail": 14030
+    },
+    {
+      "ability_id": 931,
+      "missing_tail": 15175
+    },
+    {
+      "ability_id": 932,
+      "missing_tail": 17290
+    },
+    {
+      "ability_id": 934,
+      "missing_tail": 17308
+    },
+    {
+      "ability_id": 935,
+      "missing_tail": 14261
+    },
+    {
+      "ability_id": 936,
+      "missing_tail": 17366
+    },
+    {
+      "ability_id": 937,
+      "missing_tail": 17318
+    },
+    {
+      "ability_id": 941,
+      "missing_tail": 13512
+    },
+    {
+      "ability_id": 942,
+      "missing_tail": 13503
+    },
+    {
+      "ability_id": 945,
+      "missing_tail": 16924
+    },
+    {
+      "ability_id": 946,
+      "missing_tail": 14038
+    },
+    {
+      "ability_id": 947,
+      "missing_tail": 14041
+    },
+    {
+      "ability_id": 950,
+      "missing_tail": 17337
+    },
+    {
+      "ability_id": 951,
+      "missing_tail": 17340
+    },
+    {
+      "ability_id": 953,
+      "missing_tail": 17345
+    },
+    {
+      "ability_id": 954,
+      "missing_tail": 17348
+    },
+    {
+      "ability_id": 955,
+      "missing_tail": 17358
+    },
+    {
+      "ability_id": 956,
+      "missing_tail": 17362
+    },
+    {
+      "ability_id": 958,
+      "missing_tail": 17371
+    },
+    {
+      "ability_id": 961,
+      "missing_tail": 13857
+    },
+    {
+      "ability_id": 962,
+      "missing_tail": 13063
+    },
+    {
+      "ability_id": 963,
+      "missing_tail": 14197
+    },
+    {
+      "ability_id": 965,
+      "missing_tail": 10520
+    },
+    {
+      "ability_id": 967,
+      "missing_tail": 13445
+    },
+    {
+      "ability_id": 968,
+      "missing_tail": 17376
+    },
+    {
+      "ability_id": 975,
+      "missing_tail": 17415
+    },
+    {
+      "ability_id": 976,
+      "missing_tail": 17419
+    },
+    {
+      "ability_id": 977,
+      "missing_tail": 17559
+    },
+    {
+      "ability_id": 978,
+      "missing_tail": 17429
+    },
+    {
+      "ability_id": 979,
+      "missing_tail": 17437
+    },
+    {
+      "ability_id": 981,
+      "missing_tail": 17383
+    },
+    {
+      "ability_id": 983,
+      "missing_tail": 12842
+    },
+    {
+      "ability_id": 984,
+      "missing_tail": 12836
+    },
+    {
+      "ability_id": 985,
+      "missing_tail": 16247
+    },
+    {
+      "ability_id": 986,
+      "missing_tail": 13469
+    },
+    {
+      "ability_id": 987,
+      "missing_tail": 13470
+    },
+    {
+      "ability_id": 988,
+      "missing_tail": 13471
+    },
+    {
+      "ability_id": 989,
+      "missing_tail": 13830
+    },
+    {
+      "ability_id": 990,
+      "missing_tail": 13842
+    },
+    {
+      "ability_id": 991,
+      "missing_tail": 15828
+    },
+    {
+      "ability_id": 993,
+      "missing_tail": 13366
+    },
+    {
+      "ability_id": 995,
+      "missing_tail": 16403
+    },
+    {
+      "ability_id": 997,
+      "missing_tail": 14216
+    },
+    {
+      "ability_id": 998,
+      "missing_tail": 15345
+    },
+    {
+      "ability_id": 999,
+      "missing_tail": 7769
+    },
+    {
+      "ability_id": 1000,
+      "missing_tail": 17440
+    },
+    {
+      "ability_id": 1001,
+      "missing_tail": 17446
+    },
+    {
+      "ability_id": 1002,
+      "missing_tail": 17449
+    },
+    {
+      "ability_id": 1003,
+      "missing_tail": 10479
+    },
+    {
+      "ability_id": 1004,
+      "missing_tail": 17493
+    },
+    {
+      "ability_id": 1005,
+      "missing_tail": 17496
+    },
+    {
+      "ability_id": 1006,
+      "missing_tail": 17516
+    },
+    {
+      "ability_id": 1007,
+      "missing_tail": 17518
+    },
+    {
+      "ability_id": 1008,
+      "missing_tail": 17523
+    },
+    {
+      "ability_id": 1012,
+      "missing_tail": 13817
+    },
+    {
+      "ability_id": 1013,
+      "missing_tail": 16002
+    },
+    {
+      "ability_id": 1015,
+      "missing_tail": 17548
+    },
+    {
+      "ability_id": 1016,
+      "missing_tail": 17550
+    },
+    {
+      "ability_id": 1021,
+      "missing_tail": 17216
+    },
+    {
+      "ability_id": 1022,
+      "missing_tail": 16165
+    },
+    {
+      "ability_id": 1024,
+      "missing_tail": 14086
+    },
+    {
+      "ability_id": 1025,
+      "missing_tail": 14012
+    },
+    {
+      "ability_id": 1026,
+      "missing_tail": 17562
+    },
+    {
+      "ability_id": 1027,
+      "missing_tail": 17565
+    },
+    {
+      "ability_id": 1028,
+      "missing_tail": 17568
+    },
+    {
+      "ability_id": 1029,
+      "missing_tail": 17571
+    },
+    {
+      "ability_id": 1030,
+      "missing_tail": 17574
+    },
+    {
+      "ability_id": 1031,
+      "missing_tail": 17577
+    },
+    {
+      "ability_id": 1032,
+      "missing_tail": 17580
+    },
+    {
+      "ability_id": 1033,
+      "missing_tail": 17583
+    },
+    {
+      "ability_id": 1034,
+      "missing_tail": 17586
+    },
+    {
+      "ability_id": 1035,
+      "missing_tail": 17589
+    },
+    {
+      "ability_id": 1036,
+      "missing_tail": 17592
+    },
+    {
+      "ability_id": 1037,
+      "missing_tail": 17595
+    },
+    {
+      "ability_id": 1038,
+      "missing_tail": 17598
+    },
+    {
+      "ability_id": 1039,
+      "missing_tail": 17601
+    },
+    {
+      "ability_id": 1041,
+      "missing_tail": 15853
+    },
+    {
+      "ability_id": 1042,
+      "missing_tail": 17604
+    },
+    {
+      "ability_id": 1043,
+      "missing_tail": 17607
+    },
+    {
+      "ability_id": 1044,
+      "missing_tail": 17610
+    },
+    {
+      "ability_id": 1045,
+      "missing_tail": 17613
+    },
+    {
+      "ability_id": 1046,
+      "missing_tail": 17616
+    },
+    {
+      "ability_id": 1047,
+      "missing_tail": 17619
+    },
+    {
+      "ability_id": 1048,
+      "missing_tail": 17622
+    },
+    {
+      "ability_id": 1049,
+      "missing_tail": 17625
+    },
+    {
+      "ability_id": 1050,
+      "missing_tail": 17628
+    },
+    {
+      "ability_id": 1051,
+      "missing_tail": 17631
+    },
+    {
+      "ability_id": 1052,
+      "missing_tail": 17634
+    },
+    {
+      "ability_id": 1054,
+      "missing_tail": 17640
+    },
+    {
+      "ability_id": 1064,
+      "missing_tail": 15329
+    },
+    {
+      "ability_id": 1065,
+      "missing_tail": 13377
+    },
+    {
+      "ability_id": 1092,
+      "missing_tail": 14022
+    },
+    {
+      "ability_id": 1113,
+      "missing_tail": 15318
+    },
+    {
+      "ability_id": 1123,
+      "missing_tail": 15473
+    },
+    {
+      "ability_id": 1125,
+      "missing_tail": 17167
+    },
+    {
+      "ability_id": 1150,
+      "missing_tail": 13651
+    },
+    {
+      "ability_id": 1151,
+      "missing_tail": 13654
+    },
+    {
+      "ability_id": 1152,
+      "missing_tail": 13657
+    },
+    {
+      "ability_id": 1153,
+      "missing_tail": 15607
+    },
+    {
+      "ability_id": 1154,
+      "missing_tail": 12858
+    },
+    {
+      "ability_id": 1169,
+      "missing_tail": 16337
+    },
+    {
+      "ability_id": 1170,
+      "missing_tail": 16340
+    },
+    {
+      "ability_id": 1171,
+      "missing_tail": 15503
+    },
+    {
+      "ability_id": 1173,
+      "missing_tail": 15510
+    },
+    {
+      "ability_id": 1174,
+      "missing_tail": 15513
+    },
+    {
+      "ability_id": 1175,
+      "missing_tail": 17417
+    },
+    {
+      "ability_id": 1176,
+      "missing_tail": 15960
+    },
+    {
+      "ability_id": 1177,
+      "missing_tail": 15518
+    },
+    {
+      "ability_id": 1205,
+      "missing_tail": 16476
+    },
+    {
+      "ability_id": 1208,
+      "missing_tail": 13319
+    },
+    {
+      "ability_id": 1209,
+      "missing_tail": 15695
+    },
+    {
+      "ability_id": 1219,
+      "missing_tail": 13354
+    },
+    {
+      "ability_id": 1220,
+      "missing_tail": 13344
+    },
+    {
+      "ability_id": 1221,
+      "missing_tail": 13339
+    },
+    {
+      "ability_id": 1222,
+      "missing_tail": 13349
+    },
+    {
+      "ability_id": 1223,
+      "missing_tail": 13359
+    },
+    {
+      "ability_id": 1232,
+      "missing_tail": 15430
+    },
+    {
+      "ability_id": 1233,
+      "missing_tail": 15433
+    },
+    {
+      "ability_id": 1234,
+      "missing_tail": 15439
+    },
+    {
+      "ability_id": 1235,
+      "missing_tail": 15448
+    },
+    {
+      "ability_id": 1236,
+      "missing_tail": 15445
+    },
+    {
+      "ability_id": 1239,
+      "missing_tail": 15884
+    },
+    {
+      "ability_id": 1242,
+      "missing_tail": 15451
+    },
+    {
+      "ability_id": 1243,
+      "missing_tail": 15454
+    },
+    {
+      "ability_id": 1244,
+      "missing_tail": 15457
+    },
+    {
+      "ability_id": 1245,
+      "missing_tail": 15541
+    },
+    {
+      "ability_id": 1246,
+      "missing_tail": 15544
+    },
+    {
+      "ability_id": 1247,
+      "missing_tail": 15547
+    },
+    {
+      "ability_id": 1248,
+      "missing_tail": 15550
+    },
+    {
+      "ability_id": 1249,
+      "missing_tail": 15556
+    },
+    {
+      "ability_id": 1250,
+      "missing_tail": 15565
+    },
+    {
+      "ability_id": 1251,
+      "missing_tail": 15568
+    },
+    {
+      "ability_id": 1252,
+      "missing_tail": 15991
+    },
+    {
+      "ability_id": 1253,
+      "missing_tail": 15992
+    },
+    {
+      "ability_id": 1254,
+      "missing_tail": 15572
+    },
+    {
+      "ability_id": 1255,
+      "missing_tail": 15578
+    },
+    {
+      "ability_id": 1256,
+      "missing_tail": 15580
+    },
+    {
+      "ability_id": 1257,
+      "missing_tail": 15583
+    },
+    {
+      "ability_id": 1258,
+      "missing_tail": 15592
+    },
+    {
+      "ability_id": 1259,
+      "missing_tail": 15595
+    },
+    {
+      "ability_id": 1261,
+      "missing_tail": 15599
+    },
+    {
+      "ability_id": 1262,
+      "missing_tail": 16077
+    },
+    {
+      "ability_id": 1263,
+      "missing_tail": 15603
+    },
+    {
+      "ability_id": 1265,
+      "missing_tail": 16078
+    },
+    {
+      "ability_id": 1266,
+      "missing_tail": 15613
+    },
+    {
+      "ability_id": 1267,
+      "missing_tail": 15616
+    },
+    {
+      "ability_id": 1269,
+      "missing_tail": 15903
+    },
+    {
+      "ability_id": 1270,
+      "missing_tail": 15852
+    },
+    {
+      "ability_id": 1271,
+      "missing_tail": 15623
+    },
+    {
+      "ability_id": 1272,
+      "missing_tail": 15626
+    },
+    {
+      "ability_id": 1273,
+      "missing_tail": 15636
+    },
+    {
+      "ability_id": 1278,
+      "missing_tail": 15644
+    },
+    {
+      "ability_id": 1279,
+      "missing_tail": 17255
+    },
+    {
+      "ability_id": 1281,
+      "missing_tail": 15649
+    },
+    {
+      "ability_id": 1403,
+      "missing_tail": 5361
+    },
+    {
+      "ability_id": 1404,
+      "missing_tail": 13631
+    },
+    {
+      "ability_id": 1406,
+      "missing_tail": 13827
+    },
+    {
+      "ability_id": 1663,
+      "missing_tail": 14490
+    },
+    {
+      "ability_id": 1664,
+      "missing_tail": 13414
+    },
+    {
+      "ability_id": 1665,
+      "missing_tail": 16886
+    },
+    {
+      "ability_id": 1669,
+      "missing_tail": 13591
+    },
+    {
+      "ability_id": 1680,
+      "missing_tail": 13906
+    },
+    {
+      "ability_id": 1681,
+      "missing_tail": 13909
+    },
+    {
+      "ability_id": 1682,
+      "missing_tail": 13912
+    },
+    {
+      "ability_id": 1683,
+      "missing_tail": 13918
+    },
+    {
+      "ability_id": 1686,
+      "missing_tail": 14020
+    },
+    {
+      "ability_id": 2001,
+      "missing_tail": 15097
+    },
+    {
+      "ability_id": 2002,
+      "missing_tail": 16566
+    },
+    {
+      "ability_id": 2003,
+      "missing_tail": 15101
+    },
+    {
+      "ability_id": 2004,
+      "missing_tail": 15106
+    },
+    {
+      "ability_id": 2005,
+      "missing_tail": 15109
+    },
+    {
+      "ability_id": 2006,
+      "missing_tail": 15114
+    },
+    {
+      "ability_id": 2007,
+      "missing_tail": 15749
+    },
+    {
+      "ability_id": 2008,
+      "missing_tail": 15121
+    },
+    {
+      "ability_id": 2009,
+      "missing_tail": 15124
+    },
+    {
+      "ability_id": 2010,
+      "missing_tail": 15127
+    },
+    {
+      "ability_id": 2011,
+      "missing_tail": 15736
+    },
+    {
+      "ability_id": 2012,
+      "missing_tail": 15737
+    },
+    {
+      "ability_id": 2013,
+      "missing_tail": 15738
+    },
+    {
+      "ability_id": 2014,
+      "missing_tail": 15133
+    },
+    {
+      "ability_id": 2016,
+      "missing_tail": 17241
+    },
+    {
+      "ability_id": 2018,
+      "missing_tail": 15758
+    },
+    {
+      "ability_id": 2019,
+      "missing_tail": 15148
+    },
+    {
+      "ability_id": 2020,
+      "missing_tail": 15151
+    },
+    {
+      "ability_id": 2023,
+      "missing_tail": 15156
+    },
+    {
+      "ability_id": 2025,
+      "missing_tail": 15160
+    },
+    {
+      "ability_id": 2026,
+      "missing_tail": 15163
+    },
+    {
+      "ability_id": 2028,
+      "missing_tail": 15169
+    },
+    {
+      "ability_id": 2032,
+      "missing_tail": 15180
+    },
+    {
+      "ability_id": 2036,
+      "missing_tail": 15254
+    },
+    {
+      "ability_id": 2040,
+      "missing_tail": 15284
+    },
+    {
+      "ability_id": 2041,
+      "missing_tail": 15289
+    },
+    {
+      "ability_id": 2042,
+      "missing_tail": 15296
+    },
+    {
+      "ability_id": 2045,
+      "missing_tail": 15339
+    },
+    {
+      "ability_id": 2048,
+      "missing_tail": 15851
+    },
+    {
+      "ability_id": 2053,
+      "missing_tail": 15372
+    },
+    {
+      "ability_id": 2054,
+      "missing_tail": 15375
+    },
+    {
+      "ability_id": 2055,
+      "missing_tail": 15384
+    },
+    {
+      "ability_id": 2056,
+      "missing_tail": 15390
+    },
+    {
+      "ability_id": 2057,
+      "missing_tail": 15404
+    },
+    {
+      "ability_id": 2059,
+      "missing_tail": 15407
+    },
+    {
+      "ability_id": 2060,
+      "missing_tail": 15201
+    },
+    {
+      "ability_id": 2062,
+      "missing_tail": 15205
+    },
+    {
+      "ability_id": 2063,
+      "missing_tail": 15208
+    },
+    {
+      "ability_id": 2064,
+      "missing_tail": 15211
+    },
+    {
+      "ability_id": 2065,
+      "missing_tail": 17509
+    },
+    {
+      "ability_id": 2066,
+      "missing_tail": 15215
+    },
+    {
+      "ability_id": 2076,
+      "missing_tail": 15218
+    },
+    {
+      "ability_id": 2077,
+      "missing_tail": 15221
+    },
+    {
+      "ability_id": 2078,
+      "missing_tail": 15224
+    },
+    {
+      "ability_id": 2079,
+      "missing_tail": 15227
+    },
+    {
+      "ability_id": 2080,
+      "missing_tail": 15230
+    },
+    {
+      "ability_id": 2081,
+      "missing_tail": 15233
+    },
+    {
+      "ability_id": 2200,
+      "missing_tail": 15476
+    },
+    {
+      "ability_id": 2201,
+      "missing_tail": 15479
+    },
+    {
+      "ability_id": 2203,
+      "missing_tail": 15483
+    },
+    {
+      "ability_id": 2205,
+      "missing_tail": 15487
+    },
+    {
+      "ability_id": 2207,
+      "missing_tail": 15491
+    },
+    {
+      "ability_id": 2208,
+      "missing_tail": 15494
+    },
+    {
+      "ability_id": 2209,
+      "missing_tail": 15497
+    },
+    {
+      "ability_id": 3211,
+      "missing_tail": 15293
+    },
+    {
+      "ability_id": 3212,
+      "missing_tail": 14211
+    },
+    {
+      "ability_id": 3500,
+      "missing_tail": 14095
+    },
+    {
+      "ability_id": 3511,
+      "missing_tail": 13824
+    },
+    {
+      "ability_id": 3512,
+      "missing_tail": 13279
+    },
+    {
+      "ability_id": 3514,
+      "missing_tail": 13793
+    },
+    {
+      "ability_id": 3515,
+      "missing_tail": 13772
+    },
+    {
+      "ability_id": 3516,
+      "missing_tail": 16032
+    },
+    {
+      "ability_id": 3518,
+      "missing_tail": 16298
+    },
+    {
+      "ability_id": 3521,
+      "missing_tail": 15398
+    },
+    {
+      "ability_id": 3525,
+      "missing_tail": 13044
+    },
+    {
+      "ability_id": 3550,
+      "missing_tail": 12925
+    },
+    {
+      "ability_id": 3600,
+      "missing_tail": 6137
+    },
+    {
+      "ability_id": 3646,
+      "missing_tail": 13426
+    },
+    {
+      "ability_id": 3676,
+      "missing_tail": 14647
+    },
+    {
+      "ability_id": 3701,
+      "missing_tail": 13506
+    },
+    {
+      "ability_id": 3702,
+      "missing_tail": 13525
+    },
+    {
+      "ability_id": 3705,
+      "missing_tail": 13276
+    },
+    {
+      "ability_id": 3707,
+      "missing_tail": 13292
+    },
+    {
+      "ability_id": 3708,
+      "missing_tail": 16441
+    },
+    {
+      "ability_id": 3709,
+      "missing_tail": 17381
+    },
+    {
+      "ability_id": 3716,
+      "missing_tail": 15463
+    },
+    {
+      "ability_id": 3728,
+      "missing_tail": 14257
+    },
+    {
+      "ability_id": 3731,
+      "missing_tail": 10569
+    },
+    {
+      "ability_id": 3732,
+      "missing_tail": 10518
+    },
+    {
+      "ability_id": 3734,
+      "missing_tail": 13230
+    },
+    {
+      "ability_id": 3801,
+      "missing_tail": 8449
+    },
+    {
+      "ability_id": 3802,
+      "missing_tail": 16174
+    },
+    {
+      "ability_id": 3803,
+      "missing_tail": 14263
+    },
+    {
+      "ability_id": 3804,
+      "missing_tail": 14113
+    },
+    {
+      "ability_id": 3815,
+      "missing_tail": 5349
+    },
+    {
+      "ability_id": 3817,
+      "missing_tail": 13171
+    },
+    {
+      "ability_id": 3818,
+      "missing_tail": 5340
+    },
+    {
+      "ability_id": 3819,
+      "missing_tail": 13522
+    },
+    {
+      "ability_id": 3820,
+      "missing_tail": 14098
+    },
+    {
+      "ability_id": 3822,
+      "missing_tail": 15776
+    },
+    {
+      "ability_id": 3826,
+      "missing_tail": 13593
+    },
+    {
+      "ability_id": 3833,
+      "missing_tail": 12592
+    },
+    {
+      "ability_id": 3834,
+      "missing_tail": 12595
+    },
+    {
+      "ability_id": 3835,
+      "missing_tail": 15720
+    },
+    {
+      "ability_id": 3837,
+      "missing_tail": 12599
+    },
+    {
+      "ability_id": 3840,
+      "missing_tail": 10441
+    },
+    {
+      "ability_id": 3890,
+      "missing_tail": 14329
+    },
+    {
+      "ability_id": 4002,
+      "missing_tail": 13030
+    },
+    {
+      "ability_id": 6000,
+      "missing_tail": 13620
+    },
+    {
+      "ability_id": 6001,
+      "missing_tail": 13605
+    },
+    {
+      "ability_id": 6002,
+      "missing_tail": 13125
+    },
+    {
+      "ability_id": 6302,
+      "missing_tail": 15553
+    },
+    {
+      "ability_id": 6362,
+      "missing_tail": 16328
+    },
+    {
+      "ability_id": 6481,
+      "missing_tail": 15315
+    },
+    {
+      "ability_id": 6488,
+      "missing_tail": 13384
+    },
+    {
+      "ability_id": 6492,
+      "missing_tail": 14004
+    },
+    {
+      "ability_id": 6988,
+      "missing_tail": 16248
+    },
+    {
+      "ability_id": 7000,
+      "missing_tail": 15788
+    },
+    {
+      "ability_id": 7001,
+      "missing_tail": 13839
+    },
+    {
+      "ability_id": 7033,
+      "missing_tail": 15747
+    },
+    {
+      "ability_id": 7036,
+      "missing_tail": 10581
+    },
+    {
+      "ability_id": 7060,
+      "missing_tail": 13041
+    },
+    {
+      "ability_id": 7107,
+      "missing_tail": 15633
+    },
+    {
+      "ability_id": 7109,
+      "missing_tail": 17351
+    },
+    {
+      "ability_id": 7700,
+      "missing_tail": 14126
+    },
+    {
+      "ability_id": 7712,
+      "missing_tail": 15095
+    },
+    {
+      "ability_id": 7715,
+      "missing_tail": 14315
+    },
+    {
+      "ability_id": 7751,
+      "missing_tail": 14133
+    },
+    {
+      "ability_id": 7755,
+      "missing_tail": 16187
+    },
+    {
+      "ability_id": 7757,
+      "missing_tail": 15183
+    },
+    {
+      "ability_id": 8201,
+      "missing_tail": 14797
+    },
+    {
+      "ability_id": 8204,
+      "missing_tail": 15989
+    },
+    {
+      "ability_id": 8205,
+      "missing_tail": 13518
+    },
+    {
+      "ability_id": 8262,
+      "missing_tail": 13534
+    },
+    {
+      "ability_id": 8300,
+      "missing_tail": 13928
+    },
+    {
+      "ability_id": 8302,
+      "missing_tail": 13176
+    },
+    {
+      "ability_id": 8303,
+      "missing_tail": 13181
+    },
+    {
+      "ability_id": 8304,
+      "missing_tail": 13478
+    },
+    {
+      "ability_id": 8314,
+      "missing_tail": 13509
+    },
+    {
+      "ability_id": 8325,
+      "missing_tail": 13799
+    },
+    {
+      "ability_id": 8342,
+      "missing_tail": 17501
+    },
+    {
+      "ability_id": 8401,
+      "missing_tail": 13053
+    },
+    {
+      "ability_id": 8500,
+      "missing_tail": 15840
+    },
+    {
+      "ability_id": 8501,
+      "missing_tail": 13608
+    },
+    {
+      "ability_id": 8603,
+      "missing_tail": 12649
+    },
+    {
+      "ability_id": 8605,
+      "missing_tail": 12643
+    },
+    {
+      "ability_id": 8606,
+      "missing_tail": 12640
+    },
+    {
+      "ability_id": 8700,
+      "missing_tail": 13728
+    },
+    {
+      "ability_id": 8701,
+      "missing_tail": 14765
+    },
+    {
+      "ability_id": 8703,
+      "missing_tail": 15470
+    },
+    {
+      "ability_id": 8704,
+      "missing_tail": 15467
+    },
+    {
+      "ability_id": 8708,
+      "missing_tail": 15560
+    },
+    {
+      "ability_id": 8800,
+      "missing_tail": 13721
+    },
+    {
+      "ability_id": 8900,
+      "missing_tail": 13805
+    },
+    {
+      "ability_id": 8903,
+      "missing_tail": 14155
+    },
+    {
+      "ability_id": 9001,
+      "missing_tail": 15589
+    },
+    {
+      "ability_id": 9200,
+      "missing_tail": 17477
+    },
+    {
+      "ability_id": 9202,
+      "missing_tail": 15299
+    },
+    {
+      "ability_id": 9203,
+      "missing_tail": 15302
+    },
+    {
+      "ability_id": 9205,
+      "missing_tail": 13112
+    },
+    {
+      "ability_id": 9206,
+      "missing_tail": 13115
+    },
+    {
+      "ability_id": 9207,
+      "missing_tail": 13118
+    },
+    {
+      "ability_id": 9300,
+      "missing_tail": 13780
+    },
+    {
+      "ability_id": 9301,
+      "missing_tail": 15955
+    },
+    {
+      "ability_id": 9400,
+      "missing_tail": 13625
+    },
+    {
+      "ability_id": 9404,
+      "missing_tail": 16190
+    },
+    {
+      "ability_id": 9501,
+      "missing_tail": 15364
+    },
+    {
+      "ability_id": 9700,
+      "missing_tail": 12873
+    },
+    {
+      "ability_id": 10367,
+      "missing_tail": 13434
+    },
+    {
+      "ability_id": 10394,
+      "missing_tail": 14981
+    },
+    {
+      "ability_id": 10396,
+      "missing_tail": 14024
+    },
+    {
+      "ability_id": 10397,
+      "missing_tail": 14025
+    },
+    {
+      "ability_id": 10410,
+      "missing_tail": 10411
+    },
+    {
+      "ability_id": 11073,
+      "missing_tail": 15412
+    },
+    {
+      "ability_id": 11077,
+      "missing_tail": 15896
+    },
+    {
+      "ability_id": 11078,
+      "missing_tail": 15892
+    },
+    {
+      "ability_id": 11079,
+      "missing_tail": 15894
+    },
+    {
+      "ability_id": 11080,
+      "missing_tail": 13473
+    },
+    {
+      "ability_id": 11085,
+      "missing_tail": 13022
+    },
+    {
+      "ability_id": 12607,
+      "missing_tail": 15631
+    },
+    {
+      "ability_id": 12615,
+      "missing_tail": 15499
+    },
+    {
+      "ability_id": 15074,
+      "missing_tail": 15075
+    },
+    {
+      "ability_id": 30050,
+      "missing_tail": 30051
+    },
+    {
+      "ability_id": 30100,
+      "missing_tail": 30101
+    },
+    {
+      "ability_id": 30150,
+      "missing_tail": 30151
+    },
+    {
+      "ability_id": 30175,
+      "missing_tail": 30176
+    },
+    {
+      "ability_id": 30180,
+      "missing_tail": 30181
+    },
+    {
+      "ability_id": 30185,
+      "missing_tail": 30186
+    },
+    {
+      "ability_id": 30190,
+      "missing_tail": 30191
+    },
+    {
+      "ability_id": 30195,
+      "missing_tail": 30196
+    }
+  ],
+  "purchase_rows": {
+    "within_tbs_global_cap": 104,
+    "above_tbs_cap": 18,
+    "outside_tbs_purchase_pool": 116
+  },
+  "purchase_rows_by_expansion_only": {
+    "within_TBS_expansion": 174,
+    "above_TBS_expansion": 64
+  },
+  "later_new_families": 1018,
+  "older_families_with_later_ranks": 240
+}

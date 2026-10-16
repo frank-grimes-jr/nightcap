@@ -1,5 +1,7 @@
 # Nightcap documentation
 
+Current AA correction: [all allowed ranks at level 1](releases/aa-tbs-level1-20261013/README.md).
+
 Start with [current status](status.md), not a dated candidate report.
 
 - [Production-connected GM controls: entry point, rollout and exact QA](ops/production-gm-20261010.md)
@@ -28,6 +30,8 @@ Start with [current status](status.md), not a dated candidate report.
 
 - [Relaxed tradeskill workshop: live layout, service moves and exact QA](releases/tunnel-cozy-20261013/README.md)
 
+
+- [Buried Sea AA cutoff: candidate caps, preservation and exact in-game QA](releases/aa-tbs-20261013/README.md)
 - [Multiclass skill progression and offhand corrective release](releases/multiclass-skills-20261013/README.md)
 
 - [Multiclass trainers: live paired release, recovery and Palwar QA](releases/multiclass-trainers-20261012/README.md)

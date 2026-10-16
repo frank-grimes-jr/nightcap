@@ -1,0 +1,18 @@
+{
+  "installed": true,
+  "implementation_revision": "83ed0b574798443cf36f9d48ac33763f99cf6a7b",
+  "files": {
+    "references/balance.md": {
+      "before": "da557429b2471f70a4d09e299695f022fd318061b5ccc467f0aa888661de7aec",
+      "after": "656f43e28b5a1ba5a6cb6b8d52b69be0719a9f13e4524ca3c14d668a373d504d"
+    },
+    "references/multiclass.md": {
+      "before": "670dcecad4da20234923b08b9b0330340e4f84cdf5b1be14293a8eb6df39db12",
+      "after": "985a5768fb0f32a58fbfe59935f92315890d2294b1da16d0f4d6f2d9a8e39167"
+    },
+    "references/sources.json": {
+      "before": "671d8626b880ff291dc0159118a34e7530b9edeec3301763d5ddc5698bd055d7",
+      "after": "a7e445e64c0c043f7604e4de0077634299603c8d63a204a009aeee8683737651"
+    }
+  }
+}

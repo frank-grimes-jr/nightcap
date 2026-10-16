@@ -1,0 +1,407 @@
+[
+  {
+    "ability_id": 133,
+    "name": "[BER] Decapitation",
+    "decision": "defer_execute",
+    "candidate_max_rank": 0,
+    "candidate_rank_ids": [],
+    "rationale": "Decapitation passive skill-proc points to32336 with raw153514 nuke. Tooltip level conditions are not proof of enforcement."
+  },
+  {
+    "ability_id": 280,
+    "name": "Group Perfected Invisibility to Undead",
+    "decision": "defer_dependency_and_travel",
+    "candidate_max_rank": 0,
+    "candidate_rank_ids": [],
+    "rationale": "Requires291 and1685; group convenience does not justify expanding solo list or importing Alaran chain."
+  },
+  {
+    "ability_id": 291,
+    "name": "Perfected Invisibility to Undead",
+    "decision": "defer_dependency_and_travel",
+    "candidate_max_rank": 0,
+    "candidate_rank_ids": [],
+    "rationale": "Requires3812 rank1 and Alaran1685 rank1, which in turn requires1684. Do not import HP grants just to backport invisibility."
+  },
+  {
+    "ability_id": 313,
+    "name": "Hastened Companion's Relocation",
+    "decision": "hold_implementation_gap",
+    "candidate_max_rank": 0,
+    "candidate_rank_ids": [],
+    "rationale": "Hastens relocation3816. Do not add a modifier to an unverified base action."
+  },
+  {
+    "ability_id": 400,
+    "name": "Hastened Improved Twincast",
+    "decision": "defer_burst",
+    "candidate_max_rank": 0,
+    "candidate_rank_ids": [],
+    "rationale": "Hastens excluded Improved Twincast515; keep unavailable while base family is deferred."
+  },
+  {
+    "ability_id": 463,
+    "name": "[CLR] Divine Guardian",
+    "decision": "defer_defensive_rotation",
+    "candidate_max_rank": 0,
+    "candidate_rank_ids": [],
+    "rationale": "Divine Guardian can combine with other defensive/healing cooldowns; do not assume rare use in multiclass play."
+  },
+  {
+    "ability_id": 464,
+    "name": "[CLR] Divine Peace",
+    "decision": "defer_escape",
+    "candidate_max_rank": 0,
+    "candidate_rank_ids": [],
+    "rationale": "Divine Peace adds threat escape; compare with existing held-class escape before adding another reset."
+  },
+  {
+    "ability_id": 515,
+    "name": "Improved Twincast",
+    "decision": "defer_burst",
+    "candidate_max_rank": 0,
+    "candidate_rank_ids": [],
+    "rationale": "Rank1 gives100-percent twincast for up to10 eligible hits; combines with crit, focus and Nightcap percent spell-damage scaling."
+  },
+  {
+    "ability_id": 543,
+    "name": "Diminutive Companion",
+    "decision": "keep_utility",
+    "candidate_max_rank": 1,
+    "candidate_rank_ids": [
+      12941
+    ],
+    "rationale": "Pet shrink only (spell27453 ChangeHeight33). Preserve MAG/BST mask; verify extra-pet targeting."
+  },
+  {
+    "ability_id": 561,
+    "name": "[WIZ] Hastened Harvest of Druzzil",
+    "decision": "defer_resource_engine",
+    "candidate_max_rank": 0,
+    "candidate_rank_ids": [],
+    "rationale": "Hastened Harvest: keep original resource-recovery timing until sustained encounter tests pass."
+  },
+  {
+    "ability_id": 619,
+    "name": "[SHM] Group Pact of the Wolf",
+    "decision": "defer_multiclass_buff",
+    "candidate_max_rank": 0,
+    "candidate_rank_ids": [],
+    "rationale": "Group Pact of Wolf includes haste and triggered spell; no assumption that group utility is power-neutral."
+  },
+  {
+    "ability_id": 634,
+    "name": "[SHM] Hastened Cannibalization",
+    "decision": "defer_resource_engine",
+    "candidate_max_rank": 0,
+    "candidate_rank_ids": [],
+    "rationale": "Hastened Cannibalization compresses HP-to-mana conversion; cross-class heal loop must be measured."
+  },
+  {
+    "ability_id": 677,
+    "name": "[NEC] Gift of Deathly Resolve",
+    "decision": "defer_burst",
+    "candidate_max_rank": 0,
+    "candidate_rank_ids": [],
+    "rationale": "Gift of Deathly Resolve should be tested with DoT/direct-cast triggers and twincast interactions."
+  },
+  {
+    "ability_id": 938,
+    "name": "Eyes Wide Open",
+    "decision": "keep_utility",
+    "candidate_max_rank": 8,
+    "candidate_rank_ids": [
+      12636,
+      12637,
+      8445,
+      8446,
+      8447,
+      16419,
+      16420,
+      16421
+    ],
+    "rationale": "Extended-target capacity only; preserve existing free ranks. No damage/HP/regen effect."
+  },
+  {
+    "ability_id": 1202,
+    "name": "Perfected Levitation",
+    "decision": "defer_travel_milestone",
+    "candidate_max_rank": 1,
+    "candidate_rank_ids": [
+      8194
+    ],
+    "rationale": "Zero-mana instant long-duration self levitation changes terrain access and pulling; class-gated later convenience, not beginner necessity."
+  },
+  {
+    "ability_id": 1205,
+    "name": "Companion's Fury",
+    "decision": "conditional_role_test",
+    "candidate_max_rank": 1,
+    "candidate_rank_ids": [
+      8201
+    ],
+    "rationale": "Pet critical chance1 at rank1; postpone unless matched tests show a damage gap. Existing pet crit families can stack."
+  },
+  {
+    "ability_id": 1217,
+    "name": "Gate",
+    "decision": "defer_travel_milestone",
+    "candidate_max_rank": 1,
+    "candidate_rank_ids": [
+      8231
+    ],
+    "rationale": "Class-restricted Gate spell16234: mana0, cast2s, AA reuse60s. Preserve interrupts and native class identity; escape affects encounter commitment."
+  },
+  {
+    "ability_id": 1236,
+    "name": "[MNK] Thunderfoot",
+    "decision": "defer_proc_burst",
+    "candidate_max_rank": 0,
+    "candidate_rank_ids": [],
+    "rationale": "Thunderfoot proc amplification requires exact native trigger/target tests at low level."
+  },
+  {
+    "ability_id": 1403,
+    "name": "Sturdy Companion",
+    "decision": "test_shallow_pet_defense",
+    "candidate_max_rank": 1,
+    "candidate_rank_ids": [
+      9503
+    ],
+    "rationale": "SPA397 base100 enters owner-derived pet AC, not 100 percent damage reduction. Rank1 only for first comparison."
+  },
+  {
+    "ability_id": 1580,
+    "name": "Divine Companion Aura",
+    "decision": "defer_immunity",
+    "candidate_max_rank": 0,
+    "candidate_rank_ids": [],
+    "rationale": "Divine Companion Aura can erase pet-tanking risk; test aggro transfer, duration and cooldown overlap before any later release."
+  },
+  {
+    "ability_id": 1662,
+    "name": "Spell Casting Mastery",
+    "decision": "defer_sustain",
+    "candidate_max_rank": 0,
+    "candidate_rank_ids": [],
+    "rationale": "New hybrid Spell Casting Mastery family: preserve class mask and test interactions with caster family20 on multiclass builds."
+  },
+  {
+    "ability_id": 1666,
+    "name": "Group Perfected Levitation",
+    "decision": "defer_travel_milestone",
+    "candidate_max_rank": 1,
+    "candidate_rank_ids": [
+      12422
+    ],
+    "rationale": "Group levitation is more breadth than solo requires; same terrain/pulling risks as1202."
+  },
+  {
+    "ability_id": 1669,
+    "name": "Flurry",
+    "decision": "defer_duplicate_proc",
+    "candidate_max_rank": 0,
+    "candidate_rank_ids": [],
+    "rationale": "Knight Flurry family can add to other held-class flurry families. Budget combined extra-attack rate, not each class independently."
+  },
+  {
+    "ability_id": 1684,
+    "name": "Knowledge of Alaran Culture",
+    "decision": "exclude_era_grant_from_starter",
+    "candidate_max_rank": 0,
+    "candidate_rank_ids": [],
+    "rationale": "Free Alaran culture rank adds10 flat HP and is a dependency hub; retain explicit progression ownership instead of auto-adding to utility exceptions."
+  },
+  {
+    "ability_id": 1685,
+    "name": "Knowledge of Alaran Culture - Advanced",
+    "decision": "exclude_era_grant_from_starter",
+    "candidate_max_rank": 0,
+    "candidate_rank_ids": [],
+    "rationale": "Second free10-flat-HP Alaran rank requires1684. Later dependents need exact prerequisite decisions."
+  },
+  {
+    "ability_id": 1686,
+    "name": "[WAR] Brace For Impact",
+    "decision": "defer_defensive_rotation",
+    "candidate_max_rank": 0,
+    "candidate_rank_ids": [],
+    "rationale": "Brace for Impact introduces another mitigation layer; test uptime of the combined rotation."
+  },
+  {
+    "ability_id": 3202,
+    "name": "[ENC] Pet Discipline",
+    "decision": "keep_control",
+    "candidate_max_rank": 1,
+    "candidate_rank_ids": [
+      7733
+    ],
+    "rationale": "ENC Pet Discipline hold commands; preserve Animation Empathy195 rank3 prerequisite. Tactical control still needs extra-pet QA."
+  },
+  {
+    "ability_id": 3511,
+    "name": "[MNK] Punch Mastery",
+    "decision": "conditional_role_test",
+    "candidate_max_rank": 3,
+    "candidate_rank_ids": [
+      6020,
+      6021,
+      6022
+    ],
+    "rationale": "Monk skill flat-damage input15/25/35; dragon-punch slot30/50/70. Historical core used rank3; not an early-level entitlement."
+  },
+  {
+    "ability_id": 3512,
+    "name": "Companion's Durability",
+    "decision": "test_shallow_pet_defense",
+    "candidate_max_rank": 3,
+    "candidate_rank_ids": [
+      6051,
+      6052,
+      6053
+    ],
+    "rationale": "Pet HP 1/3/5 percent. Test ranks1/2/3 at levels30/40/50 with all owned pets; cap at rank3."
+  },
+  {
+    "ability_id": 3514,
+    "name": "[ROG] Rogue's Fury",
+    "decision": "defer_burst",
+    "candidate_max_rank": 0,
+    "candidate_rank_ids": [],
+    "rationale": "Rogue Fury must be assessed with held-class haste, extra attacks and crit-damage bonuses."
+  },
+  {
+    "ability_id": 3705,
+    "name": "Companion's Blessing ",
+    "decision": "defer_strong_pet_sustain",
+    "candidate_max_rank": 0,
+    "candidate_rank_ids": [],
+    "rationale": "Even rank1 has raw1200 HoT ticks plus melee absorb and fade recourse. Inspect scaling and recourse; inappropriate blanket early backport."
+  },
+  {
+    "ability_id": 3707,
+    "name": "Fortify Companion ",
+    "decision": "defer_strong_pet_sustain",
+    "candidate_max_rank": 0,
+    "candidate_rank_ids": [],
+    "rationale": "Rank1 combines avoidance, AC and10-percent melee/spell absorption with large pools. More than simple pet QoL."
+  },
+  {
+    "ability_id": 3711,
+    "name": "[PAL] Gift of Resurrection",
+    "decision": "defer_recovery_milestone",
+    "candidate_max_rank": 1,
+    "candidate_rank_ids": [
+      6222
+    ],
+    "rationale": "PAL90 percent rez of a corpse, cast6s/reuse25s. A dead solo character cannot activate it on itself."
+  },
+  {
+    "ability_id": 3718,
+    "name": "Critical Affliction",
+    "decision": "defer_duplicate_proc",
+    "candidate_max_rank": 0,
+    "candidate_rank_ids": [],
+    "rationale": "Additional Critical Affliction family for CLR/ENC; compare with259 where a held-class union qualifies for both."
+  },
+  {
+    "ability_id": 3800,
+    "name": "[CLR] Blessing of Resurrection",
+    "decision": "defer_recovery_milestone",
+    "candidate_max_rank": 1,
+    "candidate_rank_ids": [
+      6299
+    ],
+    "rationale": "CLR96 percent rez, cast3s/reuse12s. Social/recovery utility, not proof of solo survival."
+  },
+  {
+    "ability_id": 3812,
+    "name": "Perfected Invisibility",
+    "decision": "defer_travel_milestone",
+    "candidate_max_rank": 1,
+    "candidate_rank_ids": [
+      7069
+    ],
+    "rationale": "Fixed-duration self invisibility, mana0/cast0.5s/reuse7s, bypasses much travel. Not a combat-damage increase but progression-affecting."
+  },
+  {
+    "ability_id": 3816,
+    "name": "Companion's Relocation",
+    "decision": "hold_implementation_gap",
+    "candidate_max_rank": 0,
+    "candidate_rank_ids": [],
+    "rationale": "Relocation spell13500 has only CHA0 in captured effect slots; no relocation handler found in reviewed source. Tooltip alone is insufficient."
+  },
+  {
+    "ability_id": 3818,
+    "name": "Companion's Agility",
+    "decision": "test_shallow_pet_defense",
+    "candidate_max_rank": 3,
+    "candidate_rank_ids": [
+      6383,
+      6384,
+      6385
+    ],
+    "rationale": "Pet avoidance input5/7/10; not a direct damage-reduction percentage. Test alongside existing MAG Elemental Agility268."
+  },
+  {
+    "ability_id": 6488,
+    "name": "[CLR] Flurry of Life",
+    "decision": "defer_heal_burst",
+    "candidate_max_rank": 0,
+    "candidate_rank_ids": [],
+    "rationale": "Flurry of Life amplifies healer output already scaled by gear and AA; not needed to preserve baseline healing breadth."
+  },
+  {
+    "ability_id": 7002,
+    "name": "[NEC] Summon Remains",
+    "decision": "defer_recovery_milestone",
+    "candidate_max_rank": 1,
+    "candidate_rank_ids": [
+      9500
+    ],
+    "rationale": "NEC corpse recovery spell16247; requires Call to Corpse72 rank1. Reduces recovery friction but does not supply self resurrection."
+  },
+  {
+    "ability_id": 7007,
+    "name": "[SHD] Summon Remains",
+    "decision": "defer_recovery_milestone",
+    "candidate_max_rank": 1,
+    "candidate_rank_ids": [
+      9501
+    ],
+    "rationale": "SHD corpse recovery at600s reuse. Shared spell16247; no self-resurrection claim."
+  },
+  {
+    "ability_id": 7700,
+    "name": "[ROG] Flurry",
+    "decision": "defer_duplicate_proc",
+    "candidate_max_rank": 0,
+    "candidate_rank_ids": [],
+    "rationale": "Rogue Flurry can combine with other held-class flurry/crit/skill damage."
+  },
+  {
+    "ability_id": 7703,
+    "name": "[NEC] Death Bloom",
+    "decision": "defer_resource_engine",
+    "candidate_max_rank": 0,
+    "candidate_rank_ids": [],
+    "rationale": "Death Bloom has raw-4000HP/+2400mana periodic effects. High-level magnitude may be lethal or abusable with multiclass healing."
+  },
+  {
+    "ability_id": 8347,
+    "name": "[ENC] Hastened Mana Draw",
+    "decision": "defer_resource_engine",
+    "candidate_max_rank": 0,
+    "candidate_rank_ids": [],
+    "rationale": "Hastened Mana Draw shortens near-refill mana cooldown, especially risky with strong healer/caster unions."
+  },
+  {
+    "ability_id": 9300,
+    "name": "[ROG] Massive Strike",
+    "decision": "defer_proc_burst",
+    "candidate_max_rank": 0,
+    "candidate_rank_ids": [],
+    "rationale": "Massive Strike is proc damage, not a utility active button."
+  }
+]

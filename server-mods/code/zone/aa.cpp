@@ -20,6 +20,7 @@ Copyright (C) 2001-2016 EQEMu Development Team (http://eqemulator.net)
 #include "aa.h"
 
 #include "common/classes.h"
+#include "common/nightcap_aa_policy.h"
 #include "common/eq_packet_structs.h"
 #include "common/eqemu_logsys.h"
 #include "common/events/player_event_logs.h"
@@ -53,7 +54,7 @@ extern QueryServ* QServ;
 // after a zone. Upgrade path: cache invalidation if we add an in-zone reclass command.
 void Client::LoadMulticlassMask() {
 	// Bit format MUST match the in-memory ability->classes, which is loaded as
-	// (db_classes << 1) — i.e. bit N = class N ("EQ client format"). The old
+	// (db_classes << 1) â€” i.e. bit N = class N ("EQ client format"). The old
 	// (1 << (GetClass()-1)) mask was off by one bit against that: every character
 	// was granted the AAs of class_id-1 instead of their own (the root cause of
 	// the recurring vanish/wrong-class-AA bugs).
@@ -1020,9 +1021,55 @@ Mob *SwarmPet::GetOwner()
 }
 
 //New AA
+bool Client::ReprojectEarnedAAs() {
+	if (!HasValidEarnedAAState()) { return false; }
+	UsableAAState usable;
+	for (const auto& owned : m_earned_aa_ranks) {
+		auto ability = zone->GetAlternateAdvancementAbilityByRank(owned.first);
+		auto rank = ability ? ability->GetRankByPointsSpent(owned.second.first) : nullptr;
+		if (!ability || ability->first_rank_id != owned.first || !rank ||
+			rank->current_value != owned.second.first) {
+			InvalidateEarnedAAState();
+			return false;
+		}
+		const auto count = std::min(owned.second.first, static_cast<uint32>(ability->GetMaxLevel(this)));
+		if (count) { usable[ability->id] = {count, owned.second.second}; }
+	}
+	if (usable.size() > MAX_PP_AA_ARRAY) {
+		InvalidateEarnedAAState();
+		return false;
+	}
+	// Preserve any session charge consumption before an ability becomes dormant.
+	for (const auto& active : aa_ranks) {
+		auto ability = zone->GetAlternateAdvancementAbility(active.first);
+		auto owned = ability ? m_earned_aa_ranks.find(ability->first_rank_id) : m_earned_aa_ranks.end();
+		if (owned != m_earned_aa_ranks.end()) {
+			owned->second.second = active.second.second;
+			const auto next = usable.find(active.first);
+			if (next != usable.end()) { next->second.second = active.second.second; }
+		}
+	}
+	aa_ranks = std::move(usable);
+	memset(m_pp.aa_array, 0, sizeof(m_pp.aa_array));
+	uint32 slot = 0;
+	for (const auto& active : aa_ranks) {
+		auto ability = zone->GetAlternateAdvancementAbility(active.first);
+		m_pp.aa_array[slot].AA = ability->first_rank_id;
+		m_pp.aa_array[slot].value = active.second.first;
+		m_pp.aa_array[slot].charges = active.second.second;
+		++slot;
+	}
+	return true;
+}
+
 void Client::SendAlternateAdvancementTable() {
 	LoadMulticlassMask();
+	if (!ReprojectEarnedAAs()) { return; }
+	CalcBonuses();
+	SendClearPlayerAA();
 	SendLoadedAlternateAdvancementTable();
+	SendAlternateAdvancementPoints();
+	SendAlternateAdvancementStats();
 }
 
 void Client::RefreshNightcapUI() {
@@ -1112,7 +1159,8 @@ void Client::SendAlternateAdvancementRank(int aa_id, int level) {
 	uint32 my_class_bit = 1 << GetClass();
 	bool single_class = (ability->classes != 0) && ((ability->classes & (ability->classes - 1)) == 0);
 	aai->classes = single_class ? my_class_bit : (ability->classes | my_class_bit);
-	aai->level_req = rank->level_req;
+	// Nightcap opens every allowed AA rank at character creation.
+	aai->level_req = NightcapAA::RequiredLevel(rank->id, ability->id, rank->current_value, rank->expansion);
 	aai->current_level = level;
 	aai->max_level = ability->GetMaxLevel(this);
 	aai->prev_id = rank->prev_id;
@@ -1454,7 +1502,7 @@ void Client::ActivateAlternateAdvancementAbility(int rank_id, int target_id) {
 
 	uint32 charges = 0;
 	// We don't have the AA
-	if (!GetAA(rank_id, &charges))
+	if (GetAA(rank_id, &charges) < static_cast<uint32>(rank->current_value))
 		return;
 	//if expendable make sure we have charges
 	if (ability->charges > 0 && charges < 1)
@@ -1755,6 +1803,11 @@ bool Mob::CanUseAlternateAdvancementRank(AA::Rank *rank)
 		return false;
 	}
 
+	if (IsClient()) {
+		const auto required = NightcapAA::RequiredLevel(rank->id, a->id, rank->current_value, rank->expansion);
+		if (!required) { return false; }
+	}
+
 	uint32 class_mask = IsClient() ? CastToClient()->GetClassMask() : (1 << GetClass());
 	if (!(a->classes & class_mask)) {
 		return false;
@@ -1847,7 +1900,7 @@ bool Mob::CanPurchaseAlternateAdvancementRank(AA::Rank *rank, bool check_price, 
 		return false;
 	}
 
-	if (rank->level_req > GetLevel()) {
+	if (!IsClient() && rank->level_req > GetLevel()) {
 		return false;
 	}
 
@@ -1878,11 +1931,8 @@ bool Mob::CanPurchaseAlternateAdvancementRank(AA::Rank *rank, bool check_price, 
 	for (auto &prereq: rank->prereqs) {
 		AA::Ability *prereq_ability = zone->GetAlternateAdvancementAbility(prereq.first);
 
-		if (prereq_ability) {
-			auto ranks = GetAA(prereq_ability->first_rank_id);
-			if (ranks < prereq.second) {
-				return false;
-			}
+		if (!prereq_ability || GetAA(prereq_ability->first_rank_id) < prereq.second) {
+			return false;
 		}
 	}
 
@@ -2285,12 +2335,11 @@ void Client::AutoGrantAAPoints() {
 			continue;
 		}
 
-		auto level = GetLevel();
 		auto p = 1;
 		auto rank = ability->first;
 		while (rank != nullptr) {
 			if (CanUseAlternateAdvancementRank(rank)) {
-				if (rank->expansion <= auto_grant_expansion && rank->level_req <= level && !HasAlreadyPurchasedRank(rank)) {
+				if (rank->expansion <= auto_grant_expansion && !HasAlreadyPurchasedRank(rank)) {
 					if (!FinishAlternateAdvancementPurchase(rank, true, false)) {
 						return;
 					}
@@ -2346,7 +2395,7 @@ void Client::GrantAllAAPoints(uint8 unlock_level, bool skip_grant_only)
 			continue;
 		}
 
-		const uint8 level = unlock_level ? unlock_level : GetLevel();
+		// An explicit GM content-level filter is separate from player access.
 
 		AA::Rank* rank = ability->first;
 		while (rank) {
@@ -2354,7 +2403,7 @@ void Client::GrantAllAAPoints(uint8 unlock_level, bool skip_grant_only)
 				break;
 			}
 
-			if (rank->level_req <= level && !HasAlreadyPurchasedRank(rank)) {
+			if ((!unlock_level || rank->level_req <= unlock_level) && !HasAlreadyPurchasedRank(rank)) {
 				if (!FinishAlternateAdvancementPurchase(rank, true, false)) {
 					return;
 				}

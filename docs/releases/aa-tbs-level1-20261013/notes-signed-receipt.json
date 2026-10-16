@@ -1,0 +1,5 @@
+{
+  "release": 2026101302,
+  "channel_sha256": "8251068dc29952b1cbfd956dc3f71afbce51f17d7a9bc116067ccbc76e0b4c37",
+  "verification": "canonical manifest verified against shipped production public trust before signing; all105 file records unchanged"
+}

@@ -1,0 +1,73 @@
+{
+  "audited_at": "2026-10-12",
+  "scope": "Reviewed local files; not runtime or player QA evidence",
+  "topics": {
+    "balance": [
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\merchant-sell-all\\tools\\balance\\README.md",
+        "role": "native oracle/harness commands and isolation boundaries",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\merchant-sell-all\\server-mods\\code\\zone\\effects.cpp",
+        "role": "percentage scaling and Throw Stone exception",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\merchant-sell-all\\docs\\releases\\zone-loot-20261009\\BALANCE.md",
+        "role": "scoped augment headroom and synthetic limits",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\docs\\balance\\native-aa-session-recovery.md",
+        "role": "dated native ownership recovery evidence",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\docs\\adr\\0020-retain-caps-after-matched-sensitivity.md",
+        "role": "dated cap experiment decision",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\docs\\audits\\aa-tbs-20261013\\README.md",
+        "role": "TBS audit findings, recommendations and exact unresolved gameplay QA",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\docs\\audits\\aa-tbs-20261013\\summary.json",
+        "role": "Fresh catalog/rule counts and anonymous purchase conflict classification",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\docs\\audits\\aa-tbs-20261013\\production-snapshot.json.gz",
+        "role": "Read-only production content/rules and anonymous ownership captured 2026-10-13",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\docs\\audits\\aa-tbs-20261013\\analyze.py",
+        "role": "Reviewed linked-rank prefixes, inherited prerequisite closure and class-union census",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\docs\\audits\\aa-tbs-20261013\\review.py",
+        "role": "Later-family inventory triage and 45 named content/source recommendations",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\docs\\audits\\aa-tbs-20261013\\test_analysis.py",
+        "role": "Eight policy-audit boundary and snapshot closure checks",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\multiclass-trainer-access\\server-mods\\code\\zone\\aa.cpp",
+        "role": "Reviewed AA loading, inherited prerequisites, offer/purchase/use and expansion gates",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\multiclass-trainer-access\\server-mods\\code\\zone\\attack.cpp",
+        "role": "Reviewed pet AC/avoidance and AC softcap inputs; not a fresh production binary probe",
+        "state": "unchanged"
+      }
+    ]
+  }
+}

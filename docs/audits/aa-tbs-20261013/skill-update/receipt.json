@@ -1,0 +1,8 @@
+{
+  "status": "installed",
+  "files": {
+    "references/balance.md": "da557429b2471f70a4d09e299695f022fd318061b5ccc467f0aa888661de7aec",
+    "references/multiclass.md": "244a86c34d1a596982ca429c242d3539d720054b6b20158d098fd46a9fa9ac4a",
+    "references/sources.json": "119eafe9f51a12ad437664c346337c6c74f7c95d64d7c1d2113b9319ec9fb3c7"
+  }
+}

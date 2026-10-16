@@ -1,0 +1,827 @@
+--- C:\Users\verre\.codex\skills\nightcap-development\references\balance.md
++++ C:\Users\verre\.codex\skills\nightcap-development\references\balance.md
+@@ -4,51 +4,55 @@
+ 
+ Nightcap favors solo play without trivializing earned progression. Evaluate classes, legal AAs, pets, buffs, heroic stats, augments and gear together. Measure incoming burst, survival, mana sustain/recovery, time to kill, cooldown use and reward acquisition, not only DPS or encounter HP. Cap increases above 250 are allowed for consideration; neither 250 nor a prior experiment is a permanent policy ceiling.
+ 
+-## Buried Sea AA policy — deployed for owner QA October 13
++## Buried Sea AA policy — level-1 correction deployed October 13
+ 
+-Current implementation/evidence: `C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev/docs/releases/aa-tbs-20261013/README.md`.
+-Feature/dev/test candidate `83ed0b5` is live on OVH with image
+-`sha256:5555000c74665f13eb3c99facc657b2e38c3983eff745a9ffe65a5439440f025`. Main promotion and owner in-game balance,
+-readability and enjoyment acceptance remain pending. The concurrent October 13
+-skill-progression/offhand correction and signed client2026101301 were retained.
++**Every allowed AA and rank is available at character level 1.** Players decide
++where and when to spend points. The owner rejected the initial level-gated
++starter list during live QA; never reintroduce character-level AA gates.
++Balance with the release's legal pool, rank ceilings, costs and prerequisites.
+ 
+-`era.json` selects `config/aa-policy.json`; `tools/aa_tbs_policy.py` generates
+-`common/nightcap_aa_policy.h` from a reviewed full catalog fixture. Unknown rank
+-identities fail closed. TBS13 is an AA-only bound, independent of Classic world
+-expansion. Most families cap at3 ranks at30/40/50; core passives at1 or10/20/30.
+-Dependencies can raise levels/remove ranks, never widen the pool. Six exceptions:
+-Eyes Wide Open938 rank8 at1; Diminutive543 rank1 at10; ENC Pet Discipline3202
+-rank1 at20 with Animation Empathy195 rank3; Durability3512/Agility3818 ranks1/2/3
+-at30/40/50; Sturdy1403 rank1 at50 (raw AC, not percent mitigation).
++Current evidence: `C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev/docs/releases/aa-tbs-level1-20261013/README.md`.
++OVH image `sha256:add0bddfa77e93b299b691d6c3d932de92a0b6146a42f92bffd934dafc730fb7` runs the correction on all12 zones.
++All239 ownership rows/1193 earned ranks and47 player/11 custom tables survived.
++Zero restarts/detected native, quest or DB errors in the recorded check. Manual
++creation/purchase/reconnect/pet/combat QA and main promotion remain pending.
+ 
+-High-risk TBS burns/executes/refills/glyphs and all grant-only veteran families
+-are dormant. Existing earned ranks, charges, wallets and spent accounting are
+-preserved, with no refunds or repurchase charges. Native CanUse gates offers,
+-grants, purchase, activation and usable projection. ReprojectEarnedAAs handles
+-same-zone levels before bonus/save; full AA refresh clears/resends table, owned
+-ranks and stats. Missing prerequisite definitions reject purchases.
++`era.json` selects `config/aa-policy.json`; rank counts replace level arrays.
++The same390 families/941 ranks are legal at every level. Most ordinary families
++have a three-rank release ceiling. Native offers, use, purchases and default
++grants ignore original DB level_req for clients; unknown identities fail closed.
++Explicit GM GrantAllAAPoints unlock_level remains an optional content filter,
++not a player gate. Non-client purchase behavior remains native.
+ 
+-Global ceiling390 families/941 ranks; sampled triples start at9 families at1,
+-about15–16 at10–20. Exact 16-class/six-union coverage and maximum legal spend are
+-in coverage.json; these are catalog counts, not encounter strength measurements.
+-5 policy tests,5,646 native rank/level cases plus actual purchase/save/projection
+-checks,13 deployment/preflight tests and9 preserved skill scenarios passed.
+-Independent review fixed missing prerequisites/incomplete refresh and checked
+-the final retained-source build. All12 running zones match;47 player/11 custom
+-tables, rules, AA content and existing services were preserved through restart.
++TBS13 is independent of the Classic world. The six later exceptions all open
++at1: Eyes Wide Open938 eight ranks; Diminutive543 one; ENC Pet Discipline3202
++one requiring Animation Empathy195 three; Durability3512/Agility3818 three each;
++Sturdy1403 one (raw AC). High-risk burns/executes/refills, charged and grant-only
++veteran families remain deferred. Class/race masks, prices and prerequisites
++remain. Existing out-of-pool ranks stay stored/dormant, with charges, wallets
++and spent accounting preserved; legal earned ranks restore without rebuying.
+ 
+-Future policy edits require regeneration and a matching zone deployment;
+-era SQL/rule/AA reload cannot install a compiled allowlist. No new world rule or
+-client asset is needed. Production child exits restart the entire runtime; use
+-the release's guarded operator and image-only recovery, never old player SQL.
+-Pet avoidance/AC is live; pet HP updates on summon/restore, with saved HP clamped.
+-Temporary spell buffs expire normally. Existing cross-class Mastery of the Past
+-prerequisite behavior is outside this change. Resummon pets for HP cap QA.
++At creation WAR/CLR/WIZ has152 visible families/389 closed ranks/1692 points;
++MAG/NEC/SHM143/348/1506; PAL/WAR/MNK140 visible families,139 purchase-closed
++families/353 ranks/1491 points. Coverage is unchanged through level50. These
++are catalog ceilings, not measured fight strength. A class-dependent prerequisite
++can still block a visible family for a particular union.
+ 
+-The preceding audit remains at docs/audits/aa-tbs-20261013: all6,655 DB rank level
+-requirements are1 and there are no expansion13 rows. Compiled policy now supplies
+-independent level gates; do not interpret untouched DB rows as unrestricted live
+-access. No fresh encounter campaign or player acceptance was claimed.
++Six policy tests (including all DB levels255),5646 native rank/level cases plus
++actual purchase/save/projection checks,13 deployment and7 notes-publication
++tests pass. Both policy and native checks reproduced the previous failure.
++Independent review verified unchanged rank identities, retained source/link
++inputs and ownership; only aa.cpp and its generated header changed. The earlier
++trainer/skill/offhand correction is retained. Existing ownable ranks are still
++reprojected on login, refresh and level changes; no blanket buff purge occurs.
++
++Only zone needs rebuilding/restarting; generic AA/rules reload cannot install
++the compiled policy. Use guarded whole-runtime rollout, fresh backups and
++image-only recovery against current player data, never old SQL. Pet HP changes
++on summon/restore; resummon for HP QA. Avoidance/AC reads current owner bonuses.
++Signed game notes2026101302 preserve all105 client file records and prior history;
++no client binary change. Original level-gated evidence is historical/superseded.
++No new encounter campaign or player enjoyment acceptance is claimed.
+ 
+ ## Source routes
+ 
+--- C:\Users\verre\.codex\skills\nightcap-development\references\multiclass.md
++++ C:\Users\verre\.codex\skills\nightcap-development\references\multiclass.md
+@@ -1,148 +1,148 @@
+-# Multiclass, spells, skills and advancement
+-
+-Audited 2026-10-12 from integrated source and dated release records. Deployment claims below are documentary, not fresh runtime observations.
+-
+-## Authoritative state and spell access
+-
+-`character_multiclass(character_id,class2,class3)` is authoritative; primary is the native character class. Quest `%qglobals` is not a reliable membership source. Both extra slots are selectable from level 1. Read `server-mods/plugins/multiclass.pl` (`mc_get_classes`, `mc_apply_class`, `mc_revoke_slot`) and `server-mods/code/zone/aa.cpp` before changing selection.
+-
+-The per-character held-class mask must be loaded before AA loading. Class bits are one-based class ID minus one. Never modify `aa_ability.classes` for one player's access. Best-of HP/mana, equipment union, native skill eligibility and held-class melee are server concerns; an unlocked client window doesn't grant capability.
+-
+-The old global spell widening is no longer sufficient guidance. The September 20 repair uses a generated **original-class spell catalog** and per-character server/client access. Start at `docs/adr/0042-per-character-spell-access.md`, `server-mods/code/common/spell_class_catalog.h`, `tools/generate_spell_class_catalog.py`, `tools/tests/test_multiclass_spell_access.py`, and `eq-client-dll/src/spell_access.h`. Native casting/scribing must use canonical ownership; widened `spells_new.classesN` and merchant display masks are client compatibility data. Canonical spell inspection and selection-menu caches received separate October fixes (`docs/releases/spell-inspection-20261001.md`, `spell-menu-20261002.md`). Don't regenerate original levels from already widened rows.
+-
+-## Early spell scribing — deployed October 12
+-
+-Owner-approved PR #185 (`5ae9cb0`, main merge `d6c5b65`) allows scrolls for any currently held class to be
+-scribed before the canonical spell level. `Client::OPMemorizeSpell` in
+-`zone/client_process.cpp` skips level only for `memSpellScribing`, with explicit
+-255/unowned rejection. `MemorizeSpellFromItem` in `zone/effects.cpp` also scribes
+-only; its ownership/duplicate/full-book checks remain. Gem memorization and the
+-`Handle_OP_CastSpell` gem authorization retain canonical level requirements.
+-No spell catalog, item masks, DB rows or caller-specified bulk-scribe ranges change.
+-
+-Pair the rebuilt zone with proxy 0.8.1-dev and its signed patch catalog. Client
+-`ScribeSpellLevelHook` at RVA 0x35E084 changes only the scribing comparison; shared
+-levels and the following native 255 check stay intact. Missing/stale identity
+-fails closed. Rule/quest reload is insufficient; production native child exits
+-restart the whole runtime. Follow the coordinated release procedure, preserving
+-all intervening changes and player data, and use a higher client release counter
+-for rollback. Do not erase books or restore old player snapshots.
+-
+-Source and exact QA: `docs/releases/early-spell-scribing-20261012/README.md` and
+-`verification.json` in `C:/Users/verre/Documents/Codex/2026-10-12/g-2/work/early-spell-scribing`.
+-`tools/tests/test_early_spell_scribing.py` compiles actual server methods; existing
+-multiclass gem-cast tests pass. Complete zone and x86 client builds, five runtime
+-tests (including the exact native comparison), 76 patch checks and independent
+-review pass. Full Go suite and patch-history integration tests pass. Paired OVH
+-zone and signed client 2026101203 are deployed; all 12 running zones and all 105
+-hosted files verify. Native scribe/relog/gem gameplay and owner acceptance remain
+-pending. See server/client receipts beside the release README. Closed-gateway
+-checks preserved 47 player tables, 11 custom tables, rules/content and supporting
+-services. Never interpret deployment verification as observed gameplay.
+-
+-## AA catalog policy — deployed for owner QA October 13
+-
+-The TBS cutoff and six utility/pet exceptions are active in a compiled native
+-allowlist, with staged early caps. See [balance](balance.md) and
+-`C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev/docs/releases/aa-tbs-20261013/README.md` for exact ranks,
+-source, tests, rollback and owner QA. Main promotion/player acceptance is pending.
+-World stays Classic; all DB AA definitions and purchases remain intact. Higher
+-earned ranks and veteran grants are dormant; no refund or duplicate purchase.
+-
+-`aa.cpp::CanUseAlternateAdvancementRank` checks generated rank identity and level;
+-`ReprojectEarnedAAs` derives active ranks without losing canonical counts/charges.
+-`exp.cpp::SetLevel` reprojects before bonuses/save, and AA refresh sends clear,
+-table, points and stats. Missing prerequisite definitions fail purchase closed.
+-Pet HP changes on summon/restore; avoidance/AC uses current owner bonuses.
+-Only zone needs rebuilding for this policy; no new rule catalog or client asset.
+-The concurrent fully rebuilt skill/offhand fix and signed2026101301 remain paired.
+-All12 zone hashes and47 player/11 custom table preservation passed; no owner
+-balance/readability acceptance or fresh combat measurements are implied.
+-
+-## Skills and AA ownership
+-
+-- Eligible native skills seed at **1**, then train/use normally; don't reinstate max-skill-on-login. `ReconcileMulticlassSkills`, held-class cap and trainer paths have lifecycle tests. Canonical cap baseline is 58,359 rows in the dated repair; counts are not current drift baselines.
+-- `Client::ReleaseMulticlassSlot(int)` commits slot changes, earned-AA refunds and skill clamps atomically. Perl must check its boolean. Don't pre-update membership or call retired `PurgeAfterClassRelease`. Pair native binary and plugin.
+-- `m_earned_aa_ranks` preserves earned ranks/charges while a separate usable view applies class/era caps. A family that becomes unavailable must not silently lose purchased ranks or spent points. `aa_ability.id` differs from `first_rank_id`; saved AA ownership uses rank identity.
+-- Purchases/grants/removals/refunds commit ownership and counters before reporting success. Uncertain/failed saves invalidate the session rather than publishing partial success. See ADRs 0021–0026 and `docs/balance/native-aa-class-release-candidate.md` plus `native-aa-session-recovery.md`.
+-- AA rank graphs don't define the legal release pool. Balance against an explicit curated pool/rank caps; unrestricted AAs are a separately labeled stress test.
+-
+-## Trainer interaction deployment
+-
+-October 13 owner QA confirms the previous 2026101204 trainer window opens,
+-but purchases, natural skill gains and offhand access fail. The first release
+-missed two client gates and preserved a causal server baseline difference.
+-PR #191 merged and paired correction deployed October 13: signed game 2026101301, all 12 zones and 105 hosted assets verified. Owner reported "resolved" on October 13 for the reported Palwar trainer/progression/offhand issue. Individual relog and control steps were not separately enumerated.
+-
+-Production diagnosis found Palwar level6 Paladin/Warrior/Monk, DW1/Kick1,
+-with correct canonical Monk caps47/30. Do not repair this by granting points or
+-rewriting skill_caps. Skills seed at1 and must advance through normal use/buys.
+-
+-Retained Client::MaxSkill(skill) was inline primary-only; Git main already held
+-the union. Stage that union and rebuild every126 zone TU with a fresh candidate
+-PCH. Never infer deployed advancement from main alone or retain old objects
+-embedding the primary-only inline call. Retained empty-fist dual wield also
+-used primary-only Monk/Beastlord; use direct held membership, preserving weapon
+-restrictions without depending on an undeployed hand-to-hand helper.
+-
+-Proxy0.8.3-dev wraps the trainer at-cap predicate call0x185955 and projects its
+-nested cap query0x184C2B only within a character-matched thread-local scope.
+-Native specialization/tradeskill rules, server cap and spending remain intact.
+-Offhand HasSkill call0x183445 needs a separate fallback before item-class checks:
+-require matching current identity/profile, positive server rawDW and current-
+-level held native cap. Future Warrior caps must not retain staleDW after Monk
+-release. Stock successful checks and surrounding slot/2H guards remain intact.
+-
+-Source/tests: server-mods/code/zone/{client.h,client.cpp,mob.cpp},
+-eq-client-dll/src/trainer_hooks.h, tools/tests/test_multiclass_skill_progression.py,
+-eq-client-dll/tests/trainer-native.cpp, tools/build_skill_progression_candidate.py.
+-Actual retained-source RED5/control4; staged/repo GREEN9, exact-native client
+-purchase/offhand RED/GREEN,6 runtime groups,91 catalog guards and fullGo suite
+-pass. Independent review verified ABI and fixed stale future-cap access.
+-Evidence and exact training/combat/offhand/relog QA:
+-docs/releases/multiclass-skills-20261013/ in
+-E:/EQ_Local_Dev/_worktrees/multiclass-trainer-access.
+-
+-Pair rebuilt zone and signed proxy/catalog; rule/quest reload is insufficient.
+-Use graceful whole-runtime refresh; never kill one OVH zone. Preserve player
+-progress and retained image; rollback never restores old SQL and client rollback
+-uses a higher signed counter. Native/unit/hosted checks do not establish actual
+-player combat or purchase acceptance.
+-
+-## XP
+-
+-`era.json`: Classic, cap 50, open AA era visibility as audited. `Character:AAExpMinLevel=1` requires a matching rule catalog. `AA:PassiveExpPercent` adds AA XP while allocation is zero without reducing ordinary leveling XP. `#aaexp on|off` maps to 100%/0%; focus at 100% gives the full AA award and no passive extra. Tiny gains round down. Quest percentage rewards have independent level/AA modifiers. Resurrection/direct grants aren't passive award sources.
+-
+-**OVH: 40% passive AA and 4,000 XP per point**, freshly verified October 12,
+-2026 at 20:49 UTC. `AA:ExpPerPoint` fell from 50,000 to 4,000 under the owner's
+-request; unchanged raw AA awards now yield points 12.5 times faster. The compiled
+-fallbacks remain 1% passive and 23,976,503 XP/point; preserve the persistent
+-production overrides. This changes point earning, not AA ability purchase costs.
+-
+-Existing unspent/spent points and raw partial XP are preserved. `Client::SetEXP`
+-converts partial XP by quotient/remainder on the next XP update. Reload alone
+-does not convert points or refresh the AA bar; a refresh before conversion may
+-temporarily show over-full progress. Do not rewrite live player records. A later
+-rule rollback retains earned points and remainder, never restores a player dump.
+-Palwar's pre/post-reload snapshot retained 4,361 partial XP at level 3; that covers
+-one point plus 361 remainder before the next award. Actual kill/client persistence
+-and later-level balance acceptance are still pending, not implied by this snapshot.
+-
+-Source: `server-mods/code/zone/exp.cpp` (`CalculateExp`, `FinalizeAAExperience`,
+-`SetEXP`, `GetRequiredAAExperience`), `aa.cpp` (`SendAlternateAdvancementStats`),
+-`gm_commands/aa_exp.cpp`, `common/ruletypes.h`. Current evidence/recovery:
+-`docs/ops/aa-point-cost-20261012/README.md`, `preflight.json`, `result.json`, and
+-`verification.json`. Historical 40%-rate evidence remains in
+-`docs/ops/passive-aa-forty-20261009/README.md`; its old 50,000-XP curve is superseded.
+-`tools/tests/test_aa_point_cost.py` runs 162 checks using the exact deployed XP
+-methods and extracted point-conversion block; nine operation/recovery tests pass.
+-The independent review's evidence-write recovery issue was fixed and re-reviewed.
+-Existing-rule global reload was verified in world/all 12 zones without restart;
+-no native/client/quest pairing changed. Full PEQ backup and scoped inverse rehearsal
+-passed. Native tests and successful deployment do not establish combat balance.
+-
+-GM level boosts must write native float32-compatible cumulative XP and exactly-once lifetime training points, preserving valid progress/highest attained level. `exp=0` at level 50 caused a subsequent award to de-level a character. Route boost changes to [Administration](admin.md).
+-
+-## Focused checks
+-
+-`tools/tests/test-multiclass-class-release.ps1`, `test-multiclass-release-plugin.pl`, `test-multiclass-skill-lifecycle.ps1`, `test-multiclass-trainers.ps1`, `test-multiclass-monk-combat.ps1`, and `tools/test-multiclass-plugin-skill-policy.ps1` are targeted entrypoints. `tools/balance/run_aa_class_release.py` and related native ownership controls need their documented isolated fixture environment. Read the exact runner/runbook before invoking it; old test counts aren't current acceptance.
++# Multiclass, spells, skills and advancement
++
++Audited 2026-10-12 from integrated source and dated release records. Deployment claims below are documentary, not fresh runtime observations.
++
++## Authoritative state and spell access
++
++`character_multiclass(character_id,class2,class3)` is authoritative; primary is the native character class. Quest `%qglobals` is not a reliable membership source. Both extra slots are selectable from level 1. Read `server-mods/plugins/multiclass.pl` (`mc_get_classes`, `mc_apply_class`, `mc_revoke_slot`) and `server-mods/code/zone/aa.cpp` before changing selection.
++
++The per-character held-class mask must be loaded before AA loading. Class bits are one-based class ID minus one. Never modify `aa_ability.classes` for one player's access. Best-of HP/mana, equipment union, native skill eligibility and held-class melee are server concerns; an unlocked client window doesn't grant capability.
++
++The old global spell widening is no longer sufficient guidance. The September 20 repair uses a generated **original-class spell catalog** and per-character server/client access. Start at `docs/adr/0042-per-character-spell-access.md`, `server-mods/code/common/spell_class_catalog.h`, `tools/generate_spell_class_catalog.py`, `tools/tests/test_multiclass_spell_access.py`, and `eq-client-dll/src/spell_access.h`. Native casting/scribing must use canonical ownership; widened `spells_new.classesN` and merchant display masks are client compatibility data. Canonical spell inspection and selection-menu caches received separate October fixes (`docs/releases/spell-inspection-20261001.md`, `spell-menu-20261002.md`). Don't regenerate original levels from already widened rows.
++
++## Early spell scribing — deployed October 12
++
++Owner-approved PR #185 (`5ae9cb0`, main merge `d6c5b65`) allows scrolls for any currently held class to be
++scribed before the canonical spell level. `Client::OPMemorizeSpell` in
++`zone/client_process.cpp` skips level only for `memSpellScribing`, with explicit
++255/unowned rejection. `MemorizeSpellFromItem` in `zone/effects.cpp` also scribes
++only; its ownership/duplicate/full-book checks remain. Gem memorization and the
++`Handle_OP_CastSpell` gem authorization retain canonical level requirements.
++No spell catalog, item masks, DB rows or caller-specified bulk-scribe ranges change.
++
++Pair the rebuilt zone with proxy 0.8.1-dev and its signed patch catalog. Client
++`ScribeSpellLevelHook` at RVA 0x35E084 changes only the scribing comparison; shared
++levels and the following native 255 check stay intact. Missing/stale identity
++fails closed. Rule/quest reload is insufficient; production native child exits
++restart the whole runtime. Follow the coordinated release procedure, preserving
++all intervening changes and player data, and use a higher client release counter
++for rollback. Do not erase books or restore old player snapshots.
++
++Source and exact QA: `docs/releases/early-spell-scribing-20261012/README.md` and
++`verification.json` in `C:/Users/verre/Documents/Codex/2026-10-12/g-2/work/early-spell-scribing`.
++`tools/tests/test_early_spell_scribing.py` compiles actual server methods; existing
++multiclass gem-cast tests pass. Complete zone and x86 client builds, five runtime
++tests (including the exact native comparison), 76 patch checks and independent
++review pass. Full Go suite and patch-history integration tests pass. Paired OVH
++zone and signed client 2026101203 are deployed; all 12 running zones and all 105
++hosted files verify. Native scribe/relog/gem gameplay and owner acceptance remain
++pending. See server/client receipts beside the release README. Closed-gateway
++checks preserved 47 player tables, 11 custom tables, rules/content and supporting
++services. Never interpret deployment verification as observed gameplay.
++
++## AA catalog policy — all allowed ranks at level 1
++
++The owner rejected character-level AA gates October13. Every allowed AA and rank
++opens at creation: choices, points and prerequisites govern purchasing. The same
++390-family/941-rank TBS pool, six exceptions and numeric release ceilings remain.
++See [balance](balance.md) and `C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev/docs/releases/aa-tbs-level1-20261013/README.md`.
++Native packet requirements are1; CanUse/CanPurchase/default grants ignore DB
++level_req for clients. Explicit GM grant content filters remain optional.
++
++Canonical earned ranks, charges, wallets/spent totals survive; out-of-pool ranks
++remain dormant. ReprojectEarnedAAs restores legal earned ranks without repurchase;
++level changes no longer shrink that prefix. Class release still changes access.
++Clear/table/points/stats refresh and missing-prerequisite rejection remain.
++Zone-only correction is live on all12 OVH zones, retaining the skill/offhand
++build. No new client binary; signed notes2026101302 preserve105 hosted assets.
++All239 purchase rows and47 player/11 custom tables preserved. Exact native tests
++and independent review passed; corrected creation/purchase/pet/combat owner QA
++and main promotion remain pending. Pet HP updates on summon/restore.
++
++## Skills and AA ownership
++
++- Eligible native skills seed at **1**, then train/use normally; don't reinstate max-skill-on-login. `ReconcileMulticlassSkills`, held-class cap and trainer paths have lifecycle tests. Canonical cap baseline is 58,359 rows in the dated repair; counts are not current drift baselines.
++- `Client::ReleaseMulticlassSlot(int)` commits slot changes, earned-AA refunds and skill clamps atomically. Perl must check its boolean. Don't pre-update membership or call retired `PurgeAfterClassRelease`. Pair native binary and plugin.
++- `m_earned_aa_ranks` preserves earned ranks/charges while a separate usable view applies class/era caps. A family that becomes unavailable must not silently lose purchased ranks or spent points. `aa_ability.id` differs from `first_rank_id`; saved AA ownership uses rank identity.
++- Purchases/grants/removals/refunds commit ownership and counters before reporting success. Uncertain/failed saves invalidate the session rather than publishing partial success. See ADRs 0021–0026 and `docs/balance/native-aa-class-release-candidate.md` plus `native-aa-session-recovery.md`.
++- AA rank graphs don't define the legal release pool. Balance against an explicit curated pool/rank caps; unrestricted AAs are a separately labeled stress test.
++
++## Trainer interaction deployment
++
++October 13 owner QA confirms the previous 2026101204 trainer window opens,
++but purchases, natural skill gains and offhand access fail. The first release
++missed two client gates and preserved a causal server baseline difference.
++PR #191 merged and paired correction deployed October 13: signed game 2026101301, all 12 zones and 105 hosted assets verified. Owner reported "resolved" on October 13 for the reported Palwar trainer/progression/offhand issue. Individual relog and control steps were not separately enumerated.
++
++Production diagnosis found Palwar level6 Paladin/Warrior/Monk, DW1/Kick1,
++with correct canonical Monk caps47/30. Do not repair this by granting points or
++rewriting skill_caps. Skills seed at1 and must advance through normal use/buys.
++
++Retained Client::MaxSkill(skill) was inline primary-only; Git main already held
++the union. Stage that union and rebuild every126 zone TU with a fresh candidate
++PCH. Never infer deployed advancement from main alone or retain old objects
++embedding the primary-only inline call. Retained empty-fist dual wield also
++used primary-only Monk/Beastlord; use direct held membership, preserving weapon
++restrictions without depending on an undeployed hand-to-hand helper.
++
++Proxy0.8.3-dev wraps the trainer at-cap predicate call0x185955 and projects its
++nested cap query0x184C2B only within a character-matched thread-local scope.
++Native specialization/tradeskill rules, server cap and spending remain intact.
++Offhand HasSkill call0x183445 needs a separate fallback before item-class checks:
++require matching current identity/profile, positive server rawDW and current-
++level held native cap. Future Warrior caps must not retain staleDW after Monk
++release. Stock successful checks and surrounding slot/2H guards remain intact.
++
++Source/tests: server-mods/code/zone/{client.h,client.cpp,mob.cpp},
++eq-client-dll/src/trainer_hooks.h, tools/tests/test_multiclass_skill_progression.py,
++eq-client-dll/tests/trainer-native.cpp, tools/build_skill_progression_candidate.py.
++Actual retained-source RED5/control4; staged/repo GREEN9, exact-native client
++purchase/offhand RED/GREEN,6 runtime groups,91 catalog guards and fullGo suite
++pass. Independent review verified ABI and fixed stale future-cap access.
++Evidence and exact training/combat/offhand/relog QA:
++docs/releases/multiclass-skills-20261013/ in
++E:/EQ_Local_Dev/_worktrees/multiclass-trainer-access.
++
++Pair rebuilt zone and signed proxy/catalog; rule/quest reload is insufficient.
++Use graceful whole-runtime refresh; never kill one OVH zone. Preserve player
++progress and retained image; rollback never restores old SQL and client rollback
++uses a higher signed counter. Native/unit/hosted checks do not establish actual
++player combat or purchase acceptance.
++
++## XP
++
++`era.json`: Classic, cap 50, open AA era visibility as audited. `Character:AAExpMinLevel=1` requires a matching rule catalog. `AA:PassiveExpPercent` adds AA XP while allocation is zero without reducing ordinary leveling XP. `#aaexp on|off` maps to 100%/0%; focus at 100% gives the full AA award and no passive extra. Tiny gains round down. Quest percentage rewards have independent level/AA modifiers. Resurrection/direct grants aren't passive award sources.
++
++**OVH: 40% passive AA and 4,000 XP per point**, freshly verified October 12,
++2026 at 20:49 UTC. `AA:ExpPerPoint` fell from 50,000 to 4,000 under the owner's
++request; unchanged raw AA awards now yield points 12.5 times faster. The compiled
++fallbacks remain 1% passive and 23,976,503 XP/point; preserve the persistent
++production overrides. This changes point earning, not AA ability purchase costs.
++
++Existing unspent/spent points and raw partial XP are preserved. `Client::SetEXP`
++converts partial XP by quotient/remainder on the next XP update. Reload alone
++does not convert points or refresh the AA bar; a refresh before conversion may
++temporarily show over-full progress. Do not rewrite live player records. A later
++rule rollback retains earned points and remainder, never restores a player dump.
++Palwar's pre/post-reload snapshot retained 4,361 partial XP at level 3; that covers
++one point plus 361 remainder before the next award. Actual kill/client persistence
++and later-level balance acceptance are still pending, not implied by this snapshot.
++
++Source: `server-mods/code/zone/exp.cpp` (`CalculateExp`, `FinalizeAAExperience`,
++`SetEXP`, `GetRequiredAAExperience`), `aa.cpp` (`SendAlternateAdvancementStats`),
++`gm_commands/aa_exp.cpp`, `common/ruletypes.h`. Current evidence/recovery:
++`docs/ops/aa-point-cost-20261012/README.md`, `preflight.json`, `result.json`, and
++`verification.json`. Historical 40%-rate evidence remains in
++`docs/ops/passive-aa-forty-20261009/README.md`; its old 50,000-XP curve is superseded.
++`tools/tests/test_aa_point_cost.py` runs 162 checks using the exact deployed XP
++methods and extracted point-conversion block; nine operation/recovery tests pass.
++The independent review's evidence-write recovery issue was fixed and re-reviewed.
++Existing-rule global reload was verified in world/all 12 zones without restart;
++no native/client/quest pairing changed. Full PEQ backup and scoped inverse rehearsal
++passed. Native tests and successful deployment do not establish combat balance.
++
++GM level boosts must write native float32-compatible cumulative XP and exactly-once lifetime training points, preserving valid progress/highest attained level. `exp=0` at level 50 caused a subsequent award to de-level a character. Route boost changes to [Administration](admin.md).
++
++## Focused checks
++
++`tools/tests/test-multiclass-class-release.ps1`, `test-multiclass-release-plugin.pl`, `test-multiclass-skill-lifecycle.ps1`, `test-multiclass-trainers.ps1`, `test-multiclass-monk-combat.ps1`, and `tools/test-multiclass-plugin-skill-policy.ps1` are targeted entrypoints. `tools/balance/run_aa_class_release.py` and related native ownership controls need their documented isolated fixture environment. Read the exact runner/runbook before invoking it; old test counts aren't current acceptance.
+--- C:\Users\verre\.codex\skills\nightcap-development\references\client.md
++++ C:\Users\verre\.codex\skills\nightcap-development\references\client.md
+@@ -80,6 +80,18 @@
+ `docs/releases/merchant-sell-all-20261012.md`. Owner resolution closes this
+ button issue without separately attesting every checklist case.
+ 
++## AA notes-only publication October 13
++
++Signed game release2026101302 publishes the Buried Sea summary and correction
++restoring all allowed AA ranks at creation. It preserves the105 existing file
++records including URLs, prior patch history, minimum launcher0.6.0, desktop,
++starter and guide. No client binary update. A higher game metadata counter may
++reuse previous release asset URLs: verify exact signed file records, not an
++assumption that URL counter must equal manifest counter. Source and public HTTPS
++receipt: docs/releases/aa-tbs-level1-20261013/{sign-notes.go,publish-notes.py,
++hosted-notes-verification.json} in the AA policy worktree. The paired server
++correction is live; native AA-window and purchase owner QA remain pending.
++
+ ## High-value implementation pointers
+ 
+ | Area | Source / test / evidence |
+--- C:\Users\verre\.codex\skills\nightcap-development\references\sources.json
++++ C:\Users\verre\.codex\skills\nightcap-development\references\sources.json
+@@ -1,7 +1,7 @@
+ {
+   "schema_version": 1,
+   "audited_at": "2026-10-12",
+-  "basis": "Local reviewed sources and dated runbooks; AA point-cost entries refreshed with production rule/runtime evidence on 2026-10-12. Other topics retain their original audit scope. AA TBS policy refreshed October 13 from reviewed native implementation, tests and verified OVH candidate deployment; owner gameplay acceptance remains pending.",
++  "basis": "Local reviewed sources and dated runbooks; AA point-cost entries refreshed with production rule/runtime evidence on 2026-10-12. Other topics retain their original audit scope. AA TBS policy refreshed October 13 from reviewed native implementation, tests and verified OVH candidate deployment; owner gameplay acceptance remains pending. October13 owner correction replaces character-level AA gates with level1 access; deployment/signature evidence verified, gameplay QA pending.",
+   "observed_revisions": {
+     "integrated": "eeb79ddebd69bdc4bda1725e7ccf5fa6e18591d1",
+     "default_checkout": "ce161c5e600992037adb66037b56047ef8c330dd",
+@@ -16,7 +16,8 @@
+     "multiclass_skills_20261013": "dc1f9ef9b0515d47d1c19735164ccf4f9bed770c",
+     "aa_tbs_policy_20261013": "83ed0b574798443cf36f9d48ac33763f99cf6a7b",
+     "multiclass_skills_owner_acceptance_20261013": "2e3a936a5b433b314a0209a882897cb0dc1a4b13",
+-    "waypoint_visual_acceptance_20261013": "01d7504eb7e6656f6e0f82d9616232de5d07874d"
++    "waypoint_visual_acceptance_20261013": "01d7504eb7e6656f6e0f82d9616232de5d07874d",
++    "aa_tbs_level1_20261013": "f0f97d9d7fb048d12287e5f9f14a85cdffa0cac7"
+   },
+   "topics": {
+     "operations": [
+@@ -106,9 +107,9 @@
+       {
+         "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
+         "path": "server-mods/code/zone/aa.cpp",
+-        "role": "reviewed TBS policy, earned/usable projection and complete AA refresh",
+-        "revision": "83ed0b574798443cf36f9d48ac33763f99cf6a7b",
+-        "sha256": "094fc0799382e8b819f9e8891051e85f9c7da7efd9b7ad1be71871f8d52d3977"
++        "role": "Reviewed level-1 AA correction or signed publication evidence; owner QA pending",
++        "revision": "f0f97d9d7fb048d12287e5f9f14a85cdffa0cac7",
++        "sha256": "a932830ad8ce3b4a1cbb02a0be32a7c4caec9c955058d928e8932d0261bc9e0b"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/merchant-sell-all",
+@@ -127,7 +128,7 @@
+         "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
+         "path": "server-mods/code/zone/exp.cpp",
+         "role": "XP allocation and level-triggered AA projection before bonuses/save",
+-        "revision": "83ed0b574798443cf36f9d48ac33763f99cf6a7b",
++        "revision": "f0f97d9d7fb048d12287e5f9f14a85cdffa0cac7",
+         "sha256": "1f58270b6df0bd49ac3435e104fd46202e020f45ddc7971802b675bcada67ebf"
+       },
+       {
+@@ -356,7 +357,7 @@
+         "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
+         "path": "server-mods/code/zone/client.h",
+         "role": "reviewed multiclass progression corrective release; PR #191 merged and paired correction deployed October 13: signed game 2026101301, all 12 zones and 105 hosted assets verified. Player acceptance remains pending.",
+-        "revision": "83ed0b574798443cf36f9d48ac33763f99cf6a7b",
++        "revision": "f0f97d9d7fb048d12287e5f9f14a85cdffa0cac7",
+         "sha256": "0f79268ff72d277db09cfa03225b77679ddea88724a2fde2aa91c50140a74158"
+       },
+       {
+@@ -558,58 +559,107 @@
+       {
+         "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
+         "path": "config/aa-policy.json",
+-        "role": "authoritative Classic TBS caps and named exceptions",
+-        "revision": "83ed0b574798443cf36f9d48ac33763f99cf6a7b",
+-        "sha256": "2fdd5d95b323feb1b75ce51e3f1507fe1b3ecbe4c05c7c4ca57e08e76c9c27b4"
++        "role": "Reviewed level-1 AA correction or signed publication evidence; owner QA pending",
++        "revision": "f0f97d9d7fb048d12287e5f9f14a85cdffa0cac7",
++        "sha256": "fbb6582deca26309fe906677df64715e98c491fc805dfa6924a5599182de5ad5"
+       },
+       {
+         "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
+         "path": "server-mods/code/common/nightcap_aa_policy.h",
+-        "role": "generated native fail-closed rank/level allowlist",
+-        "revision": "83ed0b574798443cf36f9d48ac33763f99cf6a7b",
+-        "sha256": "f57034227a66a525b8e51672668066daed9032b68b80390683401f1a5e783787"
++        "role": "Reviewed level-1 AA correction or signed publication evidence; owner QA pending",
++        "revision": "f0f97d9d7fb048d12287e5f9f14a85cdffa0cac7",
++        "sha256": "5dc93d75db587064a9c6862b08b3f9724dc95d3fcea40520f6a71c7fd1df5562"
+       },
+       {
+         "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
+         "path": "tools/aa_tbs_policy.py",
+-        "role": "reviewed deterministic dependency closure and generation",
+-        "revision": "83ed0b574798443cf36f9d48ac33763f99cf6a7b",
+-        "sha256": "d0a440add3c3f5a6878e9835b3733981e75c6b180864e1f46d1d93f0d9d2a8ca"
++        "role": "Reviewed level-1 AA correction or signed publication evidence; owner QA pending",
++        "revision": "f0f97d9d7fb048d12287e5f9f14a85cdffa0cac7",
++        "sha256": "92e0ab9cc6e30cf3483d2aee512964276f79de212c5b8a8d7c10a761850b41c2"
+       },
+       {
+         "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
+         "path": "tools/tests/test_aa_tbs_policy.py",
+-        "role": "policy exception, prefix, dependency and generation checks",
+-        "revision": "83ed0b574798443cf36f9d48ac33763f99cf6a7b",
+-        "sha256": "89cb8f9e7f3c0dc1fa9d381fe2b076a07889654e02289e4c09ab05bc4a5e6528"
++        "role": "Reviewed level-1 AA correction or signed publication evidence; owner QA pending",
++        "revision": "f0f97d9d7fb048d12287e5f9f14a85cdffa0cac7",
++        "sha256": "b998174a91da6cca802f2dc7a11fcf54d064e6e8b29e69a5cd847e31f94fbb06"
+       },
+       {
+         "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
+         "path": "tools/tests/verify_aa_tbs_native.py",
+-        "role": "actual native eligibility, purchase, save and projection checks",
+-        "revision": "83ed0b574798443cf36f9d48ac33763f99cf6a7b",
+-        "sha256": "859c11d311c8f6ced8f85c1ebb6441c202bf4dcc67b898ecb25f081a99448dae"
++        "role": "Reviewed level-1 AA correction or signed publication evidence; owner QA pending",
++        "revision": "f0f97d9d7fb048d12287e5f9f14a85cdffa0cac7",
++        "sha256": "4f8d11733f20cd7d4b6d94a30f636a14cc5cc6320f74c6e0707829db095a8bf0"
+       },
+       {
+         "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
+         "path": "docs/releases/aa-tbs-20261013/README.md",
+         "role": "verified deployment, preserved baseline, limits and exact owner QA",
+-        "revision": "83ed0b574798443cf36f9d48ac33763f99cf6a7b",
+-        "sha256": "9a3eb2e6bbfeaadb628d334a01ffc45b631e47b6970c15033032b41d7f63bbbf"
++        "revision": "f0f97d9d7fb048d12287e5f9f14a85cdffa0cac7",
++        "sha256": "0327ac465973d802a1dfd72fea063bc0e3d91bbf1a10dd721735ef3a33bafcaa"
+       },
+       {
+         "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
+         "path": "docs/releases/aa-tbs-20261013/server-receipt.json",
+         "role": "closed-state player/custom preservation and twelve native hashes",
+-        "revision": "83ed0b574798443cf36f9d48ac33763f99cf6a7b",
++        "revision": "f0f97d9d7fb048d12287e5f9f14a85cdffa0cac7",
+         "sha256": "af8aec1646aae3dc97ac6ab1cae541e257c7836c9eb588857a0d99daccf2143c"
+       },
+       {
+         "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
+         "path": "docs/releases/aa-tbs-20261013/final-health.json",
+         "role": "dated post-deployment runtime health; not gameplay acceptance",
+-        "revision": "83ed0b574798443cf36f9d48ac33763f99cf6a7b",
++        "revision": "f0f97d9d7fb048d12287e5f9f14a85cdffa0cac7",
+         "sha256": "409545c91fb9e079f495bcb24a5366b2a0b6a61c2bcd9f42d6eceb9c686fc93a"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
++        "path": "AGENTS.md",
++        "role": "Reviewed level-1 AA correction or signed publication evidence; owner QA pending",
++        "revision": "f0f97d9d7fb048d12287e5f9f14a85cdffa0cac7",
++        "sha256": "0be0eff1cd1148899c32e8802c7d761e131ad8b60b31e891eb3f52b32f7af951"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
++        "path": "tools/build_aa_level1_candidate.py",
++        "role": "Reviewed level-1 AA correction or signed publication evidence; owner QA pending",
++        "revision": "f0f97d9d7fb048d12287e5f9f14a85cdffa0cac7",
++        "sha256": "21d5103784987f57072e45a80f8073ac4aafa4da3171031e034b34c2daaf57e8"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
++        "path": "docs/releases/aa-tbs-level1-20261013/README.md",
++        "role": "Reviewed level-1 AA correction or signed publication evidence; owner QA pending",
++        "revision": "f0f97d9d7fb048d12287e5f9f14a85cdffa0cac7",
++        "sha256": "1bc941fe5f2ba0406101f4e548050ebb881f74cc61b9451a0ab4f4b951713c9c"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
++        "path": "docs/releases/aa-tbs-level1-20261013/build-manifest.json",
++        "role": "Reviewed level-1 AA correction or signed publication evidence; owner QA pending",
++        "revision": "f0f97d9d7fb048d12287e5f9f14a85cdffa0cac7",
++        "sha256": "93578291032f2ee9fd33e7225f7a4fbcbef4ccde0f1342483276d3d7a7d2f838"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
++        "path": "docs/releases/aa-tbs-level1-20261013/verification.json",
++        "role": "Reviewed level-1 AA correction or signed publication evidence; owner QA pending",
++        "revision": "f0f97d9d7fb048d12287e5f9f14a85cdffa0cac7",
++        "sha256": "1552ea4a3288ff8240a41a391b44df643a149f802174c6e5ffc22556f5f38eea"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
++        "path": "docs/releases/aa-tbs-level1-20261013/server-receipt.json",
++        "role": "Reviewed level-1 AA correction or signed publication evidence; owner QA pending",
++        "revision": "f0f97d9d7fb048d12287e5f9f14a85cdffa0cac7",
++        "sha256": "d24bac6bbccef2bbbae7b13d5fce10277a1b2d8ee9ac54a5e0d6ff2b20452913"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
++        "path": "docs/releases/aa-tbs-level1-20261013/post-notes-health.json",
++        "role": "Reviewed level-1 AA correction or signed publication evidence; owner QA pending",
++        "revision": "f0f97d9d7fb048d12287e5f9f14a85cdffa0cac7",
++        "sha256": "f69b9a1f704fe562c9faee65754f146e3f194e90f63f33112a1661b0d7327c92"
+       }
+     ],
+     "items": [
+@@ -879,11 +929,11 @@
+         "sha256": "42136bfc09258467886f65062a5e84142aa728826fd9ad7e7088d70f28cf68ba"
+       },
+       {
+-        "root": "C:/Users/verre/Documents/Codex/2026-10-12/g-2/work/early-spell-scribing",
++        "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
+         "path": "eq-launcher/patch-notes.json",
+-        "role": "published early-scribing summary and retained history",
+-        "revision": "45d24a6fa8a0c37a179810ae54f1ed6fbb6b1a02",
+-        "sha256": "9df4573d75768914946555352a110d88fe14461e5db4d3021044b3d0d5067e04"
++        "role": "Reviewed level-1 AA correction or signed publication evidence; owner QA pending",
++        "revision": "f0f97d9d7fb048d12287e5f9f14a85cdffa0cac7",
++        "sha256": "7cbac924c1d5f6c180da936b98c472462d74d5a04bf5d50a46af8ff1c46ba6f4"
+       },
+       {
+         "root": "C:/Users/verre/Documents/Codex/2026-10-12/g-2/work/early-spell-scribing",
+@@ -1206,6 +1256,27 @@
+         "role": "reviewed multiclass progression corrective release; PR #191 merged and paired correction deployed October 13: signed game 2026101301, all 12 zones and 105 hosted assets verified. Owner reported the issue resolved October 13; individual control steps not separately enumerated.",
+         "revision": "2e3a936a5b433b314a0209a882897cb0dc1a4b13",
+         "sha256": "95a1e1d44c001fdd8c78854e63f0f4269b26473223201dfdeb8b5bce65938b2c"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
++        "path": "docs/releases/aa-tbs-level1-20261013/sign-notes.go",
++        "role": "Reviewed level-1 AA correction or signed publication evidence; owner QA pending",
++        "revision": "f0f97d9d7fb048d12287e5f9f14a85cdffa0cac7",
++        "sha256": "103a6b1167d44ec265735497805e0ee8342b4bd407974438d6cd0bfcbe9a644b"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
++        "path": "docs/releases/aa-tbs-level1-20261013/publish-notes.py",
++        "role": "Reviewed level-1 AA correction or signed publication evidence; owner QA pending",
++        "revision": "f0f97d9d7fb048d12287e5f9f14a85cdffa0cac7",
++        "sha256": "c7fc6b317bfa811ee110cf88f5d96fee58582de7d1e4282b1e1b3d81adbd5dcb"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
++        "path": "docs/releases/aa-tbs-level1-20261013/hosted-notes-verification.json",
++        "role": "Reviewed level-1 AA correction or signed publication evidence; owner QA pending",
++        "revision": "f0f97d9d7fb048d12287e5f9f14a85cdffa0cac7",
++        "sha256": "ce9f56658cb11a7de557ed0804be197ea58cf8fa603e7660dfa2444c7d838ddd"
+       }
+     ],
+     "admin": [
+@@ -1380,50 +1451,50 @@
+         "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
+         "path": "docs/audits/aa-tbs-20261013/README.md",
+         "role": "TBS audit findings, recommendations and exact unresolved gameplay QA",
+-        "revision": "83ed0b574798443cf36f9d48ac33763f99cf6a7b",
++        "revision": "f0f97d9d7fb048d12287e5f9f14a85cdffa0cac7",
+         "sha256": "c8238d39ebf537bedcde536d09594e1fc470c37f806d44a1b96d336ca496f1fb"
+       },
+       {
+         "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
+         "path": "docs/audits/aa-tbs-20261013/summary.json",
+         "role": "Fresh catalog/rule counts and anonymous purchase conflict classification",
+-        "revision": "83ed0b574798443cf36f9d48ac33763f99cf6a7b",
++        "revision": "f0f97d9d7fb048d12287e5f9f14a85cdffa0cac7",
+         "sha256": "ee74545ab0162ba99ecc1797d1b1c30273834d72b6a5a9e8d4d8c3fd4cbc9c3f"
+       },
+       {
+         "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
+         "path": "docs/audits/aa-tbs-20261013/production-snapshot.json.gz",
+         "role": "Read-only production content/rules and anonymous ownership captured 2026-10-13",
+-        "revision": "83ed0b574798443cf36f9d48ac33763f99cf6a7b",
++        "revision": "f0f97d9d7fb048d12287e5f9f14a85cdffa0cac7",
+         "sha256": "c5f89640b447d513bef706ecb26cda5ec88fa8b850d5c3f9c68b7cfa1ca08a84"
+       },
+       {
+         "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
+         "path": "docs/audits/aa-tbs-20261013/analyze.py",
+         "role": "Reviewed linked-rank prefixes, inherited prerequisite closure and class-union census",
+-        "revision": "83ed0b574798443cf36f9d48ac33763f99cf6a7b",
++        "revision": "f0f97d9d7fb048d12287e5f9f14a85cdffa0cac7",
+         "sha256": "e5a49a59a79a7599ee4c32630c3ad9c883a7dd0cd79518199fcb2bfd04d6e8ac"
+       },
+       {
+         "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
+         "path": "docs/audits/aa-tbs-20261013/review.py",
+         "role": "Later-family inventory triage and 45 named content/source recommendations",
+-        "revision": "83ed0b574798443cf36f9d48ac33763f99cf6a7b",
++        "revision": "f0f97d9d7fb048d12287e5f9f14a85cdffa0cac7",
+         "sha256": "05735303301b1e9673219cf757e3e607feccd48fba6a9251c53d0c40a7ffcf8a"
+       },
+       {
+         "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
+         "path": "docs/audits/aa-tbs-20261013/test_analysis.py",
+         "role": "Eight policy-audit boundary and snapshot closure checks",
+-        "revision": "83ed0b574798443cf36f9d48ac33763f99cf6a7b",
++        "revision": "f0f97d9d7fb048d12287e5f9f14a85cdffa0cac7",
+         "sha256": "54c94bcb037802cf32d3643c8881e5a4e54193a8b9c1df454f16cd83491c5ac3"
+       },
+       {
+         "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
+         "path": "server-mods/code/zone/aa.cpp",
+-        "role": "reviewed TBS policy, earned/usable projection and complete AA refresh",
+-        "revision": "83ed0b574798443cf36f9d48ac33763f99cf6a7b",
+-        "sha256": "094fc0799382e8b819f9e8891051e85f9c7da7efd9b7ad1be71871f8d52d3977"
++        "role": "Reviewed level-1 AA correction or signed publication evidence; owner QA pending",
++        "revision": "f0f97d9d7fb048d12287e5f9f14a85cdffa0cac7",
++        "sha256": "a932830ad8ce3b4a1cbb02a0be32a7c4caec9c955058d928e8932d0261bc9e0b"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/multiclass-trainer-access",
+@@ -1435,58 +1506,107 @@
+       {
+         "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
+         "path": "config/aa-policy.json",
+-        "role": "authoritative Classic TBS caps and named exceptions",
+-        "revision": "83ed0b574798443cf36f9d48ac33763f99cf6a7b",
+-        "sha256": "2fdd5d95b323feb1b75ce51e3f1507fe1b3ecbe4c05c7c4ca57e08e76c9c27b4"
++        "role": "Reviewed level-1 AA correction or signed publication evidence; owner QA pending",
++        "revision": "f0f97d9d7fb048d12287e5f9f14a85cdffa0cac7",
++        "sha256": "fbb6582deca26309fe906677df64715e98c491fc805dfa6924a5599182de5ad5"
+       },
+       {
+         "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
+         "path": "server-mods/code/common/nightcap_aa_policy.h",
+-        "role": "generated native fail-closed rank/level allowlist",
+-        "revision": "83ed0b574798443cf36f9d48ac33763f99cf6a7b",
+-        "sha256": "f57034227a66a525b8e51672668066daed9032b68b80390683401f1a5e783787"
++        "role": "Reviewed level-1 AA correction or signed publication evidence; owner QA pending",
++        "revision": "f0f97d9d7fb048d12287e5f9f14a85cdffa0cac7",
++        "sha256": "5dc93d75db587064a9c6862b08b3f9724dc95d3fcea40520f6a71c7fd1df5562"
+       },
+       {
+         "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
+         "path": "tools/aa_tbs_policy.py",
+-        "role": "reviewed deterministic dependency closure and generation",
+-        "revision": "83ed0b574798443cf36f9d48ac33763f99cf6a7b",
+-        "sha256": "d0a440add3c3f5a6878e9835b3733981e75c6b180864e1f46d1d93f0d9d2a8ca"
++        "role": "Reviewed level-1 AA correction or signed publication evidence; owner QA pending",
++        "revision": "f0f97d9d7fb048d12287e5f9f14a85cdffa0cac7",
++        "sha256": "92e0ab9cc6e30cf3483d2aee512964276f79de212c5b8a8d7c10a761850b41c2"
+       },
+       {
+         "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
+         "path": "tools/tests/test_aa_tbs_policy.py",
+-        "role": "policy exception, prefix, dependency and generation checks",
+-        "revision": "83ed0b574798443cf36f9d48ac33763f99cf6a7b",
+-        "sha256": "89cb8f9e7f3c0dc1fa9d381fe2b076a07889654e02289e4c09ab05bc4a5e6528"
++        "role": "Reviewed level-1 AA correction or signed publication evidence; owner QA pending",
++        "revision": "f0f97d9d7fb048d12287e5f9f14a85cdffa0cac7",
++        "sha256": "b998174a91da6cca802f2dc7a11fcf54d064e6e8b29e69a5cd847e31f94fbb06"
+       },
+       {
+         "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
+         "path": "tools/tests/verify_aa_tbs_native.py",
+-        "role": "actual native eligibility, purchase, save and projection checks",
+-        "revision": "83ed0b574798443cf36f9d48ac33763f99cf6a7b",
+-        "sha256": "859c11d311c8f6ced8f85c1ebb6441c202bf4dcc67b898ecb25f081a99448dae"
++        "role": "Reviewed level-1 AA correction or signed publication evidence; owner QA pending",
++        "revision": "f0f97d9d7fb048d12287e5f9f14a85cdffa0cac7",
++        "sha256": "4f8d11733f20cd7d4b6d94a30f636a14cc5cc6320f74c6e0707829db095a8bf0"
+       },
+       {
+         "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
+         "path": "docs/releases/aa-tbs-20261013/README.md",
+         "role": "verified deployment, preserved baseline, limits and exact owner QA",
+-        "revision": "83ed0b574798443cf36f9d48ac33763f99cf6a7b",
+-        "sha256": "9a3eb2e6bbfeaadb628d334a01ffc45b631e47b6970c15033032b41d7f63bbbf"
++        "revision": "f0f97d9d7fb048d12287e5f9f14a85cdffa0cac7",
++        "sha256": "0327ac465973d802a1dfd72fea063bc0e3d91bbf1a10dd721735ef3a33bafcaa"
+       },
+       {
+         "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
+         "path": "docs/releases/aa-tbs-20261013/server-receipt.json",
+         "role": "closed-state player/custom preservation and twelve native hashes",
+-        "revision": "83ed0b574798443cf36f9d48ac33763f99cf6a7b",
++        "revision": "f0f97d9d7fb048d12287e5f9f14a85cdffa0cac7",
+         "sha256": "af8aec1646aae3dc97ac6ab1cae541e257c7836c9eb588857a0d99daccf2143c"
+       },
+       {
+         "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
+         "path": "docs/releases/aa-tbs-20261013/final-health.json",
+         "role": "dated post-deployment runtime health; not gameplay acceptance",
+-        "revision": "83ed0b574798443cf36f9d48ac33763f99cf6a7b",
++        "revision": "f0f97d9d7fb048d12287e5f9f14a85cdffa0cac7",
+         "sha256": "409545c91fb9e079f495bcb24a5366b2a0b6a61c2bcd9f42d6eceb9c686fc93a"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
++        "path": "AGENTS.md",
++        "role": "Reviewed level-1 AA correction or signed publication evidence; owner QA pending",
++        "revision": "f0f97d9d7fb048d12287e5f9f14a85cdffa0cac7",
++        "sha256": "0be0eff1cd1148899c32e8802c7d761e131ad8b60b31e891eb3f52b32f7af951"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
++        "path": "tools/build_aa_level1_candidate.py",
++        "role": "Reviewed level-1 AA correction or signed publication evidence; owner QA pending",
++        "revision": "f0f97d9d7fb048d12287e5f9f14a85cdffa0cac7",
++        "sha256": "21d5103784987f57072e45a80f8073ac4aafa4da3171031e034b34c2daaf57e8"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
++        "path": "docs/releases/aa-tbs-level1-20261013/README.md",
++        "role": "Reviewed level-1 AA correction or signed publication evidence; owner QA pending",
++        "revision": "f0f97d9d7fb048d12287e5f9f14a85cdffa0cac7",
++        "sha256": "1bc941fe5f2ba0406101f4e548050ebb881f74cc61b9451a0ab4f4b951713c9c"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
++        "path": "docs/releases/aa-tbs-level1-20261013/build-manifest.json",
++        "role": "Reviewed level-1 AA correction or signed publication evidence; owner QA pending",
++        "revision": "f0f97d9d7fb048d12287e5f9f14a85cdffa0cac7",
++        "sha256": "93578291032f2ee9fd33e7225f7a4fbcbef4ccde0f1342483276d3d7a7d2f838"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
++        "path": "docs/releases/aa-tbs-level1-20261013/verification.json",
++        "role": "Reviewed level-1 AA correction or signed publication evidence; owner QA pending",
++        "revision": "f0f97d9d7fb048d12287e5f9f14a85cdffa0cac7",
++        "sha256": "1552ea4a3288ff8240a41a391b44df643a149f802174c6e5ffc22556f5f38eea"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
++        "path": "docs/releases/aa-tbs-level1-20261013/server-receipt.json",
++        "role": "Reviewed level-1 AA correction or signed publication evidence; owner QA pending",
++        "revision": "f0f97d9d7fb048d12287e5f9f14a85cdffa0cac7",
++        "sha256": "d24bac6bbccef2bbbae7b13d5fce10277a1b2d8ee9ac54a5e0d6ff2b20452913"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
++        "path": "docs/releases/aa-tbs-level1-20261013/post-notes-health.json",
++        "role": "Reviewed level-1 AA correction or signed publication evidence; owner QA pending",
++        "revision": "f0f97d9d7fb048d12287e5f9f14a85cdffa0cac7",
++        "sha256": "f69b9a1f704fe562c9faee65754f146e3f194e90f63f33112a1661b0d7327c92"
+       }
+     ]
+   }

@@ -1,0 +1,22 @@
+{
+  "status": "deployed_for_owner_qa",
+  "owner_correction": "All legal AAs and ranks available at creation; no character level gating",
+  "legal_families": 390,
+  "legal_ranks": 941,
+  "policy_tests": 6,
+  "native_eligibility_cases": 5646,
+  "deployment_tests": 13,
+  "red": "6-test policy suite failed 3 assertions against old gating; native regression aborted on old p.level!=1",
+  "green": "policy and actual native methods pass including DB level_req255; ownership, charges and wallets preserved",
+  "zone_sha256": "c4a1f73b251da5bfa88f3f3a9ffdb7f30686b26365ad8a6a71943d940ba5ad10",
+  "changed_native_files": [
+    "common/nightcap_aa_policy.h",
+    "zone/aa.cpp"
+  ],
+  "manual_qa": "owner rejected prior level gating; corrected gameplay QA pending",
+  "cross_model": "declined by owner",
+  "image_id": "sha256:add0bddfa77e93b299b691d6c3d932de92a0b6146a42f92bffd934dafc730fb7",
+  "notes_release": 2026101302,
+  "notes_publication_tests": 7,
+  "independent_review": "No blocking native findings; added required public-baseline guard from notes review"
+}

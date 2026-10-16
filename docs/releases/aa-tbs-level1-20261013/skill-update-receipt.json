@@ -1,0 +1,22 @@
+{
+  "installed": true,
+  "revision": "f0f97d9d7fb048d12287e5f9f14a85cdffa0cac7",
+  "files": {
+    "references/balance.md": {
+      "before": "656f43e28b5a1ba5a6cb6b8d52b69be0719a9f13e4524ca3c14d668a373d504d",
+      "after": "4c054e1d8406731c9467cf637faf987d0e39133f7aba96865655ed1253e58178"
+    },
+    "references/multiclass.md": {
+      "before": "20c4a215e1069a324a08a6c309873daa8afd4dd29137a93857ead4dd8267b88a",
+      "after": "e036f398dc9616f0281426bbfc78e83126b145fa658dd8e4895d5f650b3de3e6"
+    },
+    "references/client.md": {
+      "before": "fef267e30cccd8316e6e4d7a69efcb5c05f01e2b9afa7e4616fece4b3c6bfd55",
+      "after": "f641b42e65d398745179cb992e7d9767dbcd47ab588d2db928eff4fc17559ebf"
+    },
+    "references/sources.json": {
+      "before": "ba1070aaf46a2e0dd8c6d295a621606245e38df722893a5158d37268e2b5e537",
+      "after": "4fbacefbcf981985b749438e602ae76973ab11229197fe37de2e92d8c4804234"
+    }
+  }
+}

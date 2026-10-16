@@ -87,6 +87,14 @@ full-backup restore and forward/rollback rehearsal pass. All 12 zones are health
 No client update is needed. Owner in-game appearance and interaction QA remains
 pending. [Evidence, layout and exact QA](releases/tunnel-cozy-20261013/README.md).
 
+## October 13 AA correction: level-1 access
+
+Owner QA rejected the initial AA level gates. The correction opens all allowed ranks at creation and retains purchases. [Correction and QA](releases/aa-tbs-level1-20261013/README.md); live on OVH with all 12 zones verified and 239 purchases preserved. Signed notes release 2026101302 is published. Owner acceptance remains pending. The earlier small starter-list policy is superseded, not accepted.
+
+## Earlier AA staging candidate — rejected in owner QA
+
+The initial small starter list and character-level gates are superseded by the correction above. Historical deployment/preservation evidence remains in [the original receipt](releases/aa-tbs-20261013/README.md).
+
 ## Multiclass skills — corrective release deployed
 
 Owner-approved PR #191 is merged to main and deployed with signed game release

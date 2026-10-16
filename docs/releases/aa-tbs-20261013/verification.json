@@ -1,0 +1,38 @@
+{
+  "status": "deployed_for_owner_qa",
+  "policy_tests": 5,
+  "native": {
+    "native_eligibility_cases": 5646,
+    "projection_checks": 9,
+    "passed": true,
+    "source_sha256": "cb52cc599a4c1db0990a101ab6b61c3fd82e20785290277ae4060db081502523"
+  },
+  "rollout_tests": 10,
+  "preflight_tests": 3,
+  "independent_review": "passed; missing prerequisite and full refresh findings fixed; post-boot catalog preservation added",
+  "red_regression": "First candidate fails actual CanPurchaseAlternateAdvancementRank when required ability is missing; reviewed candidate passes.",
+  "source_sha256": {
+    "config/aa-policy.json": "2fdd5d95b323feb1b75ce51e3f1507fe1b3ecbe4c05c7c4ca57e08e76c9c27b4",
+    "era.json": "db859e8385f09847671fe3dfe752e6b1490f89bcd18845b15a4354d03b803667",
+    "tools/aa_tbs_policy.py": "d0a440add3c3f5a6878e9835b3733981e75c6b180864e1f46d1d93f0d9d2a8ca",
+    "tools/fixtures/aa-tbs-catalog.json.gz": "d8aed4acd218554bd13fb40f68f56829b1c1ad58cf5866ce9544cef760fb66e7",
+    "server-mods/code/common/nightcap_aa_policy.h": "f57034227a66a525b8e51672668066daed9032b68b80390683401f1a5e783787",
+    "server-mods/code/zone/aa.cpp": "094fc0799382e8b819f9e8891051e85f9c7da7efd9b7ad1be71871f8d52d3977",
+    "server-mods/code/zone/exp.cpp": "1f58270b6df0bd49ac3435e104fd46202e020f45ddc7971802b675bcada67ebf",
+    "server-mods/code/zone/client.h": "0f79268ff72d277db09cfa03225b77679ddea88724a2fde2aa91c50140a74158",
+    "tools/build_aa_candidate.py": "32f4a22c3690c34582f9968aed59a1ab991713b9d95d2a34f00422a3de3f6e6d",
+    "tools/tests/verify_aa_tbs_native.py": "859c11d311c8f6ced8f85c1ebb6441c202bf4dcc67b898ecb25f081a99448dae"
+  },
+  "owner_gameplay_acceptance": false,
+  "cross_model_review": "declined by owner",
+  "preserved_concurrent_release": "October 13 skill-progression rebuild; main b203fba and all 126 corrected zone object hashes retained in v3",
+  "preserved_skill_scenarios": 9,
+  "deployment": {
+    "image_id": "sha256:5555000c74665f13eb3c99facc657b2e38c3983eff745a9ffe65a5439440f025",
+    "all_zone_hashes": 12,
+    "player_tables_preserved": 47,
+    "custom_tables_preserved": 11,
+    "ownership_rows_preserved": 239,
+    "owner_gameplay_acceptance": false
+  }
+}
