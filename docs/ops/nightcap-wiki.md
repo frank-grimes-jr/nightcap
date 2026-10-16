@@ -5,21 +5,29 @@ Updated October 16, 2026.
 ## Current state
 
 - **Public URL: https://wiki.nightcapgame.org/** — live and verified October 9, 2026 (EDT).
-- **Active OVH origin release:** `20261016-features-v1`; previous release
-  `20261010-equipment-v1` is retained for recovery.
-- **Features:** 17 major departures from Classic, with dedicated upgrade and crafting guides.
+- **Active OVH origin release:** `20261016-dungeons-v1`; previous release
+  `20261016-features-v1` is retained for recovery.
+- **Features:** 18 major departures from Classic, with dedicated upgrade and crafting guides.
 - **Equipment:** 96 item families with four quality links each, gear/augment
   views, name/slot/level/zone filters, sorting and 12-family pagination.
 - **Public hostname active:** the existing tunnel now routes the wiki to
   `http://web:8080`; its proxied CNAME was created automatically. The existing
   player-only WAF rule required no change.
-- 454 articles: 20 maintained guides, 48 enabled zone pages, 384 item pages and
-  two catalog indexes. All articles, Search and 404 bring the build to 457 pages.
-- The exact publication contains 464 files. Player access uses the current personal-code
+- 455 articles: 21 maintained guides, 48 enabled zone pages, 384 item pages and
+  two catalog indexes. All articles, Search and 404 bring the build to 458 pages.
+- The exact publication contains 465 files. Player access uses the current personal-code
   policy; wiki updates preserve it. October 9 IP-only descriptions below are historical.
 
 Source and build commands: [wiki/README.md](../../wiki/README.md).
 Architecture: [ADR 0059](../adr/0059-official-public-wiki.md).
+
+## Dungeon guide — October 16, 2026
+
+Raid & Grind is published as `20261016-dungeons-v1`. All 465 public hashes,
+origin rollback/preservation and browser search/responsive checks pass.
+See [release evidence](../releases/wiki-dungeons-20261016/README.md). No game
+restart, client/cache, database, Nginx or access-policy change was needed.
+Gameplay and balance acceptance remain pending.
 
 ## Features refresh — October 16, 2026
 

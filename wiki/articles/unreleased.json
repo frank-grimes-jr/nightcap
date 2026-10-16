@@ -9,6 +9,7 @@
   "sources": [
     "index.html at origin/main 19951a8",
     "docs/status.md at origin/main 19951a8",
-    "docs/releases/multiclass-skills-20261013/README.md and docs/releases/combat-item-fixes-20260922/README.md at origin/main 2df6823"
+    "docs/releases/multiclass-skills-20261013/README.md and docs/releases/combat-item-fixes-20260922/README.md at origin/main 2df6823",
+    "docs/dungeons/deployment/production-verification.json and QA.md; deployed October 16 for live QA, owner acceptance pending"
   ]
 }

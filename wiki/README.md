@@ -40,7 +40,7 @@ deployment. Packaging emits an exact SHA256 manifest alongside the immutable tar
 - `assets/traders-at-dusk.png` and `moon.svg` are unchanged approved site artwork.
   CSS and browser search are local. No third-party trackers or dependencies.
 
-The build contains 454 articles plus All articles, Search, and 404 pages.
+The build contains 455 articles plus All articles, Search, and 404 pages.
 `items.html` is the Equipment catalog: 96 item families with their four qualities
 together, type/slot/level/zone/name filters, sorting and 12-family pagination.
 The URL preserves filters; all item links remain in static HTML without JavaScript.

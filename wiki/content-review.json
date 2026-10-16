@@ -17,6 +17,7 @@
   "supplemental_evidence": [
     "AA class ranks: feature/aa-tbs-policy deployed release, docs/releases/aa-class-ranks-20261013/README.md",
     "Commonlands banker and Leather Padding: E:/EQ_Local_Dev/docs/ops/commonlands-services-20261016/README.md",
-    "Travel client audit: travel-client-audit worktree 4e3acd8; local repair is not fleet publication"
+    "Travel client audit: travel-client-audit worktree 4e3acd8; local repair is not fleet publication",
+    "Dungeon deployment: verified production release 2026101601, all maintained articles and generated routes assessed in docs/dungeons/wiki-review.md. Live testing guide replaces unreleased notices; owner gameplay and website publication remain pending."
   ]
 }
