@@ -2,9 +2,9 @@
   "date": "2026-10-16",
   "implemented": true,
   "automated_verification": "passed within the scopes below",
-  "source_revision": "0ef0b0e82a4c19b52c335ec8d02d88b06ccaee38",
+  "source_revision": "a1eab404afcb5862d14351ac652343a3b544747d",
   "native_binaries": {
-    "zone": "40bc343044c4a22292fe2e4377c3b1b33ddc323541236642d615298273f1b95c",
+    "zone": "785faf9e08856bb5355ffd46e4d4aa6d93f687a8bbbc6b40c2fa3d1692d4c524",
     "world": "70cceaca060ed6338cb72acc726bb24ccae162b42ba88dfb89432b609c7ef8e5",
     "shared_memory": "ef1f399884387712113bf13163ddfcd35c47a29d0f0b9b194a6b7e265997ae35"
   },
@@ -12,7 +12,7 @@
   "evidence": {
     "activation-verification.json": {
       "status": "passed",
-      "sha256": "a235fa6c8a6cd3b218a33d56bcb5b51e30a3e634c1b8599af9a56b853fdfe681"
+      "sha256": "d4c82f94ce32ad12f8d8a39ccff94a930fd613125bc5522104e116e3006ed062"
     },
     "cache-verification.json": {
       "status": "passed",
@@ -38,7 +38,7 @@
   "observed_test_results": [
     {
       "command": "python -m unittest discover -s tools/tests -p test_dungeon*.py -v",
-      "passed": 10,
+      "passed": 11,
       "scope": "compiled actual policy/spawn/credit functions, catalog/parser and integration guards"
     },
     {
@@ -70,15 +70,21 @@
       "command": "wiki: node test_search.cjs; node test_equipment.cjs",
       "passed": 13,
       "scope": "six search and seven equipment cases"
+    },
+    {
+      "command": "production deployment operator unittest suite",
+      "passed": 20,
+      "scope": "offline failure and preservation controls; actual host execution passed"
     }
   ],
-  "operational_installation": "not performed",
+  "operational_installation": "deployed and enabled on OVH; gateway open",
   "native_runtime_failure_injection": "pending",
   "fourteen_mode_gameplay": "pending",
   "classic_ct_geometry_paths_doors": "pending in game; static identity/door checks passed",
   "level_50_vox_nagafen_balance": "pending",
   "owner_acceptance": "pending",
-  "production_promotion_restart": "not performed; separate authorization required",
-  "wiki": "local source updated and tested; publication pending",
-  "cache_scope": "local test content; 330 new definitions verified and 308928 existing records byte-identical"
+  "production_promotion_restart": "owner authorized; main PR208 and controlled restart complete",
+  "wiki": "ten local source files updated and tested; publication pending",
+  "cache_scope": "production preserved 309410 old items and added 330; original local-cache evidence retained separately",
+  "deployment_evidence": "deployment/production-verification.json"
 }

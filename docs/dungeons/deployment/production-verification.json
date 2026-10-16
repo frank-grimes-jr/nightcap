@@ -1,0 +1,96 @@
+{
+  "status": "healthy",
+  "runtime": {
+    "image_id": "sha256:f924e3840379fa8d37866da6a257e8d45e5c24f7f7c9abe9e390ede6197bbe48",
+    "started_at": "2026-10-16T19:52:08.127129268Z",
+    "restart_count": 0,
+    "processes": [
+      [
+        "loginserver",
+        "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf"
+      ],
+      [
+        "world",
+        "70cceaca060ed6338cb72acc726bb24ccae162b42ba88dfb89432b609c7ef8e5"
+      ],
+      [
+        "ucs",
+        "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714"
+      ],
+      [
+        "zone",
+        "785faf9e08856bb5355ffd46e4d4aa6d93f687a8bbbc6b40c2fa3d1692d4c524"
+      ],
+      [
+        "zone",
+        "785faf9e08856bb5355ffd46e4d4aa6d93f687a8bbbc6b40c2fa3d1692d4c524"
+      ],
+      [
+        "zone",
+        "785faf9e08856bb5355ffd46e4d4aa6d93f687a8bbbc6b40c2fa3d1692d4c524"
+      ],
+      [
+        "zone",
+        "785faf9e08856bb5355ffd46e4d4aa6d93f687a8bbbc6b40c2fa3d1692d4c524"
+      ],
+      [
+        "zone",
+        "785faf9e08856bb5355ffd46e4d4aa6d93f687a8bbbc6b40c2fa3d1692d4c524"
+      ],
+      [
+        "zone",
+        "785faf9e08856bb5355ffd46e4d4aa6d93f687a8bbbc6b40c2fa3d1692d4c524"
+      ],
+      [
+        "zone",
+        "785faf9e08856bb5355ffd46e4d4aa6d93f687a8bbbc6b40c2fa3d1692d4c524"
+      ],
+      [
+        "zone",
+        "785faf9e08856bb5355ffd46e4d4aa6d93f687a8bbbc6b40c2fa3d1692d4c524"
+      ],
+      [
+        "zone",
+        "785faf9e08856bb5355ffd46e4d4aa6d93f687a8bbbc6b40c2fa3d1692d4c524"
+      ],
+      [
+        "zone",
+        "785faf9e08856bb5355ffd46e4d4aa6d93f687a8bbbc6b40c2fa3d1692d4c524"
+      ],
+      [
+        "zone",
+        "785faf9e08856bb5355ffd46e4d4aa6d93f687a8bbbc6b40c2fa3d1692d4c524"
+      ],
+      [
+        "zone",
+        "785faf9e08856bb5355ffd46e4d4aa6d93f687a8bbbc6b40c2fa3d1692d4c524"
+      ]
+    ],
+    "errors": {
+      "native": 0,
+      "quest": 0,
+      "database": 0
+    }
+  },
+  "gateway_open": true,
+  "cache": {
+    "existing_items_preserved": 309410,
+    "custom_items_checked": 330,
+    "all_records_sha256": "23ac715b16f0f0facc35705ddd36436f9ceadd48e110f1c3f1dd75bb5e456f14"
+  },
+  "enabled_revision": 2026101601,
+  "verified_at_utc": "2026-10-16T20:00:34.113378+00:00",
+  "cache_sha256": "9e4873cf8f8357d4c8b885b53d2f4ac639a2567b55c77fe6ffc17d12cda9ce4b",
+  "player_tables_preserved": 47,
+  "custom_tables_preserved": 11,
+  "public_tables_preserved": 23,
+  "database_restored": false,
+  "owner_gameplay_accepted": false,
+  "backup": {
+    "sha256": "5f862dbabe2ea8aff6388d1a8ec1f4933575761afe7df9bdf2dd1fe9eeaabccd",
+    "compressed_bytes": 63621296,
+    "gzip_integrity": "passed"
+  },
+  "client_release": 2026101501,
+  "free_disk_bytes": 1504169984
+}

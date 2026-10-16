@@ -1,7 +1,12 @@
-# Raid and Grind release candidate
+# Raid and Grind dungeons — deployed for live QA
 
-October 16, 2026. Test release candidate; operational installation, production activation and
-owner gameplay acceptance have not occurred. The accepted contract is
+October 16, 2026. The owner authorized main promotion and production deployment.
+Revision 2026101601 is enabled on OVH with matching native binaries and a freshly
+regenerated production item cache; game access is open. All 309,410 existing
+item records are byte-identical and exactly 330 new definitions are present.
+Deployment and the recovered preflight database incident are recorded in
+[deployment/README.md](deployment/README.md). Owner gameplay acceptance remains
+pending in [QA.md](QA.md). The accepted contract is
 [SPEC.md](SPEC.md). Do not describe a build or SQL rehearsal as gameplay QA.
 
 ## Behavior and catalog
@@ -122,15 +127,16 @@ Sources: [maintainer archive](https://github.com/SecretsOTheP/EQMacEmu/blob/main
    rehearsal. Generated schema/content/cache checks belong to the same build.
    Use `tools/build_dungeon_candidate.py` in the isolated retained-source build
    area. Pair zone/world/shared_memory with the regenerated item cache.
-4. Install only in the authorized test environment with access closed. Keep
+4. Install only in the explicitly authorized environment with access closed. Keep
    original databases, binaries, cache and quest preimages. Match every running
    binary and the cache against the candidate manifest before enabling.
    No client assets are required. A quest-only reload cannot install native
    bindings, item cache changes or the persistence service.
 5. Complete [QA.md](QA.md), keeping automated, deployed and owner-accepted states
    separate. Follow feature → dev → test only after required automated gates.
-   Main promotion, production activation/restart and wiki publication require
-   their separately authorized release.
+   The owner authorized this main/production release for live QA; that exception
+   does not close gameplay acceptance or authorize later releases. Website
+   publication remains separate.
 
 Disable acquisition with `UPDATE nightcap_dungeon_state SET enabled=0 WHERE
 id=1 AND revision=2026101601`. Existing managed runs and earned claims continue
@@ -150,18 +156,21 @@ catalog, parser rejection and integration ordering. These are not live gameplay
 or balance evidence. `native-build-manifest.json` records the complete paired
 build and 2,820 retained source fingerprints. `cache-verification.json` checks
 all 330 custom definitions and preserves every byte of 308,928 existing local
-item records. The package contains matching binaries/cache, SQL, Keeper quest
-and the QA guide. It is a local-content test package, not a production cache.
+item records. The original package contains the earlier local-test binaries/cache,
+SQL, Keeper quest and QA guide. It is archived evidence, superseded by the production build
+and cache recorded under deployment/. Never install the local-content cache on
+OVH. The production release retains its exact binaries and regenerated cache.
 
 `activation-verification.json` verifies valid activation and refusal of altered
 items, schema and triggers. `concurrency-verification.json` executes concurrent
 real MariaDB sessions for allocation, the six-member cap, receipt rollback and
 reset versus entry. These tests use synthetic records in the isolated database.
-`wiki-review.md` records the whole-site assessment and the unreleased guide.
-The six reviewed wiki source files are installed locally; publication is pending.
-`verification.json` separates automated results from the still-open gameplay,
-test installation and owner acceptance gates. `package-verification.json` records
-member-by-member package verification after the final SQL/document refresh.
+`wiki-review.md` records the whole-site assessment and the live-testing guide.
+Ten reviewed wiki source files are installed locally; publication is pending.
+`verification.json` separates automated results from the still-open gameplay and
+owner acceptance gates; actual deployment is recorded separately under deployment/.
+`package-verification.json` records the original local package verification;
+`deployment/production-package-verification.json` records the deployed pair.
 
 Feature tables explicitly use utf8mb4, independently of the database default.
 The final rehearsal also uses a latin1 database default while preserving the

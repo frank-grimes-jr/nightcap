@@ -1,29 +1,29 @@
 # Whole-wiki impact review
 
-October 16, 2026; source wiki `feature/nightcap-wiki`, live release
-`20261016-features-v1`. The older wiki worktree is not gameplay source authority.
-Reviewed all twenty maintained article routes, generated hunt items/zones,
-equipment index, home summary, Features, commands, status labels and recent
-changes against this candidate. The current public site is unchanged.
+October 16, 2026, after verified production deployment. Reviewed all 21 maintained
+articles, generated hunt item/zone pages, equipment index, home, Features,
+commands, status labels and Recent changes. The maintained wiki checkout is not
+gameplay source authority. Live website release remains 20261016-features-v1;
+source installation and publication are separate.
 
-Changed: In development, Travel & instances, Features and Recent changes link
-to a dedicated **Not released** Raid & Grind guide. It documents modes, credit,
-reward probabilities, equipment bands, claims, recovery and pending gameplay
-acceptance. The private review ledger records supplemental candidate evidence;
-it does not falsely advance the live-source revision.
+Changed: the Raid & Grind guide now says Live testing. Features includes a
+dedicated mode/reward row; Travel describes selection and receipt-preserving
+reset rules. Home, Getting started and Recent changes link the available modes.
+Equipment documents dungeon rewards, bags and zero resale; Item upgrades makes
+their exclusion from forging explicit. In development no longer presents the
+dungeons as unavailable. The private review ledger records deployment evidence.
 
-Unchanged with reason: Home/getting-started, tunnel, waypoints and commands retain
-live travel and `#instances` behavior; the new operations are Keeper links, not
-new commands. Equipment, item-upgrades, zone-hunt and generated item/zone catalog
-pages continue to describe released acquisitions. Candidate items are explicitly
-excluded from the public live catalog until activation. Advanced loot needs no
-new controls; existing receipt/permission and group loot behavior is retained.
-Combat, pets, multiclass, ascension, tradeskills, launcher and About have no
-released behavior or asset change. No artwork, layout or search code changes.
+Unchanged with reason: the generated equipment catalog intentionally covers
+zone-hunt families and their existing values, rather than every game item.
+Dungeon designs, quality probabilities and level bands are documented in their
+separate guide. Existing hunt/forging numbers do not change. Commands retain
+#instances; new operations use Keeper dialogue. Waypoints and tunnel services
+are unchanged. Advanced loot uses existing controls and rights. Combat, pets,
+multiclass, epic Ascension, tradeskills, launcher and About have no changed
+general mechanics, assets or editorial policy. No artwork/layout/search changes.
 
-`wiki-update/` contains six exact source replacements, SHA-256 preimages and a
-patch. Full-site tests run against an isolated copy with those changes. Apply
-only if the maintained wiki still matches each preimage (or the exact afterimage);
-otherwise reconcile newer edits. Website publication remains pending and does
-not authorize gameplay activation. Record source installation, tests and public
-publication separately.
+wiki-update/ contains ten exact replacements, preimages, patch and source-install
+receipt. Full-site Python/link and Node search/equipment checks run against the
+complete isolated preview. Website publication remains pending; this game
+deployment does not change the public website. Owner gameplay/balance acceptance
+remains pending independently of automated verification and deployment.
