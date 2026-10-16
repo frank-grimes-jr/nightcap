@@ -3,8 +3,9 @@
 October 16, 2026, after verified production deployment. Reviewed all 21 maintained
 articles, generated hunt item/zone pages, equipment index, home, Features,
 commands, status labels and Recent changes. The maintained wiki checkout is not
-gameplay source authority. Live website release remains 20261016-features-v1;
-source installation and publication are separate.
+gameplay source authority. Live website release is 20261016-dungeons-v1;
+source installation and publication have separate receipts in wiki-update/ and
+wiki-publication/.
 
 Changed: the Raid & Grind guide now says Live testing. Features includes a
 dedicated mode/reward row; Travel describes selection and receipt-preserving
@@ -24,6 +25,7 @@ general mechanics, assets or editorial policy. No artwork/layout/search changes.
 
 wiki-update/ contains ten exact replacements, preimages, patch and source-install
 receipt. Full-site Python/link and Node search/equipment checks run against the
-complete isolated preview. Website publication remains pending; this game
-deployment does not change the public website. Owner gameplay/balance acceptance
-remains pending independently of automated verification and deployment.
+complete isolated preview. The separately authorized website publication is
+complete; all 465 public files match and the previous pointer was rehearsed
+without service changes. Owner gameplay/balance acceptance remains pending
+independently of automated verification and deployment.

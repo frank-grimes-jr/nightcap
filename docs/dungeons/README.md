@@ -166,7 +166,8 @@ items, schema and triggers. `concurrency-verification.json` executes concurrent
 real MariaDB sessions for allocation, the six-member cap, receipt rollback and
 reset versus entry. These tests use synthetic records in the isolated database.
 `wiki-review.md` records the whole-site assessment and the live-testing guide.
-Ten reviewed wiki source files are installed locally; publication is pending.
+Ten reviewed wiki source files are published in `20261016-dungeons-v1`;
+`wiki-publication/` records the 465-file origin/public verification and recovery.
 `verification.json` separates automated results from the still-open gameplay and
 owner acceptance gates; actual deployment is recorded separately under deployment/.
 `package-verification.json` records the original local package verification;
