@@ -1,5 +1,5 @@
 {
-  "status": "built_tested_not_deployed",
+  "status": "deployed_for_owner_gameplay_QA",
   "date": "2026-10-15",
   "branch": "fix/aa-temporary-buffs-20261015",
   "base_revision_reviewed": "1e3bf44897f8dbd32f026c9d37f69d6cd1c2e8b8",
@@ -23,7 +23,7 @@
   "limits": [
     "Fixture effects, packet transport and fade side effects are stubbed.",
     "Native countdown/expiry and suspension decisions execute; in-game behavior remains owner QA.",
-    "No production image, restart, SQL mutation, client publication or main promotion performed."
+    "Main promotion and zone-only OVH restart are verified in deployment.json. No SQL mutation or new client publication was required; owner gameplay QA remains pending."
   ],
   "source_sha256": {
     "server-mods/code/zone/spells.cpp": "b5181a274dbe390f1012bc5d8a296e151118fe5370f4dea32f55f4eca9131456",
@@ -46,12 +46,13 @@
       "checkout_crlf_sha256": "1b694f1ef9adb48023d24f0468ba5207ab9c9a806558dab99f0b497ce3725b9c"
     }
   },
-  "integrated_main_revision": "f1c9271f61723b9359d7fa1cb2b7cb2872f61e1e",
+  "integrated_main_revision": "7b0939b502d546a204738dbebda91b76560c1573",
   "deployment": {
     "status": "deployed_for_owner_gameplay_QA",
     "verified_at": "2026-10-16T09:38:53.992615+00:00",
     "receipt": "deployment.json",
     "native_sha256": "19cd3387952f21d1d1bcc18916e76a1d7738148de086849e3d3befe3a0df2ae1",
     "owner_gameplay_acceptance": "pending"
-  }
+  },
+  "deployment_date": "2026-10-16"
 }
