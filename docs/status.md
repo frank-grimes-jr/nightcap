@@ -16,7 +16,10 @@ client 2026101501 remains unchanged. The initial preflight DB memory-limit
 restart recovered before feature SQL; its cause and correction are recorded in
 [deployment evidence](dungeons/deployment/README.md). CT terrain/path validation,
 level-50 Vox/Nagafen balance and owner acceptance remain pending. Existing
-unmanaged instances retain their legacy behavior.
+unmanaged instances retain their legacy behavior. The public [Raid & Grind guide](https://wiki.nightcapgame.org/dungeon-modes.html)
+is published as `20261016-dungeons-v1`; all 465 public hashes and preservation
+checks pass. [Publication evidence](dungeons/wiki-publication/README.md) is
+separate from pending gameplay acceptance.
 
 ## Equipment race policy — deployed for live QA October 16
 

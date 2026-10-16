@@ -1,0 +1,15 @@
+{
+  "release": "20261016-dungeons-v1",
+  "previous_release": "20261016-features-v1",
+  "archive": "wiki-dungeons-20261016-v1.tar.gz",
+  "archive_sha256": "2e0d75b9eb9155a46bc4b94ee07d1aeb01e2e48252d60bfd3bb387c1172c70ee",
+  "archive_bytes": 2691975,
+  "files": 465,
+  "html_pages": 458,
+  "articles": 455,
+  "source_manifest": "source-manifest.json",
+  "gameplay_acceptance": "pending",
+  "python_content_refresh_tests": 14,
+  "node_search_equipment_tests": 13,
+  "linux_recovery_tests": 16
+}

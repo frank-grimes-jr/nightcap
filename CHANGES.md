@@ -1,5 +1,14 @@
 # CHANGES
 
+## 2026-10-16 - Raid and Grind player wiki published
+
+Publish the deployed dungeon guide and related Features, travel, reward and
+Recent changes updates as `20261016-dungeons-v1`. All 465 public file hashes,
+43 automated checks and browser navigation/search/responsive checks pass.
+The atomic update rehearsed rollback and preserved private downloads, player
+access and all five service identities. No game restart or client/cache change.
+Gameplay acceptance remains pending; see `docs/dungeons/wiki-publication/`.
+
 ## 2026-10-16 - Raid and Grind dungeons deployed for live QA
 
 Add fixed twelve-hour Raid/Grind runs to all seven existing dungeon Keepers,
