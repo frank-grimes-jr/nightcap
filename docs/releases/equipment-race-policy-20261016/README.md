@@ -1,6 +1,18 @@
 # Equipment race policy — October 16, 2026
 
-Status: **candidate; not merged or deployed; owner gameplay QA pending**.
+Status: **PR #204 merged and deployed October 16 under explicit owner approval;
+access open; owner gameplay QA pending**.
+
+Production image `581322f0…` uses loader `71dfdd18…`; all 12 zones retain the
+latest AA-duration hash `19cd3387…`, with zero candidate restarts/detected errors.
+The 309,410-definition cache changes exactly 90,852 race fields and preserves
+1,535 non-player definitions and every other cache byte. Closed-access checks
+preserved 47 player tables, 11 custom tables, raw content/rules, quests and
+supporting services. The current signed client 2026101501 and all 106 assets
+verify unchanged. A fresh full backup passed gzip/completeness checks; no SQL
+was restored or migrated. See `deployment.json` and `deployment/manifest.json`.
+These are rollout checks, not owner gameplay acceptance.
+
 The owner confirmed Forged Javelin works with signed client 2026101501, then
 reported Bronze Knuckles still failing. The screenshot shows the server's
 race/class/deity rejection and resynchronization from cursor 33 to primary 13.
@@ -84,16 +96,17 @@ Private character diagnostic details remain in the task workspace, outside Git.
 
 ## Rollout and rollback boundary
 
-No production writes, service restart, main merge or client publication were
-performed for this candidate. Obtain scoped owner approval for promotion and
-the server restart. The earlier client-publication approval covered a different
-release. Preserve the latest AA-duration zone `19cd3387…`, current world/login/
+The owner explicitly authorized push, main merge and deployment with server
+restart on October 16. PR #204 merged policy 5cea9cb and operator 11e1add as
+fd5e6e0. The loader-only rollout completed with the gateway held closed until
+cache, persistence and publication checks passed. No new client was published.
+Preserve the latest AA-duration zone `19cd3387…`, current world/login/
 UCS and signed client 2026101501; never replace them with older retained builds.
 
-Use the current staged activation/recovery procedure from
-`../aa-temporary-buffs-20261015/deployment/rollout.py`, scoped to shared_memory,
-with this release's full-cache checks. Pin a fresh baseline and complete
-manifest; hold deployment/GM locks, verify a fresh backup and retain the current
+`deployment/rollout.py` adapts the current AA-duration operator for shared_memory
+and this release's full-cache checks. All 37 recovery/pairing tests pass locally
+and on the host, and independent review found no remaining blockers. Pin a fresh
+baseline and complete manifest; hold deployment/GM locks, verify a fresh backup and retain the current
 immutable image. Close gateway, stop the whole game cleanly, snapshot player/
 custom checksums, replace only the loader in a layer on the current image, and
 let startup regenerate the item cache. Before reopening, verify all 12 zones,
