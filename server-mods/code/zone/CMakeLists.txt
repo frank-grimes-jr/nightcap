@@ -8,6 +8,7 @@ set(zone_sources
     advanced_loot_inventory.cpp
     advanced_loot_preferences.cpp
     advanced_loot_saved_state.cpp
+    dungeon_service.cpp
     aggro.cpp
     aggromanager.cpp
     api_service.cpp

@@ -5,6 +5,7 @@ import subprocess
 import tempfile
 import unittest
 from test_gameplay_policies import function
+from test_aa_temporary_buffs import AA_FIXTURE, policy_helpers
 from epic05 import load_catalog, spell_rows
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -13,18 +14,11 @@ ROOT = Path(__file__).resolve().parents[2]
 class Epic05Native(unittest.TestCase):
     def test_real_duration_policy_bounds_only_epic_effects(self):
         source = (ROOT / 'server-mods/code/zone/spells.cpp').read_text()
-        body = function(source, 'int32 Mob::GetBuffDurationForTarget(')
+        body = policy_helpers(source) + function(source, 'int32 Mob::GetBuffDurationForTarget(')
         body += '\n' + function(source, 'int CalcBuffDuration_formula(')
         header = (ROOT / 'server-mods/code/common/epic05.h').as_posix()
-        fixture = r'''
-#include <cstdint>
-#include <stdexcept>
-#include <iostream>
+        fixture = AA_FIXTURE + r'''
 #include "EPIC_HEADER"
-using uint16=uint16_t; using int32=int32_t;
-constexpr int PERMANENT_BUFF_DURATION=-1000;
-bool IsValidSpell(uint16 id) { return id > 0 && id < 45000; }
-bool IsBeneficialSpell(uint16 id) { return id != 2; }
 struct Mob {
  bool player=true, pet=false;
  bool IsClient() const { return player; }
@@ -36,6 +30,8 @@ void check(bool ok) { if (!ok) throw std::runtime_error("duration contract faile
         controls = r'''
 int main() {
  try {
+ rank(1, 60000); // Loaded catalog, unrelated to the ordinary blessing controls.
+ spells[2].good_effect = 0;
  Mob player, pet, npc; pet.player=false; pet.pet=true; npc.player=false;
  for (auto target : {player, pet}) {
   for (uint16 spell=42801; spell<=42805; ++spell) {

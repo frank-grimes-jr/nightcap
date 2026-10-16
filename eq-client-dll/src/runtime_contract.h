@@ -3,12 +3,12 @@
 #include <cstddef>
 #include <cstdint>
 namespace nightcap {
-enum RequiredFeature : size_t {Feature_caster_chassis,Feature_combat_ability_window,Feature_actions_skills,Feature_skill_value,Feature_hotbutton_skills,Feature_monk_attacks,Feature_equipment,Feature_mana_cache,Feature_mana_gauge,Feature_class_ui,Feature_pet_armor,Feature_auto_ui,Feature_multiclass_spell_access,Feature_classic_models,Feature_advanced_loot,Feature_merchant_sell_all};
-static const char* const kRequiredFeatures[] = {"caster_chassis","combat_ability_window","actions_skills","skill_value","hotbutton_skills","monk_attacks","equipment","mana_cache","mana_gauge","class_ui","pet_armor","auto_ui","multiclass_spell_access","classic_models","advanced_loot","merchant_sell_all"};
+enum RequiredFeature : size_t {Feature_caster_chassis,Feature_combat_ability_window,Feature_actions_skills,Feature_skill_value,Feature_hotbutton_skills,Feature_monk_attacks,Feature_equipment,Feature_mana_cache,Feature_mana_gauge,Feature_class_ui,Feature_pet_armor,Feature_auto_ui,Feature_multiclass_spell_access,Feature_classic_models,Feature_advanced_loot,Feature_merchant_sell_all,Feature_tradeskill_repeat};
+static const char* const kRequiredFeatures[] = {"caster_chassis","combat_ability_window","actions_skills","skill_value","hotbutton_skills","monk_attacks","equipment","mana_cache","mana_gauge","class_ui","pet_armor","auto_ui","multiclass_spell_access","classic_models","advanced_loot","merchant_sell_all","tradeskill_repeat"};
 static const size_t kRequiredFeatureCount = sizeof(kRequiredFeatures) / sizeof(kRequiredFeatures[0]);
 static const uint32_t kRequiredMask = (uint32_t(1) << kRequiredFeatureCount) - 1;
 static_assert(kRequiredFeatureCount > 0 && kRequiredFeatureCount < 32, "feature mask capacity");
-static const char kCatalogSHA256[] = "77769d45519921ad1cabdb28719bdcc85c32548d3f967b779f9ee3ff665fd047";
-static const char kProxyVersion[] = "0.8.3-dev";
+static const char kCatalogSHA256[] = "edd85fb8e9de69248048e099a578b7ff8f9e2daf8e30c496a43f8977d356184a";
+static const char kProxyVersion[] = "0.9.1-dev";
 static const unsigned kRuntimeSchema = 1;
 }

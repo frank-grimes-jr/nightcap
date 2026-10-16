@@ -1,0 +1,110 @@
+--- C:\Users\verre\.codex\skills\nightcap-development\references\balance.md
++++ C:\Users\verre\.codex\skills\nightcap-development\references\balance.md
+@@ -56,0 +57,30 @@
++## Class-rank audit — recommendation only, October 13
++
++`C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev/docs/audits/aa-class-ranks-20261013/README.md`
++replaces the blanket three-rank recommendation with 26 explicitly reviewed lines:
++Slay Undead has nine contiguous in-era ranks (60 points plus Combat Fury3),
++Master Wu5, and deeper pet/caster/healer/class progression. Target catalog394
++families/1051 ranks preserves all941 currently allowed identities and level1
++access. This is not deployed or encounter-validated; live policy remains above.
++
++Triple Backstab's native roll is behind DoubleBackstabLevelRequirement55,
++confirmed on OVH against global MaxLevel50. Rank9 is conditional on a scoped
++native activation repair and level1/50 regression, not just a policy edit.
++Slay also amplifies physical skill hits such as kicks; test PAL/MNK coupling.
++Poison Mastery's application-time effect is a retained native no-op. Pet crit,
++pet flurry, distinct double-attack and spell-critical lines stack across held
++classes; do not infer balance from one class or a rank count. Free knight-touch
++and Hunter's Attack Power ranks need explicit treatment. Three newly satisfiable
++burn/heal dependencies remain blocked in the target scenario; four passive
++families are intentionally restored. See dependency-unlocks.csv and review.md.
++
++THJ's indexed Monk documentation confirms rank5 and later Master Wu progression;
++its exact Slay cap was not verified. Do not substitute THJ combat rules, level
++autogrants or another emulator's AA database for Nightcap data. The generator
++checks current pool, prerequisite closure, identity preservation and level1;
++source-evidence.json pins six retained files to the live build manifest. The
++fresh AA/rule checks do not refresh the whole spell snapshot or prove fun.
++Implementation would require the Rogue source fix, generated policy/header,
++matching zone build/guarded runtime rollout and signed patch notes; no client
++binary change anticipated. Preserve saved purchases and test restored usability.
++
+--- C:\Users\verre\.codex\skills\nightcap-development\references\sources.json
++++ C:\Users\verre\.codex\skills\nightcap-development\references\sources.json
+@@ -21 +21,2 @@
+-    "tunnel_cozy_candidate_20261013": "953a88c48b269be52b5ae03f9dd5cbe637488325"
++    "tunnel_cozy_candidate_20261013": "953a88c48b269be52b5ae03f9dd5cbe637488325",
++    "aa_class_rank_audit_20261013": "b1bbb3f275f94ac0c4c1a5d922f5ed46dcc28a95"
+@@ -1652,0 +1654,70 @@
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
++        "path": "docs/audits/aa-class-ranks-20261013/README.md",
++        "role": "Undeployed 26-line rank recommendation, native Rogue blocker, THJ evidence limits and combined QA",
++        "revision": "b1bbb3f275f94ac0c4c1a5d922f5ed46dcc28a95",
++        "sha256": "963f41462a0a457ffe6181495e5860ab199aa14ec6654d85769928af532b97d4"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
++        "path": "docs/audits/aa-class-ranks-20261013/analyze.py",
++        "role": "Reviewed offline target policy closure, level1 and identity assertions, per-class coverage",
++        "revision": "b1bbb3f275f94ac0c4c1a5d922f5ed46dcc28a95",
++        "sha256": "01baeefc46d2a50f382914f6a20debb76cf8f49056ceef0e2f4189058da3168f"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
++        "path": "docs/audits/aa-class-ranks-20261013/candidate-policy.json",
++        "role": "Audit-only target catalog; insufficient without native Triple Backstab activation repair",
++        "revision": "b1bbb3f275f94ac0c4c1a5d922f5ed46dcc28a95",
++        "sha256": "483fa94e62c90d7b1c10c56ca025e75a1df26effd9f95d2cc8dd8397d4eb27c1"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
++        "path": "docs/audits/aa-class-ranks-20261013/summary.json",
++        "role": "Reproduced baseline and target counts with explicit implementation blocker",
++        "revision": "b1bbb3f275f94ac0c4c1a5d922f5ed46dcc28a95",
++        "sha256": "925889f837b81d42bfc155ab9dc49b34108ae450de14adb0453aa794de6adf79"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
++        "path": "docs/audits/aa-class-ranks-20261013/source-evidence.json",
++        "role": "Six retained native source hashes and reviewed effect/activation excerpts",
++        "revision": "b1bbb3f275f94ac0c4c1a5d922f5ed46dcc28a95",
++        "sha256": "263eb8be67aace02e3d750911ec3ce303f05a24887f87be25b34fb8d5a26d32b"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
++        "path": "docs/audits/aa-class-ranks-20261013/production-check.json",
++        "role": "Read-only OVH AA/runtime/rule check dated October13, not a deployment",
++        "revision": "b1bbb3f275f94ac0c4c1a5d922f5ed46dcc28a95",
++        "sha256": "40100fdde12047d0c364850f7f1afbcd8cc1d5bcfd1cb20ac1574741ff6b8cb7"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
++        "path": "docs/audits/aa-class-ranks-20261013/additional-rules.json",
++        "role": "Read-only native double-backstab rule55 and Master Wu rule evidence",
++        "revision": "b1bbb3f275f94ac0c4c1a5d922f5ed46dcc28a95",
++        "sha256": "1a92789f9e751cee7479fa75267c0b8efdbc52190b472f41407b6f4f0671b3e2"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
++        "path": "docs/audits/aa-class-ranks-20261013/recommended-caps.csv",
++        "role": "Exact class masks, rank endpoints, effects and point costs for 26 lines",
++        "revision": "b1bbb3f275f94ac0c4c1a5d922f5ed46dcc28a95",
++        "sha256": "088984bf50e7fd52e5cc8a6b8a3ef70b5180230479763df7d7a2980131fbdca1"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
++        "path": "docs/audits/aa-class-ranks-20261013/dependency-unlocks.csv",
++        "role": "Seven incidental unlocks; four included and three explicitly kept blocked",
++        "revision": "b1bbb3f275f94ac0c4c1a5d922f5ed46dcc28a95",
++        "sha256": "6cd4764a3f35041a450b9f3a3186ff69ae5ff547af1e621cc331818bf93f80c5"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
++        "path": "docs/audits/aa-class-ranks-20261013/review.md",
++        "role": "Independent review findings, source corrections and verification boundary",
++        "revision": "b1bbb3f275f94ac0c4c1a5d922f5ed46dcc28a95",
++        "sha256": "ea344cf13b5d25b0fb400e2d7ff4e871c25f3860af2557e228db2447dc1c3f66"

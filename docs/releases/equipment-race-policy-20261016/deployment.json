@@ -1,0 +1,197 @@
+{
+  "verified_utc": "2026-10-16T11:05:40.887146+00:00",
+  "status": "deployed_for_owner_gameplay_qa",
+  "source_commit": "5cea9cb4d9958a4ad9fe1e4a91dfdb74a3cbae4c",
+  "source_merge": "fd5e6e05c1b35eda0eb0de0252e37ec2d55ad107",
+  "pull_request": 204,
+  "authorization": {
+    "date": "2026-10-16",
+    "instruction": "Push, merge, and deploy with server restart",
+    "gameplay_acceptance": false
+  },
+  "old_image_id": "sha256:043d7168127782bf7c384329af85ff0679f02d0e7d6510b47096f047bc223b03",
+  "new_image_id": "sha256:581322f072922e95deb728600e7eceaa4cdff2b1ec93b87544d6a946f734b500",
+  "loader_sha256": "71dfdd18d12fba844bcc222c54125c621a3c5e895a61ef3ae258ecc3dfbbb5c8",
+  "base_binaries": {
+    "world": "efd54a1023a569274a76f65d3d2a18a173906762472a1bce186e3e14629d3c18",
+    "zone": "19cd3387952f21d1d1bcc18916e76a1d7738148de086849e3d3befe3a0df2ae1",
+    "ucs": "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714",
+    "loginserver": "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf",
+    "shared_memory": "139194a9e2f2f3384a9831670c91787a99049526168b206dafb886c7fe8a5c86"
+  },
+  "runtime": {
+    "image_id": "sha256:581322f072922e95deb728600e7eceaa4cdff2b1ec93b87544d6a946f734b500",
+    "started_at": "2026-10-16T11:00:49.038107634Z",
+    "restart_count": 0,
+    "processes": [
+      [
+        "loginserver",
+        "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf"
+      ],
+      [
+        "world",
+        "efd54a1023a569274a76f65d3d2a18a173906762472a1bce186e3e14629d3c18"
+      ],
+      [
+        "ucs",
+        "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714"
+      ],
+      [
+        "zone",
+        "19cd3387952f21d1d1bcc18916e76a1d7738148de086849e3d3befe3a0df2ae1"
+      ],
+      [
+        "zone",
+        "19cd3387952f21d1d1bcc18916e76a1d7738148de086849e3d3befe3a0df2ae1"
+      ],
+      [
+        "zone",
+        "19cd3387952f21d1d1bcc18916e76a1d7738148de086849e3d3befe3a0df2ae1"
+      ],
+      [
+        "zone",
+        "19cd3387952f21d1d1bcc18916e76a1d7738148de086849e3d3befe3a0df2ae1"
+      ],
+      [
+        "zone",
+        "19cd3387952f21d1d1bcc18916e76a1d7738148de086849e3d3befe3a0df2ae1"
+      ],
+      [
+        "zone",
+        "19cd3387952f21d1d1bcc18916e76a1d7738148de086849e3d3befe3a0df2ae1"
+      ],
+      [
+        "zone",
+        "19cd3387952f21d1d1bcc18916e76a1d7738148de086849e3d3befe3a0df2ae1"
+      ],
+      [
+        "zone",
+        "19cd3387952f21d1d1bcc18916e76a1d7738148de086849e3d3befe3a0df2ae1"
+      ],
+      [
+        "zone",
+        "19cd3387952f21d1d1bcc18916e76a1d7738148de086849e3d3befe3a0df2ae1"
+      ],
+      [
+        "zone",
+        "19cd3387952f21d1d1bcc18916e76a1d7738148de086849e3d3befe3a0df2ae1"
+      ],
+      [
+        "zone",
+        "19cd3387952f21d1d1bcc18916e76a1d7738148de086849e3d3befe3a0df2ae1"
+      ],
+      [
+        "zone",
+        "19cd3387952f21d1d1bcc18916e76a1d7738148de086849e3d3befe3a0df2ae1"
+      ]
+    ],
+    "errors": {
+      "native": 0,
+      "quest": 0,
+      "database": 0
+    }
+  },
+  "gateway_open": true,
+  "player_tables_preserved": 47,
+  "custom_tables_preserved": 11,
+  "database_restored": false,
+  "backup": {
+    "path": "/opt/nightcap/releases/equipment-race-policy-20261016/private-backup/peq-before.sql.gz",
+    "sha256": "c92e2c5718452c81d5f23056ce2183051bb76d7f4ac33b431c4d51c7f2cf0e51",
+    "compressed_bytes": 63617036,
+    "uncompressed_bytes": 453684867,
+    "gzip_integrity": "passed"
+  },
+  "old_cache": {
+    "items_checked": 309410,
+    "projected_definitions": 90852,
+    "nonplayer_definitions_preserved": 1535,
+    "race_policy_enabled": false,
+    "preserved_fields_sha256": "4427f4128ecf58d88c60bc7a18a518e61be53c15f5e8e82d314983efa07c7503",
+    "cache_sha256": "88df116ffc7a40946d03003cec1f0bb7fbaa320b73c8e9c800b4f7e60657a1fe"
+  },
+  "new_cache": {
+    "items_checked": 309410,
+    "projected_definitions": 90852,
+    "nonplayer_definitions_preserved": 1535,
+    "race_policy_enabled": true,
+    "preserved_fields_sha256": "4427f4128ecf58d88c60bc7a18a518e61be53c15f5e8e82d314983efa07c7503",
+    "cache_sha256": "069ddc9f83b2fc9fe2539dd70f392e7c612fc8b5d2f4c1d6c0af1e42aaa73ea2"
+  },
+  "all_other_cache_bytes_preserved": true,
+  "publication": {
+    "release": 2026101501,
+    "channel_sha256": "8212a46460273a640e807da0df7c9322c8d1ce6adf912ee419dde65083b4beab",
+    "verified_files": 106
+  },
+  "samples": {
+    "30981": {
+      "Classes": 16448,
+      "Races": 65535,
+      "Slots": 8192
+    },
+    "230981": {
+      "Classes": 16448,
+      "Races": 65535,
+      "Slots": 8192
+    },
+    "430981": {
+      "Classes": 16448,
+      "Races": 65535,
+      "Slots": 8192
+    },
+    "630981": {
+      "Classes": 16448,
+      "Races": 65535,
+      "Slots": 8192
+    },
+    "1348": {
+      "Classes": 349,
+      "Races": 0,
+      "Slots": 8
+    },
+    "5100": {
+      "Classes": 1,
+      "Races": 0,
+      "Slots": 8192
+    }
+  },
+  "operator_tests": 37,
+  "supporting_services_before": {
+    "db": {
+      "id": "5c34a0594d5015209f7667d4421c00ef492b80298842829b2edb69c69449d96f",
+      "image_id": "sha256:7f22313fc130a377a44999965bcb0a08dd5b21e8502824c1b864f792f9bc66ab",
+      "started_at": "2026-09-20T17:47:54.935680589Z",
+      "restarts": 0,
+      "running": true,
+      "health": "healthy",
+      "oom_killed": false
+    },
+    "web": {
+      "id": "d8fb0c7da13aea642ae505b0c8bed74b529107185d43dbf35406f6b025d4d71d",
+      "image_id": "sha256:7377697a821c131a924a7105fafbe7414db4e9fcc77a6f08f776f33f141ec3f8",
+      "started_at": "2026-09-20T17:47:54.765116169Z",
+      "restarts": 0,
+      "running": true,
+      "health": null,
+      "oom_killed": false
+    },
+    "tunnel": {
+      "id": "30b1d25ff56bffa77a5b05d1b3d2f6c37b8a87dc05ef098721b6be6555235aac",
+      "image_id": "sha256:ff69a2225ad7c6f85ed84fbd5f3087df46202426b2388ec60214098e0adf05e9",
+      "started_at": "2026-09-20T17:53:43.445441644Z",
+      "restarts": 0,
+      "running": true,
+      "health": null,
+      "oom_killed": false
+    }
+  },
+  "evidence_sha256": {
+    "stopped-data.json": "2d54a1436d1e634cac39f5212d897003525d4b2178292647d0a9920c56b934b3",
+    "opening.json": "91db48425dbc9c13b6c893751df4e91bdb8e462435f06159706ef5f9fef3454a",
+    "activated-closed.json": "d455b31debcab130d780382839cda0696034d5851358b826cb3b6869b224b68b",
+    "preflight.json": "599dc5dc1484edd093aba211fe2eca71feff0ec3e65f064f9a82890a86b31969",
+    "activated.json": "4f1270c688b422c1ed88baace304880522b13787afb635e7856e53f82bc5e364",
+    "activation-started.json": "cc6c54ef246fb997eb94b093e946c4ad101efed6a7d4db270009a9683baca241"
+  }
+}

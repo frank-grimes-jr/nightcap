@@ -1,0 +1,129 @@
+{
+  "changed_rows": 1,
+  "rule": "AA:PassiveExpPercent",
+  "value": "20",
+  "previous_value": "40",
+  "ruleset_id": 1,
+  "binaries": {
+    "world": "efd54a1023a569274a76f65d3d2a18a173906762472a1bce186e3e14629d3c18",
+    "zone": "5dfe3d8a944a29ac963644298eb7a1563a08748ae72ae210edd78268ea106681"
+  },
+  "activated_utc": "2026-10-13T15:19:29Z",
+  "other_rules_unchanged": true,
+  "rollback_rehearsed": true,
+  "backup_sha256": "2e2bb03d2537a068e35e9a516f1888f9effd439b423e2fed1f8c648f64184c11",
+  "backup_directory": "/opt/nightcap/backups/passive-aa-twenty-20261013",
+  "backup_uncompressed_bytes": 451976632,
+  "status": "activated_verified",
+  "reload": {
+    "reload": "Rules",
+    "global": true,
+    "world_broadcast_received": true
+  },
+  "reload_logs": {
+    "27": [
+      "[10-13-2026 10:19:30] [World] [Info] Sending reload to all zones for type [Rules]",
+      "[10-13-2026 10:19:30] [World] [Info] Loaded [1,008] rules(s) in rule_set [default] id [1]"
+    ],
+    "29": [
+      "[10-13-2026 10:19:30] [Zone] [Info] Queuing reload for [Rules] (24) to reload in [1 Second]",
+      "[10-13-2026 10:19:32] [Zone] [Info] Reloading [Rules] (24) zone booted required [false]",
+      "[10-13-2026 10:19:32] [Zone] [Info] Loaded [1,008] rules(s) in rule_set [default] id [1]",
+      "[10-13-2026 10:19:32] [Zone] [Info] Reloaded [Rules] (24)"
+    ],
+    "32": [
+      "[10-13-2026 10:19:30] [Zone] [Info] Queuing reload for [Rules] (24) to reload in [1 Second]",
+      "[10-13-2026 10:19:32] [Zone] [Info] Reloading [Rules] (24) zone booted required [false]",
+      "[10-13-2026 10:19:32] [Zone] [Info] Loaded [1,008] rules(s) in rule_set [default] id [1]",
+      "[10-13-2026 10:19:32] [Zone] [Info] Reloaded [Rules] (24)"
+    ],
+    "35": [
+      "[10-13-2026 10:19:30] [Zone] [Info] Queuing reload for [Rules] (24) to reload in [1 Second]",
+      "[10-13-2026 10:19:32] [Zone] [Info] Reloading [Rules] (24) zone booted required [false]",
+      "[10-13-2026 10:19:32] [Zone] [Info] Loaded [1,008] rules(s) in rule_set [default] id [1]",
+      "[10-13-2026 10:19:32] [Zone] [Info] Reloaded [Rules] (24)"
+    ],
+    "36": [
+      "[10-13-2026 10:19:30] [Zone] [Info] Queuing reload for [Rules] (24) to reload in [1 Second]",
+      "[10-13-2026 10:19:32] [Zone] [Info] Reloading [Rules] (24) zone booted required [false]",
+      "[10-13-2026 10:19:32] [Zone] [Info] Loaded [1,008] rules(s) in rule_set [default] id [1]",
+      "[10-13-2026 10:19:32] [Zone] [Info] Reloaded [Rules] (24)"
+    ],
+    "37": [
+      "[10-13-2026 10:19:30] [Zone] [Info] Queuing reload for [Rules] (24) to reload in [2 Seconds]",
+      "[10-13-2026 10:19:33] [Zone] [Info] Reloading [Rules] (24) zone booted required [false]",
+      "[10-13-2026 10:19:33] [Zone] [Info] Loaded [1,008] rules(s) in rule_set [default] id [1]",
+      "[10-13-2026 10:19:33] [Zone] [Info] Reloaded [Rules] (24)"
+    ],
+    "38": [
+      "[10-13-2026 10:19:30] [Zone] [Info] Queuing reload for [Rules] (24) to reload in [1 Second]",
+      "[10-13-2026 10:19:32] [Zone] [Info] Reloading [Rules] (24) zone booted required [false]",
+      "[10-13-2026 10:19:32] [Zone] [Info] Loaded [1,008] rules(s) in rule_set [default] id [1]",
+      "[10-13-2026 10:19:32] [Zone] [Info] Reloaded [Rules] (24)"
+    ],
+    "39": [
+      "[10-13-2026 10:19:30] [Zone] [Info] Queuing reload for [Rules] (24) to reload in [1 Second]",
+      "[10-13-2026 10:19:32] [Zone] [Info] Reloading [Rules] (24) zone booted required [false]",
+      "[10-13-2026 10:19:32] [Zone] [Info] Loaded [1,008] rules(s) in rule_set [default] id [1]",
+      "[10-13-2026 10:19:32] [Zone] [Info] Reloaded [Rules] (24)"
+    ],
+    "40": [
+      "[10-13-2026 10:19:30] [Zone] [Info] Queuing reload for [Rules] (24) to reload in [1 Second]",
+      "[10-13-2026 10:19:32] [Zone] [Info] Reloading [Rules] (24) zone booted required [false]",
+      "[10-13-2026 10:19:32] [Zone] [Info] Loaded [1,008] rules(s) in rule_set [default] id [1]",
+      "[10-13-2026 10:19:32] [Zone] [Info] Reloaded [Rules] (24)"
+    ],
+    "41": [
+      "[10-13-2026 10:19:30] [Zone] [Info] Queuing reload for [Rules] (24) to reload in [1 Second]",
+      "[10-13-2026 10:19:32] [Zone] [Info] Reloading [Rules] (24) zone booted required [false]",
+      "[10-13-2026 10:19:32] [Zone] [Info] Loaded [1,008] rules(s) in rule_set [default] id [1]",
+      "[10-13-2026 10:19:32] [Zone] [Info] Reloaded [Rules] (24)"
+    ],
+    "42": [
+      "[10-13-2026 10:19:30] [Zone] [Info] Queuing reload for [Rules] (24) to reload in [1 Second]",
+      "[10-13-2026 10:19:32] [Zone] [Info] Reloading [Rules] (24) zone booted required [false]",
+      "[10-13-2026 10:19:32] [Zone] [Info] Loaded [1,008] rules(s) in rule_set [default] id [1]",
+      "[10-13-2026 10:19:32] [Zone] [Info] Reloaded [Rules] (24)"
+    ],
+    "43": [
+      "[10-13-2026 10:19:30] [Zone] [Info] Queuing reload for [Rules] (24) to reload in [2 Seconds]",
+      "[10-13-2026 10:19:33] [Zone] [Info] Reloading [Rules] (24) zone booted required [false]",
+      "[10-13-2026 10:19:33] [Zone] [Info] Loaded [1,008] rules(s) in rule_set [default] id [1]",
+      "[10-13-2026 10:19:33] [Zone] [Info] Reloaded [Rules] (24)"
+    ],
+    "44": [
+      "[10-13-2026 10:19:30] [Zone] [Info] Queuing reload for [Rules] (24) to reload in [1 Second]",
+      "[10-13-2026 10:19:32] [Zone] [Info] Reloading [Rules] (24) zone booted required [false]",
+      "[10-13-2026 10:19:32] [Zone] [Info] Loaded [1,008] rules(s) in rule_set [default] id [1]",
+      "[10-13-2026 10:19:32] [Zone] [Info] Reloaded [Rules] (24)"
+    ]
+  },
+  "processes_unchanged": true,
+  "services": [
+    {
+      "Service": "db",
+      "State": "running",
+      "Health": "healthy"
+    },
+    {
+      "Service": "game",
+      "State": "running",
+      "Health": "healthy"
+    },
+    {
+      "Service": "gateway",
+      "State": "running",
+      "Health": ""
+    },
+    {
+      "Service": "tunnel",
+      "State": "running",
+      "Health": ""
+    },
+    {
+      "Service": "web",
+      "State": "running",
+      "Health": ""
+    }
+  ]
+}

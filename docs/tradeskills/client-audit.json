@@ -1,0 +1,24 @@
+{
+  "status": "staged_not_signed_or_installed",
+  "kind": "delta_not_full_game_inventory",
+  "proxy_version": "0.9.0-dev",
+  "exact_client_sha256": "2a8702ad9f722704f01355c0750be7d6f164a8b9c9128ba0cf286ea32b405b0e",
+  "files": {
+    "dinput8.dll": {
+      "size": 605184,
+      "sha256": "3842befd8c65f916585a9a24c376578e9f7d4c5e3337c94d97db7df55a4abfe4"
+    },
+    "nightcap-patches.cfg": {
+      "size": 317,
+      "sha256": "6748710559867a81dd7bb218b2a0e0c3e48a85cc39a7593225e55f7dfdab0771"
+    },
+    "nightcap-patch-sites.json": {
+      "size": 8553,
+      "sha256": "42a3f2499199264a3f7bc2d743d2c56e5df8db8d86c3ce9fa8a94b373584aa89"
+    },
+    "uifiles/nightcap/equi_tradeskillwnd.xml": {
+      "size": 29541,
+      "sha256": "cb082e5e2de63c86a240ba093a1f211a03aae7dde27812080b6cc159ab9e1b82"
+    }
+  }
+}

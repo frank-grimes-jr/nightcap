@@ -1,5 +1,178 @@
 # CHANGES
 
+## 2026-10-16 - Raid and Grind dungeon candidate
+
+Add fixed twelve-hour Raid/Grind runs to all seven existing dungeon Keepers,
+with authoritative per-character boss credit, Tasks display, permanent completion
+counts and receipt-backed rewards. Raid scales HP/damage, unlocks the final boss
+after minibosses and permanently records defeated spawns; Grind preserves native
+timers and permits missed-boss catch-up. Run UUIDs, finalized corpse envelopes,
+respawn deadlines and immutable reward identities survive restart and native-ID
+reuse. Earned claims survive reset/expiry; reset rejects players, pending entries
+and recoverable player corpses.
+
+The explicit Classic catalog has 52 objectives and 330 new items: 24 shared
+designs at four bands/three qualities, plus three exclusive Raid designs per
+dungeon. Private Cazic-Thule restores 188 pinned Classic spawn points without
+changing public populations. Guarded SQL starts disabled; deployment requires
+matching native binaries/cache/quests. Isolated database, concurrency, native
+policy/credit and receipt-adapter checks are recorded in `docs/dungeons/`.
+The candidate preserves the separately deployed AA catalog and authentication-log
+redaction when reconciling main/dev/retained source. Full in-game and level-50
+Vox/Nagafen acceptance remain pending. No production promotion or restart.
+See `docs/dungeons/README.md` and `docs/dungeons/QA.md`.
+
+## 2026-10-16 - Equipment race policy deployed for live QA
+
+Bronze Knuckles matched Palwar's Monk class but excluded Half Elf. Apply the
+owner's class-match/any-race policy to effective wearable/augment definitions,
+preserving non-player masks and all other equipment restrictions. PR #204 is
+merged and the authorized loader-only restart is complete. All 12 zones retain
+the latest AA-duration fix; signed client 2026101501 is unchanged. Production
+checks cover 309,410 definitions: 90,852 race fields change, 1,535 non-player
+definitions and every other cache byte remain unchanged. Preserve 47 player /
+11 custom tables, content, rules, quests and services; no SQL migration/restore.
+All 78 native checks, retained loader/cache rollback and 37 operator controls pass.
+Access is open with zero candidate restarts/detected errors; owner gameplay QA
+remains pending. See `docs/releases/equipment-race-policy-20261016/README.md`.
+
+## 2026-10-15 - Multiclass equipment and item colors published for live QA
+
+Fix ordinary equipment cursor placement using only the primary class and item
+inspection treating every class as eligible. Client proxy 0.9.1-dev projects only
+currently held classes, preserves native restrictions and canonical scroll
+ownership, and covers the separate direct inspection path. Forged Javelin is
+legal for Paladin/Warrior/Monk; production definitions require no change.
+37 exact-client checks, 4,096 scope combinations, full x86 builds, seven runtime
+groups and 95 catalog guards pass. PR #202 is merged; signed client 2026101501
+verifies all 106 hosted assets and preserves 104 unchanged assets. Thirteen
+publisher recovery tests pass; server services remain unchanged. Launcher
+installation and owner gameplay QA remain pending; no server/data change. See
+`docs/releases/multiclass-equipment-20261015/README.md`.
+
+## 2026-10-16 - Keep temporary AA buffs temporary (deployed for live QA)
+
+Corrected the blanket player/pet permanence policy so activated AA spells,
+passive on-kill buffs such as Killing Spree, and recursive AA proc/recourse
+effects retain native timers. Disciplines and short-box effects retain timers
+too. Ordinary blessings remain permanent. Spell links follow native effect
+operands; cycles terminate and AA/spell reloads cannot leave stale classification.
+An unavailable/empty catalog conservatively withholds permanence.
+
+Affected finite-formula buffs previously saved as -1000/-1 receive one remaining
+native tick on player/pet restoration; positive remaining durations, charges and
+native permanent/aura formulas are retained. No SQL, ownership, costs, proc
+chances or client assets change. Native regression tests reproduce the old
+failure and verify the candidate. All 30 focused checks, full retained-zone build
+and read-only production content check pass. Owner-authorized main/OVH rollout
+passed 33 recovery controls, verified backup and preservation checks. All 12 zones
+run the new hash with zero restarts/detected errors; access is open. Current
+client 2026101501 and all 106 assets are preserved. Owner gameplay QA remains
+open. See
+`docs/releases/aa-temporary-buffs-20261015/README.md`.
+
+## 2026-10-13 - Stacked tradeskills and Craft All deployed for live QA
+
+Ordinary experimental combines accept material stacks, consume exact recipe
+quantities and retain leftovers in portable bags and world stations. The recipe
+browser gains Craft One, Craft All and Stop; repetition uses native inventory
+materials and waits for each completed attempt before placing output and crafting
+again. Exhaustion, invalid context, full inventory or missing acknowledgement
+ends the run without replay. Native success, failure, salvage and skill gains
+remain. Server validation checks real containers, character requirements and
+fresh inputs after quest callbacks. Reforging Box/molds/augmentation retain their
+separate behavior; container-consuming recipes require exact Experiment inputs.
+
+Isolated zone and proxy builds, 25 server test groups, six runtime groups, 11
+asset tests, 94 exact-client catalog guards and launcher preflight/manifest tests
+pass. Independent review corrected world-station representation and unsent-client
+rejection handling. Owner-authorized PR #200 merged to main and deployed with
+signed game release 2026101304 / proxy0.9.0-dev. Fresh full backup, 31 native
+operator tests, 13 publication tests and independent stage review passed. All 12
+zones and 106 hosted signed assets verify; 47 player / 11 custom tables and
+unrelated runtime/client state were preserved. Access is open; close EQ and use
+launcher Play. Native gameplay acceptance remains pending. Full provenance,
+recovery and exact owner QA: `docs/tradeskills/README.md`.
+
+## 2026-10-13 - Unrest entrance waypoint deployed
+
+Diagnosed the Unrest eye as the entrance Instance Keeper while the portal and
+recall destination were about 921 units away. Deployed guarded forward/inverse
+SQL to align both at `/loc -38,52,3`, preserving discoveries and all unrelated
+state. Matching base-zone saved marker poses move with it; existing private
+instance state is retained. Owner-approved PR #198 is live: 68 local checks,
+independent review, full stopped-backup restore/forward/inverse rehearsal and
+closed-access preservation checks pass. All 12 zones are healthy and access is
+open. Owner in-game acceptance remains pending; no client update or native build.
+Runbook and production receipt: `docs/ops/unrest-waypoint-20261013/README.md`.
+
+## 2026-10-13 - Ascended divine summons and zero resale
+
+Confirmed Paladin/Cleric item-summoning hammers already select their existing
+Ascended variants. Added native regression coverage and an item-loader policy
+that removes both merchant price and FreeTrade's former-NO-DROP fixed payout
+from all 44 definitions in the eleven hammer families. This closes an unlimited
+summon-to-platinum path while preserving raw SQL, combat stats, spell access,
+procs, bane damage and temporary lifetime. Ascended summons have no box/forge
+successor; the audited definitions have no tradeskill recipes. Ordinary merchant
+packets may discard a hammer for zero coin; `#sellall` retains it.
+PR #197 merged and deployed on OVH. Only the shared-memory loader changed;
+the existing runtime/client pairing remains. All 309,410 cached definitions were
+verified, preserving every byte outside the 88 owned price fields. Native
+forward/rollback rehearsal passed. Preserved 47 player / 11 custom tables;
+all 12 zones healthy with player access reopened. No client download or SQL
+migration. Production evidence and exact pending in-game balance QA:
+`docs/releases/divine-summons-20261013/README.md`.
+
+## 2026-10-13 - Passive AA reduced to 20%
+
+Reduced OVH `AA:PassiveExpPercent` from 40 to 20 after the owner reported four
+AA from a blue skeleton on Palwar in Befallen. This halves passive AA awards
+before rounding while retaining full normal XP, full focused AA, 4,000 XP per
+point and all existing progress. The owner approved direct main/server delivery.
+129 native checks and nine recovery tests pass; independent review found no
+blockers. Fresh full backup, guarded forward/inverse rehearsal and global rules
+reload verified world/all 12 zones with unchanged processes. No restart or
+client update. Gameplay/balance QA remains pending. Evidence and recovery:
+`docs/ops/passive-aa-twenty-20261013/README.md`.
+
+## 2026-10-13 - Relaxed tradeskill workshop deployed
+
+Deployed staggered East Commonlands crafting groups, six repositioned stations,
+and a small native fire/barrel/lantern. The Chronicler, bag merchant and reagent
+vendor now sit beside the existing buffers. Exact preimage guards and scoped
+saved-state handling preserve gameplay, merchants, other services and player data.
+Nine layout tests, thirteen operator tests, eleven local SQL checks, native
+geometry checks and a fresh full-backup forward/rollback rehearsal pass.
+The first rehearsal caught SQL-dump FLOAT rounding before live writes; the
+backup's precision companion restores exact coordinates only in isolation.
+The current runtime/client release is preserved. Owner visual acceptance remains
+pending. See `docs/releases/tunnel-cozy-20261013/README.md`.
+
+## 2026-10-13 — Expanded class AA ranks and Triple Backstab
+
+Implements the 26 reviewed lines: 394 families/1,051 ranks, including Slay Undead9,
+Master Wu5 and Triple Backstab9. Every allowed rank is available at level1; all
+previous legal ranks, purchases, charges, costs and prerequisites are preserved.
+Clients with an earned Triple Backstab AA can use it below55, retaining native
+double-attack, weapon and positioning checks. No global rule or catalog changes.
+Native/policy and guarded recovery checks pass. Deployed on all 12 OVH zones
+for owner QA, preserving 47 player and 11 custom tables. Signed notes 2026101303
+are published; the production signature and all 105 hosted files verify.
+Gameplay acceptance is pending.
+[Release, recovery and exact QA](docs/releases/aa-class-ranks-20261013/README.md).
+
+## 2026-10-13 — Class AA rank-depth re-audit (recommendation only)
+
+Slay Undead has nine contiguous Buried Sea-era ranks; the one-rank cap was our
+policy choice. Audited 188 truncated/blocked families and proposed 26 class and
+shared lines totaling 110 additional ranks, all available at level 1. Identified
+prerequisite side effects, pet/critical stacking, free-rank outliers and a live
+level-55 native activation blocker for Triple Backstab under the level-50 cap.
+THJ's documented Master Wu progression supports broader class depth, but its
+exact Slay ceiling was not verified. No gameplay or live policy changed; native
+activation repair and encounter QA remain required. [Audit and exact candidates](docs/audits/aa-class-ranks-20261013/README.md).
+
 ## 2026-10-13 — AA level-1 access correction
 
 Removed the rejected character-level gates from every allowed Buried Sea AA rank. The 390-family/941-rank legal pool, release ceilings and existing purchases remain intact. Offers, purchases, use and default grants open at creation. Added regressions and the missing launcher notes. [Release and exact QA](docs/releases/aa-tbs-level1-20261013/README.md). Deployed on OVH; all 12 zones and 239 ownership rows verified. Signed launcher notes 2026101302 published. Owner acceptance remains pending.

@@ -2,6 +2,13 @@
 
 Date: 2026-09-15. Status: candidate; in-game acceptance pending.
 
+October 15 update: the all-class bypass below is superseded by the
+[held-class correction](../releases/multiclass-equipment-20261015/README.md).
+Native CanEquipItem also drives inspection colors, so the scoped accessor now
+projects only currently held classes. Cursor placement and direct inspection
+share this policy while keeping canonical scroll handling. Item/thread scope
+and native non-class checks remain. This update is a tested, unpublished candidate.
+
 RoF2 blocks off-base equipment before the server held-class check sees a move.
 Globally widening item Classes alters other consumers; replacing the whole
 CanUseItem result skips native restrictions.

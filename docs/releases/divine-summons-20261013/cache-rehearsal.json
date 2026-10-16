@@ -1,0 +1,27 @@
+{
+  "status": "passed",
+  "scope": "Disposable local content, real old/new/rollback loaders; not production acceptance",
+  "passes": [
+    {
+      "items_checked": 308928,
+      "weapons_checked": 44,
+      "zero_resale": false,
+      "preserved_fields_sha256": "e00dd0469b0d8f8c246d967e24b7885e80d8eb9c286a955736eb31413de3c3ef",
+      "cache_sha256": "c869aa80e5ef8a956bd1cf4f7a89742de4f31b34703e4f8ce4b8693c699bae81"
+    },
+    {
+      "items_checked": 308928,
+      "weapons_checked": 44,
+      "zero_resale": true,
+      "preserved_fields_sha256": "e00dd0469b0d8f8c246d967e24b7885e80d8eb9c286a955736eb31413de3c3ef",
+      "cache_sha256": "964f3df9797a39791ea2bd5c485170c3b685f7aaebd83cb171c71d386cd8f00f"
+    },
+    {
+      "items_checked": 308928,
+      "weapons_checked": 44,
+      "zero_resale": false,
+      "preserved_fields_sha256": "e00dd0469b0d8f8c246d967e24b7885e80d8eb9c286a955736eb31413de3c3ef",
+      "cache_sha256": "c869aa80e5ef8a956bd1cf4f7a89742de4f31b34703e4f8ce4b8693c699bae81"
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "status": "healthy",
+  "runtime": {
+    "image_id": "sha256:581322f072922e95deb728600e7eceaa4cdff2b1ec93b87544d6a946f734b500",
+    "started_at": "2026-10-16T11:00:49.038107634Z",
+    "restart_count": 0,
+    "processes": [
+      [
+        "loginserver",
+        "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf"
+      ],
+      [
+        "world",
+        "efd54a1023a569274a76f65d3d2a18a173906762472a1bce186e3e14629d3c18"
+      ],
+      [
+        "ucs",
+        "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714"
+      ],
+      [
+        "zone",
+        "19cd3387952f21d1d1bcc18916e76a1d7738148de086849e3d3befe3a0df2ae1"
+      ],
+      [
+        "zone",
+        "19cd3387952f21d1d1bcc18916e76a1d7738148de086849e3d3befe3a0df2ae1"
+      ],
+      [
+        "zone",
+        "19cd3387952f21d1d1bcc18916e76a1d7738148de086849e3d3befe3a0df2ae1"
+      ],
+      [
+        "zone",
+        "19cd3387952f21d1d1bcc18916e76a1d7738148de086849e3d3befe3a0df2ae1"
+      ],
+      [
+        "zone",
+        "19cd3387952f21d1d1bcc18916e76a1d7738148de086849e3d3befe3a0df2ae1"
+      ],
+      [
+        "zone",
+        "19cd3387952f21d1d1bcc18916e76a1d7738148de086849e3d3befe3a0df2ae1"
+      ],
+      [
+        "zone",
+        "19cd3387952f21d1d1bcc18916e76a1d7738148de086849e3d3befe3a0df2ae1"
+      ],
+      [
+        "zone",
+        "19cd3387952f21d1d1bcc18916e76a1d7738148de086849e3d3befe3a0df2ae1"
+      ],
+      [
+        "zone",
+        "19cd3387952f21d1d1bcc18916e76a1d7738148de086849e3d3befe3a0df2ae1"
+      ],
+      [
+        "zone",
+        "19cd3387952f21d1d1bcc18916e76a1d7738148de086849e3d3befe3a0df2ae1"
+      ],
+      [
+        "zone",
+        "19cd3387952f21d1d1bcc18916e76a1d7738148de086849e3d3befe3a0df2ae1"
+      ],
+      [
+        "zone",
+        "19cd3387952f21d1d1bcc18916e76a1d7738148de086849e3d3befe3a0df2ae1"
+      ]
+    ],
+    "errors": {
+      "native": 0,
+      "quest": 0,
+      "database": 0
+    }
+  },
+  "gateway_open": true,
+  "database_restored": false,
+  "player_tables_preserved": 47,
+  "custom_tables_preserved": 11,
+  "publication": {
+    "release": 2026101501,
+    "channel_sha256": "8212a46460273a640e807da0df7c9322c8d1ce6adf912ee419dde65083b4beab",
+    "verified_files": 106
+  },
+  "cache": {
+    "items_checked": 309410,
+    "projected_definitions": 90852,
+    "nonplayer_definitions_preserved": 1535,
+    "race_policy_enabled": true,
+    "preserved_fields_sha256": "4427f4128ecf58d88c60bc7a18a518e61be53c15f5e8e82d314983efa07c7503",
+    "cache_sha256": "069ddc9f83b2fc9fe2539dd70f392e7c612fc8b5d2f4c1d6c0af1e42aaa73ea2"
+  }
+}

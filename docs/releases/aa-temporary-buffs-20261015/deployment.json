@@ -1,0 +1,136 @@
+{
+  "verified_at": "2026-10-16T09:38:53.992615+00:00",
+  "status": "deployed_for_owner_gameplay_QA",
+  "authorization": {
+    "date": "2026-10-16",
+    "instruction": "Push to main and server",
+    "gameplay_acceptance": false
+  },
+  "source_commit": "248bf5c5efc92c40c53a1a8eb06ccc14b4ebda8c",
+  "old_image_id": "sha256:051efd289c2928097368a40c1ce91c3bdf953170eec620bdc36e9ca82c89a769",
+  "new_image_id": "sha256:043d7168127782bf7c384329af85ff0679f02d0e7d6510b47096f047bc223b03",
+  "baseline_restarts": 2,
+  "zone_sha256": "19cd3387952f21d1d1bcc18916e76a1d7738148de086849e3d3befe3a0df2ae1",
+  "base_binaries": {
+    "world": "efd54a1023a569274a76f65d3d2a18a173906762472a1bce186e3e14629d3c18",
+    "zone": "6317ba70619dbb0d012ec9f58a4a91a096374af0b20d411eccb44fc6ac20fbf3",
+    "ucs": "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714",
+    "loginserver": "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf",
+    "shared_memory": "139194a9e2f2f3384a9831670c91787a99049526168b206dafb886c7fe8a5c86"
+  },
+  "runtime": {
+    "image_id": "sha256:043d7168127782bf7c384329af85ff0679f02d0e7d6510b47096f047bc223b03",
+    "started_at": "2026-10-16T09:35:33.6093358Z",
+    "restart_count": 0,
+    "processes": [
+      [
+        "loginserver",
+        "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf"
+      ],
+      [
+        "world",
+        "efd54a1023a569274a76f65d3d2a18a173906762472a1bce186e3e14629d3c18"
+      ],
+      [
+        "ucs",
+        "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714"
+      ],
+      [
+        "zone",
+        "19cd3387952f21d1d1bcc18916e76a1d7738148de086849e3d3befe3a0df2ae1"
+      ],
+      [
+        "zone",
+        "19cd3387952f21d1d1bcc18916e76a1d7738148de086849e3d3befe3a0df2ae1"
+      ],
+      [
+        "zone",
+        "19cd3387952f21d1d1bcc18916e76a1d7738148de086849e3d3befe3a0df2ae1"
+      ],
+      [
+        "zone",
+        "19cd3387952f21d1d1bcc18916e76a1d7738148de086849e3d3befe3a0df2ae1"
+      ],
+      [
+        "zone",
+        "19cd3387952f21d1d1bcc18916e76a1d7738148de086849e3d3befe3a0df2ae1"
+      ],
+      [
+        "zone",
+        "19cd3387952f21d1d1bcc18916e76a1d7738148de086849e3d3befe3a0df2ae1"
+      ],
+      [
+        "zone",
+        "19cd3387952f21d1d1bcc18916e76a1d7738148de086849e3d3befe3a0df2ae1"
+      ],
+      [
+        "zone",
+        "19cd3387952f21d1d1bcc18916e76a1d7738148de086849e3d3befe3a0df2ae1"
+      ],
+      [
+        "zone",
+        "19cd3387952f21d1d1bcc18916e76a1d7738148de086849e3d3befe3a0df2ae1"
+      ],
+      [
+        "zone",
+        "19cd3387952f21d1d1bcc18916e76a1d7738148de086849e3d3befe3a0df2ae1"
+      ],
+      [
+        "zone",
+        "19cd3387952f21d1d1bcc18916e76a1d7738148de086849e3d3befe3a0df2ae1"
+      ],
+      [
+        "zone",
+        "19cd3387952f21d1d1bcc18916e76a1d7738148de086849e3d3befe3a0df2ae1"
+      ]
+    ],
+    "errors": {
+      "native": 0,
+      "quest": 0,
+      "database": 0
+    }
+  },
+  "gateway_open": true,
+  "player_tables_preserved": 47,
+  "custom_tables_preserved": 11,
+  "quest_files_preserved": 8140,
+  "content_preserved": {
+    "peq.items": "1228978734",
+    "peq.spells_new": "4267609982",
+    "peq.npc_types": "2915951902",
+    "peq.spawn2": "1995179938",
+    "peq.merchantlist": "2453951956"
+  },
+  "rules_preserved": true,
+  "supporting_services_preserved": true,
+  "database_restored": false,
+  "backup": {
+    "path": "/opt/nightcap/releases/aa-temporary-buffs-20261016/private-backup/peq-before.sql.gz",
+    "sha256": "12483b3746e5eff7e1ca934dd458673e76eec7a3ffe6ecd1cb4da44df98564cf",
+    "compressed_bytes": 63613629,
+    "uncompressed_bytes": 453673773,
+    "gzip_integrity": "passed"
+  },
+  "client_publication": {
+    "release": 2026101501,
+    "channel_sha256": "8212a46460273a640e807da0df7c9322c8d1ce6adf912ee419dde65083b4beab",
+    "verified_files": 106
+  },
+  "client_signature_verification": {
+    "channel_sha256": "8212a46460273a640e807da0df7c9322c8d1ce6adf912ee419dde65083b4beab",
+    "expires": "2026-11-14T09:47:47Z",
+    "hosted": false,
+    "release": 2026101501,
+    "signature": "valid against shipped production public key",
+    "total_bytes": 211974242,
+    "verified_files": 106
+  },
+  "operator_manifest_sha256": "908f9fefeb8e2d8cbd9c6b305ef88523b53d69d9e2df4c1a21d25450bd194fdc",
+  "owner_gameplay_acceptance": "pending",
+  "main_promotion_commit": "7b0939b502d546a204738dbebda91b76560c1573",
+  "tests": {
+    "behavior_checks_passed": 30,
+    "rollout_checks_passed": 33,
+    "independent_review": "approved after unexpected-access recovery fix"
+  }
+}

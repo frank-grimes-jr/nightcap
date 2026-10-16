@@ -1,0 +1,143 @@
+{
+  "runtime": {
+    "id": "a684b5d2cab41a3e5df6d1e656107cf0abe8d0137f830e1fa6c05ec169d1eadd",
+    "image_id": "sha256:add0bddfa77e93b299b691d6c3d932de92a0b6146a42f92bffd934dafc730fb7",
+    "started_at": "2026-10-13T11:47:03.598022955Z",
+    "restarts": 0,
+    "running": true,
+    "health": "healthy",
+    "oom_killed": false
+  },
+  "binaries": {
+    "bin/world": "efd54a1023a569274a76f65d3d2a18a173906762472a1bce186e3e14629d3c18",
+    "bin/zone": "c4a1f73b251da5bfa88f3f3a9ffdb7f30686b26365ad8a6a71943d940ba5ad10",
+    "bin/ucs": "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714",
+    "bin/loginserver": "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf",
+    "bin/shared_memory": "91664a87eac78306e8a76ab4cb923ba1f03c2d0da180278db6b6cf9b6607c0ef",
+    "start.py": "ca4099eb898730141e7941d3afc366d59c4bc8351eea74c5b6fd9560c24b815f",
+    "configure.py": "90873958dfb013201dd9c9552beaccdd88984a2e55739da07874fa4a95a84e57",
+    "accounts.py": "400d4e7a5d0bedeed47ffdb33b142a4a62a3f939a35466da66ce3201ae52ef5c"
+  },
+  "channel_sha256": "8251068dc29952b1cbfd956dc3f71afbce51f17d7a9bc116067ccbc76e0b4c37",
+  "release": 2026101302,
+  "patch_notes": [
+    {
+      "release": 2026101302,
+      "date": "2026-10-13",
+      "changes": [
+        {
+          "kind": "fix",
+          "text": "All allowed AA abilities and ranks are available from level 1. Choose where to spend your points; character level no longer hides or locks them."
+        },
+        {
+          "kind": "feature",
+          "text": "The AA pool uses The Buried Sea cutoff with selected utility and pet exceptions, release rank limits, and deferred high-power abilities."
+        },
+        {
+          "kind": "fix",
+          "text": "Existing AA purchases and points are preserved. Previously purchased ranks allowed by this release become usable again when you reconnect."
+        }
+      ]
+    },
+    {
+      "release": 2026101301,
+      "date": "2026-10-13",
+      "changes": [
+        {
+          "kind": "fix",
+          "text": "Fixed training and natural skill gains for selected classes, including Kick and Dual Wield."
+        },
+        {
+          "kind": "fix",
+          "text": "Fixed equipping offhand weapons and using Monk or Beastlord unarmed dual wield with another primary class."
+        }
+      ]
+    },
+    {
+      "release": 2026101204,
+      "date": "2026-10-12",
+      "changes": [
+        {
+          "kind": "fix",
+          "text": "Train skills with trainers for any of your selected classes, by right-clicking or hailing them."
+        }
+      ]
+    },
+    {
+      "release": 2026101203,
+      "date": "2026-10-12",
+      "changes": [
+        {
+          "kind": "feature",
+          "text": "Scribe spells for your selected classes before their required level. Spell gems still require the normal level."
+        }
+      ]
+    },
+    {
+      "release": 2026101202,
+      "date": "2026-10-12",
+      "changes": [
+        {
+          "kind": "feature",
+          "text": "See what changed in the latest update and browse previous patches while patching."
+        }
+      ]
+    },
+    {
+      "release": 2026101201,
+      "date": "2026-10-12",
+      "changes": [
+        {
+          "kind": "feature",
+          "text": "Added a Sell All button to merchant windows."
+        }
+      ]
+    },
+    {
+      "release": 2026101101,
+      "date": "2026-10-11",
+      "changes": [
+        {
+          "kind": "fix",
+          "text": "Fixed a client crash when summoning pets."
+        }
+      ]
+    },
+    {
+      "release": 2026101001,
+      "date": "2026-10-10",
+      "changes": [
+        {
+          "kind": "fix",
+          "text": "Restored stock item icons in Advanced Loot and the Pet Info window."
+        }
+      ]
+    },
+    {
+      "release": 2026100901,
+      "date": "2026-10-09",
+      "changes": [
+        {
+          "kind": "feature",
+          "text": "Added Always Loot and Never Loot controls to each Advanced Loot item row."
+        },
+        {
+          "kind": "fix",
+          "text": "Advanced Loot now closes when the loot queue is confirmed empty."
+        }
+      ]
+    },
+    {
+      "release": 2026100407,
+      "date": "2026-10-04",
+      "changes": [
+        {
+          "kind": "feature",
+          "text": "Added Nightcap artwork to the game's loading screens."
+        }
+      ]
+    }
+  ],
+  "file_count": 105,
+  "rules": "Character:AAExpMinLevel\t1\nCharacter:MaxLevel\t50\nCombat:DoubleBackstabLevelRequirement\t55\n"
+}

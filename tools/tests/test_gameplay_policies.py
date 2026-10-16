@@ -8,6 +8,7 @@ import shutil
 import subprocess
 import tempfile
 import unittest
+from test_aa_temporary_buffs import AA_FIXTURE, policy_helpers
 
 ROOT = Path(__file__).resolve().parents[2]
 ZONE = ROOT / "server-mods/code/zone"
@@ -24,24 +25,8 @@ def function(source, signature):
     return source[start:end]
 
 
-FIXTURE = r'''
-#include <algorithm>
-#include <cstdint>
-#include <iostream>
-#include <stdexcept>
-using uint16 = uint16_t;
-using int32 = int32_t;
-constexpr int PERMANENT_BUFF_DURATION = -1000;
-constexpr int SPELL_UNKNOWN = 65535;
-constexpr int EFFECT_COUNT = 12;
+FIXTURE = AA_FIXTURE + r'''
 int CalcBuffDuration_formula(int level, int formula, int duration);
-namespace SpellEffect { enum { CurrentHP = 0, BardAEDot = 334 }; }
-struct Spell { int good_effect = 1; int buff_duration_formula = 1;
- int buff_duration = 10; int effect_id[12] = {}; int base_value[12] = {}; };
-Spell spells[8];
-bool IsValidSpell(uint16 id) { return id > 0 && id < 8; }
-bool IsBeneficialSpell(uint16 id) { return IsValidSpell(id) && spells[id].good_effect; }
-bool IsDetrimentalSpell(uint16 id) { return IsValidSpell(id) && !spells[id].good_effect; }
 bool IsPersistDeathSpell(uint16 id) { return id == 2 || id == 3; }
 struct Buff { int spellid = SPELL_UNKNOWN; int ticsremaining = 0; };
 struct Mob {
@@ -63,6 +48,7 @@ void check(bool pass, const char *message) { if (!pass) throw std::runtime_error
 CONTROLS = r'''
 int main() {
  try {
+  rank(1, 60000); // Loaded catalog, unrelated to the ordinary blessing controls.
   Mob player, pet, npc; pet.player = false; pet.pet = true; npc.player = false;
   for (int id : {1,2,4,5}) {
    check(player.GetBuffDurationForTarget(id, 20) == PERMANENT_BUFF_DURATION, "beneficial player buff timed");
@@ -119,7 +105,7 @@ class GameplayPolicies(unittest.TestCase):
         with tempfile.TemporaryDirectory(prefix="nightcap-policy-") as tmp:
             out = Path(tmp)
             header = (ROOT / "server-mods/code/common/epic05.h").as_posix()
-            (out / "test.cpp").write_text('#include "' + header + '"\n' + FIXTURE + "\n".join(bodies) + CONTROLS)
+            (out / "test.cpp").write_text('#include "' + header + '"\n' + FIXTURE + policy_helpers(source) + "\n".join(bodies) + CONTROLS)
             if os.name == "nt":
                 compiler_env = Path("C:/BuildTools/VC/Auxiliary/Build/vcvars32.bat")
                 self.assertTrue(compiler_env.is_file(), "MSVC x86 build tools missing")

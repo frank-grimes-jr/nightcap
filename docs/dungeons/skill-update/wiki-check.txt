@@ -1,0 +1,208 @@
+{
+  "audited_at": "2026-10-12",
+  "scope": "Reviewed local files; not runtime or player QA evidence",
+  "topics": {
+    "wiki": [
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\wiki\\build.py",
+        "role": "Reviewed wiki source, maintenance contract or dated publication evidence",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\wiki\\catalog.py",
+        "role": "Reviewed wiki source, maintenance contract or dated publication evidence",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\wiki\\equipment.py",
+        "role": "Reviewed wiki source, maintenance contract or dated publication evidence",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\wiki\\check_refresh.py",
+        "role": "Reviewed wiki source, maintenance contract or dated publication evidence",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\wiki\\content-review.json",
+        "role": "Reviewed local dungeon candidate guide; not published; source patch in docs/dungeons/wiki-update",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\wiki\\README.md",
+        "role": "Reviewed wiki source, maintenance contract or dated publication evidence",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\wiki\\test_wiki.py",
+        "role": "Reviewed wiki source, maintenance contract or dated publication evidence",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\wiki\\test_refresh.py",
+        "role": "Reviewed wiki source, maintenance contract or dated publication evidence",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\wiki\\update.py",
+        "role": "Reviewed wiki source, maintenance contract or dated publication evidence",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\wiki\\test_update.py",
+        "role": "Reviewed wiki source, maintenance contract or dated publication evidence",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\wiki\\deploy.py",
+        "role": "Reviewed wiki source, maintenance contract or dated publication evidence",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\wiki\\test_deploy.py",
+        "role": "Reviewed wiki source, maintenance contract or dated publication evidence",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\wiki\\test_search.cjs",
+        "role": "Reviewed wiki source, maintenance contract or dated publication evidence",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\wiki\\test_equipment.cjs",
+        "role": "Reviewed wiki source, maintenance contract or dated publication evidence",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\wiki\\assets\\wiki.css",
+        "role": "Reviewed wiki source, maintenance contract or dated publication evidence",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\docs\\ops\\nightcap-wiki.md",
+        "role": "Reviewed wiki source, maintenance contract or dated publication evidence",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\docs\\releases\\wiki-features-20261016\\README.md",
+        "role": "Reviewed wiki source, maintenance contract or dated publication evidence",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\docs\\releases\\wiki-features-20261016\\origin-verification.json",
+        "role": "Reviewed wiki source, maintenance contract or dated publication evidence",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\docs\\releases\\wiki-features-20261016\\public-verification.json",
+        "role": "Reviewed wiki source, maintenance contract or dated publication evidence",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\wiki\\articles\\about.json",
+        "role": "Reviewed wiki source, maintenance contract or dated publication evidence",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\wiki\\articles\\advanced-loot.json",
+        "role": "Reviewed wiki source, maintenance contract or dated publication evidence",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\wiki\\articles\\ascension.json",
+        "role": "Reviewed wiki source, maintenance contract or dated publication evidence",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\wiki\\articles\\combat.json",
+        "role": "Reviewed wiki source, maintenance contract or dated publication evidence",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\wiki\\articles\\commands.json",
+        "role": "Reviewed wiki source, maintenance contract or dated publication evidence",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\wiki\\articles\\equipment.json",
+        "role": "Reviewed wiki source, maintenance contract or dated publication evidence",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\wiki\\articles\\features.json",
+        "role": "Reviewed local dungeon candidate guide; not published; source patch in docs/dungeons/wiki-update",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\wiki\\articles\\getting-started.json",
+        "role": "Reviewed wiki source, maintenance contract or dated publication evidence",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\wiki\\articles\\index.json",
+        "role": "Reviewed wiki source, maintenance contract or dated publication evidence",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\wiki\\articles\\item-upgrades.json",
+        "role": "Reviewed wiki source, maintenance contract or dated publication evidence",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\wiki\\articles\\launcher.json",
+        "role": "Reviewed wiki source, maintenance contract or dated publication evidence",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\wiki\\articles\\multiclass.json",
+        "role": "Reviewed wiki source, maintenance contract or dated publication evidence",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\wiki\\articles\\pets.json",
+        "role": "Reviewed wiki source, maintenance contract or dated publication evidence",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\wiki\\articles\\recent-changes.json",
+        "role": "Reviewed local dungeon candidate guide; not published; source patch in docs/dungeons/wiki-update",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\wiki\\articles\\tradeskills.json",
+        "role": "Reviewed wiki source, maintenance contract or dated publication evidence",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\wiki\\articles\\travel.json",
+        "role": "Reviewed local dungeon candidate guide; not published; source patch in docs/dungeons/wiki-update",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\wiki\\articles\\tunnel.json",
+        "role": "Reviewed wiki source, maintenance contract or dated publication evidence",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\wiki\\articles\\unreleased.json",
+        "role": "Reviewed local dungeon candidate guide; not published; source patch in docs/dungeons/wiki-update",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\wiki\\articles\\waypoints.json",
+        "role": "Reviewed wiki source, maintenance contract or dated publication evidence",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\wiki\\articles\\zone-hunt.json",
+        "role": "Reviewed wiki source, maintenance contract or dated publication evidence",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\wiki\\articles\\dungeon-modes.json",
+        "role": "Reviewed local dungeon candidate guide; not published; source patch in docs/dungeons/wiki-update",
+        "state": "unchanged"
+      }
+    ]
+  }
+}

@@ -22,6 +22,17 @@ Build with `./build-production.ps1 -Destination <new friends directory> -Profile
 
 For future releases, reuse the shipped starter instead of requiring players to replace it. Run unit/native/UI checks and independently review executable update changes. Upload immutable game and desktop paths first; verify every size/hash, then publish the launcher channel, ZIP/guide and game channel atomically. Hosted files already work with the existing nginx configuration (`no-cache` for new launcher paths). No game-server restart is needed for static launcher publication. Do not put private keys on the server.
 
+For a client-only update, preserve a freshly captured signed inventory and patch
+history, and guard the public files plus all five service fingerprints under the
+shared deployment lock. Flush each asset and **every directory, deepest-first**,
+before renaming the immutable release directory; flush its parent before switching
+the signed channel last. Syncing only leaf directories and the release root misses
+intermediate directory entries after a host crash. The equipment release's
+`deployment/client/stage/publish.py` and 13 recovery tests are the reviewed example:
+[publication and recovery](../releases/multiclass-equipment-20261015/README.md).
+An interrupted upload does not authorize overwriting a changed live baseline.
+Inspect drift and preserve any intervening healthy runtime before resuming.
+
 ## Player patch summaries (published October 12)
 
 The desktop displays **Latest update** above client/file details, followed by

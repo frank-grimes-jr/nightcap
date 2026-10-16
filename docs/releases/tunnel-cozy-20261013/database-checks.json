@@ -1,0 +1,17 @@
+{
+  "checks": [
+    "case-only content drift rejected atomically",
+    "global ornament ID collision rejected",
+    "cross-version zone door ID collision rejected",
+    "external owned-NPC reference rejected",
+    "exact forward afterimages",
+    "corpses, other instances and metadata retained; owned active and dormant cache removed",
+    "replay rejected atomically",
+    "exact immediate rollback; no stale cache reinsertion",
+    "rollback preserves fresh corpse changes",
+    "rollback invalidates fresh owned cache",
+    "rollback rejects intervening static content changes"
+  ],
+  "schema": "nightcap_cozy_test_6ea6a02f6d",
+  "removed": true
+}

@@ -12,11 +12,15 @@ inline const void* SetActiveEquipItem(const void* item) {
     ActiveEquipItem() = item;
     return previous;
 }
-inline uint32_t EquipClassMask(uint32_t stock, const void* item, bool flag1, bool flag2) {
+inline uint32_t EquipClassMask(uint32_t stock, const void* item, bool flag1, bool flag2,
+    uint32_t primary, uint32_t held) {
     // Exact flags at the proven CanUseItem call site. Preserve a zero mask:
     // the native accessor also returns zero for unusable item/augment states.
-    if (stock && item && item == ActiveEquipItem() && flag1 && !flag2) {
-        return stock | 0xFFFFu;
+    // CanEquipItem also supplies inspection colors. Project only held classes
+    // onto the primary class tested by native CanUseItem.
+    if (stock && item && item == ActiveEquipItem() && flag1 && !flag2 &&
+        primary >= 1 && primary <= 16 && (held & (1u << (primary - 1))) && (stock & held)) {
+        return stock | (1u << (primary - 1));
     }
     return stock;
 }

@@ -339,7 +339,7 @@ predicate call is restored only if its generated replacement still matches,
 then the restored bytes and page protection are verified. Client checks and
 the server's `OP_CombatAbility` authorization remain in force.
 
-## 2026-09-15 Equipment submission candidate (#13)
+## Equipment eligibility — corrected October 15, 2026 (#13)
 
 Exact executable: 8,774,656 bytes, SHA256
 `2a8702ad9f722704f01355c0750be7d6f164a8b9c9128ba0cf286ea32b405b0e`.
@@ -351,6 +351,8 @@ Preferred image base `0x00400000`; implementation uses relocated RVAs.
 | CanUseItem call to item class accessor | `0x0004C46D` | `E8 6E 88 36 00` |
 | CanUseItem entry | `0x0004C430` | `55 56 57 8B 7C 24 10` |
 | Item class accessor entry | `0x003B4CE0` | `55 8B EC 83 EC 44` |
+| Cursor inventory placement CanUseItem | `0x00296095` | `E8 96 63 DB FF` |
+| Direct inspection CanUseItem | `0x002A9D82` | `E8 A9 26 DA FF` |
 
 Official MacroQuest emu commit `f4b77136b0b8e095814c41c26404595393273304`
 pins eqlib `db5c8806f86d1f9b5496842c2fd38fdabd1f659c`. Its
@@ -360,10 +362,12 @@ against the actual executable. Native CanUseItem accepts an item smart-pointer
 reference and two booleans (ret 12); the accessor takes two booleans (ret 8).
 The observed accessor flags are true/false; the item reference is dereferenced.
 
-Two redirects establish a thread-local raw item identity only during this equip
-call into original CanUseItem. Within scope, the accessor preserves zero
-(including unusable-item/augment failures), otherwise ORs the low sixteen class
-bits into its return. Other items, threads, flags and callers keep the stock mask.
+The equip wrapper establishes a thread-local raw item identity during native
+CanUseItem. Within scope the accessor preserves zero and projects the primary
+bit only when a current held class intersects the original mask. This replaces
+the September all-sixteen-classes bypass: native inspection also calls CanEquipItem
+and formerly colored unheld items green. Other items, threads, flags and callers
+keep the stock mask. Missing/stale identity retains native primary eligibility.
 No item memory changes. Nested scopes restore on return and SEH unwind. Remaining
 native checks execute with original flags/results. The neutral accessor installs
 first; caller failure restores it with guarded rollback. All four signatures and
@@ -371,8 +375,13 @@ the executable hash must match before writes.
 
 Server inventory moves supply GetEquipClassBitmask to SwapItem, which retains
 held class union, race, deity, required level and slot checks for both items.
-This permits submission; the server authorizes equipment. Tooltip presentation
-and widened spell data are unchanged. See [candidate QA](equipment-qa.md).
+Cursor placement uses the same held-class policy for ordinary equipment, and
+the existing canonical policy for scrolls. Direct inspection uses that dispatcher
+for types 1/4/8/35/54; the other inspection path loops through native CanEquipItem.
+The original class-list accessors and stored data remain unchanged. Native
+inspection type selection starts at RVA 0x2A9D07 and color writes finish before
+0x2A9DE0. The exact-client regression executes this selector, both branches and
+color writes. See [current QA](../../docs/releases/multiclass-equipment-20261015/README.md).
 Byte checks and native unit tests do not prove in-game acceptance.
 
 ## Three-pet command window (September 22 candidate)

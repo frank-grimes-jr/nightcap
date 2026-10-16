@@ -1,0 +1,7729 @@
+{
+  "observed_utc": "2026-10-16T09:58:11.981331+00:00",
+  "scope": [
+    {
+      "definitions": "254315",
+      "base_definitions": "68914",
+      "race_restricted": "92355",
+      "zero_race": "1067",
+      "zero_class": "517",
+      "deity_restricted": "10040",
+      "required_level": "148878",
+      "augments": "44066"
+    }
+  ],
+  "types": [
+    {
+      "itemtype": "0",
+      "definitions": "7154",
+      "race_restricted": "1971",
+      "palwar_race_blocked": "344"
+    },
+    {
+      "itemtype": "1",
+      "definitions": "3410",
+      "race_restricted": "651",
+      "palwar_race_blocked": "184"
+    },
+    {
+      "itemtype": "2",
+      "definitions": "5519",
+      "race_restricted": "1688",
+      "palwar_race_blocked": "212"
+    },
+    {
+      "itemtype": "3",
+      "definitions": "6765",
+      "race_restricted": "1633",
+      "palwar_race_blocked": "124"
+    },
+    {
+      "itemtype": "4",
+      "definitions": "3436",
+      "race_restricted": "578",
+      "palwar_race_blocked": "156"
+    },
+    {
+      "itemtype": "5",
+      "definitions": "2247",
+      "race_restricted": "121",
+      "palwar_race_blocked": "4"
+    },
+    {
+      "itemtype": "7",
+      "definitions": "76",
+      "race_restricted": "8",
+      "palwar_race_blocked": "0"
+    },
+    {
+      "itemtype": "8",
+      "definitions": "4608",
+      "race_restricted": "857",
+      "palwar_race_blocked": "193"
+    },
+    {
+      "itemtype": "10",
+      "definitions": "144477",
+      "race_restricted": "79151",
+      "palwar_race_blocked": "14844"
+    },
+    {
+      "itemtype": "11",
+      "definitions": "6334",
+      "race_restricted": "2470",
+      "palwar_race_blocked": "1109"
+    },
+    {
+      "itemtype": "12",
+      "definitions": "5",
+      "race_restricted": "0",
+      "palwar_race_blocked": "0"
+    },
+    {
+      "itemtype": "14",
+      "definitions": "9",
+      "race_restricted": "0",
+      "palwar_race_blocked": "0"
+    },
+    {
+      "itemtype": "15",
+      "definitions": "12",
+      "race_restricted": "0",
+      "palwar_race_blocked": "0"
+    },
+    {
+      "itemtype": "16",
+      "definitions": "56",
+      "race_restricted": "2",
+      "palwar_race_blocked": "1"
+    },
+    {
+      "itemtype": "17",
+      "definitions": "47",
+      "race_restricted": "1",
+      "palwar_race_blocked": "0"
+    },
+    {
+      "itemtype": "19",
+      "definitions": "2425",
+      "race_restricted": "44",
+      "palwar_race_blocked": "32"
+    },
+    {
+      "itemtype": "21",
+      "definitions": "544",
+      "race_restricted": "1",
+      "palwar_race_blocked": "1"
+    },
+    {
+      "itemtype": "23",
+      "definitions": "129",
+      "race_restricted": "36",
+      "palwar_race_blocked": "0"
+    },
+    {
+      "itemtype": "24",
+      "definitions": "155",
+      "race_restricted": "41",
+      "palwar_race_blocked": "0"
+    },
+    {
+      "itemtype": "25",
+      "definitions": "116",
+      "race_restricted": "29",
+      "palwar_race_blocked": "0"
+    },
+    {
+      "itemtype": "26",
+      "definitions": "166",
+      "race_restricted": "34",
+      "palwar_race_blocked": "0"
+    },
+    {
+      "itemtype": "27",
+      "definitions": "3316",
+      "race_restricted": "12",
+      "palwar_race_blocked": "4"
+    },
+    {
+      "itemtype": "29",
+      "definitions": "13919",
+      "race_restricted": "1437",
+      "palwar_race_blocked": "52"
+    },
+    {
+      "itemtype": "30",
+      "definitions": "8",
+      "race_restricted": "8",
+      "palwar_race_blocked": "0"
+    },
+    {
+      "itemtype": "31",
+      "definitions": "24",
+      "race_restricted": "16",
+      "palwar_race_blocked": "0"
+    },
+    {
+      "itemtype": "33",
+      "definitions": "2",
+      "race_restricted": "0",
+      "palwar_race_blocked": "0"
+    },
+    {
+      "itemtype": "35",
+      "definitions": "1241",
+      "race_restricted": "172",
+      "palwar_race_blocked": "28"
+    },
+    {
+      "itemtype": "36",
+      "definitions": "24",
+      "race_restricted": "4",
+      "palwar_race_blocked": "0"
+    },
+    {
+      "itemtype": "37",
+      "definitions": "58",
+      "race_restricted": "0",
+      "palwar_race_blocked": "0"
+    },
+    {
+      "itemtype": "38",
+      "definitions": "1",
+      "race_restricted": "1",
+      "palwar_race_blocked": "0"
+    },
+    {
+      "itemtype": "40",
+      "definitions": "28",
+      "race_restricted": "0",
+      "palwar_race_blocked": "0"
+    },
+    {
+      "itemtype": "45",
+      "definitions": "1788",
+      "race_restricted": "1000",
+      "palwar_race_blocked": "844"
+    },
+    {
+      "itemtype": "52",
+      "definitions": "1658",
+      "race_restricted": "132",
+      "palwar_race_blocked": "4"
+    },
+    {
+      "itemtype": "54",
+      "definitions": "44069",
+      "race_restricted": "197",
+      "palwar_race_blocked": "4"
+    },
+    {
+      "itemtype": "68",
+      "definitions": "212",
+      "race_restricted": "0",
+      "palwar_race_blocked": "0"
+    },
+    {
+      "itemtype": "69",
+      "definitions": "277",
+      "race_restricted": "60",
+      "palwar_race_blocked": "0"
+    }
+  ],
+  "examples": [
+    {
+      "id": "3445",
+      "Name": "Crude Bone Short Sword",
+      "itemtype": "0",
+      "classes": "1",
+      "races": "8192",
+      "deity": "0",
+      "slots": "24576",
+      "reqlevel": "0",
+      "augtype": "0"
+    },
+    {
+      "id": "3454",
+      "Name": "Skeletonbane Short Sword",
+      "itemtype": "0",
+      "classes": "1",
+      "races": "8192",
+      "deity": "0",
+      "slots": "24576",
+      "reqlevel": "0",
+      "augtype": "0"
+    },
+    {
+      "id": "5101",
+      "Name": "Shadowed Long Sword",
+      "itemtype": "0",
+      "classes": "1",
+      "races": "0",
+      "deity": "0",
+      "slots": "24576",
+      "reqlevel": "0",
+      "augtype": "0"
+    },
+    {
+      "id": "5102",
+      "Name": "Shadowed Battle Axe",
+      "itemtype": "0",
+      "classes": "1",
+      "races": "0",
+      "deity": "0",
+      "slots": "24576",
+      "reqlevel": "0",
+      "augtype": "0"
+    },
+    {
+      "id": "5104",
+      "Name": "Shadowed Scimitar",
+      "itemtype": "0",
+      "classes": "1",
+      "races": "0",
+      "deity": "0",
+      "slots": "24576",
+      "reqlevel": "0",
+      "augtype": "0"
+    },
+    {
+      "id": "5200",
+      "Name": "Enchanted Teir`Dal Long Sword",
+      "itemtype": "0",
+      "classes": "413",
+      "races": "29473",
+      "deity": "0",
+      "slots": "24576",
+      "reqlevel": "0",
+      "augtype": "0"
+    },
+    {
+      "id": "5545",
+      "Name": "Leather Gripped Short Sword",
+      "itemtype": "0",
+      "classes": "1",
+      "races": "8192",
+      "deity": "0",
+      "slots": "24576",
+      "reqlevel": "0",
+      "augtype": "0"
+    },
+    {
+      "id": "5654",
+      "Name": "Glowing Fine Steel Short Sword",
+      "itemtype": "0",
+      "classes": "413",
+      "races": "32702",
+      "deity": "0",
+      "slots": "24576",
+      "reqlevel": "0",
+      "augtype": "0"
+    },
+    {
+      "id": "9104",
+      "Name": "Deep Muses Defender",
+      "itemtype": "0",
+      "classes": "4",
+      "races": "2048",
+      "deity": "0",
+      "slots": "8192",
+      "reqlevel": "0",
+      "augtype": "0"
+    },
+    {
+      "id": "9115",
+      "Name": "Initiate Watchmans Long Sword",
+      "itemtype": "0",
+      "classes": "1",
+      "races": "2048",
+      "deity": "0",
+      "slots": "24576",
+      "reqlevel": "0",
+      "augtype": "0"
+    },
+    {
+      "id": "9975",
+      "Name": "Animated Sword4",
+      "itemtype": "0",
+      "classes": "1",
+      "races": "0",
+      "deity": "0",
+      "slots": "24576",
+      "reqlevel": "0",
+      "augtype": "0"
+    },
+    {
+      "id": "9976",
+      "Name": "Animated Sword3",
+      "itemtype": "0",
+      "classes": "1",
+      "races": "0",
+      "deity": "0",
+      "slots": "24576",
+      "reqlevel": "0",
+      "augtype": "0"
+    },
+    {
+      "id": "9977",
+      "Name": "Animated Sword2",
+      "itemtype": "0",
+      "classes": "1",
+      "races": "0",
+      "deity": "0",
+      "slots": "24576",
+      "reqlevel": "0",
+      "augtype": "0"
+    },
+    {
+      "id": "9980",
+      "Name": "Animated Sword",
+      "itemtype": "0",
+      "classes": "1",
+      "races": "0",
+      "deity": "0",
+      "slots": "24576",
+      "reqlevel": "0",
+      "augtype": "0"
+    },
+    {
+      "id": "11956",
+      "Name": "Ebon Razor",
+      "itemtype": "0",
+      "classes": "405",
+      "races": "19640",
+      "deity": "0",
+      "slots": "8192",
+      "reqlevel": "0",
+      "augtype": "0"
+    },
+    {
+      "id": "11960",
+      "Name": "Goblin Juntah Harvester",
+      "itemtype": "0",
+      "classes": "413",
+      "races": "19640",
+      "deity": "0",
+      "slots": "8192",
+      "reqlevel": "0",
+      "augtype": "0"
+    },
+    {
+      "id": "13885",
+      "Name": "Orc Pawn Pick",
+      "itemtype": "0",
+      "classes": "15773",
+      "races": "28547",
+      "deity": "0",
+      "slots": "24576",
+      "reqlevel": "0",
+      "augtype": "0"
+    },
+    {
+      "id": "19685",
+      "Name": "Bravefoot Short Sword",
+      "itemtype": "0",
+      "classes": "4",
+      "races": "1024",
+      "deity": "0",
+      "slots": "8192",
+      "reqlevel": "0",
+      "augtype": "0"
+    },
+    {
+      "id": "19816",
+      "Name": "Murph's Minin' Pick",
+      "itemtype": "0",
+      "classes": "261",
+      "races": "128",
+      "deity": "0",
+      "slots": "24576",
+      "reqlevel": "0",
+      "augtype": "0"
+    },
+    {
+      "id": "22945",
+      "Name": "Edge of the Proudfoot",
+      "itemtype": "0",
+      "classes": "1",
+      "races": "1024",
+      "deity": "0",
+      "slots": "8192",
+      "reqlevel": "0",
+      "augtype": "0"
+    },
+    {
+      "id": "26076",
+      "Name": "Gem-Etched Battle Axe",
+      "itemtype": "0",
+      "classes": "1",
+      "races": "128",
+      "deity": "0",
+      "slots": "8192",
+      "reqlevel": "0",
+      "augtype": "0"
+    },
+    {
+      "id": "26526",
+      "Name": "Scythe of Sundering",
+      "itemtype": "0",
+      "classes": "1177",
+      "races": "55333",
+      "deity": "0",
+      "slots": "8192",
+      "reqlevel": "0",
+      "augtype": "0"
+    },
+    {
+      "id": "28595",
+      "Name": "Summoned: Blade of Walnan",
+      "itemtype": "0",
+      "classes": "30719",
+      "races": "0",
+      "deity": "0",
+      "slots": "24576",
+      "reqlevel": "0",
+      "augtype": "0"
+    },
+    {
+      "id": "28597",
+      "Name": "Summoned: Blade of the Kedge",
+      "itemtype": "0",
+      "classes": "32639",
+      "races": "0",
+      "deity": "0",
+      "slots": "24576",
+      "reqlevel": "0",
+      "augtype": "0"
+    },
+    {
+      "id": "30263",
+      "Name": "Coldain Velium-Pick",
+      "itemtype": "0",
+      "classes": "413",
+      "races": "19640",
+      "deity": "0",
+      "slots": "24576",
+      "reqlevel": "0",
+      "augtype": "0"
+    },
+    {
+      "id": "32801",
+      "Name": "Ancient Frostreaver",
+      "itemtype": "0",
+      "classes": "32789",
+      "races": "98187",
+      "deity": "0",
+      "slots": "8192",
+      "reqlevel": "0",
+      "augtype": "0"
+    },
+    {
+      "id": "32805",
+      "Name": "Ancient Coldain Frosted Axe",
+      "itemtype": "0",
+      "classes": "49151",
+      "races": "65536",
+      "deity": "0",
+      "slots": "8192",
+      "reqlevel": "0",
+      "augtype": "0"
+    },
+    {
+      "id": "32806",
+      "Name": "Ancient Coldain Warspear",
+      "itemtype": "0",
+      "classes": "32789",
+      "races": "65536",
+      "deity": "0",
+      "slots": "24576",
+      "reqlevel": "0",
+      "augtype": "0"
+    },
+    {
+      "id": "36802",
+      "Name": "Legionnaire Blade",
+      "itemtype": "0",
+      "classes": "1",
+      "races": "4096",
+      "deity": "0",
+      "slots": "8192",
+      "reqlevel": "0",
+      "augtype": "0"
+    },
+    {
+      "id": "36865",
+      "Name": "Armsman Blade",
+      "itemtype": "0",
+      "classes": "1",
+      "races": "8192",
+      "deity": "0",
+      "slots": "8192",
+      "reqlevel": "0",
+      "augtype": "0"
+    },
+    {
+      "id": "52549",
+      "Name": "Slimy Shortsword",
+      "itemtype": "0",
+      "classes": "1",
+      "races": "81920",
+      "deity": "0",
+      "slots": "24576",
+      "reqlevel": "0",
+      "augtype": "0"
+    },
+    {
+      "id": "52566",
+      "Name": "Slimy Longsword",
+      "itemtype": "0",
+      "classes": "4",
+      "races": "81920",
+      "deity": "0",
+      "slots": "8192",
+      "reqlevel": "0",
+      "augtype": "0"
+    },
+    {
+      "id": "52663",
+      "Name": "Summoned: Searing Torch",
+      "itemtype": "0",
+      "classes": "65535",
+      "races": "0",
+      "deity": "0",
+      "slots": "24576",
+      "reqlevel": "0",
+      "augtype": "0"
+    },
+    {
+      "id": "52724",
+      "Name": "Summoned: Blazing Brand",
+      "itemtype": "0",
+      "classes": "65535",
+      "races": "0",
+      "deity": "0",
+      "slots": "24576",
+      "reqlevel": "0",
+      "augtype": "0"
+    },
+    {
+      "id": "52832",
+      "Name": "Summoned: Blazing Brand",
+      "itemtype": "0",
+      "classes": "65535",
+      "races": "0",
+      "deity": "0",
+      "slots": "24576",
+      "reqlevel": "0",
+      "augtype": "0"
+    },
+    {
+      "id": "55103",
+      "Name": "Sword of the Northern Wolf",
+      "itemtype": "0",
+      "classes": "1",
+      "races": "2",
+      "deity": "0",
+      "slots": "24576",
+      "reqlevel": "0",
+      "augtype": "0"
+    },
+    {
+      "id": "55186",
+      "Name": "Da Basher Sword",
+      "itemtype": "0",
+      "classes": "1",
+      "races": "256",
+      "deity": "0",
+      "slots": "24576",
+      "reqlevel": "0",
+      "augtype": "0"
+    },
+    {
+      "id": "55207",
+      "Name": "Gronk's Sword",
+      "itemtype": "0",
+      "classes": "1",
+      "races": "512",
+      "deity": "0",
+      "slots": "24576",
+      "reqlevel": "0",
+      "augtype": "0"
+    },
+    {
+      "id": "57278",
+      "Name": "Summoned: Spectral Shortsword",
+      "itemtype": "0",
+      "classes": "65535",
+      "races": "0",
+      "deity": "0",
+      "slots": "24576",
+      "reqlevel": "0",
+      "augtype": "0"
+    },
+    {
+      "id": "57279",
+      "Name": "Summoned: Spectral Fireblade",
+      "itemtype": "0",
+      "classes": "65535",
+      "races": "0",
+      "deity": "0",
+      "slots": "24576",
+      "reqlevel": "0",
+      "augtype": "0"
+    },
+    {
+      "id": "57280",
+      "Name": "Summoned: Spectral Iceblade",
+      "itemtype": "0",
+      "classes": "65535",
+      "races": "0",
+      "deity": "0",
+      "slots": "24576",
+      "reqlevel": "0",
+      "augtype": "0"
+    },
+    {
+      "id": "57288",
+      "Name": "Summoned: Spectral Ragesword",
+      "itemtype": "0",
+      "classes": "65535",
+      "races": "0",
+      "deity": "0",
+      "slots": "24576",
+      "reqlevel": "0",
+      "augtype": "0"
+    },
+    {
+      "id": "57296",
+      "Name": "Summoned: Jolting Mindblade",
+      "itemtype": "0",
+      "classes": "65535",
+      "races": "0",
+      "deity": "0",
+      "slots": "24576",
+      "reqlevel": "0",
+      "augtype": "0"
+    },
+    {
+      "id": "63063",
+      "Name": "Swampblade of the Dar",
+      "itemtype": "0",
+      "classes": "1",
+      "races": "16384",
+      "deity": "0",
+      "slots": "24576",
+      "reqlevel": "0",
+      "augtype": "0"
+    },
+    {
+      "id": "64019",
+      "Name": "Blade of Chaos",
+      "itemtype": "0",
+      "classes": "65535",
+      "races": "0",
+      "deity": "0",
+      "slots": "24576",
+      "reqlevel": "0",
+      "augtype": "0"
+    },
+    {
+      "id": "77508",
+      "Name": "Summoned: Fireblade",
+      "itemtype": "0",
+      "classes": "65535",
+      "races": "0",
+      "deity": "0",
+      "slots": "24576",
+      "reqlevel": "0",
+      "augtype": "0"
+    },
+    {
+      "id": "84333",
+      "Name": "Ykesha's Bonesplitter",
+      "itemtype": "0",
+      "classes": "25",
+      "races": "65792",
+      "deity": "0",
+      "slots": "8192",
+      "reqlevel": "0",
+      "augtype": "0"
+    },
+    {
+      "id": "87057",
+      "Name": "Defender's Long Sword",
+      "itemtype": "0",
+      "classes": "1",
+      "races": "98305",
+      "deity": "0",
+      "slots": "8192",
+      "reqlevel": "0",
+      "augtype": "0"
+    },
+    {
+      "id": "87117",
+      "Name": "Short Sword of the Deviant",
+      "itemtype": "0",
+      "classes": "257",
+      "races": "65536",
+      "deity": "0",
+      "slots": "24576",
+      "reqlevel": "0",
+      "augtype": "0"
+    },
+    {
+      "id": "87120",
+      "Name": "Sebilisian Sword of Deftness",
+      "itemtype": "0",
+      "classes": "257",
+      "races": "65536",
+      "deity": "0",
+      "slots": "24576",
+      "reqlevel": "0",
+      "augtype": "0"
+    },
+    {
+      "id": "94059",
+      "Name": "Fine Steel Long Sword",
+      "itemtype": "0",
+      "classes": "413",
+      "races": "65536",
+      "deity": "0",
+      "slots": "24576",
+      "reqlevel": "0",
+      "augtype": "0"
+    },
+    {
+      "id": "94128",
+      "Name": "Rusty Long Sword",
+      "itemtype": "0",
+      "classes": "65535",
+      "races": "65536",
+      "deity": "0",
+      "slots": "24576",
+      "reqlevel": "0",
+      "augtype": "0"
+    },
+    {
+      "id": "94170",
+      "Name": "Rusty Axe",
+      "itemtype": "0",
+      "classes": "65535",
+      "races": "65536",
+      "deity": "0",
+      "slots": "24576",
+      "reqlevel": "0",
+      "augtype": "0"
+    },
+    {
+      "id": "94171",
+      "Name": "Tarnished Axe",
+      "itemtype": "0",
+      "classes": "65535",
+      "races": "65536",
+      "deity": "0",
+      "slots": "24576",
+      "reqlevel": "0",
+      "augtype": "0"
+    },
+    {
+      "id": "94172",
+      "Name": "Copper Axe",
+      "itemtype": "0",
+      "classes": "65535",
+      "races": "65536",
+      "deity": "0",
+      "slots": "24576",
+      "reqlevel": "0",
+      "augtype": "0"
+    },
+    {
+      "id": "94173",
+      "Name": "Bronze Axe",
+      "itemtype": "0",
+      "classes": "65535",
+      "races": "65536",
+      "deity": "0",
+      "slots": "24576",
+      "reqlevel": "0",
+      "augtype": "0"
+    },
+    {
+      "id": "94174",
+      "Name": "Iron Axe",
+      "itemtype": "0",
+      "classes": "65535",
+      "races": "65536",
+      "deity": "0",
+      "slots": "24576",
+      "reqlevel": "0",
+      "augtype": "0"
+    },
+    {
+      "id": "94175",
+      "Name": "Blackened Iron Axe",
+      "itemtype": "0",
+      "classes": "65535",
+      "races": "65536",
+      "deity": "0",
+      "slots": "24576",
+      "reqlevel": "0",
+      "augtype": "0"
+    },
+    {
+      "id": "94176",
+      "Name": "Steel Axe",
+      "itemtype": "0",
+      "classes": "65535",
+      "races": "65536",
+      "deity": "0",
+      "slots": "24576",
+      "reqlevel": "0",
+      "augtype": "0"
+    },
+    {
+      "id": "94177",
+      "Name": "Silver Plated Axe",
+      "itemtype": "0",
+      "classes": "65535",
+      "races": "65536",
+      "deity": "0",
+      "slots": "24576",
+      "reqlevel": "0",
+      "augtype": "0"
+    }
+  ],
+  "zero_race_examples": [
+    {
+      "id": "1348",
+      "Name": "Summoned: Muzzle of Mardu",
+      "itemtype": "10",
+      "classes": "349",
+      "races": "0",
+      "slots": "8",
+      "augtype": "0"
+    },
+    {
+      "id": "4320",
+      "Name": "Shroud of the Undine",
+      "itemtype": "0",
+      "classes": "15360",
+      "races": "0",
+      "slots": "131072",
+      "augtype": "0"
+    },
+    {
+      "id": "5100",
+      "Name": "Shadowed Two Handed Sword",
+      "itemtype": "1",
+      "classes": "1",
+      "races": "0",
+      "slots": "8192",
+      "augtype": "0"
+    },
+    {
+      "id": "5101",
+      "Name": "Shadowed Long Sword",
+      "itemtype": "0",
+      "classes": "1",
+      "races": "0",
+      "slots": "24576",
+      "augtype": "0"
+    },
+    {
+      "id": "5102",
+      "Name": "Shadowed Battle Axe",
+      "itemtype": "0",
+      "classes": "1",
+      "races": "0",
+      "slots": "24576",
+      "augtype": "0"
+    },
+    {
+      "id": "5103",
+      "Name": "Shadowed Scythe",
+      "itemtype": "1",
+      "classes": "1",
+      "races": "0",
+      "slots": "8192",
+      "augtype": "0"
+    },
+    {
+      "id": "5104",
+      "Name": "Shadowed Scimitar",
+      "itemtype": "0",
+      "classes": "1",
+      "races": "0",
+      "slots": "24576",
+      "augtype": "0"
+    },
+    {
+      "id": "5106",
+      "Name": "Shadowed Halberd",
+      "itemtype": "1",
+      "classes": "1",
+      "races": "0",
+      "slots": "8192",
+      "augtype": "0"
+    },
+    {
+      "id": "6100",
+      "Name": "Shadowed Mace",
+      "itemtype": "3",
+      "classes": "1",
+      "races": "0",
+      "slots": "24576",
+      "augtype": "0"
+    },
+    {
+      "id": "6101",
+      "Name": "Shadowed Morning Star",
+      "itemtype": "3",
+      "classes": "1",
+      "races": "0",
+      "slots": "24576",
+      "augtype": "0"
+    },
+    {
+      "id": "6102",
+      "Name": "Shadowed Two Handed Hammer",
+      "itemtype": "4",
+      "classes": "1",
+      "races": "0",
+      "slots": "8192",
+      "augtype": "0"
+    },
+    {
+      "id": "7100",
+      "Name": "Shadowed Rapier",
+      "itemtype": "2",
+      "classes": "1",
+      "races": "0",
+      "slots": "24576",
+      "augtype": "0"
+    },
+    {
+      "id": "7101",
+      "Name": "Shadowed Spear",
+      "itemtype": "2",
+      "classes": "1",
+      "races": "0",
+      "slots": "24576",
+      "augtype": "0"
+    },
+    {
+      "id": "9965",
+      "Name": "SummonedHammer",
+      "itemtype": "3",
+      "classes": "256",
+      "races": "0",
+      "slots": "8192",
+      "augtype": "0"
+    },
+    {
+      "id": "9966",
+      "Name": "SummonedSword",
+      "itemtype": "0",
+      "classes": "256",
+      "races": "0",
+      "slots": "8192",
+      "augtype": "0"
+    }
+  ],
+  "aggregate_masks": [
+    {
+      "classes": "0",
+      "races": "0",
+      "definitions": "481"
+    },
+    {
+      "classes": "0",
+      "races": "2048",
+      "definitions": "4"
+    },
+    {
+      "classes": "0",
+      "races": "65535",
+      "definitions": "32"
+    },
+    {
+      "classes": "1",
+      "races": "0",
+      "definitions": "64"
+    },
+    {
+      "classes": "1",
+      "races": "1",
+      "definitions": "8"
+    },
+    {
+      "classes": "1",
+      "races": "2",
+      "definitions": "324"
+    },
+    {
+      "classes": "1",
+      "races": "32",
+      "definitions": "48"
+    },
+    {
+      "classes": "1",
+      "races": "65",
+      "definitions": "64"
+    },
+    {
+      "classes": "1",
+      "races": "67",
+      "definitions": "16"
+    },
+    {
+      "classes": "1",
+      "races": "72",
+      "definitions": "4"
+    },
+    {
+      "classes": "1",
+      "races": "128",
+      "definitions": "40"
+    },
+    {
+      "classes": "1",
+      "races": "256",
+      "definitions": "36"
+    },
+    {
+      "classes": "1",
+      "races": "512",
+      "definitions": "44"
+    },
+    {
+      "classes": "1",
+      "races": "1024",
+      "definitions": "40"
+    },
+    {
+      "classes": "1",
+      "races": "2048",
+      "definitions": "72"
+    },
+    {
+      "classes": "1",
+      "races": "4096",
+      "definitions": "140"
+    },
+    {
+      "classes": "1",
+      "races": "8192",
+      "definitions": "68"
+    },
+    {
+      "classes": "1",
+      "races": "8962",
+      "definitions": "4"
+    },
+    {
+      "classes": "1",
+      "races": "8963",
+      "definitions": "4"
+    },
+    {
+      "classes": "1",
+      "races": "12287",
+      "definitions": "24"
+    },
+    {
+      "classes": "1",
+      "races": "16384",
+      "definitions": "65"
+    },
+    {
+      "classes": "1",
+      "races": "16449",
+      "definitions": "72"
+    },
+    {
+      "classes": "1",
+      "races": "16456",
+      "definitions": "36"
+    },
+    {
+      "classes": "1",
+      "races": "19640",
+      "definitions": "32"
+    },
+    {
+      "classes": "1",
+      "races": "25451",
+      "definitions": "8"
+    },
+    {
+      "classes": "1",
+      "races": "27883",
+      "definitions": "4"
+    },
+    {
+      "classes": "1",
+      "races": "28651",
+      "definitions": "48"
+    },
+    {
+      "classes": "1",
+      "races": "28671",
+      "definitions": "68"
+    },
+    {
+      "classes": "1",
+      "races": "61439",
+      "definitions": "60"
+    },
+    {
+      "classes": "1",
+      "races": "65515",
+      "definitions": "2273"
+    },
+    {
+      "classes": "1",
+      "races": "65535",
+      "definitions": "1233"
+    },
+    {
+      "classes": "1",
+      "races": "65536",
+      "definitions": "4"
+    },
+    {
+      "classes": "1",
+      "races": "65792",
+      "definitions": "7"
+    },
+    {
+      "classes": "1",
+      "races": "81920",
+      "definitions": "4"
+    },
+    {
+      "classes": "1",
+      "races": "98305",
+      "definitions": "8"
+    },
+    {
+      "classes": "1",
+      "races": "131071",
+      "definitions": "64"
+    },
+    {
+      "classes": "2",
+      "races": "1",
+      "definitions": "161"
+    },
+    {
+      "classes": "2",
+      "races": "4",
+      "definitions": "78"
+    },
+    {
+      "classes": "2",
+      "races": "5",
+      "definitions": "12"
+    },
+    {
+      "classes": "2",
+      "races": "16",
+      "definitions": "17"
+    },
+    {
+      "classes": "2",
+      "races": "32",
+      "definitions": "41"
+    },
+    {
+      "classes": "2",
+      "races": "128",
+      "definitions": "37"
+    },
+    {
+      "classes": "2",
+      "races": "1024",
+      "definitions": "41"
+    },
+    {
+      "classes": "2",
+      "races": "2048",
+      "definitions": "73"
+    },
+    {
+      "classes": "2",
+      "races": "2049",
+      "definitions": "4"
+    },
+    {
+      "classes": "2",
+      "races": "2176",
+      "definitions": "12"
+    },
+    {
+      "classes": "2",
+      "races": "3072",
+      "definitions": "48"
+    },
+    {
+      "classes": "2",
+      "races": "3317",
+      "definitions": "16"
+    },
+    {
+      "classes": "2",
+      "races": "16384",
+      "definitions": "73"
+    },
+    {
+      "classes": "2",
+      "races": "16437",
+      "definitions": "12"
+    },
+    {
+      "classes": "2",
+      "races": "16464",
+      "definitions": "28"
+    },
+    {
+      "classes": "2",
+      "races": "18485",
+      "definitions": "8"
+    },
+    {
+      "classes": "2",
+      "races": "32768",
+      "definitions": "1"
+    },
+    {
+      "classes": "2",
+      "races": "52405",
+      "definitions": "2187"
+    },
+    {
+      "classes": "2",
+      "races": "52413",
+      "definitions": "184"
+    },
+    {
+      "classes": "2",
+      "races": "52469",
+      "definitions": "28"
+    },
+    {
+      "classes": "2",
+      "races": "53247",
+      "definitions": "28"
+    },
+    {
+      "classes": "2",
+      "races": "65535",
+      "definitions": "931"
+    },
+    {
+      "classes": "2",
+      "races": "65536",
+      "definitions": "12"
+    },
+    {
+      "classes": "2",
+      "races": "65540",
+      "definitions": "8"
+    },
+    {
+      "classes": "2",
+      "races": "81920",
+      "definitions": "4"
+    },
+    {
+      "classes": "2",
+      "races": "117941",
+      "definitions": "4"
+    },
+    {
+      "classes": "2",
+      "races": "131071",
+      "definitions": "48"
+    },
+    {
+      "classes": "4",
+      "races": "1",
+      "definitions": "8"
+    },
+    {
+      "classes": "4",
+      "races": "4",
+      "definitions": "36"
+    },
+    {
+      "classes": "4",
+      "races": "16",
+      "definitions": "8"
+    },
+    {
+      "classes": "4",
+      "races": "65",
+      "definitions": "68"
+    },
+    {
+      "classes": "4",
+      "races": "80",
+      "definitions": "12"
+    },
+    {
+      "classes": "4",
+      "races": "128",
+      "definitions": "36"
+    },
+    {
+      "classes": "4",
+      "races": "1024",
+      "definitions": "32"
+    },
+    {
+      "classes": "4",
+      "races": "1089",
+      "definitions": "48"
+    },
+    {
+      "classes": "4",
+      "races": "2048",
+      "definitions": "36"
+    },
+    {
+      "classes": "4",
+      "races": "3285",
+      "definitions": "32"
+    },
+    {
+      "classes": "4",
+      "races": "4095",
+      "definitions": "1"
+    },
+    {
+      "classes": "4",
+      "races": "16384",
+      "definitions": "45"
+    },
+    {
+      "classes": "4",
+      "races": "16449",
+      "definitions": "44"
+    },
+    {
+      "classes": "4",
+      "races": "16464",
+      "definitions": "32"
+    },
+    {
+      "classes": "4",
+      "races": "17621",
+      "definitions": "4"
+    },
+    {
+      "classes": "4",
+      "races": "19601",
+      "definitions": "4"
+    },
+    {
+      "classes": "4",
+      "races": "19605",
+      "definitions": "4"
+    },
+    {
+      "classes": "4",
+      "races": "52437",
+      "definitions": "2359"
+    },
+    {
+      "classes": "4",
+      "races": "53247",
+      "definitions": "28"
+    },
+    {
+      "classes": "4",
+      "races": "60671",
+      "definitions": "4"
+    },
+    {
+      "classes": "4",
+      "races": "61439",
+      "definitions": "24"
+    },
+    {
+      "classes": "4",
+      "races": "65535",
+      "definitions": "905"
+    },
+    {
+      "classes": "4",
+      "races": "81920",
+      "definitions": "4"
+    },
+    {
+      "classes": "5",
+      "races": "16384",
+      "definitions": "16"
+    },
+    {
+      "classes": "5",
+      "races": "65535",
+      "definitions": "16"
+    },
+    {
+      "classes": "6",
+      "races": "4",
+      "definitions": "120"
+    },
+    {
+      "classes": "6",
+      "races": "16",
+      "definitions": "280"
+    },
+    {
+      "classes": "6",
+      "races": "128",
+      "definitions": "4"
+    },
+    {
+      "classes": "6",
+      "races": "2048",
+      "definitions": "4"
+    },
+    {
+      "classes": "6",
+      "races": "16449",
+      "definitions": "12"
+    },
+    {
+      "classes": "6",
+      "races": "16465",
+      "definitions": "8"
+    },
+    {
+      "classes": "6",
+      "races": "19584",
+      "definitions": "4"
+    },
+    {
+      "classes": "6",
+      "races": "52469",
+      "definitions": "16"
+    },
+    {
+      "classes": "6",
+      "races": "60671",
+      "definitions": "4"
+    },
+    {
+      "classes": "6",
+      "races": "65535",
+      "definitions": "29"
+    },
+    {
+      "classes": "7",
+      "races": "128",
+      "definitions": "312"
+    },
+    {
+      "classes": "7",
+      "races": "1024",
+      "definitions": "280"
+    },
+    {
+      "classes": "7",
+      "races": "3200",
+      "definitions": "96"
+    },
+    {
+      "classes": "7",
+      "races": "3264",
+      "definitions": "48"
+    },
+    {
+      "classes": "7",
+      "races": "19584",
+      "definitions": "52"
+    },
+    {
+      "classes": "7",
+      "races": "19649",
+      "definitions": "4"
+    },
+    {
+      "classes": "7",
+      "races": "81920",
+      "definitions": "4"
+    },
+    {
+      "classes": "8",
+      "races": "65",
+      "definitions": "40"
+    },
+    {
+      "classes": "8",
+      "races": "72",
+      "definitions": "40"
+    },
+    {
+      "classes": "8",
+      "races": "73",
+      "definitions": "56"
+    },
+    {
+      "classes": "8",
+      "races": "1024",
+      "definitions": "36"
+    },
+    {
+      "classes": "8",
+      "races": "1089",
+      "definitions": "48"
+    },
+    {
+      "classes": "8",
+      "races": "1096",
+      "definitions": "1"
+    },
+    {
+      "classes": "8",
+      "races": "1097",
+      "definitions": "20"
+    },
+    {
+      "classes": "8",
+      "races": "33865",
+      "definitions": "2470"
+    },
+    {
+      "classes": "8",
+      "races": "33881",
+      "definitions": "4"
+    },
+    {
+      "classes": "8",
+      "races": "36863",
+      "definitions": "24"
+    },
+    {
+      "classes": "8",
+      "races": "45055",
+      "definitions": "4"
+    },
+    {
+      "classes": "8",
+      "races": "65535",
+      "definitions": "1016"
+    },
+    {
+      "classes": "9",
+      "races": "65535",
+      "definitions": "40"
+    },
+    {
+      "classes": "13",
+      "races": "65535",
+      "definitions": "20"
+    },
+    {
+      "classes": "16",
+      "races": "1",
+      "definitions": "64"
+    },
+    {
+      "classes": "16",
+      "races": "4",
+      "definitions": "52"
+    },
+    {
+      "classes": "16",
+      "races": "32",
+      "definitions": "40"
+    },
+    {
+      "classes": "16",
+      "races": "256",
+      "definitions": "36"
+    },
+    {
+      "classes": "16",
+      "races": "512",
+      "definitions": "44"
+    },
+    {
+      "classes": "16",
+      "races": "768",
+      "definitions": "4"
+    },
+    {
+      "classes": "16",
+      "races": "2853",
+      "definitions": "28"
+    },
+    {
+      "classes": "16",
+      "races": "4096",
+      "definitions": "108"
+    },
+    {
+      "classes": "16",
+      "races": "16384",
+      "definitions": "44"
+    },
+    {
+      "classes": "16",
+      "races": "18432",
+      "definitions": "36"
+    },
+    {
+      "classes": "16",
+      "races": "18469",
+      "definitions": "8"
+    },
+    {
+      "classes": "16",
+      "races": "19237",
+      "definitions": "60"
+    },
+    {
+      "classes": "16",
+      "races": "22565",
+      "definitions": "4"
+    },
+    {
+      "classes": "16",
+      "races": "23329",
+      "definitions": "4"
+    },
+    {
+      "classes": "16",
+      "races": "23332",
+      "definitions": "4"
+    },
+    {
+      "classes": "16",
+      "races": "52005",
+      "definitions": "56"
+    },
+    {
+      "classes": "16",
+      "races": "56101",
+      "definitions": "2626"
+    },
+    {
+      "classes": "16",
+      "races": "56117",
+      "definitions": "8"
+    },
+    {
+      "classes": "16",
+      "races": "56165",
+      "definitions": "4"
+    },
+    {
+      "classes": "16",
+      "races": "56181",
+      "definitions": "4"
+    },
+    {
+      "classes": "16",
+      "races": "65535",
+      "definitions": "957"
+    },
+    {
+      "classes": "16",
+      "races": "65537",
+      "definitions": "52"
+    },
+    {
+      "classes": "16",
+      "races": "65568",
+      "definitions": "12"
+    },
+    {
+      "classes": "16",
+      "races": "69632",
+      "definitions": "32"
+    },
+    {
+      "classes": "16",
+      "races": "121637",
+      "definitions": "4"
+    },
+    {
+      "classes": "17",
+      "races": "32",
+      "definitions": "4"
+    },
+    {
+      "classes": "17",
+      "races": "256",
+      "definitions": "328"
+    },
+    {
+      "classes": "17",
+      "races": "512",
+      "definitions": "280"
+    },
+    {
+      "classes": "17",
+      "races": "768",
+      "definitions": "192"
+    },
+    {
+      "classes": "17",
+      "races": "770",
+      "definitions": "48"
+    },
+    {
+      "classes": "17",
+      "races": "4096",
+      "definitions": "345"
+    },
+    {
+      "classes": "17",
+      "races": "61439",
+      "definitions": "28"
+    },
+    {
+      "classes": "17",
+      "races": "65535",
+      "definitions": "32"
+    },
+    {
+      "classes": "18",
+      "races": "4",
+      "definitions": "100"
+    },
+    {
+      "classes": "18",
+      "races": "56101",
+      "definitions": "4"
+    },
+    {
+      "classes": "19",
+      "races": "32",
+      "definitions": "280"
+    },
+    {
+      "classes": "19",
+      "races": "65",
+      "definitions": "144"
+    },
+    {
+      "classes": "19",
+      "races": "97",
+      "definitions": "48"
+    },
+    {
+      "classes": "19",
+      "races": "16449",
+      "definitions": "8"
+    },
+    {
+      "classes": "19",
+      "races": "16481",
+      "definitions": "48"
+    },
+    {
+      "classes": "20",
+      "races": "56565",
+      "definitions": "4"
+    },
+    {
+      "classes": "20",
+      "races": "57333",
+      "definitions": "612"
+    },
+    {
+      "classes": "20",
+      "races": "65525",
+      "definitions": "4"
+    },
+    {
+      "classes": "20",
+      "races": "65535",
+      "definitions": "548"
+    },
+    {
+      "classes": "21",
+      "races": "16383",
+      "definitions": "4"
+    },
+    {
+      "classes": "21",
+      "races": "56573",
+      "definitions": "4"
+    },
+    {
+      "classes": "21",
+      "races": "61439",
+      "definitions": "4"
+    },
+    {
+      "classes": "21",
+      "races": "65535",
+      "definitions": "368"
+    },
+    {
+      "classes": "22",
+      "races": "4",
+      "definitions": "328"
+    },
+    {
+      "classes": "22",
+      "races": "57335",
+      "definitions": "4"
+    },
+    {
+      "classes": "22",
+      "races": "65535",
+      "definitions": "20"
+    },
+    {
+      "classes": "23",
+      "races": "65",
+      "definitions": "48"
+    },
+    {
+      "classes": "23",
+      "races": "2048",
+      "definitions": "336"
+    },
+    {
+      "classes": "23",
+      "races": "16384",
+      "definitions": "280"
+    },
+    {
+      "classes": "23",
+      "races": "19584",
+      "definitions": "48"
+    },
+    {
+      "classes": "23",
+      "races": "19648",
+      "definitions": "48"
+    },
+    {
+      "classes": "23",
+      "races": "65535",
+      "definitions": "29"
+    },
+    {
+      "classes": "25",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "25",
+      "races": "65792",
+      "definitions": "4"
+    },
+    {
+      "classes": "28",
+      "races": "65535",
+      "definitions": "20"
+    },
+    {
+      "classes": "29",
+      "races": "28799",
+      "definitions": "4"
+    },
+    {
+      "classes": "29",
+      "races": "29567",
+      "definitions": "4"
+    },
+    {
+      "classes": "29",
+      "races": "65535",
+      "definitions": "212"
+    },
+    {
+      "classes": "29",
+      "races": "69631",
+      "definitions": "32"
+    },
+    {
+      "classes": "31",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "32",
+      "races": "1",
+      "definitions": "4"
+    },
+    {
+      "classes": "32",
+      "races": "8",
+      "definitions": "4"
+    },
+    {
+      "classes": "32",
+      "races": "64",
+      "definitions": "280"
+    },
+    {
+      "classes": "32",
+      "races": "65",
+      "definitions": "36"
+    },
+    {
+      "classes": "32",
+      "races": "72",
+      "definitions": "40"
+    },
+    {
+      "classes": "32",
+      "races": "73",
+      "definitions": "56"
+    },
+    {
+      "classes": "32",
+      "races": "1024",
+      "definitions": "316"
+    },
+    {
+      "classes": "32",
+      "races": "1089",
+      "definitions": "52"
+    },
+    {
+      "classes": "32",
+      "races": "33865",
+      "definitions": "2506"
+    },
+    {
+      "classes": "32",
+      "races": "65535",
+      "definitions": "831"
+    },
+    {
+      "classes": "32",
+      "races": "99401",
+      "definitions": "4"
+    },
+    {
+      "classes": "32",
+      "races": "131071",
+      "definitions": "28"
+    },
+    {
+      "classes": "34",
+      "races": "89",
+      "definitions": "12"
+    },
+    {
+      "classes": "34",
+      "races": "19584",
+      "definitions": "4"
+    },
+    {
+      "classes": "34",
+      "races": "65535",
+      "definitions": "16"
+    },
+    {
+      "classes": "38",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "40",
+      "races": "33865",
+      "definitions": "56"
+    },
+    {
+      "classes": "40",
+      "races": "65535",
+      "definitions": "36"
+    },
+    {
+      "classes": "41",
+      "races": "65515",
+      "definitions": "4"
+    },
+    {
+      "classes": "41",
+      "races": "65535",
+      "definitions": "8"
+    },
+    {
+      "classes": "44",
+      "races": "1024",
+      "definitions": "4"
+    },
+    {
+      "classes": "46",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "47",
+      "races": "50265",
+      "definitions": "8"
+    },
+    {
+      "classes": "64",
+      "races": "1",
+      "definitions": "64"
+    },
+    {
+      "classes": "64",
+      "races": "4096",
+      "definitions": "76"
+    },
+    {
+      "classes": "64",
+      "races": "12287",
+      "definitions": "4"
+    },
+    {
+      "classes": "64",
+      "races": "16384",
+      "definitions": "84"
+    },
+    {
+      "classes": "64",
+      "races": "53249",
+      "definitions": "2434"
+    },
+    {
+      "classes": "64",
+      "races": "65535",
+      "definitions": "888"
+    },
+    {
+      "classes": "64",
+      "races": "118785",
+      "definitions": "5"
+    },
+    {
+      "classes": "65",
+      "races": "56553",
+      "definitions": "4"
+    },
+    {
+      "classes": "65",
+      "races": "65535",
+      "definitions": "8"
+    },
+    {
+      "classes": "65",
+      "races": "65536",
+      "definitions": "4"
+    },
+    {
+      "classes": "68",
+      "races": "56533",
+      "definitions": "7"
+    },
+    {
+      "classes": "96",
+      "races": "1",
+      "definitions": "280"
+    },
+    {
+      "classes": "96",
+      "races": "32768",
+      "definitions": "281"
+    },
+    {
+      "classes": "96",
+      "races": "65535",
+      "definitions": "2"
+    },
+    {
+      "classes": "98",
+      "races": "53301",
+      "definitions": "4"
+    },
+    {
+      "classes": "128",
+      "races": "65",
+      "definitions": "76"
+    },
+    {
+      "classes": "128",
+      "races": "72",
+      "definitions": "40"
+    },
+    {
+      "classes": "128",
+      "races": "8192",
+      "definitions": "68"
+    },
+    {
+      "classes": "128",
+      "races": "8265",
+      "definitions": "24"
+    },
+    {
+      "classes": "128",
+      "races": "32841",
+      "definitions": "48"
+    },
+    {
+      "classes": "128",
+      "races": "41033",
+      "definitions": "2548"
+    },
+    {
+      "classes": "128",
+      "races": "45023",
+      "definitions": "1"
+    },
+    {
+      "classes": "128",
+      "races": "45055",
+      "definitions": "1"
+    },
+    {
+      "classes": "128",
+      "races": "65535",
+      "definitions": "1292"
+    },
+    {
+      "classes": "129",
+      "races": "8",
+      "definitions": "280"
+    },
+    {
+      "classes": "129",
+      "races": "67",
+      "definitions": "48"
+    },
+    {
+      "classes": "129",
+      "races": "3275",
+      "definitions": "48"
+    },
+    {
+      "classes": "129",
+      "races": "3947",
+      "definitions": "48"
+    },
+    {
+      "classes": "129",
+      "races": "8192",
+      "definitions": "280"
+    },
+    {
+      "classes": "132",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "133",
+      "races": "64",
+      "definitions": "280"
+    },
+    {
+      "classes": "133",
+      "races": "65535",
+      "definitions": "8"
+    },
+    {
+      "classes": "134",
+      "races": "69",
+      "definitions": "48"
+    },
+    {
+      "classes": "135",
+      "races": "65",
+      "definitions": "144"
+    },
+    {
+      "classes": "135",
+      "races": "69",
+      "definitions": "48"
+    },
+    {
+      "classes": "135",
+      "races": "73",
+      "definitions": "144"
+    },
+    {
+      "classes": "135",
+      "races": "88",
+      "definitions": "96"
+    },
+    {
+      "classes": "135",
+      "races": "16449",
+      "definitions": "48"
+    },
+    {
+      "classes": "135",
+      "races": "16457",
+      "definitions": "48"
+    },
+    {
+      "classes": "135",
+      "races": "16472",
+      "definitions": "144"
+    },
+    {
+      "classes": "137",
+      "races": "65535",
+      "definitions": "8"
+    },
+    {
+      "classes": "141",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "145",
+      "races": "8962",
+      "definitions": "72"
+    },
+    {
+      "classes": "145",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "147",
+      "races": "96",
+      "definitions": "48"
+    },
+    {
+      "classes": "147",
+      "races": "16480",
+      "definitions": "96"
+    },
+    {
+      "classes": "148",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "149",
+      "races": "65535",
+      "definitions": "1432"
+    },
+    {
+      "classes": "150",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "151",
+      "races": "1",
+      "definitions": "280"
+    },
+    {
+      "classes": "151",
+      "races": "4975",
+      "definitions": "4"
+    },
+    {
+      "classes": "151",
+      "races": "8962",
+      "definitions": "896"
+    },
+    {
+      "classes": "151",
+      "races": "16383",
+      "definitions": "8"
+    },
+    {
+      "classes": "151",
+      "races": "16453",
+      "definitions": "48"
+    },
+    {
+      "classes": "151",
+      "races": "17592",
+      "definitions": "48"
+    },
+    {
+      "classes": "151",
+      "races": "19640",
+      "definitions": "976"
+    },
+    {
+      "classes": "151",
+      "races": "24583",
+      "definitions": "4"
+    },
+    {
+      "classes": "151",
+      "races": "24647",
+      "definitions": "44"
+    },
+    {
+      "classes": "151",
+      "races": "32768",
+      "definitions": "280"
+    },
+    {
+      "classes": "151",
+      "races": "49159",
+      "definitions": "8"
+    },
+    {
+      "classes": "151",
+      "races": "49219",
+      "definitions": "48"
+    },
+    {
+      "classes": "151",
+      "races": "49223",
+      "definitions": "416"
+    },
+    {
+      "classes": "151",
+      "races": "52469",
+      "definitions": "4"
+    },
+    {
+      "classes": "151",
+      "races": "53373",
+      "definitions": "240"
+    },
+    {
+      "classes": "151",
+      "races": "57417",
+      "definitions": "4"
+    },
+    {
+      "classes": "151",
+      "races": "57471",
+      "definitions": "856"
+    },
+    {
+      "classes": "151",
+      "races": "61439",
+      "definitions": "325"
+    },
+    {
+      "classes": "151",
+      "races": "61567",
+      "definitions": "16"
+    },
+    {
+      "classes": "151",
+      "races": "65535",
+      "definitions": "7356"
+    },
+    {
+      "classes": "151",
+      "races": "65536",
+      "definitions": "48"
+    },
+    {
+      "classes": "151",
+      "races": "65568",
+      "definitions": "24"
+    },
+    {
+      "classes": "151",
+      "races": "81920",
+      "definitions": "28"
+    },
+    {
+      "classes": "151",
+      "races": "131071",
+      "definitions": "4"
+    },
+    {
+      "classes": "153",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "156",
+      "races": "65533",
+      "definitions": "4"
+    },
+    {
+      "classes": "156",
+      "races": "65535",
+      "definitions": "64"
+    },
+    {
+      "classes": "157",
+      "races": "65535",
+      "definitions": "176"
+    },
+    {
+      "classes": "158",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "160",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "168",
+      "races": "42057",
+      "definitions": "4"
+    },
+    {
+      "classes": "169",
+      "races": "19592",
+      "definitions": "4"
+    },
+    {
+      "classes": "169",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "175",
+      "races": "33865",
+      "definitions": "4"
+    },
+    {
+      "classes": "189",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "191",
+      "races": "19640",
+      "definitions": "4"
+    },
+    {
+      "classes": "191",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "215",
+      "races": "61439",
+      "definitions": "4"
+    },
+    {
+      "classes": "215",
+      "races": "65535",
+      "definitions": "16"
+    },
+    {
+      "classes": "256",
+      "races": "0",
+      "definitions": "9"
+    },
+    {
+      "classes": "256",
+      "races": "2",
+      "definitions": "84"
+    },
+    {
+      "classes": "256",
+      "races": "32",
+      "definitions": "320"
+    },
+    {
+      "classes": "256",
+      "races": "40",
+      "definitions": "4"
+    },
+    {
+      "classes": "256",
+      "races": "65",
+      "definitions": "80"
+    },
+    {
+      "classes": "256",
+      "races": "72",
+      "definitions": "52"
+    },
+    {
+      "classes": "256",
+      "races": "128",
+      "definitions": "48"
+    },
+    {
+      "classes": "256",
+      "races": "770",
+      "definitions": "4"
+    },
+    {
+      "classes": "256",
+      "races": "1024",
+      "definitions": "40"
+    },
+    {
+      "classes": "256",
+      "races": "2048",
+      "definitions": "312"
+    },
+    {
+      "classes": "256",
+      "races": "8192",
+      "definitions": "72"
+    },
+    {
+      "classes": "256",
+      "races": "16383",
+      "definitions": "8"
+    },
+    {
+      "classes": "256",
+      "races": "16384",
+      "definitions": "40"
+    },
+    {
+      "classes": "256",
+      "races": "18432",
+      "definitions": "36"
+    },
+    {
+      "classes": "256",
+      "races": "19456",
+      "definitions": "28"
+    },
+    {
+      "classes": "256",
+      "races": "19584",
+      "definitions": "52"
+    },
+    {
+      "classes": "256",
+      "races": "19648",
+      "definitions": "48"
+    },
+    {
+      "classes": "256",
+      "races": "60651",
+      "definitions": "2555"
+    },
+    {
+      "classes": "256",
+      "races": "61439",
+      "definitions": "36"
+    },
+    {
+      "classes": "256",
+      "races": "64747",
+      "definitions": "4"
+    },
+    {
+      "classes": "256",
+      "races": "65515",
+      "definitions": "8"
+    },
+    {
+      "classes": "256",
+      "races": "65535",
+      "definitions": "1506"
+    },
+    {
+      "classes": "256",
+      "races": "65536",
+      "definitions": "4"
+    },
+    {
+      "classes": "256",
+      "races": "126187",
+      "definitions": "4"
+    },
+    {
+      "classes": "256",
+      "races": "131071",
+      "definitions": "28"
+    },
+    {
+      "classes": "257",
+      "races": "19584",
+      "definitions": "4"
+    },
+    {
+      "classes": "257",
+      "races": "19691",
+      "definitions": "4"
+    },
+    {
+      "classes": "257",
+      "races": "24555",
+      "definitions": "8"
+    },
+    {
+      "classes": "257",
+      "races": "65515",
+      "definitions": "7"
+    },
+    {
+      "classes": "257",
+      "races": "65535",
+      "definitions": "32"
+    },
+    {
+      "classes": "257",
+      "races": "65536",
+      "definitions": "8"
+    },
+    {
+      "classes": "261",
+      "races": "128",
+      "definitions": "4"
+    },
+    {
+      "classes": "261",
+      "races": "19584",
+      "definitions": "4"
+    },
+    {
+      "classes": "263",
+      "races": "128",
+      "definitions": "8"
+    },
+    {
+      "classes": "263",
+      "races": "18432",
+      "definitions": "4"
+    },
+    {
+      "classes": "264",
+      "races": "1",
+      "definitions": "196"
+    },
+    {
+      "classes": "264",
+      "races": "8",
+      "definitions": "280"
+    },
+    {
+      "classes": "264",
+      "races": "64",
+      "definitions": "280"
+    },
+    {
+      "classes": "264",
+      "races": "1024",
+      "definitions": "280"
+    },
+    {
+      "classes": "264",
+      "races": "32768",
+      "definitions": "280"
+    },
+    {
+      "classes": "264",
+      "races": "60651",
+      "definitions": "4"
+    },
+    {
+      "classes": "264",
+      "races": "65535",
+      "definitions": "16"
+    },
+    {
+      "classes": "265",
+      "races": "65515",
+      "definitions": "8"
+    },
+    {
+      "classes": "265",
+      "races": "65535",
+      "definitions": "24"
+    },
+    {
+      "classes": "269",
+      "races": "65535",
+      "definitions": "57"
+    },
+    {
+      "classes": "272",
+      "races": "65535",
+      "definitions": "12"
+    },
+    {
+      "classes": "273",
+      "races": "18785",
+      "definitions": "4"
+    },
+    {
+      "classes": "273",
+      "races": "65535",
+      "definitions": "28"
+    },
+    {
+      "classes": "275",
+      "races": "32",
+      "definitions": "4"
+    },
+    {
+      "classes": "275",
+      "races": "96",
+      "definitions": "4"
+    },
+    {
+      "classes": "275",
+      "races": "16480",
+      "definitions": "4"
+    },
+    {
+      "classes": "275",
+      "races": "18432",
+      "definitions": "4"
+    },
+    {
+      "classes": "277",
+      "races": "65535",
+      "definitions": "68"
+    },
+    {
+      "classes": "279",
+      "races": "2048",
+      "definitions": "28"
+    },
+    {
+      "classes": "281",
+      "races": "65535",
+      "definitions": "20"
+    },
+    {
+      "classes": "285",
+      "races": "16383",
+      "definitions": "4"
+    },
+    {
+      "classes": "285",
+      "races": "65515",
+      "definitions": "4"
+    },
+    {
+      "classes": "285",
+      "races": "65535",
+      "definitions": "5154"
+    },
+    {
+      "classes": "285",
+      "races": "131071",
+      "definitions": "12"
+    },
+    {
+      "classes": "297",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "303",
+      "races": "1024",
+      "definitions": "16"
+    },
+    {
+      "classes": "303",
+      "races": "60671",
+      "definitions": "4"
+    },
+    {
+      "classes": "317",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "320",
+      "races": "64747",
+      "definitions": "4"
+    },
+    {
+      "classes": "320",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "321",
+      "races": "65515",
+      "definitions": "24"
+    },
+    {
+      "classes": "328",
+      "races": "65515",
+      "definitions": "16"
+    },
+    {
+      "classes": "336",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "349",
+      "races": "0",
+      "definitions": "1"
+    },
+    {
+      "classes": "349",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "352",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "384",
+      "races": "11499",
+      "definitions": "4"
+    },
+    {
+      "classes": "384",
+      "races": "16383",
+      "definitions": "8"
+    },
+    {
+      "classes": "384",
+      "races": "60651",
+      "definitions": "32"
+    },
+    {
+      "classes": "384",
+      "races": "65535",
+      "definitions": "88"
+    },
+    {
+      "classes": "385",
+      "races": "8192",
+      "definitions": "4"
+    },
+    {
+      "classes": "385",
+      "races": "65515",
+      "definitions": "4"
+    },
+    {
+      "classes": "385",
+      "races": "65535",
+      "definitions": "36"
+    },
+    {
+      "classes": "386",
+      "races": "19707",
+      "definitions": "4"
+    },
+    {
+      "classes": "391",
+      "races": "19585",
+      "definitions": "4"
+    },
+    {
+      "classes": "392",
+      "races": "60651",
+      "definitions": "4"
+    },
+    {
+      "classes": "392",
+      "races": "65535",
+      "definitions": "20"
+    },
+    {
+      "classes": "393",
+      "races": "52443",
+      "definitions": "4"
+    },
+    {
+      "classes": "393",
+      "races": "61419",
+      "definitions": "4"
+    },
+    {
+      "classes": "393",
+      "races": "64747",
+      "definitions": "4"
+    },
+    {
+      "classes": "393",
+      "races": "65515",
+      "definitions": "572"
+    },
+    {
+      "classes": "393",
+      "races": "65535",
+      "definitions": "1260"
+    },
+    {
+      "classes": "393",
+      "races": "131071",
+      "definitions": "8"
+    },
+    {
+      "classes": "397",
+      "races": "65535",
+      "definitions": "40"
+    },
+    {
+      "classes": "399",
+      "races": "24641",
+      "definitions": "4"
+    },
+    {
+      "classes": "400",
+      "races": "65519",
+      "definitions": "4"
+    },
+    {
+      "classes": "400",
+      "races": "65535",
+      "definitions": "8"
+    },
+    {
+      "classes": "401",
+      "races": "65519",
+      "definitions": "4"
+    },
+    {
+      "classes": "401",
+      "races": "65535",
+      "definitions": "20"
+    },
+    {
+      "classes": "405",
+      "races": "19640",
+      "definitions": "4"
+    },
+    {
+      "classes": "409",
+      "races": "16383",
+      "definitions": "4"
+    },
+    {
+      "classes": "409",
+      "races": "19640",
+      "definitions": "4"
+    },
+    {
+      "classes": "409",
+      "races": "29473",
+      "definitions": "4"
+    },
+    {
+      "classes": "409",
+      "races": "65535",
+      "definitions": "200"
+    },
+    {
+      "classes": "413",
+      "races": "16383",
+      "definitions": "16"
+    },
+    {
+      "classes": "413",
+      "races": "16453",
+      "definitions": "4"
+    },
+    {
+      "classes": "413",
+      "races": "16455",
+      "definitions": "4"
+    },
+    {
+      "classes": "413",
+      "races": "16504",
+      "definitions": "4"
+    },
+    {
+      "classes": "413",
+      "races": "19640",
+      "definitions": "8"
+    },
+    {
+      "classes": "413",
+      "races": "29473",
+      "definitions": "4"
+    },
+    {
+      "classes": "413",
+      "races": "32702",
+      "definitions": "4"
+    },
+    {
+      "classes": "413",
+      "races": "49223",
+      "definitions": "8"
+    },
+    {
+      "classes": "413",
+      "races": "60639",
+      "definitions": "8"
+    },
+    {
+      "classes": "413",
+      "races": "61439",
+      "definitions": "8"
+    },
+    {
+      "classes": "413",
+      "races": "65519",
+      "definitions": "8"
+    },
+    {
+      "classes": "413",
+      "races": "65535",
+      "definitions": "2455"
+    },
+    {
+      "classes": "413",
+      "races": "65536",
+      "definitions": "4"
+    },
+    {
+      "classes": "413",
+      "races": "131071",
+      "definitions": "16"
+    },
+    {
+      "classes": "415",
+      "races": "12287",
+      "definitions": "4"
+    },
+    {
+      "classes": "425",
+      "races": "8",
+      "definitions": "4"
+    },
+    {
+      "classes": "429",
+      "races": "64",
+      "definitions": "4"
+    },
+    {
+      "classes": "429",
+      "races": "89",
+      "definitions": "4"
+    },
+    {
+      "classes": "429",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "431",
+      "races": "88",
+      "definitions": "4"
+    },
+    {
+      "classes": "431",
+      "races": "89",
+      "definitions": "96"
+    },
+    {
+      "classes": "431",
+      "races": "16472",
+      "definitions": "56"
+    },
+    {
+      "classes": "431",
+      "races": "33865",
+      "definitions": "96"
+    },
+    {
+      "classes": "441",
+      "races": "65535",
+      "definitions": "12"
+    },
+    {
+      "classes": "445",
+      "races": "65535",
+      "definitions": "264"
+    },
+    {
+      "classes": "445",
+      "races": "131071",
+      "definitions": "4"
+    },
+    {
+      "classes": "447",
+      "races": "16472",
+      "definitions": "44"
+    },
+    {
+      "classes": "448",
+      "races": "64747",
+      "definitions": "4"
+    },
+    {
+      "classes": "448",
+      "races": "65535",
+      "definitions": "8"
+    },
+    {
+      "classes": "449",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "457",
+      "races": "65535",
+      "definitions": "12"
+    },
+    {
+      "classes": "465",
+      "races": "64367",
+      "definitions": "4"
+    },
+    {
+      "classes": "477",
+      "races": "65535",
+      "definitions": "20"
+    },
+    {
+      "classes": "509",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "511",
+      "races": "65535",
+      "definitions": "24"
+    },
+    {
+      "classes": "512",
+      "races": "2",
+      "definitions": "53"
+    },
+    {
+      "classes": "512",
+      "races": "256",
+      "definitions": "88"
+    },
+    {
+      "classes": "512",
+      "races": "512",
+      "definitions": "93"
+    },
+    {
+      "classes": "512",
+      "races": "768",
+      "definitions": "9"
+    },
+    {
+      "classes": "512",
+      "races": "4096",
+      "definitions": "381"
+    },
+    {
+      "classes": "512",
+      "races": "8192",
+      "definitions": "73"
+    },
+    {
+      "classes": "512",
+      "races": "8962",
+      "definitions": "24"
+    },
+    {
+      "classes": "512",
+      "races": "16384",
+      "definitions": "57"
+    },
+    {
+      "classes": "512",
+      "races": "25346",
+      "definitions": "88"
+    },
+    {
+      "classes": "512",
+      "races": "29442",
+      "definitions": "280"
+    },
+    {
+      "classes": "512",
+      "races": "29450",
+      "definitions": "2337"
+    },
+    {
+      "classes": "512",
+      "races": "62218",
+      "definitions": "12"
+    },
+    {
+      "classes": "512",
+      "races": "65535",
+      "definitions": "989"
+    },
+    {
+      "classes": "512",
+      "races": "81920",
+      "definitions": "28"
+    },
+    {
+      "classes": "512",
+      "races": "94986",
+      "definitions": "1"
+    },
+    {
+      "classes": "512",
+      "races": "131071",
+      "definitions": "4"
+    },
+    {
+      "classes": "513",
+      "races": "29450",
+      "definitions": "4"
+    },
+    {
+      "classes": "513",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "514",
+      "races": "289",
+      "definitions": "12"
+    },
+    {
+      "classes": "514",
+      "races": "4356",
+      "definitions": "8"
+    },
+    {
+      "classes": "514",
+      "races": "16384",
+      "definitions": "1"
+    },
+    {
+      "classes": "514",
+      "races": "16673",
+      "definitions": "1"
+    },
+    {
+      "classes": "514",
+      "races": "61367",
+      "definitions": "28"
+    },
+    {
+      "classes": "514",
+      "races": "65471",
+      "definitions": "7"
+    },
+    {
+      "classes": "514",
+      "races": "65535",
+      "definitions": "16"
+    },
+    {
+      "classes": "518",
+      "races": "65535",
+      "definitions": "12"
+    },
+    {
+      "classes": "529",
+      "races": "768",
+      "definitions": "4"
+    },
+    {
+      "classes": "529",
+      "races": "4096",
+      "definitions": "148"
+    },
+    {
+      "classes": "529",
+      "races": "8962",
+      "definitions": "4"
+    },
+    {
+      "classes": "530",
+      "races": "19233",
+      "definitions": "8"
+    },
+    {
+      "classes": "530",
+      "races": "65471",
+      "definitions": "4"
+    },
+    {
+      "classes": "535",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "544",
+      "races": "65535",
+      "definitions": "13"
+    },
+    {
+      "classes": "546",
+      "races": "1",
+      "definitions": "36"
+    },
+    {
+      "classes": "546",
+      "races": "2",
+      "definitions": "36"
+    },
+    {
+      "classes": "546",
+      "races": "4",
+      "definitions": "36"
+    },
+    {
+      "classes": "546",
+      "races": "8",
+      "definitions": "36"
+    },
+    {
+      "classes": "546",
+      "races": "16",
+      "definitions": "36"
+    },
+    {
+      "classes": "546",
+      "races": "32",
+      "definitions": "36"
+    },
+    {
+      "classes": "546",
+      "races": "64",
+      "definitions": "36"
+    },
+    {
+      "classes": "546",
+      "races": "128",
+      "definitions": "36"
+    },
+    {
+      "classes": "546",
+      "races": "256",
+      "definitions": "36"
+    },
+    {
+      "classes": "546",
+      "races": "512",
+      "definitions": "36"
+    },
+    {
+      "classes": "546",
+      "races": "1024",
+      "definitions": "36"
+    },
+    {
+      "classes": "546",
+      "races": "2048",
+      "definitions": "36"
+    },
+    {
+      "classes": "546",
+      "races": "4096",
+      "definitions": "36"
+    },
+    {
+      "classes": "546",
+      "races": "8192",
+      "definitions": "36"
+    },
+    {
+      "classes": "546",
+      "races": "16383",
+      "definitions": "4"
+    },
+    {
+      "classes": "546",
+      "races": "16384",
+      "definitions": "36"
+    },
+    {
+      "classes": "546",
+      "races": "29567",
+      "definitions": "8"
+    },
+    {
+      "classes": "546",
+      "races": "32768",
+      "definitions": "36"
+    },
+    {
+      "classes": "546",
+      "races": "60671",
+      "definitions": "4"
+    },
+    {
+      "classes": "546",
+      "races": "65535",
+      "definitions": "3010"
+    },
+    {
+      "classes": "550",
+      "races": "65535",
+      "definitions": "20"
+    },
+    {
+      "classes": "553",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "558",
+      "races": "65535",
+      "definitions": "5"
+    },
+    {
+      "classes": "559",
+      "races": "60639",
+      "definitions": "4"
+    },
+    {
+      "classes": "566",
+      "races": "65535",
+      "definitions": "8"
+    },
+    {
+      "classes": "567",
+      "races": "65535",
+      "definitions": "12"
+    },
+    {
+      "classes": "575",
+      "races": "65535",
+      "definitions": "32"
+    },
+    {
+      "classes": "593",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "610",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "611",
+      "races": "62431",
+      "definitions": "4"
+    },
+    {
+      "classes": "663",
+      "races": "65535",
+      "definitions": "12"
+    },
+    {
+      "classes": "671",
+      "races": "57471",
+      "definitions": "96"
+    },
+    {
+      "classes": "671",
+      "races": "61567",
+      "definitions": "8"
+    },
+    {
+      "classes": "674",
+      "races": "16383",
+      "definitions": "8"
+    },
+    {
+      "classes": "674",
+      "races": "65535",
+      "definitions": "109"
+    },
+    {
+      "classes": "703",
+      "races": "65535",
+      "definitions": "24"
+    },
+    {
+      "classes": "720",
+      "races": "61475",
+      "definitions": "1"
+    },
+    {
+      "classes": "767",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "768",
+      "races": "16384",
+      "definitions": "280"
+    },
+    {
+      "classes": "768",
+      "races": "65515",
+      "definitions": "8"
+    },
+    {
+      "classes": "768",
+      "races": "65535",
+      "definitions": "20"
+    },
+    {
+      "classes": "775",
+      "races": "19584",
+      "definitions": "8"
+    },
+    {
+      "classes": "785",
+      "races": "8962",
+      "definitions": "8"
+    },
+    {
+      "classes": "791",
+      "races": "19232",
+      "definitions": "4"
+    },
+    {
+      "classes": "831",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "897",
+      "races": "65515",
+      "definitions": "4"
+    },
+    {
+      "classes": "905",
+      "races": "65535",
+      "definitions": "12"
+    },
+    {
+      "classes": "913",
+      "races": "53373",
+      "definitions": "4"
+    },
+    {
+      "classes": "919",
+      "races": "65519",
+      "definitions": "4"
+    },
+    {
+      "classes": "921",
+      "races": "65535",
+      "definitions": "8"
+    },
+    {
+      "classes": "925",
+      "races": "65535",
+      "definitions": "96"
+    },
+    {
+      "classes": "927",
+      "races": "4167",
+      "definitions": "4"
+    },
+    {
+      "classes": "927",
+      "races": "8962",
+      "definitions": "24"
+    },
+    {
+      "classes": "927",
+      "races": "12287",
+      "definitions": "4"
+    },
+    {
+      "classes": "927",
+      "races": "16383",
+      "definitions": "8"
+    },
+    {
+      "classes": "927",
+      "races": "17528",
+      "definitions": "4"
+    },
+    {
+      "classes": "927",
+      "races": "18432",
+      "definitions": "4"
+    },
+    {
+      "classes": "927",
+      "races": "19640",
+      "definitions": "32"
+    },
+    {
+      "classes": "927",
+      "races": "28743",
+      "definitions": "4"
+    },
+    {
+      "classes": "927",
+      "races": "53373",
+      "definitions": "232"
+    },
+    {
+      "classes": "927",
+      "races": "61567",
+      "definitions": "60"
+    },
+    {
+      "classes": "927",
+      "races": "65535",
+      "definitions": "36"
+    },
+    {
+      "classes": "941",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "957",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "959",
+      "races": "8962",
+      "definitions": "8"
+    },
+    {
+      "classes": "959",
+      "races": "16383",
+      "definitions": "4"
+    },
+    {
+      "classes": "959",
+      "races": "19640",
+      "definitions": "24"
+    },
+    {
+      "classes": "959",
+      "races": "61567",
+      "definitions": "12"
+    },
+    {
+      "classes": "959",
+      "races": "64765",
+      "definitions": "5"
+    },
+    {
+      "classes": "959",
+      "races": "65535",
+      "definitions": "96"
+    },
+    {
+      "classes": "959",
+      "races": "65536",
+      "definitions": "4"
+    },
+    {
+      "classes": "991",
+      "races": "61567",
+      "definitions": "4"
+    },
+    {
+      "classes": "991",
+      "races": "65535",
+      "definitions": "12"
+    },
+    {
+      "classes": "1002",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "1007",
+      "races": "65535",
+      "definitions": "12"
+    },
+    {
+      "classes": "1023",
+      "races": "19640",
+      "definitions": "12"
+    },
+    {
+      "classes": "1023",
+      "races": "24647",
+      "definitions": "4"
+    },
+    {
+      "classes": "1023",
+      "races": "57343",
+      "definitions": "4"
+    },
+    {
+      "classes": "1023",
+      "races": "61567",
+      "definitions": "16"
+    },
+    {
+      "classes": "1023",
+      "races": "64735",
+      "definitions": "4"
+    },
+    {
+      "classes": "1023",
+      "races": "65535",
+      "definitions": "168"
+    },
+    {
+      "classes": "1024",
+      "races": "1",
+      "definitions": "4"
+    },
+    {
+      "classes": "1024",
+      "races": "4",
+      "definitions": "100"
+    },
+    {
+      "classes": "1024",
+      "races": "32",
+      "definitions": "44"
+    },
+    {
+      "classes": "1024",
+      "races": "4096",
+      "definitions": "368"
+    },
+    {
+      "classes": "1024",
+      "races": "16383",
+      "definitions": "4"
+    },
+    {
+      "classes": "1024",
+      "races": "16384",
+      "definitions": "48"
+    },
+    {
+      "classes": "1024",
+      "races": "16421",
+      "definitions": "32"
+    },
+    {
+      "classes": "1024",
+      "races": "22533",
+      "definitions": "4"
+    },
+    {
+      "classes": "1024",
+      "races": "55333",
+      "definitions": "2488"
+    },
+    {
+      "classes": "1024",
+      "races": "56573",
+      "definitions": "2"
+    },
+    {
+      "classes": "1024",
+      "races": "65535",
+      "definitions": "835"
+    },
+    {
+      "classes": "1040",
+      "races": "5",
+      "definitions": "24"
+    },
+    {
+      "classes": "1040",
+      "races": "32",
+      "definitions": "5"
+    },
+    {
+      "classes": "1040",
+      "races": "56101",
+      "definitions": "71"
+    },
+    {
+      "classes": "1040",
+      "races": "56165",
+      "definitions": "8"
+    },
+    {
+      "classes": "1040",
+      "races": "65535",
+      "definitions": "50"
+    },
+    {
+      "classes": "1041",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "1042",
+      "races": "32",
+      "definitions": "56"
+    },
+    {
+      "classes": "1088",
+      "races": "65535",
+      "definitions": "1"
+    },
+    {
+      "classes": "1177",
+      "races": "55333",
+      "definitions": "4"
+    },
+    {
+      "classes": "1297",
+      "races": "56101",
+      "definitions": "4"
+    },
+    {
+      "classes": "1297",
+      "races": "65519",
+      "definitions": "12"
+    },
+    {
+      "classes": "1536",
+      "races": "4096",
+      "definitions": "4"
+    },
+    {
+      "classes": "1536",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "1570",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "1619",
+      "races": "4868",
+      "definitions": "4"
+    },
+    {
+      "classes": "2048",
+      "races": "0",
+      "definitions": "4"
+    },
+    {
+      "classes": "2048",
+      "races": "4",
+      "definitions": "4"
+    },
+    {
+      "classes": "2048",
+      "races": "16",
+      "definitions": "4"
+    },
+    {
+      "classes": "2048",
+      "races": "2101",
+      "definitions": "8"
+    },
+    {
+      "classes": "2048",
+      "races": "16384",
+      "definitions": "57"
+    },
+    {
+      "classes": "2048",
+      "races": "16437",
+      "definitions": "8"
+    },
+    {
+      "classes": "2048",
+      "races": "49205",
+      "definitions": "4"
+    },
+    {
+      "classes": "2048",
+      "races": "51253",
+      "definitions": "2253"
+    },
+    {
+      "classes": "2048",
+      "races": "52477",
+      "definitions": "1"
+    },
+    {
+      "classes": "2048",
+      "races": "65535",
+      "definitions": "815"
+    },
+    {
+      "classes": "2048",
+      "races": "81920",
+      "definitions": "4"
+    },
+    {
+      "classes": "2048",
+      "races": "116789",
+      "definitions": "4"
+    },
+    {
+      "classes": "2048",
+      "races": "131071",
+      "definitions": "28"
+    },
+    {
+      "classes": "2080",
+      "races": "65535",
+      "definitions": "5"
+    },
+    {
+      "classes": "2176",
+      "races": "2173",
+      "definitions": "20"
+    },
+    {
+      "classes": "2304",
+      "races": "18432",
+      "definitions": "4"
+    },
+    {
+      "classes": "2560",
+      "races": "81920",
+      "definitions": "4"
+    },
+    {
+      "classes": "2567",
+      "races": "16384",
+      "definitions": "4"
+    },
+    {
+      "classes": "3072",
+      "races": "16384",
+      "definitions": "280"
+    },
+    {
+      "classes": "3072",
+      "races": "55349",
+      "definitions": "4"
+    },
+    {
+      "classes": "3072",
+      "races": "65535",
+      "definitions": "8"
+    },
+    {
+      "classes": "4096",
+      "races": "4",
+      "definitions": "4"
+    },
+    {
+      "classes": "4096",
+      "races": "16",
+      "definitions": "4"
+    },
+    {
+      "classes": "4096",
+      "races": "53",
+      "definitions": "8"
+    },
+    {
+      "classes": "4096",
+      "races": "2101",
+      "definitions": "4"
+    },
+    {
+      "classes": "4096",
+      "races": "34869",
+      "definitions": "2254"
+    },
+    {
+      "classes": "4096",
+      "races": "36093",
+      "definitions": "2"
+    },
+    {
+      "classes": "4096",
+      "races": "65535",
+      "definitions": "807"
+    },
+    {
+      "classes": "4128",
+      "races": "65535",
+      "definitions": "2"
+    },
+    {
+      "classes": "4608",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "4610",
+      "races": "131071",
+      "definitions": "4"
+    },
+    {
+      "classes": "4640",
+      "races": "65535",
+      "definitions": "1"
+    },
+    {
+      "classes": "5120",
+      "races": "65535",
+      "definitions": "12"
+    },
+    {
+      "classes": "6144",
+      "races": "51253",
+      "definitions": "8"
+    },
+    {
+      "classes": "6144",
+      "races": "65535",
+      "definitions": "41"
+    },
+    {
+      "classes": "6146",
+      "races": "55349",
+      "definitions": "8"
+    },
+    {
+      "classes": "6146",
+      "races": "131071",
+      "definitions": "4"
+    },
+    {
+      "classes": "8192",
+      "races": "1",
+      "definitions": "4"
+    },
+    {
+      "classes": "8192",
+      "races": "4",
+      "definitions": "4"
+    },
+    {
+      "classes": "8192",
+      "races": "16",
+      "definitions": "4"
+    },
+    {
+      "classes": "8192",
+      "races": "32",
+      "definitions": "8"
+    },
+    {
+      "classes": "8192",
+      "races": "53",
+      "definitions": "8"
+    },
+    {
+      "classes": "8192",
+      "races": "2101",
+      "definitions": "4"
+    },
+    {
+      "classes": "8192",
+      "races": "34869",
+      "definitions": "2271"
+    },
+    {
+      "classes": "8192",
+      "races": "36093",
+      "definitions": "2"
+    },
+    {
+      "classes": "8192",
+      "races": "65535",
+      "definitions": "865"
+    },
+    {
+      "classes": "8192",
+      "races": "65536",
+      "definitions": "8"
+    },
+    {
+      "classes": "8192",
+      "races": "100405",
+      "definitions": "4"
+    },
+    {
+      "classes": "8192",
+      "races": "131071",
+      "definitions": "28"
+    },
+    {
+      "classes": "8224",
+      "races": "35965",
+      "definitions": "4"
+    },
+    {
+      "classes": "8224",
+      "races": "65535",
+      "definitions": "1"
+    },
+    {
+      "classes": "8256",
+      "races": "55349",
+      "definitions": "8"
+    },
+    {
+      "classes": "8320",
+      "races": "43061",
+      "definitions": "4"
+    },
+    {
+      "classes": "8320",
+      "races": "43133",
+      "definitions": "19"
+    },
+    {
+      "classes": "8320",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "8352",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "8448",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "8576",
+      "races": "60671",
+      "definitions": "20"
+    },
+    {
+      "classes": "8576",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "8866",
+      "races": "65535",
+      "definitions": "100"
+    },
+    {
+      "classes": "9216",
+      "races": "65535",
+      "definitions": "5"
+    },
+    {
+      "classes": "9232",
+      "races": "55349",
+      "definitions": "4"
+    },
+    {
+      "classes": "10240",
+      "races": "51253",
+      "definitions": "1"
+    },
+    {
+      "classes": "10278",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "10280",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "11778",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "11818",
+      "races": "65535",
+      "definitions": "16"
+    },
+    {
+      "classes": "12288",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "13312",
+      "races": "61439",
+      "definitions": "4"
+    },
+    {
+      "classes": "14336",
+      "races": "1",
+      "definitions": "84"
+    },
+    {
+      "classes": "14336",
+      "races": "4",
+      "definitions": "128"
+    },
+    {
+      "classes": "14336",
+      "races": "16",
+      "definitions": "328"
+    },
+    {
+      "classes": "14336",
+      "races": "17",
+      "definitions": "48"
+    },
+    {
+      "classes": "14336",
+      "races": "32",
+      "definitions": "48"
+    },
+    {
+      "classes": "14336",
+      "races": "2048",
+      "definitions": "56"
+    },
+    {
+      "classes": "14336",
+      "races": "16437",
+      "definitions": "36"
+    },
+    {
+      "classes": "14336",
+      "races": "16449",
+      "definitions": "12"
+    },
+    {
+      "classes": "14336",
+      "races": "16465",
+      "definitions": "60"
+    },
+    {
+      "classes": "14336",
+      "races": "16501",
+      "definitions": "12"
+    },
+    {
+      "classes": "14336",
+      "races": "51253",
+      "definitions": "4"
+    },
+    {
+      "classes": "14336",
+      "races": "65535",
+      "definitions": "12"
+    },
+    {
+      "classes": "14342",
+      "races": "16",
+      "definitions": "4"
+    },
+    {
+      "classes": "14368",
+      "races": "16509",
+      "definitions": "4"
+    },
+    {
+      "classes": "14368",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "14370",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "14534",
+      "races": "93",
+      "definitions": "4"
+    },
+    {
+      "classes": "14727",
+      "races": "73",
+      "definitions": "4"
+    },
+    {
+      "classes": "14727",
+      "races": "89",
+      "definitions": "4"
+    },
+    {
+      "classes": "14767",
+      "races": "88",
+      "definitions": "48"
+    },
+    {
+      "classes": "14767",
+      "races": "89",
+      "definitions": "4"
+    },
+    {
+      "classes": "14767",
+      "races": "16472",
+      "definitions": "96"
+    },
+    {
+      "classes": "14767",
+      "races": "33881",
+      "definitions": "4"
+    },
+    {
+      "classes": "14888",
+      "races": "65535",
+      "definitions": "8"
+    },
+    {
+      "classes": "15087",
+      "races": "4",
+      "definitions": "4"
+    },
+    {
+      "classes": "15343",
+      "races": "16408",
+      "definitions": "4"
+    },
+    {
+      "classes": "15360",
+      "races": "0",
+      "definitions": "4"
+    },
+    {
+      "classes": "15360",
+      "races": "1",
+      "definitions": "400"
+    },
+    {
+      "classes": "15360",
+      "races": "4",
+      "definitions": "316"
+    },
+    {
+      "classes": "15360",
+      "races": "16",
+      "definitions": "36"
+    },
+    {
+      "classes": "15360",
+      "races": "32",
+      "definitions": "316"
+    },
+    {
+      "classes": "15360",
+      "races": "2048",
+      "definitions": "316"
+    },
+    {
+      "classes": "15360",
+      "races": "4096",
+      "definitions": "36"
+    },
+    {
+      "classes": "15360",
+      "races": "6197",
+      "definitions": "20"
+    },
+    {
+      "classes": "15360",
+      "races": "14389",
+      "definitions": "4"
+    },
+    {
+      "classes": "15360",
+      "races": "16383",
+      "definitions": "4"
+    },
+    {
+      "classes": "15360",
+      "races": "16384",
+      "definitions": "36"
+    },
+    {
+      "classes": "15360",
+      "races": "16389",
+      "definitions": "48"
+    },
+    {
+      "classes": "15360",
+      "races": "16417",
+      "definitions": "96"
+    },
+    {
+      "classes": "15360",
+      "races": "18432",
+      "definitions": "44"
+    },
+    {
+      "classes": "15360",
+      "races": "32768",
+      "definitions": "316"
+    },
+    {
+      "classes": "15360",
+      "races": "51253",
+      "definitions": "8"
+    },
+    {
+      "classes": "15360",
+      "races": "55349",
+      "definitions": "3952"
+    },
+    {
+      "classes": "15360",
+      "races": "55351",
+      "definitions": "4"
+    },
+    {
+      "classes": "15360",
+      "races": "55413",
+      "definitions": "16"
+    },
+    {
+      "classes": "15360",
+      "races": "55421",
+      "definitions": "4"
+    },
+    {
+      "classes": "15360",
+      "races": "56117",
+      "definitions": "4"
+    },
+    {
+      "classes": "15360",
+      "races": "56573",
+      "definitions": "1"
+    },
+    {
+      "classes": "15360",
+      "races": "63541",
+      "definitions": "4"
+    },
+    {
+      "classes": "15360",
+      "races": "65535",
+      "definitions": "7094"
+    },
+    {
+      "classes": "15360",
+      "races": "65536",
+      "definitions": "4"
+    },
+    {
+      "classes": "15360",
+      "races": "131071",
+      "definitions": "4"
+    },
+    {
+      "classes": "15362",
+      "races": "18480",
+      "definitions": "4"
+    },
+    {
+      "classes": "15362",
+      "races": "20533",
+      "definitions": "4"
+    },
+    {
+      "classes": "15362",
+      "races": "55349",
+      "definitions": "24"
+    },
+    {
+      "classes": "15362",
+      "races": "56501",
+      "definitions": "4"
+    },
+    {
+      "classes": "15362",
+      "races": "65535",
+      "definitions": "16"
+    },
+    {
+      "classes": "15363",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "15376",
+      "races": "65535",
+      "definitions": "20"
+    },
+    {
+      "classes": "15377",
+      "races": "55349",
+      "definitions": "4"
+    },
+    {
+      "classes": "15382",
+      "races": "4",
+      "definitions": "4"
+    },
+    {
+      "classes": "15382",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "15392",
+      "races": "55349",
+      "definitions": "4"
+    },
+    {
+      "classes": "15392",
+      "races": "65535",
+      "definitions": "8"
+    },
+    {
+      "classes": "15394",
+      "races": "56573",
+      "definitions": "4"
+    },
+    {
+      "classes": "15410",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "15420",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "15424",
+      "races": "55349",
+      "definitions": "52"
+    },
+    {
+      "classes": "15424",
+      "races": "65535",
+      "definitions": "76"
+    },
+    {
+      "classes": "15426",
+      "races": "55349",
+      "definitions": "12"
+    },
+    {
+      "classes": "15426",
+      "races": "65535",
+      "definitions": "32"
+    },
+    {
+      "classes": "15456",
+      "races": "55349",
+      "definitions": "16"
+    },
+    {
+      "classes": "15458",
+      "races": "55349",
+      "definitions": "4"
+    },
+    {
+      "classes": "15488",
+      "races": "16383",
+      "definitions": "8"
+    },
+    {
+      "classes": "15488",
+      "races": "63613",
+      "definitions": "28"
+    },
+    {
+      "classes": "15488",
+      "races": "65535",
+      "definitions": "84"
+    },
+    {
+      "classes": "15488",
+      "races": "65536",
+      "definitions": "4"
+    },
+    {
+      "classes": "15494",
+      "races": "77",
+      "definitions": "4"
+    },
+    {
+      "classes": "15504",
+      "races": "64381",
+      "definitions": "4"
+    },
+    {
+      "classes": "15504",
+      "races": "65535",
+      "definitions": "12"
+    },
+    {
+      "classes": "15513",
+      "races": "55349",
+      "definitions": "4"
+    },
+    {
+      "classes": "15616",
+      "races": "65535",
+      "definitions": "8"
+    },
+    {
+      "classes": "15617",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "15635",
+      "races": "32",
+      "definitions": "4"
+    },
+    {
+      "classes": "15635",
+      "races": "18497",
+      "definitions": "4"
+    },
+    {
+      "classes": "15639",
+      "races": "2048",
+      "definitions": "4"
+    },
+    {
+      "classes": "15639",
+      "races": "18432",
+      "definitions": "12"
+    },
+    {
+      "classes": "15763",
+      "races": "96",
+      "definitions": "48"
+    },
+    {
+      "classes": "15763",
+      "races": "16480",
+      "definitions": "96"
+    },
+    {
+      "classes": "15769",
+      "races": "65535",
+      "definitions": "64"
+    },
+    {
+      "classes": "15773",
+      "races": "28547",
+      "definitions": "4"
+    },
+    {
+      "classes": "15773",
+      "races": "65535",
+      "definitions": "32"
+    },
+    {
+      "classes": "15816",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "15871",
+      "races": "1",
+      "definitions": "4"
+    },
+    {
+      "classes": "15872",
+      "races": "64319",
+      "definitions": "72"
+    },
+    {
+      "classes": "15872",
+      "races": "65407",
+      "definitions": "16"
+    },
+    {
+      "classes": "15874",
+      "races": "17185",
+      "definitions": "8"
+    },
+    {
+      "classes": "15874",
+      "races": "56501",
+      "definitions": "4"
+    },
+    {
+      "classes": "15891",
+      "races": "18785",
+      "definitions": "4"
+    },
+    {
+      "classes": "15904",
+      "races": "65407",
+      "definitions": "16"
+    },
+    {
+      "classes": "15904",
+      "races": "65535",
+      "definitions": "28"
+    },
+    {
+      "classes": "15906",
+      "races": "55349",
+      "definitions": "8"
+    },
+    {
+      "classes": "15906",
+      "races": "56573",
+      "definitions": "4"
+    },
+    {
+      "classes": "15906",
+      "races": "65535",
+      "definitions": "7545"
+    },
+    {
+      "classes": "15906",
+      "races": "131071",
+      "definitions": "12"
+    },
+    {
+      "classes": "15918",
+      "races": "65535",
+      "definitions": "8"
+    },
+    {
+      "classes": "15926",
+      "races": "65535",
+      "definitions": "24"
+    },
+    {
+      "classes": "15928",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "15934",
+      "races": "65535",
+      "definitions": "8"
+    },
+    {
+      "classes": "15935",
+      "races": "65535",
+      "definitions": "20"
+    },
+    {
+      "classes": "15970",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "15999",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "16000",
+      "races": "63613",
+      "definitions": "4"
+    },
+    {
+      "classes": "16032",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "16034",
+      "races": "16383",
+      "definitions": "8"
+    },
+    {
+      "classes": "16034",
+      "races": "65535",
+      "definitions": "85"
+    },
+    {
+      "classes": "16062",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "16063",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "16111",
+      "races": "65792",
+      "definitions": "1"
+    },
+    {
+      "classes": "16159",
+      "races": "7013",
+      "definitions": "4"
+    },
+    {
+      "classes": "16256",
+      "races": "65535",
+      "definitions": "24"
+    },
+    {
+      "classes": "16281",
+      "races": "65535",
+      "definitions": "20"
+    },
+    {
+      "classes": "16290",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "16319",
+      "races": "65535",
+      "definitions": "365"
+    },
+    {
+      "classes": "16319",
+      "races": "131071",
+      "definitions": "4"
+    },
+    {
+      "classes": "16367",
+      "races": "65535",
+      "definitions": "8"
+    },
+    {
+      "classes": "16383",
+      "races": "65535",
+      "definitions": "32"
+    },
+    {
+      "classes": "16384",
+      "races": "2",
+      "definitions": "364"
+    },
+    {
+      "classes": "16384",
+      "races": "256",
+      "definitions": "312"
+    },
+    {
+      "classes": "16384",
+      "races": "512",
+      "definitions": "312"
+    },
+    {
+      "classes": "16384",
+      "races": "4096",
+      "definitions": "36"
+    },
+    {
+      "classes": "16384",
+      "races": "8192",
+      "definitions": "316"
+    },
+    {
+      "classes": "16384",
+      "races": "13066",
+      "definitions": "2698"
+    },
+    {
+      "classes": "16384",
+      "races": "65535",
+      "definitions": "730"
+    },
+    {
+      "classes": "16392",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "16393",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "16400",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "16412",
+      "races": "61439",
+      "definitions": "8"
+    },
+    {
+      "classes": "16412",
+      "races": "65535",
+      "definitions": "12"
+    },
+    {
+      "classes": "16416",
+      "races": "8",
+      "definitions": "280"
+    },
+    {
+      "classes": "16448",
+      "races": "4096",
+      "definitions": "280"
+    },
+    {
+      "classes": "16448",
+      "races": "45827",
+      "definitions": "8"
+    },
+    {
+      "classes": "16448",
+      "races": "62219",
+      "definitions": "1176"
+    },
+    {
+      "classes": "16448",
+      "races": "65515",
+      "definitions": "8"
+    },
+    {
+      "classes": "16448",
+      "races": "65535",
+      "definitions": "932"
+    },
+    {
+      "classes": "16457",
+      "races": "65535",
+      "definitions": "16"
+    },
+    {
+      "classes": "16468",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "16471",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "16480",
+      "races": "46923",
+      "definitions": "4"
+    },
+    {
+      "classes": "16480",
+      "races": "63307",
+      "definitions": "1587"
+    },
+    {
+      "classes": "16480",
+      "races": "64767",
+      "definitions": "4"
+    },
+    {
+      "classes": "16480",
+      "races": "65535",
+      "definitions": "4171"
+    },
+    {
+      "classes": "16512",
+      "races": "65535",
+      "definitions": "1"
+    },
+    {
+      "classes": "16521",
+      "races": "65515",
+      "definitions": "12"
+    },
+    {
+      "classes": "16540",
+      "races": "1",
+      "definitions": "36"
+    },
+    {
+      "classes": "16540",
+      "races": "2",
+      "definitions": "36"
+    },
+    {
+      "classes": "16540",
+      "races": "4",
+      "definitions": "36"
+    },
+    {
+      "classes": "16540",
+      "races": "8",
+      "definitions": "36"
+    },
+    {
+      "classes": "16540",
+      "races": "16",
+      "definitions": "36"
+    },
+    {
+      "classes": "16540",
+      "races": "32",
+      "definitions": "36"
+    },
+    {
+      "classes": "16540",
+      "races": "64",
+      "definitions": "36"
+    },
+    {
+      "classes": "16540",
+      "races": "128",
+      "definitions": "36"
+    },
+    {
+      "classes": "16540",
+      "races": "256",
+      "definitions": "36"
+    },
+    {
+      "classes": "16540",
+      "races": "512",
+      "definitions": "36"
+    },
+    {
+      "classes": "16540",
+      "races": "1024",
+      "definitions": "36"
+    },
+    {
+      "classes": "16540",
+      "races": "2048",
+      "definitions": "36"
+    },
+    {
+      "classes": "16540",
+      "races": "4096",
+      "definitions": "36"
+    },
+    {
+      "classes": "16540",
+      "races": "8192",
+      "definitions": "36"
+    },
+    {
+      "classes": "16540",
+      "races": "16384",
+      "definitions": "36"
+    },
+    {
+      "classes": "16540",
+      "races": "32768",
+      "definitions": "36"
+    },
+    {
+      "classes": "16540",
+      "races": "65535",
+      "definitions": "1274"
+    },
+    {
+      "classes": "16541",
+      "races": "32698",
+      "definitions": "4"
+    },
+    {
+      "classes": "16541",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "16576",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "16585",
+      "races": "65535",
+      "definitions": "8"
+    },
+    {
+      "classes": "16597",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "16599",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "16605",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "16631",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "16640",
+      "races": "13066",
+      "definitions": "4"
+    },
+    {
+      "classes": "16640",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "16641",
+      "races": "13066",
+      "definitions": "4"
+    },
+    {
+      "classes": "16656",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "16657",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "16669",
+      "races": "65535",
+      "definitions": "8"
+    },
+    {
+      "classes": "16705",
+      "races": "65515",
+      "definitions": "36"
+    },
+    {
+      "classes": "16713",
+      "races": "65535",
+      "definitions": "8"
+    },
+    {
+      "classes": "16736",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "16769",
+      "races": "13066",
+      "definitions": "4"
+    },
+    {
+      "classes": "16769",
+      "races": "13131",
+      "definitions": "8"
+    },
+    {
+      "classes": "16769",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "16777",
+      "races": "65515",
+      "definitions": "393"
+    },
+    {
+      "classes": "16777",
+      "races": "65535",
+      "definitions": "502"
+    },
+    {
+      "classes": "16777",
+      "races": "131071",
+      "definitions": "4"
+    },
+    {
+      "classes": "16784",
+      "races": "65519",
+      "definitions": "8"
+    },
+    {
+      "classes": "16784",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "16785",
+      "races": "65535",
+      "definitions": "16"
+    },
+    {
+      "classes": "16793",
+      "races": "65515",
+      "definitions": "76"
+    },
+    {
+      "classes": "16793",
+      "races": "65535",
+      "definitions": "116"
+    },
+    {
+      "classes": "16797",
+      "races": "65535",
+      "definitions": "88"
+    },
+    {
+      "classes": "16833",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "16840",
+      "races": "65535",
+      "definitions": "8"
+    },
+    {
+      "classes": "16841",
+      "races": "65515",
+      "definitions": "473"
+    },
+    {
+      "classes": "16841",
+      "races": "65535",
+      "definitions": "740"
+    },
+    {
+      "classes": "16841",
+      "races": "131071",
+      "definitions": "8"
+    },
+    {
+      "classes": "16860",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "16861",
+      "races": "65535",
+      "definitions": "532"
+    },
+    {
+      "classes": "16863",
+      "races": "9087",
+      "definitions": "4"
+    },
+    {
+      "classes": "16873",
+      "races": "65535",
+      "definitions": "40"
+    },
+    {
+      "classes": "16896",
+      "races": "13066",
+      "definitions": "12"
+    },
+    {
+      "classes": "16896",
+      "races": "29450",
+      "definitions": "8"
+    },
+    {
+      "classes": "16896",
+      "races": "65535",
+      "definitions": "28"
+    },
+    {
+      "classes": "16897",
+      "races": "65535",
+      "definitions": "8"
+    },
+    {
+      "classes": "16904",
+      "races": "63307",
+      "definitions": "4"
+    },
+    {
+      "classes": "16905",
+      "races": "65535",
+      "definitions": "8"
+    },
+    {
+      "classes": "16927",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "16928",
+      "races": "63307",
+      "definitions": "4"
+    },
+    {
+      "classes": "16930",
+      "races": "29567",
+      "definitions": "12"
+    },
+    {
+      "classes": "16930",
+      "races": "65535",
+      "definitions": "72"
+    },
+    {
+      "classes": "16938",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "16942",
+      "races": "65535",
+      "definitions": "1232"
+    },
+    {
+      "classes": "16946",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "16958",
+      "races": "65535",
+      "definitions": "24"
+    },
+    {
+      "classes": "16959",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "16977",
+      "races": "13066",
+      "definitions": "8"
+    },
+    {
+      "classes": "16992",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "16994",
+      "races": "65535",
+      "definitions": "12"
+    },
+    {
+      "classes": "17002",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "17020",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "17023",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "17033",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "17086",
+      "races": "65535",
+      "definitions": "28"
+    },
+    {
+      "classes": "17087",
+      "races": "65535",
+      "definitions": "36"
+    },
+    {
+      "classes": "17107",
+      "races": "62223",
+      "definitions": "4"
+    },
+    {
+      "classes": "17151",
+      "races": "65535",
+      "definitions": "24"
+    },
+    {
+      "classes": "17153",
+      "races": "13066",
+      "definitions": "4"
+    },
+    {
+      "classes": "17153",
+      "races": "65535",
+      "definitions": "8"
+    },
+    {
+      "classes": "17161",
+      "races": "65535",
+      "definitions": "8"
+    },
+    {
+      "classes": "17181",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "17279",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "17281",
+      "races": "8192",
+      "definitions": "4"
+    },
+    {
+      "classes": "17281",
+      "races": "13131",
+      "definitions": "8"
+    },
+    {
+      "classes": "17281",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "17289",
+      "races": "65535",
+      "definitions": "12"
+    },
+    {
+      "classes": "17297",
+      "races": "65515",
+      "definitions": "4"
+    },
+    {
+      "classes": "17297",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "17303",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "17305",
+      "races": "65515",
+      "definitions": "4"
+    },
+    {
+      "classes": "17305",
+      "races": "65519",
+      "definitions": "4"
+    },
+    {
+      "classes": "17305",
+      "races": "65535",
+      "definitions": "292"
+    },
+    {
+      "classes": "17309",
+      "races": "65535",
+      "definitions": "64"
+    },
+    {
+      "classes": "17311",
+      "races": "13058",
+      "definitions": "8"
+    },
+    {
+      "classes": "17311",
+      "races": "13066",
+      "definitions": "8"
+    },
+    {
+      "classes": "17311",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "17343",
+      "races": "13066",
+      "definitions": "4"
+    },
+    {
+      "classes": "17343",
+      "races": "62335",
+      "definitions": "16"
+    },
+    {
+      "classes": "17343",
+      "races": "65535",
+      "definitions": "40"
+    },
+    {
+      "classes": "17369",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "17375",
+      "races": "62223",
+      "definitions": "4"
+    },
+    {
+      "classes": "17375",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "17387",
+      "races": "65531",
+      "definitions": "12"
+    },
+    {
+      "classes": "17387",
+      "races": "65535",
+      "definitions": "8"
+    },
+    {
+      "classes": "17391",
+      "races": "65535",
+      "definitions": "20"
+    },
+    {
+      "classes": "17407",
+      "races": "62287",
+      "definitions": "4"
+    },
+    {
+      "classes": "17407",
+      "races": "62335",
+      "definitions": "24"
+    },
+    {
+      "classes": "17407",
+      "races": "65535",
+      "definitions": "950"
+    },
+    {
+      "classes": "17407",
+      "races": "65536",
+      "definitions": "4"
+    },
+    {
+      "classes": "17680",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "17937",
+      "races": "13066",
+      "definitions": "4"
+    },
+    {
+      "classes": "18001",
+      "races": "13066",
+      "definitions": "8"
+    },
+    {
+      "classes": "18001",
+      "races": "65535",
+      "definitions": "44"
+    },
+    {
+      "classes": "20480",
+      "races": "64319",
+      "definitions": "7"
+    },
+    {
+      "classes": "21504",
+      "races": "64319",
+      "definitions": "253"
+    },
+    {
+      "classes": "21504",
+      "races": "65535",
+      "definitions": "197"
+    },
+    {
+      "classes": "22848",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "24096",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "26160",
+      "races": "65535",
+      "definitions": "8"
+    },
+    {
+      "classes": "26168",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "30224",
+      "races": "64319",
+      "definitions": "4"
+    },
+    {
+      "classes": "30224",
+      "races": "65535",
+      "definitions": "8"
+    },
+    {
+      "classes": "30384",
+      "races": "65535",
+      "definitions": "1"
+    },
+    {
+      "classes": "30719",
+      "races": "0",
+      "definitions": "4"
+    },
+    {
+      "classes": "30816",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "31744",
+      "races": "55349",
+      "definitions": "12"
+    },
+    {
+      "classes": "31744",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "31808",
+      "races": "64319",
+      "definitions": "8"
+    },
+    {
+      "classes": "31808",
+      "races": "65535",
+      "definitions": "1"
+    },
+    {
+      "classes": "31840",
+      "races": "64319",
+      "definitions": "24"
+    },
+    {
+      "classes": "31840",
+      "races": "65407",
+      "definitions": "484"
+    },
+    {
+      "classes": "31840",
+      "races": "65535",
+      "definitions": "76"
+    },
+    {
+      "classes": "31872",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "31880",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "31888",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "31900",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "32000",
+      "races": "32698",
+      "definitions": "4"
+    },
+    {
+      "classes": "32017",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "32096",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "32128",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "32137",
+      "races": "65535",
+      "definitions": "36"
+    },
+    {
+      "classes": "32145",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "32153",
+      "races": "29519",
+      "definitions": "4"
+    },
+    {
+      "classes": "32153",
+      "races": "65535",
+      "definitions": "588"
+    },
+    {
+      "classes": "32157",
+      "races": "65535",
+      "definitions": "48"
+    },
+    {
+      "classes": "32201",
+      "races": "65535",
+      "definitions": "8"
+    },
+    {
+      "classes": "32255",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "32256",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "32290",
+      "races": "65535",
+      "definitions": "81"
+    },
+    {
+      "classes": "32298",
+      "races": "65535",
+      "definitions": "8"
+    },
+    {
+      "classes": "32302",
+      "races": "65535",
+      "definitions": "28"
+    },
+    {
+      "classes": "32304",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "32312",
+      "races": "65407",
+      "definitions": "216"
+    },
+    {
+      "classes": "32312",
+      "races": "65535",
+      "definitions": "108"
+    },
+    {
+      "classes": "32314",
+      "races": "65535",
+      "definitions": "184"
+    },
+    {
+      "classes": "32318",
+      "races": "65535",
+      "definitions": "401"
+    },
+    {
+      "classes": "32354",
+      "races": "65535",
+      "definitions": "8"
+    },
+    {
+      "classes": "32383",
+      "races": "65535",
+      "definitions": "16"
+    },
+    {
+      "classes": "32446",
+      "races": "65535",
+      "definitions": "284"
+    },
+    {
+      "classes": "32639",
+      "races": "0",
+      "definitions": "4"
+    },
+    {
+      "classes": "32649",
+      "races": "65535",
+      "definitions": "12"
+    },
+    {
+      "classes": "32665",
+      "races": "65535",
+      "definitions": "136"
+    },
+    {
+      "classes": "32669",
+      "races": "65535",
+      "definitions": "104"
+    },
+    {
+      "classes": "32697",
+      "races": "65535",
+      "definitions": "8"
+    },
+    {
+      "classes": "32729",
+      "races": "65535",
+      "definitions": "12"
+    },
+    {
+      "classes": "32767",
+      "races": "0",
+      "definitions": "16"
+    },
+    {
+      "classes": "32767",
+      "races": "2048",
+      "definitions": "1"
+    },
+    {
+      "classes": "32767",
+      "races": "12287",
+      "definitions": "16"
+    },
+    {
+      "classes": "32767",
+      "races": "32650",
+      "definitions": "4"
+    },
+    {
+      "classes": "32767",
+      "races": "32768",
+      "definitions": "4"
+    },
+    {
+      "classes": "32767",
+      "races": "65499",
+      "definitions": "4"
+    },
+    {
+      "classes": "32767",
+      "races": "65535",
+      "definitions": "930"
+    },
+    {
+      "classes": "32768",
+      "races": "2",
+      "definitions": "40"
+    },
+    {
+      "classes": "32768",
+      "races": "128",
+      "definitions": "40"
+    },
+    {
+      "classes": "32768",
+      "races": "256",
+      "definitions": "40"
+    },
+    {
+      "classes": "32768",
+      "races": "512",
+      "definitions": "36"
+    },
+    {
+      "classes": "32768",
+      "races": "8192",
+      "definitions": "36"
+    },
+    {
+      "classes": "32768",
+      "races": "9090",
+      "definitions": "2204"
+    },
+    {
+      "classes": "32768",
+      "races": "65535",
+      "definitions": "630"
+    },
+    {
+      "classes": "32769",
+      "races": "65515",
+      "definitions": "12"
+    },
+    {
+      "classes": "32769",
+      "races": "65535",
+      "definitions": "24"
+    },
+    {
+      "classes": "32773",
+      "races": "3200",
+      "definitions": "4"
+    },
+    {
+      "classes": "32773",
+      "races": "65535",
+      "definitions": "8"
+    },
+    {
+      "classes": "32774",
+      "races": "18560",
+      "definitions": "4"
+    },
+    {
+      "classes": "32774",
+      "races": "65535",
+      "definitions": "8"
+    },
+    {
+      "classes": "32777",
+      "races": "65515",
+      "definitions": "4"
+    },
+    {
+      "classes": "32777",
+      "races": "65535",
+      "definitions": "28"
+    },
+    {
+      "classes": "32781",
+      "races": "65535",
+      "definitions": "16"
+    },
+    {
+      "classes": "32784",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "32785",
+      "races": "8962",
+      "definitions": "12"
+    },
+    {
+      "classes": "32785",
+      "races": "23332",
+      "definitions": "4"
+    },
+    {
+      "classes": "32785",
+      "races": "65519",
+      "definitions": "12"
+    },
+    {
+      "classes": "32785",
+      "races": "65535",
+      "definitions": "40"
+    },
+    {
+      "classes": "32788",
+      "races": "65535",
+      "definitions": "152"
+    },
+    {
+      "classes": "32789",
+      "races": "32651",
+      "definitions": "4"
+    },
+    {
+      "classes": "32789",
+      "races": "65535",
+      "definitions": "244"
+    },
+    {
+      "classes": "32789",
+      "races": "65536",
+      "definitions": "8"
+    },
+    {
+      "classes": "32789",
+      "races": "98187",
+      "definitions": "8"
+    },
+    {
+      "classes": "32791",
+      "races": "19232",
+      "definitions": "4"
+    },
+    {
+      "classes": "32791",
+      "races": "65535",
+      "definitions": "12"
+    },
+    {
+      "classes": "32793",
+      "races": "29551",
+      "definitions": "4"
+    },
+    {
+      "classes": "32793",
+      "races": "65535",
+      "definitions": "16"
+    },
+    {
+      "classes": "32796",
+      "races": "65535",
+      "definitions": "16"
+    },
+    {
+      "classes": "32797",
+      "races": "19640",
+      "definitions": "4"
+    },
+    {
+      "classes": "32797",
+      "races": "21281",
+      "definitions": "4"
+    },
+    {
+      "classes": "32797",
+      "races": "28547",
+      "definitions": "8"
+    },
+    {
+      "classes": "32797",
+      "races": "29519",
+      "definitions": "8"
+    },
+    {
+      "classes": "32797",
+      "races": "29567",
+      "definitions": "8"
+    },
+    {
+      "classes": "32797",
+      "races": "53247",
+      "definitions": "4"
+    },
+    {
+      "classes": "32797",
+      "races": "56573",
+      "definitions": "4"
+    },
+    {
+      "classes": "32797",
+      "races": "60639",
+      "definitions": "8"
+    },
+    {
+      "classes": "32797",
+      "races": "65535",
+      "definitions": "2913"
+    },
+    {
+      "classes": "32797",
+      "races": "65536",
+      "definitions": "4"
+    },
+    {
+      "classes": "32797",
+      "races": "131071",
+      "definitions": "8"
+    },
+    {
+      "classes": "32832",
+      "races": "62347",
+      "definitions": "8"
+    },
+    {
+      "classes": "32836",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "32841",
+      "races": "65535",
+      "definitions": "12"
+    },
+    {
+      "classes": "32853",
+      "races": "65535",
+      "definitions": "8"
+    },
+    {
+      "classes": "32861",
+      "races": "65535",
+      "definitions": "16"
+    },
+    {
+      "classes": "32925",
+      "races": "58239",
+      "definitions": "4"
+    },
+    {
+      "classes": "32925",
+      "races": "65535",
+      "definitions": "28"
+    },
+    {
+      "classes": "32927",
+      "races": "61439",
+      "definitions": "4"
+    },
+    {
+      "classes": "32927",
+      "races": "65535",
+      "definitions": "16"
+    },
+    {
+      "classes": "33024",
+      "races": "128",
+      "definitions": "280"
+    },
+    {
+      "classes": "33024",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "33025",
+      "races": "65535",
+      "definitions": "28"
+    },
+    {
+      "classes": "33031",
+      "races": "128",
+      "definitions": "4"
+    },
+    {
+      "classes": "33031",
+      "races": "19584",
+      "definitions": "4"
+    },
+    {
+      "classes": "33031",
+      "races": "131071",
+      "definitions": "4"
+    },
+    {
+      "classes": "33032",
+      "races": "1",
+      "definitions": "84"
+    },
+    {
+      "classes": "33032",
+      "races": "19648",
+      "definitions": "48"
+    },
+    {
+      "classes": "33032",
+      "races": "60651",
+      "definitions": "8"
+    },
+    {
+      "classes": "33032",
+      "races": "65535",
+      "definitions": "13"
+    },
+    {
+      "classes": "33041",
+      "races": "8962",
+      "definitions": "4"
+    },
+    {
+      "classes": "33041",
+      "races": "65535",
+      "definitions": "12"
+    },
+    {
+      "classes": "33045",
+      "races": "9090",
+      "definitions": "4"
+    },
+    {
+      "classes": "33045",
+      "races": "65535",
+      "definitions": "8"
+    },
+    {
+      "classes": "33047",
+      "races": "19584",
+      "definitions": "20"
+    },
+    {
+      "classes": "33053",
+      "races": "65535",
+      "definitions": "8"
+    },
+    {
+      "classes": "33071",
+      "races": "19584",
+      "definitions": "12"
+    },
+    {
+      "classes": "33087",
+      "races": "19584",
+      "definitions": "8"
+    },
+    {
+      "classes": "33089",
+      "races": "1",
+      "definitions": "36"
+    },
+    {
+      "classes": "33089",
+      "races": "2",
+      "definitions": "36"
+    },
+    {
+      "classes": "33089",
+      "races": "8",
+      "definitions": "36"
+    },
+    {
+      "classes": "33089",
+      "races": "32",
+      "definitions": "36"
+    },
+    {
+      "classes": "33089",
+      "races": "64",
+      "definitions": "36"
+    },
+    {
+      "classes": "33089",
+      "races": "128",
+      "definitions": "36"
+    },
+    {
+      "classes": "33089",
+      "races": "256",
+      "definitions": "36"
+    },
+    {
+      "classes": "33089",
+      "races": "512",
+      "definitions": "36"
+    },
+    {
+      "classes": "33089",
+      "races": "1024",
+      "definitions": "36"
+    },
+    {
+      "classes": "33089",
+      "races": "2048",
+      "definitions": "36"
+    },
+    {
+      "classes": "33089",
+      "races": "4096",
+      "definitions": "36"
+    },
+    {
+      "classes": "33089",
+      "races": "8192",
+      "definitions": "36"
+    },
+    {
+      "classes": "33089",
+      "races": "16384",
+      "definitions": "36"
+    },
+    {
+      "classes": "33089",
+      "races": "32768",
+      "definitions": "36"
+    },
+    {
+      "classes": "33089",
+      "races": "65515",
+      "definitions": "761"
+    },
+    {
+      "classes": "33089",
+      "races": "65531",
+      "definitions": "8"
+    },
+    {
+      "classes": "33089",
+      "races": "65535",
+      "definitions": "477"
+    },
+    {
+      "classes": "33096",
+      "races": "65515",
+      "definitions": "328"
+    },
+    {
+      "classes": "33105",
+      "races": "65535",
+      "definitions": "2"
+    },
+    {
+      "classes": "33117",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "33159",
+      "races": "19689",
+      "definitions": "96"
+    },
+    {
+      "classes": "33160",
+      "races": "60667",
+      "definitions": "56"
+    },
+    {
+      "classes": "33161",
+      "races": "60671",
+      "definitions": "4"
+    },
+    {
+      "classes": "33161",
+      "races": "65535",
+      "definitions": "20"
+    },
+    {
+      "classes": "33167",
+      "races": "64767",
+      "definitions": "28"
+    },
+    {
+      "classes": "33169",
+      "races": "61567",
+      "definitions": "4"
+    },
+    {
+      "classes": "33175",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "33177",
+      "races": "64751",
+      "definitions": "4"
+    },
+    {
+      "classes": "33181",
+      "races": "58239",
+      "definitions": "8"
+    },
+    {
+      "classes": "33181",
+      "races": "61439",
+      "definitions": "12"
+    },
+    {
+      "classes": "33181",
+      "races": "62335",
+      "definitions": "12"
+    },
+    {
+      "classes": "33181",
+      "races": "65535",
+      "definitions": "108"
+    },
+    {
+      "classes": "33181",
+      "races": "65536",
+      "definitions": "8"
+    },
+    {
+      "classes": "33183",
+      "races": "17592",
+      "definitions": "4"
+    },
+    {
+      "classes": "33183",
+      "races": "19640",
+      "definitions": "52"
+    },
+    {
+      "classes": "33183",
+      "races": "60669",
+      "definitions": "4"
+    },
+    {
+      "classes": "33183",
+      "races": "61439",
+      "definitions": "12"
+    },
+    {
+      "classes": "33183",
+      "races": "65535",
+      "definitions": "32"
+    },
+    {
+      "classes": "33216",
+      "races": "64747",
+      "definitions": "4"
+    },
+    {
+      "classes": "33217",
+      "races": "65535",
+      "definitions": "12"
+    },
+    {
+      "classes": "33224",
+      "races": "64747",
+      "definitions": "4"
+    },
+    {
+      "classes": "33225",
+      "races": "65535",
+      "definitions": "8"
+    },
+    {
+      "classes": "33245",
+      "races": "61439",
+      "definitions": "12"
+    },
+    {
+      "classes": "33245",
+      "races": "65535",
+      "definitions": "100"
+    },
+    {
+      "classes": "33280",
+      "races": "256",
+      "definitions": "280"
+    },
+    {
+      "classes": "33280",
+      "races": "512",
+      "definitions": "280"
+    },
+    {
+      "classes": "33297",
+      "races": "768",
+      "definitions": "48"
+    },
+    {
+      "classes": "33297",
+      "races": "835",
+      "definitions": "48"
+    },
+    {
+      "classes": "33297",
+      "races": "8960",
+      "definitions": "4"
+    },
+    {
+      "classes": "33297",
+      "races": "8962",
+      "definitions": "24"
+    },
+    {
+      "classes": "33299",
+      "races": "4868",
+      "definitions": "44"
+    },
+    {
+      "classes": "33299",
+      "races": "4932",
+      "definitions": "4"
+    },
+    {
+      "classes": "33303",
+      "races": "28799",
+      "definitions": "28"
+    },
+    {
+      "classes": "33303",
+      "races": "65535",
+      "definitions": "8"
+    },
+    {
+      "classes": "33305",
+      "races": "65535",
+      "definitions": "8"
+    },
+    {
+      "classes": "33337",
+      "races": "65515",
+      "definitions": "4"
+    },
+    {
+      "classes": "33343",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "33425",
+      "races": "20331",
+      "definitions": "4"
+    },
+    {
+      "classes": "33437",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "33439",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "33535",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "33536",
+      "races": "2",
+      "definitions": "328"
+    },
+    {
+      "classes": "33536",
+      "races": "8192",
+      "definitions": "280"
+    },
+    {
+      "classes": "33537",
+      "races": "65515",
+      "definitions": "4"
+    },
+    {
+      "classes": "33544",
+      "races": "49219",
+      "definitions": "48"
+    },
+    {
+      "classes": "33544",
+      "races": "65515",
+      "definitions": "1523"
+    },
+    {
+      "classes": "33544",
+      "races": "65535",
+      "definitions": "4597"
+    },
+    {
+      "classes": "33553",
+      "races": "8962",
+      "definitions": "8"
+    },
+    {
+      "classes": "33665",
+      "races": "67",
+      "definitions": "48"
+    },
+    {
+      "classes": "33665",
+      "races": "75",
+      "definitions": "4"
+    },
+    {
+      "classes": "33681",
+      "races": "8962",
+      "definitions": "240"
+    },
+    {
+      "classes": "33692",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "33694",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "33695",
+      "races": "8962",
+      "definitions": "440"
+    },
+    {
+      "classes": "33695",
+      "races": "19640",
+      "definitions": "672"
+    },
+    {
+      "classes": "33695",
+      "races": "29519",
+      "definitions": "48"
+    },
+    {
+      "classes": "33695",
+      "races": "52473",
+      "definitions": "48"
+    },
+    {
+      "classes": "33695",
+      "races": "53373",
+      "definitions": "4"
+    },
+    {
+      "classes": "33695",
+      "races": "56573",
+      "definitions": "48"
+    },
+    {
+      "classes": "33695",
+      "races": "60671",
+      "definitions": "4"
+    },
+    {
+      "classes": "33695",
+      "races": "61439",
+      "definitions": "188"
+    },
+    {
+      "classes": "33695",
+      "races": "61567",
+      "definitions": "1036"
+    },
+    {
+      "classes": "33695",
+      "races": "62335",
+      "definitions": "36"
+    },
+    {
+      "classes": "33695",
+      "races": "64765",
+      "definitions": "48"
+    },
+    {
+      "classes": "33695",
+      "races": "64767",
+      "definitions": "40"
+    },
+    {
+      "classes": "33695",
+      "races": "65535",
+      "definitions": "1881"
+    },
+    {
+      "classes": "33727",
+      "races": "19640",
+      "definitions": "52"
+    },
+    {
+      "classes": "33727",
+      "races": "62335",
+      "definitions": "4"
+    },
+    {
+      "classes": "33727",
+      "races": "65535",
+      "definitions": "176"
+    },
+    {
+      "classes": "33737",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "33745",
+      "races": "64367",
+      "definitions": "8"
+    },
+    {
+      "classes": "33751",
+      "races": "64303",
+      "definitions": "8"
+    },
+    {
+      "classes": "33759",
+      "races": "19640",
+      "definitions": "4"
+    },
+    {
+      "classes": "33759",
+      "races": "57471",
+      "definitions": "20"
+    },
+    {
+      "classes": "33759",
+      "races": "62335",
+      "definitions": "8"
+    },
+    {
+      "classes": "33759",
+      "races": "65535",
+      "definitions": "84"
+    },
+    {
+      "classes": "33775",
+      "races": "60639",
+      "definitions": "4"
+    },
+    {
+      "classes": "33791",
+      "races": "8962",
+      "definitions": "12"
+    },
+    {
+      "classes": "33791",
+      "races": "19584",
+      "definitions": "4"
+    },
+    {
+      "classes": "33791",
+      "races": "19640",
+      "definitions": "196"
+    },
+    {
+      "classes": "33791",
+      "races": "61567",
+      "definitions": "12"
+    },
+    {
+      "classes": "33791",
+      "races": "62335",
+      "definitions": "12"
+    },
+    {
+      "classes": "33791",
+      "races": "64767",
+      "definitions": "8"
+    },
+    {
+      "classes": "33791",
+      "races": "65535",
+      "definitions": "88"
+    },
+    {
+      "classes": "33791",
+      "races": "131071",
+      "definitions": "4"
+    },
+    {
+      "classes": "33808",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "33809",
+      "races": "23332",
+      "definitions": "4"
+    },
+    {
+      "classes": "33809",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "34323",
+      "races": "4868",
+      "definitions": "4"
+    },
+    {
+      "classes": "34813",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "34816",
+      "races": "60343",
+      "definitions": "7"
+    },
+    {
+      "classes": "34880",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "40959",
+      "races": "65535",
+      "definitions": "1"
+    },
+    {
+      "classes": "47495",
+      "races": "19657",
+      "definitions": "4"
+    },
+    {
+      "classes": "47599",
+      "races": "58457",
+      "definitions": "4"
+    },
+    {
+      "classes": "47599",
+      "races": "65535",
+      "definitions": "5"
+    },
+    {
+      "classes": "48007",
+      "races": "16475",
+      "definitions": "4"
+    },
+    {
+      "classes": "48111",
+      "races": "60635",
+      "definitions": "4"
+    },
+    {
+      "classes": "48146",
+      "races": "19232",
+      "definitions": "4"
+    },
+    {
+      "classes": "48192",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "48401",
+      "races": "24353",
+      "definitions": "4"
+    },
+    {
+      "classes": "48541",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "48663",
+      "races": "19296",
+      "definitions": "8"
+    },
+    {
+      "classes": "48695",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "48703",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "48738",
+      "races": "65535",
+      "definitions": "8"
+    },
+    {
+      "classes": "48785",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "48904",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "48915",
+      "races": "16737",
+      "definitions": "4"
+    },
+    {
+      "classes": "48919",
+      "races": "19232",
+      "definitions": "4"
+    },
+    {
+      "classes": "48919",
+      "races": "19296",
+      "definitions": "8"
+    },
+    {
+      "classes": "48927",
+      "races": "56165",
+      "definitions": "4"
+    },
+    {
+      "classes": "49055",
+      "races": "65535",
+      "definitions": "40"
+    },
+    {
+      "classes": "49087",
+      "races": "62335",
+      "definitions": "8"
+    },
+    {
+      "classes": "49087",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "49151",
+      "races": "19640",
+      "definitions": "8"
+    },
+    {
+      "classes": "49151",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "49151",
+      "races": "65536",
+      "definitions": "8"
+    },
+    {
+      "classes": "49152",
+      "races": "65538",
+      "definitions": "4"
+    },
+    {
+      "classes": "49181",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "49217",
+      "races": "65531",
+      "definitions": "12"
+    },
+    {
+      "classes": "49217",
+      "races": "65535",
+      "definitions": "12"
+    },
+    {
+      "classes": "49225",
+      "races": "65535",
+      "definitions": "14"
+    },
+    {
+      "classes": "49245",
+      "races": "65535",
+      "definitions": "860"
+    },
+    {
+      "classes": "49245",
+      "races": "131071",
+      "definitions": "4"
+    },
+    {
+      "classes": "49309",
+      "races": "65535",
+      "definitions": "8"
+    },
+    {
+      "classes": "49425",
+      "races": "13066",
+      "definitions": "12"
+    },
+    {
+      "classes": "49472",
+      "races": "65535",
+      "definitions": "16"
+    },
+    {
+      "classes": "49480",
+      "races": "65535",
+      "definitions": "180"
+    },
+    {
+      "classes": "49501",
+      "races": "65535",
+      "definitions": "12"
+    },
+    {
+      "classes": "49504",
+      "races": "65535",
+      "definitions": "12"
+    },
+    {
+      "classes": "49506",
+      "races": "65535",
+      "definitions": "28"
+    },
+    {
+      "classes": "49537",
+      "races": "65515",
+      "definitions": "4"
+    },
+    {
+      "classes": "49545",
+      "races": "65535",
+      "definitions": "8"
+    },
+    {
+      "classes": "49559",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "49565",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "49567",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "49600",
+      "races": "65535",
+      "definitions": "20"
+    },
+    {
+      "classes": "49601",
+      "races": "65535",
+      "definitions": "25"
+    },
+    {
+      "classes": "49608",
+      "races": "65535",
+      "definitions": "76"
+    },
+    {
+      "classes": "49609",
+      "races": "62287",
+      "definitions": "4"
+    },
+    {
+      "classes": "49609",
+      "races": "65515",
+      "definitions": "204"
+    },
+    {
+      "classes": "49609",
+      "races": "65535",
+      "definitions": "108"
+    },
+    {
+      "classes": "49629",
+      "races": "62335",
+      "definitions": "4"
+    },
+    {
+      "classes": "49629",
+      "races": "65515",
+      "definitions": "4"
+    },
+    {
+      "classes": "49629",
+      "races": "65535",
+      "definitions": "6742"
+    },
+    {
+      "classes": "49629",
+      "races": "65536",
+      "definitions": "4"
+    },
+    {
+      "classes": "49631",
+      "races": "58239",
+      "definitions": "4"
+    },
+    {
+      "classes": "49631",
+      "races": "65535",
+      "definitions": "8"
+    },
+    {
+      "classes": "49666",
+      "races": "29578",
+      "definitions": "4"
+    },
+    {
+      "classes": "49681",
+      "races": "256",
+      "definitions": "4"
+    },
+    {
+      "classes": "49681",
+      "races": "512",
+      "definitions": "4"
+    },
+    {
+      "classes": "49681",
+      "races": "13066",
+      "definitions": "4"
+    },
+    {
+      "classes": "49681",
+      "races": "29578",
+      "definitions": "4"
+    },
+    {
+      "classes": "49681",
+      "races": "65515",
+      "definitions": "4"
+    },
+    {
+      "classes": "49683",
+      "races": "13058",
+      "definitions": "4"
+    },
+    {
+      "classes": "49685",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "49687",
+      "races": "65535",
+      "definitions": "1"
+    },
+    {
+      "classes": "49693",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "49695",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "49696",
+      "races": "65535",
+      "definitions": "8"
+    },
+    {
+      "classes": "49698",
+      "races": "65535",
+      "definitions": "16"
+    },
+    {
+      "classes": "49702",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "49711",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "49747",
+      "races": "62223",
+      "definitions": "8"
+    },
+    {
+      "classes": "49751",
+      "races": "65535",
+      "definitions": "8"
+    },
+    {
+      "classes": "49757",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "49759",
+      "races": "62335",
+      "definitions": "8"
+    },
+    {
+      "classes": "49766",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "49768",
+      "races": "65535",
+      "definitions": "8"
+    },
+    {
+      "classes": "49779",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "49783",
+      "races": "65535",
+      "definitions": "16"
+    },
+    {
+      "classes": "49791",
+      "races": "65535",
+      "definitions": "384"
+    },
+    {
+      "classes": "49902",
+      "races": "65535",
+      "definitions": "8"
+    },
+    {
+      "classes": "49919",
+      "races": "65535",
+      "definitions": "20"
+    },
+    {
+      "classes": "49921",
+      "races": "2",
+      "definitions": "4"
+    },
+    {
+      "classes": "49928",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "49937",
+      "races": "13066",
+      "definitions": "4"
+    },
+    {
+      "classes": "49960",
+      "races": "61439",
+      "definitions": "12"
+    },
+    {
+      "classes": "49992",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "50024",
+      "races": "65515",
+      "definitions": "8"
+    },
+    {
+      "classes": "50024",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "50025",
+      "races": "65535",
+      "definitions": "20"
+    },
+    {
+      "classes": "50049",
+      "races": "8192",
+      "definitions": "4"
+    },
+    {
+      "classes": "50049",
+      "races": "13066",
+      "definitions": "78"
+    },
+    {
+      "classes": "50065",
+      "races": "13066",
+      "definitions": "4"
+    },
+    {
+      "classes": "50073",
+      "races": "65535",
+      "definitions": "8"
+    },
+    {
+      "classes": "50095",
+      "races": "65503",
+      "definitions": "4"
+    },
+    {
+      "classes": "50110",
+      "races": "65535",
+      "definitions": "12"
+    },
+    {
+      "classes": "50111",
+      "races": "13066",
+      "definitions": "4"
+    },
+    {
+      "classes": "50111",
+      "races": "65535",
+      "definitions": "20"
+    },
+    {
+      "classes": "50121",
+      "races": "65535",
+      "definitions": "32"
+    },
+    {
+      "classes": "50135",
+      "races": "64303",
+      "definitions": "32"
+    },
+    {
+      "classes": "50141",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "50143",
+      "races": "32698",
+      "definitions": "4"
+    },
+    {
+      "classes": "50143",
+      "races": "62219",
+      "definitions": "4"
+    },
+    {
+      "classes": "50143",
+      "races": "62335",
+      "definitions": "12"
+    },
+    {
+      "classes": "50143",
+      "races": "65535",
+      "definitions": "80"
+    },
+    {
+      "classes": "50159",
+      "races": "65503",
+      "definitions": "28"
+    },
+    {
+      "classes": "50159",
+      "races": "65531",
+      "definitions": "4"
+    },
+    {
+      "classes": "50159",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "50171",
+      "races": "13066",
+      "definitions": "4"
+    },
+    {
+      "classes": "50175",
+      "races": "13058",
+      "definitions": "4"
+    },
+    {
+      "classes": "50175",
+      "races": "13066",
+      "definitions": "308"
+    },
+    {
+      "classes": "50175",
+      "races": "32650",
+      "definitions": "4"
+    },
+    {
+      "classes": "50175",
+      "races": "32698",
+      "definitions": "20"
+    },
+    {
+      "classes": "50175",
+      "races": "61567",
+      "definitions": "20"
+    },
+    {
+      "classes": "50175",
+      "races": "62287",
+      "definitions": "4"
+    },
+    {
+      "classes": "50175",
+      "races": "62335",
+      "definitions": "856"
+    },
+    {
+      "classes": "50175",
+      "races": "64765",
+      "definitions": "4"
+    },
+    {
+      "classes": "50175",
+      "races": "65455",
+      "definitions": "4"
+    },
+    {
+      "classes": "50175",
+      "races": "65535",
+      "definitions": "1484"
+    },
+    {
+      "classes": "50175",
+      "races": "65536",
+      "definitions": "4"
+    },
+    {
+      "classes": "50240",
+      "races": "64431",
+      "definitions": "4"
+    },
+    {
+      "classes": "50240",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "50653",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "50769",
+      "races": "64303",
+      "definitions": "4"
+    },
+    {
+      "classes": "51199",
+      "races": "65535",
+      "definitions": "16"
+    },
+    {
+      "classes": "62463",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "63487",
+      "races": "0",
+      "definitions": "4"
+    },
+    {
+      "classes": "64034",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "64495",
+      "races": "60639",
+      "definitions": "4"
+    },
+    {
+      "classes": "64576",
+      "races": "65535",
+      "definitions": "8"
+    },
+    {
+      "classes": "64893",
+      "races": "65535",
+      "definitions": "1"
+    },
+    {
+      "classes": "64925",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "64985",
+      "races": "65535",
+      "definitions": "132"
+    },
+    {
+      "classes": "64991",
+      "races": "131071",
+      "definitions": "4"
+    },
+    {
+      "classes": "65058",
+      "races": "65535",
+      "definitions": "40"
+    },
+    {
+      "classes": "65143",
+      "races": "62251",
+      "definitions": "4"
+    },
+    {
+      "classes": "65151",
+      "races": "65503",
+      "definitions": "8"
+    },
+    {
+      "classes": "65151",
+      "races": "65535",
+      "definitions": "312"
+    },
+    {
+      "classes": "65279",
+      "races": "65535",
+      "definitions": "8"
+    },
+    {
+      "classes": "65363",
+      "races": "56165",
+      "definitions": "4"
+    },
+    {
+      "classes": "65384",
+      "races": "65535",
+      "definitions": "12"
+    },
+    {
+      "classes": "65497",
+      "races": "65535",
+      "definitions": "4"
+    },
+    {
+      "classes": "65519",
+      "races": "65535",
+      "definitions": "12"
+    },
+    {
+      "classes": "65535",
+      "races": "0",
+      "definitions": "476"
+    },
+    {
+      "classes": "65535",
+      "races": "2048",
+      "definitions": "32"
+    },
+    {
+      "classes": "65535",
+      "races": "13066",
+      "definitions": "133"
+    },
+    {
+      "classes": "65535",
+      "races": "18432",
+      "definitions": "4"
+    },
+    {
+      "classes": "65535",
+      "races": "19640",
+      "definitions": "44"
+    },
+    {
+      "classes": "65535",
+      "races": "19704",
+      "definitions": "4"
+    },
+    {
+      "classes": "65535",
+      "races": "29578",
+      "definitions": "4"
+    },
+    {
+      "classes": "65535",
+      "races": "30474",
+      "definitions": "4"
+    },
+    {
+      "classes": "65535",
+      "races": "31498",
+      "definitions": "6"
+    },
+    {
+      "classes": "65535",
+      "races": "31530",
+      "definitions": "4"
+    },
+    {
+      "classes": "65535",
+      "races": "32698",
+      "definitions": "25"
+    },
+    {
+      "classes": "65535",
+      "races": "32767",
+      "definitions": "4"
+    },
+    {
+      "classes": "65535",
+      "races": "60639",
+      "definitions": "4"
+    },
+    {
+      "classes": "65535",
+      "races": "61439",
+      "definitions": "56"
+    },
+    {
+      "classes": "65535",
+      "races": "62335",
+      "definitions": "432"
+    },
+    {
+      "classes": "65535",
+      "races": "64319",
+      "definitions": "48"
+    },
+    {
+      "classes": "65535",
+      "races": "64367",
+      "definitions": "4"
+    },
+    {
+      "classes": "65535",
+      "races": "65499",
+      "definitions": "4"
+    },
+    {
+      "classes": "65535",
+      "races": "65503",
+      "definitions": "4"
+    },
+    {
+      "classes": "65535",
+      "races": "65531",
+      "definitions": "4"
+    },
+    {
+      "classes": "65535",
+      "races": "65533",
+      "definitions": "1"
+    },
+    {
+      "classes": "65535",
+      "races": "65535",
+      "definitions": "68055"
+    },
+    {
+      "classes": "65535",
+      "races": "65536",
+      "definitions": "288"
+    },
+    {
+      "classes": "65535",
+      "races": "65538",
+      "definitions": "12"
+    },
+    {
+      "classes": "65535",
+      "races": "65540",
+      "definitions": "4"
+    },
+    {
+      "classes": "65535",
+      "races": "131071",
+      "definitions": "232"
+    },
+    {
+      "classes": "65537",
+      "races": "65535",
+      "definitions": "84"
+    },
+    {
+      "classes": "65538",
+      "races": "65535",
+      "definitions": "16"
+    },
+    {
+      "classes": "65539",
+      "races": "65535",
+      "definitions": "16"
+    },
+    {
+      "classes": "65540",
+      "races": "65535",
+      "definitions": "16"
+    },
+    {
+      "classes": "65541",
+      "races": "65535",
+      "definitions": "16"
+    },
+    {
+      "classes": "65544",
+      "races": "65535",
+      "definitions": "12"
+    },
+    {
+      "classes": "65545",
+      "races": "65535",
+      "definitions": "12"
+    },
+    {
+      "classes": "65548",
+      "races": "65535",
+      "definitions": "12"
+    },
+    {
+      "classes": "65552",
+      "races": "65535",
+      "definitions": "12"
+    },
+    {
+      "classes": "65553",
+      "races": "65535",
+      "definitions": "12"
+    },
+    {
+      "classes": "65556",
+      "races": "65535",
+      "definitions": "12"
+    },
+    {
+      "classes": "65560",
+      "races": "65535",
+      "definitions": "8"
+    },
+    {
+      "classes": "65792",
+      "races": "65535",
+      "definitions": "16"
+    },
+    {
+      "classes": "65793",
+      "races": "65535",
+      "definitions": "16"
+    },
+    {
+      "classes": "65794",
+      "races": "65535",
+      "definitions": "16"
+    },
+    {
+      "classes": "66048",
+      "races": "65535",
+      "definitions": "16"
+    },
+    {
+      "classes": "66049",
+      "races": "65535",
+      "definitions": "16"
+    },
+    {
+      "classes": "66050",
+      "races": "65535",
+      "definitions": "16"
+    },
+    {
+      "classes": "131071",
+      "races": "65535",
+      "definitions": "968"
+    }
+  ],
+  "effective_policy_scope": {
+    "projected_definitions": 90852,
+    "nonplayer_preserved": 1535,
+    "pal_war_mnk_newly_race_eligible": 17171
+  }
+}
