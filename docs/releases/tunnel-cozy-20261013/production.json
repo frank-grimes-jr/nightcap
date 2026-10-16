@@ -1,0 +1,128 @@
+{
+  "observed_utc": "2026-10-13T14:54:41.710450+00:00",
+  "source_commit": "92c810b81e994dac09d8093079456950ec4543b9",
+  "pull_requests": [
+    194,
+    195
+  ],
+  "runtime": {
+    "image_id": "sha256:cf9c62310b746be2bd95d9039e6fb975d00f61aa2c42e76ed86ce823f3f119ff",
+    "started_at": "2026-10-13T14:50:43.645364976Z",
+    "restart_count": 0,
+    "processes": [
+      [
+        "loginserver",
+        "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf"
+      ],
+      [
+        "world",
+        "efd54a1023a569274a76f65d3d2a18a173906762472a1bce186e3e14629d3c18"
+      ],
+      [
+        "ucs",
+        "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714"
+      ],
+      [
+        "zone",
+        "5dfe3d8a944a29ac963644298eb7a1563a08748ae72ae210edd78268ea106681"
+      ],
+      [
+        "zone",
+        "5dfe3d8a944a29ac963644298eb7a1563a08748ae72ae210edd78268ea106681"
+      ],
+      [
+        "zone",
+        "5dfe3d8a944a29ac963644298eb7a1563a08748ae72ae210edd78268ea106681"
+      ],
+      [
+        "zone",
+        "5dfe3d8a944a29ac963644298eb7a1563a08748ae72ae210edd78268ea106681"
+      ],
+      [
+        "zone",
+        "5dfe3d8a944a29ac963644298eb7a1563a08748ae72ae210edd78268ea106681"
+      ],
+      [
+        "zone",
+        "5dfe3d8a944a29ac963644298eb7a1563a08748ae72ae210edd78268ea106681"
+      ],
+      [
+        "zone",
+        "5dfe3d8a944a29ac963644298eb7a1563a08748ae72ae210edd78268ea106681"
+      ],
+      [
+        "zone",
+        "5dfe3d8a944a29ac963644298eb7a1563a08748ae72ae210edd78268ea106681"
+      ],
+      [
+        "zone",
+        "5dfe3d8a944a29ac963644298eb7a1563a08748ae72ae210edd78268ea106681"
+      ],
+      [
+        "zone",
+        "5dfe3d8a944a29ac963644298eb7a1563a08748ae72ae210edd78268ea106681"
+      ],
+      [
+        "zone",
+        "5dfe3d8a944a29ac963644298eb7a1563a08748ae72ae210edd78268ea106681"
+      ],
+      [
+        "zone",
+        "5dfe3d8a944a29ac963644298eb7a1563a08748ae72ae210edd78268ea106681"
+      ]
+    ],
+    "errors": {
+      "native": 0,
+      "quest": 0,
+      "database": 0
+    }
+  },
+  "exact_static_afterimages": true,
+  "gateway_open": true,
+  "preserved_fingerprints": 69,
+  "preserved_runtime_files": 8140,
+  "preserved_public_files": [
+    "channel.json",
+    "guide.html",
+    "launcher-channel.json",
+    "nightcap-friends.zip"
+  ],
+  "changed_npcs": 25,
+  "changed_stations": 6,
+  "ornaments": 3,
+  "removed_owned_cache_rows": 25,
+  "backup": {
+    "sha256": "191a7f7557548334819516b20169ea1c16ab2a927135a54393545c2868e35eef",
+    "compressed_bytes": 63407961,
+    "uncompressed_bytes": 451981126,
+    "gzip_integrity": "passed",
+    "character_position_precision_sha256": "3d6777b3d9fe9c0533f78a8adedc2c5db4d931c30cd4eeabd25689f6d57a2a73"
+  },
+  "isolated_rehearsal": {
+    "full_backup_restored": true,
+    "exact_forward": true,
+    "exact_rollback": true,
+    "preserved_fingerprints": 69
+  },
+  "market_before": {
+    "id": 1,
+    "enabled": 1,
+    "epoch": 59,
+    "expansion": 0,
+    "loot_multiplier": 4,
+    "buy_cost_mod": "2.500000",
+    "rotated_at": "2026-10-13 14:27:19"
+  },
+  "market_after": {
+    "id": 1,
+    "enabled": 1,
+    "epoch": 60,
+    "expansion": 0,
+    "loot_multiplier": 4,
+    "buy_cost_mod": "2.500000",
+    "rotated_at": "2026-10-13 14:50:57"
+  },
+  "client_update": false,
+  "player_visual_acceptance": "pending",
+  "first_attempt": "aborted before live SQL; original layout recovered"
+}

@@ -1,0 +1,82 @@
+{
+  "npcs": [
+    {
+      "id": 73039,
+      "name": "The_Ice_Witch",
+      "level": 50
+    },
+    {
+      "id": 73090,
+      "name": "Greshvoule",
+      "level": 35
+    }
+  ],
+  "spawnentry": [
+    {
+      "spawngroupID": 73039,
+      "npcID": 73039,
+      "chance": 100,
+      "mintime": 0,
+      "maxtime": 0,
+      "min_expansion": 0,
+      "max_expansion": 0
+    },
+    {
+      "spawngroupID": 73090,
+      "npcID": 73090,
+      "chance": 100,
+      "mintime": 0,
+      "maxtime": 0,
+      "min_expansion": 0,
+      "max_expansion": 0
+    }
+  ],
+  "spawn2": [
+    {
+      "id": 344740,
+      "spawngroupID": 73039,
+      "zone": "permafrost",
+      "x": -205.0,
+      "y": 1115.0,
+      "z": -80.199997,
+      "heading": 74.447594,
+      "respawntime": 5112,
+      "variance": 0,
+      "pathgrid": 0,
+      "_condition": 0,
+      "cond_value": 1,
+      "enabled": 1,
+      "animation": 0,
+      "boot_respawntime": 0,
+      "clear_timer_onboot": 0,
+      "boot_variance": 0,
+      "force_z": 0,
+      "min_expansion": 4,
+      "max_expansion": 6,
+      "raid_target_spawnpoint": 0
+    },
+    {
+      "id": 344741,
+      "spawngroupID": 73090,
+      "zone": "permafrost",
+      "x": -162.0,
+      "y": 173.0,
+      "z": 4.3,
+      "heading": 85.665733,
+      "respawntime": 1200,
+      "variance": 0,
+      "pathgrid": 0,
+      "_condition": 0,
+      "cond_value": 1,
+      "enabled": 1,
+      "animation": 0,
+      "boot_respawntime": 0,
+      "clear_timer_onboot": 0,
+      "boot_variance": 0,
+      "force_z": 0,
+      "min_expansion": 4,
+      "max_expansion": 6,
+      "raid_target_spawnpoint": 0
+    }
+  ]
+}

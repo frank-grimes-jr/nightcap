@@ -18,6 +18,7 @@
 */
 
 #include "zone.h"
+#include "dungeon_service.h"
 
 #include "common/data_verification.h"
 #include "common/eqemu_logsys.h"
@@ -869,7 +870,7 @@ void Zone::Shutdown(bool quiet)
 		c.second->WorldKick();
 	}
 
-	if (m_save_zone_state && RuleB(Zone, StateSavingOnShutdown) && zone && zone->IsLoaded()) {
+	if (m_save_zone_state && (NightcapDungeon::Managed() || RuleB(Zone, StateSavingOnShutdown)) && zone && zone->IsLoaded()) {
 		SaveZoneState();
 	}
 
@@ -1192,7 +1193,7 @@ bool Zone::Init(bool is_static) {
 		return false;
 	}
 
-	content_db.PopulateZoneSpawnList(zoneid, spawn2_list, GetInstanceVersion());
+	if (!content_db.PopulateZoneSpawnList(zoneid, spawn2_list, GetInstanceVersion())) { return false; }
 	SetSaveZoneState(true);
 
 	database.LoadCharacterCorpses(zoneid, instanceid);

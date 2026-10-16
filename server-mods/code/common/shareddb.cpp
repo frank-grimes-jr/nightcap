@@ -1,3 +1,4 @@
+#include "common/dungeon_policy.h"
 /*	EQEMu: Everquest Server Emulator
 	Copyright (C) 2001-2016 EQEMu Development Team (http://eqemulator.org)
 
@@ -18,6 +19,8 @@
 
 #include "shareddb.h"
 #include "item_trade_policy.h"
+#include "divine_summoned_weapon_policy.h"
+#include "equipment_race_policy.h"
 #include "zone_hunt_catalog.h"
 
 #include "common/classes.h"
@@ -1124,6 +1127,7 @@ void SharedDatabase::LoadItems(void *data, uint32 size, int32 items, uint32 max_
 		item.RecSkill    = static_cast<uint8>(e.recskill);
 		item.ReqLevel    = static_cast<uint8>(e.reqlevel);
 		item.Slots       = e.slots;
+		NightcapEquipment::ApplyRacePolicy(item);
 
 		// Skill Modifier
 		item.SkillModValue = e.skillmodvalue;
@@ -1246,7 +1250,8 @@ void SharedDatabase::LoadItems(void *data, uint32 size, int32 items, uint32 max_
 		item.ScriptFileID = e.scriptfileid;
 
 		EQ::ItemTradePolicy::Apply(item, RuleB(Items, FreeTrade), e.nodrop == 0);
-		if (NightcapHunt::IsReward(item.ID)) {
+		NightcapDivineSummons::ApplyMerchantPolicy(item);
+		if (NightcapHunt::IsReward(item.ID) || NightcapDungeon::IsReward(item.ID)) {
 			// These progression rewards are tradable under the existing server policy,
 			// but deliberately have no merchant resale value (including converted augments).
 			item.Price = 0;

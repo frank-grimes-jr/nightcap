@@ -96,6 +96,8 @@ Copyright (C) 2001-2002 EQEMu Development Team (http://eqemu.org)
 
 #include <algorithm>
 #include <cassert>
+#include <unordered_set>
+#include <vector>
 
 extern Zone         *zone;
 extern volatile bool is_zone_loaded;
@@ -3068,6 +3070,112 @@ int Mob::CalcBuffDuration(Mob *caster, Mob *target, uint16 spell_id, int32 caste
 	return res;
 }
 
+// Only spell-bearing operands are edges. In particular, AA SpellOnDeath uses
+// base_value while its spell counterpart uses limit_value (see bonuses.cpp).
+static int AABuffTriggerSpell(int effect_id, int base_value, int limit_value, bool aa_effect)
+{
+	switch (effect_id) {
+	case SpellEffect::SpellOnDeath:
+		return aa_effect ? base_value : limit_value;
+	case SpellEffect::ProcOnSpellKillShot:
+	case SpellEffect::SpellTrigger:
+	case SpellEffect::ApplyEffect:
+	case SpellEffect::Trigger_Spell_Non_Item:
+		return aa_effect ? 0 : limit_value;
+	case SpellEffect::ProcOnKillShot:
+	case SpellEffect::TriggerOnCast:
+	case SpellEffect::Fc_Cast_Spell_On_Land:
+	case SpellEffect::SympatheticProc:
+	case SpellEffect::DivineSave:
+		return limit_value;
+	case SpellEffect::WeaponProc:
+	case SpellEffect::AddMeleeProc:
+	case SpellEffect::RangedProc:
+	case SpellEffect::DefensiveProc:
+	case SpellEffect::SkillProcAttempt:
+	case SpellEffect::SkillProcSuccess:
+	case SpellEffect::Weapon_Stance:
+		return base_value;
+	case SpellEffect::CastOnFadeEffect:
+	case SpellEffect::CastOnFadeEffectNPC:
+	case SpellEffect::CastOnFadeEffectAlways:
+	case SpellEffect::CastOnRuneFadeEffect:
+	case SpellEffect::CastOnCurer:
+	case SpellEffect::CastOnCure:
+	case SpellEffect::CastonNumHitFade:
+	case SpellEffect::TriggerOnReqTarget:
+	case SpellEffect::TriggerOnReqCaster:
+	case SpellEffect::TriggerMeleeThreshold:
+	case SpellEffect::TriggerSpellThreshold:
+	case SpellEffect::CastonFocusEffect:
+		return aa_effect ? 0 : base_value;
+	default:
+		return 0;
+	}
+}
+
+static bool IsAARelatedBuffSpell(uint16 spell_id)
+{
+	// Read current zone data, including unowned ranks. A buff can be applied by
+	// another player, and #reload aa/spells must not leave a stale classification.
+	if (!zone || zone->aa_ranks.empty()) {
+		return true; // No catalog: do not grant policy permanence.
+	}
+	std::unordered_set<int> visited;
+	std::vector<int> pending;
+	auto add = [&](int id) {
+		// Validate before narrowing to the native uint16 spell identifier.
+		if (id > 0 && id < SPELL_UNKNOWN && IsValidSpell(id) && visited.insert(id).second) {
+			pending.push_back(id);
+		}
+	};
+	for (const auto &entry : zone->aa_ranks) {
+		if (!entry.second) {
+			continue;
+		}
+		const auto &rank = *entry.second;
+		add(rank.spell); // Includes AA SkillAttackProc, whose spell is here.
+		for (const auto &effect : rank.effects) {
+			add(AABuffTriggerSpell(effect.effect_id, effect.base_value, effect.limit_value, true));
+			if (effect.effect_id == SpellEffect::DivineSave) {
+				add(SPELL_TOUCH_OF_THE_DIVINE); // TryDivineSave always casts this too.
+			}
+		}
+	}
+	std::unordered_set<int> visited_groups;
+	while (!pending.empty()) {
+		const int id = pending.back();
+		pending.pop_back();
+		if (id == spell_id) {
+			return true;
+		}
+		const auto &spell = spells[id];
+		add(spell.recourse_link);
+		for (int i = 0; i < EFFECT_COUNT; ++i) {
+			const int effect = spell.effect_id[i];
+			add(AABuffTriggerSpell(effect, spell.base_value[i], spell.limit_value[i], false));
+			if (effect == SpellEffect::SkillAttackProc) {
+				add(spell.max_value[i]);
+			} else if (effect == SpellEffect::DivineSave) {
+				add(SPELL_TOUCH_OF_THE_DIVINE);
+			} else if (effect == SpellEffect::Chance_Best_in_Spell_Grp ||
+				effect == SpellEffect::Trigger_Best_in_Spell_Grp) {
+				// These operands are group IDs, not spell IDs. Include every rank
+				// so another caster's scribed/owned state cannot change duration.
+				const int group = spell.limit_value[i];
+				if (group > 0 && visited_groups.insert(group).second) {
+					for (int candidate = 1; candidate < SPDAT_RECORDS && candidate < SPELL_UNKNOWN; ++candidate) {
+						if (spells[candidate].spell_group == group) {
+							add(candidate);
+						}
+					}
+				}
+			}
+		}
+	}
+	return false;
+}
+
 int32 Mob::GetBuffDurationForTarget(uint16 spell_id, int32 duration) const
 {
 	if (Epic05::IsEffect(spell_id)) {
@@ -3076,6 +3184,18 @@ int32 Mob::GetBuffDurationForTarget(uint16 spell_id, int32 duration) const
 	// Auras retain range-managed expiry; duration zero is not a buff.
 	if (duration != 0 && duration != -4 && IsValidSpell(spell_id) &&
 		(IsClient() || IsPetOwnerClient()) && IsBeneficialSpell(spell_id)) {
+		if (IsDisciplineBuff(spell_id) || spells[spell_id].short_buff_box || IsAARelatedBuffSpell(spell_id)) {
+			// The previous blanket policy persisted temporary buffs as permanent.
+			// Their elapsed time is unknowable: expire them without granting a new
+			// full duration on login/pet restore. Positive remaining/focused timers
+			// and genuinely permanent native spells are left intact.
+			if ((duration == PERMANENT_BUFF_DURATION || duration == -1) &&
+				spells[spell_id].buff_duration_formula != DF_Permanent &&
+				spells[spell_id].buff_duration_formula != DF_Aura) {
+				return 1;
+			}
+			return duration;
+		}
 		return PERMANENT_BUFF_DURATION;
 	}
 	return duration;

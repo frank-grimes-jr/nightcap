@@ -1,3 +1,4 @@
+#include "zone/dungeon_service.h"
 #include "zone/advanced_loot.h"
 #include "zone_save_state.h"
 
@@ -380,6 +381,7 @@ inline void LoadZoneVariables(Zone *z, const std::string &variables)
 
 bool Zone::LoadZoneVariablesState()
 {
+	if (!NightcapDungeon::Boot() || NightcapDungeon::Managed()) { return false; }
 	auto spawn_states = ZoneStateSpawnsRepository::GetWhere(
 		database,
 		fmt::format(
@@ -408,7 +410,9 @@ bool Zone::LoadZoneState(
 	std::vector<Spawn2DisabledRepository::Spawn2Disabled> disabled_spawns
 )
 {
-	auto spawn_states = ZoneStateSpawnsRepository::GetWhere(
+	std::vector<ZoneStateSpawnsRepository::ZoneStateSpawns> spawn_states;
+	if (!NightcapDungeon::LoadCheckpoint(spawn_states)) {
+	spawn_states = ZoneStateSpawnsRepository::GetWhere(
 		database,
 		fmt::format(
 			"zone_id = {} AND instance_id = {} AND is_zone = 0 ORDER BY spawn2_id",
@@ -416,6 +420,7 @@ bool Zone::LoadZoneState(
 			zone->GetInstanceID()
 		)
 	);
+	}
 
 	if (spawn_states.empty()) {
 		LogInfo("No zone state spawns found for zone [{}] instance [{}]", GetShortName(), zone->GetInstanceID());
@@ -458,6 +463,7 @@ bool Zone::LoadZoneState(
 		LogZoneState("Loaded [{}] spawn2s", spawn2s.size());
 	}
 
+	NightcapDungeon::PrivateSpawns(spawn2s);
 	// spawn2
 	for (auto &s: spawn_states) {
 		if (s.spawngroup_id == 0 || s.is_corpse || s.is_zone) {
@@ -475,7 +481,7 @@ bool Zone::LoadZoneState(
 
 		// check if spawn is disabled
 		for (auto &ds: disabled_spawns) {
-			if (ds.spawn2_id == s.spawn2_id) {
+			if (ds.spawn2_id == s.spawn2_id && !NightcapDungeon::RequiredSpawn(s.spawn2_id)) {
 				spawn_enabled = !ds.disabled;
 			}
 		}
@@ -505,9 +511,9 @@ bool Zone::LoadZoneState(
 			spawn_time_left,
 			s.grid,
 			(bool) s.path_when_zone_idle,
-			s.condition_id,
+			NightcapDungeon::RequiredSpawn(s.spawn2_id) ? 0 : s.condition_id,
 			s.condition_min_value,
-			(s.enabled && spawn_enabled),
+			(NightcapDungeon::RequiredSpawn(s.spawn2_id) || (s.enabled && spawn_enabled)),
 			(EmuAppearance) s.anim
 		);
 
@@ -538,6 +544,7 @@ bool Zone::LoadZoneState(
 		)
 	);
 
+	NightcapDungeon::PrivateSpawns(zone_spawns);
 	for (auto &s: zone_spawns) {
 		bool found = false;
 		for (auto &ss: spawn_states) {
@@ -554,7 +561,7 @@ bool Zone::LoadZoneState(
 			bool spawn_enabled = true;
 
 			for (auto &ds: disabled_spawns) {
-				if (ds.spawn2_id == s.id) {
+				if (ds.spawn2_id == s.id && !NightcapDungeon::RequiredSpawn(s.id)) {
 					spawn_enabled = !ds.disabled;
 				}
 			}
@@ -592,7 +599,7 @@ bool Zone::LoadZoneState(
 
 	// dynamic spawns, quest spawns, triggers etc.
 	for (auto &s: spawn_states) {
-		if (s.spawngroup_id > 0 || s.is_zone) {
+		if (s.spawngroup_id > 0 || s.is_zone || (NightcapDungeon::Managed() && !s.is_corpse)) {
 			continue;
 		}
 
@@ -787,6 +794,8 @@ void Zone::SaveZoneState()
 		spawns.emplace_back(z);
 	}
 
+	if (NightcapDungeon::SaveCheckpoint(spawns)) { return; }
+
 	ZoneStateSpawnsRepository::DeleteWhere(
 		database,
 		fmt::format(
@@ -813,6 +822,7 @@ void Zone::SaveZoneState()
 
 void Zone::ClearZoneState(uint32 zone_id, uint32 instance_id)
 {
+	if (NightcapDungeon::Managed()) { return; }
 	ZoneStateSpawnsRepository::DeleteWhere(
 		database,
 		fmt::format(

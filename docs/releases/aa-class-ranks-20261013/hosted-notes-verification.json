@@ -1,0 +1,9 @@
+{
+  "bytes": 211940790,
+  "channel_sha256": "aacf67eb9a10fd16544d4031ccd4bb8c63a2a651d0fff58083a191a87f402a28",
+  "file_records_unchanged": true,
+  "history_preserved": true,
+  "release": 2026101303,
+  "signature": "valid against shipped production key",
+  "verified_files": 105
+}

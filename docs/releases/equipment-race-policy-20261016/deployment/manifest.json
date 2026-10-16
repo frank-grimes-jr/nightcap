@@ -1,0 +1,40 @@
+{
+  "authorization": {
+    "date": "2026-10-16",
+    "instruction": "Push, merge, and deploy with server restart",
+    "gameplay_acceptance": false
+  },
+  "source_commit": "5cea9cb4d9958a4ad9fe1e4a91dfdb74a3cbae4c",
+  "base_binaries": {
+    "world": "efd54a1023a569274a76f65d3d2a18a173906762472a1bce186e3e14629d3c18",
+    "zone": "19cd3387952f21d1d1bcc18916e76a1d7738148de086849e3d3befe3a0df2ae1",
+    "ucs": "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714",
+    "loginserver": "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf",
+    "shared_memory": "139194a9e2f2f3384a9831670c91787a99049526168b206dafb886c7fe8a5c86"
+  },
+  "binaries": {
+    "shared_memory": "71dfdd18d12fba844bcc222c54125c621a3c5e895a61ef3ae258ecc3dfbbb5c8"
+  },
+  "baseline_restarts": 0,
+  "runtime_helper_sha256": "a3242bee3e8d4a7e60ea81bbd6fd34587201b712247665f3c03673733b95a811",
+  "client_release": 2026101501,
+  "client_channel_sha256": "8212a46460273a640e807da0df7c9322c8d1ce6adf912ee419dde65083b4beab",
+  "item_size": 1332,
+  "offsets": {
+    "ID": 440,
+    "ItemClass": 264,
+    "Classes": 584,
+    "Races": 588,
+    "Slots": 452,
+    "AugType": 708,
+    "Price": 456,
+    "FixedSellPrice": 4
+  },
+  "files": {
+    "cache_check.py": "3da6c7f556984c83b2efd339e5feb1d72d4f59d801ece5a37d00a057842f38a5",
+    "client-verification.json": "55e95590ac83b74e5e75569b2d75c2bc63c3909c8fafe6634e8d658bdcc05684",
+    "rollout.py": "00a4bac1590abce29da01b2d99fd9e917567a3e0ae8f23560ff557bea8a049b8",
+    "shared_memory": "71dfdd18d12fba844bcc222c54125c621a3c5e895a61ef3ae258ecc3dfbbb5c8",
+    "test_rollout.py": "456df19144ca8bf0f634595c5f9fcd68a320d74af3b1784f78942455675a012f"
+  }
+}

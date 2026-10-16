@@ -1,0 +1,13 @@
+native-test: /tmp/nightcap-backstab-red-20261013/native.cpp:168: int main(): Assertion `c.stabs==3 && c.double_checks==1' failed.
+Traceback (most recent call last):
+  File "/tmp/verify_triple_backstab_native.py", line 137, in <module>
+    main()
+  File "/tmp/verify_triple_backstab_native.py", line 129, in main
+    result = json.loads(subprocess.check_output([str(executable)], text=True))
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/subprocess.py", line 466, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/tmp/nightcap-backstab-red-20261013/native-test']' died with <Signals.SIGABRT: 6>.

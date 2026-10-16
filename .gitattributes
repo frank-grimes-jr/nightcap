@@ -1,4 +1,8 @@
 # Preserve exact captured bytes used by the native encounter evidence manifests.
+docs/dungeons/*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+docs/dungeons/**/*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+docs/dungeons/**/*.patch -text -whitespace
+docs/dungeons/skill-update/references/*.md -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 docs/balance/native-encounter-*.json -text
 docs/balance/native-runtime-*.json -text
 docs/balance/native-map-manifest.json -text

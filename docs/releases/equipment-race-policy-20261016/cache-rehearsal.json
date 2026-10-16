@@ -1,0 +1,33 @@
+{
+  "status": "passed",
+  "scope": "Disposable local content, real old/new/rollback loaders; not production acceptance",
+  "passes": [
+    {
+      "items_checked": 308928,
+      "projected_definitions": 90851,
+      "nonplayer_definitions_preserved": 1535,
+      "race_policy_enabled": false,
+      "preserved_fields_sha256": "9b85c17d4fb8f172aa86e7b4165a96a2d600b94968c98482e368aa1dc3b3cfac",
+      "cache_sha256": "964f3df9797a39791ea2bd5c485170c3b685f7aaebd83cb171c71d386cd8f00f",
+      "loader_sha256": "139194a9e2f2f3384a9831670c91787a99049526168b206dafb886c7fe8a5c86"
+    },
+    {
+      "items_checked": 308928,
+      "projected_definitions": 90851,
+      "nonplayer_definitions_preserved": 1535,
+      "race_policy_enabled": true,
+      "preserved_fields_sha256": "9b85c17d4fb8f172aa86e7b4165a96a2d600b94968c98482e368aa1dc3b3cfac",
+      "cache_sha256": "57378ec6450502491ea0631de392bbe8e810bff9eae4681575d64c493f026aa4",
+      "loader_sha256": "71dfdd18d12fba844bcc222c54125c621a3c5e895a61ef3ae258ecc3dfbbb5c8"
+    },
+    {
+      "items_checked": 308928,
+      "projected_definitions": 90851,
+      "nonplayer_definitions_preserved": 1535,
+      "race_policy_enabled": false,
+      "preserved_fields_sha256": "9b85c17d4fb8f172aa86e7b4165a96a2d600b94968c98482e368aa1dc3b3cfac",
+      "cache_sha256": "964f3df9797a39791ea2bd5c485170c3b685f7aaebd83cb171c71d386cd8f00f",
+      "loader_sha256": "139194a9e2f2f3384a9831670c91787a99049526168b206dafb886c7fe8a5c86"
+    }
+  ]
+}

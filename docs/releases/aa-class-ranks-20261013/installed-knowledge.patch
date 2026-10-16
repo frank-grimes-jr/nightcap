@@ -1,0 +1,649 @@
+--- C:\Users\verre\.codex\skills\nightcap-development\references\balance.md
++++ C:\Users\verre\.codex\skills\nightcap-development\references\balance.md
+@@ -4,85 +4,78 @@
+ 
+ Nightcap favors solo play without trivializing earned progression. Evaluate classes, legal AAs, pets, buffs, heroic stats, augments and gear together. Measure incoming burst, survival, mana sustain/recovery, time to kill, cooldown use and reward acquisition, not only DPS or encounter HP. Cap increases above 250 are allowed for consideration; neither 250 nor a prior experiment is a permanent policy ceiling.
+ 
+-## Buried Sea AA policy — level-1 correction deployed October 13
++## Buried Sea AA policy — expanded class ranks deployed October 13
+ 
+ **Every allowed AA and rank is available at character level 1.** Players decide
+-where and when to spend points. The owner rejected the initial level-gated
+-starter list during live QA; never reintroduce character-level AA gates.
+-Balance with the release's legal pool, rank ceilings, costs and prerequisites.
++where and when to spend points. Never restore the rejected character-level gates.
++Balance with the release pool, numeric rank ceilings, costs and prerequisites.
+ 
+-Current evidence: `C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev/docs/releases/aa-tbs-level1-20261013/README.md`.
+-OVH image `sha256:add0bddfa77e93b299b691d6c3d932de92a0b6146a42f92bffd934dafc730fb7` runs the correction on all12 zones.
+-All239 ownership rows/1193 earned ranks and47 player/11 custom tables survived.
+-Zero restarts/detected native, quest or DB errors in the recorded check. Manual
+-creation/purchase/reconnect/pet/combat QA and main promotion remain pending.
++Current release evidence is in
++`C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev/docs/releases/aa-class-ranks-20261013/README.md`.
++OVH image `sha256:cf9c62310b746be2bd95d9039e6fb975d00f61aa2c42e76ed86ce823f3f119ff`
++runs the reviewed 26-line expansion and Triple Backstab repair. All 12 zones
++were verified, including after separate tunnel maintenance restarted the runtime.
++Activation preserved 47 player and 11 custom tables; fresh ownership preflight
++resolved 242 rows / 1,200 earned ranks. Zero restarts or detected native, quest
++or database errors in the recorded checks. Owner gameplay/balance acceptance and
++main promotion remain pending; local dev/test contain the implementation.
+ 
+-`era.json` selects `config/aa-policy.json`; rank counts replace level arrays.
+-The same390 families/941 ranks are legal at every level. Most ordinary families
+-have a three-rank release ceiling. Native offers, use, purchases and default
+-grants ignore original DB level_req for clients; unknown identities fail closed.
+-Explicit GM GrantAllAAPoints unlock_level remains an optional content filter,
+-not a player gate. Non-client purchase behavior remains native.
++`era.json` selects `config/aa-policy.json` (classic-tbs-class-ranks-20261013).
++The pool is now 394 families / 1,051 ranks, retaining all prior 941 identities.
++The 26 reviewed ceilings add 110 ranks: Slay Undead9 (60 points plus Combat Fury3),
++Master Wu5, Triple Backstab9 and the exact remaining lines in the audit's
++recommended-caps.csv. Most other ordinary families retain a three-rank ceiling.
++Four passive dependencies deliberately reopen; Dance of Blades359, Hastened
++Blades541 and Abundant Healing516 stay explicitly blocked. High-risk burns,
++executes/refills, charged and grant-only veteran families remain deferred.
+ 
+-TBS13 is independent of the Classic world. The six later exceptions all open
++TBS13 is independent of the Classic world. The same six later exceptions open
+ at1: Eyes Wide Open938 eight ranks; Diminutive543 one; ENC Pet Discipline3202
+ one requiring Animation Empathy195 three; Durability3512/Agility3818 three each;
+-Sturdy1403 one (raw AC). High-risk burns/executes/refills, charged and grant-only
+-veteran families remain deferred. Class/race masks, prices and prerequisites
+-remain. Existing out-of-pool ranks stay stored/dormant, with charges, wallets
+-and spent accounting preserved; legal earned ranks restore without rebuying.
++Sturdy1403 one (raw AC). Class/race eligibility, costs and prerequisites remain.
++Offers, use, purchase and default grants ignore original DB level_req for clients;
++explicit GM GrantAllAAPoints unlock_level remains an optional content filter.
++Canonical earned ranks, charges, wallets and spent totals stay saved. Excluded
++earned ranks remain dormant; newly legal ranks restore without rebuying. Level
++changes no longer shrink the legal prefix. Class release still affects access.
+ 
+-At creation WAR/CLR/WIZ has152 visible families/389 closed ranks/1692 points;
+-MAG/NEC/SHM143/348/1506; PAL/WAR/MNK140 visible families,139 purchase-closed
+-families/353 ranks/1491 points. Coverage is unchanged through level50. These
+-are catalog ceilings, not measured fight strength. A class-dependent prerequisite
+-can still block a visible family for a particular union.
++`zone/special_attacks.cpp::Mob::TryBackstab` now permits a client with a positive
++legal earned Triple Backstab AA bonus to enter the native double/triple branch
++below55. The primary piercing weapon, rear/Seized Opportunity, native double-
++attack check, living target and triple roll remain. Item/spell-only bonuses,
++bots and no-AA clients retain the old level55 gate; Chaotic frontal minimum hits
++retain their previous path. Do not globally lower DoubleBackstabLevelRequirement.
++Rank9 contributes45% to the conditional triple roll, not every Backstab attempt.
+ 
+-Six policy tests (including all DB levels255),5646 native rank/level cases plus
+-actual purchase/save/projection checks,13 deployment and7 notes-publication
+-tests pass. Both policy and native checks reproduced the previous failure.
+-Independent review verified unchanged rank identities, retained source/link
+-inputs and ownership; only aa.cpp and its generated header changed. The earlier
+-trainer/skill/offhand correction is retained. Existing ownable ranks are still
+-reprojected on login, refresh and level changes; no blanket buff purge occurs.
++Source/tests: generated `common/nightcap_aa_policy.h`, config/aa-policy.json,
++tools/tests/{test_aa_tbs_policy.py,verify_aa_tbs_native.py,
++verify_triple_backstab_native.py,test_aa_class_build.py} and
++tools/build_aa_class_ranks_candidate.py. Seven policy tests, 6,306 native rank/
++level cases, three restored-Slay ownership/save scenarios, 26 actual TryBackstab
++controls, 13 deployment/preflight and seven publication tests pass. Independent
++review fixed a manifest omission of versioned libperl.so.5.36.0; all 142 final
++link inputs are now recorded and checked. Only the policy header and retained
++special_attacks.cpp changed; recompile aa.cpp and special_attacks.cpp against
++the exact retained source, preserving prior trainer/offhand and other patches.
+ 
+-Only zone needs rebuilding/restarting; generic AA/rules reload cannot install
+-the compiled policy. Use guarded whole-runtime rollout, fresh backups and
+-image-only recovery against current player data, never old SQL. Pet HP changes
+-on summon/restore; resummon for HP QA. Avoidance/AC reads current owner bonuses.
+-Signed game notes2026101302 preserve all105 client file records and prior history;
+-no client binary change. Original level-gated evidence is historical/superseded.
+-No new encounter campaign or player enjoyment acceptance is claimed.
++Zone rebuild plus guarded whole-runtime refresh is required; normal AA/rule
++reload cannot install this policy. No client binary, AA table or global rule
++change. Preserve fresh player data during image recovery; never restore old SQL.
++Signed notes2026101303 preserve all105 file records and previous patch history.
++After an intervening rollout, recapture service identities and reverify the
++candidate hashes before publishing notes; never overwrite its unrelated changes.
+ 
+-## Class-rank audit — recommendation only, October 13
+-
+-`C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev/docs/audits/aa-class-ranks-20261013/README.md`
+-replaces the blanket three-rank recommendation with 26 explicitly reviewed lines:
+-Slay Undead has nine contiguous in-era ranks (60 points plus Combat Fury3),
+-Master Wu5, and deeper pet/caster/healer/class progression. Target catalog394
+-families/1051 ranks preserves all941 currently allowed identities and level1
+-access. This is not deployed or encounter-validated; live policy remains above.
+-
+-Triple Backstab's native roll is behind DoubleBackstabLevelRequirement55,
+-confirmed on OVH against global MaxLevel50. Rank9 is conditional on a scoped
+-native activation repair and level1/50 regression, not just a policy edit.
+-Slay also amplifies physical skill hits such as kicks; test PAL/MNK coupling.
+-Poison Mastery's application-time effect is a retained native no-op. Pet crit,
+-pet flurry, distinct double-attack and spell-critical lines stack across held
+-classes; do not infer balance from one class or a rank count. Free knight-touch
+-and Hunter's Attack Power ranks need explicit treatment. Three newly satisfiable
+-burn/heal dependencies remain blocked in the target scenario; four passive
+-families are intentionally restored. See dependency-unlocks.csv and review.md.
+-
+-THJ's indexed Monk documentation confirms rank5 and later Master Wu progression;
+-its exact Slay cap was not verified. Do not substitute THJ combat rules, level
+-autogrants or another emulator's AA database for Nightcap data. The generator
+-checks current pool, prerequisite closure, identity preservation and level1;
+-source-evidence.json pins six retained files to the live build manifest. The
+-fresh AA/rule checks do not refresh the whole spell snapshot or prove fun.
+-Implementation would require the Rogue source fix, generated policy/header,
+-matching zone build/guarded runtime rollout and signed patch notes; no client
+-binary change anticipated. Preserve saved purchases and test restored usability.
++Combined QA remains essential: Slay amplifies physical skill hits such as kicks,
++so test PAL/MNK coupling; pet critical/flurry, distinct double-attack and spell-
++critical lines stack across held classes. Poison Mastery's application-time
++effect remains a native no-op. Free knight-touch and Hunter's Attack Power ranks
++remain deferred as reviewed. Pet HP changes on summon/restore; avoidance/AC reads
++current owner bonuses. Catalog ceilings and native tests do not prove fun or
++encounter balance. Exact disposable-character and live purchase/reconnect QA is
++in the release README. Historical audit analyze.py pins baseline-policy.json so
++its 941-rank baseline remains reproducible after the expansion. THJ confirms
++Master Wu5/later progression, but its exact Slay cap was not verified; do not
++import THJ combat rules, level autogrants or another emulator's catalog.
+ 
+ ## Source routes
+ 
+--- C:\Users\verre\.codex\skills\nightcap-development\references\multiclass.md
++++ C:\Users\verre\.codex\skills\nightcap-development\references\multiclass.md
+@@ -42,22 +42,29 @@
+ 
+ ## AA catalog policy — all allowed ranks at level 1
+ 
+-The owner rejected character-level AA gates October13. Every allowed AA and rank
+-opens at creation: choices, points and prerequisites govern purchasing. The same
+-390-family/941-rank TBS pool, six exceptions and numeric release ceilings remain.
+-See [balance](balance.md) and `C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev/docs/releases/aa-tbs-level1-20261013/README.md`.
++The owner rejected character-level AA gates October13. Every allowed rank opens
++at creation; choices, points and prerequisites govern purchasing. The deployed
++26-line expansion now allows394 families/1,051 ranks, retaining all941 earlier
++identities and the same six exceptions. Slay Undead9, Master Wu5 and Triple
++Backstab9 are included. See [balance](balance.md) and
++`C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev/docs/releases/aa-class-ranks-20261013/README.md`.
+ Native packet requirements are1; CanUse/CanPurchase/default grants ignore DB
+-level_req for clients. Explicit GM grant content filters remain optional.
++level_req for clients. Explicit GM content filters remain optional.
+ 
+-Canonical earned ranks, charges, wallets/spent totals survive; out-of-pool ranks
+-remain dormant. ReprojectEarnedAAs restores legal earned ranks without repurchase;
++Canonical earned ranks, charges, wallets/spent totals survive; excluded ranks
++remain dormant. ReprojectEarnedAAs restores newly legal ranks without repurchase;
+ level changes no longer shrink that prefix. Class release still changes access.
+-Clear/table/points/stats refresh and missing-prerequisite rejection remain.
+-Zone-only correction is live on all12 OVH zones, retaining the skill/offhand
+-build. No new client binary; signed notes2026101302 preserve105 hosted assets.
+-All239 purchase rows and47 player/11 custom tables preserved. Exact native tests
+-and independent review passed; corrected creation/purchase/pet/combat owner QA
+-and main promotion remain pending. Pet HP updates on summon/restore.
++Triple Backstab's native gate now admits positive legal earned AA bonuses below55
++while retaining weapon, positioning, double-attack and living-target checks.
++Item/spell-only bonuses and bots keep the previous gate; no global rule changes.
++
++Only zone was rebuilt, preserving trainer/skill/offhand behavior. All12 OVH zone
++hashes verify. Activation preserved47 player/11 custom tables; preflight resolved
++242 purchase rows/1,200 earned ranks. Signed notes2026101303 preserve105 existing
++client assets; no new client binary. Seven policy tests,6,306 native rank/level
++checks, restored-Slay ownership controls and26 TryBackstab cases pass. Source and
++tests are routed in balance.md. Player combat/purchase/pet QA and main promotion
++remain pending. Pet HP updates on summon/restore.
+ 
+ ## Skills and AA ownership
+ 
+--- C:\Users\verre\.codex\skills\nightcap-development\references\client.md
++++ C:\Users\verre\.codex\skills\nightcap-development\references\client.md
+@@ -82,15 +82,23 @@
+ 
+ ## AA notes-only publication October 13
+ 
+-Signed game release2026101302 publishes the Buried Sea summary and correction
+-restoring all allowed AA ranks at creation. It preserves the105 existing file
+-records including URLs, prior patch history, minimum launcher0.6.0, desktop,
+-starter and guide. No client binary update. A higher game metadata counter may
+-reuse previous release asset URLs: verify exact signed file records, not an
+-assumption that URL counter must equal manifest counter. Source and public HTTPS
+-receipt: docs/releases/aa-tbs-level1-20261013/{sign-notes.go,publish-notes.py,
+-hosted-notes-verification.json} in the AA policy worktree. The paired server
+-correction is live; native AA-window and purchase owner QA remain pending.
++Signed game release2026101303 publishes the26-line AA rank expansion, Triple
++Backstab activation repair and purchase preservation. All allowed ranks still
++open at level1. It preserves all105 complete file records/URLs, prior patch
++history, minimum launcher0.6.0, desktop channel, starter and guide. No client
++binary update. A higher metadata counter can reuse old asset URLs; verify the
++exact signed records rather than requiring their URL counter to match.
++
++Source and public HTTPS/signature evidence:
++`C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev/docs/releases/aa-class-ranks-20261013/`
++contains sign-notes.go, publish-notes.py, notes-published.json and
++hosted-notes-verification.json. The seven publication tests and launcher manifest/
++packaging tests pass; all105 public files verify. A separate tunnel rollout held
++the shared deployment lock and restarted the game after AA activation. The notes
++publisher waited, refreshed service identities with unchanged public content,
++and preserved that runtime. Recheck source/runtime instead of restoring an older
++baseline. The paired AA server build is live; owner purchase/combat QA is pending.
++Reopen the normal launcher for notes and reconnect to refresh native AA state.
+ 
+ ## High-value implementation pointers
+ 
+--- C:\Users\verre\.codex\skills\nightcap-development\references\sources.json
++++ C:\Users\verre\.codex\skills\nightcap-development\references\sources.json
+@@ -1,7 +1,7 @@
+ {
+   "schema_version": 1,
+   "audited_at": "2026-10-12",
+-  "basis": "Local reviewed sources and dated runbooks; AA point-cost entries refreshed with production rule/runtime evidence on 2026-10-12. Other topics retain their original audit scope. AA TBS policy refreshed October 13 from reviewed native implementation, tests and verified OVH candidate deployment; owner gameplay acceptance remains pending. October13 owner correction replaces character-level AA gates with level1 access; deployment/signature evidence verified, gameplay QA pending.",
++  "basis": "Reviewed sources and dated runbooks; AA class-rank implementation, all-level-1 invariants, Triple Backstab native repair and OVH/signature evidence refreshed October13. Owner gameplay/balance acceptance remains pending. Other topics retain their separately recorded audit scope.",
+   "observed_revisions": {
+     "integrated": "eeb79ddebd69bdc4bda1725e7ccf5fa6e18591d1",
+     "default_checkout": "ce161c5e600992037adb66037b56047ef8c330dd",
+@@ -19,7 +19,8 @@
+     "waypoint_visual_acceptance_20261013": "01d7504eb7e6656f6e0f82d9616232de5d07874d",
+     "aa_tbs_level1_20261013": "f0f97d9d7fb048d12287e5f9f14a85cdffa0cac7",
+     "tunnel_cozy_candidate_20261013": "953a88c48b269be52b5ae03f9dd5cbe637488325",
+-    "aa_class_rank_audit_20261013": "b1bbb3f275f94ac0c4c1a5d922f5ed46dcc28a95"
++    "aa_class_rank_audit_20261013": "b1bbb3f275f94ac0c4c1a5d922f5ed46dcc28a95",
++    "aa_class_ranks_deployed_20261013": "5d6773c5ed12acf3e38507f28094da6e7a33c4a4"
+   },
+   "topics": {
+     "operations": [
+@@ -97,6 +98,55 @@
+         "role": "nine native recovery tests",
+         "revision": "45d24a6fa8a0c37a179810ae54f1ed6fbb6b1a02",
+         "sha256": "fa9a43a93b4f240190de9347f2a91e62b5dff18276e65e85d169cd624004c9dd"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
++        "path": "docs/releases/aa-class-ranks-20261013/README.md",
++        "role": "Reviewed AA class-rank/Triple Backstab release source, verification or OVH evidence; gameplay QA pending",
++        "revision": "5d6773c5ed12acf3e38507f28094da6e7a33c4a4",
++        "sha256": "01bb98a0d87288aa8a822e94769ad3624b0b146247b6be427810a5ec973e8244"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
++        "path": "docs/releases/aa-class-ranks-20261013/deployment/rollout.py",
++        "role": "Reviewed AA class-rank/Triple Backstab release source, verification or OVH evidence; gameplay QA pending",
++        "revision": "5d6773c5ed12acf3e38507f28094da6e7a33c4a4",
++        "sha256": "1ca886d0dbcf35b45afda3c4cacbf4e2ec41adece3c7ec32aa47a8449de2ec87"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
++        "path": "docs/releases/aa-class-ranks-20261013/deployment/aa_preflight.py",
++        "role": "Reviewed AA class-rank/Triple Backstab release source, verification or OVH evidence; gameplay QA pending",
++        "revision": "5d6773c5ed12acf3e38507f28094da6e7a33c4a4",
++        "sha256": "d7efbc84e26f4d802a479fb14c257c03822c292d017bb1e57e1713c8219bfb76"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
++        "path": "docs/releases/aa-class-ranks-20261013/deployment/manifest.json",
++        "role": "Reviewed AA class-rank/Triple Backstab release source, verification or OVH evidence; gameplay QA pending",
++        "revision": "5d6773c5ed12acf3e38507f28094da6e7a33c4a4",
++        "sha256": "bbf0c2d9ace991e1a7994e1d48d4e260b779900f35dbc73d6d8a53d8422ceb3d"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
++        "path": "docs/releases/aa-class-ranks-20261013/preflight.json",
++        "role": "Reviewed AA class-rank/Triple Backstab release source, verification or OVH evidence; gameplay QA pending",
++        "revision": "5d6773c5ed12acf3e38507f28094da6e7a33c4a4",
++        "sha256": "077b3bff5d3a93fa6a028d12553f986e52dbfe4cc7d1d9356afd78280ff3772a"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
++        "path": "docs/releases/aa-class-ranks-20261013/activated.json",
++        "role": "Reviewed AA class-rank/Triple Backstab release source, verification or OVH evidence; gameplay QA pending",
++        "revision": "5d6773c5ed12acf3e38507f28094da6e7a33c4a4",
++        "sha256": "405b5b9dbd00712bc810adc2ed7fac5032943ce2098322428c7b74f389f30963"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
++        "path": "docs/releases/aa-class-ranks-20261013/final-runtime-verification.json",
++        "role": "Reviewed AA class-rank/Triple Backstab release source, verification or OVH evidence; gameplay QA pending",
++        "revision": "5d6773c5ed12acf3e38507f28094da6e7a33c4a4",
++        "sha256": "10c68509860c9645d4f6da23905b2d046b0a699a928ab66c695280cabb61b537"
+       }
+     ],
+     "multiclass": [
+@@ -561,16 +611,16 @@
+       {
+         "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
+         "path": "config/aa-policy.json",
+-        "role": "Reviewed level-1 AA correction or signed publication evidence; owner QA pending",
+-        "revision": "f0f97d9d7fb048d12287e5f9f14a85cdffa0cac7",
+-        "sha256": "fbb6582deca26309fe906677df64715e98c491fc805dfa6924a5599182de5ad5"
++        "role": "Reviewed class-rank implementation and level1 invariant; historical audit retains its pinned baseline; owner QA pending",
++        "revision": "5d6773c5ed12acf3e38507f28094da6e7a33c4a4",
++        "sha256": "561c40bd0c447360ff27699b882a6bf976ce7173710da548cb2c9fc73415096b"
+       },
+       {
+         "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
+         "path": "server-mods/code/common/nightcap_aa_policy.h",
+-        "role": "Reviewed level-1 AA correction or signed publication evidence; owner QA pending",
+-        "revision": "f0f97d9d7fb048d12287e5f9f14a85cdffa0cac7",
+-        "sha256": "5dc93d75db587064a9c6862b08b3f9724dc95d3fcea40520f6a71c7fd1df5562"
++        "role": "Reviewed class-rank implementation and level1 invariant; historical audit retains its pinned baseline; owner QA pending",
++        "revision": "5d6773c5ed12acf3e38507f28094da6e7a33c4a4",
++        "sha256": "e30af43e2fef18a97b57a264ca3b8027d20d193e668309c7128ad69f65658bcd"
+       },
+       {
+         "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
+@@ -582,16 +632,16 @@
+       {
+         "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
+         "path": "tools/tests/test_aa_tbs_policy.py",
+-        "role": "Reviewed level-1 AA correction or signed publication evidence; owner QA pending",
+-        "revision": "f0f97d9d7fb048d12287e5f9f14a85cdffa0cac7",
+-        "sha256": "b998174a91da6cca802f2dc7a11fcf54d064e6e8b29e69a5cd847e31f94fbb06"
++        "role": "Reviewed class-rank implementation and level1 invariant; historical audit retains its pinned baseline; owner QA pending",
++        "revision": "5d6773c5ed12acf3e38507f28094da6e7a33c4a4",
++        "sha256": "25ede087f7e54ce1313ffb29f151290de6e7ccd7e8c426fca3e469f050ad7499"
+       },
+       {
+         "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
+         "path": "tools/tests/verify_aa_tbs_native.py",
+-        "role": "Reviewed level-1 AA correction or signed publication evidence; owner QA pending",
+-        "revision": "f0f97d9d7fb048d12287e5f9f14a85cdffa0cac7",
+-        "sha256": "4f8d11733f20cd7d4b6d94a30f636a14cc5cc6320f74c6e0707829db095a8bf0"
++        "role": "Reviewed class-rank implementation and level1 invariant; historical audit retains its pinned baseline; owner QA pending",
++        "revision": "5d6773c5ed12acf3e38507f28094da6e7a33c4a4",
++        "sha256": "8c85d9113bd1396efa546380a91b6846ce6a8ba87276253032622363ab8aa8cd"
+       },
+       {
+         "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
+@@ -617,9 +667,9 @@
+       {
+         "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
+         "path": "AGENTS.md",
+-        "role": "Reviewed level-1 AA correction or signed publication evidence; owner QA pending",
+-        "revision": "f0f97d9d7fb048d12287e5f9f14a85cdffa0cac7",
+-        "sha256": "0be0eff1cd1148899c32e8802c7d761e131ad8b60b31e891eb3f52b32f7af951"
++        "role": "Reviewed class-rank implementation and level1 invariant; historical audit retains its pinned baseline; owner QA pending",
++        "revision": "5d6773c5ed12acf3e38507f28094da6e7a33c4a4",
++        "sha256": "8c87cb754bfbfc643c01e8dcd1a283f1a8835b17fa47b12a9efaec69e77eb306"
+       },
+       {
+         "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
+@@ -662,6 +712,41 @@
+         "role": "Reviewed level-1 AA correction or signed publication evidence; owner QA pending",
+         "revision": "f0f97d9d7fb048d12287e5f9f14a85cdffa0cac7",
+         "sha256": "f69b9a1f704fe562c9faee65754f146e3f194e90f63f33112a1661b0d7327c92"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
++        "path": "server-mods/code/zone/special_attacks.cpp",
++        "role": "Reviewed AA class-rank/Triple Backstab release source, verification or OVH evidence; gameplay QA pending",
++        "revision": "5d6773c5ed12acf3e38507f28094da6e7a33c4a4",
++        "sha256": "e1c084c96eaa76943479c742ea9a8d40ae07a0e3bbd0352490a03b2c2209d6a2"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
++        "path": "tools/tests/verify_triple_backstab_native.py",
++        "role": "Reviewed AA class-rank/Triple Backstab release source, verification or OVH evidence; gameplay QA pending",
++        "revision": "5d6773c5ed12acf3e38507f28094da6e7a33c4a4",
++        "sha256": "e8dc34a6e9730ef271cf1799c423a1f28a87dda5a7306f76663f23ab46b52907"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
++        "path": "docs/releases/aa-class-ranks-20261013/README.md",
++        "role": "Reviewed AA class-rank/Triple Backstab release source, verification or OVH evidence; gameplay QA pending",
++        "revision": "5d6773c5ed12acf3e38507f28094da6e7a33c4a4",
++        "sha256": "01bb98a0d87288aa8a822e94769ad3624b0b146247b6be427810a5ec973e8244"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
++        "path": "docs/releases/aa-class-ranks-20261013/activated.json",
++        "role": "Reviewed AA class-rank/Triple Backstab release source, verification or OVH evidence; gameplay QA pending",
++        "revision": "5d6773c5ed12acf3e38507f28094da6e7a33c4a4",
++        "sha256": "405b5b9dbd00712bc810adc2ed7fac5032943ce2098322428c7b74f389f30963"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
++        "path": "docs/releases/aa-class-ranks-20261013/final-runtime-verification.json",
++        "role": "Reviewed AA class-rank/Triple Backstab release source, verification or OVH evidence; gameplay QA pending",
++        "revision": "5d6773c5ed12acf3e38507f28094da6e7a33c4a4",
++        "sha256": "10c68509860c9645d4f6da23905b2d046b0a699a928ab66c695280cabb61b537"
+       }
+     ],
+     "items": [
+@@ -975,9 +1060,9 @@
+       {
+         "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
+         "path": "eq-launcher/patch-notes.json",
+-        "role": "Reviewed level-1 AA correction or signed publication evidence; owner QA pending",
+-        "revision": "f0f97d9d7fb048d12287e5f9f14a85cdffa0cac7",
+-        "sha256": "7cbac924c1d5f6c180da936b98c472462d74d5a04bf5d50a46af8ff1c46ba6f4"
++        "role": "Reviewed class-rank implementation and level1 invariant; historical audit retains its pinned baseline; owner QA pending",
++        "revision": "5d6773c5ed12acf3e38507f28094da6e7a33c4a4",
++        "sha256": "7b3700b475591ffcb77b3716de4bb3d44c952872661b20da742f5d5313f38d52"
+       },
+       {
+         "root": "C:/Users/verre/Documents/Codex/2026-10-12/g-2/work/early-spell-scribing",
+@@ -1321,6 +1406,48 @@
+         "role": "Reviewed level-1 AA correction or signed publication evidence; owner QA pending",
+         "revision": "f0f97d9d7fb048d12287e5f9f14a85cdffa0cac7",
+         "sha256": "ce9f56658cb11a7de557ed0804be197ea58cf8fa603e7660dfa2444c7d838ddd"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
++        "path": "eq-launcher/cmd/nightcap-package/notes_test.go",
++        "role": "Reviewed AA class-rank/Triple Backstab release source, verification or OVH evidence; gameplay QA pending",
++        "revision": "5d6773c5ed12acf3e38507f28094da6e7a33c4a4",
++        "sha256": "4796796f0b047221e1c8ffb2fa7aabe8d34182cae5385538b67bf58ec515821b"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
++        "path": "docs/releases/aa-class-ranks-20261013/sign-notes.go",
++        "role": "Reviewed AA class-rank/Triple Backstab release source, verification or OVH evidence; gameplay QA pending",
++        "revision": "5d6773c5ed12acf3e38507f28094da6e7a33c4a4",
++        "sha256": "f4608bb55a1488b12b79dee64cf6e07788e0662e103723cc748d8d4a38100928"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
++        "path": "docs/releases/aa-class-ranks-20261013/publish-notes.py",
++        "role": "Reviewed AA class-rank/Triple Backstab release source, verification or OVH evidence; gameplay QA pending",
++        "revision": "5d6773c5ed12acf3e38507f28094da6e7a33c4a4",
++        "sha256": "9b07f587dc71ec2376f8daceafc8eb2e21eebb879e54337a66c41d5c1900ca1b"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
++        "path": "docs/releases/aa-class-ranks-20261013/test_publish_notes.py",
++        "role": "Reviewed AA class-rank/Triple Backstab release source, verification or OVH evidence; gameplay QA pending",
++        "revision": "5d6773c5ed12acf3e38507f28094da6e7a33c4a4",
++        "sha256": "72874547ead226bc1a70d47369266bc949db503673e3b9e419f5a4d8286bde72"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
++        "path": "docs/releases/aa-class-ranks-20261013/notes-published.json",
++        "role": "Reviewed AA class-rank/Triple Backstab release source, verification or OVH evidence; gameplay QA pending",
++        "revision": "5d6773c5ed12acf3e38507f28094da6e7a33c4a4",
++        "sha256": "dd80b85f7e1089a5eae6fb8f220ebc94ddfab09ee3f6d0afb13042a898d841c5"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
++        "path": "docs/releases/aa-class-ranks-20261013/hosted-notes-verification.json",
++        "role": "Reviewed AA class-rank/Triple Backstab release source, verification or OVH evidence; gameplay QA pending",
++        "revision": "5d6773c5ed12acf3e38507f28094da6e7a33c4a4",
++        "sha256": "3696fd87b8a0a9811d6f766e25f5e6f56bd776228927873c734086887ae3a408"
+       }
+     ],
+     "admin": [
+@@ -1550,16 +1677,16 @@
+       {
+         "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
+         "path": "config/aa-policy.json",
+-        "role": "Reviewed level-1 AA correction or signed publication evidence; owner QA pending",
+-        "revision": "f0f97d9d7fb048d12287e5f9f14a85cdffa0cac7",
+-        "sha256": "fbb6582deca26309fe906677df64715e98c491fc805dfa6924a5599182de5ad5"
++        "role": "Reviewed AA class-rank/Triple Backstab release source, verification or OVH evidence; gameplay QA pending",
++        "revision": "5d6773c5ed12acf3e38507f28094da6e7a33c4a4",
++        "sha256": "561c40bd0c447360ff27699b882a6bf976ce7173710da548cb2c9fc73415096b"
+       },
+       {
+         "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
+         "path": "server-mods/code/common/nightcap_aa_policy.h",
+-        "role": "Reviewed level-1 AA correction or signed publication evidence; owner QA pending",
+-        "revision": "f0f97d9d7fb048d12287e5f9f14a85cdffa0cac7",
+-        "sha256": "5dc93d75db587064a9c6862b08b3f9724dc95d3fcea40520f6a71c7fd1df5562"
++        "role": "Reviewed AA class-rank/Triple Backstab release source, verification or OVH evidence; gameplay QA pending",
++        "revision": "5d6773c5ed12acf3e38507f28094da6e7a33c4a4",
++        "sha256": "e30af43e2fef18a97b57a264ca3b8027d20d193e668309c7128ad69f65658bcd"
+       },
+       {
+         "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
+@@ -1571,16 +1698,16 @@
+       {
+         "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
+         "path": "tools/tests/test_aa_tbs_policy.py",
+-        "role": "Reviewed level-1 AA correction or signed publication evidence; owner QA pending",
+-        "revision": "f0f97d9d7fb048d12287e5f9f14a85cdffa0cac7",
+-        "sha256": "b998174a91da6cca802f2dc7a11fcf54d064e6e8b29e69a5cd847e31f94fbb06"
++        "role": "Reviewed AA class-rank/Triple Backstab release source, verification or OVH evidence; gameplay QA pending",
++        "revision": "5d6773c5ed12acf3e38507f28094da6e7a33c4a4",
++        "sha256": "25ede087f7e54ce1313ffb29f151290de6e7ccd7e8c426fca3e469f050ad7499"
+       },
+       {
+         "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
+         "path": "tools/tests/verify_aa_tbs_native.py",
+-        "role": "Reviewed level-1 AA correction or signed publication evidence; owner QA pending",
+-        "revision": "f0f97d9d7fb048d12287e5f9f14a85cdffa0cac7",
+-        "sha256": "4f8d11733f20cd7d4b6d94a30f636a14cc5cc6320f74c6e0707829db095a8bf0"
++        "role": "Reviewed AA class-rank/Triple Backstab release source, verification or OVH evidence; gameplay QA pending",
++        "revision": "5d6773c5ed12acf3e38507f28094da6e7a33c4a4",
++        "sha256": "8c85d9113bd1396efa546380a91b6846ce6a8ba87276253032622363ab8aa8cd"
+       },
+       {
+         "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
+@@ -1606,9 +1733,9 @@
+       {
+         "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
+         "path": "AGENTS.md",
+-        "role": "Reviewed level-1 AA correction or signed publication evidence; owner QA pending",
+-        "revision": "f0f97d9d7fb048d12287e5f9f14a85cdffa0cac7",
+-        "sha256": "0be0eff1cd1148899c32e8802c7d761e131ad8b60b31e891eb3f52b32f7af951"
++        "role": "Reviewed class-rank implementation and level1 invariant; historical audit retains its pinned baseline; owner QA pending",
++        "revision": "5d6773c5ed12acf3e38507f28094da6e7a33c4a4",
++        "sha256": "8c87cb754bfbfc643c01e8dcd1a283f1a8835b17fa47b12a9efaec69e77eb306"
+       },
+       {
+         "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
+@@ -1655,16 +1782,16 @@
+       {
+         "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
+         "path": "docs/audits/aa-class-ranks-20261013/README.md",
+-        "role": "Undeployed 26-line rank recommendation, native Rogue blocker, THJ evidence limits and combined QA",
+-        "revision": "b1bbb3f275f94ac0c4c1a5d922f5ed46dcc28a95",
+-        "sha256": "963f41462a0a457ffe6181495e5860ab199aa14ec6654d85769928af532b97d4"
++        "role": "Reviewed class-rank implementation and level1 invariant; historical audit retains its pinned baseline; owner QA pending",
++        "revision": "5d6773c5ed12acf3e38507f28094da6e7a33c4a4",
++        "sha256": "a2891c1857a68036d6ee1c983c76ccacb6ccea1a105d81dc908639cd4dd54994"
+       },
+       {
+         "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
+         "path": "docs/audits/aa-class-ranks-20261013/analyze.py",
+-        "role": "Reviewed offline target policy closure, level1 and identity assertions, per-class coverage",
+-        "revision": "b1bbb3f275f94ac0c4c1a5d922f5ed46dcc28a95",
+-        "sha256": "01baeefc46d2a50f382914f6a20debb76cf8f49056ceef0e2f4189058da3168f"
++        "role": "Reviewed class-rank implementation and level1 invariant; historical audit retains its pinned baseline; owner QA pending",
++        "revision": "5d6773c5ed12acf3e38507f28094da6e7a33c4a4",
++        "sha256": "e231c1824cfd605367946b71dc68f4618b23376a4d5304cd46e4e9f423da8858"
+       },
+       {
+         "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
+@@ -1721,6 +1848,97 @@
+         "role": "Independent review findings, source corrections and verification boundary",
+         "revision": "b1bbb3f275f94ac0c4c1a5d922f5ed46dcc28a95",
+         "sha256": "ea344cf13b5d25b0fb400e2d7ff4e871c25f3860af2557e228db2447dc1c3f66"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
++        "path": "server-mods/code/zone/special_attacks.cpp",
++        "role": "Reviewed AA class-rank/Triple Backstab release source, verification or OVH evidence; gameplay QA pending",
++        "revision": "5d6773c5ed12acf3e38507f28094da6e7a33c4a4",
++        "sha256": "e1c084c96eaa76943479c742ea9a8d40ae07a0e3bbd0352490a03b2c2209d6a2"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
++        "path": "tools/build_aa_class_ranks_candidate.py",
++        "role": "Reviewed AA class-rank/Triple Backstab release source, verification or OVH evidence; gameplay QA pending",
++        "revision": "5d6773c5ed12acf3e38507f28094da6e7a33c4a4",
++        "sha256": "0237cef5f4dbbaa3a8a229d6b0be49186be575bf2794b3d3b0168d1921a44d77"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
++        "path": "tools/tests/verify_triple_backstab_native.py",
++        "role": "Reviewed AA class-rank/Triple Backstab release source, verification or OVH evidence; gameplay QA pending",
++        "revision": "5d6773c5ed12acf3e38507f28094da6e7a33c4a4",
++        "sha256": "e8dc34a6e9730ef271cf1799c423a1f28a87dda5a7306f76663f23ab46b52907"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
++        "path": "tools/tests/test_aa_class_build.py",
++        "role": "Reviewed AA class-rank/Triple Backstab release source, verification or OVH evidence; gameplay QA pending",
++        "revision": "5d6773c5ed12acf3e38507f28094da6e7a33c4a4",
++        "sha256": "0e7cea7aee48d3541cbb5edce92198f7f17423eae81cee3d724be70334147b31"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
++        "path": "docs/audits/aa-class-ranks-20261013/baseline-policy.json",
++        "role": "Reviewed AA class-rank/Triple Backstab release source, verification or OVH evidence; gameplay QA pending",
++        "revision": "5d6773c5ed12acf3e38507f28094da6e7a33c4a4",
++        "sha256": "da948fd8874f7b9bb575e92e855745e6369cfee9fcfdf06d9f98bfcc19e8d8b4"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
++        "path": "docs/releases/aa-class-ranks-20261013/README.md",
++        "role": "Reviewed AA class-rank/Triple Backstab release source, verification or OVH evidence; gameplay QA pending",
++        "revision": "5d6773c5ed12acf3e38507f28094da6e7a33c4a4",
++        "sha256": "01bb98a0d87288aa8a822e94769ad3624b0b146247b6be427810a5ec973e8244"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
++        "path": "docs/releases/aa-class-ranks-20261013/verification.json",
++        "role": "Reviewed AA class-rank/Triple Backstab release source, verification or OVH evidence; gameplay QA pending",
++        "revision": "5d6773c5ed12acf3e38507f28094da6e7a33c4a4",
++        "sha256": "0673c62287db1cce5da9de34d5c04683032d1f22e6641eb8845aca1094bc3a71"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
++        "path": "docs/releases/aa-class-ranks-20261013/native-aa.json",
++        "role": "Reviewed AA class-rank/Triple Backstab release source, verification or OVH evidence; gameplay QA pending",
++        "revision": "5d6773c5ed12acf3e38507f28094da6e7a33c4a4",
++        "sha256": "119c649595a2bb52d301ea3611520974899fc632199507f1acc3d0cb5d50ea59"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
++        "path": "docs/releases/aa-class-ranks-20261013/native-backstab.json",
++        "role": "Reviewed AA class-rank/Triple Backstab release source, verification or OVH evidence; gameplay QA pending",
++        "revision": "5d6773c5ed12acf3e38507f28094da6e7a33c4a4",
++        "sha256": "8ac4f148847ba4ca78279dda5ecc0b02be3d59de317864f69bfb6251735ba5ef"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
++        "path": "docs/releases/aa-class-ranks-20261013/build-manifest.json",
++        "role": "Reviewed AA class-rank/Triple Backstab release source, verification or OVH evidence; gameplay QA pending",
++        "revision": "5d6773c5ed12acf3e38507f28094da6e7a33c4a4",
++        "sha256": "28245048bb6b43b4c3f017299786fd03d20e33ded426e9612ac80d8c5a26cd2c"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
++        "path": "docs/releases/aa-class-ranks-20261013/manifest-review.json",
++        "role": "Reviewed AA class-rank/Triple Backstab release source, verification or OVH evidence; gameplay QA pending",
++        "revision": "5d6773c5ed12acf3e38507f28094da6e7a33c4a4",
++        "sha256": "ea422e55653abc7748b69626f513dc192b57748a13dee43667c5dadd01d7323c"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
++        "path": "docs/releases/aa-class-ranks-20261013/review.json",
++        "role": "Reviewed AA class-rank/Triple Backstab release source, verification or OVH evidence; gameplay QA pending",
++        "revision": "5d6773c5ed12acf3e38507f28094da6e7a33c4a4",
++        "sha256": "c3490e6bc2c684cf5f7718124670942c52f52cf3d93e8624e238e092205a49e6"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
++        "path": "docs/releases/aa-class-ranks-20261013/final-runtime-verification.json",
++        "role": "Reviewed AA class-rank/Triple Backstab release source, verification or OVH evidence; gameplay QA pending",
++        "revision": "5d6773c5ed12acf3e38507f28094da6e7a33c4a4",
++        "sha256": "10c68509860c9645d4f6da23905b2d046b0a699a928ab66c695280cabb61b537"
+       }
+     ]
+   }

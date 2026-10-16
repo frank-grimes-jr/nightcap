@@ -58,6 +58,9 @@ if ($sha256 -ne $expectedSha256) {
 
 $image = [System.IO.File]::ReadAllBytes($resolvedPath)
 Assert-Bytes $image 0x2F3A90 ([byte[]](0x6A,0xFF,0x64,0xA1,0x00,0x00,0x00,0x00)) 'UIMerchantNotify'
+Assert-Bytes $image 0x37E7F0 ([byte[]](0x83,0xEC,0x48,0x53,0x8B,0x5C,0x24,0x50)) 'CraftNotify'
+Assert-Bytes $image 0x37CD70 ([byte[]](0x56,0x8B,0xF1,0x80,0xBE,0x96,0x01,0x00,0x00,0x00)) 'CraftFrame'
+Assert-Bytes $image 0x37B770 ([byte[]](0x56,0x8B,0xF1,0x8B,0x8E,0x20,0x02,0x00,0x00)) 'CraftSelected'
 Assert-Bytes $image 0x310800 ([byte[]](0x6A,0xFF,0x64,0xA1,0x00,0x00,0x00,0x00)) 'UIPetNotify'
 Assert-Bytes $image 0x30EA00 ([byte[]](0x8B,0x44,0x24,0x04,0x83,0xF8,0x22)) 'UIPetAvailable'
 # The hidden native hotbuttons keep their per-character configured meaning.
@@ -312,7 +315,7 @@ foreach ($fragment in @(
     'ApplyEquipSubmissionPatches(eq_base,size_ok&&hash_ok)',
     'result=original(character,item_ref,use_required_level,output)',
     'constuint32_tstock=original(item,flag1,flag2)',
-    'returnnightcap::EquipClassMask(stock,item,flag1,flag2)'
+    'returnnightcap::EquipClassMask(stock,item,flag1,flag2,nightcap::client_ui::state.PrimaryClass(),nightcap::client_ui::state.ClassMask())'
 )) {
     if (-not $compactSource.Contains($fragment)) {
         throw "Missing scoped equipment contract: $fragment"
@@ -345,6 +348,7 @@ Assert-Bytes $image 0x0035DF6A ([byte[]](0xE8,0xC1,0xE4,0xCE,0xFF)) 'Spellbook s
 Assert-Bytes $image 0x0035E084 ([byte[]](0xE8,0x77,0x16,0xD5,0xFF)) 'Spellbook scribing level'
 
 Assert-Bytes $image 0x00296095 ([byte[]](0xE8,0x96,0x63,0xDB,0xFF)) 'Scroll inventory placement CanUseItem'
+Assert-Bytes $image 0x002A9D82 ([byte[]](0xE8,0xA9,0x26,0xDA,0xFF)) 'Inspection direct CanUseItem'
 
 Assert-Bytes $image 0x002A39CE ([byte[]](0xE8,0x0D,0x13,0x11,0x00)) 'Scroll inspection classes'
 Assert-Bytes $image 0x002A39E0 ([byte[]](0xE8,0x1B,0xBD,0xE0,0xFF)) 'Scroll inspection class levels'

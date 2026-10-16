@@ -77,8 +77,9 @@ All commands run from `akk-stack/`:
   AA at 0% allocation; `#aaexp on|off` selects 100% or 0%. Tiny gains round down.
   Percentage rewards must preserve independent level/AA modifiers and missing-row
   behavior. Catalog changes require matching world/zone. Existing values use
-  `#reload rules global`; OVH uses 40% as of October 9 (compiled fallback 1%).
-  Tuning and recovery: `docs/ops/passive-aa-forty-20261009/README.md`.
+  `#reload rules global`; OVH uses 20% as of October 13 (compiled fallback 1%),
+  with `AA:ExpPerPoint=4000`. Preserve points and partial XP; reload never rewrites
+  player progress. Tuning and recovery: `docs/ops/passive-aa-twenty-20261013/README.md`.
   Tests, calibration and exact QA: `docs/releases/passive-aa-20261004.md`.
 
 - **OVH zone exits restart the whole runtime.** The deployed start.py supervises
@@ -158,7 +159,7 @@ All commands run from `akk-stack/`:
 
 - **Docker data disk**: stored at `E:\Docker\wsl\disk\docker_data.vhdx`; the original `%LOCALAPPDATA%\Docker\wsl\disk` is a directory junction to that folder. Keep E: available before starting Docker. Migration evidence and rollback details: `docs/ops/docker-data-migration-20260913.md`.
 - **Era lock is declarative**: `era.json` (repo root) is the source of truth; `tools/apply-era.ps1` applies it idempotently (+`-Check` for drift, `-CapCharacters` to de-level). Change era = edit era.json, commit, run the script. Do not set expansion rules by hand or via the GM tool.
-- **AA offering has a separate compiled policy**: `era.json.aa_policy` selects `config/aa-policy.json`; `tools/aa_tbs_policy.py` generates the native rank/level allowlist. Regenerate and rebuild/deploy zone after changes; era SQL and AA/rule reloads do not install compiled caps. Preserve full AA definitions and canonical earned ranks/charges—do not disable definitions or truncate chains to hide purchases. Exact limits, guarded OVH restart, rollback and owner QA: `docs/releases/aa-tbs-20261013/README.md`.
+- **AA offering has a separate compiled policy**: `era.json.aa_policy` selects `config/aa-policy.json`; `tools/aa_tbs_policy.py` generates the native rank/level allowlist. Every allowed rank opens at level 1. Regenerate and rebuild/deploy zone after changes; era SQL and AA/rule reloads do not install compiled caps. Preserve full AA definitions and canonical earned ranks/charges—do not disable definitions or truncate chains to hide purchases. The 26-line class expansion pairs the policy with `special_attacks.cpp` so earned Triple Backstab works below the native level-55 gate. Exact limits, guarded OVH restart, rollback and owner QA: `docs/releases/aa-class-ranks-20261013/README.md`.
 - **PoK class hub**: `tools/pok_hub.py` plans from `docs/pok/hub-stock-audit.json` (original class levels, not widened `spells_new` columns). `tools/pok_hub_migration.py` generates guarded forward/rollback SQL; `tools/pok_hub_restock.py` generates the canonical restock. `docs/pok/catalog-policy.json` gates era promotion before writes. Current catalog preserves the existing expansion-0, level-50 item pool; extending it requires review and regeneration. Activation/rollback and exact player QA: `docs/pok/QA.md`. Candidate only until the recorded in-game QA passes.
 - **DB backups**: `tools/backup-peq.ps1`, scheduled daily 04:00 (task `NightcapPeqBackup`), 14-day retention, includes the era drift check. Take a manual backup before destructive SQL.
 - **Ring geometry**: validate against `zone.map_file_name`, not only the short
@@ -415,6 +416,12 @@ publication as successful native acceptance or a permanent branch-policy change.
 - **main**: only after user sign-off on the manual QA.
 
 Codex is free to commit, open PRs, and merge autonomously **up to `test`** when tests pass. `test` → `main` requires user sign-off.
+
+**October 13 tradeskill exception:** the owner explicitly requested "Push to main
+and server for live QA." This authorizes PR #200's stacked tradeskills/Craft All
+release and its paired native/client publication before manual acceptance.
+Retain pending in-game checks in `docs/tradeskills/README.md`; this is specific
+to this release and does not change the standing promotion policy.
 
 **September 15, 2026 exception:** the owner explicitly requested all gameplay
 changes move into main so they can test live. This authorizes the current

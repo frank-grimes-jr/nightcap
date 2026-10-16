@@ -1,0 +1,196 @@
+{
+  "captured_at": "2026-10-15T09:42:58.014937+00:00",
+  "capture": {
+    "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-15\\e\\work\\aa-buff-content.json",
+    "bytes": 52194580,
+    "sha256": "9b05141e972f918fb5d88bb9077a9d75cb669bd46bd8aaca908e9c8ac5b2af49"
+  },
+  "source_snapshot": {
+    "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-15\\e\\work\\aa-temporary-buffs\\server-mods\\code\\zone\\spells.cpp",
+    "bytes": 242524,
+    "sha256": "b5181a274dbe390f1012bc5d8a296e151118fe5370f4dea32f55f4eca9131456"
+  },
+  "counts": {
+    "abilities": 1570,
+    "ranks": 6655,
+    "rank_effects": 9850,
+    "spells": 40725,
+    "spells_above_native_id_range": 1,
+    "spdat_records": 99002,
+    "valid_distinct_aa_roots": 2380,
+    "aa_closure": 2837,
+    "transitive_only_spells": 457,
+    "reached_spell_groups": 0,
+    "related_goodEffect1_nonpermanent_formulas": 1309
+  },
+  "killing_spree": {
+    "ability_id": 733,
+    "first_rank_id": 4739,
+    "rank_ids": [
+      4739,
+      4740,
+      4741,
+      5562,
+      5563,
+      5564,
+      7573,
+      7574,
+      7575
+    ],
+    "effect_id": 360,
+    "base2_spell_id": 11023,
+    "native_formula": 2,
+    "native_cap_ticks": 5,
+    "short_buff_box": -1,
+    "native_ticks_at_level_50": 5
+  },
+  "ordinary_blessings": [
+    {
+      "id": 67,
+      "name": "Arch Shielding",
+      "aa_related": false
+    },
+    {
+      "id": 314,
+      "name": "Resolution",
+      "aa_related": false
+    }
+  ],
+  "other_finite_related_examples": [
+    {
+      "id": 2740,
+      "name": "Celestial Regeneration",
+      "buffdurationformula": 4,
+      "buffduration": 8,
+      "short_buff_box": 1,
+      "aa_related": true
+    },
+    {
+      "id": 4925,
+      "name": "Warlord's Tenacity",
+      "buffdurationformula": 9,
+      "buffduration": 11,
+      "short_buff_box": 0,
+      "aa_related": true
+    },
+    {
+      "id": 23617,
+      "name": "Warlord's Tenacity",
+      "buffdurationformula": 9,
+      "buffduration": 11,
+      "short_buff_box": 0,
+      "aa_related": true
+    },
+    {
+      "id": 27436,
+      "name": "Twincast",
+      "buffdurationformula": 3,
+      "buffduration": 20,
+      "short_buff_box": 0,
+      "aa_related": true
+    },
+    {
+      "id": 31534,
+      "name": "Twincast",
+      "buffdurationformula": 3,
+      "buffduration": 21,
+      "short_buff_box": 0,
+      "aa_related": true
+    },
+    {
+      "id": 5245,
+      "name": "Frenzied Devastation",
+      "buffdurationformula": 3,
+      "buffduration": 20,
+      "short_buff_box": -1,
+      "aa_related": true
+    },
+    {
+      "id": 5247,
+      "name": "Frenzied Devastation",
+      "buffdurationformula": 3,
+      "buffduration": 20,
+      "short_buff_box": -1,
+      "aa_related": true
+    },
+    {
+      "id": 16525,
+      "name": "Third Spire of the Sensei Major Effect I",
+      "buffdurationformula": 3,
+      "buffduration": 2,
+      "short_buff_box": 0,
+      "aa_related": true
+    },
+    {
+      "id": 16526,
+      "name": "Third Spire of the Sensei Major Effect II",
+      "buffdurationformula": 3,
+      "buffduration": 2,
+      "short_buff_box": 0,
+      "aa_related": true
+    },
+    {
+      "id": 16527,
+      "name": "Third Spire of the Sensei Major Effect III",
+      "buffdurationformula": 3,
+      "buffduration": 2,
+      "short_buff_box": 0,
+      "aa_related": true
+    }
+  ],
+  "verification": {
+    "verified_positive_closure": 2837,
+    "verified_sampled_misses": 1024,
+    "verification_total_ms": 7009.2238,
+    "duration_policy_checks": 6,
+    "killing_spree_native_ticks_at_50": 5
+  },
+  "benchmark": [
+    {
+      "spell": 67,
+      "name": "Arch Shielding",
+      "total_lookups": 300,
+      "total_ms": 518.9123999999999,
+      "mean_ms": 1.7297079999999998,
+      "batch_mean_range_ms": [
+        1.436714,
+        2.08422
+      ]
+    },
+    {
+      "spell": 314,
+      "name": "Resolution",
+      "total_lookups": 300,
+      "total_ms": 506.07,
+      "mean_ms": 1.6869,
+      "batch_mean_range_ms": [
+        1.611456,
+        1.742082
+      ]
+    },
+    {
+      "spell": 11023,
+      "name": "Killing Spree",
+      "total_lookups": 300,
+      "total_ms": 507.4232,
+      "mean_ms": 1.6914106666666666,
+      "batch_mean_range_ms": [
+        1.538607,
+        1.942658
+      ]
+    }
+  ],
+  "compiler": {
+    "version": "19.44.35222.0 (build.log)",
+    "target": "x86",
+    "flags": "/EHsc /W4 /std:c++17 /O2 /DNDEBUG"
+  },
+  "caveats": [
+    "Capture lacks player_1 validity field; stored spell rows are assumed native-valid and missing rows invalid.",
+    "Metadata capture is complete for selected tables/columns but not running process shared-memory verification.",
+    "AA_FIXTURE uses smaller structs than the full server; Windows x86 timing does not establish Linux production latency.",
+    "Duration checks use fixture beneficial predicates and discipline flag; captured Killing Spree/Arch Shielding/Resolution metadata used directly.",
+    "Finite-related examples mean captured goodEffect=1 with a nonzero nonpermanent formula, not exhaustive gameplay acceptance."
+  ],
+  "detailed_result": "C:\\Users\\verre\\Documents\\Codex\\2026-10-15\\e\\work\\aa-duration-capture-benchmark\\results.json"
+}

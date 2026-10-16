@@ -1,0 +1,9 @@
+{
+  "status": "passed",
+  "scope": "Actual MariaDB transactions with concurrent sessions; no native gameplay",
+  "database": "nightcap_dungeon_rehearsal_425869fe94da",
+  "unique_concurrent_allocations": true,
+  "six_member_cap": true,
+  "duplicate_receipt_rolls_back_inventory": true,
+  "reset_and_entry_mutually_exclusive": true
+}

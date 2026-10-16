@@ -1,0 +1,16 @@
+{
+  "previous_release": 2026101303,
+  "release": 2026101304,
+  "changed": [
+    "dinput8.dll",
+    "nightcap-patch-sites.json",
+    "nightcap-patches.cfg"
+  ],
+  "added": [
+    "uifiles/nightcap/equi_tradeskillwnd.xml"
+  ],
+  "unchanged_files": 102,
+  "patch_history_preserved": true,
+  "tombstones_preserved": true,
+  "minimum_launcher_preserved": true
+}

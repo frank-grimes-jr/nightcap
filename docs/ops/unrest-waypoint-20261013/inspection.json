@@ -1,0 +1,38 @@
+{
+  "waypoint": {
+    "rc": 0,
+    "stdout": "zone\tzone_id\tx\ty\tz\theading\tis_dungeon\nunrest\t63\t118\t881\t3.75\t0\t0\n",
+    "stderr": ""
+  },
+  "spawns": {
+    "rc": 0,
+    "stdout": "id\tspawngroupID\tversion\tx\ty\tz\theading\tnpcID\tname\tlastname\trace\tgender\n3266037\t999228\t0\t52.000000\t-38.000000\t3.000000\t0.000000\t999228\tInstance_Keeper\tunrest\t1\t0\n3266123\t999240\t0\t118.000000\t881.000000\t3.750000\t0.000000\t999240\ta_waypoint\tStand Here to Attune\t1\t0\n",
+    "stderr": ""
+  },
+  "saved": {
+    "rc": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "zone": {
+    "rc": 0,
+    "stdout": "zoneidnumber\tshort_name\tsafe_x\tsafe_y\tsafe_z\n63\tunrest\t52\t-38\t3\n",
+    "stderr": ""
+  },
+  "quests": {
+    "global/999240.pl": {
+      "sha256": "f8fe9a8783e28b6685104a73769cf083c17ef5c411c9bc616e9fc3a420684e65"
+    },
+    "global/#The_Keeper_of_Blood.pl": {
+      "sha256": "9d6c40fd829388add529f78f5c6cc28a0e7ff472e524ddc1869ce96be7e88863"
+    },
+    "global/Instance_Keeper.pl": {
+      "sha256": "8ae628f60cc5913f55811cd4c3f0287873c792d904240f580624560418026d0f"
+    }
+  },
+  "log_counts": {
+    "waypoint_mentions": 0,
+    "quest_errors": 0,
+    "unrest_mentions": 32
+  }
+}

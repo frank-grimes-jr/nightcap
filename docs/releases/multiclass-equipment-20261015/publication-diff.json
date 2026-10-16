@@ -1,0 +1,12 @@
+{
+  "previous_release": 2026101304,
+  "release": 2026101501,
+  "changed_assets": [
+    "dinput8.dll",
+    "nightcap-patch-sites.json"
+  ],
+  "unchanged_assets": 104,
+  "previous_patch_notes_preserved": true,
+  "other_manifest_fields_preserved": true,
+  "source_hashes_match_tested_candidate": true
+}

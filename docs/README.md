@@ -18,7 +18,22 @@ Start with [current status](status.md), not a dated candidate report.
 
 ## Players and testers
 
-- [Buried Sea AA cutoff: candidate caps, preservation and exact in-game QA](releases/aa-tbs-20261013/README.md)
+- [Raid and Grind dungeon candidate: release, recovery and exact fourteen-mode QA](dungeons/README.md)
+
+- [Multiclass equipment and inspection: published client update and exact QA](releases/multiclass-equipment-20261015/README.md)
+
+- [Stacked materials and Craft All: paired deployment, recovery and exact QA](tradeskills/README.md)
+
+- [Unrest entrance waypoint: deployed correction, preservation evidence and QA](ops/unrest-waypoint-20261013/README.md)
+
+- [Ascended divine summons: live resale protection, verification and exact QA](releases/divine-summons-20261013/README.md)
+
+- [Passive AA reduced to 20%: live tuning, recovery and Palwar QA](ops/passive-aa-twenty-20261013/README.md)
+
+- [Relaxed tradeskill workshop: live layout, service moves and exact QA](releases/tunnel-cozy-20261013/README.md)
+
+
+- [AA level-one correction: deployed behavior and exact QA](releases/aa-tbs-level1-20261013/README.md)
 - [Multiclass skill progression and offhand corrective release](releases/multiclass-skills-20261013/README.md)
 
 - [Multiclass trainers: live paired release, recovery and Palwar QA](releases/multiclass-trainers-20261012/README.md)

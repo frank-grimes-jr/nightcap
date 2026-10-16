@@ -1,0 +1,52 @@
+{
+  "verified_utc": "2026-10-16T10:28:53.418435+00:00",
+  "status": "merged_and_deployed_for_owner_gameplay_qa",
+  "source_base": "1cfdea8",
+  "loader_sha256": "71dfdd18d12fba844bcc222c54125c621a3c5e895a61ef3ae258ecc3dfbbb5c8",
+  "source_files": {
+    "server-mods/code/common/equipment_race_policy.h": "fd44dab9d8d306268b995d815cf7ab840610a4e9c1720d7da52db71af61677b7",
+    "server-mods/code/common/shareddb.cpp": "fe027062b9e19c897ea3b9b37293ebb3424bc4b340756c8542e5ada58594c524",
+    "tools/tests/test_equipment_race_policy.py": "ec2a85550b9958c7df97cefbdcc5bee9063cdee410832484d5a6c182f07b62e2",
+    "eq-client-dll/tests/equipment-native.cpp": "33e42247cbb30ced3d4f5e1385fd07e83162af882a7e9839d587ad7f5db66b6e"
+  },
+  "red": {
+    "test": "actual loader restriction block",
+    "failure": "loaded Bronze Knuckles race mask lacks Half Elf before policy"
+  },
+  "passed": {
+    "equipment_server_groups": 2,
+    "loader_class_race_type_combinations": 420,
+    "worn_slots": 23,
+    "exact_client_checks": 78,
+    "client_runtime_groups": 7,
+    "free_trade_groups": 6,
+    "disable_lore_groups": 2,
+    "divine_summon_groups": 3,
+    "cache_corruption_controls": 4,
+    "full_retained_native_build": true,
+    "baseline_loader_relink": true,
+    "unchanged_archive_members": 126,
+    "item_data_size": 1332,
+    "local_cache_definitions": 308928,
+    "local_projected_definitions": 90851,
+    "local_nonplayer_preserved": 1535,
+    "all_other_cache_bytes_preserved": true,
+    "rollback_cache_byte_identical": true,
+    "operator_controls": 37
+  },
+  "independent_review": {
+    "status": "no_remaining_actionable_blockers",
+    "finding": "Retained archive provenance gap",
+    "resolution": "Known input hashes, actual archive fingerprint, exact old-loader relink before substitution; archive stability after build",
+    "optional_second_model": "declined_by_owner"
+  },
+  "boundaries": {
+    "production_access": "explicitly authorized loader deployment",
+    "production_writes": "loader image/cache only; no SQL changes",
+    "server_restart": true,
+    "client_changed": false,
+    "gameplay_qa": "javelins confirmed; Bronze Knuckles and broader owner QA pending",
+    "deployment_approval": "Push, merge, and deploy with server restart"
+  },
+  "deployment_receipt": "deployment.json"
+}

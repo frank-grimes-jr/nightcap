@@ -6,6 +6,7 @@
 #include "spell_access.h"
 #include "advanced_loot_ui.h"
 #include "advanced_loot_icons.h"
+#include "tradeskill_repeat.h"
 
 namespace nightcap {
 namespace client_ui {
@@ -270,6 +271,7 @@ inline bool CurrentManagementIdentity() {
     return ReadIdentity(spawn, name) && pet_management.Matches(spawn, name) &&
         GetTickCount64() - management_received < 5000;
 }
+#include "tradeskill_hooks.h"
 inline int __fastcall MerchantWindowHook(void* self, void*, void* sender, uint32_t message, void* data) {
     // Resolve against this window each time: no cached child survives a skin
     // reload. Consume only our control; all stock merchant notifications pass on.
@@ -399,6 +401,7 @@ inline bool __cdecl LabelHook(int type, EqString* output, bool* override_color, 
 }
 inline void __fastcall ChatHook(void* self, void*, const char* message, int color, bool log, bool convert) {
     LootPulse();
+    if (ConsumeCraftReply(message)) return;
     if (message && AdvancedLootUI::Consume(message)) return;
     if (pet_management.Consume(message)) { management_received = GetTickCount64(); return; }
     if (state.Consume(message)) {
@@ -409,6 +412,7 @@ inline void __fastcall ChatHook(void* self, void*, const char* message, int colo
     original_chat(self, message, color, log, convert);
 }
 inline void __fastcall StateHook(void* self, void*, int next) {
+    if (next != 5) { craft_repeat.Reset(); craft_window = nullptr; craft_container = nullptr; }
     if (next != 5) AdvancedLootUI::Reset();
     if (next != 5) { state.Clear(); spell_menu_dirty = true; pets.Clear(); pet_management.Clear(); next_refresh = 0; next_pet_refresh = 0; next_management_refresh = 0; management_received = 0; }
     original_state(self, next);
@@ -522,6 +526,16 @@ inline bool InstallMerchantSellAll() {
     original_merchant = reinterpret_cast<InventoryNotify>(EntryHook(base+kUIMerchantNotifyRva,
         kExpectedUIMerchantNotify, reinterpret_cast<void*>(&MerchantWindowHook)));
     return original_merchant != nullptr;
+}
+inline bool InstallTradeskillRepeat() {
+    __try {
+        if (memcmp(reinterpret_cast<void*>(base+kCraftSelectedRva), kExpectedCraftSelected, sizeof(kExpectedCraftSelected))) return false;
+    } __except(EXCEPTION_EXECUTE_HANDLER) { return false; }
+    original_tradeskill = reinterpret_cast<InventoryNotify>(EntryHook(base+kCraftNotifyRva,
+        kExpectedCraftNotify, reinterpret_cast<void*>(&TradeskillWindowHook)));
+    original_tradeskill_frame = reinterpret_cast<TradeskillFrame>(EntryHook(base+kCraftFrameRva,
+        kExpectedCraftFrame, reinterpret_cast<void*>(&TradeskillFrameHook)));
+    return original_tradeskill && original_tradeskill_frame;
 }
 inline bool InstallPetArmor() {
     __try {

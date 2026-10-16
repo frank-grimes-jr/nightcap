@@ -1,0 +1,12 @@
+{
+  "status": "local_source_updated_not_published",
+  "target": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\wiki",
+  "files": {
+    "articles/unreleased.json": "85c43fe8ed77572a932e45234033fdec7246c01b01775a55bbfab40f60cf10bd",
+    "articles/travel.json": "851dac72fb96fd51766d714ed48216774bcb7a0166d0a6131e26dae294da60ae",
+    "articles/features.json": "d12c113604b62a6802594945867252f0cfaec79c7e983fd41aa1bd7832fdb0b7",
+    "articles/recent-changes.json": "63540e4a18c5be5e6db6b34778c7e1e4488fea33d8746bca9e18152e153c7226",
+    "articles/dungeon-modes.json": "77e90de0f5b0edd82cf5d70b13458c65bb0595e5fd610a002d2873623358ee28",
+    "content-review.json": "b5008d2a5e0442c78d0c24de0feccc2c34a6a639c33e6216c2286241210b88eb"
+  }
+}

@@ -17,7 +17,7 @@
 #   instance and notified. They say 'join' to the nearest Instance Keeper to
 #   teleport in.
 #
-# Instances persist 12 hours. Server restart wipes all instances.
+# Instances persist 12 hours. Managed runs use the native durable ledger.
 # ==============================================================================
 
 my $INSTANCE_DURATION = 43200;  # 12 hours in seconds
@@ -94,6 +94,7 @@ sub EVENT_SIGNAL {
 
 sub EVENT_SAY {
     my $say     = lc($text);
+    return if $client->can("DungeonAction") && $client->DungeonAction($npc->GetID(), $say);
     my $name    = $client->GetName();
     my $char_id = $client->CharacterID();
     my $zone    = _zone();
@@ -188,6 +189,9 @@ sub EVENT_SAY {
 
 sub EVENT_POPUPRESPONSE {
     return unless $popupid == $POPUP_RESET;
+    # A client-supplied popup ID is not authorization. Managed resets require
+    # the native run-bound confirmation, owner and occupancy checks.
+    return if $client->can("DungeonAction") && $client->DungeonAction($npc->GetID(), 'confirm reset');
 
     my $zone    = _zone();
     my $char_id = $client->CharacterID();

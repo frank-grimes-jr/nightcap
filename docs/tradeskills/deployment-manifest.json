@@ -1,0 +1,28 @@
+{
+  "source_commit": "ea9ad5b2417632fd32c3eae079a85eaaf8d84633",
+  "base_binaries": {
+    "world": "efd54a1023a569274a76f65d3d2a18a173906762472a1bce186e3e14629d3c18",
+    "zone": "5dfe3d8a944a29ac963644298eb7a1563a08748ae72ae210edd78268ea106681",
+    "ucs": "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714",
+    "loginserver": "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf",
+    "shared_memory": "139194a9e2f2f3384a9831670c91787a99049526168b206dafb886c7fe8a5c86"
+  },
+  "binaries": {
+    "world": "efd54a1023a569274a76f65d3d2a18a173906762472a1bce186e3e14629d3c18",
+    "zone": "6317ba70619dbb0d012ec9f58a4a91a096374af0b20d411eccb44fc6ac20fbf3",
+    "ucs": "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714",
+    "loginserver": "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf",
+    "shared_memory": "139194a9e2f2f3384a9831670c91787a99049526168b206dafb886c7fe8a5c86"
+  },
+  "runtime_helper_sha256": "a3242bee3e8d4a7e60ea81bbd6fd34587201b712247665f3c03673733b95a811",
+  "client_release": 2026101304,
+  "client_channel_sha256": "16710a4dda6519cdba409e29e8eaf7b33f0487e6620a1027531600640c1b973e",
+  "files": {
+    "build-manifest.json": "f11a95ccb772cf25c5c4e718395d3f71738b2858165c7ce7a8f4216a15189e18",
+    "client-verification.json": "ba5aa35f3847b0db39a3af7c0105503ec1a6890d2476a6eac58d24482f5c8636",
+    "README.md": "d8f45b34a9c7f771db711c499388e3acf7e1bd8d6876cd8afa6cbb9eafea0761",
+    "rollout.py": "17b119544badb9ebce1ac183c2cdbc41ac0326afebaad1b88b36ac27b535eacb",
+    "test_rollout.py": "70d3dece17ae1e0671a572e33fc85fa2efdc4b87de1c609c9ecaaed032150ab0",
+    "zone": "6317ba70619dbb0d012ec9f58a4a91a096374af0b20d411eccb44fc6ac20fbf3"
+  }
+}
