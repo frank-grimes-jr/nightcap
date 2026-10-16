@@ -94,7 +94,8 @@ spawn identities 9000000+, spell-entry identities 9800000+, and CT grids 9900+.
 Native loot identities are matched to existing items, including five audited
 article-name aliases. `permafrost-era-audit.json` records the donor's later-era
 Ice Witch/Greshvoule gates. Chilling Terror lacks a qualifying NPC/spawn in the
-pinned export and is excluded from the required Classic roster.
+pinned export. All three are explicitly suppressed inside managed Permafrost;
+the local Chilling Terror point lacks an era gate. Public populations are unchanged.
 
 Sources: [maintainer archive](https://github.com/SecretsOTheP/EQMacEmu/blob/main/utils/sql/database_full/quarm_2023-10-01-00_19.tar.gz),
 [preserved Avatar](https://www.takproject.net/allaclone/npc.php?id=48003),
@@ -104,9 +105,10 @@ Sources: [maintainer archive](https://github.com/SecretsOTheP/EQMacEmu/blob/main
 ## Build, installation and disablement
 
 1. Compare the integrated overlay with the latest retained deployed manifest.
-   The candidate build driver currently preserves the October 15 temporary-AA
-   `aa.cpp` and its client declaration, which integrated main omitted. Record
-   this dependency in the final manifest. Do not build from the stale default
+   The feature integrates the deployed AA branch: projection, level-change
+   refresh, expanded policy and Triple Backstab. It also retains credential-log
+   redaction. The build driver asserts these match the October 15 retained
+   source; main/dev alone were incomplete. Do not build from the stale default
    `E:/EQ_Local_Dev` checkout or replace unrelated current custom source.
 2. Rehearse `20261016_dungeons.sql`, then `20261016_dungeon_content.sql`, in a
    fresh isolated database. Both start disabled. Existing/partial schemas or
@@ -144,3 +146,9 @@ the actual receipt/inventory and corpse/currency code with dependency fakes.
 catalog, parser rejection and integration ordering. These are not live gameplay
 or balance evidence. Build/package evidence and manual QA must be recorded
 before this candidate is represented as ready or deployed.
+
+`activation-verification.json` verifies valid activation and refusal of altered
+items, schema and triggers. `concurrency-verification.json` executes concurrent
+real MariaDB sessions for allocation, the six-member cap, receipt rollback and
+reset versus entry. These tests use synthetic records in the isolated database.
+`wiki-review.md` records the whole-site assessment and the unreleased guide.

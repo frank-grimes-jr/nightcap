@@ -1,5 +1,27 @@
 # CHANGES
 
+## 2026-10-16 - Raid and Grind dungeon candidate
+
+Add fixed twelve-hour Raid/Grind runs to all seven existing dungeon Keepers,
+with authoritative per-character boss credit, Tasks display, permanent completion
+counts and receipt-backed rewards. Raid scales HP/damage, unlocks the final boss
+after minibosses and permanently records defeated spawns; Grind preserves native
+timers and permits missed-boss catch-up. Run UUIDs, finalized corpse envelopes,
+respawn deadlines and immutable reward identities survive restart and native-ID
+reuse. Earned claims survive reset/expiry; reset rejects players, pending entries
+and recoverable player corpses.
+
+The explicit Classic catalog has 52 objectives and 330 new items: 24 shared
+designs at four bands/three qualities, plus three exclusive Raid designs per
+dungeon. Private Cazic-Thule restores 188 pinned Classic spawn points without
+changing public populations. Guarded SQL starts disabled; deployment requires
+matching native binaries/cache/quests. Isolated database, concurrency, native
+policy/credit and receipt-adapter checks are recorded in `docs/dungeons/`.
+The candidate preserves the separately deployed AA catalog and authentication-log
+redaction when reconciling main/dev/retained source. Full in-game and level-50
+Vox/Nagafen acceptance remain pending. No production promotion or restart.
+See `docs/dungeons/README.md` and `docs/dungeons/QA.md`.
+
 ## 2026-10-16 - Equipment race policy deployed for live QA
 
 Bronze Knuckles matched Palwar's Monk class but excluded Half Elf. Apply the

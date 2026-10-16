@@ -453,10 +453,10 @@ bool Client::HandleSendLoginInfoPacket(const EQApplicationPacket *app)
 	strn0cpy(name, (char *) r->login_info, 18);
 	strn0cpy(password, (char *) &(r->login_info[strlen(name) + 1]), 15);
 
-	LogDebug("Receiving login info packet from client | name [{}] password [{}]", name, password);
+	LogInfo("Authentication detail redacted");
 
 	if (strlen(password) <= 1) {
-		LogInfo("Login without a password");
+		LogInfo("Authentication detail redacted");
 		return false;
 	}
 
@@ -560,7 +560,7 @@ bool Client::HandleSendLoginInfoPacket(const EQApplicationPacket *app)
 		return true;
 	}
 	else {
-		LogInfo("Bad/Expired session key [{}]", name);
+		LogInfo("Authentication detail redacted");
 		return false;
 	}
 }

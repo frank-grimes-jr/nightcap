@@ -9,6 +9,7 @@ our $instance_id = 0;
     package Keeper;
     sub GetRace { $_[0]->{race} || 1 }
     sub GetLastName { 'permafrost' }
+    sub GetID { 812 }
     sub SendIllusionPacket { $_[0]->{race}=$_[1]->{race}; push @main::illusions,$_[1] }
     package Player;
     sub GetName { 'Tester' }
@@ -52,4 +53,21 @@ $text='reset'; EVENT_SAY();
 is($popups[-1]->[2],501,'reset still requires existing confirmation popup');
 $instance_id=0; EVENT_SAY();
 like($speech[-1],qr/no active instance to reset/,'reset without instance stays harmless');
+
+{
+    package NativePlayer;
+    our @ISA=('Player');
+    sub DungeonAction { push @main::native_actions, [$_[1],$_[2]]; return 1; }
+}
+our @native_actions;
+$client=bless {},'NativePlayer';
+my $legacy_lookups=scalar @lookups;
+$text='RAID'; EVENT_SAY();
+is_deeply($native_actions[-1],[812,'raid'],'managed dialogue reaches native Keeper with normalized action');
+is(scalar @lookups,$legacy_lookups,'handled native action never reaches legacy lookup');
+$popupid=501; EVENT_POPUPRESPONSE();
+is_deeply($native_actions[-1],[812,'confirm reset'],'legacy popup must pass native reset authorization');
+is(scalar @lookups,$legacy_lookups,'managed popup never reaches legacy destruction');
+$popupid=502; EVENT_POPUPRESPONSE();
+is(scalar @native_actions,2,'unrelated popup ignored');
 done_testing();

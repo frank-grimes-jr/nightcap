@@ -1,0 +1,232 @@
+--- a/wiki/articles/unreleased.json
++++ b/wiki/articles/unreleased.json
+@@ -1,14 +1,15 @@
+-{
+-  "slug": "unreleased",
+-  "title": "In development",
+-  "summary": "Built candidates and open testing, clearly separated from live features.",
+-  "body": "<h2 id=\"journal\">Adventure Journal &amp; Epic 0.5</h2><p>The eight journal quests and Wayfarer’s Oath charm have been built but are <strong>not installed on the server</strong>. The candidate uses three shared chapters followed by Guardian, Striker, Arcanist, Warden or Binder paths. These are not available rewards.</p><h2 id=\"combat\">Combat and item candidates</h2><p>Broader Monk and Beastlord fist-damage formulas and some existing tiered item corrections have a tested candidate but no recorded deployment. A frozen personal casting bar remains under investigation. The separate <a href=\"multiclass.html#earned-skills\">extra-class skill, trainer and offhand correction</a> is deployed; the reported player issue was confirmed resolved.</p>\n<h2 id=\"testing\">Ongoing checks for deployed features</h2><p>Broader equipment and class combinations, stats, regeneration, ability names and Bard movement/songs still need player checks. Those are acceptance checks for installed systems, not a claim that all of them are unreleased. See <a href=\"features.html\">Features</a> for the available systems.</p>\n",
+-  "category": "Reference",
+-  "status": "Not released",
+-  "updated": "2026-10-16",
+-  "sources": [
+-    "index.html at origin/main 19951a8",
+-    "docs/status.md at origin/main 19951a8",
+-    "docs/releases/multiclass-skills-20261013/README.md and docs/releases/combat-item-fixes-20260922/README.md at origin/main 2df6823"
+-  ]
+-}
++{
++  "slug": "unreleased",
++  "title": "In development",
++  "summary": "Built candidates and open testing, clearly separated from live features.",
++  "body": "<h2 id=\"dungeons\">Raid and Grind dungeons</h2><p class=\"notice\"><strong>Not released:</strong> <a href=\"dungeon-modes.html\">Raid and Grind dungeon modes</a> are a test candidate. Existing private instances keep their current behavior until a separate release.</p><p>The candidate adds Raid and Grind choices to Befallen, Unrest, High Keep, Najena, Cazic-Thule, Permafrost and Nagafen’s Lair. Each run lasts twelve hours and allows up to six characters. Testing and balance acceptance remain open.</p><h2 id=\"journal\">Adventure Journal &amp; Epic 0.5</h2><p>The eight journal quests and Wayfarer’s Oath charm have been built but are <strong>not installed on the server</strong>. The candidate uses three shared chapters followed by Guardian, Striker, Arcanist, Warden or Binder paths. These are not available rewards.</p><h2 id=\"combat\">Combat and item candidates</h2><p>Broader Monk and Beastlord fist-damage formulas and some existing tiered item corrections have a tested candidate but no recorded deployment. A frozen personal casting bar remains under investigation. The separate <a href=\"multiclass.html#earned-skills\">extra-class skill, trainer and offhand correction</a> is deployed; the reported player issue was confirmed resolved.</p>\n<h2 id=\"testing\">Ongoing checks for deployed features</h2><p>Broader equipment and class combinations, stats, regeneration, ability names and Bard movement/songs still need player checks. Those are acceptance checks for installed systems, not a claim that all of them are unreleased. See <a href=\"features.html\">Features</a> for the available systems.</p>\n",
++  "category": "Reference",
++  "status": "Not released",
++  "updated": "2026-10-16",
++  "sources": [
++    "index.html at origin/main 19951a8",
++    "docs/status.md at origin/main 19951a8",
++    "docs/releases/multiclass-skills-20261013/README.md and docs/releases/combat-item-fixes-20260922/README.md at origin/main 2df6823",
++    "docs/dungeons/{SPEC,README,QA}.md and catalog.json; dungeon candidate, not deployed"
++  ]
++}
+--- a/wiki/articles/travel.json
++++ b/wiki/articles/travel.json
+@@ -1,19 +1,20 @@
+-{
+-  "slug": "travel",
+-  "title": "Travel & instances",
+-  "summary": "City routes, rings, spires, waypoints and private dungeon runs.",
+-  "body": "<h2 id=\"travel\">Ten city routes with return books</h2><p>Speak to Merrin in the tunnel for ten city destinations. Return books bring you back to the shared hub.</p>\n<h2 id=\"druid-rings\">Druid Ring travel</h2><p>Khalure offers the currently available Classic Druid Rings. Some routes and client installations still need checks. Report silent travel or missing-world failures to the owner.</p>\n<h2 id=\"wizard-spires\">Wizard Spire travel</h2><p>Khaleid offers eight Classic Wizard Spire destinations from the tunnel travel area.</p>\n<h2 id=\"knowledge-bridge\">A Plane of Knowledge connection</h2><p>A dedicated travel connection keeps the Plane of Knowledge reachable alongside the tunnel’s city routes.</p>\n<h2 id=\"recall\">Nightcap Recall</h2><p>Make a hotkey for Ancient Attunement in the General abilities tab. It returns you to the tunnel with a five-second cast and ten-minute reuse, preserving your bind point and other home destinations.</p>\n<h2 id=\"waypoint-travel\">Travel to places you have discovered</h2><p>Find waypoint markers to unlock return destinations with the Waypoint Master. Discovering them all is a <a href=\"waypoints.html\">custom exploration quest</a>.</p>\n<h2 id=\"instances\">Private dungeon runs</h2><p>Instance Keepers offer Befallen, Unrest, High Keep, Najena, Cazic-Thule, Permafrost, and Nagafen’s Lair. Hail to enter or join your group leader; use <code>#instances</code> for open runs and timers. Runs last 12 hours. Resets ask for confirmation and discard that instance’s kills and progress. The small floating-eye Keeper is separate from the waypoint portal.</p>\n",
+-  "category": "World",
+-  "status": "Live testing",
+-  "updated": "2026-10-16",
+-  "sources": [
+-    "index.html at origin/main 19951a8",
+-    "docs/status.md at origin/main 19951a8",
+-    "docs/ops/travel-client-audit-20261012/README.md at travel-client-audit worktree 4e3acd8",
+-    "server-mods/quests/global/Instance_Keeper.pl at origin/main 2df6823"
+-  ],
+-  "keywords": [
+-    "#instances",
+-    "recall"
+-  ]
+-}
++{
++  "slug": "travel",
++  "title": "Travel & instances",
++  "summary": "City routes, rings, spires, waypoints and private dungeon runs.",
++  "body": "<h2 id=\"travel\">Ten city routes with return books</h2><p>Speak to Merrin in the tunnel for ten city destinations. Return books bring you back to the shared hub.</p>\n<h2 id=\"druid-rings\">Druid Ring travel</h2><p>Khalure offers the currently available Classic Druid Rings. Some routes and client installations still need checks. Report silent travel or missing-world failures to the owner.</p>\n<h2 id=\"wizard-spires\">Wizard Spire travel</h2><p>Khaleid offers eight Classic Wizard Spire destinations from the tunnel travel area.</p>\n<h2 id=\"knowledge-bridge\">A Plane of Knowledge connection</h2><p>A dedicated travel connection keeps the Plane of Knowledge reachable alongside the tunnel’s city routes.</p>\n<h2 id=\"recall\">Nightcap Recall</h2><p>Make a hotkey for Ancient Attunement in the General abilities tab. It returns you to the tunnel with a five-second cast and ten-minute reuse, preserving your bind point and other home destinations.</p>\n<h2 id=\"waypoint-travel\">Travel to places you have discovered</h2><p>Find waypoint markers to unlock return destinations with the Waypoint Master. Discovering them all is a <a href=\"waypoints.html\">custom exploration quest</a>.</p>\n<h2 id=\"instances\">Private dungeon runs</h2><p>Instance Keepers offer Befallen, Unrest, High Keep, Najena, Cazic-Thule, Permafrost, and Nagafen’s Lair. Hail to enter or join your group leader; use <code>#instances</code> for open runs and timers. Runs last 12 hours. Resets ask for confirmation and discard that instance’s kills and progress. The small floating-eye Keeper is separate from the waypoint portal.</p>\n<p class=\"notice\"><strong>Not released:</strong> <a href=\"dungeon-modes.html\">Raid and Grind dungeon modes</a> are a test candidate. Existing private instances keep their current behavior until a separate release.</p>",
++  "category": "World",
++  "status": "Live testing",
++  "updated": "2026-10-16",
++  "sources": [
++    "index.html at origin/main 19951a8",
++    "docs/status.md at origin/main 19951a8",
++    "docs/ops/travel-client-audit-20261012/README.md at travel-client-audit worktree 4e3acd8",
++    "server-mods/quests/global/Instance_Keeper.pl at origin/main 2df6823",
++    "docs/dungeons/{SPEC,README,QA}.md and catalog.json; dungeon candidate, not deployed"
++  ],
++  "keywords": [
++    "#instances",
++    "recall"
++  ]
++}
+--- a/wiki/articles/features.json
++++ b/wiki/articles/features.json
+@@ -1,22 +1,23 @@
+-{
+-  "slug": "features",
+-  "title": "Features",
+-  "summary": "What changes from Classic, and what every Nightcap player should know.",
+-  "body": "<p class=\"feature-intro\">The major departures from Classic, with the rules you need before your next adventure. Start with a topic below, then follow its guide for requirements and limits.</p><p class=\"notice\">These systems are deployed for live testing. Balance and some gameplay checks remain ongoing. <a href=\"unreleased.html\">In development</a> lists work that is not yet available.</p><h2 id=\"character\">Build one character from three classes</h2><div class=\"feature-list\"><section class=\"feature-row\"><h3>Three classes from level 1</h3><div><p>Keep your starting class and choose two different extra classes. Your held classes shape spell access, equipment, skills, and base health and mana.</p><a href=\"multiclass.html#three-classes\">Choose your classes →</a></div></section><section class=\"feature-row\"><h3>AA progression from the beginning</h3><div><p>Allowed AA ranks open at level 1. With focus off, earn full leveling XP plus 20% passive AA experience; full AA focus is also available. Points and prerequisites still matter.</p><a href=\"multiclass.html#passive-abilities\">Understand AA progression →</a></div></section><section class=\"feature-row\"><h3>Scribe spells ahead of time</h3><div><p>Eligible scrolls can enter your spellbook early. Memorizing and casting still require the normal level for a class you hold.</p><a href=\"multiclass.html#spell-access\">Learn the spell rules →</a></div></section><section class=\"feature-row\"><h3>A roster of companions</h3><div><p>Multiple summoned pets, selected-pet or All-pets commands, and stored pet armor support a multiclass roster.</p><a href=\"pets.html\">Manage your pets →</a></div></section></div><h2 id=\"rewards\">Earn, trade and upgrade your gear</h2><div class=\"feature-list\"><section class=\"feature-row\"><h3>Stronger item qualities and zone rewards</h3><div><p>Ordinary tiered gear and the 48-zone reward hunt offer distinct quality families. Hunt augments fit six armor locations and add heroic stats.</p><a href=\"zone-hunt.html\">Explore rewards and sockets →</a></div></section><section class=\"feature-row\"><h3>Turn duplicates into upgrades</h3><div><p>Use three Base zone rewards for Polished, then four matching copies for each higher step. Veyra’s reusable box also upgrades eligible ordinary Polished and Exalted items.</p><a href=\"item-upgrades.html\">See the upgrade recipes →</a></div></section><section class=\"feature-row\"><h3>Free trading and no LORE limit</h3><div><p>Trade formerly restricted and attuned items and keep duplicate LORE items. Inventory space, temporary lifetime and other item rules still apply.</p><a href=\"equipment.html#free-trade\">Read trading and resale rules →</a></div></section><section class=\"feature-row\"><h3>Equipment for your held classes</h3><div><p>Wear ordinary equipment allowed by any held class, regardless of playable race. Other restrictions, including slot, level and deity, remain.</p><a href=\"multiclass.html#equipment-access\">Check equipment eligibility →</a></div></section></div><h2 id=\"adventuring\">Prepare in the tunnel, then explore</h2><div class=\"feature-list\"><section class=\"feature-row\"><h3>A shared home base</h3><div><p>New characters start with a kit and 100 platinum in the East Commonlands tunnel. Trainers, spell shops, supplies, banking, buffs and travel services are gathered there.</p><a href=\"tunnel.html\">Meet the tunnel services →</a></div></section><section class=\"feature-row\"><h3>Travel, discovery and private dungeons</h3><div><p>Use tunnel travel services, discover waypoint destinations and enter supported personal dungeon instances. Ancient Attunement recalls you home without changing your bind.</p><a href=\"travel.html\">Plan your journey →</a></div></section><section class=\"feature-row\"><h3>Lasting blessings; temporary combat abilities</h3><div><p>Ordinary beneficial blessings persist on players and owned pets. Temporary AA effects, disciplines and short-duration effects retain their timers.</p><a href=\"combat.html#buffs\">Know which effects last →</a></div></section><section class=\"feature-row\"><h3>Keep fighting while you cast</h3><div><p>Damage-over-time spells cast instantly, and melee autoattacks can continue during casting. Mana costs, reuse, resistance and control effects still matter.</p><a href=\"combat.html#casting\">Read the combat changes →</a></div></section><section class=\"feature-row\"><h3>Less upkeep between adventures</h3><div><p>Food and drink are optional. Normal death retains carried equipment, inventory, money and memorized spell gems; beneficial buffs are lost. Preparation, earned gear and encounter execution still matter.</p><a href=\"combat.html\">Read combat and recovery →</a></div></section><section class=\"feature-row\"><h3>Healing without changing your target</h3><div><p>Ordinary heals cast with an enemy or pet selected heal you. Select a player to heal them; specialized and pet-only spells keep their own rules.</p><a href=\"combat.html#healing\">Check healing targets →</a></div></section></div><h2 id=\"tools\">Spend more time playing</h2><div class=\"feature-list\"><section class=\"feature-row\"><h3>Stacked materials and Craft All</h3><div><p>Use stacks without manually splitting every ingredient. Repeat a recipe with Craft All while retaining normal recipe requirements, success chances and skill gains.</p><a href=\"tradeskills.html\">Use the crafting controls →</a></div></section><section class=\"feature-row\"><h3>Advanced loot and bulk selling</h3><div><p>Use personal loot queues, loot preferences and group rolls. Sell All keeps bags and casting supplies; bank valuable gear before selling.</p><a href=\"advanced-loot.html\">Learn the loot interface →</a></div></section><section class=\"feature-row\"><h3>One launcher, current updates</h3><div><p>The normal Nightcap shortcut delivers managed game/interface updates and dated patch summaries. Keep your existing folder and personal settings.</p><a href=\"launcher.html\">Update before playing →</a></div></section></div><h2 id=\"updates\">Keep up with changes</h2><p>Read <a href=\"recent-changes.html\">Recent changes</a> for dated updates. Each release review covers affected guides, commands, item and zone pages, and this Features overview together.</p>",
+-  "category": "Getting started",
+-  "status": "Live testing",
+-  "sources": [
+-    "docs/ops/passive-aa-twenty-20261013/README.md at origin/main 2df6823",
+-    "server-mods/code/common/item_upgrade_policy.h and docs/releases/item-upgrades-20261012/README.md at origin/main 2df6823",
+-    "docs/releases/equipment-race-policy-20261016/README.md and docs/releases/multiclass-equipment-20261015/README.md at origin/main 2df6823",
+-    "docs/tradeskills/README.md at origin/main 2df6823",
+-    "Reviewed linked guides and their release evidence, 2026-10-16",
+-    "docs/ops/npc-heal-self-20261009/README.md at origin/main 2df6823"
+-  ],
+-  "keywords": [
+-    "custom features",
+-    "classic differences",
+-    "server features"
+-  ],
+-  "updated": "2026-10-16"
+-}
++{
++  "slug": "features",
++  "title": "Features",
++  "summary": "What changes from Classic, and what every Nightcap player should know.",
++  "body": "<p class=\"feature-intro\">The major departures from Classic, with the rules you need before your next adventure. Start with a topic below, then follow its guide for requirements and limits.</p><p class=\"notice\">These systems are deployed for live testing. Balance and some gameplay checks remain ongoing. <a href=\"unreleased.html\">In development</a> lists work that is not yet available.</p><h2 id=\"character\">Build one character from three classes</h2><div class=\"feature-list\"><section class=\"feature-row\"><h3>Three classes from level 1</h3><div><p>Keep your starting class and choose two different extra classes. Your held classes shape spell access, equipment, skills, and base health and mana.</p><a href=\"multiclass.html#three-classes\">Choose your classes →</a></div></section><section class=\"feature-row\"><h3>AA progression from the beginning</h3><div><p>Allowed AA ranks open at level 1. With focus off, earn full leveling XP plus 20% passive AA experience; full AA focus is also available. Points and prerequisites still matter.</p><a href=\"multiclass.html#passive-abilities\">Understand AA progression →</a></div></section><section class=\"feature-row\"><h3>Scribe spells ahead of time</h3><div><p>Eligible scrolls can enter your spellbook early. Memorizing and casting still require the normal level for a class you hold.</p><a href=\"multiclass.html#spell-access\">Learn the spell rules →</a></div></section><section class=\"feature-row\"><h3>A roster of companions</h3><div><p>Multiple summoned pets, selected-pet or All-pets commands, and stored pet armor support a multiclass roster.</p><a href=\"pets.html\">Manage your pets →</a></div></section></div><h2 id=\"rewards\">Earn, trade and upgrade your gear</h2><div class=\"feature-list\"><section class=\"feature-row\"><h3>Stronger item qualities and zone rewards</h3><div><p>Ordinary tiered gear and the 48-zone reward hunt offer distinct quality families. Hunt augments fit six armor locations and add heroic stats.</p><a href=\"zone-hunt.html\">Explore rewards and sockets →</a></div></section><section class=\"feature-row\"><h3>Turn duplicates into upgrades</h3><div><p>Use three Base zone rewards for Polished, then four matching copies for each higher step. Veyra’s reusable box also upgrades eligible ordinary Polished and Exalted items.</p><a href=\"item-upgrades.html\">See the upgrade recipes →</a></div></section><section class=\"feature-row\"><h3>Free trading and no LORE limit</h3><div><p>Trade formerly restricted and attuned items and keep duplicate LORE items. Inventory space, temporary lifetime and other item rules still apply.</p><a href=\"equipment.html#free-trade\">Read trading and resale rules →</a></div></section><section class=\"feature-row\"><h3>Equipment for your held classes</h3><div><p>Wear ordinary equipment allowed by any held class, regardless of playable race. Other restrictions, including slot, level and deity, remain.</p><a href=\"multiclass.html#equipment-access\">Check equipment eligibility →</a></div></section></div><h2 id=\"adventuring\">Prepare in the tunnel, then explore</h2><div class=\"feature-list\"><section class=\"feature-row\"><h3>A shared home base</h3><div><p>New characters start with a kit and 100 platinum in the East Commonlands tunnel. Trainers, spell shops, supplies, banking, buffs and travel services are gathered there.</p><a href=\"tunnel.html\">Meet the tunnel services →</a></div></section><section class=\"feature-row\"><h3>Travel, discovery and private dungeons</h3><div><p>Use tunnel travel services, discover waypoint destinations and enter supported personal dungeon instances. Ancient Attunement recalls you home without changing your bind.</p><a href=\"travel.html\">Plan your journey →</a></div></section><section class=\"feature-row\"><h3>Lasting blessings; temporary combat abilities</h3><div><p>Ordinary beneficial blessings persist on players and owned pets. Temporary AA effects, disciplines and short-duration effects retain their timers.</p><a href=\"combat.html#buffs\">Know which effects last →</a></div></section><section class=\"feature-row\"><h3>Keep fighting while you cast</h3><div><p>Damage-over-time spells cast instantly, and melee autoattacks can continue during casting. Mana costs, reuse, resistance and control effects still matter.</p><a href=\"combat.html#casting\">Read the combat changes →</a></div></section><section class=\"feature-row\"><h3>Less upkeep between adventures</h3><div><p>Food and drink are optional. Normal death retains carried equipment, inventory, money and memorized spell gems; beneficial buffs are lost. Preparation, earned gear and encounter execution still matter.</p><a href=\"combat.html\">Read combat and recovery →</a></div></section><section class=\"feature-row\"><h3>Healing without changing your target</h3><div><p>Ordinary heals cast with an enemy or pet selected heal you. Select a player to heal them; specialized and pet-only spells keep their own rules.</p><a href=\"combat.html#healing\">Check healing targets →</a></div></section></div><h2 id=\"tools\">Spend more time playing</h2><div class=\"feature-list\"><section class=\"feature-row\"><h3>Stacked materials and Craft All</h3><div><p>Use stacks without manually splitting every ingredient. Repeat a recipe with Craft All while retaining normal recipe requirements, success chances and skill gains.</p><a href=\"tradeskills.html\">Use the crafting controls →</a></div></section><section class=\"feature-row\"><h3>Advanced loot and bulk selling</h3><div><p>Use personal loot queues, loot preferences and group rolls. Sell All keeps bags and casting supplies; bank valuable gear before selling.</p><a href=\"advanced-loot.html\">Learn the loot interface →</a></div></section><section class=\"feature-row\"><h3>One launcher, current updates</h3><div><p>The normal Nightcap shortcut delivers managed game/interface updates and dated patch summaries. Keep your existing folder and personal settings.</p><a href=\"launcher.html\">Update before playing →</a></div></section></div><h2 id=\"updates\">Keep up with changes</h2><p>Read <a href=\"recent-changes.html\">Recent changes</a> for dated updates. Each release review covers affected guides, commands, item and zone pages, and this Features overview together.</p><p class=\"notice\"><strong>Not released:</strong> <a href=\"dungeon-modes.html\">Raid and Grind dungeon modes</a> are a test candidate. Existing private instances keep their current behavior until a separate release.</p>",
++  "category": "Getting started",
++  "status": "Live testing",
++  "sources": [
++    "docs/ops/passive-aa-twenty-20261013/README.md at origin/main 2df6823",
++    "server-mods/code/common/item_upgrade_policy.h and docs/releases/item-upgrades-20261012/README.md at origin/main 2df6823",
++    "docs/releases/equipment-race-policy-20261016/README.md and docs/releases/multiclass-equipment-20261015/README.md at origin/main 2df6823",
++    "docs/tradeskills/README.md at origin/main 2df6823",
++    "Reviewed linked guides and their release evidence, 2026-10-16",
++    "docs/ops/npc-heal-self-20261009/README.md at origin/main 2df6823",
++    "docs/dungeons/{SPEC,README,QA}.md and catalog.json; dungeon candidate, not deployed"
++  ],
++  "keywords": [
++    "custom features",
++    "classic differences",
++    "server features"
++  ],
++  "updated": "2026-10-16"
++}
+--- a/wiki/articles/recent-changes.json
++++ b/wiki/articles/recent-changes.json
+@@ -1,17 +1,18 @@
+-{
+-  "slug": "recent-changes",
+-  "title": "Recent changes",
+-  "summary": "The latest player-facing changes reflected in this guide.",
+-  "body": "<h2 id=\"october-16\">October 16, 2026</h2><ul><li><a href=\"features.html\">Features</a> now gathers the major departures from Classic.</li><li><a href=\"multiclass.html#equipment-access\">Equipment eligibility</a> recognizes held classes and permits playable races when the class matches; remaining restrictions still apply.</li><li><a href=\"combat.html#buffs\">Temporary AA buffs</a> retain their timers; ordinary blessings remain lasting.</li><li><a href=\"tunnel.html#banking\">Mira Coinwell</a> provides tunnel banking. Haldra stocks Leather Padding.</li><li>The wiki’s guides, commands and generated reward pages have been reviewed together against current release evidence.</li></ul>\n<h2 id=\"october-13\">October 13, 2026</h2><ul><li><a href=\"multiclass.html#passive-abilities\">Passive AA changed from 40% to 20%</a>, preserving full normal XP and 4,000 AA XP per point.</li><li><a href=\"multiclass.html#alternate-abilities\">All allowed AA ranks open at level 1</a>; points, eligibility and prerequisite ranks remain.</li><li><a href=\"tradeskills.html\">Stacked tradeskill ingredients and Craft All</a> are deployed.</li><li>The tunnel workshop layout is more spacious; the <a href=\"waypoints.html\">Unrest waypoint</a> moved beside its entrance Keeper.</li><li>Supported divine summoned-hammer families have <a href=\"equipment.html#summoned-gear\">zero resale value</a>.</li><li>The reported multiclass training/offhand issue and merchant Sell All button issue were confirmed resolved.</li></ul>\n<h2 id=\"october-12\">October 11–12, 2026</h2><ul><li><a href=\"item-upgrades.html\">Reusable four-copy upgrades</a> are available from Artisan Veyra; higher #zoneforge steps now use four copies.</li><li><a href=\"equipment.html#free-trade\">LORE restrictions are disabled</a>. Food and drink requirements were removed.</li><li><a href=\"multiclass.html#spell-access\">Early scribing</a> allows eligible scrolls into the spellbook before their casting level.</li><li><a href=\"equipment.html#selling\">Sell All protects food, drink, reagents and casting focus items</a>.</li><li>The launcher uses personal access codes and shows <a href=\"launcher.html#patch-notes\">patch summaries</a>.</li><li>Waypoint portals and floating-eye Instance Keepers received visual corrections. The reported pet-summon crash was confirmed resolved.</li></ul>\n<h2 id=\"october-9\">October 9, 2026</h2><ul><li><a href=\"zones.html\">48 Classic reward zones</a>, <a href=\"items.html\">384 reward variants</a>, type-22 augments and zone forging launched.</li><li>Passive AA increased to 40% at that time; the October 13 reduction above supersedes that rate.</li><li><a href=\"advanced-loot.html#row-controls\">Always Loot / Never Loot controls</a>, effective Spell Damage on <a href=\"combat.html#throw-stone\">Throw Stone</a>, and retained spell gems after normal death were added.</li></ul><p>Release labels describe availability, not completed balance or gameplay acceptance. See <a href=\"unreleased.html\">In development</a> for candidates.</p>",
+-  "category": "Reference",
+-  "status": "Reference",
+-  "updated": "2026-10-16",
+-  "sources": [
+-    "index.html at origin/main 19951a8",
+-    "docs/status.md at origin/main 19951a8",
+-    "docs/ops/passive-aa-twenty-20261013/README.md at origin/main 2df6823",
+-    "server-mods/code/common/item_upgrade_policy.h and docs/releases/item-upgrades-20261012/README.md at origin/main 2df6823",
+-    "docs/tradeskills/README.md at origin/main 2df6823",
+-    "docs/releases/equipment-race-policy-20261016/README.md and docs/releases/multiclass-equipment-20261015/README.md at origin/main 2df6823"
+-  ]
+-}
++{
++  "slug": "recent-changes",
++  "title": "Recent changes",
++  "summary": "The latest player-facing changes reflected in this guide.",
++  "body": "<h2 id=\"october-16\">October 16, 2026</h2><ul><li><a href=\"dungeon-modes.html\">Raid and Grind dungeons</a> have a candidate guide and open test checklist; the modes and rewards are not released.</li><li><a href=\"features.html\">Features</a> now gathers the major departures from Classic.</li><li><a href=\"multiclass.html#equipment-access\">Equipment eligibility</a> recognizes held classes and permits playable races when the class matches; remaining restrictions still apply.</li><li><a href=\"combat.html#buffs\">Temporary AA buffs</a> retain their timers; ordinary blessings remain lasting.</li><li><a href=\"tunnel.html#banking\">Mira Coinwell</a> provides tunnel banking. Haldra stocks Leather Padding.</li><li>The wiki’s guides, commands and generated reward pages have been reviewed together against current release evidence.</li></ul>\n<h2 id=\"october-13\">October 13, 2026</h2><ul><li><a href=\"multiclass.html#passive-abilities\">Passive AA changed from 40% to 20%</a>, preserving full normal XP and 4,000 AA XP per point.</li><li><a href=\"multiclass.html#alternate-abilities\">All allowed AA ranks open at level 1</a>; points, eligibility and prerequisite ranks remain.</li><li><a href=\"tradeskills.html\">Stacked tradeskill ingredients and Craft All</a> are deployed.</li><li>The tunnel workshop layout is more spacious; the <a href=\"waypoints.html\">Unrest waypoint</a> moved beside its entrance Keeper.</li><li>Supported divine summoned-hammer families have <a href=\"equipment.html#summoned-gear\">zero resale value</a>.</li><li>The reported multiclass training/offhand issue and merchant Sell All button issue were confirmed resolved.</li></ul>\n<h2 id=\"october-12\">October 11–12, 2026</h2><ul><li><a href=\"item-upgrades.html\">Reusable four-copy upgrades</a> are available from Artisan Veyra; higher #zoneforge steps now use four copies.</li><li><a href=\"equipment.html#free-trade\">LORE restrictions are disabled</a>. Food and drink requirements were removed.</li><li><a href=\"multiclass.html#spell-access\">Early scribing</a> allows eligible scrolls into the spellbook before their casting level.</li><li><a href=\"equipment.html#selling\">Sell All protects food, drink, reagents and casting focus items</a>.</li><li>The launcher uses personal access codes and shows <a href=\"launcher.html#patch-notes\">patch summaries</a>.</li><li>Waypoint portals and floating-eye Instance Keepers received visual corrections. The reported pet-summon crash was confirmed resolved.</li></ul>\n<h2 id=\"october-9\">October 9, 2026</h2><ul><li><a href=\"zones.html\">48 Classic reward zones</a>, <a href=\"items.html\">384 reward variants</a>, type-22 augments and zone forging launched.</li><li>Passive AA increased to 40% at that time; the October 13 reduction above supersedes that rate.</li><li><a href=\"advanced-loot.html#row-controls\">Always Loot / Never Loot controls</a>, effective Spell Damage on <a href=\"combat.html#throw-stone\">Throw Stone</a>, and retained spell gems after normal death were added.</li></ul><p>Release labels describe availability, not completed balance or gameplay acceptance. See <a href=\"unreleased.html\">In development</a> for candidates.</p>",
++  "category": "Reference",
++  "status": "Reference",
++  "updated": "2026-10-16",
++  "sources": [
++    "index.html at origin/main 19951a8",
++    "docs/status.md at origin/main 19951a8",
++    "docs/ops/passive-aa-twenty-20261013/README.md at origin/main 2df6823",
++    "server-mods/code/common/item_upgrade_policy.h and docs/releases/item-upgrades-20261012/README.md at origin/main 2df6823",
++    "docs/tradeskills/README.md at origin/main 2df6823",
++    "docs/releases/equipment-race-policy-20261016/README.md and docs/releases/multiclass-equipment-20261015/README.md at origin/main 2df6823",
++    "docs/dungeons/{SPEC,README,QA}.md and catalog.json; dungeon candidate, not deployed"
++  ]
++}
+--- /dev/null
++++ b/wiki/articles/dungeon-modes.json
+@@ -0,0 +1,21 @@
++{
++  "slug": "dungeon-modes",
++  "title": "Raid & Grind dungeon candidate",
++  "summary": "Seven private dungeons, personal boss checklists and shared rewards; not released.",
++  "body": "<p class=\"notice\"><strong>Not released.</strong> This guide describes a test candidate. Production activation and player acceptance are pending.</p><p>The candidate adds Raid and Grind choices to Befallen, Unrest, High Keep, Najena, Cazic-Thule, Permafrost and Nagafen’s Lair. Each run lasts twelve hours and allows up to six characters. Testing and balance acceptance remain open.</p>\n<h2 id=\"modes\">Choose a mode</h2><table><thead><tr><th>Rule</th><th>Grind</th><th>Raid</th></tr></thead><tbody><tr><td>Enemies</td><td>Normal stats and respawns</td><td>35% more HP, 15% more damage; defeated enemies do not return</td></tr><tr><td>Bosses</td><td>Required bosses available initially</td><td>Final boss unlocks after all required minibosses</td></tr><tr><td>Personal reward</td><td>One Normal item</td><td>One item: 90% Polished, 10% Ascended</td></tr></tbody></table>\n<h2 id=\"credit\">Earn your own checklist</h2><p>The creator chooses the mode. Hail the entrance Keeper for Raid, Grind, Enter, Join, Status, Claim Rewards and Reset. Tasks display the boss checklist and deadline; Status also shows permanent completion counts. Stay enrolled, connected and within 200 units of your party’s encounter, including vertical distance. Owned-pet kills count for the owner’s party. Missed kills never receive retroactive credit. Grind respawns offer another opportunity; Raid deaths are permanent for that run.</p>\n<h2 id=\"rewards\">Shared rewards and exclusive drops</h2><p>Twenty-four shared designs include eight armor pieces, eight weapon families, six accessories and two weight-reduction bags. Every dungeon uses these designs at its equipment band: Befallen 20; Unrest/Najena 30; High Keep/Cazic-Thule 40; Permafrost/Nagafen’s Lair 50. Selection does not filter by class. Rewards are permanent, tradeable, non-lore and have zero merchant resale. Dungeon rewards cannot be converted by existing forging recipes.</p><p>Raid final bosses also drop one, two or three distinct exclusive designs with 80%, 18% and 2% chances. Each independently rolls Polished or Ascended at 90%/10%. Examples include Moltor’s Graveblade, Rucksif’s Mourning Mantle, McCabe’s Hidden Treasury, Vox’s Hoarfrost Satchel and Nagafen’s Emberfang. These shared corpse drops use normal loot controls and are additional to native loot and personal completion rewards.</p><p>Weapon delay stays fixed between qualities. Bags have six, eight or ten slots and up to 100% weight reduction. Rewards are selected durably; reconnecting cannot change them. There is one personal completion reward per character per run. A full inventory leaves an earned claim at the Keeper.</p>\n<h2 id=\"recovery\">Keep progress through interruptions</h2><p>Progress and the original deadline survive reconnects and restarts. Abandoning the task removes its display, not earned credit. Only the creator can confirm a reset, and no player, pending entry or recoverable player corpse may remain inside. Earned claims survive reset and expiry. Classic Cazic-Thule restoration applies only to managed private instances; High Keep keeps normal faction consequences.</p>\n<h2 id=\"testing\">Testing still required</h2><p>All seven dungeons in both modes need in-game checks. Cazic-Thule paths and doors, inventory/loot recovery and demanding solo/small-group balance remain open. Lady Vox and Lord Nagafen explicitly require level-50 gameplay acceptance. Existing live reward catalog pages retain their released stats; these candidate items are not added to the live equipment catalog.</p>\n",
++  "category": "World",
++  "status": "Not released",
++  "updated": "2026-10-16",
++  "sources": [
++    "docs/dungeons/{SPEC,README,QA}.md and catalog.json; dungeon candidate, not deployed"
++  ],
++  "keywords": [
++    "raid",
++    "grind",
++    "dungeon rewards",
++    "Instance Keeper",
++    "Gynok Moltor",
++    "Lady Vox",
++    "Lord Nagafen"
++  ]
++}
+--- a/wiki/content-review.json
++++ b/wiki/content-review.json
+@@ -1,22 +1,23 @@
+-{
+-  "reviewed_at": "2026-10-16",
+-  "reviewed_revision": "2df6823f0b703b9aeaeb09a250b9b183703caf8f",
+-  "source_paths": [
+-    "server-mods/",
+-    "eq-client-dll/",
+-    "eq-launcher/",
+-    "eq-solo-gm/",
+-    "era.json",
+-    "tools/",
+-    "docs/",
+-    "config/",
+-    "sql/",
+-    "index.html"
+-  ],
+-  "scope": "All maintained articles and generated item/zone guidance reviewed; unchanged reward stats retained. New mechanics require a Features decision and affected-guide updates.",
+-  "supplemental_evidence": [
+-    "AA class ranks: feature/aa-tbs-policy deployed release, docs/releases/aa-class-ranks-20261013/README.md",
+-    "Commonlands banker and Leather Padding: E:/EQ_Local_Dev/docs/ops/commonlands-services-20261016/README.md",
+-    "Travel client audit: travel-client-audit worktree 4e3acd8; local repair is not fleet publication"
+-  ]
+-}
++{
++  "reviewed_at": "2026-10-16",
++  "reviewed_revision": "2df6823f0b703b9aeaeb09a250b9b183703caf8f",
++  "source_paths": [
++    "server-mods/",
++    "eq-client-dll/",
++    "eq-launcher/",
++    "eq-solo-gm/",
++    "era.json",
++    "tools/",
++    "docs/",
++    "config/",
++    "sql/",
++    "index.html"
++  ],
++  "scope": "All maintained articles and generated item/zone guidance reviewed; unchanged reward stats retained. New mechanics require a Features decision and affected-guide updates.",
++  "supplemental_evidence": [
++    "AA class ranks: feature/aa-tbs-policy deployed release, docs/releases/aa-class-ranks-20261013/README.md",
++    "Commonlands banker and Leather Padding: E:/EQ_Local_Dev/docs/ops/commonlands-services-20261016/README.md",
++    "Travel client audit: travel-client-audit worktree 4e3acd8; local repair is not fleet publication",
++    "Dungeon candidate: all maintained articles and generated catalog routes assessed in docs/dungeons/wiki-review.md. Existing release availability and live catalog stats retained; candidate pages only. Publication pending."
++  ]
++}

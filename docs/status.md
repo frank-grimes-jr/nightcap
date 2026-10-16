@@ -1,5 +1,17 @@
 # Current Nightcap status
 
+## Raid and Grind dungeons — test candidate, not deployed
+
+The [dungeon release](dungeons/README.md) adds seven dungeon modes, 52 explicit
+objectives, 330 reward definitions, private Classic Cazic-Thule and durable
+UUID-based progress/corpse/reward recovery. Guarded installation/enablement and
+concurrent allocation, enrollment, reset and duplicate-receipt checks pass in
+an isolated local database. Native policy/credit/spawn and inventory/corpse
+adapter checks are separate from the [fourteen-mode in-game QA](dungeons/QA.md).
+Test deployment, CT terrain/path validation, level-50 Vox/Nagafen balance and
+owner acceptance remain pending. Production promotion/restart is not authorized
+by this candidate. Existing unmanaged instances retain their legacy behavior.
+
 ## Equipment race policy — deployed for live QA October 16
 
 The [equipment race fix](releases/equipment-race-policy-20261016/README.md) is

@@ -47,7 +47,7 @@ def main():
         sql(f'CREATE TABLE {DB}.instance_list LIKE peq.instance_list;')
         assert sql(f'SELECT COUNT(*) FROM {DB}.items WHERE id BETWEEN 960000 AND 960329;').strip()=='0'
         sql(f"CREATE USER '{USER}'@'%' IDENTIFIED BY '{PASSWORD}';");user_created=True
-        sql(f"GRANT SELECT ON {DB}.* TO '{USER}'@'%';")
+        sql(f"GRANT ALL ON {DB}.* TO '{USER}'@'%';")
         # The local test policy matches current effective trading/race/LORE.
         sql(f"DELETE FROM {DB}.variables WHERE varname='RuleSet';")
         for rule in ('Items:FreeTrade','Items:DisableLore'):

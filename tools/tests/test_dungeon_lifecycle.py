@@ -83,7 +83,9 @@ int main() {
  }
  uint32_t id=77;healthy=false;assert(!SelectSpawn(999,id));healthy=true;
  current.expiry=10;assert(!SelectSpawn(999,id));
- managed=false;assert(SelectSpawn(999,id) && id==77);
+ current.dungeon=FindDungeon(73);healthy=true;current.expiry=100;
+ for (const auto &excluded:ExcludedNPCs) {id=excluded.npc;assert(!SelectSpawn(679,id));}
+ managed=false;id=73092;assert(SelectSpawn(679,id) && id==73092);
 }
 ''')
 

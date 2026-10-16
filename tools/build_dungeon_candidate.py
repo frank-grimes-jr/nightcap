@@ -26,14 +26,12 @@ def main():
     source=ROOT/'source'
     baseline=json.loads((BASE/'manifest.json').read_text())
     assert fingerprint(BASE/'source')==baseline['source_files'], 'Retained AA source drift'
-    # Main omits the retained AA class/rank projection. Carry its reviewed
-    # implementation and declaration rather than regressing the deployed ABI.
-    (source/'zone/aa.cpp').write_bytes((BASE/'source/zone/aa.cpp').read_bytes())
-    p=source/'zone/client.h';text=p.read_text()
-    if 'bool ReprojectEarnedAAs();' not in text:
-        assert text.count('void RefreshNightcapUI();')==1
-        text=text.replace('void RefreshNightcapUI();','void RefreshNightcapUI();\n\tbool ReprojectEarnedAAs();')
-        p.write_text(text)
+    # The feature integrates the already deployed AA branch and credential-log
+    # redaction. Assert those dependencies rather than silently patching a build.
+    for relative in ('zone/aa.cpp','zone/exp.cpp','zone/special_attacks.cpp',
+                     'common/nightcap_aa_policy.h','world/client.cpp'):
+        assert (source/relative).read_text()==(BASE/'source'/relative).read_text(), 'Retained dependency drift: '+relative
+    assert 'bool ReprojectEarnedAAs();' in (source/'zone/client.h').read_text()
     before=fingerprint(source)
     (ROOT/'input-sources.json').write_text(json.dumps(before,indent=2)+'\n')
     build=ROOT/'build'

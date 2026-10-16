@@ -18,6 +18,8 @@ Start with [current status](status.md), not a dated candidate report.
 
 ## Players and testers
 
+- [Raid and Grind dungeon candidate: release, recovery and exact fourteen-mode QA](dungeons/README.md)
+
 - [Multiclass equipment and inspection: published client update and exact QA](releases/multiclass-equipment-20261015/README.md)
 
 - [Stacked materials and Craft All: paired deployment, recovery and exact QA](tradeskills/README.md)
@@ -31,7 +33,7 @@ Start with [current status](status.md), not a dated candidate report.
 - [Relaxed tradeskill workshop: live layout, service moves and exact QA](releases/tunnel-cozy-20261013/README.md)
 
 
-- [Buried Sea AA cutoff: candidate caps, preservation and exact in-game QA](releases/aa-tbs-20261013/README.md)
+- [AA level-one correction: deployed behavior and exact QA](releases/aa-tbs-level1-20261013/README.md)
 - [Multiclass skill progression and offhand corrective release](releases/multiclass-skills-20261013/README.md)
 
 - [Multiclass trainers: live paired release, recovery and Palwar QA](releases/multiclass-trainers-20261012/README.md)

@@ -215,6 +215,7 @@ bool SelectSpawn(uint32_t spawn, uint32_t &npc) {
 	// The canonical objective point owns every required NPC, including the final
 	// gate. Other random entries cannot bypass it or create duplicate objectives.
 	for (const auto &b : Bosses) { if (b.zone==current.dungeon->zone && b.npc==npc) { return false; } }
+	for (const auto &excluded : ExcludedNPCs) { if (excluded.zone==current.dungeon->zone && excluded.npc==npc) { return false; } }
 	return true;
 }
 bool RequiredSpawn(uint32_t spawn) {

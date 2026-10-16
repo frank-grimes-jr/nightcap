@@ -66,5 +66,11 @@ inline constexpr Boss Bosses[] = {
 	{32,6396,32020,12,false,"Warlord Skarlon"},
 	{32,6461,32040,13,true,"Lord Nagafen"},
 };
+struct ExcludedNPC { uint32_t zone, npc; };
+inline constexpr ExcludedNPC ExcludedNPCs[] = {
+	{73,73039},
+	{73,73090},
+	{73,73092},
+};
 inline const Dungeon *FindDungeon(uint32_t zone) { for (const auto &d : Dungeons) { if (d.zone==zone) { return &d; } } return nullptr; }
 }

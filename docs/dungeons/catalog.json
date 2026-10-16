@@ -48375,6 +48375,20 @@
       ]
     }
   ],
+  "excluded_npcs": [
+    {
+      "zone_id": 73,
+      "npc_id": 73039
+    },
+    {
+      "zone_id": 73,
+      "npc_id": 73090
+    },
+    {
+      "zone_id": 73,
+      "npc_id": 73092
+    }
+  ],
   "content_sha256": "aafd7d14b8f07c772d7b4dcb55465867a50fe996153cf6270367481eddbd034f",
   "status": "candidate; automated integration and all gameplay acceptance pending"
 }

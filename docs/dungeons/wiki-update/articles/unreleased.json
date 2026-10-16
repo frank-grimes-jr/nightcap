@@ -1,0 +1,15 @@
+{
+  "slug": "unreleased",
+  "title": "In development",
+  "summary": "Built candidates and open testing, clearly separated from live features.",
+  "body": "<h2 id=\"dungeons\">Raid and Grind dungeons</h2><p class=\"notice\"><strong>Not released:</strong> <a href=\"dungeon-modes.html\">Raid and Grind dungeon modes</a> are a test candidate. Existing private instances keep their current behavior until a separate release.</p><p>The candidate adds Raid and Grind choices to Befallen, Unrest, High Keep, Najena, Cazic-Thule, Permafrost and Nagafen’s Lair. Each run lasts twelve hours and allows up to six characters. Testing and balance acceptance remain open.</p><h2 id=\"journal\">Adventure Journal &amp; Epic 0.5</h2><p>The eight journal quests and Wayfarer’s Oath charm have been built but are <strong>not installed on the server</strong>. The candidate uses three shared chapters followed by Guardian, Striker, Arcanist, Warden or Binder paths. These are not available rewards.</p><h2 id=\"combat\">Combat and item candidates</h2><p>Broader Monk and Beastlord fist-damage formulas and some existing tiered item corrections have a tested candidate but no recorded deployment. A frozen personal casting bar remains under investigation. The separate <a href=\"multiclass.html#earned-skills\">extra-class skill, trainer and offhand correction</a> is deployed; the reported player issue was confirmed resolved.</p>\n<h2 id=\"testing\">Ongoing checks for deployed features</h2><p>Broader equipment and class combinations, stats, regeneration, ability names and Bard movement/songs still need player checks. Those are acceptance checks for installed systems, not a claim that all of them are unreleased. See <a href=\"features.html\">Features</a> for the available systems.</p>\n",
+  "category": "Reference",
+  "status": "Not released",
+  "updated": "2026-10-16",
+  "sources": [
+    "index.html at origin/main 19951a8",
+    "docs/status.md at origin/main 19951a8",
+    "docs/releases/multiclass-skills-20261013/README.md and docs/releases/combat-item-fixes-20260922/README.md at origin/main 2df6823",
+    "docs/dungeons/{SPEC,README,QA}.md and catalog.json; dungeon candidate, not deployed"
+  ]
+}

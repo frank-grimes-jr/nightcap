@@ -35,6 +35,9 @@ ACCESSORIES=[('Hearthglass Earring',18,535,'awis','asta'),
              ('Waykeeper Cloak',256,661,'asta','aagi'),
              ('Delver Utility Belt',1048576,565,'astr','asta')]
 BAGS=['Wayfarer Field Satchel','Runekeeper Reliquary']
+# Audited explicit exclusions, including a native spawn with no era gate.
+# See permafrost-era-audit.json; public populations are not changed.
+EXCLUDED_NPCS=[dict(zone_id=73,npc_id=i) for i in (73039,73090,73092)]
 BOSS_DESIGNS=[
  ("Moltor's Graveblade","Amiaz's Ossuary Ward","Befallen Bonekeeper's Bag"),
  ("Rucksif's Dirgehammer","Rucksif's Mourning Mantle","Unrest Memory Satchel"),
@@ -146,7 +149,7 @@ def main():
     dungeons=objectives(snap)
     adapted=json.loads((ROOT/'docs/dungeons/classic-ct-adapted.json').read_text())
     dungeons[4]['bosses']=adapted['roster']
-    data={'revision':REVISION,'era':'Classic','items':items(),'dungeons':dungeons,
+    data={'revision':REVISION,'era':'Classic','items':items(),'dungeons':dungeons,'excluded_npcs':EXCLUDED_NPCS,
           'content_sha256':hashlib.sha256((ROOT/'docs/dungeons/local-content.json').read_bytes()).hexdigest(),
           'status':'candidate; automated integration and all gameplay acceptance pending'}
     args.output.mkdir(parents=True,exist_ok=True)
@@ -161,6 +164,8 @@ def main():
     for d in dungeons:
         for b in d['bosses']:
             header.append('\t{%d,%d,%d,%d,%s,"%s"},'%(d['zone_id'],b['spawn_id'],b['npc_id'],b['boss_id'],'true' if b['is_final'] else 'false',b['name']))
+    header+=['};','struct ExcludedNPC { uint32_t zone, npc; };','inline constexpr ExcludedNPC ExcludedNPCs[] = {']
+    header += ['\t{%d,%d},'%(r['zone_id'],r['npc_id']) for r in EXCLUDED_NPCS]
     header+=['};','inline const Dungeon *FindDungeon(uint32_t zone) { for (const auto &d : Dungeons) { if (d.zone==zone) { return &d; } } return nullptr; }','}']
     (ROOT/'server-mods/code/common/dungeon_catalog.h').write_text('\n'.join(header)+'\n')
     print(f'{len(data["items"])} item definitions; {sum(len(d["bosses"]) for d in data["dungeons"])} objectives')
