@@ -1,5 +1,16 @@
 # Current Nightcap status
 
+## Equipment race policy — audited candidate October 16
+
+The owner confirms javelins work with the published client. Bronze Knuckles was
+still blocked by its Half Elf race mask. The owner chose class match for any
+race, while retaining non-player item exclusions. The
+[candidate and audit](releases/equipment-race-policy-20261016/README.md) project
+only effective wearable/augment race masks and keep all other restrictions.
+Native tests, the loader build and full cache rehearsal are recorded there.
+Not merged or deployed; server restart approval and gameplay QA remain pending.
+The current AA-duration zone and signed client 2026101501 must be preserved.
+
 ## Multiclass equipment and inspection — published for live QA October 16
 
 The [equipment correction](releases/multiclass-equipment-20261015/README.md) fixes
@@ -8,8 +19,9 @@ green. Proxy 0.9.1-dev uses current held classes in cursor and inspection paths;
 native restrictions and canonical scroll access remain. Native regressions,
 scope coverage, x86 builds, full Go suite and catalog checks pass. PR #202 merged;
 signed release **2026101501** verifies all 106 hosted assets and the production
-signature. Only DLL/catalog changed; all five services are unchanged. Launcher
-installation and live gameplay QA remain pending. No server/DB change.
+signature. Only DLL/catalog changed; all five services are unchanged. The owner
+confirms javelin use in the follow-up; broader live gameplay QA remains pending.
+No server/DB change in that client release.
 
 ## Temporary AA buffs — deployed for live QA October 16
 

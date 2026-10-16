@@ -1,9 +1,14 @@
 # Multiclass equipment and inspection — October 15, 2026
 
-Status: **merged and published as signed game release 2026101501; owner gameplay QA pending**.
+Status: **merged and published as signed game release 2026101501; owner confirms
+javelins work; broader gameplay QA pending**.
 Proxy 0.9.1-dev corrects cursor placement and inspection eligibility. This is a
 client-only change merged in PR #202 (`f1c9271`); no server restart, cache
 refresh, item definition edit, character update or database migration is needed.
+
+October 16 follow-up: Bronze Knuckles revealed a separate server race restriction.
+See the [race-policy audit and candidate](../equipment-race-policy-20261016/README.md).
+That follow-up does not invalidate the javelin correction or imply full owner QA.
 
 ## Report and diagnosis
 
