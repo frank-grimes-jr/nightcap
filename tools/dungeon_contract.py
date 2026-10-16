@@ -23,7 +23,13 @@ def schema_checks():
             ('key_column_usage','constraint_name,column_name,ordinal_position,referenced_table_name,referenced_column_name','constraint_name,ordinal_position','table_schema=DATABASE()')):
             # Hash each metadata row before concatenating: bounded to 64 bytes
             # per column/index. Check the server limit explicitly at runtime.
-            expression="CONCAT_WS('|',"+','.join("COALESCE(CAST("+f+" AS CHAR),'~NULL~')" for f in fields.split(','))+')'
+            # MariaDB >=10.6 reports the legacy utf8_general_ci collation as
+            # utf8mb3_general_ci. Canonicalize only this audited name alias;
+            # utf8mb4 and genuinely different collations must still reject.
+            def metadata_field(field):
+                return ("CASE collation_name WHEN 'utf8_general_ci' THEN 'utf8mb3_general_ci' ELSE collation_name END"
+                        if field=='collation_name' else field)
+            expression="CONCAT_WS('|',"+','.join("COALESCE(CAST("+metadata_field(f)+" AS CHAR),'~NULL~')" for f in fields.split(','))+')'
             statement=f"SELECT COALESCE(SHA2(GROUP_CONCAT(SHA2({expression},256) ORDER BY {order} SEPARATOR ''),256),'empty') FROM information_schema.{source} WHERE {where} AND table_name='{table}'"
             checks.append(dict(label=table+'/'+source,sql=statement))
     return checks

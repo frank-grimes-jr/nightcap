@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "scope": "Isolated production-content clone only; live schema untouched",
+  "schema_checks": 39,
+  "content_checks": 252,
+  "alias": "utf8_general_ci / utf8mb3_general_ci",
+  "different_utf8mb4_collation_rejected": true,
+  "final_enabled": 0,
+  "database": "nightcap_dungeon_stage_0f5a5eedd84e"
+}

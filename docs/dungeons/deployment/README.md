@@ -97,3 +97,13 @@ Native runtime interruption experiments, CT geometry/paths/doors and level-50
 Vox/Nagafen balance remain owner-test work in `../QA.md`. Do not inject failures
 into this live host. The source wiki must be updated after deployment; public
 website publication remains separate from the game rollout.
+
+The production rehearsal also identified MariaDB's documented collation alias:
+`utf8_general_ci` is reported as `utf8mb3_general_ci` on newer MariaDB versions.
+The generated native and SQL schema contracts canonicalize only this exact alias;
+all other schema metadata remains strict. The actual SQL fixture and isolated
+production clone accept both aliases and reject `utf8mb4_general_ci`; the fixture
+also rejects a changed column length. See `schema-alias-verification.json` and
+`tools/tests/test_dungeon_contract.py`. All eleven focused dungeon tests pass.
+The [MariaDB collation reference](https://mariadb.com/docs/server/reference/data-types/string-data-types/character-sets/supported-character-sets-and-collations)
+documents the alias. No production column alteration is needed.
