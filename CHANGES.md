@@ -1,20 +1,18 @@
 # CHANGES
 
-## 2026-10-16 - Equipment race-policy audit and candidate
+## 2026-10-16 - Equipment race policy deployed for live QA
 
-Owner confirms the published javelin correction works. Bronze Knuckles exposed
-a separate server race rejection: its Monk class matches Palwar, but Half Elf
-is excluded. Apply the owner's class-match/any-race policy in the shared item
-loader for playable wearable items and augments; preserve non-player masks and
-all class/deity/level/slot/weapon/augment restrictions. Raw SQL is unchanged.
-Catalog audit identifies 90,852 projected definitions and 1,535 preserved
-non-player definitions, including quality variants and later-era content.
-Native client coverage expands from 37 to 78 checks with the real race helper,
-primary/offhand and weapon-conflict paths. Server validation, adjacent policies,
-retained-loader build and complete local cache/rollback checks are documented in
-`docs/releases/equipment-race-policy-20261016/README.md`. Candidate only; no
-production changes. Requires an approved whole-game cache restart, preserving
-the latest AA-duration zone and existing signed client 2026101501.
+Bronze Knuckles matched Palwar's Monk class but excluded Half Elf. Apply the
+owner's class-match/any-race policy to effective wearable/augment definitions,
+preserving non-player masks and all other equipment restrictions. PR #204 is
+merged and the authorized loader-only restart is complete. All 12 zones retain
+the latest AA-duration fix; signed client 2026101501 is unchanged. Production
+checks cover 309,410 definitions: 90,852 race fields change, 1,535 non-player
+definitions and every other cache byte remain unchanged. Preserve 47 player /
+11 custom tables, content, rules, quests and services; no SQL migration/restore.
+All 78 native checks, retained loader/cache rollback and 37 operator controls pass.
+Access is open with zero candidate restarts/detected errors; owner gameplay QA
+remains pending. See `docs/releases/equipment-race-policy-20261016/README.md`.
 
 ## 2026-10-15 - Multiclass equipment and item colors published for live QA
 

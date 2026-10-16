@@ -1,6 +1,6 @@
 {
   "verified_utc": "2026-10-16T10:28:53.418435+00:00",
-  "status": "built_tested_reviewed_candidate_not_deployed",
+  "status": "merged_and_deployed_for_owner_gameplay_qa",
   "source_base": "1cfdea8",
   "loader_sha256": "71dfdd18d12fba844bcc222c54125c621a3c5e895a61ef3ae258ecc3dfbbb5c8",
   "source_files": {
@@ -31,7 +31,8 @@
     "local_projected_definitions": 90851,
     "local_nonplayer_preserved": 1535,
     "all_other_cache_bytes_preserved": true,
-    "rollback_cache_byte_identical": true
+    "rollback_cache_byte_identical": true,
+    "operator_controls": 37
   },
   "independent_review": {
     "status": "no_remaining_actionable_blockers",
@@ -40,11 +41,12 @@
     "optional_second_model": "declined_by_owner"
   },
   "boundaries": {
-    "production_access": "read_only_item_and_authorized_character_diagnostics",
-    "production_writes": false,
-    "server_restart": false,
+    "production_access": "explicitly authorized loader deployment",
+    "production_writes": "loader image/cache only; no SQL changes",
+    "server_restart": true,
     "client_changed": false,
-    "gameplay_qa": "javelins confirmed; new race policy pending",
-    "deployment_approval": "pending; earlier client-publication approval does not cover server restart"
-  }
+    "gameplay_qa": "javelins confirmed; Bronze Knuckles and broader owner QA pending",
+    "deployment_approval": "Push, merge, and deploy with server restart"
+  },
+  "deployment_receipt": "deployment.json"
 }

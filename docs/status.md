@@ -1,15 +1,16 @@
 # Current Nightcap status
 
-## Equipment race policy — audited candidate October 16
+## Equipment race policy — deployed for live QA October 16
 
-The owner confirms javelins work with the published client. Bronze Knuckles was
-still blocked by its Half Elf race mask. The owner chose class match for any
-race, while retaining non-player item exclusions. The
-[candidate and audit](releases/equipment-race-policy-20261016/README.md) project
-only effective wearable/augment race masks and keep all other restrictions.
-Native tests, the loader build and full cache rehearsal are recorded there.
-Not merged or deployed; server restart approval and gameplay QA remain pending.
-The current AA-duration zone and signed client 2026101501 must be preserved.
+The [equipment race fix](releases/equipment-race-policy-20261016/README.md) is
+merged in PR #204 and deployed after the authorized server restart. Class match
+now allows every playable race for ordinary wearable items and augments;
+non-player definitions and other equipment restrictions remain. The full
+309,410-item production cache comparison preserves every other field, 47 player
+and 11 custom tables, current content/rules/quests and signed client 2026101501.
+All 12 zones retain the latest AA-duration fix, with zero new restarts/detected
+errors; access is open. Bronze Knuckles remains primary-only. Native, cache and
+37 operator controls pass; live Bronze Knuckles/inspection/relog QA is pending.
 
 ## Multiclass equipment and inspection — published for live QA October 16
 
