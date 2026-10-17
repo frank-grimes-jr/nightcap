@@ -9,6 +9,7 @@ class Client;
 class NPC;
 class Mob;
 class Corpse;
+struct TaskInformation;
 
 namespace NightcapDungeon {
 using SavedSpawn = ZoneStateSpawnsRepository::ZoneStateSpawns;
@@ -27,6 +28,8 @@ bool BeforeDeath(NPC *npc, Mob *killer, bool owned, Corpse *corpse);
 bool Keeper(Client *client, NPC *keeper, const std::string &action);
 void Connected(Client *client);
 void Journal(Client *client);
+// Adapt the installed v1 journal definitions for visible RoF2 objectives.
+void ConfigureJournalTask(int task_id, TaskInformation &task);
 bool LoadCheckpoint(std::vector<SavedSpawn> &spawns);
 bool SaveCheckpoint(const std::vector<SavedSpawn> &spawns);
 }

@@ -9,6 +9,11 @@ Deployment and the recovered preflight database incident are recorded in
 pending in [QA.md](QA.md). The accepted contract is
 [SPEC.md](SPEC.md). Do not describe a build or SQL rehearsal as gameplay QA.
 
+Live follow-up: Palwar confirms Raid entry and a named kill, but reports blank
+task objectives. The [journal repair](journal-repair/README.md) has passed source
+review, fifteen regression tests and native build; installation/visible retest
+are tracked separately. Keeper Status lists the required names in the meantime.
+
 ## Behavior and catalog
 
 The seven existing Keepers offer Raid, Grind, Enter, Join, Status, Claim Rewards
