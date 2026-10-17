@@ -1,5 +1,14 @@
 # CHANGES
 
+## 2026-10-17 - Raid and Grind headline patcher announcement
+
+Publish signed patch 2026101701 with eleven Latest Update bullets introducing
+all seven dungeons, Raid/Grind rules, custom rewards, Keeper entry and the repaired
+boss checklist. Preserve all 106 client assets and thirteen previous summaries.
+Manifest/packager tests, seven publisher recovery checks and normal/minimum-size
+Chrome layout checks pass. Publication evidence and player check:
+`docs/releases/dungeon-patcher-20261017/`.
+
 ## 2026-10-16 - Dungeon checklist and completion-history repair deployed
 
 Repair blank Raid/Grind task objectives with named Kill displays and simultaneous

@@ -9,8 +9,8 @@ import (
 )
 
 func TestLoadPatchHistory(t *testing.T) {
-	notes, err := loadPatchNotes("../../patch-notes.json", 2026101501)
-	if err != nil || len(notes) != 13 {
+	notes, err := loadPatchNotes("../../patch-notes.json", 2026101701)
+	if err != nil || len(notes) != 14 {
 		t.Fatalf("catalog: %v, %d entries", err, len(notes))
 	}
 	for _, data := range []string{"[]", "null", `[{"release":1,"date":"2026-10-12","changes":[{"kind":"feature","text":"Added notes."}],"unknown":true}]`, `[] {}`} {

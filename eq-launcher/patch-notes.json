@@ -1,5 +1,55 @@
 [
   {
+    "release": 2026101701,
+    "date": "2026-10-17",
+    "changes": [
+      {
+        "kind": "feature",
+        "text": "Raid & Grind dungeons are live! Explore seven Classic dungeons solo or with a group of up to six, with new boss objectives and custom rewards."
+      },
+      {
+        "kind": "feature",
+        "text": "Choose Befallen, Unrest, High Keep, Najena, Cazic-Thule, Permafrost or Nagafen's Lair. Private Cazic-Thule runs restore its Classic encounters, including the Avatar of Fear."
+      },
+      {
+        "kind": "feature",
+        "text": "Hail the floating-eye Instance Keeper at a dungeon entrance and choose Raid or Grind. If the waypoint obscures the Keeper, type /target Instance_Keeper. Each run lasts 12 hours."
+      },
+      {
+        "kind": "feature",
+        "text": "Raid: enemies have 35% more HP, deal 15% more damage and stay dead. Defeat every required miniboss to unlock the end boss."
+      },
+      {
+        "kind": "feature",
+        "text": "Grind: normal dungeon difficulty and respawns. Earn credit for every required boss to receive one Normal custom item; missed bosses can be caught on later respawns."
+      },
+      {
+        "kind": "feature",
+        "text": "Raid full clears award each qualifying player one custom item: 90% Polished or 10% Ascended. Each player needs personal encounter credit for every required boss, with one completion reward per run."
+      },
+      {
+        "kind": "feature",
+        "text": "Discover 24 shared reward designs: eight armor pieces, eight weapons, six accessories and two weight-reduction bags. Reward power follows the dungeon and active era."
+      },
+      {
+        "kind": "feature",
+        "text": "Each Raid end boss also has three exclusive dungeon-themed designs and always drops at least one. Up to three distinct items can drop, each Polished or Ascended, alongside its normal loot."
+      },
+      {
+        "kind": "feature",
+        "text": "All new dungeon rewards are permanent, tradeable and non-lore. Earn weapons such as Moltor's Graveblade and Nagafen's Emberfang, plus armor, accessories and roomy weight-reduction bags."
+      },
+      {
+        "kind": "fix",
+        "text": "Tasks and Keeper Status now list every required boss and your saved credit. Individual kills advance objectives; full clears appear in Completed history. Reconnecting retains your progress."
+      },
+      {
+        "kind": "feature",
+        "text": "Use Keeper Claim Rewards if a full inventory prevents delivery. Earned claims and permanent completion counts survive run expiry or reset. The Raid & Grind guide on wiki.nightcapgame.org lists every required boss."
+      }
+    ]
+  },
+  {
     "release": 2026101501,
     "date": "2026-10-15",
     "changes": [
@@ -28,7 +78,6 @@
     ]
   },
   {
-
     "release": 2026101303,
     "date": "2026-10-13",
     "changes": [
@@ -47,8 +96,6 @@
     ]
   },
   {
-
-
     "release": 2026101302,
     "date": "2026-10-13",
     "changes": [
