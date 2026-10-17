@@ -1,0 +1,21 @@
+{
+  "production_applied": false,
+  "client_update_required": false,
+  "source_base": "a59974d1214a6f8cef6e5ff8bf31a52e1417cb6f",
+  "planner_tests": 3,
+  "mariadb_temporary_table_tests": 9,
+  "native_tradeskill_tests": 25,
+  "independent_review": "No blocking defects",
+  "schema_extra_columns": [],
+  "automatic_field_check": "Fresh read-only information_schema.COLUMNS EXTRA query returned no rows",
+  "cache_regeneration": "pending",
+  "owner_gameplay_qa": "pending",
+  "wiki_publication": "pending",
+  "wiki_python_tests": 14,
+  "wiki_node_tests": 13,
+  "wiki_local_articles_installed": 5,
+  "skill_validator": "passed",
+  "skill_items_fingerprints": "78 unchanged",
+  "skill_wiki_fingerprints": "50 unchanged",
+  "wiki_drift": "REVIEW REQUIRED; broad historical drift retained, migration included"
+}

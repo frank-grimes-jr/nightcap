@@ -45,6 +45,16 @@ older-client grouping. Twelve native server tests, sixty pinned-client checks,
 eight runtime groups and independent review pass. Full zone build, paired
 activation and in-game/balance QA remain pending; no live update occurred.
 Evidence, pairing and exact QA: `docs/releases/monk-independent-reuse-20261017/`.
+## 2026-10-17 - Item stack minimum 100 candidate
+
+Prepare a guarded item-data migration raising 20,490 existing stackable
+definitions below 100 to 100, including 6,734 tradeskill materials. Larger limits,
+nonstackables, charges, prices and recipes remain. Three planner, nine MariaDB
+temporary-table and 25 native tradeskill checks pass; independent review found
+no blockers. Activation needs the supported game restart/item-cache regeneration;
+no binary/client update. Do not lower limits after players form larger stacks.
+Production application, main promotion, wiki publication and owner QA are pending.
+Evidence and exact QA: `docs/ops/item-stacks-100-20261017/README.md`.
 
 ## 2026-10-17 - Raid and Grind headline patcher announcement
 

@@ -1,0 +1,54 @@
+{
+  "installed_at": "2026-10-17T15:04:39.568836+00:00",
+  "published": false,
+  "files": [
+    {
+      "target": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\wiki\\articles\\tradeskills.json",
+      "staged": "E:\\EQ_Local_Dev\\artifacts\\item-stacks-100-20261017\\wiki\\articles\\tradeskills.json",
+      "before_sha256": "39278354167f33e769bf6857a88033194c261c6bafdb8a6c854bd846db418be8",
+      "after_sha256": "786f4e991bc21f6636bf0baa970f2ec706462bb83f785e0257a479c0c43dc78e"
+    },
+    {
+      "target": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\wiki\\articles\\features.json",
+      "staged": "E:\\EQ_Local_Dev\\artifacts\\item-stacks-100-20261017\\wiki\\articles\\features.json",
+      "before_sha256": "52e03bfdf87a435341c73effcb5b3b14d30eab18c196b46e7c445581fca4dc46",
+      "after_sha256": "88280b7ad5e36f2cbd769018c1fe35c86e38d34d49c57c268ae50f54cdc2c580"
+    },
+    {
+      "target": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\wiki\\articles\\index.json",
+      "staged": "E:\\EQ_Local_Dev\\artifacts\\item-stacks-100-20261017\\wiki\\articles\\index.json",
+      "before_sha256": "599997a2d65bce4b521d431d254dc47979e6aaea8813c48bc961d13120f8961c",
+      "after_sha256": "f626732c493ab47d4e735d3b44353eca8ae1c9286f647ad52efde30f03f47bc3"
+    },
+    {
+      "target": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\wiki\\articles\\unreleased.json",
+      "staged": "E:\\EQ_Local_Dev\\artifacts\\item-stacks-100-20261017\\wiki\\articles\\unreleased.json",
+      "before_sha256": "4c7e915914d302dc2f214007bd655899a1e4e7d9e4c76f80fabd00bc2a571f9d",
+      "after_sha256": "73b29bf78f92cb5fc9c71a60e6ad2116c810d273f7aecc730d713be6be59f526"
+    },
+    {
+      "target": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\wiki\\articles\\recent-changes.json",
+      "staged": "E:\\EQ_Local_Dev\\artifacts\\item-stacks-100-20261017\\wiki\\articles\\recent-changes.json",
+      "before_sha256": "86ce59086af5f343cc252574b592b8a109e0aa1809c0e2d326385ab21eb41f1c",
+      "after_sha256": "8f8163e3c67132d7f8e8c812661fe223646e8489d163731666828cd2c7a0b82b"
+    },
+    {
+      "target": "C:\\Users\\verre\\.codex\\skills\\nightcap-development\\references\\items.md",
+      "staged": "E:\\EQ_Local_Dev\\artifacts\\item-stacks-100-20261017\\skill\\items.md",
+      "before_sha256": "6cae5f08764fe7d1fa251d0bd9ef37739a609826b267dde601ad5b1de047f391",
+      "after_sha256": "2f9f6ae5ac12eb57b0b4d5441e8b283d396832ec0fa2f150730126974074db43"
+    },
+    {
+      "target": "C:\\Users\\verre\\.codex\\skills\\nightcap-development\\references\\wiki.md",
+      "staged": "E:\\EQ_Local_Dev\\artifacts\\item-stacks-100-20261017\\skill\\wiki.md",
+      "before_sha256": "c4fbb19af297a365af59e36549145d4c206ed2bbba13e1e5937fd8094f087ad4",
+      "after_sha256": "1fa793dcd81a9c9e1a848afba3aff0c243a25df0d317954cb4aeb97636849588"
+    },
+    {
+      "target": "C:\\Users\\verre\\.codex\\skills\\nightcap-development\\references\\sources.json",
+      "staged": "E:\\EQ_Local_Dev\\artifacts\\item-stacks-100-20261017\\skill\\sources.json",
+      "before_sha256": "67b79f24124dbf69d9af5eaeb60423af82ae7f0d515b56c0b8279779b52c37dd",
+      "after_sha256": "512507011f8d03b21ea0f56e978e16e5c7d7a8386b7286a6e031c91be1b6db36"
+    }
+  ]
+}
