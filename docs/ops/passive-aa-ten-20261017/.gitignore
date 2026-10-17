@@ -1,0 +1,5 @@
+maintenance/*
+!maintenance/preimages.json
+!maintenance/install-receipt.json
+!maintenance/update.patch.gz
+__pycache__/

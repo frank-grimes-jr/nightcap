@@ -1,0 +1,388 @@
+{
+  "audited_at": "2026-10-12",
+  "scope": "Reviewed local files; not runtime or player QA evidence",
+  "topics": {
+    "balance": [
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\merchant-sell-all\\tools\\balance\\README.md",
+        "role": "native oracle/harness commands and isolation boundaries",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\merchant-sell-all\\server-mods\\code\\zone\\effects.cpp",
+        "role": "percentage scaling and Throw Stone exception",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\merchant-sell-all\\docs\\releases\\zone-loot-20261009\\BALANCE.md",
+        "role": "scoped augment headroom and synthetic limits",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\docs\\balance\\native-aa-session-recovery.md",
+        "role": "dated native ownership recovery evidence",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\docs\\adr\\0020-retain-caps-after-matched-sensitivity.md",
+        "role": "dated cap experiment decision",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\docs\\audits\\aa-tbs-20261013\\README.md",
+        "role": "TBS audit findings, recommendations and exact unresolved gameplay QA",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\docs\\audits\\aa-tbs-20261013\\summary.json",
+        "role": "Fresh catalog/rule counts and anonymous purchase conflict classification",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\docs\\audits\\aa-tbs-20261013\\production-snapshot.json.gz",
+        "role": "Read-only production content/rules and anonymous ownership captured 2026-10-13",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\docs\\audits\\aa-tbs-20261013\\analyze.py",
+        "role": "Reviewed linked-rank prefixes, inherited prerequisite closure and class-union census",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\docs\\audits\\aa-tbs-20261013\\review.py",
+        "role": "Later-family inventory triage and 45 named content/source recommendations",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\docs\\audits\\aa-tbs-20261013\\test_analysis.py",
+        "role": "Eight policy-audit boundary and snapshot closure checks",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\server-mods\\code\\zone\\aa.cpp",
+        "role": "Reviewed level-1 AA correction or signed publication evidence; owner QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\multiclass-trainer-access\\server-mods\\code\\zone\\attack.cpp",
+        "role": "Reviewed pet AC/avoidance and AC softcap inputs; not a fresh production binary probe",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\tools\\aa_tbs_policy.py",
+        "role": "Reviewed level-1 AA correction or signed publication evidence; owner QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\tools\\tests\\test_aa_tbs_policy.py",
+        "role": "Reviewed AA class-rank/Triple Backstab release source, verification or OVH evidence; gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\tools\\tests\\verify_aa_tbs_native.py",
+        "role": "Reviewed AA class-rank/Triple Backstab release source, verification or OVH evidence; gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\docs\\releases\\aa-tbs-20261013\\README.md",
+        "role": "verified deployment, preserved baseline, limits and exact owner QA",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\docs\\releases\\aa-tbs-20261013\\server-receipt.json",
+        "role": "closed-state player/custom preservation and twelve native hashes",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\docs\\releases\\aa-tbs-20261013\\final-health.json",
+        "role": "dated post-deployment runtime health; not gameplay acceptance",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\AGENTS.md",
+        "role": "Reviewed class-rank implementation and level1 invariant; historical audit retains its pinned baseline; owner QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\tools\\build_aa_level1_candidate.py",
+        "role": "Reviewed level-1 AA correction or signed publication evidence; owner QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\docs\\releases\\aa-tbs-level1-20261013\\README.md",
+        "role": "Reviewed level-1 AA correction or signed publication evidence; owner QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\docs\\releases\\aa-tbs-level1-20261013\\build-manifest.json",
+        "role": "Reviewed level-1 AA correction or signed publication evidence; owner QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\docs\\releases\\aa-tbs-level1-20261013\\verification.json",
+        "role": "Reviewed level-1 AA correction or signed publication evidence; owner QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\docs\\releases\\aa-tbs-level1-20261013\\server-receipt.json",
+        "role": "Reviewed level-1 AA correction or signed publication evidence; owner QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\docs\\releases\\aa-tbs-level1-20261013\\post-notes-health.json",
+        "role": "Reviewed level-1 AA correction or signed publication evidence; owner QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\docs\\audits\\aa-class-ranks-20261013\\README.md",
+        "role": "Reviewed class-rank implementation and level1 invariant; historical audit retains its pinned baseline; owner QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\docs\\audits\\aa-class-ranks-20261013\\analyze.py",
+        "role": "Reviewed class-rank implementation and level1 invariant; historical audit retains its pinned baseline; owner QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\docs\\audits\\aa-class-ranks-20261013\\candidate-policy.json",
+        "role": "Audit-only target catalog; insufficient without native Triple Backstab activation repair",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\docs\\audits\\aa-class-ranks-20261013\\summary.json",
+        "role": "Reproduced baseline and target counts with explicit implementation blocker",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\docs\\audits\\aa-class-ranks-20261013\\source-evidence.json",
+        "role": "Six retained native source hashes and reviewed effect/activation excerpts",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\docs\\audits\\aa-class-ranks-20261013\\production-check.json",
+        "role": "Read-only OVH AA/runtime/rule check dated October13, not a deployment",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\docs\\audits\\aa-class-ranks-20261013\\additional-rules.json",
+        "role": "Read-only native double-backstab rule55 and Master Wu rule evidence",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\docs\\audits\\aa-class-ranks-20261013\\recommended-caps.csv",
+        "role": "Exact class masks, rank endpoints, effects and point costs for 26 lines",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\docs\\audits\\aa-class-ranks-20261013\\dependency-unlocks.csv",
+        "role": "Seven incidental unlocks; four included and three explicitly kept blocked",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\docs\\audits\\aa-class-ranks-20261013\\review.md",
+        "role": "Independent review findings, source corrections and verification boundary",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-17\\see\\work\\monk-independent-reuse\\server-mods\\code\\zone\\special_attacks.cpp",
+        "role": "reviewed per-skill OPCombatAbility/DoClassAttacks timers; preserved Triple Backstab; candidate not deployed",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\tools\\build_aa_class_ranks_candidate.py",
+        "role": "Reviewed AA class-rank/Triple Backstab release source, verification or OVH evidence; gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\tools\\tests\\verify_triple_backstab_native.py",
+        "role": "Reviewed AA class-rank/Triple Backstab release source, verification or OVH evidence; gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\tools\\tests\\test_aa_class_build.py",
+        "role": "Reviewed AA class-rank/Triple Backstab release source, verification or OVH evidence; gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\docs\\audits\\aa-class-ranks-20261013\\baseline-policy.json",
+        "role": "Reviewed AA class-rank/Triple Backstab release source, verification or OVH evidence; gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\docs\\releases\\aa-class-ranks-20261013\\README.md",
+        "role": "Reviewed AA class-rank/Triple Backstab release source, verification or OVH evidence; gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\docs\\releases\\aa-class-ranks-20261013\\verification.json",
+        "role": "Reviewed AA class-rank/Triple Backstab release source, verification or OVH evidence; gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\docs\\releases\\aa-class-ranks-20261013\\native-aa.json",
+        "role": "Reviewed AA class-rank/Triple Backstab release source, verification or OVH evidence; gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\docs\\releases\\aa-class-ranks-20261013\\native-backstab.json",
+        "role": "Reviewed AA class-rank/Triple Backstab release source, verification or OVH evidence; gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\docs\\releases\\aa-class-ranks-20261013\\build-manifest.json",
+        "role": "Reviewed AA class-rank/Triple Backstab release source, verification or OVH evidence; gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\docs\\releases\\aa-class-ranks-20261013\\manifest-review.json",
+        "role": "Reviewed AA class-rank/Triple Backstab release source, verification or OVH evidence; gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\docs\\releases\\aa-class-ranks-20261013\\review.json",
+        "role": "Reviewed AA class-rank/Triple Backstab release source, verification or OVH evidence; gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\docs\\releases\\aa-class-ranks-20261013\\final-runtime-verification.json",
+        "role": "Reviewed AA class-rank/Triple Backstab release source, verification or OVH evidence; gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\docs\\audits\\thjdi-archive-20261016\\README.md",
+        "role": "THJDI historical ZEM and Unrest loot/NPC recovery, exact evidence limits and no-impact wiki review",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\artifacts\\research\\thjdi-20261016\\collect.py",
+        "role": "read-only serial archive collector with provenance, persisted per-host cooldown and stop on 429",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\artifacts\\research\\thjdi-20261016\\catalog.py",
+        "role": "offline recovered-versus-pending index and retained-content hash validation",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\artifacts\\research\\thjdi-20261016\\observations\\provenance.json",
+        "role": "receipt for earlier successful 360-row zone browser observation; not a fresh HTTP download",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\artifacts\\research\\thjdi-20261016\\observations\\zones.csv",
+        "role": "360 original zone names, expansion groupings and short-name variants without inferred IDs",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\artifacts\\research\\thjdi-20261016\\derived\\pet-class-directory.csv",
+        "role": "nine observed pet-class routes; inherited capture timestamps unconfirmed; no pet statistics",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\artifacts\\research\\thjdi-20261016\\derived\\pet-class-directory.json",
+        "role": "structured pet-directory provenance with May 13 capture and April 28 database-export label",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\artifacts\\research\\thjdi-20261016\\derived\\zem-values.csv",
+        "role": "360 displayed historical ZEM rows, original percentages, NPC level percentiles, exact archive/export provenance and scope per row",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\artifacts\\research\\thjdi-20261016\\derived\\zem-values.json",
+        "role": "ZEM source hashes, 360 structured rows, distributions, duplicate preservation and interpretation limits",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\artifacts\\research\\thjdi-20261016\\pages\\20250513203908-zem-5948964f.html",
+        "role": "unaltered May 13 2025 archived ZEM HTML with April 28 2025 export label; historical interface, not verified server XP behavior",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\artifacts\\research\\thjdi-20261016\\derived\\unrest-loot-items.csv",
+        "role": "371 historical Unrest loot item names/IDs and observed sources, without individual item stats or verified drop rates",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\artifacts\\research\\thjdi-20261016\\derived\\unrest-loot-relations.csv",
+        "role": "1203 displayed item-to-NPC drop relationships with exact source/export dates",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\artifacts\\research\\thjdi-20261016\\derived\\unrest-npcs.csv",
+        "role": "34 displayed NPC level/class/HP/resist rows; mixed expansion labels and exceptional entries retained",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\artifacts\\research\\thjdi-20261016\\derived\\unrest-recovery.json",
+        "role": "structured Unrest recovery, source hashes, 374 observed item links and percentage/availability uncertainty",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\artifacts\\research\\thjdi-20261016\\pages\\20250620215922-zone-63-6a49d56f.html",
+        "role": "unaltered June 20 2025 Unrest archive with April 28 export label; loot/NPC interface evidence only",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\artifacts\\research\\thjdi-20261016\\pages\\20250513192016-items-442d04e5.html",
+        "role": "unaltered May 13 item-search POST form; no results or individual item links, completed shell only",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-17\\see\\work\\monk-independent-reuse\\docs\\releases\\monk-independent-reuse-20261017\\README.md",
+        "role": "candidate pairing, build limits, no deployment, exact gameplay/balance QA",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\passive-aa-ten\\EQ_Local_Dev\\server-mods\\code\\zone\\exp.cpp",
+        "role": "Reviewed October17 10% activation/AA-pool evidence; new AA recommendations only; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\passive-aa-ten\\EQ_Local_Dev\\server-mods\\code\\common\\nightcap_aa_policy.h",
+        "role": "Reviewed October17 10% activation/AA-pool evidence; new AA recommendations only; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\passive-aa-ten\\EQ_Local_Dev\\config\\aa-policy.json",
+        "role": "Reviewed October17 10% activation/AA-pool evidence; new AA recommendations only; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\passive-aa-ten\\EQ_Local_Dev\\docs\\ops\\passive-aa-ten-20261017\\README.md",
+        "role": "Reviewed October17 10% activation/AA-pool evidence; new AA recommendations only; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\passive-aa-ten\\EQ_Local_Dev\\docs\\ops\\passive-aa-ten-20261017\\result.json",
+        "role": "Reviewed October17 10% activation/AA-pool evidence; new AA recommendations only; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\passive-aa-ten\\EQ_Local_Dev\\docs\\ops\\passive-aa-ten-20261017\\preflight.json",
+        "role": "Reviewed October17 10% activation/AA-pool evidence; new AA recommendations only; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\passive-aa-ten\\EQ_Local_Dev\\docs\\ops\\passive-aa-ten-20261017\\REVIEW.md",
+        "role": "Reviewed October17 10% activation/AA-pool evidence; new AA recommendations only; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\passive-aa-ten\\EQ_Local_Dev\\docs\\ops\\passive-aa-ten-20261017\\analysis.json",
+        "role": "Reviewed October17 10% activation/AA-pool evidence; new AA recommendations only; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\passive-aa-ten\\EQ_Local_Dev\\docs\\ops\\passive-aa-ten-20261017\\ops\\test_ten.py",
+        "role": "Reviewed October17 10% activation/AA-pool evidence; new AA recommendations only; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\passive-aa-ten\\EQ_Local_Dev\\docs\\ops\\passive-aa-ten-20261017\\ops\\apply.py",
+        "role": "Reviewed October17 10% activation/AA-pool evidence; new AA recommendations only; owner gameplay QA pending",
+        "state": "unchanged"
+      }
+    ]
+  }
+}

@@ -28,7 +28,8 @@ Start with [current status](status.md), not a dated candidate report.
 
 - [Ascended divine summons: live resale protection, verification and exact QA](releases/divine-summons-20261013/README.md)
 
-- [Passive AA reduced to 20%: live tuning, recovery and Palwar QA](ops/passive-aa-twenty-20261013/README.md)
+- [Passive AA reduced to 10%: live tuning, AA-pool review and Palwar QA](ops/passive-aa-ten-20261017/README.md)
+- [Historical October 13 passive AA reduction to 20%](ops/passive-aa-twenty-20261013/README.md)
 
 - [Relaxed tradeskill workshop: live layout, service moves and exact QA](releases/tunnel-cozy-20261013/README.md)
 

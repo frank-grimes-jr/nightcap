@@ -1,5 +1,16 @@
 # CHANGES
 
+## 2026-10-17 - Passive AA reduced to 10%; release-pool review
+
+Apply the owner's requested 20% to 10% passive AA reduction on production.
+Keep full leveling XP, focused AA, 4,000 XP/point and all earned progress. One
+guarded rule change, verified full backup, rollback rehearsal and world/all-zone
+reload complete without restart. 157 native harness checks and nine operation
+checks pass. Player pacing/persistence QA remains pending. The read-only catalog
+review records Palwar's remaining legal pool and proposed AA additions; no new
+AA/rank or cost was released. Wiki/player-site source maintenance is local;
+publication remains pending. Evidence: `docs/ops/passive-aa-ten-20261017/`.
+
 ## 2026-10-17 - Raid and Grind headline patcher announcement
 
 Publish signed patch 2026101701 with eleven Latest Update bullets introducing

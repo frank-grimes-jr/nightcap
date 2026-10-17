@@ -64,7 +64,7 @@ const forbidden = /ever\s*quest|\beq\b|eqemu|rof2|macroquest/i;
     assert.ok((await page.locator('#ascension').innerText()).includes('100,000 platinum'));
     assert.ok((await page.locator('#waypoint-explorer').innerText()).includes('72'));
     assert.ok((await page.locator('#loot-all').innerText()).includes('current zone or instance'));
-    assert.ok((await page.locator('#passive-abilities').innerText()).includes('full normal experience plus 1%'));
+    assert.ok((await page.locator('#passive-abilities').innerText()).includes('full normal experience plus 10%'));
     assert.ok((await page.locator('#alternate-abilities').innerText()).includes('#aaexp on'));
     assert.ok(!(await page.locator('body').innerText()).includes('#aaexp 50'), 'Obsolete partial XP allocation');
     assert.ok((await page.locator('#free-trade').innerText()).includes('already-attuned'));
