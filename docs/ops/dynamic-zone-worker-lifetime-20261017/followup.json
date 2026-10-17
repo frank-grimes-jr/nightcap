@@ -1,0 +1,33 @@
+{
+  "checked_at_utc": "2026-10-17T14:50:16.609574+00:00",
+  "all_15_native_lifetimes_preserved": true,
+  "all_5_service_identities_preserved": true,
+  "rule": "ruleset_id\trule_name\trule_value\n1\tZone:KillProcessOnDynamicShutdown\tfalse\n",
+  "lifecycle_since_reload": [],
+  "incident_records": [
+    "2026-10-17T02:20:25.281171631Z   Zone |    Info    | Shutdown Zone [befallen] zone_id [36] version [0] instance_id [101] Going to sleep -- [befallen] (Befallen) inst_id [101]",
+    "2026-10-17T02:20:25.484391925Z   Zone |    Info    | main Proper zone shutdown complete. -- [befallen] (Befallen) inst_id [101]",
+    "2026-10-17T02:20:26.834217095Z   Zone |    Info    | main Proper zone shutdown complete. -- [cauldron] (Dagnor's Cauldron) inst_id [0]",
+    "2026-10-17T02:20:26.965427409Z   Zone |    Info    | main Proper zone shutdown complete. -- [gukbottom] (The Ruins of Old Guk) inst_id [0]",
+    "2026-10-17T02:20:26.990273945Z   Zone |    Info    | main Proper zone shutdown complete. -- [sro] (Southern Desert of Ro) inst_id [0]",
+    "2026-10-17T02:20:27.057612530Z   Zone |    Info    | main Proper zone shutdown complete. -- [guktop] (The City of Guk) inst_id [0]",
+    "2026-10-17T02:20:27.063280191Z   Zone |    Info    | main Proper zone shutdown complete. -- [feerrott] (The Feerrott) inst_id [0]",
+    "2026-10-17T02:20:27.074781164Z   Zone |    Info    | main Proper zone shutdown complete. -- [butcher] (Butcherblock Mountains) inst_id [0]",
+    "2026-10-17T02:20:27.076574661Z   Zone |    Info    | main Proper zone shutdown complete. -- [unrest] (The Estate of Unrest) inst_id [0]",
+    "2026-10-17T02:20:27.090985030Z   Zone |    Info    | main Proper zone shutdown complete. -- [innothule] (Innothule Swamp) inst_id [0]",
+    "2026-10-17T02:20:27.154028856Z   Zone |    Info    | main Proper zone shutdown complete. -- [ecommons] (East Commonlands) inst_id [0]",
+    "2026-10-17T03:43:06.454006792Z   Zone |    Info    | Shutdown Zone [ecommons] zone_id [22] version [0] instance_id [0] Going to sleep -- [ecommons] (East Commonlands) inst_id [0]",
+    "2026-10-17T03:43:06.678292568Z   Zone |    Info    | main Proper zone shutdown complete. -- [ecommons] (East Commonlands) inst_id [0]",
+    "2026-10-17T03:43:07.522290073Z   Zone |    Info    | main Proper zone shutdown complete. -- [unrest] (The Estate of Unrest) inst_id [0]",
+    "2026-10-17T14:42:35.090176434Z   Zone |    Info    | Shutdown Zone [ecommons] zone_id [22] version [0] instance_id [0] Going to sleep -- [ecommons] (East Commonlands) inst_id [0]",
+    "2026-10-17T14:42:35.321727632Z   Zone |    Info    | main Proper zone shutdown complete. -- [ecommons] (East Commonlands) inst_id [0]",
+    "2026-10-17T14:42:36.602576171Z   Zone |    Info    | main Proper zone shutdown complete. -- [unrest] (The Estate of Unrest) inst_id [0]",
+    "2026-10-17T02:20:27.197815914Z     raise RuntimeError('a native process exited; restarting the complete runtime')",
+    "2026-10-17T02:20:27.197881918Z RuntimeError: a native process exited; restarting the complete runtime",
+    "2026-10-17T03:43:07.577262706Z     raise RuntimeError('a native process exited; restarting the complete runtime')",
+    "2026-10-17T03:43:07.577269395Z RuntimeError: a native process exited; restarting the complete runtime",
+    "2026-10-17T14:42:36.679574263Z     raise RuntimeError('a native process exited; restarting the complete runtime')",
+    "2026-10-17T14:42:36.679587140Z RuntimeError: a native process exited; restarting the complete runtime"
+  ],
+  "idle_unload_observed": false
+}

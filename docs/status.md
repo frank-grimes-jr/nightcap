@@ -1,5 +1,15 @@
 # Current Nightcap status
 
+## Idle-zone restart correction — activated October 17
+
+Production default `Zone:KillProcessOnDynamicShutdown=false` now covers all
+zone rulesets through default inheritance; no alternate override exists.
+World and all twelve workers completed the global reload at 14:47 UTC, with
+all native lifetimes and service identities preserved. Three retained incidents
+showed orderly idle shutdowns triggering whole-game restarts. Normal timer-driven
+unload and player-continuity acceptance remain pending.
+[Correction evidence and exact QA](ops/dynamic-zone-worker-lifetime-20261017/README.md).
+
 ## Dungeon patcher announcement — published October 17
 
 Signed patch 2026101701 introduces Raid & Grind in Latest update with eleven

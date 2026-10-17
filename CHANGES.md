@@ -1,5 +1,15 @@
 # CHANGES
 
+## 2026-10-17 - Keep idle production zone workers alive
+
+Set the inherited production default `Zone:KillProcessOnDynamicShutdown` rule
+from true to false to stop orderly idle unloads from triggering the supervisor's
+whole-game restart. One-row guarded SQL and exact inverse rehearsal passed;
+world and all twelve workers reloaded without changing any native lifetime or
+service identity. Other rules, timers and player data are preserved. Natural
+idle-unload/player-continuity acceptance remains pending. Evidence, rollback
+constraints and exact QA: `docs/ops/dynamic-zone-worker-lifetime-20261017/`.
+
 ## 2026-10-17 - Raid and Grind headline patcher announcement
 
 Publish signed patch 2026101701 with eleven Latest Update bullets introducing

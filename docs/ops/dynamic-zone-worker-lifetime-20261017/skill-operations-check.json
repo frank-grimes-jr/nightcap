@@ -1,0 +1,168 @@
+{
+  "audited_at": "2026-10-12",
+  "scope": "Reviewed local files; not runtime or player QA evidence",
+  "topics": {
+    "operations": [
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-13\\aa-x20\\work\\passive-aa-twenty\\AGENTS.md",
+        "role": "current integrated operating contract",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-13\\aa-x20\\work\\passive-aa-twenty\\docs\\status.md",
+        "role": "dated deployments and remaining acceptance",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\merchant-sell-all\\docs\\releases\\item-upgrades-20261012\\README.md",
+        "role": "retained source/build and activity-preserving recovery",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\plugins\\nightcap-eqemu\\README.md",
+        "role": "existing lookup plugin and availability fallback",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\artifacts\\karl-rescue-20261012\\rescue.py",
+        "role": "reviewed one-shot rescue with backup, preimage and preservation guards",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\docs\\ops\\karl-rescue-20261012.md",
+        "role": "Karl server rescue and screenshot-confirmed commons client failure; installation and QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\artifacts\\karl-rescue-20261012\\commons-package-validation.json",
+        "role": "manual two-archive package integrity evidence; no remote installation or signed publication",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-12\\g-2\\work\\early-spell-scribing\\docs\\releases\\early-spell-scribing-20261012\\README.md",
+        "role": "paired native/client activation and recovery",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-12\\g-2\\work\\early-spell-scribing\\docs\\releases\\early-spell-scribing-20261012\\server-receipt.json",
+        "role": "verified backup, running hashes and preservation",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-12\\g-2\\work\\early-spell-scribing\\docs\\releases\\early-spell-scribing-20261012\\deployment\\native\\rollout.py",
+        "role": "data-preserving recovery; closed on unresolved drift",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-12\\g-2\\work\\early-spell-scribing\\docs\\releases\\early-spell-scribing-20261012\\deployment\\native\\test_rollout.py",
+        "role": "nine native recovery tests",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\docs\\releases\\aa-class-ranks-20261013\\README.md",
+        "role": "Reviewed AA class-rank/Triple Backstab release source, verification or OVH evidence; gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\docs\\releases\\aa-class-ranks-20261013\\deployment\\rollout.py",
+        "role": "Reviewed AA class-rank/Triple Backstab release source, verification or OVH evidence; gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\docs\\releases\\aa-class-ranks-20261013\\deployment\\aa_preflight.py",
+        "role": "Reviewed AA class-rank/Triple Backstab release source, verification or OVH evidence; gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\docs\\releases\\aa-class-ranks-20261013\\deployment\\manifest.json",
+        "role": "Reviewed AA class-rank/Triple Backstab release source, verification or OVH evidence; gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\docs\\releases\\aa-class-ranks-20261013\\preflight.json",
+        "role": "Reviewed AA class-rank/Triple Backstab release source, verification or OVH evidence; gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\docs\\releases\\aa-class-ranks-20261013\\activated.json",
+        "role": "Reviewed AA class-rank/Triple Backstab release source, verification or OVH evidence; gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\docs\\releases\\aa-class-ranks-20261013\\final-runtime-verification.json",
+        "role": "Reviewed AA class-rank/Triple Backstab release source, verification or OVH evidence; gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\cozy-tradeskill-hub\\EQ_Local_Dev\\docs\\releases\\tunnel-cozy-20261013\\production.json",
+        "role": "dated exact production afterimages, preserved data/runtime and healthy process evidence",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\cozy-tradeskill-hub\\EQ_Local_Dev\\docs\\releases\\tunnel-cozy-20261013\\ops\\rollout.py",
+        "role": "deployed locked operator with isolated exact backup restore and scoped recovery",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\cozy-tradeskill-hub\\EQ_Local_Dev\\docs\\releases\\tunnel-cozy-20261013\\ops\\test_rollout.py",
+        "role": "thirteen failure, preservation and precision-sidecar tests",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-16\\p\\work\\dungeon-modes\\docs\\dungeons\\deployment\\README.md",
+        "role": "Reviewed Raid/Grind production deployment; owner gameplay acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-16\\p\\work\\dungeon-modes\\docs\\dungeons\\deployment\\rollout.py",
+        "role": "Reviewed Raid/Grind production deployment; owner gameplay acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-16\\p\\work\\dungeon-modes\\docs\\dungeons\\deployment\\production-verification.json",
+        "role": "Reviewed Raid/Grind production deployment; owner gameplay acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\dynamic-zone-worker-lifetime\\server-mods\\code\\zone\\zone.cpp",
+        "role": "Manifest-matching Zone::Shutdown and idle timer behavior",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\dynamic-zone-worker-lifetime\\deploy\\production\\start.py",
+        "role": "Inspected production-matching any-child-exit supervisor",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\dynamic-zone-worker-lifetime\\docs\\ops\\dynamic-zone-worker-lifetime-20261017\\README.md",
+        "role": "Live correction, retained incidents, pending natural-unload/player QA",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\dynamic-zone-worker-lifetime\\docs\\ops\\dynamic-zone-worker-lifetime-20261017\\ops\\apply.py",
+        "role": "Guarded one-rule operation, rollback rehearsal and global reload verification",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\dynamic-zone-worker-lifetime\\docs\\ops\\dynamic-zone-worker-lifetime-20261017\\ops\\verify.py",
+        "role": "Read-only native lifetime and incident follow-up",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\dynamic-zone-worker-lifetime\\docs\\ops\\dynamic-zone-worker-lifetime-20261017\\result.json",
+        "role": "Verified live rule reload with native/service identities preserved",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\dynamic-zone-worker-lifetime\\docs\\ops\\dynamic-zone-worker-lifetime-20261017\\followup.json",
+        "role": "Dated follow-up; no natural unload observed yet",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\dynamic-zone-worker-lifetime\\docs\\ops\\dynamic-zone-worker-lifetime-20261017\\wiki-review.md",
+        "role": "Whole-wiki impact assessment; local notice, not publication",
+        "state": "unchanged"
+      }
+    ]
+  }
+}

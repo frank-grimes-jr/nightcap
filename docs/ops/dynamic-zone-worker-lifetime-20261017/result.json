@@ -1,0 +1,141 @@
+{
+  "rule": "Zone:KillProcessOnDynamicShutdown",
+  "ruleset_id": 1,
+  "previous": "true",
+  "value": "false",
+  "backup_directory": "/opt/nightcap/backups/dynamic-zone-worker-lifetime-20261017",
+  "rules_backup_sha256": "9ba51a510d4cc19d07ad4f1dea36af0c42d4592f21b62c72694c517433717ab3",
+  "forward_inverse_rehearsal": true,
+  "status": "activated_verified",
+  "changed_at_utc": "2026-10-17T14:47:02.669149+00:00",
+  "reload": {
+    "reload": "Rules",
+    "global": true,
+    "world_broadcast_received": true
+  },
+  "other_rules_unchanged": true,
+  "all_15_native_processes_unchanged": true,
+  "all_5_services_unchanged": true,
+  "reload_logs": {
+    "27": [
+      "[10-17-2026 09:47:03] [World] [Info] Sending reload to all zones for type [Rules]",
+      "[10-17-2026 09:47:03] [World] [Info] Loaded [1,008] rules(s) in rule_set [default] id [1]"
+    ],
+    "29": [
+      "[10-17-2026 09:47:03] [Zone] [Info] Queuing reload for [Rules] (24) to reload in [1 Second]",
+      "[10-17-2026 09:47:05] [Zone] [Info] Reloading [Rules] (24) zone booted required [false]",
+      "[10-17-2026 09:47:05] [Zone] [Info] Loaded [1,008] rules(s) in rule_set [default] id [1]",
+      "[10-17-2026 09:47:05] [Zone] [Info] Reloaded [Rules] (24)"
+    ],
+    "30": [
+      "[10-17-2026 09:47:03] [Zone] [Info] Queuing reload for [Rules] (24) to reload in [1 Second]",
+      "[10-17-2026 09:47:05] [Zone] [Info] Reloading [Rules] (24) zone booted required [false]",
+      "[10-17-2026 09:47:05] [Zone] [Info] Loaded [1,008] rules(s) in rule_set [default] id [1]",
+      "[10-17-2026 09:47:05] [Zone] [Info] Reloaded [Rules] (24)"
+    ],
+    "35": [
+      "[10-17-2026 09:47:03] [Zone] [Info] Queuing reload for [Rules] (24) to reload in [1 Second]",
+      "[10-17-2026 09:47:05] [Zone] [Info] Reloading [Rules] (24) zone booted required [false]",
+      "[10-17-2026 09:47:05] [Zone] [Info] Loaded [1,008] rules(s) in rule_set [default] id [1]",
+      "[10-17-2026 09:47:05] [Zone] [Info] Reloaded [Rules] (24)"
+    ],
+    "36": [
+      "[10-17-2026 09:47:03] [Zone] [Info] Queuing reload for [Rules] (24) to reload in [1 Second]",
+      "[10-17-2026 09:47:05] [Zone] [Info] Reloading [Rules] (24) zone booted required [false]",
+      "[10-17-2026 09:47:05] [Zone] [Info] Loaded [1,008] rules(s) in rule_set [default] id [1]",
+      "[10-17-2026 09:47:05] [Zone] [Info] Reloaded [Rules] (24)"
+    ],
+    "37": [
+      "[10-17-2026 09:47:03] [Zone] [Info] Queuing reload for [Rules] (24) to reload in [2 Seconds]",
+      "[10-17-2026 09:47:06] [Zone] [Info] Reloading [Rules] (24) zone booted required [false]",
+      "[10-17-2026 09:47:06] [Zone] [Info] Loaded [1,008] rules(s) in rule_set [default] id [1]",
+      "[10-17-2026 09:47:06] [Zone] [Info] Reloaded [Rules] (24)"
+    ],
+    "38": [
+      "[10-17-2026 09:47:03] [Zone] [Info] Queuing reload for [Rules] (24) to reload in [1 Second]",
+      "[10-17-2026 09:47:05] [Zone] [Info] Reloading [Rules] (24) zone booted required [false]",
+      "[10-17-2026 09:47:05] [Zone] [Info] Loaded [1,008] rules(s) in rule_set [default] id [1]",
+      "[10-17-2026 09:47:05] [Zone] [Info] Reloaded [Rules] (24)"
+    ],
+    "39": [
+      "[10-17-2026 09:47:03] [Zone] [Info] Queuing reload for [Rules] (24) to reload in [1 Second]",
+      "[10-17-2026 09:47:05] [Zone] [Info] Reloading [Rules] (24) zone booted required [false]",
+      "[10-17-2026 09:47:05] [Zone] [Info] Loaded [1,008] rules(s) in rule_set [default] id [1]",
+      "[10-17-2026 09:47:05] [Zone] [Info] Reloaded [Rules] (24)"
+    ],
+    "41": [
+      "[10-17-2026 09:47:03] [Zone] [Info] Queuing reload for [Rules] (24) to reload in [1 Second]",
+      "[10-17-2026 09:47:06] [Zone] [Info] Reloading [Rules] (24) zone booted required [false]",
+      "[10-17-2026 09:47:06] [Zone] [Info] Loaded [1,008] rules(s) in rule_set [default] id [1]",
+      "[10-17-2026 09:47:06] [Zone] [Info] Reloaded [Rules] (24)"
+    ],
+    "45": [
+      "[10-17-2026 09:47:03] [Zone] [Info] Queuing reload for [Rules] (24) to reload in [1 Second]",
+      "[10-17-2026 09:47:05] [Zone] [Info] Reloading [Rules] (24) zone booted required [false]",
+      "[10-17-2026 09:47:05] [Zone] [Info] Loaded [1,008] rules(s) in rule_set [default] id [1]",
+      "[10-17-2026 09:47:05] [Zone] [Info] Reloaded [Rules] (24)"
+    ],
+    "46": [
+      "[10-17-2026 09:47:03] [Zone] [Info] Queuing reload for [Rules] (24) to reload in [1 Second]",
+      "[10-17-2026 09:47:05] [Zone] [Info] Reloading [Rules] (24) zone booted required [false]",
+      "[10-17-2026 09:47:05] [Zone] [Info] Loaded [1,008] rules(s) in rule_set [default] id [1]",
+      "[10-17-2026 09:47:05] [Zone] [Info] Reloaded [Rules] (24)"
+    ],
+    "47": [
+      "[10-17-2026 09:47:03] [Zone] [Info] Queuing reload for [Rules] (24) to reload in [1 Second]",
+      "[10-17-2026 09:47:05] [Zone] [Info] Reloading [Rules] (24) zone booted required [false]",
+      "[10-17-2026 09:47:05] [Zone] [Info] Loaded [1,008] rules(s) in rule_set [default] id [1]",
+      "[10-17-2026 09:47:05] [Zone] [Info] Reloaded [Rules] (24)"
+    ],
+    "48": [
+      "[10-17-2026 09:47:03] [Zone] [Info] Queuing reload for [Rules] (24) to reload in [2 Seconds]",
+      "[10-17-2026 09:47:06] [Zone] [Info] Reloading [Rules] (24) zone booted required [false]",
+      "[10-17-2026 09:47:06] [Zone] [Info] Loaded [1,008] rules(s) in rule_set [default] id [1]",
+      "[10-17-2026 09:47:06] [Zone] [Info] Reloaded [Rules] (24)"
+    ]
+  },
+  "services": {
+    "/nightcap-production-game-1": {
+      "id": "672fd2c62125470c8b483244fccfafd28f1aeb12018e8c561e6842ed1611680b",
+      "image": "sha256:6b00ffd15f26ac60b810136cfcca516a42994b7d80c9be5bb011c22b8dcbab65",
+      "started": "2026-10-17T14:42:36.836599012Z",
+      "restarts": 3,
+      "running": true,
+      "health": "healthy"
+    },
+    "/nightcap-production-db-1": {
+      "id": "5c34a0594d5015209f7667d4421c00ef492b80298842829b2edb69c69449d96f",
+      "image": "sha256:7f22313fc130a377a44999965bcb0a08dd5b21e8502824c1b864f792f9bc66ab",
+      "started": "2026-10-16T18:53:03.118515664Z",
+      "restarts": 1,
+      "running": true,
+      "health": "healthy"
+    },
+    "/nightcap-production-gateway-1": {
+      "id": "f580a6574668158cafa14443ea121eb8b4bba34996077458c8416957aef01d6d",
+      "image": "sha256:2f3b9fc4d88afbb9612f7e1bb1202a31c6e975b1df4a76337cc280ac431ca36d",
+      "started": "2026-10-17T00:36:01.903840107Z",
+      "restarts": 0,
+      "running": true,
+      "health": null
+    },
+    "/nightcap-production-web-1": {
+      "id": "d8fb0c7da13aea642ae505b0c8bed74b529107185d43dbf35406f6b025d4d71d",
+      "image": "sha256:7377697a821c131a924a7105fafbe7414db4e9fcc77a6f08f776f33f141ec3f8",
+      "started": "2026-09-20T17:47:54.765116169Z",
+      "restarts": 0,
+      "running": true,
+      "health": null
+    },
+    "/nightcap-production-tunnel-1": {
+      "id": "30b1d25ff56bffa77a5b05d1b3d2f6c37b8a87dc05ef098721b6be6555235aac",
+      "image": "sha256:ff69a2225ad7c6f85ed84fbd5f3087df46202426b2388ec60214098e0adf05e9",
+      "started": "2026-09-20T17:53:43.445441644Z",
+      "restarts": 0,
+      "running": true,
+      "health": null
+    }
+  },
+  "idle_unload_verification": "pending",
+  "player_acceptance": "pending"
+}
