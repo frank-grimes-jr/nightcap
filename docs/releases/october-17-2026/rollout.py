@@ -104,6 +104,7 @@ def preflight():
     assert QUEST in p['runtime'];assert p['runtime'][QUEST]==m['previous_quest_sha256']
     r.call('docker','tag',old,'nightcap-game:oct17-base')
     (STAGE/'Dockerfile').write_text('FROM nightcap-game:oct17-base\nCOPY bin/zone /opt/nightcap/bin/zone\n')
+    (STAGE/'.dockerignore').write_text('*\n!Dockerfile\n!.dockerignore\n!bin\n!bin/zone\n')
     r.call('docker','build','--network','none','-t','nightcap-game:october-17-2026',str(STAGE))
     image=r.out('docker','image','inspect','--format','{{.Id}}','nightcap-game:october-17-2026').strip();p['new_image_id']=image
     assert r.image_hashes(image)=={**hashes,'bin/zone':m['zone_sha256']}
@@ -112,6 +113,9 @@ def preflight():
     assert 'not found' not in r.out('docker','run','--rm','--network','none','--entrypoint','ldd',image,'/opt/nightcap/bin/zone')
     r.call('docker','run','--rm','--network','none','--entrypoint','python3',image,'-c','import sys;sys.path.insert(0,"/opt/nightcap");import start;start.validate_native()')
     r.call('docker','run','--rm','--network','none','--entrypoint','/opt/nightcap/bin/loginserver',image,'--nightcap-crypto-self-test')
+    # Authenticate the retained recovery image without connecting it to live SQL.
+    r.call('docker','run','--rm','--network','none','--entrypoint','python3',old,'-c','import sys;sys.path.insert(0,"/opt/nightcap");import start;start.validate_native()')
+    r.call('docker','run','--rm','--network','none','--entrypoint','/opt/nightcap/bin/loginserver',old,'--nightcap-crypto-self-test')
     untouched(p);assert all(r.compact(s)==v for s,v in services.items());health();r.closed_ports()
     EVIDENCE.mkdir(mode=0o700);save('preflight.json',p)
     print('Preflight passed; access unchanged.',flush=True)
