@@ -1,0 +1,91 @@
+--- a/references/multiclass.md
++++ b/references/multiclass.md
+@@ -28,8 +28,9 @@
+ compiles actual server entry points:12 tests and180 ordered cross-skill cases pass.
+ The x86 DLL builds;60 exact-client checks,8 runtime groups and103 catalog guards
+ pass. Independent review has no remaining findings. Full zone compilation/link
+-is pending because the local Docker Linux engine is unavailable; launcher Go
+-tests and actual gameplay/balance QA remain pending. The legacy July hash guard
++is pending because the local Docker Linux engine is unavailable. The full
++launcher Go suite passes with cached Go1.27.2 and local fixture permissions;
++actual gameplay/balance QA remains pending. The legacy July hash guard
+ fails on unchanged base as well as this candidate; do not weaken it as evidence.
+ Main promotion, paired deployment and signed-client/wiki publication have not
+ occurred. Increased available attack frequency needs combined AA/multiclass QA.
+--- a/references/client.md
++++ b/references/client.md
+@@ -25,9 +25,9 @@
+ `tests/monk-reuse-native.cpp` reproduces10 failures before repair and now passes60
+ checks, including the installed submitter/stock commit and exception cleanup.
+ Targeting/damage/time remain controlled fixture boundaries. Full x86 DLL and20
+-test executables build;8 runtime groups and103 exact guards pass. Full zone build,
+-launcher Go tests, live countdown/combat/balance QA and release approval remain
+-pending. Evidence and seven-step owner QA:
++test executables build;8 runtime groups and103 exact guards pass. The full
++launcher Go suite passes with cached Go1.27.2 and local fixture permissions. Full
++zone build, live countdown/combat/balance QA and release approval remain pending. Evidence and seven-step owner QA:
+ `docs/releases/monk-independent-reuse-20261017/` in the October17 Monk checkout
+ listed in multiclass.md; reviewed source b81fd66. Preserve all current managed
+ assets/history at publication and use a fresh signed channel counter.
+--- a/references/sources.json
++++ b/references/sources.json
+@@ -1,7 +1,7 @@
+ {
+   "schema_version": 1,
+   "audited_at": "2026-10-12",
+-  "basis": "Reviewed sources and dated runbooks; AA class-rank implementation, all-level-1 invariants, Triple Backstab native repair and OVH/signature evidence refreshed October13. Owner gameplay/balance acceptance remains pending. Other topics retain their separately recorded audit scope. Passive AA refreshed October 13 to the verified 20% OVH override, retaining 4,000 XP/point and pending owner balance QA. Divine summons refreshed October 13: existing Ascended selection preserved, 44 definitions zero resale, full-cache and live deployment evidence verified; owner balance QA pending. Tradeskill stacks/Craft All refreshed October 13: PR #200 on main, paired OVH/game 2026101304 publication verified with all 12 zones/106 hosted assets; native owner gameplay QA pending. Equipment eligibility refreshed October16: PR202 merged, signed game2026101501 verified across106 hosted assets; owner confirms javelins work; broader gameplay acceptance pending. AA temporary-buff policy refreshed October16: source248bf5c promoted to main and OVH; all12 running zone hashes, preserved47 player/11 custom tables, signed client2026101501/106 assets,30 behavior and33 rollout checks verified. Owner gameplay acceptance pending. Equipment race policy deployed October16 under explicit approval: PR204, loader-only restart, 309410-definition cache verification with all other bytes and 47 player/11 custom tables preserved, current AA zone/client retained, zero restarts/errors. Owner gameplay QA pending. Wiki Features refreshed October16: current guides and 432 generated reward pages reconciled; per-change whole-wiki review required, source-drift checker verified, Raid/Grind guide published in release20261016-dungeons-v1/465 files with private/service preservation and browser search/responsive checks; no gameplay acceptance inferred. Basic Monk reuse refreshed October17: reviewed candidate b81fd66 separates six skills on server and RoF2, with native regressions and client build verified; full zone/Go builds, paired deployment, gameplay and wiki publication remain pending.",
++  "basis": "Reviewed sources and dated runbooks; AA class-rank implementation, all-level-1 invariants, Triple Backstab native repair and OVH/signature evidence refreshed October13. Owner gameplay/balance acceptance remains pending. Other topics retain their separately recorded audit scope. Passive AA refreshed October 13 to the verified 20% OVH override, retaining 4,000 XP/point and pending owner balance QA. Divine summons refreshed October 13: existing Ascended selection preserved, 44 definitions zero resale, full-cache and live deployment evidence verified; owner balance QA pending. Tradeskill stacks/Craft All refreshed October 13: PR #200 on main, paired OVH/game 2026101304 publication verified with all 12 zones/106 hosted assets; native owner gameplay QA pending. Equipment eligibility refreshed October16: PR202 merged, signed game2026101501 verified across106 hosted assets; owner confirms javelins work; broader gameplay acceptance pending. AA temporary-buff policy refreshed October16: source248bf5c promoted to main and OVH; all12 running zone hashes, preserved47 player/11 custom tables, signed client2026101501/106 assets,30 behavior and33 rollout checks verified. Owner gameplay acceptance pending. Equipment race policy deployed October16 under explicit approval: PR204, loader-only restart, 309410-definition cache verification with all other bytes and 47 player/11 custom tables preserved, current AA zone/client retained, zero restarts/errors. Owner gameplay QA pending. Wiki Features refreshed October16: current guides and 432 generated reward pages reconciled; per-change whole-wiki review required, source-drift checker verified, Raid/Grind guide published in release20261016-dungeons-v1/465 files with private/service preservation and browser search/responsive checks; no gameplay acceptance inferred. Basic Monk reuse refreshed October17: reviewed candidate b81fd66 separates six skills on server and RoF2, with native regressions and client build verified; full zone build, paired deployment, gameplay and wiki publication remain pending. Full launcher Go suite also passes using cached Go1.27.2 with local fixture permissions.",
+   "observed_revisions": {
+     "integrated": "eeb79ddebd69bdc4bda1725e7ccf5fa6e18591d1",
+     "default_checkout": "ce161c5e600992037adb66037b56047ef8c330dd",
+@@ -979,15 +979,15 @@
+         "root": "C:/Users/verre/Documents/Codex/2026-10-17/see/work/monk-independent-reuse",
+         "path": "docs/releases/monk-independent-reuse-20261017/README.md",
+         "role": "candidate pairing, build limits, no deployment, exact gameplay/balance QA",
+-        "revision": "b81fd66011155da7beec6c284a3e9755e46f3fd0",
+-        "sha256": "d998c82a422efbfd1c44893e78cf31b3e60b2085d61d4561a56b1238b82daa77"
++        "revision": "b81fd66 + reviewed Go verification follow-up",
++        "sha256": "8762d01937eae10250b2b986b195b29bc06db6def817bdfc9384d056f8d34731"
+       },
+       {
+         "root": "C:/Users/verre/Documents/Codex/2026-10-17/see/work/monk-independent-reuse",
+         "path": "docs/releases/monk-independent-reuse-20261017/verification.json",
+         "role": "reviewed build/test/source evidence; not gameplay acceptance",
+-        "revision": "b81fd66011155da7beec6c284a3e9755e46f3fd0",
+-        "sha256": "857dadaf8d496fb26384cfc941107f6b9aa7f3e0fac3ef31f8bc8a9cb935311a"
++        "revision": "b81fd66 + reviewed Go verification follow-up",
++        "sha256": "333494d1836e6b0d93e208d7590c7e3f6ff813bf79d1cc27f44f17edcadc5bdc"
+       }
+     ],
+     "items": [
+@@ -2185,7 +2185,7 @@
+       {
+         "root": "C:/Users/verre/Documents/Codex/2026-10-17/see/work/monk-independent-reuse",
+         "path": "eq-launcher/internal/preflight/catalog.json",
+-        "role": "generated launcher catalog matching candidate proxy; Go tests pending",
++        "role": "generated launcher catalog matching candidate proxy; full Go tests pass",
+         "revision": "b81fd66011155da7beec6c284a3e9755e46f3fd0",
+         "sha256": "4933839f527e80be84b701805ee9be43d434a49dc90a70bcc7954f509235be1e"
+       },
+@@ -2767,8 +2767,8 @@
+         "root": "C:/Users/verre/Documents/Codex/2026-10-17/see/work/monk-independent-reuse",
+         "path": "docs/releases/monk-independent-reuse-20261017/README.md",
+         "role": "candidate pairing, build limits, no deployment, exact gameplay/balance QA",
+-        "revision": "b81fd66011155da7beec6c284a3e9755e46f3fd0",
+-        "sha256": "d998c82a422efbfd1c44893e78cf31b3e60b2085d61d4561a56b1238b82daa77"
++        "revision": "b81fd66 + reviewed Go verification follow-up",
++        "sha256": "8762d01937eae10250b2b986b195b29bc06db6def817bdfc9384d056f8d34731"
+       }
+     ],
+     "admin": [
+@@ -3393,8 +3393,8 @@
+         "root": "C:/Users/verre/Documents/Codex/2026-10-17/see/work/monk-independent-reuse",
+         "path": "docs/releases/monk-independent-reuse-20261017/README.md",
+         "role": "candidate pairing, build limits, no deployment, exact gameplay/balance QA",
+-        "revision": "b81fd66011155da7beec6c284a3e9755e46f3fd0",
+-        "sha256": "d998c82a422efbfd1c44893e78cf31b3e60b2085d61d4561a56b1238b82daa77"
++        "revision": "b81fd66 + reviewed Go verification follow-up",
++        "sha256": "8762d01937eae10250b2b986b195b29bc06db6def817bdfc9384d056f8d34731"
+       }
+     ],
+     "wiki": [

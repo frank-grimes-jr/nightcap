@@ -32,7 +32,6 @@
   },
   "limitations": [
     "Full zone compile/link pending: local Docker Linux engine unavailable",
-    "Launcher Go tests pending: Go not available in session",
     "Legacy Monk source-hash guard fails on unchanged base and candidate",
     "In-game visuals/combat/balance, main promotion and paired server/client publication pending"
   ],
@@ -47,5 +46,6 @@
     "eq-client-dll/config/patch-sites.json": "4933839f527e80be84b701805ee9be43d434a49dc90a70bcc7954f509235be1e",
     "tools/tests/test_monk_combat_reuse.py": "1c0eb92d25614ca661456cb210b1f9023f7caed1741f7187a9be5d8e0b9907b5",
     "eq-client-dll/tests/monk-reuse-native.cpp": "5cc6886722264047f953cff9484df1a7acd56a42ae075e724d55eb49a2bccfb3"
-  }
+  },
+  "launcher_go_suite": "go test ./... passed with cached Go1.27.2 outside sandbox for local socket/junction/credential fixtures"
 }

@@ -57,9 +57,12 @@ Source: `server-mods/code/zone/special_attacks.cpp`,
   six articles carry explicit unreleased guidance. Fourteen Python and thirteen
   Node checks pass. Publication remains pending; broad audit ref stays unchanged.
 - Full zone compilation/link is pending: local Docker's Linux-engine pipe is
-  unavailable. Starting Desktop did not expose the engine. Go is unavailable in
-  this session, so launcher Go tests have not run. Do not label this release built
-  for deployment until those checks pass against current retained source.
+  unavailable. Starting Desktop did not expose the engine. Do not label this
+  release built for deployment until the zone build passes against current
+  retained source.
+- The full launcher Go suite passes using cached Go 1.27.2. Its loopback, Windows
+  junction and credential fixtures require an unsandboxed run; initial sandbox
+  permission failures were resolved by rerunning with that access.
 - Legacy `test-multiclass-monk-combat.ps1` rejects both unchanged `a59974d` and
   this candidate because it pins superseded July source hashes. Its fragment
   checks pass before that guard; the new native regression is the behavioral

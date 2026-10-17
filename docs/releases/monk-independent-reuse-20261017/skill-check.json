@@ -1,0 +1,31 @@
+{
+  "validator": "passed",
+  "topics": {
+    "multiclass": {
+      "drift": false,
+      "files": 111,
+      "issues": []
+    },
+    "client": {
+      "drift": false,
+      "files": 117,
+      "issues": []
+    },
+    "balance": {
+      "drift": true,
+      "files": 68,
+      "issues": [
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\merchant-sell-all\\server-mods\\code\\zone\\effects.cpp",
+          "role": "percentage scaling and Throw Stone exception",
+          "state": "changed: review implementation and evidence"
+        }
+      ]
+    },
+    "wiki": {
+      "drift": false,
+      "files": 50,
+      "issues": []
+    }
+  }
+}

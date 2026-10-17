@@ -1,0 +1,20 @@
+{
+  "status": "installed",
+  "files": [
+    {
+      "path": "references/multiclass.md",
+      "before": "7abd0cb67ca93a54ef6518163f7a496063b3a088a1598a4d92cc6b39f912b56b",
+      "after": "641febad400335c3ec47a8675ef6c05234770fab6f3251393db3f2b21d57d8c5"
+    },
+    {
+      "path": "references/client.md",
+      "before": "5510e024252031f5aa6cb8cf9bfca7cd45ae2ef084c68d259e4398e17333a08e",
+      "after": "fed6950cde15a4623237829c9e94285ac232648b9772d289e14e7ab4ae6f7516"
+    },
+    {
+      "path": "references/sources.json",
+      "before": "0bf5f9be00c286efede2c50f511a2c362a32c1d9c48e397958d60f1e10d7df64",
+      "after": "7fd34b7252cea64e9e464224ecb6d4657d25c97378170cf7faf26bfce8eb6ba6"
+    }
+  ]
+}
