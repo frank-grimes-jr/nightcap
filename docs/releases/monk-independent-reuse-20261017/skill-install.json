@@ -1,0 +1,33 @@
+{
+  "date": "2026-10-17",
+  "status": "installed",
+  "source_revision": "b81fd66011155da7beec6c284a3e9755e46f3fd0",
+  "files": [
+    {
+      "path": "references/multiclass.md",
+      "before": "acfd1ca572cd4443a46f4b7557a7479b39d3015dd066ebfc70d122d03c4c919b",
+      "after": "7abd0cb67ca93a54ef6518163f7a496063b3a088a1598a4d92cc6b39f912b56b"
+    },
+    {
+      "path": "references/client.md",
+      "before": "371ae5949cec254d81fc885ab2e8de94a56f8dcbe30e5d0bead415995b8a1b64",
+      "after": "5510e024252031f5aa6cb8cf9bfca7cd45ae2ef084c68d259e4398e17333a08e"
+    },
+    {
+      "path": "references/balance.md",
+      "before": "21423154f323d8fe27afa22dd86d54ab4c7fd5bed383df611d34cacc453ec6ee",
+      "after": "55f231ed8ba037b4155eeb3b312b22dbb71c763f1eab39af83e9bd38c96a2103"
+    },
+    {
+      "path": "references/wiki.md",
+      "before": "007d52de8c1af6bc71432d07cfc28fd3e0caa2a52da7567fad69bca664ad70ce",
+      "after": "234644efd03b250dc4824644cec57dff1f60e05cc9e612eb76173b1f8136c02e"
+    },
+    {
+      "path": "references/sources.json",
+      "before": "6322c7dee624e8a1badc34cb5d757c73ddf25e5310a2102546dc4d87281767ca",
+      "after": "0bf5f9be00c286efede2c50f511a2c362a32c1d9c48e397958d60f1e10d7df64"
+    }
+  ],
+  "publication": "not deployed or published"
+}

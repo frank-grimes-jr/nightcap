@@ -4,6 +4,7 @@
 #include <string>
 #include <string_view>
 #include <unordered_map>
+#include "../../server-mods/code/common/aa_recommendations.h"
 
 namespace nightcap {
 // Presentation metadata only. Never use this cache to authorize purchases,
@@ -13,6 +14,14 @@ class UIState {
     std::array<uint32_t, 3> classes_{};
     std::string name_;
     std::unordered_map<uint32_t, uint32_t> aa_classes_;
+    struct RecommendationRow { uint32_t reason, status, target; };
+    std::unordered_map<uint32_t, RecommendationRow> recommended_, pending_recommended_;
+    bool recommendations_ready_ = false, recommendations_pending_ = false;
+    uint32_t recommendations_expected_ = 0;
+    void ClearRecommendations() {
+        recommended_.clear(); pending_recommended_.clear();
+        recommendations_ready_ = recommendations_pending_ = false;
+    }
     static constexpr const char* names_[17] = {
         "---","WAR","CLR","PAL","RNG","SHD","DRU","MNK","BRD",
         "ROG","SHM","NEC","WIZ","MAG","ENC","BST","BER"
@@ -30,7 +39,16 @@ class UIState {
         return true;
     }
 public:
-    void Clear() { identity_ = {}; classes_ = {}; name_.clear(); aa_classes_.clear(); }
+    void Clear() { identity_ = {}; classes_ = {}; name_.clear(); aa_classes_.clear(); ClearRecommendations(); }
+    bool RecommendationsReady() const { return recommendations_ready_; }
+    size_t RecommendationCount() const { return recommended_.size(); }
+    bool Recommended(uint32_t rank) const { return recommendations_ready_ && recommended_.count(rank); }
+    std::string Recommendation(uint32_t rank) const {
+        auto row = recommended_.find(rank);
+        if (!recommendations_ready_ || row == recommended_.end()) return "";
+        return std::string(row->second.status == 2 ? "Later: " : row->second.status == 1 ? "Needs prerequisite: " : "") +
+            recommended_aa::Reason(row->second.reason) + " (aim: " + std::to_string(row->second.target) + ")";
+    }
     uint32_t PrimaryClass() const { return classes_[0]; }
     uint32_t ClassMask() const {
         uint32_t mask = 0;
@@ -63,7 +81,7 @@ public:
         const std::string_view text(message, size);
         if (text.size() < 10 || text.substr(0, 7) != "[NCUI1]" || text[8] != '|') return false;
         const char type = text[7];
-        if (type != 'S' && type != 'A') return false;
+        if (type != 'S' && type != 'A' && type != 'B' && type != 'R' && type != 'E') return false;
         std::array<std::string_view, 9> fields{};
         size_t count = 0, start = 9;
         while (start <= size) {
@@ -73,14 +91,35 @@ public:
             fields[count++] = text.substr(start, end - start);
             start = end + 1;
         }
-        if (count != (type == 'S' ? 9u : 7u)) return false;
-        std::array<uint32_t, 8> values{};
-        for (size_t i = 0; i < (type == 'S' ? 8u : 7u); ++i) {
+        const size_t expected = type == 'S' || type == 'R' ? 9u : type == 'A' ? 7u : type == 'B' ? 6u : 5u;
+        if (count != expected) return false;
+        std::array<uint32_t, 9> values{};
+        for (size_t i = 0; i < (type == 'S' ? 8u : expected); ++i) {
             if (!Number(fields[i], values[i])) return false;
         }
         if (!values[0] || !values[1] || !values[2] || !values[4] || values[4] > 65535) return false;
         std::array<uint32_t, 5> identity{};
         for (size_t i = 0; i < identity.size(); ++i) identity[i] = values[i];
+        if (type == 'B' || type == 'R' || type == 'E') {
+            if (identity != identity_) return false;
+            if (type == 'B') {
+                if (values[5]>10) return false;
+                pending_recommended_.clear(); recommendations_expected_=values[5];
+                recommendations_pending_=true; return true;
+            }
+            if (!recommendations_pending_) return false;
+            if (type == 'R') {
+                if (!values[5] || recommended_aa::Reason(values[6]).empty() || values[7] > 2 ||
+                    !values[8] || values[8] > 255 || pending_recommended_.size() >= 10 || pending_recommended_.count(values[5])) return false;
+                pending_recommended_[values[5]] = {values[6],values[7],values[8]};
+            } else {
+                recommendations_pending_=false;
+                if (pending_recommended_.size()!=recommendations_expected_) { pending_recommended_.clear(); return false; }
+                recommended_.swap(pending_recommended_); pending_recommended_.clear();
+                recommendations_ready_ = true; recommendations_pending_ = false;
+            }
+            return true;
+        }
         if (type == 'A') {
             if (identity != identity_ || !values[5] || (values[6] & ~uint32_t(0x1fffe))) return false;
             if (aa_classes_.size() >= 32768 && !aa_classes_.count(values[5])) return false;
@@ -100,6 +139,7 @@ public:
         classes_ = {values[5],values[6],values[7]};
         name_ = name;
         aa_classes_.clear();
+        ClearRecommendations();
         return true;
     }
 };

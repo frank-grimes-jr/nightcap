@@ -91,7 +91,7 @@ struct Result {
 struct ZoneDatabase {
 	std::map<uint32,EQ::ItemData> definitions;
 	const EQ::ItemData *GetItem(uint32 id){auto i=definitions.find(id);return i==definitions.end()?nullptr:&i->second;}
-	std::vector<std::string> queries;Cells inventory;int fail=0,throw_at=0,zero_at=0;bool committed=false,active=false,claimed=false,wrong_engine=false,forged=false,rollback_fail=false;
+	std::vector<std::string> queries;Cells inventory;int fail=0,throw_at=0,zero_at=0;bool committed=false,active=false,claimed=false,wrong_engine=false,forged=false,rollback_fail=false,hunt_disabled=false;
 	EQ::ItemInstance *CreateItem(uint32 id,int charges){EQ::ItemData data;data.ID=id;if(definitions.count(id))data=definitions[id];return new EQ::ItemInstance(&data,static_cast<int16>(charges));}
 	Result QueryDatabase(const std::string &q,bool retry) {
 		check(!retry,"a transaction query enabled retry");queries.push_back(q);Result result;
@@ -109,6 +109,7 @@ struct ZoneDatabase {
 		else if(q.find("FROM inventory WHERE")!=std::string::npos)result.cells=inventory;
 		else if(q=="SELECT LAST_INSERT_ID()")result.cells={{"12345"}};
 		else if(q.rfind("SELECT drop_id",0)==0 && claimed)result.cells={{"11111111-1111-1111-1111-111111111111"}};
+		else if(hunt_disabled&&q.find("FROM nightcap_zone_hunt_state")!=std::string::npos){}
 		else if(q.rfind("SELECT revision",0)==0)result.cells={{"2026100901"}};
 		else if(q.rfind("SELECT request_id",0)==0 && forged)result.cells={{"11111111-1111-1111-1111-111111111111"}};
 		return result;
@@ -212,15 +213,16 @@ static void TestForge() {
 		check(ForgeItems(&higher,recipe,id)==TransferResult::Delivered&&higher.inventory.items.size()==1&&higher.inventory.GetItem(23)->GetID()==source+1,"four-copy higher-tier forge failed");
 	}
 }
-static void PrepareCombine(Client &c,uint32 source=201001) {
+static void PrepareCombine(Client &c,uint32 source=201001,int copies=0) {
+	if(!copies)copies=(source<200000||source==940024)?3:4;
 	const uint32 target=source<600000?source+200000:source+1;
 	database.definitions[source].ID=source;
-	database.definitions[source].Name=source<400000?"Cloth Cap (Polished)":"Cloth Cap (Exalted)";
+	database.definitions[source].Name=source<200000?"Cloth Cap":source<400000?"Cloth Cap (Polished)":"Cloth Cap (Exalted)";
 	database.definitions[target].ID=target;
-	database.definitions[target].Name=source<400000?"Cloth Cap (Exalted)":"Cloth Cap (Ascended)";
+	database.definitions[target].Name=source<200000?"Cloth Cap (Polished)":source<400000?"Cloth Cap (Exalted)":"Cloth Cap (Ascended)";
 	auto box=Item();box.row.item_id=box.data.ID=NightcapUpgrade::ContainerID;box.data.BagSlots=4;
 	c.inventory.items[23]=std::make_shared<EQ::ItemInstance>(box);SaveRow(23,box);
-	for(int16 slot=251;slot<=254;++slot) {
+	for(int16 slot=251;slot<251+copies;++slot) {
 		auto item=Item();item.row.item_id=item.data.ID=source;item.row.guid=900+slot;
 		item.SetAttuned(slot==252);c.inventory.items[slot]=std::make_shared<EQ::ItemInstance>(item);
 		SaveRow(slot,item);
@@ -228,9 +230,10 @@ static void PrepareCombine(Client &c,uint32 source=201001) {
 }
 static void TestCombine() {
 	using namespace NightcapLoot;
-	for(uint32 source:{201001u,401001u,940025u,940026u}) {
+	for(uint32 source:{1001u,201001u,401001u,940024u,940025u,940026u}) {
+		const size_t initial_count=(source<200000||source==940024)?4:5;
 		database={};Client c;PrepareCombine(c,source);
-		check(CombineUpgrade(&c,23,id)==TransferResult::Delivered,"four-copy combine failed");
+		check(CombineUpgrade(&c,23,id)==TransferResult::Delivered,"tier-dependent combine failed");
 		check(c.inventory.items.size()==2&&c.inventory.GetItem(251)->GetID()==(source<600000?source+200000:source+1),"wrong next-tier item");
 		check(c.inventory.GetItem(23)->GetID()==NightcapUpgrade::ContainerID,"reusable box consumed");
 		check(c.inventory.GetItem(251)->IsAttuned(),"binding lost");
@@ -238,21 +241,62 @@ static void TestCombine() {
 		for(size_t step=1;step<=queries.size();++step) {
 			if(queries[step-1].rfind("DELETE ",0)!=0&&queries[step-1].rfind("INSERT ",0)!=0)continue;
 			database={};Client attempt;PrepareCombine(attempt,source);database.zero_at=static_cast<int>(step);
-			check(CombineUpgrade(&attempt,23,id)==TransferResult::Declined&&attempt.inventory.items.size()==5&&!attempt.packets,"combine ignored affected-row failure");
+			check(CombineUpgrade(&attempt,23,id)==TransferResult::Declined&&attempt.inventory.items.size()==initial_count&&!attempt.packets,"combine ignored affected-row failure");
 		}
 		if(source==201001)for(const auto&q:queries)std::cout<<"UPGRADE_SQL:"<<q<<"\n";
 		for(size_t step=1;step<=queries.size();++step) {
 			database={};Client attempt;PrepareCombine(attempt,source);database.fail=static_cast<int>(step);
 			const auto result=CombineUpgrade(&attempt,23,id);
 			check(result!=TransferResult::Delivered,"failed query delivered upgrade");
-			check(attempt.inventory.items.size()==5&&!attempt.packets,"failure consumed inputs or published reward");
+			check(attempt.inventory.items.size()==initial_count&&!attempt.packets,"failure consumed inputs or published reward");
 			check(attempt.quarantined==(result==TransferResult::Uncertain),"missing quarantine");
 		}
 		for(size_t step=1;step<=queries.size();++step) {
 			database={};Client attempt;PrepareCombine(attempt,source);database.throw_at=static_cast<int>(step);
 			check(CombineUpgrade(&attempt,23,id)==TransferResult::Uncertain&&attempt.quarantined,"exception not quarantined");
-			check(attempt.inventory.items.size()==5&&!attempt.packets,"exception changed items");
+			check(attempt.inventory.items.size()==initial_count&&!attempt.packets,"exception changed items");
 		}
+	}
+	for(uint32 source:{1001u,940024u}) {
+		for(int copies:{2,4}) {
+			database={};Client wrong_count;PrepareCombine(wrong_count,source,copies);
+			check(CombineUpgrade(&wrong_count,23,id)==TransferResult::Declined&&database.queries.empty()&&wrong_count.inventory.items.size()==size_t(copies+1),"wrong normal quantity consumed");
+		}
+		for(int kind=0;kind<7;++kind) {
+			database={};Client invalid;PrepareCombine(invalid,source);
+			const uint32 target=source<200000?source+200000:source+1;
+			if(kind==0)database.definitions.erase(target);
+			if(kind==1)invalid.inventory.items[252]->row.item_id=source+1;
+			if(kind==2)invalid.inventory.items[252]->row.augment_one=123;
+			if(kind==3)invalid.inventory.items[252]->row.custom_data="custom";
+			if(kind==4)database.inventory[0][2]="1";
+			if(kind==5)database.forged=true;
+			if(kind==6)database.hunt_disabled=true;
+			if(kind==6&&source<200000)continue;
+			check(CombineUpgrade(&invalid,23,id)==TransferResult::Declined&&!invalid.packets&&invalid.inventory.items.size()==4,"invalid normal combine consumed items");
+		}
+		for(bool split:{false,true}) {
+			database={};Client stack;PrepareCombine(stack,source);
+			stack.inventory.items[251]->stackable=true;stack.inventory.items[251]->SetCharges(split?2:3);
+			if(!split)stack.inventory.items.erase(252);else stack.inventory.items[252]->stackable=true;
+			stack.inventory.items.erase(253);
+			database.inventory.clear();for(const auto &entry:stack.inventory.items)SaveRow(entry.first,*entry.second);
+			const uint32 target=source<200000?source+200000:source+1;
+			database.definitions[target].Stackable=true;database.definitions[target].MaxCharges=20;
+			check(CombineUpgrade(&stack,23,id)==TransferResult::Delivered,"three normal stack units rejected");
+			check(stack.inventory.items.size()==2&&stack.inventory.GetItem(251)->GetCharges()==1,"normal stack output not exactly one");
+		}
+	}
+	database={};Client charged;PrepareCombine(charged,1001);
+	for(int16 slot:{251,252,253})charged.inventory.items[slot]->SetCharges(20);
+	database.inventory.clear();for(const auto &entry:charged.inventory.items)SaveRow(entry.first,*entry.second);
+	database.definitions[201001].MaxCharges=20;
+	check(CombineUpgrade(&charged,23,id)==TransferResult::Delivered&&charged.inventory.GetItem(251)->GetCharges()==20,"charged normal copies miscounted");
+	database={};Client name_mismatch;PrepareCombine(name_mismatch,1001);database.definitions[201001].Name="Cloth Gloves (Polished)";
+	check(CombineUpgrade(&name_mismatch,23,id)==TransferResult::Declined&&database.queries.empty(),"normal cross-family target accepted");
+	for(uint32 source:{601001u,940027u,960000u}) {
+		database={};Client unsupported;PrepareCombine(unsupported,source,3);
+		check(CombineUpgrade(&unsupported,23,id)==TransferResult::Declined&&database.queries.empty(),"top-tier or dungeon conversion accepted");
 	}
 	database={};Client partial;PrepareCombine(partial);partial.inventory.items.erase(254);
 	check(CombineUpgrade(&partial,23,id)==TransferResult::Declined&&database.queries.empty(),"three copies accepted");

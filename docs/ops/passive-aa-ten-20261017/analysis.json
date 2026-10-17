@@ -1,0 +1,163 @@
+{
+  "captured_utc": "2026-10-17T14:58:14.164888+00:00",
+  "catalog_matches_fixture": true,
+  "policy_id": "classic-tbs-class-ranks-20261013",
+  "global_families": 394,
+  "global_ranks": 1051,
+  "palwar": {
+    "name": "Palwar",
+    "level": 27,
+    "class": 3,
+    "race": 7,
+    "exp": 19209964,
+    "aa_exp": 2897,
+    "aa_points": 80,
+    "aa_points_spent": 1018,
+    "allocation": 0,
+    "time_played": 6860,
+    "zone_id": 63,
+    "class2": 1,
+    "class3": 7
+  },
+  "class_prerequisite_closed_pool": {
+    "families": 139,
+    "ranks": 386,
+    "total_cost": 1673,
+    "owned_legal_cost": 1015,
+    "unbought_cost": 658,
+    "banked_points": 80,
+    "new_points_needed": 578
+  },
+  "other_catalog_gates": {
+    "(65535, 131071, 0)": 386
+  },
+  "dormant_earned_ranks": [
+    {
+      "ability_id": 30,
+      "name": "Combat Fury",
+      "ordinal": 4,
+      "rank_id": 443,
+      "cost": 3
+    }
+  ],
+  "key_owned": [
+    {
+      "ability_id": 18,
+      "name": "Healing Adept",
+      "owned": 9,
+      "legal_cap": 9
+    },
+    {
+      "ability_id": 19,
+      "name": "Healing Gift",
+      "owned": 12,
+      "legal_cap": 12
+    },
+    {
+      "ability_id": 20,
+      "name": "Spell Casting Mastery",
+      "owned": 3,
+      "legal_cap": 3
+    },
+    {
+      "ability_id": 28,
+      "name": "Natural Durability",
+      "owned": 3,
+      "legal_cap": 3
+    },
+    {
+      "ability_id": 30,
+      "name": "Combat Fury",
+      "owned": 4,
+      "legal_cap": 3
+    },
+    {
+      "ability_id": 33,
+      "name": "Combat Stability",
+      "owned": 3,
+      "legal_cap": 3
+    },
+    {
+      "ability_id": 34,
+      "name": "Combat Agility",
+      "owned": 3,
+      "legal_cap": 3
+    },
+    {
+      "ability_id": 75,
+      "name": "[PAL] Slay Undead",
+      "owned": 9,
+      "legal_cap": 9
+    },
+    {
+      "ability_id": 97,
+      "name": "[MNK] Critical Mend",
+      "owned": 3,
+      "legal_cap": 3
+    },
+    {
+      "ability_id": 206,
+      "name": "[MNK] Technique of Master Wu",
+      "owned": 5,
+      "legal_cap": 5
+    },
+    {
+      "ability_id": 271,
+      "name": "[MNK] Strikethrough",
+      "owned": 3,
+      "legal_cap": 3
+    },
+    {
+      "ability_id": 605,
+      "name": "[WAR] Shield Specialist",
+      "owned": 5,
+      "legal_cap": 5
+    }
+  ],
+  "ideal_cumulative_aa_by_level": [
+    {
+      "level": 10,
+      "normal_xp_threshold": 729000,
+      "at_10_percent": 18.225,
+      "at_20_percent": 36.45
+    },
+    {
+      "level": 20,
+      "normal_xp_threshold": 6859000,
+      "at_10_percent": 171.475,
+      "at_20_percent": 342.95
+    },
+    {
+      "level": 27,
+      "normal_xp_threshold": 17576000,
+      "at_10_percent": 439.4,
+      "at_20_percent": 878.8
+    },
+    {
+      "level": 30,
+      "normal_xp_threshold": 24389000,
+      "at_10_percent": 609.725,
+      "at_20_percent": 1219.45
+    },
+    {
+      "level": 35,
+      "normal_xp_threshold": 43234400,
+      "at_10_percent": 1080.86,
+      "at_20_percent": 2161.72
+    },
+    {
+      "level": 40,
+      "normal_xp_threshold": 71182800,
+      "at_10_percent": 1779.57,
+      "at_20_percent": 3559.14
+    },
+    {
+      "level": 50,
+      "normal_xp_threshold": 164708600,
+      "at_10_percent": 4117.715,
+      "at_20_percent": 8235.43
+    }
+  ],
+  "ideal_xp_when_remaining_pool_funded": 42329964,
+  "limits": "Catalog/prerequisite costs are not combat strength. Ideal curve assumes equal normal/AA modifiers, passive mode, no XP losses, boosts, special rewards or prior-rate changes; ignores per-award integer rounding. Player history cannot be reconstructed from this snapshot."
+}

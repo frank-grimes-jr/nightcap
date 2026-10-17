@@ -20,6 +20,19 @@ assert len(sites) > 0 and sorted(sites,key=lambda x:x["rva"]) == catalog["sites"
 # Names already consumed by the proxy. Keeping these declarations generated
 # binds launcher preflight and runtime original-byte guards to one catalog.
 symbols = {
+ 0x2085B0:("kUIAAFilterRva","kExpectedUIAAFilter"),
+ 0x208C73:("kUIAAFilterCallRva","kExpectedUIAAFilterCall"),
+ 0x20AA80:("kUIAANotifyRva","kExpectedUIAANotify"),
+ 0x20AD75:("kUIAAButtonRva","kExpectedUIAAButton"),
+
+ 0x1BAC50:("kMonkReuseStartRva","kExpectedMonkReuseStart"),
+ 0x1BACA0:("kMonkReuseGetStartRva","kExpectedMonkReuseGetStart"),
+ 0x1BACF0:("kMonkReuseDurationRva","kExpectedMonkReuseDuration"),
+ 0x1BAD40:("kMonkReuseGetDurationRva","kExpectedMonkReuseGetDuration"),
+ 0x1BADA0:("kMonkReuseBeginRva","kExpectedMonkReuseBegin"),
+ 0x1BAE40:("kMonkReuseReadyRva","kExpectedMonkReuseReady"),
+ 0x1A2C20:("kMonkReuseAdjustRva","kExpectedMonkReuseAdjust"),
+ 0x5D96C:("kMonkReusePostSubmitRva","kExpectedMonkReusePostSubmit"),
  0x2A9D82:("kInspectionCanUseRva","kExpectedInspectionCanUse"),
  0x37E7F0:("kCraftNotifyRva","kExpectedCraftNotify"),
  0x37CD70:("kCraftFrameRva","kExpectedCraftFrame"),
@@ -97,7 +110,7 @@ symbols = {
  0x5B33E:("kUseSkillValueCallRva","kExpectedUseSkillValueCall"),
  0x28CA21:("kHotButtonSkillActivationCallRva","kExpectedHotButtonSkillActivationCall"),
  0x1A2FD0:("kSpecialAttackSkillPredicateCallRva","kExpectedSpecialAttackSkillPredicateCall"),
- 0x1A5000:("kSpecialAttackSubmitRva",None),
+ 0x1A5000:("kSpecialAttackSubmitRva","kExpectedSpecialAttackSubmit"),
  0x4A1B0:("kCharacterHasSkillRva","kExpectedCharacterHasSkill"),
  0x49C80:("kCharacterGetBaseSkillRva","kExpectedCharacterGetBaseSkill"),
  0x49FE0:("kCharacterGetSkillRva",None),

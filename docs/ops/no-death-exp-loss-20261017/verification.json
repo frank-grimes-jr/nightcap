@@ -1,0 +1,35 @@
+{
+  "status": "candidate_verified_not_activated",
+  "native_tests": {
+    "command": "python -B tools/tests/test_no_death_exp_loss.py",
+    "passed": 2,
+    "no_loss_cases": 2048,
+    "old_policy_controls": 2,
+    "scope": "extracted candidate calculation/application and resurrection source contract; no full build or live death"
+  },
+  "wiki_tests": {
+    "python_passed": 14,
+    "search_cases_passed": 6,
+    "equipment_cases_passed": 7,
+    "initial_failure": "duplicate October 17 heading alongside concurrent wiki work; corrected unique anchor and complete Python suite passed"
+  },
+  "wiki_refresh": {
+    "result": "REVIEW REQUIRED",
+    "changed_sources": 299,
+    "broad_ledger_advanced": false,
+    "note": "Existing source drift and concurrent unrelated wiki changes remain independently owned; this change impact reviewed across all maintained articles and generated catalog scope."
+  },
+  "skill_checks": {
+    "multiclass_reviewed_entries": 105,
+    "multiclass_drift": 0,
+    "wiki_unrelated_drift": [
+      "wiki/catalog.py",
+      "wiki/articles/equipment.json",
+      "wiki/articles/item-upgrades.json",
+      "wiki/articles/zone-hunt.json"
+    ],
+    "note": "Unrelated concurrent fingerprints deliberately not advanced."
+  },
+  "production": "Read-only preflight only; level threshold still 10. No rule write, reload, restart or publication.",
+  "review": "Reviewed rule scope/default inheritance, positive-loss application, zero-loss corpse handoff, resurrection guards, exact SQL preimages, rollback and pending activation/QA labels."
+}

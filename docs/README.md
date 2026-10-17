@@ -4,6 +4,12 @@ Current AA correction: [all allowed ranks at level 1](releases/aa-tbs-level1-202
 
 Start with [current status](status.md), not a dated candidate report.
 
+- [October 17 combined release, recovery and exact gameplay QA](releases/october-17-2026/README.md)
+
+- [Recommended AA filter candidate and exact in-game QA](releases/recommended-aa-20261017/README.md)
+- [No death EXP loss: candidate, guarded rule change and exact QA](ops/no-death-exp-loss-20261017/README.md)
+- [Idle-zone worker lifetime: live correction, evidence and exact QA](ops/dynamic-zone-worker-lifetime-20261017/README.md)
+
 - [Production-connected GM controls: entry point, rollout and exact QA](ops/production-gm-20261010.md)
 
 - [Live player access codes: activation, verification and recovery](ops/player-access-20261011.md)
@@ -18,6 +24,10 @@ Start with [current status](status.md), not a dated candidate report.
 
 ## Players and testers
 
+- [All-class cooldown audit: duration corrections and remaining shared timers](releases/cooldown-audit-20261017/README.md)
+
+- [Independent basic Monk cooldown candidate: pairing and exact QA](releases/monk-independent-reuse-20261017/README.md)
+
 - [Raid and Grind dungeon candidate: release, recovery and exact fourteen-mode QA](dungeons/README.md)
 
 - [Multiclass equipment and inspection: published client update and exact QA](releases/multiclass-equipment-20261015/README.md)
@@ -28,7 +38,8 @@ Start with [current status](status.md), not a dated candidate report.
 
 - [Ascended divine summons: live resale protection, verification and exact QA](releases/divine-summons-20261013/README.md)
 
-- [Passive AA reduced to 20%: live tuning, recovery and Palwar QA](ops/passive-aa-twenty-20261013/README.md)
+- [Passive AA reduced to 10%: live tuning, AA-pool review and Palwar QA](ops/passive-aa-ten-20261017/README.md)
+- [Historical October 13 passive AA reduction to 20%](ops/passive-aa-twenty-20261013/README.md)
 
 - [Relaxed tradeskill workshop: live layout, service moves and exact QA](releases/tunnel-cozy-20261013/README.md)
 
@@ -55,6 +66,7 @@ Start with [current status](status.md), not a dated candidate report.
 - [NPC-targeted heal fallback: live deployment, recovery and exact QA](ops/npc-heal-self-20261009/README.md)
 
 - [Crushbone entrance waypoint: deployment, rollback and QA](ops/crushbone-waypoint-20261009/README.md)
+- [Official Nightcap wiki: content, hosting and remaining public setup](ops/nightcap-wiki.md)
 
 - [Classic zone augments, new gear and forge: live deployment and exact QA](releases/zone-loot-20261009/README.md)
 

@@ -64,6 +64,14 @@ All commands run from `akk-stack/`:
 
 ## Server ops
 
+- **Idle production zones must preserve their worker process.** October 17
+  correction sets inherited default `Zone:KillProcessOnDynamicShutdown=false`;
+  alternate rulesets must not override it to true while `/opt/nightcap/start.py`
+  restarts the whole runtime on any child exit. Existing values require a global
+  world/zone rules reload, not a process kill. Activation and reload are verified;
+  natural idle-unload/player-continuity acceptance remains pending. Current
+  evidence: `docs/ops/dynamic-zone-worker-lifetime-20261017/README.md`.
+
 - **Player access codes are live (October11):** issue/revoke personal codes from
   the owner-local production GM tool. Gateway `PLAYER_ACCESS_FILE` replaces
   `ALLOW_CIDRS`; Windows DPAPI remembers each launcher's code. Mount the registry
@@ -319,6 +327,15 @@ release counters and `minimum_launcher` are independent. Preserve the legacy
 inventory for old recovery journals. Signing/build/publication and forward-only
 rollback: `docs/ops/permanent-patcher.md`.
 
+## Recommended AA candidate
+
+`common/aa_recommendations.h` selects presentation guidance; native AA policy and
+ownership still authorize purchases. Pair zone's `aa_recommendations.inc` with
+proxy0.10.0-dev and generated AA XML. Keep the bounded identity-scoped metadata
+opt-in and native pre-row filter; do not delete rows after selection or globally
+change AA eligibility. Source/test/release state and exact QA are in
+`docs/releases/recommended-aa-20261017/README.md`. This is not a deployment grant.
+
 ## Non-obvious gotchas
 
 - **Food/drink removal deployed (2026-10-11):** hunger/thirst/starvation predicates
@@ -478,7 +495,7 @@ matching client publication. Manual gameplay acceptance remains open; see
 ### Reusable item upgrades
 
 The Reforging Box uses native inventory transactions, not NPC ingredient
-hand-ins: four Polished or Exalted copies yield one next-tier item. Box 900620 is
+hand-ins: three eligible Normal/Base copies yield Polished; four Polished or Exalted copies yield one next-tier item. Box 900620 is
 supplied by tunnel NPC 999820. Higher-tier `#zoneforge` costs also become four;
 base remains three. Installation starts disabled and needs matching zone/item
 cache/quest deployment. Evidence and required manual QA:
@@ -636,3 +653,35 @@ RoF2 native player profile/OP_Buff duration differs from icon countdowns: preser
 the server policy -1000 for effects, since -1 expires on a tick unless the spell
 has duration formula 50. Icons still use -1. Test native ticking, not only formula
 arithmetic or slot restoration. Evidence: `docs/releases/blessing-lifetime-20261004/README.md`.
+
+### Official public wiki
+
+`wiki/` owns the separate public guide at `wiki.nightcapgame.org`. Maintain reviewed
+article JSON and the public reward projection, then generate/package only `dist/`.
+Never expose raw exports, source ledgers, operations files or private game downloads.
+Preserve the current credential-based player-access policy and apex/www 404 routes. Wiki and player-site
+publishers must share `deploy/production/website-history/.lock`; preserve the
+bind-mounted Nginx config inode, relative release symlinks and rollback preimages.
+Public HTTPS is active. `wiki/update.py` performs guarded content-only updates
+with an atomic relative pointer, exact config/previous-release checks and rehearsed
+rollback; it does not reload Nginx or restart services. Run its POSIX tests on Linux.
+Keep equipment variants grouped in `items.html`; do not reintroduce flat item dumps
+into category navigation. See `docs/ops/nightcap-wiki.md` for current release and
+recovery. Website deployment does not promote gameplay.
+
+
+### Wiki maintenance with every change
+
+Every Nightcap feature, fix, tuning/content change, deployment and accepted player
+correction requires a wiki impact review before completion. Update affected guides,
+Features (major departures from Classic), home summaries, commands, generated
+item/zone pages, catalog values, release labels and Recent changes together. If
+there is no player-facing impact, record that assessment in the change evidence.
+Do not claim local edits are published; verify the authorized public release.
+
+Use the current wiki checkout and `wiki/README.md`; run `wiki/check_refresh.py`
+against the actual current source ref, including worktree changes when applicable.
+Source drift means review required, not permission to blindly advance the ledger.
+Check dated deployment/QA and outside-Git operations too. Preserve candidate labels,
+private operational data and the installed Nightcap skill's wiki knowledge.
+This is part of each change, not a scheduled job or gameplay deployment authority.

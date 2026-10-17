@@ -1,5 +1,85 @@
 # CHANGES
 
+## 2026-10-17 - Combined progression, combat and crafting release preparation
+
+Integrate Recommended AA, six independent Monk attacks, duration corrections,
+normal death EXP protection, minimum-100 stacks and Normal-item reforging for the
+owner-authorized main/server release. Preserve the already live 10% passive AA and
+idle-worker fixes. Pair zone with proxy 0.10.0, generated AA XML and signed game
+2026101702. No speculative AA unlocks or shared timer identity redesign.
+
+Resolve the integrated full-build Pet gate name collision and extend the native
+fixture to reproduce it before correction; all 816 combinations then pass.
+Prepare guarded activation/publication, a stopped verified backup, complete cache
+and player-data preservation checks, ten patcher notes, current wiki/player-guide
+content and explicit gameplay QA. Build/activation/publication outcomes are tracked
+separately in `docs/releases/october-17-2026/README.md`.
+
+## 2026-10-17 - Recommended AA filter candidate
+
+Add an optional class-aware shortlist to the native AA window, with reasons,
+modest starter targets, prerequisite steps and later-skill/pet labels. Preserve
+native filters, selection, costs, legality and earned ownership. Matched zone,
+proxy 0.10.0-dev and generated XML are required. Native/client/catalog/launcher
+checks pass; full zone build and visible in-game acceptance remain open. No
+new AA was enabled and no client/server/wiki publication occurred. Exact scope
+and QA: `docs/releases/recommended-aa-20261017/README.md`.
+
+## 2026-10-17 - Passive AA reduced to 10%; release-pool review
+
+Apply the owner's requested 20% to 10% passive AA reduction on production.
+Keep full leveling XP, focused AA, 4,000 XP/point and all earned progress. One
+guarded rule change, verified full backup, rollback rehearsal and world/all-zone
+reload complete without restart. 157 native harness checks and nine operation
+checks pass. Player pacing/persistence QA remains pending. The read-only catalog
+review records Palwar's remaining legal pool and proposed AA additions; no new
+AA/rank or cost was released. Wiki/player-site source maintenance is local;
+publication remains pending. Evidence: `docs/ops/passive-aa-ten-20261017/`.
+## 2026-10-17 - Cross-class cooldown audit and duration corrections (candidate)
+
+Audit AA, spell, discipline, skill, item and triggered-effect reuse against the
+current read-only production catalog. Correct signed/unsigned duration overflow
+for item clicks, Mend, Bash/Frenzy and linked spell focus; prevent zero-duration
+skill, spell and AA completion from restarting an expired timer's old duration.
+Eighteen duration and sixteen combat tests pass, including negative-focus,
+authorization and proc/trigger controls. Independent review passes.
+
+The audit also reproduces unresolved shared AA and item-key collisions; it does
+not claim they are fixed. Preserve deliberate family links while designing a
+paired client/server identity correction and saved-timer transition. Full zone
+build, activation and owner gameplay QA remain pending. No production writes or
+client publication occurred. Evidence: `docs/releases/cooldown-audit-20261017/`.
+
+## 2026-10-17 - Independent basic Monk cooldowns (candidate)
+
+Give all six basic Monk attacks separate persistent server cooldowns for held
+Monk RoF2 characters, paired with native client readiness/submission fixes.
+Dragon Punch/Tail Rake and Round Kick no longer block each other. Preserve each
+attack's duration, haste/AA adjustments and eligibility; retain non-Monk and
+older-client grouping. Twelve native server tests, sixty pinned-client checks,
+eight runtime groups and independent review pass. Full zone build, paired
+activation and in-game/balance QA remain pending; no live update occurred.
+Evidence, pairing and exact QA: `docs/releases/monk-independent-reuse-20261017/`.
+## 2026-10-17 - Item stack minimum 100 candidate
+
+Prepare a guarded item-data migration raising 20,490 existing stackable
+definitions below 100 to 100, including 6,734 tradeskill materials. Larger limits,
+nonstackables, charges, prices and recipes remain. Three planner, nine MariaDB
+temporary-table and 25 native tradeskill checks pass; independent review found
+no blockers. Activation needs the supported game restart/item-cache regeneration;
+no binary/client update. Do not lower limits after players form larger stacks.
+Production application, main promotion, wiki publication and owner QA are pending.
+Evidence and exact QA: `docs/ops/item-stacks-100-20261017/README.md`.
+## 2026-10-17 - Keep idle production zone workers alive
+
+Set the inherited production default `Zone:KillProcessOnDynamicShutdown` rule
+from true to false to stop orderly idle unloads from triggering the supervisor's
+whole-game restart. One-row guarded SQL and exact inverse rehearsal passed;
+world and all twelve workers reloaded without changing any native lifetime or
+service identity. Other rules, timers and player data are preserved. Natural
+idle-unload/player-continuity acceptance remains pending. Evidence, rollback
+constraints and exact QA: `docs/ops/dynamic-zone-worker-lifetime-20261017/`.
+
 ## 2026-10-17 - Raid and Grind headline patcher announcement
 
 Publish signed patch 2026101701 with eleven Latest Update bullets introducing
@@ -8,6 +88,28 @@ boss checklist. Preserve all 106 client assets and thirteen previous summaries.
 Manifest/packager tests, seven publisher recovery checks and normal/minimum-size
 Chrome layout checks pass. Publication evidence and player check:
 `docs/releases/dungeon-patcher-20261017/`.
+## 2026-10-17 - Reforging Box accepts normal items (candidate)
+
+Add exactly three identical eligible Normal/Base copies -> one Polished item for
+ordinary tiered gear and Classic hunt rewards. Higher tiers still cost four.
+Keep the reusable four-slot box, binding, instance checks and atomic receipts;
+unsupported/dungeon items and wrong quantities reject intact. Update Veyra,
+combine messages and the maintained wiki with pending-release labels. Native
+policy/inventory regression, adjacent hunt/tradeskill and quest checks pass.
+Full runtime build, production deployment and in-game QA are pending. Requires
+matched zone/quest refresh; no SQL/cache ABI or client changes. See
+`docs/releases/reforge-normal-20261017/README.md`.
+## 2026-10-17 - Death EXP loss removal prepared
+
+Prepare the existing `Character:DeathExpLossLevel=256` override, disabling normal
+death EXP loss at every supported level without a rebuild/restart. Preserve AA,
+old corpse recovery and other death mechanics. Multiplier zero is not a disable
+switch. The actual death calculation passes 2,048 native cases and two old-policy
+controls; production preflight confirms the default-only value is still 10.
+Guarded forward/inverse SQL, reload/recovery instructions, exact in-game QA and
+candidate wiki notices are ready. Main promotion, activation and wiki publication
+remain pending owner release approval. See
+[the operation record](docs/ops/no-death-exp-loss-20261017/README.md).
 
 ## 2026-10-16 - Dungeon checklist and completion-history repair deployed
 
@@ -660,6 +762,45 @@ in default ruleset 1. Preserve full leveling XP, existing AA progress and the
 reloaded without restarting; every other rule is unchanged. The compiled fallback
 remains 1%, so preserve the DB override. Native gameplay/balance acceptance is
 still open. Evidence and QA: docs/ops/passive-aa-tuning-20261009/README.md.
+Gameplay acceptance remains pending; see `docs/releases/wiki-dungeons-20261016/`.
+
+## 2026-10-16 - Features and whole-wiki maintenance
+
+Add a Features hub, item-upgrade and Craft All guides, and primary navigation.
+Reconcile current AA, equipment/LORE, upgrade, buff, healing, travel and service
+rules across maintained guides and 432 generated reward pages. Add required wiki
+impact review to each Nightcap change plus source-drift detection covering new,
+deleted, staged, unstaged and untracked source. Retain deployment/QA distinctions.
+No gameplay, item-stat, access-policy or service changes. Publication evidence:
+`docs/releases/wiki-features-20261016/README.md`.
+
+## 2026-10-09 - Organized Equipment catalog
+
+Replace the 384-entry Equipment text dump with 96 item families, each containing
+its four quality links. Add gear/augment, slot, required-level, zone and name
+filters, sorting, shareable filter URLs and 12-family pages; retain all static
+item links and separate equipment/forging guides. Sidebar and category navigation
+now lead to the catalog. Full variant-name searches are covered for all 384 items.
+Add guarded content updates with atomic relative pointers and rollback regressions;
+no Nginx, access-policy, gameplay or database changes are required. Published
+release 20261010-equipment-v1 passes all 461 public hashes/header checks,
+rollback rehearsal and private-download/service preservation. Evidence:
+docs/releases/wiki-equipment-20261010/ and docs/ops/nightcap-wiki.md.
+
+
+## 2026-10-09 - Official public wiki on an isolated OVH host
+
+Add the owner-maintained Nightcap wiki: 17 guide pages, 48 enabled reward zones,
+384 item variants, article/category navigation and browser search. Preserve current
+40% passive AA and live-testing/unreleased labels. Publish only the 461-file static
+payload to an isolated wiki origin, with archive validation, shared website lock,
+rollback rehearsal and exact private-download/container preservation. Origin
+release 20261009-wiki-v2 passes. Public wiki.nightcapgame.org now routes through
+the existing Cloudflare tunnel with proxied DNS; all 461 files pass external HTTPS
+hash/header checks and live search/mobile checks pass. Existing player-only WAF
+and gateway policy are unchanged; private paths remain blocked. No gameplay,
+database, client or private player-guide changes.
+Build, tests, content provenance and recovery: docs/ops/nightcap-wiki.md.
 
 ## 2026-10-09 - Classic zone hunt deployed and private guide updated
 

@@ -1,5 +1,9 @@
 # In-game acceptance: Reforging Box
 
+October 17 follow-up: [normal-item box recipe candidate](../reforge-normal-20261017/README.md)
+adds a three-copy Normal/Base step. The October 12 deployment/QA below is
+historical and does not establish that the new recipe is live or accepted.
+
 Pending. The matched release is live for owner-approved QA. Use disposable QA
 items/characters; keep disable/failure-injection tests on an isolated server.
 Record client/server versions, character, item IDs, before/after inventory and

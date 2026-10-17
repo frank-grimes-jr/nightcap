@@ -1,0 +1,107 @@
+[
+  {
+    "slug": "about",
+    "title": "About this wiki",
+    "assessment": "no player-facing change"
+  },
+  {
+    "slug": "advanced-loot",
+    "title": "Advanced loot",
+    "assessment": "no player-facing change"
+  },
+  {
+    "slug": "ascension",
+    "title": "Ascension quest",
+    "assessment": "no player-facing change"
+  },
+  {
+    "slug": "combat",
+    "title": "Combat, buffs & recovery",
+    "assessment": "candidate notice updated"
+  },
+  {
+    "slug": "commands",
+    "title": "Command reference",
+    "assessment": "no player-facing change"
+  },
+  {
+    "slug": "dungeon-modes",
+    "title": "Raid & Grind dungeons",
+    "assessment": "no player-facing change"
+  },
+  {
+    "slug": "equipment",
+    "title": "Equipment & trading",
+    "assessment": "no player-facing change"
+  },
+  {
+    "slug": "features",
+    "title": "Features",
+    "assessment": "candidate notice updated"
+  },
+  {
+    "slug": "getting-started",
+    "title": "Getting started",
+    "assessment": "no player-facing change"
+  },
+  {
+    "slug": "index",
+    "title": "Welcome to the Nightcap Wiki",
+    "assessment": "candidate notice updated"
+  },
+  {
+    "slug": "item-upgrades",
+    "title": "Item upgrades",
+    "assessment": "no player-facing change"
+  },
+  {
+    "slug": "launcher",
+    "title": "Launcher & interface",
+    "assessment": "no player-facing change"
+  },
+  {
+    "slug": "multiclass",
+    "title": "Multiclass & progression",
+    "assessment": "candidate notice updated"
+  },
+  {
+    "slug": "pets",
+    "title": "Pets & pet armor",
+    "assessment": "no player-facing change"
+  },
+  {
+    "slug": "recent-changes",
+    "title": "Recent changes",
+    "assessment": "candidate notice updated"
+  },
+  {
+    "slug": "tradeskills",
+    "title": "Tradeskills & Craft All",
+    "assessment": "no player-facing change"
+  },
+  {
+    "slug": "travel",
+    "title": "Travel & instances",
+    "assessment": "no player-facing change"
+  },
+  {
+    "slug": "tunnel",
+    "title": "East Commonlands tunnel",
+    "assessment": "no player-facing change"
+  },
+  {
+    "slug": "unreleased",
+    "title": "In development",
+    "assessment": "candidate notice updated"
+  },
+  {
+    "slug": "waypoints",
+    "title": "Waypoint Explorer",
+    "assessment": "no player-facing change"
+  },
+  {
+    "slug": "zone-hunt",
+    "title": "Zone hunt & forging",
+    "assessment": "no player-facing change"
+  }
+]

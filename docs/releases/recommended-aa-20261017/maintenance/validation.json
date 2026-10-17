@@ -1,0 +1,19 @@
+{
+  "wiki_python_tests": 14,
+  "wiki_node_tests": 13,
+  "wiki_drift": "REVIEW REQUIRED for broader historical source changes; ledger not advanced",
+  "skill_validator": "valid",
+  "reviewed_fingerprints": {
+    "client": 126,
+    "multiclass": 126,
+    "wiki": 51
+  },
+  "fingerprint_drift": 0,
+  "public_wiki_published": false,
+  "review": "Author reviewed native ABI/selection, identity batch, native legality, compatibility and scope. No gameplay acceptance claimed.",
+  "remaining": [
+    "Full zone compilation/link",
+    "Native rendered and selected-rank purchase QA",
+    "Paired release approval and publication"
+  ]
+}

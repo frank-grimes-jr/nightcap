@@ -202,22 +202,22 @@ static void TestSilentRequests() {
     send_request = reinterpret_cast<SendRequest>(&fake_request_sender);
     original_chat = reinterpret_cast<DisplayChat>(&fake_chat);
     RequestRefresh(); RequestPetRefresh();
-    assert((sent_requests == std::vector<std::string>{"#nightcapui refresh", "#nightcappet view"}));
+    assert((sent_requests == std::vector<std::string>{"#nightcapui refresh", "#nightcapui recommended", "#nightcappet view"}));
     RequestRefresh(); RequestPetRefresh();
-    assert(sent_requests.size() == 2); // preserve retry throttles
+    assert(sent_requests.size() == 3); // preserve retry throttles
     assert(ExecuteUIRequest("#nightcappet equip 10 0 77"));
     assert(ExecuteUIRequest("#nightcappet remove 10 7 78"));
     assert(ExecuteUIRequest("#nightcappet inspect 10 4 79"));
     assert(sent_requests.back() == "#nightcappet inspect 10 4 79");
     assert(!ExecuteUIRequest(""));
     *reinterpret_cast<int*>(eq+0x5C8) = 1;
-    assert(!ExecuteUIRequest("#nightcapui refresh")); // no packets at character select
+    assert(!ExecuteUIRequest("#nightcapui recommended")); // no packets at character select
     *reinterpret_cast<int*>(eq+0x5C8) = 5;
     for (unsigned offset : {0x9D261C,0x9D25AC,0x9D2630,0xA67CCC}) {
         auto ptr = reinterpret_cast<void**>(host+offset); auto saved = *ptr; *ptr = nullptr;
-        assert(!ExecuteUIRequest("#nightcapui refresh")); *ptr = saved;
+        assert(!ExecuteUIRequest("#nightcapui recommended")); *ptr = saved;
     }
-    assert(sent_requests.size() == 5 && displayed_lines == 0);
+    assert(sent_requests.size() == 6 && displayed_lines == 0);
     ChatHook(eq,nullptr,"You say, 'hello'",307,true,true);
     ChatHook(eq,nullptr,"You cannot change pet armor while fighting.",13,true,true);
     assert(displayed_lines == 2); // ordinary chat and server errors remain visible
@@ -542,21 +542,21 @@ int main() {
     *reinterpret_cast<uint32_t*>(text+0x08)=5;
     memcpy(text+0x14,"Class",6);
     *reinterpret_cast<void**>(columns+5*0x3C+0x18)=text;
-    void* found=nullptr; int rows=0,index=-1;
-    assert(nightcap::client_ui::ReadList(window,0,found,rows,index));
+    void* found=nullptr; int recommendation_column=-1; int rows=0,index=-1;
+    assert(nightcap::client_ui::ReadList(window,0,found,rows,index,recommendation_column));
     assert(found==list && rows==3 && index==5); // a Timer column cannot overwrite Category
     *reinterpret_cast<void**>(columns+4*0x3C+0x18)=text;
-    assert(!nightcap::client_ui::ReadList(window,0,found,rows,index)); // duplicate heading
+    assert(!nightcap::client_ui::ReadList(window,0,found,rows,index,recommendation_column)); // duplicate heading
     *reinterpret_cast<void**>(columns+5*0x3C+0x18)=nullptr;
-    assert(nightcap::client_ui::ReadList(window,0,found,rows,index) && index==4);
+    assert(nightcap::client_ui::ReadList(window,0,found,rows,index,recommendation_column) && index==4);
     *reinterpret_cast<uint32_t*>(text+0x0C)=1;
-    assert(!nightcap::client_ui::ReadList(window,0,found,rows,index)); // unsupported encoding
+    assert(!nightcap::client_ui::ReadList(window,0,found,rows,index,recommendation_column)); // unsupported encoding
     *reinterpret_cast<uint32_t*>(text+0x0C)=0;
     *reinterpret_cast<uint32_t*>(text+0x04)=5;
-    assert(!nightcap::client_ui::ReadList(window,0,found,rows,index)); // missing terminator capacity
+    assert(!nightcap::client_ui::ReadList(window,0,found,rows,index,recommendation_column)); // missing terminator capacity
     *reinterpret_cast<uint32_t*>(text+0x04)=6;
     *reinterpret_cast<int*>(list+0x1E8)=33;
-    assert(!nightcap::client_ui::ReadList(window,0,found,rows,index));
-    assert(!nightcap::client_ui::ReadList(nullptr,0,found,rows,index));
+    assert(!nightcap::client_ui::ReadList(window,0,found,rows,index,recommendation_column));
+    assert(!nightcap::client_ui::ReadList(nullptr,0,found,rows,index,recommendation_column));
     std::cout << "Native UI hook controls passed\n";
 }
