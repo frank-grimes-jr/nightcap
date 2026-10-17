@@ -65,6 +65,17 @@ policy/inventory regression, adjacent hunt/tradeskill and quest checks pass.
 Full runtime build, production deployment and in-game QA are pending. Requires
 matched zone/quest refresh; no SQL/cache ABI or client changes. See
 `docs/releases/reforge-normal-20261017/README.md`.
+## 2026-10-17 - Death EXP loss removal prepared
+
+Prepare the existing `Character:DeathExpLossLevel=256` override, disabling normal
+death EXP loss at every supported level without a rebuild/restart. Preserve AA,
+old corpse recovery and other death mechanics. Multiplier zero is not a disable
+switch. The actual death calculation passes 2,048 native cases and two old-policy
+controls; production preflight confirms the default-only value is still 10.
+Guarded forward/inverse SQL, reload/recovery instructions, exact in-game QA and
+candidate wiki notices are ready. Main promotion, activation and wiki publication
+remain pending owner release approval. See
+[the operation record](docs/ops/no-death-exp-loss-20261017/README.md).
 
 ## 2026-10-16 - Dungeon checklist and completion-history repair deployed
 

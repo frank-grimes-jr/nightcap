@@ -1,0 +1,197 @@
+--- a/references/multiclass.md
++++ b/references/multiclass.md
+@@ -209,6 +209,31 @@
+ pending. Historical 4,000-point conversion checks remain at
+ `tools/tests/test_aa_point_cost.py` in the October 12 point-cost checkout.
+ 
++## Normal death EXP loss — candidate October 17
++
++The owner requested no normal-death EXP penalty. The reviewed candidate sets
++existing default rule `Character:DeathExpLossLevel=256`; all uint8 player levels
++then receive zero `exploss` before `SetEXP` and corpse creation. Multiplier index
++zero still loses 0.5%, so it is not a disable switch. Old corpse recovery remains;
++new zero-loss corpses cannot grant resurrection EXP. AA, other death mechanics,
++and Sacrifice's separate reagent cost stay unchanged. No retroactive XP refund.
++
++Source and tests: `server-mods/code/zone/attack.cpp` (`Client::Death`),
++`client_process.cpp` (`OPRezzAnswer`), `exp.cpp` (level warning), `ruletypes.h`,
++and `tools/tests/test_no_death_exp_loss.py` in
++`E:/EQ_Local_Dev/_worktrees/no-death-exp-loss` (8d30ea6 + reviewed candidate).
++The compiled decision/application passes 2,048 cases and two old-policy controls;
++resurrection/corpse source checks pass. This is not a full server build or live QA.
++
++`docs/ops/no-death-exp-loss-20261017/` owns guarded forward/inverse SQL, preflight,
++recovery and exact owner QA. Read-only OVH verification at 13:47 UTC October17
++still observes default value10, with no ruleset overrides and current dungeon
++world/zone hashes. Other rulesets inherit default before their own values.
++Activation needs fresh backup/preimages and verified world/all-zone Rules reload;
++no restart, client, quest or cache pairing. Never deploy this older full overlay
++over retained production binaries. Main/OVH approval, activation, owner gameplay
++QA and prepared wiki publication remain pending; this is not a live-state change.
++
+ GM level boosts must write native float32-compatible cumulative XP and exactly-once lifetime training points, preserving valid progress/highest attained level. `exp=0` at level 50 caused a subsequent award to de-level a character. Route boost changes to [Administration](admin.md).
+ 
+ ## Focused checks
+--- a/references/wiki.md
++++ b/references/wiki.md
+@@ -70,6 +70,15 @@
+ Source commit78991d4 and receipt docs/releases/wiki-dungeon-journal-20261016/;
+ the native release retains its whole-wiki review in docs/dungeons/journal-repair/.
+ 
++October17 no-death-EXP candidate: Combat, progression, Features, home,
++In development and Recent changes have local unreleased notices. All maintained
++articles and generated catalog scope were reviewed; commands, item/zone stats,
++rewards and other death mechanics are unchanged. Production still has the level10
++penalty threshold. No activation or publication occurred. Evidence and exact
++maintenance patches: `E:/EQ_Local_Dev/_worktrees/no-death-exp-loss/docs/ops/no-death-exp-loss-20261017/`.
++Replace candidate notices together only after authorized activation, then verify
++public bytes. The broad content-review revision remains unchanged.
++
+ ## Tests, publication and recovery
+ 
+ From wiki/: nine `test_wiki` checks cover all 458 pages; five `test_refresh` cases
+--- a/references/sources.json
++++ b/references/sources.json
+@@ -36,7 +36,8 @@
+     "befallen_keeper_owner_qa_20261016": "6b8c798734556411bad8b4fe2c4153e6111468e5",
+     "dungeon_journal_repair_20261016": "cdc9772011b24cae65e4afcd0930f4f8b6397c55",
+     "dungeon_journal_wiki_20261016": "78991d46a9dd100023cc37c8c64785c1d13367fa",
+-    "dungeon_journal_owner_acceptance_20261016": "b92061d617e8d169489aab0313bf284616ad5a5d"
++    "dungeon_journal_owner_acceptance_20261016": "b92061d617e8d169489aab0313bf284616ad5a5d",
++    "no_death_exp_loss_candidate_20261017": "8d30ea6 + reviewed candidate in E:/EQ_Local_Dev/_worktrees/no-death-exp-loss; not activated"
+   },
+   "topics": {
+     "operations": [
+@@ -891,6 +892,55 @@
+         "role": "release-specific authorization and guarded operation/recovery",
+         "revision": "1cfdea8262ed033a29d6ce8c8577f1f73420a5fa",
+         "sha256": "e55373313b892b229961e38c6efaeae0f861bb54dc365dcfcfa1f020fd82c46e"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/no-death-exp-loss",
++        "path": "server-mods/code/zone/attack.cpp",
++        "role": "reviewed normal-death EXP removal candidate; activation and owner QA pending",
++        "revision": "8d30ea6 + reviewed candidate",
++        "sha256": "cb5ee3ad1d26969902f8d5eb1420ef6a42b8be293c43f023ab41058c283a99a2"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/no-death-exp-loss",
++        "path": "server-mods/code/zone/client_process.cpp",
++        "role": "reviewed normal-death EXP removal candidate; activation and owner QA pending",
++        "revision": "8d30ea6 + reviewed candidate",
++        "sha256": "70597fbcecd1ef8b44a2f7c584630adc14623e462ee4ab0f9045d251a925db7e"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/no-death-exp-loss",
++        "path": "tools/tests/test_no_death_exp_loss.py",
++        "role": "reviewed normal-death EXP removal candidate; activation and owner QA pending",
++        "revision": "8d30ea6 + reviewed candidate",
++        "sha256": "7e7d412ef595560f30463d83dbc8a56dfadc69b1ff85b4624e6f75dcf7375996"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/no-death-exp-loss",
++        "path": "docs/ops/no-death-exp-loss-20261017/forward.sql",
++        "role": "reviewed normal-death EXP removal candidate; activation and owner QA pending",
++        "revision": "8d30ea6 + reviewed candidate",
++        "sha256": "5d26383b7886e80ef803eb6bf3b9b86e6b5596a2ca2b5502625bc4defcb99427"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/no-death-exp-loss",
++        "path": "docs/ops/no-death-exp-loss-20261017/rollback.sql",
++        "role": "reviewed normal-death EXP removal candidate; activation and owner QA pending",
++        "revision": "8d30ea6 + reviewed candidate",
++        "sha256": "3ba2587d326b086546cb20df1d3af05f1f37b6ca7bebdc220f5dc13d6d5dc7fb"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/no-death-exp-loss",
++        "path": "docs/ops/no-death-exp-loss-20261017/README.md",
++        "role": "reviewed normal-death EXP removal candidate; activation and owner QA pending",
++        "revision": "8d30ea6 + reviewed candidate",
++        "sha256": "8f9c3541fc6d20f58179f6e440496a683ea47ef921898130cf57f62b0d803825"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/no-death-exp-loss",
++        "path": "docs/ops/no-death-exp-loss-20261017/preflight.json",
++        "role": "reviewed normal-death EXP removal candidate; activation and owner QA pending",
++        "revision": "8d30ea6 + reviewed candidate",
++        "sha256": "a4db5a8bbe7546a377f093853d4e19a139acbbe909042b615890e1e5169bd8fe"
+       }
+     ],
+     "items": [
+@@ -3198,8 +3248,8 @@
+         "root": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev",
+         "path": "wiki/content-review.json",
+         "role": "Reviewed published Raid/Grind wiki source or verification; owner gameplay acceptance pending",
+-        "revision": "78991d46a9dd100023cc37c8c64785c1d13367fa",
+-        "sha256": "6d0cc6a6fbc3c5bbbebddff73c3c65af57557978692b1c508b6be24f79adf9ff"
++        "revision": "78991d4 + no-death-EXP candidate notices; not published",
++        "sha256": "4455715dc335a61cbd9f0814aa3c7e7c2c761e6abd3a94d32e8e285e4d2647d1"
+       },
+       {
+         "root": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev",
+@@ -3324,8 +3374,8 @@
+         "root": "C:/Users/verre/.codex/worktrees/nightcap-wiki/EQ_Local_Dev",
+         "path": "wiki/articles/combat.json",
+         "role": "Reviewed wiki source, maintenance contract or dated publication evidence",
+-        "revision": "1048a5c427782d5c3fbf63e17fb63ce934a05eb7 plus publication evidence",
+-        "sha256": "ab1d689135d7d40063e4345561d9fd793d909388dc71f4f44278f9b38a9c2118"
++        "revision": "78991d4 + no-death-EXP candidate notices; not published",
++        "sha256": "80ad460f9d87f284ce3376ec4c401c10adc50e4b5a65a1d18dec66b211ea93b4"
+       },
+       {
+         "root": "C:/Users/verre/.codex/worktrees/nightcap-wiki/EQ_Local_Dev",
+@@ -3345,8 +3395,8 @@
+         "root": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev",
+         "path": "wiki/articles/features.json",
+         "role": "Reviewed published Raid/Grind wiki source or verification; owner gameplay acceptance pending",
+-        "revision": "461c53da30fa3b669bcbca07338a0aa94559b1f9",
+-        "sha256": "e39b18cf46866c7db907f9a33eb4ced53ed5fa6b18cc1a37734eb89db8a278aa"
++        "revision": "78991d4 + no-death-EXP candidate notices; not published",
++        "sha256": "6fd893699831b4a2570e40f3055bd222219d03035b61de4dd71f84c79260d9cc"
+       },
+       {
+         "root": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev",
+@@ -3359,8 +3409,8 @@
+         "root": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev",
+         "path": "wiki/articles/index.json",
+         "role": "Reviewed published Raid/Grind wiki source or verification; owner gameplay acceptance pending",
+-        "revision": "461c53da30fa3b669bcbca07338a0aa94559b1f9",
+-        "sha256": "158ef0c09d0fb1de2b0156db1f42348b12ceb0de994e544988c967fd2bf4cd7d"
++        "revision": "78991d4 + no-death-EXP candidate notices; not published",
++        "sha256": "bf82215da177b9ea65d2e9f5dca53d113b79f724381547fe52adaaf3ec2eacdb"
+       },
+       {
+         "root": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev",
+@@ -3380,8 +3430,8 @@
+         "root": "C:/Users/verre/.codex/worktrees/nightcap-wiki/EQ_Local_Dev",
+         "path": "wiki/articles/multiclass.json",
+         "role": "Reviewed wiki source, maintenance contract or dated publication evidence",
+-        "revision": "1048a5c427782d5c3fbf63e17fb63ce934a05eb7 plus publication evidence",
+-        "sha256": "561fe2c2c24a8778611442764aa3bc659325a9682af438dbacb2a4723452ad0c"
++        "revision": "78991d4 + no-death-EXP candidate notices; not published",
++        "sha256": "ef3dcb5006f7740fc94e68673ebfe8dd23bdac73beda429260cc5239b0f5ed2e"
+       },
+       {
+         "root": "C:/Users/verre/.codex/worktrees/nightcap-wiki/EQ_Local_Dev",
+@@ -3394,8 +3444,8 @@
+         "root": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev",
+         "path": "wiki/articles/recent-changes.json",
+         "role": "Reviewed published Raid/Grind wiki source or verification; owner gameplay acceptance pending",
+-        "revision": "78991d46a9dd100023cc37c8c64785c1d13367fa",
+-        "sha256": "987a8b7c4bed046d0e76394bc109f771108ff76e4dfa34f2322d24db6f769560"
++        "revision": "78991d4 + no-death-EXP candidate notices; not published",
++        "sha256": "f71d3d0bcbda8ba658e9727bee85c28e470ac87a125a8c25e250ba5764a391ff"
+       },
+       {
+         "root": "C:/Users/verre/.codex/worktrees/nightcap-wiki/EQ_Local_Dev",
+@@ -3422,8 +3472,8 @@
+         "root": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev",
+         "path": "wiki/articles/unreleased.json",
+         "role": "Reviewed published Raid/Grind wiki source or verification; owner gameplay acceptance pending",
+-        "revision": "461c53da30fa3b669bcbca07338a0aa94559b1f9",
+-        "sha256": "6522ad24364716133de6583c4ae3c680af8466b863ff4c25c6811322e15591ab"
++        "revision": "78991d4 + no-death-EXP candidate notices; not published",
++        "sha256": "2ed89df23baf4502cab09920d476d1d354ce65a80e7026e2eb4a6877e5b329ed"
+       },
+       {
+         "root": "C:/Users/verre/.codex/worktrees/nightcap-wiki/EQ_Local_Dev",
