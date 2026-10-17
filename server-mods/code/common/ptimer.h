@@ -24,7 +24,7 @@
 #include <vector>
 
 enum : int {	//values for pTimerType
-	pTimerNegativeItemReuse = -1, // these grow down basically, we will have item ID * -1 for the timer ID
+	pTimerUnlinkedItemStart = 0x200000, // stable item identity; never truncate -item_id
 	pTimerStartAdventureTimer = 1,
 	pTimerSurnameChange = 2,
 	pTimerFeignDeath = 3,
@@ -38,8 +38,10 @@ enum : int {	//values for pTimerType
 	pTimerTracking = 11,
 	pTimerSenseTraps = 12,
 	pTimerDisarmTraps = 13,
-	pTimerDisciplineReuseStart = 14,
-	pTimerDisciplineReuseEnd = 24, // client actually has 20 ids, but still no disc go that high even on live
+	pTimerDisciplineReuseStart = 0x300000,
+	pTimerDisciplineReuseEnd = 0x300013, // all 20 native discipline groups, isolated from skills/spells
+	pTimerUnlinkedDisciplineStart = 0x400000, // timer_id=-1: one clock per discipline spell
+	pTimerUnlinkedDisciplineEnd = 0x40ffff,
 	pTimerCombatAbility = 25,
 	pTimerCombatAbility2 = 26, // RoF2+ Tiger Claw is unlinked from other monk skills, generic in case other classes ever need it
 	pTimerBeggingPickPocket = 27,
@@ -61,18 +63,18 @@ enum : int {	//values for pTimerType
 	pTimerPeqzoneReuse = 900,
 	pTimerMercReuse = 901,
 	pTimerMercSuspend = 902,
-	pTimerAAStart = 1000,		//AA re-use timers
-	pTimerAAEnd = 2999,
+	pTimerAAStart = 0x100000,		// start + AA ability (family) ID; not a client timer slot
+	pTimerAAEnd = 0x1fffff,
 	pTimerAAEffectStart = 3001,	//AA effect timers
 	pTimerAAEffectEnd	= 4999,
 
-	pTimerSpellStart = 5000		//Do not put any timer IDs above this one
-								//if needed, increase its starting ID
+	pTimerSpellStart = 5000 // spell IDs are uint16; positive namespaces above cannot overlap
 };
 
 class Database;
 
-typedef uint16 pTimerType;
+// SQL timers.type is MEDIUMINT UNSIGNED. Keep namespaces inside its 24 bits.
+typedef uint32 pTimerType;
 
 class PersistentTimer {
 public:

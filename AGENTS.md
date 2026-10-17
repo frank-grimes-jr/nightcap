@@ -60,6 +60,17 @@ All commands run from `akk-stack/`:
 
 ## Domain knowledge
 
+- **Cooldown identity candidate (October 17, not deployed):** AA reuse belongs
+  to an ability family, projected into the native client's 100 slots independently
+  of purchases. Internal timer keys now use disjoint positive 24-bit-compatible
+  namespaces for AAs, unlinked items and disciplines. Pair the rebuilt zone with
+  the stopped-game guarded timer conversion; its receipt gates authorized zone
+  entry. Preserve legacy deadlines, including dormant families. Rollback removes
+  all namespaced rows before any old uint16 loader starts. Existing Monk client
+  pairing remains required. Linked content and generic basic skill sharing are
+  still open; never claim all groups independent or wipe timers. Evidence, native
+  contract, migration and exact QA: `docs/releases/cooldown-identities-20261017/`.
+
 `.Codex/skills/eqemu/` — EQEmu/Nightcap server internals (caches/reloads, RoF2 client limits, Perl DB API) and the THJ replication spec with gap roadmap (`thj-blueprint.md`). Consult it before touching server systems; keep it updated as systems change.
 
 ## Server ops

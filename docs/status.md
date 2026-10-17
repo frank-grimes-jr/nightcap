@@ -1,5 +1,15 @@
 # Current Nightcap status
 
+## Cooldown identity follow-up — candidate, not deployed
+
+Rampage/Purify Body collision reproduced in server and pinned RoF2 code. Candidate
+separates165 activated AA families, unlinked items and grouped/ungrouped discipline
+storage; reset/reconnect paths use the same identities. Existing saved deadlines
+need the guarded conversion. No live timers or server state changed. Content-level
+Harmshield/Cannibalize, Battle Cry/Throw Stone and generic skill sharing remain open.
+[Evidence, migration, limits and QA](releases/cooldown-identities-20261017/README.md).
+
+
 ## October 17 progression, combat and crafting — deployed
 
 PR #220 is merged to main and OVH is running the matching full zone build with

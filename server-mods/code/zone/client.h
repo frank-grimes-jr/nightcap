@@ -1126,7 +1126,8 @@ public:
 	void IncrementAlternateAdvancementRank(int rank_id);
 	void ActivateAlternateAdvancementAbility(int rank_id, int target_id);
 	void SendAlternateAdvancementPoints();
-	void SendAlternateAdvancementTimer(int ability, int begin, int end);
+	int GetAlternateAdvancementTimerSlot(int family_id);
+	void SendAlternateAdvancementTimer(int family_id, int begin, int end);
 	void SendAlternateAdvancementTimers();
 	void ResetAlternateAdvancementTimer(int ability);
 	void ResetAlternateAdvancementTimers();

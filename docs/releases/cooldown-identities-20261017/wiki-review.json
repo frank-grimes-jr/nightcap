@@ -1,0 +1,162 @@
+{
+  "source": "C:\\Users\\verre\\Documents\\Codex\\2026-10-17\\see\\work\\cooldown-identities",
+  "reviewed_articles": [
+    {
+      "article": "about.json",
+      "title": "About this wiki",
+      "status": "Reference",
+      "sha256": "d30e64f41dd4395f4d27163407a134527fca9bf9892dabd816774bd0ebcd1da0",
+      "decision": "No public-content change: existing live guidance remains accurate; candidate does not change this guide’s progression, rewards, access, travel, pets, recipes or interface contract."
+    },
+    {
+      "article": "advanced-loot.json",
+      "title": "Advanced loot",
+      "status": "Live testing",
+      "sha256": "0f0870dd8c5e412c0a673a7ff551a952965397e5b2ce0dd6bb67ac1336c0e506",
+      "decision": "No public-content change: existing live guidance remains accurate; candidate does not change this guide’s progression, rewards, access, travel, pets, recipes or interface contract."
+    },
+    {
+      "article": "ascension.json",
+      "title": "Ascension quest",
+      "status": "Live testing",
+      "sha256": "63a95cfaac55cdafad7aed7a731406b01dfdabbb6053e4364371cd283f19d036",
+      "decision": "No public-content change: existing live guidance remains accurate; candidate does not change this guide’s progression, rewards, access, travel, pets, recipes or interface contract."
+    },
+    {
+      "article": "combat.json",
+      "title": "Combat, buffs & recovery",
+      "status": "Live testing",
+      "sha256": "d2a9e46df223a38a4b5751020e14ff10a292fc0e56c580001b3bdc0b8d10aaf7",
+      "decision": "Update candidate scope and preserve live/not-deployed distinction"
+    },
+    {
+      "article": "commands.json",
+      "title": "Command reference",
+      "status": "Live testing",
+      "sha256": "b23435918515e34f6db39189f0d072847b19599dff37c3739daf724839c66bd3",
+      "decision": "Player commands unchanged. Revised GM-only #resetaa_timer argument is documented in the operator release/QA, not promoted as a player command."
+    },
+    {
+      "article": "dungeon-modes.json",
+      "title": "Raid & Grind dungeons",
+      "status": "Live testing",
+      "sha256": "c9b31538d188ce7e47cfa1c4a297d0ec1c0d2d11b838747fe6d3da06ca561cac",
+      "decision": "No public-content change: existing live guidance remains accurate; candidate does not change this guide’s progression, rewards, access, travel, pets, recipes or interface contract."
+    },
+    {
+      "article": "equipment.json",
+      "title": "Equipment & trading",
+      "status": "Live testing",
+      "sha256": "5c855348ce892feb4bb7aabb9adb9ff854332828bf6902e37792f20e3a918e43",
+      "decision": "No public-content change: existing live guidance remains accurate; candidate does not change this guide’s progression, rewards, access, travel, pets, recipes or interface contract."
+    },
+    {
+      "article": "features.json",
+      "title": "Features",
+      "status": "Live testing",
+      "sha256": "a114c338e2d1c423018c62e55a5cce43fccd107244cf2930526bcd799c1484d2",
+      "decision": "Existing live Monk/duration feature remains accurate. Do not advertise candidate AA independence as a live feature; In development/recent-changes carry the distinction."
+    },
+    {
+      "article": "getting-started.json",
+      "title": "Getting started",
+      "status": "Live testing",
+      "sha256": "7577b0d5dcd9d6275d725553d8444252cec3745e8085651cd873151443e63b08",
+      "decision": "No public-content change: existing live guidance remains accurate; candidate does not change this guide’s progression, rewards, access, travel, pets, recipes or interface contract."
+    },
+    {
+      "article": "index.json",
+      "title": "Welcome to the Nightcap Wiki",
+      "status": "Reference",
+      "sha256": "b0f19795e0b74c6fb993c34112fda8aff0c8f837b9a498e22a8c0d79eb3c02a5",
+      "decision": "Home live feature summaries remain accurate; no candidate advertised as deployed."
+    },
+    {
+      "article": "item-upgrades.json",
+      "title": "Item upgrades",
+      "status": "Live testing",
+      "sha256": "3b823e9009a323047d252620218c10a45eb8026b15e73d3e19b288d3dc472805",
+      "decision": "No public-content change: existing live guidance remains accurate; candidate does not change this guide’s progression, rewards, access, travel, pets, recipes or interface contract."
+    },
+    {
+      "article": "launcher.json",
+      "title": "Launcher & interface",
+      "status": "Live testing",
+      "sha256": "0909069c8dc879b8ea128b70d1c8458d1121ecb6b4ab6be49cc46df204ae8029",
+      "decision": "No public-content change: existing live guidance remains accurate; candidate does not change this guide’s progression, rewards, access, travel, pets, recipes or interface contract."
+    },
+    {
+      "article": "multiclass.json",
+      "title": "Multiclass & progression",
+      "status": "Live testing",
+      "sha256": "5cd56b7881577ed0e1fb6dd4c7afa6e0eb9d48bbb9c37b656a2ae329e0d1424e",
+      "decision": "No public-content change: existing live guidance remains accurate; candidate does not change this guide’s progression, rewards, access, travel, pets, recipes or interface contract."
+    },
+    {
+      "article": "pets.json",
+      "title": "Pets & pet armor",
+      "status": "Live testing",
+      "sha256": "3c44fe0856f38477d4c490ed2c0be34d109f6210d1dd6c9dadccee12a7cd85a3",
+      "decision": "No public-content change: existing live guidance remains accurate; candidate does not change this guide’s progression, rewards, access, travel, pets, recipes or interface contract."
+    },
+    {
+      "article": "recent-changes.json",
+      "title": "Recent changes",
+      "status": "Reference",
+      "sha256": "26f9a58f7aab7ef9efbc7bd6ac56fd4cbb3b7ddbff5a6f66c071c52fd6bdb7a1",
+      "decision": "Update candidate scope and preserve live/not-deployed distinction"
+    },
+    {
+      "article": "tradeskills.json",
+      "title": "Tradeskills & Craft All",
+      "status": "Live testing",
+      "sha256": "d76ffea75fea16a2a353a5cab1b5e2b783a244908fcfa0903184cd8947a4de7b",
+      "decision": "No public-content change: existing live guidance remains accurate; candidate does not change this guide’s progression, rewards, access, travel, pets, recipes or interface contract."
+    },
+    {
+      "article": "travel.json",
+      "title": "Travel & instances",
+      "status": "Live testing",
+      "sha256": "7448998634f50498d8fbe813fa2bff99d50a51951754f9e1c29f10bf338c5ecf",
+      "decision": "No public-content change: existing live guidance remains accurate; candidate does not change this guide’s progression, rewards, access, travel, pets, recipes or interface contract."
+    },
+    {
+      "article": "tunnel.json",
+      "title": "East Commonlands tunnel",
+      "status": "Live testing",
+      "sha256": "406b3922621b789bbafe02a76b296a7f9fccd716aa082dca94a8493d60b811ae",
+      "decision": "No public-content change: existing live guidance remains accurate; candidate does not change this guide’s progression, rewards, access, travel, pets, recipes or interface contract."
+    },
+    {
+      "article": "unreleased.json",
+      "title": "In development",
+      "status": "Not released",
+      "sha256": "4b948ab5ad712c7cde36d802b1edc4a90e9b2e09424040641d878d23b4703687",
+      "decision": "Update candidate scope and preserve live/not-deployed distinction"
+    },
+    {
+      "article": "waypoints.json",
+      "title": "Waypoint Explorer",
+      "status": "Live testing",
+      "sha256": "9ef8b93fa52d5b83c479bbb3c877fab4f9373c0f26c84c43908edf3d7e5666bc",
+      "decision": "No public-content change: existing live guidance remains accurate; candidate does not change this guide’s progression, rewards, access, travel, pets, recipes or interface contract."
+    },
+    {
+      "article": "zone-hunt.json",
+      "title": "Zone hunt & forging",
+      "status": "Live testing",
+      "sha256": "1e45749cb34576e3721ce43e2bbe959edfd1277b57c8f4da7a04bfdf29c5e2cb",
+      "decision": "No public-content change: existing live guidance remains accurate; candidate does not change this guide’s progression, rewards, access, travel, pets, recipes or interface contract."
+    }
+  ],
+  "generated_routes": {
+    "items": 384,
+    "zones": 48,
+    "decision": "Mechanic guidance inherited from maintained guides; no reward values, variants, zone availability or catalog stats changed."
+  },
+  "public_publication": "pending; no publication authorized or performed",
+  "live_wiki": "20261017-progression-combat-v1",
+  "private_player_guide": "No live change; deployment-dependent update pending",
+  "candidate_release": "docs/releases/cooldown-identities-20261017/",
+  "additional_assessment": "ADR0063, phase66, migration receipt/rollback, native skill reset inventory and operator command clarification reviewed. Candidate remains unreleased; no player-command, reward catalog, home or Features behavior changed. Generic skills and content groups remain open."
+}

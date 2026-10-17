@@ -1,5 +1,21 @@
 # CHANGES
 
+## 2026-10-17 - AA family and timer namespace correction candidate
+
+Reproduce Rampage locking Purify Body through shared AA group1. Isolate each AA
+family in persistence and project held families into the client's100 timer slots.
+Fix single/death/all resets, completion and relog publication; preserve rank-family
+reuse. Separate unlinked items and all20 grouped/four ungrouped discipline clocks
+from other timer domains with24-bit-compatible keys. Retain ordinary linked
+content groups and generic skill sharing as explicit open issues.
+
+Prepare guarded transactional forward/rollback conversion with a player-entry
+receipt gate; existing deadlines are preserved rather than wiped. No production
+changes or new client hook. Native regressions and disposable MariaDB tests cover
+collisions, failure, drift and recovery. Full build and exact owner QA status:
+`docs/releases/cooldown-identities-20261017/README.md`.
+
+
 ## 2026-10-17 - Combined progression, combat and crafting release deployed
 
 Integrate Recommended AA, six independent Monk attacks, duration corrections,

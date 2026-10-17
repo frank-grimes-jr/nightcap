@@ -1,0 +1,18 @@
+{
+  "main_unchanged": "0eef50ed5af0f3685b127c738a281ad7bb20c30d",
+  "content": "Exactly deployed main; no candidate behavior promoted by this sync",
+  "branches": [
+    {
+      "branch": "dev",
+      "previous": "f1575c04a6b52a2e0063ab80dba57a522c302b1a",
+      "synchronized": "be3455947387259320fdb2f7e194ded34bdd3b36",
+      "tree": "75a104231d422abd24fbf26d20a9c2ad368f23a0"
+    },
+    {
+      "branch": "test",
+      "previous": "98eedad8e0fb4db26ecc72813580fa9628310da9",
+      "synchronized": "b44d67be809661492d47d878fd4a0e07e11a0f6b",
+      "tree": "75a104231d422abd24fbf26d20a9c2ad368f23a0"
+    }
+  ]
+}

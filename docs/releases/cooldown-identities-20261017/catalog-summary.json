@@ -1,0 +1,228 @@
+{
+  "captured_at": "2026-10-17T19:59:13.392810+00:00",
+  "capture_sha256": "e71d550ac445732e36ba316a86f3a079f76a556835b4120c751deb05c8ba73be",
+  "policy_sha256": "561c40bd0c447360ff27699b882a6bf976ce7173710da548cb2c9fc73415096b",
+  "definitions": {
+    "abilities": 1570,
+    "ranks": 6655,
+    "spells": 18017,
+    "items": 7798
+  },
+  "allowed_activated_families": 165,
+  "maximum_three_class_slots": 57,
+  "aa_shared_groups": {
+    "1": {
+      "35": "Mass Group Buff",
+      "98": "[MNK] Purify Body",
+      "102": "[ROG] Escape",
+      "109": "Rampage",
+      "2220": "Ancient Attunement"
+    },
+    "2": {
+      "36": "[CLR] Divine Resurrection",
+      "46": "[ENC] Dire Charm",
+      "53": "[WIZ] Nexus Gate",
+      "58": "Mend Companion",
+      "73": "[PAL] Divine Stun",
+      "80": "Innate Camouflage",
+      "87": "[SHD] Leech Touch",
+      "110": "[WAR] Area Taunt",
+      "199": "[BRD] Boastful Bellow",
+      "276": "[MNK] Destructive Force  ",
+      "418": "Replenish Companion",
+      "374": "[BER] Untamed Rage",
+      "499": "[BER] Cascading Rage",
+      "518": "Shared Camouflage",
+      "702": "[PAL] Hand of Disruption"
+    },
+    "3": {
+      "37": "Innate Invis to Undead",
+      "43": "Exodus",
+      "50": "[SHM] Rabid Bear",
+      "76": "[PAL] Act of Valor",
+      "111": "[WAR] War Cry",
+      "126": "[BST] Hobble of Spirits",
+      "184": "[RNG] Guardian of the Forest",
+      "372": "[BER] Tireless Sprint",
+      "468": "[MNK] Crippling Strike",
+      "469": "[MNK] Stunning Kick",
+      "470": "[MNK] Eye Gouge",
+      "789": "[ROG] Stealthy Getaway",
+      "531": "Cloak of Shadows"
+    },
+    "4": {
+      "38": "[CLR] Celestial Regeneration",
+      "61": "[MAG] Elemental Form: Fire",
+      "62": "[MAG] Elemental Form: Water",
+      "63": "[MAG] Elemental Form: Earth",
+      "64": "[MAG] Elemental Form: Air",
+      "117": "[WIZ] Strong Root",
+      "127": "[BST] Frenzy of Spirit",
+      "171": "[SHM] Virulent Paralysis",
+      "219": "Entrap",
+      "361": "[BRD] Shield of Notes",
+      "387": "[BER] Blood Pact",
+      "420": "[MNK] Imitate Death",
+      "673": "[ROG] Tumble"
+    },
+    "5": {
+      "39": "[CLR] Bestow Divine Aura",
+      "69": "[NEC] Dead Mesmerization",
+      "128": "[BST] Paragon of Spirit",
+      "172": "[WIZ] Harvest of Druzzil",
+      "177": "[SHM] Spirit Call",
+      "185": "[DRU] Spirit of the Wood",
+      "261": "[ENC] Doppelganger",
+      "285": "[PAL] Radiant Cure",
+      "289": "[RNG] Flaming Arrows",
+      "290": "[RNG] Frost Arrows",
+      "373": "[BER] Desperation",
+      "467": "[WAR] Press the Attack",
+      "559": "[MAG] Turn Summoned",
+      "544": "[BRD] Song of Stone",
+      "601": "Grappling Strike",
+      "671": "[ROG] Dirty Fighting"
+    },
+    "7": {
+      "41": "[CLR] Purify Soul",
+      "71": "[NEC] Flesh to Bone",
+      "207": "[MAG] Host of the Elements",
+      "212": "[BRD] Fading Memories",
+      "245": "[BST] Bestial Alignment",
+      "317": "[DRU] Dire Charm",
+      "409": "[ENC] Stasis",
+      "529": "[PAL] Cloak of Light",
+      "606": "[WAR] Mark of the Mage Hunter",
+      "610": "[BER] Blinding Fury",
+      "748": "[ENC] Nightmare Stasis",
+      "670": "[ROG] Twisted Shank"
+    },
+    "8": {
+      "52": "[WIZ] Improved Familiar",
+      "72": "[NEC] Call to Corpse",
+      "153": "Radiant Cure",
+      "265": "[MAG] Shared Health",
+      "303": "[WIZ] Ro's Flaming Familiar  ",
+      "304": "[WIZ] E'ci's Icy Familiar  ",
+      "305": "[WIZ] Druzzil's Mystical Familiar  ",
+      "362": "[BST] Roar of Thunder",
+      "414": "[ENC] Soothing Words",
+      "609": "[BER] Uncanny Resilience",
+      "778": "[RNG] Protection of the Spirit Wolf",
+      "668": "[BRD] Hymn of the Last Stand"
+    },
+    "14": {
+      "60": "[MAG] Frenzied Burnout",
+      "396": "[CLR] Sanctuary",
+      "512": "[WIZ] Translocational Anchor",
+      "629": "[NEC] Gathering Dusk",
+      "633": "[ENC] Azure Mind Crystal"
+    },
+    "6": {
+      "70": "[NEC] Fear Storm",
+      "174": "[MAG] Servant of Ro",
+      "208": "[WIZ] Call of Xuzl",
+      "247": "[BST] Feral Swipe",
+      "257": "[DRU] Nature's Boon",
+      "286": "[PAL] Purification  ",
+      "321": "[SHM] Call of the Ancients",
+      "412": "[ENC] Color Shock",
+      "462": "[RNG] Auspice of the Hunter",
+      "558": "[CLR] Turn Undead",
+      "505": "[BER] Cry of Battle",
+      "552": "[WAR] Call of Challenge",
+      "553": "[BRD] Cacophony",
+      "672": "[ROG] Ligament Slice"
+    },
+    "0": {
+      "77": "[PAL] Holy Steed",
+      "85": "[SHD] Unholy Steed",
+      "176": "Suspended Minion",
+      "217": "[ENC] Project Illusion",
+      "465": "[BER] Savage Spirit",
+      "514": "[WIZ] Pyromancy",
+      "536": "[ROG] Appraisal",
+      "570": "[PAL] Valiant Steed",
+      "571": "[SHD] Abyssal Steed",
+      "640": "[WIZ] Cryomancy",
+      "707": "[SHM] Pact of the Wolf"
+    },
+    "12": {
+      "107": "[ROG] Purge Poison",
+      "173": "[ENC] Eldritch Rune",
+      "307": "[WIZ] Ward of Destruction  ",
+      "391": "[CLR] Celestial Hammer",
+      "428": "Death Peace",
+      "520": "[DRU] Nature's Guardian",
+      "734": "Hold the Line"
+    },
+    "9": {
+      "169": "[CLR] Divine Arbitration",
+      "175": "[NEC] Wake the Dead",
+      "404": "Call of the Wild",
+      "413": "[ENC] Mind Over Matter",
+      "784": "[MAG] Heart of Flames",
+      "785": "[MAG] Heart of Vapor",
+      "792": "[NEC] Army of the Dead",
+      "456": "[WIZ] Teleport Bind",
+      "621": "[MAG] Fire Core",
+      "622": "[MAG] Vapor Core",
+      "666": "[BST] Taste of Blood",
+      "669": "[BRD] Bladed Song"
+    },
+    "10": {
+      "254": "[CLR] Divine Avatar",
+      "320": "[NEC] Swarm of Decay",
+      "405": "Secondary Recall",
+      "447": "[SHM] Ancestral Aid",
+      "521": "[ENC] Edict of Command",
+      "701": "[PAL] Armor of the Inquisitor"
+    },
+    "11": {
+      "255": "[CLR] Exquisite Benediction",
+      "318": "[NEC] Dire Charm",
+      "451": "[WIZ] Mind Crash",
+      "528": "[SHM] Ancestral Guard",
+      "705": "[DRU] Spirit of the White Wolf"
+    },
+    "13": {
+      "392": "[CLR] Divine Retribution",
+      "524": "[NEC] Blood Magic",
+      "611": "Battle Leap",
+      "632": "[ENC] Sanguine Mind Crystal",
+      "662": "[SHM] Union of Spirits"
+    },
+    "16": {
+      "786": "[MAG] Heart of Ice",
+      "787": "[MAG] Heart of Stone",
+      "623": "[MAG] Ice Core ",
+      "624": "[MAG] Stone Core "
+    },
+    "39": {
+      "6000": "[SHD] Harm Touch",
+      "6001": "[PAL] Lay on Hands"
+    }
+  },
+  "ordered_aliases": 1616,
+  "saved_active_timer_aggregates": [
+    {
+      "type": "10",
+      "characters": "1",
+      "min_duration": "360",
+      "max_duration": "360",
+      "max_remaining": "25"
+    },
+    {
+      "type": "1001",
+      "characters": "1",
+      "min_duration": "600",
+      "max_duration": "600",
+      "max_remaining": "351"
+    }
+  ],
+  "limitations": [
+    "Catalog membership is not proof of item ownership or learned spell access.",
+    "AA policy count excludes passive effect-bearing and zero-reuse ranks; runtime also handles toggles.",
+    "Shared spell/discipline/item content groups are inventoried, not declared intentional or independent."
+  ]
+}
