@@ -2,7 +2,7 @@
 
 Reviewed the candidate based on deployed main `0eef50e`, using the code-review-and-quality review-agent pattern. The reviewer did not edit production code or apply a migration.
 
-**Status:** approved as a source candidate for the documented AA and cross-domain identity correction, with no remaining actionable findings in that delta. This is not approval of complete independence for all skills. Full server build, controlled deployment and live acceptance remain separate pending gates.
+**Status:** approved as a source candidate for the documented AA and cross-domain identity correction, with no remaining actionable findings in that delta. The completed native zone build is verified and not installed. This is not approval of complete independence for all skills; controlled deployment and live acceptance remain pending.
 
 ## Findings resolved in source
 
@@ -28,9 +28,11 @@ Reviewed the final local MariaDB rehearsal report and its test implementation: 1
 
 The rehearsal ran in a disposable local schema; this is migration evidence, not production deployment evidence. The reviewer inspected the report rather than independently repeating its database execution.
 
+Reviewed [manifest.json](manifest.json), [build-final.txt](build-final.txt), [build-ldd.txt](build-ldd.txt) and the build/finalization scripts. The final zone target linked successfully and all recorded dynamic dependencies resolved. Independently compared the manifest's eight changed source hashes with the exact committed LF bytes in candidate `d7f5c1d54c6436066e0522f0cd9e62a5d3521e84`: all match both the full source manifest and the current worktree, and the changed-file set matches the commit. The manifest records 2,823 source fingerprints and zone SHA256 `d3908e0348715e94955d84f629e4f27e91f15c7dd661e437efbba580ce3d216a`. The build scripts preserve the fingerprinted baseline and verify final source stability; the reviewer inspected this build evidence rather than repeating the complete build or independently hashing its remote executable.
+
 ## Remaining acceptance limits
 
-- Full native server build is pending; no build completion or deployment is asserted here.
+- Native zone build is verified, not installed. Migration, deployment and owner gameplay acceptance remain unperformed; source promotion to dev/test does not establish live acceptance.
 - Execute [QA.md](QA.md) with the paired server/migration and existing Monk client. Native fixtures do not establish visible hotbutton, login, class-change, inventory or live cast behavior. Unlinked items use inventory timestamp publication; their recast-delay helper does not emit a native group packet.
 - Exactly-zero native AA reuse cannot display a retained server wait. Current allowed haste totals stay below base reuse, but future content must retain this check and the 100-slot capacity check.
 - Content-defined spell, grouped-discipline and linked-item sharing remains unchanged, including the documented Harmshield/Cannibalize and Battle Cry/Throw Stone groups. Catalog presence does not prove learned/owned access.

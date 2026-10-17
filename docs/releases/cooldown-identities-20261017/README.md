@@ -177,8 +177,14 @@ not candidate passes. The disposable local MariaDB rehearsal passes 15 tests,
 including failure after receipt insertion, forward/rollback preservation, catalog drift,
 receipt/backup engine and shape guards, item membership drift, duplicate apply
 and unknown-key rollback rejection.
-Production was not modified. See `migration-rehearsal.json`, `REVIEW.md`, final
-build evidence and [QA.md](QA.md). A compiled fixture/build does not establish
+The complete native zone target rebuilt and linked successfully from the exact
+retained baseline. All eight changed source hashes match the reviewed candidate;
+the baseline and candidate sources stayed unchanged during compilation, and
+`ldd` found no missing dependencies. Candidate zone SHA-256:
+`d3908e0348715e94955d84f629e4f27e91f15c7dd661e437efbba580ce3d216a`.
+See `manifest.json`, `verification.json`, `build-final.txt` and `build-ldd.txt`.
+Production was not modified. See `migration-rehearsal.json`, `REVIEW.md` and
+[QA.md](QA.md). A compiled fixture/build does not establish
 visible gameplay acceptance. Main promotion, migration and live deployment need
 the owner's separate release authorization.
 

@@ -10,7 +10,8 @@ catalog/schema state. Production remains unchanged.
 Source and pinned-native tests cover unrelated AA pairs, same-family ranks,
 signed focus, item aliases, all discipline groups, the -1 sentinel, relog and
 reset isolation. Fifteen disposable MariaDB tests pass. Independent source and
-migration review passes. Full native build and promotion status are recorded in
+migration review passes. The full native zone build and dependency checks pass;
+exact provenance and promotion status are recorded in
 [the release](../releases/cooldown-identities-20261017/README.md).
 
 Content-defined linked spells, grouped disciplines and items remain explicit
