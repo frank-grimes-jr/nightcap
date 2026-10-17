@@ -1,0 +1,27 @@
+{
+  "result": "PASS",
+  "checked_at_utc": "2026-10-10T01:01:29.185283+00:00",
+  "source": "OVH public egress (not in approved player IP rule)",
+  "public_url": "https://wiki.nightcapgame.org/",
+  "verified_files": 461,
+  "all_sha256_match": true,
+  "tls_validated": true,
+  "csp_and_no_transform": true,
+  "wiki_denied_paths": {
+    "/channel.json": 404,
+    "/launcher-channel.json": 404,
+    "/nightcap-friends.zip": 404,
+    "/guide.html": 404,
+    "/connect": 404,
+    "/player-site/current/index.html": 404,
+    "/.env": 404,
+    "/wiki/articles/index.json": 404
+  },
+  "wiki_post_status": 403,
+  "private_play_statuses": {
+    "/": 403,
+    "/channel.json": 403,
+    "/nightcap-friends.zip": 403,
+    "/connect": 403
+  }
+}

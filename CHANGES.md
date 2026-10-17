@@ -747,6 +747,45 @@ in default ruleset 1. Preserve full leveling XP, existing AA progress and the
 reloaded without restarting; every other rule is unchanged. The compiled fallback
 remains 1%, so preserve the DB override. Native gameplay/balance acceptance is
 still open. Evidence and QA: docs/ops/passive-aa-tuning-20261009/README.md.
+Gameplay acceptance remains pending; see `docs/releases/wiki-dungeons-20261016/`.
+
+## 2026-10-16 - Features and whole-wiki maintenance
+
+Add a Features hub, item-upgrade and Craft All guides, and primary navigation.
+Reconcile current AA, equipment/LORE, upgrade, buff, healing, travel and service
+rules across maintained guides and 432 generated reward pages. Add required wiki
+impact review to each Nightcap change plus source-drift detection covering new,
+deleted, staged, unstaged and untracked source. Retain deployment/QA distinctions.
+No gameplay, item-stat, access-policy or service changes. Publication evidence:
+`docs/releases/wiki-features-20261016/README.md`.
+
+## 2026-10-09 - Organized Equipment catalog
+
+Replace the 384-entry Equipment text dump with 96 item families, each containing
+its four quality links. Add gear/augment, slot, required-level, zone and name
+filters, sorting, shareable filter URLs and 12-family pages; retain all static
+item links and separate equipment/forging guides. Sidebar and category navigation
+now lead to the catalog. Full variant-name searches are covered for all 384 items.
+Add guarded content updates with atomic relative pointers and rollback regressions;
+no Nginx, access-policy, gameplay or database changes are required. Published
+release 20261010-equipment-v1 passes all 461 public hashes/header checks,
+rollback rehearsal and private-download/service preservation. Evidence:
+docs/releases/wiki-equipment-20261010/ and docs/ops/nightcap-wiki.md.
+
+
+## 2026-10-09 - Official public wiki on an isolated OVH host
+
+Add the owner-maintained Nightcap wiki: 17 guide pages, 48 enabled reward zones,
+384 item variants, article/category navigation and browser search. Preserve current
+40% passive AA and live-testing/unreleased labels. Publish only the 461-file static
+payload to an isolated wiki origin, with archive validation, shared website lock,
+rollback rehearsal and exact private-download/container preservation. Origin
+release 20261009-wiki-v2 passes. Public wiki.nightcapgame.org now routes through
+the existing Cloudflare tunnel with proxied DNS; all 461 files pass external HTTPS
+hash/header checks and live search/mobile checks pass. Existing player-only WAF
+and gateway policy are unchanged; private paths remain blocked. No gameplay,
+database, client or private player-guide changes.
+Build, tests, content provenance and recovery: docs/ops/nightcap-wiki.md.
 
 ## 2026-10-09 - Classic zone hunt deployed and private guide updated
 

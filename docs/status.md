@@ -402,6 +402,19 @@ state and recall destination now use the entrance safe point
 exact database comparisons and service/12-worker health checks passed.
 In-game grounding, discovery and recall acceptance remains pending.
 [Deployment, rollback and exact QA](ops/crushbone-waypoint-20261009/README.md).
+Updated October 16, 2026. This is the current status index; dated studies and
+QA reports preserve their original evidence and are not live-state promises.
+
+## Official public wiki live
+
+[Features](https://wiki.nightcapgame.org/features.html) explains 17 major departures
+from Classic. The October 16 refresh adds upgrade/Craft All guides and reconciles
+current behavior across 457 pages, including 432 generated item/zone pages.
+Release `20261016-features-v1` passes all 464 public hashes/header checks and
+rollback rehearsal. Current access behavior, private downloads and all five service
+identities/start times are preserved. Every Nightcap change now requires a
+whole-wiki impact review; source-drift detection and the installed skill carry
+the maintenance contract. [Evidence and recovery](releases/wiki-features-20261016/README.md).
 
 ## Classic zone hunt and forge deployed for live QA
 

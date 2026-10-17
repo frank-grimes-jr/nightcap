@@ -1,0 +1,24 @@
+{
+  "result": "PASS",
+  "checked_at_utc": "2026-10-16T14:44:03.531556+00:00",
+  "release": "20261016-features-v1",
+  "public_url": "https://wiki.nightcapgame.org/features.html",
+  "verified_files": 464,
+  "all_sha256_match": true,
+  "tls_validated": true,
+  "csp_and_no_transform": true,
+  "wiki_denied_paths": {
+    "/channel.json": 404,
+    "/launcher-channel.json": 404,
+    "/nightcap-friends.zip": 404,
+    "/guide.html": 404,
+    "/connect": 404,
+    "/player-site/current/index.html": 404,
+    "/.env": 404,
+    "/wiki/articles/index.json": 404,
+    "/content-review.json": 404,
+    "/check_refresh.py": 404
+  },
+  "wiki_post_status": 403,
+  "public_play_surface_preserved": true
+}

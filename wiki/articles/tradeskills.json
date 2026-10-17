@@ -1,0 +1,19 @@
+{
+  "slug": "tradeskills",
+  "title": "Tradeskills & Craft All",
+  "summary": "Use material stacks and repeat a selected recipe without repeated clicking.",
+  "body": "<h2 id=\"stack-limits\">Larger stacks: awaiting release</h2><p><strong>Not released.</strong> A prepared update raises existing stackable item limits below 100 to 100. Larger limits stay unchanged. Equipment, containers and other nonstackable items do not become stackable. Existing stacks can be merged after activation; recipes, required quantities and prices per unit stay the same.</p>\n<p>The tunnel workshop supplies crafting stations and merchants. Nightcap’s ordinary tradeskills support stacked ingredients and <strong>Craft One / Craft All / Stop</strong> in the recipe browser. Close the game and use launcher Play to receive the matching interface.</p>\n<h2 id=\"stacks\">Combine from material stacks</h2><p>Experimental combines count physical stack units, consume the recipe’s required quantity and leave unused materials in the container. Charged nonstackable tools count as one item. Missing, unrelated or ambiguous ingredients are rejected without consumption. Container-consuming recipes require the exact Experiment inputs.</p>\n<h2 id=\"craft-all\">Use Craft All</h2><ol><li>Open the appropriate carried tradeskill bag or nearby station and select an eligible recipe in its browser.</li><li>Keep materials in your carried inventory and leave room for results. Start with an empty cursor.</li><li>Choose Craft One for a single attempt or Craft All to repeat the selected recipe. Each result is put away before the next attempt.</li><li>Use Stop to end repetition. An already-sent attempt can still complete.</li></ol><p>Missing supplies, full inventory, invalid requirements, closing or changing the crafting context, zoning or disconnecting stop the run. A failed skill roll is still an attempt and may be followed by another. An unconfirmed result is not retried automatically.</p>\n<h2 id=\"rules\">What still applies</h2><p>Recipes, skill gains, success and failure, salvage, and class, race, quest and station requirements remain. Craft All does not bypass them. The <a href=\"item-upgrades.html\">Reforging Box</a>, transformation molds and augmentation devices use their own rules.</p>\n<h2 id=\"supplies\">Find supplies in the tunnel</h2><p>Browse the numbered supplier pages in the <a href=\"tunnel.html#crafting\">workshop</a>. Haldra, Smithing Supplies III, stocks Leather Padding. Mira Coinwell provides banking near the buff and service area.</p>",
+  "category": "Equipment",
+  "status": "Live testing",
+  "sources": [
+    "docs/tradeskills/README.md at origin/main 2df6823",
+    "docs/ops/commonlands-services-20261016/README.md in E:/EQ_Local_Dev",
+    "docs/ops/item-stacks-100-20261017/README.md (candidate, not deployed)"
+  ],
+  "keywords": [
+    "crafting",
+    "Craft All",
+    "stacked materials"
+  ],
+  "updated": "2026-10-17"
+}

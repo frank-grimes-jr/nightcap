@@ -1,0 +1,11 @@
+{
+  "result": "PASS",
+  "release": "20261010-equipment-v1",
+  "previous_release": "20261009-wiki-v2",
+  "files": 461,
+  "config_sha256": "03ef62717aad29884d3c1a60d800b19d0ee9cc7024fec7313d0263f37fbd046c",
+  "rollback_rehearsed": true,
+  "private_downloads_preserved": true,
+  "service_ids_start_times_preserved": true,
+  "nginx_reload_required": false
+}

@@ -1,0 +1,26 @@
+{
+  "reviewed_at": "2026-10-16",
+  "reviewed_revision": "2df6823f0b703b9aeaeb09a250b9b183703caf8f",
+  "source_paths": [
+    "server-mods/",
+    "eq-client-dll/",
+    "eq-launcher/",
+    "eq-solo-gm/",
+    "era.json",
+    "tools/",
+    "docs/",
+    "config/",
+    "sql/",
+    "index.html"
+  ],
+  "scope": "All maintained articles and generated item/zone guidance reviewed; unchanged reward stats retained. New mechanics require a Features decision and affected-guide updates.",
+  "supplemental_evidence": [
+    "AA class ranks: feature/aa-tbs-policy deployed release, docs/releases/aa-class-ranks-20261013/README.md",
+    "Commonlands banker and Leather Padding: E:/EQ_Local_Dev/docs/ops/commonlands-services-20261016/README.md",
+    "Travel client audit: travel-client-audit worktree 4e3acd8; local repair is not fleet publication",
+    "Dungeon deployment: verified production release 2026101601, all maintained articles and generated routes assessed in docs/dungeons/wiki-review.md. Live testing guide replaces unreleased notices; wiki release20261016-dungeons-v1 is published; owner gameplay acceptance remains pending.",
+    "Dungeon journal: Palwar confirms Raid entry/named kill but blank objectives. All21 articles and generated routes reviewed for impact; all52 required names and stage/full-clear/fallback guidance updated. Native journal repair pending installation and visible QA, docs/dungeons/journal-repair/.",
+    "October17 reforge-normal candidate: all21 maintained articles, commands,432 generated reward routes and catalog values reviewed. Normal/Base box recipe added as not released in affected guides, Features, home and Recent changes. Higher recipes and dungeon exclusions retained. Current source origin/main8d30ea6 plus feature/reforge-normal-items working diff; docs/releases/reforge-normal-20261017/. Global reviewed revision intentionally retained; unrelated historical drift is not silently accepted.",
+    "E:\\EQ_Local_Dev\\_worktrees\\no-death-exp-loss\\docs\\ops\\no-death-exp-loss-20261017\\README.md; October17 whole-wiki review, candidate notices only; production rule remains 10, activation/publication pending. Broad reviewed_revision is deliberately unchanged."
+  ]
+}
