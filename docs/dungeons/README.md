@@ -11,8 +11,9 @@ pending in [QA.md](QA.md). The accepted contract is
 
 Live follow-up: Palwar confirms Raid entry and a named kill, but reports blank
 task objectives. The [journal repair](journal-repair/README.md) has passed source
-review, fifteen regression tests and native build; installation/visible retest
-are tracked separately. Keeper Status lists the required names in the meantime.
+review, fifteen regression tests and native build. PR #214 is on main; installation
+and restart are complete with all 12 workers healthy and the matching cache
+unchanged. Visible retest remains pending. Keeper Status also lists every name.
 
 ## Behavior and catalog
 
@@ -27,8 +28,9 @@ does not by itself remove a connected party member's credit.
 Grind keeps native difficulty and respawn duration/variance. Raid uses 135% HP
 and 115% outgoing damage, including NPC spells; owned pets are excluded. Raid
 mini-bosses precede the final boss, and killed spawn points never return.
-Tasks show the authoritative checklist and mode until the original deadline;
-Keeper Status also shows permanent completion counts. Abandoning a task only
+Tasks show every required boss and mode until full completion or the original
+deadline. Full clears move to Completed history. Entry and Keeper Status print
+the personal checklist; Status also shows permanent completion counts. Abandoning a task only
 removes its display until the next status/entry refresh.
 
 `catalog.json` contains 52 objectives and 330 item definitions: 24 shared designs
