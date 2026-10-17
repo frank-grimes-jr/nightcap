@@ -54,6 +54,17 @@ boss checklist. Preserve all 106 client assets and thirteen previous summaries.
 Manifest/packager tests, seven publisher recovery checks and normal/minimum-size
 Chrome layout checks pass. Publication evidence and player check:
 `docs/releases/dungeon-patcher-20261017/`.
+## 2026-10-17 - Reforging Box accepts normal items (candidate)
+
+Add exactly three identical eligible Normal/Base copies -> one Polished item for
+ordinary tiered gear and Classic hunt rewards. Higher tiers still cost four.
+Keep the reusable four-slot box, binding, instance checks and atomic receipts;
+unsupported/dungeon items and wrong quantities reject intact. Update Veyra,
+combine messages and the maintained wiki with pending-release labels. Native
+policy/inventory regression, adjacent hunt/tradeskill and quest checks pass.
+Full runtime build, production deployment and in-game QA are pending. Requires
+matched zone/quest refresh; no SQL/cache ABI or client changes. See
+`docs/releases/reforge-normal-20261017/README.md`.
 
 ## 2026-10-16 - Dungeon checklist and completion-history repair deployed
 

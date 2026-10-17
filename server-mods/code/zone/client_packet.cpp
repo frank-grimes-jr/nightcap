@@ -15730,8 +15730,8 @@ void Client::Handle_OP_TradeSkillCombine(const EQApplicationPacket *app)
 		if (result == NightcapLoot::TransferResult::Uncertain) { return; }
 		Message(result == NightcapLoot::TransferResult::Delivered ? Chat::Green : Chat::Yellow,
 			result == NightcapLoot::TransferResult::Delivered
-				? "Four copies became one upgraded item inside your reforging box. The box can be used again."
-				: "No items were changed. Combine exactly four identical Polished or Exalted items. Remove augments and customization, and finish combat or trading first.");
+				? "Your matching copies became one upgraded item inside your reforging box. The box can be used again."
+				: "No items were changed. Combine exactly three identical eligible Normal (Base) items, or four identical Polished or Exalted items. Remove augments and customization, and finish combat or trading first.");
 		auto reply = new EQApplicationPacket(OP_TradeSkillCombine, 0);
 		QueuePacket(reply); safe_delete(reply);
 		return;

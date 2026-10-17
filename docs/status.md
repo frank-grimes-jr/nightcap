@@ -36,6 +36,14 @@ manifest, publisher and browser layout checks pass. The signed notes channel is
 published and its signature/all 106 hosted assets verify; installed desktop
 confirmation remains pending. No gameplay restart was needed.
 [Release evidence and player check](releases/dungeon-patcher-20261017/README.md).
+## Normal-item Reforging Box recipe — candidate October 17
+
+[Implemented and tested](releases/reforge-normal-20261017/README.md): three
+identical eligible Normal/Base copies produce one Polished item; higher recipes
+still require four. Ordinary and hunt families are supported; dungeon rewards
+remain separate. Matching zone/quest deployment and [in-game QA](releases/reforge-normal-20261017/QA.md)
+are pending. No live runtime or player data changed. Maintained wiki edits are
+clearly labeled not released; public publication remains pending.
 
 ## Raid and Grind dungeons — deployed for live QA October 16
 

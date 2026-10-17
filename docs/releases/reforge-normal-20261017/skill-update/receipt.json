@@ -1,0 +1,19 @@
+{
+  "status": "installed",
+  "source_revision": "1f70065949aa4c772c767cc949c39fdb19e1ff61",
+  "wiki_revision": "f106a5d2e5642bfc6f39ff7aa30517144b473845",
+  "files": {
+    "references/items.md": {
+      "before_sha256": "8a0c7b2de143b1f6b7d6a96132304f7f9b1385fe98ba83e85a4b7790c13819bb",
+      "after_sha256": "6cae5f08764fe7d1fa251d0bd9ef37739a609826b267dde601ad5b1de047f391"
+    },
+    "references/wiki.md": {
+      "before_sha256": "515e43d6663985276bc2a1af028c56ae580c4ebea41d269079101cdedb09f6a3",
+      "after_sha256": "60443319dcc69e772e6439c6c268eafa0e70aec49ec4905e98e8acd2460d4725"
+    },
+    "references/sources.json": {
+      "before_sha256": "9863bf16846287a78faddb153c1525ab365d0c10ee1a660eb4168e461959efa4",
+      "after_sha256": "771543916f350fc8c61f1b38b49a1c290d950ca85c6e9977250503ac1fad9de8"
+    }
+  }
+}
