@@ -1,5 +1,9 @@
 # Reusable item upgrades
 
+October 17 follow-up: [normal-item box recipe candidate](../reforge-normal-20261017/README.md)
+adds a three-copy Normal/Base step. The October 12 deployment/QA below is
+historical and does not establish that the new recipe is live or accepted.
+
 Deployed to production for owner in-game QA on October 12, 2026. Manual
 acceptance remains pending. The owner explicitly approved main promotion and
 the live reconnect; [PR #171](https://github.com/frank-grimes-jr/nightcap/pull/171)
