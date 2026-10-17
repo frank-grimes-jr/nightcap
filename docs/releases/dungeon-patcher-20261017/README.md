@@ -35,7 +35,13 @@ owner acceptance of the installed desktop. See `layout-verification.json`.
 
 Signed/staged channel SHA-256:
 `794a2611083fb3f9289ced3e3d9a87da7b1e5b3a6f40d07f9db064fba12fdaa7`.
-Origin staging and Linux recovery tests pass; public activation is pending.
+Origin staging and Linux recovery tests pass; publication is complete, with
+all five service identities and the desktop channel, starter ZIP and guide
+unchanged. The original channel is retained privately for recovery comparison.
+See `published.json` for the origin receipt.
+Public HTTPS verification also passes the shipped-key signature, complete
+history/inventory preservation and all **106 files / 211,974,242 bytes**;
+see `hosted-verification.json`.
 The read-only baseline found all five services running, with game/database
 healthy. An initial SSH failure was caused by the stopped local Windows
 ssh-agent; starting the existing service restored the saved key. Server access

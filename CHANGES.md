@@ -2,7 +2,7 @@
 
 ## 2026-10-17 - Raid and Grind headline patcher announcement
 
-Prepare signed patch 2026101701 with eleven Latest Update bullets introducing
+Publish signed patch 2026101701 with eleven Latest Update bullets introducing
 all seven dungeons, Raid/Grind rules, custom rewards, Keeper entry and the repaired
 boss checklist. Preserve all 106 client assets and thirteen previous summaries.
 Manifest/packager tests, seven publisher recovery checks and normal/minimum-size
