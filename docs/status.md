@@ -18,8 +18,9 @@ restart recovered before feature SQL; its cause and correction are recorded in
 level-50 Vox/Nagafen balance and full owner acceptance remain pending. On October
 16, Palwar confirmed Keeper selection, Raid entry and a named kill. The Tasks
 objectives are blank despite retained ledger credit. The [journal repair](dungeons/journal-repair/README.md)
-has passing native regressions and source review; production installation and
-visible retest remain pending. Full-clear rewards remain unconfirmed. Existing
+is on main and deployed after the explicitly authorized restart. All 12 zone
+workers match the candidate; cache and stopped player/run preservation checks
+pass. Visible RoF2 retest remains pending. Full-clear rewards remain unconfirmed. Existing
 unmanaged instances retain their legacy behavior. The public [Raid & Grind guide](https://wiki.nightcapgame.org/dungeon-modes.html)
 is published as `20261016-dungeons-v1`; all 465 public hashes and preservation
 checks pass. [Publication evidence](dungeons/wiki-publication/README.md) is
@@ -228,7 +229,7 @@ Owner-approved PR #177 is on main and the updated production GM is running.
 Darthy is restored to level50 with165592026XP and250 training points, retaining
 his earned XP and crediting225 omitted training points. Fresh backup, ten data
 preservation hashes and post-restart checks passed. All services are running;
-world/all12 zones preserve the existing item-upgrade release. Actual client kill,
+world/all 12 zones preserve the existing item-upgrade release. Actual client kill,
 zone and relog acceptance remain pending. [Evidence and exact QA](ops/darthy-boost-20261012/README.md).
 
 ## Reusable item upgrades — deployed for live QA, October 12

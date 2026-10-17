@@ -1,14 +1,16 @@
 # CHANGES
 
-## 2026-10-16 - Dungeon checklist and completion-history repair candidate
+## 2026-10-16 - Dungeon checklist and completion-history repair deployed
 
 Repair blank Raid/Grind task objectives with named Kill displays and simultaneous
 boss activities. Add explicit boss-credit versus full-clear messages, entry
 checklists and durable Completed-history projection without native task reward
 hooks. Reconnect, abandonment and post-expiry recovery retain ledger progress;
 old completions cannot hide a newer run. All fifteen dungeon regressions and
-source review pass. Native installation and visible RoF2 retest are pending;
-no SQL, items, cache ABI or client change. See `docs/dungeons/journal-repair/`.
+source review pass. PR #214 is on main and the owner-authorized restart is complete.
+All 12 workers and the unchanged item cache verify; current player/run records are
+preserved. Visible RoF2 acceptance remains pending. No SQL, items, cache ABI or
+client change. Wiki boss lists and guidance are published. See `docs/dungeons/journal-repair/`.
 
 ## 2026-10-16 - Befallen Keeper entrance check confirmed
 
@@ -370,7 +372,7 @@ level50/XP165592026/250 training points, retaining883418 earned XP and adding225
 previously omitted training points. Fresh backup/gzip verification, exactly-once
 receipt and ten preservation hashes passed; pets were already absent at the
 stopped preimage and were left unchanged. The repaired state survived startup.
-All services are running and native world/all12 zone hashes preserve the existing
+All services are running and native world/all 12 zone hashes preserve the existing
 item-upgrade release. Client kill/zoning/relog acceptance remains pending. Evidence:
 `docs/ops/darthy-boost-20261012/deployment.json`.
 
