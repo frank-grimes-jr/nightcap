@@ -1,0 +1,99 @@
+item-augment: PASS
+item-linked: PASS
+aa-family: PASS
+aa-guards: PASS
+aa-same: PASS
+test_augment_uses_its_own_item_identity_and_expiry (__main__.CooldownCollisionTests.test_augment_uses_its_own_item_identity_and_expiry) ... ok
+test_deleting_item_reuse_does_not_clear_spell_cooldown (__main__.CooldownCollisionTests.test_deleting_item_reuse_does_not_clear_spell_cooldown) ... FAIL
+test_deliberate_linked_item_group_preserves_shared_deadline (__main__.CooldownCollisionTests.test_deliberate_linked_item_group_preserves_shared_deadline) ... ok
+test_divine_resurrection_does_not_lock_divine_stun_for_18_hours (__main__.CooldownCollisionTests.test_divine_resurrection_does_not_lock_divine_stun_for_18_hours) ... FAIL
+test_harm_touch_does_not_lock_lay_on_hands (__main__.CooldownCollisionTests.test_harm_touch_does_not_lock_lay_on_hands) ... FAIL
+test_lay_on_hands_does_not_lock_harm_touch (__main__.CooldownCollisionTests.test_lay_on_hands_does_not_lock_harm_touch) ... FAIL
+test_ranks_of_one_aa_family_share_the_family_deadline (__main__.CooldownCollisionTests.test_ranks_of_one_aa_family_share_the_family_deadline) ... ok
+test_rejected_or_unearned_aa_does_not_consume_cooldown (__main__.CooldownCollisionTests.test_rejected_or_unearned_aa_does_not_consume_cooldown) ... ok
+test_same_aa_still_obeys_its_native_deadline (__main__.CooldownCollisionTests.test_same_aa_still_obeys_its_native_deadline) ... ok
+test_unlinked_item_does_not_read_or_overwrite_spell_timer (__main__.CooldownCollisionTests.test_unlinked_item_does_not_read_or_overwrite_spell_timer) ... FAIL
+test_unlinked_item_ids_separated_by_65536_stay_independent (__main__.CooldownCollisionTests.test_unlinked_item_ids_separated_by_65536_stay_independent) ... FAIL
+
+======================================================================
+FAIL: test_deleting_item_reuse_does_not_clear_spell_cooldown (__main__.CooldownCollisionTests.test_deleting_item_reuse_does_not_clear_spell_cooldown)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\verre\Documents\Codex\2026-10-17\see\work\cooldown-audit\docs\releases\cooldown-audit-20261017\reproduce_collisions.py", line 328, in test_deleting_item_reuse_does_not_clear_spell_cooldown
+    self.run_scenario("item-delete")
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\verre\Documents\Codex\2026-10-17\see\work\cooldown-audit\docs\releases\cooldown-audit-20261017\reproduce_collisions.py", line 300, in run_scenario
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 0 : deleting item reuse clears unrelated spell timer
+
+
+======================================================================
+FAIL: test_divine_resurrection_does_not_lock_divine_stun_for_18_hours (__main__.CooldownCollisionTests.test_divine_resurrection_does_not_lock_divine_stun_for_18_hours)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\verre\Documents\Codex\2026-10-17\see\work\cooldown-audit\docs\releases\cooldown-audit-20261017\reproduce_collisions.py", line 304, in test_divine_resurrection_does_not_lock_divine_stun_for_18_hours
+    self.run_scenario("rez-stun")
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\verre\Documents\Codex\2026-10-17\see\work\cooldown-audit\docs\releases\cooldown-audit-20261017\reproduce_collisions.py", line 300, in run_scenario
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 0 : AA rank 129 incorrectly locks rank 188 for 64800 seconds
+
+
+======================================================================
+FAIL: test_harm_touch_does_not_lock_lay_on_hands (__main__.CooldownCollisionTests.test_harm_touch_does_not_lock_lay_on_hands)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\verre\Documents\Codex\2026-10-17\see\work\cooldown-audit\docs\releases\cooldown-audit-20261017\reproduce_collisions.py", line 307, in test_harm_touch_does_not_lock_lay_on_hands
+    self.run_scenario("harm-hands")
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\verre\Documents\Codex\2026-10-17\see\work\cooldown-audit\docs\releases\cooldown-audit-20261017\reproduce_collisions.py", line 300, in run_scenario
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 0 : AA rank 7800 incorrectly locks rank 7850 for 4320 seconds
+
+
+======================================================================
+FAIL: test_lay_on_hands_does_not_lock_harm_touch (__main__.CooldownCollisionTests.test_lay_on_hands_does_not_lock_harm_touch)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\verre\Documents\Codex\2026-10-17\see\work\cooldown-audit\docs\releases\cooldown-audit-20261017\reproduce_collisions.py", line 310, in test_lay_on_hands_does_not_lock_harm_touch
+    self.run_scenario("hands-harm")
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\verre\Documents\Codex\2026-10-17\see\work\cooldown-audit\docs\releases\cooldown-audit-20261017\reproduce_collisions.py", line 300, in run_scenario
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 0 : AA rank 7850 incorrectly locks rank 7800 for 4320 seconds
+
+
+======================================================================
+FAIL: test_unlinked_item_does_not_read_or_overwrite_spell_timer (__main__.CooldownCollisionTests.test_unlinked_item_does_not_read_or_overwrite_spell_timer)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\verre\Documents\Codex\2026-10-17\see\work\cooldown-audit\docs\releases\cooldown-audit-20261017\reproduce_collisions.py", line 325, in test_unlinked_item_does_not_read_or_overwrite_spell_timer
+    self.run_scenario("item-spell")
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\verre\Documents\Codex\2026-10-17\see\work\cooldown-audit\docs\releases\cooldown-audit-20261017\reproduce_collisions.py", line 300, in run_scenario
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 0 : unrelated spell blocks unlinked item for3600s
+
+
+======================================================================
+FAIL: test_unlinked_item_ids_separated_by_65536_stay_independent (__main__.CooldownCollisionTests.test_unlinked_item_ids_separated_by_65536_stay_independent)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\verre\Documents\Codex\2026-10-17\see\work\cooldown-audit\docs\releases\cooldown-audit-20261017\reproduce_collisions.py", line 322, in test_unlinked_item_ids_separated_by_65536_stay_independent
+    self.run_scenario("item-pair")
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\verre\Documents\Codex\2026-10-17\see\work\cooldown-audit\docs\releases\cooldown-audit-20261017\reproduce_collisions.py", line 300, in run_scenario
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 0 : Rallos Zek Puppet blocks unrelated Plasmatic Priest Robe
+
+
+----------------------------------------------------------------------
+Ran 11 tests in 4.742s
+
+FAILED (failures=6)

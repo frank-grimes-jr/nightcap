@@ -1,0 +1,17 @@
+{
+  "result": "PASS",
+  "public_url": "https://wiki.nightcapgame.org/dungeon-modes.html",
+  "search_query": "raid grind",
+  "search_results": 8,
+  "first_result": "Raid & Grind dungeons",
+  "console_warnings_errors": [],
+  "desktop_and_390px_visual_check": "PASS",
+  "responsive_widths": [
+    320,
+    768,
+    1024,
+    1440
+  ],
+  "horizontal_overflow": false,
+  "single_h1": true
+}

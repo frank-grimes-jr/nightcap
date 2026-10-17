@@ -351,7 +351,7 @@ static uint32 UpgradeTarget(uint32 id)
 	const auto source = database.GetItem(id);
 	const auto target = database.GetItem(next ? next : NightcapUpgrade::ZoneTarget(id));
 	if (!source || !target) { return 0; }
-	if (next && !NightcapUpgrade::NamesMatch(source->Name, target->Name, id > 400000)) { return 0; }
+	if (next && !NightcapUpgrade::NamesMatch(source->Name, target->Name, id)) { return 0; }
 	return target->ID;
 }
 
@@ -373,7 +373,7 @@ static TransferResult ForgeItemsImpl(Client *c, const std::vector<ForgeInput> &i
 	auto allowed = ForgeSlots(c);
 	if (upgrade) {
 		allowed.clear();
-		for (uint8 i = 0; i < NightcapUpgrade::Copies; ++i) { allowed.push_back(EQ::InventoryProfile::CalcSlotId(container_slot, i)); }
+		for (uint8 i = 0; i < NightcapUpgrade::ContainerSlots; ++i) { allowed.push_back(EQ::InventoryProfile::CalcSlotId(container_slot, i)); }
 	}
 	std::set<int16> distinct;
 	uint32 input_id = 0;
@@ -387,7 +387,7 @@ static TransferResult ForgeItemsImpl(Client *c, const std::vector<ForgeInput> &i
 		if (upgrade && item->IsStackable() && item->GetCharges() <= 0) { return TransferResult::Declined; }
 		quantity += upgrade && item->IsStackable() ? item->GetCharges() : 1;
 	}
-	if (quantity != (upgrade ? NightcapUpgrade::Copies : NightcapUpgrade::ZoneCopies(input_id))) { return TransferResult::Declined; }
+	if (quantity != (upgrade ? NightcapUpgrade::BoxCopies(input_id) : NightcapUpgrade::ZoneCopies(input_id))) { return TransferResult::Declined; }
 	const uint32 target_id = upgrade ? UpgradeTarget(input_id) : NightcapHunt::NextTier(input_id);
 	if (!target_id) { return TransferResult::Declined; }
 	const auto definition = upgrade ? database.GetItem(target_id) : nullptr;
@@ -502,13 +502,13 @@ TransferResult CombineUpgrade(Client *c, int16_t container_slot, const std::stri
 			!(c->GetInv().GetLookup()->PossessionsBitmask & (uint64{1} << container_slot))) { return TransferResult::Declined; }
 		const auto box = c->GetInv().GetItem(container_slot);
 		if (!box || !box->IsClassBag() || box->GetID() != NightcapUpgrade::ContainerID ||
-			box->GetItem()->BagSlots != NightcapUpgrade::Copies || box->GetItem()->BagType != 13) { return TransferResult::Declined; }
+			box->GetItem()->BagSlots != NightcapUpgrade::ContainerSlots || box->GetItem()->BagType != 13) { return TransferResult::Declined; }
 		std::vector<ForgeInput> inputs;
 		for (uint8 i = 0; i < EQ::invbag::SLOT_COUNT; ++i) {
 			const int16 slot = EQ::InventoryProfile::CalcSlotId(container_slot, i);
 			const auto item = c->GetInv().GetItem(slot);
 			if (!item) { continue; }
-			if (i >= NightcapUpgrade::Copies) { return TransferResult::Declined; }
+			if (i >= NightcapUpgrade::ContainerSlots) { return TransferResult::Declined; }
 			inputs.emplace_back(slot, item->GetSerialNumber());
 		}
 		return ForgeItemsImpl(c, inputs, request_id, container_slot);

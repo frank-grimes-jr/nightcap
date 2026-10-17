@@ -1,0 +1,26 @@
+[
+  {
+    "target": "C:/Users/verre/.codex/worktrees/nightcap-wiki/EQ_Local_Dev/wiki/articles/recent-changes.json",
+    "before": "c35b685451369eba8fe54d9d38c38970b07c5d847a77cfcdeead95735ea59ec1",
+    "after": "86ce59086af5f343cc252574b592b8a109e0aa1809c0e2d326385ab21eb41f1c",
+    "payload": "0-recent-changes.json"
+  },
+  {
+    "target": "C:/Users/verre/.codex/skills/nightcap-development/references/operations.md",
+    "before": "46ab46067a24a516314852de7c6b46b8980e99add13aa923bbbb4b022c94b4fa",
+    "after": "06f74ffaaa3a1748ba571636f035e0601ee149994fe94475f2d1f193f8cf98e0",
+    "payload": "1-operations.md"
+  },
+  {
+    "target": "C:/Users/verre/.codex/skills/nightcap-development/references/wiki.md",
+    "before": "234644efd03b250dc4824644cec57dff1f60e05cc9e612eb76173b1f8136c02e",
+    "after": "c4fbb19af297a365af59e36549145d4c206ed2bbba13e1e5937fd8094f087ad4",
+    "payload": "2-wiki.md"
+  },
+  {
+    "target": "C:/Users/verre/.codex/skills/nightcap-development/references/sources.json",
+    "before": "7fd34b7252cea64e9e464224ecb6d4657d25c97378170cf7faf26bfce8eb6ba6",
+    "after": "67b79f24124dbf69d9af5eaeb60423af82ae7f0d515b56c0b8279779b52c37dd",
+    "payload": "3-sources.json"
+  }
+]

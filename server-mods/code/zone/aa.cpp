@@ -1199,7 +1199,11 @@ void Client::SendAlternateAdvancementRank(int aa_id, int level) {
 	safe_delete(outapp);
 }
 
+#include "../common/aa_recommendations.h"
+#include "aa_recommendations.inc"
+
 void Client::SendAlternateAdvancementStats() {
+	SendAARecommendations();
 	NormalizeAAAllocation();
 	auto outapp = new EQApplicationPacket(OP_AAExpUpdate, sizeof(AltAdvStats_Struct));
 	AltAdvStats_Struct *aps = (AltAdvStats_Struct *)outapp->pBuffer;

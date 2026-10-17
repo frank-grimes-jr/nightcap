@@ -1,0 +1,45 @@
+test.cpp
+C:\Users\verre\AppData\Local\Temp\passive-aa-7l5od5xu\test.cpp(83): warning C4244: '+=': conversion from 'uint64' to 'uint32', possible loss of data
+C:\Users\verre\AppData\Local\Temp\passive-aa-7l5od5xu\test.cpp(84): warning C4244: '=': conversion from 'uint64' to 'uint32', possible loss of data
+C:\Users\verre\AppData\Local\Temp\passive-aa-7l5od5xu\test.cpp(124): warning C4244: 'initializing': conversion from 'float' to 'uint64', possible loss of data
+C:\Users\verre\AppData\Local\Temp\passive-aa-7l5od5xu\test.cpp(187): warning C4244: '=': conversion from 'float' to 'uint64', possible loss of data
+C:\Users\verre\AppData\Local\Temp\passive-aa-7l5od5xu\test.cpp(198): warning C4244: '*=': conversion from 'float' to 'uint64', possible loss of data
+C:\Users\verre\AppData\Local\Temp\passive-aa-7l5od5xu\test.cpp(212): warning C4305: '*=': truncation from 'double' to 'float'
+C:\Users\verre\AppData\Local\Temp\passive-aa-7l5od5xu\test.cpp(216): warning C4305: '*=': truncation from 'double' to 'float'
+C:\Users\verre\AppData\Local\Temp\passive-aa-7l5od5xu\test.cpp(228): warning C4244: '*=': conversion from 'float' to 'uint64', possible loss of data
+C:\Users\verre\AppData\Local\Temp\passive-aa-7l5od5xu\test.cpp(233): warning C4244: '*=': conversion from 'float' to 'uint64', possible loss of data
+C:\Users\verre\AppData\Local\Temp\passive-aa-7l5od5xu\test.cpp(237): warning C4244: '*=': conversion from 'float' to 'uint64', possible loss of data
+C:\Users\verre\AppData\Local\Temp\passive-aa-7l5od5xu\test.cpp(278): warning C4305: '*=': truncation from 'double' to 'float'
+C:\Users\verre\AppData\Local\Temp\passive-aa-7l5od5xu\test.cpp(282): warning C4305: '*=': truncation from 'double' to 'float'
+C:\Users\verre\AppData\Local\Temp\passive-aa-7l5od5xu\test.cpp(299): warning C4244: '=': conversion from 'float' to 'uint64', possible loss of data
+C:\Users\verre\AppData\Local\Temp\passive-aa-7l5od5xu\test.cpp(309): warning C4244: '*=': conversion from 'float' to 'uint64', possible loss of data
+C:\Users\verre\AppData\Local\Temp\passive-aa-7l5od5xu\test.cpp(314): warning C4244: '*=': conversion from 'float' to 'uint64', possible loss of data
+C:\Users\verre\AppData\Local\Temp\passive-aa-7l5od5xu\test.cpp(318): warning C4244: '*=': conversion from 'float' to 'uint64', possible loss of data
+C:\Users\verre\AppData\Local\Temp\passive-aa-7l5od5xu\test.cpp(426): warning C4244: '*=': conversion from 'float' to 'uint64', possible loss of data
+C:\Users\verre\AppData\Local\Temp\passive-aa-7l5od5xu\test.cpp(427): warning C4244: '*=': conversion from 'float' to 'uint64', possible loss of data
+C:\Users\verre\AppData\Local\Temp\passive-aa-7l5od5xu\test.cpp(432): warning C4244: '*=': conversion from 'float' to 'uint64', possible loss of data
+C:\Users\verre\AppData\Local\Temp\passive-aa-7l5od5xu\test.cpp(433): warning C4244: '*=': conversion from 'float' to 'uint64', possible loss of data
+C:\Users\verre\AppData\Local\Temp\passive-aa-7l5od5xu\test.cpp(443): warning C4244: '*=': conversion from 'float' to 'uint64', possible loss of data
+C:\Users\verre\AppData\Local\Temp\passive-aa-7l5od5xu\test.cpp(467): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\verre\AppData\Local\Temp\passive-aa-7l5od5xu\test.cpp(469): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\verre\AppData\Local\Temp\passive-aa-7l5od5xu\test.cpp(471): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\verre\AppData\Local\Temp\passive-aa-7l5od5xu\test.cpp(473): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\verre\AppData\Local\Temp\passive-aa-7l5od5xu\test.cpp(477): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\verre\AppData\Local\Temp\passive-aa-7l5od5xu\test.cpp(479): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\verre\AppData\Local\Temp\passive-aa-7l5od5xu\test.cpp(481): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\verre\AppData\Local\Temp\passive-aa-7l5od5xu\test.cpp(483): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\verre\AppData\Local\Temp\passive-aa-7l5od5xu\test.cpp(485): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\verre\AppData\Local\Temp\passive-aa-7l5od5xu\test.cpp(489): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\verre\AppData\Local\Temp\passive-aa-7l5od5xu\test.cpp(493): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\verre\AppData\Local\Temp\passive-aa-7l5od5xu\test.cpp(495): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\verre\AppData\Local\Temp\passive-aa-7l5od5xu\test.cpp(505): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\verre\AppData\Local\Temp\passive-aa-7l5od5xu\test.cpp(507): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\verre\AppData\Local\Temp\passive-aa-7l5od5xu\test.cpp(509): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\verre\AppData\Local\Temp\passive-aa-7l5od5xu\test.cpp(511): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\verre\AppData\Local\Temp\passive-aa-7l5od5xu\test.cpp(521): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\verre\AppData\Local\Temp\passive-aa-7l5od5xu\test.cpp(523): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\verre\AppData\Local\Temp\passive-aa-7l5od5xu\test.cpp(525): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\verre\AppData\Local\Temp\passive-aa-7l5od5xu\test.cpp(527): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\verre\AppData\Local\Temp\passive-aa-7l5od5xu\test.cpp(529): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\verre\AppData\Local\Temp\passive-aa-7l5od5xu\test.cpp(601): warning C4018: '>=': signed/unsigned mismatch
+157 checks, 0 failures

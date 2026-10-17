@@ -1,0 +1,153 @@
+{
+  "result.json": {
+    "utc": "2026-10-16T10:09:42.107823+00:00",
+    "merchant": "Haldra",
+    "merchant_id": 999603,
+    "slot": 19,
+    "item": 16488,
+    "sellrate": 3,
+    "banker": "Mira Coinwell",
+    "npc_id": 999821,
+    "spawn_id": 999821,
+    "zone": "ecommons",
+    "loc_yxz": [
+      -1584,
+      -144,
+      3.75
+    ],
+    "native_hashes_unchanged": true,
+    "stopped_player_and_zone_state_checksums_preserved": true,
+    "runtime_started_at": "2026-10-16T10:09:19.115721485Z",
+    "player_qa": "pending"
+  },
+  "rehearsal.json": {
+    "forward_afterimages": true,
+    "inverse_afterimages": true,
+    "live_unchanged": true,
+    "rejected_drift": [
+      "item drift",
+      "occupied merchant slot",
+      "changed donor"
+    ]
+  },
+  "placement.json": {
+    "nearest_static": 17.08800749063506,
+    "nearest_walking_route": 14.142135623730951,
+    "approach_clear": true,
+    "unrelated_saved_states_untouched": true
+  },
+  "cache-verification.json": {
+    "items_checked": 309410,
+    "sellrate_offset": 608,
+    "sellrate": 3,
+    "all_other_cache_bytes_preserved": true
+  },
+  "backup.json": {
+    "uncompressed_sha256": "e76e8d36b1a9ae4c600639c0e76842eb039a5bcba6316ffe55e8d2a4c87816ca",
+    "gzip_verified": true,
+    "isolated_restore_rehearsed": false
+  },
+  "services": [
+    {
+      "name": "/nightcap-production-game-1",
+      "running": true,
+      "health": "healthy",
+      "restarts": 0,
+      "started": "2026-10-16T10:09:19.115721485Z"
+    },
+    {
+      "name": "/nightcap-production-gateway-1",
+      "running": true,
+      "health": null,
+      "restarts": 0,
+      "started": "2026-10-16T10:09:41.929622167Z"
+    },
+    {
+      "name": "/nightcap-production-db-1",
+      "running": true,
+      "health": "healthy",
+      "restarts": 0,
+      "started": "2026-09-20T17:47:54.935680589Z"
+    }
+  ],
+  "processes": [
+    {
+      "pid": 26,
+      "name": "loginserver",
+      "sha256": "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf"
+    },
+    {
+      "pid": 27,
+      "name": "world",
+      "sha256": "efd54a1023a569274a76f65d3d2a18a173906762472a1bce186e3e14629d3c18"
+    },
+    {
+      "pid": 28,
+      "name": "ucs",
+      "sha256": "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714"
+    },
+    {
+      "pid": 29,
+      "name": "zone",
+      "sha256": "19cd3387952f21d1d1bcc18916e76a1d7738148de086849e3d3befe3a0df2ae1"
+    },
+    {
+      "pid": 30,
+      "name": "zone",
+      "sha256": "19cd3387952f21d1d1bcc18916e76a1d7738148de086849e3d3befe3a0df2ae1"
+    },
+    {
+      "pid": 31,
+      "name": "zone",
+      "sha256": "19cd3387952f21d1d1bcc18916e76a1d7738148de086849e3d3befe3a0df2ae1"
+    },
+    {
+      "pid": 36,
+      "name": "zone",
+      "sha256": "19cd3387952f21d1d1bcc18916e76a1d7738148de086849e3d3befe3a0df2ae1"
+    },
+    {
+      "pid": 37,
+      "name": "zone",
+      "sha256": "19cd3387952f21d1d1bcc18916e76a1d7738148de086849e3d3befe3a0df2ae1"
+    },
+    {
+      "pid": 38,
+      "name": "zone",
+      "sha256": "19cd3387952f21d1d1bcc18916e76a1d7738148de086849e3d3befe3a0df2ae1"
+    },
+    {
+      "pid": 39,
+      "name": "zone",
+      "sha256": "19cd3387952f21d1d1bcc18916e76a1d7738148de086849e3d3befe3a0df2ae1"
+    },
+    {
+      "pid": 40,
+      "name": "zone",
+      "sha256": "19cd3387952f21d1d1bcc18916e76a1d7738148de086849e3d3befe3a0df2ae1"
+    },
+    {
+      "pid": 41,
+      "name": "zone",
+      "sha256": "19cd3387952f21d1d1bcc18916e76a1d7738148de086849e3d3befe3a0df2ae1"
+    },
+    {
+      "pid": 42,
+      "name": "zone",
+      "sha256": "19cd3387952f21d1d1bcc18916e76a1d7738148de086849e3d3befe3a0df2ae1"
+    },
+    {
+      "pid": 47,
+      "name": "zone",
+      "sha256": "19cd3387952f21d1d1bcc18916e76a1d7738148de086849e3d3befe3a0df2ae1"
+    },
+    {
+      "pid": 48,
+      "name": "zone",
+      "sha256": "19cd3387952f21d1d1bcc18916e76a1d7738148de086849e3d3befe3a0df2ae1"
+    }
+  ],
+  "error_matches": [],
+  "ecommons_log_lines": 0,
+  "utc_checked": "2026-10-16T10:13:06.432480+00:00"
+}

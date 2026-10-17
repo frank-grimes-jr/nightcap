@@ -1,0 +1,53 @@
+{
+  "checked_at": "2026-10-17T14:58:53.776091+00:00",
+  "production_changed": false,
+  "candidate_count": 20490,
+  "capture_sha256": "1159f19f22ecc865c31c5fc2bed078381a345d0c47feb7b4e6f79b21b7e7e692",
+  "tests": [
+    {
+      "case": "boundaries-and-unrelated-fields",
+      "passed": true,
+      "rows": 8
+    },
+    {
+      "case": "missing-candidate",
+      "passed": true,
+      "rows": 7
+    },
+    {
+      "case": "changed-size-same-count",
+      "passed": true,
+      "rows": 8
+    },
+    {
+      "case": "replaced-id-same-count",
+      "passed": true,
+      "rows": 8
+    },
+    {
+      "case": "new-candidate",
+      "passed": true,
+      "rows": 9
+    },
+    {
+      "case": "stackable-flag-drift",
+      "passed": true,
+      "rows": 8
+    },
+    {
+      "case": "failure-after-update-rolls-back",
+      "passed": true,
+      "rows": 8
+    },
+    {
+      "case": "repeat-rejected-without-loss",
+      "passed": true,
+      "rows": 8
+    },
+    {
+      "case": "production-candidate-set",
+      "passed": true,
+      "rows": 20490
+    }
+  ]
+}

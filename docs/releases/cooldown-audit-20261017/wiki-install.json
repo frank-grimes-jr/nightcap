@@ -1,0 +1,33 @@
+{
+  "status": "installed_locally_not_published",
+  "files": {
+    "articles/combat.json": {
+      "before": "9ae0719cd218707755f6d4db06b8f12f7395d8993d2edd313b4a176f8b944502",
+      "after": "505fefafa04751b2eeca562664bbbe33c3d3fb3a8c5c527f68905407b907659f"
+    },
+    "articles/equipment.json": {
+      "before": "324ecc04f423090c4c355db188cd5f7ff6da4305bbbb16bf1e50418c75c77579",
+      "after": "19451708126d1a8468b24e88479b14adee4466842c344599c86b10018534ad47"
+    },
+    "articles/features.json": {
+      "before": "88280b7ad5e36f2cbd769018c1fe35c86e38d34d49c57c268ae50f54cdc2c580",
+      "after": "d97b7126e1d8ca61ac5cbe4b1dac1d341eddd78c0634fceb5a1b00756f71bbee"
+    },
+    "articles/index.json": {
+      "before": "f626732c493ab47d4e735d3b44353eca8ae1c9286f647ad52efde30f03f47bc3",
+      "after": "9559215d6eef5739eabf092fdc4575da27674d330b6cdc915114d1a76f3d1ba1"
+    },
+    "articles/multiclass.json": {
+      "before": "11d0a75ecfd4473a57f9a48477a97872d557db312c8390eb4797456250d2eaf3",
+      "after": "0a2570e22214dd53f4283ba9aca92b30a5eb6103267ab65f86e7afedefa33537"
+    },
+    "articles/recent-changes.json": {
+      "before": "8f8163e3c67132d7f8e8c812661fe223646e8489d163731666828cd2c7a0b82b",
+      "after": "83ddb0ae48e627e9bc83e73940ea25c5f10d84eea3184ceb4cfa60420bc98599"
+    },
+    "articles/unreleased.json": {
+      "before": "73b29bf78f92cb5fc9c71a60e6ad2116c810d273f7aecc730d713be6be59f526",
+      "after": "1cf67137587d90e2ca3118513629499282a1a427c9d325fe28a9a7ff34b4a949"
+    }
+  }
+}

@@ -1,0 +1,246 @@
+{
+  "captured_at": "2026-10-17T14:57:44.010011+00:00",
+  "capture_sha256": "4fde17b449a80b8af9fa090740c3c3b970e424d21d98a318b69915b4fcf7c258",
+  "effects_captured_at": "2026-10-17T15:04:54.293694+00:00",
+  "effects_sha256": "6a8272356583604d3cbec6ec4914b27e9dadeed0ec3984074fa855b4ebf9adaa",
+  "scope": "production SELECT-only catalog and aggregate active timers; no player identifiers",
+  "catalog_counts": {
+    "abilities": 1570,
+    "ranks": 6655,
+    "spells": 18017,
+    "items": 7798
+  },
+  "counts": {
+    "allowed_ordinary_activated_aa_shared_groups": 17,
+    "allowed_aa_families_in_shared_groups": 157,
+    "unlinked_items": 1158,
+    "linked_items": 6640,
+    "unlinked_items_with_cross_domain_alias": 364,
+    "unlinked_item_alias_groups": 2,
+    "unlinked_items_in_alias_groups": 4,
+    "linked_item_cross_domain_aliases": 0,
+    "discipline_definitions": 1545,
+    "linked_spell_definitions": 2523
+  },
+  "saved_active_timer_aggregates": [
+    {
+      "type": "1006",
+      "characters": "1",
+      "min_duration": "4320",
+      "max_duration": "4320",
+      "max_remaining": "864"
+    },
+    {
+      "type": "1039",
+      "characters": "1",
+      "min_duration": "4320",
+      "max_duration": "4320",
+      "max_remaining": "823"
+    }
+  ],
+  "timer_schema": [
+    {
+      "COLUMN_NAME": "char_id",
+      "COLUMN_TYPE": "int(11)"
+    },
+    {
+      "COLUMN_NAME": "type",
+      "COLUMN_TYPE": "mediumint(8) unsigned"
+    },
+    {
+      "COLUMN_NAME": "start",
+      "COLUMN_TYPE": "int(10) unsigned"
+    },
+    {
+      "COLUMN_NAME": "duration",
+      "COLUMN_TYPE": "int(10) unsigned"
+    },
+    {
+      "COLUMN_NAME": "enable",
+      "COLUMN_TYPE": "tinyint(4)"
+    }
+  ],
+  "selected_spells": [
+    {
+      "id": "199",
+      "name": "Harmshield",
+      "recast_time": "600000",
+      "timer_id": "1",
+      "IsDiscipline": "0",
+      "canonical_class_levels": [
+        255,
+        255,
+        255,
+        255,
+        50,
+        255,
+        255,
+        255,
+        255,
+        255,
+        20,
+        255,
+        255,
+        255,
+        255,
+        255
+      ]
+    },
+    {
+      "id": "265",
+      "name": "Cannibalize",
+      "recast_time": "1500",
+      "timer_id": "1",
+      "IsDiscipline": "0",
+      "canonical_class_levels": [
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        23,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255
+      ]
+    },
+    {
+      "id": "5027",
+      "name": "Battle Cry",
+      "recast_time": "1800000",
+      "timer_id": "8",
+      "IsDiscipline": "-1",
+      "canonical_class_levels": [
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        30
+      ]
+    },
+    {
+      "id": "5225",
+      "name": "Throw Stone",
+      "recast_time": "10000",
+      "timer_id": "8",
+      "IsDiscipline": "-1",
+      "canonical_class_levels": [
+        1,
+        255,
+        255,
+        255,
+        255,
+        255,
+        1,
+        255,
+        1,
+        255,
+        255,
+        255,
+        255,
+        255,
+        255,
+        1
+      ]
+    }
+  ],
+  "timer_effects": [
+    {
+      "id": "16248",
+      "name": "Forceful Rejuvenation",
+      "effect": 389,
+      "base": 1
+    },
+    {
+      "id": "16972",
+      "name": "Suppression of Ice",
+      "effect": 390,
+      "base": 2000
+    },
+    {
+      "id": "16973",
+      "name": "Suppression of Fire",
+      "effect": 390,
+      "base": 2000
+    },
+    {
+      "id": "16974",
+      "name": "Suppression of Magic",
+      "effect": 390,
+      "base": 2000
+    },
+    {
+      "id": "19950",
+      "name": "Syllable of Refreshment",
+      "effect": 389,
+      "base": 1
+    },
+    {
+      "id": "26643",
+      "name": "Syllable of Refreshment",
+      "effect": 389,
+      "base": 1
+    },
+    {
+      "id": "27525",
+      "name": "Dreamwarp",
+      "effect": 389,
+      "base": 1
+    },
+    {
+      "id": "29768",
+      "name": "Syllable of Refreshment",
+      "effect": 389,
+      "base": 1
+    },
+    {
+      "id": "31113",
+      "name": "Imposition of Order",
+      "effect": 310,
+      "base": -5000
+    },
+    {
+      "id": "31211",
+      "name": "Mind Collapse",
+      "effect": 310,
+      "base": -30000
+    },
+    {
+      "id": "35737",
+      "name": "Syllable of Refreshment",
+      "effect": 389,
+      "base": 1
+    },
+    {
+      "id": "38944",
+      "name": "Venomous Sting",
+      "effect": 310,
+      "base": -10000
+    }
+  ],
+  "limitations": [
+    "Catalog definitions are not proof of current ownership, accessibility or observed live collision.",
+    "Current widened spells_new class columns are not ownership evidence; canonical spell_class_catalog used for levels.",
+    "Saved-timer aggregate omits in-memory active-zone timers and expired rows.",
+    "AA groups exclude effect-bearing passive/toggle ranks, not every raw aa_ranks row.",
+    "Raw capture is retained in task work, not published in the player wiki."
+  ]
+}

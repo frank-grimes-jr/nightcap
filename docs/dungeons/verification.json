@@ -82,7 +82,7 @@
   "fourteen_mode_gameplay": "pending",
   "classic_ct_geometry_paths_doors": "pending in game; static identity/door checks passed",
   "level_50_vox_nagafen_balance": "pending",
-  "owner_acceptance": "partial: Keeper menu, Raid entry and named kill confirmed; blank task objectives reported, journal repair pending native installation and visible QA",
+  "owner_acceptance": "partial: Keeper menu, Raid entry, named kill and Befallen journal display fix confirmed; full-clear rewards and broader gameplay/balance QA remain open",
   "owner_confirmed_checks": [
     {
       "date": "2026-10-16",
@@ -101,11 +101,21 @@
       "check": "Run entry and named-boss kill",
       "owner_report": "Task is listed, but objectives are blank; yellow completion message followed named kill",
       "result": "display defect; read-only ledger and task rows retain one credited boss; full-clear reward acceptance pending"
+    },
+    {
+      "date": "2026-10-16",
+      "character": "Palwar",
+      "zone": "Befallen",
+      "mode": "Raid",
+      "check": "Journal display fix after deployment and retest instructions",
+      "owner_report": "Confirmed",
+      "result": "Reported display issue accepted as resolved; journal-repair/verification.json records scope",
+      "scope_excludes": "Individual attestation of every retest step, full-clear reward delivery, recovery/failure cases, other modes and balance"
     }
   ],
   "production_promotion_restart": "owner authorized; main PR208 and controlled restart complete",
-  "wiki": "published as 20261016-dungeons-v1; all 465 public files verified; evidence in wiki-publication/",
+  "wiki": "published as 20261016-dungeon-journal-v1; all 465 public files verified; all 52 required boss names and stage/full-clear/fallback guidance",
   "cache_scope": "production preserved 309410 old items and added 330; original local-cache evidence retained separately",
   "deployment_evidence": "deployment/production-verification.json",
-  "journal_repair": "journal-repair/README.md;15 regressions pass;source review complete;native install and visible QA pending"
+  "journal_repair": "deployed; mainPR #214;15 regressions and27 release controls pass; source/native build/runtime/cache verified; Befallen display fix owner-confirmed; broader QA open; journal-repair/"
 }

@@ -1,11 +1,13 @@
 # Dungeon live-test release: exact acceptance route
 
 Owner check, October 16: **Palwar selected Befallen's Keeper, saw Raid/Grind,
-entered a Raid and killed a named boss**. The task title is present but objectives
-are blank; a yellow notice followed the kill. A read-only probe confirmed retained
+entered a Raid and killed a named boss**. The task title was present but objectives
+were blank; a yellow notice followed the kill. A read-only probe confirmed retained
 personal boss credit without full-clear completion. The [journal repair](journal-repair/README.md)
-is a tested candidate pending native installation and visible retest. Full-clear
-rewards, other dungeons and broader acceptance remain open.
+is deployed after the authorized restart. The owner replied **"Confirmed"** after
+the Befallen journal retest instructions, accepting the reported display fix.
+This does not individually attest every retest step. Full-clear rewards, other
+dungeons and broader acceptance remain open.
 
 The owner-authorized main/OVH release is deployed and enabled; access is open.
 Native binaries, production cache, SQL
@@ -36,8 +38,8 @@ those experiments on the live server.
    to the same native NPC outside this instance, with matching debuffs/rules.
    Grind stats match. After the native timer plus variance, defeated mobs return.
 5. Kill the last personally required boss. Verify one Normal item, one permanent
-   Grind completion, and all five task activities completed. After the journal
-   repair is installed, the run moves to Completed history. Repeated kills,
+   Grind completion, and all five task activities completed. The run moves to
+   Completed history. Repeated kills,
    task abandonment/reacceptance,
    Keeper claims and re-entry must not grant another reward.
 6. Leave, choose Reset, then Confirm Reset within thirty seconds as creator.

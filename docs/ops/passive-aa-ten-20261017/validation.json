@@ -1,0 +1,90 @@
+{
+  "wiki-python": {
+    "returncode": 0,
+    "tail": [
+      ".....",
+      "----------------------------------------------------------------------",
+      "Ran 14 tests in 6.479s",
+      "",
+      "OK"
+    ]
+  },
+  "wiki-search": {
+    "returncode": 0,
+    "tail": [
+      "PASS: command ranking, exact items, multiword queries, unsafe text, empty query, load failure"
+    ]
+  },
+  "wiki-equipment": {
+    "returncode": 0,
+    "tail": [
+      "\u2139 fail 0",
+      "\u2139 cancelled 0",
+      "\u2139 skipped 0",
+      "\u2139 todo 0",
+      "\u2139 duration_ms 43.4557"
+    ]
+  },
+  "skill-multiclass": {
+    "returncode": 0,
+    "states": {
+      "unchanged": 113
+    },
+    "drift": []
+  },
+  "skill-balance": {
+    "returncode": 1,
+    "states": {
+      "changed: review implementation and evidence": 1,
+      "unchanged": 75
+    },
+    "drift": [
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\merchant-sell-all\\server-mods\\code\\zone\\effects.cpp",
+        "role": "percentage scaling and Throw Stone exception",
+        "state": "changed: review implementation and evidence"
+      }
+    ]
+  },
+  "skill-wiki": {
+    "returncode": 1,
+    "states": {
+      "changed: review implementation and evidence": 3,
+      "unchanged": 47
+    },
+    "drift": [
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\wiki\\articles\\combat.json",
+        "role": "reviewed local Monk notices; preserved no-death-EXP/reforge notes; unpublished",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\wiki\\articles\\equipment.json",
+        "role": "reviewed pending normal-item recipe guidance; unpublished",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\wiki\\articles\\unreleased.json",
+        "role": "reviewed local Monk notices; preserved no-death-EXP/reforge notes; unpublished",
+        "state": "changed: review implementation and evidence"
+      }
+    ]
+  },
+  "wiki-source-drift": {
+    "returncode": 1,
+    "result": "REVIEW REQUIRED"
+  },
+  "native-aa": {
+    "checks": 157,
+    "failures": 0,
+    "evidence": "native-tests.txt"
+  },
+  "operation-recovery": {
+    "tests": 9,
+    "failures": 0,
+    "command": "python docs/ops/passive-aa-ten-20261017/ops/test_apply.py"
+  },
+  "skill-validator": "passed",
+  "player-site-text": "10% paragraph and existing assertion agree; no layout change",
+  "review": "Reviewed parameter-only operator diff against October13 operator, guarded SQL, preconditions, tested recovery, active manifest/XP formula, and evidence boundaries; no new gameplay code or AA unlock."
+}

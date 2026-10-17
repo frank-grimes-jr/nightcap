@@ -1,0 +1,16 @@
+{
+  "slug": "getting-started",
+  "title": "Getting started",
+  "summary": "Your first evening in Nightcap.",
+  "body": "<p>Nightcap is a solo-preferred progression server: thoughtful preparation, earned gear and encounter execution matter. Friends are welcome. The current chapter is <strong>Classic</strong>, with a <strong>level cap of 50</strong>.</p>\n<p><a href=\"features.html\"><strong>Read Features first</strong></a> for the major ways Nightcap differs from Classic.</p><h2 id=\"joining\">Join the server</h2><p>Ask the server owner for an account, personal access code and setup instructions. Keep your access code private; enter it only in the official launcher. The public wiki does not create game accounts or grant server access. The <a href=\"https://play.nightcapgame.org/\">player site</a> is available to approved players.</p>\n<h2 id=\"update\">Update before playing</h2><p>Fully close the game and launcher. Reopen your usual Nightcap shortcut and let it update before pressing Play. Keep your existing game folder. See <a href=\"launcher.html\">Launcher &amp; interface</a>.</p>\n<h2 id=\"first-steps\">First steps in the tunnel</h2><ol><li>New characters arrive in the <a href=\"tunnel.html\">East Commonlands tunnel</a> with 100 platinum and a starting kit.</li><li>Hail the Ancient Chronicler to choose two different extra classes. Your original class remains your Primary. Read <a href=\"multiclass.html\">Multiclass &amp; progression</a>.</li><li>Find your class trainer and spell merchant in the class gatherings. Buy and learn eligible spells.</li><li>Hail Matron Restora for free, level-appropriate blessings.</li><li>Speak to Merrin in the travel area when you are ready to leave. Read <a href=\"travel.html\">Travel &amp; instances</a> for return options.</li></ol>\n<h2 id=\"next\">Choose your next goal</h2><p>Try <a href=\"advanced-loot.html\">advanced loot</a>, plan a <a href=\"pets.html\">pet roster</a>, discover <a href=\"waypoints.html\">waypoints</a>, hunt <a href=\"zones.html\">zone rewards</a>, or choose a <a href=\"dungeon-modes.html\">Raid or Grind dungeon run</a>. Installed features are available for live testing; some combinations and client behaviors still need acceptance.</p>\n<h2 id=\"early-aa\">Choose early AA upgrades</h2><p>Keep <code>#aaexp off</code> to earn normal leveling EXP plus 10% passive AA. Open Alternate Advancement and try the optional <a href=\"multiclass.html#recommended-aa\">Recommended AA</a> filter for a short survival, sustain and damage shortlist.</p>",
+  "category": "Getting started",
+  "status": "Live testing",
+  "updated": "2026-10-17",
+  "sources": [
+    "index.html at origin/main 19951a8",
+    "docs/status.md at origin/main 19951a8",
+    "docs/ops/player-access-20261011.md at origin/main 2df6823",
+    "docs/dungeons/deployment/production-verification.json and QA.md; deployed October 16 for live QA, owner acceptance pending",
+    "docs/releases/october-17-2026/README.md and verified deployment/publication receipts; owner gameplay QA remains pending"
+  ]
+}

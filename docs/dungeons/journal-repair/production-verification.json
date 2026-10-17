@@ -1,0 +1,143 @@
+{
+  "status": "healthy",
+  "checked_at_utc": "2026-10-17T00:38:28.971296+00:00",
+  "gateway_open": true,
+  "runtime": {
+    "image_id": "sha256:6b00ffd15f26ac60b810136cfcca516a42994b7d80c9be5bb011c22b8dcbab65",
+    "started_at": "2026-10-17T00:31:31.590413037Z",
+    "restart_count": 0,
+    "processes": [
+      [
+        "loginserver",
+        "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf"
+      ],
+      [
+        "world",
+        "70cceaca060ed6338cb72acc726bb24ccae162b42ba88dfb89432b609c7ef8e5"
+      ],
+      [
+        "ucs",
+        "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714"
+      ],
+      [
+        "zone",
+        "023cb1e991de849860b1387c0a0d8db5c596fb2744e791d5a92fb9e32b6b83cd"
+      ],
+      [
+        "zone",
+        "023cb1e991de849860b1387c0a0d8db5c596fb2744e791d5a92fb9e32b6b83cd"
+      ],
+      [
+        "zone",
+        "023cb1e991de849860b1387c0a0d8db5c596fb2744e791d5a92fb9e32b6b83cd"
+      ],
+      [
+        "zone",
+        "023cb1e991de849860b1387c0a0d8db5c596fb2744e791d5a92fb9e32b6b83cd"
+      ],
+      [
+        "zone",
+        "023cb1e991de849860b1387c0a0d8db5c596fb2744e791d5a92fb9e32b6b83cd"
+      ],
+      [
+        "zone",
+        "023cb1e991de849860b1387c0a0d8db5c596fb2744e791d5a92fb9e32b6b83cd"
+      ],
+      [
+        "zone",
+        "023cb1e991de849860b1387c0a0d8db5c596fb2744e791d5a92fb9e32b6b83cd"
+      ],
+      [
+        "zone",
+        "023cb1e991de849860b1387c0a0d8db5c596fb2744e791d5a92fb9e32b6b83cd"
+      ],
+      [
+        "zone",
+        "023cb1e991de849860b1387c0a0d8db5c596fb2744e791d5a92fb9e32b6b83cd"
+      ],
+      [
+        "zone",
+        "023cb1e991de849860b1387c0a0d8db5c596fb2744e791d5a92fb9e32b6b83cd"
+      ],
+      [
+        "zone",
+        "023cb1e991de849860b1387c0a0d8db5c596fb2744e791d5a92fb9e32b6b83cd"
+      ],
+      [
+        "zone",
+        "023cb1e991de849860b1387c0a0d8db5c596fb2744e791d5a92fb9e32b6b83cd"
+      ]
+    ],
+    "errors": {
+      "native": 0,
+      "quest": 0,
+      "database": 0
+    }
+  },
+  "zone_sha256": "023cb1e991de849860b1387c0a0d8db5c596fb2744e791d5a92fb9e32b6b83cd",
+  "cache_sha256": "9e4873cf8f8357d4c8b885b53d2f4ac639a2567b55c77fe6ffc17d12cda9ce4b",
+  "cache": {
+    "all_bytes_preserved": true
+  },
+  "player_tables_preserved": 47,
+  "custom_tables_preserved": 25,
+  "source_commit": "157757a",
+  "main_merge": "f1df253679c910f199922a9a97ae0d5d1c6e0945",
+  "main_pr": 214,
+  "previous_runtime": {
+    "id": "85972936ae22c734a247bbc901dbf7bba7d41acba3e0274db3ba4ac95f08c26d",
+    "image_id": "sha256:f924e3840379fa8d37866da6a257e8d45e5c24f7f7c9abe9e390ede6197bbe48",
+    "started_at": "2026-10-16T23:38:02.216627874Z",
+    "restarts": 2,
+    "running": true,
+    "health": "healthy",
+    "oom_killed": false
+  },
+  "shutdown": {
+    "duration_seconds": 1.4580060769803822,
+    "native_flush_confirmed": false
+  },
+  "backup": {
+    "path": "/opt/nightcap/releases/dungeon-journal-20261016/private-backup/peq-before.sql.gz",
+    "sha256": "67a7307f3480a9d9ec09524399a20bab0390f4358f3d013984809ee977d8622a",
+    "compressed_bytes": 63753766,
+    "uncompressed_bytes": 455047942,
+    "gzip_integrity": "passed"
+  },
+  "database_restored": false,
+  "new_client_assets": false,
+  "owner_rendered_qa": "pending",
+  "signed_client": {
+    "release": 2026101501,
+    "channel_sha256": "8212a46460273a640e807da0df7c9322c8d1ce6adf912ee419dde65083b4beab",
+    "verified_files": 106
+  },
+  "matching_pair": {
+    "archive": "/opt/nightcap/releases/dungeon-journal-20261016/journal-production-pair.tar.gz",
+    "sha256": "dd36a90d4c5e0a9740eaf669ce6b81f91f9f79ecf86754aff5312015bc678525",
+    "bytes": 173926703,
+    "members": {
+      "bin/world": "70cceaca060ed6338cb72acc726bb24ccae162b42ba88dfb89432b609c7ef8e5",
+      "bin/shared_memory": "ef1f399884387712113bf13163ddfcd35c47a29d0f0b9b194a6b7e265997ae35",
+      "bin/zone": "023cb1e991de849860b1387c0a0d8db5c596fb2744e791d5a92fb9e32b6b83cd",
+      "manifest.json": "b8986d1749e6043cdbdd1d4892e76dd551f0159a8740d202a99a1327144b3210",
+      "native-build-manifest.json": "095130b24276dcd885d6a05a6440ada129becc1518a9b02c8edf065196ef43c2",
+      "shared/items": "9e4873cf8f8357d4c8b885b53d2f4ac639a2567b55c77fe6ffc17d12cda9ce4b"
+    },
+    "all_members_readback_verified": true,
+    "no_player_data": true
+  },
+  "startup_cleanup_probe": {
+    "near_expiry_task_timers": 0,
+    "near_expiry_lockouts": 0,
+    "near_expiry_instances": 0,
+    "dynamic_zones": 0
+  },
+  "wiki_release": "20261016-dungeon-journal-v1",
+  "unchanged_binaries": {
+    "world": "70cceaca060ed6338cb72acc726bb24ccae162b42ba88dfb89432b609c7ef8e5",
+    "ucs": "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714",
+    "loginserver": "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf",
+    "shared_memory": "ef1f399884387712113bf13163ddfcd35c47a29d0f0b9b194a6b7e265997ae35"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "status": "published_origin_and_public_https_verified",
+  "release": 2026101701,
+  "source_commit": "1211a964a224949e65588c0988f9f0f6bb1e475b",
+  "manifest_and_packager_tests": "pass",
+  "publisher_recovery_tests_windows": 7,
+  "publisher_recovery_tests_linux": 7,
+  "layout": "layout-verification.json",
+  "signed_receipt": "signed-receipt.json",
+  "publication_receipt": "published.json",
+  "review": "Notes checked against deployed dungeon contract; signer/publisher diff limited to release numbers, file count and stage names; no remaining required findings",
+  "wiki_assessment": "All 21 maintained guides and generated/catalog surfaces assessed; no public content change for patcher-only announcement",
+  "owner_installed_desktop_qa": "pending",
+  "dungeon_qa": "Befallen journal issue owner-confirmed; broader gameplay, rewards and balance remain open",
+  "hosted_verification": "hosted-verification.json"
+}

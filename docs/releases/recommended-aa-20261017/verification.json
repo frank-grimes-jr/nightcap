@@ -1,0 +1,59 @@
+{
+  "date": "2026-10-17",
+  "status": "candidate; not deployed/published/player accepted",
+  "source_baseline": "a59974d plus aca2b82 passive-AA operation; reviewed feature working tree",
+  "curated_families": 34,
+  "maximum_shortlist": 10,
+  "passed": {
+    "x86_proxy_build": true,
+    "x86_fixture_builds": 21,
+    "runtime_groups": 8,
+    "server_catalog_class_combinations": 816,
+    "server_controls": [
+      "ownership",
+      "completion",
+      "prerequisite",
+      "skill availability",
+      "class release",
+      "cache",
+      "legacy opt-in"
+    ],
+    "native_client_controls": [
+      "pinned native filter bytes",
+      "checkbox/reset/pass-through",
+      "affordability",
+      "expansion intersection",
+      "stale identity",
+      "incomplete snapshot",
+      "SEH restore"
+    ],
+    "xml_tests": 5,
+    "class_refresh_tests": 7,
+    "exact_client_guards": 99,
+    "launcher_go_suite": "go1.27.2 test ./... passed"
+  },
+  "pending": [
+    "full zone compile/link: Docker Linux engine unavailable",
+    "real client rendering and selection/purchase QA",
+    "branch promotion and paired activation",
+    "signed client and wiki publication"
+  ],
+  "commands": [
+    "eq-client-dll/build.bat",
+    "eq-client-dll/tests/build-runtime-tests.bat",
+    "python eq-client-dll/tests/test_runtime.py --eqgame READ_ONLY_EQGAME -v",
+    "vcvars32.bat then python -X utf8 tools/tests/test_aa_recommendations.py",
+    "PYTHONPATH=tools python -X utf8 -m unittest discover -s tools/tests -p test_multiclass_ui_refresh.py -v",
+    "PYTHONPATH=tools python -X utf8 -m unittest discover -s tools/tests -p test_client_gameplay_ui.py -v",
+    "python tools/generate-client-patch-catalog.py --check",
+    "powershell -File eq-client-dll/tests/verify-exact-client-patch-sites.ps1 -EqgamePath READ_ONLY_EQGAME",
+    "eq-launcher: go test ./..."
+  ],
+  "artifacts": {
+    "dinput8.dll": "6b6e13df0210dd63d5680fb2caf6d09acf891182bb4bdaae4925f75f8decdc47",
+    "EQUI_AAWindow.xml": "22f62752d4c2522cd8a5df1212f0a6aec5489eb2fec3cb8951147c0e6cf6265a",
+    "nightcap-patch-sites.json": "21f5d1dfb381a973989cd793fa9150d0d2a2ebc6fa0eef7e121722b8f951747c"
+  },
+  "source_xml_sha256": "3a907e77c93895d8d345552b3156e385b5ebcb12661c4b67b5cbcb6157cf2d6d",
+  "limits": "Native executable fragments and extracted server method use controlled boundaries. No full zone, SQL, live packet round-trip or rendered game acceptance claimed."
+}

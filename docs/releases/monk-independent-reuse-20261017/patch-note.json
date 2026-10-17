@@ -1,0 +1,4 @@
+{
+  "kind": "fix",
+  "text": "Each basic Monk attack now has its own cooldown: Kick, Round Kick, Tiger Claw, Eagle Strike, Dragon Punch/Tail Rake and Flying Kick. Using one no longer locks the others."
+}

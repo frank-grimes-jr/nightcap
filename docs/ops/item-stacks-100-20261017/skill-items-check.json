@@ -1,0 +1,33 @@
+{
+  "topic": "items",
+  "checked_entries": 78,
+  "unchanged": 78,
+  "drift": [],
+  "task_entries": [
+    {
+      "path": "E:\\EQ_Local_Dev\\_worktrees\\item-stacks-100\\tools\\item_stack_sizes.py",
+      "role": "guarded stack minimum 100 SQL generator",
+      "state": "unchanged"
+    },
+    {
+      "path": "E:\\EQ_Local_Dev\\_worktrees\\item-stacks-100\\tools\\tests\\test_item_stack_sizes.py",
+      "role": "stack planner validation tests",
+      "state": "unchanged"
+    },
+    {
+      "path": "E:\\EQ_Local_Dev\\_worktrees\\item-stacks-100\\tools\\tests\\rehearse_item_stack_sizes.py",
+      "role": "actual MariaDB temporary-table stack migration checks",
+      "state": "unchanged"
+    },
+    {
+      "path": "E:\\EQ_Local_Dev\\_worktrees\\item-stacks-100\\docs\\ops\\item-stacks-100-20261017\\README.md",
+      "role": "candidate behavior, reload, recovery and owner QA",
+      "state": "unchanged"
+    },
+    {
+      "path": "E:\\EQ_Local_Dev\\_worktrees\\item-stacks-100\\docs\\ops\\item-stacks-100-20261017\\rehearsal.json",
+      "role": "nine passed MariaDB cases; production unchanged",
+      "state": "unchanged"
+    }
+  ]
+}

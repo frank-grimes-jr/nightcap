@@ -1,0 +1,149 @@
+{
+  "installed": true,
+  "files": [
+    {
+      "target": "C:\\Users\\verre\\.codex\\worktrees\\passive-aa-ten\\EQ_Local_Dev\\docs\\ops\\passive-aa-ten-20261017\\README.md",
+      "before_sha256": null,
+      "after_sha256": "0e531566fe7cf74d1a9785e8772142ad1576c3ac5cae59b8941153d306d92bb5",
+      "staged": "C:\\Users\\verre\\.codex\\worktrees\\passive-aa-ten\\EQ_Local_Dev\\docs\\ops\\passive-aa-ten-20261017\\maintenance\\0-README.md"
+    },
+    {
+      "target": "C:\\Users\\verre\\.codex\\worktrees\\passive-aa-ten\\EQ_Local_Dev\\docs\\ops\\passive-aa-ten-20261017\\REVIEW.md",
+      "before_sha256": null,
+      "after_sha256": "eb26983c30b005663df7b215f380b2c00c774a69c3357f65641af862b8ef1801",
+      "staged": "C:\\Users\\verre\\.codex\\worktrees\\passive-aa-ten\\EQ_Local_Dev\\docs\\ops\\passive-aa-ten-20261017\\maintenance\\1-REVIEW.md"
+    },
+    {
+      "target": "C:\\Users\\verre\\.codex\\worktrees\\passive-aa-ten\\EQ_Local_Dev\\docs\\ops\\passive-aa-ten-20261017\\analyze.py",
+      "before_sha256": null,
+      "after_sha256": "ae78ff407f46789a649e359314b9603ce87e4a7952486dbbef02731411455967",
+      "staged": "C:\\Users\\verre\\.codex\\worktrees\\passive-aa-ten\\EQ_Local_Dev\\docs\\ops\\passive-aa-ten-20261017\\maintenance\\2-analyze.py"
+    },
+    {
+      "target": "C:\\Users\\verre\\.codex\\worktrees\\passive-aa-ten\\EQ_Local_Dev\\docs\\ops\\passive-aa-ten-20261017\\native-tests.txt",
+      "before_sha256": null,
+      "after_sha256": "e531a916444f227793f63668659281b60c475f99891fad5b8726a2282967ed43",
+      "staged": "C:\\Users\\verre\\.codex\\worktrees\\passive-aa-ten\\EQ_Local_Dev\\docs\\ops\\passive-aa-ten-20261017\\maintenance\\3-native-tests.txt"
+    },
+    {
+      "target": "C:\\Users\\verre\\.codex\\worktrees\\passive-aa-ten\\EQ_Local_Dev\\docs\\ops\\passive-aa-ten-20261017\\ops\\test_ten.py",
+      "before_sha256": null,
+      "after_sha256": "b6ed3cd27623456109213a638a936ed3aba04fec15d2eca7d4050318d2ee01f7",
+      "staged": "C:\\Users\\verre\\.codex\\worktrees\\passive-aa-ten\\EQ_Local_Dev\\docs\\ops\\passive-aa-ten-20261017\\maintenance\\4-test_ten.py"
+    },
+    {
+      "target": "C:\\Users\\verre\\.codex\\worktrees\\passive-aa-ten\\EQ_Local_Dev\\docs\\ops\\passive-aa-ten-20261017\\forward.sql",
+      "before_sha256": null,
+      "after_sha256": "c970500948f369c4d2baffb2c7c7545fb14293dc20af23a98efea56f9e555955",
+      "staged": "C:\\Users\\verre\\.codex\\worktrees\\passive-aa-ten\\EQ_Local_Dev\\docs\\ops\\passive-aa-ten-20261017\\maintenance\\5-forward.sql"
+    },
+    {
+      "target": "C:\\Users\\verre\\.codex\\worktrees\\passive-aa-ten\\EQ_Local_Dev\\docs\\ops\\passive-aa-ten-20261017\\rollback.sql",
+      "before_sha256": null,
+      "after_sha256": "63d0c29dd8f4de51b299bbad574b49587b8757d6f7cdbf6339386047af2d1e82",
+      "staged": "C:\\Users\\verre\\.codex\\worktrees\\passive-aa-ten\\EQ_Local_Dev\\docs\\ops\\passive-aa-ten-20261017\\maintenance\\6-rollback.sql"
+    },
+    {
+      "target": "C:\\Users\\verre\\.codex\\worktrees\\passive-aa-ten\\EQ_Local_Dev\\CHANGES.md",
+      "before_sha256": "c5386e298deb398969a6e0db5b90df3b7ce9e479222b108a3bcd16083c1376b6",
+      "after_sha256": "d537d78c064e36643f9d29c61f360e908f42d7f0f16a3acdc780743e8b88c42b",
+      "staged": "C:\\Users\\verre\\.codex\\worktrees\\passive-aa-ten\\EQ_Local_Dev\\docs\\ops\\passive-aa-ten-20261017\\maintenance\\7-CHANGES.md"
+    },
+    {
+      "target": "C:\\Users\\verre\\.codex\\worktrees\\passive-aa-ten\\EQ_Local_Dev\\docs\\status.md",
+      "before_sha256": "06ae408cd8b26dfb6e1518aca9b6b9f20974616a618260031afe36032bc16e14",
+      "after_sha256": "e31b4ed397fb2e3ef0e15c8ffd293740c41ee94cc907d7b357c0bba4075ca4f0",
+      "staged": "C:\\Users\\verre\\.codex\\worktrees\\passive-aa-ten\\EQ_Local_Dev\\docs\\ops\\passive-aa-ten-20261017\\maintenance\\8-status.md"
+    },
+    {
+      "target": "C:\\Users\\verre\\.codex\\worktrees\\passive-aa-ten\\EQ_Local_Dev\\docs\\README.md",
+      "before_sha256": "2a2173756f35ae92f4f9f99a4178680ed345579dbe2b7e7fd562e0c5ba9bccf9",
+      "after_sha256": "cbb7b18cfde2653489fc134559b48abc47ccaf1aaa64c2288c04fb1061ad7dc0",
+      "staged": "C:\\Users\\verre\\.codex\\worktrees\\passive-aa-ten\\EQ_Local_Dev\\docs\\ops\\passive-aa-ten-20261017\\maintenance\\9-README.md"
+    },
+    {
+      "target": "C:\\Users\\verre\\.codex\\worktrees\\passive-aa-ten\\EQ_Local_Dev\\index.html",
+      "before_sha256": "6ca3a1f62d53a0501eef222a269466e79f141d7347b01d0b72cf28fdaa8546f2",
+      "after_sha256": "52dff8620ff2d30da6d170ddb24edd189bb70ad52c95b529c5c4040c1f6e4cd6",
+      "staged": "C:\\Users\\verre\\.codex\\worktrees\\passive-aa-ten\\EQ_Local_Dev\\docs\\ops\\passive-aa-ten-20261017\\maintenance\\10-index.html"
+    },
+    {
+      "target": "C:\\Users\\verre\\.codex\\worktrees\\passive-aa-ten\\EQ_Local_Dev\\tools\\tests\\test_player_site.cjs",
+      "before_sha256": "1607bbfff753f17638deb2f82de0940dd550cd0e4fdfad11c8440f49d34999b9",
+      "after_sha256": "8a0853ab964af291c8c19e63375350176687810b4b9199c1c42339d85fec1ee5",
+      "staged": "C:\\Users\\verre\\.codex\\worktrees\\passive-aa-ten\\EQ_Local_Dev\\docs\\ops\\passive-aa-ten-20261017\\maintenance\\11-test_player_site.cjs"
+    },
+    {
+      "target": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\wiki\\articles\\commands.json",
+      "before_sha256": "f9de3a2641011f1625cd543a85a8b2efa392a8de68e164b43161ea79d90afe48",
+      "after_sha256": "b23435918515e34f6db39189f0d072847b19599dff37c3739daf724839c66bd3",
+      "staged": "C:\\Users\\verre\\.codex\\worktrees\\passive-aa-ten\\EQ_Local_Dev\\docs\\ops\\passive-aa-ten-20261017\\maintenance\\12-commands.json"
+    },
+    {
+      "target": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\wiki\\articles\\features.json",
+      "before_sha256": "d97b7126e1d8ca61ac5cbe4b1dac1d341eddd78c0634fceb5a1b00756f71bbee",
+      "after_sha256": "43689c0df6ce43809fe822690388ed52b86bbc2c8a63308619e1febbb957c652",
+      "staged": "C:\\Users\\verre\\.codex\\worktrees\\passive-aa-ten\\EQ_Local_Dev\\docs\\ops\\passive-aa-ten-20261017\\maintenance\\13-features.json"
+    },
+    {
+      "target": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\wiki\\articles\\index.json",
+      "before_sha256": "9559215d6eef5739eabf092fdc4575da27674d330b6cdc915114d1a76f3d1ba1",
+      "after_sha256": "4bb9027f71b6811d52cbb1ba2a2d8d7f617750886aa31e4e24f3b5d1c2c1dc2c",
+      "staged": "C:\\Users\\verre\\.codex\\worktrees\\passive-aa-ten\\EQ_Local_Dev\\docs\\ops\\passive-aa-ten-20261017\\maintenance\\14-index.json"
+    },
+    {
+      "target": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\wiki\\articles\\multiclass.json",
+      "before_sha256": "0a2570e22214dd53f4283ba9aca92b30a5eb6103267ab65f86e7afedefa33537",
+      "after_sha256": "a21dd00de63e00a9e5ea211b1889df72a9014e1cf2b8d823bddb7e73f7b590cc",
+      "staged": "C:\\Users\\verre\\.codex\\worktrees\\passive-aa-ten\\EQ_Local_Dev\\docs\\ops\\passive-aa-ten-20261017\\maintenance\\15-multiclass.json"
+    },
+    {
+      "target": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\wiki\\articles\\recent-changes.json",
+      "before_sha256": "83ddb0ae48e627e9bc83e73940ea25c5f10d84eea3184ceb4cfa60420bc98599",
+      "after_sha256": "074f9be3a76cd63e1e49454724c8baa187beb2d0eac70c8cd57668420a084dc1",
+      "staged": "C:\\Users\\verre\\.codex\\worktrees\\passive-aa-ten\\EQ_Local_Dev\\docs\\ops\\passive-aa-ten-20261017\\maintenance\\16-recent-changes.json"
+    },
+    {
+      "target": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\wiki\\test_wiki.py",
+      "before_sha256": "8e880611e2fddabb227247654e7abf487277d89229c74c9e51fb589413229fc7",
+      "after_sha256": "4211b1d88b8acdab0bf8898b25eefcb562212fb5a8fb009bfb7192f2f4b61b8f",
+      "staged": "C:\\Users\\verre\\.codex\\worktrees\\passive-aa-ten\\EQ_Local_Dev\\docs\\ops\\passive-aa-ten-20261017\\maintenance\\17-test_wiki.py"
+    },
+    {
+      "target": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\wiki\\README.md",
+      "before_sha256": "1b4e0e314b7bac6df9d15909b02392dd2da5dcb528242af8dd07e85facb274be",
+      "after_sha256": "8e4e6988c37423f36f266e6a1fe695013137cdd7a91bcd324b6daf4a7240f9e1",
+      "staged": "C:\\Users\\verre\\.codex\\worktrees\\passive-aa-ten\\EQ_Local_Dev\\docs\\ops\\passive-aa-ten-20261017\\maintenance\\18-README.md"
+    },
+    {
+      "target": "C:\\Users\\verre\\.codex\\worktrees\\passive-aa-ten\\EQ_Local_Dev\\docs\\ops\\passive-aa-ten-20261017\\wiki-review.md",
+      "before_sha256": null,
+      "after_sha256": "ab9afcaefd9fba3fadb05e6b6a5abdd8dc55a49e40208586aac102463b4ec67c",
+      "staged": "C:\\Users\\verre\\.codex\\worktrees\\passive-aa-ten\\EQ_Local_Dev\\docs\\ops\\passive-aa-ten-20261017\\maintenance\\19-wiki-review.md"
+    },
+    {
+      "target": "C:\\Users\\verre\\.codex\\skills\\nightcap-development\\references\\multiclass.md",
+      "before_sha256": "641febad400335c3ec47a8675ef6c05234770fab6f3251393db3f2b21d57d8c5",
+      "after_sha256": "ef03f64907b929117003fcae4070ae0a3cf3b2249c6402adfc7920311738c6a8",
+      "staged": "C:\\Users\\verre\\.codex\\worktrees\\passive-aa-ten\\EQ_Local_Dev\\docs\\ops\\passive-aa-ten-20261017\\maintenance\\20-multiclass.md"
+    },
+    {
+      "target": "C:\\Users\\verre\\.codex\\skills\\nightcap-development\\references\\balance.md",
+      "before_sha256": "55f231ed8ba037b4155eeb3b312b22dbb71c763f1eab39af83e9bd38c96a2103",
+      "after_sha256": "1f0884dbf1fdc1e226c5e9e60e3f28d077fdafa7f5a211cf811bab54d930bbd9",
+      "staged": "C:\\Users\\verre\\.codex\\worktrees\\passive-aa-ten\\EQ_Local_Dev\\docs\\ops\\passive-aa-ten-20261017\\maintenance\\21-balance.md"
+    },
+    {
+      "target": "C:\\Users\\verre\\.codex\\skills\\nightcap-development\\references\\wiki.md",
+      "before_sha256": "1fa793dcd81a9c9e1a848afba3aff0c243a25df0d317954cb4aeb97636849588",
+      "after_sha256": "43ba07a1881f8c781a35eb90f26484bdb53801f30b2ad637623cc56b86a1254c",
+      "staged": "C:\\Users\\verre\\.codex\\worktrees\\passive-aa-ten\\EQ_Local_Dev\\docs\\ops\\passive-aa-ten-20261017\\maintenance\\22-wiki.md"
+    },
+    {
+      "target": "C:\\Users\\verre\\.codex\\skills\\nightcap-development\\references\\sources.json",
+      "before_sha256": "512507011f8d03b21ea0f56e978e16e5c7d7a8386b7286a6e031c91be1b6db36",
+      "after_sha256": "d11837a070e9da0a5ff2660825347ee0a41940dbe26c7648be84357211ad061a",
+      "staged": "C:\\Users\\verre\\.codex\\worktrees\\passive-aa-ten\\EQ_Local_Dev\\docs\\ops\\passive-aa-ten-20261017\\maintenance\\23-sources.json"
+    }
+  ]
+}

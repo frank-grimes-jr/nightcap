@@ -1,0 +1,7 @@
+0060ad6b 8b86bc020000             mov eax, dword ptr [esi + 0x2bc]
+0060ad71 3bd8                     cmp ebx, eax
+0060ad73 7516                     jne 0x60ad8b
+0060ad75 8a80e4010000             mov al, byte ptr [eax + 0x1e4]
+0060ad7b 88862c020000             mov byte ptr [esi + 0x22c], al
+0060ad81 e80af2ffff               call 0x609f90
+0060ad86 e991040000               jmp 0x60b21c

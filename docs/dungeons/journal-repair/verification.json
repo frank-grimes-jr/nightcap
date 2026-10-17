@@ -1,5 +1,5 @@
 {
-  "status": "built_and_reviewed",
+  "status": "deployed_befallen_display_fix_owner_confirmed",
   "native_zone_sha256": "023cb1e991de849860b1387c0a0d8db5c596fb2744e791d5a92fb9e32b6b83cd",
   "retained_deployed_zone_relinked": "785faf9e08856bb5355ffd46e4d4aa6d93f687a8bbbc6b40c2fa3d1692d4c524",
   "candidate_sources_verified": 5,
@@ -8,8 +8,21 @@
   "adapter_recovery_tests_passed": 7,
   "inherited_operator_tests_passed": 20,
   "source_review": "no remaining required findings",
-  "deployment": "pending; owner authorized Restart now",
-  "gameplay_acceptance": "blank objectives reported; repaired RoF2 display not yet retested",
+  "deployment": "mainPR #214; owner-authorized whole-runtime restart; access open",
+  "gameplay_acceptance": "Befallen journal display fix owner-confirmed; full-clear rewards and broader gameplay QA remain open",
   "wiki_release": "20261016-dungeon-journal-v1",
-  "wiki_public_hashes_verified": 465
+  "wiki_public_hashes_verified": 465,
+  "production_evidence": "production-verification.json",
+  "production_image": "sha256:6b00ffd15f26ac60b810136cfcca516a42994b7d80c9be5bb011c22b8dcbab65",
+  "production_cache_sha256": "9e4873cf8f8357d4c8b885b53d2f4ac639a2567b55c77fe6ffc17d12cda9ce4b",
+  "owner_visible_qa": {
+    "date": "2026-10-16",
+    "character": "Palwar",
+    "zone": "Befallen",
+    "mode": "Raid",
+    "owner_report": "Confirmed",
+    "context": "Reply after deployment and instructions to inspect Befallen - Raid objectives, retained credit, stage notices and Completed history",
+    "accepted_scope": "Reported Befallen journal display issue resolved",
+    "scope_excludes": "Individual attestation of every retest step, full-clear reward delivery, recovery/failure cases, other dungeon modes and balance"
+  }
 }

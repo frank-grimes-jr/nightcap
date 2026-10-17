@@ -1,0 +1,158 @@
+persistent_timer,raw_group,ability,name,seconds,classes
+1001,1,35,Mass Group Buff,4320,30254
+1001,1,98,[MNK] Purify Body,1800,64
+1001,1,102,[ROG] Escape,1440,256
+1001,1,109,Rampage,600,32769
+1001,1,2220,Ancient Attunement,600,65535
+1002,2,36,[CLR] Divine Resurrection,64800,2
+1002,2,46,[ENC] Dire Charm,4320,8192
+1002,2,53,[WIZ] Nexus Gate,4320,2048
+1002,2,58,Mend Companion,2160,21504
+1002,2,73,[PAL] Divine Stun,30,4
+1002,2,80,Innate Camouflage,7,40
+1002,2,87,[SHD] Leech Touch,4320,16
+1002,2,110,[WAR] Area Taunt,900,1
+1002,2,199,[BRD] Boastful Bellow,18,128
+1002,2,276,[MNK] Destructive Force  ,3600,64
+1002,2,418,Replenish Companion,2160,21504
+1002,2,374,[BER] Untamed Rage,2160,32768
+1002,2,499,[BER] Cascading Rage,2160,32768
+1002,2,518,Shared Camouflage,7,40
+1002,2,702,[PAL] Hand of Disruption,30,4
+1003,3,37,Innate Invis to Undead,7,1026
+1003,3,43,Exodus,4320,2080
+1003,3,50,[SHM] Rabid Bear,2160,512
+1003,3,76,[PAL] Act of Valor,4320,4
+1003,3,111,[WAR] War Cry,2160,1
+1003,3,126,[BST] Hobble of Spirits,300,16384
+1003,3,184,[RNG] Guardian of the Forest,900,8
+1003,3,372,[BER] Tireless Sprint,900,32768
+1003,3,468,[MNK] Crippling Strike,60,64
+1003,3,469,[MNK] Stunning Kick,60,64
+1003,3,470,[MNK] Eye Gouge,60,64
+1003,3,789,[ROG] Stealthy Getaway,4320,256
+1003,3,531,Cloak of Shadows,7,1040
+1004,4,38,[CLR] Celestial Regeneration,900,2
+1004,4,61,[MAG] Elemental Form: Fire,10,4096
+1004,4,62,[MAG] Elemental Form: Water,10,4096
+1004,4,63,[MAG] Elemental Form: Earth,10,4096
+1004,4,64,[MAG] Elemental Form: Air,10,4096
+1004,4,117,[WIZ] Strong Root,4320,2048
+1004,4,127,[BST] Frenzy of Spirit,720,16384
+1004,4,171,[SHM] Virulent Paralysis,120,512
+1004,4,219,Entrap,5,40
+1004,4,361,[BRD] Shield of Notes,2160,128
+1004,4,387,[BER] Blood Pact,900,32768
+1004,4,420,[MNK] Imitate Death,1080,64
+1004,4,673,[ROG] Tumble,900,256
+1005,5,39,[CLR] Bestow Divine Aura,600,2
+1005,5,69,[NEC] Dead Mesmerization,4320,1024
+1005,5,128,[BST] Paragon of Spirit,900,16384
+1005,5,172,[WIZ] Harvest of Druzzil,480,2048
+1005,5,177,[SHM] Spirit Call,720,512
+1005,5,185,[DRU] Spirit of the Wood,900,32
+1005,5,261,[ENC] Doppelganger,1800,8192
+1005,5,285,[PAL] Radiant Cure,180,4
+1005,5,289,[RNG] Flaming Arrows,180,8
+1005,5,290,[RNG] Frost Arrows,180,8
+1005,5,373,[BER] Desperation,1320,32768
+1005,5,467,[WAR] Press the Attack,30,1
+1005,5,559,[MAG] Turn Summoned,300,4096
+1005,5,544,[BRD] Song of Stone,1800,128
+1005,5,601,Grappling Strike,30,65
+1005,5,671,[ROG] Dirty Fighting,600,256
+1007,7,41,[CLR] Purify Soul,1800,2
+1007,7,71,[NEC] Flesh to Bone,7,1024
+1007,7,207,[MAG] Host of the Elements,900,4096
+1007,7,212,[BRD] Fading Memories,1,128
+1007,7,245,[BST] Bestial Alignment,4320,16384
+1007,7,317,[DRU] Dire Charm,4320,32
+1007,7,409,[ENC] Stasis,2160,8192
+1007,7,529,[PAL] Cloak of Light,7,4
+1007,7,606,[WAR] Mark of the Mage Hunter,1800,1
+1007,7,610,[BER] Blinding Fury,600,32768
+1007,7,748,[ENC] Nightmare Stasis,2160,8192
+1007,7,670,[ROG] Twisted Shank,60,256
+1008,8,52,[WIZ] Improved Familiar,60,2048
+1008,8,72,[NEC] Call to Corpse,4320,1024
+1008,8,153,Radiant Cure,180,546
+1008,8,265,[MAG] Shared Health,900,4096
+1008,8,303,[WIZ] Ro's Flaming Familiar  ,60,2048
+1008,8,304,[WIZ] E'ci's Icy Familiar  ,60,2048
+1008,8,305,[WIZ] Druzzil's Mystical Familiar  ,60,2048
+1008,8,362,[BST] Roar of Thunder,900,16384
+1008,8,414,[ENC] Soothing Words,2160,8192
+1008,8,609,[BER] Uncanny Resilience,600,32768
+1008,8,778,[RNG] Protection of the Spirit Wolf,2160,8
+1008,8,668,[BRD] Hymn of the Last Stand,600,128
+1014,14,60,[MAG] Frenzied Burnout,900,4096
+1014,14,396,[CLR] Sanctuary,4320,2
+1014,14,512,[WIZ] Translocational Anchor,300,2048
+1014,14,629,[NEC] Gathering Dusk,600,1024
+1014,14,633,[ENC] Azure Mind Crystal,300,8192
+1006,6,70,[NEC] Fear Storm,4320,1024
+1006,6,174,[MAG] Servant of Ro,540,4096
+1006,6,208,[WIZ] Call of Xuzl,900,2048
+1006,6,247,[BST] Feral Swipe,30,16384
+1006,6,257,[DRU] Nature's Boon,1800,32
+1006,6,286,[PAL] Purification  ,4320,4
+1006,6,321,[SHM] Call of the Ancients,1800,512
+1006,6,412,[ENC] Color Shock,600,8192
+1006,6,462,[RNG] Auspice of the Hunter,900,8
+1006,6,558,[CLR] Turn Undead,300,2
+1006,6,505,[BER] Cry of Battle,4320,32768
+1006,6,552,[WAR] Call of Challenge,10,1
+1006,6,553,[BRD] Cacophony,900,128
+1006,6,672,[ROG] Ligament Slice,180,256
+1000,0,77,[PAL] Holy Steed,1,4
+1000,0,85,[SHD] Unholy Steed,1,16
+1000,0,176,Suspended Minion,1,30224
+1000,0,217,[ENC] Project Illusion,1,8192
+1000,0,465,[BER] Savage Spirit,3600,32768
+1000,0,514,[WIZ] Pyromancy,1,2048
+1000,0,536,[ROG] Appraisal,1,256
+1000,0,570,[PAL] Valiant Steed,1,4
+1000,0,571,[SHD] Abyssal Steed,1,16
+1000,0,640,[WIZ] Cryomancy,1,2048
+1000,0,707,[SHM] Pact of the Wolf,1,512
+1012,12,107,[ROG] Purge Poison,4320,256
+1012,12,173,[ENC] Eldritch Rune,600,8192
+1012,12,307,[WIZ] Ward of Destruction  ,1800,2048
+1012,12,391,[CLR] Celestial Hammer,1320,2
+1012,12,428,Death Peace,5,1040
+1012,12,520,[DRU] Nature's Guardian,1320,32
+1012,12,734,Hold the Line,600,32833
+1009,9,169,[CLR] Divine Arbitration,180,2
+1009,9,175,[NEC] Wake the Dead,540,1024
+1009,9,404,Call of the Wild,600,544
+1009,9,413,[ENC] Mind Over Matter,1320,8192
+1009,9,784,[MAG] Heart of Flames,1320,4096
+1009,9,785,[MAG] Heart of Vapor,1320,4096
+1009,9,792,[NEC] Army of the Dead,540,1024
+1009,9,456,[WIZ] Teleport Bind,300,2048
+1009,9,621,[MAG] Fire Core,1320,4096
+1009,9,622,[MAG] Vapor Core,1320,4096
+1009,9,666,[BST] Taste of Blood,900,16384
+1009,9,669,[BRD] Bladed Song,300,128
+1010,10,254,[CLR] Divine Avatar,2160,2
+1010,10,320,[NEC] Swarm of Decay,1800,1024
+1010,10,405,Secondary Recall,600,2080
+1010,10,447,[SHM] Ancestral Aid,900,512
+1010,10,521,[ENC] Edict of Command,4320,8192
+1010,10,701,[PAL] Armor of the Inquisitor,900,4
+1011,11,255,[CLR] Exquisite Benediction,1800,2
+1011,11,318,[NEC] Dire Charm,4320,1024
+1011,11,451,[WIZ] Mind Crash,4320,2048
+1011,11,528,[SHM] Ancestral Guard,900,512
+1011,11,705,[DRU] Spirit of the White Wolf,600,32
+1013,13,392,[CLR] Divine Retribution,2160,2
+1013,13,524,[NEC] Blood Magic,2160,1024
+1013,13,611,Battle Leap,60,32769
+1013,13,632,[ENC] Sanguine Mind Crystal,300,8192
+1013,13,662,[SHM] Union of Spirits,900,512
+1016,16,786,[MAG] Heart of Ice,1320,4096
+1016,16,787,[MAG] Heart of Stone,1320,4096
+1016,16,623,[MAG] Ice Core ,1320,4096
+1016,16,624,[MAG] Stone Core ,1320,4096
+1039,39,6000,[SHD] Harm Touch,4320,16
+1039,39,6001,[PAL] Lay on Hands,4320,4
