@@ -1,0 +1,37 @@
+{
+  "date": "2026-10-17",
+  "status": "implemented and tested candidate",
+  "implementation_commit": "1f70065949aa4c772c767cc949c39fdb19e1ff61",
+  "wiki_commit": "f106a5d2e5642bfc6f39ff7aa30517144b473845",
+  "red_before_fix": [
+    "policy LegacyTarget(1001) == 201001 failed",
+    "actual inventory normal combine failed"
+  ],
+  "passed": {
+    "item_upgrade_policy_and_package": 4,
+    "actual_inventory_translation_unit": "all six transitions, normal unit/stack/charge/rejection and transaction failure/exception cases",
+    "zone_hunt": 8,
+    "ordinary_tradeskills": 25,
+    "reforging_quest_assertions": 10,
+    "wiki_python": 14,
+    "wiki_node": 13,
+    "independent_review": "no blocking findings",
+    "skill_validator": "valid",
+    "items_and_wiki_reviewed_fingerprints": "no drift",
+    "git_diff_check": "passed"
+  },
+  "pending": [
+    "full current-runtime production zone build",
+    "owner-authorized main promotion and deployment",
+    "real client combine/persistence and balance QA",
+    "public wiki publication"
+  ],
+  "preserved": [
+    "existing four-copy higher recipes",
+    "four-slot reusable container",
+    "dungeon reward exclusions",
+    "atomic receipts and activity-preserving recovery",
+    "unrelated default-workspace changes",
+    "concurrent unrelated maintained-wiki combat/multiclass edits"
+  ]
+}
