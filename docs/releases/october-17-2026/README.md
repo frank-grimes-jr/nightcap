@@ -4,7 +4,7 @@ The owner explicitly requested all recent changes on main and the server, with
 documentation, wiki and patcher notes updated. This record owns the coordinated
 release; earlier candidate reports retain their dated test evidence.
 
-Status: prepared and undergoing full server compilation. Production activation,
+Status: complete server build/link and focused checks passed. Production activation,
 signed channel publication and wiki publication are recorded separately below.
 Owner gameplay and balance acceptance remain open even after deployment.
 

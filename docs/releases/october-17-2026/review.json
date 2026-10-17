@@ -6,7 +6,7 @@
   "preservation": "Source manifest, unchanged binary hashes, planned full-cache hash, rule scope, content and stopped player/custom fingerprints",
   "recovery": "Fail closed with exclusive receipts; no SQL snapshot restoration/replay; higher signed counter for client recovery; retain limits after larger stacks possible",
   "limitations": [
-    "Full zone build and production preflight still pending",
+    "Production preflight and activation pending; full zone build passed",
     "Visible native AA/Monk and balance QA remains open"
   ]
 }

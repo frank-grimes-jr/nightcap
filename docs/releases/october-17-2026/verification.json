@@ -15,8 +15,10 @@
   "wiki_node_search_equipment_tests": 13,
   "player_guide_browser": "PASS: 73 entries, anchors, keyboard/history, five responsive widths, 200% reflow, images, CSP, clean console/network",
   "launcher_go_suite": "PASS; manifest/packager rechecked after notes change",
-  "full_zone_build": "pending; see native-build-manifest.json when completed",
+  "full_zone_build": "PASS: fresh complete zone compilation and link; exact retained source delta verified; ldd clean",
   "shared_identity_reproducer": "six failures retained as an explicitly unresolved separate defect",
   "production_activation": "pending",
-  "owner_gameplay_accepted": false
+  "owner_gameplay_accepted": false,
+  "zone_sha256": "3c1d74926cb7cff032a3ee8c48c210e37740156e7e36cc0eeddd07f847e88d1a",
+  "player_guide_linux_tests": 10
 }
