@@ -1,5 +1,15 @@
 # Current Nightcap status
 
+## Cooldown audit and duration fixes — candidate October 17
+
+Cooldown arithmetic fixes cover item clicks, Mend, Bash/Frenzy and linked spells;
+zero-duration skills and AA/spell completion no longer revive an expired timer.
+Native duration/combat regressions and independent review pass. The broader audit
+reproduces shared AA and item timer collisions and identifies linked spell/disc
+overlaps; identity separation remains open. No live timers were cleared or changed.
+Full zone build, coordinated activation and owner gameplay QA remain pending.
+[Audit, evidence and remaining work](releases/cooldown-audit-20261017/README.md).
+
 ## Basic Monk cooldowns — candidate October 17
 
 The six basic Monk attacks have independent persistent reuse timers in the

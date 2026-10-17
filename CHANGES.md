@@ -1,5 +1,20 @@
 # CHANGES
 
+## 2026-10-17 - Cross-class cooldown audit and duration corrections (candidate)
+
+Audit AA, spell, discipline, skill, item and triggered-effect reuse against the
+current read-only production catalog. Correct signed/unsigned duration overflow
+for item clicks, Mend, Bash/Frenzy and linked spell focus; prevent zero-duration
+skill, spell and AA completion from restarting an expired timer's old duration.
+Eighteen duration and sixteen combat tests pass, including negative-focus,
+authorization and proc/trigger controls. Independent review passes.
+
+The audit also reproduces unresolved shared AA and item-key collisions; it does
+not claim they are fixed. Preserve deliberate family links while designing a
+paired client/server identity correction and saved-timer transition. Full zone
+build, activation and owner gameplay QA remain pending. No production writes or
+client publication occurred. Evidence: `docs/releases/cooldown-audit-20261017/`.
+
 ## 2026-10-17 - Independent basic Monk cooldowns (candidate)
 
 Give all six basic Monk attacks separate persistent server cooldowns for held

@@ -1872,7 +1872,9 @@ void Mob::CastedSpellFinished(uint16 spell_id, uint32 target_id, CastingSlot slo
 				c->CheckSongSkillIncrease(spell_id);
 			}
 			if (spells[spell_id].timer_id > 0 && slot < CastingSlot::MaxGems) {
-				c->SetLinkedSpellReuseTimer(spells[spell_id].timer_id, (spells[spell_id].recast_time / 1000) - (casting_spell_recast_adjust / 1000));
+				// The wire adjustment also encodes negative focus as signed milliseconds.
+				const auto duration = std::max<int64>(0, static_cast<int64>(spells[spell_id].recast_time) / 1000 - static_cast<int32>(casting_spell_recast_adjust) / 1000);
+				c->SetLinkedSpellReuseTimer(spells[spell_id].timer_id, static_cast<uint32>(duration));
 			}
 			if (RuleB(Spells, EnableBardMelody)) {
 				c->MemorizeSpell(static_cast<uint32>(slot), spell_id, memSpellSpellbar, casting_spell_recast_adjust);
@@ -1893,7 +1895,8 @@ void Mob::CastedSpellFinished(uint16 spell_id, uint32 target_id, CastingSlot slo
 
 			// this causes the delayed refresh of the spell bar gems
 			if (spells[spell_id].timer_id > 0 && slot < CastingSlot::MaxGems) {
-				c->SetLinkedSpellReuseTimer(spells[spell_id].timer_id, (spells[spell_id].recast_time / 1000) - (casting_spell_recast_adjust / 1000));
+				const auto duration = std::max<int64>(0, static_cast<int64>(spells[spell_id].recast_time) / 1000 - static_cast<int32>(casting_spell_recast_adjust) / 1000);
+				c->SetLinkedSpellReuseTimer(spells[spell_id].timer_id, static_cast<uint32>(duration));
 			}
 
 			c->MemorizeSpell(static_cast<uint32>(slot), spell_id, memSpellSpellbar, casting_spell_recast_adjust);
@@ -2879,13 +2882,21 @@ bool Mob::SpellFinished(uint16 spell_id, Mob *spell_target, CastingSlot slot, in
 		}
 		//handle bard AA and Discipline recast timers when singing
 		if (GetClass() == Class::Bard && spell_id != casting_spell_id && timer != 0xFFFFFFFF) {
-			CastToClient()->GetPTimers().Start(timer, timer_duration);
+			if (timer_duration > 0) {
+				CastToClient()->GetPTimers().Start(timer, timer_duration);
+			} else {
+				CastToClient()->GetPTimers().Clear(&database, timer);
+			}
 			LogSpells("Spell [{}]: Setting BARD custom reuse timer [{}] to [{}]", spell_id, casting_spell_timer, casting_spell_timer_duration);
 		}
 		//handles AA and Discipline recast timers
 		else if (spell_id == casting_spell_id && casting_spell_timer != 0xFFFFFFFF)
 		{
-			CastToClient()->GetPTimers().Start(casting_spell_timer, casting_spell_timer_duration);
+			if (casting_spell_timer_duration > 0) {
+				CastToClient()->GetPTimers().Start(casting_spell_timer, casting_spell_timer_duration);
+			} else {
+				CastToClient()->GetPTimers().Clear(&database, casting_spell_timer);
+			}
 			LogSpells("Spell [{}]: Setting custom reuse timer [{}] to [{}]", spell_id, casting_spell_timer, casting_spell_timer_duration);
 		} else if (spells[spell_id].recast_time > 1000 && !spells[spell_id].is_discipline) {
 			int recast = spells[spell_id].recast_time/1000;
@@ -7108,12 +7119,8 @@ void Client::SetItemRecastTimer(int32 spell_id, uint32 inventory_slot)
 	}
 
 	//must use SPA 415 with focus (SPA 310) to reduce item recast
-	int reduction = GetFocusEffect(focusReduceRecastTime, spell_id);
-	if (reduction) {
-		recast_delay -= reduction;
-	}
-
-	recast_delay = std::max(recast_delay, static_cast<uint32>(0));
+	const int64 reduction = GetFocusEffect(focusReduceRecastTime, spell_id);
+	recast_delay = static_cast<uint32>(std::max<int64>(0, static_cast<int64>(recast_delay) - reduction));
 
 	if (recast_delay > 0) {
 		if (recast_type != RECAST_TYPE_UNLINKED_ITEM) {
@@ -7439,7 +7446,12 @@ void Client::SetLinkedSpellReuseTimer(uint32 timer_id, uint32 duration)
 	if (timer_id > 19)
 		return;
 	LogSpells("Setting Linked Spell Reuse [{}] for [{}]", timer_id, duration);
-	GetPTimers().Start(pTimerLinkedSpellReuseStart + timer_id, duration);
+	if (duration > 0) {
+		GetPTimers().Start(pTimerLinkedSpellReuseStart + timer_id, duration);
+	} else {
+		// PersistentTimer::Start(0) restarts an existing duration; zero means ready here.
+		GetPTimers().Clear(&database, pTimerLinkedSpellReuseStart + timer_id);
+	}
 	auto outapp = new EQApplicationPacket(OP_LinkedReuse, sizeof(LinkedSpellReuseTimer_Struct));
 	auto lr = (LinkedSpellReuseTimer_Struct *)outapp->pBuffer;
 	lr->timer_id = timer_id;

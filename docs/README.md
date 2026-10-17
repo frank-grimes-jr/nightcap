@@ -18,6 +18,8 @@ Start with [current status](status.md), not a dated candidate report.
 
 ## Players and testers
 
+- [All-class cooldown audit: duration corrections and remaining shared timers](releases/cooldown-audit-20261017/README.md)
+
 - [Independent basic Monk cooldown candidate: pairing and exact QA](releases/monk-independent-reuse-20261017/README.md)
 
 - [Raid and Grind dungeon candidate: release, recovery and exact fourteen-mode QA](dungeons/README.md)

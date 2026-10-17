@@ -25,7 +25,7 @@ FIXTURE = r'''
 #include <string>
 #include <vector>
 using uint8=uint8_t; using uint16=uint16_t; using uint32=uint32_t;
-using int16=int16_t; using int64=int64_t; using pTimerType=uint16;
+using int16=int16_t; using int64=int64_t; using uint64=uint64_t; using pTimerType=uint16;
 /* NATIVE_TIMER_ENUM */
 namespace Class { enum { Warrior=1,Paladin=3,Ranger=4,ShadowKnight=5,Monk=7,Bard=8,Rogue=9,Wizard=12,Beastlord=15,Berserker=16 }; }
 namespace Race { enum { Ogre=10,Troll=9,Barbarian=2 }; }
@@ -44,7 +44,7 @@ template<class T> T Clamp(T value,T low,T high) {return std::max(low,std::min(hi
 }
 namespace fmt {template<class... T> std::string format(const char* s,T...) {return s;}}
 template<class... T> std::string StringFormat(const char* s,T...) {return s;}
-enum { BashReuseTime=10,
+enum { BashReuseTime=5,
  FrenzyReuseTime=10,KickReuseTime=10,BackstabReuseTime=10,
  animTailRake,anim1HWeapon,animKick,DMG_INVULNERABLE=-5 };
 #define RuleI(category,name) 0
@@ -52,12 +52,18 @@ enum { BashReuseTime=10,
 uint32 GetPlayerClassBit(uint8 cls) {return 1u<<(cls-1);}
 int database;
 struct PersistentTimers {
- int now=1000;
- std::map<pTimerType,int> deadlines;
+ uint64 now=1000;
+ std::map<pTimerType,uint64> deadlines;
+ std::map<pTimerType,uint32> durations;
  bool Expired(int*,pTimerType timer,bool) const {
   auto it=deadlines.find(timer);return it==deadlines.end() || it->second<=now;
  }
- void Start(pTimerType timer,int duration) {deadlines[timer]=now+duration;}
+ // Match PTimerList::Start's unsigned API, which exposes signed underflow at
+ // the caller. A wide deterministic clock preserves the native elapsed-time
+ // expiry semantics without wrapping the fixture's absolute deadline.
+ void Start(pTimerType timer,uint32 duration) {
+  durations[timer]=duration;deadlines[timer]=now+duration;
+ }
 };
 struct Zone {struct Random {bool Roll(int) {return false;} int Roll0(int) {return 450;} int Int(int,int) {return 0;}} random;} zone_value;
 auto* zone=&zone_value;
@@ -87,6 +93,7 @@ struct Client:Mob {
   if(cls==Class::Monk && unlock && at_level>=unlock)return 200;
   if(cls==Class::Warrior && skill==SkillKick)return 200;
   if(cls==Class::Paladin && skill==SkillBash)return 200;
+  if(cls==Class::Berserker && skill==SkillFrenzy)return 200;
   return 0;
  }
  bool IsAttackAllowed(Mob*) const {return allowed;} bool CombatRange(Mob*) const {return in_range;}
@@ -189,6 +196,56 @@ void haste_reduction() {
   }
  }
 }
+void early_return_zero_reuse(int skill) {
+ using namespace EQ::skills;
+ const int base=skill==SkillBash?BashReuseTime:FrenzyReuseTime;
+ const uint8 native_class=skill==SkillBash?Class::Paladin:Class::Berserker;
+ int failures=0,cases=0;
+ for(int haste:{-50,0,100})for(int reduction:{base-1,base,base+40}) {
+  for(bool secondary:{false,true}) {
+   Client c;c.class_id=secondary?Class::Wizard:native_class;
+   c.held=secondary?std::vector<uint8>{Class::Wizard,native_class}:std::vector<uint8>{native_class};
+   c.haste=haste;c.reduction=reduction;c.Packet(skill);++cases;
+   check(c.attacks.size()==1,"valid Bash/Frenzy first activation missing");
+   if(!c.p_timers.durations.empty()) {
+    ++failures;
+    std::cerr<<"skill "<<skill<<" haste "<<haste<<" reduction "<<reduction
+     <<" starts unsigned duration "<<c.p_timers.durations.begin()->second
+     <<" with primary class "<<int(c.class_id)<<'\n';
+   }
+   c.Packet(skill);
+   if(c.attacks.size()!=2) {
+    ++failures;std::cerr<<"fully reduced skill "<<skill<<" blocks its next activation\n";
+   }
+  }
+ }
+ check(failures==0,std::to_string(failures)+" failures across "+std::to_string(cases)+
+  " Bash/Frenzy equal-or-excess reduction cases");
+}
+void early_return_positive_reuse(int skill) {
+ using namespace EQ::skills;
+ const uint8 native_class=skill==SkillBash?Class::Paladin:Class::Berserker;
+ struct Row {int haste,reduction,bash_delay,frenzy_delay;};
+ for(auto row:{Row{-50,0,6,13},Row{0,0,4,9},Row{100,0,2,4},
+  Row{-50,2,3,10},Row{0,2,2,7},Row{100,2,1,3},
+  Row{-50,-2,9,16},Row{0,-2,6,11},Row{100,-2,3,5}}) {
+  for(bool secondary:{false,true}) {
+   Client c;c.class_id=secondary?Class::Wizard:native_class;
+   c.held=secondary?std::vector<uint8>{Class::Wizard,native_class}:std::vector<uint8>{native_class};
+   c.haste=row.haste;c.reduction=row.reduction;c.Packet(skill);
+   const uint32 expected=skill==SkillBash?row.bash_delay:row.frenzy_delay;
+   check(c.attacks.size()==1,"valid positive-reuse Bash/Frenzy activation missing");
+   check(c.p_timers.durations.size()==1 && c.p_timers.durations.count(pTimerCombatAbility)==1,
+    "Bash/Frenzy non-Monk shared timer identity changed");
+   check(c.p_timers.durations.at(pTimerCombatAbility)==expected,
+    "Bash/Frenzy native haste or signed reduction changed");
+   c.p_timers.now+=expected-1;c.Packet(skill);
+   check(c.attacks.size()==1,"Bash/Frenzy became usable before its deadline");
+   ++c.p_timers.now;c.Packet(skill);
+   check(c.attacks.size()==2,"Bash/Frenzy failed exactly at its deadline");
+  }
+ }
+}
 void restored_timers() {
  for(int first:monk_skills)for(int second:monk_skills) {
   if(first==second)continue;
@@ -256,6 +313,10 @@ int main(int argc,char** argv) {
   else if(scenario=="class-same")same_skill("class");
   else if(scenario=="guards")packet_guards();
   else if(scenario=="haste")haste_reduction();
+  else if(scenario=="bash-zero")early_return_zero_reuse(EQ::skills::SkillBash);
+  else if(scenario=="frenzy-zero")early_return_zero_reuse(EQ::skills::SkillFrenzy);
+  else if(scenario=="bash-positive")early_return_positive_reuse(EQ::skills::SkillBash);
+  else if(scenario=="frenzy-positive")early_return_positive_reuse(EQ::skills::SkillFrenzy);
   else if(scenario=="restored")restored_timers();
   else if(scenario=="cross-entry")cross_entry_points();
   else if(scenario=="riposte")riposte();
@@ -326,6 +387,18 @@ class MonkCombatReuseTests(unittest.TestCase):
 
     def test_haste_and_aa_skill_reuse_reduction(self):
         self.run_scenario("haste")
+
+    def test_bash_equal_or_excess_reduction_has_no_unsigned_long_lock(self):
+        self.run_scenario("bash-zero")
+
+    def test_frenzy_equal_or_excess_reduction_has_no_unsigned_long_lock(self):
+        self.run_scenario("frenzy-zero")
+
+    def test_bash_haste_negative_reduction_and_native_deadline_controls(self):
+        self.run_scenario("bash-positive")
+
+    def test_frenzy_haste_negative_reduction_and_native_deadline_controls(self):
+        self.run_scenario("frenzy-positive")
 
     def test_restored_timers_preserve_independent_cooldowns(self):
         self.run_scenario("restored")

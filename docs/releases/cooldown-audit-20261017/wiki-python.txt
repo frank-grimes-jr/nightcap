@@ -1,0 +1,36 @@
+test_current_mechanics_and_unreleased_labels (test_wiki.WikiTests.test_current_mechanics_and_unreleased_labels) ... ok
+test_equipment_groups_variants_and_keeps_every_item_reachable (test_wiki.WikiTests.test_equipment_groups_variants_and_keeps_every_item_reachable) ... ok
+test_every_local_link_asset_and_anchor (test_wiki.WikiTests.test_every_local_link_asset_and_anchor) ... ok
+test_features_and_updated_guides_are_reachable (test_wiki.WikiTests.test_features_and_updated_guides_are_reachable) ... ok
+test_generated_reward_pages_use_current_upgrade_costs (test_wiki.WikiTests.test_generated_reward_pages_use_current_upgrade_costs) ... ok
+test_only_enabled_reward_catalog (test_wiki.WikiTests.test_only_enabled_reward_catalog) ... ok
+test_package_is_exact_and_immutable (test_wiki.WikiTests.test_package_is_exact_and_immutable) ... ok
+test_public_payload_excludes_private_material (test_wiki.WikiTests.test_public_payload_excludes_private_material) ... ok
+test_search_index_has_all_articles_without_internal_sources (test_wiki.WikiTests.test_search_index_has_all_articles_without_internal_sources) ... ok
+test_aggregate_size_rejected_before_read (test_deploy.DeploymentTests.test_aggregate_size_rejected_before_read) ... ok
+test_extra_file_rejected (test_deploy.DeploymentTests.test_extra_file_rejected) ... ok
+test_malformed_path_can_be_400_but_private_routes_must_be_404 (test_deploy.DeploymentTests.test_malformed_path_can_be_400_but_private_routes_must_be_404) ... ok
+test_new_host_has_separate_root_and_no_proxy (test_deploy.DeploymentTests.test_new_host_has_separate_root_and_no_proxy) ... ok
+test_reload_failure_still_removes_pointer_and_preserves_original_error (test_deploy.DeploymentTests.test_reload_failure_still_removes_pointer_and_preserves_original_error) ... skipped 'Real POSIX symlink/recovery test runs on the deployment host'
+test_stale_config_aborts_before_receipt_or_unpack (test_deploy.DeploymentTests.test_stale_config_aborts_before_receipt_or_unpack) ... ok
+test_traversal_and_symlink_rejected (test_deploy.DeploymentTests.test_traversal_and_symlink_rejected) ... ok
+test_valid_payload_and_hash_mismatch (test_deploy.DeploymentTests.test_valid_payload_and_hash_mismatch) ... ok
+test_candidate_failure_restores_previous_pointer (test_update.UpdateTests.test_candidate_failure_restores_previous_pointer) ... skipped 'Atomic POSIX pointer tests run on Linux before publication'
+test_config_drift_still_restores_owned_pointer_without_overwriting_config (test_update.UpdateTests.test_config_drift_still_restores_owned_pointer_without_overwriting_config) ... skipped 'Atomic POSIX pointer tests run on Linux before publication'
+test_corrupt_archive_never_switches_live_pointer (test_update.UpdateTests.test_corrupt_archive_never_switches_live_pointer) ... skipped 'Atomic POSIX pointer tests run on Linux before publication'
+test_interrupt_just_after_atomic_replace_restores_actual_pointer (test_update.UpdateTests.test_interrupt_just_after_atomic_replace_restores_actual_pointer) ... skipped 'Atomic POSIX pointer tests run on Linux before publication'
+test_private_state_change_fails_and_restores_old_pointer (test_update.UpdateTests.test_private_state_change_fails_and_restores_old_pointer) ... skipped 'Atomic POSIX pointer tests run on Linux before publication'
+test_stale_config_and_pointer_abort_before_staging (test_update.UpdateTests.test_stale_config_and_pointer_abort_before_staging) ... skipped 'Atomic POSIX pointer tests run on Linux before publication'
+test_success_rehearses_old_new_old_new_and_preserves_config (test_update.UpdateTests.test_success_rehearses_old_new_old_new_and_preserves_config) ... skipped 'Atomic POSIX pointer tests run on Linux before publication'
+test_unrelated_concurrent_pointer_is_never_overwritten (test_update.UpdateTests.test_unrelated_concurrent_pointer_is_never_overwritten) ... skipped 'Atomic POSIX pointer tests run on Linux before publication'
+test_missing_revision_cannot_pass (test_refresh.RefreshTests.test_missing_revision_cannot_pass) ... fatal: Needed a single revision
+ok
+test_new_system_and_deleted_source_require_review (test_refresh.RefreshTests.test_new_system_and_deleted_source_require_review) ... ok
+test_staged_change_canceled_only_in_working_copy_still_requires_review (test_refresh.RefreshTests.test_staged_change_canceled_only_in_working_copy_still_requires_review) ... ok
+test_unrelated_files_do_not_require_content_review (test_refresh.RefreshTests.test_unrelated_files_do_not_require_content_review) ... ok
+test_working_tree_tracks_staged_unstaged_and_untracked (test_refresh.RefreshTests.test_working_tree_tracks_staged_unstaged_and_untracked) ... ok
+
+----------------------------------------------------------------------
+Ran 30 tests in 13.738s
+
+OK (skipped=9)

@@ -1,0 +1,81 @@
+{
+  "verified_at": "2026-10-17T15:13:48.308496+00:00",
+  "base_revision": "64b6e4213859951f556a833698decb5a2b9cf044",
+  "status": "candidate_not_deployed",
+  "tests": [
+    {
+      "runner": "tools/tests/test_cooldown_duration.py",
+      "exit_code": 0,
+      "tests": 18,
+      "status": "passed",
+      "log": "test_cooldown_duration.txt"
+    },
+    {
+      "runner": "tools/tests/test_monk_combat_reuse.py",
+      "exit_code": 0,
+      "tests": 16,
+      "status": "passed",
+      "log": "test_monk_combat_reuse.txt"
+    },
+    {
+      "runner": "tools/tests/test_gameplay_policies.py",
+      "exit_code": 0,
+      "tests": 2,
+      "status": "passed",
+      "log": "test_gameplay_policies.txt"
+    },
+    {
+      "runner": "tools/tests/test_aa_temporary_buffs.py",
+      "exit_code": 0,
+      "tests": 19,
+      "status": "passed",
+      "log": "test_aa_temporary_buffs.txt"
+    },
+    {
+      "runner": "tools/tests/test_multiclass_spell_access.py",
+      "exit_code": 0,
+      "tests": 2,
+      "status": "passed",
+      "log": "test_multiclass_spell_access.txt",
+      "invocation": "python -m unittest discover -s tools/tests -p test_multiclass_spell_access.py"
+    },
+    {
+      "runner": "docs/releases/cooldown-audit-20261017/reproduce_collisions.py",
+      "exit_code": 1,
+      "tests": 11,
+      "status": "six unresolved defects reproduced; five controls pass",
+      "log": "reproduce_collisions.txt"
+    }
+  ],
+  "source_sha256": {
+    "server-mods/code/zone/spells.cpp": "d8c32025fc537a9743a50820a12f3de53a55cd25c7ab8f6e5f4f10bd7a4c7f69",
+    "server-mods/code/zone/client_packet.cpp": "8464cdaaa92102c4dd17bb6e4f19ae97cf03435c81e20912d8ea7081a0f873c8",
+    "server-mods/code/zone/special_attacks.cpp": "1c6020c58f481f1f8f46c07d92ea58a5b36303ed1cf0fe22a15e2486b0e63f9c",
+    "tools/tests/test_cooldown_duration.py": "2e7c451e61ff5b291250e70ec736ad51b46feed7273f4e200268e45be992b4c8",
+    "tools/tests/test_monk_combat_reuse.py": "c0b48c1103454e721c293f675201c9b008e1923b6dae84876fbea42625d73f5a",
+    "tools/tests/fixtures/cooldown_persistent_timer.cpp": "a43b4abb048e2c9fe0e4c95fea2defdfec565ee5189e0c7610379cbed0e9df24"
+  },
+  "review": "Independent reviewer reran duration18/combat16; no actionable production findings; not full build or live QA",
+  "duration_scenarios": 28,
+  "combat_extra_combinations": {
+    "zero_or_excess": 36,
+    "positive_or_negative_reduction": 36
+  },
+  "full_zone_build": "pending: local Docker Linux engine unavailable",
+  "live_gameplay_and_existing_timer_repair": "not performed",
+  "identity_collisions": "open; six failing diagnostic cases retained",
+  "wiki": {
+    "maintained_articles_reviewed": 21,
+    "generated_routes_assessed": 432,
+    "updated_articles": 7,
+    "python_checks": {
+      "run": 30,
+      "pass": 21,
+      "skipped_posix": 9
+    },
+    "node_checks": 13,
+    "source_drift": "REVIEW REQUIRED: broad historical drift retained; global audit ref unchanged",
+    "publication": "local notices installed; not published",
+    "initial_sandbox_failure": "Rerun with workspace TMP/TEMP passed; no code change required"
+  }
+}

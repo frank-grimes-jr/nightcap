@@ -1,0 +1,365 @@
+item_id,item_name,item_seconds,persistent_timer,target_kind,target_id,target_name,target_seconds
+32278,Mark of Emperor Zhisza,9,33258,spell,28258,Unified Hand of the Triumvirate Rk. II,1
+32279,Mystical Dome Repair Device,15,33257,spell,28257,Unified Hand of the Triumvirate,1
+38549,Rodrick's Cleansed Amulet,2,26987,spell,21987,Brell's Rest Gate,10
+38723,Empty Crystal of Containment,5,26813,spell,21813,Hand of Ro,6
+39998,Edmund's Shovel,1000,25538,spell,20538,Zephyr: Plane of Time,6
+40609,Scale of Rodcet Nife,72000,24927,spell,19927,Crystallizing Circle Rk. II,30
+40610,Kiss of Erollisi Marr,72000,24926,spell,19926,Crystallizing Circle,30
+40628,Familiar of Lord Nagafen,10,24908,spell,19908,Spreading Malo,30
+40699,Familiar of the Bitter Brownie,10,24837,spell,19837,Necrotize Ally Rk. III,12
+40700,Familiar of Severilous,10,24836,spell,19836,Necrotize Ally Rk. II,12
+40701,Familiar of the Kobold King,10,24835,spell,19835,Necrotize Ally,12
+40729,Familiar of Nexona,10,24807,spell,19807,Arcane Disjunction Aura Rk. III,1
+40730,Familiar of Warden Hanvar,10,24806,spell,19806,Arcane Disjunction Aura Rk. II,1
+40731,Familiar of King Gelaqua,10,24805,spell,19805,Arcane Disjunction Aura,1
+41117,Rathe Thaumatox,6,24419,spell,19419,Feralization Rk. II,1
+41322,Darkened Shining Metallic Robes,150,24214,spell,19214,Heartpierce,30
+41348,Ornate Gnollish Leather Boots,150,24188,spell,19188,Mottlescale,1
+41392,Lost Staff of Primordial Summoning,210,24144,spell,19144,Crush of Compunction Rk. II,24
+41483,Porous Granite Chunk,60,24053,spell,19053,Devout Touch,1
+41496,Glowing Gossamer Robe,120,24040,spell,19040,Putrescence Rk. III,1
+41960,Gyrospire Relocation Device,1800,23576,spell,18576,Seduction,1
+42282,Darkened Shining Metallic Robes,150,23254,spell,18254,Devout Elixir Rk. III,1
+42819,Rallosian Battle Figure,10,22717,spell,17717,Days of Wrath,1
+42884,Timeshear,72000,22652,spell,17652,Dire Doubtfall,18
+42936,Sarah's Lost Locket,10,22600,spell,17600,Korascian Enthrallment,18
+42937,Jennifer's Lost Locket,10,22599,spell,17599,Crystalline Statactis,18
+42982,Bristlebane's Party Generator,600,22554,spell,17554,Drakeskull Curse,1
+42983,Bristlebane's Party Pie,5,22553,spell,17553,Knowledge Unbound,1
+42990,The History of Norrath,3600,22546,spell,17546,Stoneshaker,1
+42999,Black Wolf Figurine,10,22537,spell,17537,Lector's Mind Fog,1
+43000,Everburning Ember,10,22536,spell,17536,Lector's Stunning Voice,3
+43500,Goblin Skull Fetish,10,22036,spell,17036,Eothar's Lightning Attack,1
+45192,Geerlok Party Bot,180,20344,spell,15344,Ancestral Intervention Rk. III,180
+45193,Fae-Touched Gnome,10,20343,spell,15343,Ancestral Intervention Rk. II,180
+45194,Geerlok Controls,10,20342,spell,15342,Ancestral Intervention,180
+45374,Child's Play Anklebiter Doll,10,20162,spell,15162,Terror of the Soulbleeder Rk. III,6
+46134,Mug of the Endless Fan Faire,60,19402,spell,14402,Winter's Blaze Rk. III,5
+46136,Miraculous Cure-All Potion,120,19400,spell,14400,Winter's Blaze,5
+46137,Rune of the Ages,120,19399,spell,14399,Viridithorn Coat Rk. III,1
+47082,Rowdy Rock Dispenser,1800,18454,spell,13454,Fabled Wind Strike,12
+47089,Clicking Beetle,10,18447,spell,13447,Fabled Draught of Jiva,1
+47090,Ticking Companion,10,18446,spell,13446,Fabled Deluge,22
+47091,Springwork Spider,10,18445,spell,13445,Fabled Manabolt,18
+47197,Tome of Friends,10,18339,spell,13339,Chilling Howl,4
+47795,Skull of the Amused,60,17741,spell,12741,Flash of Light,25
+47810,Beden's Collar,10,17726,spell,12726,Peck,35
+47811,Collar of the King,10,17725,spell,12725,Salve,35
+47812,Captured Bone of the Lost,10,17724,spell,12724,Dark Swarm,35
+48968,Box of Daisies,60,16568,spell,11568,Shatter Cluster,6
+48969,Brell's Brew Dispenser,60,16567,spell,11567,Shatter Cluster,6
+48980,April Showers,10,16556,spell,11556,Illusion: Goblin,7
+48991,Erollisi's Doll,10,16545,spell,11545,Spirit of the Wolf,3
+49060,Rongol's Pitchfork,5,16476,spell,11476,Belch of Fire,30
+49061,Blessed Shillelagh,6,16475,spell,11475,Extreme Overheat,30
+50291,Shard of the Plundered Mind,60,15245,spell,10245,Blacktalon Bite,60
+50487,Flower Bouquet of Plenty,60,15049,spell,10049,Tortugone's Drowse Rk. III,30
+50488,Magic Sphere of Answers,60,15048,spell,10048,Tortugone's Drowse Rk. II,30
+50489,Endless Worms,60,15047,spell,10047,Tortugone's Drowse,30
+50494,Spirit of Ice Cream,10,15042,spell,10042,Exhumer's Call,12
+50870,Protective Mimic,10,14666,spell,9666,Scarred Will,1
+50887,Haiti Relief Plush Bear,60,14649,spell,9649,Spirit of Venesh,1
+50897,Nyade's Scepter of Dreams,1,14639,spell,9639,Scales of Draton`ra,1
+50898,The Sandman's Scepter of Dreams,1,14638,spell,9638,Pack of the Mistwalker,1
+50899,Dradir's Scepter of Dreams,1,14637,spell,9637,Ward of Mysaphar,1
+50917,Orb of Tishan,7,14619,spell,9619,Form of Defense V,6
+51755,Fungus Harvesting Tools,60,13781,spell,8781,Deafening Aria,45
+51756,Mushroom Spores,5,13780,spell,8780,Rakche's Unholy Aura,30
+51757,Crystalline Water,5,13779,spell,8779,Ruingtor's Torrent of Ice,60
+51758,Fungal Antidote Potion,60,13778,spell,8778,Keloss' Undying Rage,30
+51778,Fireworks Rack,1800,13758,spell,8758,Test LT,1
+51786,Flittering Wings,10,13750,spell,8750,Runes of Alliance,120
+52013,Gnoll Pup Leash,10,13523,spell,8523,Death Rune,30
+52018,Discordant Contract,300,13518,spell,8518,Rathe's Strength,1
+52019,Wailing Contract,300,13517,spell,8517,Iceflame Guard,1
+52095,Phylactery of Dreams,10,13441,spell,8441,Wrath of Tunare,1
+52191,Warm Milk Dispenser,10,13345,spell,8345,Frozen Limbs,9
+52192,Counting Sheep,60,13344,spell,8344,Dark Gift IV,9
+52193,Petamorph Wand - Scarecrow,10,13343,spell,8343,Dark Gift III,9
+52194,Dreamcatcher Nimbus,300,13342,spell,8342,Dark Gift II,9
+52195,Nightmare Nimbus,300,13341,spell,8341,Dark Gift I,9
+52197,Decaysprite Familiar,10,13339,spell,8339,Stunning Blow IV,18
+52198,Walking Death,10,13338,spell,8338,Stunning Blow III,18
+52284,Unstable Clockwork Launcher,120,13252,spell,8252,Draygun's Psyche,1
+52285,Clockwork Fireworks Engineer,10,13251,spell,8251,Shiliskin Vigor,1
+52289,Gamework Companion Controller,10,13247,spell,8247,Draygun's Chant,30
+52290,Poisonsprite Familiar,10,13246,spell,8246,Spiritfury,6
+52291,Marvin the Goblin,10,13245,spell,8245,Spirit of Wolf,3
+52619,Set of Sketching Tools,30,12917,spell,7917,Spreading Stone,45
+53274,Soul-Hewn Plate Breastplate,900,12262,spell,7262,Pious Cleansing,30
+53281,Bark-Inlaid Leather Tunic,900,12255,spell,7255,Divine Aura,900
+53302,Bone-Bladed Chain Coat,900,12234,spell,7234,Decapitating Chop,60
+53316,Shadow-Vexed Silk Robe,900,12220,spell,7220,Stormreaver,50
+53323,Tomekeeper Silk Robe,900,12213,spell,7213,Thoughtraze,1
+53330,Vision-Shrouded Silk Robe,900,12206,spell,7206,Shadowmend,1
+53337,Thought-Attuned Silk Robe,300,12199,spell,7199,Soothing Remedy,1
+53344,Earth-Emblazoned Leather Tunic,900,12192,spell,7192,Tide of Sloth III,20
+53351,Fire-Scarred Chain Coat,900,12185,spell,7185,Blood Rage III,1
+53358,Cherry Blossom Nimbus,10,12178,spell,7178,Blind Fury II,1
+53359,Gift: Steadfast Cherry Tree,10,12177,spell,7177,Blind Fury I,1
+53360,Gift: Cherry Blossom Nimbus,10,12176,spell,7176,Diseased Spore,1
+53550,Mark of Searing Dawn,900,11986,spell,6986,Shadow Voice,18
+53564,Glowing Green Silver Earring of Dragoste,120,11972,spell,6972,Siphon of Vitae,30
+53673,Spore of the Freemind Sporali,180,11863,spell,6863,Ice Shock,1
+53755,Flute of the Sea Serpent,10,11781,spell,6781,Banish Intruder,5
+54783,Frostrift Chestplate,150,10753,spell,5753,Festering Spike,3
+54784,Icy Tunic,150,10752,spell,5752,Black Rain,15
+54793,Tobrin's Mystical Eyepatch,480,10743,spell,5743,Feratha Aura,30
+54816,Staff of Forbidden Rites,8,10720,spell,5720,Piercing Shot,30
+54818,Staff of Ankexfen,180,10718,spell,5718,Strong Murkglider Venom,30
+54829,Wooly Spider Silk Net,14400,10707,spell,5707,Breath of the Gelidran,35
+54834,Veilbreaker Executive Escape Device,7200,10702,spell,5702,Curse of Misfortune,30
+54854,Shining Metallic Robes,120,10682,spell,5682,Chains of Anguish,45
+54857,Basalt Carapace,480,10679,spell,5679,Touch of Anguish,45
+54858,Enameled Black Chestplate,150,10678,spell,5678,Wail of Anguish,45
+54931,Spore Curer Bait,10,10605,spell,5605,test mana,1
+54977,Drake of Pure Nature,10,10559,spell,5559,Bazu Breath,30
+54980,Gnome Pirate Contract,300,10556,spell,5556,Whirling Smash,90
+54981,Rotting Contract,300,10555,spell,5555,Bellow of Tunat`Muram,90
+56043,Green Silken Drape,60,9493,spell,4493,Earth Wave,12
+56044,Mithril Breastplate,60,9492,spell,4492,Geostrike,12
+56051,Endless Turkeys,10,9485,spell,4485,Sand Curse of Life,30
+56052,Petamorph Wand - Aviak,10,9484,spell,4484,Swirling Sandstorm,30
+56060,Crown of Feathers Nimbus,300,9476,spell,4476,Radiant Vexation,30
+56062,Healsprite Familiar,10,9474,spell,4474,Freeze,30
+56063,Familiar of Thankful Days,10,9473,spell,4473,Petrad's Protection,420
+56066,Sacrificial Dagger,30,9470,spell,4470,Frostfoot's Fury,25
+56067,Dwarf Mining Pick,10,9469,spell,4469,Color Vortex,12
+56083,Frostrift Chestplate,150,9453,spell,4453,Bone Whirl,30
+56084,Icy Tunic,150,9452,spell,4452,Explosion of Slime,30
+56093,Tobrin's Mystical Eyepatch,5400,9443,spell,4443,Cursed Keeper's Force,60
+56116,Staff of Forbidden Rites,30,9420,spell,4420,Palatable Cloudy Mana,1
+56118,Staff of Ankexfen,120,9418,spell,4418,Illusion: Frost Bone,6
+56124,Goblin Frost Totem,18,9412,spell,4412,Experimental Visions,30
+56174,Ripe Pumpkin,2,9362,spell,4362,Rujarkian Poison,12
+56290,Bottle of Smelly Bleach,2,9246,spell,4246,Intoxication IV,35
+56294,Bottle of Foul-Smelling Bleach,2,9242,spell,4242,Mist of the Wolf,9
+56296,Bottle of Fetid Bleach,2,9240,spell,4240,Philter of Concealment,1
+56742,Shiliskin Contract,300,8794,spell,3794,Ring of Stonebrunt,10
+56782,Contract of the Teir`Dal Royal Guard,300,8754,spell,3754,Horrifying Affliction,30
+57193,Swinetor Contract,300,8343,spell,3343,Rune of Zebuxoruk,1
+57364,Dragon Egg Incubator,10,8172,spell,3172,Denial,30
+57366,Dragon Egg Incubator,10,8170,spell,3170,Blinding Beauty,60
+57373,Fruitcake Log,10,8163,spell,3163,Storm Avalanche,30
+57374,Mistletoe,30,8162,spell,3162,Wind Strike,12
+57375,Confetti Popper,10,8161,spell,3161,Froaking Mist,35
+57380,Fruitcake Nimbus,10,8156,spell,3156,Torrent of Brambles,45
+57381,Nimbus of Frost,10,8155,spell,3155,Elemental Judgment,36
+57382,Party Popper Nimbus,10,8154,spell,3154,Air Strike,30
+57386,Frostfell Goblin Familiar,10,8150,spell,3150,Direption of Dreams,12
+57475,Subterranean Rabbit Cage,600,8061,spell,3061,Curse of the Triumvirate,30
+57531,Share the Pain Nimbus,20,8005,spell,3005,Ball of Lava,30
+57533,Everlasting Chocolate Bar,60,8003,spell,3003,Curse of the Fiend,60
+57546,Building Block Package - Red Brick,5,7990,spell,2990,Chromatic Disruption,24
+57601,Erollisi Day Nimbus Package,5,7935,spell,2935,Journey: Luclin,6
+57602,Erollisi Day Home Package,5,7934,spell,2934,Curse of Eternal Suffering,6
+57604,Erollisi Day Love Package 2,5,7932,spell,2932,Thought Horror Charm,15
+57607,Dual Wield Sword of the Ocean Package,5,7929,spell,2929,Summon Hat Rim,6
+57609,Fiendish Pumpkin Sword Dual Wield Package,5,7927,spell,2927,Storm Tremor,12
+57611,Snowstorm Sword Dual Wield Package,5,7925,spell,2925,Curse of Rhag`Zadune,12
+57703,Metamorph Totem: Ancient Gods,7200,7833,spell,2833,Advisor Nova,12
+59484,Lucky Charm,21600,6052,spell,1052,Foul Pus,60
+60334,Contract of the Deeps,300,5202,spell,202,Courage,1
+60389,Pendant of Obfuscation,60,5147,spell,147,Spirit Strength,1
+60390,Innoruuk's Needle of Hatred,15,5146,spell,146,Spirit of Monkey,1
+60395,Quellious' Wand of Tranquility,15,5141,spell,141,Beguile Animals,12
+60399,Gift: Child's Play Santug Claugg's Cudgel Ornament,5,5137,spell,137,Pack Regeneration,6
+60495,Jack-O-Lantern of Plenty,30,5041,spell,41,Weaken,1
+83953,Light Amphibian Hide Slippers,10,47119,spell,42119,Mind Melt,5
+85093,5 Dose Potion of the Siren,5,45979,spell,40979,Pollenado,1
+85094,5 Dose Potion of the Bellikos,5,45978,spell,40978,Brutal Strike,1
+85095,5 Dose Potion of the Lightning Warrior,5,45977,spell,40977,Spontaneous Combustion,1
+85096,5 Dose Potion of the Telmira,5,45976,spell,40976,Blazing Venom,1
+85097,5 Dose Potion of the Nekhon,5,45975,spell,40975,Empowered Blades,1
+85098,5 Dose Potion of the Froglok Ghost,5,45974,spell,40974,Empowered Blades,1
+85099,5 Dose Potion of the Shissar,5,45973,spell,40973,Empowered Blades,1
+85100,5 Dose Potion of the Shiliskin,5,45972,spell,40972,Entropy of Nature,1
+85101,5 Dose Potion of the Steam Suit,5,45971,spell,40971,Bind Affinity,1
+85102,5 Dose Potion of the Nihil,5,45970,spell,40970,Mark of Travel,12
+85961,Fireworks Familiar,10,45111,spell,40111,Bosquetender's Unity,1
+86167,Rulnavis` Ring of Negation,10,44905,spell,39905,Lost Mariner,1
+88040,Degmar Relocation Device,1800,43032,spell,38032,Chameleon's Gift Effect,1
+88286,Firebrand,30,42786,spell,37786,Familiar: Steamwork Fixer,1
+88451,Explosive Seed,2,42621,spell,37621,Familiar: Vitrik,1
+88452,Boom Bloom,2,42620,spell,37620,Familiar: Hadal Scout,1
+89947,Bundle of the Ancient Gods,10,41125,spell,36125,Enunciation of Tashan,1
+89949,Sticky Marshmallow Goo,5,41123,spell,36123,Chromaclash Rk. II,4
+90332,Jumjum Pie,60,40740,spell,35740,Concussive Salvo Rk. III,15
+90333,Bloodstained Mining Pick,60,40739,spell,35739,Concussive Salvo Rk. II,15
+90334,Broken Bottle,60,40738,spell,35738,Concussive Salvo,15
+90714,Magical Trap,25,40358,spell,35358,Unity of the Courageous Rk. II,1
+90715,Fire Spirit Essence,3,40357,spell,35357,Unity of the Courageous,1
+90719,Purified Ethernere Essence,30,40353,spell,35353,Talisman of the Snow Leopard Rk. III,5
+97425,Potion of Valorous Battle,3,33647,spell,28647,Bond of Korum Rk. III,10
+97429,Tempting Wine Cask,3,33643,spell,28643,Ghoul Skin Rk. II,1
+97439,Writ of Rulnavian Command,3,33633,spell,28633,Sholothian Horror,4
+97466,Blessed Rulnavian Sword,3,33606,spell,28606,Provoking Shot Rk. II,20
+97472,Strategic Colossus,3,33600,spell,28600,Heartslash Rk. II,15
+97473,Assault Bow,3,33599,spell,28599,Heartslash,15
+97495,Proclamation of Rebellion,3,33577,spell,28577,Summer's Squall Rk. III,1
+97496,Captured Slaver,3,33576,spell,28576,Summer's Squall Rk. II,1
+97499,Explosive Narikor Barrel,360,33573,spell,28573,Shadowcoat Rk. II,1
+97502,Tower Scout's Grappling Hook,5,33570,spell,28570,Shared Cloak of Burrs Rk. II,1
+97509,Quincy's Bloodstone Detector,5,33563,spell,28563,Eyes of the Raptor,1
+97651,Magelock Stone,5,33421,spell,28421,Contrition Rk. III,150
+97653,Empowered Magelock Stone,5,33419,spell,28419,Contrition,150
+99138,Shield of Immaculate Light,5,31934,spell,26934,Subjugating Aura Rk. III,1
+99376,5 Dose Essence of Orc,5,31696,spell,26696,Pure Wildmana II,4
+99377,5 Dose Essence of Basilisk,5,31695,spell,26695,Pure Wildmana,4
+99387,5 Dose Essence of Female Pirate,5,31685,spell,26685,Maelstrom of Mana Rk. III,8
+99388,5 Dose Essence of Earth Elemental,5,31684,spell,26684,Maelstrom of Mana Rk. II,8
+99389,5 Dose Essence of Barbarian,5,31683,spell,26683,Maelstrom of Mana,8
+99390,5 Dose Essence of Dark Elf,5,31682,spell,26682,Lithara's Fire Rk. III,5
+99391,5 Dose Essence of Drakkin,5,31681,spell,26681,Lithara's Fire Rk. II,5
+99392,5 Dose Essence of Dwarf,5,31680,spell,26680,Lithara's Fire,5
+99396,5 Dose Essence of Half Elf,5,31676,spell,26676,Ice Vortex Rk. III,24
+99397,5 Dose Essence of Halfling,5,31675,spell,26675,Ice Vortex Rk. II,24
+99398,5 Dose Essence of High Elf,5,31674,spell,26674,Ice Vortex,24
+99399,5 Dose Essence of Human,5,31673,spell,26673,Hail Torrent Rk. III,12
+99400,5 Dose Essence of Iksar,5,31672,spell,26672,Hail Torrent Rk. II,12
+99401,5 Dose Essence of Ogre,5,31671,spell,26671,Hail Torrent,12
+99402,5 Dose Essence of Troll,5,31670,spell,26670,Glacial Claw Rk. III,4
+99403,5 Dose Essence of Vah Shir,5,31669,spell,26669,Glacial Claw Rk. II,5
+99404,5 Dose Essence of Wood Elf,5,31668,spell,26668,Glacial Claw,5
+99460,Inferno Venom Dirk,30,31612,spell,26612,Murkmist Guard Rk. III,1
+99474,Ember Mining Pick,5,31598,spell,26598,Lightning Helix,5
+99831,Coronal Orb,12,31241,spell,26241,Ascendant's Intervention Rk. II,180
+99832,Duality of Life,5,31240,spell,26240,Ascendant's Intervention,180
+99833,Duality of Decay,5,31239,spell,26239,Ancestral Covenant Rk. III,18
+99834,Quintessence of Health,5,31238,spell,26238,Ancestral Covenant Rk. II,18
+99835,Quintessence of Decay,5,31237,spell,26237,Ancestral Covenant,18
+99836,Synthesis of Sul,5,31236,spell,26236,Wurt's Faithful Rk. III,1
+100087,Lantern O' Wisps,900,30985,spell,25985,Aura of Renewal Rk. III,1
+100935,Essence of Bertox,15,30137,spell,25137,Ward of Retaliation,1
+100936,Peace Offering,15,30136,spell,25136,Thirteenth Salve Rk. III,6
+100938,Delivery Facilitator,30,30134,spell,25134,Thirteenth Salve,6
+100940,Spectral Containment Device,5,30132,spell,25132,Rebuke Rk. II,4
+100943,a Zek soldier,3,30129,spell,25129,Reliance Rk. II,1
+100944,a Zek archer,3,30128,spell,25128,Reliance,1
+100947,Zek bruiser,3,30125,spell,25125,Pristine Blood,2
+100948,Sol Ro soother,3,30124,spell,25124,Earnest Elixir Rk. III,1
+100951,Zek soldier,3,30121,spell,25121,Divine Fortitude Rk. III,900
+100952,Zek archer,3,30120,spell,25120,Divine Fortitude Rk. II,900
+100953,Sol Ro fire lord,3,30119,spell,25119,Divine Fortitude,900
+100954,Sol Ro dark smoker,3,30118,spell,25118,Hand of Will Rk. III,1
+100955,Zek bruiser,3,30117,spell,25117,Hand of Will Rk. II,1
+100956,Sol Ro soother,3,30116,spell,25116,Hand of Will,1
+100957,Sol Ro ash breather,3,30115,spell,25115,Yaulp XI Rk. III,18
+101360,Cursed Rage Channeler,28800,29712,spell,24712,Reave Dreams,12
+106670,Erudian Blue Familiar,10,24402,spell,19402,Talisman of the Lynx Rk. III,5
+106671,Antonican Shorthair Familiar,10,24401,spell,19401,Talisman of the Lynx Rk. II,5
+106672,Antonican Wirehair Familiar,10,24400,spell,19400,Talisman of the Lynx,5
+106673,Halasian Highlander Familiar,10,24399,spell,19399,Spirit of the Resolute Rk. III,1
+106674,Midnight Familiar,10,24398,spell,19398,Spirit of the Resolute Rk. II,1
+106675,Cranky Cat Familiar,10,24397,spell,19397,Spirit of the Resolute,1
+106676,Adoptable Moggie Kitten,5,24396,spell,19396,Severilous' Spear of Venom Rk. III,2
+106677,Adoptable Tortoise Shell Kitten,5,24395,spell,19395,Severilous' Spear of Venom Rk. II,2
+106678,Adoptable Sandy Calico Kitten,5,24394,spell,19394,Severilous' Spear of Venom,2
+106685,Adoptable Cranky Cat,5,24387,spell,19387,Face of Impenitence Rk. III,1
+107804,Metamorph Totem: Tower Warden,10,23268,spell,18268,Order of the Devout Rk. II,1
+107805,Ruffian Bonnie Familiar,10,23267,spell,18267,Order of the Devout,1
+107806,Ruffian Finnigan Familiar,10,23266,spell,18266,Sound of Reverberance Rk. III,30
+107808,Spiced Iced Tea Dispenser,10,23264,spell,18264,Sound of Reverberance,30
+107951,Dog in a Crate,5,23121,spell,18121,Promised Rejuvenation Rk. II,15
+107952,Grey Wolf Familiar,10,23120,spell,18120,Promised Rejuvenation,15
+107953,Halasian Wolf Familiar,10,23119,spell,18119,Spiritual Verve Rk. III,1
+107954,Antonican Wolf Familiar,10,23118,spell,18118,Spiritual Verve Rk. II,1
+107955,Grey Frostfell Pup Familiar,10,23117,spell,18117,Spiritual Verve,1
+107956,Halasian Frostfell Pup Familiar,10,23116,spell,18116,Focus of Yemall Rk. III,1
+107957,Antonican Frostfell Pup Familiar,10,23115,spell,18115,Focus of Yemall Rk. II,1
+107958,Santug's Grey Pup Familiar,10,23114,spell,18114,Focus of Yemall,1
+107959,Santug's Halasian Pup Familiar,10,23113,spell,18113,Cadmael's Mending Rk. III,1
+107960,Santug's Antonican Pup Familiar,10,23112,spell,18112,Cadmael's Mending Rk. II,1
+107961,Shadow Familiar,10,23111,spell,18111,Cadmael's Mending,1
+107962,Adoptable Grey Wolf,5,23110,spell,18110,Ikaav Blood Rk. III,1
+107963,Adoptable Halasian Wolf,5,23109,spell,18109,Ikaav Blood Rk. II,1
+107964,Adoptable Antonican Wolf,5,23108,spell,18108,Ikaav Blood,1
+107965,Adoptable Grey Frostfell Pup,5,23107,spell,18107,Salve of Reshan Rk. III,4
+107966,Adoptable Halasian Frostfell Pup,5,23106,spell,18106,Salve of Reshan Rk. II,4
+114869,Prize: Ping's Practical Potion Pack,5,16203,spell,11203,Greater Serpent Snake Venom,90
+117112,Dreadstone Minstrel's Rapier,10,13960,spell,8960,Siphon of Sathir,60
+117437,Possessed Dreadstone Minstrel's Rapier,10,13635,spell,8635,Dromrek Smash,60
+120366,Words of Melretia,15,10706,spell,5706,Metacrystalline Polyphase,35
+228697,Earring of Pure Waters (Polished),2600,33447,spell,28447,Force of Oseka Rk. II,12
+246876,Frost Inlaid Lute of Boreal Wind (Polished),6,15268,spell,10268,Pleasure of Pain Rk. III,60
+253288,Mist-Blessed Leather Tunic (Polished),30,8856,spell,3856,Form of Endurance II,6
+253295,Whisper-Wrought Plate Breastplate (Polished),300,8849,spell,3849,Alter Plane: Hate II,1
+253302,Bone-Bladed Chain Coat (Polished),900,8842,spell,3842,Blood of Nadox,1
+253309,Spirit-Seared Chain Coat (Polished),300,8835,spell,3835,Anemone Feedback,6
+253351,Fire-Scarred Chain Coat (Polished),900,8793,spell,3793,Stonebrunt Portal,10
+253564,Glowing Green Silver Earring of Dragoste (Polished),120,8580,spell,3580,Spirit of Ash,1
+253673,Spore of the Freemind Sporali (Polished),180,8471,spell,3471,Word of Replenishment,1
+254818,Staff of Ankexfen (Polished),180,7326,spell,2326,Yaulp V,18
+254901,Ghoulskin Shield (Polished),180,7243,spell,2243,Summon Shiny Bauble,6
+256083,Frostrift Chestplate (Polished),150,6061,spell,1061,Gathering of Souls,30
+256084,Icy Tunic (Polished),150,6060,spell,1060,Gift of Hate,12
+256116,Staff of Forbidden Rites (Polished),30,6028,spell,1028,Static Storm,28
+256124,Goblin Frost Totem (Polished),18,6020,spell,1020,Air Elemental Strike I,12
+286583,Ragepaw Earring of Vigor (Polished),5,41097,spell,36097,Speed of Sviir Rk. III,1
+286597,Moonshimmer Earring (Polished),2,41083,spell,36083,Confound,1
+286635,Feral Guardian Channeler (Polished),28800,41045,spell,36045,Groundswell Bodyguard Rk. III,1
+286643,Ragepaw Howler Earring (Polished),2,41037,spell,36037,Minion Strike,1
+286707,Ring of Dissipation (Polished),10,40973,spell,35973,Servant Strike II,1
+286715,Mask of Vanishing (Polished),2,40965,spell,35965,Renewal of Hererra Rk. III,1
+309351,Cut Purse's Bloodblade Dagger (Polished),90,18329,spell,13329,Stone Breath,12
+309352,Thug's Bloodblade Dagger (Polished),75,18328,spell,13328,Specter Lifetap,12
+309354,Rogue's Bloodblade Dagger (Polished),45,18326,spell,13326,Ice Bone Frost Burst,12
+309795,Unearthed Belt (Polished),60,17885,spell,12885,Familiar: Hooded Scrykin,1
+309798,Many-Pocketed Pouch (Polished),5,17882,spell,12882,Familiar: Gilded Dragon,1
+309799,Cord of Obligation (Polished),1800,17881,spell,12881,Familiar: Bitter Brownie,1
+441349,Skullstepper (Exalted),360,17403,spell,12403,Solstice Nimbus,1
+441350,Ring of Ill Touch (Exalted),180,17402,spell,12402,Illusion: Kedge,6
+446876,Frost Inlaid Lute of Boreal Wind (Exalted),6,11876,spell,6876,Forest's Renewal,1
+446926,Trumpet of the Dragon Goddess (Exalted),6,11826,spell,6826,Desolate Deeds,6
+450911,Bladestopper (Exalted),28800,7841,spell,2841,Shrieker Slow,5
+450943,Green Silken Drape (Exalted),60,7809,spell,2809,Wave of Death,24
+450944,Mithril Breastplate (Exalted),60,7808,spell,2808,Kneel Test,12
+453246,Battle-Marred Plate Breastplate (Exalted),900,5506,spell,506,Tagar's Insects,5
+453260,Silver-Scribed Plate Breastplate (Exalted),900,5492,spell,492,Restless Bones,1
+453267,Vine-Embraced Chain Coat (Exalted),900,5485,spell,485,Symbol of Transal,1
+453274,Soul-Hewn Plate Breastplate (Exalted),900,5478,spell,478,Breath of the Dead,1
+453281,Bark-Inlaid Leather Tunic (Exalted),900,5471,spell,471,Thunderclap,12
+453288,Mist-Blessed Leather Tunic (Exalted),30,5464,spell,464,Frost Shock,1
+453295,Whisper-Wrought Plate Breastplate (Exalted),300,5457,spell,457,Dead Man Floating,6
+453302,Bone-Bladed Chain Coat (Exalted),900,5450,spell,450,Suffocate,1
+453309,Spirit-Seared Chain Coat (Exalted),300,5443,spell,443,Invoke Death,1
+453316,Shadow-Vexed Silk Robe (Exalted),900,5436,spell,436,Envenomed Bolt,1
+453323,Tomekeeper Silk Robe (Exalted),900,5429,spell,429,Strength of Stone,1
+453330,Vision-Shrouded Silk Robe (Exalted),900,5422,spell,422,Skin like Diamond,10
+453337,Thought-Attuned Silk Robe (Exalted),300,5415,spell,415,Word of Souls,9
+453344,Earth-Emblazoned Leather Tunic (Exalted),900,5408,spell,408,Curse of the Simple Mind,3
+453351,Fire-Scarred Chain Coat (Exalted),900,5401,spell,401,Elemental: Earth,1
+453513,Freemind Spore Earring (Exalted),5,5239,spell,239,Flame Lick,1
+453564,Glowing Green Silver Earring of Dragoste (Exalted),120,5188,spell,188,Entrance,3
+453613,Totem of the Stonemight (Exalted),5,5139,spell,139,Feral Spirit,1
+453673,Spore of the Freemind Sporali (Exalted),180,5079,spell,79,Spirit Sight,1
+481784,Lute of the Gypsy Princess (Exalted),150,42504,spell,37504,Illusion: Aqua Goblin,6
+486707,Ring of Dissipation (Exalted),10,37581,spell,32581,Shield of Brilliance,1
+509350,Footpad's Bloodblade Dagger (Exalted),135,14938,spell,9938,Concord with Nature,6
+509351,Cut Purse's Bloodblade Dagger (Exalted),90,14937,spell,9937,Mask of the Griffon Rk. III,1
+509352,Thug's Bloodblade Dagger (Exalted),75,14936,spell,9936,Mask of the Griffon Rk. II,1
+509353,Burglar's Bloodblade Dagger (Exalted),60,14935,spell,9935,Mask of the Griffon,1
+509354,Rogue's Bloodblade Dagger (Exalted),45,14934,spell,9934,Rime Crystals Rk. III,1
+509795,Unearthed Belt (Exalted),60,14493,spell,9493,Bloodbone Skeletal Form,1
+509798,Many-Pocketed Pouch (Exalted),5,14490,spell,9490,Skeletal Form,1
+509805,Magmatic Deflector (Exalted),60,14483,spell,9483,Minor Portal Restoration,30
+517112,Dreadstone Minstrel's Rapier (Exalted),10,7176,spell,2176,Spiritual Light,1
+617836,Swirling Staff of Flame (Ascended),30,37524,spell,32524,Touch of Chaos,1
+641322,Darkened Shining Metallic Robes (Ascended),150,14038,spell,9038,Fabled Swarm of Retribution,30
+641392,Lost Staff of Primordial Summoning (Ascended),210,13968,spell,8968,Arcstone Gate,10
+646876,Frost Inlaid Lute of Boreal Wind (Ascended),6,8484,spell,3484,Call of the Arch Mage,10
+646926,Trumpet of the Dragon Goddess (Ascended),6,8434,spell,3434,Storm's Fury,12
+679619,Quarken's Sword of Hypnotic Purple Hues (Ascended),15,41277,spell,36277,Chromatic Percussion,6
+681784,Lute of the Gypsy Princess (Ascended),150,39112,spell,34112,Vow of Vitality,1
+681785,Mistmoore Battle Drums (Ascended),30,39111,spell,34111,Unity of Gezat Rk. III,1
+683720,Webweaver Robes (Ascended),10,37176,spell,32176,Call of the Wild,1
+683783,Dark Web Belt (Ascended),10,37113,spell,32113,Sweeping Axe of Rallos,1
+686167,Rulnavis` Ring of Negation (Ascended),10,34729,spell,29729,Staccato Lightning Rk. II,4
+686507,Totem of the Wurines (Ascended),28800,34389,spell,29389,Vengeance of Sholoth II,4
+686537,Wurine Ring of Vigor (Ascended),5,34359,spell,29359,Halcyon Breath Rk. II,1
+686605,Nighthowl Earring (Ascended),5,34291,spell,29291,Unity of Kolos,1
+709350,Footpad's Bloodblade Dagger (Ascended),135,11546,spell,6546,Recreation,5
+709351,Cut Purse's Bloodblade Dagger (Ascended),90,11545,spell,6545,Sheen of Golden Scales,30
+709353,Burglar's Bloodblade Dagger (Ascended),60,11543,spell,6543,Kessdona's Burning Breath,30
+709354,Rogue's Bloodblade Dagger (Ascended),45,11542,spell,6542,Scalding Steam,30
