@@ -1,5 +1,40 @@
 # Current Nightcap status
 
+## October 17 progression, combat and crafting — deployed
+
+PR #220 is merged to main and OVH is running the matching full zone build with
+proxy 0.10.0 / signed game 2026101702. Recommended AA is optional; passive AA is 10%.
+Six Monk attacks have separate reuse, duration arithmetic is corrected, normal
+death has no EXP loss, existing stacks support at least 100, and the Reforging Box
+accepts 3 Normal/Base copies while higher recipes need 4. No new AA family/rank
+unlock or shared timer identity redesign is included.
+
+All 12 zone hashes, health, the full item cache, 46 player and 26 custom/timer tables
+and all 106 signed hosted assets verify. Existing market startup rotated once;
+the bounded reconciliation preserved trade history and every other player record.
+Access is open. Wiki and private guide are published; patcher notes list 10 changes.
+Owner native UI/gameplay and balance QA remain open, as do shared AA/item/spell/
+discipline cooldown identity defects. [Release, recovery and exact checks](releases/october-17-2026/README.md).
+
+## Idle-zone restart correction — activated October 17
+
+Production default `Zone:KillProcessOnDynamicShutdown=false` now covers all
+zone rulesets through default inheritance; no alternate override exists.
+World and all twelve workers completed the global reload at 14:47 UTC, with
+all native lifetimes and service identities preserved. Three retained incidents
+showed orderly idle shutdowns triggering whole-game restarts. Normal timer-driven
+unload and player-continuity acceptance remain pending.
+[Correction evidence and exact QA](ops/dynamic-zone-worker-lifetime-20261017/README.md).
+
+## Dungeon patcher announcement — published October 17
+
+Signed patch 2026101701 introduces Raid & Grind in Latest update with eleven
+bullets covering the dungeon launch, rewards and boss journal. All 106 client
+file records, prior notes and launcher compatibility are preserved. Automated
+manifest, publisher and browser layout checks pass. The signed notes channel is
+published and its signature/all 106 hosted assets verify; installed desktop
+confirmation remains pending. No gameplay restart was needed.
+[Release evidence and player check](releases/dungeon-patcher-20261017/README.md).
 ## Raid and Grind dungeons — deployed for live QA October 16
 
 The [dungeon release](dungeons/README.md) adds seven dungeon modes, 52 explicit
@@ -17,11 +52,13 @@ restart recovered before feature SQL; its cause and correction are recorded in
 [deployment evidence](dungeons/deployment/README.md). CT terrain/path validation,
 level-50 Vox/Nagafen balance and full owner acceptance remain pending. On October
 16, Palwar confirmed Keeper selection, Raid entry and a named kill. The Tasks
-objectives are blank despite retained ledger credit. The [journal repair](dungeons/journal-repair/README.md)
-has passing native regressions and source review; production installation and
-visible retest remain pending. Full-clear rewards remain unconfirmed. Existing
+objectives were blank despite retained ledger credit. The [journal repair](dungeons/journal-repair/README.md)
+is on main and deployed after the explicitly authorized restart. All 12 zone
+workers match the candidate; cache and stopped player/run preservation checks
+pass. The owner replied "Confirmed" after the Befallen journal retest instructions,
+closing the reported display issue. Full-clear rewards remain unconfirmed. Existing
 unmanaged instances retain their legacy behavior. The public [Raid & Grind guide](https://wiki.nightcapgame.org/dungeon-modes.html)
-is published as `20261016-dungeons-v1`; all 465 public hashes and preservation
+is published as `20261016-dungeon-journal-v1`; all 465 public hashes and preservation
 checks pass. [Publication evidence](dungeons/wiki-publication/README.md) is
 separate from pending gameplay acceptance.
 
@@ -93,14 +130,15 @@ current native binaries; all 12 zones are healthy and player access is open.
 No client update is needed. In-game balance and visual acceptance remain pending.
 [Scope, evidence and exact QA](releases/divine-summons-20261013/README.md).
 
-## Passive AA — 20% deployed October 13
+## Passive AA — 10% deployed October 17
 
-Owner-approved passive AA decreased from 40% to **20%**. Normal leveling XP,
-full AA focus, 4,000 XP per point and existing progress are preserved. All 12
-zones and world reloaded successfully without restarting; all five services
-remain running. 129 native checks, nine recovery tests and independent review
-pass. Palwar/Befallen gameplay and later-level balance QA remain pending.
-[Evidence, rollback and exact QA](ops/passive-aa-twenty-20261013/README.md).
+Owner-requested passive AA decreased from 20% to **10%** at 15:09 UTC. Normal
+leveling XP, full AA focus, 4,000 XP per point and existing earned progress remain.
+World and all 12 zones reloaded rules with unchanged processes and healthy services.
+157 native harness and nine operation checks pass; owner gameplay/pacing QA is
+pending. Catalog review recommends additional choices but enables no new AAs.
+[Evidence, analysis, recovery and exact QA](ops/passive-aa-ten-20261017/README.md).
+Wiki/player-site content is updated locally; public publication remains pending.
 
 ## Relaxed tradeskill workshop — deployed October 13
 
@@ -228,7 +266,7 @@ Owner-approved PR #177 is on main and the updated production GM is running.
 Darthy is restored to level50 with165592026XP and250 training points, retaining
 his earned XP and crediting225 omitted training points. Fresh backup, ten data
 preservation hashes and post-restart checks passed. All services are running;
-world/all12 zones preserve the existing item-upgrade release. Actual client kill,
+world/all 12 zones preserve the existing item-upgrade release. Actual client kill,
 zone and relog acceptance remain pending. [Evidence and exact QA](ops/darthy-boost-20261012/README.md).
 
 ## Reusable item upgrades — deployed for live QA, October 12
@@ -329,6 +367,19 @@ state and recall destination now use the entrance safe point
 exact database comparisons and service/12-worker health checks passed.
 In-game grounding, discovery and recall acceptance remains pending.
 [Deployment, rollback and exact QA](ops/crushbone-waypoint-20261009/README.md).
+Updated October 16, 2026. This is the current status index; dated studies and
+QA reports preserve their original evidence and are not live-state promises.
+
+## Official public wiki live
+
+[Features](https://wiki.nightcapgame.org/features.html) explains 17 major departures
+from Classic. The October 16 refresh adds upgrade/Craft All guides and reconciles
+current behavior across 457 pages, including 432 generated item/zone pages.
+Release `20261016-features-v1` passes all 464 public hashes/header checks and
+rollback rehearsal. Current access behavior, private downloads and all five service
+identities/start times are preserved. Every Nightcap change now requires a
+whole-wiki impact review; source-drift detection and the installed skill carry
+the maintenance contract. [Evidence and recovery](releases/wiki-features-20261016/README.md).
 
 ## Classic zone hunt and forge deployed for live QA
 
@@ -362,7 +413,7 @@ failure tests pass. Owner-authorized PR #127 is merged to main and deployed to O
 Post-deployment health checks passed and access is open. Gameplay QA remains
 outstanding. [Scope and exact QA](releases/throw-stone-20261009.md).
 
-## Passive AA leveling: 40% live
+## Historical passive AA tuning: 40% on October 9 (superseded)
 
 The owner increased passive AA from 20% to 40% on October 9, alongside unchanged
 full leveling XP. AA focus remains 0/100. The guarded rule update, 129 native-method

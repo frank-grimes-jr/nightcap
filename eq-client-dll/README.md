@@ -142,6 +142,13 @@ special-attack submitter and then its stock skill-reuse sequence. The submitter
 still owns client target/state/animation behavior, and EQEmu still validates
 the packet, held classes, caps, range, reuse, damage, and skill-ups.
 
+The October 17 candidate gives those six attacks independent cooldowns while
+Monk is held. It hooks the shared native submitter entry so hotbuttons and native
+ability controls agree, preserving per-skill timestamps through the caller's
+post-submit commit. Pair proxy 0.9.2-dev with the matching server cooldown policy.
+Build status and pending activation/gameplay QA:
+`docs/releases/monk-independent-reuse-20261017/README.md` in the repository root.
+
 ## Candidate build and test
 
 The current candidate requires `config/nightcap-patches.cfg` beside the DLL;

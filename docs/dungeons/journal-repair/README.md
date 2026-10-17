@@ -1,17 +1,20 @@
 # Dungeon journal repair — October 16, 2026
 
-Candidate repair for Palwar's live Befallen Raid report: the task title appears,
+Deployed repair for Palwar's live Befallen Raid report: the task title appears,
 its objectives are blank, and a yellow completion message follows a named kill.
 The read-only production check at 23:14:43 UTC found one personal objective
 (skeleton Lrodd), no full-clear entitlement, and matching saved task activity.
-Credit was retained. Run entry and a named kill are now owner-confirmed; checklist
-rendering failed. Full-clear rewards and broader gameplay acceptance stay open.
+Credit was retained. After deployment and the Befallen journal retest instructions,
+the owner replied **"Confirmed"** on October 16. The reported display issue is
+accepted as resolved; the reply does not individually attest every step below.
+Full-clear rewards and broader gameplay acceptance stay open.
 
 ## Cause and behavior
 
 The installed task rows use None (0) activity types and all-zero steps. None is
-supported by the native serializer but the owner reports blank RoF2 objectives;
-the client rendering explanation remains an inference until visible retest.
+supported by the native serializer but produced blank objectives in the owner's
+report. The owner confirmed the repair; the exact client rendering cause remains
+an inference because the projection changed both activity types and steps.
 The retained native `Tasks::GetActiveElements` also treats all-zero steps as
 sequential, hiding later bosses. Its last required sentinel never completes,
 so ordinary native completion cannot add the dungeon to Completed history.
@@ -57,9 +60,9 @@ matching deployed world/shared_memory and production cache. Verify the actual
 live pairing before installation; startup may regenerate cache from current
 content. Do not install the old local-content cache or rerun initial dungeon SQL.
 
-Production installation is pending. A controlled whole-runtime restart is
-required; a quest reload is insufficient. Coordinate timing with the owner's
-active raid. Use deployment/GM locks, fresh current preimages, closed access,
+PR212/dev, PR213/test and PR #214/main are merged. The owner explicitly requested
+"Restart now" and the controlled whole-runtime restart is complete; access is
+open. A quest reload alone cannot install this repair. Use deployment/GM locks, fresh current preimages, closed access,
 stopped backup, immutable zone-only image, running process/hash/health checks
 and preservation checks. Preserve current run UUIDs, kills, corpses, claims,
 inventory and expiry. Never reset the run or restore an older player snapshot.
@@ -92,3 +95,37 @@ Wiki assessment: dungeon guide and Recent changes need stage/full-clear and
 blank-objective fallback guidance. Features, home, travel, commands, equipment,
 generated hunt catalogs and the remaining articles keep their existing mechanics
 and Live testing labels. No artwork, search, item stats or client update is needed.
+
+## Verified deployment
+
+Image `sha256:6b00ffd15f26ac60b810136cfcca516a42994b7d80c9be5bb011c22b8dcbab65` runs the journal zone
+`023cb1e991de849860b1387c0a0d8db5c596fb2744e791d5a92fb9e32b6b83cd` on all 12 workers. World, UCS, loginserver and
+shared_memory retain their reviewed binaries. Cache
+`9e4873cf8f8357d4c8b885b53d2f4ac639a2567b55c77fe6ffc17d12cda9ce4b` is byte-identical after regeneration.
+Stopped-state verification preserves 47 player tables and
+25 custom/native-instance/history tables, including all dungeon ledgers.
+A gzip-verified full stopped backup is retained. No SQL was restored. The
+new container has zero restarts and no detected native/quest/database errors.
+Two earlier old-runtime restarts are separate baseline evidence, not attributed
+to this repair. No near-expiry task timers, lockouts or instances were eligible
+for startup cleanup. Native flush is not inferred from container exit status.
+
+Matching world/zone/shared_memory, cache and manifests are retained in
+`/opt/nightcap/releases/dungeon-journal-20261016/journal-production-pair.tar.gz`, SHA256
+`dd36a90d4c5e0a9740eaf669ce6b81f91f9f79ecf86754aff5312015bc678525`. All six members passed read-back verification.
+Only archive-verified packaging duplicates and this release's exact local build
+context cache were removed afterward; backups, running/previous images and
+required operator inputs remain. `production-verification.json` records the
+post-open result, including the then-pending owner QA. The later owner confirmation
+is recorded separately in `verification.json`; the deployment snapshot is retained.
+
+The wiki follow-up is published as 20261016-dungeon-journal-v1: all 52 boss names
+and stage/full-clear/fallback guidance, with 465 public hashes verified. Maintained
+wiki commit 78991d4 and 14 Python/13 Node checks are separate from native gameplay
+acceptance. No layout/search/assets or unrelated mechanics changed.
+
+Whole-wiki review after confirmation: Features, home, guides, commands, generated
+item/zone pages, equipment catalog and Recent changes need no public content
+change. The published boss list, stage/full-clear explanation and Keeper Status
+fallback remain correct. Live testing still applies to the broader feature;
+the scoped Befallen confirmation does not establish all-mode or balance acceptance.

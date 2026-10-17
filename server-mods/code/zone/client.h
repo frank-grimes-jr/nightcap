@@ -518,6 +518,12 @@ public:
 	inline uint8 GetClass2() const { return m_class2; }
 	inline uint8 GetClass3() const { return m_class3; }
 	void RefreshNightcapUI();
+	bool EnableAARecommendations() {
+		const bool first = !m_nightcap_aa_recommendations_enabled;
+		m_nightcap_aa_recommendations_enabled = true;
+		return first;
+	}
+	void SendAARecommendations();
 	bool ReprojectEarnedAAs();
 	bool LoadPetArmor();
 	void QuarantineItemTransfer(const char *message);
@@ -2368,6 +2374,8 @@ private:
 	Timer m_pet_armor_apply_timer{1000};
 	Timer m_pet_armor_view_timer{3000};
 	bool m_nightcap_ui_enabled = false;
+	bool m_nightcap_aa_recommendations_enabled = false;
+	std::string m_nightcap_aa_recommendations_cache;
 	uint32 m_nightcap_ui_generation = 0;
 	Timer m_nightcap_ui_refresh_timer{3000};
 	uint8 m_class2;

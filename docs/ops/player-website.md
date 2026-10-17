@@ -1,20 +1,31 @@
 # Nightcap player website on OVH
 
-Updated October 9, 2026. The owner requested the green/cream player guide on OVH,
+Updated October 17, 2026. The owner requested the green/cream player guide on OVH,
 using repository loading artwork and Nightcap-only player-facing branding. The owner explicitly requires private access.
 
 ## Current publication
 
-- **Hosted:** https://play.nightcapgame.org/ under its existing approved-IP access.
-- **Private by owner instruction:** retain the existing approved player IP list.
+- **Hosted:** https://play.nightcapgame.org/ under its existing private access policy.
+- **Private by owner instruction:** retain the existing private website access boundary.
   No public apex/www site, new DNS route or Cloudflare sign-in is needed.
 - Apex/www and unknown Host headers return 404 at the origin. The unused public
   virtual host was removed before closing this task. No DNS/WAF rules changed.
-- Active release: `20261009-zone-hunt`, selected by
+- Active release: `20261017-progression-combat`, selected by
   `/opt/nightcap/deploy/production/data/public/player-site/current`.
 - The website operation preserves all five container identities/start times,
   both patch channels, the existing setup guide and friend ZIP. It does not
   restart the game or mutate the database; gameplay deployment is recorded separately.
+
+## October 17 publication
+
+Updated the exact five-file private payload after paired gameplay activation.
+The guide covers Recommended abilities, 10% passive AA, independent Monk attacks,
+normal death EXP protection, minimum-100 stacks, 3/4/4 reforging and Commonlands
+services. All five public hashes, existing route protections and service identities
+verify; stage rehearsed rollback. Ten Linux deployment tests and real Chrome
+responsive/keyboard/CSP checks pass. Previous 20261009-zone-hunt remains retained.
+Current evidence: `docs/releases/october-17-2026/`. Older access/feature descriptions
+below are dated history; native game access uses personal codes.
 
 ## Current content contract and source ledger
 

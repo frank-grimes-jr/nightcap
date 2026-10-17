@@ -1,0 +1,7 @@
+00608c68 8b4c2434                 mov ecx, dword ptr [esp + 0x34]
+00608c6c 53                       push ebx
+00608c6d 81c12c020000             add ecx, 0x22c
+00608c73 e838f9ffff               call 0x6085b0
+00608c78 84c0                     test al, al
+00608c7a 745a                     je 0x608cd6
+00608c7c 8b442418                 mov eax, dword ptr [esp + 0x18]

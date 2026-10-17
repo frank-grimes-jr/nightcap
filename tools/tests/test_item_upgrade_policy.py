@@ -10,22 +10,36 @@ class ItemUpgradePolicyTests(unittest.TestCase):
 #include <cassert>
 int main() {
     using namespace NightcapUpgrade;
+    assert(LegacyTarget(1001) == 201001);
     assert(LegacyTarget(201001) == 401001);
     assert(LegacyTarget(401001) == 601001);
-    for (unsigned id : {0u, 1001u, 200000u, 400000u, 600000u, 601001u, 800001u, 940025u})
+    for (unsigned id : {0u, 200000u, 400000u, 600000u, 601001u, 800001u, 940025u})
         assert(LegacyTarget(id) == 0);
     assert(ZoneTarget(940025) == 940026);
     assert(ZoneTarget(940026) == 940027);
-    assert(ZoneTarget(940024) == 0);
+    assert(ZoneTarget(940024) == 940025);
     assert(ZoneTarget(940027) == 0);
     assert(ZoneTarget(949998) == 0);
     assert(ZoneCopies(940024) == 3);
     assert(ZoneCopies(940025) == 4);
     assert(ZoneCopies(940026) == 4);
-    assert(NamesMatch("Cloth Cap (Polished)", "Cloth Cap (Exalted)", false));
-    assert(NamesMatch("Cloth Cap (Exalted)", "Cloth Cap (Ascended)", true));
-    assert(!NamesMatch("Cloth Cap (Polished)", "Cloth Gloves (Exalted)", false));
-    assert(!NamesMatch("Arbitrary", "Arbitrary", false));
+    assert(BoxCopies(1001) == 3);
+    assert(BoxCopies(201001) == 4);
+    assert(BoxCopies(401001) == 4);
+    assert(BoxCopies(940024) == 3);
+    assert(BoxCopies(940025) == 4);
+    assert(BoxCopies(940026) == 4);
+    for (unsigned id : {0u, 200000u, 400000u, 600000u, 601001u, 940027u, 949998u, 960000u})
+        assert(BoxCopies(id) == 0);
+    assert(NamesMatch("Cloth Cap", "Cloth Cap (Polished)", 1001));
+    assert(!NamesMatch("Cloth Cap", "Cloth Gloves (Polished)", 1001));
+    assert(!NamesMatch("Cloth Cap", "Cloth Cap (Exalted)", 1001));
+    assert(!NamesMatch("", " (Polished)", 1001));
+    assert(!NamesMatch("Cloth Cap", "Cloth Cap (Polished)", 601001));
+    assert(NamesMatch("Cloth Cap (Polished)", "Cloth Cap (Exalted)", 201001));
+    assert(NamesMatch("Cloth Cap (Exalted)", "Cloth Cap (Ascended)", 401001));
+    assert(!NamesMatch("Cloth Cap (Polished)", "Cloth Gloves (Exalted)", 201001));
+    assert(!NamesMatch("Arbitrary", "Arbitrary", 201001));
 }
 ''')
 

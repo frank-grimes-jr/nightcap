@@ -1,0 +1,812 @@
+--- a/references/multiclass.md
++++ b/references/multiclass.md
+@@ -3,0 +4,38 @@
++
++## Cooldown identity and duration integrity
++
++October17 audit/candidate source2279169, draft PR219 stacked on Monk PR218:
++`C:/Users/verre/Documents/Codex/2026-10-17/see/work/cooldown-audit`.
++Duration fixes are implemented/tested, not deployed. Signed clamps prevent item,
++Mend and Bash/Frenzy reuse reductions becoming uint32 century-long lockouts.
++Linked spell completion decodes the signed focus in its uint32 millisecond wire
++field before division. Native PersistentTimer::Start(0) retains/restarts the old
++duration: zero AA/linked completion clears the timer; fully reduced Mend, Hide,
++Feign Death, Disarm/Sense Traps skip Start after the existing expiry gate.
++Normal reuse, negative focus, success/proc/trigger guards and ownership remain.
++GetFocusEffect returns int64; native UseDiscipline correctly handles negative
++focus already. Do not change it based on an inaccurate int32 test double.
++
++The read-only production catalog audit is separate from gameplay confirmation.
++17 raw AA groups span157 allowed ordinary activated families. Actual methods
++reproduce Divine Resurrection blocking Divine Stun for18h and Harm Touch/LoH
++sharing reuse. Harmshield/Cannibalize use linked group1; Battle Cry/Throw Stone
++use discipline8 with canonical current-level access. Unrelated group separation
++is still open; retain ranks and reviewed deliberate links. Client bounded spell/
++disc groups require paired readiness/reset/resend changes, not server-only keys.
++Existing ambiguous saved timers require a designed transition, never a blanket
++clear. The saved aggregate contained no multi-year timer; active zone memory and
++the reported player's exact incident were not observed. Current widened SQL
++spell classes are not ownership evidence; use spell_class_catalog.h.
++
++Source: zone/{spells,client_packet,special_attacks}.cpp. Tests:
++tools/tests/test_cooldown_duration.py (18 tests/28 scenarios, actual native
++lifecycle and full UseDiscipline), test_monk_combat_reuse.py (16 tests, preserving
++six-skill isolation plus Bash/Frenzy boundaries). Adjacent policy2, AA-duration19
++and spell-access2 pass. Independent code/evidence review passes. The release's
++reproduce_collisions.py deliberately remains six RED/five control cases; it is
++an audit diagnostic, not passing regression evidence. Full zone build is pending
++because local Docker's Linux engine is unavailable. Build current retained source;
++rule/quest reload is insufficient. No new wire/ItemData/schema change, but the
++inherited Monk work still requires proxy0.9.2-dev. No live repair or activation.
++Exact audit inventories, tests, pairing and QA: docs/releases/cooldown-audit-20261017/.
+--- a/references/items.md
++++ b/references/items.md
+@@ -1,0 +2,22 @@
++
++## Item recast timer integrity
++
++October17 cooldown candidate2279169 (PR219, not deployed) clamps signed click
++reuse reductions before uint32 conversion in zone/spells.cpp::SetItemRecastTimer.
++Excess reduction previously yielded roughly136 years. Actual-method tests cover
++ordinary/negative/equal/excess focus and augment packet suppression. Pair current
++zone build with the inherited Monk release requirements; this duration delta adds
++no item ABI/cache/schema/client layout change. Do not erase existing player timers.
++
++Identity remains an open defect: pTimerType is uint16, so unlinked -item_id keys
++alias at65536 intervals and can overlap spell timers. Read-only current content
++has1158 unlinked definitions, two item-pair groups and364 item cross-domain
++catalog aliases; reachability/ownership of individual examples is not proven.
++Native methods reproduce read, overwrite and delete collisions. The6640 named
++group definitions retain deliberate shared reuse. A fix needs stable disjoint
++positive domains and wider native keys compatible with SQL timers.type's24-bit
++unsigned range; widening negative keys to uint32 alone is invalid. Include every
++item/augment verify, set/get/delete, saved timestamp and client-refresh path.
++Audit, failure reproducer, source fingerprint and QA: docs/releases/cooldown-audit-20261017/ in the cooldown-audit checkout listed in multiclass.md.
++Existing Normal-item reforge candidate below remains independent; combine its
++packet-message delta explicitly when integrating, rather than overwriting either.
+--- a/references/client.md
++++ b/references/client.md
+@@ -1,235 +1,251 @@
+-# RoF2 client, pets and buff effects
+-
+-Audited 2026-10-12. Use current deployment records over old README status paragraphs. Source/build checks, signed publication and visible player QA are separate states.
+-
+-## Independent Monk reuse - October 17 candidate
+-
+-Proxy0.9.2-dev adds six per-skill start/duration/readiness records in
+-`eq-client-dll/src/monk_reuse.h`, scoped to current matched identity holding Monk.
+-Six guarded SkillManager methods keep native duration adjustment and expiration
+-callbacks. The shared native special-attack entry at RVA0x1A5000 exchanges only
+-the selected EQPlayer shared slot and restores it in `__finally`, including on
+-failure. This entry covers hotbuttons and native ability controls; a hotbutton-only
+-scope misses other activation routes. The later stock commit at RVA0x5D96C must
+-retain the captured independent timestamp instead of the restored shared value.
+-Missing/stale identity and other skills forward to native trampolines.
+-
+-`ui_hooks.h::StateHook` clears transient records when leaving game state5;
+-persistent server timers still enforce reuse through zone/relog. `dllmain.cpp`
+-installs the hooks behind the existing monk_attacks required feature. Exact
+-signatures and version are generated from patch-sites.json and its verifier;
+-proxy and launcher catalogs must agree. The pinned eqgame.exe is read-only.
+-
+-Pair with the server mapping in [multiclass](multiclass.md). Both sides must ship
+-together; this candidate is not published or installed. Native source fixture
+-`tests/monk-reuse-native.cpp` reproduces10 failures before repair and now passes60
+-checks, including the installed submitter/stock commit and exception cleanup.
+-Targeting/damage/time remain controlled fixture boundaries. Full x86 DLL and20
+-test executables build;8 runtime groups and103 exact guards pass. The full
+-launcher Go suite passes with cached Go1.27.2 and local fixture permissions. Full
+-zone build, live countdown/combat/balance QA and release approval remain pending. Evidence and seven-step owner QA:
+-`docs/releases/monk-independent-reuse-20261017/` in the October17 Monk checkout
+-listed in multiclass.md; reviewed source b81fd66. Preserve all current managed
+-assets/history at publication and use a fresh signed channel counter.
+-
+-## Equipment placement and inspection
+-
+-Proxy 0.9.1-dev fixes ordinary inventory placement and green inspection for
+-unheld equipment. Native cursor CanUseItem at RVA 0x296095 handles all items;
+-the former scroll-only wrapper blocked off-primary equipment. CanEquipItem
+-also drives the inspection slot loop: widening every nonzero class mask there
+-made unheld items green. Do not restore the old all-sixteen-class bypass.
+-
+-`equipment_scope.h::EquipClassMask` projects the primary bit only for an original
+-mask intersecting current held classes. `dllmain.cpp::CanUseInventoryItem` keeps
+-canonical scroll handling and routes other items through this scope. The native
+-inspection selector at 0x2A9D07 also uses a direct path for types 1/4/8/35/54;
+-its CanUseItem call 0x2A9D82 has a new signed guard. Original class-list data,
+-zero masks, thread/item scope, SEH restoration and non-class restrictions remain.
+-Missing/stale identity keeps native primary behavior and requests a bounded refresh.
+-
+-Authorized SELECT-only production evidence confirms Palwar's PAL/WAR/MNK and
+-Forged Javelin 21508 (+200000/+400000/+600000) permit ranged/ammo equip: classes
+-33225, races65535, no deity or required-level gate. No character/item repair is
+-needed. Server `GetEquipClassBitmask`/`InventoryProfile::SwapItem` remain unchanged.
+-
+-Source and QA: `docs/releases/multiclass-equipment-20261015/README.md` and
+-`verification.json` in `C:/Users/verre/Documents/Codex/2026-10-15/g/work/multiclass-equipment`.
+-`eq-client-dll/tests/equipment-native.cpp` reproduces six pre-fix failures and
+-originally passed37 native checks using item-type dispatch and color writes.
+-The October16 race-policy follow-up expands this to78 checks with real native
+-race/slot/weapon predicates; deity/level/required-skill and storage are fixtures.
+-See [equipment race policy](items.md#equipment-race-policy). Scope coverage spans4096 class combinations.
+-Full x86 proxy/19 fixtures, seven runtime groups, full launcher Go suite,
+-95 exact-client guards and independent review pass. Second-model review declined.
+-Native fixture success is not visible gameplay acceptance.
+-
+-**Published October 16 under explicit owner approval.** PR #202 merged source
+-55d6b43 as f1c9271; signed game 2026101501 / proxy 0.9.1-dev verifies the shipped-key
+-signature and all 106 hosted assets. DLL/catalog alone changed; 104 assets, minimum
+-launcher 0.6.0, patch history/tombstones and desktop/starter/guide are preserved.
+-All five service fingerprints stayed unchanged during publication. No server
+-restart, SQL or cache refresh. The interrupted prior upload changed no public
+-files; a fresh baseline preserved an intervening healthy same-image restart.
+-
+-Publication evidence and 13 recovery tests are alongside the release README in
+-deployment.json, hosted-verification.json and deployment/client/. The publisher
+-holds the deployment lock and fsyncs all nested directories deepest-first before
+-renaming immutable assets, then replaces the signed channel last. Metadata expires
+-2026-11-14T09:47:47Z; renewal/rollback uses a higher signed counter. Never copy an
+-unsigned test DLL into the protected client. Close EQ and use launcher Play.
+-**Owner confirms javelins work; broader gameplay QA remains pending.** Follow the
+-release's exact Palwar/unheld-item/relog/class-release controls; native fixture
+-or hosted-signature success alone does not establish owner acceptance.
+-
+-## Client contract and delivery
+-
+-`eq-client-dll` is the guarded x86 `dinput8.dll` DirectInput proxy. It opens the caster/combat UI chassis while the server owns mana, membership, inventory and actions. Original supported eqgame.exe: 8,774,656 bytes, SHA-256 `2a8702ad9f722704f01355c0750be7d6f164a8b9c9128ba0cf286ea32b405b0e`. Verify exact signatures/catalog before applying native hooks; don't infer ABI correctness from a C++ type declaration.
+-
+-Use `tools/generate-client-patch-catalog.py --check` and the exact-client verifier. Pair DLL, generated catalog, runtime config and relevant SIDL assets through the signed launcher flow. `tools/client_advanced_loot_ui.py` and `client_merchant_ui.py` generate UI; replacing the entire EQUI.xml is unnecessary. The advanced-loot window shares generated Pet Info XML. Preserve existing pet controls. Never build/modify the protected `Client_RoF2_Dev` reference; inspect logs/assets read-only and stage managed outputs separately.
+-
+-`docs/ops/permanent-patcher.md` controls delivery. Stable starter, desktop channel and game channel are distinct. Rollback is a newly signed release with a **higher monotonic counter**, not changing history or lowering versions. Keep owner INIs/preferences and original executable. October 12 early-scribing publication is game release 2026101203 with 105 assets; recheck live manifest before another publication rather than freezing that count.
+-
+-Launcher source is `eq-launcher/`, distinct from the older `eq-expansion-switcher`. Game/desktop metadata expires after 30 days in the audited runbook; inspect expiry when troubleshooting Play and re-sign a higher release through the normal publication process when authorized. There is no recorded automatic renewal job.
+-
+-October 12 early-scribing release 2026101203 is published: proxy 0.8.1-dev redirects
+-only the native spellbook level call at RVA 0x35E084 to `ScribeSpellLevelHook`.
+-Owned spells project level 1 there; unknown/unowned/stale-identity requests fail
+-closed. Shared spell levels, inspection/menu labels, gem memorization/casting and
+-the subsequent native class check remain canonical. Requires the paired zone
+-build; an old client or server still blocks early scribing. Full native
+-comparison regression, client/runtime builds, 76 signatures and independent
+-review pass. See `docs/releases/early-spell-scribing-20261012/README.md` and
+-`verification.json` in the early-spell-scribing task checkout. Public HTTPS
+-verification passes the shipped-key signature and all 105 files; DLL and catalog
+-are the only changed assets. Preserve launcher 0.6.0+, signed patch history and
+-minimum version from 2026101202; 2026101203 adds the early-scribing summary.
+-Desktop/starter/guide and all five services are unchanged by publication. Native
+-scribe/relog/gem QA remains pending; preserve higher-counter rollback. No global
+-spell data or original executable is rewritten.
+-
+-## Craft All signed client deployment
+-
+-Owner-authorized PR #200 deployed October 13 with signed game release 2026101304; proxy 0.9.0-dev adds Craft One/Craft All/Stop to the native recipe browser. tools/client_tradeskill_ui.py preserves stock controls and generates equi_tradeskillwnd.xml; tools/stage_tradeskill_client.py stages only the four changed assets as an unsigned delta. The official packager whitelist in eq-launcher/cmd/nightcap-package/gameplay.go includes the new tradeskill XML. Publication changed DLL/config/catalog and added XML while preserving 102 other assets, prior patch history and tombstones; all 106 hosted assets/signature verify. Desktop/starter/guide are unchanged. Close EQ and use launcher Play with the managed Nightcap skin. Client installation/rendering remains owner QA. The retained live spells asset was not regenerated from the different protected source; preserve signed bytes when assembling a scoped delta.
+-
+-eq-client-dll/src/tradeskill_hooks.h invokes original native Combine/Auto Inventory controls, using verified notify 0x37E7F0, frame 0x37CD70 and selected-record 0x37B770. The matching server emits [NCTS1] completion after output and quest callbacks. tradeskill_repeat.h allows one outstanding operation, approximately 2.5-second normal cadence and five seconds to place output. Stop/context changes do not replay an outstanding attempt. Native local rejection before pending-counter increment is known unsent and can restart immediately; 15-second unconfirmed completion requires zone/relog before another run. Markers have no attempt sequence: matching is by current spawn/recipe/waiting phase and native reliable transport supplies packet deduplication.
+-
+-17 x86 fixture builds, six runtime groups including actual UI hooks/parser/controller, five stock XML tests and 94 exact catalog guards pass. Independent review verified ABI and corrected the null-world and local-rejection cases. Full zone compile/link and launcher packaging/preflight/manifest checks pass. Native/publisher recovery suites pass 31/13 tests; independent final-stage review passed. Both sides were activated behind the closed gateway before access reopened; exact production pairing and hosted evidence are in docs/tradeskills/deployment.json and hosted-verification.json. Native rendering, transport/slot decoding, cursor-full behavior and owner gameplay remain pending: docs/tradeskills/README.md and verification.json. Deploy zone and signed DLL/config/catalog/XML together; old proxies otherwise expose raw completion markers. Rollback needs prior matching zone plus higher-counter signed prior client assets/stock XML, preserving earned items and skills.
+-
+-## Trainer access deployment
+-
+-October 13 owner QA confirms the previous 2026101204 trainer window opens,
+-but purchases, natural skill gains and offhand access fail. The first release
+-missed two client gates and preserved a causal server baseline difference.
+-PR #191 merged and paired correction deployed October 13: signed game 2026101301, all 12 zones and 105 hosted assets verified. Owner reported "resolved" on October 13 for the reported Palwar trainer/progression/offhand issue. Individual relog and control steps were not separately enumerated.
+-
+-Production diagnosis found Palwar level6 Paladin/Warrior/Monk, DW1/Kick1,
+-with correct canonical Monk caps47/30. Do not repair this by granting points or
+-rewriting skill_caps. Skills seed at1 and must advance through normal use/buys.
+-
+-Retained Client::MaxSkill(skill) was inline primary-only; Git main already held
+-the union. Stage that union and rebuild every126 zone TU with a fresh candidate
+-PCH. Never infer deployed advancement from main alone or retain old objects
+-embedding the primary-only inline call. Retained empty-fist dual wield also
+-used primary-only Monk/Beastlord; use direct held membership, preserving weapon
+-restrictions without depending on an undeployed hand-to-hand helper.
+-
+-Proxy0.8.3-dev wraps the trainer at-cap predicate call0x185955 and projects its
+-nested cap query0x184C2B only within a character-matched thread-local scope.
+-Native specialization/tradeskill rules, server cap and spending remain intact.
+-Offhand HasSkill call0x183445 needs a separate fallback before item-class checks:
+-require matching current identity/profile, positive server rawDW and current-
+-level held native cap. Future Warrior caps must not retain staleDW after Monk
+-release. Stock successful checks and surrounding slot/2H guards remain intact.
+-
+-Source/tests: server-mods/code/zone/{client.h,client.cpp,mob.cpp},
+-eq-client-dll/src/trainer_hooks.h, tools/tests/test_multiclass_skill_progression.py,
+-eq-client-dll/tests/trainer-native.cpp, tools/build_skill_progression_candidate.py.
+-Actual retained-source RED5/control4; staged/repo GREEN9, exact-native client
+-purchase/offhand RED/GREEN,6 runtime groups,91 catalog guards and fullGo suite
+-pass. Independent review verified ABI and fixed stale future-cap access.
+-Evidence and exact training/combat/offhand/relog QA:
+-docs/releases/multiclass-skills-20261013/ in
+-E:/EQ_Local_Dev/_worktrees/multiclass-trainer-access.
+-
+-Pair rebuilt zone and signed proxy/catalog; rule/quest reload is insufficient.
+-Use graceful whole-runtime refresh; never kill one OVH zone. Preserve player
+-progress and retained image; rollback never restores old SQL and client rollback
+-uses a higher signed counter. Native/unit/hosted checks do not establish actual
+-player combat or purchase acceptance.
+-
+-Merchant Sell All: the owner confirmed the reported button feature resolved on
+-October 13. It first shipped in signed client release 2026101201 on October 12;
+-that is historical publication evidence, not the latest release. The shared
+-merchant button invokes the existing `#sellall` command; the server retains
+-eligibility and payout policy. Pair generated merchant SIDL with proxy/config/
+-catalog through launcher Play; this button required no server rebuild. Source,
+-automated tests, publication hashes and regression steps remain in
+-`docs/releases/merchant-sell-all-20261012.md`. Owner resolution closes this
+-button issue without separately attesting every checklist case.
+-
+-## Latest patcher announcement — October 17
+-
+-Signed game metadata **2026101701** leads Latest update with eleven Raid & Grind
+-bullets: seven dungeons, Keeper entry, Raid/Grind rules, shared/exclusive gear,
+-personal boss credit, retained claims and the repaired journal. Published at the
+-owner's request. All106 complete file records/URLs from game2026101501, thirteen
+-previous summaries, tombstones, expiry2026-11-14T09:47:47Z and minimum launcher0.6.0
+-remain identical. Desktop channel/starter/guide and all five service identities
+-are preserved. No client binary, server/cache/SQL change or game restart.
+-
+-Source and receipts in the dungeon-modes checkout:
+-`eq-launcher/patch-notes.json`, `docs/releases/dungeon-patcher-20261017/`.
+-The actual launcher manifest parser verifies the shipped-key signature and all
+-106 public assets. Seven publisher/recovery tests pass on Windows and Linux;
+-manifest/packager tests pass. Chrome preview of the actual Vue launcher at
+-1120×820 and780×620 shows all eleven bullets and thirteen prior summaries,
+-with readable wrapping, no horizontal overflow/page errors and reachable Play.
+-The preview uses a simulated native bridge; installed desktop owner QA is pending.
+-Reopen the normal shortcut or Check for updates to see Oct17/patch2026101701.
+-
+-Notes-only publication reuses the existing asset URLs with a higher signed
+-counter. Keep exact signed inventory/history/minimum version and fresh service
+-preimages; stage under the shared deployment lock, retain the previous channel,
+-fsync and atomically replace only channel.json. Recheck an intervening release;
+-never restore its old baseline. Corrections use a higher signed counter.
+-The earlier AA notes example remains in docs/releases/aa-class-ranks-20261013/;
+-its release/file-count guards must not be reused unchanged. Before treating SSH
+-as unavailable, check the Windows ssh-agent and saved-key listing: starting the
+-stopped existing agent restored the accepted key for this publication.
+-
+-## High-value implementation pointers
+-
+-| Area | Source / test / evidence |
+-|---|---|
+-| Server-confirmed UI transport | `server-mods/code/common/advanced_loot_protocol.h`, `eq-client-dll/src/advanced_loot_state.h`; inspect matching command decoder before changing messages |
+-| Advanced loot | `zone/advanced_loot*.cpp`, `corpse_advanced_loot.cpp`, `eq-client-dll/src/advanced_loot_*.h`; `docs/releases/advanced-loot/README.md` and later ACTION-REPAIR, ROW-CONTROLS, STOCK-ICONS |
+-| Merchant Sell All | `tools/client_merchant_ui.py`, proxy merchant handler; `tools/tests/test_client_merchant_ui.py`; `docs/releases/merchant-sell-all-20261012.md` |
+-| Pet roster/commands | `zone/client_class_pets.cpp`, `zone/pets.cpp`, `common/pet_class_policy.h`, `eq-client-dll/src/pet_management.h`, `pet_state.h`; `tools/tests/test_pet_command_selection.py`, `test_pet_management_ui.py` |
+-| Pet armor | `zone/client_pet_armor.cpp`, `pet_armor.cpp`; `tools/tests/test_pet_armor_transfer.py`, `test_pet_armor_database.py` |
+-| Spell display/access | `eq-client-dll/src/spell_access.h`, canonical spell catalog; spell-inspection and spell-menu October runbooks |
+-
+-Advanced-loot UI consumes complete acknowledged snapshots; it doesn't manufacture inventory packets. Always/Never are per-character rules with mutual exclusion and toggle-back-to-Ask. Only a complete nonemptyÃ¢â€ â€™empty snapshot closes the window; pending/failed transfers and explicit reopening must still work. Stock icons use server item IDs and native cache; clear stale row images and hide unavailable ones. Inventory/coin transactions use durable receipts before publishing packets; saved-state replay protection must survive rollback. FreeTrade supersedes older NO TRADE prompts without removing rights/preimage/capacity checks.
+-
+-Three-pet selection defaults shared. Selecting a name/world pet scopes commands to it; targeting an enemy retains that scope. Selecting it again, All pets or clearing target restores shared scope. Dead/dismissed/released/zoned pets can't leave stale scope; stale individual commands must not broaden to other pets. Server enforces ownership, range, combat/state and advanced-AA gates. Enchanter animations now accept standard commands without the old PetCommands gate. Pet Armor selection is separate.
+-
+-October 11 summon crash: native caller reuses ECX after the availability predicate. The bridge must preserve ECX/EDX, stack cleanup and boolean result. Compilation alone didn't expose it; exact native ABI regression did. Signed client 2026101101 published; owner confirmed this reported crash resolved October 12 (`docs/ops/darthy-pet-crash-20261011.md`). Don't label every pet issue accepted from that one fix.
+-
+-## Buffs and visual diagnosis
+-
+-October 3 reconnect repair uses OP_Buff mode 3 to restore missing native effect slots after CompleteConnect. Mode 2 updates only existing slots. October 4 lifetime repair additionally preserves **-1000** in RoF2 native effects/profile; finite-formula **-1** expires on the next client tick while icons can remain. Icon/inspect/pet-window countdowns still use -1. Don't recast blessings on login or turn them into long positive timers. Read `docs/releases/blessing-lifetime-20261004/README.md`; test `test_buff_restore.py`, `test_gameplay_policies.py` and exact-client lifetime probe. The older direct-AA timer claim was superseded by blanket player/pet permanence. The temporary-AA repair restores direct/proc/recourse timers and normalizes saved -1000/-1 finite buffs; see [temporary AA duration](multiclass.md#temporary-aa-buff-duration--deployed-october-16). It deployed to OVH October16 with all12 running zone hashes verified and signed client2026101501 unchanged. Live countdown/combat-effect expiry and client rendering remain owner QA. Ordinary blessings and the RoF2 sentinel encoding remain unchanged.
+-
+-Classic assets require shared materials, contiguous helmet meshes, animation-family preservation and native invisible actor identity for Enchanter weapons. PFS v2 blocks must respect RoF2's 8 KiB limit. Missing .s3d geometry, material crashes, animation faults and pet ABI faults are different failure classes. Start with `Logs/dbg.txt`/crash evidence, exact executable and managed asset hashes. October model/helmet runbooks supersede old opt-in modern-model README text. Custom helmet asset production lives partly in the separate Blender/Unity labs; don't conflate a preview with signed in-game delivery.
+-
+-## West Commonlands missing-zone repair
+-
+-October 12 Karl screenshot confirms "Unable to load World" for missing commons
+-in C:/Nightcap. The operator's E:/Nightcap repair does not fix that other client.
+-Manual package: E:/EQ_Local_Dev/artifacts/karl-rescue-20261012/Nightcap-West-Commonlands-Repair.zip,
+-containing commons.s3d and commons_obj.s3d to extract beside eqgame.exe while EQ
+-is closed. The protected source was read only; original validated hashes, all
+-named PFS entries and filename tables, expected WLD headers and ZIP bytes passed.
+-The model-transform full WLD fragment parser rejects the terrain; do not claim
+-full fragment validation. Installation and login/round-trip zoning QA remain open.
+-No signed launcher publication occurred. Evidence: docs/ops/karl-rescue-20261012.md
+-and artifacts/karl-rescue-20261012/commons-package-validation.json in E:/EQ_Local_Dev.
++# RoF2 client, pets and buff effects
++
++Audited 2026-10-12. Use current deployment records over old README status paragraphs. Source/build checks, signed publication and visible player QA are separate states.
++
++## Cooldown audit pairing boundary
++
++The October17 duration corrections in cooldown-audit (source2279169/PR219) are
++server-only arithmetic/lifecycle changes; native linked-reuse packet field order
++and uint32 adjustment wire representation remain unchanged. Exact source, native
++tests and status are in multiclass.md and docs/releases/cooldown-audit-20261017/.
++No installed-client update or publication occurred. The inherited six-Monk-skill
++candidate below still requires its paired proxy0.9.2-dev/server release.
++
++The wider audit proves shared AA and item identities and identifies spell/disc
++group overlaps. Those remain unresolved. Future isolation must cover native
++readiness and activation, catalog projection, packets, resets and relog resends;
++a server-only remap can leave UI controls locked. Native client field width alone
++does not prove its internal timer storage accepts arbitrary IDs. Preserve exact
++client guards and verify bounded spell/disc groups before choosing a mapping.
++
++## Independent Monk reuse - October 17 candidate
++
++Proxy0.9.2-dev adds six per-skill start/duration/readiness records in
++`eq-client-dll/src/monk_reuse.h`, scoped to current matched identity holding Monk.
++Six guarded SkillManager methods keep native duration adjustment and expiration
++callbacks. The shared native special-attack entry at RVA0x1A5000 exchanges only
++the selected EQPlayer shared slot and restores it in `__finally`, including on
++failure. This entry covers hotbuttons and native ability controls; a hotbutton-only
++scope misses other activation routes. The later stock commit at RVA0x5D96C must
++retain the captured independent timestamp instead of the restored shared value.
++Missing/stale identity and other skills forward to native trampolines.
++
++`ui_hooks.h::StateHook` clears transient records when leaving game state5;
++persistent server timers still enforce reuse through zone/relog. `dllmain.cpp`
++installs the hooks behind the existing monk_attacks required feature. Exact
++signatures and version are generated from patch-sites.json and its verifier;
++proxy and launcher catalogs must agree. The pinned eqgame.exe is read-only.
++
++Pair with the server mapping in [multiclass](multiclass.md). Both sides must ship
++together; this candidate is not published or installed. Native source fixture
++`tests/monk-reuse-native.cpp` reproduces10 failures before repair and now passes60
++checks, including the installed submitter/stock commit and exception cleanup.
++Targeting/damage/time remain controlled fixture boundaries. Full x86 DLL and20
++test executables build;8 runtime groups and103 exact guards pass. The full
++launcher Go suite passes with cached Go1.27.2 and local fixture permissions. Full
++zone build, live countdown/combat/balance QA and release approval remain pending. Evidence and seven-step owner QA:
++`docs/releases/monk-independent-reuse-20261017/` in the October17 Monk checkout
++listed in multiclass.md; reviewed source b81fd66. Preserve all current managed
++assets/history at publication and use a fresh signed channel counter.
++
++## Equipment placement and inspection
++
++Proxy 0.9.1-dev fixes ordinary inventory placement and green inspection for
++unheld equipment. Native cursor CanUseItem at RVA 0x296095 handles all items;
++the former scroll-only wrapper blocked off-primary equipment. CanEquipItem
++also drives the inspection slot loop: widening every nonzero class mask there
++made unheld items green. Do not restore the old all-sixteen-class bypass.
++
++`equipment_scope.h::EquipClassMask` projects the primary bit only for an original
++mask intersecting current held classes. `dllmain.cpp::CanUseInventoryItem` keeps
++canonical scroll handling and routes other items through this scope. The native
++inspection selector at 0x2A9D07 also uses a direct path for types 1/4/8/35/54;
++its CanUseItem call 0x2A9D82 has a new signed guard. Original class-list data,
++zero masks, thread/item scope, SEH restoration and non-class restrictions remain.
++Missing/stale identity keeps native primary behavior and requests a bounded refresh.
++
++Authorized SELECT-only production evidence confirms Palwar's PAL/WAR/MNK and
++Forged Javelin 21508 (+200000/+400000/+600000) permit ranged/ammo equip: classes
++33225, races65535, no deity or required-level gate. No character/item repair is
++needed. Server `GetEquipClassBitmask`/`InventoryProfile::SwapItem` remain unchanged.
++
++Source and QA: `docs/releases/multiclass-equipment-20261015/README.md` and
++`verification.json` in `C:/Users/verre/Documents/Codex/2026-10-15/g/work/multiclass-equipment`.
++`eq-client-dll/tests/equipment-native.cpp` reproduces six pre-fix failures and
++originally passed37 native checks using item-type dispatch and color writes.
++The October16 race-policy follow-up expands this to78 checks with real native
++race/slot/weapon predicates; deity/level/required-skill and storage are fixtures.
++See [equipment race policy](items.md#equipment-race-policy). Scope coverage spans4096 class combinations.
++Full x86 proxy/19 fixtures, seven runtime groups, full launcher Go suite,
++95 exact-client guards and independent review pass. Second-model review declined.
++Native fixture success is not visible gameplay acceptance.
++
++**Published October 16 under explicit owner approval.** PR #202 merged source
++55d6b43 as f1c9271; signed game 2026101501 / proxy 0.9.1-dev verifies the shipped-key
++signature and all 106 hosted assets. DLL/catalog alone changed; 104 assets, minimum
++launcher 0.6.0, patch history/tombstones and desktop/starter/guide are preserved.
++All five service fingerprints stayed unchanged during publication. No server
++restart, SQL or cache refresh. The interrupted prior upload changed no public
++files; a fresh baseline preserved an intervening healthy same-image restart.
++
++Publication evidence and 13 recovery tests are alongside the release README in
++deployment.json, hosted-verification.json and deployment/client/. The publisher
++holds the deployment lock and fsyncs all nested directories deepest-first before
++renaming immutable assets, then replaces the signed channel last. Metadata expires
++2026-11-14T09:47:47Z; renewal/rollback uses a higher signed counter. Never copy an
++unsigned test DLL into the protected client. Close EQ and use launcher Play.
++**Owner confirms javelins work; broader gameplay QA remains pending.** Follow the
++release's exact Palwar/unheld-item/relog/class-release controls; native fixture
++or hosted-signature success alone does not establish owner acceptance.
++
++## Client contract and delivery
++
++`eq-client-dll` is the guarded x86 `dinput8.dll` DirectInput proxy. It opens the caster/combat UI chassis while the server owns mana, membership, inventory and actions. Original supported eqgame.exe: 8,774,656 bytes, SHA-256 `2a8702ad9f722704f01355c0750be7d6f164a8b9c9128ba0cf286ea32b405b0e`. Verify exact signatures/catalog before applying native hooks; don't infer ABI correctness from a C++ type declaration.
++
++Use `tools/generate-client-patch-catalog.py --check` and the exact-client verifier. Pair DLL, generated catalog, runtime config and relevant SIDL assets through the signed launcher flow. `tools/client_advanced_loot_ui.py` and `client_merchant_ui.py` generate UI; replacing the entire EQUI.xml is unnecessary. The advanced-loot window shares generated Pet Info XML. Preserve existing pet controls. Never build/modify the protected `Client_RoF2_Dev` reference; inspect logs/assets read-only and stage managed outputs separately.
++
++`docs/ops/permanent-patcher.md` controls delivery. Stable starter, desktop channel and game channel are distinct. Rollback is a newly signed release with a **higher monotonic counter**, not changing history or lowering versions. Keep owner INIs/preferences and original executable. October 12 early-scribing publication is game release 2026101203 with 105 assets; recheck live manifest before another publication rather than freezing that count.
++
++Launcher source is `eq-launcher/`, distinct from the older `eq-expansion-switcher`. Game/desktop metadata expires after 30 days in the audited runbook; inspect expiry when troubleshooting Play and re-sign a higher release through the normal publication process when authorized. There is no recorded automatic renewal job.
++
++October 12 early-scribing release 2026101203 is published: proxy 0.8.1-dev redirects
++only the native spellbook level call at RVA 0x35E084 to `ScribeSpellLevelHook`.
++Owned spells project level 1 there; unknown/unowned/stale-identity requests fail
++closed. Shared spell levels, inspection/menu labels, gem memorization/casting and
++the subsequent native class check remain canonical. Requires the paired zone
++build; an old client or server still blocks early scribing. Full native
++comparison regression, client/runtime builds, 76 signatures and independent
++review pass. See `docs/releases/early-spell-scribing-20261012/README.md` and
++`verification.json` in the early-spell-scribing task checkout. Public HTTPS
++verification passes the shipped-key signature and all 105 files; DLL and catalog
++are the only changed assets. Preserve launcher 0.6.0+, signed patch history and
++minimum version from 2026101202; 2026101203 adds the early-scribing summary.
++Desktop/starter/guide and all five services are unchanged by publication. Native
++scribe/relog/gem QA remains pending; preserve higher-counter rollback. No global
++spell data or original executable is rewritten.
++
++## Craft All signed client deployment
++
++Owner-authorized PR #200 deployed October 13 with signed game release 2026101304; proxy 0.9.0-dev adds Craft One/Craft All/Stop to the native recipe browser. tools/client_tradeskill_ui.py preserves stock controls and generates equi_tradeskillwnd.xml; tools/stage_tradeskill_client.py stages only the four changed assets as an unsigned delta. The official packager whitelist in eq-launcher/cmd/nightcap-package/gameplay.go includes the new tradeskill XML. Publication changed DLL/config/catalog and added XML while preserving 102 other assets, prior patch history and tombstones; all 106 hosted assets/signature verify. Desktop/starter/guide are unchanged. Close EQ and use launcher Play with the managed Nightcap skin. Client installation/rendering remains owner QA. The retained live spells asset was not regenerated from the different protected source; preserve signed bytes when assembling a scoped delta.
++
++eq-client-dll/src/tradeskill_hooks.h invokes original native Combine/Auto Inventory controls, using verified notify 0x37E7F0, frame 0x37CD70 and selected-record 0x37B770. The matching server emits [NCTS1] completion after output and quest callbacks. tradeskill_repeat.h allows one outstanding operation, approximately 2.5-second normal cadence and five seconds to place output. Stop/context changes do not replay an outstanding attempt. Native local rejection before pending-counter increment is known unsent and can restart immediately; 15-second unconfirmed completion requires zone/relog before another run. Markers have no attempt sequence: matching is by current spawn/recipe/waiting phase and native reliable transport supplies packet deduplication.
++
++17 x86 fixture builds, six runtime groups including actual UI hooks/parser/controller, five stock XML tests and 94 exact catalog guards pass. Independent review verified ABI and corrected the null-world and local-rejection cases. Full zone compile/link and launcher packaging/preflight/manifest checks pass. Native/publisher recovery suites pass 31/13 tests; independent final-stage review passed. Both sides were activated behind the closed gateway before access reopened; exact production pairing and hosted evidence are in docs/tradeskills/deployment.json and hosted-verification.json. Native rendering, transport/slot decoding, cursor-full behavior and owner gameplay remain pending: docs/tradeskills/README.md and verification.json. Deploy zone and signed DLL/config/catalog/XML together; old proxies otherwise expose raw completion markers. Rollback needs prior matching zone plus higher-counter signed prior client assets/stock XML, preserving earned items and skills.
++
++## Trainer access deployment
++
++October 13 owner QA confirms the previous 2026101204 trainer window opens,
++but purchases, natural skill gains and offhand access fail. The first release
++missed two client gates and preserved a causal server baseline difference.
++PR #191 merged and paired correction deployed October 13: signed game 2026101301, all 12 zones and 105 hosted assets verified. Owner reported "resolved" on October 13 for the reported Palwar trainer/progression/offhand issue. Individual relog and control steps were not separately enumerated.
++
++Production diagnosis found Palwar level6 Paladin/Warrior/Monk, DW1/Kick1,
++with correct canonical Monk caps47/30. Do not repair this by granting points or
++rewriting skill_caps. Skills seed at1 and must advance through normal use/buys.
++
++Retained Client::MaxSkill(skill) was inline primary-only; Git main already held
++the union. Stage that union and rebuild every126 zone TU with a fresh candidate
++PCH. Never infer deployed advancement from main alone or retain old objects
++embedding the primary-only inline call. Retained empty-fist dual wield also
++used primary-only Monk/Beastlord; use direct held membership, preserving weapon
++restrictions without depending on an undeployed hand-to-hand helper.
++
++Proxy0.8.3-dev wraps the trainer at-cap predicate call0x185955 and projects its
++nested cap query0x184C2B only within a character-matched thread-local scope.
++Native specialization/tradeskill rules, server cap and spending remain intact.
++Offhand HasSkill call0x183445 needs a separate fallback before item-class checks:
++require matching current identity/profile, positive server rawDW and current-
++level held native cap. Future Warrior caps must not retain staleDW after Monk
++release. Stock successful checks and surrounding slot/2H guards remain intact.
++
++Source/tests: server-mods/code/zone/{client.h,client.cpp,mob.cpp},
++eq-client-dll/src/trainer_hooks.h, tools/tests/test_multiclass_skill_progression.py,
++eq-client-dll/tests/trainer-native.cpp, tools/build_skill_progression_candidate.py.
++Actual retained-source RED5/control4; staged/repo GREEN9, exact-native client
++purchase/offhand RED/GREEN,6 runtime groups,91 catalog guards and fullGo suite
++pass. Independent review verified ABI and fixed stale future-cap access.
++Evidence and exact training/combat/offhand/relog QA:
++docs/releases/multiclass-skills-20261013/ in
++E:/EQ_Local_Dev/_worktrees/multiclass-trainer-access.
++
++Pair rebuilt zone and signed proxy/catalog; rule/quest reload is insufficient.
++Use graceful whole-runtime refresh; never kill one OVH zone. Preserve player
++progress and retained image; rollback never restores old SQL and client rollback
++uses a higher signed counter. Native/unit/hosted checks do not establish actual
++player combat or purchase acceptance.
++
++Merchant Sell All: the owner confirmed the reported button feature resolved on
++October 13. It first shipped in signed client release 2026101201 on October 12;
++that is historical publication evidence, not the latest release. The shared
++merchant button invokes the existing `#sellall` command; the server retains
++eligibility and payout policy. Pair generated merchant SIDL with proxy/config/
++catalog through launcher Play; this button required no server rebuild. Source,
++automated tests, publication hashes and regression steps remain in
++`docs/releases/merchant-sell-all-20261012.md`. Owner resolution closes this
++button issue without separately attesting every checklist case.
++
++## Latest patcher announcement — October 17
++
++Signed game metadata **2026101701** leads Latest update with eleven Raid & Grind
++bullets: seven dungeons, Keeper entry, Raid/Grind rules, shared/exclusive gear,
++personal boss credit, retained claims and the repaired journal. Published at the
++owner's request. All106 complete file records/URLs from game2026101501, thirteen
++previous summaries, tombstones, expiry2026-11-14T09:47:47Z and minimum launcher0.6.0
++remain identical. Desktop channel/starter/guide and all five service identities
++are preserved. No client binary, server/cache/SQL change or game restart.
++
++Source and receipts in the dungeon-modes checkout:
++`eq-launcher/patch-notes.json`, `docs/releases/dungeon-patcher-20261017/`.
++The actual launcher manifest parser verifies the shipped-key signature and all
++106 public assets. Seven publisher/recovery tests pass on Windows and Linux;
++manifest/packager tests pass. Chrome preview of the actual Vue launcher at
++1120×820 and780×620 shows all eleven bullets and thirteen prior summaries,
++with readable wrapping, no horizontal overflow/page errors and reachable Play.
++The preview uses a simulated native bridge; installed desktop owner QA is pending.
++Reopen the normal shortcut or Check for updates to see Oct17/patch2026101701.
++
++Notes-only publication reuses the existing asset URLs with a higher signed
++counter. Keep exact signed inventory/history/minimum version and fresh service
++preimages; stage under the shared deployment lock, retain the previous channel,
++fsync and atomically replace only channel.json. Recheck an intervening release;
++never restore its old baseline. Corrections use a higher signed counter.
++The earlier AA notes example remains in docs/releases/aa-class-ranks-20261013/;
++its release/file-count guards must not be reused unchanged. Before treating SSH
++as unavailable, check the Windows ssh-agent and saved-key listing: starting the
++stopped existing agent restored the accepted key for this publication.
++
++## High-value implementation pointers
++
++| Area | Source / test / evidence |
++|---|---|
++| Server-confirmed UI transport | `server-mods/code/common/advanced_loot_protocol.h`, `eq-client-dll/src/advanced_loot_state.h`; inspect matching command decoder before changing messages |
++| Advanced loot | `zone/advanced_loot*.cpp`, `corpse_advanced_loot.cpp`, `eq-client-dll/src/advanced_loot_*.h`; `docs/releases/advanced-loot/README.md` and later ACTION-REPAIR, ROW-CONTROLS, STOCK-ICONS |
++| Merchant Sell All | `tools/client_merchant_ui.py`, proxy merchant handler; `tools/tests/test_client_merchant_ui.py`; `docs/releases/merchant-sell-all-20261012.md` |
++| Pet roster/commands | `zone/client_class_pets.cpp`, `zone/pets.cpp`, `common/pet_class_policy.h`, `eq-client-dll/src/pet_management.h`, `pet_state.h`; `tools/tests/test_pet_command_selection.py`, `test_pet_management_ui.py` |
++| Pet armor | `zone/client_pet_armor.cpp`, `pet_armor.cpp`; `tools/tests/test_pet_armor_transfer.py`, `test_pet_armor_database.py` |
++| Spell display/access | `eq-client-dll/src/spell_access.h`, canonical spell catalog; spell-inspection and spell-menu October runbooks |
++
++Advanced-loot UI consumes complete acknowledged snapshots; it doesn't manufacture inventory packets. Always/Never are per-character rules with mutual exclusion and toggle-back-to-Ask. Only a complete nonemptyÃ¢â€ â€™empty snapshot closes the window; pending/failed transfers and explicit reopening must still work. Stock icons use server item IDs and native cache; clear stale row images and hide unavailable ones. Inventory/coin transactions use durable receipts before publishing packets; saved-state replay protection must survive rollback. FreeTrade supersedes older NO TRADE prompts without removing rights/preimage/capacity checks.
++
++Three-pet selection defaults shared. Selecting a name/world pet scopes commands to it; targeting an enemy retains that scope. Selecting it again, All pets or clearing target restores shared scope. Dead/dismissed/released/zoned pets can't leave stale scope; stale individual commands must not broaden to other pets. Server enforces ownership, range, combat/state and advanced-AA gates. Enchanter animations now accept standard commands without the old PetCommands gate. Pet Armor selection is separate.
++
++October 11 summon crash: native caller reuses ECX after the availability predicate. The bridge must preserve ECX/EDX, stack cleanup and boolean result. Compilation alone didn't expose it; exact native ABI regression did. Signed client 2026101101 published; owner confirmed this reported crash resolved October 12 (`docs/ops/darthy-pet-crash-20261011.md`). Don't label every pet issue accepted from that one fix.
++
++## Buffs and visual diagnosis
++
++October 3 reconnect repair uses OP_Buff mode 3 to restore missing native effect slots after CompleteConnect. Mode 2 updates only existing slots. October 4 lifetime repair additionally preserves **-1000** in RoF2 native effects/profile; finite-formula **-1** expires on the next client tick while icons can remain. Icon/inspect/pet-window countdowns still use -1. Don't recast blessings on login or turn them into long positive timers. Read `docs/releases/blessing-lifetime-20261004/README.md`; test `test_buff_restore.py`, `test_gameplay_policies.py` and exact-client lifetime probe. The older direct-AA timer claim was superseded by blanket player/pet permanence. The temporary-AA repair restores direct/proc/recourse timers and normalizes saved -1000/-1 finite buffs; see [temporary AA duration](multiclass.md#temporary-aa-buff-duration--deployed-october-16). It deployed to OVH October16 with all12 running zone hashes verified and signed client2026101501 unchanged. Live countdown/combat-effect expiry and client rendering remain owner QA. Ordinary blessings and the RoF2 sentinel encoding remain unchanged.
++
++Classic assets require shared materials, contiguous helmet meshes, animation-family preservation and native invisible actor identity for Enchanter weapons. PFS v2 blocks must respect RoF2's 8 KiB limit. Missing .s3d geometry, material crashes, animation faults and pet ABI faults are different failure classes. Start with `Logs/dbg.txt`/crash evidence, exact executable and managed asset hashes. October model/helmet runbooks supersede old opt-in modern-model README text. Custom helmet asset production lives partly in the separate Blender/Unity labs; don't conflate a preview with signed in-game delivery.
++
++## West Commonlands missing-zone repair
++
++October 12 Karl screenshot confirms "Unable to load World" for missing commons
++in C:/Nightcap. The operator's E:/Nightcap repair does not fix that other client.
++Manual package: E:/EQ_Local_Dev/artifacts/karl-rescue-20261012/Nightcap-West-Commonlands-Repair.zip,
++containing commons.s3d and commons_obj.s3d to extract beside eqgame.exe while EQ
++is closed. The protected source was read only; original validated hashes, all
++named PFS entries and filename tables, expected WLD headers and ZIP bytes passed.
++The model-transform full WLD fragment parser rejects the terrain; do not claim
++full fragment validation. Installation and login/round-trip zoning QA remain open.
++No signed launcher publication occurred. Evidence: docs/ops/karl-rescue-20261012.md
++and artifacts/karl-rescue-20261012/commons-package-validation.json in E:/EQ_Local_Dev.
+--- a/references/balance.md
++++ b/references/balance.md
+@@ -5,0 +6,12 @@
++
++## Cooldown audit acceptance boundary
++
++October17 candidate2279169 fixes enormous/renewed duration errors across skills,
++AA completion and item/spell reuse; it does not intentionally shorten positive
++reuse or erase effects that add time. Native18 duration/16 combat tests and
++independent review pass, not full zone/gameplay QA. Shared AA/spell/disc/item
++identities remain an open design change: separate unrelated abilities while
++preserving reviewed rank/family links, then evaluate combined-class throughput.
++Catalog overlaps are not proof of current player ownership or observed incidents.
++Evidence and source/build pairing: docs/releases/cooldown-audit-20261017/ in the
++checkout listed in multiclass.md. Keep the six-Monk attack balance check below.
+--- a/references/wiki.md
++++ b/references/wiki.md
+@@ -23 +23 @@
+-## October17 independent Monk cooldown candidate
++## October17 cooldown candidates
+@@ -25,5 +25,7 @@
+-All21 maintained articles and432 generated reward routes were assessed. Combat,
+-multiclass/progression, Features, home, In development and Recent changes contain
+-local explicitly unreleased notices for the six independent basic Monk timers.
+-Existing no-death-EXP/reforge notes are preserved. Commands, item/zone stats,
+-recipes and reward values have no impact. No wiki publication occurred.
++All21 maintained articles and432 generated reward routes were reassessed for the
++Monk and broader duration candidates. Seven articles (Combat, progression,
++equipment, Features, home, In development and Recent changes) carry explicitly
++unreleased combined guidance. Separate six-Monk timers are prepared; excessive/
++restarted skill, spell, AA and item durations are corrected in source. Shared AA,
++spell/disc and item identity defects remain under investigation. No deployment,
++existing player timer repair or wiki publication occurred.
+@@ -31,7 +33,9 @@
+-`docs/releases/monk-independent-reuse-20261017/` in the October17 Monk checkout
+-listed in multiclass.md retains the exact patch, preimage/install receipt,
+-whole-wiki assessment and source-drift report. Fourteen Python and13 Node checks
+-pass. Broad historical drift remains REVIEW REQUIRED and the global audit ref
+-was not advanced. Replace all six candidate notices together only after the
+-authorized paired server/client activation, then verify public bytes. Gameplay
+-and combined-AA balance acceptance remain separate from publication checks.
++The cooldown-audit checkout listed in multiclass.md retains exact preimages,
++patch/install receipt and whole-wiki assessment in docs/releases/cooldown-audit-20261017/. Earlier Monk evidence stays in its own release folder. Existing no-
++death-EXP, reforge, item-stack and idle-zone notes were preserved. Commands and
++generated item/zone stats, recipes/rewards have no change. Thirty Python checks
++run with21passing/nine POSIX skips;13 Node checks pass. The broad historical
++source drift remains REVIEW REQUIRED; the global audit ref was not advanced.
++Replace candidate notices only after the respective authorized release and verify
++public bytes. Actual cooldown/gameplay and combined-AA balance acceptance are
++separate from fixture compilation and documentation checks.
+--- a/references/sources.json
++++ b/references/sources.json
+@@ -4 +4 @@
+-  "basis": "Reviewed sources and dated runbooks; AA class-rank implementation, all-level-1 invariants, Triple Backstab native repair and OVH/signature evidence refreshed October13. Owner gameplay/balance acceptance remains pending. Other topics retain their separately recorded audit scope. Passive AA refreshed October17 to verified10% OVH override, retaining4,000 XP/point and pending owner balance QA; exact formula/catalog comparison and dated Palwar/legal-pool analysis recorded. Divine summons refreshed October 13: existing Ascended selection preserved, 44 definitions zero resale, full-cache and live deployment evidence verified; owner balance QA pending. Tradeskill stacks/Craft All refreshed October 13: PR #200 on main, paired OVH/game 2026101304 publication verified with all 12 zones/106 hosted assets; native owner gameplay QA pending. Equipment eligibility refreshed October16: PR202 merged, signed game2026101501 verified across106 hosted assets; owner confirms javelins work; broader gameplay acceptance pending. AA temporary-buff policy refreshed October16: source248bf5c promoted to main and OVH; all12 running zone hashes, preserved47 player/11 custom tables, signed client2026101501/106 assets,30 behavior and33 rollout checks verified. Owner gameplay acceptance pending. Equipment race policy deployed October16 under explicit approval: PR204, loader-only restart, 309410-definition cache verification with all other bytes and 47 player/11 custom tables preserved, current AA zone/client retained, zero restarts/errors. Owner gameplay QA pending. Wiki Features refreshed October16: current guides and 432 generated reward pages reconciled; per-change whole-wiki review required, source-drift checker verified, Raid/Grind guide published in release20261016-dungeons-v1/465 files with private/service preservation and browser search/responsive checks; no gameplay acceptance inferred. Basic Monk reuse refreshed October17: reviewed candidate b81fd66 separates six skills on server and RoF2, with native regressions and client build verified; full zone build, paired deployment, gameplay and wiki publication remain pending. Full launcher Go suite also passes using cached Go1.27.2 with local fixture permissions.",
++  "basis": "Reviewed sources and dated runbooks; AA class-rank implementation, all-level-1 invariants, Triple Backstab native repair and OVH/signature evidence refreshed October13. Owner gameplay/balance acceptance remains pending. Other topics retain their separately recorded audit scope. Passive AA refreshed October17 to verified10% OVH override, retaining4,000 XP/point and pending owner balance QA; exact formula/catalog comparison and dated Palwar/legal-pool analysis recorded. Divine summons refreshed October 13: existing Ascended selection preserved, 44 definitions zero resale, full-cache and live deployment evidence verified; owner balance QA pending. Tradeskill stacks/Craft All refreshed October 13: PR #200 on main, paired OVH/game 2026101304 publication verified with all 12 zones/106 hosted assets; native owner gameplay QA pending. Equipment eligibility refreshed October16: PR202 merged, signed game2026101501 verified across106 hosted assets; owner confirms javelins work; broader gameplay acceptance pending. AA temporary-buff policy refreshed October16: source248bf5c promoted to main and OVH; all12 running zone hashes, preserved47 player/11 custom tables, signed client2026101501/106 assets,30 behavior and33 rollout checks verified. Owner gameplay acceptance pending. Equipment race policy deployed October16 under explicit approval: PR204, loader-only restart, 309410-definition cache verification with all other bytes and 47 player/11 custom tables preserved, current AA zone/client retained, zero restarts/errors. Owner gameplay QA pending. Wiki Features refreshed October16: current guides and 432 generated reward pages reconciled; per-change whole-wiki review required, source-drift checker verified, Raid/Grind guide published in release20261016-dungeons-v1/465 files with private/service preservation and browser search/responsive checks; no gameplay acceptance inferred. Basic Monk reuse refreshed October17: reviewed candidate b81fd66 separates six skills on server and RoF2, with native regressions and client build verified; full zone build, paired deployment, gameplay and wiki publication remain pending. Full launcher Go suite also passes using cached Go1.27.2 with local fixture permissions. Cooldown integrity refreshed October17: candidate2279169/PR219 fixes duration arithmetic and zero-start lifecycle,18 duration/16 combat tests plus adjacent checks and review pass; shared identity collisions and full zone build/live QA remain open. Seven local wiki notices are unpublished.",
+@@ -47 +47,3 @@
+-    "item_stack_100_candidate_20261017": "a59974d + reviewed candidate in E:/EQ_Local_Dev/_worktrees/item-stacks-100; not activated"
++    "item_stack_100_candidate_20261017": "a59974d + reviewed candidate in E:/EQ_Local_Dev/_worktrees/item-stacks-100; not activated",
++    "cooldown_integrity_candidate_20261017": "22791694f011476c30346b46962148a3b4b04f17",
++    "cooldown_audit_evidence_20261017": "08e59635c00b90f08f91328c0d8b58894be74c0d"
+@@ -351 +353 @@
+-        "root": "C:/Users/verre/Documents/Codex/2026-10-12/g-2/work/early-spell-scribing",
++        "root": "C:/Users/verre/Documents/Codex/2026-10-17/see/work/cooldown-audit",
+@@ -353,3 +355,3 @@
+-        "role": "unchanged canonical gem-cast authorization",
+-        "revision": "45d24a6fa8a0c37a179810ae54f1ed6fbb6b1a02",
+-        "sha256": "893ce3f18fe99b58ce644fdb2d2958266d4db6b8c6591d1c824ea3bb27014180"
++        "role": "reviewed Mend signed clamp and four skill zero starts; canonical gem authorization and dungeon connection preserved; candidate only",
++        "revision": "08e59635c00b90f08f91328c0d8b58894be74c0d",
++        "sha256": "8464cdaaa92102c4dd17bb6e4f19ae97cf03435c81e20912d8ea7081a0f873c8"
+@@ -785 +787 @@
+-        "root": "C:/Users/verre/Documents/Codex/2026-10-17/see/work/monk-independent-reuse",
++        "root": "C:/Users/verre/Documents/Codex/2026-10-17/see/work/cooldown-audit",
+@@ -787,3 +789,3 @@
+-        "role": "reviewed per-skill OPCombatAbility/DoClassAttacks timers; preserved Triple Backstab; candidate not deployed",
+-        "revision": "b81fd66011155da7beec6c284a3e9755e46f3fd0",
+-        "sha256": "c841145475958a29c161109580a1eb82175f237044c058d83b3b043c6f701a6e"
++        "role": "reviewed Bash/Frenzy signed clamps before damage/timer; preserved independent Monk mapping and Triple Backstab; candidate only",
++        "revision": "08e59635c00b90f08f91328c0d8b58894be74c0d",
++        "sha256": "1c6020c58f481f1f8f46c07d92ea58a5b36303ed1cf0fe22a15e2486b0e63f9c"
+@@ -820 +822 @@
+-        "root": "C:/Users/verre/Documents/Codex/2026-10-15/e/work/aa-temporary-buffs",
++        "root": "C:/Users/verre/Documents/Codex/2026-10-17/see/work/cooldown-audit",
+@@ -822,3 +824,3 @@
+-        "role": "reviewed and deployed native AA/proc/recourse timers and saved-sentinel normalization",
+-        "revision": "1cfdea8262ed033a29d6ce8c8577f1f73420a5fa",
+-        "sha256": "b5181a274dbe390f1012bc5d8a296e151118fe5370f4dea32f55f4eca9131456"
++        "role": "reviewed signed item/linked duration and zero custom/linked completion; preserved deployed AA duration and proc guards; candidate only",
++        "revision": "08e59635c00b90f08f91328c0d8b58894be74c0d",
++        "sha256": "d8c32025fc537a9743a50820a12f3de53a55cd25c7ab8f6e5f4f10bd7a4c7f69"
+@@ -974 +976 @@
+-        "root": "C:/Users/verre/Documents/Codex/2026-10-17/see/work/monk-independent-reuse",
++        "root": "C:/Users/verre/Documents/Codex/2026-10-17/see/work/cooldown-audit",
+@@ -976,3 +978,3 @@
+-        "role": "actual server method RED/GREEN regression, 12 tests and180 ordered cases",
+-        "revision": "b81fd66011155da7beec6c284a3e9755e46f3fd0",
+-        "sha256": "1c0eb92d25614ca661456cb210b1f9023f7caed1741f7187a9be5d8e0b9907b5"
++        "role": "actual handlers16 passing tests; native uint32 timer boundary,36 zero/excess and36 positive controls plus existing Monk coverage",
++        "revision": "08e59635c00b90f08f91328c0d8b58894be74c0d",
++        "sha256": "c0b48c1103454e721c293f675201c9b008e1923b6dae84876fbea42625d73f5a"
+@@ -1062,0 +1065,42 @@
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-17/see/work/cooldown-audit",
++        "path": "tools/tests/test_cooldown_duration.py",
++        "role": "18 tests/28 native scenarios; real persistent lifecycle/full discipline; zero reuse, negative focus and proc/trigger controls",
++        "revision": "08e59635c00b90f08f91328c0d8b58894be74c0d",
++        "sha256": "2e7c451e61ff5b291250e70ec736ad51b46feed7273f4e200268e45be992b4c8"
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-17/see/work/cooldown-audit",
++        "path": "tools/tests/fixtures/cooldown_persistent_timer.cpp",
++        "role": "pinned actual persistent lifecycle; Start(0) retains duration; extracted retained-source methods, controlled clock/database only",
++        "revision": "08e59635c00b90f08f91328c0d8b58894be74c0d",
++        "sha256": "a43b4abb048e2c9fe0e4c95fea2defdfec565ee5189e0c7610379cbed0e9df24"
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-17/see/work/cooldown-audit",
++        "path": "docs/releases/cooldown-audit-20261017/README.md",
++        "role": "reviewed audit, remaining identity defects, build/pairing/no deployment and exact gameplay QA",
++        "revision": "08e59635c00b90f08f91328c0d8b58894be74c0d",
++        "sha256": "31d5450084755c2334ce4c522dd29fbe0842cd77bc56334b9e573bf1d189521f"
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-17/see/work/cooldown-audit",
++        "path": "docs/releases/cooldown-audit-20261017/verification.json",
++        "role": "passing native/adjacent regressions and review; six collision failures separately recorded; fullbuild/liveQA pending",
++        "revision": "08e59635c00b90f08f91328c0d8b58894be74c0d",
++        "sha256": "f274aec28f76f8e14c274b9fcb5381bf6dae018ec05430689c977abf2f1008f9"
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-17/see/work/cooldown-audit",
++        "path": "docs/releases/cooldown-audit-20261017/catalog-summary.json",
++        "role": "dated SELECT-only content counts, canonical eligibility and anonymous saved-timer scope; not live incident attribution",
++        "revision": "08e59635c00b90f08f91328c0d8b58894be74c0d",
++        "sha256": "30f42840c098f7ed72c50bf3fa99e14940d50760266713e1a30da7b7899d028f"
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-17/see/work/cooldown-audit",
++        "path": "docs/releases/cooldown-audit-20261017/reproduce_collisions.py",
++        "role": "actual AA/item key diagnostic; six RED identity defects and five controls, intentionally unresolved",
++        "revision": "08e59635c00b90f08f91328c0d8b58894be74c0d",
++        "sha256": "67be2cdcf25ed2a9b729775f358df3f527fa00ab92398a1d29604237622174ab"
+@@ -1604,0 +1649,28 @@
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-17/see/work/cooldown-audit",
++        "path": "server-mods/code/zone/spells.cpp",
++        "role": "reviewed signed item/linked duration and zero custom/linked completion; preserved deployed AA duration and proc guards; candidate only",
++        "revision": "08e59635c00b90f08f91328c0d8b58894be74c0d",
++        "sha256": "d8c32025fc537a9743a50820a12f3de53a55cd25c7ab8f6e5f4f10bd7a4c7f69"
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-17/see/work/cooldown-audit",
++        "path": "tools/tests/test_cooldown_duration.py",
++        "role": "18 tests/28 native scenarios; real persistent lifecycle/full discipline; zero reuse, negative focus and proc/trigger controls",
++        "revision": "08e59635c00b90f08f91328c0d8b58894be74c0d",
++        "sha256": "2e7c451e61ff5b291250e70ec736ad51b46feed7273f4e200268e45be992b4c8"
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-17/see/work/cooldown-audit",
++        "path": "docs/releases/cooldown-audit-20261017/README.md",
++        "role": "reviewed audit, remaining identity defects, build/pairing/no deployment and exact gameplay QA",
++        "revision": "08e59635c00b90f08f91328c0d8b58894be74c0d",
++        "sha256": "31d5450084755c2334ce4c522dd29fbe0842cd77bc56334b9e573bf1d189521f"
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-17/see/work/cooldown-audit",
++        "path": "docs/releases/cooldown-audit-20261017/catalog-summary.json",
++        "role": "dated SELECT-only content counts, canonical eligibility and anonymous saved-timer scope; not live incident attribution",
++        "revision": "08e59635c00b90f08f91328c0d8b58894be74c0d",
++        "sha256": "30f42840c098f7ed72c50bf3fa99e14940d50760266713e1a30da7b7899d028f"
+@@ -2769 +2841 @@
+-        "root": "C:/Users/verre/Documents/Codex/2026-10-15/e/work/aa-temporary-buffs",
++        "root": "C:/Users/verre/Documents/Codex/2026-10-17/see/work/cooldown-audit",
+@@ -2771,3 +2843,3 @@
+-        "role": "reviewed and deployed native AA/proc/recourse timers and saved-sentinel normalization",
+-        "revision": "1cfdea8262ed033a29d6ce8c8577f1f73420a5fa",
+-        "sha256": "b5181a274dbe390f1012bc5d8a296e151118fe5370f4dea32f55f4eca9131456"
++        "role": "reviewed signed item/linked duration and zero custom/linked completion; preserved deployed AA duration and proc guards; candidate only",
++        "revision": "08e59635c00b90f08f91328c0d8b58894be74c0d",
++        "sha256": "d8c32025fc537a9743a50820a12f3de53a55cd25c7ab8f6e5f4f10bd7a4c7f69"
+@@ -2878,0 +2951,7 @@
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-17/see/work/cooldown-audit",
++        "path": "docs/releases/cooldown-audit-20261017/README.md",
++        "role": "reviewed audit, remaining identity defects, build/pairing/no deployment and exact gameplay QA",
++        "revision": "08e59635c00b90f08f91328c0d8b58894be74c0d",
++        "sha256": "31d5450084755c2334ce4c522dd29fbe0842cd77bc56334b9e573bf1d189521f"
+@@ -3267 +3346 @@
+-        "root": "C:/Users/verre/Documents/Codex/2026-10-17/see/work/monk-independent-reuse",
++        "root": "C:/Users/verre/Documents/Codex/2026-10-17/see/work/cooldown-audit",
+@@ -3269,3 +3348,3 @@
+-        "role": "reviewed per-skill OPCombatAbility/DoClassAttacks timers; preserved Triple Backstab; candidate not deployed",
+-        "revision": "b81fd66011155da7beec6c284a3e9755e46f3fd0",
+-        "sha256": "c841145475958a29c161109580a1eb82175f237044c058d83b3b043c6f701a6e"
++        "role": "reviewed Bash/Frenzy signed clamps before damage/timer; preserved independent Monk mapping and Triple Backstab; candidate only",
++        "revision": "08e59635c00b90f08f91328c0d8b58894be74c0d",
++        "sha256": "1c6020c58f481f1f8f46c07d92ea58a5b36303ed1cf0fe22a15e2486b0e63f9c"
+@@ -3560,0 +3640,7 @@
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-17/see/work/cooldown-audit",
++        "path": "docs/releases/cooldown-audit-20261017/README.md",
++        "role": "reviewed audit, remaining identity defects, build/pairing/no deployment and exact gameplay QA",
++        "revision": "08e59635c00b90f08f91328c0d8b58894be74c0d",
++        "sha256": "31d5450084755c2334ce4c522dd29fbe0842cd77bc56334b9e573bf1d189521f"
+@@ -3707,3 +3793,3 @@
+-        "role": "reviewed local Monk notices; preserved no-death-EXP/reforge notes; unpublished",
+-        "revision": "f106a5d + reviewed October17 candidate notices",
+-        "sha256": "9ae0719cd218707755f6d4db06b8f12f7395d8993d2edd313b4a176f8b944502"
++        "role": "reviewed local Monk notices; preserved no-death-EXP/reforge notes; unpublished; reviewed October17 cooldown notices, preserved concurrent source preimages; unpublished",
++        "revision": "f106a5d2e5642bfc6f39ff7aa30517144b473845 + reviewed local notices",
++        "sha256": "505fefafa04751b2eeca562664bbbe33c3d3fb3a8c5c527f68905407b907659f"
+@@ -3714,3 +3800,3 @@
+-        "role": "reviewed pending normal-item recipe guidance; unpublished",
+-        "revision": "f106a5d2e5642bfc6f39ff7aa30517144b473845",
+-        "sha256": "324ecc04f423090c4c355db188cd5f7ff6da4305bbbb16bf1e50418c75c77579"
++        "role": "reviewed pending normal-item recipe guidance; unpublished; reviewed October17 cooldown notices, preserved concurrent source preimages; unpublished",
++        "revision": "f106a5d2e5642bfc6f39ff7aa30517144b473845 + reviewed local notices",
++        "sha256": "19451708126d1a8468b24e88479b14adee4466842c344599c86b10018534ad47"
+@@ -3770,3 +3856,3 @@
+-        "role": "reviewed local Monk notices; preserved no-death-EXP/reforge notes; unpublished",
+-        "revision": "reviewed working files 2026-10-17; unpublished stack candidate",
+-        "sha256": "73b29bf78f92cb5fc9c71a60e6ad2116c810d273f7aecc730d713be6be59f526"
++        "role": "reviewed local Monk notices; preserved no-death-EXP/reforge notes; unpublished; reviewed October17 cooldown notices, preserved concurrent source preimages; unpublished",
++        "revision": "f106a5d2e5642bfc6f39ff7aa30517144b473845 + reviewed local notices",
++        "sha256": "1cf67137587d90e2ca3118513629499282a1a427c9d325fe28a9a7ff34b4a949"
+@@ -3875,2 +3961,2 @@
+-        "role": "Reviewed10% passive-AA local guide maintenance; public publication pending; other candidates retained",
+-        "revision": "working tree October17 passive-aa-ten",
++        "role": "Reviewed10% passive-AA local guide maintenance; public publication pending; other candidates retained; reviewed October17 cooldown notices, preserved concurrent source preimages; unpublished",
++        "revision": "f106a5d2e5642bfc6f39ff7aa30517144b473845 + reviewed local notices",
+@@ -3882,2 +3968,2 @@
+-        "role": "Reviewed10% passive-AA local guide maintenance; public publication pending; other candidates retained",
+-        "revision": "working tree October17 passive-aa-ten",
++        "role": "Reviewed10% passive-AA local guide maintenance; public publication pending; other candidates retained; reviewed October17 cooldown notices, preserved concurrent source preimages; unpublished",
++        "revision": "f106a5d2e5642bfc6f39ff7aa30517144b473845 + reviewed local notices",
+@@ -3889,2 +3975,2 @@
+-        "role": "Reviewed10% passive-AA local guide maintenance; public publication pending; other candidates retained",
+-        "revision": "working tree October17 passive-aa-ten",
++        "role": "Reviewed10% passive-AA local guide maintenance; public publication pending; other candidates retained; reviewed October17 cooldown notices, preserved concurrent source preimages; unpublished",
++        "revision": "f106a5d2e5642bfc6f39ff7aa30517144b473845 + reviewed local notices",
+@@ -3896,2 +3982,2 @@
+-        "role": "Reviewed10% passive-AA local guide maintenance; public publication pending; other candidates retained",
+-        "revision": "working tree October17 passive-aa-ten",
++        "role": "Reviewed10% passive-AA local guide maintenance; public publication pending; other candidates retained; reviewed October17 cooldown notices, preserved concurrent source preimages; unpublished",
++        "revision": "f106a5d2e5642bfc6f39ff7aa30517144b473845 + reviewed local notices",
+@@ -3912,0 +3999,7 @@
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-17/see/work/cooldown-audit",
++        "path": "docs/releases/cooldown-audit-20261017/wiki-review.json",
++        "role": "21 maintained/432 generated routes assessed; seven local unreleased notices and no-impact decisions",
++        "revision": "08e59635c00b90f08f91328c0d8b58894be74c0d",
++        "sha256": "cd149bb99f11a9c37ceb04dc52730faec9394174619354a31d33a6b933fefa8d"

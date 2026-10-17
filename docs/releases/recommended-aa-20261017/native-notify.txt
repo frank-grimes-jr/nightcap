@@ -1,0 +1,6 @@
+0060aa80 6aff                     push -1
+0060aa82 64a100000000             mov eax, dword ptr fs:[0]
+0060aa88 682f139800               push 0x98132f
+0060aa8d 50                       push eax
+0060aa8e 8b442414                 mov eax, dword ptr [esp + 0x14]
+0060aa92 64892500000000           mov dword ptr fs:[0], esp

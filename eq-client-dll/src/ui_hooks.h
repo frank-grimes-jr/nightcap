@@ -10,6 +10,7 @@
 
 namespace nightcap {
 namespace client_ui {
+inline void ResetMonkReuse();
 // All offsets and instruction boundaries belong to the pinned May 2013 RoF2
 // executable. They are also guarded by the generated signed patch catalog.
 struct EqString { void* rep; };
@@ -51,6 +52,10 @@ static SetGameState original_state = nullptr;
 using InterpretCommand = void (__thiscall *)(void*, void*, const char*);
 static InterpretCommand original_command = nullptr;
 static UpdateAA original_aa = nullptr;
+using AAFilter = bool (__thiscall *)(void*, const void*);
+static AAFilter original_aa_filter = nullptr;
+static InventoryNotify original_aa_notify = nullptr;
+static bool aa_filter_active = false;
 static ULONGLONG next_refresh = 0;
 using SpellLevel = uint8_t (__thiscall *)(void*, int);
 static SpellLevel original_spell_level = nullptr;
@@ -245,7 +250,12 @@ inline void __fastcall CommandHook(void* self, void*, void* player, const char* 
 }
 inline void RequestRefresh() {
     if (GetTickCount64() < next_refresh) return;
-    if (ExecuteUIRequest("#nightcapui refresh")) next_refresh = GetTickCount64() + 5000;
+    if (ExecuteUIRequest("#nightcapui refresh")) {
+        // Older servers still supply class metadata; only paired servers opt in
+        // to the new recommendation messages. Both requests are silent/bounded.
+        ExecuteUIRequest("#nightcapui recommended");
+        next_refresh = GetTickCount64() + 5000;
+    }
 }
 inline bool CurrentPetIdentity() {
     uint32_t spawn = 0;
@@ -412,13 +422,55 @@ inline void __fastcall ChatHook(void* self, void*, const char* message, int colo
     original_chat(self, message, color, log, convert);
 }
 inline void __fastcall StateHook(void* self, void*, int next) {
+    if (next != 5) ResetMonkReuse();
     if (next != 5) { craft_repeat.Reset(); craft_window = nullptr; craft_container = nullptr; }
     if (next != 5) AdvancedLootUI::Reset();
     if (next != 5) { state.Clear(); spell_menu_dirty = true; pets.Clear(); pet_management.Clear(); next_refresh = 0; next_pet_refresh = 0; next_management_refresh = 0; management_received = 0; }
     original_state(self, next);
     if (next == 5) RequestRefresh();
 }
-inline bool ReadList(void* window, unsigned index, void*& list, int& rows, int& class_column) {
+inline void* AAChild(void* window, const char* name) {
+    using Child = void* (__thiscall *)(void*, const EqString*);
+    auto assign = reinterpret_cast<AssignString>(base+kUIStringAssignRva);
+    EqString id{}; assign(&id,name);
+    void* child = reinterpret_cast<Child>(base+kUIChildRva)(window,&id);
+    assign(&id,""); return child;
+}
+inline bool AARecommendedChecked(void* window) {
+    __try {
+        auto button=AAChild(window,"NC_AARecommended");
+        // Native TrainFilter reads CButtonWnd::Checked at +0x1e4.
+        return button && *reinterpret_cast<BYTE*>(static_cast<BYTE*>(button)+0x1e4)!=0;
+    } __except(EXCEPTION_EXECUTE_HANDLER) { return false; }
+}
+inline void ResetAARecommended(void* window) {
+    __try {
+        auto button=AAChild(window,"NC_AARecommended");
+        if (button) *reinterpret_cast<BYTE*>(static_cast<BYTE*>(button)+0x1e4)=0;
+    } __except(EXCEPTION_EXECUTE_HANDLER) {}
+}
+inline bool __fastcall AAFilterHook(void* self, void*, const void* rank) {
+    if (!original_aa_filter(self,rank)) return false;
+    if (!aa_filter_active) return true;
+    __try { return rank && state.Recommended(*static_cast<const uint32_t*>(rank)); }
+    __except(EXCEPTION_EXECUTE_HANDLER) { return true; }
+}
+inline void CallOriginalAA(void* self) {
+    const bool previous=aa_filter_active;
+    aa_filter_active=CurrentIdentity() && state.RecommendationsReady() && AARecommendedChecked(self);
+    __try { original_aa(self); }
+    __finally { aa_filter_active=previous; }
+}
+inline void __fastcall AAHook(void* self, void*);
+inline int __fastcall AANotifyHook(void* self, void*, void* sender, uint32_t message, void* data) {
+    if (self && sender && IsArmorControl(self,sender,"NC_AARecommended")) {
+        if (message==1) { RequestRefresh(); AAHook(self,nullptr); }
+        return 1;
+    }
+    if (self && sender && message==1 && IsArmorControl(self,sender,"ResetFilter")) ResetAARecommended(self);
+    return original_aa_notify(self,sender,message,data);
+}
+inline bool ReadList(void* window, unsigned index, void*& list, int& rows, int& class_column, int& recommendation_column) {
     __try {
         list = reinterpret_cast<void**>(static_cast<BYTE*>(window) + 0x2A0)[index];
         if (!list) return false;
@@ -427,21 +479,26 @@ inline bool ReadList(void* window, unsigned index, void*& list, int& rows, int& 
         const int columns = *reinterpret_cast<int*>(static_cast<BYTE*>(list) + 0x1E8);
         const BYTE* entries = *reinterpret_cast<BYTE**>(static_cast<BYTE*>(list) + 0x1EC);
         if (columns < 1 || columns > 32 || !entries) return false;
-        class_column = -1;
+        class_column = recommendation_column = -1;
         for (int i = 0; i < columns; ++i) {
             const BYTE* rep = *reinterpret_cast<BYTE* const*>(entries + i*0x3C + 0x18);
-            if (!rep || *reinterpret_cast<const uint32_t*>(rep+0x0C) != 0 ||
-                *reinterpret_cast<const uint32_t*>(rep+0x08) != 5 ||
-                *reinterpret_cast<const uint32_t*>(rep+0x04) < 6 ||
-                memcmp(rep+0x14,"Class",6) != 0) continue;
-            if (class_column != -1) return false;
-            class_column = i;
+            if (!rep || *reinterpret_cast<const uint32_t*>(rep+0x0C) != 0) continue;
+            const auto length=*reinterpret_cast<const uint32_t*>(rep+0x08);
+            const auto capacity=*reinterpret_cast<const uint32_t*>(rep+0x04);
+            if (length==5 && capacity>=6 && memcmp(rep+0x14,"Class",6)==0) {
+                if (class_column!=-1) return false;
+                class_column=i;
+            }
+            if (length==11 && capacity>=12 && memcmp(rep+0x14,"Recommended",12)==0) {
+                if (recommendation_column!=-1) return false;
+                recommendation_column=i;
+            }
         }
         return class_column != -1;
     } __except(EXCEPTION_EXECUTE_HANDLER) { return false; }
 }
 inline void __fastcall AAHook(void* self, void*) {
-    original_aa(self);
+    CallOriginalAA(self);
     const bool current = CurrentIdentity();
     if (!current) RequestRefresh();
     auto assign = reinterpret_cast<AssignString>(base + kUIStringAssignRva);
@@ -449,16 +506,31 @@ inline void __fastcall AAHook(void* self, void*) {
     auto set_text = reinterpret_cast<SetCellText>(base + kUICellTextRva);
     for (unsigned index = 0; index < 4; ++index) {
         void* list = nullptr;
-        int rows = 0, class_column = -1;
-        if (!ReadList(self, index, list, rows, class_column)) continue;
+        int rows = 0, class_column = -1, recommendation_column = -1;
+        if (!ReadList(self, index, list, rows, class_column, recommendation_column)) continue;
         for (int row = 0; row < rows; ++row) {
             const std::string text = current ? state.AAClasses(row_data(list, row)) : "Unknown";
             EqString value{};
             assign(&value, text.c_str());
             set_text(list, row, class_column, &value);
+            if (recommendation_column!=-1) {
+                const auto why=current ? state.Recommendation(row_data(list,row)) : "";
+                assign(&value,why.c_str());
+                set_text(list,row,recommendation_column,&value);
+            }
             // Release through the client's allocator/refcount, never our CRT.
             assign(&value, "");
         }
+    }
+    const char* note = !current || !state.RecommendationsReady() ? "Recommendations unavailable - showing all abilities." :
+        !state.RecommendationCount() ? "Starter recommendations complete. Clear Recommended to explore other abilities." :
+        "Later needs a supporting skill or pet. Can Purchase also requires enough points. Clear filters to browse all.";
+    auto label=AAChild(self,"NC_AARecommendationStatus");
+    if (label) {
+        using Text = void (__thiscall *)(void*, const EqString*);
+        EqString value{}; assign(&value,note);
+        reinterpret_cast<Text>((*static_cast<void***>(label))[0x124/4])(label,&value);
+        assign(&value,"");
     }
 }
 
@@ -565,6 +637,11 @@ inline bool Install(uintptr_t image_base) {
         if (memcmp(reinterpret_cast<void*>(base+kUIStringAssignRva), kExpectedUIStringAssign, sizeof(kExpectedUIStringAssign))) return false;
         install_failure = "UIRowData_signature";
         if (memcmp(reinterpret_cast<void*>(base+kUIRowDataRva), kExpectedUIRowData, sizeof(kExpectedUIRowData))) return false;
+        install_failure = "UIAAFilter_signature";
+        if (memcmp(reinterpret_cast<void*>(base+kUIAAFilterRva),kExpectedUIAAFilter,sizeof(kExpectedUIAAFilter))) return false;
+        install_failure = "UIAAButton_signature";
+        if (memcmp(reinterpret_cast<void*>(base+kUIAAButtonRva),kExpectedUIAAButton,sizeof(kExpectedUIAAButton))) return false;
+        if (memcmp(reinterpret_cast<void*>(base+kUIChildRva),kExpectedUIChild,sizeof(kExpectedUIChild))) return false;
         install_failure = "UICellText_signature";
         if (memcmp(reinterpret_cast<void*>(base+kUICellTextRva), kExpectedUICellText, sizeof(kExpectedUICellText))) return false;
     } __except(EXCEPTION_EXECUTE_HANDLER) { return false; }
@@ -580,7 +657,16 @@ inline bool Install(uintptr_t image_base) {
     if (!original_state) return false;
     install_failure = "aa_entry";
     original_aa = reinterpret_cast<UpdateAA>(SEHEntryHook(base+kUIAARva, kExpectedUIAA, reinterpret_cast<void*>(&AAHook), base));
-    return original_aa != nullptr;
+    if (!original_aa) return false;
+    install_failure = "aa_notify";
+    original_aa_notify=reinterpret_cast<InventoryNotify>(EntryHook(base+kUIAANotifyRva,kExpectedUIAANotify,reinterpret_cast<void*>(&AANotifyHook)));
+    if (!original_aa_notify) return false;
+    install_failure = "aa_filter";
+    original_aa_filter=reinterpret_cast<AAFilter>(base+kUIAAFilterRva);
+    BYTE call[5]={0xE8};
+    const auto relative=static_cast<int32_t>(reinterpret_cast<uintptr_t>(&AAFilterHook)-(base+kUIAAFilterCallRva+5));
+    memcpy(call+1,&relative,4);
+    return WriteVerifiedPatch(reinterpret_cast<BYTE*>(base+kUIAAFilterCallRva),kExpectedUIAAFilterCall,call,sizeof(call));
 }
 inline bool MatchLootNative() {
     __try {
@@ -636,3 +722,4 @@ inline bool InstallAdvancedLoot(void (*trace)(const char*) = nullptr) {
 }
 
 #include "trainer_hooks.h"
+#include "monk_reuse.h"

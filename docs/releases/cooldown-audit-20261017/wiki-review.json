@@ -1,0 +1,186 @@
+{
+  "source": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\wiki",
+  "stage": "C:\\Users\\verre\\Documents\\Codex\\2026-10-17\\see\\work\\cooldown-wiki",
+  "reviewed_articles": [
+    {
+      "article": "about.json",
+      "title": "About this wiki",
+      "status": "Reference",
+      "sha256": "feeb115d4ffc2afa3f77366b1bdc78eb963c79d7e96b794dedc2acedf5bc499d",
+      "decision": "No impact: no command, item/reward value, recipe, encounter, access, travel, pet or launcher behavior changes"
+    },
+    {
+      "article": "advanced-loot.json",
+      "title": "Advanced loot",
+      "status": "Live testing",
+      "sha256": "d711ecbd533eeb66fbfbbde5d00fc29e61d38352349b92a59aa849c2f1ae4c60",
+      "decision": "No impact: no command, item/reward value, recipe, encounter, access, travel, pet or launcher behavior changes"
+    },
+    {
+      "article": "ascension.json",
+      "title": "Ascension quest",
+      "status": "Live testing",
+      "sha256": "63a95cfaac55cdafad7aed7a731406b01dfdabbb6053e4364371cd283f19d036",
+      "decision": "No impact: no command, item/reward value, recipe, encounter, access, travel, pet or launcher behavior changes"
+    },
+    {
+      "article": "combat.json",
+      "title": "Combat, buffs & recovery",
+      "status": "Live testing",
+      "sha256": "9ae0719cd218707755f6d4db06b8f12f7395d8993d2edd313b4a176f8b944502",
+      "decision": "Update unreleased cooldown guidance"
+    },
+    {
+      "article": "commands.json",
+      "title": "Command reference",
+      "status": "Live testing",
+      "sha256": "f9de3a2641011f1625cd543a85a8b2efa392a8de68e164b43161ea79d90afe48",
+      "decision": "No impact: no command, item/reward value, recipe, encounter, access, travel, pet or launcher behavior changes"
+    },
+    {
+      "article": "dungeon-modes.json",
+      "title": "Raid & Grind dungeons",
+      "status": "Live testing",
+      "sha256": "9b222dd65103af3349bb4e8a21777e987727393a767904da694fa4ecd3c94856",
+      "decision": "No impact: no command, item/reward value, recipe, encounter, access, travel, pet or launcher behavior changes"
+    },
+    {
+      "article": "equipment.json",
+      "title": "Equipment & trading",
+      "status": "Live testing",
+      "sha256": "324ecc04f423090c4c355db188cd5f7ff6da4305bbbb16bf1e50418c75c77579",
+      "decision": "Update unreleased cooldown guidance"
+    },
+    {
+      "article": "features.json",
+      "title": "Features",
+      "status": "Live testing",
+      "sha256": "88280b7ad5e36f2cbd769018c1fe35c86e38d34d49c57c268ae50f54cdc2c580",
+      "decision": "Update unreleased cooldown guidance"
+    },
+    {
+      "article": "getting-started.json",
+      "title": "Getting started",
+      "status": "Live testing",
+      "sha256": "0c32c53bc86a5ebde6be2c790364fcea0ae2d06f9f3adf0b1d36b2eb885d0272",
+      "decision": "No impact: no command, item/reward value, recipe, encounter, access, travel, pet or launcher behavior changes"
+    },
+    {
+      "article": "index.json",
+      "title": "Welcome to the Nightcap Wiki",
+      "status": "Reference",
+      "sha256": "f626732c493ab47d4e735d3b44353eca8ae1c9286f647ad52efde30f03f47bc3",
+      "decision": "Update unreleased cooldown guidance"
+    },
+    {
+      "article": "item-upgrades.json",
+      "title": "Item upgrades",
+      "status": "Live testing",
+      "sha256": "67029e7021b692f7c90f84ae0845e3ef7c400c898b6caf475f6fb6dc82229b11",
+      "decision": "No impact: no command, item/reward value, recipe, encounter, access, travel, pet or launcher behavior changes"
+    },
+    {
+      "article": "launcher.json",
+      "title": "Launcher & interface",
+      "status": "Live testing",
+      "sha256": "b0cd8a395d07eaaa2f9cd37c8b8f591d3e41df26468f5f1a4fc91c965d48aeb0",
+      "decision": "No impact: no command, item/reward value, recipe, encounter, access, travel, pet or launcher behavior changes"
+    },
+    {
+      "article": "multiclass.json",
+      "title": "Multiclass & progression",
+      "status": "Live testing",
+      "sha256": "11d0a75ecfd4473a57f9a48477a97872d557db312c8390eb4797456250d2eaf3",
+      "decision": "Update unreleased cooldown guidance"
+    },
+    {
+      "article": "pets.json",
+      "title": "Pets & pet armor",
+      "status": "Live testing",
+      "sha256": "2e0688b1864e8d7f31849c9a72464af42168945cc09d4d4fa9dd98b03e3417b1",
+      "decision": "No impact: no command, item/reward value, recipe, encounter, access, travel, pet or launcher behavior changes"
+    },
+    {
+      "article": "recent-changes.json",
+      "title": "Recent changes",
+      "status": "Reference",
+      "sha256": "8f8163e3c67132d7f8e8c812661fe223646e8489d163731666828cd2c7a0b82b",
+      "decision": "Update unreleased cooldown guidance"
+    },
+    {
+      "article": "tradeskills.json",
+      "title": "Tradeskills & Craft All",
+      "status": "Live testing",
+      "sha256": "786f4e991bc21f6636bf0baa970f2ec706462bb83f785e0257a479c0c43dc78e",
+      "decision": "No impact: no command, item/reward value, recipe, encounter, access, travel, pet or launcher behavior changes"
+    },
+    {
+      "article": "travel.json",
+      "title": "Travel & instances",
+      "status": "Live testing",
+      "sha256": "127e273b678234c57a047ab3784c68ba415833a01b84178dd8c48088e6b2a7d8",
+      "decision": "No impact: no command, item/reward value, recipe, encounter, access, travel, pet or launcher behavior changes"
+    },
+    {
+      "article": "tunnel.json",
+      "title": "East Commonlands tunnel",
+      "status": "Live testing",
+      "sha256": "314113092b3e3f4db638e4290bcf9d2b9f63c6d84fb30f92fd29891fd948f7b3",
+      "decision": "No impact: no command, item/reward value, recipe, encounter, access, travel, pet or launcher behavior changes"
+    },
+    {
+      "article": "unreleased.json",
+      "title": "In development",
+      "status": "Not released",
+      "sha256": "73b29bf78f92cb5fc9c71a60e6ad2116c810d273f7aecc730d713be6be59f526",
+      "decision": "Update unreleased cooldown guidance"
+    },
+    {
+      "article": "waypoints.json",
+      "title": "Waypoint Explorer",
+      "status": "Live testing",
+      "sha256": "1115d3460d79354883048fa4165c643be685f69920655cd52bca6147d467b9c8",
+      "decision": "No impact: no command, item/reward value, recipe, encounter, access, travel, pet or launcher behavior changes"
+    },
+    {
+      "article": "zone-hunt.json",
+      "title": "Zone hunt & forging",
+      "status": "Live testing",
+      "sha256": "4a621a1626badfa779921eb533529289bd72651a0487df0d88659f838b92d947",
+      "decision": "No impact: no command, item/reward value, recipe, encounter, access, travel, pet or launcher behavior changes"
+    }
+  ],
+  "changed": {
+    "articles/combat.json": {
+      "before": "9ae0719cd218707755f6d4db06b8f12f7395d8993d2edd313b4a176f8b944502",
+      "after": "505fefafa04751b2eeca562664bbbe33c3d3fb3a8c5c527f68905407b907659f"
+    },
+    "articles/equipment.json": {
+      "before": "324ecc04f423090c4c355db188cd5f7ff6da4305bbbb16bf1e50418c75c77579",
+      "after": "19451708126d1a8468b24e88479b14adee4466842c344599c86b10018534ad47"
+    },
+    "articles/features.json": {
+      "before": "88280b7ad5e36f2cbd769018c1fe35c86e38d34d49c57c268ae50f54cdc2c580",
+      "after": "d97b7126e1d8ca61ac5cbe4b1dac1d341eddd78c0634fceb5a1b00756f71bbee"
+    },
+    "articles/index.json": {
+      "before": "f626732c493ab47d4e735d3b44353eca8ae1c9286f647ad52efde30f03f47bc3",
+      "after": "9559215d6eef5739eabf092fdc4575da27674d330b6cdc915114d1a76f3d1ba1"
+    },
+    "articles/multiclass.json": {
+      "before": "11d0a75ecfd4473a57f9a48477a97872d557db312c8390eb4797456250d2eaf3",
+      "after": "0a2570e22214dd53f4283ba9aca92b30a5eb6103267ab65f86e7afedefa33537"
+    },
+    "articles/recent-changes.json": {
+      "before": "8f8163e3c67132d7f8e8c812661fe223646e8489d163731666828cd2c7a0b82b",
+      "after": "83ddb0ae48e627e9bc83e73940ea25c5f10d84eea3184ceb4cfa60420bc98599"
+    },
+    "articles/unreleased.json": {
+      "before": "73b29bf78f92cb5fc9c71a60e6ad2116c810d273f7aecc730d713be6be59f526",
+      "after": "1cf67137587d90e2ca3118513629499282a1a427c9d325fe28a9a7ff34b4a949"
+    }
+  },
+  "generated_catalog": "All 432 hunt item/zone routes assessed: no stats, recipes, rewards, travel or generated prose changes",
+  "preserved": "Existing Monk, no-death-EXP, reforge, stack-limit and idle-zone notes retained exactly outside this scoped change",
+  "publication": "pending; local explicitly unreleased notices; global source audit ref unchanged"
+}

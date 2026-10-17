@@ -18,6 +18,11 @@ STOP_CODE = 0x4E430001
 EXACT_CLIENT = os.environ.get("NIGHTCAP_TEST_EQGAME")
 
 class RuntimeTests(unittest.TestCase):
+    def test_native_monk_reuse(self):
+        self.assertIsNotNone(EXACT_CLIENT, "Pass --eqgame PATH for the read-only pinned client")
+        result = subprocess.run([ROOT / "build/tests/monk-reuse-native.exe", EXACT_CLIENT], capture_output=True, timeout=15)
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+
     def test_native_multiclass_equipment(self):
         self.assertIsNotNone(EXACT_CLIENT, "Pass --eqgame PATH for the read-only pinned client")
         result = subprocess.run([ROOT / "build/tests/equipment-native.exe", EXACT_CLIENT], capture_output=True, timeout=15)
@@ -94,6 +99,11 @@ class RuntimeTests(unittest.TestCase):
                     self.assertEqual(record["config_sha256"], hashlib.sha256(config).hexdigest())
                 self.assertFalse(list(directory.glob("*.tmp")))
                 self.assertFalse(list(Path(temp).glob("nightcap_*")))
+
+    def test_recommended_aa_policy_and_native_filter(self):
+        for name in ("aa-recommendations", "aa-recommendations-native"):
+            result = subprocess.run([ROOT / f"build/tests/{name}.exe"], capture_output=True, timeout=15)
+            self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
 
     def test_health_atomic_replacement(self):
         with tempfile.TemporaryDirectory(prefix="nightcap-health-") as temp:

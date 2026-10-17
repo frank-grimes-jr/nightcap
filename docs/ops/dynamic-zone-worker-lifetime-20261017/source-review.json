@@ -1,0 +1,45 @@
+{
+  "files": [
+    {
+      "source": "E:\\EQ_Local_Dev\\akk-stack\\code\\common\\rulesys.cpp",
+      "manifest_path": "common/rulesys.cpp",
+      "sha256": "7f6e38dd203be04e96ba94040dd566ceee01664a0b71dcdee86cad3577c63771",
+      "deployed_manifest_match": true
+    },
+    {
+      "source": "E:\\EQ_Local_Dev\\akk-stack\\code\\common\\server_reload_types.h",
+      "manifest_path": "common/server_reload_types.h",
+      "sha256": "ea71a61091b6ca7eb53042cf2d8267d1dbf930ac391fab2d0f7aba316ed1d3ed",
+      "deployed_manifest_match": true
+    },
+    {
+      "source": "E:\\EQ_Local_Dev\\akk-stack\\code\\common\\servertalk.h",
+      "manifest_path": "common/servertalk.h",
+      "sha256": "0df083d33b90f7c36a901a6722d56430895af81e6ebca89a7a638ebe63347c31",
+      "deployed_manifest_match": true
+    },
+    {
+      "source": "E:\\EQ_Local_Dev\\akk-stack\\code\\world\\zonelist.cpp",
+      "manifest_path": "world/zonelist.cpp",
+      "sha256": "fcf3c0788345138de28c5e3fe090503ac4b351228c80fc5df839d97c79608c18",
+      "deployed_manifest_match": true
+    },
+    {
+      "source": "E:\\EQ_Local_Dev\\akk-stack\\code\\zone\\worldserver.cpp",
+      "manifest_path": "zone/worldserver.cpp",
+      "sha256": "7b9841fa4d76c28524c883876ed84ca2a5ea2710c7753bc97bf34e5c16146616",
+      "deployed_manifest_match": true
+    },
+    {
+      "source": "E:\\EQ_Local_Dev\\_worktrees\\dynamic-zone-worker-lifetime\\server-mods\\code\\zone\\zone.cpp",
+      "manifest_path": "zone/zone.cpp",
+      "sha256": "974b6699f1deed2de33b5ba3370a6f4d6829f8273aed965eb4028c291b120c16",
+      "deployed_manifest_match": true
+    }
+  ],
+  "supervisor_matches_deployed": true,
+  "binary_hashes": {
+    "world": "70cceaca060ed6338cb72acc726bb24ccae162b42ba88dfb89432b609c7ef8e5",
+    "zone": "023cb1e991de849860b1387c0a0d8db5c596fb2744e791d5a92fb9e32b6b83cd"
+  }
+}
