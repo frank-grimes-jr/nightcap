@@ -1,0 +1,42 @@
+{
+  "checked_at_utc": "2026-10-17T13:47:28.163114+00:00",
+  "operation": "read_only",
+  "rules": [
+    "1\tCharacter:DeathExpLossLevel\t10",
+    "1\tCharacter:DeathExpLossMaxLevel\t255",
+    "1\tCharacter:DeathExpLossMultiplier\t3",
+    "1\tCharacter:DeathKeepLevel\tfalse",
+    "1\tCharacter:UseDeathExpLossMult\tfalse"
+  ],
+  "rulesets": [
+    "1\tdefault",
+    "2\tpop+",
+    "3\tmerc_test",
+    "4\tGoD",
+    "5\traidzone",
+    "6\tOOW",
+    "10\tEQEmu_Default",
+    "20\tfix_pathing_z"
+  ],
+  "world_ruleset_variable": "(absent: default)",
+  "zone_rulesets": [
+    "0\t28",
+    "1\t217",
+    "2\t359",
+    "3\t1",
+    "4\t2",
+    "5\t7",
+    "20\t4"
+  ],
+  "binaries": [
+    "70cceaca060ed6338cb72acc726bb24ccae162b42ba88dfb89432b609c7ef8e5  /opt/nightcap/bin/world",
+    "023cb1e991de849860b1387c0a0d8db5c596fb2744e791d5a92fb9e32b6b83cd  /opt/nightcap/bin/zone"
+  ],
+  "services": [
+    "db running healthy",
+    "game running healthy",
+    "gateway running ",
+    "tunnel running ",
+    "web running"
+  ]
+}

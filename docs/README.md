@@ -4,6 +4,8 @@ Current AA correction: [all allowed ranks at level 1](releases/aa-tbs-level1-202
 
 Start with [current status](status.md), not a dated candidate report.
 
+- [No death EXP loss: candidate, guarded rule change and exact QA](ops/no-death-exp-loss-20261017/README.md)
+
 - [Production-connected GM controls: entry point, rollout and exact QA](ops/production-gm-20261010.md)
 
 - [Live player access codes: activation, verification and recovery](ops/player-access-20261011.md)

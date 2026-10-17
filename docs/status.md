@@ -1,5 +1,15 @@
 # Current Nightcap status
 
+## Death EXP penalty removal — candidate October 17
+
+The [no-death-EXP configuration](ops/no-death-exp-loss-20261017/README.md) is tested
+and ready for owner release approval. `Character:DeathExpLossLevel=256` disables
+normal death EXP loss at all supported levels through a global rules reload.
+The read-only production check still observes 10; nothing is activated. Two focused
+tests include 2,048 native cases and old-policy controls. Other death mechanics
+and old corpse resurrection EXP remain. Wiki notices are prepared but unpublished;
+main promotion, production activation and exact in-game QA remain pending.
+
 ## Raid and Grind dungeons — deployed for live QA October 16
 
 The [dungeon release](dungeons/README.md) adds seven dungeon modes, 52 explicit
