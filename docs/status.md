@@ -17,12 +17,13 @@ restart recovered before feature SQL; its cause and correction are recorded in
 [deployment evidence](dungeons/deployment/README.md). CT terrain/path validation,
 level-50 Vox/Nagafen balance and full owner acceptance remain pending. On October
 16, Palwar confirmed Keeper selection, Raid entry and a named kill. The Tasks
-objectives are blank despite retained ledger credit. The [journal repair](dungeons/journal-repair/README.md)
+objectives were blank despite retained ledger credit. The [journal repair](dungeons/journal-repair/README.md)
 is on main and deployed after the explicitly authorized restart. All 12 zone
 workers match the candidate; cache and stopped player/run preservation checks
-pass. Visible RoF2 retest remains pending. Full-clear rewards remain unconfirmed. Existing
+pass. The owner replied "Confirmed" after the Befallen journal retest instructions,
+closing the reported display issue. Full-clear rewards remain unconfirmed. Existing
 unmanaged instances retain their legacy behavior. The public [Raid & Grind guide](https://wiki.nightcapgame.org/dungeon-modes.html)
-is published as `20261016-dungeons-v1`; all 465 public hashes and preservation
+is published as `20261016-dungeon-journal-v1`; all 465 public hashes and preservation
 checks pass. [Publication evidence](dungeons/wiki-publication/README.md) is
 separate from pending gameplay acceptance.
 

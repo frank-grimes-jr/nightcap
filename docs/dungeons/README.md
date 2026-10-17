@@ -9,11 +9,13 @@ Deployment and the recovered preflight database incident are recorded in
 pending in [QA.md](QA.md). The accepted contract is
 [SPEC.md](SPEC.md). Do not describe a build or SQL rehearsal as gameplay QA.
 
-Live follow-up: Palwar confirms Raid entry and a named kill, but reports blank
+Live follow-up: Palwar confirmed Raid entry and a named kill, but reported blank
 task objectives. The [journal repair](journal-repair/README.md) has passed source
 review, fifteen regression tests and native build. PR #214 is on main; installation
 and restart are complete with all 12 workers healthy and the matching cache
-unchanged. Visible retest remains pending. Keeper Status also lists every name.
+unchanged. The owner then replied "Confirmed" after the Befallen journal retest
+instructions, closing the reported display issue. Full-clear rewards and broader
+gameplay QA remain open. Keeper Status also lists every name.
 
 ## Behavior and catalog
 
