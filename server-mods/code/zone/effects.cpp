@@ -924,7 +924,9 @@ bool Client::UseDiscipline(uint32 spell_id, uint32 target) {
 		return false;
 
 	//Check the disc timer
-	pTimerType DiscTimer = pTimerDisciplineReuseStart + spell.timer_id;
+	const bool unlinked_timer = spell.timer_id == -1;
+	if (spell.timer_id < -1 || spell.timer_id > 19) { return false; }
+	pTimerType DiscTimer = unlinked_timer ? pTimerUnlinkedDisciplineStart + spell_id : pTimerDisciplineReuseStart + spell.timer_id;
 	if(!p_timers.Expired(&database, DiscTimer, false)) { // lets not set the reuse timer in case CastSpell fails (or we would have to turn off the timer, but CastSpell will set it as well)
 		uint32 remaining_time = p_timers.GetRemainingTime(DiscTimer);
 		Message(
@@ -968,7 +970,7 @@ bool Client::UseDiscipline(uint32 spell_id, uint32 target) {
 					return false;
 				}
 			}
-			SendDisciplineTimer(spells[spell_id].timer_id, reduced_recast);
+			if (!unlinked_timer) { SendDisciplineTimer(spells[spell_id].timer_id, reduced_recast); }
 		}
 	}
 
@@ -986,6 +988,7 @@ bool Client::UseDiscipline(uint32 spell_id, uint32 target) {
 }
 
 uint32 Client::GetDisciplineTimer(uint32 timer_id) {
+	if (timer_id > 19) { return 0; }
 	pTimerType disc_timer_id = pTimerDisciplineReuseStart + timer_id;
 	uint32 disc_timer = 0;
 	if (GetPTimers().Enabled(disc_timer_id)) {
@@ -995,6 +998,7 @@ uint32 Client::GetDisciplineTimer(uint32 timer_id) {
 }
 
 void Client::ResetDisciplineTimer(uint32 timer_id) {
+	if (timer_id > 19) { return; }
 	pTimerType disc_timer_id = pTimerDisciplineReuseStart + timer_id;
 	if (GetPTimers().Enabled(disc_timer_id)) {
 		GetPTimers().Clear(&database, disc_timer_id);
@@ -1003,6 +1007,13 @@ void Client::ResetDisciplineTimer(uint32 timer_id) {
 }
 
 void Client::ResetAllDisciplineTimers() {
+	std::vector<pTimerType> unlinked;
+	for (const auto &entry : p_timers) {
+		if (entry.first >= pTimerUnlinkedDisciplineStart && entry.first <= pTimerUnlinkedDisciplineEnd) {
+			unlinked.push_back(entry.first);
+		}
+	}
+	for (const auto key : unlinked) { p_timers.Clear(&database, key); }
 	for (pTimerType disc_timer_id = pTimerDisciplineReuseStart; disc_timer_id <= pTimerDisciplineReuseEnd; disc_timer_id++) {
 		uint32 current_timer_id = (disc_timer_id - pTimerDisciplineReuseStart);
 		if (GetPTimers().Enabled(disc_timer_id)) {

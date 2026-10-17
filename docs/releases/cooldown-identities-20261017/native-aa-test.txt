@@ -1,0 +1,10 @@
+Build command: cmd /d /c build.cmd
+Build working directory: C:/Users/verre/Documents/Codex/2026-10-17/see/work/aa-reuse-test-build
+build.cmd:
+@echo off
+call "C:\BuildTools\VC\Auxiliary\Build\vcvars32.bat" >nul
+cl /nologo /EHsc /W4 /std:c++17 /Fe:aa-reuse-native.exe "C:\Users\verre\Documents\Codex\2026-10-17\see\work\cooldown-identities\eq-client-dll\tests\aa-reuse-native.cpp"
+
+aa-reuse-native.cpp
+Run command: ./aa-reuse-native.exe E:/EQ_Local_Dev/Client_RoF2_Dev/everquest_rof2/eqgame.exe
+native AA reuse checks=29 failures=0

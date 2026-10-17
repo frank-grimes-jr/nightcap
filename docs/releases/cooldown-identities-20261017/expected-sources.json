@@ -1,0 +1,10 @@
+{
+  "common/ptimer.h": "b3e03e1a7ea6a1fcd05b5c18d44631dfd004630197e7900396e75db6b110fbd9",
+  "zone/aa.cpp": "cba1d4f3a9a621e665d26b6734b8277247d83fce0dd7442216b1f9c1180a27ad",
+  "zone/client.cpp": "c5fa001840f684fdbf5aa49cd9ae4d2fbb55aeafcd5ec4db00708797d8a23f05",
+  "zone/client.h": "9d3bff9df3295c4e9ad4a069597505034e288a6e4c64c3e7747caad21cb10b2f",
+  "zone/client_packet.cpp": "2a9ffd40c8563405649614e6dca50af1d3edfa82159763966dd47ea13da064e5",
+  "zone/effects.cpp": "0bca54844cd516c9b14af87ca63ba70a15f6edea4a032780a8aae85e64e10d8e",
+  "zone/gm_commands/resetaa_timer.cpp": "f6247f1226cac1f1ca3c2dab46ad89ee7469616a04a68112bdb69371b44e1d5b",
+  "zone/spells.cpp": "61e0bdd19fbaa5060b248f2bcc5852b184030ebfde3e516346aa57555a0d9bae"
+}

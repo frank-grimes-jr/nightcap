@@ -1,0 +1,8 @@
+/tmp/nightcap-cooldown-identities-build-v1/source/zone/../zone/entity.h:89:15: note: overridden virtual function is here
+        virtual void Depop(bool StartSpawnTimer = false) {}
+                     ^
+2 warnings generated.
+59 warnings generated.
+80 warnings generated.
+[100%] Linking CXX executable ../bin/zone
+[100%] Built target zone
