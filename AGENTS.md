@@ -64,6 +64,17 @@ All commands run from `akk-stack/`:
 
 ## Server ops
 
+- **Release disk headroom:** inspect free space before staging, image builds,
+  stopped backups and cache regeneration. October 17 exhausted the 72 GB production
+  disk during preflight. Only redundant transfer archives and unused Docker build
+  cache were reclaimed; all image tags, service lifetimes, volumes and backups
+  were verified preserved. Do not substitute broad image/volume cleanup.
+- **Market stock rotates at world startup:** the unchanged world calls
+  `nightcap_market_rotate`, incrementing its epoch and replacing finite offers.
+  Authenticate that single transition and offer policy separately from player
+  currency, inventory, trade audit and other custom state; retain original held
+  receipts. October 17 evidence: `docs/releases/october-17-2026/reconcile_market.py`.
+
 - **Idle production zones must preserve their worker process.** October 17
   correction sets inherited default `Zone:KillProcessOnDynamicShutdown=false`;
   alternate rulesets must not override it to true while `/opt/nightcap/start.py`
@@ -327,14 +338,15 @@ release counters and `minimum_launcher` are independent. Preserve the legacy
 inventory for old recovery journals. Signing/build/publication and forward-only
 rollback: `docs/ops/permanent-patcher.md`.
 
-## Recommended AA candidate
+## Recommended AA — deployed October 17
 
 `common/aa_recommendations.h` selects presentation guidance; native AA policy and
 ownership still authorize purchases. Pair zone's `aa_recommendations.inc` with
-proxy0.10.0-dev and generated AA XML. Keep the bounded identity-scoped metadata
+proxy 0.10.0 / game 2026101702 and generated AA XML. Keep the bounded identity-scoped metadata
 opt-in and native pre-row filter; do not delete rows after selection or globally
 change AA eligibility. Source/test/release state and exact QA are in
-`docs/releases/recommended-aa-20261017/README.md`. This is not a deployment grant.
+`docs/releases/october-17-2026/README.md`. All 107 guards and the complete zone
+build pass; visible gameplay acceptance remains open. This is not a future deployment grant.
 
 ## Non-obvious gotchas
 

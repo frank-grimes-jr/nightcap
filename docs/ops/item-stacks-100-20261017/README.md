@@ -1,5 +1,7 @@
 # Item stacks of at least 100 — October 17, 2026
 
+**Current release:** active on OVH and documented in the published wiki/player guide. [October17 combined release](../../releases/october-17-2026/README.md) records main, activation/cache and publication evidence. Owner gameplay acceptance remains open. The original dated preparation/activation evidence below is retained as history.
+
 Prepared and rehearsed; **not applied to production**. Main promotion, the
 controlled game restart, wiki publication and owner gameplay acceptance remain
 pending. Source base: `origin/main a59974d`. No C++ or client changes are needed.

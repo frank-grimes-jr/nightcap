@@ -4,9 +4,26 @@ The owner explicitly requested all recent changes on main and the server, with
 documentation, wiki and patcher notes updated. This record owns the coordinated
 release; earlier candidate reports retain their dated test evidence.
 
-Status: complete server build/link and focused checks passed. Production activation,
-signed channel publication and wiki publication are recorded separately below.
-Owner gameplay and balance acceptance remain open even after deployment.
+Status: **merged to main through PR #220 and deployed to OVH**. All twelve
+running zones match `3c1d74926cb7cff032a3ee8c48c210e37740156e7e36cc0eeddd07f847e88d1a`.
+The game is healthy with zero container restarts and no detected native, quest or
+database errors in its new lifetime. Access is open. Signed game **2026101702**
+and all **106 hosted files / 211,986,783 bytes** verify against the shipped key.
+
+Wiki **20261017-progression-combat-v1** and private player guide
+**20261017-progression-combat** are published and verified. Main merge:
+`baadcbf2a8a88a4a31f2c14e19c39fc69db5e0b4`. Owner visible gameplay, desktop
+and balance acceptance remain open; [QA.md](QA.md) gives exact checks.
+
+Evidence: `native-build-manifest.json`, `preflight-verification.json`,
+`closed-verification.json`, `production-verification.json`,
+`hosted-client-verification.json`, `wiki-publication.json`,
+`wiki-public-verification.json`, `guide-publication.json` and
+`guide-public-verification.json`. The verified stopped backup is private on OVH.
+All 46 player tables and 26 other custom/timer tables were preserved. The two
+market tables performed their existing single world-start rotation; its exact
+epoch 79→80 transition and 42 valid fresh offers were reconciled without SQL writes.
+The whole 309,740-item cache differs only in the intended 20,490 stack limits.
 
 ## Delivered scope
 
@@ -72,10 +89,21 @@ matching quest, and starts the new game with access closed. Native hashes,
 health, player data, unrelated content and the complete regenerated cache must
 pass before `activated-closed.json` is written.
 
+The first activation held access because unchanged world startup legitimately
+rotated finite market offers from epoch 79 to 80. `reconcile_market.py` authenticates
+that exact single transition, unchanged market policy, 42 valid fresh offers,
+unchanged trade audit and every other player/custom table. It retains the original
+held/stopped receipts, writes a separate reconciliation and performs no SQL writes.
+Its guarded `open` action handles only that authenticated receipt; unknown drift
+still holds access. Four tests cover policy/epoch/time-window, table boundaries,
+unknown holds and failures before/after opening. The first two also ran on Linux.
+
 Then `client/prepare.py baseline` captures that exact closed-access state and the
 reviewed publisher installs immutable assets before replacing the signed channel.
-Verify its signature and all hosted files. `rollout.py open` verifies the pairing
-and opens the gateway; `report` verifies the new lifetime and health again.
+Verify its signature and all hosted files. This release used
+`reconcile_market.py open` to verify pairing and open the gateway after the
+authenticated market reconciliation. The original `rollout.py open` intentionally
+rejects held receipts. `rollout.py report` verifies the new lifetime and health again.
 Publish the wiki only after activation. Each phase has exclusive receipts and
 must not be replayed after an uncertain result.
 

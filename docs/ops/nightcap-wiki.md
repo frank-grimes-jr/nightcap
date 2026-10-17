@@ -1,13 +1,13 @@
 # Official Nightcap wiki — hosting and maintenance
 
-Updated October 16, 2026.
+Updated October 17, 2026.
 
 ## Current state
 
-- **Public URL: https://wiki.nightcapgame.org/** — live and verified October 9, 2026 (EDT).
-- **Active OVH origin release:** `20261016-dungeons-v1`; previous release
-  `20261016-features-v1` is retained for recovery.
-- **Features:** 18 major departures from Classic, with dedicated upgrade and crafting guides.
+- **Public URL: https://wiki.nightcapgame.org/** — live and verified October 17, 2026 (EDT).
+- **Active OVH origin release:** `20261017-progression-combat-v1`; previous release
+  `20261016-dungeon-journal-v1` is retained for recovery.
+- **Features:** major departures from Classic, with dedicated upgrade and crafting guides.
 - **Equipment:** 96 item families with four quality links each, gear/augment
   views, name/slot/level/zone filters, sorting and 12-family pagination.
 - **Public hostname active:** the existing tunnel now routes the wiki to
@@ -20,6 +20,13 @@ Updated October 16, 2026.
 
 Source and build commands: [wiki/README.md](../../wiki/README.md).
 Architecture: [ADR 0059](../adr/0059-official-public-wiki.md).
+
+## October 17 progression, combat and crafting
+
+All 465 public hashes, origin pointer rollback and private/service preservation
+checks pass. Recommended AA, 10% passive AA, Monk/duration fixes, normal death EXP,
+minimum-100 stacks and 3/4/4 reforging guidance are published together. Owner gameplay
+acceptance remains separate. Exact evidence: [combined release](../releases/october-17-2026/README.md).
 
 ## Dungeon guide — October 16, 2026
 

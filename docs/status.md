@@ -1,45 +1,21 @@
 # Current Nightcap status
 
-## October 17 coordinated release — preparing
+## October 17 progression, combat and crafting — deployed
 
-The owner authorized main, server, signed patcher notes and website updates. The
-combined client and focused regressions pass; full zone compilation and guarded
-activation remain in progress. Earlier candidate entries below are dated component
-evidence. [Current combined release](releases/october-17-2026/README.md).
+PR #220 is merged to main and OVH is running the matching full zone build with
+proxy 0.10.0 / signed game 2026101702. Recommended AA is optional; passive AA is 10%.
+Six Monk attacks have separate reuse, duration arithmetic is corrected, normal
+death has no EXP loss, existing stacks support at least 100, and the Reforging Box
+accepts 3 Normal/Base copies while higher recipes need 4. No new AA family/rank
+unlock or shared timer identity redesign is included.
 
-## Recommended AA — October 17 candidate
+All 12 zone hashes, health, the full item cache, 46 player and 26 custom/timer tables
+and all 106 signed hosted assets verify. Existing market startup rotated once;
+the bounded reconciliation preserved trade history and every other player record.
+Access is open. Wiki and private guide are published; patcher notes list 10 changes.
+Owner native UI/gameplay and balance QA remain open, as do shared AA/item/spell/
+discipline cooldown identity defects. [Release, recovery and exact checks](releases/october-17-2026/README.md).
 
-The optional native filter and server shortlist are implemented and locally
-tested. They guide early survival, sustain and damage across held classes.
-Full zone build is blocked by the unavailable local Docker Linux engine; paired
-deployment, signed client/XML publication and visible player QA have not occurred.
-[Scope, verification, integration and exact QA](releases/recommended-aa-20261017/README.md).
-## Cooldown audit and duration fixes — candidate October 17
-
-Cooldown arithmetic fixes cover item clicks, Mend, Bash/Frenzy and linked spells;
-zero-duration skills and AA/spell completion no longer revive an expired timer.
-Native duration/combat regressions and independent review pass. The broader audit
-reproduces shared AA and item timer collisions and identifies linked spell/disc
-overlaps; identity separation remains open. No live timers were cleared or changed.
-Full zone build, coordinated activation and owner gameplay QA remain pending.
-[Audit, evidence and remaining work](releases/cooldown-audit-20261017/README.md).
-
-## Basic Monk cooldowns — candidate October 17
-
-The six basic Monk attacks have independent persistent reuse timers in the
-candidate server and matching RoF2 proxy. Dragon Punch/Tail Rake and Round Kick
-no longer share reuse; native ability controls and hotbuttons use the same
-correction. Server/native-client regressions and the full DLL runtime suite pass.
-Full zone compilation, paired deployment and owner gameplay/balance acceptance
-remain pending. No production or installed-client update occurred.
-[Scope, verification and exact QA](releases/monk-independent-reuse-20261017/README.md).
-## Item stacks of 100 — prepared October 17, not deployed
-
-The [stack-size candidate](ops/item-stacks-100-20261017/README.md) raises existing
-stackable limits below 100 while preserving larger limits and nonstackables.
-Production read-only scope is 20,490 definitions. Three planner, nine temporary
-MariaDB and 25 native tradeskill tests pass. Main promotion, controlled cache
-refresh/game restart, public wiki update and in-game acceptance remain pending.
 ## Idle-zone restart correction — activated October 17
 
 Production default `Zone:KillProcessOnDynamicShutdown=false` now covers all
@@ -59,24 +35,6 @@ manifest, publisher and browser layout checks pass. The signed notes channel is
 published and its signature/all 106 hosted assets verify; installed desktop
 confirmation remains pending. No gameplay restart was needed.
 [Release evidence and player check](releases/dungeon-patcher-20261017/README.md).
-## Normal-item Reforging Box recipe — candidate October 17
-
-[Implemented and tested](releases/reforge-normal-20261017/README.md): three
-identical eligible Normal/Base copies produce one Polished item; higher recipes
-still require four. Ordinary and hunt families are supported; dungeon rewards
-remain separate. Matching zone/quest deployment and [in-game QA](releases/reforge-normal-20261017/QA.md)
-are pending. No live runtime or player data changed. Maintained wiki edits are
-clearly labeled not released; public publication remains pending.
-## Death EXP penalty removal — candidate October 17
-
-The [no-death-EXP configuration](ops/no-death-exp-loss-20261017/README.md) is tested
-and ready for owner release approval. `Character:DeathExpLossLevel=256` disables
-normal death EXP loss at all supported levels through a global rules reload.
-The read-only production check still observes 10; nothing is activated. Two focused
-tests include 2,048 native cases and old-policy controls. Other death mechanics
-and old corpse resurrection EXP remain. Wiki notices are prepared but unpublished;
-main promotion, production activation and exact in-game QA remain pending.
-
 ## Raid and Grind dungeons — deployed for live QA October 16
 
 The [dungeon release](dungeons/README.md) adds seven dungeon modes, 52 explicit

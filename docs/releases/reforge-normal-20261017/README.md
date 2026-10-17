@@ -1,5 +1,7 @@
 # Normal items in the Reforging Box
 
+**Current release:** deployed October17 through [PR220 combined release](../october-17-2026/README.md), including proxy0.10.0/game2026101702 where required. Owner gameplay/balance QA remains open. The dated candidate evidence below describes the pre-release stage; its pending-build/publication statements are superseded by the combined release receipts.
+
 October 17, 2026 candidate, based on origin/main `8d30ea6`. Implemented and
 regression-tested; not built as a complete production zone, deployed, or accepted
 in game. The owner requested that three normal items make a Polished version.

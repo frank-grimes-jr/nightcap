@@ -1,4 +1,6 @@
-# Independent basic Monk cooldowns — October 17 candidate
+# Independent basic Monk cooldowns — October 17 component record
+
+**Current release:** deployed October17 through [PR220 combined release](../october-17-2026/README.md), including proxy0.10.0/game2026101702 where required. Owner gameplay/balance QA remains open. The dated candidate evidence below describes the pre-release stage; its pending-build/publication statements are superseded by the combined release receipts.
 
 Status: implemented and regression-tested; not deployed. Base: origin/main
 `a59974d`. The owner reported Dragon Punch and Round Kick sharing a timer and

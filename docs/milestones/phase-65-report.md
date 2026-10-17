@@ -14,3 +14,8 @@ Build, guarded activation and exact publication evidence are maintained in the
 Shared AA/item/spell/discipline timer identity separation and speculative AA
 unlocks are excluded. Owner gameplay, client visibility and combined power balance
 remain open. Automated correctness and installation do not establish acceptance.
+
+Main/server, signed106-file client and wiki/private-guide publication are complete.
+Unused build cache recovery retained all images/data. Normal market startup rotated
+once and was reconciled while access stayed closed. Final verification passes;
+owner gameplay/balance acceptance is still open.

@@ -42,7 +42,8 @@ Recommended AA/combat/crafting notes before starting.
    documented in the Equipment wiki. Exactly three identical Normal/Base copies
    yield one Polished and preserve the reusable box. Two/four Normal, mixed IDs,
    augments/contents, equipped/forbidden inputs and dungeon rewards reject without
-   consuming items. Four Polished still yield Exalted and four Exalted Ascended.
+   consuming items. Four Polished still yield Exalted; four Exalted yield Ascended
+   for ordinary families or Ascension for hunt rewards.
    Relog after success/rejection and verify inventory and receipt consistency.
 8. **Idle zones and dungeon regression:** complete/leave a private dungeon, allow
    its idle unload, and remain on another character in East Commonlands. No

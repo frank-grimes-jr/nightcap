@@ -6,8 +6,8 @@ Start with [current status](status.md), not a dated candidate report.
 
 - [October 17 combined release, recovery and exact gameplay QA](releases/october-17-2026/README.md)
 
-- [Recommended AA filter candidate and exact in-game QA](releases/recommended-aa-20261017/README.md)
-- [No death EXP loss: candidate, guarded rule change and exact QA](ops/no-death-exp-loss-20261017/README.md)
+- [Recommended AA filter release and exact in-game QA](releases/recommended-aa-20261017/README.md)
+- [No death EXP loss: live rule, guarded change and exact QA](ops/no-death-exp-loss-20261017/README.md)
 - [Idle-zone worker lifetime: live correction, evidence and exact QA](ops/dynamic-zone-worker-lifetime-20261017/README.md)
 
 - [Production-connected GM controls: entry point, rollout and exact QA](ops/production-gm-20261010.md)
@@ -26,9 +26,9 @@ Start with [current status](status.md), not a dated candidate report.
 
 - [All-class cooldown audit: duration corrections and remaining shared timers](releases/cooldown-audit-20261017/README.md)
 
-- [Independent basic Monk cooldown candidate: pairing and exact QA](releases/monk-independent-reuse-20261017/README.md)
+- [Independent basic Monk cooldown release: pairing and exact QA](releases/monk-independent-reuse-20261017/README.md)
 
-- [Raid and Grind dungeon candidate: release, recovery and exact fourteen-mode QA](dungeons/README.md)
+- [Raid and Grind dungeon release: release, recovery and exact fourteen-mode QA](dungeons/README.md)
 
 - [Multiclass equipment and inspection: published client update and exact QA](releases/multiclass-equipment-20261015/README.md)
 

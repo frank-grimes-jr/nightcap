@@ -17,8 +17,14 @@
   "launcher_go_suite": "PASS; manifest/packager rechecked after notes change",
   "full_zone_build": "PASS: fresh complete zone compilation and link; exact retained source delta verified; ldd clean",
   "shared_identity_reproducer": "six failures retained as an explicitly unresolved separate defect",
-  "production_activation": "pending",
+  "production_activation": "PASS; matched server/client verified and gateway open",
   "owner_gameplay_accepted": false,
   "zone_sha256": "3c1d74926cb7cff032a3ee8c48c210e37740156e7e36cc0eeddd07f847e88d1a",
-  "player_guide_linux_tests": 10
+  "player_guide_linux_tests": 10,
+  "wiki_publication": "PASS;465 public files",
+  "private_guide_publication": "PASS;5 public files",
+  "market_reconciliation_tests": 4,
+  "player_tables_preserved": 46,
+  "other_custom_tables_preserved": 26,
+  "normal_market_rotation": "epoch79 to80,42 offers; no player SQL restored"
 }

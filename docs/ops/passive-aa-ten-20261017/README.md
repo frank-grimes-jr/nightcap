@@ -1,5 +1,7 @@
 # Passive AA reduced to 10% — October 17, 2026
 
+**Current release:** active on OVH and documented in the published wiki/player guide. [October17 combined release](../../releases/october-17-2026/README.md) records main, activation/cache and publication evidence. Owner gameplay acceptance remains open. The original dated preparation/activation evidence below is retained as history.
+
 **Deployed at 15:09:05 UTC (11:09:05 a.m. Eastern)** under the owner's explicit
 instruction, "We should reduce the percentage to 10% as well". Ruleset 1
 AA:PassiveExpPercent changed from 20 to 10. Owner gameplay/balance QA is pending.

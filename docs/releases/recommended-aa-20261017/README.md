@@ -1,4 +1,6 @@
-# Recommended AA filter — October 17 candidate
+# Recommended AA filter — October 17 component record
+
+**Current release:** deployed October17 through [PR220 combined release](../october-17-2026/README.md), including proxy0.10.0/game2026101702 where required. Owner gameplay/balance QA remains open. The dated candidate evidence below describes the pre-release stage; its pending-build/publication statements are superseded by the combined release receipts.
 
 The owner approved a class-aware starter filter after the AA progression review.
 This candidate adds **Recommended AA** beside **Can Purchase**, a Recommended

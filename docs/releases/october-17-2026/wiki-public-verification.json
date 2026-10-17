@@ -1,0 +1,9 @@
+{
+  "result": "PASS",
+  "kind": "wiki",
+  "origin": "https://wiki.nightcapgame.org",
+  "verified_files": 465,
+  "verified_bytes": 5839411,
+  "headers": "verified",
+  "verified_at_unix": 1792261012
+}

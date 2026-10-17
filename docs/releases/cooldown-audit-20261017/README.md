@@ -1,5 +1,7 @@
 # Cooldown audit and duration corrections — October 17
 
+**Current release:** deployed October17 through [PR220 combined release](../october-17-2026/README.md), including proxy0.10.0/game2026101702 where required. Owner gameplay/balance QA remains open. The dated candidate evidence below describes the pre-release stage; its pending-build/publication statements are superseded by the combined release receipts.
+
 Status: source candidate; **not deployed**. This follows the owner's report of
 Dragon Punch/Round Kick sharing reuse and their request to examine cooldowns
 across all classes. The separate six-attack Monk change is PR #218. This audit

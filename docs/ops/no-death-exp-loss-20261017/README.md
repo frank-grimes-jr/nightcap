@@ -1,5 +1,7 @@
 # No EXP penalty on death — October 17, 2026
 
+**Current release:** active on OVH and documented in the published wiki/player guide. [October17 combined release](../../releases/october-17-2026/README.md) records main, activation/cache and publication evidence. Owner gameplay acceptance remains open. The original dated preparation/activation evidence below is retained as history.
+
 Status: **tested configuration candidate; not activated**. The owner requested
 removal of the death EXP penalty. Main promotion and production activation await
 the repository's owner release approval. No production rows or processes changed.
