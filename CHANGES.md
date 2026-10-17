@@ -1,5 +1,20 @@
 # CHANGES
 
+## 2026-10-17 - Combined progression, combat and crafting release preparation
+
+Integrate Recommended AA, six independent Monk attacks, duration corrections,
+normal death EXP protection, minimum-100 stacks and Normal-item reforging for the
+owner-authorized main/server release. Preserve the already live 10% passive AA and
+idle-worker fixes. Pair zone with proxy 0.10.0, generated AA XML and signed game
+2026101702. No speculative AA unlocks or shared timer identity redesign.
+
+Resolve the integrated full-build Pet gate name collision and extend the native
+fixture to reproduce it before correction; all 816 combinations then pass.
+Prepare guarded activation/publication, a stopped verified backup, complete cache
+and player-data preservation checks, ten patcher notes, current wiki/player-guide
+content and explicit gameplay QA. Build/activation/publication outcomes are tracked
+separately in `docs/releases/october-17-2026/README.md`.
+
 ## 2026-10-17 - Recommended AA filter candidate
 
 Add an optional class-aware shortlist to the native AA window, with reasons,

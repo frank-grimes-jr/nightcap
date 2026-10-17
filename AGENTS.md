@@ -495,7 +495,7 @@ matching client publication. Manual gameplay acceptance remains open; see
 ### Reusable item upgrades
 
 The Reforging Box uses native inventory transactions, not NPC ingredient
-hand-ins: four Polished or Exalted copies yield one next-tier item. Box 900620 is
+hand-ins: three eligible Normal/Base copies yield Polished; four Polished or Exalted copies yield one next-tier item. Box 900620 is
 supplied by tunnel NPC 999820. Higher-tier `#zoneforge` costs also become four;
 base remains three. Installation starts disabled and needs matching zone/item
 cache/quest deployment. Evidence and required manual QA:

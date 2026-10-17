@@ -8,7 +8,7 @@
   "updated": "2026-10-16",
   "sources": [
     "docs/dungeons/deployment/production-verification.json and QA.md; deployed October 16 for live QA, owner acceptance pending",
-    "docs/dungeons/catalog.json revision2026101601; Palwar October16 blank-objective report and journal-repair/README.md; native repair pending installation/visible retest"
+    "docs/dungeons/catalog.json revision2026101601; Palwar October16 blank-objective report and journal-repair/README.md; native repair deployed; owner confirmed the reported Befallen display issue resolved October16; broader gameplay remains open"
   ],
   "keywords": [
     "raid",

@@ -1,5 +1,51 @@
 [
   {
+    "release": 2026101702,
+    "date": "2026-10-17",
+    "changes": [
+      {
+        "kind": "feature",
+        "text": "Recommended AA: enable the optional filter beside Can Purchase for a short list of survival, sustain and useful damage upgrades across your held classes. The full AA catalog remains available."
+      },
+      {
+        "kind": "feature",
+        "text": "Passive AA is now 10% while you keep full normal leveling EXP. AA focus still sends eligible EXP entirely to AAs; earned points and purchases are preserved."
+      },
+      {
+        "kind": "fix",
+        "text": "Kick, Round Kick, Tiger Claw, Eagle Strike, Dragon Punch/Tail Rake and Flying Kick now have independent cooldowns when you hold Monk. Each attack still obeys its own reuse and skill requirements."
+      },
+      {
+        "kind": "fix",
+        "text": "Fixed excessive lockouts caused by reuse reductions on item clicks, Mend, Bash, Frenzy and linked spells, plus fully reduced cooldowns restarting old timers. Other shared-ability cooldown issues remain under investigation."
+      },
+      {
+        "kind": "feature",
+        "text": "Normal death no longer costs EXP or levels. AA progress stays intact. Buff loss and other death rules still apply; previous losses are not refunded."
+      },
+      {
+        "kind": "feature",
+        "text": "Existing stackable items now support at least 100 per stack. Higher limits stay unchanged. Equipment and other nonstackable items remain separate; existing stacks can be merged manually."
+      },
+      {
+        "kind": "fix",
+        "text": "The reusable Reforging Box now accepts exactly 3 identical eligible Normal/Base items for 1 Polished item. Higher upgrades still require 4 copies. Dungeon rewards remain separate."
+      },
+      {
+        "kind": "fix",
+        "text": "Idle dungeon zones can unload without ending their worker and causing a whole-server restart."
+      },
+      {
+        "kind": "feature",
+        "text": "East Commonlands services: Haldra, Smithing Supplies III, sells Leather Padding, and Mira Coinwell offers banking near the buff and bag services."
+      },
+      {
+        "kind": "feature",
+        "text": "Close EverQuest and use launcher Play for this update. The wiki has updated AA, combat, crafting and reforging guidance. Gameplay and balance testing continue."
+      }
+    ]
+  },
+  {
     "release": 2026101701,
     "date": "2026-10-17",
     "changes": [

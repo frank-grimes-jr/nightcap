@@ -1,5 +1,12 @@
 # Current Nightcap status
 
+## October 17 coordinated release — preparing
+
+The owner authorized main, server, signed patcher notes and website updates. The
+combined client and focused regressions pass; full zone compilation and guarded
+activation remain in progress. Earlier candidate entries below are dated component
+evidence. [Current combined release](releases/october-17-2026/README.md).
+
 ## Recommended AA — October 17 candidate
 
 The optional native filter and server shortlist are implemented and locally

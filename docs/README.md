@@ -4,6 +4,8 @@ Current AA correction: [all allowed ranks at level 1](releases/aa-tbs-level1-202
 
 Start with [current status](status.md), not a dated candidate report.
 
+- [October 17 combined release, recovery and exact gameplay QA](releases/october-17-2026/README.md)
+
 - [Recommended AA filter candidate and exact in-game QA](releases/recommended-aa-20261017/README.md)
 - [No death EXP loss: candidate, guarded rule change and exact QA](ops/no-death-exp-loss-20261017/README.md)
 - [Idle-zone worker lifetime: live correction, evidence and exact QA](ops/dynamic-zone-worker-lifetime-20261017/README.md)

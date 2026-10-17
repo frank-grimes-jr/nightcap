@@ -1,0 +1,22 @@
+{
+  "date": "2026-10-17",
+  "client_proxy": "0.10.0",
+  "client_catalog_exact_guards": 107,
+  "client_runtime_groups": 9,
+  "recommendation_class_combinations": 816,
+  "recommendation_pet_name_collision": "reproduced before correction; passed after qualifying gate",
+  "cooldown_duration_tests": 18,
+  "cooldown_combat_tests": 16,
+  "native_death_exp_cases": 2048,
+  "stack_mariadb_rehearsals": 9,
+  "server_operator_tests": 7,
+  "client_publisher_tests": 15,
+  "wiki_linux_tests": 30,
+  "wiki_node_search_equipment_tests": 13,
+  "player_guide_browser": "PASS: 73 entries, anchors, keyboard/history, five responsive widths, 200% reflow, images, CSP, clean console/network",
+  "launcher_go_suite": "PASS; manifest/packager rechecked after notes change",
+  "full_zone_build": "pending; see native-build-manifest.json when completed",
+  "shared_identity_reproducer": "six failures retained as an explicitly unresolved separate defect",
+  "production_activation": "pending",
+  "owner_gameplay_accepted": false
+}

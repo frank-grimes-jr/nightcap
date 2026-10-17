@@ -26,6 +26,7 @@ namespace fmt {
 }
 namespace EQ {namespace skills {enum {SkillRoundKick,SkillTigerClaw,SkillEagleStrike,SkillDragonPunch,SkillFlyingKick,SkillMend,SkillBackstab,SkillArchery,SkillThrowing};}}
 namespace Chat {enum {White};}
+class Pet {}; // Production pets.h shares this name with the recommendation gate.
 struct Client;
 struct Rank {int id;uint32 current_value;int ability;std::map<int,int> prereqs;};
 struct Ability {int id,first_rank_id;uint32 classes;bool charges=false,grant_only=false;std::vector<Rank> ranks;

@@ -1,0 +1,12 @@
+{
+  "status": "reviewed_before_activation",
+  "reviewer": "integration agent, separate correctness/security/recovery passes; component reviews retained in their own reports",
+  "correctness": "Merged both UI reset/hooks and catalogs; full-build Pet collision reproduced/fixed; identity defects explicitly excluded",
+  "security": "Pinned client guards, shipped-key signature, exact 106-file inventory, private staging/backups, existing access boundary retained",
+  "preservation": "Source manifest, unchanged binary hashes, planned full-cache hash, rule scope, content and stopped player/custom fingerprints",
+  "recovery": "Fail closed with exclusive receipts; no SQL snapshot restoration/replay; higher signed counter for client recovery; retain limits after larger stacks possible",
+  "limitations": [
+    "Full zone build and production preflight still pending",
+    "Visible native AA/Monk and balance QA remains open"
+  ]
+}

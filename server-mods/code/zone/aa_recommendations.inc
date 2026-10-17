@@ -22,7 +22,7 @@ void Client::SendAARecommendations()
 		case Backstab: useful = GetSkill(EQ::skills::SkillBackstab) > 0; break;
 		case Archery: useful = GetSkill(EQ::skills::SkillArchery) > 0; break;
 		case Throwing: useful = GetSkill(EQ::skills::SkillThrowing) > 0; break;
-		case Pet:
+		case nightcap::recommended_aa::Pet:
 			useful = GetPet() != nullptr;
 			for (const auto class_id : GetMulticlassList()) { useful = useful || GetClassPet(class_id) != 0; }
 			break;

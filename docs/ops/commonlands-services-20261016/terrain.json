@@ -1,0 +1,107 @@
+{
+  "map": "/home/eqemu/server/maps/base/ecommons.map",
+  "points": [
+    {
+      "label": "banker",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -9.5367431640625e-07,
+          "headroom": 30.0
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -9.5367431640625e-07,
+          "headroom": 30.0
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -9.5367431640625e-07,
+          "headroom": 30.0
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": true,
+          "ground_z": -9.5367431640625e-07,
+          "headroom": 30.0
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": true,
+          "ground_z": -9.5367431640625e-07,
+          "headroom": 30.0
+        }
+      ],
+      "x": -144,
+      "y": -1584,
+      "z": 3.75
+    },
+    {
+      "label": "approach",
+      "samples": [
+        {
+          "dx": 0.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -9.5367431640625e-07,
+          "headroom": 30.0
+        },
+        {
+          "dx": 4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -9.5367431640625e-07,
+          "headroom": 30.0
+        },
+        {
+          "dx": -4.0,
+          "dy": 0.0,
+          "ground_hit": true,
+          "ground_z": -9.5367431640625e-07,
+          "headroom": 30.0
+        },
+        {
+          "dx": 0.0,
+          "dy": 4.0,
+          "ground_hit": true,
+          "ground_z": -9.5367431640625e-07,
+          "headroom": 30.0
+        },
+        {
+          "dx": 0.0,
+          "dy": -4.0,
+          "ground_hit": true,
+          "ground_z": -9.5367431640625e-07,
+          "headroom": 30.0
+        }
+      ],
+      "x": -132,
+      "y": -1584,
+      "z": 3.75
+    }
+  ],
+  "segments": [
+    {
+      "blocked": false,
+      "from": [
+        -144,
+        -1584,
+        6.75
+      ],
+      "label": "approach",
+      "to": [
+        -132,
+        -1584,
+        6.75
+      ]
+    }
+  ]
+}

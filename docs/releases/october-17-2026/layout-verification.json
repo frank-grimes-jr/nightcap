@@ -1,0 +1,31 @@
+{
+  "status": "PASS",
+  "release": 2026101702,
+  "method": "Real Chrome; exact launcher source with simulated native bridge; generated wiki",
+  "patcher": [
+    {
+      "width": 1120,
+      "height": 820,
+      "latest_bullets": 10,
+      "historical_patches": 14,
+      "horizontal_overflow": false,
+      "play_reachable": true
+    },
+    {
+      "width": 780,
+      "height": 620,
+      "latest_bullets": 10,
+      "historical_patches": 14,
+      "horizontal_overflow": false,
+      "play_reachable": true
+    }
+  ],
+  "wiki_widths": [
+    1440,
+    768,
+    320
+  ],
+  "changed_guides": 6,
+  "page_errors": [],
+  "native_owner_qa": "pending"
+}

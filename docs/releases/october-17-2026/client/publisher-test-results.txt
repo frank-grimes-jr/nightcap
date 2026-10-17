@@ -1,0 +1,23 @@
+test_after_channel_replace_resumes (__main__.PublisherTests.test_after_channel_replace_resumes) ... ok
+test_after_release_rename_resumes (__main__.PublisherTests.test_after_release_rename_resumes) ... ok
+test_before_channel_replace_resumes (__main__.PublisherTests.test_before_channel_replace_resumes) ... ok
+test_channel_last_and_idempotent_replay (__main__.PublisherTests.test_channel_last_and_idempotent_replay) ... ok
+test_corrupt_backup_retained_and_refused (__main__.PublisherTests.test_corrupt_backup_retained_and_refused) ... ok
+test_corrupt_existing_immutable_release_retained_and_refused (__main__.PublisherTests.test_corrupt_existing_immutable_release_retained_and_refused) ... ok
+test_corrupt_staged_asset_refused (__main__.PublisherTests.test_corrupt_staged_asset_refused) ... ok
+test_drift_during_copy_refuses_channel_switch (__main__.PublisherTests.test_drift_during_copy_refuses_channel_switch) ... ok
+test_nested_directories_synced_before_release_rename (__main__.PublisherTests.test_nested_directories_synced_before_release_rename) ... ok
+test_paired_maintenance_rejects_gateway_opening_during_publication (__main__.PublisherTests.test_paired_maintenance_rejects_gateway_opening_during_publication) ... ok
+test_paired_maintenance_requires_explicit_closed_gateway_baseline (__main__.PublisherTests.test_paired_maintenance_requires_explicit_closed_gateway_baseline) ... ok
+test_partial_copy_resumes (__main__.PublisherTests.test_partial_copy_resumes) ... ok
+test_path_escape_refused (__main__.PublisherTests.test_path_escape_refused) ... ok
+test_public_baseline_drift_refused_before_writes (__main__.PublisherTests.test_public_baseline_drift_refused_before_writes) ... ok
+test_service_baseline_drift_refused_before_writes (__main__.PublisherTests.test_service_baseline_drift_refused_before_writes) ... ok
+
+----------------------------------------------------------------------
+Ran 15 tests in 22.940s
+
+OK
+
+Windows fcntl/directory-fsync stubs; actual copy/rename/replace; Docker is fake and strictly read-only.
+Publisher SHA256 cbb247e427874913c24e47069c8a2a541303e770479e96c11afb6960d7f98244
