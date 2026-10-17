@@ -1066,7 +1066,6 @@ void Client::SendAlternateAdvancementTable() {
 	LoadMulticlassMask();
 	if (!ReprojectEarnedAAs()) { return; }
 	CalcBonuses();
-	SendClearPlayerAA();
 	SendLoadedAlternateAdvancementTable();
 	SendAlternateAdvancementPoints();
 	SendAlternateAdvancementStats();
@@ -1080,6 +1079,7 @@ void Client::RefreshNightcapUI() {
 }
 
 void Client::SendLoadedAlternateAdvancementTable() {
+	SendClearPlayerAA();
 	// Versioned presentation snapshot; never changes AA eligibility or ownership.
 	if (m_nightcap_ui_enabled) {
 		if (++m_nightcap_ui_generation == 0) { ++m_nightcap_ui_generation; }
@@ -1101,6 +1101,7 @@ void Client::SendLoadedAlternateAdvancementTable() {
 			SendAlternateAdvancementRank(aa.first, 1);
 		}
 	}
+	SendAlternateAdvancementTimers();
 	// The native AAExpUpdate handler rebuilds an already-open AA window.
 	if (m_nightcap_ui_enabled) { SendAlternateAdvancementStats(); }
 }
@@ -1122,6 +1123,10 @@ void Client::SendAlternateAdvancementRank(int aa_id, int level) {
 	}
 
 	if(!CanUseAlternateAdvancementRank(rank)) {
+		return;
+	}
+	const int cooldown_slot = GetAlternateAdvancementTimerSlot(ability->id);
+	if (IsValidSpell(rank->spell) && (rank->effects.empty() || UseTogglePassiveHotkey(*rank)) && cooldown_slot < 0) {
 		return;
 	}
 
@@ -1146,7 +1151,7 @@ void Client::SendAlternateAdvancementRank(int aa_id, int level) {
 	aai->seq = aa_id;
 	aai->type = ability->type;
 	aai->spell = rank->spell;
-	aai->spell_type = rank->spell_type;
+	aai->spell_type = cooldown_slot;
 	aai->spell_refresh = rank->recast_time;
 	// Multiclass client display: the client both hides AAs whose class list excludes
 	// the character's class AND files them into tabs (Class/Archetype/General) from
@@ -1239,89 +1244,91 @@ void Client::SendAlternateAdvancementPoints() {
 	safe_delete(outapp);
 }
 
-void Client::SendAlternateAdvancementTimer(int ability, int begin, int end) {
+// RoF2 stores exactly 100 AA clocks. Allocate from the full held-class catalog,
+// not purchased/visible ranks: buying an AA must never renumber an active clock.
+int Client::GetAlternateAdvancementTimerSlot(int family_id) {
+	if (!zone || family_id < 0 || family_id >= 0x100000) { return -1; }
+	std::set<int> families;
+	for (const auto &entry : zone->aa_ranks) {
+		const auto *rank = entry.second.get();
+		const auto *ability = rank->base_ability;
+		if (!ability || !(ability->classes & GetClassMask()) || !IsValidSpell(rank->spell) ||
+			(!rank->effects.empty() && !UseTogglePassiveHotkey(*rank)) ||
+			!NightcapAA::RequiredLevel(rank->id, ability->id, rank->current_value, rank->expansion)) {
+			continue;
+		}
+		families.insert(ability->id);
+	}
+	if (families.size() > 100) { return -1; } // fail closed; never alias or index native memory
+	const auto found = families.find(family_id);
+	return found == families.end() ? -1 : static_cast<int>(std::distance(families.begin(), found));
+}
+
+// The public argument is a stable AA family ID. Only this boundary uses a wire slot.
+void Client::SendAlternateAdvancementTimer(int family_id, int begin, int end) {
+	const int slot = GetAlternateAdvancementTimerSlot(family_id);
+	if (slot < 0) { return; }
 	auto outapp = new EQApplicationPacket(OP_AAAction, sizeof(UseAA_Struct));
-	UseAA_Struct* uaaout = (UseAA_Struct*)outapp->pBuffer;
-	uaaout->ability = ability;
-	uaaout->begin = begin;
-	uaaout->end = end;
+	auto *timer = reinterpret_cast<UseAA_Struct *>(outapp->pBuffer);
+	timer->ability = slot;
+	timer->begin = begin;
+	timer->end = end;
 	QueuePacket(outapp);
 	safe_delete(outapp);
 }
 
-//sends all AA timers.
 void Client::SendAlternateAdvancementTimers() {
-	//we dont use SendAATimer because theres no reason to allocate the EQApplicationPacket every time
+	const uint32 now = static_cast<uint32>(time(nullptr));
+	// Clear every native slot, including slots belonging to a released class.
+	// (0,0) STARTS a native cooldown; (0,now) is the reset packet.
 	auto outapp = new EQApplicationPacket(OP_AAAction, sizeof(UseAA_Struct));
-	UseAA_Struct* uaaout = (UseAA_Struct*)outapp->pBuffer;
-
-	PTimerList::iterator c, e;
-	c = p_timers.begin();
-	e = p_timers.end();
-	for(; c != e; ++c) {
-		PersistentTimer *cur = c->second;
-		if(cur->GetType() < pTimerAAStart || cur->GetType() > pTimerAAEnd)
-			continue;	//not an AA timer
-		//send timer
-		uaaout->begin = cur->GetStartTime();
-		uaaout->end = static_cast<uint32>(time(nullptr));
-		uaaout->ability = cur->GetType() - pTimerAAStart; // uuaaout->ability is really a shared timer number
+	auto *timer = reinterpret_cast<UseAA_Struct *>(outapp->pBuffer);
+	timer->begin = 0;
+	timer->end = now;
+	for (int slot = 0; slot < 100; ++slot) {
+		timer->ability = slot;
 		QueuePacket(outapp);
 	}
-
 	safe_delete(outapp);
+	for (const auto &aa : aa_ranks) {
+		auto pair = zone->GetAlternateAdvancementAbilityAndRank(aa.first, aa.second.first);
+		auto *ability = pair.first;
+		auto *rank = pair.second;
+		if (!ability || !rank || !CanUseAlternateAdvancementRank(rank)) { continue; }
+		const uint32 remaining = p_timers.GetRemainingTime(pTimerAAStart + ability->id);
+		if (!remaining) { continue; }
+		const int effective_reuse = rank->recast_time - GetAlternateAdvancementCooldownReduction(rank);
+		// Native readiness subtracts its effective reuse from this start timestamp.
+		// A future start preserves a migrated legacy wait longer than this AA's reuse.
+		SendAlternateAdvancementTimer(ability->id, now + remaining - effective_reuse, now);
+	}
 }
 
-void Client::ResetAlternateAdvancementTimer(int ability) {
-	AA::Rank *rank = zone->GetAlternateAdvancementRank(casting_spell_aa_id);
-	if(rank) {
-		SendAlternateAdvancementTimer(rank->spell_type, 0, time(0));
-		p_timers.Clear(&database, rank->spell_type + pTimerAAStart);
+void Client::ResetAlternateAdvancementTimer(int rank_id) {
+	auto *rank = zone->GetAlternateAdvancementRank(rank_id);
+	if (rank && rank->base_ability) {
+		p_timers.Clear(&database, pTimerAAStart + rank->base_ability->id);
+		SendAlternateAdvancementTimer(rank->base_ability->id, 0, time(nullptr));
 	}
 }
 
 void Client::ResetAlternateAdvancementTimers() {
-	auto outapp = new EQApplicationPacket(OP_AAAction, sizeof(UseAA_Struct));
-	UseAA_Struct* uaaout = (UseAA_Struct*)outapp->pBuffer;
-
-	PTimerList::iterator c, e;
-	c = p_timers.begin();
-	e = p_timers.end();
-	std::vector<int> r_timers;
-	for(; c != e; ++c) {
-		PersistentTimer *cur = c->second;
-		if(cur->GetType() < pTimerAAStart || cur->GetType() > pTimerAAEnd)
-			continue;
-		//send timer
-		uaaout->begin = 0;
-		uaaout->end = static_cast<uint32>(time(nullptr));
-		uaaout->ability = cur->GetType() - pTimerAAStart;
-		r_timers.push_back(cur->GetType());
-		QueuePacket(outapp);
+	std::vector<pTimerType> keys;
+	for (const auto &entry : p_timers) {
+		if (entry.first >= pTimerAAStart && entry.first <= pTimerAAEnd) {
+			keys.push_back(entry.first);
+		}
 	}
-
-	for(auto &i : r_timers) {
-		p_timers.Clear(&database, i);
-	}
-
-	safe_delete(outapp);
+	for (const auto key : keys) { p_timers.Clear(&database, key); }
+	SendAlternateAdvancementTimers();
 }
 
 void Client::ResetOnDeathAlternateAdvancement() {
 	for (const auto &aa : aa_ranks) {
-		auto ability_rank = zone->GetAlternateAdvancementAbilityAndRank(aa.first, aa.second.first);
-		auto ability = ability_rank.first;
-		auto rank = ability_rank.second;
-
-		if (!ability)
-			continue;
-
-		if (!rank)
-			continue;
-
-		// since they're dying, we just need to clear the DB
-		if (ability->reset_on_death)
-			p_timers.Clear(&database, rank->spell_type + pTimerAAStart);
+		auto pair = zone->GetAlternateAdvancementAbilityAndRank(aa.first, aa.second.first);
+		if (pair.first && pair.second && pair.first->reset_on_death) {
+			p_timers.Clear(&database, pTimerAAStart + pair.first->id);
+		}
 	}
 }
 
@@ -1400,6 +1407,7 @@ bool Client::FinishAlternateAdvancementPurchase(AA::Rank *rank, bool ignore_cost
 		}
 		SendAlternateAdvancementPoints();
 		SendAlternateAdvancementStats();
+		SendAlternateAdvancementTimers();
 	}
 
 	if (PlayerEventLogs::Instance()->IsEventEnabled(PlayerEvent::AA_PURCHASE)) {
@@ -1512,9 +1520,13 @@ void Client::ActivateAlternateAdvancementAbility(int rank_id, int target_id) {
 	if (ability->charges > 0 && charges < 1)
 		return;
 
+	if (GetAlternateAdvancementTimerSlot(ability->id) < 0) {
+		Message(Chat::Red, "This ability has no available cooldown slot. Please report this to a GM.");
+		return;
+	}
 	//check cooldown
-	if (!p_timers.Expired(&database, rank->spell_type + pTimerAAStart, false)) {
-		uint32 aaremain = p_timers.GetRemainingTime(rank->spell_type + pTimerAAStart);
+	if (!p_timers.Expired(&database, pTimerAAStart + ability->id, false)) {
+		uint32 aaremain = p_timers.GetRemainingTime(pTimerAAStart + ability->id);
 		uint32 aaremain_hr = aaremain / (60 * 60);
 		uint32 aaremain_min = (aaremain / 60) % 60;
 		uint32 aaremain_sec = aaremain % 60;
@@ -1570,12 +1582,12 @@ void Client::ActivateAlternateAdvancementAbility(int rank_id, int target_id) {
 			}
 
 			if (!SpellFinished(rank->spell, entity_list.GetMob(target_id), EQ::spells::CastingSlot::AltAbility, spells[rank->spell].mana, -1, spells[rank->spell].resist_difficulty, false, -1,
-				rank->spell_type + pTimerAAStart, timer_duration, false, rank->id)) {
+				pTimerAAStart + ability->id, timer_duration, false, rank->id)) {
 				return;
 			}
 		}
 		else {
-			if (!CastSpell(rank->spell, target_id, EQ::spells::CastingSlot::AltAbility, -1, -1, 0, -1, rank->spell_type + pTimerAAStart, timer_duration, nullptr, rank->id)) {
+			if (!CastSpell(rank->spell, target_id, EQ::spells::CastingSlot::AltAbility, -1, -1, 0, -1, pTimerAAStart + ability->id, timer_duration, nullptr, rank->id)) {
 				return;
 			}
 		}

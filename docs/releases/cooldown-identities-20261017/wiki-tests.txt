@@ -1,0 +1,20 @@
+test_current_mechanics_and_unreleased_labels (test_wiki.WikiTests.test_current_mechanics_and_unreleased_labels) ... ok
+test_equipment_groups_variants_and_keeps_every_item_reachable (test_wiki.WikiTests.test_equipment_groups_variants_and_keeps_every_item_reachable) ... ok
+test_every_local_link_asset_and_anchor (test_wiki.WikiTests.test_every_local_link_asset_and_anchor) ... ok
+test_features_and_updated_guides_are_reachable (test_wiki.WikiTests.test_features_and_updated_guides_are_reachable) ... ok
+test_generated_reward_pages_use_current_upgrade_costs (test_wiki.WikiTests.test_generated_reward_pages_use_current_upgrade_costs) ... ok
+test_only_enabled_reward_catalog (test_wiki.WikiTests.test_only_enabled_reward_catalog) ... ok
+test_package_is_exact_and_immutable (test_wiki.WikiTests.test_package_is_exact_and_immutable) ... ok
+test_public_payload_excludes_private_material (test_wiki.WikiTests.test_public_payload_excludes_private_material) ... ok
+test_search_index_has_all_articles_without_internal_sources (test_wiki.WikiTests.test_search_index_has_all_articles_without_internal_sources) ... ok
+test_missing_revision_cannot_pass (test_refresh.RefreshTests.test_missing_revision_cannot_pass) ... fatal: Needed a single revision
+ok
+test_new_system_and_deleted_source_require_review (test_refresh.RefreshTests.test_new_system_and_deleted_source_require_review) ... ok
+test_staged_change_canceled_only_in_working_copy_still_requires_review (test_refresh.RefreshTests.test_staged_change_canceled_only_in_working_copy_still_requires_review) ... ok
+test_unrelated_files_do_not_require_content_review (test_refresh.RefreshTests.test_unrelated_files_do_not_require_content_review) ... ok
+test_working_tree_tracks_staged_unstaged_and_untracked (test_refresh.RefreshTests.test_working_tree_tracks_staged_unstaged_and_untracked) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 30.917s
+
+OK
