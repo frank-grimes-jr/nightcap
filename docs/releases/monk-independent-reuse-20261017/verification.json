@@ -1,0 +1,51 @@
+{
+  "date": "2026-10-17",
+  "status": "tested_candidate_not_deployed",
+  "base_revision": "a59974d",
+  "server_regression": {
+    "before": {
+      "failed": 5,
+      "passed": 5
+    },
+    "after": {
+      "passed": 12
+    },
+    "native_methods": "OPCombatAbility, DoClassAttacks, CanUseMonkCombatAbility and actual timer mapping",
+    "engine_boundaries": "deterministic fixture timers, skills, damage; no running server"
+  },
+  "client_native": {
+    "before_checks": 25,
+    "before_failures": 10,
+    "after_checks": 60,
+    "after_failures": 0,
+    "sha256_pinned_eqgame": "2a8702ad9f722704f01355c0750be7d6f164a8b9c9128ba0cf286ea32b405b0e"
+  },
+  "client_build": "x86 MSVC DLL and 20 runtime executables passed",
+  "client_runtime_groups": 8,
+  "catalog_sites": 103,
+  "independent_review": "No remaining findings after native submission-path correction; actual gameplay pending",
+  "wiki_checks": {
+    "python": 14,
+    "node": 13,
+    "publication": "pending",
+    "broad_drift": "REVIEW REQUIRED; global audit ref not advanced"
+  },
+  "limitations": [
+    "Full zone compile/link pending: local Docker Linux engine unavailable",
+    "Launcher Go tests pending: Go not available in session",
+    "Legacy Monk source-hash guard fails on unchanged base and candidate",
+    "In-game visuals/combat/balance, main promotion and paired server/client publication pending"
+  ],
+  "dll_sha256": "59478e1cd3252f495be0f97601f36d4eca2d402b4ead13538f1e1dd2fa3fd69d",
+  "reviewed_sources": {
+    "server-mods/code/zone/special_attacks.cpp": "c841145475958a29c161109580a1eb82175f237044c058d83b3b043c6f701a6e",
+    "server-mods/code/common/ptimer.h": "38bd70efccd5b412b02f63aae9ca0b419a70494033365bf09808c9336ef2014e",
+    "server-mods/code/common/combat_ability_timer.h": "a9f4fda79889da248377862d97d59a692449662ba7c82185ce99f4a373f9003d",
+    "eq-client-dll/src/monk_reuse.h": "b17aae2e125b542409ee31791945fccf25d47020ac0ba53eb02a7e89dd35fe78",
+    "eq-client-dll/src/dllmain.cpp": "71b1d2f86dec8559c3dc8f11a41e29cb1955d8524f13b2aee5c6e6e6b6562ee1",
+    "eq-client-dll/src/ui_hooks.h": "82d73f7ba9d83f42348fafefb6bf3137a4e2ed49f48e62124bf8d97fb2caae4b",
+    "eq-client-dll/config/patch-sites.json": "4933839f527e80be84b701805ee9be43d434a49dc90a70bcc7954f509235be1e",
+    "tools/tests/test_monk_combat_reuse.py": "1c0eb92d25614ca661456cb210b1f9023f7caed1741f7187a9be5d8e0b9907b5",
+    "eq-client-dll/tests/monk-reuse-native.cpp": "5cc6886722264047f953cff9484df1a7acd56a42ae075e724d55eb49a2bccfb3"
+  }
+}

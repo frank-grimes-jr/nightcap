@@ -1,5 +1,16 @@
 # CHANGES
 
+## 2026-10-17 - Independent basic Monk cooldowns (candidate)
+
+Give all six basic Monk attacks separate persistent server cooldowns for held
+Monk RoF2 characters, paired with native client readiness/submission fixes.
+Dragon Punch/Tail Rake and Round Kick no longer block each other. Preserve each
+attack's duration, haste/AA adjustments and eligibility; retain non-Monk and
+older-client grouping. Twelve native server tests, sixty pinned-client checks,
+eight runtime groups and independent review pass. Full zone build, paired
+activation and in-game/balance QA remain pending; no live update occurred.
+Evidence, pairing and exact QA: `docs/releases/monk-independent-reuse-20261017/`.
+
 ## 2026-10-17 - Raid and Grind headline patcher announcement
 
 Publish signed patch 2026101701 with eleven Latest Update bullets introducing

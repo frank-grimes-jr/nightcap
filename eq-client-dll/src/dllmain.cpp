@@ -405,7 +405,9 @@ extern "C" __declspec(noinline) void __fastcall ActivateServerGrantedSkill(
                 if (index >= 0 && index < 100) {
                     const DWORD reuse_end = *reinterpret_cast<DWORD*>(
                         static_cast<BYTE*>(player) + 0x390 + index * 4);
-                    commit_reuse(skill_manager, skill, reuse_end);
+                    if (!nightcap::client_ui::IndependentMonkReuse(skill)) {
+                        commit_reuse(skill_manager, skill, reuse_end);
+                    }
                 }
             }
         }
@@ -1007,6 +1009,10 @@ static bool ApplyMonkAttackActivationPatches(
         return false;
     }
 
+    if (!ApplyGuardedRelativeCall(eq_base,kMonkReusePostSubmitRva,kExpectedMonkReusePostSubmit,
+        reinterpret_cast<uintptr_t>(&nightcap::client_ui::CommitMonkReuseAfterSubmit),
+        "G006 Monk post-submit reuse patch")) return false;
+
     const bool predicate_ok = ApplyGuardedRelativeCall(
         eq_base,
         kSpecialAttackSkillPredicateCallRva,
@@ -1509,7 +1515,10 @@ static BOOL CALLBACK InitializeRuntime(PINIT_ONCE, PVOID, PVOID*)
     RequirePatch(nightcap::Feature_skill_value,use_skill_ok);
     const bool hotbutton_skill_ok=ApplyHotButtonSkillPredicatePatch(eq_base,use_skill_ok);
     RequirePatch(nightcap::Feature_hotbutton_skills,hotbutton_skill_ok);
-    RequirePatch(nightcap::Feature_monk_attacks,ApplyMonkAttackActivationPatches(eq_base,hotbutton_skill_ok));
+    nightcap::client_ui::base=eq_base;
+    RequirePatch(nightcap::Feature_monk_attacks,
+        nightcap::client_ui::InstallMonkReuse() &&
+        ApplyMonkAttackActivationPatches(eq_base,hotbutton_skill_ok));
     RequirePatch(nightcap::Feature_equipment,ApplyEquipSubmissionPatches(eq_base,size_ok && hash_ok));
     const bool mana_hook_ok=ApplyMaxManaServerCacheHook(eq_base,size_ok && hash_ok);
     RequirePatch(nightcap::Feature_mana_cache,mana_hook_ok);

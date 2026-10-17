@@ -10,6 +10,7 @@
 
 namespace nightcap {
 namespace client_ui {
+inline void ResetMonkReuse();
 // All offsets and instruction boundaries belong to the pinned May 2013 RoF2
 // executable. They are also guarded by the generated signed patch catalog.
 struct EqString { void* rep; };
@@ -412,6 +413,7 @@ inline void __fastcall ChatHook(void* self, void*, const char* message, int colo
     original_chat(self, message, color, log, convert);
 }
 inline void __fastcall StateHook(void* self, void*, int next) {
+    if (next != 5) ResetMonkReuse();
     if (next != 5) { craft_repeat.Reset(); craft_window = nullptr; craft_container = nullptr; }
     if (next != 5) AdvancedLootUI::Reset();
     if (next != 5) { state.Clear(); spell_menu_dirty = true; pets.Clear(); pet_management.Clear(); next_refresh = 0; next_pet_refresh = 0; next_management_refresh = 0; management_received = 0; }
@@ -636,3 +638,4 @@ inline bool InstallAdvancedLoot(void (*trace)(const char*) = nullptr) {
 }
 
 #include "trainer_hooks.h"
+#include "monk_reuse.h"
