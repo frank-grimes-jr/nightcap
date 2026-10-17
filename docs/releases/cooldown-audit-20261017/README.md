@@ -5,6 +5,10 @@ Dragon Punch/Round Kick sharing reuse and their request to examine cooldowns
 across all classes. The separate six-attack Monk change is PR #218. This audit
 starts from its reviewed `64b6e42` candidate, based on main `a59974d`.
 
+Duration source commit: `22791694f011476c30346b46962148a3b4b04f17`.
+Draft review: [PR #219](https://github.com/frank-grimes-jr/nightcap/pull/219),
+stacked on #218; retarget to `dev` after that dependency lands.
+
 The investigation found both duration bugs and timer-identity collisions.
 The duration bugs are corrected here. Shared-AA, linked-spell/discipline and
 unlinked-item identity collisions remain open, with reproducible evidence below.

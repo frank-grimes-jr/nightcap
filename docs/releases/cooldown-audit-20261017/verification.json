@@ -55,7 +55,7 @@
     "tools/tests/test_monk_combat_reuse.py": "c0b48c1103454e721c293f675201c9b008e1923b6dae84876fbea42625d73f5a",
     "tools/tests/fixtures/cooldown_persistent_timer.cpp": "a43b4abb048e2c9fe0e4c95fea2defdfec565ee5189e0c7610379cbed0e9df24"
   },
-  "review": "Independent reviewer reran duration18/combat16; no actionable production findings; not full build or live QA",
+  "review": "Independent code and final README review: no actionable issues; duration18/combat16 independently rerun; remaining identities/fullbuild/liveQA explicitly open",
   "duration_scenarios": 28,
   "combat_extra_combinations": {
     "zero_or_excess": 36,
@@ -77,5 +77,7 @@
     "source_drift": "REVIEW REQUIRED: broad historical drift retained; global audit ref unchanged",
     "publication": "local notices installed; not published",
     "initial_sandbox_failure": "Rerun with workspace TMP/TEMP passed; no code change required"
-  }
+  },
+  "source_revision": "22791694f011476c30346b46962148a3b4b04f17",
+  "draft_pr": "https://github.com/frank-grimes-jr/nightcap/pull/219"
 }
