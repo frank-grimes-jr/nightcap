@@ -1,5 +1,14 @@
 # Current Nightcap status
 
+## Dungeon patcher announcement — staged October 17
+
+Signed patch 2026101701 introduces Raid & Grind in Latest update with eleven
+bullets covering the dungeon launch, rewards and boss journal. All 106 client
+file records, prior notes and launcher compatibility are preserved. Automated
+manifest, publisher and browser layout checks pass; public activation and
+installed desktop confirmation remain pending. No gameplay restart is needed.
+[Release evidence and player check](releases/dungeon-patcher-20261017/README.md).
+
 ## Raid and Grind dungeons — deployed for live QA October 16
 
 The [dungeon release](dungeons/README.md) adds seven dungeon modes, 52 explicit

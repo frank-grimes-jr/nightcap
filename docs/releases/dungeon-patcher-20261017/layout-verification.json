@@ -1,0 +1,25 @@
+{
+  "status": "pass",
+  "release": 2026101701,
+  "method": "Existing Vue launcher rendered in Chrome with signed-release notes and a simulated native status bridge",
+  "sizes": [
+    {
+      "width": 1120,
+      "height": 820,
+      "latest_bullets": 11,
+      "historical_patches": 13,
+      "horizontal_overflow": false,
+      "play_reachable": true
+    },
+    {
+      "width": 780,
+      "height": 620,
+      "latest_bullets": 11,
+      "historical_patches": 13,
+      "horizontal_overflow": false,
+      "play_reachable": true
+    }
+  ],
+  "page_errors": [],
+  "native_owner_qa": "pending"
+}

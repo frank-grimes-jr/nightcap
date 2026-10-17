@@ -1,0 +1,8 @@
+{
+  "release": 2026101701,
+  "previous_release": 2026101501,
+  "channel_sha256": "794a2611083fb3f9289ced3e3d9a87da7b1e5b3a6f40d07f9db064fba12fdaa7",
+  "signature": "verified against shipped production key by sign-notes.go",
+  "file_records_preserved": 106,
+  "previous_patch_history_preserved": 13
+}
