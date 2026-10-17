@@ -1,5 +1,15 @@
 # CHANGES
 
+## 2026-10-17 - Recommended AA filter candidate
+
+Add an optional class-aware shortlist to the native AA window, with reasons,
+modest starter targets, prerequisite steps and later-skill/pet labels. Preserve
+native filters, selection, costs, legality and earned ownership. Matched zone,
+proxy 0.10.0-dev and generated XML are required. Native/client/catalog/launcher
+checks pass; full zone build and visible in-game acceptance remain open. No
+new AA was enabled and no client/server/wiki publication occurred. Exact scope
+and QA: `docs/releases/recommended-aa-20261017/README.md`.
+
 ## 2026-10-17 - Passive AA reduced to 10%; release-pool review
 
 Apply the owner's requested 20% to 10% passive AA reduction on production.

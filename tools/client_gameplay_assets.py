@@ -123,8 +123,11 @@ def ui_xml(raw, kind):
             if headings != ['Title','Cur/Max','Cost','Category']:
                 raise ValueError('Unsupported AA column layout')
             column = ET.SubElement(node, 'Columns')
-            ET.SubElement(column, 'Width').text = '300'
+            ET.SubElement(column, 'Width').text = '180'
             ET.SubElement(column, 'Heading').text = 'Class'
+            column = ET.SubElement(node, 'Columns')
+            ET.SubElement(column, 'Width').text = '200'
+            ET.SubElement(column, 'Heading').text = 'Recommended'
             scroll = node.find('Style_HScroll')
             if scroll is None:
                 scroll = ET.SubElement(node,'Style_HScroll')
@@ -142,11 +145,43 @@ def ui_xml(raw, kind):
             if node is None or node.find('Size/CX') is None:
                 raise ValueError('Missing AA container size')
             size = node.find('Size/CX')
-            size.text = str(int(size.text) + 300)
+            size.text = str(int(size.text) + 380)
         for node in root:
             x = node.find('Location/X')
             if x is not None and (int(x.text) >= 490 or node.get('item') in ('AAW_Timer','AAW_Count')):
-                x.text = str(int(x.text) + 300)
+                x.text = str(int(x.text) + 380)
+        from copy import deepcopy
+        train = root.find("Button[@item='AAW_TrainFilter']")
+        if train is None:
+            raise ValueError('Missing native AA filter')
+        recommended = deepcopy(train)
+        recommended.set('item','NC_AARecommended')
+        recommended.find('ScreenID').text = 'NC_AARecommended'
+        recommended.find('Text').text = 'Recommended AA'
+        recommended.find('TooltipReference').text = 'Show a short list of useful next purchases for your held classes'
+        recommended.find('Location/X').text = '95'
+        recommended.find('Size/CX').text = '140'
+        root.append(recommended)
+        ET.SubElement(screens[0],'Pieces').text = 'NC_AARecommended'
+        for name in ('AAW_PassiveFilter','AAW_ExpansionFilter','AAW_CatigoryFilter','AAW_ResetFilter'):
+            node = root.find(f"*[@item='{name}']")
+            if node is None:
+                raise ValueError('Missing native AA filter control')
+            x = node.find('Location/X')
+            x.text = str(int(x.text)+145)
+        label=ET.SubElement(root,'Label',item='NC_AARecommendationStatus')
+        for tag,value in [('ScreenID','NC_AARecommendationStatus'),('Font','2'),('Text','Select Recommended AA for a starter shortlist'),('NoWrap','true')]:
+            ET.SubElement(label,tag).text=value
+        location=ET.SubElement(label,'Location')
+        ET.SubElement(location,'X').text='5'; ET.SubElement(location,'Y').text='472'
+        size=ET.SubElement(label,'Size')
+        ET.SubElement(size,'CX').text='970'; ET.SubElement(size,'CY').text='20'
+        color=ET.SubElement(label,'TextColor')
+        for channel in ('R','G','B'): ET.SubElement(color,channel).text='220'
+        ET.SubElement(screens[0],'Pieces').text='NC_AARecommendationStatus'
+        height=screens[0].find('Size/CY')
+        if height is None: raise ValueError('Missing AA window height')
+        height.text=str(int(height.text)+28)
     else:
         raise ValueError('Unknown UI asset')
     # RoF2's reader needs the stock lexical Schema declaration. ElementTree

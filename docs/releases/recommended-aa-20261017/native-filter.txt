@@ -1,0 +1,59 @@
+006085b0 56                       push esi
+006085b1 8b742408                 mov esi, dword ptr [esp + 8]
+006085b5 57                       push edi
+006085b6 8bf9                     mov edi, ecx
+006085b8 85f6                     test esi, esi
+006085ba 0f8481000000             je 0x608641
+006085c0 803f00                   cmp byte ptr [edi], 0
+006085c3 741c                     je 0x6085e1
+006085c5 a11c26dd00               mov eax, dword ptr [0xdd261c]
+006085ca 8b0d5803d200             mov ecx, dword ptr [0xd20358]
+006085d0 6a00                     push 0
+006085d2 6a00                     push 0
+006085d4 6a00                     push 0
+006085d6 56                       push esi
+006085d7 50                       push eax
+006085d8 e8e3bee9ff               call 0x4a44c0
+006085dd 84c0                     test al, al
+006085df 7419                     je 0x6085fa
+006085e1 8b4704                   mov eax, dword ptr [edi + 4]
+006085e4 48                       dec eax
+006085e5 741a                     je 0x608601
+006085e7 48                       dec eax
+006085e8 751d                     jne 0x608607
+006085ea 39464c                   cmp dword ptr [esi + 0x4c], eax
+006085ed 7e18                     jle 0x608607
+006085ef 8bce                     mov ecx, esi
+006085f1 e8aa5be2ff               call 0x42e1a0
+006085f6 85c0                     test eax, eax
+006085f8 750d                     jne 0x608607
+006085fa 5f                       pop edi
+006085fb 32c0                     xor al, al
+006085fd 5e                       pop esi
+006085fe c20400                   ret 4
+00608601 837e4c00                 cmp dword ptr [esi + 0x4c], 0
+00608605 7ef3                     jle 0x6085fa
+00608607 8b470c                   mov eax, dword ptr [edi + 0xc]
+0060860a 85c0                     test eax, eax
+0060860c 7e08                     jle 0x608616
+0060860e 39868c000000             cmp dword ptr [esi + 0x8c], eax
+00608614 75e4                     jne 0x6085fa
+00608616 8b7f08                   mov edi, dword ptr [edi + 8]
+00608619 85ff                     test edi, edi
+0060861b 7e08                     jle 0x608625
+0060861d 39be88000000             cmp dword ptr [esi + 0x88], edi
+00608623 75d5                     jne 0x6085fa
+00608625 807e7c00                 cmp byte ptr [esi + 0x7c], 0
+00608629 7416                     je 0x608641
+0060862b 8b36                     mov esi, dword ptr [esi]
+0060862d 8b0d1c26dd00             mov ecx, dword ptr [0xdd261c]
+00608633 6a00                     push 0
+00608635 6a00                     push 0
+00608637 56                       push esi
+00608638 e833a0f7ff               call 0x582670
+0060863d 84c0                     test al, al
+0060863f 74b9                     je 0x6085fa
+00608641 5f                       pop edi
+00608642 b001                     mov al, 1
+00608644 5e                       pop esi
+00608645 c20400                   ret 4

@@ -1,5 +1,13 @@
 # Current Nightcap status
 
+## Recommended AA — October 17 candidate
+
+The optional native filter and server shortlist are implemented and locally
+tested. They guide early survival, sustain and damage across held classes.
+Full zone build is blocked by the unavailable local Docker Linux engine; paired
+deployment, signed client/XML publication and visible player QA have not occurred.
+[Scope, verification, integration and exact QA](releases/recommended-aa-20261017/README.md).
+
 ## Dungeon patcher announcement — published October 17
 
 Signed patch 2026101701 introduces Raid & Grind in Latest update with eleven

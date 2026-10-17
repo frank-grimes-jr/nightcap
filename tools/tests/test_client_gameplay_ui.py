@@ -20,6 +20,14 @@ def aa_fixture():
         ET.SubElement(ET.SubElement(node, 'Size'), 'CX').text = str(width)
     button = ET.SubElement(root, 'Button', item='AAW_TrainButton')
     ET.SubElement(ET.SubElement(button, 'Location'), 'X').text = '530'
+    ET.SubElement(root.find("Screen[@item='AAWindow']/Size"), 'CY').text = '496'
+    for item,x in [('AAW_TrainFilter',5),('AAW_PassiveFilter',95),('AAW_ExpansionFilter',195),('AAW_CatigoryFilter',325),('AAW_ResetFilter',425)]:
+        node=ET.SubElement(root, 'Button', item=item)
+        for tag,value in [('ScreenID',item),('Text','Can Purchase'),('TooltipReference','Filter')]:
+            ET.SubElement(node,tag).text=value
+        loc=ET.SubElement(node,'Location'); ET.SubElement(loc,'X').text=str(x);ET.SubElement(loc,'Y').text='442'
+        size=ET.SubElement(node,'Size'); ET.SubElement(size,'CX').text='85';ET.SubElement(size,'CY').text='24'
+        ET.SubElement(node,'Style_Checkbox').text='true'
     return ET.tostring(root)
 
 
@@ -44,12 +52,22 @@ class UIAssets(unittest.TestCase):
         result = ET.fromstring(ui_xml(aa_fixture(), 'aa'))
         for name, page in [('General', 'General'), ('Arch', 'Archetype'), ('Class', 'Class'), ('Special', 'Special')]:
             node = result.find(f"Listbox[@item='AAW_{name}List']")
-            self.assertEqual([c.findtext('Heading') for c in node.findall('Columns')], ['Title', 'Cur/Max', 'Cost', 'Category', 'Class'])
+            self.assertEqual([c.findtext('Heading') for c in node.findall('Columns')], ['Title', 'Cur/Max', 'Cost', 'Category', 'Class', 'Recommended'])
             columns_width = sum(int(c.findtext('Width')) for c in node.findall('Columns'))
             self.assertLessEqual(columns_width, int(result.findtext(f"Page[@item='AAW_{page}Page']/Size/CX")))
-        self.assertEqual(result.findtext("TabBox[@item='AAW_Subwindows']/Size/CX"), '780')
-        self.assertEqual(result.findtext("Screen[@item='AAWindow']/Size/CX"), '940')
-        self.assertEqual(result.findtext("Button[@item='AAW_TrainButton']/Location/X"), '830')
+        self.assertEqual(result.findtext("TabBox[@item='AAW_Subwindows']/Size/CX"), '860')
+        self.assertEqual(result.findtext("Screen[@item='AAWindow']/Size/CX"), '1020')
+        self.assertEqual(result.findtext("Button[@item='AAW_TrainButton']/Location/X"), '910')
+
+    def test_recommended_filter_and_status_are_separate_from_purchase(self):
+        result=ET.fromstring(ui_xml(aa_fixture(),'aa'))
+        self.assertEqual(result.findtext("Button[@item='NC_AARecommended']/Text"),'Recommended AA')
+        self.assertEqual(result.findtext("Button[@item='NC_AARecommended']/Style_Checkbox"),'true')
+        self.assertEqual(result.findtext("Button[@item='AAW_PassiveFilter']/Location/X"),'240')
+        self.assertEqual(result.findtext("Screen[@item='AAWindow']/Size/CY"),'524')
+        pieces=[x.text for x in result.findall("Screen[@item='AAWindow']/Pieces")]
+        self.assertIn('NC_AARecommended',pieces)
+        self.assertIn('NC_AARecommendationStatus',pieces)
 
     def test_preserves_native_schema_declaration_without_generated_prefix(self):
         # RoF2's XML reader rejected the valid-but-rewritten ns0:Schema form.

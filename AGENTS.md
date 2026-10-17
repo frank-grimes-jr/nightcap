@@ -319,6 +319,15 @@ release counters and `minimum_launcher` are independent. Preserve the legacy
 inventory for old recovery journals. Signing/build/publication and forward-only
 rollback: `docs/ops/permanent-patcher.md`.
 
+## Recommended AA candidate
+
+`common/aa_recommendations.h` selects presentation guidance; native AA policy and
+ownership still authorize purchases. Pair zone's `aa_recommendations.inc` with
+proxy0.10.0-dev and generated AA XML. Keep the bounded identity-scoped metadata
+opt-in and native pre-row filter; do not delete rows after selection or globally
+change AA eligibility. Source/test/release state and exact QA are in
+`docs/releases/recommended-aa-20261017/README.md`. This is not a deployment grant.
+
 ## Non-obvious gotchas
 
 - **Food/drink removal deployed (2026-10-11):** hunger/thirst/starvation predicates
