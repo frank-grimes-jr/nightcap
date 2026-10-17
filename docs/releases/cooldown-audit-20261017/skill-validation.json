@@ -1,0 +1,33 @@
+{
+  "multiclass": {
+    "exit_code": 0,
+    "checked": 119,
+    "remaining_drift": []
+  },
+  "items": {
+    "exit_code": 0,
+    "checked": 82,
+    "remaining_drift": []
+  },
+  "client": {
+    "exit_code": 0,
+    "checked": 118,
+    "remaining_drift": []
+  },
+  "balance": {
+    "exit_code": 1,
+    "checked": 77,
+    "remaining_drift": [
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\merchant-sell-all\\server-mods\\code\\zone\\effects.cpp",
+        "role": "percentage scaling and Throw Stone exception",
+        "state": "changed: review implementation and evidence"
+      }
+    ]
+  },
+  "wiki": {
+    "exit_code": 0,
+    "checked": 51,
+    "remaining_drift": []
+  }
+}
