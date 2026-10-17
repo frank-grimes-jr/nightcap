@@ -1,11 +1,19 @@
-# Dungeon test release: exact acceptance route
+# Dungeon live-test release: exact acceptance route
 
-All gameplay rows below are **pending**. Automated checks and a compiled package
-are recorded separately in README.md and the verification JSON files. Use a
-closed, disposable test environment with the matching binaries, item cache,
-schema, content, task definitions and Keeper quest. Do not inject failures,
-modify run deadlines, or recycle IDs on production. Main promotion and a
-production restart need separate owner authorization.
+Owner check, October 16: **Palwar selected Befallen's Keeper, saw Raid/Grind,
+entered a Raid and killed a named boss**. The task title is present but objectives
+are blank; a yellow notice followed the kill. A read-only probe confirmed retained
+personal boss credit without full-clear completion. The [journal repair](journal-repair/README.md)
+is a tested candidate pending native installation and visible retest. Full-clear
+rewards, other dungeons and broader acceptance remain open.
+
+The owner-authorized main/OVH release is deployed and enabled; access is open.
+Native binaries, production cache, SQL
+and Keeper quest are paired and verified in deployment/. No new client assets
+are required. For normal in-game testing, start at step 3 below. Steps 1–2 are
+operator setup, already completed on OVH. Use a closed, disposable environment
+for fault injection, deadline changes or forced ID recycling; never perform
+those experiments on the live server.
 
 ## Installation and first Befallen run
 
@@ -18,7 +26,9 @@ production restart need separate owner authorization.
    `20261016_dungeon_enable.sql` only after verifying package hashes. The game
    and content connections must use the same database. Leave Classic active.
 3. At Befallen's entrance, hail the floating-eye Keeper, NPC **999227**. Verify
-   Raid, Grind, Enter, Join, Status, Claim Rewards and Reset links. Select Grind.
+   Raid, Grind, Enter, Join, Status, Claim Rewards and Reset links. The waypoint
+   shares its position and has no hail response; use `/target Instance_Keeper`
+   if the waypoint obscures selection. Select Grind to create and enter the run.
    Verify a fresh run is eligible immediately, has twelve hours remaining, and
    has a Befallen–Grind task with five required boss activities.
 4. Inspect/kill each name listed by Status. All five must be present initially,
@@ -26,8 +36,9 @@ production restart need separate owner authorization.
    to the same native NPC outside this instance, with matching debuffs/rules.
    Grind stats match. After the native timer plus variance, defeated mobs return.
 5. Kill the last personally required boss. Verify one Normal item, one permanent
-   Grind completion, and all five task activities completed. The journal remains
-   until the original deadline. Repeated kills, task abandonment/reacceptance,
+   Grind completion, and all five task activities completed. After the journal
+   repair is installed, the run moves to Completed history. Repeated kills,
+   task abandonment/reacceptance,
    Keeper claims and re-entry must not grant another reward.
 6. Leave, choose Reset, then Confirm Reset within thirty seconds as creator.
    Start Raid. Verify five objectives, +35% HP, +15% outgoing damage, minibosses
@@ -35,6 +46,11 @@ production restart need separate owner authorization.
    normal spawn polling interval (approximately five seconds). Kill him and
    verify at least one exclusive corpse item plus the separate personal reward.
    Raid items are Polished or Ascended. Defeated spawn points never repopulate.
+
+Whole-wiki review: the published guide now lists all 52 required bosses and
+explains stage notices, full clears and Keeper Status when objectives are blank.
+Recent changes links this guidance. Other mechanics and Live testing labels
+remain unchanged; wiki publication does not establish native repair acceptance.
 
 ## Repeat in all seven dungeons and both modes
 

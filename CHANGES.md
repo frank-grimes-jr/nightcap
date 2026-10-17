@@ -1,6 +1,33 @@
 # CHANGES
 
-## 2026-10-16 - Raid and Grind dungeon candidate
+## 2026-10-16 - Dungeon checklist and completion-history repair candidate
+
+Repair blank Raid/Grind task objectives with named Kill displays and simultaneous
+boss activities. Add explicit boss-credit versus full-clear messages, entry
+checklists and durable Completed-history projection without native task reward
+hooks. Reconnect, abandonment and post-expiry recovery retain ledger progress;
+old completions cannot hide a newer run. All fifteen dungeon regressions and
+source review pass. Native installation and visible RoF2 retest are pending;
+no SQL, items, cache ABI or client change. See `docs/dungeons/journal-repair/`.
+
+## 2026-10-16 - Befallen Keeper entrance check confirmed
+
+Palwar confirmed selecting Instance_Keeper and seeing Raid/Grind in its hail
+menu. Document direct targeting when the colocated waypoint obscures the Keeper.
+Run entry, Tasks, combat, rewards and all other dungeon acceptance remain open.
+This records partial owner QA; no gameplay, cache or client release changed.
+The wiki's existing Live testing status remains correct. See `docs/dungeons/QA.md`.
+
+## 2026-10-16 - Raid and Grind player wiki published
+
+Publish the deployed dungeon guide and related Features, travel, reward and
+Recent changes updates as `20261016-dungeons-v1`. All 465 public file hashes,
+43 automated checks and browser navigation/search/responsive checks pass.
+The atomic update rehearsed rollback and preserved private downloads, player
+access and all five service identities. No game restart or client/cache change.
+Gameplay acceptance remains pending; see `docs/dungeons/wiki-publication/`.
+
+## 2026-10-16 - Raid and Grind dungeons deployed for live QA
 
 Add fixed twelve-hour Raid/Grind runs to all seven existing dungeon Keepers,
 with authoritative per-character boss credit, Tasks display, permanent completion
@@ -17,9 +44,14 @@ dungeon. Private Cazic-Thule restores 188 pinned Classic spawn points without
 changing public populations. Guarded SQL starts disabled; deployment requires
 matching native binaries/cache/quests. Isolated database, concurrency, native
 policy/credit and receipt-adapter checks are recorded in `docs/dungeons/`.
-The candidate preserves the separately deployed AA catalog and authentication-log
+The release preserves the separately deployed AA catalog and authentication-log
 redaction when reconciling main/dev/retained source. Full in-game and level-50
-Vox/Nagafen acceptance remain pending. No production promotion or restart.
+Vox/Nagafen acceptance remain pending. Owner-authorized main promotion and OVH
+deployment are complete: matching binaries, production cache and Keeper quest,
+enabled revision 2026101601, and access open. All 309,410 existing cache entries
+are preserved with 330 additions. The earlier preflight database OOM restart
+recovered before feature SQL; the corrected streamed, memory-capped rehearsal
+and deployment pass. See `docs/dungeons/deployment/` for separate evidence.
 See `docs/dungeons/README.md` and `docs/dungeons/QA.md`.
 
 ## 2026-10-16 - Equipment race policy deployed for live QA

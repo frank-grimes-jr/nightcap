@@ -1,0 +1,22 @@
+{
+  "status": "passed",
+  "skill_validator": "passed",
+  "topics": {
+    "world": {
+      "verified_entries": 53,
+      "changed_or_missing": 0
+    },
+    "items": {
+      "verified_entries": 66,
+      "changed_or_missing": 0
+    },
+    "wiki": {
+      "verified_entries": 40,
+      "changed_or_missing": 0
+    },
+    "operations": {
+      "verified_entries": 24,
+      "changed_or_missing": 0
+    }
+  }
+}

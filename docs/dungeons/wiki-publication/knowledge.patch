@@ -1,0 +1,291 @@
+--- a/references/wiki.md
++++ b/references/wiki.md
+@@ -47,27 +47,30 @@
+ 
+ 
+ 
+-Dungeon deployment source update October 16: the maintained local wiki has a
+-Live testing Raid & Grind guide, linked from Features, Travel and Recent changes.
+-The unreleased candidate notice was removed. The existing generated equipment
+-catalog remains specific to hunt rewards; dungeon rewards have a separate guide.
+-Full-site Python/link and Node search/equipment checks pass. Website publication
+-is pending. Exact preimages, installed source receipt and whole-wiki assessment:
+-`docs/dungeons/wiki-update/` and `docs/dungeons/wiki-review.md` in dungeon-modes.
++Dungeon guide published October 16: Raid & Grind is Live testing at
++https://wiki.nightcapgame.org/dungeon-modes.html, with Features, Travel, home,
++equipment/forging guidance and Recent changes updated together. The generated
++equipment catalog remains specific to hunt rewards. All 465 public hashes and
++origin preservation checks pass; browser search finds the guide first and its
++320/768/1024/1440 layouts have no horizontal overflow. Owner gameplay and dragon
++balance acceptance remain pending. Maintained wiki commit `461c53d`; source-install
++receipt and whole-wiki assessment are in `docs/dungeons/wiki-update/` and
++`docs/dungeons/wiki-review.md` in dungeon-modes. Separate publication evidence is
++in `docs/dungeons/wiki-publication/` and wiki's `docs/releases/wiki-dungeons-20261016/`.
+ 
+ ## Tests, publication and recovery
+ 
+-From wiki/: nine `test_wiki` checks cover all 457 pages; five `test_refresh` cases
++From wiki/: nine `test_wiki` checks cover all 458 pages; five `test_refresh` cases
+ use real Git (including a staged change canceled in the working copy); Node
+ `test_search.cjs` has six cases and `test_equipment.cjs` seven. Linux-only
+ `test_deploy test_update` has sixteen recovery cases. Browser checks cover links,
+ keyboard navigation, clean console and 320/768/1024/1440 layouts.
+ 
+ Live public URL: https://wiki.nightcapgame.org/features.html. Active release
+-`20261016-features-v1`, previous `20261010-equipment-v1`. October16 public verification
+-matches all 464 SHA-256 values and headers, ten denied wiki source/private routes,
++`20261016-dungeons-v1`, previous `20261016-features-v1`. October16 public verification
++matches all 465 SHA-256 values and headers, ten denied wiki source/private routes,
+ and current player-host behavior. Origin rehearsal preserves private downloads and
+-all five service identities. Evidence: `docs/releases/wiki-features-20261016/`;
++all five service identities. Evidence: `docs/releases/wiki-dungeons-20261016/`;
+ runbook `docs/ops/nightcap-wiki.md`; maintenance `wiki/README.md`.
+ 
+ `update.py` holds the shared website lock and atomically switches a guarded relative
+--- a/references/world.md
++++ b/references/world.md
+@@ -87,7 +87,9 @@
+ evidence are separate from deployment. Fourteen-mode gameplay, CT path/door QA,
+ level-50 Vox/Nagafen balance and owner acceptance remain open. Source flow ran
+ through dev/test to owner-authorized main and production deployment. The gateway
+-is open. Website publication remains separate; owner gameplay is not accepted.
++is open. Wiki release `20261016-dungeons-v1` is published and verified;
++owner gameplay acceptance remains pending. Publication evidence is separate in
++`docs/dungeons/wiki-publication/`.
+ 
+ ## Travel failure diagnosis and current QA
+ 
+--- a/references/sources.json
++++ b/references/sources.json
+@@ -1,7 +1,7 @@
+ {
+   "schema_version": 1,
+   "audited_at": "2026-10-12",
+-  "basis": "Reviewed sources and dated runbooks; AA class-rank implementation, all-level-1 invariants, Triple Backstab native repair and OVH/signature evidence refreshed October13. Owner gameplay/balance acceptance remains pending. Other topics retain their separately recorded audit scope. Passive AA refreshed October 13 to the verified 20% OVH override, retaining 4,000 XP/point and pending owner balance QA. Divine summons refreshed October 13: existing Ascended selection preserved, 44 definitions zero resale, full-cache and live deployment evidence verified; owner balance QA pending. Tradeskill stacks/Craft All refreshed October 13: PR #200 on main, paired OVH/game 2026101304 publication verified with all 12 zones/106 hosted assets; native owner gameplay QA pending. Equipment eligibility refreshed October16: PR202 merged, signed game2026101501 verified across106 hosted assets; owner confirms javelins work; broader gameplay acceptance pending. AA temporary-buff policy refreshed October16: source248bf5c promoted to main and OVH; all12 running zone hashes, preserved47 player/11 custom tables, signed client2026101501/106 assets,30 behavior and33 rollout checks verified. Owner gameplay acceptance pending. Equipment race policy deployed October16 under explicit approval: PR204, loader-only restart, 309410-definition cache verification with all other bytes and 47 player/11 custom tables preserved, current AA zone/client retained, zero restarts/errors. Owner gameplay QA pending. Wiki Features refreshed October16: current guides and 432 generated reward pages reconciled; per-change whole-wiki review required, source-drift checker verified, public release20261016-features-v1/464 files verified; no gameplay acceptance inferred.",
++  "basis": "Reviewed sources and dated runbooks; AA class-rank implementation, all-level-1 invariants, Triple Backstab native repair and OVH/signature evidence refreshed October13. Owner gameplay/balance acceptance remains pending. Other topics retain their separately recorded audit scope. Passive AA refreshed October 13 to the verified 20% OVH override, retaining 4,000 XP/point and pending owner balance QA. Divine summons refreshed October 13: existing Ascended selection preserved, 44 definitions zero resale, full-cache and live deployment evidence verified; owner balance QA pending. Tradeskill stacks/Craft All refreshed October 13: PR #200 on main, paired OVH/game 2026101304 publication verified with all 12 zones/106 hosted assets; native owner gameplay QA pending. Equipment eligibility refreshed October16: PR202 merged, signed game2026101501 verified across106 hosted assets; owner confirms javelins work; broader gameplay acceptance pending. AA temporary-buff policy refreshed October16: source248bf5c promoted to main and OVH; all12 running zone hashes, preserved47 player/11 custom tables, signed client2026101501/106 assets,30 behavior and33 rollout checks verified. Owner gameplay acceptance pending. Equipment race policy deployed October16 under explicit approval: PR204, loader-only restart, 309410-definition cache verification with all other bytes and 47 player/11 custom tables preserved, current AA zone/client retained, zero restarts/errors. Owner gameplay QA pending. Wiki Features refreshed October16: current guides and 432 generated reward pages reconciled; per-change whole-wiki review required, source-drift checker verified, Raid/Grind guide published in release20261016-dungeons-v1/465 files with private/service preservation and browser search/responsive checks; no gameplay acceptance inferred.",
+   "observed_revisions": {
+     "integrated": "eeb79ddebd69bdc4bda1725e7ccf5fa6e18591d1",
+     "default_checkout": "ce161c5e600992037adb66037b56047ef8c330dd",
+@@ -31,7 +31,8 @@
+     "aa_temporary_buffs_deployed_20261016": "1cfdea8262ed033a29d6ce8c8577f1f73420a5fa",
+     "commonlands_services_20261016": "ce161c5e600992037adb66037b56047ef8c330dd + reviewed operational working files",
+     "equipment_race_deployed_20261016": "d1014a95228258ff2fd51bc9451914a5fa03ccc6",
+-    "wiki_features_20261016": "1048a5c427782d5c3fbf63e17fb63ce934a05eb7"
++    "wiki_features_20261016": "1048a5c427782d5c3fbf63e17fb63ce934a05eb7",
++    "wiki_dungeons_20261016": "461c53da30fa3b669bcbca07338a0aa94559b1f9"
+   },
+   "topics": {
+     "operations": [
+@@ -1666,8 +1667,8 @@
+         "root": "C:/Users/verre/Documents/Codex/2026-10-16/p/work/dungeon-modes",
+         "path": "docs/dungeons/README.md",
+         "role": "Reviewed Raid/Grind production deployment; owner gameplay acceptance pending",
+-        "revision": "7ae42801af295931e73b52908cdb4965167d7de9",
+-        "sha256": "8b6daceb7ce6a63f7661f5a64a413fec364092e89249c6f618694b805829e495"
++        "revision": "050af799ec1982ee457951333045d2d920947c06",
++        "sha256": "b2076e70b9003024967ca7b12ec8336845226f592120d021893ad71c8db812bf"
+       },
+       {
+         "root": "C:/Users/verre/Documents/Codex/2026-10-16/p/work/dungeon-modes",
+@@ -3011,18 +3012,18 @@
+         "sha256": "88bf2559f478f171a489860553e156168ba264acb8cd29e7fc28cbeffd0c0a26"
+       },
+       {
+-        "root": "C:/Users/verre/.codex/worktrees/nightcap-wiki/EQ_Local_Dev",
++        "root": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev",
+         "path": "wiki/content-review.json",
+-        "role": "Reviewed local dungeon live-QA guide; not published; source patch in docs/dungeons/wiki-update",
+-        "revision": "7ae42801af295931e73b52908cdb4965167d7de9",
++        "role": "Reviewed published Raid/Grind wiki source or verification; owner gameplay acceptance pending",
++        "revision": "461c53da30fa3b669bcbca07338a0aa94559b1f9",
+         "sha256": "af7f4b546556da75f97559cff451d303e975b50dd08bc96e052b73904950a535"
+       },
+       {
+-        "root": "C:/Users/verre/.codex/worktrees/nightcap-wiki/EQ_Local_Dev",
++        "root": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev",
+         "path": "wiki/README.md",
+-        "role": "Reviewed wiki source, maintenance contract or dated publication evidence",
+-        "revision": "1048a5c427782d5c3fbf63e17fb63ce934a05eb7 plus publication evidence",
+-        "sha256": "38b0699c5b2085ebf6c4ca0f3f602702a3d60671ef7a188428f2db04c171f0fe"
++        "role": "Reviewed published Raid/Grind wiki source or verification; owner gameplay acceptance pending",
++        "revision": "461c53da30fa3b669bcbca07338a0aa94559b1f9",
++        "sha256": "1b4e0e314b7bac6df9d15909b02392dd2da5dcb528242af8dd07e85facb274be"
+       },
+       {
+         "root": "C:/Users/verre/.codex/worktrees/nightcap-wiki/EQ_Local_Dev",
+@@ -3088,11 +3089,11 @@
+         "sha256": "c14fd1c1afa4d20ec7e50a3f9210ebd0f85419e1aa3680e1583a1a8729db26d2"
+       },
+       {
+-        "root": "C:/Users/verre/.codex/worktrees/nightcap-wiki/EQ_Local_Dev",
++        "root": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev",
+         "path": "docs/ops/nightcap-wiki.md",
+-        "role": "Reviewed wiki source, maintenance contract or dated publication evidence",
+-        "revision": "1048a5c427782d5c3fbf63e17fb63ce934a05eb7 plus publication evidence",
+-        "sha256": "746a2e9f0dc1656caad4740d048077cf62ab150fa0f05a3bd0bd2e3ac6276e2d"
++        "role": "Reviewed published Raid/Grind wiki source or verification; owner gameplay acceptance pending",
++        "revision": "461c53da30fa3b669bcbca07338a0aa94559b1f9",
++        "sha256": "4aaf66361ebe074b0338041c90013979e91b1c276df290be6cc1b477322ccc4c"
+       },
+       {
+         "root": "C:/Users/verre/.codex/worktrees/nightcap-wiki/EQ_Local_Dev",
+@@ -3151,38 +3152,38 @@
+         "sha256": "f9de3a2641011f1625cd543a85a8b2efa392a8de68e164b43161ea79d90afe48"
+       },
+       {
+-        "root": "C:/Users/verre/.codex/worktrees/nightcap-wiki/EQ_Local_Dev",
++        "root": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev",
+         "path": "wiki/articles/equipment.json",
+-        "role": "Reviewed local dungeon live-QA guide; not published; source patch in docs/dungeons/wiki-update",
+-        "revision": "7ae42801af295931e73b52908cdb4965167d7de9",
++        "role": "Reviewed published Raid/Grind wiki source or verification; owner gameplay acceptance pending",
++        "revision": "461c53da30fa3b669bcbca07338a0aa94559b1f9",
+         "sha256": "65dd5c095cb78906f27406e3b22a356b94d8e5978619c6f6a671af31f587b844"
+       },
+       {
+-        "root": "C:/Users/verre/.codex/worktrees/nightcap-wiki/EQ_Local_Dev",
++        "root": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev",
+         "path": "wiki/articles/features.json",
+-        "role": "Reviewed local dungeon live-QA guide; not published; source patch in docs/dungeons/wiki-update",
+-        "revision": "7ae42801af295931e73b52908cdb4965167d7de9",
++        "role": "Reviewed published Raid/Grind wiki source or verification; owner gameplay acceptance pending",
++        "revision": "461c53da30fa3b669bcbca07338a0aa94559b1f9",
+         "sha256": "e39b18cf46866c7db907f9a33eb4ced53ed5fa6b18cc1a37734eb89db8a278aa"
+       },
+       {
+-        "root": "C:/Users/verre/.codex/worktrees/nightcap-wiki/EQ_Local_Dev",
++        "root": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev",
+         "path": "wiki/articles/getting-started.json",
+-        "role": "Reviewed local dungeon live-QA guide; not published; source patch in docs/dungeons/wiki-update",
+-        "revision": "7ae42801af295931e73b52908cdb4965167d7de9",
++        "role": "Reviewed published Raid/Grind wiki source or verification; owner gameplay acceptance pending",
++        "revision": "461c53da30fa3b669bcbca07338a0aa94559b1f9",
+         "sha256": "0c32c53bc86a5ebde6be2c790364fcea0ae2d06f9f3adf0b1d36b2eb885d0272"
+       },
+       {
+-        "root": "C:/Users/verre/.codex/worktrees/nightcap-wiki/EQ_Local_Dev",
++        "root": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev",
+         "path": "wiki/articles/index.json",
+-        "role": "Reviewed local dungeon live-QA guide; not published; source patch in docs/dungeons/wiki-update",
+-        "revision": "7ae42801af295931e73b52908cdb4965167d7de9",
++        "role": "Reviewed published Raid/Grind wiki source or verification; owner gameplay acceptance pending",
++        "revision": "461c53da30fa3b669bcbca07338a0aa94559b1f9",
+         "sha256": "158ef0c09d0fb1de2b0156db1f42348b12ceb0de994e544988c967fd2bf4cd7d"
+       },
+       {
+-        "root": "C:/Users/verre/.codex/worktrees/nightcap-wiki/EQ_Local_Dev",
++        "root": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev",
+         "path": "wiki/articles/item-upgrades.json",
+-        "role": "Reviewed local dungeon live-QA guide; not published; source patch in docs/dungeons/wiki-update",
+-        "revision": "7ae42801af295931e73b52908cdb4965167d7de9",
++        "role": "Reviewed published Raid/Grind wiki source or verification; owner gameplay acceptance pending",
++        "revision": "461c53da30fa3b669bcbca07338a0aa94559b1f9",
+         "sha256": "3181725cbfc3a963a1cf8bbdb22cac5c571127cf6ddc8c0457aaeaa7365ca49e"
+       },
+       {
+@@ -3207,10 +3208,10 @@
+         "sha256": "2e0688b1864e8d7f31849c9a72464af42168945cc09d4d4fa9dd98b03e3417b1"
+       },
+       {
+-        "root": "C:/Users/verre/.codex/worktrees/nightcap-wiki/EQ_Local_Dev",
++        "root": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev",
+         "path": "wiki/articles/recent-changes.json",
+-        "role": "Reviewed local dungeon live-QA guide; not published; source patch in docs/dungeons/wiki-update",
+-        "revision": "7ae42801af295931e73b52908cdb4965167d7de9",
++        "role": "Reviewed published Raid/Grind wiki source or verification; owner gameplay acceptance pending",
++        "revision": "461c53da30fa3b669bcbca07338a0aa94559b1f9",
+         "sha256": "38fe256833207b09b8bb8271b86191b996577212ad857793d276b59eff538e5e"
+       },
+       {
+@@ -3221,10 +3222,10 @@
+         "sha256": "39278354167f33e769bf6857a88033194c261c6bafdb8a6c854bd846db418be8"
+       },
+       {
+-        "root": "C:/Users/verre/.codex/worktrees/nightcap-wiki/EQ_Local_Dev",
++        "root": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev",
+         "path": "wiki/articles/travel.json",
+-        "role": "Reviewed local dungeon live-QA guide; not published; source patch in docs/dungeons/wiki-update",
+-        "revision": "7ae42801af295931e73b52908cdb4965167d7de9",
++        "role": "Reviewed published Raid/Grind wiki source or verification; owner gameplay acceptance pending",
++        "revision": "461c53da30fa3b669bcbca07338a0aa94559b1f9",
+         "sha256": "127e273b678234c57a047ab3784c68ba415833a01b84178dd8c48088e6b2a7d8"
+       },
+       {
+@@ -3235,10 +3236,10 @@
+         "sha256": "314113092b3e3f4db638e4290bcf9d2b9f63c6d84fb30f92fd29891fd948f7b3"
+       },
+       {
+-        "root": "C:/Users/verre/.codex/worktrees/nightcap-wiki/EQ_Local_Dev",
++        "root": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev",
+         "path": "wiki/articles/unreleased.json",
+-        "role": "Reviewed local dungeon live-QA guide; not published; source patch in docs/dungeons/wiki-update",
+-        "revision": "7ae42801af295931e73b52908cdb4965167d7de9",
++        "role": "Reviewed published Raid/Grind wiki source or verification; owner gameplay acceptance pending",
++        "revision": "461c53da30fa3b669bcbca07338a0aa94559b1f9",
+         "sha256": "6522ad24364716133de6583c4ae3c680af8466b863ff4c25c6811322e15591ab"
+       },
+       {
+@@ -3256,11 +3257,60 @@
+         "sha256": "87b843a74e36af0f4dc79eabd5432120b8bff1962e3044f04390efbfa4ab2ad7"
+       },
+       {
+-        "root": "C:/Users/verre/.codex/worktrees/nightcap-wiki/EQ_Local_Dev",
++        "root": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev",
+         "path": "wiki/articles/dungeon-modes.json",
+-        "role": "Reviewed local dungeon live-QA guide; not published; source patch in docs/dungeons/wiki-update",
+-        "revision": "7ae42801af295931e73b52908cdb4965167d7de9",
++        "role": "Reviewed published Raid/Grind wiki source or verification; owner gameplay acceptance pending",
++        "revision": "461c53da30fa3b669bcbca07338a0aa94559b1f9",
+         "sha256": "872e94e9973ae171f458f4f7d37cfac149f9b8e95933ce7b81dad3dea3490eef"
++      },
++      {
++        "root": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev",
++        "path": "docs/releases/wiki-dungeons-20261016/README.md",
++        "role": "Reviewed published Raid/Grind wiki source or verification; owner gameplay acceptance pending",
++        "revision": "461c53da30fa3b669bcbca07338a0aa94559b1f9",
++        "sha256": "ba0822e253879e105434c94914e9c302926af81942c7b139cb6b79d576218b6b"
++      },
++      {
++        "root": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev",
++        "path": "docs/releases/wiki-dungeons-20261016/origin-verification.json",
++        "role": "Reviewed published Raid/Grind wiki source or verification; owner gameplay acceptance pending",
++        "revision": "461c53da30fa3b669bcbca07338a0aa94559b1f9",
++        "sha256": "bd968b40b346058a5095e2944c1c7748661646d49322462892bb89d834a94e69"
++      },
++      {
++        "root": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev",
++        "path": "docs/releases/wiki-dungeons-20261016/public-verification.json",
++        "role": "Reviewed published Raid/Grind wiki source or verification; owner gameplay acceptance pending",
++        "revision": "461c53da30fa3b669bcbca07338a0aa94559b1f9",
++        "sha256": "eb7af4280cb93a1c0b115dff0a18fe6224481d9f608c9a01806a3a0f25f950a4"
++      },
++      {
++        "root": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev",
++        "path": "docs/releases/wiki-dungeons-20261016/browser-verification.json",
++        "role": "Reviewed published Raid/Grind wiki source or verification; owner gameplay acceptance pending",
++        "revision": "461c53da30fa3b669bcbca07338a0aa94559b1f9",
++        "sha256": "792b3f2454b3eb43d69c5d68dc926dabc3841fdb6ff888d8a233d9e145d3c89a"
++      },
++      {
++        "root": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev",
++        "path": "docs/releases/wiki-dungeons-20261016/release.json",
++        "role": "Reviewed published Raid/Grind wiki source or verification; owner gameplay acceptance pending",
++        "revision": "461c53da30fa3b669bcbca07338a0aa94559b1f9",
++        "sha256": "cd40f7eea86d2202b5a862deb17b89ceaf4cfb44fbeb075832fc56c2b8525bc6"
++      },
++      {
++        "root": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev",
++        "path": "docs/releases/wiki-dungeons-20261016/source-manifest.json",
++        "role": "Reviewed published Raid/Grind wiki source or verification; owner gameplay acceptance pending",
++        "revision": "461c53da30fa3b669bcbca07338a0aa94559b1f9",
++        "sha256": "bc29622462aef8934189a2e2650e372f5982428b114785a8b9675be531c43de7"
++      },
++      {
++        "root": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev",
++        "path": "docs/releases/wiki-dungeons-20261016/linux-tests.txt",
++        "role": "Reviewed published Raid/Grind wiki source or verification; owner gameplay acceptance pending",
++        "revision": "461c53da30fa3b669bcbca07338a0aa94559b1f9",
++        "sha256": "6c25a0c7f82a38f71961563a9ccfff866734b5784348ac5eed96cbdae182691e"
+       }
+     ]
+   }

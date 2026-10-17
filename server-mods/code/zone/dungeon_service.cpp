@@ -172,6 +172,87 @@ void Claim(Client *c, bool automatic=false) {
 	}
 	if (delivered || !automatic) { c->Message(Chat::White,delivered ? "Your earned dungeon rewards have been delivered." : "You have no unclaimed dungeon rewards."); }
 }
+
+void JournalHistory(Client *c) {
+	if (!c || !c->GetTaskState()) { return; }
+	try {
+		// History is a repairable display of earned completion, independent of the
+		// native instance lifetime and reward delivery. At most fourteen rows.
+		auto rows=Query(fmt::format("SELECT r.zone_id,r.mode,MAX(m.completed_at) FROM nightcap_dungeon_members m "
+			"JOIN nightcap_dungeon_runs r ON r.run_id=m.run_id WHERE m.character_id={} AND m.completed_at>0 "
+			"GROUP BY r.zone_id,r.mode",c->CharacterID()));
+		auto state=c->GetTaskState();
+		for (auto row : rows) {
+			const auto d=FindDungeon(Strings::ToUnsignedInt(row[0]));
+			const auto mode=Strings::ToUnsignedInt(row[1]);
+			if (!d || mode>1) { continue; }
+			const auto task=9700+d->index*2+mode;
+			if (!state->RecordCompletedTaskFromLedger(c,task,Strings::ToInt(row[2]))) {
+				LogError("Dungeon completed journal remains pending character [{}] zone [{}]",c->CharacterID(),d->zone);
+				continue;
+			}
+			// A failed earlier projection can outlive a reset/expiry. Remove only
+			// the display of a completed run, never a newer incomplete run. Native
+			// acceptedtime has second precision, so ambiguous same-second runs stay.
+			for (int slot=0;slot<MAXACTIVEQUESTS;++slot) {
+				if (state->GetActiveTaskID(slot)!=static_cast<int>(task)) { continue; }
+				auto matching=Query(fmt::format("SELECT COUNT(CASE WHEN m.completed_at>0 THEN 1 END),"
+					"COUNT(CASE WHEN m.completed_at=0 THEN 1 END) FROM nightcap_dungeon_members m "
+					"JOIN nightcap_dungeon_runs r ON r.run_id=m.run_id WHERE m.character_id={} "
+					"AND r.zone_id={} AND r.mode={} AND r.instance_start={}",c->CharacterID(),d->zone,mode,
+					state->GetTaskStartTime(TaskType::Quest,slot)));
+				if (matching.RowCount()==1 && Strings::ToUnsignedInt(matching.begin()[0])>0 &&
+					Strings::ToUnsignedInt(matching.begin()[1])==0) { state->RemoveTaskByTaskID(c,task); }
+				break;
+			}
+		}
+	} catch (const std::exception &e) { LogError("Dungeon history refresh unavailable [{}]",e.what()); }
+}
+
+void ShowChecklist(Client *c, const Run &run) {
+	auto rows=Query(fmt::format("SELECT boss_id FROM nightcap_dungeon_kills WHERE run_id={} AND character_id={}",Q(run.id),c->CharacterID()));
+	std::set<unsigned> done; for (auto r : rows) { done.insert(Strings::ToUnsignedInt(r[0])); }
+	const auto now=Now();
+	const auto remaining=run.expiry>now ? (run.expiry-now)/60 : 0;
+	c->Message(Chat::White,"%s - %s: %u/%u bosses credited, %llu minutes remaining. Open Tasks and select this run for your checklist.",
+		run.dungeon->name,run.mode==Mode::Raid ? "Raid" : "Grind",static_cast<unsigned>(done.size()),run.dungeon->count,static_cast<unsigned long long>(remaining));
+	for (const auto &b : Bosses) {
+		if (b.zone==run.dungeon->zone) { c->Message(Chat::White,"[%s] %s%s",done.count(b.objective) ? "Complete" : "Required",b.name,
+			run.mode==Mode::Raid && b.final && !done.count(b.objective) ? " (unlocks after all minibosses)" : ""); }
+	}
+}
+}
+
+void ConfigureJournalTask(int task_id, TaskInformation &task) {
+	if (task_id<9700 || task_id>9713) { return; }
+	const auto &d=Dungeons[(task_id-9700)/2];
+	if (task.type!=TaskType::Quest || task.activity_count!=static_cast<int>(d.count+1)) { return; }
+	const bool raid=(task_id-9700)%2==1;
+	task.description="Defeat every named boss below with personal encounter credit. Open Tasks and select this run to see your checklist. "
+		"Task Stage Completed means one boss objective, not the whole dungeon. A full clear appears in Completed history. "
+		"Keeper Status shows your permanent counts and remaining time; Claim Rewards delivers any pending item. "
+		"No credit is given for missed kills. ";
+	task.description+=raid ? "Raid: defeat all minibosses to unlock the final boss. Enemies do not respawn." :
+		"Grind: missed bosses can be credited on later respawns.";
+	task.reward="One personal completion item per run; pending rewards remain available through the Instance Keeper.";
+	for (const auto &b : Bosses) {
+		if (b.zone!=d.zone) { continue; }
+		auto &activity=task.activity_information[b.objective-1];
+		activity.activity_type=TaskActivityType::Kill;
+		activity.goal_method=METHODQUEST; // Only the authoritative dungeon ledger may update it.
+		activity.target_name=b.name;
+		activity.description_override=std::string("Defeat ")+b.name+(raid && b.final ? " (unlocks after all minibosses)" : "");
+		activity.step=0; activity.req_activity_id=-1;
+	}
+	// Retain the installed sentinel so ordinary task updates never dispatch a
+	// completion event/reward. The ledger projects completed history directly.
+	auto &summary=task.activity_information[d.count];
+	summary.activity_type=TaskActivityType::Kill;
+	summary.goal_method=METHODQUEST;
+	summary.description_override="Full dungeon clear: receive credit for every required boss.";
+	summary.step=1; summary.req_activity_id=-1;
+	task.selector_ids.clear();
+	for (unsigned i=0;i<d.count;++i) { task.selector_ids.push_back(i); }
 }
 
 bool Managed() { return !current.id.empty(); }
@@ -325,6 +406,8 @@ bool BeforeDeath(NPC *npc, Mob *killer, bool owned, Corpse *corpse) {
 		if (boss && !owned) { objectives.insert(boss->objective); }
 		if (boss) { for (auto c : credit) { Journal(c); } }
 		for (auto c : completed) {
+			c->Message(Chat::Yellow,"Dungeon complete: %s - %s. All %u required bosses credited. Your personal reward is earned. Keeper Status records your permanent completion count.",
+				run.dungeon->name,run.mode==Mode::Raid ? "Raid" : "Grind",run.dungeon->count);
 			// Eligibility is already committed. Inventory delivery uses its own
 			// atomic transaction; failure leaves the immutable Keeper claim intact.
 			try { Claim(c,true); } catch (const std::exception &e) { LogError("Dungeon reward remains pending [{}]",e.what()); }
@@ -347,9 +430,20 @@ void Journal(Client *c) {
 		if (!member.RowCount()) { return; }
 		const auto task=9700+run.dungeon->index*2+unsigned(run.mode);
 		auto state=c->GetTaskState();
+		const auto completed=Strings::ToInt(member.begin()[0]);
+		if (completed>0) {
+			if (state->RecordCompletedTaskFromLedger(c,task,completed)) {
+				if (state->IsTaskActive(task)) { state->RemoveTaskByTaskID(c,task); }
+			} else { LogError("Dungeon completed journal remains pending character [{}]",c->CharacterID()); }
+			return;
+		}
 		const auto key="nightcap:dungeon-journal-"+std::to_string(task);
 		if (c->GetEntityVariable(key)!=run.id) {
-			if (state->IsTaskActive(task)) { state->RemoveTaskByTaskID(c,task); }
+			bool same_start=false;
+			for (int slot=0;slot<MAXACTIVEQUESTS;++slot) {
+				if (state->GetActiveTaskID(slot)==static_cast<int>(task) && state->GetTaskStartTime(TaskType::Quest,slot)==static_cast<int>(run.start)) { same_start=true; }
+			}
+			if (state->IsTaskActive(task) && (!same_start || !c->GetEntityVariable(key).empty())) { state->RemoveTaskByTaskID(c,task); }
 			c->SetEntityVariable(key,run.id);
 		}
 		if (!state->IsTaskActive(task)) { state->AcceptNewTask(c,task,0,run.start); }
@@ -357,11 +451,16 @@ void Journal(Client *c) {
 		std::set<unsigned> done; for (auto r : rows) { done.insert(Strings::ToUnsignedInt(r[0])); }
 		for (unsigned i=1;i<=run.dungeon->count;++i) {
 			const auto actual=state->GetTaskActivityDoneCountFromTaskID(task,i-1);
-			if (done.count(i) && actual==0) { state->UpdateTaskActivity(c,task,i-1,1,true); }
+			if (done.count(i) && actual==0) {
+				state->UpdateTaskActivity(c,task,i-1,1,true);
+				for (const auto &b : Bosses) {
+					if (b.zone==run.dungeon->zone && b.objective==i) { c->Message(Chat::Yellow,"Boss credited: %s (%u/%u required bosses). The dungeon is still in progress.",
+						b.name,static_cast<unsigned>(done.size()),run.dungeon->count); }
+				}
+			}
 			if (!done.count(i) && actual>0) { state->ResetTaskActivity(c,task,i-1); }
 		}
-		// A final journal-only activity keeps the display available until expiry;
-		// it never grants items. The durable ledger alone owns completion.
+		// Never update the sentinel: native completion hooks are not reward owners.
 	} catch (const std::exception &e) { LogError("Dungeon journal unavailable [{}]",e.what()); }
 }
 
@@ -388,7 +487,8 @@ void Connected(Client *c) {
 			Query(fmt::format("UPDATE nightcap_dungeon_members SET inside_instance=1 WHERE run_id={} AND character_id={}",Q(current.id),c->CharacterID()));
 		}
 		tx.Commit();
-		if (Managed()) { Journal(c); }
+		JournalHistory(c);
+		if (Managed()) { Journal(c); ShowChecklist(c,current); }
 	} catch (const std::exception &e) {
 		LogError("Dungeon presence update failed [{}]",e.what());
 		if (Managed()) { c->Disconnect(); }
@@ -420,6 +520,8 @@ bool Keeper(Client *c, NPC *keeper, const std::string &action) {
 		}
 		const bool enabled=Enabled();
 		auto run=Personal(c->CharacterID(),d->zone);
+		const bool inspecting=action=="hail" || action.rfind("hail,",0)==0 || action.rfind("hail ",0)==0 || action=="status";
+		if (inspecting) { JournalHistory(c); }
 		// Existing native allocations retain their original quest flow. Do this
 		// before Enter/Join handling, including after feature disablement.
 		auto legacy=[&](uint32_t character) {
@@ -438,15 +540,12 @@ bool Keeper(Client *c, NPC *keeper, const std::string &action) {
 		if (!enabled && run.id.empty() && !native_managed && action!="claim rewards") { return false; }
 		if (action=="claim rewards") { Claim(c); return true; }
 		if (native_managed && run.id.empty()) { c->Message(Chat::Yellow,"This managed run has expired or been retired. Earned rewards remain claimable."); return true; }
-		if (action=="hail" || action.rfind("hail,",0)==0 || action.rfind("hail ",0)==0 || action=="status") {
+		if (inspecting) {
 			c->Message(Chat::White,"Choose %s or %s for a fresh 12-hour run. %s | %s | %s | %s | %s",
 				Saylink::Silent("raid","Raid").c_str(),Saylink::Silent("grind","Grind").c_str(),Saylink::Silent("enter","Enter").c_str(),
 				Saylink::Silent("join","Join").c_str(),Saylink::Silent("status","Status").c_str(),Saylink::Silent("claim rewards","Claim Rewards").c_str(),Saylink::Silent("reset","Reset").c_str());
 			if (!run.id.empty()) {
-				c->Message(Chat::White,"%s: %s, %llu minutes remaining.",d->name,run.mode==Mode::Raid ? "Raid" : "Grind",static_cast<unsigned long long>((run.expiry-Now())/60));
-				auto rows=Query(fmt::format("SELECT boss_id FROM nightcap_dungeon_kills WHERE run_id={} AND character_id={}",Q(run.id),c->CharacterID()));
-				std::set<unsigned> done; for (auto r : rows) { done.insert(Strings::ToUnsignedInt(r[0])); }
-				for (const auto &b : Bosses) { if (b.zone==d->zone) { c->Message(Chat::White,"[%s] %s",done.count(b.objective) ? "Complete" : "Required",b.name); } }
+				ShowChecklist(c,run);
 				Journal(c);
 			}
 			auto history=Query(fmt::format("SELECT r.mode,COUNT(*) FROM nightcap_dungeon_members m JOIN nightcap_dungeon_runs r ON r.run_id=m.run_id WHERE m.character_id={} AND m.completed_at>0 AND r.zone_id={} GROUP BY r.mode",c->CharacterID(),d->zone));
