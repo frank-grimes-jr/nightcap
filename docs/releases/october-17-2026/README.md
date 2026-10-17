@@ -53,6 +53,12 @@ against the unchanged production preimage. See [QA.md](QA.md) for visible checks
 
 ## Operator sequence
 
+Check filesystem headroom before staging/building or stopping services. This
+release encountered a full 72 GB production filesystem; only redundant transfer
+archives and unused Docker build cache were reclaimed, with all image tags,
+service lifetimes, volumes and backups preserved. Record the cleanup receipts
+and require enough room for image layers, a full backup and regenerated cache.
+
 Private staging is `/opt/nightcap/releases/october-17-2026`. Authenticate every
 input through its release manifest. `rollout.py preflight` checks live rules,
 services, source image, client channel, quests and content, builds an immutable
