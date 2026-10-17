@@ -164,6 +164,12 @@ struct Client {
     unsigned GetAA(int, uint32*) const { return 0; }
     void SendAlternateAdvancementRank(int, unsigned) { ++aa_rows; }
     void SendAlternateAdvancementStats() { ++aa_refreshes; }
+    // Ownership persistence and bonus projection have their own native tests;
+    // this fixture controls those unchanged boundaries while checking UI refresh.
+    bool ReprojectEarnedAAs() { return true; }
+    void CalcBonuses() {}
+    void SendClearPlayerAA() {}
+    void SendAlternateAdvancementPoints() {}
     void Message(int, const char* format, ...) {
         char message[256];
         va_list args;

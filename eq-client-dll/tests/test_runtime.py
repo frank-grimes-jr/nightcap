@@ -95,6 +95,11 @@ class RuntimeTests(unittest.TestCase):
                 self.assertFalse(list(directory.glob("*.tmp")))
                 self.assertFalse(list(Path(temp).glob("nightcap_*")))
 
+    def test_recommended_aa_policy_and_native_filter(self):
+        for name in ("aa-recommendations", "aa-recommendations-native"):
+            result = subprocess.run([ROOT / f"build/tests/{name}.exe"], capture_output=True, timeout=15)
+            self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+
     def test_health_atomic_replacement(self):
         with tempfile.TemporaryDirectory(prefix="nightcap-health-") as temp:
             result = subprocess.run([ROOT / "build/tests/runtime-health.exe", temp + os.sep], capture_output=True, timeout=15)

@@ -1,0 +1,638 @@
+{
+  "audited_at": "2026-10-12",
+  "scope": "Reviewed local files; not runtime or player QA evidence",
+  "topics": {
+    "client": [
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\merchant-sell-all\\eq-client-dll\\src\\pet_management.h",
+        "role": "client roster/native availability contract",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\merchant-sell-all\\server-mods\\code\\zone\\client_class_pets.cpp",
+        "role": "server pet lifecycle and command ownership",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\merchant-sell-all\\eq-client-dll\\src\\advanced_loot_state.h",
+        "role": "acknowledged client loot state",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\merchant-sell-all\\tools\\client_merchant_ui.py",
+        "role": "generated merchant SIDL",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\merchant-sell-all\\docs\\releases\\merchant-sell-all-20261012.md",
+        "role": "merchant button owner resolution October 13; initial signed 2026101201 publication evidence",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\merchant-sell-all\\docs\\ops\\darthy-pet-crash-20261011.md",
+        "role": "register contract and scoped owner confirmation",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\merchant-sell-all\\docs\\releases\\blessing-lifetime-20261004\\README.md",
+        "role": "native -1000 versus icon -1",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\docs\\ops\\karl-rescue-20261012.md",
+        "role": "Karl server rescue and screenshot-confirmed commons client failure; installation and QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\artifacts\\karl-rescue-20261012\\commons-package-validation.json",
+        "role": "manual two-archive package integrity evidence; no remote installation or signed publication",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-17\\see\\work\\monk-independent-reuse\\eq-client-dll\\src\\dllmain.cpp",
+        "role": "reviewed native submission/commit installation; preserved equipment/spell access",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-12\\g-2\\work\\early-spell-scribing\\docs\\releases\\early-spell-scribing-20261012\\README.md",
+        "role": "candidate pairing, recovery and exact owner QA; not deployed",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-12\\g-2\\work\\early-spell-scribing\\docs\\releases\\early-spell-scribing-20261012\\verification.json",
+        "role": "compiled native and client evidence; in-game acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-12\\g-2\\work\\early-spell-scribing\\docs\\releases\\early-spell-scribing-20261012\\client-receipt.json",
+        "role": "signed publication and service preservation",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-12\\g-2\\work\\early-spell-scribing\\docs\\releases\\early-spell-scribing-20261012\\hosted-verification.json",
+        "role": "public HTTPS signature and 105 exact files",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-12\\g-2\\work\\early-spell-scribing\\docs\\releases\\early-spell-scribing-20261012\\deployment\\client\\stage\\publish.py",
+        "role": "atomic channel-last publisher",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-12\\g-2\\work\\early-spell-scribing\\docs\\releases\\early-spell-scribing-20261012\\deployment\\client\\test_publish.py",
+        "role": "twelve publication recovery tests",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-16\\p\\work\\dungeon-modes\\eq-launcher\\patch-notes.json",
+        "role": "Published signed dungeon announcement2026101701; all106 asset records and thirteen prior summaries retained",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-16\\p\\work\\dungeon-modes\\eq-launcher\\cmd\\nightcap-package\\notes_test.go",
+        "role": "Reviewed dungeon patcher announcement, signed publication or verification; installed desktop owner QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-15\\g\\work\\multiclass-equipment\\eq-client-dll\\tests\\test_runtime.py",
+        "role": "seven runtime groups including native equipment regression",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\multiclass-trainer-access\\docs\\releases\\multiclass-trainers-20261012\\deployment\\client\\stage\\publish.py",
+        "role": "reviewed trainer access release; deployed, player acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\multiclass-trainer-access\\docs\\releases\\multiclass-trainers-20261012\\deployment\\client\\test_publish.py",
+        "role": "reviewed trainer access release; deployed, player acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\multiclass-trainer-access\\docs\\releases\\multiclass-trainers-20261012\\deployment\\client\\verify-production.go",
+        "role": "reviewed trainer access release; deployed, player acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\multiclass-trainer-access\\docs\\releases\\multiclass-trainers-20261012\\verification.json",
+        "role": "reviewed trainer access release; deployed, player acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\multiclass-trainer-access\\docs\\releases\\multiclass-trainers-20261012\\server-receipt.json",
+        "role": "reviewed trainer access release; deployed, player acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\multiclass-trainer-access\\docs\\releases\\multiclass-trainers-20261012\\client-receipt.json",
+        "role": "reviewed trainer access release; deployed, player acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\multiclass-trainer-access\\docs\\releases\\multiclass-trainers-20261012\\hosted-verification.json",
+        "role": "reviewed trainer access release; deployed, player acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\multiclass-trainer-access\\eq-client-dll\\src\\trainer_hooks.h",
+        "role": "reviewed multiclass progression corrective release; PR #191 merged and paired correction deployed October 13: signed game 2026101301, all 12 zones and 105 hosted assets verified. Owner reported the issue resolved October 13; individual control steps not separately enumerated.",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\multiclass-trainer-access\\eq-client-dll\\tests\\trainer-native.cpp",
+        "role": "reviewed multiclass progression corrective release; PR #191 merged and paired correction deployed October 13: signed game 2026101301, all 12 zones and 105 hosted assets verified. Owner reported the issue resolved October 13; individual control steps not separately enumerated.",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-17\\see\\work\\monk-independent-reuse\\eq-client-dll\\src\\patch_catalog.h",
+        "role": "103 exact-client guards including shared Monk submitter and reuse methods",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-17\\see\\work\\monk-independent-reuse\\eq-client-dll\\src\\runtime_contract.h",
+        "role": "unpublished proxy0.9.2-dev and generated paired catalog contract",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-15\\g\\work\\multiclass-equipment\\eq-client-dll\\tests\\verify-exact-client-patch-sites.ps1",
+        "role": "exact supported executable and95 guard checks",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-15\\g\\work\\multiclass-equipment\\tools\\generate-client-patch-catalog.py",
+        "role": "shared runtime/launcher guard generator",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-16\\p\\work\\dungeon-modes\\eq-launcher\\patch-notes.json",
+        "role": "Published signed dungeon announcement2026101701; all106 asset records and thirteen prior summaries retained",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-17\\see\\work\\monk-independent-reuse\\eq-launcher\\internal\\preflight\\catalog.json",
+        "role": "generated launcher catalog matching candidate proxy; full Go tests pass",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\multiclass-trainer-access\\eq-launcher\\cmd\\nightcap-package\\notes_test.go",
+        "role": "reviewed multiclass progression corrective release; PR #191 merged and paired correction deployed October 13: signed game 2026101301, all 12 zones and 105 hosted assets verified. Owner reported the issue resolved October 13; individual control steps not separately enumerated.",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\multiclass-trainer-access\\eq-client-dll\\README.md",
+        "role": "reviewed multiclass progression corrective release; PR #191 merged and paired correction deployed October 13: signed game 2026101301, all 12 zones and 105 hosted assets verified. Owner reported the issue resolved October 13; individual control steps not separately enumerated.",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\multiclass-trainer-access\\docs\\releases\\multiclass-trainers-20261012\\README.md",
+        "role": "reviewed multiclass progression corrective release; PR #191 merged and paired correction deployed October 13: signed game 2026101301, all 12 zones and 105 hosted assets verified. Owner reported the issue resolved October 13; individual control steps not separately enumerated.",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\multiclass-trainer-access\\docs\\releases\\multiclass-skills-20261013\\build-manifest.json",
+        "role": "reviewed multiclass progression corrective release; PR #191 merged and paired correction deployed October 13: signed game 2026101301, all 12 zones and 105 hosted assets verified. Owner reported the issue resolved October 13; individual control steps not separately enumerated.",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\multiclass-trainer-access\\docs\\releases\\multiclass-skills-20261013\\client-diff.json",
+        "role": "reviewed multiclass progression corrective release; PR #191 merged and paired correction deployed October 13: signed game 2026101301, all 12 zones and 105 hosted assets verified. Owner reported the issue resolved October 13; individual control steps not separately enumerated.",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\multiclass-trainer-access\\docs\\releases\\multiclass-skills-20261013\\client-native-gates.txt",
+        "role": "reviewed multiclass progression corrective release; PR #191 merged and paired correction deployed October 13: signed game 2026101301, all 12 zones and 105 hosted assets verified. Owner reported the issue resolved October 13; individual control steps not separately enumerated.",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\multiclass-trainer-access\\docs\\releases\\multiclass-skills-20261013\\client-receipt.json",
+        "role": "reviewed multiclass progression corrective release; PR #191 merged and paired correction deployed October 13: signed game 2026101301, all 12 zones and 105 hosted assets verified. Owner reported the issue resolved October 13; individual control steps not separately enumerated.",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\multiclass-trainer-access\\docs\\releases\\multiclass-skills-20261013\\client-verification.json",
+        "role": "reviewed multiclass progression corrective release; PR #191 merged and paired correction deployed October 13: signed game 2026101301, all 12 zones and 105 hosted assets verified. Owner reported the issue resolved October 13; individual control steps not separately enumerated.",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\multiclass-trainer-access\\docs\\releases\\multiclass-skills-20261013\\deployment\\client\\stage\\publish.py",
+        "role": "reviewed multiclass progression corrective release; PR #191 merged and paired correction deployed October 13: signed game 2026101301, all 12 zones and 105 hosted assets verified. Owner reported the issue resolved October 13; individual control steps not separately enumerated.",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\multiclass-trainer-access\\docs\\releases\\multiclass-skills-20261013\\deployment\\client\\test_publish.py",
+        "role": "reviewed multiclass progression corrective release; PR #191 merged and paired correction deployed October 13: signed game 2026101301, all 12 zones and 105 hosted assets verified. Owner reported the issue resolved October 13; individual control steps not separately enumerated.",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\multiclass-trainer-access\\docs\\releases\\multiclass-skills-20261013\\deployment\\client\\verify-production.go",
+        "role": "reviewed multiclass progression corrective release; PR #191 merged and paired correction deployed October 13: signed game 2026101301, all 12 zones and 105 hosted assets verified. Owner reported the issue resolved October 13; individual control steps not separately enumerated.",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\multiclass-trainer-access\\docs\\releases\\multiclass-skills-20261013\\deployment\\native\\final-health.py",
+        "role": "reviewed multiclass progression corrective release; PR #191 merged and paired correction deployed October 13: signed game 2026101301, all 12 zones and 105 hosted assets verified. Owner reported the issue resolved October 13; individual control steps not separately enumerated.",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\multiclass-trainer-access\\docs\\releases\\multiclass-skills-20261013\\deployment\\native\\manifest.json",
+        "role": "reviewed multiclass progression corrective release; PR #191 merged and paired correction deployed October 13: signed game 2026101301, all 12 zones and 105 hosted assets verified. Owner reported the issue resolved October 13; individual control steps not separately enumerated.",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\multiclass-trainer-access\\docs\\releases\\multiclass-skills-20261013\\deployment\\native\\rollout.py",
+        "role": "reviewed multiclass progression corrective release; PR #191 merged and paired correction deployed October 13: signed game 2026101301, all 12 zones and 105 hosted assets verified. Owner reported the issue resolved October 13; individual control steps not separately enumerated.",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\multiclass-trainer-access\\docs\\releases\\multiclass-skills-20261013\\deployment\\native\\test_rollout.py",
+        "role": "reviewed multiclass progression corrective release; PR #191 merged and paired correction deployed October 13: signed game 2026101301, all 12 zones and 105 hosted assets verified. Owner reported the issue resolved October 13; individual control steps not separately enumerated.",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\multiclass-trainer-access\\docs\\releases\\multiclass-skills-20261013\\final-health.json",
+        "role": "reviewed multiclass progression corrective release; PR #191 merged and paired correction deployed October 13: signed game 2026101301, all 12 zones and 105 hosted assets verified. Owner reported the issue resolved October 13; individual control steps not separately enumerated.",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\multiclass-trainer-access\\docs\\releases\\multiclass-skills-20261013\\hosted-verification.json",
+        "role": "reviewed multiclass progression corrective release; PR #191 merged and paired correction deployed October 13: signed game 2026101301, all 12 zones and 105 hosted assets verified. Owner reported the issue resolved October 13; individual control steps not separately enumerated.",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\multiclass-trainer-access\\docs\\releases\\multiclass-skills-20261013\\legacy-tag-restored.json",
+        "role": "reviewed multiclass progression corrective release; PR #191 merged and paired correction deployed October 13: signed game 2026101301, all 12 zones and 105 hosted assets verified. Owner reported the issue resolved October 13; individual control steps not separately enumerated.",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\multiclass-trainer-access\\docs\\releases\\multiclass-skills-20261013\\local-client-verification.json",
+        "role": "reviewed multiclass progression corrective release; PR #191 merged and paired correction deployed October 13: signed game 2026101301, all 12 zones and 105 hosted assets verified. Owner reported the issue resolved October 13; individual control steps not separately enumerated.",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\multiclass-trainer-access\\docs\\releases\\multiclass-skills-20261013\\preflight-summary.json",
+        "role": "reviewed multiclass progression corrective release; PR #191 merged and paired correction deployed October 13: signed game 2026101301, all 12 zones and 105 hosted assets verified. Owner reported the issue resolved October 13; individual control steps not separately enumerated.",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\multiclass-trainer-access\\docs\\releases\\multiclass-skills-20261013\\production-probe.json",
+        "role": "reviewed multiclass progression corrective release; PR #191 merged and paired correction deployed October 13: signed game 2026101301, all 12 zones and 105 hosted assets verified. Owner reported the issue resolved October 13; individual control steps not separately enumerated.",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\multiclass-trainer-access\\docs\\releases\\multiclass-skills-20261013\\README.md",
+        "role": "reviewed multiclass progression corrective release; PR #191 merged and paired correction deployed October 13: signed game 2026101301, all 12 zones and 105 hosted assets verified. Owner reported the issue resolved October 13; individual control steps not separately enumerated.",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\multiclass-trainer-access\\docs\\releases\\multiclass-skills-20261013\\server-receipt.json",
+        "role": "reviewed multiclass progression corrective release; PR #191 merged and paired correction deployed October 13: signed game 2026101301, all 12 zones and 105 hosted assets verified. Owner reported the issue resolved October 13; individual control steps not separately enumerated.",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\multiclass-trainer-access\\docs\\releases\\multiclass-skills-20261013\\server-report.json",
+        "role": "reviewed multiclass progression corrective release; PR #191 merged and paired correction deployed October 13: signed game 2026101301, all 12 zones and 105 hosted assets verified. Owner reported the issue resolved October 13; individual control steps not separately enumerated.",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\multiclass-trainer-access\\docs\\releases\\multiclass-skills-20261013\\server-verification.json",
+        "role": "reviewed multiclass progression corrective release; PR #191 merged and paired correction deployed October 13: signed game 2026101301, all 12 zones and 105 hosted assets verified. Owner reported the issue resolved October 13; individual control steps not separately enumerated.",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\multiclass-trainer-access\\docs\\releases\\multiclass-skills-20261013\\verification.json",
+        "role": "reviewed multiclass progression corrective release; PR #191 merged and paired correction deployed October 13: signed game 2026101301, all 12 zones and 105 hosted assets verified. Owner reported the issue resolved October 13; individual control steps not separately enumerated.",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\docs\\releases\\aa-tbs-level1-20261013\\sign-notes.go",
+        "role": "Reviewed level-1 AA correction or signed publication evidence; owner QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\docs\\releases\\aa-tbs-level1-20261013\\publish-notes.py",
+        "role": "Reviewed level-1 AA correction or signed publication evidence; owner QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\docs\\releases\\aa-tbs-level1-20261013\\hosted-notes-verification.json",
+        "role": "Reviewed level-1 AA correction or signed publication evidence; owner QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\eq-launcher\\cmd\\nightcap-package\\notes_test.go",
+        "role": "Reviewed AA class-rank/Triple Backstab release source, verification or OVH evidence; gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\docs\\releases\\aa-class-ranks-20261013\\sign-notes.go",
+        "role": "Reviewed AA class-rank/Triple Backstab release source, verification or OVH evidence; gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\docs\\releases\\aa-class-ranks-20261013\\publish-notes.py",
+        "role": "Reviewed AA class-rank/Triple Backstab release source, verification or OVH evidence; gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\docs\\releases\\aa-class-ranks-20261013\\test_publish_notes.py",
+        "role": "Reviewed AA class-rank/Triple Backstab release source, verification or OVH evidence; gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\docs\\releases\\aa-class-ranks-20261013\\notes-published.json",
+        "role": "Reviewed AA class-rank/Triple Backstab release source, verification or OVH evidence; gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\aa-tbs-policy\\EQ_Local_Dev\\docs\\releases\\aa-class-ranks-20261013\\hosted-notes-verification.json",
+        "role": "Reviewed AA class-rank/Triple Backstab release source, verification or OVH evidence; gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-13\\w\\work\\tradeskill-revamp\\eq-client-dll\\src\\tradeskill_hooks.h",
+        "role": "reviewed stacked tradeskill/Craft All source and paired live delivery; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-13\\w\\work\\tradeskill-revamp\\eq-client-dll\\src\\tradeskill_repeat.h",
+        "role": "reviewed stacked tradeskill/Craft All source and paired live delivery; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-17\\see\\work\\monk-independent-reuse\\eq-client-dll\\src\\ui_hooks.h",
+        "role": "Monk session reset; preserved scribing/trainer/tradeskill hooks",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-13\\w\\work\\tradeskill-revamp\\eq-client-dll\\tests\\ui-hooks.cpp",
+        "role": "reviewed stacked tradeskill/Craft All source and paired live delivery; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-13\\w\\work\\tradeskill-revamp\\eq-client-dll\\tests\\tradeskill-repeat.cpp",
+        "role": "reviewed stacked tradeskill/Craft All source and paired live delivery; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-17\\see\\work\\monk-independent-reuse\\eq-client-dll\\config\\patch-sites.json",
+        "role": "canonical candidate proxy version and patch contract",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-13\\w\\work\\tradeskill-revamp\\tools\\client_tradeskill_ui.py",
+        "role": "reviewed stacked tradeskill/Craft All source and paired live delivery; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-13\\w\\work\\tradeskill-revamp\\tools\\stage_tradeskill_client.py",
+        "role": "reviewed stacked tradeskill/Craft All source and paired live delivery; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-13\\w\\work\\tradeskill-revamp\\tools\\tests\\test_client_tradeskill_ui.py",
+        "role": "reviewed stacked tradeskill/Craft All source and paired live delivery; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-13\\w\\work\\tradeskill-revamp\\docs\\tradeskills\\README.md",
+        "role": "reviewed stacked tradeskill/Craft All source and paired live delivery; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-13\\w\\work\\tradeskill-revamp\\docs\\tradeskills\\client-audit.json",
+        "role": "reviewed stacked tradeskill/Craft All source and paired live delivery; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-13\\w\\work\\tradeskill-revamp\\docs\\tradeskills\\verification.json",
+        "role": "reviewed stacked tradeskill/Craft All source and paired live delivery; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-13\\w\\work\\tradeskill-revamp\\docs\\tradeskills\\deployment.json",
+        "role": "reviewed stacked tradeskill/Craft All source and paired live delivery; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-13\\w\\work\\tradeskill-revamp\\docs\\tradeskills\\hosted-verification.json",
+        "role": "reviewed stacked tradeskill/Craft All source and paired live delivery; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-13\\w\\work\\tradeskill-revamp\\docs\\tradeskills\\signed-release-audit.json",
+        "role": "reviewed stacked tradeskill/Craft All source and paired live delivery; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-13\\w\\work\\tradeskill-revamp\\docs\\tradeskills\\publication-diff.json",
+        "role": "reviewed stacked tradeskill/Craft All source and paired live delivery; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-13\\w\\work\\tradeskill-revamp\\docs\\tradeskills\\deployment\\client\\stage\\publish.py",
+        "role": "reviewed stacked tradeskill/Craft All source and paired live delivery; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-13\\w\\work\\tradeskill-revamp\\docs\\tradeskills\\deployment\\client\\test_publish.py",
+        "role": "reviewed stacked tradeskill/Craft All source and paired live delivery; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-13\\w\\work\\tradeskill-revamp\\docs\\tradeskills\\deployment\\client\\verify-production.go",
+        "role": "reviewed stacked tradeskill/Craft All source and paired live delivery; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-13\\w\\work\\tradeskill-revamp\\eq-launcher\\cmd\\nightcap-package\\gameplay.go",
+        "role": "reviewed stacked tradeskill/Craft All source and paired live delivery; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-13\\w\\work\\tradeskill-revamp\\eq-launcher\\cmd\\nightcap-package\\gameplay_test.go",
+        "role": "reviewed stacked tradeskill/Craft All source and paired live delivery; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-13\\w\\work\\tradeskill-revamp\\eq-launcher\\cmd\\nightcap-package\\notes_test.go",
+        "role": "reviewed stacked tradeskill/Craft All source and paired live delivery; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-15\\g\\work\\multiclass-equipment\\eq-client-dll\\src\\equipment_scope.h",
+        "role": "held-class item/thread/flag projection with zero-mask preservation",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-15\\g\\work\\multiclass-equipment\\eq-client-dll\\tests\\equipment-native.cpp",
+        "role": "78 exact-client checks using real native race/slot/weapon and inspection instructions",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-15\\g\\work\\multiclass-equipment\\eq-client-dll\\tests\\equipment-scope.cpp",
+        "role": "4096 primary/held/item combinations and scope controls",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-15\\g\\work\\multiclass-equipment\\docs\\releases\\multiclass-equipment-20261015\\README.md",
+        "role": "published client and owner-confirmed javelin use; separate race follow-up",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-15\\g\\work\\multiclass-equipment\\docs\\releases\\multiclass-equipment-20261015\\verification.json",
+        "role": "native/build/review and hosted evidence; gameplay pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-15\\g\\work\\multiclass-equipment\\docs\\ops\\permanent-patcher.md",
+        "role": "client publication guards, nested-directory durability and interrupted-upload recovery",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-15\\g\\work\\multiclass-equipment\\docs\\releases\\multiclass-equipment-20261015\\deployment\\client\\test_publish.py",
+        "role": "13 publication/recovery tests including nested fsync order",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-15\\g\\work\\multiclass-equipment\\docs\\releases\\multiclass-equipment-20261015\\deployment.json",
+        "role": "authorized publication, exact unchanged services, source and expiry",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-15\\g\\work\\multiclass-equipment\\docs\\releases\\multiclass-equipment-20261015\\hosted-verification.json",
+        "role": "106 public assets and shipped-key signature verified",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-15\\g\\work\\multiclass-equipment\\docs\\releases\\multiclass-equipment-20261015\\deployment\\client\\stage\\publish.py",
+        "role": "guarded channel-last publisher; deepest-first directory fsync",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-17\\see\\work\\cooldown-audit\\server-mods\\code\\zone\\spells.cpp",
+        "role": "reviewed signed item/linked duration and zero custom/linked completion; preserved deployed AA duration and proc guards; candidate only",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-15\\e\\work\\aa-temporary-buffs\\docs\\releases\\aa-temporary-buffs-20261015\\README.md",
+        "role": "deployed behavior, client/reload pairing, recovery and pending owner QA",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-15\\e\\work\\aa-temporary-buffs\\docs\\releases\\aa-temporary-buffs-20261015\\verification.json",
+        "role": "thirty behavior checks and deployed receipt boundary",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-15\\e\\work\\aa-temporary-buffs\\docs\\releases\\aa-temporary-buffs-20261015\\deployment.json",
+        "role": "verified OVH running hashes, backup, data preservation and unchanged client",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-15\\e\\work\\aa-temporary-buffs\\docs\\releases\\aa-temporary-buffs-20261015\\deployment\\README.md",
+        "role": "release-specific authorization and guarded operation/recovery",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-16\\p\\work\\dungeon-modes\\docs\\releases\\dungeon-patcher-20261017\\README.md",
+        "role": "Reviewed dungeon patcher announcement, signed publication or verification; installed desktop owner QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-16\\p\\work\\dungeon-modes\\docs\\releases\\dungeon-patcher-20261017\\verification.json",
+        "role": "Reviewed dungeon patcher announcement, signed publication or verification; installed desktop owner QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-16\\p\\work\\dungeon-modes\\docs\\releases\\dungeon-patcher-20261017\\sign-notes.go",
+        "role": "Reviewed dungeon patcher announcement, signed publication or verification; installed desktop owner QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-16\\p\\work\\dungeon-modes\\docs\\releases\\dungeon-patcher-20261017\\publish-notes.py",
+        "role": "Reviewed dungeon patcher announcement, signed publication or verification; installed desktop owner QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-16\\p\\work\\dungeon-modes\\docs\\releases\\dungeon-patcher-20261017\\test_publish_notes.py",
+        "role": "Reviewed dungeon patcher announcement, signed publication or verification; installed desktop owner QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-16\\p\\work\\dungeon-modes\\docs\\releases\\dungeon-patcher-20261017\\published.json",
+        "role": "Reviewed dungeon patcher announcement, signed publication or verification; installed desktop owner QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-16\\p\\work\\dungeon-modes\\docs\\releases\\dungeon-patcher-20261017\\hosted-verification.json",
+        "role": "Reviewed dungeon patcher announcement, signed publication or verification; installed desktop owner QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-16\\p\\work\\dungeon-modes\\docs\\releases\\dungeon-patcher-20261017\\layout-verification.json",
+        "role": "Reviewed dungeon patcher announcement, signed publication or verification; installed desktop owner QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-17\\see\\work\\monk-independent-reuse\\eq-client-dll\\src\\monk_reuse.h",
+        "role": "six per-skill records, guarded native methods and SEH submission scope; not published",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-17\\see\\work\\monk-independent-reuse\\eq-client-dll\\tests\\monk-reuse-native.cpp",
+        "role": "60 exact-native reuse and submit/commit checks with controlled combat boundaries",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-17\\see\\work\\monk-independent-reuse\\docs\\releases\\monk-independent-reuse-20261017\\README.md",
+        "role": "candidate pairing, build limits, no deployment, exact gameplay/balance QA",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-17\\see\\work\\cooldown-audit\\docs\\releases\\cooldown-audit-20261017\\README.md",
+        "role": "reviewed audit, remaining identity defects, build/pairing/no deployment and exact gameplay QA",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\passive-aa-ten\\EQ_Local_Dev\\eq-client-dll\\src\\ui_hooks.h",
+        "role": "Recommended AA candidate; source and local tests reviewed, no paired deployment or visible acceptance. Preserve parallel Monk/cooldown candidate integration.",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\passive-aa-ten\\EQ_Local_Dev\\eq-client-dll\\src\\ui_state.h",
+        "role": "Recommended AA candidate; source and local tests reviewed, no paired deployment or visible acceptance. Preserve parallel Monk/cooldown candidate integration.",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\passive-aa-ten\\EQ_Local_Dev\\eq-client-dll\\tests\\aa-recommendations.cpp",
+        "role": "Recommended AA candidate; source and local tests reviewed, no paired deployment or visible acceptance. Preserve parallel Monk/cooldown candidate integration.",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\passive-aa-ten\\EQ_Local_Dev\\eq-client-dll\\tests\\aa-recommendations-native.cpp",
+        "role": "Recommended AA candidate; source and local tests reviewed, no paired deployment or visible acceptance. Preserve parallel Monk/cooldown candidate integration.",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\passive-aa-ten\\EQ_Local_Dev\\eq-client-dll\\config\\patch-sites.json",
+        "role": "Recommended AA candidate; source and local tests reviewed, no paired deployment or visible acceptance. Preserve parallel Monk/cooldown candidate integration.",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\passive-aa-ten\\EQ_Local_Dev\\tools\\client_gameplay_assets.py",
+        "role": "Recommended AA candidate; source and local tests reviewed, no paired deployment or visible acceptance. Preserve parallel Monk/cooldown candidate integration.",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\passive-aa-ten\\EQ_Local_Dev\\docs\\releases\\recommended-aa-20261017\\README.md",
+        "role": "Recommended AA candidate; source and local tests reviewed, no paired deployment or visible acceptance. Preserve parallel Monk/cooldown candidate integration.",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\passive-aa-ten\\EQ_Local_Dev\\docs\\releases\\recommended-aa-20261017\\verification.json",
+        "role": "Recommended AA candidate; source and local tests reviewed, no paired deployment or visible acceptance. Preserve parallel Monk/cooldown candidate integration.",
+        "state": "unchanged"
+      }
+    ]
+  }
+}

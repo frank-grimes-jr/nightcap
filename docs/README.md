@@ -4,6 +4,8 @@ Current AA correction: [all allowed ranks at level 1](releases/aa-tbs-level1-202
 
 Start with [current status](status.md), not a dated candidate report.
 
+- [Recommended AA filter candidate and exact in-game QA](releases/recommended-aa-20261017/README.md)
+
 - [Production-connected GM controls: entry point, rollout and exact QA](ops/production-gm-20261010.md)
 
 - [Live player access codes: activation, verification and recovery](ops/player-access-20261011.md)
@@ -28,7 +30,8 @@ Start with [current status](status.md), not a dated candidate report.
 
 - [Ascended divine summons: live resale protection, verification and exact QA](releases/divine-summons-20261013/README.md)
 
-- [Passive AA reduced to 20%: live tuning, recovery and Palwar QA](ops/passive-aa-twenty-20261013/README.md)
+- [Passive AA reduced to 10%: live tuning, AA-pool review and Palwar QA](ops/passive-aa-ten-20261017/README.md)
+- [Historical October 13 passive AA reduction to 20%](ops/passive-aa-twenty-20261013/README.md)
 
 - [Relaxed tradeskill workshop: live layout, service moves and exact QA](releases/tunnel-cozy-20261013/README.md)
 

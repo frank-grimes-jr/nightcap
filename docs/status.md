@@ -1,5 +1,13 @@
 # Current Nightcap status
 
+## Recommended AA — October 17 candidate
+
+The optional native filter and server shortlist are implemented and locally
+tested. They guide early survival, sustain and damage across held classes.
+Full zone build is blocked by the unavailable local Docker Linux engine; paired
+deployment, signed client/XML publication and visible player QA have not occurred.
+[Scope, verification, integration and exact QA](releases/recommended-aa-20261017/README.md).
+
 ## Dungeon patcher announcement — published October 17
 
 Signed patch 2026101701 introduces Raid & Grind in Latest update with eleven
@@ -105,14 +113,15 @@ current native binaries; all 12 zones are healthy and player access is open.
 No client update is needed. In-game balance and visual acceptance remain pending.
 [Scope, evidence and exact QA](releases/divine-summons-20261013/README.md).
 
-## Passive AA — 20% deployed October 13
+## Passive AA — 10% deployed October 17
 
-Owner-approved passive AA decreased from 40% to **20%**. Normal leveling XP,
-full AA focus, 4,000 XP per point and existing progress are preserved. All 12
-zones and world reloaded successfully without restarting; all five services
-remain running. 129 native checks, nine recovery tests and independent review
-pass. Palwar/Befallen gameplay and later-level balance QA remain pending.
-[Evidence, rollback and exact QA](ops/passive-aa-twenty-20261013/README.md).
+Owner-requested passive AA decreased from 20% to **10%** at 15:09 UTC. Normal
+leveling XP, full AA focus, 4,000 XP per point and existing earned progress remain.
+World and all 12 zones reloaded rules with unchanged processes and healthy services.
+157 native harness and nine operation checks pass; owner gameplay/pacing QA is
+pending. Catalog review recommends additional choices but enables no new AAs.
+[Evidence, analysis, recovery and exact QA](ops/passive-aa-ten-20261017/README.md).
+Wiki/player-site content is updated locally; public publication remains pending.
 
 ## Relaxed tradeskill workshop — deployed October 13
 
@@ -374,7 +383,7 @@ failure tests pass. Owner-authorized PR #127 is merged to main and deployed to O
 Post-deployment health checks passed and access is open. Gameplay QA remains
 outstanding. [Scope and exact QA](releases/throw-stone-20261009.md).
 
-## Passive AA leveling: 40% live
+## Historical passive AA tuning: 40% on October 9 (superseded)
 
 The owner increased passive AA from 20% to 40% on October 9, alongside unchanged
 full leveling XP. AA focus remains 0/100. The guarded rule update, 129 native-method

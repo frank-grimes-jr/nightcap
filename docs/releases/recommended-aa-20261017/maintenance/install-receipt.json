@@ -1,0 +1,57 @@
+[
+  {
+    "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\wiki\\articles\\multiclass.json",
+    "before": "a21dd00de63e00a9e5ea211b1889df72a9014e1cf2b8d823bddb7e73f7b590cc",
+    "after": "9d43c2c80f7871818f870ad2084b44d852da47cabc529ba251d8615fc20d3d8d"
+  },
+  {
+    "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\wiki\\articles\\getting-started.json",
+    "before": "0c32c53bc86a5ebde6be2c790364fcea0ae2d06f9f3adf0b1d36b2eb885d0272",
+    "after": "66adb3f3523dd49ca26de24f6ee127a76a391494cea5b75cccfd36d0f595ac54"
+  },
+  {
+    "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\wiki\\articles\\launcher.json",
+    "before": "b0cd8a395d07eaaa2f9cd37c8b8f591d3e41df26468f5f1a4fc91c965d48aeb0",
+    "after": "ab62d8bf8cabe230ef31916abe8305383bc9607c771599118a406ee2be9e4d03"
+  },
+  {
+    "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\wiki\\articles\\features.json",
+    "before": "43689c0df6ce43809fe822690388ed52b86bbc2c8a63308619e1febbb957c652",
+    "after": "6164005779b773ebdf593d3ceeb6fe1a8aaba6cf101e1c49216a92875914e69f"
+  },
+  {
+    "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\wiki\\articles\\index.json",
+    "before": "4bb9027f71b6811d52cbb1ba2a2d8d7f617750886aa31e4e24f3b5d1c2c1dc2c",
+    "after": "ee882d4e71ceb005219f57ff67821ab4131b732b73450027bef207b6259eb73f"
+  },
+  {
+    "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\wiki\\articles\\unreleased.json",
+    "before": "1cf67137587d90e2ca3118513629499282a1a427c9d325fe28a9a7ff34b4a949",
+    "after": "2820de4171531d5c42800abdf8c599c41b06d6d035fb2f73a1619c75e276ffe8"
+  },
+  {
+    "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\wiki\\articles\\recent-changes.json",
+    "before": "074f9be3a76cd63e1e49454724c8baa187beb2d0eac70c8cd57668420a084dc1",
+    "after": "161fd1b10506100c965b99aa3732bb6d2b30fa7935661698894e58272f47ff9d"
+  },
+  {
+    "path": "C:\\Users\\verre\\.codex\\skills\\nightcap-development\\references\\client.md",
+    "before": "cbf0be67085500a3559b3a789eeffb915fd86bade77dfc45bc5f54f6191f0f18",
+    "after": "e813e6e2183cff4f5a597c898734f1de3e84e89433801b4a2cb0110d86c89fa4"
+  },
+  {
+    "path": "C:\\Users\\verre\\.codex\\skills\\nightcap-development\\references\\multiclass.md",
+    "before": "cafcebdae2a575c2ab19d9c8e3f9459bda32fe0fbc21255a1cbd891750979b6f",
+    "after": "2e5412d673ae9f1740570af9019f698362b0a6c6f37a9d0be1253247f618c5fe"
+  },
+  {
+    "path": "C:\\Users\\verre\\.codex\\skills\\nightcap-development\\references\\wiki.md",
+    "before": "70d82c97ed84fd1dace6bb85406bee05a99353f4291507f1f6c18894890c88e0",
+    "after": "d7c1b18b507b3fbce05b399e6733137111157c6c9563297cbf358a9bddedfdf0"
+  },
+  {
+    "path": "C:\\Users\\verre\\.codex\\skills\\nightcap-development\\references\\sources.json",
+    "before": "9c86a86385c05a7f8c292e3d330cca6809b8e467a08af1dd89bdc304b99863f2",
+    "after": "f28f1517c6975dd69debb30e2cc86d024a3122c292215d2aff9f4f1226bdb2c2"
+  }
+]
