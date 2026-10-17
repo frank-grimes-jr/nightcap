@@ -7,6 +7,25 @@ tested. They guide early survival, sustain and damage across held classes.
 Full zone build is blocked by the unavailable local Docker Linux engine; paired
 deployment, signed client/XML publication and visible player QA have not occurred.
 [Scope, verification, integration and exact QA](releases/recommended-aa-20261017/README.md).
+## Cooldown audit and duration fixes — candidate October 17
+
+Cooldown arithmetic fixes cover item clicks, Mend, Bash/Frenzy and linked spells;
+zero-duration skills and AA/spell completion no longer revive an expired timer.
+Native duration/combat regressions and independent review pass. The broader audit
+reproduces shared AA and item timer collisions and identifies linked spell/disc
+overlaps; identity separation remains open. No live timers were cleared or changed.
+Full zone build, coordinated activation and owner gameplay QA remain pending.
+[Audit, evidence and remaining work](releases/cooldown-audit-20261017/README.md).
+
+## Basic Monk cooldowns — candidate October 17
+
+The six basic Monk attacks have independent persistent reuse timers in the
+candidate server and matching RoF2 proxy. Dragon Punch/Tail Rake and Round Kick
+no longer share reuse; native ability controls and hotbuttons use the same
+correction. Server/native-client regressions and the full DLL runtime suite pass.
+Full zone compilation, paired deployment and owner gameplay/balance acceptance
+remain pending. No production or installed-client update occurred.
+[Scope, verification and exact QA](releases/monk-independent-reuse-20261017/README.md).
 
 ## Dungeon patcher announcement — published October 17
 

@@ -1,0 +1,51 @@
+PASS: custom-controls
+PASS: custom-zero-bard
+PASS: custom-zero-ordinary
+PASS: discipline-guards
+PASS: discipline-negative
+PASS: discipline-normal
+PASS: retained-linked-equal-bard
+PASS: retained-linked-excess-bard
+PASS: retained-linked-equal-ordinary
+PASS: retained-linked-excess-ordinary
+PASS: retained-mend-equal
+PASS: retained-mend-excess
+PASS: item-equal
+PASS: item-excess
+PASS: item-normal
+PASS: linked-normal
+PASS: linked-non-gem
+PASS: linked-excess-bard
+PASS: linked-excess-ordinary
+PASS: linked-negative-bard
+PASS: linked-negative-ordinary
+PASS: mend-excess
+PASS: mend-normal
+PASS: skill-zero-disarm
+PASS: skill-zero-feign
+PASS: skill-zero-hide
+PASS: skill-zero-sense
+PASS: skill-normal
+test_custom_aa_disc_timers_preserve_positive_duration_and_guards (__main__.CooldownDurationTests.test_custom_aa_disc_timers_preserve_positive_duration_and_guards) ... ok
+test_custom_aa_disc_zero_duration_does_not_revive_expired_timers (__main__.CooldownDurationTests.test_custom_aa_disc_zero_duration_does_not_revive_expired_timers) ... ok
+test_discipline_authorization_active_reuse_and_failed_cast_controls (__main__.CooldownDurationTests.test_discipline_authorization_active_reuse_and_failed_cast_controls) ... ok
+test_discipline_negative_focus_extends_reuse (__main__.CooldownDurationTests.test_discipline_negative_focus_extends_reuse) ... ok
+test_discipline_normal_equal_and_excess_focus (__main__.CooldownDurationTests.test_discipline_normal_equal_and_excess_focus) ... ok
+test_expired_retained_linked_timer_does_not_restart_on_zero_duration (__main__.CooldownDurationTests.test_expired_retained_linked_timer_does_not_restart_on_zero_duration) ... ok
+test_expired_retained_mend_does_not_restart_on_zero_duration (__main__.CooldownDurationTests.test_expired_retained_mend_does_not_restart_on_zero_duration) ... ok
+test_item_equal_reduction_is_ready (__main__.CooldownDurationTests.test_item_equal_reduction_is_ready) ... ok
+test_item_excess_reduction_is_ready (__main__.CooldownDurationTests.test_item_excess_reduction_is_ready) ... ok
+test_item_normal_and_negative_focus_preserve_duration (__main__.CooldownDurationTests.test_item_normal_and_negative_focus_preserve_duration) ... ok
+test_linked_bard_and_ordinary_normal_focus (__main__.CooldownDurationTests.test_linked_bard_and_ordinary_normal_focus) ... ok
+test_linked_completion_ignores_non_gem_casts (__main__.CooldownDurationTests.test_linked_completion_ignores_non_gem_casts) ... ok
+test_linked_equal_and_excess_adjustment_is_ready (__main__.CooldownDurationTests.test_linked_equal_and_excess_adjustment_is_ready) ... ok
+test_linked_negative_focus_extends_duration_without_wrapping (__main__.CooldownDurationTests.test_linked_negative_focus_extends_duration_without_wrapping) ... ok
+test_mend_excess_reduction_is_ready (__main__.CooldownDurationTests.test_mend_excess_reduction_is_ready) ... ok
+test_mend_normal_equal_negative_and_unavailable_controls (__main__.CooldownDurationTests.test_mend_normal_equal_negative_and_unavailable_controls) ... ok
+test_other_skill_prologs_do_not_revive_expired_timers (__main__.CooldownDurationTests.test_other_skill_prologs_do_not_revive_expired_timers) ... ok
+test_other_skill_prologs_preserve_normal_duration_and_guards (__main__.CooldownDurationTests.test_other_skill_prologs_preserve_normal_duration_and_guards) ... ok
+
+----------------------------------------------------------------------
+Ran 18 tests in 4.067s
+
+OK

@@ -5824,7 +5824,9 @@ void Client::Handle_OP_DisarmTraps(const EQApplicationPacket *app)
 	if (reuse < 1)
 		reuse = 1;
 
-	p_timers.Start(pTimerDisarmTraps, reuse - 1);
+	if (reuse > 1) {
+		p_timers.Start(pTimerDisarmTraps, reuse - 1);
+	}
 
 	uint8 success = SKILLUP_FAILURE;
 	float curdist = 0;
@@ -6379,7 +6381,9 @@ void Client::Handle_OP_FeignDeath(const EQApplicationPacket *app)
 	if (reuse < 1)
 		reuse = 1;
 
-	p_timers.Start(pTimerFeignDeath, reuse - 1);
+	if (reuse > 1) {
+		p_timers.Start(pTimerFeignDeath, reuse - 1);
+	}
 
 	//BreakInvis();
 
@@ -8846,7 +8850,9 @@ void Client::Handle_OP_Hide(const EQApplicationPacket *app)
 	if (reuse < 1)
 		reuse = 1;
 
-	p_timers.Start(pTimerHide, reuse - 1);
+	if (reuse > 1) {
+		p_timers.Start(pTimerHide, reuse - 1);
+	}
 
 	float hidechance = ((GetSkill(EQ::skills::SkillHide) / 250.0f) + .25) * 100;
 	float random = zone->random.Real(0, 100);
@@ -10330,7 +10336,10 @@ void Client::Handle_OP_Mend(const EQApplicationPacket *app)
 		Message(Chat::Red, "Ability recovery time not yet met.");
 		return;
 	}
-	p_timers.Start(pTimerMend, (MendReuseTime - GetSkillReuseTime(EQ::skills::SkillMend)));
+	const auto reuse = std::max<int64>(0, static_cast<int64>(MendReuseTime) - GetSkillReuseTime(EQ::skills::SkillMend));
+	if (reuse > 0) {
+		p_timers.Start(pTimerMend, static_cast<uint32>(reuse));
+	}
 
 	int mendhp = GetMaxHP() / 4;
 	int currenthp = GetHP();
@@ -13698,7 +13707,9 @@ void Client::Handle_OP_SenseTraps(const EQApplicationPacket *app)
 	if (reuse < 1)
 		reuse = 1;
 
-	p_timers.Start(pTimerSenseTraps, reuse - 1);
+	if (reuse > 1) {
+		p_timers.Start(pTimerSenseTraps, reuse - 1);
+	}
 
 	float trap_curdist = 0;
 	Trap* trap = entity_list.FindNearbyTrap(this, 800, trap_curdist);

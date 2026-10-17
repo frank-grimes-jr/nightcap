@@ -20,6 +20,31 @@ checks pass. Player pacing/persistence QA remains pending. The read-only catalog
 review records Palwar's remaining legal pool and proposed AA additions; no new
 AA/rank or cost was released. Wiki/player-site source maintenance is local;
 publication remains pending. Evidence: `docs/ops/passive-aa-ten-20261017/`.
+## 2026-10-17 - Cross-class cooldown audit and duration corrections (candidate)
+
+Audit AA, spell, discipline, skill, item and triggered-effect reuse against the
+current read-only production catalog. Correct signed/unsigned duration overflow
+for item clicks, Mend, Bash/Frenzy and linked spell focus; prevent zero-duration
+skill, spell and AA completion from restarting an expired timer's old duration.
+Eighteen duration and sixteen combat tests pass, including negative-focus,
+authorization and proc/trigger controls. Independent review passes.
+
+The audit also reproduces unresolved shared AA and item-key collisions; it does
+not claim they are fixed. Preserve deliberate family links while designing a
+paired client/server identity correction and saved-timer transition. Full zone
+build, activation and owner gameplay QA remain pending. No production writes or
+client publication occurred. Evidence: `docs/releases/cooldown-audit-20261017/`.
+
+## 2026-10-17 - Independent basic Monk cooldowns (candidate)
+
+Give all six basic Monk attacks separate persistent server cooldowns for held
+Monk RoF2 characters, paired with native client readiness/submission fixes.
+Dragon Punch/Tail Rake and Round Kick no longer block each other. Preserve each
+attack's duration, haste/AA adjustments and eligibility; retain non-Monk and
+older-client grouping. Twelve native server tests, sixty pinned-client checks,
+eight runtime groups and independent review pass. Full zone build, paired
+activation and in-game/balance QA remain pending; no live update occurred.
+Evidence, pairing and exact QA: `docs/releases/monk-independent-reuse-20261017/`.
 
 ## 2026-10-17 - Raid and Grind headline patcher announcement
 

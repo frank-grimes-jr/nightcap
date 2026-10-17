@@ -1,0 +1,161 @@
+{
+  "source": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\wiki",
+  "stage": "C:\\Users\\verre\\Documents\\Codex\\2026-10-17\\see\\work\\monk-wiki",
+  "reviewed_articles": [
+    {
+      "article": "about.json",
+      "title": "About this wiki",
+      "status": "Reference",
+      "sha256": "feeb115d4ffc2afa3f77366b1bdc78eb963c79d7e96b794dedc2acedf5bc499d"
+    },
+    {
+      "article": "advanced-loot.json",
+      "title": "Advanced loot",
+      "status": "Live testing",
+      "sha256": "d711ecbd533eeb66fbfbbde5d00fc29e61d38352349b92a59aa849c2f1ae4c60"
+    },
+    {
+      "article": "ascension.json",
+      "title": "Ascension quest",
+      "status": "Live testing",
+      "sha256": "63a95cfaac55cdafad7aed7a731406b01dfdabbb6053e4364371cd283f19d036"
+    },
+    {
+      "article": "combat.json",
+      "title": "Combat, buffs & recovery",
+      "status": "Live testing",
+      "sha256": "80ad460f9d87f284ce3376ec4c401c10adc50e4b5a65a1d18dec66b211ea93b4"
+    },
+    {
+      "article": "commands.json",
+      "title": "Command reference",
+      "status": "Live testing",
+      "sha256": "f9de3a2641011f1625cd543a85a8b2efa392a8de68e164b43161ea79d90afe48"
+    },
+    {
+      "article": "dungeon-modes.json",
+      "title": "Raid & Grind dungeons",
+      "status": "Live testing",
+      "sha256": "9b222dd65103af3349bb4e8a21777e987727393a767904da694fa4ecd3c94856"
+    },
+    {
+      "article": "equipment.json",
+      "title": "Equipment & trading",
+      "status": "Live testing",
+      "sha256": "324ecc04f423090c4c355db188cd5f7ff6da4305bbbb16bf1e50418c75c77579"
+    },
+    {
+      "article": "features.json",
+      "title": "Features",
+      "status": "Live testing",
+      "sha256": "6fd893699831b4a2570e40f3055bd222219d03035b61de4dd71f84c79260d9cc"
+    },
+    {
+      "article": "getting-started.json",
+      "title": "Getting started",
+      "status": "Live testing",
+      "sha256": "0c32c53bc86a5ebde6be2c790364fcea0ae2d06f9f3adf0b1d36b2eb885d0272"
+    },
+    {
+      "article": "index.json",
+      "title": "Welcome to the Nightcap Wiki",
+      "status": "Reference",
+      "sha256": "bf82215da177b9ea65d2e9f5dca53d113b79f724381547fe52adaaf3ec2eacdb"
+    },
+    {
+      "article": "item-upgrades.json",
+      "title": "Item upgrades",
+      "status": "Live testing",
+      "sha256": "67029e7021b692f7c90f84ae0845e3ef7c400c898b6caf475f6fb6dc82229b11"
+    },
+    {
+      "article": "launcher.json",
+      "title": "Launcher & interface",
+      "status": "Live testing",
+      "sha256": "b0cd8a395d07eaaa2f9cd37c8b8f591d3e41df26468f5f1a4fc91c965d48aeb0"
+    },
+    {
+      "article": "multiclass.json",
+      "title": "Multiclass & progression",
+      "status": "Live testing",
+      "sha256": "ef3dcb5006f7740fc94e68673ebfe8dd23bdac73beda429260cc5239b0f5ed2e"
+    },
+    {
+      "article": "pets.json",
+      "title": "Pets & pet armor",
+      "status": "Live testing",
+      "sha256": "2e0688b1864e8d7f31849c9a72464af42168945cc09d4d4fa9dd98b03e3417b1"
+    },
+    {
+      "article": "recent-changes.json",
+      "title": "Recent changes",
+      "status": "Reference",
+      "sha256": "f71d3d0bcbda8ba658e9727bee85c28e470ac87a125a8c25e250ba5764a391ff"
+    },
+    {
+      "article": "tradeskills.json",
+      "title": "Tradeskills & Craft All",
+      "status": "Live testing",
+      "sha256": "39278354167f33e769bf6857a88033194c261c6bafdb8a6c854bd846db418be8"
+    },
+    {
+      "article": "travel.json",
+      "title": "Travel & instances",
+      "status": "Live testing",
+      "sha256": "127e273b678234c57a047ab3784c68ba415833a01b84178dd8c48088e6b2a7d8"
+    },
+    {
+      "article": "tunnel.json",
+      "title": "East Commonlands tunnel",
+      "status": "Live testing",
+      "sha256": "314113092b3e3f4db638e4290bcf9d2b9f63c6d84fb30f92fd29891fd948f7b3"
+    },
+    {
+      "article": "unreleased.json",
+      "title": "In development",
+      "status": "Not released",
+      "sha256": "2ed89df23baf4502cab09920d476d1d354ce65a80e7026e2eb4a6877e5b329ed"
+    },
+    {
+      "article": "waypoints.json",
+      "title": "Waypoint Explorer",
+      "status": "Live testing",
+      "sha256": "1115d3460d79354883048fa4165c643be685f69920655cd52bca6147d467b9c8"
+    },
+    {
+      "article": "zone-hunt.json",
+      "title": "Zone hunt & forging",
+      "status": "Live testing",
+      "sha256": "4a621a1626badfa779921eb533529289bd72651a0487df0d88659f838b92d947"
+    }
+  ],
+  "changed": {
+    "articles/combat.json": {
+      "before": "80ad460f9d87f284ce3376ec4c401c10adc50e4b5a65a1d18dec66b211ea93b4",
+      "after": "9ae0719cd218707755f6d4db06b8f12f7395d8993d2edd313b4a176f8b944502"
+    },
+    "articles/multiclass.json": {
+      "before": "ef3dcb5006f7740fc94e68673ebfe8dd23bdac73beda429260cc5239b0f5ed2e",
+      "after": "11d0a75ecfd4473a57f9a48477a97872d557db312c8390eb4797456250d2eaf3"
+    },
+    "articles/features.json": {
+      "before": "6fd893699831b4a2570e40f3055bd222219d03035b61de4dd71f84c79260d9cc",
+      "after": "52e03bfdf87a435341c73effcb5b3b14d30eab18c196b46e7c445581fca4dc46"
+    },
+    "articles/index.json": {
+      "before": "bf82215da177b9ea65d2e9f5dca53d113b79f724381547fe52adaaf3ec2eacdb",
+      "after": "599997a2d65bce4b521d431d254dc47979e6aaea8813c48bc961d13120f8961c"
+    },
+    "articles/unreleased.json": {
+      "before": "2ed89df23baf4502cab09920d476d1d354ce65a80e7026e2eb4a6877e5b329ed",
+      "after": "4c7e915914d302dc2f214007bd655899a1e4e7d9e4c76f80fabd00bc2a571f9d"
+    },
+    "articles/recent-changes.json": {
+      "before": "f71d3d0bcbda8ba658e9727bee85c28e470ac87a125a8c25e250ba5764a391ff",
+      "after": "c35b685451369eba8fe54d9d38c38970b07c5d847a77cfcdeead95735ea59ec1"
+    }
+  },
+  "generated_catalog": "432 hunt item/zone routes assessed: no stats, recipes, rewards or travel changes",
+  "commands": "No commands added or changed",
+  "publication": "pending; candidate labels only; global content-review audit ref unchanged"
+}

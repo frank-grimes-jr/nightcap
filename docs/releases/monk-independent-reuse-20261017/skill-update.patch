@@ -1,0 +1,350 @@
+--- a/references/multiclass.md
++++ b/references/multiclass.md
+@@ -3,0 +4,32 @@
++
++## Independent basic Monk cooldowns - October 17 candidate
++
++The owner requested separate cooldowns for all six basic Monk attacks: Kick,
++Round Kick, Tiger Claw, Eagle Strike, Dragon Punch/Tail Rake and Flying Kick.
++For RoF2 characters holding Monk, `common/combat_ability_timer.h` maps each skill
++to persistent ID `pTimerMonkCombatAbilityStart + skill` in reserved range500-599.
++Both `Client::OPCombatAbility` and non-riposte `Client::DoClassAttacks` select this
++timer. Tail Rake is Dragon Punch's skill ID, not a seventh cooldown. Same-skill
++reuse, native haste/AA duration, damage, Master Wu and authorization stay intact.
++Non-Monk and older-client grouping stays native. PTimerList persists the new IDs;
++no SQL/schema migration or player reset is required. Do not repurpose these IDs.
++
++Pair rebuilt zone with proxy0.9.2-dev and signed catalog; the client also has two
++shared native slots and needs the scoped hooks described in [client](client.md).
++Rule/quest reload cannot install this change. No world ABI, rule catalog, ItemData
++or shared-memory layout change is intended. Use an authorized coordinated runtime
++restart: any OVH native child exit restarts the whole runtime. Preserve player
++activity; rollback pairs the prior server/client and a higher signed counter.
++
++Source/test/QA: `docs/releases/monk-independent-reuse-20261017/README.md` and
++`verification.json` in
++`C:/Users/verre/Documents/Codex/2026-10-17/see/work/monk-independent-reuse`,
++source commit b81fd66 based on a59974d. `tools/tests/test_monk_combat_reuse.py`
++compiles actual server entry points:12 tests and180 ordered cross-skill cases pass.
++The x86 DLL builds;60 exact-client checks,8 runtime groups and103 catalog guards
++pass. Independent review has no remaining findings. Full zone compilation/link
++is pending because the local Docker Linux engine is unavailable; launcher Go
++tests and actual gameplay/balance QA remain pending. The legacy July hash guard
++fails on unchanged base as well as this candidate; do not weaken it as evidence.
++Main promotion, paired deployment and signed-client/wiki publication have not
++occurred. Increased available attack frequency needs combined AA/multiclass QA.
+--- a/references/client.md
++++ b/references/client.md
+@@ -3,0 +4,30 @@
++
++## Independent Monk reuse - October 17 candidate
++
++Proxy0.9.2-dev adds six per-skill start/duration/readiness records in
++`eq-client-dll/src/monk_reuse.h`, scoped to current matched identity holding Monk.
++Six guarded SkillManager methods keep native duration adjustment and expiration
++callbacks. The shared native special-attack entry at RVA0x1A5000 exchanges only
++the selected EQPlayer shared slot and restores it in `__finally`, including on
++failure. This entry covers hotbuttons and native ability controls; a hotbutton-only
++scope misses other activation routes. The later stock commit at RVA0x5D96C must
++retain the captured independent timestamp instead of the restored shared value.
++Missing/stale identity and other skills forward to native trampolines.
++
++`ui_hooks.h::StateHook` clears transient records when leaving game state5;
++persistent server timers still enforce reuse through zone/relog. `dllmain.cpp`
++installs the hooks behind the existing monk_attacks required feature. Exact
++signatures and version are generated from patch-sites.json and its verifier;
++proxy and launcher catalogs must agree. The pinned eqgame.exe is read-only.
++
++Pair with the server mapping in [multiclass](multiclass.md). Both sides must ship
++together; this candidate is not published or installed. Native source fixture
++`tests/monk-reuse-native.cpp` reproduces10 failures before repair and now passes60
++checks, including the installed submitter/stock commit and exception cleanup.
++Targeting/damage/time remain controlled fixture boundaries. Full x86 DLL and20
++test executables build;8 runtime groups and103 exact guards pass. Full zone build,
++launcher Go tests, live countdown/combat/balance QA and release approval remain
++pending. Evidence and seven-step owner QA:
++`docs/releases/monk-independent-reuse-20261017/` in the October17 Monk checkout
++listed in multiclass.md; reviewed source b81fd66. Preserve all current managed
++assets/history at publication and use a fresh signed channel counter.
+--- a/references/balance.md
++++ b/references/balance.md
+@@ -5,0 +6,11 @@
++
++## Basic Monk reuse - October 17 candidate
++
++The owner chose independent cooldowns for all six basic Monk attacks. The
++reviewed candidate preserves damage, haste/AA reuse reductions and Master Wu,
++but increases available attack frequency. Evaluate combined Monk/Paladin/earned-AA
++damage and survivability after the paired server/client release; regression
++checks do not establish balance acceptance. Source/test and deployment boundaries
++are in [multiclass](multiclass.md#independent-basic-monk-cooldowns---october-17-candidate)
++and `docs/releases/monk-independent-reuse-20261017/README.md`. Candidate b81fd66 is
++not deployed; full zone build and actual gameplay remain pending.
+--- a/references/wiki.md
++++ b/references/wiki.md
+@@ -7,0 +8,16 @@
++
++## October17 independent Monk cooldown candidate
++
++All21 maintained articles and432 generated reward routes were assessed. Combat,
++multiclass/progression, Features, home, In development and Recent changes contain
++local explicitly unreleased notices for the six independent basic Monk timers.
++Existing no-death-EXP/reforge notes are preserved. Commands, item/zone stats,
++recipes and reward values have no impact. No wiki publication occurred.
++
++`docs/releases/monk-independent-reuse-20261017/` in the October17 Monk checkout
++listed in multiclass.md retains the exact patch, preimage/install receipt,
++whole-wiki assessment and source-drift report. Fourteen Python and13 Node checks
++pass. Broad historical drift remains REVIEW REQUIRED and the global audit ref
++was not advanced. Replace all six candidate notices together only after the
++authorized paired server/client activation, then verify public bytes. Gameplay
++and combined-AA balance acceptance remain separate from publication checks.
+--- a/references/sources.json
++++ b/references/sources.json
+@@ -4 +4 @@
+-  "basis": "Reviewed sources and dated runbooks; AA class-rank implementation, all-level-1 invariants, Triple Backstab native repair and OVH/signature evidence refreshed October13. Owner gameplay/balance acceptance remains pending. Other topics retain their separately recorded audit scope. Passive AA refreshed October 13 to the verified 20% OVH override, retaining 4,000 XP/point and pending owner balance QA. Divine summons refreshed October 13: existing Ascended selection preserved, 44 definitions zero resale, full-cache and live deployment evidence verified; owner balance QA pending. Tradeskill stacks/Craft All refreshed October 13: PR #200 on main, paired OVH/game 2026101304 publication verified with all 12 zones/106 hosted assets; native owner gameplay QA pending. Equipment eligibility refreshed October16: PR202 merged, signed game2026101501 verified across106 hosted assets; owner confirms javelins work; broader gameplay acceptance pending. AA temporary-buff policy refreshed October16: source248bf5c promoted to main and OVH; all12 running zone hashes, preserved47 player/11 custom tables, signed client2026101501/106 assets,30 behavior and33 rollout checks verified. Owner gameplay acceptance pending. Equipment race policy deployed October16 under explicit approval: PR204, loader-only restart, 309410-definition cache verification with all other bytes and 47 player/11 custom tables preserved, current AA zone/client retained, zero restarts/errors. Owner gameplay QA pending. Wiki Features refreshed October16: current guides and 432 generated reward pages reconciled; per-change whole-wiki review required, source-drift checker verified, Raid/Grind guide published in release20261016-dungeons-v1/465 files with private/service preservation and browser search/responsive checks; no gameplay acceptance inferred.",
++  "basis": "Reviewed sources and dated runbooks; AA class-rank implementation, all-level-1 invariants, Triple Backstab native repair and OVH/signature evidence refreshed October13. Owner gameplay/balance acceptance remains pending. Other topics retain their separately recorded audit scope. Passive AA refreshed October 13 to the verified 20% OVH override, retaining 4,000 XP/point and pending owner balance QA. Divine summons refreshed October 13: existing Ascended selection preserved, 44 definitions zero resale, full-cache and live deployment evidence verified; owner balance QA pending. Tradeskill stacks/Craft All refreshed October 13: PR #200 on main, paired OVH/game 2026101304 publication verified with all 12 zones/106 hosted assets; native owner gameplay QA pending. Equipment eligibility refreshed October16: PR202 merged, signed game2026101501 verified across106 hosted assets; owner confirms javelins work; broader gameplay acceptance pending. AA temporary-buff policy refreshed October16: source248bf5c promoted to main and OVH; all12 running zone hashes, preserved47 player/11 custom tables, signed client2026101501/106 assets,30 behavior and33 rollout checks verified. Owner gameplay acceptance pending. Equipment race policy deployed October16 under explicit approval: PR204, loader-only restart, 309410-definition cache verification with all other bytes and 47 player/11 custom tables preserved, current AA zone/client retained, zero restarts/errors. Owner gameplay QA pending. Wiki Features refreshed October16: current guides and 432 generated reward pages reconciled; per-change whole-wiki review required, source-drift checker verified, Raid/Grind guide published in release20261016-dungeons-v1/465 files with private/service preservation and browser search/responsive checks; no gameplay acceptance inferred. Basic Monk reuse refreshed October17: reviewed candidate b81fd66 separates six skills on server and RoF2, with native regressions and client build verified; full zone/Go builds, paired deployment, gameplay and wiki publication remain pending.",
+@@ -43 +43,3 @@
+-    "dungeon_patcher_published_20261017": "93fc4f505633cbae49115e5d3441fa4ac1e5d9eb"
++    "dungeon_patcher_published_20261017": "93fc4f505633cbae49115e5d3441fa4ac1e5d9eb",
++    "monk_independent_reuse_candidate_20261017": "b81fd66011155da7beec6c284a3e9755e46f3fd0",
++    "monk_source_main_observed_20261017": "a59974d1214a6f8cef6e5ff8bf31a52e1417cb6f"
+@@ -354 +356 @@
+-        "root": "C:/Users/verre/Documents/Codex/2026-10-12/g-2/work/early-spell-scribing",
++        "root": "C:/Users/verre/Documents/Codex/2026-10-17/see/work/monk-independent-reuse",
+@@ -356,6 +358,6 @@
+-        "role": "scoped early-scribing hook, canonical shared levels and identity checks",
+-        "revision": "45d24a6fa8a0c37a179810ae54f1ed6fbb6b1a02",
+-        "sha256": "e3ab8a93937231ad66430ec03a09d90e0dec1bdba15905f9052efc833dd27298"
+-      },
+-      {
+-        "root": "C:/Users/verre/Documents/Codex/2026-10-15/g/work/multiclass-equipment",
++        "role": "Monk session reset; preserved scribing/trainer/tradeskill hooks",
++        "revision": "b81fd66011155da7beec6c284a3e9755e46f3fd0",
++        "sha256": "82d73f7ba9d83f42348fafefb6bf3137a4e2ed49f48e62124bf8d97fb2caae4b"
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-17/see/work/monk-independent-reuse",
+@@ -363,3 +365,3 @@
+-        "role": "held-class equipment and canonical spell hooks; published game 2026101501",
+-        "revision": "0085fd0b50625730cb8f4db133c98a492bafff1d",
+-        "sha256": "40e8df822a85cafdafbdd55d5115bc97b4bc0d06c28457ad37fadfa2d66ef651"
++        "role": "reviewed native submission/commit installation; preserved equipment/spell access",
++        "revision": "b81fd66011155da7beec6c284a3e9755e46f3fd0",
++        "sha256": "71b1d2f86dec8559c3dc8f11a41e29cb1955d8524f13b2aee5c6e6e6b6562ee1"
+@@ -375 +377 @@
+-        "root": "C:/Users/verre/Documents/Codex/2026-10-12/g-2/work/early-spell-scribing",
++        "root": "C:/Users/verre/Documents/Codex/2026-10-17/see/work/monk-independent-reuse",
+@@ -377,3 +379,3 @@
+-        "role": "76 exact sites, paired proxy 0.8.1-dev catalog",
+-        "revision": "45d24a6fa8a0c37a179810ae54f1ed6fbb6b1a02",
+-        "sha256": "393974f602e233d55e4b7bb5249c3ad27366d4fe5ade413eb0643e92f2cf2d92"
++        "role": "canonical candidate proxy version and patch contract",
++        "revision": "b81fd66011155da7beec6c284a3e9755e46f3fd0",
++        "sha256": "4933839f527e80be84b701805ee9be43d434a49dc90a70bcc7954f509235be1e"
+@@ -781 +783 @@
+-        "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
++        "root": "C:/Users/verre/Documents/Codex/2026-10-17/see/work/monk-independent-reuse",
+@@ -783,3 +785,3 @@
+-        "role": "Reviewed AA class-rank/Triple Backstab release source, verification or OVH evidence; gameplay QA pending",
+-        "revision": "5d6773c5ed12acf3e38507f28094da6e7a33c4a4",
+-        "sha256": "e1c084c96eaa76943479c742ea9a8d40ae07a0e3bbd0352490a03b2c2209d6a2"
++        "role": "reviewed per-skill OPCombatAbility/DoClassAttacks timers; preserved Triple Backstab; candidate not deployed",
++        "revision": "b81fd66011155da7beec6c284a3e9755e46f3fd0",
++        "sha256": "c841145475958a29c161109580a1eb82175f237044c058d83b3b043c6f701a6e"
+@@ -946,0 +949,42 @@
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-17/see/work/monk-independent-reuse",
++        "path": "server-mods/code/common/combat_ability_timer.h",
++        "role": "held-Monk/RoF2 six-skill timer selection and legacy controls",
++        "revision": "b81fd66011155da7beec6c284a3e9755e46f3fd0",
++        "sha256": "a9f4fda79889da248377862d97d59a692449662ba7c82185ce99f4a373f9003d"
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-17/see/work/monk-independent-reuse",
++        "path": "server-mods/code/common/ptimer.h",
++        "role": "reserved persistent Monk timer range500-599; no schema or ABI change",
++        "revision": "b81fd66011155da7beec6c284a3e9755e46f3fd0",
++        "sha256": "38bd70efccd5b412b02f63aae9ca0b419a70494033365bf09808c9336ef2014e"
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-17/see/work/monk-independent-reuse",
++        "path": "eq-client-dll/src/monk_reuse.h",
++        "role": "six per-skill records, guarded native methods and SEH submission scope; not published",
++        "revision": "b81fd66011155da7beec6c284a3e9755e46f3fd0",
++        "sha256": "b17aae2e125b542409ee31791945fccf25d47020ac0ba53eb02a7e89dd35fe78"
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-17/see/work/monk-independent-reuse",
++        "path": "tools/tests/test_monk_combat_reuse.py",
++        "role": "actual server method RED/GREEN regression, 12 tests and180 ordered cases",
++        "revision": "b81fd66011155da7beec6c284a3e9755e46f3fd0",
++        "sha256": "1c0eb92d25614ca661456cb210b1f9023f7caed1741f7187a9be5d8e0b9907b5"
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-17/see/work/monk-independent-reuse",
++        "path": "docs/releases/monk-independent-reuse-20261017/README.md",
++        "role": "candidate pairing, build limits, no deployment, exact gameplay/balance QA",
++        "revision": "b81fd66011155da7beec6c284a3e9755e46f3fd0",
++        "sha256": "d998c82a422efbfd1c44893e78cf31b3e60b2085d61d4561a56b1238b82daa77"
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-17/see/work/monk-independent-reuse",
++        "path": "docs/releases/monk-independent-reuse-20261017/verification.json",
++        "role": "reviewed build/test/source evidence; not gameplay acceptance",
++        "revision": "b81fd66011155da7beec6c284a3e9755e46f3fd0",
++        "sha256": "857dadaf8d496fb26384cfc941107f6b9aa7f3e0fac3ef31f8bc8a9cb935311a"
+@@ -1974 +2018 @@
+-        "root": "C:/Users/verre/Documents/Codex/2026-10-15/g/work/multiclass-equipment",
++        "root": "C:/Users/verre/Documents/Codex/2026-10-17/see/work/monk-independent-reuse",
+@@ -1976,3 +2020,3 @@
+-        "role": "held-class equipment and canonical spell hooks; published game 2026101501",
+-        "revision": "0085fd0b50625730cb8f4db133c98a492bafff1d",
+-        "sha256": "40e8df822a85cafdafbdd55d5115bc97b4bc0d06c28457ad37fadfa2d66ef651"
++        "role": "reviewed native submission/commit installation; preserved equipment/spell access",
++        "revision": "b81fd66011155da7beec6c284a3e9755e46f3fd0",
++        "sha256": "71b1d2f86dec8559c3dc8f11a41e29cb1955d8524f13b2aee5c6e6e6b6562ee1"
+@@ -2107 +2151 @@
+-        "root": "C:/Users/verre/Documents/Codex/2026-10-15/g/work/multiclass-equipment",
++        "root": "C:/Users/verre/Documents/Codex/2026-10-17/see/work/monk-independent-reuse",
+@@ -2109,6 +2153,6 @@
+-        "role": "95 exact-client guards including direct equipment inspection",
+-        "revision": "0085fd0b50625730cb8f4db133c98a492bafff1d",
+-        "sha256": "7b0d60ea9d3967cef3a8eaa966cee74336c9bbccf181cf879af1cb477573e8ae"
+-      },
+-      {
+-        "root": "C:/Users/verre/Documents/Codex/2026-10-15/g/work/multiclass-equipment",
++        "role": "103 exact-client guards including shared Monk submitter and reuse methods",
++        "revision": "b81fd66011155da7beec6c284a3e9755e46f3fd0",
++        "sha256": "396ffd8253b9f613f8cfca90c60b8b85c9b8e224974aeca241b54d8f0efd340f"
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-17/see/work/monk-independent-reuse",
+@@ -2116,3 +2160,3 @@
+-        "role": "published proxy0.9.1-dev and paired signed catalog contract",
+-        "revision": "0085fd0b50625730cb8f4db133c98a492bafff1d",
+-        "sha256": "5c1dd2a467da2ad4f4f36fb54112af848ffbd25bcd6fb5fbd57e573b4df477da"
++        "role": "unpublished proxy0.9.2-dev and generated paired catalog contract",
++        "revision": "b81fd66011155da7beec6c284a3e9755e46f3fd0",
++        "sha256": "3ed31f2635351f94ce6a447d02058ccf65b556885515efb8ed1893a243015f37"
+@@ -2142 +2186 @@
+-        "root": "C:/Users/verre/Documents/Codex/2026-10-15/g/work/multiclass-equipment",
++        "root": "C:/Users/verre/Documents/Codex/2026-10-17/see/work/monk-independent-reuse",
+@@ -2144,3 +2188,3 @@
+-        "role": "published launcher catalog preserving all prior hooks",
+-        "revision": "0085fd0b50625730cb8f4db133c98a492bafff1d",
+-        "sha256": "edd85fb8e9de69248048e099a578b7ff8f9e2daf8e30c496a43f8977d356184a"
++        "role": "generated launcher catalog matching candidate proxy; Go tests pending",
++        "revision": "b81fd66011155da7beec6c284a3e9755e46f3fd0",
++        "sha256": "4933839f527e80be84b701805ee9be43d434a49dc90a70bcc7954f509235be1e"
+@@ -2408 +2452 @@
+-        "root": "C:/Users/verre/Documents/Codex/2026-10-13/w/work/tradeskill-revamp",
++        "root": "C:/Users/verre/Documents/Codex/2026-10-17/see/work/monk-independent-reuse",
+@@ -2410,3 +2454,3 @@
+-        "role": "reviewed stacked tradeskill/Craft All source and paired live delivery; owner gameplay QA pending",
+-        "revision": "c40fce8029ccddb76ee8dfe4222842d0c1737f34",
+-        "sha256": "ede9097b3e44b212c3037ac3df7b04676d0b7be56221857dd67f2ed31761310b"
++        "role": "Monk session reset; preserved scribing/trainer/tradeskill hooks",
++        "revision": "b81fd66011155da7beec6c284a3e9755e46f3fd0",
++        "sha256": "82d73f7ba9d83f42348fafefb6bf3137a4e2ed49f48e62124bf8d97fb2caae4b"
+@@ -2429 +2473 @@
+-        "root": "C:/Users/verre/Documents/Codex/2026-10-13/w/work/tradeskill-revamp",
++        "root": "C:/Users/verre/Documents/Codex/2026-10-17/see/work/monk-independent-reuse",
+@@ -2431,3 +2475,3 @@
+-        "role": "reviewed stacked tradeskill/Craft All source and paired live delivery; owner gameplay QA pending",
+-        "revision": "c40fce8029ccddb76ee8dfe4222842d0c1737f34",
+-        "sha256": "42a3f2499199264a3f7bc2d743d2c56e5df8db8d86c3ce9fa8a94b373584aa89"
++        "role": "canonical candidate proxy version and patch contract",
++        "revision": "b81fd66011155da7beec6c284a3e9755e46f3fd0",
++        "sha256": "4933839f527e80be84b701805ee9be43d434a49dc90a70bcc7954f509235be1e"
+@@ -2706,0 +2751,21 @@
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-17/see/work/monk-independent-reuse",
++        "path": "eq-client-dll/src/monk_reuse.h",
++        "role": "six per-skill records, guarded native methods and SEH submission scope; not published",
++        "revision": "b81fd66011155da7beec6c284a3e9755e46f3fd0",
++        "sha256": "b17aae2e125b542409ee31791945fccf25d47020ac0ba53eb02a7e89dd35fe78"
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-17/see/work/monk-independent-reuse",
++        "path": "eq-client-dll/tests/monk-reuse-native.cpp",
++        "role": "60 exact-native reuse and submit/commit checks with controlled combat boundaries",
++        "revision": "b81fd66011155da7beec6c284a3e9755e46f3fd0",
++        "sha256": "5cc6886722264047f953cff9484df1a7acd56a42ae075e724d55eb49a2bccfb3"
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-17/see/work/monk-independent-reuse",
++        "path": "docs/releases/monk-independent-reuse-20261017/README.md",
++        "role": "candidate pairing, build limits, no deployment, exact gameplay/balance QA",
++        "revision": "b81fd66011155da7beec6c284a3e9755e46f3fd0",
++        "sha256": "d998c82a422efbfd1c44893e78cf31b3e60b2085d61d4561a56b1238b82daa77"
+@@ -3109 +3174 @@
+-        "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
++        "root": "C:/Users/verre/Documents/Codex/2026-10-17/see/work/monk-independent-reuse",
+@@ -3111,3 +3176,3 @@
+-        "role": "Reviewed AA class-rank/Triple Backstab release source, verification or OVH evidence; gameplay QA pending",
+-        "revision": "5d6773c5ed12acf3e38507f28094da6e7a33c4a4",
+-        "sha256": "e1c084c96eaa76943479c742ea9a8d40ae07a0e3bbd0352490a03b2c2209d6a2"
++        "role": "reviewed per-skill OPCombatAbility/DoClassAttacks timers; preserved Triple Backstab; candidate not deployed",
++        "revision": "b81fd66011155da7beec6c284a3e9755e46f3fd0",
++        "sha256": "c841145475958a29c161109580a1eb82175f237044c058d83b3b043c6f701a6e"
+@@ -3325,0 +3391,7 @@
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-17/see/work/monk-independent-reuse",
++        "path": "docs/releases/monk-independent-reuse-20261017/README.md",
++        "role": "candidate pairing, build limits, no deployment, exact gameplay/balance QA",
++        "revision": "b81fd66011155da7beec6c284a3e9755e46f3fd0",
++        "sha256": "d998c82a422efbfd1c44893e78cf31b3e60b2085d61d4561a56b1238b82daa77"
+@@ -3486,3 +3558,3 @@
+-        "role": "Reviewed wiki source, maintenance contract or dated publication evidence",
+-        "revision": "78991d4 + no-death-EXP candidate notices; not published",
+-        "sha256": "80ad460f9d87f284ce3376ec4c401c10adc50e4b5a65a1d18dec66b211ea93b4"
++        "role": "reviewed local Monk notices; preserved no-death-EXP/reforge notes; unpublished",
++        "revision": "f106a5d + reviewed October17 candidate notices",
++        "sha256": "9ae0719cd218707755f6d4db06b8f12f7395d8993d2edd313b4a176f8b944502"
+@@ -3507,3 +3579,3 @@
+-        "role": "reviewed pending normal-item recipe guidance; unpublished",
+-        "revision": "f106a5d2e5642bfc6f39ff7aa30517144b473845",
+-        "sha256": "6fd893699831b4a2570e40f3055bd222219d03035b61de4dd71f84c79260d9cc"
++        "role": "reviewed local Monk notices; preserved no-death-EXP/reforge notes; unpublished",
++        "revision": "f106a5d + reviewed October17 candidate notices",
++        "sha256": "52e03bfdf87a435341c73effcb5b3b14d30eab18c196b46e7c445581fca4dc46"
+@@ -3521,3 +3593,3 @@
+-        "role": "reviewed pending normal-item recipe guidance; unpublished",
+-        "revision": "f106a5d2e5642bfc6f39ff7aa30517144b473845",
+-        "sha256": "bf82215da177b9ea65d2e9f5dca53d113b79f724381547fe52adaaf3ec2eacdb"
++        "role": "reviewed local Monk notices; preserved no-death-EXP/reforge notes; unpublished",
++        "revision": "f106a5d + reviewed October17 candidate notices",
++        "sha256": "599997a2d65bce4b521d431d254dc47979e6aaea8813c48bc961d13120f8961c"
+@@ -3542,3 +3614,3 @@
+-        "role": "Reviewed wiki source, maintenance contract or dated publication evidence",
+-        "revision": "78991d4 + no-death-EXP candidate notices; not published",
+-        "sha256": "ef3dcb5006f7740fc94e68673ebfe8dd23bdac73beda429260cc5239b0f5ed2e"
++        "role": "reviewed local Monk notices; preserved no-death-EXP/reforge notes; unpublished",
++        "revision": "f106a5d + reviewed October17 candidate notices",
++        "sha256": "11d0a75ecfd4473a57f9a48477a97872d557db312c8390eb4797456250d2eaf3"
+@@ -3556,3 +3628,3 @@
+-        "role": "reviewed pending normal-item recipe guidance; unpublished",
+-        "revision": "f106a5d2e5642bfc6f39ff7aa30517144b473845",
+-        "sha256": "f71d3d0bcbda8ba658e9727bee85c28e470ac87a125a8c25e250ba5764a391ff"
++        "role": "reviewed local Monk notices; preserved no-death-EXP/reforge notes; unpublished",
++        "revision": "f106a5d + reviewed October17 candidate notices",
++        "sha256": "c35b685451369eba8fe54d9d38c38970b07c5d847a77cfcdeead95735ea59ec1"
+@@ -3584,3 +3656,3 @@
+-        "role": "reviewed pending normal-item recipe guidance; unpublished",
+-        "revision": "f106a5d2e5642bfc6f39ff7aa30517144b473845",
+-        "sha256": "2ed89df23baf4502cab09920d476d1d354ce65a80e7026e2eb4a6877e5b329ed"
++        "role": "reviewed local Monk notices; preserved no-death-EXP/reforge notes; unpublished",
++        "revision": "f106a5d + reviewed October17 candidate notices",
++        "sha256": "4c7e915914d302dc2f214007bd655899a1e4e7d9e4c76f80fabd00bc2a571f9d"
+@@ -3670,0 +3743,7 @@
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-17/see/work/monk-independent-reuse",
++        "path": "docs/releases/monk-independent-reuse-20261017/wiki-review.json",
++        "role": "whole-wiki impact review and six local unreleased notices",
++        "revision": "b81fd66011155da7beec6c284a3e9755e46f3fd0",
++        "sha256": "01b7d1bdc4932cd626a5dea8de6b07bf3f8768a6a19577ce6da54a613dc74b98"

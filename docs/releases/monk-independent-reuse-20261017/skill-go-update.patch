@@ -1,0 +1,45 @@
+--- a/references/multiclass.md
++++ b/references/multiclass.md
+@@ -31,2 +31,3 @@
+-is pending because the local Docker Linux engine is unavailable; launcher Go
+-tests and actual gameplay/balance QA remain pending. The legacy July hash guard
++is pending because the local Docker Linux engine is unavailable. The full
++launcher Go suite passes with cached Go1.27.2 and local fixture permissions;
++actual gameplay/balance QA remains pending. The legacy July hash guard
+--- a/references/client.md
++++ b/references/client.md
+@@ -28,3 +28,3 @@
+-test executables build;8 runtime groups and103 exact guards pass. Full zone build,
+-launcher Go tests, live countdown/combat/balance QA and release approval remain
+-pending. Evidence and seven-step owner QA:
++test executables build;8 runtime groups and103 exact guards pass. The full
++launcher Go suite passes with cached Go1.27.2 and local fixture permissions. Full
++zone build, live countdown/combat/balance QA and release approval remain pending. Evidence and seven-step owner QA:
+--- a/references/sources.json
++++ b/references/sources.json
+@@ -4 +4 @@
+-  "basis": "Reviewed sources and dated runbooks; AA class-rank implementation, all-level-1 invariants, Triple Backstab native repair and OVH/signature evidence refreshed October13. Owner gameplay/balance acceptance remains pending. Other topics retain their separately recorded audit scope. Passive AA refreshed October 13 to the verified 20% OVH override, retaining 4,000 XP/point and pending owner balance QA. Divine summons refreshed October 13: existing Ascended selection preserved, 44 definitions zero resale, full-cache and live deployment evidence verified; owner balance QA pending. Tradeskill stacks/Craft All refreshed October 13: PR #200 on main, paired OVH/game 2026101304 publication verified with all 12 zones/106 hosted assets; native owner gameplay QA pending. Equipment eligibility refreshed October16: PR202 merged, signed game2026101501 verified across106 hosted assets; owner confirms javelins work; broader gameplay acceptance pending. AA temporary-buff policy refreshed October16: source248bf5c promoted to main and OVH; all12 running zone hashes, preserved47 player/11 custom tables, signed client2026101501/106 assets,30 behavior and33 rollout checks verified. Owner gameplay acceptance pending. Equipment race policy deployed October16 under explicit approval: PR204, loader-only restart, 309410-definition cache verification with all other bytes and 47 player/11 custom tables preserved, current AA zone/client retained, zero restarts/errors. Owner gameplay QA pending. Wiki Features refreshed October16: current guides and 432 generated reward pages reconciled; per-change whole-wiki review required, source-drift checker verified, Raid/Grind guide published in release20261016-dungeons-v1/465 files with private/service preservation and browser search/responsive checks; no gameplay acceptance inferred. Basic Monk reuse refreshed October17: reviewed candidate b81fd66 separates six skills on server and RoF2, with native regressions and client build verified; full zone/Go builds, paired deployment, gameplay and wiki publication remain pending.",
++  "basis": "Reviewed sources and dated runbooks; AA class-rank implementation, all-level-1 invariants, Triple Backstab native repair and OVH/signature evidence refreshed October13. Owner gameplay/balance acceptance remains pending. Other topics retain their separately recorded audit scope. Passive AA refreshed October 13 to the verified 20% OVH override, retaining 4,000 XP/point and pending owner balance QA. Divine summons refreshed October 13: existing Ascended selection preserved, 44 definitions zero resale, full-cache and live deployment evidence verified; owner balance QA pending. Tradeskill stacks/Craft All refreshed October 13: PR #200 on main, paired OVH/game 2026101304 publication verified with all 12 zones/106 hosted assets; native owner gameplay QA pending. Equipment eligibility refreshed October16: PR202 merged, signed game2026101501 verified across106 hosted assets; owner confirms javelins work; broader gameplay acceptance pending. AA temporary-buff policy refreshed October16: source248bf5c promoted to main and OVH; all12 running zone hashes, preserved47 player/11 custom tables, signed client2026101501/106 assets,30 behavior and33 rollout checks verified. Owner gameplay acceptance pending. Equipment race policy deployed October16 under explicit approval: PR204, loader-only restart, 309410-definition cache verification with all other bytes and 47 player/11 custom tables preserved, current AA zone/client retained, zero restarts/errors. Owner gameplay QA pending. Wiki Features refreshed October16: current guides and 432 generated reward pages reconciled; per-change whole-wiki review required, source-drift checker verified, Raid/Grind guide published in release20261016-dungeons-v1/465 files with private/service preservation and browser search/responsive checks; no gameplay acceptance inferred. Basic Monk reuse refreshed October17: reviewed candidate b81fd66 separates six skills on server and RoF2, with native regressions and client build verified; full zone build, paired deployment, gameplay and wiki publication remain pending. Full launcher Go suite also passes using cached Go1.27.2 with local fixture permissions.",
+@@ -982,2 +982,2 @@
+-        "revision": "b81fd66011155da7beec6c284a3e9755e46f3fd0",
+-        "sha256": "d998c82a422efbfd1c44893e78cf31b3e60b2085d61d4561a56b1238b82daa77"
++        "revision": "b81fd66 + reviewed Go verification follow-up",
++        "sha256": "8762d01937eae10250b2b986b195b29bc06db6def817bdfc9384d056f8d34731"
+@@ -989,2 +989,2 @@
+-        "revision": "b81fd66011155da7beec6c284a3e9755e46f3fd0",
+-        "sha256": "857dadaf8d496fb26384cfc941107f6b9aa7f3e0fac3ef31f8bc8a9cb935311a"
++        "revision": "b81fd66 + reviewed Go verification follow-up",
++        "sha256": "333494d1836e6b0d93e208d7590c7e3f6ff813bf79d1cc27f44f17edcadc5bdc"
+@@ -2188 +2188 @@
+-        "role": "generated launcher catalog matching candidate proxy; Go tests pending",
++        "role": "generated launcher catalog matching candidate proxy; full Go tests pass",
+@@ -2770,2 +2770,2 @@
+-        "revision": "b81fd66011155da7beec6c284a3e9755e46f3fd0",
+-        "sha256": "d998c82a422efbfd1c44893e78cf31b3e60b2085d61d4561a56b1238b82daa77"
++        "revision": "b81fd66 + reviewed Go verification follow-up",
++        "sha256": "8762d01937eae10250b2b986b195b29bc06db6def817bdfc9384d056f8d34731"
+@@ -3396,2 +3396,2 @@
+-        "revision": "b81fd66011155da7beec6c284a3e9755e46f3fd0",
+-        "sha256": "d998c82a422efbfd1c44893e78cf31b3e60b2085d61d4561a56b1238b82daa77"
++        "revision": "b81fd66 + reviewed Go verification follow-up",
++        "sha256": "8762d01937eae10250b2b986b195b29bc06db6def817bdfc9384d056f8d34731"

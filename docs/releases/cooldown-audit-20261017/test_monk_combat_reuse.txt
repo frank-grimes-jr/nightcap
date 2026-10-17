@@ -1,0 +1,37 @@
+PASS: class-pairs
+PASS: packet-pairs
+PASS: bash-zero
+PASS: bash-positive
+PASS: dragon-round
+PASS: frenzy-zero
+PASS: frenzy-positive
+PASS: haste
+PASS: non-monk
+PASS: legacy
+PASS: cross-entry
+PASS: guards
+PASS: class-same
+PASS: packet-same
+PASS: restored
+PASS: riposte
+test_all_six_class_attacks_have_independent_cooldowns (__main__.MonkCombatReuseTests.test_all_six_class_attacks_have_independent_cooldowns) ... ok
+test_all_six_packet_attacks_have_independent_cooldowns (__main__.MonkCombatReuseTests.test_all_six_packet_attacks_have_independent_cooldowns) ... ok
+test_bash_equal_or_excess_reduction_has_no_unsigned_long_lock (__main__.MonkCombatReuseTests.test_bash_equal_or_excess_reduction_has_no_unsigned_long_lock) ... ok
+test_bash_haste_negative_reduction_and_native_deadline_controls (__main__.MonkCombatReuseTests.test_bash_haste_negative_reduction_and_native_deadline_controls) ... ok
+test_dragon_punch_does_not_block_round_kick (__main__.MonkCombatReuseTests.test_dragon_punch_does_not_block_round_kick) ... ok
+test_frenzy_equal_or_excess_reduction_has_no_unsigned_long_lock (__main__.MonkCombatReuseTests.test_frenzy_equal_or_excess_reduction_has_no_unsigned_long_lock) ... ok
+test_frenzy_haste_negative_reduction_and_native_deadline_controls (__main__.MonkCombatReuseTests.test_frenzy_haste_negative_reduction_and_native_deadline_controls) ... ok
+test_haste_and_aa_skill_reuse_reduction (__main__.MonkCombatReuseTests.test_haste_and_aa_skill_reuse_reduction) ... ok
+test_non_monk_kick_and_bash_keep_stock_shared_cooldown (__main__.MonkCombatReuseTests.test_non_monk_kick_and_bash_keep_stock_shared_cooldown) ... ok
+test_older_clients_keep_shared_monk_cooldown (__main__.MonkCombatReuseTests.test_older_clients_keep_shared_monk_cooldown) ... ok
+test_packet_and_class_attacks_share_each_skill_cooldown (__main__.MonkCombatReuseTests.test_packet_and_class_attacks_share_each_skill_cooldown) ... ok
+test_packet_authorization_and_target_controls (__main__.MonkCombatReuseTests.test_packet_authorization_and_target_controls) ... ok
+test_repeating_same_class_skill_obeys_expiry (__main__.MonkCombatReuseTests.test_repeating_same_class_skill_obeys_expiry) ... ok
+test_repeating_same_packet_skill_obeys_expiry (__main__.MonkCombatReuseTests.test_repeating_same_packet_skill_obeys_expiry) ... ok
+test_restored_timers_preserve_independent_cooldowns (__main__.MonkCombatReuseTests.test_restored_timers_preserve_independent_cooldowns) ... ok
+test_riposte_bypasses_but_does_not_extend_cooldown (__main__.MonkCombatReuseTests.test_riposte_bypasses_but_does_not_extend_cooldown) ... ok
+
+----------------------------------------------------------------------
+Ran 16 tests in 3.615s
+
+OK

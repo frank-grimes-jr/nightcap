@@ -1,0 +1,37 @@
+{
+  "status": "installed",
+  "source_revision": "08e59635c00b90f08f91328c0d8b58894be74c0d",
+  "files": [
+    {
+      "path": "references/multiclass.md",
+      "before": "ef03f64907b929117003fcae4070ae0a3cf3b2249c6402adfc7920311738c6a8",
+      "after": "cafcebdae2a575c2ab19d9c8e3f9459bda32fe0fbc21255a1cbd891750979b6f"
+    },
+    {
+      "path": "references/items.md",
+      "before": "2f9f6ae5ac12eb57b0b4d5441e8b283d396832ec0fa2f150730126974074db43",
+      "after": "af7e8c52ceffad88a04a5b647a8efd383203fbcc4f44a1722676c85c469a3ed7"
+    },
+    {
+      "path": "references/client.md",
+      "before": "fed6950cde15a4623237829c9e94285ac232648b9772d289e14e7ab4ae6f7516",
+      "after": "cbf0be67085500a3559b3a789eeffb915fd86bade77dfc45bc5f54f6191f0f18"
+    },
+    {
+      "path": "references/balance.md",
+      "before": "1f0884dbf1fdc1e226c5e9e60e3f28d077fdafa7f5a211cf811bab54d930bbd9",
+      "after": "1c7ffc5ffa1fa7a1cf0aab68496bdac51d6ca9ab7d2496cdf560e7880e0d8faa"
+    },
+    {
+      "path": "references/wiki.md",
+      "before": "43ba07a1881f8c781a35eb90f26484bdb53801f30b2ad637623cc56b86a1254c",
+      "after": "70d82c97ed84fd1dace6bb85406bee05a99353f4291507f1f6c18894890c88e0"
+    },
+    {
+      "path": "references/sources.json",
+      "before": "d11837a070e9da0a5ff2660825347ee0a41940dbe26c7648be84357211ad061a",
+      "after": "9c86a86385c05a7f8c292e3d330cca6809b8e467a08af1dd89bdc304b99863f2"
+    }
+  ],
+  "deployment": "source candidate only; no runtime or wiki publication"
+}
