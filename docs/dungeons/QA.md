@@ -1,9 +1,11 @@
 # Dungeon live-test release: exact acceptance route
 
-Owner check, October 16: **Palwar in public Befallen can select Instance_Keeper
-and see Raid/Grind in its hail menu**. The remaining checks below are **pending**,
-including run creation/entry, the Tasks checklist, combat and rewards. This is
-partial acceptance of the entrance interaction, not a completed dungeon run.
+Owner check, October 16: **Palwar selected Befallen's Keeper, saw Raid/Grind,
+entered a Raid and killed a named boss**. The task title is present but objectives
+are blank; a yellow notice followed the kill. A read-only probe confirmed retained
+personal boss credit without full-clear completion. The [journal repair](journal-repair/README.md)
+is a tested candidate pending native installation and visible retest. Full-clear
+rewards, other dungeons and broader acceptance remain open.
 
 The owner-authorized main/OVH release is deployed and enabled; access is open.
 Native binaries, production cache, SQL
@@ -34,8 +36,9 @@ those experiments on the live server.
    to the same native NPC outside this instance, with matching debuffs/rules.
    Grind stats match. After the native timer plus variance, defeated mobs return.
 5. Kill the last personally required boss. Verify one Normal item, one permanent
-   Grind completion, and all five task activities completed. The journal remains
-   until the original deadline. Repeated kills, task abandonment/reacceptance,
+   Grind completion, and all five task activities completed. After the journal
+   repair is installed, the run moves to Completed history. Repeated kills,
+   task abandonment/reacceptance,
    Keeper claims and re-entry must not grant another reward.
 6. Leave, choose Reset, then Confirm Reset within thirty seconds as creator.
    Start Raid. Verify five objectives, +35% HP, +15% outgoing damage, minibosses
@@ -44,10 +47,10 @@ those experiments on the live server.
    verify at least one exclusive corpse item plus the separate personal reward.
    Raid items are Polished or Ascended. Defeated spawn points never repopulate.
 
-Whole-wiki impact review for this owner check: no publication change is needed.
-Features, travel, commands, rewards/catalogs and Recent changes retain their
-existing behavior and Live testing status. The published guide already directs
-players to the Keeper; this check confirms only its Befallen targeting/menu.
+Whole-wiki review: the published guide now lists all 52 required bosses and
+explains stage notices, full clears and Keeper Status when objectives are blank.
+Recent changes links this guidance. Other mechanics and Live testing labels
+remain unchanged; wiki publication does not establish native repair acceptance.
 
 ## Repeat in all seven dungeons and both modes
 

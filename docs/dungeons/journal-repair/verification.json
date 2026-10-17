@@ -1,0 +1,15 @@
+{
+  "status": "built_and_reviewed",
+  "native_zone_sha256": "023cb1e991de849860b1387c0a0d8db5c596fb2744e791d5a92fb9e32b6b83cd",
+  "retained_deployed_zone_relinked": "785faf9e08856bb5355ffd46e4d4aa6d93f687a8bbbc6b40c2fa3d1692d4c524",
+  "candidate_sources_verified": 5,
+  "dungeon_regressions_passed": 15,
+  "journal_regressions_passed": 4,
+  "adapter_recovery_tests_passed": 7,
+  "inherited_operator_tests_passed": 20,
+  "source_review": "no remaining required findings",
+  "deployment": "pending; owner authorized Restart now",
+  "gameplay_acceptance": "blank objectives reported; repaired RoF2 display not yet retested",
+  "wiki_release": "20261016-dungeon-journal-v1",
+  "wiki_public_hashes_verified": 465
+}

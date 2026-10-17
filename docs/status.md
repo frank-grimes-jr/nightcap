@@ -16,8 +16,10 @@ client 2026101501 remains unchanged. The initial preflight DB memory-limit
 restart recovered before feature SQL; its cause and correction are recorded in
 [deployment evidence](dungeons/deployment/README.md). CT terrain/path validation,
 level-50 Vox/Nagafen balance and full owner acceptance remain pending. On October
-16, Palwar confirmed selecting Befallen's Keeper and seeing its Raid/Grind menu;
-run entry, checklist, combat and rewards remain unconfirmed. Existing
+16, Palwar confirmed Keeper selection, Raid entry and a named kill. The Tasks
+objectives are blank despite retained ledger credit. The [journal repair](dungeons/journal-repair/README.md)
+has passing native regressions and source review; production installation and
+visible retest remain pending. Full-clear rewards remain unconfirmed. Existing
 unmanaged instances retain their legacy behavior. The public [Raid & Grind guide](https://wiki.nightcapgame.org/dungeon-modes.html)
 is published as `20261016-dungeons-v1`; all 465 public hashes and preservation
 checks pass. [Publication evidence](dungeons/wiki-publication/README.md) is

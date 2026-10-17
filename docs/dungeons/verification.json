@@ -82,7 +82,7 @@
   "fourteen_mode_gameplay": "pending",
   "classic_ct_geometry_paths_doors": "pending in game; static identity/door checks passed",
   "level_50_vox_nagafen_balance": "pending",
-  "owner_acceptance": "partial: Befallen Keeper targeting and Raid/Grind menu confirmed; remaining gameplay pending",
+  "owner_acceptance": "partial: Keeper menu, Raid entry and named kill confirmed; blank task objectives reported, journal repair pending native installation and visible QA",
   "owner_confirmed_checks": [
     {
       "date": "2026-10-16",
@@ -92,10 +92,20 @@
       "check": "Instance_Keeper selection and Raid/Grind hail menu",
       "owner_report": "Keeper selected and Raid/Grind appears",
       "scope_excludes": "run creation/entry, other menu actions, Tasks, combat, rewards and other dungeons"
+    },
+    {
+      "date": "2026-10-16",
+      "character": "Palwar",
+      "zone": "Befallen",
+      "mode": "Raid",
+      "check": "Run entry and named-boss kill",
+      "owner_report": "Task is listed, but objectives are blank; yellow completion message followed named kill",
+      "result": "display defect; read-only ledger and task rows retain one credited boss; full-clear reward acceptance pending"
     }
   ],
   "production_promotion_restart": "owner authorized; main PR208 and controlled restart complete",
   "wiki": "published as 20261016-dungeons-v1; all 465 public files verified; evidence in wiki-publication/",
   "cache_scope": "production preserved 309410 old items and added 330; original local-cache evidence retained separately",
-  "deployment_evidence": "deployment/production-verification.json"
+  "deployment_evidence": "deployment/production-verification.json",
+  "journal_repair": "journal-repair/README.md;15 regressions pass;source review complete;native install and visible QA pending"
 }

@@ -1,5 +1,15 @@
 # CHANGES
 
+## 2026-10-16 - Dungeon checklist and completion-history repair candidate
+
+Repair blank Raid/Grind task objectives with named Kill displays and simultaneous
+boss activities. Add explicit boss-credit versus full-clear messages, entry
+checklists and durable Completed-history projection without native task reward
+hooks. Reconnect, abandonment and post-expiry recovery retain ledger progress;
+old completions cannot hide a newer run. All fifteen dungeon regressions and
+source review pass. Native installation and visible RoF2 retest are pending;
+no SQL, items, cache ABI or client change. See `docs/dungeons/journal-repair/`.
+
 ## 2026-10-16 - Befallen Keeper entrance check confirmed
 
 Palwar confirmed selecting Instance_Keeper and seeing Raid/Grind in its hail
