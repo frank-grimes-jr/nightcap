@@ -4,14 +4,17 @@ Deployed repair for Palwar's live Befallen Raid report: the task title appears,
 its objectives are blank, and a yellow completion message follows a named kill.
 The read-only production check at 23:14:43 UTC found one personal objective
 (skeleton Lrodd), no full-clear entitlement, and matching saved task activity.
-Credit was retained. Run entry and a named kill are now owner-confirmed; checklist
-rendering failed. Full-clear rewards and broader gameplay acceptance stay open.
+Credit was retained. After deployment and the Befallen journal retest instructions,
+the owner replied **"Confirmed"** on October 16. The reported display issue is
+accepted as resolved; the reply does not individually attest every step below.
+Full-clear rewards and broader gameplay acceptance stay open.
 
 ## Cause and behavior
 
 The installed task rows use None (0) activity types and all-zero steps. None is
-supported by the native serializer but the owner reports blank RoF2 objectives;
-the client rendering explanation remains an inference until visible retest.
+supported by the native serializer but produced blank objectives in the owner's
+report. The owner confirmed the repair; the exact client rendering cause remains
+an inference because the projection changed both activity types and steps.
 The retained native `Tasks::GetActiveElements` also treats all-zero steps as
 sequential, hiding later bosses. Its last required sentinel never completes,
 so ordinary native completion cannot add the dungeon to Completed history.
@@ -113,9 +116,16 @@ Matching world/zone/shared_memory, cache and manifests are retained in
 Only archive-verified packaging duplicates and this release's exact local build
 context cache were removed afterward; backups, running/previous images and
 required operator inputs remain. `production-verification.json` records the
-post-open result. Visible owner acceptance remains pending.
+post-open result, including the then-pending owner QA. The later owner confirmation
+is recorded separately in `verification.json`; the deployment snapshot is retained.
 
 The wiki follow-up is published as 20261016-dungeon-journal-v1: all 52 boss names
 and stage/full-clear/fallback guidance, with 465 public hashes verified. Maintained
 wiki commit 78991d4 and 14 Python/13 Node checks are separate from native gameplay
 acceptance. No layout/search/assets or unrelated mechanics changed.
+
+Whole-wiki review after confirmation: Features, home, guides, commands, generated
+item/zone pages, equipment catalog and Recent changes need no public content
+change. The published boss list, stage/full-clear explanation and Keeper Status
+fallback remain correct. Live testing still applies to the broader feature;
+the scoped Befallen confirmation does not establish all-mode or balance acceptance.

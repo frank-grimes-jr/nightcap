@@ -9,7 +9,9 @@ hooks. Reconnect, abandonment and post-expiry recovery retain ledger progress;
 old completions cannot hide a newer run. All fifteen dungeon regressions and
 source review pass. PR #214 is on main and the owner-authorized restart is complete.
 All 12 workers and the unchanged item cache verify; current player/run records are
-preserved. Visible RoF2 acceptance remains pending. No SQL, items, cache ABI or
+preserved. The owner replied "Confirmed" after the Befallen journal retest
+instructions; the reported display issue is accepted as resolved. Full-clear
+rewards and broader dungeon/balance QA remain open. No SQL, items, cache ABI or
 client change. Wiki boss lists and guidance are published. See `docs/dungeons/journal-repair/`.
 
 ## 2026-10-16 - Befallen Keeper entrance check confirmed
