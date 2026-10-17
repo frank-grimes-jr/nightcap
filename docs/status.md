@@ -33,6 +33,15 @@ stackable limits below 100 while preserving larger limits and nonstackables.
 Production read-only scope is 20,490 definitions. Three planner, nine temporary
 MariaDB and 25 native tradeskill tests pass. Main promotion, controlled cache
 refresh/game restart, public wiki update and in-game acceptance remain pending.
+## Idle-zone restart correction — activated October 17
+
+Production default `Zone:KillProcessOnDynamicShutdown=false` now covers all
+zone rulesets through default inheritance; no alternate override exists.
+World and all twelve workers completed the global reload at 14:47 UTC, with
+all native lifetimes and service identities preserved. Three retained incidents
+showed orderly idle shutdowns triggering whole-game restarts. Normal timer-driven
+unload and player-continuity acceptance remain pending.
+[Correction evidence and exact QA](ops/dynamic-zone-worker-lifetime-20261017/README.md).
 
 ## Dungeon patcher announcement — published October 17
 

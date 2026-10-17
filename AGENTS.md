@@ -64,6 +64,14 @@ All commands run from `akk-stack/`:
 
 ## Server ops
 
+- **Idle production zones must preserve their worker process.** October 17
+  correction sets inherited default `Zone:KillProcessOnDynamicShutdown=false`;
+  alternate rulesets must not override it to true while `/opt/nightcap/start.py`
+  restarts the whole runtime on any child exit. Existing values require a global
+  world/zone rules reload, not a process kill. Activation and reload are verified;
+  natural idle-unload/player-continuity acceptance remains pending. Current
+  evidence: `docs/ops/dynamic-zone-worker-lifetime-20261017/README.md`.
+
 - **Player access codes are live (October11):** issue/revoke personal codes from
   the owner-local production GM tool. Gateway `PLAYER_ACCESS_FILE` replaces
   `ALLOW_CIDRS`; Windows DPAPI remembers each launcher's code. Mount the registry

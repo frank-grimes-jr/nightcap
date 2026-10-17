@@ -1,0 +1,258 @@
+{
+  "audited_at": "2026-10-12",
+  "scope": "Reviewed local files; not runtime or player QA evidence",
+  "topics": {
+    "wiki": [
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\wiki\\build.py",
+        "role": "Reviewed wiki source, maintenance contract or dated publication evidence",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\wiki\\catalog.py",
+        "role": "reviewed pending normal-item recipe guidance; unpublished",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\wiki\\equipment.py",
+        "role": "Reviewed wiki source, maintenance contract or dated publication evidence",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\wiki\\check_refresh.py",
+        "role": "Reviewed wiki source, maintenance contract or dated publication evidence",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\wiki\\content-review.json",
+        "role": "reviewed pending normal-item recipe guidance; unpublished",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\wiki\\README.md",
+        "role": "Reviewed published Raid/Grind wiki source or verification; owner gameplay acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\wiki\\test_wiki.py",
+        "role": "Reviewed wiki source, maintenance contract or dated publication evidence",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\wiki\\test_refresh.py",
+        "role": "Reviewed wiki source, maintenance contract or dated publication evidence",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\wiki\\update.py",
+        "role": "Reviewed wiki source, maintenance contract or dated publication evidence",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\wiki\\test_update.py",
+        "role": "Reviewed wiki source, maintenance contract or dated publication evidence",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\wiki\\deploy.py",
+        "role": "Reviewed wiki source, maintenance contract or dated publication evidence",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\wiki\\test_deploy.py",
+        "role": "Reviewed wiki source, maintenance contract or dated publication evidence",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\wiki\\test_search.cjs",
+        "role": "Reviewed wiki source, maintenance contract or dated publication evidence",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\wiki\\test_equipment.cjs",
+        "role": "Reviewed wiki source, maintenance contract or dated publication evidence",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\wiki\\assets\\wiki.css",
+        "role": "Reviewed wiki source, maintenance contract or dated publication evidence",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\docs\\ops\\nightcap-wiki.md",
+        "role": "Reviewed published Raid/Grind wiki source or verification; owner gameplay acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\docs\\releases\\wiki-features-20261016\\README.md",
+        "role": "Reviewed wiki source, maintenance contract or dated publication evidence",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\docs\\releases\\wiki-features-20261016\\origin-verification.json",
+        "role": "Reviewed wiki source, maintenance contract or dated publication evidence",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\docs\\releases\\wiki-features-20261016\\public-verification.json",
+        "role": "Reviewed wiki source, maintenance contract or dated publication evidence",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\wiki\\articles\\about.json",
+        "role": "Reviewed wiki source, maintenance contract or dated publication evidence",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\wiki\\articles\\advanced-loot.json",
+        "role": "Reviewed wiki source, maintenance contract or dated publication evidence",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\wiki\\articles\\ascension.json",
+        "role": "Reviewed wiki source, maintenance contract or dated publication evidence",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\wiki\\articles\\combat.json",
+        "role": "reviewed local Monk notices; preserved no-death-EXP/reforge notes; unpublished",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\wiki\\articles\\commands.json",
+        "role": "Reviewed wiki source, maintenance contract or dated publication evidence",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\wiki\\articles\\equipment.json",
+        "role": "reviewed pending normal-item recipe guidance; unpublished",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\wiki\\articles\\features.json",
+        "role": "reviewed local Monk notices; preserved no-death-EXP/reforge notes; unpublished",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\wiki\\articles\\getting-started.json",
+        "role": "Reviewed published Raid/Grind wiki source or verification; owner gameplay acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\wiki\\articles\\index.json",
+        "role": "reviewed local Monk notices; preserved no-death-EXP/reforge notes; unpublished",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\wiki\\articles\\item-upgrades.json",
+        "role": "reviewed pending normal-item recipe guidance; unpublished",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\wiki\\articles\\launcher.json",
+        "role": "Reviewed wiki source, maintenance contract or dated publication evidence",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\wiki\\articles\\multiclass.json",
+        "role": "reviewed local Monk notices; preserved no-death-EXP/reforge notes; unpublished",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\wiki\\articles\\pets.json",
+        "role": "Reviewed wiki source, maintenance contract or dated publication evidence",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\wiki\\articles\\recent-changes.json",
+        "role": "reviewed local Monk notices; preserved no-death-EXP/reforge notes; unpublished",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\wiki\\articles\\tradeskills.json",
+        "role": "Reviewed wiki source, maintenance contract or dated publication evidence",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\wiki\\articles\\travel.json",
+        "role": "Reviewed published Raid/Grind wiki source or verification; owner gameplay acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\wiki\\articles\\tunnel.json",
+        "role": "Reviewed wiki source, maintenance contract or dated publication evidence",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\wiki\\articles\\unreleased.json",
+        "role": "reviewed local Monk notices; preserved no-death-EXP/reforge notes; unpublished",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\wiki\\articles\\waypoints.json",
+        "role": "Reviewed wiki source, maintenance contract or dated publication evidence",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\wiki\\articles\\zone-hunt.json",
+        "role": "reviewed pending normal-item recipe guidance; unpublished",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\wiki\\articles\\dungeon-modes.json",
+        "role": "Reviewed published Raid/Grind wiki source or verification; owner gameplay acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\docs\\releases\\wiki-dungeons-20261016\\README.md",
+        "role": "Reviewed published Raid/Grind wiki source or verification; owner gameplay acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\docs\\releases\\wiki-dungeons-20261016\\origin-verification.json",
+        "role": "Reviewed published Raid/Grind wiki source or verification; owner gameplay acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\docs\\releases\\wiki-dungeons-20261016\\public-verification.json",
+        "role": "Reviewed published Raid/Grind wiki source or verification; owner gameplay acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\docs\\releases\\wiki-dungeons-20261016\\browser-verification.json",
+        "role": "Reviewed published Raid/Grind wiki source or verification; owner gameplay acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\docs\\releases\\wiki-dungeons-20261016\\release.json",
+        "role": "Reviewed published Raid/Grind wiki source or verification; owner gameplay acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\docs\\releases\\wiki-dungeons-20261016\\source-manifest.json",
+        "role": "Reviewed published Raid/Grind wiki source or verification; owner gameplay acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\docs\\releases\\wiki-dungeons-20261016\\linux-tests.txt",
+        "role": "Reviewed published Raid/Grind wiki source or verification; owner gameplay acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\nightcap-wiki\\EQ_Local_Dev\\docs\\releases\\wiki-dungeon-journal-20261016\\public-verification.json",
+        "role": "Reviewed journal repair implementation, failure tests or deployment/publication evidence; visible owner QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-16\\p\\work\\dungeon-modes\\docs\\releases\\dungeon-patcher-20261017\\README.md",
+        "role": "Reviewed dungeon patcher announcement, signed publication or verification; installed desktop owner QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\Documents\\Codex\\2026-10-17\\see\\work\\monk-independent-reuse\\docs\\releases\\monk-independent-reuse-20261017\\wiki-review.json",
+        "role": "whole-wiki impact review and six local unreleased notices",
+        "state": "unchanged"
+      }
+    ]
+  }
+}

@@ -1,0 +1,130 @@
+--- C:/Users/verre/.codex/worktrees/nightcap-wiki/EQ_Local_Dev/wiki/articles/recent-changes.json
++++ C:/Users/verre/.codex/worktrees/nightcap-wiki/EQ_Local_Dev/wiki/articles/recent-changes.json
+@@ -5 +5 @@
+-  "body": "<h2 id=\"monk-cooldowns-20261017\">October 17, 2026: Monk cooldown candidate</h2><ul><li><strong>Not released:</strong> <a href=\"unreleased.html#monk-cooldowns\">Independent cooldowns for all six basic Monk attacks</a> are prepared and awaiting paired client/server release.</li></ul>\n<h2 id=\"death-exp-20261017\">October 17, 2026</h2><ul><li><strong>Not released:</strong> <a href=\"unreleased.html#death-exp\">No EXP loss on normal death</a> is prepared for approval and is not active yet.</li></ul>\n<h2 id=\"october-17\">October 17, 2026</h2><ul><li>A <a href=\"item-upgrades.html#normal-items\">Reforging Box fix for three identical Normal (Base) items</a> is tested and awaiting release. Higher upgrades still require four copies.</li></ul>\n<h2 id=\"october-16\">October 16, 2026</h2><ul><li>The <a href=\"dungeon-modes.html#required-bosses\">dungeon guide now lists every required boss</a> and explains boss-stage notices, full-clear credit and Keeper Status when task objectives are blank.</li><li><a href=\"dungeon-modes.html\">Raid and Grind dungeons</a> are deployed for live testing with personal boss checklists, shared rewards and exclusive Raid drops. Gameplay and balance acceptance remain open.</li><li><a href=\"features.html\">Features</a> now gathers the major departures from Classic.</li><li><a href=\"multiclass.html#equipment-access\">Equipment eligibility</a> recognizes held classes and permits playable races when the class matches; remaining restrictions still apply.</li><li><a href=\"combat.html#buffs\">Temporary AA buffs</a> retain their timers; ordinary blessings remain lasting.</li><li><a href=\"tunnel.html#banking\">Mira Coinwell</a> provides tunnel banking. Haldra stocks Leather Padding.</li><li>The wiki’s guides, commands and generated reward pages have been reviewed together against current release evidence.</li></ul>\n<h2 id=\"october-13\">October 13, 2026</h2><ul><li><a href=\"multiclass.html#passive-abilities\">Passive AA changed from 40% to 20%</a>, preserving full normal XP and 4,000 AA XP per point.</li><li><a href=\"multiclass.html#alternate-abilities\">All allowed AA ranks open at level 1</a>; points, eligibility and prerequisite ranks remain.</li><li><a href=\"tradeskills.html\">Stacked tradeskill ingredients and Craft All</a> are deployed.</li><li>The tunnel workshop layout is more spacious; the <a href=\"waypoints.html\">Unrest waypoint</a> moved beside its entrance Keeper.</li><li>Supported divine summoned-hammer families have <a href=\"equipment.html#summoned-gear\">zero resale value</a>.</li><li>The reported multiclass training/offhand issue and merchant Sell All button issue were confirmed resolved.</li></ul>\n<h2 id=\"october-12\">October 11–12, 2026</h2><ul><li><a href=\"item-upgrades.html\">Reusable four-copy upgrades</a> are available from Artisan Veyra; higher #zoneforge steps now use four copies.</li><li><a href=\"equipment.html#free-trade\">LORE restrictions are disabled</a>. Food and drink requirements were removed.</li><li><a href=\"multiclass.html#spell-access\">Early scribing</a> allows eligible scrolls into the spellbook before their casting level.</li><li><a href=\"equipment.html#selling\">Sell All protects food, drink, reagents and casting focus items</a>.</li><li>The launcher uses personal access codes and shows <a href=\"launcher.html#patch-notes\">patch summaries</a>.</li><li>Waypoint portals and floating-eye Instance Keepers received visual corrections. The reported pet-summon crash was confirmed resolved.</li></ul>\n<h2 id=\"october-9\">October 9, 2026</h2><ul><li><a href=\"zones.html\">48 Classic reward zones</a>, <a href=\"items.html\">384 reward variants</a>, type-22 augments and zone forging launched.</li><li>Passive AA increased to 40% at that time; the October 13 reduction above supersedes that rate.</li><li><a href=\"advanced-loot.html#row-controls\">Always Loot / Never Loot controls</a>, effective Spell Damage on <a href=\"combat.html#throw-stone\">Throw Stone</a>, and retained spell gems after normal death were added.</li></ul><p>Release labels describe availability, not completed balance or gameplay acceptance. See <a href=\"unreleased.html\">In development</a> for candidates.</p>",
++  "body": "<h2 id=\"idle-zone-20261017\">October 17, 2026: idle-zone reliability correction</h2><ul><li>A server configuration correction has been applied for whole-game disconnects triggered when an empty zone unloads. The live reload completed without a restart; normal idle-unload and player-continuity verification are still pending.</li></ul>\n<h2 id=\"monk-cooldowns-20261017\">October 17, 2026: Monk cooldown candidate</h2><ul><li><strong>Not released:</strong> <a href=\"unreleased.html#monk-cooldowns\">Independent cooldowns for all six basic Monk attacks</a> are prepared and awaiting paired client/server release.</li></ul>\n<h2 id=\"death-exp-20261017\">October 17, 2026</h2><ul><li><strong>Not released:</strong> <a href=\"unreleased.html#death-exp\">No EXP loss on normal death</a> is prepared for approval and is not active yet.</li></ul>\n<h2 id=\"october-17\">October 17, 2026</h2><ul><li>A <a href=\"item-upgrades.html#normal-items\">Reforging Box fix for three identical Normal (Base) items</a> is tested and awaiting release. Higher upgrades still require four copies.</li></ul>\n<h2 id=\"october-16\">October 16, 2026</h2><ul><li>The <a href=\"dungeon-modes.html#required-bosses\">dungeon guide now lists every required boss</a> and explains boss-stage notices, full-clear credit and Keeper Status when task objectives are blank.</li><li><a href=\"dungeon-modes.html\">Raid and Grind dungeons</a> are deployed for live testing with personal boss checklists, shared rewards and exclusive Raid drops. Gameplay and balance acceptance remain open.</li><li><a href=\"features.html\">Features</a> now gathers the major departures from Classic.</li><li><a href=\"multiclass.html#equipment-access\">Equipment eligibility</a> recognizes held classes and permits playable races when the class matches; remaining restrictions still apply.</li><li><a href=\"combat.html#buffs\">Temporary AA buffs</a> retain their timers; ordinary blessings remain lasting.</li><li><a href=\"tunnel.html#banking\">Mira Coinwell</a> provides tunnel banking. Haldra stocks Leather Padding.</li><li>The wiki’s guides, commands and generated reward pages have been reviewed together against current release evidence.</li></ul>\n<h2 id=\"october-13\">October 13, 2026</h2><ul><li><a href=\"multiclass.html#passive-abilities\">Passive AA changed from 40% to 20%</a>, preserving full normal XP and 4,000 AA XP per point.</li><li><a href=\"multiclass.html#alternate-abilities\">All allowed AA ranks open at level 1</a>; points, eligibility and prerequisite ranks remain.</li><li><a href=\"tradeskills.html\">Stacked tradeskill ingredients and Craft All</a> are deployed.</li><li>The tunnel workshop layout is more spacious; the <a href=\"waypoints.html\">Unrest waypoint</a> moved beside its entrance Keeper.</li><li>Supported divine summoned-hammer families have <a href=\"equipment.html#summoned-gear\">zero resale value</a>.</li><li>The reported multiclass training/offhand issue and merchant Sell All button issue were confirmed resolved.</li></ul>\n<h2 id=\"october-12\">October 11–12, 2026</h2><ul><li><a href=\"item-upgrades.html\">Reusable four-copy upgrades</a> are available from Artisan Veyra; higher #zoneforge steps now use four copies.</li><li><a href=\"equipment.html#free-trade\">LORE restrictions are disabled</a>. Food and drink requirements were removed.</li><li><a href=\"multiclass.html#spell-access\">Early scribing</a> allows eligible scrolls into the spellbook before their casting level.</li><li><a href=\"equipment.html#selling\">Sell All protects food, drink, reagents and casting focus items</a>.</li><li>The launcher uses personal access codes and shows <a href=\"launcher.html#patch-notes\">patch summaries</a>.</li><li>Waypoint portals and floating-eye Instance Keepers received visual corrections. The reported pet-summon crash was confirmed resolved.</li></ul>\n<h2 id=\"october-9\">October 9, 2026</h2><ul><li><a href=\"zones.html\">48 Classic reward zones</a>, <a href=\"items.html\">384 reward variants</a>, type-22 augments and zone forging launched.</li><li>Passive AA increased to 40% at that time; the October 13 reduction above supersedes that rate.</li><li><a href=\"advanced-loot.html#row-controls\">Always Loot / Never Loot controls</a>, effective Spell Damage on <a href=\"combat.html#throw-stone\">Throw Stone</a>, and retained spell gems after normal death were added.</li></ul><p>Release labels describe availability, not completed balance or gameplay acceptance. See <a href=\"unreleased.html\">In development</a> for candidates.</p>",
+@@ -20 +20,2 @@
+-    "docs/releases/monk-independent-reuse-20261017/README.md (candidate; not deployed)"
++    "docs/releases/monk-independent-reuse-20261017/README.md (candidate; not deployed)",
++    "docs/ops/dynamic-zone-worker-lifetime-20261017/README.md and result.json; live rule reload verified, idle-unload/player acceptance pending"
+--- C:/Users/verre/.codex/skills/nightcap-development/references/operations.md
++++ C:/Users/verre/.codex/skills/nightcap-development/references/operations.md
+@@ -29 +29,3 @@
+-On OVH any native child exit can restart the entire runtime. Inspect the current supervisor and release-specific procedure. Local eqlaunch behavior is not portable. Saved-state edits must be limited by zone, instance and exact NPC identity, preserving corpses and unrelated states. New additions may already load correctly without invalidating saved states: item-upgrade release explicitly needed none.
++On OVH any native child exit can restart the entire runtime. The October 17
++correction disables inherited `Zone:KillProcessOnDynamicShutdown` in default
++ruleset 1; no alternate override existed. Preserve false in future rulesets. Inspect the current supervisor and release-specific procedure. Local eqlaunch behavior is not portable. Saved-state edits must be limited by zone, instance and exact NPC identity, preserving corpses and unrelated states. New additions may already load correctly without invalidating saved states: item-upgrade release explicitly needed none.
+@@ -110,0 +113,33 @@
++
++## Idle-zone lifetime correction
++
++October 17 14:47 UTC: production default `Zone:KillProcessOnDynamicShutdown`
++changed true to false. `RuleManager::LoadRules` loads default before alternate
++rulesets; a single stored row covered all active zones. `Zone::Shutdown` still
++unloads data and saves state, but skips event-loop shutdown when false. The
++supervisor itself is unchanged and still restarts everything on a native exit.
++
++Runbook/source authority: `E:/EQ_Local_Dev/_worktrees/dynamic-zone-worker-lifetime/`
++at origin/main a59974d plus the reviewed correction. Read
++`docs/ops/dynamic-zone-worker-lifetime-20261017/README.md`, `ops/apply.py`,
++`result.json`, `followup.json`, and `server-mods/code/zone/zone.cpp`. The deployed
++journal manifest pins that zone source and the common rule loader, world/zone
++reload handlers and wire declarations. Current local full-source zone.cpp lags.
++
++Forward/inverse rollback-only transaction rehearsal passed before exactly one
++live update; complete rule preimage retained privately. Authenticated global
++Rules reload completed in world and all12 workers, preserving all15 native
++lifetimes and all5 service identities. No binary/cache/client pairing is needed.
++Natural timer-driven unload and player continuity acceptance remain pending.
++Do not force a process exit to test or refresh a zone. Keep a player elsewhere
++while an empty East Commonlands or Befallen instance reaches its existing timer;
++verify the same worker lifetime, no supervisor restart, and continued play.
++
++Both October16 reported incidents and another October17 10:42 a.m. Eastern
++incident are in retained Docker logs. Capture the full relevant interval and
++both stdout/stderr before filtering; a filtered tail missed the original cause.
++OS exit code and introduction date remain unknown. Native file log time differs
++from Eastern; correlate using UTC Docker timestamps. On uncertain activation,
++inspect the receipt and row, retain false and retry the supported reload; never
++automatically re-enable the restart cause or restore old player data. Historical
++October9/11 true-rule operations notes are dated, not current instructions.
+--- C:/Users/verre/.codex/skills/nightcap-development/references/wiki.md
++++ C:/Users/verre/.codex/skills/nightcap-development/references/wiki.md
+@@ -136,0 +137,9 @@
++
++October17 idle-zone reliability correction: all21 maintained guides and432
++generated reward routes assessed. Only Recent changes receives a local notice:
++production rule correction/reload verified, natural unload/player continuity
++pending. Features/home/commands/travel/dungeons/catalog values and release labels
++remain correct. No public wiki release was made. Exact review, source-drift
++report, maintenance patch and guarded install receipt are in
++`E:/EQ_Local_Dev/_worktrees/dynamic-zone-worker-lifetime/docs/ops/dynamic-zone-worker-lifetime-20261017/`.
++Preserve the prior candidate notices and global historical audit revision.
+--- C:/Users/verre/.codex/skills/nightcap-development/references/sources.json
++++ C:/Users/verre/.codex/skills/nightcap-development/references/sources.json
+@@ -45 +45,2 @@
+-    "monk_source_main_observed_20261017": "a59974d1214a6f8cef6e5ff8bf31a52e1417cb6f"
++    "monk_source_main_observed_20261017": "a59974d1214a6f8cef6e5ff8bf31a52e1417cb6f",
++    "idle_zone_lifetime_20261017": "a59974d1214a6f8cef6e5ff8bf31a52e1417cb6f + reviewed operational correction"
+@@ -213,0 +215,56 @@
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/dynamic-zone-worker-lifetime",
++        "path": "server-mods/code/zone/zone.cpp",
++        "role": "Manifest-matching Zone::Shutdown and idle timer behavior",
++        "revision": "a59974d1214a6f8cef6e5ff8bf31a52e1417cb6f + reviewed operational correction",
++        "sha256": "974b6699f1deed2de33b5ba3370a6f4d6829f8273aed965eb4028c291b120c16"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/dynamic-zone-worker-lifetime",
++        "path": "deploy/production/start.py",
++        "role": "Inspected production-matching any-child-exit supervisor",
++        "revision": "a59974d1214a6f8cef6e5ff8bf31a52e1417cb6f + reviewed operational correction",
++        "sha256": "ca4099eb898730141e7941d3afc366d59c4bc8351eea74c5b6fd9560c24b815f"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/dynamic-zone-worker-lifetime",
++        "path": "docs/ops/dynamic-zone-worker-lifetime-20261017/README.md",
++        "role": "Live correction, retained incidents, pending natural-unload/player QA",
++        "revision": "a59974d1214a6f8cef6e5ff8bf31a52e1417cb6f + reviewed operational correction",
++        "sha256": "5bb7d9df8016900e5c999f9456e8120614800d7d3fb9aada0820637443246bd6"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/dynamic-zone-worker-lifetime",
++        "path": "docs/ops/dynamic-zone-worker-lifetime-20261017/ops/apply.py",
++        "role": "Guarded one-rule operation, rollback rehearsal and global reload verification",
++        "revision": "a59974d1214a6f8cef6e5ff8bf31a52e1417cb6f + reviewed operational correction",
++        "sha256": "398d547151d9c81f0d180a88f2e9f9870fe00b2cf4964faae01df937bd4e3190"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/dynamic-zone-worker-lifetime",
++        "path": "docs/ops/dynamic-zone-worker-lifetime-20261017/ops/verify.py",
++        "role": "Read-only native lifetime and incident follow-up",
++        "revision": "a59974d1214a6f8cef6e5ff8bf31a52e1417cb6f + reviewed operational correction",
++        "sha256": "8990e4a1b49c092f91a1f9ebfce6da1224466a81d6492be3470951fc0e0e0f6e"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/dynamic-zone-worker-lifetime",
++        "path": "docs/ops/dynamic-zone-worker-lifetime-20261017/result.json",
++        "role": "Verified live rule reload with native/service identities preserved",
++        "revision": "a59974d1214a6f8cef6e5ff8bf31a52e1417cb6f + reviewed operational correction",
++        "sha256": "471af7e86604078849473880483f6ab9153b3148631c6664b9675c1b3e9e3a27"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/dynamic-zone-worker-lifetime",
++        "path": "docs/ops/dynamic-zone-worker-lifetime-20261017/followup.json",
++        "role": "Dated follow-up; no natural unload observed yet",
++        "revision": "a59974d1214a6f8cef6e5ff8bf31a52e1417cb6f + reviewed operational correction",
++        "sha256": "49cfc7e1e90943ea9ab9e11fc7f86169d285c1825eb3b2f5675bd969216df43a"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/dynamic-zone-worker-lifetime",
++        "path": "docs/ops/dynamic-zone-worker-lifetime-20261017/wiki-review.md",
++        "role": "Whole-wiki impact assessment; local notice, not publication",
++        "revision": "a59974d1214a6f8cef6e5ff8bf31a52e1417cb6f + reviewed operational correction",
++        "sha256": "74fa999d208cce89caa7f0b4ca587c518ee7cc7c33fc3db467efde44ec2fa82c"
+@@ -3629,2 +3686,2 @@
+-        "revision": "f106a5d + reviewed October17 candidate notices",
+-        "sha256": "c35b685451369eba8fe54d9d38c38970b07c5d847a77cfcdeead95735ea59ec1"
++        "revision": "f106a5d + reviewed reliability notice; not published",
++        "sha256": "86ce59086af5f343cc252574b592b8a109e0aa1809c0e2d326385ab21eb41f1c"

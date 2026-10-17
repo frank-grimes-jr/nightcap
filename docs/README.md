@@ -6,6 +6,7 @@ Start with [current status](status.md), not a dated candidate report.
 
 - [Recommended AA filter candidate and exact in-game QA](releases/recommended-aa-20261017/README.md)
 - [No death EXP loss: candidate, guarded rule change and exact QA](ops/no-death-exp-loss-20261017/README.md)
+- [Idle-zone worker lifetime: live correction, evidence and exact QA](ops/dynamic-zone-worker-lifetime-20261017/README.md)
 
 - [Production-connected GM controls: entry point, rollout and exact QA](ops/production-gm-20261010.md)
 

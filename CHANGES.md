@@ -55,6 +55,15 @@ no blockers. Activation needs the supported game restart/item-cache regeneration
 no binary/client update. Do not lower limits after players form larger stacks.
 Production application, main promotion, wiki publication and owner QA are pending.
 Evidence and exact QA: `docs/ops/item-stacks-100-20261017/README.md`.
+## 2026-10-17 - Keep idle production zone workers alive
+
+Set the inherited production default `Zone:KillProcessOnDynamicShutdown` rule
+from true to false to stop orderly idle unloads from triggering the supervisor's
+whole-game restart. One-row guarded SQL and exact inverse rehearsal passed;
+world and all twelve workers reloaded without changing any native lifetime or
+service identity. Other rules, timers and player data are preserved. Natural
+idle-unload/player-continuity acceptance remains pending. Evidence, rollback
+constraints and exact QA: `docs/ops/dynamic-zone-worker-lifetime-20261017/`.
 
 ## 2026-10-17 - Raid and Grind headline patcher announcement
 
