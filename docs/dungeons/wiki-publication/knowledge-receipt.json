@@ -1,0 +1,15 @@
+{
+  "status": "installed",
+  "wiki_revision": "461c53da30fa3b669bcbca07338a0aa94559b1f9",
+  "evidence_revision": "050af799ec1982ee457951333045d2d920947c06",
+  "preimages": {
+    "references/wiki.md": "0efd487d88f28ee60668a5356bdbbc7f715e513f0f93ee905a196eeef5b1e98c",
+    "references/world.md": "38c1ed197b507ccf43fe3ded1ff45950df6e6482a067edbc3361957de192924d",
+    "references/sources.json": "ce401290ca38df9c60544a3bc353613884654dbc2351312d247a2150cd1e5273"
+  },
+  "files": {
+    "references/wiki.md": "b1d1a42fa0a1e41a7ff121097046e677928fccf39319c7332b715374c524ad14",
+    "references/world.md": "0a06104565f13e063836e4aa26609ee914e745b515936f20646c317389dbec3c",
+    "references/sources.json": "32ee0985e8054a647a68171f3d972244732f56f54e355a520fa3d4e342242d40"
+  }
+}

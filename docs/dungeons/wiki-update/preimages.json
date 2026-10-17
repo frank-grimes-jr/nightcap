@@ -1,8 +1,12 @@
 {
-  "articles/unreleased.json": "2afc67700a1f122eb2a4a6c5a76b1a9502eb4876226a1e2d4f4eee4f7f1c33ee",
-  "articles/travel.json": "9f8fc6a16ed46c10c6aa9a608586d1ec9ec4d76ca22657484e272ce0b21e903e",
-  "articles/features.json": "c80c15374816448cd642d4551875a81280b847cef807a927d508aad83d870f0d",
-  "articles/recent-changes.json": "8e8b8b24ae4e531b328ed95f6b9d9d328290ae3c1875168916add56fcf5ea786",
-  "articles/dungeon-modes.json": null,
-  "content-review.json": "86cd12892eb67c3fd3b78fce3eaff72995aadd503a6b72fcfb9ad818bbbb0552"
+  "articles/unreleased.json": "85c43fe8ed77572a932e45234033fdec7246c01b01775a55bbfab40f60cf10bd",
+  "articles/travel.json": "851dac72fb96fd51766d714ed48216774bcb7a0166d0a6131e26dae294da60ae",
+  "articles/features.json": "d12c113604b62a6802594945867252f0cfaec79c7e983fd41aa1bd7832fdb0b7",
+  "articles/recent-changes.json": "63540e4a18c5be5e6db6b34778c7e1e4488fea33d8746bca9e18152e153c7226",
+  "articles/dungeon-modes.json": "77e90de0f5b0edd82cf5d70b13458c65bb0595e5fd610a002d2873623358ee28",
+  "articles/equipment.json": "5fdfe0e4aad61585c17f87968a87eca4c2f7f85f866dd87a9debbfbb5d56f487",
+  "articles/item-upgrades.json": "95dc231f50721952cef8837f8e3105538cfcb8597974b035b5e3a3f24ef0f7b1",
+  "articles/index.json": "d11032224d4c28a6f5c0452e2ece03d8683b0120a4e86956d3ad653c6b4632b9",
+  "articles/getting-started.json": "79fafc48d787ec17b523fb6d6fd5dcbdc8a08315400924b409109b47b1dc2980",
+  "content-review.json": "b5008d2a5e0442c78d0c24de0feccc2c34a6a639c33e6216c2286241210b88eb"
 }

@@ -19,4 +19,4 @@ for relative in preimages:
 receipt=dict(status='local_source_updated_not_published',
     target=str(TARGET),files={relative:hashlib.sha256((TARGET/relative).read_bytes()).hexdigest() for relative in preimages})
 (UPDATE/'receipt.json').write_text(json.dumps(receipt,indent=2)+'\n')
-print('Installed the six reviewed local wiki source files; no website publication.')
+print(f'Installed {len(preimages)} reviewed local wiki source files; no website publication.')

@@ -1,22 +1,208 @@
 --- a/references/world.md
 +++ b/references/world.md
-@@ -17,7 +17,7 @@
- | Druid rings / Khalure | Find exact ID/name quest in `quests/ecommons/` and current tunnel release | Distinct from Merrin and wizard travel; no response requires checking actual binding/API/quest error, not guessing a new destination |
- | Wizard spires / Khaleid | `plugins/tunnel_spires.pl`, `tunnel_spire_data.pl`, class-courts release | Eight normal Classic routes; no planes/future expansions |
- | Waypoint discovery | `quests/global/999240.pl` | Marker owns proximity discovery in all catalog zones; don't move it to shadowed global_player.pl |
--| Personal dungeon instances | `quests/global/Instance_Keeper.pl` | Separate NPC from waypoint; version **0** inherits native spawns/doors; seven custom Keepers, 12-hour instances |
-+| Personal dungeon instances | `zone/dungeon_service.cpp`, `quests/global/Instance_Keeper.pl`, `docs/dungeons/` | Raid/Grind is a test candidate; existing live legacy runs retain version-zero content and twelve-hour lifetime |
- | Reforging | `quests/ecommons/999820.pl` | Veyra gives a reusable container; native inventory handler performs atomic combines |
- 
- Waypoint marker 999240 uses invisible actor race 127 and WizardPortal nimbus 178; live-refresh signal 20261011 is idempotent. It retains nameplate/proximity/discovery and late-joiner effects. Progress is in `nightcap_character_waypoints`; destinations in `nightcap_waypoints`; Explorer title is 100. The old 72 count is a dated catalog count, not a permanent completion constant.
-@@ -48,6 +48,42 @@
- `C:/Users/verre/Documents/Codex/2026-10-13/go/work/unrest-waypoint`.
- 
- The other human at Befallen/Permafrost was an overlapping **Instance Keeper**, not a duplicate marker. October 12 keeper quest adds a small floating-eye appearance (race 108, gender 2, size 3), retaining its interaction; refresh signal 20261014 covers existing Keepers. Both repairs use quest reload plus scoped signals, with no client update or native restart. Permafrost portal visibility/function was owner-confirmed October 12. On October 13 the owner confirmed "resolved" after the Keeper follow-up, closing the reported visual issue; the reply does not individually attest every zone or optional QA case. The 16 waypoint and 13 Keeper regression assertions are in `tools/tests/waypoint_visuals.t` and `tools/tests/instance_keeper_visuals.t`. `docs/ops/waypoint-visuals-20261011/README.md`, `docs/ops/keeper-visuals-20261012/README.md`. Crushbone marker, recall and matching saved state moved together to entrance `/loc -644,158,4`; `/loc` display ordering differs from DB x/y. See `docs/ops/crushbone-waypoint-20261009/README.md`.
+@@ -1,148 +1,152 @@
+-# Quests, tunnel services and travel
+-
+-Audited 2026-10-12. Placement history has several revisions; use current feature source and exact runbook, not a convenient old SQL file.
+-
+-## Routing and APIs
+-
+-- Tracked quests: `server-mods/quests/`; tracked plugins: `server-mods/plugins/`. Local plugins actually install to `akk-stack/server/plugins/`, not `quests/plugins/`. Production can configure additional paths; inspect the real loader/path configuration.
+-- Lua wins over Perl for `global_player` in this build. Don't add an event to the shadowed Perl file and assume it executes. ID-based global NPC scripts can avoid that ambiguity.
+-- Perl bindings define exported names. Use `Database->new()`, `prepare`, `execute`, `fetch_hashref`, `rows_affected`; there is no injected `$DB`, DBI `do`, or `fetchrow_hashref`. Client binding is `CharacterID()`, not C++ `GetCharacterID()`. Confirm exact methods with the existing `lookup_quest_api` or targeted `zone/perl_*.cpp`; declarations alone aren't evidence.
+-
+-## Service map
+-
+-| Feature | Where to start | Critical distinction |
+-|---|---|---|
+-| Multiclass/Chronicler | `plugins/multiclass.pl`, Chronicler quests; class release is native atomic API | Canonical table, not NPC qglobals; deployed EC hub supersedes PoK-only assumptions |
+-| City travel / Merrin | `quests/ecommons/999810.pl`, `plugins/tunnel_travel.pl`, `tunnel_travel_data.pl`, `tools/tunnel_travel.py` | Ten city routes use canonical IDs/landings; guard EC zone 22, instance 0, NPC 999810, 50-unit 3D distance, player state and 5-second repeat guard |
+-| Druid rings / Khalure | Find exact ID/name quest in `quests/ecommons/` and current tunnel release | Distinct from Merrin and wizard travel; no response requires checking actual binding/API/quest error, not guessing a new destination |
+-| Wizard spires / Khaleid | `plugins/tunnel_spires.pl`, `tunnel_spire_data.pl`, class-courts release | Eight normal Classic routes; no planes/future expansions |
+-| Waypoint discovery | `quests/global/999240.pl` | Marker owns proximity discovery in all catalog zones; don't move it to shadowed global_player.pl |
+-| Personal dungeon instances | `zone/dungeon_service.cpp`, `quests/global/Instance_Keeper.pl`, `docs/dungeons/` | Raid/Grind is a test candidate; existing live legacy runs retain version-zero content and twelve-hour lifetime |
+-| Reforging | `quests/ecommons/999820.pl` | Veyra gives a reusable container; native inventory handler performs atomic combines |
+-
+-Waypoint marker 999240 uses invisible actor race 127 and WizardPortal nimbus 178; live-refresh signal 20261011 is idempotent. It retains nameplate/proximity/discovery and late-joiner effects. Progress is in `nightcap_character_waypoints`; destinations in `nightcap_waypoints`; Explorer title is 100. The old 72 count is a dated catalog count, not a permanent completion constant.
+-
+-October 13 **Unrest entrance relocation deployed**, owner-approved PR #198:
+-the eye is Keeper 999228 (spawn2 3266037). Marker 999240 (spawn2 3266123)
+-and recall were 921 units away at DB XYZ `118,881,3.75`; both now use entrance
+-`52,-38,3` (`/loc -38,52,3`) beside the unchanged eye. Installed portal/discovery
+-and Keeper quests were correct and remain unchanged. Matching non-corpse,
+-non-metadata instance-zero saved marker poses moved, including dormant ID zero.
+-Existing saved private-instance positions, discoveries and nonposition state
+-are preserved; new instances inherit the base spawn. The placement generator
+-is `tools/unrest_waypoint.py`; it reuses full-row transaction/engine/trigger
+-guards from `tools/content_patch.py`. The adapted operator retains deployment/GM
+-locks, full stopped backup, isolated restore with FLOAT precision companion,
+-exact forward/inverse rehearsal and activity-preserving recovery. Never restore
+-old player or full NPC state for this position-only rollback.
+-
+-All 68 local placement/visual/SQL/generator/recovery checks and independent
+-reviews pass. Live restore/rehearsal, 64 preservation fingerprints, unchanged
+-8,140 quest/plugin files and current runtime/client pairing verify. All 12
+-zone workers are healthy and access is open after a controlled restart. Quest
+-reload alone cannot relocate an existing marker. No native or client update.
+-Owner portal/discovery/recall gameplay acceptance remains **open**, separately
+-from verified deployment. Source, tests, public-safe receipt and exact QA:
+-`docs/ops/unrest-waypoint-20261013/`, `tools/tests/test_unrest_waypoint.py` and
+-`tools/tests/test_unrest_waypoint_content.py` in
+-`C:/Users/verre/Documents/Codex/2026-10-13/go/work/unrest-waypoint`.
+-
+-The other human at Befallen/Permafrost was an overlapping **Instance Keeper**, not a duplicate marker. October 12 keeper quest adds a small floating-eye appearance (race 108, gender 2, size 3), retaining its interaction; refresh signal 20261014 covers existing Keepers. Both repairs use quest reload plus scoped signals, with no client update or native restart. Permafrost portal visibility/function was owner-confirmed October 12. On October 13 the owner confirmed "resolved" after the Keeper follow-up, closing the reported visual issue; the reply does not individually attest every zone or optional QA case. The 16 waypoint and 13 Keeper regression assertions are in `tools/tests/waypoint_visuals.t` and `tools/tests/instance_keeper_visuals.t`. `docs/ops/waypoint-visuals-20261011/README.md`, `docs/ops/keeper-visuals-20261012/README.md`. Crushbone marker, recall and matching saved state moved together to entrance `/loc -644,158,4`; `/loc` display ordering differs from DB x/y. See `docs/ops/crushbone-waypoint-20261009/README.md`.
+-
+-## Raid and Grind dungeon candidate
+-
+-October 16 candidate: `docs/dungeons/README.md` and `QA.md` in the dungeon-modes
+-checkout own current evidence. Native `zone/dungeon_service.cpp` validates Keeper
+-operations and owns twelve-hour, six-participant, fixed-mode runs for all seven
+-dungeons. UUID + native allocation start + `nc-dungeon:<UUID>` identifies a run;
+-the 47-byte marker must fit native notes. Do not key progress on recyclable IDs.
+-Grind keeps native stats/timers. Raid has 135% HP/115% outgoing damage, permanent
+-spawn deaths and a final boss unlocked by all minibosses. Player-owned pets are
+-excluded from scaling. Explicit catalog revision 2026101601 has 52 objectives;
+-Permafrost excludes three audited later/nonqualifying native identities.
+-
+-Encounter credit uses connected, loaded, enrolled party/owned-pet attribution
+-within a 200-unit 3D sphere. No retrospective credit; Grind respawns permit
+-catch-up. Tasks display the ledger; abandonment never resets eligibility.
+-Only the creator can confirm reset, with no pending/inside participants or
+-recoverable player corpses. Completed connections acknowledge entry/exit.
+-Earned claims and permanent completion counts survive reset and expiry.
+-
+-Both-mode finalized corpse envelopes, Raid deaths, Grind timers and credit commit
+-before death publication. UUID checkpoints work independently of global state
+-saving; stale living checkpoints cannot override a newer death. Existing native
+-item/currency receipts filter replay. Uncertain persistence suspends the zone;
+-never clear receipts or restore older player data. Existing unmanaged runs retain
+-legacy behavior. SQL/content/cache drift and split game/content DB configuration
+-refuse activation/new runs/managed boot. Classic CT's pinned private 188-point,
+-29-NPC restoration does not change public spawn/door definitions.
+-
+-Ship matching zone/world/shared_memory, regenerated target-content cache, SQL and
+-Keeper quest. The packaged cache is local-test content, not production content.
+-No client assets; a quest reload cannot install native hooks/cache. Automated
+-native policy/credit/spawn, receipt adapters, SQL/fault/concurrency and build/cache
+-evidence are separate from deployment. Fourteen-mode gameplay, CT path/door QA,
+-level-50 Vox/Nagafen balance and owner acceptance remain open. Source flow ends
+-at test; main/production restart and wiki publication require separate release.
+-
+-## Travel failure diagnosis and current QA
+-
+-October 12 audit: owner-confirmed Merrin West Freeport and Khalure West Commonlands/North Karana clicks work. Before the asset repair, Toxxulia was reproducibly silent, but current game-container stdout recorded the correct ZonePC request for zone 38; retained files under `data/server/logs` missed the current events. Prefer `docker logs` for fresh correlation. Empty passive UDP traces did not establish packet loss. Correct saylink strings and isolated Perl tests do not prove native zoning.
+-
+-The affected `E:/Nightcap` client lacked `tox.s3d`, `tox_obj.s3d`, `misty.s3d`, and `misty_obj.s3d`. All four were restored locally from byte-identical retained QA clients after complete PFS/WLD validation and verified by SHA-256. After repair all 34 terrain/object archives for the 17 offered zones passed decompression and expected-WLD checks. Of 17 distinct offered zones, these two lacked terrain. Supported eqgame.exe hash matched. No quest, database, binary or service was changed. The owner confirmed on October 12 that Khalure's Toxxulia click now teleports after repair ("Yes, now it ports me"). This closes that route's silent-click failure. Misty, Toxxulia from the other NPCs, detailed terrain/landing/return-path QA, the other untested routes, and signed fleet delivery remain open. Close/relaunch EQ if it cached missing archives; do not substitute revamped zone IDs. Four `.s3d` paths already fit the signed game-asset policy; publication needs the normal complete inventory/higher release flow and environment-specific authority.
+-
+-Current evidence: `docs/ops/travel-client-audit-20261012/{README.md,asset-audit.json,install-receipt.json,archive-checks.json}` in `C:/Users/verre/Documents/Codex/2026-10-12/g/work/travel-client-audit` (based on `4e3acd83019a915b04a9ec1f222c3bc2543d0bfe`). Archive validator: `tools/classic_model_archives.py::read_pfs`. Full 26-route production snapshot and 142 isolated checks are retained in the originating chat's `outputs/`. This records local repair and partial owner travel acceptance, not all-route QA or hosted publication.
+-
+-## Commonlands banker
+-
+-October 16 owner-requested Mira Coinwell deployed on OVH: native banker class 40,
+-NPC/spawn/group 999821, East Commonlands version 0, `/loc -1584,-144,3.75`, heading
+-128, beside Bartholomew/buff services. Neutral stationary human woman, copied from
+-the current Tessa service template with merchant ID cleared; no quest or client
+-asset required. Nearest static object is 17.09 units away, walking route 14.14;
+-10 ground/headroom samples and the approach ray pass. Owner banking/visual QA is
+-pending. Source, guarded SQL rehearsal, rollback and deployed health evidence:
+-`E:/EQ_Local_Dev/docs/ops/commonlands-services-20261016/`.
+-
+-The same controlled runtime restart also regenerated the paired Leather Padding
+-price cache, retaining all native binaries. No saved states were deleted:
+-`Zone::LoadZoneState` in `akk-stack/code/zone/zone_save_state.cpp` explicitly loads
+-new spawn2 records missing from saved state. Do not broadly clear state or repop
+-to add this banker. After she has run, rollback must inspect/remove only her
+-exact non-corpse, non-metadata base-instance saved rows as well as permanent
+-records; preserve unrelated state and all subsequent bank/player activity.
+-
+-## Layout/content work
+-
+-EC is the active tunnel service hub with trainers, merchants, suppliers, residents, workshop and travel. October 2 compact layout preserves 119 actors; dated PoK layout or September lineups aren't current positions. Read `docs/releases/tunnel-compact-20261002/README.md` and current status. Appearance needs race+gender+texture+helm/material compatibility in that zone; race alone can fall back to a human. NPC merchant class is 41; merchant_id alone isn't sufficient. NPC display equipment need not be loot.
+-
+-October 13 relaxed workshop **deployed for owner visual QA**, PRs #194/#195:
+-`tools/tunnel_cozy_layout.py` and `tools/tunnel_cozy.py` relocate 25 NPCs and six
+-stations, adding three native static ornaments. The Chronicler, Bartholomew and
+-Tessa join the unchanged buffers; the 21 dedicated suppliers form loose crafting
+-groups, with alchemy in the former Chronicler space. The current scene includes
+-Artisan Veyra; the old 119-actor roster is not a completeness check. Review
+-`docs/releases/tunnel-cozy-20261013/{README.md,production.json}`, roster and diagram
+-in `C:/Users/verre/.codex/worktrees/cozy-tradeskill-hub/EQ_Local_Dev`.
+-Nine layout tests, thirteen operator tests, eleven local SQL checks, 945 native
+-ground samples, 67 rays and the fresh full-backup forward/inverse rehearsal pass.
+-Exact production poses, preserved data/runtime/public fingerprints and all 12
+-zones verify. Runtime and client files remain unchanged; no client update is
+-needed. The controlled full runtime restart refreshed NPCs/stations/doors.
+-Owner appearance, cozy feel and interaction acceptance remain open; follow the
+-six exact in-game checks in the release README.
+-
+-Check moved obstacles against **unchanged neighbors' front approaches** too:
+-Veyra's approach caught an initially missed obstruction. `probe_tunnel_cozy.py`
+-and its unit regression cover this. Donor ornament `opentype=58` alone does not
+-disable dynamic-zone/adventure switches: native `doors.cpp` handles those first.
+-The generator rejects interactive donor flags and guards global DB IDs and
+-cross-version door IDs. Saved NPC ID zero can represent an owned dormant spawn;
+-invalidate only with exact spawn/group identity, retaining corpses, metadata,
+-other instances and fresh unrelated states. Never restore stale caches on rollback.
+-
+-Use actual map ground/headroom/approach checks, exact DB preimages, quest bindings and in-game visual checks. Saved non-corpse instance-zero NPC state can override fresh spawns. Scope invalidation; preserve corpses, other instances, metadata and unrelated actors. Prefer reviewed generators/rehearsals (`tools/tunnel_*.py`, `tools/tests/test_tunnel_travel*.py`, `tunnel_*_quests.t`) rather than hand-authoring broad SQL.
+-
+-PoK stock derives from `docs/pok/hub-stock-audit.json` original class levels and catalog policy, not widened spell columns. Use `tools/pok_hub*.py` and `tools/pok-hub-era.ps1` only from a checkout where present and after reading its release procedure. Current GM restock has guarded canonical SQL; don't revive old unguarded refresh logic.
+-
+-Adventure Journal / Epic 0.5 remains a **candidate**, not recorded production: native Tasks own progression; `nightcap_epic05_state` owns attunement/cooldown only. Pair native `Epic05Contract()`, plugins, item 900501, tasks 9500–9507 and spells 42800–42805; gate starts disabled. Explore=5 credits movement; Touch=11 is a dynamic-zone switch. `docs/adventure-journal/README.md` is the implementation route, not permission to enable it.
++# Quests, tunnel services and travel
 +
-+## Raid and Grind dungeon candidate
++Audited 2026-10-12. Placement history has several revisions; use current feature source and exact runbook, not a convenient old SQL file.
 +
-+October 16 candidate: `docs/dungeons/README.md` and `QA.md` in the dungeon-modes
++## Routing and APIs
++
++- Tracked quests: `server-mods/quests/`; tracked plugins: `server-mods/plugins/`. Local plugins actually install to `akk-stack/server/plugins/`, not `quests/plugins/`. Production can configure additional paths; inspect the real loader/path configuration.
++- Lua wins over Perl for `global_player` in this build. Don't add an event to the shadowed Perl file and assume it executes. ID-based global NPC scripts can avoid that ambiguity.
++- Perl bindings define exported names. Use `Database->new()`, `prepare`, `execute`, `fetch_hashref`, `rows_affected`; there is no injected `$DB`, DBI `do`, or `fetchrow_hashref`. Client binding is `CharacterID()`, not C++ `GetCharacterID()`. Confirm exact methods with the existing `lookup_quest_api` or targeted `zone/perl_*.cpp`; declarations alone aren't evidence.
++
++## Service map
++
++| Feature | Where to start | Critical distinction |
++|---|---|---|
++| Multiclass/Chronicler | `plugins/multiclass.pl`, Chronicler quests; class release is native atomic API | Canonical table, not NPC qglobals; deployed EC hub supersedes PoK-only assumptions |
++| City travel / Merrin | `quests/ecommons/999810.pl`, `plugins/tunnel_travel.pl`, `tunnel_travel_data.pl`, `tools/tunnel_travel.py` | Ten city routes use canonical IDs/landings; guard EC zone 22, instance 0, NPC 999810, 50-unit 3D distance, player state and 5-second repeat guard |
++| Druid rings / Khalure | Find exact ID/name quest in `quests/ecommons/` and current tunnel release | Distinct from Merrin and wizard travel; no response requires checking actual binding/API/quest error, not guessing a new destination |
++| Wizard spires / Khaleid | `plugins/tunnel_spires.pl`, `tunnel_spire_data.pl`, class-courts release | Eight normal Classic routes; no planes/future expansions |
++| Waypoint discovery | `quests/global/999240.pl` | Marker owns proximity discovery in all catalog zones; don't move it to shadowed global_player.pl |
++| Personal dungeon instances | `zone/dungeon_service.cpp`, `quests/global/Instance_Keeper.pl`, `docs/dungeons/` | Raid/Grind is deployed for live QA; existing legacy runs retain version-zero content and twelve-hour lifetime |
++| Reforging | `quests/ecommons/999820.pl` | Veyra gives a reusable container; native inventory handler performs atomic combines |
++
++Waypoint marker 999240 uses invisible actor race 127 and WizardPortal nimbus 178; live-refresh signal 20261011 is idempotent. It retains nameplate/proximity/discovery and late-joiner effects. Progress is in `nightcap_character_waypoints`; destinations in `nightcap_waypoints`; Explorer title is 100. The old 72 count is a dated catalog count, not a permanent completion constant.
++
++October 13 **Unrest entrance relocation deployed**, owner-approved PR #198:
++the eye is Keeper 999228 (spawn2 3266037). Marker 999240 (spawn2 3266123)
++and recall were 921 units away at DB XYZ `118,881,3.75`; both now use entrance
++`52,-38,3` (`/loc -38,52,3`) beside the unchanged eye. Installed portal/discovery
++and Keeper quests were correct and remain unchanged. Matching non-corpse,
++non-metadata instance-zero saved marker poses moved, including dormant ID zero.
++Existing saved private-instance positions, discoveries and nonposition state
++are preserved; new instances inherit the base spawn. The placement generator
++is `tools/unrest_waypoint.py`; it reuses full-row transaction/engine/trigger
++guards from `tools/content_patch.py`. The adapted operator retains deployment/GM
++locks, full stopped backup, isolated restore with FLOAT precision companion,
++exact forward/inverse rehearsal and activity-preserving recovery. Never restore
++old player or full NPC state for this position-only rollback.
++
++All 68 local placement/visual/SQL/generator/recovery checks and independent
++reviews pass. Live restore/rehearsal, 64 preservation fingerprints, unchanged
++8,140 quest/plugin files and current runtime/client pairing verify. All 12
++zone workers are healthy and access is open after a controlled restart. Quest
++reload alone cannot relocate an existing marker. No native or client update.
++Owner portal/discovery/recall gameplay acceptance remains **open**, separately
++from verified deployment. Source, tests, public-safe receipt and exact QA:
++`docs/ops/unrest-waypoint-20261013/`, `tools/tests/test_unrest_waypoint.py` and
++`tools/tests/test_unrest_waypoint_content.py` in
++`C:/Users/verre/Documents/Codex/2026-10-13/go/work/unrest-waypoint`.
++
++The other human at Befallen/Permafrost was an overlapping **Instance Keeper**, not a duplicate marker. October 12 keeper quest adds a small floating-eye appearance (race 108, gender 2, size 3), retaining its interaction; refresh signal 20261014 covers existing Keepers. Both repairs use quest reload plus scoped signals, with no client update or native restart. Permafrost portal visibility/function was owner-confirmed October 12. On October 13 the owner confirmed "resolved" after the Keeper follow-up, closing the reported visual issue; the reply does not individually attest every zone or optional QA case. The 16 waypoint and 13 Keeper regression assertions are in `tools/tests/waypoint_visuals.t` and `tools/tests/instance_keeper_visuals.t`. `docs/ops/waypoint-visuals-20261011/README.md`, `docs/ops/keeper-visuals-20261012/README.md`. Crushbone marker, recall and matching saved state moved together to entrance `/loc -644,158,4`; `/loc` display ordering differs from DB x/y. See `docs/ops/crushbone-waypoint-20261009/README.md`.
++
++## Raid and Grind dungeons deployed for live QA
++
++October 16 deployed release: `docs/dungeons/README.md` and `QA.md` in the dungeon-modes
 +checkout own current evidence. Native `zone/dungeon_service.cpp` validates Keeper
 +operations and owns twelve-hour, six-participant, fixed-mode runs for all seven
 +dungeons. UUID + native allocation start + `nc-dungeon:<UUID>` identifies a run;
@@ -43,33 +229,244 @@
 +29-NPC restoration does not change public spawn/door definitions.
 +
 +Ship matching zone/world/shared_memory, regenerated target-content cache, SQL and
-+Keeper quest. The packaged cache is local-test content, not production content.
++Keeper quest. Production startup regenerated its own cache; the older local-test
++package cache must not replace it. Production preserved all 309,410 existing
++item records and added exactly 330. See `docs/dungeons/deployment/` for native
++hashes, cache pairing, recovery and the separately recorded preflight DB restart.
 +No client assets; a quest reload cannot install native hooks/cache. Automated
 +native policy/credit/spawn, receipt adapters, SQL/fault/concurrency and build/cache
 +evidence are separate from deployment. Fourteen-mode gameplay, CT path/door QA,
-+level-50 Vox/Nagafen balance and owner acceptance remain open. Source flow ends
-+at test; main/production restart and wiki publication require separate release.
- 
- ## Travel failure diagnosis and current QA
- 
++level-50 Vox/Nagafen balance and owner acceptance remain open. Source flow ran
++through dev/test to owner-authorized main and production deployment. The gateway
++is open. Website publication remains separate; owner gameplay is not accepted.
++
++## Travel failure diagnosis and current QA
++
++October 12 audit: owner-confirmed Merrin West Freeport and Khalure West Commonlands/North Karana clicks work. Before the asset repair, Toxxulia was reproducibly silent, but current game-container stdout recorded the correct ZonePC request for zone 38; retained files under `data/server/logs` missed the current events. Prefer `docker logs` for fresh correlation. Empty passive UDP traces did not establish packet loss. Correct saylink strings and isolated Perl tests do not prove native zoning.
++
++The affected `E:/Nightcap` client lacked `tox.s3d`, `tox_obj.s3d`, `misty.s3d`, and `misty_obj.s3d`. All four were restored locally from byte-identical retained QA clients after complete PFS/WLD validation and verified by SHA-256. After repair all 34 terrain/object archives for the 17 offered zones passed decompression and expected-WLD checks. Of 17 distinct offered zones, these two lacked terrain. Supported eqgame.exe hash matched. No quest, database, binary or service was changed. The owner confirmed on October 12 that Khalure's Toxxulia click now teleports after repair ("Yes, now it ports me"). This closes that route's silent-click failure. Misty, Toxxulia from the other NPCs, detailed terrain/landing/return-path QA, the other untested routes, and signed fleet delivery remain open. Close/relaunch EQ if it cached missing archives; do not substitute revamped zone IDs. Four `.s3d` paths already fit the signed game-asset policy; publication needs the normal complete inventory/higher release flow and environment-specific authority.
++
++Current evidence: `docs/ops/travel-client-audit-20261012/{README.md,asset-audit.json,install-receipt.json,archive-checks.json}` in `C:/Users/verre/Documents/Codex/2026-10-12/g/work/travel-client-audit` (based on `4e3acd83019a915b04a9ec1f222c3bc2543d0bfe`). Archive validator: `tools/classic_model_archives.py::read_pfs`. Full 26-route production snapshot and 142 isolated checks are retained in the originating chat's `outputs/`. This records local repair and partial owner travel acceptance, not all-route QA or hosted publication.
++
++## Commonlands banker
++
++October 16 owner-requested Mira Coinwell deployed on OVH: native banker class 40,
++NPC/spawn/group 999821, East Commonlands version 0, `/loc -1584,-144,3.75`, heading
++128, beside Bartholomew/buff services. Neutral stationary human woman, copied from
++the current Tessa service template with merchant ID cleared; no quest or client
++asset required. Nearest static object is 17.09 units away, walking route 14.14;
++10 ground/headroom samples and the approach ray pass. Owner banking/visual QA is
++pending. Source, guarded SQL rehearsal, rollback and deployed health evidence:
++`E:/EQ_Local_Dev/docs/ops/commonlands-services-20261016/`.
++
++The same controlled runtime restart also regenerated the paired Leather Padding
++price cache, retaining all native binaries. No saved states were deleted:
++`Zone::LoadZoneState` in `akk-stack/code/zone/zone_save_state.cpp` explicitly loads
++new spawn2 records missing from saved state. Do not broadly clear state or repop
++to add this banker. After she has run, rollback must inspect/remove only her
++exact non-corpse, non-metadata base-instance saved rows as well as permanent
++records; preserve unrelated state and all subsequent bank/player activity.
++
++## Layout/content work
++
++EC is the active tunnel service hub with trainers, merchants, suppliers, residents, workshop and travel. October 2 compact layout preserves 119 actors; dated PoK layout or September lineups aren't current positions. Read `docs/releases/tunnel-compact-20261002/README.md` and current status. Appearance needs race+gender+texture+helm/material compatibility in that zone; race alone can fall back to a human. NPC merchant class is 41; merchant_id alone isn't sufficient. NPC display equipment need not be loot.
++
++October 13 relaxed workshop **deployed for owner visual QA**, PRs #194/#195:
++`tools/tunnel_cozy_layout.py` and `tools/tunnel_cozy.py` relocate 25 NPCs and six
++stations, adding three native static ornaments. The Chronicler, Bartholomew and
++Tessa join the unchanged buffers; the 21 dedicated suppliers form loose crafting
++groups, with alchemy in the former Chronicler space. The current scene includes
++Artisan Veyra; the old 119-actor roster is not a completeness check. Review
++`docs/releases/tunnel-cozy-20261013/{README.md,production.json}`, roster and diagram
++in `C:/Users/verre/.codex/worktrees/cozy-tradeskill-hub/EQ_Local_Dev`.
++Nine layout tests, thirteen operator tests, eleven local SQL checks, 945 native
++ground samples, 67 rays and the fresh full-backup forward/inverse rehearsal pass.
++Exact production poses, preserved data/runtime/public fingerprints and all 12
++zones verify. Runtime and client files remain unchanged; no client update is
++needed. The controlled full runtime restart refreshed NPCs/stations/doors.
++Owner appearance, cozy feel and interaction acceptance remain open; follow the
++six exact in-game checks in the release README.
++
++Check moved obstacles against **unchanged neighbors' front approaches** too:
++Veyra's approach caught an initially missed obstruction. `probe_tunnel_cozy.py`
++and its unit regression cover this. Donor ornament `opentype=58` alone does not
++disable dynamic-zone/adventure switches: native `doors.cpp` handles those first.
++The generator rejects interactive donor flags and guards global DB IDs and
++cross-version door IDs. Saved NPC ID zero can represent an owned dormant spawn;
++invalidate only with exact spawn/group identity, retaining corpses, metadata,
++other instances and fresh unrelated states. Never restore stale caches on rollback.
++
++Use actual map ground/headroom/approach checks, exact DB preimages, quest bindings and in-game visual checks. Saved non-corpse instance-zero NPC state can override fresh spawns. Scope invalidation; preserve corpses, other instances, metadata and unrelated actors. Prefer reviewed generators/rehearsals (`tools/tunnel_*.py`, `tools/tests/test_tunnel_travel*.py`, `tunnel_*_quests.t`) rather than hand-authoring broad SQL.
++
++PoK stock derives from `docs/pok/hub-stock-audit.json` original class levels and catalog policy, not widened spell columns. Use `tools/pok_hub*.py` and `tools/pok-hub-era.ps1` only from a checkout where present and after reading its release procedure. Current GM restock has guarded canonical SQL; don't revive old unguarded refresh logic.
++
++Adventure Journal / Epic 0.5 remains a **candidate**, not recorded production: native Tasks own progression; `nightcap_epic05_state` owns attunement/cooldown only. Pair native `Epic05Contract()`, plugins, item 900501, tasks 9500–9507 and spells 42800–42805; gate starts disabled. Explore=5 credits movement; Touch=11 is a dynamic-zone switch. `docs/adventure-journal/README.md` is the implementation route, not permission to enable it.
 --- a/references/items.md
 +++ b/references/items.md
-@@ -1,6 +1,6 @@
- # Items, loot, forging and economy
- 
--Item-policy audit refreshed 2026-10-13 for the deployed divine-summon exception; other item systems retain their October 12 audit scope. Keep the two tier systems distinct; use their explicit catalogs and current source. A stale runbook still saying every zoneforge recipe costs three is superseded by the October 12 upgrade policy.
+@@ -1,145 +1,147 @@
+-# Items, loot, forging and economy
+-
+-Item-policy audit refreshed 2026-10-13 for the deployed divine-summon exception; other item systems retain their October 12 audit scope. Keep the independent reward systems distinct; use their explicit catalogs and current source. A stale runbook still saying every zoneforge recipe costs three is superseded by the October 12 upgrade policy.
+-
+-| System | Implemented contract | Source/evidence |
+-|---|---|---|
+-| Legacy quality loot | Base / Polished / Exalted / **Ascended**, offsets +200k/+400k/+600k; epics +800k. Historical defaults 10%/2%/0.25% per eligible item drop, not per kill. Verify active rules before tuning. | `akk-stack/code/zone/loottables.cpp` in full source; tracked `server-mods/code/zone/loot.cpp` is not automatically the legacy hook; old SQL generators need reproducibility review |
+-| Classic hunt | Two independent 0.5% rolls per eligible death: augment and wearable; weights 60/30/8/2, top tier **Ascension**. 48 audited combat zones enabled, eight access-check zones gated. | `server-mods/code/zone/zone_hunt.cpp`, `common/zone_hunt_catalog.h`, `common/zone_hunt_policy.h`; `docs/releases/zone-loot-20261009/PRODUCTION.md` |
+-| Zoneforge | Baseâ†’Polished costs 3; Polishedâ†’Exalted and Exaltedâ†’Ascension cost **4** after Oct 12. No cross-family conversion. | `zone/zone_hunt_forge.cpp`, `common/item_upgrade_policy.h` (`ZoneCopies`) |
+-| Reforging Box | Four identical Polishedâ†’Exalted or Exaltedâ†’top tier for either family. Free reusable four-slot box 900620, Artisan Veyra NPC 999820 in EC tunnel. No Base/top-tier recipe. | `common/item_upgrade_policy.h`, `zone/advanced_loot_inventory.cpp`, `quests/ecommons/999820.pl`; `docs/releases/item-upgrades-20261012/README.md` |
+-
+-Item links must remain <=1,048,575. Prove IDs free across relevant tables and references, not just `items`; use guarded migrations. New hunt IDs start at 940000 and bypass legacy tier upgrading/global multipliers. Exact audited spawn/NPC identity, zone/version, level and special gates govern hunt eligibility. Pets, owned/script-created victims, services and restored dead NPCs don't reroll.
+-
+-Hunt type-22 augments fit eligible head/arms/hands/chest/legs/feet sockets. At player level >=50 only qualifying socketed hunt-augment heroic INT/WIS adds output-cap headroom: `min(30,floor(effective heroic total/2))` for Spell Damage/Healing Amount. It doesn't grant missing raw bonuses. Don't apply this credit to arbitrary gear, AAs, buffs, NPCs or other augments.
+-
+-## Dungeon reward catalog candidate
+-
+-October 16 candidate only; `docs/dungeons/{catalog.json,README.md,QA.md}` owns
+-definitions and acceptance. IDs 960000–960329 remain below the RoF2 link ceiling.
+-Twenty-four shared designs (8 armor, 8 weapons, 6 accessories, 2 bags) use bands
+-20/30/40/50 and Normal/Polished/Ascended qualities: 288 definitions. Each dungeon
+-also has exactly three exclusive Raid designs in two qualities: 42 definitions.
+-Explicit budgets/defaults and cache-field checks prevent hidden stat drift.
+-Weapon delay is stable; bags use 6/8/10 slots, up to 100% weight reduction.
+-
+-Grind completion grants Normal. Raid personal/exclusive qualities are 90%
+-Polished/10% Ascended; exclusive corpse count is 1/2/3 at 80/18/2%, without design
+-duplicates. Shared designs are uniform without class filtering. Run seed,
+-per-character reward ID and physical-drop UUID are durable; reconnect cannot
+-reroll. Completion grants once per character/run through the existing atomic
+-inventory/receipt transfer. Full inventories leave Keeper claims after expiry/reset.
+-All definitions are permanent, tradeable, non-attunable, non-lore and zero resale.
+-Existing legacy/zoneforge conversions exclude this range; do not treat dungeon
+-qualities as offsets or hunt Ascension. Native loot remains additional.
+-
+-Source: `common/dungeon_{policy,catalog,contract}.h`, `zone/dungeon_service.cpp`,
+-`common/shareddb.cpp`, `tools/dungeon_{catalog,migration,contract}.py` and guarded
+-20261016 dungeon SQL. Tests: `tools/tests/test_dungeon*.py`, rehearsal/activation/
+-concurrency scripts, existing inventory/corpse adapter evidence and native cache
+-verification. Pair all native binaries with the cache; no client asset changes.
+-Local automated verification is not gameplay/balance acceptance or deployment.
+-
+-## Commonlands Leather Padding stock
+-
+-October 16 owner-requested content deployed on OVH: Haldra / Smithing Supplies
+-III (NPC/merchant 999603) sells Leather Padding 16488 in permanent slot 19 at
+-EC `/loc -1768,-395,3.75`. Berrin and Torvik already have 150 slots each. Owner
+-approved `items.sellrate` 2→3; base price 400, resale and recipes are unchanged.
+-Current merchant rules otherwise permit buy/resell profit at multiplier 2.
+-Purchase multiplier 3 keeps the best charisma-adjusted purchase above resale.
+-Changing this shared item metadata required regeneration through the current
+-supervisor's controlled game restart; stock-only edits support `#reload merchants`.
+-No binary or client update. All 309,410 cached definitions were compared; only
+-item 16488's SellRate float changed. Exact forward/inverse and three drift rejection
+-rehearsals pass. Production is deployed; owner purchase/crafting QA remains pending.
+-Source/operator, QA and deployment/cache evidence:
+-`E:/EQ_Local_Dev/docs/ops/commonlands-services-20261016/`. Preserve this additive
+-stock when regenerating an older full tunnel merchant catalog.
+-
+-## Equipment race policy
+-
+-The owner confirmed javelins work with signed client 2026101501, then Bronze
+-Knuckles exposed a separate Half Elf race exclusion. Its base 30981 and quality
+-variants have Monk/Beastlord classes 16448, original races 62219, primary-only
+-slots 8192 and no deity/required-level gate. The owner chose class match for any
+-playable race, while keeping non-player definitions unavailable.
+-
+-`common/equipment_race_policy.h::ApplyRacePolicy`, called after restrictions in
+-`common/shareddb.cpp::LoadItems`, projects effective Races=65535 only for common
+-items with playable class/race bits and a worn slot 0..22 or nonzero AugType.
+-Preserve zero AND unsupported-only masks such as 65536. Raw SQL is unchanged.
+-Class, deity, level, slots, weapon conflicts, augment fit, trade/LORE/resale and
+-every other field remain. Bots/other effective-item consumers share this policy.
+-
+-PR #204 merged policy 5cea9cb and guarded operator 11e1add as fd5e6e0. The owner
+-explicitly authorized push/merge/deploy with restart on October 16. Production
+-image 581322f0… / loader 71dfdd18… is deployed, with access open. The full 309,410-item
+-cache changes 90,852 race fields and preserves 1,535 non-player definitions and
+-every other byte. Closed-access checks preserve 47 player/11 custom tables,
+-content/rules/quests, supporting services and all 106 signed assets. All 12 zones
+-retain the AA-duration hash 19cd3387…, with zero candidate restarts/detected errors.
+-A fresh complete backup passed gzip checks; no SQL migration or restoration.
+-
+-Read `docs/releases/equipment-race-policy-20261016/README.md`, deployment.json,
+-deployment/manifest.json, build-manifest.json, cache-rehearsal.json and
+-verification.json in `C:/Users/verre/Documents/Codex/2026-10-15/g/work/multiclass-equipment`.
+-Source tests: `tools/tests/test_equipment_race_policy.py` compiles actual loader
+-and both SwapItem directions; `eq-client-dll/tests/equipment-native.cpp` executes
+-78 checks with actual race/equip/inspection paths. Other client restriction and
+-object-storage helpers are fixtures; server tests cover deity/level separately.
+-The retained archive/link inputs reproduce the prior loader 139194a9… before
+-one-object replacement; 126 members remain identical, ItemData stays 1332 bytes.
+-Local 308,928-item old/new/old rehearsal preserves all other cache bytes and
+-recreates the original cache. All 37 operator recovery/pairing tests pass on
+-Windows and the production host. Independent review has no remaining blockers;
+-the provenance finding was resolved, and the optional second model was declined.
+-
+-Pair with existing signed client 2026101501/proxy0.9.1-dev; no new download.
+-Future loader/cache updates require the supported whole-game restart and fresh
+-approval. Keep the latest world/zone/login/UCS binaries. Before possible access,
+-recovery regenerates the old image cache and requires exact preflight equality;
+-otherwise hold gateway closed. Never restore stale SQL/cache over changed data.
+-After uncertain access, retain candidate/subsequent activity and reconcile.
+-Bronze Knuckles remains primary-only. Owner inspection/equip/relog/class-release
+-QA is still pending; rollout health does not establish visible gameplay acceptance.
+-
+-## Ordinary tradeskills: stacked materials and Craft All
+-
+-Owner-authorized PR #200 merged to main and deployed to OVH October 13 for live QA, paired with signed game release 2026101304/proxy 0.9.0-dev. Owner gameplay acceptance remains pending. Experimental combines count physical stack units, consume exact recipe requirements and retain leftovers in bags/world stations. Charged nonstackables count as one. Prefer a unique exact quantity recipe, otherwise require one feasible recipe; ambiguous/missing/unrelated/augmented inputs consume nothing. Reacquire containers and rebuild plans after both quest callbacks. Native generic world containers have null parent ItemData and GetID()==0; only portable bags require parent ItemData.
+-
+-Recipe-browser automatic combines validate the real carried bag or owned nearby station, character/skill/class/race/quest gates and empty cursor. They gather a complete fresh ingredient plan from carried slots/bags before consumption, aggregate duplicate rows and retain native success/failure/salvage/skill gains. Container-consuming recipes require exact Experiment inputs. Reforging Box, molds and augmentation keep separate paths. Ordinary persistence remains native; this is not a new atomic receipt contract.
+-
+-Source: server-mods/code/zone/tradeskills.cpp and common/tradeskill_policy.h. Tests: tools/tests/test_tradeskill_stacks.py and test_tradeskill_auto.py extract production functions; 25 groups/74 scenarios pass. SQLite executes emitted SQL; result generation and by-ID metadata boundaries are mocked. Retained full native source matches original tradeskills SHA 53cd12b0e8c4e677cfaac87108634086e6c7b53ed1f869c5820c121dde286c8f. Isolated zone build/link passes using tools/build_tradeskill_candidate.py. No DB migration, rule or ItemData layout change. Pair the rebuilt zone with proxy 0.9.0-dev/config/catalog/tradeskill XML; use supported whole-runtime refresh, not quest/rule reload. Preserve the current divine-summon loader/cache. All 12 zones and 106 hosted signed assets verify with zero candidate restarts/detected errors; closed-access checks preserved 47 player/11 custom tables, current policies/content/quests and other binaries. Fresh full backup passed gzip/completeness verification (no separate restore rehearsal). Native visual, real packet timing, stack persistence and owner QA remain pending in docs/tradeskills/README.md; deployment.json, deployment-manifest.json, hosted-verification.json, build-manifest.json and verification.json record evidence. Never restore old player inventory on rollback.
+-
+-## Transaction and recovery boundary
+-
+-Forge and box inputs, output and durable receipt commit together after exact inventory preimage checks. Binding is preserved. Reject socketed/dyed/ornamented/evolving/customized instances; bags cannot nest in the box. Stack quantity is physical copies; a charged result still yields one unit. `nightcap_item_upgrade_state` revision 2026101201 gates box behavior; `nightcap_item_upgrades` and `nightcap_zone_hunt_forges` retain receipts. Missing/mismatched enablement rejects. Uncertain commit or packet publication quarantines the session; don't automatically retry consumption.
+-
+-Disable acquisition/combining for operational rollback while preserving definitions, sockets, earned items and receipts. Never restore old inventory after player activity or roll back below receipt-capable binaries. The box NPC supplies the container; it is not a four-item hand-in quest.
+-
+-## Divine summoned weapons
+-
+-PR #197 merged to main and deployed on OVH October 13. Existing `SpellEffect::SummonItem` and `SummonItemIntoBag` already select Ascended (+600000) for eligible base equipment when the variant exists. Paladin/Cleric hammer spells retain that behavior; Unswerving/Celestial Hammer pets are separate.
+-
+-`common/divine_summoned_weapon_policy.h` covers eleven hammer families at all four quality offsets: bases 6307, 6309, 6313, 5800, 15996, 5798, 29365, 77517, 90491, 90492, 90493. The loader calls `ApplyMerchantPolicy` **after** FreeTrade and zeros both Price and FixedSellPrice for all 44 definitions. This closes unlimited summon-to-platinum sales, including old inventory copies. Combat stats, procs, bane, equip/class/level gates, raw SQL, effective trade flags and temporary lifetime remain unchanged. `#sellall` skips and retains them; an explicit ordinary merchant sale packet may discard one for zero coin.
+-
+-Wrath/Striking/Requital summon 606307/606309/606313: damage/delay 8/32, 8/29, 9/29; undead bane 3/4/5; each has +20 Spell Damage/+20 Healing Amount and remains primary-only. Ascended has no box/zone-forge successor; no production recipe references any of the 44 definitions, and the Epic Forgemaster uses its separate explicit catalog. Later hammer spell and item-level gates stay intact.
+-
+-Only `shared_memory` was rebuilt from retained production-matching source/link inputs; ItemData remains 1,332 bytes. The active world's/zone's/login's/UCS's binaries, including the October 13 AA-rank repair, were preserved. Cache regeneration requires the supported full-game restart; rule/quest reload alone is insufficient. No SQL migration or client download. Do not deploy an older main-checkout zone over the newer active binary. Exact image and native hashes: `docs/releases/divine-summons-20261013/deployment-manifest.json` and `deployment.json`.
+-
+-Native summon/resale and adjacent policy tests plus cache/operator recovery tests pass; independent review has no remaining blockers. Old/new/old loader rehearsal over 308,928 local definitions reproduces the original cache exactly. Production compared 309,410 definitions and preserved every cache byte outside the 88 owned price fields, 47 player tables, 11 custom tables and runtime/public fingerprints. All twelve zones are healthy, gateway reopened, zero new restarts/detected errors. Owner encounter balance and visual QA remain **pending**: `docs/releases/divine-summons-20261013/README.md`. Source tests: `tools/tests/test_divine_summoned_weapons.py`; release folder contains the cache checker, guarded operator and recovery tests.
+-
+-## Trading, LORE and sales
+-
+-- `Items:FreeTrade` projects effective flags and fixed former-NO-DROP resale from raw SQL definitions. `IsAttuned()` is persisted state; `IsAttunedForTrade()` handles permission. All native binaries and regenerated ItemData cache must match. Raw SQL `nodrop=0` doesn't establish effective restrictions.
+-- Originally NO DROP objects pay **1pp per physical unit**, not per charge, through ordinary merchants and `#sellall`; normal pricing otherwise remains. New hunt rewards and all 44 divine summoned-weapon definitions have zero resale. Preserve bags themselves. Native merchant previews can differ from the server's actual payout. `common/item_trade_policy.h`, `docs/releases/free-trade-20261004/README.md`.
+-- **LORE disabled on OVH October 12** with `Items:DisableLore=true`: loader clears effective LoreFlag/LoreGroup, preserving SQL originals. Rebuild cache/restart; rule reload alone is insufficient. Re-enabling after duplicates exist can delete cursor conflicts; reconcile ownership first. `docs/releases/remove-item-lore-20261012/README.md`.
+-- Latest source `gm_commands/sell_all.cpp::IsSellAllSupply` protects food/drink and every loaded spell `component[]` or item-valued `no_expend_reagent[]` across classes/eras, in general slots and bags, even for fixed-resale items. It reads current spells each check; absent spell data blocks sales. The merchant button invokes this same command and adds no sale policy. PR #183 merged; the runbook added a **verified October 12 deployment** during this audit, retaining all other rules/content and reopening the gateway. Manual acceptance remains pending. Recheck `docs/ops/sellall-supplies-20261012/README.md` for later changes.
+-- Food/drink requirements were removed in the October 11 native release; optional item bonuses, recipes and alcohol remain. This doesn't make those items disposable.
+-
+-## Tests and historical traps
+-
+-Focused tests under `tools/tests/`: `test_item_upgrade_policy.py`, `test_item_upgrade_package.py`, `test_advanced_loot_inventory.py`, `test_zone_hunt.py`, `test_zone_hunt_native.py`, `test_free_trade.py`, `test_remove_item_lore.py`, `test_sell_all.py`, `test_food_drink.py`. Disposable DB rehearsals are separate and require their documented environment. Client Combine/visual and progression-balance acceptance remains distinct.
+-
+-Older item generators omitted later flat SpellDmg/HealAmt additions; do not regenerate live tiers from the old script without a full comparison. The September combat/item repair report is a candidate, not proof every proposed stat change deployed. The finite living economy has a separate catalog, offer lifecycle and receipts; do not overwrite it with generic merchant restock. Route it through `docs/economy/` and current status before changes.
++# Items, loot, forging and economy
++
 +Item-policy audit refreshed 2026-10-13 for the deployed divine-summon exception; other item systems retain their October 12 audit scope. Keep the independent reward systems distinct; use their explicit catalogs and current source. A stale runbook still saying every zoneforge recipe costs three is superseded by the October 12 upgrade policy.
- 
- | System | Implemented contract | Source/evidence |
- |---|---|---|
-@@ -12,6 +12,33 @@
- Item links must remain <=1,048,575. Prove IDs free across relevant tables and references, not just `items`; use guarded migrations. New hunt IDs start at 940000 and bypass legacy tier upgrading/global multipliers. Exact audited spawn/NPC identity, zone/version, level and special gates govern hunt eligibility. Pets, owned/script-created victims, services and restored dead NPCs don't reroll.
- 
- Hunt type-22 augments fit eligible head/arms/hands/chest/legs/feet sockets. At player level >=50 only qualifying socketed hunt-augment heroic INT/WIS adds output-cap headroom: `min(30,floor(effective heroic total/2))` for Spell Damage/Healing Amount. It doesn't grant missing raw bonuses. Don't apply this credit to arbitrary gear, AAs, buffs, NPCs or other augments.
 +
-+## Dungeon reward catalog candidate
++| System | Implemented contract | Source/evidence |
++|---|---|---|
++| Legacy quality loot | Base / Polished / Exalted / **Ascended**, offsets +200k/+400k/+600k; epics +800k. Historical defaults 10%/2%/0.25% per eligible item drop, not per kill. Verify active rules before tuning. | `akk-stack/code/zone/loottables.cpp` in full source; tracked `server-mods/code/zone/loot.cpp` is not automatically the legacy hook; old SQL generators need reproducibility review |
++| Classic hunt | Two independent 0.5% rolls per eligible death: augment and wearable; weights 60/30/8/2, top tier **Ascension**. 48 audited combat zones enabled, eight access-check zones gated. | `server-mods/code/zone/zone_hunt.cpp`, `common/zone_hunt_catalog.h`, `common/zone_hunt_policy.h`; `docs/releases/zone-loot-20261009/PRODUCTION.md` |
++| Zoneforge | Baseâ†’Polished costs 3; Polishedâ†’Exalted and Exaltedâ†’Ascension cost **4** after Oct 12. No cross-family conversion. | `zone/zone_hunt_forge.cpp`, `common/item_upgrade_policy.h` (`ZoneCopies`) |
++| Reforging Box | Four identical Polishedâ†’Exalted or Exaltedâ†’top tier for either family. Free reusable four-slot box 900620, Artisan Veyra NPC 999820 in EC tunnel. No Base/top-tier recipe. | `common/item_upgrade_policy.h`, `zone/advanced_loot_inventory.cpp`, `quests/ecommons/999820.pl`; `docs/releases/item-upgrades-20261012/README.md` |
 +
-+October 16 candidate only; `docs/dungeons/{catalog.json,README.md,QA.md}` owns
++Item links must remain <=1,048,575. Prove IDs free across relevant tables and references, not just `items`; use guarded migrations. New hunt IDs start at 940000 and bypass legacy tier upgrading/global multipliers. Exact audited spawn/NPC identity, zone/version, level and special gates govern hunt eligibility. Pets, owned/script-created victims, services and restored dead NPCs don't reroll.
++
++Hunt type-22 augments fit eligible head/arms/hands/chest/legs/feet sockets. At player level >=50 only qualifying socketed hunt-augment heroic INT/WIS adds output-cap headroom: `min(30,floor(effective heroic total/2))` for Spell Damage/Healing Amount. It doesn't grant missing raw bonuses. Don't apply this credit to arbitrary gear, AAs, buffs, NPCs or other augments.
++
++## Dungeon reward catalog deployed for live QA
++
++October 16 deployed; `docs/dungeons/{catalog.json,README.md,QA.md}` owns
 +definitions and acceptance. IDs 960000–960329 remain below the RoF2 link ceiling.
 +Twenty-four shared designs (8 armor, 8 weapons, 6 accessories, 2 bags) use bands
 +20/30/40/50 and Normal/Polished/Ascended qualities: 288 definitions. Each dungeon
@@ -92,13 +489,116 @@
 +20261016 dungeon SQL. Tests: `tools/tests/test_dungeon*.py`, rehearsal/activation/
 +concurrency scripts, existing inventory/corpse adapter evidence and native cache
 +verification. Pair all native binaries with the cache; no client asset changes.
-+Local automated verification is not gameplay/balance acceptance or deployment.
- 
- ## Commonlands Leather Padding stock
- 
++The regenerated production cache preserves all 309,410 old records and adds
++exactly 330 items. Deployment and continuing runtime checks pass; gameplay and
++balance acceptance remain open. `docs/dungeons/deployment/` pins the actual pair.
++
++## Commonlands Leather Padding stock
++
++October 16 owner-requested content deployed on OVH: Haldra / Smithing Supplies
++III (NPC/merchant 999603) sells Leather Padding 16488 in permanent slot 19 at
++EC `/loc -1768,-395,3.75`. Berrin and Torvik already have 150 slots each. Owner
++approved `items.sellrate` 2→3; base price 400, resale and recipes are unchanged.
++Current merchant rules otherwise permit buy/resell profit at multiplier 2.
++Purchase multiplier 3 keeps the best charisma-adjusted purchase above resale.
++Changing this shared item metadata required regeneration through the current
++supervisor's controlled game restart; stock-only edits support `#reload merchants`.
++No binary or client update. All 309,410 cached definitions were compared; only
++item 16488's SellRate float changed. Exact forward/inverse and three drift rejection
++rehearsals pass. Production is deployed; owner purchase/crafting QA remains pending.
++Source/operator, QA and deployment/cache evidence:
++`E:/EQ_Local_Dev/docs/ops/commonlands-services-20261016/`. Preserve this additive
++stock when regenerating an older full tunnel merchant catalog.
++
++## Equipment race policy
++
++The owner confirmed javelins work with signed client 2026101501, then Bronze
++Knuckles exposed a separate Half Elf race exclusion. Its base 30981 and quality
++variants have Monk/Beastlord classes 16448, original races 62219, primary-only
++slots 8192 and no deity/required-level gate. The owner chose class match for any
++playable race, while keeping non-player definitions unavailable.
++
++`common/equipment_race_policy.h::ApplyRacePolicy`, called after restrictions in
++`common/shareddb.cpp::LoadItems`, projects effective Races=65535 only for common
++items with playable class/race bits and a worn slot 0..22 or nonzero AugType.
++Preserve zero AND unsupported-only masks such as 65536. Raw SQL is unchanged.
++Class, deity, level, slots, weapon conflicts, augment fit, trade/LORE/resale and
++every other field remain. Bots/other effective-item consumers share this policy.
++
++PR #204 merged policy 5cea9cb and guarded operator 11e1add as fd5e6e0. The owner
++explicitly authorized push/merge/deploy with restart on October 16. Production
++image 581322f0… / loader 71dfdd18… is deployed, with access open. The full 309,410-item
++cache changes 90,852 race fields and preserves 1,535 non-player definitions and
++every other byte. Closed-access checks preserve 47 player/11 custom tables,
++content/rules/quests, supporting services and all 106 signed assets. All 12 zones
++retain the AA-duration hash 19cd3387…, with zero candidate restarts/detected errors.
++A fresh complete backup passed gzip checks; no SQL migration or restoration.
++
++Read `docs/releases/equipment-race-policy-20261016/README.md`, deployment.json,
++deployment/manifest.json, build-manifest.json, cache-rehearsal.json and
++verification.json in `C:/Users/verre/Documents/Codex/2026-10-15/g/work/multiclass-equipment`.
++Source tests: `tools/tests/test_equipment_race_policy.py` compiles actual loader
++and both SwapItem directions; `eq-client-dll/tests/equipment-native.cpp` executes
++78 checks with actual race/equip/inspection paths. Other client restriction and
++object-storage helpers are fixtures; server tests cover deity/level separately.
++The retained archive/link inputs reproduce the prior loader 139194a9… before
++one-object replacement; 126 members remain identical, ItemData stays 1332 bytes.
++Local 308,928-item old/new/old rehearsal preserves all other cache bytes and
++recreates the original cache. All 37 operator recovery/pairing tests pass on
++Windows and the production host. Independent review has no remaining blockers;
++the provenance finding was resolved, and the optional second model was declined.
++
++Pair with existing signed client 2026101501/proxy0.9.1-dev; no new download.
++Future loader/cache updates require the supported whole-game restart and fresh
++approval. Keep the latest world/zone/login/UCS binaries. Before possible access,
++recovery regenerates the old image cache and requires exact preflight equality;
++otherwise hold gateway closed. Never restore stale SQL/cache over changed data.
++After uncertain access, retain candidate/subsequent activity and reconcile.
++Bronze Knuckles remains primary-only. Owner inspection/equip/relog/class-release
++QA is still pending; rollout health does not establish visible gameplay acceptance.
++
++## Ordinary tradeskills: stacked materials and Craft All
++
++Owner-authorized PR #200 merged to main and deployed to OVH October 13 for live QA, paired with signed game release 2026101304/proxy 0.9.0-dev. Owner gameplay acceptance remains pending. Experimental combines count physical stack units, consume exact recipe requirements and retain leftovers in bags/world stations. Charged nonstackables count as one. Prefer a unique exact quantity recipe, otherwise require one feasible recipe; ambiguous/missing/unrelated/augmented inputs consume nothing. Reacquire containers and rebuild plans after both quest callbacks. Native generic world containers have null parent ItemData and GetID()==0; only portable bags require parent ItemData.
++
++Recipe-browser automatic combines validate the real carried bag or owned nearby station, character/skill/class/race/quest gates and empty cursor. They gather a complete fresh ingredient plan from carried slots/bags before consumption, aggregate duplicate rows and retain native success/failure/salvage/skill gains. Container-consuming recipes require exact Experiment inputs. Reforging Box, molds and augmentation keep separate paths. Ordinary persistence remains native; this is not a new atomic receipt contract.
++
++Source: server-mods/code/zone/tradeskills.cpp and common/tradeskill_policy.h. Tests: tools/tests/test_tradeskill_stacks.py and test_tradeskill_auto.py extract production functions; 25 groups/74 scenarios pass. SQLite executes emitted SQL; result generation and by-ID metadata boundaries are mocked. Retained full native source matches original tradeskills SHA 53cd12b0e8c4e677cfaac87108634086e6c7b53ed1f869c5820c121dde286c8f. Isolated zone build/link passes using tools/build_tradeskill_candidate.py. No DB migration, rule or ItemData layout change. Pair the rebuilt zone with proxy 0.9.0-dev/config/catalog/tradeskill XML; use supported whole-runtime refresh, not quest/rule reload. Preserve the current divine-summon loader/cache. All 12 zones and 106 hosted signed assets verify with zero candidate restarts/detected errors; closed-access checks preserved 47 player/11 custom tables, current policies/content/quests and other binaries. Fresh full backup passed gzip/completeness verification (no separate restore rehearsal). Native visual, real packet timing, stack persistence and owner QA remain pending in docs/tradeskills/README.md; deployment.json, deployment-manifest.json, hosted-verification.json, build-manifest.json and verification.json record evidence. Never restore old player inventory on rollback.
++
++## Transaction and recovery boundary
++
++Forge and box inputs, output and durable receipt commit together after exact inventory preimage checks. Binding is preserved. Reject socketed/dyed/ornamented/evolving/customized instances; bags cannot nest in the box. Stack quantity is physical copies; a charged result still yields one unit. `nightcap_item_upgrade_state` revision 2026101201 gates box behavior; `nightcap_item_upgrades` and `nightcap_zone_hunt_forges` retain receipts. Missing/mismatched enablement rejects. Uncertain commit or packet publication quarantines the session; don't automatically retry consumption.
++
++Disable acquisition/combining for operational rollback while preserving definitions, sockets, earned items and receipts. Never restore old inventory after player activity or roll back below receipt-capable binaries. The box NPC supplies the container; it is not a four-item hand-in quest.
++
++## Divine summoned weapons
++
++PR #197 merged to main and deployed on OVH October 13. Existing `SpellEffect::SummonItem` and `SummonItemIntoBag` already select Ascended (+600000) for eligible base equipment when the variant exists. Paladin/Cleric hammer spells retain that behavior; Unswerving/Celestial Hammer pets are separate.
++
++`common/divine_summoned_weapon_policy.h` covers eleven hammer families at all four quality offsets: bases 6307, 6309, 6313, 5800, 15996, 5798, 29365, 77517, 90491, 90492, 90493. The loader calls `ApplyMerchantPolicy` **after** FreeTrade and zeros both Price and FixedSellPrice for all 44 definitions. This closes unlimited summon-to-platinum sales, including old inventory copies. Combat stats, procs, bane, equip/class/level gates, raw SQL, effective trade flags and temporary lifetime remain unchanged. `#sellall` skips and retains them; an explicit ordinary merchant sale packet may discard one for zero coin.
++
++Wrath/Striking/Requital summon 606307/606309/606313: damage/delay 8/32, 8/29, 9/29; undead bane 3/4/5; each has +20 Spell Damage/+20 Healing Amount and remains primary-only. Ascended has no box/zone-forge successor; no production recipe references any of the 44 definitions, and the Epic Forgemaster uses its separate explicit catalog. Later hammer spell and item-level gates stay intact.
++
++Only `shared_memory` was rebuilt from retained production-matching source/link inputs; ItemData remains 1,332 bytes. The active world's/zone's/login's/UCS's binaries, including the October 13 AA-rank repair, were preserved. Cache regeneration requires the supported full-game restart; rule/quest reload alone is insufficient. No SQL migration or client download. Do not deploy an older main-checkout zone over the newer active binary. Exact image and native hashes: `docs/releases/divine-summons-20261013/deployment-manifest.json` and `deployment.json`.
++
++Native summon/resale and adjacent policy tests plus cache/operator recovery tests pass; independent review has no remaining blockers. Old/new/old loader rehearsal over 308,928 local definitions reproduces the original cache exactly. Production compared 309,410 definitions and preserved every cache byte outside the 88 owned price fields, 47 player tables, 11 custom tables and runtime/public fingerprints. All twelve zones are healthy, gateway reopened, zero new restarts/detected errors. Owner encounter balance and visual QA remain **pending**: `docs/releases/divine-summons-20261013/README.md`. Source tests: `tools/tests/test_divine_summoned_weapons.py`; release folder contains the cache checker, guarded operator and recovery tests.
++
++## Trading, LORE and sales
++
++- `Items:FreeTrade` projects effective flags and fixed former-NO-DROP resale from raw SQL definitions. `IsAttuned()` is persisted state; `IsAttunedForTrade()` handles permission. All native binaries and regenerated ItemData cache must match. Raw SQL `nodrop=0` doesn't establish effective restrictions.
++- Originally NO DROP objects pay **1pp per physical unit**, not per charge, through ordinary merchants and `#sellall`; normal pricing otherwise remains. New hunt rewards and all 44 divine summoned-weapon definitions have zero resale. Preserve bags themselves. Native merchant previews can differ from the server's actual payout. `common/item_trade_policy.h`, `docs/releases/free-trade-20261004/README.md`.
++- **LORE disabled on OVH October 12** with `Items:DisableLore=true`: loader clears effective LoreFlag/LoreGroup, preserving SQL originals. Rebuild cache/restart; rule reload alone is insufficient. Re-enabling after duplicates exist can delete cursor conflicts; reconcile ownership first. `docs/releases/remove-item-lore-20261012/README.md`.
++- Latest source `gm_commands/sell_all.cpp::IsSellAllSupply` protects food/drink and every loaded spell `component[]` or item-valued `no_expend_reagent[]` across classes/eras, in general slots and bags, even for fixed-resale items. It reads current spells each check; absent spell data blocks sales. The merchant button invokes this same command and adds no sale policy. PR #183 merged; the runbook added a **verified October 12 deployment** during this audit, retaining all other rules/content and reopening the gateway. Manual acceptance remains pending. Recheck `docs/ops/sellall-supplies-20261012/README.md` for later changes.
++- Food/drink requirements were removed in the October 11 native release; optional item bonuses, recipes and alcohol remain. This doesn't make those items disposable.
++
++## Tests and historical traps
++
++Focused tests under `tools/tests/`: `test_item_upgrade_policy.py`, `test_item_upgrade_package.py`, `test_advanced_loot_inventory.py`, `test_zone_hunt.py`, `test_zone_hunt_native.py`, `test_free_trade.py`, `test_remove_item_lore.py`, `test_sell_all.py`, `test_food_drink.py`. Disposable DB rehearsals are separate and require their documented environment. Client Combine/visual and progression-balance acceptance remains distinct.
++
++Older item generators omitted later flat SpellDmg/HealAmt additions; do not regenerate live tiers from the old script without a full comparison. The September combat/item repair report is a candidate, not proof every proposed stat change deployed. The finite living economy has a separate catalog, offer lifecycle and receipts; do not overwrite it with generic merchant restock. Route it through `docs/economy/` and current status before changes.
 --- a/references/wiki.md
 +++ b/references/wiki.md
-@@ -1,69 +1,77 @@
+@@ -1,77 +1,79 @@
 -# Official player wiki and Features
 -
 -Reviewed October 16, 2026. Wiki source is currently in
@@ -145,6 +645,14 @@
 -Ordinary top tier is Ascended; hunt top tier is Ascension. Gameplay acceptance
 -remains owned by each release. Broad combat-item and Adventure Journal candidates
 -stay unreleased. Existing item stats were not regenerated in this refresh.
+-
+-
+-Dungeon candidate source update October 16: the maintained local wiki now has a
+-Not released Raid & Grind guide, linked from Features, Travel, In development
+-and Recent changes. Full-site Python/link and Node search/equipment checks pass.
+-Live catalog stats and live website release remain unchanged; publication is
+-pending. Exact preimages, installed source receipt and whole-wiki assessment:
+-`docs/dungeons/wiki-update/` and `docs/dungeons/wiki-review.md` in dungeon-modes.
 -
 -## Tests, publication and recovery
 -
@@ -216,11 +724,13 @@
 +stay unreleased. Existing item stats were not regenerated in this refresh.
 +
 +
-+Dungeon candidate source update October 16: the maintained local wiki now has a
-+Not released Raid & Grind guide, linked from Features, Travel, In development
-+and Recent changes. Full-site Python/link and Node search/equipment checks pass.
-+Live catalog stats and live website release remain unchanged; publication is
-+pending. Exact preimages, installed source receipt and whole-wiki assessment:
++
++Dungeon deployment source update October 16: the maintained local wiki has a
++Live testing Raid & Grind guide, linked from Features, Travel and Recent changes.
++The unreleased candidate notice was removed. The existing generated equipment
++catalog remains specific to hunt rewards; dungeon rewards have a separate guide.
++Full-site Python/link and Node search/equipment checks pass. Website publication
++is pending. Exact preimages, installed source receipt and whole-wiki assessment:
 +`docs/dungeons/wiki-update/` and `docs/dungeons/wiki-review.md` in dungeon-modes.
 +
 +## Tests, publication and recovery
@@ -247,7 +757,7 @@
 +current pointer/config preimage and preserves later releases and player activity.
 --- a/references/sources.json
 +++ b/references/sources.json
-@@ -1,3071 +1,3183 @@
+@@ -1,3183 +1,3267 @@
 -{
 -  "schema_version": 1,
 -  "audited_at": "2026-10-12",
@@ -1174,11 +1684,11 @@
 -        "sha256": "0f721706750d2fb840b4385f093a54b9cffc7f67793676aa4c898d777fd46ce3"
 -      },
 -      {
--        "root": "C:/Users/verre/Documents/Codex/2026-10-15/g/work/multiclass-equipment",
+-        "root": "C:/Users/verre/Documents/Codex/2026-10-16/p/work/dungeon-modes",
 -        "path": "server-mods/code/common/shareddb.cpp",
--        "role": "reviewed loader restriction integration; all other effective item policies preserved",
--        "revision": "5cea9cb4d9958a4ad9fe1e4a91dfdb74a3cbae4c",
--        "sha256": "fe027062b9e19c897ea3b9b37293ebb3424bc4b340756c8542e5ada58594c524"
+-        "role": "Reviewed Raid/Grind candidate; automated evidence, not deployment or owner acceptance",
+-        "revision": "916b39e265ab36d0da92074c3d61d4bba132dadb",
+-        "sha256": "ecec44c9237ea93c50c4c0d32edd2473598000347fc48078ec4359648965e461"
 -      },
 -      {
 -        "root": "C:/Users/verre/.codex/worktrees/ascended-summoned-weapons/EQ_Local_Dev",
@@ -1487,6 +1997,55 @@
 -        "role": "37 recovery/pairing tests including cache drift and unchanged AA zone",
 -        "revision": "d1014a95228258ff2fd51bc9451914a5fa03ccc6",
 -        "sha256": "456df19144ca8bf0f634595c5f9fcd68a320d74af3b1784f78942455675a012f"
+-      },
+-      {
+-        "root": "C:/Users/verre/Documents/Codex/2026-10-16/p/work/dungeon-modes",
+-        "path": "server-mods/code/common/dungeon_policy.h",
+-        "role": "Reviewed Raid/Grind candidate; automated evidence, not deployment or owner acceptance",
+-        "revision": "916b39e265ab36d0da92074c3d61d4bba132dadb",
+-        "sha256": "dfe1ecf5163a46c8c27de70c1cded80da64b853f525b922e882150dbb943136f"
+-      },
+-      {
+-        "root": "C:/Users/verre/Documents/Codex/2026-10-16/p/work/dungeon-modes",
+-        "path": "server-mods/code/common/dungeon_contract.h",
+-        "role": "Reviewed Raid/Grind candidate; automated evidence, not deployment or owner acceptance",
+-        "revision": "916b39e265ab36d0da92074c3d61d4bba132dadb",
+-        "sha256": "50b244b3243ae6cee02e7fa8f82ff28b908df460e06e9618366f50b16f2d3f21"
+-      },
+-      {
+-        "root": "C:/Users/verre/Documents/Codex/2026-10-16/p/work/dungeon-modes",
+-        "path": "tools/dungeon_catalog.py",
+-        "role": "Reviewed Raid/Grind candidate; automated evidence, not deployment or owner acceptance",
+-        "revision": "916b39e265ab36d0da92074c3d61d4bba132dadb",
+-        "sha256": "24847582abf388f0675a21641ffd7b95771b7ed2e6e9e320240d72849dd455b0"
+-      },
+-      {
+-        "root": "C:/Users/verre/Documents/Codex/2026-10-16/p/work/dungeon-modes",
+-        "path": "docs/dungeons/catalog.json",
+-        "role": "Reviewed Raid/Grind candidate; automated evidence, not deployment or owner acceptance",
+-        "revision": "916b39e265ab36d0da92074c3d61d4bba132dadb",
+-        "sha256": "b7cf1e0f2ac75891d8d723a5a964b7fd6a06180e3599fb406293d67614c1f500"
+-      },
+-      {
+-        "root": "C:/Users/verre/Documents/Codex/2026-10-16/p/work/dungeon-modes",
+-        "path": "docs/dungeons/cache-verification.json",
+-        "role": "Reviewed Raid/Grind candidate; automated evidence, not deployment or owner acceptance",
+-        "revision": "916b39e265ab36d0da92074c3d61d4bba132dadb",
+-        "sha256": "032c411e0f9e09999f0261cc32fbc8ba71b96df1497e08254311d4a1fcc135e8"
+-      },
+-      {
+-        "root": "C:/Users/verre/Documents/Codex/2026-10-16/p/work/dungeon-modes",
+-        "path": "docs/dungeons/activation-verification.json",
+-        "role": "Reviewed Raid/Grind candidate; automated evidence, not deployment or owner acceptance",
+-        "revision": "916b39e265ab36d0da92074c3d61d4bba132dadb",
+-        "sha256": "a235fa6c8a6cd3b218a33d56bcb5b51e30a3e634c1b8599af9a56b853fdfe681"
+-      },
+-      {
+-        "root": "C:/Users/verre/Documents/Codex/2026-10-16/p/work/dungeon-modes",
+-        "path": "docs/dungeons/package-manifest.json",
+-        "role": "Reviewed Raid/Grind candidate; automated evidence, not deployment or owner acceptance",
+-        "revision": "916b39e265ab36d0da92074c3d61d4bba132dadb",
+-        "sha256": "56f8170916ee060d6b04a35bd2cdabae9ad95e3916c5858b5a5d2c5b34d919e7"
 -      }
 -    ],
 -    "world": [
@@ -1498,11 +2057,11 @@
 -        "revision": "e69cdf11ecc782fc70253babb9f510fd83648386"
 -      },
 -      {
--        "root": "C:/Users/verre/Documents/Codex/2026-10-13/go/work/unrest-waypoint",
+-        "root": "C:/Users/verre/Documents/Codex/2026-10-16/p/work/dungeon-modes",
 -        "path": "server-mods/quests/global/Instance_Keeper.pl",
--        "role": "unchanged deployed eye appearance and instance service",
--        "sha256": "d230dc5196374f59f62663b33d3a01d0b6113aee9101f44725489a6ed4e586ea",
--        "revision": "e69cdf11ecc782fc70253babb9f510fd83648386"
+-        "role": "Reviewed Raid/Grind candidate; automated evidence, not deployment or owner acceptance",
+-        "revision": "916b39e265ab36d0da92074c3d61d4bba132dadb",
+-        "sha256": "b4fc39bd29cbc0856b8ec9bd0072285e5cade672fa43cf853bf96009d30bf7a9"
 -      },
 -      {
 -        "root": "E:/EQ_Local_Dev/_worktrees/merchant-sell-all",
@@ -1771,6 +2330,62 @@
 -        "role": "banker native terrain and access probe",
 -        "revision": "ce161c5e600992037adb66037b56047ef8c330dd + reviewed operational working files",
 -        "sha256": "f26eea5fdb2ddfcae849eceb0b806aa8f31645c8255671e686001f7e75471bce"
+-      },
+-      {
+-        "root": "C:/Users/verre/Documents/Codex/2026-10-16/p/work/dungeon-modes",
+-        "path": "server-mods/code/zone/dungeon_service.cpp",
+-        "role": "Reviewed Raid/Grind candidate; automated evidence, not deployment or owner acceptance",
+-        "revision": "916b39e265ab36d0da92074c3d61d4bba132dadb",
+-        "sha256": "6c3944084a89b2dd9d0c07a8dbbc65fb495f31423e4afa3cb3454f8d2cec0e23"
+-      },
+-      {
+-        "root": "C:/Users/verre/Documents/Codex/2026-10-16/p/work/dungeon-modes",
+-        "path": "server-mods/code/zone/spawn2.cpp",
+-        "role": "Reviewed Raid/Grind candidate; automated evidence, not deployment or owner acceptance",
+-        "revision": "916b39e265ab36d0da92074c3d61d4bba132dadb",
+-        "sha256": "8e8153fde89960b57132653fd5b495608fee71b2a436af08714a4d70e6d0270d"
+-      },
+-      {
+-        "root": "C:/Users/verre/Documents/Codex/2026-10-16/p/work/dungeon-modes",
+-        "path": "server-mods/code/zone/zone_save_state.cpp",
+-        "role": "Reviewed Raid/Grind candidate; automated evidence, not deployment or owner acceptance",
+-        "revision": "916b39e265ab36d0da92074c3d61d4bba132dadb",
+-        "sha256": "fc8ec9a75e16e2992da21c57ea9f7cda225d3cbe3ecb28ac42b8c3792c575d34"
+-      },
+-      {
+-        "root": "C:/Users/verre/Documents/Codex/2026-10-16/p/work/dungeon-modes",
+-        "path": "server-mods/sql/20261016_dungeons.sql",
+-        "role": "Reviewed Raid/Grind candidate; automated evidence, not deployment or owner acceptance",
+-        "revision": "916b39e265ab36d0da92074c3d61d4bba132dadb",
+-        "sha256": "2e1803cf6fd4d058599e767907cbbc60ca92642888eae7f4c860cd04b3ca681f"
+-      },
+-      {
+-        "root": "C:/Users/verre/Documents/Codex/2026-10-16/p/work/dungeon-modes",
+-        "path": "tools/tests/test_dungeon_lifecycle.py",
+-        "role": "Reviewed Raid/Grind candidate; automated evidence, not deployment or owner acceptance",
+-        "revision": "916b39e265ab36d0da92074c3d61d4bba132dadb",
+-        "sha256": "104ed8bf884008719fee88f85fc0c4a82adb08e871feec12f3245a2c32b23c7e"
+-      },
+-      {
+-        "root": "C:/Users/verre/Documents/Codex/2026-10-16/p/work/dungeon-modes",
+-        "path": "docs/dungeons/README.md",
+-        "role": "Reviewed Raid/Grind candidate; automated evidence, not deployment or owner acceptance",
+-        "revision": "916b39e265ab36d0da92074c3d61d4bba132dadb",
+-        "sha256": "26c6bbadf93f809c7824714f6d572446112a6092a3df5c52ae46715c77f4b29c"
+-      },
+-      {
+-        "root": "C:/Users/verre/Documents/Codex/2026-10-16/p/work/dungeon-modes",
+-        "path": "docs/dungeons/QA.md",
+-        "role": "Reviewed Raid/Grind candidate; automated evidence, not deployment or owner acceptance",
+-        "revision": "916b39e265ab36d0da92074c3d61d4bba132dadb",
+-        "sha256": "ef587f7a62901e403a631e5ccbf45643a3a8e03fecef6226b81646bc2781dfa5"
+-      },
+-      {
+-        "root": "C:/Users/verre/Documents/Codex/2026-10-16/p/work/dungeon-modes",
+-        "path": "docs/dungeons/concurrency-verification.json",
+-        "role": "Reviewed Raid/Grind candidate; automated evidence, not deployment or owner acceptance",
+-        "revision": "916b39e265ab36d0da92074c3d61d4bba132dadb",
+-        "sha256": "ff9b9f3f4fc3c5f26accf3b644edef799c270146503e334e58fe287eb1d6c303"
 -      }
 -    ],
 -    "client": [
@@ -3074,9 +3689,9 @@
 -      {
 -        "root": "C:/Users/verre/.codex/worktrees/nightcap-wiki/EQ_Local_Dev",
 -        "path": "wiki/content-review.json",
--        "role": "Reviewed wiki source, maintenance contract or dated publication evidence",
--        "revision": "1048a5c427782d5c3fbf63e17fb63ce934a05eb7 plus publication evidence",
--        "sha256": "86cd12892eb67c3fd3b78fce3eaff72995aadd503a6b72fcfb9ad818bbbb0552"
+-        "role": "Reviewed local dungeon candidate guide; not published; source patch in docs/dungeons/wiki-update",
+-        "revision": "916b39e265ab36d0da92074c3d61d4bba132dadb",
+-        "sha256": "b5008d2a5e0442c78d0c24de0feccc2c34a6a639c33e6216c2286241210b88eb"
 -      },
 -      {
 -        "root": "C:/Users/verre/.codex/worktrees/nightcap-wiki/EQ_Local_Dev",
@@ -3221,9 +3836,9 @@
 -      {
 -        "root": "C:/Users/verre/.codex/worktrees/nightcap-wiki/EQ_Local_Dev",
 -        "path": "wiki/articles/features.json",
--        "role": "Reviewed wiki source, maintenance contract or dated publication evidence",
--        "revision": "1048a5c427782d5c3fbf63e17fb63ce934a05eb7 plus publication evidence",
--        "sha256": "c80c15374816448cd642d4551875a81280b847cef807a927d508aad83d870f0d"
+-        "role": "Reviewed local dungeon candidate guide; not published; source patch in docs/dungeons/wiki-update",
+-        "revision": "916b39e265ab36d0da92074c3d61d4bba132dadb",
+-        "sha256": "d12c113604b62a6802594945867252f0cfaec79c7e983fd41aa1bd7832fdb0b7"
 -      },
 -      {
 -        "root": "C:/Users/verre/.codex/worktrees/nightcap-wiki/EQ_Local_Dev",
@@ -3270,9 +3885,9 @@
 -      {
 -        "root": "C:/Users/verre/.codex/worktrees/nightcap-wiki/EQ_Local_Dev",
 -        "path": "wiki/articles/recent-changes.json",
--        "role": "Reviewed wiki source, maintenance contract or dated publication evidence",
--        "revision": "1048a5c427782d5c3fbf63e17fb63ce934a05eb7 plus publication evidence",
--        "sha256": "8e8b8b24ae4e531b328ed95f6b9d9d328290ae3c1875168916add56fcf5ea786"
+-        "role": "Reviewed local dungeon candidate guide; not published; source patch in docs/dungeons/wiki-update",
+-        "revision": "916b39e265ab36d0da92074c3d61d4bba132dadb",
+-        "sha256": "63540e4a18c5be5e6db6b34778c7e1e4488fea33d8746bca9e18152e153c7226"
 -      },
 -      {
 -        "root": "C:/Users/verre/.codex/worktrees/nightcap-wiki/EQ_Local_Dev",
@@ -3284,9 +3899,9 @@
 -      {
 -        "root": "C:/Users/verre/.codex/worktrees/nightcap-wiki/EQ_Local_Dev",
 -        "path": "wiki/articles/travel.json",
--        "role": "Reviewed wiki source, maintenance contract or dated publication evidence",
--        "revision": "1048a5c427782d5c3fbf63e17fb63ce934a05eb7 plus publication evidence",
--        "sha256": "9f8fc6a16ed46c10c6aa9a608586d1ec9ec4d76ca22657484e272ce0b21e903e"
+-        "role": "Reviewed local dungeon candidate guide; not published; source patch in docs/dungeons/wiki-update",
+-        "revision": "916b39e265ab36d0da92074c3d61d4bba132dadb",
+-        "sha256": "851dac72fb96fd51766d714ed48216774bcb7a0166d0a6131e26dae294da60ae"
 -      },
 -      {
 -        "root": "C:/Users/verre/.codex/worktrees/nightcap-wiki/EQ_Local_Dev",
@@ -3298,9 +3913,9 @@
 -      {
 -        "root": "C:/Users/verre/.codex/worktrees/nightcap-wiki/EQ_Local_Dev",
 -        "path": "wiki/articles/unreleased.json",
--        "role": "Reviewed wiki source, maintenance contract or dated publication evidence",
--        "revision": "1048a5c427782d5c3fbf63e17fb63ce934a05eb7 plus publication evidence",
--        "sha256": "2afc67700a1f122eb2a4a6c5a76b1a9502eb4876226a1e2d4f4eee4f7f1c33ee"
+-        "role": "Reviewed local dungeon candidate guide; not published; source patch in docs/dungeons/wiki-update",
+-        "revision": "916b39e265ab36d0da92074c3d61d4bba132dadb",
+-        "sha256": "85c43fe8ed77572a932e45234033fdec7246c01b01775a55bbfab40f60cf10bd"
 -      },
 -      {
 -        "root": "C:/Users/verre/.codex/worktrees/nightcap-wiki/EQ_Local_Dev",
@@ -3315,6 +3930,13 @@
 -        "role": "Reviewed wiki source, maintenance contract or dated publication evidence",
 -        "revision": "1048a5c427782d5c3fbf63e17fb63ce934a05eb7 plus publication evidence",
 -        "sha256": "87b843a74e36af0f4dc79eabd5432120b8bff1962e3044f04390efbfa4ab2ad7"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/nightcap-wiki/EQ_Local_Dev",
+-        "path": "wiki/articles/dungeon-modes.json",
+-        "role": "Reviewed local dungeon candidate guide; not published; source patch in docs/dungeons/wiki-update",
+-        "revision": "916b39e265ab36d0da92074c3d61d4bba132dadb",
+-        "sha256": "77e90de0f5b0edd82cf5d70b13458c65bb0595e5fd610a002d2873623358ee28"
 -      }
 -    ]
 -  }
@@ -3500,6 +4122,27 @@
 +        "role": "thirteen failure, preservation and precision-sidecar tests",
 +        "revision": "7f72778023bec0106b820603f48362754f6ba6e8",
 +        "sha256": "51d3691fe3bd2c3e5e66054c98af353341f6b03c1a0ad9566957a797958658dd"
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-16/p/work/dungeon-modes",
++        "path": "docs/dungeons/deployment/README.md",
++        "role": "Reviewed Raid/Grind production deployment; owner gameplay acceptance pending",
++        "revision": "7ae42801af295931e73b52908cdb4965167d7de9",
++        "sha256": "524719431df5bee33f72c7beb5246d9ebd4847e558ca244d4729d69289312275"
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-16/p/work/dungeon-modes",
++        "path": "docs/dungeons/deployment/rollout.py",
++        "role": "Reviewed Raid/Grind production deployment; owner gameplay acceptance pending",
++        "revision": "7ae42801af295931e73b52908cdb4965167d7de9",
++        "sha256": "fc56831ff9b31ba3f2cf4deaf01198bd1079ce7b1eddec447b0786b5774ad933"
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-16/p/work/dungeon-modes",
++        "path": "docs/dungeons/deployment/production-verification.json",
++        "role": "Reviewed Raid/Grind production deployment; owner gameplay acceptance pending",
++        "revision": "7ae42801af295931e73b52908cdb4965167d7de9",
++        "sha256": "8db6554b02d4aba4876442609730eff960d89ff8f508a426a3a1d0d788aa2466"
 +      }
 +    ],
 +    "multiclass": [
@@ -4247,8 +4890,8 @@
 +      {
 +        "root": "C:/Users/verre/Documents/Codex/2026-10-16/p/work/dungeon-modes",
 +        "path": "server-mods/code/common/shareddb.cpp",
-+        "role": "Reviewed Raid/Grind candidate; automated evidence, not deployment or owner acceptance",
-+        "revision": "916b39e265ab36d0da92074c3d61d4bba132dadb",
++        "role": "Reviewed Raid/Grind production deployment; owner gameplay acceptance pending",
++        "revision": "7ae42801af295931e73b52908cdb4965167d7de9",
 +        "sha256": "ecec44c9237ea93c50c4c0d32edd2473598000347fc48078ec4359648965e461"
 +      },
 +      {
@@ -4562,51 +5205,86 @@
 +      {
 +        "root": "C:/Users/verre/Documents/Codex/2026-10-16/p/work/dungeon-modes",
 +        "path": "server-mods/code/common/dungeon_policy.h",
-+        "role": "Reviewed Raid/Grind candidate; automated evidence, not deployment or owner acceptance",
-+        "revision": "916b39e265ab36d0da92074c3d61d4bba132dadb",
++        "role": "Reviewed Raid/Grind production deployment; owner gameplay acceptance pending",
++        "revision": "7ae42801af295931e73b52908cdb4965167d7de9",
 +        "sha256": "dfe1ecf5163a46c8c27de70c1cded80da64b853f525b922e882150dbb943136f"
 +      },
 +      {
 +        "root": "C:/Users/verre/Documents/Codex/2026-10-16/p/work/dungeon-modes",
 +        "path": "server-mods/code/common/dungeon_contract.h",
-+        "role": "Reviewed Raid/Grind candidate; automated evidence, not deployment or owner acceptance",
-+        "revision": "916b39e265ab36d0da92074c3d61d4bba132dadb",
-+        "sha256": "50b244b3243ae6cee02e7fa8f82ff28b908df460e06e9618366f50b16f2d3f21"
++        "role": "Reviewed Raid/Grind production deployment; owner gameplay acceptance pending",
++        "revision": "7ae42801af295931e73b52908cdb4965167d7de9",
++        "sha256": "a34fec6a56e0f2afd43b791b6a0b093c5caf8453a5b111f79048cea64291e8f1"
 +      },
 +      {
 +        "root": "C:/Users/verre/Documents/Codex/2026-10-16/p/work/dungeon-modes",
 +        "path": "tools/dungeon_catalog.py",
-+        "role": "Reviewed Raid/Grind candidate; automated evidence, not deployment or owner acceptance",
-+        "revision": "916b39e265ab36d0da92074c3d61d4bba132dadb",
++        "role": "Reviewed Raid/Grind production deployment; owner gameplay acceptance pending",
++        "revision": "7ae42801af295931e73b52908cdb4965167d7de9",
 +        "sha256": "24847582abf388f0675a21641ffd7b95771b7ed2e6e9e320240d72849dd455b0"
 +      },
 +      {
 +        "root": "C:/Users/verre/Documents/Codex/2026-10-16/p/work/dungeon-modes",
 +        "path": "docs/dungeons/catalog.json",
-+        "role": "Reviewed Raid/Grind candidate; automated evidence, not deployment or owner acceptance",
-+        "revision": "916b39e265ab36d0da92074c3d61d4bba132dadb",
++        "role": "Reviewed Raid/Grind production deployment; owner gameplay acceptance pending",
++        "revision": "7ae42801af295931e73b52908cdb4965167d7de9",
 +        "sha256": "b7cf1e0f2ac75891d8d723a5a964b7fd6a06180e3599fb406293d67614c1f500"
 +      },
 +      {
 +        "root": "C:/Users/verre/Documents/Codex/2026-10-16/p/work/dungeon-modes",
 +        "path": "docs/dungeons/cache-verification.json",
-+        "role": "Reviewed Raid/Grind candidate; automated evidence, not deployment or owner acceptance",
-+        "revision": "916b39e265ab36d0da92074c3d61d4bba132dadb",
++        "role": "Archived local-content test evidence; production build/cache pairing is recorded separately under deployment/",
++        "revision": "7ae42801af295931e73b52908cdb4965167d7de9",
 +        "sha256": "032c411e0f9e09999f0261cc32fbc8ba71b96df1497e08254311d4a1fcc135e8"
 +      },
 +      {
 +        "root": "C:/Users/verre/Documents/Codex/2026-10-16/p/work/dungeon-modes",
 +        "path": "docs/dungeons/activation-verification.json",
-+        "role": "Reviewed Raid/Grind candidate; automated evidence, not deployment or owner acceptance",
-+        "revision": "916b39e265ab36d0da92074c3d61d4bba132dadb",
-+        "sha256": "a235fa6c8a6cd3b218a33d56bcb5b51e30a3e634c1b8599af9a56b853fdfe681"
++        "role": "Reviewed Raid/Grind production deployment; owner gameplay acceptance pending",
++        "revision": "7ae42801af295931e73b52908cdb4965167d7de9",
++        "sha256": "d4c82f94ce32ad12f8d8a39ccff94a930fd613125bc5522104e116e3006ed062"
 +      },
 +      {
 +        "root": "C:/Users/verre/Documents/Codex/2026-10-16/p/work/dungeon-modes",
 +        "path": "docs/dungeons/package-manifest.json",
-+        "role": "Reviewed Raid/Grind candidate; automated evidence, not deployment or owner acceptance",
-+        "revision": "916b39e265ab36d0da92074c3d61d4bba132dadb",
++        "role": "Archived local-content test evidence; production build/cache pairing is recorded separately under deployment/",
++        "revision": "7ae42801af295931e73b52908cdb4965167d7de9",
 +        "sha256": "56f8170916ee060d6b04a35bd2cdabae9ad95e3916c5858b5a5d2c5b34d919e7"
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-16/p/work/dungeon-modes",
++        "path": "docs/dungeons/deployment/rehearsal.json",
++        "role": "Reviewed Raid/Grind production deployment; owner gameplay acceptance pending",
++        "revision": "7ae42801af295931e73b52908cdb4965167d7de9",
++        "sha256": "6563e4f9ea74f85bf52a4b0eb3414322b7fab5b9d6fb9d1376c34e041ec4251a"
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-16/p/work/dungeon-modes",
++        "path": "docs/dungeons/deployment/release-manifest.json",
++        "role": "Reviewed Raid/Grind production deployment; owner gameplay acceptance pending",
++        "revision": "7ae42801af295931e73b52908cdb4965167d7de9",
++        "sha256": "86a245a132d3ec13b13c936e1fc9c3eec35024c33bde8d2be98b894acd3ba5f4"
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-16/p/work/dungeon-modes",
++        "path": "docs/dungeons/deployment/production-package-verification.json",
++        "role": "Reviewed Raid/Grind production deployment; owner gameplay acceptance pending",
++        "revision": "7ae42801af295931e73b52908cdb4965167d7de9",
++        "sha256": "15b57d244b2e11b2e9b283d95f65ff470416195b2aea30bdf964bce036391fd6"
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-16/p/work/dungeon-modes",
++        "path": "docs/dungeons/native-build-manifest.json",
++        "role": "Reviewed Raid/Grind production deployment; owner gameplay acceptance pending",
++        "revision": "7ae42801af295931e73b52908cdb4965167d7de9",
++        "sha256": "c7b9d843ca1235b92c2495ba089faaa2b324fd1ae269db335c84d3c4ef119e34"
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-16/p/work/dungeon-modes",
++        "path": "tools/tests/test_dungeon_contract.py",
++        "role": "Reviewed Raid/Grind production deployment; owner gameplay acceptance pending",
++        "revision": "7ae42801af295931e73b52908cdb4965167d7de9",
++        "sha256": "9de359b29ed39a1bbc413795ea041f90b17743ff2e670f2e80b5358c5e1326d6"
 +      }
 +    ],
 +    "world": [
@@ -4620,8 +5298,8 @@
 +      {
 +        "root": "C:/Users/verre/Documents/Codex/2026-10-16/p/work/dungeon-modes",
 +        "path": "server-mods/quests/global/Instance_Keeper.pl",
-+        "role": "Reviewed Raid/Grind candidate; automated evidence, not deployment or owner acceptance",
-+        "revision": "916b39e265ab36d0da92074c3d61d4bba132dadb",
++        "role": "Reviewed Raid/Grind production deployment; owner gameplay acceptance pending",
++        "revision": "7ae42801af295931e73b52908cdb4965167d7de9",
 +        "sha256": "b4fc39bd29cbc0856b8ec9bd0072285e5cade672fa43cf853bf96009d30bf7a9"
 +      },
 +      {
@@ -4895,58 +5573,86 @@
 +      {
 +        "root": "C:/Users/verre/Documents/Codex/2026-10-16/p/work/dungeon-modes",
 +        "path": "server-mods/code/zone/dungeon_service.cpp",
-+        "role": "Reviewed Raid/Grind candidate; automated evidence, not deployment or owner acceptance",
-+        "revision": "916b39e265ab36d0da92074c3d61d4bba132dadb",
++        "role": "Reviewed Raid/Grind production deployment; owner gameplay acceptance pending",
++        "revision": "7ae42801af295931e73b52908cdb4965167d7de9",
 +        "sha256": "6c3944084a89b2dd9d0c07a8dbbc65fb495f31423e4afa3cb3454f8d2cec0e23"
 +      },
 +      {
 +        "root": "C:/Users/verre/Documents/Codex/2026-10-16/p/work/dungeon-modes",
 +        "path": "server-mods/code/zone/spawn2.cpp",
-+        "role": "Reviewed Raid/Grind candidate; automated evidence, not deployment or owner acceptance",
-+        "revision": "916b39e265ab36d0da92074c3d61d4bba132dadb",
++        "role": "Reviewed Raid/Grind production deployment; owner gameplay acceptance pending",
++        "revision": "7ae42801af295931e73b52908cdb4965167d7de9",
 +        "sha256": "8e8153fde89960b57132653fd5b495608fee71b2a436af08714a4d70e6d0270d"
 +      },
 +      {
 +        "root": "C:/Users/verre/Documents/Codex/2026-10-16/p/work/dungeon-modes",
 +        "path": "server-mods/code/zone/zone_save_state.cpp",
-+        "role": "Reviewed Raid/Grind candidate; automated evidence, not deployment or owner acceptance",
-+        "revision": "916b39e265ab36d0da92074c3d61d4bba132dadb",
++        "role": "Reviewed Raid/Grind production deployment; owner gameplay acceptance pending",
++        "revision": "7ae42801af295931e73b52908cdb4965167d7de9",
 +        "sha256": "fc8ec9a75e16e2992da21c57ea9f7cda225d3cbe3ecb28ac42b8c3792c575d34"
 +      },
 +      {
 +        "root": "C:/Users/verre/Documents/Codex/2026-10-16/p/work/dungeon-modes",
 +        "path": "server-mods/sql/20261016_dungeons.sql",
-+        "role": "Reviewed Raid/Grind candidate; automated evidence, not deployment or owner acceptance",
-+        "revision": "916b39e265ab36d0da92074c3d61d4bba132dadb",
++        "role": "Reviewed Raid/Grind production deployment; owner gameplay acceptance pending",
++        "revision": "7ae42801af295931e73b52908cdb4965167d7de9",
 +        "sha256": "2e1803cf6fd4d058599e767907cbbc60ca92642888eae7f4c860cd04b3ca681f"
 +      },
 +      {
 +        "root": "C:/Users/verre/Documents/Codex/2026-10-16/p/work/dungeon-modes",
 +        "path": "tools/tests/test_dungeon_lifecycle.py",
-+        "role": "Reviewed Raid/Grind candidate; automated evidence, not deployment or owner acceptance",
-+        "revision": "916b39e265ab36d0da92074c3d61d4bba132dadb",
++        "role": "Reviewed Raid/Grind production deployment; owner gameplay acceptance pending",
++        "revision": "7ae42801af295931e73b52908cdb4965167d7de9",
 +        "sha256": "104ed8bf884008719fee88f85fc0c4a82adb08e871feec12f3245a2c32b23c7e"
 +      },
 +      {
 +        "root": "C:/Users/verre/Documents/Codex/2026-10-16/p/work/dungeon-modes",
 +        "path": "docs/dungeons/README.md",
-+        "role": "Reviewed Raid/Grind candidate; automated evidence, not deployment or owner acceptance",
-+        "revision": "916b39e265ab36d0da92074c3d61d4bba132dadb",
-+        "sha256": "26c6bbadf93f809c7824714f6d572446112a6092a3df5c52ae46715c77f4b29c"
++        "role": "Reviewed Raid/Grind production deployment; owner gameplay acceptance pending",
++        "revision": "7ae42801af295931e73b52908cdb4965167d7de9",
++        "sha256": "8b6daceb7ce6a63f7661f5a64a413fec364092e89249c6f618694b805829e495"
 +      },
 +      {
 +        "root": "C:/Users/verre/Documents/Codex/2026-10-16/p/work/dungeon-modes",
 +        "path": "docs/dungeons/QA.md",
-+        "role": "Reviewed Raid/Grind candidate; automated evidence, not deployment or owner acceptance",
-+        "revision": "916b39e265ab36d0da92074c3d61d4bba132dadb",
-+        "sha256": "ef587f7a62901e403a631e5ccbf45643a3a8e03fecef6226b81646bc2781dfa5"
++        "role": "Reviewed Raid/Grind production deployment; owner gameplay acceptance pending",
++        "revision": "7ae42801af295931e73b52908cdb4965167d7de9",
++        "sha256": "d20672699ac0a3f012d606195208be7f7bbc462abd364d75ec67c76295828954"
 +      },
 +      {
 +        "root": "C:/Users/verre/Documents/Codex/2026-10-16/p/work/dungeon-modes",
 +        "path": "docs/dungeons/concurrency-verification.json",
-+        "role": "Reviewed Raid/Grind candidate; automated evidence, not deployment or owner acceptance",
-+        "revision": "916b39e265ab36d0da92074c3d61d4bba132dadb",
++        "role": "Reviewed Raid/Grind production deployment; owner gameplay acceptance pending",
++        "revision": "7ae42801af295931e73b52908cdb4965167d7de9",
 +        "sha256": "ff9b9f3f4fc3c5f26accf3b644edef799c270146503e334e58fe287eb1d6c303"
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-16/p/work/dungeon-modes",
++        "path": "docs/dungeons/deployment/production-verification.json",
++        "role": "Reviewed Raid/Grind production deployment; owner gameplay acceptance pending",
++        "revision": "7ae42801af295931e73b52908cdb4965167d7de9",
++        "sha256": "8db6554b02d4aba4876442609730eff960d89ff8f508a426a3a1d0d788aa2466"
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-16/p/work/dungeon-modes",
++        "path": "docs/dungeons/deployment/README.md",
++        "role": "Reviewed Raid/Grind production deployment; owner gameplay acceptance pending",
++        "revision": "7ae42801af295931e73b52908cdb4965167d7de9",
++        "sha256": "524719431df5bee33f72c7beb5246d9ebd4847e558ca244d4729d69289312275"
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-16/p/work/dungeon-modes",
++        "path": "docs/dungeons/deployment/rollout.py",
++        "role": "Reviewed Raid/Grind production deployment; owner gameplay acceptance pending",
++        "revision": "7ae42801af295931e73b52908cdb4965167d7de9",
++        "sha256": "fc56831ff9b31ba3f2cf4deaf01198bd1079ce7b1eddec447b0786b5774ad933"
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-16/p/work/dungeon-modes",
++        "path": "docs/dungeons/deployment/test_rollout.py",
++        "role": "Reviewed Raid/Grind production deployment; owner gameplay acceptance pending",
++        "revision": "7ae42801af295931e73b52908cdb4965167d7de9",
++        "sha256": "6d368b234865fbb680d79ef5c34cd4f58c82ab48d9da0d576065a7e0738c325b"
 +      }
 +    ],
 +    "client": [
@@ -6250,9 +6956,9 @@
 +      {
 +        "root": "C:/Users/verre/.codex/worktrees/nightcap-wiki/EQ_Local_Dev",
 +        "path": "wiki/content-review.json",
-+        "role": "Reviewed local dungeon candidate guide; not published; source patch in docs/dungeons/wiki-update",
-+        "revision": "916b39e265ab36d0da92074c3d61d4bba132dadb",
-+        "sha256": "b5008d2a5e0442c78d0c24de0feccc2c34a6a639c33e6216c2286241210b88eb"
++        "role": "Reviewed local dungeon live-QA guide; not published; source patch in docs/dungeons/wiki-update",
++        "revision": "7ae42801af295931e73b52908cdb4965167d7de9",
++        "sha256": "af7f4b546556da75f97559cff451d303e975b50dd08bc96e052b73904950a535"
 +      },
 +      {
 +        "root": "C:/Users/verre/.codex/worktrees/nightcap-wiki/EQ_Local_Dev",
@@ -6390,37 +7096,37 @@
 +      {
 +        "root": "C:/Users/verre/.codex/worktrees/nightcap-wiki/EQ_Local_Dev",
 +        "path": "wiki/articles/equipment.json",
-+        "role": "Reviewed wiki source, maintenance contract or dated publication evidence",
-+        "revision": "1048a5c427782d5c3fbf63e17fb63ce934a05eb7 plus publication evidence",
-+        "sha256": "5fdfe0e4aad61585c17f87968a87eca4c2f7f85f866dd87a9debbfbb5d56f487"
++        "role": "Reviewed local dungeon live-QA guide; not published; source patch in docs/dungeons/wiki-update",
++        "revision": "7ae42801af295931e73b52908cdb4965167d7de9",
++        "sha256": "65dd5c095cb78906f27406e3b22a356b94d8e5978619c6f6a671af31f587b844"
 +      },
 +      {
 +        "root": "C:/Users/verre/.codex/worktrees/nightcap-wiki/EQ_Local_Dev",
 +        "path": "wiki/articles/features.json",
-+        "role": "Reviewed local dungeon candidate guide; not published; source patch in docs/dungeons/wiki-update",
-+        "revision": "916b39e265ab36d0da92074c3d61d4bba132dadb",
-+        "sha256": "d12c113604b62a6802594945867252f0cfaec79c7e983fd41aa1bd7832fdb0b7"
++        "role": "Reviewed local dungeon live-QA guide; not published; source patch in docs/dungeons/wiki-update",
++        "revision": "7ae42801af295931e73b52908cdb4965167d7de9",
++        "sha256": "e39b18cf46866c7db907f9a33eb4ced53ed5fa6b18cc1a37734eb89db8a278aa"
 +      },
 +      {
 +        "root": "C:/Users/verre/.codex/worktrees/nightcap-wiki/EQ_Local_Dev",
 +        "path": "wiki/articles/getting-started.json",
-+        "role": "Reviewed wiki source, maintenance contract or dated publication evidence",
-+        "revision": "1048a5c427782d5c3fbf63e17fb63ce934a05eb7 plus publication evidence",
-+        "sha256": "79fafc48d787ec17b523fb6d6fd5dcbdc8a08315400924b409109b47b1dc2980"
++        "role": "Reviewed local dungeon live-QA guide; not published; source patch in docs/dungeons/wiki-update",
++        "revision": "7ae42801af295931e73b52908cdb4965167d7de9",
++        "sha256": "0c32c53bc86a5ebde6be2c790364fcea0ae2d06f9f3adf0b1d36b2eb885d0272"
 +      },
 +      {
 +        "root": "C:/Users/verre/.codex/worktrees/nightcap-wiki/EQ_Local_Dev",
 +        "path": "wiki/articles/index.json",
-+        "role": "Reviewed wiki source, maintenance contract or dated publication evidence",
-+        "revision": "1048a5c427782d5c3fbf63e17fb63ce934a05eb7 plus publication evidence",
-+        "sha256": "d11032224d4c28a6f5c0452e2ece03d8683b0120a4e86956d3ad653c6b4632b9"
++        "role": "Reviewed local dungeon live-QA guide; not published; source patch in docs/dungeons/wiki-update",
++        "revision": "7ae42801af295931e73b52908cdb4965167d7de9",
++        "sha256": "158ef0c09d0fb1de2b0156db1f42348b12ceb0de994e544988c967fd2bf4cd7d"
 +      },
 +      {
 +        "root": "C:/Users/verre/.codex/worktrees/nightcap-wiki/EQ_Local_Dev",
 +        "path": "wiki/articles/item-upgrades.json",
-+        "role": "Reviewed wiki source, maintenance contract or dated publication evidence",
-+        "revision": "1048a5c427782d5c3fbf63e17fb63ce934a05eb7 plus publication evidence",
-+        "sha256": "95dc231f50721952cef8837f8e3105538cfcb8597974b035b5e3a3f24ef0f7b1"
++        "role": "Reviewed local dungeon live-QA guide; not published; source patch in docs/dungeons/wiki-update",
++        "revision": "7ae42801af295931e73b52908cdb4965167d7de9",
++        "sha256": "3181725cbfc3a963a1cf8bbdb22cac5c571127cf6ddc8c0457aaeaa7365ca49e"
 +      },
 +      {
 +        "root": "C:/Users/verre/.codex/worktrees/nightcap-wiki/EQ_Local_Dev",
@@ -6446,9 +7152,9 @@
 +      {
 +        "root": "C:/Users/verre/.codex/worktrees/nightcap-wiki/EQ_Local_Dev",
 +        "path": "wiki/articles/recent-changes.json",
-+        "role": "Reviewed local dungeon candidate guide; not published; source patch in docs/dungeons/wiki-update",
-+        "revision": "916b39e265ab36d0da92074c3d61d4bba132dadb",
-+        "sha256": "63540e4a18c5be5e6db6b34778c7e1e4488fea33d8746bca9e18152e153c7226"
++        "role": "Reviewed local dungeon live-QA guide; not published; source patch in docs/dungeons/wiki-update",
++        "revision": "7ae42801af295931e73b52908cdb4965167d7de9",
++        "sha256": "38fe256833207b09b8bb8271b86191b996577212ad857793d276b59eff538e5e"
 +      },
 +      {
 +        "root": "C:/Users/verre/.codex/worktrees/nightcap-wiki/EQ_Local_Dev",
@@ -6460,9 +7166,9 @@
 +      {
 +        "root": "C:/Users/verre/.codex/worktrees/nightcap-wiki/EQ_Local_Dev",
 +        "path": "wiki/articles/travel.json",
-+        "role": "Reviewed local dungeon candidate guide; not published; source patch in docs/dungeons/wiki-update",
-+        "revision": "916b39e265ab36d0da92074c3d61d4bba132dadb",
-+        "sha256": "851dac72fb96fd51766d714ed48216774bcb7a0166d0a6131e26dae294da60ae"
++        "role": "Reviewed local dungeon live-QA guide; not published; source patch in docs/dungeons/wiki-update",
++        "revision": "7ae42801af295931e73b52908cdb4965167d7de9",
++        "sha256": "127e273b678234c57a047ab3784c68ba415833a01b84178dd8c48088e6b2a7d8"
 +      },
 +      {
 +        "root": "C:/Users/verre/.codex/worktrees/nightcap-wiki/EQ_Local_Dev",
@@ -6474,9 +7180,9 @@
 +      {
 +        "root": "C:/Users/verre/.codex/worktrees/nightcap-wiki/EQ_Local_Dev",
 +        "path": "wiki/articles/unreleased.json",
-+        "role": "Reviewed local dungeon candidate guide; not published; source patch in docs/dungeons/wiki-update",
-+        "revision": "916b39e265ab36d0da92074c3d61d4bba132dadb",
-+        "sha256": "85c43fe8ed77572a932e45234033fdec7246c01b01775a55bbfab40f60cf10bd"
++        "role": "Reviewed local dungeon live-QA guide; not published; source patch in docs/dungeons/wiki-update",
++        "revision": "7ae42801af295931e73b52908cdb4965167d7de9",
++        "sha256": "6522ad24364716133de6583c4ae3c680af8466b863ff4c25c6811322e15591ab"
 +      },
 +      {
 +        "root": "C:/Users/verre/.codex/worktrees/nightcap-wiki/EQ_Local_Dev",
@@ -6495,10 +7201,201 @@
 +      {
 +        "root": "C:/Users/verre/.codex/worktrees/nightcap-wiki/EQ_Local_Dev",
 +        "path": "wiki/articles/dungeon-modes.json",
-+        "role": "Reviewed local dungeon candidate guide; not published; source patch in docs/dungeons/wiki-update",
-+        "revision": "916b39e265ab36d0da92074c3d61d4bba132dadb",
-+        "sha256": "77e90de0f5b0edd82cf5d70b13458c65bb0595e5fd610a002d2873623358ee28"
++        "role": "Reviewed local dungeon live-QA guide; not published; source patch in docs/dungeons/wiki-update",
++        "revision": "7ae42801af295931e73b52908cdb4965167d7de9",
++        "sha256": "872e94e9973ae171f458f4f7d37cfac149f9b8e95933ce7b81dad3dea3490eef"
 +      }
 +    ]
 +  }
 +}
+--- a/references/operations.md
++++ b/references/operations.md
+@@ -1,78 +1,110 @@
+-# Source authority, builds and reloads
+-
+-Audited 2026-10-12. Consult the selected checkout's current instructions and release record. `references/sources.json` pins inspected files and their locations; hashes detect change, not correctness or deployment.
+-
+-## Resolve the source before editing
+-
+-- Main workspace: `E:/EQ_Local_Dev`. Latest inspected integrated checkout: `E:/EQ_Local_Dev/_worktrees/merchant-sell-all` at `eeb79ddebd69bdc4bda1725e7ccf5fa6e18591d1`. The supply-protection checkout is `C:/Users/verre/.codex/worktrees/sellall-supplies/EQ_Local_Dev`; observed `origin/main` advanced to `890a9c0` during this audit. These are dated anchors, not branch-selection commands.
+-- The default checkout was `feature/npc-heal-self` at `ce161c5`; local main was still September history. Its `docs/status.md` missed many October deployments. Use `git worktree list --porcelain`, scoped log/diff and exact paths; don't switch a shared checkout or assume local main is the latest release.
+-- `server-mods/code/` is the tracked customization overlay, not a complete compilable source tree. Local full source is `akk-stack/code/`; local live quests/plugins are `akk-stack/server/quests/` and `akk-stack/server/plugins/`. Compare relevant copies, normalizing line endings only for semantic comparison; deployment hashes remain byte-exact.
+-- Production builders layer reviewed patches onto fingerprinted retained source. Preserve authentication hardening, advanced-loot receipts and intervening releases. A generic local build or an older development archive is not a valid production replacement.
+-- Other project `C:/nightcap-development-mmo` contains character/texture/production labs, not the core EQEmu implementation. No root package.json/shared npm build exists. Local PEQ is port 3307. Don't read credential-bearing API/config files wholesale.
+-
+-## Application boundaries
+-
+-| Change | Required refresh/pairing |
+-|---|---|
+-| Quest/plugin | Correct installed path and interpreter precedence, then supported quest reload; verify completion/errors |
+-| Existing rule value | World and zones' rules reload; latest runbooks use `#reload rules global` |
+-| New rule name/catalog | Matching world and zone build; old world deletes unknown names at boot; verify DB values afterward |
+-| Items, new spells/shared data | Appropriate shared-memory regeneration and supported runtime restart; existing-row hotfix is not a universal new-row solution |
+-| FreeTrade or DisableLore | Rebuild item cache and restart; SQL raw flags intentionally differ from effective flags |
+-| Shared ItemData ABI | Matching complete native binary/cache generation, including rollback |
+-| `skill_caps` | Process-local loader in world/every zone; restart those processes under the correct supervisor, not legacy shared/skill_caps |
+-| NPC/merchant templates | Zone cache refresh under documented unload/maintenance; `#repop` alone is insufficient |
+-| spawn/placement | Spawn refresh plus scoped saved-state handling; inspect zone_state_spawns so stale positions don't return |
+-| AA catalog | Zone AA reload/restart supported by the build; no generic shared-item regeneration |
+-| Era | Committed `era.json`, `tools/apply-era.ps1`, catalog review; do not activate via ad hoc GM SQL |
+-
+-On OVH any native child exit can restart the entire runtime. Inspect the current supervisor and release-specific procedure. Local eqlaunch behavior is not portable. Saved-state edits must be limited by zone, instance and exact NPC identity, preserving corpses and unrelated states. New additions may already load correctly without invalidating saved states: item-upgrade release explicitly needed none.
+-
+-## Verification and recovery
+-
+-Select tests from the feature reference and the release README; inspect runners before running them. Some native probes/rehearsals create disposable DBs or temporary fixtures; do not aim them at production merely because they are called tests. For a production change, use the matching release helper with fresh backups, maintenance/GM locks, current preimages, binary/cache checks and recovery tests. Once access may have opened, preserve subsequent activity and reconcile durable receipts before any retry/recovery. An uncertain acknowledgment isn't proof nothing happened.
+-
+-Full-backup restore verification must account for SQL-dump FLOAT rounding.
+-The October 13 workshop rehearsal caught character coordinates with identical
+-displayed values but different binary checksums. `tunnel-cozy-20261013/ops/rollout.py`
+-captures a stopped-backup precision companion using DOUBLE-promoted coordinate
+-values, applies it only to the isolated restore, then requires exact checksums.
+-Keep that companion with the backup; never replay old positions or player data
+-against the live DB during content recovery. The first attempt aborted before
+-live SQL and recovered the original layout. The corrected release passed the
+-complete restored forward/inverse rehearsal. Its recovery tests require a
+-verified stopped baseline and close the gateway again if recovery itself fails.
+-
+-October 12 early-scribing rollout (`docs/releases/early-spell-scribing-20261012/`)
+-layers only zone onto the retained image; current dated image is
+-`sha256:058330bce1e2539612d705b95b726d5143daa7ca5e6897debe0f598ba470558f`.
+-Its native operator has nine recovery tests: if persisted player/custom drift
+-remains after image rollback before any access, hold the gateway closed. Never
+-restore SQL; once access may have opened, preserve subsequent activity. Finish
+-native public-baseline reports before signed client publication, then capture a
+-fresh service/public baseline. Concurrent launcher publication was detected and
+-preserved by advancing this client to 2026101203 with its existing patch history.
+-Twelve publisher recovery tests and all 105 hosted-file checks pass. These are
+-dated deployment facts, not standing deployment authority or gameplay acceptance.
+-
+-Default repo promotion is feature → dev → test with explicit in-game steps → main after owner sign-off. Historical live-QA exceptions aren't standing permission. This knowledge task deploys no game change.
+-
+-Read: `docs/ops/camil-silvermist-20261004.md`, `docs/releases/item-upgrades-20261012/README.md`, `docs/releases/zone-loot-20261009/PRODUCTION.md`, and the task's specific runbook. The old EQEmu skill/THJ gap map contains historical assumptions; consult the newer source and dated evidence when they disagree.
+-
+-## Offline character rescue evidence
+-
+-October 12 Karl rescue: production character 27 was saved in West Commonlands
+-after a reported zoning disconnect. A backed-up, preimage-guarded update moved
+-only location/heading to the DB-verified East Commonlands safe point. Full row
+-comparison and inventory preservation passed; no reload, restart or client
+-pairing was needed for the server rescue. The owner subsequently supplied an
+-"Unable to load World" screenshot explicitly naming missing zone file commons
+-in C:/Nightcap. A two-archive manual repair ZIP is prepared and its source hashes,
+-PFS decompression, WLD headers and ZIP round-trip verified; installation on Karl's
+-computer and login/zoning acceptance remain open. This is not launcher publication.
+-Read `E:/EQ_Local_Dev/docs/ops/karl-rescue-20261012.md` and the one-shot operator
+-`artifacts/karl-rescue-20261012/rescue.py`. The incident used complete current
+-runtime login logs plus last_login predating startup to establish offline state;
+-do not reuse that inference if logs are incomplete or a player is reconnecting.
+-Never restore an old full character row over subsequent play. Use fresh state
+-and a guarded location-only operation for any later rescue.
++# Source authority, builds and reloads
++
++Audited 2026-10-12. Consult the selected checkout's current instructions and release record. `references/sources.json` pins inspected files and their locations; hashes detect change, not correctness or deployment.
++
++## Resolve the source before editing
++
++- Main workspace: `E:/EQ_Local_Dev`. Latest inspected integrated checkout: `E:/EQ_Local_Dev/_worktrees/merchant-sell-all` at `eeb79ddebd69bdc4bda1725e7ccf5fa6e18591d1`. The supply-protection checkout is `C:/Users/verre/.codex/worktrees/sellall-supplies/EQ_Local_Dev`; observed `origin/main` advanced to `890a9c0` during this audit. These are dated anchors, not branch-selection commands.
++- The default checkout was `feature/npc-heal-self` at `ce161c5`; local main was still September history. Its `docs/status.md` missed many October deployments. Use `git worktree list --porcelain`, scoped log/diff and exact paths; don't switch a shared checkout or assume local main is the latest release.
++- `server-mods/code/` is the tracked customization overlay, not a complete compilable source tree. Local full source is `akk-stack/code/`; local live quests/plugins are `akk-stack/server/quests/` and `akk-stack/server/plugins/`. Compare relevant copies, normalizing line endings only for semantic comparison; deployment hashes remain byte-exact.
++- Production builders layer reviewed patches onto fingerprinted retained source. Preserve authentication hardening, advanced-loot receipts and intervening releases. A generic local build or an older development archive is not a valid production replacement.
++- Other project `C:/nightcap-development-mmo` contains character/texture/production labs, not the core EQEmu implementation. No root package.json/shared npm build exists. Local PEQ is port 3307. Don't read credential-bearing API/config files wholesale.
++
++## Application boundaries
++
++| Change | Required refresh/pairing |
++|---|---|
++| Quest/plugin | Correct installed path and interpreter precedence, then supported quest reload; verify completion/errors |
++| Existing rule value | World and zones' rules reload; latest runbooks use `#reload rules global` |
++| New rule name/catalog | Matching world and zone build; old world deletes unknown names at boot; verify DB values afterward |
++| Items, new spells/shared data | Appropriate shared-memory regeneration and supported runtime restart; existing-row hotfix is not a universal new-row solution |
++| FreeTrade or DisableLore | Rebuild item cache and restart; SQL raw flags intentionally differ from effective flags |
++| Shared ItemData ABI | Matching complete native binary/cache generation, including rollback |
++| `skill_caps` | Process-local loader in world/every zone; restart those processes under the correct supervisor, not legacy shared/skill_caps |
++| NPC/merchant templates | Zone cache refresh under documented unload/maintenance; `#repop` alone is insufficient |
++| spawn/placement | Spawn refresh plus scoped saved-state handling; inspect zone_state_spawns so stale positions don't return |
++| AA catalog | Zone AA reload/restart supported by the build; no generic shared-item regeneration |
++| Era | Committed `era.json`, `tools/apply-era.ps1`, catalog review; do not activate via ad hoc GM SQL |
++
++On OVH any native child exit can restart the entire runtime. Inspect the current supervisor and release-specific procedure. Local eqlaunch behavior is not portable. Saved-state edits must be limited by zone, instance and exact NPC identity, preserving corpses and unrelated states. New additions may already load correctly without invalidating saved states: item-upgrade release explicitly needed none.
++
++## Verification and recovery
++
++Select tests from the feature reference and the release README; inspect runners before running them. Some native probes/rehearsals create disposable DBs or temporary fixtures; do not aim them at production merely because they are called tests. For a production change, use the matching release helper with fresh backups, maintenance/GM locks, current preimages, binary/cache checks and recovery tests. Once access may have opened, preserve subsequent activity and reconcile durable receipts before any retry/recovery. An uncertain acknowledgment isn't proof nothing happened.
++
++Full-backup restore verification must account for SQL-dump FLOAT rounding.
++The October 13 workshop rehearsal caught character coordinates with identical
++displayed values but different binary checksums. `tunnel-cozy-20261013/ops/rollout.py`
++captures a stopped-backup precision companion using DOUBLE-promoted coordinate
++values, applies it only to the isolated restore, then requires exact checksums.
++Keep that companion with the backup; never replay old positions or player data
++against the live DB during content recovery. The first attempt aborted before
++live SQL and recovered the original layout. The corrected release passed the
++complete restored forward/inverse rehearsal. Its recovery tests require a
++verified stopped baseline and close the gateway again if recovery itself fails.
++
++October 12 early-scribing rollout (`docs/releases/early-spell-scribing-20261012/`)
++layers only zone onto the retained image; current dated image is
++`sha256:058330bce1e2539612d705b95b726d5143daa7ca5e6897debe0f598ba470558f`.
++Its native operator has nine recovery tests: if persisted player/custom drift
++remains after image rollback before any access, hold the gateway closed. Never
++restore SQL; once access may have opened, preserve subsequent activity. Finish
++native public-baseline reports before signed client publication, then capture a
++fresh service/public baseline. Concurrent launcher publication was detected and
++preserved by advancing this client to 2026101203 with its existing patch history.
++Twelve publisher recovery tests and all 105 hosted-file checks pass. These are
++dated deployment facts, not standing deployment authority or gameplay acceptance.
++
++Default repo promotion is feature → dev → test with explicit in-game steps → main after owner sign-off. Historical live-QA exceptions aren't standing permission. This knowledge task deploys no game change.
++
++Read: `docs/ops/camil-silvermist-20261004.md`, `docs/releases/item-upgrades-20261012/README.md`, `docs/releases/zone-loot-20261009/PRODUCTION.md`, and the task's specific runbook. The old EQEmu skill/THJ gap map contains historical assumptions; consult the newer source and dated evidence when they disagree.
++
++## Offline character rescue evidence
++
++October 12 Karl rescue: production character 27 was saved in West Commonlands
++after a reported zoning disconnect. A backed-up, preimage-guarded update moved
++only location/heading to the DB-verified East Commonlands safe point. Full row
++comparison and inventory preservation passed; no reload, restart or client
++pairing was needed for the server rescue. The owner subsequently supplied an
++"Unable to load World" screenshot explicitly naming missing zone file commons
++in C:/Nightcap. A two-archive manual repair ZIP is prepared and its source hashes,
++PFS decompression, WLD headers and ZIP round-trip verified; installation on Karl's
++computer and login/zoning acceptance remain open. This is not launcher publication.
++Read `E:/EQ_Local_Dev/docs/ops/karl-rescue-20261012.md` and the one-shot operator
++`artifacts/karl-rescue-20261012/rescue.py`. The incident used complete current
++runtime login logs plus last_login predating startup to establish offline state;
++do not reuse that inference if logs are incomplete or a player is reconnecting.
++Never restore an old full character row over subsequent play. Use fresh state
++and a guarded location-only operation for any later rescue.
++
++## Dungeon deployment resource and recovery contract
++
++October 16 Raid/Grind release is on main and deployed for owner live QA; use
++`docs/dungeons/deployment/` in the dungeon-modes checkout for current evidence.
++The operator takes deployment/GM locks, retains a stopped full backup, rehearses
++additive SQL and old/new loaders against public-only content, then regenerates
++the actual production cache. It preserves 309,410 old items and adds 330.
++Retain UUID ledgers/corpses/receipts; no old player snapshot restore or automatic
++older-binary rollback. Uncertain SQL or opening acknowledgment closes access.
++
++The initial buffered raw-row fingerprint exhausted the DB container's 2 GiB
++limit at 18:53:02 UTC; MariaDB recovered at 18:53:04. Game/gateway did not restart
++and no feature migration had begun. Use `--quick`, compact per-row SQL SHA-256
++digests, DOUBLE-promoted FLOAT fields and a 128 MiB per-session memory cap.
++Never buffer a full wide production item dump in a database-container client.
++The active config is a read-only bind from `private/eqemu_config.json`; the
++data/server path is an empty placeholder. Inspect mounts, keep secrets in memory
++and redact credential-bearing SQL failures. MariaDB's utf8_general_ci and
++utf8mb3_general_ci names are the sole audited schema-collation alias; do not
++accept utf8mb4 or other metadata changes. Eleven focused and twenty operator
++tests pass. In-game acceptance is separate; no new client assets are required.
++
++The old world later stopped answering port 9001 without an image/container or
++restart change. Ordinary preflight correctly failed, despite successful content
++and cache rehearsal. A separately reviewed exact-identity completion recorded
++the unhealthy baseline and revalidated public schema/content/config/native
++processes before controlled activation. No cause was established for the old
++stall. Check the native health port directly across >=15 seconds; cached Docker
++health can lag. A zero container exit does not prove native flush: the supervisor
++can kill remaining children after 75 seconds. Retain the shutdown receipt and
++fresh stopped backup; never recover by replaying stale player snapshots.

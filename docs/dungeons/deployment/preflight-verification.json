@@ -1,0 +1,75 @@
+{
+  "status": "recovery_checks_passed",
+  "old_image_id": "sha256:581322f072922e95deb728600e7eceaa4cdff2b1ec93b87544d6a946f734b500",
+  "new_image_id": "sha256:f924e3840379fa8d37866da6a257e8d45e5c24f7f7c9abe9e390ede6197bbe48",
+  "manifest_sha256": "5079a685b60dfbceb5389db2e2c75dbd0a6d1af129a8dd1f030687c5e2d365a2",
+  "public_tables_preserved": 23,
+  "free_disk_bytes": 2094772224,
+  "recovery": {
+    "old_runtime_health_verified": false,
+    "reason": "Recorded unhealthy old world; direct controlled candidate cutover",
+    "rehearsal_sha256": "cf08ff137e99842d4b09753cfd4c0774d130aaf852ae8cd3bc77c033a0b11c0a",
+    "old_processes": [
+      [
+        "loginserver",
+        "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf"
+      ],
+      [
+        "world",
+        "efd54a1023a569274a76f65d3d2a18a173906762472a1bce186e3e14629d3c18"
+      ],
+      [
+        "ucs",
+        "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714"
+      ],
+      [
+        "zone",
+        "19cd3387952f21d1d1bcc18916e76a1d7738148de086849e3d3befe3a0df2ae1"
+      ],
+      [
+        "zone",
+        "19cd3387952f21d1d1bcc18916e76a1d7738148de086849e3d3befe3a0df2ae1"
+      ],
+      [
+        "zone",
+        "19cd3387952f21d1d1bcc18916e76a1d7738148de086849e3d3befe3a0df2ae1"
+      ],
+      [
+        "zone",
+        "19cd3387952f21d1d1bcc18916e76a1d7738148de086849e3d3befe3a0df2ae1"
+      ],
+      [
+        "zone",
+        "19cd3387952f21d1d1bcc18916e76a1d7738148de086849e3d3befe3a0df2ae1"
+      ],
+      [
+        "zone",
+        "19cd3387952f21d1d1bcc18916e76a1d7738148de086849e3d3befe3a0df2ae1"
+      ],
+      [
+        "zone",
+        "19cd3387952f21d1d1bcc18916e76a1d7738148de086849e3d3befe3a0df2ae1"
+      ],
+      [
+        "zone",
+        "19cd3387952f21d1d1bcc18916e76a1d7738148de086849e3d3befe3a0df2ae1"
+      ],
+      [
+        "zone",
+        "19cd3387952f21d1d1bcc18916e76a1d7738148de086849e3d3befe3a0df2ae1"
+      ],
+      [
+        "zone",
+        "19cd3387952f21d1d1bcc18916e76a1d7738148de086849e3d3befe3a0df2ae1"
+      ],
+      [
+        "zone",
+        "19cd3387952f21d1d1bcc18916e76a1d7738148de086849e3d3befe3a0df2ae1"
+      ],
+      [
+        "zone",
+        "19cd3387952f21d1d1bcc18916e76a1d7738148de086849e3d3befe3a0df2ae1"
+      ]
+    ]
+  }
+}

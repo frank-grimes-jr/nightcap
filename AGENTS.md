@@ -417,6 +417,13 @@ publication as successful native acceptance or a permanent branch-policy change.
 
 Codex is free to commit, open PRs, and merge autonomously **up to `test`** when tests pass. `test` → `main` requires user sign-off.
 
+**October 16 dungeon release exception:** the owner explicitly requested main
+promotion and server deployment with matching binaries and item cache for
+in-game testing. This authorizes the Raid/Grind release and controlled restart
+before gameplay acceptance. Preserve the pending fourteen-mode and dragon
+balance checks in `docs/dungeons/QA.md`; see `docs/dungeons/deployment/` for the
+production-content rehearsal, access boundary and receipt-preserving recovery.
+
 **October 13 tradeskill exception:** the owner explicitly requested "Push to main
 and server for live QA." This authorizes PR #200's stacked tradeskills/Craft All
 release and its paired native/client publication before manual acceptance.

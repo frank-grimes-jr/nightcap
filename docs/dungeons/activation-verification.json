@@ -1,7 +1,7 @@
 {
   "status": "passed",
   "database": "nightcap_dungeon_rehearsal_425869fe94da",
-  "activation_sha256": "c405a2618c89986cda3092e6d3957a5fcc4670526a14c3512e6869e5df7411fc",
+  "activation_sha256": "6813d72cb807714962a85603e641175c86abc92a492de8c2b990172b61ee62b6",
   "valid_catalog_enabled": true,
   "item_drift_rejected": true,
   "schema_drift_rejected": true,

@@ -1,6 +1,7 @@
 {
-  "references/world.md": "8f54ba7411f0a8f28ce7cd500da9565f44547a0b060891e10ae05e2e4e92ff1c",
-  "references/items.md": "595fd696c85e202953136e8c6a42c08ef06ea9acb78e8f36757595b04abfbce3",
-  "references/wiki.md": "f525f4aca8b6ee0409f9fddfe4f8376a8dc4376d05ec7b6ead128f8e7de74a96",
-  "references/sources.json": "ef87f79efd754f0843cae8320b63f1e905095229a36ce1396d399d4360ee33a5"
+  "references/world.md": "fb05da98026ce6e75566dc1069b92fb6cd87f95974d59689cbd6347cd75de115",
+  "references/items.md": "56a83297183337e964334b39447da3fc20bcdd700646f81f0ffba9b80e709d78",
+  "references/wiki.md": "c8d6c8e1832508efca064ca0edd76e26158e21cfd399932da2025315cf9c316b",
+  "references/sources.json": "86c9929904d395908be3466a4b90afa22716cbfc3132356039d1048775591488",
+  "references/operations.md": "6dee469b7ee1429c113df24372679a4b22ae3f5f7060bf7bddca6e85cc6b3874"
 }

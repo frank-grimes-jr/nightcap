@@ -2,7 +2,7 @@
   "schema": [
     {
       "label": "nightcap_dungeon_state/columns",
-      "sql": "SELECT COALESCE(SHA2(GROUP_CONCAT(SHA2(CONCAT_WS('|',COALESCE(CAST(column_name AS CHAR),'~NULL~'),COALESCE(CAST(column_type AS CHAR),'~NULL~'),COALESCE(CAST(is_nullable AS CHAR),'~NULL~'),COALESCE(CAST(column_default AS CHAR),'~NULL~'),COALESCE(CAST(extra AS CHAR),'~NULL~'),COALESCE(CAST(collation_name AS CHAR),'~NULL~')),256) ORDER BY ordinal_position SEPARATOR ''),256),'empty') FROM information_schema.columns WHERE table_schema=DATABASE() AND table_name='nightcap_dungeon_state'",
+      "sql": "SELECT COALESCE(SHA2(GROUP_CONCAT(SHA2(CONCAT_WS('|',COALESCE(CAST(column_name AS CHAR),'~NULL~'),COALESCE(CAST(column_type AS CHAR),'~NULL~'),COALESCE(CAST(is_nullable AS CHAR),'~NULL~'),COALESCE(CAST(column_default AS CHAR),'~NULL~'),COALESCE(CAST(extra AS CHAR),'~NULL~'),COALESCE(CAST(CASE collation_name WHEN 'utf8_general_ci' THEN 'utf8mb3_general_ci' ELSE collation_name END AS CHAR),'~NULL~')),256) ORDER BY ordinal_position SEPARATOR ''),256),'empty') FROM information_schema.columns WHERE table_schema=DATABASE() AND table_name='nightcap_dungeon_state'",
       "expected": "4fcd2f0bc5488409638eb385c4db6449f8b30b7bbac55e3a552506743e66db04"
     },
     {
@@ -17,7 +17,7 @@
     },
     {
       "label": "nightcap_dungeon_runs/columns",
-      "sql": "SELECT COALESCE(SHA2(GROUP_CONCAT(SHA2(CONCAT_WS('|',COALESCE(CAST(column_name AS CHAR),'~NULL~'),COALESCE(CAST(column_type AS CHAR),'~NULL~'),COALESCE(CAST(is_nullable AS CHAR),'~NULL~'),COALESCE(CAST(column_default AS CHAR),'~NULL~'),COALESCE(CAST(extra AS CHAR),'~NULL~'),COALESCE(CAST(collation_name AS CHAR),'~NULL~')),256) ORDER BY ordinal_position SEPARATOR ''),256),'empty') FROM information_schema.columns WHERE table_schema=DATABASE() AND table_name='nightcap_dungeon_runs'",
+      "sql": "SELECT COALESCE(SHA2(GROUP_CONCAT(SHA2(CONCAT_WS('|',COALESCE(CAST(column_name AS CHAR),'~NULL~'),COALESCE(CAST(column_type AS CHAR),'~NULL~'),COALESCE(CAST(is_nullable AS CHAR),'~NULL~'),COALESCE(CAST(column_default AS CHAR),'~NULL~'),COALESCE(CAST(extra AS CHAR),'~NULL~'),COALESCE(CAST(CASE collation_name WHEN 'utf8_general_ci' THEN 'utf8mb3_general_ci' ELSE collation_name END AS CHAR),'~NULL~')),256) ORDER BY ordinal_position SEPARATOR ''),256),'empty') FROM information_schema.columns WHERE table_schema=DATABASE() AND table_name='nightcap_dungeon_runs'",
       "expected": "c31775266afd156f0a6ab96ce0a30b5fecd77e172a0f4afd3e174c27c0679e94"
     },
     {
@@ -32,7 +32,7 @@
     },
     {
       "label": "nightcap_dungeon_members/columns",
-      "sql": "SELECT COALESCE(SHA2(GROUP_CONCAT(SHA2(CONCAT_WS('|',COALESCE(CAST(column_name AS CHAR),'~NULL~'),COALESCE(CAST(column_type AS CHAR),'~NULL~'),COALESCE(CAST(is_nullable AS CHAR),'~NULL~'),COALESCE(CAST(column_default AS CHAR),'~NULL~'),COALESCE(CAST(extra AS CHAR),'~NULL~'),COALESCE(CAST(collation_name AS CHAR),'~NULL~')),256) ORDER BY ordinal_position SEPARATOR ''),256),'empty') FROM information_schema.columns WHERE table_schema=DATABASE() AND table_name='nightcap_dungeon_members'",
+      "sql": "SELECT COALESCE(SHA2(GROUP_CONCAT(SHA2(CONCAT_WS('|',COALESCE(CAST(column_name AS CHAR),'~NULL~'),COALESCE(CAST(column_type AS CHAR),'~NULL~'),COALESCE(CAST(is_nullable AS CHAR),'~NULL~'),COALESCE(CAST(column_default AS CHAR),'~NULL~'),COALESCE(CAST(extra AS CHAR),'~NULL~'),COALESCE(CAST(CASE collation_name WHEN 'utf8_general_ci' THEN 'utf8mb3_general_ci' ELSE collation_name END AS CHAR),'~NULL~')),256) ORDER BY ordinal_position SEPARATOR ''),256),'empty') FROM information_schema.columns WHERE table_schema=DATABASE() AND table_name='nightcap_dungeon_members'",
       "expected": "63bb90dda62039bdcb9f4348b402b02d23044ffb25f516a05909e570f7e1d28b"
     },
     {
@@ -47,7 +47,7 @@
     },
     {
       "label": "nightcap_dungeon_kills/columns",
-      "sql": "SELECT COALESCE(SHA2(GROUP_CONCAT(SHA2(CONCAT_WS('|',COALESCE(CAST(column_name AS CHAR),'~NULL~'),COALESCE(CAST(column_type AS CHAR),'~NULL~'),COALESCE(CAST(is_nullable AS CHAR),'~NULL~'),COALESCE(CAST(column_default AS CHAR),'~NULL~'),COALESCE(CAST(extra AS CHAR),'~NULL~'),COALESCE(CAST(collation_name AS CHAR),'~NULL~')),256) ORDER BY ordinal_position SEPARATOR ''),256),'empty') FROM information_schema.columns WHERE table_schema=DATABASE() AND table_name='nightcap_dungeon_kills'",
+      "sql": "SELECT COALESCE(SHA2(GROUP_CONCAT(SHA2(CONCAT_WS('|',COALESCE(CAST(column_name AS CHAR),'~NULL~'),COALESCE(CAST(column_type AS CHAR),'~NULL~'),COALESCE(CAST(is_nullable AS CHAR),'~NULL~'),COALESCE(CAST(column_default AS CHAR),'~NULL~'),COALESCE(CAST(extra AS CHAR),'~NULL~'),COALESCE(CAST(CASE collation_name WHEN 'utf8_general_ci' THEN 'utf8mb3_general_ci' ELSE collation_name END AS CHAR),'~NULL~')),256) ORDER BY ordinal_position SEPARATOR ''),256),'empty') FROM information_schema.columns WHERE table_schema=DATABASE() AND table_name='nightcap_dungeon_kills'",
       "expected": "38b1d21969c9c67f5d9aee65fd709954bd7a1a2b30fcef815fa3193b53b6e876"
     },
     {
@@ -62,7 +62,7 @@
     },
     {
       "label": "nightcap_dungeon_deaths/columns",
-      "sql": "SELECT COALESCE(SHA2(GROUP_CONCAT(SHA2(CONCAT_WS('|',COALESCE(CAST(column_name AS CHAR),'~NULL~'),COALESCE(CAST(column_type AS CHAR),'~NULL~'),COALESCE(CAST(is_nullable AS CHAR),'~NULL~'),COALESCE(CAST(column_default AS CHAR),'~NULL~'),COALESCE(CAST(extra AS CHAR),'~NULL~'),COALESCE(CAST(collation_name AS CHAR),'~NULL~')),256) ORDER BY ordinal_position SEPARATOR ''),256),'empty') FROM information_schema.columns WHERE table_schema=DATABASE() AND table_name='nightcap_dungeon_deaths'",
+      "sql": "SELECT COALESCE(SHA2(GROUP_CONCAT(SHA2(CONCAT_WS('|',COALESCE(CAST(column_name AS CHAR),'~NULL~'),COALESCE(CAST(column_type AS CHAR),'~NULL~'),COALESCE(CAST(is_nullable AS CHAR),'~NULL~'),COALESCE(CAST(column_default AS CHAR),'~NULL~'),COALESCE(CAST(extra AS CHAR),'~NULL~'),COALESCE(CAST(CASE collation_name WHEN 'utf8_general_ci' THEN 'utf8mb3_general_ci' ELSE collation_name END AS CHAR),'~NULL~')),256) ORDER BY ordinal_position SEPARATOR ''),256),'empty') FROM information_schema.columns WHERE table_schema=DATABASE() AND table_name='nightcap_dungeon_deaths'",
       "expected": "a54b8cf1430bec5f6d18ca5f08be98c8a76aad0e2c04c286c0757c20761f958e"
     },
     {
@@ -77,7 +77,7 @@
     },
     {
       "label": "nightcap_dungeon_loot/columns",
-      "sql": "SELECT COALESCE(SHA2(GROUP_CONCAT(SHA2(CONCAT_WS('|',COALESCE(CAST(column_name AS CHAR),'~NULL~'),COALESCE(CAST(column_type AS CHAR),'~NULL~'),COALESCE(CAST(is_nullable AS CHAR),'~NULL~'),COALESCE(CAST(column_default AS CHAR),'~NULL~'),COALESCE(CAST(extra AS CHAR),'~NULL~'),COALESCE(CAST(collation_name AS CHAR),'~NULL~')),256) ORDER BY ordinal_position SEPARATOR ''),256),'empty') FROM information_schema.columns WHERE table_schema=DATABASE() AND table_name='nightcap_dungeon_loot'",
+      "sql": "SELECT COALESCE(SHA2(GROUP_CONCAT(SHA2(CONCAT_WS('|',COALESCE(CAST(column_name AS CHAR),'~NULL~'),COALESCE(CAST(column_type AS CHAR),'~NULL~'),COALESCE(CAST(is_nullable AS CHAR),'~NULL~'),COALESCE(CAST(column_default AS CHAR),'~NULL~'),COALESCE(CAST(extra AS CHAR),'~NULL~'),COALESCE(CAST(CASE collation_name WHEN 'utf8_general_ci' THEN 'utf8mb3_general_ci' ELSE collation_name END AS CHAR),'~NULL~')),256) ORDER BY ordinal_position SEPARATOR ''),256),'empty') FROM information_schema.columns WHERE table_schema=DATABASE() AND table_name='nightcap_dungeon_loot'",
       "expected": "450a32653dcb704e408174ea74c2ace05b8c83bbaa8254478d0fd8b7b217c6a2"
     },
     {
@@ -92,7 +92,7 @@
     },
     {
       "label": "nightcap_dungeon_spawns/columns",
-      "sql": "SELECT COALESCE(SHA2(GROUP_CONCAT(SHA2(CONCAT_WS('|',COALESCE(CAST(column_name AS CHAR),'~NULL~'),COALESCE(CAST(column_type AS CHAR),'~NULL~'),COALESCE(CAST(is_nullable AS CHAR),'~NULL~'),COALESCE(CAST(column_default AS CHAR),'~NULL~'),COALESCE(CAST(extra AS CHAR),'~NULL~'),COALESCE(CAST(collation_name AS CHAR),'~NULL~')),256) ORDER BY ordinal_position SEPARATOR ''),256),'empty') FROM information_schema.columns WHERE table_schema=DATABASE() AND table_name='nightcap_dungeon_spawns'",
+      "sql": "SELECT COALESCE(SHA2(GROUP_CONCAT(SHA2(CONCAT_WS('|',COALESCE(CAST(column_name AS CHAR),'~NULL~'),COALESCE(CAST(column_type AS CHAR),'~NULL~'),COALESCE(CAST(is_nullable AS CHAR),'~NULL~'),COALESCE(CAST(column_default AS CHAR),'~NULL~'),COALESCE(CAST(extra AS CHAR),'~NULL~'),COALESCE(CAST(CASE collation_name WHEN 'utf8_general_ci' THEN 'utf8mb3_general_ci' ELSE collation_name END AS CHAR),'~NULL~')),256) ORDER BY ordinal_position SEPARATOR ''),256),'empty') FROM information_schema.columns WHERE table_schema=DATABASE() AND table_name='nightcap_dungeon_spawns'",
       "expected": "8ba6877701ab891093b1c02408ea6c55c5193131300aaf2ee5998acf6086a204"
     },
     {
@@ -107,7 +107,7 @@
     },
     {
       "label": "nightcap_dungeon_checkpoints/columns",
-      "sql": "SELECT COALESCE(SHA2(GROUP_CONCAT(SHA2(CONCAT_WS('|',COALESCE(CAST(column_name AS CHAR),'~NULL~'),COALESCE(CAST(column_type AS CHAR),'~NULL~'),COALESCE(CAST(is_nullable AS CHAR),'~NULL~'),COALESCE(CAST(column_default AS CHAR),'~NULL~'),COALESCE(CAST(extra AS CHAR),'~NULL~'),COALESCE(CAST(collation_name AS CHAR),'~NULL~')),256) ORDER BY ordinal_position SEPARATOR ''),256),'empty') FROM information_schema.columns WHERE table_schema=DATABASE() AND table_name='nightcap_dungeon_checkpoints'",
+      "sql": "SELECT COALESCE(SHA2(GROUP_CONCAT(SHA2(CONCAT_WS('|',COALESCE(CAST(column_name AS CHAR),'~NULL~'),COALESCE(CAST(column_type AS CHAR),'~NULL~'),COALESCE(CAST(is_nullable AS CHAR),'~NULL~'),COALESCE(CAST(column_default AS CHAR),'~NULL~'),COALESCE(CAST(extra AS CHAR),'~NULL~'),COALESCE(CAST(CASE collation_name WHEN 'utf8_general_ci' THEN 'utf8mb3_general_ci' ELSE collation_name END AS CHAR),'~NULL~')),256) ORDER BY ordinal_position SEPARATOR ''),256),'empty') FROM information_schema.columns WHERE table_schema=DATABASE() AND table_name='nightcap_dungeon_checkpoints'",
       "expected": "66e581591ad741feb4e8aa7c3b51ab88c017c368effb27b1849ad4cf4e7ef93a"
     },
     {
@@ -122,7 +122,7 @@
     },
     {
       "label": "nightcap_dungeon_corpses/columns",
-      "sql": "SELECT COALESCE(SHA2(GROUP_CONCAT(SHA2(CONCAT_WS('|',COALESCE(CAST(column_name AS CHAR),'~NULL~'),COALESCE(CAST(column_type AS CHAR),'~NULL~'),COALESCE(CAST(is_nullable AS CHAR),'~NULL~'),COALESCE(CAST(column_default AS CHAR),'~NULL~'),COALESCE(CAST(extra AS CHAR),'~NULL~'),COALESCE(CAST(collation_name AS CHAR),'~NULL~')),256) ORDER BY ordinal_position SEPARATOR ''),256),'empty') FROM information_schema.columns WHERE table_schema=DATABASE() AND table_name='nightcap_dungeon_corpses'",
+      "sql": "SELECT COALESCE(SHA2(GROUP_CONCAT(SHA2(CONCAT_WS('|',COALESCE(CAST(column_name AS CHAR),'~NULL~'),COALESCE(CAST(column_type AS CHAR),'~NULL~'),COALESCE(CAST(is_nullable AS CHAR),'~NULL~'),COALESCE(CAST(column_default AS CHAR),'~NULL~'),COALESCE(CAST(extra AS CHAR),'~NULL~'),COALESCE(CAST(CASE collation_name WHEN 'utf8_general_ci' THEN 'utf8mb3_general_ci' ELSE collation_name END AS CHAR),'~NULL~')),256) ORDER BY ordinal_position SEPARATOR ''),256),'empty') FROM information_schema.columns WHERE table_schema=DATABASE() AND table_name='nightcap_dungeon_corpses'",
       "expected": "358a94425bc5d602a03eff5624ea9ee6336c79ae031dcf6d517b02e6ad2da549"
     },
     {
@@ -137,7 +137,7 @@
     },
     {
       "label": "nightcap_dungeon_respawns/columns",
-      "sql": "SELECT COALESCE(SHA2(GROUP_CONCAT(SHA2(CONCAT_WS('|',COALESCE(CAST(column_name AS CHAR),'~NULL~'),COALESCE(CAST(column_type AS CHAR),'~NULL~'),COALESCE(CAST(is_nullable AS CHAR),'~NULL~'),COALESCE(CAST(column_default AS CHAR),'~NULL~'),COALESCE(CAST(extra AS CHAR),'~NULL~'),COALESCE(CAST(collation_name AS CHAR),'~NULL~')),256) ORDER BY ordinal_position SEPARATOR ''),256),'empty') FROM information_schema.columns WHERE table_schema=DATABASE() AND table_name='nightcap_dungeon_respawns'",
+      "sql": "SELECT COALESCE(SHA2(GROUP_CONCAT(SHA2(CONCAT_WS('|',COALESCE(CAST(column_name AS CHAR),'~NULL~'),COALESCE(CAST(column_type AS CHAR),'~NULL~'),COALESCE(CAST(is_nullable AS CHAR),'~NULL~'),COALESCE(CAST(column_default AS CHAR),'~NULL~'),COALESCE(CAST(extra AS CHAR),'~NULL~'),COALESCE(CAST(CASE collation_name WHEN 'utf8_general_ci' THEN 'utf8mb3_general_ci' ELSE collation_name END AS CHAR),'~NULL~')),256) ORDER BY ordinal_position SEPARATOR ''),256),'empty') FROM information_schema.columns WHERE table_schema=DATABASE() AND table_name='nightcap_dungeon_respawns'",
       "expected": "fd2e6d9d75e586b982c989ef60bf73d299b8172b0f84d5ca2f7cdd0412e23bb3"
     },
     {
@@ -152,8 +152,8 @@
     },
     {
       "label": "instance_list/columns",
-      "sql": "SELECT COALESCE(SHA2(GROUP_CONCAT(SHA2(CONCAT_WS('|',COALESCE(CAST(column_name AS CHAR),'~NULL~'),COALESCE(CAST(column_type AS CHAR),'~NULL~'),COALESCE(CAST(is_nullable AS CHAR),'~NULL~'),COALESCE(CAST(column_default AS CHAR),'~NULL~'),COALESCE(CAST(extra AS CHAR),'~NULL~'),COALESCE(CAST(collation_name AS CHAR),'~NULL~')),256) ORDER BY ordinal_position SEPARATOR ''),256),'empty') FROM information_schema.columns WHERE table_schema=DATABASE() AND table_name='instance_list'",
-      "expected": "3a008ddb03d5391691cca9a123b8b74a2ac00a9218a80c73180f56b5c15e988b"
+      "sql": "SELECT COALESCE(SHA2(GROUP_CONCAT(SHA2(CONCAT_WS('|',COALESCE(CAST(column_name AS CHAR),'~NULL~'),COALESCE(CAST(column_type AS CHAR),'~NULL~'),COALESCE(CAST(is_nullable AS CHAR),'~NULL~'),COALESCE(CAST(column_default AS CHAR),'~NULL~'),COALESCE(CAST(extra AS CHAR),'~NULL~'),COALESCE(CAST(CASE collation_name WHEN 'utf8_general_ci' THEN 'utf8mb3_general_ci' ELSE collation_name END AS CHAR),'~NULL~')),256) ORDER BY ordinal_position SEPARATOR ''),256),'empty') FROM information_schema.columns WHERE table_schema=DATABASE() AND table_name='instance_list'",
+      "expected": "1a14c284d46892ab09604e2cc8f6587ff93a69d1bc73f5f9c08c2b2ab81dcae5"
     },
     {
       "label": "instance_list/statistics",
@@ -167,7 +167,7 @@
     },
     {
       "label": "instance_list_player/columns",
-      "sql": "SELECT COALESCE(SHA2(GROUP_CONCAT(SHA2(CONCAT_WS('|',COALESCE(CAST(column_name AS CHAR),'~NULL~'),COALESCE(CAST(column_type AS CHAR),'~NULL~'),COALESCE(CAST(is_nullable AS CHAR),'~NULL~'),COALESCE(CAST(column_default AS CHAR),'~NULL~'),COALESCE(CAST(extra AS CHAR),'~NULL~'),COALESCE(CAST(collation_name AS CHAR),'~NULL~')),256) ORDER BY ordinal_position SEPARATOR ''),256),'empty') FROM information_schema.columns WHERE table_schema=DATABASE() AND table_name='instance_list_player'",
+      "sql": "SELECT COALESCE(SHA2(GROUP_CONCAT(SHA2(CONCAT_WS('|',COALESCE(CAST(column_name AS CHAR),'~NULL~'),COALESCE(CAST(column_type AS CHAR),'~NULL~'),COALESCE(CAST(is_nullable AS CHAR),'~NULL~'),COALESCE(CAST(column_default AS CHAR),'~NULL~'),COALESCE(CAST(extra AS CHAR),'~NULL~'),COALESCE(CAST(CASE collation_name WHEN 'utf8_general_ci' THEN 'utf8mb3_general_ci' ELSE collation_name END AS CHAR),'~NULL~')),256) ORDER BY ordinal_position SEPARATOR ''),256),'empty') FROM information_schema.columns WHERE table_schema=DATABASE() AND table_name='instance_list_player'",
       "expected": "c0400d14f94b233a348247c615c0835802e51b331213fbdb7f7da58f292353a7"
     },
     {
@@ -182,7 +182,7 @@
     },
     {
       "label": "character_advloot_claims/columns",
-      "sql": "SELECT COALESCE(SHA2(GROUP_CONCAT(SHA2(CONCAT_WS('|',COALESCE(CAST(column_name AS CHAR),'~NULL~'),COALESCE(CAST(column_type AS CHAR),'~NULL~'),COALESCE(CAST(is_nullable AS CHAR),'~NULL~'),COALESCE(CAST(column_default AS CHAR),'~NULL~'),COALESCE(CAST(extra AS CHAR),'~NULL~'),COALESCE(CAST(collation_name AS CHAR),'~NULL~')),256) ORDER BY ordinal_position SEPARATOR ''),256),'empty') FROM information_schema.columns WHERE table_schema=DATABASE() AND table_name='character_advloot_claims'",
+      "sql": "SELECT COALESCE(SHA2(GROUP_CONCAT(SHA2(CONCAT_WS('|',COALESCE(CAST(column_name AS CHAR),'~NULL~'),COALESCE(CAST(column_type AS CHAR),'~NULL~'),COALESCE(CAST(is_nullable AS CHAR),'~NULL~'),COALESCE(CAST(column_default AS CHAR),'~NULL~'),COALESCE(CAST(extra AS CHAR),'~NULL~'),COALESCE(CAST(CASE collation_name WHEN 'utf8_general_ci' THEN 'utf8mb3_general_ci' ELSE collation_name END AS CHAR),'~NULL~')),256) ORDER BY ordinal_position SEPARATOR ''),256),'empty') FROM information_schema.columns WHERE table_schema=DATABASE() AND table_name='character_advloot_claims'",
       "expected": "c21acd44f5c7685d8a650872a56d761e0d41d03a48ea12ea3ca83371829ee31e"
     },
     {

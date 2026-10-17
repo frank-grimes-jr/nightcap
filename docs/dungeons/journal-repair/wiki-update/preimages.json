@@ -1,0 +1,14 @@
+{
+  "articles/dungeon-modes.json": {
+    "before": "872e94e9973ae171f458f4f7d37cfac149f9b8e95933ce7b81dad3dea3490eef",
+    "after": "9b222dd65103af3349bb4e8a21777e987727393a767904da694fa4ecd3c94856"
+  },
+  "articles/recent-changes.json": {
+    "before": "38fe256833207b09b8bb8271b86191b996577212ad857793d276b59eff538e5e",
+    "after": "987a8b7c4bed046d0e76394bc109f771108ff76e4dfa34f2322d24db6f769560"
+  },
+  "content-review.json": {
+    "before": "af7f4b546556da75f97559cff451d303e975b50dd08bc96e052b73904950a535",
+    "after": "6d0cc6a6fbc3c5bbbebddff73c3c65af57557978692b1c508b6be24f79adf9ff"
+  }
+}
