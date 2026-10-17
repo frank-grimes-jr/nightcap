@@ -1,0 +1,17 @@
+{
+  "result": "REVIEW REQUIRED",
+  "reviewed": "2026-10-16",
+  "source_ref": "HEAD",
+  "note": "Also inspect current deployment/owner evidence and changes outside Git. No automatic approval or publication.",
+  "changed_source_count": 304,
+  "task_sources": [
+    "docs/ops/item-stacks-100-20261017/README.md",
+    "docs/ops/item-stacks-100-20261017/rehearsal.json",
+    "docs/ops/item-stacks-100-20261017/wiki-review.md",
+    "docs/ops/item-stacks-100-20261017/wiki.patch",
+    "tools/item_stack_sizes.py",
+    "tools/tests/rehearse_item_stack_sizes.py",
+    "tools/tests/test_item_stack_sizes.py"
+  ],
+  "full_report": "E:\\EQ_Local_Dev\\artifacts\\item-stacks-100-20261017\\wiki-drift.json"
+}

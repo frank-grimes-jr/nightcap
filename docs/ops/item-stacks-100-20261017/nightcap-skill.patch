@@ -1,0 +1,114 @@
+--- a/references/items.md
++++ b/references/items.md
+@@ -1,0 +2,27 @@
++
++## Item stack minimum 100 candidate
++
++October17 read-only OVH audit found 20,490 already-stackable definitions below
++100, including 6,734 tradeskill materials. The candidate changes only
++items.stacksize to 100 for stackable=1 and stacksize<100. Preserve existing
++100/larger limits, nonstackables, charges, recipes, prices and player inventory.
++Leather Padding16488 goes50→100; ore10500, water13006 and bandages13009 go20→100.
++Existing stacks can be merged after activation; no automatic consolidation.
++
++Source: E:/EQ_Local_Dev/_worktrees/item-stacks-100, based on origin/main a59974d.
++`tools/item_stack_sizes.py` generates guarded transactional SQL from exact ID/
++old-limit preimages. `tools/tests/test_item_stack_sizes.py` has three checks;
++`tools/tests/rehearse_item_stack_sizes.py` passes nine actual MariaDB temporary-
++table cases including the complete candidate set, drift, repeated execution
++and post-update failure rollback. The existing25 native tradeskill tests pass;
++independent review found no blockers. Rehearsal compares six item columns,
++not a full-cache comparison; current schema has no automatic/generated fields.
++
++`docs/ops/item-stacks-100-20261017/{README.md,rehearsal.json,verification.json}`
++records scope and exact owner QA. Production SQL, main promotion, cache reload,
++wiki publication and gameplay acceptance remain pending. No native/client/ABI
++change: use current shared_memory and a controlled whole-game restart to load
++the changed item definitions. Rules/quest reload is insufficient. Preserve all
++current cache policies and other native releases. After possible player access,
++retain the higher limits; never lower them under owned stacks or restore player
++snapshots. Any pre-access inverse needs fresh afterimage checks and cache reload.
+--- a/references/wiki.md
++++ b/references/wiki.md
+@@ -1,0 +2,14 @@
++
++## October17 larger item stack candidate
++
++All21 maintained articles and432 generated hunt routes were assessed for the
++100 minimum stack-size change. Local unreleased notices cover tradeskills,
++Features, home, In development and Recent changes. Existing candidate/idle-zone
++notes are preserved. Commands, recipes, prices, equipment/reward stats and
++catalog values are unchanged. Fourteen Python and13 Node checks pass. The
++HEAD/include-worktree drift check includes the migration and remains REVIEW
++REQUIRED for broader historical drift; the global ledger was not advanced.
++No publication or gameplay activation occurred. Evidence and exact wiki patch:
++`E:/EQ_Local_Dev/_worktrees/item-stacks-100/docs/ops/item-stacks-100-20261017/`.
++Replace the five candidate notices together after authorized activation, then
++verify public bytes. Native owner stack/banking/crafting acceptance is separate.
+--- a/references/sources.json
++++ b/references/sources.json
+@@ -46 +46,2 @@
+-    "idle_zone_lifetime_20261017": "a59974d1214a6f8cef6e5ff8bf31a52e1417cb6f + reviewed operational correction"
++    "idle_zone_lifetime_20261017": "a59974d1214a6f8cef6e5ff8bf31a52e1417cb6f + reviewed operational correction",
++    "item_stack_100_candidate_20261017": "a59974d + reviewed candidate in E:/EQ_Local_Dev/_worktrees/item-stacks-100; not activated"
+@@ -1554,0 +1556,35 @@
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/item-stacks-100",
++        "path": "tools/item_stack_sizes.py",
++        "role": "guarded stack minimum 100 SQL generator",
++        "revision": "a59974d + reviewed candidate working files 2026-10-17",
++        "sha256": "270dd5fe89daab1ecb63a2e85127a4486e9b66fccca5ff72013680ad45d53b42"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/item-stacks-100",
++        "path": "tools/tests/test_item_stack_sizes.py",
++        "role": "stack planner validation tests",
++        "revision": "a59974d + reviewed candidate working files 2026-10-17",
++        "sha256": "89d9613713b5bc800809ace799b4877c1f6ec36e6b001f0d0fbc1b436997cdc2"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/item-stacks-100",
++        "path": "tools/tests/rehearse_item_stack_sizes.py",
++        "role": "actual MariaDB temporary-table stack migration checks",
++        "revision": "a59974d + reviewed candidate working files 2026-10-17",
++        "sha256": "232adf85965409223c72aece0691c624a7afddf18a4e1324d06e1842ad66c79e"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/item-stacks-100",
++        "path": "docs/ops/item-stacks-100-20261017/README.md",
++        "role": "candidate behavior, reload, recovery and owner QA",
++        "revision": "a59974d + reviewed candidate working files 2026-10-17",
++        "sha256": "0f64b5ce571da12dae6b8a8659df598a2a2053bfec0167e427b15eefc7de06da"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/item-stacks-100",
++        "path": "docs/ops/item-stacks-100-20261017/rehearsal.json",
++        "role": "nine passed MariaDB cases; production unchanged",
++        "revision": "a59974d + reviewed candidate working files 2026-10-17",
++        "sha256": "4db6cd5e627ccf3fe21ce70734a21e2edf935c8833ca24168caa8f51cf529a20"
+@@ -3637,2 +3673,2 @@
+-        "revision": "f106a5d + reviewed October17 candidate notices",
+-        "sha256": "52e03bfdf87a435341c73effcb5b3b14d30eab18c196b46e7c445581fca4dc46"
++        "revision": "reviewed working files 2026-10-17; unpublished stack candidate",
++        "sha256": "88280b7ad5e36f2cbd769018c1fe35c86e38d34d49c57c268ae50f54cdc2c580"
+@@ -3651,2 +3687,2 @@
+-        "revision": "f106a5d + reviewed October17 candidate notices",
+-        "sha256": "599997a2d65bce4b521d431d254dc47979e6aaea8813c48bc961d13120f8961c"
++        "revision": "reviewed working files 2026-10-17; unpublished stack candidate",
++        "sha256": "f626732c493ab47d4e735d3b44353eca8ae1c9286f647ad52efde30f03f47bc3"
+@@ -3686,2 +3722,2 @@
+-        "revision": "f106a5d + reviewed reliability notice; not published",
+-        "sha256": "86ce59086af5f343cc252574b592b8a109e0aa1809c0e2d326385ab21eb41f1c"
++        "revision": "reviewed working files 2026-10-17; unpublished stack candidate",
++        "sha256": "8f8163e3c67132d7f8e8c812661fe223646e8489d163731666828cd2c7a0b82b"
+@@ -3693,2 +3729,2 @@
+-        "revision": "1048a5c427782d5c3fbf63e17fb63ce934a05eb7 plus publication evidence",
+-        "sha256": "39278354167f33e769bf6857a88033194c261c6bafdb8a6c854bd846db418be8"
++        "revision": "reviewed working files 2026-10-17; unpublished stack candidate",
++        "sha256": "786f4e991bc21f6636bf0baa970f2ec706462bb83f785e0257a479c0c43dc78e"
+@@ -3714,2 +3750,2 @@
+-        "revision": "f106a5d + reviewed October17 candidate notices",
+-        "sha256": "4c7e915914d302dc2f214007bd655899a1e4e7d9e4c76f80fabd00bc2a571f9d"
++        "revision": "reviewed working files 2026-10-17; unpublished stack candidate",
++        "sha256": "73b29bf78f92cb5fc9c71a60e6ad2116c810d273f7aecc730d713be6be59f526"

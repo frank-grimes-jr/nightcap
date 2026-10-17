@@ -1,5 +1,13 @@
 # Current Nightcap status
 
+## Item stacks of 100 — prepared October 17, not deployed
+
+The [stack-size candidate](ops/item-stacks-100-20261017/README.md) raises existing
+stackable limits below 100 while preserving larger limits and nonstackables.
+Production read-only scope is 20,490 definitions. Three planner, nine temporary
+MariaDB and 25 native tradeskill tests pass. Main promotion, controlled cache
+refresh/game restart, public wiki update and in-game acceptance remain pending.
+
 ## Dungeon patcher announcement — published October 17
 
 Signed patch 2026101701 introduces Raid & Grind in Latest update with eleven
