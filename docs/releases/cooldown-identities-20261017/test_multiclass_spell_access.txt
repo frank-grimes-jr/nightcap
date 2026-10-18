@@ -1,0 +1,7 @@
+test_cast_rechecks_current_classes_and_bounds_before_indexing (test_multiclass_spell_access.SpellAccess.test_cast_rechecks_current_classes_and_bounds_before_indexing) ... ok
+test_native_held_class_levels_ignore_legacy_global_widening (test_multiclass_spell_access.SpellAccess.test_native_held_class_levels_ignore_legacy_global_widening) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 41.685s
+
+OK

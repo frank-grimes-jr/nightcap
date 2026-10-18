@@ -1,5 +1,51 @@
 # CHANGES
 
+## 2026-10-18 - Cooldown identity correction deployed for live testing
+
+PR223 promotes the reviewed AA-family, unlinked-item and discipline timer fix to
+main. OVH runs zone `d3908e0348715e94955d84f629e4f27e91f15c7dd661e437efbba580ce3d216a`.
+Fresh stopped backup, live-catalog forward/reverse rehearsal, atomic conversion,
+exact original-deadline preservation and all twelve running zone hashes pass.
+Player data, unrelated catalog/cache/quests/services and the newer compatible
+client2026101801 were preserved. The separately authorized character port was
+verified and retained. Two guarded starts rotated market epoch80 to81 to82;
+the existing finite pools legitimately leave two find slots empty. A reviewed
+completion operator proves those pools exhausted without replaying migration SQL.
+Access is open; owner gameplay acceptance and remaining generic/content groups
+stay open. The 25 deployment, 9 resume and 7 completion tests pass. Evidence and recovery:
+`docs/releases/cooldown-identities-20261017/deployment/`.
+
+
+## 2026-10-18 - Reforging default-color correction
+
+Accept an item definition's built-in color (including Dagger of Marnek's black
+color) in the Reforging Box and zoneforge. Different nonzero dye colors remain
+blocked. Preserve all recipe, customization, binding and atomic-receipt guards.
+The 61 new color cases and existing inventory/policy/package checks pass; the
+reviewed cooldown baseline re-links byte-identically before the one-object fix.
+Deployment and player QA: `docs/releases/reforge-colors-20261018/README.md`.
+Deployed after the cooldown handoff: all twelve zones and closed-access data
+preservation verified; gateway reopened. No client, SQL or item-cache update.
+Owner confirmed Palwar's reported three-Normal combine works; broader in-game
+checks remain unconfirmed. Combined wiki20261018-reforge-colors-v1
+published with all465 public hashes verified; prior cooldown/travel prose retained.
+
+
+## 2026-10-17 - AA family and timer namespace correction candidate
+
+Reproduce Rampage locking Purify Body through shared AA group1. Isolate each AA
+family in persistence and project held families into the client's100 timer slots.
+Fix single/death/all resets, completion and relog publication; preserve rank-family
+reuse. Separate unlinked items and all20 grouped/four ungrouped discipline clocks
+from other timer domains with24-bit-compatible keys. Retain ordinary linked
+content groups and generic skill sharing as explicit open issues.
+
+Prepare guarded transactional forward/rollback conversion with a player-entry
+receipt gate; existing deadlines are preserved rather than wiped. No production
+changes or new client hook. Native regressions and disposable MariaDB tests cover
+collisions, failure, drift and recovery. Full build and exact owner QA status:
+`docs/releases/cooldown-identities-20261017/README.md`.
+
 ## 2026-10-18 — Client zone validation and repair
 
 Published signed game 2026101801: add 32 Classic travel terrain/object archives and require all 34 reviewed travel archives during future packaging. Existing patcher SHA-256 checks repair missing/corrupt files before Play, including West Commonlands. All 106 previous assets and settings preserved; no desktop/DLL/server change. Owner confirmed Karl’s West Commonlands zoning repair on October 18; broader destination QA remains open. Evidence: docs/releases/client-zone-validation-20261018/README.md.

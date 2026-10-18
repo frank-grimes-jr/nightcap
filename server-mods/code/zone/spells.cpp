@@ -2877,7 +2877,9 @@ bool Mob::SpellFinished(uint16 spell_id, Mob *spell_target, CastingSlot slot, in
 					ExpendAlternateAdvancementCharge(rank->base_ability->id);
 				}
 				//set AA recast timer
-				CastToClient()->SendAlternateAdvancementTimer(rank->spell_type, 0, 0);
+				if (rank && rank->base_ability) {
+					CastToClient()->SendAlternateAdvancementTimer(rank->base_ability->id, 0, 0);
+				}
 			}
 		}
 		//handle bard AA and Discipline recast timers when singing
@@ -7119,6 +7121,7 @@ void Client::SetItemRecastTimer(int32 spell_id, uint32 inventory_slot)
 	}
 
 	//must use SPA 415 with focus (SPA 310) to reduce item recast
+	if (item_id > 0xfffff) { return; }
 	const int64 reduction = GetFocusEffect(focusReduceRecastTime, spell_id);
 	recast_delay = static_cast<uint32>(std::max<int64>(0, static_cast<int64>(recast_delay) - reduction));
 
@@ -7131,11 +7134,11 @@ void Client::SetItemRecastTimer(int32 spell_id, uint32 inventory_slot)
 				GetPTimers().Get(pTimerItemStart + recast_type)->GetReadyTimestamp()
 			);
 		} else if (recast_type == RECAST_TYPE_UNLINKED_ITEM) {
-			GetPTimers().Start((pTimerNegativeItemReuse * item_id), recast_delay);
+			GetPTimers().Start((pTimerUnlinkedItemStart + item_id), recast_delay);
 			database.UpdateItemRecast(
 				CharacterID(),
 				item_id,
-				GetPTimers().Get(pTimerNegativeItemReuse * item_id)->GetReadyTimestamp()
+				GetPTimers().Get(pTimerUnlinkedItemStart + item_id)->GetReadyTimestamp()
 			);
 		}
 
@@ -7147,6 +7150,7 @@ void Client::SetItemRecastTimer(int32 spell_id, uint32 inventory_slot)
 
 void Client::DeleteItemRecastTimer(uint32 item_id)
 {
+	if (item_id > 0xfffff) { return; }
 	const auto item = database.GetItem(item_id);
 
 	if (!item) {
@@ -7162,7 +7166,7 @@ void Client::DeleteItemRecastTimer(uint32 item_id)
 	const int  timer_id    = (
 		item->RecastType != RECAST_TYPE_UNLINKED_ITEM ?
 		(pTimerItemStart + recast_type) :
-		(pTimerNegativeItemReuse * item_id)
+		(pTimerUnlinkedItemStart + item_id)
 	);
 
 	database.DeleteItemRecast(CharacterID(), recast_type);
@@ -7218,6 +7222,7 @@ bool Client::HasItemRecastTimer(int32 spell_id, uint32 inventory_slot)
 	if (!recast_delay) {
 		return false;
 	}
+	if (item_id > 0xfffff) { return true; }
 
 	if (
 		recast_type != RECAST_TYPE_UNLINKED_ITEM &&
@@ -7226,7 +7231,7 @@ bool Client::HasItemRecastTimer(int32 spell_id, uint32 inventory_slot)
 		return true;
 	} else if (
 		recast_type == RECAST_TYPE_UNLINKED_ITEM &&
-		!CastToClient()->GetPTimers().Expired(&database, (pTimerNegativeItemReuse * item_id), false)
+		!CastToClient()->GetPTimers().Expired(&database, (pTimerUnlinkedItemStart + item_id), false)
 	) {
 		return true;
 	}

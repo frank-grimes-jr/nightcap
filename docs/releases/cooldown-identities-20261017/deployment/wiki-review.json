@@ -1,0 +1,180 @@
+{
+  "source": "C:\\Users\\verre\\Documents\\Codex\\2026-10-17\\see\\work\\cooldown-identities",
+  "reviewed_articles": [
+    {
+      "article": "about.json",
+      "title": "About this wiki",
+      "status": "Reference",
+      "sha256": "d30e64f41dd4395f4d27163407a134527fca9bf9892dabd816774bd0ebcd1da0",
+      "decision": "No public-content change: existing live guidance remains accurate; timer identity release does not change this guide’s progression, rewards, access, travel, pets, recipes or interface contract."
+    },
+    {
+      "article": "advanced-loot.json",
+      "title": "Advanced loot",
+      "status": "Live testing",
+      "sha256": "0f0870dd8c5e412c0a673a7ff551a952965397e5b2ce0dd6bb67ac1336c0e506",
+      "decision": "No public-content change: existing live guidance remains accurate; timer identity release does not change this guide’s progression, rewards, access, travel, pets, recipes or interface contract."
+    },
+    {
+      "article": "ascension.json",
+      "title": "Ascension quest",
+      "status": "Live testing",
+      "sha256": "63a95cfaac55cdafad7aed7a731406b01dfdabbb6053e4364371cd283f19d036",
+      "decision": "No public-content change: existing live guidance remains accurate; timer identity release does not change this guide’s progression, rewards, access, travel, pets, recipes or interface contract."
+    },
+    {
+      "article": "combat.json",
+      "title": "Combat, buffs & recovery",
+      "status": "Live testing",
+      "sha256": "84ae9ce9902786935c6a4a23ef1f09b3e0c08d447ad228e315631401e79407df",
+      "decision": "Reconciled deployed AA/item/discipline behavior, preserved original waits and open generic/content groups. Home also removes stale not-live stack notice contradicted by October17 deployment."
+    },
+    {
+      "article": "commands.json",
+      "title": "Command reference",
+      "status": "Live testing",
+      "sha256": "b23435918515e34f6db39189f0d072847b19599dff37c3739daf724839c66bd3",
+      "decision": "Player commands unchanged. Revised GM-only #resetaa_timer argument is documented in the operator release/QA, not promoted as a player command."
+    },
+    {
+      "article": "dungeon-modes.json",
+      "title": "Raid & Grind dungeons",
+      "status": "Live testing",
+      "sha256": "c9b31538d188ce7e47cfa1c4a297d0ec1c0d2d11b838747fe6d3da06ca561cac",
+      "decision": "No public-content change: existing live guidance remains accurate; timer identity release does not change this guide’s progression, rewards, access, travel, pets, recipes or interface contract."
+    },
+    {
+      "article": "equipment.json",
+      "title": "Equipment & trading",
+      "status": "Live testing",
+      "sha256": "e634a6f90347db93ca9f762916e0c3957e78b23f8e6815a48c40e4cfa4a855ef",
+      "decision": "Reconciled deployed AA/item/discipline behavior, preserved original waits and open generic/content groups. Home also removes stale not-live stack notice contradicted by October17 deployment."
+    },
+    {
+      "article": "features.json",
+      "title": "Features",
+      "status": "Live testing",
+      "sha256": "8493c2b0ea8a64e14c1f003ce3bdf090a946538e4067de02bf6d4a94b6cb9015",
+      "decision": "Reconciled deployed AA/item/discipline behavior, preserved original waits and open generic/content groups. Home also removes stale not-live stack notice contradicted by October17 deployment."
+    },
+    {
+      "article": "getting-started.json",
+      "title": "Getting started",
+      "status": "Live testing",
+      "sha256": "815e8574606bf80c0b82a14f53d8ada76166089db311979c58885214e26b05e0",
+      "decision": "No public-content change: existing live guidance remains accurate; timer identity release does not change this guide’s progression, rewards, access, travel, pets, recipes or interface contract."
+    },
+    {
+      "article": "index.json",
+      "title": "Welcome to the Nightcap Wiki",
+      "status": "Reference",
+      "sha256": "c5582427eacacd2816956922431d716768e915411e6b40faef189bf28cbf86c1",
+      "decision": "Reconciled deployed AA/item/discipline behavior, preserved original waits and open generic/content groups. Home also removes stale not-live stack notice contradicted by October17 deployment."
+    },
+    {
+      "article": "item-upgrades.json",
+      "title": "Item upgrades",
+      "status": "Live testing",
+      "sha256": "a4d7dbda179135a8a0976641012d00f5aecb4427751c1e716baf927c64862b07",
+      "decision": "Reconciled deployed AA/item/discipline behavior, preserved original waits and open generic/content groups. Home also removes stale not-live stack notice contradicted by October17 deployment."
+    },
+    {
+      "article": "launcher.json",
+      "title": "Launcher & interface",
+      "status": "Live testing",
+      "sha256": "61432ff4519515e623788cdb308f35634f4b2b2c9f551bbca98c5eb0aaf01a06",
+      "decision": "No public-content change: existing live guidance remains accurate; timer identity release does not change this guide’s progression, rewards, access, travel, pets, recipes or interface contract."
+    },
+    {
+      "article": "multiclass.json",
+      "title": "Multiclass & progression",
+      "status": "Live testing",
+      "sha256": "cf4fa8a098b998cb7b0f6ead6449546b6cab667b699dd2a9017a3be73fe8c40b",
+      "decision": "Reconciled deployed AA/item/discipline behavior, preserved original waits and open generic/content groups. Home also removes stale not-live stack notice contradicted by October17 deployment."
+    },
+    {
+      "article": "pets.json",
+      "title": "Pets & pet armor",
+      "status": "Live testing",
+      "sha256": "3c44fe0856f38477d4c490ed2c0be34d109f6210d1dd6c9dadccee12a7cd85a3",
+      "decision": "No public-content change: existing live guidance remains accurate; timer identity release does not change this guide’s progression, rewards, access, travel, pets, recipes or interface contract."
+    },
+    {
+      "article": "recent-changes.json",
+      "title": "Recent changes",
+      "status": "Reference",
+      "sha256": "01302f4a1f7394c40576b184b162f2cc87238290a597794bdecf5cd2591fde62",
+      "decision": "Reconciled deployed AA/item/discipline behavior, preserved original waits and open generic/content groups. Home also removes stale not-live stack notice contradicted by October17 deployment."
+    },
+    {
+      "article": "tradeskills.json",
+      "title": "Tradeskills & Craft All",
+      "status": "Live testing",
+      "sha256": "d76ffea75fea16a2a353a5cab1b5e2b783a244908fcfa0903184cd8947a4de7b",
+      "decision": "No public-content change: existing live guidance remains accurate; timer identity release does not change this guide’s progression, rewards, access, travel, pets, recipes or interface contract."
+    },
+    {
+      "article": "travel.json",
+      "title": "Travel & instances",
+      "status": "Live testing",
+      "sha256": "66b199c0a2c9a49ab5df65ceebf1598a437a64989d73a8476ebc984512a07c57",
+      "decision": "Reconciled deployed AA/item/discipline behavior, preserved original waits and open generic/content groups. Home also removes stale not-live stack notice contradicted by October17 deployment."
+    },
+    {
+      "article": "tunnel.json",
+      "title": "East Commonlands tunnel",
+      "status": "Live testing",
+      "sha256": "406b3922621b789bbafe02a76b296a7f9fccd716aa082dca94a8493d60b811ae",
+      "decision": "No public-content change: existing live guidance remains accurate; timer identity release does not change this guide’s progression, rewards, access, travel, pets, recipes or interface contract."
+    },
+    {
+      "article": "unreleased.json",
+      "title": "In development",
+      "status": "Not released",
+      "sha256": "856a12862a302863c82370313f1b19a9e80d67d700d04fd2b5d67ade1321f055",
+      "decision": "Reconciled deployed AA/item/discipline behavior, preserved original waits and open generic/content groups. Home also removes stale not-live stack notice contradicted by October17 deployment."
+    },
+    {
+      "article": "waypoints.json",
+      "title": "Waypoint Explorer",
+      "status": "Live testing",
+      "sha256": "9ef8b93fa52d5b83c479bbb3c877fab4f9373c0f26c84c43908edf3d7e5666bc",
+      "decision": "No public-content change: existing live guidance remains accurate; timer identity release does not change this guide’s progression, rewards, access, travel, pets, recipes or interface contract."
+    },
+    {
+      "article": "zone-hunt.json",
+      "title": "Zone hunt & forging",
+      "status": "Live testing",
+      "sha256": "c5fd4bb5e4225e141cec7f51623c65d3ecf89ab51aed8ee4eb86c6f34c12be4e",
+      "decision": "Reconciled deployed AA/item/discipline behavior, preserved original waits and open generic/content groups. Home also removes stale not-live stack notice contradicted by October17 deployment."
+    }
+  ],
+  "generated_routes": {
+    "items": 384,
+    "zones": 48,
+    "decision": "Mechanic guidance inherited from maintained guides; no reward values, variants, zone availability or catalog stats changed."
+  },
+  "public_publication": "pending; no publication authorized or performed",
+  "live_wiki": "20261017-progression-combat-v1",
+  "private_player_guide": "No live change; deployment-dependent update pending",
+  "candidate_release": "docs/releases/cooldown-identities-20261017/",
+  "additional_assessment": "ADR0063, phase66, migration receipt/rollback, native skill reset inventory and operator command clarification reviewed. Candidate remains unreleased; no player-command, reward catalog, home or Features behavior changed. Generic skills and content groups remain open.",
+  "reviewed_at": "2026-10-18",
+  "production_status": "deployed_live_QA_open",
+  "changed_articles": [
+    "combat.json",
+    "unreleased.json",
+    "recent-changes.json",
+    "features.json",
+    "index.json",
+    "multiclass.json",
+    "equipment.json",
+    "travel.json",
+    "item-upgrades.json",
+    "zone-hunt.json"
+  ],
+  "generated_reward_routes_reviewed": 432,
+  "reward_catalog_changed": false,
+  "publication": "Prepared deployed cooldown guidance, preserving published client-zone repair additions; publication receipt will establish live status.",
+  "concurrent_work": "All five published client-zone repair additions retained. PR225 built-in color repair source is on main but its deployment is pending; Item upgrades and Zone hunt explicitly retain that release boundary."
+}

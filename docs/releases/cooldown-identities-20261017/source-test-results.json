@@ -1,0 +1,26 @@
+[
+  {
+    "test": "test_aa_cooldown_identity",
+    "exit_code": 0
+  },
+  {
+    "test": "test_cooldown_duration",
+    "exit_code": 0
+  },
+  {
+    "test": "test_monk_combat_reuse",
+    "exit_code": 0
+  },
+  {
+    "test": "test_gameplay_policies",
+    "exit_code": 0
+  },
+  {
+    "test": "test_aa_temporary_buffs",
+    "exit_code": 0
+  },
+  {
+    "test": "test_multiclass_spell_access",
+    "exit_code": 0
+  }
+]

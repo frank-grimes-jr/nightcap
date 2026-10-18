@@ -1291,6 +1291,15 @@ void Client::Handle_Connect_OP_ZoneEntry(const EQApplicationPacket *app)
 		return;
 	}
 
+	// Saved uint16 timer identities must be converted while gameplay is stopped.
+	// Check only authenticated entries, before ghost handling or character loading.
+	auto cooldown_schema = database.QueryDatabase(
+		"SELECT version FROM nightcap_cooldown_schema WHERE id=1 AND version=1");
+	if (!cooldown_schema.Success() || cooldown_schema.RowCount() != 1) {
+		LogError("Cooldown identity migration v1 is required before accepting players");
+		Disconnect();
+		return;
+	}
 	strcpy(name, cze->char_name);
 	/* Check for Client Spoofing */
 	if (client != 0) {
@@ -1700,6 +1709,8 @@ void Client::Handle_Connect_OP_ZoneEntry(const EQApplicationPacket *app)
 	p_timers.SetCharID(CharacterID());
 	if (!p_timers.Load(&database)) {
 		LogError("Unable to load ability timers from the database for [{}] ([{}])!", GetCleanName(), CharacterID());
+		Disconnect();
+		return;
 	}
 
 	/* Load Spell Slot Refresh from Currently Memoried Spells */
@@ -9571,12 +9582,13 @@ void Client::Handle_OP_ItemVerifyRequest(const EQApplicationPacket *app)
 				{
 					if (item->RecastDelay > 0)
 					{
+						if (item->ID > 0xfffff) { return; }
 						if (item->RecastType != RECAST_TYPE_UNLINKED_ITEM && !GetPTimers().Expired(&database, (pTimerItemStart + item->RecastType), false)) {
 							SetItemCooldown(item->ID, true);
 							SendSpellBarEnable(item->Click.Effect);
 							LogSpells("Casting of [{}] canceled: item spell reuse timer not expired", spell_id);
 							return;
-						} else if (item->RecastType == RECAST_TYPE_UNLINKED_ITEM  && !GetPTimers().Expired(&database, (pTimerNegativeItemReuse * item->ID), false)) {
+						} else if (item->RecastType == RECAST_TYPE_UNLINKED_ITEM  && !GetPTimers().Expired(&database, (pTimerUnlinkedItemStart + item->ID), false)) {
 							SetItemCooldown(item->ID, true);
 							SendSpellBarEnable(item->Click.Effect);
 							LogSpells("Casting of [{}] canceled: item spell reuse timer not expired", spell_id);
@@ -9635,12 +9647,13 @@ void Client::Handle_OP_ItemVerifyRequest(const EQApplicationPacket *app)
 				{
 					if (augitem->RecastDelay > 0)
 					{
+						if (augitem->ID > 0xfffff) { return; }
 						if (augitem->RecastType != RECAST_TYPE_UNLINKED_ITEM && !GetPTimers().Expired(&database, (pTimerItemStart + augitem->RecastType), false)) {
 							LogSpells("Casting of [{}] canceled: item spell reuse timer from augment not expired", spell_id);
 							MessageString(Chat::Red, SPELL_RECAST);
 							SendSpellBarEnable(augitem->Click.Effect);
 							return;
-						} else if (augitem->RecastType == RECAST_TYPE_UNLINKED_ITEM  && !GetPTimers().Expired(&database, (pTimerNegativeItemReuse * augitem->ID), false)) {
+						} else if (augitem->RecastType == RECAST_TYPE_UNLINKED_ITEM  && !GetPTimers().Expired(&database, (pTimerUnlinkedItemStart + augitem->ID), false)) {
 							MessageString(Chat::Red, SPELL_RECAST);
 							SendSpellBarEnable(augitem->Click.Effect);
 							LogSpells("Casting of [{}] canceled: item spell reuse timer not expired", spell_id);

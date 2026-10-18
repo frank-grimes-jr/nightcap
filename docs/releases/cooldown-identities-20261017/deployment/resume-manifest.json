@@ -1,0 +1,8 @@
+{
+  "source_revision": "7bf9f9e4c2651934ae8a5d02db4a24554f43f917",
+  "original_manifest_sha256": "5684a9e663561ea77f35867cc89047297e0c30bbb77a3989d970e7358a5372fa",
+  "files": {
+    "resume.py": "a785a6398fdd13f18add36b7eb1f3a775cec187cd0770d5c0f470a4bb8687972",
+    "test_resume.py": "460e72761148d73708eee42acfa85b159cf5b4af21e4ba6bd3a2995577e2f64c"
+  }
+}

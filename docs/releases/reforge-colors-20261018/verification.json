@@ -1,0 +1,26 @@
+{
+  "red": {
+    "failed_before_fix": true,
+    "reason": "default/no-tint color rejected by box"
+  },
+  "green": {
+    "inventory_translation_unit": "passed",
+    "new_color_scenarios": 61,
+    "upgrade_policy_tests": 1,
+    "upgrade_package_tests": 3,
+    "rollout_failure_and_recovery_tests": 12,
+    "wiki_content_refresh_tests": 14,
+    "wiki_node_checks": 13,
+    "rollout_linux_tests": 12,
+    "wiki_linux_content_and_recovery_tests": 30
+  },
+  "independent_review": "approved; reviewer independently reran inventory and rollout suites; no blocking findings",
+  "scope": "Native functions with dependency fakes; no live player combine executed",
+  "owner_gameplay_accepted": false,
+  "source_commit": "e3f95f1105893980ee23f0d8c8ec490ab73729e3",
+  "main_merge": "0f251f2ca774c01a4e02fff6f12276a43a51823b",
+  "deployment": "production-verification.json",
+  "wiki_publication": "wiki-publication.json",
+  "wiki_public_verification": "wiki-public-verification.json",
+  "owner_acceptance_scope": "Reported Palwar combine confirmed; full QA matrix remains unconfirmed. See owner-acceptance.json."
+}

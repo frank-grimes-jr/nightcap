@@ -1,12 +1,12 @@
 # Official Nightcap wiki — hosting and maintenance
 
-Updated October 17, 2026.
+Updated October 18, 2026.
 
 ## Current state
 
-- **Public URL: https://wiki.nightcapgame.org/** — live and verified October 17, 2026 (EDT).
-- **Active OVH origin release:** `20261017-progression-combat-v1`; previous release
-  `20261016-dungeon-journal-v1` is retained for recovery.
+- **Public URL: https://wiki.nightcapgame.org/** — live and verified October 18, 2026 (EDT).
+- **Active OVH origin release:** `20261018-reforge-colors-v1`; previous release
+  `20261018-client-zone-repair-v1` is retained for recovery.
 - **Features:** major departures from Classic, with dedicated upgrade and crafting guides.
 - **Equipment:** 96 item families with four quality links each, gear/augment
   views, name/slot/level/zone filters, sorting and 12-family pagination.
@@ -20,6 +20,15 @@ Updated October 17, 2026.
 
 Source and build commands: [wiki/README.md](../../wiki/README.md).
 Architecture: [ADR 0059](../adr/0059-official-public-wiki.md).
+
+## October 18 cooldown and reforging corrections
+
+The combined release preserves the published client-travel repair, adds the
+verified cooldown identity guidance and clarifies built-in colors for reforging.
+All465 public hashes/headers and five denied private-source routes verify. The
+origin updater rehearsed rollback and preserved private downloads, configuration
+and all five service identities. Thirty Linux tests and thirteen Node checks pass.
+Owner gameplay acceptance remains separate. Evidence: [reforging release](../releases/reforge-colors-20261018/README.md).
 
 ## October 17 progression, combat and crafting
 
