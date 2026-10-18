@@ -1,6 +1,6 @@
 # Reforging default colors — October 18, 2026
 
-Status: implementation merged, native build and verification passed; not yet deployed.
+Status: deployed October 18; access open and automated verification passed. Owner in-game acceptance remains pending.
 
 The owner requested correction and production deployment after three ordinary
 Daggers of Marnek were rejected. Their instance color matched the item definition
@@ -62,6 +62,32 @@ corrected build creates a release-local tag from the authenticated image ID and
 verifies it before and after building with pulls disabled. Full binary hashes and
 one-layer ancestry still verify against the immutable baseline. Three regression
 groups cover successful construction and tag drift before/during the build.
+
+## Production verification
+
+PR225 contains the native fix; PR227/228 contain the reviewed operator repairs.
+The coordinated rollout used the completed cooldown image and preserved its
+migration, saved deadlines and signed client2026101801. All twelve running zone
+processes match the new binary, with zero container restarts or detected native,
+quest or SQL errors. A fresh stopped database backup passed gzip verification;
+no player snapshot or timer migration was restored/replayed.
+
+The closed-access checks preserved 47 player tables, 28 custom/timer
+tables, content, item cache, quests, public downloads and supporting services.
+The existing market startup procedure rotated exactly once, from epoch82
+to83, with42 valid offers within capacity44. Access reopened
+only after preservation and health checks passed. Exact receipts are in
+`production-verification.json`, `backup.json` and `stage-manifest.json`.
+
+Wiki `20261018-reforge-colors-v1` is published, retaining the reviewed
+cooldown/travel additions from main47c9e87 and adding default-color guidance.
+All465 public hashes/security headers and five private-source denials verify.
+The guarded origin update rehearsed rollback and preserved private downloads,
+configuration and all five service identities. Thirty Linux wiki tests, fourteen
+Windows content/refresh tests and thirteen Node checks passed. Publication
+receipts are separate from owner gameplay acceptance. The public verifier uses
+the established NightcapLauncher user-agent; the generic Python agent received
+HTTP403. No access or Cloudflare configuration was changed.
 
 ## In-game QA
 

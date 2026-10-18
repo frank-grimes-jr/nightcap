@@ -1,12 +1,16 @@
 # Current Nightcap status
 
-## Reforging default colors — built, awaiting deployment
+## Reforging default colors — deployed October 18, live QA open
 
-The Reforging Box and zoneforge now distinguish native item colors from actual
-dye overrides. Three Normal Daggers of Marnek reproduce the reported failure;
-61 new color cases and the existing inventory failure suite pass. Deployment is
-authorized and will follow the active cooldown release, retaining its image,
-timers and current client pairing. [Evidence and exact QA](releases/reforge-colors-20261018/README.md).
+The Reforging Box and zoneforge accept an item's built-in color while rejecting
+different nonzero dye colors. The default-color failure and 61 regression cases
+are covered; all twelve production zones match the new binary. Access is open,
+with player/custom state, cooldown migration, cache and current client preserved.
+No client update is required for this fix. Palwar's three Normal Daggers of Marnek
+are ready for the in-game combine check; owner acceptance remains pending.
+Wiki `20261018-reforge-colors-v1` publishes the combined cooldown/travel/forging
+guidance; all465 public files verify.
+[Evidence and exact QA](releases/reforge-colors-20261018/README.md).
 
 
 ## Cooldown identities — deployed October 18, live QA open
