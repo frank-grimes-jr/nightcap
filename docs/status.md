@@ -1,5 +1,10 @@
 # Current Nightcap status
 
+## October 18 ordinary loot rates - prepared
+
+20% Polished / 5% Exalted / 1% Ascended passed exhaustive native selection and temporary MariaDB forward/inverse tests. Activation awaits the current cooldown deployment lock and fresh source/runtime verification. Quest guarantee remains design-only. [Evidence](ops/loot-quality-rates-20261018/README.md).
+
+
 ## October 17 progression, combat and crafting — deployed
 
 PR #220 is merged to main and OVH is running the matching full zone build with

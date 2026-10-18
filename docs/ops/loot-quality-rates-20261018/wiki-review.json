@@ -1,0 +1,93 @@
+{
+  "date": "2026-10-18",
+  "status": "source maintained; not published",
+  "articles": {
+    "about": {
+      "sha256": "d30e64f41dd4395f4d27163407a134527fca9bf9892dabd816774bd0ebcd1da0",
+      "impact": "No semantic change: no changes to commands, classes, travel, clients, item stats, upgrade recipes, epic forge or hunt/dungeon policies"
+    },
+    "advanced-loot": {
+      "sha256": "0f0870dd8c5e412c0a673a7ff551a952965397e5b2ce0dd6bb67ac1336c0e506",
+      "impact": "No semantic change: no changes to commands, classes, travel, clients, item stats, upgrade recipes, epic forge or hunt/dungeon policies"
+    },
+    "ascension": {
+      "sha256": "63a95cfaac55cdafad7aed7a731406b01dfdabbb6053e4364371cd283f19d036",
+      "impact": "No semantic change: no changes to commands, classes, travel, clients, item stats, upgrade recipes, epic forge or hunt/dungeon policies"
+    },
+    "combat": {
+      "sha256": "b4434699dfce828c2f10067e31b3c271ebdec0218dcbee06d2b4c4ec540a8fec",
+      "impact": "No semantic change: no changes to commands, classes, travel, clients, item stats, upgrade recipes, epic forge or hunt/dungeon policies"
+    },
+    "commands": {
+      "sha256": "b23435918515e34f6db39189f0d072847b19599dff37c3739daf724839c66bd3",
+      "impact": "No semantic change: no changes to commands, classes, travel, clients, item stats, upgrade recipes, epic forge or hunt/dungeon policies"
+    },
+    "dungeon-modes": {
+      "sha256": "c9b31538d188ce7e47cfa1c4a297d0ec1c0d2d11b838747fe6d3da06ca561cac",
+      "impact": "No semantic change: no changes to commands, classes, travel, clients, item stats, upgrade recipes, epic forge or hunt/dungeon policies"
+    },
+    "equipment": {
+      "sha256": "52df7aeec5cfee8c748a7c77732cd99bf0b26bc701cb382a5c3645bd10d6dffb",
+      "impact": "Updated scoped rate/availability or proposed quest policy notice"
+    },
+    "features": {
+      "sha256": "d606bde5168493db1902c813158f226678b22a4378d689e02dc6cdc17b8e36eb",
+      "impact": "Updated scoped rate/availability or proposed quest policy notice"
+    },
+    "getting-started": {
+      "sha256": "7577b0d5dcd9d6275d725553d8444252cec3745e8085651cd873151443e63b08",
+      "impact": "No semantic change: no changes to commands, classes, travel, clients, item stats, upgrade recipes, epic forge or hunt/dungeon policies"
+    },
+    "index": {
+      "sha256": "90c237fc75329c752c4050ac6c7183a021c48165e96913397c2e6a06c38b6343",
+      "impact": "Updated scoped rate/availability or proposed quest policy notice"
+    },
+    "item-upgrades": {
+      "sha256": "3b823e9009a323047d252620218c10a45eb8026b15e73d3e19b288d3dc472805",
+      "impact": "No semantic change: no changes to commands, classes, travel, clients, item stats, upgrade recipes, epic forge or hunt/dungeon policies"
+    },
+    "launcher": {
+      "sha256": "0909069c8dc879b8ea128b70d1c8458d1121ecb6b4ab6be49cc46df204ae8029",
+      "impact": "No semantic change: no changes to commands, classes, travel, clients, item stats, upgrade recipes, epic forge or hunt/dungeon policies"
+    },
+    "multiclass": {
+      "sha256": "5cd56b7881577ed0e1fb6dd4c7afa6e0eb9d48bbb9c37b656a2ae329e0d1424e",
+      "impact": "No semantic change: no changes to commands, classes, travel, clients, item stats, upgrade recipes, epic forge or hunt/dungeon policies"
+    },
+    "pets": {
+      "sha256": "3c44fe0856f38477d4c490ed2c0be34d109f6210d1dd6c9dadccee12a7cd85a3",
+      "impact": "No semantic change: no changes to commands, classes, travel, clients, item stats, upgrade recipes, epic forge or hunt/dungeon policies"
+    },
+    "recent-changes": {
+      "sha256": "abd088945d9a6d682541a4c4bd853b7d5be2f4c34dc39bc2df1e89d61cb65d76",
+      "impact": "Updated scoped rate/availability or proposed quest policy notice"
+    },
+    "tradeskills": {
+      "sha256": "d76ffea75fea16a2a353a5cab1b5e2b783a244908fcfa0903184cd8947a4de7b",
+      "impact": "No semantic change: no changes to commands, classes, travel, clients, item stats, upgrade recipes, epic forge or hunt/dungeon policies"
+    },
+    "travel": {
+      "sha256": "7448998634f50498d8fbe813fa2bff99d50a51951754f9e1c29f10bf338c5ecf",
+      "impact": "No semantic change: no changes to commands, classes, travel, clients, item stats, upgrade recipes, epic forge or hunt/dungeon policies"
+    },
+    "tunnel": {
+      "sha256": "406b3922621b789bbafe02a76b296a7f9fccd716aa082dca94a8493d60b811ae",
+      "impact": "No semantic change: no changes to commands, classes, travel, clients, item stats, upgrade recipes, epic forge or hunt/dungeon policies"
+    },
+    "unreleased": {
+      "sha256": "e543d71cd835253bcb7aff75e54377d7fd5848447e8058fbdda1f7ea558bfc2f",
+      "impact": "Updated scoped rate/availability or proposed quest policy notice"
+    },
+    "waypoints": {
+      "sha256": "9ef8b93fa52d5b83c479bbb3c877fab4f9373c0f26c84c43908edf3d7e5666bc",
+      "impact": "No semantic change: no changes to commands, classes, travel, clients, item stats, upgrade recipes, epic forge or hunt/dungeon policies"
+    },
+    "zone-hunt": {
+      "sha256": "1e45749cb34576e3721ce43e2bbe959edfd1277b57c8f4da7a04bfdf29c5e2cb",
+      "impact": "No semantic change: no changes to commands, classes, travel, clients, item stats, upgrade recipes, epic forge or hunt/dungeon policies"
+    }
+  },
+  "generated_catalog": "All 432 item/zone routes retain catalog values and hunt mechanics; ordinary-rate tuning does not affect them",
+  "concurrent_releases": "October18 client travel and cooldown releases must be preserved during publication; this source snapshot is not a publishable replacement for later releases",
+  "tests": "14 wiki/content/refresh tests passed; expected missing-ref diagnostic is part of negative test"
+}

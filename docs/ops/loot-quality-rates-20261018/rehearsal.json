@@ -1,0 +1,12 @@
+{
+  "status": "passed",
+  "cases": [
+    "forward_inverse_exact_rows_and_notes",
+    "drift",
+    "missing",
+    "case_only_drift",
+    "already_applied"
+  ],
+  "scope": "session-local temporary MariaDB tables; no persistent writes",
+  "native_test": "Actual loot.cpp block, all 10000 roll values; exact 7400/2000/500/100 distribution; bags, ineligible items, absent variants, pre-tiered, hunt and dungeon exclusions pass"
+}

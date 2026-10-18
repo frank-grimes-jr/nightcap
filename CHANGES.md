@@ -1,5 +1,10 @@
 # CHANGES
 
+## 2026-10-18 - Ordinary loot quality tuning
+
+Prepared guarded 20% Polished / 5% Exalted / 1% Ascended ordinary-drop rates (was 10%/2%/0.25%). Per eligible equipment/bag, not per kill; hunt/dungeon and 3/4/4 reforging remain unchanged. Initial activation refused another deployment lock before writes. Quest auto-Ascended policy excludes repeatable/easily farmed quests; design only. Evidence: docs/ops/loot-quality-rates-20261018/.
+
+
 ## 2026-10-17 - Combined progression, combat and crafting release deployed
 
 Integrate Recommended AA, six independent Monk attacks, duration corrections,
