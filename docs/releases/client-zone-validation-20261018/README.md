@@ -85,6 +85,6 @@ packaging source would lose coverage in future generations, so preserve the cata
 5. If Karl still fails, retain that installation's fresh dbg.txt/error dialog and
    launcher file status; do not infer another missing file from linkdead alone.
 
-Karl login/zoning and wider destination acceptance remain pending owner testing.
+Owner acceptance — October 18: after the request to update through launcher Play and test East Commonlands to West Commonlands and back, the owner replied ‘Confirmed’. Record Karl's reported zoning issue as resolved. This does not attest every Khalure route, Misty/Toxxulia destination, deliberate-corruption scenario or the entire RoF2 installation; those broader checks remain open.
 
 Wiki: release 20261018-client-zone-repair-v1 published using the existing guarded updater. Fourteen content/refresh tests and sixteen Linux deployment/recovery tests pass. Existing config, private downloads and all five service identities are preserved. Whole-wiki impact assessment is in wiki-review.json.

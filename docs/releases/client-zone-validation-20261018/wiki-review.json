@@ -89,5 +89,6 @@
   "features": "Reviewed: repair of existing Classic zone files is not a new gameplay departure; existing launcher description remains accurate.",
   "generated_pages": "All 432 generated reward routes assessed through unchanged catalog/generator mechanics; no reward, destination, value or route changes.",
   "catalog_sha256": "22701edeaf267067dfbe7225398b4944d6a69b080480ac06f0d153ca92eae0ae",
-  "publication": "Published 20261018-client-zone-repair-v1; source content tests and Linux rollback rehearsal passed."
+  "publication": "Published 20261018-client-zone-repair-v1; source content tests and Linux rollback rehearsal passed.",
+  "owner_acceptance_review": "October18 owner confirmed Karl West Commonlands repair. Existing public guidance remains correct and broader travel QA remains open; no additional public prose or catalog change required."
 }

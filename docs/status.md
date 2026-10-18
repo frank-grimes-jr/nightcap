@@ -2,7 +2,7 @@
 
 ## October 18, 2026 — Classic travel client repair
 
-Signed game 2026101801 published (138 managed assets; 106 existing preserved, 32 added). Terrain/object coverage spans 17 audited Classic travel destinations; not the whole RoF2 installation. Karl West Commonlands zoning QA remains pending. No server restart. See [release evidence](releases/client-zone-validation-20261018/README.md).
+Signed game 2026101801 published (138 managed assets; 106 existing preserved, 32 added). Terrain/object coverage spans 17 audited Classic travel destinations; not the whole RoF2 installation. Owner confirmed Karl’s West Commonlands zoning issue resolved on October 18; broader destination QA remains open. No server restart. See [release evidence](releases/client-zone-validation-20261018/README.md).
 
 ## October 17 progression, combat and crafting — deployed
 

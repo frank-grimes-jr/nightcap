@@ -2,7 +2,7 @@
 
 ## 2026-10-18 — Client zone validation and repair
 
-Published signed game 2026101801: add 32 Classic travel terrain/object archives and require all 34 reviewed travel archives during future packaging. Existing patcher SHA-256 checks repair missing/corrupt files before Play, including West Commonlands. All 106 previous assets and settings preserved; no desktop/DLL/server change. Native Karl zoning acceptance pending. Evidence: docs/releases/client-zone-validation-20261018/README.md.
+Published signed game 2026101801: add 32 Classic travel terrain/object archives and require all 34 reviewed travel archives during future packaging. Existing patcher SHA-256 checks repair missing/corrupt files before Play, including West Commonlands. All 106 previous assets and settings preserved; no desktop/DLL/server change. Owner confirmed Karl’s West Commonlands zoning repair on October 18; broader destination QA remains open. Evidence: docs/releases/client-zone-validation-20261018/README.md.
 
 ## 2026-10-17 - Combined progression, combat and crafting release deployed
 
