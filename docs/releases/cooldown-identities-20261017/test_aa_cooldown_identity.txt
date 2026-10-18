@@ -1,0 +1,41 @@
+test_all_eligible_family_pairs_activate_independently (test_aa_cooldown_identity.AACooldownIdentityTests.test_all_eligible_family_pairs_activate_independently) ... ok
+test_all_eligible_family_pairs_publish_distinct_timer_identity (test_aa_cooldown_identity.AACooldownIdentityTests.test_all_eligible_family_pairs_publish_distinct_timer_identity) ... ok
+test_all_same_family_ranks_share_cooldown_and_exact_expiry (test_aa_cooldown_identity.AACooldownIdentityTests.test_all_same_family_ranks_share_cooldown_and_exact_expiry) ... ok
+test_class_slot_remap_preserves_family_deadlines (test_aa_cooldown_identity.AACooldownIdentityTests.test_class_slot_remap_preserves_family_deadlines) ... ok
+test_death_reset_is_scoped_to_flagged_family (test_aa_cooldown_identity.AACooldownIdentityTests.test_death_reset_is_scoped_to_flagged_family) ... ok
+test_native_successful_completion_pulses_target_catalog_slots (test_aa_cooldown_identity.AACooldownIdentityTests.test_native_successful_completion_pulses_target_catalog_slots) ... ok
+test_purify_body_does_not_lock_rampage (test_aa_cooldown_identity.AACooldownIdentityTests.test_purify_body_does_not_lock_rampage) ... ok
+test_rampage_does_not_lock_purify_body (test_aa_cooldown_identity.AACooldownIdentityTests.test_rampage_does_not_lock_purify_body) ... ok
+test_relog_preserves_both_individual_deadlines (test_aa_cooldown_identity.AACooldownIdentityTests.test_relog_preserves_both_individual_deadlines) ... ok
+test_relog_timer_packets_match_catalog_family_identity (test_aa_cooldown_identity.AACooldownIdentityTests.test_relog_timer_packets_match_catalog_family_identity) ... ok
+test_resend_focus_changes_preserve_stored_remaining_time (test_aa_cooldown_identity.AACooldownIdentityTests.test_resend_focus_changes_preserve_stored_remaining_time) ... ok
+test_reset_all_aa_restores_families_and_preserves_skill (test_aa_cooldown_identity.AACooldownIdentityTests.test_reset_all_aa_restores_families_and_preserves_skill) ... ok
+test_reset_one_family_preserves_other_family (test_aa_cooldown_identity.AACooldownIdentityTests.test_reset_one_family_preserves_other_family) ... ok
+test_reset_uses_requested_rank_even_if_casting_member_is_stale (test_aa_cooldown_identity.AACooldownIdentityTests.test_reset_uses_requested_rank_even_if_casting_member_is_stale) ... ok
+test_unearned_ineligible_or_failed_cast_starts_no_cooldown (test_aa_cooldown_identity.AACooldownIdentityTests.test_unearned_ineligible_or_failed_cast_starts_no_cooldown) ... ok
+test_wire_slots_do_not_move_on_purchase_or_refund (test_aa_cooldown_identity.AACooldownIdentityTests.test_wire_slots_do_not_move_on_purchase_or_refund) ... ok
+
+----------------------------------------------------------------------
+Ran 16 tests in 31.020s
+
+OK
+Catalog overlay: 2026-10-17T19:59:13.392810+00:00
+27060 ordered cases across 165 families
+all-pairs: PASS
+27060 ordered cases across 165 families
+all-catalog: PASS
+825 ordered same-family rank cases
+same-family: PASS
+class-remap: PASS
+death-reset: PASS
+completion-pulses: PASS
+purify-rampage: PASS
+rampage-purify: PASS
+relog: PASS
+resend: PASS
+focused-resend: PASS
+reset-all: PASS
+reset-one: PASS
+reset-argument: PASS
+guards: PASS
+purchase-stability: PASS

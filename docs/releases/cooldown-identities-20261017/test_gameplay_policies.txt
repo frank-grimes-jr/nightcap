@@ -1,0 +1,7 @@
+test_integration_points (test_gameplay_policies.GameplayPolicies.test_integration_points) ... ok
+test_native_spell_and_death_behavior (test_gameplay_policies.GameplayPolicies.test_native_spell_and_death_behavior) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 8.458s
+
+OK

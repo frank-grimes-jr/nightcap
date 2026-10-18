@@ -11259,6 +11259,7 @@ void Client::ResetItemCooldown(uint32 item_id)
 
 void Client::SetItemCooldown(uint32 item_id, bool use_saved_timer, uint32 in_seconds)
 {
+	if (item_id > 0xfffff) { return; }
 	EQ::ItemInstance *item = nullptr;
 	const EQ::ItemData* item_d = database.GetItem(item_id);
 	if (!item_d) {
@@ -11270,7 +11271,7 @@ void Client::SetItemCooldown(uint32 item_id, bool use_saved_timer, uint32 in_sec
 	uint32 current_time = static_cast<uint32>(std::time(nullptr));
 	uint32 final_time = 0;
 	const auto timer_type = item_d->RecastType != RECAST_TYPE_UNLINKED_ITEM ? item_d->RecastType : item_id;
-	const int timer_id = recast_type != RECAST_TYPE_UNLINKED_ITEM ? (pTimerItemStart + recast_type) : (pTimerNegativeItemReuse * item_id);
+	const int timer_id = recast_type != RECAST_TYPE_UNLINKED_ITEM ? (pTimerItemStart + recast_type) : (pTimerUnlinkedItemStart + item_id);
 
 	if (use_saved_timer) {
 		if (item_d->RecastType != RECAST_TYPE_UNLINKED_ITEM) {
@@ -11278,6 +11279,9 @@ void Client::SetItemCooldown(uint32 item_id, bool use_saved_timer, uint32 in_sec
 		} else {
 			total_time = timestamps.count(item_id) ? timestamps.at(item_id) : 0;
 		}
+		// Migration may preserve a longer ambiguous legacy deadline. Publish the
+		// same remaining wait the authoritative timer will enforce.
+		total_time = std::max(total_time, current_time + GetPTimers().GetRemainingTime(timer_id));
 	} else {
 		total_time = current_time + in_seconds;
 	}
@@ -11319,6 +11323,7 @@ void Client::SetItemCooldown(uint32 item_id, bool use_saved_timer, uint32 in_sec
 
 uint32 Client::GetItemCooldown(uint32 item_id)
 {
+	if (item_id > 0xfffff) { return 0; }
 	const EQ::ItemData* item_d = database.GetItem(item_id);
 	if (!item_d) {
 		return 0;
@@ -11332,6 +11337,9 @@ uint32 Client::GetItemCooldown(uint32 item_id)
 	uint32 final_time = 0;
 
 	total_time = timestamps.count(timer_type) ? timestamps.at(timer_type) : 0;
+	const pTimerType timer_id = recast_type != RECAST_TYPE_UNLINKED_ITEM ?
+		pTimerItemStart + recast_type : pTimerUnlinkedItemStart + item_id;
+	total_time = std::max(total_time, current_time + GetPTimers().GetRemainingTime(timer_id));
 
 	if (total_time > current_time) {
 		final_time = total_time - current_time;

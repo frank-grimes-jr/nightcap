@@ -1,0 +1,23 @@
+# Shared activated AA groups in the live catalog
+
+Candidate isolates each family; ranks of the same family remain linked.
+
+| Legacy group | Families |
+|---|---|
+| 0 | [PAL] Holy Steed (77); [SHD] Unholy Steed (85); Suspended Minion (176); [ENC] Project Illusion (217); [BER] Savage Spirit (465); [WIZ] Pyromancy (514); [ROG] Appraisal (536); [PAL] Valiant Steed (570); [SHD] Abyssal Steed (571); [WIZ] Cryomancy (640); [SHM] Pact of the Wolf (707) |
+| 1 | Mass Group Buff (35); [MNK] Purify Body (98); [ROG] Escape (102); Rampage (109); Ancient Attunement (2220) |
+| 2 | [CLR] Divine Resurrection (36); [ENC] Dire Charm (46); [WIZ] Nexus Gate (53); Mend Companion (58); [PAL] Divine Stun (73); Innate Camouflage (80); [SHD] Leech Touch (87); [WAR] Area Taunt (110); [BRD] Boastful Bellow (199); [MNK] Destructive Force   (276); [BER] Untamed Rage (374); Replenish Companion (418); [BER] Cascading Rage (499); Shared Camouflage (518); [PAL] Hand of Disruption (702) |
+| 3 | Innate Invis to Undead (37); Exodus (43); [SHM] Rabid Bear (50); [PAL] Act of Valor (76); [WAR] War Cry (111); [BST] Hobble of Spirits (126); [RNG] Guardian of the Forest (184); [BER] Tireless Sprint (372); [MNK] Crippling Strike (468); [MNK] Stunning Kick (469); [MNK] Eye Gouge (470); Cloak of Shadows (531); [ROG] Stealthy Getaway (789) |
+| 4 | [CLR] Celestial Regeneration (38); [MAG] Elemental Form: Fire (61); [MAG] Elemental Form: Water (62); [MAG] Elemental Form: Earth (63); [MAG] Elemental Form: Air (64); [WIZ] Strong Root (117); [BST] Frenzy of Spirit (127); [SHM] Virulent Paralysis (171); Entrap (219); [BRD] Shield of Notes (361); [BER] Blood Pact (387); [MNK] Imitate Death (420); [ROG] Tumble (673) |
+| 5 | [CLR] Bestow Divine Aura (39); [NEC] Dead Mesmerization (69); [BST] Paragon of Spirit (128); [WIZ] Harvest of Druzzil (172); [SHM] Spirit Call (177); [DRU] Spirit of the Wood (185); [ENC] Doppelganger (261); [PAL] Radiant Cure (285); [RNG] Flaming Arrows (289); [RNG] Frost Arrows (290); [BER] Desperation (373); [WAR] Press the Attack (467); [BRD] Song of Stone (544); [MAG] Turn Summoned (559); Grappling Strike (601); [ROG] Dirty Fighting (671) |
+| 6 | [NEC] Fear Storm (70); [MAG] Servant of Ro (174); [WIZ] Call of Xuzl (208); [BST] Feral Swipe (247); [DRU] Nature's Boon (257); [PAL] Purification   (286); [SHM] Call of the Ancients (321); [ENC] Color Shock (412); [RNG] Auspice of the Hunter (462); [BER] Cry of Battle (505); [WAR] Call of Challenge (552); [BRD] Cacophony (553); [CLR] Turn Undead (558); [ROG] Ligament Slice (672) |
+| 7 | [CLR] Purify Soul (41); [NEC] Flesh to Bone (71); [MAG] Host of the Elements (207); [BRD] Fading Memories (212); [BST] Bestial Alignment (245); [DRU] Dire Charm (317); [ENC] Stasis (409); [PAL] Cloak of Light (529); [WAR] Mark of the Mage Hunter (606); [BER] Blinding Fury (610); [ROG] Twisted Shank (670); [ENC] Nightmare Stasis (748) |
+| 8 | [WIZ] Improved Familiar (52); [NEC] Call to Corpse (72); Radiant Cure (153); [MAG] Shared Health (265); [WIZ] Ro's Flaming Familiar   (303); [WIZ] E'ci's Icy Familiar   (304); [WIZ] Druzzil's Mystical Familiar   (305); [BST] Roar of Thunder (362); [ENC] Soothing Words (414); [BER] Uncanny Resilience (609); [BRD] Hymn of the Last Stand (668); [RNG] Protection of the Spirit Wolf (778) |
+| 9 | [CLR] Divine Arbitration (169); [NEC] Wake the Dead (175); Call of the Wild (404); [ENC] Mind Over Matter (413); [WIZ] Teleport Bind (456); [MAG] Fire Core (621); [MAG] Vapor Core (622); [BST] Taste of Blood (666); [BRD] Bladed Song (669); [MAG] Heart of Flames (784); [MAG] Heart of Vapor (785); [NEC] Army of the Dead (792) |
+| 10 | [CLR] Divine Avatar (254); [NEC] Swarm of Decay (320); Secondary Recall (405); [SHM] Ancestral Aid (447); [ENC] Edict of Command (521); [PAL] Armor of the Inquisitor (701) |
+| 11 | [CLR] Exquisite Benediction (255); [NEC] Dire Charm (318); [WIZ] Mind Crash (451); [SHM] Ancestral Guard (528); [DRU] Spirit of the White Wolf (705) |
+| 12 | [ROG] Purge Poison (107); [ENC] Eldritch Rune (173); [WIZ] Ward of Destruction   (307); [CLR] Celestial Hammer (391); Death Peace (428); [DRU] Nature's Guardian (520); Hold the Line (734) |
+| 13 | [CLR] Divine Retribution (392); [NEC] Blood Magic (524); Battle Leap (611); [ENC] Sanguine Mind Crystal (632); [SHM] Union of Spirits (662) |
+| 14 | [MAG] Frenzied Burnout (60); [CLR] Sanctuary (396); [WIZ] Translocational Anchor (512); [NEC] Gathering Dusk (629); [ENC] Azure Mind Crystal (633) |
+| 16 | [MAG] Ice Core  (623); [MAG] Stone Core  (624); [MAG] Heart of Ice (786); [MAG] Heart of Stone (787) |
+| 39 | [SHD] Harm Touch (6000); [PAL] Lay on Hands (6001) |
