@@ -8,9 +8,13 @@ The resulting Normal band is 74%. Missing variants retain the base item.
 
 ## Activation
 
-Status: **prepared; first activation refused an occupied deployment lock before
-any write**. The concurrent cooldown release must finish; inspect its final
-binary/source manifest before updating the operator's exact runtime guard.
+Status: **prepared, not activated**. The first activation refused an occupied
+deployment lock before any write. At 10:49 a.m. Eastern, production game and
+gateway remained stopped for the separate cooldown deployment and the three
+rates remained 1000/200/25 (`pending-status.json`). Wait for that operation to
+finish; do not reopen access or restart its runtime from this task.
+Both the old and incoming cooldown builds have byte-identical loot/rule/reload
+sources (`source-review.json`); the operator guards both exact reviewed hashes.
 
 `ops/apply.py` changes only `Zone:LootTierRareChance` 1000→2000,
 `Zone:LootTierEpicChance` 200→500 and `Zone:LootTierLegendaryChance` 25→100.
@@ -61,3 +65,9 @@ edge cases are in [quest-reward-policy.md](quest-reward-policy.md). This rate
 activation does not implement or advertise automatic quest upgrades.
 
 Wiki impact and publication state are recorded in `wiki-review.json`.
+All 14 wiki/content/refresh tests pass. Local notices remain explicitly pending;
+they have not been published over the concurrent travel/cooldown wiki releases.
+
+Installed Nightcap items knowledge and reviewed fingerprints were updated with
+the actual loot hook, pending activation and quest exclusions. `update_skill.py`
+retains an exact patch and checks current preimages before installation.

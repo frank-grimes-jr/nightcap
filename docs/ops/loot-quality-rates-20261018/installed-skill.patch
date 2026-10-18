@@ -1,0 +1,11 @@
+--- C:/Users/verre/.codex/skills/nightcap-development/references/sources.json
++++ C:/Users/verre/.codex/skills/nightcap-development/references/sources.json
+@@ -4674,7 +4674,7 @@
+         "path": "docs/ops/loot-quality-rates-20261018/wiki-review.json",
+         "role": "whole-wiki impact review; loot notices remain unpublished",
+         "revision": "84c5334fd092fdb1369c3cae7142b093b7dc9b96 + reviewed working evidence",
+-        "sha256": "870ace5522df18f63c8abc8bf63dea8c42f21748556972b263ba2e3c46bb7cb7"
++        "sha256": "d08cf04b567d3705cf93d942a8571996c0fa71eb7fd51222c77637b5c28269d1"
+       }
+     ]
+   }

@@ -89,5 +89,6 @@
   },
   "generated_catalog": "All 432 item/zone routes retain catalog values and hunt mechanics; ordinary-rate tuning does not affect them",
   "concurrent_releases": "October18 client travel and cooldown releases must be preserved during publication; this source snapshot is not a publishable replacement for later releases",
-  "tests": "14 wiki/content/refresh tests passed; expected missing-ref diagnostic is part of negative test"
+  "tests": "14 wiki/content/refresh tests passed; expected missing-ref diagnostic is part of negative test",
+  "refresh_check": "REVIEW REQUIRED: this feature has scoped changes since published ledger; whole-wiki impact reviewed here, publication/integration pending. Ledger intentionally not advanced over concurrent releases."
 }

@@ -1,0 +1,16 @@
+{
+  "observed_at_utc": "2026-10-18T14:49:01.279013+00:00",
+  "status": "pending_activation",
+  "services": {
+    "/nightcap-production-game-1": {
+      "status": "exited",
+      "running": false
+    },
+    "/nightcap-production-gateway-1": {
+      "status": "exited",
+      "running": false
+    }
+  },
+  "live_rates": "1\tZone:LootTierEpicChance\t200\n1\tZone:LootTierLegendaryChance\t25\n1\tZone:LootTierRareChance\t1000\n",
+  "reason": "Concurrent cooldown deployment maintenance; this tuning made no production writes"
+}
