@@ -53,8 +53,15 @@ never restore an old player snapshot or the pre-cooldown binary.
 The operator validates the market rotation against its actual retained procedure:
 exhausted eligible pools can leave empty slots. Counts must stay within actor and
 scarcity capacities, with every present offer satisfying epoch, price, quantity
-and eligibility checks. This correction passed nine operator test groups on
+and eligibility checks. The operator passed twelve test groups on
 Windows and Linux before deployment; it does not change market behavior.
+
+The first preflight stopped before creating evidence or changing service state:
+BuildKit interpreted a bare local image ID in `FROM` as a registry name. The
+corrected build creates a release-local tag from the authenticated image ID and
+verifies it before and after building with pulls disabled. Full binary hashes and
+one-layer ancestry still verify against the immutable baseline. Three regression
+groups cover successful construction and tag drift before/during the build.
 
 ## In-game QA
 
