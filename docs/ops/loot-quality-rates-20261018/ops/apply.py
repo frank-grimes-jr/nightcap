@@ -83,6 +83,7 @@ with (ROOT/'.deployment.lock').open('a') as lock:
     assert binaries['zone'] in (
         '3c1d74926cb7cff032a3ee8c48c210e37740156e7e36cc0eeddd07f847e88d1a',
         'd3908e0348715e94955d84f629e4f27e91f15c7dd661e437efbba580ce3d216a',
+        '29b8093147ffbc4c0d387a4e3fa55a3a041dbb9ae7da731b493b21601a6dec2f',
     ), 'Runtime changed; revalidate source/reload protocol'
     rows=sql(f"SELECT ruleset_id,rule_name,rule_value FROM rule_values WHERE rule_name IN ({NAMES}) ORDER BY rule_name;")
     wanted=''.join('1\t'+n+'\t'+CHANGES[n][0]+'\n' for n in sorted(CHANGES))

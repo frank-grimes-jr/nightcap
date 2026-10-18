@@ -14,5 +14,11 @@
     "zone/zone_reload.cpp": "2dccf253d97d6a9900712480a0d2d7dd007e879040d4760584f25c5aeb9d9427",
     "world/zonelist.cpp": "fcf3c0788345138de28c5e3fe090503ac4b351228c80fc5df839d97c79608c18"
   },
-  "candidate_manifest_sha256": "cc47efb02e142065b45ae5d7c9eb4fd0bedb35baf33aa1cc172f8853a0f8ab5d"
+  "candidate_manifest_sha256": "cc47efb02e142065b45ae5d7c9eb4fd0bedb35baf33aa1cc172f8853a0f8ab5d",
+  "reforge_successor": {
+    "manifest": "C:\\Users\\verre\\.codex\\worktrees\\reforge-default-colors\\EQ_Local_Dev\\docs\\releases\\reforge-colors-20261018\\build-manifest.json",
+    "sha256": "4eb73440db73a1cfa062a80bd85e93fe70bfe0a00234a9f0a6f31a0a687bd9a4",
+    "baseline_zone_sha256": "d3908e0348715e94955d84f629e4f27e91f15c7dd661e437efbba580ce3d216a",
+    "review": "Reproduced cooldown baseline; only advanced_loot_inventory implementation replaced; loot and rule reload objects retained"
+  }
 }
