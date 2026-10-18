@@ -1,5 +1,15 @@
 [
   {
+    "release": 2026101801,
+    "date": "2026-10-18",
+    "changes": [
+      {
+        "kind": "fix",
+        "text": "The patcher now checks and repairs terrain and object archives for 17 Classic travel destinations, including West Commonlands, Misty Thicket and Toxxulia. Close EverQuest and press Play to repair missing or corrupted files."
+      }
+    ]
+  },
+  {
     "release": 2026101702,
     "date": "2026-10-17",
     "changes": [

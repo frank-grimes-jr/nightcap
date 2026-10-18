@@ -27,6 +27,9 @@ client2026101801 retains all106 prior assets and adds32 Classic zone assets. Con
 Harmshield/Cannibalize, Battle Cry/Throw Stone and generic skill sharing remain open.
 [Evidence, migration, limits and QA](releases/cooldown-identities-20261017/README.md).
 
+## October 18, 2026 — Classic travel client repair
+
+Signed game 2026101801 published (138 managed assets; 106 existing preserved, 32 added). Terrain/object coverage spans 17 audited Classic travel destinations; not the whole RoF2 installation. Owner confirmed Karl’s West Commonlands zoning issue resolved on October 18; broader destination QA remains open. No server restart. See [release evidence](releases/client-zone-validation-20261018/README.md).
 
 ## October 17 progression, combat and crafting — deployed
 
