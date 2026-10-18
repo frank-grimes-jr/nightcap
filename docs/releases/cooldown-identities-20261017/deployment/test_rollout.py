@@ -120,7 +120,7 @@ def operator_fixture(opening=False):
         runtime = Runtime()
         for name, value in {"ROOT": root, "STAGE": root, "EVIDENCE": evidence, "PRIVATE": private, "r": runtime}.items():
             stack.enter_context(patch.object(op, name, value))
-        stack.enter_context(patch.object(op, "manifest", return_value={"client_channel_sha256": "channel"}))
+        stack.enter_context(patch.object(op, "manifest", return_value={"client_channel_sha256": "channel", "client_release": 2026101801}))
         stack.enter_context(patch.object(op, "sha", return_value="digest"))
         stack.enter_context(patch.object(op.shutil, "disk_usage", return_value=types.SimpleNamespace(free=10 * 1024**3)))
         stack.enter_context(patch.object(op, "untouched"))
@@ -283,6 +283,7 @@ class FailureBoundaryTests(unittest.TestCase):
             self.assertEqual([event for event in runtime.events if event[0] == "select"], [("select", "candidate")])
             deployed = op.load("activated.json")
             self.assertEqual(deployed["status"], "deployed")
+            self.assertEqual(deployed["client_release"], 2026101801)
             self.assertFalse(deployed["database_restored"])
             self.assertFalse(deployed["owner_gameplay_accepted"])
             with patch.object(op, "sha", return_value="changed"):

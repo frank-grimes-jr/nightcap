@@ -15,9 +15,15 @@ the live backup, SQL rehearsal, receipt and runtime checks remain required gates
 
 Reviewed SHA256 values:
 
-- rollout.py: `96b782f4eeaf13db9ffc3642c85b4648f4c987fac668a79ffedb6b15c72a28d4`
+- rollout.py: `cc263166bf4b259dcb8e4ff6476f10fa0bab2ef3989a18d8b1a26a4d01e50438`
 - capture.py: `9b4ef0e75818f5aaeb06032d007ec345b95e54e20f1688aa756a76d24edec0ae`
-- test_rollout.py: `31007c1bf9353bc2273fb5bf5fe15bdb3e35525d8a457de448027d6091da0275`
+- test_rollout.py: `385c0245902d8a4438aecc543e8ee81d200ed70efa432717b7187553373fcfc2`
 
 The existing reviewed native build and migration tests are unchanged. No gameplay
 acceptance is inferred from review or test success.
+
+A second independent review approved recording the frozen manifest client release
+in the final receipt. All 25 tests passed again, including an explicit 2026101801
+receipt assertion. The concurrent channel added 32 Classic zone assets while all
+106 prior assets stayed identical; compatibility evidence is retained beside this
+review. Initial preflight stopped safely before access, runtime or SQL changes.

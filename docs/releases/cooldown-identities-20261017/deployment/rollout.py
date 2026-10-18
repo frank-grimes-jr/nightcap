@@ -221,7 +221,7 @@ def open_access():
         assert r.state('gateway')['State']['Running'];health();r.closed_ports()
         current=r.running(p['new_image_id'],binaries(p));assert current['started_at']==a['runtime']['started_at']
         untouched(p) # No saved-player comparisons after access may have opened.
-        save('activated.json',{'status':'deployed','gateway_open':True,'runtime':current,'migration':load('migration-applied.json'),'market_rotation':a['market_rotation'],'cache_sha256':p['cache_sha256'],'client_release':2026101702,'database_restored':False,'owner_gameplay_accepted':False,'player_tables_preserved':a['player_tables_preserved'],'custom_tables_preserved':a['custom_tables_preserved']})
+        save('activated.json',{'status':'deployed','gateway_open':True,'runtime':current,'migration':load('migration-applied.json'),'market_rotation':a['market_rotation'],'cache_sha256':p['cache_sha256'],'client_release':manifest()['client_release'],'database_restored':False,'owner_gameplay_accepted':False,'player_tables_preserved':a['player_tables_preserved'],'custom_tables_preserved':a['custom_tables_preserved']})
         print('Cooldown correction deployed; access open.',flush=True)
     except BaseException:
         hold('Opening failed/uncertain. Preserve subsequent activity; inspect receipts.');raise

@@ -10,7 +10,11 @@ The manifest authenticates every input, the retained runtime helper, the previou
 native image hashes and unchanged signed client channel. Candidate zone SHA256:
 `d3908e0348715e94955d84f629e4f27e91f15c7dd661e437efbba580ce3d216a`.
 The complete candidate tree was built from the prior fingerprinted release;
-only `bin/zone` changes in the production image. Keep signed client 2026101702.
+only `bin/zone` changes in the production image. During staging, signed client
+2026101801 superseded 2026101702: all 106 previous assets remain byte-identical,
+including the proxy and timer configuration; 32 Classic zone S3D assets were added.
+Preserve that newer channel and bind the manifest to its reviewed hash. The initial
+preflight rejected the channel drift before changing access, runtime or SQL.
 
 `rollout.py preflight` checks healthy service lifetimes, disk space, absent
 migration state, exact live binary/catalog/cache/client inputs and private native
