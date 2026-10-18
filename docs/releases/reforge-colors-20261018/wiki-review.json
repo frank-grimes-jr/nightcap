@@ -1,0 +1,103 @@
+{
+  "date": "2026-10-18",
+  "scope": "Independent whole-wiki review; preparatory source, not publication proof",
+  "articles": {
+    "about": {
+      "decision": "No reforging impact; existing mechanics, links, labels and catalog values remain applicable.",
+      "sha256": "d30e64f41dd4395f4d27163407a134527fca9bf9892dabd816774bd0ebcd1da0"
+    },
+    "advanced-loot": {
+      "decision": "No reforging impact; existing mechanics, links, labels and catalog values remain applicable.",
+      "sha256": "0f0870dd8c5e412c0a673a7ff551a952965397e5b2ce0dd6bb67ac1336c0e506"
+    },
+    "ascension": {
+      "decision": "No reforging impact; existing mechanics, links, labels and catalog values remain applicable.",
+      "sha256": "63a95cfaac55cdafad7aed7a731406b01dfdabbb6053e4364371cd283f19d036"
+    },
+    "combat": {
+      "decision": "No reforging impact; existing mechanics, links, labels and catalog values remain applicable.",
+      "sha256": "0c811e8c9f0fbebdc7363fdb1020c2ffad6f129eb6df38e6a7b5afa1fc731658"
+    },
+    "commands": {
+      "decision": "No reforging impact; existing mechanics, links, labels and catalog values remain applicable.",
+      "sha256": "b23435918515e34f6db39189f0d072847b19599dff37c3739daf724839c66bd3"
+    },
+    "dungeon-modes": {
+      "decision": "No reforging impact; existing mechanics, links, labels and catalog values remain applicable.",
+      "sha256": "c9b31538d188ce7e47cfa1c4a297d0ec1c0d2d11b838747fe6d3da06ca561cac"
+    },
+    "equipment": {
+      "decision": "No reforging impact; existing mechanics, links, labels and catalog values remain applicable.",
+      "sha256": "5c855348ce892feb4bb7aabb9adb9ff854332828bf6902e37792f20e3a918e43"
+    },
+    "features": {
+      "decision": "No reforging impact; existing mechanics, links, labels and catalog values remain applicable.",
+      "sha256": "a114c338e2d1c423018c62e55a5cce43fccd107244cf2930526bcd799c1484d2"
+    },
+    "getting-started": {
+      "decision": "No reforging impact; existing mechanics, links, labels and catalog values remain applicable.",
+      "sha256": "7577b0d5dcd9d6275d725553d8444252cec3745e8085651cd873151443e63b08"
+    },
+    "index": {
+      "decision": "Remove superseded stack candidate claim; preserve current travel/home notices.",
+      "sha256": "85046ac76add6d91314a61cd2b638493bca858e54ebd4a7a1aa67c6f9a33a4d8"
+    },
+    "item-upgrades": {
+      "decision": "Clarify built-in colors versus player dye; keep all exclusions and Live testing label.",
+      "sha256": "bc5745a59b1b0ef19fb62924a8bb395df2b4a1400a56d27d03954d5b027bb35e"
+    },
+    "launcher": {
+      "decision": "No reforging impact; existing mechanics, links, labels and catalog values remain applicable.",
+      "sha256": "0909069c8dc879b8ea128b70d1c8458d1121ecb6b4ab6be49cc46df204ae8029"
+    },
+    "multiclass": {
+      "decision": "No reforging impact; existing mechanics, links, labels and catalog values remain applicable.",
+      "sha256": "5cd56b7881577ed0e1fb6dd4c7afa6e0eb9d48bbb9c37b656a2ae329e0d1424e"
+    },
+    "pets": {
+      "decision": "No reforging impact; existing mechanics, links, labels and catalog values remain applicable.",
+      "sha256": "3c44fe0856f38477d4c490ed2c0be34d109f6210d1dd6c9dadccee12a7cd85a3"
+    },
+    "recent-changes": {
+      "decision": "Add confirmed deployment notice only after activation. Preserve concurrent cooldown/travel notices.",
+      "sha256": "585a0dbc404f93d26272ce0633251f79777ca551100d53770dd0595f28e7dd96"
+    },
+    "tradeskills": {
+      "decision": "No reforging impact; existing mechanics, links, labels and catalog values remain applicable.",
+      "sha256": "d76ffea75fea16a2a353a5cab1b5e2b783a244908fcfa0903184cd8947a4de7b"
+    },
+    "travel": {
+      "decision": "No reforging impact; existing mechanics, links, labels and catalog values remain applicable.",
+      "sha256": "7448998634f50498d8fbe813fa2bff99d50a51951754f9e1c29f10bf338c5ecf"
+    },
+    "tunnel": {
+      "decision": "No reforging impact; existing mechanics, links, labels and catalog values remain applicable.",
+      "sha256": "406b3922621b789bbafe02a76b296a7f9fccd716aa082dca94a8493d60b811ae"
+    },
+    "unreleased": {
+      "decision": "No reforging impact; existing mechanics, links, labels and catalog values remain applicable.",
+      "sha256": "1719763aa154381556e68528535056aa14145389cf095359bce60f6cbece48a0"
+    },
+    "waypoints": {
+      "decision": "No reforging impact; existing mechanics, links, labels and catalog values remain applicable.",
+      "sha256": "9ef8b93fa52d5b83c479bbb3c877fab4f9373c0f26c84c43908edf3d7e5666bc"
+    },
+    "zone-hunt": {
+      "decision": "Same native-color rule for zoneforge.",
+      "sha256": "436aff96801951799242ce5aa46193a77e480da785bbd491902d04bc4937f6cc"
+    }
+  },
+  "generated": {
+    "zones": 48,
+    "item_variants": 384,
+    "families": 96,
+    "decision": "No reward values changed. catalog.py has correct 3/4/4 recipes; generated pages link to updated guides. equipment.py shortcut corrected to three Base/four higher."
+  },
+  "preserve_concurrent": [
+    "client travel publication 2026101801",
+    "cooldown release publication when complete"
+  ],
+  "features_home_commands": "No new feature or command; existing upgrade description remains accurate. Home stale stack candidate notice removed.",
+  "private_player_data_published": false,
+  "publication": "pending"
+}

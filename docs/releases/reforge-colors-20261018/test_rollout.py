@@ -61,6 +61,32 @@ def fixture():
         yield runtime, data, evidence
 
 
+class MarketValidation(unittest.TestCase):
+    def verify(self, count=42, capacity=50, invalid='0\n0\n0\n', epoch=81):
+        before = ['1','1','80','0','4','2.500000','2026-10-17 15:00:00']
+        after = ['1','1','81','0','4','2.500000','2026-10-18 15:00:01']
+        def query(q):
+            if 'COALESCE(SUM(' in q: return str(capacity)
+            if q == 'SELECT COUNT(*) FROM nightcap_market_offers;': return str(count)
+            if 'GROUP BY epoch;' in q: return f'{epoch}\t{count}' if count else ''
+            self.assertIn("HAVING n>IF(kind='find',1,2)", q)
+            self.assertIn('o.remaining<>1', q)
+            self.assertIn('i.questitemflag<>0', q)
+            return invalid
+        with patch.object(op, 'market', return_value=after), patch.object(op, 'sql', side_effect=query):
+            return op.verify_market(before, '2026-10-18T15:00:00Z')
+
+    def test_partial_or_exhausted_stock_is_valid(self):
+        self.assertEqual(self.verify()['offers'], 42)
+        self.assertEqual(self.verify(count=0)['offers'], 0)
+        self.assertEqual(self.verify(count=50)['offers'], 50)
+
+    def test_overcapacity_wrong_epoch_and_invalid_offers_are_rejected(self):
+        for args in ({'count':51}, {'epoch':80}, {'invalid':'1\n0\n0\n'},
+                     {'invalid':'0\n1\n0\n'}, {'invalid':'0\n0\n1\n'}):
+            with self.subTest(args=args), self.assertRaises(AssertionError): self.verify(**args)
+
+
 class FailureBoundaries(unittest.TestCase):
     def test_success_preserves_current_state_and_requires_separate_open(self):
         with fixture() as (runtime, data, evidence):
