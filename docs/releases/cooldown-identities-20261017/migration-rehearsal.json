@@ -1,0 +1,31 @@
+{
+  "container": "akk-stack-mariadb-1",
+  "production_touched": false,
+  "checks": [
+    "test_aa_ambiguous_group_preserves_all_family_deadlines_without_ownership",
+    "test_all_twenty_discipline_groups_include_legacy_11_through_19",
+    "test_catalog_preimage_drift_rejects_before_player_rows_change",
+    "test_existing_new_key_merges_max_deadline_and_second_apply_rejects",
+    "test_failure_after_receipt_insert_rolls_back_every_persistent_write",
+    "test_failure_after_timer_inserts_rolls_back_timer_backup_and_receipt_rows",
+    "test_item_aliases_and_timestamp_lead_keep_longest_deadline",
+    "test_nontransactional_tables_wrong_key_type_and_triggers_fail_closed",
+    "test_positive_item_click_and_delay_drift_rejects_with_unchanged_membership",
+    "test_precreated_backup_engine_and_column_mismatch_reject_forward_and_rollback",
+    "test_precreated_nontransactional_receipt_rejects_before_player_rows_change",
+    "test_rollback_projects_new_waits_and_removes_every_namespaced_row",
+    "test_rollback_rejects_unrepresentable_new_key_without_partial_changes",
+    "test_same_count_item_membership_swap_rejects_before_player_rows_change",
+    "test_unlinked_disciplines_carry_ambiguous_legacy_key_13"
+  ],
+  "scratch_removed": true,
+  "catalog_sha256": "e71d550ac445732e36ba316a86f3a079f76a556835b4120c751deb05c8ba73be",
+  "captured_at": "2026-10-17T19:59:13.392810+00:00",
+  "schema": "nightcap_cooldown_test_5f1f83ed774243a2a53ec14363af010a",
+  "forward_sha256": "e7e012ecaa289e7376855763bd9896932137dd15557b427c2a7faa767f696e85",
+  "rollback_sha256": "4bb4fdce6990c66acb05c300821084855e17b05f06766a0aca53d5fcd0faaa74",
+  "tests_run": 15,
+  "failures": 0,
+  "errors": 0,
+  "passed": true
+}

@@ -60,6 +60,17 @@ All commands run from `akk-stack/`:
 
 ## Domain knowledge
 
+- **Cooldown identities (deployed October 18 via PR223; gameplay QA open):** AA reuse belongs
+  to an ability family, projected into the native client's 100 slots independently
+  of purchases. Internal timer keys now use disjoint positive 24-bit-compatible
+  namespaces for AAs, unlinked items and disciplines. Pair the rebuilt zone with
+  the stopped-game guarded timer conversion; its receipt gates authorized zone
+  entry. Preserve legacy deadlines, including dormant families. Rollback removes
+  all namespaced rows before any old uint16 loader starts. Existing Monk client
+  pairing remains required. Linked content and generic basic skill sharing are
+  still open; never claim all groups independent or wipe timers. Evidence, native
+  contract, migration and exact QA: `docs/releases/cooldown-identities-20261017/`.
+
 `.Codex/skills/eqemu/` — EQEmu/Nightcap server internals (caches/reloads, RoF2 client limits, Perl DB API) and the THJ replication spec with gap roadmap (`thj-blueprint.md`). Consult it before touching server systems; keep it updated as systems change.
 
 ## Server ops
@@ -413,6 +424,12 @@ The current project assessment and observed balance baseline are recorded in
 claims about live state).
 
 ### Branch flow
+
+**October 18 cooldown exception:** the owner explicitly requested promotion of
+the reviewed cooldown fix to main and deployment to OVH for live testing. Pair
+the rebuilt zone with the guarded saved-timer conversion and preserve the existing
+Monk client. Live QA remains open; this is not standing deployment permission.
+Exact operator/recovery and acceptance: `docs/releases/cooldown-identities-20261017/`.
 
 **October 11 food/drink exception:** the owner explicitly approved "Merge to main
 and server" for the removal of hunger/thirst requirements, penalties and warnings.

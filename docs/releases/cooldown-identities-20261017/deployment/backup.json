@@ -1,0 +1,7 @@
+{
+  "path": "/opt/nightcap/releases/cooldown-identities-20261018/private-backup/peq-before.sql.gz",
+  "sha256": "2f0690f046408258473fa9f9112a68eca54e99517578385d312a4cc5623d90d5",
+  "compressed_bytes": 64244275,
+  "uncompressed_bytes": 459085434,
+  "gzip_integrity": "passed"
+}

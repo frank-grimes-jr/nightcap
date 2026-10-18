@@ -339,7 +339,7 @@ bool PlainForgeItem(const EQ::ItemInstance *item)
 {
 	if (!item || !item->IsClassCommon() || !NightcapHunt::NextTier(item->GetID()) ||
 		item->IsStackable() || item->IsEvolving() || item->GetEvolveUniqueID() || item->IsScaling() || item->GetCharges() != 1 ||
-		item->GetColor() || !item->GetCustomDataString().empty() || item->GetOrnamentationIcon() ||
+		(item->GetColor() && item->GetColor() != item->GetItem()->Color) || !item->GetCustomDataString().empty() || item->GetOrnamentationIcon() ||
 		item->GetOrnamentationIDFile() || item->GetOrnamentHeroModel()) { return false; }
 	for (uint8 i = 0; i < EQ::invaug::SOCKET_COUNT; ++i) { if (item->GetAugmentItemID(i)) { return false; } }
 	return true;
@@ -358,7 +358,9 @@ static uint32 UpgradeTarget(uint32 id)
 static bool PlainUpgradeItem(const EQ::ItemInstance *item)
 {
 	if (!item || !item->IsClassCommon() ||
-		item->IsEvolving() || item->GetEvolveUniqueID() || item->IsScaling() || item->GetColor() ||
+		item->IsEvolving() || item->GetEvolveUniqueID() || item->IsScaling() ||
+		// ItemInstance starts with the definition's color; only an override is dye.
+		(item->GetColor() && item->GetColor() != item->GetItem()->Color) ||
 		!item->GetCustomDataString().empty() || item->GetOrnamentationIcon() ||
 		item->GetOrnamentationIDFile() || item->GetOrnamentHeroModel()) { return false; }
 	for (uint8 i = 0; i < EQ::invaug::SOCKET_COUNT; ++i) { if (item->GetAugmentItemID(i)) { return false; } }

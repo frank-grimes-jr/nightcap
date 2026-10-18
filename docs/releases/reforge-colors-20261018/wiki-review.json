@@ -1,0 +1,126 @@
+{
+  "date": "2026-10-18",
+  "scope": "Combined publication review after native activation; preserves reviewed main47c9e87 cooldown and published client-travel source.",
+  "articles": {
+    "about": {
+      "decision": "No reforging impact; existing mechanics, links, labels and catalog values remain applicable.",
+      "sha256": "d30e64f41dd4395f4d27163407a134527fca9bf9892dabd816774bd0ebcd1da0"
+    },
+    "advanced-loot": {
+      "decision": "No reforging impact; existing mechanics, links, labels and catalog values remain applicable.",
+      "sha256": "0f0870dd8c5e412c0a673a7ff551a952965397e5b2ce0dd6bb67ac1336c0e506"
+    },
+    "ascension": {
+      "decision": "No reforging impact; existing mechanics, links, labels and catalog values remain applicable.",
+      "sha256": "63a95cfaac55cdafad7aed7a731406b01dfdabbb6053e4364371cd283f19d036"
+    },
+    "combat": {
+      "decision": "Preserve reviewed cooldown/travel guidance from PR229; no additional reforging change. Candidate and owner acceptance boundaries retained.",
+      "sha256": "5ff1e16241c93898964f3f6a2308c803bae8f8cca7a2c8f0b6ee265be20554c6"
+    },
+    "commands": {
+      "decision": "No reforging impact; existing mechanics, links, labels and catalog values remain applicable.",
+      "sha256": "b23435918515e34f6db39189f0d072847b19599dff37c3739daf724839c66bd3"
+    },
+    "dungeon-modes": {
+      "decision": "No reforging impact; existing mechanics, links, labels and catalog values remain applicable.",
+      "sha256": "c9b31538d188ce7e47cfa1c4a297d0ec1c0d2d11b838747fe6d3da06ca561cac"
+    },
+    "equipment": {
+      "decision": "Preserve reviewed cooldown/travel guidance from PR229; no additional reforging change. Candidate and owner acceptance boundaries retained.",
+      "sha256": "0990171c564e3adec46aa56c6a9558d720de26be58aff39fe033f514754a3383"
+    },
+    "features": {
+      "decision": "Preserve reviewed cooldown/travel guidance from PR229; no additional reforging change. Candidate and owner acceptance boundaries retained.",
+      "sha256": "6d28bfa92ce2aa7d497ba20ad1a76603af97de5a48ae4fd79e64e8228eaffaa0"
+    },
+    "getting-started": {
+      "decision": "Preserve reviewed cooldown/travel guidance from PR229; no additional reforging change. Candidate and owner acceptance boundaries retained.",
+      "sha256": "49da8ae75f638d38cb420b23c83d01bcf7593d3f00055e76c15fd40f36b2814e"
+    },
+    "index": {
+      "decision": "Remove superseded stack candidate claim; preserve current travel/home notices.",
+      "sha256": "c50b71da1f95606f960e7fa43c4872cb9a19fc977e1a046132ee52088cf15668"
+    },
+    "item-upgrades": {
+      "decision": "Clarify built-in colors versus player dye; keep all exclusions and Live testing label.",
+      "sha256": "5d8886e880c0b1945710d72347192b4b47708d068197d9ccec27c0733f8dc5c8"
+    },
+    "launcher": {
+      "decision": "Preserve reviewed cooldown/travel guidance from PR229; no additional reforging change. Candidate and owner acceptance boundaries retained.",
+      "sha256": "bce000f1acf875347276156310567702d4d9a71bfafd8091b725405e4a98e78c"
+    },
+    "multiclass": {
+      "decision": "Preserve reviewed cooldown/travel guidance from PR229; no additional reforging change. Candidate and owner acceptance boundaries retained.",
+      "sha256": "a07eaa65d933c6269e0c8289f84bcbc6556f6c9e0a192639dd60b6c0c0df63b6"
+    },
+    "pets": {
+      "decision": "No reforging impact; existing mechanics, links, labels and catalog values remain applicable.",
+      "sha256": "3c44fe0856f38477d4c490ed2c0be34d109f6210d1dd6c9dadccee12a7cd85a3"
+    },
+    "recent-changes": {
+      "decision": "Add verified default-color deployment notice; preserve every cooldown/travel and earlier notice.",
+      "sha256": "44fae70936ae46d115324bd8aaea4e090e07113538ca7780b45f170c916a9539"
+    },
+    "tradeskills": {
+      "decision": "No reforging impact; existing mechanics, links, labels and catalog values remain applicable.",
+      "sha256": "d76ffea75fea16a2a353a5cab1b5e2b783a244908fcfa0903184cd8947a4de7b"
+    },
+    "travel": {
+      "decision": "Preserve reviewed cooldown/travel guidance from PR229; no additional reforging change. Candidate and owner acceptance boundaries retained.",
+      "sha256": "f6fc37d18ec535c85fff900a5b622a0e80ea1d768a2692febcf3f622d0f0421e"
+    },
+    "tunnel": {
+      "decision": "No reforging impact; existing mechanics, links, labels and catalog values remain applicable.",
+      "sha256": "406b3922621b789bbafe02a76b296a7f9fccd716aa082dca94a8493d60b811ae"
+    },
+    "unreleased": {
+      "decision": "Preserve reviewed cooldown/travel guidance from PR229; no additional reforging change. Candidate and owner acceptance boundaries retained.",
+      "sha256": "f79ff7469de4b9aa85b572af20b21aef7d35b41a67ac1fc5b0ee9fca43cc9a50"
+    },
+    "waypoints": {
+      "decision": "No reforging impact; existing mechanics, links, labels and catalog values remain applicable.",
+      "sha256": "9ef8b93fa52d5b83c479bbb3c877fab4f9373c0f26c84c43908edf3d7e5666bc"
+    },
+    "zone-hunt": {
+      "decision": "Same native-color rule for zoneforge.",
+      "sha256": "3ace1f594f09ace75958f7e3f7465e4a6aec10a6ec8f591b5ab3cdef087d568c"
+    }
+  },
+  "generated": {
+    "zones": 48,
+    "item_variants": 384,
+    "families": 96,
+    "decision": "No reward values changed. catalog.py has correct 3/4/4 recipes; generated pages link to updated guides. equipment.py shortcut corrected to three Base/four higher."
+  },
+  "preserve_concurrent": [
+    "client travel publication 2026101801",
+    "cooldown release publication when complete"
+  ],
+  "features_home_commands": "No new feature or command; existing upgrade description remains accurate. Home stale stack candidate notice removed.",
+  "private_player_data_published": false,
+  "publication": "20261018-reforge-colors-v1; all465 public hashes/headers and five private-source denials verified",
+  "inherited_review": "docs/releases/cooldown-identities-20261017/deployment/wiki-review.json and concurrent-wiki-preservation.json; main47c9e8792c6719bca330e05c2b6d10d3a579cfe5",
+  "unchanged_articles_proven": [
+    "about.json",
+    "advanced-loot.json",
+    "ascension.json",
+    "combat.json",
+    "commands.json",
+    "dungeon-modes.json",
+    "equipment.json",
+    "features.json",
+    "getting-started.json",
+    "index.json",
+    "launcher.json",
+    "multiclass.json",
+    "pets.json",
+    "tradeskills.json",
+    "travel.json",
+    "tunnel.json",
+    "unreleased.json",
+    "waypoints.json"
+  ],
+  "origin_rollback_and_service_preservation": "wiki-publication.json",
+  "owner_gameplay_accepted": false
+}

@@ -1,8 +1,54 @@
 # CHANGES
 
-## 2026-10-18 - Ordinary loot quality tuning
+## 2026-10-18 - Ordinary loot quality rates activated
 
-Prepared guarded 20% Polished / 5% Exalted / 1% Ascended ordinary-drop rates (was 10%/2%/0.25%). Per eligible equipment/bag, not per kill; hunt/dungeon and 3/4/4 reforging remain unchanged. Initial activation refused another deployment lock before writes. Quest auto-Ascended policy excludes repeatable/easily farmed quests; design only. Evidence: docs/ops/loot-quality-rates-20261018/.
+Production now rolls 20% Polished / 5% Exalted / 1% Ascended per eligible ordinary equipment/bag drop (previously 10%/2%/0.25%). All 12 workers and world reloaded; 15 native processes and five services remained unchanged. Hunt/dungeon rewards, item stats and reforging costs are unchanged. Existing generated loot is not rerolled. Quest auto-Ascended remains design-only, excluding repeatable/easily farmed quests. Evidence: docs/ops/loot-quality-rates-20261018/.
+
+
+## 2026-10-18 - Cooldown identity correction deployed for live testing
+
+PR223 promotes the reviewed AA-family, unlinked-item and discipline timer fix to
+main. OVH runs zone `d3908e0348715e94955d84f629e4f27e91f15c7dd661e437efbba580ce3d216a`.
+Fresh stopped backup, live-catalog forward/reverse rehearsal, atomic conversion,
+exact original-deadline preservation and all twelve running zone hashes pass.
+Player data, unrelated catalog/cache/quests/services and the newer compatible
+client2026101801 were preserved. The separately authorized character port was
+verified and retained. Two guarded starts rotated market epoch80 to81 to82;
+the existing finite pools legitimately leave two find slots empty. A reviewed
+completion operator proves those pools exhausted without replaying migration SQL.
+Access is open; owner gameplay acceptance and remaining generic/content groups
+stay open. The 25 deployment, 9 resume and 7 completion tests pass. Evidence and recovery:
+`docs/releases/cooldown-identities-20261017/deployment/`.
+
+
+## 2026-10-18 - Reforging default-color correction
+
+Accept an item definition's built-in color (including Dagger of Marnek's black
+color) in the Reforging Box and zoneforge. Different nonzero dye colors remain
+blocked. Preserve all recipe, customization, binding and atomic-receipt guards.
+The 61 new color cases and existing inventory/policy/package checks pass; the
+reviewed cooldown baseline re-links byte-identically before the one-object fix.
+Deployment and player QA: `docs/releases/reforge-colors-20261018/README.md`.
+Deployed after the cooldown handoff: all twelve zones and closed-access data
+preservation verified; gateway reopened. No client, SQL or item-cache update.
+Owner in-game acceptance remains pending. Combined wiki20261018-reforge-colors-v1
+published with all465 public hashes verified; prior cooldown/travel prose retained.
+
+
+## 2026-10-17 - AA family and timer namespace correction candidate
+
+Reproduce Rampage locking Purify Body through shared AA group1. Isolate each AA
+family in persistence and project held families into the client's100 timer slots.
+Fix single/death/all resets, completion and relog publication; preserve rank-family
+reuse. Separate unlinked items and all20 grouped/four ungrouped discipline clocks
+from other timer domains with24-bit-compatible keys. Retain ordinary linked
+content groups and generic skill sharing as explicit open issues.
+
+Prepare guarded transactional forward/rollback conversion with a player-entry
+receipt gate; existing deadlines are preserved rather than wiped. No production
+changes or new client hook. Native regressions and disposable MariaDB tests cover
+collisions, failure, drift and recovery. Full build and exact owner QA status:
+`docs/releases/cooldown-identities-20261017/README.md`.
 
 
 ## 2026-10-17 - Combined progression, combat and crafting release deployed

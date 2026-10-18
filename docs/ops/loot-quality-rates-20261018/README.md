@@ -8,13 +8,18 @@ The resulting Normal band is 74%. Missing variants retain the base item.
 
 ## Activation
 
-Status: **prepared, not activated**. The first activation refused an occupied
-deployment lock before any write. At 10:49 a.m. Eastern, production game and
-gateway remained stopped for the separate cooldown deployment and the three
-rates remained 1000/200/25 (`pending-status.json`). Wait for that operation to
-finish; do not reopen access or restart its runtime from this task.
-Both the old and incoming cooldown builds have byte-identical loot/rule/reload
-sources (`source-review.json`); the operator guards both exact reviewed hashes.
+Status: **activated and verified October 18 at 2:36 p.m. Eastern**. The server
+runs the reforging successor zone29b80931; its retained build changes only the
+inventory implementation, preserving the reviewed loot/rule/reload objects.
+`result.json` verifies all three rates, unchanged other rules, all15 native
+processes and all5 services. No restart, binary/cache/client or quest update.
+
+The initial file-log assertion missed two workers with no log file descriptors.
+The complete container stdout+stderr interval proves12 queued and completed
+zone reloads and13 default ruleset loads including world. The scoped
+`ops/finalize_reload.py` reconciled the receipt without replaying SQL or reloading
+again. Complete raw logs remain private with the rule preimages. The earlier
+10:49 a.m. maintenance refusal in `pending-status.json` is historical.
 
 `ops/apply.py` changes only `Zone:LootTierRareChance` 1000→2000,
 `Zone:LootTierEpicChance` 200→500 and `Zone:LootTierLegendaryChance` 25→100.
@@ -65,9 +70,9 @@ edge cases are in [quest-reward-policy.md](quest-reward-policy.md). This rate
 activation does not implement or advertise automatic quest upgrades.
 
 Wiki impact and publication state are recorded in `wiki-review.json`.
-All 14 wiki/content/refresh tests pass. Local notices remain explicitly pending;
-they have not been published over the concurrent travel/cooldown wiki releases.
+All 14 wiki/content/refresh tests pass. Updated notices preserve the latest combined reforging/travel/cooldown wiki;
+publication is recorded separately from gameplay activation.
 
 Installed Nightcap items knowledge and reviewed fingerprints were updated with
-the actual loot hook, pending activation and quest exclusions. `update_skill.py`
+the actual loot hook, verified activation and quest exclusions. `update_skill.py`
 retains an exact patch and checks current preimages before installation.

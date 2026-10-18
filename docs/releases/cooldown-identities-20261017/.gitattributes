@@ -1,0 +1,2 @@
+# Preserve the reproducible patch and its required unified-diff context prefixes.
+source.patch text eol=lf -whitespace
