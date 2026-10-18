@@ -1,5 +1,14 @@
 # Current Nightcap status
 
+## Reforging default colors — built, awaiting deployment
+
+The Reforging Box and zoneforge now distinguish native item colors from actual
+dye overrides. Three Normal Daggers of Marnek reproduce the reported failure;
+61 new color cases and the existing inventory failure suite pass. Deployment is
+authorized and will follow the active cooldown release, retaining its image,
+timers and current client pairing. [Evidence and exact QA](releases/reforge-colors-20261018/README.md).
+
+
 ## Cooldown identity follow-up — candidate, not deployed
 
 Rampage/Purify Body collision reproduced in server and pinned RoF2 code. Candidate

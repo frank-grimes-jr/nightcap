@@ -1,0 +1,16 @@
+{
+  "red": {
+    "failed_before_fix": true,
+    "reason": "default/no-tint color rejected by box"
+  },
+  "green": {
+    "inventory_translation_unit": "passed",
+    "new_color_scenarios": 61,
+    "upgrade_policy_tests": 1,
+    "upgrade_package_tests": 3,
+    "rollout_failure_and_recovery_tests": 7
+  },
+  "independent_review": "approved; reviewer independently reran inventory and rollout suites; no blocking findings",
+  "scope": "Native functions with dependency fakes; no live player combine executed",
+  "owner_gameplay_accepted": false
+}

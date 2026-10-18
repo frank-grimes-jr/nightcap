@@ -42,12 +42,12 @@ namespace EQ {
 namespace invaug { constexpr uint8 SOCKET_COUNT=6; }
 namespace invslot { constexpr int16 EQUIPMENT_BEGIN=0,EQUIPMENT_END=22,GENERAL_BEGIN=23,GENERAL_END=32,slotCursor=33,SLOT_INVALID=-1,TRADE_BEGIN=3000,TRADE_NPC_END=3003; }
 namespace invbag { constexpr uint8 SLOT_COUNT=10; constexpr int16 CURSOR_BAG_BEGIN=351,CURSOR_BAG_END=360; }
-struct ItemData { uint32 ID=1001; int16 StackSize=20,MaxCharges=0; uint8 BagSlots=0,BagType=13; int Size=1,BagSize=10; std::string Name; bool Stackable=false; };
+struct ItemData { uint32 ID=1001,Color=0; int16 StackSize=20,MaxCharges=0; uint8 BagSlots=0,BagType=13; int Size=1,BagSize=10; std::string Name; bool Stackable=false; };
 struct ItemInstance {
 	ItemData data; InventoryRepository::Inventory row; int16 charges=1; bool stackable=false,evolving=false,equipped=false;
 	uint64 evolve_id=0; std::map<uint8,std::shared_ptr<ItemInstance>> contents;
 	ItemInstance() { row.item_id=data.ID; row.guid=901; }
-	ItemInstance(const ItemData *item,int16 count):data(*item),charges(count),stackable(item->Stackable) { static uint32 next=902;row.item_id=data.ID;row.guid=next++; }
+	ItemInstance(const ItemData *item,int16 count):data(*item),charges(count),stackable(item->Stackable) { static uint32 next=902;row.item_id=data.ID;row.guid=next++;row.color=data.Color; }
 	const ItemData *GetItem()const{return &data;}
 	const ItemInstance *GetItem(uint8 slot)const{auto i=contents.find(slot);return i==contents.end()?nullptr:i->second.get();}
 	uint32 GetID()const{return row.item_id;} int16 GetCharges()const{return charges;} void SetCharges(int value){charges=static_cast<int16>(value);}
@@ -227,6 +227,49 @@ static void PrepareCombine(Client &c,uint32 source=201001,int copies=0) {
 		item.SetAttuned(slot==252);c.inventory.items[slot]=std::make_shared<EQ::ItemInstance>(item);
 		SaveRow(slot,item);
 	}
+}
+static void TestDefaultColors() {
+	using namespace NightcapLoot;
+	for(uint32 source:{13169u,213169u,413169u,940024u,940025u,940026u}) {
+		for(uint32 default_color:{0u,0xff000000u,0xff123456u}) {
+			for(int tint=0;tint<3;++tint) {
+				database={};Client c;PrepareCombine(c,source);
+				const auto target=source<600000?source+200000:source+1;
+				database.definitions[source].Color=default_color;
+				database.definitions[target].Color=0xff654321u;
+				database.inventory.clear();
+				for(auto &[slot,item]:c.inventory.items) {
+					if(slot!=23) {
+						item->data.Color=default_color;
+						item->row.color=tint==0?default_color:tint==1?0u:0xffabcdefu;
+					}
+					SaveRow(slot,*item);
+				}
+				const auto count=c.inventory.items.size();
+				const auto result=CombineUpgrade(&c,23,id);
+				if(tint==2) {
+					check(result==TransferResult::Declined&&database.queries.empty()&&!c.packets&&c.inventory.items.size()==count,"custom dye consumed inputs");
+				} else {
+					check(result==TransferResult::Delivered,"default/no-tint color rejected by box");
+					check(c.inventory.items.size()==2&&c.inventory.GetItem(251)->GetID()==target&&c.inventory.GetItem(251)->GetColor()==0xff654321u&&c.inventory.GetItem(251)->IsAttuned(),"default-color output/count/binding mismatch");
+					check(database.committed&&std::count_if(database.queries.begin(),database.queries.end(),[](const auto&q){return q.rfind("INSERT INTO nightcap_item_upgrades",0)==0;})==1,"default-color upgrade missing atomic receipt");
+				}
+			}
+		}
+	}
+	for(uint32 color:{0u,0xff000000u,0xff123456u}) {
+		for(bool dyed:{false,true}) {
+			database={};Client c;auto inputs=PrepareForge(c);database.inventory.clear();
+			for(auto &[slot,item]:c.inventory.items) { item->data.Color=color;item->row.color=dyed?0xffabcdefu:color;SaveRow(slot,*item); }
+			const auto result=ForgeItems(&c,inputs,id);
+			check(result==(dyed?TransferResult::Declined:TransferResult::Delivered),"zoneforge default/dyed color mismatch");
+			if(dyed)check(database.queries.empty()&&!c.packets&&c.inventory.items.size()==3,"dyed zoneforge changed inventory");
+		}
+	}
+	database={};Client stale;PrepareCombine(stale,13169);
+	for(auto &[slot,item]:stale.inventory.items)if(slot!=23)item->data.Color=item->row.color=0xff000000u;
+	check(CombineUpgrade(&stale,23,id)==TransferResult::Declined&&!stale.packets&&stale.inventory.items.size()==4,"color preimage drift consumed items");
+	std::cout<<"PASS: 61 default-color, actual-dye and stale-color scenarios\n";
 }
 static void TestCombine() {
 	using namespace NightcapLoot;
@@ -409,6 +452,7 @@ int main() { try {
 	check(ReceiveItem(&duplicate,source,{id,id})==TransferResult::Declined && database.queries.empty(),"duplicate physical IDs accepted");
 	check(!ValidDropID("wrong") && ValidDropID(id),"drop identity validation failed");
 	TestForge();
+	TestDefaultColors();
 	TestCombine();
 	for(const auto &query:successful)std::cout<<"SQL:"<<query<<"\n";
 	std::cout<<"PASS: actual loot and forge translation unit; inventory preimages, binding, replay, placement and every database failure/exception boundary\n";
