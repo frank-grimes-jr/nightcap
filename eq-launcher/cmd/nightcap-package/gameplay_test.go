@@ -10,7 +10,44 @@ import (
 )
 
 func TestGameplayAssetGenerationIsCompleteAndBoundToInputs(t *testing.T) {
-	for _, required := range []string{"global_chr.s3d", "global4_chr.s3d", "uifiles/nightcap/equi_merchantwnd.xml", "uifiles/nightcap/equi_tradeskillwnd.xml"} {
+	for _, required := range []string{"butcher.s3d",
+		"butcher_obj.s3d",
+		"cazicthule.s3d",
+		"cazicthule_obj.s3d",
+		"commons.s3d",
+		"commons_obj.s3d",
+		"everfrost.s3d",
+		"everfrost_obj.s3d",
+		"feerrott.s3d",
+		"feerrott_obj.s3d",
+		"freportw.s3d",
+		"freportw_obj.s3d",
+		"gfaydark.s3d",
+		"gfaydark_obj.s3d",
+		"innothule.s3d",
+		"innothule_obj.s3d",
+		"misty.s3d",
+		"misty_obj.s3d",
+		"nektulos.s3d",
+		"nektulos_obj.s3d",
+		"northkarana.s3d",
+		"northkarana_obj.s3d",
+		"nro.s3d",
+		"nro_obj.s3d",
+		"qey2hh1.s3d",
+		"qey2hh1_obj.s3d",
+		"qeynos2.s3d",
+		"qeynos2_obj.s3d",
+		"sro.s3d",
+		"sro_obj.s3d",
+		"steamfont.s3d",
+		"steamfont_obj.s3d",
+		"tox.s3d",
+		"tox_obj.s3d",
+		"global_chr.s3d",
+		"global4_chr.s3d",
+		"uifiles/nightcap/equi_merchantwnd.xml",
+		"uifiles/nightcap/equi_tradeskillwnd.xml"} {
 		found := false
 		for _, name := range gameplayNames {
 			if name == required {

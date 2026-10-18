@@ -1,0 +1,240 @@
+[
+  {
+    "path": "butcher.s3d",
+    "size": 2742696,
+    "sha256": "af504e71d3f3497b5eef037d86475ba96985b261d96f6469915e058e05308839",
+    "pfs_entries": 62,
+    "world_header": true
+  },
+  {
+    "path": "butcher_obj.s3d",
+    "size": 3394472,
+    "sha256": "ad4c886395c9af7f3de17be1c1a24785e295f892097b8e5785eec670a089c047",
+    "pfs_entries": 149,
+    "world_header": true
+  },
+  {
+    "path": "cazicthule.s3d",
+    "size": 2995776,
+    "sha256": "b4224fa40afd6ef8b02e292568bddc96e405fb90c2db3c0d0d893192b9407fbf",
+    "pfs_entries": 71,
+    "world_header": true
+  },
+  {
+    "path": "cazicthule_obj.s3d",
+    "size": 1636930,
+    "sha256": "b2d858bc0ecca2a585a3f4a95243651799149889abeb2616f40ddec387ea74ea",
+    "pfs_entries": 73,
+    "world_header": true
+  },
+  {
+    "path": "commons.s3d",
+    "size": 1194799,
+    "sha256": "3ce0a15467d0b4c4cd2292f443d895a957f5fdfdba84ca3771e52655d5b08346",
+    "pfs_entries": 66,
+    "world_header": true
+  },
+  {
+    "path": "commons_obj.s3d",
+    "size": 801499,
+    "sha256": "2963640a7f3886e7f13ff9bb0b35c056f76785737aab80067b13428d8080a536",
+    "pfs_entries": 119,
+    "world_header": true
+  },
+  {
+    "path": "everfrost.s3d",
+    "size": 4528259,
+    "sha256": "f438cb1bbf1986f20f4dcd4e3d444c00fdf0e2a57aca980e6fc4879003024de3",
+    "pfs_entries": 113,
+    "world_header": true
+  },
+  {
+    "path": "everfrost_obj.s3d",
+    "size": 892532,
+    "sha256": "370746b01d23f99d3396194c1d583dba358a64420858afa3307ca2ac2dfb391d",
+    "pfs_entries": 35,
+    "world_header": true
+  },
+  {
+    "path": "feerrott.s3d",
+    "size": 2950848,
+    "sha256": "c4002988cfcf4ce74bb1b16d151ed9196d36046d61fc5271aaa2b7366f4b7d8b",
+    "pfs_entries": 81,
+    "world_header": true
+  },
+  {
+    "path": "feerrott_obj.s3d",
+    "size": 1431177,
+    "sha256": "393802aaaa6b3f14989e373f541849892831cb1897ab62d004a1045f59d29a5b",
+    "pfs_entries": 57,
+    "world_header": true
+  },
+  {
+    "path": "freportw.s3d",
+    "size": 4821055,
+    "sha256": "6187e4284e8240b46b576ad48ffa3e693a1de70cf08545952749bf63df74149a",
+    "pfs_entries": 117,
+    "world_header": true
+  },
+  {
+    "path": "freportw_obj.s3d",
+    "size": 2634332,
+    "sha256": "e84f0865a59f13bfa415360328a081507dbd0087f0a736e3deae8d8fcc34aba4",
+    "pfs_entries": 119,
+    "world_header": true
+  },
+  {
+    "path": "gfaydark.s3d",
+    "size": 2730752,
+    "sha256": "078beb1b67436bd3e07ae49569f0662882ffe189ea25771dac4bd559d08167a3",
+    "pfs_entries": 40,
+    "world_header": true
+  },
+  {
+    "path": "gfaydark_obj.s3d",
+    "size": 3120454,
+    "sha256": "5564f980f5fdf8829c79ace8902a3af536e0b6770e05ff477be16be0630edf1f",
+    "pfs_entries": 131,
+    "world_header": true
+  },
+  {
+    "path": "innothule.s3d",
+    "size": 1053294,
+    "sha256": "91ed53a55bdc0dbc8feae474fcbcf967aa4631c9cf9ccf3aeef7cd0929548121",
+    "pfs_entries": 19,
+    "world_header": true
+  },
+  {
+    "path": "innothule_obj.s3d",
+    "size": 733199,
+    "sha256": "d776595e2462b90c32ea5824fdbe07fb9097e5dff8dc48a2464fb595ca342f2d",
+    "pfs_entries": 31,
+    "world_header": true
+  },
+  {
+    "path": "misty.s3d",
+    "size": 680940,
+    "sha256": "81c6d110d57a12deaa09867f70afdeb372c3cc2391792e9247497d919eefcf0b",
+    "pfs_entries": 34,
+    "world_header": true
+  },
+  {
+    "path": "misty_obj.s3d",
+    "size": 428528,
+    "sha256": "5ba51c7d40e070a4f5349b6a081cb314187587683461834ab82b3c9e0a5557b3",
+    "pfs_entries": 82,
+    "world_header": true
+  },
+  {
+    "path": "nektulos.s3d",
+    "size": 966169,
+    "sha256": "6cfb7612bfe2703242add44d7cff285a37e08423df8082fffe10ce3dd84c7f21",
+    "pfs_entries": 47,
+    "world_header": true
+  },
+  {
+    "path": "nektulos_obj.s3d",
+    "size": 951436,
+    "sha256": "980717cdf70834429ed9667c14321a93f15aa38f78e331e8b6a15938f626969c",
+    "pfs_entries": 38,
+    "world_header": true
+  },
+  {
+    "path": "northkarana.s3d",
+    "size": 1939384,
+    "sha256": "faf2ac94ec9e70eb558e4c83b82a3cc14bdb90355ef0095a0bda43733a79b54d",
+    "pfs_entries": 60,
+    "world_header": true
+  },
+  {
+    "path": "northkarana_obj.s3d",
+    "size": 2530212,
+    "sha256": "bad348a7f1921d8cacf8917e39f029f8b6c64b7bcab2dfb326a65ec070c80f48",
+    "pfs_entries": 104,
+    "world_header": true
+  },
+  {
+    "path": "nro.s3d",
+    "size": 1507487,
+    "sha256": "c4f36795a6a1b1b86c4f677644506980a368da7d3a3ec6e09a4cfa2169232d24",
+    "pfs_entries": 43,
+    "world_header": true
+  },
+  {
+    "path": "nro_obj.s3d",
+    "size": 2540662,
+    "sha256": "4556f6986f68ae90b471a4df83f6e1431c8bfedb640de2bf4944f12069ac4d7c",
+    "pfs_entries": 100,
+    "world_header": true
+  },
+  {
+    "path": "qey2hh1.s3d",
+    "size": 2208046,
+    "sha256": "4d2ab8f0d1f03678dbb75a62496102b97ca6c63dcc78b38e449608fdbeab2182",
+    "pfs_entries": 58,
+    "world_header": true
+  },
+  {
+    "path": "qey2hh1_obj.s3d",
+    "size": 3518474,
+    "sha256": "b1bafa220125dbc8e8f7c59c262e7025ac2a0a65832857f6198291131e6309c2",
+    "pfs_entries": 157,
+    "world_header": true
+  },
+  {
+    "path": "qeynos2.s3d",
+    "size": 4361694,
+    "sha256": "5d80aaa2a9c532b6867956e72aa67dfdd4731cbb87aaced238c15746ca97aefc",
+    "pfs_entries": 151,
+    "world_header": true
+  },
+  {
+    "path": "qeynos2_obj.s3d",
+    "size": 2270288,
+    "sha256": "345d9a2631c9464592945ec5f536dfda4f3eb488a0fbeaab09a966fb3bdb11dc",
+    "pfs_entries": 102,
+    "world_header": true
+  },
+  {
+    "path": "sro.s3d",
+    "size": 647692,
+    "sha256": "4a32a8deeeaade31d020ac84402d6b6c4d6c0527ded4cbfbe3fc30b816819f8e",
+    "pfs_entries": 19,
+    "world_header": true
+  },
+  {
+    "path": "sro_obj.s3d",
+    "size": 2513386,
+    "sha256": "f61cbe10f3b940a076bc08d95cbbda03b836638cb933fc410263ae10f8e81491",
+    "pfs_entries": 106,
+    "world_header": true
+  },
+  {
+    "path": "steamfont.s3d",
+    "size": 1156905,
+    "sha256": "367b98b89f936dc3c18fdef5aff995ac966bb2c1ebfab0afb71ccae821281704",
+    "pfs_entries": 28,
+    "world_header": true
+  },
+  {
+    "path": "steamfont_obj.s3d",
+    "size": 1629344,
+    "sha256": "41a715859be18d1c63a483a9b444fe69c1200395d08260d121492bed31533154",
+    "pfs_entries": 69,
+    "world_header": true
+  },
+  {
+    "path": "tox.s3d",
+    "size": 975926,
+    "sha256": "d6da558f0cb42bb664c0a4eb0b2bf7416ac2e609edb404c321f14c679a093dd2",
+    "pfs_entries": 36,
+    "world_header": true
+  },
+  {
+    "path": "tox_obj.s3d",
+    "size": 438479,
+    "sha256": "41632c745f01410a0cc6aef27f47bed312195e17ebdca403410df5dc687c1425",
+    "pfs_entries": 69,
+    "world_header": true
+  }
+]

@@ -1,0 +1,93 @@
+{
+  "date": "2026-10-18",
+  "articles": {
+    "about.json": {
+      "sha256": "d30e64f41dd4395f4d27163407a134527fca9bf9892dabd816774bd0ebcd1da0",
+      "decision": "No effect: asset delivery repair changes no gameplay systems, commands, rewards or balance."
+    },
+    "advanced-loot.json": {
+      "sha256": "0f0870dd8c5e412c0a673a7ff551a952965397e5b2ce0dd6bb67ac1336c0e506",
+      "decision": "No effect: asset delivery repair changes no gameplay systems, commands, rewards or balance."
+    },
+    "ascension.json": {
+      "sha256": "63a95cfaac55cdafad7aed7a731406b01dfdabbb6053e4364371cd283f19d036",
+      "decision": "No effect: asset delivery repair changes no gameplay systems, commands, rewards or balance."
+    },
+    "combat.json": {
+      "sha256": "b4434699dfce828c2f10067e31b3c271ebdec0218dcbee06d2b4c4ec540a8fec",
+      "decision": "No effect: asset delivery repair changes no gameplay systems, commands, rewards or balance."
+    },
+    "commands.json": {
+      "sha256": "b23435918515e34f6db39189f0d072847b19599dff37c3739daf724839c66bd3",
+      "decision": "No effect: asset delivery repair changes no gameplay systems, commands, rewards or balance."
+    },
+    "dungeon-modes.json": {
+      "sha256": "c9b31538d188ce7e47cfa1c4a297d0ec1c0d2d11b838747fe6d3da06ca561cac",
+      "decision": "No effect: asset delivery repair changes no gameplay systems, commands, rewards or balance."
+    },
+    "equipment.json": {
+      "sha256": "5c855348ce892feb4bb7aabb9adb9ff854332828bf6902e37792f20e3a918e43",
+      "decision": "No effect: asset delivery repair changes no gameplay systems, commands, rewards or balance."
+    },
+    "features.json": {
+      "sha256": "a114c338e2d1c423018c62e55a5cce43fccd107244cf2930526bcd799c1484d2",
+      "decision": "No effect: asset delivery repair changes no gameplay systems, commands, rewards or balance."
+    },
+    "getting-started.json": {
+      "sha256": "815e8574606bf80c0b82a14f53d8ada76166089db311979c58885214e26b05e0",
+      "decision": "Updated client repair instructions/history"
+    },
+    "index.json": {
+      "sha256": "fd89b7c777307f88643088243807085c79580be9f6ffb4bea2bf5e5605772dab",
+      "decision": "Updated client repair instructions/history"
+    },
+    "item-upgrades.json": {
+      "sha256": "3b823e9009a323047d252620218c10a45eb8026b15e73d3e19b288d3dc472805",
+      "decision": "No effect: asset delivery repair changes no gameplay systems, commands, rewards or balance."
+    },
+    "launcher.json": {
+      "sha256": "61432ff4519515e623788cdb308f35634f4b2b2c9f551bbca98c5eb0aaf01a06",
+      "decision": "Updated client repair instructions/history"
+    },
+    "multiclass.json": {
+      "sha256": "5cd56b7881577ed0e1fb6dd4c7afa6e0eb9d48bbb9c37b656a2ae329e0d1424e",
+      "decision": "No effect: asset delivery repair changes no gameplay systems, commands, rewards or balance."
+    },
+    "pets.json": {
+      "sha256": "3c44fe0856f38477d4c490ed2c0be34d109f6210d1dd6c9dadccee12a7cd85a3",
+      "decision": "No effect: asset delivery repair changes no gameplay systems, commands, rewards or balance."
+    },
+    "recent-changes.json": {
+      "sha256": "c3cc0c01cde45bc777397620193a696aacb1396e5b23a1870f36550fc457970e",
+      "decision": "Updated client repair instructions/history"
+    },
+    "tradeskills.json": {
+      "sha256": "d76ffea75fea16a2a353a5cab1b5e2b783a244908fcfa0903184cd8947a4de7b",
+      "decision": "No effect: asset delivery repair changes no gameplay systems, commands, rewards or balance."
+    },
+    "travel.json": {
+      "sha256": "c820f019b55d55f792e7d38ef1b9a6af548a0687986a2679acb7bf81aad4043f",
+      "decision": "Updated client repair instructions/history"
+    },
+    "tunnel.json": {
+      "sha256": "406b3922621b789bbafe02a76b296a7f9fccd716aa082dca94a8493d60b811ae",
+      "decision": "No effect: asset delivery repair changes no gameplay systems, commands, rewards or balance."
+    },
+    "unreleased.json": {
+      "sha256": "e47bad8cd1f18ac97bac8f1415844bfe08436503cf9fae43cb4b0c015f792a98",
+      "decision": "No effect: asset delivery repair changes no gameplay systems, commands, rewards or balance."
+    },
+    "waypoints.json": {
+      "sha256": "9ef8b93fa52d5b83c479bbb3c877fab4f9373c0f26c84c43908edf3d7e5666bc",
+      "decision": "No effect: asset delivery repair changes no gameplay systems, commands, rewards or balance."
+    },
+    "zone-hunt.json": {
+      "sha256": "1e45749cb34576e3721ce43e2bbe959edfd1277b57c8f4da7a04bfdf29c5e2cb",
+      "decision": "No effect: asset delivery repair changes no gameplay systems, commands, rewards or balance."
+    }
+  },
+  "features": "Reviewed: repair of existing Classic zone files is not a new gameplay departure; existing launcher description remains accurate.",
+  "generated_pages": "All 432 generated reward routes assessed through unchanged catalog/generator mechanics; no reward, destination, value or route changes.",
+  "catalog_sha256": "22701edeaf267067dfbe7225398b4944d6a69b080480ac06f0d153ca92eae0ae",
+  "publication": "Published 20261018-client-zone-repair-v1; source content tests and Linux rollback rehearsal passed."
+}

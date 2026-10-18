@@ -1,5 +1,9 @@
 # Current Nightcap status
 
+## October 18, 2026 — Classic travel client repair
+
+Signed game 2026101801 published (138 managed assets; 106 existing preserved, 32 added). Terrain/object coverage spans 17 audited Classic travel destinations; not the whole RoF2 installation. Karl West Commonlands zoning QA remains pending. No server restart. See [release evidence](releases/client-zone-validation-20261018/README.md).
+
 ## October 17 progression, combat and crafting — deployed
 
 PR #220 is merged to main and OVH is running the matching full zone build with
