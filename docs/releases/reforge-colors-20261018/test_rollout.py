@@ -5,7 +5,7 @@ import importlib.util
 import tempfile
 import unittest
 from pathlib import Path
-from unittest.mock import patch
+from unittest.mock import Mock, patch
 
 spec = importlib.util.spec_from_file_location('reforge_rollout', Path(__file__).with_name('rollout.py'))
 op = importlib.util.module_from_spec(spec); spec.loader.exec_module(op)
@@ -59,6 +59,28 @@ def fixture():
         op.save(evidence / 'preflight.json', {'manifest_sha256': 'digest', 'old_image_id': 'old', 'new_image_id': 'new',
                 'services': {s: runtime.compact(s) for s in ('game', 'gateway')}})
         yield runtime, data, evidence
+
+
+class ImageBuild(unittest.TestCase):
+    def test_authenticated_local_tag_builds_without_registry_pull(self):
+        runtime = Mock(); runtime.out.side_effect = ['sha256:base', 'sha256:base', 'sha256:new']
+        with tempfile.TemporaryDirectory() as directory, patch.object(op, 'STAGE', Path(directory)), patch.object(op, 'r', runtime):
+            self.assertEqual(op.build_image({'base_image_id': 'sha256:base'}), 'sha256:new')
+            self.assertIn('FROM nightcap-game:reforge-colors-20261018-baseline\n', (Path(directory) / 'Dockerfile').read_text())
+            runtime.call.assert_any_call('docker', 'tag', 'sha256:base', 'nightcap-game:reforge-colors-20261018-baseline')
+            self.assertIn('--pull=false', runtime.call.call_args.args)
+
+    def test_tag_drift_before_build_rejects_without_building(self):
+        runtime = Mock(); runtime.out.return_value = 'sha256:other'
+        with tempfile.TemporaryDirectory() as directory, patch.object(op, 'STAGE', Path(directory)), patch.object(op, 'r', runtime):
+            with self.assertRaises(AssertionError): op.build_image({'base_image_id': 'sha256:base'})
+            self.assertEqual(runtime.call.call_count, 1)
+
+    def test_tag_drift_during_build_rejects_candidate(self):
+        runtime = Mock(); runtime.out.side_effect = ['sha256:base', 'sha256:other']
+        with tempfile.TemporaryDirectory() as directory, patch.object(op, 'STAGE', Path(directory)), patch.object(op, 'r', runtime):
+            with self.assertRaises(AssertionError): op.build_image({'base_image_id': 'sha256:base'})
+            self.assertEqual(runtime.out.call_count, 2)
 
 
 class MarketValidation(unittest.TestCase):

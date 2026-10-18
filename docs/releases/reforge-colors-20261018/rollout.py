@@ -128,6 +128,21 @@ def untouched(p):
     assert sha(ROOT / 'data/server/shared/items') == p['cache_sha256']
 
 
+def build_image(m):
+    # BuildKit parses a bare sha256 image ID as a registry name in FROM.
+    # Resolve a release-local tag to the authenticated ID around the build.
+    base = 'nightcap-game:reforge-colors-20261018-baseline'
+    target = 'nightcap-game:reforge-colors-20261018'
+    inspect = lambda name: r.out('docker', 'image', 'inspect', '--format', '{{.Id}}', name).strip()
+    r.call('docker', 'tag', m['base_image_id'], base)
+    assert inspect(base) == m['base_image_id']
+    (STAGE / 'Dockerfile').write_text('FROM ' + base + '\nCOPY bin/zone /opt/nightcap/bin/zone\n')
+    (STAGE / '.dockerignore').write_text('*\n!Dockerfile\n!.dockerignore\n!bin\n!bin/zone\n')
+    r.call('docker', 'build', '--pull=false', '--network', 'none', '-t', target, str(STAGE))
+    assert inspect(base) == m['base_image_id']
+    return inspect(target)
+
+
 def preflight():
     m = manifest()
     assert not EVIDENCE.exists(), 'Existing attempt; inspect receipts'
@@ -142,10 +157,7 @@ def preflight():
     p = {'manifest_sha256': sha(STAGE / 'manifest.json'), 'old_image_id': m['base_image_id'],
          'services': services, 'runtime': r.runtime(), 'public': r.public(), 'content': content(),
          'cache_sha256': sha(ROOT / 'data/server/shared/items')}
-    (STAGE / 'Dockerfile').write_text('FROM ' + m['base_image_id'] + '\nCOPY bin/zone /opt/nightcap/bin/zone\n')
-    (STAGE / '.dockerignore').write_text('*\n!Dockerfile\n!.dockerignore\n!bin\n!bin/zone\n')
-    r.call('docker', 'build', '--network', 'none', '-t', 'nightcap-game:reforge-colors-20261018', str(STAGE))
-    image = r.out('docker', 'image', 'inspect', '--format', '{{.Id}}', 'nightcap-game:reforge-colors-20261018').strip()
+    image = build_image(m)
     assert r.image_hashes(image) == {**m['base_hashes'], 'bin/zone': m['zone_sha256']}
     layers = lambda value: json.loads(r.out('docker', 'image', 'inspect', value))[0]['RootFS']['Layers']
     assert layers(image)[:-1] == layers(m['base_image_id'])
