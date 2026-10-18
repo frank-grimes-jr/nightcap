@@ -1,0 +1,21 @@
+{
+  "review": "Independent adversarial agent",
+  "findings": [
+    {
+      "issue": "Publisher allowed arbitrary earlier baseline",
+      "resolution": "Exact2026101702 enforced inside publish and entry; rejection test added"
+    }
+  ],
+  "additional_findings": 0,
+  "cross_model": "offered and declined by owner",
+  "tests": {
+    "launcher_full_suite": "pass",
+    "python_asset_tests": 11,
+    "new_installer_repair_test": "pass",
+    "publisher_windows": 16,
+    "publisher_linux": 16,
+    "wiki_content_refresh": 14,
+    "wiki_linux_deploy_recovery": 16
+  },
+  "native_qa": "Owner confirmed Karl West Commonlands issue resolved October18; broader destination and deliberate-corruption checks not attested."
+}

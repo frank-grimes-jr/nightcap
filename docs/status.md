@@ -5,14 +5,16 @@
 Activated at 2:36 p.m. Eastern: 20% Polished / 5% Exalted / 1% Ascended per eligible ordinary equipment/bag drop. Global rules reload verified in world and all 12 workers without a restart; other rules preserved. Player balance acceptance remains open. Quest guarantee is design-only. [Evidence](ops/loot-quality-rates-20261018/README.md).
 
 
-## Reforging default colors — deployed October 18, live QA open
+
+## Reforging default colors — reported combine confirmed October 18
 
 The Reforging Box and zoneforge accept an item's built-in color while rejecting
 different nonzero dye colors. The default-color failure and 61 regression cases
 are covered; all twelve production zones match the new binary. Access is open,
 with player/custom state, cooldown migration, cache and current client preserved.
 No client update is required for this fix. Palwar's three Normal Daggers of Marnek
-are ready for the in-game combine check; owner acceptance remains pending.
+now combine successfully, confirmed by the owner. Relog persistence, genuine dye
+rejection and other input/tier checks remain unconfirmed.
 Wiki `20261018-reforge-colors-v1` publishes the combined cooldown/travel/forging
 guidance; all465 public files verify.
 [Evidence and exact QA](releases/reforge-colors-20261018/README.md).
@@ -31,6 +33,9 @@ client2026101801 retains all106 prior assets and adds32 Classic zone assets. Con
 Harmshield/Cannibalize, Battle Cry/Throw Stone and generic skill sharing remain open.
 [Evidence, migration, limits and QA](releases/cooldown-identities-20261017/README.md).
 
+## October 18, 2026 — Classic travel client repair
+
+Signed game 2026101801 published (138 managed assets; 106 existing preserved, 32 added). Terrain/object coverage spans 17 audited Classic travel destinations; not the whole RoF2 installation. Owner confirmed Karl’s West Commonlands zoning issue resolved on October 18; broader destination QA remains open. No server restart. See [release evidence](releases/client-zone-validation-20261018/README.md).
 
 ## October 17 progression, combat and crafting — deployed
 

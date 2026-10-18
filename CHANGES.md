@@ -31,7 +31,8 @@ reviewed cooldown baseline re-links byte-identically before the one-object fix.
 Deployment and player QA: `docs/releases/reforge-colors-20261018/README.md`.
 Deployed after the cooldown handoff: all twelve zones and closed-access data
 preservation verified; gateway reopened. No client, SQL or item-cache update.
-Owner in-game acceptance remains pending. Combined wiki20261018-reforge-colors-v1
+Owner confirmed Palwar's reported three-Normal combine works; broader in-game
+checks remain unconfirmed. Combined wiki20261018-reforge-colors-v1
 published with all465 public hashes verified; prior cooldown/travel prose retained.
 
 
@@ -50,6 +51,9 @@ changes or new client hook. Native regressions and disposable MariaDB tests cove
 collisions, failure, drift and recovery. Full build and exact owner QA status:
 `docs/releases/cooldown-identities-20261017/README.md`.
 
+## 2026-10-18 — Client zone validation and repair
+
+Published signed game 2026101801: add 32 Classic travel terrain/object archives and require all 34 reviewed travel archives during future packaging. Existing patcher SHA-256 checks repair missing/corrupt files before Play, including West Commonlands. All 106 previous assets and settings preserved; no desktop/DLL/server change. Owner confirmed Karl’s West Commonlands zoning repair on October 18; broader destination QA remains open. Evidence: docs/releases/client-zone-validation-20261018/README.md.
 
 ## 2026-10-17 - Combined progression, combat and crafting release deployed
 

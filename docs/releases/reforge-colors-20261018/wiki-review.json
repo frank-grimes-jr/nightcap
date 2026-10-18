@@ -122,5 +122,9 @@
     "waypoints.json"
   ],
   "origin_rollback_and_service_preservation": "wiki-publication.json",
-  "owner_gameplay_accepted": false
+  "owner_gameplay_accepted": false,
+  "post_publication_owner_confirmation": {
+    "evidence": "owner-acceptance.json",
+    "impact": "All21 maintained articles and432 generated reward routes remain accurate. Reported combine acceptance does not complete the wider QA matrix; no public edit or new publication required."
+  }
 }
