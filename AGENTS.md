@@ -425,6 +425,12 @@ claims about live state).
 
 ### Branch flow
 
+**October 18 cooldown exception:** the owner explicitly requested promotion of
+the reviewed cooldown fix to main and deployment to OVH for live testing. Pair
+the rebuilt zone with the guarded saved-timer conversion and preserve the existing
+Monk client. Live QA remains open; this is not standing deployment permission.
+Exact operator/recovery and acceptance: `docs/releases/cooldown-identities-20261017/`.
+
 **October 11 food/drink exception:** the owner explicitly approved "Merge to main
 and server" for the removal of hunger/thirst requirements, penalties and warnings.
 This authorizes main promotion and OVH rollout before manual acceptance. Preserve
