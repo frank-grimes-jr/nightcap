@@ -37,9 +37,9 @@ Harmshield/Cannibalize, Battle Cry/Throw Stone and generic skill sharing remain 
 
 Signed game 2026101801 published (138 managed assets; 106 existing preserved, 32 added). Terrain/object coverage spans 17 audited Classic travel destinations; not the whole RoF2 installation. Owner confirmed Karl’s West Commonlands zoning issue resolved on October 18; broader destination QA remains open. No server restart. See [release evidence](releases/client-zone-validation-20261018/README.md).
 
-## October 17 progression, combat and crafting — deployed
+## October 17 progression, combat and crafting — release confirmed October 18
 
-PR #220 is merged to main and OVH is running the matching full zone build with
+PR #220 merged to main and deployed the matching full zone build with
 proxy 0.10.0 / signed game 2026101702. Recommended AA is optional; passive AA is 10%.
 Six Monk attacks have separate reuse, duration arithmetic is corrected, normal
 death has no EXP loss, existing stacks support at least 100, and the Reforging Box
@@ -50,8 +50,11 @@ All 12 zone hashes, health, the full item cache, 46 player and 26 custom/timer t
 and all 106 signed hosted assets verify. Existing market startup rotated once;
 the bounded reconciliation preserved trade history and every other player record.
 Access is open. Wiki and private guide are published; patcher notes list 10 changes.
-Owner native UI/gameplay and balance QA remain open, as do shared AA/item/spell/
-discipline cooldown identity defects. [Release, recovery and exact checks](releases/october-17-2026/README.md).
+The owner replied "Confirmed" on October 18 to this release report; individual
+native UI/gameplay scenarios and balance measurements were not enumerated.
+The later cooldown identity, client and reforging releases above supersede the
+October 17 runtime/client baseline and retain their separate QA boundaries.
+[Release, confirmation and exact checks](releases/october-17-2026/README.md).
 
 ## Idle-zone restart correction — activated October 17
 

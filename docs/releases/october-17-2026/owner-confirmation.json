@@ -1,0 +1,14 @@
+{
+  "date": "2026-10-18",
+  "owner_message": "Confirmed",
+  "context": "Reply to the October 17 combined release report: main/server release, 10% passive AA, Recommended AA filter, Monk/duration fixes, stacks, reforging, death EXP protection, documentation, wiki and patcher notes.",
+  "release_confirmation_recorded": true,
+  "scope": "General confirmation of the reported release. The reply does not enumerate individual QA scenarios, desktop checks or balance measurements.",
+  "separate_records_preserved": [
+    "October 18 cooldown identity deployment and its remaining generic/content groups and player QA",
+    "October 18 Palwar built-in-color reforge confirmation",
+    "October 18 Karl West Commonlands client repair confirmation"
+  ],
+  "wiki_impact": "All 21 maintained guides and 432 generated reward routes assessed. Existing mechanics, Features, home, commands, catalog values, Recent changes and Live testing labels remain accurate. No public content or publication change is needed for this general confirmation; only the private evidence ledger changes.",
+  "deployment_or_player_data_mutation": false
+}

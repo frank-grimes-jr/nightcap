@@ -12,8 +12,14 @@ and all **106 hosted files / 211,986,783 bytes** verify against the shipped key.
 
 Wiki **20261017-progression-combat-v1** and private player guide
 **20261017-progression-combat** are published and verified. Main merge:
-`baadcbf2a8a88a4a31f2c14e19c39fc69db5e0b4`. Owner visible gameplay, desktop
-and balance acceptance remain open; [QA.md](QA.md) gives exact checks.
+`baadcbf2a8a88a4a31f2c14e19c39fc69db5e0b4`. The owner replied **"Confirmed"**
+on October 18 to this release report. This records general release confirmation;
+individual desktop/gameplay scenarios and balance measurements were not specified.
+See [owner-confirmation.json](owner-confirmation.json) and [QA.md](QA.md).
+
+These are dated October 17 deployment receipts. Later client travel, cooldown
+identity and reforging fixes are recorded in [current status](../../status.md);
+this confirmation does not replace their separate acceptance records.
 
 Evidence: `native-build-manifest.json`, `preflight-verification.json`,
 `closed-verification.json`, `production-verification.json`,

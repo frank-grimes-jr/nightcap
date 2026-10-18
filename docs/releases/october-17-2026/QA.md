@@ -1,5 +1,10 @@
 # October 17 owner gameplay checks
 
+October 18: the owner replied **"Confirmed"** to the release report. General
+release confirmation is recorded in [owner-confirmation.json](owner-confirmation.json).
+No individual steps or measurements were specified, so the checklist below is
+retained for detailed regression and balance results. Later fixes have separate QA.
+
 Deployment and automated checks do not complete these acceptance checks. Close
 EverQuest, use launcher Play, and verify Latest update shows the October 17
 Recommended AA/combat/crafting notes before starting.

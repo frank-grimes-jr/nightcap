@@ -5,6 +5,15 @@
 Production now rolls 20% Polished / 5% Exalted / 1% Ascended per eligible ordinary equipment/bag drop (previously 10%/2%/0.25%). All 12 workers and world reloaded; 15 native processes and five services remained unchanged. Hunt/dungeon rewards, item stats and reforging costs are unchanged. Existing generated loot is not rerolled. Quest auto-Ascended remains design-only, excluding repeatable/easily farmed quests. Evidence: docs/ops/loot-quality-rates-20261018/.
 
 
+
+## 2026-10-18 - October 17 combined release confirmation
+
+Record the owner's "Confirmed" reply to the combined release report. Preserve
+individual QA and balance checks, plus the separate newer cooldown, client and
+reforging records. Whole-wiki review found no public content change; existing
+Live testing labels remain appropriate. No deployment or player data changed.
+Evidence: `docs/releases/october-17-2026/owner-confirmation.json`.
+
 ## 2026-10-18 - Cooldown identity correction deployed for live testing
 
 PR223 promotes the reviewed AA-family, unlinked-item and discipline timer fix to
