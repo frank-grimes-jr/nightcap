@@ -21,5 +21,6 @@
   "main_merge": "0f251f2ca774c01a4e02fff6f12276a43a51823b",
   "deployment": "production-verification.json",
   "wiki_publication": "wiki-publication.json",
-  "wiki_public_verification": "wiki-public-verification.json"
+  "wiki_public_verification": "wiki-public-verification.json",
+  "owner_acceptance_scope": "Reported Palwar combine confirmed; full QA matrix remains unconfirmed. See owner-acceptance.json."
 }
