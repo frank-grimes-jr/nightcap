@@ -71,7 +71,9 @@ activation does not implement or advertise automatic quest upgrades.
 
 Wiki impact and publication state are recorded in `wiki-review.json`.
 All 14 wiki/content/refresh tests pass. Updated notices preserve the latest combined reforging/travel/cooldown wiki;
-publication is recorded separately from gameplay activation.
+publication20261018-loot-quality-v1 passed guarded origin verification of465
+files, rollback rehearsal and service/private-download preservation.
+Public HTTPS verification is recorded in wiki-public-verification.json.
 
 Installed Nightcap items knowledge and reviewed fingerprints were updated with
 the actual loot hook, verified activation and quest exclusions. `update_skill.py`

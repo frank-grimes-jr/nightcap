@@ -44,25 +44,29 @@ else:
 lines=new.splitlines()
 for i,line in enumerate(lines):
     if line.startswith('| Legacy quality loot |'):
-        lines[i]='| Legacy quality loot | Base/Polished/Exalted/Ascended, offsets +200k/+400k/+600k; epics separate +800k. October18 proposed/approved rates20%/5%/1%; see activation status above. Per eligible drop, not kill. | `server-mods/code/zone/loot.cpp`, exact retained manifests and `docs/ops/loot-quality-rates-20261018/` |'
+        lines[i]='| Legacy quality loot | Base/Polished/Exalted/Ascended, offsets +200k/+400k/+600k; epics separate +800k. October18 rates20%/5%/1%; see activation status above. Per eligible drop, not kill. | `server-mods/code/zone/loot.cpp`, exact retained manifests and `docs/ops/loot-quality-rates-20261018/` |'
 new='\n'.join(lines)+'\n';updates[p]=(old,new)
 p=skill/'wiki.md';old=p.read_text(encoding='utf-8')
-heading='## October18 ordinary loot tuning — local notices pending publication\n'
+old_heading='## October18 ordinary loot tuning — local notices pending publication\n'
+heading='## October18 ordinary loot tuning — publication status\n'
+old=old.replace(old_heading,heading)
 section=(heading+'\nThe loot-quality-rates checkout maintains Equipment, Features, home, Recent\n'
  'changes and Unreleased notices for approved20%/5%/1% ordinary loot tuning.\n'
  'Activation status is in docs/ops/loot-quality-rates-20261018/README.md.\n'
  'Quest auto-Ascended is design-only, excluding repeatable/easily farmed quests.\n'
  'All21 guides and432 generated reward routes have an impact assessment; hunt\n'
  'catalog values and commands remain unchanged. Fourteen content/refresh tests\n'
- 'pass. These source edits are NOT published; preserve the concurrent October18\n'
- 'travel/cooldown releases when integrating. Do not publish this older full\n'
- 'checkout over their newer guides. Whole-wiki decisions: wiki-review.json.\n\n')
+ 'pass;16 Linux publisher/recovery checks also pass. Release20261018-loot-quality-v1\n'
+ 'publishes the live rates over20261018-reforge-colors-v1, preserving current\n'
+ 'main137def1 travel/cooldown/reforging guidance. See wiki-publication.json and\n'
+ 'wiki-public-verification.json for origin/public evidence; gameplay balance QA\n'
+ 'remains open. Whole-wiki decisions: wiki-review.json.\n\n')
 if heading in old:
     start=old.index(heading);end=old.find('\n## ',start+len(heading))
     new=old[:start]+section+(old[end+1:] if end!=-1 else '')
 else:
     index=old.index('\n')+1;new=old[:index]+'\n'+section+old[index:].lstrip('\n')
-updates[p]=(old,new)
+updates[p]=(p.read_text(encoding='utf-8'),new)
 p=skill/'sources.json';old=p.read_text(encoding='utf-8');manifest=json.loads(old)
 entries={
  'server-mods/code/zone/loot.cpp':'actual retained-build ordinary tier-roll hook',
@@ -81,7 +85,7 @@ manifest['observed_revisions']['loot_quality_20261018']=revision
 path='docs/ops/loot-quality-rates-20261018/wiki-review.json'
 topic=manifest['topics']['wiki']
 topic[:]=[row for row in topic if row['path']!=path]
-topic.append({'root':root.as_posix(),'path':path,'role':'whole-wiki impact review; loot notices remain unpublished',
+topic.append({'root':root.as_posix(),'path':path,'role':'whole-wiki impact review; live loot notices published and verified',
               'revision':revision+' + reviewed working evidence','sha256':hashlib.sha256((root/path).read_bytes()).hexdigest()})
 updates[p]=(old,json.dumps(manifest,ensure_ascii=False,indent=2)+'\n')
 patch=''.join(''.join(difflib.unified_diff(old.splitlines(True),new.splitlines(True),fromfile=p.as_posix(),tofile=p.as_posix())) for p,(old,new) in updates.items())

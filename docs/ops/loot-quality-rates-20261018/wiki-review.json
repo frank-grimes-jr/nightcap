@@ -1,6 +1,6 @@
 {
   "date": "2026-10-18",
-  "status": "source maintained; not published",
+  "status": "Published 20261018-loot-quality-v1; origin updater verified465 files, rollback and preservation. Public verification recorded separately.",
   "articles": {
     "about": {
       "sha256": "d30e64f41dd4395f4d27163407a134527fca9bf9892dabd816774bd0ebcd1da0",
@@ -15,7 +15,7 @@
       "impact": "No semantic change: no changes to commands, classes, travel, clients, item stats, upgrade recipes, epic forge or hunt/dungeon policies"
     },
     "combat": {
-      "sha256": "b4434699dfce828c2f10067e31b3c271ebdec0218dcbee06d2b4c4ec540a8fec",
+      "sha256": "5ff1e16241c93898964f3f6a2308c803bae8f8cca7a2c8f0b6ee265be20554c6",
       "impact": "No semantic change: no changes to commands, classes, travel, clients, item stats, upgrade recipes, epic forge or hunt/dungeon policies"
     },
     "commands": {
@@ -27,31 +27,31 @@
       "impact": "No semantic change: no changes to commands, classes, travel, clients, item stats, upgrade recipes, epic forge or hunt/dungeon policies"
     },
     "equipment": {
-      "sha256": "52df7aeec5cfee8c748a7c77732cd99bf0b26bc701cb382a5c3645bd10d6dffb",
+      "sha256": "40cab437249a0884a09f6c99e132c420e29f3afaf924c28a87a02e97cd57c43e",
       "impact": "Updated scoped rate/availability or proposed quest policy notice"
     },
     "features": {
-      "sha256": "d606bde5168493db1902c813158f226678b22a4378d689e02dc6cdc17b8e36eb",
+      "sha256": "023c436543b4dda857c7492dc84f0ae89761ca7c5510b815d20f7c0f7c2d9ee4",
       "impact": "Updated scoped rate/availability or proposed quest policy notice"
     },
     "getting-started": {
-      "sha256": "7577b0d5dcd9d6275d725553d8444252cec3745e8085651cd873151443e63b08",
+      "sha256": "49da8ae75f638d38cb420b23c83d01bcf7593d3f00055e76c15fd40f36b2814e",
       "impact": "No semantic change: no changes to commands, classes, travel, clients, item stats, upgrade recipes, epic forge or hunt/dungeon policies"
     },
     "index": {
-      "sha256": "90c237fc75329c752c4050ac6c7183a021c48165e96913397c2e6a06c38b6343",
+      "sha256": "0a5d5ba4f221f4b3ba45b5d7e1eaa489f1ea8cafb525be5a8f291a65d69eca13",
       "impact": "Updated scoped rate/availability or proposed quest policy notice"
     },
     "item-upgrades": {
-      "sha256": "3b823e9009a323047d252620218c10a45eb8026b15e73d3e19b288d3dc472805",
+      "sha256": "04106ddd5fc61bd1e772292fe03e8939d9eebdfa9d8dd4853d937e1d3ca7b91d",
       "impact": "No semantic change: no changes to commands, classes, travel, clients, item stats, upgrade recipes, epic forge or hunt/dungeon policies"
     },
     "launcher": {
-      "sha256": "0909069c8dc879b8ea128b70d1c8458d1121ecb6b4ab6be49cc46df204ae8029",
+      "sha256": "bce000f1acf875347276156310567702d4d9a71bfafd8091b725405e4a98e78c",
       "impact": "No semantic change: no changes to commands, classes, travel, clients, item stats, upgrade recipes, epic forge or hunt/dungeon policies"
     },
     "multiclass": {
-      "sha256": "5cd56b7881577ed0e1fb6dd4c7afa6e0eb9d48bbb9c37b656a2ae329e0d1424e",
+      "sha256": "a07eaa65d933c6269e0c8289f84bcbc6556f6c9e0a192639dd60b6c0c0df63b6",
       "impact": "No semantic change: no changes to commands, classes, travel, clients, item stats, upgrade recipes, epic forge or hunt/dungeon policies"
     },
     "pets": {
@@ -59,7 +59,7 @@
       "impact": "No semantic change: no changes to commands, classes, travel, clients, item stats, upgrade recipes, epic forge or hunt/dungeon policies"
     },
     "recent-changes": {
-      "sha256": "abd088945d9a6d682541a4c4bd853b7d5be2f4c34dc39bc2df1e89d61cb65d76",
+      "sha256": "47378333d4406d4b4d92327757f5c3ad704e12f2cc2e136ddbb4e1b98026034a",
       "impact": "Updated scoped rate/availability or proposed quest policy notice"
     },
     "tradeskills": {
@@ -67,7 +67,7 @@
       "impact": "No semantic change: no changes to commands, classes, travel, clients, item stats, upgrade recipes, epic forge or hunt/dungeon policies"
     },
     "travel": {
-      "sha256": "7448998634f50498d8fbe813fa2bff99d50a51951754f9e1c29f10bf338c5ecf",
+      "sha256": "f6fc37d18ec535c85fff900a5b622a0e80ea1d768a2692febcf3f622d0f0421e",
       "impact": "No semantic change: no changes to commands, classes, travel, clients, item stats, upgrade recipes, epic forge or hunt/dungeon policies"
     },
     "tunnel": {
@@ -75,7 +75,7 @@
       "impact": "No semantic change: no changes to commands, classes, travel, clients, item stats, upgrade recipes, epic forge or hunt/dungeon policies"
     },
     "unreleased": {
-      "sha256": "e543d71cd835253bcb7aff75e54377d7fd5848447e8058fbdda1f7ea558bfc2f",
+      "sha256": "fa614aaa49e90045894376c45e2b8c3a452468dbdfb87760adc1ac03fe53bdb3",
       "impact": "Updated scoped rate/availability or proposed quest policy notice"
     },
     "waypoints": {
@@ -83,12 +83,12 @@
       "impact": "No semantic change: no changes to commands, classes, travel, clients, item stats, upgrade recipes, epic forge or hunt/dungeon policies"
     },
     "zone-hunt": {
-      "sha256": "1e45749cb34576e3721ce43e2bbe959edfd1277b57c8f4da7a04bfdf29c5e2cb",
+      "sha256": "4802e9fe8e3b4ddea03c375dd4cfa716418961cd02e25a8ac5494e701dceb2ad",
       "impact": "No semantic change: no changes to commands, classes, travel, clients, item stats, upgrade recipes, epic forge or hunt/dungeon policies"
     }
   },
   "generated_catalog": "All 432 item/zone routes retain catalog values and hunt mechanics; ordinary-rate tuning does not affect them",
-  "concurrent_releases": "October18 client travel and cooldown releases must be preserved during publication; this source snapshot is not a publishable replacement for later releases",
-  "tests": "14 wiki/content/refresh tests passed; expected missing-ref diagnostic is part of negative test",
-  "refresh_check": "REVIEW REQUIRED: this feature has scoped changes since published ledger; whole-wiki impact reviewed here, publication/integration pending. Ledger intentionally not advanced over concurrent releases."
+  "concurrent_releases": "Preserved current main combined reforging, travel and cooldown content; only five articles changed for rates and design-only quest direction.",
+  "tests": "14 content/refresh and16 Linux publisher/recovery tests passed.",
+  "refresh_check": "Latest main137def1 combined release retained. All scoped task sources and deployment evidence reviewed; no hunt/dungeon/quest behavior promoted."
 }
