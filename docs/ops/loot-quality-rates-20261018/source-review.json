@@ -1,0 +1,24 @@
+{
+  "baseline": "October17 deployed zone",
+  "compatible_candidate": "October18 cooldown zone; installation independently verified before tuning",
+  "zone_hashes": [
+    "3c1d74926cb7cff032a3ee8c48c210e37740156e7e36cc0eeddd07f847e88d1a",
+    "d3908e0348715e94955d84f629e4f27e91f15c7dd661e437efbba580ce3d216a"
+  ],
+  "identical_sources": {
+    "zone/loot.cpp": "a826b26e65199692a037f62f3c22cbd36d26da1a97e03bf2106c691f38cbab46",
+    "common/ruletypes.h": "89a0f6e313c3aa16390a5f3ea8bfaf74c1bd7f855674a0d8841a0d406a4524d2",
+    "common/rulesys.cpp": "7f6e38dd203be04e96ba94040dd566ceee01664a0b71dcdee86cad3577c63771",
+    "common/servertalk.h": "0df083d33b90f7c36a901a6722d56430895af81e6ebca89a7a638ebe63347c31",
+    "common/server_reload_types.h": "ea71a61091b6ca7eb53042cf2d8267d1dbf930ac391fab2d0f7aba316ed1d3ed",
+    "zone/zone_reload.cpp": "2dccf253d97d6a9900712480a0d2d7dd007e879040d4760584f25c5aeb9d9427",
+    "world/zonelist.cpp": "fcf3c0788345138de28c5e3fe090503ac4b351228c80fc5df839d97c79608c18"
+  },
+  "candidate_manifest_sha256": "cc47efb02e142065b45ae5d7c9eb4fd0bedb35baf33aa1cc172f8853a0f8ab5d",
+  "reforge_successor": {
+    "manifest": "C:\\Users\\verre\\.codex\\worktrees\\reforge-default-colors\\EQ_Local_Dev\\docs\\releases\\reforge-colors-20261018\\build-manifest.json",
+    "sha256": "4eb73440db73a1cfa062a80bd85e93fe70bfe0a00234a9f0a6f31a0a687bd9a4",
+    "baseline_zone_sha256": "d3908e0348715e94955d84f629e4f27e91f15c7dd661e437efbba580ce3d216a",
+    "review": "Reproduced cooldown baseline; only advanced_loot_inventory implementation replaced; loot and rule reload objects retained"
+  }
+}

@@ -1,6 +1,6 @@
 {
   "reviewed_at": "2026-10-18",
-  "reviewed_revision": "e025e7f8197725ae6e834756cfaff51f9d523603",
+  "reviewed_revision": "8fbf4b1953c87b0f6ce02210916c167968d6714a",
   "source_paths": [
     "server-mods/",
     "eq-client-dll/",
@@ -29,6 +29,7 @@
     "October18 owner confirmation accepts Palwar's reported three-Normal Dagger of Marnek combine after the default-color repair. Whole-wiki impact reviewed: published mechanics and Live testing labels remain correct; broader QA unconfirmed. No public content change or republishing. docs/releases/reforge-colors-20261018/owner-acceptance.json.",
     "October 18 client-zone repair: docs/releases/client-zone-validation-20261018/wiki-review.json assesses all 21 articles and 432 generated reward routes against working source and published asset-only game 2026101801. 34 reviewed travel terrain/object archives (32 added), 138 hosted files verified; native Karl zoning pending. Launcher, Travel, Getting started, home and Recent changes updated and published as 20261018-client-zone-repair-v1. No gameplay, command, reward or catalog changes.",
     "October18 owner confirmation resolves Karl West Commonlands incident. Broader destination/native checks remain open; existing public repair instructions and bounded coverage need no further prose change.",
+    "October18 loot tuning: existing rules2000/500/100 and complete global reload verified with unchanged runtime/services. All21 guides and432 generated reward routes reviewed; five article notices preserve current combined cooldown/travel/reforging content and owner acceptance. Public20261018-loot-quality-v1 matches all465 hashes. Quest guarantee remains design-only. Evidence: docs/ops/loot-quality-rates-20261018/.",
     "October 18 general confirmation of the October 17 combined release: owner-confirmation.json in docs/releases/october-17-2026/. All 21 maintained guides and 432 generated reward routes assessed; no mechanics, catalog, command, Features/home/Recent changes or Live testing label changes. No public update needed. Detailed scenario/balance results and later release acceptances remain separate. Global reviewed_revision is preserved; concurrent client-zone source review remains owned by its existing release evidence."
   ]
 }

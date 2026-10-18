@@ -1,5 +1,11 @@
 # Current Nightcap status
 
+## October 18 ordinary loot rates - live
+
+Activated at 2:36 p.m. Eastern: 20% Polished / 5% Exalted / 1% Ascended per eligible ordinary equipment/bag drop. Global rules reload verified in world and all 12 workers without a restart; other rules preserved. Player balance acceptance remains open. Quest guarantee is design-only. [Evidence](ops/loot-quality-rates-20261018/README.md).
+
+
+
 ## Reforging default colors — reported combine confirmed October 18
 
 The Reforging Box and zoneforge accept an item's built-in color while rejecting

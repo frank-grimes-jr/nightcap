@@ -1,0 +1,190 @@
+--- C:/Users/verre/.codex/skills/nightcap-development/references/items.md
++++ C:/Users/verre/.codex/skills/nightcap-development/references/items.md
+@@ -29,7 +29,7 @@
+ 
+ ## Ordinary loot rates and quest reward direction — October 18
+ 
+-20% Polished / 5% Exalted / 1% Ascended: tested and prepared; activation awaits the concurrent production deployment.
++20% Polished / 5% Exalted / 1% Ascended: deployed and globally reloaded; player balance QA remains open.
+ Existing Zone:LootTierRare/Epic/LegendaryChance DB overrides are 2000/500/100
+ out of10000 when activated; compiled defaults remain1000/200/25. One roll per
+ eligible ordinary equipment/bag drop, not kill. Missing variants stay base;
+@@ -134,7 +134,7 @@
+ 
+ | System | Implemented contract | Source/evidence |
+ |---|---|---|
+-| Legacy quality loot | Base/Polished/Exalted/Ascended, offsets +200k/+400k/+600k; epics separate +800k. October18 proposed/approved rates20%/5%/1%; see activation status above. Per eligible drop, not kill. | `server-mods/code/zone/loot.cpp`, exact retained manifests and `docs/ops/loot-quality-rates-20261018/` |
++| Legacy quality loot | Base/Polished/Exalted/Ascended, offsets +200k/+400k/+600k; epics separate +800k. October18 rates20%/5%/1%; see activation status above. Per eligible drop, not kill. | `server-mods/code/zone/loot.cpp`, exact retained manifests and `docs/ops/loot-quality-rates-20261018/` |
+ | Classic hunt | Two independent 0.5% rolls per eligible death: augment and wearable; weights 60/30/8/2, top tier **Ascension**. 48 audited combat zones enabled, eight access-check zones gated. | `server-mods/code/zone/zone_hunt.cpp`, `common/zone_hunt_catalog.h`, `common/zone_hunt_policy.h`; `docs/releases/zone-loot-20261009/PRODUCTION.md` |
+ | Zoneforge | Baseâ†’Polished costs 3; Polishedâ†’Exalted and Exaltedâ†’Ascension cost **4** after Oct 12. No cross-family conversion. | `zone/zone_hunt_forge.cpp`, `common/item_upgrade_policy.h` (`ZoneCopies`) |
+ | Reforging Box | Live October17: four Polished→Exalted or Exalted→top tier, plus **three identical eligible Normal/Base→Polished** for ordinary and hunt families. Free reusable four-slot box900620 from Artisan Veyra999820; dungeon rewards and top tiers excluded. | `common/item_upgrade_policy.h`, `zone/advanced_loot_inventory.cpp`, `quests/ecommons/999820.pl`; `docs/releases/october-17-2026/README.md` and component reforge evidence |
+--- C:/Users/verre/.codex/skills/nightcap-development/references/wiki.md
++++ C:/Users/verre/.codex/skills/nightcap-development/references/wiki.md
+@@ -25,7 +25,7 @@
+ docs/releases/reforge-colors-20261018/{wiki-review.json,wiki-build.json,
+ wiki-publication.json,wiki-public-verification.json,wiki-manifest.json}.
+ 
+-## October18 ordinary loot tuning — local notices pending publication
++## October18 ordinary loot tuning — publication status
+ 
+ The loot-quality-rates checkout maintains Equipment, Features, home, Recent
+ changes and Unreleased notices for approved20%/5%/1% ordinary loot tuning.
+@@ -33,9 +33,11 @@
+ Quest auto-Ascended is design-only, excluding repeatable/easily farmed quests.
+ All21 guides and432 generated reward routes have an impact assessment; hunt
+ catalog values and commands remain unchanged. Fourteen content/refresh tests
+-pass. These source edits are NOT published; preserve the concurrent October18
+-travel/cooldown releases when integrating. Do not publish this older full
+-checkout over their newer guides. Whole-wiki decisions: wiki-review.json.
++pass;16 Linux publisher/recovery checks also pass. Release20261018-loot-quality-v1
++publishes the live rates over20261018-reforge-colors-v1, preserving current
++main137def1 travel/cooldown/reforging guidance. See wiki-publication.json and
++wiki-public-verification.json for origin/public evidence; gameplay balance QA
++remains open. Whole-wiki decisions: wiki-review.json.
+ 
+ ## Weapon quality damage â€” October 18 candidate guidance
+ 
+--- C:/Users/verre/.codex/skills/nightcap-development/references/sources.json
++++ C:/Users/verre/.codex/skills/nightcap-development/references/sources.json
+@@ -52,7 +52,7 @@
+     "october_17_release_evidence_main": "0eef50ed5af0f3685b127c738a281ad7bb20c30d",
+     "cooldown_identities_candidate_20261017": "dcaf1716a310bb137722ba92c3124f718f81da14",
+     "client_zone_repair_20261018": "dd83e1ccb4ecdbd5169666f10b0562813b732296 (PR224 merged; Karl owner confirmation)",
+-    "loot_quality_20261018": "84c5334fd092fdb1369c3cae7142b093b7dc9b96",
++    "loot_quality_20261018": "079a835834d938a84ba78bd6420ea0ac8aed7b84",
+     "cooldown_identities_deployed_20261018": "f05a6ce819006aa5a11dc3624ff508bde3ecb2d1",
+     "reforge_colors_deployed_20261018": "4dc658506371aa0cf2a027db9890d4d74110a860",
+     "wiki_combined_published_20261018": "4dc658506371aa0cf2a027db9890d4d74110a860",
+@@ -2134,48 +2134,6 @@
+         "sha256": "61604a51fcd8ea487f2fa1466e3e60009db7db350c2711a78b2babfec43455f7"
+       },
+       {
+-        "root": "E:/EQ_Local_Dev/_worktrees/loot-quality-rates",
+-        "path": "server-mods/code/zone/loot.cpp",
+-        "role": "actual retained-build ordinary tier-roll hook",
+-        "revision": "84c5334fd092fdb1369c3cae7142b093b7dc9b96 + reviewed working evidence",
+-        "sha256": "a826b26e65199692a037f62f3c22cbd36d26da1a97e03bf2106c691f38cbab46"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/loot-quality-rates",
+-        "path": "server-mods/code/common/ruletypes.h",
+-        "role": "historical compiled defaults; live tuning uses existing DB overrides",
+-        "revision": "84c5334fd092fdb1369c3cae7142b093b7dc9b96 + reviewed working evidence",
+-        "sha256": "89a0f6e313c3aa16390a5f3ea8bfaf74c1bd7f855674a0d8841a0d406a4524d2"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/loot-quality-rates",
+-        "path": "tools/tests/test_loot_quality_rates.py",
+-        "role": "exhaustive actual native loot-block verification",
+-        "revision": "84c5334fd092fdb1369c3cae7142b093b7dc9b96 + reviewed working evidence",
+-        "sha256": "57ee280dc5137e187d4cf20203f08b8222751a768dc61a84111a23b026b2c80d"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/loot-quality-rates",
+-        "path": "docs/ops/loot-quality-rates-20261018/README.md",
+-        "role": "October18 loot tuning activation, rollback and QA boundary",
+-        "revision": "84c5334fd092fdb1369c3cae7142b093b7dc9b96 + reviewed working evidence",
+-        "sha256": "e5be6d946c2f09cff1b6dc20f36229aee3e756c3a112fd147c181012b5d10bf1"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/loot-quality-rates",
+-        "path": "docs/ops/loot-quality-rates-20261018/ops/apply.py",
+-        "role": "guarded three-rule transaction and global reload operator",
+-        "revision": "84c5334fd092fdb1369c3cae7142b093b7dc9b96 + reviewed working evidence",
+-        "sha256": "65eb6fdaacc8aac23b8eb9076a1108756f3cc73e234f3579aafd45a30a33e9f2"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/loot-quality-rates",
+-        "path": "docs/ops/loot-quality-rates-20261018/quest-reward-policy.md",
+-        "role": "accepted exclusions; quest automatic top-tier remains design-only",
+-        "revision": "84c5334fd092fdb1369c3cae7142b093b7dc9b96 + reviewed working evidence",
+-        "sha256": "d1427791bd6ef286c5dacf05eca2ea65c23fdd90f4898fbebb8c930ccce8017b"
+-      },
+-      {
+         "path": "docs/releases/cooldown-identities-20261017/deployment/migration-applied.json",
+         "role": "Reviewed cooldown deployment, recovery or guide evidence",
+         "root": "C:/Users/verre/Documents/Codex/2026-10-17/see/work/cooldown-identities",
+@@ -2258,6 +2216,55 @@
+         "revision": "c44f64930a0ee20f68c8dbde7dd835a3a32ccd7f",
+         "role": "Owner-confirmed reported Palwar combine; broader QA unconfirmed; no public wiki change",
+         "sha256": "30e76c3fe9a7aa6dc3c2d13090ddc029e5c3c3ca0a5d9b70e752ebc8d3731d95"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/loot-quality-rates",
++        "path": "server-mods/code/zone/loot.cpp",
++        "role": "actual retained-build ordinary tier-roll hook",
++        "revision": "079a835834d938a84ba78bd6420ea0ac8aed7b84 + reviewed working evidence",
++        "sha256": "a826b26e65199692a037f62f3c22cbd36d26da1a97e03bf2106c691f38cbab46"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/loot-quality-rates",
++        "path": "server-mods/code/common/ruletypes.h",
++        "role": "historical compiled defaults; live tuning uses existing DB overrides",
++        "revision": "079a835834d938a84ba78bd6420ea0ac8aed7b84 + reviewed working evidence",
++        "sha256": "89a0f6e313c3aa16390a5f3ea8bfaf74c1bd7f855674a0d8841a0d406a4524d2"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/loot-quality-rates",
++        "path": "tools/tests/test_loot_quality_rates.py",
++        "role": "exhaustive actual native loot-block verification",
++        "revision": "079a835834d938a84ba78bd6420ea0ac8aed7b84 + reviewed working evidence",
++        "sha256": "57ee280dc5137e187d4cf20203f08b8222751a768dc61a84111a23b026b2c80d"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/loot-quality-rates",
++        "path": "docs/ops/loot-quality-rates-20261018/README.md",
++        "role": "October18 loot tuning activation, rollback and QA boundary",
++        "revision": "079a835834d938a84ba78bd6420ea0ac8aed7b84 + reviewed working evidence",
++        "sha256": "f7b59b16807a4bdbe1f3f9e6a4896b2d5236672607f2deff5031ac18a48af279"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/loot-quality-rates",
++        "path": "docs/ops/loot-quality-rates-20261018/ops/apply.py",
++        "role": "guarded three-rule transaction and global reload operator",
++        "revision": "079a835834d938a84ba78bd6420ea0ac8aed7b84 + reviewed working evidence",
++        "sha256": "ad97d3975884f37949021ad403eac58080a3232ef976d4ae5facffc913c73267"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/loot-quality-rates",
++        "path": "docs/ops/loot-quality-rates-20261018/quest-reward-policy.md",
++        "role": "accepted exclusions; quest automatic top-tier remains design-only",
++        "revision": "079a835834d938a84ba78bd6420ea0ac8aed7b84 + reviewed working evidence",
++        "sha256": "d1427791bd6ef286c5dacf05eca2ea65c23fdd90f4898fbebb8c930ccce8017b"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/loot-quality-rates",
++        "path": "docs/ops/loot-quality-rates-20261018/result.json",
++        "role": "verified live rule activation receipt; player QA distinct",
++        "revision": "079a835834d938a84ba78bd6420ea0ac8aed7b84 + reviewed working evidence",
++        "sha256": "e74db12d8215a6424820592a1d15fed81f0d1f5b3a3b155630d6d6e66432db7b"
+       }
+     ],
+     "world": [
+@@ -4891,13 +4898,6 @@
+         "sha256": "90d7752665430f32f6b1248ce3f9a71fabeca40a3f560580f83a0b9e4da4dbf3"
+       },
+       {
+-        "root": "E:/EQ_Local_Dev/_worktrees/loot-quality-rates",
+-        "path": "docs/ops/loot-quality-rates-20261018/wiki-review.json",
+-        "role": "whole-wiki impact review; loot notices remain unpublished",
+-        "revision": "84c5334fd092fdb1369c3cae7142b093b7dc9b96 + reviewed working evidence",
+-        "sha256": "d08cf04b567d3705cf93d942a8571996c0fa71eb7fd51222c77637b5c28269d1"
+-      },
+-      {
+         "path": "docs/releases/cooldown-identities-20261017/deployment/wiki-review.json",
+         "role": "Reviewed cooldown deployment, recovery or guide evidence",
+         "root": "C:/Users/verre/Documents/Codex/2026-10-17/see/work/cooldown-identities",
+@@ -4959,6 +4959,13 @@
+         "revision": "c44f64930a0ee20f68c8dbde7dd835a3a32ccd7f",
+         "role": "Owner-confirmed reported Palwar combine; broader QA unconfirmed; no public wiki change",
+         "sha256": "30e76c3fe9a7aa6dc3c2d13090ddc029e5c3c3ca0a5d9b70e752ebc8d3731d95"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/loot-quality-rates",
++        "path": "docs/ops/loot-quality-rates-20261018/wiki-review.json",
++        "role": "whole-wiki impact review; live loot notices published and verified",
++        "revision": "079a835834d938a84ba78bd6420ea0ac8aed7b84 + reviewed working evidence",
++        "sha256": "974a1733bb061525c783999eb17cd15f819c128467857093d48cf16c66688895"
+       }
+     ]
+   }
