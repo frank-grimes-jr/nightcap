@@ -1,6 +1,6 @@
 # Reforging default colors — October 18, 2026
 
-Status: deployed October 18; access open and automated verification passed. Owner in-game acceptance remains pending.
+Status: deployed October 18; access open and automated verification passed. Owner confirmed the reported combine works; additional in-game checks remain unconfirmed.
 
 The owner requested correction and production deployment after three ordinary
 Daggers of Marnek were rejected. Their instance color matched the item definition
@@ -96,4 +96,12 @@ leave one slot empty, close other interactions, disable auto-attack and Combine.
 Expect exactly one Dagger of Marnek (Polished) inside the reusable box. Reopen the
 box and relog: the upgraded item remains and the three inputs do not return.
 Also verify a genuinely dyed eligible item is refused without consuming copies,
-and an augmented/ornamented item remains refused. Owner acceptance is pending.
+and an augmented/ornamented item remains refused.
+
+The owner replied "Confirmed" on October18 after the deployed-fix retest
+instruction, accepting Palwar's reported three-Normal combine correction. Relog
+persistence, dyed/augmented/ornamented rejection and other item/tier/zoneforge
+checks were not explicitly confirmed. See `owner-acceptance.json`. Historical
+deployment/publication receipts retain their original pre-acceptance status.
+The whole-wiki impact review found no public content change: the published rule
+is accurate and broader live-testing labels still apply. No republishing needed.

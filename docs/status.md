@@ -1,13 +1,14 @@
 # Current Nightcap status
 
-## Reforging default colors — deployed October 18, live QA open
+## Reforging default colors — reported combine confirmed October 18
 
 The Reforging Box and zoneforge accept an item's built-in color while rejecting
 different nonzero dye colors. The default-color failure and 61 regression cases
 are covered; all twelve production zones match the new binary. Access is open,
 with player/custom state, cooldown migration, cache and current client preserved.
 No client update is required for this fix. Palwar's three Normal Daggers of Marnek
-are ready for the in-game combine check; owner acceptance remains pending.
+now combine successfully, confirmed by the owner. Relog persistence, genuine dye
+rejection and other input/tier checks remain unconfirmed.
 Wiki `20261018-reforge-colors-v1` publishes the combined cooldown/travel/forging
 guidance; all465 public files verify.
 [Evidence and exact QA](releases/reforge-colors-20261018/README.md).

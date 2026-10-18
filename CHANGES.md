@@ -26,7 +26,8 @@ reviewed cooldown baseline re-links byte-identically before the one-object fix.
 Deployment and player QA: `docs/releases/reforge-colors-20261018/README.md`.
 Deployed after the cooldown handoff: all twelve zones and closed-access data
 preservation verified; gateway reopened. No client, SQL or item-cache update.
-Owner in-game acceptance remains pending. Combined wiki20261018-reforge-colors-v1
+Owner confirmed Palwar's reported three-Normal combine works; broader in-game
+checks remain unconfirmed. Combined wiki20261018-reforge-colors-v1
 published with all465 public hashes verified; prior cooldown/travel prose retained.
 
 
