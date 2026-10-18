@@ -1,5 +1,13 @@
 # CHANGES
 
+## 2026-10-18 - October 17 combined release confirmation
+
+Record the owner's "Confirmed" reply to the combined release report. Preserve
+individual QA and balance checks, plus the separate newer cooldown, client and
+reforging records. Whole-wiki review found no public content change; existing
+Live testing labels remain appropriate. No deployment or player data changed.
+Evidence: `docs/releases/october-17-2026/owner-confirmation.json`.
+
 ## 2026-10-18 - Cooldown identity correction deployed for live testing
 
 PR223 promotes the reviewed AA-family, unlinked-item and discipline timer fix to
