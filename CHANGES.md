@@ -1,5 +1,15 @@
 # CHANGES
 
+## 2026-10-18 - Reforging default-color correction
+
+Accept an item definition's built-in color (including Dagger of Marnek's black
+color) in the Reforging Box and zoneforge. Different nonzero dye colors remain
+blocked. Preserve all recipe, customization, binding and atomic-receipt guards.
+The 61 new color cases and existing inventory/policy/package checks pass; the
+reviewed cooldown baseline re-links byte-identically before the one-object fix.
+Deployment and player QA: `docs/releases/reforge-colors-20261018/README.md`.
+
+
 ## 2026-10-17 - AA family and timer namespace correction candidate
 
 Reproduce Rampage locking Purify Body through shared AA group1. Isolate each AA

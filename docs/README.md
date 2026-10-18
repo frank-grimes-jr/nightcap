@@ -4,6 +4,8 @@ Current AA correction: [all allowed ranks at level 1](releases/aa-tbs-level1-202
 
 Start with [current status](status.md), not a dated candidate report.
 
+- [Reforging default-color correction, deployment and QA](releases/reforge-colors-20261018/README.md)
+
 - [October 17 combined release, recovery and exact gameplay QA](releases/october-17-2026/README.md)
 
 - [Recommended AA filter release and exact in-game QA](releases/recommended-aa-20261017/README.md)
