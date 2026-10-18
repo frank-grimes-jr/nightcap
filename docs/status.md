@@ -9,13 +9,16 @@ authorized and will follow the active cooldown release, retaining its image,
 timers and current client pairing. [Evidence and exact QA](releases/reforge-colors-20261018/README.md).
 
 
-## Cooldown identity follow-up — candidate, not deployed
+## Cooldown identities — deployed October 18, live QA open
 
-Rampage/Purify Body collision reproduced in server and pinned RoF2 code. Candidate
-separates165 activated AA families, unlinked items and grouped/ungrouped discipline
-storage; reset/reconnect paths use the same identities. Existing saved deadlines
-need the guarded conversion. Full native build, independent review and 15 local
-MariaDB rehearsals pass. No live timers or server state changed. Content-level
+PR223 is merged to main and OVH runs the verified correction for the 165
+activated AA families, including Rampage and Purify Body, unlinked items and
+discipline storage. The stopped conversion and forward/reverse rehearsal passed;
+all original saved deadlines were preserved. All twelve zone hashes, schema
+receipt, player/custom state and retained catalog/cache/client assets verify.
+Access is open with zero restarts or detected native/quest/SQL errors; owner
+gameplay QA remains open. Keep the existing proxy0.10.0; concurrent
+client2026101801 retains all106 prior assets and adds32 Classic zone assets. Content-level
 Harmshield/Cannibalize, Battle Cry/Throw Stone and generic skill sharing remain open.
 [Evidence, migration, limits and QA](releases/cooldown-identities-20261017/README.md).
 

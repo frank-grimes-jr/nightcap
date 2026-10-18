@@ -1,6 +1,13 @@
-# Cooldown identity correction — October 17 candidate
+# Cooldown identity correction — deployed October 18
 
-**Not deployed.** This follows the live Rampage → Purify Body report after the
+**Deployed for live testing via PR223.** All twelve running zone hashes, schema
+receipt, preserved deadlines and player/catalog/cache/client checks pass. Access
+is open; owner gameplay acceptance remains pending. The guarded operator took a
+fresh stopped backup and rehearsed conversion and rollback before applying SQL.
+See [deployment evidence and recovery](deployment/README.md) and
+[production verification](deployment/production-verification.json).
+
+This follows the live Rampage → Purify Body report after the
 October 17 duration release. Source starts at deployed main `0eef50e`; retained
 zone baseline SHA-256 is `3c1d74926cb7cff032a3ee8c48c210e37740156e7e36cc0eeddd07f847e88d1a`.
 The earlier release corrected arithmetic and six Monk skills, but left shared
@@ -183,10 +190,10 @@ the baseline and candidate sources stayed unchanged during compilation, and
 `ldd` found no missing dependencies. Candidate zone SHA-256:
 `d3908e0348715e94955d84f629e4f27e91f15c7dd661e437efbba580ce3d216a`.
 See `manifest.json`, `verification.json`, `build-final.txt` and `build-ldd.txt`.
-Production was not modified. See `migration-rehearsal.json`, `REVIEW.md` and
-[QA.md](QA.md). A compiled fixture/build does not establish
-visible gameplay acceptance. Main promotion, migration and live deployment need
-the owner's separate release authorization.
+Those candidate tests did not modify production. The owner subsequently authorized
+main and live rollout on October18; PR223 and `deployment/` record the verified
+activation. See `migration-rehearsal.json`, `REVIEW.md` and [QA.md](QA.md).
+Visible gameplay acceptance remains open.
 
 ## Reproduce the catalog and migration evidence
 

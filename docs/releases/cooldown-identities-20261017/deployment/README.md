@@ -1,5 +1,22 @@
 # October 18 authorized live-test rollout
 
+**Deployed and access open.** PR223 is on main; all twelve running zone hashes,
+the version1 receipt, nine original timer rows, fifteen conservative successor
+rows and all item timestamps verified. Forty-seven player tables and twenty-five
+unrelated custom tables were preserved, with only the separately authorized
+location move reconciled. See `production-verification.json`.
+
+The original operator held before live SQL on that concurrent location move.
+PR226's `resume.py` preserved it and committed the migration once. Its next check
+held on an overly strict market assertion: the existing procedure permits empty
+slots when the eligible pool is exhausted. `finish.py` authenticated both exact
+holds and the committed migration, verified every offer and proved zero remaining
+eligible candidates for each empty slot. It completed the restart and opening
+without executing migration SQL or restoring data. Market epochs80→81 and81→82
+were both checked; each had42 valid offers across44 possible slots. The original
+operators, manifests and held receipts remain immutable. Use `report` for current
+verification; **do not rerun activate, resume or finish**. See `HELD-RECOVERY.md`.
+
 The owner explicitly requested promotion to main and deployment to the server
 for live testing on October 18, 2026. This authorization covers the reviewed AA,
 item and discipline identity correction; it does not declare the remaining shared
@@ -19,7 +36,7 @@ preflight rejected the channel drift before changing access, runtime or SQL.
 `rollout.py preflight` checks healthy service lifetimes, disk space, absent
 migration state, exact live binary/catalog/cache/client inputs and private native
 ports. It builds and validates the immutable image without changing access.
-The previous receipt-aware image is retained and verified offline.
+The previous uint16 image is retained and verified offline.
 
 After main promotion, `activate` holds deployment/GM locks, rejects maintenance
 or an in-flight GM write, stops gateway then the whole game, and verifies both
@@ -45,7 +62,9 @@ retained other binaries, two healthy checks at least sixteen seconds apart,
 stable lifetime, zero restarts and no detected native/quest/SQL errors. Preserve
 all player/custom data except explicit timer additions and the existing market
 startup rotation. Authenticate exactly one market epoch increment, unchanged
-policy, expected fresh offer count/eligibility and unchanged trade audit. The
+policy, fresh offer eligibility and unchanged trade audit. Full slot occupancy
+is not guaranteed: the corrected completion validator requires exact procedure
+eligibility and an exhausted candidate pool for every missing offer. The
 whole item cache, rules, catalog, quests, public client and unrelated service
 lifetimes remain unchanged.
 

@@ -1,0 +1,38 @@
+{
+  "before": [
+    "1",
+    "1",
+    "80",
+    "0",
+    "4",
+    "2.500000",
+    "2026-10-17 17:58:06"
+  ],
+  "after": [
+    "1",
+    "1",
+    "81",
+    "0",
+    "4",
+    "2.500000",
+    "2026-10-18 15:03:59"
+  ],
+  "offers": 42,
+  "maximum_slots": 44,
+  "exhausted_actors": [
+    {
+      "npc_id": 1004,
+      "kind": "find",
+      "offers": 0,
+      "maximum": 1,
+      "eligible_candidates": 0
+    },
+    {
+      "npc_id": 10030,
+      "kind": "find",
+      "offers": 0,
+      "maximum": 1,
+      "eligible_candidates": 0
+    }
+  ]
+}

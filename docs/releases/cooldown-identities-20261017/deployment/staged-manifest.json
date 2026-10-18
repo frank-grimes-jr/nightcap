@@ -1,0 +1,30 @@
+{
+  "source_revision": "1e9839dd5a930ea6585ed24f471dc0c1615f3e34",
+  "source_repository": "https://github.com/frank-grimes-jr/nightcap",
+  "runtime_helper_sha256": "a3242bee3e8d4a7e60ea81bbd6fd34587201b712247665f3c03673733b95a811",
+  "base_hashes": {
+    "bin/world": "70cceaca060ed6338cb72acc726bb24ccae162b42ba88dfb89432b609c7ef8e5",
+    "bin/zone": "3c1d74926cb7cff032a3ee8c48c210e37740156e7e36cc0eeddd07f847e88d1a",
+    "bin/ucs": "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714",
+    "bin/loginserver": "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf",
+    "bin/shared_memory": "ef1f399884387712113bf13163ddfcd35c47a29d0f0b9b194a6b7e265997ae35",
+    "start.py": "ca4099eb898730141e7941d3afc366d59c4bc8351eea74c5b6fd9560c24b815f",
+    "configure.py": "90873958dfb013201dd9c9552beaccdd88984a2e55739da07874fa4a95a84e57",
+    "accounts.py": "400d4e7a5d0bedeed47ffdb33b142a4a62a3f939a35466da66ce3201ae52ef5c"
+  },
+  "client_channel_sha256": "a6f51792bc388599757a0b6aec218cdfad8d5917ff16883759fb62c3fb7f5eb5",
+  "client_release": 2026101801,
+  "previous_zone": "3c1d74926cb7cff032a3ee8c48c210e37740156e7e36cc0eeddd07f847e88d1a",
+  "zone_sha256": "d3908e0348715e94955d84f629e4f27e91f15c7dd661e437efbba580ce3d216a",
+  "files": {
+    "bin/zone": "d3908e0348715e94955d84f629e4f27e91f15c7dd661e437efbba580ce3d216a",
+    "capture.py": "9b4ef0e75818f5aaeb06032d007ec345b95e54e20f1688aa756a76d24edec0ae",
+    "cooldown_identity_migration.py": "bedb64ceb38e7961396121f2806a74b311953fda3dae417072159e756e87f048",
+    "expected-sources.json": "70ac3f4246e94b0a812d7e638fd79c229581e59e3940a097d0f761aee2c5f850",
+    "native-build-manifest.json": "cc47efb02e142065b45ae5d7c9eb4fd0bedb35baf33aa1cc172f8853a0f8ab5d",
+    "README.md": "c432af6fa89a0e5a4b2e84c1220693583fc6c1d141b6f503037af1871a7271eb",
+    "rollout.py": "cc263166bf4b259dcb8e4ff6476f10fa0bab2ef3989a18d8b1a26a4d01e50438",
+    "source.patch": "da85d40ea6dcdf737d26702e32970d3e129e44f7fdf6943601b8a4237110d080",
+    "client-compatibility.json": "4d73be82147fe72d4d9b6ea7a5688420f74e7fdc70e1d6fdf9cdd8d087fd2343"
+  }
+}

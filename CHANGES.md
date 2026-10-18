@@ -1,5 +1,21 @@
 # CHANGES
 
+## 2026-10-18 - Cooldown identity correction deployed for live testing
+
+PR223 promotes the reviewed AA-family, unlinked-item and discipline timer fix to
+main. OVH runs zone `d3908e0348715e94955d84f629e4f27e91f15c7dd661e437efbba580ce3d216a`.
+Fresh stopped backup, live-catalog forward/reverse rehearsal, atomic conversion,
+exact original-deadline preservation and all twelve running zone hashes pass.
+Player data, unrelated catalog/cache/quests/services and the newer compatible
+client2026101801 were preserved. The separately authorized character port was
+verified and retained. Two guarded starts rotated market epoch80 to81 to82;
+the existing finite pools legitimately leave two find slots empty. A reviewed
+completion operator proves those pools exhausted without replaying migration SQL.
+Access is open; owner gameplay acceptance and remaining generic/content groups
+stay open. The 25 deployment, 9 resume and 7 completion tests pass. Evidence and recovery:
+`docs/releases/cooldown-identities-20261017/deployment/`.
+
+
 ## 2026-10-18 - Reforging default-color correction
 
 Accept an item definition's built-in color (including Dagger of Marnek's black

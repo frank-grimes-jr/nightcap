@@ -2,7 +2,7 @@
 
 Reviewed the candidate based on deployed main `0eef50e`, using the code-review-and-quality review-agent pattern. The reviewer did not edit production code or apply a migration.
 
-**Status:** approved as a source candidate for the documented AA and cross-domain identity correction, with no remaining actionable findings in that delta. The completed native zone build is verified and not installed. This is not approval of complete independence for all skills; controlled deployment and live acceptance remain pending.
+**October 17 review status:** approved as a source candidate for the documented AA and cross-domain identity correction, with no remaining actionable findings in that delta. At that review, the native build was verified but not installed. The owner subsequently authorized main promotion and deployment, completed October 18; see [production verification](deployment/production-verification.json). This does not establish complete independence for all skills or owner gameplay acceptance.
 
 ## Findings resolved in source
 
@@ -32,7 +32,7 @@ Reviewed [manifest.json](manifest.json), [build-final.txt](build-final.txt), [bu
 
 ## Remaining acceptance limits
 
-- Native zone build is verified, not installed. Migration, deployment and owner gameplay acceptance remain unperformed; source promotion to dev/test does not establish live acceptance.
+- The October 18 migration and deployment are verified. Owner gameplay acceptance remains open; source/build/runtime checks do not establish visible gameplay acceptance.
 - Execute [QA.md](QA.md) with the paired server/migration and existing Monk client. Native fixtures do not establish visible hotbutton, login, class-change, inventory or live cast behavior. Unlinked items use inventory timestamp publication; their recast-delay helper does not emit a native group packet.
 - Exactly-zero native AA reuse cannot display a retained server wait. Current allowed haste totals stay below base reuse, but future content must retain this check and the 100-slot capacity check.
 - Content-defined spell, grouped-discipline and linked-item sharing remains unchanged, including the documented Harmshield/Cannibalize and Battle Cry/Throw Stone groups. Catalog presence does not prove learned/owned access.

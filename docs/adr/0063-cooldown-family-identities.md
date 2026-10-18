@@ -1,6 +1,6 @@
 # 0063 — Stable cooldown families and bounded native client slots
 
-Status: implementation candidate; October 17, 2026. Not deployed.
+Status: deployed October 18, 2026 via PR223; owner gameplay acceptance remains open.
 
 Rampage and Purify Body share raw AA group 1. In a multiclass character, this
 aliases both the persisted server timer and the native client button clock.
