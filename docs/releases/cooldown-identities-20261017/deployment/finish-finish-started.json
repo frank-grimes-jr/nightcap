@@ -1,0 +1,13 @@
+{
+  "manifest_sha256": "82a698b25dad576514a92baf62981fcaca38b18b9e7d89b20bd03a23af125bcb",
+  "resolved_holds": {
+    "held-1792334750620816674.json": "a7a39b4e0a10fd2b4144cc5e3ad263f345d2581652517b42d3288dff38752137",
+    "held-1792335896389206450.json": "74354bb75b78604c90ad7a9bf67e83b5f047adbd386b07e3bbd258668d62ff7c"
+  },
+  "prior_game": {
+    "id": "6e4b09f371e9024de46770f43fbf7f1751cf9b77ad206ed13e3dbe1d9509aebe",
+    "started_at": "2026-10-18T15:03:43.92312443Z"
+  },
+  "migration_replayed": false,
+  "database_restored": false
+}

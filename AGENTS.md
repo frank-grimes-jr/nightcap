@@ -60,7 +60,7 @@ All commands run from `akk-stack/`:
 
 ## Domain knowledge
 
-- **Cooldown identity candidate (October 17, not deployed):** AA reuse belongs
+- **Cooldown identities (deployed October 18 via PR223; gameplay QA open):** AA reuse belongs
   to an ability family, projected into the native client's 100 slots independently
   of purchases. Internal timer keys now use disjoint positive 24-bit-compatible
   namespaces for AAs, unlinked items and disciplines. Pair the rebuilt zone with

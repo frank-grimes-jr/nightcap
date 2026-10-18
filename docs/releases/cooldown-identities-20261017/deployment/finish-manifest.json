@@ -1,0 +1,9 @@
+{
+  "source_revision": "1b55ed448f83111108b56a0e7e198d883a3f0f14",
+  "original_manifest_sha256": "5684a9e663561ea77f35867cc89047297e0c30bbb77a3989d970e7358a5372fa",
+  "resume_manifest_sha256": "b65a1c9d0b74c0c45c95aa419cefa1d3ce87e2f752e91b233158cdf00e3a5d10",
+  "files": {
+    "finish.py": "17da07e0713c1de98445436bf46ca1111a84e2b2117d4cad72ae7c3bd63c7257",
+    "test_finish.py": "78d98b6bf7b4b262644eb6cd80f0c73c753e0662042567d91b4afebdec087b4b"
+  }
+}

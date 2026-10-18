@@ -1,6 +1,6 @@
 {
-  "reviewed_at": "2026-10-17",
-  "reviewed_revision": "445dd5229e83bb886dc3ce1e9ed4670084d94420",
+  "reviewed_at": "2026-10-18",
+  "reviewed_revision": "1b55ed448f83111108b56a0e7e198d883a3f0f14",
   "source_paths": [
     "server-mods/",
     "eq-client-dll/",
@@ -18,11 +18,10 @@
     "AA class ranks and level-one access: deployed October13, docs/releases/aa-class-ranks-20261013/README.md and aa-tbs-level1-20261013/README.md; costs, legal pool and dormant ownership preserved.",
     "Dungeon launch and journal repair: docs/dungeons/deployment/production-verification.json and journal-repair/README.md; deployed with owner-confirmed scoped Befallen display repair; broader all-mode/reward/balance acceptance remains open.",
     "Commonlands banker and Leather Padding: docs/ops/commonlands-services-20261016/README.md and deployment.json; current local evidence imported exactly.",
-    "Travel client audit 4e3acd8 documents local repair, not fleet publication. Existing guide distinction retained.",
     "October 17 combined release: all 21 maintained articles and 432 generated reward routes assessed; Recommended AA, 10% passive AA, Monk/duration corrections, death EXP, stacks and 3/4/4 reforge guidance reconciled across Features, home, guides and Recent changes. Reward catalog values unchanged. PR #220 is merged to main and deployed; signed game 2026101702 verifies all 106 files. Wiki 20261017-progression-combat-v1 verifies all 465 files; the private player guide verifies all five. Exact receipts: docs/releases/october-17-2026/. No new AA unlocks; shared timer identity collisions and owner gameplay/balance acceptance stay open.",
     "Older source drift reviewed by group against dated main release records: AA policy and ownership; dungeon/server/client/quest implementations; retained era.json/apply-era behavior; operational/site/access documentation. No unlabeled candidate system promoted by advancing this source ledger.",
     "Final release evidence reviewed through ba013fc05ad4be11630189f197604561da43fc02: source build/retained-image validation, stopped backup and data preservation, bounded market-startup reconciliation, publication receipts, operator tests, QA and status/runbook corrections. These operational records require no further public prose or catalog changes. The private source ledger is excluded from published site payloads.",
-    "Cooldown identity candidate: all21 articles and432 generated reward routes reviewed; combat, In development and Recent changes updated as NOT DEPLOYED. Features/home/player commands and catalog values remain accurate. Scope and open content-group issues: docs/releases/cooldown-identities-20261017/. Public/private publication pending, no live timer conversion.",
-    "Cooldown identity follow-up: reviewed final eight-file retained-source build, 2823 source fingerprints, independent review and 15-test migration rehearsal. All 21 maintained articles and 432 generated reward routes assessed; generic skill/content groups remain open. Candidate built and reviewed, not deployed; public/private publication pending. Evidence: docs/releases/cooldown-identities-20261017/."
+    "Cooldown identities deployed via PR223 on October18: all21 maintained guides and432 generated reward routes reviewed. Combat, Features, home, multiclass, travel, equipment, In development and Recent changes updated; commands and rewards retain their behavior. Fresh stopped conversion and exact runtime verification passed. Owner gameplay acceptance and generic/content sharing remain open. Evidence: docs/releases/cooldown-identities-20261017/deployment/. Concurrent client2026101801 retains all106previous assets; its32Classic zone assets are preserved.",
+    "Published client2026101801 and wiki20261018-client-zone-repair-v1 supersede the local-only travel audit; all five published article additions are retained from the verified client-zone-validation checkout. PR225 built-in-color repair is on main but not yet activated; two guides explicitly label that separate repair pending."
   ]
 }
