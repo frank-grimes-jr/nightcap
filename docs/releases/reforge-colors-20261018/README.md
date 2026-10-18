@@ -1,6 +1,6 @@
 # Reforging default colors — October 18, 2026
 
-Status: implementation and verification in progress; not yet deployed.
+Status: implementation merged, native build and verification passed; not yet deployed.
 
 The owner requested correction and production deployment after three ordinary
 Daggers of Marnek were rejected. Their instance color matched the item definition
@@ -49,6 +49,12 @@ whole-runtime restart; a quest reload cannot change this native check. Keep the
 latest signed client and cooldown migration. Recovery selects the immediately
 preceding cooldown-capable image, preserving current inventory and receipts;
 never restore an old player snapshot or the pre-cooldown binary.
+
+The operator validates the market rotation against its actual retained procedure:
+exhausted eligible pools can leave empty slots. Counts must stay within actor and
+scarcity capacities, with every present offer satisfying epoch, price, quantity
+and eligibility checks. This correction passed nine operator test groups on
+Windows and Linux before deployment; it does not change market behavior.
 
 ## In-game QA
 

@@ -8,10 +8,10 @@
     "new_color_scenarios": 61,
     "upgrade_policy_tests": 1,
     "upgrade_package_tests": 3,
-    "rollout_failure_and_recovery_tests": 7,
+    "rollout_failure_and_recovery_tests": 9,
     "wiki_content_refresh_tests": 14,
     "wiki_node_checks": 13,
-    "rollout_linux_tests": 7
+    "rollout_linux_tests": 9
   },
   "independent_review": "approved; reviewer independently reran inventory and rollout suites; no blocking findings",
   "scope": "Native functions with dependency fakes; no live player combine executed",
