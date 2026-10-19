@@ -79,6 +79,9 @@ class AllClassAA(unittest.TestCase):
         self.assertEqual(coverage['class_masks'],696)
         self.assertLess(coverage['max_timer_slots'],100)
         self.assertEqual(coverage['max_timer_slots'],74)
+        # common/patches/rof2_structs.h MAX_PP_AA_ARRAY in retained full source.
+        self.assertEqual(coverage['max_profile_families'],206)
+        self.assertLess(coverage['max_profile_families'],coverage['profile_limit'])
 
     def test_all_696_class_masks_keep_positive_effective_activation_cooldowns(self):
         ranks={r['id']:r for r in self.tables['aa_ranks']}

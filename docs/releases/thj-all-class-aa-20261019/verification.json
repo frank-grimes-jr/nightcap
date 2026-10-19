@@ -50,5 +50,11 @@
     "main/server approval",
     "wiki publication",
     "explicit THJ behavior gaps in CHANGELIST.md"
-  ]
+  ],
+  "profile_capacity": {
+    "max_held_class_families": 206,
+    "native_limit": 300,
+    "source": "retained source/common/patches/rof2_structs.h:140 MAX_PP_AA_ARRAY",
+    "class_masks_checked": 696
+  }
 }

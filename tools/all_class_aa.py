@@ -155,8 +155,11 @@ def coverage(rows,tables):
              for combo in itertools.combinations(range(16),size)]
     maximum = max((sum(bool(classes&mask) for classes in families.values()),combo)
                   for mask,combo in masks)
+    all_families = {r['ability_id']:r['classes'] for r in rows}
+    max_profile = max(sum(bool(classes&mask) for classes in all_families.values()) for mask,_ in masks)
     return dict(class_masks=len(masks),max_timer_slots=maximum[0],
-                maximum_classes=[CLASSES[c] for c in maximum[1]],limit=100)
+                maximum_classes=[CLASSES[c] for c in maximum[1]],limit=100,
+                max_profile_families=max_profile,profile_limit=300)
 
 
 def changes(old_rows,rows):

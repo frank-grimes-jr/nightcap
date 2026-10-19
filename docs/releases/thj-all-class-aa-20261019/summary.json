@@ -1613,6 +1613,8 @@
       "Necromancer",
       "Magician"
     ],
-    "limit": 100
+    "limit": 100,
+    "max_profile_families": 206,
+    "profile_limit": 300
   }
 }
