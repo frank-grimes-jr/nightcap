@@ -4,6 +4,10 @@ Status: **signed and verified candidate; publication and new native Play QA pend
 Source: `feature/client-contract-repair`, based on current main `73358d0`.
 The owner reports the same Play failure on this PC and other players' PCs.
 
+On October 19 the owner requested **“push to main”**, authorizing source promotion
+through feature → dev → test → main before the remaining native Play QA. This
+does not record gameplay acceptance or signed-client/public-wiki publication.
+
 ## Cause and exact repair
 
 Public game release 2026101802 signs proxy 0.11.0 alongside the retained 0.10.0

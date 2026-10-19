@@ -9,6 +9,8 @@ All137 other assets/URLs remain exact; no server restart or new desktop is neede
 Regression, recorded-health replay, full Go suite and publisher recovery tests
 pass. [Repair evidence and exact owner QA](releases/client-contract-20261019/README.md).
 The prior release's hash verification is not evidence of successful native Play.
+Owner requested source promotion to main on October 19; signed publication and
+native Play acceptance remain separate pending steps.
 
 ## Combined THJ item/spell and pet/WPM — deployed October 18, live QA open
 

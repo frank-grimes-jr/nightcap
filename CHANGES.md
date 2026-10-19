@@ -7,6 +7,7 @@ Play on multiple PCs. Prepare signed 2026101901 with only the matching catalog;
 retain the other 137 assets and URLs. Add a proxy/catalog packaging gate and
 released-artifact regression. Full launcher tests and six Windows/Linux recovery
 tests pass. Publication and new native Play QA remain pending.
+The owner requested source promotion to main on October 19; retain those open gates.
 Evidence and exact QA: docs/releases/client-contract-20261019/README.md.
 
 ## 2026-10-18 - Combined THJ release deployed for live testing
