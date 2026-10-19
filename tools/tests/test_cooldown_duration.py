@@ -158,6 +158,7 @@ struct Client {
  bool HasSkill(int) const {return has_skill;}
  int GetSkill(int) const {return raw_skill;}
  int GetHP() const {return hp;}int GetMaxHP() const {return 1000;}
+ uint64 GetNightcapHealingReceived(uint64 amount) const {return amount;}
  void SetHP(int value) {hp=value;}void SendHPUpdate() {++hp_updates;}
  int GetAA(int) const {return 0;}
  bool IsStunned() const {return stunned;}bool IsFeared() const {return feared;}

@@ -11,7 +11,7 @@ class PetState {
     struct Pet {
         uint32_t spawn = 0;
         std::string name;
-        std::array<Slot, 8> slots{};
+        std::array<Slot, 22> slots{};
         uint32_t received = 0;
     };
     struct Snapshot {
@@ -21,6 +21,7 @@ class PetState {
     } current_, pending_;
     bool receiving_ = false;
     uint32_t selected_ = 0;
+    unsigned page_ = 0;
     static bool Number(std::string_view text, uint32_t &value) {
         if (text.empty() || text.size() > 10) return false;
         value = 0;
@@ -48,7 +49,10 @@ class PetState {
         return found == current_.pets.end() ? nullptr : &found->second;
     }
 public:
-    void Clear() { current_ = {}; pending_ = {}; receiving_ = false; selected_ = 0; }
+    void Clear() { current_ = {}; pending_ = {}; receiving_ = false; selected_ = 0; page_ = 0; }
+    void NextPage(int direction) {
+        if (!receiving_) page_ = (page_ + (direction < 0 ? 2 : 1)) % 3;
+    }
     bool Matches(uint32_t spawn, const char *name) const {
         return !receiving_ && current_.identity[0] && current_.identity[4] == spawn && name && current_.name == name;
     }
@@ -65,16 +69,25 @@ public:
     std::string TitleText() const {
         static constexpr const char *classes[] = {"", "WAR", "CLR", "PAL", "RNG", "SHD", "DRU", "MNK", "BRD", "ROG", "SHM", "NEC", "WIZ", "MAG", "ENC", "BST", "BER"};
         const auto pet = Selected();
-        return pet ? std::string(classes[selected_]) + " - " + pet->name + (pet->spawn ? "" : " (inactive)") : "No owned pets or stored armor";
+        unsigned used = 0;
+        if (pet) for (const auto &slot : pet->slots) used += slot.item != 0;
+        return pet ? std::string(classes[selected_]) + " " + std::to_string(used) + "/" +
+            (selected_ == 13 ? "15" : "8") + " - " + pet->name + (pet->spawn ? "" : " (inactive)") : "No owned pets or stored equipment";
     }
     std::string SlotText(unsigned index) const {
-        static constexpr const char *names[] = {"Head", "Chest", "Arms", "Wrist", "Hands", "Legs", "Feet", "Waist"};
+        static constexpr const char *names[] = {"Head", "Chest", "Arms", "Wrist 1", "Hands", "Legs", "Feet", "Waist",
+            "Primary", "Secondary", "Ear 1", "Ear 2", "Neck", "Face", "Shoulders", "Back",
+            "Wrist 2", "Finger 1", "Finger 2", "Range", "Charm", "Power source"};
         if (index >= 8) return "";
+        index += page_ * 8;
+        if (index >= 22) return "";
         const auto pet = Selected();
         return std::string(names[index]) + ": " + (pet ? pet->slots[index].name : "Empty");
     }
     std::string Command(const char *action, unsigned index) const {
         if (!action || receiving_ || !current_.identity[0] || index >= 8) return "";
+        index += page_ * 8;
+        if (index >= 22) return "";
         const auto pet = Selected();
         if (!pet) return "";
         const std::string verb(action);
@@ -89,7 +102,7 @@ public:
         while (size < 256 && message[size]) ++size;
         if (size < 10 || size == 256) return false;
         const std::string_view text(message, size);
-        if (text.substr(0,7) != "[NCPA1]" || text[8] != '|') return false;
+        if (text.substr(0,7) != "[NCPA2]" || text[8] != '|') return false;
         const char type = text[7];
         const unsigned expected = type == 'B' ? 6 : type == 'P' ? 4 : type == 'I' ? 5 : type == 'E' ? 1 : 0;
         if (!expected) return false;
@@ -120,7 +133,7 @@ public:
         }
         if (!receiving_ || values[0] != pending_.identity[0]) return false;
         if (type == 'E') {
-            for (const auto &entry : pending_.pets) if (entry.second.received != 255) return false;
+            for (const auto &entry : pending_.pets) if (entry.second.received != ((1u << 22) - 1)) return false;
             current_ = std::move(pending_); pending_ = {}; receiving_ = false;
             if (!current_.pets.count(selected_)) selected_ = current_.pets.empty() ? 0 : current_.pets.begin()->first;
             return true;
@@ -132,7 +145,7 @@ public:
             return true;
         }
         auto pet = pending_.pets.find(values[1]);
-        if (pet == pending_.pets.end() || values[2] >= 8 || (pet->second.received & (1u << values[2]))) return false;
+        if (pet == pending_.pets.end() || values[2] >= 22 || (pet->second.received & (1u << values[2]))) return false;
         pet->second.slots[values[2]] = {values[3], std::move(name)};
         pet->second.received |= 1u << values[2];
         return true;

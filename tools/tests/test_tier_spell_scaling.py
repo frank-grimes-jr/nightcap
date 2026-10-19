@@ -2,7 +2,7 @@ import unittest
 from tier_spell_scaling import quality, stamp, scaled_stat, plan, migration_sql
 
 def item(**values):
-    return dict(id=1001, Name='Cloth Cap', slots=4, itemclass=0, bagslots=0,
+    return dict(id=199001, Name='Fixture Cap', slots=4, itemclass=0, bagslots=0,
                 ac=0, hp=0, mana=0, astr=0, asta=0, adex=0, aagi=0,
                 aint=0, awis=0, acha=0, damage=0, delay=0, itemtype=10,
                 spelldmg=0, healamt=0, **values)
@@ -43,7 +43,7 @@ class TierSpellScaling(unittest.TestCase):
 
     def test_plan_rejects_collisions_and_emits_exact_two_column_rollback(self):
         base=item(); base['ac']=2
-        tier=dict(base,id=601001,Name='Cloth Cap (Ascended)',spelldmg=20,healamt=20)
+        tier=dict(base,id=799001,Name='Fixture Cap (Ascended)',spelldmg=20,healamt=20)
         rows=plan([base,tier])
         self.assertEqual(len(rows),1)
         self.assertEqual(rows[0]['new'],[0,0])
@@ -58,7 +58,7 @@ class TierSpellScaling(unittest.TestCase):
 
     def test_plan_rejects_missing_base_duplicate_and_unknown_stats(self):
         base=item(); base['ac']=2
-        tier=dict(base,id=601001,Name='Cloth Cap (Ascended)',spelldmg=20,healamt=20)
+        tier=dict(base,id=799001,Name='Fixture Cap (Ascended)',spelldmg=20,healamt=20)
         with self.assertRaisesRegex(ValueError,'Missing base'): plan([tier])
         with self.assertRaisesRegex(ValueError,'Duplicate'): plan([base,base,tier])
         tier['healamt']=19

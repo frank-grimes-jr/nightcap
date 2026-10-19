@@ -1,0 +1,151 @@
+{
+  "status": "staged_not_installed_or_signed",
+  "path": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/thj-parity-test-bundle",
+  "source_revision": "3a5cc28f40ad52988a50c9d0157d28b5f0a2143b",
+  "files": {
+    "client-delta/dbstr_us.txt": {
+      "bytes": 6368783,
+      "sha256": "88506405c5179b1d369d261290b415937729b6f05b4e1a845a3d4bcd63f1a421"
+    },
+    "client-delta/dinput8.dll": {
+      "bytes": 617472,
+      "sha256": "9dd6ad400d7390f95c3af88ffe70a67c180368a213e13cc951cee20fefb63380"
+    },
+    "client-delta/spells_us.txt": {
+      "bytes": 28151898,
+      "sha256": "eb07544cd443e56d404900d5853d09625ccea899425bcab63dc9f07283f7ec61"
+    },
+    "client-delta/uifiles/nightcap/equi_inventory.xml": {
+      "bytes": 188475,
+      "sha256": "518c000142b83ecd55e149123d4b8a69133f581e23deddf43e3932de3b67ab69"
+    },
+    "client-delta/uifiles/nightcap/equi_petinfowindow.xml": {
+      "bytes": 121826,
+      "sha256": "07205a47f2117e3f13f68d1f512d05cd268f0821b17ba5a71fe6e8b8d7b4f95b"
+    },
+    "content/01-pet-equipment-schema.sql": {
+      "bytes": 461,
+      "sha256": "8eee3355fa1efb4747492335d9b9de34ddb93a8184ee6ac884ff7bf801a5e7f2"
+    },
+    "content/02-shared-output-caps.sql": {
+      "bytes": 1234,
+      "sha256": "c07b60949be77551d9ff78ac2ee9a8731b18cf55ff30bde8f1adee80c3e7b4b1"
+    },
+    "content/03-rabid-forward.sql": {
+      "bytes": 113760,
+      "sha256": "09e81c078a3639780a4070f129f3c2e94c26404a742c5ca7f4a59cd9b7785578"
+    },
+    "content/04-pet-support-forward.sql": {
+      "bytes": 63981,
+      "sha256": "2eb1cceba079f3c93c7760f344446fd6de2b3e5db0072089993dd0e0f7987a5a"
+    },
+    "content/05-wpm-aa-forward.sql": {
+      "bytes": 54947,
+      "sha256": "68db3c1a5568412a007410de532fdbee3660be7a1e01cb16d412fcf06fb85831"
+    },
+    "content/06-heroic-melee-forward.sql": {
+      "bytes": 3333,
+      "sha256": "63c5aabba41cf51b0385f86ba41c00b5c9cd04fe2433954282aa9a6b1aa97406"
+    },
+    "content/07-pet-acquisition-forward.sql": {
+      "bytes": 199788,
+      "sha256": "d34252ffb925651dae447fcf909dcc27073544877ac4acff3fb173b88b542eb3"
+    },
+    "content/08-wpm-acquisition-forward.sql": {
+      "bytes": 483841,
+      "sha256": "3964525b439837865af16d2fdba0ae78753e9b618afa3e93f97f54dd8907a5a7"
+    },
+    "content/09-combined-items-forward.sql": {
+      "bytes": 428496,
+      "sha256": "ba75680671f850ee8c7da18c02a1e1e742f5b734eec82db6a98085dfee8982c6"
+    },
+    "content/10-spell-rules-forward.sql": {
+      "bytes": 6104,
+      "sha256": "dd164ee918281e44bc5f4ad6d2f952de1d993d794cceaec28296b7a7adca384d"
+    },
+    "evidence/cache-manifest.json": {
+      "bytes": 688,
+      "sha256": "3c50193f8c48bb692fe4570708ba9c6da5f78e3becdc202d3c9f0de6f25723ab"
+    },
+    "evidence/client-stage.json": {
+      "bytes": 10674,
+      "sha256": "9968c7da431d39d5fcba3278c49cd0a8a1ccbb5d643706ba24a2e3bb1761c443"
+    },
+    "evidence/native-build-manifest.json": {
+      "bytes": 335683,
+      "sha256": "ad78ddfe8eedf1c54f302e64a8aef189777476f64f6b54eea82cf3cda2f63a64"
+    },
+    "evidence/native-comparison.json": {
+      "bytes": 45885,
+      "sha256": "7fe0f70e1ff41eb72a680c39c1dd535230efebd58f72d700a46721c5aa3b815f"
+    },
+    "evidence/native-pairing.json": {
+      "bytes": 454,
+      "sha256": "9cdbf60b4c767acfa6fb52ec8aeb373e26a020ca5e2c38a9ad6a7a06ebaa2ed7"
+    },
+    "guides/ACTIVATION.md": {
+      "bytes": 3910,
+      "sha256": "ec603fe9157deb5bb9ff5c2b7416d0789577c06a35b2ee01c80a7a94bb17d31b"
+    },
+    "guides/COMPARISON.md": {
+      "bytes": 8309,
+      "sha256": "21897792d4156afbbd906d5cc43809e13e4f8ae3213bf87b0c34118b294b6254"
+    },
+    "guides/QA.md": {
+      "bytes": 6359,
+      "sha256": "a920a3fd0040e92a44026cafa2a6ac6e5b7419b220ea6c4a944ddf0de1ed9cba"
+    },
+    "guides/README.md": {
+      "bytes": 7577,
+      "sha256": "34444de454b618ad97900a4c791414490b10046683e28a25a8b215c46260ff60"
+    },
+    "README.txt": {
+      "bytes": 711,
+      "sha256": "723c69950bc727e157c5f29af549dd5851bc66e838963069b6e6b73120ee2778"
+    },
+    "recovery/heroic-melee-disable.sql": {
+      "bytes": 3593,
+      "sha256": "123c3a27f6a01b84c0450e58d78043740fff8a5c7dec7773071bc544b6fb8daa"
+    },
+    "recovery/heroic-melee-enable.sql": {
+      "bytes": 3589,
+      "sha256": "f4f02a2f117378d61a38971d4274c36c4ed6477f01e508e547ac8ec8320bf654"
+    },
+    "recovery/items-numeric.sql": {
+      "bytes": 420432,
+      "sha256": "3212af9b6a960e6e82725096336f2372ac8630e60a85e60b5e705cf282c1605f"
+    },
+    "recovery/pet-acquisition.sql": {
+      "bytes": 1294,
+      "sha256": "0954e9514707a1f8f4da621f32b6cbe908624b377ce0c3c315ef40e983e5a281"
+    },
+    "recovery/spell-rules-disable.sql": {
+      "bytes": 6620,
+      "sha256": "593057318c326702dee135413ab9f12aa3277335618eefd4ea59e19d382b6b95"
+    },
+    "recovery/spell-rules-enable.sql": {
+      "bytes": 6612,
+      "sha256": "ea136141d4e151e2ba0c148c319795490bb43695b1ccf350efedcd6070f49d54"
+    },
+    "recovery/wpm-acquisition.sql": {
+      "bytes": 3531,
+      "sha256": "633180a6284cc275880acda25e375b24226869bc35b29e784edb8693ad0fa8ef"
+    },
+    "server/bin/shared_memory": {
+      "bytes": 41783080,
+      "sha256": "4605b227d2c3f0d5a571ed6daee202f8cc263b245220d989163fc700f65c59f5"
+    },
+    "server/bin/world": {
+      "bytes": 95471312,
+      "sha256": "3151cf1d60df5225cc736d354ee7142b2910714dd51b0da8a590ad38b557fafb"
+    },
+    "server/bin/zone": {
+      "bytes": 316137448,
+      "sha256": "9d3c8d81f76597a9ca856c1052ab8426c6a6136837cfe2f7ced79e3755ede1b0"
+    },
+    "server-linux.tar.gz": {
+      "bytes": 132849756,
+      "sha256": "9c163379b98911c9149adbb9b452268f13c40051641ae744029ae60bdb3554e2"
+    }
+  }
+}

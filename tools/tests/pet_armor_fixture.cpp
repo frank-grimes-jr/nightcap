@@ -24,10 +24,12 @@ struct InventoryRepository {
 		"instnodrop","custom_data","ornament_icon","ornament_idfile","ornament_hero_model","guid"}; }
 };
 namespace EQ {
-namespace invslot { constexpr int16 slotCursor=33; }
+namespace invslot { constexpr int16 slotCursor=33, slotPrimary=13, slotSecondary=14; }
+struct ItemData { bool twohand=false; bool IsType2HWeapon() const { return twohand; } };
 namespace invbag { constexpr int16 CURSOR_BAG_BEGIN=6010, CURSOR_BAG_END=6209; }
 struct ItemInstance {
-	InventoryRepository::Inventory row; int16 charges=0; bool legal=true;
+	InventoryRepository::Inventory row; int16 charges=0; bool legal=true; ItemData item;
+	const ItemData* GetItem() const { return &item; }
 	uint32 GetID() const {return row.item_id;}
 	int16 GetCharges() const {return charges;}
 	uint32 GetColor() const {return row.color;}
@@ -71,6 +73,9 @@ struct Result {
 	Iterator begin()const{return {&cells,0};}Iterator end()const{return {&cells,cells.size()};}
 };
 struct FakeDB {
+	Cells petrows;
+	EQ::ItemData ordinary, twohand{true};
+	const EQ::ItemData* GetItem(uint32 id) { return id == 2000 ? &twohand : id ? &ordinary : nullptr; }
 	std::vector<std::string> queries; int fail=0; bool equip=true, stale=false, occupied=false, queue=false;
 	Result QueryDatabase(const std::string& q,bool retry) {
 		if(retry)throw std::runtime_error("transaction query allowed reconnect/retry");
@@ -79,6 +84,9 @@ struct FakeDB {
 		if(q.rfind("SHOW COLUMNS",0)==0){for(const auto& c:InventoryRepository::Columns())r.cells.push_back({c});if(q.find("character_pet_armor")!=std::string::npos)r.cells.push_back({"pet_class"});}
 		else if(q.find("information_schema.TABLES")!=std::string::npos)r.cells={{"2"}};
 		else if(q.find("information_schema.TRIGGERS")!=std::string::npos || q=="SELECT @@in_transaction")r.cells={{"0"}};
+		else if(q.rfind("SELECT slot_id,item_id",0)==0){
+			r.cells=petrows; if (!equip || occupied) r.cells.push_back({"2","1001"});
+		}
 		else if(q.rfind("SELECT slot_id",0)==0){
 			bool cursor=q.find("(slot_id=")!=std::string::npos;
 			bool target=q.find("WHERE character_id=")!=std::string::npos && !cursor;
@@ -90,9 +98,10 @@ struct FakeDB {
 } database;
 namespace NightcapPetArmor {
 using Row=InventoryRepository::Inventory;
-constexpr std::array<int16,8> Slots={2,17,7,9,12,18,19,20};
+constexpr std::array<int16,22> Slots={2,17,7,9,12,18,19,20,13,14,1,4,5,3,6,8,10,15,16,11,0,21};
 struct Item {Row saved;std::shared_ptr<EQ::ItemInstance> instance;};
-bool Allowed(const EQ::ItemInstance* item,uint8 index){return item && item->legal && index<8;}
+using Equipment=std::array<Item,Slots.size()>;
+bool Allowed(const EQ::ItemInstance* item,uint8 index){return item && item->legal && index<Slots.size();}
 // ACTUAL_METHODS
 }
 void check(bool condition,const char* message){if(!condition)throw std::runtime_error(message);}
@@ -131,7 +140,22 @@ int main(){try{
 		check(Transfer(77,13,0,true,&cursor,empty,result),"charges equip failed");
 		check(result.saved.charges==(charges<0?32767:charges),"charges encoding changed");
 	}
-	database={};check(!Transfer(77,13,8,true,&cursor,empty,result),"ninth slot accepted");check(database.queries.empty(),"invalid request reached DB");
+	database={};check(!Transfer(77,13,22,true,&cursor,empty,result),"invalid location accepted");check(database.queries.empty(),"invalid request reached DB");
+	for (uint8 cls : {uint8(13), uint8(15), uint8(11)}) {
+		for (int full : {0,1}) {
+			database={};
+			for (unsigned i=1; i<Capacity(cls)+full; ++i) database.petrows.push_back({std::to_string(Slots[i]),"1001"});
+			check(Transfer(77,cls,0,true,&cursor,empty,result)==!full,"capacity not enforced inside transaction");
+		}
+	}
+	database={}; database.petrows={{"14","1001"}}; cursor.item.twohand=true;
+	check(!Transfer(77,13,8,true,&cursor,empty,result),"two-hander with occupied offhand accepted");
+	database={}; database.petrows={{"13","2000"}}; cursor.item.twohand=false;
+	check(!Transfer(77,13,9,true,&cursor,empty,result),"offhand with two-hander accepted");
+	Equipment equipment{};
+	for (unsigned i=0; i<8; ++i) equipment[i].instance=std::make_shared<EQ::ItemInstance>(cursor);
+	check(!CanEquip(equipment,15,8,&cursor),"non-Mage ninth item accepted");
+	check(CanEquip(equipment,13,8,&cursor),"Mage ninth item rejected");
 	std::cout<<"Native transfer controls passed: 24 injected failures, CAS, occupied slot, cursor queue, 3 charge states, GUID reassignment\n";
 	for(const auto& q:equipQueries)std::cout<<"EQUIP:"<<q<<"\n";
 	for(const auto& q:removeQueries)std::cout<<"REMOVE:"<<q<<"\n";

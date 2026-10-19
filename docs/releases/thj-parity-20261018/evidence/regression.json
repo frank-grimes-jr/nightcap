@@ -1,0 +1,31 @@
+{
+  "utc": "2026-10-19T00:25:35.895225+00:00",
+  "status": "passed",
+  "tests": 157,
+  "failures": 0,
+  "errors": 0,
+  "skipped": [],
+  "patterns": [
+    "test_pet_armor_transfer.py",
+    "test_pet_*.py",
+    "test_doppelganger.py",
+    "test_rabid_bear.py",
+    "test_pop_progression.py",
+    "test_aa_tbs_policy.py",
+    "test_aa_temporary_buffs.py",
+    "test_gameplay_policies.py",
+    "test_client_gameplay_assets.py",
+    "test_client_gameplay_ui.py",
+    "test_wpm*.py",
+    "test_monk_combat_reuse.py",
+    "test_cooldown_duration.py",
+    "test_multiclass_fists.py",
+    "test_thj_item_parity.py",
+    "test_thj_spell_scaling.py",
+    "test_starter_retune.py",
+    "test_tier_spell_scaling.py",
+    "test_dungeon_catalog.py"
+  ],
+  "database_scope": "session-local temporary tables; no live table writes",
+  "native_gameplay_acceptance": "pending"
+}

@@ -1368,7 +1368,8 @@ bool Mob::SpellEffect(Mob* caster, uint16 spell_id, float partial, int level_ove
 				snprintf(effect_desc, _EDLEN, "Melee Absorb Rune: %+i", effect_value);
 #endif
 				if (buffslot > -1) {
-					buffs[buffslot].melee_rune = effect_value;
+					// effect_value already includes the native instrument modifier.
+					buffs[buffslot].melee_rune = caster ? caster->GetNightcapRuneAmount(spell_id, effect_value) : effect_value;
 				}
 				break;
 			}
@@ -4696,6 +4697,18 @@ void Mob::BuffFadeBySlot(int slot, bool iRecalcBonuses)
 		CalcBonuses();
 }
 
+uint8 Mob::GetFocusSpellLevel(uint16 spell_id) const
+{
+	if (!IsValidSpell(spell_id)) {
+		return 255;
+	}
+	if (IsClient()) {
+		return CastToClient()->GetSpellMinLevel(spell_id);
+	}
+	const auto class_id = GetClass();
+	return class_id >= 1 && class_id <= 16 ? spells[spell_id].classes[class_id - 1] : 255;
+}
+
 int64 Mob::CalcAAFocus(focusType type, const AA::Rank &rank, uint16 spell_id)
 {
 	const SPDat_Spell_Struct &spell = spells[spell_id];
@@ -4809,7 +4822,7 @@ int64 Mob::CalcAAFocus(focusType type, const AA::Rank &rank, uint16 spell_id)
 				break;
 
 			case SpellEffect::LimitMaxLevel:
-				spell_level = spell.classes[(GetClass() % 17) - 1];
+				spell_level = GetFocusSpellLevel(spell_id);
 				lvldiff     = spell_level - base_value;
 				// every level over cap reduces the effect by base2 percent unless from a clicky when
 				// ItemCastsUseFocus is true
@@ -4827,7 +4840,7 @@ int64 Mob::CalcAAFocus(focusType type, const AA::Rank &rank, uint16 spell_id)
 				break;
 
 			case SpellEffect::LimitMinLevel:
-				if ((spell.classes[(GetClass() % 17) - 1]) < base_value) {
+				if (GetFocusSpellLevel(spell_id) < base_value) {
 					LimitFailure = true;
 				}
 				break;
@@ -5535,7 +5548,7 @@ int64 Mob::CalcFocusEffect(focusType type, uint16 focus_id, uint16 spell_id, boo
 				if (IsNPC()) {
 					break;
 				}
-				spell_level = spell.classes[(GetClass() % 17) - 1];
+				spell_level = GetFocusSpellLevel(spell_id);
 				lvldiff     = spell_level - focus_spell.base_value[i];
 				// every level over cap reduces the effect by focus_spell.base2[i] percent unless from a clicky
 				// when ItemCastsUseFocus is true
@@ -5557,7 +5570,7 @@ int64 Mob::CalcFocusEffect(focusType type, uint16 focus_id, uint16 spell_id, boo
 				if (IsNPC()) {
 					break;
 				}
-				if (spell.classes[(GetClass() % 17) - 1] < focus_spell.base_value[i]) {
+				if (GetFocusSpellLevel(spell_id) < focus_spell.base_value[i]) {
 					return (0);
 				}
 				break;
@@ -6894,7 +6907,7 @@ int64 NPC::GetFocusEffect(focusType type, uint16 spell_id, Mob* caster, bool fro
 		rand_effectiveness = true;
 	}
 
-	if (RuleB(Spells, NPC_UseFocusFromItems) && itembonuses.FocusEffects[type]){
+	if ((RuleB(Spells, NPC_UseFocusFromItems) || GetNightcapPetOwner()) && itembonuses.FocusEffects[type]){
 
 		const EQ::ItemData* TempItem = nullptr;
 		const EQ::ItemData* UsedItem = nullptr;
@@ -6903,9 +6916,18 @@ int64 NPC::GetFocusEffect(focusType type, uint16 spell_id, Mob* caster, bool fro
 		int64 focus_max = 0;
 		int64 focus_max_real = 0;
 
-		//item focus
-		for (int i = EQ::invslot::EQUIPMENT_BEGIN; i <= EQ::invslot::EQUIPMENT_END; i++){
-			const EQ::ItemData *cur = database.GetItem(equipment[i]);
+		// Owned pet foci include augments on the preserved instances. Ordinary
+		// NPCs retain their native equipment-ID path and global focus rule.
+		std::vector<const EQ::ItemData *> focus_items;
+		for (int i = EQ::invslot::EQUIPMENT_BEGIN; i <= EQ::invslot::EQUIPMENT_END; ++i) {
+			focus_items.push_back(database.GetItem(equipment[i]));
+			const auto inst = GetNightcapPetOwner() ? GetInv().GetItem(i) : nullptr;
+			if (inst) for (int j = EQ::invaug::SOCKET_BEGIN; j <= EQ::invaug::SOCKET_END; ++j) {
+				const auto aug = inst->GetAugment(j);
+				if (aug) { focus_items.push_back(aug->GetItem()); }
+			}
+		}
+		for (const auto cur : focus_items) {
 
 			if(!cur)
 				continue;
@@ -7001,7 +7023,7 @@ int64 NPC::GetFocusEffect(focusType type, uint16 spell_id, Mob* caster, bool fro
 		}
 	}
 
-	return realTotal + realTotal2;
+	return realTotal + realTotal2 + GetNightcapInheritedFocus(type, spell_id);
 }
 
 void Mob::CheckNumHitsRemaining(NumHit type, int32 buff_slot, uint16 spell_id)
@@ -10565,6 +10587,7 @@ void Mob::ApplySpellEffectIllusion(int32 spell_id, Mob *caster, int buffslot, in
 				aabonuses.IllusionPersistence ||
 				itembonuses.IllusionPersistence ||
 				RuleB(Spells, IllusionsAlwaysPersist)
+				|| (NightcapPetScaling::PermanentRabidBear(spell_id) && spells[spell_id].buff_duration_formula == DF_Permanent)
 			)
 		) {
 			buffs[buffslot].persistant_buff = 1;
@@ -10704,4 +10727,26 @@ int Mob::GetBuffStatValueBySlot(uint8 slot, const char* stat_identifier)
 	else if (id == "root_break_chance") { return  buffs[slot].RootBreakChance; }
 	else if (id == "virus_spread_time") { return  buffs[slot].virus_spread_time; }
 	return 0;
+}
+
+int64 Mob::GetNightcapInheritedFocus(focusType type, uint16 spell_id)
+{
+	if (type == focusReagentCost && IsNPC() && CastToNPC()->IsNightcapDoppelganger()) {
+		auto owner = CastToNPC()->GetNightcapDoppelgangerOwner();
+		return owner ? owner->GetFocusEffect(type, spell_id) : 0;
+	}
+	// Transfer eligible earned healing/damage AA focuses only. Owner equipment
+	// and charged spell focuses are not copied and cannot be consumed twice.
+	const auto owner = GetNightcapPetOwner();
+	if (!owner || (type != focusImprovedHeal && type != focusImprovedDamage && type != focusImprovedDamage2 && type != focusTwincast) ||
+		!owner->aabonuses.FocusEffects[type]) { return 0; }
+	if (type == focusTwincast && (!IsBeneficialSpell(spell_id) || !IsInstantHealSpell(spell_id))) { return 0; }
+	int64 best = 0;
+	for (const auto &aa : owner->aa_ranks) {
+		const auto pair = zone->GetAlternateAdvancementAbilityAndRank(aa.first, aa.second.first);
+		if (!pair.first || !pair.second || !owner->CanUseAlternateAdvancementRank(pair.second)) { continue; }
+		const auto value = owner->CalcAAFocus(type, *pair.second, spell_id);
+		if (value > best) { best = value; }
+	}
+	return best;
 }

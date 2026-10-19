@@ -1,0 +1,35 @@
+{
+  "status": "implementation_and_automated_verification_complete",
+  "branch": "feature/thj-pet-scaling",
+  "base": "a8e0a91382c23e52a0ffb2b79fb3f2c0c131f76a",
+  "working_tree": "uncommitted coordinated WPM/pet candidate",
+  "tests": {
+    "regressions": 134,
+    "native_scenarios": 26,
+    "native_mechanics_groups": 11,
+    "aa_eligibility": 6960,
+    "aa_expansion": 8,
+    "aa_projection": 9,
+    "aa_restore": 3,
+    "wiki_python": 30,
+    "wiki_equipment": 7,
+    "wiki_search": "passed"
+  },
+  "deployment": "not performed",
+  "owner_gameplay_acceptance": "pending",
+  "shared_parity_followup": "INTEGRATION.md",
+  "evidence_sha256": {
+    "regression.json": "84f021d6c707a508fbe3ece3c108c3c0d7c456b1e2bc4191c6cfa41a352411ae",
+    "aa-native.json": "9ef09145343d658dbbfa2ed383a7601bfad9535216a0dec6448514f7cacdb461",
+    "native-build-manifest.json": "a5a7d73ab3727c362ea41831bea7292e9c074287118615148dc19ac6ea421326",
+    "diagnostic-build-manifest.json": "e10552a3a8602d2e7388d92d10d115665016f5ded66387e830ee8ec1d12d59e5",
+    "native-pairing.json": "5802ac5eed0724651fda0384037f45d12f0c342a17a86b037ca1e59c7f4e4040",
+    "native-comparison.json": "e4f8d6b56f892c30bd85e1915e0a79d66efa323503ec6566577898576257fd5a",
+    "native-results.tar.gz": "429490d451c1a717a7f63f49c974139688f805f7a86b3c3e551dba167fc16b7f",
+    "independent-review.json": "fa193588beb34dd64bd72ba7bf851905c8710438b3d9cb3dd05be65a0348f64e",
+    "client-stage.json": "157963c00813305afcd59138d7cd96d8312accbfba5cc9dc708ae337eebaab54",
+    "wiki-tests.json": "c0fbb18ee6388f1c0c00fa13104a6c3d3876d896208f18b72a4a52c6c096a928",
+    "skill-maintenance.json": "096a8faa3dd6f220b190c416236420c90d3aefe4d1d56f9cc657200237a6ecb8",
+    "skill-validation.json": "42104f805b4fd3e236eb041c0b9c3e84172fae26d5011165cd1a13db9af6f9ab"
+  }
+}

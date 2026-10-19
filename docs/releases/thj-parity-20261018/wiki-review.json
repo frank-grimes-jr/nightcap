@@ -1,0 +1,117 @@
+{
+  "status": "source_only_publication_pending",
+  "date": "2026-10-18",
+  "articles": {
+    "about": {
+      "decision": "Reviewed: no additional impact on this topic, commands, travel, class ownership or live release labels; existing companion notices retained",
+      "before_sha256": "d30e64f41dd4395f4d27163407a134527fca9bf9892dabd816774bd0ebcd1da0",
+      "after_sha256": "d30e64f41dd4395f4d27163407a134527fca9bf9892dabd816774bd0ebcd1da0"
+    },
+    "advanced-loot": {
+      "decision": "Reviewed: no additional impact on this topic, commands, travel, class ownership or live release labels; existing companion notices retained",
+      "before_sha256": "0f0870dd8c5e412c0a673a7ff551a952965397e5b2ce0dd6bb67ac1336c0e506",
+      "after_sha256": "0f0870dd8c5e412c0a673a7ff551a952965397e5b2ce0dd6bb67ac1336c0e506"
+    },
+    "ascension": {
+      "decision": "Reviewed: no additional impact on this topic, commands, travel, class ownership or live release labels; existing companion notices retained",
+      "before_sha256": "63a95cfaac55cdafad7aed7a731406b01dfdabbb6053e4364371cd283f19d036",
+      "after_sha256": "63a95cfaac55cdafad7aed7a731406b01dfdabbb6053e4364371cd283f19d036"
+    },
+    "combat": {
+      "decision": "Added explicit combined candidate guidance; live values/status retained",
+      "before_sha256": "bf297c0a6894e9d992ee34472a011efc3bd096da9bc8a0f2aa46d09c27fb9050",
+      "after_sha256": "94f01ade94101e4a0c16ad8b141a36cf6ca33bdfe7629b5f0d2a521d67445fa5"
+    },
+    "commands": {
+      "decision": "Reviewed: no additional impact on this topic, commands, travel, class ownership or live release labels; existing companion notices retained",
+      "before_sha256": "b23435918515e34f6db39189f0d072847b19599dff37c3739daf724839c66bd3",
+      "after_sha256": "b23435918515e34f6db39189f0d072847b19599dff37c3739daf724839c66bd3"
+    },
+    "dungeon-modes": {
+      "decision": "Added explicit combined candidate guidance; live values/status retained",
+      "before_sha256": "c9b31538d188ce7e47cfa1c4a297d0ec1c0d2d11b838747fe6d3da06ca561cac",
+      "after_sha256": "ae630239d8f1351f8248e41e274b30d68d7aa9f212f736405b926ab6cda01e16"
+    },
+    "equipment": {
+      "decision": "Added explicit combined candidate guidance; live values/status retained",
+      "before_sha256": "71dd333f5a0e6728d877ecb531e14a3fc190a8f6e08a68978f65c3654899c60e",
+      "after_sha256": "4a55949c980ba11d401e33c8f37e8936182a473377103d1613f9162ec11ccff6"
+    },
+    "features": {
+      "decision": "Added explicit combined candidate guidance; live values/status retained",
+      "before_sha256": "0dd889e16b234fada824cb22f2988ad418067de042bbe31f3717a8a7b0d7e8aa",
+      "after_sha256": "e46590be942abc266e25c58e18e5c250fc94b4ac450ec7a2bb5740cde711e2df"
+    },
+    "getting-started": {
+      "decision": "Added explicit combined candidate guidance; live values/status retained",
+      "before_sha256": "9d1c430b3a9b9397f53c4bbe39fb44b96d134cdfaf60e54a5321d62557f75264",
+      "after_sha256": "1e5a9a384fbfc971c2015a0c5f035b66f039f82ddf000f89535194b02b1d5828"
+    },
+    "index": {
+      "decision": "Added explicit combined candidate guidance; live values/status retained",
+      "before_sha256": "36c83024b8058511db07fa698d85fcfa14fcee08baa4f97aef62b32ac859187a",
+      "after_sha256": "0fe05a524f7e58a143f779b6028518351cf0451db5cd44ce52dfa53af60c2ab0"
+    },
+    "item-upgrades": {
+      "decision": "Added explicit combined candidate guidance; live values/status retained",
+      "before_sha256": "04106ddd5fc61bd1e772292fe03e8939d9eebdfa9d8dd4853d937e1d3ca7b91d",
+      "after_sha256": "72cbadc4bf83b6f5503528b67ec27ba0d911a5a2120b579b7b484c1f4425e5ab"
+    },
+    "launcher": {
+      "decision": "Reviewed: no additional impact on this topic, commands, travel, class ownership or live release labels; existing companion notices retained",
+      "before_sha256": "9bad065a912c111e94966d9f38b09f8e9dfcd5e9c58d1fa14f115534b663af22",
+      "after_sha256": "9bad065a912c111e94966d9f38b09f8e9dfcd5e9c58d1fa14f115534b663af22"
+    },
+    "multiclass": {
+      "decision": "Reviewed: no additional impact on this topic, commands, travel, class ownership or live release labels; existing companion notices retained",
+      "before_sha256": "f7d2bfa0ebf3a10b22fa55a9902f5fec55babcc2826c4c06ac5282514448ad0a",
+      "after_sha256": "f7d2bfa0ebf3a10b22fa55a9902f5fec55babcc2826c4c06ac5282514448ad0a"
+    },
+    "pets": {
+      "decision": "Added explicit combined candidate guidance; live values/status retained",
+      "before_sha256": "294cfb5673b73af578ee905011b860289dc941bfb6c2a025e0e2d87f32ecd862",
+      "after_sha256": "05080338a9eaeb66096373ea93e1d3e1033ba6d757da918b1a06733352b41e42"
+    },
+    "recent-changes": {
+      "decision": "Added explicit combined candidate guidance; live values/status retained",
+      "before_sha256": "0d3fabe76c01916cf4d6b0448519ced62fb2f74fbbde3eabb7ee2e9f0d79e09a",
+      "after_sha256": "2eead92525d2cba62915278a1f03c51388a16a0342dacda038e8d673c5223dcb"
+    },
+    "tradeskills": {
+      "decision": "Reviewed: no additional impact on this topic, commands, travel, class ownership or live release labels; existing companion notices retained",
+      "before_sha256": "d76ffea75fea16a2a353a5cab1b5e2b783a244908fcfa0903184cd8947a4de7b",
+      "after_sha256": "d76ffea75fea16a2a353a5cab1b5e2b783a244908fcfa0903184cd8947a4de7b"
+    },
+    "travel": {
+      "decision": "Reviewed: no additional impact on this topic, commands, travel, class ownership or live release labels; existing companion notices retained",
+      "before_sha256": "abfb7d68a1bb114b1e7960bbd8755a3e9987d529ca6cd126a98e84731d3ff90b",
+      "after_sha256": "abfb7d68a1bb114b1e7960bbd8755a3e9987d529ca6cd126a98e84731d3ff90b"
+    },
+    "tunnel": {
+      "decision": "Reviewed: no additional impact on this topic, commands, travel, class ownership or live release labels; existing companion notices retained",
+      "before_sha256": "abbe9aad64f336a7e16bb2c4409bb7ee6729ac3a19e38c9b15cdea30b470ee63",
+      "after_sha256": "abbe9aad64f336a7e16bb2c4409bb7ee6729ac3a19e38c9b15cdea30b470ee63"
+    },
+    "unreleased": {
+      "decision": "Added explicit combined candidate guidance; live values/status retained",
+      "before_sha256": "a924d2cc1ea411b17061d4794a7bf01ca0d76d45359ae074359a71289d774e5a",
+      "after_sha256": "c8448a405e1b7c3a49792c9f15e2ce0a9bf0a0806ae6f7daff744e30e6f57296"
+    },
+    "waypoints": {
+      "decision": "Reviewed: no additional impact on this topic, commands, travel, class ownership or live release labels; existing companion notices retained",
+      "before_sha256": "9ef8b93fa52d5b83c479bbb3c877fab4f9373c0f26c84c43908edf3d7e5666bc",
+      "after_sha256": "9ef8b93fa52d5b83c479bbb3c877fab4f9373c0f26c84c43908edf3d7e5666bc"
+    },
+    "zone-hunt": {
+      "decision": "Added explicit combined candidate guidance; live values/status retained",
+      "before_sha256": "d55209031643fca1678fb82c2515fafebb68135195c2d80da9c5256ecf38b32a",
+      "after_sha256": "0fe1acef50e2cd62399769ab30f5fb976d846e8dff4df1ccdec4b7ec4c6ac8e9"
+    }
+  },
+  "generated_routes": {
+    "count": 432,
+    "decision": "Retain published reward catalog and generated item/zone routes. Candidate ordinary/starter/dungeon changes are labeled in guides; no candidate values presented as live."
+  },
+  "source_authority": "feature/thj-item-spell-parity working tree; actual hash inventory in evidence",
+  "global_reviewed_revision": "retained; source drift is assessed, not silently accepted"
+}

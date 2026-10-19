@@ -1,0 +1,413 @@
+--- C:/Users/verre/.codex/skills/nightcap-development/references/client.md
++++ C:/Users/verre/.codex/skills/nightcap-development/references/client.md
+@@ -1,6 +1,20 @@
+ # RoF2 client, pets and buff effects
+ 
+ Audited 2026-10-12. Use current deployment records over old README status paragraphs. Source/build checks, signed publication and visible player QA are separate states.
++
++## Pet and shared scaling candidate — October 18, 2026
++
++Source: C:/Users/verre/Documents/Codex/2026-10-18/goa/work/thj-pet-scaling. Evidence and release gates: `docs/releases/thj-pet-scaling-20261018/IMPLEMENTATION.md` and `evidence/`. This candidate is not deployed or accepted in game.
++
++Persistent class-pet loadouts now select 22 normal locations with 15 Mage / 8
++other stored items and NCPA2 pages 8/8/6. Original eight IDs and full instance
++fields remain. Preserve transaction/quarantine guards. Temporary hand-ins remain
++separate; native hand conflicts are suppressed/restored without item destruction.
++Pair proxy0.11.0, Inventory/Pet Info XML, spells, schema and server. Rabid Bear
++benefit/illusion are independent permanent removable buffs; normal death remains.
++Native client lifecycle/click-off QA and signed full-manifest reconciliation are
++pending. Tests: test_pet_equipment, test_pet_hand_equipment, test_pet_armor_transfer,
++test_pet_armor_database, test_rabid_bear; client-stage.json records unsigned files.
+ 
+ ## Recommended AA — deployed October 17
+ 
+--- C:/Users/verre/.codex/skills/nightcap-development/references/balance.md
++++ C:/Users/verre/.codex/skills/nightcap-development/references/balance.md
+@@ -3,6 +3,20 @@
+ Audited 2026-10-12. Dated September fixtures are reproducible evidence for their captured inputs, not a current character or production snapshot.
+ 
+ Nightcap favors solo play without trivializing earned progression. Evaluate classes, legal AAs, pets, buffs, heroic stats, augments and gear together. Measure incoming burst, survival, mana sustain/recovery, time to kill, cooldown use and reward acquisition, not only DPS or encounter HP. Cap increases above 250 are allowed for consideration; neither 250 nor a prior experiment is a permanent policy ceiling.
++
++## Pet and shared scaling candidate — October 18, 2026
++
++Source: C:/Users/verre/Documents/Codex/2026-10-18/goa/work/thj-pet-scaling. Evidence and release gates: `docs/releases/thj-pet-scaling-20261018/IMPLEMENTATION.md` and `evidence/`. This candidate is not deployed or accepted in game.
++
++Shared base item SD/HA caps are 750 with earned Hunt headroom retained.
++Eligible permanent pets add half effective owner item SD/HA, independently capped
++at375, to their own items. Actual hand instances permit independent innate/augment
++proc attempts. Earned caster crit/focus transfer and instant-heal Twinheal are
++bounded; do not copy owner gear/charged focuses or ordinary melee crit. Player/pet
++runes use the existing percentage Healing Amount helper after instrument scaling.
++This coordinates WPM and pet/caster controls; weapon damage/delay stay unchanged.
++Fragment/rune magnitudes are Nightcap calibration, not proven THJ parity. Combined
++native combat/balance QA remains pending. Tests: test_pet_scaling, test_pet_caps.
+ 
+ ## Cooldown audit acceptance boundary
+ 
+--- C:/Users/verre/.codex/skills/nightcap-development/references/multiclass.md
++++ C:/Users/verre/.codex/skills/nightcap-development/references/multiclass.md
+@@ -1,6 +1,21 @@
+ # Multiclass, spells, skills and advancement
+ 
+ Audited 2026-10-12 from integrated source and dated release records. Deployment claims below are documentary, not fresh runtime observations.
++
++## Pet and shared scaling candidate — October 18, 2026
++
++Source: C:/Users/verre/Documents/Codex/2026-10-18/goa/work/thj-pet-scaling. Evidence and release gates: `docs/releases/thj-pet-scaling-20261018/IMPLEMENTATION.md` and `evidence/`. This candidate is not deployed or accepted in game.
++
++Candidate AA pool is1119 ranks/400 families, preserving earned ownership,
++costs and deadlines. Curated pet/caster/survival depth includes Combat Stability/
++Agility18, Destructive Fury6, Twinheal1 and Cascade1; only two Alaran-culture edges
++are waived. Bloodlust1 base reuse60s; Frenzied Burnout600s. Native AA fixture passes
++6714 eligibility/9 projection/3 saved-rank checks. Whole-roster beneficial delivery
++retains native permission/affinity/range; cross-class support buffs coexist without
++adding haste. Marked Doppelgangers use eligible memorized/scribed spells and owner
++resources; bounded single-target combat roles, native movement, no circular formation.
++PoP/level65 and389 stock additions are staged only; levels/spells/epics are earned.
++Current era tools remain Classic/50 and require a compatible activation operator.
+ 
+ ## Recommended AA guidance — deployed October 17
+ 
+--- C:/Users/verre/.codex/skills/nightcap-development/references/items.md
++++ C:/Users/verre/.codex/skills/nightcap-development/references/items.md
+@@ -1,4 +1,19 @@
+ # Items, loot, forging and economy
++
++## Pet and shared scaling candidate — October 18, 2026
++
++Source: C:/Users/verre/Documents/Codex/2026-10-18/goa/work/thj-pet-scaling. Evidence and release gates: `docs/releases/thj-pet-scaling-20261018/IMPLEMENTATION.md` and `evidence/`. This candidate is not deployed or accepted in game.
++
++Candidate content adds8 pet-usable type4/8 Healing/Runic Fragments and8
++self-target proc spells, plus33 reviewed gear afterimages. Four weapon families
++gain another combat socket; weapon ratios and cosmetic sockets remain. Seru's
++existing loot table13516 gains one fragment; original loot and identity are guarded.
++Healing bases95/175/250/350 and rune bases55/118/168/230 are explicit calibration.
++Full-row SQL and temporary-table tests cover idempotence and preservation.
++Acquisition rollback retains item/spell IDs and sockets so owned augments remain
++valid. Never restore old inventory, erase new-slot gear or remove occupied sockets.
++Pair native binaries, schema/content, regenerated cache and signed client spells.
++Tools: pet_content.py, pet_support_spells.py, rabid_bear.py, pop_progression.py.
+ 
+ ## Built-in item colors — deployed October 18
+ 
+--- C:/Users/verre/.codex/skills/nightcap-development/references/operations.md
++++ C:/Users/verre/.codex/skills/nightcap-development/references/operations.md
+@@ -1,6 +1,21 @@
+ # Source authority, builds and reloads
+ 
+ Audited 2026-10-12. Consult the selected checkout's current instructions and release record. `references/sources.json` pins inspected files and their locations; hashes detect change, not correctness or deployment.
++
++## Pet and shared scaling candidate — October 18, 2026
++
++Source: C:/Users/verre/Documents/Codex/2026-10-18/goa/work/thj-pet-scaling. Evidence and release gates: `docs/releases/thj-pet-scaling-20261018/IMPLEMENTATION.md` and `evidence/`. This candidate is not deployed or accepted in game.
++
++The candidate builds paired world/zone in isolated
++`/tmp/nightcap-thj-pet-scaling-v1` from fingerprinted retained cooldown sources plus
++the reviewed deployed loot successor. No production install/restart occurred.
++Use the manifest's full source fingerprints, not the stale default checkout.
++Pair rules/schema/AA/content/cache/client; new rule catalogs require world and zone.
++76 combined tests including the shared-cap migration regression pass; AA and heal-target
++native checks are separately recorded. Independent review, native QA, signed
++client reconciliation and guarded activation remain pending. PoP profile/stock
++files are staged together; old apply-era recipes reject>50 and must not be used
++for OVH restarts. Recovery preserves earned levels/AAs and new equipment slots.
+ 
+ ## October18 reforging successor deployment
+ 
+--- C:/Users/verre/.codex/skills/nightcap-development/references/wiki.md
++++ C:/Users/verre/.codex/skills/nightcap-development/references/wiki.md
+@@ -1,4 +1,16 @@
+ # Official player wiki and Features
++
++## Pet and shared scaling candidate — October 18, 2026
++
++Source: C:/Users/verre/Documents/Codex/2026-10-18/goa/work/thj-pet-scaling. Evidence and release gates: `docs/releases/thj-pet-scaling-20261018/IMPLEMENTATION.md` and `evidence/`. This candidate is not deployed or accepted in game.
++
++All21 guides and432 generated reward routes were assessed for this candidate.
++Thirteen source guides receive explicit Not released notices/details, including
++Features/home, pet equipment, scaling, AA/PoP, shops, launcher and Recent changes.
++Current live Classic/50, 250 base caps, eight-location Pet Armor and target rules
++stay labeled as live; no hunt item values, commands or reward recipes changed.
++wiki-review.json records each source hash/decision. Publication is pending; do not
++promote candidate mechanics based on local builds or advance unrelated live QA.
+ 
+ ## Current combined publication — October 18
+ 
+--- C:/Users/verre/.codex/skills/nightcap-development/references/sources.json
++++ C:/Users/verre/.codex/skills/nightcap-development/references/sources.json
+@@ -57,7 +57,8 @@
+     "reforge_colors_deployed_20261018": "4dc658506371aa0cf2a027db9890d4d74110a860",
+     "wiki_combined_published_20261018": "4dc658506371aa0cf2a027db9890d4d74110a860",
+     "reforge_colors_owner_confirmation_20261018": "c44f64930a0ee20f68c8dbde7dd835a3a32ccd7f",
+-    "october_17_release_owner_confirmation_20261018": "e0a4d94d272918f04774d012b96400f502942ade"
++    "october_17_release_owner_confirmation_20261018": "e0a4d94d272918f04774d012b96400f502942ade",
++    "thj_pet_scaling_candidate_20261018": "a8e0a91 + reviewed feature/thj-pet-scaling working tree; not deployed"
+   },
+   "topics": {
+     "operations": [
+@@ -492,6 +493,34 @@
+         "role": "General owner release confirmation; detailed QA and successor release acceptance remain separate",
+         "revision": "e0a4d94d272918f04774d012b96400f502942ade",
+         "sha256": "2232939a965aedf8f8cb1cbf98f9c35b12534cc3cfaf9ebd94479a17e1082f13"
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-18/goa/work/thj-pet-scaling",
++        "path": "docs/releases/thj-pet-scaling-20261018/IMPLEMENTATION.md",
++        "role": "Reviewed pet/shared-scaling candidate; not deployed",
++        "revision": "a8e0a91 + feature/thj-pet-scaling working tree 2026-10-18",
++        "sha256": "82a11f61b0733403465cab169be9e0c17cb83a667e24f3919f79b0e8a81830e2"
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-18/goa/work/thj-pet-scaling",
++        "path": "docs/releases/thj-pet-scaling-20261018/evidence/native-build-manifest.json",
++        "role": "Reviewed pet/shared-scaling candidate; not deployed",
++        "revision": "a8e0a91 + feature/thj-pet-scaling working tree 2026-10-18",
++        "sha256": "8be9ee812d2f25d1efbc4d46c2972620a6b5d1aea8422a3c28c7ae0ca4c7dd3d"
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-18/goa/work/thj-pet-scaling",
++        "path": "docs/releases/thj-pet-scaling-20261018/evidence/regression.json",
++        "role": "Reviewed pet/shared-scaling candidate; not deployed",
++        "revision": "a8e0a91 + feature/thj-pet-scaling working tree 2026-10-18",
++        "sha256": "c3f43a817cb881f5f2e85b21e8347d88753c5701a40e72d52cb74ce04981bbe9"
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-18/goa/work/thj-pet-scaling",
++        "path": "docs/status.md",
++        "role": "Reviewed pet/shared-scaling candidate; not deployed",
++        "revision": "a8e0a91 + feature/thj-pet-scaling working tree 2026-10-18",
++        "sha256": "6866c6910c17b3b70d6e1b7d65544ed8876e4d7eeca686ab2c8a3b032c31eb21"
+       }
+     ],
+     "multiclass": [
+@@ -1458,6 +1487,62 @@
+         "root": "C:/Users/verre/Documents/Codex/2026-10-17/see/work/cooldown-identities",
+         "revision": "f05a6ce819006aa5a11dc3624ff508bde3ecb2d1",
+         "sha256": "b36faae59760e9807db47af3559ffad143e427d4c6edcce33f5098f5d30a779b"
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-18/goa/work/thj-pet-scaling",
++        "path": "config/aa-policy.json",
++        "role": "Reviewed pet/shared-scaling candidate; not deployed",
++        "revision": "a8e0a91 + feature/thj-pet-scaling working tree 2026-10-18",
++        "sha256": "d0a98c486bdba1ef6f7208a49d70d94e04e80b8cadff29e71338b32ac5416147"
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-18/goa/work/thj-pet-scaling",
++        "path": "server-mods/code/zone/aa.cpp",
++        "role": "Reviewed pet/shared-scaling candidate; not deployed",
++        "revision": "a8e0a91 + feature/thj-pet-scaling working tree 2026-10-18",
++        "sha256": "d04343be42186ce58acb3247fd66603e41307ab12241d597451c63a9fd3a38c6"
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-18/goa/work/thj-pet-scaling",
++        "path": "server-mods/code/common/nightcap_doppelganger.h",
++        "role": "Reviewed pet/shared-scaling candidate; not deployed",
++        "revision": "a8e0a91 + feature/thj-pet-scaling working tree 2026-10-18",
++        "sha256": "52fc4aa4bad6c10721d3f5e65ef72f74450016e741b10dc6cd927fb0d1c21116"
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-18/goa/work/thj-pet-scaling",
++        "path": "server-mods/code/zone/npc.cpp",
++        "role": "Reviewed pet/shared-scaling candidate; not deployed",
++        "revision": "a8e0a91 + feature/thj-pet-scaling working tree 2026-10-18",
++        "sha256": "f8999e0832b9eca9d8aa2774c3ba9c0506e4704e64e6bc313a2e368c6d27ca2c"
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-18/goa/work/thj-pet-scaling",
++        "path": "server-mods/code/zone/spells.cpp",
++        "role": "Reviewed pet/shared-scaling candidate; not deployed",
++        "revision": "a8e0a91 + feature/thj-pet-scaling working tree 2026-10-18",
++        "sha256": "3f87de02efd5503d61e799b5f387ca1607706a4d1bdeeed53ad05a6c3203949a"
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-18/goa/work/thj-pet-scaling",
++        "path": "server-mods/code/zone/spell_effects.cpp",
++        "role": "Reviewed pet/shared-scaling candidate; not deployed",
++        "revision": "a8e0a91 + feature/thj-pet-scaling working tree 2026-10-18",
++        "sha256": "f50a800aaf7c6c742274dd699b7c008ecbbfb17b908368f416720595f109b85b"
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-18/goa/work/thj-pet-scaling",
++        "path": "tools/tests/test_doppelganger.py",
++        "role": "Reviewed pet/shared-scaling candidate; not deployed",
++        "revision": "a8e0a91 + feature/thj-pet-scaling working tree 2026-10-18",
++        "sha256": "af804523354bbe04defc199f4bc8001b9127d055274412a4d0e8a4d3fc7bbe0d"
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-18/goa/work/thj-pet-scaling",
++        "path": "docs/releases/thj-pet-scaling-20261018/evidence/aa-native.json",
++        "role": "Reviewed pet/shared-scaling candidate; not deployed",
++        "revision": "a8e0a91 + feature/thj-pet-scaling working tree 2026-10-18",
++        "sha256": "f298ab5ee007622afa9197f2068bc71ac18f8c162009cfd9e2e34075f71e198c"
+       }
+     ],
+     "items": [
+@@ -2413,6 +2498,48 @@
+         "revision": "a0d105a1c6e317db447a9c78bebc750190cd03ed + reviewed starter-retune candidate",
+         "role": "Reviewed fixed starter band candidate; Normal reductions allowed; no live/encounter acceptance",
+         "sha256": "05fa2374d368672f1305d515a6fc7d5ecdd0f56bd9f2a0a0eac4accb645d57e0"
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-18/goa/work/thj-pet-scaling",
++        "path": "tools/pet_content.py",
++        "role": "Reviewed pet/shared-scaling candidate; not deployed",
++        "revision": "a8e0a91 + feature/thj-pet-scaling working tree 2026-10-18",
++        "sha256": "2174ce6956a15f04d1656164f44985aee184e51e882ab2943c95a853a58b66c7"
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-18/goa/work/thj-pet-scaling",
++        "path": "tools/pet_support_spells.py",
++        "role": "Reviewed pet/shared-scaling candidate; not deployed",
++        "revision": "a8e0a91 + feature/thj-pet-scaling working tree 2026-10-18",
++        "sha256": "a64f0ae65eb8dccd1d6c3d31efd34375242da40916992a1fbcb9fb9670df6809"
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-18/goa/work/thj-pet-scaling",
++        "path": "tools/rabid_bear.py",
++        "role": "Reviewed pet/shared-scaling candidate; not deployed",
++        "revision": "a8e0a91 + feature/thj-pet-scaling working tree 2026-10-18",
++        "sha256": "fb2f247b856d0e0d429e4f4931778a08b4598a1dec9ebc66fb209941f06b465f"
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-18/goa/work/thj-pet-scaling",
++        "path": "tools/pop_progression.py",
++        "role": "Reviewed pet/shared-scaling candidate; not deployed",
++        "revision": "a8e0a91 + feature/thj-pet-scaling working tree 2026-10-18",
++        "sha256": "4a81bc4a635ce3dc2b1299dd88399dc6edfee11f8bd8c9f09d54f8cf16d24b85"
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-18/goa/work/thj-pet-scaling",
++        "path": "tools/tests/test_pop_progression.py",
++        "role": "Reviewed pet/shared-scaling candidate; not deployed",
++        "revision": "a8e0a91 + feature/thj-pet-scaling working tree 2026-10-18",
++        "sha256": "02712fdf15182f9e40e9bac782465ece011750caccca944804f00870b701a8e9"
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-18/goa/work/thj-pet-scaling",
++        "path": "tools/tests/test_pet_content.py",
++        "role": "Reviewed pet/shared-scaling candidate; not deployed",
++        "revision": "a8e0a91 + feature/thj-pet-scaling working tree 2026-10-18",
++        "sha256": "a984b2db63252c929ef38a7f4846796c2cf69a35612dbf24e1d67e2ee90ef5fd"
+       }
+     ],
+     "world": [
+@@ -3862,6 +3989,48 @@
+         "root": "C:/Users/verre/Documents/Codex/2026-10-17/see/work/cooldown-identities",
+         "revision": "f05a6ce819006aa5a11dc3624ff508bde3ecb2d1",
+         "sha256": "4d73be82147fe72d4d9b6ea7a5688420f74e7fdc70e1d6fdf9cdd8d087fd2343"
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-18/goa/work/thj-pet-scaling",
++        "path": "eq-client-dll/src/pet_state.h",
++        "role": "Reviewed pet/shared-scaling candidate; not deployed",
++        "revision": "a8e0a91 + feature/thj-pet-scaling working tree 2026-10-18",
++        "sha256": "e29375185f4afa3e1b86ff6eebfb81b1515c4018ed775fdc8c7c97bedfb6ca5e"
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-18/goa/work/thj-pet-scaling",
++        "path": "eq-client-dll/src/runtime_contract.h",
++        "role": "Reviewed pet/shared-scaling candidate; not deployed",
++        "revision": "a8e0a91 + feature/thj-pet-scaling working tree 2026-10-18",
++        "sha256": "edf3a0f2c32543453fcb2a30dbcd0f8f7e3f7d3f596b6114bb5072f3e020a32a"
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-18/goa/work/thj-pet-scaling",
++        "path": "server-mods/code/zone/pet_armor.cpp",
++        "role": "Reviewed pet/shared-scaling candidate; not deployed",
++        "revision": "a8e0a91 + feature/thj-pet-scaling working tree 2026-10-18",
++        "sha256": "6092553e4b2ecc968c6c9a5bb8865095dbced070a24ab5e9ae11460253ae3165"
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-18/goa/work/thj-pet-scaling",
++        "path": "server-mods/code/zone/client_pet_armor.cpp",
++        "role": "Reviewed pet/shared-scaling candidate; not deployed",
++        "revision": "a8e0a91 + feature/thj-pet-scaling working tree 2026-10-18",
++        "sha256": "7e9265000c30952128225bae01c63a5fce3b784ebc56fcd45d8800f78bbb440d"
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-18/goa/work/thj-pet-scaling",
++        "path": "tools/tests/test_pet_hand_equipment.py",
++        "role": "Reviewed pet/shared-scaling candidate; not deployed",
++        "revision": "a8e0a91 + feature/thj-pet-scaling working tree 2026-10-18",
++        "sha256": "45301aa45d96953e8f0d5d2a992c10a6b02a28b05a40ea6204aa2b5e70d95ee9"
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-18/goa/work/thj-pet-scaling",
++        "path": "docs/releases/thj-pet-scaling-20261018/evidence/client-stage.json",
++        "role": "Reviewed pet/shared-scaling candidate; not deployed",
++        "revision": "a8e0a91 + feature/thj-pet-scaling working tree 2026-10-18",
++        "sha256": "6e661f42e822ca1e1452e0656957ee6e0556095bb7df5d050290b1e33dcfc19b"
+       }
+     ],
+     "admin": [
+@@ -4601,6 +4770,41 @@
+         "role": "reviewed audit, remaining identity defects, build/pairing/no deployment and exact gameplay QA",
+         "revision": "baadcbf2a8a88a4a31f2c14e19c39fc69db5e0b4 + reviewed release evidence",
+         "sha256": "c5e433c0112275b5edba8884ed1bd66c03911f0f67353eee3763dc60ecd55dba"
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-18/goa/work/thj-pet-scaling",
++        "path": "server-mods/code/common/nightcap_pet_scaling.h",
++        "role": "Reviewed pet/shared-scaling candidate; not deployed",
++        "revision": "a8e0a91 + feature/thj-pet-scaling working tree 2026-10-18",
++        "sha256": "b2bd2c32456f20152e0b22b614813b97e04cf4d383ffe31499c0290b5f794eb8"
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-18/goa/work/thj-pet-scaling",
++        "path": "server-mods/code/zone/effects.cpp",
++        "role": "Reviewed pet/shared-scaling candidate; not deployed",
++        "revision": "a8e0a91 + feature/thj-pet-scaling working tree 2026-10-18",
++        "sha256": "2d18ab07edb0f1af152e3d9ba81b93902385115b79a1e834b7ac41c691305d29"
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-18/goa/work/thj-pet-scaling",
++        "path": "server-mods/code/zone/attack.cpp",
++        "role": "Reviewed pet/shared-scaling candidate; not deployed",
++        "revision": "a8e0a91 + feature/thj-pet-scaling working tree 2026-10-18",
++        "sha256": "ba911069c7ee5a217d96329a8d0bfccfe621942811250e9dfed83833d62856b7"
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-18/goa/work/thj-pet-scaling",
++        "path": "tools/tests/test_pet_scaling.py",
++        "role": "Reviewed pet/shared-scaling candidate; not deployed",
++        "revision": "a8e0a91 + feature/thj-pet-scaling working tree 2026-10-18",
++        "sha256": "90d3af12cacf075428a8d128369f3ce94f2589a4304c0e5b249d76a95052e873"
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-18/goa/work/thj-pet-scaling",
++        "path": "server-mods/sql/2026-10-18-shared-output-caps.sql",
++        "role": "Reviewed pet/shared-scaling candidate; not deployed",
++        "revision": "a8e0a91 + feature/thj-pet-scaling working tree 2026-10-18",
++        "sha256": "c07b60949be77551d9ff78ac2ee9a8731b18cf55ff30bde8f1adee80c3e7b4b1"
+       }
+     ],
+     "wiki": [
+@@ -5170,6 +5374,27 @@
+         "revision": "a0d105a1c6e317db447a9c78bebc750190cd03ed + reviewed starter-retune candidate",
+         "role": "Reviewed fixed starter band candidate; Normal reductions allowed; no live/encounter acceptance",
+         "sha256": "415a408bd7c48239c13640810f836b42179858969eecf8d59ed1cd637f31d76e"
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-18/goa/work/thj-pet-scaling",
++        "path": "docs/releases/thj-pet-scaling-20261018/wiki-review.json",
++        "role": "Reviewed pet/shared-scaling candidate; not deployed",
++        "revision": "a8e0a91 + feature/thj-pet-scaling working tree 2026-10-18",
++        "sha256": "7c538c7d62cdca5f6bd41965cc71d93175d6245c9205fcea123fb1683299f995"
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-18/goa/work/thj-pet-scaling",
++        "path": "wiki/articles/unreleased.json",
++        "role": "Reviewed pet/shared-scaling candidate; not deployed",
++        "revision": "a8e0a91 + feature/thj-pet-scaling working tree 2026-10-18",
++        "sha256": "f5e9e9b9384abf8f93265a74d9d6b6f512c28cb4259d71690bee8c0aad46e58d"
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-18/goa/work/thj-pet-scaling",
++        "path": "wiki/content-review.json",
++        "role": "Reviewed pet/shared-scaling candidate; not deployed",
++        "revision": "a8e0a91 + feature/thj-pet-scaling working tree 2026-10-18",
++        "sha256": "85e68a34fb58059a66f1b48b9337bfe226adaa4eb0b42631ae9a7fecc6f15272"
+       }
+     ]
+   }

@@ -2197,7 +2197,6 @@ void Client::DoClassAttacks(Mob *ca_target, uint16 skill, bool IsRiposte)
 
 	if (skill_to_use == EQ::skills::SkillFlyingKick || skill_to_use == EQ::skills::SkillDragonPunch || skill_to_use == EQ::skills::SkillEagleStrike || skill_to_use == EQ::skills::SkillTigerClaw || skill_to_use == EQ::skills::SkillRoundKick) {
 		ReuseTime = MonkSpecialAttack(ca_target, skill_to_use) - 1;
-		MonkSpecialAttack(ca_target, skill_to_use);
 
 		if (IsRiposte)
 			return;

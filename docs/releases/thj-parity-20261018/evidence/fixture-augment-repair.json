@@ -1,0 +1,303 @@
+{
+  "cause": "Enchanted Werebone 651908 is an augment, not ordinary wearable armor",
+  "fix": "Exclude nonzero augtype from the armor-only fixture selector",
+  "scope": "two level-50 fixture loadouts only; no gameplay source/content changes",
+  "previous_matrix_sha256": "c5e182c30f72ab6287a371a40a2ff4a27b3b7622dbb8b1309d00f5810366770a",
+  "matrix_sha256": "3d8cfac85e05bf8646768954806840f10c71face9b6c3e81a92ef9ec4fd781c4",
+  "repairs": [
+    {
+      "case": "parity-l50-observed-ascended",
+      "before": [
+        {
+          "slot": 0,
+          "id": 640342
+        },
+        {
+          "slot": 1,
+          "id": 616257
+        },
+        {
+          "slot": 2,
+          "id": 628892
+        },
+        {
+          "slot": 3,
+          "id": 626779
+        },
+        {
+          "slot": 4,
+          "id": 616255
+        },
+        {
+          "slot": 5,
+          "id": 651908
+        },
+        {
+          "slot": 6,
+          "id": 628920
+        },
+        {
+          "slot": 7,
+          "id": 631237
+        },
+        {
+          "slot": 8,
+          "id": 626766
+        },
+        {
+          "slot": 9,
+          "id": 631461
+        },
+        {
+          "slot": 10,
+          "id": 631246
+        },
+        {
+          "slot": 12,
+          "id": 631227
+        },
+        {
+          "slot": 15,
+          "id": 632109
+        },
+        {
+          "slot": 16,
+          "id": 625211
+        },
+        {
+          "slot": 17,
+          "id": 607869
+        },
+        {
+          "slot": 18,
+          "id": 628907
+        },
+        {
+          "slot": 19,
+          "id": 631245
+        },
+        {
+          "slot": 20,
+          "id": 626549
+        }
+      ],
+      "after": [
+        {
+          "slot": 0,
+          "id": 640342
+        },
+        {
+          "slot": 1,
+          "id": 616257
+        },
+        {
+          "slot": 2,
+          "id": 628892
+        },
+        {
+          "slot": 3,
+          "id": 626779
+        },
+        {
+          "slot": 4,
+          "id": 616255
+        },
+        {
+          "slot": 6,
+          "id": 628920
+        },
+        {
+          "slot": 7,
+          "id": 631237
+        },
+        {
+          "slot": 8,
+          "id": 626766
+        },
+        {
+          "slot": 9,
+          "id": 631461
+        },
+        {
+          "slot": 10,
+          "id": 631246
+        },
+        {
+          "slot": 12,
+          "id": 631227
+        },
+        {
+          "slot": 15,
+          "id": 632109
+        },
+        {
+          "slot": 16,
+          "id": 625211
+        },
+        {
+          "slot": 17,
+          "id": 607869
+        },
+        {
+          "slot": 18,
+          "id": 628907
+        },
+        {
+          "slot": 19,
+          "id": 631245
+        },
+        {
+          "slot": 20,
+          "id": 626549
+        }
+      ]
+    },
+    {
+      "case": "parity-l50-observed-legacy-spells",
+      "before": [
+        {
+          "slot": 0,
+          "id": 640342
+        },
+        {
+          "slot": 1,
+          "id": 616257
+        },
+        {
+          "slot": 2,
+          "id": 628892
+        },
+        {
+          "slot": 3,
+          "id": 626779
+        },
+        {
+          "slot": 4,
+          "id": 616255
+        },
+        {
+          "slot": 5,
+          "id": 651908
+        },
+        {
+          "slot": 6,
+          "id": 628920
+        },
+        {
+          "slot": 7,
+          "id": 631237
+        },
+        {
+          "slot": 8,
+          "id": 626766
+        },
+        {
+          "slot": 9,
+          "id": 631461
+        },
+        {
+          "slot": 10,
+          "id": 631246
+        },
+        {
+          "slot": 12,
+          "id": 631227
+        },
+        {
+          "slot": 15,
+          "id": 632109
+        },
+        {
+          "slot": 16,
+          "id": 625211
+        },
+        {
+          "slot": 17,
+          "id": 607869
+        },
+        {
+          "slot": 18,
+          "id": 628907
+        },
+        {
+          "slot": 19,
+          "id": 631245
+        },
+        {
+          "slot": 20,
+          "id": 626549
+        }
+      ],
+      "after": [
+        {
+          "slot": 0,
+          "id": 640342
+        },
+        {
+          "slot": 1,
+          "id": 616257
+        },
+        {
+          "slot": 2,
+          "id": 628892
+        },
+        {
+          "slot": 3,
+          "id": 626779
+        },
+        {
+          "slot": 4,
+          "id": 616255
+        },
+        {
+          "slot": 6,
+          "id": 628920
+        },
+        {
+          "slot": 7,
+          "id": 631237
+        },
+        {
+          "slot": 8,
+          "id": 626766
+        },
+        {
+          "slot": 9,
+          "id": 631461
+        },
+        {
+          "slot": 10,
+          "id": 631246
+        },
+        {
+          "slot": 12,
+          "id": 631227
+        },
+        {
+          "slot": 15,
+          "id": 632109
+        },
+        {
+          "slot": 16,
+          "id": 625211
+        },
+        {
+          "slot": 17,
+          "id": 607869
+        },
+        {
+          "slot": 18,
+          "id": 628907
+        },
+        {
+          "slot": 19,
+          "id": 631245
+        },
+        {
+          "slot": 20,
+          "id": 626549
+        }
+      ]
+    }
+  ]
+}

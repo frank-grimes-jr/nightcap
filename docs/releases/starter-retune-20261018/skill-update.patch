@@ -1,0 +1,363 @@
+--- C:\Users\verre\.codex\skills\nightcap-development\references\items.md
++++ C:\Users\verre\.codex\skills\nightcap-development\references\items.md
+@@ -56,19 +56,27 @@
+ minimum +1 candidate is SUPERSEDED and must not deploy. Its CLI is retired and
+ bootstrap block removed. Historical migration artifacts are not current policy.
+ 
+-Owner requires ordinary Ascended starter gear below comparable Normal dungeon
+-gear. Quality and numeric acquisition bands are separate. Normal Bronze chest
+-17AC already exceeds the level20 dungeon chest5AC/10HP/10mana; Ascended Bronze
+-has34AC. Owner chose preserving all ordinary Normal gear and raising dungeon budgets.
+-The offline proposal uses81 explicit starter families and raises254 of330 dungeon
+-definitions; no live stats or compiler changes. Source: tools/gear_progression.py,
+-docs/items/starter-gear-reference.json and docs/releases/gear-progression-20261018/.
+-Six progression tests plus three catalog regressions pass; fresh independent
+-review found no blockers. Armor compares slots/classes; weapons compare handed
+-roles and exact damage/delay. Existing level increments and quality scaling remain.
+-Bow/earring/ring references, full source classification and combined-build encounter
+-measurements remain open. Plate-equivalent AC plus spell/heal floors on all-class
+-dungeon gear is a balance risk, not accepted tuning. No deployment/client changes.
++Owner now permits reductions to ordinary Normal starter gear. This replaces
++the preserve-Normal/35AC entry-dungeon proposal; its CLI is retired. Current
++offline candidate covers209 fixed starter families/836 definitions, including
++all reviewed sizes, cloaks/girdle variants and Rusty/Bronze weapons. Normal
++Bronze chest6AC, then7/8/9; dungeon Normal chest12/16/20/24 across20/30/40/50.
++Starter weapon damage increases exactly1 per quality with unchanged delay and
++strict Ascended ratio below every comparable Normal dungeon reward. Spell/heal
++bonuses0/1/2/3 and no starter heroics.821 starter and292 dungeon definitions
++differ; zero cultural-catalog overlap. No live/compiler/cache/client changes.
++
++tools/starter_retune.py pins the209-ID allowlist and Rusty profiles independently
++of input capture; unlisted/cultural substitutions reject. Eight focused tests,
++three dungeon catalog and20 cultural regression tests pass. Fresh review found
++two guard/test limitations, resolved and re-reviewed. Source/report:
++docs/items/starter-retune-reference.json and docs/releases/starter-retune-20261018/.
++tools/tests/test_starter_retune.py verifies every captured family/quality and
++complete changed-field allowlists. This proves AC/ratio ordering, not combat
++acceptance. Fine Steel, named/quest, bows/jewelry and other ordinary classifications
++remain open. Full-row guarded item migration, legal multiclass/AA/pet encounter
++measurements and owner QA precede activation. Item changes need matching cache
++regeneration and supported runtime restart; no client ABI change is proposed.
+ 
+ Exception: only approved finished cultural crafted armor produces existing
+ ordinary +600000 Ascended outputs directly. Explicit reviewed catalog has1041
+--- C:\Users\verre\.codex\skills\nightcap-development\references\wiki.md
++++ C:\Users\verre\.codex\skills\nightcap-development\references\wiki.md
+@@ -41,10 +41,11 @@
+ 
+ ## Cultural armor and progression bands — October18 candidate
+ 
+-Owner chose preserving ordinary Normal gear and evaluating higher dungeon
+-budgets. Equipment and In development record this as unreleased; live catalog,
+-Features/home and commands remain unchanged. Whole21-guide/432-route impact
+-review: docs/releases/gear-progression-20261018/wiki-review.json.
++Owner replaced the preservation rule: lowering Normal starter gear is allowed.
++Equipment/In development now describe the revised band candidate as unreleased.
++Current whole21-guide/432-route review is in
++docs/releases/starter-retune-20261018/wiki-review.json. Live catalog values,
++Features/home and commands remain unchanged; no public publication is claimed.
+ 
+ The blanket +1 weapon candidate is superseded. The weapon-tier-damage checkout
+ now updates Equipment, Tradeskills, In development and Recent changes with
+--- C:\Users\verre\.codex\skills\nightcap-development\references\sources.json
++++ C:\Users\verre\.codex\skills\nightcap-development\references\sources.json
+@@ -2089,56 +2089,56 @@
+         "root": "E:/EQ_Local_Dev/_worktrees/weapon-tier-damage",
+         "path": "tools/tier_weapon_scaling.py",
+         "role": "Historical superseded blanket +1 candidate; do not deploy",
+-        "revision": "0a2c18b00f1b6579686959fffef96194b501553f + reviewed preservation candidate",
++        "revision": "a0d105a1c6e317db447a9c78bebc750190cd03ed + reviewed starter-retune candidate",
+         "sha256": "43dc07f5fd76ea68e62e8ecce84e1638f711916680442e51da2f96e659016fe2"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/weapon-tier-damage",
+         "path": "tools/rehearse_tier_weapon_scaling.py",
+         "role": "Historical superseded blanket +1 candidate; do not deploy",
+-        "revision": "0a2c18b00f1b6579686959fffef96194b501553f + reviewed preservation candidate",
++        "revision": "a0d105a1c6e317db447a9c78bebc750190cd03ed + reviewed starter-retune candidate",
+         "sha256": "352da65f942d391a3c512e2fe662078adfda0b587d9ccf8db3e8bd3f43cbf128"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/weapon-tier-damage",
+         "path": "tools/tests/test_tier_weapon_scaling.py",
+         "role": "Historical superseded blanket +1 candidate; do not deploy",
+-        "revision": "0a2c18b00f1b6579686959fffef96194b501553f + reviewed preservation candidate",
++        "revision": "a0d105a1c6e317db447a9c78bebc750190cd03ed + reviewed starter-retune candidate",
+         "sha256": "d382c289f7828882f7950213461e8dd6943c89fd600545fb055915d5c6ed1abc"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/weapon-tier-damage",
+         "path": "eq-solo-gm/scripts/tiered_loot_setup.sql",
+         "role": "Reviewed October18 weapon damage candidate; not deployed/published; owner QA pending",
+-        "revision": "0a2c18b00f1b6579686959fffef96194b501553f + reviewed preservation candidate",
++        "revision": "a0d105a1c6e317db447a9c78bebc750190cd03ed + reviewed starter-retune candidate",
+         "sha256": "8a2398618a60a7819d3d412a76a7da688ec6648508e17fbf61b75a383da3d7f0"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/weapon-tier-damage",
+         "path": "docs/releases/weapon-tier-damage-20261018/README.md",
+         "role": "Historical superseded blanket +1 candidate; do not deploy",
+-        "revision": "0a2c18b00f1b6579686959fffef96194b501553f + reviewed preservation candidate",
++        "revision": "a0d105a1c6e317db447a9c78bebc750190cd03ed + reviewed starter-retune candidate",
+         "sha256": "8f1f053313ca9275d2bcc4d77c225a475bbbc15ef8ecccbc0ffffc078b880ce4"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/weapon-tier-damage",
+         "path": "docs/releases/weapon-tier-damage-20261018/impact.json",
+         "role": "Historical superseded blanket +1 candidate; do not deploy",
+-        "revision": "0a2c18b00f1b6579686959fffef96194b501553f + reviewed preservation candidate",
++        "revision": "a0d105a1c6e317db447a9c78bebc750190cd03ed + reviewed starter-retune candidate",
+         "sha256": "3f12855be5a17341bcdb0ee1d1f9342e163ddb08e017832275a1341c9b53e928"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/weapon-tier-damage",
+         "path": "docs/releases/weapon-tier-damage-20261018/rehearsal-full-guards.json",
+         "role": "Historical superseded blanket +1 candidate; do not deploy",
+-        "revision": "0a2c18b00f1b6579686959fffef96194b501553f + reviewed preservation candidate",
++        "revision": "a0d105a1c6e317db447a9c78bebc750190cd03ed + reviewed starter-retune candidate",
+         "sha256": "4fedb2997658b3845801ba5109dfa3c28eb5e87789a44271a8892cd9c871a0b9"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/weapon-tier-damage",
+         "path": "docs/releases/weapon-tier-damage-20261018/verification.json",
+         "role": "Historical superseded blanket +1 candidate; do not deploy",
+-        "revision": "0a2c18b00f1b6579686959fffef96194b501553f + reviewed preservation candidate",
++        "revision": "a0d105a1c6e317db447a9c78bebc750190cd03ed + reviewed starter-retune candidate",
+         "sha256": "61604a51fcd8ea487f2fa1466e3e60009db7db350c2711a78b2babfec43455f7"
+       },
+       {
+@@ -2277,107 +2277,142 @@
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/weapon-tier-damage",
+         "path": "tools/cultural_armor.py",
+-        "revision": "0a2c18b00f1b6579686959fffef96194b501553f + reviewed preservation candidate",
++        "revision": "a0d105a1c6e317db447a9c78bebc750190cd03ed + reviewed starter-retune candidate",
+         "role": "Reviewed cultural armor candidate; unpublished/undeployed; numeric bands pending",
+         "sha256": "043fea7b3ea123aa727d537e69f0993d9b24b24f7f39cad2ce403ad6f121b440"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/weapon-tier-damage",
+         "path": "tools/capture_cultural_armor.py",
+-        "revision": "0a2c18b00f1b6579686959fffef96194b501553f + reviewed preservation candidate",
++        "revision": "a0d105a1c6e317db447a9c78bebc750190cd03ed + reviewed starter-retune candidate",
+         "role": "Reviewed cultural armor candidate; unpublished/undeployed; numeric bands pending",
+         "sha256": "7f21dd0ce614f4b117966cef40294759605e5ed754f046c0c5f14f79ad391f2d"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/weapon-tier-damage",
+         "path": "tools/cultural_armor_migration.py",
+-        "revision": "0a2c18b00f1b6579686959fffef96194b501553f + reviewed preservation candidate",
++        "revision": "a0d105a1c6e317db447a9c78bebc750190cd03ed + reviewed starter-retune candidate",
+         "role": "Reviewed cultural armor candidate; unpublished/undeployed; numeric bands pending",
+         "sha256": "75f93c3846f14ca88096449da6a87c1e6901b47b942f112d43c03cb744fbe371"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/weapon-tier-damage",
+         "path": "tools/rehearse_cultural_armor.py",
+-        "revision": "0a2c18b00f1b6579686959fffef96194b501553f + reviewed preservation candidate",
++        "revision": "a0d105a1c6e317db447a9c78bebc750190cd03ed + reviewed starter-retune candidate",
+         "role": "Reviewed cultural armor candidate; unpublished/undeployed; numeric bands pending",
+         "sha256": "4620542377b63d95f48e7648f0d13863a33c996d2b2a29724a621400b8b44bd7"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/weapon-tier-damage",
+         "path": "tools/tests/test_cultural_armor.py",
+-        "revision": "0a2c18b00f1b6579686959fffef96194b501553f + reviewed preservation candidate",
++        "revision": "a0d105a1c6e317db447a9c78bebc750190cd03ed + reviewed starter-retune candidate",
+         "role": "Reviewed cultural armor candidate; unpublished/undeployed; numeric bands pending",
+         "sha256": "e74a53de1873d704e1345ec8da80cbfc2f3bf82a51d35f3acefd4773fda923f7"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/weapon-tier-damage",
+         "path": "docs/items/cultural-armor-catalog.json",
+-        "revision": "0a2c18b00f1b6579686959fffef96194b501553f + reviewed preservation candidate",
++        "revision": "a0d105a1c6e317db447a9c78bebc750190cd03ed + reviewed starter-retune candidate",
+         "role": "Reviewed cultural armor candidate; unpublished/undeployed; numeric bands pending",
+         "sha256": "cfbd766cdac7bf2015e553643e0f7e78db2bcfd930bcfab50680ba3eda8d99ce"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/weapon-tier-damage",
+         "path": "docs/adr/0064-gear-bands-and-finished-cultural-armor.md",
+-        "revision": "0a2c18b00f1b6579686959fffef96194b501553f + reviewed preservation candidate",
++        "revision": "a0d105a1c6e317db447a9c78bebc750190cd03ed + reviewed starter-retune candidate",
+         "role": "Reviewed cultural armor candidate; unpublished/undeployed; numeric bands pending",
+-        "sha256": "e0a3945288430404569034a8ff708186cbd840e8fc2f1e5036569bb26cbca724"
++        "sha256": "849011b38ae97c639ea501f2b473ea816252d12c63036c57f335a916e14dc3cd"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/weapon-tier-damage",
+         "path": "docs/releases/cultural-armor-20261018/README.md",
+-        "revision": "0a2c18b00f1b6579686959fffef96194b501553f + reviewed preservation candidate",
++        "revision": "a0d105a1c6e317db447a9c78bebc750190cd03ed + reviewed starter-retune candidate",
+         "role": "Reviewed cultural armor candidate; unpublished/undeployed; numeric bands pending",
+         "sha256": "03ef378f3f34dd802ffb2154496ef7f7b86960ecaae8a4d64c81c3eecf2e5263"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/weapon-tier-damage",
+         "path": "docs/releases/cultural-armor-20261018/plan.json",
+-        "revision": "0a2c18b00f1b6579686959fffef96194b501553f + reviewed preservation candidate",
++        "revision": "a0d105a1c6e317db447a9c78bebc750190cd03ed + reviewed starter-retune candidate",
+         "role": "Reviewed cultural armor candidate; unpublished/undeployed; numeric bands pending",
+         "sha256": "c4195881c496a5593049e80d8087a6d68d6e072df837770363c1bbd7f2ae0786"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/weapon-tier-damage",
+         "path": "docs/releases/cultural-armor-20261018/rehearsal.json",
+-        "revision": "0a2c18b00f1b6579686959fffef96194b501553f + reviewed preservation candidate",
++        "revision": "a0d105a1c6e317db447a9c78bebc750190cd03ed + reviewed starter-retune candidate",
+         "role": "Reviewed cultural armor candidate; unpublished/undeployed; numeric bands pending",
+         "sha256": "ff4214f95377717d829f811b2bde44de516825b2d803d42cf4f1429f72617b98"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/weapon-tier-damage",
+         "path": "tools/gear_progression.py",
+-        "revision": "0a2c18b00f1b6579686959fffef96194b501553f + reviewed preservation candidate",
+-        "role": "Preserve Normal legacy gear; offline dungeon floor proposal only; no encounter acceptance",
+-        "sha256": "9169c61d30c213e413c59a7a5453ff0da1212318bd6482b8be2fad5feaee50ee"
++        "revision": "a0d105a1c6e317db447a9c78bebc750190cd03ed + reviewed starter-retune candidate",
++        "role": "Superseded preservation-only prototype; not current tuning or deployment",
++        "sha256": "49e14700ffb5f6c4072745ddf5dd04da755be44bc7ea0025332b648b4553ec48"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/weapon-tier-damage",
+         "path": "tools/tests/test_gear_progression.py",
+-        "revision": "0a2c18b00f1b6579686959fffef96194b501553f + reviewed preservation candidate",
+-        "role": "Preserve Normal legacy gear; offline dungeon floor proposal only; no encounter acceptance",
++        "revision": "a0d105a1c6e317db447a9c78bebc750190cd03ed + reviewed starter-retune candidate",
++        "role": "Superseded preservation-only prototype; not current tuning or deployment",
+         "sha256": "df27c77e8aa79dbdf59e4e353370a01b1e6209426ee436a666ef9b99e990564e"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/weapon-tier-damage",
+         "path": "docs/items/starter-gear-reference.json",
+-        "revision": "0a2c18b00f1b6579686959fffef96194b501553f + reviewed preservation candidate",
++        "revision": "a0d105a1c6e317db447a9c78bebc750190cd03ed + reviewed starter-retune candidate",
+         "role": "Preserve Normal legacy gear; offline dungeon floor proposal only; no encounter acceptance",
+         "sha256": "d403bd16bf83f1f9213c3b12f0e78d3dec1853979b555ff1cf9357d7f24afe18"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/weapon-tier-damage",
+         "path": "docs/releases/gear-progression-20261018/README.md",
+-        "revision": "0a2c18b00f1b6579686959fffef96194b501553f + reviewed preservation candidate",
+-        "role": "Preserve Normal legacy gear; offline dungeon floor proposal only; no encounter acceptance",
+-        "sha256": "2a0fc3a06aed243d3de3196ec498ea85c3acdc10677718351ba3dfb66114f213"
++        "revision": "a0d105a1c6e317db447a9c78bebc750190cd03ed + reviewed starter-retune candidate",
++        "role": "Superseded preservation-only prototype; not current tuning or deployment",
++        "sha256": "8a06cd78a0bfd0ff8784ad9d510a38efb3dc9b29110f0e364faee7944b5d4639"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/weapon-tier-damage",
+         "path": "docs/releases/gear-progression-20261018/candidate.json",
+-        "revision": "0a2c18b00f1b6579686959fffef96194b501553f + reviewed preservation candidate",
+-        "role": "Preserve Normal legacy gear; offline dungeon floor proposal only; no encounter acceptance",
++        "revision": "a0d105a1c6e317db447a9c78bebc750190cd03ed + reviewed starter-retune candidate",
++        "role": "Superseded preservation-only prototype; not current tuning or deployment",
+         "sha256": "77596207aef4fa78a2010b440541a21ee6c35cf2e7a56e85d55a92e9c8a3dcc6"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/weapon-tier-damage",
++        "path": "tools/starter_retune.py",
++        "revision": "a0d105a1c6e317db447a9c78bebc750190cd03ed + reviewed starter-retune candidate",
++        "role": "Reviewed fixed starter band candidate; Normal reductions allowed; no live/encounter acceptance",
++        "sha256": "51c89f30d7a74f2068966db8dce4af5f22bc67552bf0c4f8fe11505f59a35b1b"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/weapon-tier-damage",
++        "path": "tools/tests/test_starter_retune.py",
++        "revision": "a0d105a1c6e317db447a9c78bebc750190cd03ed + reviewed starter-retune candidate",
++        "role": "Reviewed fixed starter band candidate; Normal reductions allowed; no live/encounter acceptance",
++        "sha256": "28016b3446c1ede31ff8b837272c2b4f6ecd3065c5b0857c1024e05e348fa431"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/weapon-tier-damage",
++        "path": "docs/items/starter-retune-reference.json",
++        "revision": "a0d105a1c6e317db447a9c78bebc750190cd03ed + reviewed starter-retune candidate",
++        "role": "Reviewed fixed starter band candidate; Normal reductions allowed; no live/encounter acceptance",
++        "sha256": "378ce2a81f09eb6f8b0ed761a524aadf0e8b38682b81111d4d14cf721f763a4b"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/weapon-tier-damage",
++        "path": "docs/releases/starter-retune-20261018/README.md",
++        "revision": "a0d105a1c6e317db447a9c78bebc750190cd03ed + reviewed starter-retune candidate",
++        "role": "Reviewed fixed starter band candidate; Normal reductions allowed; no live/encounter acceptance",
++        "sha256": "ae1faa3ac4fc3e2a15b4a764865df3806c70fee398e8f6543fbf1429c8fc32cf"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/weapon-tier-damage",
++        "path": "docs/releases/starter-retune-20261018/candidate.json",
++        "revision": "a0d105a1c6e317db447a9c78bebc750190cd03ed + reviewed starter-retune candidate",
++        "role": "Reviewed fixed starter band candidate; Normal reductions allowed; no live/encounter acceptance",
++        "sha256": "05fa2374d368672f1305d515a6fc7d5ecdd0f56bd9f2a0a0eac4accb645d57e0"
+       }
+     ],
+     "world": [
+@@ -5007,7 +5042,7 @@
+         "root": "E:/EQ_Local_Dev/_worktrees/weapon-tier-damage",
+         "path": "docs/releases/weapon-tier-damage-20261018/wiki-review.json",
+         "role": "Historical superseded blanket +1 candidate; do not deploy",
+-        "revision": "0a2c18b00f1b6579686959fffef96194b501553f + reviewed preservation candidate",
++        "revision": "a0d105a1c6e317db447a9c78bebc750190cd03ed + reviewed starter-retune candidate",
+         "sha256": "90d7752665430f32f6b1248ce3f9a71fabeca40a3f560580f83a0b9e4da4dbf3"
+       },
+       {
+@@ -5090,44 +5125,51 @@
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/weapon-tier-damage",
+         "path": "docs/releases/cultural-armor-20261018/wiki-review.json",
+-        "revision": "0a2c18b00f1b6579686959fffef96194b501553f + reviewed preservation candidate",
++        "revision": "a0d105a1c6e317db447a9c78bebc750190cd03ed + reviewed starter-retune candidate",
+         "role": "Reviewed cultural armor candidate; unpublished/undeployed; numeric bands pending",
+         "sha256": "40d717d310716ef4327c5d7fda156cbb57f5e8b48c2d7114fb69b476168224b0"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/weapon-tier-damage",
+         "path": "wiki/articles/equipment.json",
+-        "revision": "0a2c18b00f1b6579686959fffef96194b501553f + reviewed preservation candidate",
++        "revision": "a0d105a1c6e317db447a9c78bebc750190cd03ed + reviewed starter-retune candidate",
+         "role": "Reviewed cultural armor candidate; unpublished/undeployed; numeric bands pending",
+-        "sha256": "3e2aa139ae9d1eb409c2a6a9904af14a1d7cec7cb0a595df65da72044916431f"
++        "sha256": "07a32564b689055f8cd5c12ad096fd7de81dbaac5ee3963489cf5b30344122c1"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/weapon-tier-damage",
+         "path": "wiki/articles/tradeskills.json",
+-        "revision": "0a2c18b00f1b6579686959fffef96194b501553f + reviewed preservation candidate",
++        "revision": "a0d105a1c6e317db447a9c78bebc750190cd03ed + reviewed starter-retune candidate",
+         "role": "Reviewed cultural armor candidate; unpublished/undeployed; numeric bands pending",
+         "sha256": "65456c81941b8300686776c4c06f52e6da515471f6147e07b3ebfb967836c5d7"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/weapon-tier-damage",
+         "path": "wiki/articles/unreleased.json",
+-        "revision": "0a2c18b00f1b6579686959fffef96194b501553f + reviewed preservation candidate",
++        "revision": "a0d105a1c6e317db447a9c78bebc750190cd03ed + reviewed starter-retune candidate",
+         "role": "Reviewed cultural armor candidate; unpublished/undeployed; numeric bands pending",
+-        "sha256": "637ba0eea942bc8d0ce077c57eb5b3e0bbde9f3554c3ce2f22630b4b523dec9b"
++        "sha256": "014f74e5490acf9c59130fa7713761359c481ed2949b99012a49e2e97ff5db7b"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/weapon-tier-damage",
+         "path": "wiki/articles/recent-changes.json",
+-        "revision": "0a2c18b00f1b6579686959fffef96194b501553f + reviewed preservation candidate",
++        "revision": "a0d105a1c6e317db447a9c78bebc750190cd03ed + reviewed starter-retune candidate",
+         "role": "Reviewed cultural armor candidate; unpublished/undeployed; numeric bands pending",
+         "sha256": "1936609580dedf211611d464966ac2570441029ab51b7d1475ffdb8f0d1b8588"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/weapon-tier-damage",
+         "path": "docs/releases/gear-progression-20261018/wiki-review.json",
+-        "revision": "0a2c18b00f1b6579686959fffef96194b501553f + reviewed preservation candidate",
+-        "role": "Preserve Normal legacy gear; offline dungeon floor proposal only; no encounter acceptance",
++        "revision": "a0d105a1c6e317db447a9c78bebc750190cd03ed + reviewed starter-retune candidate",
++        "role": "Superseded preservation-only prototype; not current tuning or deployment",
+         "sha256": "cbcebf89928c5d2244cd58263f0cfc8b92f45df05e71c7728deeff9bae8ea6ef"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/weapon-tier-damage",
++        "path": "docs/releases/starter-retune-20261018/wiki-review.json",
++        "revision": "a0d105a1c6e317db447a9c78bebc750190cd03ed + reviewed starter-retune candidate",
++        "role": "Reviewed fixed starter band candidate; Normal reductions allowed; no live/encounter acceptance",
++        "sha256": "415a408bd7c48239c13640810f836b42179858969eecf8d59ed1cd637f31d76e"
+       }
+     ]
+   }

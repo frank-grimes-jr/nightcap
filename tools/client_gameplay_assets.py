@@ -19,6 +19,10 @@ from client_lavastorm import lavastorm_files
 from generate_pet_spell_catalog import SOURCE_SHA256
 from build_winged_helmet_client import helmet_files
 from epic05 import load_catalog as epic05_catalog, spell_fields as epic05_fields
+from rabid_bear import client_spells as rabid_bear_spells, ILLUSION as RABID_ILLUSION, ILLUSION_NAME as RABID_ILLUSION_NAME
+from pet_support_spells import client_spells as pet_support_spells
+from pet_content import client_spells as pet_fragment_spells, client_rows as pet_fragment_rows
+from wpm_content import client_spells as wpm_spells, client_rows as wpm_rows
 
 
 def restore_spell_classes(raw, original):
@@ -30,6 +34,7 @@ def restore_spell_classes(raw, original):
         arrival = json.loads((ROOT/'docs/ecommons-hub/plan.json').read_bytes())['arrival']
         recall_spell(raw, arrival)
     epic_rows = {str(key): row.decode('latin1') for key, row in epic05_fields(epic05_catalog()).items()}
+    fragment_rows = {**pet_fragment_rows(), **wpm_rows()}
     native = {}
     for line in original.decode('latin1').splitlines():
         fields = line.split('^')
@@ -45,6 +50,11 @@ def restore_spell_classes(raw, original):
         if len(fields) != 237 or fields[0] in seen:
             raise ValueError('Malformed or duplicate packaged spell')
         seen.add(fields[0])
+        if fields[0] in fragment_rows:
+            if '^'.join(fields) != fragment_rows[fields[0]]:
+                raise ValueError('Fragment spell differs from reviewed content: '+fields[0])
+            output.append('^'.join(fields)+ending)
+            continue
         if fields[0] in epic_rows:
             if '^'.join(fields) != epic_rows[fields[0]]:
                 raise ValueError('Epic 0.5 spell differs from the reviewed catalog: '+fields[0])
@@ -56,7 +66,8 @@ def restore_spell_classes(raw, original):
         source = native.get(fields[0])
         # The generated hub recall is independently reviewed and applied after
         # this transform. Every ordinary packaged spell must match native identity.
-        if not source or fields[1] != source[1]:
+        renamed_rabid = int(fields[0]) == RABID_ILLUSION and fields[1] == RABID_ILLUSION_NAME and source and source[1] == 'Rabid Bear Effect'
+        if not source or (fields[1] != source[1] and not renamed_rabid):
             raise ValueError('Packaged spell identity differs from the original: '+fields[0])
         if fields[104:120] != source[104:120]:
             changed.append(int(fields[0]))
@@ -211,6 +222,10 @@ def main():
     original = (args.spell_source or client/'Downloads/spells_us.txt').read_bytes()
     spells, restored = restore_spell_classes(raw, original)
     spells, ids = instant_dots(spells)
+    spells = rabid_bear_spells(spells)
+    spells = pet_support_spells(spells)
+    spells = pet_fragment_spells(spells)
+    spells = wpm_spells(spells)
     plan=json.loads((ROOT/'docs/ecommons-hub/plan.json').read_bytes())
     files = {'spells_us.txt': recall_spell(spells,plan['arrival'])}
     files.update(hub_files(client,plan))

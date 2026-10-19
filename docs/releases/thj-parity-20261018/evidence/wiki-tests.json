@@ -1,0 +1,12 @@
+{
+  "status": "passed_with_platform_skips",
+  "python_discovered": 30,
+  "python_executed": 21,
+  "python_skipped": 9,
+  "skip_reason": "POSIX deployment fixtures are not executable on Windows; unchanged companion Linux evidence remains separately recorded",
+  "search": "passed",
+  "equipment_tests": 7,
+  "content_review": "All 21 guides and 432 generated routes considered; 11 guides updated with candidate notices",
+  "source_drift": "wiki-refresh.json correctly requests review; wiki-review.json records the reconciliation without advancing the global publication ledger",
+  "publication": "not performed"
+}

@@ -1,0 +1,116 @@
+{
+  "source": "https://docs.google.com/spreadsheets/d/1JvRP0JYupPRjlFyMcjl8TqlA896rQ25YyiffeQsudXI/edit",
+  "tabs": [
+    "PoP Mage Pet Gear",
+    "PoP Beastlord Pet Gear",
+    "PoP Necro Pet Gear"
+  ],
+  "policy": "Ascended output floors from Legendary guide; retain higher native values and all unrelated fields",
+  "targets": {
+    "Palladius' Axe of Slaughter": {
+      "haste": 0,
+      "spelldmg": 0,
+      "healamt": 0
+    },
+    "Armguards of the Brute": {
+      "haste": 0,
+      "spelldmg": 40,
+      "healamt": 40
+    },
+    "Chestguard of Enchanted Marble": {
+      "haste": 0,
+      "spelldmg": 50,
+      "healamt": 50
+    },
+    "Earthen Bracer of Fortitude": {
+      "haste": 0,
+      "spelldmg": 36,
+      "healamt": 36
+    },
+    "Pauldrons of Devastation": {
+      "haste": 0,
+      "spelldmg": 34,
+      "healamt": 34
+    },
+    "Greaves of Furious Might": {
+      "haste": 0,
+      "spelldmg": 44,
+      "healamt": 44
+    },
+    "Gauntlets of Disruption": {
+      "haste": 0,
+      "spelldmg": 40,
+      "healamt": 40
+    },
+    "Boots of Despair": {
+      "haste": 0,
+      "spelldmg": 40,
+      "healamt": 40
+    },
+    "Faceguard of Frenzy": {
+      "haste": 0,
+      "spelldmg": 30,
+      "healamt": 30
+    },
+    "Necklace of Eternal Visions": {
+      "haste": 0,
+      "spelldmg": 36,
+      "healamt": 36
+    },
+    "Shroud of Eternity": {
+      "haste": 0,
+      "spelldmg": 40,
+      "healamt": 40
+    },
+    "Girdle of Intense Durability": {
+      "haste": 0,
+      "spelldmg": 30,
+      "healamt": 30
+    },
+    "Stone of Flowing Time": {
+      "haste": 0,
+      "spelldmg": 30,
+      "healamt": 30
+    },
+    "Helm of Flowing Time": {
+      "haste": 60,
+      "spelldmg": 36,
+      "healamt": 36
+    },
+    "Kelp Hilted Mace": {
+      "haste": 0,
+      "spelldmg": 32,
+      "healamt": 0
+    },
+    "Shinai of the Ancients": {
+      "haste": 0,
+      "spelldmg": 20,
+      "healamt": 40
+    },
+    "Shawl of Eternal Forces": {
+      "haste": 0,
+      "spelldmg": 50,
+      "healamt": 50
+    },
+    "Signet of Might": {
+      "haste": 0,
+      "spelldmg": 50,
+      "healamt": 50
+    },
+    "Gloves of Airy Mists": {
+      "haste": 0,
+      "spelldmg": 40,
+      "healamt": 40
+    },
+    "Cord of Temporal Weavings": {
+      "haste": 68,
+      "spelldmg": 36,
+      "healamt": 36
+    },
+    "Hammer of Holy Vengeance": {
+      "haste": 0,
+      "spelldmg": 20,
+      "healamt": 40
+    }
+  }
+}

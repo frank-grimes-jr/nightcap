@@ -1,5 +1,37 @@
 # Current Nightcap status
 
+## Combined THJ item/spell and pet/WPM — candidate, not deployed
+
+The item/spell candidate integrates the completed pet/WPM source and reviewed
+starter/dungeon progression. It covers131 observed Ascended numeric targets,
+additive direct SD, half-SD ordinary ticks, scoped heroic INT/WIS and Bard rune
+exclusion.1393 existing definitions have full285-column guarded transitions;
+numeric recovery preserves pet/WPM effects and sockets.165 unique regression and
+migration tests pass, as do the matching native build and47 scenarios with10,800
+spell samples. Same-item controls show WPM shield DPS+55%, fixed caster DPS-67%
+and equipped Classic pets-36%; spell-rank choice, mana and burst balance require
+owner testing. Full comparisons and exact owner steps are in the
+[combined testing guide](releases/thj-parity-20261018/README.md). Wider encounter
+balance and actual RoF2 acceptance remain open. Live remains Classic50; no
+production, signed-client or wiki publication changes occurred.
+
+## WPM melee and pet integration — candidate, not deployed
+
+The combined candidate now includes the original WPM melee plan: held-class
+combat, shield damage/sustain, six Monk attacks, earned AA depth, heroic STR
+and named item effects with earned acquisition. It also expands permanent pet gear, actual augment procs, owner-stat and
+earned-AA transfer, friendly pet healing, roster buffs and Doppelganger support.
+Shared output changes cover WPM and pets/casters. Rabid Bear has independent
+permanent benefit/illusion effects. New fragments, selected gear changes and an
+earned level-65/PoP profile are staged. Live remains Classic/50. No runtime,
+player-data, signed-client or wiki publication changes. The combined 134-test
+suite passes without skips; native AA checks cover 6,960 eligibility cases.
+Independent WPM review and26 native scenarios pass, including checked shield
+swaps, six attack timers, item/AA procs, runes and pet equipment/stat inheritance.
+Native AA checks also cover eight RoF2 expansion boundaries. Actual client
+lifecycle/gameplay acceptance, wider balance validation and activation remain
+pending. [Combined implementation and recovery](releases/wpm-melee-20261018/README.md).
+
 ## October 18 ordinary loot rates - live
 
 Activated at 2:36 p.m. Eastern: 20% Polished / 5% Exalted / 1% Ascended per eligible ordinary equipment/bag drop. Global rules reload verified in world and all 12 workers without a restart; other rules preserved. Player balance acceptance remains open. Quest guarantee is design-only. [Evidence](ops/loot-quality-rates-20261018/README.md).

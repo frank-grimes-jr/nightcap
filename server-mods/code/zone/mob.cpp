@@ -5380,7 +5380,7 @@ void Mob::ExecWeaponProc(const EQ::ItemInstance* inst, uint16 spell_id, Mob* on,
 	bool  twin_proc        = false;
 	int32 twin_proc_chance = 0;
 
-	if (IsClient() || IsBot()) {
+	if (IsClient() || IsBot() || GetNightcapPetOwner()) {
 		twin_proc_chance = GetFocusEffect(focusTwincast, spell_id);
 	}
 
@@ -5953,7 +5953,7 @@ void Mob::TryTwincast(Mob *caster, Mob *target, uint32 spell_id)
 		return;
 	}
 
-	if (IsOfClientBot())
+	if (IsOfClientBot() || GetNightcapPetOwner())
 	{
 		int focus = GetFocusEffect(focusTwincast, spell_id);
 
@@ -8825,4 +8825,35 @@ bool Mob::LoadDataBucketsCache()
 	}
 
 	return true;
+}
+
+// Live ownership avoids stale inherited stats after gear, AA, class or zone changes.
+Mob *Mob::GetNightcapPetOwner() const
+{
+	if (!IsNPC() || !IsPetOwnerClient() || IsCharmed() || IsTempPet() || IsTargetLockPet() || IsFamiliar()) {
+		return nullptr;
+	}
+	auto owner = entity_list.GetMob(GetOwnerID());
+	return owner && owner->IsClient() ? owner : nullptr;
+}
+
+int Mob::GetNightcapInheritedCasterBonus(NightcapPetScaling::CasterBonus type) const
+{
+	const auto owner = GetNightcapPetOwner();
+	if (!owner) { return 0; }
+	const auto &item = owner->itembonuses;
+	const auto &spell = owner->spellbonuses;
+	const auto &aa = owner->aabonuses;
+	int total = 0;
+	using Bonus = NightcapPetScaling::CasterBonus;
+	switch (type) {
+		case Bonus::SpellChance: total = item.CriticalSpellChance + spell.CriticalSpellChance + aa.CriticalSpellChance; break;
+		case Bonus::SpellDamage: total = item.SpellCritDmgIncrease + spell.SpellCritDmgIncrease + aa.SpellCritDmgIncrease +
+			item.SpellCritDmgIncNoStack + spell.SpellCritDmgIncNoStack + aa.SpellCritDmgIncNoStack; break;
+		case Bonus::DotChance: total = item.CriticalDoTChance + spell.CriticalDoTChance + aa.CriticalDoTChance; break;
+		case Bonus::DotDamage: total = item.DotCritDmgIncrease + spell.DotCritDmgIncrease + aa.DotCritDmgIncrease; break;
+		case Bonus::HealChance: total = item.CriticalHealChance + spell.CriticalHealChance + aa.CriticalHealChance; break;
+		case Bonus::HotChance: total = item.CriticalHealOverTime + spell.CriticalHealOverTime + aa.CriticalHealOverTime; break;
+	}
+	return std::max(total, 0) / 2;
 }

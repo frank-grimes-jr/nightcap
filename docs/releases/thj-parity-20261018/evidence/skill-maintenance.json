@@ -1,0 +1,13 @@
+{
+  "status": "installed",
+  "files": [
+    "C:/Users/verre/.codex/skills/nightcap-development/references/balance.md",
+    "C:/Users/verre/.codex/skills/nightcap-development/references/items.md",
+    "C:/Users/verre/.codex/skills/nightcap-development/references/wiki.md",
+    "C:/Users/verre/.codex/skills/nightcap-development/references/operations.md",
+    "C:/Users/verre/.codex/skills/nightcap-development/references/sources.json"
+  ],
+  "source_entries": 35,
+  "source_revision": "3a5cc28f40ad52988a50c9d0157d28b5f0a2143b + reviewed feature/thj-item-spell-parity working tree",
+  "deployment": "unchanged"
+}

@@ -19,6 +19,7 @@
 
 #pragma once
 
+#include "common/nightcap_pet_scaling.h"
 #include "common/data_bucket.h"
 #include "common/emu_constants.h"
 #include "common/light_source.h"
@@ -257,6 +258,10 @@ public:
 	void CalcAC() { mitigation_ac = ACSum(); }
 	int GetACSoftcap();
 	double GetSoftcapReturns();
+	bool HasCombatClass(uint8 class_id) const;
+	uint8 GetMitigationClass() const;
+	bool UsesKnightDoubleAttack() const;
+	int GetClassRaceACBonusForClass(uint8 class_id);
 	int GetClassRaceACBonus();
 	inline int GetMitigationAC() { return mitigation_ac; }
 	void MeleeMitigation(Mob *attacker, DamageHitInfo &hit, ExtraAttackOptions *opts = nullptr);
@@ -560,6 +565,9 @@ public:
 	void SetHP(int64 hp);
 	inline void SetOOCRegen(int64 new_ooc_regen) { ooc_regen = new_ooc_regen; }
 	virtual void HealDamage(uint64 ammount, Mob* caster = nullptr, uint16 spell_id = SPELL_UNKNOWN);
+	uint64 GetNightcapHealingReceived(uint64 amount);
+	uint8 GetFocusSpellLevel(uint16 spell_id) const;
+	void TryWornWeaponProc(Mob *target, EQ::skills::SkillType skill, float chance);
 	virtual void SetMaxHP() { current_hp = max_hp; }
 	virtual inline uint16 GetBaseRace() const { return base_race; }
 	virtual inline uint8 GetBaseGender() const { return base_gender; }
@@ -704,6 +712,11 @@ public:
 	inline int32 GetHeroicStrikethrough() const  { return heroic_strikethrough; }
 	inline const bool GetKeepsSoldItems() const { return keeps_sold_items; }
 	inline void SetKeepsSoldItems(bool in_keeps_sold_items)  { keeps_sold_items = in_keeps_sold_items; }
+	Mob *GetNightcapPetOwner() const;
+	bool SpellOnOwnedPets(uint16 spell_id, Mob *owner, bool require_affinity = true, int16 resist_adjust = 0, uint8 level_override = 0);
+	int GetNightcapInheritedCasterBonus(NightcapPetScaling::CasterBonus type) const;
+	int64 GetNightcapInheritedFocus(focusType type, uint16 spell_id);
+	int32 GetNightcapRuneAmount(uint16 spell_id, int32 base_amount);
 	virtual int32 GetHealAmt() const { return 0; }
 	virtual int32 GetSpellDmg() const { return 0; }
 	void ProcessItemCaps();
@@ -1001,6 +1014,8 @@ public:
 	bool DoHPToManaCovert(int32 mana_cost = 0);
 	int8 GetDecayEffectValue(uint16 spell_id, uint16 spelleffect);
 	int64 GetExtraSpellAmt(uint16 spell_id, int64 extra_spell_amt, int64 base_spell_dmg);
+	int64 GetNightcapSpellDamageBonus(uint16 spell_id, int64 base_value, bool dot = false);
+	int64 GetNightcapHeroicSpellValue(uint16 spell_id, int64 value, bool healing);
 	void MeleeLifeTap(int64 damage);
 	bool PassCastRestriction(int value);
 	void SendCastRestrictionMessage(int requirement_id, bool is_target_requirement = true, bool is_discipline = false);

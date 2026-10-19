@@ -1,0 +1,8 @@
+{
+  "expansion": 4,
+  "name": "Planes of Power",
+  "max_level": 65,
+  "aa_open": true,
+  "aa_policy": "config/aa-policy.json",
+  "luclin_models": false
+}

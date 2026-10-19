@@ -98,6 +98,22 @@ bool Allowed(const EQ::ItemInstance *inst, uint8 index)
 	return true;
 }
 
+bool CanEquip(const Equipment &items, uint8 pet_class, uint8 index, const EQ::ItemInstance *inst)
+{
+	if (pet_class < 1 || pet_class > 16 || !Allowed(inst, index) || items[index].instance) { return false; }
+	unsigned used = 0;
+	for (size_t i = 0; i < items.size(); ++i) {
+		const auto other = items[i].instance.get();
+		if (!other) { continue; }
+		++used;
+		if ((Slots[index] == EQ::invslot::slotPrimary && inst->GetItem()->IsType2HWeapon() &&
+			Slots[i] == EQ::invslot::slotSecondary) ||
+			(Slots[index] == EQ::invslot::slotSecondary && Slots[i] == EQ::invslot::slotPrimary &&
+			other->GetItem()->IsType2HWeapon())) { return false; }
+	}
+	return used < Capacity(pet_class);
+}
+
 bool Load(uint32 character_id, Collection &items)
 {
 	if (!character_id || !SchemaReady()) { return false; }
@@ -119,7 +135,7 @@ bool Load(uint32 character_id, Collection &items)
 			row.charges == std::numeric_limits<int16>::max() ? -1 : row.charges,
 			row.augment_one, row.augment_two, row.augment_three, row.augment_four, row.augment_five, row.augment_six,
 			row.instnodrop, row.custom_data, row.ornament_icon, row.ornament_idfile, row.ornament_hero_model));
-		if (!Allowed(inst.get(), index)) { return false; }
+		if (!CanEquip(loaded[pet_class], pet_class, index, inst.get())) { return false; }
 		inst->SetCharges(row.charges == std::numeric_limits<int16>::max() ? -1 : row.charges);
 		const std::array<uint32, 6> augments = {row.augment_one, row.augment_two, row.augment_three,
 			row.augment_four, row.augment_five, row.augment_six};
@@ -158,14 +174,28 @@ bool Transfer(uint32 character_id, uint8 pet_class, uint8 index, bool equip,
 		character_id, EQ::invslot::slotCursor, EQ::invbag::CURSOR_BAG_BEGIN, EQ::invbag::CURSOR_BAG_END);
 	if (!database.QueryDatabase(std::string("START TRANSACTION"), false).Success()) { return false; }
 	auto failed = [&]() { database.QueryDatabase(std::string("ROLLBACK"), false); return false; };
-	// Both locations are locked. Checking the complete cursor queue prevents a
-	// hidden queued item from being lost by an equip or overwrite on removal.
+	// Lock the entire per-class equipment range as well as the cursor queue.
+	// Capacity and hand exclusions must remain authoritative across concurrent
+	// transfers; locking only the destination would allow two final-budget equips.
 	auto cursor_rows = database.QueryDatabase("SELECT slot_id FROM inventory WHERE " + cursor_where + " FOR UPDATE", false);
 	if (!cursor_rows.Success() || cursor_rows.RowCount() != (equip ? 1u : 0u)) { return failed(); }
 	auto armor_rows = database.QueryDatabase(fmt::format(
-		"SELECT slot_id FROM character_pet_armor WHERE character_id={} AND pet_class={} AND slot_id={} FOR UPDATE",
-		character_id, pet_class, Slots[index]), false);
-	if (!armor_rows.Success() || armor_rows.RowCount() != (equip ? 0u : 1u)) { return failed(); }
+		"SELECT slot_id,item_id FROM character_pet_armor WHERE character_id={} AND pet_class={} FOR UPDATE",
+		character_id, pet_class), false);
+	if (!armor_rows.Success() || (equip && armor_rows.RowCount() >= Capacity(pet_class))) { return failed(); }
+	unsigned occupied = 0;
+	for (auto row : armor_rows) {
+		const int16 slot = row[0] ? atoi(row[0]) : -1;
+		occupied += slot == Slots[index];
+		if (!equip) { continue; } // Removal remains a recovery path.
+		const auto other = database.GetItem(row[1] ? Strings::ToUnsignedInt(row[1]) : 0);
+		if (!other || std::find(Slots.begin(), Slots.end(), slot) == Slots.end()) { return failed(); }
+		if ((Slots[index] == EQ::invslot::slotPrimary && cursor->GetItem()->IsType2HWeapon() &&
+			slot == EQ::invslot::slotSecondary) ||
+			(Slots[index] == EQ::invslot::slotSecondary && slot == EQ::invslot::slotPrimary &&
+			other->IsType2HWeapon())) { return failed(); }
+	}
+	if (occupied != (equip ? 0u : 1u)) { return failed(); }
 	auto matched = database.QueryDatabase("SELECT slot_id FROM " + source_table + " WHERE " + source_where + " FOR UPDATE", false);
 	if (!matched.Success() || matched.RowCount() != 1) { return failed(); }
 	auto columns = InventoryRepository::Columns();
