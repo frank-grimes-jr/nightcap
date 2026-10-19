@@ -1,0 +1,117 @@
+{
+  "release": 2026101901,
+  "channel_sha256": "6db028c3f460fa2224c0398aa199384eeb4dd17fb6ba604740cfe7414da53bd5",
+  "changed_assets": 1,
+  "preserved_assets": 137,
+  "services_before": {
+    "game": {
+      "Id": "c7e586c20a093ff0679a0ac0e875265eb15d0043bec5918be63051fb9dffd142",
+      "Image": "sha256:7013e41696649bb82d5776659b3b21c37456862f4c90ecc44805f5d6b2fcc258",
+      "RestartCount": 0,
+      "state": {
+        "Running": true,
+        "StartedAt": "2026-10-19T01:55:53.138467256Z",
+        "OOMKilled": false
+      }
+    },
+    "gateway": {
+      "Id": "f580a6574668158cafa14443ea121eb8b4bba34996077458c8416957aef01d6d",
+      "Image": "sha256:2f3b9fc4d88afbb9612f7e1bb1202a31c6e975b1df4a76337cc280ac431ca36d",
+      "RestartCount": 0,
+      "state": {
+        "Running": true,
+        "StartedAt": "2026-10-19T02:05:40.134867908Z",
+        "OOMKilled": false
+      }
+    },
+    "db": {
+      "Id": "5c34a0594d5015209f7667d4421c00ef492b80298842829b2edb69c69449d96f",
+      "Image": "sha256:7f22313fc130a377a44999965bcb0a08dd5b21e8502824c1b864f792f9bc66ab",
+      "RestartCount": 1,
+      "state": {
+        "Running": true,
+        "StartedAt": "2026-10-16T18:53:03.118515664Z",
+        "OOMKilled": false
+      }
+    },
+    "web": {
+      "Id": "d8fb0c7da13aea642ae505b0c8bed74b529107185d43dbf35406f6b025d4d71d",
+      "Image": "sha256:7377697a821c131a924a7105fafbe7414db4e9fcc77a6f08f776f33f141ec3f8",
+      "RestartCount": 0,
+      "state": {
+        "Running": true,
+        "StartedAt": "2026-09-20T17:47:54.765116169Z",
+        "OOMKilled": false
+      }
+    },
+    "tunnel": {
+      "Id": "30b1d25ff56bffa77a5b05d1b3d2f6c37b8a87dc05ef098721b6be6555235aac",
+      "Image": "sha256:ff69a2225ad7c6f85ed84fbd5f3087df46202426b2388ec60214098e0adf05e9",
+      "RestartCount": 0,
+      "state": {
+        "Running": true,
+        "StartedAt": "2026-09-20T17:53:43.445441644Z",
+        "OOMKilled": false
+      }
+    }
+  },
+  "services_after": {
+    "game": {
+      "Id": "c7e586c20a093ff0679a0ac0e875265eb15d0043bec5918be63051fb9dffd142",
+      "Image": "sha256:7013e41696649bb82d5776659b3b21c37456862f4c90ecc44805f5d6b2fcc258",
+      "RestartCount": 0,
+      "state": {
+        "Running": true,
+        "StartedAt": "2026-10-19T01:55:53.138467256Z",
+        "OOMKilled": false
+      }
+    },
+    "gateway": {
+      "Id": "f580a6574668158cafa14443ea121eb8b4bba34996077458c8416957aef01d6d",
+      "Image": "sha256:2f3b9fc4d88afbb9612f7e1bb1202a31c6e975b1df4a76337cc280ac431ca36d",
+      "RestartCount": 0,
+      "state": {
+        "Running": true,
+        "StartedAt": "2026-10-19T02:05:40.134867908Z",
+        "OOMKilled": false
+      }
+    },
+    "db": {
+      "Id": "5c34a0594d5015209f7667d4421c00ef492b80298842829b2edb69c69449d96f",
+      "Image": "sha256:7f22313fc130a377a44999965bcb0a08dd5b21e8502824c1b864f792f9bc66ab",
+      "RestartCount": 1,
+      "state": {
+        "Running": true,
+        "StartedAt": "2026-10-16T18:53:03.118515664Z",
+        "OOMKilled": false
+      }
+    },
+    "web": {
+      "Id": "d8fb0c7da13aea642ae505b0c8bed74b529107185d43dbf35406f6b025d4d71d",
+      "Image": "sha256:7377697a821c131a924a7105fafbe7414db4e9fcc77a6f08f776f33f141ec3f8",
+      "RestartCount": 0,
+      "state": {
+        "Running": true,
+        "StartedAt": "2026-09-20T17:47:54.765116169Z",
+        "OOMKilled": false
+      }
+    },
+    "tunnel": {
+      "Id": "30b1d25ff56bffa77a5b05d1b3d2f6c37b8a87dc05ef098721b6be6555235aac",
+      "Image": "sha256:ff69a2225ad7c6f85ed84fbd5f3087df46202426b2388ec60214098e0adf05e9",
+      "RestartCount": 0,
+      "state": {
+        "Running": true,
+        "StartedAt": "2026-09-20T17:53:43.445441644Z",
+        "OOMKilled": false
+      }
+    }
+  },
+  "desktop_starter_guide_unchanged": true,
+  "public_controls": {
+    "guide.html": "c6160072c279b82c420f1c14122cb9bce2d9e5c6edb772db8d8d534ed3b4f675",
+    "health.txt": "75a3bf822c01d8ad791a78b13503259aaf18c1fe386f587da5a308770d4340c0",
+    "launcher-channel.json": "67a94a6d56fca08d21c0d808a2929855ec9e20bf8891ccd390f23cf1f18c3e8e",
+    "nightcap-friends.zip": "bad2fd8d91c74c41e3be84c8e3a985159c1b2eb980c4fddce47780b2a310f452"
+  }
+}

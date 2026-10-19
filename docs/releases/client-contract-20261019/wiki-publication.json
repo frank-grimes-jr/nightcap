@@ -1,0 +1,17 @@
+{
+  "result": "PASS",
+  "release": "20261019-client-contract-v1",
+  "previous_release": "20261018-thj-parity-v1",
+  "files": 465,
+  "config_sha256": "03ef62717aad29884d3c1a60d800b19d0ee9cc7024fec7313d0263f37fbd046c",
+  "rollback_rehearsed": true,
+  "private_downloads_preserved": true,
+  "service_ids_start_times_preserved": true,
+  "nginx_reload_required": false,
+  "changed_files": [
+    "index.html",
+    "launcher.html",
+    "recent-changes.html",
+    "search-index.json"
+  ]
+}
