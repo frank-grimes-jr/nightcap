@@ -1,12 +1,12 @@
 # Official Nightcap wiki — hosting and maintenance
 
-Updated October 18, 2026.
+Updated October 19, 2026.
 
 ## Current state
 
-- **Public URL: https://wiki.nightcapgame.org/** — live and verified October 18, 2026 (EDT).
-- **Active OVH origin release:** `20261018-reforge-colors-v1`; previous release
-  `20261018-client-zone-repair-v1` is retained for recovery.
+- **Public URL: https://wiki.nightcapgame.org/** — live and verified October 19, 2026 (EDT).
+- **Active OVH origin release:** `20261019-client-contract-v1`; previous release
+  `20261018-thj-parity-v1` is retained for recovery.
 - **Features:** major departures from Classic, with dedicated upgrade and crafting guides.
 - **Equipment:** 96 item families with four quality links each, gear/augment
   views, name/slot/level/zone filters, sorting and 12-family pagination.
@@ -20,6 +20,16 @@ Updated October 18, 2026.
 
 Source and build commands: [wiki/README.md](../../wiki/README.md).
 Architecture: [ADR 0059](../adr/0059-official-public-wiki.md).
+
+## October 19 client launch repair
+
+Launcher, home and Recent changes explain signed game2026101901 and normal
+launcher Play. The former candidate notice is removed; all other gameplay guides,
+Features, commands and item/zone values are unchanged. Four public files changed
+including search-index.json; all465 HTTPS hashes/headers and five private-source
+denials verify. Guarded rollback rehearsal preserved private downloads, config
+and all five service identities. Native gameplay acceptance remains open.
+Evidence: [client contract repair](../releases/client-contract-20261019/README.md).
 
 ## October 18 cooldown and reforging corrections
 
