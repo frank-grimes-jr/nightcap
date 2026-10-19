@@ -19,8 +19,8 @@ requires its own authorized maintenance operation.
    Do not run older full-row gear migrations before/after the combined installer.
 4. Apply the non-gear pet/WPM content and combined item migration, then the new
    `rules-forward.sql`. Repeated application accepts exact afterimages only.
-   Each component is transactional; the entire multi-file bundle is not one
-   transaction. Keep game writers closed until all components and caches verify.
+   Data components are transactional; pet schema DDL is separate and the entire
+   bundle is not one transaction. Keep writers closed until components and caches verify.
    Preserve both independent Seru loot links and all original acquisition rows.
 5. Leave the declared Classic50 era intact unless the complete staged PoP65
    profile is explicitly part of the test. Rules alone are insufficient: era,

@@ -1,0 +1,1459 @@
+{
+  "status": "passed",
+  "execution_cases": 47,
+  "stat_cases": 6,
+  "spell_probe_cases": 18,
+  "encounters": 23,
+  "binary_sha256": "b269cd7026a251bde7c86326cdc4ea2727c16a0a23060c5191d33b1e49c1ddbb",
+  "archive_sha256": "80e8e06b84ed5ffb0344574dae06ede971f4d249630dfcf35a96c4b3676715b7",
+  "assertions": [
+    "47 input/output hashes and diagnostic binary match recorded execution",
+    "Canonical AA costs, including zero-cost baseline ranks, preserved; every supplied budget fully accounted",
+    "All six WPM class orders have identical recorded combat capability state",
+    "Shield removal/restoration clears/restores Holy Shield, Diaku and Marr healing",
+    "Shield Specialist100%, six Way of Steel contributions and nonrecursive focus controls",
+    "Native WPM encounters exercise all six skill timers and earned Rage60s activation",
+    "Fists of Fury, haste fragment, Diaku, Healing Fragment, Holy rune, Blessing and Healing Light observed",
+    "Native Holy rune absorption and successful Mend pulse/cooldown recorded",
+    "All three equipped pet classes retain15/8/8 items and own stats plus bounded half-owner inheritance",
+    "Across equipped pet encounters all three classes emit innate weapon, healing augment and rune augment effects",
+    "Companion Fury IV purchased through native gates with actual RoF2 mask",
+    "Eighteen spell probes contain 10800 samples; level50/65 rule controls retain identical gear and effective stats"
+  ],
+  "comparisons": [
+    {
+      "case": "wpm-shield-zero",
+      "outcome": "npc_death",
+      "elapsed_seconds": 45.15,
+      "effective_damage": 32161,
+      "dps": 712.3,
+      "aa_spent": 0,
+      "initial_hp": 10373,
+      "final_hp": 9323,
+      "net_mana_used": 112,
+      "heal_damage_recovered": 1531,
+      "player_melee_rune_absorbed": 0,
+      "mend_requests": 0,
+      "owner_spell_event_counts": {
+        "65535": 287,
+        "42836": 4,
+        "3606": 3,
+        "4119": 3,
+        "42851": 2,
+        "42846": 2
+      }
+    },
+    {
+      "case": "wpm-dual-zero",
+      "outcome": "npc_death",
+      "elapsed_seconds": 51.7,
+      "effective_damage": 32184,
+      "dps": 622.5,
+      "aa_spent": 0,
+      "initial_hp": 10060,
+      "final_hp": 9795,
+      "net_mana_used": 108,
+      "heal_damage_recovered": 3354,
+      "player_melee_rune_absorbed": 0,
+      "mend_requests": 0,
+      "owner_spell_event_counts": {
+        "65535": 301,
+        "42851": 4,
+        "3606": 3,
+        "4119": 3,
+        "3621": 1,
+        "42836": 1
+      }
+    },
+    {
+      "case": "wpm-twohand-zero",
+      "outcome": "npc_death",
+      "elapsed_seconds": 93.0,
+      "effective_damage": 32345,
+      "dps": 347.8,
+      "aa_spent": 0,
+      "initial_hp": 9494,
+      "final_hp": 9494,
+      "net_mana_used": 185,
+      "heal_damage_recovered": 4084,
+      "player_melee_rune_absorbed": 0,
+      "mend_requests": 1,
+      "owner_spell_event_counts": {
+        "65535": 394,
+        "1791": 4,
+        "42851": 3,
+        "42836": 1
+      }
+    },
+    {
+      "case": "wpm-shield-max",
+      "outcome": "npc_death",
+      "elapsed_seconds": 7.1,
+      "effective_damage": 32023,
+      "dps": 4510.3,
+      "aa_spent": 2074,
+      "initial_hp": 12845,
+      "final_hp": 12845,
+      "net_mana_used": 24,
+      "heal_damage_recovered": 144,
+      "player_melee_rune_absorbed": 0,
+      "mend_requests": 0,
+      "owner_spell_event_counts": {
+        "65535": 84,
+        "23598": 11,
+        "21773": 1,
+        "2767": 12,
+        "42851": 1,
+        "13504": 1,
+        "3606": 1,
+        "4119": 1,
+        "42836": 1
+      }
+    },
+    {
+      "case": "wpm-dual-max",
+      "outcome": "npc_death",
+      "elapsed_seconds": 7.75,
+      "effective_damage": 32023,
+      "dps": 4132.0,
+      "aa_spent": 2074,
+      "initial_hp": 12460,
+      "final_hp": 12460,
+      "net_mana_used": 24,
+      "heal_damage_recovered": 218,
+      "player_melee_rune_absorbed": 0,
+      "mend_requests": 0,
+      "owner_spell_event_counts": {
+        "65535": 100,
+        "23598": 10,
+        "21773": 1,
+        "2767": 9,
+        "3606": 2,
+        "4119": 2
+      }
+    },
+    {
+      "case": "wpm-twohand-max",
+      "outcome": "npc_death",
+      "elapsed_seconds": 11.1,
+      "effective_damage": 32023,
+      "dps": 2885.0,
+      "aa_spent": 2074,
+      "initial_hp": 11788,
+      "final_hp": 11788,
+      "net_mana_used": 24,
+      "heal_damage_recovered": 218,
+      "player_melee_rune_absorbed": 0,
+      "mend_requests": 0,
+      "owner_spell_event_counts": {
+        "65535": 108,
+        "23598": 16,
+        "21773": 1,
+        "2767": 10,
+        "1791": 2,
+        "13504": 1,
+        "42851": 1,
+        "42836": 1
+      }
+    },
+    {
+      "case": "wpm-shield-undead-max",
+      "outcome": "npc_death",
+      "elapsed_seconds": 5.15,
+      "effective_damage": 32000,
+      "dps": 6213.6,
+      "aa_spent": 2074,
+      "initial_hp": 12845,
+      "final_hp": 12845,
+      "net_mana_used": 32,
+      "heal_damage_recovered": 579,
+      "player_melee_rune_absorbed": 0,
+      "mend_requests": 0,
+      "owner_spell_event_counts": {
+        "65535": 67,
+        "21773": 1,
+        "23598": 8,
+        "2767": 12,
+        "16139": 1
+      }
+    },
+    {
+      "case": "pet-bare-zero",
+      "outcome": "timeout",
+      "elapsed_seconds": 180.0,
+      "effective_damage": 16451,
+      "dps": 91.4,
+      "aa_spent": 0,
+      "initial_hp": 8515,
+      "final_hp": 6380,
+      "net_mana_used": 3984,
+      "heal_damage_recovered": null,
+      "player_melee_rune_absorbed": null,
+      "mend_requests": 0,
+      "owner_spell_event_counts": {
+        "447": 3,
+        "510": 2,
+        "15": 7
+      }
+    },
+    {
+      "case": "pet-equipped-zero",
+      "outcome": "boss_death",
+      "elapsed_seconds": 154.6,
+      "effective_damage": 32575,
+      "dps": 210.7,
+      "aa_spent": 0,
+      "initial_hp": 8515,
+      "final_hp": 8287,
+      "net_mana_used": 4195,
+      "heal_damage_recovered": null,
+      "player_melee_rune_absorbed": null,
+      "mend_requests": 0,
+      "owner_spell_event_counts": {
+        "447": 5,
+        "510": 7,
+        "15": 1
+      }
+    },
+    {
+      "case": "pet-bare-max",
+      "outcome": "boss_death",
+      "elapsed_seconds": 178.95,
+      "effective_damage": 32667,
+      "dps": 182.5,
+      "aa_spent": 2085,
+      "initial_hp": 9364,
+      "final_hp": 8615,
+      "net_mana_used": 3881,
+      "heal_damage_recovered": null,
+      "player_melee_rune_absorbed": null,
+      "mend_requests": 0,
+      "owner_spell_event_counts": {
+        "510": 3,
+        "447": 4,
+        "15": 7
+      }
+    },
+    {
+      "case": "pet-equipped-max",
+      "outcome": "boss_death",
+      "elapsed_seconds": 111.8,
+      "effective_damage": 32414,
+      "dps": 289.9,
+      "aa_spent": 2085,
+      "initial_hp": 9364,
+      "final_hp": 8026,
+      "net_mana_used": 2123,
+      "heal_damage_recovered": null,
+      "player_melee_rune_absorbed": null,
+      "mend_requests": 0,
+      "owner_spell_event_counts": {
+        "447": 3,
+        "510": 5
+      }
+    },
+    {
+      "case": "wpm-shield-heroic-off",
+      "outcome": "npc_death",
+      "elapsed_seconds": 8.05,
+      "effective_damage": 32023,
+      "dps": 3978.0,
+      "aa_spent": 2074,
+      "initial_hp": 12845,
+      "final_hp": 12845,
+      "net_mana_used": 24,
+      "heal_damage_recovered": 144,
+      "player_melee_rune_absorbed": 0,
+      "mend_requests": 0,
+      "owner_spell_event_counts": {
+        "65535": 92,
+        "23598": 12,
+        "21773": 1,
+        "2767": 14,
+        "42851": 1,
+        "13504": 1,
+        "3606": 1,
+        "4119": 1,
+        "42836": 1
+      }
+    },
+    {
+      "case": "wpm-shield-max-seed-2718",
+      "outcome": "npc_death",
+      "elapsed_seconds": 6.15,
+      "effective_damage": 32023,
+      "dps": 5207.0,
+      "aa_spent": 2074,
+      "initial_hp": 12845,
+      "final_hp": 12216,
+      "net_mana_used": 24,
+      "heal_damage_recovered": 0,
+      "player_melee_rune_absorbed": 0,
+      "mend_requests": 0,
+      "owner_spell_event_counts": {
+        "65535": 85,
+        "23598": 12,
+        "21773": 1,
+        "2767": 10,
+        "42846": 1
+      }
+    },
+    {
+      "case": "pet-equipped-max-seed-2718",
+      "outcome": "boss_death",
+      "elapsed_seconds": 82.7,
+      "effective_damage": 32299,
+      "dps": 390.6,
+      "aa_spent": 2085,
+      "initial_hp": 9364,
+      "final_hp": 7666,
+      "net_mana_used": 1664,
+      "heal_damage_recovered": null,
+      "player_melee_rune_absorbed": null,
+      "mend_requests": 0,
+      "owner_spell_event_counts": {
+        "510": 5,
+        "447": 2
+      }
+    },
+    {
+      "case": "wpm-classic50-zero",
+      "outcome": "timeout",
+      "elapsed_seconds": 180.0,
+      "effective_damage": 23018,
+      "dps": 127.9,
+      "aa_spent": 0,
+      "initial_hp": 7230,
+      "final_hp": 5235,
+      "net_mana_used": 857,
+      "heal_damage_recovered": 10608,
+      "player_melee_rune_absorbed": 0,
+      "mend_requests": 1,
+      "owner_spell_event_counts": {
+        "65535": 706,
+        "15": 4
+      }
+    },
+    {
+      "case": "wpm-classic50-max",
+      "outcome": "npc_death",
+      "elapsed_seconds": 12.2,
+      "effective_damage": 32046,
+      "dps": 2626.7,
+      "aa_spent": 2074,
+      "initial_hp": 9012,
+      "final_hp": 8738,
+      "net_mana_used": 20,
+      "heal_damage_recovered": 0,
+      "player_melee_rune_absorbed": 579,
+      "mend_requests": 0,
+      "owner_spell_event_counts": {
+        "65535": 125,
+        "21773": 1,
+        "23598": 13,
+        "2767": 14,
+        "42840": 2
+      }
+    },
+    {
+      "case": "caster65-zero",
+      "outcome": "timeout",
+      "elapsed_seconds": 180.0,
+      "effective_damage": 18795,
+      "dps": 104.4,
+      "aa_spent": 0,
+      "initial_hp": 7449,
+      "final_hp": 4141,
+      "net_mana_used": 2995,
+      "heal_damage_recovered": 9360,
+      "player_melee_rune_absorbed": 0,
+      "mend_requests": 0,
+      "owner_spell_event_counts": {
+        "732": 15,
+        "9": 3
+      }
+    },
+    {
+      "case": "caster65-max",
+      "outcome": "npc_death",
+      "elapsed_seconds": 144.3,
+      "effective_damage": 32529,
+      "dps": 225.4,
+      "aa_spent": 2163,
+      "initial_hp": 9004,
+      "final_hp": 7253,
+      "net_mana_used": 2728,
+      "heal_damage_recovered": 6588,
+      "player_melee_rune_absorbed": 0,
+      "mend_requests": 0,
+      "owner_spell_event_counts": {
+        "732": 16,
+        "9": 2
+      }
+    },
+    {
+      "case": "pet-pop65-bare-max",
+      "outcome": "boss_death",
+      "elapsed_seconds": 92.55,
+      "effective_damage": 32345,
+      "dps": 349.5,
+      "aa_spent": 2085,
+      "initial_hp": 9364,
+      "final_hp": 7499,
+      "net_mana_used": 1937,
+      "heal_damage_recovered": null,
+      "player_melee_rune_absorbed": null,
+      "mend_requests": 0,
+      "owner_spell_event_counts": {
+        "447": 2,
+        "510": 4,
+        "15": 1
+      }
+    },
+    {
+      "case": "pet-pop65-equipped-max",
+      "outcome": "boss_death",
+      "elapsed_seconds": 58.5,
+      "effective_damage": 32207,
+      "dps": 550.5,
+      "aa_spent": 2085,
+      "initial_hp": 9364,
+      "final_hp": 8590,
+      "net_mana_used": 1179,
+      "heal_damage_recovered": null,
+      "player_melee_rune_absorbed": null,
+      "mend_requests": 0,
+      "owner_spell_event_counts": {
+        "447": 2,
+        "510": 2
+      }
+    },
+    {
+      "case": "wpm-shield-max-legacy-spells",
+      "outcome": "npc_death",
+      "elapsed_seconds": 11.0,
+      "effective_damage": 32023,
+      "dps": 2911.2,
+      "aa_spent": 2074,
+      "initial_hp": 12845,
+      "final_hp": 12675,
+      "net_mana_used": 24,
+      "heal_damage_recovered": 144,
+      "player_melee_rune_absorbed": 0,
+      "mend_requests": 0,
+      "owner_spell_event_counts": {
+        "65535": 131,
+        "23598": 16,
+        "21773": 1,
+        "2767": 22,
+        "42851": 1,
+        "13504": 1,
+        "3606": 1,
+        "4119": 1,
+        "42836": 2
+      }
+    },
+    {
+      "case": "pet-equipped-max-legacy-spells",
+      "outcome": "boss_death",
+      "elapsed_seconds": 71.3,
+      "effective_damage": 32253,
+      "dps": 452.4,
+      "aa_spent": 2085,
+      "initial_hp": 9364,
+      "final_hp": 7696,
+      "net_mana_used": 1259,
+      "heal_damage_recovered": null,
+      "player_melee_rune_absorbed": null,
+      "mend_requests": 0,
+      "owner_spell_event_counts": {
+        "447": 2,
+        "510": 3
+      }
+    },
+    {
+      "case": "caster65-max-legacy-spells",
+      "outcome": "npc_death",
+      "elapsed_seconds": 46.95,
+      "effective_damage": 32161,
+      "dps": 685.0,
+      "aa_spent": 2163,
+      "initial_hp": 9004,
+      "final_hp": 6723,
+      "net_mana_used": 1022,
+      "heal_damage_recovered": 0,
+      "player_melee_rune_absorbed": 0,
+      "mend_requests": 0,
+      "owner_spell_event_counts": {
+        "732": 6
+      }
+    }
+  ],
+  "spell_probes": [
+    {
+      "case": "parity-l10-starter-normal",
+      "level": 10,
+      "hp": 305,
+      "mana": 206,
+      "spell_damage": 0,
+      "heal_amount": 0,
+      "heroic_int": 0,
+      "heroic_wis": 0,
+      "spells": [
+        {
+          "spell_id": 54,
+          "effect": "damage",
+          "mean_amount": 0.0,
+          "mean_landed_amount": null,
+          "landed_samples": 0,
+          "minimum": 0,
+          "maximum": 0,
+          "scope": "Native direct effect/resist/focus/crit/cost/cast-time samples before Damage/HealDamage; no active buffs or complete casting lifecycle"
+        },
+        {
+          "spell_id": 17,
+          "effect": "heal",
+          "mean_amount": 65.0,
+          "mean_landed_amount": 65.0,
+          "landed_samples": 200,
+          "minimum": 65,
+          "maximum": 65,
+          "scope": "Native direct effect/resist/focus/crit/cost/cast-time samples before Damage/HealDamage; no active buffs or complete casting lifecycle"
+        },
+        {
+          "spell_id": 360,
+          "effect": "dot_tick",
+          "mean_amount": 28.0,
+          "mean_landed_amount": 28.0,
+          "landed_samples": 200,
+          "minimum": 28,
+          "maximum": 28,
+          "scope": "Native landed initial-duration DoT tick/focus/crit; no application resist, active buff or casting lifecycle"
+        }
+      ]
+    },
+    {
+      "case": "parity-l10-starter-ascended",
+      "level": 10,
+      "hp": 305,
+      "mana": 206,
+      "spell_damage": 39,
+      "heal_amount": 39,
+      "heroic_int": 0,
+      "heroic_wis": 0,
+      "spells": [
+        {
+          "spell_id": 54,
+          "effect": "damage",
+          "mean_amount": 0.0,
+          "mean_landed_amount": null,
+          "landed_samples": 0,
+          "minimum": 0,
+          "maximum": 0,
+          "scope": "Native direct effect/resist/focus/crit/cost/cast-time samples before Damage/HealDamage; no active buffs or complete casting lifecycle"
+        },
+        {
+          "spell_id": 17,
+          "effect": "heal",
+          "mean_amount": 90.0,
+          "mean_landed_amount": 90.0,
+          "landed_samples": 200,
+          "minimum": 90,
+          "maximum": 90,
+          "scope": "Native direct effect/resist/focus/crit/cost/cast-time samples before Damage/HealDamage; no active buffs or complete casting lifecycle"
+        },
+        {
+          "spell_id": 360,
+          "effect": "dot_tick",
+          "mean_amount": 47.0,
+          "mean_landed_amount": 47.0,
+          "landed_samples": 200,
+          "minimum": 47,
+          "maximum": 47,
+          "scope": "Native landed initial-duration DoT tick/focus/crit; no application resist, active buff or casting lifecycle"
+        }
+      ]
+    },
+    {
+      "case": "parity-l20-starter-normal",
+      "level": 20,
+      "hp": 606,
+      "mana": 412,
+      "spell_damage": 0,
+      "heal_amount": 0,
+      "heroic_int": 0,
+      "heroic_wis": 0,
+      "spells": [
+        {
+          "spell_id": 54,
+          "effect": "damage",
+          "mean_amount": 0.0,
+          "mean_landed_amount": null,
+          "landed_samples": 0,
+          "minimum": 0,
+          "maximum": 0,
+          "scope": "Native direct effect/resist/focus/crit/cost/cast-time samples before Damage/HealDamage; no active buffs or complete casting lifecycle"
+        },
+        {
+          "spell_id": 17,
+          "effect": "heal",
+          "mean_amount": 65.0,
+          "mean_landed_amount": 65.0,
+          "landed_samples": 200,
+          "minimum": 65,
+          "maximum": 65,
+          "scope": "Native direct effect/resist/focus/crit/cost/cast-time samples before Damage/HealDamage; no active buffs or complete casting lifecycle"
+        },
+        {
+          "spell_id": 360,
+          "effect": "dot_tick",
+          "mean_amount": 38.0,
+          "mean_landed_amount": 38.0,
+          "landed_samples": 200,
+          "minimum": 38,
+          "maximum": 38,
+          "scope": "Native landed initial-duration DoT tick/focus/crit; no application resist, active buff or casting lifecycle"
+        }
+      ]
+    },
+    {
+      "case": "parity-l20-starter-ascended",
+      "level": 20,
+      "hp": 606,
+      "mana": 412,
+      "spell_damage": 39,
+      "heal_amount": 39,
+      "heroic_int": 0,
+      "heroic_wis": 0,
+      "spells": [
+        {
+          "spell_id": 54,
+          "effect": "damage",
+          "mean_amount": 0.0,
+          "mean_landed_amount": null,
+          "landed_samples": 0,
+          "minimum": 0,
+          "maximum": 0,
+          "scope": "Native direct effect/resist/focus/crit/cost/cast-time samples before Damage/HealDamage; no active buffs or complete casting lifecycle"
+        },
+        {
+          "spell_id": 17,
+          "effect": "heal",
+          "mean_amount": 90.0,
+          "mean_landed_amount": 90.0,
+          "landed_samples": 200,
+          "minimum": 90,
+          "maximum": 90,
+          "scope": "Native direct effect/resist/focus/crit/cost/cast-time samples before Damage/HealDamage; no active buffs or complete casting lifecycle"
+        },
+        {
+          "spell_id": 360,
+          "effect": "dot_tick",
+          "mean_amount": 57.0,
+          "mean_landed_amount": 57.0,
+          "landed_samples": 200,
+          "minimum": 57,
+          "maximum": 57,
+          "scope": "Native landed initial-duration DoT tick/focus/crit; no application resist, active buff or casting lifecycle"
+        }
+      ]
+    },
+    {
+      "case": "parity-l20-dungeon-normal",
+      "level": 20,
+      "hp": 1337,
+      "mana": 1167,
+      "spell_damage": 170,
+      "heal_amount": 170,
+      "heroic_int": 0,
+      "heroic_wis": 0,
+      "spells": [
+        {
+          "spell_id": 54,
+          "effect": "damage",
+          "mean_amount": 0.0,
+          "mean_landed_amount": null,
+          "landed_samples": 0,
+          "minimum": 0,
+          "maximum": 0,
+          "scope": "Native direct effect/resist/focus/crit/cost/cast-time samples before Damage/HealDamage; no active buffs or complete casting lifecycle"
+        },
+        {
+          "spell_id": 17,
+          "effect": "heal",
+          "mean_amount": 175.0,
+          "mean_landed_amount": 175.0,
+          "landed_samples": 200,
+          "minimum": 175,
+          "maximum": 175,
+          "scope": "Native direct effect/resist/focus/crit/cost/cast-time samples before Damage/HealDamage; no active buffs or complete casting lifecycle"
+        },
+        {
+          "spell_id": 360,
+          "effect": "dot_tick",
+          "mean_amount": 123.0,
+          "mean_landed_amount": 123.0,
+          "landed_samples": 200,
+          "minimum": 123,
+          "maximum": 123,
+          "scope": "Native landed initial-duration DoT tick/focus/crit; no application resist, active buff or casting lifecycle"
+        }
+      ]
+    },
+    {
+      "case": "parity-l30-starter-normal",
+      "level": 30,
+      "hp": 907,
+      "mana": 618,
+      "spell_damage": 0,
+      "heal_amount": 0,
+      "heroic_int": 0,
+      "heroic_wis": 0,
+      "spells": [
+        {
+          "spell_id": 54,
+          "effect": "damage",
+          "mean_amount": 0.0,
+          "mean_landed_amount": null,
+          "landed_samples": 0,
+          "minimum": 0,
+          "maximum": 0,
+          "scope": "Native direct effect/resist/focus/crit/cost/cast-time samples before Damage/HealDamage; no active buffs or complete casting lifecycle"
+        },
+        {
+          "spell_id": 17,
+          "effect": "heal",
+          "mean_amount": 65.0,
+          "mean_landed_amount": 65.0,
+          "landed_samples": 200,
+          "minimum": 65,
+          "maximum": 65,
+          "scope": "Native direct effect/resist/focus/crit/cost/cast-time samples before Damage/HealDamage; no active buffs or complete casting lifecycle"
+        },
+        {
+          "spell_id": 360,
+          "effect": "dot_tick",
+          "mean_amount": 43.0,
+          "mean_landed_amount": 43.0,
+          "landed_samples": 200,
+          "minimum": 43,
+          "maximum": 43,
+          "scope": "Native landed initial-duration DoT tick/focus/crit; no application resist, active buff or casting lifecycle"
+        }
+      ]
+    },
+    {
+      "case": "parity-l30-starter-ascended",
+      "level": 30,
+      "hp": 907,
+      "mana": 618,
+      "spell_damage": 39,
+      "heal_amount": 39,
+      "heroic_int": 0,
+      "heroic_wis": 0,
+      "spells": [
+        {
+          "spell_id": 54,
+          "effect": "damage",
+          "mean_amount": 0.0,
+          "mean_landed_amount": null,
+          "landed_samples": 0,
+          "minimum": 0,
+          "maximum": 0,
+          "scope": "Native direct effect/resist/focus/crit/cost/cast-time samples before Damage/HealDamage; no active buffs or complete casting lifecycle"
+        },
+        {
+          "spell_id": 17,
+          "effect": "heal",
+          "mean_amount": 90.0,
+          "mean_landed_amount": 90.0,
+          "landed_samples": 200,
+          "minimum": 90,
+          "maximum": 90,
+          "scope": "Native direct effect/resist/focus/crit/cost/cast-time samples before Damage/HealDamage; no active buffs or complete casting lifecycle"
+        },
+        {
+          "spell_id": 360,
+          "effect": "dot_tick",
+          "mean_amount": 62.0,
+          "mean_landed_amount": 62.0,
+          "landed_samples": 200,
+          "minimum": 62,
+          "maximum": 62,
+          "scope": "Native landed initial-duration DoT tick/focus/crit; no application resist, active buff or casting lifecycle"
+        }
+      ]
+    },
+    {
+      "case": "parity-l30-dungeon-normal",
+      "level": 30,
+      "hp": 1664,
+      "mana": 1411,
+      "spell_damage": 170,
+      "heal_amount": 170,
+      "heroic_int": 0,
+      "heroic_wis": 0,
+      "spells": [
+        {
+          "spell_id": 54,
+          "effect": "damage",
+          "mean_amount": 0.0,
+          "mean_landed_amount": null,
+          "landed_samples": 0,
+          "minimum": 0,
+          "maximum": 0,
+          "scope": "Native direct effect/resist/focus/crit/cost/cast-time samples before Damage/HealDamage; no active buffs or complete casting lifecycle"
+        },
+        {
+          "spell_id": 17,
+          "effect": "heal",
+          "mean_amount": 175.0,
+          "mean_landed_amount": 175.0,
+          "landed_samples": 200,
+          "minimum": 175,
+          "maximum": 175,
+          "scope": "Native direct effect/resist/focus/crit/cost/cast-time samples before Damage/HealDamage; no active buffs or complete casting lifecycle"
+        },
+        {
+          "spell_id": 360,
+          "effect": "dot_tick",
+          "mean_amount": 128.0,
+          "mean_landed_amount": 128.0,
+          "landed_samples": 200,
+          "minimum": 128,
+          "maximum": 128,
+          "scope": "Native landed initial-duration DoT tick/focus/crit; no application resist, active buff or casting lifecycle"
+        }
+      ]
+    },
+    {
+      "case": "parity-l40-starter-normal",
+      "level": 40,
+      "hp": 1207,
+      "mana": 825,
+      "spell_damage": 0,
+      "heal_amount": 0,
+      "heroic_int": 0,
+      "heroic_wis": 0,
+      "spells": [
+        {
+          "spell_id": 54,
+          "effect": "damage",
+          "mean_amount": 2.305,
+          "mean_landed_amount": 4.476,
+          "landed_samples": 103,
+          "minimum": 0,
+          "maximum": 10,
+          "scope": "Native direct effect/resist/focus/crit/cost/cast-time samples before Damage/HealDamage; no active buffs or complete casting lifecycle"
+        },
+        {
+          "spell_id": 17,
+          "effect": "heal",
+          "mean_amount": 65.0,
+          "mean_landed_amount": 65.0,
+          "landed_samples": 200,
+          "minimum": 65,
+          "maximum": 65,
+          "scope": "Native direct effect/resist/focus/crit/cost/cast-time samples before Damage/HealDamage; no active buffs or complete casting lifecycle"
+        },
+        {
+          "spell_id": 360,
+          "effect": "dot_tick",
+          "mean_amount": 43.0,
+          "mean_landed_amount": 43.0,
+          "landed_samples": 200,
+          "minimum": 43,
+          "maximum": 43,
+          "scope": "Native landed initial-duration DoT tick/focus/crit; no application resist, active buff or casting lifecycle"
+        }
+      ]
+    },
+    {
+      "case": "parity-l40-starter-ascended",
+      "level": 40,
+      "hp": 1207,
+      "mana": 825,
+      "spell_damage": 39,
+      "heal_amount": 39,
+      "heroic_int": 0,
+      "heroic_wis": 0,
+      "spells": [
+        {
+          "spell_id": 54,
+          "effect": "damage",
+          "mean_amount": 22.39,
+          "mean_landed_amount": 43.476,
+          "landed_samples": 103,
+          "minimum": 0,
+          "maximum": 49,
+          "scope": "Native direct effect/resist/focus/crit/cost/cast-time samples before Damage/HealDamage; no active buffs or complete casting lifecycle"
+        },
+        {
+          "spell_id": 17,
+          "effect": "heal",
+          "mean_amount": 90.0,
+          "mean_landed_amount": 90.0,
+          "landed_samples": 200,
+          "minimum": 90,
+          "maximum": 90,
+          "scope": "Native direct effect/resist/focus/crit/cost/cast-time samples before Damage/HealDamage; no active buffs or complete casting lifecycle"
+        },
+        {
+          "spell_id": 360,
+          "effect": "dot_tick",
+          "mean_amount": 62.0,
+          "mean_landed_amount": 62.0,
+          "landed_samples": 200,
+          "minimum": 62,
+          "maximum": 62,
+          "scope": "Native landed initial-duration DoT tick/focus/crit; no application resist, active buff or casting lifecycle"
+        }
+      ]
+    },
+    {
+      "case": "parity-l40-dungeon-normal",
+      "level": 40,
+      "hp": 1990,
+      "mana": 1655,
+      "spell_damage": 170,
+      "heal_amount": 170,
+      "heroic_int": 0,
+      "heroic_wis": 0,
+      "spells": [
+        {
+          "spell_id": 54,
+          "effect": "damage",
+          "mean_amount": 89.855,
+          "mean_landed_amount": 174.476,
+          "landed_samples": 103,
+          "minimum": 0,
+          "maximum": 180,
+          "scope": "Native direct effect/resist/focus/crit/cost/cast-time samples before Damage/HealDamage; no active buffs or complete casting lifecycle"
+        },
+        {
+          "spell_id": 17,
+          "effect": "heal",
+          "mean_amount": 175.0,
+          "mean_landed_amount": 175.0,
+          "landed_samples": 200,
+          "minimum": 175,
+          "maximum": 175,
+          "scope": "Native direct effect/resist/focus/crit/cost/cast-time samples before Damage/HealDamage; no active buffs or complete casting lifecycle"
+        },
+        {
+          "spell_id": 360,
+          "effect": "dot_tick",
+          "mean_amount": 128.0,
+          "mean_landed_amount": 128.0,
+          "landed_samples": 200,
+          "minimum": 128,
+          "maximum": 128,
+          "scope": "Native landed initial-duration DoT tick/focus/crit; no application resist, active buff or casting lifecycle"
+        }
+      ]
+    },
+    {
+      "case": "parity-l50-starter-normal",
+      "level": 50,
+      "hp": 1809,
+      "mana": 1237,
+      "spell_damage": 0,
+      "heal_amount": 0,
+      "heroic_int": 0,
+      "heroic_wis": 0,
+      "spells": [
+        {
+          "spell_id": 54,
+          "effect": "damage",
+          "mean_amount": 9.7,
+          "mean_landed_amount": 11.687,
+          "landed_samples": 166,
+          "minimum": 0,
+          "maximum": 14,
+          "scope": "Native direct effect/resist/focus/crit/cost/cast-time samples before Damage/HealDamage; no active buffs or complete casting lifecycle"
+        },
+        {
+          "spell_id": 17,
+          "effect": "heal",
+          "mean_amount": 65.0,
+          "mean_landed_amount": 65.0,
+          "landed_samples": 200,
+          "minimum": 65,
+          "maximum": 65,
+          "scope": "Native direct effect/resist/focus/crit/cost/cast-time samples before Damage/HealDamage; no active buffs or complete casting lifecycle"
+        },
+        {
+          "spell_id": 360,
+          "effect": "dot_tick",
+          "mean_amount": 43.0,
+          "mean_landed_amount": 43.0,
+          "landed_samples": 200,
+          "minimum": 43,
+          "maximum": 43,
+          "scope": "Native landed initial-duration DoT tick/focus/crit; no application resist, active buff or casting lifecycle"
+        }
+      ]
+    },
+    {
+      "case": "parity-l50-starter-ascended",
+      "level": 50,
+      "hp": 1809,
+      "mana": 1237,
+      "spell_damage": 39,
+      "heal_amount": 39,
+      "heroic_int": 0,
+      "heroic_wis": 0,
+      "spells": [
+        {
+          "spell_id": 54,
+          "effect": "damage",
+          "mean_amount": 42.07,
+          "mean_landed_amount": 50.687,
+          "landed_samples": 166,
+          "minimum": 0,
+          "maximum": 53,
+          "scope": "Native direct effect/resist/focus/crit/cost/cast-time samples before Damage/HealDamage; no active buffs or complete casting lifecycle"
+        },
+        {
+          "spell_id": 17,
+          "effect": "heal",
+          "mean_amount": 90.0,
+          "mean_landed_amount": 90.0,
+          "landed_samples": 200,
+          "minimum": 90,
+          "maximum": 90,
+          "scope": "Native direct effect/resist/focus/crit/cost/cast-time samples before Damage/HealDamage; no active buffs or complete casting lifecycle"
+        },
+        {
+          "spell_id": 360,
+          "effect": "dot_tick",
+          "mean_amount": 62.0,
+          "mean_landed_amount": 62.0,
+          "landed_samples": 200,
+          "minimum": 62,
+          "maximum": 62,
+          "scope": "Native landed initial-duration DoT tick/focus/crit; no application resist, active buff or casting lifecycle"
+        }
+      ]
+    },
+    {
+      "case": "parity-l50-dungeon-normal",
+      "level": 50,
+      "hp": 2643,
+      "mana": 2142,
+      "spell_damage": 170,
+      "heal_amount": 170,
+      "heroic_int": 0,
+      "heroic_wis": 0,
+      "spells": [
+        {
+          "spell_id": 54,
+          "effect": "damage",
+          "mean_amount": 150.8,
+          "mean_landed_amount": 181.687,
+          "landed_samples": 166,
+          "minimum": 0,
+          "maximum": 184,
+          "scope": "Native direct effect/resist/focus/crit/cost/cast-time samples before Damage/HealDamage; no active buffs or complete casting lifecycle"
+        },
+        {
+          "spell_id": 17,
+          "effect": "heal",
+          "mean_amount": 175.0,
+          "mean_landed_amount": 175.0,
+          "landed_samples": 200,
+          "minimum": 175,
+          "maximum": 175,
+          "scope": "Native direct effect/resist/focus/crit/cost/cast-time samples before Damage/HealDamage; no active buffs or complete casting lifecycle"
+        },
+        {
+          "spell_id": 360,
+          "effect": "dot_tick",
+          "mean_amount": 128.0,
+          "mean_landed_amount": 128.0,
+          "landed_samples": 200,
+          "minimum": 128,
+          "maximum": 128,
+          "scope": "Native landed initial-duration DoT tick/focus/crit; no application resist, active buff or casting lifecycle"
+        }
+      ]
+    },
+    {
+      "case": "parity-l50-observed-ascended",
+      "level": 50,
+      "hp": 7257,
+      "mana": 9032,
+      "spell_damage": 532,
+      "heal_amount": 460,
+      "heroic_int": 138,
+      "heroic_wis": 119,
+      "spells": [
+        {
+          "spell_id": 54,
+          "effect": "damage",
+          "mean_amount": 547.035,
+          "mean_landed_amount": 618.119,
+          "landed_samples": 177,
+          "minimum": 0,
+          "maximum": 621,
+          "scope": "Native direct effect/resist/focus/crit/cost/cast-time samples before Damage/HealDamage; no active buffs or complete casting lifecycle"
+        },
+        {
+          "spell_id": 17,
+          "effect": "heal",
+          "mean_amount": 407.0,
+          "mean_landed_amount": 407.0,
+          "landed_samples": 200,
+          "minimum": 407,
+          "maximum": 407,
+          "scope": "Native direct effect/resist/focus/crit/cost/cast-time samples before Damage/HealDamage; no active buffs or complete casting lifecycle"
+        },
+        {
+          "spell_id": 360,
+          "effect": "dot_tick",
+          "mean_amount": 309.0,
+          "mean_landed_amount": 309.0,
+          "landed_samples": 200,
+          "minimum": 309,
+          "maximum": 309,
+          "scope": "Native landed initial-duration DoT tick/focus/crit; no application resist, active buff or casting lifecycle"
+        }
+      ]
+    },
+    {
+      "case": "parity-l50-observed-legacy-spells",
+      "level": 50,
+      "hp": 7257,
+      "mana": 9032,
+      "spell_damage": 532,
+      "heal_amount": 460,
+      "heroic_int": 138,
+      "heroic_wis": 119,
+      "spells": [
+        {
+          "spell_id": 54,
+          "effect": "damage",
+          "mean_amount": 63.995,
+          "mean_landed_amount": 72.311,
+          "landed_samples": 177,
+          "minimum": 0,
+          "maximum": 88,
+          "scope": "Native direct effect/resist/focus/crit/cost/cast-time samples before Damage/HealDamage; no active buffs or complete casting lifecycle"
+        },
+        {
+          "spell_id": 17,
+          "effect": "heal",
+          "mean_amount": 364.0,
+          "mean_landed_amount": 364.0,
+          "landed_samples": 200,
+          "minimum": 364,
+          "maximum": 364,
+          "scope": "Native direct effect/resist/focus/crit/cost/cast-time samples before Damage/HealDamage; no active buffs or complete casting lifecycle"
+        },
+        {
+          "spell_id": 360,
+          "effect": "dot_tick",
+          "mean_amount": 81.0,
+          "mean_landed_amount": 81.0,
+          "landed_samples": 200,
+          "minimum": 81,
+          "maximum": 81,
+          "scope": "Native landed initial-duration DoT tick/focus/crit; no application resist, active buff or casting lifecycle"
+        }
+      ]
+    },
+    {
+      "case": "parity-l65-observed-ascended",
+      "level": 65,
+      "hp": 12594,
+      "mana": 15193,
+      "spell_damage": 692,
+      "heal_amount": 600,
+      "heroic_int": 171,
+      "heroic_wis": 152,
+      "spells": [
+        {
+          "spell_id": 54,
+          "effect": "damage",
+          "mean_amount": 817.635,
+          "mean_landed_amount": 825.894,
+          "landed_samples": 198,
+          "minimum": 0,
+          "maximum": 826,
+          "scope": "Native direct effect/resist/focus/crit/cost/cast-time samples before Damage/HealDamage; no active buffs or complete casting lifecycle"
+        },
+        {
+          "spell_id": 17,
+          "effect": "heal",
+          "mean_amount": 524.0,
+          "mean_landed_amount": 524.0,
+          "landed_samples": 200,
+          "minimum": 524,
+          "maximum": 524,
+          "scope": "Native direct effect/resist/focus/crit/cost/cast-time samples before Damage/HealDamage; no active buffs or complete casting lifecycle"
+        },
+        {
+          "spell_id": 360,
+          "effect": "dot_tick",
+          "mean_amount": 395.525,
+          "mean_landed_amount": 395.525,
+          "landed_samples": 200,
+          "minimum": 389,
+          "maximum": 401,
+          "scope": "Native landed initial-duration DoT tick/focus/crit; no application resist, active buff or casting lifecycle"
+        }
+      ]
+    },
+    {
+      "case": "parity-l65-observed-legacy-spells",
+      "level": 65,
+      "hp": 12594,
+      "mana": 15193,
+      "spell_damage": 692,
+      "heal_amount": 600,
+      "heroic_int": 171,
+      "heroic_wis": 152,
+      "spells": [
+        {
+          "spell_id": 54,
+          "effect": "damage",
+          "mean_amount": 108.165,
+          "mean_landed_amount": 109.258,
+          "landed_samples": 198,
+          "minimum": 0,
+          "maximum": 110,
+          "scope": "Native direct effect/resist/focus/crit/cost/cast-time samples before Damage/HealDamage; no active buffs or complete casting lifecycle"
+        },
+        {
+          "spell_id": 17,
+          "effect": "heal",
+          "mean_amount": 455.0,
+          "mean_landed_amount": 455.0,
+          "landed_samples": 200,
+          "minimum": 455,
+          "maximum": 455,
+          "scope": "Native direct effect/resist/focus/crit/cost/cast-time samples before Damage/HealDamage; no active buffs or complete casting lifecycle"
+        },
+        {
+          "spell_id": 360,
+          "effect": "dot_tick",
+          "mean_amount": 98.525,
+          "mean_landed_amount": 98.525,
+          "landed_samples": 200,
+          "minimum": 92,
+          "maximum": 104,
+          "scope": "Native landed initial-duration DoT tick/focus/crit; no application resist, active buff or casting lifecycle"
+        }
+      ]
+    }
+  ],
+  "baseline_deltas": [
+    {
+      "case": "wpm-shield-zero",
+      "previous_dps": 691.6,
+      "combined_dps": 712.3,
+      "dps_change_percent": 3.0,
+      "previous_outcome": "npc_death",
+      "combined_outcome": "npc_death"
+    },
+    {
+      "case": "wpm-dual-zero",
+      "previous_dps": 591.6,
+      "combined_dps": 622.5,
+      "dps_change_percent": 5.2,
+      "previous_outcome": "npc_death",
+      "combined_outcome": "npc_death"
+    },
+    {
+      "case": "wpm-twohand-zero",
+      "previous_dps": 411.7,
+      "combined_dps": 347.8,
+      "dps_change_percent": -15.5,
+      "previous_outcome": "npc_death",
+      "combined_outcome": "npc_death"
+    },
+    {
+      "case": "wpm-shield-max",
+      "previous_dps": 2911.2,
+      "combined_dps": 4510.3,
+      "dps_change_percent": 54.9,
+      "previous_outcome": "npc_death",
+      "combined_outcome": "npc_death"
+    },
+    {
+      "case": "wpm-dual-max",
+      "previous_dps": 2465.1,
+      "combined_dps": 4132.0,
+      "dps_change_percent": 67.6,
+      "previous_outcome": "npc_death",
+      "combined_outcome": "npc_death"
+    },
+    {
+      "case": "wpm-twohand-max",
+      "previous_dps": 2122.3,
+      "combined_dps": 2885.0,
+      "dps_change_percent": 35.9,
+      "previous_outcome": "npc_death",
+      "combined_outcome": "npc_death"
+    },
+    {
+      "case": "wpm-shield-undead-max",
+      "previous_dps": 4478.7,
+      "combined_dps": 6213.6,
+      "dps_change_percent": 38.7,
+      "previous_outcome": "npc_death",
+      "combined_outcome": "npc_death"
+    },
+    {
+      "case": "pet-bare-zero",
+      "previous_dps": 91.3,
+      "combined_dps": 91.4,
+      "dps_change_percent": 0.1,
+      "previous_outcome": "timeout",
+      "combined_outcome": "timeout"
+    },
+    {
+      "case": "pet-equipped-zero",
+      "previous_dps": 346.3,
+      "combined_dps": 210.7,
+      "dps_change_percent": -39.2,
+      "previous_outcome": "boss_death",
+      "combined_outcome": "boss_death"
+    },
+    {
+      "case": "pet-bare-max",
+      "previous_dps": 188.3,
+      "combined_dps": 182.5,
+      "dps_change_percent": -3.1,
+      "previous_outcome": "boss_death",
+      "combined_outcome": "boss_death"
+    },
+    {
+      "case": "pet-equipped-max",
+      "previous_dps": 452.4,
+      "combined_dps": 289.9,
+      "dps_change_percent": -35.9,
+      "previous_outcome": "boss_death",
+      "combined_outcome": "boss_death"
+    },
+    {
+      "case": "wpm-shield-heroic-off",
+      "previous_dps": 2637.5,
+      "combined_dps": 3978.0,
+      "dps_change_percent": 50.8,
+      "previous_outcome": "npc_death",
+      "combined_outcome": "npc_death"
+    },
+    {
+      "case": "wpm-shield-max-seed-2718",
+      "previous_dps": 3881.6,
+      "combined_dps": 5207.0,
+      "dps_change_percent": 34.1,
+      "previous_outcome": "npc_death",
+      "combined_outcome": "npc_death"
+    },
+    {
+      "case": "pet-equipped-max-seed-2718",
+      "previous_dps": 567.0,
+      "combined_dps": 390.6,
+      "dps_change_percent": -31.1,
+      "previous_outcome": "boss_death",
+      "combined_outcome": "boss_death"
+    },
+    {
+      "case": "wpm-classic50-zero",
+      "previous_dps": 126.6,
+      "combined_dps": 127.9,
+      "dps_change_percent": 1.0,
+      "previous_outcome": "timeout",
+      "combined_outcome": "timeout"
+    },
+    {
+      "case": "wpm-classic50-max",
+      "previous_dps": 1762.0,
+      "combined_dps": 2626.7,
+      "dps_change_percent": 49.1,
+      "previous_outcome": "npc_death",
+      "combined_outcome": "npc_death"
+    },
+    {
+      "case": "caster65-zero",
+      "previous_dps": 403.1,
+      "combined_dps": 104.4,
+      "dps_change_percent": -74.1,
+      "previous_outcome": "npc_death",
+      "combined_outcome": "timeout"
+    },
+    {
+      "case": "caster65-max",
+      "previous_dps": 685.0,
+      "combined_dps": 225.4,
+      "dps_change_percent": -67.1,
+      "previous_outcome": "npc_death",
+      "combined_outcome": "npc_death"
+    },
+    {
+      "case": "pet-pop65-bare-max",
+      "previous_dps": 518.6,
+      "combined_dps": 349.5,
+      "dps_change_percent": -32.6,
+      "previous_outcome": "boss_death",
+      "combined_outcome": "boss_death"
+    },
+    {
+      "case": "pet-pop65-equipped-max",
+      "previous_dps": 1836.4,
+      "combined_dps": 550.5,
+      "dps_change_percent": -70.0,
+      "previous_outcome": "boss_death",
+      "combined_outcome": "boss_death"
+    }
+  ],
+  "same_items_rule_controls": [
+    {
+      "case": "caster65-max",
+      "enabled_dps": 225.4,
+      "disabled_dps": 685.0,
+      "enabled_outcome": "npc_death",
+      "disabled_outcome": "npc_death",
+      "enabled_final_hp": 7253,
+      "disabled_final_hp": 6723
+    },
+    {
+      "case": "pet-equipped-max",
+      "enabled_dps": 289.9,
+      "disabled_dps": 452.4,
+      "enabled_outcome": "boss_death",
+      "disabled_outcome": "boss_death",
+      "enabled_final_hp": 8026,
+      "disabled_final_hp": 7696
+    },
+    {
+      "case": "wpm-shield-max",
+      "enabled_dps": 4510.3,
+      "disabled_dps": 2911.2,
+      "enabled_outcome": "npc_death",
+      "disabled_outcome": "npc_death",
+      "enabled_final_hp": 12845,
+      "disabled_final_hp": 12675
+    }
+  ],
+  "baseline_report_sha256": "e4f8d6b56f892c30bd85e1915e0a79d66efa323503ec6566577898576257fd5a",
+  "limits": [
+    "Native diagnostic clock/packet adapters; no actual RoF2 render or user gameplay acceptance",
+    "Captured Nagafen55 single-target encounter; no pack, raid or long-duration balance certification",
+    "Class permutations are stat/shield-swap probes; combat uses Warrior-first WPM",
+    "Seed1729 plus two seed2718 repeats do not establish statistical superiority",
+    "Explicit gear and maximum trained skills; max stages spend2074 WPM/2085 pet/2163 caster AA points",
+    "Damage sums depth-zero HP loss capped at zero terminal HP; includes replacement of NPC regeneration",
+    "Healing ledger is HealDamage only, excludes regeneration/Mend; spell IDs may be65535 at native call sites",
+    "Pet runes and healing proved through native effects/state; player ledger totals do not describe pet sustain",
+    "Bare/equipped pet comparisons retain fixed Classic support gems, with separate PoP summon cases",
+    "Eighteen caster probes sample direct values/resists and landed initial-duration DoT ticks; no full casting/buff lifecycle",
+    "Historical WPM deltas include item and formula changes; same-item rule controls isolate the two new spell switches together",
+    "Probe loadouts are explicit diagnostic equipment, not proof of legal-era acquisition or optimal builds",
+    "Low-level Frost Bolt probes target level55 Nagafen and can fully resist; these do not establish level-appropriate leveling balance",
+    "Fixed encounter spell controllers were not reoptimized for additive SD; lower-cost ranks and DoT rotations need owner comparison",
+    "No production content, characters, runtime, signed-client or wiki changes"
+  ]
+}

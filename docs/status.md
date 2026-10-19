@@ -6,9 +6,11 @@ The item/spell candidate integrates the completed pet/WPM source and reviewed
 starter/dungeon progression. It covers131 observed Ascended numeric targets,
 additive direct SD, half-SD ordinary ticks, scoped heroic INT/WIS and Bard rune
 exclusion.1393 existing definitions have full285-column guarded transitions;
-numeric recovery preserves pet/WPM effects and sockets.157 combined regressions
-pass without skips, plus real MariaDB recovery/regeneration tests. Isolated native
-build/comparison evidence and exact owner steps are in the
+numeric recovery preserves pet/WPM effects and sockets.165 unique regression and
+migration tests pass, as do the matching native build and47 scenarios with10,800
+spell samples. Same-item controls show WPM shield DPS+55%, fixed caster DPS-67%
+and equipped Classic pets-36%; spell-rank choice, mana and burst balance require
+owner testing. Full comparisons and exact owner steps are in the
 [combined testing guide](releases/thj-parity-20261018/README.md). Wider encounter
 balance and actual RoF2 acceptance remain open. Live remains Classic50; no
 production, signed-client or wiki publication changes occurred.

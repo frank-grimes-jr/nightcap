@@ -6,5 +6,7 @@
     "E:\\EQ_Local_Dev\\artifacts\\research\\thj-forum-20261018\\screenshot-observations.json": "fc96660351d36534ec76876d5e1ac5b8d795c35a4c24d03e77f613147b2be688"
   },
   "catalog_items": 131,
-  "numeric_targets": 4523
+  "numeric_targets": 4523,
+  "reviewed_numeric_targets": 4501,
+  "reviewed_exclusions": "22 ambiguous or below-Normal fields deferred; screenshot corrections retain their explicit catalog-decisions.json receipts"
 }

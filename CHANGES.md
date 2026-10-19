@@ -16,9 +16,10 @@ focus/crit flow, opt-outs, Throw Stone and pet inheritance. Exclude Bard songs
 from HA rune scaling. Critical DoT ordering and Bard area-DoT exceptions are
 explicit calibration limits. Preserve the completed pet/WPM AA/client candidate.
 
-157 combined regressions pass without skips; real MariaDB migration/rollback
-and regeneration checks pass. Paired native build and expanded comparison are
-recorded separately in the release evidence as they complete. No production
+165 unique regression/migration tests pass without skips; the paired native
+build,47 scenarios,10,800 spell samples and12 mechanics assertion groups pass.
+Same-item controls expose substantial WPM/caster/pet redistribution; spell-rank,
+mana and maximum-AA burst balance remain required owner gates. No production
 installation, signing, main promotion or wiki publication. Exact owner testing,
 source/receipt preservation and recovery: `docs/releases/thj-parity-20261018/`.
 

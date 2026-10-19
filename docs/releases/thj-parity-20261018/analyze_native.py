@@ -171,7 +171,7 @@ def main():
             'Captured Nagafen55 single-target encounter; no pack, raid or long-duration balance certification',
             'Class permutations are stat/shield-swap probes; combat uses Warrior-first WPM',
             'Seed1729 plus two seed2718 repeats do not establish statistical superiority',
-            'Explicit gear and maximum trained skills; max stages spend2074 WPM/2085 pet AA points',
+            'Explicit gear and maximum trained skills; max stages spend2074 WPM/2085 pet/2163 caster AA points',
             'Damage sums depth-zero HP loss capped at zero terminal HP; includes replacement of NPC regeneration',
             'Healing ledger is HealDamage only, excludes regeneration/Mend; spell IDs may be65535 at native call sites',
             'Pet runes and healing proved through native effects/state; player ledger totals do not describe pet sustain',
@@ -179,11 +179,19 @@ def main():
             'Eighteen caster probes sample direct values/resists and landed initial-duration DoT ticks; no full casting/buff lifecycle',
             'Historical WPM deltas include item and formula changes; same-item rule controls isolate the two new spell switches together',
             'Probe loadouts are explicit diagnostic equipment, not proof of legal-era acquisition or optimal builds',
+            'Low-level Frost Bolt probes target level55 Nagafen and can fully resist; these do not establish level-appropriate leveling balance',
+            'Fixed encounter spell controllers were not reoptimized for additive SD; lower-cost ranks and DoT rotations need owner comparison',
             'No production content, characters, runtime, signed-client or wiki changes']}
     (HERE/'evidence/native-comparison.json').write_text(json.dumps(output,indent=2)+'\n')
     lines=['# Combined native item/spell and WPM/pet comparison','',
         'All 47 scenarios executed and the recorded mechanics assertions passed. These are',
         'isolated native diagnostics, not final balance or client acceptance.','',
+        'The same-item controls show a material redistribution: WPM shield DPS rises',
+        'from2911.2 to4510.3, the fixed caster controller falls from685 to225.4, and',
+        'equipped Classic pets fall from452.4 to289.9. The maximum-AA WPM fixture',
+        'kills captured Nagafen in7.1 seconds. This is a required burst/sustain QA',
+        'gate, not a balance approval. Low-base spells and ordinary ticks gain;',
+        'compare cheaper spell ranks and DoT rotations before generalizing the caster result.','',
         '| Case | Outcome | Seconds | Effective DPS | AA spent | Final HP |',
         '|---|---|---:|---:|---:|---:|']
     for row in report:lines.append(f"| {row['case']} | {row['outcome']} | {row['elapsed_seconds']:g} | {row['dps']:g} | {row['aa_spent']} | {row['final_hp']} |")

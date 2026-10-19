@@ -5,7 +5,7 @@ completed pet/WPM working tree. This is a testing candidate. It is not installed
 on production, signed, published, promoted to main or accepted in RoF2.
 
 The owner's target is THJ Legendary ≈ Nightcap Ascended (Ascension). The full
-forum research covered152 pages/3031 posts, including comments, screenshots and
+forum research covered 152 pages and 3,031 posts, including comments, screenshots and
 player workbooks. Exact source rows, cells, image/post URLs and reviewed identity
 crosswalks are embedded in `config/thj-item-parity.json`. Original archives remain
 in `E:/EQ_Local_Dev/artifacts/research/thj-forum-20261018/` and the adjacent
@@ -13,7 +13,7 @@ in `E:/EQ_Local_Dev/artifacts/research/thj-forum-20261018/` and the adjacent
 
 ## What changes
 
-- **131 observed Ascended targets:** exact supported numeric values, including
+- **131 observed Ascended targets:** 4,501 supported numeric values, including
   reductions where Nightcap exceeded THJ. No blanket universal multiplier.
   Ordinary Normal items stay unchanged; intermediate numeric values are capped
   only where a reviewed top reduction would reverse progression.
@@ -21,18 +21,18 @@ in `E:/EQ_Local_Dev/artifacts/research/thj-forum-20261018/` and the adjacent
   Spell Damage; ordinary DoT ticks add `floor(effective SD/2)` independently of
   duration. Existing focus/critical logic remains; critical DoT contribution uses
   the native critical ratio. This critical ordering is Nightcap calibration.
-- **Heroics:** clients gain0.1% per heroic INT on direct damage and per heroic WIS
+- **Heroics:** clients gain 0.1% per heroic INT on direct damage and per heroic WIS
   on direct healing, after existing modifiers, before final caps. No DoT/HoT
   multiplier or owner-heroic inheritance. Item-mod opt-outs are honored. Heroics
   act independently of the SD spell-level restriction, like a focus modifier.
 - **Healing:** existing percentage HA and HoT duration distribution remain.
   Bard songs are excluded from the added HA rune bonus; instrument scaling stays.
   Existing Bard area-DoT dispatch remains an explicit uncalibrated exception.
-- **Starter progression:** the reviewed209-family policy is integrated: modest
+- **Starter progression:** the reviewed 209-family policy is integrated: modest
   Normal starters, +1 weapon damage per quality with fixed delay, Ascended starter
   below comparable Normal dungeon equipment. Cultural armor is excluded.
-  Dungeon generation now emits the same reviewed330-definition catalog.
-- **Combined pet/WPM:** preserve750 caps, Hunt headroom, own pet stats plus capped
+  Dungeon generation now emits the same reviewed 330-definition catalog.
+- **Combined pet/WPM:** preserve 750 caps, Hunt headroom, own pet stats plus capped
   half-owner inheritance, full instances/augments, earned AAs, heroic STR,
   shield/sustain mechanics and named effects. Their standalone evidence is in
   `../wpm-melee-20261018/`; new balance measurements must use this combined build.
@@ -66,12 +66,12 @@ THJ's critical ordering or current live formulas.
 
 `tools/thj_item_parity.py` plans exact targets. `tools/thj_combined_content.py`
 composes companion changes before item/starter/dungeon tuning. It generates
-**1393 changed existing definitions**, with full285-column captured preimages.
+**1,393 changed existing definitions**, with full 285-column captured preimages.
 One transaction owns these existing-item changes; separate pet/WPM content is
 generated with `include_gear=False`. It accepts only the original, complete
 companion, or complete final row. Every final full-row hash must match.
 
-Numeric recovery restores1369 parity/starter/dungeon rows to the companion
+Numeric recovery restores 1,369 parity/starter/dungeon rows to the companion
 baseline, retaining new effects and sockets that may contain owned augments.
 It is not a return to the old whole database. Ownership, receipts, inventories,
 AA points and saved cooldowns are never part of these item statements.
@@ -92,3 +92,27 @@ content does not activate its acquisition or level gates automatically.
 Read [QA.md](QA.md) for the exact owner test pass and [ACTIVATION.md](ACTIVATION.md)
 for preparation/recovery. `evidence/` contains actual automated results and build
 hashes; those do not replace owner acceptance or production receipts.
+
+## Verification and testing handoff
+
+The 157-test regression run plus focused follow-ups cover **165 unique tests**,
+including real MariaDB forward/recovery/reapply and fault-injection checks.
+All **47 native scenarios** and 12 mechanics assertion groups pass: six class-order
+probes, 23 encounters and 18 spell probes with 10,800 samples. Native AA checks
+cover 6,960 eligibility cases. All 2,827 retained source files, 119 overlays,
+three server binaries and 144 diagnostic objects/libraries are fingerprinted.
+Native fixture failures exposed duplicate Lore items and an augment selected as
+ordinary armor; the selector was corrected without changing game restrictions.
+
+[COMPARISON.md](COMPARISON.md) records a significant balance shift. Same-item
+controls give WPM shield 4,510 versus 2,911 DPS, the fixed caster controller 225
+versus 685, and equipped Classic pets 290 versus 452. Low-base spells and DoTs
+gain substantially. Spell-rank choice, mana sustain, pet contribution and maximum-AA
+WPM burst are mandatory owner gates; these diagnostics do not approve balance.
+
+`package_test_bundle.py` stages the matching server binaries, ordered SQL,
+numeric recovery, unsigned five-file client delta, manifests and test guides
+beside this worktree in `thj-parity-test-bundle/`. It does not install or publish
+anything. Regenerate caches on the actual test target and preserve its complete
+current client base. The installed Nightcap knowledge and wiki candidate notices
+are maintained separately from deployment and acceptance.

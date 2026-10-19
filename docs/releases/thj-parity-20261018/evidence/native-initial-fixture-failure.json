@@ -1,0 +1,396 @@
+{
+  "utc": "2026-10-19T01:04:19.384978+00:00",
+  "binary_sha256": "b269cd7026a251bde7c86326cdc4ea2727c16a0a23060c5191d33b1e49c1ddbb",
+  "matrix_sha256": "39d4903f4861ea1f211423332969bdaf2d2e24495fef5fa55ab12d3b0ac05955",
+  "scope": "Synthetic DB, native objects, diagnostic packet/clock adapters; no actual client or production changes",
+  "cases": [
+    {
+      "id": "stats-wpm-137",
+      "seed": 1729,
+      "status": "passed",
+      "input_sha256": "1e34527f4658eb0fcc950988e068cc68693a40f3b00fddd49adf450e99a887f7",
+      "output_sha256": "c54398a6bb950412fff3b4f7b2e536ecc8d1c64f303b265c049e1c4f81259b23",
+      "aa_spent": 2074
+    },
+    {
+      "id": "stats-wpm-173",
+      "seed": 1729,
+      "status": "passed",
+      "input_sha256": "5921ece9367444f095c53ec0ba65d06d0c060911de81c588de74709b641e3bee",
+      "output_sha256": "c54398a6bb950412fff3b4f7b2e536ecc8d1c64f303b265c049e1c4f81259b23",
+      "aa_spent": 2074
+    },
+    {
+      "id": "stats-wpm-317",
+      "seed": 1729,
+      "status": "passed",
+      "input_sha256": "e10dcc1f5e38558881a4c5d9f45e03b96b3b040ff3a56ad4830226476ac524df",
+      "output_sha256": "5e0489beaf006099b883707e7064ed0886edb769cf4f1ca5278211e54b80c8da",
+      "aa_spent": 2074
+    },
+    {
+      "id": "stats-wpm-371",
+      "seed": 1729,
+      "status": "passed",
+      "input_sha256": "325a8d007b632561e1d7b8bdffca44f62bfc76ab77df255cb406941913ebc0e8",
+      "output_sha256": "5e0489beaf006099b883707e7064ed0886edb769cf4f1ca5278211e54b80c8da",
+      "aa_spent": 2074
+    },
+    {
+      "id": "stats-wpm-713",
+      "seed": 1729,
+      "status": "passed",
+      "input_sha256": "6c0ef6a00c3717bf7c7e8b3354d5f269c010bc011040af518ffc07d8733ae8c8",
+      "output_sha256": "c3fbb9cc7df978e61f35f5b2a3f14657bdd8b5091116406f3e92353207473d4d",
+      "aa_spent": 2074
+    },
+    {
+      "id": "stats-wpm-731",
+      "seed": 1729,
+      "status": "passed",
+      "input_sha256": "033f377f4ddb27328d204e001852397070507c9385b3ec0016ee423c553a8a45",
+      "output_sha256": "c3fbb9cc7df978e61f35f5b2a3f14657bdd8b5091116406f3e92353207473d4d",
+      "aa_spent": 2074
+    },
+    {
+      "id": "wpm-shield-zero",
+      "seed": 1729,
+      "status": "passed",
+      "input_sha256": "931f9bf69852e7b030b69a80d6562772e0013cc06310cfa98bfd38e46c5a1fc0",
+      "output_sha256": "42836d0700a445aa084383474b6e097882c698fa11544137b5275c595b3035e7",
+      "aa_spent": 0,
+      "outcome": "npc_death"
+    },
+    {
+      "id": "wpm-dual-zero",
+      "seed": 1729,
+      "status": "passed",
+      "input_sha256": "b36bf46d3c3affaf692a2eeedf141379c807ac6933d82636bcc03aeed1365ac5",
+      "output_sha256": "1cebe50623515c8d9a8d1cf92f88425417023d276777a6f2f0cc917ed7a84215",
+      "aa_spent": 0,
+      "outcome": "npc_death"
+    },
+    {
+      "id": "wpm-twohand-zero",
+      "seed": 1729,
+      "status": "passed",
+      "input_sha256": "7bd54a00ef1a26413c30eeeb7988e737d142649c403678399757f6b604e42743",
+      "output_sha256": "754d1e4339c566f20d2d29e0fcbe2304687131a003a4973f45588ee420d4538c",
+      "aa_spent": 0,
+      "outcome": "npc_death"
+    },
+    {
+      "id": "wpm-shield-max",
+      "seed": 1729,
+      "status": "passed",
+      "input_sha256": "eee2578f2bba927cc0a21197b04d59b8981cf5ac02ed2cc12bbde5bc7a583c91",
+      "output_sha256": "e28a671fb4ce9e9663a9d8b4b83d92389fc8326cd908dce1d409639edcf1ad4b",
+      "aa_spent": 2074,
+      "outcome": "npc_death"
+    },
+    {
+      "id": "wpm-dual-max",
+      "seed": 1729,
+      "status": "passed",
+      "input_sha256": "7936a575bb1d0dfa3104fb93a3eac901f8a06c182b33cec3119acd87e810a49d",
+      "output_sha256": "d7f4d2c08cdc7a524b2c7760d78ea1c33da762c8c9bfab5784367f22d66d86e2",
+      "aa_spent": 2074,
+      "outcome": "npc_death"
+    },
+    {
+      "id": "wpm-twohand-max",
+      "seed": 1729,
+      "status": "passed",
+      "input_sha256": "41ee87495a14271b62867c47b4ecd8c6aa514fad2c00da59c44213390f41ab44",
+      "output_sha256": "5079bc44a2d7a12d9fbbf04b4f08eb83d32fcb8adfb1a1284c3315304d367151",
+      "aa_spent": 2074,
+      "outcome": "npc_death"
+    },
+    {
+      "id": "wpm-shield-undead-max",
+      "seed": 1729,
+      "status": "passed",
+      "input_sha256": "87898a754225f2b1801308b6fd1d1efe3a70dcb063642c21f5b7d9116a9fd9f4",
+      "output_sha256": "12b49d3c163f0ec84506219b1310cb1177bcc413e97064184308fc7c9a6614ac",
+      "aa_spent": 2074,
+      "outcome": "npc_death"
+    },
+    {
+      "id": "pet-bare-zero",
+      "seed": 1729,
+      "status": "passed",
+      "input_sha256": "04e60558caf2ace0d3694d35208f604d3b74be4296f01617a6cb71a0ea0b11dd",
+      "output_sha256": "ac5e75dd7603298e64640847c5b7f3604c9b3a43695b6298309626b1d39a46ad",
+      "aa_spent": 0
+    },
+    {
+      "id": "pet-equipped-zero",
+      "seed": 1729,
+      "status": "passed",
+      "input_sha256": "4c96b694d97ad50692110efff613cdcc2b8f4d3fc963615586e55101804e6dbd",
+      "output_sha256": "1a353ee144eeb3dacdf65d3f91843b572947fb23af93bafda7f0effceb219c90",
+      "aa_spent": 0
+    },
+    {
+      "id": "pet-bare-max",
+      "seed": 1729,
+      "status": "passed",
+      "input_sha256": "780d859a69b02bb16c3c5be9fa8c45c1c16199c9eddf1805821f4aed9e7de8a3",
+      "output_sha256": "7c464087021aeb2a57cf9a99c43cb21b74d490db8dac04ab948252a175148e8f",
+      "aa_spent": 2085
+    },
+    {
+      "id": "pet-equipped-max",
+      "seed": 1729,
+      "status": "passed",
+      "input_sha256": "93d2f173963b3ed712988c6cb6b128ad7fe399ddf460f59bbb27952c95f87ca2",
+      "output_sha256": "f48f4a1e4f6e1437f474198332e9fb00805fdb7f60be5c93203282e943d8d8af",
+      "aa_spent": 2085
+    },
+    {
+      "id": "wpm-shield-heroic-off",
+      "seed": 1729,
+      "status": "passed",
+      "input_sha256": "5d639b59ece0d3fb1513d3a248a8f4216406e23ba8701352b959eb816f52bf93",
+      "output_sha256": "370335ff313d7d1c5a37f8d61d4ade7d1a5ddc29487bc6761e95fd08d785cb40",
+      "aa_spent": 2074,
+      "outcome": "npc_death"
+    },
+    {
+      "id": "wpm-shield-max-seed-2718",
+      "seed": 2718,
+      "status": "passed",
+      "input_sha256": "98936cecd05fe9f30ac268693bad5721e676aec669f60b2815272d9d10356b3f",
+      "output_sha256": "b7c9766e39e60e4dc2503fb6d6092badef19f92cbebb0dd59dc925f89d158477",
+      "aa_spent": 2074,
+      "outcome": "npc_death"
+    },
+    {
+      "id": "pet-equipped-max-seed-2718",
+      "seed": 2718,
+      "status": "passed",
+      "input_sha256": "bcbbc0e86262ac4a13dbe5dce76e85686a1f3052bfb289f59763e5ae6216083e",
+      "output_sha256": "0b0fbc205a95f43ee59ce9714813ae4b7fe550022039b933a3c65e1a6cbda714",
+      "aa_spent": 2085
+    },
+    {
+      "id": "wpm-classic50-zero",
+      "seed": 1729,
+      "status": "passed",
+      "input_sha256": "20b9f0ae1c0245bb456830b8b06cc9628778709422f5032f7e22068dca3b4039",
+      "output_sha256": "e6de73acf76a4c68a2e134fb84f6a522aca87b323a62906e26b62e8ac86416ae",
+      "aa_spent": 0,
+      "outcome": "timeout"
+    },
+    {
+      "id": "wpm-classic50-max",
+      "seed": 1729,
+      "status": "passed",
+      "input_sha256": "dd1c284b37add6781d93c0cf29b2a2a8b08b1a62f420c0493912824f57dc514c",
+      "output_sha256": "b003090f86f6a945dd1c195514859f0d87c3e843266ff5e3f7f64cc1c47557d5",
+      "aa_spent": 2074,
+      "outcome": "npc_death"
+    },
+    {
+      "id": "caster65-zero",
+      "seed": 1729,
+      "status": "passed",
+      "input_sha256": "0ba721e68c92fd3303f4faae773ca197fbf8bd1f849703f11c09d54c2f3f42a0",
+      "output_sha256": "aab8912f92d01d79ee0044fa5c19268d3fe21a2873f29cc78d2d99c415ebf70c",
+      "aa_spent": 0,
+      "outcome": "timeout"
+    },
+    {
+      "id": "caster65-max",
+      "seed": 1729,
+      "status": "passed",
+      "input_sha256": "fdec1663ace996be01c581505d89de5ca29bcd76f5a7bfc70c700698d37a3e46",
+      "output_sha256": "6d8e9fb907aed3f866a29d815244828144e4fc4482a78dc8635bbdfec5c21803",
+      "aa_spent": 2163,
+      "outcome": "npc_death"
+    },
+    {
+      "id": "pet-pop65-bare-max",
+      "seed": 1729,
+      "status": "passed",
+      "input_sha256": "ad6e25cbd50708ea3ec59b3591e42cc7814fbe38cd5e6334a07572f75b684590",
+      "output_sha256": "134dec0111d9a497fe250a43c4bc37150fd94d04cb21ef05860c4497dcb0658b",
+      "aa_spent": 2085
+    },
+    {
+      "id": "pet-pop65-equipped-max",
+      "seed": 1729,
+      "status": "passed",
+      "input_sha256": "c14f06e7775f4e498829f32fd13168603ba121531f4901b8f82378ad92b28900",
+      "output_sha256": "6d1f7c2d9b7f151582f60ba2baca33c5a3be1b7925d56952b9c3060114f3588f",
+      "aa_spent": 2085
+    },
+    {
+      "id": "parity-l10-starter-normal",
+      "seed": 1729,
+      "status": "passed",
+      "input_sha256": "472f40f5c174ddf368fd348f26ab9a2fc554f7cbab25ef1c54e40db8deef11f8",
+      "output_sha256": "5f7c47281137e892de1ece9bce44a4910527c10ab055511abc777315bea596e6",
+      "aa_spent": 0
+    },
+    {
+      "id": "parity-l10-starter-ascended",
+      "seed": 1729,
+      "status": "passed",
+      "input_sha256": "559e17cf92c596b46fd729040a2a89d6ea4527146777a79d17dfd99e1912aec2",
+      "output_sha256": "a0f7f86f64d5a05205c962a76b843b2d71c98b41b3dc10d996b8bede2d203840",
+      "aa_spent": 0
+    },
+    {
+      "id": "parity-l20-starter-normal",
+      "seed": 1729,
+      "status": "passed",
+      "input_sha256": "10d932105b8e3187f0a14fdd4d21f29f48ee705b815f95bd9f6a36746474247c",
+      "output_sha256": "fb95edd5beb3c4639bfa955e6d18520afa2b8cd627ae839e0fa251de9142133c",
+      "aa_spent": 0
+    },
+    {
+      "id": "parity-l20-starter-ascended",
+      "seed": 1729,
+      "status": "passed",
+      "input_sha256": "2d5e31855b64a71bec931a12c1d8031dc2d5618117ad7d6488b940af0d62d399",
+      "output_sha256": "667c911636cfebf9d4ece92611550657e7430f3d93b6febfe9619313c6bb09b5",
+      "aa_spent": 0
+    },
+    {
+      "id": "parity-l20-dungeon-normal",
+      "seed": 1729,
+      "status": "passed",
+      "input_sha256": "0a484ab4886c8caa1a3fb787364315560806f12643e278dc8660e396134aec96",
+      "output_sha256": "28182c10a7ea4be71e970fd3f0bd948b3deca9ed3d472fd46001978ed17d3e8f",
+      "aa_spent": 0
+    },
+    {
+      "id": "parity-l30-starter-normal",
+      "seed": 1729,
+      "status": "passed",
+      "input_sha256": "fee852247ee7cd54437e20f4ab4ca8539924899da10fc1c388b7179401f75ebe",
+      "output_sha256": "bf92fe6b45a3efb1bfc22cb6de5bd499d1153a783ac1c677c4ee66222b0c2ced",
+      "aa_spent": 0
+    },
+    {
+      "id": "parity-l30-starter-ascended",
+      "seed": 1729,
+      "status": "passed",
+      "input_sha256": "a76f389a4b818b88b31a4696ca2a71c92772b2f47b54039bb20f97f8eda5faae",
+      "output_sha256": "712cd5b7ec10b9023c8ac1c6830acbad5d3dba2fcc70e592dc532ee815a57b72",
+      "aa_spent": 0
+    },
+    {
+      "id": "parity-l30-dungeon-normal",
+      "seed": 1729,
+      "status": "passed",
+      "input_sha256": "427ab8509c14d594ba9613a55636b8c42953021b71a8c09553eb536dae01daf2",
+      "output_sha256": "924943e51eb707d56781976714b0c68eefdf3fd94866ee715719c19f7583f1b8",
+      "aa_spent": 0
+    },
+    {
+      "id": "parity-l40-starter-normal",
+      "seed": 1729,
+      "status": "passed",
+      "input_sha256": "80f6f7c3613ad277367d85bb9237f2caaf94f9082a42cf01b9f9fc63440da3c7",
+      "output_sha256": "fa20ba44777075543ffcf4bd441d10391460e854ffa44dc1c5b40a7c4dfdea30",
+      "aa_spent": 0
+    },
+    {
+      "id": "parity-l40-starter-ascended",
+      "seed": 1729,
+      "status": "passed",
+      "input_sha256": "1b74a263794bc3ae9805a2f95bbb978cdc7085bf84dc0ca31f4738efda4ff27b",
+      "output_sha256": "4973c10a9f8c5c7899028fc6d98d0b914bf96a2826c4d8de689537fdc703ffae",
+      "aa_spent": 0
+    },
+    {
+      "id": "parity-l40-dungeon-normal",
+      "seed": 1729,
+      "status": "passed",
+      "input_sha256": "49ae01a8c38507287ed0f996af2f32ac47d5c7e9c8469eb9f8839ed2fa7079a7",
+      "output_sha256": "e8308e3dc5eacb7b5708b4d68f9ef2599b731d82143297f87c6d7831421827d6",
+      "aa_spent": 0
+    },
+    {
+      "id": "parity-l50-starter-normal",
+      "seed": 1729,
+      "status": "passed",
+      "input_sha256": "9615c6d493d5392f9940cc610fb2ff1b2ab90a5b470ffb272fb9911757b33eda",
+      "output_sha256": "b4d402d35173f9a409e26e2a5a953451648cff932b8fa4cdc09d99c81e64d726",
+      "aa_spent": 0
+    },
+    {
+      "id": "parity-l50-starter-ascended",
+      "seed": 1729,
+      "status": "passed",
+      "input_sha256": "844e648a0a0a39cdde9adc322b132c43628cc955d18602bc2239603852d0223d",
+      "output_sha256": "cbb21345b974d697871ba34b6527cfc1251320dce9e16b3e479a7120375985b5",
+      "aa_spent": 0
+    },
+    {
+      "id": "parity-l50-dungeon-normal",
+      "seed": 1729,
+      "status": "passed",
+      "input_sha256": "3116c21ee1da815e21d3999785b74f9cda26bad41d551040e7414baebcab60d9",
+      "output_sha256": "75a43cb0819cf91cdb51483ac74457e2db7d5876cb5d28f15ac4d27120099543",
+      "aa_spent": 0
+    },
+    {
+      "id": "parity-l50-observed-ascended",
+      "seed": 1729,
+      "status": "failed",
+      "input_sha256": "9d20a6f54e823fafb45b44b658a2eeb303225a0fbb7ef50bf984af1c2df9e1fd",
+      "log_tail": "Native balance failed: Equipped item/augment lore conflict\n"
+    },
+    {
+      "id": "parity-l50-observed-legacy-spells",
+      "seed": 1729,
+      "status": "failed",
+      "input_sha256": "6a4e119497c7366c6d8ef71e21dc7fd5eb59f0e8400fde72bf0f78877e3b123e",
+      "log_tail": "Native balance failed: Equipped item/augment lore conflict\n"
+    },
+    {
+      "id": "parity-l65-observed-ascended",
+      "seed": 1729,
+      "status": "failed",
+      "input_sha256": "e5d6c3406509b15b290d9ef96683437976bf54f3083159374787cf48a5b1ffa5",
+      "log_tail": "Native balance failed: Equipped item/augment lore conflict\n"
+    },
+    {
+      "id": "parity-l65-observed-legacy-spells",
+      "seed": 1729,
+      "status": "failed",
+      "input_sha256": "d102aa4464d7522967d595f1c41d5ccf79aedeb0778a02e3e48e16d397c7f943",
+      "log_tail": "Native balance failed: Equipped item/augment lore conflict\n"
+    },
+    {
+      "id": "wpm-shield-max-legacy-spells",
+      "seed": 1729,
+      "status": "passed",
+      "input_sha256": "ade1d27185e7a839ac86f9ca16c3d9698fb920b956806c15b8e937e29bd7fa16",
+      "output_sha256": "a9c41e6d3b35dcc16754e42b9c7c55e59c041dc9e92d9a451b19ff7d4370b91d",
+      "aa_spent": 2074,
+      "outcome": "npc_death"
+    },
+    {
+      "id": "pet-equipped-max-legacy-spells",
+      "seed": 1729,
+      "status": "passed",
+      "input_sha256": "628d5ccf8466c91a2654abde16a2c22f7c294c639330f77a0e709f7455b61d32",
+      "output_sha256": "eb086a7e324e8c7fc6d33dab2dbdf9cbdeae841a3c0cc9f03f55809d3b29b78e",
+      "aa_spent": 2085
+    },
+    {
+      "id": "caster65-max-legacy-spells",
+      "seed": 1729,
+      "status": "passed",
+      "input_sha256": "2a0cb463cd41989b06e57139a460b04cc99badf7916c2b80fbdf645ab621c431",
+      "output_sha256": "14aa248304f9c913ed5f41a47742c646aa8398a37fbdfa395092c5bfa50ec8bb",
+      "aa_spent": 2163,
+      "outcome": "npc_death"
+    }
+  ],
+  "status": "failed"
+}

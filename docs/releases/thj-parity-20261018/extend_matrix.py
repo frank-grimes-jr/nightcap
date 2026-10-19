@@ -9,6 +9,21 @@ from dungeon_catalog import items as dungeon_items
 from wpm_migration import insert
 from prepare_native import DB,db_command,STAGE
 
+def select_gear(rows,level,mask):
+    available=[r for r in rows if int(r['itemclass'])==0 and int(r.get('augtype',0))==0 and int(r.get('reqlevel',0))<=level and int(r['classes'])&mask and int(r.get('races',65535))&1 and int(r.get('deity',0)) in (0,65535) and int(r['damage'])==0]
+    result=[];lore=set()
+    def lore_key(row):
+        group=int(row['loregroup'])
+        return (group,row['id'] if group==-1 else 0)
+    for slot in (0,1,2,3,4,5,6,7,8,9,10,12,15,16,17,18,19,20):
+        choices=[r for r in available if int(r['slots'])&(1<<slot) and
+                 (int(r['loregroup'])==0 or lore_key(r) not in lore)]
+        if choices:
+            row=max(choices,key=lambda r:(int(r['hp'])+int(r['mana'])+int(r['ac'])+int(r['spelldmg']),-int(r['id'])))
+            result.append(dict(slot=slot,id=row['id']))
+            if int(row['loregroup']):lore.add(lore_key(row))
+    return result
+
 def main():
     matrix=json.loads((STAGE/'matrix.json').read_text())
     assert len(matrix['cases'])==26,'Extend the original handoff exactly once'
@@ -24,14 +39,7 @@ def main():
     dungeon=[r['values'] for r in dungeon_items() if r['quality']=='Normal' and r['source']=='completion']
     targets=[after[r['id']] for r in content.thj_item_parity.catalog()['items']]
     def gear(rows,level):
-        available=[r for r in rows if int(r['itemclass'])==0 and int(r.get('reqlevel',0))<=level and int(r['classes'])&mask and int(r.get('races',65535))&1 and int(r.get('deity',0)) in (0,65535) and int(r['damage'])==0]
-        result=[]
-        for slot in (0,1,2,3,4,5,6,7,8,9,10,12,15,16,17,18,19,20):
-            choices=[r for r in available if int(r['slots'])&(1<<slot)]
-            if choices:
-                row=max(choices,key=lambda r:(int(r['hp'])+int(r['mana'])+int(r['ac'])+int(r['spelldmg']),-int(r['id'])))
-                result.append(dict(slot=slot,id=row['id']))
-        return result
+        return select_gear(rows,level,mask)
     sql=[];next_id=90100
     def add(name,level,rows,enabled=True):
         nonlocal next_id

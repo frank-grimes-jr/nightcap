@@ -51,6 +51,12 @@ build is not acceptance of every class order or later-era encounter.
    disable/enable scripts and global rules reload. Verify every active zone sees
    the intended rule values. Re-enabling must restore the original candidate
    result without item or AA changes.
+6. Compare low-cost early spell ranks, current-level nukes and multiple ordinary
+   DoTs at the same effective SD and AA budget. Measure damage per cast, damage
+   per mana, sustained rotation DPS and recovery time on level-appropriate dungeon
+   enemies. The fixed level-65 native caster controller loses about67% DPS while
+   low-base spells gain; neither result alone establishes caster balance. Early
+   Frost Bolt probes against Nagafen fully resist and are not a leveling test.
 
 ## 3. WPM and pets together
 
@@ -72,6 +78,10 @@ build is not acceptance of every class order or later-era encounter.
    and Lady Vox73057 with the same class/AA/gear/buff setup before/after. Include
    a four-mob pack and resource-limited repeat fights. The automated Nagafen
    single-target controller is a diagnostic, not proof of pack/raid balance.
+   Prioritize maximum-earned-AA WPM burst: the later-era shield fixture kills
+   captured Nagafen in7.1seconds versus11 with the new spell rules disabled.
+   The level50 maximum-AA controller takes12.2seconds. Stop main promotion if
+   comparable earned Classic equipment and legal AAs trivialize the encounter.
 5. Repeat later-era fixtures at65 only with the separate complete PoP profile.
    Verify bosses, earned new drops, merchant/spell access and AA rank gates.
    No free levels, spells, AAs or epics are granted by this candidate.

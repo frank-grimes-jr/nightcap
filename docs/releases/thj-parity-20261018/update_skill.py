@@ -29,6 +29,13 @@ permanent pets add own SD/HA plus min(half effective owner stat,375), with eligi
 earned caster AA transfer. Evaluate the combined item changes, not earlier
 pet/WPM encounter results alone. Full matrix/evidence and limits are in COMPARISON.md.
 
+All47 native cases and165 unique regression/migration tests pass. Same-item
+controls expose WPM shield DPS+55%, fixed caster DPS-67% and equipped Classic
+pet DPS-36%. Low-base spells/ticks gain; the caster controller was not optimized
+for additive SD. Maximum-AA WPM kills captured Nagafen in7.1seconds (level50
+fixture12.2seconds). Treat rank choice, mana and WPM burst as owner balance gates,
+not approved parity or difficulty. Native fixtures enforce Lore/augment rules.
+
 Actual source-method, full-row MariaDB recovery and native tests are separately
 recorded in evidence/. Matching world/zone/cache-loader and the unchanged paired
 five-file NCPA2 client delta are required. Owner RoF2, pack/raid and resource
