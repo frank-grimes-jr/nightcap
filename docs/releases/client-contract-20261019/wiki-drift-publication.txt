@@ -1,0 +1,22 @@
+{
+  "result": "REVIEW REQUIRED",
+  "reviewed": "2026-10-19",
+  "source_ref": "origin/main",
+  "changed_sources": [
+    "docs/ops/nightcap-wiki.md",
+    "docs/ops/permanent-patcher.md",
+    "docs/releases/client-contract-20261019/README.md",
+    "docs/releases/client-contract-20261019/deploy.py",
+    "docs/releases/client-contract-20261019/hosted-verification.json",
+    "docs/releases/client-contract-20261019/publish_wiki.py",
+    "docs/releases/client-contract-20261019/published.json",
+    "docs/releases/client-contract-20261019/verify_wiki.py",
+    "docs/releases/client-contract-20261019/wiki-before.json",
+    "docs/releases/client-contract-20261019/wiki-drift-publication.txt",
+    "docs/releases/client-contract-20261019/wiki-public-verification.json",
+    "docs/releases/client-contract-20261019/wiki-publication.json",
+    "docs/releases/client-contract-20261019/wiki-review.json",
+    "docs/status.md"
+  ],
+  "note": "Also inspect current deployment/owner evidence and changes outside Git. No automatic approval or publication."
+}
