@@ -47,6 +47,6 @@ No new spell, client binary, era, item or pet changes are part of this pass.
 
 Before promotion to main/server: owner in-game QA per QA.md, reviewed current
 production preimages and a matching zone binary. A new compiled policy requires
-zone rebuild/restart; AA reload alone cannot install it. Preserve the pending
+zone rebuild/restart; AA reload alone cannot install it. Preserve the published
 client-contract repair pairing; do not republish the incompatible old bundle.
 Normal branch policy permits dev/test only until a new owner approval.

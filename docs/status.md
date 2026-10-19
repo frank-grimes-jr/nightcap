@@ -7,23 +7,26 @@ lines, expands111 and adds Druid Healing Boon access:1,836 ranks/483 families,
 with no removals. All previously legal ranks, earned costs, prerequisites,
 pet/WPM ceilings and Classic50 remain. Native effects are retained; THJ behavior
 mismatches and excluded custom/free/execute families are explicit. Source includes
-main16bfe18 and preserves the separate client-contract repair/publication status.
+main16bfe18 and published client-repair follow-up07b002b, preserving its verified status.
 [Full class list](releases/thj-all-class-aa-20261019/CHANGELIST.md),
 [verification and rollout](releases/thj-all-class-aa-20261019/README.md),
 [owner QA](releases/thj-all-class-aa-20261019/QA.md). Main/server activation and
 wiki publication require their next release approval; no live change is claimed.
 
-## Client Play incident — October 19; repair prepared, publication pending
+## Client Play incident — October 19; repair published, native QA pending
 
 Owner reports runtime health contract mismatch on this PC and others. Signed
 game2026101802 contains proxy0.11.0 but a0.10.0 catalog; delivery hashes alone
-missed the incompatible pair. Prepared signed2026101901 replaces only the catalog.
+missed the incompatible pair. Published signed2026101901 replaces only the catalog.
 All137 other assets/URLs remain exact; no server restart or new desktop is needed.
 Regression, recorded-health replay, full Go suite and publisher recovery tests
 pass. [Repair evidence and exact owner QA](releases/client-contract-20261019/README.md).
 The prior release's hash verification is not evidence of successful native Play.
-Owner requested source promotion to main on October 19; signed publication and
-native Play acceptance remain separate pending steps.
+Owner-requested main promotion completed via PR241 at16bfe18. The subsequent
+explicitly authorized publication verifies all138 HTTPS assets with shipped trust
+and matching DLL/catalog. Wiki20261019-client-contract-v1 verifies all465 files;
+all five services, private downloads and config remain unchanged. Reopen the
+normal launcher and press Play for the repair; native Play acceptance remains open.
 
 ## Combined THJ item/spell and pet/WPM — deployed October 18, live QA open
 

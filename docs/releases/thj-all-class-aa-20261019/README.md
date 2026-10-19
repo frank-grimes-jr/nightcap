@@ -2,7 +2,7 @@
 
 **Implementation candidate; not deployed.** All16 classes were reviewed against
 566 archived THJ ability records, the retained Google notebook and released forum
-patch notes. The source includes the current main client-contract repair16bfe18;
+patch notes. The source includes main client-contract repair16bfe18 and its published follow-up07b002b;
 the AA comparison baseline remains the unchanged October18 release73358d.
 
 - **75 newly available AA lines,111 expanded lines, no removed lines.**

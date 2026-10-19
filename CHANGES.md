@@ -13,14 +13,17 @@ QA and main/server promotion remain pending. This is not a deployment. Full list
 all566 dispositions, QA and rollback: docs/releases/thj-all-class-aa-20261019/.
 Whole-wiki review updates six guides with unreleased notices; publication pending.
 
-## 2026-10-19 - Client contract mismatch repair prepared
+## 2026-10-19 - Client contract mismatch repair published
 
 Game 2026101802 paired proxy 0.11.0 with the retained 0.10.0 catalog, blocking
-Play on multiple PCs. Prepare signed 2026101901 with only the matching catalog;
+Play on multiple PCs. Publish signed 2026101901 with only the matching catalog;
 retain the other 137 assets and URLs. Add a proxy/catalog packaging gate and
 released-artifact regression. Full launcher tests and six Windows/Linux recovery
-tests pass. Publication and new native Play QA remain pending.
-The owner requested source promotion to main on October 19; retain those open gates.
+tests pass. Owner-authorized main promotion completed via PR241; subsequent
+publication verifies the shipped-key signature, all138 HTTPS files and actual
+DLL/catalog agreement. All five services and desktop/starter/guide are preserved.
+Wiki20261019-client-contract-v1 verifies all465 files and private-route protections.
+New native Play QA remains pending; normal launcher Play installs the repair.
 Evidence and exact QA: docs/releases/client-contract-20261019/README.md.
 
 ## 2026-10-18 - Combined THJ release deployed for live testing
