@@ -1,0 +1,33 @@
+{
+  "previous_publication": "20261018-client-zone-repair-v1",
+  "previous_source_revision": "9cd9cc2328dd59a16dce5834b34a561fae8aa33c",
+  "source": "C:\\Users\\verre\\.codex\\worktrees\\client-zone-validation\\EQ_Local_Dev",
+  "articles": [
+    {
+      "path": "wiki/articles/index.json",
+      "reviewed_source_sha256": "fd89b7c777307f88643088243807085c79580be9f6ffb4bea2bf5e5605772dab",
+      "method": "Preserved exact published addition on top of current cooldown source; retained both source ledgers."
+    },
+    {
+      "path": "wiki/articles/recent-changes.json",
+      "reviewed_source_sha256": "c3cc0c01cde45bc777397620193a696aacb1396e5b23a1870f36550fc457970e",
+      "method": "Preserved exact published addition on top of current cooldown source; retained both source ledgers."
+    },
+    {
+      "path": "wiki/articles/travel.json",
+      "reviewed_source_sha256": "c820f019b55d55f792e7d38ef1b9a6af548a0687986a2679acb7bf81aad4043f",
+      "method": "Preserved exact published addition on top of current cooldown source; retained both source ledgers."
+    },
+    {
+      "path": "wiki/articles/launcher.json",
+      "reviewed_source_sha256": "61432ff4519515e623788cdb308f35634f4b2b2c9f551bbca98c5eb0aaf01a06",
+      "method": "Preserved exact published addition on top of current cooldown source; retained both source ledgers."
+    },
+    {
+      "path": "wiki/articles/getting-started.json",
+      "reviewed_source_sha256": "815e8574606bf80c0b82a14f53d8ada76166089db311979c58885214e26b05e0",
+      "method": "Preserved exact published addition on top of current cooldown source; retained both source ledgers."
+    }
+  ],
+  "new_release": "20261018-cooldown-identities-v1"
+}

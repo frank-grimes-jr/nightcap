@@ -366,6 +366,8 @@ inline int __fastcall InventoryHook(void* self, void*, void* sender, uint32_t me
         if (IsArmorControl(self, sender, "NCPA_Refresh")) { RequestPetRefresh(); return 1; }
         if (IsArmorControl(self, sender, "NCPA_Previous")) { pets.Next(-1); return 1; }
         if (IsArmorControl(self, sender, "NCPA_Next")) { pets.Next(1); return 1; }
+        if (IsArmorControl(self, sender, "NCPA_PagePrevious")) { pets.NextPage(-1); return 1; }
+        if (IsArmorControl(self, sender, "NCPA_PageNext")) { pets.NextPage(1); return 1; }
         const char* ids[] = {"Equip", "Remove", "Inspect"};
         const char* verbs[] = {"equip", "remove", "inspect"};
         for (unsigned action = 0; action < 3; ++action) {

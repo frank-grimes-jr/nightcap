@@ -1,0 +1,15 @@
+{
+  "result": "PASS",
+  "release": "20261018-reforge-colors-v1",
+  "verified_at_utc": "2026-10-18T15:39:40.428499+00:00",
+  "public_files_verified": 465,
+  "sha256_and_security_headers": true,
+  "private_source_routes_denied": [
+    "/.env",
+    "/articles/item-upgrades.json",
+    "/content-review.json",
+    "/catalog.json",
+    "/wiki/current/index.html"
+  ],
+  "owner_gameplay_accepted": false
+}

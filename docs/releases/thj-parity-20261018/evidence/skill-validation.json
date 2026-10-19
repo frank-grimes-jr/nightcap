@@ -1,0 +1,24 @@
+{
+  "status": "passed",
+  "validator": "passed",
+  "topics": {
+    "balance": {
+      "candidate_unchanged": 9,
+      "historical_entries_differing_in_current_root": 58
+    },
+    "items": {
+      "candidate_unchanged": 15,
+      "historical_entries_differing_in_current_root": 64
+    },
+    "wiki": {
+      "candidate_unchanged": 5,
+      "historical_entries_differing_in_current_root": 28
+    },
+    "operations": {
+      "candidate_unchanged": 6,
+      "historical_entries_differing_in_current_root": 32
+    }
+  },
+  "candidate_entries": 35,
+  "historical_drift_policy": "Older deployed/other-checkout fingerprints remain dated evidence; not blindly advanced to candidate state"
+}

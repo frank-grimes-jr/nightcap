@@ -1,0 +1,11 @@
+--- C:/Users/verre/.codex/skills/nightcap-development/references/sources.json
++++ C:/Users/verre/.codex/skills/nightcap-development/references/sources.json
+@@ -506,7 +506,7 @@
+         "path": "docs/releases/thj-pet-scaling-20261018/evidence/native-build-manifest.json",
+         "role": "Reviewed pet/shared-scaling candidate; not deployed",
+         "revision": "a8e0a91 + feature/thj-pet-scaling working tree 2026-10-18",
+-        "sha256": "8be9ee812d2f25d1efbc4d46c2972620a6b5d1aea8422a3c28c7ae0ca4c7dd3d"
++        "sha256": "8e6e7905d1ccab33750399d705f9c08c9cf43331337c1e520e6f23eade8fbda2"
+       },
+       {
+         "root": "C:/Users/verre/Documents/Codex/2026-10-18/goa/work/thj-pet-scaling",

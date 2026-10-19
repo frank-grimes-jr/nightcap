@@ -25,6 +25,7 @@ std::map<std::string, int> rules;
 #define RuleI(c,n) (rules[#c ":" #n])
 #define RuleB(c,n) (bool(rules[#c ":" #n]))
 namespace Class { constexpr int Wizard = 12; }
+namespace NightcapPetScaling { enum class CasterBonus { SpellChance, SpellDamage }; }
 namespace Chat { enum { SpellCrit }; }
 enum { ST_Self=6, CASTERDPS=1, SPELL_IMP_HARM_TOUCH=2774, SPELL_MANA_BURN=2751,
        aaSpellCastingFury, aaUnholyTouch, FilterSpellCrits, OTHER_CRIT_BLAST, YOU_CRIT_BLAST,
@@ -72,7 +73,11 @@ struct Mob {
     int GetFocusEffect(int focus, uint16) { return focuses[focus]; }
     int GetVulnerability(Mob*, uint16, int) { return vulnerability; }
     int GetFcDamageAmtIncoming(Mob*, uint16) { return incoming; }
-    int GetSpellDmg() { return IsOfClientBotMerc() ? itembonuses.SpellDmg : 0; }
+    int GetSpellDmg() { return itembonuses.SpellDmg; }
+    Mob* GetNightcapPetOwner() { return nullptr; }
+    int GetNightcapInheritedCasterBonus(NightcapPetScaling::CasterBonus) { return 0; }
+    int64 GetNightcapSpellDamageBonus(uint16 id, int64 base, bool=false) { return GetExtraSpellAmt(id,GetSpellDmg(),base); }
+    int64 GetNightcapHeroicSpellValue(uint16, int64 value, bool) { return value; }
     const char* GetName() { return "Test"; }
     template<class... T> void MessageString(T...) {}
     int64 GetExtraSpellAmt(uint16, int64, int64);

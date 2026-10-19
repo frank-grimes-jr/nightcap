@@ -149,7 +149,8 @@ int main() {
      const auto &expected=native.GetDamageTable(true), &held=second.GetDamageTable(true);
      check(expected.max_extra==held.max_extra && expected.chance==held.chance && expected.minusfactor==held.minusfactor,
       "unarmed damage table differs");
-     check(second.GetDamageTable().max_extra==wizard.GetDamageTable().max_extra, "weapon damage table changed");
+     const auto &weapon_expected = cls==Class::Monk ? native.GetDamageTable() : wizard.GetDamageTable();
+     check(second.GetDamageTable().max_extra==weapon_expected.max_extra, "held Monk weapon table or Beastlord control differs");
     }
   revamp=false; second.client=false; second.level=2; second.gloves=0;
   check(second.GetHandToHandDamage()==2, "NPC gained player secondary class");

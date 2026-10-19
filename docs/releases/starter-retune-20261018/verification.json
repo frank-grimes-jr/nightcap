@@ -1,0 +1,19 @@
+{
+  "starter_tests": 8,
+  "dungeon_catalog_tests": 3,
+  "cultural_tests": 20,
+  "wiki_tests": 14,
+  "independent_review": "Two limitations resolved; final review no new findings",
+  "skill": {
+    "items": {
+      "checked": 137,
+      "drift": []
+    },
+    "wiki": {
+      "checked": 81,
+      "drift": []
+    }
+  },
+  "deployed": false,
+  "encounter_accepted": false
+}

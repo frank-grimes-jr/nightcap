@@ -1,0 +1,92 @@
+{
+  "date": "2026-10-18",
+  "status": "candidate only; no public publication",
+  "articles": {
+    "about.json": {
+      "sha256": "d30e64f41dd4395f4d27163407a134527fca9bf9892dabd816774bd0ebcd1da0",
+      "assessment": "Reviewed: no live feature, command, acquisition, catalog value or release-label change. Existing published guidance retained."
+    },
+    "advanced-loot.json": {
+      "sha256": "0f0870dd8c5e412c0a673a7ff551a952965397e5b2ce0dd6bb67ac1336c0e506",
+      "assessment": "Reviewed: no live feature, command, acquisition, catalog value or release-label change. Existing published guidance retained."
+    },
+    "ascension.json": {
+      "sha256": "63a95cfaac55cdafad7aed7a731406b01dfdabbb6053e4364371cd283f19d036",
+      "assessment": "Reviewed: no live feature, command, acquisition, catalog value or release-label change. Existing published guidance retained."
+    },
+    "combat.json": {
+      "sha256": "5ff1e16241c93898964f3f6a2308c803bae8f8cca7a2c8f0b6ee265be20554c6",
+      "assessment": "Reviewed: no live feature, command, acquisition, catalog value or release-label change. Existing published guidance retained."
+    },
+    "commands.json": {
+      "sha256": "b23435918515e34f6db39189f0d072847b19599dff37c3739daf724839c66bd3",
+      "assessment": "Reviewed: no live feature, command, acquisition, catalog value or release-label change. Existing published guidance retained."
+    },
+    "dungeon-modes.json": {
+      "sha256": "c9b31538d188ce7e47cfa1c4a297d0ec1c0d2d11b838747fe6d3da06ca561cac",
+      "assessment": "Reviewed: no live feature, command, acquisition, catalog value or release-label change. Existing published guidance retained."
+    },
+    "equipment.json": {
+      "sha256": "07a32564b689055f8cd5c12ad096fd7de81dbaac5ee3963489cf5b30344122c1",
+      "assessment": "Current candidate direction updated; unpublished."
+    },
+    "features.json": {
+      "sha256": "6d28bfa92ce2aa7d497ba20ad1a76603af97de5a48ae4fd79e64e8228eaffaa0",
+      "assessment": "Reviewed: no live feature, command, acquisition, catalog value or release-label change. Existing published guidance retained."
+    },
+    "getting-started.json": {
+      "sha256": "49da8ae75f638d38cb420b23c83d01bcf7593d3f00055e76c15fd40f36b2814e",
+      "assessment": "Reviewed: no live feature, command, acquisition, catalog value or release-label change. Existing published guidance retained."
+    },
+    "index.json": {
+      "sha256": "c50b71da1f95606f960e7fa43c4872cb9a19fc977e1a046132ee52088cf15668",
+      "assessment": "Reviewed: no live feature, command, acquisition, catalog value or release-label change. Existing published guidance retained."
+    },
+    "item-upgrades.json": {
+      "sha256": "04106ddd5fc61bd1e772292fe03e8939d9eebdfa9d8dd4853d937e1d3ca7b91d",
+      "assessment": "Reviewed: no live feature, command, acquisition, catalog value or release-label change. Existing published guidance retained."
+    },
+    "launcher.json": {
+      "sha256": "bce000f1acf875347276156310567702d4d9a71bfafd8091b725405e4a98e78c",
+      "assessment": "Reviewed: no live feature, command, acquisition, catalog value or release-label change. Existing published guidance retained."
+    },
+    "multiclass.json": {
+      "sha256": "a07eaa65d933c6269e0c8289f84bcbc6556f6c9e0a192639dd60b6c0c0df63b6",
+      "assessment": "Reviewed: no live feature, command, acquisition, catalog value or release-label change. Existing published guidance retained."
+    },
+    "pets.json": {
+      "sha256": "3c44fe0856f38477d4c490ed2c0be34d109f6210d1dd6c9dadccee12a7cd85a3",
+      "assessment": "Reviewed: no live feature, command, acquisition, catalog value or release-label change. Existing published guidance retained."
+    },
+    "recent-changes.json": {
+      "sha256": "1936609580dedf211611d464966ac2570441029ab51b7d1475ffdb8f0d1b8588",
+      "assessment": "Reviewed: no live feature, command, acquisition, catalog value or release-label change. Existing published guidance retained."
+    },
+    "tradeskills.json": {
+      "sha256": "65456c81941b8300686776c4c06f52e6da515471f6147e07b3ebfb967836c5d7",
+      "assessment": "Reviewed: no live feature, command, acquisition, catalog value or release-label change. Existing published guidance retained."
+    },
+    "travel.json": {
+      "sha256": "f6fc37d18ec535c85fff900a5b622a0e80ea1d768a2692febcf3f622d0f0421e",
+      "assessment": "Reviewed: no live feature, command, acquisition, catalog value or release-label change. Existing published guidance retained."
+    },
+    "tunnel.json": {
+      "sha256": "406b3922621b789bbafe02a76b296a7f9fccd716aa082dca94a8493d60b811ae",
+      "assessment": "Reviewed: no live feature, command, acquisition, catalog value or release-label change. Existing published guidance retained."
+    },
+    "unreleased.json": {
+      "sha256": "014f74e5490acf9c59130fa7713761359c481ed2949b99012a49e2e97ff5db7b",
+      "assessment": "Current candidate direction updated; unpublished."
+    },
+    "waypoints.json": {
+      "sha256": "9ef8b93fa52d5b83c479bbb3c877fab4f9373c0f26c84c43908edf3d7e5666bc",
+      "assessment": "Reviewed: no live feature, command, acquisition, catalog value or release-label change. Existing published guidance retained."
+    },
+    "zone-hunt.json": {
+      "sha256": "4802e9fe8e3b4ddea03c375dd4cfa716418961cd02e25a8ac5494e701dceb2ad",
+      "assessment": "Reviewed: no live feature, command, acquisition, catalog value or release-label change. Existing published guidance retained."
+    }
+  },
+  "generated_routes": 432,
+  "catalog": "All generated reward values remain released data; no proposal stats published as live."
+}

@@ -1,0 +1,141 @@
+[
+  {
+    "id": 608364,
+    "action": "screenshot precedence",
+    "before": {
+      "heroic_str": 40,
+      "heroic_sta": 40,
+      "heroic_agi": 40,
+      "heroic_dex": 40,
+      "heroic_int": 40,
+      "heroic_wis": 40,
+      "heroic_cha": 40
+    },
+    "after": {
+      "heroic_str": 8,
+      "heroic_sta": 8,
+      "heroic_agi": 8,
+      "heroic_dex": 8,
+      "heroic_int": 8,
+      "heroic_wis": 8,
+      "heroic_cha": 8
+    },
+    "source": "Clean image093 shows all seven attributes30+8; workbook X47:AD47 says40. Screenshot independently inspected."
+  },
+  {
+    "id": 609289,
+    "action": "defer uncorroborated attribute relocation",
+    "fields": {
+      "aagi": 40,
+      "adex": 0,
+      "heroic_agi": 0,
+      "heroic_dex": 10
+    },
+    "reason": "Workbook removes a native ordinary attribute or assigns its heroic bonus to a different attribute; no clean screenshot resolves it. Preserve current fields."
+  },
+  {
+    "id": 613673,
+    "action": "defer uncorroborated attribute relocation",
+    "fields": {
+      "heroic_str": 8,
+      "heroic_sta": 0
+    },
+    "reason": "Workbook removes a native ordinary attribute or assigns its heroic bonus to a different attribute; no clean screenshot resolves it. Preserve current fields."
+  },
+  {
+    "id": 615805,
+    "action": "defer below-Normal field",
+    "field": "regen",
+    "target": 0,
+    "normal": 5,
+    "reason": "Do not create an upgrade inversion from workbook-only evidence."
+  },
+  {
+    "id": 616255,
+    "action": "defer below-Normal field",
+    "field": "regen",
+    "target": 0,
+    "normal": 3,
+    "reason": "Do not create an upgrade inversion from workbook-only evidence."
+  },
+  {
+    "id": 626549,
+    "action": "screenshot precedence",
+    "before": {
+      "astr": 40,
+      "asta": 0,
+      "heroic_str": 10,
+      "heroic_sta": 0
+    },
+    "after": {
+      "astr": 0,
+      "asta": 40,
+      "heroic_str": 0,
+      "heroic_sta": 10
+    },
+    "source": "image-089.png; empty sockets; Stamina40+10, no Strength line. Workbook Items row assigns STR instead."
+  },
+  {
+    "id": 626740,
+    "action": "defer below-Normal field",
+    "field": "pr",
+    "target": 0,
+    "normal": 15,
+    "reason": "Do not create an upgrade inversion from workbook-only evidence."
+  },
+  {
+    "id": 627280,
+    "action": "defer below-Normal field",
+    "field": "regen",
+    "target": 0,
+    "normal": 10,
+    "reason": "Do not create an upgrade inversion from workbook-only evidence."
+  },
+  {
+    "id": 627280,
+    "action": "defer below-Normal field",
+    "field": "stunresist",
+    "target": 0,
+    "normal": 5,
+    "reason": "Do not create an upgrade inversion from workbook-only evidence."
+  },
+  {
+    "id": 628650,
+    "action": "defer below-Normal field",
+    "field": "regen",
+    "target": 0,
+    "normal": 2,
+    "reason": "Do not create an upgrade inversion from workbook-only evidence."
+  },
+  {
+    "id": 628664,
+    "action": "defer uncorroborated attribute relocation",
+    "fields": {
+      "heroic_agi": 0,
+      "heroic_dex": 10
+    },
+    "reason": "Workbook removes a native ordinary attribute or assigns its heroic bonus to a different attribute; no clean screenshot resolves it. Preserve current fields."
+  },
+  {
+    "id": 628904,
+    "action": "defer uncorroborated attribute relocation",
+    "fields": {
+      "astr": 50,
+      "asta": 0,
+      "heroic_str": 13,
+      "heroic_sta": 0
+    },
+    "reason": "Workbook removes a native ordinary attribute or assigns its heroic bonus to a different attribute; no clean screenshot resolves it. Preserve current fields."
+  },
+  {
+    "id": 628997,
+    "action": "defer uncorroborated attribute relocation",
+    "fields": {
+      "astr": 30,
+      "asta": 0,
+      "heroic_str": 8,
+      "heroic_sta": 0
+    },
+    "reason": "Workbook removes a native ordinary attribute or assigns its heroic bonus to a different attribute; no clean screenshot resolves it. Preserve current fields."
+  }
+]

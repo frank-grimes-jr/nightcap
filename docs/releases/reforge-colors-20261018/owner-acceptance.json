@@ -1,0 +1,14 @@
+{
+  "date": "2026-10-18",
+  "evidence": "Owner replied Confirmed after the deployed-fix retest instruction.",
+  "reported_combine_accepted": true,
+  "scope": "Palwar: the reported three Normal Daggers of Marnek combine now works after the built-in-color correction.",
+  "not_confirmed": [
+    "relog persistence",
+    "genuinely dyed input rejection",
+    "augmented or ornamented input rejection",
+    "zoneforge and other item/tier combinations"
+  ],
+  "wiki_impact": "No public content change: the published built-in-color guidance remains correct. Live testing and broader in-game acceptance labels remain appropriate; no mechanics, recipes, catalog values, Features, home, commands or generated pages changed.",
+  "deployment_or_player_data_mutation": false
+}

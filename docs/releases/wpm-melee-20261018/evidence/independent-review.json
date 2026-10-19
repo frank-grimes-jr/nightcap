@@ -1,0 +1,20 @@
+{
+  "date": "2026-10-18",
+  "reviewer": "wpm_review independent gpt-6-astra agent",
+  "scope": "WPM native combat/AA/item changes, six-class-order semantics, follow-up ClassicTripleAttack/Kick/Paladin timer changes and native diagnostics; final narrow RoF2 expansion fallback and native evidence accounting",
+  "production_code_blockers": [],
+  "resolved_findings": [
+    "Describe native sympathetic-focus individual rolls and random successful selection accurately; level bands are disjoint.",
+    "Verify effective UseClientBasedExpansionSettings=true in the isolated RoF2 test profile so the power-source slot participates.",
+    "Allow earned Rage of Rallos family 131 in the diagnostic activation controller.",
+    "Use pTimerAAStart+ability_id in diagnostic readiness/acceptance checks, matching the deployed AA identity namespace.",
+    "Record Mend requests separately and label HealDamage-only healing ledgers; Client::Process pulse changes are not exact Mend healing totals.",
+    "Normalize new incoming/healing/damage ledgers to the same fight-relative clock when preparation is used.",
+    "Use level-eligible heal15 at level50 instead of Paladin heal9(min57).",
+    "Correct class-ineligible fixture crown/ring and remove weapon-only Runic Fragment from shield without weakening native equip rules.",
+    "Preserve narrow RoF2/full-native-mask/policy/current-era expansion checks; eight boundary cases and final full native purchase pass.",
+    "Report zero-cost baseline AA ranks accurately; every supplied budget reconciles with canonical costs."
+  ],
+  "limits": "Reviewer source/evidence review is separate from actual client gameplay acceptance and wider balance validation.",
+  "evidence_review": "Independent read-only review verified26 matrix inputs/seeds, six positive skill timers, Rage0-to60s, sampled Mend pulse/cooldown; no blockers after wording correction."
+}

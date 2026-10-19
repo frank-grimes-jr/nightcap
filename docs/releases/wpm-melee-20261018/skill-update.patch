@@ -1,0 +1,30 @@
+--- C:/Users/verre/.codex/skills/nightcap-development/references/sources.json
++++ C:/Users/verre/.codex/skills/nightcap-development/references/sources.json
+@@ -4913,13 +4913,6 @@
+       },
+       {
+         "root": "C:/Users/verre/Documents/Codex/2026-10-18/goa/work/thj-pet-scaling",
+-        "path": "tools/tests/test_pet_scaling.py",
+-        "role": "Reviewed pet/shared-scaling candidate; not deployed",
+-        "revision": "a8e0a91 + feature/thj-pet-scaling working tree 2026-10-18",
+-        "sha256": "90d3af12cacf075428a8d128369f3ce94f2589a4304c0e5b249d76a95052e873"
+-      },
+-      {
+-        "root": "C:/Users/verre/Documents/Codex/2026-10-18/goa/work/thj-pet-scaling",
+         "path": "server-mods/sql/2026-10-18-shared-output-caps.sql",
+         "role": "Reviewed pet/shared-scaling candidate; not deployed",
+         "revision": "a8e0a91 + feature/thj-pet-scaling working tree 2026-10-18",
+@@ -5036,6 +5029,13 @@
+         "role": "Reviewed combined WPM/pet candidate; not deployed",
+         "revision": "a8e0a91 + feature/thj-pet-scaling working tree 2026-10-18",
+         "sha256": "a59406951e73c2ab4e853e15c1f6becbb4ef187c19a24ef42597f323cbf01776"
++      },
++      {
++        "root": "C:/Users/verre/Documents/Codex/2026-10-18/goa/work/thj-pet-scaling",
++        "path": "tools/tests/test_pet_scaling.py",
++        "role": "Reviewed combined WPM/pet candidate; not deployed",
++        "revision": "a8e0a91 + feature/thj-pet-scaling working tree 2026-10-18",
++        "sha256": "d28d35d0c653be7568ed6e654d96bfb28ec73edcbf1e85fdbc0937ef97b0f1d1"
+       }
+     ],
+     "wiki": [

@@ -11,7 +11,7 @@ def equipment_directory(data):
     slots = sorted({s.strip().title() for i in families for s in i['slot'].split(',')})
     counts = Counter(i['kind'] for i in families)
     body = '''<div class="equipment-intro"><p><strong>Find your next upgrade.</strong> Browse custom zone rewards by slot, required level, or where they drop. Each row groups an item's four qualities.</p><p class="catalog-scope">This catalog covers the Classic zone-hunt release, not every ordinary item in Nightcap. Required level is the level to equip an item, not a zone's difficulty.</p></div>
-<nav class="equipment-guides" aria-label="Equipment guides"><a href="equipment.html"><strong>Equipment &amp; trading</strong><span>Qualities, bags and selling</span></a><a href="zone-hunt.html#sockets"><strong>Augments &amp; sockets</strong><span>Fit, heroic stats and limits</span></a><a href="zone-hunt.html#forging"><strong>Forging upgrades</strong><span>Three copies → next quality</span></a></nav>
+<nav class="equipment-guides" aria-label="Equipment guides"><a href="equipment.html"><strong>Equipment &amp; trading</strong><span>Qualities, bags and selling</span></a><a href="zone-hunt.html#sockets"><strong>Augments &amp; sockets</strong><span>Fit, heroic stats and limits</span></a><a href="zone-hunt.html#forging"><strong>Forging upgrades</strong><span>Three Base; four higher-quality copies</span></a></nav>
 <section data-equipment-browser aria-labelledby="browse-heading"><h2 id="browse-heading">Browse rewards</h2>
 <div id="equipment-controls" hidden><div class="equipment-types" role="group" aria-label="Reward type">'''
     for kind, label, count in [('', 'All rewards', len(families)), ('Gear', 'Gear', counts['Gear']), ('Augment', 'Augments', counts['Augment'])]:

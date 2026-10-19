@@ -1,0 +1,11 @@
+verified-patch.cpp
+PASS: 21 native patch write/failure cases
+ui-state.cpp
+UI state controls passed
+ui-hooks.cpp
+Native UI hook controls passed
+pet-state.cpp
+Pet state controls passed
+pet-management.cpp
+pet management state passed
+PASS: all five candidate client fixtures

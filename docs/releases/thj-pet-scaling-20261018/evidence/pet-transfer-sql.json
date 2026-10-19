@@ -1,0 +1,30 @@
+{
+  "equip": [
+    "SHOW COLUMNS FROM inventory",
+    "SHOW COLUMNS FROM character_pet_armor",
+    "SELECT COUNT(*) FROM information_schema.TABLES WHERE TABLE_SCHEMA=DATABASE() AND TABLE_NAME IN ('inventory','character_pet_armor') AND ENGINE='InnoDB'",
+    "SELECT COUNT(*) FROM information_schema.TRIGGERS WHERE TRIGGER_SCHEMA=DATABASE() AND EVENT_OBJECT_TABLE IN ('inventory','character_pet_armor')",
+    "SELECT @@in_transaction",
+    "START TRANSACTION",
+    "SELECT slot_id FROM inventory WHERE character_id=77 AND (slot_id=33 OR slot_id BETWEEN 6010 AND 6209) FOR UPDATE",
+    "SELECT slot_id,item_id FROM character_pet_armor WHERE character_id=77 AND pet_class=13 FOR UPDATE",
+    "SELECT slot_id FROM inventory WHERE `character_id`=77 AND `slot_id`=33 AND `item_id`=1001 AND `charges`=0 AND `color`=4278256131 AND `augment_one`=201 AND `augment_two`=202 AND `augment_three`=203 AND `augment_four`=204 AND `augment_five`=205 AND `augment_six`=206 AND `instnodrop`=1 AND BINARY COALESCE(`custom_data`,'')=X'6b65795e71756f7465275c6c696e650a5e' AND `ornament_icon`=601 AND `ornament_idfile`=602 AND `ornament_hero_model`=-4 AND `guid`=901 FOR UPDATE",
+    "INSERT INTO character_pet_armor (character_id,slot_id,item_id,charges,color,augment_one,augment_two,augment_three,augment_four,augment_five,augment_six,instnodrop,custom_data,ornament_icon,ornament_idfile,ornament_hero_model,guid,pet_class) SELECT character_id,2,item_id,charges,color,augment_one,augment_two,augment_three,augment_four,augment_five,augment_six,instnodrop,custom_data,ornament_icon,ornament_idfile,ornament_hero_model,901,13 FROM inventory WHERE `character_id`=77 AND `slot_id`=33 AND `item_id`=1001 AND `charges`=0 AND `color`=4278256131 AND `augment_one`=201 AND `augment_two`=202 AND `augment_three`=203 AND `augment_four`=204 AND `augment_five`=205 AND `augment_six`=206 AND `instnodrop`=1 AND BINARY COALESCE(`custom_data`,'')=X'6b65795e71756f7465275c6c696e650a5e' AND `ornament_icon`=601 AND `ornament_idfile`=602 AND `ornament_hero_model`=-4 AND `guid`=901",
+    "DELETE FROM inventory WHERE `character_id`=77 AND `slot_id`=33 AND `item_id`=1001 AND `charges`=0 AND `color`=4278256131 AND `augment_one`=201 AND `augment_two`=202 AND `augment_three`=203 AND `augment_four`=204 AND `augment_five`=205 AND `augment_six`=206 AND `instnodrop`=1 AND BINARY COALESCE(`custom_data`,'')=X'6b65795e71756f7465275c6c696e650a5e' AND `ornament_icon`=601 AND `ornament_idfile`=602 AND `ornament_hero_model`=-4 AND `guid`=901",
+    "COMMIT"
+  ],
+  "remove": [
+    "SHOW COLUMNS FROM inventory",
+    "SHOW COLUMNS FROM character_pet_armor",
+    "SELECT COUNT(*) FROM information_schema.TABLES WHERE TABLE_SCHEMA=DATABASE() AND TABLE_NAME IN ('inventory','character_pet_armor') AND ENGINE='InnoDB'",
+    "SELECT COUNT(*) FROM information_schema.TRIGGERS WHERE TRIGGER_SCHEMA=DATABASE() AND EVENT_OBJECT_TABLE IN ('inventory','character_pet_armor')",
+    "SELECT @@in_transaction",
+    "START TRANSACTION",
+    "SELECT slot_id FROM inventory WHERE character_id=77 AND (slot_id=33 OR slot_id BETWEEN 6010 AND 6209) FOR UPDATE",
+    "SELECT slot_id,item_id FROM character_pet_armor WHERE character_id=77 AND pet_class=13 FOR UPDATE",
+    "SELECT slot_id FROM character_pet_armor WHERE `character_id`=77 AND `slot_id`=2 AND `item_id`=1001 AND `charges`=0 AND `color`=4278256131 AND `augment_one`=201 AND `augment_two`=202 AND `augment_three`=203 AND `augment_four`=204 AND `augment_five`=205 AND `augment_six`=206 AND `instnodrop`=1 AND BINARY COALESCE(`custom_data`,'')=X'6b65795e71756f7465275c6c696e650a5e' AND `ornament_icon`=601 AND `ornament_idfile`=602 AND `ornament_hero_model`=-4 AND `guid`=901 AND pet_class=13 FOR UPDATE",
+    "INSERT INTO inventory (character_id,slot_id,item_id,charges,color,augment_one,augment_two,augment_three,augment_four,augment_five,augment_six,instnodrop,custom_data,ornament_icon,ornament_idfile,ornament_hero_model,guid) SELECT character_id,33,item_id,charges,color,augment_one,augment_two,augment_three,augment_four,augment_five,augment_six,instnodrop,custom_data,ornament_icon,ornament_idfile,ornament_hero_model,902 FROM character_pet_armor WHERE `character_id`=77 AND `slot_id`=2 AND `item_id`=1001 AND `charges`=0 AND `color`=4278256131 AND `augment_one`=201 AND `augment_two`=202 AND `augment_three`=203 AND `augment_four`=204 AND `augment_five`=205 AND `augment_six`=206 AND `instnodrop`=1 AND BINARY COALESCE(`custom_data`,'')=X'6b65795e71756f7465275c6c696e650a5e' AND `ornament_icon`=601 AND `ornament_idfile`=602 AND `ornament_hero_model`=-4 AND `guid`=901 AND pet_class=13",
+    "DELETE FROM character_pet_armor WHERE `character_id`=77 AND `slot_id`=2 AND `item_id`=1001 AND `charges`=0 AND `color`=4278256131 AND `augment_one`=201 AND `augment_two`=202 AND `augment_three`=203 AND `augment_four`=204 AND `augment_five`=205 AND `augment_six`=206 AND `instnodrop`=1 AND BINARY COALESCE(`custom_data`,'')=X'6b65795e71756f7465275c6c696e650a5e' AND `ornament_icon`=601 AND `ornament_idfile`=602 AND `ornament_hero_model`=-4 AND `guid`=901 AND pet_class=13",
+    "COMMIT"
+  ]
+}

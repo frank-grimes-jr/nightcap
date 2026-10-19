@@ -1,0 +1,434 @@
+{
+  "status": "passed",
+  "execution_cases": 26,
+  "stat_cases": 6,
+  "encounters": 20,
+  "binary_sha256": "07287cbd5878f85b1ff578f566061f5e5b086439f14deec491a222c3f9e9a569",
+  "archive_sha256": "429490d451c1a717a7f63f49c974139688f805f7a86b3c3e551dba167fc16b7f",
+  "assertions": [
+    "26 input/output hashes and diagnostic binary match recorded execution",
+    "Canonical AA costs, including zero-cost baseline ranks, preserved; every supplied budget fully accounted",
+    "All six WPM class orders have identical recorded combat capability state",
+    "Shield removal/restoration clears/restores Holy Shield, Diaku and Marr healing",
+    "Shield Specialist100%, six Way of Steel contributions and nonrecursive focus controls",
+    "Native WPM encounters exercise all six skill timers and earned Rage60s activation",
+    "Fists of Fury, haste fragment, Diaku, Healing Fragment, Holy rune, Blessing and Healing Light observed",
+    "Native Holy rune absorption and successful Mend pulse/cooldown recorded",
+    "All three equipped pet classes retain15/8/8 items and own stats plus bounded half-owner inheritance",
+    "Across equipped pet encounters all three classes emit innate weapon, healing augment and rune augment effects",
+    "Companion Fury IV purchased through native gates with actual RoF2 mask"
+  ],
+  "comparisons": [
+    {
+      "case": "wpm-shield-zero",
+      "outcome": "npc_death",
+      "elapsed_seconds": 46.5,
+      "effective_damage": 32161,
+      "dps": 691.6,
+      "aa_spent": 0,
+      "initial_hp": 10379,
+      "final_hp": 9246,
+      "net_mana_used": 112,
+      "heal_damage_recovered": 1531,
+      "player_melee_rune_absorbed": 0,
+      "mend_requests": 0,
+      "owner_spell_event_counts": {
+        "65535": 296,
+        "42836": 4,
+        "3606": 3,
+        "4119": 3,
+        "42851": 2,
+        "42846": 2
+      }
+    },
+    {
+      "case": "wpm-dual-zero",
+      "outcome": "npc_death",
+      "elapsed_seconds": 54.4,
+      "effective_damage": 32184,
+      "dps": 591.6,
+      "aa_spent": 0,
+      "initial_hp": 10132,
+      "final_hp": 8895,
+      "net_mana_used": 108,
+      "heal_damage_recovered": 2540,
+      "player_melee_rune_absorbed": 0,
+      "mend_requests": 0,
+      "owner_spell_event_counts": {
+        "65535": 328,
+        "42836": 2,
+        "42851": 4
+      }
+    },
+    {
+      "case": "wpm-twohand-zero",
+      "outcome": "npc_death",
+      "elapsed_seconds": 78.4,
+      "effective_damage": 32276,
+      "dps": 411.7,
+      "aa_spent": 0,
+      "initial_hp": 9534,
+      "final_hp": 8408,
+      "net_mana_used": 162,
+      "heal_damage_recovered": 1545,
+      "player_melee_rune_absorbed": 0,
+      "mend_requests": 1,
+      "owner_spell_event_counts": {
+        "65535": 342,
+        "1791": 4
+      }
+    },
+    {
+      "case": "wpm-shield-max",
+      "outcome": "npc_death",
+      "elapsed_seconds": 11.0,
+      "effective_damage": 32023,
+      "dps": 2911.2,
+      "aa_spent": 2074,
+      "initial_hp": 12852,
+      "final_hp": 12682,
+      "net_mana_used": 24,
+      "heal_damage_recovered": 144,
+      "player_melee_rune_absorbed": 0,
+      "mend_requests": 0,
+      "owner_spell_event_counts": {
+        "65535": 131,
+        "23598": 16,
+        "21773": 1,
+        "2767": 22,
+        "42851": 1,
+        "13504": 1,
+        "3606": 1,
+        "4119": 1,
+        "42836": 2
+      }
+    },
+    {
+      "case": "wpm-dual-max",
+      "outcome": "npc_death",
+      "elapsed_seconds": 13.0,
+      "effective_damage": 32046,
+      "dps": 2465.1,
+      "aa_spent": 2074,
+      "initial_hp": 12547,
+      "final_hp": 12330,
+      "net_mana_used": 16,
+      "heal_damage_recovered": 218,
+      "player_melee_rune_absorbed": 0,
+      "mend_requests": 0,
+      "owner_spell_event_counts": {
+        "65535": 162,
+        "23598": 16,
+        "21773": 1,
+        "2767": 13,
+        "3606": 2,
+        "4119": 2,
+        "42851": 1
+      }
+    },
+    {
+      "case": "wpm-twohand-max",
+      "outcome": "npc_death",
+      "elapsed_seconds": 15.1,
+      "effective_damage": 32046,
+      "dps": 2122.3,
+      "aa_spent": 2074,
+      "initial_hp": 11836,
+      "final_hp": 11352,
+      "net_mana_used": 16,
+      "heal_damage_recovered": 218,
+      "player_melee_rune_absorbed": 0,
+      "mend_requests": 0,
+      "owner_spell_event_counts": {
+        "65535": 150,
+        "23598": 20,
+        "21773": 1,
+        "2767": 14,
+        "1791": 2,
+        "13504": 1,
+        "42851": 1,
+        "42836": 1
+      }
+    },
+    {
+      "case": "wpm-shield-undead-max",
+      "outcome": "npc_death",
+      "elapsed_seconds": 7.15,
+      "effective_damage": 32023,
+      "dps": 4478.7,
+      "aa_spent": 2074,
+      "initial_hp": 12852,
+      "final_hp": 12852,
+      "net_mana_used": 24,
+      "heal_damage_recovered": 579,
+      "player_melee_rune_absorbed": 0,
+      "mend_requests": 0,
+      "owner_spell_event_counts": {
+        "65535": 95,
+        "21773": 1,
+        "23598": 12,
+        "2767": 17,
+        "16139": 1,
+        "3606": 2,
+        "4119": 2
+      }
+    },
+    {
+      "case": "pet-bare-zero",
+      "outcome": "timeout",
+      "elapsed_seconds": 180.0,
+      "effective_damage": 16434,
+      "dps": 91.3,
+      "aa_spent": 0,
+      "initial_hp": 8515,
+      "final_hp": 6249,
+      "net_mana_used": 3193,
+      "heal_damage_recovered": null,
+      "player_melee_rune_absorbed": null,
+      "mend_requests": 0,
+      "owner_spell_event_counts": {
+        "447": 1,
+        "15": 10
+      }
+    },
+    {
+      "case": "pet-equipped-zero",
+      "outcome": "boss_death",
+      "elapsed_seconds": 93.4,
+      "effective_damage": 32345,
+      "dps": 346.3,
+      "aa_spent": 0,
+      "initial_hp": 8515,
+      "final_hp": 6764,
+      "net_mana_used": 2375,
+      "heal_damage_recovered": null,
+      "player_melee_rune_absorbed": null,
+      "mend_requests": 0,
+      "owner_spell_event_counts": {
+        "447": 3,
+        "510": 3
+      }
+    },
+    {
+      "case": "pet-bare-max",
+      "outcome": "boss_death",
+      "elapsed_seconds": 173.4,
+      "effective_damage": 32644,
+      "dps": 188.3,
+      "aa_spent": 2085,
+      "initial_hp": 9364,
+      "final_hp": 8851,
+      "net_mana_used": 3816,
+      "heal_damage_recovered": null,
+      "player_melee_rune_absorbed": null,
+      "mend_requests": 0,
+      "owner_spell_event_counts": {
+        "510": 2,
+        "447": 4,
+        "15": 7
+      }
+    },
+    {
+      "case": "pet-equipped-max",
+      "outcome": "boss_death",
+      "elapsed_seconds": 71.3,
+      "effective_damage": 32253,
+      "dps": 452.4,
+      "aa_spent": 2085,
+      "initial_hp": 9364,
+      "final_hp": 7696,
+      "net_mana_used": 1259,
+      "heal_damage_recovered": null,
+      "player_melee_rune_absorbed": null,
+      "mend_requests": 0,
+      "owner_spell_event_counts": {
+        "447": 2,
+        "510": 3
+      }
+    },
+    {
+      "case": "wpm-shield-heroic-off",
+      "outcome": "npc_death",
+      "elapsed_seconds": 12.15,
+      "effective_damage": 32046,
+      "dps": 2637.5,
+      "aa_spent": 2074,
+      "initial_hp": 12852,
+      "final_hp": 12572,
+      "net_mana_used": 16,
+      "heal_damage_recovered": 144,
+      "player_melee_rune_absorbed": 0,
+      "mend_requests": 0,
+      "owner_spell_event_counts": {
+        "65535": 152,
+        "23598": 19,
+        "21773": 1,
+        "2767": 24,
+        "42851": 1,
+        "13504": 1,
+        "3606": 1,
+        "4119": 1,
+        "42836": 2
+      }
+    },
+    {
+      "case": "wpm-shield-max-seed-2718",
+      "outcome": "npc_death",
+      "elapsed_seconds": 8.25,
+      "effective_damage": 32023,
+      "dps": 3881.6,
+      "aa_spent": 2074,
+      "initial_hp": 12852,
+      "final_hp": 12140,
+      "net_mana_used": 24,
+      "heal_damage_recovered": 0,
+      "player_melee_rune_absorbed": 0,
+      "mend_requests": 0,
+      "owner_spell_event_counts": {
+        "65535": 116,
+        "23598": 16,
+        "21773": 1,
+        "2767": 16,
+        "42846": 1
+      }
+    },
+    {
+      "case": "pet-equipped-max-seed-2718",
+      "outcome": "boss_death",
+      "elapsed_seconds": 56.8,
+      "effective_damage": 32207,
+      "dps": 567.0,
+      "aa_spent": 2085,
+      "initial_hp": 9364,
+      "final_hp": 8914,
+      "net_mana_used": 1321,
+      "heal_damage_recovered": null,
+      "player_melee_rune_absorbed": null,
+      "mend_requests": 0,
+      "owner_spell_event_counts": {
+        "510": 2,
+        "447": 2
+      }
+    },
+    {
+      "case": "wpm-classic50-zero",
+      "outcome": "timeout",
+      "elapsed_seconds": 180.0,
+      "effective_damage": 22791,
+      "dps": 126.6,
+      "aa_spent": 0,
+      "initial_hp": 7230,
+      "final_hp": 5611,
+      "net_mana_used": 857,
+      "heal_damage_recovered": 10232,
+      "player_melee_rune_absorbed": 0,
+      "mend_requests": 1,
+      "owner_spell_event_counts": {
+        "65535": 727,
+        "15": 4
+      }
+    },
+    {
+      "case": "wpm-classic50-max",
+      "outcome": "npc_death",
+      "elapsed_seconds": 18.2,
+      "effective_damage": 32069,
+      "dps": 1762.0,
+      "aa_spent": 2074,
+      "initial_hp": 9012,
+      "final_hp": 9012,
+      "net_mana_used": 46,
+      "heal_damage_recovered": 268,
+      "player_melee_rune_absorbed": 1243,
+      "mend_requests": 0,
+      "owner_spell_event_counts": {
+        "65535": 187,
+        "21773": 1,
+        "23598": 23,
+        "2767": 21,
+        "42840": 3,
+        "13504": 1
+      }
+    },
+    {
+      "case": "caster65-zero",
+      "outcome": "npc_death",
+      "elapsed_seconds": 79.9,
+      "effective_damage": 32207,
+      "dps": 403.1,
+      "aa_spent": 0,
+      "initial_hp": 7449,
+      "final_hp": 5759,
+      "net_mana_used": 1524,
+      "heal_damage_recovered": 3000,
+      "player_melee_rune_absorbed": 0,
+      "mend_requests": 0,
+      "owner_spell_event_counts": {
+        "732": 7,
+        "9": 1
+      }
+    },
+    {
+      "case": "caster65-max",
+      "outcome": "npc_death",
+      "elapsed_seconds": 46.95,
+      "effective_damage": 32161,
+      "dps": 685.0,
+      "aa_spent": 2163,
+      "initial_hp": 9004,
+      "final_hp": 6723,
+      "net_mana_used": 1022,
+      "heal_damage_recovered": 0,
+      "player_melee_rune_absorbed": 0,
+      "mend_requests": 0,
+      "owner_spell_event_counts": {
+        "732": 6
+      }
+    },
+    {
+      "case": "pet-pop65-bare-max",
+      "outcome": "boss_death",
+      "elapsed_seconds": 62.15,
+      "effective_damage": 32230,
+      "dps": 518.6,
+      "aa_spent": 2085,
+      "initial_hp": 9364,
+      "final_hp": 9136,
+      "net_mana_used": 1390,
+      "heal_damage_recovered": null,
+      "player_melee_rune_absorbed": null,
+      "mend_requests": 0,
+      "owner_spell_event_counts": {
+        "447": 1,
+        "510": 3
+      }
+    },
+    {
+      "case": "pet-pop65-equipped-max",
+      "outcome": "boss_death",
+      "elapsed_seconds": 17.45,
+      "effective_damage": 32046,
+      "dps": 1836.4,
+      "aa_spent": 2085,
+      "initial_hp": 9364,
+      "final_hp": 7641,
+      "net_mana_used": 541,
+      "heal_damage_recovered": null,
+      "player_melee_rune_absorbed": null,
+      "mend_requests": 0,
+      "owner_spell_event_counts": {}
+    }
+  ],
+  "limits": [
+    "Native diagnostic clock/packet adapters; no actual RoF2 render or user gameplay acceptance",
+    "Captured Nagafen55 single-target encounter; no pack, raid or long-duration balance certification",
+    "Class permutations are stat/shield-swap probes; combat uses Warrior-first WPM",
+    "Seed1729 plus two seed2718 repeats do not establish statistical superiority",
+    "Explicit gear and maximum trained skills; max stages spend2074 WPM/2085 pet AA points",
+    "Damage sums depth-zero HP loss capped at zero terminal HP; includes replacement of NPC regeneration",
+    "Healing ledger is HealDamage only, excludes regeneration/Mend; spell IDs may be65535 at native call sites",
+    "Pet runes and healing proved through native effects/state; player ledger totals do not describe pet sustain",
+    "Bare/equipped pet comparisons retain fixed Classic support gems, with separate PoP summon cases",
+    "No production content, characters, runtime, signed-client or wiki changes"
+  ]
+}

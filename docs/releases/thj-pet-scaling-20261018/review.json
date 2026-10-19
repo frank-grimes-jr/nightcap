@@ -1,0 +1,17 @@
+{
+  "status": "author_review_completed_independent_review_pending",
+  "date": "2026-10-18",
+  "scope": ["correctness and regressions", "inventory and resource preservation", "ownership and authorization", "candidate/deployment boundaries", "shared WPM scaling"],
+  "resolved": [
+    "Restore compatible temporary weapon/jewelry hand-ins and reserve conflicting native hands without destroying items.",
+    "Use native caster-aware DoT stacking for clones and limit earned Twinheal to eligible instant heals.",
+    "Preserve the independent Rabid illusion through zoning.",
+    "Guard content storage, Seru identity/original loot, occupied IDs and merchant destinations.",
+    "Prove a late progression failure rolls back rules and earlier stock inserts.",
+    "Include Inventory XML as well as Pet Info XML in the paired client delta.",
+    "Use current captured merchant identities in the staged PoP policy.",
+    "Value-initialize empty equipment and reject invalid jewelry appearance material IDs."
+  ],
+  "approval": "No independent or human release approval is claimed.",
+  "remaining": ["native client lifecycle/combat QA", "independent review", "signed client reconciliation", "PoP world/travel acceptance and activation operator"]
+}

@@ -1,0 +1,45 @@
+TAP version 13
+# Subtest: every exact published variant name finds its single family
+ok 1 - every exact published variant name finds its single family
+  ---
+  duration_ms: 36.205181
+  ...
+# Subtest: catalog pages contain families once, covering all 96 across eight pages
+ok 2 - catalog pages contain families once, covering all 96 across eight pages
+  ---
+  duration_ms: 14.230783
+  ...
+# Subtest: gear slot and level filters combine, without including augments
+ok 3 - gear slot and level filters combine, without including augments
+  ---
+  duration_ms: 2.352278
+  ...
+# Subtest: augments match every compatible socket slot, but not jewelry
+ok 4 - augments match every compatible socket slot, but not jewelry
+  ---
+  duration_ms: 0.372644
+  ...
+# Subtest: zone filter selects its two families; query narrows by words
+ok 5 - zone filter selects its two families; query narrows by words
+  ---
+  duration_ms: 0.509161
+  ...
+# Subtest: required-level sorting is numerical and paging resets safely on narrow results
+ok 6 - required-level sorting is numerical and paging resets safely on narrow results
+  ---
+  duration_ms: 0.705783
+  ...
+# Subtest: unsafe-looking or unmatched search text returns empty results without markup
+ok 7 - unsafe-looking or unmatched search text returns empty results without markup
+  ---
+  duration_ms: 0.446853
+  ...
+1..7
+# tests 7
+# suites 0
+# pass 7
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 84.632108

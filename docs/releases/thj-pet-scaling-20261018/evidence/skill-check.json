@@ -1,0 +1,42 @@
+{
+  "status": "candidate_fingerprints_verified",
+  "candidate_entries": 32,
+  "historical_topic_audit": {
+    "client": {
+      "checked": 148,
+      "drift": [
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\october-17-release\\eq-launcher\\patch-notes.json",
+          "role": "Published signed dungeon announcement2026101701; all106 asset records and thirteen prior summaries retained",
+          "state": "changed: review implementation and evidence"
+        },
+        {
+          "path": "E:\\EQ_Local_Dev\\_worktrees\\october-17-release\\eq-launcher\\patch-notes.json",
+          "role": "Published signed dungeon announcement2026101701; all106 asset records and thirteen prior summaries retained",
+          "state": "changed: review implementation and evidence"
+        }
+      ]
+    },
+    "balance": {
+      "checked": 82,
+      "drift": []
+    },
+    "multiclass": {
+      "checked": 146,
+      "drift": []
+    },
+    "items": {
+      "checked": 143,
+      "drift": []
+    },
+    "operations": {
+      "checked": 66,
+      "drift": []
+    },
+    "wiki": {
+      "checked": 84,
+      "drift": []
+    }
+  },
+  "creator_validator": "recorded separately; requires PyYAML"
+}

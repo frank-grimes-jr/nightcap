@@ -1,0 +1,7 @@
+{
+  "manifest_sha256": "572818cd41fb031b4dd5eeded9948b8730c78e068f95fbb2d714a5abc2a6015c",
+  "old_image_id": "sha256:4b1c7b78964f975baa1323baf6b18fe504cd59988e08d0f502501f22f4d5a56a",
+  "new_image_id": "sha256:9574a32f83d7260d0296e118825321a0b7316a646dde0c1f86bb08384bfbb8cd",
+  "cache_sha256": "0eee903baa5e590e52a2e201592d4417cc3f6f9734a18a53bdfd0bc94e72d225",
+  "content_tables_preserved": 14
+}
