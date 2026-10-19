@@ -1,0 +1,84 @@
+{
+  "timestamp_utc": "2026-10-19T23:04:36.344079+00:00",
+  "candidate_root": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev",
+  "source_sha256": {
+    "server-mods/code/zone/aa.cpp": "2821843d6ad44574e2301b8a9bac24f48bcc8149ec26cbce446ff9beed166ede",
+    "server-mods/code/zone/spells.cpp": "39134dc567f3805723921ca3b8a2c157206b19224725660b749165738c46b6da",
+    "server-mods/code/zone/spell_effects.cpp": "c448fcf66b28719b2ec8ce46ca5ee50ef19f0a92829048b793cc510ca6addc51",
+    "server-mods/code/common/nightcap_thj_behaviors.h": "65bfb4caef01ffd84806825ad081357c8e313ee246f4a158c82d3d7d7a2bdf77",
+    "tools/fixtures/thj-behaviors-20261019.json.gz": "75a48f4d3a83ebac4107c62d4352fe573c218d59c6f194e8da8ab615ffef0c28"
+  },
+  "source_stable_during_run": true,
+  "retired_fixture": [
+    {
+      "ability": 25,
+      "first_rank": 98,
+      "enabled": 1,
+      "earned_count": 16,
+      "total_cost": 128,
+      "charges": 0,
+      "grant_only": 0
+    },
+    {
+      "ability": 252,
+      "first_rank": 738,
+      "enabled": 0,
+      "earned_count": 13,
+      "total_cost": 98,
+      "charges": 0,
+      "grant_only": 0
+    },
+    {
+      "ability": 8300,
+      "first_rank": 10370,
+      "enabled": 1,
+      "earned_count": 4,
+      "total_cost": 19,
+      "charges": 0,
+      "grant_only": 0
+    },
+    {
+      "ability": 3521,
+      "first_rank": 6346,
+      "enabled": 1,
+      "earned_count": 7,
+      "total_cost": 45,
+      "charges": 0,
+      "grant_only": 0
+    },
+    {
+      "ability": 3522,
+      "first_rank": 6349,
+      "enabled": 0,
+      "earned_count": 8,
+      "total_cost": 48,
+      "charges": 0,
+      "grant_only": 0
+    },
+    {
+      "ability": 758,
+      "first_rank": 13667,
+      "enabled": 1,
+      "earned_count": 1,
+      "total_cost": 11,
+      "charges": 0,
+      "grant_only": 0
+    }
+  ],
+  "build_exit": 0,
+  "test_exit": 0,
+  "stdout": "retirement checks=23\nresource checks=62\nPASS total=85\n",
+  "stderr": "",
+  "extracted": [
+    "Client::RetireTHJAbilities complete method",
+    "SpellFinished percent-resource guard",
+    "SpellFinished failed target-delivery branch",
+    "SpellFinished percent-resource debit",
+    "SpellEffect Act of Valor and Mana Burn branches"
+  ],
+  "limitations": [
+    "Persistence implementation is a fixture: proves no publication before acknowledgement, not SQL transaction atomicity.",
+    "Group delivery and timer commit are fixture boundaries; source-order assertion verifies guard/delivery/debit/native timer ordering.",
+    "Does not execute network/client packets, actual Group/Raid dispatch, full zone runtime, or player QA."
+  ]
+}

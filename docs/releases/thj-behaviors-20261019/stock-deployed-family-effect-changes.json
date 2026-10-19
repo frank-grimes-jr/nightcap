@@ -1,0 +1,306 @@
+[
+  {
+    "id": 20627,
+    "name": "Hammer of Holy Vengeance",
+    "fields": {
+      "augslot3type": {
+        "old": "0",
+        "new": 8
+      }
+    }
+  },
+  {
+    "id": 22946,
+    "name": "Kelp Hilted Mace",
+    "fields": {
+      "augslot3type": {
+        "old": "0",
+        "new": 4
+      }
+    }
+  },
+  {
+    "id": 26740,
+    "name": "Shinai of the Ancients",
+    "fields": {
+      "augslot3type": {
+        "old": "0",
+        "new": 8
+      }
+    }
+  },
+  {
+    "id": 27298,
+    "name": "Shield of Strife",
+    "fields": {
+      "augslot3type": {
+        "old": "0",
+        "new": 8
+      }
+    }
+  },
+  {
+    "id": 31232,
+    "name": "Palladius' Axe of Slaughter",
+    "fields": {
+      "augslot3type": {
+        "old": "0",
+        "new": 4
+      }
+    }
+  },
+  {
+    "id": 51912,
+    "name": "Diaku Armor Fragment",
+    "fields": {
+      "worneffect": {
+        "old": "-1",
+        "new": 42847
+      },
+      "worntype": {
+        "old": "0",
+        "new": 2
+      },
+      "wornlevel2": {
+        "old": "0",
+        "new": 1
+      },
+      "wornlevel": {
+        "old": "0",
+        "new": 1
+      },
+      "wornname": {
+        "old": "",
+        "new": "Diaku Combat Blessing"
+      }
+    }
+  },
+  {
+    "id": 220627,
+    "name": "Hammer of Holy Vengeance (Polished)",
+    "fields": {
+      "augslot3type": {
+        "old": "0",
+        "new": 8
+      }
+    }
+  },
+  {
+    "id": 222946,
+    "name": "Kelp Hilted Mace (Polished)",
+    "fields": {
+      "augslot3type": {
+        "old": "0",
+        "new": 4
+      }
+    }
+  },
+  {
+    "id": 226740,
+    "name": "Shinai of the Ancients (Polished)",
+    "fields": {
+      "augslot3type": {
+        "old": "0",
+        "new": 8
+      }
+    }
+  },
+  {
+    "id": 227298,
+    "name": "Shield of Strife (Polished)",
+    "fields": {
+      "augslot3type": {
+        "old": "0",
+        "new": 8
+      }
+    }
+  },
+  {
+    "id": 231232,
+    "name": "Palladius' Axe of Slaughter (Polished)",
+    "fields": {
+      "augslot3type": {
+        "old": "0",
+        "new": 4
+      }
+    }
+  },
+  {
+    "id": 251912,
+    "name": "Diaku Armor Fragment (Polished)",
+    "fields": {
+      "worneffect": {
+        "old": "-1",
+        "new": 42847
+      },
+      "worntype": {
+        "old": "0",
+        "new": 2
+      },
+      "wornlevel2": {
+        "old": "0",
+        "new": 1
+      },
+      "wornlevel": {
+        "old": "0",
+        "new": 1
+      },
+      "wornname": {
+        "old": "",
+        "new": "Diaku Combat Blessing"
+      }
+    }
+  },
+  {
+    "id": 420627,
+    "name": "Hammer of Holy Vengeance (Exalted)",
+    "fields": {
+      "augslot3type": {
+        "old": "0",
+        "new": 8
+      }
+    }
+  },
+  {
+    "id": 422946,
+    "name": "Kelp Hilted Mace (Exalted)",
+    "fields": {
+      "augslot3type": {
+        "old": "0",
+        "new": 4
+      }
+    }
+  },
+  {
+    "id": 426740,
+    "name": "Shinai of the Ancients (Exalted)",
+    "fields": {
+      "augslot3type": {
+        "old": "0",
+        "new": 8
+      }
+    }
+  },
+  {
+    "id": 427298,
+    "name": "Shield of Strife (Exalted)",
+    "fields": {
+      "augslot3type": {
+        "old": "0",
+        "new": 8
+      }
+    }
+  },
+  {
+    "id": 431232,
+    "name": "Palladius' Axe of Slaughter (Exalted)",
+    "fields": {
+      "augslot3type": {
+        "old": "0",
+        "new": 4
+      }
+    }
+  },
+  {
+    "id": 451912,
+    "name": "Diaku Armor Fragment (Exalted)",
+    "fields": {
+      "worneffect": {
+        "old": "-1",
+        "new": 42847
+      },
+      "worntype": {
+        "old": "0",
+        "new": 2
+      },
+      "wornlevel2": {
+        "old": "0",
+        "new": 1
+      },
+      "wornlevel": {
+        "old": "0",
+        "new": 1
+      },
+      "wornname": {
+        "old": "",
+        "new": "Diaku Combat Blessing"
+      }
+    }
+  },
+  {
+    "id": 620627,
+    "name": "Hammer of Holy Vengeance (Ascended)",
+    "fields": {
+      "augslot3type": {
+        "old": "0",
+        "new": 8
+      }
+    }
+  },
+  {
+    "id": 622946,
+    "name": "Kelp Hilted Mace (Ascended)",
+    "fields": {
+      "augslot3type": {
+        "old": "0",
+        "new": 4
+      }
+    }
+  },
+  {
+    "id": 626740,
+    "name": "Shinai of the Ancients (Ascended)",
+    "fields": {
+      "augslot3type": {
+        "old": "0",
+        "new": 8
+      }
+    }
+  },
+  {
+    "id": 627298,
+    "name": "Shield of Strife (Ascended)",
+    "fields": {
+      "augslot3type": {
+        "old": "0",
+        "new": 8
+      }
+    }
+  },
+  {
+    "id": 631232,
+    "name": "Palladius' Axe of Slaughter (Ascended)",
+    "fields": {
+      "augslot3type": {
+        "old": "0",
+        "new": 4
+      }
+    }
+  },
+  {
+    "id": 651912,
+    "name": "Diaku Armor Fragment (Ascended)",
+    "fields": {
+      "worneffect": {
+        "old": "-1",
+        "new": 42847
+      },
+      "worntype": {
+        "old": "0",
+        "new": 2
+      },
+      "wornlevel2": {
+        "old": "0",
+        "new": 1
+      },
+      "wornlevel": {
+        "old": "0",
+        "new": 1
+      },
+      "wornname": {
+        "old": "",
+        "new": "Diaku Combat Blessing"
+      }
+    }
+  }
+]

@@ -1,0 +1,132 @@
+{
+  "source_revision_scope": "Runtime and generators match the recorded revision; current guides and evidence are individually hashed.",
+  "status": "staged_not_installed_or_signed",
+  "path": "E:/EQ_Local_Dev/artifacts/thj-behaviors-20261019/test-bundle-v1",
+  "source_revision": "326a00c13552699b90e1437c5e36df9857e21e3a",
+  "files": {
+    "client-delta/dbstr_us.txt": {
+      "bytes": 6367641,
+      "sha256": "4b0fd1487b4c7f9fa920764e708ed2bb632e78dcf1b3d72eb16d1d25653d0250"
+    },
+    "client-delta/spells_us.txt": {
+      "bytes": 28156924,
+      "sha256": "314b098a5de8a10e7c66e94472aa42b5469b19eac5f91c880b894f04bafb6cdd"
+    },
+    "content/content-forward.sql": {
+      "bytes": 13821264,
+      "sha256": "51c61904813e8d8c1b47e62961cec57c324f431176c08143e2cc58412ca3b07a"
+    },
+    "content/gear-forward.sql.gz": {
+      "bytes": 13997475,
+      "sha256": "44880b6075f9cbfa2774929ba8de62f25e93f9d0f25c665b05c8e3fc22d00339"
+    },
+    "content/rule-forward.sql": {
+      "bytes": 3188,
+      "sha256": "5d61217f8d45e2f006a360573172c42308786036e5547825a3a91115ae7071b1"
+    },
+    "evidence/aa-native-verification.json": {
+      "bytes": 238,
+      "sha256": "fbe868068e861829f63737313a75dedbc04d976a1b977ec76d1cbbb4925a761e"
+    },
+    "evidence/automated-tests.json": {
+      "bytes": 648,
+      "sha256": "5b30e5bcc86ef97ec335a026931ee6c06d45cdb3471394ef87a2453aefe68173"
+    },
+    "evidence/bootstrap-guards.json": {
+      "bytes": 303,
+      "sha256": "87338f4eba14cebb41f1429d4db5fbf9c5dd5d1805e39c1342b9d1d82e2e2831"
+    },
+    "evidence/cache-verification.json": {
+      "bytes": 500,
+      "sha256": "23480779dde3afddc449db98a8dfe167128a4b61c405716447a70b9ec22c0997"
+    },
+    "evidence/client-stage.json": {
+      "bytes": 41786,
+      "sha256": "7a88071ece0248dff717e3910de25d50679857d90627eec946a044f15dd993d5"
+    },
+    "evidence/database-rehearsal.json": {
+      "bytes": 331,
+      "sha256": "17068f109fa3396142638e3e6094e3ec322f1a402b225c5659191d69c460f371"
+    },
+    "evidence/gear-reproducibility.json": {
+      "bytes": 601,
+      "sha256": "cc08503f8d8bf5fd72d899e91a4cdc459dc010f4232903729a64f9bbb625ab4f"
+    },
+    "evidence/migration-tests.json": {
+      "bytes": 152,
+      "sha256": "0030138a8f6f5180e1b395ed2ecc2b8e4fd452f334b9288194a9d1825832aefb"
+    },
+    "evidence/native-build-manifest.json": {
+      "bytes": 325083,
+      "sha256": "b79ba0087a75f096d740b68a5c4ad1ac7edd2e536d660666597b2cb320a1f618"
+    },
+    "evidence/native-source-provenance.json": {
+      "bytes": 3005,
+      "sha256": "160d06cba3b299af3bdda2a1a2059e94817a88b2ff51e38fb623eccb5990933a"
+    },
+    "evidence/native-verification.json": {
+      "bytes": 2721,
+      "sha256": "de9c38cbd1f66118756f788b355dca250c73e81b114c3cbe7786dc4e9bbe27fc"
+    },
+    "evidence/supplemental-tests.json": {
+      "bytes": 129,
+      "sha256": "792fb38db7489f1c25688032ddf297eb0c1231c788c6726c8766a5d0c5464944"
+    },
+    "evidence/wiki-public-verification.json": {
+      "bytes": 355,
+      "sha256": "46b0e7f71fb4a1a23601c19757326dea7253a09c8a7fe93ca6bde2823ad71ef0"
+    },
+    "evidence/wiki-publication.json": {
+      "bytes": 697,
+      "sha256": "db832e2730bcddae13c69e7320a96d98507fcfc1ff102a84ab91a71df633c4a4"
+    },
+    "guides/CHANGELIST.md": {
+      "bytes": 6995,
+      "sha256": "4c823190ad2614ec748af00ac97960e161ef0c155e70c4dfca81c35cc19d6148"
+    },
+    "guides/QA.md": {
+      "bytes": 6362,
+      "sha256": "7bc7b51a5784f518aaa01a8a6f35b15eb021236a43fea32c8cbee129d39e19d7"
+    },
+    "guides/README.md": {
+      "bytes": 5903,
+      "sha256": "01a4ec24fa09d2f82fc4a4e0d81ff69dcb79d0fd593b09edd6b8b4bf92890fd6"
+    },
+    "README.txt": {
+      "bytes": 782,
+      "sha256": "62147d9b5d8695ca6096b0e73e1e0ef83f7d038646fe7ef10357ad5e997b1782"
+    },
+    "recovery/content-rollback.sql": {
+      "bytes": 13799261,
+      "sha256": "39e958d78c39e5c55a23de4318d858986ad2bef6d74abdc2365d30e655784ef8"
+    },
+    "recovery/gear-rollback.sql.gz": {
+      "bytes": 14108668,
+      "sha256": "f27fdbb9b3562c2d6ba8bcef9d0012d52a0add18b6252df10641dd5e57bda5cc"
+    },
+    "recovery/rule-disable.sql": {
+      "bytes": 3436,
+      "sha256": "cb15cc14392eede347d7270c73a71ee4b1a51e548eaafbd21ca352b47e549102"
+    },
+    "recovery/rule-enable.sql": {
+      "bytes": 3432,
+      "sha256": "5185c02bebb5912a4d6d03d19b84d49986d422b2a497fa240fe4f5293b063f2f"
+    },
+    "server/bin/shared_memory": {
+      "bytes": 41786352,
+      "sha256": "6d71c7e72c4a10f9d5eeb753ff29a3d589151ce1c81a32a7f564dec9c9fd967c"
+    },
+    "server/bin/world": {
+      "bytes": 95477104,
+      "sha256": "0b321c9fba510a42381abe5c167d6db94c02cf913dd50a86d6105b68dbd37b95"
+    },
+    "server/bin/zone": {
+      "bytes": 316181936,
+      "sha256": "5983172545de3fc8731e228355561527890c787140616ff95c2a602b37b1525a"
+    },
+    "server-linux.tar.gz": {
+      "bytes": 139692508,
+      "sha256": "c16edff393b2b52d77f5b961c3e219299efd5893469d1853ba10bf3ddb802e0e"
+    }
+  }
+}

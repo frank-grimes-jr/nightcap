@@ -112,6 +112,7 @@ void effect(int spell, int spa, int base, int limit, int maximum = 0) {
 '''
 
 MOB_FIXTURE = r'''
+#define RuleB(group,key) false
 #define LogSpells(...) ((void)0)
 namespace EQ { namespace versions {
 constexpr int maskSoFAndLater = 1;
@@ -431,7 +432,7 @@ class AATemporaryBuffs(unittest.TestCase):
         header = (ROOT / "server-mods/code/common/epic05.h").as_posix()
         cls.exe = compile_native(Path(cls.tmp.name), '#include "' + header + '"\n' +
             '#include "' + (ROOT / 'server-mods/code/common/nightcap_pet_scaling.h').as_posix() + '"\n' +
-            AA_FIXTURE + MOB_FIXTURE + policy_helpers(source) +
+            '#include "' + (ROOT / 'server-mods/code/common/nightcap_thj_behaviors.h').as_posix() + '"\n' + AA_FIXTURE + MOB_FIXTURE + policy_helpers(source) +
             function(source, "int CalcBuffDuration_formula(") +
             function(source, "int32 Mob::GetBuffDurationForTarget(") +
             function(effects_source, "void Mob::BuffProcess()") + CONTROLS)

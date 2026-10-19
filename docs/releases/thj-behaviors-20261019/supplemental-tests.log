@@ -1,0 +1,106 @@
+test_native_stacking_and_haste (test_pet_support_native.PetBuffNative.test_native_stacking_and_haste) ... ok
+test_all_eligible_family_pairs_activate_independently (test_aa_cooldown_identity.AACooldownIdentityTests.test_all_eligible_family_pairs_activate_independently) ... ok
+test_all_eligible_family_pairs_publish_distinct_timer_identity (test_aa_cooldown_identity.AACooldownIdentityTests.test_all_eligible_family_pairs_publish_distinct_timer_identity) ... ok
+test_all_same_family_ranks_share_cooldown_and_exact_expiry (test_aa_cooldown_identity.AACooldownIdentityTests.test_all_same_family_ranks_share_cooldown_and_exact_expiry) ... ok
+test_class_slot_remap_preserves_family_deadlines (test_aa_cooldown_identity.AACooldownIdentityTests.test_class_slot_remap_preserves_family_deadlines) ... ok
+test_death_reset_is_scoped_to_flagged_family (test_aa_cooldown_identity.AACooldownIdentityTests.test_death_reset_is_scoped_to_flagged_family) ... ok
+test_native_successful_completion_pulses_target_catalog_slots (test_aa_cooldown_identity.AACooldownIdentityTests.test_native_successful_completion_pulses_target_catalog_slots) ... ok
+test_purify_body_does_not_lock_rampage (test_aa_cooldown_identity.AACooldownIdentityTests.test_purify_body_does_not_lock_rampage) ... ok
+test_rampage_does_not_lock_purify_body (test_aa_cooldown_identity.AACooldownIdentityTests.test_rampage_does_not_lock_purify_body) ... ok
+test_relog_preserves_both_individual_deadlines (test_aa_cooldown_identity.AACooldownIdentityTests.test_relog_preserves_both_individual_deadlines) ... ok
+test_relog_timer_packets_match_catalog_family_identity (test_aa_cooldown_identity.AACooldownIdentityTests.test_relog_timer_packets_match_catalog_family_identity) ... ok
+test_resend_focus_changes_preserve_stored_remaining_time (test_aa_cooldown_identity.AACooldownIdentityTests.test_resend_focus_changes_preserve_stored_remaining_time) ... ok
+test_reset_all_aa_restores_families_and_preserves_skill (test_aa_cooldown_identity.AACooldownIdentityTests.test_reset_all_aa_restores_families_and_preserves_skill) ... ok
+test_reset_one_family_preserves_other_family (test_aa_cooldown_identity.AACooldownIdentityTests.test_reset_one_family_preserves_other_family) ... ok
+test_reset_uses_requested_rank_even_if_casting_member_is_stale (test_aa_cooldown_identity.AACooldownIdentityTests.test_reset_uses_requested_rank_even_if_casting_member_is_stale) ... ok
+test_unearned_ineligible_or_failed_cast_starts_no_cooldown (test_aa_cooldown_identity.AACooldownIdentityTests.test_unearned_ineligible_or_failed_cast_starts_no_cooldown) ... ok
+test_wire_slots_do_not_move_on_purchase_or_refund (test_aa_cooldown_identity.AACooldownIdentityTests.test_wire_slots_do_not_move_on_purchase_or_refund) ... ok
+test_custom_aa_disc_timers_preserve_positive_duration_and_guards (test_cooldown_duration.CooldownDurationTests.test_custom_aa_disc_timers_preserve_positive_duration_and_guards) ... ok
+test_custom_aa_disc_zero_duration_does_not_revive_expired_timers (test_cooldown_duration.CooldownDurationTests.test_custom_aa_disc_zero_duration_does_not_revive_expired_timers) ... ok
+test_discipline_authorization_active_reuse_and_failed_cast_controls (test_cooldown_duration.CooldownDurationTests.test_discipline_authorization_active_reuse_and_failed_cast_controls) ... ok
+test_discipline_groups_11_and_14_do_not_block_combat_or_linked_spells (test_cooldown_duration.CooldownDurationTests.test_discipline_groups_11_and_14_do_not_block_combat_or_linked_spells) ... ok
+test_discipline_negative_focus_extends_reuse (test_cooldown_duration.CooldownDurationTests.test_discipline_negative_focus_extends_reuse) ... ok
+test_discipline_normal_equal_and_excess_focus (test_cooldown_duration.CooldownDurationTests.test_discipline_normal_equal_and_excess_focus) ... ok
+test_expired_retained_linked_timer_does_not_restart_on_zero_duration (test_cooldown_duration.CooldownDurationTests.test_expired_retained_linked_timer_does_not_restart_on_zero_duration) ... ok
+test_expired_retained_mend_does_not_restart_on_zero_duration (test_cooldown_duration.CooldownDurationTests.test_expired_retained_mend_does_not_restart_on_zero_duration) ... ok
+test_invalid_discipline_groups_cannot_cast_read_or_reset_timers (test_cooldown_duration.CooldownDurationTests.test_invalid_discipline_groups_cannot_cast_read_or_reset_timers) ... ok
+test_item_equal_reduction_is_ready (test_cooldown_duration.CooldownDurationTests.test_item_equal_reduction_is_ready) ... ok
+test_item_excess_reduction_is_ready (test_cooldown_duration.CooldownDurationTests.test_item_excess_reduction_is_ready) ... ok
+test_item_id_namespace_bounds_reject_writes_resets_and_clicks_above_client_limit (test_cooldown_duration.CooldownDurationTests.test_item_id_namespace_bounds_reject_writes_resets_and_clicks_above_client_limit) ... ok
+test_item_normal_and_negative_focus_preserve_duration (test_cooldown_duration.CooldownDurationTests.test_item_normal_and_negative_focus_preserve_duration) ... ok
+test_linked_bard_and_ordinary_normal_focus (test_cooldown_duration.CooldownDurationTests.test_linked_bard_and_ordinary_normal_focus) ... ok
+test_linked_completion_ignores_non_gem_casts (test_cooldown_duration.CooldownDurationTests.test_linked_completion_ignores_non_gem_casts) ... ok
+test_linked_equal_and_excess_adjustment_is_ready (test_cooldown_duration.CooldownDurationTests.test_linked_equal_and_excess_adjustment_is_ready) ... ok
+test_linked_negative_focus_extends_duration_without_wrapping (test_cooldown_duration.CooldownDurationTests.test_linked_negative_focus_extends_duration_without_wrapping) ... ok
+test_mend_excess_reduction_is_ready (test_cooldown_duration.CooldownDurationTests.test_mend_excess_reduction_is_ready) ... ok
+test_mend_normal_equal_negative_and_unavailable_controls (test_cooldown_duration.CooldownDurationTests.test_mend_normal_equal_negative_and_unavailable_controls) ... ok
+test_other_skill_prologs_do_not_revive_expired_timers (test_cooldown_duration.CooldownDurationTests.test_other_skill_prologs_do_not_revive_expired_timers) ... ok
+test_other_skill_prologs_preserve_normal_duration_and_guards (test_cooldown_duration.CooldownDurationTests.test_other_skill_prologs_preserve_normal_duration_and_guards) ... ok
+test_reset_all_twenty_discipline_groups_preserves_other_namespaces (test_cooldown_duration.CooldownDurationTests.test_reset_all_twenty_discipline_groups_preserves_other_namespaces) ... ok
+test_saved_item_refresh_publishes_longer_native_deadline_without_rewriting_sources (test_cooldown_duration.CooldownDurationTests.test_saved_item_refresh_publishes_longer_native_deadline_without_rewriting_sources) ... ok
+test_set_get_and_delete_item_cooldown_use_same_isolated_timer (test_cooldown_duration.CooldownDurationTests.test_set_get_and_delete_item_cooldown_use_same_isolated_timer) ... ok
+test_unlinked_discipline_minus_one_is_independent_from_disarm_and_other_disciplines (test_cooldown_duration.CooldownDurationTests.test_unlinked_discipline_minus_one_is_independent_from_disarm_and_other_disciplines) ... ok
+test_unlinked_item_64350_does_not_collide_with_legacy_aa_key_1186 (test_cooldown_duration.CooldownDurationTests.test_unlinked_item_64350_does_not_collide_with_legacy_aa_key_1186) ... ok
+test_unlinked_item_ids_separated_by_65536_retain_independent_deadlines_and_resets (test_cooldown_duration.CooldownDurationTests.test_unlinked_item_ids_separated_by_65536_retain_independent_deadlines_and_resets) ... ok
+
+----------------------------------------------------------------------
+Ran 44 tests in 63.458s
+
+OK
+46872 ordered cases across 217 families
+all-pairs: PASS
+46872 ordered cases across 217 families
+all-catalog: PASS
+2417 ordered same-family rank cases
+same-family: PASS
+class-remap: PASS
+death-reset: PASS
+completion-pulses: PASS
+purify-rampage: PASS
+rampage-purify: PASS
+relog: PASS
+resend: PASS
+focused-resend: PASS
+reset-all: PASS
+reset-one: PASS
+reset-argument: PASS
+guards: PASS
+purchase-stability: PASS
+PASS: custom-controls
+PASS: custom-zero-bard
+PASS: custom-zero-ordinary
+PASS: discipline-guards
+PASS: discipline-combat-isolation
+PASS: discipline-linked-isolation
+PASS: discipline-negative
+PASS: discipline-normal
+PASS: retained-linked-equal-bard
+PASS: retained-linked-excess-bard
+PASS: retained-linked-equal-ordinary
+PASS: retained-linked-excess-ordinary
+PASS: retained-mend-equal
+PASS: retained-mend-excess
+PASS: discipline-invalid-twenty
+PASS: item-equal
+PASS: item-excess
+PASS: item-namespace-bounds
+PASS: item-normal
+PASS: linked-normal
+PASS: linked-non-gem
+PASS: linked-excess-bard
+PASS: linked-excess-ordinary
+PASS: linked-negative-bard
+PASS: linked-negative-ordinary
+PASS: mend-excess
+PASS: mend-normal
+PASS: skill-zero-disarm
+PASS: skill-zero-feign
+PASS: skill-zero-hide
+PASS: skill-zero-sense
+PASS: skill-normal
+PASS: discipline-reset-all-twenty
+PASS: item-saved-native-deadline
+PASS: item-cooldown-api
+PASS: unlinked-discipline-isolation
+PASS: item-legacy-aa
+PASS: item-modulo-pair

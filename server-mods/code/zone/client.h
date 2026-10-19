@@ -1184,6 +1184,7 @@ public:
 	void ResetAA();
 	void ResetLeadershipAA();
 	bool RefundAA();
+	bool RetireTHJAbilities();
 	void SendClearLeadershipAA();
 	void SendClearPlayerAA();
 	inline uint32 GetAAXP() const { return m_pp.expAA; }

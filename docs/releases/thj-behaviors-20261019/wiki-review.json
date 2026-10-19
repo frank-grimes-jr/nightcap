@@ -1,0 +1,95 @@
+{
+  "status": "published_candidate_guidance_gameplay_not_deployed",
+  "reviewed_articles": [
+    {
+      "article": "about",
+      "decision": "reviewed; no affected mechanics or instructions"
+    },
+    {
+      "article": "advanced-loot",
+      "decision": "reviewed; no affected mechanics or instructions"
+    },
+    {
+      "article": "ascension",
+      "decision": "candidate guidance updated"
+    },
+    {
+      "article": "combat",
+      "decision": "candidate guidance updated"
+    },
+    {
+      "article": "commands",
+      "decision": "reviewed; no affected mechanics or instructions"
+    },
+    {
+      "article": "dungeon-modes",
+      "decision": "reviewed; no affected mechanics or instructions"
+    },
+    {
+      "article": "equipment",
+      "decision": "candidate guidance updated"
+    },
+    {
+      "article": "features",
+      "decision": "candidate guidance updated"
+    },
+    {
+      "article": "getting-started",
+      "decision": "candidate guidance updated"
+    },
+    {
+      "article": "index",
+      "decision": "candidate guidance updated"
+    },
+    {
+      "article": "item-upgrades",
+      "decision": "candidate guidance updated"
+    },
+    {
+      "article": "launcher",
+      "decision": "reviewed; no affected mechanics or instructions"
+    },
+    {
+      "article": "multiclass",
+      "decision": "candidate guidance updated"
+    },
+    {
+      "article": "pets",
+      "decision": "candidate guidance updated"
+    },
+    {
+      "article": "recent-changes",
+      "decision": "candidate guidance updated"
+    },
+    {
+      "article": "tradeskills",
+      "decision": "reviewed; no affected mechanics or instructions"
+    },
+    {
+      "article": "travel",
+      "decision": "reviewed; no affected mechanics or instructions"
+    },
+    {
+      "article": "tunnel",
+      "decision": "reviewed; no affected mechanics or instructions"
+    },
+    {
+      "article": "unreleased",
+      "decision": "candidate guidance updated"
+    },
+    {
+      "article": "waypoints",
+      "decision": "reviewed; no affected mechanics or instructions"
+    },
+    {
+      "article": "zone-hunt",
+      "decision": "reviewed; no affected mechanics or instructions"
+    }
+  ],
+  "generated_routes": 432,
+  "generated_items": 384,
+  "catalog": "Custom Hunt catalog is disjoint from ordinary stock gear and stays unchanged",
+  "commands": "No command changes",
+  "live_release_retained": "20261019-all-class-aa-v1",
+  "public_release": "20261019-thj-behaviors-candidate-v1"
+}

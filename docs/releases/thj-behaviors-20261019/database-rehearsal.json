@@ -1,0 +1,13 @@
+{
+  "status": "passed",
+  "database": "nightcap_thj_behaviors_20261019",
+  "content_groups": 733,
+  "item_rows_verified": 308932,
+  "changed_items": 143332,
+  "full_row_columns": 285,
+  "retry": true,
+  "rollback": true,
+  "late_preimage_fault_atomic": true,
+  "bootstrap_equivalent": true,
+  "live_modified": false
+}

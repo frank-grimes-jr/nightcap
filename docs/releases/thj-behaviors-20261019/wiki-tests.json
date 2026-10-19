@@ -1,0 +1,14 @@
+{
+  "windows": {
+    "tests": 30,
+    "passed": 21,
+    "skipped": 9
+  },
+  "linux": {
+    "tests": 30,
+    "passed": 30
+  },
+  "search_scenarios": 6,
+  "equipment_checks": 7,
+  "layout_changed": false
+}
