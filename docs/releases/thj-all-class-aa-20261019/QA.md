@@ -1,7 +1,8 @@
-# Exact in-game AA QA — all-class candidate
+# Exact in-game AA QA — all-class live test
 
-Not run by the owner yet. Perform only after approved activation of the candidate
-on a test server. Test data and GM point grants belong on spare test characters,
+Not run by the owner yet. Main and live-server activation were explicitly
+authorized and completed on October19. Reconnect through the normal launcher.
+Test data and GM point grants belong on spare test characters,
 not ordinary player characters. Record actual spent points and ranks, not a
 nominal unlimited-AA budget. Encounter balance is the next task.
 

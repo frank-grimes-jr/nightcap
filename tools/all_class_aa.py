@@ -177,8 +177,8 @@ def changes(old_rows,rows):
 def report(old_rows,rows,ledger):
     delta=changes(old_rows,rows)
     added=sum(d['kind']=='Added' for d in delta)
-    output=['# All-class AA changes — October19 candidate','',
-        '**Prepared for testing; not deployed.** Classic remains level50. Every allowed rank is available from level1 with earned points, held classes and prerequisites.', '',
+    output=['# All-class AA changes — October19 live testing','',
+        '**Deployed October19 for live testing; owner gameplay and balance acceptance pending.** Classic remains level50. Every allowed rank is available from level1 with earned points, held classes and prerequisites.', '',
         f'{len(old_rows)} → {len(rows)} available ranks; {len(set(r["ability_id"] for r in old_rows))} → {len(set(r["ability_id"] for r in rows))} AA lines. **{added} added lines, {len(delta)-added} expanded lines, no removals.**', '',
         '“Added” means newly available in Nightcap, not a newly invented ability. Rank counts are available ranks, not free grants. Native prices and effects remain. All shared lines are listed for each eligible class so each class list is complete.', '',
         '**Class access correction:** Druid receives Healing Boon (six ranks); Cleric, Paladin and Shaman retain it. Current pet/WPM ceilings, starter free-rank limits and all previously legal ranks remain.', '',

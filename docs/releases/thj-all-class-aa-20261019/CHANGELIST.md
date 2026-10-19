@@ -1,6 +1,6 @@
-# All-class AA changes — October19 candidate
+# All-class AA changes — October19 live testing
 
-**Prepared for testing; not deployed.** Classic remains level50. Every allowed rank is available from level1 with earned points, held classes and prerequisites.
+**Deployed October19 for live testing; owner gameplay and balance acceptance pending.** Classic remains level50. Every allowed rank is available from level1 with earned points, held classes and prerequisites.
 
 1160 → 1836 available ranks; 408 → 483 AA lines. **75 added lines, 111 expanded lines, no removals.**
 
