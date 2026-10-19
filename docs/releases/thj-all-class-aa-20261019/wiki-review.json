@@ -1,0 +1,139 @@
+{
+  "source_base": "16bfe18",
+  "status": "candidate edits unpublished",
+  "maintained_guides": [
+    {
+      "article": "about.json",
+      "decision": "Reviewed: no behavior, command, item, travel, economy or acquisition change to this guide.",
+      "before_sha256": "d30e64f41dd4395f4d27163407a134527fca9bf9892dabd816774bd0ebcd1da0",
+      "after_sha256": "d30e64f41dd4395f4d27163407a134527fca9bf9892dabd816774bd0ebcd1da0"
+    },
+    {
+      "article": "advanced-loot.json",
+      "decision": "Reviewed: no behavior, command, item, travel, economy or acquisition change to this guide.",
+      "before_sha256": "0f0870dd8c5e412c0a673a7ff551a952965397e5b2ce0dd6bb67ac1336c0e506",
+      "after_sha256": "0f0870dd8c5e412c0a673a7ff551a952965397e5b2ce0dd6bb67ac1336c0e506"
+    },
+    {
+      "article": "ascension.json",
+      "decision": "Reviewed: no behavior, command, item, travel, economy or acquisition change to this guide.",
+      "before_sha256": "63a95cfaac55cdafad7aed7a731406b01dfdabbb6053e4364371cd283f19d036",
+      "after_sha256": "63a95cfaac55cdafad7aed7a731406b01dfdabbb6053e4364371cd283f19d036"
+    },
+    {
+      "article": "combat.json",
+      "decision": "Added explicitly unreleased AA notice; existing live/client-repair guidance retained.",
+      "before_sha256": "230b3f8c3230ad200ddbc13f1d493ab46c55744abd60ec4d16f810369862b6d9",
+      "after_sha256": "a8f542fd8b567d31ad06c23dd8a8c788850b96cbae3bc568ec4f46f23ffcf848"
+    },
+    {
+      "article": "commands.json",
+      "decision": "Reviewed: no behavior, command, item, travel, economy or acquisition change to this guide.",
+      "before_sha256": "b23435918515e34f6db39189f0d072847b19599dff37c3739daf724839c66bd3",
+      "after_sha256": "b23435918515e34f6db39189f0d072847b19599dff37c3739daf724839c66bd3"
+    },
+    {
+      "article": "dungeon-modes.json",
+      "decision": "Reviewed: no behavior, command, item, travel, economy or acquisition change to this guide.",
+      "before_sha256": "4462b643166348d3a14440504d5dc70b26d0d5314edb10b3a6d6b9860681aa3e",
+      "after_sha256": "4462b643166348d3a14440504d5dc70b26d0d5314edb10b3a6d6b9860681aa3e"
+    },
+    {
+      "article": "equipment.json",
+      "decision": "Reviewed: no behavior, command, item, travel, economy or acquisition change to this guide.",
+      "before_sha256": "628c7e96507a1067b0ec9d47ad9497e87e23999ba82b0cdb7545d93a114567d5",
+      "after_sha256": "628c7e96507a1067b0ec9d47ad9497e87e23999ba82b0cdb7545d93a114567d5"
+    },
+    {
+      "article": "features.json",
+      "decision": "Added explicitly unreleased AA notice; existing live/client-repair guidance retained.",
+      "before_sha256": "a3b9a90ec1f0a464a73d5520271fbb8e6a82454202e8e6209765d536c21df055",
+      "after_sha256": "3bdc0b01324b19c7059bfdb9d189397148e62d2f69df1f9e62cd0c4a348b5ff3"
+    },
+    {
+      "article": "getting-started.json",
+      "decision": "Reviewed: no behavior, command, item, travel, economy or acquisition change to this guide.",
+      "before_sha256": "d0345b28e91ec8c25d6cfd8a08675b345b0d87ddef23974eaa3284317c06b518",
+      "after_sha256": "d0345b28e91ec8c25d6cfd8a08675b345b0d87ddef23974eaa3284317c06b518"
+    },
+    {
+      "article": "index.json",
+      "decision": "Added explicitly unreleased AA notice; existing live/client-repair guidance retained.",
+      "before_sha256": "1940d9be21e2ad2b66aedebe514ef0109563648eae7d8133b6d0d705ad374aa6",
+      "after_sha256": "0a08ba087b3c433d2b2fd67a8c145e723f807b6f74ab45c9dc7b969047e13260"
+    },
+    {
+      "article": "item-upgrades.json",
+      "decision": "Reviewed: no behavior, command, item, travel, economy or acquisition change to this guide.",
+      "before_sha256": "e4859e9c11acb798bcf50c8a0c1e00c7408d21934ceee7cf878174036429a3ff",
+      "after_sha256": "e4859e9c11acb798bcf50c8a0c1e00c7408d21934ceee7cf878174036429a3ff"
+    },
+    {
+      "article": "launcher.json",
+      "decision": "Reviewed: no behavior, command, item, travel, economy or acquisition change to this guide.",
+      "before_sha256": "6301acba27419d24ca4a58efd13402338128951079a0b97cd7ad4b58cbd09851",
+      "after_sha256": "6301acba27419d24ca4a58efd13402338128951079a0b97cd7ad4b58cbd09851"
+    },
+    {
+      "article": "multiclass.json",
+      "decision": "Added explicitly unreleased AA notice; existing live/client-repair guidance retained.",
+      "before_sha256": "f2718804b6fc064d691e91201e1390a02dc2cef729159d02c88d393ce7b37f07",
+      "after_sha256": "c45c31542ce6cc2084c5829b84b9dd98d6c44dd2844d84e0c0b45370af4ca1e5"
+    },
+    {
+      "article": "pets.json",
+      "decision": "Reviewed: no behavior, command, item, travel, economy or acquisition change to this guide.",
+      "before_sha256": "1e51604adaa09f62c429d51af24cca39ce241699436b60d24cfd7e5fb194fa29",
+      "after_sha256": "1e51604adaa09f62c429d51af24cca39ce241699436b60d24cfd7e5fb194fa29"
+    },
+    {
+      "article": "recent-changes.json",
+      "decision": "Added explicitly unreleased AA notice; existing live/client-repair guidance retained.",
+      "before_sha256": "c751ae988ef332a45f0cef94d94a293298f24e737ee085286013f500cfde8e35",
+      "after_sha256": "212e81fc5f9efa9bb0f8b6c5f870b36653a2182872138c5966344c08e3711b57"
+    },
+    {
+      "article": "tradeskills.json",
+      "decision": "Reviewed: no behavior, command, item, travel, economy or acquisition change to this guide.",
+      "before_sha256": "d76ffea75fea16a2a353a5cab1b5e2b783a244908fcfa0903184cd8947a4de7b",
+      "after_sha256": "d76ffea75fea16a2a353a5cab1b5e2b783a244908fcfa0903184cd8947a4de7b"
+    },
+    {
+      "article": "travel.json",
+      "decision": "Reviewed: no behavior, command, item, travel, economy or acquisition change to this guide.",
+      "before_sha256": "ebd1b57137152c4662b0e955fcba23094c1b710754249d7b048bf02131752b0d",
+      "after_sha256": "ebd1b57137152c4662b0e955fcba23094c1b710754249d7b048bf02131752b0d"
+    },
+    {
+      "article": "tunnel.json",
+      "decision": "Reviewed: no behavior, command, item, travel, economy or acquisition change to this guide.",
+      "before_sha256": "22b9d44a9b8cd4f4ca90ef1ad5f34cbc34533517a8a212612a1e2556f87e0e0b",
+      "after_sha256": "22b9d44a9b8cd4f4ca90ef1ad5f34cbc34533517a8a212612a1e2556f87e0e0b"
+    },
+    {
+      "article": "unreleased.json",
+      "decision": "Added explicitly unreleased AA notice; existing live/client-repair guidance retained.",
+      "before_sha256": "0071e0699fddfb5698d739b532e9d64d9d876f1392873711918b249d2f28bd97",
+      "after_sha256": "eec0cd757d1a626c28b1e763c8c0f33294402f161c970103cc0237b258b95c9a"
+    },
+    {
+      "article": "waypoints.json",
+      "decision": "Reviewed: no behavior, command, item, travel, economy or acquisition change to this guide.",
+      "before_sha256": "9ef8b93fa52d5b83c479bbb3c877fab4f9373c0f26c84c43908edf3d7e5666bc",
+      "after_sha256": "9ef8b93fa52d5b83c479bbb3c877fab4f9373c0f26c84c43908edf3d7e5666bc"
+    },
+    {
+      "article": "zone-hunt.json",
+      "decision": "Reviewed: no behavior, command, item, travel, economy or acquisition change to this guide.",
+      "before_sha256": "b9752f9f66f707e8593020595d8495dc8bc6af22613dc402c9ae727ca70d2f77",
+      "after_sha256": "b9752f9f66f707e8593020595d8495dc8bc6af22613dc402c9ae727ca70d2f77"
+    }
+  ],
+  "generated_routes": {
+    "count": 432,
+    "decision": "No item/NPC/zone/catalog mutation; every generated reward value and route remains unchanged.",
+    "catalog_sha256": "22701edeaf267067dfbe7225398b4944d6a69b080480ac06f0d153ca92eae0ae"
+  },
+  "publication": "not authorized by this task; retained main client repair notices and existing live release labels",
+  "ledger": "Existing global publication ledger preserved; scoped drift report records candidate changes."
+}

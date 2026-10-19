@@ -1,5 +1,18 @@
 # CHANGES
 
+## 2026-10-19 - All-class AA catalog candidate
+
+Review566 archived THJ records against the deployed AA catalog. Add75 lines and
+expand111 across all16 classes, yielding1,836 ranks/483 families. Add Druid access
+to Healing Boon with a guarded content-only migration. Preserve existing earned
+ranks, costs, prerequisites, timer identities and reviewed pet/WPM ceilings.
+No free starter-chain expansion, execute unlock or global era change. Explicit
+THJ effect/cooldown/identity differences remain documented rather than guessed.
+Native/SQL checks and an independent review support the candidate; owner in-game
+QA and main/server promotion remain pending. This is not a deployment. Full list,
+all566 dispositions, QA and rollback: docs/releases/thj-all-class-aa-20261019/.
+Whole-wiki review updates six guides with unreleased notices; publication pending.
+
 ## 2026-10-19 - Client contract mismatch repair prepared
 
 Game 2026101802 paired proxy 0.11.0 with the retained 0.10.0 catalog, blocking
