@@ -1,0 +1,15 @@
+{
+  "date": "2026-10-19",
+  "owner_reply": "Confirmed.",
+  "context": "Reply to the request to close EQ and the launcher, reopen the normal Nightcap shortcut, and press Play after signed game 2026101901 was published.",
+  "confirmed_scope": "Normal launcher Play succeeds on the owner's PC; the reported runtime health contract mismatch no longer blocks Play there.",
+  "not_confirmed": [
+    "Exact update label and patch note observed on screen",
+    "Login and server selection",
+    "Palwar character entry in East Commonlands",
+    "Inventory and UI settings retention",
+    "Repeat launch after closing",
+    "Another affected player's PC"
+  ],
+  "wiki_impact": "Reviewed all 21 maintained articles and 432 generated routes against this scoped player result. Published launch-repair instructions and pending native gameplay notice remain accurate. No new public content, catalog value, command, mechanic or publication is required."
+}

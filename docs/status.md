@@ -13,7 +13,7 @@ main16bfe18 and published client-repair follow-up07b002b, preserving its verifie
 [owner QA](releases/thj-all-class-aa-20261019/QA.md). Main/server activation and
 wiki publication require their next release approval; no live change is claimed.
 
-## Client Play incident — October 19; repair published, native QA pending
+## Client Play incident — October 19; repair published, Play confirmed
 
 Owner reports runtime health contract mismatch on this PC and others. Signed
 game2026101802 contains proxy0.11.0 but a0.10.0 catalog; delivery hashes alone
@@ -26,7 +26,10 @@ Owner-requested main promotion completed via PR241 at16bfe18. The subsequent
 explicitly authorized publication verifies all138 HTTPS assets with shipped trust
 and matching DLL/catalog. Wiki20261019-client-contract-v1 verifies all465 files;
 all five services, private downloads and config remain unchanged. Reopen the
-normal launcher and press Play for the repair; native Play acceptance remains open.
+normal launcher and press Play for the repair. In response to that check the
+owner replied “Confirmed.” on October19, resolving the reported Play blocker
+on their PC. Character/inventory/settings, repeat launch and another player's
+result remain open; see the scoped `owner-confirmation.json`.
 
 ## Combined THJ item/spell and pet/WPM — deployed October 18, live QA open
 
