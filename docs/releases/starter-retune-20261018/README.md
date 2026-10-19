@@ -1,5 +1,11 @@
 # Starter bands — revised October18 candidate
 
+**Current status:** This dated component candidate was integrated into the owner-authorized
+[combined THJ release](../thj-parity-20261018/deployment/README.md), deployed October18
+with signed client2026101802. Its separate level65/PoP profile remains staged.
+Use the combined evidence and QA; older component-only measurements are historical.
+
+
 **Current owner direction:** allow reductions to ordinary Normal starter gear.
 The earlier preserve-Normal rule and35-AC entry-dungeon proposal are superseded.
 Bronze must remain starter gear at every quality; dungeon/endgame rewards must

@@ -1,0 +1,7 @@
+{
+  "path": "/opt/nightcap/releases/thj-parity-20261018/private-backup/peq-before.sql.gz",
+  "sha256": "a908fb8833340d6ff51c7f0f1e2ccfd1da02abcbd4c742a6f1631f3e260db919",
+  "compressed_bytes": 64405100,
+  "uncompressed_bytes": 460411572,
+  "gzip_integrity": "passed"
+}

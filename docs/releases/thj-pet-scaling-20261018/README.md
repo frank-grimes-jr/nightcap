@@ -1,5 +1,11 @@
 # THJ pet and shared scaling candidate — October 18, 2026
 
+**Current status:** This dated component candidate was integrated into the owner-authorized
+[combined THJ release](../thj-parity-20261018/deployment/README.md), deployed October18
+with signed client2026101802. Its separate level65/PoP profile remains staged.
+Use the combined evidence and QA; older component-only measurements are historical.
+
+
 Status: built candidate; not deployed or accepted in game. See
 [Implementation and handoff](IMPLEMENTATION.md) for completed behavior, exact
 evidence, deliberate limits and remaining release gates.

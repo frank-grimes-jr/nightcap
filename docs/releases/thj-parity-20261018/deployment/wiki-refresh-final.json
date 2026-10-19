@@ -1,0 +1,5 @@
+{
+  "exit_code": 1,
+  "output": "{\n  \"result\": \"REVIEW REQUIRED\",\n  \"reviewed\": \"2026-10-18\",\n  \"source_ref\": \"HEAD\",\n  \"changed_sources\": [\n    \"docs/releases/thj-parity-20261018/deployment/skill-maintenance.json\",\n    \"docs/releases/thj-parity-20261018/deployment/skill-update.patch\",\n    \"docs/releases/thj-parity-20261018/deployment/skill-validation.json\",\n    \"docs/releases/thj-parity-20261018/deployment/wiki-publication.json\"\n  ],\n  \"note\": \"Also inspect current deployment/owner evidence and changes outside Git. No automatic approval or publication.\"\n}\n",
+  "assessment": "Any remaining changes are the final private source-ledger/skill-maintenance receipts and normalized receipt whitespace. No additional public content, catalog, command or release-label effect."
+}

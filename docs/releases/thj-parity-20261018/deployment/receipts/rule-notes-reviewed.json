@@ -1,0 +1,46 @@
+{
+  "original_manifest_sha256": "584aeb30efc27ec125f33ae76a15f4fea79781c1b45ecd83a93f715339ca8f5d",
+  "repair_manifest_sha256": "20714807fd6616ccf85ac837c4832a004e2455a1929f720517ac86b8d035f0cc",
+  "changes": {
+    "Combat:NightcapHeroicMeleeScaling": [
+      "Reviewed WPM heroic-strength weapon-hit curve; requires paired world and zone.",
+      "Enable Nightcap diminishing heroic STR percentage scaling for player weapon hits; pair with reviewed WPM content"
+    ],
+    "Spells:NightcapHeroicSpellScaling": [
+      "Client direct values gain 0.1 percent per heroic INT/WIS; periodic ticks excluded",
+      "Player heroic INT/WIS add 0.1 percent per point to final direct damage/healing; excludes DoTs and HoTs"
+    ],
+    "Spells:NightcapTHJDamageScaling": [
+      "THJ historical additive direct SD and half-SD ticks; critical ordering is Nightcap calibration",
+      "Player/permanent-pet item SD adds to direct damage; half SD per DoT tick before native critical ratio. Healing retains its separate legacy policy"
+    ]
+  },
+  "holds": {
+    "held-1792374460434356082.json": "5a9fb9bf2460d2fe2a4aad86d2435194de987f165250a1a61e782bb32d727cdc"
+  },
+  "first_startup_market": {
+    "before": [
+      "1",
+      "1",
+      "83",
+      "0",
+      "4",
+      "2.500000",
+      "2026-10-18 15:30:51"
+    ],
+    "after": [
+      "1",
+      "1",
+      "84",
+      "0",
+      "4",
+      "2.500000",
+      "2026-10-19 01:46:29"
+    ],
+    "offers": 42,
+    "capacity": 44
+  },
+  "production_sql_written": false,
+  "clone_recovery_checks": 10,
+  "player_preserved": true
+}
