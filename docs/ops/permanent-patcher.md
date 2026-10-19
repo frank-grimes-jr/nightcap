@@ -10,8 +10,10 @@ runtime health. Static string/PE agreement detects mixed builds; it is not trust
 or proof of native readiness. A catalog change is required even when only the
 proxy version changed and all native guard sites stayed the same.
 
-Prepared catalog-only2026101901 preserves137 other assets/URLs and desktop0.6.0.
-Publication needs owner approval; do not manually edit installed signed catalogs,
+Owner-authorized published catalog-only2026101901 preserves137 other assets/URLs
+and desktop0.6.0. All138 public hashes, shipped-key signature and DLL/catalog
+agreement verify. Services were preserved; native Play acceptance remains open.
+Future publication still needs approval; do not manually edit installed signed catalogs,
 reset checkpoints or replace the DLL with older code. [Incident, recovery and QA](../releases/client-contract-20261019/README.md).
 
 The owner approved this flow on September 20, 2026. [ADR 0043](../adr/0043-permanent-nightcap-patcher.md) defines the trust and recovery boundaries.

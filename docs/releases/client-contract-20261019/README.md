@@ -1,12 +1,14 @@
 # Client runtime contract repair — October 19, 2026
 
-Status: **signed and verified candidate; publication and new native Play QA pending**.
+Status: **published and independently verified over HTTPS; new native Play QA pending**.
 Source: `feature/client-contract-repair`, based on current main `73358d0`.
 The owner reports the same Play failure on this PC and other players' PCs.
 
 On October 19 the owner requested **“push to main”**, authorizing source promotion
 through feature → dev → test → main before the remaining native Play QA. This
-does not record gameplay acceptance or signed-client/public-wiki publication.
+did not record gameplay acceptance or publication. The owner then explicitly
+requested **“Publish it...”**. The guarded publication completed and verification
+passed on October 19; main source is PR241/`16bfe18`.
 
 ## Cause and exact repair
 
@@ -25,12 +27,16 @@ The local 2026-10-19 04:53 EDT health report is `ready`, with all 17 required
 features applied (mask 131071). The launcher correctly rejects its contract.
 `bootstrap helper exit: exit status 3` follows that rejection.
 
-Prepared signed game **2026101901** changes only the 9,542-byte catalog, using
+Published signed game **2026101901** changes only the 9,542-byte catalog, using
 the reviewed source bytes that match the DLL. All 137 other file descriptors,
 including URLs, remain exact. Desktop 0.6.0, starter, server, database, client
 settings, patch history and retirement policy remain intact. The candidate lives
 at `E:/EQ_Local_Dev/artifacts/client-contract-20261019/`; `verification.json`
-records its exact hash and validation scope. No game-directory writes occurred.
+records its original candidate hash and validation scope. `published.json` records
+the actual publication and identical before/after five-service fingerprints.
+`hosted-verification.json` verifies the shipped-key signature, all138 public files
+(279,011,779 bytes), and actual hosted DLL/catalog agreement. No game-directory
+writes or service restarts occurred. Native player acceptance remains open.
 
 ## Verification and prevention
 
@@ -60,7 +66,8 @@ hardcoding October 17's counter and entry count; future-release rejection remain
 
 ## Publication and recovery
 
-Owner approval is required before changing the public channel. Upload only the
+Owner approval was received for this release; later publications still require
+their own authorization. To repeat the reviewed procedure, upload only the
 candidate channel/catalog, retained `previous-channel.json`, and reviewed
 `publish.py` into a new private release stage. Under the deployment lock, the
 publisher requires the pinned old/new channel, healthy unchanged five-service
@@ -85,7 +92,12 @@ resume only when the old/new channel and all retained assets still match.
 4. Repeat the normal update/Play on another previously affected player's PC.
    No fresh install, access-code reset or manual DLL copying should be necessary.
 
-Wiki: Launcher, home, In development and Recent changes carry explicitly pending
-repair notices. All 21 guides and 432 generated routes were reviewed for impact;
+Wiki20261019-client-contract-v1 is published and all465 public hashes/security
+headers plus five private-route denials verify. Launcher, home and Recent changes
+carry the published repair notice; the completed candidate notice is removed
+from In development. Only four public files changed, including search-index.json.
+The existing guarded updater rehearsed rollback and preserved config, private
+downloads and all five service identities. All21 guides and432 generated routes
+were reviewed for impact;
 gameplay Features, commands, item values, zones and mechanics remain unchanged.
-Local documentation is not a public wiki release. See `wiki-review.json`.
+See `wiki-review.json`, `wiki-publication.json` and `wiki-public-verification.json`.
