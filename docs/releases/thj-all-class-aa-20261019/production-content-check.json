@@ -1,0 +1,26 @@
+{
+  "captured_utc": "2026-10-19T09:34:38.292123+00:00",
+  "scope": "production read-only AA content, no player/account fields",
+  "tables": {
+    "aa_ability": {
+      "rows": 1571,
+      "matches_released_fixture": true,
+      "sha256": "3979adb049b3e1c893b90e2ec3498ce883a705119d1c8769b98632cb9b9cfc11"
+    },
+    "aa_rank_effects": {
+      "rows": 9869,
+      "matches_released_fixture": true,
+      "sha256": "7a8152a584ac53abf20bd3cb562c2e4e4e809212dd9101a3355dc86730c3d791"
+    },
+    "aa_rank_prereqs": {
+      "rows": 2526,
+      "matches_released_fixture": true,
+      "sha256": "32a404f45484f556d194862fe092dbc623e126040d4122e4513ad7326d4e1c57"
+    },
+    "aa_ranks": {
+      "rows": 6656,
+      "matches_released_fixture": true,
+      "sha256": "d0a98bd24808815d8f9142449123bf5669ba521e7145d80d3a109659a6efa92d"
+    }
+  }
+}

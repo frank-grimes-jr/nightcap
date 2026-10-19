@@ -1,0 +1,113 @@
+{
+  "commit": "c83d409370343adb30eb0e7e57b0e1149af7e6fa",
+  "files": [
+    {
+      "path": "aatracker.js",
+      "url": "https://raw.githubusercontent.com/P1xt/thj-wiki/c83d409370343adb30eb0e7e57b0e1149af7e6fa/aatracker.js",
+      "bytes": 310693,
+      "sha256": "82e800728cd9e02de523d02c6cd41a19754eb02a2991a0440a00984052b2b3ec"
+    },
+    {
+      "path": "classes-and-abilities/aa/aa.js",
+      "url": "https://raw.githubusercontent.com/P1xt/thj-wiki/c83d409370343adb30eb0e7e57b0e1149af7e6fa/classes-and-abilities/aa/aa.js",
+      "bytes": 3247,
+      "sha256": "aa61eca851b2ac2f011e0c06daa849341d76720500f3a10d0f5d79be0c0d5783"
+    },
+    {
+      "path": "classes-and-abilities/bard.md",
+      "url": "https://raw.githubusercontent.com/P1xt/thj-wiki/c83d409370343adb30eb0e7e57b0e1149af7e6fa/classes-and-abilities/bard.md",
+      "bytes": 5564,
+      "sha256": "eadaaf497b18c33771cf27f869cd76ff05210c7a121b2a5f36726c82bd7d887d"
+    },
+    {
+      "path": "classes-and-abilities/beastlord.md",
+      "url": "https://raw.githubusercontent.com/P1xt/thj-wiki/c83d409370343adb30eb0e7e57b0e1149af7e6fa/classes-and-abilities/beastlord.md",
+      "bytes": 7482,
+      "sha256": "ce25525fc70ba8ed3c545e0281a8cd1a7e409073f77d5adf0fe22d8a675846ae"
+    },
+    {
+      "path": "classes-and-abilities/berserker.md",
+      "url": "https://raw.githubusercontent.com/P1xt/thj-wiki/c83d409370343adb30eb0e7e57b0e1149af7e6fa/classes-and-abilities/berserker.md",
+      "bytes": 7726,
+      "sha256": "90f0f1800890882635e7695b54477bb8243b7060aeb370fac56ceba2ee15d105"
+    },
+    {
+      "path": "classes-and-abilities/cleric.md",
+      "url": "https://raw.githubusercontent.com/P1xt/thj-wiki/c83d409370343adb30eb0e7e57b0e1149af7e6fa/classes-and-abilities/cleric.md",
+      "bytes": 7062,
+      "sha256": "e9e3a6af52c75dec338ec0b4b4ad71a58c7c63d3cbda2a2690e98d2fdf8d9a72"
+    },
+    {
+      "path": "classes-and-abilities/druid.md",
+      "url": "https://raw.githubusercontent.com/P1xt/thj-wiki/c83d409370343adb30eb0e7e57b0e1149af7e6fa/classes-and-abilities/druid.md",
+      "bytes": 8077,
+      "sha256": "1b488ef2029464e428a5c9f2576e4c26ffa9d703c18f32333b47be6cb2f594d7"
+    },
+    {
+      "path": "classes-and-abilities/enchanter.md",
+      "url": "https://raw.githubusercontent.com/P1xt/thj-wiki/c83d409370343adb30eb0e7e57b0e1149af7e6fa/classes-and-abilities/enchanter.md",
+      "bytes": 7127,
+      "sha256": "70b358d953bbb4cc9481a64b70527ba9fcd622aaca2760c69ca6529f0c35fa02"
+    },
+    {
+      "path": "classes-and-abilities/mage.md",
+      "url": "https://raw.githubusercontent.com/P1xt/thj-wiki/c83d409370343adb30eb0e7e57b0e1149af7e6fa/classes-and-abilities/mage.md",
+      "bytes": 5581,
+      "sha256": "4ef9f1cdf10aa81b7ea88140bf8f2870fc9837ab0282c37d42b1d944a7befaa2"
+    },
+    {
+      "path": "classes-and-abilities/monk.md",
+      "url": "https://raw.githubusercontent.com/P1xt/thj-wiki/c83d409370343adb30eb0e7e57b0e1149af7e6fa/classes-and-abilities/monk.md",
+      "bytes": 8357,
+      "sha256": "1a82b32950881738cf84a99c019f9af25dcf22b50c27cf6d447f5c91dd6c7138"
+    },
+    {
+      "path": "classes-and-abilities/necromancer.md",
+      "url": "https://raw.githubusercontent.com/P1xt/thj-wiki/c83d409370343adb30eb0e7e57b0e1149af7e6fa/classes-and-abilities/necromancer.md",
+      "bytes": 6919,
+      "sha256": "9f46352250a09840611c88c636a5dc3a0b0bae5f2d26d01c44b139fae368773a"
+    },
+    {
+      "path": "classes-and-abilities/paladin.md",
+      "url": "https://raw.githubusercontent.com/P1xt/thj-wiki/c83d409370343adb30eb0e7e57b0e1149af7e6fa/classes-and-abilities/paladin.md",
+      "bytes": 5650,
+      "sha256": "5386ed56639e580b8257c88718875d0c133f62efa4f35165f8fff7bae3654c23"
+    },
+    {
+      "path": "classes-and-abilities/ranger.md",
+      "url": "https://raw.githubusercontent.com/P1xt/thj-wiki/c83d409370343adb30eb0e7e57b0e1149af7e6fa/classes-and-abilities/ranger.md",
+      "bytes": 5893,
+      "sha256": "99ae11d0ce7a29265321108513ecc1d8adf1b6963ef00001426bdf6267acbe49"
+    },
+    {
+      "path": "classes-and-abilities/rogue.md",
+      "url": "https://raw.githubusercontent.com/P1xt/thj-wiki/c83d409370343adb30eb0e7e57b0e1149af7e6fa/classes-and-abilities/rogue.md",
+      "bytes": 6447,
+      "sha256": "69173771ea94dde2f4fb6934447d6ed6cac4413bda036aea01c38cb5c0448dd6"
+    },
+    {
+      "path": "classes-and-abilities/shadowknight.md",
+      "url": "https://raw.githubusercontent.com/P1xt/thj-wiki/c83d409370343adb30eb0e7e57b0e1149af7e6fa/classes-and-abilities/shadowknight.md",
+      "bytes": 5623,
+      "sha256": "9c64ceb0f0b9e24c0afa47e5d005fc676cfaf8afb6c4b08544c0c5e236e75bd9"
+    },
+    {
+      "path": "classes-and-abilities/shaman.md",
+      "url": "https://raw.githubusercontent.com/P1xt/thj-wiki/c83d409370343adb30eb0e7e57b0e1149af7e6fa/classes-and-abilities/shaman.md",
+      "bytes": 6100,
+      "sha256": "f0b610e41a92c110145c9b8596daef033539474c8686e4b33db2dbd890d027fb"
+    },
+    {
+      "path": "classes-and-abilities/warrior.md",
+      "url": "https://raw.githubusercontent.com/P1xt/thj-wiki/c83d409370343adb30eb0e7e57b0e1149af7e6fa/classes-and-abilities/warrior.md",
+      "bytes": 7307,
+      "sha256": "34b8253dc308c7c62243c3d56890828566427acf68aca88ee17b05687dc1d21c"
+    },
+    {
+      "path": "classes-and-abilities/wizard.md",
+      "url": "https://raw.githubusercontent.com/P1xt/thj-wiki/c83d409370343adb30eb0e7e57b0e1149af7e6fa/classes-and-abilities/wizard.md",
+      "bytes": 4986,
+      "sha256": "88a50dfb5734c99f4f117f7f7442af53cf95484261356f679c6863b3fdf05b8f"
+    }
+  ]
+}

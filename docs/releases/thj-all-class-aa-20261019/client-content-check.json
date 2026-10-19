@@ -1,0 +1,10 @@
+{
+  "new_ranks_checked": 676,
+  "missing_spells": [],
+  "missing_titles_or_descriptions": [],
+  "assets": {
+    "spells_us.txt": "eb07544cd443e56d404900d5853d09625ccea899425bcab63dc9f07283f7ec61",
+    "dbstr_us.txt": "88506405c5179b1d369d261290b415937729b6f05b4e1a845a3d4bcd63f1a421"
+  },
+  "scope": "AA spell/text availability only, not validation of the older DLL/catalog pair; preserve the separate client-contract repair."
+}

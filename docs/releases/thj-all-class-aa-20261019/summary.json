@@ -1,0 +1,1620 @@
+{
+  "before_ranks": 1160,
+  "after_ranks": 1836,
+  "changes": [
+    {
+      "id": 1,
+      "name": "Innate Strength",
+      "classes": 65535,
+      "before": 3,
+      "after": 15,
+      "kind": "Changed"
+    },
+    {
+      "id": 2,
+      "name": "Innate Stamina",
+      "classes": 65535,
+      "before": 3,
+      "after": 15,
+      "kind": "Changed"
+    },
+    {
+      "id": 3,
+      "name": "Innate Agility",
+      "classes": 65535,
+      "before": 3,
+      "after": 15,
+      "kind": "Changed"
+    },
+    {
+      "id": 4,
+      "name": "Innate Dexterity",
+      "classes": 65535,
+      "before": 3,
+      "after": 15,
+      "kind": "Changed"
+    },
+    {
+      "id": 5,
+      "name": "Innate Intelligence",
+      "classes": 65535,
+      "before": 3,
+      "after": 15,
+      "kind": "Changed"
+    },
+    {
+      "id": 6,
+      "name": "Innate Wisdom",
+      "classes": 65535,
+      "before": 3,
+      "after": 15,
+      "kind": "Changed"
+    },
+    {
+      "id": 7,
+      "name": "Innate Charisma",
+      "classes": 65535,
+      "before": 3,
+      "after": 15,
+      "kind": "Changed"
+    },
+    {
+      "id": 8,
+      "name": "Innate Fire Protection",
+      "classes": 65535,
+      "before": 3,
+      "after": 15,
+      "kind": "Changed"
+    },
+    {
+      "id": 9,
+      "name": "Innate Cold Protection",
+      "classes": 65535,
+      "before": 3,
+      "after": 15,
+      "kind": "Changed"
+    },
+    {
+      "id": 10,
+      "name": "Innate Magic Protection",
+      "classes": 65535,
+      "before": 3,
+      "after": 15,
+      "kind": "Changed"
+    },
+    {
+      "id": 11,
+      "name": "Innate Poison Protection",
+      "classes": 65535,
+      "before": 3,
+      "after": 15,
+      "kind": "Changed"
+    },
+    {
+      "id": 12,
+      "name": "Innate Disease Protection",
+      "classes": 65535,
+      "before": 3,
+      "after": 15,
+      "kind": "Changed"
+    },
+    {
+      "id": 13,
+      "name": "Innate Run Speed",
+      "classes": 65535,
+      "before": 3,
+      "after": 5,
+      "kind": "Changed"
+    },
+    {
+      "id": 16,
+      "name": "Innate Lung Capacity",
+      "classes": 65535,
+      "before": 3,
+      "after": 6,
+      "kind": "Changed"
+    },
+    {
+      "id": 20,
+      "name": "Spell Casting Mastery",
+      "classes": 32318,
+      "before": 3,
+      "after": 4,
+      "kind": "Changed"
+    },
+    {
+      "id": 21,
+      "name": "Spell Casting Reinforcement",
+      "classes": 32318,
+      "before": 3,
+      "after": 4,
+      "kind": "Changed"
+    },
+    {
+      "id": 38,
+      "name": "Celestial Regeneration",
+      "classes": 2,
+      "before": 3,
+      "after": 9,
+      "kind": "Changed"
+    },
+    {
+      "id": 52,
+      "name": "Improved Familiar",
+      "classes": 2048,
+      "before": 3,
+      "after": 4,
+      "kind": "Changed"
+    },
+    {
+      "id": 97,
+      "name": "Critical Mend",
+      "classes": 64,
+      "before": 3,
+      "after": 6,
+      "kind": "Changed"
+    },
+    {
+      "id": 104,
+      "name": "Double Riposte",
+      "classes": 49501,
+      "before": 3,
+      "after": 6,
+      "kind": "Changed"
+    },
+    {
+      "id": 128,
+      "name": "Paragon of Spirit",
+      "classes": 16384,
+      "before": 3,
+      "after": 7,
+      "kind": "Changed"
+    },
+    {
+      "id": 141,
+      "name": "New Tanaan Crafting Mastery",
+      "classes": 65535,
+      "before": 3,
+      "after": 6,
+      "kind": "Changed"
+    },
+    {
+      "id": 142,
+      "name": "Planar Power",
+      "classes": 65535,
+      "before": 3,
+      "after": 15,
+      "kind": "Changed"
+    },
+    {
+      "id": 144,
+      "name": "Innate Enlightenment",
+      "classes": 15906,
+      "before": 3,
+      "after": 5,
+      "kind": "Changed"
+    },
+    {
+      "id": 153,
+      "name": "Radiant Cure",
+      "classes": 546,
+      "before": 3,
+      "after": 9,
+      "kind": "Changed"
+    },
+    {
+      "id": 160,
+      "name": "Hastened Root",
+      "classes": 2048,
+      "before": 3,
+      "after": 6,
+      "kind": "Changed"
+    },
+    {
+      "id": 166,
+      "name": "Hasty Exit",
+      "classes": 256,
+      "before": 3,
+      "after": 9,
+      "kind": "Changed"
+    },
+    {
+      "id": 173,
+      "name": "Eldritch Rune",
+      "classes": 8192,
+      "before": 3,
+      "after": 8,
+      "kind": "Changed"
+    },
+    {
+      "id": 177,
+      "name": "Spirit Call",
+      "classes": 512,
+      "before": 3,
+      "after": 5,
+      "kind": "Changed"
+    },
+    {
+      "id": 184,
+      "name": "Guardian of the Forest",
+      "classes": 8,
+      "before": 3,
+      "after": 9,
+      "kind": "Changed"
+    },
+    {
+      "id": 185,
+      "name": "Spirit of the Wood",
+      "classes": 32,
+      "before": 3,
+      "after": 9,
+      "kind": "Changed"
+    },
+    {
+      "id": 188,
+      "name": "Knight's Advantage",
+      "classes": 20,
+      "before": 3,
+      "after": 6,
+      "kind": "Changed"
+    },
+    {
+      "id": 189,
+      "name": "Ferocity",
+      "classes": 33097,
+      "before": 3,
+      "after": 6,
+      "kind": "Changed"
+    },
+    {
+      "id": 198,
+      "name": "Consumption of the Soul",
+      "classes": 16,
+      "before": 3,
+      "after": 8,
+      "kind": "Changed"
+    },
+    {
+      "id": 199,
+      "name": "Boastful Bellow",
+      "classes": 128,
+      "before": 3,
+      "after": 16,
+      "kind": "Changed"
+    },
+    {
+      "id": 202,
+      "name": "Punishing Blade",
+      "classes": 32841,
+      "before": 3,
+      "after": 6,
+      "kind": "Changed"
+    },
+    {
+      "id": 203,
+      "name": "Speed of the Knight",
+      "classes": 20,
+      "before": 3,
+      "after": 9,
+      "kind": "Changed"
+    },
+    {
+      "id": 205,
+      "name": "Nimble Evasion",
+      "classes": 256,
+      "before": 3,
+      "after": 5,
+      "kind": "Changed"
+    },
+    {
+      "id": 206,
+      "name": "Technique of Master Wu",
+      "classes": 64,
+      "before": 5,
+      "after": 6,
+      "kind": "Changed"
+    },
+    {
+      "id": 208,
+      "name": "Call of Xuzl",
+      "classes": 2048,
+      "before": 3,
+      "after": 5,
+      "kind": "Changed"
+    },
+    {
+      "id": 210,
+      "name": "Ingenuity",
+      "classes": 33089,
+      "before": 3,
+      "after": 6,
+      "kind": "Changed"
+    },
+    {
+      "id": 213,
+      "name": "Tactical Mastery",
+      "classes": 32769,
+      "before": 3,
+      "after": 9,
+      "kind": "Changed"
+    },
+    {
+      "id": 214,
+      "name": "Theft of Life",
+      "classes": 1040,
+      "before": 3,
+      "after": 11,
+      "kind": "Changed"
+    },
+    {
+      "id": 224,
+      "name": "Mental Clarity",
+      "classes": 32446,
+      "before": 3,
+      "after": 8,
+      "kind": "Changed"
+    },
+    {
+      "id": 225,
+      "name": "Innate Regeneration",
+      "classes": 65535,
+      "before": 3,
+      "after": 15,
+      "kind": "Changed"
+    },
+    {
+      "id": 233,
+      "name": "Packrat",
+      "classes": 65535,
+      "before": 3,
+      "after": 5,
+      "kind": "Changed"
+    },
+    {
+      "id": 234,
+      "name": "Heightened Endurance",
+      "classes": 33089,
+      "before": 3,
+      "after": 11,
+      "kind": "Changed"
+    },
+    {
+      "id": 235,
+      "name": "Weapon Affinity",
+      "classes": 49629,
+      "before": 3,
+      "after": 5,
+      "kind": "Changed"
+    },
+    {
+      "id": 238,
+      "name": "Tune of Pursuance",
+      "classes": 128,
+      "before": 3,
+      "after": 5,
+      "kind": "Changed"
+    },
+    {
+      "id": 254,
+      "name": "Divine Avatar",
+      "classes": 2,
+      "before": 3,
+      "after": 6,
+      "kind": "Changed"
+    },
+    {
+      "id": 255,
+      "name": "Exquisite Benediction",
+      "classes": 2,
+      "before": 3,
+      "after": 8,
+      "kind": "Changed"
+    },
+    {
+      "id": 257,
+      "name": "Nature's Boon",
+      "classes": 32,
+      "before": 3,
+      "after": 11,
+      "kind": "Changed"
+    },
+    {
+      "id": 258,
+      "name": "Advanced Tracking",
+      "classes": 32,
+      "before": 3,
+      "after": 5,
+      "kind": "Changed"
+    },
+    {
+      "id": 265,
+      "name": "Shared Health",
+      "classes": 4096,
+      "before": 3,
+      "after": 5,
+      "kind": "Changed"
+    },
+    {
+      "id": 271,
+      "name": "Strikethrough",
+      "classes": 64,
+      "before": 3,
+      "after": 6,
+      "kind": "Changed"
+    },
+    {
+      "id": 272,
+      "name": "Stonewall",
+      "classes": 64,
+      "before": 3,
+      "after": 10,
+      "kind": "Changed"
+    },
+    {
+      "id": 274,
+      "name": "Kick Mastery",
+      "classes": 64,
+      "before": 3,
+      "after": 9,
+      "kind": "Changed"
+    },
+    {
+      "id": 275,
+      "name": "Heightened Awareness",
+      "classes": 64,
+      "before": 3,
+      "after": 5,
+      "kind": "Changed"
+    },
+    {
+      "id": 279,
+      "name": "Quickening of Death",
+      "classes": 1024,
+      "before": 3,
+      "after": 5,
+      "kind": "Changed"
+    },
+    {
+      "id": 284,
+      "name": "Vicious Smash",
+      "classes": 20,
+      "before": 3,
+      "after": 5,
+      "kind": "Changed"
+    },
+    {
+      "id": 285,
+      "name": "Radiant Cure",
+      "classes": 4,
+      "before": 3,
+      "after": 6,
+      "kind": "Changed"
+    },
+    {
+      "id": 287,
+      "name": "Precision of the Pathfinder",
+      "classes": 8,
+      "before": 3,
+      "after": 9,
+      "kind": "Changed"
+    },
+    {
+      "id": 288,
+      "name": "Coat of Thistles",
+      "classes": 8,
+      "before": 3,
+      "after": 5,
+      "kind": "Changed"
+    },
+    {
+      "id": 294,
+      "name": "Virulent Venom",
+      "classes": 256,
+      "before": 3,
+      "after": 5,
+      "kind": "Changed"
+    },
+    {
+      "id": 296,
+      "name": "Intense Hatred",
+      "classes": 16,
+      "before": 3,
+      "after": 5,
+      "kind": "Changed"
+    },
+    {
+      "id": 299,
+      "name": "Sturdiness",
+      "classes": 1,
+      "before": 3,
+      "after": 10,
+      "kind": "Changed"
+    },
+    {
+      "id": 307,
+      "name": "Ward of Destruction",
+      "classes": 2048,
+      "before": 3,
+      "after": 5,
+      "kind": "Changed"
+    },
+    {
+      "id": 319,
+      "name": "Touch of the Divine",
+      "classes": 2,
+      "before": 3,
+      "after": 5,
+      "kind": "Changed"
+    },
+    {
+      "id": 321,
+      "name": "Call of the Ancients",
+      "classes": 512,
+      "before": 3,
+      "after": 8,
+      "kind": "Changed"
+    },
+    {
+      "id": 333,
+      "name": "Discordant Defiance",
+      "classes": 65535,
+      "before": 3,
+      "after": 5,
+      "kind": "Changed"
+    },
+    {
+      "id": 335,
+      "name": "Delay Death",
+      "classes": 65535,
+      "before": 3,
+      "after": 15,
+      "kind": "Changed"
+    },
+    {
+      "id": 347,
+      "name": "Mnemonic Retention",
+      "classes": 32446,
+      "before": 1,
+      "after": 4,
+      "kind": "Changed"
+    },
+    {
+      "id": 348,
+      "name": "Expansive Mind",
+      "classes": 32446,
+      "before": 3,
+      "after": 10,
+      "kind": "Changed"
+    },
+    {
+      "id": 354,
+      "name": "Slippery Attacks",
+      "classes": 16841,
+      "before": 3,
+      "after": 5,
+      "kind": "Changed"
+    },
+    {
+      "id": 359,
+      "name": "Dance of Blades",
+      "classes": 128,
+      "before": 0,
+      "after": 3,
+      "kind": "Added"
+    },
+    {
+      "id": 361,
+      "name": "Shield of Notes",
+      "classes": 128,
+      "before": 3,
+      "after": 6,
+      "kind": "Changed"
+    },
+    {
+      "id": 362,
+      "name": "Roar of Thunder",
+      "classes": 16384,
+      "before": 3,
+      "after": 6,
+      "kind": "Changed"
+    },
+    {
+      "id": 368,
+      "name": "Blur of Axes",
+      "classes": 32768,
+      "before": 3,
+      "after": 13,
+      "kind": "Changed"
+    },
+    {
+      "id": 384,
+      "name": "Spirit of the Bear",
+      "classes": 32,
+      "before": 0,
+      "after": 1,
+      "kind": "Added"
+    },
+    {
+      "id": 387,
+      "name": "Blood Pact",
+      "classes": 32768,
+      "before": 3,
+      "after": 4,
+      "kind": "Changed"
+    },
+    {
+      "id": 388,
+      "name": "Shielding Resistance",
+      "classes": 16841,
+      "before": 3,
+      "after": 5,
+      "kind": "Changed"
+    },
+    {
+      "id": 389,
+      "name": "Healing Boon",
+      "classes": 550,
+      "before": 3,
+      "after": 6,
+      "kind": "Changed"
+    },
+    {
+      "id": 391,
+      "name": "Celestial Hammer",
+      "classes": 2,
+      "before": 3,
+      "after": 6,
+      "kind": "Changed"
+    },
+    {
+      "id": 393,
+      "name": "Nature's Blessing",
+      "classes": 32,
+      "before": 0,
+      "after": 1,
+      "kind": "Added"
+    },
+    {
+      "id": 397,
+      "name": "Destructive Fury",
+      "classes": 2048,
+      "before": 0,
+      "after": 9,
+      "kind": "Added"
+    },
+    {
+      "id": 403,
+      "name": "Paralytic Spores",
+      "classes": 544,
+      "before": 0,
+      "after": 1,
+      "kind": "Added"
+    },
+    {
+      "id": 406,
+      "name": "Nature's Bounty",
+      "classes": 40,
+      "before": 3,
+      "after": 6,
+      "kind": "Changed"
+    },
+    {
+      "id": 415,
+      "name": "Hastened Deftdance",
+      "classes": 128,
+      "before": 0,
+      "after": 3,
+      "kind": "Added"
+    },
+    {
+      "id": 431,
+      "name": "Pestilent Paralysis",
+      "classes": 1024,
+      "before": 0,
+      "after": 1,
+      "kind": "Added"
+    },
+    {
+      "id": 434,
+      "name": "Steadfast Will",
+      "classes": 20,
+      "before": 3,
+      "after": 8,
+      "kind": "Changed"
+    },
+    {
+      "id": 437,
+      "name": "Tracking Mastery",
+      "classes": 8,
+      "before": 3,
+      "after": 5,
+      "kind": "Changed"
+    },
+    {
+      "id": 440,
+      "name": "Nerves of Steel",
+      "classes": 256,
+      "before": 3,
+      "after": 5,
+      "kind": "Changed"
+    },
+    {
+      "id": 442,
+      "name": "Touch of the Cursed",
+      "classes": 16,
+      "before": 3,
+      "after": 6,
+      "kind": "Changed"
+    },
+    {
+      "id": 447,
+      "name": "Ancestral Aid",
+      "classes": 512,
+      "before": 3,
+      "after": 6,
+      "kind": "Changed"
+    },
+    {
+      "id": 459,
+      "name": "Gelid Rending",
+      "classes": 16384,
+      "before": 0,
+      "after": 1,
+      "kind": "Added"
+    },
+    {
+      "id": 462,
+      "name": "Auspice of the Hunter",
+      "classes": 8,
+      "before": 3,
+      "after": 6,
+      "kind": "Changed"
+    },
+    {
+      "id": 469,
+      "name": "Stunning Kick",
+      "classes": 64,
+      "before": 3,
+      "after": 6,
+      "kind": "Changed"
+    },
+    {
+      "id": 495,
+      "name": "Gift of Mana",
+      "classes": 32318,
+      "before": 3,
+      "after": 4,
+      "kind": "Changed"
+    },
+    {
+      "id": 496,
+      "name": "Field Dressing",
+      "classes": 32769,
+      "before": 3,
+      "after": 5,
+      "kind": "Changed"
+    },
+    {
+      "id": 497,
+      "name": "Bandage Wounds",
+      "classes": 32766,
+      "before": 3,
+      "after": 5,
+      "kind": "Changed"
+    },
+    {
+      "id": 498,
+      "name": "Enhanced Aggression",
+      "classes": 49629,
+      "before": 3,
+      "after": 10,
+      "kind": "Changed"
+    },
+    {
+      "id": 500,
+      "name": "Silent Casting",
+      "classes": 15906,
+      "before": 3,
+      "after": 5,
+      "kind": "Changed"
+    },
+    {
+      "id": 503,
+      "name": "Hastened Thunder",
+      "classes": 16384,
+      "before": 3,
+      "after": 5,
+      "kind": "Changed"
+    },
+    {
+      "id": 506,
+      "name": "Ward of Purity",
+      "classes": 2,
+      "before": 0,
+      "after": 6,
+      "kind": "Added"
+    },
+    {
+      "id": 515,
+      "name": "Improved Twincast",
+      "classes": 14370,
+      "before": 0,
+      "after": 1,
+      "kind": "Added"
+    },
+    {
+      "id": 519,
+      "name": "Convergence of Spirits",
+      "classes": 32,
+      "before": 0,
+      "after": 6,
+      "kind": "Added"
+    },
+    {
+      "id": 520,
+      "name": "Nature's Guardian",
+      "classes": 32,
+      "before": 3,
+      "after": 6,
+      "kind": "Changed"
+    },
+    {
+      "id": 532,
+      "name": "Willful Death",
+      "classes": 1040,
+      "before": 3,
+      "after": 10,
+      "kind": "Changed"
+    },
+    {
+      "id": 537,
+      "name": "Precise Strikes",
+      "classes": 256,
+      "before": 3,
+      "after": 6,
+      "kind": "Changed"
+    },
+    {
+      "id": 538,
+      "name": "Hastened Death",
+      "classes": 64,
+      "before": 3,
+      "after": 6,
+      "kind": "Changed"
+    },
+    {
+      "id": 540,
+      "name": "Weightless Steps",
+      "classes": 64,
+      "before": 0,
+      "after": 3,
+      "kind": "Added"
+    },
+    {
+      "id": 541,
+      "name": "Hastened Blades",
+      "classes": 128,
+      "before": 0,
+      "after": 3,
+      "kind": "Added"
+    },
+    {
+      "id": 545,
+      "name": "Deep Sleep",
+      "classes": 8192,
+      "before": 3,
+      "after": 5,
+      "kind": "Changed"
+    },
+    {
+      "id": 551,
+      "name": "Hastened Mind Crash",
+      "classes": 2048,
+      "before": 3,
+      "after": 5,
+      "kind": "Changed"
+    },
+    {
+      "id": 553,
+      "name": "Cacophony",
+      "classes": 128,
+      "before": 3,
+      "after": 6,
+      "kind": "Changed"
+    },
+    {
+      "id": 557,
+      "name": "Trick Shot",
+      "classes": 8,
+      "before": 6,
+      "after": 7,
+      "kind": "Changed"
+    },
+    {
+      "id": 558,
+      "name": "Turn Undead",
+      "classes": 2,
+      "before": 3,
+      "after": 6,
+      "kind": "Changed"
+    },
+    {
+      "id": 559,
+      "name": "Turn Summoned",
+      "classes": 4096,
+      "before": 3,
+      "after": 8,
+      "kind": "Changed"
+    },
+    {
+      "id": 560,
+      "name": "Selo's Enduring Cadence",
+      "classes": 128,
+      "before": 0,
+      "after": 3,
+      "kind": "Added"
+    },
+    {
+      "id": 562,
+      "name": "Lightning Strikes",
+      "classes": 8,
+      "before": 3,
+      "after": 10,
+      "kind": "Changed"
+    },
+    {
+      "id": 578,
+      "name": "Glyph Spray",
+      "classes": 8192,
+      "before": 0,
+      "after": 1,
+      "kind": "Added"
+    },
+    {
+      "id": 579,
+      "name": "Combat Medic",
+      "classes": 32766,
+      "before": 0,
+      "after": 5,
+      "kind": "Added"
+    },
+    {
+      "id": 582,
+      "name": "Battle Ready",
+      "classes": 65535,
+      "before": 1,
+      "after": 4,
+      "kind": "Changed"
+    },
+    {
+      "id": 602,
+      "name": "Mental Contortion",
+      "classes": 8192,
+      "before": 0,
+      "after": 1,
+      "kind": "Added"
+    },
+    {
+      "id": 611,
+      "name": "Battle Leap",
+      "classes": 32769,
+      "before": 1,
+      "after": 2,
+      "kind": "Changed"
+    },
+    {
+      "id": 669,
+      "name": "Bladed Song",
+      "classes": 128,
+      "before": 1,
+      "after": 2,
+      "kind": "Changed"
+    },
+    {
+      "id": 689,
+      "name": "Combat Medic",
+      "classes": 32769,
+      "before": 0,
+      "after": 5,
+      "kind": "Added"
+    },
+    {
+      "id": 735,
+      "name": "Battle Frenzy",
+      "classes": 2,
+      "before": 0,
+      "after": 1,
+      "kind": "Added"
+    },
+    {
+      "id": 749,
+      "name": "Explosion of Spite",
+      "classes": 16,
+      "before": 0,
+      "after": 1,
+      "kind": "Added"
+    },
+    {
+      "id": 751,
+      "name": "Scent of Terris",
+      "classes": 1024,
+      "before": 0,
+      "after": 1,
+      "kind": "Added"
+    },
+    {
+      "id": 783,
+      "name": "Energetic Attunement",
+      "classes": 65535,
+      "before": 3,
+      "after": 5,
+      "kind": "Changed"
+    },
+    {
+      "id": 790,
+      "name": "Seized Opportunity",
+      "classes": 256,
+      "before": 3,
+      "after": 9,
+      "kind": "Changed"
+    },
+    {
+      "id": 791,
+      "name": "Veil of Mindshadow",
+      "classes": 8192,
+      "before": 0,
+      "after": 3,
+      "kind": "Added"
+    },
+    {
+      "id": 800,
+      "name": "Vehement Rage",
+      "classes": 32769,
+      "before": 0,
+      "after": 1,
+      "kind": "Added"
+    },
+    {
+      "id": 825,
+      "name": "Vicious Bite of Chaos",
+      "classes": 16,
+      "before": 0,
+      "after": 1,
+      "kind": "Added"
+    },
+    {
+      "id": 826,
+      "name": "Encroaching Darkness",
+      "classes": 1040,
+      "before": 0,
+      "after": 1,
+      "kind": "Added"
+    },
+    {
+      "id": 861,
+      "name": "Languid Bite",
+      "classes": 512,
+      "before": 0,
+      "after": 1,
+      "kind": "Added"
+    },
+    {
+      "id": 877,
+      "name": "Ranged Finesse",
+      "classes": 8,
+      "before": 0,
+      "after": 1,
+      "kind": "Added"
+    },
+    {
+      "id": 878,
+      "name": "Bow Mastery",
+      "classes": 8,
+      "before": 0,
+      "after": 1,
+      "kind": "Added"
+    },
+    {
+      "id": 911,
+      "name": "Warlord's Resurgence",
+      "classes": 1,
+      "before": 0,
+      "after": 1,
+      "kind": "Added"
+    },
+    {
+      "id": 962,
+      "name": "Distraction Attack",
+      "classes": 32768,
+      "before": 0,
+      "after": 3,
+      "kind": "Added"
+    },
+    {
+      "id": 963,
+      "name": "Hastened Savage Spirit",
+      "classes": 32768,
+      "before": 0,
+      "after": 8,
+      "kind": "Added"
+    },
+    {
+      "id": 986,
+      "name": "Bite of the Asp",
+      "classes": 16384,
+      "before": 0,
+      "after": 3,
+      "kind": "Added"
+    },
+    {
+      "id": 992,
+      "name": "Tranquil Blessings",
+      "classes": 30254,
+      "before": 0,
+      "after": 1,
+      "kind": "Added"
+    },
+    {
+      "id": 1092,
+      "name": "Spirit of the Black Wolf",
+      "classes": 32,
+      "before": 0,
+      "after": 1,
+      "kind": "Added"
+    },
+    {
+      "id": 1123,
+      "name": "Hastened Edict of Command",
+      "classes": 8192,
+      "before": 0,
+      "after": 3,
+      "kind": "Added"
+    },
+    {
+      "id": 1125,
+      "name": "Bite of Tashani",
+      "classes": 8192,
+      "before": 0,
+      "after": 1,
+      "kind": "Added"
+    },
+    {
+      "id": 1174,
+      "name": "Mrylokar's Rigor",
+      "classes": 256,
+      "before": 0,
+      "after": 1,
+      "kind": "Added"
+    },
+    {
+      "id": 1200,
+      "name": "Companion's Alacrity",
+      "classes": 30224,
+      "before": 0,
+      "after": 3,
+      "kind": "Added"
+    },
+    {
+      "id": 1211,
+      "name": "Focus of Arcanum",
+      "classes": 15904,
+      "before": 0,
+      "after": 1,
+      "kind": "Added"
+    },
+    {
+      "id": 1215,
+      "name": "Summon Companion",
+      "classes": 30224,
+      "before": 0,
+      "after": 4,
+      "kind": "Added"
+    },
+    {
+      "id": 1257,
+      "name": "Hand of Death",
+      "classes": 1024,
+      "before": 0,
+      "after": 1,
+      "kind": "Added"
+    },
+    {
+      "id": 1272,
+      "name": "Assassin's Wrath",
+      "classes": 256,
+      "before": 0,
+      "after": 1,
+      "kind": "Added"
+    },
+    {
+      "id": 1281,
+      "name": "Everburn",
+      "classes": 32768,
+      "before": 0,
+      "after": 1,
+      "kind": "Added"
+    },
+    {
+      "id": 1405,
+      "name": "Twincast",
+      "classes": 15906,
+      "before": 0,
+      "after": 5,
+      "kind": "Added"
+    },
+    {
+      "id": 1433,
+      "name": "Extended Ingenuity",
+      "classes": 33089,
+      "before": 0,
+      "after": 1,
+      "kind": "Added"
+    },
+    {
+      "id": 1664,
+      "name": "Twinproc",
+      "classes": 50175,
+      "before": 0,
+      "after": 1,
+      "kind": "Added"
+    },
+    {
+      "id": 2011,
+      "name": "Imperator's Command",
+      "classes": 1,
+      "before": 0,
+      "after": 1,
+      "kind": "Added"
+    },
+    {
+      "id": 2066,
+      "name": "Second Wind Ward",
+      "classes": 4096,
+      "before": 0,
+      "after": 1,
+      "kind": "Added"
+    },
+    {
+      "id": 3500,
+      "name": "Blessing of Light",
+      "classes": 4,
+      "before": 0,
+      "after": 2,
+      "kind": "Added"
+    },
+    {
+      "id": 3515,
+      "name": "Envenomed Blades",
+      "classes": 256,
+      "before": 0,
+      "after": 1,
+      "kind": "Added"
+    },
+    {
+      "id": 3516,
+      "name": "Companion of Necessity",
+      "classes": 4096,
+      "before": 0,
+      "after": 1,
+      "kind": "Added"
+    },
+    {
+      "id": 3519,
+      "name": "Hastened Funeral Dirge",
+      "classes": 128,
+      "before": 0,
+      "after": 5,
+      "kind": "Added"
+    },
+    {
+      "id": 3646,
+      "name": "Blast of Anger",
+      "classes": 1,
+      "before": 0,
+      "after": 1,
+      "kind": "Added"
+    },
+    {
+      "id": 3704,
+      "name": "Selo's Sonata",
+      "classes": 128,
+      "before": 0,
+      "after": 1,
+      "kind": "Added"
+    },
+    {
+      "id": 3727,
+      "name": "Knave's Return Strike",
+      "classes": 256,
+      "before": 0,
+      "after": 1,
+      "kind": "Added"
+    },
+    {
+      "id": 3729,
+      "name": "Turgur's Swarm",
+      "classes": 512,
+      "before": 0,
+      "after": 1,
+      "kind": "Added"
+    },
+    {
+      "id": 3731,
+      "name": "Infused by Rage",
+      "classes": 1,
+      "before": 0,
+      "after": 1,
+      "kind": "Added"
+    },
+    {
+      "id": 3732,
+      "name": "Gut Punch",
+      "classes": 1,
+      "before": 0,
+      "after": 1,
+      "kind": "Added"
+    },
+    {
+      "id": 3805,
+      "name": "Hastened Mend",
+      "classes": 64,
+      "before": 0,
+      "after": 3,
+      "kind": "Added"
+    },
+    {
+      "id": 3815,
+      "name": "Destructive Cascade",
+      "classes": 9776,
+      "before": 0,
+      "after": 3,
+      "kind": "Added"
+    },
+    {
+      "id": 4002,
+      "name": "Frenzied Volley",
+      "classes": 32768,
+      "before": 0,
+      "after": 1,
+      "kind": "Added"
+    },
+    {
+      "id": 7009,
+      "name": "Teleport Bind",
+      "classes": 32,
+      "before": 0,
+      "after": 1,
+      "kind": "Added"
+    },
+    {
+      "id": 7060,
+      "name": "Precision of Axes",
+      "classes": 32768,
+      "before": 0,
+      "after": 3,
+      "kind": "Added"
+    },
+    {
+      "id": 7703,
+      "name": "Death Bloom",
+      "classes": 1024,
+      "before": 0,
+      "after": 1,
+      "kind": "Added"
+    },
+    {
+      "id": 8325,
+      "name": "Subtle Blows",
+      "classes": 256,
+      "before": 0,
+      "after": 4,
+      "kind": "Added"
+    },
+    {
+      "id": 8332,
+      "name": "Extended Languid Bite",
+      "classes": 512,
+      "before": 0,
+      "after": 1,
+      "kind": "Added"
+    },
+    {
+      "id": 8342,
+      "name": "Host in the Shell",
+      "classes": 4096,
+      "before": 0,
+      "after": 1,
+      "kind": "Added"
+    },
+    {
+      "id": 8700,
+      "name": "Beam of Slumber",
+      "classes": 8192,
+      "before": 0,
+      "after": 1,
+      "kind": "Added"
+    },
+    {
+      "id": 8701,
+      "name": "Phantasmic Reflex",
+      "classes": 8192,
+      "before": 0,
+      "after": 1,
+      "kind": "Added"
+    },
+    {
+      "id": 8901,
+      "name": "Hastened Defensive Poses",
+      "classes": 64,
+      "before": 0,
+      "after": 4,
+      "kind": "Added"
+    },
+    {
+      "id": 8903,
+      "name": "Hastened Destructive Force",
+      "classes": 64,
+      "before": 0,
+      "after": 3,
+      "kind": "Added"
+    },
+    {
+      "id": 9300,
+      "name": "Massive Strike",
+      "classes": 256,
+      "before": 0,
+      "after": 2,
+      "kind": "Added"
+    },
+    {
+      "id": 9503,
+      "name": "Group Shrink",
+      "classes": 512,
+      "before": 0,
+      "after": 1,
+      "kind": "Added"
+    },
+    {
+      "id": 10394,
+      "name": "Beacon of the Righteous",
+      "classes": 4,
+      "before": 0,
+      "after": 1,
+      "kind": "Added"
+    },
+    {
+      "id": 11080,
+      "name": "Chameleon Strike",
+      "classes": 16384,
+      "before": 0,
+      "after": 1,
+      "kind": "Added"
+    }
+  ],
+  "by_class": [
+    {
+      "class_name": "Warrior",
+      "added_lines": 9,
+      "expanded_lines": 13,
+      "shared_lines": 22,
+      "added_ranks": 259
+    },
+    {
+      "class_name": "Cleric",
+      "added_lines": 7,
+      "expanded_lines": 17,
+      "shared_lines": 22,
+      "added_ranks": 272
+    },
+    {
+      "class_name": "Paladin",
+      "added_lines": 5,
+      "expanded_lines": 16,
+      "shared_lines": 22,
+      "added_ranks": 261
+    },
+    {
+      "class_name": "Ranger",
+      "added_lines": 5,
+      "expanded_lines": 22,
+      "shared_lines": 22,
+      "added_ranks": 278
+    },
+    {
+      "class_name": "Shadow Knight",
+      "added_lines": 8,
+      "expanded_lines": 19,
+      "shared_lines": 22,
+      "added_ranks": 289
+    },
+    {
+      "class_name": "Druid",
+      "added_lines": 14,
+      "expanded_lines": 15,
+      "shared_lines": 22,
+      "added_ranks": 283
+    },
+    {
+      "class_name": "Monk",
+      "added_lines": 7,
+      "expanded_lines": 18,
+      "shared_lines": 22,
+      "added_ranks": 280
+    },
+    {
+      "class_name": "Bard",
+      "added_lines": 8,
+      "expanded_lines": 13,
+      "shared_lines": 22,
+      "added_ranks": 273
+    },
+    {
+      "class_name": "Rogue",
+      "added_lines": 9,
+      "expanded_lines": 15,
+      "shared_lines": 22,
+      "added_ranks": 267
+    },
+    {
+      "class_name": "Shaman",
+      "added_lines": 13,
+      "expanded_lines": 14,
+      "shared_lines": 22,
+      "added_ranks": 268
+    },
+    {
+      "class_name": "Necromancer",
+      "added_lines": 12,
+      "expanded_lines": 12,
+      "shared_lines": 22,
+      "added_ranks": 265
+    },
+    {
+      "class_name": "Wizard",
+      "added_lines": 5,
+      "expanded_lines": 14,
+      "shared_lines": 22,
+      "added_ranks": 252
+    },
+    {
+      "class_name": "Magician",
+      "added_lines": 10,
+      "expanded_lines": 11,
+      "shared_lines": 22,
+      "added_ranks": 251
+    },
+    {
+      "class_name": "Enchanter",
+      "added_lines": 15,
+      "expanded_lines": 11,
+      "shared_lines": 22,
+      "added_ranks": 262
+    },
+    {
+      "class_name": "Beastlord",
+      "added_lines": 8,
+      "expanded_lines": 15,
+      "shared_lines": 22,
+      "added_ranks": 261
+    },
+    {
+      "class_name": "Berserker",
+      "added_lines": 9,
+      "expanded_lines": 12,
+      "shared_lines": 22,
+      "added_ranks": 270
+    }
+  ],
+  "cooldown_capacity": {
+    "class_masks": 696,
+    "max_timer_slots": 74,
+    "maximum_classes": [
+      "Druid",
+      "Necromancer",
+      "Magician"
+    ],
+    "limit": 100,
+    "max_profile_families": 206,
+    "profile_limit": 300
+  }
+}

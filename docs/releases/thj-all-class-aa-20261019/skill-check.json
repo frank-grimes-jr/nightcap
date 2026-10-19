@@ -1,0 +1,140 @@
+{
+  "audited_at": "2026-10-19",
+  "scope": "Reviewed local files; not runtime or player QA evidence",
+  "topics": {
+    "multiclass": [
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\config\\aa-policy.json",
+        "role": "Reviewed October19 all-class AA candidate; not deployed or published; owner QA open",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\server-mods\\code\\common\\nightcap_aa_policy.h",
+        "role": "Reviewed October19 all-class AA candidate; not deployed or published; owner QA open",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\all_class_aa.py",
+        "role": "Reviewed October19 all-class AA candidate; not deployed or published; owner QA open",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\build_all_class_aa_candidate.py",
+        "role": "Reviewed October19 all-class AA candidate; not deployed or published; owner QA open",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\fixtures\\aa-all-class-catalog.json.gz",
+        "role": "Reviewed October19 all-class AA candidate; not deployed or published; owner QA open",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\tests\\test_all_class_aa.py",
+        "role": "Reviewed October19 all-class AA candidate; not deployed or published; owner QA open",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\tests\\test_all_class_aa_native.py",
+        "role": "Reviewed October19 all-class AA candidate; not deployed or published; owner QA open",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\tests\\test_aa_tbs_policy.py",
+        "role": "Reviewed October19 all-class AA candidate; not deployed or published; owner QA open",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-all-class-aa-20261019\\README.md",
+        "role": "Reviewed October19 all-class AA candidate; not deployed or published; owner QA open",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-all-class-aa-20261019\\CHANGELIST.md",
+        "role": "Reviewed October19 all-class AA candidate; not deployed or published; owner QA open",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-all-class-aa-20261019\\QA.md",
+        "role": "Reviewed October19 all-class AA candidate; not deployed or published; owner QA open",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-all-class-aa-20261019\\verification.json",
+        "role": "Reviewed October19 all-class AA candidate; not deployed or published; owner QA open",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-all-class-aa-20261019\\review.json",
+        "role": "Reviewed October19 all-class AA candidate; not deployed or published; owner QA open",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-all-class-aa-20261019\\production-content-check.json",
+        "role": "Reviewed October19 all-class AA candidate; not deployed or published; owner QA open",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-all-class-aa-20261019\\summary.json",
+        "role": "Reviewed October19 all-class AA candidate; not deployed or published; owner QA open",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-all-class-aa-20261019\\dispositions.json",
+        "role": "Reviewed October19 all-class AA candidate; not deployed or published; owner QA open",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-all-class-aa-20261019\\thj-ranks.json",
+        "role": "Reviewed October19 all-class AA candidate; not deployed or published; owner QA open",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-all-class-aa-20261019\\healing-boon-forward.sql",
+        "role": "Reviewed October19 all-class AA candidate; not deployed or published; owner QA open",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-all-class-aa-20261019\\healing-boon-rollback.sql",
+        "role": "Reviewed October19 all-class AA candidate; not deployed or published; owner QA open",
+        "state": "unchanged"
+      }
+    ],
+    "wiki": [
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\wiki\\articles\\combat.json",
+        "role": "Reviewed October19 all-class AA candidate; not deployed or published; owner QA open",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\wiki\\articles\\features.json",
+        "role": "Reviewed October19 all-class AA candidate; not deployed or published; owner QA open",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\wiki\\articles\\index.json",
+        "role": "Reviewed October19 all-class AA candidate; not deployed or published; owner QA open",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\wiki\\articles\\multiclass.json",
+        "role": "Reviewed October19 all-class AA candidate; not deployed or published; owner QA open",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\wiki\\articles\\recent-changes.json",
+        "role": "Reviewed October19 all-class AA candidate; not deployed or published; owner QA open",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\wiki\\articles\\unreleased.json",
+        "role": "Reviewed October19 all-class AA candidate; not deployed or published; owner QA open",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-all-class-aa-20261019\\wiki-review.json",
+        "role": "Reviewed October19 all-class AA candidate; not deployed or published; owner QA open",
+        "state": "unchanged"
+      }
+    ]
+  }
+}

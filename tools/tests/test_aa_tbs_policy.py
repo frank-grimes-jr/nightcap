@@ -73,8 +73,12 @@ class PolicyTests(unittest.TestCase):
         old = policy.compile_policy(original_catalog, prior)
         self.assertEqual(len(old), 941)
         self.assertTrue({r['rank_id'] for r in old} <= {r['rank_id'] for r in self.rows})
-        for aid in (359,516,541):
+        # Abundant Healing's native focus limits still need reconciliation.
+        # Dance/Hastened Blades now have reviewed finite duration handling.
+        for aid in (516,):
             self.assertFalse(any(a == aid for a,_ in self.by_key))
+        for aid in (359,541):
+            self.assertIn((aid,3),self.by_key)
         self.assertIn((75,9), self.by_key)
         self.assertNotIn((75,10), self.by_key)
         self.assertIn((281,9), self.by_key)
