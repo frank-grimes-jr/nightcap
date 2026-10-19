@@ -1,5 +1,18 @@
 # Current Nightcap status
 
+## Combined THJ item/spell and pet/WPM — candidate, not deployed
+
+The item/spell candidate integrates the completed pet/WPM source and reviewed
+starter/dungeon progression. It covers131 observed Ascended numeric targets,
+additive direct SD, half-SD ordinary ticks, scoped heroic INT/WIS and Bard rune
+exclusion.1393 existing definitions have full285-column guarded transitions;
+numeric recovery preserves pet/WPM effects and sockets.157 combined regressions
+pass without skips, plus real MariaDB recovery/regeneration tests. Isolated native
+build/comparison evidence and exact owner steps are in the
+[combined testing guide](releases/thj-parity-20261018/README.md). Wider encounter
+balance and actual RoF2 acceptance remain open. Live remains Classic50; no
+production, signed-client or wiki publication changes occurred.
+
 ## WPM melee and pet integration — candidate, not deployed
 
 The combined candidate now includes the original WPM melee plan: held-class

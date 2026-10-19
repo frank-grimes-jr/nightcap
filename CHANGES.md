@@ -1,5 +1,27 @@
 # CHANGES
 
+## 2026-10-18 - Combined observed THJ item and spell scaling candidate
+
+Match supported numeric fields on131 observed Ascended targets, using clean
+screenshots to resolve workbook errors and deferring ambiguous/below-Normal
+fields. Integrate the reviewed209-family starter policy and dungeon compiler.
+One guarded transaction owns1393 existing item changes across parity and
+pet/WPM; numeric recovery retains companion effects/sockets and all earned state.
+Fresh generation retains explicit overrides; the generic SD/HA migration skips
+these families. Never rerun the destructive tier bootstrap on an existing server.
+
+Add separately switchable additive direct SD, half-SD ordinary DoT ticks and
+0.1%-per-heroic INT/WIS direct values. Preserve percentage healing/HoTs, native
+focus/crit flow, opt-outs, Throw Stone and pet inheritance. Exclude Bard songs
+from HA rune scaling. Critical DoT ordering and Bard area-DoT exceptions are
+explicit calibration limits. Preserve the completed pet/WPM AA/client candidate.
+
+157 combined regressions pass without skips; real MariaDB migration/rollback
+and regeneration checks pass. Paired native build and expanded comparison are
+recorded separately in the release evidence as they complete. No production
+installation, signing, main promotion or wiki publication. Exact owner testing,
+source/receipt preservation and recovery: `docs/releases/thj-parity-20261018/`.
+
 ## 2026-10-18 - WPM melee completion integrated with pet candidate
 
 Implement held-class melee defenses/attacks, six-skill Way of Steel, earned

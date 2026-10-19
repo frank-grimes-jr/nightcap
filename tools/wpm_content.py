@@ -112,7 +112,7 @@ def acquisition():
     return out
 
 
-def groups(rollback=False):
+def groups(rollback=False, include_gear=True):
     data=snapshot()['tables'];out=[]
     grouped=defaultdict(list)
     for table,row,key in acquisition():grouped[(table,tuple(key.items()))].append(row)
@@ -136,7 +136,7 @@ def groups(rollback=False):
         for row in rows:
             if row['id'] in ids:raise ValueError('Occupied WPM content ID')
             out.append(dict(table=table,key={'id':row['id']},before=[],after=[row]))
-    for before,after in gear_changes():out.append(dict(table='items',key={'id':before['id']},before=[before],after=[after]))
+    for before,after in (gear_changes() if include_gear else []):out.append(dict(table='items',key={'id':before['id']},before=[before],after=[after]))
     return out
 
 

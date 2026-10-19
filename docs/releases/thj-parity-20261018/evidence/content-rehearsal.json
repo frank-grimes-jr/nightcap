@@ -1,0 +1,12 @@
+{
+  "status": "passed",
+  "database": "nightcap_thj_parity_20261018",
+  "existing_definitions_verified": 1710,
+  "columns_per_row": 285,
+  "changed_definitions": 1393,
+  "numeric_recovery_definitions": 1369,
+  "new_content": "pet/WPM non-gear forward applied twice during setup",
+  "new_spell_rules": "disable twice, enable twice, original forward again; final enabled",
+  "source_capture_sha256": "c5b40cb1d9dbc92330af83f8e8d5a6a9caff0b0d91fc380fdb2ecfc3fdcbe7af",
+  "scope": "dedicated synthetic DB only; no live content/player changes"
+}

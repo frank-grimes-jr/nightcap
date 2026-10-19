@@ -68,6 +68,7 @@ int main(){try{
 using uint16=uint16_t;using int32=int32_t;using int64=int64_t;
 struct Spell{bool no_heal_damage_item_mod=false;int recast_time=0,recovery_time=0,cast_time=0;}spells[2];
 bool IsValidSpell(int id){return id==1;}
+bool IsBardSong(int){return false;}
 bool FlatItemExtraSpellAmt=true,ItemExtraSpellAmtCalcAsPercent=true;
 #define RuleB(a,b) b
 struct Mob{

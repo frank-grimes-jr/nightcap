@@ -105,7 +105,8 @@ def equipment(id,design,band,quality,name=None):
     assert len(title)<64
     return item
 
-def items():
+def legacy_items():
+    """October16 captured budgets, retained only to build guarded migrations."""
     result=[]
     for band_index,band in enumerate(BANDS):
         for design in range(24):
@@ -120,6 +121,12 @@ def items():
                 result.append(dict(id=id,band=band,quality=QUALITIES[quality],design=design,
                                    source=DUNGEONS[dungeon][0],values=equipment(id,template,band,quality,BOSS_DESIGNS[dungeon][design])))
     return result
+
+def items():
+    # One policy supplies the live compiler and the starter comparison. Do not
+    # feed these afterimages back into the historical preimage planner.
+    from starter_retune import dungeon_proposal
+    return dungeon_proposal(legacy_items())
 
 def objectives(snapshot):
     result=[]

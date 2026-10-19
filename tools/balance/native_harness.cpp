@@ -56,7 +56,7 @@ bool NightcapBalancePreflight(int argc, char **argv)
 		config_file >> config;
 		const auto &server = config.at("server");
 		const auto &db = server.at("database");
-		if ((db.at("db") != "nightcap_balance_20260912" && db.at("db") != "nightcap_wpm_balance_20261018") || db.at("username") != "nightcap_balance"
+		if ((db.at("db") != "nightcap_balance_20260912" && db.at("db") != "nightcap_wpm_balance_20261018" && db.at("db") != "nightcap_thj_parity_20261018") || db.at("username") != "nightcap_balance"
 			|| server.contains("content_database") || server.at("auto_database_updates") != "false") {
 			throw std::runtime_error("Only the isolated balance database/user with updates disabled is allowed");
 		}
@@ -585,20 +585,22 @@ public:
 			const auto spell_id = probe.at("spell_id").get<uint16>();
 			if (!IsValidSpell(spell_id)) { throw std::runtime_error("Invalid probe spell"); }
 			const auto &spell = spells[spell_id];
+			const bool periodic = probe.value("periodic", false);
 			bool eligible = false;
 			for (auto held : GetMulticlassList()) {
 				eligible |= spell.classes[held - 1] > 0 && spell.classes[held - 1] <= GetLevel();
 			}
-			// First integration covers one direct CurrentHP effect on a single target.
-			// Other effect/target paths must be added explicitly, not silently omitted.
-			if (!eligible || spell.effect_id[0] != SpellEffect::CurrentHP || spell.buff_duration != 0
+			// One CurrentHP effect on a single target: direct value or a landed DoT tick.
+			// Periodic probes exclude application resists and the buff lifecycle.
+			if (!eligible || spell.effect_id[0] != SpellEffect::CurrentHP || periodic != (spell.buff_duration > 0)
 				|| spell.target_type != ST_Target || spell.limit_value[0] != 0) {
-				throw std::runtime_error("Unsupported or level-ineligible direct spell probe");
+				throw std::runtime_error("Unsupported or level-ineligible spell probe");
 			}
 			for (int slot = 1; slot < EFFECT_COUNT; ++slot) {
 				if (!IsBlankSpellEffect(spell_id, slot)) { throw std::runtime_error("Multi-effect spell probe requires implementation"); }
 			}
 			const bool healing = spell.base_value[0] > 0;
+			if (periodic && healing) { throw std::runtime_error("Periodic healing probes require their own implementation"); }
 			if (healing != (spell.good_effect != 0)) { throw std::runtime_error("Unexpected probe polarity"); }
 			Mob *target = this;
 			const auto npc_id = probe.value("npc_id",0u);
@@ -620,14 +622,16 @@ public:
 			for (int sample = 0; sample < samples; ++sample) {
 				const auto cast_ms = GetActSpellCasttime(spell_id,spell.cast_time);
 				float partial = 100;
-				if (!healing) {
+				if (!healing && !periodic) {
 					partial = target->IsImmuneToSpell(spell_id,this) ? 0
 						: target->ResistSpell(spell.resist_type,spell_id,this,true,spell.resist_difficulty);
 				}
 				int64 amount = 0;
 				if (partial > 0) {
-					const auto base = target->CalcSpellEffectValue(spell_id,0,GetLevel(),GetInstrumentMod(spell_id),this);
+					const auto base = target->CalcSpellEffectValue(spell_id,0,GetLevel(),GetInstrumentMod(spell_id),this,
+						periodic ? CalcBuffDuration(this,target,spell_id) : 0);
 					amount = healing ? GetActSpellHealing(spell_id,base,this)
+						: periodic ? -GetActDoTDamage(spell_id,base,target,true)
 						: -GetActSpellDamage(spell_id,static_cast<int64>(base*partial/100),target);
 				}
 				// Normal spell-slot mana cost is resolved after effect application.
@@ -643,14 +647,14 @@ public:
 					{"mana",std::get<1>(value)},{"cast_ms",std::get<2>(value)},
 					{"landed_percent",std::get<3>(value)}});
 			}
-			result.push_back({{"spell_id",spell_id},{"name",spell.name},{"effect",healing ? "heal" : "damage"},
+			result.push_back({{"spell_id",spell_id},{"name",spell.name},{"effect",healing ? "heal" : periodic ? "dot_tick" : "damage"},
 				{"caster_hp",GetHP()},{"caster_mana",GetMana()},
 				{"npc_id",npc_id},{"target_level",target->GetLevel()},{"target_resist",target->GetResist(spell.resist_type)},
 				{"raw_mana",spell.mana},{"raw_cast_ms",spell.cast_time},
 				{"raw_recast_ms",spell.recast_time},{"raw_recovery_ms",spell.recovery_time},
 				{"specialization",GetSpecializeSkillValue(spell_id)},
 				{"samples",samples},{"outcomes",outcomes},
-				{"scope","Native direct effect/resist/focus/crit/cost/cast-time samples before Damage/HealDamage; no active buffs or complete casting lifecycle"}});
+				{"scope",periodic ? "Native landed initial-duration DoT tick/focus/crit; no application resist, active buff or casting lifecycle" : "Native direct effect/resist/focus/crit/cost/cast-time samples before Damage/HealDamage; no active buffs or complete casting lifecycle"}});
 		}
 		return result;
 	}
@@ -672,6 +676,14 @@ int NightcapBalanceMain(int argc, char **argv)
 		if (input.contains("heroic_scaling_control")) {
 			RuleManager::Instance()->SetRule("Combat:NightcapHeroicMeleeScaling",
 				input.at("heroic_scaling_control").get<bool>() ? "true" : "false");
+		}
+		if (input.contains("thj_damage_control")) {
+			RuleManager::Instance()->SetRule("Spells:NightcapTHJDamageScaling",
+				input.at("thj_damage_control").get<bool>() ? "true" : "false");
+		}
+		if (input.contains("heroic_spell_control")) {
+			RuleManager::Instance()->SetRule("Spells:NightcapHeroicSpellScaling",
+				input.at("heroic_spell_control").get<bool>() ? "true" : "false");
 		}
 		const bool runtime = input.value("runtime_probe",false) || input.contains("encounter") || input.contains("aa_probe") || input.contains("pet_probe");
 		if (input.contains("aa_ownership_probe") && (runtime || input.at("builds").size() != 1)) {
@@ -707,6 +719,7 @@ int NightcapBalanceMain(int argc, char **argv)
 				{"hp", c->GetMaxHP()}, {"mana", c->GetMaxMana()}, {"ac_sum", c->ACSum()},
 				{"avoidance", c->GetTotalDefense()}, {"str", c->GetSTR()}, {"sta", c->GetSTA()},
 				{"agi", c->GetAGI()}, {"dex", c->GetDEX()}, {"int", c->GetINT()}, {"wis", c->GetWIS()},
+				{"heroic_int", c->GetHeroicINT()}, {"heroic_wis", c->GetHeroicWIS()},
 				{"fr", c->GetFR()}, {"cr", c->GetCR()}, {"mr", c->GetMR()}, {"dr", c->GetDR()}, {"pr", c->GetPR()},
 				{"shielding", c->GetShielding()}, {"spellshield", c->GetSpellShield()},
 				{"spell_damage", c->GetSpellDmg()}, {"heal_amount", c->GetHealAmt()}, {"haste", c->GetHaste()},

@@ -109,7 +109,7 @@ def new_rows():
     return result
 
 
-def migration(acquisition_rollback=False):
+def migration(acquisition_rollback=False, include_gear=True):
     lines=['DELIMITER //','CREATE PROCEDURE nightcap_pet_content_20261018()','BEGIN',
            ' DECLARE EXIT HANDLER FOR SQLEXCEPTION BEGIN ROLLBACK; RESIGNAL; END;',
            ' SET TRANSACTION ISOLATION LEVEL SERIALIZABLE;',' START TRANSACTION;']
@@ -135,7 +135,7 @@ def migration(acquisition_rollback=False):
             lines.append(f" IF NOT EXISTS (SELECT 1 FROM loottable_entries WHERE {predicate(row)} FOR UPDATE) THEN SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT='Seru original loot drift'; END IF;")
         ids=','.join(str(r['id']) for r in item_rows())
         lines.append(f" IF EXISTS (SELECT 1 FROM lootdrop_entries WHERE lootdrop_id={DROP_ID} AND item_id NOT IN ({ids}) FOR UPDATE) THEN SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT='Fragment drop has unexpected items'; END IF;")
-        for original, after in gear_changes():
+        for original, after in (gear_changes() if include_gear else []):
             lines += [f' IF NOT EXISTS (SELECT 1 FROM items WHERE {predicate(after)}) THEN',
                       f"  IF NOT EXISTS (SELECT 1 FROM items WHERE {predicate(original)} FOR UPDATE) THEN SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT='Guide gear preimage drift'; END IF;",
                       '  UPDATE items SET '+','.join('`'+k+'`='+sql_value(v) for k,v in after.items() if v!=original[k])+f" WHERE id={after['id']};",' END IF;']

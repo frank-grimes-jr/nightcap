@@ -495,6 +495,8 @@ RULE_BOOL(Spells, UseAdditiveFocusFromWornSlot, false, "Allows an additive focus
 RULE_BOOL(Spells, UseAdditiveFocusFromWornSlotWithLimits, false, "Allows an additive focus effect to be calculated from worn slot. Applies normal limit checks. Can only have one additive focus rule be true.")
 RULE_BOOL(Spells, AlwaysSendTargetsBuffs, false, "Ignore Leadership Alternate Abilities level if true")
 RULE_BOOL(Spells, FlatItemExtraSpellAmt, false, "Allow SpellDmg stat to affect all spells, regardless of cast time/cooldown/etc")
+RULE_BOOL(Spells, NightcapTHJDamageScaling, false, "Player/permanent-pet item SD adds to direct damage; half SD per DoT tick before native critical ratio. Healing retains its separate legacy policy")
+RULE_BOOL(Spells, NightcapHeroicSpellScaling, false, "Player heroic INT/WIS add 0.1 percent per point to final direct damage/healing; excludes DoTs and HoTs")
 RULE_BOOL(Spells, IgnoreSpellDmgLvlRestriction, false, "Ignore the 5 level spread on applying SpellDmg")
 RULE_BOOL(Spells, ItemExtraSpellAmtCalcAsPercent, false, "Apply the Item stats Spell Dmg and Heal Amount as Percentage-based modifiers instead of flat additions")
 RULE_REAL(Spells, BreakFeignDeathWhenCastOn, 2.0, "Percentage that Feign Death will break when you resist a spell")

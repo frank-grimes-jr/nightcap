@@ -1,0 +1,10 @@
+{
+  "inputs": {
+    "E:\\EQ_Local_Dev\\artifacts\\research\\thj-nightcap-comparison-20261018\\item-crosswalk.json": "440ebdcc2d645f03fe1109899eec3f4dd139d52f9d872822a28d660b3c46bd81",
+    "E:\\EQ_Local_Dev\\artifacts\\research\\thj-nightcap-comparison-20261018\\item-comparison.json": "aadf868fca661a0505a9cd1d3cac2bff3a570fb04c5edc2b9621e29a06c3e142",
+    "E:\\EQ_Local_Dev\\artifacts\\research\\thj-forum-20261018\\item-table-records.json": "0ac713e3c0e8427df217d9120759f7df2592c1f03bf3b61a6969e8264d8dd868",
+    "E:\\EQ_Local_Dev\\artifacts\\research\\thj-forum-20261018\\screenshot-observations.json": "fc96660351d36534ec76876d5e1ac5b8d795c35a4c24d03e77f613147b2be688"
+  },
+  "catalog_items": 131,
+  "numeric_targets": 4523
+}

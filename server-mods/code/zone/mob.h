@@ -1014,6 +1014,8 @@ public:
 	bool DoHPToManaCovert(int32 mana_cost = 0);
 	int8 GetDecayEffectValue(uint16 spell_id, uint16 spelleffect);
 	int64 GetExtraSpellAmt(uint16 spell_id, int64 extra_spell_amt, int64 base_spell_dmg);
+	int64 GetNightcapSpellDamageBonus(uint16 spell_id, int64 base_value, bool dot = false);
+	int64 GetNightcapHeroicSpellValue(uint16 spell_id, int64 value, bool healing);
 	void MeleeLifeTap(int64 damage);
 	bool PassCastRestriction(int value);
 	void SendCastRestrictionMessage(int requirement_id, bool is_target_requirement = true, bool is_discipline = false);
