@@ -67,6 +67,7 @@ def candidate_reusable(candidate, prior, key, flags_file, link_file):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--source', type=Path, default=Path('/home/eqemu/code'))
+    parser.add_argument('--build-dir', type=Path, help='CMake build directory for a verified isolated candidate')
     parser.add_argument('--spells-source', type=Path,
                         help='Compile a reviewed spells.cpp candidate inside this isolated runtime')
     parser.add_argument('--attack-source', type=Path,
@@ -86,7 +87,7 @@ def main():
     if output.parent != Path('/tmp') or not output.name.startswith('nightcap-balance-'):
         raise ValueError('Refusing to build outside isolated temporary harness directory')
     source = args.source.resolve()
-    build = source / 'build/zone'
+    build = (args.build_dir.resolve() if args.build_dir else source / 'build') / 'zone'
     flags_file = build / 'CMakeFiles/zone.dir/flags.make'
     flags = dict(line.split(' = ', 1) for line in flags_file.read_text().splitlines() if ' = ' in line)
     compile_flags = sum((shlex.split(flags[k]) for k in ('CXX_DEFINES','CXX_INCLUDES','CXX_FLAGS')), [])

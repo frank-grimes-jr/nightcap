@@ -1,19 +1,77 @@
 # Current Nightcap status
 
-## Cooldown identity follow-up — candidate, not deployed
+## Combined THJ item/spell and pet/WPM — candidate, not deployed
 
-Rampage/Purify Body collision reproduced in server and pinned RoF2 code. Candidate
-separates165 activated AA families, unlinked items and grouped/ungrouped discipline
-storage; reset/reconnect paths use the same identities. Existing saved deadlines
-need the guarded conversion. Full native build, independent review and 15 local
-MariaDB rehearsals pass. No live timers or server state changed. Content-level
+The item/spell candidate integrates the completed pet/WPM source and reviewed
+starter/dungeon progression. It covers131 observed Ascended numeric targets,
+additive direct SD, half-SD ordinary ticks, scoped heroic INT/WIS and Bard rune
+exclusion.1393 existing definitions have full285-column guarded transitions;
+numeric recovery preserves pet/WPM effects and sockets.165 unique regression and
+migration tests pass, as do the matching native build and47 scenarios with10,800
+spell samples. Same-item controls show WPM shield DPS+55%, fixed caster DPS-67%
+and equipped Classic pets-36%; spell-rank choice, mana and burst balance require
+owner testing. Full comparisons and exact owner steps are in the
+[combined testing guide](releases/thj-parity-20261018/README.md). Wider encounter
+balance and actual RoF2 acceptance remain open. Live remains Classic50; no
+production, signed-client or wiki publication changes occurred.
+
+## WPM melee and pet integration — candidate, not deployed
+
+The combined candidate now includes the original WPM melee plan: held-class
+combat, shield damage/sustain, six Monk attacks, earned AA depth, heroic STR
+and named item effects with earned acquisition. It also expands permanent pet gear, actual augment procs, owner-stat and
+earned-AA transfer, friendly pet healing, roster buffs and Doppelganger support.
+Shared output changes cover WPM and pets/casters. Rabid Bear has independent
+permanent benefit/illusion effects. New fragments, selected gear changes and an
+earned level-65/PoP profile are staged. Live remains Classic/50. No runtime,
+player-data, signed-client or wiki publication changes. The combined 134-test
+suite passes without skips; native AA checks cover 6,960 eligibility cases.
+Independent WPM review and26 native scenarios pass, including checked shield
+swaps, six attack timers, item/AA procs, runes and pet equipment/stat inheritance.
+Native AA checks also cover eight RoF2 expansion boundaries. Actual client
+lifecycle/gameplay acceptance, wider balance validation and activation remain
+pending. [Combined implementation and recovery](releases/wpm-melee-20261018/README.md).
+
+## October 18 ordinary loot rates - live
+
+Activated at 2:36 p.m. Eastern: 20% Polished / 5% Exalted / 1% Ascended per eligible ordinary equipment/bag drop. Global rules reload verified in world and all 12 workers without a restart; other rules preserved. Player balance acceptance remains open. Quest guarantee is design-only. [Evidence](ops/loot-quality-rates-20261018/README.md).
+
+
+
+## Reforging default colors — reported combine confirmed October 18
+
+The Reforging Box and zoneforge accept an item's built-in color while rejecting
+different nonzero dye colors. The default-color failure and 61 regression cases
+are covered; all twelve production zones match the new binary. Access is open,
+with player/custom state, cooldown migration, cache and current client preserved.
+No client update is required for this fix. Palwar's three Normal Daggers of Marnek
+now combine successfully, confirmed by the owner. Relog persistence, genuine dye
+rejection and other input/tier checks remain unconfirmed.
+Wiki `20261018-reforge-colors-v1` publishes the combined cooldown/travel/forging
+guidance; all465 public files verify.
+[Evidence and exact QA](releases/reforge-colors-20261018/README.md).
+
+
+## Cooldown identities — deployed October 18, live QA open
+
+PR223 is merged to main and OVH runs the verified correction for the 165
+activated AA families, including Rampage and Purify Body, unlinked items and
+discipline storage. The stopped conversion and forward/reverse rehearsal passed;
+all original saved deadlines were preserved. All twelve zone hashes, schema
+receipt, player/custom state and retained catalog/cache/client assets verify.
+Access is open with zero restarts or detected native/quest/SQL errors; owner
+gameplay QA remains open. Keep the existing proxy0.10.0; concurrent
+client2026101801 retains all106 prior assets and adds32 Classic zone assets. Content-level
 Harmshield/Cannibalize, Battle Cry/Throw Stone and generic skill sharing remain open.
 [Evidence, migration, limits and QA](releases/cooldown-identities-20261017/README.md).
 
+## October 18, 2026 — Classic travel client repair
 
-## October 17 progression, combat and crafting — deployed
+Signed game 2026101801 published (138 managed assets; 106 existing preserved, 32 added). Terrain/object coverage spans 17 audited Classic travel destinations; not the whole RoF2 installation. Owner confirmed Karl’s West Commonlands zoning issue resolved on October 18; broader destination QA remains open. No server restart. See [release evidence](releases/client-zone-validation-20261018/README.md).
 
-PR #220 is merged to main and OVH is running the matching full zone build with
+## October 17 progression, combat and crafting — release confirmed October 18
+
+PR #220 merged to main and deployed the matching full zone build with
 proxy 0.10.0 / signed game 2026101702. Recommended AA is optional; passive AA is 10%.
 Six Monk attacks have separate reuse, duration arithmetic is corrected, normal
 death has no EXP loss, existing stacks support at least 100, and the Reforging Box
@@ -24,8 +82,11 @@ All 12 zone hashes, health, the full item cache, 46 player and 26 custom/timer t
 and all 106 signed hosted assets verify. Existing market startup rotated once;
 the bounded reconciliation preserved trade history and every other player record.
 Access is open. Wiki and private guide are published; patcher notes list 10 changes.
-Owner native UI/gameplay and balance QA remain open, as do shared AA/item/spell/
-discipline cooldown identity defects. [Release, recovery and exact checks](releases/october-17-2026/README.md).
+The owner replied "Confirmed" on October 18 to this release report; individual
+native UI/gameplay scenarios and balance measurements were not enumerated.
+The later cooldown identity, client and reforging releases above supersede the
+October 17 runtime/client baseline and retain their separate QA boundaries.
+[Release, confirmation and exact checks](releases/october-17-2026/README.md).
 
 ## Idle-zone restart correction — activated October 17
 

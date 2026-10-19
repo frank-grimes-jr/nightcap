@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "retained_source_files": 2826,
+  "native_objects_and_libraries": 131,
+  "diagnostic_objects": 4,
+  "dependency_libraries": 9,
+  "zone_sha256": "6aae9f43536ca5cac46d6f5d1af71794a63c9229a730a8aa29c529b3ad07a0e8",
+  "diagnostic_sha256": "07287cbd5878f85b1ff578f566061f5e5b086439f14deec491a222c3f9e9a569",
+  "scope": "All current candidate sources, paired binaries and linked diagnostic objects match their manifests; no install"
+}

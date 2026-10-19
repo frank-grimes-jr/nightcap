@@ -1,6 +1,6 @@
 {
   "source_revision": "d7f5c1d54c6436066e0522f0cd9e62a5d3521e84",
-  "status": "built_and_reviewed_not_deployed",
+  "status": "deployed_live_gameplay_qa_open",
   "native_zone_sha256": "d3908e0348715e94955d84f629e4f27e91f15c7dd661e437efbba580ce3d216a",
   "baseline_zone_sha256": "3c1d74926cb7cff032a3ee8c48c210e37740156e7e36cc0eeddd07f847e88d1a",
   "exact_changed_sources_verified": 8,
@@ -17,7 +17,7 @@
   "spell_access_tests": 2,
   "wiki_tests": 14,
   "independent_review": "REVIEW.md",
-  "production_changed": false,
+  "production_changed": true,
   "owner_gameplay_accepted": false,
   "remaining_shared_domains": [
     "generic basic combat skills",
@@ -25,5 +25,10 @@
     "content-linked spells",
     "grouped discipline families",
     "linked item groups"
-  ]
+  ],
+  "main_pr": 223,
+  "deployment_tests": 25,
+  "resume_tests": 9,
+  "completion_tests": 7,
+  "deployment_evidence": "deployment/production-verification.json"
 }

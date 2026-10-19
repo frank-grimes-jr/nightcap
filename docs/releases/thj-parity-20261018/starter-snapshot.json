@@ -1,0 +1,16 @@
+{
+  "head": "7f8ac11c090d415fc28ac85849baef0661fbb6c2",
+  "source": "E:\\EQ_Local_Dev\\_worktrees\\weapon-tier-damage",
+  "files": {
+    "tools/starter_retune.py": "51c89f30d7a74f2068966db8dce4af5f22bc67552bf0c4f8fe11505f59a35b1b",
+    "tools/gear_progression.py": "49e14700ffb5f6c4072745ddf5dd04da755be44bc7ea0025332b648b4553ec48",
+    "tools/tests/test_starter_retune.py": "28016b3446c1ede31ff8b837272c2b4f6ecd3065c5b0857c1024e05e348fa431",
+    "docs/items/starter-retune-reference.json": "378ce2a81f09eb6f8b0ed761a524aadf0e8b38682b81111d4d14cf721f763a4b",
+    "docs/releases/starter-retune-20261018/candidate.json": "05fa2374d368672f1305d515a6fc7d5ecdd0f56bd9f2a0a0eac4accb645d57e0",
+    "docs/releases/starter-retune-20261018/README.md": "ae1faa3ac4fc3e2a15b4a764865df3806c70fee398e8f6543fbf1429c8fc32cf",
+    "docs/releases/starter-retune-20261018/skill-update.patch": "b7cb76dc7b17491768c6d1808b937761b542cd8f74ace67e139beddc7ed820ab",
+    "docs/releases/starter-retune-20261018/verification.json": "96d45a25253d9bfe9536d9d0a20095933fbad84efb841e04f5b947d85dab9a35",
+    "docs/releases/starter-retune-20261018/wiki-refresh.json": "c664808c6eb985ef7e448d9231182dbabab446f05be3596de6dcc99c4fb25506",
+    "docs/releases/starter-retune-20261018/wiki-review.json": "415a408bd7c48239c13640810f836b42179858969eecf8d59ed1cd637f31d76e"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "status": "passed",
+  "scope": "Additional focused checks after the 157-test regression capture; one spell test overlaps that suite",
+  "runs": [
+    {
+      "module": "tools/tests/test_thj_combined_content.py",
+      "tests": 4,
+      "assertions": "Composition, repeat forward/recovery/reapply, preimage drift and injected afterimage fault rollback"
+    },
+    {
+      "module": "tools/tests/test_item_scaling_overrides.py",
+      "tests": 3,
+      "elapsed_seconds": 89.033,
+      "assertions": "Protected generic planning; full generated afterimages twice; missing Ascended, missing Normal and case-only Normal-name drift rejected before starter updates"
+    },
+    {
+      "module": "tools/tests/test_thj_spell_scaling.py",
+      "tests": 2,
+      "assertions": "Enabled source-method arithmetic and disabled-rule legacy Throw Stone boundary cases"
+    }
+  ],
+  "unique_tests_including_regression": 165,
+  "failures": 0,
+  "skipped": 0,
+  "database_scope": "Session-local temporary tables, no production table changes"
+}

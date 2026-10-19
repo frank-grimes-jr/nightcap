@@ -28,7 +28,8 @@ class PetArmorDatabase(unittest.TestCase):
         schema = schema.replace('CREATE TABLE character_pet_armor LIKE inventory;',
                                 'CREATE TEMPORARY TABLE character_pet_armor LIKE inventory;')
         sql = ['CREATE TEMPORARY TABLE nightcap_inventory_template LIKE peq.inventory;',
-               'CREATE TEMPORARY TABLE inventory LIKE nightcap_inventory_template;', schema, insert]
+               'CREATE TEMPORARY TABLE inventory LIKE nightcap_inventory_template;', schema,
+               (Path(__file__).resolve().parents[2]/'server-mods/sql/2026-10-18-pet-equipment.sql').read_text(), insert]
         sql += [q+';' for q in trace['equip'][5:]]
         sql += [snapshot('EQUIPPED','character_pet_armor'), "SELECT 'CURSOR_EMPTY',COUNT(*) FROM inventory;"]
         sql += [q+';' for q in trace['remove'][5:]]

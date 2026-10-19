@@ -1,0 +1,6 @@
+{
+  "commit": "92f3f6dcaece9593c81e5959402047e4fdf231de",
+  "files": 182,
+  "source_manifest": "companion-final-snapshot.json",
+  "scope": "exact reviewed companion import; integrated working files preserved; no main/test promotion"
+}

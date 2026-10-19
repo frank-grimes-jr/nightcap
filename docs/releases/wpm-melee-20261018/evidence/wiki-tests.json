@@ -1,0 +1,12 @@
+{
+  "status": "passed",
+  "python_tests": 30,
+  "search": "passed",
+  "equipment_tests": 7,
+  "publication": "not performed",
+  "log_sha256": {
+    "wiki-python.log": "154a3052cae5cea123b78734a5d0f9307392e431f5c6da010e195902c2ffe1a3",
+    "wiki-search.log": "8f1007933f72bd0f9de376db8d7a0796794fef6d12264ceb09fc11549c9334ae",
+    "wiki-equipment.log": "3c1c54ebf4aa8b02d1af5d527edb89d1ba50697add758979c609fdda5837f66a"
+  }
+}

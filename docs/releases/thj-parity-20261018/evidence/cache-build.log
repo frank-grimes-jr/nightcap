@@ -1,0 +1,29 @@
+Shared |    Info    | Init Loading server paths 
+Shared |    Info    | Init ---------------------------------------------------------------------- 
+Shared |    Info    | Init          server > [/tmp/nightcap-balance-thj-parity-20261018] 
+Shared |    Info    | Init            logs > [logs] 
+Shared |    Info    | Init            maps > [../nightcap-balance-20260912/maps] 
+Shared |    Info    | Init        lua mods > [mods] 
+Shared |    Info    | Init         patches > [../../home/eqemu/server] 
+Shared |    Info    | Init          opcode > [../../home/eqemu/server] 
+Shared |    Info    | Init   shared_memory > [shared] 
+Shared |    Info    | operator()         quests > [quests] 
+Shared |    Info    | operator()        plugins > [plugins] 
+Shared |    Info    | operator()    lua_modules > [lua_modules] 
+Shared |    Info    | Init ---------------------------------------------------------------------- 
+Shared |    Info    | main Shared Memory Loader Program 
+Shared |    Info    | main Connecting to database 
+Shared |    Info    | Connect Connected to database [default] [nightcap_thj_parity_20261018] @ [mariadb:3306] 
+Shared |    Info    | LoadLogDatabaseSettings Loaded [84] log categories 
+Shared |    Info    | LoadRules Loaded [1,006] rules(s) in rule_set [default] id [1] 
+Shared |    Info    | LoadRules Loaded [1,006] rules(s) in rule_set [default] id [1] 
+Shared |    Info    | SetExpansionContext Current expansion is [4] (The Planes of Power) 
+Shared |    Info    | ReloadContentFlags Loaded content flag [peq_halloween] [disabled] 
+Shared |    Info    | ReloadContentFlags Loaded content flag [don_nest_unlocked] [enabled] 
+Shared |    Info    | ReloadContentFlags Loaded content flag [frostfell] [disabled] 
+Shared |    Info    | ReloadContentFlags Loaded content flag [eq_anniversary] [disabled] 
+Shared |    Info    | LoadStaticGlobalZoneInstances Loaded [0] zone_instances 
+Shared |    Info    | LoadZones Loaded [618] zones 
+Shared |    Info    | main Current expansion is [4] (The Planes of Power) 
+Shared |    Info    | main Loading items 
+Shared |    Info    | main Loading spells 

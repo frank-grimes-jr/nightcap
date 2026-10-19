@@ -12,7 +12,8 @@ class PetArmorTransfers(unittest.TestCase):
     def test_actual_transfer_methods(self):
         source = (ZONE/'pet_armor.cpp').read_text()
         bodies = '\n'.join(function(source, signature) for signature in
-                           ('Row FromInstance(', 'std::string Predicate(', 'bool SchemaReady()', 'bool Transfer('))
+                           ('bool CanEquip(', 'Row FromInstance(', 'std::string Predicate(', 'bool SchemaReady()', 'bool Transfer('))
+        bodies = function((ZONE/'pet_armor.h').read_text(), 'inline constexpr unsigned Capacity(') + '\n' + bodies
         fixture = (Path(__file__).parent/'pet_armor_fixture.cpp').read_text()
         # Keep cursor ranges tied to the actual server constants, not a fixture guess.
         self.assertIn('EQ::invbag::CURSOR_BAG_BEGIN', bodies)

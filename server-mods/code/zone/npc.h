@@ -186,7 +186,9 @@ public:
 	void	GoToBind(uint8 bind_number = 0)	{ GMMove(m_SpawnPoint.x, m_SpawnPoint.y, m_SpawnPoint.z, m_SpawnPoint.w); }
 	void	Gate(uint8 bind_number = 0);
 
-	void SetNightcapPetArmor(uint8 index, const std::shared_ptr<EQ::ItemInstance> &inst);
+	void SetNightcapPetArmor(uint8 index, const std::shared_ptr<EQ::ItemInstance> &inst, bool reserve_hand = false);
+	int32 GetHealAmt() const override;
+	int32 GetSpellDmg() const override;
 	bool IsNightcapPetArmorSlot(int16 slot) const;
 	void	GetPetState(SpellBuff_Struct *buffs, uint32 *items, char *name);
 	void	SetPetState(SpellBuff_Struct *buffs, uint32 *items);
@@ -419,6 +421,12 @@ public:
 	QGlobalCache *CreateQGlobals() { qGlobals = new QGlobalCache(); return qGlobals; }
 
 	SwarmPet *GetSwarmInfo() { return (swarmInfoPtr); }
+	void EnableNightcapDoppelganger(Client *owner, uint16 summon_spell);
+	Client *GetNightcapDoppelgangerOwner();
+	bool IsNightcapDoppelganger() const { return nightcap_doppel_character_id != 0; }
+	void ProcessNightcapDoppelganger();
+	bool PrepareNightcapDoppelgangerCast(uint16 spell_id, Mob *target, int32 &mana_cost);
+	void CompleteNightcapDoppelgangerCast(uint16 spell_id, int32 mana_cost);
 	void SetSwarmInfo(SwarmPet *mSwarmInfo) { swarmInfoPtr = mSwarmInfo; }
 
 	int32	GetAccuracyRating() const { return (accuracy_rating); }
@@ -689,6 +697,12 @@ protected:
 	uint8	casting_spell_AIindex;
 
 	std::vector<AISpells_Struct> AIspells;
+	uint32 nightcap_doppel_character_id = 0;
+	uint16 nightcap_doppel_summon_spell = 0;
+	uint16 nightcap_doppel_spell = 0;
+	uint16 nightcap_doppel_target = 0;
+	uint64 nightcap_doppel_next_check = 0;
+	std::map<uint16, uint64> nightcap_doppel_recast;
 	bool HasAISpell;
 	virtual bool AICastSpell(Mob* tar, uint8 iChance, uint32 iSpellTypes, bool bInnates = false);
 	virtual bool AIDoSpellCast(int32 i, Mob* tar, int32 mana_cost, uint32* oDontDoAgainBefore = 0);
@@ -754,8 +768,8 @@ protected:
 
 	uint16	skills[EQ::skills::HIGHEST_SKILL + 1];
 
-	std::array<std::shared_ptr<EQ::ItemInstance>, 8> m_nightcap_armor_base;
-	std::array<bool, 8> m_nightcap_armor_active{};
+	std::array<std::shared_ptr<EQ::ItemInstance>, NightcapPetArmor::Slots.size()> m_nightcap_armor_base;
+	std::array<bool, NightcapPetArmor::Slots.size()> m_nightcap_armor_active{};
 	uint32	equipment[EQ::invslot::EQUIPMENT_COUNT];	//this is an array of item IDs
 
 	uint32	herosforgemodel;			//this is the Hero Forge Armor Model (i.e 63 or 84 or 203)

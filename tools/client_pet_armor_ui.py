@@ -1,4 +1,4 @@
-"""Add an eight-slot pet armor page to the existing inventory tabs."""
+"""Add a paged pet equipment view to the existing inventory tabs."""
 import xml.etree.ElementTree as ET
 
 
@@ -42,7 +42,7 @@ def add_pet_page(root):
     value(page, 'Style_HScroll', 'false')
     value(page, 'Style_Transparent', 'false')
     value(page, 'DrawTemplate', 'WDT_Def')
-    value(page, 'TabText', 'Pet Armor')
+    value(page, 'TabText', 'Pet Equipment')
     color(page, 'TabTextColor'); color(page, 'TabTextActiveColor', 0)
     box(page, 0, 22, 388, 401)
     control('Button','NCPA_Previous','<',6,8,24,22)
@@ -55,6 +55,8 @@ def add_pet_page(root):
         for action, x, width in [('Equip',214,47),('Remove',264,56),('Inspect',323,55)]:
             control('Button',f'NCPA_{action}{index}',action,x,y,width,25)
     control('Button','NCPA_Refresh','Refresh',6,341,65,24)
-    control('Label','NCPA_Notice','8 armor slots per pet. Change gear out of combat.',6,372,373,18)
+    control('Button','NCPA_PagePrevious','Previous slots',100,341,126,24)
+    control('Button','NCPA_PageNext','Next slots',242,341,126,24)
+    control('Label','NCPA_Notice','Mage: 15 items. Other pets: 8. Change out of combat.',6,372,373,18)
     root.append(page)
     value(tabs[0], 'Pages', 'Page:NCPA_Page')

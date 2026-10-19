@@ -1,5 +1,102 @@
 # CHANGES
 
+## 2026-10-18 - Combined observed THJ item and spell scaling candidate
+
+Match supported numeric fields on131 observed Ascended targets, using clean
+screenshots to resolve workbook errors and deferring ambiguous/below-Normal
+fields. Integrate the reviewed209-family starter policy and dungeon compiler.
+One guarded transaction owns1393 existing item changes across parity and
+pet/WPM; numeric recovery retains companion effects/sockets and all earned state.
+Fresh generation retains explicit overrides; the generic SD/HA migration skips
+these families. Never rerun the destructive tier bootstrap on an existing server.
+
+Add separately switchable additive direct SD, half-SD ordinary DoT ticks and
+0.1%-per-heroic INT/WIS direct values. Preserve percentage healing/HoTs, native
+focus/crit flow, opt-outs, Throw Stone and pet inheritance. Exclude Bard songs
+from HA rune scaling. Critical DoT ordering and Bard area-DoT exceptions are
+explicit calibration limits. Preserve the completed pet/WPM AA/client candidate.
+
+165 unique regression/migration tests pass without skips; the paired native
+build,47 scenarios,10,800 spell samples and12 mechanics assertion groups pass.
+Same-item controls expose substantial WPM/caster/pet redistribution; spell-rank,
+mana and maximum-AA burst balance remain required owner gates. No production
+installation, signing, main promotion or wiki publication. Exact owner testing,
+source/receipt preservation and recovery: `docs/releases/thj-parity-20261018/`.
+
+## 2026-10-18 - WPM melee completion integrated with pet candidate
+
+Implement held-class melee defenses/attacks, six-skill Way of Steel, earned
+shield/sustain/Flurry/Rapid Strikes/Veteran's Wrath AA depth, independent player
+weapon/augment attempts, switchable heroic-STR weapon scaling and named WPM item
+effects. Add earned boss routes without changing existing weapon ratios or
+moving an owned Bloodfrenzy weapon. Preserve the complete pet candidate and
+make both Seru acquisition migrations retry safely together. The combined
+policy is 1,160 ranks / 408 families; 134 regressions and native AA checks pass.
+All26 native scenarios and their mechanics assertions pass. A narrow RoF2
+compatibility check admits compiled-policy ranks above the native expansion
+ceiling only for fully enabled client-based profiles. Client gameplay acceptance
+and wider balance validation remain release gates.
+No production, signing, main promotion or wiki publication. Exact calibration,
+pairing and recovery: `docs/releases/wpm-melee-20261018/README.md`.
+
+## 2026-10-18 - Pet builds and shared scaling candidate
+
+Implement persistent pet equipment (15 Mage / 8 other items across 22 locations),
+actual weapon/augment procs, live owner SD/HA inheritance, shared 750 base caps,
+earned caster-AA transfer, roster healing/buffs, coexisting pet support lines and
+bounded Doppelganger casting. Rabid Bear's benefit and illusion become separate
+permanent removable buffs. Stage calibrated healing/rune fragments, selected gear
+floors, earned AA depth and guarded level-65/PoP stock/rules. Preserve weapon ratios,
+player-earned state and temporary hand-ins. Builds, policy/transaction checks and
+paired client generation pass; no deployment or publication. Independent review
+and native gameplay/balance acceptance remain open. Evidence and limits:
+`docs/releases/thj-pet-scaling-20261018/IMPLEMENTATION.md`.
+
+## 2026-10-18 - Ordinary loot quality rates activated
+
+Production now rolls 20% Polished / 5% Exalted / 1% Ascended per eligible ordinary equipment/bag drop (previously 10%/2%/0.25%). All 12 workers and world reloaded; 15 native processes and five services remained unchanged. Hunt/dungeon rewards, item stats and reforging costs are unchanged. Existing generated loot is not rerolled. Quest auto-Ascended remains design-only, excluding repeatable/easily farmed quests. Evidence: docs/ops/loot-quality-rates-20261018/.
+
+
+
+## 2026-10-18 - October 17 combined release confirmation
+
+Record the owner's "Confirmed" reply to the combined release report. Preserve
+individual QA and balance checks, plus the separate newer cooldown, client and
+reforging records. Whole-wiki review found no public content change; existing
+Live testing labels remain appropriate. No deployment or player data changed.
+Evidence: `docs/releases/october-17-2026/owner-confirmation.json`.
+
+## 2026-10-18 - Cooldown identity correction deployed for live testing
+
+PR223 promotes the reviewed AA-family, unlinked-item and discipline timer fix to
+main. OVH runs zone `d3908e0348715e94955d84f629e4f27e91f15c7dd661e437efbba580ce3d216a`.
+Fresh stopped backup, live-catalog forward/reverse rehearsal, atomic conversion,
+exact original-deadline preservation and all twelve running zone hashes pass.
+Player data, unrelated catalog/cache/quests/services and the newer compatible
+client2026101801 were preserved. The separately authorized character port was
+verified and retained. Two guarded starts rotated market epoch80 to81 to82;
+the existing finite pools legitimately leave two find slots empty. A reviewed
+completion operator proves those pools exhausted without replaying migration SQL.
+Access is open; owner gameplay acceptance and remaining generic/content groups
+stay open. The 25 deployment, 9 resume and 7 completion tests pass. Evidence and recovery:
+`docs/releases/cooldown-identities-20261017/deployment/`.
+
+
+## 2026-10-18 - Reforging default-color correction
+
+Accept an item definition's built-in color (including Dagger of Marnek's black
+color) in the Reforging Box and zoneforge. Different nonzero dye colors remain
+blocked. Preserve all recipe, customization, binding and atomic-receipt guards.
+The 61 new color cases and existing inventory/policy/package checks pass; the
+reviewed cooldown baseline re-links byte-identically before the one-object fix.
+Deployment and player QA: `docs/releases/reforge-colors-20261018/README.md`.
+Deployed after the cooldown handoff: all twelve zones and closed-access data
+preservation verified; gateway reopened. No client, SQL or item-cache update.
+Owner confirmed Palwar's reported three-Normal combine works; broader in-game
+checks remain unconfirmed. Combined wiki20261018-reforge-colors-v1
+published with all465 public hashes verified; prior cooldown/travel prose retained.
+
+
 ## 2026-10-17 - AA family and timer namespace correction candidate
 
 Reproduce Rampage locking Purify Body through shared AA group1. Isolate each AA
@@ -15,6 +112,9 @@ changes or new client hook. Native regressions and disposable MariaDB tests cove
 collisions, failure, drift and recovery. Full build and exact owner QA status:
 `docs/releases/cooldown-identities-20261017/README.md`.
 
+## 2026-10-18 — Client zone validation and repair
+
+Published signed game 2026101801: add 32 Classic travel terrain/object archives and require all 34 reviewed travel archives during future packaging. Existing patcher SHA-256 checks repair missing/corrupt files before Play, including West Commonlands. All 106 previous assets and settings preserved; no desktop/DLL/server change. Owner confirmed Karl’s West Commonlands zoning repair on October 18; broader destination QA remains open. Evidence: docs/releases/client-zone-validation-20261018/README.md.
 
 ## 2026-10-17 - Combined progression, combat and crafting release deployed
 

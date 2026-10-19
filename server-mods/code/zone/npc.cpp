@@ -27,6 +27,7 @@
 #include "common/item_instance.h"
 #include "common/linked_list.h"
 #include "common/misc_functions.h"
+#include "common/nightcap_doppelganger.h"
 #include "common/repositories/npc_types_repository.h"
 #include "common/repositories/spawn2_repository.h"
 #include "common/repositories/spawnentry_repository.h"
@@ -41,6 +42,7 @@
 #include "zone/bot.h"
 #include "zone/client.h"
 #include "zone/entity.h"
+#include "zone/groups.h"
 #include "zone/npc_scale_manager.h"
 #include "zone/quest_parser_collection.h"
 #include "zone/spawn2.h"
@@ -49,6 +51,7 @@
 #include "zone/zone.h"
 
 #include <cstdio>
+#include <chrono>
 #include <string>
 #include <utility>
 
@@ -56,6 +59,232 @@ extern Zone* zone;
 extern QueryServ* QServ;
 extern volatile bool is_zone_loaded;
 extern EntityList entity_list;
+
+namespace {
+uint64 DoppelNow()
+{
+	return std::chrono::duration_cast<std::chrono::milliseconds>(
+		std::chrono::steady_clock::now().time_since_epoch()).count();
+}
+
+NightcapDoppelganger::Role DoppelRole(uint16 spell_id)
+{
+	using namespace NightcapDoppelganger;
+	if (!IsValidSpell(spell_id) || IsBardSong(spell_id) ||
+		(spells[spell_id].target_type != ST_Target && spells[spell_id].target_type != ST_Pet &&
+		 spells[spell_id].target_type != ST_SummonedPet)) return Role::Unsupported;
+	for (int i = 0; i < EFFECT_COUNT; ++i) {
+		if (!CombatEffect(spells[spell_id].effect_id[i])) return Role::Unsupported;
+	}
+	if (IsBeneficialSpell(spell_id)) {
+		if (IsHealOverTimeSpell(spell_id)) return Role::Hot;
+		for (int i = 0; i < EFFECT_COUNT; ++i) {
+			if (spells[spell_id].effect_id[i] == SpellEffect::CurrentHP && spells[spell_id].base_value[i] > 0)
+				return spells[spell_id].buff_duration > 0 ? Role::Hot : Role::Heal;
+			if (spells[spell_id].effect_id[i] == SpellEffect::CurrentHPOnce && spells[spell_id].base_value[i] > 0)
+				return Role::Heal;
+		}
+		if (IsRuneSpell(spell_id)) return Role::Rune;
+		return spells[spell_id].buff_duration > 0 ? Role::Buff : Role::Unsupported;
+	}
+	if (IsResistDebuffSpell(spell_id)) return Role::ResistDebuff;
+	for (int i = 0; i < EFFECT_COUNT; ++i) {
+		if ((spells[spell_id].effect_id[i] == SpellEffect::CurrentHP ||
+			spells[spell_id].effect_id[i] == SpellEffect::CurrentHPOnce) && spells[spell_id].base_value[i] < 0)
+			return spells[spell_id].buff_duration > 0 ? Role::Dot : Role::Damage;
+	}
+	return spells[spell_id].buff_duration > 0 ? Role::Debuff : Role::Unsupported;
+}
+
+std::vector<Mob *> DoppelFriends(Client *owner)
+{
+	std::vector<Mob *> result{owner};
+	if (auto group = owner->GetGroup()) {
+		for (auto member : group->members) {
+			if (member && member != owner && member->IsClient()) result.push_back(member);
+		}
+	}
+	const auto players = result;
+	for (auto player : players) {
+		for (auto pet : player->CastToClient()->GetCommandPets()) {
+			if (pet && pet->GetNightcapPetOwner() == player) result.push_back(pet);
+		}
+	}
+	return result;
+}
+
+bool DoppelTargetAllowed(Client *owner, Mob *target, uint16 spell_id)
+{
+	if (!target || target->HasDied()) return false;
+	if (IsBeneficialSpell(spell_id)) {
+		const auto friends = DoppelFriends(owner);
+		return std::find(friends.begin(), friends.end(), target) != friends.end() &&
+			owner->IsBeneficialAllowed(target) &&
+			(spells[spell_id].target_type == ST_Target || target->GetNightcapPetOwner() == owner);
+	}
+	return target->IsNPC() && !target->GetOwnerID() && !target->CastToNPC()->GetSwarmOwner() &&
+		owner->IsAttackAllowed(target) &&
+		(target == owner->GetTarget() || (DoppelRole(spell_id) == NightcapDoppelganger::Role::Dot && target->GetHateAmount(owner) > 0));
+}
+
+bool DoppelSpellAccessible(Client *owner, uint16 spell_id)
+{
+	if (DoppelRole(spell_id) == NightcapDoppelganger::Role::Unsupported ||
+		!owner->HasSpellScribed(spell_id) || owner->GetSpellMinLevel(spell_id) > owner->GetLevel()) return false;
+	const auto memorized = owner->GetMemmedSpells();
+	return std::find(memorized.begin(), memorized.end(), spell_id) != memorized.end();
+}
+
+bool DoppelHasReagents(Client *owner, uint16 spell_id)
+{
+	// Aggregate repeated component IDs before checking; don't spend half a recipe.
+	std::map<int, int> required;
+	for (int i = 0; i < 4; ++i) {
+		if (spells[spell_id].component[i] > 0)
+			required[spells[spell_id].component[i]] += std::max(1, spells[spell_id].component_count[i]);
+	}
+	for (const auto &entry : required) {
+		if (owner->GetInv().HasItem(entry.first, entry.second, invWhereWorn | invWherePersonal) == -1) return false;
+	}
+	return true;
+}
+
+bool DoppelCanStack(NPC *caster, Mob *target, uint16 spell_id)
+{
+	if (!IsStackableDOT(spell_id)) return target->CanBuffStack(spell_id, caster->GetLevel(), true) >= 0;
+	// CanBuffStack deliberately rejects an identical spell from ANY caster.
+	// A stackable DoT needs the actual caster identities, like normal AddBuff.
+	bool free_slot = false;
+	for (int i = 0; i < target->GetMaxTotalSlots(); ++i) {
+		const auto &buff = target->GetBuffs()[i];
+		if (!IsValidSpell(buff.spellid)) { free_slot = true; continue; }
+		if (buff.spellid == spell_id && buff.casterid == caster->GetID()) return false;
+		if (target->CheckStackConflict(buff.spellid, buff.casterlevel, spell_id, caster->GetLevel(),
+			entity_list.GetMob(buff.casterid), caster, i) != 0) return false;
+	}
+	return free_slot;
+}
+}
+
+void NPC::EnableNightcapDoppelganger(Client *owner, uint16 summon_spell)
+{
+	if (!owner || !GetSwarmInfo() || GetSwarmOwner() != owner->GetID()) return;
+	nightcap_doppel_character_id = owner->CharacterID();
+	nightcap_doppel_summon_spell = summon_spell;
+	AIspells.clear();
+	HasAISpell = false;
+}
+
+Client *NPC::GetNightcapDoppelgangerOwner()
+{
+	if (!IsNightcapDoppelganger() || IsCharmed()) return nullptr;
+	auto owner = entity_list.GetMob(GetSwarmOwner());
+	if (!owner || !owner->IsClient() || owner->HasDied() || owner->IsCharmed()) return nullptr;
+	auto client = owner->CastToClient();
+	return client->CharacterID() == nightcap_doppel_character_id &&
+		(client->GetClassMask() & (1u << (Class::Enchanter - 1))) ? client : nullptr;
+}
+
+void NPC::ProcessNightcapDoppelganger()
+{
+	using namespace NightcapDoppelganger;
+	if (!IsNightcapDoppelganger()) return;
+	auto owner = GetNightcapDoppelgangerOwner();
+	if (!owner) { InterruptSpell(); Depop(); return; }
+	const auto now = DoppelNow();
+	if (now < nightcap_doppel_next_check) return;
+	nightcap_doppel_next_check = now + 1000;
+	if (IsCasting()) {
+		auto target = entity_list.GetMob(nightcap_doppel_target);
+		if (!DoppelSpellAccessible(owner, nightcap_doppel_spell) ||
+			!DoppelTargetAllowed(owner, target, nightcap_doppel_spell) ||
+			Interrupt(DoppelRole(nightcap_doppel_spell), target->GetHPRatio())) InterruptSpell();
+		return;
+	}
+	nightcap_doppel_spell = 0;
+	nightcap_doppel_target = 0;
+	std::vector<uint16> available;
+	for (const auto id : owner->GetMemmedSpells()) {
+		if (id <= 0 || id >= SPELL_UNKNOWN || !DoppelSpellAccessible(owner, id) ||
+			nightcap_doppel_recast[id] > now || owner->GetMana() < spells[id].mana || !DoppelHasReagents(owner, id)) continue;
+		available.push_back(id);
+	}
+	std::stable_sort(available.begin(), available.end(), [owner](uint16 a, uint16 b) {
+		return Priority(DoppelRole(a), owner->GetSpellMinLevel(a)) < Priority(DoppelRole(b), owner->GetSpellMinLevel(b));
+	});
+	for (const auto id : available) {
+		const auto role = DoppelRole(id);
+		std::vector<Mob *> targets;
+		if (IsBeneficialSpell(id)) targets = DoppelFriends(owner);
+		else {
+			if (owner->GetTarget()) targets.push_back(owner->GetTarget());
+			if (role == Role::Dot) {
+				for (const auto &entry : entity_list.GetNPCList()) {
+					if (entry.second != owner->GetTarget() && entry.second->GetHateAmount(owner) > 0)
+						targets.push_back(entry.second);
+				}
+			}
+		}
+		for (auto candidate : targets) {
+			if (candidate == this || !DoppelTargetAllowed(owner, candidate, id) || !Wants(role, candidate->GetHPRatio()) ||
+				!CheckLosFN(candidate) || DistanceSquared(GetPosition(), candidate->GetPosition()) > spells[id].range * spells[id].range) continue;
+			const bool lasting = spells[id].buff_duration > 0;
+			const bool stackable_dot = role == Role::Dot && IsStackableDOT(id);
+			if (lasting && (candidate->FindBuff(id, stackable_dot ? GetID() : 0) ||
+				!DoppelCanStack(this, candidate, id))) continue;
+			bool reserved = false;
+			for (const auto &entry : entity_list.GetNPCList()) {
+				auto peer = entry.second;
+				if (peer == this || peer->nightcap_doppel_character_id != nightcap_doppel_character_id ||
+					peer->nightcap_doppel_summon_spell != nightcap_doppel_summon_spell ||
+					!peer->IsCasting() || peer->nightcap_doppel_target != candidate->GetID()) continue;
+				const auto peer_role = DoppelRole(peer->nightcap_doppel_spell);
+				if (((role == Role::Heal || role == Role::Hot) && role == peer_role) ||
+					(!stackable_dot && role != Role::Damage && peer->nightcap_doppel_spell == id)) { reserved = true; break; }
+			}
+			if (reserved) continue;
+			nightcap_doppel_spell = id;
+			nightcap_doppel_target = candidate->GetID();
+			if (CastSpell(id, candidate->GetID(), EQ::spells::CastingSlot::Item, -1, 0)) return;
+			nightcap_doppel_spell = 0;
+			nightcap_doppel_target = 0;
+		}
+	}
+}
+
+bool NPC::PrepareNightcapDoppelgangerCast(uint16 spell_id, Mob *target, int32 &mana_cost)
+{
+	auto owner = GetNightcapDoppelgangerOwner();
+	if (!owner || spell_id != nightcap_doppel_spell || !DoppelSpellAccessible(owner, spell_id) ||
+		!DoppelTargetAllowed(owner, target, spell_id) || !DoppelHasReagents(owner, spell_id) ||
+		NightcapDoppelganger::Interrupt(DoppelRole(spell_id), target->GetHPRatio())) return false;
+	mana_cost = owner->GetActSpellCost(spell_id, spells[spell_id].mana);
+	if (owner->GetMana() < mana_cost) return false;
+	// As with native client casts, components are consumed at completion before
+	// landing/resist checks. Interrupted casts never reach this point.
+	if (!zone->random.Roll(static_cast<int>(GetNightcapInheritedFocus(focusReagentCost, spell_id)))) {
+		for (int i = 0; i < 4; ++i) {
+			const int component = spells[spell_id].component[i];
+			if (component <= 0 || spells[spell_id].no_expend_reagent[i] == component) continue;
+			for (int count = 0; count < spells[spell_id].component_count[i]; ++count) {
+				const auto slot = owner->GetInv().HasItem(component, 1, invWhereWorn | invWherePersonal);
+				if (slot == -1) return false;
+				owner->DeleteItemInInventory(slot, 1, true);
+			}
+		}
+	}
+	return true;
+}
+
+void NPC::CompleteNightcapDoppelgangerCast(uint16 spell_id, int32 mana_cost)
+{
+	if (auto owner = GetNightcapDoppelgangerOwner()) owner->SetMana(std::max<int64>(0, owner->GetMana() - mana_cost));
+	const auto now = DoppelNow();
+	nightcap_doppel_recast[spell_id] = now + spells[spell_id].recast_time;
+	nightcap_doppel_next_check = now + std::max<uint32>(1000, spells[spell_id].recovery_time);
+	nightcap_doppel_spell = 0;
+	nightcap_doppel_target = 0;
+}
 
 NPC::NPC(const NPCType *npc_type_data, Spawn2 *in_respawn, const glm::vec4 &position, GravityBehavior iflymode, bool IsCorpse)
 	: Mob(
@@ -589,6 +818,7 @@ bool NPC::Process()
 		spun_timer.Disable();
 	}
 
+	ProcessNightcapDoppelganger();
 	SpellProcess();
 
 	if (swarm_timer.Check()) {
@@ -4179,10 +4409,24 @@ bool NPC::CanPetTakeItem(const EQ::ItemInstance *inst)
 	}
 
 	if (IsPetOwnerClient() && !IsCharmed()) {
+		// Summoned weapons/jewelry remain temporary native hand-ins. Persistent
+		// locations and a two-handed weapon's reserved hand cannot be overwritten.
+		bool temporary_location = false;
+		if (inst->GetItem()->NoRent == 0) {
+			for (size_t i = 8; i < NightcapPetArmor::Slots.size(); ++i) {
+				const auto slot = NightcapPetArmor::Slots[i];
+				if (!(inst->GetItem()->Slots & (1u << slot)) || IsNightcapPetArmorSlot(slot)) { continue; }
+				const auto primary = GetInv().GetItem(EQ::invslot::slotPrimary);
+				if (slot == EQ::invslot::slotPrimary && inst->GetItem()->IsType2HWeapon() &&
+					IsNightcapPetArmorSlot(EQ::invslot::slotSecondary)) { continue; }
+				if (slot == EQ::invslot::slotSecondary && primary && primary->GetItem()->IsType2HWeapon()) { continue; }
+				temporary_location = true;
+			}
+		}
 		for (const auto slot : NightcapPetArmor::Slots) {
-			if (inst->GetItem()->Slots & (1u << slot)) {
+			if (!temporary_location && (inst->GetItem()->Slots & (1u << slot))) {
 				if (GetOwner() && GetOwner()->IsClient()) {
-					GetOwner()->CastToClient()->Message(Chat::PetResponse, "Use the pet Armor tab to equip armor safely.");
+					GetOwner()->CastToClient()->Message(Chat::PetResponse, "Use the pet Equipment tab for permanent gear; a conflicting summoned hand item cannot be equipped.");
 				}
 				return false;
 			}
@@ -4840,4 +5084,16 @@ void NPC::SetNPCTintIndex(uint32 index)
 
 	entity_list.QueueClients(this, outapp);
 	safe_delete(outapp);
+}
+
+int32 NPC::GetSpellDmg() const
+{
+	const auto owner = GetNightcapPetOwner();
+	return itembonuses.SpellDmg + (owner ? NightcapPetScaling::InheritedOutput(owner->GetSpellDmg()) : 0);
+}
+
+int32 NPC::GetHealAmt() const
+{
+	const auto owner = GetNightcapPetOwner();
+	return itembonuses.HealAmt + (owner ? NightcapPetScaling::InheritedOutput(owner->GetHealAmt()) : 0);
 }

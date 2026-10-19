@@ -95,3 +95,7 @@ To revert a bad desktop, sign its previous executable bytes as a **higher launch
 Automated tests cover changed/unchanged downloads, version-to-version Windows execution, locked images, signatures/hosts/expiry/rollback, download interruption, automatic Play ordering/cancellation/repair, signed offline recovery and real RoF2 catalog validation. Native progress-window close/hide behavior and browser presentation are checked separately.
 
 Player QA: close older launchers, extract the transition ZIP, use the stable shortcut, select the existing game folder, press Play and confirm the displayed release. Close the game/launcher and use the same shortcut again; no manual ZIP replacement should be needed. Owner gameplay QA for the production NPC/spell fixes remains [open](../releases/production-bugfixes-20260920.md#exact-owner-in-game-qa).
+
+## Classic travel archive coverage — October 18
+
+Signed game 2026101801 includes 34 pinned terrain/object archives for 17 audited Classic travel destinations (32 new paths; 138 managed files total). `assets/client-zone-archives.json` owns reviewed bytes; `tools/client_zone_archives.py` checks hashes, PFS decompression and expected WLD headers before packaging. `gameplay.go` requires these paths. Existing desktop 0.6.0 checks and repairs them on Play; no desktop rebuild or server refresh. Preserve the catalog in every later inventory. This is not complete RoF2 validation. Native zoning QA and exact evidence: [zone repair](../releases/client-zone-validation-20261018/README.md).

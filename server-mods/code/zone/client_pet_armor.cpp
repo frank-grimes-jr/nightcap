@@ -46,9 +46,15 @@ void Client::ApplyPetArmor()
 		auto pet = GetArmorPet(pet_class);
 		if (!pet) { continue; }
 		roster[pet_class] = pet->GetID();
+		const NightcapPetArmor::Equipment empty{};
+		const auto found = m_pet_armor.find(pet_class);
+		const auto &items = found == m_pet_armor.end() ? empty : found->second;
 		for (uint8 i = 0; i < NightcapPetArmor::Slots.size(); ++i) {
-			auto found = m_pet_armor.find(pet_class);
-			pet->SetNightcapPetArmor(i, found == m_pet_armor.end() ? nullptr : found->second[i].instance);
+			// Reserve a conflicting native hand without deleting its temporary item.
+			// The setter only suppresses a primary hand if it is a two-handed weapon.
+			const bool reserve = (i == 8 && items[9].instance) ||
+				(i == 9 && items[8].instance && items[8].instance->GetItem()->IsType2HWeapon());
+			pet->SetNightcapPetArmor(i, items[i].instance, reserve);
 		}
 	}
 	if (roster != m_pet_armor_roster) {
@@ -85,7 +91,7 @@ void Client::SendPetArmor()
 	}
 	if (!m_pet_armor_nonce) { m_pet_armor_nonce = zone->random.Int(1, INT32_MAX); }
 	if (++m_pet_armor_nonce == 0) { ++m_pet_armor_nonce; }
-	Message(Chat::White, "[NCPA1]B|%u|%u|%u|%u|%u|%s", m_pet_armor_nonce,
+	Message(Chat::White, "[NCPA2]B|%u|%u|%u|%u|%u|%s", m_pet_armor_nonce,
 		CharacterID(), zone->GetZoneID(), zone->GetInstanceID(), GetID(), ArmorText(GetCleanName()).c_str());
 	for (uint8 pet_class = 1; pet_class <= 16; ++pet_class) {
 		const auto pet = GetArmorPet(pet_class);
@@ -93,15 +99,15 @@ void Client::SendPetArmor()
 		bool has_items = stored != m_pet_armor.end() && std::any_of(stored->second.begin(), stored->second.end(),
 			[](const auto &entry) { return entry.instance != nullptr; });
 		if (!pet && !has_items) { continue; }
-		Message(Chat::White, "[NCPA1]P|%u|%u|%u|%s", m_pet_armor_nonce, pet_class,
+		Message(Chat::White, "[NCPA2]P|%u|%u|%u|%s", m_pet_armor_nonce, pet_class,
 			pet ? pet->GetID() : 0, ArmorText(pet ? pet->GetCleanName() : "Stored armor").c_str());
 		for (uint8 i = 0; i < NightcapPetArmor::Slots.size(); ++i) {
 			const auto inst = stored == m_pet_armor.end() ? nullptr : stored->second[i].instance;
-			Message(Chat::White, "[NCPA1]I|%u|%u|%u|%u|%s", m_pet_armor_nonce, pet_class, i,
+			Message(Chat::White, "[NCPA2]I|%u|%u|%u|%u|%s", m_pet_armor_nonce, pet_class, i,
 				inst ? inst->GetID() : 0, ArmorText(inst ? inst->GetItem()->Name : "Empty").c_str());
 		}
 	}
-	Message(Chat::White, "[NCPA1]E|%u", m_pet_armor_nonce);
+	Message(Chat::White, "[NCPA2]E|%u", m_pet_armor_nonce);
 }
 
 void Client::SendPetManagement()
@@ -210,6 +216,11 @@ void Client::HandlePetArmor(const Seperator *sep)
 	const bool equip = action == "equip";
 	const auto cursor = m_inv.GetItem(EQ::invslot::slotCursor);
 	const auto queue = std::distance(m_inv.cursor_cbegin(), m_inv.cursor_cend());
+	if (equip && !NightcapPetArmor::CanEquip(m_pet_armor[pet_class], pet_class, index, cursor)) {
+		Message(Chat::Red, "Choose a compatible empty location within this pet's %u-item limit. Two-handed weapons exclude the offhand.",
+			NightcapPetArmor::Capacity(pet_class));
+		return;
+	}
 	if (equip ? (!pet || stored.instance || queue != 1 || !NightcapPetArmor::Allowed(cursor, index)) :
 		(!stored.instance || cursor || queue != 0)) {
 		Message(Chat::Red, equip ? "Place one compatible armor item on your cursor and select an empty slot on an active pet." :
@@ -249,26 +260,33 @@ void Client::HandlePetArmor(const Seperator *sep)
 	SendPetArmor();
 }
 
-void NPC::SetNightcapPetArmor(uint8 index, const std::shared_ptr<EQ::ItemInstance> &inst)
+void NPC::SetNightcapPetArmor(uint8 index, const std::shared_ptr<EQ::ItemInstance> &inst, bool reserve_hand)
 {
 	if (index >= NightcapPetArmor::Slots.size()) { return; }
 	const int16 slot = NightcapPetArmor::Slots[index];
-	if (!inst && !m_nightcap_armor_active[index]) { return; }
+	if (slot == EQ::invslot::slotPrimary && reserve_hand) {
+		const auto original = m_nightcap_armor_active[index] ? m_nightcap_armor_base[index].get() : GetInv().GetItem(slot);
+		reserve_hand = original && original->GetItem()->IsType2HWeapon();
+	}
+	const bool active = inst || reserve_hand;
+	if (!active && !m_nightcap_armor_active[index]) { return; }
+	if (!inst && reserve_hand && m_nightcap_armor_active[index] && !GetInv().GetItem(slot)) { return; }
 	if (inst && m_nightcap_armor_active[index] && GetInv().GetItem(slot) &&
 		GetInv().GetItem(slot)->GetSerialNumber() == inst->GetSerialNumber()) { return; }
-	if (inst && !m_nightcap_armor_active[index]) {
+	if (active && !m_nightcap_armor_active[index]) {
 		const auto original = GetInv().GetItem(slot);
 		m_nightcap_armor_base[index].reset(original ? original->Clone() : nullptr);
 	}
-	const auto replacement = inst ? inst : m_nightcap_armor_base[index];
+	const auto replacement = inst ? inst : reserve_hand ? nullptr : m_nightcap_armor_base[index];
 	if (replacement) { GetInv().PutItem(slot, *replacement); }
 	else { GetInv().DeleteItem(slot); }
 	equipment[slot] = replacement ? replacement->GetID() : 0;
-	m_nightcap_armor_active[index] = inst != nullptr;
-	if (!inst) { m_nightcap_armor_base[index].reset(); }
+	m_nightcap_armor_active[index] = active;
+	if (!active) { m_nightcap_armor_base[index].reset(); }
 	CalcBonuses();
+	SetAttackTimer();
 	const auto material = EQ::InventoryProfile::CalcMaterialFromSlot(slot);
-	if (material != EQ::textures::materialInvalid) { SendWearChange(material); }
+	if (material != static_cast<uint8>(EQ::textures::materialInvalid)) { SendWearChange(material); }
 	UpdateEquipmentLight();
 	if (UpdateActiveLight()) { SendAppearancePacket(AppearanceType::Light, GetActiveLightType()); }
 }

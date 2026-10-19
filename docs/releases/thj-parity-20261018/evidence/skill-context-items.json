@@ -1,0 +1,803 @@
+{
+  "audited_at": "2026-10-12",
+  "scope": "Reviewed local files; not runtime or player QA evidence",
+  "topics": {
+    "items": [
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\server-mods\\code\\common\\item_upgrade_policy.h",
+        "role": "Reviewed deployed default-color predicate and retained 3/4/4 atomic upgrade contract with regression coverage",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\server-mods\\code\\zone\\advanced_loot_inventory.cpp",
+        "role": "Reviewed deployed default-color predicate and retained 3/4/4 atomic upgrade contract with regression coverage",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\server-mods\\code\\zone\\zone_hunt.cpp",
+        "role": "drop and augment-cap integration",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\server-mods\\code\\common\\item_trade_policy.h",
+        "role": "effective trading and unit resale policy",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\remove-item-lore-20261012\\README.md",
+        "role": "LORE deployment and recovery constraints",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\zone-loot-20261009\\PRODUCTION.md",
+        "role": "hunt acquisition deployment record",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\server-mods\\code\\zone\\gm_commands\\sell_all.cpp",
+        "role": "newest supply protection command",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\ops\\sellall-supplies-20261012\\README.md",
+        "role": "concurrent release; recheck deployment status",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\server-mods\\code\\common\\divine_summoned_weapon_policy.h",
+        "role": "eleven divine hammer families and zero resale at all four quality tiers",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\server-mods\\code\\common\\shareddb.cpp",
+        "role": "Reviewed Raid/Grind production deployment; owner gameplay acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\server-mods\\code\\zone\\spell_effects.cpp",
+        "role": "existing Ascended SummonItem and SummonItemIntoBag selection",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\tests\\test_divine_summoned_weapons.py",
+        "role": "compiled native summon and resale policy regressions",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\divine-summons-20261013\\README.md",
+        "role": "deployed scope, runtime pairing, recovery and pending owner QA",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\divine-summons-20261013\\deployment.json",
+        "role": "verified production cache and runtime preservation evidence",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\divine-summons-20261013\\deployment-manifest.json",
+        "role": "paired loader and unchanged current native binary fingerprints",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\divine-summons-20261013\\cache_check.py",
+        "role": "whole-cache preservation except 88 approved price fields",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\divine-summons-20261013\\rollout.py",
+        "role": "guarded deployment with activity-preserving fail-closed recovery",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\server-mods\\code\\zone\\tradeskills.cpp",
+        "role": "reviewed stacked tradeskill/Craft All source and paired live delivery; owner gameplay QA pending",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\server-mods\\code\\common\\tradeskill_policy.h",
+        "role": "reviewed stacked tradeskill/Craft All source and paired live delivery; owner gameplay QA pending",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\tests\\test_tradeskill_stacks.py",
+        "role": "reviewed stacked tradeskill/Craft All source and paired live delivery; owner gameplay QA pending",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\tests\\test_tradeskill_auto.py",
+        "role": "reviewed stacked tradeskill/Craft All source and paired live delivery; owner gameplay QA pending",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\tests\\fixtures\\tradeskills\\native_fixture.cpp",
+        "role": "reviewed stacked tradeskill/Craft All source and paired live delivery; owner gameplay QA pending",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\build_tradeskill_candidate.py",
+        "role": "reviewed stacked tradeskill/Craft All source and paired live delivery; owner gameplay QA pending",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\tradeskills\\README.md",
+        "role": "reviewed stacked tradeskill/Craft All source and paired live delivery; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\tradeskills\\build-manifest.json",
+        "role": "reviewed stacked tradeskill/Craft All source and paired live delivery; owner gameplay QA pending",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\tradeskills\\verification.json",
+        "role": "reviewed stacked tradeskill/Craft All source and paired live delivery; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\tradeskills\\deployment.json",
+        "role": "reviewed stacked tradeskill/Craft All source and paired live delivery; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\tradeskills\\deployment-manifest.json",
+        "role": "reviewed stacked tradeskill/Craft All source and paired live delivery; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\tradeskills\\deployment\\native\\rollout.py",
+        "role": "reviewed stacked tradeskill/Craft All source and paired live delivery; owner gameplay QA pending",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\tradeskills\\deployment\\native\\test_rollout.py",
+        "role": "reviewed stacked tradeskill/Craft All source and paired live delivery; owner gameplay QA pending",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\ops\\commonlands-services-20261016\\operator.py",
+        "role": "guarded content operation and exact forward/inverse plus rejected-drift rehearsal",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\ops\\commonlands-services-20261016\\verify.py",
+        "role": "read-only deployed health and native process verification",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\ops\\commonlands-services-20261016\\README.md",
+        "role": "deployed Commonlands stock/banker contract, recovery and pending owner QA",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\ops\\commonlands-services-20261016\\deployment.json",
+        "role": "verified production afterimages, 309410-item cache comparison and 12 native zones",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\ops\\commonlands-services-20261016\\terrain.json",
+        "role": "banker native terrain and access probe",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\eq-client-dll\\tests\\equipment-native.cpp",
+        "role": "78 exact-client checks using real native race/slot/weapon and inspection instructions",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\equipment-race-policy-20261016\\cache-rehearsal.json",
+        "role": "final candidate cache and exact rollback evidence; not production",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\equipment-race-policy-20261016\\README.md",
+        "role": "deployed policy, whole-game restart, preservation and pending owner QA",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\tests\\test_equipment_race_policy.py",
+        "role": "actual loader and SwapItem regression controls",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\equipment-race-policy-20261016\\build-manifest.json",
+        "role": "verified old-loader relink and candidate native fingerprints",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\multiclass-equipment-20261015\\README.md",
+        "role": "published client and owner-confirmed javelin use; separate race follow-up",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\server-mods\\code\\common\\equipment_race_policy.h",
+        "role": "deployed effective wearable/augment race policy with non-player exclusions",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\equipment-race-policy-20261016\\cache_check.py",
+        "role": "full SQL mask/cache byte preservation verifier",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\equipment-race-policy-20261016\\build_candidate.py",
+        "role": "baseline archive/link provenance, one-object substitution and full native loader link",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\server-mods\\code\\common\\patches\\rof2.cpp",
+        "role": "serializes effective item race masks; unchanged",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\server-mods\\code\\common\\inventory_profile.cpp",
+        "role": "actual SwapItem class/race/deity/level validation in both directions; unchanged",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\equipment-race-policy-20261016\\rehearse_cache.py",
+        "role": "disposable local old/new/old loader rehearsal",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\equipment-race-policy-20261016\\verification.json",
+        "role": "native/cache/operator and deployment evidence; owner QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\equipment-race-policy-20261016\\deployment\\manifest.json",
+        "role": "pinned loader-only baseline/candidate and signed client pairing",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\equipment-race-policy-20261016\\deployment.json",
+        "role": "authorized production receipt, 309410 definitions and player/custom preservation",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\equipment-race-policy-20261016\\deployment\\cache_check.py",
+        "role": "deployed full-cache mask and preservation verifier",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\equipment-race-policy-20261016\\deployment\\rollout.py",
+        "role": "guarded phased loader activation, full cache proof, uncertain-access hold",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\equipment-race-policy-20261016\\deployment\\final-report.json",
+        "role": "post-open health, zero restarts/errors and unchanged signed client",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\equipment-race-policy-20261016\\deployment\\test_rollout.py",
+        "role": "37 recovery/pairing tests including cache drift and unchanged AA zone",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\server-mods\\code\\common\\dungeon_policy.h",
+        "role": "Reviewed Raid/Grind production deployment; owner gameplay acceptance pending",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\server-mods\\code\\common\\dungeon_contract.h",
+        "role": "Reviewed Raid/Grind production deployment; owner gameplay acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\dungeon_catalog.py",
+        "role": "Reviewed Raid/Grind production deployment; owner gameplay acceptance pending",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\dungeons\\catalog.json",
+        "role": "Reviewed Raid/Grind production deployment; owner gameplay acceptance pending",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\dungeons\\cache-verification.json",
+        "role": "Archived local-content test evidence; production build/cache pairing is recorded separately under deployment/",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\dungeons\\activation-verification.json",
+        "role": "Reviewed Raid/Grind production deployment; owner gameplay acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\dungeons\\package-manifest.json",
+        "role": "Archived local-content test evidence; production build/cache pairing is recorded separately under deployment/",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\dungeons\\deployment\\rehearsal.json",
+        "role": "Reviewed Raid/Grind production deployment; owner gameplay acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\dungeons\\deployment\\release-manifest.json",
+        "role": "Reviewed Raid/Grind production deployment; owner gameplay acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\dungeons\\deployment\\production-package-verification.json",
+        "role": "Reviewed Raid/Grind production deployment; owner gameplay acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\dungeons\\native-build-manifest.json",
+        "role": "Reviewed Raid/Grind production deployment; owner gameplay acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\tests\\test_dungeon_contract.py",
+        "role": "Reviewed Raid/Grind production deployment; owner gameplay acceptance pending",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\server-mods\\code\\zone\\client_packet.cpp",
+        "role": "reviewed normal/higher combine result messages",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\server-mods\\quests\\ecommons\\999820.pl",
+        "role": "reviewed candidate Veyra normal/higher recipe guidance",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\tests\\test_item_upgrade_policy.py",
+        "role": "Reviewed deployed default-color predicate and retained 3/4/4 atomic upgrade contract with regression coverage",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\tests\\advanced_loot_inventory_fixture.cpp",
+        "role": "Reviewed deployed default-color predicate and retained 3/4/4 atomic upgrade contract with regression coverage",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\tests\\test_reforging_box.pl",
+        "role": "ten candidate quest-message/acquisition assertions",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\reforge-normal-20261017\\README.md",
+        "role": "candidate source/test/build/deployment/whole-wiki boundaries",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\reforge-normal-20261017\\QA.md",
+        "role": "pending exact three-normal gameplay and persistence QA",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\item_stack_sizes.py",
+        "role": "guarded stack minimum 100 SQL generator",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\tests\\test_item_stack_sizes.py",
+        "role": "stack planner validation tests",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\tests\\rehearse_item_stack_sizes.py",
+        "role": "actual MariaDB temporary-table stack migration checks",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\ops\\item-stacks-100-20261017\\README.md",
+        "role": "candidate behavior, reload, recovery and owner QA",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\ops\\item-stacks-100-20261017\\rehearsal.json",
+        "role": "nine passed MariaDB cases; production unchanged",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\server-mods\\code\\zone\\spells.cpp",
+        "role": "reviewed signed item/linked duration and zero custom/linked completion; preserved deployed AA duration and proc guards; candidate only",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\tests\\test_cooldown_duration.py",
+        "role": "18 tests/28 native scenarios; real persistent lifecycle/full discipline; zero reuse, negative focus and proc/trigger controls",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\cooldown-audit-20261017\\README.md",
+        "role": "reviewed audit, remaining identity defects, build/pairing/no deployment and exact gameplay QA",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\cooldown-audit-20261017\\catalog-summary.json",
+        "role": "dated SELECT-only content counts, canonical eligibility and anonymous saved-timer scope; not live incident attribution",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\october-17-2026\\README.md",
+        "role": "October17 combined behavior, verified deployment/publication and separate owner acceptance",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\october-17-2026\\QA.md",
+        "role": "October17 combined behavior, verified deployment/publication and separate owner acceptance",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\october-17-2026\\production-verification.json",
+        "role": "October17 combined behavior, verified deployment/publication and separate owner acceptance",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\october-17-2026\\hosted-client-verification.json",
+        "role": "October17 combined behavior, verified deployment/publication and separate owner acceptance",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\october-17-2026\\wiki-publication.json",
+        "role": "October17 combined behavior, verified deployment/publication and separate owner acceptance",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\cooldown_identity_migration.py",
+        "role": "Reviewed cooldown identity candidate; not deployed",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\cooldown-identities-20261017\\README.md",
+        "role": "Reviewed cooldown identity candidate; not deployed",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\cooldown-identities-20261017\\migration-rehearsal.json",
+        "role": "Reviewed cooldown identity candidate; not deployed",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\tier_weapon_scaling.py",
+        "role": "Historical superseded blanket +1 candidate; do not deploy",
+        "state": "missing: select the correct checkout"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\rehearse_tier_weapon_scaling.py",
+        "role": "Historical superseded blanket +1 candidate; do not deploy",
+        "state": "missing: select the correct checkout"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\tests\\test_tier_weapon_scaling.py",
+        "role": "Historical superseded blanket +1 candidate; do not deploy",
+        "state": "missing: select the correct checkout"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\eq-solo-gm\\scripts\\tiered_loot_setup.sql",
+        "role": "Reviewed October18 weapon damage candidate; not deployed/published; owner QA pending",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\weapon-tier-damage-20261018\\README.md",
+        "role": "Historical superseded blanket +1 candidate; do not deploy",
+        "state": "missing: select the correct checkout"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\weapon-tier-damage-20261018\\impact.json",
+        "role": "Historical superseded blanket +1 candidate; do not deploy",
+        "state": "missing: select the correct checkout"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\weapon-tier-damage-20261018\\rehearsal-full-guards.json",
+        "role": "Historical superseded blanket +1 candidate; do not deploy",
+        "state": "missing: select the correct checkout"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\weapon-tier-damage-20261018\\verification.json",
+        "role": "Historical superseded blanket +1 candidate; do not deploy",
+        "state": "missing: select the correct checkout"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\cooldown-identities-20261017\\deployment\\migration-applied.json",
+        "role": "Reviewed cooldown deployment, recovery or guide evidence",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\tests\\test_advanced_loot_inventory.py",
+        "role": "Reviewed deployed default-color predicate and retained 3/4/4 atomic upgrade contract with regression coverage",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\tests\\test_item_upgrade_package.py",
+        "role": "Reviewed deployed default-color predicate and retained 3/4/4 atomic upgrade contract with regression coverage",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\reforge-colors-20261018\\README.md",
+        "role": "Reviewed default-color deployment/test/build evidence; reported combine confirmed; broader QA open",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\reforge-colors-20261018\\REVIEW.md",
+        "role": "Reviewed default-color deployment/test/build evidence; owner combine acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\reforge-colors-20261018\\build-manifest.json",
+        "role": "Reviewed default-color deployment/test/build evidence; owner combine acceptance pending",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\reforge-colors-20261018\\rollout.py",
+        "role": "Reviewed default-color deployment/test/build evidence; owner combine acceptance pending",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\reforge-colors-20261018\\test_rollout.py",
+        "role": "Reviewed default-color deployment/test/build evidence; owner combine acceptance pending",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\reforge-colors-20261018\\verification.json",
+        "role": "Reviewed default-color deployment/test/build evidence; reported combine confirmed; broader QA open",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\reforge-colors-20261018\\production-verification.json",
+        "role": "Reviewed default-color deployment/test/build evidence; owner combine acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\reforge-colors-20261018\\stage-manifest.json",
+        "role": "Reviewed default-color deployment/test/build evidence; owner combine acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\reforge-colors-20261018\\owner-acceptance.json",
+        "role": "Owner-confirmed reported Palwar combine; broader QA unconfirmed; no public wiki change",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\server-mods\\code\\zone\\loot.cpp",
+        "role": "actual retained-build ordinary tier-roll hook",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\server-mods\\code\\common\\ruletypes.h",
+        "role": "historical compiled defaults; live tuning uses existing DB overrides",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\tests\\test_loot_quality_rates.py",
+        "role": "exhaustive actual native loot-block verification",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\ops\\loot-quality-rates-20261018\\README.md",
+        "role": "October18 loot tuning activation, rollback and QA boundary",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\ops\\loot-quality-rates-20261018\\ops\\apply.py",
+        "role": "guarded three-rule transaction and global reload operator",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\ops\\loot-quality-rates-20261018\\quest-reward-policy.md",
+        "role": "accepted exclusions; quest automatic top-tier remains design-only",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\ops\\loot-quality-rates-20261018\\result.json",
+        "role": "verified live rule activation receipt; player QA distinct",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\cultural_armor.py",
+        "role": "Reviewed cultural armor candidate; unpublished/undeployed; numeric bands pending",
+        "state": "missing: select the correct checkout"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\capture_cultural_armor.py",
+        "role": "Reviewed cultural armor candidate; unpublished/undeployed; numeric bands pending",
+        "state": "missing: select the correct checkout"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\cultural_armor_migration.py",
+        "role": "Reviewed cultural armor candidate; unpublished/undeployed; numeric bands pending",
+        "state": "missing: select the correct checkout"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\rehearse_cultural_armor.py",
+        "role": "Reviewed cultural armor candidate; unpublished/undeployed; numeric bands pending",
+        "state": "missing: select the correct checkout"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\tests\\test_cultural_armor.py",
+        "role": "Reviewed cultural armor candidate; unpublished/undeployed; numeric bands pending",
+        "state": "missing: select the correct checkout"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\items\\cultural-armor-catalog.json",
+        "role": "Reviewed cultural armor candidate; unpublished/undeployed; numeric bands pending",
+        "state": "missing: select the correct checkout"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\adr\\0064-gear-bands-and-finished-cultural-armor.md",
+        "role": "Reviewed cultural armor candidate; unpublished/undeployed; numeric bands pending",
+        "state": "missing: select the correct checkout"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\cultural-armor-20261018\\README.md",
+        "role": "Reviewed cultural armor candidate; unpublished/undeployed; numeric bands pending",
+        "state": "missing: select the correct checkout"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\cultural-armor-20261018\\plan.json",
+        "role": "Reviewed cultural armor candidate; unpublished/undeployed; numeric bands pending",
+        "state": "missing: select the correct checkout"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\cultural-armor-20261018\\rehearsal.json",
+        "role": "Reviewed cultural armor candidate; unpublished/undeployed; numeric bands pending",
+        "state": "missing: select the correct checkout"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\gear_progression.py",
+        "role": "Superseded preservation-only prototype; not current tuning or deployment",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\tests\\test_gear_progression.py",
+        "role": "Superseded preservation-only prototype; not current tuning or deployment",
+        "state": "missing: select the correct checkout"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\items\\starter-gear-reference.json",
+        "role": "Preserve Normal legacy gear; offline dungeon floor proposal only; no encounter acceptance",
+        "state": "missing: select the correct checkout"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\gear-progression-20261018\\README.md",
+        "role": "Superseded preservation-only prototype; not current tuning or deployment",
+        "state": "missing: select the correct checkout"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\gear-progression-20261018\\candidate.json",
+        "role": "Superseded preservation-only prototype; not current tuning or deployment",
+        "state": "missing: select the correct checkout"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\starter_retune.py",
+        "role": "Reviewed fixed starter band candidate; Normal reductions allowed; no live/encounter acceptance",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\tests\\test_starter_retune.py",
+        "role": "Reviewed fixed starter band candidate; Normal reductions allowed; no live/encounter acceptance",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\items\\starter-retune-reference.json",
+        "role": "Reviewed fixed starter band candidate; Normal reductions allowed; no live/encounter acceptance",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\starter-retune-20261018\\README.md",
+        "role": "Reviewed fixed starter band candidate; Normal reductions allowed; no live/encounter acceptance",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\starter-retune-20261018\\candidate.json",
+        "role": "Reviewed fixed starter band candidate; Normal reductions allowed; no live/encounter acceptance",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\pet_support_spells.py",
+        "role": "Reviewed pet/shared-scaling candidate; not deployed",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\rabid_bear.py",
+        "role": "Reviewed pet/shared-scaling candidate; not deployed",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\pop_progression.py",
+        "role": "Reviewed pet/shared-scaling candidate; not deployed",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\tests\\test_pop_progression.py",
+        "role": "Reviewed pet/shared-scaling candidate; not deployed",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\tests\\test_pet_content.py",
+        "role": "Reviewed pet/shared-scaling candidate; not deployed",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\wpm_migration.py",
+        "role": "Reviewed combined WPM/pet candidate; not deployed",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\tests\\test_wpm_content.py",
+        "role": "Reviewed combined WPM/pet candidate; not deployed",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\config\\thj-item-parity.json",
+        "role": "Reviewed combined item/spell and pet/WPM candidate; not deployed",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\thj_item_parity.py",
+        "role": "Reviewed combined item/spell and pet/WPM candidate; not deployed",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\thj_item_migration.py",
+        "role": "Reviewed combined item/spell and pet/WPM candidate; not deployed",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\thj_combined_content.py",
+        "role": "Reviewed combined item/spell and pet/WPM candidate; not deployed",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\item_scaling_overrides.py",
+        "role": "Reviewed combined item/spell and pet/WPM candidate; not deployed",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\tier_spell_scaling.py",
+        "role": "Reviewed combined item/spell and pet/WPM candidate; not deployed",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\starter_retune.py",
+        "role": "Reviewed combined item/spell and pet/WPM candidate; not deployed",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\dungeon_catalog.py",
+        "role": "Reviewed combined item/spell and pet/WPM candidate; not deployed",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\pet_content.py",
+        "role": "Reviewed combined item/spell and pet/WPM candidate; not deployed",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\wpm_content.py",
+        "role": "Reviewed combined item/spell and pet/WPM candidate; not deployed",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\tests\\test_thj_item_parity.py",
+        "role": "Reviewed combined item/spell and pet/WPM candidate; not deployed",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\tests\\test_thj_combined_content.py",
+        "role": "Reviewed combined item/spell and pet/WPM candidate; not deployed",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\tests\\test_item_scaling_overrides.py",
+        "role": "Reviewed combined item/spell and pet/WPM candidate; not deployed",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\eq-solo-gm\\scripts\\tiered_loot_setup.sql",
+        "role": "Reviewed combined item/spell and pet/WPM candidate; not deployed",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-parity-20261018\\catalog-decisions.json",
+        "role": "Reviewed combined item/spell and pet/WPM candidate; not deployed",
+        "state": "unchanged"
+      }
+    ]
+  }
+}

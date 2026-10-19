@@ -8,6 +8,7 @@
 #include "zone/mob_movement_manager.h"
 #include "common/eq_stream_intf.h"
 #include "common/ptimer.h"
+#include "common/combat_ability_timer.h"
 #include "common/misc_functions.h"
 #include "common/opcodemgr.h"
 #include "common/servertalk.h"
@@ -299,7 +300,7 @@ static json AABuffState(Client *c)
 	for (int slot = 0; slot < c->GetMaxTotalSlots(); ++slot) {
 		const auto &b = c->GetBuffs()[slot];
 		if (IsValidSpell(b.spellid)) {
-			buffs.push_back({{"slot",slot},{"spell",b.spellid},{"ticks",b.ticsremaining},{"hits",b.hit_number}});
+			buffs.push_back({{"slot",slot},{"spell",b.spellid},{"ticks",b.ticsremaining},{"hits",b.hit_number},{"melee_rune",b.melee_rune}});
 		}
 	}
 	return {{"hp",c->GetHP()},{"max_hp",c->GetMaxHP()},{"mana",c->GetMana()},
@@ -358,12 +359,14 @@ json NightcapBalancePetProbe(Client *c, const json &input)
 			for (auto slot : NightcapPetArmor::Slots) { if (pet->IsNightcapPetArmorSlot(slot)) { armor_slots.push_back(slot); } }
 			for (int slot = 0; slot < pet->GetMaxTotalSlots(); ++slot) {
 				const auto &b = pet->GetBuffs()[slot];
-				if (IsValidSpell(b.spellid)) { buffs.push_back({{"spell",b.spellid},{"ticks",b.ticsremaining}}); }
+				if (IsValidSpell(b.spellid)) { buffs.push_back({{"spell",b.spellid},{"ticks",b.ticsremaining},{"melee_rune",b.melee_rune}}); }
 			}
 			pets.push_back({{"entity_id",pet->GetID()},{"npc_id",pet->GetNPCTypeID()},
 				{"owner_id",pet->GetOwnerID()},{"spell",pet->GetPetSpellID()},{"level",pet->GetLevel()},
 				{"hp",pet->GetHP()},{"max_hp",pet->GetMaxHP()},{"mana",pet->GetMana()},
 				{"ac",pet->GetAC()},{"atk",pet->GetATK()},{"haste",pet->GetHaste()},
+				{"spell_damage",pet->GetSpellDmg()},{"heal_amount",pet->GetHealAmt()},
+				{"own_spell_damage",pet->GetItemBonuses().SpellDmg},{"own_heal_amount",pet->GetItemBonuses().HealAmt},
 				{"min_damage",pet->GetMinDMG()},{"max_damage",pet->GetMaxDMG()},{"power",pet->GetPetPower()},
 				{"engaged",pet->IsEngaged()},{"depop",pet->GetDepop()},
 				{"order",pet->GetPetOrder()},{"appearance",pet->GetAppearance()},
@@ -464,7 +467,7 @@ json NightcapBalancePetProbe(Client *c, const json &input)
 			continue;
 		}
 		const int spell_id = action.at("spell");
-		const std::set<int> supported = {633,443,166,690,107,67,145,60,61,64,168,170,644};
+		const std::set<int> supported = {633,443,166,3324,3314,3377,690,107,67,145,60,61,64,168,170,644};
 		if (!supported.count(spell_id)) {
 			throw std::runtime_error("Unsupported pet-control spell");
 		}
@@ -589,10 +592,10 @@ json NightcapBalancePetProbe(Client *c, const json &input)
 static AA::Rank *ValidateActiveRank(Client *c, int rank_id)
 {
 	auto *r = zone->GetAlternateAdvancementRank(rank_id);
-	const std::set<int> supported = {300,308,38,169,515};
+	const std::set<int> supported = {300,308,38,169,515,131};
 	if (!r || !r->base_ability || !supported.count(r->base_ability->id)
 		|| r->base_ability->charges || !r->effects.empty() || !IsValidSpell(r->spell)
-		|| !c->CanUseAlternateAdvancementRank(r) || r->level_req > c->GetLevel()
+		|| !c->CanUseAlternateAdvancementRank(r)
 		|| c->GetAA(rank_id) != r->current_value) {
 		throw std::runtime_error("Unsupported or unowned active AA rank " + std::to_string(rank_id));
 	}
@@ -601,7 +604,7 @@ static AA::Rank *ValidateActiveRank(Client *c, int rank_id)
 
 static json AttemptAA(Client *c, AA::Rank *r)
 {
-	const auto timer = r->spell_type + pTimerAAStart;
+	const auto timer = r->base_ability->id + pTimerAAStart;
 	const auto before_timer = c->GetPTimers().GetRemainingTime(timer);
 	const auto before = AABuffState(c);
 	c->ActivateAlternateAdvancementAbility(r->id,c->GetID());
@@ -611,7 +614,7 @@ static json AttemptAA(Client *c, AA::Rank *r)
 	const bool started = (!before_timer && after_timer > 0)
 		|| (!before.at("casting").get<uint16>() && c->CastingSpellID() == r->spell);
 	return {{"ms",Timer::GetCurrentTime()},{"rank_id",r->id},{"ability_id",r->base_ability->id},
-		{"spell",r->spell},{"cooldown_group",r->spell_type},
+		{"spell",r->spell},{"legacy_cooldown_group",r->spell_type},{"timer_id",timer},
 		{"spell_minimum_level",GetSpellMinimumLevel(r->spell)},
 		{"buff_level_restrictions",RuleB(Spells,BuffLevelRestrictions)},
 		{"target_type",spells[r->spell].target_type},{"raw_duration",spells[r->spell].buff_duration},
@@ -821,10 +824,11 @@ public:
 	BalanceAAActions(Client *c, const std::string &policy)
 	{
 		if (policy.empty()) { return; }
-		if (policy != "burst" && policy != "burst_regeneration" && policy != "burst_tenacity") {
+		if (policy != "burst" && policy != "burst_regeneration" && policy != "burst_tenacity" && policy != "wpm") {
 			throw std::runtime_error("Unknown activated-AA policy");
 		}
 		std::vector<int> abilities = {515,308};
+		if (policy == "wpm") { abilities = {131}; }
 		if (policy == "burst_regeneration") { abilities.push_back(38); }
 		if (policy == "burst_tenacity") { abilities.push_back(300); }
 		for (int id : abilities) {
@@ -838,7 +842,8 @@ public:
 	bool Step(Client *c, uint32 &next_request)
 	{
 		for (auto *r : ranks) {
-			if (attempted.count(r->id)) { continue; }
+			if (attempted.count(r->id) && r->base_ability->id != 131) { continue; }
+			if (r->base_ability->id == 131 && !c->GetPTimers().Expired(&database,pTimerAAStart+r->base_ability->id,false)) { continue; }
 			const bool sustain = r->base_ability->id == 38 || r->base_ability->id == 300;
 			if (sustain && c->GetHPRatio() >= 80) { continue; }
 			attempted.insert(r->id);
@@ -914,7 +919,13 @@ static json PetCombat(Client *c, const json &input)
 		for (const auto id : pet_ids) {
 			auto *pet = entity_list.GetMob(id);
 			if (!pet) { pets.push_back({{"id",id},{"present",false}}); continue; }
+			json buffs=json::array();
+			for (int slot=0;slot<pet->GetMaxTotalSlots();++slot) {
+				const auto &b=pet->GetBuffs()[slot];
+				if (IsValidSpell(b.spellid)) { buffs.push_back({{"spell",b.spellid},{"ticks",b.ticsremaining},{"melee_rune",b.melee_rune}}); }
+			}
 			pets.push_back({{"id",id},{"present",true},{"owner_id",pet->GetOwnerID()},
+				{"buffs",buffs},{"max_hp",pet->GetMaxHP()},{"spell_damage",pet->GetSpellDmg()},{"heal_amount",pet->GetHealAmt()},
 				{"hp",pet->GetHP()},{"mana",pet->GetMana()},{"engaged",pet->IsEngaged()},
 				{"target",pet->GetTarget() ? pet->GetTarget()->GetID() : 0},
 				{"hate",pet->GetHateAmount(boss)},{"melee_range",pet->CombatRange(boss)},
@@ -1179,13 +1190,14 @@ class BalanceMonkActions {
 	bool pending = false;
 public:
 	json events = json::array();
-	void Queue(Client *c, NPC *npc, BalanceStream *stream)
+	void Queue(Client *c, NPC *npc, BalanceStream *stream, uint16 healing_spell)
 	{
 		if (c->IsCasting() || c->IsAIControlled() || c->IsFeared() || c->IsStunned() || c->IsMezzed()
-			|| (c->GetHPRatio() < 55 && c->GetMana() >= spells[9].mana)
+			|| (c->GetHPRatio() < 55 && c->GetMana() >= spells[healing_spell].mana)
 			|| !c->CombatRange(npc) || !c->CheckLosFN(npc)) { return; }
-		for (auto skill : {EQ::skills::SkillFlyingKick,EQ::skills::SkillTigerClaw}) {
-			const auto timer_id = skill == EQ::skills::SkillTigerClaw ? pTimerCombatAbility2 : pTimerCombatAbility;
+		for (auto skill : {EQ::skills::SkillFlyingKick,EQ::skills::SkillTigerClaw,EQ::skills::SkillRoundKick,
+			EQ::skills::SkillEagleStrike,EQ::skills::SkillDragonPunch,EQ::skills::SkillKick}) {
+			const auto timer_id = EQ::skills::CombatAbilityTimer(skill,c->IsMulticlassMember(Class::Monk),true);
 			auto *timer = c->GetPTimers().Get(timer_id);
 			if (!c->GetSkill(skill) || Timer::GetCurrentTime() < next_request[skill]
 				|| (timer && timer->GetRemainingTime())) { continue; }
@@ -1297,7 +1309,8 @@ json NightcapBalanceEncounter(Client *c, const json &input)
 	const int duration = input.value("duration_ms",120000);
 	const bool return_to_melee = input.value("return_to_melee",false);
 	const std::string combat_policy = input.value("combat_policy",std::string("caster_heal"));
-	const bool melee_heal = combat_policy == "melee_heal";
+	const bool wpm = combat_policy == "wpm";
+	const bool melee_heal = combat_policy == "melee_heal" || wpm;
 	const bool melee_specials = input.value("melee_specials",true);
 	if (combat_policy != "caster_heal" && !melee_heal) { throw std::runtime_error("Unknown native combat policy"); }
 	const std::string active_policy = input.value("active_aa_policy",std::string());
@@ -1312,6 +1325,8 @@ json NightcapBalanceEncounter(Client *c, const json &input)
 	is_zone_loaded = true;
 	const auto *type = content_db.LoadNPCTypesData(npc_id);
 	if (!type) { throw std::runtime_error("Missing encounter NPC"); }
+	NPCType controlled_type=*type;
+	if (input.value("undead_control",false)) { controlled_type.bodytype=BodyType::Undead;type=&controlled_type; }
 	const auto p = input.at("npc_position").get<std::vector<float>>();
 	if (p.size() != 4 || !std::all_of(p.begin(),p.end(),[](float v) { return std::isfinite(v); })) {
 		throw std::runtime_error("Invalid encounter position");
@@ -1329,6 +1344,7 @@ json NightcapBalanceEncounter(Client *c, const json &input)
 		npc = new BalanceNPC(type,nullptr,glm::vec4(p[0],p[1],p[2],p[3]),GravityBehavior::Water);
 	}
 	const uint32 combat_start = Timer::GetCurrentTime();
+	npc->capture_damage=true;
 	entity_list.AddNPC(npc,false);
 	if (!c->CheckLosFN(npc) || !c->CombatRange(npc)) { throw std::runtime_error("Initial position fails native LOS/melee range"); }
 	c->SetTarget(npc);
@@ -1341,8 +1357,12 @@ json NightcapBalanceEncounter(Client *c, const json &input)
 	if (!npc->IsEngaged() || npc->GetHateTop() != c || !npc->IsAttackAllowed(c)) {
 		throw std::runtime_error("Native engagement control failed: " + initial_state.dump());
 	}
-	const uint16 nuke = melee_heal ? 0 : npc_id == 32040 ? 732 : 659;
-	const uint16 heal = 9;
+	const uint16 nuke = wpm ? 216 : melee_heal ? 0 : npc_id == 32040 ? 732 : 659;
+	const uint16 heal = c->GetSpellMinLevel(9) <= c->GetLevel() ? 9 : 15;
+	if (c->GetSpellMinLevel(heal) > c->GetLevel()) { throw std::runtime_error("Encounter heal is not level eligible"); }
+	if (wpm && (c->GetSpellMinLevel(nuke)>c->GetLevel() || !IsEffectInSpell(nuke,SpellEffect::Stun))) {
+		throw std::runtime_error("WPM stun controller requires a learned level-eligible stun");
+	}
 	c->GetPP().mem_spells[0] = nuke;
 	c->GetPP().mem_spells[1] = heal;
 	auto *stream = streams.at(c);
@@ -1351,7 +1371,7 @@ json NightcapBalanceEncounter(Client *c, const json &input)
 	auto *attack = new EQApplicationPacket(OP_AutoAttack,4);
 	attack->pBuffer[0] = 1;
 	stream->incoming.push_back(attack);
-	json trace = json::array(), attempts = json::array();
+	json trace = json::array(), attempts = json::array(), mend = json::array();
 	auto sample = [&]() { trace.push_back({{"ms",Timer::GetCurrentTime()},
 		{"player_hp",c->GetHP()},{"player_mana",c->GetMana()},{"player_casting",c->CastingSpellID()},
 		{"npc_hp",npc->GetHP()},{"npc_mana",npc->GetMana()},{"npc_casting",npc->CastingSpellID()},
@@ -1371,8 +1391,18 @@ json NightcapBalanceEncounter(Client *c, const json &input)
 	for (uint32 ms = combat_start + 50; ms <= combat_start + duration && terminal.empty(); ms += 50) {
 		Advance(50);
 		const bool moving = return_to_melee && movement.Step(c,npc,stream,50);
-		if (melee_heal && melee_specials && !moving) { monk_actions.Queue(c,npc,stream); }
+		if (melee_heal && melee_specials && !moving) { monk_actions.Queue(c,npc,stream,heal); }
+		const bool request_mend = wpm && !moving && !c->IsCasting() && c->GetHPRatio()<75 &&
+			c->GetSkill(EQ::skills::SkillMend)>0 && c->GetPTimers().Expired(&database,pTimerMend,false);
+		if (request_mend) {
+			mend.push_back({{"ms",ms},{"hp_before_pulse",c->GetHP()},{"expected_noncritical_heal",c->GetNightcapHealingReceived(c->GetMaxHP()/4)}});
+			stream->incoming.push_back(new EQApplicationPacket(OP_Mend,0));
+		}
 		if (!c->Process()) { throw std::runtime_error("Client processing stopped before terminal combat result"); }
+		if (request_mend) {
+			mend.back()["hp_after_pulse"] = c->GetHP();
+			mend.back()["timer_after"] = c->GetPTimers().GetRemainingTime(pTimerMend);
+		}
 		if (melee_heal && melee_specials) { monk_actions.Confirm(c,npc); }
 		if (return_to_melee) { movement.Confirm(c); }
 		if (!terminal.empty()) { sample(); break; }
@@ -1400,6 +1430,8 @@ json NightcapBalanceEncounter(Client *c, const json &input)
 		if ((ms-combat_start) % 500 == 0) { sample(); }
 	}
 	json result = {{"npc_id",npc_id},{"player_entity_id",c->GetID()},{"npc_entity_id",npc->GetID()},
+		{"undead_control",input.value("undead_control",false)},{"damage_ledger",npc->damage_ledger},{"player_ledger",NightcapBalanceClientLedger(c)},
+		{"mend_requests",mend},{"healing_scope","HealDamage calls exclude direct SetHP Mend and regeneration; Mend pulse HP can include other Client::Process activity"},
 		{"initial_state",initial_state},
 		{"result",terminal.count(c) ? "player_death" : terminal.count(npc) ? "npc_death" : "timeout"},
 		{"elapsed_ms",Timer::GetCurrentTime()},{"trace",trace},{"attempts",attempts},{"events",stream->events},
@@ -1417,6 +1449,8 @@ json NightcapBalanceEncounter(Client *c, const json &input)
 		// Keep native clocks continuous; only report timestamps become fight-relative.
 		auto relative = [combat_start](json &rows) { for (auto &row : rows) { row["ms"] = row.at("ms").get<uint32>() - combat_start; } };
 		for (const char *key : {"trace","attempts","events"}) { relative(result[key]); }
+		for (const char *key : {"damage_ledger","mend_requests"}) { relative(result[key]); }
+		for (const char *key : {"incoming","healing"}) { relative(result["player_ledger"][key]); }
 		if (return_to_melee) { relative(result["movement"]["events"]); }
 		if (!active_policy.empty()) { relative(result["activated_aa"]["actions"]); }
 		result["elapsed_ms"] = Timer::GetCurrentTime()-combat_start;
@@ -1429,8 +1463,12 @@ json NightcapBalanceEncounter(Client *c, const json &input)
 		for (auto &event : monk_actions.events) { event["ms"] = event.at("ms").get<uint32>()-combat_start; }
 		result["combat_policy"] = combat_policy;
 		result["monk_actions"] = {{"enabled",melee_specials},{"requests",monk_actions.events},
-			{"policy","Autoattack and native Flying Kick/Tiger Claw buttons, pause for affordable Superior Healing below55%; each button requested at most every250ms and only with its native timer ready"}};
-		result["scope"] = "Native WAR/CLR/MNK melee and self-heal controller; packet combat skills, candidate gear and AA purchases; not final balance certification";
+			{"healing_spell",heal},{"policy","Autoattack and all six native Monk attack buttons; each button requested at most every250ms with its native timer ready; level-eligible healing below55% HP"}};
+		result["scope"] = "Native held-class melee and self-heal controller; packet combat skills, candidate gear and earned-AA purchases; not final balance certification";
+		if (wpm) {
+			result["scope"] = "Native WPM melee, Stun, Mend and self-heal controller; all six Monk buttons and earned AAs; not final balance certification";
+			result["activated_aa"]["scope"] = "Earned Rage of Rallos requested when its native cooldown is ready; native activation, cost and duration retained";
+		}
 	}
 	return result;
 }

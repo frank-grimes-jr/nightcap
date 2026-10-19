@@ -1856,8 +1856,23 @@ bool Mob::CanUseAlternateAdvancementRank(AA::Rank *rank)
 
 
 	if (IsClient()) {
-		if (rank->expansion && !(CastToClient()->GetPP().expansions & (1 << (rank->expansion - 1)))) {
-			return false;
+		if (rank->expansion) {
+			if (rank->expansion < 0 || rank->expansion > 32) { return false; }
+			const uint32 required_bit = uint32(1) << (rank->expansion - 1);
+			auto *client = CastToClient();
+			if (!(client->GetPP().expansions & required_bit)) {
+				// The compiled policy above explicitly admits a small later-AA pool.
+				// RoF2's native mask ends at19; do not mistake that client ceiling
+				// for a restriction on an otherwise fully entitled curated build.
+				// Deliberate profile/server/current-era restrictions still apply.
+				const auto native_mask = EQ::expansions::ConvertClientVersionToExpansionsMask(client->ClientVersion());
+				if (client->ClientVersion() != EQ::versions::ClientVersion::RoF2 ||
+					!RuleB(World, UseClientBasedExpansionSettings) || !native_mask ||
+					required_bit <= native_mask ||
+					(client->GetPP().expansions & native_mask) != native_mask) {
+					return false;
+				}
+			}
 		}
 	} else if (IsBot()) {
 		if (rank->expansion && !(CastToBot()->GetExpansionBitmask() & (1 << (rank->expansion - 1)))) {
@@ -1983,6 +1998,7 @@ void Zone::LoadAlternateAdvancement() {
 			current->next = GetAlternateAdvancementRank(current->next_id);
 			current->base_ability = ability.second.get();
 			current->current_value = i;
+			current->recast_time = NightcapPetScaling::AAReuse(ability.first, i, current->recast_time);
 
 			if(current->prev) {
 				current->total_cost = current->cost + current->prev->total_cost;
@@ -2141,7 +2157,7 @@ bool ZoneDatabase::LoadAlternateAdvancementAbilities(
 	}
 
 	for (const auto& e : aa_rank_prereqs) {
-		if (e.aa_id <= 0 || e.points <= 0) {
+		if (e.aa_id <= 0 || e.points <= 0 || NightcapAA::WaivesPrerequisite(e.rank_id, e.aa_id)) {
 			continue;
 		}
 

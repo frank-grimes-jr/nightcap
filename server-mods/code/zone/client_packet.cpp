@@ -10354,8 +10354,8 @@ void Client::Handle_OP_Mend(const EQApplicationPacket *app)
 		p_timers.Start(pTimerMend, static_cast<uint32>(reuse));
 	}
 
-	int mendhp = GetMaxHP() / 4;
-	int currenthp = GetHP();
+	int64 mendhp = GetMaxHP() / 4;
+	int64 currenthp = GetHP();
 	if (zone->random.Int(0, RuleI(Character, MendAlwaysSucceedValue)) < (int)GetSkill(EQ::skills::SkillMend)) {
 
 		int criticalchance = spellbonuses.CriticalMend + itembonuses.CriticalMend + aabonuses.CriticalMend;
@@ -10367,7 +10367,8 @@ void Client::Handle_OP_Mend(const EQApplicationPacket *app)
 		else {
 			MessageString(Chat::LightBlue, MEND_SUCCESS);
 		}
-		SetHP(GetHP() + mendhp);
+		const auto healed = std::min<uint64>(GetNightcapHealingReceived(mendhp), std::max<int64>(0, GetMaxHP() - GetHP()));
+		SetHP(GetHP() + healed);
 		SendHPUpdate();
 	}
 	else {

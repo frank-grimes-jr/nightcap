@@ -1,0 +1,25 @@
+{
+  "base_image_id": "sha256:4b1c7b78964f975baa1323baf6b18fe504cd59988e08d0f502501f22f4d5a56a",
+  "base_hashes": {
+    "bin/world": "70cceaca060ed6338cb72acc726bb24ccae162b42ba88dfb89432b609c7ef8e5",
+    "bin/zone": "d3908e0348715e94955d84f629e4f27e91f15c7dd661e437efbba580ce3d216a",
+    "bin/ucs": "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714",
+    "bin/loginserver": "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf",
+    "bin/shared_memory": "ef1f399884387712113bf13163ddfcd35c47a29d0f0b9b194a6b7e265997ae35",
+    "start.py": "ca4099eb898730141e7941d3afc366d59c4bc8351eea74c5b6fd9560c24b815f",
+    "configure.py": "90873958dfb013201dd9c9552beaccdd88984a2e55739da07874fa4a95a84e57",
+    "accounts.py": "400d4e7a5d0bedeed47ffdb33b142a4a62a3f939a35466da66ce3201ae52ef5c"
+  },
+  "zone_sha256": "29b8093147ffbc4c0d387a4e3fa55a3a041dbb9ae7da731b493b21601a6dec2f",
+  "client_channel_sha256": "a6f51792bc388599757a0b6aec218cdfad8d5917ff16883759fb62c3fb7f5eb5",
+  "runtime_helper_sha256": "a3242bee3e8d4a7e60ea81bbd6fd34587201b712247665f3c03673733b95a811",
+  "files": {
+    "bin/zone": "29b8093147ffbc4c0d387a4e3fa55a3a041dbb9ae7da731b493b21601a6dec2f",
+    "rollout.py": "b9fdf51662501bc5d1ea581bd9ddbde9392964788e8f120ecbb41d15c2e8863c",
+    "test_rollout.py": "a83bb4cbae1944f444dd52935d6265b50c7dee4d47a1155de24831b80904f93b"
+  },
+  "source_revision": "e3f95f1105893980ee23f0d8c8ec490ab73729e3",
+  "main_merge": "0f251f2ca774c01a4e02fff6f12276a43a51823b",
+  "operator_revision": "7161cdb",
+  "operator_main_merge": "9a3a938b6904c6aefbcde7e9797887313e410466"
+}

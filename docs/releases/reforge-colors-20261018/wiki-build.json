@@ -1,0 +1,10 @@
+{
+  "source_baseline": "47c9e8792c6719bca330e05c2b6d10d3a579cfe5",
+  "changes": "two default-color paragraphs and prepended Recent changes;18 other articles byte-identical",
+  "archive_sha256": "173fc60115bb46994f6355ee046f49f59138d0496434bff953ce4a6905d5ae2f",
+  "manifest_sha256": "58ae003649db8a252e8f2d7d1fa0833f70403a5ce685bc0b72574a688633a21c",
+  "files": 465,
+  "linux_tests": 30,
+  "windows_content_refresh_tests": 14,
+  "node_checks": 13
+}
