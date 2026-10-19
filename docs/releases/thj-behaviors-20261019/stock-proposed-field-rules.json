@@ -1,0 +1,892 @@
+{
+  "version": 1,
+  "status": "read-only research proposal; not implemented, deployed, or balance accepted",
+  "source_manifest": "source-manifest.json",
+  "source_authority": "Unmodified public ProjectEQ stock emulator database; not a Daybreak database and not a recovered THJ database",
+  "archive_url": "https://db.eqemu.dev/api/v1/dump/archive/peq-1792195214.zip",
+  "archive_sha256": "c27a943e73890cdfd4ac2b1e30e58d557d2d3e4254030836888eacf4f102ef18",
+  "scope": {
+    "included": "Existing ordinary equipment families with exact base+200000/+400000/+600000 identity/name mapping and a matching pinned stock base row",
+    "excluded": [
+      "209 approved modest starter families",
+      "custom dungeon and hunt families",
+      "ordinary bags",
+      "augments",
+      "epic+800000 families except existing exact observed overrides",
+      "unmatched or renamed stock identities",
+      "materials, consumables, scrolls and other non-equipment"
+    ],
+    "unchanged": [
+      "Classic level50 and era acquisition gates",
+      "Normal numeric stock values except existing209 starter policy",
+      "class/race/level equip gates",
+      "all effect/click/proc/focus/worn fields",
+      "all sockets, socket visibility and augment restrictions",
+      "pet/WPM companion effects and sockets",
+      "ownership, inventory, recipes, loot and prices"
+    ],
+    "observed_overrides": "Retain reviewed exact131 item targets after generalized rules; exact target fields override the statistical model. Missing evidence fields are unknown, never zero."
+  },
+  "rounding": "For nonnegative rational x use floor(x+1/2); retain negative stock fields unchanged; reject representational overflow rather than silently wrapping.",
+  "ascended": {
+    "double_positive": {
+      "fields": [
+        "ac",
+        "hp",
+        "mana",
+        "astr",
+        "asta",
+        "aagi",
+        "adex",
+        "aint",
+        "awis",
+        "acha",
+        "mr",
+        "fr",
+        "cr",
+        "dr",
+        "pr",
+        "damage",
+        "regen",
+        "manaregen"
+      ],
+      "expression": "2 * stock when stock>0; retain zero and negative values",
+      "notes": [
+        "Damage support is only5 weapons: Dragonspine Rapier, Shuriken of Eternity, Hammer of Divinity, Sharpened Bloodtusk Lance, Water Sprinkler of Nem Ankh. General weapon application is an explicit calibration, not131 observed weapon ratios.",
+        "HP, mana and stat additions from zero stay exact-item exceptions.",
+        "Mana7 positive exceptions and STA2 positive exceptions remain exact overrides."
+      ]
+    },
+    "haste": {
+      "expression": "round_half_up(stock.haste*3/2) when stock.haste>0; otherwise retain stock",
+      "positive_matches": 9,
+      "positive_observations": 9
+    },
+    "spelldmg": {
+      "expression": "max(2*max(stock.aint,0),max(stock.awis,0)) when stock.spelldmg==0; otherwise preserve stock.spelldmg",
+      "positive_matches": 119,
+      "positive_observations": 120,
+      "all_matches": 127,
+      "all_observations": 128,
+      "notes": [
+        "All128 observed stock Spell Damage values are zero; these are additions, not ratios.",
+        "max(2INT,WIS) and (INT>0?2INT:WIS) cannot be distinguished here: no sampled positiveINT item has WIS>2INT. Selecting max is Nightcap calibration.",
+        "Sharpened Bloodtusk Lance has observed8 versus candidate16, from an older2024 screenshot."
+      ]
+    },
+    "healamt": {
+      "expression": "2*max(stock.awis,0) when stock.healamt==0; otherwise preserve stock.healamt",
+      "positive_matches": 93,
+      "positive_observations": 94,
+      "all_matches": 125,
+      "all_observations": 126,
+      "notes": [
+        "All126 observed stock Healing Amount values are zero.",
+        "Sharpened Bloodtusk Lance has observed8 versus candidate16."
+      ]
+    },
+    "accuracy": {
+      "expression": "ceil(max(stock.adex,0)/2) when stock.accuracy==0; otherwise preserve stock.accuracy",
+      "positive_matches": 70,
+      "positive_observations": 71,
+      "all_matches": 125,
+      "all_observations": 127,
+      "exceptions": [
+        "Magi`Kot sleeves11598 expected9 but observed0",
+        "Sharpened Bloodtusk Lance40035 expected5 but observed3"
+      ]
+    },
+    "heroics": {
+      "expression": "round_half_up(max(final corresponding primary/resist,0)/4) when stock heroic field==0; otherwise preserve stock heroic field",
+      "positive_matches": 967,
+      "positive_observations": 986,
+      "all_matches": 1412,
+      "all_observations": 1431,
+      "notes": [
+        "Quarter rule has19 positive exceptions; retain exact observed overrides.",
+        "Do not silently add inferred heroics on top of a positive native heroic field, a case absent from this sample."
+      ]
+    },
+    "preserve_stock": {
+      "fields": [
+        "endur",
+        "enduranceregen",
+        "delay",
+        "range",
+        "backstabdmg",
+        "elemdmgamt",
+        "damageshield",
+        "shielding",
+        "spellshield",
+        "avoidance",
+        "strikethrough",
+        "combateffects",
+        "stunresist",
+        "svcorruption",
+        "heroic_svcorrup"
+      ],
+      "notes": [
+        "Endurance unchanged12/13 positive observations; last is doubled.",
+        "Advanced utility fields are unchanged on observed nonzero rows; zeros do not establish scaling.",
+        "Backstab4x has one observation; do not extrapolate.",
+        "No endurance-regen or corruption evidence.",
+        "Preserving weapon delay is well supported; no global faster-delay policy."
+      ]
+    },
+    "attack": {
+      "recommendation": "Keep native stock attack for unobserved families until choosing this explicit nonlinear calibration; retain exact observed target attack values.",
+      "optional_candidate": "stock.attack>0 ? stock.attack+ceil(max(stock.astr,0)/4) : ceil((max(stock.astr,0)+max(stock.adex,0))/2)",
+      "positive_matches": 104,
+      "positive_observations": 107,
+      "all_matches": 125,
+      "all_observations": 128,
+      "exceptions": [
+        "Shuriken14733 expected30 observed118",
+        "Sharpened Bloodtusk Lance40035 expected5 observed3",
+        "Bracer of Timeless Rage68198 expected23 observed25"
+      ],
+      "notes": [
+        "A125/128 fit is descriptive, not proof of the upstream algorithm.",
+        "Observed stockattack>0 ratios range1.0\u20134.72; do not apply their1.2 median as a universal multiplier."
+      ]
+    }
+  },
+  "intermediate": {
+    "recommendation": "Use deterministic1/3 and2/3 interpolation of each modeled/reviewed positive Normal\u2192Ascended delta for ordinary scalar stats. Retain top-tier-only heroics as a separate current Nightcap policy.",
+    "polished": "N + round_half_up((T-N)/3)",
+    "exalted": "N + round_half_up(2*(T-N)/3)",
+    "ascended": "T",
+    "normal": "N",
+    "heroics": "Preserve current Polished/Exalted heroic fields; generated additions begin only at Ascended unless intentionally changing this separate contract.",
+    "requirements": [
+      "No lower-tier THJ observations are present in this131-item catalog. Label the interpolation as Nightcap calibration.",
+      "Interpolate the final exact top target for observed fields; ensure Normal<=Polished<=Exalted<=Ascended for supported positive upgrade fields.",
+      "For T=N all intermediates are N. Negative stats and nonnumeric/effect fields are unchanged.",
+      "Accept low-integer plateaus; do not force+1 if it exceeds the endpoint.",
+      "Normal identity or stock numeric drift rejects planning unless covered by a reviewed explicit exception.",
+      "Heroic interpolation at1/3 and2/3 would grant new lower-tier heroics; do not treat that behavior as inferred evidence."
+    ],
+    "comparison_with_deployed": "2x endpoint yields\u22481.333/1.667 of Normal instead of old HP/mana1.45/1.90/2.40 and damage1.10/1.20/1.35. AC/core1.35/1.65/2.00 was already close. Interpolation prevents an old1.9HP middle tier sitting almost at2x top."
+  },
+  "support_by_field": {
+    "ac": {
+      "observations": 128,
+      "stock_positive": 119,
+      "positive_ratio_min": 2.0,
+      "positive_ratio_median": 2.0,
+      "positive_ratio_max": 2.0,
+      "positive_ratio_frequency": {
+        "2.0": 119
+      },
+      "zero_to_positive": 0,
+      "zero_to_zero": 9,
+      "negative_stock": 0,
+      "observed_below_stock": 0,
+      "different_custom_normal": 0
+    },
+    "hp": {
+      "observations": 130,
+      "stock_positive": 122,
+      "positive_ratio_min": 2.0,
+      "positive_ratio_median": 2.0,
+      "positive_ratio_max": 2.0,
+      "positive_ratio_frequency": {
+        "2.0": 122
+      },
+      "zero_to_positive": 3,
+      "zero_to_zero": 5,
+      "negative_stock": 0,
+      "observed_below_stock": 0,
+      "different_custom_normal": 0
+    },
+    "mana": {
+      "observations": 130,
+      "stock_positive": 123,
+      "positive_ratio_min": 1.0,
+      "positive_ratio_median": 2.0,
+      "positive_ratio_max": 2.303030303030303,
+      "positive_ratio_frequency": {
+        "2.0": 116,
+        "1.942857": 1,
+        "2.30303": 1,
+        "2.058824": 1,
+        "2.181818": 1,
+        "1.794872": 1,
+        "1.0": 1,
+        "1.894737": 1
+      },
+      "zero_to_positive": 2,
+      "zero_to_zero": 5,
+      "negative_stock": 0,
+      "observed_below_stock": 0,
+      "different_custom_normal": 0
+    },
+    "endur": {
+      "observations": 13,
+      "stock_positive": 13,
+      "positive_ratio_min": 1.0,
+      "positive_ratio_median": 1.0,
+      "positive_ratio_max": 2.0,
+      "positive_ratio_frequency": {
+        "1.0": 12,
+        "2.0": 1
+      },
+      "zero_to_positive": 0,
+      "zero_to_zero": 0,
+      "negative_stock": 0,
+      "observed_below_stock": 0,
+      "different_custom_normal": 0
+    },
+    "damage": {
+      "observations": 5,
+      "stock_positive": 5,
+      "positive_ratio_min": 2.0,
+      "positive_ratio_median": 2.0,
+      "positive_ratio_max": 2.0,
+      "positive_ratio_frequency": {
+        "2.0": 5
+      },
+      "zero_to_positive": 0,
+      "zero_to_zero": 0,
+      "negative_stock": 0,
+      "observed_below_stock": 0,
+      "different_custom_normal": 0
+    },
+    "delay": {
+      "observations": 5,
+      "stock_positive": 5,
+      "positive_ratio_min": 1.0,
+      "positive_ratio_median": 1.0,
+      "positive_ratio_max": 1.0,
+      "positive_ratio_frequency": {
+        "1.0": 5
+      },
+      "zero_to_positive": 0,
+      "zero_to_zero": 0,
+      "negative_stock": 0,
+      "observed_below_stock": 0,
+      "different_custom_normal": 0
+    },
+    "range": {
+      "observations": 1,
+      "stock_positive": 1,
+      "positive_ratio_min": 1.0,
+      "positive_ratio_median": 1.0,
+      "positive_ratio_max": 1.0,
+      "positive_ratio_frequency": {
+        "1.0": 1
+      },
+      "zero_to_positive": 0,
+      "zero_to_zero": 0,
+      "negative_stock": 0,
+      "observed_below_stock": 0,
+      "different_custom_normal": 0
+    },
+    "backstabdmg": {
+      "observations": 1,
+      "stock_positive": 1,
+      "positive_ratio_min": 4.0,
+      "positive_ratio_median": 4.0,
+      "positive_ratio_max": 4.0,
+      "positive_ratio_frequency": {
+        "4.0": 1
+      },
+      "zero_to_positive": 0,
+      "zero_to_zero": 0,
+      "negative_stock": 0,
+      "observed_below_stock": 0,
+      "different_custom_normal": 0
+    },
+    "elemdmgamt": {
+      "observations": 1,
+      "stock_positive": 1,
+      "positive_ratio_min": 1.0,
+      "positive_ratio_median": 1.0,
+      "positive_ratio_max": 1.0,
+      "positive_ratio_frequency": {
+        "1.0": 1
+      },
+      "zero_to_positive": 0,
+      "zero_to_zero": 0,
+      "negative_stock": 0,
+      "observed_below_stock": 0,
+      "different_custom_normal": 0
+    },
+    "spelldmg": {
+      "observations": 128,
+      "stock_positive": 0,
+      "positive_ratio_min": null,
+      "positive_ratio_median": null,
+      "positive_ratio_max": null,
+      "positive_ratio_frequency": {},
+      "zero_to_positive": 120,
+      "zero_to_zero": 8,
+      "negative_stock": 0,
+      "observed_below_stock": 0,
+      "different_custom_normal": 0
+    },
+    "healamt": {
+      "observations": 126,
+      "stock_positive": 0,
+      "positive_ratio_min": null,
+      "positive_ratio_median": null,
+      "positive_ratio_max": null,
+      "positive_ratio_frequency": {},
+      "zero_to_positive": 94,
+      "zero_to_zero": 32,
+      "negative_stock": 0,
+      "observed_below_stock": 0,
+      "different_custom_normal": 0
+    },
+    "attack": {
+      "observations": 128,
+      "stock_positive": 35,
+      "positive_ratio_min": 1.0,
+      "positive_ratio_median": 1.2,
+      "positive_ratio_max": 4.72,
+      "positive_ratio_frequency": {
+        "1.0": 10,
+        "1.2": 4,
+        "1.4": 4,
+        "1.25": 3,
+        "1.333333": 2,
+        "1.28": 2,
+        "1.133333": 2,
+        "1.16": 2,
+        "4.72": 1,
+        "1.142857": 1,
+        "1.233333": 1,
+        "1.114286": 1,
+        "1.08": 1,
+        "1.266667": 1
+      },
+      "zero_to_positive": 72,
+      "zero_to_zero": 21,
+      "negative_stock": 0,
+      "observed_below_stock": 0,
+      "different_custom_normal": 0
+    },
+    "accuracy": {
+      "observations": 127,
+      "stock_positive": 0,
+      "positive_ratio_min": null,
+      "positive_ratio_median": null,
+      "positive_ratio_max": null,
+      "positive_ratio_frequency": {},
+      "zero_to_positive": 71,
+      "zero_to_zero": 56,
+      "negative_stock": 0,
+      "observed_below_stock": 0,
+      "different_custom_normal": 0
+    },
+    "haste": {
+      "observations": 120,
+      "stock_positive": 9,
+      "positive_ratio_min": 1.5,
+      "positive_ratio_median": 1.5121951219512195,
+      "positive_ratio_max": 1.5135135135135136,
+      "positive_ratio_frequency": {
+        "1.512195": 4,
+        "1.5": 3,
+        "1.511111": 1,
+        "1.513514": 1
+      },
+      "zero_to_positive": 0,
+      "zero_to_zero": 111,
+      "negative_stock": 0,
+      "observed_below_stock": 0,
+      "different_custom_normal": 0
+    },
+    "damageshield": {
+      "observations": 119,
+      "stock_positive": 2,
+      "positive_ratio_min": 1.0,
+      "positive_ratio_median": 1.0,
+      "positive_ratio_max": 1.0,
+      "positive_ratio_frequency": {
+        "1.0": 2
+      },
+      "zero_to_positive": 0,
+      "zero_to_zero": 117,
+      "negative_stock": 0,
+      "observed_below_stock": 0,
+      "different_custom_normal": 0
+    },
+    "regen": {
+      "observations": 66,
+      "stock_positive": 18,
+      "positive_ratio_min": 2.0,
+      "positive_ratio_median": 2.0,
+      "positive_ratio_max": 2.0,
+      "positive_ratio_frequency": {
+        "2.0": 18
+      },
+      "zero_to_positive": 0,
+      "zero_to_zero": 48,
+      "negative_stock": 0,
+      "observed_below_stock": 0,
+      "different_custom_normal": 0
+    },
+    "manaregen": {
+      "observations": 3,
+      "stock_positive": 3,
+      "positive_ratio_min": 2.0,
+      "positive_ratio_median": 2.0,
+      "positive_ratio_max": 2.0,
+      "positive_ratio_frequency": {
+        "2.0": 3
+      },
+      "zero_to_positive": 0,
+      "zero_to_zero": 0,
+      "negative_stock": 0,
+      "observed_below_stock": 0,
+      "different_custom_normal": 0
+    },
+    "shielding": {
+      "observations": 68,
+      "stock_positive": 7,
+      "positive_ratio_min": 1.0,
+      "positive_ratio_median": 1.0,
+      "positive_ratio_max": 1.0,
+      "positive_ratio_frequency": {
+        "1.0": 7
+      },
+      "zero_to_positive": 0,
+      "zero_to_zero": 61,
+      "negative_stock": 0,
+      "observed_below_stock": 0,
+      "different_custom_normal": 0
+    },
+    "spellshield": {
+      "observations": 67,
+      "stock_positive": 4,
+      "positive_ratio_min": 1.0,
+      "positive_ratio_median": 1.0,
+      "positive_ratio_max": 1.0,
+      "positive_ratio_frequency": {
+        "1.0": 4
+      },
+      "zero_to_positive": 0,
+      "zero_to_zero": 63,
+      "negative_stock": 0,
+      "observed_below_stock": 0,
+      "different_custom_normal": 0
+    },
+    "avoidance": {
+      "observations": 67,
+      "stock_positive": 5,
+      "positive_ratio_min": 1.0,
+      "positive_ratio_median": 1.0,
+      "positive_ratio_max": 1.0,
+      "positive_ratio_frequency": {
+        "1.0": 5
+      },
+      "zero_to_positive": 0,
+      "zero_to_zero": 62,
+      "negative_stock": 0,
+      "observed_below_stock": 0,
+      "different_custom_normal": 0
+    },
+    "strikethrough": {
+      "observations": 67,
+      "stock_positive": 4,
+      "positive_ratio_min": 1.0,
+      "positive_ratio_median": 1.0,
+      "positive_ratio_max": 1.0,
+      "positive_ratio_frequency": {
+        "1.0": 4
+      },
+      "zero_to_positive": 0,
+      "zero_to_zero": 63,
+      "negative_stock": 0,
+      "observed_below_stock": 0,
+      "different_custom_normal": 0
+    },
+    "combateffects": {
+      "observations": 67,
+      "stock_positive": 3,
+      "positive_ratio_min": 1.0,
+      "positive_ratio_median": 1.0,
+      "positive_ratio_max": 1.0,
+      "positive_ratio_frequency": {
+        "1.0": 3
+      },
+      "zero_to_positive": 0,
+      "zero_to_zero": 64,
+      "negative_stock": 0,
+      "observed_below_stock": 0,
+      "different_custom_normal": 0
+    },
+    "stunresist": {
+      "observations": 66,
+      "stock_positive": 6,
+      "positive_ratio_min": 1.0,
+      "positive_ratio_median": 1.0,
+      "positive_ratio_max": 1.0,
+      "positive_ratio_frequency": {
+        "1.0": 6
+      },
+      "zero_to_positive": 0,
+      "zero_to_zero": 60,
+      "negative_stock": 0,
+      "observed_below_stock": 0,
+      "different_custom_normal": 0
+    },
+    "astr": {
+      "observations": 118,
+      "stock_positive": 67,
+      "positive_ratio_min": 2.0,
+      "positive_ratio_median": 2.0,
+      "positive_ratio_max": 2.0,
+      "positive_ratio_frequency": {
+        "2.0": 67
+      },
+      "zero_to_positive": 0,
+      "zero_to_zero": 51,
+      "negative_stock": 0,
+      "observed_below_stock": 0,
+      "different_custom_normal": 0
+    },
+    "asta": {
+      "observations": 118,
+      "stock_positive": 81,
+      "positive_ratio_min": 1.0,
+      "positive_ratio_median": 2.0,
+      "positive_ratio_max": 3.3333333333333335,
+      "positive_ratio_frequency": {
+        "2.0": 79,
+        "3.333333": 1,
+        "1.0": 1
+      },
+      "zero_to_positive": 0,
+      "zero_to_zero": 37,
+      "negative_stock": 0,
+      "observed_below_stock": 0,
+      "different_custom_normal": 0
+    },
+    "aagi": {
+      "observations": 119,
+      "stock_positive": 62,
+      "positive_ratio_min": 2.0,
+      "positive_ratio_median": 2.0,
+      "positive_ratio_max": 2.0,
+      "positive_ratio_frequency": {
+        "2.0": 62
+      },
+      "zero_to_positive": 0,
+      "zero_to_zero": 57,
+      "negative_stock": 0,
+      "observed_below_stock": 0,
+      "different_custom_normal": 0
+    },
+    "adex": {
+      "observations": 119,
+      "stock_positive": 64,
+      "positive_ratio_min": 2.0,
+      "positive_ratio_median": 2.0,
+      "positive_ratio_max": 2.0,
+      "positive_ratio_frequency": {
+        "2.0": 64
+      },
+      "zero_to_positive": 0,
+      "zero_to_zero": 55,
+      "negative_stock": 0,
+      "observed_below_stock": 0,
+      "different_custom_normal": 0
+    },
+    "aint": {
+      "observations": 120,
+      "stock_positive": 98,
+      "positive_ratio_min": 2.0,
+      "positive_ratio_median": 2.0,
+      "positive_ratio_max": 2.0,
+      "positive_ratio_frequency": {
+        "2.0": 98
+      },
+      "zero_to_positive": 0,
+      "zero_to_zero": 22,
+      "negative_stock": 0,
+      "observed_below_stock": 0,
+      "different_custom_normal": 0
+    },
+    "awis": {
+      "observations": 120,
+      "stock_positive": 88,
+      "positive_ratio_min": 2.0,
+      "positive_ratio_median": 2.0,
+      "positive_ratio_max": 2.0,
+      "positive_ratio_frequency": {
+        "2.0": 88
+      },
+      "zero_to_positive": 1,
+      "zero_to_zero": 31,
+      "negative_stock": 0,
+      "observed_below_stock": 0,
+      "different_custom_normal": 0
+    },
+    "acha": {
+      "observations": 120,
+      "stock_positive": 62,
+      "positive_ratio_min": 2.0,
+      "positive_ratio_median": 2.0,
+      "positive_ratio_max": 2.0,
+      "positive_ratio_frequency": {
+        "2.0": 62
+      },
+      "zero_to_positive": 2,
+      "zero_to_zero": 56,
+      "negative_stock": 0,
+      "observed_below_stock": 0,
+      "different_custom_normal": 0
+    },
+    "fr": {
+      "observations": 121,
+      "stock_positive": 94,
+      "positive_ratio_min": 2.0,
+      "positive_ratio_median": 2.0,
+      "positive_ratio_max": 2.0,
+      "positive_ratio_frequency": {
+        "2.0": 94
+      },
+      "zero_to_positive": 0,
+      "zero_to_zero": 27,
+      "negative_stock": 0,
+      "observed_below_stock": 0,
+      "different_custom_normal": 0
+    },
+    "cr": {
+      "observations": 121,
+      "stock_positive": 92,
+      "positive_ratio_min": 2.0,
+      "positive_ratio_median": 2.0,
+      "positive_ratio_max": 2.0,
+      "positive_ratio_frequency": {
+        "2.0": 92
+      },
+      "zero_to_positive": 2,
+      "zero_to_zero": 27,
+      "negative_stock": 0,
+      "observed_below_stock": 0,
+      "different_custom_normal": 0
+    },
+    "mr": {
+      "observations": 120,
+      "stock_positive": 91,
+      "positive_ratio_min": 2.0,
+      "positive_ratio_median": 2.0,
+      "positive_ratio_max": 2.0,
+      "positive_ratio_frequency": {
+        "2.0": 91
+      },
+      "zero_to_positive": 0,
+      "zero_to_zero": 29,
+      "negative_stock": 0,
+      "observed_below_stock": 0,
+      "different_custom_normal": 0
+    },
+    "dr": {
+      "observations": 120,
+      "stock_positive": 93,
+      "positive_ratio_min": 2.0,
+      "positive_ratio_median": 2.0,
+      "positive_ratio_max": 2.0,
+      "positive_ratio_frequency": {
+        "2.0": 93
+      },
+      "zero_to_positive": 0,
+      "zero_to_zero": 27,
+      "negative_stock": 0,
+      "observed_below_stock": 0,
+      "different_custom_normal": 0
+    },
+    "pr": {
+      "observations": 119,
+      "stock_positive": 91,
+      "positive_ratio_min": 2.0,
+      "positive_ratio_median": 2.0,
+      "positive_ratio_max": 2.0,
+      "positive_ratio_frequency": {
+        "2.0": 91
+      },
+      "zero_to_positive": 0,
+      "zero_to_zero": 28,
+      "negative_stock": 0,
+      "observed_below_stock": 0,
+      "different_custom_normal": 0
+    },
+    "heroic_str": {
+      "observations": 117,
+      "stock_positive": 0,
+      "positive_ratio_min": null,
+      "positive_ratio_median": null,
+      "positive_ratio_max": null,
+      "positive_ratio_frequency": {},
+      "zero_to_positive": 67,
+      "zero_to_zero": 50,
+      "negative_stock": 0,
+      "observed_below_stock": 0,
+      "different_custom_normal": 0
+    },
+    "heroic_sta": {
+      "observations": 117,
+      "stock_positive": 0,
+      "positive_ratio_min": null,
+      "positive_ratio_median": null,
+      "positive_ratio_max": null,
+      "positive_ratio_frequency": {},
+      "zero_to_positive": 80,
+      "zero_to_zero": 37,
+      "negative_stock": 0,
+      "observed_below_stock": 0,
+      "different_custom_normal": 0
+    },
+    "heroic_agi": {
+      "observations": 119,
+      "stock_positive": 0,
+      "positive_ratio_min": null,
+      "positive_ratio_median": null,
+      "positive_ratio_max": null,
+      "positive_ratio_frequency": {},
+      "zero_to_positive": 62,
+      "zero_to_zero": 57,
+      "negative_stock": 0,
+      "observed_below_stock": 0,
+      "different_custom_normal": 0
+    },
+    "heroic_dex": {
+      "observations": 118,
+      "stock_positive": 0,
+      "positive_ratio_min": null,
+      "positive_ratio_median": null,
+      "positive_ratio_max": null,
+      "positive_ratio_frequency": {},
+      "zero_to_positive": 64,
+      "zero_to_zero": 54,
+      "negative_stock": 0,
+      "observed_below_stock": 0,
+      "different_custom_normal": 0
+    },
+    "heroic_int": {
+      "observations": 120,
+      "stock_positive": 0,
+      "positive_ratio_min": null,
+      "positive_ratio_median": null,
+      "positive_ratio_max": null,
+      "positive_ratio_frequency": {},
+      "zero_to_positive": 98,
+      "zero_to_zero": 22,
+      "negative_stock": 0,
+      "observed_below_stock": 0,
+      "different_custom_normal": 0
+    },
+    "heroic_wis": {
+      "observations": 120,
+      "stock_positive": 0,
+      "positive_ratio_min": null,
+      "positive_ratio_median": null,
+      "positive_ratio_max": null,
+      "positive_ratio_frequency": {},
+      "zero_to_positive": 88,
+      "zero_to_zero": 32,
+      "negative_stock": 0,
+      "observed_below_stock": 0,
+      "different_custom_normal": 0
+    },
+    "heroic_cha": {
+      "observations": 120,
+      "stock_positive": 0,
+      "positive_ratio_min": null,
+      "positive_ratio_median": null,
+      "positive_ratio_max": null,
+      "positive_ratio_frequency": {},
+      "zero_to_positive": 63,
+      "zero_to_zero": 57,
+      "negative_stock": 0,
+      "observed_below_stock": 0,
+      "different_custom_normal": 0
+    },
+    "heroic_fr": {
+      "observations": 121,
+      "stock_positive": 0,
+      "positive_ratio_min": null,
+      "positive_ratio_median": null,
+      "positive_ratio_max": null,
+      "positive_ratio_frequency": {},
+      "zero_to_positive": 94,
+      "zero_to_zero": 27,
+      "negative_stock": 0,
+      "observed_below_stock": 0,
+      "different_custom_normal": 0
+    },
+    "heroic_cr": {
+      "observations": 121,
+      "stock_positive": 0,
+      "positive_ratio_min": null,
+      "positive_ratio_median": null,
+      "positive_ratio_max": null,
+      "positive_ratio_frequency": {},
+      "zero_to_positive": 94,
+      "zero_to_zero": 27,
+      "negative_stock": 0,
+      "observed_below_stock": 0,
+      "different_custom_normal": 0
+    },
+    "heroic_mr": {
+      "observations": 120,
+      "stock_positive": 0,
+      "positive_ratio_min": null,
+      "positive_ratio_median": null,
+      "positive_ratio_max": null,
+      "positive_ratio_frequency": {},
+      "zero_to_positive": 91,
+      "zero_to_zero": 29,
+      "negative_stock": 0,
+      "observed_below_stock": 0,
+      "different_custom_normal": 0
+    },
+    "heroic_dr": {
+      "observations": 120,
+      "stock_positive": 0,
+      "positive_ratio_min": null,
+      "positive_ratio_median": null,
+      "positive_ratio_max": null,
+      "positive_ratio_frequency": {},
+      "zero_to_positive": 93,
+      "zero_to_zero": 27,
+      "negative_stock": 0,
+      "observed_below_stock": 0,
+      "different_custom_normal": 0
+    },
+    "heroic_pr": {
+      "observations": 120,
+      "stock_positive": 0,
+      "positive_ratio_min": null,
+      "positive_ratio_median": null,
+      "positive_ratio_max": null,
+      "positive_ratio_frequency": {},
+      "zero_to_positive": 91,
+      "zero_to_zero": 29,
+      "negative_stock": 0,
+      "observed_below_stock": 0,
+      "different_custom_normal": 0
+    }
+  },
+  "model_fit_evidence": "candidate-model-fit.json",
+  "positive_primary_x2": {
+    "matches": 520,
+    "observations": 522
+  },
+  "positive_resist_x2": {
+    "matches": 461,
+    "observations": 461
+  },
+  "effects_evidence": "deployed-family-effect-changes.json",
+  "required_verification": [
+    "Unmodified stock285-column131-row identity comparison.",
+    "Fresh full-row current target capture, guard drift and preserve all non-owned fields.",
+    "Exact observed overrides and starter209 exclusions cannot be bypassed by generic fallback.",
+    "All modeled fields monotonic where positive; effects/sockets/gates byte-identical to captured current baseline.",
+    "No current owned player inventory state restored or replaced.",
+    "Classic50 representative builds and dungeon/starter ordering, combined pet/WPM/AA combat, mana/sustain and burst require measurement and owner in-game acceptance before calling this balanced."
+  ]
+}

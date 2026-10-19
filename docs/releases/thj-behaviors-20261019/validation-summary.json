@@ -1,0 +1,35 @@
+{
+  "status": "prepared_for_manual_testing",
+  "baseline": "45e841640de1178b028c9b028713df6e0591df54",
+  "source_revision": "326a00c13552699b90e1437c5e36df9857e21e3a",
+  "native_build": "native-build-manifest.json",
+  "database": {
+    "status": "passed",
+    "database": "nightcap_thj_behaviors_20261019",
+    "content_groups": 733,
+    "item_rows_verified": 308932,
+    "changed_items": 143332,
+    "full_row_columns": 285,
+    "retry": true,
+    "rollback": true,
+    "late_preimage_fault_atomic": true,
+    "bootstrap_equivalent": true,
+    "live_modified": false
+  },
+  "bootstrap_guard_checks": 3,
+  "automated_test_groups": {
+    "regression_passed": 71,
+    "regression_optional_skips": 8,
+    "supplemental_passed": 44,
+    "migration_passed": 5,
+    "native_resource_refund_checks": 85,
+    "native_aa_eligibility_cases": 11070
+  },
+  "independent_review": "independent-review.json",
+  "bundle": "test-bundle.json",
+  "wiki_release": "20261019-thj-behaviors-candidate-v1",
+  "cache_generation": "Required on intended target; optional diagnostic smoke not run, see cache-verification.json",
+  "production_gameplay_deployed": false,
+  "client_signed": false,
+  "owner_gameplay_accepted": false
+}

@@ -15,12 +15,28 @@ def migration(pairs,columns,alternate_before=None):
         if set(old)!=set(columns) or set(new)!=set(columns) or old['id']!=new['id']:raise ValueError('Full item preimages required')
         if {k for k in old if str(old[k])!=str(new[k])}-fields:raise ValueError('Migration touches unowned fields')
     expression="SHA2(CONCAT_WS('|',"+','.join("IFNULL(HEX(CAST(`"+c+"` AS CHAR CHARACTER SET utf8mb4)),'NULL')" for c in columns)+'),256)'
+    changed_fields=sorted({k for old,new in pairs for k in old if str(old[k])!=str(new[k])})
+    if not changed_fields:raise ValueError('Item plan has no changes')
+    projection=','.join('`'+k+'`' for k in ['id']+changed_fields)
+    def inserts(table,rows):
+        # Bound transport packets and keep the procedure itself constant-size.
+        result=[];batch=[];size=0
+        for row in rows:
+            if batch and size+len(row.encode('utf-8'))>256*1024:
+                result.append('INSERT INTO '+table+' VALUES '+','.join(batch)+';');batch=[];size=0
+            batch.append(row);size+=len(row.encode('utf-8'))+1
+        if batch:result.append('INSERT INTO '+table+' VALUES '+','.join(batch)+';')
+        return result
     name='nightcap_thj_items_20261018'
     lines=['SET NAMES utf8mb4;',f'DROP PROCEDURE IF EXISTS {name};',
            'DROP TEMPORARY TABLE IF EXISTS nightcap_thj_item_preimages;',
            'CREATE TEMPORARY TABLE nightcap_thj_item_preimages (id INT UNSIGNED PRIMARY KEY, before_hash CHAR(64) CHARACTER SET ascii, after_hash CHAR(64) CHARACTER SET ascii, companion_hash CHAR(64) CHARACTER SET ascii) ENGINE=InnoDB;',
-           'INSERT INTO nightcap_thj_item_preimages VALUES '+','.join(f"({old['id']},'{row_hash(old,columns)}','{row_hash(new,columns)}','{row_hash(alternate_before[old['id']] if alternate_before else old,columns)}')" for old,new in pairs)+';',
-           'DELIMITER //',f'CREATE PROCEDURE {name}()', 'BEGIN',
+           'DROP TEMPORARY TABLE IF EXISTS nightcap_thj_item_values;',
+           'CREATE TEMPORARY TABLE nightcap_thj_item_values ENGINE=InnoDB AS SELECT '+projection+' FROM items WHERE 0;',
+           'ALTER TABLE nightcap_thj_item_values ADD PRIMARY KEY (id);']
+    lines+=inserts('nightcap_thj_item_preimages',(f"({old['id']},'{row_hash(old,columns)}','{row_hash(new,columns)}','{row_hash(alternate_before[old['id']] if alternate_before else old,columns)}')" for old,new in pairs))
+    lines+=inserts('nightcap_thj_item_values',('('+','.join(sql_value(new[k]) for k in ['id']+changed_fields)+')' for old,new in pairs))
+    lines+=[           'DELIMITER //',f'CREATE PROCEDURE {name}()', 'BEGIN',
            ' DECLARE finished BOOL DEFAULT FALSE; DECLARE item_id INT UNSIGNED; DECLARE expected_before CHAR(64); DECLARE expected_after CHAR(64); DECLARE expected_companion CHAR(64); DECLARE actual_hash CHAR(64); DECLARE item_count INT;',
            ' DECLARE targets CURSOR FOR SELECT id,before_hash,after_hash,companion_hash FROM nightcap_thj_item_preimages ORDER BY id;',
            ' DECLARE CONTINUE HANDLER FOR NOT FOUND SET finished=TRUE;',
@@ -28,6 +44,7 @@ def migration(pairs,columns,alternate_before=None):
            ' SET TRANSACTION ISOLATION LEVEL SERIALIZABLE; START TRANSACTION;',
            " IF (SELECT COUNT(*) FROM information_schema.TABLES WHERE TABLE_SCHEMA=DATABASE() AND TABLE_NAME='items' AND ENGINE='InnoDB')<>1 OR EXISTS(SELECT 1 FROM information_schema.TRIGGERS WHERE TRIGGER_SCHEMA=DATABASE() AND EVENT_OBJECT_TABLE='items') THEN SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT='Unexpected item storage'; END IF;",
            f" IF (SELECT COUNT(*) FROM information_schema.COLUMNS WHERE TABLE_SCHEMA=DATABASE() AND TABLE_NAME='items')<>{len(columns)} THEN SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT='Item schema drift'; END IF;",
+           f" IF (SELECT COUNT(*) FROM nightcap_thj_item_preimages)<>{len(pairs)} OR (SELECT COUNT(*) FROM nightcap_thj_item_values)<>{len(pairs)} OR (SELECT COUNT(*) FROM nightcap_thj_item_preimages p JOIN nightcap_thj_item_values v ON v.id=p.id)<>{len(pairs)} THEN SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT='Incomplete item staging'; END IF;",
            ' OPEN targets; preflight: LOOP',
            ' FETCH targets INTO item_id,expected_before,expected_after,expected_companion; IF finished THEN LEAVE preflight; END IF;',
            ' SELECT COUNT(*) INTO item_count FROM items WHERE id=item_id;',
@@ -35,12 +52,10 @@ def migration(pairs,columns,alternate_before=None):
            f' SELECT {expression} INTO actual_hash FROM items WHERE id=item_id FOR UPDATE;',
            " IF actual_hash<>expected_before AND actual_hash<>expected_after AND actual_hash<>expected_companion THEN SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT='Item full preimage drift'; END IF;",
            ' END LOOP; CLOSE targets;']
-    for old,new in pairs:
-        changed={k:v for k,v in new.items() if str(old[k])!=str(v)}
-        if changed:lines.append(' UPDATE items SET '+','.join('`'+k+'`='+sql_value(v) for k,v in changed.items())+' WHERE id='+str(old['id'])+';')
+    lines.append(' UPDATE items i JOIN nightcap_thj_item_values v ON v.id=i.id SET '+','.join('i.`'+k+'`=v.`'+k+'`' for k in changed_fields)+';')
     lines+=[' SET finished=FALSE; OPEN targets; verify_rows: LOOP',
             ' FETCH targets INTO item_id,expected_before,expected_after,expected_companion; IF finished THEN LEAVE verify_rows; END IF;',
             f' SELECT {expression} INTO actual_hash FROM items WHERE id=item_id;',
             " IF actual_hash<>expected_after THEN SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT='Item afterimage mismatch'; END IF;",
-            ' END LOOP; CLOSE targets; COMMIT; END//','DELIMITER ;',f'CALL {name}();',f'DROP PROCEDURE {name};','DROP TEMPORARY TABLE nightcap_thj_item_preimages;','']
+            ' END LOOP; CLOSE targets; COMMIT; END//','DELIMITER ;',f'CALL {name}();',f'DROP PROCEDURE {name};','DROP TEMPORARY TABLE nightcap_thj_item_preimages;','DROP TEMPORARY TABLE nightcap_thj_item_values;','']
     return '\n'.join(lines)

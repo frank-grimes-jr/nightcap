@@ -1,0 +1,25 @@
+{
+  "passed": true,
+  "modules": [
+    "test_thj_behaviors",
+    "test_thj_behavior_native",
+    "test_thj_behavior_focus",
+    "test_thj_behavior_client",
+    "test_thj_stock_scaling",
+    "test_thj_spell_scaling",
+    "test_thj_item_parity",
+    "test_thj_combined_content",
+    "test_aa_tbs_policy",
+    "test_aa_temporary_buffs",
+    "test_wpm_combat",
+    "test_wpm_content",
+    "test_wpm_effects",
+    "test_wpm_aa",
+    "test_pet_support_native",
+    "test_pet_support_spells",
+    "test_pet_scaling",
+    "test_pet_hand_equipment"
+  ],
+  "utc": "2026-10-19T22:51:16.930139+00:00",
+  "log": "automated-tests.log"
+}

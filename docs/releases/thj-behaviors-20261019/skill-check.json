@@ -1,0 +1,333 @@
+{
+  "audited_at": "2026-10-19",
+  "scope": "Reviewed local files; not runtime or player QA evidence",
+  "topics": {
+    "multiclass": [
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\config\\aa-policy.json",
+        "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\server-mods\\code\\common\\nightcap_aa_policy.h",
+        "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\server-mods\\code\\zone\\aa.cpp",
+        "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\server-mods\\code\\zone\\client.h",
+        "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\thj_behavior_content.py",
+        "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\tests\\test_thj_behaviors.py",
+        "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\tests\\test_aa_tbs_policy.py",
+        "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-behaviors-20261019\\README.md",
+        "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-behaviors-20261019\\CHANGELIST.md",
+        "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-behaviors-20261019\\QA.md",
+        "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
+        "state": "unchanged"
+      }
+    ],
+    "balance": [
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\server-mods\\code\\common\\nightcap_thj_behaviors.h",
+        "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\server-mods\\code\\zone\\spells.cpp",
+        "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\server-mods\\code\\zone\\effects.cpp",
+        "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\server-mods\\code\\zone\\spell_effects.cpp",
+        "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\tests\\test_thj_behavior_native.py",
+        "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\tests\\test_thj_behavior_focus.py",
+        "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\tests\\test_aa_temporary_buffs.py",
+        "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-behaviors-20261019\\README.md",
+        "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-behaviors-20261019\\CHANGELIST.md",
+        "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-behaviors-20261019\\QA.md",
+        "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
+        "state": "unchanged"
+      }
+    ],
+    "items": [
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\thj_stock_scaling.py",
+        "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\item_scaling_overrides.py",
+        "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\wpm_migration.py",
+        "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\thj_item_migration.py",
+        "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\tests\\test_thj_item_staging.py",
+        "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\tests\\test_thj_stock_scaling.py",
+        "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\fixtures\\thj-stock-equipment.json.gz",
+        "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\eq-solo-gm\\scripts\\tiered_loot_setup.sql",
+        "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-behaviors-20261019\\README.md",
+        "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-behaviors-20261019\\CHANGELIST.md",
+        "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-behaviors-20261019\\QA.md",
+        "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
+        "state": "unchanged"
+      }
+    ],
+    "client": [
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\thj_behavior_client.py",
+        "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\tests\\test_thj_behavior_client.py",
+        "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-behaviors-20261019\\README.md",
+        "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-behaviors-20261019\\CHANGELIST.md",
+        "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-behaviors-20261019\\QA.md",
+        "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
+        "state": "unchanged"
+      }
+    ],
+    "operations": [
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\server-mods\\code\\common\\ruletypes.h",
+        "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\status.md",
+        "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\CHANGES.md",
+        "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-behaviors-20261019\\validation-summary.json",
+        "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-behaviors-20261019\\database-rehearsal.json",
+        "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-behaviors-20261019\\native-source-provenance.json",
+        "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-behaviors-20261019\\README.md",
+        "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-behaviors-20261019\\CHANGELIST.md",
+        "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-behaviors-20261019\\QA.md",
+        "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
+        "state": "unchanged"
+      }
+    ],
+    "wiki": [
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\wiki\\content-review.json",
+        "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\wiki\\articles\\ascension.json",
+        "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\wiki\\articles\\combat.json",
+        "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\wiki\\articles\\equipment.json",
+        "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\wiki\\articles\\features.json",
+        "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\wiki\\articles\\getting-started.json",
+        "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\wiki\\articles\\index.json",
+        "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\wiki\\articles\\item-upgrades.json",
+        "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\wiki\\articles\\multiclass.json",
+        "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\wiki\\articles\\pets.json",
+        "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\wiki\\articles\\recent-changes.json",
+        "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\wiki\\articles\\unreleased.json",
+        "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-behaviors-20261019\\README.md",
+        "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-behaviors-20261019\\CHANGELIST.md",
+        "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-behaviors-20261019\\QA.md",
+        "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-behaviors-20261019\\wiki-review.json",
+        "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-behaviors-20261019\\wiki-publication.json",
+        "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-behaviors-20261019\\wiki-public-verification.json",
+        "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
+        "state": "unchanged"
+      }
+    ]
+  }
+}

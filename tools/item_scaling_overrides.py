@@ -14,7 +14,8 @@ START='-- BEGIN GENERATED REVIEWED ITEM SCALING'
 END='-- END GENERATED REVIEWED ITEM SCALING'
 
 def protected_bases():
-    return starter_retune.APPROVED_IDS | {r['base_id'] for r in thj_item_parity.catalog()['items']}
+    from thj_stock_scaling import stock
+    return set(stock()) | starter_retune.APPROVED_IDS | {r['base_id'] for r in thj_item_parity.catalog()['items']}
 
 def overrides():
     reference=json.loads((ROOT/'docs/items/starter-retune-reference.json').read_text(encoding='utf-8'))
