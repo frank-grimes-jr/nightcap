@@ -1,5 +1,18 @@
 # CHANGES
 
+## 2026-10-19 - THJ custom AA, focus and stock-gear candidate
+
+Implement custom AA behaviors, canonical retirement refunds and scoped static/10x
+spell focuses. The legal pool is1,845 ranks/489 families. Match131 observations to
+stock PEQ; extend bounded scaling to47,809 ordinary families/143,332 tier definitions.
+Preserve Normal,209 starter families, exact observations, pet/WPM effects/sockets,
+ownership and Classic50. Exclude overflow and unmatched families. Matching world,
+zone, content/cache and client spell/text data are required. Eleven wiki guides
+label the candidate Not released. Changes, evidence, recovery and exact owner QA:
+docs/releases/thj-behaviors-20261019/. Wiki20261019-thj-behaviors-candidate-v1 publishes the eleven candidate guides;
+465 public hashes/headers and private-route denials verify. No production gameplay
+activation, client signing or owner gameplay acceptance occurred.
+
 ## 2026-10-19 - All-class AA catalog deployed for live testing
 
 Review566 archived THJ records; add75 lines and expand111 across all16 classes,

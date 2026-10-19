@@ -64,15 +64,17 @@ class PolicyTests(unittest.TestCase):
             rank['level_req'] = 255
         self.assertEqual(policy.compile_policy(high_levels, self.config), self.rows)
 
-    def test_reviewed_class_depth_preserves_every_prior_legal_rank(self):
+    def test_reviewed_class_depth_preserves_unretired_prior_legal_ranks(self):
+        from thj_behavior_content import RETIRED
         audited = json.loads((ROOT / 'docs/audits/aa-class-ranks-20261013/candidate-policy.json').read_text())
         original_catalog = json.loads(gzip.decompress((ROOT / 'tools/fixtures/aa-tbs-catalog.json.gz').read_bytes()))
         audited_rows = policy.compile_policy(original_catalog, audited)
-        self.assertTrue({r['rank_id'] for r in audited_rows} <= {r['rank_id'] for r in self.rows})
+        self.assertTrue({r['rank_id'] for r in audited_rows if r['ability_id'] not in RETIRED} <= {r['rank_id'] for r in self.rows})
         prior = json.loads((ROOT / 'docs/audits/aa-class-ranks-20261013/baseline-policy.json').read_text())
         old = policy.compile_policy(original_catalog, prior)
         self.assertEqual(len(old), 941)
-        self.assertTrue({r['rank_id'] for r in old} <= {r['rank_id'] for r in self.rows})
+        self.assertTrue({r['rank_id'] for r in old if r['ability_id'] not in RETIRED} <= {r['rank_id'] for r in self.rows})
+        self.assertFalse(set(RETIRED) & {r['ability_id'] for r in self.rows})
         # Abundant Healing's native focus limits still need reconciliation.
         # Dance/Hastened Blades now have reviewed finite duration handling.
         for aid in (516,):

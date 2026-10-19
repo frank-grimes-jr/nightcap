@@ -49,8 +49,10 @@ int CalcSpellEffectValue(int id,int slot,int){return spells[id].base_value[slot]
 int GetSpellResurrectionSicknessCheck(int,int){return 0;}
 namespace Strings {std::vector<std::string> Split(std::string,std::string){return{};}bool Contains(const std::vector<std::string>&,std::string){return false;}}
 #define RuleS(a,b) std::string{}
+#define RuleB(a,b) false
 #define LogSpells(...) ((void)0)
 struct Mob{
+ bool IsClient(){return true;}
  struct Bonus{int CompleteHealBuffBlocker=0,Screech=0,AStacker[2]{},BStacker[2]{},CStacker[2]{},DStacker[2]{};}spellbonuses;
  struct Buff{int ticsremaining=0;}buffs[1];
  const char*GetName(){return "pet";}bool IsNPC(){return true;}

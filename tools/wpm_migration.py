@@ -1,11 +1,23 @@
 """Guarded content-only row-group migrations. Never writes character state."""
 from rabid_bear import sql_value
+from decimal import Decimal
+import math
 
 
 def predicate(row):
-    # Item/spell names and descriptions are exact preimages, including case.
-    return ' AND '.join(('BINARY ' if isinstance(v,str) else '')+'`'+k+'` <=> '+
-                        ('BINARY ' if isinstance(v,str) else '')+sql_value(v) for k,v in row.items())
+    # FLOAT captures are decimal display values; a binary float compared to a
+    # decimal literal (e.g.0.1) can reject its own preimage. Compare the canonical
+    # stored text exactly, as item full-row hashes already do, not with tolerance.
+    clauses=[]
+    for key,value in row.items():
+        if isinstance(value,float):
+            if not math.isfinite(value):raise ValueError('Nonfinite SQL preimage')
+            literal=format(Decimal(str(value)).normalize(),'f')
+            clauses.append('BINARY CAST(`'+key+'` AS CHAR) <=> BINARY '+sql_value(literal))
+        else:
+            binary='BINARY ' if isinstance(value,str) else ''
+            clauses.append(binary+'`'+key+'` <=> '+binary+sql_value(value))
+    return ' AND '.join(clauses)
 
 
 def insert(table, row):
