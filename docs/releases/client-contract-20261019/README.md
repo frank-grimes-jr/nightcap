@@ -1,6 +1,6 @@
 # Client runtime contract repair — October 19, 2026
 
-Status: **published and independently verified over HTTPS; new native Play QA pending**.
+Status: **published and independently verified over HTTPS; owner confirmed normal launcher Play on October 19; broader native QA pending**.
 Source: `feature/client-contract-repair`, based on current main `73358d0`.
 The owner reports the same Play failure on this PC and other players' PCs.
 
@@ -36,7 +36,11 @@ records its original candidate hash and validation scope. `published.json` recor
 the actual publication and identical before/after five-service fingerprints.
 `hosted-verification.json` verifies the shipped-key signature, all138 public files
 (279,011,779 bytes), and actual hosted DLL/catalog agreement. No game-directory
-writes or service restarts occurred. Native player acceptance remains open.
+writes or service restarts occurred. In response to the normal-launcher Play
+check, the owner replied “Confirmed.” on October 19. This confirms that the
+reported Play blocker is resolved on the owner's PC; it does not establish
+character entry, retained inventory/settings, repeat launch, or another
+player's result. See `owner-confirmation.json`.
 
 ## Verification and prevention
 
