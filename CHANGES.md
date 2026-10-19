@@ -10,7 +10,9 @@ tests pass. Owner-authorized main promotion completed via PR241; subsequent
 publication verifies the shipped-key signature, all138 HTTPS files and actual
 DLL/catalog agreement. All five services and desktop/starter/guide are preserved.
 Wiki20261019-client-contract-v1 verifies all465 files and private-route protections.
-New native Play QA remains pending; normal launcher Play installs the repair.
+Owner confirmed normal launcher Play on October19, resolving the reported
+blocker on their PC. Character/settings/relog and other-player QA remain open;
+see the scoped `owner-confirmation.json`. Normal launcher Play installs the repair.
 Evidence and exact QA: docs/releases/client-contract-20261019/README.md.
 
 ## 2026-10-18 - Combined THJ release deployed for live testing
