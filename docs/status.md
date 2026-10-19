@@ -1,16 +1,20 @@
 # Current Nightcap status
 
-## THJ behavior and stock-gear candidate — October19, not deployed
+## THJ behavior and stock-gear candidate — October 19, prepared for testing
 
-Custom AA behaviors, scoped static/10x focuses and stock-derived ordinary gear
-scaling are implemented for isolated testing:1,845 ranks/489 families and143,332
-changed tier definitions. Classic50, starter progression, pet/WPM effects and
-owned state are preserved. An unsigned client delta is staged.
-Wiki20261019-thj-behaviors-candidate-v1 publishes eleven candidate guides with
-Not released labels; all465 HTTPS hashes/headers and private denials verify.
-Gameplay production retains the earlier all-class release below.
-[Clean changes](releases/thj-behaviors-20261019/CHANGELIST.md) and
-[exact QA](releases/thj-behaviors-20261019/QA.md).
+Custom AA behavior, scoped static/10x focuses and stock-derived ordinary gear
+scaling are prepared: 1,845 ranks / 489 families and 143,332 tier definitions.
+Classic 50, starter progression, pet/WPM effects and owned state are preserved.
+Paired native builds, regressions, independent source review and full database
+replay/inverse/fault/bootstrap checks passed. A 31-file server/client/content
+bundle is staged locally; the client delta is unsigned. Target cache generation
+and owner gameplay/balance QA remain required. This candidate is not deployed.
+
+Wiki 20261019-thj-behaviors-candidate-v1 publishes eleven candidate guides with
+Not released labels; all 465 HTTPS hashes/headers and private denials verify.
+[Clean changes](releases/thj-behaviors-20261019/CHANGELIST.md),
+[exact QA](releases/thj-behaviors-20261019/QA.md), and
+[verification](releases/thj-behaviors-20261019/validation-summary.json).
 
 ## All-class AA update — October19 deployed for live testing
 

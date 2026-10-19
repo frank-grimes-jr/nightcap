@@ -1,6 +1,6 @@
 {
   "reviewed_at": "2026-10-19",
-  "reviewed_revision": "ce33fa2ed64d8d062c25cc249353e20002912a68",
+  "reviewed_revision": "326a00c13552699b90e1437c5e36df9857e21e3a",
   "source_paths": [
     "server-mods/",
     "eq-client-dll/",
@@ -37,6 +37,7 @@
     "October19 catalog-contract incident: reviewed all changes since8e8d71d through main16bfe18 plus current publication evidence. Prior THJ skill bookkeeping has no extra public effect. Signed2026101901 corrects the omitted catalog; all138 HTTPS hashes and actual DLL/catalog pair verify. All21 articles/432 generated routes assessed; Launcher/home/Recent changes and search changed, completed candidate notice removed. Wiki20261019-client-contract-v1 verifies465 hashes/headers and five private-route denials. Runtime/services, gameplay Features, commands, item/zone values and private guide remain unchanged. Owner native Play QA remains open. Evidence: docs/releases/client-contract-20261019/.",
     "All-class AA main PR250 and authorized live deployment: all21 guides/432 generated routes reviewed, six guides updated from candidate to Live testing; no reward/catalog/command changes. Exact deployment preservation and operator evidence: docs/releases/thj-all-class-aa-20261019/deployment/. Client2026101901 and other gameplay releases retained. Owner AA gameplay and balance QA remain open.",
     "Final AA deployment documentation and evidence through ce33fa2ed64d8d062c25cc249353e20002912a68 independently reviewed against live receipts: status, clean class list, exact QA, guarded operator/recovery tests, preserved client and wiki publication are accurate. Owner gameplay/balance acceptance remains open. No further public-content change from release bookkeeping.",
-    "October19 THJ custom-behavior/stock-gear candidate: all21 guides and432 generated routes reviewed against main45e8416 and working source. Eleven guides explicitly label candidate mechanics Not released. Custom Hunt catalog, commands, era and current live-release descriptions retained. Local build/test evidence in docs/releases/thj-behaviors-20261019/; no gameplay activation. Candidate guidance published as20261019-thj-behaviors-candidate-v1: all465 public hashes/headers and five private denials verify, with services/private downloads/config preserved."
+    "October19 THJ custom-behavior/stock-gear candidate: all21 guides and432 generated routes reviewed against main45e8416 and working source. Eleven guides explicitly label candidate mechanics Not released. Custom Hunt catalog, commands, era and current live-release descriptions retained. Local build/test evidence in docs/releases/thj-behaviors-20261019/; no gameplay activation. Candidate guidance published as20261019-thj-behaviors-candidate-v1: all465 public hashes/headers and five private denials verify, with services/private downloads/config preserved.",
+    "THJ behavior/stock-gear source and all release evidence through326a00c reviewed: native correction retains recipient healing modifiers and unsigned clamp; bounded migration staging guards incomplete batches. Source and candidate publication remain aligned. Full-scale SQL rehearsal and package receipts are operational evidence, not gameplay activation. Classic50 and signed client2026101901 remain live; owner QA is open."
   ]
 }

@@ -1,6 +1,6 @@
 # THJ custom AA, focus and stock-gear testing candidate
 
-Source branch:feature/thj-behaviors-gear, based on main45e8416. Gameplay is not deployed,
+Source branch: feature/thj-behaviors-gear, based on main 45e8416. Gameplay is not deployed,
 the client is unsigned, and owner gameplay acceptance is pending. See CHANGELIST.md for the clean
 AA/gear list and QA.md for exact owner tests. PLAN.md records accepted scope.
 
@@ -81,3 +81,9 @@ excluded from the bundle. See cache-verification.json.
 Public wiki verification covers 465 files, security headers and private-route
 protection. Source review findings are resolved in review-disposition.json;
 manual client/group/raid/reflection/resist and encounter-balance QA remain open.
+
+The full isolated database rehearsal passed across 308,932 item rows and all
+285 columns: 143,332 changed definitions, 733 content groups, forward/inverse
+replay, complete rollback, late-row drift rejection without partial writes,
+and fresh-bootstrap equivalence. Both gear SQL files reproduce exactly from the
+current planner. Receipts: database-rehearsal.json and gear-reproducibility.json.

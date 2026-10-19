@@ -1,6 +1,7 @@
 # THJ custom behaviors and stock-EQ gear comparison
 
-Status: implementation and source review complete; final rehearsal/packaging in progress.
+Status: implementation, independent source review and full database rehearsal complete.
+Paired test artifacts and exact owner QA are prepared for the dev/test handoff.
 Not deployed or owner accepted.
 Baseline: main45e8416 / all-class AA release. Preserve Classic50 and starter progression.
 

@@ -79,7 +79,7 @@ Source: stock archive 2026-10-17, manifest and field evidence alongside this fil
 
 ## Evidence versus calibration
 
-ReleasedMay 7 post 2845 takes priority over Apr 20 post 2671, May 1 test post 2761,
+Released May 7 post 2845 takes priority over Apr 20 post 2671, May 1 test post 2761,
 and archived builders. Exact released numbers include 100% Warlord,50% Gut,
 40% Harvest,50% Valor mana/2 HP ratio,10/20/30/40% burns,15 min fully-hastened reuse,
 1 h/60 s Silent Casting,35% mancy,100/150% Mage cores and Bard 2.5 s/10×.
@@ -93,3 +93,9 @@ mancy retained damage magnitudes and added damage/DoT allocation. Cryomancy's
 old snare trigger is removed. Existing level 60/minmana/cast limits remain, so
 ordinary Classic spells do not automatically gain those procs. Intermediate gear
 interpolation and general weapon 2× (five observed weapons) are extrapolations.
+The existing instant-DoT casting policy still applies to damaging Bard songs;
+2.5 seconds describes their base data and ordinary song casts.
+
+Primary forum references: [May 7 released changes](https://www.firesofheaven.org/threads/the-heroes-journey-multiclass-eqemu-progression-server.15510/post-5119707) and [April 20 changes](https://www.firesofheaven.org/threads/the-heroes-journey-multiclass-eqemu-progression-server.15510/post-5106517).
+The pinned standard-EQ approximation, stock comparisons and source hashes are
+recorded in stock-source-manifest.json and stock-REVIEW.md beside this list.

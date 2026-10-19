@@ -1,582 +1,572 @@
---- C:\Users\verre\.codex\skills\nightcap-development\references\balance.md
-+++ C:\Users\verre\.codex\skills\nightcap-development\references\balance.md
-@@ -19,10 +19,6 @@
- retain4:1 damage, immunity guard before resource/timer mutation. Native branch
- review and focus fixtures are executable; group/raid/client and encounter balance
- remain owner QA. Dimensional120s/30min and stun exclusion are calibration.
--
--Audited 2026-10-12. Dated September fixtures are reproducible evidence for their captured inputs, not a current character or production snapshot.
--
--Nightcap favors solo play without trivializing earned progression. Evaluate classes, legal AAs, pets, buffs, heroic stats, augments and gear together. Measure incoming burst, survival, mana sustain/recovery, time to kill, cooldown use and reward acquisition, not only DPS or encounter HP. Cap increases above 250 are allowed for consideration; neither 250 nor a prior experiment is a permanent policy ceiling.
- 
- ## Combined THJ item/spell and pet/WPM deployed — October 18, 2026
- 
---- C:\Users\verre\.codex\skills\nightcap-development\references\items.md
-+++ C:\Users\verre\.codex\skills\nightcap-development\references\items.md
-@@ -18,7 +18,7 @@
- qualities interpolate1/3 and2/3.47809 families/143332definitions change;3563 overflow
- families are excluded under actual ItemData bounds. Normal/starters/custom Hunt/
- dungeon/augments/bags/quest epics retain treatment. Full285-column preimages guard
--numeric SQL and inverse; pet/WPM effects/sockets/ownership remain. Fresh setup
-+numeric SQL and inverse; bounded hash/value staging requires complete matching IDs; pet/WPM effects/sockets/ownership remain. Fresh setup
- requires generating the ignored thj-stock-bootstrap.sql companion before SOURCE;
- compressed artifact and SHA are retained. Legacy SD/HA planning protects this stock
- projection. Do not rerun destructive bootstrap live.
 --- C:\Users\verre\.codex\skills\nightcap-development\references\operations.md
 +++ C:\Users\verre\.codex\skills\nightcap-development\references\operations.md
-@@ -12,14 +12,14 @@
- 
- Activation needs matching world/zone/shared_memory, guarded AA/spell/item SQL,
- new Spells:NightcapTHJBehaviors rule and fresh target caches, then paired client.
-+The optional local cache smoke was skipped after new-account approval rejection;
-+no privileges/config changed. Regenerate on target with existing credentials.
+@@ -15,6 +15,9 @@
+ The optional local cache smoke was skipped after new-account approval rejection;
+ no privileges/config changed. Regenerate on target with existing credentials.
  Build/rehearse scripts use isolated local paths/DB; no production gameplay changes.
++Final paired builds and source provenance pass. Full308932-row/285-column replay,
++inverse, late-drift atomicity and bootstrap equivalence pass; separate3guard checks
++pass.31-file bundle is staged; target caches and owner gameplay QA remain required.
  Reconcile preimage drift; never bypass guards. FLOAT preimages compare exact
  canonical stored text, with numeric/case drift rejection tests. Rollback retains
  new AA identities and current earned state; never undo login refunds with a player
- snapshot. Full build, SQL replay/inverse/fault, client and owner tests are separate
- evidence. Do not infer production activation permission from this testing request.
--
--Audited 2026-10-12. Consult the selected checkout's current instructions and release record. `references/sources.json` pins inspected files and their locations; hashes detect change, not correctness or deployment.
- 
- ## Current all-class AA release — October19, live QA open
- 
 --- C:\Users\verre\.codex\skills\nightcap-development\references\sources.json
 +++ C:\Users\verre\.codex\skills\nightcap-development\references\sources.json
 @@ -64,7 +64,7 @@
      "client_contract_repair_20261019": "0fae6bc16552c31166abbb200e47deeac7627ce2 via PR244; signed2026101901/wiki20261019-client-contract-v1 published and verified; native QA pending",
      "all_class_aa_candidate_20261019": "03f9a64773a6357dd0dca0cec0ca7eedea5c01da",
      "all_class_aa_deployed_20261019": "Gameplay PR250 c3f0686; deployment evidence/main PR253 45e841640de1178b028c9b028713df6e0591df54",
--    "thj_behaviors_candidate_20261019": "45e841640de1178b028c9b028713df6e0591df54 + reviewed candidate working changes"
-+    "thj_behaviors_candidate_20261019": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes"
+-    "thj_behaviors_candidate_20261019": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes"
++    "thj_behaviors_candidate_20261019": "326a00c13552699b90e1437c5e36df9857e21e3a + reviewed candidate working changes"
    },
    "topics": {
      "operations": [
-@@ -79,7 +79,7 @@
+@@ -79,8 +79,8 @@
          "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
          "path": "docs/status.md",
          "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
--        "revision": "45e841640de1178b028c9b028713df6e0591df54 + reviewed candidate working changes",
-+        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
-         "sha256": "489e89a5c9cae32f77b89ea0310156748ad653f61b9ef629c550a92e2a18dca6"
+-        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
+-        "sha256": "489e89a5c9cae32f77b89ea0310156748ad653f61b9ef629c550a92e2a18dca6"
++        "revision": "326a00c13552699b90e1437c5e36df9857e21e3a + reviewed candidate working changes",
++        "sha256": "ad79354fedb40ee68a1d0c5cb08bd1eaf9f6bcbbf5cb64d83b8ce2eb9f31ab3f"
        },
        {
-@@ -378,7 +378,7 @@
+         "root": "E:/EQ_Local_Dev/_worktrees/merchant-sell-all",
+@@ -378,8 +378,8 @@
          "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
          "path": "CHANGES.md",
          "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
--        "revision": "45e841640de1178b028c9b028713df6e0591df54 + reviewed candidate working changes",
-+        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
-         "sha256": "d5acc7c08d6893b40bf3b6b72d947d4193e623d3d334f348de359802685dd58d"
+-        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
+-        "sha256": "d5acc7c08d6893b40bf3b6b72d947d4193e623d3d334f348de359802685dd58d"
++        "revision": "326a00c13552699b90e1437c5e36df9857e21e3a + reviewed candidate working changes",
++        "sha256": "edf9d435058fee7edd8d258f407eceebb35649d852bf392ea66eac96b92cf128"
        },
        {
-@@ -735,29 +735,29 @@
+         "path": "docs/releases/cooldown-identities-20261017/deployment/rollout.py",
+@@ -735,29 +735,50 @@
          "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
          "path": "server-mods/code/common/ruletypes.h",
          "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
--        "revision": "45e841640de1178b028c9b028713df6e0591df54 + reviewed candidate working changes",
-+        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
+-        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
++        "revision": "326a00c13552699b90e1437c5e36df9857e21e3a + reviewed candidate working changes",
          "sha256": "e5766e891372fc8eeaa2d50c060396171945c57d71c492b1cd162b7e9b675ecd"
        },
        {
          "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
          "path": "docs/releases/thj-behaviors-20261019/README.md",
          "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
--        "revision": "45e841640de1178b028c9b028713df6e0591df54 + reviewed candidate working changes",
--        "sha256": "5dc7b8d321e45ab603000382be8f5923aafb713344ca3827c5f6b4575fa37b15"
-+        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
-+        "sha256": "c0b6e34557ebf60eec8b7f4f48d5ba3c50cda9022c9d100e118efea51d80b63e"
+-        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
+-        "sha256": "c0b6e34557ebf60eec8b7f4f48d5ba3c50cda9022c9d100e118efea51d80b63e"
++        "revision": "326a00c13552699b90e1437c5e36df9857e21e3a + reviewed candidate working changes",
++        "sha256": "01a4ec24fa09d2f82fc4a4e0d81ff69dcb79d0fd593b09edd6b8b4bf92890fd6"
        },
        {
          "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
          "path": "docs/releases/thj-behaviors-20261019/CHANGELIST.md",
          "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
--        "revision": "45e841640de1178b028c9b028713df6e0591df54 + reviewed candidate working changes",
--        "sha256": "851b3bb78c77b85deef169f5064031c421b3974c35ecb98c305dc31beb3ba875"
-+        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
-+        "sha256": "dd5f497c1aec23ad32b07bdda817ead890f2658d3c380671588dea86f7d4db8c"
+-        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
+-        "sha256": "dd5f497c1aec23ad32b07bdda817ead890f2658d3c380671588dea86f7d4db8c"
++        "revision": "326a00c13552699b90e1437c5e36df9857e21e3a + reviewed candidate working changes",
++        "sha256": "4c823190ad2614ec748af00ac97960e161ef0c155e70c4dfca81c35cc19d6148"
        },
        {
          "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
          "path": "docs/releases/thj-behaviors-20261019/QA.md",
          "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
--        "revision": "45e841640de1178b028c9b028713df6e0591df54 + reviewed candidate working changes",
--        "sha256": "88c4c2c444d624c58b07f636d1b886e56bd7fc8c79dfd6e3a4a62eb5ef1fa81d"
-+        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
-+        "sha256": "ea865ab0947c7a20af3736e8862ef450590e360ceea6ec54f14d41b338280fad"
+-        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
+-        "sha256": "ea865ab0947c7a20af3736e8862ef450590e360ceea6ec54f14d41b338280fad"
++        "revision": "326a00c13552699b90e1437c5e36df9857e21e3a + reviewed candidate working changes",
++        "sha256": "7bc7b51a5784f518aaa01a8a6f35b15eb021236a43fea32c8cbee129d39e19d7"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "path": "docs/releases/thj-behaviors-20261019/validation-summary.json",
++        "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
++        "revision": "326a00c13552699b90e1437c5e36df9857e21e3a + reviewed candidate working changes",
++        "sha256": "18acb0aed286e88e8b5863c69da59f936a668d53abda74a27d3ec4ee44412061"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "path": "docs/releases/thj-behaviors-20261019/database-rehearsal.json",
++        "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
++        "revision": "326a00c13552699b90e1437c5e36df9857e21e3a + reviewed candidate working changes",
++        "sha256": "17068f109fa3396142638e3e6094e3ec322f1a402b225c5659191d69c460f371"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "path": "docs/releases/thj-behaviors-20261019/native-source-provenance.json",
++        "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
++        "revision": "326a00c13552699b90e1437c5e36df9857e21e3a + reviewed candidate working changes",
++        "sha256": "160d06cba3b299af3bdda2a1a2059e94817a88b2ff51e38fb623eccb5990933a"
        }
      ],
      "multiclass": [
-@@ -771,7 +771,7 @@
+@@ -771,7 +792,7 @@
          "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
          "path": "server-mods/code/zone/aa.cpp",
          "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
--        "revision": "45e841640de1178b028c9b028713df6e0591df54 + reviewed candidate working changes",
-+        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
+-        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
++        "revision": "326a00c13552699b90e1437c5e36df9857e21e3a + reviewed candidate working changes",
          "sha256": "2821843d6ad44574e2301b8a9bac24f48bcc8149ec26cbce446ff9beed166ede"
        },
        {
-@@ -973,7 +973,7 @@
+@@ -973,7 +994,7 @@
          "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
          "path": "server-mods/code/zone/client.h",
          "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
--        "revision": "45e841640de1178b028c9b028713df6e0591df54 + reviewed candidate working changes",
-+        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
+-        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
++        "revision": "326a00c13552699b90e1437c5e36df9857e21e3a + reviewed candidate working changes",
          "sha256": "50e10ff7ae195e9889c0b7d915589a1159ea2d1c6c3a87dfe5d8c71f683f731b"
        },
        {
-@@ -1729,7 +1729,7 @@
+@@ -1729,7 +1750,7 @@
          "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
          "path": "config/aa-policy.json",
          "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
--        "revision": "45e841640de1178b028c9b028713df6e0591df54 + reviewed candidate working changes",
-+        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
+-        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
++        "revision": "326a00c13552699b90e1437c5e36df9857e21e3a + reviewed candidate working changes",
          "sha256": "59efe06d5c4bd7925bc1164d8f18fddfe8e10e7eea9c521e664e2a3b16e6f631"
        },
        {
-@@ -1813,7 +1813,7 @@
+@@ -1813,7 +1834,7 @@
          "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
          "path": "server-mods/code/common/nightcap_aa_policy.h",
          "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
--        "revision": "45e841640de1178b028c9b028713df6e0591df54 + reviewed candidate working changes",
-+        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
+-        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
++        "revision": "326a00c13552699b90e1437c5e36df9857e21e3a + reviewed candidate working changes",
          "sha256": "e0b52b7c3cecd43ec4c17a0af0c9b9124675c0949c8894ca641e75b6b3d80273"
        },
        {
-@@ -1841,7 +1841,7 @@
+@@ -1841,7 +1862,7 @@
          "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
          "path": "tools/tests/test_aa_tbs_policy.py",
          "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
--        "revision": "45e841640de1178b028c9b028713df6e0591df54 + reviewed candidate working changes",
-+        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
+-        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
++        "revision": "326a00c13552699b90e1437c5e36df9857e21e3a + reviewed candidate working changes",
          "sha256": "0eb6563ffec5d6f3f46241a8724d10c03a99de97bafa39b191bf73bce3be0930"
        },
        {
-@@ -1862,36 +1862,36 @@
+@@ -1862,36 +1883,36 @@
          "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
          "path": "tools/thj_behavior_content.py",
          "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
--        "revision": "45e841640de1178b028c9b028713df6e0591df54 + reviewed candidate working changes",
-+        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
+-        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
++        "revision": "326a00c13552699b90e1437c5e36df9857e21e3a + reviewed candidate working changes",
          "sha256": "f42520f17d71dc22b603c065702cb33fdb9ee359c704377db6b2bad904188a89"
        },
        {
          "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
          "path": "tools/tests/test_thj_behaviors.py",
          "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
--        "revision": "45e841640de1178b028c9b028713df6e0591df54 + reviewed candidate working changes",
-+        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
+-        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
++        "revision": "326a00c13552699b90e1437c5e36df9857e21e3a + reviewed candidate working changes",
          "sha256": "c80dfa1a40c4fef2be9ee270d4775927961c274dc0152e231f5f8033430bd1fb"
        },
        {
          "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
          "path": "docs/releases/thj-behaviors-20261019/README.md",
          "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
--        "revision": "45e841640de1178b028c9b028713df6e0591df54 + reviewed candidate working changes",
--        "sha256": "5dc7b8d321e45ab603000382be8f5923aafb713344ca3827c5f6b4575fa37b15"
-+        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
-+        "sha256": "c0b6e34557ebf60eec8b7f4f48d5ba3c50cda9022c9d100e118efea51d80b63e"
+-        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
+-        "sha256": "c0b6e34557ebf60eec8b7f4f48d5ba3c50cda9022c9d100e118efea51d80b63e"
++        "revision": "326a00c13552699b90e1437c5e36df9857e21e3a + reviewed candidate working changes",
++        "sha256": "01a4ec24fa09d2f82fc4a4e0d81ff69dcb79d0fd593b09edd6b8b4bf92890fd6"
        },
        {
          "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
          "path": "docs/releases/thj-behaviors-20261019/CHANGELIST.md",
          "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
--        "revision": "45e841640de1178b028c9b028713df6e0591df54 + reviewed candidate working changes",
--        "sha256": "851b3bb78c77b85deef169f5064031c421b3974c35ecb98c305dc31beb3ba875"
-+        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
-+        "sha256": "dd5f497c1aec23ad32b07bdda817ead890f2658d3c380671588dea86f7d4db8c"
+-        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
+-        "sha256": "dd5f497c1aec23ad32b07bdda817ead890f2658d3c380671588dea86f7d4db8c"
++        "revision": "326a00c13552699b90e1437c5e36df9857e21e3a + reviewed candidate working changes",
++        "sha256": "4c823190ad2614ec748af00ac97960e161ef0c155e70c4dfca81c35cc19d6148"
        },
        {
          "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
          "path": "docs/releases/thj-behaviors-20261019/QA.md",
          "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
--        "revision": "45e841640de1178b028c9b028713df6e0591df54 + reviewed candidate working changes",
--        "sha256": "88c4c2c444d624c58b07f636d1b886e56bd7fc8c79dfd6e3a4a62eb5ef1fa81d"
-+        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
-+        "sha256": "ea865ab0947c7a20af3736e8862ef450590e360ceea6ec54f14d41b338280fad"
+-        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
+-        "sha256": "ea865ab0947c7a20af3736e8862ef450590e360ceea6ec54f14d41b338280fad"
++        "revision": "326a00c13552699b90e1437c5e36df9857e21e3a + reviewed candidate working changes",
++        "sha256": "7bc7b51a5784f518aaa01a8a6f35b15eb021236a43fea32c8cbee129d39e19d7"
        }
      ],
      "items": [
-@@ -2544,7 +2544,7 @@
+@@ -2544,7 +2565,7 @@
          "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
          "path": "eq-solo-gm/scripts/tiered_loot_setup.sql",
          "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
--        "revision": "45e841640de1178b028c9b028713df6e0591df54 + reviewed candidate working changes",
-+        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
+-        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
++        "revision": "326a00c13552699b90e1437c5e36df9857e21e3a + reviewed candidate working changes",
          "sha256": "f4e7149fda528f29ab8c48f08d159b699d2b58d43790200b1e9f4061c1220a39"
        },
        {
-@@ -2887,7 +2887,7 @@
+@@ -2887,7 +2908,7 @@
          "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
          "path": "tools/wpm_migration.py",
          "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
--        "revision": "45e841640de1178b028c9b028713df6e0591df54 + reviewed candidate working changes",
-+        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
+-        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
++        "revision": "326a00c13552699b90e1437c5e36df9857e21e3a + reviewed candidate working changes",
          "sha256": "c5cb13588221ea744836fe920d4c04d9a04d5a29c4730ee7209cb10ab39419c0"
        },
        {
-@@ -2915,7 +2915,7 @@
+@@ -2915,7 +2936,7 @@
          "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
          "path": "tools/item_scaling_overrides.py",
          "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
--        "revision": "45e841640de1178b028c9b028713df6e0591df54 + reviewed candidate working changes",
-+        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
+-        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
++        "revision": "326a00c13552699b90e1437c5e36df9857e21e3a + reviewed candidate working changes",
          "sha256": "3527a14dda81408f3a2d65d8d81ca5b491d8445783245bc60bf09a29f43a0ad3"
        },
        {
-@@ -2956,9 +2956,9 @@
-       {
+@@ -2957,7 +2978,7 @@
          "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
          "path": "tools/thj_item_migration.py",
--        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
--        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
--        "sha256": "b18df7c6611f09972894c38f7691e7830fe28913c3a2b2c2a860895459f80ba3"
-+        "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
-+        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
-+        "sha256": "559bf3020b8d514feebf621e28a8d86e03873b57e86ac8e579f93ba4f4dcc6f0"
+         "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
+-        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
++        "revision": "326a00c13552699b90e1437c5e36df9857e21e3a + reviewed candidate working changes",
+         "sha256": "559bf3020b8d514feebf621e28a8d86e03873b57e86ac8e579f93ba4f4dcc6f0"
        },
        {
-         "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
-@@ -2985,43 +2985,50 @@
+@@ -2985,49 +3006,49 @@
          "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
          "path": "tools/thj_stock_scaling.py",
          "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
--        "revision": "45e841640de1178b028c9b028713df6e0591df54 + reviewed candidate working changes",
--        "sha256": "70f601622baedc51caf9f28e6a9a67c1220c889b52c240795621bdf861607d86"
-+        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
-+        "sha256": "f527b2ae02449d3f23a78befb5c74f7a80fb3a4d34d52dc0f8c63cca62b3a16c"
+-        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
++        "revision": "326a00c13552699b90e1437c5e36df9857e21e3a + reviewed candidate working changes",
+         "sha256": "f527b2ae02449d3f23a78befb5c74f7a80fb3a4d34d52dc0f8c63cca62b3a16c"
        },
        {
          "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
          "path": "tools/tests/test_thj_stock_scaling.py",
          "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
--        "revision": "45e841640de1178b028c9b028713df6e0591df54 + reviewed candidate working changes",
-+        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
+-        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
++        "revision": "326a00c13552699b90e1437c5e36df9857e21e3a + reviewed candidate working changes",
          "sha256": "4f9d0de8a59d8f045f74c0a36b0709311d7365e853b989507c2799059abec51f"
        },
        {
          "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
          "path": "tools/fixtures/thj-stock-equipment.json.gz",
          "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
--        "revision": "45e841640de1178b028c9b028713df6e0591df54 + reviewed candidate working changes",
-+        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
+-        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
++        "revision": "326a00c13552699b90e1437c5e36df9857e21e3a + reviewed candidate working changes",
          "sha256": "036cef2dd00d8cca7e6e67b11ca48b58d018e14a1829b04dfdd7102aa3152ee6"
        },
        {
          "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
          "path": "docs/releases/thj-behaviors-20261019/README.md",
          "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
--        "revision": "45e841640de1178b028c9b028713df6e0591df54 + reviewed candidate working changes",
--        "sha256": "5dc7b8d321e45ab603000382be8f5923aafb713344ca3827c5f6b4575fa37b15"
-+        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
-+        "sha256": "c0b6e34557ebf60eec8b7f4f48d5ba3c50cda9022c9d100e118efea51d80b63e"
+-        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
+-        "sha256": "c0b6e34557ebf60eec8b7f4f48d5ba3c50cda9022c9d100e118efea51d80b63e"
++        "revision": "326a00c13552699b90e1437c5e36df9857e21e3a + reviewed candidate working changes",
++        "sha256": "01a4ec24fa09d2f82fc4a4e0d81ff69dcb79d0fd593b09edd6b8b4bf92890fd6"
        },
        {
          "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
          "path": "docs/releases/thj-behaviors-20261019/CHANGELIST.md",
          "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
--        "revision": "45e841640de1178b028c9b028713df6e0591df54 + reviewed candidate working changes",
--        "sha256": "851b3bb78c77b85deef169f5064031c421b3974c35ecb98c305dc31beb3ba875"
-+        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
-+        "sha256": "dd5f497c1aec23ad32b07bdda817ead890f2658d3c380671588dea86f7d4db8c"
+-        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
+-        "sha256": "dd5f497c1aec23ad32b07bdda817ead890f2658d3c380671588dea86f7d4db8c"
++        "revision": "326a00c13552699b90e1437c5e36df9857e21e3a + reviewed candidate working changes",
++        "sha256": "4c823190ad2614ec748af00ac97960e161ef0c155e70c4dfca81c35cc19d6148"
        },
        {
          "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
          "path": "docs/releases/thj-behaviors-20261019/QA.md",
          "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
--        "revision": "45e841640de1178b028c9b028713df6e0591df54 + reviewed candidate working changes",
--        "sha256": "88c4c2c444d624c58b07f636d1b886e56bd7fc8c79dfd6e3a4a62eb5ef1fa81d"
-+        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
-+        "sha256": "ea865ab0947c7a20af3736e8862ef450590e360ceea6ec54f14d41b338280fad"
-+      },
-+      {
-+        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
-+        "path": "tools/tests/test_thj_item_staging.py",
-+        "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
-+        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
-+        "sha256": "3e1b00d4eedfc214f4a58ee7dd3988a6e4f747cb8851216daa455e9fcc566ae6"
+-        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
+-        "sha256": "ea865ab0947c7a20af3736e8862ef450590e360ceea6ec54f14d41b338280fad"
++        "revision": "326a00c13552699b90e1437c5e36df9857e21e3a + reviewed candidate working changes",
++        "sha256": "7bc7b51a5784f518aaa01a8a6f35b15eb021236a43fea32c8cbee129d39e19d7"
+       },
+       {
+         "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+         "path": "tools/tests/test_thj_item_staging.py",
+         "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
+-        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
++        "revision": "326a00c13552699b90e1437c5e36df9857e21e3a + reviewed candidate working changes",
+         "sha256": "3e1b00d4eedfc214f4a58ee7dd3988a6e4f747cb8851216daa455e9fcc566ae6"
        }
      ],
-     "world": [
-@@ -4553,36 +4560,36 @@
+@@ -4560,36 +4581,36 @@
          "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
          "path": "tools/thj_behavior_client.py",
          "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
--        "revision": "45e841640de1178b028c9b028713df6e0591df54 + reviewed candidate working changes",
-+        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
+-        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
++        "revision": "326a00c13552699b90e1437c5e36df9857e21e3a + reviewed candidate working changes",
          "sha256": "68da97a2c272ed49925ce87aeeb88cfaac864894423f10c1e534a8c7f1427595"
        },
        {
          "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
          "path": "tools/tests/test_thj_behavior_client.py",
          "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
--        "revision": "45e841640de1178b028c9b028713df6e0591df54 + reviewed candidate working changes",
-+        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
+-        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
++        "revision": "326a00c13552699b90e1437c5e36df9857e21e3a + reviewed candidate working changes",
          "sha256": "516970ab2fe9de603b3548cf3fed0299cede19b31e54024e4271ac8973cb1c45"
        },
        {
          "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
          "path": "docs/releases/thj-behaviors-20261019/README.md",
          "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
--        "revision": "45e841640de1178b028c9b028713df6e0591df54 + reviewed candidate working changes",
--        "sha256": "5dc7b8d321e45ab603000382be8f5923aafb713344ca3827c5f6b4575fa37b15"
-+        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
-+        "sha256": "c0b6e34557ebf60eec8b7f4f48d5ba3c50cda9022c9d100e118efea51d80b63e"
+-        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
+-        "sha256": "c0b6e34557ebf60eec8b7f4f48d5ba3c50cda9022c9d100e118efea51d80b63e"
++        "revision": "326a00c13552699b90e1437c5e36df9857e21e3a + reviewed candidate working changes",
++        "sha256": "01a4ec24fa09d2f82fc4a4e0d81ff69dcb79d0fd593b09edd6b8b4bf92890fd6"
        },
        {
          "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
          "path": "docs/releases/thj-behaviors-20261019/CHANGELIST.md",
          "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
--        "revision": "45e841640de1178b028c9b028713df6e0591df54 + reviewed candidate working changes",
--        "sha256": "851b3bb78c77b85deef169f5064031c421b3974c35ecb98c305dc31beb3ba875"
-+        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
-+        "sha256": "dd5f497c1aec23ad32b07bdda817ead890f2658d3c380671588dea86f7d4db8c"
+-        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
+-        "sha256": "dd5f497c1aec23ad32b07bdda817ead890f2658d3c380671588dea86f7d4db8c"
++        "revision": "326a00c13552699b90e1437c5e36df9857e21e3a + reviewed candidate working changes",
++        "sha256": "4c823190ad2614ec748af00ac97960e161ef0c155e70c4dfca81c35cc19d6148"
        },
        {
          "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
          "path": "docs/releases/thj-behaviors-20261019/QA.md",
          "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
--        "revision": "45e841640de1178b028c9b028713df6e0591df54 + reviewed candidate working changes",
--        "sha256": "88c4c2c444d624c58b07f636d1b886e56bd7fc8c79dfd6e3a4a62eb5ef1fa81d"
-+        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
-+        "sha256": "ea865ab0947c7a20af3736e8862ef450590e360ceea6ec54f14d41b338280fad"
+-        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
+-        "sha256": "ea865ab0947c7a20af3736e8862ef450590e360ceea6ec54f14d41b338280fad"
++        "revision": "326a00c13552699b90e1437c5e36df9857e21e3a + reviewed candidate working changes",
++        "sha256": "7bc7b51a5784f518aaa01a8a6f35b15eb021236a43fea32c8cbee129d39e19d7"
        }
      ],
      "admin": [
-@@ -4838,7 +4845,7 @@
+@@ -4845,7 +4866,7 @@
          "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
          "path": "server-mods/code/zone/effects.cpp",
          "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
--        "revision": "45e841640de1178b028c9b028713df6e0591df54 + reviewed candidate working changes",
-+        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
+-        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
++        "revision": "326a00c13552699b90e1437c5e36df9857e21e3a + reviewed candidate working changes",
          "sha256": "ab37cc8cc7a2166fe3a93b577ddb9bd9147a5ddfc98fa3bcf5a542bc6bdf4f69"
        },
        {
-@@ -5558,64 +5565,64 @@
+@@ -5565,64 +5586,64 @@
          "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
          "path": "server-mods/code/common/nightcap_thj_behaviors.h",
          "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
--        "revision": "45e841640de1178b028c9b028713df6e0591df54 + reviewed candidate working changes",
-+        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
+-        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
++        "revision": "326a00c13552699b90e1437c5e36df9857e21e3a + reviewed candidate working changes",
          "sha256": "65bfb4caef01ffd84806825ad081357c8e313ee246f4a158c82d3d7d7a2bdf77"
        },
        {
          "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
          "path": "server-mods/code/zone/spells.cpp",
          "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
--        "revision": "45e841640de1178b028c9b028713df6e0591df54 + reviewed candidate working changes",
-+        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
+-        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
++        "revision": "326a00c13552699b90e1437c5e36df9857e21e3a + reviewed candidate working changes",
          "sha256": "39134dc567f3805723921ca3b8a2c157206b19224725660b749165738c46b6da"
        },
        {
          "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
          "path": "server-mods/code/zone/spell_effects.cpp",
          "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
--        "revision": "45e841640de1178b028c9b028713df6e0591df54 + reviewed candidate working changes",
--        "sha256": "02dd71a8c726600dd0cbcfb9e9d807ee22b93e3b45084a38cf337b43322017af"
-+        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
-+        "sha256": "c448fcf66b28719b2ec8ce46ca5ee50ef19f0a92829048b793cc510ca6addc51"
+-        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
++        "revision": "326a00c13552699b90e1437c5e36df9857e21e3a + reviewed candidate working changes",
+         "sha256": "c448fcf66b28719b2ec8ce46ca5ee50ef19f0a92829048b793cc510ca6addc51"
        },
        {
          "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
          "path": "tools/tests/test_thj_behavior_native.py",
          "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
--        "revision": "45e841640de1178b028c9b028713df6e0591df54 + reviewed candidate working changes",
-+        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
+-        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
++        "revision": "326a00c13552699b90e1437c5e36df9857e21e3a + reviewed candidate working changes",
          "sha256": "62b6c19776e4e389a04668f11ceefe571bbe7cce4d25d1908476dba166cc23a9"
        },
        {
          "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
          "path": "tools/tests/test_thj_behavior_focus.py",
          "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
--        "revision": "45e841640de1178b028c9b028713df6e0591df54 + reviewed candidate working changes",
-+        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
+-        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
++        "revision": "326a00c13552699b90e1437c5e36df9857e21e3a + reviewed candidate working changes",
          "sha256": "f6114feed62b919617ccb4551acd99ae4a62c799c726599b20f7d7087090c804"
        },
        {
          "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
          "path": "tools/tests/test_aa_temporary_buffs.py",
          "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
--        "revision": "45e841640de1178b028c9b028713df6e0591df54 + reviewed candidate working changes",
-+        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
+-        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
++        "revision": "326a00c13552699b90e1437c5e36df9857e21e3a + reviewed candidate working changes",
          "sha256": "e70764a732821c4ddc8bad439c1278c92fa704a6581da9350c2d1c25d2ddf9d9"
        },
        {
          "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
          "path": "docs/releases/thj-behaviors-20261019/README.md",
          "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
--        "revision": "45e841640de1178b028c9b028713df6e0591df54 + reviewed candidate working changes",
--        "sha256": "5dc7b8d321e45ab603000382be8f5923aafb713344ca3827c5f6b4575fa37b15"
-+        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
-+        "sha256": "c0b6e34557ebf60eec8b7f4f48d5ba3c50cda9022c9d100e118efea51d80b63e"
+-        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
+-        "sha256": "c0b6e34557ebf60eec8b7f4f48d5ba3c50cda9022c9d100e118efea51d80b63e"
++        "revision": "326a00c13552699b90e1437c5e36df9857e21e3a + reviewed candidate working changes",
++        "sha256": "01a4ec24fa09d2f82fc4a4e0d81ff69dcb79d0fd593b09edd6b8b4bf92890fd6"
        },
        {
          "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
          "path": "docs/releases/thj-behaviors-20261019/CHANGELIST.md",
          "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
--        "revision": "45e841640de1178b028c9b028713df6e0591df54 + reviewed candidate working changes",
--        "sha256": "851b3bb78c77b85deef169f5064031c421b3974c35ecb98c305dc31beb3ba875"
-+        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
-+        "sha256": "dd5f497c1aec23ad32b07bdda817ead890f2658d3c380671588dea86f7d4db8c"
+-        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
+-        "sha256": "dd5f497c1aec23ad32b07bdda817ead890f2658d3c380671588dea86f7d4db8c"
++        "revision": "326a00c13552699b90e1437c5e36df9857e21e3a + reviewed candidate working changes",
++        "sha256": "4c823190ad2614ec748af00ac97960e161ef0c155e70c4dfca81c35cc19d6148"
        },
        {
          "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
          "path": "docs/releases/thj-behaviors-20261019/QA.md",
          "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
--        "revision": "45e841640de1178b028c9b028713df6e0591df54 + reviewed candidate working changes",
--        "sha256": "88c4c2c444d624c58b07f636d1b886e56bd7fc8c79dfd6e3a4a62eb5ef1fa81d"
-+        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
-+        "sha256": "ea865ab0947c7a20af3736e8862ef450590e360ceea6ec54f14d41b338280fad"
+-        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
+-        "sha256": "ea865ab0947c7a20af3736e8862ef450590e360ceea6ec54f14d41b338280fad"
++        "revision": "326a00c13552699b90e1437c5e36df9857e21e3a + reviewed candidate working changes",
++        "sha256": "7bc7b51a5784f518aaa01a8a6f35b15eb021236a43fea32c8cbee129d39e19d7"
        }
      ],
      "wiki": [
-@@ -5742,35 +5749,35 @@
+@@ -5749,35 +5770,35 @@
          "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
          "path": "wiki/articles/ascension.json",
          "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
--        "revision": "45e841640de1178b028c9b028713df6e0591df54 + reviewed candidate working changes",
-+        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
+-        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
++        "revision": "326a00c13552699b90e1437c5e36df9857e21e3a + reviewed candidate working changes",
          "sha256": "4a36dda493ae4227304c491720656c0e313bbf03a3cf908d9bafa3ba756635cd"
        },
        {
          "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
          "path": "wiki/articles/equipment.json",
          "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
--        "revision": "45e841640de1178b028c9b028713df6e0591df54 + reviewed candidate working changes",
-+        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
+-        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
++        "revision": "326a00c13552699b90e1437c5e36df9857e21e3a + reviewed candidate working changes",
          "sha256": "af942b5feea7801920a97798d1775bea6366f12a6e9278a745fbb5e07532e2f0"
        },
        {
          "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
          "path": "wiki/articles/getting-started.json",
          "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
--        "revision": "45e841640de1178b028c9b028713df6e0591df54 + reviewed candidate working changes",
-+        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
+-        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
++        "revision": "326a00c13552699b90e1437c5e36df9857e21e3a + reviewed candidate working changes",
          "sha256": "3c94bda7ba348fba9e52de09a9a84c32b818ab54304ea70105c786a440494ed9"
        },
        {
          "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
          "path": "wiki/articles/item-upgrades.json",
          "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
--        "revision": "45e841640de1178b028c9b028713df6e0591df54 + reviewed candidate working changes",
-+        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
+-        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
++        "revision": "326a00c13552699b90e1437c5e36df9857e21e3a + reviewed candidate working changes",
          "sha256": "5ac2a31a636c12729f00bd61f3ec873d93d3ddd82dbad1cb158009d37763737a"
        },
        {
          "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
          "path": "wiki/articles/pets.json",
          "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
--        "revision": "45e841640de1178b028c9b028713df6e0591df54 + reviewed candidate working changes",
-+        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
+-        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
++        "revision": "326a00c13552699b90e1437c5e36df9857e21e3a + reviewed candidate working changes",
          "sha256": "de8cc0c9ef3dd63d2f79aa41bcd0ec07af14257037873839ec0db8527d643352"
        },
        {
-@@ -6176,7 +6183,7 @@
+@@ -6183,8 +6204,8 @@
          "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
          "path": "wiki/content-review.json",
          "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
--        "revision": "45e841640de1178b028c9b028713df6e0591df54 + reviewed candidate working changes",
-+        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
-         "sha256": "8de32d9d925c94d8ba8b533d28260c2b8bc2472108006c842d58ec720c1a0fbe"
+-        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
+-        "sha256": "8de32d9d925c94d8ba8b533d28260c2b8bc2472108006c842d58ec720c1a0fbe"
++        "revision": "326a00c13552699b90e1437c5e36df9857e21e3a + reviewed candidate working changes",
++        "sha256": "3cd902c51332b7d59134435d36ccde989713bc2cd1b97dd91933f1c834858998"
        },
        {
-@@ -6218,84 +6225,84 @@
+         "root": "E:/EQ_Local_Dev/_worktrees/client-contract-repair",
+@@ -6225,84 +6246,84 @@
          "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
          "path": "wiki/articles/combat.json",
          "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
--        "revision": "45e841640de1178b028c9b028713df6e0591df54 + reviewed candidate working changes",
-+        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
+-        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
++        "revision": "326a00c13552699b90e1437c5e36df9857e21e3a + reviewed candidate working changes",
          "sha256": "0f5501264d84e905eba5a8ef0fe6dc78f3bc547f07c1556b6ce2c359a885c876"
        },
        {
          "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
          "path": "wiki/articles/features.json",
          "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
--        "revision": "45e841640de1178b028c9b028713df6e0591df54 + reviewed candidate working changes",
-+        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
+-        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
++        "revision": "326a00c13552699b90e1437c5e36df9857e21e3a + reviewed candidate working changes",
          "sha256": "c60b07119221303c5c7332a47c8b64d9bfa42108fefb25c4d707cb62c1facc93"
        },
        {
          "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
          "path": "wiki/articles/index.json",
          "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
--        "revision": "45e841640de1178b028c9b028713df6e0591df54 + reviewed candidate working changes",
-+        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
+-        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
++        "revision": "326a00c13552699b90e1437c5e36df9857e21e3a + reviewed candidate working changes",
          "sha256": "894cddb7cd31b7b2fcc239432f4b46f12808c744c93166b1b51eaa44206734ba"
        },
        {
          "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
          "path": "wiki/articles/multiclass.json",
          "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
--        "revision": "45e841640de1178b028c9b028713df6e0591df54 + reviewed candidate working changes",
-+        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
+-        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
++        "revision": "326a00c13552699b90e1437c5e36df9857e21e3a + reviewed candidate working changes",
          "sha256": "18c01c88172b4b31f73aa5d3241cb2046b222a79767214266f2c2d885a67bf4d"
        },
        {
          "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
          "path": "wiki/articles/recent-changes.json",
          "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
--        "revision": "45e841640de1178b028c9b028713df6e0591df54 + reviewed candidate working changes",
-+        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
+-        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
++        "revision": "326a00c13552699b90e1437c5e36df9857e21e3a + reviewed candidate working changes",
          "sha256": "041cde6deb48ccaaf9f3b2052d0043f691fd2af23729a70e0adf3569b7279eea"
        },
        {
          "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
          "path": "wiki/articles/unreleased.json",
          "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
--        "revision": "45e841640de1178b028c9b028713df6e0591df54 + reviewed candidate working changes",
-+        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
+-        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
++        "revision": "326a00c13552699b90e1437c5e36df9857e21e3a + reviewed candidate working changes",
          "sha256": "8449bd15395f87ab9609311c96a30bb3a308357548b2b4aaaf90651cc2c942a8"
        },
        {
          "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
          "path": "docs/releases/thj-behaviors-20261019/README.md",
          "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
--        "revision": "45e841640de1178b028c9b028713df6e0591df54 + reviewed candidate working changes",
--        "sha256": "5dc7b8d321e45ab603000382be8f5923aafb713344ca3827c5f6b4575fa37b15"
-+        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
-+        "sha256": "c0b6e34557ebf60eec8b7f4f48d5ba3c50cda9022c9d100e118efea51d80b63e"
+-        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
+-        "sha256": "c0b6e34557ebf60eec8b7f4f48d5ba3c50cda9022c9d100e118efea51d80b63e"
++        "revision": "326a00c13552699b90e1437c5e36df9857e21e3a + reviewed candidate working changes",
++        "sha256": "01a4ec24fa09d2f82fc4a4e0d81ff69dcb79d0fd593b09edd6b8b4bf92890fd6"
        },
        {
          "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
          "path": "docs/releases/thj-behaviors-20261019/CHANGELIST.md",
          "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
--        "revision": "45e841640de1178b028c9b028713df6e0591df54 + reviewed candidate working changes",
--        "sha256": "851b3bb78c77b85deef169f5064031c421b3974c35ecb98c305dc31beb3ba875"
-+        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
-+        "sha256": "dd5f497c1aec23ad32b07bdda817ead890f2658d3c380671588dea86f7d4db8c"
+-        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
+-        "sha256": "dd5f497c1aec23ad32b07bdda817ead890f2658d3c380671588dea86f7d4db8c"
++        "revision": "326a00c13552699b90e1437c5e36df9857e21e3a + reviewed candidate working changes",
++        "sha256": "4c823190ad2614ec748af00ac97960e161ef0c155e70c4dfca81c35cc19d6148"
        },
        {
          "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
          "path": "docs/releases/thj-behaviors-20261019/QA.md",
          "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
--        "revision": "45e841640de1178b028c9b028713df6e0591df54 + reviewed candidate working changes",
--        "sha256": "88c4c2c444d624c58b07f636d1b886e56bd7fc8c79dfd6e3a4a62eb5ef1fa81d"
-+        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
-+        "sha256": "ea865ab0947c7a20af3736e8862ef450590e360ceea6ec54f14d41b338280fad"
+-        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
+-        "sha256": "ea865ab0947c7a20af3736e8862ef450590e360ceea6ec54f14d41b338280fad"
++        "revision": "326a00c13552699b90e1437c5e36df9857e21e3a + reviewed candidate working changes",
++        "sha256": "7bc7b51a5784f518aaa01a8a6f35b15eb021236a43fea32c8cbee129d39e19d7"
        },
        {
          "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
          "path": "docs/releases/thj-behaviors-20261019/wiki-review.json",
          "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
--        "revision": "45e841640de1178b028c9b028713df6e0591df54 + reviewed candidate working changes",
-+        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
+-        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
++        "revision": "326a00c13552699b90e1437c5e36df9857e21e3a + reviewed candidate working changes",
          "sha256": "d8bc44f1ea0b3afd2037c584578a2d30fd6fadfa5890e3d7b29a28d1ffd12156"
        },
        {
          "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
          "path": "docs/releases/thj-behaviors-20261019/wiki-publication.json",
          "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
--        "revision": "45e841640de1178b028c9b028713df6e0591df54 + reviewed candidate working changes",
-+        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
+-        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
++        "revision": "326a00c13552699b90e1437c5e36df9857e21e3a + reviewed candidate working changes",
          "sha256": "db832e2730bcddae13c69e7320a96d98507fcfc1ff102a84ab91a71df633c4a4"
        },
        {
          "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
          "path": "docs/releases/thj-behaviors-20261019/wiki-public-verification.json",
          "role": "Reviewed THJ behavior/gear candidate; gameplay not deployed, wiki publication separately verified",
--        "revision": "45e841640de1178b028c9b028713df6e0591df54 + reviewed candidate working changes",
-+        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
+-        "revision": "a80e5d3d692b9ae804f12d38181817545afc4a2b + reviewed candidate working changes",
++        "revision": "326a00c13552699b90e1437c5e36df9857e21e3a + reviewed candidate working changes",
          "sha256": "46b0e7f71fb4a1a23601c19757326dea7253a09c8a7fe93ca6bde2823ad71ef0"
        }
      ]

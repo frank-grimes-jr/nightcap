@@ -1,8 +1,10 @@
 """Maintain reviewed candidate knowledge; never claims gameplay deployment."""
 from pathlib import Path
-import difflib,hashlib,json,subprocess
+import difflib,hashlib,json,os,subprocess
 ROOT=Path(__file__).resolve().parents[3];REL=Path(__file__).resolve().parent
 SKILL=Path('C:/Users/verre/.codex/skills/nightcap-development')
+OUTPUT=Path(os.environ.get('NIGHTCAP_SKILL_EVIDENCE',str(REL)))
+OUTPUT.mkdir(parents=True,exist_ok=True)
 COMMON="""## THJ custom behavior and stock-gear candidate — October19
 
 Source:C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev,
@@ -63,6 +65,9 @@ new Spells:NightcapTHJBehaviors rule and fresh target caches, then paired client
 The optional local cache smoke was skipped after new-account approval rejection;
 no privileges/config changed. Regenerate on target with existing credentials.
 Build/rehearse scripts use isolated local paths/DB; no production gameplay changes.
+Final paired builds and source provenance pass. Full308932-row/285-column replay,
+inverse, late-drift atomicity and bootstrap equivalence pass; separate3guard checks
+pass.31-file bundle is staged; target caches and owner gameplay QA remain required.
 Reconcile preimage drift; never bypass guards. FLOAT preimages compare exact
 canonical stored text, with numeric/case drift rejection tests. Rollback retains
 new AA identities and current earned state; never undo login refunds with a player
@@ -85,7 +90,7 @@ PATHS={
 'balance':['server-mods/code/common/nightcap_thj_behaviors.h','server-mods/code/zone/spells.cpp','server-mods/code/zone/effects.cpp','server-mods/code/zone/spell_effects.cpp','tools/tests/test_thj_behavior_native.py','tools/tests/test_thj_behavior_focus.py','tools/tests/test_aa_temporary_buffs.py'],
 'items':['tools/thj_stock_scaling.py','tools/item_scaling_overrides.py','tools/wpm_migration.py','tools/thj_item_migration.py','tools/tests/test_thj_item_staging.py','tools/tests/test_thj_stock_scaling.py','tools/fixtures/thj-stock-equipment.json.gz','eq-solo-gm/scripts/tiered_loot_setup.sql'],
 'client':['tools/thj_behavior_client.py','tools/tests/test_thj_behavior_client.py'],
-'operations':['server-mods/code/common/ruletypes.h','docs/status.md','CHANGES.md'],
+'operations':['server-mods/code/common/ruletypes.h','docs/status.md','CHANGES.md','docs/releases/thj-behaviors-20261019/validation-summary.json','docs/releases/thj-behaviors-20261019/database-rehearsal.json','docs/releases/thj-behaviors-20261019/native-source-provenance.json'],
 'wiki':['wiki/content-review.json']}
 for name in ('ascension','combat','equipment','features','getting-started','index','item-upgrades','multiclass','pets','recent-changes','unreleased'):PATHS['wiki'].append('wiki/articles/'+name+'.json')
 for topic in PATHS:
@@ -93,7 +98,7 @@ for topic in PATHS:
 for name in ('wiki-review.json','wiki-publication.json','wiki-public-verification.json'):PATHS['wiki'].append('docs/releases/thj-behaviors-20261019/'+name)
 
 def main():
-    changes={};scope={};revision=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip()+' + reviewed candidate working changes'
+    changes={};scope={};revision=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip()+(' + reviewed candidate working changes' if subprocess.check_output(['git','status','--porcelain'],cwd=ROOT,text=True).strip() else '')
     for topic,body in TEXT.items():
         p=SKILL/'references'/(topic+'.md');old=p.read_text(encoding='utf-8');marker=COMMON.splitlines()[0]
         if marker in old:
@@ -109,8 +114,8 @@ def main():
         m['topics'][topic]=list(entries.values());scope[topic]=[entries[n] for n in names]
     changes[p]=(old,json.dumps(m,ensure_ascii=False,indent=2)+'\n')
     patch=''.join(''.join(difflib.unified_diff(a.splitlines(True),b.splitlines(True),fromfile=str(p),tofile=str(p))) for p,(a,b) in changes.items())
-    (REL/'installed-skill.patch').write_text(patch,encoding='utf-8')
+    (OUTPUT/'installed-skill.patch').write_text(patch,encoding='utf-8')
     for p,(_,new) in changes.items():p.write_text(new,encoding='utf-8')
-    (REL/'skill-scope.json').write_text(json.dumps(dict(audited_at='2026-10-19',topics=scope),indent=2)+'\n')
+    (OUTPUT/'skill-scope.json').write_text(json.dumps(dict(audited_at='2026-10-19',topics=scope),indent=2)+'\n')
     print('Updated six references and reviewed source entries; gameplay remains candidate')
 if __name__=='__main__':main()

@@ -1,0 +1,12 @@
+{
+  "status": "passed",
+  "checks": 3,
+  "database": "nightcap_thj_behaviors_20261019",
+  "isolated_fixture_table": "nightcap_thj_bootstrap_guard_items",
+  "live_modified": false,
+  "output": [
+    "CUSTOM_NORMAL_SKIPPED\t1",
+    "MISSING_FAMILY_SKIPPED\t1",
+    "ELIGIBLE_UPDATED\t1"
+  ]
+}

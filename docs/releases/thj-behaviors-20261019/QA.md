@@ -58,8 +58,8 @@ mistaken for measured damage. Do not persist new spawns or alter live NPCs.
    receiving hostile interrupt spells. Casting should finish. Stun, voluntary
    cancellation, death and zone change retain ordinary interruption behavior.
    Repeat after 120 s expiration. Native Dimensional Shield teleport proc is separate.
-5. Warlord expires by 12 s and doubles qualifying physical skill damage before other
-   modifiers. Gut increases incoming physical hit damage 50% by 12 s; spells are not
+5. Warlord expires by 12 s and adds 100 percentage points in the native physical
+   skill-damage modifier path. Record other modifiers when comparing totals. Gut increases incoming physical hit damage 50% by 12 s; spells are not
    physical hits. Press lowers AC and Grapple evasion. Test buff refresh and saved
    old long-duration buffs to ensure they do not regain a full duration on relog.
 
@@ -71,6 +71,7 @@ mistaken for measured damage. Do not persist new spawns or alter live NPCs.
 2. Heart of Flame is 100%, Fire Core 150%, never 1000/1500. Test permanent pet and
    temporary pet separately. Temporary pets retain their prior focus behavior.
 3. Bard:3 s songs become 2.5 s base; receiving focus/twincast does not change songs.
+   Existing instant-DoT casting still applies to damaging songs.
    A DD-focus song still varies its outgoing benefit within the 10× range when a
    grouped caster nukes. Forpar's DoT-focus songs retain their prior random range.
 4. Silent Casting is available to all 12 caster classes, lasts 1 h with 60 s reuse and
