@@ -1,0 +1,20 @@
+{
+  "assets_preserved": 137,
+  "catalog_sha256": "2599919e5701d4b2dc43e569da72a3d99e503ae6f511f690d7a09fe581f1a8b4",
+  "catalog_size": 9542,
+  "changed_assets": [
+    "nightcap-patch-sites.json"
+  ],
+  "channel_sha256": "6db028c3f460fa2224c0398aa199384eeb4dd17fb6ba604740cfe7414da53bd5",
+  "exact_executable_preflight": "passed",
+  "native_player_acceptance": "pending",
+  "previous_release": 2026101802,
+  "proxy_version": "0.11.0",
+  "recorded_health_corrected_catalog": "passed offline replay; not a new native launch",
+  "recorded_health_old_catalog": "runtime health contract mismatch",
+  "release": 2026101901,
+  "signature": "verified against shipped production key",
+  "status": "signed_candidate_not_published",
+  "unchanged_asset_urls_preserved": true,
+  "verified_installed_assets": 138
+}

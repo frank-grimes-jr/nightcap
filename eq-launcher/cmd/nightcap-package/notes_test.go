@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"nightcap/eq-launcher/internal/manifest"
 	"os"
 	"path/filepath"
@@ -9,8 +10,16 @@ import (
 )
 
 func TestLoadPatchHistory(t *testing.T) {
-	notes, err := loadPatchNotes("../../patch-notes.json", 2026101702)
-	if err != nil || len(notes) != 15 {
+	raw, err := os.ReadFile("../../patch-notes.json")
+	if err != nil {
+		t.Fatal(err)
+	}
+	var history []manifest.PatchNote
+	if err := json.Unmarshal(raw, &history); err != nil || len(history) == 0 || history[0].Release == 0 {
+		t.Fatal("invalid repository patch history", err)
+	}
+	notes, err := loadPatchNotes("../../patch-notes.json", history[0].Release)
+	if err != nil || len(notes) != len(history) {
 		t.Fatalf("catalog: %v, %d entries", err, len(notes))
 	}
 	for _, data := range []string{"[]", "null", `[{"release":1,"date":"2026-10-12","changes":[{"kind":"feature","text":"Added notes."}],"unknown":true}]`, `[] {}`} {
@@ -22,7 +31,7 @@ func TestLoadPatchHistory(t *testing.T) {
 			t.Fatalf("accepted %s", data)
 		}
 	}
-	if _, err := loadPatchNotes("../../patch-notes.json", 2026101203); err == nil {
+	if _, err := loadPatchNotes("../../patch-notes.json", history[0].Release-1); err == nil {
 		t.Fatal("accepted future notes")
 	}
 }
