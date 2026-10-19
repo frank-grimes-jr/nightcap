@@ -131,6 +131,9 @@ func buildWithNotes(client, assets, keyPath string, create bool, release uint64,
 		}
 		data[name] = raw
 	}
+	if err := preflight.CheckProxyCatalog(data["dinput8.dll"], data[preflight.CatalogPath]); err != nil {
+		return err
+	}
 	gameplay, err := loadGameplayAssets(assets, client)
 	if err != nil {
 		return err

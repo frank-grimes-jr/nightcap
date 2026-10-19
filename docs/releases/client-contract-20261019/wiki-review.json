@@ -1,0 +1,34 @@
+{
+  "date": "2026-10-19",
+  "source_ref": "73358d0 + reviewed client-contract-repair worktree",
+  "publication": "pending; no public wiki change",
+  "articles": {
+    "about": "Reviewed: no mechanics, command, reward, route, or release-label change needed",
+    "advanced-loot": "Reviewed: no mechanics, command, reward, route, or release-label change needed",
+    "ascension": "Reviewed: no mechanics, command, reward, route, or release-label change needed",
+    "combat": "Reviewed: no mechanics, command, reward, route, or release-label change needed",
+    "commands": "Reviewed: no mechanics, command, reward, route, or release-label change needed",
+    "dungeon-modes": "Reviewed: no mechanics, command, reward, route, or release-label change needed",
+    "equipment": "Reviewed: no mechanics, command, reward, route, or release-label change needed",
+    "features": "Reviewed: no mechanics, command, reward, route, or release-label change needed",
+    "getting-started": "Reviewed: no mechanics, command, reward, route, or release-label change needed",
+    "index": "Pending launch-repair notice added; no publication claim",
+    "item-upgrades": "Reviewed: no mechanics, command, reward, route, or release-label change needed",
+    "launcher": "Pending launch-repair notice added; no publication claim",
+    "multiclass": "Reviewed: no mechanics, command, reward, route, or release-label change needed",
+    "pets": "Reviewed: no mechanics, command, reward, route, or release-label change needed",
+    "recent-changes": "Pending launch-repair notice added; no publication claim",
+    "tradeskills": "Reviewed: no mechanics, command, reward, route, or release-label change needed",
+    "travel": "Reviewed: no mechanics, command, reward, route, or release-label change needed",
+    "tunnel": "Reviewed: no mechanics, command, reward, route, or release-label change needed",
+    "unreleased": "Pending launch-repair notice added; no publication claim",
+    "waypoints": "Reviewed: no mechanics, command, reward, route, or release-label change needed",
+    "zone-hunt": "Reviewed: no mechanics, command, reward, route, or release-label change needed"
+  },
+  "generated_routes": {
+    "count": 432,
+    "assessment": "No item/zone/catalog changes; preserve all values"
+  },
+  "gameplay_features": "unchanged; repair restores existing Play",
+  "public_release": "20261018-thj-parity-v1 retained; no new publication"
+}
