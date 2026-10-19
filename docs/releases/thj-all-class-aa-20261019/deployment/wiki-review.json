@@ -1,0 +1,125 @@
+{
+  "date": "2026-10-19",
+  "status": "deployed and publicly published; owner gameplay acceptance pending",
+  "articles": {
+    "about": {
+      "decision": "Reviewed; no change to mechanics, commands or values",
+      "before_sha256": "d30e64f41dd4395f4d27163407a134527fca9bf9892dabd816774bd0ebcd1da0",
+      "after_sha256": "d30e64f41dd4395f4d27163407a134527fca9bf9892dabd816774bd0ebcd1da0"
+    },
+    "advanced-loot": {
+      "decision": "Reviewed; no change to mechanics, commands or values",
+      "before_sha256": "0f0870dd8c5e412c0a673a7ff551a952965397e5b2ce0dd6bb67ac1336c0e506",
+      "after_sha256": "0f0870dd8c5e412c0a673a7ff551a952965397e5b2ce0dd6bb67ac1336c0e506"
+    },
+    "ascension": {
+      "decision": "Reviewed; no change to mechanics, commands or values",
+      "before_sha256": "63a95cfaac55cdafad7aed7a731406b01dfdabbb6053e4364371cd283f19d036",
+      "after_sha256": "63a95cfaac55cdafad7aed7a731406b01dfdabbb6053e4364371cd283f19d036"
+    },
+    "combat": {
+      "decision": "Updated AA release status and testing guidance",
+      "before_sha256": "a8f542fd8b567d31ad06c23dd8a8c788850b96cbae3bc568ec4f46f23ffcf848",
+      "after_sha256": "96753fec564deea7ca5d6044f2d550d82d6f0aa6f890306b56a618e33d96b8c0"
+    },
+    "commands": {
+      "decision": "Reviewed; no change to mechanics, commands or values",
+      "before_sha256": "b23435918515e34f6db39189f0d072847b19599dff37c3739daf724839c66bd3",
+      "after_sha256": "b23435918515e34f6db39189f0d072847b19599dff37c3739daf724839c66bd3"
+    },
+    "dungeon-modes": {
+      "decision": "Reviewed; no change to mechanics, commands or values",
+      "before_sha256": "4462b643166348d3a14440504d5dc70b26d0d5314edb10b3a6d6b9860681aa3e",
+      "after_sha256": "4462b643166348d3a14440504d5dc70b26d0d5314edb10b3a6d6b9860681aa3e"
+    },
+    "equipment": {
+      "decision": "Reviewed; no change to mechanics, commands or values",
+      "before_sha256": "628c7e96507a1067b0ec9d47ad9497e87e23999ba82b0cdb7545d93a114567d5",
+      "after_sha256": "628c7e96507a1067b0ec9d47ad9497e87e23999ba82b0cdb7545d93a114567d5"
+    },
+    "features": {
+      "decision": "Updated AA release status and testing guidance",
+      "before_sha256": "3bdc0b01324b19c7059bfdb9d189397148e62d2f69df1f9e62cd0c4a348b5ff3",
+      "after_sha256": "521d9e353bc2daac176702045140c9b0c9d93c17309c3e5cf8dc6b18f2edc5b0"
+    },
+    "getting-started": {
+      "decision": "Reviewed; no change to mechanics, commands or values",
+      "before_sha256": "d0345b28e91ec8c25d6cfd8a08675b345b0d87ddef23974eaa3284317c06b518",
+      "after_sha256": "d0345b28e91ec8c25d6cfd8a08675b345b0d87ddef23974eaa3284317c06b518"
+    },
+    "index": {
+      "decision": "Updated AA release status and testing guidance",
+      "before_sha256": "a6ebcf09ba09e4100689e3627b8aa328125854c39ec6ff4ba9a780eab3f740db",
+      "after_sha256": "b2c95c6e40cd1f03c1865e58ecc4f79c4ab64aafdfbbc40c833294cb0b24663b"
+    },
+    "item-upgrades": {
+      "decision": "Reviewed; no change to mechanics, commands or values",
+      "before_sha256": "e4859e9c11acb798bcf50c8a0c1e00c7408d21934ceee7cf878174036429a3ff",
+      "after_sha256": "e4859e9c11acb798bcf50c8a0c1e00c7408d21934ceee7cf878174036429a3ff"
+    },
+    "launcher": {
+      "decision": "Reviewed; no change to mechanics, commands or values",
+      "before_sha256": "575e89bfc359eb5ac2427abea1b0f34e653c657d9ad6491bac0625121104f956",
+      "after_sha256": "575e89bfc359eb5ac2427abea1b0f34e653c657d9ad6491bac0625121104f956"
+    },
+    "multiclass": {
+      "decision": "Updated AA release status and testing guidance",
+      "before_sha256": "c45c31542ce6cc2084c5829b84b9dd98d6c44dd2844d84e0c0b45370af4ca1e5",
+      "after_sha256": "0b61455622c3b7564cf6fc18a6d6319a95854284df2c20f1e56fbb71c5bb79e9"
+    },
+    "pets": {
+      "decision": "Reviewed; no change to mechanics, commands or values",
+      "before_sha256": "1e51604adaa09f62c429d51af24cca39ce241699436b60d24cfd7e5fb194fa29",
+      "after_sha256": "1e51604adaa09f62c429d51af24cca39ce241699436b60d24cfd7e5fb194fa29"
+    },
+    "recent-changes": {
+      "decision": "Updated AA release status and testing guidance",
+      "before_sha256": "206fcb5d0a0af81aa9473b9d3d1fa51abd26a667bea91ed7cdb0717cffab763f",
+      "after_sha256": "53fdd0a01618aeccc50fac7037d65661d65f61182c9cd67fd17c57f3d4f32c25"
+    },
+    "tradeskills": {
+      "decision": "Reviewed; no change to mechanics, commands or values",
+      "before_sha256": "d76ffea75fea16a2a353a5cab1b5e2b783a244908fcfa0903184cd8947a4de7b",
+      "after_sha256": "d76ffea75fea16a2a353a5cab1b5e2b783a244908fcfa0903184cd8947a4de7b"
+    },
+    "travel": {
+      "decision": "Reviewed; no change to mechanics, commands or values",
+      "before_sha256": "ebd1b57137152c4662b0e955fcba23094c1b710754249d7b048bf02131752b0d",
+      "after_sha256": "ebd1b57137152c4662b0e955fcba23094c1b710754249d7b048bf02131752b0d"
+    },
+    "tunnel": {
+      "decision": "Reviewed; no change to mechanics, commands or values",
+      "before_sha256": "22b9d44a9b8cd4f4ca90ef1ad5f34cbc34533517a8a212612a1e2556f87e0e0b",
+      "after_sha256": "22b9d44a9b8cd4f4ca90ef1ad5f34cbc34533517a8a212612a1e2556f87e0e0b"
+    },
+    "unreleased": {
+      "decision": "Updated AA release status and testing guidance",
+      "before_sha256": "3c1ad896bba2cb9c900ac4d216c73f0a0d952cc673f3e6af87ee144795a6cd39",
+      "after_sha256": "5f551a4a215818e7552ff7e4b7ddd600c69af7d8d8432364a814d5a3cdd04e22"
+    },
+    "waypoints": {
+      "decision": "Reviewed; no change to mechanics, commands or values",
+      "before_sha256": "9ef8b93fa52d5b83c479bbb3c877fab4f9373c0f26c84c43908edf3d7e5666bc",
+      "after_sha256": "9ef8b93fa52d5b83c479bbb3c877fab4f9373c0f26c84c43908edf3d7e5666bc"
+    },
+    "zone-hunt": {
+      "decision": "Reviewed; no change to mechanics, commands or values",
+      "before_sha256": "b9752f9f66f707e8593020595d8495dc8bc6af22613dc402c9ae727ca70d2f77",
+      "after_sha256": "b9752f9f66f707e8593020595d8495dc8bc6af22613dc402c9ae727ca70d2f77"
+    }
+  },
+  "generated_routes": {
+    "count": 432,
+    "decision": "AA availability does not change item/zone definitions, reward values or acquisition."
+  },
+  "commands": "No command syntax changes; Recommended AA display guidance retained.",
+  "gameplay_accepted": false,
+  "validation": {
+    "windows_content_refresh": 14,
+    "linux_wiki_publisher_refresh": 30,
+    "search_scenarios": 6,
+    "equipment_tests": 7,
+    "public_files": 465
+  },
+  "final_source_review": "Final deployment runbook, actual preservation/backup receipts, generator status text, exact QA, current status/changelog and documentation index reviewed; no further public gameplay, command or catalog changes."
+}

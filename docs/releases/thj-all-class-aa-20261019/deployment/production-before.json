@@ -1,0 +1,1361 @@
+{
+  "services": {
+    "game": {
+      "id": "c7e586c20a093ff0679a0ac0e875265eb15d0043bec5918be63051fb9dffd142",
+      "image_id": "sha256:7013e41696649bb82d5776659b3b21c37456862f4c90ecc44805f5d6b2fcc258",
+      "started_at": "2026-10-19T01:55:53.138467256Z",
+      "restarts": 0,
+      "running": true,
+      "health": "healthy",
+      "oom_killed": false
+    },
+    "gateway": {
+      "id": "f580a6574668158cafa14443ea121eb8b4bba34996077458c8416957aef01d6d",
+      "image_id": "sha256:2f3b9fc4d88afbb9612f7e1bb1202a31c6e975b1df4a76337cc280ac431ca36d",
+      "started_at": "2026-10-19T02:05:40.134867908Z",
+      "restarts": 0,
+      "running": true,
+      "health": null,
+      "oom_killed": false
+    },
+    "db": {
+      "id": "5c34a0594d5015209f7667d4421c00ef492b80298842829b2edb69c69449d96f",
+      "image_id": "sha256:7f22313fc130a377a44999965bcb0a08dd5b21e8502824c1b864f792f9bc66ab",
+      "started_at": "2026-10-16T18:53:03.118515664Z",
+      "restarts": 1,
+      "running": true,
+      "health": "healthy",
+      "oom_killed": false
+    },
+    "web": {
+      "id": "d8fb0c7da13aea642ae505b0c8bed74b529107185d43dbf35406f6b025d4d71d",
+      "image_id": "sha256:7377697a821c131a924a7105fafbe7414db4e9fcc77a6f08f776f33f141ec3f8",
+      "started_at": "2026-09-20T17:47:54.765116169Z",
+      "restarts": 0,
+      "running": true,
+      "health": null,
+      "oom_killed": false
+    },
+    "tunnel": {
+      "id": "30b1d25ff56bffa77a5b05d1b3d2f6c37b8a87dc05ef098721b6be6555235aac",
+      "image_id": "sha256:ff69a2225ad7c6f85ed84fbd5f3087df46202426b2388ec60214098e0adf05e9",
+      "started_at": "2026-09-20T17:53:43.445441644Z",
+      "restarts": 0,
+      "running": true,
+      "health": null,
+      "oom_killed": false
+    }
+  },
+  "base_hashes": {
+    "bin/world": "3151cf1d60df5225cc736d354ee7142b2910714dd51b0da8a590ad38b557fafb",
+    "bin/zone": "9d3c8d81f76597a9ca856c1052ab8426c6a6136837cfe2f7ced79e3755ede1b0",
+    "bin/ucs": "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714",
+    "bin/loginserver": "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf",
+    "bin/shared_memory": "4605b227d2c3f0d5a571ed6daee202f8cc263b245220d989163fc700f65c59f5",
+    "start.py": "ca4099eb898730141e7941d3afc366d59c4bc8351eea74c5b6fd9560c24b815f",
+    "configure.py": "90873958dfb013201dd9c9552beaccdd88984a2e55739da07874fa4a95a84e57",
+    "accounts.py": "400d4e7a5d0bedeed47ffdb33b142a4a62a3f939a35466da66ce3201ae52ef5c"
+  },
+  "runtime_helper_sha256": "a3242bee3e8d4a7e60ea81bbd6fd34587201b712247665f3c03673733b95a811",
+  "client_channel_sha256": "6db028c3f460fa2224c0398aa199384eeb4dd17fb6ba604740cfe7414da53bd5",
+  "channel_manifest": {
+    "schema": 1,
+    "release": 2026101901,
+    "minimum_launcher": "0.6.0",
+    "expires": "2026-11-18T09:06:47Z",
+    "files": [
+      {
+        "path": "butcher.s3d",
+        "sha256": "af504e71d3f3497b5eef037d86475ba96985b261d96f6469915e058e05308839",
+        "size": 2742696,
+        "url": "https://play.nightcapgame.org/release/2026101802/butcher.s3d",
+        "required": true
+      },
+      {
+        "path": "butcher_obj.s3d",
+        "sha256": "ad4c886395c9af7f3de17be1c1a24785e295f892097b8e5785eec670a089c047",
+        "size": 3394472,
+        "url": "https://play.nightcapgame.org/release/2026101802/butcher_obj.s3d",
+        "required": true
+      },
+      {
+        "path": "cazicthule.s3d",
+        "sha256": "b4224fa40afd6ef8b02e292568bddc96e405fb90c2db3c0d0d893192b9407fbf",
+        "size": 2995776,
+        "url": "https://play.nightcapgame.org/release/2026101802/cazicthule.s3d",
+        "required": true
+      },
+      {
+        "path": "cazicthule_obj.s3d",
+        "sha256": "b2d858bc0ecca2a585a3f4a95243651799149889abeb2616f40ddec387ea74ea",
+        "size": 1636930,
+        "url": "https://play.nightcapgame.org/release/2026101802/cazicthule_obj.s3d",
+        "required": true
+      },
+      {
+        "path": "commons.s3d",
+        "sha256": "3ce0a15467d0b4c4cd2292f443d895a957f5fdfdba84ca3771e52655d5b08346",
+        "size": 1194799,
+        "url": "https://play.nightcapgame.org/release/2026101802/commons.s3d",
+        "required": true
+      },
+      {
+        "path": "commons_obj.s3d",
+        "sha256": "2963640a7f3886e7f13ff9bb0b35c056f76785737aab80067b13428d8080a536",
+        "size": 801499,
+        "url": "https://play.nightcapgame.org/release/2026101802/commons_obj.s3d",
+        "required": true
+      },
+      {
+        "path": "dbstr_us.txt",
+        "sha256": "88506405c5179b1d369d261290b415937729b6f05b4e1a845a3d4bcd63f1a421",
+        "size": 6368783,
+        "url": "https://play.nightcapgame.org/release/2026101802/dbstr_us.txt",
+        "required": true
+      },
+      {
+        "path": "ddv.eqg",
+        "sha256": "095e723a4aee74c518921fcb4c134ccec547cb4463538385b4bfd997c3609972",
+        "size": 2374012,
+        "url": "https://play.nightcapgame.org/release/2026101802/ddv.eqg",
+        "required": true
+      },
+      {
+        "path": "dinput8.dll",
+        "sha256": "9dd6ad400d7390f95c3af88ffe70a67c180368a213e13cc951cee20fefb63380",
+        "size": 617472,
+        "url": "https://play.nightcapgame.org/release/2026101802/dinput8.dll",
+        "required": true
+      },
+      {
+        "path": "ecommons_assets.txt",
+        "sha256": "160fb90872f853a5181261e815832a9b5ff0e755c4fa2f0f0086f967a6985c95",
+        "size": 16,
+        "url": "https://play.nightcapgame.org/release/2026101802/ecommons_assets.txt",
+        "required": true
+      },
+      {
+        "path": "ecommons_chr.txt",
+        "sha256": "ce76d34efb7d66705dbfa13e12047b622cc0da8ca7c44e3d81ce526bda3e6c03",
+        "size": 98,
+        "url": "https://play.nightcapgame.org/release/2026101802/ecommons_chr.txt",
+        "required": true
+      },
+      {
+        "path": "everfrost.s3d",
+        "sha256": "f438cb1bbf1986f20f4dcd4e3d444c00fdf0e2a57aca980e6fc4879003024de3",
+        "size": 4528259,
+        "url": "https://play.nightcapgame.org/release/2026101802/everfrost.s3d",
+        "required": true
+      },
+      {
+        "path": "everfrost_obj.s3d",
+        "sha256": "370746b01d23f99d3396194c1d583dba358a64420858afa3307ca2ac2dfb391d",
+        "size": 892532,
+        "url": "https://play.nightcapgame.org/release/2026101802/everfrost_obj.s3d",
+        "required": true
+      },
+      {
+        "path": "feerrott.s3d",
+        "sha256": "c4002988cfcf4ce74bb1b16d151ed9196d36046d61fc5271aaa2b7366f4b7d8b",
+        "size": 2950848,
+        "url": "https://play.nightcapgame.org/release/2026101802/feerrott.s3d",
+        "required": true
+      },
+      {
+        "path": "feerrott_obj.s3d",
+        "sha256": "393802aaaa6b3f14989e373f541849892831cb1897ab62d004a1045f59d29a5b",
+        "size": 1431177,
+        "url": "https://play.nightcapgame.org/release/2026101802/feerrott_obj.s3d",
+        "required": true
+      },
+      {
+        "path": "frd.eqg",
+        "sha256": "cec07cab1aee916d9ad67a78cc7733ddb3407f7c20609ce9e1241c4e78c97680",
+        "size": 2528730,
+        "url": "https://play.nightcapgame.org/release/2026101802/frd.eqg",
+        "required": true
+      },
+      {
+        "path": "freportw.s3d",
+        "sha256": "6187e4284e8240b46b576ad48ffa3e693a1de70cf08545952749bf63df74149a",
+        "size": 4821055,
+        "url": "https://play.nightcapgame.org/release/2026101802/freportw.s3d",
+        "required": true
+      },
+      {
+        "path": "freportw_obj.s3d",
+        "sha256": "e84f0865a59f13bfa415360328a081507dbd0087f0a736e3deae8d8fcc34aba4",
+        "size": 2634332,
+        "url": "https://play.nightcapgame.org/release/2026101802/freportw_obj.s3d",
+        "required": true
+      },
+      {
+        "path": "gfaydark.s3d",
+        "sha256": "078beb1b67436bd3e07ae49569f0662882ffe189ea25771dac4bd559d08167a3",
+        "size": 2730752,
+        "url": "https://play.nightcapgame.org/release/2026101802/gfaydark.s3d",
+        "required": true
+      },
+      {
+        "path": "gfaydark_obj.s3d",
+        "sha256": "5564f980f5fdf8829c79ace8902a3af536e0b6770e05ff477be16be0630edf1f",
+        "size": 3120454,
+        "url": "https://play.nightcapgame.org/release/2026101802/gfaydark_obj.s3d",
+        "required": true
+      },
+      {
+        "path": "global4_chr.s3d",
+        "sha256": "7b2c2a2e95229e2fcd755b49042e0ae8fab5908b03a1567b2c97cb60f249c2e1",
+        "size": 2565600,
+        "url": "https://play.nightcapgame.org/release/2026101802/global4_chr.s3d",
+        "required": true
+      },
+      {
+        "path": "global_chr.s3d",
+        "sha256": "d0d830128dc0d306818441d5aa199a32f6b20cb91815a86a62936f9a6e9724f1",
+        "size": 8161221,
+        "url": "https://play.nightcapgame.org/release/2026101802/global_chr.s3d",
+        "required": true
+      },
+      {
+        "path": "innothule.s3d",
+        "sha256": "91ed53a55bdc0dbc8feae474fcbcf967aa4631c9cf9ccf3aeef7cd0929548121",
+        "size": 1053294,
+        "url": "https://play.nightcapgame.org/release/2026101802/innothule.s3d",
+        "required": true
+      },
+      {
+        "path": "innothule_obj.s3d",
+        "sha256": "d776595e2462b90c32ea5824fdbe07fb9097e5dff8dc48a2464fb595ca342f2d",
+        "size": 733199,
+        "url": "https://play.nightcapgame.org/release/2026101802/innothule_obj.s3d",
+        "required": true
+      },
+      {
+        "path": "lavastorm.s3d",
+        "sha256": "daa1053f71320e1f5882417f3dadc0b65c55fb64c75f3a806bceb57bbceb24c3",
+        "size": 839387,
+        "url": "https://play.nightcapgame.org/release/2026101802/lavastorm.s3d",
+        "required": true
+      },
+      {
+        "path": "lavastorm_obj.s3d",
+        "sha256": "6476962179483d940cde99ef60fee43477d95c158aa28ccc1bc0e14d396b7b1f",
+        "size": 315859,
+        "url": "https://play.nightcapgame.org/release/2026101802/lavastorm_obj.s3d",
+        "required": true
+      },
+      {
+        "path": "maps/ecommons_3.txt",
+        "sha256": "db69717986bcaa83ff6f1c8a88f42884aa7b06b35d488e0d091f58ed5d095d69",
+        "size": 1736,
+        "url": "https://play.nightcapgame.org/release/2026101802/maps/ecommons_3.txt",
+        "required": true
+      },
+      {
+        "path": "misty.s3d",
+        "sha256": "81c6d110d57a12deaa09867f70afdeb372c3cc2391792e9247497d919eefcf0b",
+        "size": 680940,
+        "url": "https://play.nightcapgame.org/release/2026101802/misty.s3d",
+        "required": true
+      },
+      {
+        "path": "misty_obj.s3d",
+        "sha256": "5ba51c7d40e070a4f5349b6a081cb314187587683461834ab82b3c9e0a5557b3",
+        "size": 428528,
+        "url": "https://play.nightcapgame.org/release/2026101802/misty_obj.s3d",
+        "required": true
+      },
+      {
+        "path": "mur.eqg",
+        "sha256": "f16e0cc1238aed5341db915191e23f8ef899ccfdb07845631544c77b2b130b81",
+        "size": 2538532,
+        "url": "https://play.nightcapgame.org/release/2026101802/mur.eqg",
+        "required": true
+      },
+      {
+        "path": "ncm01_chr.s3d",
+        "sha256": "8354da04868a47e6de06d589b61df5cfb92c0a7dc14ceff3e81bbd45c8c17876",
+        "size": 7365275,
+        "url": "https://play.nightcapgame.org/release/2026101802/ncm01_chr.s3d",
+        "required": true
+      },
+      {
+        "path": "ncm02_chr.s3d",
+        "sha256": "2bb0a9a97f4cf7c85b66021683beb031adbe25446d522661f55d1f0b5232d9bc",
+        "size": 2492790,
+        "url": "https://play.nightcapgame.org/release/2026101802/ncm02_chr.s3d",
+        "required": true
+      },
+      {
+        "path": "ncm03_chr.s3d",
+        "sha256": "ff94f5f28afffb7f06cb0ca886982321b31816684b013c67b5030f5eda6836ed",
+        "size": 2578372,
+        "url": "https://play.nightcapgame.org/release/2026101802/ncm03_chr.s3d",
+        "required": true
+      },
+      {
+        "path": "ncm04_chr.s3d",
+        "sha256": "4ec905bb44602fa98bbcc3ba8c6675e8630e21fc9967ea44ae63518479341ddf",
+        "size": 2113728,
+        "url": "https://play.nightcapgame.org/release/2026101802/ncm04_chr.s3d",
+        "required": true
+      },
+      {
+        "path": "ncm05_chr.s3d",
+        "sha256": "33af3aba6789a42895da0cccbf8691ccabe685799c554be7bcd1f9d58267d30d",
+        "size": 2484766,
+        "url": "https://play.nightcapgame.org/release/2026101802/ncm05_chr.s3d",
+        "required": true
+      },
+      {
+        "path": "ncm06_chr.s3d",
+        "sha256": "3839329d014dbc47e0459cf7ddd21a3262c6f1c96b6408f15a0bca6b5d0c8969",
+        "size": 6443367,
+        "url": "https://play.nightcapgame.org/release/2026101802/ncm06_chr.s3d",
+        "required": true
+      },
+      {
+        "path": "ncm07_chr.s3d",
+        "sha256": "9d3036ac7e10cc372990ce483e9f6f1a7a3059b2c0f3fd02381a74093e210cfb",
+        "size": 2645550,
+        "url": "https://play.nightcapgame.org/release/2026101802/ncm07_chr.s3d",
+        "required": true
+      },
+      {
+        "path": "ncm08_chr.s3d",
+        "sha256": "6de3e2616da64e612e5e1e4bc92baefa67b3d81cf10b22f268c4705969f94561",
+        "size": 2544386,
+        "url": "https://play.nightcapgame.org/release/2026101802/ncm08_chr.s3d",
+        "required": true
+      },
+      {
+        "path": "ncm09_chr.s3d",
+        "sha256": "c21aef7c21dc34a35b961e7e385f049dd9486f5b2aaf00b1420ab376db097a9e",
+        "size": 2758860,
+        "url": "https://play.nightcapgame.org/release/2026101802/ncm09_chr.s3d",
+        "required": true
+      },
+      {
+        "path": "ncm10_chr.s3d",
+        "sha256": "870f1ae03bddfb6e7ee3cc25c7856f2fb5936feac9a9c57c35d8b284a9ac1dd9",
+        "size": 4458988,
+        "url": "https://play.nightcapgame.org/release/2026101802/ncm10_chr.s3d",
+        "required": true
+      },
+      {
+        "path": "ncm11_chr.s3d",
+        "sha256": "537d7ec4538f0f677d309280d7202fceeae6acaf0ae12da63c25207c045f0315",
+        "size": 3262715,
+        "url": "https://play.nightcapgame.org/release/2026101802/ncm11_chr.s3d",
+        "required": true
+      },
+      {
+        "path": "ncm12_chr.s3d",
+        "sha256": "a56b311bb69d78da2a00f59d9323c02e7b94b72f5c9ad40ac9cd3aab301e3684",
+        "size": 2742560,
+        "url": "https://play.nightcapgame.org/release/2026101802/ncm12_chr.s3d",
+        "required": true
+      },
+      {
+        "path": "ncm13_chr.s3d",
+        "sha256": "08ba52a4977a2fc3b556218a0d0c63602068790e656879bd740f1ea1df08ba82",
+        "size": 2495628,
+        "url": "https://play.nightcapgame.org/release/2026101802/ncm13_chr.s3d",
+        "required": true
+      },
+      {
+        "path": "ncm14_chr.s3d",
+        "sha256": "b760d7ba1376840042475f00d2d6f9dbb455078011325f83c7670724499b8490",
+        "size": 4391006,
+        "url": "https://play.nightcapgame.org/release/2026101802/ncm14_chr.s3d",
+        "required": true
+      },
+      {
+        "path": "ncm15_chr.s3d",
+        "sha256": "52f79ac48bee996dd9fc62d627d58ece01c0a990f86c6abbdffa2112ab9eafbd",
+        "size": 6596261,
+        "url": "https://play.nightcapgame.org/release/2026101802/ncm15_chr.s3d",
+        "required": true
+      },
+      {
+        "path": "ncm16_chr.s3d",
+        "sha256": "2d3efed794be6ae596bdbc6d0117c63707aeae6d11ad2163b4c747e13037452c",
+        "size": 2084390,
+        "url": "https://play.nightcapgame.org/release/2026101802/ncm16_chr.s3d",
+        "required": true
+      },
+      {
+        "path": "ncm17_chr.s3d",
+        "sha256": "0baa44b9ef8e9b24142c4e85489b52563570af2c44f7ef553ab5372a736fa584",
+        "size": 3146511,
+        "url": "https://play.nightcapgame.org/release/2026101802/ncm17_chr.s3d",
+        "required": true
+      },
+      {
+        "path": "ncm18_chr.s3d",
+        "sha256": "3034b915f8a80a0ab86994f67aed11a4361844773277ca6e3afd0dbeb02df584",
+        "size": 1738206,
+        "url": "https://play.nightcapgame.org/release/2026101802/ncm18_chr.s3d",
+        "required": true
+      },
+      {
+        "path": "ncm19_chr.s3d",
+        "sha256": "2569098db84cfa12355aedb32be6069c890a4b9b35778a5082bb150a113ce643",
+        "size": 7314511,
+        "url": "https://play.nightcapgame.org/release/2026101802/ncm19_chr.s3d",
+        "required": true
+      },
+      {
+        "path": "ncm20_chr.s3d",
+        "sha256": "fb6fd9f4f471a93cc9127b6a558a0bcbfb3b0c17dd2d4b6dc22454676e3ead34",
+        "size": 7402212,
+        "url": "https://play.nightcapgame.org/release/2026101802/ncm20_chr.s3d",
+        "required": true
+      },
+      {
+        "path": "ncm21_chr.s3d",
+        "sha256": "a521a30f20128860fa4fb586e9218c1495bbdaebc3d3696ec53db69f8c59aafa",
+        "size": 7296270,
+        "url": "https://play.nightcapgame.org/release/2026101802/ncm21_chr.s3d",
+        "required": true
+      },
+      {
+        "path": "ncm22_chr.s3d",
+        "sha256": "05456af2c2f738cab109392a273d73047bc7109e1a69532aa192ec8a92844f1f",
+        "size": 7448585,
+        "url": "https://play.nightcapgame.org/release/2026101802/ncm22_chr.s3d",
+        "required": true
+      },
+      {
+        "path": "nektulos.s3d",
+        "sha256": "6cfb7612bfe2703242add44d7cff285a37e08423df8082fffe10ce3dd84c7f21",
+        "size": 966169,
+        "url": "https://play.nightcapgame.org/release/2026101802/nektulos.s3d",
+        "required": true
+      },
+      {
+        "path": "nektulos_obj.s3d",
+        "sha256": "980717cdf70834429ed9667c14321a93f15aa38f78e331e8b6a15938f626969c",
+        "size": 951436,
+        "url": "https://play.nightcapgame.org/release/2026101802/nektulos_obj.s3d",
+        "required": true
+      },
+      {
+        "path": "nightcap-bootstrap.exe",
+        "sha256": "013e24424d403e42051355f0de25aee0f4da4494d2dc4b1418feaec7e44f27fa",
+        "size": 119808,
+        "url": "https://play.nightcapgame.org/release/2026101802/nightcap-bootstrap.exe",
+        "required": true
+      },
+      {
+        "path": "nightcap-patch-sites.json",
+        "sha256": "2599919e5701d4b2dc43e569da72a3d99e503ae6f511f690d7a09fe581f1a8b4",
+        "size": 9542,
+        "url": "https://play.nightcapgame.org/release/2026101901/nightcap-patch-sites.json",
+        "required": true
+      },
+      {
+        "path": "nightcap-patches.cfg",
+        "sha256": "6748710559867a81dd7bb218b2a0e0c3e48a85cc39a7593225e55f7dfdab0771",
+        "size": 317,
+        "url": "https://play.nightcapgame.org/release/2026101802/nightcap-patches.cfg",
+        "required": true
+      },
+      {
+        "path": "nightcap_models_chr.txt",
+        "sha256": "b3ac03507bf6dad1807155386eb248904bdb0c7055af6c6da9f14aea52e5bec5",
+        "size": 2148,
+        "url": "https://play.nightcapgame.org/release/2026101802/nightcap_models_chr.txt",
+        "required": true
+      },
+      {
+        "path": "northkarana.s3d",
+        "sha256": "faf2ac94ec9e70eb558e4c83b82a3cc14bdb90355ef0095a0bda43733a79b54d",
+        "size": 1939384,
+        "url": "https://play.nightcapgame.org/release/2026101802/northkarana.s3d",
+        "required": true
+      },
+      {
+        "path": "northkarana_obj.s3d",
+        "sha256": "bad348a7f1921d8cacf8917e39f029f8b6c64b7bcab2dfb326a65ec070c80f48",
+        "size": 2530212,
+        "url": "https://play.nightcapgame.org/release/2026101802/northkarana_obj.s3d",
+        "required": true
+      },
+      {
+        "path": "nro.s3d",
+        "sha256": "c4f36795a6a1b1b86c4f677644506980a368da7d3a3ec6e09a4cfa2169232d24",
+        "size": 1507487,
+        "url": "https://play.nightcapgame.org/release/2026101802/nro.s3d",
+        "required": true
+      },
+      {
+        "path": "nro_obj.s3d",
+        "sha256": "4556f6986f68ae90b471a4df83f6e1431c8bfedb640de2bf4944f12069ac4d7c",
+        "size": 2540662,
+        "url": "https://play.nightcapgame.org/release/2026101802/nro_obj.s3d",
+        "required": true
+      },
+      {
+        "path": "poknowledge_chr.txt",
+        "sha256": "75d478e5585952b4a6d5a65d96c5999de5a577fd97c59f96b26cfb108a340690",
+        "size": 246,
+        "url": "https://play.nightcapgame.org/release/2026101802/poknowledge_chr.txt",
+        "required": true
+      },
+      {
+        "path": "poknowledge_obj.s3d",
+        "sha256": "de46dd2bdb55daac2e559148f62d83108da2697bb7c0079edd4c8ec09ee7a9e1",
+        "size": 6619031,
+        "url": "https://play.nightcapgame.org/release/2026101802/poknowledge_obj.s3d",
+        "required": true
+      },
+      {
+        "path": "qey2hh1.s3d",
+        "sha256": "4d2ab8f0d1f03678dbb75a62496102b97ca6c63dcc78b38e449608fdbeab2182",
+        "size": 2208046,
+        "url": "https://play.nightcapgame.org/release/2026101802/qey2hh1.s3d",
+        "required": true
+      },
+      {
+        "path": "qey2hh1_obj.s3d",
+        "sha256": "b1bafa220125dbc8e8f7c59c262e7025ac2a0a65832857f6198291131e6309c2",
+        "size": 3518474,
+        "url": "https://play.nightcapgame.org/release/2026101802/qey2hh1_obj.s3d",
+        "required": true
+      },
+      {
+        "path": "qeynos2.s3d",
+        "sha256": "5d80aaa2a9c532b6867956e72aa67dfdd4731cbb87aaced238c15746ca97aefc",
+        "size": 4361694,
+        "url": "https://play.nightcapgame.org/release/2026101802/qeynos2.s3d",
+        "required": true
+      },
+      {
+        "path": "qeynos2_obj.s3d",
+        "sha256": "345d9a2631c9464592945ec5f536dfda4f3eb488a0fbeaab09a966fb3bdb11dc",
+        "size": 2270288,
+        "url": "https://play.nightcapgame.org/release/2026101802/qeynos2_obj.s3d",
+        "required": true
+      },
+      {
+        "path": "resources/loadscreen.jpg",
+        "sha256": "1a760bcebbf639306d1c9737de83729af45e1f0465b5306f00c29b24cb307390",
+        "size": 885079,
+        "url": "https://play.nightcapgame.org/release/2026101802/resources/loadscreen.jpg",
+        "required": true
+      },
+      {
+        "path": "scu.eqg",
+        "sha256": "ef25cc9574fc6e86b739f33189cb4e8b417109350ffd27e2b2ea85bb7dcd41cd",
+        "size": 3453594,
+        "url": "https://play.nightcapgame.org/release/2026101802/scu.eqg",
+        "required": true
+      },
+      {
+        "path": "spells_us.txt",
+        "sha256": "eb07544cd443e56d404900d5853d09625ccea899425bcab63dc9f07283f7ec61",
+        "size": 28151898,
+        "url": "https://play.nightcapgame.org/release/2026101802/spells_us.txt",
+        "required": true
+      },
+      {
+        "path": "srn.eqg",
+        "sha256": "5a5cc71322234a3a26f6d7f34b996ba17a6d190ef46d8d84567c2ca0371bc18f",
+        "size": 1878012,
+        "url": "https://play.nightcapgame.org/release/2026101802/srn.eqg",
+        "required": true
+      },
+      {
+        "path": "sro.s3d",
+        "sha256": "4a32a8deeeaade31d020ac84402d6b6c4d6c0527ded4cbfbe3fc30b816819f8e",
+        "size": 647692,
+        "url": "https://play.nightcapgame.org/release/2026101802/sro.s3d",
+        "required": true
+      },
+      {
+        "path": "sro_obj.s3d",
+        "sha256": "f61cbe10f3b940a076bc08d95cbbda03b836638cb933fc410263ae10f8e81491",
+        "size": 2513386,
+        "url": "https://play.nightcapgame.org/release/2026101802/sro_obj.s3d",
+        "required": true
+      },
+      {
+        "path": "steamfont.s3d",
+        "sha256": "367b98b89f936dc3c18fdef5aff995ac966bb2c1ebfab0afb71ccae821281704",
+        "size": 1156905,
+        "url": "https://play.nightcapgame.org/release/2026101802/steamfont.s3d",
+        "required": true
+      },
+      {
+        "path": "steamfont_obj.s3d",
+        "sha256": "41a715859be18d1c63a483a9b444fe69c1200395d08260d121492bed31533154",
+        "size": 1629344,
+        "url": "https://play.nightcapgame.org/release/2026101802/steamfont_obj.s3d",
+        "required": true
+      },
+      {
+        "path": "tox.s3d",
+        "sha256": "d6da558f0cb42bb664c0a4eb0b2bf7416ac2e609edb404c321f14c679a093dd2",
+        "size": 975926,
+        "url": "https://play.nightcapgame.org/release/2026101802/tox.s3d",
+        "required": true
+      },
+      {
+        "path": "tox_obj.s3d",
+        "sha256": "41632c745f01410a0cc6aef27f47bed312195e17ebdca403410df5dc687c1425",
+        "size": 438479,
+        "url": "https://play.nightcapgame.org/release/2026101802/tox_obj.s3d",
+        "required": true
+      },
+      {
+        "path": "uifiles/default/loadscreens/loadscreen01.jpg",
+        "sha256": "f92fbce9bf2a747f3f2a8bf7db2ed3415e4117799636fddc32030b96e9341a23",
+        "size": 841775,
+        "url": "https://play.nightcapgame.org/release/2026101802/uifiles/default/loadscreens/loadscreen01.jpg",
+        "required": true
+      },
+      {
+        "path": "uifiles/default/loadscreens/loadscreen02.jpg",
+        "sha256": "f85bcafa16fe8907f381af359d4155cfe3837c8de66368d2efe82b7bf074c40e",
+        "size": 897456,
+        "url": "https://play.nightcapgame.org/release/2026101802/uifiles/default/loadscreens/loadscreen02.jpg",
+        "required": true
+      },
+      {
+        "path": "uifiles/default/loadscreens/loadscreen03.jpg",
+        "sha256": "8ee31712d3a315db238cc88ba2d38ed8cad98dc0198f0ff3daeebc24c6e23027",
+        "size": 752103,
+        "url": "https://play.nightcapgame.org/release/2026101802/uifiles/default/loadscreens/loadscreen03.jpg",
+        "required": true
+      },
+      {
+        "path": "uifiles/default/loadscreens/loadscreen04.jpg",
+        "sha256": "636e0ff29b37a9b99de62a4bb8f8835ae4d37433418416f3e0b8925048216ae5",
+        "size": 837492,
+        "url": "https://play.nightcapgame.org/release/2026101802/uifiles/default/loadscreens/loadscreen04.jpg",
+        "required": true
+      },
+      {
+        "path": "uifiles/default/loadscreens/loadscreen05.jpg",
+        "sha256": "13a5eda253ec69975ea7a62091a504087648bec40ee3abb178df51d99142f7a5",
+        "size": 1049328,
+        "url": "https://play.nightcapgame.org/release/2026101802/uifiles/default/loadscreens/loadscreen05.jpg",
+        "required": true
+      },
+      {
+        "path": "uifiles/default/loadscreens/loadscreen06.jpg",
+        "sha256": "fc5a8bf21ad6a96c73639284dee96b58316f368fd81daa2274a76251431abc74",
+        "size": 1029051,
+        "url": "https://play.nightcapgame.org/release/2026101802/uifiles/default/loadscreens/loadscreen06.jpg",
+        "required": true
+      },
+      {
+        "path": "uifiles/default/loadscreens/loadscreen07.jpg",
+        "sha256": "e33ac52a31e8a158c42b6b98935737124c4ace047fc6448f112530b3deb72025",
+        "size": 1057018,
+        "url": "https://play.nightcapgame.org/release/2026101802/uifiles/default/loadscreens/loadscreen07.jpg",
+        "required": true
+      },
+      {
+        "path": "uifiles/default/loadscreens/loadscreen08.jpg",
+        "sha256": "252a1d9430b86ddf180ab396a78ef94dabe4874bb3940c63c320d7ff44dffbde",
+        "size": 933243,
+        "url": "https://play.nightcapgame.org/release/2026101802/uifiles/default/loadscreens/loadscreen08.jpg",
+        "required": true
+      },
+      {
+        "path": "uifiles/default/loadscreens/loadscreen09.jpg",
+        "sha256": "1e264996c6a4f19c7f686346829abef192ae94ae9d98d5e82d9e4f51fc877b94",
+        "size": 934793,
+        "url": "https://play.nightcapgame.org/release/2026101802/uifiles/default/loadscreens/loadscreen09.jpg",
+        "required": true
+      },
+      {
+        "path": "uifiles/default/loadscreens/loadscreen10.jpg",
+        "sha256": "1a760bcebbf639306d1c9737de83729af45e1f0465b5306f00c29b24cb307390",
+        "size": 885079,
+        "url": "https://play.nightcapgame.org/release/2026101802/uifiles/default/loadscreens/loadscreen10.jpg",
+        "required": true
+      },
+      {
+        "path": "uifiles/default/loadscreens/loadscreen11.jpg",
+        "sha256": "f92fbce9bf2a747f3f2a8bf7db2ed3415e4117799636fddc32030b96e9341a23",
+        "size": 841775,
+        "url": "https://play.nightcapgame.org/release/2026101802/uifiles/default/loadscreens/loadscreen11.jpg",
+        "required": true
+      },
+      {
+        "path": "uifiles/default/loadscreens/loadscreen12.jpg",
+        "sha256": "f85bcafa16fe8907f381af359d4155cfe3837c8de66368d2efe82b7bf074c40e",
+        "size": 897456,
+        "url": "https://play.nightcapgame.org/release/2026101802/uifiles/default/loadscreens/loadscreen12.jpg",
+        "required": true
+      },
+      {
+        "path": "uifiles/default/loadscreens/loadscreen13.jpg",
+        "sha256": "8ee31712d3a315db238cc88ba2d38ed8cad98dc0198f0ff3daeebc24c6e23027",
+        "size": 752103,
+        "url": "https://play.nightcapgame.org/release/2026101802/uifiles/default/loadscreens/loadscreen13.jpg",
+        "required": true
+      },
+      {
+        "path": "uifiles/default/loadscreens/loadscreen14.jpg",
+        "sha256": "636e0ff29b37a9b99de62a4bb8f8835ae4d37433418416f3e0b8925048216ae5",
+        "size": 837492,
+        "url": "https://play.nightcapgame.org/release/2026101802/uifiles/default/loadscreens/loadscreen14.jpg",
+        "required": true
+      },
+      {
+        "path": "uifiles/default/loadscreens/loadscreen15.jpg",
+        "sha256": "13a5eda253ec69975ea7a62091a504087648bec40ee3abb178df51d99142f7a5",
+        "size": 1049328,
+        "url": "https://play.nightcapgame.org/release/2026101802/uifiles/default/loadscreens/loadscreen15.jpg",
+        "required": true
+      },
+      {
+        "path": "uifiles/default/loadscreens/loadscreen16.jpg",
+        "sha256": "fc5a8bf21ad6a96c73639284dee96b58316f368fd81daa2274a76251431abc74",
+        "size": 1029051,
+        "url": "https://play.nightcapgame.org/release/2026101802/uifiles/default/loadscreens/loadscreen16.jpg",
+        "required": true
+      },
+      {
+        "path": "uifiles/default/loadscreens/loadscreen17.jpg",
+        "sha256": "e33ac52a31e8a158c42b6b98935737124c4ace047fc6448f112530b3deb72025",
+        "size": 1057018,
+        "url": "https://play.nightcapgame.org/release/2026101802/uifiles/default/loadscreens/loadscreen17.jpg",
+        "required": true
+      },
+      {
+        "path": "uifiles/default/loadscreens/loadscreen18.jpg",
+        "sha256": "252a1d9430b86ddf180ab396a78ef94dabe4874bb3940c63c320d7ff44dffbde",
+        "size": 933243,
+        "url": "https://play.nightcapgame.org/release/2026101802/uifiles/default/loadscreens/loadscreen18.jpg",
+        "required": true
+      },
+      {
+        "path": "uifiles/default/loadscreens/loadscreen19.jpg",
+        "sha256": "1e264996c6a4f19c7f686346829abef192ae94ae9d98d5e82d9e4f51fc877b94",
+        "size": 934793,
+        "url": "https://play.nightcapgame.org/release/2026101802/uifiles/default/loadscreens/loadscreen19.jpg",
+        "required": true
+      },
+      {
+        "path": "uifiles/default/loadscreens/loadscreen20.jpg",
+        "sha256": "1a760bcebbf639306d1c9737de83729af45e1f0465b5306f00c29b24cb307390",
+        "size": 885079,
+        "url": "https://play.nightcapgame.org/release/2026101802/uifiles/default/loadscreens/loadscreen20.jpg",
+        "required": true
+      },
+      {
+        "path": "uifiles/default/loadscreens/loadscreen21.jpg",
+        "sha256": "f92fbce9bf2a747f3f2a8bf7db2ed3415e4117799636fddc32030b96e9341a23",
+        "size": 841775,
+        "url": "https://play.nightcapgame.org/release/2026101802/uifiles/default/loadscreens/loadscreen21.jpg",
+        "required": true
+      },
+      {
+        "path": "uifiles/default/loadscreens/loadscreen22.jpg",
+        "sha256": "f85bcafa16fe8907f381af359d4155cfe3837c8de66368d2efe82b7bf074c40e",
+        "size": 897456,
+        "url": "https://play.nightcapgame.org/release/2026101802/uifiles/default/loadscreens/loadscreen22.jpg",
+        "required": true
+      },
+      {
+        "path": "uifiles/default/loadscreens/loadscreen23.jpg",
+        "sha256": "8ee31712d3a315db238cc88ba2d38ed8cad98dc0198f0ff3daeebc24c6e23027",
+        "size": 752103,
+        "url": "https://play.nightcapgame.org/release/2026101802/uifiles/default/loadscreens/loadscreen23.jpg",
+        "required": true
+      },
+      {
+        "path": "uifiles/default/loadscreens/loadscreen24.jpg",
+        "sha256": "636e0ff29b37a9b99de62a4bb8f8835ae4d37433418416f3e0b8925048216ae5",
+        "size": 837492,
+        "url": "https://play.nightcapgame.org/release/2026101802/uifiles/default/loadscreens/loadscreen24.jpg",
+        "required": true
+      },
+      {
+        "path": "uifiles/default/loadscreens/loadscreen25.jpg",
+        "sha256": "13a5eda253ec69975ea7a62091a504087648bec40ee3abb178df51d99142f7a5",
+        "size": 1049328,
+        "url": "https://play.nightcapgame.org/release/2026101802/uifiles/default/loadscreens/loadscreen25.jpg",
+        "required": true
+      },
+      {
+        "path": "uifiles/default/loadscreens/loadscreen26.jpg",
+        "sha256": "fc5a8bf21ad6a96c73639284dee96b58316f368fd81daa2274a76251431abc74",
+        "size": 1029051,
+        "url": "https://play.nightcapgame.org/release/2026101802/uifiles/default/loadscreens/loadscreen26.jpg",
+        "required": true
+      },
+      {
+        "path": "uifiles/default/loadscreens/loadscreen27.jpg",
+        "sha256": "e33ac52a31e8a158c42b6b98935737124c4ace047fc6448f112530b3deb72025",
+        "size": 1057018,
+        "url": "https://play.nightcapgame.org/release/2026101802/uifiles/default/loadscreens/loadscreen27.jpg",
+        "required": true
+      },
+      {
+        "path": "uifiles/default/loadscreens/loadscreen28.jpg",
+        "sha256": "252a1d9430b86ddf180ab396a78ef94dabe4874bb3940c63c320d7ff44dffbde",
+        "size": 933243,
+        "url": "https://play.nightcapgame.org/release/2026101802/uifiles/default/loadscreens/loadscreen28.jpg",
+        "required": true
+      },
+      {
+        "path": "uifiles/default/loadscreens/loadscreen29.jpg",
+        "sha256": "1e264996c6a4f19c7f686346829abef192ae94ae9d98d5e82d9e4f51fc877b94",
+        "size": 934793,
+        "url": "https://play.nightcapgame.org/release/2026101802/uifiles/default/loadscreens/loadscreen29.jpg",
+        "required": true
+      },
+      {
+        "path": "uifiles/default/loadscreens/loadscreen30.jpg",
+        "sha256": "1a760bcebbf639306d1c9737de83729af45e1f0465b5306f00c29b24cb307390",
+        "size": 885079,
+        "url": "https://play.nightcapgame.org/release/2026101802/uifiles/default/loadscreens/loadscreen30.jpg",
+        "required": true
+      },
+      {
+        "path": "uifiles/default/loadscreens/loadscreen31.jpg",
+        "sha256": "f92fbce9bf2a747f3f2a8bf7db2ed3415e4117799636fddc32030b96e9341a23",
+        "size": 841775,
+        "url": "https://play.nightcapgame.org/release/2026101802/uifiles/default/loadscreens/loadscreen31.jpg",
+        "required": true
+      },
+      {
+        "path": "uifiles/default/loadscreens/loadscreen32.jpg",
+        "sha256": "f85bcafa16fe8907f381af359d4155cfe3837c8de66368d2efe82b7bf074c40e",
+        "size": 897456,
+        "url": "https://play.nightcapgame.org/release/2026101802/uifiles/default/loadscreens/loadscreen32.jpg",
+        "required": true
+      },
+      {
+        "path": "uifiles/default/loadscreens/loadscreen33.jpg",
+        "sha256": "8ee31712d3a315db238cc88ba2d38ed8cad98dc0198f0ff3daeebc24c6e23027",
+        "size": 752103,
+        "url": "https://play.nightcapgame.org/release/2026101802/uifiles/default/loadscreens/loadscreen33.jpg",
+        "required": true
+      },
+      {
+        "path": "uifiles/default/loadscreens/loadscreen34.jpg",
+        "sha256": "636e0ff29b37a9b99de62a4bb8f8835ae4d37433418416f3e0b8925048216ae5",
+        "size": 837492,
+        "url": "https://play.nightcapgame.org/release/2026101802/uifiles/default/loadscreens/loadscreen34.jpg",
+        "required": true
+      },
+      {
+        "path": "uifiles/default/loadscreens/loadscreen35.jpg",
+        "sha256": "13a5eda253ec69975ea7a62091a504087648bec40ee3abb178df51d99142f7a5",
+        "size": 1049328,
+        "url": "https://play.nightcapgame.org/release/2026101802/uifiles/default/loadscreens/loadscreen35.jpg",
+        "required": true
+      },
+      {
+        "path": "uifiles/default/loadscreens/loadscreen36.jpg",
+        "sha256": "fc5a8bf21ad6a96c73639284dee96b58316f368fd81daa2274a76251431abc74",
+        "size": 1029051,
+        "url": "https://play.nightcapgame.org/release/2026101802/uifiles/default/loadscreens/loadscreen36.jpg",
+        "required": true
+      },
+      {
+        "path": "uifiles/default/loadscreens/loadscreen37.jpg",
+        "sha256": "e33ac52a31e8a158c42b6b98935737124c4ace047fc6448f112530b3deb72025",
+        "size": 1057018,
+        "url": "https://play.nightcapgame.org/release/2026101802/uifiles/default/loadscreens/loadscreen37.jpg",
+        "required": true
+      },
+      {
+        "path": "uifiles/default/loadscreens/loadscreen38.jpg",
+        "sha256": "252a1d9430b86ddf180ab396a78ef94dabe4874bb3940c63c320d7ff44dffbde",
+        "size": 933243,
+        "url": "https://play.nightcapgame.org/release/2026101802/uifiles/default/loadscreens/loadscreen38.jpg",
+        "required": true
+      },
+      {
+        "path": "uifiles/default/loadscreens/loadscreen39.jpg",
+        "sha256": "1e264996c6a4f19c7f686346829abef192ae94ae9d98d5e82d9e4f51fc877b94",
+        "size": 934793,
+        "url": "https://play.nightcapgame.org/release/2026101802/uifiles/default/loadscreens/loadscreen39.jpg",
+        "required": true
+      },
+      {
+        "path": "uifiles/default/loadscreens/loadscreen40.jpg",
+        "sha256": "1a760bcebbf639306d1c9737de83729af45e1f0465b5306f00c29b24cb307390",
+        "size": 885079,
+        "url": "https://play.nightcapgame.org/release/2026101802/uifiles/default/loadscreens/loadscreen40.jpg",
+        "required": true
+      },
+      {
+        "path": "uifiles/default/loadscreens/loadscreen41.jpg",
+        "sha256": "f92fbce9bf2a747f3f2a8bf7db2ed3415e4117799636fddc32030b96e9341a23",
+        "size": 841775,
+        "url": "https://play.nightcapgame.org/release/2026101802/uifiles/default/loadscreens/loadscreen41.jpg",
+        "required": true
+      },
+      {
+        "path": "uifiles/default/loadscreens/loadscreen42.jpg",
+        "sha256": "f85bcafa16fe8907f381af359d4155cfe3837c8de66368d2efe82b7bf074c40e",
+        "size": 897456,
+        "url": "https://play.nightcapgame.org/release/2026101802/uifiles/default/loadscreens/loadscreen42.jpg",
+        "required": true
+      },
+      {
+        "path": "uifiles/default/loadscreens/loadscreen43.jpg",
+        "sha256": "8ee31712d3a315db238cc88ba2d38ed8cad98dc0198f0ff3daeebc24c6e23027",
+        "size": 752103,
+        "url": "https://play.nightcapgame.org/release/2026101802/uifiles/default/loadscreens/loadscreen43.jpg",
+        "required": true
+      },
+      {
+        "path": "uifiles/default/loadscreens/loadscreen44.jpg",
+        "sha256": "636e0ff29b37a9b99de62a4bb8f8835ae4d37433418416f3e0b8925048216ae5",
+        "size": 837492,
+        "url": "https://play.nightcapgame.org/release/2026101802/uifiles/default/loadscreens/loadscreen44.jpg",
+        "required": true
+      },
+      {
+        "path": "uifiles/default/loadscreens/loadscreen45.jpg",
+        "sha256": "13a5eda253ec69975ea7a62091a504087648bec40ee3abb178df51d99142f7a5",
+        "size": 1049328,
+        "url": "https://play.nightcapgame.org/release/2026101802/uifiles/default/loadscreens/loadscreen45.jpg",
+        "required": true
+      },
+      {
+        "path": "uifiles/default/loadscreens/loadscreen46.jpg",
+        "sha256": "fc5a8bf21ad6a96c73639284dee96b58316f368fd81daa2274a76251431abc74",
+        "size": 1029051,
+        "url": "https://play.nightcapgame.org/release/2026101802/uifiles/default/loadscreens/loadscreen46.jpg",
+        "required": true
+      },
+      {
+        "path": "uifiles/default/loadscreens/loadscreen47.jpg",
+        "sha256": "e33ac52a31e8a158c42b6b98935737124c4ace047fc6448f112530b3deb72025",
+        "size": 1057018,
+        "url": "https://play.nightcapgame.org/release/2026101802/uifiles/default/loadscreens/loadscreen47.jpg",
+        "required": true
+      },
+      {
+        "path": "uifiles/default/loadscreens/loadscreen48.jpg",
+        "sha256": "252a1d9430b86ddf180ab396a78ef94dabe4874bb3940c63c320d7ff44dffbde",
+        "size": 933243,
+        "url": "https://play.nightcapgame.org/release/2026101802/uifiles/default/loadscreens/loadscreen48.jpg",
+        "required": true
+      },
+      {
+        "path": "uifiles/default/loadscreens/loadscreen49.jpg",
+        "sha256": "1e264996c6a4f19c7f686346829abef192ae94ae9d98d5e82d9e4f51fc877b94",
+        "size": 934793,
+        "url": "https://play.nightcapgame.org/release/2026101802/uifiles/default/loadscreens/loadscreen49.jpg",
+        "required": true
+      },
+      {
+        "path": "uifiles/default/loadscreens/loadscreen50.jpg",
+        "sha256": "1a760bcebbf639306d1c9737de83729af45e1f0465b5306f00c29b24cb307390",
+        "size": 885079,
+        "url": "https://play.nightcapgame.org/release/2026101802/uifiles/default/loadscreens/loadscreen50.jpg",
+        "required": true
+      },
+      {
+        "path": "uifiles/default/loadscreens/loadscreen51.jpg",
+        "sha256": "f92fbce9bf2a747f3f2a8bf7db2ed3415e4117799636fddc32030b96e9341a23",
+        "size": 841775,
+        "url": "https://play.nightcapgame.org/release/2026101802/uifiles/default/loadscreens/loadscreen51.jpg",
+        "required": true
+      },
+      {
+        "path": "uifiles/default/loadscreens/loadscreen52.jpg",
+        "sha256": "f85bcafa16fe8907f381af359d4155cfe3837c8de66368d2efe82b7bf074c40e",
+        "size": 897456,
+        "url": "https://play.nightcapgame.org/release/2026101802/uifiles/default/loadscreens/loadscreen52.jpg",
+        "required": true
+      },
+      {
+        "path": "uifiles/default/loadscreens/loadscreen53.jpg",
+        "sha256": "8ee31712d3a315db238cc88ba2d38ed8cad98dc0198f0ff3daeebc24c6e23027",
+        "size": 752103,
+        "url": "https://play.nightcapgame.org/release/2026101802/uifiles/default/loadscreens/loadscreen53.jpg",
+        "required": true
+      },
+      {
+        "path": "uifiles/default/loadscreens/loadscreen54.jpg",
+        "sha256": "636e0ff29b37a9b99de62a4bb8f8835ae4d37433418416f3e0b8925048216ae5",
+        "size": 837492,
+        "url": "https://play.nightcapgame.org/release/2026101802/uifiles/default/loadscreens/loadscreen54.jpg",
+        "required": true
+      },
+      {
+        "path": "uifiles/default/loadscreens/loadscreen55.jpg",
+        "sha256": "13a5eda253ec69975ea7a62091a504087648bec40ee3abb178df51d99142f7a5",
+        "size": 1049328,
+        "url": "https://play.nightcapgame.org/release/2026101802/uifiles/default/loadscreens/loadscreen55.jpg",
+        "required": true
+      },
+      {
+        "path": "uifiles/nightcap/equi_aawindow.xml",
+        "sha256": "22f62752d4c2522cd8a5df1212f0a6aec5489eb2fec3cb8951147c0e6cf6265a",
+        "size": 22616,
+        "url": "https://play.nightcapgame.org/release/2026101802/uifiles/nightcap/equi_aawindow.xml",
+        "required": true
+      },
+      {
+        "path": "uifiles/nightcap/equi_inventory.xml",
+        "sha256": "518c000142b83ecd55e149123d4b8a69133f581e23deddf43e3932de3b67ab69",
+        "size": 188475,
+        "url": "https://play.nightcapgame.org/release/2026101802/uifiles/nightcap/equi_inventory.xml",
+        "required": true
+      },
+      {
+        "path": "uifiles/nightcap/equi_merchantwnd.xml",
+        "sha256": "53f1d6c84d6774aab753646550953f8b3129bddf1abd9f19a7e3657e5f4881d4",
+        "size": 21293,
+        "url": "https://play.nightcapgame.org/release/2026101802/uifiles/nightcap/equi_merchantwnd.xml",
+        "required": true
+      },
+      {
+        "path": "uifiles/nightcap/equi_petinfowindow.xml",
+        "sha256": "07205a47f2117e3f13f68d1f512d05cd268f0821b17ba5a71fe6e8b8d7b4f95b",
+        "size": 121826,
+        "url": "https://play.nightcapgame.org/release/2026101802/uifiles/nightcap/equi_petinfowindow.xml",
+        "required": true
+      },
+      {
+        "path": "uifiles/nightcap/equi_tradeskillwnd.xml",
+        "sha256": "cb082e5e2de63c86a240ba093a1f211a03aae7dde27812080b6cc159ab9e1b82",
+        "size": 29541,
+        "url": "https://play.nightcapgame.org/release/2026101802/uifiles/nightcap/equi_tradeskillwnd.xml",
+        "required": true
+      }
+    ],
+    "tombstones": [
+      "nektulos.eqg",
+      "lavastorm.eqg"
+    ],
+    "patch_notes": [
+      {
+        "release": 2026101901,
+        "date": "2026-10-19",
+        "changes": [
+          {
+            "kind": "fix",
+            "text": "Fixed the runtime health contract mismatch that prevented Play after the latest update. The launcher installs the corrected client catalog automatically."
+          }
+        ]
+      },
+      {
+        "release": 2026101802,
+        "date": "2026-10-18",
+        "changes": [
+          {
+            "kind": "feature",
+            "text": "Ascended item values and spell scaling now follow reviewed THJ references. Starter quality upgrades stay modest, and dungeon gear remains a meaningful step up."
+          },
+          {
+            "kind": "feature",
+            "text": "Permanent pet equipment now supports full item instances and augments across three pages, with 15 Mage items or eight for other pet classes. Pet support spells and shared Spell Damage/Heal Amount caps are updated."
+          },
+          {
+            "kind": "feature",
+            "text": "Earned shield and melee AAs, heroic Strength scaling, weapon procs and support effects are updated for held classes. This balance release is open for in-game testing."
+          }
+        ]
+      },
+      {
+        "release": 2026101801,
+        "date": "2026-10-18",
+        "changes": [
+          {
+            "kind": "fix",
+            "text": "The patcher now checks and repairs terrain and object archives for 17 Classic travel destinations, including West Commonlands, Misty Thicket and Toxxulia. Close EverQuest and press Play to repair missing or corrupted files."
+          }
+        ]
+      },
+      {
+        "release": 2026101702,
+        "date": "2026-10-17",
+        "changes": [
+          {
+            "kind": "feature",
+            "text": "Recommended AA: enable the optional filter beside Can Purchase for a short list of survival, sustain and useful damage upgrades across your held classes. The full AA catalog remains available."
+          },
+          {
+            "kind": "feature",
+            "text": "Passive AA is now 10% while you keep full normal leveling EXP. AA focus still sends eligible EXP entirely to AAs; earned points and purchases are preserved."
+          },
+          {
+            "kind": "fix",
+            "text": "Kick, Round Kick, Tiger Claw, Eagle Strike, Dragon Punch/Tail Rake and Flying Kick now have independent cooldowns when you hold Monk. Each attack still obeys its own reuse and skill requirements."
+          },
+          {
+            "kind": "fix",
+            "text": "Fixed excessive lockouts caused by reuse reductions on item clicks, Mend, Bash, Frenzy and linked spells, plus fully reduced cooldowns restarting old timers. Other shared-ability cooldown issues remain under investigation."
+          },
+          {
+            "kind": "feature",
+            "text": "Normal death no longer costs EXP or levels. AA progress stays intact. Buff loss and other death rules still apply; previous losses are not refunded."
+          },
+          {
+            "kind": "feature",
+            "text": "Existing stackable items now support at least 100 per stack. Higher limits stay unchanged. Equipment and other nonstackable items remain separate; existing stacks can be merged manually."
+          },
+          {
+            "kind": "fix",
+            "text": "The reusable Reforging Box now accepts exactly 3 identical eligible Normal/Base items for 1 Polished item. Higher upgrades still require 4 copies. Dungeon rewards remain separate."
+          },
+          {
+            "kind": "fix",
+            "text": "Idle dungeon zones can unload without ending their worker and causing a whole-server restart."
+          },
+          {
+            "kind": "feature",
+            "text": "East Commonlands services: Haldra, Smithing Supplies III, sells Leather Padding, and Mira Coinwell offers banking near the buff and bag services."
+          },
+          {
+            "kind": "feature",
+            "text": "Close EverQuest and use launcher Play for this update. The wiki has updated AA, combat, crafting and reforging guidance. Gameplay and balance testing continue."
+          }
+        ]
+      },
+      {
+        "release": 2026101701,
+        "date": "2026-10-17",
+        "changes": [
+          {
+            "kind": "feature",
+            "text": "Raid & Grind dungeons are live! Explore seven Classic dungeons solo or with a group of up to six, with new boss objectives and custom rewards."
+          },
+          {
+            "kind": "feature",
+            "text": "Choose Befallen, Unrest, High Keep, Najena, Cazic-Thule, Permafrost or Nagafen's Lair. Private Cazic-Thule runs restore its Classic encounters, including the Avatar of Fear."
+          },
+          {
+            "kind": "feature",
+            "text": "Hail the floating-eye Instance Keeper at a dungeon entrance and choose Raid or Grind. If the waypoint obscures the Keeper, type /target Instance_Keeper. Each run lasts 12 hours."
+          },
+          {
+            "kind": "feature",
+            "text": "Raid: enemies have 35% more HP, deal 15% more damage and stay dead. Defeat every required miniboss to unlock the end boss."
+          },
+          {
+            "kind": "feature",
+            "text": "Grind: normal dungeon difficulty and respawns. Earn credit for every required boss to receive one Normal custom item; missed bosses can be caught on later respawns."
+          },
+          {
+            "kind": "feature",
+            "text": "Raid full clears award each qualifying player one custom item: 90% Polished or 10% Ascended. Each player needs personal encounter credit for every required boss, with one completion reward per run."
+          },
+          {
+            "kind": "feature",
+            "text": "Discover 24 shared reward designs: eight armor pieces, eight weapons, six accessories and two weight-reduction bags. Reward power follows the dungeon and active era."
+          },
+          {
+            "kind": "feature",
+            "text": "Each Raid end boss also has three exclusive dungeon-themed designs and always drops at least one. Up to three distinct items can drop, each Polished or Ascended, alongside its normal loot."
+          },
+          {
+            "kind": "feature",
+            "text": "All new dungeon rewards are permanent, tradeable and non-lore. Earn weapons such as Moltor's Graveblade and Nagafen's Emberfang, plus armor, accessories and roomy weight-reduction bags."
+          },
+          {
+            "kind": "fix",
+            "text": "Tasks and Keeper Status now list every required boss and your saved credit. Individual kills advance objectives; full clears appear in Completed history. Reconnecting retains your progress."
+          },
+          {
+            "kind": "feature",
+            "text": "Use Keeper Claim Rewards if a full inventory prevents delivery. Earned claims and permanent completion counts survive run expiry or reset. The Raid & Grind guide on wiki.nightcapgame.org lists every required boss."
+          }
+        ]
+      },
+      {
+        "release": 2026101501,
+        "date": "2026-10-15",
+        "changes": [
+          {
+            "kind": "fix",
+            "text": "Equip items using any of your held classes, including Forged Javelin for Warrior combinations."
+          },
+          {
+            "kind": "fix",
+            "text": "Inventory and item inspection now use your held classes when showing whether equipment is usable."
+          }
+        ]
+      },
+      {
+        "release": 2026101304,
+        "date": "2026-10-13",
+        "changes": [
+          {
+            "kind": "feature",
+            "text": "Tradeskills now accept stacks of materials and preserve unused ingredients."
+          },
+          {
+            "kind": "feature",
+            "text": "Choose a recipe and Craft All to keep crafting until supplies run out. Stop ends the run after the current attempt."
+          }
+        ]
+      },
+      {
+        "release": 2026101303,
+        "date": "2026-10-13",
+        "changes": [
+          {
+            "kind": "feature",
+            "text": "Expanded 26 AA lines with 110 additional ranks, including Slay Undead through rank 9 and Master Wu through rank 5. Every allowed rank remains available from level 1."
+          },
+          {
+            "kind": "fix",
+            "text": "Triple Backstab now works below level 55 when you own the AA. Its normal weapon, positioning, and double-attack checks still apply."
+          },
+          {
+            "kind": "fix",
+            "text": "Existing AA purchases, points, and charges are preserved. Previously purchased ranks included in the expanded pool become usable again when you reconnect."
+          }
+        ]
+      },
+      {
+        "release": 2026101302,
+        "date": "2026-10-13",
+        "changes": [
+          {
+            "kind": "fix",
+            "text": "All allowed AA abilities and ranks are available from level 1. Choose where to spend your points; character level no longer hides or locks them."
+          },
+          {
+            "kind": "feature",
+            "text": "The AA pool uses The Buried Sea cutoff with selected utility and pet exceptions, release rank limits, and deferred high-power abilities."
+          },
+          {
+            "kind": "fix",
+            "text": "Existing AA purchases and points are preserved. Previously purchased ranks allowed by this release become usable again when you reconnect."
+          }
+        ]
+      },
+      {
+        "release": 2026101301,
+        "date": "2026-10-13",
+        "changes": [
+          {
+            "kind": "fix",
+            "text": "Fixed training and natural skill gains for selected classes, including Kick and Dual Wield."
+          },
+          {
+            "kind": "fix",
+            "text": "Fixed equipping offhand weapons and using Monk or Beastlord unarmed dual wield with another primary class."
+          }
+        ]
+      },
+      {
+        "release": 2026101204,
+        "date": "2026-10-12",
+        "changes": [
+          {
+            "kind": "fix",
+            "text": "Train skills with trainers for any of your selected classes, by right-clicking or hailing them."
+          }
+        ]
+      },
+      {
+        "release": 2026101203,
+        "date": "2026-10-12",
+        "changes": [
+          {
+            "kind": "feature",
+            "text": "Scribe spells for your selected classes before their required level. Spell gems still require the normal level."
+          }
+        ]
+      },
+      {
+        "release": 2026101202,
+        "date": "2026-10-12",
+        "changes": [
+          {
+            "kind": "feature",
+            "text": "See what changed in the latest update and browse previous patches while patching."
+          }
+        ]
+      },
+      {
+        "release": 2026101201,
+        "date": "2026-10-12",
+        "changes": [
+          {
+            "kind": "feature",
+            "text": "Added a Sell All button to merchant windows."
+          }
+        ]
+      },
+      {
+        "release": 2026101101,
+        "date": "2026-10-11",
+        "changes": [
+          {
+            "kind": "fix",
+            "text": "Fixed a client crash when summoning pets."
+          }
+        ]
+      },
+      {
+        "release": 2026101001,
+        "date": "2026-10-10",
+        "changes": [
+          {
+            "kind": "fix",
+            "text": "Restored stock item icons in Advanced Loot and the Pet Info window."
+          }
+        ]
+      },
+      {
+        "release": 2026100901,
+        "date": "2026-10-09",
+        "changes": [
+          {
+            "kind": "feature",
+            "text": "Added Always Loot and Never Loot controls to each Advanced Loot item row."
+          },
+          {
+            "kind": "fix",
+            "text": "Advanced Loot now closes when the loot queue is confirmed empty."
+          }
+        ]
+      },
+      {
+        "release": 2026100407,
+        "date": "2026-10-04",
+        "changes": [
+          {
+            "kind": "feature",
+            "text": "Added Nightcap artwork to the game's loading screens."
+          }
+        ]
+      }
+    ]
+  },
+  "free_bytes": 3780788224,
+  "stage_exists": false,
+  "gm_maintenance": false,
+  "aa389": "389\tHealing Boon\t-1\t518\t65535\t127\t131071\t0\t2\t0\t0\t1186\t1\t0\t1\n",
+  "era": "1\tCharacter:AAExpMinLevel\t1\n1\tCharacter:MaxLevel\t50\n1\tExpansion:CurrentExpansion\t0\n1\tWorld:ExpansionSettings\t2097151\n10\tCharacter:MaxLevel\t68\n",
+  "wiki": "releases/20261019-client-contract-v1",
+  "shared_files": {
+    "items": {
+      "bytes": 416594884,
+      "sha256": "0e26d1b326f212add05779ff4f92f44fda5b53ef6838660bbb11d04dd8c33367"
+    },
+    "spells": {
+      "bytes": 107714188,
+      "sha256": "32d43ca6903eca3c612157667e5b9ccf0e861168dd8431fffeadf19b8ca54c6d"
+    },
+    "items.lock": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "spells.lock": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  }
+}
