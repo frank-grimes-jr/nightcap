@@ -1,0 +1,15 @@
+{
+  "status": "installed",
+  "files": [
+    "C:\\Users\\verre\\.codex\\skills\\nightcap-development\\references\\balance.md",
+    "C:\\Users\\verre\\.codex\\skills\\nightcap-development\\references\\items.md",
+    "C:\\Users\\verre\\.codex\\skills\\nightcap-development\\references\\operations.md",
+    "C:\\Users\\verre\\.codex\\skills\\nightcap-development\\references\\wiki.md",
+    "C:\\Users\\verre\\.codex\\skills\\nightcap-development\\references\\client.md",
+    "C:\\Users\\verre\\.codex\\skills\\nightcap-development\\references\\multiclass.md",
+    "C:\\Users\\verre\\.codex\\skills\\nightcap-development\\references\\sources.json"
+  ],
+  "reviewed_source_entries": 71,
+  "source_revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
+  "deployment": "verified; owner QA open"
+}

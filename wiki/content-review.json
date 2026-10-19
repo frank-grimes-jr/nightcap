@@ -1,6 +1,6 @@
 {
   "reviewed_at": "2026-10-18",
-  "reviewed_revision": "1039fdd007beb090f2830c2b546b77432c0ab0b6",
+  "reviewed_revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5",
   "source_paths": [
     "server-mods/",
     "eq-client-dll/",
@@ -33,6 +33,6 @@
     "October 18 general confirmation of the October 17 combined release: owner-confirmation.json in docs/releases/october-17-2026/. All 21 maintained guides and 432 generated reward routes assessed; no mechanics, catalog, command, Features/home/Recent changes or Live testing label changes. No public update needed. Detailed scenario/balance results and later release acceptances remain separate. Global reviewed_revision is preserved; concurrent client-zone source review remains owned by its existing release evidence.",
     "October18 THJ pet/shared-scaling candidate: all21 articles and432 generated reward routes reviewed. Thirteen source articles receive explicit Not released notices/details; commands, hunt values and deployed mechanics stay unchanged. docs/releases/thj-pet-scaling-20261018/wiki-review.json records every decision. No runtime or wiki publication; global reviewed_revision retained.",
     "October18 combined WPM/pet candidate: all21 articles and432 generated reward routes reviewed; nine articles clarify unreleased melee synergies, AAs and item effects alongside pet work. docs/releases/wpm-melee-20261018/wiki-review.json records decisions and content hashes. Live catalog/commands unchanged; no publication or global source-ledger advancement.",
-    "October18 owner-authorized combined THJ item/spell + pet/WPM release: all21 maintained guides and432 generated reward routes reviewed;15 guides updated with released formulas, caps, healing targets, pet equipment, earned melee/AA changes and starter/dungeon progression. Main PR2351039fdd includes the reviewed source; Classic50 and the staged PoP boundary remain explicit. Hunt catalog IDs do not intersect the1393 changed definitions, so all published reward values remain unchanged. Deployment/recovery evidence and whole-wiki decisions: docs/releases/thj-parity-20261018/deployment/. Uncommitted release operator, native description normalization and publication evidence are reviewed supplements; owner gameplay acceptance remains open."
+    "October18 combined THJ/pet/WPM deployment reviewed through 8e8d71d8b99a710b0611850ce01be59c349e8be5: main PR235 source, ten committed content components, both authenticated startup epochs and exact three-description rule normalization. All21 guides and432 generated routes assessed;15 guides published as wiki20261018-thj-parity-v1 with465 public hashes/security policies and five private-source denials verified. Hunt catalog IDs do not intersect1393 changed definitions; commands and its384 item values are unchanged. Classic50 remains active and PoP65/389-stock is staged. The final source-ledger and installed-skill maintenance records are private bookkeeping with no additional player-facing effect; owner gameplay/balance acceptance remains open."
   ]
 }
