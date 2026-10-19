@@ -1,0 +1,8 @@
+{
+  "native_eligibility_cases": 11070,
+  "client_expansion_checks": 8,
+  "projection_checks": 9,
+  "restored_earned_rank_cases": 3,
+  "passed": true,
+  "source_sha256": "b8275ae824ed04a1beed5ecf551d95bab9d9cfc91fae33993232e0245a564194"
+}

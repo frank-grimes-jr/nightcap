@@ -1,0 +1,34 @@
+{
+  "reviewed_utc": "2026-10-19T23:05:21.7697667Z",
+  "candidate": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+  "baseline": "45e841640de1178b028c9b028713df6e0591df54",
+  "verdict": "No remaining blocking source findings; final build and full SQL rehearsal evidence pending",
+  "resolved_finding": "Act of Valor now preserves native recipient percent/HealRate/flat healing modifiers, clamps nonpositive healing before uint64 conversion, and retains spell identity without outgoing focus/crit/HA",
+  "verified_spell_effects_sha256": "c448fcf66b28719b2ec8ce46ca5ee50ef19f0a92829048b793cc510ca6addc51",
+  "independently_run": {
+    "content_client_stock_tests": 14,
+    "compiled_native_focus_tests": 2,
+    "extracted_native_checks": 85,
+    "extraction_receipt": "independent-native-verification.json"
+  },
+  "reviewed_contracts": [
+    "Canonical earned AA refunds and no publication on persistence failure",
+    "Percent-resource guard, delivery, one debit and cooldown ordering",
+    "Player/permanent-pet focus gating, Bard and Mage exceptions",
+    "Fixed temporary durations and mancy stack boundaries",
+    "Stock baseline, exact overrides, exclusions and native numeric bounds",
+    "Full-row SQL preimages, staging cardinality/ID-set guard, atomic inverse",
+    "Unsigned client delta pairing and candidate-versus-live documentation/wiki labels"
+  ],
+  "pending": [
+    "Final matching world/zone/shared_memory manifest after the Valor source correction",
+    "Full 308932-row SQL replay, inverse, late-preimage-failure and bootstrap-equivalence receipt",
+    "In-game client/group/raid/reflection/resist/timer/encounter balance acceptance",
+    "Explicit authorization for main or gameplay deployment"
+  ],
+  "boundaries": [
+    "No database access or server/client deployment by reviewer",
+    "Evidence is source/fixture verification, not owner gameplay acceptance",
+    "Initial native fixture errors came only from denied sandbox temporary output; rerun with writable temporary directory passed"
+  ]
+}

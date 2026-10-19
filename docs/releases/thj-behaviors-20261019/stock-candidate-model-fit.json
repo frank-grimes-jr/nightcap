@@ -1,0 +1,338 @@
+{
+  "ac_x2": {
+    "field": "ac",
+    "matches": 128,
+    "observations": 128,
+    "positive_observed_matches": 119,
+    "positive_observed_count": 119,
+    "exceptions": []
+  },
+  "hp_x2": {
+    "field": "hp",
+    "matches": 127,
+    "observations": 130,
+    "positive_observed_matches": 122,
+    "positive_observed_count": 125,
+    "exceptions": [
+      {
+        "base_id": 4582,
+        "name": "Ancient Shissar Gauntlet",
+        "target_id": 604582,
+        "category": "armor",
+        "field": "hp",
+        "stock": 0,
+        "normal": 0,
+        "observed": 10,
+        "ratio": null,
+        "delta": 10,
+        "type": "addition-from-zero",
+        "expected": 0
+      },
+      {
+        "base_id": 31237,
+        "name": "Kelsiferous' Armband of Artistry",
+        "target_id": 631237,
+        "category": "armor",
+        "field": "hp",
+        "stock": 0,
+        "normal": 0,
+        "observed": 10,
+        "ratio": null,
+        "delta": 10,
+        "type": "addition-from-zero",
+        "expected": 0
+      },
+      {
+        "base_id": 31339,
+        "name": "Shining Metallic Pantaloons",
+        "target_id": 631339,
+        "category": "armor",
+        "field": "hp",
+        "stock": 0,
+        "normal": 0,
+        "observed": 10,
+        "ratio": null,
+        "delta": 10,
+        "type": "addition-from-zero",
+        "expected": 0
+      }
+    ]
+  },
+  "mana_x2": {
+    "field": "mana",
+    "matches": 121,
+    "observations": 130,
+    "positive_observed_matches": 116,
+    "positive_observed_count": 125,
+    "exceptions": [
+      {
+        "base_id": 4582,
+        "name": "Ancient Shissar Gauntlet",
+        "target_id": 604582,
+        "category": "armor",
+        "field": "mana",
+        "stock": 0,
+        "normal": 0,
+        "observed": 10,
+        "ratio": null,
+        "delta": 10,
+        "type": "addition-from-zero",
+        "expected": 0
+      },
+      {
+        "base_id": 21998,
+        "name": "Cape of Endless Torment",
+        "target_id": 621998,
+        "category": "accessory_or_held",
+        "field": "mana",
+        "stock": 175,
+        "normal": 175,
+        "observed": 340,
+        "ratio": 1.9428571428571428,
+        "delta": 165,
+        "type": "ratio",
+        "expected": 350
+      },
+      {
+        "base_id": 24570,
+        "name": "Songblade of the Eternal",
+        "target_id": 624570,
+        "category": "weapon",
+        "field": "mana",
+        "stock": 165,
+        "normal": 165,
+        "observed": 380,
+        "ratio": 2.303030303030303,
+        "delta": 215,
+        "type": "ratio",
+        "expected": 330
+      },
+      {
+        "base_id": 26991,
+        "name": "Band of Prismatic Focus",
+        "target_id": 626991,
+        "category": "accessory_or_held",
+        "field": "mana",
+        "stock": 170,
+        "normal": 170,
+        "observed": 350,
+        "ratio": 2.0588235294117645,
+        "delta": 180,
+        "type": "ratio",
+        "expected": 340
+      },
+      {
+        "base_id": 28654,
+        "name": "Amulet of Crystal Dreams",
+        "target_id": 628654,
+        "category": "accessory_or_held",
+        "field": "mana",
+        "stock": 165,
+        "normal": 165,
+        "observed": 360,
+        "ratio": 2.1818181818181817,
+        "delta": 195,
+        "type": "ratio",
+        "expected": 330
+      },
+      {
+        "base_id": 28665,
+        "name": "Zealot's Spiked Bracer",
+        "target_id": 628665,
+        "category": "armor",
+        "field": "mana",
+        "stock": 195,
+        "normal": 195,
+        "observed": 350,
+        "ratio": 1.794871794871795,
+        "delta": 155,
+        "type": "ratio",
+        "expected": 390
+      },
+      {
+        "base_id": 28890,
+        "name": "Cord of Midnight",
+        "target_id": 628890,
+        "category": "accessory_or_held",
+        "field": "mana",
+        "stock": 85,
+        "normal": 85,
+        "observed": 85,
+        "ratio": 1.0,
+        "delta": 0,
+        "type": "ratio",
+        "expected": 170
+      },
+      {
+        "base_id": 31461,
+        "name": "Silver Bracelet of Speed",
+        "target_id": 631461,
+        "category": "armor",
+        "field": "mana",
+        "stock": 0,
+        "normal": 0,
+        "observed": 10,
+        "ratio": null,
+        "delta": 10,
+        "type": "addition-from-zero",
+        "expected": 0
+      },
+      {
+        "base_id": 68196,
+        "name": "Sandals of Empowerment",
+        "target_id": 668196,
+        "category": "armor",
+        "field": "mana",
+        "stock": 190,
+        "normal": 190,
+        "observed": 360,
+        "ratio": 1.894736842105263,
+        "delta": 170,
+        "type": "ratio",
+        "expected": 380
+      }
+    ]
+  },
+  "haste_round1.5": {
+    "field": "haste",
+    "matches": 120,
+    "observations": 120,
+    "positive_observed_matches": 9,
+    "positive_observed_count": 9,
+    "exceptions": []
+  },
+  "attack_piecewise": {
+    "field": "attack",
+    "matches": 125,
+    "observations": 128,
+    "positive_observed_matches": 104,
+    "positive_observed_count": 107,
+    "exceptions": [
+      {
+        "base_id": 14733,
+        "name": "Shuriken of Eternity",
+        "target_id": 614733,
+        "category": "weapon",
+        "field": "attack",
+        "stock": 25,
+        "normal": 25,
+        "observed": 118,
+        "ratio": 4.72,
+        "delta": 93,
+        "type": "ratio",
+        "expected": 30
+      },
+      {
+        "base_id": 40035,
+        "name": "Sharpened Bloodtusk Lance",
+        "target_id": 640035,
+        "category": "weapon",
+        "field": "attack",
+        "stock": 0,
+        "normal": 0,
+        "observed": 3,
+        "ratio": null,
+        "delta": 3,
+        "type": "addition-from-zero",
+        "expected": 5
+      },
+      {
+        "base_id": 68198,
+        "name": "Bracer of Timeless Rage",
+        "target_id": 668198,
+        "category": "armor",
+        "field": "attack",
+        "stock": 20,
+        "normal": 20,
+        "observed": 25,
+        "ratio": 1.25,
+        "delta": 5,
+        "type": "ratio",
+        "expected": 23
+      }
+    ]
+  },
+  "accuracy_half_dex": {
+    "field": "accuracy",
+    "matches": 125,
+    "observations": 127,
+    "positive_observed_matches": 70,
+    "positive_observed_count": 71,
+    "exceptions": [
+      {
+        "base_id": 11598,
+        "name": "Magi`Kot's Sleeves of Convergence",
+        "target_id": 611598,
+        "category": "armor",
+        "field": "accuracy",
+        "stock": 0,
+        "normal": 0,
+        "observed": 0,
+        "ratio": null,
+        "delta": 0,
+        "type": "zero-preserved",
+        "expected": 9
+      },
+      {
+        "base_id": 40035,
+        "name": "Sharpened Bloodtusk Lance",
+        "target_id": 640035,
+        "category": "weapon",
+        "field": "accuracy",
+        "stock": 0,
+        "normal": 0,
+        "observed": 3,
+        "ratio": null,
+        "delta": 3,
+        "type": "addition-from-zero",
+        "expected": 5
+      }
+    ]
+  },
+  "spelldmg_max_2int_wis": {
+    "field": "spelldmg",
+    "matches": 127,
+    "observations": 128,
+    "positive_observed_matches": 119,
+    "positive_observed_count": 120,
+    "exceptions": [
+      {
+        "base_id": 40035,
+        "name": "Sharpened Bloodtusk Lance",
+        "target_id": 640035,
+        "category": "weapon",
+        "field": "spelldmg",
+        "stock": 0,
+        "normal": 0,
+        "observed": 8,
+        "ratio": null,
+        "delta": 8,
+        "type": "addition-from-zero",
+        "expected": 16
+      }
+    ]
+  },
+  "healamt_2wis": {
+    "field": "healamt",
+    "matches": 125,
+    "observations": 126,
+    "positive_observed_matches": 93,
+    "positive_observed_count": 94,
+    "exceptions": [
+      {
+        "base_id": 40035,
+        "name": "Sharpened Bloodtusk Lance",
+        "target_id": 640035,
+        "category": "weapon",
+        "field": "healamt",
+        "stock": 0,
+        "normal": 0,
+        "observed": 8,
+        "ratio": null,
+        "delta": 8,
+        "type": "addition-from-zero",
+        "expected": 16
+      }
+    ]
+  }
+}

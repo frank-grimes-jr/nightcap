@@ -1,0 +1,50 @@
+[
+  {
+    "id": 25,
+    "name": "Spell Casting Subtlety",
+    "before": 3,
+    "after": 0
+  },
+  {
+    "id": 565,
+    "name": "[WIZ] Mana Burn",
+    "before": 0,
+    "after": 1
+  },
+  {
+    "id": 625,
+    "name": "[WIZ] Volatile Mana Blaze",
+    "before": 0,
+    "after": 1
+  },
+  {
+    "id": 793,
+    "name": "[WIZ] Mana Blast",
+    "before": 0,
+    "after": 1
+  },
+  {
+    "id": 794,
+    "name": "[WIZ] Mana Blaze",
+    "before": 0,
+    "after": 1
+  },
+  {
+    "id": 912,
+    "name": "[WAR] Warlord's Fury",
+    "before": 0,
+    "after": 1
+  },
+  {
+    "id": 1156,
+    "name": "[WIZ] Hastened Manaburn",
+    "before": 0,
+    "after": 6
+  },
+  {
+    "id": 30201,
+    "name": "[WIZ] Dimensional Shielding",
+    "before": 0,
+    "after": 1
+  }
+]

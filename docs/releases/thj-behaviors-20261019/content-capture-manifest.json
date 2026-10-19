@@ -1,0 +1,7 @@
+{
+  "captured_utc": "2026-10-19T21:48:32Z",
+  "raw_sha256": "867a1a0f40c775c30b0f083942c0ec6aea7f57aa7a53c32e2a4c8c65ffe5f39a",
+  "fixture_sha256": "75a48f4d3a83ebac4107c62d4352fe573c218d59c6f194e8da8ab615ffef0c28",
+  "raw_and_fixture_json_equal": true,
+  "scope": "Public spell and AA tables only; compression differs, content identical"
+}

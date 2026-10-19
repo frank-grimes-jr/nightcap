@@ -1,0 +1,29 @@
+{
+  "status": "source_findings_resolved",
+  "findings": [
+    {
+      "area": "native",
+      "issue": "Act of Valor skipped native recipient heal focus and HealRate",
+      "resolution": "Retain SPA393/395 percent terms, SPA120, then SPA394; clamp nonpositive healing before uint64, pass spell identity. No outgoing focus, critical healing or HA.",
+      "proof": "native-verification.json:85 checks; independent-review.json"
+    },
+    {
+      "area": "migration",
+      "issue": "Full stock payload exceeded default transport packet",
+      "resolution": "Bound hash/value staging INSERTs and use a constant-size procedure with one guarded joined UPDATE.",
+      "proof": "migration-tests.json and database-rehearsal.json"
+    },
+    {
+      "area": "migration",
+      "issue": "Partial staging with continue-on-error could skip guards",
+      "resolution": "Expected count and matching ID sets must pass before item writes. Stop-on-error remains mandatory.",
+      "proof": "test_thj_item_staging.py, migration-tests.json"
+    },
+    {
+      "area": "cache",
+      "issue": "Optional new test account rejected by automatic approval review",
+      "resolution": "No account/grant/config changes. Target regenerates complete caches with existing credentials; no diagnostic caches shipped.",
+      "proof": "cache-verification.json"
+    }
+  ]
+}
