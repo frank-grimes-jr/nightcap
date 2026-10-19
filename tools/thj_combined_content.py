@@ -80,8 +80,8 @@ if __name__=='__main__':
     from wpm_migration import migration as group_migration
     (RELEASE/'wpm-content-forward.sql').write_text(group_migration(wpm_content.groups(include_gear=False),'nightcap_wpm_items_20261018'),encoding='utf-8')
     rules=[{'ruleset_id':1,'rule_name':'Spells:'+name,'rule_value':'true','notes':note} for name,note in (
-        ('NightcapTHJDamageScaling','THJ historical additive direct SD and half-SD ticks; critical ordering is Nightcap calibration'),
-        ('NightcapHeroicSpellScaling','Client direct values gain 0.1 percent per heroic INT/WIS; periodic ticks excluded'))]
+        ('NightcapTHJDamageScaling','Player/permanent-pet item SD adds to direct damage; half SD per DoT tick before native critical ratio. Healing retains its separate legacy policy'),
+        ('NightcapHeroicSpellScaling','Player heroic INT/WIS add 0.1 percent per point to final direct damage/healing; excludes DoTs and HoTs'))]
     existing=capture()['tables']['rule_values']
     for mode in ('forward','disable','enable'):
         groups=[]

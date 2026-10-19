@@ -1,5 +1,23 @@
 [
   {
+    "release": 2026101802,
+    "date": "2026-10-18",
+    "changes": [
+      {
+        "kind": "feature",
+        "text": "Ascended item values and spell scaling now follow reviewed THJ references. Starter quality upgrades stay modest, and dungeon gear remains a meaningful step up."
+      },
+      {
+        "kind": "feature",
+        "text": "Permanent pet equipment now supports full item instances and augments across three pages, with 15 Mage items or eight for other pet classes. Pet support spells and shared Spell Damage/Heal Amount caps are updated."
+      },
+      {
+        "kind": "feature",
+        "text": "Earned shield and melee AAs, heroic Strength scaling, weapon procs and support effects are updated for held classes. This balance release is open for in-game testing."
+      }
+    ]
+  },
+  {
     "release": 2026101801,
     "date": "2026-10-18",
     "changes": [

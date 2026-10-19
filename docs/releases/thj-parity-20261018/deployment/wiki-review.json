@@ -1,0 +1,118 @@
+{
+  "status": "published_verified",
+  "date": "2026-10-18",
+  "articles": {
+    "about": {
+      "decision": "Reviewed; no impact on this guide or its commands",
+      "before_sha256": "d30e64f41dd4395f4d27163407a134527fca9bf9892dabd816774bd0ebcd1da0",
+      "after_sha256": "d30e64f41dd4395f4d27163407a134527fca9bf9892dabd816774bd0ebcd1da0"
+    },
+    "advanced-loot": {
+      "decision": "Reviewed; no impact on this guide or its commands",
+      "before_sha256": "0f0870dd8c5e412c0a673a7ff551a952965397e5b2ce0dd6bb67ac1336c0e506",
+      "after_sha256": "0f0870dd8c5e412c0a673a7ff551a952965397e5b2ce0dd6bb67ac1336c0e506"
+    },
+    "ascension": {
+      "decision": "Reviewed; no impact on this guide or its commands",
+      "before_sha256": "63a95cfaac55cdafad7aed7a731406b01dfdabbb6053e4364371cd283f19d036",
+      "after_sha256": "63a95cfaac55cdafad7aed7a731406b01dfdabbb6053e4364371cd283f19d036"
+    },
+    "combat": {
+      "decision": "Updated deployed behavior and status; retained unrelated guidance",
+      "before_sha256": "8c05a9eae4aa15c2a59b2a850c669e8560ce62c23c78e86449678c29a00c549b",
+      "after_sha256": "230b3f8c3230ad200ddbc13f1d493ab46c55744abd60ec4d16f810369862b6d9"
+    },
+    "commands": {
+      "decision": "Reviewed; no impact on this guide or its commands",
+      "before_sha256": "b23435918515e34f6db39189f0d072847b19599dff37c3739daf724839c66bd3",
+      "after_sha256": "b23435918515e34f6db39189f0d072847b19599dff37c3739daf724839c66bd3"
+    },
+    "dungeon-modes": {
+      "decision": "Updated deployed behavior and status; retained unrelated guidance",
+      "before_sha256": "13988c4769a7d99bfa4847001c6fc7f9af0e9c5ecd043cd496d7c7dbfbc86197",
+      "after_sha256": "4462b643166348d3a14440504d5dc70b26d0d5314edb10b3a6d6b9860681aa3e"
+    },
+    "equipment": {
+      "decision": "Updated deployed behavior and status; retained unrelated guidance",
+      "before_sha256": "0e703654e98357391387c11181aa84e32b22a13399c61738867faf9570837e14",
+      "after_sha256": "628c7e96507a1067b0ec9d47ad9497e87e23999ba82b0cdb7545d93a114567d5"
+    },
+    "features": {
+      "decision": "Updated deployed behavior and status; retained unrelated guidance",
+      "before_sha256": "3de670c209c920dee75bcd5e5f8dbc8474e9cf9d30b95eb5f72938937930cf5d",
+      "after_sha256": "a3b9a90ec1f0a464a73d5520271fbb8e6a82454202e8e6209765d536c21df055"
+    },
+    "getting-started": {
+      "decision": "Updated deployed behavior and status; retained unrelated guidance",
+      "before_sha256": "ecabf484ffe24abcb328070208d3f2d7cc956c8cf52e38dfcbf967664293d827",
+      "after_sha256": "d0345b28e91ec8c25d6cfd8a08675b345b0d87ddef23974eaa3284317c06b518"
+    },
+    "index": {
+      "decision": "Updated deployed behavior and status; retained unrelated guidance",
+      "before_sha256": "3230230fff93456089dcde5b1404a4d889b73a4767d33d5763646900a2b94209",
+      "after_sha256": "deba0201874d60e5af88d319da84378f887b35ee7ebe5f207dc4ca87a10da116"
+    },
+    "item-upgrades": {
+      "decision": "Updated deployed behavior and status; retained unrelated guidance",
+      "before_sha256": "f51512c2c0d00137b2c14d0acfc990b22ad77f2e9f17fecd93eead48865f7a25",
+      "after_sha256": "e4859e9c11acb798bcf50c8a0c1e00c7408d21934ceee7cf878174036429a3ff"
+    },
+    "launcher": {
+      "decision": "Updated deployed behavior and status; retained unrelated guidance",
+      "before_sha256": "740a01da8bd046df7bf0f2195bfdc5227739aed01bab95724e66f801a2d7f265",
+      "after_sha256": "ef7e556c7b38f349a2572950ec46ba17078aaa55d6512092372fa125d4cc01ef"
+    },
+    "multiclass": {
+      "decision": "Updated deployed behavior and status; retained unrelated guidance",
+      "before_sha256": "899dda7ea9e14a18916fdd0e1a14967beffc992a2ffe4540711786a865bd0a1a",
+      "after_sha256": "f2718804b6fc064d691e91201e1390a02dc2cef729159d02c88d393ce7b37f07"
+    },
+    "pets": {
+      "decision": "Updated deployed behavior and status; retained unrelated guidance",
+      "before_sha256": "2062db9c4d05fe08df6fe54df7711d58424eee397bd4a06bd9d593d0e3718551",
+      "after_sha256": "1e51604adaa09f62c429d51af24cca39ce241699436b60d24cfd7e5fb194fa29"
+    },
+    "recent-changes": {
+      "decision": "Updated deployed behavior and status; retained unrelated guidance",
+      "before_sha256": "467937e940cf8125c59325e1581dfa2cd80ab9dcb232a8fd815aaf428b7f1ac1",
+      "after_sha256": "1a6925b54e969360cbb44fc106f36af9347a670b6fc7997d8db6d8e74fafea09"
+    },
+    "tradeskills": {
+      "decision": "Reviewed; no impact on this guide or its commands",
+      "before_sha256": "d76ffea75fea16a2a353a5cab1b5e2b783a244908fcfa0903184cd8947a4de7b",
+      "after_sha256": "d76ffea75fea16a2a353a5cab1b5e2b783a244908fcfa0903184cd8947a4de7b"
+    },
+    "travel": {
+      "decision": "Updated deployed behavior and status; retained unrelated guidance",
+      "before_sha256": "fc23af896c708c9fc803a3b5360dc6ea0c10e46e5a9e662c9d943d2293255a6e",
+      "after_sha256": "ebd1b57137152c4662b0e955fcba23094c1b710754249d7b048bf02131752b0d"
+    },
+    "tunnel": {
+      "decision": "Updated deployed behavior and status; retained unrelated guidance",
+      "before_sha256": "355a7f04dcebe1d7a6870d2753f48e2c4347f8ab74760ce7a3e00bf3ac841d52",
+      "after_sha256": "22b9d44a9b8cd4f4ca90ef1ad5f34cbc34533517a8a212612a1e2556f87e0e0b"
+    },
+    "unreleased": {
+      "decision": "Updated deployed behavior and status; retained unrelated guidance",
+      "before_sha256": "ab401f4315a870fbf3188151ddd8dd4048a2110aaca6ab52ca4cb8b3a5bb856b",
+      "after_sha256": "e8eab31aab603fcedd7fc0cb859f2a35881f9177bb75e88faf45df7c21590ca7"
+    },
+    "waypoints": {
+      "decision": "Reviewed; no impact on this guide or its commands",
+      "before_sha256": "9ef8b93fa52d5b83c479bbb3c877fab4f9373c0f26c84c43908edf3d7e5666bc",
+      "after_sha256": "9ef8b93fa52d5b83c479bbb3c877fab4f9373c0f26c84c43908edf3d7e5666bc"
+    },
+    "zone-hunt": {
+      "decision": "Updated deployed behavior and status; retained unrelated guidance",
+      "before_sha256": "e1e195a996c48c44afbaab1b1fcd238510f9c9806ea58b7433b1f37a9bcf7de4",
+      "after_sha256": "b9752f9f66f707e8593020595d8495dc8bc6af22613dc402c9ae727ca70d2f77"
+    }
+  },
+  "generated_routes": {
+    "count": 432,
+    "decision": "Published Hunt projection has no IDs affected by this item migration; retain all values/routes. Dungeon budgets are described in guides; they are not entries in this Hunt catalog."
+  },
+  "commands": "Reviewed: no command syntax changes; pet Equipment interaction updated in Pets.",
+  "gameplay_accepted": false,
+  "release": "20261018-thj-parity-v1"
+}

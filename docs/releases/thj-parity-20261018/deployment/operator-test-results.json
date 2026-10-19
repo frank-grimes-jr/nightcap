@@ -1,0 +1,12 @@
+{
+  "windows": {
+    "tests": 29,
+    "result": "PASS"
+  },
+  "linux": {
+    "tests": 29,
+    "result": "PASS",
+    "log": "linux-operator-tests.log"
+  },
+  "native_source_unchanged_after_47_case_matrix": true
+}

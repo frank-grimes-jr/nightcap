@@ -1,0 +1,5 @@
+Promote the combined THJ item/spell, starter progression and pet/WPM candidate from test for owner-authorized server testing. This tunes 131 observed Ascended targets, adds direct Spell Damage and half-SD DoT ticks, applies heroic INT/WIS to direct values, and preserves the paired pet equipment, earned AA and melee work.
+
+Validation: 165 unique regression/migration tests; 47 native scenarios with 10,800 spell samples and 12 mechanics assertion groups; native AA eligibility and source/binary pairing checks. The test tree matches the tested feature tree. Production activation uses matching world/zone/shared_memory, guarded content migrations, fresh caches and the signed five-file client delta over the current 138-file base.
+
+The owner explicitly requested “Push to main and server.” This authorizes promotion and deployment for testing; manual gameplay and balance acceptance remain open. Known native controls show increased WPM shield burst and lower fixed-controller caster/pet output. See docs/releases/thj-parity-20261018/QA.md and COMPARISON.md for exact in-game gates. Classic level 50 remains active.

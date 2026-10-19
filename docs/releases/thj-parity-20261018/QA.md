@@ -1,7 +1,9 @@
-# Owner testing: combined scaling candidate
+# Owner testing: combined deployed scaling release
 
-Run against the isolated test candidate with its matching world/zone/cache loader,
-generated item/spell caches and NCPA2/proxy0.11.0 client delta. Record the exact
+The combined release is deployed for owner testing. Close EverQuest and reopen
+the normal launcher for signed game2026101802 and NCPA2/proxy0.11.0. Use a
+disposable GM character for later-era fixtures; the live era remains Classic50.
+The same matching binaries and caches are retained for isolated comparisons. Record the exact
 bundle hashes, class order, level, earned AA points, gear/augments, buffs, target,
 seed where available, time to kill, damage, mana spent and healing. A pass on one
 build is not acceptance of every class order or later-era encounter.

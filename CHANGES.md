@@ -1,5 +1,21 @@
 # CHANGES
 
+## 2026-10-18 - Combined THJ release deployed for live testing
+
+Promote the combined item/spell, starter/dungeon and pet/WPM candidate to main
+and OVH at the owner's explicit request. Deploy matching world/zone/shared_memory,
+ten guarded content components, fresh caches and signed client2026101802 over
+all138 current assets. Preserve Classic50, owned items/augments, earned AAs and
+saved cooldowns. Publish15 updated wiki guides and verify all465 public files.
+
+The first boot rewrote only three new rule descriptions from its compiled
+catalog. Exact review and clone recovery checks allowed a forward resume with
+no production SQL replay or player restore. Match generated rule descriptions
+to ruletypes.h so disable/enable guards survive world boot. The original hold,
+stopped backup and all component receipts remain retained. Never fall back to
+the older eight-location pet runtime while new state is owned. Gameplay and
+balance acceptance remain open; see docs/releases/thj-parity-20261018/deployment/.
+
 ## 2026-10-18 - Combined observed THJ item and spell scaling candidate
 
 Match supported numeric fields on131 observed Ascended targets, using clean
