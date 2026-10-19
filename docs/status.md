@@ -1,5 +1,17 @@
 # Current Nightcap status
 
+## Client Play incident — October 19; repair prepared, publication pending
+
+Owner reports runtime health contract mismatch on this PC and others. Signed
+game2026101802 contains proxy0.11.0 but a0.10.0 catalog; delivery hashes alone
+missed the incompatible pair. Prepared signed2026101901 replaces only the catalog.
+All137 other assets/URLs remain exact; no server restart or new desktop is needed.
+Regression, recorded-health replay, full Go suite and publisher recovery tests
+pass. [Repair evidence and exact owner QA](releases/client-contract-20261019/README.md).
+The prior release's hash verification is not evidence of successful native Play.
+Owner requested source promotion to main on October 19; signed publication and
+native Play acceptance remain separate pending steps.
+
 ## Combined THJ item/spell and pet/WPM — deployed October 18, live QA open
 
 Owner-authorized main promotion and OVH activation are complete. PR235 merged

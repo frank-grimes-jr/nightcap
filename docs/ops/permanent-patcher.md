@@ -1,5 +1,19 @@
 # Permanent Nightcap patcher
 
+## Mandatory proxy/catalog pairing gate — October 19 incident
+
+The signed2026101802 custom five-file delta omitted the0.11.0 patch catalog while
+replacing its DLL. All hosted hashes passed but Play failed across PCs. Use
+`preflight.CheckProxyCatalog` on the exact assembled DLL/catalog before signing,
+including retained files, as the ordinary packager now does. Then verify native
+runtime health. Static string/PE agreement detects mixed builds; it is not trust
+or proof of native readiness. A catalog change is required even when only the
+proxy version changed and all native guard sites stayed the same.
+
+Prepared catalog-only2026101901 preserves137 other assets/URLs and desktop0.6.0.
+Publication needs owner approval; do not manually edit installed signed catalogs,
+reset checkpoints or replace the DLL with older code. [Incident, recovery and QA](../releases/client-contract-20261019/README.md).
+
 The owner approved this flow on September 20, 2026. [ADR 0043](../adr/0043-permanent-nightcap-patcher.md) defines the trust and recovery boundaries.
 
 Players extract `nightcap-friends.zip` once into a permanent folder, make a shortcut to `nightcap-launcher.exe`, and keep their existing RoF2 game folder. The starter verifies `/launcher-channel.json`, downloads a changed desktop EXE and opens it. Launcher settings stay in `%APPDATA%/NightcapLauncher`; versioned EXEs and the separate rollback checkpoint stay in `%LOCALAPPDATA%/NightcapLauncher/applications`. The starter remains alive until its desktop exits, serializing starts and retaining verified file handles. Old cached versions remain; they are never selected as an unsigned or expired offline fallback.

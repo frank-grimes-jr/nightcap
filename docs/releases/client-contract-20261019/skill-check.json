@@ -1,0 +1,101 @@
+{
+  "affected": [
+    {
+      "path": "E:\\EQ_Local_Dev\\_worktrees\\client-contract-repair\\eq-launcher\\internal\\preflight\\proxy_catalog.go",
+      "role": "October19 reviewed client contract repair candidate; publication and native QA pending",
+      "state": "unchanged"
+    },
+    {
+      "path": "E:\\EQ_Local_Dev\\_worktrees\\client-contract-repair\\eq-launcher\\internal\\preflight\\proxy_catalog_test.go",
+      "role": "October19 reviewed client contract repair candidate; publication and native QA pending",
+      "state": "unchanged"
+    },
+    {
+      "path": "E:\\EQ_Local_Dev\\_worktrees\\client-contract-repair\\eq-launcher\\cmd\\nightcap-package\\main.go",
+      "role": "October19 reviewed client contract repair candidate; publication and native QA pending",
+      "state": "unchanged"
+    },
+    {
+      "path": "E:\\EQ_Local_Dev\\_worktrees\\client-contract-repair\\eq-client-dll\\config\\patch-sites.json",
+      "role": "October19 reviewed client contract repair candidate; publication and native QA pending",
+      "state": "unchanged"
+    },
+    {
+      "path": "E:\\EQ_Local_Dev\\_worktrees\\client-contract-repair\\docs\\releases\\client-contract-20261019\\README.md",
+      "role": "October19 reviewed client contract repair candidate; publication and native QA pending",
+      "state": "unchanged"
+    },
+    {
+      "path": "E:\\EQ_Local_Dev\\_worktrees\\client-contract-repair\\docs\\releases\\client-contract-20261019\\verification.json",
+      "role": "October19 reviewed client contract repair candidate; publication and native QA pending",
+      "state": "unchanged"
+    },
+    {
+      "path": "E:\\EQ_Local_Dev\\_worktrees\\client-contract-repair\\docs\\ops\\permanent-patcher.md",
+      "role": "October19 reviewed client contract repair candidate; publication and native QA pending",
+      "state": "unchanged"
+    },
+    {
+      "path": "E:\\EQ_Local_Dev\\_worktrees\\client-contract-repair\\docs\\releases\\client-contract-20261019\\prepare.go",
+      "role": "October19 reviewed client contract repair candidate; publication and native QA pending",
+      "state": "unchanged"
+    },
+    {
+      "path": "E:\\EQ_Local_Dev\\_worktrees\\client-contract-repair\\docs\\releases\\client-contract-20261019\\publish.py",
+      "role": "October19 reviewed client contract repair candidate; publication and native QA pending",
+      "state": "unchanged"
+    },
+    {
+      "path": "E:\\EQ_Local_Dev\\_worktrees\\client-contract-repair\\docs\\releases\\client-contract-20261019\\test_publish.py",
+      "role": "October19 reviewed client contract repair candidate; publication and native QA pending",
+      "state": "unchanged"
+    },
+    {
+      "path": "E:\\EQ_Local_Dev\\_worktrees\\client-contract-repair\\docs\\releases\\client-contract-20261019\\verify.go",
+      "role": "October19 reviewed client contract repair candidate; publication and native QA pending",
+      "state": "unchanged"
+    },
+    {
+      "path": "E:\\EQ_Local_Dev\\_worktrees\\client-contract-repair\\docs\\releases\\client-contract-20261019\\wiki-review.json",
+      "role": "October19 reviewed client contract repair candidate; publication and native QA pending",
+      "state": "unchanged"
+    },
+    {
+      "path": "E:\\EQ_Local_Dev\\_worktrees\\client-contract-repair\\wiki\\articles\\launcher.json",
+      "role": "October19 reviewed client contract repair candidate; publication and native QA pending",
+      "state": "unchanged"
+    },
+    {
+      "path": "E:\\EQ_Local_Dev\\_worktrees\\client-contract-repair\\wiki\\articles\\index.json",
+      "role": "October19 reviewed client contract repair candidate; publication and native QA pending",
+      "state": "unchanged"
+    },
+    {
+      "path": "E:\\EQ_Local_Dev\\_worktrees\\client-contract-repair\\wiki\\articles\\recent-changes.json",
+      "role": "October19 reviewed client contract repair candidate; publication and native QA pending",
+      "state": "unchanged"
+    },
+    {
+      "path": "E:\\EQ_Local_Dev\\_worktrees\\client-contract-repair\\wiki\\articles\\unreleased.json",
+      "role": "October19 reviewed client contract repair candidate; publication and native QA pending",
+      "state": "unchanged"
+    }
+  ],
+  "other_drift": [
+    {
+      "path": "E:\\EQ_Local_Dev\\_worktrees\\october-17-release\\eq-launcher\\patch-notes.json",
+      "role": "Published signed dungeon announcement2026101701; all106 asset records and thirteen prior summaries retained",
+      "state": "changed: review implementation and evidence"
+    },
+    {
+      "path": "E:\\EQ_Local_Dev\\_worktrees\\october-17-release\\eq-launcher\\patch-notes.json",
+      "role": "Published signed dungeon announcement2026101701; all106 asset records and thirteen prior summaries retained",
+      "state": "changed: review implementation and evidence"
+    },
+    {
+      "path": "E:\\EQ_Local_Dev\\_worktrees\\october-17-release\\eq-launcher\\patch-notes.json",
+      "role": "Published signed dungeon announcement2026101701; all106 asset records and thirteen prior summaries retained",
+      "state": "changed: review implementation and evidence"
+    }
+  ]
+}

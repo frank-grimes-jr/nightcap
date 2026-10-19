@@ -1,0 +1,31 @@
+{
+  "result": "REVIEW REQUIRED",
+  "reviewed": "2026-10-18",
+  "source_ref": "HEAD",
+  "changed_sources": [
+    "docs/ops/permanent-patcher.md",
+    "docs/releases/client-contract-20261019/README.md",
+    "docs/releases/client-contract-20261019/prepare.go",
+    "docs/releases/client-contract-20261019/previous-channel.json",
+    "docs/releases/client-contract-20261019/publish.py",
+    "docs/releases/client-contract-20261019/test_publish.py",
+    "docs/releases/client-contract-20261019/verification.json",
+    "docs/releases/client-contract-20261019/verify.go",
+    "docs/releases/client-contract-20261019/wiki-drift.txt",
+    "docs/releases/client-contract-20261019/wiki-review.json",
+    "docs/releases/thj-parity-20261018/deployment/completion-pr.md",
+    "docs/releases/thj-parity-20261018/deployment/skill-maintenance.json",
+    "docs/releases/thj-parity-20261018/deployment/skill-update.patch",
+    "docs/releases/thj-parity-20261018/deployment/skill-validation.json",
+    "docs/releases/thj-parity-20261018/deployment/wiki-publication.json",
+    "docs/releases/thj-parity-20261018/deployment/wiki-refresh-final.json",
+    "docs/status.md",
+    "eq-launcher/cmd/client-contract-repair/main.go",
+    "eq-launcher/cmd/nightcap-package/main.go",
+    "eq-launcher/cmd/nightcap-package/notes_test.go",
+    "eq-launcher/internal/preflight/proxy_catalog.go",
+    "eq-launcher/internal/preflight/proxy_catalog_test.go",
+    "eq-launcher/patch-notes.json"
+  ],
+  "note": "Also inspect current deployment/owner evidence and changes outside Git. No automatic approval or publication."
+}
