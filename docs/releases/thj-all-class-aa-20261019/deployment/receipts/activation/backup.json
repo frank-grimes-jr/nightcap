@@ -1,0 +1,7 @@
+{
+  "path": "/opt/nightcap/releases/all-class-aa-20261019/evidence/activation/private-backup/peq-before.sql.gz",
+  "sha256": "7baa1c10ddf537979dd2a19f2d847532dda1c66a36099e1a6fc1e429a427371a",
+  "compressed_bytes": 64416158,
+  "uncompressed_bytes": 460462012,
+  "gzip_integrity": "passed"
+}

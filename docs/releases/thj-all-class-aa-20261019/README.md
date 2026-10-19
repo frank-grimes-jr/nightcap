@@ -1,6 +1,6 @@
 # All-class AA update — October 19, 2026
 
-**Implementation candidate; not deployed.** All16 classes were reviewed against
+**Deployed to main and the server for live testing on October19. Owner gameplay and balance acceptance remain open.** All16 classes were reviewed against
 566 archived THJ ability records, the retained Google notebook and released forum
 patch notes. The source includes main client-contract repair16bfe18 and its published follow-up07b002b;
 the AA comparison baseline remains the unchanged October18 release73358d.
@@ -43,9 +43,11 @@ AA tables against the released fixture, not deployment evidence.
 
 ## Deployment and rollback contract
 
-Follow the normal feature→dev→test→owner QA→main policy. The prior October18
-main/server authorization applied to that release. Do not deploy this candidate
-or publish its wiki notices without the appropriate new approval.
+The owner explicitly requested this AA update move to main and the server for
+testing on October19. PR250 promoted the tested source at c3f0686. The
+[deployment record](deployment/README.md) and immutable receipts verify
+activation, preservation and publication; this approval does not imply gameplay
+acceptance or standing permission for future releases.
 
 1. Recheck current native source, production AA content, era, client repair and
    the latest release receipts. Use the preserved client0.11.0 with its matching
@@ -67,3 +69,18 @@ ranks. Keep the separately released pet/WPM content and client repair intact.
 The local candidate binary is built from fingerprinted retained source with only
 the policy header changed. The new header's consumer is `zone/aa.cpp`; no rule
 catalog, ItemData or world/shared_memory implementation changes are introduced.
+
+## Verified live release
+
+All12 zone processes run SHA256 `e1dd9c4cdd6bf95db7ffc909f224b1603e9e07e1ad05925bcdd7bd0359cd3eb0`.
+The existing world/shared-memory binaries, Classic50, rules, item/spell caches,
+quests and client2026101901 remain. A fresh64,416,158-byte gzip-tested backup
+and47 player/28 custom-table fingerprints verify preservation. No player rows
+were restored and no points/ranks were granted. Market startup rotated once
+from85 to86 with42 valid offers within44 slots. All138 published client assets
+remain exact. Game and gateway are healthy and open.
+
+Wiki20261019-all-class-aa-v1 is published; all465 public hashes/security headers
+and five private-route denials pass. Six guides changed after all21 guides and
+432 generated reward routes were reviewed. Owner AA gameplay/balance checks
+remain open; reconnect and turn Recommended AA off before following QA.md.

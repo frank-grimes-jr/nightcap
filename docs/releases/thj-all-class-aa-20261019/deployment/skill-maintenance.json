@@ -1,0 +1,12 @@
+{
+  "status": "installed",
+  "date": "2026-10-19",
+  "references": [
+    "multiclass",
+    "operations",
+    "wiki"
+  ],
+  "reviewed_pins": 41,
+  "source_revision": "c3f0686867cf40660166e59a30427dfa1ce7423b + reviewed deployment documentation",
+  "owner_gameplay_accepted": false
+}
