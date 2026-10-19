@@ -1,5 +1,22 @@
 # Current Nightcap status
 
+## WPM melee and pet integration — candidate, not deployed
+
+The combined candidate now includes the original WPM melee plan: held-class
+combat, shield damage/sustain, six Monk attacks, earned AA depth, heroic STR
+and named item effects with earned acquisition. It also expands permanent pet gear, actual augment procs, owner-stat and
+earned-AA transfer, friendly pet healing, roster buffs and Doppelganger support.
+Shared output changes cover WPM and pets/casters. Rabid Bear has independent
+permanent benefit/illusion effects. New fragments, selected gear changes and an
+earned level-65/PoP profile are staged. Live remains Classic/50. No runtime,
+player-data, signed-client or wiki publication changes. The combined 134-test
+suite passes without skips; native AA checks cover 6,960 eligibility cases.
+Independent WPM review and26 native scenarios pass, including checked shield
+swaps, six attack timers, item/AA procs, runes and pet equipment/stat inheritance.
+Native AA checks also cover eight RoF2 expansion boundaries. Actual client
+lifecycle/gameplay acceptance, wider balance validation and activation remain
+pending. [Combined implementation and recovery](releases/wpm-melee-20261018/README.md).
+
 ## October 18 ordinary loot rates - live
 
 Activated at 2:36 p.m. Eastern: 20% Polished / 5% Exalted / 1% Ascended per eligible ordinary equipment/bag drop. Global rules reload verified in world and all 12 workers without a restart; other rules preserved. Player balance acceptance remains open. Quest guarantee is design-only. [Evidence](ops/loot-quality-rates-20261018/README.md).

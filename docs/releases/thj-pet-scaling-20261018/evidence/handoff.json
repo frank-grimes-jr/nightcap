@@ -1,0 +1,40 @@
+{
+  "utc": "2026-10-18T21:44:08.431968+00:00",
+  "status": "built_and_tested_candidate_not_deployed",
+  "base": "a8e0a91",
+  "branch": "feature/thj-pet-scaling",
+  "native_sources_verified": 22,
+  "zone_sha256": "e80cb3864bd958c81fcf6f059b3837117c65087211953dc481c6634f8d41753a",
+  "world_sha256": "ff23210c917e2265205f7d2c4f4560fff69b98d858859fd3dd0896bca59c2cfd",
+  "proxy_version": "0.11.0",
+  "proxy_sha256": "9dd6ad400d7390f95c3af88ffe70a67c180368a213e13cc951cee20fefb63380",
+  "regression_tests": 76,
+  "native_aa_eligibility_cases": 6714,
+  "native_heal_target_cases": 99,
+  "client_fixture_executables": 5,
+  "wiki_linux_tests": 30,
+  "wiki_node_test_entries": 8,
+  "installed_skill": "updated and validated; 32 candidate fingerprints verified",
+  "sql": {
+    "docs/releases/thj-pet-scaling-20261018/content/pet-content-acquisition-rollback.sql": "0954e9514707a1f8f4da621f32b6cbe908624b377ce0c3c315ef40e983e5a281",
+    "docs/releases/thj-pet-scaling-20261018/content/pet-content-forward.sql": "5c2c6bd82778afa370c0b3d4d15fd73eae03ee7f98f262539fc8c9d9e7c118c7",
+    "docs/releases/thj-pet-scaling-20261018/content/pet-support-forward.sql": "2eb1cceba079f3c93c7760f344446fd6de2b3e5db0072089993dd0e0f7987a5a",
+    "docs/releases/thj-pet-scaling-20261018/content/pet-support-rollback.sql": "2bd1cd8acc3b27f9d4cb4fc46e9d17e29050e33c33df638bdd06672592141a15",
+    "docs/releases/thj-pet-scaling-20261018/content/progression/forward.sql": "1f22835f0eeb36d1ec505ab866c707d59b0e8d33d18f81bc1a872339da689589",
+    "docs/releases/thj-pet-scaling-20261018/content/progression/vendor_restock.sql": "15a668e9fbe9f94369b80d7a8c46bed44c69fed69a67a1395600e8753fc0a54e",
+    "docs/releases/thj-pet-scaling-20261018/content/rabid-forward.sql": "09e81c078a3639780a4070f129f3c2e94c26404a742c5ca7f4a59cd9b7785578",
+    "docs/releases/thj-pet-scaling-20261018/content/rabid-rollback.sql": "5ad8b3b8e49ad835d1e588784a819679ff1a0c99b36da35317afd5b5ea258a58"
+  },
+  "pending": [
+    "independent review",
+    "native client/combat/lifecycle QA",
+    "signed full-client reconciliation",
+    "guarded PoP activation operator and world/travel acceptance",
+    "deployment/publication"
+  ],
+  "intentional_limits": [
+    "native pet template melee retained",
+    "native clone movement retained",
+    "fragment and rune amounts are Nightcap calibration"
+  ]
+}

@@ -37,11 +37,13 @@ using uint64 = uint64_t;
 #define LogError(...) ((void)0)
 constexpr int MAX_PP_AA_ARRAY = 240;
 namespace AACategory { constexpr int ShroudPassive=3, ShroudActive=4; }
-namespace EQ { namespace versions { constexpr int maskTitaniumAndEarlier=1; } }
+namespace EQ { namespace versions { constexpr int maskTitaniumAndEarlier=1; enum class ClientVersion { RoF2, UF }; }
+namespace expansions { uint32 ConvertClientVersionToExpansionsMask(versions::ClientVersion v) { return v==versions::ClientVersion::RoF2 ? 0x7ffff : 0x7fff; } } }
 namespace RaceIndex { constexpr int Drakkin=16; }
 namespace Race { constexpr int Human=1, Drakkin=522; }
-#define RuleI(group,key) (std::string(#key)=="ExpansionSettings" ? 2097151 : 0)
-#define RuleB(group,key) false
+bool client_expansion_settings=true, current_era_aa_only=false;
+#define RuleI(group,key) (std::string(#key)=="ExpansionSettings" ? 2097151 : 4)
+#define RuleB(group,key) (std::string(#key)=="UseClientBasedExpansionSettings" ? client_expansion_settings : std::string(#key)=="UseCurrentExpansionAAOnly" ? current_era_aa_only : false)
 int GetPlayerRaceValue(int) { return 1; }
 class Mob; class Client;
 namespace AA {
@@ -97,6 +99,8 @@ public:
  int CharacterID() { return character_id; }
  int GetClassMask() { return mask; }
  int ClientVersionBit() { return 2; }
+ EQ::versions::ClientVersion client_version=EQ::versions::ClientVersion::RoF2;
+ EQ::versions::ClientVersion ClientVersion() const { return client_version; }
  int Admin() { return 0; }
  Profile& GetPP() { return m_pp; }
  bool HasValidEarnedAAState() { return valid; }
@@ -168,6 +172,19 @@ int main() {
  }
  a.id=515; AA::Rank forbidden{1,1,17,1,&a,nullptr};
  assert(!c.CanUseAlternateAdvancementRank(&forbidden));
+ // Actual RoF2 mask, not the old fixture's all21-expansion entitlement.
+ a.id=1205; AA::Rank companion{16475,4,21,1,&a,nullptr};
+ c.m_pp.expansions=0x7ffff;assert(c.CanUseAlternateAdvancementRank(&companion));
+ c.m_pp.expansions=0x3ffff;assert(!c.CanUseAlternateAdvancementRank(&companion));
+ c.m_pp.expansions=0;assert(!c.CanUseAlternateAdvancementRank(&companion));
+ c.m_pp.expansions=0x7ffff;client_expansion_settings=false;assert(!c.CanUseAlternateAdvancementRank(&companion));
+ c.m_pp.expansions=2097151;assert(c.CanUseAlternateAdvancementRank(&companion));
+ client_expansion_settings=true;c.m_pp.expansions=0x7ffff;current_era_aa_only=true;
+ assert(!c.CanUseAlternateAdvancementRank(&companion));current_era_aa_only=false;
+ companion.id=16476;companion.current_value=5;assert(!c.CanUseAlternateAdvancementRank(&companion));
+ companion.id=16475;companion.current_value=4;c.client_version=EQ::versions::ClientVersion::UF;
+ assert(!c.CanUseAlternateAdvancementRank(&companion));c.client_version=EQ::versions::ClientVersion::RoF2;
+ c.m_pp.expansions=2097151;
  // Real policy ranks for Natural Durability: all at creation, higher release-excluded ranks dormant.
  std::map<int,AA::Rank> ranks;
  auto& durability=zone->abilities[28]; durability.id=28; durability.classes=0x1fffe;
@@ -221,7 +238,9 @@ int main() {
  c.client=false; assert(!c.CanPurchaseAlternateAdvancementRank(second,false,false)); c.client=true;
  c.aa_ranks.clear();
  c.SendAlternateAdvancementTable();
- assert(c.refresh==std::vector<int>({1,2,3,4,5,6}));
+ // Current native refresh intentionally preserves the client's loaded AA table.
+ // The removed ClearAA packet belongs to the older October 13 baseline.
+ assert(c.refresh==std::vector<int>({1,2,4,5,6}));
  // Previously earned Slay 10 survives while the expanded legal prefix restores 9.
  // Use the actual generated identities and costs; the excluded next rank is retained.
  std::map<std::pair<int,int>,AA::Rank> expanded;
@@ -261,7 +280,7 @@ int main() {
  c.m_pp.aapoints=6;assert(!c.CanPurchaseAlternateAdvancementRank(&expanded.at({75,9}),true,true));
  c.m_pp.aapoints=7;assert(c.CanPurchaseAlternateAdvancementRank(&expanded.at({75,9}),true,true));
  c.aa_ranks.erase(30);assert(!c.CanPurchaseAlternateAdvancementRank(&expanded.at({75,9}),true,true));
- std::cout << "{\"native_eligibility_cases\":" << checked << ",\"projection_checks\":9,\"restored_earned_rank_cases\":3,\"passed\":true}\n";
+ std::cout << "{\"native_eligibility_cases\":" << checked << ",\"client_expansion_checks\":8,\"projection_checks\":9,\"restored_earned_rank_cases\":3,\"passed\":true}\n";
 }
 '''
 

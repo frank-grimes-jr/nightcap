@@ -1,0 +1,1232 @@
+[
+  {
+    "table": "aa_ability",
+    "key": {
+      "id": 410
+    },
+    "before": [
+      {
+        "auto_grant_enabled": 1,
+        "category": -1,
+        "charges": 0,
+        "classes": 64,
+        "deities": 131071,
+        "drakkin_heritage": 127,
+        "enabled": 1,
+        "first_rank_id": 12706,
+        "grant_only": 0,
+        "id": 410,
+        "name": "[MNK] Fists of Steel",
+        "races": 65535,
+        "reset_on_death": 0,
+        "status": 0,
+        "type": 3
+      }
+    ],
+    "after": [
+      {
+        "auto_grant_enabled": 1,
+        "category": -1,
+        "charges": 0,
+        "classes": 64,
+        "deities": 131071,
+        "drakkin_heritage": 127,
+        "enabled": 1,
+        "first_rank_id": 12706,
+        "grant_only": 0,
+        "id": 410,
+        "name": "[MNK] Way of Steel",
+        "races": 65535,
+        "reset_on_death": 0,
+        "status": 0,
+        "type": 3
+      }
+    ]
+  },
+  {
+    "table": "aa_ability",
+    "key": {
+      "id": 605
+    },
+    "before": [
+      {
+        "auto_grant_enabled": 1,
+        "category": -1,
+        "charges": 0,
+        "classes": 1,
+        "deities": 131071,
+        "drakkin_heritage": 127,
+        "enabled": 1,
+        "first_rank_id": 4844,
+        "grant_only": 0,
+        "id": 605,
+        "name": "[WAR] Shield Specialist",
+        "races": 65535,
+        "reset_on_death": 0,
+        "status": 0,
+        "type": 3
+      }
+    ],
+    "after": [
+      {
+        "auto_grant_enabled": 1,
+        "category": -1,
+        "charges": 0,
+        "classes": 5,
+        "deities": 131071,
+        "drakkin_heritage": 127,
+        "enabled": 1,
+        "first_rank_id": 4844,
+        "grant_only": 0,
+        "id": 605,
+        "name": "[WAR PAL] Shield Specialist",
+        "races": 65535,
+        "reset_on_death": 0,
+        "status": 0,
+        "type": 3
+      }
+    ]
+  },
+  {
+    "table": "aa_ability",
+    "key": {
+      "id": 30200
+    },
+    "before": [],
+    "after": [
+      {
+        "auto_grant_enabled": 1,
+        "category": -1,
+        "charges": 0,
+        "classes": 4,
+        "deities": 131071,
+        "drakkin_heritage": 127,
+        "enabled": 1,
+        "first_rank_id": 43210,
+        "grant_only": 0,
+        "id": 30200,
+        "name": "[PAL] Holy Shield",
+        "races": 65535,
+        "reset_on_death": 0,
+        "status": 0,
+        "type": 3
+      }
+    ]
+  },
+  {
+    "table": "aa_rank_effects",
+    "key": {
+      "rank_id": 4844
+    },
+    "before": [
+      {
+        "base1": 5,
+        "base2": 0,
+        "effect_id": 349,
+        "rank_id": 4844,
+        "slot": 1
+      }
+    ],
+    "after": [
+      {
+        "rank_id": 4844,
+        "slot": 1,
+        "effect_id": 349,
+        "base1": 20,
+        "base2": 0
+      }
+    ]
+  },
+  {
+    "table": "aa_rank_effects",
+    "key": {
+      "rank_id": 4845
+    },
+    "before": [
+      {
+        "base1": 10,
+        "base2": 0,
+        "effect_id": 349,
+        "rank_id": 4845,
+        "slot": 1
+      }
+    ],
+    "after": [
+      {
+        "rank_id": 4845,
+        "slot": 1,
+        "effect_id": 349,
+        "base1": 40,
+        "base2": 0
+      }
+    ]
+  },
+  {
+    "table": "aa_rank_effects",
+    "key": {
+      "rank_id": 4846
+    },
+    "before": [
+      {
+        "base1": 15,
+        "base2": 0,
+        "effect_id": 349,
+        "rank_id": 4846,
+        "slot": 1
+      }
+    ],
+    "after": [
+      {
+        "rank_id": 4846,
+        "slot": 1,
+        "effect_id": 349,
+        "base1": 60,
+        "base2": 0
+      }
+    ]
+  },
+  {
+    "table": "aa_rank_effects",
+    "key": {
+      "rank_id": 4847
+    },
+    "before": [
+      {
+        "base1": 20,
+        "base2": 0,
+        "effect_id": 349,
+        "rank_id": 4847,
+        "slot": 1
+      }
+    ],
+    "after": [
+      {
+        "rank_id": 4847,
+        "slot": 1,
+        "effect_id": 349,
+        "base1": 80,
+        "base2": 0
+      }
+    ]
+  },
+  {
+    "table": "aa_rank_effects",
+    "key": {
+      "rank_id": 4848
+    },
+    "before": [
+      {
+        "base1": 25,
+        "base2": 0,
+        "effect_id": 349,
+        "rank_id": 4848,
+        "slot": 1
+      }
+    ],
+    "after": [
+      {
+        "rank_id": 4848,
+        "slot": 1,
+        "effect_id": 349,
+        "base1": 100,
+        "base2": 0
+      }
+    ]
+  },
+  {
+    "table": "aa_rank_effects",
+    "key": {
+      "rank_id": 6396
+    },
+    "before": [
+      {
+        "base1": 13503,
+        "base2": 0,
+        "effect_id": 85,
+        "rank_id": 6396,
+        "slot": 1
+      }
+    ],
+    "after": [
+      {
+        "rank_id": 6396,
+        "slot": 1,
+        "effect_id": 85,
+        "base1": 13503,
+        "base2": 10
+      }
+    ]
+  },
+  {
+    "table": "aa_rank_effects",
+    "key": {
+      "rank_id": 6397
+    },
+    "before": [
+      {
+        "base1": 13504,
+        "base2": 0,
+        "effect_id": 85,
+        "rank_id": 6397,
+        "slot": 1
+      }
+    ],
+    "after": [
+      {
+        "rank_id": 6397,
+        "slot": 1,
+        "effect_id": 85,
+        "base1": 13504,
+        "base2": 20
+      }
+    ]
+  },
+  {
+    "table": "aa_rank_effects",
+    "key": {
+      "rank_id": 6792
+    },
+    "before": [
+      {
+        "base1": 20,
+        "base2": 16140,
+        "effect_id": 339,
+        "rank_id": 6792,
+        "slot": 1
+      },
+      {
+        "base1": 21,
+        "base2": 0,
+        "effect_id": 137,
+        "rank_id": 6792,
+        "slot": 2
+      },
+      {
+        "base1": -18000,
+        "base2": 0,
+        "effect_id": 385,
+        "rank_id": 6792,
+        "slot": 3
+      },
+      {
+        "base1": 20,
+        "base2": 16140,
+        "effect_id": 339,
+        "rank_id": 6792,
+        "slot": 4
+      },
+      {
+        "base1": 343,
+        "base2": 0,
+        "effect_id": 137,
+        "rank_id": 6792,
+        "slot": 5
+      },
+      {
+        "base1": -18000,
+        "base2": 0,
+        "effect_id": 385,
+        "rank_id": 6792,
+        "slot": 6
+      }
+    ],
+    "after": [
+      {
+        "rank_id": 6792,
+        "slot": 1,
+        "effect_id": 339,
+        "base1": 25,
+        "base2": 16139
+      },
+      {
+        "rank_id": 6792,
+        "slot": 2,
+        "effect_id": 137,
+        "base1": 21,
+        "base2": 0
+      },
+      {
+        "rank_id": 6792,
+        "slot": 3,
+        "effect_id": 385,
+        "base1": -18000,
+        "base2": 0
+      },
+      {
+        "rank_id": 6792,
+        "slot": 4,
+        "effect_id": 339,
+        "base1": 25,
+        "base2": 16139
+      },
+      {
+        "rank_id": 6792,
+        "slot": 5,
+        "effect_id": 137,
+        "base1": 343,
+        "base2": 0
+      },
+      {
+        "rank_id": 6792,
+        "slot": 6,
+        "effect_id": 385,
+        "base1": -18000,
+        "base2": 0
+      }
+    ]
+  },
+  {
+    "table": "aa_rank_effects",
+    "key": {
+      "rank_id": 6793
+    },
+    "before": [
+      {
+        "base1": 20,
+        "base2": 16141,
+        "effect_id": 339,
+        "rank_id": 6793,
+        "slot": 1
+      },
+      {
+        "base1": 21,
+        "base2": 0,
+        "effect_id": 137,
+        "rank_id": 6793,
+        "slot": 2
+      },
+      {
+        "base1": -18000,
+        "base2": 0,
+        "effect_id": 385,
+        "rank_id": 6793,
+        "slot": 3
+      },
+      {
+        "base1": 20,
+        "base2": 16141,
+        "effect_id": 339,
+        "rank_id": 6793,
+        "slot": 4
+      },
+      {
+        "base1": 343,
+        "base2": 0,
+        "effect_id": 137,
+        "rank_id": 6793,
+        "slot": 5
+      },
+      {
+        "base1": -18000,
+        "base2": 0,
+        "effect_id": 385,
+        "rank_id": 6793,
+        "slot": 6
+      }
+    ],
+    "after": [
+      {
+        "rank_id": 6793,
+        "slot": 1,
+        "effect_id": 339,
+        "base1": 30,
+        "base2": 16139
+      },
+      {
+        "rank_id": 6793,
+        "slot": 2,
+        "effect_id": 137,
+        "base1": 21,
+        "base2": 0
+      },
+      {
+        "rank_id": 6793,
+        "slot": 3,
+        "effect_id": 385,
+        "base1": -18000,
+        "base2": 0
+      },
+      {
+        "rank_id": 6793,
+        "slot": 4,
+        "effect_id": 339,
+        "base1": 30,
+        "base2": 16139
+      },
+      {
+        "rank_id": 6793,
+        "slot": 5,
+        "effect_id": 137,
+        "base1": 343,
+        "base2": 0
+      },
+      {
+        "rank_id": 6793,
+        "slot": 6,
+        "effect_id": 385,
+        "base1": -18000,
+        "base2": 0
+      }
+    ]
+  },
+  {
+    "table": "aa_rank_effects",
+    "key": {
+      "rank_id": 12706
+    },
+    "before": [
+      {
+        "base1": 60,
+        "base2": 28,
+        "effect_id": 220,
+        "rank_id": 12706,
+        "slot": 1
+      },
+      {
+        "base1": 60,
+        "base2": 0,
+        "effect_id": 220,
+        "rank_id": 12706,
+        "slot": 2
+      },
+      {
+        "base1": 23598,
+        "base2": 3,
+        "effect_id": 427,
+        "rank_id": 12706,
+        "slot": 3
+      },
+      {
+        "base1": 28,
+        "base2": 0,
+        "effect_id": 428,
+        "rank_id": 12706,
+        "slot": 4
+      },
+      {
+        "base1": 0,
+        "base2": 0,
+        "effect_id": 428,
+        "rank_id": 12706,
+        "slot": 5
+      }
+    ],
+    "after": [
+      {
+        "rank_id": 12706,
+        "slot": 1,
+        "effect_id": 220,
+        "base1": 100,
+        "base2": 30
+      },
+      {
+        "rank_id": 12706,
+        "slot": 2,
+        "effect_id": 220,
+        "base1": 100,
+        "base2": 38
+      },
+      {
+        "rank_id": 12706,
+        "slot": 3,
+        "effect_id": 220,
+        "base1": 100,
+        "base2": 52
+      },
+      {
+        "rank_id": 12706,
+        "slot": 4,
+        "effect_id": 220,
+        "base1": 100,
+        "base2": 23
+      },
+      {
+        "rank_id": 12706,
+        "slot": 5,
+        "effect_id": 220,
+        "base1": 100,
+        "base2": 21
+      },
+      {
+        "rank_id": 12706,
+        "slot": 6,
+        "effect_id": 220,
+        "base1": 100,
+        "base2": 26
+      },
+      {
+        "rank_id": 12706,
+        "slot": 7,
+        "effect_id": 427,
+        "base1": 23598,
+        "base2": 30
+      },
+      {
+        "rank_id": 12706,
+        "slot": 8,
+        "effect_id": 428,
+        "base1": 30,
+        "base2": 0
+      },
+      {
+        "rank_id": 12706,
+        "slot": 9,
+        "effect_id": 428,
+        "base1": 38,
+        "base2": 0
+      },
+      {
+        "rank_id": 12706,
+        "slot": 10,
+        "effect_id": 428,
+        "base1": 52,
+        "base2": 0
+      },
+      {
+        "rank_id": 12706,
+        "slot": 11,
+        "effect_id": 428,
+        "base1": 23,
+        "base2": 0
+      },
+      {
+        "rank_id": 12706,
+        "slot": 12,
+        "effect_id": 428,
+        "base1": 21,
+        "base2": 0
+      },
+      {
+        "rank_id": 12706,
+        "slot": 13,
+        "effect_id": 428,
+        "base1": 26,
+        "base2": 0
+      }
+    ]
+  },
+  {
+    "table": "aa_rank_effects",
+    "key": {
+      "rank_id": 12707
+    },
+    "before": [
+      {
+        "base1": 85,
+        "base2": 28,
+        "effect_id": 220,
+        "rank_id": 12707,
+        "slot": 1
+      },
+      {
+        "base1": 85,
+        "base2": 0,
+        "effect_id": 220,
+        "rank_id": 12707,
+        "slot": 2
+      },
+      {
+        "base1": 23598,
+        "base2": 5,
+        "effect_id": 427,
+        "rank_id": 12707,
+        "slot": 3
+      },
+      {
+        "base1": 28,
+        "base2": 0,
+        "effect_id": 428,
+        "rank_id": 12707,
+        "slot": 4
+      },
+      {
+        "base1": 0,
+        "base2": 0,
+        "effect_id": 428,
+        "rank_id": 12707,
+        "slot": 5
+      }
+    ],
+    "after": [
+      {
+        "rank_id": 12707,
+        "slot": 1,
+        "effect_id": 220,
+        "base1": 200,
+        "base2": 30
+      },
+      {
+        "rank_id": 12707,
+        "slot": 2,
+        "effect_id": 220,
+        "base1": 200,
+        "base2": 38
+      },
+      {
+        "rank_id": 12707,
+        "slot": 3,
+        "effect_id": 220,
+        "base1": 200,
+        "base2": 52
+      },
+      {
+        "rank_id": 12707,
+        "slot": 4,
+        "effect_id": 220,
+        "base1": 200,
+        "base2": 23
+      },
+      {
+        "rank_id": 12707,
+        "slot": 5,
+        "effect_id": 220,
+        "base1": 200,
+        "base2": 21
+      },
+      {
+        "rank_id": 12707,
+        "slot": 6,
+        "effect_id": 220,
+        "base1": 200,
+        "base2": 26
+      },
+      {
+        "rank_id": 12707,
+        "slot": 7,
+        "effect_id": 427,
+        "base1": 23598,
+        "base2": 60
+      },
+      {
+        "rank_id": 12707,
+        "slot": 8,
+        "effect_id": 428,
+        "base1": 30,
+        "base2": 0
+      },
+      {
+        "rank_id": 12707,
+        "slot": 9,
+        "effect_id": 428,
+        "base1": 38,
+        "base2": 0
+      },
+      {
+        "rank_id": 12707,
+        "slot": 10,
+        "effect_id": 428,
+        "base1": 52,
+        "base2": 0
+      },
+      {
+        "rank_id": 12707,
+        "slot": 11,
+        "effect_id": 428,
+        "base1": 23,
+        "base2": 0
+      },
+      {
+        "rank_id": 12707,
+        "slot": 12,
+        "effect_id": 428,
+        "base1": 21,
+        "base2": 0
+      },
+      {
+        "rank_id": 12707,
+        "slot": 13,
+        "effect_id": 428,
+        "base1": 26,
+        "base2": 0
+      }
+    ]
+  },
+  {
+    "table": "aa_rank_effects",
+    "key": {
+      "rank_id": 43210
+    },
+    "before": [],
+    "after": [
+      {
+        "rank_id": 43210,
+        "slot": 1,
+        "effect_id": 200,
+        "base1": 25,
+        "base2": 0
+      },
+      {
+        "rank_id": 43210,
+        "slot": 2,
+        "effect_id": 85,
+        "base1": 42840,
+        "base2": 20
+      },
+      {
+        "rank_id": 43210,
+        "slot": 3,
+        "effect_id": 250,
+        "base1": 25,
+        "base2": 0
+      }
+    ]
+  },
+  {
+    "table": "aa_rank_prereqs",
+    "key": {
+      "rank_id": 255
+    },
+    "before": [
+      {
+        "aa_id": 309,
+        "points": 3,
+        "rank_id": 255
+      }
+    ],
+    "after": [
+      {
+        "aa_id": 30,
+        "points": 3,
+        "rank_id": 255
+      }
+    ]
+  },
+  {
+    "table": "aa_rank_prereqs",
+    "key": {
+      "rank_id": 256
+    },
+    "before": [
+      {
+        "aa_id": 309,
+        "points": 3,
+        "rank_id": 256
+      }
+    ],
+    "after": [
+      {
+        "aa_id": 30,
+        "points": 3,
+        "rank_id": 256
+      }
+    ]
+  },
+  {
+    "table": "aa_rank_prereqs",
+    "key": {
+      "rank_id": 257
+    },
+    "before": [
+      {
+        "aa_id": 309,
+        "points": 3,
+        "rank_id": 257
+      }
+    ],
+    "after": [
+      {
+        "aa_id": 30,
+        "points": 3,
+        "rank_id": 257
+      }
+    ]
+  },
+  {
+    "table": "aa_rank_prereqs",
+    "key": {
+      "rank_id": 542
+    },
+    "before": [
+      {
+        "aa_id": 309,
+        "points": 3,
+        "rank_id": 542
+      }
+    ],
+    "after": [
+      {
+        "aa_id": 30,
+        "points": 3,
+        "rank_id": 542
+      }
+    ]
+  },
+  {
+    "table": "aa_rank_prereqs",
+    "key": {
+      "rank_id": 543
+    },
+    "before": [
+      {
+        "aa_id": 309,
+        "points": 3,
+        "rank_id": 543
+      }
+    ],
+    "after": [
+      {
+        "aa_id": 30,
+        "points": 3,
+        "rank_id": 543
+      }
+    ]
+  },
+  {
+    "table": "aa_rank_prereqs",
+    "key": {
+      "rank_id": 544
+    },
+    "before": [
+      {
+        "aa_id": 309,
+        "points": 3,
+        "rank_id": 544
+      }
+    ],
+    "after": [
+      {
+        "aa_id": 30,
+        "points": 3,
+        "rank_id": 544
+      }
+    ]
+  },
+  {
+    "table": "aa_rank_prereqs",
+    "key": {
+      "rank_id": 1050
+    },
+    "before": [
+      {
+        "aa_id": 309,
+        "points": 6,
+        "rank_id": 1050
+      }
+    ],
+    "after": [
+      {
+        "aa_id": 30,
+        "points": 6,
+        "rank_id": 1050
+      }
+    ]
+  },
+  {
+    "table": "aa_rank_prereqs",
+    "key": {
+      "rank_id": 1051
+    },
+    "before": [
+      {
+        "aa_id": 309,
+        "points": 6,
+        "rank_id": 1051
+      }
+    ],
+    "after": [
+      {
+        "aa_id": 30,
+        "points": 6,
+        "rank_id": 1051
+      }
+    ]
+  },
+  {
+    "table": "aa_rank_prereqs",
+    "key": {
+      "rank_id": 1052
+    },
+    "before": [
+      {
+        "aa_id": 309,
+        "points": 6,
+        "rank_id": 1052
+      }
+    ],
+    "after": [
+      {
+        "aa_id": 30,
+        "points": 6,
+        "rank_id": 1052
+      }
+    ]
+  },
+  {
+    "table": "aa_rank_prereqs",
+    "key": {
+      "rank_id": 1163
+    },
+    "before": [
+      {
+        "aa_id": 309,
+        "points": 3,
+        "rank_id": 1163
+      }
+    ],
+    "after": [
+      {
+        "aa_id": 30,
+        "points": 3,
+        "rank_id": 1163
+      }
+    ]
+  },
+  {
+    "table": "aa_rank_prereqs",
+    "key": {
+      "rank_id": 1164
+    },
+    "before": [
+      {
+        "aa_id": 309,
+        "points": 3,
+        "rank_id": 1164
+      }
+    ],
+    "after": [
+      {
+        "aa_id": 30,
+        "points": 3,
+        "rank_id": 1164
+      }
+    ]
+  },
+  {
+    "table": "aa_rank_prereqs",
+    "key": {
+      "rank_id": 1165
+    },
+    "before": [
+      {
+        "aa_id": 309,
+        "points": 3,
+        "rank_id": 1165
+      }
+    ],
+    "after": [
+      {
+        "aa_id": 30,
+        "points": 3,
+        "rank_id": 1165
+      }
+    ]
+  },
+  {
+    "table": "aa_rank_prereqs",
+    "key": {
+      "rank_id": 4716
+    },
+    "before": [
+      {
+        "aa_id": 309,
+        "points": 6,
+        "rank_id": 4716
+      }
+    ],
+    "after": [
+      {
+        "aa_id": 30,
+        "points": 6,
+        "rank_id": 4716
+      }
+    ]
+  },
+  {
+    "table": "aa_rank_prereqs",
+    "key": {
+      "rank_id": 4717
+    },
+    "before": [
+      {
+        "aa_id": 309,
+        "points": 6,
+        "rank_id": 4717
+      }
+    ],
+    "after": [
+      {
+        "aa_id": 30,
+        "points": 6,
+        "rank_id": 4717
+      }
+    ]
+  },
+  {
+    "table": "aa_rank_prereqs",
+    "key": {
+      "rank_id": 4718
+    },
+    "before": [
+      {
+        "aa_id": 309,
+        "points": 6,
+        "rank_id": 4718
+      }
+    ],
+    "after": [
+      {
+        "aa_id": 30,
+        "points": 6,
+        "rank_id": 4718
+      }
+    ]
+  },
+  {
+    "table": "aa_rank_prereqs",
+    "key": {
+      "rank_id": 4795
+    },
+    "before": [
+      {
+        "aa_id": 309,
+        "points": 3,
+        "rank_id": 4795
+      }
+    ],
+    "after": [
+      {
+        "aa_id": 30,
+        "points": 3,
+        "rank_id": 4795
+      }
+    ]
+  },
+  {
+    "table": "aa_rank_prereqs",
+    "key": {
+      "rank_id": 4796
+    },
+    "before": [
+      {
+        "aa_id": 309,
+        "points": 3,
+        "rank_id": 4796
+      }
+    ],
+    "after": [
+      {
+        "aa_id": 30,
+        "points": 3,
+        "rank_id": 4796
+      }
+    ]
+  },
+  {
+    "table": "aa_rank_prereqs",
+    "key": {
+      "rank_id": 4797
+    },
+    "before": [
+      {
+        "aa_id": 309,
+        "points": 3,
+        "rank_id": 4797
+      }
+    ],
+    "after": [
+      {
+        "aa_id": 30,
+        "points": 3,
+        "rank_id": 4797
+      }
+    ]
+  },
+  {
+    "table": "aa_rank_prereqs",
+    "key": {
+      "rank_id": 8303
+    },
+    "before": [
+      {
+        "aa_id": 309,
+        "points": 6,
+        "rank_id": 8303
+      }
+    ],
+    "after": [
+      {
+        "aa_id": 30,
+        "points": 6,
+        "rank_id": 8303
+      }
+    ]
+  },
+  {
+    "table": "aa_rank_prereqs",
+    "key": {
+      "rank_id": 43210
+    },
+    "before": [],
+    "after": [
+      {
+        "rank_id": 43210,
+        "aa_id": 435,
+        "points": 3
+      }
+    ]
+  },
+  {
+    "table": "aa_ranks",
+    "key": {
+      "id": 8303
+    },
+    "before": [
+      {
+        "cost": 12,
+        "desc_sid": 8303,
+        "expansion": 16,
+        "id": 8303,
+        "level_req": 1,
+        "lower_hotkey_sid": 8303,
+        "next_id": -1,
+        "prev_id": -1,
+        "recast_time": 1800,
+        "spell": 21773,
+        "spell_type": 9,
+        "title_sid": 8303,
+        "upper_hotkey_sid": 8303
+      }
+    ],
+    "after": [
+      {
+        "cost": 12,
+        "desc_sid": 8303,
+        "expansion": 16,
+        "id": 8303,
+        "level_req": 1,
+        "lower_hotkey_sid": 8303,
+        "next_id": -1,
+        "prev_id": -1,
+        "recast_time": 60,
+        "spell": 21773,
+        "spell_type": 9,
+        "title_sid": 8303,
+        "upper_hotkey_sid": 8303
+      }
+    ]
+  },
+  {
+    "table": "aa_ranks",
+    "key": {
+      "id": 43210
+    },
+    "before": [],
+    "after": [
+      {
+        "cost": 9,
+        "desc_sid": 43210,
+        "expansion": 13,
+        "id": 43210,
+        "level_req": 1,
+        "lower_hotkey_sid": -1,
+        "next_id": -1,
+        "prev_id": -1,
+        "recast_time": 0,
+        "spell": -1,
+        "spell_type": 0,
+        "title_sid": 43210,
+        "upper_hotkey_sid": -1
+      }
+    ]
+  }
+]

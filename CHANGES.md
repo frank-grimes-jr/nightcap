@@ -1,5 +1,34 @@
 # CHANGES
 
+## 2026-10-18 - WPM melee completion integrated with pet candidate
+
+Implement held-class melee defenses/attacks, six-skill Way of Steel, earned
+shield/sustain/Flurry/Rapid Strikes/Veteran's Wrath AA depth, independent player
+weapon/augment attempts, switchable heroic-STR weapon scaling and named WPM item
+effects. Add earned boss routes without changing existing weapon ratios or
+moving an owned Bloodfrenzy weapon. Preserve the complete pet candidate and
+make both Seru acquisition migrations retry safely together. The combined
+policy is 1,160 ranks / 408 families; 134 regressions and native AA checks pass.
+All26 native scenarios and their mechanics assertions pass. A narrow RoF2
+compatibility check admits compiled-policy ranks above the native expansion
+ceiling only for fully enabled client-based profiles. Client gameplay acceptance
+and wider balance validation remain release gates.
+No production, signing, main promotion or wiki publication. Exact calibration,
+pairing and recovery: `docs/releases/wpm-melee-20261018/README.md`.
+
+## 2026-10-18 - Pet builds and shared scaling candidate
+
+Implement persistent pet equipment (15 Mage / 8 other items across 22 locations),
+actual weapon/augment procs, live owner SD/HA inheritance, shared 750 base caps,
+earned caster-AA transfer, roster healing/buffs, coexisting pet support lines and
+bounded Doppelganger casting. Rabid Bear's benefit and illusion become separate
+permanent removable buffs. Stage calibrated healing/rune fragments, selected gear
+floors, earned AA depth and guarded level-65/PoP stock/rules. Preserve weapon ratios,
+player-earned state and temporary hand-ins. Builds, policy/transaction checks and
+paired client generation pass; no deployment or publication. Independent review
+and native gameplay/balance acceptance remain open. Evidence and limits:
+`docs/releases/thj-pet-scaling-20261018/IMPLEMENTATION.md`.
+
 ## 2026-10-18 - Ordinary loot quality rates activated
 
 Production now rolls 20% Polished / 5% Exalted / 1% Ascended per eligible ordinary equipment/bag drop (previously 10%/2%/0.25%). All 12 workers and world reloaded; 15 native processes and five services remained unchanged. Hunt/dungeon rewards, item stats and reforging costs are unchanged. Existing generated loot is not rerolled. Quest auto-Ascended remains design-only, excluding repeatable/easily farmed quests. Evidence: docs/ops/loot-quality-rates-20261018/.

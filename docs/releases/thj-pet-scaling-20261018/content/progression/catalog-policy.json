@@ -1,0 +1,87 @@
+{
+  "expansion": 4,
+  "max_level": 65,
+  "source": "pop-progression-20261018.json.gz",
+  "merchants": [
+    {
+      "npc_id": 997900,
+      "merchant_id": 99300,
+      "name": "Freya_Ironmark"
+    },
+    {
+      "npc_id": 997901,
+      "merchant_id": 99301,
+      "name": "Serelis_Dawnmere"
+    },
+    {
+      "npc_id": 997902,
+      "merchant_id": 99302,
+      "name": "Brynn_Valeward"
+    },
+    {
+      "npc_id": 997903,
+      "merchant_id": 99303,
+      "name": "Sylwen_Leafrunner"
+    },
+    {
+      "npc_id": 997904,
+      "merchant_id": 99304,
+      "name": "Neryth_Duskblade"
+    },
+    {
+      "npc_id": 997905,
+      "merchant_id": 99305,
+      "name": "Faelira_Willowbend"
+    },
+    {
+      "npc_id": 997906,
+      "merchant_id": 99306,
+      "name": "Hana_Stillwater"
+    },
+    {
+      "npc_id": 997907,
+      "merchant_id": 99307,
+      "name": "Rilwen_Silverstring"
+    },
+    {
+      "npc_id": 997908,
+      "merchant_id": 99308,
+      "name": "Mira_Quickpalm"
+    },
+    {
+      "npc_id": 997909,
+      "merchant_id": 99309,
+      "name": "Astrid_Winterhorn"
+    },
+    {
+      "npc_id": 997910,
+      "merchant_id": 99310,
+      "name": "Kasira_Ashenveil"
+    },
+    {
+      "npc_id": 997911,
+      "merchant_id": 99311,
+      "name": "Selkira_Nightglass"
+    },
+    {
+      "npc_id": 997912,
+      "merchant_id": 99312,
+      "name": "Bimble_Cogspell"
+    },
+    {
+      "npc_id": 997913,
+      "merchant_id": 99313,
+      "name": "Aelira_Mistweave"
+    },
+    {
+      "npc_id": 997914,
+      "merchant_id": 99314,
+      "name": "Frida_Wolfkin"
+    },
+    {
+      "npc_id": 997915,
+      "merchant_id": 99315,
+      "name": "Ragna_Bloodfury"
+    }
+  ]
+}

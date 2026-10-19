@@ -56,7 +56,7 @@ bool NightcapBalancePreflight(int argc, char **argv)
 		config_file >> config;
 		const auto &server = config.at("server");
 		const auto &db = server.at("database");
-		if (db.at("db") != "nightcap_balance_20260912" || db.at("username") != "nightcap_balance"
+		if ((db.at("db") != "nightcap_balance_20260912" && db.at("db") != "nightcap_wpm_balance_20261018") || db.at("username") != "nightcap_balance"
 			|| server.contains("content_database") || server.at("auto_database_updates") != "false") {
 			throw std::runtime_error("Only the isolated balance database/user with updates disabled is allowed");
 		}
@@ -91,6 +91,17 @@ bool NightcapBalancePreflight(int argc, char **argv)
 
 class BalanceClient : public Client {
 public:
+	json damage_events = json::array(), healing_events = json::array();
+	int64 RuneAmount() {
+		int64 total=0;
+		for (int i=0;i<GetMaxTotalSlots();++i) { if (IsValidSpell(GetBuffs()[i].spellid)) { total += GetBuffs()[i].melee_rune; } }
+		return total;
+	}
+	void HealDamage(uint64 amount, Mob *caster, uint16 spell) override {
+		const auto before=GetHP();
+		Client::HealDamage(amount,caster,spell);
+		healing_events.push_back({{"ms",Timer::GetCurrentTime()},{"spell",spell},{"requested",amount},{"healed",GetHP()-before}});
+	}
 	json CombatState()
 	{
 		return {{"attack_enabled",attack_timer.Enabled()},{"attack_remaining",attack_timer.GetRemainingTime()},
@@ -104,7 +115,12 @@ public:
 	void Damage(Mob *from, int64 damage, uint16 spell, EQ::skills::SkillType skill,
 		bool avoidable, int8 slot, bool tick, eSpecialAttacks special) override
 	{
-		if (!NightcapBalanceIsTerminal(this)) { Client::Damage(from,damage,spell,skill,avoidable,slot,tick,special); }
+		if (!NightcapBalanceIsTerminal(this)) {
+			const auto before=GetHP(),rune=RuneAmount();
+			Client::Damage(from,damage,spell,skill,avoidable,slot,tick,special);
+			damage_events.push_back({{"ms",Timer::GetCurrentTime()},{"spell",spell},{"requested",damage},
+				{"lost_hp",before-GetHP()},{"rune_used",std::max<int64>(0,rune-RuneAmount())}});
+		}
 	}
 	void Initialize(const json &build)
 	{
@@ -148,7 +164,7 @@ public:
 			const auto id = entry.at("id").get<uint32>();
 			const auto slot = entry.at("slot").get<int16>();
 			std::unique_ptr<EQ::ItemInstance> item(database.CreateItem(id));
-			if (!item || slot < 1 || slot > 20 || !worn_slots.insert(slot).second
+			if (!item || slot < 0 || slot > 21 || !worn_slots.insert(slot).second
 				|| item->GetItem()->AugType || item->GetItem()->ReqLevel > GetLevel() || !CanEquipItem(item->GetItem())
 				|| !(item->GetItem()->Slots & (uint32(1) << slot))) {
 				throw std::runtime_error("Invalid equipped item " + std::to_string(id));
@@ -177,7 +193,7 @@ public:
 	json EquipmentState()
 	{
 		json result = json::array();
-		for (int slot = 1; slot <= 20; ++slot) {
+		for (int slot = 0; slot <= 21; ++slot) {
 			const auto *item = GetInv().GetItem(slot);
 			if (!item) { continue; }
 			json augments = json::array();
@@ -188,6 +204,37 @@ public:
 				{"recommended_level",item->GetItemRecommendedLevel(true)},{"required_level",item->GetItemRequiredLevel(true)}});
 		}
 		return result;
+	}
+
+	json WPMState()
+	{
+		json specials = json::array(), focus = json::array();
+		for (auto skill : {30,38,52,23,21,26}) { specials.push_back(aabonuses.SkillDamageAmount[skill]); }
+		for (int spell : {9,202,42841,42842}) {
+			focus.push_back({{"spell",spell},{"level",GetFocusSpellLevel(spell)},
+				{"vi",CalcFocusEffect(focusSympatheticProc,42843,spell)},
+				{"vii",CalcFocusEffect(focusSympatheticProc,42844,spell)}});
+		}
+		return {{"shield",HasShieldEquipped()},{"softcap",GetACSoftcap()},{"softcap_return",GetSoftcapReturns()},
+			{"heroic_str",GetHeroicSTR()},{"heroic_enabled",RuleB(Combat,NightcapHeroicMeleeScaling)},
+			{"shield_damage_percent",aabonuses.ShieldEquipDmgMod},{"special_damage",specials},
+			{"weapon_proc_bonus",aabonuses.ProcChanceSPA},{"spell_proc_bonus",aabonuses.SpellProcChance},
+			{"received_heal_1000",GetNightcapHealingReceived(1000)},{"focus",focus},
+			{"aa_procs",std::vector<int32>(std::begin(aabonuses.SpellProc),std::end(aabonuses.SpellProc))},
+			{"worn_procs",std::vector<int32>(std::begin(itembonuses.SpellProc),std::end(itembonuses.SpellProc))}};
+	}
+
+	json ShieldSwapProbe()
+	{
+		std::unique_ptr<EQ::ItemInstance> shield(GetInv().PopItem(EQ::invslot::slotSecondary));
+		if (!shield || shield->GetItem()->ItemType != EQ::item::ItemTypeShield) {
+			throw std::runtime_error("Shield swap control requires an equipped shield");
+		}
+		CalcBonuses();
+		const auto removed = WPMState();
+		GetInv().PutItem(EQ::invslot::slotSecondary,*shield);
+		CalcBonuses();
+		return {{"removed",removed},{"restored",WPMState()}};
 	}
 
 	json WeaponChecks(const json &ids)
@@ -610,6 +657,10 @@ public:
 };
 
 json NightcapBalanceClientCombatState(Client *c) { return static_cast<BalanceClient *>(c)->CombatState(); }
+json NightcapBalanceClientLedger(Client *c) {
+	auto *client=static_cast<BalanceClient *>(c);
+	return {{"incoming",client->damage_events},{"healing",client->healing_events}};
+}
 
 int NightcapBalanceMain(int argc, char **argv)
 {
@@ -618,6 +669,10 @@ int NightcapBalanceMain(int argc, char **argv)
 		std::ifstream input_file(argv[2]);
 		json input;
 		input_file >> input;
+		if (input.contains("heroic_scaling_control")) {
+			RuleManager::Instance()->SetRule("Combat:NightcapHeroicMeleeScaling",
+				input.at("heroic_scaling_control").get<bool>() ? "true" : "false");
+		}
 		const bool runtime = input.value("runtime_probe",false) || input.contains("encounter") || input.contains("aa_probe") || input.contains("pet_probe");
 		if (input.contains("aa_ownership_probe") && (runtime || input.at("builds").size() != 1)) {
 			throw std::runtime_error("Ownership probe requires one stat-only client");
@@ -666,6 +721,11 @@ int NightcapBalanceMain(int argc, char **argv)
 			if (build.contains("aa_stage")) { output["builds"].back()["aa_stage"] = build["aa_stage"]; }
 			if (build.contains("aa_policy")) { output["builds"].back()["aa_policy"] = build["aa_policy"]; }
 			if (input.value("export_equipment",false)) { output["builds"].back()["equipped_items"] = c->EquipmentState(); }
+			if (input.value("wpm_state",false)) { output["builds"].back()["wpm_state"] = c->WPMState(); }
+			if (input.value("shield_swap_probe",false)) {
+				if (runtime) { throw std::runtime_error("Shield swap requires a stat-only process"); }
+				output["builds"].back()["shield_swap"] = c->ShieldSwapProbe();
+			}
 			if (input.contains("weapon_check_items")) {
 				if (runtime) { throw std::runtime_error("Weapon stat controls require their own process"); }
 				output["builds"].back()["weapon_checks"] = c->WeaponChecks(input.at("weapon_check_items"));
@@ -703,7 +763,8 @@ int NightcapBalanceMain(int argc, char **argv)
 				const auto policy = input.at("encounter").value("combat_policy",std::string("caster_heal"));
 				const bool supported = (policy == "caster_heal" && build.at("profile") == "war-clr-wiz")
 					|| (policy == "melee_heal" && build.at("profile") == "war-clr-mnk"
-						&& build.at("classes") == json::array({1,2,7}));
+						&& build.at("classes") == json::array({1,2,7}))
+					|| (policy == "wpm" && c->IsMulticlassMember(1) && c->IsMulticlassMember(3) && c->IsMulticlassMember(7));
 				if (!supported || input.value("runtime_probe",false)) {
 					throw std::runtime_error("Encounter policy does not match its supported class profile");
 				}

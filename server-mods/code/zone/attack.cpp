@@ -23,6 +23,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 #include "common/eq_packet_structs.h"
 #include "common/events/player_event_logs.h"
 #include "common/misc_functions.h"
+#include "common/nightcap_melee.h"
 #include "common/rulesys.h"
 #include "common/spdat.h"
 #include "common/strings.h"
@@ -591,7 +592,7 @@ bool Mob::AvoidDamage(Mob *other, DamageHitInfo &hit)
 	}
 
 	// dodge
-	if (CanThisClassDodge() && (InFront || GetClass() == Class::Monk)) {
+	if (CanThisClassDodge() && (InFront || HasCombatClass(Class::Monk))) {
 		if (IsClient())
 			CastToClient()->CheckIncreaseSkill(EQ::skills::SkillDodge, other, -10);
 		// check auto discs ... I guess aa/items too :P
@@ -643,6 +644,41 @@ bool Mob::AvoidDamage(Mob *other, DamageHitInfo &hit)
 	}
 
 	return false;
+}
+
+bool Mob::HasCombatClass(uint8 class_id) const
+{
+	return IsClient() ? CastToClient()->IsMulticlassMember(class_id) : GetClass() == class_id;
+}
+
+uint8 Mob::GetMitigationClass() const
+{
+	if (IsClient()) {
+		// Both native softcap and returns use this ordering at every supported level.
+		for (const auto class_id : {Class::Warrior, Class::Paladin, Class::ShadowKnight,
+			Class::Ranger, Class::Cleric, Class::Bard, Class::Monk, Class::Rogue,
+			Class::Shaman, Class::Beastlord, Class::Berserker, Class::Druid,
+			Class::Necromancer, Class::Wizard, Class::Magician, Class::Enchanter}) {
+			if (HasCombatClass(class_id)) {
+				return class_id;
+			}
+		}
+	}
+	return GetClass();
+}
+
+bool Mob::UsesKnightDoubleAttack() const
+{
+	if (!HasCombatClass(Class::Paladin) && !HasCombatClass(Class::ShadowKnight)) {
+		return false;
+	}
+	for (const auto class_id : {Class::Warrior, Class::Ranger, Class::Monk, Class::Bard,
+		Class::Rogue, Class::Beastlord, Class::Berserker}) {
+		if (HasCombatClass(class_id)) {
+			return false;
+		}
+	}
+	return true;
 }
 
 int Mob::GetACSoftcap()
@@ -704,9 +740,9 @@ int Mob::GetACSoftcap()
 		384, 384, 386, 388, 390, 392, 392, 394, 396, 398, 400, 400, 402, 404, 406, 408, 408, 410, 412, 414, 416
 	};
 
-	int level = std::min(105, static_cast<int>(GetLevel())) - 1;
+	int level = std::max(1, std::min(105, static_cast<int>(GetLevel()))) - 1;
 
-	switch (GetClass()) {
+	switch (GetMitigationClass()) {
 	case Class::Warrior:
 		return war_softcaps[level];
 	case Class::Cleric:
@@ -739,7 +775,7 @@ double Mob::GetSoftcapReturns()
 {
 	// These are based on the dev post, they seem to be correct for every level
 	// AKA no more hard caps
-	switch (GetClass()) {
+	switch (GetMitigationClass()) {
 	case Class::Warrior:
 		return 0.35;
 	case Class::Cleric:
@@ -770,9 +806,20 @@ double Mob::GetSoftcapReturns()
 
 int Mob::GetClassRaceACBonus()
 {
+	int best = GetClassRaceACBonusForClass(GetClass());
+	if (IsClient()) {
+		for (const auto class_id : CastToClient()->GetMulticlassList()) {
+			best = std::max(best, GetClassRaceACBonusForClass(class_id));
+		}
+	}
+	return best;
+}
+
+int Mob::GetClassRaceACBonusForClass(uint8 class_id)
+{
 	int ac_bonus = 0;
 	auto level = GetLevel();
-	if (GetClass() == Class::Monk) {
+	if (class_id == Class::Monk) {
 		int hardcap = 30;
 		int softcap = 14;
 		if (level > 99) {
@@ -857,7 +904,7 @@ int Mob::GetClassRaceACBonus()
 		}
 	}
 
-	if (GetClass() == Class::Rogue) {
+	if (class_id == Class::Rogue) {
 		int level_scaler = level - 26;
 		if (GetAGI() < 80)
 			ac_bonus = level_scaler / 4;
@@ -873,7 +920,7 @@ int Mob::GetClassRaceACBonus()
 			ac_bonus = 12;
 	}
 
-	if (GetClass() == Class::Beastlord) {
+	if (class_id == Class::Beastlord) {
 		int level_scaler = level - 6;
 		if (GetAGI() < 80)
 			ac_bonus = level_scaler / 5;
@@ -2134,7 +2181,7 @@ bool Client::Death(Mob* killer_mob, int64 damage, uint16 spell, EQ::skills::Skil
 	/*
 	Reset reuse timer for classic skill based Lay on Hands (For tit I guess)
 	*/
-	if (GetClass() == Class::Paladin) { // we could check if it's not expired I guess, but should be fine not to
+	if (HasCombatClass(Class::Paladin)) { // includes held Paladin for the legacy LoH timer
 		p_timers.Clear(&database, pTimerLayHands);
 	}
 
@@ -2449,10 +2496,13 @@ bool NPC::Attack(Mob* other, int Hand, bool bRiposte, bool IsStrikethrough, bool
 
 	bool has_hit = my_hit.damage_done > 0;
 	if (has_hit && !bRiposte && !other->HasDied()) {
-		TryWeaponProc(nullptr, weapon, other, Hand);
+		// Persistent pet equipment carries the actual augment instances into combat.
+		const auto equipped = GetNightcapPetOwner() ? GetInv().GetItem(Hand) : nullptr;
+		const auto proc_instance = equipped && weapon && equipped->GetID() == weapon->ID ? equipped : nullptr;
+		TryWeaponProc(proc_instance, weapon, other, Hand);
 
 		if (!other->HasDied()) {
-			TrySpellProc(nullptr, weapon, other, Hand);
+			TrySpellProc(proc_instance, weapon, other, Hand);
 		}
 
 		if (HasSkillProcSuccess() && !other->HasDied()) {
@@ -3992,7 +4042,7 @@ bool Client::CheckDoubleAttack()
 	uint16 skill = GetSkill(EQ::skills::SkillDoubleAttack);
 
 	int32 bonus_double_attack = 0;
-	if ((GetClass() == Class::Paladin || GetClass() == Class::ShadowKnight) && (!HasTwoHanderEquipped())) {
+	if (UsesKnightDoubleAttack() && !HasTwoHanderEquipped()) {
 		LogCombatDetail("Knight class without a 2 hand weapon equipped = No DA Bonus!");
 	} else {
 		bonus_double_attack = aabonuses.DoubleAttackChance + spellbonuses.DoubleAttackChance + itembonuses.DoubleAttackChance;
@@ -4020,35 +4070,14 @@ bool Client::CheckDoubleAttack()
 // with varying triple attack skill (1-3% error at least)
 bool Client::CheckTripleAttack()
 {
-	int chance;
+	int chance = 0;
 
 	if (RuleB(Combat, ClassicTripleAttack)) {
-		if (
-			IsClient() &&
-			GetLevel() >= 60 &&
-			(
-				GetClass() == Class::Warrior ||
-				GetClass() == Class::Ranger ||
-				GetClass() == Class::Monk ||
-				GetClass() == Class::Berserker
-			)
-		) {
-			switch (GetClass()) {
-				case Class::Warrior:
-					chance = RuleI(Combat, ClassicTripleAttackChanceWarrior);
-					break;
-				case Class::Ranger:
-					chance = RuleI(Combat, ClassicTripleAttackChanceRanger);
-					break;
-				case Class::Monk:
-					chance = RuleI(Combat, ClassicTripleAttackChanceMonk);
-					break;
-				case Class::Berserker:
-					chance = RuleI(Combat, ClassicTripleAttackChanceBerserker);
-					break;
-				default:
-					break;
-			}
+		if (GetLevel() >= 60) {
+			if (HasCombatClass(Class::Warrior)) { chance = std::max(chance, RuleI(Combat, ClassicTripleAttackChanceWarrior)); }
+			if (HasCombatClass(Class::Ranger)) { chance = std::max(chance, RuleI(Combat, ClassicTripleAttackChanceRanger)); }
+			if (HasCombatClass(Class::Monk)) { chance = std::max(chance, RuleI(Combat, ClassicTripleAttackChanceMonk)); }
+			if (HasCombatClass(Class::Berserker)) { chance = std::max(chance, RuleI(Combat, ClassicTripleAttackChanceBerserker)); }
 		}
 	} else {
 		chance = GetSkill(EQ::skills::SkillTripleAttack);
@@ -4393,7 +4422,7 @@ void Mob::CommonDamage(Mob* attacker, int64 &damage, const uint16 spell_id, cons
 				}
 			}
 			else if (skill_used == EQ::skills::SkillKick &&
-					attacker->GetClass() == Class::Warrior) {
+					attacker->HasCombatClass(Class::Warrior)) {
 				int stun_level = RuleI(Combat, NPCKickStunLevel);
 				if (attacker->IsClient()) {
 					stun_level = RuleI(Combat, PCKickStunLevel);
@@ -4846,6 +4875,20 @@ void Mob::CommonDamage(Mob* attacker, int64 &damage, const uint16 spell_id, cons
 	}
 }
 
+uint64 Mob::GetNightcapHealingReceived(uint64 amount)
+{
+	if (!IsClient() && !GetNightcapPetOwner()) {
+		return amount;
+	}
+	const auto *shield = GetInv().GetItem(EQ::invslot::slotSecondary);
+	if (!shield || !shield->GetItem() || shield->GetItem()->ItemType != EQ::item::ItemTypeShield ||
+		shield->GetItemRequiredLevel(true) > GetLevel() ||
+		shield->GetItem()->Worn.Effect != NightcapMelee::MarrRenewalSpell) {
+		return amount;
+	}
+	return NightcapMelee::MarrHealing(amount);
+}
+
 void Mob::HealDamage(uint64 amount, Mob* caster, uint16 spell_id)
 {
 #ifdef LUA_EQEMU
@@ -4857,14 +4900,12 @@ void Mob::HealDamage(uint64 amount, Mob* caster, uint16 spell_id)
 		amount = lua_ret;
 	}
 #endif
+	// One recipient multiplier, after caster focus/crit/HA. Includes HoT ticks;
+	// absorption and natural regeneration do not call HealDamage.
+	amount = GetNightcapHealingReceived(amount);
 	int64 maxhp = GetMaxHP();
 	int64 curhp = GetHP();
-	uint64 acthealed = 0;
-
-	if (amount > (maxhp - curhp))
-		acthealed = (maxhp - curhp);
-	else
-		acthealed = amount;
+	const uint64 acthealed = curhp < maxhp ? std::min<uint64>(amount, maxhp - curhp) : 0;
 
 	if (acthealed > RuleI(Spells, HealAmountMessageFilterThreshold)) {
 		if (caster) {
@@ -4924,12 +4965,7 @@ void Mob::HealDamage(uint64 amount, Mob* caster, uint16 spell_id)
 	}
 
 	if (curhp < maxhp) {
-		if ((curhp + amount) > maxhp) {
-			curhp = maxhp;
-		}
-		else {
-			curhp += amount;
-		}
+		curhp += acthealed;
 		SetHP(curhp);
 
 		SendHPUpdate();
@@ -5115,6 +5151,7 @@ void Mob::TryWeaponProc(const EQ::ItemInstance *inst, const EQ::ItemData *weapon
 
 	// Try innate proc on weapon
 	// We can proc once here, either weapon or one aug
+	const bool one_proc = RuleB(Combat, OneProcPerWeapon) && !IsClient() && !GetNightcapPetOwner();
 	bool proced = false; // silly bool to prevent augs from going if weapon does
 
 	if (weapon->Proc.Type == EQ::item::ItemEffectCombatProc && IsValidSpell(weapon->Proc.Effect)) {
@@ -5142,7 +5179,7 @@ void Mob::TryWeaponProc(const EQ::ItemInstance *inst, const EQ::ItemData *weapon
 	}
 	//If OneProcPerWeapon is not enabled, we reset the try for that weapon regardless of if we procced or not.
 	//This is for some servers that may want to have as many procs triggering from weapons as possible in a single round.
-	if (!RuleB(Combat, OneProcPerWeapon))
+	if (!one_proc)
 		proced = false;
 
 	if (!proced && inst) {
@@ -5170,7 +5207,7 @@ void Mob::TryWeaponProc(const EQ::ItemInstance *inst, const EQ::ItemData *weapon
 					}
 					else {
 						ExecWeaponProc(aug_i, aug->Proc.Effect, on);
-						if (RuleB(Combat, OneProcPerWeapon))
+						if (one_proc)
 							break;
 					}
 				}
@@ -5288,6 +5325,10 @@ void Mob::TrySpellProc(const EQ::ItemInstance *inst, const EQ::ItemData *weapon,
 		}
 	}
 
+	if (!rangedattk) {
+		TryWornWeaponProc(on, skillinuse, ProcChance);
+	}
+
 	//AA Melee and Ranged Procs
 	if (IsOfClientBot()) {
 		for (int i = 0; i < MAX_AA_PROCS; i += 4) {
@@ -5303,14 +5344,14 @@ void Mob::TrySpellProc(const EQ::ItemInstance *inst, const EQ::ItemData *weapon,
 				aa_rank_id = aabonuses.SpellProc[i + SBIndex::COMBAT_PROC_ORIGIN_ID];
 				aa_spell_id = aabonuses.SpellProc[i + SBIndex::COMBAT_PROC_SPELL_ID];
 				aa_proc_chance += aabonuses.SpellProc[i + SBIndex::COMBAT_PROC_RATE_MOD];
-				aa_proc_reuse_timer = aabonuses.SpellProc[i + SBIndex::COMBAT_PROC_RATE_MOD];
+				aa_proc_reuse_timer = aabonuses.SpellProc[i + SBIndex::COMBAT_PROC_REUSE_TIMER];
 				proc_type = ProcType::MELEE_PROC;
 			}
 			else {
 				aa_rank_id = aabonuses.RangedProc[i + SBIndex::COMBAT_PROC_ORIGIN_ID];
 				aa_spell_id = aabonuses.RangedProc[i + SBIndex::COMBAT_PROC_SPELL_ID];
 				aa_proc_chance += aabonuses.RangedProc[i + SBIndex::COMBAT_PROC_RATE_MOD];
-				aa_proc_reuse_timer = aabonuses.RangedProc[i + SBIndex::COMBAT_PROC_RATE_MOD];
+				aa_proc_reuse_timer = aabonuses.RangedProc[i + SBIndex::COMBAT_PROC_REUSE_TIMER];
 				proc_type = ProcType::RANGED_PROC;
 			}
 
@@ -5358,6 +5399,22 @@ void Mob::TrySpellProc(const EQ::ItemInstance *inst, const EQ::ItemData *weapon,
 		TrySkillProc(on, skillinuse, 0, true, hand);
 	}
 	return;
+}
+
+void Mob::TryWornWeaponProc(Mob *target, EQ::skills::SkillType skill, float chance)
+{
+	if (!target || (!IsClient() && !GetNightcapPetOwner())) {
+		return;
+	}
+	for (int i = 0; i < MAX_AA_PROCS; i += 4) {
+		const auto origin = itembonuses.SpellProc[i + SBIndex::COMBAT_PROC_ORIGIN_ID];
+		const auto spell = itembonuses.SpellProc[i + SBIndex::COMBAT_PROC_SPELL_ID];
+		const auto rate = itembonuses.SpellProc[i + SBIndex::COMBAT_PROC_RATE_MOD];
+		if (origin && IsValidSpell(spell) && PassLimitToSkill(skill, origin, ProcType::MELEE_PROC) &&
+			zone->random.Roll(chance * (100.0f + rate) / 100.0f)) {
+			ExecWeaponProc(nullptr, spell, target);
+		}
+	}
 }
 
 void Mob::TryPetCriticalHit(Mob *defender, DamageHitInfo &hit)
@@ -5498,7 +5555,7 @@ void Mob::TryCriticalHit(Mob *defender, DamageHitInfo &hit, ExtraAttackOptions *
 	// We either require an innate crit chance or some SPA 169 to crit
 	bool innate_crit = false;
 	int crit_chance = GetCriticalChanceBonus(hit.skill);
-	if ((GetClass() == Class::Warrior || GetClass() == Class::Berserker) && GetLevel() >= 12) {
+	if ((HasCombatClass(Class::Warrior) || HasCombatClass(Class::Berserker)) && GetLevel() >= 12) {
 		innate_crit = true;
 	} else if (GetClass() == Class::Ranger && GetLevel() >= 12 && hit.skill == EQ::skills::SkillArchery) {
 		innate_crit = true;
@@ -5528,7 +5585,7 @@ void Mob::TryCriticalHit(Mob *defender, DamageHitInfo &hit, ExtraAttackOptions *
 		dex_bonus += 45; // chances did not match live without a small boost
 
 						 // so if we have an innate crit we have a better chance, except for ber throwing
-		if (!innate_crit || (GetClass() == Class::Berserker && hit.skill == EQ::skills::SkillThrowing)) {
+		if (!innate_crit || (HasCombatClass(Class::Berserker) && !HasCombatClass(Class::Warrior) && hit.skill == EQ::skills::SkillThrowing)) {
 			dex_bonus = dex_bonus * 3 / 5;
 		}
 
@@ -5753,7 +5810,7 @@ void Mob::DoRiposte(Mob *defender)
 	if (DoubleRipChance && zone->random.Roll(DoubleRipChance)) {
 		LogCombat("Preforming a return SPECIAL ATTACK ([{}] percent chance)", DoubleRipChance);
 
-		if (defender->GetClass() == Class::Monk)
+		if (defender->HasCombatClass(Class::Monk))
 			defender->MonkSpecialAttack(this, defender->aabonuses.GiveDoubleRiposte[SBIndex::DOUBLE_RIPOSTE_SKILL]);
 		else if (defender->IsClient()) // so yeah, even if you don't have the skill you can still do the attack :P (and we don't crash anymore)
 			defender->CastToClient()->DoClassAttacks(this, defender->aabonuses.GiveDoubleRiposte[SBIndex::DOUBLE_RIPOSTE_SKILL], true);
@@ -5771,7 +5828,7 @@ void Mob::ApplyMeleeDamageMods(uint16 skill, int64 &damage, Mob *defender, Extra
 	}
 
 	if (defender) {
-		if (defender->IsOfClientBotMerc() && defender->GetClass() == Class::Warrior) {
+		if (defender->IsOfClientBotMerc() && defender->HasCombatClass(Class::Warrior)) {
 			damage_bonus_mod -= 5;
 		}
 
@@ -5919,9 +5976,9 @@ const DamageTable &Mob::GetDamageTable(bool unarmed) const
 		{ 415, 15,  40 }, // 105
 	};
 
-	const auto combat_class = unarmed ? GetHandToHandClass() : GetClass();
+	const auto combat_class = GetHandToHandClass();
 	bool monk = combat_class == Class::Monk;
-	bool melee = IsWarriorClass() || (unarmed && (monk || combat_class == Class::Beastlord));
+	bool melee = IsWarriorClass() || monk || (unarmed && combat_class == Class::Beastlord);
 	// tables caped at 105 for now -- future proofed for a while at least :P
 	int level = std::min(static_cast<int>(GetLevel()), 105);
 
@@ -6187,7 +6244,7 @@ void Mob::TrySkillProc(Mob *on, EQ::skills::SkillType skill, uint16 ReuseTime, b
 					auto ability = ability_rank.first;
 					auto rank = ability_rank.second;
 
-					if (!ability) {
+					if (!ability || !rank || rank->id != base_spell_id || !CanUseAlternateAdvancementRank(rank)) {
 						continue;
 					}
 
@@ -6510,6 +6567,10 @@ void Mob::CommonOutgoingHitSuccess(Mob* defender, DamageHitInfo &hit, ExtraAttac
 	}
 
 	// this appears where they do special attack dmg mods
+	if (IsClient() && RuleB(Combat, NightcapHeroicMeleeScaling) && NightcapMelee::IsWeaponSkill(hit.skill)) {
+		hit.damage_done = NightcapMelee::ScaleHeroicHit(hit.damage_done, GetHeroicSTR());
+	}
+
 	int spec_mod = 0;
 	if (IsSpecialAttack(eSpecialAttacks::Rampage)) {
 		int mod = GetSpecialAbilityParam(SpecialAbility::Rampage, 2);

@@ -266,6 +266,13 @@ void cross_entry_points() {
   }
  }
 }
+void initial_strikes() {
+ for(int skill:monk_skills)for(bool packet:{false,true}) {
+  Client c;c.held={1,3,7};c.class_id=3;
+  if(packet)c.Packet(skill);else c.DoClassAttacks(c.GetTarget(),skill,false);
+  check(c.attacks.size()==1,"manual/automated Monk activation must have one initial strike before Wu");
+ }
+}
 void riposte() {
  for(int skill:monk_skills) {
   Client c;c.haste=100;c.DoClassAttacks(c.GetTarget(),skill,false);
@@ -319,6 +326,7 @@ int main(int argc,char** argv) {
   else if(scenario=="frenzy-positive")early_return_positive_reuse(EQ::skills::SkillFrenzy);
   else if(scenario=="restored")restored_timers();
   else if(scenario=="cross-entry")cross_entry_points();
+  else if(scenario=="initial-strikes")initial_strikes();
   else if(scenario=="riposte")riposte();
   else if(scenario=="legacy")legacy_monk();
   else if(scenario=="non-monk")non_monk();
@@ -375,6 +383,9 @@ class MonkCombatReuseTests(unittest.TestCase):
 
     def test_all_six_class_attacks_have_independent_cooldowns(self):
         self.run_scenario("class-pairs")
+
+    def test_manual_and_automated_paths_have_one_initial_strike(self):
+        self.run_scenario("initial-strikes")
 
     def test_repeating_same_packet_skill_obeys_expiry(self):
         self.run_scenario("packet-same")

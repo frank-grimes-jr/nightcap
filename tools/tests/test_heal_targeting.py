@@ -88,6 +88,7 @@ struct Mob {
     bool IsOfClientBot() { return client; }
     bool HasOwner() { return owner; }
     Mob* GetOwner() { return owner; }
+    Mob* GetNightcapPetOwner() { return !client && owner && owner->client ? owner : nullptr; }
     Mob* GetTarget() { return target; }
     uint16 GetID() { return id; }
     void ZeroCastingVars() { casting_spell_id=0; }
@@ -174,7 +175,7 @@ int main() {
         check(caster.FinishTarget(201,finish_target) && finish_target==target, "finish player retained");
     }
     uint16 pet_id=pet.id;
-    check(caster.CastTarget(201,pet_id) && pet_id==caster.id, "ordinary heal on NPC pet defaults to caster");
+    check(caster.CastTarget(201,pet_id) && pet_id==pet.id, "ordinary heal retains owned pet recipient");
     for (int spell_id : {207,208,209,210,211,219,220,221}) {
         uint16 target_id=npc.id;
         check(caster.CastTarget(spell_id,target_id) && target_id==npc.id,

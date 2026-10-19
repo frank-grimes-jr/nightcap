@@ -18,7 +18,7 @@ def compile_policy(tables, config):
     ranks = {r['id']: r for r in tables['aa_ranks']}
     prereqs = collections.defaultdict(dict)
     for p in tables.get('aa_rank_prereqs', []):
-        if p['aa_id'] > 0 and p['points'] > 0:
+        if p['aa_id'] > 0 and p['points'] > 0 and p['aa_id'] not in config.get('prerequisite_waivers', {}).get(str(p['rank_id']), []):
             prereqs[p['rank_id']][p['aa_id']] = max(p['points'], prereqs[p['rank_id']].get(p['aa_id'], 0))
     candidates, owners = {}, {}
     for aid, ability in sorted(abilities.items()):
@@ -88,7 +88,10 @@ def header(rows, config, catalog):
              'inline constexpr RankPolicy Ranks[] = {']
     for r in rows:
         lines.append('\t{' + ', '.join(str(r[k]) for k in ('rank_id', 'ability_id', 'ordinal', 'expansion', 'level')) + '},')
-    lines += ['};',
+    waiver_checks = [f'(rank_id == {int(rank)} && ability_id == {int(aid)})'
+                     for rank, aids in sorted(config.get('prerequisite_waivers', {}).items()) for aid in aids]
+    lines += ['};', 'inline bool WaivesPrerequisite(int rank_id, int ability_id) {',
+              '\treturn ' + (' || '.join(waiver_checks) or 'false') + ';', '}',
               'inline int RequiredLevel(int rank_id, int ability_id, int ordinal, int expansion) {',
               '\tconst auto it = std::lower_bound(std::begin(Ranks), std::end(Ranks), rank_id,',
               '\t\t[](const RankPolicy& row, int id) { return row.rank_id < id; });',

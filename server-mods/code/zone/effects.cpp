@@ -67,6 +67,7 @@ int64 Mob::GetActSpellDamage(uint16 spell_id, int64 value, Mob* target) {
 
 	chance = RuleI(Spells, BaseCritChance); //Wizard base critical chance is 2% (Does not scale with level)
 	chance += itembonuses.CriticalSpellChance + spellbonuses.CriticalSpellChance + aabonuses.CriticalSpellChance;
+	chance += GetNightcapInheritedCasterBonus(NightcapPetScaling::CasterBonus::SpellChance);
 	chance += itembonuses.FrenziedDevastation + spellbonuses.FrenziedDevastation + aabonuses.FrenziedDevastation;
 
 	//Crtical Hit Calculation pathway
@@ -86,6 +87,7 @@ int64 Mob::GetActSpellDamage(uint16 spell_id, int64 value, Mob* target) {
 		if (zone->random.Roll(chance)) {
 			Critical = true;
 			ratio += itembonuses.SpellCritDmgIncrease + spellbonuses.SpellCritDmgIncrease + aabonuses.SpellCritDmgIncrease;
+			ratio += GetNightcapInheritedCasterBonus(NightcapPetScaling::CasterBonus::SpellDamage);
 			ratio += itembonuses.SpellCritDmgIncNoStack + spellbonuses.SpellCritDmgIncNoStack + aabonuses.SpellCritDmgIncNoStack;
 		} else if ((IsOfClientBot() && GetClass() == Class::Wizard) || (IsMerc() && GetClass() == CASTERDPS)) {
 			if ((GetLevel() >= RuleI(Spells, WizCritLevel)) && zone->random.Roll(RuleI(Spells, WizCritChance))) {
@@ -141,11 +143,11 @@ int64 Mob::GetActSpellDamage(uint16 spell_id, int64 value, Mob* target) {
 
 			if (use_throw_stone_bonus) {
 				value -= throw_stone_bonus * ratio / 100;
-			} else if (RuleB(Spells, IgnoreSpellDmgLvlRestriction) && !spells[spell_id].no_heal_damage_item_mod && itembonuses.SpellDmg) {
-				value -= GetExtraSpellAmt(spell_id, itembonuses.SpellDmg, base_value) * ratio / 100;
+			} else if (RuleB(Spells, IgnoreSpellDmgLvlRestriction) && !spells[spell_id].no_heal_damage_item_mod && GetSpellDmg()) {
+				value -= GetExtraSpellAmt(spell_id, GetSpellDmg(), base_value) * ratio / 100;
 
-			} else if (!spells[spell_id].no_heal_damage_item_mod && itembonuses.SpellDmg && spells[spell_id].classes[(GetClass() % 17) - 1] >= GetLevel() - 5) {
-				value -= GetExtraSpellAmt(spell_id, itembonuses.SpellDmg, base_value) * ratio / 100;
+			} else if (!spells[spell_id].no_heal_damage_item_mod && GetSpellDmg() && spells[spell_id].classes[(GetClass() % 17) - 1] >= GetLevel() - 5) {
+				value -= GetExtraSpellAmt(spell_id, GetSpellDmg(), base_value) * ratio / 100;
 			}
 
 			// legacy manaburn can crit, but is still held to the same cap
@@ -192,8 +194,8 @@ int64 Mob::GetActSpellDamage(uint16 spell_id, int64 value, Mob* target) {
 
 	if (use_throw_stone_bonus)
 		value -= throw_stone_bonus;
-	else if (RuleB(Spells, IgnoreSpellDmgLvlRestriction) && !spells[spell_id].no_heal_damage_item_mod && itembonuses.SpellDmg)
-		value -= GetExtraSpellAmt(spell_id, itembonuses.SpellDmg, base_value);
+	else if (RuleB(Spells, IgnoreSpellDmgLvlRestriction) && !spells[spell_id].no_heal_damage_item_mod && GetSpellDmg())
+		value -= GetExtraSpellAmt(spell_id, GetSpellDmg(), base_value);
 
 	else if (
 		!spells[spell_id].no_heal_damage_item_mod &&
@@ -241,8 +243,8 @@ int64 Mob::GetActReflectedSpellDamage(uint16 spell_id, int64 value, int effectiv
 		value -= GetSkillDmgAmt(spells[spell_id].skill);
 	}
 
-	if (!spells[spell_id].no_heal_damage_item_mod && itembonuses.SpellDmg) {
-		value -= GetExtraSpellAmt(spell_id, itembonuses.SpellDmg, base_spell_dmg);
+	if (!spells[spell_id].no_heal_damage_item_mod && GetSpellDmg()) {
+		value -= GetExtraSpellAmt(spell_id, GetSpellDmg(), base_spell_dmg);
 	}
 
 	return value;
@@ -269,6 +271,7 @@ int64 Mob::GetActDoTDamage(uint16 spell_id, int64 value, Mob* target, bool from_
 	int64 extra_dmg = 0;
 	int16 chance = 0;
 	chance += itembonuses.CriticalDoTChance + spellbonuses.CriticalDoTChance + aabonuses.CriticalDoTChance;
+	chance += GetNightcapInheritedCasterBonus(NightcapPetScaling::CasterBonus::DotChance);
 
 	if (spellbonuses.CriticalDotDecay)
 		chance += GetDecayEffectValue(spell_id, SpellEffect::CriticalDotDecay);
@@ -279,6 +282,7 @@ int64 Mob::GetActDoTDamage(uint16 spell_id, int64 value, Mob* target, bool from_
 	if (!spells[spell_id].good_effect && chance > 0 && (zone->random.Roll(chance))) {
 		int64 ratio = 200;
 		ratio += itembonuses.DotCritDmgIncrease + spellbonuses.DotCritDmgIncrease + aabonuses.DotCritDmgIncrease;
+		ratio += GetNightcapInheritedCasterBonus(NightcapPetScaling::CasterBonus::DotDamage);
 		value = base_value*ratio/100;
 		value += int64(base_value*GetFocusEffect(focusImprovedDamage, spell_id, nullptr, from_buff_tic)/100)*ratio/100;
 		value += int64(base_value*GetFocusEffect(focusImprovedDamage2, spell_id, nullptr, from_buff_tic)/100)*ratio/100;
@@ -373,6 +377,16 @@ int64 Mob::GetActDoTDamage(uint16 spell_id, int64 value, Mob* target, bool from_
 	return value;
 }
 
+int32 Mob::GetNightcapRuneAmount(uint16 spell_id, int32 base_amount)
+{
+	// Shared player/pet sustain policy: heal amount scales a newly applied melee
+	// rune once. Refresh replaces absorption; it never adds to an existing rune.
+	if (base_amount <= 0 || !IsValidSpell(spell_id) || spells[spell_id].no_heal_damage_item_mod ||
+		(!IsClient() && !GetNightcapPetOwner())) { return base_amount; }
+	const int64 extra = GetExtraSpellAmt(spell_id, std::max(0, GetHealAmt()), base_amount);
+	return static_cast<int32>(std::min<int64>(static_cast<int64>(base_amount) + extra, INT32_MAX));
+}
+
 int64 Mob::GetExtraSpellAmt(uint16 spell_id, int64 extra_spell_amt, int64 base_spell_dmg)
 {
 
@@ -435,6 +449,7 @@ int64 Mob::GetActSpellHealing(uint16 spell_id, int64 value, Mob* target, bool fr
 
 	if (spells[spell_id].buff_duration < 1) {
 		critical_chance += itembonuses.CriticalHealChance + spellbonuses.CriticalHealChance + aabonuses.CriticalHealChance;
+		critical_chance += GetNightcapInheritedCasterBonus(NightcapPetScaling::CasterBonus::HealChance);
 
 		if (spellbonuses.CriticalHealDecay) {
 			critical_chance += GetDecayEffectValue(spell_id, SpellEffect::CriticalHealDecay);
@@ -442,6 +457,7 @@ int64 Mob::GetActSpellHealing(uint16 spell_id, int64 value, Mob* target, bool fr
 	}
 	else {
 		critical_chance = itembonuses.CriticalHealOverTime + spellbonuses.CriticalHealOverTime + aabonuses.CriticalHealOverTime;
+		critical_chance += GetNightcapInheritedCasterBonus(NightcapPetScaling::CasterBonus::HotChance);
 
 		if (spellbonuses.CriticalRegenDecay) {
 			critical_chance += GetDecayEffectValue(spell_id, SpellEffect::CriticalRegenDecay);

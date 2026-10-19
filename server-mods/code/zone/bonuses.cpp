@@ -20,6 +20,7 @@
 #include "common/classes.h"
 #include "common/data_verification.h"
 #include "common/item_instance.h"
+#include "common/nightcap_melee.h"
 #include "common/rulesys.h"
 #include "common/spdat.h"
 #include "zone/client.h"
@@ -382,7 +383,7 @@ void Mob::AddItemBonuses(const EQ::ItemInstance* inst, StatBonuses* b, bool is_a
 	if (item->Focus.Effect > 0 && item->Focus.Type == EQ::item::ItemEffectFocus) {
 		if (
 			IsOfClientBotMerc() ||
-			(IsNPC() && RuleB(Spells, NPC_UseFocusFromItems))
+			(IsNPC() && (RuleB(Spells, NPC_UseFocusFromItems) || GetNightcapPetOwner()))
 		) {
 			ApplySpellsBonuses(item->Focus.Effect, item->Focus.Level, b, 0);
 		}
@@ -615,6 +616,11 @@ void Mob::CalcAABonuses(StatBonuses *newbon)
 //Maybe we'll fix it later? :-D
 void Mob::ApplyAABonuses(const AA::Rank &rank, StatBonuses *newbon)
 {
+	// Recomputed after item bonuses on every equip/swap. The rune already earned
+	// from a prior proc retains its ordinary lifetime when the shield is removed.
+	if (rank.id == NightcapMelee::HolyShieldRank && (!IsClient() || !HasShieldEquipped())) {
+		return;
+	}
 	if (rank.effects.empty()) // sanity check. why bother if no slots to fill?
 		return;
 
@@ -1928,6 +1934,23 @@ void Mob::ApplySpellsBonuses(uint16 spell_id, uint8 casterlevel, StatBonuses *ne
 
 		switch (spell_effect_id)
 		{
+			case SpellEffect::WeaponProc:
+				// Worn effects are rebuilt with item bonuses, so unequipping cannot
+				// leave a proc behind. Duplicate worn spells share one proc entry.
+				if (WornType == EQ::item::ItemEffectWorn && IsValidSpell(effect_value)) {
+					for (int p = 0; p < MAX_AA_PROCS; p += 4) {
+						const auto origin = new_bonus->SpellProc[p + SBIndex::COMBAT_PROC_ORIGIN_ID];
+						if (origin == spell_id) { break; }
+						if (!origin) {
+							new_bonus->SpellProc[p + SBIndex::COMBAT_PROC_ORIGIN_ID] = spell_id;
+							new_bonus->SpellProc[p + SBIndex::COMBAT_PROC_SPELL_ID] = effect_value;
+							new_bonus->SpellProc[p + SBIndex::COMBAT_PROC_RATE_MOD] = limit_value;
+							break;
+						}
+					}
+				}
+				break;
+
 			case SpellEffect::CurrentHP: //regens
 				if(effect_value > 0) {
 					new_bonus->HPRegen += effect_value;

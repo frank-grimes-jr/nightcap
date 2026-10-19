@@ -114,6 +114,10 @@ static Mob* ResolvePlayerHealTarget(Mob* caster, uint16 spell_id, Mob* spell_tar
 		return spell_target;
 	}
 
+	// Friendly player pets retain their intended heal recipient. Native spell
+	// permission, range and target-type checks still run after this resolver.
+	if (spell_target->GetNightcapPetOwner()) { return spell_target; }
+
 	// Classify healing effects directly: the AI classifier omits some instant,
 	// regeneration, target-type and triggered-heal variants.
 	bool heals = false;
@@ -1816,6 +1820,12 @@ void Mob::CastedSpellFinished(uint16 spell_id, uint32 target_id, CastingSlot slo
 		DeleteChargeFromSlot = GetItemSlotToConsumeCharge(spell_id, inventory_slot);
 	}
 	// we're done casting, now try to apply the spell
+	int32 doppel_mana_cost = 0;
+	const bool doppel_cast = IsNPC() && CastToNPC()->IsNightcapDoppelganger();
+	if (doppel_cast && !CastToNPC()->PrepareNightcapDoppelgangerCast(spell_id, spell_target, doppel_mana_cost)) {
+		StopCasting();
+		return;
+	}
 	if(!SpellFinished(spell_id, spell_target, slot, mana_used, inventory_slot, resist_adjust, false,-1, 0xFFFFFFFF, 0, true))
 	{
 		LogSpells("Casting of [{}] canceled: SpellFinished returned false", spell_id);
@@ -1825,6 +1835,7 @@ void Mob::CastedSpellFinished(uint16 spell_id, uint32 target_id, CastingSlot slo
 		return;
 	}
 
+	if (doppel_cast) CastToNPC()->CompleteNightcapDoppelgangerCast(spell_id, doppel_mana_cost);
 	if(IsOfClientBotMerc()) {
 		TrySympatheticProc(target, spell_id);
 	}
@@ -2045,7 +2056,9 @@ bool Mob::DetermineSpellTargets(uint16 spell_id, Mob *&spell_target, Mob *&ae_ce
 
 		case ST_SummonedPet:
 		{
-			if(!spell_target || (spell_target != GetPet()) ||
+			const auto doppel_owner = IsNPC() ? CastToNPC()->GetNightcapDoppelgangerOwner() : nullptr;
+			if(!spell_target || (spell_target != GetPet() && spell_target->GetNightcapPetOwner() != this &&
+				(!doppel_owner || spell_target->GetNightcapPetOwner() != doppel_owner)) ||
 				(mob_body != BodyType::Summoned && mob_body != BodyType::Summoned2 && mob_body != BodyType::Summoned3 && mob_body != BodyType::Animal))
 			{
 				LogSpells("Spell [{}] canceled: invalid target of body type [{}] (summoned pet)",
@@ -2145,7 +2158,9 @@ bool Mob::DetermineSpellTargets(uint16 spell_id, Mob *&spell_target, Mob *&ae_ce
 				spell_target->GetOwner() != this &&
 				RuleB(Bots, CanCastPetOnlyOnOthersPets);
 
-			if (!bot_casting_on_other_pet) {
+			const auto doppel_owner = IsNPC() ? CastToNPC()->GetNightcapDoppelgangerOwner() : nullptr;
+			const bool doppel_casting_on_pet = doppel_owner && spell_target && spell_target->GetNightcapPetOwner() == doppel_owner;
+			if (!bot_casting_on_other_pet && !doppel_casting_on_pet) {
 				spell_target = GetPet();
 			}
 
@@ -2660,7 +2675,10 @@ bool Mob::SpellFinished(uint16 spell_id, Mob *spell_target, CastingSlot slot, in
 				LogSpells("Spell [{}]: Targeted spell, but we have no target", spell_id);
 				return(false);
 			}
-			if (isproc) {
+			if (!isproc && IsClient() && spells[spell_id].target_type == ST_Pet &&
+				IsBeneficialSpell(spell_id) && IsBuffSpell(spell_id)) {
+				if (!SpellOnOwnedPets(spell_id, this, false, resist_adjust, level_override)) { return false; }
+			} else if (isproc) {
 				SpellOnTarget(spell_id, spell_target, 0, true, resist_adjust, true, level_override);
 			} else {
 				if (spells[spell_id].target_type == ST_TargetOptional){
@@ -2776,18 +2794,14 @@ bool Mob::SpellFinished(uint16 spell_id, Mob *spell_target, CastingSlot slot, in
 						SpellOnTarget(spell_id, this);
 	#ifdef GROUP_BUFF_PETS
 						//pet too
-						if (spells[spell_id].target_type != ST_GroupNoPets && GetPet() && HasPetAffinity() && !GetPet()->IsCharmed()) {
-							SpellOnTarget(spell_id, GetPet());
-						}
+						SpellOnOwnedPets(spell_id, this);
 	#endif
 					}
 
 					SpellOnTarget(spell_id, spell_target);
 	#ifdef GROUP_BUFF_PETS
 					//pet too
-					if (spells[spell_id].target_type != ST_GroupNoPets && spell_target->GetPet() && spell_target->HasPetAffinity() && !spell_target->GetPet()->IsCharmed()) {
-						SpellOnTarget(spell_id, spell_target->GetPet());
-					}
+					SpellOnOwnedPets(spell_id, spell_target);
 	#endif
 				}
 			}
@@ -3197,6 +3211,11 @@ int32 Mob::GetBuffDurationForTarget(uint16 spell_id, int32 duration) const
 	// Auras retain range-managed expiry; duration zero is not a buff.
 	if (duration != 0 && duration != -4 && IsValidSpell(spell_id) &&
 		(IsClient() || IsPetOwnerClient()) && IsBeneficialSpell(spell_id)) {
+		// Only the reviewed, paired Rabid Bear definitions opt out of temporary
+		// AA expiry. Normalize restored positive timers without recasting illusion.
+		if (NightcapPetScaling::PermanentRabidBear(spell_id) && spells[spell_id].buff_duration_formula == DF_Permanent) {
+			return PERMANENT_BUFF_DURATION;
+		}
 		if (IsDisciplineBuff(spell_id) || spells[spell_id].short_buff_box || IsAARelatedBuffSpell(spell_id)) {
 			// The previous blanket policy persisted temporary buffs as permanent.
 			// Their elapsed time is unknowable: expire them without granting a new
@@ -7807,4 +7826,30 @@ bool Mob::CheckWaterLoS(Mob* m)
 		zone->watermap->InLiquid(GetPosition()) ==
 		zone->watermap->InLiquid(m->GetPosition())
 	);
+}
+
+// Called once per eligible group member, or once for a pet-only buff cast.
+// Do not recurse through SpellFinished: mana, recast and targeting belong to the
+// original cast. SpellOnTarget still performs recipient permission/stack checks.
+bool Mob::SpellOnOwnedPets(uint16 spell_id, Mob *owner, bool require_affinity, int16 resist_adjust, uint8 level_override)
+{
+	if (!owner || !IsValidSpell(spell_id) || !IsBeneficialSpell(spell_id) ||
+		spells[spell_id].target_type == ST_GroupNoPets || (require_affinity && !owner->HasPetAffinity())) { return false; }
+	std::vector<Mob *> pets;
+	if (owner->IsClient()) {
+		for (auto pet : owner->CastToClient()->GetCommandPets()) { pets.push_back(pet); }
+	} else if (owner->GetPet()) {
+		pets.push_back(owner->GetPet());
+	}
+	bool applied = false;
+	for (auto pet : pets) {
+		if (!pet || pet->IsCharmed() || pet->HasDied() || pet->GetOwnerID() != owner->GetID()) { continue; }
+		const float range = require_affinity ? GetAOERange(spell_id) :
+			GetActSpellRange(spell_id, spells[spell_id].range + GetRangeDistTargetSizeMod(pet));
+		const float distance = DistanceSquared(GetPosition(), pet->GetPosition());
+		if (distance > range * range || distance < spells[spell_id].min_range * spells[spell_id].min_range) { continue; }
+		pet->CalcSpellPowerDistanceMod(spell_id, distance);
+		applied = SpellOnTarget(spell_id, pet, 0, true, resist_adjust, false, level_override) || applied;
+	}
+	return applied;
 }

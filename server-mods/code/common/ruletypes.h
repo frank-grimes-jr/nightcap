@@ -93,8 +93,8 @@ RULE_INT(Character, ItemDoTShieldingCap, 35, "Limit on DoT shielding granted by 
 RULE_INT(Character, ItemStunResistCap, 35, "Limit on resistance granted by items")
 RULE_INT(Character, ItemStrikethroughCap, 35, "Limit on strikethrough granted by items")
 RULE_INT(Character, ItemATKCap, 250, "Limit on ATK granted by items")
-RULE_INT(Character, ItemHealAmtCap, 250, "Limit on heal amount granted by items")
-RULE_INT(Character, ItemSpellDmgCap, 250, "Limit on spell damage granted by items")
+RULE_INT(Character, ItemHealAmtCap, 750, "Limit on heal amount granted by items")
+RULE_INT(Character, ItemSpellDmgCap, 750, "Limit on spell damage granted by items")
 RULE_INT(Character, ItemClairvoyanceCap, 250, "Limit on clairvoyance granted by items")
 RULE_INT(Character, ItemDSMitigationCap, 50, "Limit on damageshield mitigation granted by items")
 RULE_INT(Character, ItemEnduranceRegenCap, 15, "Limit on endurance regeneration granted by items")
@@ -554,6 +554,7 @@ RULE_STRING(Spells, AlwaysStackSpells, "", "Comma-Seperated list of spell IDs to
 RULE_CATEGORY_END()
 
 RULE_CATEGORY(Combat)
+RULE_BOOL(Combat, NightcapHeroicMeleeScaling, false, "Enable Nightcap diminishing heroic STR percentage scaling for player weapon hits; pair with reviewed WPM content")
 RULE_REAL(Combat, AERampageMaxDistance, 70, "Max AERampage range (% of max combat distance)")
 RULE_INT(Combat, PetBaseCritChance, 0, "Pet base crit chance")
 RULE_INT(Combat, NPCBashKickLevel, 6, "The level that NPCcan KICK/BASH")

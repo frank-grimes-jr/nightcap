@@ -1,0 +1,35 @@
+{
+  "status": "staged_not_activated",
+  "captured_utc": "2026-10-18T20:58:46.843781+00:00",
+  "level_grants": 0,
+  "existing_stock_preserved": 1747,
+  "new_stock_rows": 389,
+  "new_unique_scrolls": 311,
+  "source": "Existing native vendors/spawns available through expansion 4, original class levels 51..65.",
+  "new_rows_by_class": {
+    "1": 15,
+    "2": 23,
+    "3": 32,
+    "4": 39,
+    "5": 39,
+    "6": 21,
+    "7": 14,
+    "8": 25,
+    "9": 11,
+    "10": 23,
+    "11": 23,
+    "12": 26,
+    "13": 27,
+    "14": 19,
+    "15": 50,
+    "16": 2
+  },
+  "early_mage_epic": "Manifest Elements retains canonical Mage level 59; no free epic or level bypass.",
+  "activation_gates": [
+    "paired world/zone/client/cache",
+    "native travel and encounter QA",
+    "fresh preservation preflight",
+    "guarded maintenance activation"
+  ],
+  "rollback": "Preserve earned levels, spellbooks, items and AAs. Do not de-level characters or restore old snapshots."
+}

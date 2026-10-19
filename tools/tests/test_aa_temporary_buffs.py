@@ -153,7 +153,17 @@ int main(int argc, char **argv) {
   if (argc != 2) throw std::runtime_error("one control group required");
   std::string group = argv[1];
   Mob player, pet, npc; pet.player = false; pet.pet = true; npc.player = false;
-  if (group == "direct") {
+  if (group == "rabid") {
+   rank(153,2750);effect(2750,SpellEffect::ApplyEffect,100,30709);
+   for (auto id : {2750,30709}) {
+    spells[id].buff_duration_formula=DF_Permanent;
+    expect(player.GetBuffDurationForTarget(id,20),PERMANENT_BUFF_DURATION,"Rabid restored timer not normalized");
+    expect(player.GetBuffDurationForTarget(id,-1),PERMANENT_BUFF_DURATION,"Rabid client sentinel not normalized");
+    expect(player.GetBuffDurationForTarget(id,0),0,"instant spell became buff");
+   }
+   spells[2750].buff_duration_formula=4;
+   expect(player.GetBuffDurationForTarget(2750,20),20,"unpaired old data became permanent");
+  } else if (group == "direct") {
    rank(1, 101);
    expect(player.GetBuffDurationForTarget(101, 18), 18, "activated AA lost focused duration");
    expect(pet.GetBuffDurationForTarget(101, 18), 18, "activated pet AA became permanent");
@@ -420,6 +430,7 @@ class AATemporaryBuffs(unittest.TestCase):
         effects_source = (ZONE / "spell_effects.cpp").read_text(encoding="utf-8")
         header = (ROOT / "server-mods/code/common/epic05.h").as_posix()
         cls.exe = compile_native(Path(cls.tmp.name), '#include "' + header + '"\n' +
+            '#include "' + (ROOT / 'server-mods/code/common/nightcap_pet_scaling.h').as_posix() + '"\n' +
             AA_FIXTURE + MOB_FIXTURE + policy_helpers(source) +
             function(source, "int CalcBuffDuration_formula(") +
             function(source, "int32 Mob::GetBuffDurationForTarget(") +
@@ -428,6 +439,9 @@ class AATemporaryBuffs(unittest.TestCase):
     def run_group(self, group):
         run = subprocess.run([str(self.exe), group], text=True, capture_output=True, timeout=15)
         self.assertEqual(run.returncode, 0, run.stdout + run.stderr)
+
+    def test_rabid_pair_permanent_with_paired_definitions(self):
+        self.run_group("rabid")
 
     def test_activated_aa_preserves_native_and_focused_duration(self):
         self.run_group("direct")

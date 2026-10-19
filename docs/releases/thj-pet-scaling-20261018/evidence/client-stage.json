@@ -1,0 +1,28 @@
+{
+  "status": "generated_not_installed_or_signed",
+  "package_type": "delta_requiring_current_signed_base",
+  "source_client": "E:\\EQ_Local_Dev\\Client_RoF2_Dev\\everquest_rof2",
+  "source_spells_sha256": "fd0a88825eaacb46d438bb3739ffe4bc05607f9e3122a3a34f4520fc05551599",
+  "restored_classes": 11057,
+  "protocol": "NCPA2",
+  "proxy_version": "0.11.0",
+  "files": {
+    "spells_us.txt": {
+      "bytes": 28143924,
+      "sha256": "78d9944d38b38bd6d57b2ba10922ba1b649f19579e33ce870375a394d3938ce1"
+    },
+    "uifiles/nightcap/equi_inventory.xml": {
+      "bytes": 188475,
+      "sha256": "518c000142b83ecd55e149123d4b8a69133f581e23deddf43e3932de3b67ab69"
+    },
+    "uifiles/nightcap/equi_petinfowindow.xml": {
+      "bytes": 121826,
+      "sha256": "07205a47f2117e3f13f68d1f512d05cd268f0821b17ba5a71fe6e8b8d7b4f95b"
+    },
+    "dinput8.dll": {
+      "bytes": 617472,
+      "sha256": "9dd6ad400d7390f95c3af88ffe70a67c180368a213e13cc951cee20fefb63380"
+    }
+  },
+  "release_gate": "Reconcile with the current signed client manifest and retain all unrelated files before signing; native client QA pending."
+}

@@ -1,0 +1,60 @@
+{
+  "balance": {
+    "exit_code": 0,
+    "entries": 97,
+    "candidate_entries": 11,
+    "candidate_drift": [],
+    "other_drift": []
+  },
+  "multiclass": {
+    "exit_code": 0,
+    "entries": 150,
+    "candidate_entries": 12,
+    "candidate_drift": [],
+    "other_drift": []
+  },
+  "items": {
+    "exit_code": 0,
+    "entries": 146,
+    "candidate_entries": 9,
+    "candidate_drift": [],
+    "other_drift": []
+  },
+  "client": {
+    "exit_code": 1,
+    "entries": 151,
+    "candidate_entries": 9,
+    "candidate_drift": [],
+    "other_drift": [
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\october-17-release\\eq-launcher\\patch-notes.json",
+        "role": "Published signed dungeon announcement2026101701; all106 asset records and thirteen prior summaries retained",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\october-17-release\\eq-launcher\\patch-notes.json",
+        "role": "Published signed dungeon announcement2026101701; all106 asset records and thirteen prior summaries retained",
+        "state": "changed: review implementation and evidence"
+      }
+    ]
+  },
+  "operations": {
+    "exit_code": 0,
+    "entries": 74,
+    "candidate_entries": 12,
+    "candidate_drift": [],
+    "other_drift": []
+  },
+  "wiki": {
+    "exit_code": 0,
+    "entries": 85,
+    "candidate_entries": 4,
+    "candidate_drift": [],
+    "other_drift": []
+  },
+  "validator": {
+    "exit_code": 0,
+    "output": "Skill is valid!\n"
+  },
+  "status": "candidate fingerprints and skill validator passed; unrelated patch-notes drift retained for its owner"
+}

@@ -1,0 +1,121 @@
+{
+  "date": "2026-10-18",
+  "status": "source_only_publication_pending",
+  "articles": {
+    "about": {
+      "decision": "no mechanics or commands changed by this undeployed candidate",
+      "before_sha256": "d30e64f41dd4395f4d27163407a134527fca9bf9892dabd816774bd0ebcd1da0",
+      "after_sha256": "d30e64f41dd4395f4d27163407a134527fca9bf9892dabd816774bd0ebcd1da0"
+    },
+    "advanced-loot": {
+      "decision": "no mechanics or commands changed by this undeployed candidate",
+      "before_sha256": "0f0870dd8c5e412c0a673a7ff551a952965397e5b2ce0dd6bb67ac1336c0e506",
+      "after_sha256": "0f0870dd8c5e412c0a673a7ff551a952965397e5b2ce0dd6bb67ac1336c0e506"
+    },
+    "ascension": {
+      "decision": "no mechanics or commands changed by this undeployed candidate",
+      "before_sha256": "63a95cfaac55cdafad7aed7a731406b01dfdabbb6053e4364371cd283f19d036",
+      "after_sha256": "63a95cfaac55cdafad7aed7a731406b01dfdabbb6053e4364371cd283f19d036"
+    },
+    "combat": {
+      "decision": "candidate notice; live mechanics retained",
+      "before_sha256": "5ff1e16241c93898964f3f6a2308c803bae8f8cca7a2c8f0b6ee265be20554c6",
+      "after_sha256": "6b792c4ebf837de454d3d11ca223d8b592165424eb9fa7baf0761ccb47e13980"
+    },
+    "commands": {
+      "decision": "no mechanics or commands changed by this undeployed candidate",
+      "before_sha256": "b23435918515e34f6db39189f0d072847b19599dff37c3739daf724839c66bd3",
+      "after_sha256": "b23435918515e34f6db39189f0d072847b19599dff37c3739daf724839c66bd3"
+    },
+    "dungeon-modes": {
+      "decision": "no mechanics or commands changed by this undeployed candidate",
+      "before_sha256": "c9b31538d188ce7e47cfa1c4a297d0ec1c0d2d11b838747fe6d3da06ca561cac",
+      "after_sha256": "c9b31538d188ce7e47cfa1c4a297d0ec1c0d2d11b838747fe6d3da06ca561cac"
+    },
+    "equipment": {
+      "decision": "candidate notice; live mechanics retained",
+      "before_sha256": "0765760be0a9ee9d7909793dc4d06f55950667ee0640b4f395928aa0fe8644db",
+      "after_sha256": "57c73d3f40fc88b1dc44a3866af7fcc8312d88dd88a876c09ba00b67f38712ed"
+    },
+    "features": {
+      "decision": "candidate notice; live mechanics retained",
+      "before_sha256": "534d30d02a0b4043a055cb907ca2fdd5e3b82b0c20564b32ce6d2a0cd5fca5e5",
+      "after_sha256": "ea9d2368ef42ec8ada887518fc54fdc0eb9417e0e20b90afcbe8a853fe77406f"
+    },
+    "getting-started": {
+      "decision": "candidate notice; live mechanics retained",
+      "before_sha256": "49da8ae75f638d38cb420b23c83d01bcf7593d3f00055e76c15fd40f36b2814e",
+      "after_sha256": "9d1c430b3a9b9397f53c4bbe39fb44b96d134cdfaf60e54a5321d62557f75264"
+    },
+    "index": {
+      "decision": "candidate notice; live mechanics retained",
+      "before_sha256": "705d23de198053d8e608bffb2481cbf52c58ffc0151ab6c82d6deea91801ba0e",
+      "after_sha256": "46568d088025c451a1dce303b2379338735c46fd97979d98df6b7772e5277402"
+    },
+    "item-upgrades": {
+      "decision": "no mechanics or commands changed by this undeployed candidate",
+      "before_sha256": "04106ddd5fc61bd1e772292fe03e8939d9eebdfa9d8dd4853d937e1d3ca7b91d",
+      "after_sha256": "04106ddd5fc61bd1e772292fe03e8939d9eebdfa9d8dd4853d937e1d3ca7b91d"
+    },
+    "launcher": {
+      "decision": "candidate notice; live mechanics retained",
+      "before_sha256": "bce000f1acf875347276156310567702d4d9a71bfafd8091b725405e4a98e78c",
+      "after_sha256": "0e92eb7a02b96c27e25e7e7013934551ea1f66ddae36227e5ce14020bb65b9d0"
+    },
+    "multiclass": {
+      "decision": "candidate notice; live mechanics retained",
+      "before_sha256": "a07eaa65d933c6269e0c8289f84bcbc6556f6c9e0a192639dd60b6c0c0df63b6",
+      "after_sha256": "38ca038dd59968085a2a2a65db96a338899f64a2c05df9e047ffa4772a835ac9"
+    },
+    "pets": {
+      "decision": "candidate notice; live mechanics retained",
+      "before_sha256": "3c44fe0856f38477d4c490ed2c0be34d109f6210d1dd6c9dadccee12a7cd85a3",
+      "after_sha256": "2530c1e0c8c471899e119488a5685d38c84346bf3d15139c9110a1732dc91bbe"
+    },
+    "recent-changes": {
+      "decision": "candidate notice; live mechanics retained",
+      "before_sha256": "f2dbe649f1b5b03a9cfe51adefbae33df8e018e24abe31988e032643485e4764",
+      "after_sha256": "c73b7722398b376187c5daa000b4becb98ae44727d64fe0a31dacb95237786d7"
+    },
+    "tradeskills": {
+      "decision": "no mechanics or commands changed by this undeployed candidate",
+      "before_sha256": "d76ffea75fea16a2a353a5cab1b5e2b783a244908fcfa0903184cd8947a4de7b",
+      "after_sha256": "d76ffea75fea16a2a353a5cab1b5e2b783a244908fcfa0903184cd8947a4de7b"
+    },
+    "travel": {
+      "decision": "candidate notice; live mechanics retained",
+      "before_sha256": "f6fc37d18ec535c85fff900a5b622a0e80ea1d768a2692febcf3f622d0f0421e",
+      "after_sha256": "abfb7d68a1bb114b1e7960bbd8755a3e9987d529ca6cd126a98e84731d3ff90b"
+    },
+    "tunnel": {
+      "decision": "candidate notice; live mechanics retained",
+      "before_sha256": "406b3922621b789bbafe02a76b296a7f9fccd716aa082dca94a8493d60b811ae",
+      "after_sha256": "abbe9aad64f336a7e16bb2c4409bb7ee6729ac3a19e38c9b15cdea30b470ee63"
+    },
+    "unreleased": {
+      "decision": "candidate notice; live mechanics retained",
+      "before_sha256": "1cf368c8d32ae9874086fe3da64bb9c9a717cbe8607fc1d584ec6134c58ec2af",
+      "after_sha256": "f5e9e9b9384abf8f93265a74d9d6b6f512c28cb4259d71690bee8c0aad46e58d"
+    },
+    "waypoints": {
+      "decision": "no mechanics or commands changed by this undeployed candidate",
+      "before_sha256": "9ef8b93fa52d5b83c479bbb3c877fab4f9373c0f26c84c43908edf3d7e5666bc",
+      "after_sha256": "9ef8b93fa52d5b83c479bbb3c877fab4f9373c0f26c84c43908edf3d7e5666bc"
+    },
+    "zone-hunt": {
+      "decision": "candidate notice; live mechanics retained",
+      "before_sha256": "4802e9fe8e3b4ddea03c375dd4cfa716418961cd02e25a8ac5494e701dceb2ad",
+      "after_sha256": "d55209031643fca1678fb82c2515fafebb68135195c2d80da9c5256ecf38b32a"
+    }
+  },
+  "features": "explicit unreleased notice; existing live feature list retained",
+  "commands": "No new public command; internal equipment protocol is client-managed",
+  "catalog": {
+    "zones": 48,
+    "items": 384,
+    "routes": 432,
+    "decision": "No overlapping item IDs or changed hunt recipes/rates; shared cap guidance linked through zone-hunt and equipment notices",
+    "sha256": "22701edeaf267067dfbe7225398b4944d6a69b080480ac06f0d153ca92eae0ae"
+  },
+  "publication": "Not requested or performed; current live/public labels retained"
+}

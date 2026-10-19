@@ -1,14 +1,24 @@
 {
-  "id": "classic-tbs-class-ranks-20261013",
+  "id": "wpm-pet-scaling-20261018",
   "expansion_max": 13,
-  "catalog": "tools/fixtures/aa-tbs-catalog.json.gz",
+  "catalog": "tools/fixtures/aa-wpm-catalog.json.gz",
   "later_exceptions": [
+    60,
+    131,
+    241,
+    385,
+    410,
     543,
+    891,
     938,
+    1041,
+    1205,
+    1259,
+    1403,
     3202,
     3512,
     3818,
-    1403
+    3820
   ],
   "grant_only_exceptions": [],
   "deferred_abilities": [
@@ -16,17 +26,13 @@
     47,
     57,
     68,
-    108,
     218,
-    273,
     300,
     308,
     314,
     338,
     339,
-    341,
     397,
-    398,
     555,
     565,
     585,
@@ -47,7 +53,7 @@
     7018,
     7019
   ],
-  "notes": "All allowed AA ranks are available at level 1. Implements the 26 reviewed class-rank recommendations; preserves all purchases, charges, class eligibility, point costs and prerequisites. Triple Backstab requires the paired native activation fix.",
+  "notes": "Combined WPM/pet candidate. All allowed ranks available at level 1; canonical costs, ownership and deadlines preserved. Native Warrior914 unchanged; new Paladin Holy Shield30200. Reviewed Flurry/Rage/Veteran prerequisites use active Combat Fury30 at original rank depth. Pet Alaran waivers retained. See docs/releases/wpm-melee-20261018/PLAN.md.",
   "default_max_ranks": 3,
   "rank_caps": {
     "13": 3,
@@ -56,7 +62,7 @@
     "20": 3,
     "23": 3,
     "29": 3,
-    "30": 3,
+    "30": 6,
     "75": 9,
     "125": 1,
     "195": 3,
@@ -94,6 +100,36 @@
     "89": 6,
     "359": 0,
     "541": 0,
-    "516": 0
+    "516": 0,
+    "267": 7,
+    "249": 8,
+    "60": 6,
+    "207": 6,
+    "174": 6,
+    "792": 6,
+    "241": 1,
+    "1205": 4,
+    "398": 6,
+    "1041": 2,
+    "385": 1,
+    "1259": 1,
+    "33": 18,
+    "34": 18,
+    "410": 2,
+    "891": 3,
+    "3820": 3,
+    "131": 1,
+    "108": 12,
+    "273": 10,
+    "341": 6,
+    "30200": 1
+  },
+  "prerequisite_waivers": {
+    "13484": [
+      1685
+    ],
+    "13718": [
+      1685
+    ]
   }
 }
