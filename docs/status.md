@@ -1,5 +1,18 @@
 # Current Nightcap status
 
+## All-class AA update — October19 candidate, not deployed
+
+All16 classes reviewed against566 archived THJ AA records. The candidate adds75
+lines, expands111 and adds Druid Healing Boon access:1,836 ranks/483 families,
+with no removals. All previously legal ranks, earned costs, prerequisites,
+pet/WPM ceilings and Classic50 remain. Native effects are retained; THJ behavior
+mismatches and excluded custom/free/execute families are explicit. Source includes
+main16bfe18 and published client-repair follow-up07b002b, preserving its verified status.
+[Full class list](releases/thj-all-class-aa-20261019/CHANGELIST.md),
+[verification and rollout](releases/thj-all-class-aa-20261019/README.md),
+[owner QA](releases/thj-all-class-aa-20261019/QA.md). Main/server activation and
+wiki publication require their next release approval; no live change is claimed.
+
 ## Client Play incident — October 19; repair published, Play confirmed
 
 Owner reports runtime health contract mismatch on this PC and others. Signed

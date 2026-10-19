@@ -1,0 +1,65 @@
+{
+  "date": "2026-10-19",
+  "status": "candidate verified, not deployed or owner accepted",
+  "unit_native_migration_tests": {
+    "count": 57,
+    "passed": true,
+    "command": "PYTHONPATH=tools;tools/tests NIGHTCAP_DB_TESTS=1 python -m unittest -v test_all_class_aa test_all_class_aa_native test_aa_tbs_policy test_wpm_aa test_aa_cooldown_identity test_aa_temporary_buffs",
+    "sql_scope": "local connection-temporary tables; guarded replay, rollback and drift rejection; no real owned-state writes"
+  },
+  "native_cooldowns": {
+    "families": 211,
+    "ordered_cross_family_cases_per_activation_and_catalog_check": 44310,
+    "ordered_same_family_rank_cases": 2411
+  },
+  "native_eligibility": {
+    "native_eligibility_cases": 11016,
+    "client_expansion_checks": 8,
+    "projection_checks": 9,
+    "restored_earned_rank_cases": 3,
+    "passed": true,
+    "source_sha256": "b8275ae824ed04a1beed5ecf551d95bab9d9cfc91fae33993232e0245a564194"
+  },
+  "build": {
+    "status": "built_not_installed",
+    "path": "/tmp/nightcap-all-class-aa-20261019/zone in local akk-stack-eqemu-server-1",
+    "sha256": "e1dd9c4cdd6bf95db7ffc909f224b1603e9e07e1ad05925bcdd7bd0359cd3eb0",
+    "baseline_exact_relink": true,
+    "only_changed_native_source": "common/nightcap_aa_policy.h"
+  },
+  "client_content": {
+    "new_ranks_checked": 676,
+    "missing_spells": [],
+    "missing_titles_or_descriptions": [],
+    "assets": {
+      "spells_us.txt": "eb07544cd443e56d404900d5853d09625ccea899425bcab63dc9f07283f7ec61",
+      "dbstr_us.txt": "88506405c5179b1d369d261290b415937729b6f05b4e1a845a3d4bcd63f1a421"
+    },
+    "scope": "AA spell/text availability only, not validation of the older DLL/catalog pair; preserve the separate client-contract repair."
+  },
+  "wiki": {
+    "python_tests_passed": 14,
+    "search_scenarios_passed": 6,
+    "equipment_tests_passed": 7,
+    "impact_review": "all21 guides and432 generated routes; six guides updated as unreleased",
+    "refresh_status": "REVIEW REQUIRED: reviewed candidate and retained client repair changes; live ledger not advanced",
+    "published": false,
+    "post_client_publication_merge": {
+      "content_tests_passed": 9,
+      "search_scenarios_passed": 6,
+      "source": "published client repair07b002b retained; no gameplay implementation changed"
+    }
+  },
+  "outstanding": [
+    "owner in-game QA and balance",
+    "main/server approval",
+    "wiki publication",
+    "explicit THJ behavior gaps in CHANGELIST.md"
+  ],
+  "profile_capacity": {
+    "max_held_class_families": 206,
+    "native_limit": 300,
+    "source": "retained source/common/patches/rof2_structs.h:140 MAX_PP_AA_ARRAY",
+    "class_masks_checked": 696
+  }
+}

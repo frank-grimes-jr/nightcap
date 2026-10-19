@@ -1,0 +1,187 @@
+id,name,classes,before,after,kind
+1,Innate Strength,65535,3,15,Changed
+2,Innate Stamina,65535,3,15,Changed
+3,Innate Agility,65535,3,15,Changed
+4,Innate Dexterity,65535,3,15,Changed
+5,Innate Intelligence,65535,3,15,Changed
+6,Innate Wisdom,65535,3,15,Changed
+7,Innate Charisma,65535,3,15,Changed
+8,Innate Fire Protection,65535,3,15,Changed
+9,Innate Cold Protection,65535,3,15,Changed
+10,Innate Magic Protection,65535,3,15,Changed
+11,Innate Poison Protection,65535,3,15,Changed
+12,Innate Disease Protection,65535,3,15,Changed
+13,Innate Run Speed,65535,3,5,Changed
+16,Innate Lung Capacity,65535,3,6,Changed
+20,Spell Casting Mastery,32318,3,4,Changed
+21,Spell Casting Reinforcement,32318,3,4,Changed
+38,Celestial Regeneration,2,3,9,Changed
+52,Improved Familiar,2048,3,4,Changed
+97,Critical Mend,64,3,6,Changed
+104,Double Riposte,49501,3,6,Changed
+128,Paragon of Spirit,16384,3,7,Changed
+141,New Tanaan Crafting Mastery,65535,3,6,Changed
+142,Planar Power,65535,3,15,Changed
+144,Innate Enlightenment,15906,3,5,Changed
+153,Radiant Cure,546,3,9,Changed
+160,Hastened Root,2048,3,6,Changed
+166,Hasty Exit,256,3,9,Changed
+173,Eldritch Rune,8192,3,8,Changed
+177,Spirit Call,512,3,5,Changed
+184,Guardian of the Forest,8,3,9,Changed
+185,Spirit of the Wood,32,3,9,Changed
+188,Knight's Advantage,20,3,6,Changed
+189,Ferocity,33097,3,6,Changed
+198,Consumption of the Soul,16,3,8,Changed
+199,Boastful Bellow,128,3,16,Changed
+202,Punishing Blade,32841,3,6,Changed
+203,Speed of the Knight,20,3,9,Changed
+205,Nimble Evasion,256,3,5,Changed
+206,Technique of Master Wu,64,5,6,Changed
+208,Call of Xuzl,2048,3,5,Changed
+210,Ingenuity,33089,3,6,Changed
+213,Tactical Mastery,32769,3,9,Changed
+214,Theft of Life,1040,3,11,Changed
+224,Mental Clarity,32446,3,8,Changed
+225,Innate Regeneration,65535,3,15,Changed
+233,Packrat,65535,3,5,Changed
+234,Heightened Endurance,33089,3,11,Changed
+235,Weapon Affinity,49629,3,5,Changed
+238,Tune of Pursuance,128,3,5,Changed
+254,Divine Avatar,2,3,6,Changed
+255,Exquisite Benediction,2,3,8,Changed
+257,Nature's Boon,32,3,11,Changed
+258,Advanced Tracking,32,3,5,Changed
+265,Shared Health,4096,3,5,Changed
+271,Strikethrough,64,3,6,Changed
+272,Stonewall,64,3,10,Changed
+274,Kick Mastery,64,3,9,Changed
+275,Heightened Awareness,64,3,5,Changed
+279,Quickening of Death,1024,3,5,Changed
+284,Vicious Smash,20,3,5,Changed
+285,Radiant Cure,4,3,6,Changed
+287,Precision of the Pathfinder,8,3,9,Changed
+288,Coat of Thistles,8,3,5,Changed
+294,Virulent Venom,256,3,5,Changed
+296,Intense Hatred,16,3,5,Changed
+299,Sturdiness,1,3,10,Changed
+307,Ward of Destruction,2048,3,5,Changed
+319,Touch of the Divine,2,3,5,Changed
+321,Call of the Ancients,512,3,8,Changed
+333,Discordant Defiance,65535,3,5,Changed
+335,Delay Death,65535,3,15,Changed
+347,Mnemonic Retention,32446,1,4,Changed
+348,Expansive Mind,32446,3,10,Changed
+354,Slippery Attacks,16841,3,5,Changed
+359,Dance of Blades,128,0,3,Added
+361,Shield of Notes,128,3,6,Changed
+362,Roar of Thunder,16384,3,6,Changed
+368,Blur of Axes,32768,3,13,Changed
+384,Spirit of the Bear,32,0,1,Added
+387,Blood Pact,32768,3,4,Changed
+388,Shielding Resistance,16841,3,5,Changed
+389,Healing Boon,550,3,6,Changed
+391,Celestial Hammer,2,3,6,Changed
+393,Nature's Blessing,32,0,1,Added
+397,Destructive Fury,2048,0,9,Added
+403,Paralytic Spores,544,0,1,Added
+406,Nature's Bounty,40,3,6,Changed
+415,Hastened Deftdance,128,0,3,Added
+431,Pestilent Paralysis,1024,0,1,Added
+434,Steadfast Will,20,3,8,Changed
+437,Tracking Mastery,8,3,5,Changed
+440,Nerves of Steel,256,3,5,Changed
+442,Touch of the Cursed,16,3,6,Changed
+447,Ancestral Aid,512,3,6,Changed
+459,Gelid Rending,16384,0,1,Added
+462,Auspice of the Hunter,8,3,6,Changed
+469,Stunning Kick,64,3,6,Changed
+495,Gift of Mana,32318,3,4,Changed
+496,Field Dressing,32769,3,5,Changed
+497,Bandage Wounds,32766,3,5,Changed
+498,Enhanced Aggression,49629,3,10,Changed
+500,Silent Casting,15906,3,5,Changed
+503,Hastened Thunder,16384,3,5,Changed
+506,Ward of Purity,2,0,6,Added
+515,Improved Twincast,14370,0,1,Added
+519,Convergence of Spirits,32,0,6,Added
+520,Nature's Guardian,32,3,6,Changed
+532,Willful Death,1040,3,10,Changed
+537,Precise Strikes,256,3,6,Changed
+538,Hastened Death,64,3,6,Changed
+540,Weightless Steps,64,0,3,Added
+541,Hastened Blades,128,0,3,Added
+545,Deep Sleep,8192,3,5,Changed
+551,Hastened Mind Crash,2048,3,5,Changed
+553,Cacophony,128,3,6,Changed
+557,Trick Shot,8,6,7,Changed
+558,Turn Undead,2,3,6,Changed
+559,Turn Summoned,4096,3,8,Changed
+560,Selo's Enduring Cadence,128,0,3,Added
+562,Lightning Strikes,8,3,10,Changed
+578,Glyph Spray,8192,0,1,Added
+579,Combat Medic,32766,0,5,Added
+582,Battle Ready,65535,1,4,Changed
+602,Mental Contortion,8192,0,1,Added
+611,Battle Leap,32769,1,2,Changed
+669,Bladed Song,128,1,2,Changed
+689,Combat Medic,32769,0,5,Added
+735,Battle Frenzy,2,0,1,Added
+749,Explosion of Spite,16,0,1,Added
+751,Scent of Terris,1024,0,1,Added
+783,Energetic Attunement,65535,3,5,Changed
+790,Seized Opportunity,256,3,9,Changed
+791,Veil of Mindshadow,8192,0,3,Added
+800,Vehement Rage,32769,0,1,Added
+825,Vicious Bite of Chaos,16,0,1,Added
+826,Encroaching Darkness,1040,0,1,Added
+861,Languid Bite,512,0,1,Added
+877,Ranged Finesse,8,0,1,Added
+878,Bow Mastery,8,0,1,Added
+911,Warlord's Resurgence,1,0,1,Added
+962,Distraction Attack,32768,0,3,Added
+963,Hastened Savage Spirit,32768,0,8,Added
+986,Bite of the Asp,16384,0,3,Added
+992,Tranquil Blessings,30254,0,1,Added
+1092,Spirit of the Black Wolf,32,0,1,Added
+1123,Hastened Edict of Command,8192,0,3,Added
+1125,Bite of Tashani,8192,0,1,Added
+1174,Mrylokar's Rigor,256,0,1,Added
+1200,Companion's Alacrity,30224,0,3,Added
+1211,Focus of Arcanum,15904,0,1,Added
+1215,Summon Companion,30224,0,4,Added
+1257,Hand of Death,1024,0,1,Added
+1272,Assassin's Wrath,256,0,1,Added
+1281,Everburn,32768,0,1,Added
+1405,Twincast,15906,0,5,Added
+1433,Extended Ingenuity,33089,0,1,Added
+1664,Twinproc,50175,0,1,Added
+2011,Imperator's Command,1,0,1,Added
+2066,Second Wind Ward,4096,0,1,Added
+3500,Blessing of Light,4,0,2,Added
+3515,Envenomed Blades,256,0,1,Added
+3516,Companion of Necessity,4096,0,1,Added
+3519,Hastened Funeral Dirge,128,0,5,Added
+3646,Blast of Anger,1,0,1,Added
+3704,Selo's Sonata,128,0,1,Added
+3727,Knave's Return Strike,256,0,1,Added
+3729,Turgur's Swarm,512,0,1,Added
+3731,Infused by Rage,1,0,1,Added
+3732,Gut Punch,1,0,1,Added
+3805,Hastened Mend,64,0,3,Added
+3815,Destructive Cascade,9776,0,3,Added
+4002,Frenzied Volley,32768,0,1,Added
+7009,Teleport Bind,32,0,1,Added
+7060,Precision of Axes,32768,0,3,Added
+7703,Death Bloom,1024,0,1,Added
+8325,Subtle Blows,256,0,4,Added
+8332,Extended Languid Bite,512,0,1,Added
+8342,Host in the Shell,4096,0,1,Added
+8700,Beam of Slumber,8192,0,1,Added
+8701,Phantasmic Reflex,8192,0,1,Added
+8901,Hastened Defensive Poses,64,0,4,Added
+8903,Hastened Destructive Force,64,0,3,Added
+9300,Massive Strike,256,0,2,Added
+9503,Group Shrink,512,0,1,Added
+10394,Beacon of the Righteous,4,0,1,Added
+11080,Chameleon Strike,16384,0,1,Added
