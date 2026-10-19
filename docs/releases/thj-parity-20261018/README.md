@@ -1,8 +1,11 @@
-# Combined THJ item/spell, starter and pet/WPM candidate
+# Combined THJ item/spell, starter and pet/WPM release
 
-Implemented on `feature/thj-item-spell-parity`, based on `a8e0a913` and the
-completed pet/WPM working tree. This is a testing candidate. It is not installed
-on production, signed, published, promoted to main or accepted in RoF2.
+Deployed to main and OVH on October18 at the owner’s explicit request.
+PR235 promotes the tested tree; signed client2026101802/proxy0.11.0 and
+wiki20261018-thj-parity-v1 are verified. Classic50 remains active.
+[Deployment and recovery](deployment/README.md) retain the exact receipts,
+including the reviewed rule-description startup normalization. Owner RoF2
+gameplay and balance acceptance remain open.
 
 The owner's target is THJ Legendary ≈ Nightcap Ascended (Ascension). The full
 forum research covered 152 pages and 3,031 posts, including comments, screenshots and

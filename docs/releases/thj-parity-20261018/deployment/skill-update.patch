@@ -1,0 +1,1087 @@
+--- C:/Users/verre/.codex/skills/nightcap-development/references/balance.md
++++ C:/Users/verre/.codex/skills/nightcap-development/references/balance.md
+@@ -4,9 +4,14 @@
+ 
+ Nightcap favors solo play without trivializing earned progression. Evaluate classes, legal AAs, pets, buffs, heroic stats, augments and gear together. Measure incoming burst, survival, mana sustain/recovery, time to kill, cooldown use and reward acquisition, not only DPS or encounter HP. Cap increases above 250 are allowed for consideration; neither 250 nor a prior experiment is a permanent policy ceiling.
+ 
+-## Combined THJ item/spell and pet/WPM candidate — October 18, 2026
+-
+-Source: C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev. Current implementation, paired evidence and exact owner QA: `docs/releases/thj-parity-20261018/`. Companion baseline: `docs/releases/wpm-melee-20261018/`. Candidate only; no production, signing, publication or owner acceptance.
++## Combined THJ item/spell and pet/WPM deployed — October 18, 2026
++
++Source: C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev. Owner-authorized main/OVH deployment is verified in
++`docs/releases/thj-parity-20261018/deployment/README.md` and `receipts/`. PR235 promotes the tested source;
++signed client2026101802/proxy0.11.0 and wiki20261018-thj-parity-v1 are published
++and verified. Classic50 remains active; level65/PoP and389 stock additions stay
++staged. Owner gameplay and balance acceptance remain open. Exact testing:
++`docs/releases/thj-parity-20261018/QA.md`; measured limitations: `COMPARISON.md`.
+ 
+ Players and eligible permanent pets use additive effective SD for direct
+ damage/procs and floor(SD/2) per ordinary DoT tick, independent of duration.
+@@ -17,7 +22,7 @@
+ before caps. Item-mod opt-outs and reflections are covered. Heroics are
+ independent of the SD level gate, like focus; no DoT/HoT or owner-heroic transfer.
+ Both new Spells:NightcapTHJDamageScaling/NightcapHeroicSpellScaling rules default
+-false; reviewed candidate SQL enables them separately. Percentage healing and
++false; deployed SQL enables them separately. Percentage healing and
+ HoT splitting remain. Bard runes exclude HA while instruments remain; native
+ Bard area-DoT dispatch is an explicit uncalibrated exception.
+ 
+@@ -38,8 +43,7 @@
+ not approved parity or difficulty. Native fixtures enforce Lore/augment rules.
+ 
+ Actual source-method, full-row MariaDB recovery and native tests are separately
+-recorded in evidence/. Matching world/zone/cache-loader and the unchanged paired
+-five-file NCPA2 client delta are required. Owner RoF2, pack/raid and resource
++recorded in evidence/. Matching world/zone/cache-loader and the signed five-file NCPA2 update over the full138-file inventory are required. Owner RoF2, pack/raid and resource
+ balance acceptance remain open; no cap/HP-only balancing shortcut is implied.
+ 
+ ## Cooldown audit acceptance boundary
+--- C:/Users/verre/.codex/skills/nightcap-development/references/items.md
++++ C:/Users/verre/.codex/skills/nightcap-development/references/items.md
+@@ -1,8 +1,13 @@
+ # Items, loot, forging and economy
+ 
+-## Combined THJ item/spell and pet/WPM candidate — October 18, 2026
+-
+-Source: C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev. Current implementation, paired evidence and exact owner QA: `docs/releases/thj-parity-20261018/`. Companion baseline: `docs/releases/wpm-melee-20261018/`. Candidate only; no production, signing, publication or owner acceptance.
++## Combined THJ item/spell and pet/WPM deployed — October 18, 2026
++
++Source: C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev. Owner-authorized main/OVH deployment is verified in
++`docs/releases/thj-parity-20261018/deployment/README.md` and `receipts/`. PR235 promotes the tested source;
++signed client2026101802/proxy0.11.0 and wiki20261018-thj-parity-v1 are published
++and verified. Classic50 remains active; level65/PoP and389 stock additions stay
++staged. Owner gameplay and balance acceptance remain open. Exact testing:
++`docs/releases/thj-parity-20261018/QA.md`; measured limitations: `COMPARISON.md`.
+ 
+ The exact reviewed catalog contains131 observed Ascended targets. Clean
+ Blood Cord/Talisman screenshots override conflicting workbook attributes;
+@@ -28,6 +33,12 @@
+ preimages, matching caches/world/zone and client spell/dbstr pairing are required.
+ Source/tests: thj_item_parity.py, thj_item_migration.py, thj_combined_content.py,
+ item_scaling_overrides.py and test_thj_*, test_item_scaling_overrides.py.
++
++Production installed all1393 full-row afterimages, matching caches and the paired
++native image. Three rule-note strings now match compiled ruletypes.h because
++world normalizes them on startup. Forward/disable/enable guards were rehearsed
++on the retained public clone after that normalization; no live SQL repair was
++needed. Keep numeric recovery separate from effects, sockets and owned state.
+ 
+ ## Built-in item colors — deployed October 18
+ 
+--- C:/Users/verre/.codex/skills/nightcap-development/references/operations.md
++++ C:/Users/verre/.codex/skills/nightcap-development/references/operations.md
+@@ -2,27 +2,43 @@
+ 
+ Audited 2026-10-12. Consult the selected checkout's current instructions and release record. `references/sources.json` pins inspected files and their locations; hashes detect change, not correctness or deployment.
+ 
+-## Combined THJ item/spell and pet/WPM candidate — October 18, 2026
+-
+-Source: C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev. Current implementation, paired evidence and exact owner QA: `docs/releases/thj-parity-20261018/`. Companion baseline: `docs/releases/wpm-melee-20261018/`. Candidate only; no production, signing, publication or owner acceptance.
+-
+-The integrated candidate uses/tmp/nightcap-thj-parity-v1 and the isolated
+-nightcap_thj_parity_20261018 synthetic database/runtime. The completed WPM native
+-matrix remains a separate baseline. Pin119 requested source overlays and all
+-retained files/binaries/diagnostic objects using the actual build manifests;
+-do not infer current hashes from older worktrees. No production installation.
+-
+-Existing-item changes have one full-row transaction; new-content/rules/schema
+-components are independently guarded, not a single multi-file transaction.
+-Keep writers closed through final verification in a later authorized activation.
+-New spell rule catalog entries require matching world and zone; regenerate
+-item/spell caches and use the supported full runtime restart. Formula recovery
+-has guarded disable/enable scripts. Numeric recovery retains pet/WPM sockets,
+-effects and owned state; native rollback must still represent new pet/AA data.
+-Classic50 remains the live profile; PoP65 is a separate complete staged profile.
+-Pair the unchanged unsigned five-file pet/WPM client delta with the then-current
+-signed base, including October18 travel assets. QA.md and ACTIVATION.md define
+-testing/recovery; production/main/publication and owner acceptance remain separate.
++## Combined THJ item/spell and pet/WPM deployed — October 18, 2026
++
++Source: C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev. Owner-authorized main/OVH deployment is verified in
++`docs/releases/thj-parity-20261018/deployment/README.md` and `receipts/`. PR235 promotes the tested source;
++signed client2026101802/proxy0.11.0 and wiki20261018-thj-parity-v1 are published
++and verified. Classic50 remains active; level65/PoP and389 stock additions stay
++staged. Owner gameplay and balance acceptance remain open. Exact testing:
++`docs/releases/thj-parity-20261018/QA.md`; measured limitations: `COMPARISON.md`.
++
++Production stage /opt/nightcap/releases/thj-parity-20261018 runs the full
++reviewed image sha256:7013e41696649bb82d5776659b3b21c37456862f4c90ecc44805f5d6b2fcc258.
++All12 zones, world and shared_memory match native-build-manifest.json;119 source
++overlays retain the cooldown/auth/reforge base. Ten guarded content components,
++regenerated item/spell caches and signed138-file client are verified. A fresh
++stopped64,405,100-byte compressed backup passed integrity. 46 player and
++28 custom-table receipts preserve owned state without restoration.
++Game/gateway are open and healthy; db/web/tunnel were preserved. Final disk
++headroom was3.6GiB; retain recovery artifacts and check capacity before later builds.
++
++The first boot held access only because RuleManager::UpdateInjectedRules
++(retained common/rulesys.cpp) replaced three descriptions with compiled notes;
++values and other content matched. resume_rule_notes.py authenticates exactly
++those transitions and rehearses ten corrected recovery/reapply checks on the
++public clone. No production SQL replay or player snapshot restoration occurred.
++Use resume_pinned.py for a retained restart: it authenticates/reselects the new
++immutable image under both deployment/GM locks before recovery.resume(). The
++original rollout.py open is not valid for this reviewed hold. Recovery open
++requires all138 HTTPS assets verified by the shipped-key manifest parser.
++Both market startup epochs are authenticated independently. New holds need a
++fresh diagnosis. Existing procedure remnants must be inspected before retry.
++
++New rules require paired world/zone; regenerate both caches and use a supported
++full runtime restart. Do not revert to the older eight-location pet binary or
++delete earned AA content while new state is owned. Formula disable/enable and
++numeric recovery preserve sockets/effects/owned data. Exact operator source,
++29 regression groups, content rehearsal and deployed receipts are in deployment/.
++Native47-case and165-test evidence remains distinct from player acceptance.
+ 
+ ## October18 reforging successor deployment
+ 
+--- C:/Users/verre/.codex/skills/nightcap-development/references/wiki.md
++++ C:/Users/verre/.codex/skills/nightcap-development/references/wiki.md
+@@ -1,18 +1,30 @@
+ # Official player wiki and Features
+ 
+-## Combined THJ item/spell and pet/WPM candidate — October 18, 2026
+-
+-Source: C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev. Current implementation, paired evidence and exact owner QA: `docs/releases/thj-parity-20261018/`. Companion baseline: `docs/releases/wpm-melee-20261018/`. Candidate only; no production, signing, publication or owner acceptance.
+-
+-All21 maintained guides and432 generated reward routes are reviewed for
+-the combined source candidate. Eleven guides add explicit Not released item,
+-spell and starter/dungeon guidance, retaining the companion notices and current
+-live values. Features/home/Recent changes, equipment/combat/pets, starter,
+-upgrades/dungeons/Hunt and In development agree. Generated published rewards,
+-commands, acquisition and Classic50 labels remain unchanged. wiki-review.json
+-records each decision; check_refresh.py runs against actual HEAD/worktree.
+-The global source ledger is not advanced to hide drift. No local wiki edit is
+-published and no automated result substitutes for owner gameplay acceptance.
++## Combined THJ item/spell and pet/WPM deployed — October 18, 2026
++
++Source: C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev. Owner-authorized main/OVH deployment is verified in
++`docs/releases/thj-parity-20261018/deployment/README.md` and `receipts/`. PR235 promotes the tested source;
++signed client2026101802/proxy0.11.0 and wiki20261018-thj-parity-v1 are published
++and verified. Classic50 remains active; level65/PoP and389 stock additions stay
++staged. Owner gameplay and balance acceptance remain open. Exact testing:
++`docs/releases/thj-parity-20261018/QA.md`; measured limitations: `COMPARISON.md`.
++
++All21 maintained guides and432 generated reward routes were reviewed.
++Fifteen guides now describe released item/spell/starter/dungeon and pet/WPM
++mechanics with Live testing status. Features/home/Recent changes, commands,
++equipment/combat/pets and progression boundaries agree. Hunt catalog IDs do not
++intersect the1393 changed definitions, so its384 published item values remain
++unchanged; no command/acquisition rewrite was needed. Separate PoP65/389-stock
++and quest-guarantee proposals remain unreleased.
++
++Wiki20261018-thj-parity-v1 supersedes20261018-loot-quality-v1. The guarded updater
++rehearsed rollback, retained Nginx/private downloads/all5 service identities and
++needed no reload. All465 public file hashes/security headers and five private
++source-route denials pass. Thirty Linux wiki/deploy/update/refresh tests and13
++Node checks passed. Receipts and whole-wiki decisions are in deployment/;
++check_refresh.py compares the actual current source and working changes. The
++private source ledger is excluded from public payloads. Publication is verified;
++owner gameplay/balance acceptance is still open.
+ 
+ ## Current combined publication — October 18
+ 
+--- C:/Users/verre/.codex/skills/nightcap-development/references/client.md
++++ C:/Users/verre/.codex/skills/nightcap-development/references/client.md
+@@ -2,21 +2,28 @@
+ 
+ Audited 2026-10-12. Use current deployment records over old README status paragraphs. Source/build checks, signed publication and visible player QA are separate states.
+ 
+-## WPM melee and pet integration candidate — October 18, 2026
+-
+-Source: C:/Users/verre/Documents/Codex/2026-10-18/goa/work/thj-pet-scaling. Current evidence: `docs/releases/wpm-melee-20261018/README.md` and `evidence/`; retained pet implementation: `docs/releases/thj-pet-scaling-20261018/IMPLEMENTATION.md`. Candidate only, not deployed or accepted in game.
++## Combined THJ item/spell and pet/WPM deployed — October 18, 2026
++
++Source: C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev. Owner-authorized main/OVH deployment is verified in
++`docs/releases/thj-parity-20261018/deployment/README.md` and `receipts/`. PR235 promotes the tested source;
++signed client2026101802/proxy0.11.0 and wiki20261018-thj-parity-v1 are published
++and verified. Classic50 remains active; level65/PoP and389 stock additions stay
++staged. Owner gameplay and balance acceptance remain open. Exact testing:
++`docs/releases/thj-parity-20261018/QA.md`; measured limitations: `COMPARISON.md`.
+ 
+ Permanent loadouts keep22 locations,15 Mage/eight other items and NCPA2
+ pages8/8/6; original slot IDs/full instances and transaction quarantine persist.
+ Temporary hand-ins remain separate, with native hand-conflict restoration.
+-Pair proxy0.11.0, Inventory/Pet Info XML, spells_us and dbstr_us with candidate
++Pair proxy0.11.0, Inventory/Pet Info XML, spells_us and dbstr_us with deployed
+ server/schema/cache/AA policy. WPM adds AA descriptions and12 proc/focus spells.
+-The five-file delta is unsigned/uninstalled and requires the current signed
+-base, including October18 travel assets. Protected reference client is read-only.
++Signed game2026101802 publishes the five-file delta over the complete138-file
++2026101801 base, preserving all133 other assets and patch history. All138 HTTPS
++bytes, sizes and shipped-key signatures verify in deployment/hosted-verification.json. Protected reference client is read-only.
+ Rabid Bear benefit and Illusion: Rabid Bear are independent permanent removable
+ effects with normal death behavior. Real client click-off, zoning, pet lifecycle,
+ AA display, shield swapping and proc/HHE gameplay acceptance remain pending.
+-Evidence: current client-stage.json and native/unit tests, not visible QA proof.
++Evidence: client-stage.json, signed publication receipts and native/unit tests;
++these are not visible QA proof. No protected reference-client edits occurred.
+ 
+ ## Recommended AA — deployed October 17
+ 
+--- C:/Users/verre/.codex/skills/nightcap-development/references/multiclass.md
++++ C:/Users/verre/.codex/skills/nightcap-development/references/multiclass.md
+@@ -2,9 +2,14 @@
+ 
+ Audited 2026-10-12 from integrated source and dated release records. Deployment claims below are documentary, not fresh runtime observations.
+ 
+-## WPM melee and pet integration candidate — October 18, 2026
+-
+-Source: C:/Users/verre/Documents/Codex/2026-10-18/goa/work/thj-pet-scaling. Current evidence: `docs/releases/wpm-melee-20261018/README.md` and `evidence/`; retained pet implementation: `docs/releases/thj-pet-scaling-20261018/IMPLEMENTATION.md`. Candidate only, not deployed or accepted in game.
++## Combined THJ item/spell and pet/WPM deployed — October 18, 2026
++
++Source: C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev. Owner-authorized main/OVH deployment is verified in
++`docs/releases/thj-parity-20261018/deployment/README.md` and `receipts/`. PR235 promotes the tested source;
++signed client2026101802/proxy0.11.0 and wiki20261018-thj-parity-v1 are published
++and verified. Classic50 remains active; level65/PoP and389 stock additions stay
++staged. Owner gameplay and balance acceptance remain open. Exact testing:
++`docs/releases/thj-parity-20261018/QA.md`; measured limitations: `COMPARISON.md`.
+ 
+ Combined policy is1160 ranks/408 families. WPM adds Shield Specialist5,
+ Way of Steel2, Holy Shield30200/43210, Healing Light3, Blessing of Life3,
+--- C:/Users/verre/.codex/skills/nightcap-development/references/sources.json
++++ C:/Users/verre/.codex/skills/nightcap-development/references/sources.json
+@@ -1,7 +1,7 @@
+ {
+   "schema_version": 1,
+   "audited_at": "2026-10-12",
+-  "basis": "Base audit2026-10-12 with separately dated topic evidence. October17 combined release PR220: complete retained-source zone rebuild, proxy0.10.0/game2026101702, signed106-file verification, guarded SQL/cache/player preservation and wiki/private-guide publication verified. Pet namespace regression added; Docker socket and production build-cache recovery recorded. Shared timer identities and owner gameplay/balance acceptance remain open. Other topic scopes remain their separately recorded source revisions. October18 cooldown deployment via PR223: AA family/native-slot and item/discipline namespaces are live with verified receipts, deadlines and12zone hashes; authorized concurrent port preserved by reviewed one-shot resume. The bounded completion validates exhausted market pools without migration replay. PR229 guide source preserves client-zone repair guidance; combined publication handed to the authorized reforging release. Generic/content links and owner gameplay QA remain open. October18 default-color fix and combined wiki verified at4dc6585;12 zones, player/custom preservation and465 public files checked. Cooldown source/receipt pins retained; owner gameplay acceptance open.",
++  "basis": "Base audit2026-10-12 with separately dated topic evidence. October17 combined release PR220: complete retained-source zone rebuild, proxy0.10.0/game2026101702, signed106-file verification, guarded SQL/cache/player preservation and wiki/private-guide publication verified. Pet namespace regression added; Docker socket and production build-cache recovery recorded. Shared timer identities and owner gameplay/balance acceptance remain open. Other topic scopes remain their separately recorded source revisions. October18 cooldown deployment via PR223: AA family/native-slot and item/discipline namespaces are live with verified receipts, deadlines and12zone hashes; authorized concurrent port preserved by reviewed one-shot resume. The bounded completion validates exhausted market pools without migration replay. PR229 guide source preserves client-zone repair guidance; combined publication handed to the authorized reforging release. Generic/content links and owner gameplay QA remain open. October18 default-color fix and combined wiki verified at4dc6585;12 zones, player/custom preservation and465 public files checked. Cooldown source/receipt pins retained; owner gameplay acceptance open. October18 combined THJ/pet/WPM deployed via PR235: paired runtime,1393 item afterimages, signed2026101802 all138 assets and wiki465 files verified; exact rule-note startup normalization recovered forward with owned state preserved. Classic50 retained; gameplay/balance acceptance open.",
+   "observed_revisions": {
+     "integrated": "eeb79ddebd69bdc4bda1725e7ccf5fa6e18591d1",
+     "default_checkout": "ce161c5e600992037adb66037b56047ef8c330dd",
+@@ -59,7 +59,8 @@
+     "reforge_colors_owner_confirmation_20261018": "c44f64930a0ee20f68c8dbde7dd835a3a32ccd7f",
+     "october_17_release_owner_confirmation_20261018": "e0a4d94d272918f04774d012b96400f502942ade",
+     "wpm_pet_candidate_20261018": "a8e0a91 + reviewed feature/thj-pet-scaling working tree; not deployed",
+-    "thj_item_spell_candidate_20261018": "3a5cc28f40ad52988a50c9d0157d28b5f0a2143b + reviewed feature/thj-item-spell-parity working tree; not deployed"
++    "thj_item_spell_candidate_20261018": "3a5cc28f40ad52988a50c9d0157d28b5f0a2143b + reviewed feature/thj-item-spell-parity working tree; not deployed",
++    "thj_combined_deployed_20261018": "1039fdd007beb090f2830c2b546b77432c0ab0b6; 8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree"
+   },
+   "topics": {
+     "operations": [
+@@ -574,45 +575,101 @@
+       },
+       {
+         "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "path": "docs/releases/thj-parity-20261018/ACTIVATION.md",
++        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
++        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
++        "sha256": "c0b83ff2c26e876ed67c265610d0f344c80c491158baf78f6093de2e2aa83123"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "path": "docs/releases/thj-parity-20261018/QA.md",
++        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
++        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
++        "sha256": "ed1c4e9eba67171785813cbd93dd1d04b463692a9867cc2433c1cf30b03c477b"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "path": "docs/releases/thj-parity-20261018/deployment/README.md",
++        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
++        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
++        "sha256": "aa26ae0727b374fd84f8c48e35dabb1afc26fc884fc9ee9fee901f0941572604"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "path": "docs/releases/thj-parity-20261018/deployment/receipts/deployed.json",
++        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
++        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
++        "sha256": "fc7d10f628a09d44f2c43b32c54deeabfbac0311f5800d9462ac1780be2d0344"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "path": "docs/releases/thj-parity-20261018/deployment/receipts/report.json",
++        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
++        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
++        "sha256": "39329e3f5042050e76e9bbba966a5733d6d417d11d0b54195d8a29afec6c78a8"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "path": "docs/releases/thj-parity-20261018/deployment/resume_pinned.py",
++        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
++        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
++        "sha256": "4f25954b5d7efdd2287635816b23667b4426b037aa664f0b612135e215fe686b"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "path": "docs/releases/thj-parity-20261018/deployment/resume_rule_notes.py",
++        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
++        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
++        "sha256": "cbe096565a1c3723f5072dc172068e8c61b32080279aa94321caf038a7ca02b5"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "path": "docs/releases/thj-parity-20261018/deployment/rollout.py",
++        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
++        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
++        "sha256": "8b065caa4ac2fbf8f305c1ceb5f1fbf6245b3a8c2760c6046a848e0ba14d56f5"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "path": "docs/releases/thj-parity-20261018/deployment/test_rollout.py",
++        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
++        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
++        "sha256": "a98b82ff7aef01fdec1599a8e7c84404d46abfda7244433ece3f6fc8e2481185"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "path": "docs/releases/thj-parity-20261018/deployment/test_rule_notes.py",
++        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
++        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
++        "sha256": "7aa4317ffdfcdfc465ff3760263633aa6bdbd53cf2bbf0c755c1180dd3b399c4"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "path": "docs/releases/thj-parity-20261018/evidence/completion.json",
++        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
++        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
++        "sha256": "2a9d9079ed0fda8a3167bff948db57d1947a6adcc11e8d6eff9a438b89fa76b7"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "path": "docs/releases/thj-parity-20261018/evidence/native-build-manifest.json",
++        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
++        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
++        "sha256": "ad78ddfe8eedf1c54f302e64a8aef189777476f64f6b54eea82cf3cda2f63a64"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "path": "docs/releases/thj-parity-20261018/evidence/native-pairing.json",
++        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
++        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
++        "sha256": "9cdbf60b4c767acfa6fb52ec8aeb373e26a020ca5e2c38a9ad6a7a06ebaa2ed7"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+         "path": "docs/status.md",
+-        "role": "Reviewed combined item/spell and pet/WPM candidate; not deployed",
+-        "revision": "3a5cc28f40ad52988a50c9d0157d28b5f0a2143b + reviewed feature/thj-item-spell-parity working tree",
+-        "sha256": "49106d3fc8cf3551d564d90882d804e7bef31aa5fc02a5b0161a5b725ccea099"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+-        "path": "docs/releases/thj-parity-20261018/ACTIVATION.md",
+-        "role": "Reviewed combined item/spell and pet/WPM candidate; not deployed",
+-        "revision": "3a5cc28f40ad52988a50c9d0157d28b5f0a2143b + reviewed feature/thj-item-spell-parity working tree",
+-        "sha256": "ec603fe9157deb5bb9ff5c2b7416d0789577c06a35b2ee01c80a7a94bb17d31b"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+-        "path": "docs/releases/thj-parity-20261018/QA.md",
+-        "role": "Reviewed combined item/spell and pet/WPM candidate; not deployed",
+-        "revision": "3a5cc28f40ad52988a50c9d0157d28b5f0a2143b + reviewed feature/thj-item-spell-parity working tree",
+-        "sha256": "a920a3fd0040e92a44026cafa2a6ac6e5b7419b220ea6c4a944ddf0de1ed9cba"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+-        "path": "docs/releases/thj-parity-20261018/evidence/native-build-manifest.json",
+-        "role": "Reviewed combined item/spell and pet/WPM candidate; not deployed",
+-        "revision": "3a5cc28f40ad52988a50c9d0157d28b5f0a2143b + reviewed feature/thj-item-spell-parity working tree",
+-        "sha256": "ad78ddfe8eedf1c54f302e64a8aef189777476f64f6b54eea82cf3cda2f63a64"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+-        "path": "docs/releases/thj-parity-20261018/evidence/native-pairing.json",
+-        "role": "Reviewed combined item/spell and pet/WPM candidate; not deployed",
+-        "revision": "3a5cc28f40ad52988a50c9d0157d28b5f0a2143b + reviewed feature/thj-item-spell-parity working tree",
+-        "sha256": "9cdbf60b4c767acfa6fb52ec8aeb373e26a020ca5e2c38a9ad6a7a06ebaa2ed7"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+-        "path": "docs/releases/thj-parity-20261018/evidence/completion.json",
+-        "role": "Reviewed combined item/spell and pet/WPM candidate; not deployed",
+-        "revision": "3a5cc28f40ad52988a50c9d0157d28b5f0a2143b + reviewed feature/thj-item-spell-parity working tree",
+-        "sha256": "2a9d9079ed0fda8a3167bff948db57d1947a6adcc11e8d6eff9a438b89fa76b7"
++        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
++        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
++        "sha256": "669271a62fd1ca31639709365cdb8fe8c2376ab15ca96e92c1dc7330d9755a83"
+       }
+     ],
+     "multiclass": [
+@@ -1581,88 +1638,88 @@
+         "sha256": "b36faae59760e9807db47af3559ffad143e427d4c6edcce33f5098f5d30a779b"
+       },
+       {
+-        "root": "C:/Users/verre/Documents/Codex/2026-10-18/goa/work/thj-pet-scaling",
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "path": "config/aa-policy.json",
++        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
++        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
++        "sha256": "6b11d20f23512b7502bae7007877a37b186743f5774ff9dd426cd72d63b3c06d"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "path": "docs/releases/thj-pet-scaling-20261018/evidence/aa-native.json",
++        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
++        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
++        "sha256": "f298ab5ee007622afa9197f2068bc71ac18f8c162009cfd9e2e34075f71e198c"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "path": "docs/releases/wpm-melee-20261018/evidence/aa-native.json",
++        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
++        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
++        "sha256": "9ef09145343d658dbbfa2ed383a7601bfad9535216a0dec6448514f7cacdb461"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "path": "server-mods/code/common/nightcap_aa_policy.h",
++        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
++        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
++        "sha256": "c0c45581924d7def1bfca7bd5c79586163cbae1231a4401e01ac0f12bab6fae6"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+         "path": "server-mods/code/common/nightcap_doppelganger.h",
+-        "role": "Reviewed pet/shared-scaling candidate; not deployed",
+-        "revision": "a8e0a91 + feature/thj-pet-scaling working tree 2026-10-18",
++        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
++        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
+         "sha256": "52fc4aa4bad6c10721d3f5e65ef72f74450016e741b10dc6cd927fb0d1c21116"
+       },
+       {
+-        "root": "C:/Users/verre/Documents/Codex/2026-10-18/goa/work/thj-pet-scaling",
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "path": "server-mods/code/zone/aa.cpp",
++        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
++        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
++        "sha256": "d41e5443fa1e085114384a7cd55c2e43af652b863ad5799251ef5c30ccce19ae"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+         "path": "server-mods/code/zone/npc.cpp",
+-        "role": "Reviewed pet/shared-scaling candidate; not deployed",
+-        "revision": "a8e0a91 + feature/thj-pet-scaling working tree 2026-10-18",
++        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
++        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
+         "sha256": "f8999e0832b9eca9d8aa2774c3ba9c0506e4704e64e6bc313a2e368c6d27ca2c"
+       },
+       {
+-        "root": "C:/Users/verre/Documents/Codex/2026-10-18/goa/work/thj-pet-scaling",
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "path": "server-mods/code/zone/spell_effects.cpp",
++        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
++        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
++        "sha256": "88c9b9c55a0ea72c29e3804cedaf0d7f21c9292d228ac74a865e8c99e763fa30"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+         "path": "server-mods/code/zone/spells.cpp",
+-        "role": "Reviewed pet/shared-scaling candidate; not deployed",
+-        "revision": "a8e0a91 + feature/thj-pet-scaling working tree 2026-10-18",
++        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
++        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
+         "sha256": "3f87de02efd5503d61e799b5f387ca1607706a4d1bdeeed53ad05a6c3203949a"
+       },
+       {
+-        "root": "C:/Users/verre/Documents/Codex/2026-10-18/goa/work/thj-pet-scaling",
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+         "path": "tools/tests/test_doppelganger.py",
+-        "role": "Reviewed pet/shared-scaling candidate; not deployed",
+-        "revision": "a8e0a91 + feature/thj-pet-scaling working tree 2026-10-18",
++        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
++        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
+         "sha256": "af804523354bbe04defc199f4bc8001b9127d055274412a4d0e8a4d3fc7bbe0d"
+       },
+       {
+-        "root": "C:/Users/verre/Documents/Codex/2026-10-18/goa/work/thj-pet-scaling",
+-        "path": "docs/releases/thj-pet-scaling-20261018/evidence/aa-native.json",
+-        "role": "Reviewed pet/shared-scaling candidate; not deployed",
+-        "revision": "a8e0a91 + feature/thj-pet-scaling working tree 2026-10-18",
+-        "sha256": "f298ab5ee007622afa9197f2068bc71ac18f8c162009cfd9e2e34075f71e198c"
+-      },
+-      {
+-        "root": "C:/Users/verre/Documents/Codex/2026-10-18/goa/work/thj-pet-scaling",
+-        "path": "config/aa-policy.json",
+-        "role": "Reviewed combined WPM/pet candidate; not deployed",
+-        "revision": "a8e0a91 + feature/thj-pet-scaling working tree 2026-10-18",
+-        "sha256": "6b11d20f23512b7502bae7007877a37b186743f5774ff9dd426cd72d63b3c06d"
+-      },
+-      {
+-        "root": "C:/Users/verre/Documents/Codex/2026-10-18/goa/work/thj-pet-scaling",
+-        "path": "server-mods/code/common/nightcap_aa_policy.h",
+-        "role": "Reviewed combined WPM/pet candidate; not deployed",
+-        "revision": "a8e0a91 + feature/thj-pet-scaling working tree 2026-10-18",
+-        "sha256": "c0c45581924d7def1bfca7bd5c79586163cbae1231a4401e01ac0f12bab6fae6"
+-      },
+-      {
+-        "root": "C:/Users/verre/Documents/Codex/2026-10-18/goa/work/thj-pet-scaling",
+-        "path": "server-mods/code/zone/spell_effects.cpp",
+-        "role": "Reviewed combined WPM/pet candidate; not deployed",
+-        "revision": "a8e0a91 + feature/thj-pet-scaling working tree 2026-10-18",
+-        "sha256": "88c9b9c55a0ea72c29e3804cedaf0d7f21c9292d228ac74a865e8c99e763fa30"
+-      },
+-      {
+-        "root": "C:/Users/verre/Documents/Codex/2026-10-18/goa/work/thj-pet-scaling",
+-        "path": "server-mods/code/zone/aa.cpp",
+-        "role": "Reviewed combined WPM/pet candidate; not deployed",
+-        "revision": "a8e0a91 + feature/thj-pet-scaling working tree 2026-10-18",
+-        "sha256": "d41e5443fa1e085114384a7cd55c2e43af652b863ad5799251ef5c30ccce19ae"
+-      },
+-      {
+-        "root": "C:/Users/verre/Documents/Codex/2026-10-18/goa/work/thj-pet-scaling",
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+         "path": "tools/tests/verify_aa_tbs_native.py",
+-        "role": "Reviewed combined WPM/pet candidate; not deployed",
+-        "revision": "a8e0a91 + feature/thj-pet-scaling working tree 2026-10-18",
++        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
++        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
+         "sha256": "19e6c3b82eae9d192804bf1f4a3cc9910946a83daebcdc03d607c93a6614cad2"
+       },
+       {
+-        "root": "C:/Users/verre/Documents/Codex/2026-10-18/goa/work/thj-pet-scaling",
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+         "path": "tools/wpm_aa.py",
+-        "role": "Reviewed combined WPM/pet candidate; not deployed",
+-        "revision": "a8e0a91 + feature/thj-pet-scaling working tree 2026-10-18",
++        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
++        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
+         "sha256": "4de68b453ca0fd17ac0d9a69f5cddcae7d847bfa55a92360851a33daee3467b3"
+-      },
+-      {
+-        "root": "C:/Users/verre/Documents/Codex/2026-10-18/goa/work/thj-pet-scaling",
+-        "path": "docs/releases/wpm-melee-20261018/evidence/aa-native.json",
+-        "role": "Reviewed combined WPM/pet candidate; not deployed",
+-        "revision": "a8e0a91 + feature/thj-pet-scaling working tree 2026-10-18",
+-        "sha256": "9ef09145343d658dbbfa2ed383a7601bfad9535216a0dec6448514f7cacdb461"
+       }
+     ],
+     "items": [
+@@ -2671,107 +2728,107 @@
+       {
+         "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+         "path": "config/thj-item-parity.json",
+-        "role": "Reviewed combined item/spell and pet/WPM candidate; not deployed",
+-        "revision": "3a5cc28f40ad52988a50c9d0157d28b5f0a2143b + reviewed feature/thj-item-spell-parity working tree",
++        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
++        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
+         "sha256": "7b491bd3e946dc37fb8a4fbfb43f88dc2e6621a2d18471711db68c63abda4a85"
+       },
+       {
+         "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "path": "docs/releases/thj-parity-20261018/catalog-decisions.json",
++        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
++        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
++        "sha256": "05c060d6ade7bebf5b7c8cf7a01638d06140ea6e152bf2620344ced23e3b6fd1"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "path": "eq-solo-gm/scripts/tiered_loot_setup.sql",
++        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
++        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
++        "sha256": "4bfd0c9b9867fb5f33f90d7f5043edbd3638e0bcca8bc857742fa60ef73b6b72"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "path": "tools/dungeon_catalog.py",
++        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
++        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
++        "sha256": "5bd490a2947d01bd2c6b010bf7a59675aefbadc3a0825f75866feea4ad50d935"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "path": "tools/item_scaling_overrides.py",
++        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
++        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
++        "sha256": "8d7da73f7bf0937cb19d99d0f6e0b7a8137da23b0fb9e8c1ec4d9fb636419713"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "path": "tools/pet_content.py",
++        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
++        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
++        "sha256": "bb9def37204f9390a9ace46e573f5a659d5a071769ecf5a68ec9b19a2b8b5889"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "path": "tools/starter_retune.py",
++        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
++        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
++        "sha256": "f7f5700c6dedec604b7c2e0d2bdee22d73d42e0dfd0599b7c335853b7f9ce71d"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "path": "tools/tests/test_item_scaling_overrides.py",
++        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
++        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
++        "sha256": "948f7ee8140e06a68063ea6a23768ed95ae207528145aedaa566afaef76a6db3"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "path": "tools/tests/test_thj_combined_content.py",
++        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
++        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
++        "sha256": "fe2fbde079e7a4458eadcffda772c8642910ee08eebe599c5111828ac1269660"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "path": "tools/tests/test_thj_item_parity.py",
++        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
++        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
++        "sha256": "121d4e899b50799ac7d455f1672ffaa98ea6bb6c7f2ce6e142e6e102b1e9bd4f"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "path": "tools/thj_combined_content.py",
++        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
++        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
++        "sha256": "73798dda32d534c530476eb77416d2cd19a851d866e96dcb6c53f54e1174b436"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "path": "tools/thj_item_migration.py",
++        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
++        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
++        "sha256": "b18df7c6611f09972894c38f7691e7830fe28913c3a2b2c2a860895459f80ba3"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+         "path": "tools/thj_item_parity.py",
+-        "role": "Reviewed combined item/spell and pet/WPM candidate; not deployed",
+-        "revision": "3a5cc28f40ad52988a50c9d0157d28b5f0a2143b + reviewed feature/thj-item-spell-parity working tree",
++        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
++        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
+         "sha256": "2b71933135b3ac1aa5b3ea99dd4fa864f4fb9ec3c035b3c49886c003a572450b"
+       },
+       {
+         "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+-        "path": "tools/thj_item_migration.py",
+-        "role": "Reviewed combined item/spell and pet/WPM candidate; not deployed",
+-        "revision": "3a5cc28f40ad52988a50c9d0157d28b5f0a2143b + reviewed feature/thj-item-spell-parity working tree",
+-        "sha256": "b18df7c6611f09972894c38f7691e7830fe28913c3a2b2c2a860895459f80ba3"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+-        "path": "tools/thj_combined_content.py",
+-        "role": "Reviewed combined item/spell and pet/WPM candidate; not deployed",
+-        "revision": "3a5cc28f40ad52988a50c9d0157d28b5f0a2143b + reviewed feature/thj-item-spell-parity working tree",
+-        "sha256": "1f11248f15b809da307f3fb2ca7e855420b557fdecd63a2f69f19209def34d36"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+-        "path": "tools/item_scaling_overrides.py",
+-        "role": "Reviewed combined item/spell and pet/WPM candidate; not deployed",
+-        "revision": "3a5cc28f40ad52988a50c9d0157d28b5f0a2143b + reviewed feature/thj-item-spell-parity working tree",
+-        "sha256": "8d7da73f7bf0937cb19d99d0f6e0b7a8137da23b0fb9e8c1ec4d9fb636419713"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+         "path": "tools/tier_spell_scaling.py",
+-        "role": "Reviewed combined item/spell and pet/WPM candidate; not deployed",
+-        "revision": "3a5cc28f40ad52988a50c9d0157d28b5f0a2143b + reviewed feature/thj-item-spell-parity working tree",
++        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
++        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
+         "sha256": "11cdf519b5453db9dc6548b5328deda72b0140178a47de65ce07071b2047db38"
+       },
+       {
+         "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+-        "path": "tools/starter_retune.py",
+-        "role": "Reviewed combined item/spell and pet/WPM candidate; not deployed",
+-        "revision": "3a5cc28f40ad52988a50c9d0157d28b5f0a2143b + reviewed feature/thj-item-spell-parity working tree",
+-        "sha256": "f7f5700c6dedec604b7c2e0d2bdee22d73d42e0dfd0599b7c335853b7f9ce71d"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+-        "path": "tools/dungeon_catalog.py",
+-        "role": "Reviewed combined item/spell and pet/WPM candidate; not deployed",
+-        "revision": "3a5cc28f40ad52988a50c9d0157d28b5f0a2143b + reviewed feature/thj-item-spell-parity working tree",
+-        "sha256": "5bd490a2947d01bd2c6b010bf7a59675aefbadc3a0825f75866feea4ad50d935"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+-        "path": "tools/pet_content.py",
+-        "role": "Reviewed combined item/spell and pet/WPM candidate; not deployed",
+-        "revision": "3a5cc28f40ad52988a50c9d0157d28b5f0a2143b + reviewed feature/thj-item-spell-parity working tree",
+-        "sha256": "bb9def37204f9390a9ace46e573f5a659d5a071769ecf5a68ec9b19a2b8b5889"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+         "path": "tools/wpm_content.py",
+-        "role": "Reviewed combined item/spell and pet/WPM candidate; not deployed",
+-        "revision": "3a5cc28f40ad52988a50c9d0157d28b5f0a2143b + reviewed feature/thj-item-spell-parity working tree",
+-        "sha256": "afd366affbbd4345a74dcd79dc273de414c48e17f8f46466494b76f73edbe57f"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+-        "path": "tools/tests/test_thj_item_parity.py",
+-        "role": "Reviewed combined item/spell and pet/WPM candidate; not deployed",
+-        "revision": "3a5cc28f40ad52988a50c9d0157d28b5f0a2143b + reviewed feature/thj-item-spell-parity working tree",
+-        "sha256": "121d4e899b50799ac7d455f1672ffaa98ea6bb6c7f2ce6e142e6e102b1e9bd4f"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+-        "path": "tools/tests/test_thj_combined_content.py",
+-        "role": "Reviewed combined item/spell and pet/WPM candidate; not deployed",
+-        "revision": "3a5cc28f40ad52988a50c9d0157d28b5f0a2143b + reviewed feature/thj-item-spell-parity working tree",
+-        "sha256": "fe2fbde079e7a4458eadcffda772c8642910ee08eebe599c5111828ac1269660"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+-        "path": "tools/tests/test_item_scaling_overrides.py",
+-        "role": "Reviewed combined item/spell and pet/WPM candidate; not deployed",
+-        "revision": "3a5cc28f40ad52988a50c9d0157d28b5f0a2143b + reviewed feature/thj-item-spell-parity working tree",
+-        "sha256": "948f7ee8140e06a68063ea6a23768ed95ae207528145aedaa566afaef76a6db3"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+-        "path": "eq-solo-gm/scripts/tiered_loot_setup.sql",
+-        "role": "Reviewed combined item/spell and pet/WPM candidate; not deployed",
+-        "revision": "3a5cc28f40ad52988a50c9d0157d28b5f0a2143b + reviewed feature/thj-item-spell-parity working tree",
+-        "sha256": "4bfd0c9b9867fb5f33f90d7f5043edbd3638e0bcca8bc857742fa60ef73b6b72"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+-        "path": "docs/releases/thj-parity-20261018/catalog-decisions.json",
+-        "role": "Reviewed combined item/spell and pet/WPM candidate; not deployed",
+-        "revision": "3a5cc28f40ad52988a50c9d0157d28b5f0a2143b + reviewed feature/thj-item-spell-parity working tree",
+-        "sha256": "05c060d6ade7bebf5b7c8cf7a01638d06140ea6e152bf2620344ced23e3b6fd1"
++        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
++        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
++        "sha256": "454dcaa4a8c8b0c060acc610bef850a276286323c9c43949483dd2abd6a4e283"
+       }
+     ],
+     "world": [
+@@ -4223,67 +4280,95 @@
+         "sha256": "4d73be82147fe72d4d9b6ea7a5688420f74e7fdc70e1d6fdf9cdd8d087fd2343"
+       },
+       {
+-        "root": "C:/Users/verre/Documents/Codex/2026-10-18/goa/work/thj-pet-scaling",
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "path": "docs/releases/thj-parity-20261018/deployment/hosted-verification.json",
++        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
++        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
++        "sha256": "ebf2d63fb09819855c4ca9c18d49124c84df640db0454ae98f555ddb33982f02"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "path": "docs/releases/thj-parity-20261018/deployment/publish_client.py",
++        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
++        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
++        "sha256": "01c5ee91a56dc467127ed84f55054573f3a55e8fed6cbfd39e9653461167d5c9"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "path": "docs/releases/thj-parity-20261018/deployment/test_publish_client.py",
++        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
++        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
++        "sha256": "d7ff8a9110c06adbc87838c68080a9355dfb0377434e76795d4bb340be2055e2"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "path": "docs/releases/thj-pet-scaling-20261018/evidence/client-stage.json",
++        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
++        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
++        "sha256": "6e661f42e822ca1e1452e0656957ee6e0556095bb7df5d050290b1e33dcfc19b"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "path": "docs/releases/wpm-melee-20261018/evidence/client-stage.json",
++        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
++        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
++        "sha256": "157963c00813305afcd59138d7cd96d8312accbfba5cc9dc708ae337eebaab54"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "path": "docs/releases/wpm-melee-20261018/stage_client.py",
++        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
++        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
++        "sha256": "348b16b281150a583e244da65e5fb1527754c656d453d884870a3b0f50946ca2"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+         "path": "eq-client-dll/src/pet_state.h",
+-        "role": "Reviewed pet/shared-scaling candidate; not deployed",
+-        "revision": "a8e0a91 + feature/thj-pet-scaling working tree 2026-10-18",
++        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
++        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
+         "sha256": "e29375185f4afa3e1b86ff6eebfb81b1515c4018ed775fdc8c7c97bedfb6ca5e"
+       },
+       {
+-        "root": "C:/Users/verre/Documents/Codex/2026-10-18/goa/work/thj-pet-scaling",
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+         "path": "eq-client-dll/src/runtime_contract.h",
+-        "role": "Reviewed pet/shared-scaling candidate; not deployed",
+-        "revision": "a8e0a91 + feature/thj-pet-scaling working tree 2026-10-18",
++        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
++        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
+         "sha256": "edf3a0f2c32543453fcb2a30dbcd0f8f7e3f7d3f596b6114bb5072f3e020a32a"
+       },
+       {
+-        "root": "C:/Users/verre/Documents/Codex/2026-10-18/goa/work/thj-pet-scaling",
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "path": "eq-launcher/patch-notes.json",
++        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
++        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
++        "sha256": "f59f0960af69be83a53c2c8a7d27ef0ebed28bdef458679b3052130cf8595971"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "path": "server-mods/code/zone/client_pet_armor.cpp",
++        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
++        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
++        "sha256": "7e9265000c30952128225bae01c63a5fce3b784ebc56fcd45d8800f78bbb440d"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+         "path": "server-mods/code/zone/pet_armor.cpp",
+-        "role": "Reviewed pet/shared-scaling candidate; not deployed",
+-        "revision": "a8e0a91 + feature/thj-pet-scaling working tree 2026-10-18",
++        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
++        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
+         "sha256": "6092553e4b2ecc968c6c9a5bb8865095dbced070a24ab5e9ae11460253ae3165"
+       },
+       {
+-        "root": "C:/Users/verre/Documents/Codex/2026-10-18/goa/work/thj-pet-scaling",
+-        "path": "server-mods/code/zone/client_pet_armor.cpp",
+-        "role": "Reviewed pet/shared-scaling candidate; not deployed",
+-        "revision": "a8e0a91 + feature/thj-pet-scaling working tree 2026-10-18",
+-        "sha256": "7e9265000c30952128225bae01c63a5fce3b784ebc56fcd45d8800f78bbb440d"
+-      },
+-      {
+-        "root": "C:/Users/verre/Documents/Codex/2026-10-18/goa/work/thj-pet-scaling",
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "path": "tools/client_gameplay_assets.py",
++        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
++        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
++        "sha256": "c5dc6eb41bf3e445fc94c2e6be59dbd716cbe5b0cb01ddf02da6a77829bc4717"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+         "path": "tools/tests/test_pet_hand_equipment.py",
+-        "role": "Reviewed pet/shared-scaling candidate; not deployed",
+-        "revision": "a8e0a91 + feature/thj-pet-scaling working tree 2026-10-18",
++        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
++        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
+         "sha256": "45301aa45d96953e8f0d5d2a992c10a6b02a28b05a40ea6204aa2b5e70d95ee9"
+-      },
+-      {
+-        "root": "C:/Users/verre/Documents/Codex/2026-10-18/goa/work/thj-pet-scaling",
+-        "path": "docs/releases/thj-pet-scaling-20261018/evidence/client-stage.json",
+-        "role": "Reviewed pet/shared-scaling candidate; not deployed",
+-        "revision": "a8e0a91 + feature/thj-pet-scaling working tree 2026-10-18",
+-        "sha256": "6e661f42e822ca1e1452e0656957ee6e0556095bb7df5d050290b1e33dcfc19b"
+-      },
+-      {
+-        "root": "C:/Users/verre/Documents/Codex/2026-10-18/goa/work/thj-pet-scaling",
+-        "path": "tools/client_gameplay_assets.py",
+-        "role": "Reviewed combined WPM/pet candidate; not deployed",
+-        "revision": "a8e0a91 + feature/thj-pet-scaling working tree 2026-10-18",
+-        "sha256": "c5dc6eb41bf3e445fc94c2e6be59dbd716cbe5b0cb01ddf02da6a77829bc4717"
+-      },
+-      {
+-        "root": "C:/Users/verre/Documents/Codex/2026-10-18/goa/work/thj-pet-scaling",
+-        "path": "docs/releases/wpm-melee-20261018/stage_client.py",
+-        "role": "Reviewed combined WPM/pet candidate; not deployed",
+-        "revision": "a8e0a91 + feature/thj-pet-scaling working tree 2026-10-18",
+-        "sha256": "348b16b281150a583e244da65e5fb1527754c656d453d884870a3b0f50946ca2"
+-      },
+-      {
+-        "root": "C:/Users/verre/Documents/Codex/2026-10-18/goa/work/thj-pet-scaling",
+-        "path": "docs/releases/wpm-melee-20261018/evidence/client-stage.json",
+-        "role": "Reviewed combined WPM/pet candidate; not deployed",
+-        "revision": "a8e0a91 + feature/thj-pet-scaling working tree 2026-10-18",
+-        "sha256": "157963c00813305afcd59138d7cd96d8312accbfba5cc9dc708ae337eebaab54"
+       }
+     ],
+     "admin": [
+@@ -5159,66 +5244,66 @@
+       },
+       {
+         "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "path": "docs/releases/thj-parity-20261018/COMPARISON.md",
++        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
++        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
++        "sha256": "21897792d4156afbbd906d5cc43809e13e4f8ae3213bf87b0c34118b294b6254"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "path": "docs/releases/thj-parity-20261018/README.md",
++        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
++        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
++        "sha256": "d3c6fb22b6ef5521cd17284d9fe5fa9fb8ba76793dedea1b0432808937631fa1"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "path": "server-mods/code/common/nightcap_spell_scaling.h",
++        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
++        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
++        "sha256": "e5cc4686d22f0cc34916bcb841c7ab38e2dc441d611c1b83091afd5d5db81938"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "path": "server-mods/code/common/ruletypes.h",
++        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
++        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
++        "sha256": "54ff89881a60d053495d7cc6846759f0f9db9e02c6c87784b0b034733fc5f480"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+         "path": "server-mods/code/zone/effects.cpp",
+-        "role": "Reviewed combined item/spell and pet/WPM candidate; not deployed",
+-        "revision": "3a5cc28f40ad52988a50c9d0157d28b5f0a2143b + reviewed feature/thj-item-spell-parity working tree",
++        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
++        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
+         "sha256": "906d8fa8664ba80debf4ad625abeb4fd11a15cecfbbf2edbb4d2defff2d65515"
+       },
+       {
+         "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+         "path": "server-mods/code/zone/mob.h",
+-        "role": "Reviewed combined item/spell and pet/WPM candidate; not deployed",
+-        "revision": "3a5cc28f40ad52988a50c9d0157d28b5f0a2143b + reviewed feature/thj-item-spell-parity working tree",
++        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
++        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
+         "sha256": "48968ac34a414262edc10ab5703179d0a422b5a1c994362de446564daae62540"
+       },
+       {
+         "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+-        "path": "server-mods/code/common/ruletypes.h",
+-        "role": "Reviewed combined item/spell and pet/WPM candidate; not deployed",
+-        "revision": "3a5cc28f40ad52988a50c9d0157d28b5f0a2143b + reviewed feature/thj-item-spell-parity working tree",
+-        "sha256": "54ff89881a60d053495d7cc6846759f0f9db9e02c6c87784b0b034733fc5f480"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+-        "path": "server-mods/code/common/nightcap_spell_scaling.h",
+-        "role": "Reviewed combined item/spell and pet/WPM candidate; not deployed",
+-        "revision": "3a5cc28f40ad52988a50c9d0157d28b5f0a2143b + reviewed feature/thj-item-spell-parity working tree",
+-        "sha256": "e5cc4686d22f0cc34916bcb841c7ab38e2dc441d611c1b83091afd5d5db81938"
++        "path": "tools/balance/native_harness.cpp",
++        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
++        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
++        "sha256": "d89687396c7dc2b8032e0a84e4403198a02cfe116a3c808d7621c959bd395a68"
+       },
+       {
+         "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+         "path": "tools/tests/test_thj_spell_scaling.py",
+-        "role": "Reviewed combined item/spell and pet/WPM candidate; not deployed",
+-        "revision": "3a5cc28f40ad52988a50c9d0157d28b5f0a2143b + reviewed feature/thj-item-spell-parity working tree",
++        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
++        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
+         "sha256": "a1a942516cf36de74b680ffe60e11ad3c87712a00b37438bc3c6f0d5515a5844"
+       },
+       {
+         "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+         "path": "tools/tests/thj_spell_fixture.h",
+-        "role": "Reviewed combined item/spell and pet/WPM candidate; not deployed",
+-        "revision": "3a5cc28f40ad52988a50c9d0157d28b5f0a2143b + reviewed feature/thj-item-spell-parity working tree",
++        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
++        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
+         "sha256": "f2e5c42cf659a4b8f8b1a19131751db7c47f5d3d6b5afb4efdfdf12a3d1ebfd4"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+-        "path": "tools/balance/native_harness.cpp",
+-        "role": "Reviewed combined item/spell and pet/WPM candidate; not deployed",
+-        "revision": "3a5cc28f40ad52988a50c9d0157d28b5f0a2143b + reviewed feature/thj-item-spell-parity working tree",
+-        "sha256": "d89687396c7dc2b8032e0a84e4403198a02cfe116a3c808d7621c959bd395a68"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+-        "path": "docs/releases/thj-parity-20261018/README.md",
+-        "role": "Reviewed combined item/spell and pet/WPM candidate; not deployed",
+-        "revision": "3a5cc28f40ad52988a50c9d0157d28b5f0a2143b + reviewed feature/thj-item-spell-parity working tree",
+-        "sha256": "34444de454b618ad97900a4c791414490b10046683e28a25a8b215c46260ff60"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+-        "path": "docs/releases/thj-parity-20261018/COMPARISON.md",
+-        "role": "Reviewed combined item/spell and pet/WPM candidate; not deployed",
+-        "revision": "3a5cc28f40ad52988a50c9d0157d28b5f0a2143b + reviewed feature/thj-item-spell-parity working tree",
+-        "sha256": "21897792d4156afbbd906d5cc43809e13e4f8ae3213bf87b0c34118b294b6254"
+       }
+     ],
+     "wiki": [
+@@ -5805,38 +5890,59 @@
+       },
+       {
+         "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "path": "docs/releases/thj-parity-20261018/deployment/wiki-public-verification.json",
++        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
++        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
++        "sha256": "4c4bb34ba59b719d9dc0b5bd94b4c8c87e3987131bc322e1cac66c1bfc008fd2"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "path": "docs/releases/thj-parity-20261018/deployment/wiki-publication.json",
++        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
++        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
++        "sha256": "0d7433f1be5edd368114da03cc6730120564f0ce7f01a5502a8c5cabcad28cf3"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "path": "docs/releases/thj-parity-20261018/deployment/wiki-review.json",
++        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
++        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
++        "sha256": "f33957ab2e57af7bfe94af2d4b5f63171f09bed8946ed7a7abe0640dabf98726"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "path": "docs/releases/thj-parity-20261018/wiki-review.json",
++        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
++        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
++        "sha256": "f2274c98f06a2747be642d5b095c87067411871909383d0d3cb5dba48fd3a530"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "path": "wiki/articles/combat.json",
++        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
++        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
++        "sha256": "230b3f8c3230ad200ddbc13f1d493ab46c55744abd60ec4d16f810369862b6d9"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "path": "wiki/articles/equipment.json",
++        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
++        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
++        "sha256": "628c7e96507a1067b0ec9d47ad9497e87e23999ba82b0cdb7545d93a114567d5"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "path": "wiki/articles/unreleased.json",
++        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
++        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
++        "sha256": "e8eab31aab603fcedd7fc0cb859f2a35881f9177bb75e88faf45df7c21590ca7"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+         "path": "wiki/content-review.json",
+-        "role": "Reviewed combined item/spell and pet/WPM candidate; not deployed",
+-        "revision": "3a5cc28f40ad52988a50c9d0157d28b5f0a2143b + reviewed feature/thj-item-spell-parity working tree",
+-        "sha256": "284308da6636d59f03779069246e967f15bd7f0d171cbc4f6b211a69e39fdc8e"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+-        "path": "docs/releases/thj-parity-20261018/wiki-review.json",
+-        "role": "Reviewed combined item/spell and pet/WPM candidate; not deployed",
+-        "revision": "3a5cc28f40ad52988a50c9d0157d28b5f0a2143b + reviewed feature/thj-item-spell-parity working tree",
+-        "sha256": "f2274c98f06a2747be642d5b095c87067411871909383d0d3cb5dba48fd3a530"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+-        "path": "wiki/articles/unreleased.json",
+-        "role": "Reviewed combined item/spell and pet/WPM candidate; not deployed",
+-        "revision": "3a5cc28f40ad52988a50c9d0157d28b5f0a2143b + reviewed feature/thj-item-spell-parity working tree",
+-        "sha256": "c8448a405e1b7c3a49792c9f15e2ce0a9bf0a0806ae6f7daff744e30e6f57296"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+-        "path": "wiki/articles/combat.json",
+-        "role": "Reviewed combined item/spell and pet/WPM candidate; not deployed",
+-        "revision": "3a5cc28f40ad52988a50c9d0157d28b5f0a2143b + reviewed feature/thj-item-spell-parity working tree",
+-        "sha256": "94f01ade94101e4a0c16ad8b141a36cf6ca33bdfe7629b5f0d2a521d67445fa5"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+-        "path": "wiki/articles/equipment.json",
+-        "role": "Reviewed combined item/spell and pet/WPM candidate; not deployed",
+-        "revision": "3a5cc28f40ad52988a50c9d0157d28b5f0a2143b + reviewed feature/thj-item-spell-parity working tree",
+-        "sha256": "4a55949c980ba11d401e33c8f37e8936182a473377103d1613f9162ec11ccff6"
++        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
++        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
++        "sha256": "ae88314b66ea51221363d674472a3b42333ac42ec4d01b66ff0f214832c55a60"
+       }
+     ]
+   }

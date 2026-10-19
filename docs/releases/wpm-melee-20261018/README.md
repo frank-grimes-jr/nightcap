@@ -1,5 +1,11 @@
 # WPM melee and pet integration candidate
 
+**Current status:** This dated component candidate was integrated into the owner-authorized
+[combined THJ release](../thj-parity-20261018/deployment/README.md), deployed October18
+with signed client2026101802. Its separate level65/PoP profile remains staged.
+Use the combined evidence and QA; older component-only measurements are historical.
+
+
 This release completes the Warrior/Paladin/Monk implementation alongside the
 existing [pet candidate](../thj-pet-scaling-20261018/IMPLEMENTATION.md). It is an
 **undeployed candidate** on `feature/thj-pet-scaling`, based on `a8e0a91`.
