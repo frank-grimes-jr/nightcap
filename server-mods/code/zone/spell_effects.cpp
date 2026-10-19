@@ -1,3 +1,4 @@
+#include "../common/nightcap_thj_behaviors.h"
 /*	EQEMu: Everquest Server Emulator
 	Copyright (C) 2001-2004 EQEMu Development Team (http://eqemu.org)
 
@@ -227,6 +228,9 @@ bool Mob::SpellEffect(Mob* caster, uint16 spell_id, float partial, int level_ove
 
 		effect = spell.effect_id[i];
 		effect_value = CalcSpellEffectValue(spell_id, i, caster_level, instrument_mod, caster ? caster : this);
+		if (RuleB(Spells, NightcapTHJBehaviors) && IsClient() && NightcapTHJ::Harvest(spell_id) && effect == SpellEffect::CurrentManaOnce) {
+			effect_value = NightcapTHJ::PercentMana(GetMaxMana(), 40);
+		}
 
 		if(spell_id == SPELL_LAY_ON_HANDS && caster && caster->GetAA(aaImprovedLayOnHands))
 			effect_value = GetMaxHP();
@@ -312,6 +316,18 @@ bool Mob::SpellEffect(Mob* caster, uint16 spell_id, float partial, int level_ove
 
 			case SpellEffect::CurrentHPOnce:	// used in buffs usually, see Courage
 			{
+				if (RuleB(Spells, NightcapTHJBehaviors) && spell_id == 2775 && caster && caster->IsClient()) {
+					const int64 spent = NightcapTHJ::PercentMana(caster->GetMaxMana(), 50);
+					const int64 base_heal = spent * 2;
+					int64 healing = base_heal;
+					// Preserve recipient modifiers without outgoing focus, HA or critical healing.
+					healing += base_heal * GetFocusEffect(focusFcHealPctIncoming, spell_id, caster) / 100;
+					healing += base_heal * GetFocusEffect(focusFcHealPctCritIncoming, spell_id, caster) / 100;
+					healing += healing * GetHealRate() / 100;
+					healing += GetFocusEffect(focusFcHealAmtIncoming, spell_id, caster);
+					HealDamage(std::max<int64>(0, healing), caster, spell_id);
+					break;
+				}
 #ifdef SPELL_EFFECT_SPAM
 				snprintf(effect_desc, _EDLEN, "Current Hitpoints Once: %+i", effect_value);
 #endif
@@ -2822,6 +2838,12 @@ bool Mob::SpellEffect(Mob* caster, uint16 spell_id, float partial, int level_ove
 
 			case SpellEffect::ManaBurn:
 			{
+				if (RuleB(Spells, NightcapTHJBehaviors) && caster && caster->IsClient() && NightcapTHJ::ManaBurn(spell_id)) {
+					const int64 spent = NightcapTHJ::PercentMana(caster->GetMaxMana(), NightcapTHJ::ResourcePercent(spell_id));
+					// Native4:1 damage calibration. SpellFinished owns the single debit.
+					Damage(caster, spent * 4, spell_id, spell.skill, false, buffslot, false);
+					break;
+				}
 				int32 max_mana = spell.base_value[i];
 				int ratio = spell.limit_value[i];
 				int64 dmg = 0;
@@ -2916,7 +2938,7 @@ bool Mob::SpellEffect(Mob* caster, uint16 spell_id, float partial, int level_ove
 				if (buffslot >= 0)
 					break;
 
-				if(!spells[spell_id].uninterruptable && IsCasting() && zone->random.Roll(spells[spell_id].base_value[i]))
+				if(!spells[spell_id].uninterruptable && IsCasting() && !(RuleB(Spells, NightcapTHJBehaviors) && IsClient() && FindBuff(NightcapTHJ::DimensionalShielding)) && zone->random.Roll(spells[spell_id].base_value[i]))
 					InterruptSpell();
 
 				break;
@@ -4119,7 +4141,7 @@ void Mob::DoBuffTic(const Buffs_Struct &buff, int slot, Mob *caster)
 		case SpellEffect::InterruptCasting: {
 			if (IsCasting()) {
 				const auto &spell = spells[casting_spell_id];
-				if (!IsCastNotStandingSpell(spell.id) && zone->random.Roll(spells[buff.spellid].base_value[i])) {
+				if (!IsCastNotStandingSpell(spell.id) && !(RuleB(Spells, NightcapTHJBehaviors) && IsClient() && FindBuff(NightcapTHJ::DimensionalShielding)) && zone->random.Roll(spells[buff.spellid].base_value[i])) {
 					InterruptSpell();
 				}
 			}
@@ -4711,6 +4733,8 @@ uint8 Mob::GetFocusSpellLevel(uint16 spell_id) const
 
 int64 Mob::CalcAAFocus(focusType type, const AA::Rank &rank, uint16 spell_id)
 {
+	const bool thj = RuleB(Spells, NightcapTHJBehaviors) && (IsClient() || GetNightcapPetOwner());
+	if (thj && IsBardSong(spell_id)) { return 0; }
 	const SPDat_Spell_Struct &spell = spells[spell_id];
 
 	bool not_focusable = spells[spell_id].not_focusable;
@@ -4927,6 +4951,7 @@ int64 Mob::CalcAAFocus(focusType type, const AA::Rank &rank, uint16 spell_id)
 				break;
 
 			case SpellEffect::LimitTarget:
+				if (thj && NightcapTHJ::BroadenDamageTarget(base_value, spell.target_type, type == focusImprovedDamage || type == focusImprovedDamage2)) { break; }
 				if (base_value < 0) {
 					if (-base_value == spell.target_type) { // Exclude
 						LimitFailure = true;
@@ -5153,14 +5178,14 @@ int64 Mob::CalcAAFocus(focusType type, const AA::Rank &rank, uint16 spell_id)
 
 				// Handle Focus Effects
 			case SpellEffect::ImprovedDamage:
-				if (type == focusImprovedDamage && base_value > value) {
-					value = base_value;
+				if (type == focusImprovedDamage && (thj ? NightcapTHJ::ScaleFocus(base_value, true, false, false, false) : base_value) > value) {
+					value = thj ? NightcapTHJ::ScaleFocus(base_value, true, false, false, false) : base_value;
 				}
 				break;
 
 			case SpellEffect::ImprovedDamage2:
-				if (type == focusImprovedDamage2 && base_value > value) {
-					value = base_value;
+				if (type == focusImprovedDamage2 && (thj ? NightcapTHJ::ScaleFocus(base_value, true, false, false, false) : base_value) > value) {
+					value = thj ? NightcapTHJ::ScaleFocus(base_value, true, false, false, false) : base_value;
 				}
 				break;
 
@@ -5480,6 +5505,22 @@ int64 Mob::CalcFocusEffect(focusType type, uint16 focus_id, uint16 spell_id, boo
 	const SPDat_Spell_Struct &focus_spell = spells[focus_id];
 	const SPDat_Spell_Struct &spell       = spells[spell_id];
 
+	const bool thj = RuleB(Spells, NightcapTHJBehaviors) && (IsClient() || GetNightcapPetOwner());
+	if (thj && IsBardSong(spell_id)) { return 0; }
+	const bool damage_focus = type == focusImprovedDamage || type == focusImprovedDamage2;
+	const bool static_focus = damage_focus || type == focusImprovedHeal || type == focusManaCost ||
+		type == focusReagentCost || type == focusSpellHateMod;
+	const bool bard_focus = IsBardSong(focus_id);
+	bool dot_focus = false;
+	for (int i = 0; i < EFFECT_COUNT; ++i) {
+		if (focus_spell.effect_id[i] == SpellEffect::LimitMinDur && focus_spell.base_value[i] > 0) { dot_focus = true; }
+	}
+	auto focus_value = [&](int base, int limit, bool best) {
+		if (!thj || !static_focus) { return GetFocusRandomEffectivenessValue(base, limit, best); }
+		const int value = bard_focus && damage_focus ? GetFocusRandomEffectivenessValue(base, limit, best) :
+			NightcapTHJ::StrongestEndpoint(base, limit);
+		return NightcapTHJ::ScaleFocus(value, damage_focus, bard_focus, dot_focus, focus_id == 5915 || focus_id == 11064);
+	};
 	int64  value           = 0;
 	int    lvlModifier     = 100;
 	int    spell_level     = 0;
@@ -5653,6 +5694,7 @@ int64 Mob::CalcFocusEffect(focusType type, uint16 focus_id, uint16 spell_id, boo
 				break;
 
 			case SpellEffect::LimitTarget:
+				if (thj && NightcapTHJ::BroadenDamageTarget(focus_spell.base_value[i], spell.target_type, damage_focus)) { break; }
 				if (focus_spell.base_value[i] < 0) {
 					if (-focus_spell.base_value[i] == spell.target_type) { // Exclude
 						return 0;
@@ -5935,7 +5977,7 @@ int64 Mob::CalcFocusEffect(focusType type, uint16 focus_id, uint16 spell_id, boo
 			case SpellEffect::ImprovedDamage2:
 				if (!RuleB(Spells, UseClassicSpellFocus)) {
 					if (type == focusImprovedDamage || type == focusImprovedDamage2) {
-						value = GetFocusRandomEffectivenessValue(focus_spell.base_value[i], focus_spell.limit_value[i], best_focus);
+						value = focus_value(focus_spell.base_value[i], focus_spell.limit_value[i], best_focus);
 					}
 					break;
 				} else {
@@ -5956,7 +5998,7 @@ int64 Mob::CalcFocusEffect(focusType type, uint16 focus_id, uint16 spell_id, boo
 			case SpellEffect::ReduceManaCost:
 				if (!RuleB(Spells, UseClassicSpellFocus)) {
 					if (type == focusImprovedHeal || type == focusManaCost) {
-						value = GetFocusRandomEffectivenessValue(focus_spell.base_value[i], focus_spell.limit_value[i], best_focus);
+						value = focus_value(focus_spell.base_value[i], focus_spell.limit_value[i], best_focus);
 					}
 					break;
 				}
@@ -6016,7 +6058,7 @@ int64 Mob::CalcFocusEffect(focusType type, uint16 focus_id, uint16 spell_id, boo
 			case SpellEffect::ReduceReagentCost:
 				if (!RuleB(Spells, UseClassicSpellFocus)) {
 					if (type == focusReagentCost) {
-						value = GetFocusRandomEffectivenessValue(focus_spell.base_value[i], focus_spell.limit_value[i], best_focus);
+						value = focus_value(focus_spell.base_value[i], focus_spell.limit_value[i], best_focus);
 					}
 					break;
 				}
@@ -6034,7 +6076,7 @@ int64 Mob::CalcFocusEffect(focusType type, uint16 focus_id, uint16 spell_id, boo
 
 			case SpellEffect::SpellResistReduction:
 				if (type == focusResistRate) {
-					value = GetFocusRandomEffectivenessValue(focus_spell.base_value[i], focus_spell.limit_value[i], best_focus);
+					value = focus_value(focus_spell.base_value[i], focus_spell.limit_value[i], best_focus);
 				}
 				break;
 
@@ -6047,7 +6089,7 @@ int64 Mob::CalcFocusEffect(focusType type, uint16 focus_id, uint16 spell_id, boo
 			case SpellEffect::SpellHateMod:
 				if (!RuleB(Spells, UseClassicSpellFocus)) {
 					if (type == focusSpellHateMod) {
-						value = GetFocusRandomEffectivenessValue(focus_spell.base_value[i], focus_spell.limit_value[i], best_focus);
+						value = focus_value(focus_spell.base_value[i], focus_spell.limit_value[i], best_focus);
 					}
 					break;
 				}
@@ -6095,13 +6137,13 @@ int64 Mob::CalcFocusEffect(focusType type, uint16 focus_id, uint16 spell_id, boo
 
 			case SpellEffect::FcSpellVulnerability:
 				if (type == focusSpellVulnerability) {
-					value = GetFocusRandomEffectivenessValue(focus_spell.base_value[i], focus_spell.limit_value[i], best_focus);
+					value = focus_value(focus_spell.base_value[i], focus_spell.limit_value[i], best_focus);
 				}
 				break;
 
 			case SpellEffect::Fc_Spell_Damage_Pct_IncomingPC:
 				if (type == focusFcSpellDamagePctIncomingPC) {
-					value = GetFocusRandomEffectivenessValue(focus_spell.base_value[i], focus_spell.limit_value[i], best_focus);
+					value = focus_value(focus_spell.base_value[i], focus_spell.limit_value[i], best_focus);
 				}
 				break;
 
@@ -6161,7 +6203,7 @@ int64 Mob::CalcFocusEffect(focusType type, uint16 focus_id, uint16 spell_id, boo
 
 			case SpellEffect::FcHealPctCritIncoming:
 				if (type == focusFcHealPctCritIncoming) {
-					value = GetFocusRandomEffectivenessValue(focus_spell.base_value[i], focus_spell.limit_value[i], best_focus);
+					value = focus_value(focus_spell.base_value[i], focus_spell.limit_value[i], best_focus);
 				}
 				break;
 
@@ -6179,7 +6221,7 @@ int64 Mob::CalcFocusEffect(focusType type, uint16 focus_id, uint16 spell_id, boo
 
 			case SpellEffect::FcHealPctIncoming:
 				if (type == focusFcHealPctIncoming) {
-					value = GetFocusRandomEffectivenessValue(focus_spell.base_value[i], focus_spell.limit_value[i], best_focus);
+					value = focus_value(focus_spell.base_value[i], focus_spell.limit_value[i], best_focus);
 				}
 				break;
 
@@ -6522,6 +6564,7 @@ uint16 Mob::GetSympatheticFocusEffect(focusType type, uint16 spell_id) {
 
 int64 Mob::GetFocusEffect(focusType type, uint16 spell_id, Mob *caster, bool from_buff_tic)
 {
+	if (RuleB(Spells, NightcapTHJBehaviors) && (IsClient() || GetNightcapPetOwner()) && IsBardSong(spell_id)) { return 0; }
 	if (IsBardSong(spell_id) && type != focusFcBaseEffects && type != focusSpellDuration && type != focusReduceRecastTime) {
 		return 0;
 	}

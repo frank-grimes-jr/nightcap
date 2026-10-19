@@ -1,0 +1,17 @@
+{
+  "status": "passed",
+  "changed_items": 143332,
+  "seconds": 390.1742352999863,
+  "files": {
+    "gear-forward.sql.gz": {
+      "sql_bytes": 43817673,
+      "sql_sha256": "4645f2cba818e43cadb2dc32cbc500b7fbff050f2b07e366e60fea7c1b3df3da",
+      "gzip_sha256": "44880b6075f9cbfa2774929ba8de62f25e93f9d0f25c665b05c8e3fc22d00339"
+    },
+    "gear-rollback.sql.gz": {
+      "sql_bytes": 47861706,
+      "sql_sha256": "c8a25df9b1e5c01837bfb2384c092fff8bb9e9bb2da4fb0efb7f9f52193083e8",
+      "gzip_sha256": "f27fdbb9b3562c2d6ba8bcef9d0012d52a0add18b6252df10641dd5e57bda5cc"
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "bytes": 57711492,
+  "sha256": "ce81702dbe5fae86a205ac4f2cce7583fe7c04aef272411bc15f78bb233dc558",
+  "generator": "tools/thj_stock_scaling.py --bootstrap eq-solo-gm/scripts/thj-stock-bootstrap.sql",
+  "compressed": "stock-bootstrap.sql.gz"
+}

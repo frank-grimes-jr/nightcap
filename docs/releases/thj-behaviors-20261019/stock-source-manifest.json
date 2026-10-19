@@ -1,0 +1,242 @@
+{
+  "retrieved_utc": "2026-10-19T21:49:56.294728+00:00",
+  "source": "ProjectEQ public stock database (emulator baseline; not a Daybreak database)",
+  "archive_url": "https://db.eqemu.dev/api/v1/dump/archive/peq-1792195214.zip",
+  "archive_created_at": "2026-10-17T00:00:14",
+  "archive_size": 32153587,
+  "archive_sha256": "c27a943e73890cdfd4ac2b1e30e58d557d2d3e4254030836888eacf4f102ef18",
+  "member": "peq-dump/create_tables_content.sql",
+  "member_sha256": "6f98861ed402fa750329ebacd245e797e0d804cffd9b5a96788498bffd4dfee0",
+  "items_sql_sha256": "9beaa6cfba6fa3086449b9cca8468077cc240b591234f17effddf79c6be69d18",
+  "stock_item_rows": 117944,
+  "stock_columns": 285,
+  "observed_items": 131,
+  "selected_stock_items_sha256": "3be2389bda1d0014afdfafa0e0a1de7c0f5610d737d3685f14bd6e65f4a9bb5c",
+  "catalog_sha256": "7b491bd3e946dc37fb8a4fbfb43f88dc2e6621a2d18471711db68c63abda4a85",
+  "nightcap_fixture_sha256": "0ea056de33aa86074ef160c2046e316e4218207031b488ad9022793c0510d645",
+  "identity_name_mismatches": [
+    {
+      "base_id": 28664,
+      "target_id": 628664,
+      "evidence_name": "Girdle of Intsense Durability (Legendary)",
+      "stock_name": "Girdle of Intense Durability",
+      "normal_name": "Girdle of Intense Durability",
+      "stock_equals_normal": true,
+      "evidence_equals_stock": false,
+      "category": "accessory_or_held",
+      "stock_itemtype": 10,
+      "stock_slots": 1048576
+    },
+    {
+      "base_id": 31239,
+      "target_id": 631239,
+      "evidence_name": "Sal'Varae's Robe of Darkness",
+      "stock_name": "Sal`Varae's Robe of Darkness",
+      "normal_name": "Sal`Varae's Robe of Darkness",
+      "stock_equals_normal": true,
+      "evidence_equals_stock": false,
+      "category": "armor",
+      "stock_itemtype": 10,
+      "stock_slots": 131072
+    },
+    {
+      "base_id": 35013,
+      "target_id": 635013,
+      "evidence_name": "Intricate Wooden Figurine (MAG) (Legendary)",
+      "stock_name": "Intricate Wooden Figurine",
+      "normal_name": "Intricate Wooden Figurine",
+      "stock_equals_normal": true,
+      "evidence_equals_stock": false,
+      "category": "accessory_or_held",
+      "stock_itemtype": 10,
+      "stock_slots": 1
+    },
+    {
+      "base_id": 35015,
+      "target_id": 635015,
+      "evidence_name": "Intricate Wooden Figurine (BST) (Legendary)",
+      "stock_name": "Intricate Wooden Figurine",
+      "normal_name": "Intricate Wooden Figurine",
+      "stock_equals_normal": true,
+      "evidence_equals_stock": false,
+      "category": "accessory_or_held",
+      "stock_itemtype": 10,
+      "stock_slots": 1
+    },
+    {
+      "base_id": 40342,
+      "target_id": 640342,
+      "evidence_name": "Charm of Exotic Speech (Legendary) ",
+      "stock_name": "Charm of Exotic Speech",
+      "normal_name": "Charm of Exotic Speech",
+      "stock_equals_normal": true,
+      "evidence_equals_stock": false,
+      "category": "accessory_or_held",
+      "stock_itemtype": 52,
+      "stock_slots": 1
+    }
+  ],
+  "category_counts": {
+    "weapon": 25,
+    "armor": 50,
+    "accessory_or_held": 52,
+    "shield": 4
+  },
+  "custom_normal_numeric_drift_items": 0,
+  "heroic_quarter_matches": 1412,
+  "heroic_quarter_observations": 1431,
+  "heroic_quarter_exceptions": [
+    {
+      "base_id": 11444,
+      "field": "heroic_cha",
+      "observed_primary_or_resist": 20,
+      "observed_heroic": 8,
+      "round_half_up_25pct": 5,
+      "matches": false
+    },
+    {
+      "base_id": 14733,
+      "field": "heroic_str",
+      "observed_primary_or_resist": 36,
+      "observed_heroic": 5,
+      "round_half_up_25pct": 9,
+      "matches": false
+    },
+    {
+      "base_id": 14733,
+      "field": "heroic_agi",
+      "observed_primary_or_resist": 40,
+      "observed_heroic": 5,
+      "round_half_up_25pct": 10,
+      "matches": false
+    },
+    {
+      "base_id": 14733,
+      "field": "heroic_cha",
+      "observed_primary_or_resist": 36,
+      "observed_heroic": 5,
+      "round_half_up_25pct": 9,
+      "matches": false
+    },
+    {
+      "base_id": 14733,
+      "field": "heroic_mr",
+      "observed_primary_or_resist": 30,
+      "observed_heroic": 4,
+      "round_half_up_25pct": 8,
+      "matches": false
+    },
+    {
+      "base_id": 14733,
+      "field": "heroic_fr",
+      "observed_primary_or_resist": 30,
+      "observed_heroic": 4,
+      "round_half_up_25pct": 8,
+      "matches": false
+    },
+    {
+      "base_id": 14733,
+      "field": "heroic_cr",
+      "observed_primary_or_resist": 30,
+      "observed_heroic": 4,
+      "round_half_up_25pct": 8,
+      "matches": false
+    },
+    {
+      "base_id": 14733,
+      "field": "heroic_dr",
+      "observed_primary_or_resist": 30,
+      "observed_heroic": 4,
+      "round_half_up_25pct": 8,
+      "matches": false
+    },
+    {
+      "base_id": 14733,
+      "field": "heroic_pr",
+      "observed_primary_or_resist": 30,
+      "observed_heroic": 4,
+      "round_half_up_25pct": 8,
+      "matches": false
+    },
+    {
+      "base_id": 25211,
+      "field": "heroic_str",
+      "observed_primary_or_resist": 14,
+      "observed_heroic": 3,
+      "round_half_up_25pct": 4,
+      "matches": false
+    },
+    {
+      "base_id": 25211,
+      "field": "heroic_int",
+      "observed_primary_or_resist": 14,
+      "observed_heroic": 3,
+      "round_half_up_25pct": 4,
+      "matches": false
+    },
+    {
+      "base_id": 25211,
+      "field": "heroic_wis",
+      "observed_primary_or_resist": 14,
+      "observed_heroic": 3,
+      "round_half_up_25pct": 4,
+      "matches": false
+    },
+    {
+      "base_id": 26751,
+      "field": "heroic_cha",
+      "observed_primary_or_resist": 30,
+      "observed_heroic": 0,
+      "round_half_up_25pct": 8,
+      "matches": false
+    },
+    {
+      "base_id": 28665,
+      "field": "heroic_wis",
+      "observed_primary_or_resist": 36,
+      "observed_heroic": 0,
+      "round_half_up_25pct": 9,
+      "matches": false
+    },
+    {
+      "base_id": 28988,
+      "field": "heroic_sta",
+      "observed_primary_or_resist": 50,
+      "observed_heroic": 8,
+      "round_half_up_25pct": 13,
+      "matches": false
+    },
+    {
+      "base_id": 47643,
+      "field": "heroic_int",
+      "observed_primary_or_resist": 40,
+      "observed_heroic": 40,
+      "round_half_up_25pct": 10,
+      "matches": false
+    },
+    {
+      "base_id": 47643,
+      "field": "heroic_cha",
+      "observed_primary_or_resist": 40,
+      "observed_heroic": 40,
+      "round_half_up_25pct": 10,
+      "matches": false
+    },
+    {
+      "base_id": 68196,
+      "field": "heroic_sta",
+      "observed_primary_or_resist": 20,
+      "observed_heroic": 10,
+      "round_half_up_25pct": 5,
+      "matches": false
+    },
+    {
+      "base_id": 20544,
+      "field": "heroic_int",
+      "observed_primary_or_resist": 40,
+      "observed_heroic": 40,
+      "round_half_up_25pct": 10,
+      "matches": false
+    }
+  ]
+}

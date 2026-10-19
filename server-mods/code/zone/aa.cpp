@@ -1,3 +1,4 @@
+#include "../common/nightcap_thj_behaviors.h"
 /*	EQEMu: Everquest Server Emulator
 Copyright (C) 2001-2016 EQEMu Development Team (http://eqemulator.net)
 
@@ -888,6 +889,28 @@ void Client::InspectBuffs(Client* Inspector, int Rank)
 	Inspector->FastQueuePacket(&outapp);
 }
 
+bool Client::RetireTHJAbilities()
+{
+	if (!RuleB(Spells, NightcapTHJBehaviors)) { return true; }
+	if (!HasValidEarnedAAState()) { return false; }
+	auto earned = m_earned_aa_ranks;
+	auto usable = aa_ranks;
+	uint64 wallet = GetAAPoints();
+	bool changed = false;
+	for (auto it = earned.begin(); it != earned.end();) {
+		auto *ability = zone->GetAlternateAdvancementAbilityByRank(it->first);
+		if (!ability || !NightcapTHJ::RetiredAA(ability->id)) { ++it; continue; }
+		auto *rank = ability->GetRankByPointsSpent(it->second.first);
+		if (ability->first_rank_id != it->first || !rank || rank->current_value != it->second.first || rank->total_cost < 0 || ability->charges || ability->grant_only) {
+			InvalidateEarnedAAState(); return false;
+		}
+		wallet += rank->total_cost;
+		if (wallet > UINT32_MAX) { InvalidateEarnedAAState(); return false; }
+		usable.erase(ability->id);it = earned.erase(it);changed = true;
+	}
+	return !changed || PersistEarnedAAState(std::move(earned), std::move(usable), static_cast<uint32>(wallet), m_epp.expended_aa);
+}
+
 bool Client::RefundAA() {
 	if (!HasValidEarnedAAState()) {
 		return false;
@@ -1706,7 +1729,7 @@ bool ZoneDatabase::LoadAlternateAdvancement(Client *c) {
 		}
 	}
 
-	return c->HasValidEarnedAAState();
+	return c->HasValidEarnedAAState() && c->RetireTHJAbilities();
 }
 
 AA::Ability *Zone::GetAlternateAdvancementAbility(int id) {

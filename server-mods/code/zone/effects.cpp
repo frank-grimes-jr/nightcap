@@ -1,3 +1,4 @@
+#include "../common/nightcap_thj_behaviors.h"
 /*	EQEMu: Everquest Server Emulator
 	Copyright (C) 2001-2003 EQEMu Development Team (http://eqemulator.net)
 
@@ -668,6 +669,7 @@ int32 Mob::GetActSpellCost(uint16 spell_id, int32 cost)
 
 int32 Mob::GetActSpellDuration(uint16 spell_id, int32 duration)
 {
+	if (RuleB(Spells, NightcapTHJBehaviors) && IsClient() && NightcapTHJ::FixedDuration(spell_id)) { return duration; }
 	// focuses don't affect discipline duration (Except War Cries)
 	if (
 		IsDiscipline(spell_id) &&

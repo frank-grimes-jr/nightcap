@@ -1,0 +1,47 @@
+{
+  "status": "passed",
+  "source_revision": "326a00c13552699b90e1437c5e36df9857e21e3a",
+  "line_endings": "Raw build sources are pinned separately; normalized contents match committed source.",
+  "files": {
+    "server-mods/code/common/nightcap_aa_policy.h": {
+      "built_raw_sha256": "e0b52b7c3cecd43ec4c17a0af0c9b9124675c0949c8894ca641e75b6b3d80273",
+      "normalized_sha256": "bed1570a57a2dc61f3a90b280cd0635a57e23419f8c78552c3221f3e8ac3e400",
+      "committed_content_sha256": "bed1570a57a2dc61f3a90b280cd0635a57e23419f8c78552c3221f3e8ac3e400"
+    },
+    "server-mods/code/common/nightcap_thj_behaviors.h": {
+      "built_raw_sha256": "65bfb4caef01ffd84806825ad081357c8e313ee246f4a158c82d3d7d7a2bdf77",
+      "normalized_sha256": "1df9e9a378459728ce208f0fc1aceef455b20038860810e3570277cc1069de55",
+      "committed_content_sha256": "1df9e9a378459728ce208f0fc1aceef455b20038860810e3570277cc1069de55"
+    },
+    "server-mods/code/common/ruletypes.h": {
+      "built_raw_sha256": "e5766e891372fc8eeaa2d50c060396171945c57d71c492b1cd162b7e9b675ecd",
+      "normalized_sha256": "e5766e891372fc8eeaa2d50c060396171945c57d71c492b1cd162b7e9b675ecd",
+      "committed_content_sha256": "e5766e891372fc8eeaa2d50c060396171945c57d71c492b1cd162b7e9b675ecd"
+    },
+    "server-mods/code/zone/aa.cpp": {
+      "built_raw_sha256": "2821843d6ad44574e2301b8a9bac24f48bcc8149ec26cbce446ff9beed166ede",
+      "normalized_sha256": "2821843d6ad44574e2301b8a9bac24f48bcc8149ec26cbce446ff9beed166ede",
+      "committed_content_sha256": "2821843d6ad44574e2301b8a9bac24f48bcc8149ec26cbce446ff9beed166ede"
+    },
+    "server-mods/code/zone/client.h": {
+      "built_raw_sha256": "50e10ff7ae195e9889c0b7d915589a1159ea2d1c6c3a87dfe5d8c71f683f731b",
+      "normalized_sha256": "50e10ff7ae195e9889c0b7d915589a1159ea2d1c6c3a87dfe5d8c71f683f731b",
+      "committed_content_sha256": "50e10ff7ae195e9889c0b7d915589a1159ea2d1c6c3a87dfe5d8c71f683f731b"
+    },
+    "server-mods/code/zone/effects.cpp": {
+      "built_raw_sha256": "ab37cc8cc7a2166fe3a93b577ddb9bd9147a5ddfc98fa3bcf5a542bc6bdf4f69",
+      "normalized_sha256": "ab37cc8cc7a2166fe3a93b577ddb9bd9147a5ddfc98fa3bcf5a542bc6bdf4f69",
+      "committed_content_sha256": "ab37cc8cc7a2166fe3a93b577ddb9bd9147a5ddfc98fa3bcf5a542bc6bdf4f69"
+    },
+    "server-mods/code/zone/spells.cpp": {
+      "built_raw_sha256": "39134dc567f3805723921ca3b8a2c157206b19224725660b749165738c46b6da",
+      "normalized_sha256": "abcb45e5ad6a5baa068d6f9b529a7f5c141681c5b4e26475773664554f02e9dc",
+      "committed_content_sha256": "abcb45e5ad6a5baa068d6f9b529a7f5c141681c5b4e26475773664554f02e9dc"
+    },
+    "server-mods/code/zone/spell_effects.cpp": {
+      "built_raw_sha256": "c448fcf66b28719b2ec8ce46ca5ee50ef19f0a92829048b793cc510ca6addc51",
+      "normalized_sha256": "7a4f68e648a13cb35c88d108db0ae8e277f5eddf46fb08559cdd450f061d6f83",
+      "committed_content_sha256": "7a4f68e648a13cb35c88d108db0ae8e277f5eddf46fb08559cdd450f061d6f83"
+    }
+  }
+}

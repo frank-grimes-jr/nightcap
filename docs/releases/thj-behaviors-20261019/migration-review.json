@@ -1,0 +1,32 @@
+{
+  "source": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\thj_item_migration.py",
+  "sha256": "556cca729597b55c54ff0cc0f91e89a97502df72a446015a2633ffca312c73cd",
+  "scope": "Read-only source/transport review. No SQL mutations, no production access, no implementation edits.",
+  "verdict": "No unconditional blocker found for complete generated SQL executed by a fail-fast client. Conditional staging completeness gap requires explicit fail-fast execution or SQL guard.",
+  "conditional_finding": {
+    "lines": [
+      37,
+      38,
+      41,
+      54
+    ],
+    "severity": "P2 if SOURCE or continue-on-error clients are supported; otherwise residual hardening risk",
+    "issue": "No expected cardinality or equality-of-ID-set assertion for hash and value staging tables. A failed hash INSERT followed by continued execution leaves value rows that joined UPDATE changes outside preflight and afterimage verification.",
+    "suggested_fix": "Before opening cursor, require each temporary table to have len(pairs) rows and require no IDs missing in either direction; state client must abort on SQL errors.",
+    "suggested_regression": "Generate multiple hash batches, omit a late hash batch while preserving all value batches, then call procedure: require exception and all persistent items unchanged. Also test missing value batches and late afterimage failure."
+  },
+  "verification": {
+    "pure_tests_passed": 6,
+    "db_tests_skipped": 3,
+    "sample_rows": 1393,
+    "sample_columns": 285,
+    "hash_insert_batches": 2,
+    "value_insert_batches": 3,
+    "max_insert_bytes": 262157,
+    "procedure_bytes": 41783,
+    "item_update_statements": 1,
+    "old_retained_artifacts_at_inspection": "gear-forward.sql.gz and gear-rollback.sql.gz still contained old 30,099,768-byte single hash INSERT; parent notified to regenerate.",
+    "runtime_database_checks": "Not run: isolated database reserved to parent; read-only SOURCE error probe was denied by Docker API sandbox, so SOURCE behavior not experimentally confirmed.",
+    "cross_model": "Skipped in non-interactive delegated review; no external CLI invoked."
+  }
+}

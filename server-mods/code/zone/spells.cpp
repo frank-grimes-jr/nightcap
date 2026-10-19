@@ -1,3 +1,4 @@
+#include "../common/nightcap_thj_behaviors.h"
 /*	EQEMu: Everquest Server Emulator
 Copyright (C) 2001-2002 EQEMu Development Team (http://eqemu.org)
 
@@ -1631,7 +1632,7 @@ void Mob::CastedSpellFinished(uint16 spell_id, uint32 target_id, CastingSlot slo
 
 			LogSpells("Checking Interruption: spell x: [{}] spell y: [{}] cur x: [{}] cur y: [{}] channelchance [{}] channeling skill [{}]\n", GetSpellX(), GetSpellY(), GetX(), GetY(), channelchance, GetSkill(EQ::skills::SkillChanneling));
 
-			if(!spells[spell_id].uninterruptable && zone->random.Real(0, 100) > channelchance) {
+			if(!spells[spell_id].uninterruptable && !(RuleB(Spells, NightcapTHJBehaviors) && IsClient() && FindBuff(NightcapTHJ::DimensionalShielding)) && zone->random.Real(0, 100) > channelchance) {
 				LogSpells("Casting of [{}] canceled: interrupted", spell_id);
 				InterruptSpell();
 				return;
@@ -2497,6 +2498,24 @@ bool Mob::SpellFinished(uint16 spell_id, Mob *spell_target, CastingSlot slot, in
 	if(!IsValidSpell(spell_id))
 		return false;
 
+	const bool thj_resource = RuleB(Spells, NightcapTHJBehaviors) && IsClient() && NightcapTHJ::ResourcePercent(spell_id);
+	const int32 thj_mana = thj_resource ? NightcapTHJ::PercentMana(GetMaxMana(), NightcapTHJ::ResourcePercent(spell_id)) : 0;
+	if (thj_resource) {
+		if (isproc || slot != CastingSlot::AltAbility || thj_mana <= 0 || GetMana() < thj_mana) {
+			Message(Chat::SpellFailure, "You do not have enough mana for this ability.");
+			return false;
+		}
+		if (NightcapTHJ::ManaBurn(spell_id)) {
+			if (!spell_target) { return false; }
+			for (const uint16 burn : {8450, 8451, 8452, 11068}) {
+				if (spell_target->FindBuff(burn)) {
+					Message(Chat::SpellFailure, "That target is still protected from Mana Burn.");
+					return false;
+				}
+			}
+		}
+	}
+
 	// Instant AAs, item effects and triggered spells can bypass CastSpell.
 	spell_target = ResolvePlayerHealTarget(this, spell_id, spell_target);
 
@@ -2687,7 +2706,7 @@ bool Mob::SpellFinished(uint16 spell_id, Mob *spell_target, CastingSlot slot, in
 				}
 
 				else if(!SpellOnTarget(spell_id, spell_target, 0, true, resist_adjust, false, level_override)) {
-					if(IsBuffSpell(spell_id) && IsBeneficialSpell(spell_id)) {
+					if(thj_resource || (IsBuffSpell(spell_id) && IsBeneficialSpell(spell_id))) {
 						return false;
 					}
 				}
@@ -2846,7 +2865,12 @@ bool Mob::SpellFinished(uint16 spell_id, Mob *spell_target, CastingSlot slot, in
 
 	bool mgb = HasMGB() && spells[spell_id].can_mgb;
 	// if this was a spell slot or an ability use up the mana for it
-	if(slot != CastingSlot::Item && slot != CastingSlot::PotionBelt && mana_used > 0)
+	if (thj_resource) {
+		// One debit per completed activation, never per group target or focus adjusted.
+		SetMana(std::max<int64>(0, GetMana() - thj_mana));
+		TryTriggerOnCastRequirement();
+	}
+	else if(slot != CastingSlot::Item && slot != CastingSlot::PotionBelt && mana_used > 0)
 	{
 		mana_used = GetActSpellCost(spell_id, mana_used);
 		if (mgb) {
@@ -3205,6 +3229,9 @@ static bool IsAARelatedBuffSpell(uint16 spell_id)
 
 int32 Mob::GetBuffDurationForTarget(uint16 spell_id, int32 duration) const
 {
+	if (RuleB(Spells, NightcapTHJBehaviors) && NightcapTHJ::FixedDuration(spell_id)) {
+		return NightcapTHJ::BoundDuration(spell_id, duration);
+	}
 	if (Epic05::IsEffect(spell_id)) {
 		return Epic05::BoundDuration(duration);
 	}
@@ -3400,6 +3427,12 @@ int Mob::CheckStackConflict(uint16 spellid1, int caster_level1, uint16 spellid2,
 		}
 	}
 
+	if (RuleB(Spells, NightcapTHJBehaviors) && IsClient()) {
+		auto mancy_family = [](uint16 id) { return id >= 8406 && id <= 8408 ? 1 : id >= 11103 && id <= 11105 ? 2 : 0; };
+		const int first = mancy_family(spellid1), second = mancy_family(spellid2);
+		if (first && second && first == second) { return spellid2 >= spellid1 ? 1 : -1; }
+		if (first || second) { return 0; }
+	}
 	const std::string& always_stack_spells = RuleS(Spells, AlwaysStackSpells);
 	if (spellid1 != spellid2 && !always_stack_spells.empty()) {
 		const auto& v = Strings::Split(always_stack_spells, ",");

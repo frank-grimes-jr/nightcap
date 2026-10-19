@@ -1,0 +1,10 @@
+test_afterimage_failure_rolls_back_all_updates (test_thj_combined_content.CombinedContent.test_afterimage_failure_rolls_back_all_updates) ... ok
+test_late_unowned_field_drift_rejects_every_update (test_thj_combined_content.CombinedContent.test_late_unowned_field_drift_rejects_every_update) ... ok
+test_real_database_repeat_recovery_and_reapply (test_thj_combined_content.CombinedContent.test_real_database_repeat_recovery_and_reapply) ... ok
+test_starter_dungeon_and_companion_preservation (test_thj_combined_content.CombinedContent.test_starter_dungeon_and_companion_preservation) ... ok
+test_missing_hash_or_value_batch_rejects_before_any_item_write (test_thj_item_staging.ItemStaging.test_missing_hash_or_value_batch_rejects_before_any_item_write) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 50.721s
+
+OK

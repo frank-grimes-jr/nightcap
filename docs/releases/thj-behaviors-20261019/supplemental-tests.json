@@ -1,0 +1,5 @@
+{
+  "passed": true,
+  "log": "supplemental-tests.log",
+  "scope": "Native pet stacking and AA cooldown identity/duration"
+}

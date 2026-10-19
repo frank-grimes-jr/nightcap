@@ -1,0 +1,7 @@
+{
+  "status": "target_regeneration_required",
+  "loader_build": "native-build-manifest.json",
+  "local_smoke": "not_run",
+  "reason": "Automatic approval review rejected a new persistent database account; no user/grant/config changes were made. Existing isolated account has no access to the new rehearsal DB. Do not change privileges for an optional diagnostic cache. Generate complete caches on the intended test target using its existing runtime credentials.",
+  "packaged_caches": false
+}
