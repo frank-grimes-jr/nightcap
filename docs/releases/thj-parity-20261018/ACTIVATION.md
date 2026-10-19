@@ -1,8 +1,11 @@
-# Combined candidate preparation and recovery
+# Combined release activation and recovery
 
-No live activation is performed by this release work. Use the normal feature →
-dev → test flow; owner gameplay sign-off precedes main. Production publication
-requires its own authorized maintenance operation.
+The owner explicitly authorized main and server promotion on October18. The
+release is now installed for live testing; [deployment/README.md](deployment/README.md)
+contains the guarded execution, first-boot rule-description hold and reviewed
+forward resume. Use its pinned-image entrypoint for this retained recovery.
+The steps below explain the preparation contract; they are not an instruction
+to replay the completed activation. Owner gameplay acceptance remains open.
 
 1. Reconcile the final candidate with current main and the then-current deployed
    runtime/client. Pin all overlay/retained inputs. Build matching world, zone and
@@ -18,7 +21,10 @@ requires its own authorized maintenance operation.
    `wpm-content-forward.sql` here deliberately omit their separate gear updates.
    Do not run older full-row gear migrations before/after the combined installer.
 4. Apply the non-gear pet/WPM content and combined item migration, then the new
-   `rules-forward.sql`. Repeated application accepts exact afterimages only.
+   `rules-forward.sql`. Repeated application accepts exact afterimages only. World rewrites rule notes
+   to compiled descriptions; the corrected rule generators match those notes.
+   A failed CREATE/CALL/DROP sequence can leave a procedure: inspect and
+   authenticate it before any retry; do not blindly replay an uncertain component.
    Data components are transactional; pet schema DDL is separate and the entire
    bundle is not one transaction. Keep writers closed until components and caches verify.
    Preserve both independent Seru loot links and all original acquisition rows.
@@ -53,4 +59,4 @@ requires its own authorized maintenance operation.
   bundle cannot represent that state. Never restore an old inventory snapshot.
 - A rollback of numeric definitions requires fresh item-cache generation and a
   compatible runtime restart. A client repair uses a higher signed release and
-  preserves all unrelated assets; no client signing/publication occurred here.
+  preserves all unrelated assets; signed client2026101802 is published; recovery must use a higher counter.

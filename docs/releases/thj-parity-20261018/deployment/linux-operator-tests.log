@@ -1,0 +1,35 @@
+Runtime verified; access held for signed client.
+test_activation_order_and_closed_gateway (test_rollout.DeploymentTests.test_activation_order_and_closed_gateway) ... ok
+test_backup_failure_never_writes_content (test_rollout.DeploymentTests.test_backup_failure_never_writes_content) ... ok
+test_cache_generation_failure_keeps_world_stopped (test_rollout.DeploymentTests.test_cache_generation_failure_keeps_world_stopped) ... ok
+test_component_failure_holds_both_and_never_replays (test_rollout.DeploymentTests.test_component_failure_holds_both_and_never_replays) ... ok
+test_content_names_allow_spawn2_without_allowing_sql (test_rollout.DeploymentTests.test_content_names_allow_spawn2_without_allowing_sql) ... ok
+test_exact_pet_constraint_only (test_rollout.DeploymentTests.test_exact_pet_constraint_only) ... ok
+test_public_assets_all_required_before_access (test_rollout.DeploymentTests.test_public_assets_all_required_before_access) ... ok
+test_routing_preserves_actual_classic_mask (test_rollout.DeploymentTests.test_routing_preserves_actual_classic_mask) ... ok
+test_rule_changes_are_not_mistaken_for_player_drift (test_rollout.DeploymentTests.test_rule_changes_are_not_mistaken_for_player_drift) ... ok
+test_after_channel_replace_resumes (test_publish_client.PublisherTests.test_after_channel_replace_resumes) ... ok
+test_after_release_rename_resumes (test_publish_client.PublisherTests.test_after_release_rename_resumes) ... ok
+test_before_channel_replace_resumes (test_publish_client.PublisherTests.test_before_channel_replace_resumes) ... ok
+test_channel_last_and_idempotent_replay (test_publish_client.PublisherTests.test_channel_last_and_idempotent_replay) ... ok
+test_corrupt_backup_retained_and_refused (test_publish_client.PublisherTests.test_corrupt_backup_retained_and_refused) ... ok
+test_corrupt_existing_immutable_release_retained_and_refused (test_publish_client.PublisherTests.test_corrupt_existing_immutable_release_retained_and_refused) ... ok
+test_corrupt_staged_asset_refused (test_publish_client.PublisherTests.test_corrupt_staged_asset_refused) ... ok
+test_drift_during_copy_refuses_channel_switch (test_publish_client.PublisherTests.test_drift_during_copy_refuses_channel_switch) ... ok
+test_nested_directories_synced_before_release_rename (test_publish_client.PublisherTests.test_nested_directories_synced_before_release_rename) ... ok
+test_paired_maintenance_rejects_gateway_opening_during_publication (test_publish_client.PublisherTests.test_paired_maintenance_rejects_gateway_opening_during_publication) ... ok
+test_paired_maintenance_requires_explicit_closed_gateway_baseline (test_publish_client.PublisherTests.test_paired_maintenance_requires_explicit_closed_gateway_baseline) ... ok
+test_partial_copy_resumes (test_publish_client.PublisherTests.test_partial_copy_resumes) ... ok
+test_path_escape_refused (test_publish_client.PublisherTests.test_path_escape_refused) ... ok
+test_public_baseline_drift_refused_before_writes (test_publish_client.PublisherTests.test_public_baseline_drift_refused_before_writes) ... ok
+test_service_baseline_drift_refused_before_writes (test_publish_client.PublisherTests.test_service_baseline_drift_refused_before_writes) ... ok
+test_wrong_baseline_release_refused (test_publish_client.PublisherTests.test_wrong_baseline_release_refused) ... ok
+test_duplicate_identity_rejected (test_rule_notes.RuleNoteTests.test_duplicate_identity_rejected) ... ok
+test_exact_compiled_only_change (test_rule_notes.RuleNoteTests.test_exact_compiled_only_change) ... ok
+test_generated_rules_use_native_catalog_descriptions (test_rule_notes.RuleNoteTests.test_generated_rules_use_native_catalog_descriptions) ... ok
+test_values_extra_missing_and_unreviewed_notes_rejected (test_rule_notes.RuleNoteTests.test_values_extra_missing_and_unreviewed_notes_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 29 tests in 6.245s
+
+OK

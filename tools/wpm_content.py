@@ -163,7 +163,7 @@ def main():
         (RELEASE/name).write_text(migration(groups(rollback),'nightcap_wpm_items_20261018'),newline='\n')
     (RELEASE/'items-plan.json').write_text(json.dumps(groups(),indent=2)+'\n')
     rule=dict(ruleset_id=1,rule_name='Combat:NightcapHeroicMeleeScaling',rule_value='true',
-              notes='Reviewed WPM heroic-strength weapon-hit curve; requires paired world and zone.')
+              notes='Enable Nightcap diminishing heroic STR percentage scaling for player weapon hits; pair with reviewed WPM content')
     disabled=dict(rule,rule_value='false')
     for name,before,after in [('forward',[],[rule]),('disable',[rule],[disabled]),('enable',[disabled],[rule])]:
         group=dict(table='rule_values',key={k:rule[k] for k in ('ruleset_id','rule_name')},before=before,after=after)
