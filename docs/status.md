@@ -1,17 +1,22 @@
 # Current Nightcap status
 
-## All-class AA update — October19 candidate, not deployed
+## All-class AA update — October19 deployed for live testing
 
-All16 classes reviewed against566 archived THJ AA records. The candidate adds75
-lines, expands111 and adds Druid Healing Boon access:1,836 ranks/483 families,
-with no removals. All previously legal ranks, earned costs, prerequisites,
-pet/WPM ceilings and Classic50 remain. Native effects are retained; THJ behavior
-mismatches and excluded custom/free/execute families are explicit. Source includes
-main16bfe18 and published client-repair follow-up07b002b, preserving its verified status.
+Owner-authorized main promotion PR250 and OVH activation are complete. All16
+classes received75 new lines and111 expanded lines; Druid also gains Healing
+Boon access. The catalog has1,836 ranks/483 families, with no removals. Existing
+earned ranks, costs, prerequisites, pet/WPM ceilings and Classic50 remain.
+Native effects are retained; documented custom THJ differences remain open.
+
+All12 zones match the reviewed binary;47 player and28 custom/timer tables,
+rules, caches, quests and client2026101901 are preserved. Fresh stopped backup
+integrity and all138 client asset hashes pass. Game/gateway are healthy and
+open. Wiki20261019-all-class-aa-v1 verifies465 public files and private-route
+protections. Owner AA gameplay and balance acceptance remain pending.
 [Full class list](releases/thj-all-class-aa-20261019/CHANGELIST.md),
-[verification and rollout](releases/thj-all-class-aa-20261019/README.md),
-[owner QA](releases/thj-all-class-aa-20261019/QA.md). Main/server activation and
-wiki publication require their next release approval; no live change is claimed.
+[deployment evidence](releases/thj-all-class-aa-20261019/deployment/README.md),
+[exact owner QA](releases/thj-all-class-aa-20261019/QA.md). Reconnect and turn
+Recommended AA off before browsing the expanded catalog.
 
 ## Client Play incident — October 19; repair published, Play confirmed
 

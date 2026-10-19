@@ -1,0 +1,6 @@
+{
+  "old_manifest_sha256": "78789d8c3b91611b2bd6c5aeac913ca56f82c79cb609d96c271954d28117257d",
+  "new_manifest_sha256": "eded4c5724699fc7cde80292e12ee780eceba3b617cdc7a69ca5d122f7c13a73",
+  "result": "Verified with access closed.\nVerified with access closed.\nVerified with access closed.\nAccess open.\nVerified with access closed.\nAccess open.\nVerified with access closed.\nVerified with access closed.\nAccess open.\nVerified with access closed.\n{\"operator_revision_verified\": true, \"files\": {\"rollout.py\": \"2108d73f974851c89e3f017bef0b0d79e07bcb5f2595b905ad3c2fb7343c6774\", \"test_rollout.py\": \"c7dafa5da58cdcb3ca86bd698f7933547643946d246915f833d3af48204567fc\", \"manifest.json\": \"eded4c5724699fc7cde80292e12ee780eceba3b617cdc7a69ca5d122f7c13a73\"}, \"services_unchanged\": true}\n",
+  "reason": "Independent closed-access recovery review and disk gates"
+}

@@ -1,0 +1,839 @@
+--- C:/Users/verre/.codex/skills/nightcap-development/references/multiclass.md
++++ C:/Users/verre/.codex/skills/nightcap-development/references/multiclass.md
+@@ -1,10 +1,10 @@
+ # Multiclass, spells, skills and advancement
+ 
+-## All-class AA expansion — October19 candidate, not deployed
++## All-class AA expansion — October19 deployed for live testing
+ 
+ Source: C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev,
+-feature/thj-all-class-aas. The all-class pass reviews566 pinned archived THJ
+-records and retains every released rank. Candidate1836 ranks/483 families adds75
++main via PR250/c3f0686. The all-class pass reviews566 pinned archived THJ
++records and retains every released rank. Released1836 ranks/483 families adds75
+ lines and expands111; Druid also receives Healing Boon389 (mask518→550).
+ Classic50, level1 earned access, costs, prerequisites, identities, deadlines and
+ October18 pet/WPM ceilings remain. tools/all_class_aa.py generates the policy,
+@@ -24,15 +24,19 @@
+ the baseline.57 tests pass, including native crit/HoT/cooldowns/finite buffs and
+ isolated SQL replay/rollback/drift checks;11016 native eligibility checks plus
+ expansion/projection/restore controls pass. All696 class masks fit74/100 native
+-cooldown slots. The compiled local zone is built_not_installed; unchanged retained
+-objects reproduce the deployed binary exactly before relinking with the new AA
+-header. New header requires zone rebuild; AA reload alone is insufficient.
++cooldown slots. The compiled zone is deployed on all12 production zone processes; unchanged
++retained objects reproduced the previous binary exactly before relinking with
++the new AA header. New header requires zone rebuild and supported full-runtime
++restart; AA reload alone is insufficient. World/shared_memory are unchanged.
+ 
+ No new client/spell asset is needed; all676 added rank references exist in the
+ signed text/spell data. Preserve the separate client0.11.0 catalog repair pairing,
+-which this content check does not validate. User balance and in-game acceptance
+-remain open. Main/server activation is not authorized by the prior release's
+-approval. Rollback preserves new earned ranks dormant; never restore old player
++verified separately against all138 published assets during this deployment.
++The owner explicitly authorized this AA main/server live test on October19.
++Current receipts are in deployment/:47 player/28 custom tables preserved,
++Classic50/rules/caches unchanged, fresh stopped backup verified and access open.
++Twenty-one independent-reviewed operator groups pass on Windows/Linux.
++Owner balance and in-game acceptance remain open. Rollback preserves new earned ranks dormant; never restore old player
+ rows or erase purchases. Matching test/native pointers: test_all_class_aa.py,
+ test_all_class_aa_native.py, verify_aa_tbs_native.py and build_all_class_aa_candidate.py.
+ 
+--- C:/Users/verre/.codex/skills/nightcap-development/references/operations.md
++++ C:/Users/verre/.codex/skills/nightcap-development/references/operations.md
+@@ -1,6 +1,35 @@
+ # Source authority, builds and reloads
+ 
+ Audited 2026-10-12. Consult the selected checkout's current instructions and release record. `references/sources.json` pins inspected files and their locations; hashes detect change, not correctness or deployment.
++
++## Current all-class AA release — October19, live QA open
++
++Main PR250/c3f0686 and owner-authorized OVH activation are verified at
++docs/releases/thj-all-class-aa-20261019/deployment/. Stage:
++/opt/nightcap/releases/all-class-aa-20261019. Current image:
++sha256:32bf376af4402c3288c83c5d72f2810b8d35ddae06327d5521d1efb6b20ef942.
++All12 zones match e1dd9c4cdd6bf95db7ffc909f224b1603e9e07e1ad05925bcdd7bd0359cd3eb0.
++This is a zone-only policy successor to the October18 combined image; unchanged
++world/shared_memory retain its ItemData/cache contract. Only Healing Boon389
++classes518→550 changes content. Classic50, all rules/caches/quests, current
++client2026101901 and all138 published assets are preserved.
++
++The stopped64,416,158-byte gzip backup passed integrity;47 player tables and28
++custom/timer tables preserve earned state without restoration or grants. One
++market startup85→86 has42 valid offers within44 slots. Access is healthy/open;
++owner AA gameplay/balance acceptance remains pending.21 Windows/Linux operator
++groups and independent review cover disk gates, SQL uncertainty and recovery.
++Preflight authenticates all4 AA tables; candidate fixture normalization changes
++only the expected Healing Boon preimage in memory. Isolated clone replay and
++inverse checks pass. SQL attempted/committed receipts are never blindly replayed.
++
++Rollback keeps new earned ranks dormant and restores only the prior image plus
++guarded Healing Boon inverse, with a fresh stopped backup. Before any opening
++attempt, unexplained original player/timer drift and the first market rotation
++must verify before recovery can proceed. Later player gains are preserved.
++Do not restore old player rows or kill one zone under the whole-runtime supervisor.
++Final disk headroom was about2.1GiB; check capacity before later builds and retain
++recovery artifacts. Operator reserves backup/cache space and1GiB headroom.
+ 
+ ## Combined THJ item/spell and pet/WPM deployed — October 18, 2026
+ 
+--- C:/Users/verre/.codex/skills/nightcap-development/references/wiki.md
++++ C:/Users/verre/.codex/skills/nightcap-development/references/wiki.md
+@@ -1,19 +1,23 @@
+ # Official player wiki and Features
+ 
+-## All-class AA candidate — October19, unpublished
+-
+-The thj-item-spell-parity checkout's feature/thj-all-class-aas contains1836 ranks/
+-483families (75new,111expanded) plus Druid Healing Boon access, with explicit THJ
+-behavior gaps. All21 guides and432 generated reward routes were reviewed.
+-Home, Features, Multiclass, Combat, In development and Recent changes contain
+-clearly unreleased notices; current live/client-contract repair guidance remains.
+-Other guides, commands, item/zone values and acquisition are unchanged. Scope:
+-docs/releases/thj-all-class-aa-20261019/wiki-review.json and verification.json.
+-Fourteen Python wiki/refresh tests, six search scenarios and seven equipment
+-checks pass. check_refresh compares actualHEAD/working changes and retains
+-REVIEW REQUIRED for reviewed candidates; global live publication ledger is not
+-advanced. No public publication or gameplay activation is claimed. New source
+-and owner QA/deployment must be reconciled before promoting these notices.
++## All-class AAs — published October19, live QA open
++
++Wiki20261019-all-class-aa-v1 supersedes20261019-client-contract-v1 and preserves
++its launcher repair guidance. Main PR250/c3f0686 and AA deployment are verified.
++All21 guides and432 generated reward routes were reviewed. Six maintained
++articles (home, Features, Multiclass, Combat, In development, Recent changes)
++now describe1836 ranks/483 families,75 new/111 expanded lines, Druid Healing
++Boon and earned/native-effect boundaries as Live testing. Commands, item/zone
++values and acquisition stay unchanged. Owner gameplay/balance acceptance is open.
++
++Fourteen Windows content/refresh tests,30 Linux wiki/deploy/update/refresh tests,
++six search scenarios and seven equipment checks pass. The guarded updater
++rehearsed rollback and preserved private downloads, config and all5 service
++identities without Nginx reload. All465 HTTPS file hashes/security headers and
++five private-source denials verify. Exact source/impact and publication receipts:
++docs/releases/thj-all-class-aa-20261019/deployment/{wiki-review.json,
++wiki-publication.json,wiki-public-verification.json}. check_refresh uses the
++actual checkout/current source and working changes; source ledger is private.
+ 
+ ## Client contract repair — published October19
+ 
+--- C:/Users/verre/.codex/skills/nightcap-development/references/sources.json
++++ C:/Users/verre/.codex/skills/nightcap-development/references/sources.json
+@@ -62,7 +62,8 @@
+     "thj_item_spell_candidate_20261018": "3a5cc28f40ad52988a50c9d0157d28b5f0a2143b + reviewed feature/thj-item-spell-parity working tree; not deployed",
+     "thj_combined_deployed_20261018": "1039fdd007beb090f2830c2b546b77432c0ab0b6; 8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
+     "client_contract_repair_20261019": "0fae6bc16552c31166abbb200e47deeac7627ce2 via PR244; signed2026101901/wiki20261019-client-contract-v1 published and verified; native QA pending",
+-    "all_class_aa_candidate_20261019": "03f9a64773a6357dd0dca0cec0ca7eedea5c01da"
++    "all_class_aa_candidate_20261019": "03f9a64773a6357dd0dca0cec0ca7eedea5c01da",
++    "all_class_aa_deployed_20261019": "main PR250 c3f0686; c3f0686867cf40660166e59a30427dfa1ce7423b + reviewed deployment documentation"
+   },
+   "topics": {
+     "operations": [
+@@ -668,10 +669,73 @@
+       },
+       {
+         "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "path": "CHANGES.md",
++        "role": "Reviewed October19 AA live release source/evidence; historical candidate captures retain dated scope; owner QA open",
++        "revision": "c3f0686867cf40660166e59a30427dfa1ce7423b + reviewed deployment documentation",
++        "sha256": "0c724b099b33ba1e8b5a6e11b9e26698bd57e0add25a1f08e401c8af095515c9"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "path": "docs/releases/thj-all-class-aa-20261019/deployment/README.md",
++        "role": "Reviewed October19 AA live release source/evidence; historical candidate captures retain dated scope; owner QA open",
++        "revision": "c3f0686867cf40660166e59a30427dfa1ce7423b + reviewed deployment documentation",
++        "sha256": "77ffa6068238d5105ca88f44603454d5b166b2cc8e5ecc674cf834781b066bb0"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "path": "docs/releases/thj-all-class-aa-20261019/deployment/manifest.json",
++        "role": "Reviewed October19 AA live release source/evidence; historical candidate captures retain dated scope; owner QA open",
++        "revision": "c3f0686867cf40660166e59a30427dfa1ce7423b + reviewed deployment documentation",
++        "sha256": "eded4c5724699fc7cde80292e12ee780eceba3b617cdc7a69ca5d122f7c13a73"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "path": "docs/releases/thj-all-class-aa-20261019/deployment/receipts/activation/backup.json",
++        "role": "Reviewed October19 AA live release source/evidence; historical candidate captures retain dated scope; owner QA open",
++        "revision": "c3f0686867cf40660166e59a30427dfa1ce7423b + reviewed deployment documentation",
++        "sha256": "cfb8ab787e1aefa4df4545632e84d826de2821cb2b6c48224a5370d598fadb5e"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "path": "docs/releases/thj-all-class-aa-20261019/deployment/receipts/activation/deployed.json",
++        "role": "Reviewed October19 AA live release source/evidence; historical candidate captures retain dated scope; owner QA open",
++        "revision": "c3f0686867cf40660166e59a30427dfa1ce7423b + reviewed deployment documentation",
++        "sha256": "e86ff9c7669754c45fe0644dee030067987bbb4c5db1482efe2207708c21f74c"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "path": "docs/releases/thj-all-class-aa-20261019/deployment/receipts/report.json",
++        "role": "Reviewed October19 AA live release source/evidence; historical candidate captures retain dated scope; owner QA open",
++        "revision": "c3f0686867cf40660166e59a30427dfa1ce7423b + reviewed deployment documentation",
++        "sha256": "917102d61c5cd8a71aca52b5108474d415ebf9a61b14305c24fa76b68c73bffd"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "path": "docs/releases/thj-all-class-aa-20261019/deployment/review.json",
++        "role": "Reviewed October19 AA live release source/evidence; historical candidate captures retain dated scope; owner QA open",
++        "revision": "c3f0686867cf40660166e59a30427dfa1ce7423b + reviewed deployment documentation",
++        "sha256": "6197b7a2778e51835b8aa54b78aad5675b58290e091bc011a54a50c1657f090e"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "path": "docs/releases/thj-all-class-aa-20261019/deployment/rollout.py",
++        "role": "Reviewed October19 AA live release source/evidence; historical candidate captures retain dated scope; owner QA open",
++        "revision": "c3f0686867cf40660166e59a30427dfa1ce7423b + reviewed deployment documentation",
++        "sha256": "2108d73f974851c89e3f017bef0b0d79e07bcb5f2595b905ad3c2fb7343c6774"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "path": "docs/releases/thj-all-class-aa-20261019/deployment/test_rollout.py",
++        "role": "Reviewed October19 AA live release source/evidence; historical candidate captures retain dated scope; owner QA open",
++        "revision": "c3f0686867cf40660166e59a30427dfa1ce7423b + reviewed deployment documentation",
++        "sha256": "c7dafa5da58cdcb3ca86bd698f7933547643946d246915f833d3af48204567fc"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+         "path": "docs/status.md",
+-        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
+-        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
+-        "sha256": "669271a62fd1ca31639709365cdb8fe8c2376ab15ca96e92c1dc7330d9755a83"
++        "role": "Reviewed October19 AA live release source/evidence; historical candidate captures retain dated scope; owner QA open",
++        "revision": "c3f0686867cf40660166e59a30427dfa1ce7423b + reviewed deployment documentation",
++        "sha256": "f149fe80cca1979cc3212474dfc7e6dfa3560af8964019a198364633bac1c399"
+       }
+     ],
+     "multiclass": [
+@@ -1101,13 +1165,6 @@
+         "sha256": "92e0ab9cc6e30cf3483d2aee512964276f79de212c5b8a8d7c10a761850b41c2"
+       },
+       {
+-        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+-        "path": "tools/tests/test_aa_tbs_policy.py",
+-        "role": "Reviewed October19 all-class AA candidate; not deployed or published; owner QA open",
+-        "revision": "03f9a64773a6357dd0dca0cec0ca7eedea5c01da",
+-        "sha256": "7ca94cd8d20cc7802da2662e92a2a8ae1a9a4ad92f0a0094a109ceb09e766353"
+-      },
+-      {
+         "root": "C:/Users/verre/.codex/worktrees/aa-tbs-policy/EQ_Local_Dev",
+         "path": "tools/tests/verify_aa_tbs_native.py",
+         "role": "Reviewed class-rank implementation and level1 invariant; historical audit retains its pinned baseline; owner QA pending",
+@@ -1402,20 +1459,6 @@
+         "sha256": "1f58270b6df0bd49ac3435e104fd46202e020f45ddc7971802b675bcada67ebf"
+       },
+       {
+-        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+-        "path": "server-mods/code/common/nightcap_aa_policy.h",
+-        "role": "Reviewed October19 all-class AA candidate; not deployed or published; owner QA open",
+-        "revision": "03f9a64773a6357dd0dca0cec0ca7eedea5c01da",
+-        "sha256": "ab6c4c1f1add5256d8538e7bf2e6c50596107ad8cdc5ffb1884c7a020840d7c8"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+-        "path": "config/aa-policy.json",
+-        "role": "Reviewed October19 all-class AA candidate; not deployed or published; owner QA open",
+-        "revision": "03f9a64773a6357dd0dca0cec0ca7eedea5c01da",
+-        "sha256": "923c5c8799739a460045fcd039dc526685ea69c55003a999062d90be8e1b6e44"
+-      },
+-      {
+         "root": "E:/EQ_Local_Dev/_worktrees/october-17-release",
+         "path": "docs/ops/passive-aa-ten-20261017/README.md",
+         "role": "Reviewed October17 10% activation/AA-pool evidence; new AA recommendations only; owner gameplay QA pending",
+@@ -1641,199 +1684,206 @@
+       },
+       {
+         "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "path": "docs/releases/thj-pet-scaling-20261018/evidence/aa-native.json",
++        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
++        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
++        "sha256": "f298ab5ee007622afa9197f2068bc71ac18f8c162009cfd9e2e34075f71e198c"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "path": "docs/releases/wpm-melee-20261018/evidence/aa-native.json",
++        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
++        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
++        "sha256": "9ef09145343d658dbbfa2ed383a7601bfad9535216a0dec6448514f7cacdb461"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "path": "server-mods/code/common/nightcap_doppelganger.h",
++        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
++        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
++        "sha256": "52fc4aa4bad6c10721d3f5e65ef72f74450016e741b10dc6cd927fb0d1c21116"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "path": "server-mods/code/zone/aa.cpp",
++        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
++        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
++        "sha256": "d41e5443fa1e085114384a7cd55c2e43af652b863ad5799251ef5c30ccce19ae"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "path": "server-mods/code/zone/npc.cpp",
++        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
++        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
++        "sha256": "f8999e0832b9eca9d8aa2774c3ba9c0506e4704e64e6bc313a2e368c6d27ca2c"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "path": "server-mods/code/zone/spell_effects.cpp",
++        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
++        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
++        "sha256": "88c9b9c55a0ea72c29e3804cedaf0d7f21c9292d228ac74a865e8c99e763fa30"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "path": "server-mods/code/zone/spells.cpp",
++        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
++        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
++        "sha256": "3f87de02efd5503d61e799b5f387ca1607706a4d1bdeeed53ad05a6c3203949a"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "path": "tools/tests/test_doppelganger.py",
++        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
++        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
++        "sha256": "af804523354bbe04defc199f4bc8001b9127d055274412a4d0e8a4d3fc7bbe0d"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "path": "tools/tests/verify_aa_tbs_native.py",
++        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
++        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
++        "sha256": "19e6c3b82eae9d192804bf1f4a3cc9910946a83daebcdc03d607c93a6614cad2"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "path": "tools/wpm_aa.py",
++        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
++        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
++        "sha256": "4de68b453ca0fd17ac0d9a69f5cddcae7d847bfa55a92360851a33daee3467b3"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+         "path": "config/aa-policy.json",
+-        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
+-        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
+-        "sha256": "6b11d20f23512b7502bae7007877a37b186743f5774ff9dd426cd72d63b3c06d"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+-        "path": "docs/releases/thj-pet-scaling-20261018/evidence/aa-native.json",
+-        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
+-        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
+-        "sha256": "f298ab5ee007622afa9197f2068bc71ac18f8c162009cfd9e2e34075f71e198c"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+-        "path": "docs/releases/wpm-melee-20261018/evidence/aa-native.json",
+-        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
+-        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
+-        "sha256": "9ef09145343d658dbbfa2ed383a7601bfad9535216a0dec6448514f7cacdb461"
++        "role": "Reviewed October19 AA live release source/evidence; historical candidate captures retain dated scope; owner QA open",
++        "revision": "c3f0686867cf40660166e59a30427dfa1ce7423b + reviewed deployment documentation",
++        "sha256": "923c5c8799739a460045fcd039dc526685ea69c55003a999062d90be8e1b6e44"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "path": "docs/releases/thj-all-class-aa-20261019/CHANGELIST.md",
++        "role": "Reviewed October19 AA live release source/evidence; historical candidate captures retain dated scope; owner QA open",
++        "revision": "c3f0686867cf40660166e59a30427dfa1ce7423b + reviewed deployment documentation",
++        "sha256": "9a85b30296c3efc4dfe91fb31e988e13027aa0132697c93c3dd7b82cd58b5683"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "path": "docs/releases/thj-all-class-aa-20261019/QA.md",
++        "role": "Reviewed October19 AA live release source/evidence; historical candidate captures retain dated scope; owner QA open",
++        "revision": "c3f0686867cf40660166e59a30427dfa1ce7423b + reviewed deployment documentation",
++        "sha256": "5f8ced601e2552ea191df45a216fc55ed231e594ec351361c2660258c3dca6eb"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "path": "docs/releases/thj-all-class-aa-20261019/README.md",
++        "role": "Reviewed October19 AA live release source/evidence; historical candidate captures retain dated scope; owner QA open",
++        "revision": "c3f0686867cf40660166e59a30427dfa1ce7423b + reviewed deployment documentation",
++        "sha256": "2cec633193e8850ef217c7b415469a3e1a5d5ff9786a50a1e8884b493c8157b1"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "path": "docs/releases/thj-all-class-aa-20261019/dispositions.json",
++        "role": "Reviewed October19 AA live release source/evidence; historical candidate captures retain dated scope; owner QA open",
++        "revision": "c3f0686867cf40660166e59a30427dfa1ce7423b + reviewed deployment documentation",
++        "sha256": "a5acda525c5c80077a2e4891f2427f63150bee06d957ce314fb7e56f8068627c"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "path": "docs/releases/thj-all-class-aa-20261019/healing-boon-forward.sql",
++        "role": "Reviewed October19 AA live release source/evidence; historical candidate captures retain dated scope; owner QA open",
++        "revision": "c3f0686867cf40660166e59a30427dfa1ce7423b + reviewed deployment documentation",
++        "sha256": "74d8801a96604f3d127eec2ad1b57f228a1d2b764af1a5b8aa04feec6d1aa84e"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "path": "docs/releases/thj-all-class-aa-20261019/healing-boon-rollback.sql",
++        "role": "Reviewed October19 AA live release source/evidence; historical candidate captures retain dated scope; owner QA open",
++        "revision": "c3f0686867cf40660166e59a30427dfa1ce7423b + reviewed deployment documentation",
++        "sha256": "a76cf33e1c218d9ed7384d5b97a8e7621afb56e7767ee1dd99b3332025493e2c"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "path": "docs/releases/thj-all-class-aa-20261019/production-content-check.json",
++        "role": "Reviewed October19 AA live release source/evidence; historical candidate captures retain dated scope; owner QA open",
++        "revision": "c3f0686867cf40660166e59a30427dfa1ce7423b + reviewed deployment documentation",
++        "sha256": "357555eeb6ef616f1cd4225079f077a75281aae3e7640d930e50152be929ecfc"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "path": "docs/releases/thj-all-class-aa-20261019/review.json",
++        "role": "Reviewed October19 AA live release source/evidence; historical candidate captures retain dated scope; owner QA open",
++        "revision": "c3f0686867cf40660166e59a30427dfa1ce7423b + reviewed deployment documentation",
++        "sha256": "fad245690c9a6f11a0a54ba994b5b9953c564298cd8a7f6962207eaa07691864"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "path": "docs/releases/thj-all-class-aa-20261019/summary.json",
++        "role": "Reviewed October19 AA live release source/evidence; historical candidate captures retain dated scope; owner QA open",
++        "revision": "c3f0686867cf40660166e59a30427dfa1ce7423b + reviewed deployment documentation",
++        "sha256": "50417003fe5c9d96ebc2f744e5615fb3889619572e79143ec08289083a277312"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "path": "docs/releases/thj-all-class-aa-20261019/thj-ranks.json",
++        "role": "Reviewed October19 AA live release source/evidence; historical candidate captures retain dated scope; owner QA open",
++        "revision": "c3f0686867cf40660166e59a30427dfa1ce7423b + reviewed deployment documentation",
++        "sha256": "de9973dd747ecae61615614eea462f7fe22f8ba0980a88e024ef5f70a422d7ba"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "path": "docs/releases/thj-all-class-aa-20261019/verification.json",
++        "role": "Reviewed October19 AA live release source/evidence; historical candidate captures retain dated scope; owner QA open",
++        "revision": "c3f0686867cf40660166e59a30427dfa1ce7423b + reviewed deployment documentation",
++        "sha256": "8cf4cbcfc179d22ac365778cfe2417464b9241470cd05396f6b7efb40da83d37"
+       },
+       {
+         "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+         "path": "server-mods/code/common/nightcap_aa_policy.h",
+-        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
+-        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
+-        "sha256": "c0c45581924d7def1bfca7bd5c79586163cbae1231a4401e01ac0f12bab6fae6"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+-        "path": "server-mods/code/common/nightcap_doppelganger.h",
+-        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
+-        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
+-        "sha256": "52fc4aa4bad6c10721d3f5e65ef72f74450016e741b10dc6cd927fb0d1c21116"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+-        "path": "server-mods/code/zone/aa.cpp",
+-        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
+-        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
+-        "sha256": "d41e5443fa1e085114384a7cd55c2e43af652b863ad5799251ef5c30ccce19ae"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+-        "path": "server-mods/code/zone/npc.cpp",
+-        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
+-        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
+-        "sha256": "f8999e0832b9eca9d8aa2774c3ba9c0506e4704e64e6bc313a2e368c6d27ca2c"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+-        "path": "server-mods/code/zone/spell_effects.cpp",
+-        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
+-        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
+-        "sha256": "88c9b9c55a0ea72c29e3804cedaf0d7f21c9292d228ac74a865e8c99e763fa30"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+-        "path": "server-mods/code/zone/spells.cpp",
+-        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
+-        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
+-        "sha256": "3f87de02efd5503d61e799b5f387ca1607706a4d1bdeeed53ad05a6c3203949a"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+-        "path": "tools/tests/test_doppelganger.py",
+-        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
+-        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
+-        "sha256": "af804523354bbe04defc199f4bc8001b9127d055274412a4d0e8a4d3fc7bbe0d"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+-        "path": "tools/tests/verify_aa_tbs_native.py",
+-        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
+-        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
+-        "sha256": "19e6c3b82eae9d192804bf1f4a3cc9910946a83daebcdc03d607c93a6614cad2"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+-        "path": "tools/wpm_aa.py",
+-        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
+-        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
+-        "sha256": "4de68b453ca0fd17ac0d9a69f5cddcae7d847bfa55a92360851a33daee3467b3"
++        "role": "Reviewed October19 AA live release source/evidence; historical candidate captures retain dated scope; owner QA open",
++        "revision": "c3f0686867cf40660166e59a30427dfa1ce7423b + reviewed deployment documentation",
++        "sha256": "ab6c4c1f1add5256d8538e7bf2e6c50596107ad8cdc5ffb1884c7a020840d7c8"
+       },
+       {
+         "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+         "path": "tools/all_class_aa.py",
+-        "role": "Reviewed October19 all-class AA candidate; not deployed or published; owner QA open",
+-        "revision": "03f9a64773a6357dd0dca0cec0ca7eedea5c01da",
+-        "sha256": "7571b71cb1463e3a472912aaedb255c52cc66befd104a4a67dfe9648aa066fc3"
++        "role": "Reviewed October19 AA live release source/evidence; historical candidate captures retain dated scope; owner QA open",
++        "revision": "c3f0686867cf40660166e59a30427dfa1ce7423b + reviewed deployment documentation",
++        "sha256": "6a1845d0a755d5a4a806726a9b0ce056a244ba73575f64cb8a0ead07f0ceaef9"
+       },
+       {
+         "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+         "path": "tools/build_all_class_aa_candidate.py",
+-        "role": "Reviewed October19 all-class AA candidate; not deployed or published; owner QA open",
+-        "revision": "03f9a64773a6357dd0dca0cec0ca7eedea5c01da",
++        "role": "Reviewed October19 AA live release source/evidence; historical candidate captures retain dated scope; owner QA open",
++        "revision": "c3f0686867cf40660166e59a30427dfa1ce7423b + reviewed deployment documentation",
+         "sha256": "8bbf118370a430d40bb9c50dd6303913dc5b70e068f84e0eee0daf888725cc67"
+       },
+       {
+         "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+         "path": "tools/fixtures/aa-all-class-catalog.json.gz",
+-        "role": "Reviewed October19 all-class AA candidate; not deployed or published; owner QA open",
+-        "revision": "03f9a64773a6357dd0dca0cec0ca7eedea5c01da",
++        "role": "Reviewed October19 AA live release source/evidence; historical candidate captures retain dated scope; owner QA open",
++        "revision": "c3f0686867cf40660166e59a30427dfa1ce7423b + reviewed deployment documentation",
+         "sha256": "e0faf0c8b58812f478242b3c0022986ef8a0f75e190801cd21e5e7c1b51bca8f"
+       },
+       {
+         "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "path": "tools/tests/test_aa_tbs_policy.py",
++        "role": "Reviewed October19 AA live release source/evidence; historical candidate captures retain dated scope; owner QA open",
++        "revision": "c3f0686867cf40660166e59a30427dfa1ce7423b + reviewed deployment documentation",
++        "sha256": "7ca94cd8d20cc7802da2662e92a2a8ae1a9a4ad92f0a0094a109ceb09e766353"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+         "path": "tools/tests/test_all_class_aa.py",
+-        "role": "Reviewed October19 all-class AA candidate; not deployed or published; owner QA open",
+-        "revision": "03f9a64773a6357dd0dca0cec0ca7eedea5c01da",
++        "role": "Reviewed October19 AA live release source/evidence; historical candidate captures retain dated scope; owner QA open",
++        "revision": "c3f0686867cf40660166e59a30427dfa1ce7423b + reviewed deployment documentation",
+         "sha256": "4e5510d0e83f4774f08f69247dde8e9cdc0329e57ca4e420211e3bc0cc334e65"
+       },
+       {
+         "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+         "path": "tools/tests/test_all_class_aa_native.py",
+-        "role": "Reviewed October19 all-class AA candidate; not deployed or published; owner QA open",
+-        "revision": "03f9a64773a6357dd0dca0cec0ca7eedea5c01da",
++        "role": "Reviewed October19 AA live release source/evidence; historical candidate captures retain dated scope; owner QA open",
++        "revision": "c3f0686867cf40660166e59a30427dfa1ce7423b + reviewed deployment documentation",
+         "sha256": "5219f7e42630093a6fdc7a214d219b7c964a68b65c287362cc372e37189965e0"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+-        "path": "docs/releases/thj-all-class-aa-20261019/README.md",
+-        "role": "Reviewed October19 all-class AA candidate; not deployed or published; owner QA open",
+-        "revision": "03f9a64773a6357dd0dca0cec0ca7eedea5c01da",
+-        "sha256": "970bd795661433e8ad9ad5edb157ba440dd722b05eb61757aafbfe97bf571fd1"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+-        "path": "docs/releases/thj-all-class-aa-20261019/CHANGELIST.md",
+-        "role": "Reviewed October19 all-class AA candidate; not deployed or published; owner QA open",
+-        "revision": "03f9a64773a6357dd0dca0cec0ca7eedea5c01da",
+-        "sha256": "ada95cb9714a9033a6f9f16e43950d9437d8c261fcc3f0b011e5ce220e0206e2"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+-        "path": "docs/releases/thj-all-class-aa-20261019/QA.md",
+-        "role": "Reviewed October19 all-class AA candidate; not deployed or published; owner QA open",
+-        "revision": "03f9a64773a6357dd0dca0cec0ca7eedea5c01da",
+-        "sha256": "ca2183fb61fb9b6f7bc5323abbb4939c118d7c5acf9a52612c005c26f3adab8b"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+-        "path": "docs/releases/thj-all-class-aa-20261019/verification.json",
+-        "role": "Reviewed October19 all-class AA candidate; not deployed or published; owner QA open",
+-        "revision": "03f9a64773a6357dd0dca0cec0ca7eedea5c01da",
+-        "sha256": "8cf4cbcfc179d22ac365778cfe2417464b9241470cd05396f6b7efb40da83d37"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+-        "path": "docs/releases/thj-all-class-aa-20261019/review.json",
+-        "role": "Reviewed October19 all-class AA candidate; not deployed or published; owner QA open",
+-        "revision": "03f9a64773a6357dd0dca0cec0ca7eedea5c01da",
+-        "sha256": "fad245690c9a6f11a0a54ba994b5b9953c564298cd8a7f6962207eaa07691864"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+-        "path": "docs/releases/thj-all-class-aa-20261019/production-content-check.json",
+-        "role": "Reviewed October19 all-class AA candidate; not deployed or published; owner QA open",
+-        "revision": "03f9a64773a6357dd0dca0cec0ca7eedea5c01da",
+-        "sha256": "357555eeb6ef616f1cd4225079f077a75281aae3e7640d930e50152be929ecfc"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+-        "path": "docs/releases/thj-all-class-aa-20261019/summary.json",
+-        "role": "Reviewed October19 all-class AA candidate; not deployed or published; owner QA open",
+-        "revision": "03f9a64773a6357dd0dca0cec0ca7eedea5c01da",
+-        "sha256": "50417003fe5c9d96ebc2f744e5615fb3889619572e79143ec08289083a277312"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+-        "path": "docs/releases/thj-all-class-aa-20261019/dispositions.json",
+-        "role": "Reviewed October19 all-class AA candidate; not deployed or published; owner QA open",
+-        "revision": "03f9a64773a6357dd0dca0cec0ca7eedea5c01da",
+-        "sha256": "a5acda525c5c80077a2e4891f2427f63150bee06d957ce314fb7e56f8068627c"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+-        "path": "docs/releases/thj-all-class-aa-20261019/thj-ranks.json",
+-        "role": "Reviewed October19 all-class AA candidate; not deployed or published; owner QA open",
+-        "revision": "03f9a64773a6357dd0dca0cec0ca7eedea5c01da",
+-        "sha256": "de9973dd747ecae61615614eea462f7fe22f8ba0980a88e024ef5f70a422d7ba"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+-        "path": "docs/releases/thj-all-class-aa-20261019/healing-boon-forward.sql",
+-        "role": "Reviewed October19 all-class AA candidate; not deployed or published; owner QA open",
+-        "revision": "03f9a64773a6357dd0dca0cec0ca7eedea5c01da",
+-        "sha256": "74d8801a96604f3d127eec2ad1b57f228a1d2b764af1a5b8aa04feec6d1aa84e"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+-        "path": "docs/releases/thj-all-class-aa-20261019/healing-boon-rollback.sql",
+-        "role": "Reviewed October19 all-class AA candidate; not deployed or published; owner QA open",
+-        "revision": "03f9a64773a6357dd0dca0cec0ca7eedea5c01da",
+-        "sha256": "a76cf33e1c218d9ed7384d5b97a8e7621afb56e7767ee1dd99b3332025493e2c"
+       }
+     ],
+     "items": [
+@@ -5646,13 +5696,6 @@
+         "sha256": "63a95cfaac55cdafad7aed7a731406b01dfdabbb6053e4364371cd283f19d036"
+       },
+       {
+-        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+-        "path": "wiki/articles/combat.json",
+-        "role": "Reviewed October19 all-class AA candidate; not deployed or published; owner QA open",
+-        "revision": "03f9a64773a6357dd0dca0cec0ca7eedea5c01da",
+-        "sha256": "a8f542fd8b567d31ad06c23dd8a8c788850b96cbae3bc568ec4f46f23ffcf848"
+-      },
+-      {
+         "root": "C:/Users/verre/.codex/worktrees/reforge-default-colors/EQ_Local_Dev",
+         "path": "wiki/articles/equipment.json",
+         "role": "Reviewed combined published cooldown/travel/default-color guide; owner gameplay acceptance remains separate",
+@@ -5793,20 +5836,6 @@
+         "sha256": "b23435918515e34f6db39189f0d072847b19599dff37c3739daf724839c66bd3"
+       },
+       {
+-        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+-        "path": "wiki/articles/features.json",
+-        "role": "Reviewed October19 all-class AA candidate; not deployed or published; owner QA open",
+-        "revision": "03f9a64773a6357dd0dca0cec0ca7eedea5c01da",
+-        "sha256": "3bdc0b01324b19c7059bfdb9d189397148e62d2f69df1f9e62cd0c4a348b5ff3"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+-        "path": "wiki/articles/multiclass.json",
+-        "role": "Reviewed October19 all-class AA candidate; not deployed or published; owner QA open",
+-        "revision": "03f9a64773a6357dd0dca0cec0ca7eedea5c01da",
+-        "sha256": "c45c31542ce6cc2084c5829b84b9dd98d6c44dd2844d84e0c0b45370af4ca1e5"
+-      },
+-      {
+         "root": "E:/EQ_Local_Dev/_worktrees/october-17-release",
+         "path": "wiki/test_wiki.py",
+         "role": "Reviewed10% passive-AA local guide maintenance; public publication pending; other candidates retained",
+@@ -6074,13 +6103,6 @@
+       },
+       {
+         "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+-        "path": "wiki/articles/combat.json",
+-        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
+-        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
+-        "sha256": "230b3f8c3230ad200ddbc13f1d493ab46c55744abd60ec4d16f810369862b6d9"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+         "path": "wiki/articles/equipment.json",
+         "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
+         "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
+@@ -6101,27 +6123,6 @@
+         "sha256": "31977e8b5eb84fbb7d85b82956e9056dafaea2a3549939b6b1c30cb61cc869b4"
+       },
+       {
+-        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+-        "path": "wiki/articles/index.json",
+-        "role": "Reviewed October19 all-class AA candidate; not deployed or published; owner QA open",
+-        "revision": "03f9a64773a6357dd0dca0cec0ca7eedea5c01da",
+-        "sha256": "a6ebcf09ba09e4100689e3627b8aa328125854c39ec6ff4ba9a780eab3f740db"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+-        "path": "wiki/articles/recent-changes.json",
+-        "role": "Reviewed October19 all-class AA candidate; not deployed or published; owner QA open",
+-        "revision": "03f9a64773a6357dd0dca0cec0ca7eedea5c01da",
+-        "sha256": "206fcb5d0a0af81aa9473b9d3d1fa51abd26a667bea91ed7cdb0717cffab763f"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+-        "path": "wiki/articles/unreleased.json",
+-        "role": "Reviewed October19 all-class AA candidate; not deployed or published; owner QA open",
+-        "revision": "03f9a64773a6357dd0dca0cec0ca7eedea5c01da",
+-        "sha256": "3c1ad896bba2cb9c900ac4d216c73f0a0d952cc673f3e6af87ee144795a6cd39"
+-      },
+-      {
+         "root": "E:/EQ_Local_Dev/_worktrees/client-contract-repair",
+         "path": "docs/releases/client-contract-20261019/wiki-publication.json",
+         "revision": "0fae6bc16552c31166abbb200e47deeac7627ce2",
+@@ -6150,18 +6151,88 @@
+         "role": "October19 published contract repair and verified delivery/wiki; native acceptance pending"
+       },
+       {
+-        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+-        "path": "docs/releases/thj-all-class-aa-20261019/wiki-review.json",
+-        "role": "Reviewed October19 all-class AA candidate; not deployed or published; owner QA open",
+-        "revision": "03f9a64773a6357dd0dca0cec0ca7eedea5c01da",
+-        "sha256": "147f69eeac672273e3e651b4de9c6f0f554e6bafdca64a4747b9f9b4ef9779fe"
+-      },
+-      {
+         "root": "E:/EQ_Local_Dev/_worktrees/client-contract-repair",
+         "path": "docs/releases/client-contract-20261019/owner-confirmation.json",
+         "role": "October19 owner-confirmed normal launcher Play on their PC; broader native QA open; no new wiki publication",
+         "revision": "60e724bf36581633328bfc2addf271e16388810a",
+         "sha256": "f64732bc23018820866bb931dd1ea48e748d9af079402c47212bdbd8d5941c9e"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "path": "docs/releases/thj-all-class-aa-20261019/deployment/wiki-public-verification.json",
++        "role": "Reviewed October19 AA live release source/evidence; historical candidate captures retain dated scope; owner QA open",
++        "revision": "c3f0686867cf40660166e59a30427dfa1ce7423b + reviewed deployment documentation",
++        "sha256": "4ac0d0ff2a885cf442ff6fc9f0b752b34bf0288bc744debc04e5ef62347a6934"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "path": "docs/releases/thj-all-class-aa-20261019/deployment/wiki-publication.json",
++        "role": "Reviewed October19 AA live release source/evidence; historical candidate captures retain dated scope; owner QA open",
++        "revision": "c3f0686867cf40660166e59a30427dfa1ce7423b + reviewed deployment documentation",
++        "sha256": "b4bdabcaabca9b5c6738eac5d070cce42c087bb526cf955ff1830ef80b76c49b"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "path": "docs/releases/thj-all-class-aa-20261019/deployment/wiki-review.json",
++        "role": "Reviewed October19 AA live release source/evidence; historical candidate captures retain dated scope; owner QA open",
++        "revision": "c3f0686867cf40660166e59a30427dfa1ce7423b + reviewed deployment documentation",
++        "sha256": "8021f5cad486f4ba31d0d41ce79d7299632b5e4bd350227238567e1248388d2b"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "path": "docs/releases/thj-all-class-aa-20261019/wiki-review.json",
++        "role": "Reviewed October19 AA live release source/evidence; historical candidate captures retain dated scope; owner QA open",
++        "revision": "c3f0686867cf40660166e59a30427dfa1ce7423b + reviewed deployment documentation",
++        "sha256": "147f69eeac672273e3e651b4de9c6f0f554e6bafdca64a4747b9f9b4ef9779fe"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "path": "wiki/articles/combat.json",
++        "role": "Reviewed October19 AA live release source/evidence; historical candidate captures retain dated scope; owner QA open",
++        "revision": "c3f0686867cf40660166e59a30427dfa1ce7423b + reviewed deployment documentation",
++        "sha256": "96753fec564deea7ca5d6044f2d550d82d6f0aa6f890306b56a618e33d96b8c0"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "path": "wiki/articles/features.json",
++        "role": "Reviewed October19 AA live release source/evidence; historical candidate captures retain dated scope; owner QA open",
++        "revision": "c3f0686867cf40660166e59a30427dfa1ce7423b + reviewed deployment documentation",
++        "sha256": "521d9e353bc2daac176702045140c9b0c9d93c17309c3e5cf8dc6b18f2edc5b0"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "path": "wiki/articles/index.json",
++        "role": "Reviewed October19 AA live release source/evidence; historical candidate captures retain dated scope; owner QA open",
++        "revision": "c3f0686867cf40660166e59a30427dfa1ce7423b + reviewed deployment documentation",
++        "sha256": "b2c95c6e40cd1f03c1865e58ecc4f79c4ab64aafdfbbc40c833294cb0b24663b"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "path": "wiki/articles/multiclass.json",
++        "role": "Reviewed October19 AA live release source/evidence; historical candidate captures retain dated scope; owner QA open",
++        "revision": "c3f0686867cf40660166e59a30427dfa1ce7423b + reviewed deployment documentation",
++        "sha256": "0b61455622c3b7564cf6fc18a6d6319a95854284df2c20f1e56fbb71c5bb79e9"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "path": "wiki/articles/recent-changes.json",
++        "role": "Reviewed October19 AA live release source/evidence; historical candidate captures retain dated scope; owner QA open",
++        "revision": "c3f0686867cf40660166e59a30427dfa1ce7423b + reviewed deployment documentation",
++        "sha256": "53fdd0a01618aeccc50fac7037d65661d65f61182c9cd67fd17c57f3d4f32c25"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "path": "wiki/articles/unreleased.json",
++        "role": "Reviewed October19 AA live release source/evidence; historical candidate captures retain dated scope; owner QA open",
++        "revision": "c3f0686867cf40660166e59a30427dfa1ce7423b + reviewed deployment documentation",
++        "sha256": "5f551a4a215818e7552ff7e4b7ddd600c69af7d8d8432364a814d5a3cdd04e22"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "path": "wiki/content-review.json",
++        "role": "Reviewed October19 AA live release source/evidence; historical candidate captures retain dated scope; owner QA open",
++        "revision": "c3f0686867cf40660166e59a30427dfa1ce7423b + reviewed deployment documentation",
++        "sha256": "b0ab9d7d4a43c47979b80e0075e104845ee14f333e495ac3572fa6b7018810b4"
+       }
+     ]
+   }
+--- C:/Users/verre/.codex/skills/nightcap-development/references/sources.json
++++ C:/Users/verre/.codex/skills/nightcap-development/references/sources.json
+@@ -736,6 +736,13 @@
+         "role": "Reviewed October19 AA live release source/evidence; historical candidate captures retain dated scope; owner QA open",
+         "revision": "c3f0686867cf40660166e59a30427dfa1ce7423b + reviewed deployment documentation",
+         "sha256": "f149fe80cca1979cc3212474dfc7e6dfa3560af8964019a198364633bac1c399"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "path": "docs/README.md",
++        "role": "Reviewed October19 AA live release source/evidence; historical candidate captures retain dated scope; owner QA open",
++        "revision": "c3f0686867cf40660166e59a30427dfa1ce7423b + reviewed deployment documentation",
++        "sha256": "c32a5795088fd130f64e4fdc64bf4e9297956e95e379bb003d39057153f2d6a8"
+       }
+     ],
+     "multiclass": [
+@@ -1764,14 +1771,14 @@
+         "path": "docs/releases/thj-all-class-aa-20261019/CHANGELIST.md",
+         "role": "Reviewed October19 AA live release source/evidence; historical candidate captures retain dated scope; owner QA open",
+         "revision": "c3f0686867cf40660166e59a30427dfa1ce7423b + reviewed deployment documentation",
+-        "sha256": "9a85b30296c3efc4dfe91fb31e988e13027aa0132697c93c3dd7b82cd58b5683"
++        "sha256": "6d15871217afddec74872af7c6bc695056dcdec29a77b33a3a8b13fdafc18860"
+       },
+       {
+         "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+         "path": "docs/releases/thj-all-class-aa-20261019/QA.md",
+         "role": "Reviewed October19 AA live release source/evidence; historical candidate captures retain dated scope; owner QA open",
+         "revision": "c3f0686867cf40660166e59a30427dfa1ce7423b + reviewed deployment documentation",
+-        "sha256": "5f8ced601e2552ea191df45a216fc55ed231e594ec351361c2660258c3dca6eb"
++        "sha256": "c1ea74fc1fa3b7341e7b83048d2c239394e95a5839e72635a257bab7ac9810e3"
+       },
+       {
+         "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+@@ -1848,7 +1855,7 @@
+         "path": "tools/all_class_aa.py",
+         "role": "Reviewed October19 AA live release source/evidence; historical candidate captures retain dated scope; owner QA open",
+         "revision": "c3f0686867cf40660166e59a30427dfa1ce7423b + reviewed deployment documentation",
+-        "sha256": "6a1845d0a755d5a4a806726a9b0ce056a244ba73575f64cb8a0ead07f0ceaef9"
++        "sha256": "35cb1f9693b2234f3573ed74d19d5c9f0aa217f89b51978a620051e366ded99d"
+       },
+       {
+         "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+@@ -6176,7 +6183,7 @@
+         "path": "docs/releases/thj-all-class-aa-20261019/deployment/wiki-review.json",
+         "role": "Reviewed October19 AA live release source/evidence; historical candidate captures retain dated scope; owner QA open",
+         "revision": "c3f0686867cf40660166e59a30427dfa1ce7423b + reviewed deployment documentation",
+-        "sha256": "8021f5cad486f4ba31d0d41ce79d7299632b5e4bd350227238567e1248388d2b"
++        "sha256": "1fba93fc124470a6593dcd4c03e9b0db2e38412d6f2cf87cbacd95a5f293e6fa"
+       },
+       {
+         "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",

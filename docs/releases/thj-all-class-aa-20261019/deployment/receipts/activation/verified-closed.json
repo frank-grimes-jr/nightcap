@@ -1,0 +1,127 @@
+{
+  "runtime": {
+    "image_id": "sha256:32bf376af4402c3288c83c5d72f2810b8d35ddae06327d5521d1efb6b20ef942",
+    "started_at": "2026-10-19T10:16:41.552720878Z",
+    "restart_count": 0,
+    "processes": [
+      [
+        "loginserver",
+        "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf"
+      ],
+      [
+        "world",
+        "3151cf1d60df5225cc736d354ee7142b2910714dd51b0da8a590ad38b557fafb"
+      ],
+      [
+        "ucs",
+        "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714"
+      ],
+      [
+        "zone",
+        "e1dd9c4cdd6bf95db7ffc909f224b1603e9e07e1ad05925bcdd7bd0359cd3eb0"
+      ],
+      [
+        "zone",
+        "e1dd9c4cdd6bf95db7ffc909f224b1603e9e07e1ad05925bcdd7bd0359cd3eb0"
+      ],
+      [
+        "zone",
+        "e1dd9c4cdd6bf95db7ffc909f224b1603e9e07e1ad05925bcdd7bd0359cd3eb0"
+      ],
+      [
+        "zone",
+        "e1dd9c4cdd6bf95db7ffc909f224b1603e9e07e1ad05925bcdd7bd0359cd3eb0"
+      ],
+      [
+        "zone",
+        "e1dd9c4cdd6bf95db7ffc909f224b1603e9e07e1ad05925bcdd7bd0359cd3eb0"
+      ],
+      [
+        "zone",
+        "e1dd9c4cdd6bf95db7ffc909f224b1603e9e07e1ad05925bcdd7bd0359cd3eb0"
+      ],
+      [
+        "zone",
+        "e1dd9c4cdd6bf95db7ffc909f224b1603e9e07e1ad05925bcdd7bd0359cd3eb0"
+      ],
+      [
+        "zone",
+        "e1dd9c4cdd6bf95db7ffc909f224b1603e9e07e1ad05925bcdd7bd0359cd3eb0"
+      ],
+      [
+        "zone",
+        "e1dd9c4cdd6bf95db7ffc909f224b1603e9e07e1ad05925bcdd7bd0359cd3eb0"
+      ],
+      [
+        "zone",
+        "e1dd9c4cdd6bf95db7ffc909f224b1603e9e07e1ad05925bcdd7bd0359cd3eb0"
+      ],
+      [
+        "zone",
+        "e1dd9c4cdd6bf95db7ffc909f224b1603e9e07e1ad05925bcdd7bd0359cd3eb0"
+      ],
+      [
+        "zone",
+        "e1dd9c4cdd6bf95db7ffc909f224b1603e9e07e1ad05925bcdd7bd0359cd3eb0"
+      ]
+    ],
+    "errors": {
+      "native": 0,
+      "quest": 0,
+      "database": 0
+    }
+  },
+  "game": {
+    "id": "fcec6d89c660bd327d6a14c50a28b494ab18ba3a3a6d925d0b8a93e05492d79f",
+    "image_id": "sha256:32bf376af4402c3288c83c5d72f2810b8d35ddae06327d5521d1efb6b20ef942",
+    "started_at": "2026-10-19T10:16:41.552720878Z",
+    "restarts": 0,
+    "running": true,
+    "health": "healthy",
+    "oom_killed": false
+  },
+  "market": {
+    "before": [
+      "1",
+      "1",
+      "85",
+      "0",
+      "4",
+      "2.500000",
+      "2026-10-19 01:56:08"
+    ],
+    "after": [
+      "1",
+      "1",
+      "86",
+      "0",
+      "4",
+      "2.500000",
+      "2026-10-19 10:16:56"
+    ],
+    "offers": 42,
+    "capacity": 44
+  },
+  "player_tables_preserved": 47,
+  "custom_tables_preserved": 28,
+  "aa": {
+    "rows": 1571,
+    "sha256": "f83299eaa7025dae2fb643c4a083cc4bc48e55dfbc36ffde5d00a23d9a1c939d"
+  },
+  "classic": {
+    "values": {
+      "Character:AAExpMinLevel": "1",
+      "Character:MaxLevel": "50",
+      "Expansion:CurrentExpansion": "0",
+      "World:ExpansionSettings": "2097151"
+    },
+    "sets": "1\tdefault\n2\tpop+\n3\tmerc_test\n4\tGoD\n5\traidzone\n6\tOOW\n10\tEQEmu_Default\n20\tfix_pathing_z\n",
+    "selection": ""
+  },
+  "caches": {
+    "items": "0e26d1b326f212add05779ff4f92f44fda5b53ef6838660bbb11d04dd8c33367",
+    "spells": "32d43ca6903eca3c612157667e5b9ccf0e861168dd8431fffeadf19b8ca54c6d",
+    "items.lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "spells.lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}
