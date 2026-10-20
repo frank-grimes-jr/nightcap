@@ -1,0 +1,30 @@
+{
+  "review": "Focused five-axis review of retained paired operator adaptations",
+  "checks": [
+    "Only three reviewed content components",
+    "Whole-table clone afterimages and preserved control tables",
+    "Stopped backup and earned-state receipts",
+    "Complete paired binaries and candidate cache loader",
+    "Exact compiled rule description for recovery",
+    "One-shot writes and hold on failure",
+    "Locally signed client, unchanged 136 assets, hosted verification before access",
+    "25 retained fault tests passed"
+  ],
+  "gameplay_changes": "Already independently reviewed; no native source delta",
+  "remaining": "Owner gameplay and balance acceptance only",
+  "resume_review": {
+    "cause": "Kernel-confirmed database memory-limit restart during first CREATE PROCEDURE",
+    "proof": "Whole content unchanged; original stopped player/custom state and market equal; no candidate routines",
+    "recovery": "Fresh backup, same exact SQL/binaries; no restored player snapshot",
+    "tests": "11 admission tests passed",
+    "source": "resume_oom.py"
+  },
+  "zone_cache_review": {
+    "source": "Native world startup PurgeOldZoneStates with seven-day rule; both source hashes match built manifest",
+    "scope": "1113 expired non-corpse rows, instance0, zones13/25/30/73; no additions and surviving fields preserved",
+    "all_other_player_and_custom_receipts": "Exact match",
+    "recovery": "No SQL/player restoration; paired restart from fully committed content/cache checkpoint",
+    "entrypoint": "finish_zone_cache.py"
+  },
+  "deployment": "Verified and open; original holds and scoped recovery receipts retained"
+}
