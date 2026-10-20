@@ -1,14 +1,16 @@
-# THJ custom AA, focus and stock-gear testing candidate
+# THJ custom AA, focus and stock gear — live testing
 
-Source branch: feature/thj-behaviors-gear, based on main 45e8416. Gameplay is not deployed,
-the client is unsigned, and owner gameplay acceptance is pending. See CHANGELIST.md for the clean
-AA/gear list and QA.md for exact owner tests. PLAN.md records accepted scope.
+Owner-authorized main promotion PR256/7104c6b and production activation are
+complete. Matching server binaries, guarded AA/spell/item content and complete
+regenerated caches are installed. Signed game2026101902 and the live-testing wiki
+are published and verified. Reopen the normal launcher before testing.
+Classic50 and starter progression remain. Owner gameplay/balance acceptance is
+pending. See CHANGELIST.md, QA.md and deployment/README.md for exact evidence.
 
-The public wiki is20261019-thj-behaviors-candidate-v1; all465 file hashes, security
-headers and five private-route denials verify. Eleven guides label the new
-mechanics Not released. Existing runtime/services/private downloads are preserved. Client staging is an unsigned two-file
-delta requiring signed2026101901 and its unchanged proxy0.11.0/catalog pair.
-No protected reference-client writes, era changes or production gameplay mutations.
+The earlier candidate build/rehearsal receipts below remain dated evidence.
+For production recovery, use the compiled-description SQL in the verified remote
+release's recovery/ directory and deployment/README.md; do not blindly replay
+candidate rule SQL or original activation after a hold. Never restore player data.
 
 ## Reproduce and activate only in the isolated test environment
 
@@ -36,8 +38,8 @@ No protected reference-client writes, era changes or production gameplay mutatio
    spells_us.txt and dbstr_us.txt. Keep the other signed assets/proxy/catalog
    exact. Use a separate test-client copy; launcher publication/signing is a
    later deployment step. Do not mix the candidate client with the old server.
-6. Run QA.md and retain results. Test→main and production activation still need
-   the owner's explicit release authorization; this request prepares testing.
+6. Run QA.md and retain results. The owner subsequently authorized main and production activation;
+   manual gameplay acceptance remains a separate gate.
 
 ## Recovery
 
@@ -87,3 +89,6 @@ The full isolated database rehearsal passed across 308,932 item rows and all
 replay, complete rollback, late-row drift rejection without partial writes,
 and fresh-bootstrap equivalence. Both gear SQL files reproduce exactly from the
 current planner. Receipts: database-rehearsal.json and gear-reproducibility.json.
+
+Production cache generation now passes with the paired loader and existing
+runtime credentials. The earlier optional local diagnostic smoke remains skipped.

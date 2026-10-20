@@ -1,5 +1,17 @@
 # CHANGES
 
+## 2026-10-19 - THJ behaviors and stock gear deployed
+
+Owner-authorized PR256/main and OVH release installs the tested AA/focus/gear
+changes with paired native binaries, regenerated target caches and signed
+game2026101902. Classic50 and starter progression remain. All138 client assets
+and465 wiki files verify; gameplay/balance acceptance stays open. Twenty-five
+operator/publisher tests and11 resume admission tests pass. Pre-write DB memory
+restart and1113 expired non-corpse NPC cache rows were diagnosed before reopening;
+all other player/custom state is preserved without restoration. Compiled rule
+descriptions keep recovery guards valid after boot. See
+docs/releases/thj-behaviors-20261019/deployment/README.md and retained receipts.
+
 ## 2026-10-19 - THJ custom AA, focus and stock-gear candidate
 
 Implement custom AA behaviors, canonical retirement refunds and scoped static/10x

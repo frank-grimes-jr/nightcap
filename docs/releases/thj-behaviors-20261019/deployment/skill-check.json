@@ -1,0 +1,563 @@
+{
+  "audited_at": "2026-10-19",
+  "scope": "Reviewed local files; not runtime or player QA evidence",
+  "topics": {
+    "operations": [
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\status.md",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\CHANGES.md",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-all-class-aa-20261019\\deployment\\README.md",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-all-class-aa-20261019\\deployment\\manifest.json",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-all-class-aa-20261019\\deployment\\receipts\\activation\\backup.json",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-all-class-aa-20261019\\deployment\\receipts\\activation\\deployed.json",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-all-class-aa-20261019\\deployment\\receipts\\report.json",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-all-class-aa-20261019\\deployment\\review.json",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-all-class-aa-20261019\\deployment\\rollout.py",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-all-class-aa-20261019\\deployment\\test_rollout.py",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\README.md",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\server-mods\\code\\common\\ruletypes.h",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-behaviors-20261019\\README.md",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-behaviors-20261019\\CHANGELIST.md",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-behaviors-20261019\\QA.md",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-behaviors-20261019\\validation-summary.json",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-behaviors-20261019\\database-rehearsal.json",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-behaviors-20261019\\native-source-provenance.json",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-behaviors-20261019\\deployment\\README.md",
+        "role": "Verified production deployment; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-behaviors-20261019\\deployment\\receipts\\deployed.json",
+        "role": "Verified production deployment; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-behaviors-20261019\\deployment\\rollout.py",
+        "role": "Reviewed exact production operator/recovery evidence; gameplay acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-behaviors-20261019\\deployment\\resume_oom.py",
+        "role": "Reviewed exact production operator/recovery evidence; gameplay acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-behaviors-20261019\\deployment\\finish_zone_cache.py",
+        "role": "Reviewed exact production operator/recovery evidence; gameplay acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-behaviors-20261019\\deployment\\test_resume_oom.py",
+        "role": "Reviewed exact production operator/recovery evidence; gameplay acceptance pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-behaviors-20261019\\deployment\\compressed-cache-backups.json",
+        "role": "Reviewed exact production operator/recovery evidence; gameplay acceptance pending",
+        "state": "unchanged"
+      }
+    ],
+    "multiclass": [
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\server-mods\\code\\zone\\aa.cpp",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\server-mods\\code\\zone\\client.h",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\config\\aa-policy.json",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-all-class-aa-20261019\\CHANGELIST.md",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-all-class-aa-20261019\\QA.md",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-all-class-aa-20261019\\README.md",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-all-class-aa-20261019\\dispositions.json",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-all-class-aa-20261019\\healing-boon-forward.sql",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-all-class-aa-20261019\\healing-boon-rollback.sql",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-all-class-aa-20261019\\production-content-check.json",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-all-class-aa-20261019\\review.json",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-all-class-aa-20261019\\summary.json",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-all-class-aa-20261019\\thj-ranks.json",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-all-class-aa-20261019\\verification.json",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\server-mods\\code\\common\\nightcap_aa_policy.h",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\all_class_aa.py",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\build_all_class_aa_candidate.py",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\fixtures\\aa-all-class-catalog.json.gz",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\tests\\test_aa_tbs_policy.py",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\tests\\test_all_class_aa.py",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\tests\\test_all_class_aa_native.py",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\thj_behavior_content.py",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\tests\\test_thj_behaviors.py",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-behaviors-20261019\\README.md",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-behaviors-20261019\\CHANGELIST.md",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-behaviors-20261019\\QA.md",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-behaviors-20261019\\deployment\\README.md",
+        "role": "Verified production deployment; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-behaviors-20261019\\deployment\\receipts\\deployed.json",
+        "role": "Verified production deployment; owner gameplay QA pending",
+        "state": "unchanged"
+      }
+    ],
+    "items": [
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\eq-solo-gm\\scripts\\tiered_loot_setup.sql",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\wpm_migration.py",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\item_scaling_overrides.py",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\thj_item_migration.py",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\thj_stock_scaling.py",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\tests\\test_thj_stock_scaling.py",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\fixtures\\thj-stock-equipment.json.gz",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-behaviors-20261019\\README.md",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-behaviors-20261019\\CHANGELIST.md",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-behaviors-20261019\\QA.md",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\tests\\test_thj_item_staging.py",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-behaviors-20261019\\deployment\\README.md",
+        "role": "Verified production deployment; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-behaviors-20261019\\deployment\\receipts\\deployed.json",
+        "role": "Verified production deployment; owner gameplay QA pending",
+        "state": "unchanged"
+      }
+    ],
+    "balance": [
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\server-mods\\code\\zone\\effects.cpp",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\server-mods\\code\\common\\nightcap_thj_behaviors.h",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\server-mods\\code\\zone\\spells.cpp",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\server-mods\\code\\zone\\spell_effects.cpp",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\tests\\test_thj_behavior_native.py",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\tests\\test_thj_behavior_focus.py",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\tests\\test_aa_temporary_buffs.py",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-behaviors-20261019\\README.md",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-behaviors-20261019\\CHANGELIST.md",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-behaviors-20261019\\QA.md",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-behaviors-20261019\\deployment\\README.md",
+        "role": "Verified production deployment; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-behaviors-20261019\\deployment\\receipts\\deployed.json",
+        "role": "Verified production deployment; owner gameplay QA pending",
+        "state": "unchanged"
+      }
+    ],
+    "client": [
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\thj_behavior_client.py",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\tools\\tests\\test_thj_behavior_client.py",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-behaviors-20261019\\README.md",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-behaviors-20261019\\CHANGELIST.md",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-behaviors-20261019\\QA.md",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-behaviors-20261019\\deployment\\README.md",
+        "role": "Verified production deployment; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-behaviors-20261019\\deployment\\receipts\\deployed.json",
+        "role": "Verified production deployment; owner gameplay QA pending",
+        "state": "unchanged"
+      }
+    ],
+    "wiki": [
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\wiki\\articles\\ascension.json",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\wiki\\articles\\equipment.json",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\wiki\\articles\\getting-started.json",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\wiki\\articles\\item-upgrades.json",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\wiki\\articles\\pets.json",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\wiki\\content-review.json",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-all-class-aa-20261019\\deployment\\wiki-public-verification.json",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-all-class-aa-20261019\\deployment\\wiki-publication.json",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-all-class-aa-20261019\\deployment\\wiki-review.json",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-all-class-aa-20261019\\wiki-review.json",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\wiki\\articles\\combat.json",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\wiki\\articles\\features.json",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\wiki\\articles\\index.json",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\wiki\\articles\\multiclass.json",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\wiki\\articles\\recent-changes.json",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\wiki\\articles\\unreleased.json",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-behaviors-20261019\\README.md",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-behaviors-20261019\\CHANGELIST.md",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-behaviors-20261019\\QA.md",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-behaviors-20261019\\wiki-review.json",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-behaviors-20261019\\wiki-publication.json",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-behaviors-20261019\\wiki-public-verification.json",
+        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-behaviors-20261019\\deployment\\README.md",
+        "role": "Verified production deployment; owner gameplay QA pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\docs\\releases\\thj-behaviors-20261019\\deployment\\receipts\\deployed.json",
+        "role": "Verified production deployment; owner gameplay QA pending",
+        "state": "unchanged"
+      }
+    ]
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "result": "PASS",
+  "release": "20261019-thj-behaviors-live-v1",
+  "verified_at": "2026-10-20T00:29:33.854482+00:00",
+  "files": 465,
+  "sha256_and_security_headers": true,
+  "private_routes_denied": [
+    ".env",
+    "articles/item-upgrades.json",
+    "content-review.json",
+    "catalog.json",
+    "wiki/current/index.html"
+  ],
+  "label_correction": "Corrected inherited report label only; all465 verified files were checked against the live-v1 payload manifest.",
+  "verified_manifest_sha256": "c19606f5dd8647c55c75583829161004de039b14c6006af4695ff0b136061e06"
+}
