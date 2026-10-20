@@ -1,0 +1,23 @@
+{
+  "cause": "Kernel-confirmed database cgroup OOM during CREATE PROCEDURE; cold database recovered",
+  "old_db": {
+    "id": "5c34a0594d5015209f7667d4421c00ef492b80298842829b2edb69c69449d96f",
+    "image_id": "sha256:7f22313fc130a377a44999965bcb0a08dd5b21e8502824c1b864f792f9bc66ab",
+    "started_at": "2026-10-16T18:53:03.118515664Z",
+    "restarts": 1,
+    "running": true,
+    "health": "healthy",
+    "oom_killed": false
+  },
+  "recovered_db": {
+    "id": "5c34a0594d5015209f7667d4421c00ef492b80298842829b2edb69c69449d96f",
+    "image_id": "sha256:7f22313fc130a377a44999965bcb0a08dd5b21e8502824c1b864f792f9bc66ab",
+    "started_at": "2026-10-20T00:08:02.308087378Z",
+    "restarts": 2,
+    "running": true,
+    "health": "healthy",
+    "oom_killed": false
+  },
+  "content_and_owned_state_unchanged": true,
+  "original_receipts_retained": true
+}

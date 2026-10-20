@@ -1,0 +1,39 @@
+{
+  "removed": 1113,
+  "zones": [
+    13,
+    25,
+    30,
+    73
+  ],
+  "instance": 0,
+  "corpses": 0,
+  "rule_days": 7,
+  "added": 0,
+  "survivors_match": true,
+  "float_comparison": "Canonical stored text due dump FLOAT representation",
+  "first_market_rotation": {
+    "before": [
+      "1",
+      "1",
+      "86",
+      "0",
+      "4",
+      "2.500000",
+      "2026-10-19 10:16:56"
+    ],
+    "after": [
+      "1",
+      "1",
+      "87",
+      "0",
+      "4",
+      "2.500000",
+      "2026-10-20 00:15:42"
+    ],
+    "offers": 42,
+    "capacity": 44
+  },
+  "other_player_and_custom_state_unchanged": true,
+  "source_files_match_native_manifest": true
+}

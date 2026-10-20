@@ -1,8 +1,8 @@
 # Owner testing spike — not accepted
 
-Use an isolated candidate runtime and a copy of the current signed 2026101901
-client with the candidate spell/text delta. Never edit Client_RoF 2_Dev. Production
-remains the previous release until separately authorized. Preserve Classic 50.
+Use the deployed server and signed game2026101902 through the normal launcher.
+Reopen the launcher and press Play before testing. Classic50 remains active.
+Never edit Client_RoF2_Dev. Deployment is verified; gameplay acceptance is open.
 Record character, held classes, level, spent AA, item IDs, rules, logs, build/client
 manifest hashes and before/after values. Purchased AA setup is a labeled test
 fixture, not a player grant or unrestricted balance result.

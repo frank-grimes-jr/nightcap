@@ -1,0 +1,41 @@
+{
+  "base_image_id": "sha256:32bf376af4402c3288c83c5d72f2810b8d35ddae06327d5521d1efb6b20ef942",
+  "base_hashes": {
+    "bin/world": "3151cf1d60df5225cc736d354ee7142b2910714dd51b0da8a590ad38b557fafb",
+    "bin/zone": "e1dd9c4cdd6bf95db7ffc909f224b1603e9e07e1ad05925bcdd7bd0359cd3eb0",
+    "bin/ucs": "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714",
+    "bin/loginserver": "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf",
+    "bin/shared_memory": "4605b227d2c3f0d5a571ed6daee202f8cc263b245220d989163fc700f65c59f5",
+    "start.py": "ca4099eb898730141e7941d3afc366d59c4bc8351eea74c5b6fd9560c24b815f",
+    "configure.py": "90873958dfb013201dd9c9552beaccdd88984a2e55739da07874fa4a95a84e57",
+    "accounts.py": "400d4e7a5d0bedeed47ffdb33b142a4a62a3f939a35466da66ce3201ae52ef5c"
+  },
+  "runtime_helper_sha256": "a3242bee3e8d4a7e60ea81bbd6fd34587201b712247665f3c03673733b95a811",
+  "previous_channel_sha256": "6db028c3f460fa2224c0398aa199384eeb4dd17fb6ba604740cfe7414da53bd5",
+  "source_ref": "7104c6b926b9c5476cc2883931c4520ca0f8eb47",
+  "components": [
+    "content/01-aa-spells.sql",
+    "content/02-items.sql",
+    "content/03-rule.sql"
+  ],
+  "files": {
+    "base_operator.py": "2108d73f974851c89e3f017bef0b0d79e07bcb5f2595b905ad3c2fb7343c6774",
+    "rollout.py": "5f8f9fe07f28e6577461d93510fcaeb059ce747f124889dbea058bede2c44b84",
+    "bin/shared_memory": "6d71c7e72c4a10f9d5eeb753ff29a3d589151ce1c81a32a7f564dec9c9fd967c",
+    "bin/world": "0b321c9fba510a42381abe5c167d6db94c02cf913dd50a86d6105b68dbd37b95",
+    "bin/zone": "5983172545de3fc8731e228355561527890c787140616ff95c2a602b37b1525a",
+    "client/channel.json": "b578ea032659fec5fadc320735720b5ae53675856cffcdf9e8176fc1a27ed179",
+    "client/prepare.py": "a1c4868cae2715c03512f33a47500fe9d559cf04507dc7f9f8e8d09128cae737",
+    "client/previous-channel.json": "6db028c3f460fa2224c0398aa199384eeb4dd17fb6ba604740cfe7414da53bd5",
+    "client/publish.py": "b0a64615ac56fc0577ccc9da09c7137e8d95ed83fa12d8feae4d3eb48cedfff8",
+    "content/01-aa-spells.sql": "7e1d5a98a2ae871789bfec416f0099cb202ab3ebcfed0a136fec32132ec79056",
+    "content/02-items.sql": "4645f2cba818e43cadb2dc32cbc500b7fbff050f2b07e366e60fea7c1b3df3da",
+    "content/03-rule.sql": "2ce713f397f8633fff28e68e637c2e96e47bd3f88a20dd8ce346b94117cad1c3",
+    "recovery/content-rollback.sql": "4f2803ff8072ed34610b52f119e7b1af03e63436955fe2f35ecdcc078a96286a",
+    "recovery/gear-rollback.sql": "c8a25df9b1e5c01837bfb2384c092fff8bb9e9bb2da4fb0efb7f9f52193083e8",
+    "recovery/rule-disable.sql": "b5b91813eb4f589bb6108ea85ad6f22a94e3ed156673c33c6d8af36d7d434c94",
+    "recovery/rule-enable.sql": "67a4c08973b72800d2199b23fab1e1990a2bf1d93ecee00d72767217667538c6",
+    "client/assets/dbstr_us.txt": "4b0fd1487b4c7f9fa920764e708ed2bb632e78dcf1b3d72eb16d1d25653d0250",
+    "client/assets/spells_us.txt": "314b098a5de8a10e7c66e94472aa42b5469b19eac5f91c880b894f04bafb6cdd"
+  }
+}
