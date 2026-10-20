@@ -1,20 +1,21 @@
 # Current Nightcap status
 
-## THJ behavior and stock-gear candidate — October 19, prepared for testing
+## THJ behavior and stock gear — October 19, deployed for live testing
 
-Custom AA behavior, scoped static/10x focuses and stock-derived ordinary gear
-scaling are prepared: 1,845 ranks / 489 families and 143,332 tier definitions.
-Classic 50, starter progression, pet/WPM effects and owned state are preserved.
-Paired native builds, regressions, independent source review and full database
-replay/inverse/fault/bootstrap checks passed. A 31-file server/client/content
-bundle is staged locally; the client delta is unsigned. Target cache generation
-and owner gameplay/balance QA remain required. This candidate is not deployed.
+PR256 promoted the reviewed test release to main7104c6b. Paired world/zone/cache
+loader, three guarded content components, fresh target caches and signed
+client2026101902 are installed. All138 hosted client assets and465 wiki files
+verify. Access is open and game/database are healthy. Classic50 and209 starter
+families remain; 1845 AA ranks/489 families and143332 tier definitions are active.
 
-Wiki 20261019-thj-behaviors-candidate-v1 publishes eleven candidate guides with
-Not released labels; all 465 HTTPS hashes/headers and private denials verify.
-[Clean changes](releases/thj-behaviors-20261019/CHANGELIST.md),
-[exact QA](releases/thj-behaviors-20261019/QA.md), and
-[verification](releases/thj-behaviors-20261019/validation-summary.json).
+A pre-write database memory-limit restart was diagnosed with unchanged content
+and earned state, then recovered from a fresh backup. Native seven-day expiry of
+1113 non-corpse NPC cache rows was independently authenticated. All other player/
+custom state is preserved; no player snapshot was restored. Original holds remain
+in the release evidence. Owner gameplay/balance acceptance remains pending.
+[Deployment and recovery](releases/thj-behaviors-20261019/deployment/README.md),
+[clean changes](releases/thj-behaviors-20261019/CHANGELIST.md),
+[exact live QA](releases/thj-behaviors-20261019/QA.md).
 
 ## All-class AA update — October19 deployed for live testing
 

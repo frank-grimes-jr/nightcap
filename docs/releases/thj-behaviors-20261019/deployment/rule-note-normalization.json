@@ -1,0 +1,5 @@
+{
+  "old": "THJ behavior candidate; paired world/zone, content and client required",
+  "compiled": "Enable reviewed THJ custom AAs, resource conversions, and player/permanent-pet focus behavior; requires paired content and client data",
+  "reason": "World normalizes descriptions at boot; preserve exact guarded recovery preimages. Values unchanged."
+}

@@ -1,0 +1,21 @@
+{
+  "reviewed_articles": 21,
+  "reviewed_generated_routes": 432,
+  "changed_articles": [
+    "ascension.json",
+    "combat.json",
+    "equipment.json",
+    "features.json",
+    "getting-started.json",
+    "index.json",
+    "item-upgrades.json",
+    "multiclass.json",
+    "pets.json",
+    "recent-changes.json",
+    "unreleased.json"
+  ],
+  "catalog": "All 384 custom Hunt variants unchanged; ordinary stock changes do not intersect catalog.",
+  "commands": "Unchanged",
+  "release": "20261019-thj-behaviors-live-v1",
+  "acceptance": "Pending in-game balance QA"
+}

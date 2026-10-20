@@ -1,0 +1,117 @@
+{
+  "game": {
+    "id": "b38302a4cbb26da8047de52fcd8d176ede0ee64b1d8852d9f1d3546cc640270d",
+    "image_id": "sha256:fd49b8895a09d6f137c4b9bf06f4fb0f3e6911b4e99ab44d7e056ea05e727115",
+    "started_at": "2026-10-20T00:22:32.423463953Z",
+    "restarts": 0,
+    "running": true,
+    "health": "healthy",
+    "oom_killed": false
+  },
+  "runtime": {
+    "image_id": "sha256:fd49b8895a09d6f137c4b9bf06f4fb0f3e6911b4e99ab44d7e056ea05e727115",
+    "started_at": "2026-10-20T00:22:32.423463953Z",
+    "restart_count": 0,
+    "processes": [
+      [
+        "loginserver",
+        "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf"
+      ],
+      [
+        "world",
+        "0b321c9fba510a42381abe5c167d6db94c02cf913dd50a86d6105b68dbd37b95"
+      ],
+      [
+        "ucs",
+        "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714"
+      ],
+      [
+        "zone",
+        "5983172545de3fc8731e228355561527890c787140616ff95c2a602b37b1525a"
+      ],
+      [
+        "zone",
+        "5983172545de3fc8731e228355561527890c787140616ff95c2a602b37b1525a"
+      ],
+      [
+        "zone",
+        "5983172545de3fc8731e228355561527890c787140616ff95c2a602b37b1525a"
+      ],
+      [
+        "zone",
+        "5983172545de3fc8731e228355561527890c787140616ff95c2a602b37b1525a"
+      ],
+      [
+        "zone",
+        "5983172545de3fc8731e228355561527890c787140616ff95c2a602b37b1525a"
+      ],
+      [
+        "zone",
+        "5983172545de3fc8731e228355561527890c787140616ff95c2a602b37b1525a"
+      ],
+      [
+        "zone",
+        "5983172545de3fc8731e228355561527890c787140616ff95c2a602b37b1525a"
+      ],
+      [
+        "zone",
+        "5983172545de3fc8731e228355561527890c787140616ff95c2a602b37b1525a"
+      ],
+      [
+        "zone",
+        "5983172545de3fc8731e228355561527890c787140616ff95c2a602b37b1525a"
+      ],
+      [
+        "zone",
+        "5983172545de3fc8731e228355561527890c787140616ff95c2a602b37b1525a"
+      ],
+      [
+        "zone",
+        "5983172545de3fc8731e228355561527890c787140616ff95c2a602b37b1525a"
+      ],
+      [
+        "zone",
+        "5983172545de3fc8731e228355561527890c787140616ff95c2a602b37b1525a"
+      ]
+    ],
+    "errors": {
+      "native": 0,
+      "quest": 0,
+      "database": 0
+    }
+  },
+  "market": {
+    "before": [
+      "1",
+      "1",
+      "87",
+      "0",
+      "4",
+      "2.500000",
+      "2026-10-20 00:15:42"
+    ],
+    "after": [
+      "1",
+      "1",
+      "88",
+      "0",
+      "4",
+      "2.500000",
+      "2026-10-20 00:22:46"
+    ],
+    "offers": 42,
+    "capacity": 44
+  },
+  "caches": {
+    "items": {
+      "bytes": 416594884,
+      "sha256": "15f5c46c01a04baf62910de7b1cfca5b43aae8d1292863ca6e30ceaa70c5f5f5"
+    },
+    "spells": {
+      "bytes": 107714188,
+      "sha256": "1ebd94788b4af38c9156c425f47be10ac1419372871febb4a589b3a6d08c2fbf"
+    }
+  },
+  "player_tables": 46,
+  "custom_tables": 28
+}
