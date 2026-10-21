@@ -1,13 +1,13 @@
 # CHANGES
 
 ## 2026-10-21
-### AA pacing — candidate for review
-- Prepare AA:ExpPerPoint 4,000 -> 40,000 after the owner reported points arriving
+### AA pacing — deployed for live QA
+- Deployed AA:ExpPerPoint 4,000 -> 40,000 after the owner reported points arriving
   too quickly. Retain 10% passive, normal leveling, earned points and purchases.
 - Guarded forward/inverse SQL and native conversion checks accompany exact QA.
   Raw partial XP remains; its percentage drops with the larger denominator.
 - THJ research has player earning reports, no verified raw XP/point constant.
-  Activation and wiki publication remain pending. See
+  Main PR262 and production activation verified October 21 at 09:28 UTC; all 465 wiki and five private guide files verify. Owner gameplay QA remains pending. See
   docs/ops/aa-point-cost-40000-20261021/README.md.
 
 

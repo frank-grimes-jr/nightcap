@@ -1,6 +1,6 @@
 # Nightcap player website on OVH
 
-Updated October 17, 2026. The owner requested the green/cream player guide on OVH,
+Updated October 21, 2026. The owner requested the green/cream player guide on OVH,
 using repository loading artwork and Nightcap-only player-facing branding. The owner explicitly requires private access.
 
 ## Current publication
@@ -10,11 +10,20 @@ using repository loading artwork and Nightcap-only player-facing branding. The o
   No public apex/www site, new DNS route or Cloudflare sign-in is needed.
 - Apex/www and unknown Host headers return 404 at the origin. The unused public
   virtual host was removed before closing this task. No DNS/WAF rules changed.
-- Active release: `20261017-progression-combat`, selected by
+- Active release: `20261021-aa-pacing-guide-v1`, selected by
   `/opt/nightcap/deploy/production/data/public/player-site/current`.
 - The website operation preserves all five container identities/start times,
   both patch channels, the existing setup guide and friend ZIP. It does not
   restart the game or mutate the database; gameplay deployment is recorded separately.
+
+## October 21 AA pacing publication
+
+The private guide now states 40,000 XP per AA, retaining 10% passive earning and
+earned points, purchases and raw partial XP. Only the HTML changed; all four
+assets are preserved. Stage/rollback rehearsal, all five HTTPS hashes and route
+protections passed. Existing web configuration and service identities are unchanged.
+Gameplay pacing acceptance remains open. Evidence:
+[AA pacing release](aa-point-cost-40000-20261021/README.md).
 
 ## October 17 publication
 

@@ -1,0 +1,31 @@
+{
+  "multiclass": {
+    "exit_code": 1,
+    "drift": [
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\server-mods\\code\\zone\\spells.cpp",
+        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
+        "state": "changed: review implementation and evidence"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\server-mods\\code\\zone\\spell_effects.cpp",
+        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
+        "state": "changed: review implementation and evidence"
+      }
+    ]
+  },
+  "wiki": {
+    "exit_code": 0,
+    "drift": []
+  },
+  "validator": {
+    "exit_code": 0,
+    "output": "Skill is valid!\n"
+  },
+  "installed_sha256": {
+    "references/multiclass.md": "27b1a9c33e2e8d8a07dfb9aa961548deacf09bc512af21ab445ba55ee57ffe0b",
+    "references/wiki.md": "e39754f3a8466bd0d160b97677764a620646d8793e69467eb4e75811ec0288bb",
+    "references/sources.json": "a84c7e12c7793e07b06062be3b736117fce2fb4adb46961c81870873f5ee5fd0"
+  },
+  "scope": "Reviewed October 21 activation and publication; unrelated spell drift retained, not blindly rehashed"
+}
