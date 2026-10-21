@@ -1,0 +1,9 @@
+{
+  "manifest": "docs/releases/thj-behaviors-20261019/native-build-manifest.json",
+  "xp_source_normalized_sha256": "a2e1d2d2d339dd24c3d43e5f6c5ffbf93584e7e47b4320eca2a0f75745f8adf8",
+  "required_running_binaries": {
+    "world": "0b321c9fba510a42381abe5c167d6db94c02cf913dd50a86d6105b68dbd37b95",
+    "zone": "5983172545de3fc8731e228355561527890c787140616ff95c2a602b37b1525a"
+  },
+  "scope": "operator pins all running world/zone executables before any write"
+}

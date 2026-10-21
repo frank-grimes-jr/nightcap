@@ -1,0 +1,10 @@
+{
+  "status": "installed",
+  "candidate_revision": "d1a94b96c6f413df764bf3724168f519b7ebc2b9",
+  "files": {
+    "references/multiclass.md": "87cb1178fe618003d0133afdb9a87ce6a119ba005148818515b2399b352623d5",
+    "references/wiki.md": "52046c82ac5c651633ba5fca801c1871658a1ecb0180ffd89e1da830fe60c652",
+    "references/sources.json": "83586b9a5c1fd85a0eafdd0b010010eb3b5b79d4129e2ce96e5a40654123c33c"
+  },
+  "scope": "candidate; no activation/publication claim"
+}

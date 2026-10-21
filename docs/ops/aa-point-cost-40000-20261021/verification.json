@@ -1,0 +1,28 @@
+{
+  "date": "2026-10-21",
+  "status": "candidate_verified_not_deployed",
+  "selected_xp_per_point": 40000,
+  "passive_percent": 10,
+  "base_revision": "1f5c2c99051c960c1c1f5dbfb663acc51c3568bd",
+  "native_checks": 197,
+  "native_failures": 0,
+  "native_scope": "real award methods, non-Lua getter and SetEXP arithmetic fragment with boundary fakes; not full runtime/persistence",
+  "sql_checks": 13,
+  "sql_environment": "isolated disposable local MariaDB 10.11, removed after tests",
+  "wiki_python_checks": 14,
+  "wiki_node_checks": 13,
+  "independent_review": "no blocking findings; optional real-getter improvement incorporated and rerun",
+  "production_read_only_observation": "production-rule-observation.json",
+  "deployment": "not performed",
+  "publication": "not performed",
+  "owner_gameplay_QA": "pending",
+  "source_sha256": {
+    "server-mods/code/zone/exp.cpp": "1f58270b6df0bd49ac3435e104fd46202e020f45ddc7971802b675bcada67ebf",
+    "server-mods/code/zone/aa.cpp": "2821843d6ad44574e2301b8a9bac24f48bcc8149ec26cbce446ff9beed166ede",
+    "tools/tests/test_passive_aa.py": "37f6af9f8fd9fbb296c4a77623efd1fa6bf16f975b363ef4580f91fcb4e8b256",
+    "tools/tests/test_aa_point_cost_40000.py": "03ee48d9e31a5374ae5faaf47e0b31d0cf40a08c71e280d60efe2de798115020",
+    "tools/tests/test_aa_point_cost_40000_sql.py": "67c27d3eede842d8b118f999edbba9022a5a6f15f99277d8d1ffeea569071de1",
+    "docs/ops/aa-point-cost-40000-20261021/forward.sql": "1ab9c549a6cc14c428be36f27a8c423fe26622b0019329c08a9db9c4dd1aac55",
+    "docs/ops/aa-point-cost-40000-20261021/rollback.sql": "ddfd12da3833461d8f2656fad49ea457216ff4365073c594399dcc4d6510e9a4"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "captured_utc": "2026-10-21T09:16:16.579335+00:00",
+  "environment": "production",
+  "read_only": true,
+  "rules_tsv": "1\tAA:ExpPerPoint\t4000\n1\tAA:ModernAAScalingEnabled\tfalse\n1\tAA:NormalizedAAEnabled\tfalse\n1\tAA:PassiveExpPercent\t10\n1\tCharacter:AAExpMultiplier\t0.6499999761581\n10\tCharacter:AAExpMultiplier\t0.65\n1\tCharacter:ExpMultiplier\t0.65\n10\tCharacter:ExpMultiplier\t0.65\nactive_ruleset\tdefault\n"
+}
