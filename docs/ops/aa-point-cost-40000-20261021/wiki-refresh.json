@@ -1,0 +1,20 @@
+{
+  "result": "REVIEW REQUIRED",
+  "reviewed": "2026-10-19",
+  "source_ref": "HEAD",
+  "changed_sources": [
+    "docs/ops/aa-point-cost-40000-20261021/README.md",
+    "docs/ops/aa-point-cost-40000-20261021/forward.sql",
+    "docs/ops/aa-point-cost-40000-20261021/native-tests.txt",
+    "docs/ops/aa-point-cost-40000-20261021/production-rule-observation.json",
+    "docs/ops/aa-point-cost-40000-20261021/review.md",
+    "docs/ops/aa-point-cost-40000-20261021/rollback.sql",
+    "docs/ops/aa-point-cost-40000-20261021/sql-tests.json",
+    "docs/ops/aa-point-cost-40000-20261021/wiki-review.json",
+    "docs/ops/aa-point-cost-40000-20261021/wiki-review.md",
+    "docs/status.md",
+    "tools/tests/test_aa_point_cost_40000.py",
+    "tools/tests/test_aa_point_cost_40000_sql.py"
+  ],
+  "note": "Also inspect current deployment/owner evidence and changes outside Git. No automatic approval or publication."
+}

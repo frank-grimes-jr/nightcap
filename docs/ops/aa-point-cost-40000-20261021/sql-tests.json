@@ -1,0 +1,19 @@
+{
+  "status": "passed",
+  "environment": "disposable local mariadb:10.11; no network/volumes",
+  "checks": [
+    "forward changes exactly one value; notes and player rows identical",
+    "inverse exactly restores baseline without touching player rows",
+    "repeated forward rejected without further changes",
+    "wrong threshold rejected with no data change",
+    "passive changed rejected with no data change",
+    "normalized enabled rejected with no data change",
+    "modern scaling enabled rejected with no data change",
+    "alternate override rejected with no data change",
+    "missing threshold rejected with no data change",
+    "active alternate ruleset rejected with no data change",
+    "default identity changed rejected with no data change",
+    "noncanonical preimage rejected with no data change",
+    "rollback preserves later external threshold edit"
+  ]
+}

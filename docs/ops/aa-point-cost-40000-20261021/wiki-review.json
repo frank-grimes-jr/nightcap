@@ -1,0 +1,107 @@
+[
+  {
+    "slug": "about",
+    "title": "About this wiki",
+    "assessment": "no changed mechanics, commands, rewards or availability from this rule-only candidate"
+  },
+  {
+    "slug": "advanced-loot",
+    "title": "Advanced loot",
+    "assessment": "no changed mechanics, commands, rewards or availability from this rule-only candidate"
+  },
+  {
+    "slug": "ascension",
+    "title": "Ascension quest",
+    "assessment": "no changed mechanics, commands, rewards or availability from this rule-only candidate"
+  },
+  {
+    "slug": "combat",
+    "title": "Combat, buffs & recovery",
+    "assessment": "no changed mechanics, commands, rewards or availability from this rule-only candidate"
+  },
+  {
+    "slug": "commands",
+    "title": "Command reference",
+    "assessment": "candidate notice added; current live claims retained"
+  },
+  {
+    "slug": "dungeon-modes",
+    "title": "Raid & Grind dungeons",
+    "assessment": "no changed mechanics, commands, rewards or availability from this rule-only candidate"
+  },
+  {
+    "slug": "equipment",
+    "title": "Equipment & trading",
+    "assessment": "no changed mechanics, commands, rewards or availability from this rule-only candidate"
+  },
+  {
+    "slug": "features",
+    "title": "Features",
+    "assessment": "candidate notice added; current live claims retained"
+  },
+  {
+    "slug": "getting-started",
+    "title": "Getting started",
+    "assessment": "candidate notice added; current live claims retained"
+  },
+  {
+    "slug": "index",
+    "title": "Welcome to the Nightcap Wiki",
+    "assessment": "candidate notice added; current live claims retained"
+  },
+  {
+    "slug": "item-upgrades",
+    "title": "Item upgrades",
+    "assessment": "no changed mechanics, commands, rewards or availability from this rule-only candidate"
+  },
+  {
+    "slug": "launcher",
+    "title": "Launcher & interface",
+    "assessment": "no changed mechanics, commands, rewards or availability from this rule-only candidate"
+  },
+  {
+    "slug": "multiclass",
+    "title": "Multiclass & progression",
+    "assessment": "candidate notice added; current live claims retained"
+  },
+  {
+    "slug": "pets",
+    "title": "Pets & pet armor",
+    "assessment": "no changed mechanics, commands, rewards or availability from this rule-only candidate"
+  },
+  {
+    "slug": "recent-changes",
+    "title": "Recent changes",
+    "assessment": "candidate notice added; current live claims retained"
+  },
+  {
+    "slug": "tradeskills",
+    "title": "Tradeskills & Craft All",
+    "assessment": "no changed mechanics, commands, rewards or availability from this rule-only candidate"
+  },
+  {
+    "slug": "travel",
+    "title": "Travel & instances",
+    "assessment": "no changed mechanics, commands, rewards or availability from this rule-only candidate"
+  },
+  {
+    "slug": "tunnel",
+    "title": "East Commonlands tunnel",
+    "assessment": "no changed mechanics, commands, rewards or availability from this rule-only candidate"
+  },
+  {
+    "slug": "unreleased",
+    "title": "In development",
+    "assessment": "candidate notice added; current live claims retained"
+  },
+  {
+    "slug": "waypoints",
+    "title": "Waypoint Explorer",
+    "assessment": "no changed mechanics, commands, rewards or availability from this rule-only candidate"
+  },
+  {
+    "slug": "zone-hunt",
+    "title": "Zone hunt & forging",
+    "assessment": "no changed mechanics, commands, rewards or availability from this rule-only candidate"
+  }
+]
