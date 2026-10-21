@@ -1,0 +1,267 @@
+--- a/references/multiclass.md
++++ b/references/multiclass.md
+@@ -364,6 +364,24 @@
+ 
+ ## XP
+ 
++**October 21 candidate — 40,000 XP per point, not deployed.** Owner reports AA
++points arrive too quickly and selected tenfold slower earning while retaining
++10% passive and all earned points/purchases. Default ruleset override only;
++no C++/client/quest/cache update. Both passive and focused earning slow. Retain
++raw partial XP: 2,000 becomes 5% rather than 50%; rollback to4,000 can convert
++retained remainder on the next award, never erase player progress. THJ research
++has dated player per-kill/hour reports, no verified raw XP/AA constant.
++Fresh read-only October21 09:16UTC production capture confirms4,000/10%,
++normalized/modern modes false and default ruleset. Source/tests and guarded
++SQL: docs/ops/aa-point-cost-40000-20261021/ and tools/tests/test_aa_point_cost_40000{,_sql}.py
++in C:/Users/verre/.codex/worktrees/aa-point-cost-40000/EQ_Local_Dev.
++197 native award/getter/conversion checks and13 disposable MariaDB cases pass;
++independent review has no blockers. Full runtime/persistence and owner balance
++QA remain open. Activation needs fresh preflight/backup and authenticated global
++Rules reload verified in world/every zone. Source preparation is authorized;
++production activation and publication are pending.
++
++
+ `era.json`: Classic, cap 50, open AA era visibility as audited. `Character:AAExpMinLevel=1` requires a matching rule catalog. `AA:PassiveExpPercent` adds AA XP while allocation is zero without reducing ordinary leveling XP. `#aaexp on|off` maps to 100%/0%; focus at 100% gives the full AA award and no passive extra. Tiny gains round down. Quest percentage rewards have independent level/AA modifiers. Resurrection/direct grants aren't passive award sources.
+ 
+ **OVH: 10% passive AA and 4,000 XP per point**, activated October 17,
+--- a/references/wiki.md
++++ b/references/wiki.md
+@@ -196,6 +196,19 @@
+ docs/releases/cooldown-identities-20261017/deployment/ in the cooldown checkout
+ from multiclass.md. Player gameplay/balance acceptance remains separate.
+ Private guide remains20261017-progression-combat.
++
++## AA pacing candidate — October21, not published
++
++The current integrated candidate adds explicitly not-live40,000-XP notices to
++progression, Features, home, Getting started, Commands, Recent changes and
++In development. Live4,000/10% claims remain pending activation. All21 maintained
++articles and generated reward templates/catalog were assessed: no item/zone
++values or command behavior changes.14 Python and13 Node checks pass; current
++source drift consists of the reviewed candidate and is retained in its receipt
++without advancing the inherited global ledger. Source and review are in
++C:/Users/verre/.codex/worktrees/aa-point-cost-40000/EQ_Local_Dev/docs/ops/aa-point-cost-40000-20261021/.
++Global rule activation, public wiki/private-guide publication and in-game QA
++are pending. Update these seven guides and private-site notice after activation.
+ 
+ ## Owner-required maintenance with every Nightcap change
+ 
+--- a/references/sources.json
++++ b/references/sources.json
+@@ -67,7 +67,8 @@
+     "thj_behaviors_candidate_20261019": "70966674868e48466fa5ba4ae3393e08fd0df2ed",
+     "thj_behaviors_test_20261019": "709a97e816a7b6b937bd5662c4d30a77bae115cd",
+     "thj_behaviors_deployed_20261019": "main7104c6b; signed2026101902; reviewed deployment evidence 70966674868e48466fa5ba4ae3393e08fd0df2ed",
+-    "thj_behaviors_deployed_main_20261019": "1f5c2c99051c960c1c1f5dbfb663acc51c3568bd"
++    "thj_behaviors_deployed_main_20261019": "1f5c2c99051c960c1c1f5dbfb663acc51c3568bd",
++    "aa_point_cost_40000_candidate_20261021": "d1a94b96c6f413df764bf3724168f519b7ebc2b9"
+   },
+   "topics": {
+     "operations": [
+@@ -1533,11 +1534,12 @@
+         "sha256": "333494d1836e6b0d93e208d7590c7e3f6ff813bf79d1cc27f44f17edcadc5bdc"
+       },
+       {
+-        "root": "C:/Users/verre/.codex/worktrees/passive-aa-ten/EQ_Local_Dev",
++        "root": "C:/Users/verre/.codex/worktrees/aa-point-cost-40000/EQ_Local_Dev",
+         "path": "server-mods/code/zone/exp.cpp",
+-        "role": "Reviewed October17 10% activation/AA-pool evidence; new AA recommendations only; owner gameplay QA pending",
++        "role": "October21 reviewed 40,000 XP/AA candidate; NOT deployed/published; 10% passive and earned progress retained",
+         "revision": "a59974d plus passive-aa-ten-20261017 operation",
+-        "sha256": "1f58270b6df0bd49ac3435e104fd46202e020f45ddc7971802b675bcada67ebf"
++        "sha256": "1f58270b6df0bd49ac3435e104fd46202e020f45ddc7971802b675bcada67ebf",
++        "reviewed_revision": "d1a94b96c6f413df764bf3724168f519b7ebc2b9"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/october-17-release",
+@@ -1979,6 +1981,55 @@
+         "role": "Verified production deployment; owner gameplay QA pending",
+         "revision": "70966674868e48466fa5ba4ae3393e08fd0df2ed",
+         "sha256": "57f930fb8dc37a8fe02f0e037f42a74622969bccbf8015223cb88253f2ee50e3"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-point-cost-40000/EQ_Local_Dev",
++        "path": "docs/ops/aa-point-cost-40000-20261021/README.md",
++        "sha256": "1d4e6c280de5e641f4fef202243a3a18136505d0f349fe92487c295c0242c5b1",
++        "role": "October21 reviewed 40,000 XP/AA candidate; NOT deployed/published; 10% passive and earned progress retained",
++        "reviewed_revision": "d1a94b96c6f413df764bf3724168f519b7ebc2b9"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-point-cost-40000/EQ_Local_Dev",
++        "path": "docs/ops/aa-point-cost-40000-20261021/forward.sql",
++        "sha256": "1ab9c549a6cc14c428be36f27a8c423fe26622b0019329c08a9db9c4dd1aac55",
++        "role": "October21 reviewed 40,000 XP/AA candidate; NOT deployed/published; 10% passive and earned progress retained",
++        "reviewed_revision": "d1a94b96c6f413df764bf3724168f519b7ebc2b9"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-point-cost-40000/EQ_Local_Dev",
++        "path": "docs/ops/aa-point-cost-40000-20261021/rollback.sql",
++        "sha256": "ddfd12da3833461d8f2656fad49ea457216ff4365073c594399dcc4d6510e9a4",
++        "role": "October21 reviewed 40,000 XP/AA candidate; NOT deployed/published; 10% passive and earned progress retained",
++        "reviewed_revision": "d1a94b96c6f413df764bf3724168f519b7ebc2b9"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-point-cost-40000/EQ_Local_Dev",
++        "path": "docs/ops/aa-point-cost-40000-20261021/production-rule-observation.json",
++        "sha256": "23958851c6d0bdf7e1b5212ab89b540eaaedd1483dc8d9b0869f813696dd4b98",
++        "role": "October21 reviewed 40,000 XP/AA candidate; NOT deployed/published; 10% passive and earned progress retained",
++        "reviewed_revision": "d1a94b96c6f413df764bf3724168f519b7ebc2b9"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-point-cost-40000/EQ_Local_Dev",
++        "path": "docs/ops/aa-point-cost-40000-20261021/verification.json",
++        "sha256": "87f78ecdce3e00262e8b1041442e36d230390fcc3d81fa9d7a80d1031c5a6550",
++        "role": "October21 reviewed 40,000 XP/AA candidate; NOT deployed/published; 10% passive and earned progress retained",
++        "reviewed_revision": "d1a94b96c6f413df764bf3724168f519b7ebc2b9"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-point-cost-40000/EQ_Local_Dev",
++        "path": "tools/tests/test_aa_point_cost_40000.py",
++        "sha256": "03ee48d9e31a5374ae5faaf47e0b31d0cf40a08c71e280d60efe2de798115020",
++        "role": "October21 reviewed 40,000 XP/AA candidate; NOT deployed/published; 10% passive and earned progress retained",
++        "reviewed_revision": "d1a94b96c6f413df764bf3724168f519b7ebc2b9"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-point-cost-40000/EQ_Local_Dev",
++        "path": "tools/tests/test_aa_point_cost_40000_sql.py",
++        "sha256": "67c27d3eede842d8b118f999edbba9022a5a6f15f99277d8d1ffeea569071de1",
++        "role": "October21 reviewed 40,000 XP/AA candidate; NOT deployed/published; 10% passive and earned progress retained",
++        "reviewed_revision": "d1a94b96c6f413df764bf3724168f519b7ebc2b9"
+       }
+     ],
+     "items": [
+@@ -5889,11 +5940,12 @@
+         "sha256": "22783dbb8447a03788d81cc1230489177fc730fc5cbe9a56fefdd1c979797302"
+       },
+       {
+-        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "root": "C:/Users/verre/.codex/worktrees/aa-point-cost-40000/EQ_Local_Dev",
+         "path": "wiki/articles/getting-started.json",
+-        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+-        "revision": "70966674868e48466fa5ba4ae3393e08fd0df2ed + reviewed deployment evidence",
+-        "sha256": "e7a464e5e65c61c028bef55be600b28f08297997eef0cac30baec4f6a7f64361"
++        "role": "October21 reviewed 40,000 XP/AA candidate; NOT deployed/published; 10% passive and earned progress retained",
++        "revision": "70966674868e48466fa5ba4ae3393e08fd0df2ed + reviewed deployment evidence",
++        "sha256": "0a9f0dc55c428e5eab7ad2e8d9aa3d5b97b16f4ccdda86f552c3d18112ae328f",
++        "reviewed_revision": "d1a94b96c6f413df764bf3724168f519b7ebc2b9"
+       },
+       {
+         "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+@@ -6015,11 +6067,12 @@
+         "sha256": "01b7d1bdc4932cd626a5dea8de6b07bf3f8768a6a19577ce6da54a613dc74b98"
+       },
+       {
+-        "root": "C:/Users/verre/.codex/worktrees/reforge-default-colors/EQ_Local_Dev",
++        "root": "C:/Users/verre/.codex/worktrees/aa-point-cost-40000/EQ_Local_Dev",
+         "path": "wiki/articles/commands.json",
+-        "role": "Reviewed combined published cooldown/travel/default-color guide; owner gameplay acceptance remains separate",
++        "role": "October21 reviewed 40,000 XP/AA candidate; NOT deployed/published; 10% passive and earned progress retained",
+         "revision": "4dc658506371aa0cf2a027db9890d4d74110a860",
+-        "sha256": "b23435918515e34f6db39189f0d072847b19599dff37c3739daf724839c66bd3"
++        "sha256": "5e826878c1c79d06f9e143ed2082e79039ee5dc309603715b7514980d1fa050a",
++        "reviewed_revision": "d1a94b96c6f413df764bf3724168f519b7ebc2b9"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/october-17-release",
+@@ -6358,39 +6411,44 @@
+         "sha256": "900a88b52eb46dd1565277d1ff61abe4ae097e8a634a6da73d08bc1c72d18e19"
+       },
+       {
+-        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "root": "C:/Users/verre/.codex/worktrees/aa-point-cost-40000/EQ_Local_Dev",
+         "path": "wiki/articles/features.json",
+-        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+-        "revision": "70966674868e48466fa5ba4ae3393e08fd0df2ed + reviewed deployment evidence",
+-        "sha256": "e5d4f18c818ae4c36d929f4a634ea549129a75abe34df06300c26c685779ed6d"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "role": "October21 reviewed 40,000 XP/AA candidate; NOT deployed/published; 10% passive and earned progress retained",
++        "revision": "70966674868e48466fa5ba4ae3393e08fd0df2ed + reviewed deployment evidence",
++        "sha256": "1f03a7523fca7b3a7f015ebe5d810c54025e46b0b539dc60af2a2bef3d986274",
++        "reviewed_revision": "d1a94b96c6f413df764bf3724168f519b7ebc2b9"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-point-cost-40000/EQ_Local_Dev",
+         "path": "wiki/articles/index.json",
+-        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+-        "revision": "70966674868e48466fa5ba4ae3393e08fd0df2ed + reviewed deployment evidence",
+-        "sha256": "c4168b84a6ace926cacbe3adb20cf8ac1405b527141ef829138ed0b07191f6e0"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "role": "October21 reviewed 40,000 XP/AA candidate; NOT deployed/published; 10% passive and earned progress retained",
++        "revision": "70966674868e48466fa5ba4ae3393e08fd0df2ed + reviewed deployment evidence",
++        "sha256": "0e17408925a172bda173ccc5fff8e33b74ab5269e08079b85a5db3472c4ba526",
++        "reviewed_revision": "d1a94b96c6f413df764bf3724168f519b7ebc2b9"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-point-cost-40000/EQ_Local_Dev",
+         "path": "wiki/articles/multiclass.json",
+-        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+-        "revision": "70966674868e48466fa5ba4ae3393e08fd0df2ed + reviewed deployment evidence",
+-        "sha256": "61d9b0e5cd1af821d2f58e19bb5a8eb8e88a663e6513b68349e402b4386cb9b6"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "role": "October21 reviewed 40,000 XP/AA candidate; NOT deployed/published; 10% passive and earned progress retained",
++        "revision": "70966674868e48466fa5ba4ae3393e08fd0df2ed + reviewed deployment evidence",
++        "sha256": "4c7235d1a129283b6489a99f4a42d5f5aa0517543726e2599ac8cb0fe662f3a1",
++        "reviewed_revision": "d1a94b96c6f413df764bf3724168f519b7ebc2b9"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-point-cost-40000/EQ_Local_Dev",
+         "path": "wiki/articles/recent-changes.json",
+-        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+-        "revision": "70966674868e48466fa5ba4ae3393e08fd0df2ed + reviewed deployment evidence",
+-        "sha256": "102bb6663bb7e5a7340d8f57380a2b82ac3172bbb81957c8c5e33c10ca3539eb"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
++        "role": "October21 reviewed 40,000 XP/AA candidate; NOT deployed/published; 10% passive and earned progress retained",
++        "revision": "70966674868e48466fa5ba4ae3393e08fd0df2ed + reviewed deployment evidence",
++        "sha256": "96e5a89a3789cb3a4ba001c8557d5f37050b7d68f7ce91375a1b983e89772fa1",
++        "reviewed_revision": "d1a94b96c6f413df764bf3724168f519b7ebc2b9"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-point-cost-40000/EQ_Local_Dev",
+         "path": "wiki/articles/unreleased.json",
+-        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+-        "revision": "70966674868e48466fa5ba4ae3393e08fd0df2ed + reviewed deployment evidence",
+-        "sha256": "332dc4e0a1dd3e094fa23cecd24a76bcd0c3c87a35a7124607329591b9192de5"
++        "role": "October21 reviewed 40,000 XP/AA candidate; NOT deployed/published; 10% passive and earned progress retained",
++        "revision": "70966674868e48466fa5ba4ae3393e08fd0df2ed + reviewed deployment evidence",
++        "sha256": "e3d7abb216a167a574c602f7bc11425f65e3c67adf391cd171342183c867b8e2",
++        "reviewed_revision": "d1a94b96c6f413df764bf3724168f519b7ebc2b9"
+       },
+       {
+         "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+@@ -6447,6 +6505,27 @@
+         "role": "Verified production deployment; owner gameplay QA pending",
+         "revision": "70966674868e48466fa5ba4ae3393e08fd0df2ed",
+         "sha256": "57f930fb8dc37a8fe02f0e037f42a74622969bccbf8015223cb88253f2ee50e3"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-point-cost-40000/EQ_Local_Dev",
++        "path": "docs/ops/aa-point-cost-40000-20261021/wiki-review.md",
++        "sha256": "ab79f021f31b949ffe12bc4376a987870dbeb2855eb88df10ff32ac6dd1bed30",
++        "role": "October21 reviewed 40,000 XP/AA candidate; NOT deployed/published; 10% passive and earned progress retained",
++        "reviewed_revision": "d1a94b96c6f413df764bf3724168f519b7ebc2b9"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-point-cost-40000/EQ_Local_Dev",
++        "path": "docs/ops/aa-point-cost-40000-20261021/wiki-review.json",
++        "sha256": "39c4236f08ab79087941bc956357753f0b9d605b7a3c610e0b380d53a8a1eb07",
++        "role": "October21 reviewed 40,000 XP/AA candidate; NOT deployed/published; 10% passive and earned progress retained",
++        "reviewed_revision": "d1a94b96c6f413df764bf3724168f519b7ebc2b9"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/aa-point-cost-40000/EQ_Local_Dev",
++        "path": "docs/ops/aa-point-cost-40000-20261021/wiki-refresh.json",
++        "sha256": "253a985b5547b0ee57b61a37474dbf2f1f23b3203ff4712d72d862bf0de1b0c9",
++        "role": "October21 reviewed 40,000 XP/AA candidate; NOT deployed/published; 10% passive and earned progress retained",
++        "reviewed_revision": "d1a94b96c6f413df764bf3724168f519b7ebc2b9"
+       }
+     ]
+   }
