@@ -37,8 +37,8 @@ Local capture: E:/EQ_Local_Dev/artifacts/research/thj-forum-20261018/posts.json.
 The THJ wiki/source endpoints were unavailable during this review.
 
 ## Activation and rollback
-Activation and publication require their remaining authorization; this candidate
-does not claim either. Existing compiled defaults remain unchanged. Relevant
+The owner authorized main promotion, production activation and matching guidance
+publication on October21 after candidate review. Execution is recorded separately. Existing compiled defaults remain unchanged. Relevant
 source is Client::GetRequiredAAExperience, FinalizeAAExperience and SetEXP in
 server-mods/code/zone/exp.cpp; AA stats use the same denominator.
 
@@ -80,3 +80,15 @@ never erase it, rescale purchases or restore an old player snapshot.
    checks do not establish player-visible behavior or balance acceptance.
 
 See verification.json and wiki-review.md for candidate checks and remaining gates.
+
+
+## Authorized operator
+ops/apply.py reuses the reviewed October17 single-rule activation/recovery flow.
+It pins the current built world/zone and every running native child, verifies the
+four-rule baseline and source-pairing.json, backs up and validates full PEQ, then
+rehearses a guarded UPDATE and inverse in a rolled-back transaction. It changes
+only this row and verifies global Rules acknowledgments. Ten simulated transport/
+recovery checks pass, including uncertain commit, evidence failure, unrelated
+rule edits, external target edits and changed processes. The manual forward.sql/
+rollback.sql helpers are an alternative guarded path, not additionally executed
+by the automated operator. No player-state restoration or native restart occurs.
