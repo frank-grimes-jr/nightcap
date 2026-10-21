@@ -1,6 +1,7 @@
 # AA pacing: 40,000 XP per point — October 21, 2026
 
-**Candidate for review; not deployed or published.** The owner reports AA points
+**Deployed for live balance testing at 09:28:12 UTC (5:28:12 a.m. Eastern), October 21.**
+The public wiki and private player guide are published and verified; owner gameplay acceptance remains open. The owner reports AA points
 arrive too quickly and selected 40,000 XP per point, retaining 10% passive earning
 and existing points/purchases. Only AA:ExpPerPoint changes, from 4,000 to 40,000
 in default ruleset 1. No native, client, quest or cache update is needed.
@@ -21,8 +22,7 @@ and rounding alter actual results. See ../passive-aa-ten-20261017/REVIEW.md.
 This is a model, not measured gameplay. A read-only production capture on October
 21 at 09:16:16 UTC confirms 4,000 XP/point, passive 10%, normalized/modern modes
 false, and active ruleset default. Ruleset 10 has the same 0.65 normal/AA
-multipliers. See production-rule-observation.json. A fresh full activation
-preflight (source/runtime, zone scope, locks and backup) remains required.
+multipliers. See production-rule-observation.json. The subsequent activation preflight verified source/runtime, zone scope, locks and backup; see result.json.
 
 ## THJ research
 No verified raw XP-per-AA threshold was found. Archived forum post 357
@@ -38,7 +38,7 @@ The THJ wiki/source endpoints were unavailable during this review.
 
 ## Activation and rollback
 The owner authorized main promotion, production activation and matching guidance
-publication on October21 after candidate review. Execution is recorded separately. Existing compiled defaults remain unchanged. Relevant
+publication on October 21 after candidate review. Execution is recorded separately. Existing compiled defaults remain unchanged. Relevant
 source is Client::GetRequiredAAExperience, FinalizeAAExperience and SetEXP in
 server-mods/code/zone/exp.cpp; AA stats use the same denominator.
 
@@ -79,7 +79,7 @@ never erase it, rescale purchases or restore an old player snapshot.
    20/35/50: kills, time, gains and useful purchases. Automated arithmetic and SQL
    checks do not establish player-visible behavior or balance acceptance.
 
-See verification.json and wiki-review.md for candidate checks and remaining gates.
+See result.json for activation, verification.json for checks and wiki-review.md for guide scope.
 
 
 ## Authorized operator
@@ -92,3 +92,18 @@ recovery checks pass, including uncertain commit, evidence failure, unrelated
 rule edits, external target edits and changed processes. The manual forward.sql/
 rollback.sql helpers are an alternative guarded path, not additionally executed
 by the automated operator. No player-state restoration or native restart occurs.
+
+## Activation evidence
+Main promotion PR262/059fd49 is complete. result.json records exactly one changed
+rule, a validated fresh 459,290,389-byte uncompressed backup, rehearsed inverse,
+world/all 12 zone reloads and unchanged process identities. All five services
+remain running; game/database are healthy. No player row was written by the operator.
+Independent review reran all 10 operator tests and found no blocking findings.
+
+guides-publication.json records wiki 20261021-aa-pacing-v1 and private guide
+20261021-aa-pacing-guide-v1. Rollback was rehearsed; private downloads, service
+identities and web configuration were preserved. The public verification receipts
+confirm every one of 465 wiki files and five private guide files, route protections
+and expected headers. Site checks: 14 Python article/refresh tests, 13 Node tests,
+16 Linux wiki operation tests and 10 Linux player-site operation tests. These
+53 checks and public verification do not establish in-game balance acceptance.
