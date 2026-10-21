@@ -1,0 +1,33 @@
+{
+  "wiki": {
+    "result": "PASS",
+    "release": "20261021-aa-pacing-v1",
+    "previous_release": "20261019-thj-behaviors-live-v1",
+    "files": 465,
+    "config_sha256": "03ef62717aad29884d3c1a60d800b19d0ee9cc7024fec7313d0263f37fbd046c",
+    "rollback_rehearsed": true,
+    "private_downloads_preserved": true,
+    "service_ids_start_times_preserved": true,
+    "nginx_reload_required": false
+  },
+  "guide_stage": {
+    "result": "STAGED_AND_ROLLBACK_REHEARSED",
+    "release": "20261021-aa-pacing-guide-v1"
+  },
+  "guide": {
+    "result": "ORIGIN_VERIFIED",
+    "release": "20261021-aa-pacing-guide-v1",
+    "files": 5
+  },
+  "config_unchanged": true,
+  "changed_wiki_files": [
+    "commands.html",
+    "features.html",
+    "getting-started.html",
+    "index.html",
+    "multiclass.html",
+    "recent-changes.html",
+    "search-index.json",
+    "unreleased.html"
+  ]
+}

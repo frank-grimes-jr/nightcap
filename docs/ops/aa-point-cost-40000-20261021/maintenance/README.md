@@ -6,3 +6,9 @@ reports two unrelated existing drift entries (spells.cpp and spell_effects.cpp
 in the THJ parity checkout); they were not silently rehashed. Candidate XP,
 tests, evidence and wiki entries verify. No gameplay or publication status was
 promoted by this knowledge update.
+
+The deployed-* patch, receipt and topic checks record the subsequent authorized
+activation/publication. Current installed references state 40,000 XP per point,
+10% passive and verified 465-file wiki/five-file private guide publication.
+The validator and wiki topic pass; the same two unrelated spell entries remain
+flagged. Owner gameplay acceptance remains open.
