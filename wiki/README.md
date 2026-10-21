@@ -33,7 +33,7 @@ deployment. Packaging emits an exact SHA256 manifest alongside the immutable tar
 - Article source ledgers remain private and are omitted from built HTML/search.
   `content-review.json` records the latest reviewed source revision and supplemental
   deployment evidence. Do not use the older wiki branch's gameplay files as live
-  authority. Current guide tuning is 10% passive AA and 4,000 AA XP per point;
+  authority. Current guide tuning is 10% passive AA and 40,000 AA XP per point;
   review the latest operations evidence before changing either claim.
 - Keep `Live testing`, `Not released`, and `Reference` distinct. Do not turn
   installed status into a promise of completed gameplay/balance acceptance.
