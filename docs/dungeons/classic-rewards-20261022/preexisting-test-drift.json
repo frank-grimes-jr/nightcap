@@ -1,0 +1,6 @@
+{
+  "tools/item_scaling_overrides.py": true,
+  "tools/tier_spell_scaling.py": true,
+  "eq-solo-gm/scripts/verify_spelldmg_healamt.sql": true,
+  "baseline_result": "Generated SQL drift: E:\\EQ_Local_Dev\\_worktrees\\classic-dungeon-options\\eq-solo-gm\\scripts\\verify_spelldmg_healamt.sql"
+}

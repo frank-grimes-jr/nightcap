@@ -1,5 +1,11 @@
 # Every Classic dungeon — candidate, October 22
 
+**Reward follow-up:** [Unique Classic raid rewards](../classic-rewards-20261022/README.md)
+supersedes this earlier candidate's shared-item fallback and zone-only pairing.
+Its414 MAGIC definitions require matching world/zone/shared_memory and regenerated
+item caches. The historical330-item compatibility/build/rehearsal receipts below
+retain their original scope; use the reward follow-up for the combined candidate.
+
 The owner requested the same Raid, Grind, Enter, Join, Status, Claim Rewards
 and Reset choices in every Classic dungeon, explicitly including Fear, Hate
 and Sky. This candidate covers 21 combat dungeon zones with 147 objectives and

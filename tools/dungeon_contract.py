@@ -82,8 +82,14 @@ def render_header(checks, content, items):
     out.append('inline bool CacheMatches(const EQ::ItemData &i) { switch(i.ID) {')
     for item in items:
         v=item['values']
-        conditions=['std::strcmp(i.Name,'+json.dumps(v['Name'])+')==0','std::strcmp(i.IDFile,'+json.dumps(v['idfile'])+')==0']
+        conditions=['std::strcmp(i.Name,'+json.dumps(v['Name'])+')==0','std::strcmp(i.IDFile,'+json.dumps(v['idfile'])+')==0',
+                    'std::strcmp(i.Lore,'+json.dumps(v['lore'])+')==0']
         conditions += ['i.'+native+'=='+str(v.get(sql,0)) for sql,native in fields.items()]
+        for key,native in {'clicktype':'Click.Type','clicklevel':'Click.Level','clicklevel2':'Click.Level2',
+                           'casttime':'CastTime','casttime_':'CastTime_','maxcharges':'MaxCharges',
+                           'recastdelay':'RecastDelay','recasttype':'RecastType'}.items():
+            if key in v:conditions.append('i.'+native+'=='+str(v[key]))
+        if 'clickname' in v:conditions.append('std::strcmp(i.ClickName,'+json.dumps(v['clickname'])+')==0')
         out.append('case '+str(v['id'])+': return '+' && '.join(conditions)+';')
     out+=['default: return false; } }','}']
     return '\n'.join(out)+'\n'

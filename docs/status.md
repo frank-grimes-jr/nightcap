@@ -1,4 +1,15 @@
 # Current Nightcap status
+## 2026-10-22 — Unique Classic raid rewards candidate
+
+Adds42 dungeon-specific designs /84 Polished and Ascended definitions for the
+14 added Classic dungeons. All414 dungeon rewards become MAGIC; the existing330
+retain IDs, names and stats, with220 flag-only updates. Fear, Hate and Sky gain
+nine authored relics and three level46 equipped utility clicks with shared reuse.
+New numeric power stays within existing dungeon-band budgets. Guarded full-row
+migration, matching world/zone/shared_memory and regenerated caches are required.
+No production activation or player/balance acceptance. Full catalog, evidence,
+rollout boundaries and QA: [unique rewards](dungeons/classic-rewards-20261022/README.md).
+
 ## 2026-10-22 — Every Classic dungeon candidate
 
 Extends Raid/Grind and Enter, Join, Status, Claim Rewards and Reset to21 Classic

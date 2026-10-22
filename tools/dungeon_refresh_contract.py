@@ -25,6 +25,10 @@ def refresh():
     if expansion.exists():
         contract['content']=[c for c in contract['content'] if not c['label'].startswith('classic/')]
         contract['content']+=json.loads(expansion.read_text())
+    rewards=ROOT/'docs/dungeons/classic-rewards-20261022/runtime-checks.json'
+    if rewards.exists():
+        contract['content']=[c for c in contract['content'] if not c['label'].startswith('rewards/')]
+        contract['content']+=json.loads(rewards.read_text())
     path.write_text(json.dumps(contract,indent=2)+'\n',encoding='utf-8',newline='\n')
     (ROOT/'server-mods/code/common/dungeon_contract.h').write_text(
         render_header(contract['schema'],contract['content'],definitions),encoding='utf-8',newline='\n')

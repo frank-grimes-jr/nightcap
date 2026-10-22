@@ -65,4 +65,5 @@ def main():
     (folder/'rehearsal.json').write_text(json.dumps(evidence,indent=2)+'\n')
     print(json.dumps(evidence),flush=True)
 
-if __name__=='__main__':main()
+if __name__=='__main__':
+    raise SystemExit('Historical pre-reward rehearsal is frozen. Use tools/tests/rehearse_classic_rewards.py for the combined current candidate.')

@@ -4,18 +4,18 @@ import unittest
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[2]
 sys.path.insert(0,str(ROOT/'tools'))
-from dungeon_catalog import items, LEGACY_DUNGEONS
+from dungeon_catalog import items, DUNGEONS
 
 class DungeonCatalogTests(unittest.TestCase):
     def test_catalog_contract(self):
         data=items()
-        self.assertEqual(len(data),330)
-        self.assertEqual({x['id'] for x in data},set(range(960000,960330)))
+        self.assertEqual(len(data),414)
+        self.assertEqual({x['id'] for x in data},set(range(960000,960414)))
         for row in data:
             i=row['values']
             self.assertLess(i['id'],1048576)
             self.assertLess(len(i['Name']),64)
-            for key,value in {'nodrop':1,'norent':1,'attuneable':0,'loregroup':0,'price':0,'sellrate':0}.items():
+            for key,value in {'magic':1,'nodrop':1,'norent':1,'attuneable':0,'loregroup':0,'price':0,'sellrate':0}.items():
                 self.assertEqual(i[key],value,(i['id'],key))
             if i['itemclass']==1:
                 self.assertLessEqual(i['bagslots'],10);self.assertLessEqual(i['bagwr'],100)
@@ -27,7 +27,7 @@ class DungeonCatalogTests(unittest.TestCase):
                 values=[i.get(k,0) for i in family]
                 self.assertEqual(values,sorted(values))
     def test_boss_exclusives_are_three_designs_and_only_raid_quality(self):
-        for dungeon in LEGACY_DUNGEONS:
+        for dungeon in DUNGEONS:
             data=[r for r in items() if r['source']==dungeon[0]]
             self.assertEqual(len(data),6)
             self.assertEqual({r['quality'] for r in data},{'Polished','Ascended'})

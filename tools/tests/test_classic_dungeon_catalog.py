@@ -7,7 +7,7 @@ import unittest
 
 ROOT=Path(__file__).resolve().parents[2]
 sys.path.insert(0,str(ROOT/'tools'))
-from dungeon_catalog import DUNGEONS, items
+from dungeon_catalog import DUNGEONS, items, existing_items
 
 class ClassicCoverage(unittest.TestCase):
     def test_all_classic_dungeons_and_three_planes(self):
@@ -25,8 +25,11 @@ class ClassicCoverage(unittest.TestCase):
             ['befallen','unrest','highkeep','najena','cazicthule','permafrost','soldungb'])
         self.assertEqual(current['dungeons'][:7],old['dungeons'])
         self.assertEqual(current['revision'],old['revision'])
-        self.assertEqual(hashlib.sha256(json.dumps(items(),sort_keys=True,separators=(',',':')).encode()).hexdigest(),old['reward_sha256'])
-        self.assertEqual(len(items()),330)
+        self.assertEqual(hashlib.sha256(json.dumps(existing_items(),sort_keys=True,separators=(',',':')).encode()).hexdigest(),old['reward_sha256'])
+        expected=existing_items()
+        for row in expected:row['values']['magic']=1
+        self.assertEqual(items()[:330],expected)
+        self.assertEqual(len(items()),414)
 
     def test_all_objectives_have_distinct_native_or_private_spawn_identities(self):
         catalog=json.loads((ROOT/'docs/dungeons/catalog.json').read_text())

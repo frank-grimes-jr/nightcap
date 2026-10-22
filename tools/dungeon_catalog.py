@@ -126,11 +126,17 @@ def legacy_items():
                                    source=DUNGEONS[dungeon][0],values=equipment(id,template,band,quality,BOSS_DESIGNS[dungeon][design])))
     return result
 
-def items():
+def existing_items():
     # One policy supplies the live compiler and the starter comparison. Do not
     # feed these afterimages back into the historical preimage planner.
     from starter_retune import dungeon_proposal
     return dungeon_proposal(legacy_items())
+
+def items():
+    from classic_dungeon_rewards import added_rewards
+    result=existing_items()
+    for row in result:row['values']['magic']=1
+    return result+added_rewards(result,DUNGEONS)
 
 def objectives(snapshot):
     result=[]
