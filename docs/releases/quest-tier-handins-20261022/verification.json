@@ -130,7 +130,7 @@
       "exit_code": 0
     }
   ],
-  "integrated_revision": "ea8c84d9014c8aaaa5e097013d013ec1d3f4804b",
+  "integrated_revision": "56e6dce5c0999a385484568c231f7a665f7331f3",
   "native_source_matches_built_candidate": true,
   "independent_review": "review.json",
   "final_linux_checks": {

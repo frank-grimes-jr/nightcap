@@ -21,5 +21,6 @@
     "test_finding": "callback adapter must reject omitted currency requirements",
     "test_resolution": "native exact-currency guard added; mutation fails129/357 assertions",
     "source_hashes_match_build": true
-  }
+  },
+  "integrated_revision": "56e6dce5c0999a385484568c231f7a665f7331f3"
 }
