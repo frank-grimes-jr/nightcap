@@ -1,0 +1,212 @@
+{
+  "wiki_base": "5dff50c5cecd4f9062f3e464990ad93276f8c272",
+  "wiki_root": "E:\\EQ_Local_Dev\\_worktrees\\hate-keeper-wiki",
+  "status": "candidate only; not published",
+  "articles": [
+    {
+      "article": "about",
+      "title": "About this wiki",
+      "decision": "no impact: existing guidance and status retained"
+    },
+    {
+      "article": "advanced-loot",
+      "title": "Advanced loot",
+      "decision": "no impact: existing guidance and status retained"
+    },
+    {
+      "article": "ascension",
+      "title": "Ascension quest",
+      "decision": "no impact: existing guidance and status retained"
+    },
+    {
+      "article": "build-lab",
+      "title": "Build Lab",
+      "decision": "no impact: existing guidance and status retained"
+    },
+    {
+      "article": "combat",
+      "title": "Combat, buffs & recovery",
+      "decision": "no impact: existing guidance and status retained"
+    },
+    {
+      "article": "commands",
+      "title": "Command reference",
+      "decision": "no impact: existing guidance and status retained"
+    },
+    {
+      "article": "dungeon-modes",
+      "title": "Raid & Grind dungeons",
+      "decision": "candidate location/access notice"
+    },
+    {
+      "article": "equipment",
+      "title": "Equipment & trading",
+      "decision": "no impact: existing guidance and status retained"
+    },
+    {
+      "article": "features",
+      "title": "Features",
+      "decision": "candidate location/access notice"
+    },
+    {
+      "article": "getting-started",
+      "title": "Getting started",
+      "decision": "no impact: existing guidance and status retained"
+    },
+    {
+      "article": "index",
+      "title": "Welcome to the Nightcap Wiki",
+      "decision": "candidate location/access notice"
+    },
+    {
+      "article": "item-upgrades",
+      "title": "Item upgrades",
+      "decision": "no impact: existing guidance and status retained"
+    },
+    {
+      "article": "launcher",
+      "title": "Launcher & interface",
+      "decision": "no impact: existing guidance and status retained"
+    },
+    {
+      "article": "multiclass",
+      "title": "Multiclass & progression",
+      "decision": "no impact: existing guidance and status retained"
+    },
+    {
+      "article": "pets",
+      "title": "Pets & pet armor",
+      "decision": "no impact: existing guidance and status retained"
+    },
+    {
+      "article": "recent-changes",
+      "title": "Recent changes",
+      "decision": "candidate location/access notice"
+    },
+    {
+      "article": "tradeskills",
+      "title": "Tradeskills & Craft All",
+      "decision": "no impact: existing guidance and status retained"
+    },
+    {
+      "article": "travel",
+      "title": "Travel & instances",
+      "decision": "candidate location/access notice"
+    },
+    {
+      "article": "tunnel",
+      "title": "East Commonlands tunnel",
+      "decision": "candidate location/access notice"
+    },
+    {
+      "article": "unreleased",
+      "title": "In development",
+      "decision": "candidate location/access notice"
+    },
+    {
+      "article": "waypoints",
+      "title": "Waypoint Explorer",
+      "decision": "no impact: existing guidance and status retained"
+    },
+    {
+      "article": "zone-hunt",
+      "title": "Zone hunt & forging",
+      "decision": "no impact: existing guidance and status retained"
+    }
+  ],
+  "generated_routes": 432,
+  "catalog_values": 384,
+  "source_drift": [
+    "docs/build-lab/README.md",
+    "docs/build-lab/data-provenance.json",
+    "docs/build-lab/preview.py",
+    "docs/dungeons/runtime-contract.json",
+    "docs/milestones/phase-70-report.md",
+    "docs/milestones/phase-71-report.md",
+    "docs/ops/hate-keeper-commonlands-20261022/README.md",
+    "docs/ops/hate-keeper-commonlands-20261022/afterimages.json",
+    "docs/ops/hate-keeper-commonlands-20261022/build-manifest.json",
+    "docs/ops/hate-keeper-commonlands-20261022/build.py",
+    "docs/ops/hate-keeper-commonlands-20261022/build_local.py",
+    "docs/ops/hate-keeper-commonlands-20261022/capture.py",
+    "docs/ops/hate-keeper-commonlands-20261022/forward.sql",
+    "docs/ops/hate-keeper-commonlands-20261022/geometry.json",
+    "docs/ops/hate-keeper-commonlands-20261022/geometry.py",
+    "docs/ops/hate-keeper-commonlands-20261022/hub.json",
+    "docs/ops/hate-keeper-commonlands-20261022/inverse-rehearsal.sql",
+    "docs/ops/hate-keeper-commonlands-20261022/legacy-check.json",
+    "docs/ops/hate-keeper-commonlands-20261022/package-manifest.json",
+    "docs/ops/hate-keeper-commonlands-20261022/package.json",
+    "docs/ops/hate-keeper-commonlands-20261022/preimages.json",
+    "docs/ops/hate-keeper-commonlands-20261022/prepare.py",
+    "docs/ops/hate-keeper-commonlands-20261022/rehearsal.json",
+    "docs/ops/hate-keeper-commonlands-20261022/rehearse.py",
+    "docs/ops/hate-keeper-commonlands-20261022/rollout.py",
+    "docs/ops/hate-keeper-commonlands-20261022/update_wiki.py",
+    "docs/ops/nightcap-wiki.md",
+    "docs/releases/build-lab-20261022/README.md",
+    "docs/releases/build-lab-20261022/finalize_knowledge.py",
+    "docs/releases/build-lab-20261022/knowledge/final-preimage.txt",
+    "docs/releases/build-lab-20261022/knowledge/final-sources.patch",
+    "docs/releases/build-lab-20261022/knowledge/knowledge.patch",
+    "docs/releases/build-lab-20261022/knowledge/preimages.json",
+    "docs/releases/build-lab-20261022/knowledge/receipt.json",
+    "docs/releases/build-lab-20261022/knowledge/validation.json",
+    "docs/releases/build-lab-20261022/publish.py",
+    "docs/releases/build-lab-20261022/update_knowledge.py",
+    "docs/releases/build-lab-20261022/verification.json",
+    "docs/releases/build-lab-20261022/verify_public.py",
+    "docs/releases/build-lab-20261022/wiki-before.json",
+    "docs/releases/build-lab-20261022/wiki-public-verification.json",
+    "docs/releases/build-lab-20261022/wiki-publication.json",
+    "docs/releases/build-lab-20261022/wiki-review.json",
+    "docs/releases/wiki-interactive-20261022/README.md",
+    "docs/releases/wiki-interactive-20261022/knowledge/knowledge.patch",
+    "docs/releases/wiki-interactive-20261022/knowledge/preimages.json",
+    "docs/releases/wiki-interactive-20261022/knowledge/receipt.json",
+    "docs/releases/wiki-interactive-20261022/knowledge/relocation-preimage.txt",
+    "docs/releases/wiki-interactive-20261022/knowledge/relocation.json",
+    "docs/releases/wiki-interactive-20261022/knowledge/relocation.patch",
+    "docs/releases/wiki-interactive-20261022/knowledge/validation.json",
+    "docs/releases/wiki-interactive-20261022/publish.py",
+    "docs/releases/wiki-interactive-20261022/source-refresh.json",
+    "docs/releases/wiki-interactive-20261022/update_knowledge.py",
+    "docs/releases/wiki-interactive-20261022/verification.json",
+    "docs/releases/wiki-interactive-20261022/verify_public.py",
+    "docs/releases/wiki-interactive-20261022/wiki-before.json",
+    "docs/releases/wiki-interactive-20261022/wiki-public-verification.json",
+    "docs/releases/wiki-interactive-20261022/wiki-publication.json",
+    "docs/releases/wiki-interactive-20261022/wiki-review.json",
+    "docs/status.md",
+    "server-mods/code/common/dungeon_catalog.h",
+    "server-mods/code/common/dungeon_contract.h",
+    "server-mods/code/common/dungeon_policy.h",
+    "server-mods/code/zone/dungeon_service.cpp",
+    "tools/build_lab_data.py",
+    "tools/dungeon_catalog.py",
+    "tools/dungeon_refresh_contract.py",
+    "tools/hate_keeper.py",
+    "tools/tests/test_classic_dungeon_private.py",
+    "tools/tests/test_dungeon_journal.py",
+    "tools/tests/test_hate_keeper.py",
+    "tools/tests/test_hate_keeper_content.py"
+  ],
+  "drift_review": "Keeper routing/content/tests and candidate operational evidence reviewed; earlier source drift retains current published labels. Ledger revision not blindly advanced.",
+  "unaffected": [
+    "commands",
+    "Hunt catalog stats",
+    "Build Lab",
+    "interactive handbook",
+    "other dungeon objectives and reward values"
+  ],
+  "changed_files": [
+    "content-review.json",
+    "articles/dungeon-modes.json",
+    "articles/features.json",
+    "articles/index.json",
+    "articles/recent-changes.json",
+    "articles/travel.json",
+    "articles/tunnel.json",
+    "articles/unreleased.json"
+  ]
+}

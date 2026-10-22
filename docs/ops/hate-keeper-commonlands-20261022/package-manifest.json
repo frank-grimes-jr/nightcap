@@ -1,0 +1,34 @@
+{
+  "base_image_id": "sha256:0ccdabfd3a01682d4daa2082b01588b2d1f4676d3fbe74e1ebfc209496067000",
+  "base_hashes": {
+    "bin/world": "49f87aafadcf6a9063e66cf581c4bd6356571c5c5725786657b95f4b8ba0afa7",
+    "bin/zone": "8c9b97d53518442f74652518a06cfcfdf2202269ad95f065db57353bc000af31",
+    "bin/ucs": "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714",
+    "bin/loginserver": "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf",
+    "bin/shared_memory": "6b314bf087bb06c8fb5ffc6d606090876b17c062f8014acb0e3784d12da9514f",
+    "start.py": "ca4099eb898730141e7941d3afc366d59c4bc8351eea74c5b6fd9560c24b815f",
+    "configure.py": "90873958dfb013201dd9c9552beaccdd88984a2e55739da07874fa4a95a84e57",
+    "accounts.py": "400d4e7a5d0bedeed47ffdb33b142a4a62a3f939a35466da66ce3201ae52ef5c"
+  },
+  "prior_operator_sha256": "ca9f007d30418e27d367ba4ee9aacac2bb7ede214dd2095a52f401d20383a369",
+  "source_revision": "c6c210085a20ed206a729f4b06ae2a5002ba65b4",
+  "zone_sha256": "1d4ef362639722b7eaddc49ae2883e2c5abcefc7c5d958f622cfb048308b995f",
+  "files": {
+    "preimages.json": "e5e72a69f8320d145b1040a62cede60624ba478e0499591eea4a8fc640e07387",
+    "rollout.py": "26bc50f568cab1a0e0932869855ce7d702c41063136f6d791dc68309b767e5f3",
+    "runtime-contract.json": "3b88a1a2b69ba291a4dc3e14dfde4146de1c5d99d2fe79faee533823b614c761",
+    "bin/zone": "1d4ef362639722b7eaddc49ae2883e2c5abcefc7c5d958f622cfb048308b995f",
+    "tools/content_patch.py": "8dfc5aa33a5560da56ae7bb3457a4f4b38b5bdfc231362b2913e4f11e8656c25",
+    "tools/hate_keeper.py": "35d0fc5cdccfa72646e0ab53c62e071015c0abd088c96b1a7b0f36ab90708cd6",
+    "tools/pok_hub.py": "51cfffceadc22a73a01a84ac96fc427f3f271603bda5a4bf26b87ab90aca4c91",
+    "tools/pok_hub_migration.py": "184b72772950d60eccdd1a4fff36905f222bc2fb0fa4b1efc915f4946383d528"
+  },
+  "source_status": "reviewed candidate; main/live approval required",
+  "build_sources": {
+    "common/dungeon_catalog.h": "063bf842d985c0800ba5e9abb45d1403546105d90dd7f67705b81fc160ce183d",
+    "common/dungeon_contract.h": "b19325fc33265b2c731cbf59edd46d64ce0303d87cfe0ed7088c9b26f8fc8e59",
+    "common/dungeon_policy.h": "2a4124a4ff1f11726de7ce29439386de7217234398ca4c126e852c9ea2454b3b",
+    "zone/dungeon_service.h": "057627f0355edad49893eb4114c8015892283a4e3e7b3356fe63d4588e25356a",
+    "zone/dungeon_service.cpp": "900440f667890e9c480624836c5522fd07cdbb6c015d8be34e3b6d321e25f905"
+  }
+}

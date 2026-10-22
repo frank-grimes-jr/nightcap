@@ -187,7 +187,7 @@ def main():
     header+=['};','struct ExcludedNPC { uint32_t zone, npc; };','inline constexpr ExcludedNPC ExcludedNPCs[] = {']
     header += ['\t{%d,%d},'%(r['zone_id'],r['npc_id']) for r in EXCLUDED_NPCS]
     header+=['};',f'inline constexpr uint32_t SkyKeyService = {SKY_KEY_SERVICE};',
-      f'inline unsigned PrivateSpawnCount(uint32_t zone) {{ return zone==48 ? 188 : zone==71 ? {len(SKY_PRIVATE)+len(SKY_SERVICES)} : 0; }}',
+      f'inline unsigned PrivateSpawnCount(uint32_t zone) {{ return zone==48 ? 188 : zone==71 ? {len(SKY_PRIVATE)+len(SKY_SERVICES)} : zone==76 ? 1 : 0; }}',
       'inline const Dungeon *FindDungeon(uint32_t zone) { for (const auto &d : Dungeons) { if (d.zone==zone) { return &d; } } return nullptr; }','}']
     (ROOT/'server-mods/code/common/dungeon_catalog.h').write_text('\n'.join(header)+'\n')
     print(f'{len(data["items"])} item definitions; {sum(len(d["bosses"]) for d in data["dungeons"])} objectives')

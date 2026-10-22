@@ -15,6 +15,13 @@ constexpr uint32_t ItemEnd = ItemBegin + SharedItems + DungeonCount * 3 * 2;
 enum class Mode : uint8_t { Grind = 0, Raid = 1 };
 enum class Quality : uint8_t { Normal = 0, Polished = 1, Ascended = 2 };
 inline bool IsReward(uint32_t id) { return id >= ItemBegin && id < ItemEnd; }
+// The Hate entrance service lives in the public Commonlands hub. A retained
+// private entrance copy still supports the same run's status and reward menu.
+inline const Dungeon *KeeperDungeon(uint32_t host, uint32_t instance, uint32_t keeper) {
+	if (host==22 && instance==0 && keeper==998812) { return FindDungeon(76); }
+	const auto d=FindDungeon(host);
+	return d && d->keeper==keeper ? d : nullptr;
+}
 inline Quality RollQuality(Mode mode, unsigned roll) {
 	return mode == Mode::Grind ? Quality::Normal : roll < 9000 ? Quality::Polished : Quality::Ascended;
 }
