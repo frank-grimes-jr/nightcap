@@ -108,3 +108,5 @@ verify all 465 and 5 HTTPS hashes/protections. Guarded publication rehearsed
 rollback and preserved configuration/private downloads/service identities.
 All 21 guides and 432 reward routes were reviewed; no new reward/catalog/command
 behavior. Gameplay acceptance remains the owner QA above, not a release-test claim.
+
+Repository console logs trim trailing display whitespace only; original bytes are retained in the task artifacts/raw-release-logs directory. JSON and native identity receipts remain exact.
