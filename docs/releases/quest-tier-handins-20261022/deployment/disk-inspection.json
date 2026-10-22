@@ -1,0 +1,261 @@
+{
+  "archives": [
+    {
+      "path": "/home/ubuntu/early-scribing-20261012.tar.gz",
+      "bytes": 90464134
+    },
+    {
+      "path": "/home/ubuntu/pet-summon-crash-2026101101.zip",
+      "bytes": 188962460
+    },
+    {
+      "path": "/home/ubuntu/spell-inspection-2026100102.tar.gz",
+      "bytes": 123630595
+    },
+    {
+      "path": "/home/ubuntu/classic-models-2026093004.tar.gz",
+      "bytes": 122492949
+    },
+    {
+      "path": "/home/ubuntu/advanced-loot-client-2026093006.tar.gz",
+      "bytes": 122522766
+    },
+    {
+      "path": "/home/ubuntu/public-r4.tar.gz",
+      "bytes": 30788922
+    },
+    {
+      "path": "/home/ubuntu/item-upgrades-deploy-20261012.tar.gz",
+      "bytes": 90440713
+    },
+    {
+      "path": "/home/ubuntu/launcher-play-2026100101.tar.gz",
+      "bytes": 123631277
+    },
+    {
+      "path": "/home/ubuntu/advanced-loot-stock-icons-2026101001.tar.gz",
+      "bytes": 176962205
+    },
+    {
+      "path": "/home/ubuntu/tradeskills-native.tar.gz",
+      "bytes": 126446079
+    },
+    {
+      "path": "/home/ubuntu/throw-stone-server-20261009.tar.gz",
+      "bytes": 125595014
+    },
+    {
+      "path": "/home/ubuntu/advanced-loot-actions-2026100203.tar.gz",
+      "bytes": 123649946
+    },
+    {
+      "path": "/home/ubuntu/winged-helmet-2026100401.tar.gz",
+      "bytes": 134641384
+    },
+    {
+      "path": "/home/ubuntu/multiclass-skills-2026101301.tar.gz",
+      "bytes": 176966377
+    },
+    {
+      "path": "/home/ubuntu/early-scribing-20261012-v2.tar.gz",
+      "bytes": 90464363
+    },
+    {
+      "path": "/home/ubuntu/nightcap-tunnel-release-v2-20260921.tar.gz",
+      "bytes": 127161412
+    },
+    {
+      "path": "/home/ubuntu/winged-helmet-materials-2026100403.tar.gz",
+      "bytes": 134638402
+    },
+    {
+      "path": "/home/ubuntu/nightcap-hosting-kit-20260920.zip",
+      "bytes": 48769262
+    },
+    {
+      "path": "/home/ubuntu/npc-heal-self-20261009.tar.gz",
+      "bytes": 90411684
+    },
+    {
+      "path": "/home/ubuntu/advanced-loot-actions-server-20261002.tar.gz",
+      "bytes": 165673260
+    },
+    {
+      "path": "/home/ubuntu/character-select-2026100103.tar.gz",
+      "bytes": 123637848
+    },
+    {
+      "path": "/home/ubuntu/enchanter-animation-20260930.tar.gz",
+      "bytes": 170894848
+    },
+    {
+      "path": "/home/ubuntu/pet-server-20260922.tar.gz",
+      "bytes": 171019125
+    },
+    {
+      "path": "/home/ubuntu/winged-helmet-snug-2026100405.tar.gz",
+      "bytes": 134637211
+    },
+    {
+      "path": "/home/ubuntu/blessing-lifetime-server-20261004.tar.gz",
+      "bytes": 165663381
+    },
+    {
+      "path": "/home/ubuntu/blessing-lifetime-server-20261004-r2.tar.gz",
+      "bytes": 165663842
+    },
+    {
+      "path": "/home/ubuntu/server-inventory-ui-20260921.tar.gz",
+      "bytes": 170696471
+    },
+    {
+      "path": "/home/ubuntu/npc-animation-2026100404.tar.gz",
+      "bytes": 134638206
+    },
+    {
+      "path": "/home/ubuntu/multiclass-skills-native-20261013.tar.gz",
+      "bytes": 90441838
+    },
+    {
+      "path": "/home/ubuntu/advanced-loot-server-20260930.tar.gz",
+      "bytes": 173306895
+    },
+    {
+      "path": "/home/ubuntu/multiclass-trainers-2026101204.tar.gz",
+      "bytes": 176965467
+    },
+    {
+      "path": "/home/ubuntu/public-r5.tar.gz",
+      "bytes": 30651567
+    },
+    {
+      "path": "/home/ubuntu/sellall-supplies-20261012.tar.gz",
+      "bytes": 90448824
+    },
+    {
+      "path": "/home/ubuntu/winged-helmet-display-2026100402.tar.gz",
+      "bytes": 134638488
+    },
+    {
+      "path": "/home/ubuntu/advanced-loot-controls-2026100901.tar.gz",
+      "bytes": 188959274
+    },
+    {
+      "path": "/home/ubuntu/server-r5.tar.gz",
+      "bytes": 156970739
+    },
+    {
+      "path": "/home/ubuntu/early-scribing-2026101203.tar.gz",
+      "bytes": 176964600
+    },
+    {
+      "path": "/home/ubuntu/enchanter-identity-2026100406.tar.gz",
+      "bytes": 134637110
+    },
+    {
+      "path": "/home/ubuntu/blessing-relogin-server-20261003.tar.gz",
+      "bytes": 165658028
+    },
+    {
+      "path": "/home/ubuntu/food-drink-deploy-20261011.tar.gz",
+      "bytes": 90408458
+    },
+    {
+      "path": "/home/ubuntu/merchant-sell-all-2026101201.tar.gz",
+      "bytes": 176964254
+    },
+    {
+      "path": "/home/ubuntu/multiclass-trainers-20261012.tar.gz",
+      "bytes": 126365698
+    },
+    {
+      "path": "/home/ubuntu/spell-menu-2026100202.tar.gz",
+      "bytes": 123646879
+    },
+    {
+      "path": "/home/ubuntu/loading-screens-new-assets-2026100407-v2.tar.gz",
+      "bytes": 60944015
+    },
+    {
+      "path": "/home/ubuntu/public-patcher.tar.gz",
+      "bytes": 33709359
+    },
+    {
+      "path": "/home/ubuntu/tradeskills-client.tar.gz",
+      "bytes": 188973628
+    },
+    {
+      "path": "/home/ubuntu/nightcap-tunnel-release-20260921.tar.gz",
+      "bytes": 127161295
+    },
+    {
+      "path": "/home/ubuntu/native-r4.tar.gz",
+      "bytes": 34809780
+    },
+    {
+      "path": "/home/ubuntu/multiclass-equipment-client-2026101501.tar.gz",
+      "bytes": 189003028
+    },
+    {
+      "path": "/home/ubuntu/advanced-loot-repair-2026100201.tar.gz",
+      "bytes": 123645976
+    },
+    {
+      "path": "/opt/nightcap/releases/inventory-ui-evidence-20260921/peq-before.sql.gz",
+      "bytes": 43481711
+    },
+    {
+      "path": "/opt/nightcap/releases/advanced-loot-evidence-20260930/peq-before.sql.gz",
+      "bytes": 43421228
+    },
+    {
+      "path": "/opt/nightcap/releases/tunnel-compact-evidence-20261002/peq-before.sql.gz",
+      "bytes": 43475834
+    },
+    {
+      "path": "/opt/nightcap/releases/tunnel-services-evidence-20260921/peq-before.sql.gz",
+      "bytes": 43481674
+    },
+    {
+      "path": "/opt/nightcap/releases/tunnel-travel-evidence-20260922/peq-before.sql.gz",
+      "bytes": 43502223
+    },
+    {
+      "path": "/opt/nightcap/releases/dungeons-20261016/dungeons-20261016-production-pair.tar.gz",
+      "bytes": 174000679
+    },
+    {
+      "path": "/opt/nightcap/releases/tunnel-courts-evidence-20260930/peq-before.sql.gz",
+      "bytes": 43421858
+    },
+    {
+      "path": "/opt/nightcap/releases/server-2026092004/peq-before.sql.gz",
+      "bytes": 43456630
+    },
+    {
+      "path": "/opt/nightcap/releases/tunnel-social-evidence-20261001/peq-before.sql.gz",
+      "bytes": 43473467
+    },
+    {
+      "path": "/opt/nightcap/releases/enchanter-animation-evidence-20260930/peq-before.sql.gz",
+      "bytes": 43421220
+    },
+    {
+      "path": "/opt/nightcap/releases/tunnel-campfire-evidence-20261002/peq-before.sql.gz",
+      "bytes": 43473667
+    },
+    {
+      "path": "/opt/nightcap/releases/dungeon-journal-20261016/journal-production-pair.tar.gz",
+      "bytes": 173926703
+    },
+    {
+      "path": "/opt/nightcap/releases/pet-management-evidence-20260922/peq-before.sql.gz",
+      "bytes": 43462350
+    },
+    {
+      "path": "/opt/nightcap/releases/server-2026092005/peq-before.sql.gz",
+      "bytes": 43456647
+    }
+  ],
+  "build_cache": "ID                           RECLAIMABLE   SIZE       LAST ACCESSED\n2uxjxnu8bs4p8qhjxe45sxgqf    true          32B*       18 hours ago\n7mhl7tc2topdfi6oln2vjiw0z    true          32B*       18 hours ago\nefasrmd8gp4m6up8g9ff0m5ik    true          32B*       18 hours ago\njgv2g0dernb0jd5ousopts6wj    true          32B*       18 hours ago\nkxy25rnrpxjzxg5jloqicwwgd    true          32B*       18 hours ago\nm85zav44i2rjk5ba9h62a8rdf    true          32B*       18 hours ago\nmx9854ft9ye8ooeap0mmcajll    true          32B*       18 hours ago\nnrc2ilt6e8vpfy3g3cgpsur86    true          32B*       18 hours ago\nrbb2aht9bz209eysczeuo2a8s    true          32B*       18 hours ago\ns1y7iwrl7djihrawyy5ycp8j9    true          32B*       18 hours ago\ntll9765jpfn5y69h2unut2xjv    true          32B*       18 hours ago\nvup5d0kjy45jdxfeake4f3vrl    true          32B*       18 hours ago\nwc9gpl0iomubrrnsvv8qoyufo    true          32B*       18 hours ago\nuu6v7po3qoknczzpo2wk0v3jz    true          124B*      18 hours ago\nkkent3hou6icqoci4x9yssr9r    true          167B*      18 hours ago\n4hr027vwzbazs1ja2uoetqoxw    true          181B*      18 hours ago\nrcj0xi2urj0iy73zmhlx5lzcm    true          181B*      18 hours ago\nd0r54ruzxqxb1rtx2qo8a0c5v    true          187B*      18 hours ago\ngf8cnn2hjfjykwfnonfhjyyr6    true          282B*      18 hours ago\nl39txyskqoddzz3yisvbp648c    true          400B*      18 hours ago\nn22pfkzfs6ycu0oihk4qbg0ym    true          639B*      18 hours ago\nlt0v6nvbdstgqnvl36b80ho0v    true          1.243kB*   18 hours ago\nomp9j0ibqb90dfrz3ptio1p5b    true          1.255kB*   18 hours ago\nrsqrrj95ohyg01uv0l59359zr    true          2.085kB*   18 hours ago\nx0n67kpmxzjeefebohe7z7lcu    true          2.154kB*   18 hours ago\ns7z85e0qpfxm93txumy1ifbsf    true          4.867kB*   18 hours ago\n3lt9ne3btwxm1cb85yatf4moq*   true          8.192kB    18 hours ago\n41jp0bgcdsymo9jdfncsngocl*   true          8.192kB    18 hours ago\ntjlokviwxu4fk9985ngaivdbe    true          12.95MB*   18 hours ago\nhnc8bq2x80i20v0lw8xtn2hr9    true          12.95MB*   18 hours ago\npbjbgkctmsvrbk80zab2likl7    true          15.17MB*   18 hours ago\nw4wchx2iesx3cvui9svzkrv30    true          20.65MB*   18 hours ago\nlt7c6tjgq9g15l8v45i2rm8ae    true          28.22MB*   18 hours ago\nznirir3iqtstw4uct5nw4pzit    true          29.26MB*   18 hours ago\nttklmgwmk6mu65e6h9q556nsr    true          36.01MB*   18 hours ago\nlvtkdlos3r7675f0p84r1b1pz    true          88.55MB*   18 hours ago\n4qrmxi0pchlqmkyixr15o9som    true          94.77MB*   18 hours ago\n5z6o7xxr093ujo0cketx4onz5    true          95.16MB*   18 hours ago\n1ikuuiomua7tz9qm90x3m45d4    true          95.16MB*   18 hours ago\natgs8bctvy6ai2zh6d8345v8n    true          95.18MB*   18 hours ago\nwmp1fsbj6eqig9rvxtite5597    true          95.19MB*   18 hours ago\ntnqn5uzj4al1lcnp9e0vajcje    true          95.19MB*   18 hours ago\n1mahp57x6kex5hk6qds1jxpyi    true          95.2MB*    18 hours ago\npm9vleeguznuz9o5q21y42vry    true          95.2MB*    18 hours ago\nrzqln2ukeimmeukvrau33zb13    true          95.2MB*    18 hours ago\nrq9re7y4qt4cawp9he5i292i2    true          95.21MB*   18 hours ago\nw96mjzjozshhvaigffeo46mc1    true          95.22MB*   18 hours ago\ns78o2pkika7d5nyqcf0nx3tdt    true          95.25MB*   18 hours ago\nw4h3i460926l7hfpcsvg9a9w7    true          95.28MB*   18 hours ago\nvhp9o8cpn1iigaslxrujio22l    true          96.26MB*   18 hours ago\new5z154yuv088jbnw53ztdbbj    true          122.8MB*   18 hours ago\nr8e71njc64taid8hifed7iasg    true          125.2MB*   18 hours ago\ndvsm4qcnwjbhz1koj7pe3asef    true          125.2MB*   18 hours ago\nov3u9nuf03s18vz1qlwl7v2jq    true          125.2MB*   18 hours ago\nq9opqe3272iivu0exgsj8xkzb    true          139.6MB*   18 hours ago\n5g6a2rt4t7acdggroyo4bc7pf    true          165.1MB*   18 hours ago\nhz783i8dow8s57xqsb5piasxk    true          165.1MB*   18 hours ago\nshnimibh7mwdnsom9jzjx1w93    true          165.2MB*   18 hours ago\nwcgg68clw8imyur6hvb1uf3b8    true          165.2MB*   18 hours ago\nwmnmct5s2fx1nbdn68y2j2moe    true          167.5MB*   18 hours ago\ns5fo6s2bneorplytkp8gl7l4v    true          167.6MB*   18 hours ago\n63wu1b51p853ivlpcm5uliisg    true          167.6MB*   18 hours ago\ncn26z1zdmoafi4d6ubkr4h0hj    true          168MB*     18 hours ago\nzb3352ivcxv9qumk9fuy8rkq7    true          412.1MB*   18 hours ago\nlwy8ywjw4cxbq0djc8y1x12yh    true          412.2MB*   18 hours ago\nsm1yh1qms7x5qb5x4k5veiubj    true          412.2MB*   18 hours ago\ny2bqvrel90vnlm9gmox5vaztr    true          412.6MB*   18 hours ago\nnf6ygwsh98mzkayrxjmhr0kbx    true          412.7MB*   18 hours ago\ne6qcbvh8jkulp8a9u38h7h30z    true          593.2MB*   18 hours ago\nsytqzcyft6b8olh65lxgdxdhv    true          593.3MB*   18 hours ago\nsbdfr2slfl21zytrw3mfnjzf7    true          702MB*     18 hours ago\nShared:\t\t7.497GB\nPrivate:\t16.38kB\nReclaimable:\t7.497GB\nTotal:\t\t7.497GB\n"
+}

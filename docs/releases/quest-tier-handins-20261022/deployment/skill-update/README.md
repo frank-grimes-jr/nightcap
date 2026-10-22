@@ -1,0 +1,1 @@
+Installed world/items/wiki/operations knowledge and scoped source fingerprints reflect the verified quest-tier deployment. The exact patch and guarded installation receipt are retained. Creator validation and every scoped context fingerprint pass. Concurrent armor, robe and dungeon knowledge is preserved; owner gameplay QA remains open.

@@ -1,4 +1,4 @@
-# Quest item qualities â€” October 22 candidate
+# Quest item qualities - October 22 live QA
 
 Normal-item quest requirements now accept the verified Polished (+200000),
 Exalted (+400000), and Ascended (+600000) definition of that same item. The
@@ -9,10 +9,16 @@ ordinary quest EXP. The captured live quest awards Normal Crafted Gauntlets
 Ascended Crafted Gauntlets 604178. Both callbacks pass with all four charm
 qualities. The reward follows the quest's policy, not the ingredient's quality.
 
-This is an implemented, tested candidate, **not deployed or player accepted**.
-PR284 merged to dev and PR287 to test; test c889cd8 has exactly the reviewed
-feature tree. `promotion.json` records the commits. Exact owner QA is ready.
-Production's twelve zone executables were read on October 22 and all matched
+**Merged to main via PR290 (`c66df0e`) and deployed with current owner approval.**
+The full runtime restarted at 18:01 UTC; access reopened after all twelve zone
+hashes, seven quest files and saved-state checks passed. Owner gameplay acceptance
+remains open. The already-live armor policy awards Ascended Crafted Gauntlets
+604178 for every accepted charm quality. No client update is needed.
+[Deployment, verification and recovery](deployment/README.md) record the installed
+image, fresh backup, data preservation and published wiki. Earlier dev/test and
+candidate evidence below remain dated history; `promotion.json` records all stages.
+
+Before deployment, production's twelve zone executables were read on October 22 and all matched
 `5dd5a6558c837ff2e4724edcd12afcabd2e846379a9ca7b8a6e57e7715600f7b`.
 The build authenticates and reproduces that baseline before replacing the two
 implementation objects; `native-build-manifest.json` records the result.
@@ -109,5 +115,5 @@ No SQL, world, rule catalog, shared ItemData/cache, launcher or client change is
 required. Preserve the current client/world/cache pair. Retain fresh predecessor
 zone and quest files for recovery, restart through the supervisor, and verify
 hashes. Never restore player inventories, quest/task history or earned rewards
-from an old snapshot. Publish the prepared wiki notices only with the authorized
-release, switching their candidate labels after verified activation.
+from an old snapshot. The matching wiki20261022-quest-tiers-v1 is published and all465 HTTPS files
+verify. Labels remain Live testing until owner gameplay acceptance.
