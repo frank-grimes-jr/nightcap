@@ -1,0 +1,98 @@
+{
+  "date": "2026-10-22",
+  "status": "built_tested_unsigned_candidate",
+  "base_revision": "88562b1f9793bf28ca083d7ee0ecb364733b83cd",
+  "source_root": "C:\\Users\\verre\\.codex\\worktrees\\waypoint-markers\\EQ_Local_Dev",
+  "checks": {
+    "quest_syntax": "passed",
+    "quest_assertions": 19,
+    "keeper_assertions": 52,
+    "python_waypoint_and_model_tests": 27,
+    "model_asset_tests_included": 8,
+    "proxy_x86_build": "passed",
+    "x86_fixture_builds": 22,
+    "runtime_test_groups": 9,
+    "native_animation_cases": 288,
+    "native_invisible_actor_regression": "passed",
+    "exact_client_patch_guards": 107,
+    "launcher_suites": [
+      "cmd/nightcap-package",
+      "internal/preflight",
+      "internal/manifest"
+    ],
+    "actual_built_dll_current_catalog": "passed",
+    "actual_built_dll_previous_catalog": "rejected_as_required",
+    "historical_october19_actual_artifact_regression": "passed_with_pinned_good_fixture",
+    "wiki_python_tests": 14,
+    "wiki_search_cases": 6,
+    "wiki_equipment_tests": 7,
+    "wiki_pages_built": 458,
+    "independent_source_review": "no_blocking_findings; native rendering and signed release remain outside review",
+    "git_diff_check": "passed"
+  },
+  "preservation": {
+    "existing_archives_byte_identical": 22,
+    "classic_rows_retained": 155,
+    "modern_stock_rows_retained": 13,
+    "geometry_archive_byte_identical": true,
+    "client_files_modified": false,
+    "production_modified": false,
+    "player_data_modified": false
+  },
+  "candidate": {
+    "status": "unsigned_candidate_not_installed",
+    "proxy_version": "0.11.1",
+    "kind": "five_file_delta_not_full_signed_inventory",
+    "files": {
+      "dinput8.dll": {
+        "size": 617472,
+        "sha256": "013e2323cf4146db34760fbc93b1ed684841c0d11ed9df42d99d6c318a14a1df"
+      },
+      "nightcap-patch-sites.json": {
+        "size": 9542,
+        "sha256": "282eef8492f50153a3b14ef9dda78ad446c9e835d659d9a28b37681be30fc3ed"
+      },
+      "crs.eqg": {
+        "size": 181442,
+        "sha256": "0a06d4b41d49843b40518105b50057a50d1abb07147e10fb3769135ee1223f6b"
+      },
+      "nightcap_models_chr.txt": {
+        "size": 2156,
+        "sha256": "0f4a170e588cc9475a8abb57425406b87d49eb26c82a3839fa6907e8f15ce470"
+      },
+      "nightcap_modern_chr.txt": {
+        "size": 167,
+        "sha256": "505533bcf05cb38eeb8f241ea942312ea28ad82813ce3559f5ff5dd994ff179f"
+      }
+    },
+    "quest_sha256": "981a7c3cb56f265bb3ffe1db9d5e23aa2e3aee9d415288f75beb123580a9c58a",
+    "prior_archives_preserved": 22,
+    "classic_imports_retained": 155,
+    "modern_imports_retained": 13,
+    "native_visual_qa": "pending",
+    "server_client_wiki_deployment": "not_authorized_or_performed"
+  },
+  "sources": {
+    "server-mods/quests/global/999240.pl": "981a7c3cb56f265bb3ffe1db9d5e23aa2e3aee9d415288f75beb123580a9c58a",
+    "tools/tests/waypoint_visuals.t": "1833e460df1165b59d9726df28da8ba3f9d0219aa116800b4d9516a025c6518d",
+    "tools/tests/test_waypoint_model.py": "46228d987cd66ac75ade1cb1db22ddaf2002387e5ccca656c963f6a1071be809",
+    "eq-client-dll/src/model_hooks.h": "f1215c7ba2a69008d4c4ce46e862c62b69faf2ad14b25201c501463a7c9eefb3",
+    "eq-client-dll/src/model_catalog.h": "4762e280bbd5c5c852f6ac7bb6e8cee8d66f9cfb28a9d697aafed5ac7f33a0bf",
+    "eq-client-dll/config/classic-models.json": "7e28df55278b0b81090ec8ec6870e7714bb8da731986cc5e0ebf76a86ee47839",
+    "eq-client-dll/config/patch-sites.json": "282eef8492f50153a3b14ef9dda78ad446c9e835d659d9a28b37681be30fc3ed",
+    "eq-client-dll/tests/model-hooks.cpp": "e8eb245355df8a8e47afb3f038e547c4da4588875ed78a920625acdde31379f9",
+    "tools/client_classic_models.py": "b2fb39c55e7f600136d71d0df8a0511579300fe50295d32869401b1f3b658823",
+    "tools/generate-classic-model-contract.py": "bb0d69654dbe6e09fda78d2e48f2e2dcd0ec0bec3be9440e097d2e396c769ed8",
+    "eq-launcher/cmd/nightcap-package/classic_models.go": "090db85e82e2644c814ba59920d05bdb6b8c570aca1a8e744f70278c3dbe2f99",
+    "eq-launcher/cmd/nightcap-package/classic_models_test.go": "38559e1b4c941a91ab3dc86c4ef69ce254226de211b193ef216e41b93706c602",
+    "eq-launcher/internal/preflight/proxy_catalog_test.go": "27c605ac7b323c576986be34a4828a6a67a519a5351c5e58df7aaf372b6c0391",
+    "eq-launcher/internal/preflight/testdata/released-catalog-20261019.json": "2599919e5701d4b2dc43e569da72a3d99e503ae6f511f690d7a09fe581f1a8b4"
+  },
+  "pending": [
+    "main_promotion",
+    "signed_client_publication",
+    "server_quest_activation",
+    "public_wiki_publication",
+    "native_visual_qa_both_model_modes_particles_off_late_joiners_scale_nameplate"
+  ]
+}

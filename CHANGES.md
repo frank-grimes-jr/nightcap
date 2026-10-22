@@ -1,5 +1,15 @@
 # CHANGES
 
+## 2026-10-22 — Glowing waypoint crystal candidate
+
+The owner selected a glowing crystal with a waypoint label. Marker999240 uses
+Crystal Shard geometry plus the existing portal glow and nameplate. Locations,
+attunement, recall, Explorer progress and Keepers are preserved. The paired
+proxy0.11.1 loads a complete crystal-capable list in both model modes and retains
+all22 prior model archives. Do not deploy the quest without its matching client.
+Automated checks pass; native visibility QA and main/server/client/wiki publication
+remain pending. [Design, pairing and exact QA](docs/ops/waypoint-crystal-20261022/README.md).
+
 ## 2026-10-22 — All-dungeon Keeper correction deployed for live QA
 
 An all-seven audit found four more exact waypoint overlaps: Unrest, Najena,
