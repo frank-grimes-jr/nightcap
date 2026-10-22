@@ -1,6 +1,6 @@
 # Exact in-game QA — not yet run
 
-Use an authorized paired test release. Automated checks and a built binary are
+The paired release is live for testing as of October22. Automated checks and a built binary are
 not evidence that these player actions passed. Record character/build/gear,
 zone, run UUID, mode, time, result and relevant logs for every failure. The seven
 old zones' prior acceptance does not establish the fourteen new zones.

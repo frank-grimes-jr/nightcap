@@ -1,5 +1,9 @@
 # Unique Classic dungeon rewards — October 22 candidate
 
+Current status: [paired live deployment](deployment/README.md) is verified on October22.
+Owner gameplay and balance acceptance remain open. The candidate evidence below
+retains its original capture scope.
+
 The owner requested unique rewards appropriate to dungeon difficulty, all MAGIC,
 with especially distinctive, lore-driven planar rewards. This extends the accepted
 21-zone expansion in `../classic-expansion-20261022/`; it supersedes that candidate's

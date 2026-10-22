@@ -1,0 +1,232 @@
+{
+  "free_bytes": 2368200704,
+  "services": {
+    "game": {
+      "id": "068e556ff46409125a38afce18d9ec71a3f64675d8eddabf24bba6176ccd73de",
+      "image_id": "sha256:0ccdabfd3a01682d4daa2082b01588b2d1f4676d3fbe74e1ebfc209496067000",
+      "started_at": "2026-10-22T18:58:11.884260748Z",
+      "restarts": 0,
+      "running": true,
+      "health": "healthy",
+      "oom_killed": false
+    },
+    "gateway": {
+      "id": "f580a6574668158cafa14443ea121eb8b4bba34996077458c8416957aef01d6d",
+      "image_id": "sha256:2f3b9fc4d88afbb9612f7e1bb1202a31c6e975b1df4a76337cc280ac431ca36d",
+      "started_at": "2026-10-22T19:01:39.885203203Z",
+      "restarts": 0,
+      "running": true,
+      "health": null,
+      "oom_killed": false
+    },
+    "db": {
+      "id": "5c34a0594d5015209f7667d4421c00ef492b80298842829b2edb69c69449d96f",
+      "image_id": "sha256:7f22313fc130a377a44999965bcb0a08dd5b21e8502824c1b864f792f9bc66ab",
+      "started_at": "2026-10-20T00:08:02.308087378Z",
+      "restarts": 2,
+      "running": true,
+      "health": "healthy",
+      "oom_killed": false
+    },
+    "web": {
+      "id": "d8fb0c7da13aea642ae505b0c8bed74b529107185d43dbf35406f6b025d4d71d",
+      "image_id": "sha256:7377697a821c131a924a7105fafbe7414db4e9fcc77a6f08f776f33f141ec3f8",
+      "started_at": "2026-09-20T17:47:54.765116169Z",
+      "restarts": 0,
+      "running": true,
+      "health": null,
+      "oom_killed": false
+    },
+    "tunnel": {
+      "id": "30b1d25ff56bffa77a5b05d1b3d2f6c37b8a87dc05ef098721b6be6555235aac",
+      "image_id": "sha256:ff69a2225ad7c6f85ed84fbd5f3087df46202426b2388ec60214098e0adf05e9",
+      "started_at": "2026-09-20T17:53:43.445441644Z",
+      "restarts": 0,
+      "running": true,
+      "health": null,
+      "oom_killed": false
+    }
+  },
+  "evidence_files": [
+    "20261022_classic_dungeon_rewards-attempted.json",
+    "20261022_classic_dungeon_rewards-committed.json",
+    "20261022_classic_dungeons-attempted.json",
+    "20261022_classic_dungeons-committed.json",
+    "activation-started.json",
+    "backup.json",
+    "boot-state.json",
+    "candidate-image.json",
+    "deployed.json",
+    "expected-boot-state.json",
+    "generated-cache.json",
+    "market-before.json",
+    "native-expiry.json",
+    "opening.json",
+    "preflight-started.json",
+    "preflight.json",
+    "rehearsal.json",
+    "startup-cleanup-guards.json",
+    "stopped-state.json",
+    "verified-closed.json"
+  ],
+  "preflight": {
+    "manifest_sha256": "d61f902f9d7a4294cdda6b14266d5712ed4cf1b618afcd95e55d1719d314bd25",
+    "new_image_id": "sha256:0ccdabfd3a01682d4daa2082b01588b2d1f4676d3fbe74e1ebfc209496067000"
+  },
+  "rehearsal": {
+    "checks": {
+      "schema": 39,
+      "content": 497
+    },
+    "cache": {
+      "items": 414,
+      "clicks": 6,
+      "drift_rejections": 888,
+      "item_bytes": 1332
+    },
+    "comparison": {
+      "existing_records": 309760,
+      "unchanged": 309540,
+      "magic_only": 220,
+      "added": 84
+    },
+    "database": "nightcap_classic_stage_ae32f6c8c227",
+    "public_content_only": true,
+    "player_references_checked_by_stopped_live_migrations": true
+  },
+  "runtime": {
+    "image_id": "sha256:0ccdabfd3a01682d4daa2082b01588b2d1f4676d3fbe74e1ebfc209496067000",
+    "started_at": "2026-10-22T18:58:11.884260748Z",
+    "restart_count": 0,
+    "processes": [
+      [
+        "loginserver",
+        "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf"
+      ],
+      [
+        "world",
+        "49f87aafadcf6a9063e66cf581c4bd6356571c5c5725786657b95f4b8ba0afa7"
+      ],
+      [
+        "ucs",
+        "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714"
+      ],
+      [
+        "zone",
+        "8c9b97d53518442f74652518a06cfcfdf2202269ad95f065db57353bc000af31"
+      ],
+      [
+        "zone",
+        "8c9b97d53518442f74652518a06cfcfdf2202269ad95f065db57353bc000af31"
+      ],
+      [
+        "zone",
+        "8c9b97d53518442f74652518a06cfcfdf2202269ad95f065db57353bc000af31"
+      ],
+      [
+        "zone",
+        "8c9b97d53518442f74652518a06cfcfdf2202269ad95f065db57353bc000af31"
+      ],
+      [
+        "zone",
+        "8c9b97d53518442f74652518a06cfcfdf2202269ad95f065db57353bc000af31"
+      ],
+      [
+        "zone",
+        "8c9b97d53518442f74652518a06cfcfdf2202269ad95f065db57353bc000af31"
+      ],
+      [
+        "zone",
+        "8c9b97d53518442f74652518a06cfcfdf2202269ad95f065db57353bc000af31"
+      ],
+      [
+        "zone",
+        "8c9b97d53518442f74652518a06cfcfdf2202269ad95f065db57353bc000af31"
+      ],
+      [
+        "zone",
+        "8c9b97d53518442f74652518a06cfcfdf2202269ad95f065db57353bc000af31"
+      ],
+      [
+        "zone",
+        "8c9b97d53518442f74652518a06cfcfdf2202269ad95f065db57353bc000af31"
+      ],
+      [
+        "zone",
+        "8c9b97d53518442f74652518a06cfcfdf2202269ad95f065db57353bc000af31"
+      ],
+      [
+        "zone",
+        "8c9b97d53518442f74652518a06cfcfdf2202269ad95f065db57353bc000af31"
+      ]
+    ],
+    "errors": {
+      "native": 0,
+      "quest": 0,
+      "database": 0
+    }
+  },
+  "game": {
+    "id": "068e556ff46409125a38afce18d9ec71a3f64675d8eddabf24bba6176ccd73de",
+    "image_id": "sha256:0ccdabfd3a01682d4daa2082b01588b2d1f4676d3fbe74e1ebfc209496067000",
+    "started_at": "2026-10-22T18:58:11.884260748Z",
+    "restarts": 0,
+    "running": true,
+    "health": "healthy",
+    "oom_killed": false
+  },
+  "market": {
+    "before": [
+      "1",
+      "1",
+      "91",
+      "0",
+      "4",
+      "2.500000",
+      "2026-10-22 18:01:28"
+    ],
+    "after": [
+      "1",
+      "1",
+      "92",
+      "0",
+      "4",
+      "2.500000",
+      "2026-10-22 18:58:26"
+    ],
+    "offers": 42,
+    "capacity": 44
+  },
+  "checks": {
+    "schema": 39,
+    "content": 497
+  },
+  "cache": {
+    "items": 414,
+    "clicks": 6,
+    "drift_rejections": 888,
+    "item_bytes": 1332
+  },
+  "state_tables": 91,
+  "caches": {
+    "items": "cbfc9e8adce57157888ecdde0c516a2bbd7c94739be6d152774914bd10465dee",
+    "spells": "1ebd94788b4af38c9156c425f47be10ac1419372871febb4a589b3a6d08c2fbf"
+  },
+  "gateway_open": true,
+  "database_restored": false,
+  "owner_gameplay_accepted": false,
+  "client_channel_sha256": "562cac1419a64f916370b34a707ec5d6a39493ca5f5a4ed0f64e1853e5654ebf",
+  "backup": {
+    "path": "/opt/nightcap/releases/classic-dungeons-rewards-20261022/private-backup/peq-before.sql.gz",
+    "sha256": "965a7679b8fbee3d3373d4e9097d38d0df62ebddcd9332cc49b969f30eb25183",
+    "compressed_bytes": 64953809,
+    "uncompressed_bytes": 462682476,
+    "gzip_integrity": "passed"
+  },
+  "native_expiry": {
+    "cutoff_epoch": 1792090689,
+    "expired_noncorpse_rows": 0,
+    "native_rule_days": 7,
+    "boundary_window_seconds": 600
+  }
+}

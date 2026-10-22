@@ -1,5 +1,9 @@
 # Every Classic dungeon — candidate, October 22
 
+Current status: [paired live deployment](../classic-rewards-20261022/deployment/README.md) is verified on October22.
+Owner gameplay and balance acceptance remain open. The candidate evidence below
+retains its original capture scope.
+
 **Reward follow-up:** [Unique Classic raid rewards](../classic-rewards-20261022/README.md)
 supersedes this earlier candidate's shared-item fallback and zone-only pairing.
 Its414 MAGIC definitions require matching world/zone/shared_memory and regenerated
