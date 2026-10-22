@@ -4,6 +4,11 @@
 
 [Deployment, recovery and verification](deployment/README.md) record the current state; the original candidate capture and tests below remain dated evidence.
 
+Publication follow-up: the explicitly unreleased candidate guidance is included
+in `20261022-classic-robes-waist-v1`; all 465 public files verify. This does not
+activate the quest scripts or establish gameplay acceptance. The original
+source-review/publication-pending statements below retain their candidate scope.
+
 ## Diagnosis and accepted behavior
 
 A read-only production inspection on October 22 found Palwar wearing Normal

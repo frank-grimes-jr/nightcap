@@ -19,7 +19,9 @@ native waist edges with matching local coordinates and pelvis binding, spreading
 the displacement down the skirt to prevent inverted faces. Existing UVs, bones,
 faces, native body parts and helmets remain. Twelve robe, sixteen helmet and
 three PFS tests pass; independent serialized-geometry review passes. Corrective
-signed publication and native recheck are tracked in
+signed game2026102203 is published through main PR286, preserving138 other
+client files and the waypoint pair. All140 client files and465 wiki files verify.
+Native waist/animation acceptance remains open. Evidence and recheck are tracked in
 [waist correction](docs/releases/classic-robes-20261022/waist-correction/README.md).
 
 ## 2026-10-22 — Substantial class-armor Ascended rewards (candidate)
@@ -31,8 +33,9 @@ selects existing Ascended variants for 37 Crafted, Lambent, Darkforge, Ivy
 Etched and Totemic rewards, preserving original hand-in requirements and XP.
 Kurron Ni's dependent Shadow Knight epic hand-in accepts the original or new
 Ascended Darkforge pieces without bypassing its three-piece/900pp requirement.
-No item-stat/client change or live inventory repair. Quest activation, public
-wiki release and owner gameplay/balance QA remain pending.
+No item-stat/client change or live inventory repair. Quest activation and owner
+gameplay/balance QA remain pending. Explicitly unreleased candidate guidance is
+included in wiki20261022-classic-robes-waist-v1.
 See [evidence and exact QA](docs/releases/quest-armor-20261022/README.md).
 
 ## 2026-10-22 — Classic race robes published for live QA

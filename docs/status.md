@@ -11,20 +11,17 @@ item IDs changed, preserving every other inventory field. Logins are reopened.
 Native fresh-hand-in, inspection/relog and broader balance acceptance remain open.
 [Release evidence and recovery](releases/quest-armor-20261022/deployment/README.md).
 
-## Classic race robes — published for live QA, October 22
+## Classic robe waist correction — published for live QA, October 22
 
-Generated missing robe bodies for male/female Half Elf, Wood Elf, Barbarian,
-Dwarf, Troll, Ogre and Halfling. Existing skeletons, armor and custom helmets
-are retained. This is an asset correction, with no gameplay permission change.
-Native selection, archive preservation and offline fit checks are distinct from
-owner in-game acceptance. Main PR276 and signed game2026102201 are published
-with owner approval. Close the game, reopen the normal launcher and press Play.
-The two archives change together; 136 other managed files and the current
-DLL/catalog remain. No runtime restart or database change. Matching wiki
-20261022-classic-robes-v1 is published; native visual and animation QA is open.
-See [release evidence and exact QA](releases/classic-robes-20261022/README.md).
-
-
+Owner QA confirmed waist holes on Barbarian and Half Elf in game2201/2202.
+Source PR286 and signed game **2026102203** join the native torso/skirt seams
+for all seven added Classic races, both genders. All140 hosted hashes/signature
+and the actual DLL/catalog pair verify. The138 other descriptors, waypoint
+assets and proxy/catalog0.11.1 remain. No runtime restart or database change.
+Fully close EverQuest, reopen the normal launcher and press Play; observers
+also need the update. Native waist/animation recheck is open.
+Wiki20261022-classic-robes-waist-v1 verifies465 public files and private denials.
+[Evidence, recovery and exact recheck](releases/classic-robes-20261022/waist-correction/README.md).
 
 ## 2026-10-22 — Waypoint crystals deployed for live QA
 
