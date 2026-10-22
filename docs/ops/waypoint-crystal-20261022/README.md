@@ -115,3 +115,22 @@ Waypoint Explorer, In development and Recent changes receive explicitly
 unreleased notices. Features/home/travel/dungeon descriptions, commands and
 reward catalog retain their released meaning. Local edits are not public;
 publication remains pending.
+
+## Current release compatibility
+
+The candidate now incorporates main26761ff, including the published Classic robe
+release. A fresh HTTPS channel read exactly matches the previously verified signed
+game2026102201 envelope. `client-inventory-plan.json` retains all 135 unrelated
+asset descriptors/URLs, including both robe archives, plus patch history and
+tombstones. The five-file waypoint delta replaces three files and adds two;
+all 25 model-contract digests match the assembled 140-file inventory plan.
+This is an unsigned plan, not a publishable channel. A fresh baseline, higher
+counter, approved patch note and signing remain part of authorized publication.
+
+All 14 tested waypoint implementation hashes are unchanged by integration.
+`integration.json` and `wiki-integration-review.json` record the new baseline;
+the original verification/review files retain their earlier scope. Both published
+robe notices and unreleased crystal notices survive the resolved wiki merge.
+The published robe ledger e209649 is retained. The merged wiki passes 14 Python,
+6 search and 7 equipment checks and builds 458 pages. No native gameplay or
+publication acceptance is implied by these source/inventory checks.
