@@ -1,0 +1,200 @@
+{
+  "action": "apply",
+  "commit": "050e7a2fe18fcb0a55258062dc2a487138cf9aa7",
+  "quest_sha256": "3c22ca3d3e4a1b39b56c018ea97c5daea5abf735b633bf8a389ebb6ae7e8da4d",
+  "quest_reload_acknowledgments": 12,
+  "signal_sent": 20261022,
+  "native_lifetimes_services_waypoint_unchanged": true,
+  "rendered_acceptance": false,
+  "before": {
+    "services": [
+      [
+        "30b1d25ff56bffa77a5b05d1b3d2f6c37b8a87dc05ef098721b6be6555235aac",
+        "2026-09-20T17:53:43.445441644Z"
+      ],
+      [
+        "3d924d2fcff78d65aa271c90738e669847d30e9fd6ae7e43703a33b91887fb13",
+        "2026-10-22T00:39:27.29625113Z"
+      ],
+      [
+        "5c34a0594d5015209f7667d4421c00ef492b80298842829b2edb69c69449d96f",
+        "2026-10-20T00:08:02.308087378Z"
+      ],
+      [
+        "d8fb0c7da13aea642ae505b0c8bed74b529107185d43dbf35406f6b025d4d71d",
+        "2026-09-20T17:47:54.765116169Z"
+      ],
+      [
+        "f580a6574668158cafa14443ea121eb8b4bba34996077458c8416957aef01d6d",
+        "2026-10-22T00:42:09.926730108Z"
+      ]
+    ],
+    "native": [
+      [
+        "world",
+        26,
+        "270509772"
+      ],
+      [
+        "zone",
+        28,
+        "270509773"
+      ],
+      [
+        "zone",
+        29,
+        "270509773"
+      ],
+      [
+        "zone",
+        34,
+        "270509773"
+      ],
+      [
+        "zone",
+        35,
+        "270509773"
+      ],
+      [
+        "zone",
+        36,
+        "270509773"
+      ],
+      [
+        "zone",
+        37,
+        "270509774"
+      ],
+      [
+        "zone",
+        38,
+        "270509774"
+      ],
+      [
+        "zone",
+        39,
+        "270509774"
+      ],
+      [
+        "zone",
+        40,
+        "270509775"
+      ],
+      [
+        "zone",
+        41,
+        "270509775"
+      ],
+      [
+        "zone",
+        42,
+        "270509775"
+      ],
+      [
+        "zone",
+        43,
+        "270509775"
+      ]
+    ],
+    "waypoint_sha256": "f8fe9a8783e28b6685104a73769cf083c17ef5c411c9bc616e9fc3a420684e65"
+  },
+  "after": {
+    "services": [
+      [
+        "30b1d25ff56bffa77a5b05d1b3d2f6c37b8a87dc05ef098721b6be6555235aac",
+        "2026-09-20T17:53:43.445441644Z"
+      ],
+      [
+        "3d924d2fcff78d65aa271c90738e669847d30e9fd6ae7e43703a33b91887fb13",
+        "2026-10-22T00:39:27.29625113Z"
+      ],
+      [
+        "5c34a0594d5015209f7667d4421c00ef492b80298842829b2edb69c69449d96f",
+        "2026-10-20T00:08:02.308087378Z"
+      ],
+      [
+        "d8fb0c7da13aea642ae505b0c8bed74b529107185d43dbf35406f6b025d4d71d",
+        "2026-09-20T17:47:54.765116169Z"
+      ],
+      [
+        "f580a6574668158cafa14443ea121eb8b4bba34996077458c8416957aef01d6d",
+        "2026-10-22T00:42:09.926730108Z"
+      ]
+    ],
+    "native": [
+      [
+        "world",
+        26,
+        "270509772"
+      ],
+      [
+        "zone",
+        28,
+        "270509773"
+      ],
+      [
+        "zone",
+        29,
+        "270509773"
+      ],
+      [
+        "zone",
+        34,
+        "270509773"
+      ],
+      [
+        "zone",
+        35,
+        "270509773"
+      ],
+      [
+        "zone",
+        36,
+        "270509773"
+      ],
+      [
+        "zone",
+        37,
+        "270509774"
+      ],
+      [
+        "zone",
+        38,
+        "270509774"
+      ],
+      [
+        "zone",
+        39,
+        "270509774"
+      ],
+      [
+        "zone",
+        40,
+        "270509775"
+      ],
+      [
+        "zone",
+        41,
+        "270509775"
+      ],
+      [
+        "zone",
+        42,
+        "270509775"
+      ],
+      [
+        "zone",
+        43,
+        "270509775"
+      ]
+    ],
+    "waypoint_sha256": "f8fe9a8783e28b6685104a73769cf083c17ef5c411c9bc616e9fc3a420684e65"
+  },
+  "main_commit": "434d0e5e50520ae5b7f665033ddd108f41efb8d8",
+  "pull_request": 272,
+  "befallen_loaded_at_preflight": false,
+  "operator_tests": 8,
+  "review": "Independent review passed after sequencing reload acknowledgment before signal;8 regression groups pass.",
+  "acknowledgment_scope": "12 aggregate log acknowledgments; logs do not identify individual zone workers.",
+  "owner_qa": "Pending visible rendering and interactions; normal next Befallen load applies spawn policy."
+}

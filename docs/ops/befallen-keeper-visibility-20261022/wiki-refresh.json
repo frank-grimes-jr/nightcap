@@ -1,14 +1,15 @@
 {
   "result": "REVIEW REQUIRED",
-  "reviewed": "2026-10-21",
+  "reviewed": "2026-10-22",
   "source_ref": "HEAD",
   "changed_sources": [
     "docs/ops/befallen-keeper-visibility-20261022/README.md",
+    "docs/ops/befallen-keeper-visibility-20261022/deployment.json",
     "docs/ops/befallen-keeper-visibility-20261022/evidence.json",
+    "docs/ops/befallen-keeper-visibility-20261022/wiki-before.json",
+    "docs/ops/befallen-keeper-visibility-20261022/wiki-publication.json",
     "docs/ops/befallen-keeper-visibility-20261022/wiki-review.json",
-    "docs/status.md",
-    "server-mods/quests/global/Instance_Keeper.pl",
-    "tools/tests/instance_keeper_visuals.t"
+    "docs/status.md"
   ],
   "note": "Also inspect current deployment/owner evidence and changes outside Git. No automatic approval or publication."
 }

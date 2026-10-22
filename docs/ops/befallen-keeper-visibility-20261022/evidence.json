@@ -1,7 +1,7 @@
 {
   "date": "2026-10-22",
   "source_base": "c154d88550ffe02265dc207323267af9989bb9eb",
-  "status": "tested_candidate_not_deployed",
+  "status": "deployed_for_live_qa",
   "production_observation": {
     "zone": "befallen",
     "zone_id": 36,
@@ -115,5 +115,6 @@
     "visible_client_acceptance": "pending",
     "invisibility_root_cause": "overlap confirmed; rendering causality remains unproven",
     "independent_review": "No blocking implementation findings. Verified native movement/guard binding and saved-state ordering; stationary grid/roam fields subsequently confirmed in production. Test wording narrowed; rollback retains scoped inverse position handler."
-  }
+  },
+  "deployment": "deployment.json"
 }
