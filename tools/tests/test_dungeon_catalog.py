@@ -4,7 +4,7 @@ import unittest
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[2]
 sys.path.insert(0,str(ROOT/'tools'))
-from dungeon_catalog import items, DUNGEONS
+from dungeon_catalog import items, LEGACY_DUNGEONS
 
 class DungeonCatalogTests(unittest.TestCase):
     def test_catalog_contract(self):
@@ -27,7 +27,7 @@ class DungeonCatalogTests(unittest.TestCase):
                 values=[i.get(k,0) for i in family]
                 self.assertEqual(values,sorted(values))
     def test_boss_exclusives_are_three_designs_and_only_raid_quality(self):
-        for dungeon in DUNGEONS:
+        for dungeon in LEGACY_DUNGEONS:
             data=[r for r in items() if r['source']==dungeon[0]]
             self.assertEqual(len(data),6)
             self.assertEqual({r['quality'] for r in data},{'Polished','Ascended'})

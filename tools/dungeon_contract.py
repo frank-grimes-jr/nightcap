@@ -58,21 +58,7 @@ def content_checks():
             checks.append(dict(label='spawn/'+str(b['spawn_id']),sql='SELECT COUNT(*) FROM spawn2 WHERE '+predicate({k:b['spawn'][k] for k in fields}),expected='1'))
     return checks
 
-def main():
-    folder=ROOT/'docs/dungeons'
-    rehearsal=json.loads((folder/'rehearsal.json').read_text())
-    import hashlib
-    assert rehearsal['migration_sha256']==hashlib.sha256((ROOT/'server-mods/sql/20261016_dungeon_content.sql').read_text().encode()).hexdigest(), 'Rehearse the current migration first'
-    assert rehearsal['schema_sha256']==hashlib.sha256((ROOT/'server-mods/sql/20261016_dungeons.sql').read_text().encode()).hexdigest(), 'Rehearse the current schema first'
-    checks=schema_checks()
-    results=query(';\n'.join(c['sql'] for c in checks)+';',rehearsal['database']).stdout.strip().splitlines()
-    assert len(results)==len(checks)
-    for c,value in zip(checks,results):c['expected']=value
-    content=content_checks()
-    results=query(';\n'.join(c['sql'] for c in content)+';',rehearsal['database']).stdout.strip().splitlines()
-    assert len(results)==len(content)
-    for c,value in zip(content,results):assert value==c['expected'],(c['label'],value,c['expected'])
-    (folder/'runtime-contract.json').write_text(json.dumps(dict(schema=checks,content=content),indent=2)+'\n')
+def render_header(checks, content, items):
     out=['#pragma once','#include "common/item_data.h"','#include <cstring>','namespace NightcapDungeon {','struct ContractCheck { const char *label, *sql, *expected; };']
     for name,rows in [('SchemaChecks',checks),('ContentChecks',content)]:
         out.append('inline constexpr ContractCheck '+name+'[] = {')
@@ -94,13 +80,34 @@ def main():
         for field,native in [('type','AugSlotType'),('visible','AugSlotVisible'),('unk2','AugSlotUnk2')]:
             fields[f'augslot{i}{field}']=f'{native}[{i-1}]'
     out.append('inline bool CacheMatches(const EQ::ItemData &i) { switch(i.ID) {')
-    for item in json.loads((folder/'catalog.json').read_text())['items']:
+    for item in items:
         v=item['values']
         conditions=['std::strcmp(i.Name,'+json.dumps(v['Name'])+')==0','std::strcmp(i.IDFile,'+json.dumps(v['idfile'])+')==0']
         conditions += ['i.'+native+'=='+str(v.get(sql,0)) for sql,native in fields.items()]
         out.append('case '+str(v['id'])+': return '+' && '.join(conditions)+';')
     out+=['default: return false; } }','}']
-    (ROOT/'server-mods/code/common/dungeon_contract.h').write_text('\n'.join(out)+'\n')
+    return '\n'.join(out)+'\n'
+
+
+def main():
+    raise SystemExit('Historical October16 generator is frozen. Use tools/dungeon_refresh_contract.py for the current release contract.')
+
+def historical_main():
+    folder=ROOT/'docs/dungeons'
+    rehearsal=json.loads((folder/'rehearsal.json').read_text())
+    import hashlib
+    assert rehearsal['migration_sha256']==hashlib.sha256((ROOT/'server-mods/sql/20261016_dungeon_content.sql').read_text().encode()).hexdigest(), 'Rehearse the current migration first'
+    assert rehearsal['schema_sha256']==hashlib.sha256((ROOT/'server-mods/sql/20261016_dungeons.sql').read_text().encode()).hexdigest(), 'Rehearse the current schema first'
+    checks=schema_checks()
+    results=query(';\n'.join(c['sql'] for c in checks)+';',rehearsal['database']).stdout.strip().splitlines()
+    assert len(results)==len(checks)
+    for c,value in zip(checks,results):c['expected']=value
+    content=content_checks()
+    results=query(';\n'.join(c['sql'] for c in content)+';',rehearsal['database']).stdout.strip().splitlines()
+    assert len(results)==len(content)
+    for c,value in zip(content,results):assert value==c['expected'],(c['label'],value,c['expected'])
+    (folder/'runtime-contract.json').write_text(json.dumps(dict(schema=checks,content=content),indent=2)+'\n')
+    (ROOT/'server-mods/code/common/dungeon_contract.h').write_text(render_header(checks,content,json.loads((folder/'catalog.json').read_text())['items']))
     activation=['-- Explicit activation only after matching binaries/cache and test-environment approval.',
                 'DELIMITER //','CREATE PROCEDURE nightcap_dungeon_enable_20261016()','BEGIN',
                 'DECLARE revision_value BIGINT UNSIGNED;',

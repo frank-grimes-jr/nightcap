@@ -1,0 +1,18 @@
+{
+  "baseline_sources": {
+    "zone/dungeon_service.cpp": "0386d6a832104a5a0281fc2116e0c71023c757dc366dc789de8582d658aafe56",
+    "zone/dungeon_service.h": "857aa944dbada93a9109f603833ce254f858c8a1105ccf6604e254179c6c8007",
+    "zone/lua_general.cpp": "871f49b0d0dc276c7b1c6283c497011218b158c4b6a65b71ebdc6764c34cac25",
+    "common/dungeon_policy.h": "dfe1ecf5163a46c8c27de70c1cded80da64b853f525b922e882150dbb943136f",
+    "common/dungeon_catalog.h": "f7372a474ff0049be11822de4dcd5efacc8d9344da9662dff9f9f86a95046c21",
+    "common/dungeon_contract.h": "0a621dc7c1b11dbe4607f02aaf2d474386be7180f6eef7e4d6b28fea5e6f29e9"
+  },
+  "candidate_sources": {
+    "zone/dungeon_service.cpp": "8f0d3a8dfd1e763a47c1d1f85021a2606f692d2eaacb0775ef5080248643aa3e",
+    "zone/dungeon_service.h": "05a691d45e50b3ea3cf92bb44ab24dbd4bc78c8847c410d12831ea5124787158",
+    "zone/lua_general.cpp": "79b0e1963decd844dc2a94063714da87987a3e7e3267630246ef1bedfa0fffe0",
+    "common/dungeon_policy.h": "dc851a89f29eb9b57485b07c8aadabdc5117185fa11832a3a3bda442ed7c8c5d",
+    "common/dungeon_catalog.h": "07cd846de75a84b80fa276b7216874b5ec2fbcf7d9e674c52a8412c30ba61fd8",
+    "common/dungeon_contract.h": "77b8e0a1d59e860c72618fd3592e0565a01fbb23cc8ec25a5adb63718ffc2796"
+  }
+}

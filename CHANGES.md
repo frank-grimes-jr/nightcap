@@ -1,4 +1,14 @@
 # CHANGES
+## 2026-10-22 — Every Classic dungeon candidate
+
+Extends Raid/Grind and Enter, Join, Status, Claim Rewards and Reset to21 Classic
+dungeons including Fear, Hate and Sky. Preserves the original seven indices,
+run revision and330 reward definitions. Fixes stale native item guards behind
+the reported Permafrost mismatch. Adds guarded entrance/content SQL, UUID-scoped
+plane quests and restart-safe Sky key services. Automated verification is
+separate from deployment and owner gameplay/balance acceptance; not live.
+See [source, evidence, pairing and exact all-zone QA](docs/dungeons/classic-expansion-20261022/README.md).
+
 ## 2026-10-22 — Classic race robes published for live QA
 
 Adds missing robe bodies for both genders of Half Elf, Wood Elf, Barbarian,

@@ -1,4 +1,5 @@
 #pragma once
+#include "common/dungeon_catalog.h"
 #include <array>
 #include <cstdint>
 #include <limits>
@@ -24,6 +25,14 @@ inline uint32_t SharedItem(unsigned band, unsigned design, Quality quality) {
 inline uint32_t BossItem(unsigned dungeon, unsigned design, Quality quality) {
 	return dungeon < 7 && design < 3 && unsigned(quality)>=1 && unsigned(quality)<=2 ?
 		ItemBegin + SharedItems + (dungeon * 3 + design) * 2 + unsigned(quality) - 1 : 0;
+}
+// Preserve the original seven exclusive families. Added dungeons reuse three
+// existing shared-band designs, without introducing a new gear power tier.
+inline uint32_t FinalBossItem(unsigned dungeon, unsigned band, unsigned design, Quality quality) {
+	if (dungeon>=DungeonCount || band>=4 || design>=3 || unsigned(quality)<1 || unsigned(quality)>2) { return 0; }
+	if (dungeon<7) { return BossItem(dungeon,design,quality); }
+	constexpr unsigned designs[] = {8,17,22}; // saber, signet, field satchel
+	return SharedItem(band,designs[design],quality);
 }
 inline int64_t Scale(int64_t value, unsigned percent) {
 	if (value <= 0) { return value; }

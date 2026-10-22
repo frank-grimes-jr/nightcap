@@ -32,6 +32,21 @@ int main() {
     assert(!IsReward(ItemBegin-1) && !IsReward(ItemEnd));
     assert(SharedItem(4,0,Quality::Normal)==0);
     assert(BossItem(0,0,Quality::Normal)==0);
+    assert(DungeonCount==21);
+    for(unsigned zone=0;zone<DungeonCount;++zone) for(unsigned quality=1;quality<3;++quality) {
+        const auto &d=Dungeons[zone]; std::set<unsigned> final_items;
+        for(unsigned design=0;design<3;++design) {
+            const auto item=FinalBossItem(zone,d.band,design,Quality(quality));
+            assert(IsReward(item) && final_items.insert(item).second);
+            if(zone<7) assert(item==BossItem(zone,design,Quality(quality)));
+            else assert(item==SharedItem(d.band,design==0?8:design==1?17:22,Quality(quality)));
+        }
+    }
+    assert(FinalBossItem(21,0,0,Quality::Polished)==0);
+    assert(FinalBossItem(7,4,0,Quality::Polished)==0);
+    assert(FinalBossItem(20,3,3,Quality::Polished)==0);
+    assert(FinalBossItem(7,0,0,Quality::Normal)==0);
+    assert(FinalBossItem(7,0,0,Quality(3))==0);
     for(uint64_t seed=0;seed<10000;++seed) {
         const auto p=BossOrder(seed);
         assert(std::set<unsigned>(p.begin(),p.end()).size()==3);

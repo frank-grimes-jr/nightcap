@@ -80,7 +80,9 @@ bool CatalogReady() {
 	}
 	for (uint32_t id=ItemBegin;id<ItemEnd;++id) {
 		const auto item=database.GetItem(id);
-		if (!item || !CacheMatches(*item) || !item->NoRent || !item->NoDrop || item->LoreFlag || item->Attuneable || item->Price || item->FixedSellPrice) { return false; }
+		if (!item || !CacheMatches(*item) || !item->NoRent || !item->NoDrop || item->LoreFlag || item->Attuneable || item->Price || item->FixedSellPrice) {
+			LogError("Dungeon item cache drift [{}]",id); return false;
+		}
 	}
 	return true;
 }
@@ -224,7 +226,7 @@ void ShowChecklist(Client *c, const Run &run) {
 }
 
 void ConfigureJournalTask(int task_id, TaskInformation &task) {
-	if (task_id<9700 || task_id>9713) { return; }
+	if (task_id<9700 || task_id>=9700+static_cast<int>(DungeonCount*2)) { return; }
 	const auto &d=Dungeons[(task_id-9700)/2];
 	if (task.type!=TaskType::Quest || task.activity_count!=static_cast<int>(d.count+1)) { return; }
 	const bool raid=(task_id-9700)%2==1;
@@ -256,6 +258,7 @@ void ConfigureJournalTask(int task_id, TaskInformation &task) {
 }
 
 bool Managed() { return !current.id.empty(); }
+std::string RunID() { return current.id; }
 bool Boot() {
 	current={}; healthy=true; deaths.clear(); objectives.clear(); respawns.clear(); death_times.clear(); confirmations.clear();
 	if (!zone || !zone->GetInstanceID() || !FindDungeon(zone->GetZoneID())) { return true; }
@@ -280,7 +283,7 @@ bool Boot() {
 bool RaidNPC(Mob *mob) {
 	return Managed() && current.mode==Mode::Raid && mob && mob->IsNPC() && !mob->IsPet() && !mob->HasOwner() &&
 		!mob->IsMerc() && !mob->CastToNPC()->GetSwarmOwner() && mob->CastToNPC()->GetSpawnPointID()>0 &&
-		mob->GetClass()<=16 && mob->GetNPCTypeID()!=current.dungeon->keeper;
+		mob->GetClass()<=16 && mob->GetNPCTypeID()!=current.dungeon->keeper && mob->GetNPCTypeID()!=SkyKeyService;
 }
 bool SelectSpawn(uint32_t spawn, uint32_t &npc) {
 	if (!Managed()) { return true; }
@@ -316,21 +319,24 @@ void RestoreTimers(std::unordered_map<uint32_t,uint32_t> &timers) {
 void PrivateSpawns(std::vector<Spawn2Repository::Spawn2> &spawns) {
 	if (!Managed()) { return; }
 	for (auto &s : spawns) { if (RequiredSpawn(s.id)) { s._condition=0; s.cond_value=0; } }
-	if (current.dungeon->zone!=48) { return; }
-	spawns.erase(std::remove_if(spawns.begin(),spawns.end(),[](const auto &s) {
-		return s.spawngroupID!=999231 && s.spawngroupID!=999240;
-	}),spawns.end());
+	const auto private_count=PrivateSpawnCount(current.dungeon->zone);
+	if (!private_count) { return; }
+	if (current.dungeon->zone==48) {
+		spawns.erase(std::remove_if(spawns.begin(),spawns.end(),[](const auto &s) {
+			return s.spawngroupID!=999231 && s.spawngroupID!=999240;
+		}),spawns.end());
+	}
 	try {
-		auto rows=Query("SELECT spawn_id,group_id,npc_id,x,y,z,heading,respawn,grid_id FROM nightcap_dungeon_spawns WHERE zone_id=48");
+		auto rows=Query(fmt::format("SELECT spawn_id,group_id,npc_id,x,y,z,heading,respawn,grid_id FROM nightcap_dungeon_spawns WHERE zone_id={}",current.dungeon->zone));
 		for (auto r=rows.begin();r!=rows.end();++r) {
 			auto s=Spawn2Repository::NewEntity(); s.id=Strings::ToUnsignedInt(r[0]); s.spawngroupID=Strings::ToUnsignedInt(r[1]);
-			s.zone="cazicthule"; s.version=0; s.x=std::stof(r[3]); s.y=std::stof(r[4]); s.z=std::stof(r[5]); s.heading=std::stof(r[6]);
+			s.zone=current.dungeon->name; s.version=0; s.x=std::stof(r[3]); s.y=std::stof(r[4]); s.z=std::stof(r[5]); s.heading=std::stof(r[6]);
 			s.respawntime=Strings::ToUnsignedInt(r[7]); s.pathgrid=Strings::ToUnsignedInt(r[8]); spawns.push_back(s);
 		}
-		if (rows.RowCount()!=188) { throw std::runtime_error("Classic CT population incomplete"); }
+		if (rows.RowCount()!=private_count) { throw std::runtime_error("Private dungeon population incomplete"); }
 		for (const auto &s : spawns) {
 			if (!zone->spawn_group_list.GetSpawnGroup(s.spawngroupID)) { content_db.LoadSpawnGroupsByID(s.spawngroupID,&zone->spawn_group_list); }
-			if (!zone->spawn_group_list.GetSpawnGroup(s.spawngroupID)) { throw std::runtime_error("Classic CT spawn group missing"); }
+			if (!zone->spawn_group_list.GetSpawnGroup(s.spawngroupID)) { throw std::runtime_error("Private dungeon spawn group missing"); }
 		}
 	} catch (...) { healthy=false; spawns.clear(); }
 }
@@ -618,7 +624,7 @@ bool Keeper(Client *c, NPC *keeper, const std::string &action) {
 				if (run.mode==Mode::Raid) {
 					const auto order=BossOrder(run.seed); const auto count=BossCount(Roll(run.seed,0,3,10000));
 					for (unsigned i=0;i<count;++i) {
-						const auto item=BossItem(d->index,order[i],RollQuality(Mode::Raid,Roll(run.seed,0,10+i,10000)));
+						const auto item=FinalBossItem(d->index,d->band,order[i],RollQuality(Mode::Raid,Roll(run.seed,0,10+i,10000)));
 						if (!database.GetItem(item)) { throw std::runtime_error("dungeon item cache incomplete"); }
 						Query(fmt::format("INSERT INTO nightcap_dungeon_loot VALUES ({},{},{},{})",Q(run.id),i,item,Q(NightcapLoot::NewDropID())));
 					}
