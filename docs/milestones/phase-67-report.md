@@ -27,3 +27,12 @@ waist edges, distributing deformation to avoid inverted faces. Twelve robe,
 sixteen helmet and three PFS tests plus independent serialized-archive review
 pass. All140 public client files and465 wiki files verify. Current waypoint
 assets and matching DLL/catalog remain. [Follow-up evidence](../releases/classic-robes-20261022/waist-correction/README.md).
+
+The owner rejected the 2203 seam correction while standing and moving. PR291 and
+signed 2204 correct a separate native loader contract: each bone must have one
+contiguous vertex run. Actual x86 DirectX execution loses 432 old assignments and
+zero corrected assignments across 16 registrations. The final grouping preserves
+all triangle attributes exactly. Thirteen robe tests plus the actual-library
+regression pass; the latter includes all 16 corrected models and a failing split
+run control. All 140 hosted files verify. Visible native acceptance is still open.
+[Current follow-up](../releases/classic-robes-20261022/native-skinning/README.md).

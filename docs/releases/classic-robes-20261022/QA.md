@@ -1,14 +1,15 @@
 # Native robe acceptance
 
 Pending: offline previews and mapped-native checks do not complete this gate.
-Signed game release `2026102203` is available for live testing. Close EverQuest
+Signed game release `2026102204` is available for live testing. Close EverQuest
 completely, reopen the normal launcher and press Play. Keep the current matched
 Nightcap proxy/catalog and default Classic models. Record both archive
 hashes, race, gender, item ID/material, zone and screenshots for each result.
 The wearer and observer must both load the update. Expected archive hashes are
-in `waist-correction/deployment/signed-candidate.json`; current publication and
-recovery receipts are in `waist-correction/deployment/`. Owner QA rejected the
-original waist on Barbarian and Half Elf. Start the recheck there; all seven
+in `native-skinning/deployment/signed-candidate.json`; current publication and
+recovery receipts are in `native-skinning/deployment/`. Owner QA rejected the
+original and 2203 waist on Barbarian and Half Elf. The second report confirms
+the gap both standing and moving; native skinning lost earlier bone assignments. Start the recheck there; all seven
 races/both genders require a continuous waist during movement and casting.
 
 1. In the East Commonlands tunnel (`ecommons`), use a test character holding a

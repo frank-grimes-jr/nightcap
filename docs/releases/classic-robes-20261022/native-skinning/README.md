@@ -4,7 +4,9 @@ The owner rejected game2026102203: the gap remains both standing and moving.
 Read-only inspection confirms the installed archives and active launcher release
 match2203. This is a native loading defect, not a missing launcher update.
 
-Status: corrected candidate `native-waist-01`; signed2204 is staged for testing.
+Status: PR291 merged to main at `42603ee6b9ef8928698d2c6aac0cc7605196229b`.
+Signed game **2026102204** publishes `native-waist-01` for live testing.
+All 140 hosted client files and the shipped-key signature verify.
 Native visible standing, movement, dye and observer acceptance remains open.
 
 ## Proven cause and correction
@@ -42,7 +44,7 @@ the standard library and does not launch the game or GPU renderer.
 The fixture uses identity vertex remapping; native loader disassembly shows the
 same setter after its mesh optimizer's remapping. No full native render is claimed.
 
-After signed publication, fully exit EverQuest, reopen the normal launcher and
+To install game 2026102204, fully exit EverQuest, reopen the normal launcher and
 press Play. Both wearer and observer update. In East Commonlands, first inspect
 Barbarian and Half Elf, both genders, standing still and while turning, walking,
 running, casting, sitting and crouching. Expect a continuous waist with no missing

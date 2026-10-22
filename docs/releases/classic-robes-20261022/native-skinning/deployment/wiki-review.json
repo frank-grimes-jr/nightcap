@@ -1,0 +1,164 @@
+{
+  "source_ref": "42603ee6b9ef8928698d2c6aac0cc7605196229b",
+  "include_worktree": true,
+  "previous_public_release": "20261022-quest-tiers-v1",
+  "client_release": 2026102204,
+  "articles": [
+    {
+      "path": "wiki/articles/about.json",
+      "decision": "No robe impact; current mechanics, commands, release labels and guidance preserved.",
+      "before_sha256": "d30e64f41dd4395f4d27163407a134527fca9bf9892dabd816774bd0ebcd1da0",
+      "after_sha256": "d30e64f41dd4395f4d27163407a134527fca9bf9892dabd816774bd0ebcd1da0"
+    },
+    {
+      "path": "wiki/articles/advanced-loot.json",
+      "decision": "No robe impact; current mechanics, commands, release labels and guidance preserved.",
+      "before_sha256": "0f0870dd8c5e412c0a673a7ff551a952965397e5b2ce0dd6bb67ac1336c0e506",
+      "after_sha256": "0f0870dd8c5e412c0a673a7ff551a952965397e5b2ce0dd6bb67ac1336c0e506"
+    },
+    {
+      "path": "wiki/articles/ascension.json",
+      "decision": "No robe impact; current mechanics, commands, release labels and guidance preserved.",
+      "before_sha256": "c8f1855d8d4372f23a587bfd7da5af027e0720607fc560b7e73ad87a0e8f095b",
+      "after_sha256": "c8f1855d8d4372f23a587bfd7da5af027e0720607fc560b7e73ad87a0e8f095b"
+    },
+    {
+      "path": "wiki/articles/combat.json",
+      "decision": "No robe impact; current mechanics, commands, release labels and guidance preserved.",
+      "before_sha256": "0583a10b6d98e3bdb6dade874b19b5c5a546cea034660fd40080a08108cb7594",
+      "after_sha256": "0583a10b6d98e3bdb6dade874b19b5c5a546cea034660fd40080a08108cb7594"
+    },
+    {
+      "path": "wiki/articles/commands.json",
+      "decision": "No robe impact; current mechanics, commands, release labels and guidance preserved.",
+      "before_sha256": "7b28b5660af28cc58700be74ac22f184a2bde62455286a027fb2c7662cb18e6e",
+      "after_sha256": "7b28b5660af28cc58700be74ac22f184a2bde62455286a027fb2c7662cb18e6e"
+    },
+    {
+      "path": "wiki/articles/dungeon-modes.json",
+      "decision": "No robe impact; current mechanics, commands, release labels and guidance preserved.",
+      "before_sha256": "946c54451e6576ee781a25a855d3b42d526a7493e65b55847125f127619cc2a9",
+      "after_sha256": "946c54451e6576ee781a25a855d3b42d526a7493e65b55847125f127619cc2a9"
+    },
+    {
+      "path": "wiki/articles/equipment.json",
+      "decision": "Updated the existing robe notice only: waist defect, corrected2203, full exit/Play and open native acceptance.",
+      "before_sha256": "30d53698bcb1da8dbff34e257263d65aff74a5b156e308c0c99d3ae198be7e3f",
+      "after_sha256": "c315485ce3dd5a57c858786f873fb58fe0a3d5975dad49d7397621ed5b77a88c"
+    },
+    {
+      "path": "wiki/articles/features.json",
+      "decision": "Updated the existing robe notice only: waist defect, corrected2203, full exit/Play and open native acceptance.",
+      "before_sha256": "295bb004aa9bdccca63dbf42c237999f1db698cab92558ac194c7bd99435f2ce",
+      "after_sha256": "5bb056d10ebdfd84a650fce19322a6eca05d196d5be901b84aca26db79980e74"
+    },
+    {
+      "path": "wiki/articles/getting-started.json",
+      "decision": "No robe impact; current mechanics, commands, release labels and guidance preserved.",
+      "before_sha256": "acea4482f627738f5479f52d3c9e2da1c3d0b152bf9b72250fad9be570e291e4",
+      "after_sha256": "acea4482f627738f5479f52d3c9e2da1c3d0b152bf9b72250fad9be570e291e4"
+    },
+    {
+      "path": "wiki/articles/index.json",
+      "decision": "Updated the existing robe notice only: waist defect, corrected2203, full exit/Play and open native acceptance.",
+      "before_sha256": "d4166d4d085e145ee1733d1c30fcafe8ba865309851e4a2bc828c5e1b78238ef",
+      "after_sha256": "5048b454738696ba146ca15ff6a2847aa84e3f50692c6159d8ecfa318836080f"
+    },
+    {
+      "path": "wiki/articles/item-upgrades.json",
+      "decision": "Preserved exact already-published quest-tiers-v1 ingredient guidance and all reforging rules; no robe impact.",
+      "before_sha256": "08d53300c925355b993ecfb367f7a17c34ab505271744c5d2336fe5bccf92fcf",
+      "after_sha256": "8e8d7f65bc4b0521304c9477778e7df42135c289c3712a55fbac68e42a407cb6"
+    },
+    {
+      "path": "wiki/articles/launcher.json",
+      "decision": "Updated the existing robe notice only: waist defect, corrected2203, full exit/Play and open native acceptance.",
+      "before_sha256": "9ee298a1b9045fcd1ed4823d985b5186843b0a42e58606793653d2c8dfc29f1c",
+      "after_sha256": "2161279f192b51a461bf644bd6bd8df9019bdc79f39f034772ed75066bdddcbe"
+    },
+    {
+      "path": "wiki/articles/multiclass.json",
+      "decision": "Updated the existing robe notice only: waist defect, corrected2203, full exit/Play and open native acceptance.",
+      "before_sha256": "59374613236c10e5528e01ed6d165f68ea7710ad5290256e9e63682cae8d0654",
+      "after_sha256": "7862467b7cb9816ec68543970d847f5753db896c6940c6ab8a7de6e921fc923d"
+    },
+    {
+      "path": "wiki/articles/pets.json",
+      "decision": "No robe impact; current mechanics, commands, release labels and guidance preserved.",
+      "before_sha256": "5eee46c3a8a2c2bffe6c6abc2c51a7c0f8180ae65f6e092e120d72c84a05adfb",
+      "after_sha256": "5eee46c3a8a2c2bffe6c6abc2c51a7c0f8180ae65f6e092e120d72c84a05adfb"
+    },
+    {
+      "path": "wiki/articles/recent-changes.json",
+      "decision": "Updated the existing robe notice only: waist defect, corrected2203, full exit/Play and open native acceptance.",
+      "before_sha256": "b4c0eb99b55e3aef0d631475853b818f74d3377d1391815b12bb0ccc03331f6d",
+      "after_sha256": "44e2a804d26c67bf1aa5a21006a96125246ce0d3ee476713f40d103c5ab245e9"
+    },
+    {
+      "path": "wiki/articles/tradeskills.json",
+      "decision": "No robe impact; current mechanics, commands, release labels and guidance preserved.",
+      "before_sha256": "11337cf99d6b72950c61e97849f619152b9804d9a0b0e7eca41534e35eddf722",
+      "after_sha256": "11337cf99d6b72950c61e97849f619152b9804d9a0b0e7eca41534e35eddf722"
+    },
+    {
+      "path": "wiki/articles/travel.json",
+      "decision": "No robe impact; current mechanics, commands, release labels and guidance preserved.",
+      "before_sha256": "a03ba3ae582673d18bd96f2a8fe44fc8eeb769042f3df70639cc3d20cd7f8a20",
+      "after_sha256": "a03ba3ae582673d18bd96f2a8fe44fc8eeb769042f3df70639cc3d20cd7f8a20"
+    },
+    {
+      "path": "wiki/articles/tunnel.json",
+      "decision": "No robe impact; current mechanics, commands, release labels and guidance preserved.",
+      "before_sha256": "1cd4347301cf3cd5bcc0f2b9b3cdf5aa746582c09ff4294f57ea2f58bcf07447",
+      "after_sha256": "1cd4347301cf3cd5bcc0f2b9b3cdf5aa746582c09ff4294f57ea2f58bcf07447"
+    },
+    {
+      "path": "wiki/articles/unreleased.json",
+      "decision": "Updated the existing robe notice only: waist defect, corrected2203, full exit/Play and open native acceptance.",
+      "before_sha256": "bd187a9f14466c52e9e9c97fa0d6f545e63f8418a1a990f4a175e1481e9d223b",
+      "after_sha256": "a6784ae4d557232effa848a44f0719ac86a3d9c667397d160e56a4ac7c194e18"
+    },
+    {
+      "path": "wiki/articles/waypoints.json",
+      "decision": "No robe impact; current mechanics, commands, release labels and guidance preserved.",
+      "before_sha256": "0da7b500fff27f39137d699ad25cae8aba8e8f739b7bb55b6978b8caee592672",
+      "after_sha256": "0da7b500fff27f39137d699ad25cae8aba8e8f739b7bb55b6978b8caee592672"
+    },
+    {
+      "path": "wiki/articles/zone-hunt.json",
+      "decision": "No robe impact; current mechanics, commands, release labels and guidance preserved.",
+      "before_sha256": "114c593cf0f89288702b7b5fe23f0e563f337b64864dc3b953c9d2c62635044d",
+      "after_sha256": "114c593cf0f89288702b7b5fe23f0e563f337b64864dc3b953c9d2c62635044d"
+    }
+  ],
+  "generated_routes": 432,
+  "catalog_items": 384,
+  "source_drift_review": "Main PR291/42603ee native binding source/tests/proof reviewed. Before public writes, the guard detected newer quest-tiers-v1. Its native deployment and465 public checks were inspected and its six published Live testing notices preserved. Class-armor Live testing, current waypoint/Keeper guidance, commands and384 catalog values remain. This release changes seven robe guides plus search. See concurrent-wiki-reconciliation.json.",
+  "catalog_and_commands": "No item-stat, acquisition, recipe, class permission, era, command or catalog change from the robe correction.",
+  "native_acceptance": "pending",
+  "status": "published_verified_native_QA_pending",
+  "publication": {
+    "result": "PASS",
+    "release": "20261022-classic-robes-native-waist-v1",
+    "verified_at": "2026-10-22T18:18:08.502473+00:00",
+    "files": 465,
+    "sha256_and_security_headers": true,
+    "private_routes_denied": [
+      ".env",
+      "articles/item-upgrades.json",
+      "content-review.json",
+      "catalog.json",
+      "wiki/current/index.html"
+    ]
+  },
+  "public_changed_files": [
+    "equipment.html",
+    "features.html",
+    "index.html",
+    "launcher.html",
+    "multiclass.html",
+    "recent-changes.html",
+    "search-index.json",
+    "unreleased.html"
+  ]
+}

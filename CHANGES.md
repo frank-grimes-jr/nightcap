@@ -24,7 +24,9 @@ archive hashes match. Native DirectX overwrites the earlier torso influence list
 when the skirt repeats its pelvis group. The generator now groups each bone once,
 preserving exact physical geometry, UVs, normals and materials. Actual x86 library
 checks reproduce432 lost influences on the old16 registrations and zero after
-regrouping. Publication and visible recheck remain separate gates. See
+regrouping. PR291/main and signed game 2026102204 are published; all 140 hosted
+files and the retained DLL/catalog pair verify. Native visible recheck remains
+open; close EverQuest fully and use launcher Play. See
 [native binding proof and QA](docs/releases/classic-robes-20261022/native-skinning/README.md).
 
 ## 2026-10-22 — Class-armor release and Palwar correction
