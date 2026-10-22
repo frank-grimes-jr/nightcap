@@ -1,0 +1,268 @@
+{
+  "version": 1,
+  "level": 50,
+  "spells": [
+    {
+      "id": "54",
+      "name": "Frost Bolt",
+      "kind": "damage",
+      "base": 14,
+      "cast": 1.0,
+      "recovery": 1.5,
+      "cooldown": 13.0,
+      "mana": 6,
+      "ticks": 0,
+      "group": "",
+      "classes": [
+        12
+      ],
+      "evidence": "Native value control \u00b7 Oct 18"
+    },
+    {
+      "id": "732",
+      "name": "Ice Comet",
+      "kind": "damage",
+      "base": 808,
+      "cast": 5.0,
+      "recovery": 1.5,
+      "cooldown": 1.5,
+      "mana": 203,
+      "ticks": 0,
+      "group": "",
+      "classes": [
+        12
+      ],
+      "evidence": "Content formula \u00b7 Sep 12"
+    },
+    {
+      "id": "360",
+      "name": "Heat Blood",
+      "kind": "dot",
+      "base": 43,
+      "cast": 3.0,
+      "recovery": 1.5,
+      "cooldown": 4.0,
+      "mana": 88,
+      "ticks": 6,
+      "group": "blood-dot",
+      "classes": [
+        5,
+        11
+      ],
+      "evidence": "Native value control \u00b7 Oct 18"
+    },
+    {
+      "id": "6",
+      "name": "Ignite Blood",
+      "kind": "dot",
+      "base": 125,
+      "cast": 3.0,
+      "recovery": 1.5,
+      "cooldown": 1.5,
+      "mana": 218,
+      "ticks": 7,
+      "group": "blood-dot",
+      "classes": [
+        11
+      ],
+      "evidence": "Content formula \u00b7 Sep 12"
+    },
+    {
+      "id": "17",
+      "name": "Light Healing",
+      "kind": "heal",
+      "base": 65,
+      "cast": 2.0,
+      "recovery": 1.5,
+      "cooldown": 1.5,
+      "mana": 28,
+      "ticks": 0,
+      "group": "",
+      "classes": [
+        2,
+        3,
+        4,
+        6,
+        10,
+        15
+      ],
+      "evidence": "Native value control \u00b7 Oct 18"
+    },
+    {
+      "id": "15",
+      "name": "Greater Healing",
+      "kind": "heal",
+      "base": 350,
+      "cast": 3.0,
+      "recovery": 1.5,
+      "cooldown": 1.5,
+      "mana": 115,
+      "ticks": 0,
+      "group": "",
+      "classes": [
+        2,
+        3,
+        6,
+        10
+      ],
+      "evidence": "Content formula \u00b7 Sep 12"
+    },
+    {
+      "id": "114",
+      "name": "Shock of Swords",
+      "kind": "damage",
+      "base": 584,
+      "cast": 5.0,
+      "recovery": 1.5,
+      "cooldown": 1.5,
+      "mana": 162,
+      "ticks": 0,
+      "group": "",
+      "classes": [
+        13
+      ],
+      "evidence": "Content formula \u00b7 Sep 12"
+    },
+    {
+      "id": "671",
+      "name": "Starfire",
+      "kind": "damage",
+      "base": 634,
+      "cast": 5.0,
+      "recovery": 1.5,
+      "cooldown": 1.5,
+      "mana": 186,
+      "ticks": 0,
+      "group": "",
+      "classes": [
+        6
+      ],
+      "evidence": "Content formula \u00b7 Sep 12"
+    }
+  ],
+  "controls": [
+    {
+      "spell": "54",
+      "sd": 0,
+      "ha": 0,
+      "hint": 0,
+      "hwis": 0,
+      "landed": [
+        14
+      ]
+    },
+    {
+      "spell": "17",
+      "sd": 0,
+      "ha": 0,
+      "hint": 0,
+      "hwis": 0,
+      "landed": [
+        65
+      ]
+    },
+    {
+      "spell": "360",
+      "sd": 0,
+      "ha": 0,
+      "hint": 0,
+      "hwis": 0,
+      "landed": [
+        43
+      ]
+    },
+    {
+      "spell": "54",
+      "sd": 39,
+      "ha": 39,
+      "hint": 0,
+      "hwis": 0,
+      "landed": [
+        53
+      ]
+    },
+    {
+      "spell": "17",
+      "sd": 39,
+      "ha": 39,
+      "hint": 0,
+      "hwis": 0,
+      "landed": [
+        90
+      ]
+    },
+    {
+      "spell": "360",
+      "sd": 39,
+      "ha": 39,
+      "hint": 0,
+      "hwis": 0,
+      "landed": [
+        62
+      ]
+    },
+    {
+      "spell": "54",
+      "sd": 170,
+      "ha": 170,
+      "hint": 0,
+      "hwis": 0,
+      "landed": [
+        184
+      ]
+    },
+    {
+      "spell": "17",
+      "sd": 170,
+      "ha": 170,
+      "hint": 0,
+      "hwis": 0,
+      "landed": [
+        175
+      ]
+    },
+    {
+      "spell": "360",
+      "sd": 170,
+      "ha": 170,
+      "hint": 0,
+      "hwis": 0,
+      "landed": [
+        128
+      ]
+    },
+    {
+      "spell": "54",
+      "sd": 532,
+      "ha": 460,
+      "hint": 138,
+      "hwis": 119,
+      "landed": [
+        621
+      ]
+    },
+    {
+      "spell": "17",
+      "sd": 532,
+      "ha": 460,
+      "hint": 138,
+      "hwis": 119,
+      "landed": [
+        407
+      ]
+    },
+    {
+      "spell": "360",
+      "sd": 532,
+      "ha": 460,
+      "hint": 138,
+      "hwis": 119,
+      "landed": [
+        309
+      ]
+    }
+  ],
+  "contentDate": "2026-09-12",
+  "controlDate": "2026-10-18",
+  "reviewed": "2026-10-22"
+}

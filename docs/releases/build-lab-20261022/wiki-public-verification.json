@@ -1,0 +1,14 @@
+{
+  "result": "PASS",
+  "release": "20261022-build-lab-v1",
+  "verified_at": "2026-10-22T22:24:33.695288+00:00",
+  "files": 466,
+  "sha256_and_security_headers": true,
+  "private_routes_denied": [
+    ".env",
+    "articles/item-upgrades.json",
+    "content-review.json",
+    "catalog.json",
+    "wiki/current/index.html"
+  ]
+}

@@ -1,0 +1,475 @@
+--- a/references/wiki.md
++++ b/references/wiki.md
+@@ -1,8 +1,38 @@
+ # Official player wiki and Features
+ 
++## Build Lab — October22 published
++
++Current wiki release is `20261022-build-lab-v1` after the interactive handbook.
++Source E:/EQ_Local_Dev/_worktrees/wiki-interactive, branch feature/build-lab.
++`wiki/build_lab.py`, `assets/build-lab-model.js`, `build-lab.js` and `build-lab.css`
++add A/B builds, effective stat inputs, eight pinned spells, Hunt item differences,
++resolved actions, mana/cast timelines and exhaustive priority-order search. Saves
++use nightcap.build-lab.v1, with validated text import/export. No account, DB/API,
++gameplay reload or client pairing. Public files stay on the existing asset allowlist.
++
++This is an experimental Classic50 diagnostic, not a complete native simulator or
++automatic legal gear/AA/pet planner. September12 content/original class levels and
++October18 landed native controls are dated explicitly; current formulas were
++reviewed October22. SD/HA cap750, additive DD, floor(SD/2) ordinary ticks, percentage
++healing and direct-only heroic scaling have12captured native value checks. Resolved
++abilities bypass scaling. 100ms scheduling/6s global ticks, constant incoming and
++resolved melee/pet DPS, expected landed percentage, reserved mana and fixed healing
++priority are assumptions. Search tests up to720orders, survival then damage; no
++subsets, waiting, AA/gear or global optimality. Do not promote results into live
++balance or player acceptance. Model/data provenance: docs/build-lab/.
++
++All22guides/432generated routes assessed; Features/Combat/Equipment/Recent changes,
++home path and navigation link the lab. Existing gameplay/catalog/command labels
++remain. 26Python pass/9POSIX skips,10model scenario groups, existing Node suites,
++real browser320/768/1024/1440 and strict-CSP checks pass. The publisher runs16Linux
++recovery tests and rehearses pointer rollback, preserving private services/config.
++All466HTTPS hashes/headers and five private denials verify. Evidence:
++docs/releases/build-lab-20261022/. Website publication is separate from main or
++gameplay promotion. Preserve this source/publication in subsequent whole-site builds.
++
+ ## Interactive handbook — October 22 published
+ 
+-Current public release is `20261022-interactive-handbook-v1`, following
++The handbook shell was introduced in `20261022-interactive-handbook-v1`, following
+ `20261022-classic-dungeons-v1`. Source: E:/EQ_Local_Dev/_worktrees/wiki-interactive.
+ `wiki/experience.py` composes four paths from current article titles/summaries and
+ moves home notices intact into a native disclosure. `assets/experience.css` and
+@@ -462,10 +492,10 @@
+ keyboard navigation, clean console and 320/768/1024/1440 layouts.
+ 
+ Live public URL: https://wiki.nightcapgame.org/. Current verified release is
+-`20261022-interactive-handbook-v1`; previous is `20261022-classic-dungeons-v1`.
+-The current publication/recovery evidence is in docs/releases/wiki-interactive-20261022/;
+-older dated sections retain historical scope. Runbook: docs/ops/nightcap-wiki.md;
+-maintenance: wiki/README.md. Native owner acceptance remains separately recorded.
++`20261022-build-lab-v1`; previous is `20261022-interactive-handbook-v1`.
++Current publication/recovery: docs/releases/build-lab-20261022/.
++Runbook: docs/ops/nightcap-wiki.md; maintenance: wiki/README.md.
++Native player and balance acceptance are separate.
+ 
+ `update.py` holds the shared website lock and atomically switches a guarded relative
+ wiki symlink, verifies every file, rehearses the previous release and reapplies.
+--- a/references/balance.md
++++ b/references/balance.md
+@@ -1,4 +1,18 @@
+ # Combat and balance knowledge
++
++## Browser Build Lab — October22
++
++The wiki's experimental Build Lab is a separate deterministic diagnostic model,
++not the native harness. See wiki.md and docs/build-lab/README.md for its exact
++scope: eight pinned spells,12captured landed value controls, explicit effective
++stats/resolved abilities,100ms steps/6s global ticks and up to720priority orders.
++Full AA/equipment/pet derivation, RNG, resist/AI and global optimality are excluded.
++Use `node wiki/test_build_lab.cjs` for arithmetic, resource/timer/horizon/death,
++import and search contracts; `wiki/test_build_lab.py` pins source fixtures.
++`tools/build_lab_data.py` projects only reviewed public fields and original spell
++levels. Never infer access from widened spell columns or refresh hashes without
++review. The model is published as20261022-build-lab-v1; no runtime/client change
++or fresh native/gameplay acceptance follows. Evidence: docs/releases/build-lab-20261022/.
+ 
+ ## Classic dungeon relic budgets — October22 live testing
+ 
+--- a/references/sources.json
++++ b/references/sources.json
+@@ -85,7 +85,8 @@
+     "classic_dungeon_rewards_candidate_20261022": "ffab60e91036c31bdcb8c9ce75358d4603ad4548",
+     "quest_armor_deployed_20261022": "4345dcefb49ba6a1bb37fa48fee3c52f8210e72a; main PR285/7f97288;11quests/Palwar correction/wiki-v2 verified; native QA pending",
+     "classic_dungeon_rewards_live_20261022": "0d61d9b473221f36cd6b840f1128b0ef9fe91ee7",
+-    "wiki_interactive_20261022": "b6fe8e2965df33c7961d61c3f2659bdaae5e0b2e"
++    "wiki_interactive_20261022": "b6fe8e2965df33c7961d61c3f2659bdaae5e0b2e",
++    "build_lab_20261022": "35c8e17a2f2395f96c787ab38d06344a3e962b0b"
+   },
+   "topics": {
+     "operations": [
+@@ -7307,13 +7308,6 @@
+         "sha256": "fd6d63429f0672a7112285160237d5f2a141e491cf0f65fb8c9ab2ba7982d52d"
+       },
+       {
+-        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+-        "path": "server-mods/code/zone/effects.cpp",
+-        "role": "THJ behavior/gear deployed for live testing; owner gameplay QA pending",
+-        "revision": "70966674868e48466fa5ba4ae3393e08fd0df2ed + reviewed deployment evidence",
+-        "sha256": "ab37cc8cc7a2166fe3a93b577ddb9bd9147a5ddfc98fa3bcf5a542bc6bdf4f69"
+-      },
+-      {
+         "root": "E:/EQ_Local_Dev/_worktrees/merchant-sell-all",
+         "path": "docs/releases/zone-loot-20261009/BALANCE.md",
+         "role": "scoped augment headroom and synthetic limits",
+@@ -7986,13 +7980,6 @@
+       },
+       {
+         "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+-        "path": "server-mods/code/common/nightcap_spell_scaling.h",
+-        "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
+-        "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
+-        "sha256": "e5cc4686d22f0cc34916bcb841c7ab38e2dc441d611c1b83091afd5d5db81938"
+-      },
+-      {
+-        "root": "C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev",
+         "path": "server-mods/code/common/ruletypes.h",
+         "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
+         "revision": "8e8d71d8b99a710b0611850ce01be59c349e8be5 + reviewed deployment working tree",
+@@ -8186,6 +8173,62 @@
+         "revision": "0d61d9b473221f36cd6b840f1128b0ef9fe91ee7",
+         "sha256": "bcb0c9a7aedc46788465d7bc4e5733c0cc1b6319f3ab2dc7bd19022269ac9d31",
+         "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
++        "path": "docs/build-lab/README.md",
++        "role": "Reviewed Build Lab implementation, scope, tests or verified publication",
++        "revision": "35c8e17a2f2395f96c787ab38d06344a3e962b0b + reviewed release records",
++        "sha256": "c09ffb91db71da84d722480a3b52da8101a372883a54a756653fc2c26e92d9e9"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
++        "path": "docs/build-lab/data-provenance.json",
++        "role": "Reviewed Build Lab implementation, scope, tests or verified publication",
++        "revision": "35c8e17a2f2395f96c787ab38d06344a3e962b0b + reviewed release records",
++        "sha256": "e709cb3abb08cd0343b240addf84e42748fa22861d56bad90507395ba2104f06"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
++        "path": "server-mods/code/common/nightcap_spell_scaling.h",
++        "role": "Reviewed Build Lab implementation, scope, tests or verified publication",
++        "revision": "35c8e17a2f2395f96c787ab38d06344a3e962b0b + reviewed release records",
++        "sha256": "3a9e99e3e01e71acd780f568b9186695b491258869bd630725f23a83ec36a6ac"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
++        "path": "server-mods/code/zone/effects.cpp",
++        "role": "Reviewed Build Lab implementation, scope, tests or verified publication",
++        "revision": "35c8e17a2f2395f96c787ab38d06344a3e962b0b + reviewed release records",
++        "sha256": "a306af310942ac2dd35d47b28cdd09d203bbb214943d6fbf827c5b63a1063da1"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
++        "path": "tools/build_lab_data.py",
++        "role": "Reviewed Build Lab implementation, scope, tests or verified publication",
++        "revision": "35c8e17a2f2395f96c787ab38d06344a3e962b0b + reviewed release records",
++        "sha256": "d830a7fc1cfafa9c010f1084fd739610424749737a3114008c1a56be89c46df2"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
++        "path": "wiki/assets/build-lab-model.js",
++        "role": "Reviewed Build Lab implementation, scope, tests or verified publication",
++        "revision": "35c8e17a2f2395f96c787ab38d06344a3e962b0b + reviewed release records",
++        "sha256": "f536223af3fc18c9dc1b1816687d68bbec077671e05a2d11553b916d9cc28ca9"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
++        "path": "wiki/build-lab-data.json",
++        "role": "Reviewed Build Lab implementation, scope, tests or verified publication",
++        "revision": "35c8e17a2f2395f96c787ab38d06344a3e962b0b + reviewed release records",
++        "sha256": "85f1bf6740c257fe602697cc45d7424cb28063eef4321f5785aa88b116e7f98b"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
++        "path": "wiki/test_build_lab.cjs",
++        "role": "Reviewed Build Lab implementation, scope, tests or verified publication",
++        "revision": "35c8e17a2f2395f96c787ab38d06344a3e962b0b + reviewed release records",
++        "sha256": "96cc61777780197ccc5b16f27559ee67c999062be17fded8cfeba47f4be9447f"
+       }
+     ],
+     "wiki": [
+@@ -9083,13 +9126,6 @@
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
+-        "path": "docs/ops/nightcap-wiki.md",
+-        "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
+-        "revision": "6ab18fe470a4fd7dea3d35fcef8ffa9dde35f2aa + reviewed publication records",
+-        "sha256": "da90359f970f3b9e9f923597ee0ab2c74002947df5e01811c6b30df5ac16f44e"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
+         "path": "docs/releases/wiki-interactive-20261022/README.md",
+         "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
+         "revision": "6ab18fe470a4fd7dea3d35fcef8ffa9dde35f2aa + reviewed publication records",
+@@ -9125,13 +9161,6 @@
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
+-        "path": "wiki/README.md",
+-        "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
+-        "revision": "6ab18fe470a4fd7dea3d35fcef8ffa9dde35f2aa + reviewed publication records",
+-        "sha256": "fbac379f8297e03d7807a3622b7e85c16f7b89b1f71934d2b4c0538ac304f105"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
+         "path": "wiki/articles/about.json",
+         "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
+         "revision": "6ab18fe470a4fd7dea3d35fcef8ffa9dde35f2aa + reviewed publication records",
+@@ -9153,13 +9182,6 @@
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
+-        "path": "wiki/articles/combat.json",
+-        "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
+-        "revision": "6ab18fe470a4fd7dea3d35fcef8ffa9dde35f2aa + reviewed publication records",
+-        "sha256": "0583a10b6d98e3bdb6dade874b19b5c5a546cea034660fd40080a08108cb7594"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
+         "path": "wiki/articles/commands.json",
+         "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
+         "revision": "6ab18fe470a4fd7dea3d35fcef8ffa9dde35f2aa + reviewed publication records",
+@@ -9174,20 +9196,6 @@
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
+-        "path": "wiki/articles/equipment.json",
+-        "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
+-        "revision": "6ab18fe470a4fd7dea3d35fcef8ffa9dde35f2aa + reviewed publication records",
+-        "sha256": "8a73347d76ab38ac2f94da7d807e77731d0cd9e83b59f64bba6e230d98c28483"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
+-        "path": "wiki/articles/features.json",
+-        "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
+-        "revision": "6ab18fe470a4fd7dea3d35fcef8ffa9dde35f2aa + reviewed publication records",
+-        "sha256": "fa163fda460e533e27d74c59bc5854dffee9cca550faddf8bf6c09032045b9fc"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
+         "path": "wiki/articles/getting-started.json",
+         "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
+         "revision": "6ab18fe470a4fd7dea3d35fcef8ffa9dde35f2aa + reviewed publication records",
+@@ -9230,13 +9238,6 @@
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
+-        "path": "wiki/articles/recent-changes.json",
+-        "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
+-        "revision": "6ab18fe470a4fd7dea3d35fcef8ffa9dde35f2aa + reviewed publication records",
+-        "sha256": "5423f7152ca220e854785fc287b886606e19147d503ee0ed37327404faf66766"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
+         "path": "wiki/articles/tradeskills.json",
+         "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
+         "revision": "6ab18fe470a4fd7dea3d35fcef8ffa9dde35f2aa + reviewed publication records",
+@@ -9300,13 +9301,6 @@
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
+-        "path": "wiki/build.py",
+-        "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
+-        "revision": "6ab18fe470a4fd7dea3d35fcef8ffa9dde35f2aa + reviewed publication records",
+-        "sha256": "ebeb51bc60278d6e7cfb9ab65d9056b8e04ba81b3e8bdeeea1d29e197906d424"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
+         "path": "wiki/catalog.json",
+         "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
+         "revision": "6ab18fe470a4fd7dea3d35fcef8ffa9dde35f2aa + reviewed publication records",
+@@ -9328,13 +9322,6 @@
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
+-        "path": "wiki/content-review.json",
+-        "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
+-        "revision": "b6fe8e2965df33c7961d61c3f2659bdaae5e0b2e",
+-        "sha256": "9335dc7ea3bade7019f5330d92ed46fc15bb120e82032c26c99b6187e3987256"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
+         "path": "wiki/deploy.py",
+         "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
+         "revision": "6ab18fe470a4fd7dea3d35fcef8ffa9dde35f2aa + reviewed publication records",
+@@ -9349,13 +9336,6 @@
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
+-        "path": "wiki/experience.py",
+-        "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
+-        "revision": "6ab18fe470a4fd7dea3d35fcef8ffa9dde35f2aa + reviewed publication records",
+-        "sha256": "7b4e7eae6cbf07aee0ef8fe5bab9d6b786684a05544ec9fb56bf8141a214d9dd"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
+         "path": "wiki/test_deploy.py",
+         "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
+         "revision": "6ab18fe470a4fd7dea3d35fcef8ffa9dde35f2aa + reviewed publication records",
+@@ -9409,6 +9389,174 @@
+         "role": "Reviewed interactive wiki source, maintained content or verified release evidence",
+         "revision": "6ab18fe470a4fd7dea3d35fcef8ffa9dde35f2aa + reviewed publication records",
+         "sha256": "5abac3f6c22f6bb1b19be74ddc3cdc0e7a3638cb570920459e5e620ee8fa1680"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
++        "path": "docs/build-lab/README.md",
++        "role": "Reviewed Build Lab implementation, scope, tests or verified publication",
++        "revision": "35c8e17a2f2395f96c787ab38d06344a3e962b0b + reviewed release records",
++        "sha256": "c09ffb91db71da84d722480a3b52da8101a372883a54a756653fc2c26e92d9e9"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
++        "path": "docs/build-lab/data-provenance.json",
++        "role": "Reviewed Build Lab implementation, scope, tests or verified publication",
++        "revision": "35c8e17a2f2395f96c787ab38d06344a3e962b0b + reviewed release records",
++        "sha256": "e709cb3abb08cd0343b240addf84e42748fa22861d56bad90507395ba2104f06"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
++        "path": "docs/ops/nightcap-wiki.md",
++        "role": "Reviewed Build Lab implementation, scope, tests or verified publication",
++        "revision": "35c8e17a2f2395f96c787ab38d06344a3e962b0b + reviewed release records",
++        "sha256": "690df8e6e1e4d6f747ffe3d539f2b64afca38becae83cc4f983fafbdb3f8bdb2"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
++        "path": "docs/releases/build-lab-20261022/README.md",
++        "role": "Reviewed Build Lab implementation, scope, tests or verified publication",
++        "revision": "35c8e17a2f2395f96c787ab38d06344a3e962b0b + reviewed release records",
++        "sha256": "0fa5195b77a6e7bab087c3af5d297a3359bb934a9358ea92b77070384887f953"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
++        "path": "docs/releases/build-lab-20261022/verification.json",
++        "role": "Reviewed Build Lab implementation, scope, tests or verified publication",
++        "revision": "35c8e17a2f2395f96c787ab38d06344a3e962b0b + reviewed release records",
++        "sha256": "9c159094233c84e2fffe7fd0847dea2ca2ee64ea186077f9ab04e810689fbbf0"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
++        "path": "docs/releases/build-lab-20261022/wiki-public-verification.json",
++        "role": "Reviewed Build Lab implementation, scope, tests or verified publication",
++        "revision": "35c8e17a2f2395f96c787ab38d06344a3e962b0b + reviewed release records",
++        "sha256": "6a55af97e98392482c82a1e65fb00f39fe0020c03c8cbbe8286a5468ddd91c4a"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
++        "path": "docs/releases/build-lab-20261022/wiki-publication.json",
++        "role": "Reviewed Build Lab implementation, scope, tests or verified publication",
++        "revision": "35c8e17a2f2395f96c787ab38d06344a3e962b0b + reviewed release records",
++        "sha256": "f51c3f2f98d8df6487ba1be32afe38ea0eb9d07a6f79580e7cdeea195c82ff51"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
++        "path": "docs/releases/build-lab-20261022/wiki-review.json",
++        "role": "Reviewed Build Lab implementation, scope, tests or verified publication",
++        "revision": "35c8e17a2f2395f96c787ab38d06344a3e962b0b + reviewed release records",
++        "sha256": "9b9df5b2b9449f29312fd81820467357fd89677a59295b460c981d0b89c25eb4"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
++        "path": "wiki/README.md",
++        "role": "Reviewed Build Lab implementation, scope, tests or verified publication",
++        "revision": "35c8e17a2f2395f96c787ab38d06344a3e962b0b + reviewed release records",
++        "sha256": "8258245519b6b1af8994916c5adb331832a8222add85447a90dcfb4dbd2ed96c"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
++        "path": "wiki/articles/build-lab.json",
++        "role": "Reviewed Build Lab implementation, scope, tests or verified publication",
++        "revision": "35c8e17a2f2395f96c787ab38d06344a3e962b0b + reviewed release records",
++        "sha256": "3e8a167eb258a3c385797e2cdd2f55a117fc76b7ffc712f823455808f400c157"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
++        "path": "wiki/articles/combat.json",
++        "role": "Reviewed Build Lab implementation, scope, tests or verified publication",
++        "revision": "35c8e17a2f2395f96c787ab38d06344a3e962b0b + reviewed release records",
++        "sha256": "7099f645a319fab3a327e621ac36107f44fcad74bc1550517e4681ae4678bbc6"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
++        "path": "wiki/articles/equipment.json",
++        "role": "Reviewed Build Lab implementation, scope, tests or verified publication",
++        "revision": "35c8e17a2f2395f96c787ab38d06344a3e962b0b + reviewed release records",
++        "sha256": "fe6e933ae1b15c7f01d693b0fdac57c3f27ceff2a78098117291d0485e2fbad5"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
++        "path": "wiki/articles/features.json",
++        "role": "Reviewed Build Lab implementation, scope, tests or verified publication",
++        "revision": "35c8e17a2f2395f96c787ab38d06344a3e962b0b + reviewed release records",
++        "sha256": "0668428ee20a68b76034fdb38cf7e233662e2ee581d6e05a92eba1ca87381fe5"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
++        "path": "wiki/articles/recent-changes.json",
++        "role": "Reviewed Build Lab implementation, scope, tests or verified publication",
++        "revision": "35c8e17a2f2395f96c787ab38d06344a3e962b0b + reviewed release records",
++        "sha256": "2d0925e075a01c09a13248b8f0f9bfd3e7d4c26d4d62ddf202a4d36f1849fefd"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
++        "path": "wiki/assets/build-lab-model.js",
++        "role": "Reviewed Build Lab implementation, scope, tests or verified publication",
++        "revision": "35c8e17a2f2395f96c787ab38d06344a3e962b0b + reviewed release records",
++        "sha256": "f536223af3fc18c9dc1b1816687d68bbec077671e05a2d11553b916d9cc28ca9"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
++        "path": "wiki/assets/build-lab.css",
++        "role": "Reviewed Build Lab implementation, scope, tests or verified publication",
++        "revision": "35c8e17a2f2395f96c787ab38d06344a3e962b0b + reviewed release records",
++        "sha256": "6ca5e305dd6a71323af1c4c29092f9ab9803e766dc7257555f7cae8aa3dadbb6"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
++        "path": "wiki/assets/build-lab.js",
++        "role": "Reviewed Build Lab implementation, scope, tests or verified publication",
++        "revision": "35c8e17a2f2395f96c787ab38d06344a3e962b0b + reviewed release records",
++        "sha256": "dde4be291be9fe9d7769cd7c13348d044d4dce44448893546eb44d4373ee217f"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
++        "path": "wiki/build-lab-data.json",
++        "role": "Reviewed Build Lab implementation, scope, tests or verified publication",
++        "revision": "35c8e17a2f2395f96c787ab38d06344a3e962b0b + reviewed release records",
++        "sha256": "85f1bf6740c257fe602697cc45d7424cb28063eef4321f5785aa88b116e7f98b"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
++        "path": "wiki/build.py",
++        "role": "Reviewed Build Lab implementation, scope, tests or verified publication",
++        "revision": "35c8e17a2f2395f96c787ab38d06344a3e962b0b + reviewed release records",
++        "sha256": "8f1ea053440b11342435de057020e288a98b7a55f100bf83a1679c90afeeb239"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
++        "path": "wiki/build_lab.py",
++        "role": "Reviewed Build Lab implementation, scope, tests or verified publication",
++        "revision": "35c8e17a2f2395f96c787ab38d06344a3e962b0b + reviewed release records",
++        "sha256": "bbe6dabcc38e3fb150cec3a4096cd309d1517adcb9dbe36942917180aa884de7"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
++        "path": "wiki/content-review.json",
++        "role": "Reviewed Build Lab implementation, scope, tests or verified publication",
++        "revision": "35c8e17a2f2395f96c787ab38d06344a3e962b0b + reviewed release records",
++        "sha256": "408a936b0e3e8f850f8a535ea7b328649f2bd97347c0999fc34da0653f353faa"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
++        "path": "wiki/experience.py",
++        "role": "Reviewed Build Lab implementation, scope, tests or verified publication",
++        "revision": "35c8e17a2f2395f96c787ab38d06344a3e962b0b + reviewed release records",
++        "sha256": "7a8a01e13a309a46b76203891d0633816446d28c2910e7c40355d13a811a43c1"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
++        "path": "wiki/test_build_lab.cjs",
++        "role": "Reviewed Build Lab implementation, scope, tests or verified publication",
++        "revision": "35c8e17a2f2395f96c787ab38d06344a3e962b0b + reviewed release records",
++        "sha256": "96cc61777780197ccc5b16f27559ee67c999062be17fded8cfeba47f4be9447f"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
++        "path": "wiki/test_build_lab.py",
++        "role": "Reviewed Build Lab implementation, scope, tests or verified publication",
++        "revision": "35c8e17a2f2395f96c787ab38d06344a3e962b0b + reviewed release records",
++        "sha256": "cf23a079b6e2382c2654798f77537d2b00e99b6a79da6fc1dffcb199708e00eb"
+       }
+     ]
+   }

@@ -9,11 +9,12 @@ import shutil
 import tarfile
 from catalog import catalog_articles
 import experience
+import build_lab
 
 ROOT = Path(__file__).resolve().parent
 ORIGIN = 'https://wiki.nightcapgame.org'
 CATEGORIES = ['Getting started', 'Character', 'Equipment', 'Adventuring', 'World', 'Quests', 'Reference']
-ASSET_VERSION = hashlib.sha256(b''.join((ROOT/'assets'/name).read_bytes() for name in ['wiki.css', 'equipment.css', 'experience.css', 'search.js', 'equipment.js', 'experience.js'])).hexdigest()[:12]
+ASSET_VERSION = hashlib.sha256(b''.join((ROOT/'assets'/name).read_bytes() for name in ['wiki.css', 'equipment.css', 'experience.css', 'build-lab.css', 'search.js', 'equipment.js', 'experience.js', 'build-lab-model.js', 'build-lab.js'])).hexdigest()[:12]
 
 
 def plain(value):
@@ -44,7 +45,7 @@ def load_articles():
 def render(title, description, body, page, category='Reference', status='Reference', updated='2026-10-16', toc=''):
     e = html.escape
     nav = [('index', '⌂', 'The campfire'), ('getting-started', '↗', 'Getting started'), ('features', '✧', 'Features'), ('all-pages', '▤', 'All articles'),
-           ('zones', '◇', 'Zones & rewards'), ('items', '⚒', 'Equipment'), ('commands', '⌘', 'Commands'), ('recent-changes', '◷', 'Recent changes')]
+           ('zones', '◇', 'Zones & rewards'), ('items', '⚒', 'Equipment'), ('build-lab', '⚗', 'Build Lab'), ('commands', '⌘', 'Commands'), ('recent-changes', '◷', 'Recent changes')]
     navigation = ''.join(f'<a href="{slug}.html"'+(' aria-current="page"' if slug == page else '')+f'><span aria-hidden="true">{icon}</span>{label}</a>' for slug, icon, label in nav)
     category_nav = ''.join(f'<a href="{"items.html" if c == "Equipment" else "all-pages.html#category-"+str(i)}">{e(c)}</a>' for i, c in enumerate(CATEGORIES))
     breadcrumb = '<a href="items.html">Equipment</a>' if category == 'Equipment' and page != 'items' else e(category)
@@ -83,14 +84,17 @@ def build():
     for name in ['wiki.css', 'search.js', 'moon.svg', 'traders-at-dusk.png']:
         shutil.copyfile(ROOT / 'assets' / name, out / 'assets' / name)
     # Keep the existing public asset allowlist: bundle the two small browser features.
-    (out/'assets/search.js').write_bytes(b'\n'.join((ROOT/'assets'/name).read_bytes() for name in ['search.js', 'equipment.js', 'experience.js']))
-    (out/'assets/wiki.css').write_bytes(b'\n'.join((ROOT/'assets'/name).read_bytes() for name in ['wiki.css', 'equipment.css', 'experience.css']))
+    (out/'assets/search.js').write_bytes(b'\n'.join((ROOT/'assets'/name).read_bytes() for name in ['search.js', 'equipment.js', 'experience.js', 'build-lab-model.js', 'build-lab.js']))
+    (out/'assets/wiki.css').write_bytes(b'\n'.join((ROOT/'assets'/name).read_bytes() for name in ['wiki.css', 'equipment.css', 'experience.css', 'build-lab.css']))
     for a in articles:
         headings = re.findall(r'<h2 id="([^"]+)">(.+?)</h2>', a['body'])
         toc = '<nav class="contents" aria-label="On this page"><strong>Contents</strong><ol>'+''.join(f'<li><a href="#{id}">{title}</a></li>' for id, title in headings)+'</ol></nav>' if len(headings) > 1 else ''
         body = a['body']
         if a['slug'] == 'index':
             body = experience.home(body, {item['slug']: item for item in articles})
+            toc = ''
+        if a['slug'] == 'build-lab':
+            body = build_lab.render() + body
             toc = ''
         (out / (a['slug'] + '.html')).write_text(render(a['title'], a['summary'], body, a['slug'], a['category'], a['status'], a['updated'], toc), encoding='utf-8')
     listing = ''

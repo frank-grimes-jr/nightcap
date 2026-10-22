@@ -14,6 +14,8 @@ python -B -m unittest -v test_wiki test_deploy test_update test_refresh
 node test_search.cjs
 node test_equipment.cjs
 node test_experience.cjs
+node test_build_lab.cjs
+python -B -m unittest test_build_lab
 python -B build.py --package ABSOLUTE_NEW_FILENAME.tar.gz
 python -B -m http.server 8767 --bind 127.0.0.1 --directory dist
 ```
@@ -73,6 +75,29 @@ Run `test_experience.cjs` for history, storage, search races and failure recover
 Repeat real-browser responsive/keyboard checks for shell changes, including the
 Equipment directory and long dungeon guides. Exact release evidence lives in
 `docs/releases/wiki-interactive-20261022/`.
+
+## Experimental Build Lab
+
+`build-lab.html` compares two browser-local diagnostic builds at Classic50.
+`build_lab.py` embeds the reviewed projection and public Hunt item stats;
+`assets/build-lab-model.js` is the pure calculation/scheduling model shared with
+Node tests. `build-lab.js` and `build-lab.css` implement the workbench in the
+existing bundled assets. No new hosting paths or external dependencies are needed.
+There are now459HTML pages/466public files and22maintained guides.
+
+Eight source-pinned spells,12native landed value controls, effective stat caps,
+custom resolved abilities, A/B results, item differences and exhaustive priority
+permutations are supported. Full gear/AA/pet derivation, native boss AI and global
+optimality are explicitly outside this first model. Preserve these limits beside
+results and in the guide. Data regeneration: `python -B tools/build_lab_data.py`
+from the repository root; review the source fingerprints instead of silently
+refreshing them. Design and provenance: `docs/build-lab/`.
+
+Saves use `nightcap.build-lab.v1`. Validate imports, class uniqueness, bounds,
+canonical library identities and source values before use; render labels as text.
+Browser tests must include edits recalculating on input, save/reload, invalid and
+valid imports, gear differences applied once, class changes, ability edits,
+optimizer cancellation and320/768/1024/1440 layouts.
 
 ## Verification contract
 

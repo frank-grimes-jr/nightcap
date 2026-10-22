@@ -1,5 +1,15 @@
 # Current Nightcap status
 
+## 2026-10-22 — Build Lab
+
+The experimental wiki workbench compares A/B stat inputs and gear differences,
+spell priorities and resolved abilities, showing DPS, healing, mana and cast
+timelines. Model controls and browser tests pass. Full equipment/AA/pet derivation,
+native encounter behavior and owner balance acceptance are separate. Publication
+state: [Build Lab release](releases/build-lab-20261022/README.md).
+Published `20261022-build-lab-v1`; all466HTTPS hashes/security headers and five
+private-route denials pass.16Linux recovery checks and pointer rollback pass.
+
 ## 2026-10-22 — Interactive wiki interface
 
 The redesigned handbook adds adventure paths, quick search, saved guides and
