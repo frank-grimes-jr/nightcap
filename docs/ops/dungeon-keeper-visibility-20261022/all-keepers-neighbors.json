@@ -1,0 +1,258 @@
+{
+  "unrest": {
+    "nearby_spawns": [
+      {
+        "id": "3266037",
+        "version": "0",
+        "x": "52.000000",
+        "y": "-38.000000",
+        "z": "3.000000",
+        "pathgrid": "0",
+        "npc_id": "999228",
+        "name": "Instance_Keeper"
+      },
+      {
+        "id": "3266123",
+        "version": "0",
+        "x": "52.000000",
+        "y": "-38.000000",
+        "z": "3.000000",
+        "pathgrid": "0",
+        "npc_id": "999240",
+        "name": "a_waypoint"
+      }
+    ],
+    "nearby_doors": [],
+    "zonepoints": [
+      {
+        "zone": "unrest",
+        "number": "1",
+        "x": "0",
+        "y": "0",
+        "z": "0",
+        "target_zone_id": "70"
+      }
+    ]
+  },
+  "najena": {
+    "nearby_spawns": [
+      {
+        "id": "8315",
+        "version": "0",
+        "x": "852.000000",
+        "y": "-77.000000",
+        "z": "3.000000",
+        "pathgrid": "0",
+        "npc_id": "44041",
+        "name": "a_large_skeleton"
+      },
+      {
+        "id": "8315",
+        "version": "0",
+        "x": "852.000000",
+        "y": "-77.000000",
+        "z": "3.000000",
+        "pathgrid": "0",
+        "npc_id": "44062",
+        "name": "a_large_skeleton"
+      },
+      {
+        "id": "3266039",
+        "version": "0",
+        "x": "858.000000",
+        "y": "-76.000000",
+        "z": "4.000000",
+        "pathgrid": "0",
+        "npc_id": "999230",
+        "name": "Instance_Keeper"
+      },
+      {
+        "id": "3266095",
+        "version": "0",
+        "x": "858.000000",
+        "y": "-76.000000",
+        "z": "4.000000",
+        "pathgrid": "0",
+        "npc_id": "999240",
+        "name": "a_waypoint"
+      }
+    ],
+    "nearby_doors": [],
+    "zonepoints": [
+      {
+        "zone": "najena",
+        "number": "1",
+        "x": "868",
+        "y": "-17",
+        "z": "3.8",
+        "target_zone_id": "27"
+      },
+      {
+        "zone": "najena",
+        "number": "1",
+        "x": "868",
+        "y": "-17",
+        "z": "3.8",
+        "target_zone_id": "27"
+      }
+    ]
+  },
+  "permafrost": {
+    "nearby_spawns": [
+      {
+        "id": "3266041",
+        "version": "0",
+        "x": "61.000000",
+        "y": "-121.000000",
+        "z": "2.000000",
+        "pathgrid": "0",
+        "npc_id": "999232",
+        "name": "Instance_Keeper"
+      },
+      {
+        "id": "3266107",
+        "version": "0",
+        "x": "61.000000",
+        "y": "-121.000000",
+        "z": "2.000000",
+        "pathgrid": "0",
+        "npc_id": "999240",
+        "name": "a_waypoint"
+      }
+    ],
+    "nearby_doors": [],
+    "zonepoints": [
+      {
+        "zone": "permafrost",
+        "number": "1",
+        "x": "120",
+        "y": "-55",
+        "z": "3.75",
+        "target_zone_id": "30"
+      }
+    ]
+  },
+  "soldungb": {
+    "nearby_spawns": [
+      {
+        "id": "3266042",
+        "version": "0",
+        "x": "-263.000000",
+        "y": "-424.000000",
+        "z": "-108.000000",
+        "pathgrid": "0",
+        "npc_id": "999233",
+        "name": "Instance_Keeper"
+      },
+      {
+        "id": "3266118",
+        "version": "0",
+        "x": "-263.000000",
+        "y": "-424.000000",
+        "z": "-108.000000",
+        "pathgrid": "0",
+        "npc_id": "999240",
+        "name": "a_waypoint"
+      }
+    ],
+    "nearby_doors": [],
+    "zonepoints": [
+      {
+        "zone": "soldungb",
+        "number": "1",
+        "x": "-265",
+        "y": "-410",
+        "z": "-108",
+        "target_zone_id": "27"
+      },
+      {
+        "zone": "soldungb",
+        "number": "2",
+        "x": "0",
+        "y": "0",
+        "z": "0",
+        "target_zone_id": "31"
+      },
+      {
+        "zone": "soldungb",
+        "number": "3",
+        "x": "0",
+        "y": "0",
+        "z": "0",
+        "target_zone_id": "31"
+      },
+      {
+        "zone": "soldungb",
+        "number": "4",
+        "x": "0",
+        "y": "0",
+        "z": "0",
+        "target_zone_id": "31"
+      },
+      {
+        "zone": "soldungb",
+        "number": "5",
+        "x": "0",
+        "y": "0",
+        "z": "0",
+        "target_zone_id": "31"
+      },
+      {
+        "zone": "soldungb",
+        "number": "6",
+        "x": "0",
+        "y": "0",
+        "z": "0",
+        "target_zone_id": "31"
+      },
+      {
+        "zone": "soldungb",
+        "number": "7",
+        "x": "0",
+        "y": "0",
+        "z": "0",
+        "target_zone_id": "31"
+      },
+      {
+        "zone": "soldungb",
+        "number": "8",
+        "x": "0",
+        "y": "0",
+        "z": "0",
+        "target_zone_id": "31"
+      },
+      {
+        "zone": "soldungb",
+        "number": "9",
+        "x": "-490",
+        "y": "-965",
+        "z": "-18",
+        "target_zone_id": "278"
+      },
+      {
+        "zone": "soldungb",
+        "number": "10",
+        "x": "0",
+        "y": "0",
+        "z": "0",
+        "target_zone_id": "31"
+      },
+      {
+        "zone": "soldungb",
+        "number": "11",
+        "x": "-400",
+        "y": "-365",
+        "z": "11.8",
+        "target_zone_id": "31"
+      },
+      {
+        "zone": "soldungb",
+        "number": "1",
+        "x": "-265",
+        "y": "-410",
+        "z": "-108",
+        "target_zone_id": "27"
+      }
+    ]
+  }
+}
