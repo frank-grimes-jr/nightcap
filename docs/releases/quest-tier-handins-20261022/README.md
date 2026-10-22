@@ -1,11 +1,11 @@
-# Quest item qualities — October 22 candidate
+# Quest item qualities â€” October 22 candidate
 
 Normal-item quest requirements now accept the verified Polished (+200000),
 Exalted (+400000), and Ascended (+600000) definition of that same item. The
 reported regression is Shakrn Meadowgreen (14075), South Karana: Aviak Charm
 213737 plus two Star Rubies 10032 must complete the quest and award 25,000
 ordinary quest EXP. The captured live quest awards Normal Crafted Gauntlets
-4178; the separately reviewed class-armor candidate now on dev/test awards
+4178; the class-armor release deployed through main PR285 awards
 Ascended Crafted Gauntlets 604178. Both callbacks pass with all four charm
 qualities. The reward follows the quest's policy, not the ingredient's quality.
 
@@ -93,18 +93,17 @@ Decision: [ADR 0067](../../adr/0067-tiered-quest-ingredients.md).
 
 ## Activation and recovery
 
-Promotion through dev/test is authorized by the workspace agreement. Main and
-production activation require current owner sign-off. Before an authorized
-activation, compare fresh running hashes, source manifests and all seven quest-file
+Promotion through dev/test is authorized by the workspace agreement. The owner explicitly authorized main promotion and production deployment for
+live QA on October 22. Before activation, compare fresh running hashes, source manifests and all seven quest-file
 preimages against this capture; retain any intervening release. Take a fresh
 backup and use the supported whole-runtime release procedure. Deploy the rebuilt
 zone, `quests/lua_modules/items.lua`, five `quests/soltemple/*.pl` files and `quests/overthere/Kurron_Ni.pl`
 as one release. Lua's module cache needs a verified reload/restart; a quest-only reload
 cannot install native changes. Do not kill a single production zone process.
 
-The integrated armor candidate also needs its remaining ten reward-script
-changes if releasing that policy together. Do not deploy an older Kurron file
-over this compatibility correction.
+The other ten armor reward scripts are already live through PR285 and must
+remain unchanged. Deploy only this corrected Kurron file alongside the native
+matcher and other six helper/quest files.
 
 No SQL, world, rule catalog, shared ItemData/cache, launcher or client change is
 required. Preserve the current client/world/cache pair. Retain fresh predecessor
