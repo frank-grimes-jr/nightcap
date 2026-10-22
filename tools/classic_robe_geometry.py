@@ -107,6 +107,26 @@ def compact(model, polygons, materials):
     return model
 
 
+def group_vertices_by_bone(model):
+    """Emit one influence list per native bone, preserving every mesh attribute.
+
+    EQGraphicsDX9 calls ID3DXSkinInfo::SetBoneInfluence for each WLD group.
+    Another group for the same bone replaces its previous list; it does not
+    append. A separately appended skirt would unbind the torso's pelvis ring.
+    """
+    if model['colors'] or model['aux'] or model['vertex_materials']:
+        raise ValueError('Expected a compact robe without optional vertex sections')
+    bones = labels(model)
+    order_of_bones = {bone: index for index, bone in enumerate(dict.fromkeys(bones))}
+    order = sorted(range(len(bones)), key=lambda index: order_of_bones[bones[index]])
+    mapping = {old: new for new, old in enumerate(order)}
+    for key in ('vertices', 'uv', 'normals'):
+        model[key] = [model[key][index] for index in order]
+    model['polygons'] = [(flag, mapping[a], mapping[b], mapping[c])
+                         for flag, a, b, c in model['polygons']]
+    model['bones'] = runs([bones[index] for index in order])
+
+
 def skirt_warp(point, lo, hi, scale, center, source_center,
                waist_scale, waist_center, source_waist_center):
     """Return the fitted position and its full derivative for normal transport."""
@@ -325,6 +345,7 @@ def robe_mesh(target, donor_wld, code, cloth_slots):
                                       + [cloth_slots[5]] * len(skirt_polygons))
     result['bones'] = runs(new_bones)
     seam = join_waist(result, cloth_slots, target_bind, code)
+    group_vertices_by_bone(result)
     largest = max(abs(v) for point in result['vertices'] for v in point)
     result['scale'] = min(13, int(math.floor(math.log2(32760 / largest))))
     return result, dict(code=code, donor=donor, vertices=len(result['vertices']),
