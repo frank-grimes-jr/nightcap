@@ -1,5 +1,15 @@
 [
   {
+    "release": 2026102203,
+    "date": "2026-10-22",
+    "changes": [
+      {
+        "kind": "fix",
+        "text": "Fixed the missing waist between Classic robe torsos and skirts across all seven added races. Close EverQuest completely and update through the launcher; please recheck appearance and movement."
+      }
+    ]
+  },
+  {
     "release": 2026102202,
     "date": "2026-10-22",
     "changes": [
