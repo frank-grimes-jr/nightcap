@@ -1,0 +1,130 @@
+Pinned DLL E:\EQ_Local_Dev\Client_RoF2_Dev\everquest_rof2\EQGraphicsDX9.dll
+SHA256 ade556b68e98f6f39c5578f70431e11c0b9babcc15b8571eb22cf1e2b654417e
+Preferred base 0x10000000
+
+WLD mesh bone count/pointer parse
+0x100bfbdf: cmp word ptr [edi + 0x54], 0
+0x100bfbe4: je 0x100bfbf7
+0x100bfbe6: movzx edx, word ptr [edi + 0x54]
+0x100bfbea: mov dword ptr [ebp + 0x34], esi
+0x100bfbed: mov dword ptr [ebp + 0x30], edx
+0x100bfbf0: movzx eax, word ptr [edi + 0x54]
+0x100bfbf4: lea esi, [esi + eax*8]
+0x100bfbf7: cmp word ptr [edi + 0x56], 0
+0x100bfbfc: je 0x100bfc0f
+0x100bfbfe: movzx ecx, word ptr [edi + 0x56]
+0x100bfc02: mov dword ptr [ebp + 0x3c], esi
+0x100bfc05: mov dword ptr [ebp + 0x38], ecx
+0x100bfc08: movzx edx, word ptr [edi + 0x56]
+0x100bfc0c: lea esi, [esi + edx*4]
+0x100bfc0f: cmp word ptr [edi + 0x58], 0
+0x100bfc14: je 0x100bfc27
+0x100bfc16: movzx eax, word ptr [edi + 0x58]
+0x100bfc1a: mov dword ptr [ebp + 0x44], esi
+0x100bfc1d: mov dword ptr [ebp + 0x40], eax
+0x100bfc20: movzx ecx, word ptr [edi + 0x58]
+0x100bfc24: lea esi, [esi + ecx*4]
+
+Mesh builder creates skin object and loops bone runs
+0x1004b299: mov eax, dword ptr [edi + 0x60]
+0x1004b29c: xor esi, esi
+0x1004b29e: mov dword ptr [esp + 0x28], esi
+0x1004b2a2: mov dword ptr [esp + 0x38], esi
+0x1004b2a6: cmp dword ptr [ebx + 0x38], esi
+0x1004b2a9: jbe 0x1004b78a
+0x1004b2af: mov edx, dword ptr [edi + 0x50]
+0x1004b2b2: lea ecx, [eax + ebp + 8]
+0x1004b2b6: mov eax, dword ptr [esp + 0x1c]
+0x1004b2ba: push ecx
+0x1004b2bb: push edx
+0x1004b2bc: push 0x112
+0x1004b2c1: push eax
+0x1004b2c2: call 0x100b9196
+0x1004b2c7: test eax, eax
+0x1004b2c9: js 0x1004b9b0
+0x1004b2cf: mov ecx, dword ptr [ebx + 0x38]
+0x1004b2d2: xor edx, edx
+0x1004b2d4: cmp ecx, esi
+0x1004b2d6: jbe 0x1004b2f0
+0x1004b2d8: mov eax, dword ptr [ebx + 0x3c]
+0x1004b2db: mov esi, ecx
+0x1004b2dd: lea ecx, [ecx]
+
+Read each count/bone and select only its run
+0x1004b340: mov ecx, dword ptr [ebx + 0x3c]
+0x1004b343: fld1 
+0x1004b345: mov edx, dword ptr [esp + 0x1c]
+0x1004b349: lea eax, [ecx + edx*4]
+0x1004b34c: movzx ecx, word ptr [eax]
+0x1004b34f: movzx eax, word ptr [eax + 2]
+0x1004b353: xor edx, edx
+0x1004b355: xor esi, esi
+0x1004b357: mov dword ptr [esp + 0x3c], ecx
+0x1004b35b: mov dword ptr [esp + 0x14], eax
+0x1004b35f: mov dword ptr [esp + 0x58], edx
+0x1004b363: cmp ecx, 4
+0x1004b366: jl 0x1004b415
+0x1004b36c: mov eax, dword ptr [esp + 0x6c]
+0x1004b370: mov edx, dword ptr [esp + 0x34]
+0x1004b374: lea edx, [eax + edx*4]
+0x1004b377: lea eax, [ecx - 4]
+0x1004b37a: mov ecx, dword ptr [esp + 0x44]
+0x1004b37e: shr eax, 2
+0x1004b381: inc eax
+0x1004b382: mov dword ptr [esp + 0x50], eax
+0x1004b386: add eax, eax
+0x1004b388: add eax, eax
+0x1004b38a: mov dword ptr [esp + 0x58], eax
+0x1004b38e: mov eax, dword ptr [esp + 0x54]
+0x1004b392: mov dword ptr [esp + 0x20], edx
+
+SetBoneInfluence and finish run
+0x1004b49e: mov edx, dword ptr [esp + 0x54]
+0x1004b4a2: mov eax, dword ptr [edi + 0x60]
+0x1004b4a5: mov eax, dword ptr [eax + ebp + 8]
+0x1004b4a9: mov ecx, dword ptr [eax]
+0x1004b4ab: push edx
+0x1004b4ac: mov edx, dword ptr [esp + 0x48]
+0x1004b4b0: push edx
+0x1004b4b1: mov edx, dword ptr [esp + 0x1c]
+0x1004b4b5: push esi
+0x1004b4b6: push edx
+0x1004b4b7: push eax
+0x1004b4b8: mov eax, dword ptr [ecx + 0xc]
+0x1004b4bb: call eax
+0x1004b4bd: mov ecx, dword ptr [edi + 0x60]
+0x1004b4c0: mov eax, dword ptr [ecx + ebp + 8]
+0x1004b4c4: mov ecx, dword ptr [edi + 0x58]
+0x1004b4c7: mov esi, dword ptr [esp + 0x14]
+0x1004b4cb: mov ecx, dword ptr [ecx + esi*4]
+0x1004b4ce: mov ecx, dword ptr [ecx + 0x8c]
+0x1004b4d4: mov edx, dword ptr [eax]
+0x1004b4d6: mov edx, dword ptr [edx + 0x38]
+0x1004b4d9: push ecx
+0x1004b4da: push esi
+0x1004b4db: push eax
+0x1004b4dc: call edx
+0x1004b4de: mov edx, dword ptr [edi + 0x58]
+0x1004b4e1: mov edx, dword ptr [edx + esi*4]
+0x1004b4e4: mov eax, dword ptr [edi + 0x60]
+0x1004b4e7: mov eax, dword ptr [eax + ebp + 8]
+0x1004b4eb: mov ecx, dword ptr [eax]
+0x1004b4ed: push edx
+0x1004b4ee: push esi
+0x1004b4ef: push eax
+0x1004b4f0: mov eax, dword ptr [ecx + 0x40]
+0x1004b4f3: call eax
+0x1004b4f5: mov eax, dword ptr [esp + 0x1c]
+0x1004b4f9: mov ecx, dword ptr [esp + 0x3c]
+0x1004b4fd: add dword ptr [esp + 0x34], ecx
+0x1004b501: inc eax
+0x1004b502: mov dword ptr [esp + 0x1c], eax
+0x1004b506: cmp eax, dword ptr [ebx + 0x38]
+0x1004b509: jb 0x1004b340
+
+D3DX import thunks
+0x100b9190: jmp dword ptr [0x1013128c]
+0x100b9196: jmp dword ptr [0x10131298]
+0x100b919c: jmp dword ptr [0x1013129c]
+0x100b91a2: jmp dword ptr [0x101312a0]
+IAT 0x10131298: d3dx9_30.dll!D3DXCreateSkinInfoFVF

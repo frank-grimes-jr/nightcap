@@ -13,6 +13,13 @@ Native fresh-hand-in, inspection/relog and broader balance acceptance remain ope
 
 ## Classic robe waist correction — published for live QA, October 22
 
+Owner follow-up rejects2203: the gap persists standing and moving, with installed
+hashes confirmed. The native renderer replaces earlier pelvis influences when a
+bone is repeated. A grouped-vertex correction passes actual x86 library checks;
+[native binding evidence](releases/classic-robes-20261022/native-skinning/README.md)
+owns the new candidate and pending visible recheck. The2203 delivery below is
+historical evidence, not acceptance of the waist repair.
+
 Owner QA confirmed waist holes on Barbarian and Half Elf in game2201/2202.
 Source PR286 and signed game **2026102203** join the native torso/skirt seams
 for all seven added Classic races, both genders. All140 hosted hashes/signature
