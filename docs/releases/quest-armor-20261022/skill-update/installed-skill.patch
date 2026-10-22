@@ -1,0 +1,1063 @@
+--- a/references/items.md
++++ b/references/items.md
+@@ -1,380 +1,406 @@
+-# Items, loot, forging and economy
+-
+-## THJ custom behavior and stock gear — October 19, deployed for live testing
+-
+-Owner-authorized main promotion PR256/7104c6b and OVH activation are verified in
+-docs/releases/thj-behaviors-20261019/deployment/. Stage:
+-/opt/nightcap/releases/thj-behaviors-live-20261019. Matching world/zone/cache loader,
+-three guarded SQL components and regenerated target caches are installed. Signed
+-game2026101902 retains proxy0.11.0, its matching catalog and all136 unrelated assets;
+-all138 hosted files verify with shipped trust. Classic50 and209 starter families
+-remain. Owner gameplay and balance acceptance remain pending; ../QA.md owns tests.
+-
+-tools/thj_stock_scaling.py uses pinned stock ProjectEQ2026-10-17 (not Daybreak
+-or THJ DB). All131 Normal observations match stock. Exact measured targets win;
+-ordinary top core stats2x, haste1.5x, SD=max(2INT,WIS), HA=2WIS, Accuracy=ceil(DEX/2),
+-new heroics=rounded finalstat/4 at Ascended only. Positive native SD/HA/Accuracy/
+-heroics and sparse utilities/Attack remain stock absent exact evidence. Intermediate
+-qualities interpolate1/3 and2/3.47809 families/143332definitions change;3563 overflow
+-families are excluded under actual ItemData bounds. Normal/starters/custom Hunt/
+-dungeon/augments/bags/quest epics retain treatment. Full285-column preimages guard
+-numeric SQL and inverse; bounded hash/value staging requires complete matching IDs; pet/WPM effects/sockets/ownership remain. Fresh setup
+-requires generating the ignored thj-stock-bootstrap.sql companion before SOURCE;
+-compressed artifact and SHA are retained. Legacy SD/HA planning protects this stock
+-projection. Do not rerun destructive bootstrap live.
+-
+-## Combined THJ item/spell and pet/WPM deployed — October 18, 2026
+-
+-Source: C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev. Owner-authorized main/OVH deployment is verified in
+-`docs/releases/thj-parity-20261018/deployment/README.md` and `receipts/`. PR235 promotes the tested source;
+-signed client2026101802/proxy0.11.0 and wiki20261018-thj-parity-v1 are published
+-and verified. Classic50 remains active; level65/PoP and389 stock additions stay
+-staged. Owner gameplay and balance acceptance remain open. Exact testing:
+-`docs/releases/thj-parity-20261018/QA.md`; measured limitations: `COMPARISON.md`.
+-
+-The exact reviewed catalog contains131 observed Ascended targets. Clean
+-Blood Cord/Talisman screenshots override conflicting workbook attributes;
+-ambiguous relocations, below-Normal fields, augmented/ambiguous identities and
+-unknown proc presentation are deferred. Unobserved ordinary families retain
+-existing policy. Normal ordinary gear stays native; intermediate values only
+-cap at reviewed top reductions. No universal THJ multiplier is inferred.
+-
+-The209-family starter policy preserves modest quality steps below comparable
+-Normal dungeon gear, fixed weapon delay and cultural armor exclusion. Current
+-dungeon_catalog.items() emits the retuned330-definition catalog; legacy_items()
+-is only the dated preimage. item_scaling_overrides.py owns the final fresh
+-bootstrap block and requires exact present identities. The generic two-column
+-SD/HA planner excludes these families; never rerun destructive bootstrap live.
+-
+-thj_combined_content.py composes1393 existing-item changes from full285-column
+-captures in one transaction. It accepts only full original, companion or final
+-images; drift or failed final hashes rolls back all updates. Non-gear pet/WPM
+-migrations use include_gear=False. Numeric recovery restores1369 rows to the
+-companion baseline while retaining effects/sockets for owned augments. New
+-acquisition recovery removes links only; never restore old inventory/AA state.
+-Preserve Seru's two independent new links and original loot. Fresh target
+-preimages, matching caches/world/zone and client spell/dbstr pairing are required.
+-Source/tests: thj_item_parity.py, thj_item_migration.py, thj_combined_content.py,
+-item_scaling_overrides.py and test_thj_*, test_item_scaling_overrides.py.
+-
+-Production installed all1393 full-row afterimages, matching caches and the paired
+-native image. Three rule-note strings now match compiled ruletypes.h because
+-world normalizes them on startup. Forward/disable/enable guards were rehearsed
+-on the retained public clone after that normalization; no live SQL repair was
+-needed. Keep numeric recovery separate from effects, sockets and owned state.
+-
+-## Built-in item colors — deployed October 18
+-
+-Current fix source: C:/Users/verre/.codex/worktrees/reforge-default-colors/EQ_Local_Dev,
+-native PR225 and operator PR227/228. PlainUpgradeItem and PlainForgeItem accept
+-zero or exactly ItemData::Color; any other nonzero instance color is dye and
+-remains rejected. Native constructors start with the definition color, which was
+-why ordinary Daggers of Marnek failed. Do not strip input colors or weaken exact
+-saved-row preimages. Output keeps its target definition color and binding.
+-Recipes, augment/ornament/custom/evolving guards and atomic receipts are unchanged.
+-
+-Source: server-mods/code/zone/advanced_loot_inventory.cpp. The complete native
+-translation-unit fixture adds61 cases (all six tiers, zero/default/different dye,
+-output color/binding/receipts, zoneforge and saved-color drift), with policy/package
+-controls and12 operator groups. Retained cooldown inputs re-link byte-identically;
+-only this implementation object changes. No header/ABI, SQL, cache or client change.
+-
+-Zone29b8093147ffbc4c0d387a4e3fa55a3a041dbb9ae7da731b493b21601a6dec2f
+-is deployed across12 zones; gateway open,47 player/28 custom tables preserved.
+-Keep cooldown migration and proxy0.10.0/game2026101801. Native changes require the
+-supported whole-runtime restart, not quest reload or killing one zone. Recovery
+-uses the immediately preceding cooldown-capable image without restoring player
+-snapshots or replaying migration. Evidence and exact Palwar three-Normal combine
+-QA: docs/releases/reforge-colors-20261018/. Owner confirmed Palwar's reported
+-three-Normal Dagger of Marnek combine on October18. Relog, actual-dye/customized
+-rejection and other tiers/zoneforge remain unconfirmed. owner-acceptance.json
+-records that scope; historical deployment receipts retain their earlier status.
+-
+-## Ordinary loot rates and quest reward direction — October 18
+-
+-20% Polished / 5% Exalted / 1% Ascended: deployed and globally reloaded; player balance QA remains open.
+-Existing Zone:LootTierRare/Epic/LegendaryChance DB overrides are 2000/500/100
+-out of10000 when activated; compiled defaults remain1000/200/25. One roll per
+-eligible ordinary equipment/bag drop, not kill. Missing variants stay base;
+-hunt/dungeon rates and3/4/4 reforging are separate. Existing generated loot is
+-not rerolled. No binary/cache/client change; world and all zones reload rules.
+-
+-Actual deployed source is server-mods/code/zone/loot.cpp, matching the retained
+-October17 and October18 cooldown manifests. The older loottables.cpp pointer
+-does not describe this reviewed build. Exhaustive native roll test and five
+-temporary MariaDB guard/forward/inverse cases pass. Evidence/operator/QA:
+-E:/EQ_Local_Dev/_worktrees/loot-quality-rates/docs/ops/loot-quality-rates-20261018/.
+-
+-Owner wants automatic Ascended quest armor/weapons excluding repeatable/easily
+-farmed quests. This is design-only, not implemented. Require an audited final-
+-reward catalog; do not hook all SummonItem/QuestReward calls (returns and
+-components share them). Many Classic hand-ins are repeatable and excluded.
+-Preserve separate epic+800000 progression; ordinary variants use+600000.
+-See quest-reward-policy.md for local examples and required production audit.
+-
+-## Gear bands and finished cultural armor — October18 candidate
+-
+-The production audit confirmed ordinary damage already scales at rounded
+-110/120/135% of Normal, unchanged delay; low integers can plateau. The earlier
+-minimum +1 candidate is SUPERSEDED and must not deploy. Its CLI is retired and
+-bootstrap block removed. Historical migration artifacts are not current policy.
+-
+-Owner now permits reductions to ordinary Normal starter gear. This replaces
+-the preserve-Normal/35AC entry-dungeon proposal; its CLI is retired. Current
+-offline candidate covers209 fixed starter families/836 definitions, including
+-all reviewed sizes, cloaks/girdle variants and Rusty/Bronze weapons. Normal
+-Bronze chest6AC, then7/8/9; dungeon Normal chest12/16/20/24 across20/30/40/50.
+-Starter weapon damage increases exactly1 per quality with unchanged delay and
+-strict Ascended ratio below every comparable Normal dungeon reward. Spell/heal
+-bonuses0/1/2/3 and no starter heroics.821 starter and292 dungeon definitions
+-differ; zero cultural-catalog overlap. No live/compiler/cache/client changes.
+-
+-tools/starter_retune.py pins the209-ID allowlist and Rusty profiles independently
+-of input capture; unlisted/cultural substitutions reject. Eight focused tests,
+-three dungeon catalog and20 cultural regression tests pass. Fresh review found
+-two guard/test limitations, resolved and re-reviewed. Source/report:
+-docs/items/starter-retune-reference.json and docs/releases/starter-retune-20261018/.
+-tools/tests/test_starter_retune.py verifies every captured family/quality and
+-complete changed-field allowlists. This proves AC/ratio ordering, not combat
+-acceptance. Fine Steel, named/quest, bows/jewelry and other ordinary classifications
+-remain open. Full-row guarded item migration, legal multiclass/AA/pet encounter
+-measurements and owner QA precede activation. Item changes need matching cache
+-regeneration and supported runtime restart; no client ABI change is proposed.
+-
+-Exception: only approved finished cultural crafted armor produces existing
+-ordinary +600000 Ascended outputs directly. Explicit reviewed catalog has1041
+-recipes/944 armor pieces; do not infer membership from race flags, names or kits.
+-General recipes also use racial kits. Excludes materials, intermediates, weapons,
+-jewelry, shields and held items; owned Normal items stay Normal. Disabled recipes,
+-skill/cost/failure/learning and returned tools remain intact.
+-
+-Checkout E:/EQ_Local_Dev/_worktrees/weapon-tier-damage: docs/items/cultural-armor-catalog.json,
+-tools/cultural_armor.py, capture_cultural_armor.py, cultural_armor_migration.py,
+-rehearse_cultural_armor.py and tests/test_cultural_armor.py. Full-row SQL guards
+-1041 recipes/8820 entries/1888 definitions; only pure-success item_id changes.
+-No component consumers or task references found; production script literal scan
+-found no direct item dependencies.20 planner tests and11 full-catalog MariaDB
+-forward/inverse/drift cases pass; independent review complete.
+-
+-NOT DEPLOYED. Activation requires authorization, fresh capture/backup and crafting
+-maintenance window. Recipe success rows load per combine in GetTradeRecipe, for
+-manual and browser paths; no binary/client change. Existing Ascended target cache
+-presence is still an activation gate. Any needed cache repair uses the current
+-paired runtime and supported full restart, never a zone kill. Inverse restores
+-recipe outputs only, never player inventories or already-crafted armor.
+-Evidence, exact manual/browser/failure/tool-return QA and open balance decision:
+-docs/releases/cultural-armor-20261018/README.md and ADR0064. No live acceptance.
+-
+-## Item recast timer integrity
+-
+-October17 PR220 deployed signed click-duration clamps before uint32 conversion;
+-excess reduction previously yielded roughly136 years. Ordinary/negative/equal/
+-excess focus and augment publication remain covered. Current production evidence
+-is docs/releases/october-17-2026/; earlier audit is cooldown-audit-20261017/.
+-
+-The follow-up identity correction deployed October18 via PR223. Unlinked
+--item_id in uint16 formerly aliased at65536 intervals and overlapped other domains.
+-The deployed implementation uses uint32
+-0x200000+itemID, rejecting IDs above the client limit0xfffff. Every item/augment
+-verify, set/get/delete and cooldown path uses the same identity. Linked item
+-groups remain unchanged and are not declared intentional by catalog membership.
+-The SELECT-only capture has1158 unlinked definitions; ownership is unproven.
+-
+-Saved client timestamp and native PTimer may differ: GetItemCooldown and saved
+-publication preserve the longer remaining wait without changing either deadline.
+-Unlinked items publish through inventory timestamps/SendItemPacket; their recast
+-helper does not send a native group packet. Tests execute actual item methods,
+-including IDs64350/129886 and out-of-domain rejection, plus the longer-wait case.
+-
+-Pair the rebuilt zone with stopped-game guarded SQL and the existing Monk client.
+-Migration copies ambiguous waits to every successor and merges immediate
+-character_item_recast timestamps. It preserves longest deadlines and checks item
+-membership/click/delay preimages, not counts alone. Rollback conservatively folds
+-waits back, removes all high keys before old code and retains item records. No
+-old player snapshot or timer wipe. No new ItemData/cache/DLL layout change.
+-Exact source,27 duration/item/discipline tests,15 database rehearsals, build,
+-review and visible QA: docs/releases/cooldown-identities-20261017/ in the checkout
+-listed in multiclass.md. Full grouped-item/spell/discipline family design is open.
+-
+-## Item stack minimum 100 — deployed October 17
+-
+-Raised exactly 20,490 already-stackable definitions below 100, including 6,734
+-tradeskill materials. Higher limits, nonstackables, charges, recipes, prices and
+-player inventories are preserved. Leather Padding 16488 goes 50→100; ore 10500,
+-water 13006 and bandages 13009 go 20→100. Existing stacks merge manually.
+-
+-tools/item_stack_sizes.py produces guarded ID/old-limit SQL; three planner and
+-nine actual MariaDB temporary-table cases pass, including preimage drift and
+-post-update rollback. Current source is E:/EQ_Local_Dev/_worktrees/october-17-release.
+-Combined deployment verified every item column and the entire regenerated cache,
+-allowing only 20,490 signed StackSize fields at offset 802 in 1,332-byte ItemData.
+-The existing shared_memory binary and all other item policies are retained.
+-Evidence: docs/releases/october-17-2026/ and docs/ops/item-stacks-100-20261017/.
+-
+-Items require supported cache regeneration/runtime restart, not rules/quest reload.
+-After access could open, keep the higher limits: never shrink under existing
+-stacks or restore old player SQL/cache. Banking/crafting/trade/relog QA remains open.
+-
+-Item-policy audit refreshed 2026-10-13 for the deployed divine-summon exception; other item systems retain their October 12 audit scope. Keep the independent reward systems distinct; use their explicit catalogs and current source. A stale runbook still saying every zoneforge recipe costs three is superseded by the October 12 upgrade policy.
+-
+-| System | Implemented contract | Source/evidence |
+-|---|---|---|
+-| Legacy quality loot | Base/Polished/Exalted/Ascended, offsets +200k/+400k/+600k; epics separate +800k. October18 rates20%/5%/1%; see activation status above. Per eligible drop, not kill. | `server-mods/code/zone/loot.cpp`, exact retained manifests and `docs/ops/loot-quality-rates-20261018/` |
+-| Classic hunt | Two independent 0.5% rolls per eligible death: augment and wearable; weights 60/30/8/2, top tier **Ascension**. 48 audited combat zones enabled, eight access-check zones gated. | `server-mods/code/zone/zone_hunt.cpp`, `common/zone_hunt_catalog.h`, `common/zone_hunt_policy.h`; `docs/releases/zone-loot-20261009/PRODUCTION.md` |
+-| Zoneforge | Baseâ†’Polished costs 3; Polishedâ†’Exalted and Exaltedâ†’Ascension cost **4** after Oct 12. No cross-family conversion. | `zone/zone_hunt_forge.cpp`, `common/item_upgrade_policy.h` (`ZoneCopies`) |
+-| Reforging Box | Live October17: four Polished→Exalted or Exalted→top tier, plus **three identical eligible Normal/Base→Polished** for ordinary and hunt families. Free reusable four-slot box900620 from Artisan Veyra999820; dungeon rewards and top tiers excluded. | `common/item_upgrade_policy.h`, `zone/advanced_loot_inventory.cpp`, `quests/ecommons/999820.pl`; `docs/releases/october-17-2026/README.md` and component reforge evidence |
+-
+-Item links must remain <=1,048,575. Prove IDs free across relevant tables and references, not just `items`; use guarded migrations. New hunt IDs start at 940000 and bypass legacy tier upgrading/global multipliers. Exact audited spawn/NPC identity, zone/version, level and special gates govern hunt eligibility. Pets, owned/script-created victims, services and restored dead NPCs don't reroll.
+-
+-Hunt type-22 augments fit eligible head/arms/hands/chest/legs/feet sockets. At player level >=50 only qualifying socketed hunt-augment heroic INT/WIS adds output-cap headroom: `min(30,floor(effective heroic total/2))` for Spell Damage/Healing Amount. It doesn't grant missing raw bonuses. Don't apply this credit to arbitrary gear, AAs, buffs, NPCs or other augments.
+-
+-## Normal-item box recipe — deployed October 17
+-
+-Three identical eligible Normal/Base items produce one Polished. Higher costs
+-remain four; ContainerSlots remains four and BoxCopies selects 3/4/4. Legacy
+-inputs require an existing +200000 exact next-quality definition; hunt inputs use
+-NextTier and enabled hunt state. Dungeon rewards remain separate. Stack units
+-count individually; charged nonstackables count once. Binding, instance exclusions,
+-all-slot preimages, receipt atomicity and uncertain-result quarantine remain.
+-
+-Source: common/item_upgrade_policy.h, zone/advanced_loot_inventory.cpp, client
+-packet messages and quests/ecommons/999820.pl. Actual inventory translation-unit
+-failure tests, policy/package controls and ten quest assertions pass. Current
+-full zone and Veyra script were installed together, preserving player data.
+-No schema/ItemData change or reward catalog regeneration. Never deploy the frozen
+-October12 builder over newer dungeon/journal code. Retain earned inventory and
+-receipts during recovery. Current proof/QA: docs/releases/october-17-2026/;
+-component evidence: docs/releases/reforge-normal-20261017/. Owner QA remains open.
+-
+-## Dungeon reward catalog deployed for live QA
+-
+-October 16 deployed; `docs/dungeons/{catalog.json,README.md,QA.md}` owns
+-definitions and acceptance. IDs 960000–960329 remain below the RoF2 link ceiling.
+-Twenty-four shared designs (8 armor, 8 weapons, 6 accessories, 2 bags) use bands
+-20/30/40/50 and Normal/Polished/Ascended qualities: 288 definitions. Each dungeon
+-also has exactly three exclusive Raid designs in two qualities: 42 definitions.
+-Explicit budgets/defaults and cache-field checks prevent hidden stat drift.
+-Weapon delay is stable; bags use 6/8/10 slots, up to 100% weight reduction.
+-
+-Grind completion grants Normal. Raid personal/exclusive qualities are 90%
+-Polished/10% Ascended; exclusive corpse count is 1/2/3 at 80/18/2%, without design
+-duplicates. Shared designs are uniform without class filtering. Run seed,
+-per-character reward ID and physical-drop UUID are durable; reconnect cannot
+-reroll. Completion grants once per character/run through the existing atomic
+-inventory/receipt transfer. Full inventories leave Keeper claims after expiry/reset.
+-All definitions are permanent, tradeable, non-attunable, non-lore and zero resale.
+-Existing legacy/zoneforge conversions exclude this range; do not treat dungeon
+-qualities as offsets or hunt Ascension. Native loot remains additional.
+-
+-Source: `common/dungeon_{policy,catalog,contract}.h`, `zone/dungeon_service.cpp`,
+-`common/shareddb.cpp`, `tools/dungeon_{catalog,migration,contract}.py` and guarded
+-20261016 dungeon SQL. Tests: `tools/tests/test_dungeon*.py`, rehearsal/activation/
+-concurrency scripts, existing inventory/corpse adapter evidence and native cache
+-verification. Pair all native binaries with the cache; no client asset changes.
+-The regenerated production cache preserves all 309,410 old records and adds
+-exactly 330 items. Deployment and continuing runtime checks pass; gameplay and
+-balance acceptance remain open. `docs/dungeons/deployment/` pins the actual pair.
+-
+-## Commonlands Leather Padding stock
+-
+-October 16 owner-requested content deployed on OVH: Haldra / Smithing Supplies
+-III (NPC/merchant 999603) sells Leather Padding 16488 in permanent slot 19 at
+-EC `/loc -1768,-395,3.75`. Berrin and Torvik already have 150 slots each. Owner
+-approved `items.sellrate` 2→3; base price 400, resale and recipes are unchanged.
+-Current merchant rules otherwise permit buy/resell profit at multiplier 2.
+-Purchase multiplier 3 keeps the best charisma-adjusted purchase above resale.
+-Changing this shared item metadata required regeneration through the current
+-supervisor's controlled game restart; stock-only edits support `#reload merchants`.
+-No binary or client update. All 309,410 cached definitions were compared; only
+-item 16488's SellRate float changed. Exact forward/inverse and three drift rejection
+-rehearsals pass. Production is deployed; owner purchase/crafting QA remains pending.
+-Source/operator, QA and deployment/cache evidence:
+-`E:/EQ_Local_Dev/docs/ops/commonlands-services-20261016/`. Preserve this additive
+-stock when regenerating an older full tunnel merchant catalog.
+-
+-## Equipment race policy
+-
+-The owner confirmed javelins work with signed client 2026101501, then Bronze
+-Knuckles exposed a separate Half Elf race exclusion. Its base 30981 and quality
+-variants have Monk/Beastlord classes 16448, original races 62219, primary-only
+-slots 8192 and no deity/required-level gate. The owner chose class match for any
+-playable race, while keeping non-player definitions unavailable.
+-
+-`common/equipment_race_policy.h::ApplyRacePolicy`, called after restrictions in
+-`common/shareddb.cpp::LoadItems`, projects effective Races=65535 only for common
+-items with playable class/race bits and a worn slot 0..22 or nonzero AugType.
+-Preserve zero AND unsupported-only masks such as 65536. Raw SQL is unchanged.
+-Class, deity, level, slots, weapon conflicts, augment fit, trade/LORE/resale and
+-every other field remain. Bots/other effective-item consumers share this policy.
+-
+-PR #204 merged policy 5cea9cb and guarded operator 11e1add as fd5e6e0. The owner
+-explicitly authorized push/merge/deploy with restart on October 16. Production
+-image 581322f0… / loader 71dfdd18… is deployed, with access open. The full 309,410-item
+-cache changes 90,852 race fields and preserves 1,535 non-player definitions and
+-every other byte. Closed-access checks preserve 47 player/11 custom tables,
+-content/rules/quests, supporting services and all 106 signed assets. All 12 zones
+-retain the AA-duration hash 19cd3387…, with zero candidate restarts/detected errors.
+-A fresh complete backup passed gzip checks; no SQL migration or restoration.
+-
+-Read `docs/releases/equipment-race-policy-20261016/README.md`, deployment.json,
+-deployment/manifest.json, build-manifest.json, cache-rehearsal.json and
+-verification.json in `C:/Users/verre/Documents/Codex/2026-10-15/g/work/multiclass-equipment`.
+-Source tests: `tools/tests/test_equipment_race_policy.py` compiles actual loader
+-and both SwapItem directions; `eq-client-dll/tests/equipment-native.cpp` executes
+-78 checks with actual race/equip/inspection paths. Other client restriction and
+-object-storage helpers are fixtures; server tests cover deity/level separately.
+-The retained archive/link inputs reproduce the prior loader 139194a9… before
+-one-object replacement; 126 members remain identical, ItemData stays 1332 bytes.
+-Local 308,928-item old/new/old rehearsal preserves all other cache bytes and
+-recreates the original cache. All 37 operator recovery/pairing tests pass on
+-Windows and the production host. Independent review has no remaining blockers;
+-the provenance finding was resolved, and the optional second model was declined.
+-
+-Pair with existing signed client 2026101501/proxy0.9.1-dev; no new download.
+-Future loader/cache updates require the supported whole-game restart and fresh
+-approval. Keep the latest world/zone/login/UCS binaries. Before possible access,
+-recovery regenerates the old image cache and requires exact preflight equality;
+-otherwise hold gateway closed. Never restore stale SQL/cache over changed data.
+-After uncertain access, retain candidate/subsequent activity and reconcile.
+-Bronze Knuckles remains primary-only. Owner inspection/equip/relog/class-release
+-QA is still pending; rollout health does not establish visible gameplay acceptance.
+-
+-## Ordinary tradeskills: stacked materials and Craft All
+-
+-Owner-authorized PR #200 merged to main and deployed to OVH October 13 for live QA, paired with signed game release 2026101304/proxy 0.9.0-dev. Owner gameplay acceptance remains pending. Experimental combines count physical stack units, consume exact recipe requirements and retain leftovers in bags/world stations. Charged nonstackables count as one. Prefer a unique exact quantity recipe, otherwise require one feasible recipe; ambiguous/missing/unrelated/augmented inputs consume nothing. Reacquire containers and rebuild plans after both quest callbacks. Native generic world containers have null parent ItemData and GetID()==0; only portable bags require parent ItemData.
+-
+-Recipe-browser automatic combines validate the real carried bag or owned nearby station, character/skill/class/race/quest gates and empty cursor. They gather a complete fresh ingredient plan from carried slots/bags before consumption, aggregate duplicate rows and retain native success/failure/salvage/skill gains. Container-consuming recipes require exact Experiment inputs. Reforging Box, molds and augmentation keep separate paths. Ordinary persistence remains native; this is not a new atomic receipt contract.
+-
+-Source: server-mods/code/zone/tradeskills.cpp and common/tradeskill_policy.h. Tests: tools/tests/test_tradeskill_stacks.py and test_tradeskill_auto.py extract production functions; 25 groups/74 scenarios pass. SQLite executes emitted SQL; result generation and by-ID metadata boundaries are mocked. Retained full native source matches original tradeskills SHA 53cd12b0e8c4e677cfaac87108634086e6c7b53ed1f869c5820c121dde286c8f. Isolated zone build/link passes using tools/build_tradeskill_candidate.py. No DB migration, rule or ItemData layout change. Pair the rebuilt zone with proxy 0.9.0-dev/config/catalog/tradeskill XML; use supported whole-runtime refresh, not quest/rule reload. Preserve the current divine-summon loader/cache. All 12 zones and 106 hosted signed assets verify with zero candidate restarts/detected errors; closed-access checks preserved 47 player/11 custom tables, current policies/content/quests and other binaries. Fresh full backup passed gzip/completeness verification (no separate restore rehearsal). Native visual, real packet timing, stack persistence and owner QA remain pending in docs/tradeskills/README.md; deployment.json, deployment-manifest.json, hosted-verification.json, build-manifest.json and verification.json record evidence. Never restore old player inventory on rollback.
+-
+-## Transaction and recovery boundary
+-
+-Forge and box inputs, output and durable receipt commit together after exact inventory preimage checks. Binding is preserved. Accept zero or the exact built-in definition color; reject different nonzero dye and socketed/ornamented/evolving/customized instances; bags cannot nest in the box. Stack quantity is physical copies; a charged result still yields one unit. `nightcap_item_upgrade_state` revision 2026101201 gates box behavior; `nightcap_item_upgrades` and `nightcap_zone_hunt_forges` retain receipts. Missing/mismatched enablement rejects. Uncertain commit or packet publication quarantines the session; don't automatically retry consumption.
+-
+-Disable acquisition/combining for operational rollback while preserving definitions, sockets, earned items and receipts. Never restore old inventory after player activity or roll back below receipt-capable binaries. The box NPC supplies the container; it is not a four-item hand-in quest.
+-
+-## Divine summoned weapons
+-
+-PR #197 merged to main and deployed on OVH October 13. Existing `SpellEffect::SummonItem` and `SummonItemIntoBag` already select Ascended (+600000) for eligible base equipment when the variant exists. Paladin/Cleric hammer spells retain that behavior; Unswerving/Celestial Hammer pets are separate.
+-
+-`common/divine_summoned_weapon_policy.h` covers eleven hammer families at all four quality offsets: bases 6307, 6309, 6313, 5800, 15996, 5798, 29365, 77517, 90491, 90492, 90493. The loader calls `ApplyMerchantPolicy` **after** FreeTrade and zeros both Price and FixedSellPrice for all 44 definitions. This closes unlimited summon-to-platinum sales, including old inventory copies. Combat stats, procs, bane, equip/class/level gates, raw SQL, effective trade flags and temporary lifetime remain unchanged. `#sellall` skips and retains them; an explicit ordinary merchant sale packet may discard one for zero coin.
+-
+-Wrath/Striking/Requital summon 606307/606309/606313: damage/delay 8/32, 8/29, 9/29; undead bane 3/4/5; each has +20 Spell Damage/+20 Healing Amount and remains primary-only. Ascended has no box/zone-forge successor; no production recipe references any of the 44 definitions, and the Epic Forgemaster uses its separate explicit catalog. Later hammer spell and item-level gates stay intact.
+-
+-Only `shared_memory` was rebuilt from retained production-matching source/link inputs; ItemData remains 1,332 bytes. The active world's/zone's/login's/UCS's binaries, including the October 13 AA-rank repair, were preserved. Cache regeneration requires the supported full-game restart; rule/quest reload alone is insufficient. No SQL migration or client download. Do not deploy an older main-checkout zone over the newer active binary. Exact image and native hashes: `docs/releases/divine-summons-20261013/deployment-manifest.json` and `deployment.json`.
+-
+-Native summon/resale and adjacent policy tests plus cache/operator recovery tests pass; independent review has no remaining blockers. Old/new/old loader rehearsal over 308,928 local definitions reproduces the original cache exactly. Production compared 309,410 definitions and preserved every cache byte outside the 88 owned price fields, 47 player tables, 11 custom tables and runtime/public fingerprints. All twelve zones are healthy, gateway reopened, zero new restarts/detected errors. Owner encounter balance and visual QA remain **pending**: `docs/releases/divine-summons-20261013/README.md`. Source tests: `tools/tests/test_divine_summoned_weapons.py`; release folder contains the cache checker, guarded operator and recovery tests.
+-
+-## Trading, LORE and sales
+-
+-- `Items:FreeTrade` projects effective flags and fixed former-NO-DROP resale from raw SQL definitions. `IsAttuned()` is persisted state; `IsAttunedForTrade()` handles permission. All native binaries and regenerated ItemData cache must match. Raw SQL `nodrop=0` doesn't establish effective restrictions.
+-- Originally NO DROP objects pay **1pp per physical unit**, not per charge, through ordinary merchants and `#sellall`; normal pricing otherwise remains. New hunt rewards and all 44 divine summoned-weapon definitions have zero resale. Preserve bags themselves. Native merchant previews can differ from the server's actual payout. `common/item_trade_policy.h`, `docs/releases/free-trade-20261004/README.md`.
+-- **LORE disabled on OVH October 12** with `Items:DisableLore=true`: loader clears effective LoreFlag/LoreGroup, preserving SQL originals. Rebuild cache/restart; rule reload alone is insufficient. Re-enabling after duplicates exist can delete cursor conflicts; reconcile ownership first. `docs/releases/remove-item-lore-20261012/README.md`.
+-- Latest source `gm_commands/sell_all.cpp::IsSellAllSupply` protects food/drink and every loaded spell `component[]` or item-valued `no_expend_reagent[]` across classes/eras, in general slots and bags, even for fixed-resale items. It reads current spells each check; absent spell data blocks sales. The merchant button invokes this same command and adds no sale policy. PR #183 merged; the runbook added a **verified October 12 deployment** during this audit, retaining all other rules/content and reopening the gateway. Manual acceptance remains pending. Recheck `docs/ops/sellall-supplies-20261012/README.md` for later changes.
+-- Food/drink requirements were removed in the October 11 native release; optional item bonuses, recipes and alcohol remain. This doesn't make those items disposable.
+-
+-## Tests and historical traps
+-
+-Focused tests under `tools/tests/`: `test_item_upgrade_policy.py`, `test_item_upgrade_package.py`, `test_advanced_loot_inventory.py`, `test_zone_hunt.py`, `test_zone_hunt_native.py`, `test_free_trade.py`, `test_remove_item_lore.py`, `test_sell_all.py`, `test_food_drink.py`. Disposable DB rehearsals are separate and require their documented environment. Client Combine/visual and progression-balance acceptance remains distinct.
+-
+-Older item generators omitted later flat SpellDmg/HealAmt additions; do not regenerate live tiers from the old script without a full comparison. The September combat/item repair report is a candidate, not proof every proposed stat change deployed. The finite living economy has a separate catalog, offer lifecycle and receipts; do not overwrite it with generic merchant restock. Route it through `docs/economy/` and current status before changes.
++# Items, loot, forging and economy
++
++## THJ custom behavior and stock gear — October 19, deployed for live testing
++
++Owner-authorized main promotion PR256/7104c6b and OVH activation are verified in
++docs/releases/thj-behaviors-20261019/deployment/. Stage:
++/opt/nightcap/releases/thj-behaviors-live-20261019. Matching world/zone/cache loader,
++three guarded SQL components and regenerated target caches are installed. Signed
++game2026101902 retains proxy0.11.0, its matching catalog and all136 unrelated assets;
++all138 hosted files verify with shipped trust. Classic50 and209 starter families
++remain. Owner gameplay and balance acceptance remain pending; ../QA.md owns tests.
++
++tools/thj_stock_scaling.py uses pinned stock ProjectEQ2026-10-17 (not Daybreak
++or THJ DB). All131 Normal observations match stock. Exact measured targets win;
++ordinary top core stats2x, haste1.5x, SD=max(2INT,WIS), HA=2WIS, Accuracy=ceil(DEX/2),
++new heroics=rounded finalstat/4 at Ascended only. Positive native SD/HA/Accuracy/
++heroics and sparse utilities/Attack remain stock absent exact evidence. Intermediate
++qualities interpolate1/3 and2/3.47809 families/143332definitions change;3563 overflow
++families are excluded under actual ItemData bounds. Normal/starters/custom Hunt/
++dungeon/augments/bags/quest epics retain treatment. Full285-column preimages guard
++numeric SQL and inverse; bounded hash/value staging requires complete matching IDs; pet/WPM effects/sockets/ownership remain. Fresh setup
++requires generating the ignored thj-stock-bootstrap.sql companion before SOURCE;
++compressed artifact and SHA are retained. Legacy SD/HA planning protects this stock
++projection. Do not rerun destructive bootstrap live.
++
++## Combined THJ item/spell and pet/WPM deployed — October 18, 2026
++
++Source: C:/Users/verre/.codex/worktrees/thj-item-spell-parity/EQ_Local_Dev. Owner-authorized main/OVH deployment is verified in
++`docs/releases/thj-parity-20261018/deployment/README.md` and `receipts/`. PR235 promotes the tested source;
++signed client2026101802/proxy0.11.0 and wiki20261018-thj-parity-v1 are published
++and verified. Classic50 remains active; level65/PoP and389 stock additions stay
++staged. Owner gameplay and balance acceptance remain open. Exact testing:
++`docs/releases/thj-parity-20261018/QA.md`; measured limitations: `COMPARISON.md`.
++
++The exact reviewed catalog contains131 observed Ascended targets. Clean
++Blood Cord/Talisman screenshots override conflicting workbook attributes;
++ambiguous relocations, below-Normal fields, augmented/ambiguous identities and
++unknown proc presentation are deferred. Unobserved ordinary families retain
++existing policy. Normal ordinary gear stays native; intermediate values only
++cap at reviewed top reductions. No universal THJ multiplier is inferred.
++
++The209-family starter policy preserves modest quality steps below comparable
++Normal dungeon gear, fixed weapon delay and cultural armor exclusion. Current
++dungeon_catalog.items() emits the retuned330-definition catalog; legacy_items()
++is only the dated preimage. item_scaling_overrides.py owns the final fresh
++bootstrap block and requires exact present identities. The generic two-column
++SD/HA planner excludes these families; never rerun destructive bootstrap live.
++
++thj_combined_content.py composes1393 existing-item changes from full285-column
++captures in one transaction. It accepts only full original, companion or final
++images; drift or failed final hashes rolls back all updates. Non-gear pet/WPM
++migrations use include_gear=False. Numeric recovery restores1369 rows to the
++companion baseline while retaining effects/sockets for owned augments. New
++acquisition recovery removes links only; never restore old inventory/AA state.
++Preserve Seru's two independent new links and original loot. Fresh target
++preimages, matching caches/world/zone and client spell/dbstr pairing are required.
++Source/tests: thj_item_parity.py, thj_item_migration.py, thj_combined_content.py,
++item_scaling_overrides.py and test_thj_*, test_item_scaling_overrides.py.
++
++Production installed all1393 full-row afterimages, matching caches and the paired
++native image. Three rule-note strings now match compiled ruletypes.h because
++world normalizes them on startup. Forward/disable/enable guards were rehearsed
++on the retained public clone after that normalization; no live SQL repair was
++needed. Keep numeric recovery separate from effects, sockets and owned state.
++
++## Built-in item colors — deployed October 18
++
++Current fix source: C:/Users/verre/.codex/worktrees/reforge-default-colors/EQ_Local_Dev,
++native PR225 and operator PR227/228. PlainUpgradeItem and PlainForgeItem accept
++zero or exactly ItemData::Color; any other nonzero instance color is dye and
++remains rejected. Native constructors start with the definition color, which was
++why ordinary Daggers of Marnek failed. Do not strip input colors or weaken exact
++saved-row preimages. Output keeps its target definition color and binding.
++Recipes, augment/ornament/custom/evolving guards and atomic receipts are unchanged.
++
++Source: server-mods/code/zone/advanced_loot_inventory.cpp. The complete native
++translation-unit fixture adds61 cases (all six tiers, zero/default/different dye,
++output color/binding/receipts, zoneforge and saved-color drift), with policy/package
++controls and12 operator groups. Retained cooldown inputs re-link byte-identically;
++only this implementation object changes. No header/ABI, SQL, cache or client change.
++
++Zone29b8093147ffbc4c0d387a4e3fa55a3a041dbb9ae7da731b493b21601a6dec2f
++is deployed across12 zones; gateway open,47 player/28 custom tables preserved.
++Keep cooldown migration and proxy0.10.0/game2026101801. Native changes require the
++supported whole-runtime restart, not quest reload or killing one zone. Recovery
++uses the immediately preceding cooldown-capable image without restoring player
++snapshots or replaying migration. Evidence and exact Palwar three-Normal combine
++QA: docs/releases/reforge-colors-20261018/. Owner confirmed Palwar's reported
++three-Normal Dagger of Marnek combine on October18. Relog, actual-dye/customized
++rejection and other tiers/zoneforge remain unconfirmed. owner-acceptance.json
++records that scope; historical deployment receipts retain their earlier status.
++
++## Ordinary loot rates and quest reward direction — October 18
++
++20% Polished / 5% Exalted / 1% Ascended: deployed and globally reloaded; player balance QA remains open.
++Existing Zone:LootTierRare/Epic/LegendaryChance DB overrides are 2000/500/100
++out of10000 when activated; compiled defaults remain1000/200/25. One roll per
++eligible ordinary equipment/bag drop, not kill. Missing variants stay base;
++hunt/dungeon rates and3/4/4 reforging are separate. Existing generated loot is
++not rerolled. No binary/cache/client change; world and all zones reload rules.
++
++Actual deployed source is server-mods/code/zone/loot.cpp, matching the retained
++October17 and October18 cooldown manifests. The older loottables.cpp pointer
++does not describe this reviewed build. Exhaustive native roll test and five
++temporary MariaDB guard/forward/inverse cases pass. Evidence/operator/QA:
++E:/EQ_Local_Dev/_worktrees/loot-quality-rates/docs/ops/loot-quality-rates-20261018/.
++
++## Substantial class-armor rewards — October 22 candidate, not deployed
++
++The owner superseded the blanket repeatable-quest exclusion: substantial class
++armor may qualify even when repeatable; cheap/basic hand-ins remain excluded.
++Fresh production evidence confirmed Palwar's Crafted rewards were hard-coded
++Normal. Source E:/EQ_Local_Dev/_worktrees/quest-armor-ascended at d107f901fbf6
++changes37 terminal reward literals across Crafted, Lambent, Darkforge, Ivy Etched
++and Totemic. docs/items/quest-armor-catalog.json owns exact membership. Existing
+++600000 Ascended targets preserve eligibility/sockets; no item/stat/client changes.
++Other quests, basic crafts, materials, returns and epic+800000 remain separate.
++Armor of Ro's tradeskill finish and mixed cleric branches need their own audit.
++Never hook all SummonItem/QuestReward calls or infer membership from names.
++
++Audit downstream item consumers before reward substitution. Kurron Ni's SK epic
++uses three Darkforge pieces: the eleventh script accepts Normal/Ascended mixtures
++while retaining platinum>=900, original helper cash return, faction and once-per-
++spawn letter. Always invoke check_handin under its original coin gate, even when
++pieces are missing; the helper registers money for rejected-hand-in returns.
++The fresh literal script scan found no other progression consumers beyond
++unchanged sizing; recipe/task consumers were empty. Literal scans do not prove
++absence of dynamic references. Playable-race eligibility makes resizing
++unnecessary; higher-quality static sizing needs an instance-preservation audit.
++
++113 real-Lua cases,39 Perl subtests and21 validator controls pass with captured
++production helpers; baseline failures and independent review are recorded in
++docs/releases/quest-armor-20261022/. Activation needs fresh script/root/version
++and target-cache preflight, all11 retained originals, supported global Quest
++reload and unchanged native process lifetimes. No restart is expected; never
++kill a production zone. Recovery restores scripts only, retaining earned armor.
++Palwar's3 already-owned pieces remain unchanged; separate authorized offline
++correction must preserve fresh full-row state. Main/production/wiki publication
++and actual delivery, relog and owner balance QA are pending.
++
++## Gear bands and finished cultural armor — October18 candidate
++
++The production audit confirmed ordinary damage already scales at rounded
++110/120/135% of Normal, unchanged delay; low integers can plateau. The earlier
++minimum +1 candidate is SUPERSEDED and must not deploy. Its CLI is retired and
++bootstrap block removed. Historical migration artifacts are not current policy.
++
++Owner now permits reductions to ordinary Normal starter gear. This replaces
++the preserve-Normal/35AC entry-dungeon proposal; its CLI is retired. Current
++offline candidate covers209 fixed starter families/836 definitions, including
++all reviewed sizes, cloaks/girdle variants and Rusty/Bronze weapons. Normal
++Bronze chest6AC, then7/8/9; dungeon Normal chest12/16/20/24 across20/30/40/50.
++Starter weapon damage increases exactly1 per quality with unchanged delay and
++strict Ascended ratio below every comparable Normal dungeon reward. Spell/heal
++bonuses0/1/2/3 and no starter heroics.821 starter and292 dungeon definitions
++differ; zero cultural-catalog overlap. No live/compiler/cache/client changes.
++
++tools/starter_retune.py pins the209-ID allowlist and Rusty profiles independently
++of input capture; unlisted/cultural substitutions reject. Eight focused tests,
++three dungeon catalog and20 cultural regression tests pass. Fresh review found
++two guard/test limitations, resolved and re-reviewed. Source/report:
++docs/items/starter-retune-reference.json and docs/releases/starter-retune-20261018/.
++tools/tests/test_starter_retune.py verifies every captured family/quality and
++complete changed-field allowlists. This proves AC/ratio ordering, not combat
++acceptance. Fine Steel, named/quest, bows/jewelry and other ordinary classifications
++remain open. Full-row guarded item migration, legal multiclass/AA/pet encounter
++measurements and owner QA precede activation. Item changes need matching cache
++regeneration and supported runtime restart; no client ABI change is proposed.
++
++Exception: only approved finished cultural crafted armor produces existing
++ordinary +600000 Ascended outputs directly. Explicit reviewed catalog has1041
++recipes/944 armor pieces; do not infer membership from race flags, names or kits.
++General recipes also use racial kits. Excludes materials, intermediates, weapons,
++jewelry, shields and held items; owned Normal items stay Normal. Disabled recipes,
++skill/cost/failure/learning and returned tools remain intact.
++
++Checkout E:/EQ_Local_Dev/_worktrees/weapon-tier-damage: docs/items/cultural-armor-catalog.json,
++tools/cultural_armor.py, capture_cultural_armor.py, cultural_armor_migration.py,
++rehearse_cultural_armor.py and tests/test_cultural_armor.py. Full-row SQL guards
++1041 recipes/8820 entries/1888 definitions; only pure-success item_id changes.
++No component consumers or task references found; production script literal scan
++found no direct item dependencies.20 planner tests and11 full-catalog MariaDB
++forward/inverse/drift cases pass; independent review complete.
++
++NOT DEPLOYED. Activation requires authorization, fresh capture/backup and crafting
++maintenance window. Recipe success rows load per combine in GetTradeRecipe, for
++manual and browser paths; no binary/client change. Existing Ascended target cache
++presence is still an activation gate. Any needed cache repair uses the current
++paired runtime and supported full restart, never a zone kill. Inverse restores
++recipe outputs only, never player inventories or already-crafted armor.
++Evidence, exact manual/browser/failure/tool-return QA and open balance decision:
++docs/releases/cultural-armor-20261018/README.md and ADR0064. No live acceptance.
++
++## Item recast timer integrity
++
++October17 PR220 deployed signed click-duration clamps before uint32 conversion;
++excess reduction previously yielded roughly136 years. Ordinary/negative/equal/
++excess focus and augment publication remain covered. Current production evidence
++is docs/releases/october-17-2026/; earlier audit is cooldown-audit-20261017/.
++
++The follow-up identity correction deployed October18 via PR223. Unlinked
++-item_id in uint16 formerly aliased at65536 intervals and overlapped other domains.
++The deployed implementation uses uint32
++0x200000+itemID, rejecting IDs above the client limit0xfffff. Every item/augment
++verify, set/get/delete and cooldown path uses the same identity. Linked item
++groups remain unchanged and are not declared intentional by catalog membership.
++The SELECT-only capture has1158 unlinked definitions; ownership is unproven.
++
++Saved client timestamp and native PTimer may differ: GetItemCooldown and saved
++publication preserve the longer remaining wait without changing either deadline.
++Unlinked items publish through inventory timestamps/SendItemPacket; their recast
++helper does not send a native group packet. Tests execute actual item methods,
++including IDs64350/129886 and out-of-domain rejection, plus the longer-wait case.
++
++Pair the rebuilt zone with stopped-game guarded SQL and the existing Monk client.
++Migration copies ambiguous waits to every successor and merges immediate
++character_item_recast timestamps. It preserves longest deadlines and checks item
++membership/click/delay preimages, not counts alone. Rollback conservatively folds
++waits back, removes all high keys before old code and retains item records. No
++old player snapshot or timer wipe. No new ItemData/cache/DLL layout change.
++Exact source,27 duration/item/discipline tests,15 database rehearsals, build,
++review and visible QA: docs/releases/cooldown-identities-20261017/ in the checkout
++listed in multiclass.md. Full grouped-item/spell/discipline family design is open.
++
++## Item stack minimum 100 — deployed October 17
++
++Raised exactly 20,490 already-stackable definitions below 100, including 6,734
++tradeskill materials. Higher limits, nonstackables, charges, recipes, prices and
++player inventories are preserved. Leather Padding 16488 goes 50→100; ore 10500,
++water 13006 and bandages 13009 go 20→100. Existing stacks merge manually.
++
++tools/item_stack_sizes.py produces guarded ID/old-limit SQL; three planner and
++nine actual MariaDB temporary-table cases pass, including preimage drift and
++post-update rollback. Current source is E:/EQ_Local_Dev/_worktrees/october-17-release.
++Combined deployment verified every item column and the entire regenerated cache,
++allowing only 20,490 signed StackSize fields at offset 802 in 1,332-byte ItemData.
++The existing shared_memory binary and all other item policies are retained.
++Evidence: docs/releases/october-17-2026/ and docs/ops/item-stacks-100-20261017/.
++
++Items require supported cache regeneration/runtime restart, not rules/quest reload.
++After access could open, keep the higher limits: never shrink under existing
++stacks or restore old player SQL/cache. Banking/crafting/trade/relog QA remains open.
++
++Item-policy audit refreshed 2026-10-13 for the deployed divine-summon exception; other item systems retain their October 12 audit scope. Keep the independent reward systems distinct; use their explicit catalogs and current source. A stale runbook still saying every zoneforge recipe costs three is superseded by the October 12 upgrade policy.
++
++| System | Implemented contract | Source/evidence |
++|---|---|---|
++| Legacy quality loot | Base/Polished/Exalted/Ascended, offsets +200k/+400k/+600k; epics separate +800k. October18 rates20%/5%/1%; see activation status above. Per eligible drop, not kill. | `server-mods/code/zone/loot.cpp`, exact retained manifests and `docs/ops/loot-quality-rates-20261018/` |
++| Classic hunt | Two independent 0.5% rolls per eligible death: augment and wearable; weights 60/30/8/2, top tier **Ascension**. 48 audited combat zones enabled, eight access-check zones gated. | `server-mods/code/zone/zone_hunt.cpp`, `common/zone_hunt_catalog.h`, `common/zone_hunt_policy.h`; `docs/releases/zone-loot-20261009/PRODUCTION.md` |
++| Zoneforge | Baseâ†’Polished costs 3; Polishedâ†’Exalted and Exaltedâ†’Ascension cost **4** after Oct 12. No cross-family conversion. | `zone/zone_hunt_forge.cpp`, `common/item_upgrade_policy.h` (`ZoneCopies`) |
++| Reforging Box | Live October17: four Polished→Exalted or Exalted→top tier, plus **three identical eligible Normal/Base→Polished** for ordinary and hunt families. Free reusable four-slot box900620 from Artisan Veyra999820; dungeon rewards and top tiers excluded. | `common/item_upgrade_policy.h`, `zone/advanced_loot_inventory.cpp`, `quests/ecommons/999820.pl`; `docs/releases/october-17-2026/README.md` and component reforge evidence |
++
++Item links must remain <=1,048,575. Prove IDs free across relevant tables and references, not just `items`; use guarded migrations. New hunt IDs start at 940000 and bypass legacy tier upgrading/global multipliers. Exact audited spawn/NPC identity, zone/version, level and special gates govern hunt eligibility. Pets, owned/script-created victims, services and restored dead NPCs don't reroll.
++
++Hunt type-22 augments fit eligible head/arms/hands/chest/legs/feet sockets. At player level >=50 only qualifying socketed hunt-augment heroic INT/WIS adds output-cap headroom: `min(30,floor(effective heroic total/2))` for Spell Damage/Healing Amount. It doesn't grant missing raw bonuses. Don't apply this credit to arbitrary gear, AAs, buffs, NPCs or other augments.
++
++## Normal-item box recipe — deployed October 17
++
++Three identical eligible Normal/Base items produce one Polished. Higher costs
++remain four; ContainerSlots remains four and BoxCopies selects 3/4/4. Legacy
++inputs require an existing +200000 exact next-quality definition; hunt inputs use
++NextTier and enabled hunt state. Dungeon rewards remain separate. Stack units
++count individually; charged nonstackables count once. Binding, instance exclusions,
++all-slot preimages, receipt atomicity and uncertain-result quarantine remain.
++
++Source: common/item_upgrade_policy.h, zone/advanced_loot_inventory.cpp, client
++packet messages and quests/ecommons/999820.pl. Actual inventory translation-unit
++failure tests, policy/package controls and ten quest assertions pass. Current
++full zone and Veyra script were installed together, preserving player data.
++No schema/ItemData change or reward catalog regeneration. Never deploy the frozen
++October12 builder over newer dungeon/journal code. Retain earned inventory and
++receipts during recovery. Current proof/QA: docs/releases/october-17-2026/;
++component evidence: docs/releases/reforge-normal-20261017/. Owner QA remains open.
++
++## Dungeon reward catalog deployed for live QA
++
++October 16 deployed; `docs/dungeons/{catalog.json,README.md,QA.md}` owns
++definitions and acceptance. IDs 960000–960329 remain below the RoF2 link ceiling.
++Twenty-four shared designs (8 armor, 8 weapons, 6 accessories, 2 bags) use bands
++20/30/40/50 and Normal/Polished/Ascended qualities: 288 definitions. Each dungeon
++also has exactly three exclusive Raid designs in two qualities: 42 definitions.
++Explicit budgets/defaults and cache-field checks prevent hidden stat drift.
++Weapon delay is stable; bags use 6/8/10 slots, up to 100% weight reduction.
++
++Grind completion grants Normal. Raid personal/exclusive qualities are 90%
++Polished/10% Ascended; exclusive corpse count is 1/2/3 at 80/18/2%, without design
++duplicates. Shared designs are uniform without class filtering. Run seed,
++per-character reward ID and physical-drop UUID are durable; reconnect cannot
++reroll. Completion grants once per character/run through the existing atomic
++inventory/receipt transfer. Full inventories leave Keeper claims after expiry/reset.
++All definitions are permanent, tradeable, non-attunable, non-lore and zero resale.
++Existing legacy/zoneforge conversions exclude this range; do not treat dungeon
++qualities as offsets or hunt Ascension. Native loot remains additional.
++
++Source: `common/dungeon_{policy,catalog,contract}.h`, `zone/dungeon_service.cpp`,
++`common/shareddb.cpp`, `tools/dungeon_{catalog,migration,contract}.py` and guarded
++20261016 dungeon SQL. Tests: `tools/tests/test_dungeon*.py`, rehearsal/activation/
++concurrency scripts, existing inventory/corpse adapter evidence and native cache
++verification. Pair all native binaries with the cache; no client asset changes.
++The regenerated production cache preserves all 309,410 old records and adds
++exactly 330 items. Deployment and continuing runtime checks pass; gameplay and
++balance acceptance remain open. `docs/dungeons/deployment/` pins the actual pair.
++
++## Commonlands Leather Padding stock
++
++October 16 owner-requested content deployed on OVH: Haldra / Smithing Supplies
++III (NPC/merchant 999603) sells Leather Padding 16488 in permanent slot 19 at
++EC `/loc -1768,-395,3.75`. Berrin and Torvik already have 150 slots each. Owner
++approved `items.sellrate` 2→3; base price 400, resale and recipes are unchanged.
++Current merchant rules otherwise permit buy/resell profit at multiplier 2.
++Purchase multiplier 3 keeps the best charisma-adjusted purchase above resale.
++Changing this shared item metadata required regeneration through the current
++supervisor's controlled game restart; stock-only edits support `#reload merchants`.
++No binary or client update. All 309,410 cached definitions were compared; only
++item 16488's SellRate float changed. Exact forward/inverse and three drift rejection
++rehearsals pass. Production is deployed; owner purchase/crafting QA remains pending.
++Source/operator, QA and deployment/cache evidence:
++`E:/EQ_Local_Dev/docs/ops/commonlands-services-20261016/`. Preserve this additive
++stock when regenerating an older full tunnel merchant catalog.
++
++## Equipment race policy
++
++The owner confirmed javelins work with signed client 2026101501, then Bronze
++Knuckles exposed a separate Half Elf race exclusion. Its base 30981 and quality
++variants have Monk/Beastlord classes 16448, original races 62219, primary-only
++slots 8192 and no deity/required-level gate. The owner chose class match for any
++playable race, while keeping non-player definitions unavailable.
++
++`common/equipment_race_policy.h::ApplyRacePolicy`, called after restrictions in
++`common/shareddb.cpp::LoadItems`, projects effective Races=65535 only for common
++items with playable class/race bits and a worn slot 0..22 or nonzero AugType.
++Preserve zero AND unsupported-only masks such as 65536. Raw SQL is unchanged.
++Class, deity, level, slots, weapon conflicts, augment fit, trade/LORE/resale and
++every other field remain. Bots/other effective-item consumers share this policy.
++
++PR #204 merged policy 5cea9cb and guarded operator 11e1add as fd5e6e0. The owner
++explicitly authorized push/merge/deploy with restart on October 16. Production
++image 581322f0… / loader 71dfdd18… is deployed, with access open. The full 309,410-item
++cache changes 90,852 race fields and preserves 1,535 non-player definitions and
++every other byte. Closed-access checks preserve 47 player/11 custom tables,
++content/rules/quests, supporting services and all 106 signed assets. All 12 zones
++retain the AA-duration hash 19cd3387…, with zero candidate restarts/detected errors.
++A fresh complete backup passed gzip checks; no SQL migration or restoration.
++
++Read `docs/releases/equipment-race-policy-20261016/README.md`, deployment.json,
++deployment/manifest.json, build-manifest.json, cache-rehearsal.json and
++verification.json in `C:/Users/verre/Documents/Codex/2026-10-15/g/work/multiclass-equipment`.
++Source tests: `tools/tests/test_equipment_race_policy.py` compiles actual loader
++and both SwapItem directions; `eq-client-dll/tests/equipment-native.cpp` executes
++78 checks with actual race/equip/inspection paths. Other client restriction and
++object-storage helpers are fixtures; server tests cover deity/level separately.
++The retained archive/link inputs reproduce the prior loader 139194a9… before
++one-object replacement; 126 members remain identical, ItemData stays 1332 bytes.
++Local 308,928-item old/new/old rehearsal preserves all other cache bytes and
++recreates the original cache. All 37 operator recovery/pairing tests pass on
++Windows and the production host. Independent review has no remaining blockers;
++the provenance finding was resolved, and the optional second model was declined.
++
++Pair with existing signed client 2026101501/proxy0.9.1-dev; no new download.
++Future loader/cache updates require the supported whole-game restart and fresh
++approval. Keep the latest world/zone/login/UCS binaries. Before possible access,
++recovery regenerates the old image cache and requires exact preflight equality;
++otherwise hold gateway closed. Never restore stale SQL/cache over changed data.
++After uncertain access, retain candidate/subsequent activity and reconcile.
++Bronze Knuckles remains primary-only. Owner inspection/equip/relog/class-release
++QA is still pending; rollout health does not establish visible gameplay acceptance.
++
++## Ordinary tradeskills: stacked materials and Craft All
++
++Owner-authorized PR #200 merged to main and deployed to OVH October 13 for live QA, paired with signed game release 2026101304/proxy 0.9.0-dev. Owner gameplay acceptance remains pending. Experimental combines count physical stack units, consume exact recipe requirements and retain leftovers in bags/world stations. Charged nonstackables count as one. Prefer a unique exact quantity recipe, otherwise require one feasible recipe; ambiguous/missing/unrelated/augmented inputs consume nothing. Reacquire containers and rebuild plans after both quest callbacks. Native generic world containers have null parent ItemData and GetID()==0; only portable bags require parent ItemData.
++
++Recipe-browser automatic combines validate the real carried bag or owned nearby station, character/skill/class/race/quest gates and empty cursor. They gather a complete fresh ingredient plan from carried slots/bags before consumption, aggregate duplicate rows and retain native success/failure/salvage/skill gains. Container-consuming recipes require exact Experiment inputs. Reforging Box, molds and augmentation keep separate paths. Ordinary persistence remains native; this is not a new atomic receipt contract.
++
++Source: server-mods/code/zone/tradeskills.cpp and common/tradeskill_policy.h. Tests: tools/tests/test_tradeskill_stacks.py and test_tradeskill_auto.py extract production functions; 25 groups/74 scenarios pass. SQLite executes emitted SQL; result generation and by-ID metadata boundaries are mocked. Retained full native source matches original tradeskills SHA 53cd12b0e8c4e677cfaac87108634086e6c7b53ed1f869c5820c121dde286c8f. Isolated zone build/link passes using tools/build_tradeskill_candidate.py. No DB migration, rule or ItemData layout change. Pair the rebuilt zone with proxy 0.9.0-dev/config/catalog/tradeskill XML; use supported whole-runtime refresh, not quest/rule reload. Preserve the current divine-summon loader/cache. All 12 zones and 106 hosted signed assets verify with zero candidate restarts/detected errors; closed-access checks preserved 47 player/11 custom tables, current policies/content/quests and other binaries. Fresh full backup passed gzip/completeness verification (no separate restore rehearsal). Native visual, real packet timing, stack persistence and owner QA remain pending in docs/tradeskills/README.md; deployment.json, deployment-manifest.json, hosted-verification.json, build-manifest.json and verification.json record evidence. Never restore old player inventory on rollback.
++
++## Transaction and recovery boundary
++
++Forge and box inputs, output and durable receipt commit together after exact inventory preimage checks. Binding is preserved. Accept zero or the exact built-in definition color; reject different nonzero dye and socketed/ornamented/evolving/customized instances; bags cannot nest in the box. Stack quantity is physical copies; a charged result still yields one unit. `nightcap_item_upgrade_state` revision 2026101201 gates box behavior; `nightcap_item_upgrades` and `nightcap_zone_hunt_forges` retain receipts. Missing/mismatched enablement rejects. Uncertain commit or packet publication quarantines the session; don't automatically retry consumption.
++
++Disable acquisition/combining for operational rollback while preserving definitions, sockets, earned items and receipts. Never restore old inventory after player activity or roll back below receipt-capable binaries. The box NPC supplies the container; it is not a four-item hand-in quest.
++
++## Divine summoned weapons
++
++PR #197 merged to main and deployed on OVH October 13. Existing `SpellEffect::SummonItem` and `SummonItemIntoBag` already select Ascended (+600000) for eligible base equipment when the variant exists. Paladin/Cleric hammer spells retain that behavior; Unswerving/Celestial Hammer pets are separate.
++
++`common/divine_summoned_weapon_policy.h` covers eleven hammer families at all four quality offsets: bases 6307, 6309, 6313, 5800, 15996, 5798, 29365, 77517, 90491, 90492, 90493. The loader calls `ApplyMerchantPolicy` **after** FreeTrade and zeros both Price and FixedSellPrice for all 44 definitions. This closes unlimited summon-to-platinum sales, including old inventory copies. Combat stats, procs, bane, equip/class/level gates, raw SQL, effective trade flags and temporary lifetime remain unchanged. `#sellall` skips and retains them; an explicit ordinary merchant sale packet may discard one for zero coin.
++
++Wrath/Striking/Requital summon 606307/606309/606313: damage/delay 8/32, 8/29, 9/29; undead bane 3/4/5; each has +20 Spell Damage/+20 Healing Amount and remains primary-only. Ascended has no box/zone-forge successor; no production recipe references any of the 44 definitions, and the Epic Forgemaster uses its separate explicit catalog. Later hammer spell and item-level gates stay intact.
++
++Only `shared_memory` was rebuilt from retained production-matching source/link inputs; ItemData remains 1,332 bytes. The active world's/zone's/login's/UCS's binaries, including the October 13 AA-rank repair, were preserved. Cache regeneration requires the supported full-game restart; rule/quest reload alone is insufficient. No SQL migration or client download. Do not deploy an older main-checkout zone over the newer active binary. Exact image and native hashes: `docs/releases/divine-summons-20261013/deployment-manifest.json` and `deployment.json`.
++
++Native summon/resale and adjacent policy tests plus cache/operator recovery tests pass; independent review has no remaining blockers. Old/new/old loader rehearsal over 308,928 local definitions reproduces the original cache exactly. Production compared 309,410 definitions and preserved every cache byte outside the 88 owned price fields, 47 player tables, 11 custom tables and runtime/public fingerprints. All twelve zones are healthy, gateway reopened, zero new restarts/detected errors. Owner encounter balance and visual QA remain **pending**: `docs/releases/divine-summons-20261013/README.md`. Source tests: `tools/tests/test_divine_summoned_weapons.py`; release folder contains the cache checker, guarded operator and recovery tests.
++
++## Trading, LORE and sales
++
++- `Items:FreeTrade` projects effective flags and fixed former-NO-DROP resale from raw SQL definitions. `IsAttuned()` is persisted state; `IsAttunedForTrade()` handles permission. All native binaries and regenerated ItemData cache must match. Raw SQL `nodrop=0` doesn't establish effective restrictions.
++- Originally NO DROP objects pay **1pp per physical unit**, not per charge, through ordinary merchants and `#sellall`; normal pricing otherwise remains. New hunt rewards and all 44 divine summoned-weapon definitions have zero resale. Preserve bags themselves. Native merchant previews can differ from the server's actual payout. `common/item_trade_policy.h`, `docs/releases/free-trade-20261004/README.md`.
++- **LORE disabled on OVH October 12** with `Items:DisableLore=true`: loader clears effective LoreFlag/LoreGroup, preserving SQL originals. Rebuild cache/restart; rule reload alone is insufficient. Re-enabling after duplicates exist can delete cursor conflicts; reconcile ownership first. `docs/releases/remove-item-lore-20261012/README.md`.
++- Latest source `gm_commands/sell_all.cpp::IsSellAllSupply` protects food/drink and every loaded spell `component[]` or item-valued `no_expend_reagent[]` across classes/eras, in general slots and bags, even for fixed-resale items. It reads current spells each check; absent spell data blocks sales. The merchant button invokes this same command and adds no sale policy. PR #183 merged; the runbook added a **verified October 12 deployment** during this audit, retaining all other rules/content and reopening the gateway. Manual acceptance remains pending. Recheck `docs/ops/sellall-supplies-20261012/README.md` for later changes.
++- Food/drink requirements were removed in the October 11 native release; optional item bonuses, recipes and alcohol remain. This doesn't make those items disposable.
++
++## Tests and historical traps
++
++Focused tests under `tools/tests/`: `test_item_upgrade_policy.py`, `test_item_upgrade_package.py`, `test_advanced_loot_inventory.py`, `test_zone_hunt.py`, `test_zone_hunt_native.py`, `test_free_trade.py`, `test_remove_item_lore.py`, `test_sell_all.py`, `test_food_drink.py`. Disposable DB rehearsals are separate and require their documented environment. Client Combine/visual and progression-balance acceptance remains distinct.
++
++Older item generators omitted later flat SpellDmg/HealAmt additions; do not regenerate live tiers from the old script without a full comparison. The September combat/item repair report is a candidate, not proof every proposed stat change deployed. The finite living economy has a separate catalog, offer lifecycle and receipts; do not overwrite it with generic merchant restock. Route it through `docs/economy/` and current status before changes.
+--- a/references/wiki.md
++++ b/references/wiki.md
+@@ -1,4 +1,21 @@
+ # Official player wiki and Features
++
++## Class-armor reward candidate — October 22, not published
++
++All21 maintained articles and432 generated routes reviewed against mainf293626
++plus d107f901fbf6. Equipment, Features, home, tradeskills, In development and
++Recent changes explicitly label the37-reward/five-family candidate Not released.
++Substantial repeatable class armor is now eligible for audit; cheap/basic hand-ins
++remain excluded. Kurron Ni's downstream compatibility preserves epic progression.
++Other quest/cultural candidates, commands and384 Hunt catalog values remain.
++Current robe and waypoint notices are preserved.14 content/refresh tests,6 search
++scenarios,7 equipment checks and458-page build pass. Published ledger e209649
++stays unchanged; check_refresh correctly reports reviewed candidate drift.
++Source/evidence: E:/EQ_Local_Dev/_worktrees/quest-armor-ascended,
++docs/releases/quest-armor-20261022/{README.md,wiki-review.json,verification.json}.
++No production or wiki publication, Palwar inventory correction, or owner gameplay
++acceptance is claimed. Pair future publication with the authorized11-script release.
++
+ 
+ ## Every Classic dungeon — October22 unpublished candidate
+ 
+--- a/references/sources.json
++++ b/references/sources.json
+@@ -78,7 +78,8 @@
+     "classic_robes_published_20261022": "e209649cd70f5aa5d7bbc73813cae7275950af19; main PR276/4661ddc; signed game2026102201 and wiki20261022-classic-robes-v1 verified; native QA pending",
+     "waypoint_crystal_integrated_20261022": "23e551eafe824363767f8c7ac66776e6431b362f",
+     "waypoint_crystal_test_promotion_20261022": "442dce32933dd76c648e71b85baf428b958a67ac",
+-    "classic_dungeon_candidate_20261022": "c4fb75cdec971172657040a28661fa84e995d725"
++    "classic_dungeon_candidate_20261022": "c4fb75cdec971172657040a28661fa84e995d725",
++    "quest_armor_candidate_20261022": "d107f901fbf637933f40c86b1ddd0ff819438bce; not deployed; owner gameplay acceptance pending"
+   },
+   "topics": {
+     "operations": [
+@@ -3443,6 +3444,174 @@
+         "role": "Verified production deployment; owner gameplay QA pending",
+         "revision": "70966674868e48466fa5ba4ae3393e08fd0df2ed",
+         "sha256": "57f930fb8dc37a8fe02f0e037f42a74622969bccbf8015223cb88253f2ee50e3"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/quest-armor-ascended",
++        "path": "docs/items/quest-armor-catalog.json",
++        "role": "Reviewed class-armor candidate; not deployed/published/accepted",
++        "revision": "d107f901fbf637933f40c86b1ddd0ff819438bce",
++        "sha256": "6ac6d1c9429ce2b993b3be4e02968206cb3e3ffbc6816d6e1f84920ba9b04971"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/quest-armor-ascended",
++        "path": "docs/adr/0066-substantial-class-armor-rewards.md",
++        "role": "Reviewed class-armor candidate; not deployed/published/accepted",
++        "revision": "d107f901fbf637933f40c86b1ddd0ff819438bce",
++        "sha256": "5951fea1fff57f7b21a9a4fce3be7956dc56541dce17856e1ac9cc92d159c4f3"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/quest-armor-ascended",
++        "path": "tools/quest_armor.py",
++        "role": "Reviewed class-armor candidate; not deployed/published/accepted",
++        "revision": "d107f901fbf637933f40c86b1ddd0ff819438bce",
++        "sha256": "eae7be68a5f16407f240b1082dfaa8947ebe05933cfd3d595050c1e2622e0d7c"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/quest-armor-ascended",
++        "path": "tools/capture_quest_armor.py",
++        "role": "Reviewed class-armor candidate; not deployed/published/accepted",
++        "revision": "d107f901fbf637933f40c86b1ddd0ff819438bce",
++        "sha256": "1cc1d4729f3538dfc3ece0aa83b45b56df424bb41abfa74957a209f06076b1aa"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/quest-armor-ascended",
++        "path": "tools/tests/quest_armor_rewards.lua",
++        "role": "Reviewed class-armor candidate; not deployed/published/accepted",
++        "revision": "d107f901fbf637933f40c86b1ddd0ff819438bce",
++        "sha256": "53ec21fe0c910dad9d87f14df5d953f9acafce44297b2ab096404eac36dc0445"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/quest-armor-ascended",
++        "path": "tools/tests/quest_armor_rewards.t",
++        "role": "Reviewed class-armor candidate; not deployed/published/accepted",
++        "revision": "d107f901fbf637933f40c86b1ddd0ff819438bce",
++        "sha256": "b020469a91b1a26d1f397accae870949b2d221385b9d7ca8caa39c4602bfdb61"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/quest-armor-ascended",
++        "path": "tools/tests/run_quest_armor_lua_tests.py",
++        "role": "Reviewed class-armor candidate; not deployed/published/accepted",
++        "revision": "d107f901fbf637933f40c86b1ddd0ff819438bce",
++        "sha256": "f58e11fd74f0512c6e1d69cfbbf016be8494f2f886cbc087a8a324e5ede94b66"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/quest-armor-ascended",
++        "path": "tools/tests/test_quest_armor.py",
++        "role": "Reviewed class-armor candidate; not deployed/published/accepted",
++        "revision": "d107f901fbf637933f40c86b1ddd0ff819438bce",
++        "sha256": "95feb2f9906b8734a8bc505e2e76ef734f1b9983d3b9e125c463e600d7b9162a"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/quest-armor-ascended",
++        "path": "docs/releases/quest-armor-20261022/README.md",
++        "role": "Reviewed class-armor candidate; not deployed/published/accepted",
++        "revision": "d107f901fbf637933f40c86b1ddd0ff819438bce",
++        "sha256": "55a3dff0be299ea29f730f138a45e532cd79c383e938c38ebb5a6738d85dc74a"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/quest-armor-ascended",
++        "path": "docs/releases/quest-armor-20261022/QA.md",
++        "role": "Reviewed class-armor candidate; not deployed/published/accepted",
++        "revision": "d107f901fbf637933f40c86b1ddd0ff819438bce",
++        "sha256": "c4f75b92b620769cac17b1bcf1aaa6d3f3961b96c8e4a38ff1c87635effc501e"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/quest-armor-ascended",
++        "path": "docs/releases/quest-armor-20261022/manifest.json",
++        "role": "Reviewed class-armor candidate; not deployed/published/accepted",
++        "revision": "d107f901fbf637933f40c86b1ddd0ff819438bce",
++        "sha256": "81f64142b2a1e99cafb68fa304d64af8cb96557669d822320a92bd99644736cb"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/quest-armor-ascended",
++        "path": "docs/releases/quest-armor-20261022/production-reference.json",
++        "role": "Reviewed class-armor candidate; not deployed/published/accepted",
++        "revision": "d107f901fbf637933f40c86b1ddd0ff819438bce",
++        "sha256": "2b2e948108e526d1a6f09d0ba7b9069450f298cbb65804c79fb8ebc5d6e54d2b"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/quest-armor-ascended",
++        "path": "docs/releases/quest-armor-20261022/verification.json",
++        "role": "Reviewed class-armor candidate; not deployed/published/accepted",
++        "revision": "d107f901fbf637933f40c86b1ddd0ff819438bce",
++        "sha256": "4f846e4d89c9864a459f56f4d9473a7c90cb9685150ab4ac8221b0c4d7529111"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/quest-armor-ascended",
++        "path": "server-mods/quests/southkarana/Shakrn_Meadowgreen.lua",
++        "role": "Reviewed class-armor candidate; not deployed/published/accepted",
++        "revision": "d107f901fbf637933f40c86b1ddd0ff819438bce",
++        "sha256": "e895fcdb905e123ed70cd2b7d43a45b42caa4c9351cc267180c8632fa3a6f7d4"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/quest-armor-ascended",
++        "path": "server-mods/quests/southkarana/Ulan_Meadowgreen.lua",
++        "role": "Reviewed class-armor candidate; not deployed/published/accepted",
++        "revision": "d107f901fbf637933f40c86b1ddd0ff819438bce",
++        "sha256": "a0f9f6e327d888979557656e4070b4a9152c905dc9be6f243b00af2687bf07ac"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/quest-armor-ascended",
++        "path": "server-mods/quests/soltemple/Cryssia_Stardreamer.pl",
++        "role": "Reviewed class-armor candidate; not deployed/published/accepted",
++        "revision": "d107f901fbf637933f40c86b1ddd0ff819438bce",
++        "sha256": "f5a79a5dc3fb3a26360cccd6ac81040b36759f61d9dd4c2d06f1d45a6c1c652d"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/quest-armor-ascended",
++        "path": "server-mods/quests/soltemple/Walthin_Fireweaver.lua",
++        "role": "Reviewed class-armor candidate; not deployed/published/accepted",
++        "revision": "d107f901fbf637933f40c86b1ddd0ff819438bce",
++        "sha256": "fe21f7a379d0180ceca1655a9a89caa6bd749a905f37c65692159033f0f301cf"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/quest-armor-ascended",
++        "path": "server-mods/quests/soltemple/an_undead_knight.pl",
++        "role": "Reviewed class-armor candidate; not deployed/published/accepted",
++        "revision": "d107f901fbf637933f40c86b1ddd0ff819438bce",
++        "sha256": "f652cc1c33b7a2d1780247e262f029ea03a11329992a35917c4a2c35a6f3a211"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/quest-armor-ascended",
++        "path": "server-mods/quests/soltemple/an_undead_knight_.pl",
++        "role": "Reviewed class-armor candidate; not deployed/published/accepted",
++        "revision": "d107f901fbf637933f40c86b1ddd0ff819438bce",
++        "sha256": "b3c077d3e936b9de0f5c142fd8609887b6cc8a867af3e08ecb5d782f4e64b84c"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/quest-armor-ascended",
++        "path": "server-mods/quests/kithicor/Gandari.pl",
++        "role": "Reviewed class-armor candidate; not deployed/published/accepted",
++        "revision": "d107f901fbf637933f40c86b1ddd0ff819438bce",
++        "sha256": "2eb1da8b704e61ca6b183c35ac6859872b13895d06cbbe967fda6998f18cd781"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/quest-armor-ascended",
++        "path": "server-mods/quests/kithicor/Leaf_Falldim.pl",
++        "role": "Reviewed class-armor candidate; not deployed/published/accepted",
++        "revision": "d107f901fbf637933f40c86b1ddd0ff819438bce",
++        "sha256": "51ad90d73820f73e3b6f26cd4082fcdb778843602aec4a7578bbc5cb543f3ec9"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/quest-armor-ascended",
++        "path": "server-mods/quests/lakerathe/Vrynn.pl",
++        "role": "Reviewed class-armor candidate; not deployed/published/accepted",
++        "revision": "d107f901fbf637933f40c86b1ddd0ff819438bce",
++        "sha256": "6455945c35e78013b27f79ff7f3b8419cf80b8fc5fba7a536c4c466213cdc1c0"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/quest-armor-ascended",
++        "path": "server-mods/quests/lakerathe/Kyralynn.pl",
++        "role": "Reviewed class-armor candidate; not deployed/published/accepted",
++        "revision": "d107f901fbf637933f40c86b1ddd0ff819438bce",
++        "sha256": "cb52e993ea1cc01942bdaa0c3affd8b39ad3c9ec15761888e2184bce72bbb6ee"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/quest-armor-ascended",
++        "path": "server-mods/quests/overthere/Kurron_Ni.pl",
++        "role": "Reviewed class-armor candidate; not deployed/published/accepted",
++        "revision": "d107f901fbf637933f40c86b1ddd0ff819438bce",
++        "sha256": "42914766c0360fe1eaf2703a80f07b37835bb295ffe1b0c105c5bb84257d2cd7"
+       }
+     ],
+     "world": [
+@@ -7806,6 +7975,62 @@
+         "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+         "sha256": "b705de48e5ac74227fae08d521691f2e2f35fb34bb6d4060955f697d8db8a13f",
+         "revision": "c4fb75cdec971172657040a28661fa84e995d725"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/quest-armor-ascended",
++        "path": "wiki/articles/equipment.json",
++        "role": "Reviewed class-armor candidate; not deployed/published/accepted",
++        "revision": "d107f901fbf637933f40c86b1ddd0ff819438bce",
++        "sha256": "d7c6bd85b736412eceab9611891047c35600d44e352237ba2be62bd339772b3c"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/quest-armor-ascended",
++        "path": "wiki/articles/features.json",
++        "role": "Reviewed class-armor candidate; not deployed/published/accepted",
++        "revision": "d107f901fbf637933f40c86b1ddd0ff819438bce",
++        "sha256": "8278c5c5cdeef3a69d0420c6d34b9f5cf69e1d06ad02b1d2a65632b73b9c8c26"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/quest-armor-ascended",
++        "path": "wiki/articles/index.json",
++        "role": "Reviewed class-armor candidate; not deployed/published/accepted",
++        "revision": "d107f901fbf637933f40c86b1ddd0ff819438bce",
++        "sha256": "a1001308055bb8d9d042ac5e64431c749a1d3f3d2a9a81409f4aca9f5c302086"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/quest-armor-ascended",
++        "path": "wiki/articles/tradeskills.json",
++        "role": "Reviewed class-armor candidate; not deployed/published/accepted",
++        "revision": "d107f901fbf637933f40c86b1ddd0ff819438bce",
++        "sha256": "c89f1cb4cdd873219bd0875ed3932a5feef3726b71670beb125852c96f6fff7b"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/quest-armor-ascended",
++        "path": "wiki/articles/unreleased.json",
++        "role": "Reviewed class-armor candidate; not deployed/published/accepted",
++        "revision": "d107f901fbf637933f40c86b1ddd0ff819438bce",
++        "sha256": "6cbcdd4595130a67a01e4ad8491e2c38be78f536f62e8d8c36396d03f9e10880"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/quest-armor-ascended",
++        "path": "wiki/articles/recent-changes.json",
++        "role": "Reviewed class-armor candidate; not deployed/published/accepted",
++        "revision": "d107f901fbf637933f40c86b1ddd0ff819438bce",
++        "sha256": "6c0f85082ef3bb3c8375fa6c05559ae73284b5b6607bff30d83ca7e21dc4a95c"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/quest-armor-ascended",
++        "path": "docs/releases/quest-armor-20261022/wiki-review.json",
++        "role": "Reviewed class-armor candidate; not deployed/published/accepted",
++        "revision": "d107f901fbf637933f40c86b1ddd0ff819438bce",
++        "sha256": "e5ae03234f9d77c5becee531a3bcf787e1ed65a2c1cd605ede6408694692cfeb"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/quest-armor-ascended",
++        "path": "docs/releases/quest-armor-20261022/wiki-refresh.json",
++        "role": "Reviewed class-armor candidate; not deployed/published/accepted",
++        "revision": "d107f901fbf637933f40c86b1ddd0ff819438bce",
++        "sha256": "4898c066b7321d4068152967920e9fdfe11a50b56b9c2994923d43dfcbfaff04"
+       }
+     ]
+   }

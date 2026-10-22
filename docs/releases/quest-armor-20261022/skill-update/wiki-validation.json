@@ -1,0 +1,28 @@
+{
+  "topic": "wiki",
+  "task_entries": 8,
+  "all_task_entries_unchanged": true,
+  "full_topic_exit_code": 1,
+  "unrelated_drift": [
+    {
+      "path": "C:\\Users\\verre\\.codex\\worktrees\\waypoint-markers\\EQ_Local_Dev\\wiki\\articles\\waypoints.json",
+      "role": "October22 waypoint crystal candidate; reviewed source, not deployment or native visual acceptance",
+      "state": "changed: review implementation and evidence"
+    },
+    {
+      "path": "C:\\Users\\verre\\.codex\\worktrees\\waypoint-markers\\EQ_Local_Dev\\wiki\\articles\\unreleased.json",
+      "role": "Reviewed waypoint integration with published robe release; candidate not deployed",
+      "state": "changed: review implementation and evidence"
+    },
+    {
+      "path": "C:\\Users\\verre\\.codex\\worktrees\\waypoint-markers\\EQ_Local_Dev\\wiki\\articles\\recent-changes.json",
+      "role": "Reviewed waypoint integration with published robe release; candidate not deployed",
+      "state": "changed: review implementation and evidence"
+    },
+    {
+      "path": "C:\\Users\\verre\\.codex\\worktrees\\waypoint-markers\\EQ_Local_Dev\\wiki\\content-review.json",
+      "role": "Reviewed waypoint integration with published robe release; candidate not deployed",
+      "state": "changed: review implementation and evidence"
+    }
+  ]
+}

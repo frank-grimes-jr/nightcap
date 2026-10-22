@@ -1,0 +1,21 @@
+{
+  "revision": "d107f901fbf637933f40c86b1ddd0ff819438bce",
+  "files": [
+    {
+      "name": "items.md",
+      "before_sha256": "097ba8b23d2985b5f1ed40226239369e74795b1448e84873d7f22e14cc14e88c",
+      "after_sha256": "e7eea648aab25048a71c62f5921e1d402d43a5ad48ef600c638cbfd78d70a112"
+    },
+    {
+      "name": "wiki.md",
+      "before_sha256": "50dc97a5829dca91a1f64b72437f46eb2c15fc82d42a7304d3244d0ea7a5d3c4",
+      "after_sha256": "e46d22b4ab87a644039f17c812437c868615a5293b764eded00b505b1d7265bf"
+    },
+    {
+      "name": "sources.json",
+      "before_sha256": "36fd4e84a66cb7632414119f89a999851f0fbe56061cb877c5c1ebeb0885c8ef",
+      "after_sha256": "35b3468695a9997018b464a3f87a908ca400ea6721a8403bed5a19deb5da89a1"
+    }
+  ],
+  "status": "installed; guarded preimages and all new source fingerprints verified"
+}
