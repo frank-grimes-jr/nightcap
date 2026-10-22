@@ -1,0 +1,29 @@
+{
+  "source_commit": "e64f5022be9aa498543d282bab4b882740660400",
+  "base_image_id": "sha256:fd49b8895a09d6f137c4b9bf06f4fb0f3e6911b4e99ab44d7e056ea05e727115",
+  "base_hashes": {
+    "bin/world": "0b321c9fba510a42381abe5c167d6db94c02cf913dd50a86d6105b68dbd37b95",
+    "bin/zone": "5983172545de3fc8731e228355561527890c787140616ff95c2a602b37b1525a",
+    "bin/ucs": "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714",
+    "bin/loginserver": "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf",
+    "bin/shared_memory": "6d71c7e72c4a10f9d5eeb753ff29a3d589151ce1c81a32a7f564dec9c9fd967c",
+    "start.py": "ca4099eb898730141e7941d3afc366d59c4bc8351eea74c5b6fd9560c24b815f",
+    "configure.py": "90873958dfb013201dd9c9552beaccdd88984a2e55739da07874fa4a95a84e57",
+    "accounts.py": "400d4e7a5d0bedeed47ffdb33b142a4a62a3f939a35466da66ce3201ae52ef5c"
+  },
+  "runtime_helper_sha256": "a3242bee3e8d4a7e60ea81bbd6fd34587201b712247665f3c03673733b95a811",
+  "client_channel_sha256": "b578ea032659fec5fadc320735720b5ae53675856cffcdf9e8176fc1a27ed179",
+  "quest_preimages": {
+    "quests/ecommons/Magus_Goldwind.pl": "8132f3fd9526577fc53da8055352479a27171cc5ea36f48371ed268a3d3c255c",
+    "quests/poknowledge/Magus_Goldwind.pl": "3738d07412071a7d88313a85ff8e18124fd11cf9cffabea0f463e356314f4422"
+  },
+  "files": {
+    "bin/zone": "5dd5a6558c837ff2e4724edcd12afcabd2e846379a9ca7b8a6e57e7715600f7b",
+    "rollout.py": "9b309dec411b4809e969c920d88f060c2334bfca2ecf5c30fc6292dbbf7039e1",
+    "test_rollout.py": "db7e75744d3db3b0c4c8e2552096852172733369d155c97ce49310b02aac114b",
+    "test_content.py": "0c5812c6e881ead6c9fb612142c32b04ac02ee63620ffc75721f5bd8c9b500ed",
+    "quests/ecommons/Magus_Goldwind.pl": "cf1a0beefcba28c80265b08fc08af3fb525cbfe75bf2d652b114a65fd46e97dc",
+    "quests/poknowledge/Magus_Goldwind.pl": "cf1a0beefcba28c80265b08fc08af3fb525cbfe75bf2d652b114a65fd46e97dc"
+  },
+  "zone_sha256": "5dd5a6558c837ff2e4724edcd12afcabd2e846379a9ca7b8a6e57e7715600f7b"
+}

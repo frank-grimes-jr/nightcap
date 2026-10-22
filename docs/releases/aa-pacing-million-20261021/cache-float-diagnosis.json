@@ -1,0 +1,27 @@
+{
+  "finish_not_started": true,
+  "direct_differences": [
+    {
+      "field": "x",
+      "type": "float",
+      "direct_mismatches": 460
+    },
+    {
+      "field": "y",
+      "type": "float",
+      "direct_mismatches": 511
+    },
+    {
+      "field": "z",
+      "type": "float",
+      "direct_mismatches": 2039
+    },
+    {
+      "field": "heading",
+      "type": "float",
+      "direct_mismatches": 1785
+    }
+  ],
+  "canonical_text_differences": 0,
+  "interpretation": "Dump preserves exact serialized coordinates; binary float storage can differ after scratch restore. Full original/scratch and pinned live hashes remain exact."
+}

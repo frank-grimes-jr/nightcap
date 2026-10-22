@@ -1,0 +1,38 @@
+{
+  "installed_skill": "C:/Users/verre/.codex/skills/nightcap-development",
+  "updated_references": [
+    "multiclass.md",
+    "world.md",
+    "wiki.md",
+    "operations.md",
+    "sources.json"
+  ],
+  "validator": "PASS",
+  "context_checks": {
+    "multiclass": {
+      "reviewed_release_entries": "unchanged",
+      "other_drift": [
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\server-mods\\code\\zone\\spell_effects.cpp",
+          "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
+          "state": "changed: review implementation and evidence"
+        }
+      ]
+    },
+    "world": {
+      "reviewed_release_entries": "unchanged",
+      "other_drift": []
+    },
+    "wiki": {
+      "reviewed_release_entries": "unchanged",
+      "other_drift": []
+    },
+    "operations": {
+      "reviewed_release_entries": "unchanged",
+      "other_drift": []
+    }
+  },
+  "boundary": "Only the pre-existing unrelated spell_effects.cpp fingerprint in the THJ parity checkout differs; not silently accepted by this release. All new release/source entries match.",
+  "exact_patches_retained": "E:\\EQ_Local_Dev\\artifacts\\aa-pacing-million-20261021\\knowledge-update.patch and knowledge-followup.patch",
+  "wiki_impact": "Eight guides and private HTML updated/published; all21 maintained guides and432 reward routes reviewed. Final operator/docs evidence adds no player-facing behavior."
+}

@@ -1,0 +1,55 @@
+{"removed_redundant_uploads": [{"path": "/home/ubuntu/passive-aa-server-20261004.tar.gz", "sha256": "a97dd67e3391d9450bf01db247fc84b510e80a5e8fe32502719366af5f2ce72f", "local_retained": "E:\\EQ_Local_Dev\\artifacts\\passive-aa-20261004\\passive-aa-server-20261004.tar.gz", "bytes": 220872423}, {"path": "/home/ubuntu/free-trade-server-20261004.tar.gz", "sha256": "9612a0ab9cb46e7dfbb3da9a8ed3576f0237b4b40e1f09e7ab000f25d6cec40c", "local_retained": "E:\\EQ_Local_Dev\\artifacts\\all-items-tradable-20261004\\free-trade-server-20261004.tar.gz", "bytes": 220855596}, {"path": "/home/ubuntu/zone-hunt-20261009.tar.gz", "sha256": "14cd96f50e85d5e96a5dce7c2a018b5c9a9b7711fd508140d5eadee950420072", "local_retained": "E:\\EQ_Local_Dev\\artifacts\\zone-loot-rollout-20261009\\zone-hunt-20261009.tar.gz", "bytes": 177332508}, {"path": "/home/ubuntu/zone-hunt-hardened-20261009.tar.gz", "sha256": "489962927a42ed3059d0d2354f35e5c68ab8b8143f6ff4e8ea121e06879d9865", "local_retained": "E:\\EQ_Local_Dev\\artifacts\\zone-loot-rollout-20261009\\zone-hunt-hardened-20261009.tar.gz", "bytes": 177459195}], "cache_id": "bxhcyhdihbdd83vpphuv1o68d", "cache_prune": "ID\t\t\t\t\t\tRECLAIMABLE\tSIZE\t\tLAST ACCESSED\nbxhcyhdihbdd83vpphuv1o68d*              \ttrue \t\t316.2MB   \t2 minutes ago\nTotal:\t316.2MB\n", "images_and_services_preserved": true, "free_bytes": 1286799360}
+Nightcap native crypto self-test passed
+Nightcap native crypto self-test passed
+/srv/nightcap/quests/ecommons/Magus_Goldwind.pl syntax OK
+/srv/nightcap/quests/poknowledge/Magus_Goldwind.pl syntax OK
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 129B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/nightcap-game:aa-pacing-million-20261021-baseline
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 84B done
+#3 DONE 0.0s
+
+#4 [1/2] FROM docker.io/library/nightcap-game:aa-pacing-million-20261021-baseline@sha256:fd49b8895a09d6f137c4b9bf06f4fb0f3e6911b4e99ab44d7e056ea05e727115
+#4 resolve docker.io/library/nightcap-game:aa-pacing-million-20261021-baseline@sha256:fd49b8895a09d6f137c4b9bf06f4fb0f3e6911b4e99ab44d7e056ea05e727115 0.0s done
+#4 ...
+
+#5 [internal] load build context
+#5 transferring context: 316.26MB 3.4s done
+#5 DONE 3.4s
+
+#4 [1/2] FROM docker.io/library/nightcap-game:aa-pacing-million-20261021-baseline@sha256:fd49b8895a09d6f137c4b9bf06f4fb0f3e6911b4e99ab44d7e056ea05e727115
+#4 DONE 4.3s
+
+#6 [2/2] COPY bin/zone /opt/nightcap/bin/zone
+#6 DONE 0.5s
+
+#7 exporting to image
+#7 exporting layers
+#7 exporting layers 15.7s done
+#7 exporting manifest sha256:0e0c0668ccaf1923cf16b3f267292bf587acf436e60d06c5fe1194238c638bfd done
+#7 exporting config sha256:f823fc48ed0e7f9053fbbe25568ebb44d93d0b093604dede722591398d17cc31 done
+#7 exporting attestation manifest sha256:f69e2cf301dabf9a2006c7768602a51805423c8782bcb8d541882873a4dc73e0 done
+#7 exporting manifest list sha256:15a159c0f9a80d541856d7412e59d94baa6b29cc320c397cab9e3d44278ecfff done
+#7 naming to docker.io/library/nightcap-game:aa-pacing-million-20261021 done
+#7 unpacking to docker.io/library/nightcap-game:aa-pacing-million-20261021
+#7 unpacking to docker.io/library/nightcap-game:aa-pacing-million-20261021 2.2s done
+#7 DONE 18.0s
+Traceback (most recent call last):
+  File "/opt/nightcap/releases/aa-pacing-million-20261021/rollout.py", line 361, in <module>
+    {'preflight': preflight, 'activate': activate, 'open': open_access,
+  File "/opt/nightcap/releases/aa-pacing-million-20261021/rollout.py", line 174, in preflight
+    assert shutil.disk_usage(ROOT).free >= 768*1024**2, 'Reserve stopped backup and runtime headroom'
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Reserve stopped backup and runtime headroom
+Traceback (most recent call last):
+  File "<stdin>", line 32, in <module>
+  File "/usr/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['python3', '/opt/nightcap/releases/aa-pacing-million-20261021/rollout.py', 'preflight']' returned non-zero exit status 1.
