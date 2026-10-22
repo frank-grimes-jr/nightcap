@@ -9,6 +9,8 @@ anchor the narrow spell model. Full gear/AA/pet derivation and native encounter
 simulation remain outside this diagnostic tool; limits and dated fixtures are
 visible. No game, database or client changes. Evidence and publication state:
 `docs/releases/build-lab-20261022/`; design/provenance: `docs/build-lab/`.
+Published `20261022-build-lab-v1`,466public files verified with rollback and
+private-service preservation.
 
 ## 2026-10-22 — Interactive wiki handbook
 

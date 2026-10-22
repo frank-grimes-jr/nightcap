@@ -5,17 +5,20 @@ Updated October 22, 2026.
 ## Current state
 
 - **Public URL: https://wiki.nightcapgame.org/** — live and verified October 22, 2026 (EDT).
-- **Active OVH origin release:** `20261022-interactive-handbook-v1`; previous release
-  `20261022-classic-dungeons-v1` is retained for recovery.
+- **Active OVH origin release:** `20261022-build-lab-v1`; previous release
+  `20261022-interactive-handbook-v1` is retained for recovery.
+- **Build Lab:** experimental A/B builds, supported spell/stat benefits, item differences,
+  resolved abilities and priority-order testing; scope and dated fixtures are explicit.
+  Verified publication: `docs/releases/build-lab-20261022/`. No gameplay changes.
 - **Features:** major departures from Classic, with dedicated upgrade and crafting guides.
 - **Equipment:** 96 item families with four quality links each, gear/augment
   views, name/slot/level/zone filters, sorting and 12-family pagination.
 - **Public hostname active:** the existing tunnel now routes the wiki to
   `http://web:8080`; its proxied CNAME was created automatically. The existing
   player-only WAF rule required no change.
-- 455 articles: 21 maintained guides, 48 enabled zone pages, 384 item pages and
-  two catalog indexes. All articles, Search and 404 bring the build to 458 pages.
-- The exact publication contains 465 files. Player access uses the current personal-code
+- 456 articles: 22 maintained guides, 48 enabled zone pages, 384 item pages and
+  two catalog indexes. All articles, Search and 404 bring the build to 459 pages.
+- The exact publication contains 466 files. Player access uses the current personal-code
   policy; wiki updates preserve it. October 9 IP-only descriptions below are historical.
 
 Source and build commands: [wiki/README.md](../../wiki/README.md).

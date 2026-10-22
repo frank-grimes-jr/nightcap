@@ -39,7 +39,7 @@ def project():
     public = dict(version=1, level=50, spells=spells, controls=controls,
                   contentDate='2026-09-12', controlDate='2026-10-18', reviewed='2026-10-22')
     (ROOT/'wiki/build-lab-data.json').write_text(json.dumps(public, indent=2)+'\n', encoding='utf-8')
-    inputs = [snapshot, stock, archive, ROOT/'server-mods/code/zone/effects.cpp', ROOT/'server-mods/code/common/nightcap_spell_scaling.h']
+    inputs = [snapshot, stock, archive, ROOT/'server-mods/code/zone/effects.cpp', ROOT/'server-mods/code/common/nightcap_spell_scaling.h', ROOT/'server-mods/code/common/ruletypes.h']
     (ROOT/'docs/build-lab/data-provenance.json').write_text(json.dumps({p.relative_to(ROOT).as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for p in inputs}, indent=2)+'\n')
 
 

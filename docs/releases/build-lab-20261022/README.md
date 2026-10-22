@@ -1,4 +1,4 @@
-# Build Lab — October 22, 2026
+# Build Lab â€” October 22, 2026
 
 Source feature: `feature/build-lab`, stacked on the published interactive handbook.
 No gameplay, database, client or account changes. Design and source projection:
@@ -20,11 +20,14 @@ review fixes. Linux recovery tests run through the guarded publisher.
 `wiki-review.json` records all22maintained guides and432generated routes. Existing
 gameplay prose/labels, commands,384catalog values and private site stay intact.
 
-Publication is pending until `wiki-publication.json` and
-`wiki-public-verification.json` exist with PASS. The guarded publisher requires
-the current `20261022-interactive-handbook-v1` bytes, preserves configuration and
-private services, and rehearses pointer rollback. New release:
-`20261022-build-lab-v1`,459HTML pages/466public files.
+Published as `20261022-build-lab-v1`: all466HTTPS file hashes/security headers
+and five private-route denials pass. `wiki-publication.json` records16Linux tests,
+actual pointer rollback rehearsal and unchanged private services/configuration.
+The live Build Lab renders and its priority search works in a real browser.
+The previous `20261022-interactive-handbook-v1` release is retained for rollback.
+The first publication attempt stopped before changes while package creation was
+still finishing; the completed immutable package was then published successfully.
+No server/gameplay promotion or owner balance acceptance is implied.
 
 ## Owner walkthrough
 

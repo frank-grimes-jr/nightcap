@@ -46,8 +46,15 @@
       "canonical spell identity prevents duplicate cooldown imports",
       "reserved passive identifier",
       "trace records post-spend mana",
-      "CSSOM geometry respects strict style policy"
+      "CSSOM geometry respects strict style policy",
+      "optimizer normalizes default enabled flags",
+      "casts interrupted at death are clipped and labeled"
     ]
   },
-  "native_scope": "Replayed captured landed value controls only; no fresh native combat execution, owner gameplay or balance acceptance."
+  "native_scope": "Replayed captured landed value controls only; no fresh native combat execution, owner gameplay or balance acceptance.",
+  "optimizer_stress": {
+    "orders": 720,
+    "duration_seconds": 600,
+    "elapsed_ms": 1521
+  }
 }
