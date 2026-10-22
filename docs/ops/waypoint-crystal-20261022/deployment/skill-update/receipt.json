@@ -1,0 +1,27 @@
+{
+  "source_revision": "10f162c8990b905634fd2ed6e9456af648bef180",
+  "installed": true,
+  "files": [
+    {
+      "path": "C:/Users/verre/.codex/skills/nightcap-development/references/world.md",
+      "before_sha256": "1e20cf3144f141a4b2f6e4d05f511276992e6553490b2642c4f3823c52dbd5af",
+      "after_sha256": "deb54d2a99f20aad952e08531130e6417f936cb99608ef55402c352fd54d91a4"
+    },
+    {
+      "path": "C:/Users/verre/.codex/skills/nightcap-development/references/client.md",
+      "before_sha256": "e27d5925b19aa2ca5c34ef40edd57a0e875b07c722aad5bdff3a8c54f6b82ce0",
+      "after_sha256": "eefd0344297ee2c2ec24000ba408f89dd27d4bdc762027d09c2b341374145723"
+    },
+    {
+      "path": "C:/Users/verre/.codex/skills/nightcap-development/references/wiki.md",
+      "before_sha256": "e46d22b4ab87a644039f17c812437c868615a5293b764eded00b505b1d7265bf",
+      "after_sha256": "a401480ba56f31f6e3dd9876de062f26f22bfa0153e73d20cff1d714e3981737"
+    },
+    {
+      "path": "C:/Users/verre/.codex/skills/nightcap-development/references/sources.json",
+      "before_sha256": "35b3468695a9997018b464a3f87a908ca400ea6721a8403bed5a19deb5da89a1",
+      "after_sha256": "7f4532c3587fa079b799ea728e28a49c96ddecfddf6bb73ec96ab4287b667302"
+    }
+  ],
+  "scope": "Waypoint world/client/wiki behavior, current release/recovery and reviewed sources; unrelated topic entries preserved. Native acceptance open."
+}

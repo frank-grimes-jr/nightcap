@@ -1,0 +1,16 @@
+{
+  "stage": "/opt/nightcap/releases/waypoint-crystal-20261022-v2",
+  "payload_sha256": {
+    "channel.json": "5b897b3577b0b01be65eaf603bbf9eb3fd64af8459213dc01ccddb820981788c",
+    "previous-channel.json": "78e1173d2279ff185c883645f8c2d43e1d1454676bf696f8ac0b545d2e3174fa",
+    "crs.eqg": "0a06d4b41d49843b40518105b50057a50d1abb07147e10fb3769135ee1223f6b",
+    "dinput8.dll": "013e2323cf4146db34760fbc93b1ed684841c0d11ed9df42d99d6c318a14a1df",
+    "nightcap-patch-sites.json": "282eef8492f50153a3b14ef9dda78ad446c9e835d659d9a28b37681be30fc3ed",
+    "nightcap_models_chr.txt": "0f4a170e588cc9475a8abb57425406b87d49eb26c82a3839fa6907e8f15ce470",
+    "nightcap_modern_chr.txt": "505533bcf05cb38eeb8f241ea942312ea28ad82813ce3559f5ff5dd994ff179f",
+    "publish.py": "df4ad998779e6fe9e9b442ec5ca02a86b322f1fb4c4b1eca97e89e07fe90d806",
+    "test_publish.py": "375dfaf85ed14432e0797dfe1520d47789ca8e9ba9c64c7c50fee1d05e1611e4"
+  },
+  "linux_tests": "test_candidate_and_baseline_drift_fail_before_writes (test_publish.PublicationTests.test_candidate_and_baseline_drift_fail_before_writes) ... ok\ntest_immutable_drift_rejected_before_other_archive_write (test_publish.PublicationTests.test_immutable_drift_rejected_before_other_archive_write) ... ok\ntest_interrupted_archive_write_recovers_valid_prefix_only (test_publish.PublicationTests.test_interrupted_archive_write_recovers_valid_prefix_only) ... ok\ntest_interrupted_channel_write_recovers_valid_prefix_only (test_publish.PublicationTests.test_interrupted_channel_write_recovers_valid_prefix_only) ... ok\ntest_interrupted_writes_recover_without_partial_channel (test_publish.PublicationTests.test_interrupted_writes_recover_without_partial_channel) ... ok\ntest_missing_new_asset_and_foreign_inventory_are_rejected (test_publish.PublicationTests.test_missing_new_asset_and_foreign_inventory_are_rejected) ... ok\ntest_public_control_drift_keeps_old_channel (test_publish.PublicationTests.test_public_control_drift_keeps_old_channel) ... ok\ntest_publish_repeat_and_preservation (test_publish.PublicationTests.test_publish_repeat_and_preservation) ... ok\ntest_retained_asset_drift_keeps_old_channel (test_publish.PublicationTests.test_retained_asset_drift_keeps_old_channel) ... ok\ntest_service_drift_keeps_old_channel (test_publish.PublicationTests.test_service_drift_keeps_old_channel) ... ok\ntest_symlink_release_rejected (test_publish.PublicationTests.test_symlink_release_rejected) ... ok\n\n----------------------------------------------------------------------\nRan 11 tests in 0.108s\n\nOK\n",
+  "public_changes": false
+}

@@ -1,0 +1,539 @@
+--- a/references/world.md
++++ b/references/world.md
+@@ -86,37 +86,46 @@
+-## Waypoint crystal - October 22 candidate, not deployed
+-
+-Source promoted through dev PR278 and test PR279/c209952; test has the exact
+-reviewed candidate tree. Quest19/Python27 and launcher pairing/inventory suites
+-pass after the dev merge. PR279 carries the exact five-step in-game QA. Main
+-remains26761ff; no client/server/wiki publication or native acceptance. The owner
+-has not yet approved main or paired release. Branch receipt: promotion.json in
+-docs/ops/waypoint-crystal-20261022/, source442dce3.
+-
+-The owner selected a glowing crystal with the existing `a waypoint` label.
+-Candidate quest999240 uses Crystal Shard race425, neutral gender2, size6 and
+-retains WizardPortal nimbus178. Signals20261011/20261022 refresh idempotently.
+-The last deployed presentation below remains race127 until paired activation.
+-Positions, 25-unit horizontal/30-unit vertical discovery, earned progress,
+-recall and Explorer title100 are unchanged. No new NPC, SQL or native server build.
+-
+-Source: C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev at367e640;
+-server-mods/quests/global/999240.pl, tools/tests/waypoint_visuals.t and
+-docs/ops/waypoint-crystal-20261022/{README.md,candidate.json,verification.json}.
+-Quest19/Keeper52 assertions and Python27 waypoint/model tests pass. Matching
+-proxy0.11.1/catalog plus crystal and both import lists are mandatory; client.md
+-owns the contract. Only after authorized signed publication and client exit/
+-update/relaunch may the quest be reloaded and NPC999240 signaled20261022.
+-No process kill, repop or saved-state deletion. Recovery must actively restore
+-race127/gender0/size6 before reinstalling the retained quest; bytes alone leave
+-active illusions. Preserve player activity and use a higher signed client counter.
+-
+-Integration23e551e includes the subsequently published Classic robe release;
+-all14 tested waypoint implementation hashes are retained. The unsigned client
+-inventory plan preserves that release. See integration.json for current evidence.
+-
+-The crystal material uses AddAlpha_MaxCBSG1.fx; geometry does not prove visible
+-rendering with particles disabled. Exact Befallen/Unrest/Crushbone QA, both model
+-modes, low/off particles, label, scale, late joiners and discovery/recall remain
+-open. Main promotion, server/client deployment and wiki publication are pending.
+-
+-Last deployed waypoint marker 999240 uses invisible actor race 127 and WizardPortal nimbus 178; live-refresh signal 20261011 is idempotent. It retains nameplate/proximity/discovery and late-joiner effects. Progress is in `nightcap_character_waypoints`; destinations in `nightcap_waypoints`; Explorer title is 100. The old 72 count is a dated catalog count, not a permanent completion constant.
++## Waypoint crystal - October22 deployed for live QA
++
++The owner selected a glowing crystal with the existing `a waypoint` label and
++authorized "Merge to main and server", then confirmed full client exit. Main
++PR280/f293626, signed game2026102202 and the paired quest are deployed. Source
++and final release evidence10f162c are in
++C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev,
++docs/ops/waypoint-crystal-20261022/ and deployment/. Native acceptance remains open.
++
++Quest999240 uses Crystal Shard race425, neutral gender2, size6 and portal nimbus178.
++Signals20261011/20261022 refresh idempotently. Positions,25-unit horizontal and
++30-unit vertical discovery, earned progress, recall and Explorer title100 remain.
++No new NPC, SQL, native build, repop or saved-state edit. The former deployed
++race127 portal-only presentation is historical. Destination/progress tables are
++nightcap_waypoints/nightcap_character_waypoints; old72 count is not permanent.
++
++Matching proxy/catalog0.11.1 and both complete import lists pluscrs.eqg are
++mandatory; client.md owns the contract. Publication verified all140 signed files
++before quest activation. Fully close EQ and use normal launcher Play. The exact
++committed UTF-8/LF quest hash is
++4b15350087dfd4153ea2ef98e418da9696b0c7efe99cdd8fe62cb96483f764a2;
++the Windows CRLF candidate hash981a7c3c is not the Linux deployment hash.
++
++The operator takes deployment/GM locks, preserves the original world-lock intent,
++holds admissions with world lock plus gateway pause, then rechecks zero clients.
++World lock alone permits GM bypass. Supported quest reload without timer reset
++produced12 aggregate acknowledgments before signal20261022; logs do not attribute
++each worker or prove visible processing. Host/container hashes and absence of
++quest errors verify. Admissions restored; world/all12 zones, five services and
++Keeper quest remain unchanged. Do not kill a production zone process.
++
++Recovery: deployment/activate.py rollback restores exact retained old quest,
++reloads, then signals999240 with20261011. That verified old handler actively
++restores race127/gender0/size6 and portal178; no temporary script is needed.
++Bytes alone do not undo an illusion. Uncertain post-write failure holds admissions;
++validated owned partials and exact matching rollback retries are recoverable.
++Never overwrite foreign files, replay player snapshots or lower client counters.
++Client rollback keeps a complete matching pair at a fresh higher signed counter.
++
++Quest19/Keeper52 and Python27 checks pass. Deployment has11 Linux publisher and
++13 Linux quest tests, including interrupted install and rollback retry; independent
++review resolved both recovery findings before activation. Source/tests include
++server-mods/quests/global/999240.pl, tools/tests/waypoint_visuals.t and deployment/
++{quest_remote.py,test_quest.py,quest-apply.json}. Race425's additive material still
++needs actual particles-off/both-mode visibility. Exact Befallen/Unrest/Crushbone
++scale, label, late-join, attunement/recall and separate-Keeper QA remains open.
+@@ -150 +159 @@
+-from waypoint999240's invisible actor plus portal nimbus. October13 visual
++from waypoint999240's crystal plus portal nimbus. October13 visual
+--- a/references/client.md
++++ b/references/client.md
+@@ -3,22 +3,17 @@
+-## Waypoint crystal - October 22 candidate, not published
+-
+-Source promoted through dev PR278 and test PR279/c209952; test has the exact
+-reviewed candidate tree. Quest19/Python27 and launcher pairing/inventory suites
+-pass after the dev merge. PR279 carries the exact five-step in-game QA. Main
+-remains26761ff; no client/server/wiki publication or native acceptance. The owner
+-has not yet approved main or paired release. Branch receipt: promotion.json in
+-docs/ops/waypoint-crystal-20261022/, source442dce3.
+-
+-Candidate367e640 in C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev
+-pairs proxy/catalog0.11.1 with crs.eqg, nightcap_models_chr.txt and
+-nightcap_modern_chr.txt. Do not activate quest999240's race425 without this pair.
+-The signed release must preserve the current complete inventory; the retained
+-five-file delta is unsigned and is not a complete release. Protected reference
+-and installed game folders were read only. No desktop launcher rebuild is required.
+-
+-The pinned parser VA0x48CB80 replaces its table, so ImportsHook calls it exactly
+-once with a complete mode-specific list. Classic retains155 rows; Modern retains
+-the13 pinned stock Resources/GlobalLoad_chr.txt rows; each adds crs,crs. Separate
+-zone import calls and Luclin preferences remain intact. Custom native global
+-import tables are outside this pinned contract. All22 prior isolated archives
+-remain byte-identical; both modes require the generated25-file asset contract.
++## Waypoint crystal - October22 published for live QA
++
++Owner-authorized main PR280/f293626 and signed game2026102202 pair
++proxy/catalog0.11.1 withcrs.eqg,nightcap_models_chr.txt andnightcap_modern_chr.txt.
++Source and release evidence10f162c:
++C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev,
++docs/ops/waypoint-crystal-20261022/deployment/. All140 hosted files, shipped-key
++signature and actual DLL/catalog compatibility verify.135 prior descriptors/URLs,
++including Classic robes, patch history and tombstones are preserved. Three
++replacements plus two additions; no desktop launcher build. Protected reference
++and installed game folders remained read only. Fully close EQ and use normal Play.
++
++Parser VA0x48CB80 replaces its table, so ImportsHook calls it exactly once with a
++complete list per mode. Classic retains155 rows, Modern the13 pinned stock global
++rows, each addingcrs,crs. Zone imports and Luclin preferences remain intact; custom
++native global lists are outside this pinned contract. All22 isolated archives
++retain their bytes. Both modes require the generated25-file model contract.
+@@ -25,0 +21 @@
++Channel SHA256 is5b897b3577b0b01be65eaf603bbf9eb3fd64af8459213dc01ccddb820981788c.
+@@ -32,20 +28,18 @@
+-October19 regression pins its own good catalog fixture; current embedded catalog
+-is not a valid fixture for that old DLL. Actual new and historical DLL pairing
+-checks pass, plus x86 build,9 runtime groups,288 native animation cases, native
+-invisible regression,107 exact-client guards and package/preflight/manifest tests.
+-
+-docs/ops/waypoint-crystal-20261022/ records hashes, validation and exact native QA.
+-Race425's additive material still needs particles-off, both-mode and observer
+-visibility checks; no native visual acceptance is claimed. Signed publication,
+-quest activation and public wiki release await authorization. Full exit/update/
+-relaunch precedes quest activation. Recovery keeps a complete matching pair at
+-a higher signed counter and restores active server illusions explicitly.
+-
+-Integration23e551e includes main26761ff and published signed game2026102201.
+-A fresh HTTPS channel hash matches the previously signature-verified envelope.
+-client-inventory-plan.json preserves135 unrelated descriptors/URLs, including
+-both robe archives, patch history and tombstones. Three replacements and two
+-additions yield140 descriptors; all25 model-contract hashes match. This is an
+-unsigned nonpublishable plan. A fresh baseline, higher counter, approved patch
+-note, signing and full-pair validation remain required after authorization.
+-All14 tested waypoint implementation hashes are unchanged by the merge.
++October19 DLL regression pins its own good catalog; the current embedded catalog
++must not replace that old fixture. New/historical pair tests, x86 build,9 runtime
++groups,288 native animation cases, invisible regression,107 exact-client guards
++and package/preflight/manifest tests pass. Publisher11 Linux fault tests pass.
++
++prepare.go signs locally and validates complete inventory, actual pair and exact
++executable preflight. verify.go independently checks the signature/all hosted
++bytes and pair. publish.py guards current preimage, services and public controls.
++Never upload the private seed. Historical candidate/stage receipts are not proof
++of publication; deployment.json and hosted-verification.json record actual state.
++
++The paired quest was activated only after zero-client verification and publication.
++No native process restarted. Recovery restores the old active illusion through
++its retained20261011 handler (world.md); client recovery restores a complete
++matching pair at a higher counter, preserving later unrelated assets/history.
++Added crystal files can remain inert with the old proxy. Race425's additive
++material requires native low/off-particle, both-mode and observer checks; delivery
++and geometry do not establish visible acceptance. Owner QA remains open.
+--- a/references/wiki.md
++++ b/references/wiki.md
+@@ -39,25 +39,27 @@
+-## Waypoint crystal candidate - October 22, local source only
+-
+-Source promoted through dev PR278 and test PR279/c209952; test has the exact
+-reviewed candidate tree. Quest19/Python27 and launcher pairing/inventory suites
+-pass after the dev merge. PR279 carries the exact five-step in-game QA. Main
+-remains26761ff; no client/server/wiki publication or native acceptance. The owner
+-has not yet approved main or paired release. Branch receipt: promotion.json in
+-docs/ops/waypoint-crystal-20261022/, source442dce3.
+-
+-Integrated candidate23e551e in C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev
+-includes main26761ff and the published Classic robe source/release. All21 articles
+-and432 generated reward routes were reviewed again. Waypoint Explorer, In
+-development and Recent changes keep the crystal Not released; the latter two
+-also preserve the published robe notices. Five other robe guides match main
+-exactly. Features/home/travel/dungeons, commands and catalog values retain their
+-released meaning. Published source ledger e209649 remains, with a separate scoped
+-waypoint review; check_refresh still correctly reports candidate source drift.
+-
+-docs/ops/waypoint-crystal-20261022/{integration.json,wiki-integration-review.json,
+-wiki-refresh-integration.json} supersedes the earlier baseline review for current
+-compatibility.14 Python tests,6 search cases,7 equipment checks and458-page build
+-pass. Original verification/review files retain their earlier scope. Current
+-published wiki20261022-classic-robes-v1 remains separate from this unpublished
+-candidate. Paired main/client/server/wiki publication and native visual QA remain
+-pending. The complete unsigned inventory plan retains the published robe assets.
++## Waypoint crystal - October22 published, native QA open
++
++Wiki20261022-waypoint-crystal-v1 supersedes20261022-classic-robes-v1 after
++owner-authorized main PR280/f293626, signed game2026102202 and paired quest
++activation. Final source/release evidence10f162c is in
++C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev,
++docs/ops/waypoint-crystal-20261022/deployment/.
++
++All21 maintained guides and432 generated reward routes reviewed. Waypoint
++Explorer, In development and Recent changes now describe the crystal as Live
++testing with full exit/normal Play instructions and open particles-off/both-mode
++appearance checks. Other guides, Features/home, commands and catalog values
++retain their meaning. Published robe and Keeper guidance remains intact.
++
++Only those three HTML pages and search-index.json changed; all465 public
++SHA256/security headers and five private-route denials verify.16 Linux recovery
++tests and actual old/new pointer rehearsal pass. Private downloads, Nginx config
++and five service identities/start times are preserved without reload.
++Publication and HTTPS receipts are separate from native player acceptance.
++
++wiki-review.json reconciles source drift sincee209649 across waypoint code/tests,
++promotion, final robe knowledge receipts and current operators/evidence. The
++private ledger is advanced only after that review; final maintenance adds no
++public payload change.14 Python tests,6 search and7 equipment checks pass and
++458 pages build. Source/build/unsigned candidate records retain historical scope;
++deployment/wiki-publication.json and wiki-public-verification.json own current
++publication. Native label/scale/discovery/recall acceptance remains open.
+--- a/references/sources.json
++++ b/references/sources.json
+@@ -82 +82,2 @@
+-    "quest_armor_candidate_20261022": "d107f901fbf637933f40c86b1ddd0ff819438bce; not deployed; owner gameplay acceptance pending"
++    "quest_armor_candidate_20261022": "d107f901fbf637933f40c86b1ddd0ff819438bce; not deployed; owner gameplay acceptance pending",
++    "waypoint_crystal_deployed_20261022": "10f162c8990b905634fd2ed6e9456af648bef180"
+@@ -4260 +4261 @@
+-        "role": "October22 waypoint crystal candidate; reviewed source, not deployment or native visual acceptance",
++        "role": "Reviewed waypoint source/live-testing guidance; paired main/server/game2026102202 and wiki published; native appearance acceptance open",
+@@ -4262 +4263 @@
+-        "revision": "367e6406a093d3c8a9adffb62837200d8ad04be0"
++        "revision": "10f162c8990b905634fd2ed6e9456af648bef180"
+@@ -4267 +4268 @@
+-        "role": "October22 waypoint crystal candidate; reviewed source, not deployment or native visual acceptance",
++        "role": "Reviewed waypoint source/live-testing guidance; paired main/server/game2026102202 and wiki published; native appearance acceptance open",
+@@ -4269 +4270 @@
+-        "revision": "367e6406a093d3c8a9adffb62837200d8ad04be0"
++        "revision": "10f162c8990b905634fd2ed6e9456af648bef180"
+@@ -4274,3 +4275,3 @@
+-        "role": "Reviewed waypoint integration with published robe release; candidate not deployed",
+-        "sha256": "4a83224f52e45e603a353db9c14fca41c0f52e6c92f917518fa9bc15f72b782d",
+-        "revision": "23e551eafe824363767f8c7ac66776e6431b362f"
++        "role": "Reviewed waypoint source/live-testing guidance; paired main/server/game2026102202 and wiki published; native appearance acceptance open",
++        "sha256": "b0332b5d5650e66257e19550bb774782e32f8c0b7c13ab690db3b744c20aa8c7",
++        "revision": "10f162c8990b905634fd2ed6e9456af648bef180"
+@@ -4281 +4282 @@
+-        "role": "October22 waypoint crystal candidate; reviewed source, not deployment or native visual acceptance",
++        "role": "Historical waypoint preparation/source-test evidence; current deployment and native QA boundary are in deployment/.",
+@@ -4288 +4289 @@
+-        "role": "Reviewed waypoint integration and unsigned inventory; no deployment/native visual acceptance",
++        "role": "Historical waypoint preparation/source-test evidence; current deployment and native QA boundary are in deployment/.",
+@@ -4295 +4296 @@
+-        "role": "Verified waypoint source promotion through test only; main/publication and native QA pending",
++        "role": "Historical waypoint preparation/source-test evidence; current deployment and native QA boundary are in deployment/.",
+@@ -4556,0 +4558,42 @@
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev",
++        "path": "docs/ops/waypoint-crystal-20261022/deployment/README.md",
++        "role": "Reviewed successful paired waypoint rollout, preservation and recovery; native player acceptance remains open",
++        "revision": "10f162c8990b905634fd2ed6e9456af648bef180",
++        "sha256": "538e6efeb0e3a4b59595d0329396cc590adccf9d7e28036c61a9611730ac302c"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev",
++        "path": "docs/ops/waypoint-crystal-20261022/deployment/quest_remote.py",
++        "role": "Reviewed successful paired waypoint rollout, preservation and recovery; native player acceptance remains open",
++        "revision": "10f162c8990b905634fd2ed6e9456af648bef180",
++        "sha256": "10b2e2419e4b5c55a2d4863e79882add2235f82455f8806cd966e1a9e7a6a6d1"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev",
++        "path": "docs/ops/waypoint-crystal-20261022/deployment/world_control.py",
++        "role": "Reviewed successful paired waypoint rollout, preservation and recovery; native player acceptance remains open",
++        "revision": "10f162c8990b905634fd2ed6e9456af648bef180",
++        "sha256": "f6b1f2edeacd18832b7d1ed32738a4f6195935ce8f96607dd5a5b6c21c8b92bb"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev",
++        "path": "docs/ops/waypoint-crystal-20261022/deployment/test_quest.py",
++        "role": "Reviewed successful paired waypoint rollout, preservation and recovery; native player acceptance remains open",
++        "revision": "10f162c8990b905634fd2ed6e9456af648bef180",
++        "sha256": "e4a947523ab0aa9835c77a3aac78be718014b8eb8f3a5d11e638c4096401b462"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev",
++        "path": "docs/ops/waypoint-crystal-20261022/deployment/quest-apply.json",
++        "role": "Reviewed successful paired waypoint rollout, preservation and recovery; native player acceptance remains open",
++        "revision": "10f162c8990b905634fd2ed6e9456af648bef180",
++        "sha256": "e5acea2a470b5265753c74c9cb880dac7f41feaf718bc6e35dbabe67c6fa47a0"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev",
++        "path": "docs/ops/waypoint-crystal-20261022/deployment/review.json",
++        "role": "Reviewed successful paired waypoint rollout, preservation and recovery; native player acceptance remains open",
++        "revision": "10f162c8990b905634fd2ed6e9456af648bef180",
++        "sha256": "dc2a236ce419bba2292207980fd20c545e37792d5ea74738edb59676e64e2735"
+@@ -5754 +5797 @@
+-        "role": "October22 waypoint crystal candidate; reviewed source, not deployment or native visual acceptance",
++        "role": "Reviewed waypoint source/live-testing guidance; paired main/server/game2026102202 and wiki published; native appearance acceptance open",
+@@ -5756 +5799 @@
+-        "revision": "367e6406a093d3c8a9adffb62837200d8ad04be0"
++        "revision": "10f162c8990b905634fd2ed6e9456af648bef180"
+@@ -5761 +5804 @@
+-        "role": "October22 waypoint crystal candidate; reviewed source, not deployment or native visual acceptance",
++        "role": "Reviewed waypoint source/live-testing guidance; paired main/server/game2026102202 and wiki published; native appearance acceptance open",
+@@ -5763 +5806 @@
+-        "revision": "367e6406a093d3c8a9adffb62837200d8ad04be0"
++        "revision": "10f162c8990b905634fd2ed6e9456af648bef180"
+@@ -5768 +5811 @@
+-        "role": "October22 waypoint crystal candidate; reviewed source, not deployment or native visual acceptance",
++        "role": "Reviewed waypoint source/live-testing guidance; paired main/server/game2026102202 and wiki published; native appearance acceptance open",
+@@ -5770 +5813 @@
+-        "revision": "367e6406a093d3c8a9adffb62837200d8ad04be0"
++        "revision": "10f162c8990b905634fd2ed6e9456af648bef180"
+@@ -5775 +5818 @@
+-        "role": "October22 waypoint crystal candidate; reviewed source, not deployment or native visual acceptance",
++        "role": "Reviewed waypoint source/live-testing guidance; paired main/server/game2026102202 and wiki published; native appearance acceptance open",
+@@ -5777 +5820 @@
+-        "revision": "367e6406a093d3c8a9adffb62837200d8ad04be0"
++        "revision": "10f162c8990b905634fd2ed6e9456af648bef180"
+@@ -5782 +5825 @@
+-        "role": "October22 waypoint crystal candidate; reviewed source, not deployment or native visual acceptance",
++        "role": "Reviewed waypoint source/live-testing guidance; paired main/server/game2026102202 and wiki published; native appearance acceptance open",
+@@ -5784 +5827 @@
+-        "revision": "367e6406a093d3c8a9adffb62837200d8ad04be0"
++        "revision": "10f162c8990b905634fd2ed6e9456af648bef180"
+@@ -5789 +5832 @@
+-        "role": "October22 waypoint crystal candidate; reviewed source, not deployment or native visual acceptance",
++        "role": "Reviewed waypoint source/live-testing guidance; paired main/server/game2026102202 and wiki published; native appearance acceptance open",
+@@ -5791 +5834 @@
+-        "revision": "367e6406a093d3c8a9adffb62837200d8ad04be0"
++        "revision": "10f162c8990b905634fd2ed6e9456af648bef180"
+@@ -5796 +5839 @@
+-        "role": "October22 waypoint crystal candidate; reviewed source, not deployment or native visual acceptance",
++        "role": "Reviewed waypoint source/live-testing guidance; paired main/server/game2026102202 and wiki published; native appearance acceptance open",
+@@ -5798 +5841 @@
+-        "revision": "367e6406a093d3c8a9adffb62837200d8ad04be0"
++        "revision": "10f162c8990b905634fd2ed6e9456af648bef180"
+@@ -5803 +5846 @@
+-        "role": "October22 waypoint crystal candidate; reviewed source, not deployment or native visual acceptance",
++        "role": "Reviewed waypoint source/live-testing guidance; paired main/server/game2026102202 and wiki published; native appearance acceptance open",
+@@ -5805 +5848 @@
+-        "revision": "367e6406a093d3c8a9adffb62837200d8ad04be0"
++        "revision": "10f162c8990b905634fd2ed6e9456af648bef180"
+@@ -5810 +5853 @@
+-        "role": "October22 waypoint crystal candidate; reviewed source, not deployment or native visual acceptance",
++        "role": "Reviewed waypoint source/live-testing guidance; paired main/server/game2026102202 and wiki published; native appearance acceptance open",
+@@ -5812 +5855 @@
+-        "revision": "367e6406a093d3c8a9adffb62837200d8ad04be0"
++        "revision": "10f162c8990b905634fd2ed6e9456af648bef180"
+@@ -5817 +5860 @@
+-        "role": "October22 waypoint crystal candidate; reviewed source, not deployment or native visual acceptance",
++        "role": "Reviewed waypoint source/live-testing guidance; paired main/server/game2026102202 and wiki published; native appearance acceptance open",
+@@ -5819 +5862 @@
+-        "revision": "367e6406a093d3c8a9adffb62837200d8ad04be0"
++        "revision": "10f162c8990b905634fd2ed6e9456af648bef180"
+@@ -5824 +5867 @@
+-        "role": "October22 waypoint crystal candidate; reviewed source, not deployment or native visual acceptance",
++        "role": "Reviewed waypoint source/live-testing guidance; paired main/server/game2026102202 and wiki published; native appearance acceptance open",
+@@ -5826 +5869 @@
+-        "revision": "367e6406a093d3c8a9adffb62837200d8ad04be0"
++        "revision": "10f162c8990b905634fd2ed6e9456af648bef180"
+@@ -5831 +5874 @@
+-        "role": "October22 waypoint crystal candidate; reviewed source, not deployment or native visual acceptance",
++        "role": "Reviewed waypoint source/live-testing guidance; paired main/server/game2026102202 and wiki published; native appearance acceptance open",
+@@ -5833 +5876 @@
+-        "revision": "367e6406a093d3c8a9adffb62837200d8ad04be0"
++        "revision": "10f162c8990b905634fd2ed6e9456af648bef180"
+@@ -5838 +5881 @@
+-        "role": "October22 waypoint crystal candidate; reviewed source, not deployment or native visual acceptance",
++        "role": "Reviewed waypoint source/live-testing guidance; paired main/server/game2026102202 and wiki published; native appearance acceptance open",
+@@ -5840 +5883 @@
+-        "revision": "367e6406a093d3c8a9adffb62837200d8ad04be0"
++        "revision": "10f162c8990b905634fd2ed6e9456af648bef180"
+@@ -5845 +5888 @@
+-        "role": "October22 waypoint crystal candidate; reviewed source, not deployment or native visual acceptance",
++        "role": "Reviewed waypoint source/live-testing guidance; paired main/server/game2026102202 and wiki published; native appearance acceptance open",
+@@ -5847 +5890 @@
+-        "revision": "367e6406a093d3c8a9adffb62837200d8ad04be0"
++        "revision": "10f162c8990b905634fd2ed6e9456af648bef180"
+@@ -5852 +5895 @@
+-        "role": "October22 waypoint crystal candidate; reviewed source, not deployment or native visual acceptance",
++        "role": "Historical waypoint preparation/source-test evidence; current deployment and native QA boundary are in deployment/.",
+@@ -5859 +5902 @@
+-        "role": "October22 waypoint crystal candidate; reviewed source, not deployment or native visual acceptance",
++        "role": "Historical waypoint preparation/source-test evidence; current deployment and native QA boundary are in deployment/.",
+@@ -5929 +5972 @@
+-        "role": "Reviewed waypoint integration and unsigned inventory; no deployment/native visual acceptance",
++        "role": "Historical waypoint preparation/source-test evidence; current deployment and native QA boundary are in deployment/.",
+@@ -5936 +5979 @@
+-        "role": "Reviewed waypoint integration and unsigned inventory; no deployment/native visual acceptance",
++        "role": "Historical waypoint preparation/source-test evidence; current deployment and native QA boundary are in deployment/.",
+@@ -5943 +5986 @@
+-        "role": "Verified waypoint source promotion through test only; main/publication and native QA pending",
++        "role": "Historical waypoint preparation/source-test evidence; current deployment and native QA boundary are in deployment/.",
+@@ -5945,0 +5989,56 @@
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev",
++        "path": "docs/ops/waypoint-crystal-20261022/deployment/README.md",
++        "role": "Reviewed successful paired waypoint rollout, preservation and recovery; native player acceptance remains open",
++        "revision": "10f162c8990b905634fd2ed6e9456af648bef180",
++        "sha256": "538e6efeb0e3a4b59595d0329396cc590adccf9d7e28036c61a9611730ac302c"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev",
++        "path": "docs/ops/waypoint-crystal-20261022/deployment/prepare.go",
++        "role": "Reviewed successful paired waypoint rollout, preservation and recovery; native player acceptance remains open",
++        "revision": "10f162c8990b905634fd2ed6e9456af648bef180",
++        "sha256": "973ceebd493f3ecece8d5afa0599e3aa30bb13937155596f1a60900b9808a3e8"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev",
++        "path": "docs/ops/waypoint-crystal-20261022/deployment/publish.py",
++        "role": "Reviewed successful paired waypoint rollout, preservation and recovery; native player acceptance remains open",
++        "revision": "10f162c8990b905634fd2ed6e9456af648bef180",
++        "sha256": "df4ad998779e6fe9e9b442ec5ca02a86b322f1fb4c4b1eca97e89e07fe90d806"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev",
++        "path": "docs/ops/waypoint-crystal-20261022/deployment/test_publish.py",
++        "role": "Reviewed successful paired waypoint rollout, preservation and recovery; native player acceptance remains open",
++        "revision": "10f162c8990b905634fd2ed6e9456af648bef180",
++        "sha256": "375dfaf85ed14432e0797dfe1520d47789ca8e9ba9c64c7c50fee1d05e1611e4"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev",
++        "path": "docs/ops/waypoint-crystal-20261022/deployment/verify.go",
++        "role": "Reviewed successful paired waypoint rollout, preservation and recovery; native player acceptance remains open",
++        "revision": "10f162c8990b905634fd2ed6e9456af648bef180",
++        "sha256": "46bfe2c2bd1b8bbb57d72abafa350efaec5bcc55e5c8c548a8750ee520d35186"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev",
++        "path": "docs/ops/waypoint-crystal-20261022/deployment/deployment.json",
++        "role": "Reviewed successful paired waypoint rollout, preservation and recovery; native player acceptance remains open",
++        "revision": "10f162c8990b905634fd2ed6e9456af648bef180",
++        "sha256": "085db3ba026b32308e568d8be9aec4fe0581f20acd72c3b776cacef7cd3e8c3e"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev",
++        "path": "docs/ops/waypoint-crystal-20261022/deployment/hosted-verification.json",
++        "role": "Reviewed successful paired waypoint rollout, preservation and recovery; native player acceptance remains open",
++        "revision": "10f162c8990b905634fd2ed6e9456af648bef180",
++        "sha256": "c1bef8d90f88715e9d0212cbfdc7c79e7989765905460a377691d12c342e3ef7"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev",
++        "path": "eq-launcher/patch-notes.json",
++        "role": "Published game2026102202 notice and retained release history",
++        "revision": "10f162c8990b905634fd2ed6e9456af648bef180",
++        "sha256": "c817b5ca2e8497e8312f9ab34feed5bd3fefed6cb0e761db60d9718435c5e0aa"
+@@ -7814,3 +7913,3 @@
+-        "role": "October22 waypoint crystal candidate; reviewed source, not deployment or native visual acceptance",
+-        "sha256": "686d5adc21ba8f4b8620e240dd901704a077e43cd4cc91e803b7fcbed2b202fa",
+-        "revision": "367e6406a093d3c8a9adffb62837200d8ad04be0"
++        "role": "Reviewed waypoint source/live-testing guidance; paired main/server/game2026102202 and wiki published; native appearance acceptance open",
++        "sha256": "d01f14fdd26557af49bd504829b4075e288d2f5e17c3211926b3908df81d26fb",
++        "revision": "10f162c8990b905634fd2ed6e9456af648bef180"
+@@ -7821,3 +7920,3 @@
+-        "role": "Reviewed waypoint integration with published robe release; candidate not deployed",
+-        "sha256": "fe3edf0e905c6c8865fe8e344a1e69b96dbe5f1f99f9b4824273142fac375ac2",
+-        "revision": "23e551eafe824363767f8c7ac66776e6431b362f"
++        "role": "Reviewed waypoint source/live-testing guidance; paired main/server/game2026102202 and wiki published; native appearance acceptance open",
++        "sha256": "8009538b4148900a58958d36d522af8525b54eaa519fb9e18044844dcf027acd",
++        "revision": "10f162c8990b905634fd2ed6e9456af648bef180"
+@@ -7828,3 +7927,3 @@
+-        "role": "Reviewed waypoint integration with published robe release; candidate not deployed",
+-        "sha256": "ead9895c5c137a5698d85101df7cbac649379f5e7b947f7b92951a5d7575777d",
+-        "revision": "23e551eafe824363767f8c7ac66776e6431b362f"
++        "role": "Reviewed waypoint source/live-testing guidance; paired main/server/game2026102202 and wiki published; native appearance acceptance open",
++        "sha256": "79d0c706b3df6244bf9bb83f8b5e1f95e9815fcabb44d9121e41ca2f4b6d2469",
++        "revision": "10f162c8990b905634fd2ed6e9456af648bef180"
+@@ -7835,3 +7934,3 @@
+-        "role": "Reviewed waypoint integration with published robe release; candidate not deployed",
+-        "sha256": "f1f6dd8e53eaffb21d05a7828ba07645f212ecaace8cbedf8b781e3a1261074c",
+-        "revision": "23e551eafe824363767f8c7ac66776e6431b362f"
++        "role": "Reviewed waypoint source/live-testing guidance; paired main/server/game2026102202 and wiki published; native appearance acceptance open",
++        "sha256": "593211e9a61b9aa6ab6369c7a1f4752a2e7b69a3fb16b28af8c3895dd77abf32",
++        "revision": "10f162c8990b905634fd2ed6e9456af648bef180"
+@@ -7842 +7941 @@
+-        "role": "October22 waypoint crystal candidate; reviewed source, not deployment or native visual acceptance",
++        "role": "Historical waypoint preparation/source-test evidence; current deployment and native QA boundary are in deployment/.",
+@@ -7849 +7948 @@
+-        "role": "October22 waypoint crystal candidate; reviewed source, not deployment or native visual acceptance",
++        "role": "Historical waypoint preparation/source-test evidence; current deployment and native QA boundary are in deployment/.",
+@@ -7891 +7990 @@
+-        "role": "Reviewed waypoint integration and unsigned inventory; no deployment/native visual acceptance",
++        "role": "Historical waypoint preparation/source-test evidence; current deployment and native QA boundary are in deployment/.",
+@@ -7898 +7997 @@
+-        "role": "Reviewed waypoint integration and unsigned inventory; no deployment/native visual acceptance",
++        "role": "Historical waypoint preparation/source-test evidence; current deployment and native QA boundary are in deployment/.",
+@@ -7905 +8004 @@
+-        "role": "Verified waypoint source promotion through test only; main/publication and native QA pending",
++        "role": "Historical waypoint preparation/source-test evidence; current deployment and native QA boundary are in deployment/.",
+@@ -8033,0 +8133,35 @@
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev",
++        "path": "docs/ops/waypoint-crystal-20261022/deployment/wiki-review.json",
++        "role": "Reviewed successful paired waypoint rollout, preservation and recovery; native player acceptance remains open",
++        "revision": "10f162c8990b905634fd2ed6e9456af648bef180",
++        "sha256": "28cafb753a4f919ced1370b4697b1319e2fb87a6cf74258df065de557e33bd54"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev",
++        "path": "docs/ops/waypoint-crystal-20261022/deployment/publish_wiki.py",
++        "role": "Reviewed successful paired waypoint rollout, preservation and recovery; native player acceptance remains open",
++        "revision": "10f162c8990b905634fd2ed6e9456af648bef180",
++        "sha256": "17c45b81f7722f358f18115c69c6d58ea095ed817a135caf8691a7bba287666e"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev",
++        "path": "docs/ops/waypoint-crystal-20261022/deployment/verify_wiki.py",
++        "role": "Reviewed successful paired waypoint rollout, preservation and recovery; native player acceptance remains open",
++        "revision": "10f162c8990b905634fd2ed6e9456af648bef180",
++        "sha256": "bfbf585bf9be2451951cb5a42aa790a78a72404ccbe1095f8b8d3062601e26a9"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev",
++        "path": "docs/ops/waypoint-crystal-20261022/deployment/wiki-publication.json",
++        "role": "Reviewed successful paired waypoint rollout, preservation and recovery; native player acceptance remains open",
++        "revision": "10f162c8990b905634fd2ed6e9456af648bef180",
++        "sha256": "14e600272aa8a83b8854ff56853c7c29d309d5634fca8168ff84f3b7a860affc"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev",
++        "path": "docs/ops/waypoint-crystal-20261022/deployment/wiki-public-verification.json",
++        "role": "Reviewed successful paired waypoint rollout, preservation and recovery; native player acceptance remains open",
++        "revision": "10f162c8990b905634fd2ed6e9456af648bef180",
++        "sha256": "b0715d02165875b1198432bb231bd7a754201826a862c4adb3f783135bad58df"
