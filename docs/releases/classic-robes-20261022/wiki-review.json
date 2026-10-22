@@ -1,0 +1,200 @@
+{
+  "date": "2026-10-22",
+  "source_base": "7792171c2df7fa206e78e089c8200d552700a208",
+  "include_worktree": true,
+  "status": "reviewed_local_candidate_not_published",
+  "previous_ledger_revision": "434d0e5e50520ae5b7f665033ddd108f41efb8d8",
+  "articles": [
+    {
+      "path": "wiki\\articles\\about.json",
+      "title": "About this wiki",
+      "decision": "no robe-related mechanics or guidance change",
+      "before_sha256": "d30e64f41dd4395f4d27163407a134527fca9bf9892dabd816774bd0ebcd1da0",
+      "after_sha256": "d30e64f41dd4395f4d27163407a134527fca9bf9892dabd816774bd0ebcd1da0",
+      "retained_status": "Reference"
+    },
+    {
+      "path": "wiki\\articles\\advanced-loot.json",
+      "title": "Advanced loot",
+      "decision": "no robe-related mechanics or guidance change",
+      "before_sha256": "0f0870dd8c5e412c0a673a7ff551a952965397e5b2ce0dd6bb67ac1336c0e506",
+      "after_sha256": "0f0870dd8c5e412c0a673a7ff551a952965397e5b2ce0dd6bb67ac1336c0e506",
+      "retained_status": "Live testing"
+    },
+    {
+      "path": "wiki\\articles\\ascension.json",
+      "title": "Ascension quest",
+      "decision": "no robe-related mechanics or guidance change",
+      "before_sha256": "c8f1855d8d4372f23a587bfd7da5af027e0720607fc560b7e73ad87a0e8f095b",
+      "after_sha256": "c8f1855d8d4372f23a587bfd7da5af027e0720607fc560b7e73ad87a0e8f095b",
+      "retained_status": "Live testing"
+    },
+    {
+      "path": "wiki\\articles\\combat.json",
+      "title": "Combat, buffs & recovery",
+      "decision": "no robe-related mechanics or guidance change",
+      "before_sha256": "0583a10b6d98e3bdb6dade874b19b5c5a546cea034660fd40080a08108cb7594",
+      "after_sha256": "0583a10b6d98e3bdb6dade874b19b5c5a546cea034660fd40080a08108cb7594",
+      "retained_status": "Live testing"
+    },
+    {
+      "path": "wiki\\articles\\commands.json",
+      "title": "Command reference",
+      "decision": "no robe-related mechanics or guidance change",
+      "before_sha256": "7b28b5660af28cc58700be74ac22f184a2bde62455286a027fb2c7662cb18e6e",
+      "after_sha256": "7b28b5660af28cc58700be74ac22f184a2bde62455286a027fb2c7662cb18e6e",
+      "retained_status": "Live testing"
+    },
+    {
+      "path": "wiki\\articles\\dungeon-modes.json",
+      "title": "Raid & Grind dungeons",
+      "decision": "no robe-related mechanics or guidance change",
+      "before_sha256": "ea12029035565a70fcd85d8c7fd1ce6b8ea41b7e0bbfc2dac52205b53519ac20",
+      "after_sha256": "946c54451e6576ee781a25a855d3b42d526a7493e65b55847125f127619cc2a9",
+      "retained_status": "Live testing"
+    },
+    {
+      "path": "wiki\\articles\\equipment.json",
+      "title": "Equipment & trading",
+      "decision": "explicit unreleased notice",
+      "before_sha256": "aa0defbc66f96bbe250b5c1a350e664b0a85bffc3e6b1ea8eeb690b15b994be5",
+      "after_sha256": "638ed83d13bec3036f24d9d5afdc5ef8aac0ef2627ebc1f796440a50663f74ab",
+      "retained_status": "Live testing"
+    },
+    {
+      "path": "wiki\\articles\\features.json",
+      "title": "Features",
+      "decision": "explicit unreleased notice",
+      "before_sha256": "33e657dc016db91cbf302a360ac4fa6173a909e78f923f7b8ea8b74213f17c8a",
+      "after_sha256": "f8f37ed9a3fbaf4708af59cd8abf8910a5ada791e1eae7366826015f6835579a",
+      "retained_status": "Live testing"
+    },
+    {
+      "path": "wiki\\articles\\getting-started.json",
+      "title": "Getting started",
+      "decision": "no robe-related mechanics or guidance change",
+      "before_sha256": "acea4482f627738f5479f52d3c9e2da1c3d0b152bf9b72250fad9be570e291e4",
+      "after_sha256": "acea4482f627738f5479f52d3c9e2da1c3d0b152bf9b72250fad9be570e291e4",
+      "retained_status": "Live testing"
+    },
+    {
+      "path": "wiki\\articles\\index.json",
+      "title": "Welcome to the Nightcap Wiki",
+      "decision": "explicit unreleased notice",
+      "before_sha256": "91da90ac4971d13f4053408b75553e0653c84f9355ab46750fa49578b416550c",
+      "after_sha256": "6e1e9ba9bca9331b852aa11bfc4251e15b5bf0f078906be83f6206fa19d6d2ae",
+      "retained_status": "Reference"
+    },
+    {
+      "path": "wiki\\articles\\item-upgrades.json",
+      "title": "Item upgrades",
+      "decision": "no robe-related mechanics or guidance change",
+      "before_sha256": "156334873eb8976b785e5267bb21c297c7e1ab475c21d3cc7d48a7108a36548d",
+      "after_sha256": "156334873eb8976b785e5267bb21c297c7e1ab475c21d3cc7d48a7108a36548d",
+      "retained_status": "Live testing"
+    },
+    {
+      "path": "wiki\\articles\\launcher.json",
+      "title": "Launcher & interface",
+      "decision": "explicit unreleased notice",
+      "before_sha256": "575e89bfc359eb5ac2427abea1b0f34e653c657d9ad6491bac0625121104f956",
+      "after_sha256": "12915a6d728d7064c22c8a7d25c85388ab29843df7b3c899d97a43e87e06dffc",
+      "retained_status": "Live testing"
+    },
+    {
+      "path": "wiki\\articles\\multiclass.json",
+      "title": "Multiclass & progression",
+      "decision": "explicit unreleased notice",
+      "before_sha256": "98bcca88e521daf03f4cb8a482e10493cf7c2f2e93267ad73a9d9a0e2f2101b0",
+      "after_sha256": "21cf9f01bce68c59664b57ea4ca978da3616cff7db54032a47271d3a5ce88663",
+      "retained_status": "Live testing"
+    },
+    {
+      "path": "wiki\\articles\\pets.json",
+      "title": "Pets & pet armor",
+      "decision": "no robe-related mechanics or guidance change",
+      "before_sha256": "5eee46c3a8a2c2bffe6c6abc2c51a7c0f8180ae65f6e092e120d72c84a05adfb",
+      "after_sha256": "5eee46c3a8a2c2bffe6c6abc2c51a7c0f8180ae65f6e092e120d72c84a05adfb",
+      "retained_status": "Live testing"
+    },
+    {
+      "path": "wiki\\articles\\recent-changes.json",
+      "title": "Recent changes",
+      "decision": "explicit unreleased notice",
+      "before_sha256": "fc50fd0b964f4e66ca0b56b4ba8de1642bbae0f7b328a5e4e5b41516d6352b34",
+      "after_sha256": "8ce119b4f7e3a534a20df24767c2239e9b2d372e18582c78fd8b6dbb80672196",
+      "retained_status": "Reference"
+    },
+    {
+      "path": "wiki\\articles\\tradeskills.json",
+      "title": "Tradeskills & Craft All",
+      "decision": "no robe-related mechanics or guidance change",
+      "before_sha256": "d76ffea75fea16a2a353a5cab1b5e2b783a244908fcfa0903184cd8947a4de7b",
+      "after_sha256": "d76ffea75fea16a2a353a5cab1b5e2b783a244908fcfa0903184cd8947a4de7b",
+      "retained_status": "Live testing"
+    },
+    {
+      "path": "wiki\\articles\\travel.json",
+      "title": "Travel & instances",
+      "decision": "no robe-related mechanics or guidance change",
+      "before_sha256": "a03ba3ae582673d18bd96f2a8fe44fc8eeb769042f3df70639cc3d20cd7f8a20",
+      "after_sha256": "a03ba3ae582673d18bd96f2a8fe44fc8eeb769042f3df70639cc3d20cd7f8a20",
+      "retained_status": "Live testing"
+    },
+    {
+      "path": "wiki\\articles\\tunnel.json",
+      "title": "East Commonlands tunnel",
+      "decision": "no robe-related mechanics or guidance change",
+      "before_sha256": "1cd4347301cf3cd5bcc0f2b9b3cdf5aa746582c09ff4294f57ea2f58bcf07447",
+      "after_sha256": "1cd4347301cf3cd5bcc0f2b9b3cdf5aa746582c09ff4294f57ea2f58bcf07447",
+      "retained_status": "Live testing"
+    },
+    {
+      "path": "wiki\\articles\\unreleased.json",
+      "title": "In development",
+      "decision": "explicit unreleased notice",
+      "before_sha256": "7b262944a2b7a86dec5c4ad71a0fc4a6136ed697ebe018e6cca7cc6ad9085b03",
+      "after_sha256": "e38cb2f0e49f5274ff2793daa0ebbc7308c485cbf00a757963c8ae6cdcf6105b",
+      "retained_status": "Not released"
+    },
+    {
+      "path": "wiki\\articles\\waypoints.json",
+      "title": "Waypoint Explorer",
+      "decision": "no robe-related mechanics or guidance change",
+      "before_sha256": "9ef8b93fa52d5b83c479bbb3c877fab4f9373c0f26c84c43908edf3d7e5666bc",
+      "after_sha256": "9ef8b93fa52d5b83c479bbb3c877fab4f9373c0f26c84c43908edf3d7e5666bc",
+      "retained_status": "Live testing"
+    },
+    {
+      "path": "wiki\\articles\\zone-hunt.json",
+      "title": "Zone hunt & forging",
+      "decision": "no robe-related mechanics or guidance change",
+      "before_sha256": "114c593cf0f89288702b7b5fe23f0e563f337b64864dc3b953c9d2c62635044d",
+      "after_sha256": "114c593cf0f89288702b7b5fe23f0e563f337b64864dc3b953c9d2c62635044d",
+      "retained_status": "Live testing"
+    }
+  ],
+  "generated_routes": 432,
+  "catalog_decision": "No IDs, stats, qualities, loot, zones, template behavior or commands change",
+  "catalog_sha256": "22701edeaf267067dfbe7225398b4944d6a69b080480ac06f0d153ca92eae0ae",
+  "features_decision": "Candidate appearance support described without promoting availability",
+  "prior_drift": "Latest installed skill and exact PASS receipt identify published20261022-dungeon-keepers-v1. Preserve its three source guides from the release checkout; add robe candidate notices to the two affected guides. No gameplay or publication state is inferred from the main-only baseline.",
+  "outside_git": "Candidate archives/previews only, read-only reference/installed client; no production, DB, client installation or publication",
+  "preserved_newer_publication": [
+    {
+      "path": "C:\\Users\\verre\\.codex\\worktrees\\befallen-keeper-visibility\\EQ_Local_Dev\\wiki\\articles\\dungeon-modes.json",
+      "sha256": "946c54451e6576ee781a25a855d3b42d526a7493e65b55847125f127619cc2a9",
+      "publication": "20261022-dungeon-keepers-v1"
+    },
+    {
+      "path": "C:\\Users\\verre\\.codex\\worktrees\\befallen-keeper-visibility\\EQ_Local_Dev\\wiki\\articles\\recent-changes.json",
+      "sha256": "fb854b322634462db557ad18ac580953d57b54731483f8da4e91fdcdbd062243",
+      "publication": "20261022-dungeon-keepers-v1"
+    },
+    {
+      "path": "C:\\Users\\verre\\.codex\\worktrees\\befallen-keeper-visibility\\EQ_Local_Dev\\wiki\\articles\\unreleased.json",
+      "sha256": "b3d52f4faad38341a940021b4df3060019d7fd6ba7bdd00c79362f951e741aba",
+      "publication": "20261022-dungeon-keepers-v1"
+    }
+  ]
+}

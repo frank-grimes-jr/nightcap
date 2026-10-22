@@ -1,4 +1,14 @@
 # Current Nightcap status
+## Classic race robes — candidate, October 22
+
+Generated missing robe bodies for male/female Half Elf, Wood Elf, Barbarian,
+Dwarf, Troll, Ogre and Halfling. Existing skeletons, armor and custom helmets
+are retained. This is an asset correction, with no gameplay permission change.
+Native selection, archive preservation and offline fit checks are distinct from
+owner in-game acceptance. Not installed or published. See
+[candidate evidence and exact QA](releases/classic-robes-20261022/README.md).
+
+
 
 ## 2026-10-22 — All-dungeon Keeper correction deployed for live QA
 

@@ -1,4 +1,15 @@
 # CHANGES
+## 2026-10-22 — Classic race robes candidate
+
+Adds missing robe bodies for both genders of Half Elf, Wood Elf, Barbarian,
+Dwarf, Troll, Ogre and Halfling, preserving native skeletons, original armor
+and HE90 helmets. The native client already selects these bodies; no permission
+or executable patch is needed. Canonical client generation includes both global
+archives and now requires the pinned NumPy build dependency. Candidate only;
+native appearance/animation QA and publication remain open. See
+[evidence, recovery and exact QA](docs/releases/classic-robes-20261022/README.md).
+
+
 
 ## 2026-10-22 — All-dungeon Keeper correction deployed for live QA
 
