@@ -7,7 +7,7 @@ Twelve aggregate quest reload acknowledgments arrived before refresh signal 2026
 World and all 12 zone PID/start times, five service identities/start times and the
 waypoint quest remained unchanged. Befallen was unloaded at preflight; its next
 normal boot applies EVENT_SPAWN. No restart, database rewrite or client patch.
-The operator's eight tests pass; independent review approved the repaired
+The operator's nine tests pass; independent review approved the repaired
 reload-before-signal ordering. See deployment.json; this is deployment evidence,
 not proof of signal processing by an absent NPC or visible rendering.
 
@@ -115,3 +115,14 @@ nginx test fixture stopped before publication; its failure remains in the privat
 stage and the old pointer/stage hashes were verified before completion. Public
 hashes and headers are independently recorded in wiki-public-verification.json.
 This publication does not establish visual acceptance of the Keeper.
+
+## Source encoding provenance
+
+Committed LF quest bytes hash `e78eb53a54a8d39ac915efa0c131c0171094841d833842c5802f57895ae865a2`.
+The installed `3c22ca3d...` payload came from Windows cp1252 decoding followed by
+UTF-8 encoding in the inherited operator pattern. Only nine comment lines changed;
+executable code and dialogue are identical. deployment.json records both hashes
+for candidate and recovery. The historical operator now states this encoding
+explicitly to preserve the exact retained recovery-byte guard. New release
+operators should preserve UTF-8 bytes. No further runtime write was necessary.
+The ninth operator regression verifies the comment-only boundary and payload pin.

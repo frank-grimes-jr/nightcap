@@ -193,8 +193,43 @@
   "main_commit": "434d0e5e50520ae5b7f665033ddd108f41efb8d8",
   "pull_request": 272,
   "befallen_loaded_at_preflight": false,
-  "operator_tests": 8,
+  "operator_tests": 9,
   "review": "Independent review passed after sequencing reload acknowledgment before signal;8 regression groups pass.",
   "acknowledgment_scope": "12 aggregate log acknowledgments; logs do not identify individual zone workers.",
-  "owner_qa": "Pending visible rendering and interactions; normal next Befallen load applies spawn policy."
+  "owner_qa": "Pending visible rendering and interactions; normal next Befallen load applies spawn policy.",
+  "source_encoding": {
+    "candidate": {
+      "source_lf_sha256": "e78eb53a54a8d39ac915efa0c131c0171094841d833842c5802f57895ae865a2",
+      "retained_deployment_sha256": "3c22ca3d3e4a1b39b56c018ea97c5daea5abf735b633bf8a389ebb6ae7e8da4d",
+      "changed_comment_lines": [
+        2,
+        9,
+        10,
+        11,
+        12,
+        13,
+        16,
+        27,
+        76
+      ],
+      "executable_and_dialogue_identical": true
+    },
+    "recovery": {
+      "source_lf_sha256": "cecfae0e22025aa5cad439193b829653e438ab794d25fb7d1b81921acf65a29a",
+      "retained_deployment_sha256": "d52e27ab2a334fd98f93f1493185ccf0ea7b5fefafa75ff4f0183d9862cef22e",
+      "changed_comment_lines": [
+        2,
+        9,
+        10,
+        11,
+        12,
+        13,
+        16,
+        27,
+        76
+      ],
+      "executable_and_dialogue_identical": true
+    }
+  },
+  "encoding_review": "Default Windows decoding changed nine comment lines only. run.py now states that retained encoding explicitly so rollback guards remain valid. No additional live write is justified; future release operators should preserve UTF-8 bytes."
 }

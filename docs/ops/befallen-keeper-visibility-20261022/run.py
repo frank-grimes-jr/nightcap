@@ -26,8 +26,11 @@ assert not subprocess.check_output(['git','status','--porcelain','--',
     'server-mods/quests/global/Instance_Keeper.pl','docs/ops/befallen-keeper-visibility-20261022',
     'tools/tests/instance_keeper_visuals.t'],cwd=ROOT,text=True).strip(),'Uncommitted operation files'
 header=f'ACTION={action!r}\nCOMMIT={commit!r}\n'
+# This historical release retained cp1252-decoded comment bytes on Windows.
+# Preserve its exact recovery guard; new release operators must use UTF-8/bytes.
 for name,path in [('PAYLOAD',quest),('RECOVERY',recovery)]:
-    header+=f'{name}={base64.b64encode(path.read_text().encode()).decode()!r}\n'
+    payload=path.read_text(encoding='cp1252').encode('utf-8')
+    header+=f'{name}={base64.b64encode(payload).decode()!r}\n'
 subprocess.run(['ssh','-i',str(Path.home()/'.ssh/nightcap_ovh'),'-o','BatchMode=yes',
     '-o','ConnectTimeout=10','-o','StrictHostKeyChecking=yes','ubuntu@135.148.47.202',
     'sudo -n python3 -'],input=header+source,text=True,check=True)
