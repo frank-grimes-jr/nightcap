@@ -1,0 +1,313 @@
+--- a/references/world.md
++++ b/references/world.md
+@@ -69,32 +69,49 @@
+-Instance Keepers use a small floating eye (race 108, gender 2, size 3).
+-October 12 deployed appearance signal 20261014 remains supported; October 13
+-owner "resolved" accepted the earlier reported visual issue, not every dungeon.
+-The new October 22 Befallen report reopens visibility for that zone.
+-
+-**Befallen correction deployed October22 through owner-authorized main PR272/434d0e5.** Fresh production
+-inspection confirms Keeper999227/spawn3266036 and waypoint999240/spawn3266054
+-both at XYZ35,-82,3, saved3.1. Bodytype1/model0 and installed eye quest are intact.
+-Overlap is established; its role in invisibility awaits in-game proof. The
+-deployed `Instance_Keeper.pl::keeper_position` limits itself to Befallen NPC999227
+-and moves it to XYZ35,-67,3.1, heading256 on spawn and signals20261014/20261022.
+-Absolute pose,0.25 tolerance and GMMove's saved guard spot handle fresh/saved
+-poses and loaded eyes without cumulative movement. Production grid/roam fields
+-are zero. The waypoint, discovery, native dungeon actions and earned state stay.
+-
+-The production/local Befallen map hashes match;10 ground/headroom samples and
+-two approach rays pass.30 Keeper,16 waypoint and6 recovery assertions pass,
+-with native binding/saved-state ordering inspected separately. Doubles do not
+-execute the native saved-state loader or establish visible rendering. Independent
+-review has no blocking findings. Quest reload plus NPC-type999227 signal20261022
+-applied the correction without native restart, client or cache pairing change.
+-Nine operator tests and independent review cover drift, uncertain attempts,
+-recovery and waiting for reload acknowledgment before signaling. Twelve aggregate
+-reload log acknowledgments arrived; shared logs do not identify each worker.
+-World/all12 zone lifetimes, five services and the waypoint script are unchanged.
+-Befallen was unloaded at preflight, so its next normal load applies EVENT_SPAWN;
+-signal transport is not evidence of processing by an absent NPC.
+-Rollback retains a scoped helper restoring XYZ35,-82,3.1/heading0 so dormant
+-saved relocated poses also recover. Restoring old quest bytes alone is incomplete;
+-never restore player/loot/dungeon snapshots for this appearance correction.
+-
+-Source, exact owner QA, recovery quest and tests:
++Instance Keepers use a small floating eye (race108, gender2, size3), distinct
++from waypoint999240's invisible actor plus portal nimbus. October13 visual
++acceptance is historical; the October22 report remains open for visible QA.
++
++**All-dungeon overlap correction deployed October22 through main PR274/7792171.**
++The initial Befallen-only PR272 was extended after the owner asked about the
++remaining zones. Fresh all-seven audit found five exact Keeper/waypoint overlaps:
++Befallen, Unrest, Najena, Permafrost and Nagafen's Lair. The shared quest uses
++exact NPC-ID/zone guards and absolute poses on spawn/signals20261014/20261022:
++
++| Zone / NPC | XYZ / heading |
++|---|---|
++| befallen999227 |35,-67,3.1 /256 (retained prior correction)|
++| unrest999228 |67,-38,3.1 /384|
++| najena999230 |858,-61,4.1 /256|
++| permafrost999232 |46,-121,2.1 /128|
++| soldungb999233 |-248,-424,-108 /384|
++
++High Keep999229 at88,-16,4 and Cazic-Thule999231 at-74,71,4 already have distant
++separate waypoints; neither placement changes. This does not prove their visible
++model works. All seven have valid ground, normal targetability/bodytype1/model0,
++zero grid/roam and the same shared quest with no zone/ID override. Available
++saved service poses have no buffs. Client-rendering causality is not established.
++
++All seven production/local map hashes match. Four final destination/approach
++pairs pass40 ground/headroom samples and8 clear rays; nearby doors/spawns/zone
++metadata checked. SolB retains original z=-108 beneath its12-unit ceiling; the
++probe's z+8 cast at-107.9 would start just above that ceiling. Najena moves away
++from the existing skeleton. Tests:52 Keeper,16 waypoint,10 recovery assertions,
++8 operator groups and independent review pass. Doubles do not execute the native
++saved-state loader; GMMove guard saving and loader order were inspected separately.
++
++Installed quest SHA903086e695615f3c8f3f3a05ca1bf3bd96c1d8a6cff4700fc7ad6858215580b1
++matches committed UTF-8/LF bytes. Supported quest reload without timer reset
++produced12 aggregate acknowledgments before signaling the four added NPC types.
++World/all12 zone lifetimes, five service identities and waypoint hash are unchanged.
++Shared logs do not identify individual workers; signal sent does not prove visible
++NPC processing. Unbooted zones apply the policy on their next normal load. No
++restart, DB rewrite, client/cache/binary change, dungeon action or progress reset.
++
++Use docs/ops/dungeon-keeper-visibility-20261022/{run.py,remote.py} and its retained
++backup/recovery helper for current activation/recovery. The inverse restores only
++the four new poses, retaining Befallen, and must remain for dormant saved poses.
++Never restore old player/loot/dungeon snapshots or only the old quest bytes.
++The superseded Befallen operator has a historical cp1252 comment-only payload;
++do not apply its preimage/recovery guards to this successor. New operators must
++preserve UTF-8 bytes. Saved guard positions are absolute and tolerate0.25 units.
++
++Source, audit, exact all-seven /loc QA and receipts:
+@@ -102,12 +119,5 @@
+-`docs/ops/befallen-keeper-visibility-20261022/`,
+-`tools/tests/instance_keeper_visuals.t`. Source050e7a2, main434d0e5, deployed quest
+-SHA3c22ca3d3e4a1b39b56c018ea97c5daea5abf735b633bf8a389ebb6ae7e8da4d.
+-Committed LF quest SHAe78eb53a differs from installed3c22ca3d because the initial
+-Windows operator decoded UTF-8 as cp1252. Only nine comments changed; executable
+-code/dialogue match. The historical run.py explicitly preserves this encoding
+-and recoveryd52e27ab so its exact rollback guard remains valid; new operators
+-must preserve UTF-8 bytes. No further live write was needed for comment encoding.
+-deployment.json records verified activation; owner visible acceptance stays open.
+-wiki20261022-befallen-keeper-v1 publishes the bounded live-testing guidance.
+-Historical waypoint release and
+-Crushbone/Unrest placement evidence retain their dated scopes.
++`docs/ops/dungeon-keeper-visibility-20261022/`,
++`server-mods/quests/global/Instance_Keeper.pl`, `tools/tests/instance_keeper_visuals.t`.
++Owner answered "Not tested yet" for Befallen; no zone's current visibility is
++accepted. Wiki20261022-dungeon-keepers-v1 publishes all-seven locations and the
++/target Instance_Keeper fallback with explicit Live testing labels.
+--- a/references/wiki.md
++++ b/references/wiki.md
+@@ -3,22 +3,25 @@
+-## Befallen Keeper visibility — October22 deployed for live testing
+-
+-Owner-authorized main PR272/434d0e5 and guarded quest activation are verified in
+-C:/Users/verre/.codex/worktrees/befallen-keeper-visibility/EQ_Local_Dev,
+-docs/ops/befallen-keeper-visibility-20261022/. The Befallen eye moves15 units into
+-the entrance; waypoint and dungeon state are retained. Rendering causality and
+-owner acceptance remain open. All21 maintained articles and generated catalog
+-were reviewed. Dungeon modes, In development and Recent changes carry the new
+-/loc and /target fallback with Live testing wording. Features/home, commands,
+-rewards and generated values retain their released meaning.
+-
+-Wiki20261022-befallen-keeper-v1 is published:465 public hashes/security headers
+-and five private-route denials pass. Three guides/search changed; private guide,
+-web configuration and services remain. Sixteen Linux publisher tests and real
+-pointer rollback rehearsal pass. Initial test staging lacked nginx.conf and
+-stopped before publication; pinned stage/old pointer checks preceded completing
+-the fixture and rerunning tests. Retain original failure evidence.
+-
+-Source drift through main434d0e5 and working release evidence was reviewed:
+-only this scoped correction and operational/test/knowledge records changed.
+-content-review.json records the reviewed boundary; deployment/publication do
+-not establish owner visual QA. world.md owns reload and saved-pose recovery.
++## All-dungeon Keeper visibility — October22 deployed, visual QA open
++
++Main PR274/7792171 extends the earlier Befallen correction to the four remaining
++exact overlaps: Unrest, Najena, Permafrost and Nagafen's Lair. High Keep and
++Cazic-Thule already have separate positions. Owner says Befallen is not yet tested;
++no current visible resolution is accepted. world.md owns the five scoped poses,
++UTF-8 source/deployed hash, quest-only reload and position-aware recovery.
++
++All21 maintained articles and generated reward routes were reviewed through
++main7792171 and working release evidence. Dungeon modes lists all seven /locs;
++In development and Recent changes describe five installed separations, preserved
++High Keep/CT, /target fallback and open visual QA. Features/home, commands,
++rewards and generated catalog values retain their released meaning.
++
++Wiki20261022-dungeon-keepers-v1 is published:465 public hashes/security headers
++and five private-route denials verify. Only three guides/search changed. Sixteen
++Linux publisher tests and actual pointer rollback rehearsal pass; services,
++private guide/downloads and web configuration are preserved.14 content/refresh
++tests and search checks pass. Source drift since the preceding review contains
++only the scoped correction, test, deployment and knowledge records.
++
++Evidence: C:/Users/verre/.codex/worktrees/befallen-keeper-visibility/EQ_Local_Dev,
++docs/ops/dungeon-keeper-visibility-20261022/{wiki-review.json,deployment.json,
++wiki-publication.json,wiki-public-verification.json}. Publication is separate
++from owner gameplay/visibility acceptance.
+--- a/references/sources.json
++++ b/references/sources.json
+@@ -75 +75,2 @@
+-    "befallen_keeper_live_20261022": "b33ef2c31c26df95d8f36e39dad1dd498067c7fe"
++    "befallen_keeper_live_20261022": "b33ef2c31c26df95d8f36e39dad1dd498067c7fe",
++    "dungeon_keeper_live_20261022": "dbe04dd7c915e6fa03dde485d43837066e765da7"
+@@ -3453,3 +3454,3 @@
+-        "revision": "b33ef2c31c26df95d8f36e39dad1dd498067c7fe",
+-        "sha256": "e78eb53a54a8d39ac915efa0c131c0171094841d833842c5802f57895ae865a2",
+-        "role": "Reviewed Befallen-only placement correction; main PR272 deployed by quest reload with9 operator tests and52 quest/recovery assertions; unchanged native lifetimes; visible owner QA pending"
++        "revision": "dbe04dd7c915e6fa03dde485d43837066e765da7",
++        "sha256": "903086e695615f3c8f3f3a05ca1bf3bd96c1d8a6cff4700fc7ad6858215580b1",
++        "role": "Reviewed all-seven audit and five scoped poses; main PR274 deployed with78 quest assertions/8 operator tests; UTF-8 hash and lifetimes verified; visible QA untested"
+@@ -4008,3 +4009,3 @@
+-        "revision": "b33ef2c31c26df95d8f36e39dad1dd498067c7fe",
+-        "sha256": "6b6962f6f3c057402c350ca64b744f540b0dc9727a118c5710cd90fb615c74b8",
+-        "role": "Reviewed Befallen-only placement correction; main PR272 deployed by quest reload with9 operator tests and52 quest/recovery assertions; unchanged native lifetimes; visible owner QA pending"
++        "revision": "dbe04dd7c915e6fa03dde485d43837066e765da7",
++        "sha256": "11677574d0ee42ffb49e0a5b94dfe59dcd8d5371c72d0d6bec0d7c92854edd49",
++        "role": "Reviewed all-seven audit and five scoped poses; main PR274 deployed with78 quest assertions/8 operator tests; UTF-8 hash and lifetimes verified; visible QA untested"
+@@ -4014,4 +4015,4 @@
+-        "path": "docs/ops/befallen-keeper-visibility-20261022/README.md",
+-        "revision": "b33ef2c31c26df95d8f36e39dad1dd498067c7fe",
+-        "sha256": "576b991bf343cbc52f25d020dfae72b60b99079c2a844df8901541e2fdb6421a",
+-        "role": "Reviewed Befallen-only placement correction; main PR272 deployed by quest reload with9 operator tests and52 quest/recovery assertions; unchanged native lifetimes; visible owner QA pending"
++        "path": "docs/ops/dungeon-keeper-visibility-20261022/README.md",
++        "revision": "dbe04dd7c915e6fa03dde485d43837066e765da7",
++        "sha256": "e957fabb7c6398a112cabfde4d26ff849789dd3e8d47ea8f878eaf40f90fea75",
++        "role": "Reviewed all-seven audit and five scoped poses; main PR274 deployed with78 quest assertions/8 operator tests; UTF-8 hash and lifetimes verified; visible QA untested"
+@@ -4021,4 +4022,4 @@
+-        "path": "docs/ops/befallen-keeper-visibility-20261022/evidence.json",
+-        "revision": "b33ef2c31c26df95d8f36e39dad1dd498067c7fe",
+-        "sha256": "c288a0a0fd4d96b546bacdb552733c244c19b4f4696996a8dee4073bb281fa80",
+-        "role": "Reviewed Befallen-only placement correction; main PR272 deployed by quest reload with9 operator tests and52 quest/recovery assertions; unchanged native lifetimes; visible owner QA pending"
++        "path": "docs/ops/dungeon-keeper-visibility-20261022/placements.json",
++        "revision": "dbe04dd7c915e6fa03dde485d43837066e765da7",
++        "sha256": "38e4999567b8e5d1bb939e506d3fcd30ea7519695065dc5f708c462c5e042011",
++        "role": "Reviewed all-seven audit and five scoped poses; main PR274 deployed with78 quest assertions/8 operator tests; UTF-8 hash and lifetimes verified; visible QA untested"
+@@ -4028,4 +4029,4 @@
+-        "path": "docs/ops/befallen-keeper-visibility-20261022/Instance_Keeper.recovery.pl",
+-        "revision": "b33ef2c31c26df95d8f36e39dad1dd498067c7fe",
+-        "sha256": "cecfae0e22025aa5cad439193b829653e438ab794d25fb7d1b81921acf65a29a",
+-        "role": "Reviewed Befallen-only placement correction; main PR272 deployed by quest reload with9 operator tests and52 quest/recovery assertions; unchanged native lifetimes; visible owner QA pending"
++        "path": "docs/ops/dungeon-keeper-visibility-20261022/selected-geometry.json",
++        "revision": "dbe04dd7c915e6fa03dde485d43837066e765da7",
++        "sha256": "0866061ea640ace144a6966040f163315ead5b03985d09d507d2d5af88f97c93",
++        "role": "Reviewed all-seven audit and five scoped poses; main PR274 deployed with78 quest assertions/8 operator tests; UTF-8 hash and lifetimes verified; visible QA untested"
+@@ -4035,4 +4036,4 @@
+-        "path": "docs/ops/befallen-keeper-visibility-20261022/test_recovery.t",
+-        "revision": "b33ef2c31c26df95d8f36e39dad1dd498067c7fe",
+-        "sha256": "2925ca6da6986a3d775fa9d5b3f157b9de85161a8459bf122371328aa3194a16",
+-        "role": "Reviewed Befallen-only placement correction; main PR272 deployed by quest reload with9 operator tests and52 quest/recovery assertions; unchanged native lifetimes; visible owner QA pending"
++        "path": "docs/ops/dungeon-keeper-visibility-20261022/all-keepers-audit.json",
++        "revision": "dbe04dd7c915e6fa03dde485d43837066e765da7",
++        "sha256": "76d974444a0f2f7c4a07d88e08a57d0f829b0cbd9965490ed063351ee339bb10",
++        "role": "Reviewed all-seven audit and five scoped poses; main PR274 deployed with78 quest assertions/8 operator tests; UTF-8 hash and lifetimes verified; visible QA untested"
+@@ -4042,4 +4043,4 @@
+-        "path": "docs/ops/befallen-keeper-visibility-20261022/remote.py",
+-        "revision": "b33ef2c31c26df95d8f36e39dad1dd498067c7fe",
+-        "sha256": "499408069b22e1985fa00e265c02930902be7f23896e7272058306ba65dfd745",
+-        "role": "Reviewed Befallen-only placement correction; main PR272 deployed by quest reload with9 operator tests and52 quest/recovery assertions; unchanged native lifetimes; visible owner QA pending"
++        "path": "docs/ops/dungeon-keeper-visibility-20261022/Instance_Keeper.recovery.pl",
++        "revision": "dbe04dd7c915e6fa03dde485d43837066e765da7",
++        "sha256": "f80b04ea4812f99bdd8c687783653078514165e146b2417b356c56caeb4cf32a",
++        "role": "Reviewed all-seven audit and five scoped poses; main PR274 deployed with78 quest assertions/8 operator tests; UTF-8 hash and lifetimes verified; visible QA untested"
+@@ -4049,4 +4050,4 @@
+-        "path": "docs/ops/befallen-keeper-visibility-20261022/run.py",
+-        "revision": "b33ef2c31c26df95d8f36e39dad1dd498067c7fe",
+-        "sha256": "920dedd0b34abc4b46b0486c2ebbaf8d552e378e8c63a47e99273eb91c417854",
+-        "role": "Reviewed Befallen-only placement correction; main PR272 deployed by quest reload with9 operator tests and52 quest/recovery assertions; unchanged native lifetimes; visible owner QA pending"
++        "path": "docs/ops/dungeon-keeper-visibility-20261022/test_recovery.t",
++        "revision": "dbe04dd7c915e6fa03dde485d43837066e765da7",
++        "sha256": "9676d4fc921d127701c3926af9cc80da78a731c3edecb5aca1d4689cb8e5c5dc",
++        "role": "Reviewed all-seven audit and five scoped poses; main PR274 deployed with78 quest assertions/8 operator tests; UTF-8 hash and lifetimes verified; visible QA untested"
+@@ -4056,4 +4057,4 @@
+-        "path": "docs/ops/befallen-keeper-visibility-20261022/test_operator.py",
+-        "revision": "b33ef2c31c26df95d8f36e39dad1dd498067c7fe",
+-        "sha256": "ed47e7c8b7595c7d04e509d5116d5d08512630d01f3421938e7fc821ba8d8e6f",
+-        "role": "Reviewed Befallen-only placement correction; main PR272 deployed by quest reload with9 operator tests and52 quest/recovery assertions; unchanged native lifetimes; visible owner QA pending"
++        "path": "docs/ops/dungeon-keeper-visibility-20261022/run.py",
++        "revision": "dbe04dd7c915e6fa03dde485d43837066e765da7",
++        "sha256": "b5e47dcea2a93de88cfb814aaf532ba4cb6b566f19649ee5324eb45b7f1ed17f",
++        "role": "Reviewed all-seven audit and five scoped poses; main PR274 deployed with78 quest assertions/8 operator tests; UTF-8 hash and lifetimes verified; visible QA untested"
+@@ -4063,4 +4064,18 @@
+-        "path": "docs/ops/befallen-keeper-visibility-20261022/deployment.json",
+-        "revision": "b33ef2c31c26df95d8f36e39dad1dd498067c7fe",
+-        "sha256": "f80e0c9d9be74440b4ca3036907fe86d82130e055653a6379104bb5af3bfea03",
+-        "role": "Reviewed Befallen-only placement correction; main PR272 deployed by quest reload with9 operator tests and52 quest/recovery assertions; unchanged native lifetimes; visible owner QA pending"
++        "path": "docs/ops/dungeon-keeper-visibility-20261022/remote.py",
++        "revision": "dbe04dd7c915e6fa03dde485d43837066e765da7",
++        "sha256": "2992bfb64af9c51a56efc37a37eafec3216928e65a5be2ba54286aa5a8107afa",
++        "role": "Reviewed all-seven audit and five scoped poses; main PR274 deployed with78 quest assertions/8 operator tests; UTF-8 hash and lifetimes verified; visible QA untested"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/befallen-keeper-visibility/EQ_Local_Dev",
++        "path": "docs/ops/dungeon-keeper-visibility-20261022/test_operator.py",
++        "revision": "dbe04dd7c915e6fa03dde485d43837066e765da7",
++        "sha256": "f6b90d40efe1f387a688e608bda5423fb261f9c97be4e9e7f2bdf905977cac20",
++        "role": "Reviewed all-seven audit and five scoped poses; main PR274 deployed with78 quest assertions/8 operator tests; UTF-8 hash and lifetimes verified; visible QA untested"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/befallen-keeper-visibility/EQ_Local_Dev",
++        "path": "docs/ops/dungeon-keeper-visibility-20261022/deployment.json",
++        "revision": "dbe04dd7c915e6fa03dde485d43837066e765da7",
++        "sha256": "d08552830c2ec1cf3fc892b4b341e6ac4628275def6fb1d882324079f5b16bac",
++        "role": "Reviewed all-seven audit and five scoped poses; main PR274 deployed with78 quest assertions/8 operator tests; UTF-8 hash and lifetimes verified; visible QA untested"
+@@ -6404,3 +6419,3 @@
+-        "revision": "b33ef2c31c26df95d8f36e39dad1dd498067c7fe",
+-        "sha256": "ea12029035565a70fcd85d8c7fd1ce6b8ea41b7e0bbfc2dac52205b53519ac20",
+-        "role": "Reviewed installed Keeper placement and open visual QA; published20261022-befallen-keeper-v1 verifies465 files and retained services/private guide; no new command/reward/catalog mechanic"
++        "revision": "dbe04dd7c915e6fa03dde485d43837066e765da7",
++        "sha256": "946c54451e6576ee781a25a855d3b42d526a7493e65b55847125f127619cc2a9",
++        "role": "Reviewed and published all-seven Keeper guidance;465 HTTPS files verified; current visible QA explicitly unaccepted"
+@@ -6782,3 +6797,3 @@
+-        "revision": "b33ef2c31c26df95d8f36e39dad1dd498067c7fe",
+-        "sha256": "7b262944a2b7a86dec5c4ad71a0fc4a6136ed697ebe018e6cca7cc6ad9085b03",
+-        "role": "Reviewed installed Keeper placement and open visual QA; published20261022-befallen-keeper-v1 verifies465 files and retained services/private guide; no new command/reward/catalog mechanic"
++        "revision": "dbe04dd7c915e6fa03dde485d43837066e765da7",
++        "sha256": "b3d52f4faad38341a940021b4df3060019d7fd6ba7bdd00c79362f951e741aba",
++        "role": "Reviewed and published all-seven Keeper guidance;465 HTTPS files verified; current visible QA explicitly unaccepted"
+@@ -6932,3 +6947,3 @@
+-        "revision": "b33ef2c31c26df95d8f36e39dad1dd498067c7fe",
+-        "sha256": "8abd9a42ea254c423e58b259db38e2f16197ed190e143a44c6328669f790620a",
+-        "role": "Reviewed installed Keeper placement and open visual QA; published20261022-befallen-keeper-v1 verifies465 files and retained services/private guide; no new command/reward/catalog mechanic"
++        "revision": "dbe04dd7c915e6fa03dde485d43837066e765da7",
++        "sha256": "74449d0ac96b8c0cdb66a8ab687aff6a97f63d9834003abf539d67be2763b48a",
++        "role": "Reviewed and published all-seven Keeper guidance;465 HTTPS files verified; current visible QA explicitly unaccepted"
+@@ -7009,3 +7024,3 @@
+-        "revision": "b33ef2c31c26df95d8f36e39dad1dd498067c7fe",
+-        "sha256": "fc50fd0b964f4e66ca0b56b4ba8de1642bbae0f7b328a5e4e5b41516d6352b34",
+-        "role": "Reviewed installed Keeper placement and open visual QA; published20261022-befallen-keeper-v1 verifies465 files and retained services/private guide; no new command/reward/catalog mechanic"
++        "revision": "dbe04dd7c915e6fa03dde485d43837066e765da7",
++        "sha256": "fb854b322634462db557ad18ac580953d57b54731483f8da4e91fdcdbd062243",
++        "role": "Reviewed and published all-seven Keeper guidance;465 HTTPS files verified; current visible QA explicitly unaccepted"
+@@ -7022,4 +7037,4 @@
+-        "path": "docs/ops/befallen-keeper-visibility-20261022/wiki-review.json",
+-        "revision": "b33ef2c31c26df95d8f36e39dad1dd498067c7fe",
+-        "sha256": "698baf4ea6c70c95afafe85a6285d1f13a230132962ee72a1e0363a7a5adf29e",
+-        "role": "Reviewed installed Keeper placement and open visual QA; published20261022-befallen-keeper-v1 verifies465 files and retained services/private guide; no new command/reward/catalog mechanic"
++        "path": "docs/ops/dungeon-keeper-visibility-20261022/wiki-review.json",
++        "revision": "dbe04dd7c915e6fa03dde485d43837066e765da7",
++        "sha256": "7e0e21882f44a73a28532ff52a2c382612e0022841443a3f3aa39993c8fb52b0",
++        "role": "Reviewed and published all-seven Keeper guidance;465 HTTPS files verified; current visible QA explicitly unaccepted"
+@@ -7029,4 +7044,4 @@
+-        "path": "docs/ops/befallen-keeper-visibility-20261022/wiki-publication.json",
+-        "revision": "b33ef2c31c26df95d8f36e39dad1dd498067c7fe",
+-        "sha256": "1c8bce7865252f0d352048b1534b60e22d7bf6b5b55ea694a57f1e4eb12d6cf5",
+-        "role": "Reviewed installed Keeper placement and open visual QA; published20261022-befallen-keeper-v1 verifies465 files and retained services/private guide; no new command/reward/catalog mechanic"
++        "path": "docs/ops/dungeon-keeper-visibility-20261022/wiki-publication.json",
++        "revision": "dbe04dd7c915e6fa03dde485d43837066e765da7",
++        "sha256": "dc0f17e075035a5218209fc3a8002c334c9a037fe3ee760e934a392fe0951e97",
++        "role": "Reviewed and published all-seven Keeper guidance;465 HTTPS files verified; current visible QA explicitly unaccepted"
+@@ -7036,4 +7051,4 @@
+-        "path": "docs/ops/befallen-keeper-visibility-20261022/wiki-public-verification.json",
+-        "revision": "b33ef2c31c26df95d8f36e39dad1dd498067c7fe",
+-        "sha256": "0977e879e5963589d2f1d006a58a844b63f9193a9aa6e2ac5eb2f5692f4a4f78",
+-        "role": "Reviewed installed Keeper placement and open visual QA; published20261022-befallen-keeper-v1 verifies465 files and retained services/private guide; no new command/reward/catalog mechanic"
++        "path": "docs/ops/dungeon-keeper-visibility-20261022/wiki-public-verification.json",
++        "revision": "dbe04dd7c915e6fa03dde485d43837066e765da7",
++        "sha256": "703253d857dd7cccc5a132089bf31067745ca38929a826cefe2e5e6bbe9c166e",
++        "role": "Reviewed and published all-seven Keeper guidance;465 HTTPS files verified; current visible QA explicitly unaccepted"
