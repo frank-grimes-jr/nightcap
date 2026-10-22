@@ -1,0 +1,10 @@
+{
+  "stage": "/opt/nightcap/releases/waypoint-crystal-20261022-v2/quest-activation",
+  "pins": {
+    "quest_remote.py": "10b2e2419e4b5c55a2d4863e79882add2235f82455f8806cd966e1a9e7a6a6d1",
+    "world_control.py": "f6b1f2edeacd18832b7d1ed32738a4f6195935ce8f96607dd5a5b6c21c8b92bb",
+    "test_quest.py": "e4a947523ab0aa9835c77a3aac78be718014b8eb8f3a5d11e638c4096401b462"
+  },
+  "linux_tests": ".............\n----------------------------------------------------------------------\nRan 13 tests in 0.090s\n\nOK\n",
+  "production_quest_unchanged": true
+}

@@ -1,0 +1,156 @@
+{
+  "created_at": "2026-10-22T16:30:36.170018+00:00",
+  "status": "candidate_not_deployed",
+  "baseline_red": {
+    "native": "Aviak tier rejected",
+    "lua": "Aviak tier rejected: 213737",
+    "perl": "68 of 221 assertions failed against captured original scripts"
+  },
+  "completed_checks": [
+    {
+      "name": "Windows native acceptance and task delivery",
+      "result": "passed",
+      "test_groups": 2
+    },
+    {
+      "name": "Linux native acceptance and task delivery",
+      "result": "passed",
+      "test_groups": 2
+    },
+    {
+      "name": "Lua helper with captured Shakrn quest",
+      "result": "passed"
+    },
+    {
+      "name": "Perl 17 legacy recipes, four qualities, extras/repeats/missing inputs",
+      "result": "passed",
+      "assertions": 221
+    },
+    {
+      "name": "Wiki complete links, generated equipment and source drift behavior",
+      "result": "passed",
+      "python_tests": 14,
+      "search_scenarios": 6,
+      "equipment_scenarios": 7,
+      "built_pages": 458
+    },
+    {
+      "name": "Complete zone compile/link and dynamic dependencies",
+      "result": "passed",
+      "manifest": "native-build-manifest.json",
+      "baseline_byte_identical": true
+    }
+  ],
+  "production_probe": {
+    "date": "2026-10-22",
+    "process_count": 12,
+    "zone_sha256": "5dd5a6558c837ff2e4724edcd12afcabd2e846379a9ca7b8a6e57e7715600f7b"
+  },
+  "open": [
+    "Native owner gameplay acceptance",
+    "Main promotion and production paired activation",
+    "Public wiki publication"
+  ],
+  "notes": [
+    "Windows default temporary directory and GNU compiler were unavailable under sandbox; MSVC succeeded with workspace TEMP. Linux compiler independently passed.",
+    "First Perl test harness incorrectly treated a do-file undefined return as failure; corrected before reproducing the real 68-assertion baseline failure.",
+    "Read-only audit decoder now preserves legacy latin-1 quest bytes; no remote mutations.",
+    "Wiki checker intentionally reports reviewed source drift; published source ledger is not advanced for an unreleased candidate.",
+    "Initial Docker archive refresh lacked write permission to root-owned temporary files; reran scoped copy as container root, tests as normal user."
+  ],
+  "final_integrated_checks": [
+    {
+      "name": "native-windows",
+      "command": [
+        "python",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tools/tests",
+        "-p",
+        "test_quest_handins.py",
+        "-v"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "armor-catalog",
+      "command": [
+        "python",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tools/tests",
+        "-p",
+        "test_quest_armor.py",
+        "-v"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "wiki-python",
+      "command": [
+        "python",
+        "-B",
+        "-m",
+        "unittest",
+        "-v",
+        "test_wiki",
+        "test_refresh"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "wiki-search",
+      "command": [
+        "node",
+        "test_search.cjs"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "wiki-equipment",
+      "command": [
+        "node",
+        "test_equipment.cjs"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "wiki-build",
+      "command": [
+        "python",
+        "-B",
+        "build.py"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "integrated_revision": "56e6dce5c0999a385484568c231f7a665f7331f3",
+  "native_source_matches_built_candidate": true,
+  "independent_review": "review.json",
+  "final_linux_checks": {
+    "native_acceptance_return_and_delivery_groups": 2,
+    "lua": "passed",
+    "perl_assertions": 357,
+    "exit_code": 0,
+    "armor_historical_perl_subtests": 39,
+    "armor_lua_current_helper_checks": 113,
+    "logs": [
+      "linux-integration.log (native/Lua pass; historical-helper dialogue mismatch then corrected)",
+      "perl-integration-final.log"
+    ]
+  },
+  "integration_checks_file": "integration-checks.json",
+  "integration_notes": [
+    "Merged dev class-armor candidate0c107be with main waypoint publication1ae9b04.",
+    "Both captured Shakrn4178 and integrated604178 reward handlers pass all four Aviak Charm qualities.",
+    "Root plugins/ is configured; unused quests/plugins/ capture cannot establish native behavior. Fresh directory/hash probe retained.",
+    "Kurron currency arguments were absent: original native check failed, corrected by exact submitted denominations plus one full refund on success. Removing declarations now fails129/357 callback checks; mutation receipt retained.",
+    "Full native source hashes remain identical to built candidate; no rebuild needed."
+  ]
+}

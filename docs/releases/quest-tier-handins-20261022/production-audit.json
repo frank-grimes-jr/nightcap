@@ -1,0 +1,787 @@
+{
+  "captured_at": "2026-10-22T16:18:21.960736+00:00",
+  "files": {
+    "quests/lua_modules/items.lua": {
+      "sha256": "a70ea72871e5637a669b2f4ccd0dd523e034c721d9b38ffaf5995b8b449c2a0e",
+      "text": "local items = {}\n\nfunction items.check_turn_in(trade, trade_check)\n\t--create trade_return table == trade\n\t--shallow copy\n\tlocal trade_return = {};\n\tfor key, value in pairs(trade) do\n\t\ttrade_return[key] = value;\n\tend\n\n\t-- Handin table for source\n\tlocal handin_data = {};\n\tfor x = 1, 4 do\n\t\tlocal inst = trade[\"item\" .. x];\n\t\tif (inst.valid) then\n\t\t\tlocal is_attuned = 0;\n\t\t\tif inst:IsInstNoDrop() then\n\t\t\t\tis_attuned = 1;\n\t\t\tend\n\n\t\t\thandin_data[x] = string.format(\"%d|%d|%d\", inst:GetID(), inst:GetCharges(), is_attuned);\n\t\telse\n\t\t\thandin_data[x] = \"0|0|0\";\n\t\tend\n\tend\n\n\ttrade.other:SetEntityVariable(\"HANDIN_ITEMS\", items.get_handin_items_serialized(handin_data))\n\n\ttrade.other:SetEntityVariable(\"HANDIN_MONEY\", string.format(\"%d|%d|%d|%d\", trade.copper, trade.silver, trade.gold, trade.platinum))\n\t\n\t--for every item in trade_check check trade_return\n\t\t--if item exists in trade_return then \n\t\t\t--remove that item from trade_return\n\t\t--else\n\t\t\t--failure\n\tfor i = 1, 4 do\n\t\tlocal key = \"item\" .. i;\n\t\tif(trade_check[key] ~= nil and trade_check[key] ~= 0) then\n\t\t\tlocal found = false;\n\t\t\tfor j = 1, 4 do\n\t\t\t\tlocal inst = trade_return[\"item\" .. j];\t\t\t\n\t\t\t\tif(inst.valid and trade_check[key] == inst:GetID()) then\n\t\t\t\t\ttrade_return[\"item\" .. j] = ItemInst();\n\t\t\t\t\tfound = true;\n\t\t\t\t\tbreak;\n\t\t\t\tend\n\t\t\tend\n\t\t\t\n\t\t\tif(not found) then\n\t\t\t\treturn false;\n\t\t\tend\n\t\tend\n\tend\n\t\n\t--convert our money into copper then check that we have enough then convert change back\n\tlocal trade_check_money = 0;\n\tlocal return_money = 0;\n\t\n\tif(trade_check[\"platinum\"] ~= nil and trade_check[\"platinum\"] ~= 0) then\n\t\ttrade_check_money = trade_check_money + (trade_check[\"platinum\"] * 1000);\n\tend\n\t\n\tif(trade_check[\"gold\"] ~= nil and trade_check[\"gold\"] ~= 0) then\n\t\ttrade_check_money = trade_check_money + (trade_check[\"gold\"] * 100);\n\tend\n\t\n\tif(trade_check[\"silver\"] ~= nil and trade_check[\"silver\"] ~= 0) then\n\t\ttrade_check_money = trade_check_money + (trade_check[\"silver\"] * 10);\n\tend\n\t\n\tif(trade_check[\"copper\"] ~= nil and trade_check[\"copper\"] ~= 0) then\n\t\ttrade_check_money = trade_check_money + trade_check[\"copper\"];\n\tend\n\t\n\treturn_money = return_money + trade_return[\"platinum\"] * 1000 + trade_return[\"gold\"] * 100;\n\treturn_money = return_money + trade_return[\"silver\"] * 10 + trade_return[\"copper\"];\n\t\n\tif(return_money < trade_check_money) then\n\t\treturn false;\n\telse\n\t\treturn_money = return_money - trade_check_money;\n\tend\n\t\n\t--replace trade with trade_return\n\ttrade.item1 = trade_return.item1;\n\ttrade.item2 = trade_return.item2;\n\ttrade.item3 = trade_return.item3;\n\ttrade.item4 = trade_return.item4;\n\t\n\ttrade.platinum = math.floor(return_money / 1000);\n\treturn_money = return_money - (trade.platinum * 1000);\n\t\n\ttrade.gold = math.floor(return_money / 100);\n\treturn_money = return_money - (trade.gold * 100);\n\t\n\ttrade.silver = math.floor(return_money / 10);\n\treturn_money = return_money - (trade.silver * 10);\n\t\n\ttrade.copper = return_money;\n\treturn true;\nend\n\nfunction items.return_items(npc, client, trade, text)\n\ttext = text or true;\n\tlocal returned = false;\n\n\t-- Handin table for source\n\tlocal return_data = {};\n\tfor i = 1, 4 do\n\t\tlocal inst = trade[\"item\" .. i];\n\t\tif(inst.valid) then\n\t\t\tlocal is_attuned = 0;\n\t\t\tif inst:IsInstNoDrop() then\n\t\t\t\tis_attuned = 1;\n\t\t\tend\n\n\t\t\t-- remove delivered task items from return for this slot\n\t\t\tlocal return_count = inst:RemoveTaskDeliveredItems()\n\n\t\t\tif(eq.is_disc_tome(inst:GetID()) and npc:GetClass() >= 19 and npc:GetClass() < 36) then\n\t\t\t\tif(client:GetClass() == npc:GetClass() - 19) then\n\t\t\t\t\tclient:TrainDisc(inst:GetID());\n\t\t\t\telse\n\t\t\t\t\treturn_data[#return_data+1] = string.format(\"%d|%d|%d\", inst:GetID(), inst:GetCharges(), is_attuned);\n\t\t\t\t\tnpc:Say(string.format(\"You are not a member of my guild. I will not train you!\"));\n\t\t\t\t\tif return_count > 0 then\n\t\t\t\t\t\tclient:PushItemOnCursor(inst);\n\t\t\t\t\t\treturned = true;\n\t\t\t\t\tend\n\t\t\t\tend\n\t\t\telseif return_count > 0 then\n\t\t\t\treturn_data[#return_data+1] = string.format(\"%d|%d|%d\", inst:GetID(), inst:GetCharges(), is_attuned);\n\t\t\t\tclient:PushItemOnCursor(inst);\n\t\t\t\tif text then\n\t\t\t\t\tnpc:Say(string.format(\"I have no need for this %s, you can have it back.\", client:GetCleanName()));\n\t\t\t\tend\n\t\t\t\treturned = true;\n\t\t\tend\n\t\tend\n\tend\n\n\tclient:SetEntityVariable(\"RETURN_ITEMS\", items.get_handin_items_serialized(return_data))\n\t\n\tlocal money = false;\n\tif(trade.platinum ~= 0) then\n\t\treturned = true;\n\t\tmoney = true;\n\tend\n\t\n\tif(trade.gold ~= 0) then\n\t\treturned = true;\n\t\tmoney = true;\n\tend\n\t\n\tif(trade.silver ~= 0) then\n\t\treturned = true;\n\t\tmoney = true;\n\tend\n\t\n\tif(trade.copper ~= 0) then\n\t\treturned = true;\n\t\tmoney = true;\n\tend\n\t\n\tif money then\n\t\tclient:SetEntityVariable(\"RETURN_MONEY\", string.format(\"%d|%d|%d|%d\", trade.copper, trade.silver, trade.gold, trade.platinum));\n\t\tclient:AddMoneyToPP(trade.copper, trade.silver, trade.gold, trade.platinum, true);\n\tend\n\n\teq.send_player_handin_event();\n\t\n\treturn returned;\nend\n\nfunction items.return_bot_items(bot, client, trade, text)\n\ttext = text or true;\n\tlocal returned = false;\n\tfor i = 1, 8 do\n\t\tlocal inst = trade[\"item\" .. i];\n\t\tif (inst.valid) then\n\t\t\tclient:PushItemOnCursor(inst);\n\t\t\treturned = true;\n\t\tend\n\tend\n\t\n\tlocal money = false;\n\tif (trade.platinum ~= 0) then\n\t\treturned = true;\n\t\tmoney = true;\n\tend\n\t\n\tif (trade.gold ~= 0) then\n\t\treturned = true;\n\t\tmoney = true;\n\tend\n\t\n\tif (trade.silver ~= 0) then\n\t\treturned = true;\n\t\tmoney = true;\n\tend\n\t\n\tif (trade.copper ~= 0) then\n\t\treturned = true;\n\t\tmoney = true;\n\tend\n\t\n\tif (money) then\n\t\tclient:AddMoneyToPP(trade.copper, trade.silver, trade.gold, trade.platinum, true);\n\tend\n\n\tif (text and returned) then\n\t\tbot:OwnerMessage(\"I have no need for this, you can have it back.\")\n\tend\n\t\n\treturn returned;\nend\n\nfunction items.check_bot_turn_in(trade, trade_check)\n\t--create trade_return table == trade\n\t--shallow copy\n\tlocal trade_return = {};\n\tfor key, value in pairs(trade) do\n\t\ttrade_return[key] = value;\n\tend\n\t\n\t--for every item in trade_check check trade_return\n\t\t--if item exists in trade_return then \n\t\t\t--remove that item from trade_return\n\t\t--else\n\t\t\t--failure\n\tfor i = 1, 8 do\n\t\tlocal key = \"item\" .. i;\n\t\tif(trade_check[key] ~= nil and trade_check[key] ~= 0) then\n\t\t\tlocal found = false;\n\t\t\tfor j = 1, 8 do\n\t\t\t\tlocal inst = trade_return[\"item\" .. j];\t\t\t\n\t\t\t\tif(inst.valid and trade_check[key] == inst:GetID()) then\n\t\t\t\t\ttrade_return[\"item\" .. j] = ItemInst();\n\t\t\t\t\tfound = true;\n\t\t\t\t\tbreak;\n\t\t\t\tend\n\t\t\tend\n\t\t\t\n\t\t\tif(not found) then\n\t\t\t\treturn false;\n\t\t\tend\n\t\tend\n\tend\n\t\n\t--convert our money into copper then check that we have enough then convert change back\n\tlocal trade_check_money = 0;\n\tlocal return_money = 0;\n\t\n\tif(trade_check[\"platinum\"] ~= nil and trade_check[\"platinum\"] ~= 0) then\n\t\ttrade_check_money = trade_check_money + (trade_check[\"platinum\"] * 1000);\n\tend\n\t\n\tif(trade_check[\"gold\"] ~= nil and trade_check[\"gold\"] ~= 0) then\n\t\ttrade_check_money = trade_check_money + (trade_check[\"gold\"] * 100);\n\tend\n\t\n\tif(trade_check[\"silver\"] ~= nil and trade_check[\"silver\"] ~= 0) then\n\t\ttrade_check_money = trade_check_money + (trade_check[\"silver\"] * 10);\n\tend\n\t\n\tif(trade_check[\"copper\"] ~= nil and trade_check[\"copper\"] ~= 0) then\n\t\ttrade_check_money = trade_check_money + trade_check[\"copper\"];\n\tend\n\t\n\treturn_money = return_money + trade_return[\"platinum\"] * 1000 + trade_return[\"gold\"] * 100;\n\treturn_money = return_money + trade_return[\"silver\"] * 10 + trade_return[\"copper\"];\n\t\n\tif(return_money < trade_check_money) then\n\t\treturn false;\n\telse\n\t\treturn_money = return_money - trade_check_money;\n\tend\n\t\n\t--replace trade with trade_return\n\ttrade.item1 = trade_return.item1;\n\ttrade.item2 = trade_return.item2;\n\ttrade.item3 = trade_return.item3;\n\ttrade.item4 = trade_return.item4;\n\ttrade.item5 = trade_return.item5;\n\ttrade.item6 = trade_return.item6;\n\ttrade.item7 = trade_return.item7;\n\ttrade.item8 = trade_return.item8;\n\t\n\ttrade.platinum = math.floor(return_money / 1000);\n\treturn_money = return_money - (trade.platinum * 1000);\n\t\n\ttrade.gold = math.floor(return_money / 100);\n\treturn_money = return_money - (trade.gold * 100);\n\t\n\ttrade.silver = math.floor(return_money / 10);\n\treturn_money = return_money - (trade.silver * 10);\n\t\n\ttrade.copper = return_money;\n\treturn true;\nend\n\nfunction items.get_handin_items_serialized(handin_table)\n\treturn table.concat(handin_table, \",\")\nend\n\t\nreturn items;"
+    },
+    "quests/southkarana/Shakrn_Meadowgreen.lua": {
+      "sha256": "120aa0f5d8a45388c33c1033007580c96790f2d10ad3b4c64f4f9a18ad829284",
+      "text": "-- warrior crafted armor\n-- generic reward text - could only find the correct text for the bracer\n-- updated the original file with correct text and used the handin plugin\n-- items: 13743, 10035, 4173, 13737, 10032, 4178, 13744, 10034, 4180, 13739, 10033, 4176\n\nfunction event_say(e)\n\tif(e.message:findi(\"hail\")) then\n\t\te.self:Say(\"Hail. I am Shakrn Meadowgreen, Warrior extraordinaire and Master Armorer of the Meadowgreen family. My brother and I craft [armor] for the bravest warriors in the land -- do you think you [qualify]?\");\n\telseif(e.message:findi(\"armor\")) then\n\t\te.self:Say(\"I smith [Helms], [Gauntlets], [Boots] and [Vambraces]. My brother Ulan smiths Bracers, Greaves, Pauldruns and Breastplates.\");\n\telseif(e.message:findi(\"qualify\")) then\n\t\te.self:Say(\"So you are a warrior of renown?  [Prove] it to me and I will smith you [armor] befitting your exalted station.\");\n\telseif(e.message:findi(\"prove\")) then\n\t\te.self:Say(\"You will prove yourself to me the old fashioned way, by killing things and bringing me back proof of your deed.  Bah.  What other way is there?\");\n\telseif(e.message:findi(\"helm\")) then\n\t\te.self:Say(\"One of my brethren spoke to me of the mystic properties of the Fire Totems carried by the Goblin High Shaman in Solusek's Eye. My mighty Centaur body will not fit down those twisty goblin passages, so I have not been able to acquire one on my own. As proof of your powers, I ask you to bring me a Fire Totem and one [Ruby] stone. Do so and I will reward you with a Crafted Helmet.\");\n\telseif(e.message:findi(\"gauntlets\")) then\n\t\te.self:Say(\"Crafted Gauntlets - the mark of a distinguished warrior. I have a personal grudge to settle with those twice-cursed Aviaks. They have been raiding our merchant convoys for the last few weeks, causing mischief to no end. Bring me an Aviak charm from a Avocet - I am sure that you will not need me to tell you how to get it. An Aviak Charm and two [Star Rubies], and I will reward you with Crafted Gauntlets.\");\n\telseif(e.message:findi(\"boots\")) then\n\t\te.self:Say(\"One of my brethren spoke to me of the mystic properties of the Frost Totems carried by the Goblin High Shamans in Permafrost Keep. I have been unable to fetch one for myself, as my Centaur's body will not fit through the tunnels of those sniveling wretches. Prove your might by gifting me a Frost Totem and two [Sapphire] stones. Do this and I will reward you with a pair of Crafted Boots.\");\n\telseif(e.message:findi(\"vambraces\")) then\n\t\te.self:Say(\"Come, Warrior, and speak to me of your strength. Bring me the Eye of a Griffon that I might eat it raw in the fashion of my ancestors. Do this for me - then gift me with two [Fire Emeralds], and for you I will make a Crafted Vambrace.\");\n\telseif(e.message:findi(\"ruby\")) then\n\t\te.self:Say(\"I need a ruby for a piece of jewelry my brother and I are creating.\");\n\telseif(e.message:findi(\"star rubies\")) then\n\t\te.self:Say(\"I need a star ruby for a piece of jewelry my brother and I are creating.\");\n\telseif(e.message:findi(\"fire emerald\")) then\n\t\te.self:Say(\"i need a fire emerald for a piece of jewelry my brother and I are creating.\");\n\telseif(e.message:findi(\"sapphire\")) then\n\t\te.self:Say(\"I need a sapphire for a piece of jewelry my brother and I are creating\");\n\tend\nend\n\nfunction event_trade(e)\n\tlocal item_lib = require(\"items\");\n\n\tif(item_lib.check_turn_in(e.trade, {item1 = 13743,item2 = 10035})) then\n\t\te.self:Say(\"Excellent! Here is your reward, you have earned it!\");\n\t\te.other:SummonItem(4173); -- Item: Crafted Helm\n\t\te.other:Ding();\n\t\te.other:AddEXP(25000);\n\telseif(item_lib.check_turn_in(e.trade, {item1 = 13737,item2 = 10032,item3 = 10032})) then\n\t\te.self:Say(\"Excellent! Here is your reward, you have earned it!\");\n\t\te.other:SummonItem(4178); -- Item: Crafted Gauntlets\n\t\te.other:Ding();\n\t\te.other:AddEXP(25000);\n\telseif(item_lib.check_turn_in(e.trade, {item1 = 13744,item2 = 10034,item3 = 10034})) then\n\t\te.self:Say(\"Excellent! Here is your reward, you have earned it!\");\n\t\te.other:SummonItem(4180); -- Item: Crafted Plate Boots\n\t\te.other:Ding();\n\t\te.other:AddEXP(25000);\n\telseif(item_lib.check_turn_in(e.trade, {item1 = 13739,item2 = 10033,item3 = 10033})) then\n\t\te.self:Say(\"Excellent! Here is your reward, you have earned it!\");\n\t\te.other:SummonItem(4176); -- Item: Crafted Vambraces\n\t\te.other:Ding();\n\t\te.other:AddEXP(25000);\n\tend\n\titem_lib.return_items(e.self, e.other, e.trade)\nend\n\n-- EOF zone: southkarana ID: 14075 NPC: Shakrn_Meadowgreen\n\n"
+    },
+    "plugins/check_handin.pl": {
+      "sha256": "40af18d64fe1d6d95650b45a5f2fb54675675958aa74e45b48e6d12508416851",
+      "text": "# plugin::check_handin($item1 => #required_amount,...);\n# autoreturns extra unused items on success\nsub check_handin {\n\tmy $hashref = shift;\n\tmy %required = @_;\n\tmy $client = plugin::val('client');\n\tmy $npc = plugin::val('npc');\n\tmy @currencies = (\"platinum\", \"gold\", \"silver\", \"copper\");\n\n\tforeach my $currency (@currencies) {\n\t\tmy $value = plugin::val(\"\\$$currency\");\n\t\tif ($value > 0) {\n\t\t\t$hashref->{$currency} = $value;\n\t\t}\n\t}\n\n    my @item_insts = (plugin::val('item1_inst'), plugin::val('item2_inst'), plugin::val('item3_inst'), plugin::val('item4_inst'));\n    return $npc->CheckHandin($client, \\%{$hashref}, \\%required, @item_insts);\n}\n\nsub return_items {\n}\n\nsub return_bot_items {\n\tmy $bot = plugin::val('bot');\n\tif (!$bot->GetOwner() || !$bot->GetOwner()->IsClient()) {\n\t\treturn;\n\t}\n\n\tmy $client = $bot->GetOwner()->CastToClient();\n\tmy $hashref = plugin::var('itemcount');\n\tmy $name = plugin::val('name');\n\tmy $items_returned = 0;\n\n\tmy %item_data = (\n\t\t0 => [ plugin::val('item1'), plugin::val('item1_charges'), plugin::val('item1_attuned'), plugin::val('item1_inst') ],\n\t\t1 => [ plugin::val('item2'), plugin::val('item2_charges'), plugin::val('item2_attuned'), plugin::val('item2_inst') ],\n\t\t2 => [ plugin::val('item3'), plugin::val('item3_charges'), plugin::val('item3_attuned'), plugin::val('item3_inst') ],\n\t\t3 => [ plugin::val('item4'), plugin::val('item4_charges'), plugin::val('item4_attuned'), plugin::val('item4_inst') ],\n\t\t4 => [ plugin::val('item5'), plugin::val('item5_charges'), plugin::val('item5_attuned'), plugin::val('item5_inst') ],\n\t\t5 => [ plugin::val('item6'), plugin::val('item6_charges'), plugin::val('item6_attuned'), plugin::val('item6_inst') ],\n\t\t6 => [ plugin::val('item7'), plugin::val('item7_charges'), plugin::val('item7_attuned'), plugin::val('item7_inst') ],\n\t\t7 => [ plugin::val('item8'), plugin::val('item8_charges'), plugin::val('item8_attuned'), plugin::val('item8_inst') ],\n\t);\n\n\tforeach my $k (keys(%{$hashref})) {\n\t\tnext if ($k == 0);\n\t\tmy $rcount = $hashref->{$k};\n\t\tmy $r;\n\t\tfor ($r = 0; $r < 8; $r++) {\n\t\t\tif ($rcount > 0 && $item_data{$r}[0] && $item_data{$r}[0] == $k) {\n\t\t\t\tif ($client) {\n\t\t\t\t\t# remove delivered task items from return for this slot\n\t\t\t\t\tmy $inst = $item_data{$r}[3];\n\t\t\t\t\tmy $return_count = $inst->RemoveTaskDeliveredItems();\n\n\t\t\t\t\tif ($return_count > 0) {\n\t\t\t\t\t\t$client->SummonItem($k, $inst->GetCharges(), $item_data{$r}[2]);\n\t\t\t\t\t\t$items_returned = 1;\n\t\t\t\t\t}\n\t\t\t\t} else {\n\t\t\t\t\tquest::summonitem($k, 0);\n\t\t\t\t\t$items_returned = 1;\n\t\t\t\t}\n\t\t\t\t$rcount--;\n\t\t\t}\n\t\t}\n\n\t\tdelete $hashref->{$k};\n\t}\n\n\tif ($items_returned) {\n\t\t$bot->OwnerMessage(\"I have no need for this $name, you can have it back.\");\n\t}\n\n\treturn $items_returned;\n}"
+    },
+    "plugins/globals.pl": {
+      "sha256": "90f8a8032c734eb8f010fdb3f27a91698236fbf5152c1547f565519c199cfc29",
+      "text": "sub nullzero\n{\n  my $value = shift;\n  \n  return (defined($value)) ? $value : 0;\n}\n\nsub nulltrim\n{\n  my $value = shift;\n  \n  if (!defined($value))\n  {\n    return '';\n  }\n  else\n  {\n    $value =~ s/^\\s+|\\s+$//g;\n    \n    return $value;\n  }\n}\n\nsub random\n{\n  return $_[int(rand(0+@_))];\n}\n\n# var - Access a quest-related game variable from within any context\n# Parameter: varName\nsub var\n{\n  my $varName = shift;\n  \n  # Strip leading $, @, or % symbol from variable name\n  $varName =~ s/^(\\$|@|%)//g;\n\n  if ($varName eq 'mob')\n  {\n    # Shortcut: Requesting $mob steps into EntityList to get $mob reference for the current NPC.\n    \n    my $entity_list = plugin::val('entity_list');\n  \n    return $entity_list->GetMobID(plugin::val('mobid'));\n  }\n  else\n  {\n    my(@context, $level, $fullname);\n    \n    # Step back through the call stack until we get access to the main (non-plugin) variables\n    for ($level = 1; $level < 10; $level++)\n    {\n      @context = caller($level);\n      last if (($fullname = substr($context[3], 0, index($context[3], ':') + 2)) ne 'plugin::');\n    }\n    \n    # Sanity check. If something goes horribly wrong and we can't step out of the plugin:: namespace, just return an empty string.\n    return '' if ($level >= 10);\n    \n    $fullname .= $varName;\n    \n    if ($varName eq 'itemcount' || $varName eq 'qglobals')\n    {\n      # Hash reference\n      return \\%$fullname;\n    }\n    elsif (0) #($varName eq 'ArrayVariable')\n    {\n      # Array reference\n      return \\@$fullname;\n    }\n    else\n    {\n      # Scalar reference\n      return \\$$fullname;\n    }\n  }\n}\n\n# val - Shortcut that returns the read-only -value- of a quest-related game variable instead of a reference to it\n# Parameter: varName\nsub val\n{\n  return ${plugin::var($_[0])};\n}\n\n# setVal - Shortcut that sets a scalar quest-related game variable from within any context... works well with val()\n# Parameters: varName, newValue\nsub setval\n{\n  ${plugin::var($_[0])} = $_[1] if (@_ > 1);\n}\n\n# Returns 1 if the NPC has been given a particular item or set of items. Otherwise, returns 0.\n# Parameters: Hash consisting of ItemID => RequiredCount pairs\n# NOTE: \\%itemcount parameter from older \"check_handin\" function is NOT necessary and should not be passed!\nsub givenItems {\n    my $itemcount = plugin::var('itemcount');\n    my %required = @_;\n    my $npc = plugin::val('npc');\n    my $client = plugin::val('client');\n    my @item_insts = (plugin::val('item1_inst'), plugin::val('item2_inst'), plugin::val('item3_inst'), plugin::val('item4_inst'));\n    return $npc->CheckHandin($client, $itemcount, \\%required, @item_insts);\n}\n\n# Like givenItems(), only removes the items from the %itemcount collection for an appropriate returnUnusedItems() call later\n# This works just like the old check_handin() function, only again, don't pass \\%itemcount.\nsub takeItems {\n    my $itemcount = plugin::var('itemcount');\n    my %required = @_;\n    my $npc = plugin::val('npc');\n    my $client = plugin::val('client');\n    my @item_insts = (plugin::val('item1_inst'), plugin::val('item2_inst'), plugin::val('item3_inst'), plugin::val('item4_inst'));\n    return $npc->CheckHandin($client, $itemcount, \\%required, @item_insts);\n}\n\n# Checks to see whether the player gave the NPC a requested amount of currency, regardless of actual denominations given.\nsub givenCoin\n{\n  my($c1, $s1, $g1, $p1) = @_;\n  my($c2, $s2, $g2, $p2) = (plugin::val('$copper'), plugin::val('$silver'), plugin::val('$gold'), plugin::val('$platinum'));\n  \n  $c1 = 0 if (!defined($c1));\n  $s1 = 0 if (!defined($s1));\n  $g1 = 0 if (!defined($g1));\n  $p1 = 0 if (!defined($p1));\n  \n  my ($c, $s, $g, $p) = (shift, shift, shift, shift);\n  my $itemcount = plugin::var('itemcount');\n\tmy %required = @_;\n\tmy $client = plugin::val('client');\n\tmy $npc = plugin::val('npc');\n\n  $required->{\"copper\"} = $c;\n  $required->{\"silver\"} = $s;\n  $required->{\"gold\"} = $g;\n  $required->{\"platinum\"} = $p;\n\n  my @currencies = (\"platinum\", \"gold\", \"silver\", \"copper\");\n\n\tforeach my $currency (@currencies) {\n\t\tmy $value = plugin::val(\"\\$$currency\");\n\t\tif ($value > 0) {\n\t\t\t$itemcount->{$currency} = $value;\n\t\t}\n\t}\n\n  my @item_insts = (plugin::val('item1_inst'), plugin::val('item2_inst'), plugin::val('item3_inst'), plugin::val('item4_inst'));\n  return $npc->CheckHandin($client, $itemcount, \\%required, @item_insts);\n}\n\n# Like givenCoin(), only takes the required coins if given enough by the player, also leaving change to be returned with returnUnusedItems().\nsub takeCoin\n{\n  my($c1, $s1, $g1, $p1) = @_;\n  my($c2, $s2, $g2, $p2) = (plugin::val('$copper'), plugin::val('$silver'), plugin::val('$gold'), plugin::val('$platinum'));\n  \n  $c1 = 0 if (!defined($c1));\n  $s1 = 0 if (!defined($s1));\n  $g1 = 0 if (!defined($g1));\n  $p1 = 0 if (!defined($p1));\n  \n  my $coin1 = $c1 + (10 * $s1) + (100 * $g1) + (1000 * $p1);\n  my $coin2 = $c2 + (10 * $s2) + (100 * $g2) + (1000 * $p2);\n\n  if ($coin1 <= $coin2)\n  {\n    $coin2 -= $coin1;\n  \n    $c2 = ($coin2 % 10);\n    $s2 = (int($coin2 / 10) % 10);\n    $g2 = (int($coin2 / 100) % 10);\n    $p2 = int($coin2 / 1000);\n\n    my $itemcount = plugin::var('itemcount');\n    my %required = ();\n\n    if ($c2) {\n      $itemcount->{\"copper\"} = plugin::val('$copper');\n      $required{\"copper\"} = $c2;\n    }\n    if ($s2) {\n      $itemcount->{\"silver\"} = plugin::val('$silver');\n      $required{\"silver\"} = $s2;\n    }\n    if ($g2) {\n      $itemcount->{\"gold\"} = plugin::val('$gold');\n      $required{\"gold\"} = $g2;\n    }\n    if ($p2) {\n      $itemcount->{\"platinum\"} = plugin::val('$platinum');\n      $required{\"platinum\"} = $p2;\n    }\n\n    plugin::setval('$copper'  , $c2);\n    plugin::setval('$silver'  , $s2);\n    plugin::setval('$gold'    , $g2);\n    plugin::setval('$platinum', $p2);\n    \n    my @item_insts = (plugin::val('item1_inst'), plugin::val('item2_inst'), plugin::val('item3_inst'), plugin::val('item4_inst'));\n    return plugin::val(\"npc\")->CheckHandin(plugin::val(\"client\"), $itemcount, \\%required, @item_insts);\n  }\n  \n  return 0; # 0 = Insufficient funds\n}\n\n# Checks for both coin and items in one call.\n# Returns 1 if enough items and coin were given to satisfy the provided requirements, otherwise 0.\nsub givenItemsCoin\n{\n  if (@_ < 6)\n  {\n    return 0;\n  }\n\n  my ($c, $s, $g, $p) = (shift, shift, shift, shift);\n  \n  if (plugin::givenCoin($c, $s, $g, $p))\n  {\n    return plugin::givenItems(@_);\n  }\n\n  return 0;\n}\n\n# Like givenItemsCoin, only removes the items if successful, allowing for approprate returnUnusedItems() call later\nsub takeItemsCoin\n{\n  if (@_ < 6)\n  {\n    return 0;\n  }\n\n  my ($c, $s, $g, $p) = (shift, shift, shift, shift);\n  my $itemcount = plugin::var('itemcount');\n\tmy %required = @_;\n\tmy $client = plugin::val('client');\n\tmy $npc = plugin::val('npc');\n\n  $required->{\"copper\"} = $c;\n  $required->{\"silver\"} = $s;\n  $required->{\"gold\"} = $g;\n  $required->{\"platinum\"} = $p;\n\n  my @currencies = (\"platinum\", \"gold\", \"silver\", \"copper\");\n\n\tforeach my $currency (@currencies) {\n\t\tmy $value = plugin::val(\"\\$$currency\");\n\t\tif ($value > 0) {\n\t\t\t$itemcount->{$currency} = $value;\n\t\t}\n\t}\n\n  my @item_insts = (plugin::val('item1_inst'), plugin::val('item2_inst'), plugin::val('item3_inst'), plugin::val('item4_inst'));\n  return $npc->CheckHandin($client, $itemcount, \\%required, @item_insts);\n}\n\n# Checks to see whether the player gave the NPC a requested number of platinum\nsub givenPlatinum\n{\n  my $p = shift;\n  my $itemcount = plugin::var('itemcount');\n  $itemcount->{\"platinum\"} = plugin::val('$platinum');\n  my %required = ();\n  $required{\"platinum\"} = $p;\n  my @item_insts = (plugin::val('item1_inst'), plugin::val('item2_inst'), plugin::val('item3_inst'), plugin::val('item4_inst'));\n  return plugin::val(\"npc\")->CheckHandin(plugin::val(\"client\"), $itemcount, \\%required, @item_insts);\n}\n\n# Takes provided coins given by the player\nsub takePlatinum\n{\n  my $p = shift;\n  \n  return plugin::takeCoin(0, 0, 0, defined($p) ? $p : 0);\n}\n\n# Checks to see whether the player gave the NPC a requested number of gold\nsub givenGold\n{\n  my $p = shift;\n  my $itemcount = plugin::var('itemcount');\n  $itemcount->{\"gold\"} = plugin::val('$gold');\n  my %required = ();\n  $required{\"gold\"} = $p;\n  my @item_insts = (plugin::val('item1_inst'), plugin::val('item2_inst'), plugin::val('item3_inst'), plugin::val('item4_inst'));\n  return plugin::val(\"npc\")->CheckHandin(plugin::val(\"client\"), $itemcount, \\%required, @item_insts);\n}\n\n# Takes provided coins given by the player\nsub takeGold\n{\n  my $g = shift;\n  \n  return plugin::takeCoin(0, 0, defined($g) ? $g : 0, 0);\n}\n\n# Checks to see whether the player gave the NPC a requested number of silver\nsub givenSilver\n{\n  my $p = shift;\n  my $itemcount = plugin::var('itemcount');\n  $itemcount->{\"silver\"} = plugin::val('$silver');\n  my %required = ();\n  $required{\"silver\"} = $p;\n  my @item_insts = (plugin::val('item1_inst'), plugin::val('item2_inst'), plugin::val('item3_inst'), plugin::val('item4_inst'));\n  return plugin::val(\"npc\")->CheckHandin(plugin::val(\"client\"), $itemcount, \\%required, @item_insts);\n}\n\n# Takes provided coins given by the player\nsub takeSilver\n{\n  my $s = shift;\n  \n  return plugin::takeCoin(0, defined($s) ? $s : 0, 0, 0);\n}\n\n# Checks to see whether the player gave the NPC a requested number of copper\nsub givenCopper\n{\n  my $p = shift;\n  my $itemcount = plugin::var('itemcount');\n  $itemcount->{\"copper\"} = plugin::val('$copper');\n  my %required = ();\n  $required{\"copper\"} = $p;\n  my @item_insts = (plugin::val('item1_inst'), plugin::val('item2_inst'), plugin::val('item3_inst'), plugin::val('item4_inst'));\n  return plugin::val(\"npc\")->CheckHandin(plugin::val(\"client\"), $itemcount, \\%required, @item_insts);\n}\n\n# Takes provided coins given by the player\nsub takeCopper\n{\n  my $c = shift;\n  \n  return plugin::takeCoin(defined($c) ? $c : 0, 0, 0, 0);\n}\n\n# Returns any unwanted items and coins to the user with an appropriate message.\nsub returnUnusedItems\n{\n  #returnUnusedItems-no-op - This is now handled by the source entirely\n}"
+    },
+    "quests/gfaydark/Merchant_Iludarae.pl": {
+      "sha256": "b1019d7981aeb2f30273aa8c7137153392012ac9aef569fc13f38587b313a0e3",
+      "text": "# items: 2012, 2004, 2006, 2005, 2011\nsub EVENT_ITEM{\n  if($item1 == 18904){\n    quest::say(\"The slaves...thank you! Here, this will help defend you against those vile orcs.\");\n    quest::exp(30000);\n    quest::ding();\n    my $random = int(rand(5));\n    if($random == 0){\n      quest::summonitem(2012); } #boots\n    if($random == 1){\n      quest::summonitem(2004); } #tunic\n    if($random == 2){\n      quest::summonitem(2006); } #cloak\n    if($random == 3){\n      quest::summonitem(2005); } #shoulderpads\n    if($random == 4){\n      quest::summonitem(2011); } #leggings\n  }\n}",
+      "encoding": "utf-8"
+    },
+    "quests/gfaydark/Merchant_Nildar.pl": {
+      "sha256": "357a2a452b272c5c4fd41edc657b195bf96c906d539a634a37681635081956e1",
+      "text": "# items: 2007, 2004, 2006, 2010, 2011\nsub EVENT_ITEM{\n  if($item1 == 18903){\n    quest::say(\"My brother still lives? Thank you for this news. Please, take this with my deepest thanks.\");\n    quest::exp(30000);\n    quest::ding();\n    my $random = int(rand(5));\n    if($random == 0){\n      quest::summonitem(2007); } #belt\n    if($random == 1){\n      quest::summonitem(2004); } #tunic\n    if($random == 2){\n      quest::summonitem(2006); } #cloak\n    if($random == 3){\n      quest::summonitem(2010); } #gloves\n    if($random == 4){\n      quest::summonitem(2011); } #leggings\n  }\n}",
+      "encoding": "utf-8"
+    },
+    "quests/global/a_female_rat.pl": {
+      "sha256": "6dae8f9739b71453793892922efb5fc368a81e9c45227f9595d643f267b21fed",
+      "text": "################################### \n#Zone: All (Global)               #                                              \n#Short Name:                      #                                                                  \n#Zone ID: 55                      #                                        \n###################################                                             \n#NPC Name: a_female_rat           #                             \n#NPC ID: 56103,56082              #\n#Quest Status: Complete           #                                      \n###################################\n# items: 10263\nsub EVENT_ITEM {\n  if($item1==\"10262\"){\n    quest::summonitem(10263); # Item: Empty Infectious Vial\n    quest::emote(\"injests the virulent substance and becomes ill.\");\n    quest::exp(200);\n  }\n}",
+      "encoding": "utf-8"
+    },
+    "quests/halloween_event/Dieffer_Wolfhugger_08.pl": {
+      "sha256": "f69de6dc8dd94438f137256295c4a310247f289c315c13adf85cda2b734a1d12",
+      "text": "#zone:PoKnowledge\n#Angelox/Cavedude\n# items: 84091, 84092, 84093, 85064, 85068, 85065, 85063, 85066, 85067, 66615\n\nsub EVENT_SAY { \nif(($text=~/hail/i)){\n$npc->SetAppearance(0);\nquest::say(\"Hello $name, I'm Deiffin's younger brother. I angered him a \nbit so it looks as though I was placed on buffbot duty. Anyway, for a \ndonation of 3pp, I'll cast SoW on ya or for 15pp I can cast SoE. \nIn addition, for 500pp I can stop the weather in this zone for one hour.\");\nquest::say(\"Happy Halloween! If you can find me Bristlebane's Ticket of Admission, then I can give you a trick, treat, or possibly a special prize!\");\n\n }\n}\n\nsub EVENT_SPAWN\n{\n\t$x = $npc->GetX();\n\t$y = $npc->GetY();\n\tquest::set_proximity($x - 90, $x + 90, $y - 90, $y + 90);\n}\n\nsub EVENT_ENTER\n{\n\t$npc->SetAppearance(1);\n\tmy $random_result = int(rand(100));\n\tif ($random_result<=15){\n\tquest::shout(\"Casting SoW and SoE for donations behind the main \nbank!\");\n\t}else{\n\t#Do Nothing\n }\n}\n\nsub EVENT_ITEM{\n  $random_result = 0;\n  my $random_result = int(rand(10));\n   if(($platinum==3)){\n    $npc->SetAppearance(0);\n    $npc->CastSpell(278,$userid); # Spell: Spirit of Wolf\n    quest::say(\"Casting Sow, Good hunting!\");\n  }\n  if(($platinum==15)){\n    $npc->SetAppearance(0);\n    $npc->CastSpell(2517,$userid); # Spell: Spirit of Eagle\n    quest::say(\"Casting SoE, Good hunting!\");\n  }\n  if(($platinum>=500)){\n    quest::settimer(\"weather\",4);\n    quest::signalwith(202361,12345); # NPC: Illusionist_Nomaad\n    quest::rain(0);\n    quest::snow(0);\n  }\n  if($ulevel > 9) {\n  if($itemcount{85062} && $random_result<3){\n      quest::summonitem(quest::ChooseRandom(84091,84092,84093)); # Item(s): Sand (84091), Chunk of Coal (84092), Pocket Lint (84093)\n      quest::say(\"Hahaha! Better luck next time!\");\n  }\n  if($itemcount{85062} && $random_result>2 && $random_result<9){ \n      quest::summonitem(quest::ChooseRandom(85064,85068,85065,85063,85066,85067),20); # Item(s): Caramel-Coated Candy Apple (85064), Delicious Pumpkin Bread (85068), Sweetened Gummy Bears (85065), Tasty Sugar Pop (85063), Sweetened Rock Candy (85066), Haunted Candy Apples (85067)\n      quest::say(\"Don't get too hyper now!\");\n  }\n  if($itemcount{85062} && $random_result==9){\n      quest::summonitem(66615); # Item: Gold Ticket\n      quest::say(\"There you are, Charlie!\");\n  }\n  if($itemcount{85062} && $random_result==10){\n      quest::summonitem(quest::ChooseRandom(84091,84092,84093)); # Item(s): Sand (84091), Chunk of Coal (84092), Pocket Lint (84093)\n      quest::say(\"Hahaha! Better luck next time!\");\n  }\n}\n  if($ulevel < 10){\n  if($itemcount{85062} && $random_result<3){\n      quest::summonitem(quest::ChooseRandom(84091,84092,84093)); # Item(s): Sand (84091), Chunk of Coal (84092), Pocket Lint (84093)\n      quest::say(\"Hahaha! Better luck next time!\");\n  }\n  if($itemcount{85062} && $random_result>2 && $random_result<11){ \n      quest::summonitem(quest::ChooseRandom(85064,85068,85065,85063,85066,85067),20); # Item(s): Caramel-Coated Candy Apple (85064), Delicious Pumpkin Bread (85068), Sweetened Gummy Bears (85065), Tasty Sugar Pop (85063), Sweetened Rock Candy (85066), Haunted Candy Apples (85067)\n      quest::say(\"Don't get too hyper now!\");\n  }\n }\n}\n\nsub EVENT_TIMER {\n  if($timer eq \"weather\") {\n    quest::rain(0);\n    quest::snow(0);\n }\n}\n\nsub EVENT_SIGNAL {\nquest::shout(\"Casting SoW and SoE for donations behind the main bank!\");\nif($signal == 12346) {\n  quest::stoptimer(\"weather\");\n  }\n}\n",
+      "encoding": "utf-8"
+    },
+    "quests/halloween_event/Dieffer_Wolfhugger_09.pl": {
+      "sha256": "6abd4909ea6c25981db2757cc2db8b2c80048b29fd7509a41b3a2d01d81c6353",
+      "text": "#zone:PoKnowledge\n#Angelox/Cavedude\n# items: 84091, 84092, 84093, 85064, 85068, 85065, 85063, 85066, 85067, 66615, 85062\n\nsub EVENT_SAY \n{ \n\tif($text=~/hail/i){\n\t\t$npc->SetAppearance(0);\n\t\tquest::say(\"Hello $name, I'm Deiffin's younger brother. I angered him a bit so it looks as though I was placed on buffbot duty. Anyway, for a donation of 3pp, I'll cast SoW on ya or for 15pp I can cast SoE. In addition, for 500pp I can stop the weather in this zone for one hour.\");\n\t\tquest::say(\"Happy Halloween! If you can find me Bristlebane's Ticket of Admission, then I can give you a trick, treat, or possibly a special prize!\");\n \t}\n}\n\n\nsub EVENT_ITEM \n{\n\n$random_result = 0;\nmy $random_result = int(rand(10));\n\n\tif($platinum == 10000)\n\t{\n      \t\tquest::we(15,\"$name BLAMES RENO!\");\n  \t} \n  \telsif($platinum == 10001) \n  \t{\n      \t\tquest::we(15,\"$name SAW NORK KISSING TUNARE!\");\n\t}\n\telsif($platinum>0 && $platinum<10000){\n      \t\tquest::say(\"Thank you for your donation $name, it wasn't enough though ...\");\n \t}\n   \telsif($ulevel > 9) \n   \t{\n    \t\tif($itemcount{85062} && $random_result<3)\n    \t\t{\n        \t\tquest::summonitem(quest::ChooseRandom(84091,84092,84093)); # Item(s): Sand (84091), Chunk of Coal (84092), Pocket Lint (84093)\n        \t\tquest::say(\"Hahaha! Better luck next time!\");\n    \t\t}\n    \t\tif($itemcount{85062} && $random_result>2 && $random_result<9)\n    \t\t{ \n        \t\tquest::summonitem(quest::ChooseRandom(85064,85068,85065,85063,85066,85067),20); # Item(s): Caramel-Coated Candy Apple (85064), Delicious Pumpkin Bread (85068), Sweetened Gummy Bears (85065), Tasty Sugar Pop (85063), Sweetened Rock Candy (85066), Haunted Candy Apples (85067)\n        \t\tquest::say(\"Don't get too hyper now!\");\n    \t\t}\n    \t\tif($itemcount{85062} && $random_result==9 && !defined $qglobals{halloween_goldenticket})\n    \t\t{\n        \t\tquest::summonitem(66615); # Item: Gold Ticket\n        \t\tquest::say(\"There you are, Charlie!\");\n        \t\tquest::setglobal(\"halloween_goldenticket\",1,0,\"D30\");\n    \t\t}\n\t\tif($itemcount{85062} && $random_result==9 && defined $qglobals{halloween_goldenticket})\n    \t\t{\n        \t\tquest::summonitem(85062); # Item: Bristlebane's Ticket of Admission\n        \t\tquest::say(\"Woah there, bossman. One ticket per trick or treater!\");\n    \t\t}\n    \t\tif($itemcount{85062} && $random_result==10)\n    \t\t{\n        \t\tquest::summonitem(quest::ChooseRandom(84091,84092,84093)); # Item(s): Sand (84091), Chunk of Coal (84092), Pocket Lint (84093)\n        \t\tquest::say(\"Hahaha! Better luck next time!\");\n    \t\t}\n  \t}\n    \telsif($ulevel < 10)\n    \t{\n    \t\tif($itemcount{85062} && $random_result<3)\n    \t\t{\n        \t\tquest::summonitem(quest::ChooseRandom(84091,84092,84093)); # Item(s): Sand (84091), Chunk of Coal (84092), Pocket Lint (84093)\n        \t\tquest::say(\"Hahaha! Better luck next time!\");\n    \t\t}\n    \t\tif($itemcount{85062} && $random_result>2 && $random_result<11)\n    \t\t{ \n        \t\tquest::summonitem(quest::ChooseRandom(85064,85068,85065,85063,85066,85067),20); # Item(s): Caramel-Coated Candy Apple (85064), Delicious Pumpkin Bread (85068), Sweetened Gummy Bears (85065), Tasty Sugar Pop (85063), Sweetened Rock Candy (85066), Haunted Candy Apples (85067)\n      \t\t\tquest::say(\"Don't get too hyper now!\");\n\t\t}\n\t}\n\telse {\n\t\tquest::say(\"You can have this back.\");\n\t  \tplugin::return_items(\\%itemcount);\n\t}\t  \t\n\n}\t\n\n",
+      "encoding": "utf-8"
+    },
+    "quests/halloween_event/Dieffer_Wolfhugger_10.pl": {
+      "sha256": "c46e79172daba15005b49bd83487b490219ff88ae84aef0dbc4136c88636ba6b",
+      "text": "#zone:PoKnowledge\n#Angelox/Cavedude\n# items: 84091, 84092, 84093, 85064, 85068, 85065, 85063, 85066, 85067, 40604, 40744, 40437, 40711, 97891, 40602, 40603, 64082, 40647, 66615\n\nsub EVENT_SAY \n{ \n\tif($text=~/hail/i){\n\t\t$npc->SetAppearance(0);\n\t\tquest::say(\"Happy Halloween! If you can find a Bristlebane's Ticket of Admission, then I can give you a trick, treat, or possibly a special prize for it!\");\n \t}\n}\n\n\nsub EVENT_ITEM \n{\n\n$random_result = 0;\nmy $random_result = int(rand(10));\n\n\tif($platinum == 10000)\n\t{\n      \t\tquest::we(15,\"$name BLAMES RENO!\");\n  \t} \n  \telsif($platinum == 10001) \n  \t{\n      \t\tquest::we(15,\"$name SAW NORK KISSING TUNARE!\");\n\t}\n\telsif($platinum>0 && $platinum<10000){\n      \t\tquest::say(\"Thank you for your donation $name, it wasn't enough though ...\");\n \t}\n   \telsif($ulevel > 0) \n   \t{\n    \t\tif($itemcount{85062} && $random_result<2)\n    \t\t{\n        \t\tquest::summonitem(quest::ChooseRandom(84091,84092,84093)); # Item(s): Sand (84091), Chunk of Coal (84092), Pocket Lint (84093)\n        \t\tquest::say(\"Hahaha! Better luck next time!\");\n    \t\t}\n    \t\tif($itemcount{85062} && $random_result>1 && $random_result<8)\n    \t\t{ \n        \t\tquest::summonitem(quest::ChooseRandom(85064,85068,85065,85063,85066,85067),20); # Item(s): Caramel-Coated Candy Apple (85064), Delicious Pumpkin Bread (85068), Sweetened Gummy Bears (85065), Tasty Sugar Pop (85063), Sweetened Rock Candy (85066), Haunted Candy Apples (85067)\n        \t\tquest::say(\"Don't get too hyper now!\");\n    \t\t}\n    \t\tif($itemcount{85062} && $random_result>7)\n    \t\t{\n        \t\tquest::summonitem(quest::ChooseRandom(40604,40744,40437,40711,97891,40602,40603,64082,40647,66615)); # Item(s): Bridle of the Seething Chimera (40604), Bridle of the Bloodied Sokokar (40744), White Ornate Chain Worg Bridle (40437), Bridle of the Commanded Feran (40711), Class V Collapsible Roboboar (97891), Bridle of the Shadow Panther (40602), Bridle of the Mystical Kirin (40603), Black Ornate Chain Bridle and Barding (64082), Bridle of the Viridian Cragslither (40647), Gold Ticket (66615)\n        \t\tquest::say(\"Enjoy it!\");\n        \t\tquest::setglobal(\"halloween_special_winner\",1,0,\"D30\");\n    \t\t}\n  \t}\n\telse {\n\t\tquest::say(\"You can have this back.\");\n\t  \tplugin::return_items(\\%itemcount);\n\t}\t  \t\n}\t\n\n",
+      "encoding": "utf-8"
+    },
+    "quests/halloween_event/Dieffer_Wolfhugger_11.pl": {
+      "sha256": "4f4ef180a31d72cf0636f5c06da3e3c1cbc1f46bc9ce15776e76c8e57b89e242",
+      "text": "#zone:PoKnowledge\n#Angelox/Cavedude\n# items: 84091, 84092, 84093, 85062, 85064, 85068, 85065, 85063, 85066, 85067, 124688\n\nsub EVENT_SAY \n{ \n\tif($text=~/hail/i){\n\t\t$npc->SetAppearance(0);\n\t\tquest::say(\"Happy Halloween! If you can find a Bristlebane's Ticket of Admission, then I can give you a trick, treat, or possibly a special prize for it!\");\n \t}\n}\n\n\nsub EVENT_ITEM \n{\n\n$random_result = 0;\nmy $random_result = int(rand(10));\nmy $rewards = $qglobals{halloween_special_winner};\n\n\tif($platinum == 10000)\n\t{\n      \t\tquest::we(15,\"$name BLAMES RENO!\");\n  \t} \n  \telsif($platinum == 10001) \n  \t{\n      \t\tquest::we(15,\"$name SAW NORK KISSING TUNARE!\");\n\t}\n\telsif($platinum>0 && $platinum<10000){\n      \t\tquest::say(\"Thank you for your donation $name, it wasn't enough though ...\");\n \t}\n   \telsif($ulevel > 0) \n   \t{\n    \t\tif($itemcount{85062} && $random_result < 2)\n    \t\t{\n        \t\tquest::summonitem(quest::ChooseRandom(84091,84092,84093,84091,84092,84093,85062)); # Item(s): Sand (84091), Chunk of Coal (84092), Pocket Lint (84093), Sand (84091), Chunk of Coal (84092), Pocket Lint (84093), Bristlebane's Ticket of Admission (85062)\n        \t\tquest::say(\"Hahaha! Better luck next time!\");\n    \t\t}\n    \t\telsif($itemcount{85062} && $random_result > 1 && $random_result < 6)\n    \t\t{ \n        \t\tquest::summonitem(quest::ChooseRandom(85064,85068,85065,85063,85066,85067),20); # Item(s): Caramel-Coated Candy Apple (85064), Delicious Pumpkin Bread (85068), Sweetened Gummy Bears (85065), Tasty Sugar Pop (85063), Sweetened Rock Candy (85066), Haunted Candy Apples (85067)\n        \t\tquest::say(\"Don't get too hyper now!\");\n    \t\t}\n    \t\telsif((($itemcount{85062} && $random_result > 5) || $itemcount{124688}) && $rewards < 11)\n    \t\t{\n\t\t\tmy $prize = 0;\n\t\t\t$prize = int(rand(7));\n\n    \t\t\tif($prize < 4){\n\t\t\t\tmy $item1 = quest::ChooseRandom(40645,111274,40777,54934,50851,43969);\n\t\t\t\tif(plugin::check_hasitem($client, $item1)){ \n\t\t\t\t\t$client->Message(0, \"I tried to give you an item you already have. Hand this back to me for another roll at the grand prize.\");\n\t\t\t\t\tquest::summonitem(124688); # Item: Peace Be With You\n\t\t\t\t}\n\t\t\t\telse {\n\t\t\t\tmy $itemname = plugin::GetItemName($item1);\n        \t\t\tquest::summonitem($item1);\n\t\t\t\tquest::shout(\"Congratulations to $name for winning a $itemname!\");\n\t\t\t\tmy $nextglobal = $qglobals{halloween_special_winner} + 1;\n        \t\t\tquest::setglobal(\"halloween_special_winner\",$nextglobal,0,\"D30\");\n\t\t\t\t}\n        \t\t}\n        \t\tif($prize == 4){\n\t\t\t\t\n        \t\t\t$client->AddPVPPoints(20);\n\t\t\t\t$client->Message(3, \"You have been awarded 20 player points. See Corrigan Hawthorne in Bazaar to claim them!\");\n\t\t\t\tquest::shout(\"Congratulations to $name for winning player points!\");\n\t\t\t\tmy $nextglobal = $qglobals{halloween_special_winner} + 1;\n        \t\t\tquest::setglobal(\"halloween_special_winner\",$nextglobal,0,\"D30\");\n\t\t\t}\n        \t\tif($prize > 4) {\n\t\t\t\tmy $item2 = quest::ChooseRandom(66615,51598,26015);\n\t\t\t\tif(plugin::check_hasitem($client, $item2)){\n\t\t\t\t\t$client->Message(0, \"I tried to give you an item you already have. Hand this back to me for another roll at the grand prize.\");\n\t\t\t\t\tquest::summonitem(124688); # Item: Peace Be With You\n\t\t\t\t}\n\t\t\t\telse {\n\t\t\t\t\tmy $itemname = plugin::GetItemName($item2);\n\t\t\t\t\tif($item2 == 26015){\n\t\t\t\t\t\tquest::summonitem($item2,20);\n\t\t\t\t\t}\n\t\t\t\t\telse {\n\t\t\t\t\t\tquest::summonitem($item2);\n\t\t\t\t\t}\n\t\t\t\t\tquest::shout(\"Congratulations to $name for winning a $itemname!\");\n\t\t\t\t\tmy $nextglobal = $qglobals{halloween_special_winner} + 1;\n        \t\t\t\tquest::setglobal(\"halloween_special_winner\",$nextglobal,0,\"D30\");\n\t\t\t\t}\n        \t\t}\n    \t\t}\n\t\telse {\n\t\t\tquest::say(\"You have either handed me an item I don't need or no longer qualify for a grand prize. You can have this back.\");\n\t  \t\tplugin::return_items(\\%itemcount);\n\t\t}\n\t}  \t\n}\t\n",
+      "encoding": "utf-8"
+    },
+    "quests/halloween_event/Dieffer_Wolfhugger_12.pl": {
+      "sha256": "2de08562c884c9ee3e9c6604b4f8f2be9724fe3a02e25e9113f7ca25d355e96b",
+      "text": "#zone:PoKnowledge\n#Angelox/Cavedude\n# items: 84091, 84092, 84093, 85062, 85064, 85068, 85065, 85063, 85066, 85067, 124688\n\nsub EVENT_SAY \n{ \n\tif($text=~/hail/i){\n\t\t$npc->SetAppearance(0);\n\t\tquest::say(\"Happy Halloween! If you can find a Bristlebane's Ticket of Admission, then I can give you a trick, treat, or possibly a special prize for it!\");\n \t}\n}\n\n\nsub EVENT_ITEM \n{\n\n$random_result = 0;\nmy $random_result = int(rand(10));\nmy $rewards = $qglobals{halloween_special_winner};\n\n\tif($platinum == 10000)\n\t{\n      \t\tquest::we(15,\"$name BLAMES RENO!\");\n  \t} \n  \telsif($platinum == 10001) \n  \t{\n      \t\tquest::we(15,\"$name SAW NORK KISSING TUNARE!\");\n\t}\n\telsif($platinum>0 && $platinum<10000){\n      \t\tquest::say(\"Thank you for your donation $name, it wasn't enough though ...\");\n \t}\n   \telse\n   \t{\n    \t\tif($itemcount{85062} && $random_result < 2)\n    \t\t{\n        \t\tquest::summonitem(quest::ChooseRandom(84091,84092,84093,84091,84092,84093,85062)); # Item(s): Sand (84091), Chunk of Coal (84092), Pocket Lint (84093), Sand (84091), Chunk of Coal (84092), Pocket Lint (84093), Bristlebane's Ticket of Admission (85062)\n        \t\tquest::say(\"Hahaha! Better luck next time!\");\n    \t\t}\n    \t\telsif($itemcount{85062} && $random_result > 1 && $random_result < 6)\n    \t\t{ \n        \t\tquest::summonitem(quest::ChooseRandom(85064,85068,85065,85063,85066,85067),20); # Item(s): Caramel-Coated Candy Apple (85064), Delicious Pumpkin Bread (85068), Sweetened Gummy Bears (85065), Tasty Sugar Pop (85063), Sweetened Rock Candy (85066), Haunted Candy Apples (85067)\n        \t\tquest::say(\"Don't get too hyper now!\");\n    \t\t}\n    \t\telsif((($itemcount{85062} && $random_result > 5) || $itemcount{124688}) && $rewards < 11)\n    \t\t{\n\t\t\tmy $prize = 0;\n\t\t\t$prize = int(rand(7));\n\n    \t\t\tif($prize < 4){\n\t\t\t\t\tmy $item1 = quest::ChooseRandom(40645,111274,40777,54934,50851,43969);\n\t\t\t\t\tif(plugin::check_hasitem($client, $item1)){ \n\t\t\t\t\t\t$client->Message(0, \"I tried to give you an item you already have. Hand this back to me for another roll at the grand prize.\");\n\t\t\t\t\t\tquest::summonitem(124688); # Item: Peace Be With You\n\t\t\t\t\t}\n\t\t\t\t\telse {\n\t\t\t\t\t\tmy $itemname = plugin::GetItemName($item1);\n\t\t\t\t\t\tquest::summonitem($item1);\n\t\t\t\t\t\tquest::shout(\"Congratulations to $name for winning a $itemname!\");\n\t\t\t\t\t\tmy $nextglobal = $qglobals{halloween_special_winner} + 1;\n\t\t\t\t\t\tquest::setglobal(\"halloween_special_winner\",$nextglobal,0,\"D30\");\n\t\t\t\t\t}\n        \t\t}\n        \t\tif($prize == 4){\n\t\t\t\t\n\t\t\t\t\t$client->AddPVPPoints(20);\n\t\t\t\t\t$client->Message(3, \"You have been awarded 20 player points. See Corrigan Hawthorne in Bazaar to claim them!\");\n\t\t\t\t\tquest::shout(\"Congratulations to $name for winning player points!\");\n\t\t\t\t\tmy $nextglobal = $qglobals{halloween_special_winner} + 1;\n        \t\t\tquest::setglobal(\"halloween_special_winner\",$nextglobal,0,\"D30\");\n\t\t\t\t}\n        \t\tif($prize > 4) \n\t\t\t\t{\n\t\t\t\t\tmy $item2 = quest::ChooseRandom(66615,51598,26015);\n\t\t\t\t\tif(plugin::check_hasitem($client, $item2)){\n\t\t\t\t\t\t$client->Message(0, \"I tried to give you an item you already have. Hand this back to me for another roll at the grand prize.\");\n\t\t\t\t\t\tquest::summonitem(124688); # Item: Peace Be With You\n\t\t\t\t\t}\n\t\t\t\t\telse \n\t\t\t\t\t{\n\t\t\t\t\t\tmy $itemname = plugin::GetItemName($item2);\n\t\t\t\t\t\tif($item2 == 26015){\n\t\t\t\t\t\t\tquest::summonitem($item2,20);\n\t\t\t\t\t\t}\n\t\t\t\t\t\telse {\n\t\t\t\t\t\t\tquest::summonitem($item2);\n\t\t\t\t\t\t}\n\t\t\t\t\t\t\n\t\t\t\t\t\tquest::shout(\"Congratulations to $name for winning a $itemname!\");\n\t\t\t\t\t\tmy $nextglobal = $qglobals{halloween_special_winner} + 1;\n\t\t\t\t\t\tquest::setglobal(\"halloween_special_winner\",$nextglobal,0,\"D30\");\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t}\n\t\t\telse \n\t\t\t{\n\t\t\tquest::say(\"You have either handed me an item I don't need or no longer qualify for a grand prize. You can have this back.\");\n\t  \t\tplugin::return_items(\\%itemcount);\n\t\t}\n\t}  \t\n}\t\n",
+      "encoding": "utf-8"
+    },
+    "quests/kaladima/Priest_of_Discord.pl": {
+      "sha256": "f36ef5b5e001a6c85edaf6d61b05b161349f78fbc2dc5b6ff8f598519dea6e82",
+      "text": "# items: 18700\nsub EVENT_SAY { \n\tif ($text=~/Hail/i){\n\t\tquest::say(\"Greetings. $name .  Are you a child of Order?  If you have come seeking the path of Discord. I require only that you give me your [Tome of Order and Discord] and I shall show you the way.  Only then will you be freed from Order's confining restraints.\");\n\t}\n\tif ($text=~/tome/i){\n\t\tquest::say(\"The Tome of Order and Discord was penned by the seventh member of the Tribunal and has become the key to a life of Discord. in spite of the author's pitiful warnings.  Do you not have one. child of Order?  Would you [like to read] it?\");\n\t}\n\tif ($text=~/read/i){\n\t\tquest::say(\"Very well.  Here you go.  Simply return it to me to be released from the chains of Order. Your PvP has been disabled.\");\n\t\tquest::pvp(\"off\");\n\t\tquest::summonitem(\"18700\");\n\t}\n}\nsub EVENT_ITEM { \n\tif($item1 == \"18700\") {\n\t\tquest::say(\"I see you wish to join us in Discord! Welcome! By turning your back on the protection of Order you are now open to many more opportunities for glory and power. Remember that you can now be harmed by those who have also heard the call of Discord.\");\n\t\tquest::pvp(\"on\");\n\t}\n}\n#END of FILE Zone:rivervale  ID:29001 -- Priest_of_Discord \n\n",
+      "encoding": "utf-8"
+    },
+    "quests/neriakc/Ulraz_S-Lon.pl": {
+      "sha256": "9719cf995085abefa2ff1cf90bdbc3c924e61146d485053f4893a915f7473ac8",
+      "text": "# items: 19584, 19574, 16197, 19554, 19572, 19573, 19607, 19570, 19571, 13586\nsub EVENT_SAY { \nif($text=~/Hail/i){\nquest::say(\"So you are the next pathetic maggot I have the displeasure of training to be a useful Shadowknight of the Lodge of the Dead. First you must get yourself outfitted in a suit of [armor]. those rags you wear can not even contain the stench of your miserable hide and will do no good protecting it from the edge of an enemy's blade.\"); \n}\nif($text=~/armor/i){\nquest::say(\"Seek Krivn S'Tai in the Commoner quarter of Neriak and give him this request parchment. Krivn S'Tai has been paid in advance by the Lodge of the Dead for the requested service. Simply give him the request parchment and he will instruct you further. When you have outfitted yourself in a suit of armor return to the Lodge of the Dead and I will grant you [another task].\");\nquest::summonitem(19584); # Item: Request Parchment\n}\nif($text=~/task/i){\nquest::say(\"Ah. you are eager to advance further within the Lodge of the Dead. Although it is my duty to aid your training. do not allow your arrogance to blind you to your lowly position amongst the Queens most loyal subjects. Your next task is to assist the construction of a [weapon] and [shield] worthy of being wielded by a Shadowknight of the Lodge of the Dead.\"); \n}\nif($text=~/weapon/i){\nquest::say(\"Beyond the mouth of Neriak lies the Nektulos Forest. There the walking dead can be found digging their way from the ashen soil of the [Ultricle]. their flesh cured and hardened and bones strengthened from the minerals and volcanic ash in which they rested in death. Return some of these undead to the rest they have abandoned and bring to me some Leathered Zombie Flesh, a Petrified Humerus bone, and a Petrified Rib bone.\"); \n}\nif($text=~/shield/i){\nquest::say(\"The bones of the dead that dig from their graves at the [Ultricle] in the Nektulos Forest have been strengthened by the minerals and ashen soil. Return some of these walking dead to the rest they have abandoned and bring to me four Petrified Femurs.\"); \n}\nif($text=~/Ultricle/i){\nquest::say(\"In the Nektulos Forest near the pass to the Lavastorm Mountains is a gray region barren of life whose boundaries are marked by carved stones displaying runes the color of freshly spilt blood. The area the runed stones mark is called the Ultricle. It is where the weak. dead. and dying Teir'Dal that have not earned a noble burial are left to rot and one day if they are lucky join the ranks of the Undead.\"); \n}\n }\n\nsub EVENT_ITEM { \nif (plugin::check_handin(\\%itemcount, 19574 => 1, 16197 => 1, 19554 => 1)) {\n  quest::say(\"Well, you're not completely useless, afterall. Take this sword and sharpen it. Then, return it to me.\");\n  quest::summonitem(19572); # Item: Rough Sword Blade\n}\nif (plugin::check_handin(\\%itemcount, 19573 => 1)) {\n   quest::say(\"I'm surprised, I really am. I didn't think somebody like you could pull it off. Here, take this before I change my mind.\");\n  quest::summonitem(19607); # Item: Bone Hilted Long Sword\n  quest::exp(1000);\n  quest::faction(236,10); # Faction: Dark Bargainers\n  quest::faction(370,10); # Faction: Dreadguard Inner\n  quest::faction(334,10); # Faction: Dreadguard Outer\n  quest::faction(239,10); # Faction: The Dead\n  quest::faction(245,-20); # Faction: Eldritch Collective\n}\nif (plugin::check_handin(\\%itemcount, 19570 => 4)) {\n   quest::emote(\"fashions the petrified femurs into a shield frame. This will be the frame of your new shield. Return now again to the Nektulos Forest, in the gray ashen region of the forest near the Lavastorm mountains the basilisks often come down from the fiery peaks to lay their eggs in the ashen soil. Basilisk hatchlings can be found there as they make their way towards the warmer interior of the mountains. Hunt these basilisk hatchlings and gather two Basilisk Hatchling Skins. Once this is done take the skins and frame to Medron Y'Lask at the Furrier Royale.\");\n   quest::summonitem(19571); # Item: Petrified Femur Shield Frame\n   quest::exp(1000);\n   quest::faction(239,15); # Faction: The Dead\n   quest::faction(303,2); # Faction: Queen Cristanos Thex\n   quest::faction(278,-2); # Faction: King Naythox Thex\n   quest::faction(275,-2); # Faction: Keepers of the Art\n   quest::faction(245,-2); # Faction: Eldritch Collective\n   quest::faction(1522,-30); # Faction: Primordial Malice\n}\n if ($item1==\"18757\"){quest::say(\"Thanks.\");\n\tquest::summonitem(\"13586\");\n\tquest::exp(\"100\");\n }\n  #do all other handins first with plugin, then let it do disciplines\n  plugin::try_tome_handins(\\%itemcount, $class, 'Shadowknight');\n  plugin::return_items(\\%itemcount);\n}\n#END of FILE Zone:neriakc  ID:42067 -- Ulraz_S`Lon \n\n",
+      "encoding": "utf-8"
+    },
+    "quests/poknowledge/Dieffer_Wolfhugger.pl": {
+      "sha256": "d38f6f384c14a824e301e92132c11a28e1ccaf4e47cb6735a5e87724d4cc92a6",
+      "text": "# items: 124688\nsub EVENT_SAY {\n    #Halloween Event\n    #if($text=~/hail/i){\n    #    $npc->SetAppearance(0);\n    #    quest::say(\"Happy Halloween! If you can find a Bristlebane's Ticket of Admission, then I can give you a trick, treat, or possibly a special prize for it!\");\n    #}\n\n    #Custom for PVP on PEQ only\n    if ($text=~/hail/i) {\n      if ($client->GetPVP()) {\n        quest::say(\"You follow the ways of Discord. Let me know if you would like to turn [PVP off].\");\n      }\n      else {\n        quest::say(\"Sorry, I am busy. Come back again later.\");\n      }\n    }\n    if (($text=~/pvp off/i) && $client->GetPVP()) {\n      quest::pvp(off);\n    }\n}\n\n\nsub EVENT_ITEM {\n\n    $random_result = 0;\n\n    my $random_result = int(rand(10));\n    my $rewards = $qglobals{halloween_special_winner};\n\n\t# (85062) Bristlebane's Ticket of Admission \n    if($itemcount{85062} && $random_result < 2) {\n        quest::summonitem(\n            quest::ChooseRandom(\n                84091, # (84091) Sand\n                84092, # (84092) Chunk of Coal\n                84093, # (84093) Pocket Lint\n                84091, # (84091) Sand\n                84092, # (84092) Chunk of Coal\n                84093, # (84093) Pocket Lint\n                85062  # (85062) Bristlebane's Ticket of Admission\n            )\n        );\n        quest::say(\"Hahaha! Better luck next time!\");\n    }\n\t# (85062) Bristlebane's Ticket of Admission \n    elsif($itemcount{85062} && $random_result > 1 && $random_result < 6) {\n        quest::summonitem(\n            quest::ChooseRandom(\n                85064, # (85064) Caramel-Coated Candy Apple\n                85068, # (85068) Delicious Pumpkin Bread\n                85065, # (85065) Sweetened Gummy Bears\n                85063, # (85063) Tasty Sugar Pop\n                85066, # (85066) Sweetened Rock Candy\n                85067 # (85067) Haunted Candy Apples\n            ),\n        20);\n        quest::say(\"Don't get too hyper now!\");\n    }\n\t# (85062) Bristlebane's Ticket of Admission \n\t# (124688) Peace Be With You \n    elsif((($itemcount{85062} && $random_result > 5) || $itemcount{124688})) {\n        \n\t\t#::: Wrote this quick loop because the old code logic was not the best and this is quick\n\t\t# It used to just hand the item back, handing the item back 20 times in a row is annoying\n\t\t\n\t\tmy %reward_items = (\n\t\t\t0 => [37538, 0], # (37538) Oriaas Nostrum \n\t\t\t1 => [48083, 0], # (48083) Bottle of Shared Adventure I \n\t\t\t2 => [48084, 0], # (48084) Bottle of Shared Adventure II \n\t\t\t3 => [48085, 0], # (48085) Bottle of Shared Adventure III \n\t\t\t4 => [29781, 0], # (29781) Bristlebanes Party Platter \n\t\t\t5 => [51598, 1], # (51598) Imp Wings \n\t\t\t6 => [26015, 1], # (26015) Pulsing Goo \n\t\t\t7 => [51604, 1], # (51604) Glass of Water \n\t\t\t8 => [51602, 1], # (51602) Fiery Rock \n\t\t\t9 => [51601, 1], # (51601) Sack of Clay\n\t\t\t10 => [66615, 1], # (66615) Gold Ticket\n\t\t\t11 => [51603, 1]  # (51603) Second Breath \n\t\t);\n\t\t\n\t\tmy $reward_amounts = keys %reward_items;\n\t\t\n\t\t$found_prize = 0;\n\t\t$loop_count = 0;\n\t\twhile($found_prize == 0){\n\t\t\n\t\t\tmy $prize = int(rand($reward_amounts));\n\t\t\n\t\t\tquest::debug($npc->GetCleanName() . \" - prize roll: \" . $prize . \" client: \" . $client->GetCleanName());\n\t\t\n\t\t\tmy $item_id = $reward_items{$prize}[0];\n\t\t\tmy $check_lore = $reward_items{$prize}[1];\n\t\t\tmy $give_reward = 0;\n\t\t\t\n\t\t\n\t\t\tif(!plugin::check_hasitem($client, $item_id) && $check_lore == 1){\n\t\t\t\t$give_reward = 1;\n\t\t\t}\n\t\t\telsif($check_lore == 0){\n\t\t\t\t$give_reward = 1;\n\t\t\t}\n\t\t\t\n\t\t\tif($give_reward){\n\t\t\t\tif($item_id == 26015){ # (26015) Pulsing Goo \n\t\t\t\t\tquest::summonitem($item_id, 20);\n\t\t\t\t}\n\t\t\t\telse {\n\t\t\t\t\tquest::summonitem($item_id);\n\t\t\t\t}\n\t\t\t\t\n\t\t\t\tquest::shout(\"Congratulations to $name for winning a \" . quest::varlink($item_id));\n\n\t\t\t\tmy $nextglobal = $qglobals{halloween_special_winner} + 1;\n\t\t\t\tquest::setglobal(\"halloween_special_winner\", $nextglobal, 0, \"D30\");\n\t\t\t\t\n\t\t\t\t$found_prize = 1;\n\t\t\t}\n\t\t\t\n\t\t\n\t\t\tquest::debug(\" --- Rolled item: \" . quest::varlink($item_id));\n\n\t\t\t$loop_count++;\n\t\t\t\n\t\t\tif($loop_count > 100){\n\t\t\t\t$client->Message(0, \"I tried to give you an item you already have. Hand this back to me for another roll at the grand prize.\");\n\t\t\t\tquest::summonitem(124688); # (124688) Peace Be With You \n\t\t\t\t$found_prize = 1;\n\t\t\t}\n\t\t\t\n\t\t}\n    }\n    else {\n        quest::say(\"You have either handed me an item I don't need or no longer qualify for a grand prize. You can have this back.\");\n        plugin::return_items(\\%itemcount);\n    }\n\n}\n",
+      "encoding": "utf-8"
+    },
+    "quests/riwwi/a_famished_yunjo.pl": {
+      "sha256": "e5dc9045161a17ae723483ba0a75c54a2c893220ca395cdcd757409bb9e04157",
+      "text": "my $counter = 0;\n#needs live text\n#accepts beer braised tuna\n#accepts garlic buttered tuna\nsub EVENT_SPAWN {\n  $counter=0;\n  quest::settimer(1,1800);\n}\n\nsub EVENT_SAY {\n  if ($text=~/hail/i) {\n    quest::say(\"I'm famished, I require tuna.\");\n  }\n}\nsub EVENT_TIMER {\n  quest::emote(\"collapses from hunger.\");\n  quest::depop_withtimer();\n} \n\nsub EVENT_ITEM {\n  #accepts items in the range: 58380 - 58637\n  my $i = 0;\n\n  for ($i = 58380; $i<=58637 ; $i++) {\n    if($itemcount{$i}) {\n\t  my $c = $itemcount{$i};\n      if (plugin::check_handin(\\%itemcount, $i => $c )) {\n        quest::faction( 1770,5 * $c ); # Faction: Yunjo Slave Resistance\n        quest::exp(100000 * $c );\n        $counter += $c;\n      }\n    }\n  }\n  if($counter >= 11) {\n    quest::depop_withtimer();\n  }\n  plugin::return_items(\\%itemcount);\n}\n",
+      "encoding": "utf-8"
+    },
+    "quests/riwwi/a_hungry_yunjo.pl": {
+      "sha256": "ff7c48bbaac1cf739616c4a3cd60e84fb6ec3a0a1a46d0727c7b8a2c86f218d1",
+      "text": "my $counter = 0;\n#needs live text\nsub EVENT_SPAWN {\n  $counter = 0;\n  quest::settimer(1,1800);\n}\n\nsub EVENT_SAY {\n  if ($text=~/hail/i) {\n    quest::say(\"I'm hungry, I require hynid.\");\n  }\n}\n\nsub EVENT_TIMER {\n  quest::emote(\"falls to the ground, dead.\");\n  quest::depop_withtimer();\n}\n\nsub EVENT_ITEM {\n  #accepts items in the range: 58555 - 58637\n  my $i = 0;\n\n  for ($i = 58555; $i<=58637 ; $i++) {\n    if($itemcount{$i}) {\n\t  my $c = $itemcount{$i};\n      if (plugin::check_handin(\\%itemcount, $i => $c )) {\n        quest::faction( 1770,5 * $c ); # Faction: Yunjo Slave Resistance\n        quest::exp(100000 * $c );\n        $counter += $c;\n      }\n    }\n  }\n  if($counter >= 11) {\n    quest::depop_withtimer();\n  }\n  plugin::return_items(\\%itemcount);\n}\n",
+      "encoding": "utf-8"
+    },
+    "quests/riwwi/a_starved_yunjo.pl": {
+      "sha256": "e3d13d5d49b68c1cf1ab90e4f2bd57137afd5e9253c276512148e25083ed51c7",
+      "text": "my $counter = 0;\n#needs live text\nsub EVENT_SPAWN {\n  $counter = 0;\n  quest::settimer(1,1800);\n}\n\nsub EVENT_SAY {\n  if ($text=~/hail/i) {\n    quest::say(\"I'm starved, I require barbequed cragbeast.\");\n  }\n}\n\nsub EVENT_TIMER {\n  quest::emote(\"crashes to the ground, starved.\");\n  quest::depop_withtimer();\n}\n  \nsub EVENT_ITEM {\n  #accepts items in the range: 58472 - 58554\n  my $i = 0;\n\n  for ($i = 58472; $i<=58554 ; $i++) {\n    if($itemcount{$i}) {\n\t  my $c = $itemcount{$i};\n      if (plugin::check_handin(\\%itemcount, $i => $c )) {\n        quest::faction( 1770,5 * $c ); # Faction: Yunjo Slave Resistance\n        quest::exp(100000 * $c );\n        $counter += $c;\n      }\n    }\n  }\n  if($counter >= 11) {\n    quest::depop_withtimer();\n  }\n  plugin::return_items(\\%itemcount);\n}\n",
+      "encoding": "utf-8"
+    },
+    "quests/riwwi/a_thirsting_yunjo.pl": {
+      "sha256": "7065ff7b2aaa06516f3a75bd93339d47660cfa4e6d5230be10c132d83e7a0fa6",
+      "text": "my $counter = 0;\n#needs live text\nsub EVENT_SPAWN {\n  $counter = 0;\n  quest::settimer(1,1800);\n}\n  \nsub EVENT_SAY {\n  if ($text=~/hail/i) {\n    quest::say(\"I'm thirsty, I require tea.\");\n  }\n}\n\nsub EVENT_TIMER {\n  quest::emote(\"falls to the ground, perished\");\n  quest::depop_withtimer();\n}\n\nsub EVENT_ITEM {\n  #accepts items in the range: 58687 - 58704\n  my $i = 0;\n\n  for ($i = 58687; $i<=58704 ; $i++) {\n    if($itemcount{$i}) {\n\t  my $c = $itemcount{$i};\n      if (plugin::check_handin(\\%itemcount, $i => $c )) {\n        quest::faction( 1770,5 * $c ); # Faction: Yunjo Slave Resistance\n        quest::exp(100000 * $c );\n        $counter += $c;\n      }\n    }\n  }\n  if($counter >= 11) {\n    quest::depop_withtimer();\n  }\n  plugin::return_items(\\%itemcount);\n}\n",
+      "encoding": "utf-8"
+    },
+    "quests/riwwi/an_emaciated_yunjo.pl": {
+      "sha256": "2dccbde73a2fdeab0cc10045bac264d3add32a8540f563e0f2da765f1c1651be",
+      "text": "my $counter = 0;\n#needs live text\nsub EVENT_SPAWN {\n  $counter = 0;\n  quest::settimer(1,1800);\n}\n  \nsub EVENT_SAY {\n  if ($text=~/hail/i) {\n    quest::say(\"I'm emaciated, I require crab.\");\n  }\n}\n\nsub EVENT_TIMER {\n  quest::emote(\"falls to the ground dead\");\n  quest::depop_withtimer();\n}\n\nsub EVENT_ITEM {\n  #accepts items in the range: 58288 - 58379\n  my $i = 0;\n\n  for ($i = 58288; $i<=58379 ; $i++) {\n    if($itemcount{$i}) {\n\t  my $c = $itemcount{$i};\n      if (plugin::check_handin(\\%itemcount, $i => $c )) {\n        quest::faction( 1770,5 * $c ); # Faction: Yunjo Slave Resistance\n        quest::exp(100000 * $c );\n        $counter += $c;\n      }\n    }\n  }\n  if($counter >= 11) {\n    quest::depop_withtimer();\n  }\n  plugin::return_items(\\%itemcount);\n}\n",
+      "encoding": "utf-8"
+    },
+    "quests/shadowhaven/Therin_Asakith.pl": {
+      "sha256": "b93766a7f93420e9b0144b39148e63bcf5372c641d9afb907d0ef244f1b3720f",
+      "text": "# items: 66616, 66602, 66603, 66601, 25805, 25833, 25814, 25807, 25825, 25838, 25831, 16880, 17966, 66614, 14521, 11631, 66613, 14402, 96454, 96456, 96465, 96453, 96455, 96459, 96458, 96462, 96457, 96463, 96451, 96461, 96464, 96452, 96460, 7466, 1139, 1152, 1140, 7479, 1138, 66615\nsub EVENT_SAY { \nif($text=~/Hail/i){\nquest::say(\"Welcome to Shandeling's Casino! If you would like to try your luck at a game of chance, I can offer you a game of King's Court with prizes best suited for any warrior, monk, or rogue. To play, buy a token from any of the waitresses and hand it to me when ready.\"); \n}\n }\n \nsub EVENT_ITEM {\n$random_result = 0;\nmy $random_result = int(rand(5000));\n#tokens\nif($itemcount{66616} && $random_result<600 ){  \nquest::summonitem(66616,quest::ChooseRandom(1,1,1,2,2,5,10,15,20));\n\n }\n#stat food\nelsif($itemcount{66616} && $random_result>601 && $random_result<1300){  \nquest::summonitem(quest::ChooseRandom(66602,66603,66601)); # Item(s): Club Sandwich (66602), King's Court Sandwich (66603), Roasted Mammoth Sandwich (66601)\n\n }\n#gems\nelsif($itemcount{66616} && $random_result>1301 && $random_result<1900){  \nquest::summonitem(quest::ChooseRandom(25805,25833,25814,25807,25825,25838,25831)); # Item(s): Black Marble (25805), Crushed Black Marble (25833), Flawless Diamond (25814), Pristine Emerald (25807), Flawed Sea Sapphire (25825), Crushed Flame Emerald (25838), Crushed Coral (25831)\n\n }\n#fireworks\nelsif($itemcount{66616} && $random_result>1901 && $random_result<2400){  \nquest::summonitem(16880); # Item: Gnomish Firework\n\n }\n #potions\nelsif($itemcount{66616} && $random_result>2401 && $random_result<2800){  \nquest::summonitem(quest::ChooseRandom(17966,66614,14521,11631,66613,14402,96454,96456,96465,96453,96455,96459,96458,96462,96457,96463,96451,96461,96464,96452,96460)); # Item(s): Deluxe Sewing Kit (17966), Elixir (66614), Illusionists Stone (14521), Prayers of Life (11631), Vial of Ethereal Mist (66613), Vial of Swirling Smoke (14402), Essence of Troll (96454), Essence of Wood Elf (96456), Essence of Vah Shir (96465), Essence of Ogre (96453), Essence of Iksar (96455), Essence of Human (96459), Essence of High Elf (96458), Essence of Halfling (96462), Essence of Half Elf (96457), Essence of Gnome (96463), Essence of Froglok (96451), Essence of Erudite (96461), Essence of Dwarf (96464), Essence of Dark Elf (96452), Essence of Barbarian (96460)\n\n }\n #stat items\nelsif($itemcount{66616} && $random_result>2801 && $random_result<3000){  \nquest::summonitem(quest::ChooseRandom(7466,1139,1152,1140,7479,1138)); # Item(s): Beer Goggles (7466), Blue Resistance Stone (1139), Green Resistance Stone (1152), Red Resistance Stone (1140), Snakefingers (7479), White Resistance Stone (1138)\n\n }\n #golden ticket\nelsif($itemcount{66616} && $random_result==3001){  \nquest::summonitem(66615); # Item: Gold Ticket\n\n }\n   }",
+      "encoding": "utf-8"
+    },
+    "quests/shadowhaven/Tirac_Goldbender.pl": {
+      "sha256": "9b83d96bda18cd7136ff2f6398f0b089cebdcc05db1905301ec233822dce3a67",
+      "text": "# items: 66616, 66607, 66608, 66609, 25805, 25833, 25814, 25807, 25825, 25838, 25831, 16880, 17966, 66614, 14521, 11631, 66613, 14402, 96454, 96456, 96465, 96453, 96455, 96459, 96458, 96462, 96457, 96463, 96451, 96461, 96464, 96452, 96460, 7466, 1139, 1152, 1140, 7479, 1138, 66615\nsub EVENT_SAY { \nif($text=~/Hail/i){\nquest::say(\"Thank you for coming to Shandeling's Casino! If you would like to try your luck at a game of chance, I can offer you a game of King's Court with prizes best suited for any enchanter, magician, necromancer, or wizard. To play, buy a token from any of the waitresses and hand it to me when ready.\"); \n}\n }\n\n\nsub EVENT_ITEM {\n$random_result = 0;\nmy $random_result = int(rand(5000));\n#tokens\nif($itemcount{66616} && $random_result<600 ){  \nquest::summonitem(66616,quest::ChooseRandom(1,1,1,2,2,5,10,15,20));\n\n }\n#stat food\nelsif($itemcount{66616} && $random_result>601 && $random_result<1300){  quest::summonitem(quest::ChooseRandom(66607,66608,66609));\n\n }\n#gems\nelsif($itemcount{66616} && $random_result>1301 && $random_result<1900){  \nquest::summonitem(quest::ChooseRandom(25805,25833,25814,25807,25825,25838,25831)); # Item(s): Black Marble (25805), Crushed Black Marble (25833), Flawless Diamond (25814), Pristine Emerald (25807), Flawed Sea Sapphire (25825), Crushed Flame Emerald (25838), Crushed Coral (25831)\n\n }\n#fireworks\nelsif($itemcount{66616} && $random_result>1901 && $random_result<2400){  \nquest::summonitem(16880); # Item: Gnomish Firework\n\n }\n #potions\nelsif($itemcount{66616} && $random_result>2401 && $random_result<2800){  \nquest::summonitem(quest::ChooseRandom(17966,66614,14521,11631,66613,14402,96454,96456,96465,96453,96455,96459,96458,96462,96457,96463,96451,96461,96464,96452,96460)); # Item(s): Deluxe Sewing Kit (17966), Elixir (66614), Illusionists Stone (14521), Prayers of Life (11631), Vial of Ethereal Mist (66613), Vial of Swirling Smoke (14402), Essence of Troll (96454), Essence of Wood Elf (96456), Essence of Vah Shir (96465), Essence of Ogre (96453), Essence of Iksar (96455), Essence of Human (96459), Essence of High Elf (96458), Essence of Halfling (96462), Essence of Half Elf (96457), Essence of Gnome (96463), Essence of Froglok (96451), Essence of Erudite (96461), Essence of Dwarf (96464), Essence of Dark Elf (96452), Essence of Barbarian (96460)\n\n }\n #stat items\nelsif($itemcount{66616} && $random_result>2801 && $random_result<3000){  \nquest::summonitem(quest::ChooseRandom(7466,1139,1152,1140,7479,1138)); # Item(s): Beer Goggles (7466), Blue Resistance Stone (1139), Green Resistance Stone (1152), Red Resistance Stone (1140), Snakefingers (7479), White Resistance Stone (1138)\n\n }\n #golden ticket\nelsif($itemcount{66616} && $random_result==3001){  \nquest::summonitem(66615); # Item: Gold Ticket\n\n }\n   }",
+      "encoding": "utf-8"
+    },
+    "quests/shadowhaven/Vuri_Pandar.pl": {
+      "sha256": "96931673d96e237409f029e6d4a1f3be419d602a9aff3ec5e2998c3521181e2b",
+      "text": "# items: 66616, 66610, 66611, 66612, 25805, 25833, 25814, 25807, 25825, 25838, 25831, 16880, 17966, 66614, 14521, 11631, 66613, 14402, 96454, 96456, 96465, 96453, 96455, 96459, 96458, 96462, 96457, 96463, 96451, 96461, 96464, 96452, 96460, 7466, 1139, 1152, 1140, 7479, 1138, 66615\nsub EVENT_SAY { \nif($text=~/Hail/i){\nquest::say(\"Welcome to Shandeling's Casino! If you would like to try your luck at a game of chance, I can offer you a game of King's Court with prizes best suited for any druid, shaman, or cleric. To play, buy a token from any of the waitresses and hand it to me when ready.\"); \n}\n }\n \nsub EVENT_ITEM {\n$random_result = 0;\nmy $random_result = int(rand(5000));\n#tokens\nif($itemcount{66616} && $random_result<600 ){  \nquest::summonitem(66616,quest::ChooseRandom(1,1,1,2,2,5,10,15,20));\n\n }\n#stat food\nelsif($itemcount{66616} && $random_result>601 && $random_result<1300){  quest::summonitem(quest::ChooseRandom(66610,66611,66612));\n\n }\n#gems\nelsif($itemcount{66616} && $random_result>1301 && $random_result<1900){  \nquest::summonitem(quest::ChooseRandom(25805,25833,25814,25807,25825,25838,25831)); # Item(s): Black Marble (25805), Crushed Black Marble (25833), Flawless Diamond (25814), Pristine Emerald (25807), Flawed Sea Sapphire (25825), Crushed Flame Emerald (25838), Crushed Coral (25831)\n\n }\n#fireworks\nelsif($itemcount{66616} && $random_result>1901 && $random_result<2400){  \nquest::summonitem(16880); # Item: Gnomish Firework\n\n }\n #potions\nelsif($itemcount{66616} && $random_result>2401 && $random_result<2800){  \nquest::summonitem(quest::ChooseRandom(17966,66614,14521,11631,66613,14402,96454,96456,96465,96453,96455,96459,96458,96462,96457,96463,96451,96461,96464,96452,96460)); # Item(s): Deluxe Sewing Kit (17966), Elixir (66614), Illusionists Stone (14521), Prayers of Life (11631), Vial of Ethereal Mist (66613), Vial of Swirling Smoke (14402), Essence of Troll (96454), Essence of Wood Elf (96456), Essence of Vah Shir (96465), Essence of Ogre (96453), Essence of Iksar (96455), Essence of Human (96459), Essence of High Elf (96458), Essence of Halfling (96462), Essence of Half Elf (96457), Essence of Gnome (96463), Essence of Froglok (96451), Essence of Erudite (96461), Essence of Dwarf (96464), Essence of Dark Elf (96452), Essence of Barbarian (96460)\n\n }\n #stat items\nelsif($itemcount{66616} && $random_result>2801 && $random_result<3000){  \nquest::summonitem(quest::ChooseRandom(7466,1139,1152,1140,7479,1138)); # Item(s): Beer Goggles (7466), Blue Resistance Stone (1139), Green Resistance Stone (1152), Red Resistance Stone (1140), Snakefingers (7479), White Resistance Stone (1138)\n\n }\n #golden ticket\nelsif($itemcount{66616} && $random_result==3001){  \nquest::summonitem(66615); # Item: Gold Ticket\n\n }\n   }",
+      "encoding": "utf-8"
+    },
+    "quests/soltemple/Blaize_the_Radiant.pl": {
+      "sha256": "4adaa97a42e33e1f3834b85789747ff0735c1964c65c6e73142a87e4d563b380",
+      "text": "# Cleric quests\n# items: 4921, 4924, 4922, 4923\n\nsub EVENT_SAY { \n  if($text=~/Hail/i){\n    quest::say(\"Hail, faithful one. I am Blaize the Radiant. Brother Gavel and I are well known among clerics for our forging skills, but special payment is required for our services. Special [Ingots and Icons] given to our members have been lost, and we will reward whoever retrieves them for us.\");\n  }\n  if($text=~/ingots and icons/i){\n    quest::say(\"The Ingots and Icons are all named after the virtues of the cleric who held them. The virtues I require are those of the [Reliant], the [Ardent], the [Fervent] and the [Penitent].\");\n  }\n  if($text=~/reliant/i){\n    quest::say(\"Turgan the Reliant lived in a cabin in the Kithicor woods until there was a great fire. Searching the burned cabins there may turn something up. He always loved Lake Rathetear as well. Bring me the Ingot of the Reliant, the Icon of the Reliant, and one Enchanted Platinum Bar and I will forge them into a reward for you.\");\n  }\n  if($text=~/ardent/i){\n    quest::say(\"Theo the Ardent was in constant war with a gnome necromancer in Befallen named Babbinsbort, but he never could defeat him. Poor Theo drown on an expedition to Everfrost when the ice of the frozen river gave way underneath him. Bring me the Ingot of the Ardent, the Icon of the Ardent, and 1 Galvanized Platinum Bar and I will forge them into a reward for you.\");\n  }\n  if($text=~/fervent/i){\n    quest::say(\"Jovan the Fervent was always prone to vice. He lost his ingot in a game of Kings Court with an aviak named Gull in the Ocean of Tears. After that he became a drunkard and it has been said he lurks around the bars in Highpass Hold. Bring me the Ingot of the Fervent, the Icon of the Fervent, and 1 Vulcanized Platinum Bar and I will forge them into a reward for you.\");\n  }\n  if($text=~/penitent/i){\n    quest::say(\"Astrid the Penitent often visited the frogloks of Upper Guk. She once told me her ingot was hidden underwater there. I found that strange because she couldn't swim. She was also a good friend to the Kerrans of Kerra Ridge, where she lost her life fighting against the Erudite hereitic Maugarim. Bring me the Ingot of the Penitent, the Icon of the Penitent, and one Magnetized Platinum Bar and I will forge them into a reward for you.\");\n  }\n}\n\nsub EVENT_ITEM {\n\n  # boots of the reliant\n  if(($itemcount{19001} == 1) && ($itemcount{19002} == 1) && ($itemcount{16507} == 1)) {\n    quest::say(\"Well done! Please take these boots as your reward.\");  # text made up\n    quest::summonitem(4921); # Item: Boots of the Reliant\n    quest::faction(\"415\",\"15\");\n    quest::faction(\"416\",\"-15\");\n    quest::exp(1000);\n  }\n\n  # greaves of the penitent\n  if(($itemcount{19007} == 1) && ($itemcount{19008} == 1) && ($itemcount{19049} == 1)) {\n    quest::say(\"Well done! Please take these greaves as your reward.\");  # text made up\n    quest::summonitem(4924); # Item: Greaves of the Penitent\n    quest::faction(\"415\",\"15\");\n    quest::faction(\"416\",\"-15\");\n    quest::exp(1000);\n  }\n\n  # Gauntlets of the Ardent\n  if(($itemcount{19003} == 1) && ($itemcount{19004} == 1) && ($itemcount{19047} == 1)) {\n    quest::say(\"Well done! Please take these gauntlets as your reward.\");  # text made up\n    quest::summonitem(4922); # Item: Gauntlets of the Ardent\n    quest::faction(\"415\",\"15\");\n    quest::faction(\"416\",\"-15\");\n    quest::exp(1000);\n  }\n\n  # vambraces of the fervent\n  if(($itemcount{19005} == 1) && ($itemcount{19006} == 1) && ($itemcount{19048} == 1)) {\n    quest::say(\"Well done! Please take these vambraces as your reward.\");  # text made up\n    quest::summonitem(4923); # Item: Vambraces of the Fervent\n    quest::faction(\"415\",\"15\");\n    quest::faction(\"416\",\"-15\");\n    quest::exp(1000);\n  }\n\n}\n\n# Quest by mystic414\n\n",
+      "encoding": "utf-8"
+    },
+    "quests/soltemple/Gardern.pl": {
+      "sha256": "37bf2828c1e459051d8e888e31481186a39afcc35c982ce072eaee6b353908f9",
+      "text": "# Quest for Staff of Temperate Flux and Weeping Wand\n# Quest for Bard Lambent Sapphire\n# items: 6342, 6341, 10119\n\nsub EVENT_SAY {\n  if($text=~/Hail/i) {\n    quest::say(\"I am Gardern, listed among the chosen of Solusek Ro.  I hold the lore to the [Staff of Temperate Flux] and the [Weeping Wand] - items coveted by my Wizardly brethren.\");\n  }\n  if($text =~ /staff of temperate flux/i) {\n    quest::say(\"The Staff of Temperate Flux is a boon to those who dabble in the elemental arts, for it can increase the susceptibility of a creature to both fire and cold.  Are you [interested in the staff]?\");\n  }\n  if($text =~ /interested in the staff/i) {\n    quest::say(\"I will craft you a Staff of Temperate Flux, but you must bring me the components which I require to make it.  I will need a Heart of Fire from an Inferno Goblin Wizard in the Caverns of Solusek, a Heart of Frost from a Goblin Wizard in the Caverns of Permafrost, a Rod of Bone from a Stone Skeleton by the shores of Lake Rathe and a Staff of Ro.  Bring me these items, and I will make you your staff.\");\n  }\n  if($text =~ /weeping wand/i) {\n    quest::say(\"The Weeping Wand is a fine item for a Wizard - it can aid as a focus for concentration, and, if needed, be used to parry as well.  Are you [interested in the wand]?\");\n  }\n  if($text =~ /interested in the wand/i) {\n    quest::say(\"I can make you a Weeping Wand, but you will need to bring me certain components.  I will need a Silver Wand from a Silvered Guard in the Temple Cazic Thule, A Bloodblack Wand from the Mountains of Rathe, Twice-Woven Silk from a Faerie Guard in Faydark and a Scepter of Sorrow from the Tomb in Castle Mistmoore.  Bring me these items and I will make for you a Weeping Wand.\");\n  }\n}\n\nsub EVENT_ITEM {\n\n  # Staff\n  if(($itemcount{10548} == 1) && ($itemcount{10549} == 1) && ($itemcount{10550} == 1) && ($itemcount{6048} == 1)) {\n    quest::say(\"Well done, $name. Now I will craft your Staff of Temperate Flux, as promised.\");\n    quest::summonitem(6342); # Item: Staff of Temperate Flux\n    quest::faction(\"415\",\"15\");\n    quest::faction(\"416\",\"-15\");\n    quest::exp(1000);\n  }\n\n  # Wand\n  if(($itemcount{10551} == 1) && ($itemcount{6338} == 1) && ($itemcount{10557} == 1) && ($itemcount{14364} == 1)) {\n    quest::say(\"Well done, $name. Now I will craft your Weeping Wand, as promised.\");\n    quest::summonitem(6341); # Item: Weeping Wand\n    quest::faction(\"415\",\"15\");\n    quest::faction(\"416\",\"-15\");\n    quest::exp(1000);\n  }\n\n  # Bard Lambent Stone\n  if(($itemcount{10034} == 2) && ($itemcount{10000} == 1)) {\n    quest::say(\"Ahh, Genni must have sent you to me.  Very well, here is your Lambent Sapphire.\");\n    quest::summonitem(10119); # Item: Lambent Sapphire\n    quest::faction(\"415\",\"15\");\n    quest::faction(\"416\",\"-15\");\n    quest::exp(1000);\n  }\n}\n\n# Quest edited by mystic414\n\n",
+      "encoding": "utf-8"
+    },
+    "quests/soltemple/Joyce.pl": {
+      "sha256": "d91c40856dd6d51279b84f93079f6fab48aaaf49afc55f39f1afa2099632a82e",
+      "text": "# Magician Quests\n# items: 2358, 2359, 2357, 1356\n\nsub EVENT_SAY {\n  if($text=~/hail/i) {\n    quest::say(\"I am Joyce of the Temple of Solusek Ro. I am the guardian of four of the items of the elementalist. If you are a magician, ask me about the [Robe of the Elements], the [Clay Bracelet], the [Earthen Boots] or the [Circlet of Mist]\");\n  }\n  if($text=~/circlet of mist/i) {\n    quest::say(\"The Circlet of Mist is a beautiful hoop that would look good atop your head. It produces a fine gleam, and is known to increase your mental power. Are you [interested in the circlet]?\");\n  }\n  if($text=~/interested in the circlet/i) {\n    quest::say(\"I will be needing the proper components to craft the circlet of mist. I will be needing a Globe of Mist which can be found on festering hags, a Water Ring from a Tidal Lord in Dagnor's Cauldron, a Ring of Evoluoy from an alligator in Feerrott, and a Sapphire, I will craft it for you.\");\n  }\n  if($text=~/clay bracelet/i) {\n    quest::say(\"The clay bracelet is a wonderful piece of jewelry to wear on your wrist. It provides fine protection, enhances your resistance to magic, and lets you call forth a mystic eye to help you in your travels. Are you [interested in the bracelet]?\");\n  }\n  if($text=~/interested in the bracelet/i) {\n    quest::say(\"I will make you a clay bracelet, but you will need to bring me the proper components. I will need each of the four runes of clay. Three of them can be found in the Rathe Mountains, held by gnomish necromancers. The fourth one is somewhere in the Ocean of Tears, held by a goblin headmaster. Bring me these four components, and I will make you a clay bracelet.\");\n  }\n  if($text=~/earthen boots/i) {\n    quest::say(\"Earthen Boots are a fine adornment for the feet of any Magician. They have a wonderful brown color, and are known to enhance the stamina of any Magician who wears them. As an added bonus, animals do not tend to notice those who wear Earthen Boots. Are you [interested in the boots]?\");\n  }\n  if($text=~/interested in the boots/i) {\n    quest::say(\"I will make you a pair of earthen boots, but you will need to retrieve for me the proper components to craft these. I will be needing a Stone Marker which can be found on a Glyphed Guard in Castle Mistmoore, a Heart of Stone from a Stone Skeleton, a pair of Soiled Boots which can be found on a froglok Tonta Knight in Guk, and a Cats Eye Agate. Bring me these items and I will craft your earthen boots.\");\n  }\n  if($text=~/robe of the elements/i) {\n    quest::say(\"The Robe of the Elements is a fine cloak for a Magician. It provides protection from the elements, protection from melee attacks and aids the Magician with her focus. Are you [interested in the robe]?\");\n  }\n  if($text=~/interested in the robe/i) {\n    quest::say(\"I will make for you the Robe of the Elements, but I will be needing the proper components. I will be needing a fire goblin skin, a frost goblin skin, a Twice-Woven Cloak which can be found on Faerie Guards in the Faydark, and a scroll of elemental armor. Return to me with these items and I will craft your robe.\");\n  }\n}\n\nsub EVENT_ITEM {\n  #circlet\n  if($itemcount{10545} && $itemcount{10547} && $itemcount{10034} && $itemcount{10546} == 1) {\n    quest::say(\"You have done well. You are truly a powerful magician. Here is yourCirclet of Mist.\");\n    quest::summonitem(2358); # Item: Circlet of Mist\n    quest::faction(\"415\",\"15\");\n    quest::faction(\"416\",\"-15\");\n  }\n  #bracelet\n  if($itemcount{10539} && $itemcount{10542} && $itemcount{10540} && $itemcount{10541} == 1) {\n    quest::say(\"One, two, three.. all four runes of clay! I knew you looked competent. I am very impressed! Please take the Clay Bracelet that you have earned.\");\n    quest::summonitem(2359); # Item: Clay Bracelet\n    quest::faction(\"415\",\"15\");\n    quest::faction(\"416\",\"-15\");\n  }\n  #boots\n  if($itemcount{10543} && $itemcount{10026} && $itemcount{10544} && $itemcount{2363} == 1) {\n    quest::say(\"You have done well. You are truly a powerful magician. Here are your EarthenBoots.\");\n    quest::summonitem(2357); # Item: Earthen Boots\n    quest::faction(\"415\",\"15\");\n    quest::faction(\"416\",\"-15\");\n  }\n  #robe\n  if($itemcount{2361} && $itemcount{2362} && $itemcount{15109} && $itemcount{2360} == 1) {\n    quest::say(\"You have done well. You are truly a powerful magician. Here is your Robe of the Elements.\");\n    quest::summonitem(1356); # Item: Robe of the Elements\n    quest::faction(\"415\",\"15\");\n    quest::faction(\"416\",\"-15\");\n  }\n}\n\n# Quest edited by mystic414\n\n",
+      "encoding": "utf-8"
+    },
+    "quests/soltemple/Ostorm.pl": {
+      "sha256": "eb1f8dc3205e4425cf05595154de539ae8a7e2f105a0c71c53cb2531c8a9caca",
+      "text": "# Quest for respecialization\n# Quest for Bard Lambent Fire Opal\n# items: 10128, 19049\n\nsub EVENT_SAY {\n  if($text=~/hail/i) {\n    quest::say(\"I am Ostorm of the Temple of Solusek Ro, guardian of the sacred crystal of Kintaz.  Be wary and keep your distance, lest the proximity of the crystal [steal] your [memories].\");\n  }\n  if($text=~/steal my memories/i) {\n    quest::say(\"It is the nature of the crystal of Kintaz to steal the memories of those around it. Only I am safe, and then only because of the strong wardings placed on me by Solusek Ro himself. Are you interested in [losing] any [memories]?\");\n  }\n  if($text=~/losing my memories/i) {\n    quest::say(\"Recently, I have been experimenting with the crystal, and have found that those exposed to ruby light filtered through it tend to lose the memories of their most specialized arcane skills. Are you sure you want to [lose advanced memory] of specialization?\");\n  }\n  if($text=~/lose advanced memory/i) {\n    quest::say(\"Be warned that once exposed to the crystal, I can not reverse the effects. If you desire exposure, fetch me a ruby.\");\n  }\n  if($text=~/fifty gold/i) {\n    quest::say(\"You do not remember?  You promised me fifty gold coins for allowing you to be exposed to the sacred crystal of Kintaz.\");\n  }\n}\n\nsub EVENT_ITEM {\n  if($itemcount{10035} == 1) {\n    quest::say(\"..hear me? Ah, you seem to be coming out of your stupor. I think you have been exposed to the crystal long enough. By the time you leave the temple, your memories should have faded. Do you have the [fifty gold] coins that you owe me?\");\n    quest::faction(\"415\",\"1\");\n    quest::faction(\"416\",\"-1\");\n    foreach $skill (43, 44, 45, 46, 47) {\n      if($client->GetSkill($skill) > 49) {\n        $client->SetSkill($skill, 49);\n      }\n    }\n    quest::me(\"Your specialize skills have all been set to 49.\");\n    quest::exp(1000);\n  }\n\n  if($gold == 50) {\n    quest::say(\"Thank you.\");\n    quest::faction(\"415\",\"1\");\n    quest::faction(\"416\",\"-1\");\n  }\n\n  #Lambent Fire Opal\n  if(($itemcount{10031} == 2) && ($itemcount{10000} == 1)) {\n    quest::say(\"Ahh, Genni must have sent you to me.  Very well, here is your Lambent Fire Opal.\");\n    quest::summonitem(10128); # Item: Lambent Fire Opal\n    quest::faction(\"415\",\"1\");\n    quest::faction(\"416\",\"-1\");\n  }\n\n  #magnetized platinum\n  if($itemcount{16507} == 1) {\n    quest::say(\"I see that Gavel has sent you to me.  Very well, I have magnetized your platinum bar - take it.\");\n    quest::summonitem(19049); # Item: Magnetized Platinum Bar\n  }\n}\n\n# Quest by mystic414\n\n",
+      "encoding": "utf-8"
+    },
+    "quests/soltemple/Solomen.pl": {
+      "sha256": "0a98496e278dd98fd633cdfde9c9fe9d8317bd653a42e63e9e02f96df75722de",
+      "text": "# items: 18088, 14341\nsub EVENT_SAY {\nif($text=~/Hail/i){\nquest::say(\"Ah, I see you have found my study.  This is where I study and scribe the history of magic in Norrath.\");\n}\nif($text=~/what history/i){\nquest::say(\"I have worked to chronicle everything from the beginnings of magic to what we consider the modern day of magic.  Solusek Ro has been very generous to those who wield magic in Norrath.  But throughout history there is one thing I have noticed - too much power corrupts the soul.  I have seen and documented that the strongest wizards and those closest to Solusek Ro become corrupted by their power.\");\n}\nif($text=~/what wizards/i){\nquest::say(\"Unfortunately, I don't have time to speak of such things right now.  But I could use your help since you are here.  I have here an envelope that I need delivered to one Camin.  You can find him near the wizard tower in the city of Erudin.  He is a sage like myself whose knowledge rivals my own.  Do you [agree] to undertake my task?\");\n}\nif($text=~/i agree/i){\nquest::say(\"Here you are, then.  Good luck on your journey.\");\nquest::summonitem(\"18088\");\n}\n}\nsub EVENT_ITEM {\n\tif($itemcount{14340} == 1){\n\t\tquest::say(\"You actually did it! I never would have thought that anyone could have truly followed this path. This is a tribute to your intelligence and patience. Here, take this staff and know that you have made Solusek Ro and all the wizards of the world proud this day.\");\n\t\tquest::summonitem(14341); # Item: Staff of the Four\n\t\tquest::faction(404, -100); #truespirit, resets the +100 in gains from quest start up to this point.\n\t} else {\n\t\tquest::say(\"I don't need this.\");\n\t\tif($item1 > 0){quest::summonitem(\"$item1\");} \n\t\tif($item2 > 0){quest::summonitem(\"$item2\");} \n\t\tif($item3 > 0){quest::summonitem(\"$item3\");} \n\t\tif($item4 > 0){quest::summonitem(\"$item4\");}\n\t\tif($platinum != 0 || $gold !=0 || $silver != 0 || $copper != 0) {quest::givecash($copper, $silver, $gold, $platinum);}\n\t}\n}\n\n#END of FILE Zone:soltemple  ID:80023 -- Solomen \n\n",
+      "encoding": "utf-8"
+    },
+    "quests/soltemple/Sultin.pl": {
+      "sha256": "585fcf48e98622aaf97c35e3a3deb3c87ae1f1a693981c071448536d74469e58",
+      "text": "# Enchanter quests\n# items: 6329, 6334, 2351, 2350\n\nsub EVENT_SAY {\n  if($text=~/hail/i) {\n   quest::say(\"I am Sultin - keeper of the three [Incandescent]s of power and the [Rod] of Insidious Glamour. If you are an Enchanter, perhaps we can deal.\");\n  }\n  if($text=~/incandescent/i) {\n   quest::say(\"There are three Incandescent items of power - [Wand], [Mask] and [Gloves]. Are you [interested] in any of them?\");\n  }\n  if($text=~/interested in the wand/i) {\n   quest::say(\"Ahh, the Incandescent Wand. If you will get the components to make another, I will give you mine. I will need a Pouch of Silver Dust, found on the dusty Werebat in the Estate of Unrest. I will also need a Silver wand, found on a Silvered Guard in the Temple of Cazic Thule. This wand will not be enchanted - you will need to pay Esmirella of the Northern Karana Gypsy Camp 50 gold to enchant it for you. When the Wand is fully enchanted, bring it and the pouch to me and I will give you the Incandescent Wand.\");\n  }\n  if($text=~/interested in the mask/i) {\n   quest::say(\"An item of power - the Incandescent Mask. If you will bring me the components to make another, I will give you an Incandescent Mask. I will need a Glowing Mask, found on the skeletal monk in the caverns of Guk. I will also need all three Runes of Fortune. One Rune can be found on the Dark Elf Enynti in the Chasm below Castle Mistmoore. The other two can each be purchased for 50 golden coins each - one from Mizr N`Mar in the Neriak City Library and the other from Madam Serena in the city of Qeynos. Bring me all three Runes and the Glowing Mask and I will give you your reward.\");\n  }\n  if($text=~/interested in the gloves/i) {\n   quest::say(\"My personal favorite - Incandescent Gloves. If you bring me the components to make another pair, I will give you my gloves. Incandescent Gloves are made by sewing together four other sets of gloves. Glowing Gloves can be found on our mortal enemies - the Shadowed Men. Radiant Gloves can be found on Radiant in the Feerrott. Enchanted and Gleaming gloves can be purchased for 50 golden coins from Tizina of the Lavastrom Gypsies and a bloodstone from Tarn Vislin of HighKeep. Bring me all four sets of gloves and I will give you a pair of Incadescent ones.\");\n  }\n  if($text=~/rod/i) {\n   quest::say(\"I am keeper of the Rod of Insidious Glamour - a device of guile and deceit. The rod will increase the Charisma of whomever holds it. Are you [interested] in obtaining the [rod]?\");\n  }\n  if($text=~/interested in the rod/i) {\n   quest::say(\"If I am to give you this rod, you must bring me the parts to make another. I will need the Golden Rod from the froglok priest in Guk, as well as a Shining Stone from our mortal enemies, the Shadowed Men. Once you have obtained the Shining Stone, you will need to get it enchanted. Cynthia of the Rathe Mountain Gypsy Clan will enchant the Shining Stone for you - give it to her with 50 golden coins. When the Stone is fully enchanted, bring it and the rod to me and I will give you a Rod of Insidious Glamour.\");\n  }\n}\n\nsub EVENT_ITEM {\n  # Rod of Insidious Glamour\n  if(($itemcount{10087} == 1) && ($itemcount{6337} == 1)) {\n    quest::say(\"Well done, adventurer. You have kept your part of the bargain, so I keep mine. Here is your rod.\");\n    quest::summonitem(6329); # Item: Rod of Insidious Glamour\n    quest::faction(\"415\",\"5\");\n    quest::faction(\"416\",\"-1\");\n    quest::exp(1000);\n  }\n\n  # Incandescent Wand\n  if(($itemcount{12240} == 1) && ($itemcount{6340} == 1)) {\n    quest::say(\"I see that you are resourceful... you have earned your incandescent wand.\");\n    quest::summonitem(6334); # Item: Incandescent Wand\n    quest::faction(\"415\",\"5\");\n    quest::faction(\"416\",\"-1\");\n    quest::exp(1000);\n  }\n\n  # Incandescent Gloves\n  if(($itemcount{2353} == 1) && ($itemcount{2354} == 1) && ($itemcount{2355} == 1) && ($itemcount{2356} == 1)) {\n    quest::say(\"Four pairs of gloves you have given me ? I will give you one pair in return. We shall see who had the better deal.\");\n    quest::summonitem(2351); # Item: Incandescent Gloves\n    quest::faction(\"415\",\"5\");\n    quest::faction(\"416\",\"-1\");\n    quest::exp(1000);\n  }\n\n  # Incandescent Mask\n  if(($itemcount{2352} == 1) && ($itemcount{10530} == 1) && ($itemcount{10531} == 1) && ($itemcount{10532} == 1)) {\n    quest::say(\"Fortune favors you .. as will this mask.\");\n    quest::summonitem(2350); # Item: Incandescent Mask\n    quest::faction(\"415\",\"5\");\n    quest::faction(\"416\",\"-1\");\n    quest::exp(1000);\n  }\n\n}\n\n# Quest by mystic414\n\n",
+      "encoding": "utf-8"
+    },
+    "quests/soltemple/Syllina.pl": {
+      "sha256": "1e91d0a50f0ccbb2e9726a6b14b5bc5fc9f088fdee5e01136465f65da7276420",
+      "text": "# Necromancer quests\n# items: 1355, 3318, 3317\n\nsub EVENT_SAY { \n  if($text=~/Hail/i){\n    quest::say(\"Hello, I am Syllina, follower of Solusek Ro and keeper of the [Shadow Lore].\");\n  }\n  if($text=~/shadow lore/i){\n    quest::say(\"I hold the secrets to the Shadow Lore so highly prized by Necromancers. If you are interested, I can tell you about [ShadowBound Boots], [ShadowBound Gloves], the [Robe of Enshroudment] or the secrets to the making of [Shadow Silk].\");\n  }\n  if($text=~/shadowbound boots/i){\n    quest::say(\"ShadowBound Boots are boots woven from purest shadow. If you are interested, I will weave you a pair - but I will need [boot components].\");\n  }\n  if($text=~/boot components/i){\n    quest::say(\"I will need the following items to make you a pair of ShadowBound Boots: Shadow Silk, The Scepter of Sorrow from Castle Mistmoore, an Eye of Shadow from our mortal enemies the Shadowed Men and a Skeletal toe from a Rathe Giant Skeleton.\");\n  }\n  if($text=~/shadowbound gloves/i){\n    quest::say(\"ShadowBound Gloves are gloves woven from the purest shadow. If you are interested, I will weave you a pair - but I will need [glove components].\");\n  }\n  if($text=~/glove components/i){\n    quest::say(\"I will need the following items to make you a pair of ShadowBound Gloves: Inky Shadow Silk, The Scepter of Tears from the circle-stair-waterfall of Guk, a Hand of Shadow from our mortal enemies the Shadowed Men and a Skeletal finger from a Rathe Giant Skeleton.\");\n  }\n  if($text=~/robe of enshroudment/i){\n    quest::say(\"The Robe of Enshroudment is a robe woven from the purest of shadow. If you are interested, I will weave you a robe - but I will need the following [robe components].\");\n  }\n  if($text=~/robe components/i){\n    quest::say(\"I will need the following items to make you a Robe of Enshroudment: Large Shadow Silk, A Werebat Wing from the Estate of Unrest, A Mask of Shadow from our mortal enemies the Shadowed Men and a Globe of Shadow from a Nokta Shaman in Guk.\");\n  }\n  if($text=~/shadow silk/i){\n    quest::say(\"If you are interested, I will tell you the secrets of making Shadow Silk for a mere 50 pieces of gold.\");\n  }\n}\n\nsub EVENT_ITEM {\n\n  # Shadow Silk info\n  if($gold >= 50) {\n    quest::say(\"You will need to give the following components to a tailor: a Shadow Wolf Pelt, a Silk Swatch and a Scroll of Gather Shadows. Have the tailor weave them together and she will make you Shadow Silk. To make large shadow silk add an extra shadow wolf pelt. To make inky shadow silk, add an extra scroll.\");\n    quest::faction(\"415\",\"15\");\n    quest::faction(\"416\",\"-15\");\n  }\n\n  # Robe of Enshroudment\n  if(($itemcount{16484} == 1) && ($itemcount{13239} == 1) && ($itemcount{2309} == 1) && ($itemcount{10535} == 1)) {\n    quest::say(\"Well done, $name!  Here is your robe, as promised.\"); # Made this text up\n    quest::summonitem(1355); # Item: Robe of Enshroudment\n    quest::faction(\"415\",\"15\");\n    quest::faction(\"416\",\"-15\");\n    quest::exp(1000);\n  }\n\n  # Shadowbound Gloves\n  if(($itemcount{14363} == 1) && ($itemcount{13234} == 1) && ($itemcount{10534} == 1) && ($itemcount{16485} == 1)) {\n    quest::say(\"Well done, $name!  Here are your gloves, as promised.\"); # Made this text up\n    quest::summonitem(3318); # Item: ShadowBound Gloves\n    quest::faction(\"415\",\"15\");\n    quest::faction(\"416\",\"-15\");\n    quest::exp(1000);\n  }\n\n  # Shadowbound Boots\n  if(($itemcount{14364} == 1) && ($itemcount{13180} == 1) && ($itemcount{10533} == 1) && ($itemcount{16483} == 1)) {\n    quest::say(\"Well done, $name!  Here are your boots, as promised.\"); # Made this text up\n    quest::summonitem(3317); # Item: ShadowBound Boots\n    quest::faction(\"415\",\"15\");\n    quest::faction(\"416\",\"-15\");\n    quest::exp(1000);\n  }\n\n}\n\n# Quest by mystic414\n\n",
+      "encoding": "utf-8"
+    },
+    "quests/soltemple/Vilissia.pl": {
+      "sha256": "4dd49c13f68543be671bbda76062eace2f15fc4ecb13ead5c4cbbfa574d7c654",
+      "text": "# Quest for Wizard Acumen Mask, Runescale Cloak, Tishan's Kilt\n# Quest for Bard Lambent Ruby\n# items: 2366, 2364, 10118, 19048\n\nsub EVENT_SAY {\n  if($text=~/hail/i) {\n    quest::say(\"I am Vilissia, chosen of Solusek Ro.  I am a practitioner in the Wizardly arts, and keeper of lore for the [Runescale Cloak], [Tishans Kilt] and the [Acumen Mask].\");\n  }\n  if($text=~/runescale cloak/i) {\n    quest::say(\"The Runescale cloak is a wonderful item of defense for any Wizard.  Are you [interested in the cloak]?\");\n  }\n  if($text=~/interested in the cloak/i) {\n    quest::say(\"I can assemble for you a Runescale Cloak \u0096 but you will need to bring me the necessary components.  I will need a Lizardscale Cloak from the Feerrott and the three Runes of Scale.  All three can be found on Crocodiles \u0096 Saltwater Crocodiles in the Caverns of Guk, Deepwater Crocodiles in the Oasis of Marr and Firescale Crocodiles in the mountains of Lavastorm.  Bring me these items, and I will make for you a Runescale Cloak.\");\n  }\n  if($text=~/tishans kilt/i) {\n    quest::say(\"Tishan was once counted among the mightiest of wiards \u0096 and his items are items of power.  If you are interested in acquiring Tishans Kilt, you must take a Shadowed Ball from our mortal enemies the Shadowed Men and bring it to Trankia in the Everfrost Mountains.\");\n  }\n  if($text=~/acumen mask/i) {\n    quest::say(\"The Acumen Mask, as its name suggests, confers to its wearer certain powers of insight and knowledge. I can make an Acumen Mask for you, but you will need to bring me the proper components. I will need a Glowing Mask from a Skeletal Monk in the Caverns of Guk, A Patch of Shadow from our mortal enemies the Shadowed Men, a Darkbone Skull from a Greater Darkbone Skeleton in the Estate of Unrest and a Bonechipped Mask from a Goblin Headmaster in the Ocean of Tears. Bring me these four items, and I will make for you an Acumen Mask.\");\n  }\n  if($text=~/interested in the mask/i) {\n    quest::say(\"I can make for you an Acumen Mask, but you will need to bring me the proper components.  I will need a Glowing Mask from a Skeletal Monk in the Caverns of Guk, A Patch of Shadow from our mortal enemies the Shadowed Men, a Darkbone Skull from a Darkbone Skeleton in the Estate of Unrest and a Bonechipped Mask from a Goblin Headmaster in the Ocean of Tears.  Bring me these four items, and I will make for you an Acumen Mask.\");\n  }\n}\n\nsub EVENT_ITEM {\n\n  #mask\n  if(($itemcount{2352} == 1) && ($itemcount{2368} == 1) && ($itemcount{10558} == 1) && ($itemcount{2367} == 1)) {\n    quest::say(\"Well done $name. You truly are a powerful wizard. I have crafted your mask. Take it.\");\n    quest::summonitem(2366); # Item: Acumen Mask\n    quest::faction(\"415\",\"15\");\n    quest::faction(\"416\",\"-15\");\n    quest::exp(1000);\n  }\n\n  #cloak\n  if(($itemcount{2332} == 1) && ($itemcount{10553} == 1) && ($itemcount{10554} == 1) && ($itemcount{10555} == 1)) {\n    quest::say(\"Well done $name. You truly are a powerful wizard. I have crafted your cloak. Take it.\");\n    quest::summonitem(2364); # Item: Runescale Cloak\n    quest::faction(\"415\",\"15\");\n    quest::faction(\"416\",\"-15\");\n    quest::exp(1000);\n  }\n\n  #lambent stone\n  if(($itemcount{10035} == 2) && ($itemcount{10000} == 1)) {\n    quest::say(\"Okay, here is your Lambent Ruby.\");\n    quest::summonitem(10118); # Item: Lambent Ruby\n    quest::faction(\"415\",\"15\");\n    quest::faction(\"416\",\"-15\");\n    quest::exp(1000);\n  }\n\n  #vulcanized platinum\n  if($itemcount{16507} == 1) {\n    quest::say(\"I see that Gavel has sent you to me.  Very well, I have vulcanized your platinum bar - take it.\");\n    quest::summonitem(19048); # Item: Vulcanized Platinum Bar\n  }\n\n}\n\n# Quest by mystic414\n\n",
+      "encoding": "latin-1"
+    },
+    "quests/soltemple/Vurgo.pl": {
+      "sha256": "d67ff695e3bd498aeff35f8483355bf475bd08f0f0e20a54ae67beefc1dda834",
+      "text": "# items: 5316, 10527\nsub EVENT_SAY {\nif($text=~/Hail/i){\nquest::say(\"Welcome! I am Vurgo, follower of Solusek Ro and holder of the [harvester] and the [Words of Darkness].\");\n}\nif($text=~/what harvester/i){\nquest::say(\"I can forge you one, but you will need to bring me the correct [scythe components].\");\n}\nif($text=~/what scythe components/i){\nquest::say(\"The first thing I need is a shadowed scythe from our mortal enemies, the shadowed men.\");\n}\nif($text=~/what words of darkness/i){\nquest::say(\"I can scribe for you the Words of Darkness, but you will need to bring me the correct [word components].\");\n}\nif($text=~/what word components/i){\nquest::say(\"The first thing that I need is a shadowed book from our mortal enemies, the shadowed men.\");\n}\n}\nsub EVENT_ITEM {\n\tif($itemcount{10538} == 1 && $itemcount{10031} == 1 && $itemcount{7331} == 1 && $itemcount{5103} == 1) { # A Fungus Eye, Fire Opal, Shadowed Knife, Shadowed Scythe\n\t\tquest::summonitem(\"5316\"); # Harvester\n\t} elsif($itemcount{10536} == 1 && $itemcount{10537} == 1 && $itemcount{10529} == 1) { # Book of Darkness, Book of Frost, Shadowed Book\n\t\tquest::summonitem(\"10527\"); # Words of Darkness\n\t} else {\n\t\tquest::say(\"I don't need this.\");\n\t\tif($item1 > 0){quest::summonitem(\"$item1\");} \n\t\tif($item2 > 0){quest::summonitem(\"$item2\");} \n\t\tif($item3 > 0){quest::summonitem(\"$item3\");} \n\t\tif($item4 > 0){quest::summonitem(\"$item4\");}\n\t\tif($platinum != 0 || $gold !=0 || $silver != 0 || $copper != 0) {quest::givecash($copper, $silver, $gold, $platinum);}\n\t}\n}\n\n#END of FILE Zone:soltemple  ID:80016 -- Vurgo \n",
+      "encoding": "utf-8"
+    },
+    "quests/stonebrunt/Miranda.pl": {
+      "sha256": "72db802e4431220ae8563b03d7752a0e8beb91438ef4cd70bdeb24d5cb885321",
+      "text": "#NPC:    Miranda\n#NPC ID: #100143\n#Zone: Stonebrunt\n#Quest by Dave\n# items: 20115, 20116\n\nsub EVENT_SAY\n{\n if($text =~ /hail/i)\n {\n  quest::say(\"I'm not supposed to talk to strangers but if my parents let you in here I guess it's ok. Do you like [candy]? I could give you some [candy] to play a game with me but my [dice] are gone now.\");\n }\n if($text =~ /candy/i)\n {\n  quest::say(\"Khonza Ayssla went away one time and came back with chocolate covered cherries and pixie powder cinnesticks for my sister and I. I like the chocolates the best.\");\n }\n if($text =~ /dice/i)\n {\n  quest::say(\"I had my dice in a little bag and lost it outside the walls of the village. I think the kobolds must have found it.\");\n }\n}\n\nsub EVENT_ITEM\n{\n if($itemcount{19992} == 1)\n {\n  quest::emote(\"claps her hands with excitement.\");\n  quest::say(\"Chocolate cherries!! My favorite!! Here try some of this!!\");\n  quest::exp(50);\n  quest::summonitem(20115); # Item: Pouch of Kejek Catnip\n  quest::faction(473,5); # Faction: Kejek Village\n  quest::faction(398,2); # Faction: Riptide Goblins\n }\n if($itemcount{2088} == 1)\n {\n  quest::summonitem(20116); # Item: Ball of Burlap Yarn\n  quest::say(\"You found my dice!!! Thank you!!\");\n  quest::exp(120);\n  quest::faction(473,5); # Faction: Kejek Village\n  quest::faction(398,2); # Faction: Riptide Goblins\n }\n} \n",
+      "encoding": "utf-8"
+    },
+    "quests/stonebrunt/Shazda_Kaekwon.pl": {
+      "sha256": "7700ad9cae5612d5aacafaa260639505069554fde5b3bee182501585e090ef6f",
+      "text": "#Shazda Kaekwon - Stonebrunt\n#NPC ID: 100150\n#Items used:\n#\n#6966, Head of a Male Heretic Invader\n#6967, Head of a Female Heretic Invader\n#17884, Burlap Satchel\n#6969, Satchel of Heretic Heads\n#6955, Kejekan Tribal Headband\n#6953, Swiftclaw Sash\n#\n#Requires a recipe (@4 or 6..  heads in empty satchel = #6969)\n#Quest by Dave\n# items: 17883, 6955, 6953, 6982, 6983, 6984\n\nsub EVENT_SAY {\n  if($text =~ /Hail/i) {\n    quest::say(\"Shalom, $name! I welcome you to our humble village in these [trying times].\");\n  }\n  if($text =~ /trying times/i) {\n    quest::say(\"There are many threats currently facing this village. The kobolds of Clan Kolbok are becoming bolder in pushing the boundaries of the territory in which they usually hunt. A few of the kobolds now hunt recklessly, killing for pleasure instead of sustenance. [Rognarog] the Infuriated is the most murderous of such kobolds. Then there are the [heretics] that have been invading both Clan Kolbok and Kejek territories alike, practicing their dark sorceries as a show of devotion to their faceless god.\");\n  }\n  if($text =~ /heretics/i) {\n    quest::say(\"The heretics have not only corrupted their own spirits but they defile the spirits of the dead with their evil sorceries. Fill this satchel with the heads of invading heretics and I shall reward you for your allegiance to Kejek.\");\n    quest::summonitem(17883); # Item: Burlap Satchel\n  }\n  if($text =~ /rognarog/i) {\n    quest::say(\"Rognarog the Infuriated was once a mighty warrior for Clan Kolbok until his devotion to the kobold god Rolfron Zek devoured his spirit and drove him mad with anguish. Now he wanders the mountains and valleys of Stonebrunt shedding the blood of whatever creatures cross his path. Should you face Rognarog and release him from this life I will reward you for his severed head.\");\n  }\n}\n\nsub EVENT_ITEM {\n  if($itemcount{6969} == 1) {\n    quest::say(\"Less heretics to defile the lands and spirits. You have the gratitude of Kejek for your assistance in repelling the heretic threat.\");\n    quest::summonitem(quest::ChooseRandom(6955,6953)); # Item(s): Kejekan Tribal Headband (6955), Swiftclaw Sash (6953)\n  }\n  if($itemcount{6968} == 1) {\n    quest::say(\"Thank you $name. Let's hope that sends out a strong message to the hertics. Please, take this as a reward.\");\n    quest::summonitem(quest::ChooseRandom(6982,6983,6984)); # Item(s): Titan Blessed Tanto (6982), Titan Blessed Tachi (6983), Titan Blessed Bokken (6984)\n  }\n}\n\n",
+      "encoding": "utf-8"
+    },
+    "quests/timorous/Xiblin_Fizzlebik.pl": {
+      "sha256": "2073a5ef97a33730843d99b97b69f53487aa06ae095541e1cac56602d8cf64ea",
+      "text": "# Part of quest for Veeshan's Peak key\n# items: 19954\n\nsub EVENT_SPAWN {\n\tquest::settimer(\"sit\",10);\n}\n\nsub EVENT_TIMER {\n\tif($timer eq \"sit\") {\n\t\t$npc->SetAppearance(1);\n\t} \n}\n\nsub EVENT_SAY {\n  if ($text=~/hail/i) {\n    quest::say(\"Hello, $name! I am Xiblin Fizzlebik, renowned archeologist and historian of Ak'Anon. I'm currently in search of artifacts and relics on the Iksar [Jarsath tribe]. If you stumble upon anything, please bring it to me.\");\n  }\n  if ($text=~/Jarsath tribe/i) {\n    quest::say(\"About two thousand years ago, there were five different tribes of Iksar who dwelled on the continent of Kunark. One of these tribes was the Jarsath. They were a very primitive sort, proud and tribal, but also cannibalistic. Often, they went to war with the other tribes that co-existed with them back then. The ruins found on this island were of structures created by the Jarsath. I've been excavating for quite some time now, but haven't been able to find anything of significance.\");\n  }\n  if ($text=~/looking for/i) {\n    quest::say(\"In my studies, I have learned that the Jarsath believed they could draw power from a holy symbol... specifically a medallion that represented their tribe. When Salthir became king of the Iksar empire Sebilis, he had the medallion broken into three pieces and hid them on the Kunark continent so that they would never be found. I'm searching for the pieces so that I can put it back together and learn more about this tribe. Perhaps you wish to help?\");\n  }\n  if ($text=~/help/i) {\n    quest::say(\"All I know is that the pieces were most likely hidden in water regions. If you manage to find them, bring them to me and I will be able to put the medallion of the Jarsath back together. I am sure there is much to be learned from it.\");\n  }\n}\n\nsub EVENT_ITEM {\n  if (($itemcount{19959} == 1) && ($itemcount{19960} == 1) && ($itemcount{19961} == 1)) {\n    quest::emote(\"tinkers with the three pieces and snaps the pieces together. 'Wow.. You've done it.. but I suddenly feel very.. strange.. This medallion is cursed! Here, you take it!'\");\n    quest::summonitem(19954); # Item: Medallion of the Jarsath\n    quest::exp(100);\n  }\n}\n\nsub EVENT_SIGNAL {\n\tif($signal == 1) {\n\t\tquest::emote(\"sighs to himself in resignation and continues to dig with obvious annoyance.\");\n\t}\n\tif($signal == 2) {\n\t\tquest::emote(\"mutters to himself. 'Yeah, not because you're a goblin headed moron or anything.'\");\n\t\tquest::signal(96032,30); # NPC: Alrik_Farsight\n\t}\n\tif($signal == 3) {\n\t\tquest::say(\"I didn't say anything! Now get back on your side of the island, you're getting dirt and junk all over mine!\");\n\t}\n}\n\n# Quest by mystic414",
+      "encoding": "utf-8"
+    },
+    "quests/tipt/#Rikabi_the_Riddler.lua": {
+      "sha256": "02b8d4a30ea3129ec7d0afc24a3329d8a7eac216e066ec2d36a118b0a6649948",
+      "text": "-- items: 67551\nlocal riddles = {\n  {\n    item = 54068, -- Coffin\n    loc = { -347, 2046, 631.96 },\n    text = \"Who makes it, has no need of it. Who buys it, has no use for it. Who uses it can neither see nor feel it.\"\n  },\n  { -- todo: verify live text\n    item = 54069, -- Right Hand\n    loc = { -332, 2051, 632.89 },\n    text = \"What can be held in the left hand, but not in the right hand.\"\n  },\n  { -- todo: verify live text\n    item = 54070, -- Gold\n    loc = { -321, 2056, 633.08 },\n    text = \"I drive men mad for love of me, Easily beaten, Never free.\"\n  },\n  {\n    item = 54071, -- Fire\n    loc = { -306, 2063, 631.00 },\n    text = \"I am always hungry. I must always be fed. The finger I lick will soon turn red.\"\n  },\n  {\n    item = 54072, -- Candle\n    loc = { -301, 2083, 631.00 },\n    text = \"My life can be measured in hours. I serve by being devoured. Thin, I am quick. Fat, I am slow. Wind is my foe.\"\n  },\n  {\n    item = 54073, -- Catfish\n    loc = { -306, 2090, 631.00 },\n    text = \"My mouth bears whiskers, but no teeth. I have scales, but I do not weigh. You can bait me with delicious food, but please, no drink today.\"\n  },\n  { -- todo: verify live text\n    item = 54074, -- Pearl\n    loc = { -317, 2087, 631.82 },\n    text = \"Lovely and round, I shine with pale light, grown in darkness, a lady's delight.\"\n  },\n  { -- todo: verify live text\n    item = 54075, -- Rose\n    loc = { -339, 2078, 631.58 },\n    text = \"I'm offered to the loved, and also to the dead. I come in many varied hues, most notably red. My pricks are known to pierce the skin, often resulting in wounds that bled.\"\n  },\n  { -- todo: verify live text\n    item = 54076, -- Glove\n    loc = { -355, 2059, 633.07 },\n    text = \"When I am filled I can point the way, When I am empty Nothing moves me, I have two skins One without and one within.\"\n  },\n  {\n    item = 54077, -- Cork\n    loc = { -367, 2049, 632.33 },\n    text = \"I help to mature your spirits. When moistened, I fulfill my purpose. Should I dry out, my task will fail and my quarry may be worthless.\"\n  },\n  {\n    item = 54078, -- Sand\n    loc = { -379, 2054, 631.95 },\n    text = \"I build up castles. I tear down mountains. I make some men blind. I help others to see.\"\n  },\n  { -- todo: verify live text\n    item = 54079, -- Wine\n    loc = { -388, 2048, 632.96 },\n    text = \"When young, I am sweet in the sun. When middle-aged, I make you happy. When old, I am valued more than ever.\"\n  },\n  {\n    item = 54080, -- Feather\n    loc = { -401, 2056, 631.96 },\n    text = \"I scribble forms of the finest letter, and repel elements of the harshest weather. I am an arrow-aimer and a dust-breaker.\"\n  },\n  { -- todo: verify live text\n    item = 54081, -- Firework\n    loc = { -416, 2044, 632.89 },\n    text = \"Searing 'cross the pitch-black skies, I scream in celebration, yet moments later, my outburst through, I am naught but imagination.\"\n  },\n  {\n    item = 54082, -- Bubble\n    loc = { -434, 2048, 631.76 },\n    text = \"It floats on water, light as can be. A thousand men can't lift it free.\"\n  },\n}\n\nlocal active_riddle_index = math.random(#riddles) -- choose on init\nlocal is_riddle_given = false\nlocal is_riddle_answered = false\n\nlocal riddle_items = {}\nfor i=1,#riddles do\n  riddle_items[riddles[i].item] = i -- mapped to riddles index if we need it later\nend\n\nlocal function spawn_riddle_items()\n  -- only create for items that aren't already spawned\n  local spawned_items = {}\n  local object_list = eq.get_entity_list():GetObjectList()\n  for object in object_list.entries do\n    if object.valid then\n      spawned_items[object:GetItemID()] = true\n    end\n  end\n\n  for _,riddle in pairs(riddles) do\n    if not spawned_items[riddle.item] then\n      eq.create_ground_object(riddle.item, riddle.loc[1], riddle.loc[2], riddle.loc[3], 0.0, 0)\n    end\n  end\nend\n\nlocal function spawn_devastating_pookas()\n  eq.spawn2(289037, 0, 0, -264, 2105, 635, 336) -- a_devastating_pooka\n  eq.spawn2(289037, 0, 0, -243, 2089, 634, 371) -- a_devastating_pooka\n  eq.spawn2(289037, 0, 0, -249, 2075, 635, 387) -- a_devastating_pooka\n  eq.spawn2(289037, 0, 0, -254, 2053, 635, 434) -- a_devastating_pooka\n  eq.spawn2(289037, 0, 0, -230, 2053, 634, 419) -- a_devastating_pooka\n  eq.spawn2(289037, 0, 0, -213, 2080, 635, 379) -- a_devastating_pooka\n  eq.spawn2(289037, 0, 0, -215, 2104, 634, 355) -- a_devastating_pooka\n  eq.spawn2(289037, 0, 0, -233, 2112, 634, 341) -- a_devastating_pooka\nend\n\nlocal function get_riddle_items_turned_in(trade)\n  local count = 0\n  for i=1,4 do\n    local trade_item = trade[\"item\" .. i]\n    if trade_item.valid and riddle_items[trade_item:GetID()] ~= nil then\n      count = count + 1\n    end\n  end\n  return count\nend\n\nlocal function does_any_client_have_key()\n  local invWherePersonal = 2\n  local client_list = eq.get_entity_list():GetClientList()\n  for client in client_list.entries do\n    if client.valid then\n      local inv = client:GetInventory()\n      if inv:HasItem(54083, 1, invWherePersonal) ~= -1 then -- Harshly Spiked Key\n        eq.debug(string.format(\"Client [%s] has key\", client:GetName()))\n        return true\n      end\n    end\n  end\n  return false\nend\n\nlocal function check_bic(client)\n  local qglobals = eq.get_qglobals(client)\n  if qglobals.bic and qglobals.bic == \"11\" then\n    client:SummonItem(67551) -- Vaifan's Temporary Power Cell D\n    client:Message(MT.NPCQuestSay, \"Rikabi the Riddler says 'I sense you have come here seeking something besides passage. Please take this it was left here by one of your people's constructs.'\")\n  end\nend\n\nfunction event_say(e)\n  -- the events can be skipped on live. all that's required is a player in zone\n  -- has the Harshly Spiked Key to get conversations and open the last gate\n\n  if e.message:findi(\"hail\") or e.message:findi(\"mountain\") or e.message:findi(\"test\") or e.message:findi(\"ready\") then\n    if not does_any_client_have_key() then\n      eq.get_entity_list():MessageClose(e.self, true, 100, MT.SayEcho, \"Rikabi the Riddler says, 'It appears that you have somehow found your way to me, but I sense that you are not yet ready to continue. Please, return when you have found that which is yet unfound.'\")\n      return\n    end\n  end\n\n  if e.message:findi(\"hail\") then\n    eq.get_entity_list():MessageClose(e.self, true, 100, MT.SayEcho, \"Rikabi the Riddler says, 'So, another band of treasure-seekers desire to plunder the abomination that our fair temple has become.   There was a time when those that wandered sought to do good in the fields they trampled, repair the trails they followed, and to help those in need they met along their way.  Alas, these times are distant, dusty memories, and so now here I sit and judge.  This [\" .. eq.say_link(\"mountain\") .. \"] pass was once fertile and virtuous, can the same be said of you?  Bah, true nobility is hidden in the heart. Today, your cunning and valor of mind shall be tested!  Step forth, and hear my riddles. Plan to go no further than the grave if your mind and heart are weak!'\")\n  elseif e.message:findi(\"mountain\") then\n    eq.get_entity_list():MessageClose(e.self, true, 100, MT.SayEcho, \"Rikabi the Riddler says, 'This mountain pass was once a holy place. It was a passage to a higher place as well as frame of mind. Everything here inspired the utmost respect of our people. Unfortunately, those days are gone and all that remains is broken or corrupted.  I [\" .. eq.say_link(\"test\") .. \"] all of those who wish to pass now.'\")\n  elseif e.message:findi(\"test\") then\n    eq.get_entity_list():MessageClose(e.self, true, 100, MT.SayEcho, \"Rikabi the Riddler says, 'The test is... riddles! I have many of those. Take time to gather your wits about you and let me know when you are ready. Bear in mind that a wrong answer could lead to dire consequences. Tell me when you are [\" .. eq.say_link(\"ready\") .. \"], and you shall have your riddle. The answer to any of my riddles can be found in the road behind you. Bring me an example of what you believe the answer to be, and you may pass freely.'\")\n    spawn_riddle_items()\n  elseif e.message:findi(\"ready\") then\n    if is_riddle_given then\n      eq.get_entity_list():MessageClose(e.self, true, 100, MT.SayEcho, \"Rikabi the Riddler says, 'Your riddle has already been given. My responsibility lies not in giving second chances to those short of memory.'\")\n    else\n      is_riddle_given = true\n      eq.get_entity_list():MessageClose(e.self, true, 100, MT.SayEcho, \"Rikabi the Riddler says, '\" .. riddles[active_riddle_index].text .. \"'\")\n      eq.debug(string.format(\"Summon riddle answer: [%s]\", eq.say_link(\"#si \" ..riddles[active_riddle_index].item)))\n    end\n  end\nend\n\nfunction event_trade(e)\n  local item_lib = require(\"items\")\n\n  -- turning in more than one riddle item fails. non-riddle items are ignored\n  local riddle_item_count = get_riddle_items_turned_in(e.trade)\n\n  -- door is unlocked for any riddle item turn in (right or wrong). the key is\n  -- NOT required here. items from another expedition can be turned in to open\n  -- door but it's still needed for gate to last area and wrong item spawns pookas\n  if riddle_item_count > 0 then\n    eq.zone_emote(MT.Yellow, \"You hear the grinding of stone as the door unlocks before you.\")\n    eq.get_entity_list():FindDoor(4):SetLockPick(0)\n\n    if not is_riddle_answered then\n      -- hypothetically riddle doesn't need given for success. never guessed right\n      -- to confirm so for now having key IS required for success (can still open door)\n      local riddle = riddles[active_riddle_index]\n      if is_riddle_given and riddle_item_count == 1 and item_lib.check_turn_in(e.trade, {item1 = riddle.item}) then\n        check_bic(e.other)\n        e.other:SummonItem(riddle.item) -- correct riddle item is returned\n        e.self:Say(string.format(\"I have no need for this, %s. You can have it back.\", e.other:GetCleanName())) -- msg id: 1105\n      else\n        spawn_devastating_pookas()\n      end\n      is_riddle_answered = true\n    end\n  end\n\n  item_lib.return_items(e.self, e.other, e.trade)\nend\n",
+      "encoding": "utf-8"
+    },
+    "quests/tox/Emil_Parsini.pl": {
+      "sha256": "953c592936714bf5ee40e6ead3974220b73b1967378b77b100ebfe88a6f7bda5",
+      "text": "# items: 17917, 13824, 13822\nsub EVENT_SAY {\n\nif($text=~/Hail/i){\n\nquest::say(\"Good to meet you. $name.  Please look around.  I have much to offer.  I am a master woodworker.  It runs in the Parsini family.\"); }\n\n}\n\nsub EVENT_ITEM {\n\nif($itemcount{18833} == 1){\n\nquest::say(\"I have been waiting for someone to come and retrieve this staff.  Here you are.  You will have to combine it with treant resin and an Odus pearl.  You can find Odus pearls in the water in the harbor. As for the resin. I can make it if you can find me some treant shards.  Maybe another woodworker or cobbler in Qeynos has some.\");\n\nquest::summonitem(\"17917\"); #Peacekeeper Staff container\n\nquest::faction(\"289\",\"10\"); # +Merchants of Erudin\n\nquest::faction(\"266\",\"10\"); # +High Council of Erudin\n\nquest::faction(\"267\",\"10\"); # +High Guard of Erudin\n\nquest::exp(2432);\n\n}\n\nelsif(plugin::check_handin(\\%itemcount, 13824 => 1)){#Wooden Shards\n\nquest::say(\"Wonderful work!! These shards will work nicely. Here you are then. I found a few flasks of treant resin in the back. You can have one. Thanks again. It kept me from having to go out and hunt treants.\");\n\nquest::summonitem(\"13822\"); #Treant Resin\n\nquest::faction(\"289\",\"10\"); # +Merchants of Erudin\n\nquest::faction(\"266\",\"10\"); # +High Council of Erudin\n\nquest::faction(\"267\",\"10\"); # +High Guard of Erudin\n\nquest::exp(2432);\n\n}\n\n}\n\n#END of FILE Zone:tox  ID:38122 -- Emil_Parsini \n\n",
+      "encoding": "utf-8"
+    }
+  },
+  "direct_checks": [
+    {
+      "path": "quests/gfaydark/Merchant_Iludarae.pl",
+      "hits": [
+        {
+          "line": 3,
+          "text": "if($item1 == 18904){"
+        }
+      ],
+      "lua_sibling": false
+    },
+    {
+      "path": "quests/gfaydark/Merchant_Nildar.pl",
+      "hits": [
+        {
+          "line": 3,
+          "text": "if($item1 == 18903){"
+        }
+      ],
+      "lua_sibling": false
+    },
+    {
+      "path": "quests/global/a_female_rat.pl",
+      "hits": [
+        {
+          "line": 12,
+          "text": "if($item1==\"10262\"){"
+        }
+      ],
+      "lua_sibling": false
+    },
+    {
+      "path": "quests/halloween_event/Dieffer_Wolfhugger_08.pl",
+      "hits": [
+        {
+          "line": 56,
+          "text": "if($itemcount{85062} && $random_result<3){"
+        },
+        {
+          "line": 60,
+          "text": "if($itemcount{85062} && $random_result>2 && $random_result<9){"
+        },
+        {
+          "line": 64,
+          "text": "if($itemcount{85062} && $random_result==9){"
+        },
+        {
+          "line": 68,
+          "text": "if($itemcount{85062} && $random_result==10){"
+        },
+        {
+          "line": 74,
+          "text": "if($itemcount{85062} && $random_result<3){"
+        },
+        {
+          "line": 78,
+          "text": "if($itemcount{85062} && $random_result>2 && $random_result<11){"
+        }
+      ],
+      "lua_sibling": false
+    },
+    {
+      "path": "quests/halloween_event/Dieffer_Wolfhugger_09.pl",
+      "hits": [
+        {
+          "line": 34,
+          "text": "if($itemcount{85062} && $random_result<3)"
+        },
+        {
+          "line": 39,
+          "text": "if($itemcount{85062} && $random_result>2 && $random_result<9)"
+        },
+        {
+          "line": 44,
+          "text": "if($itemcount{85062} && $random_result==9 && !defined $qglobals{halloween_goldenticket})"
+        },
+        {
+          "line": 50,
+          "text": "if($itemcount{85062} && $random_result==9 && defined $qglobals{halloween_goldenticket})"
+        },
+        {
+          "line": 55,
+          "text": "if($itemcount{85062} && $random_result==10)"
+        },
+        {
+          "line": 63,
+          "text": "if($itemcount{85062} && $random_result<3)"
+        },
+        {
+          "line": 68,
+          "text": "if($itemcount{85062} && $random_result>2 && $random_result<11)"
+        }
+      ],
+      "lua_sibling": false
+    },
+    {
+      "path": "quests/halloween_event/Dieffer_Wolfhugger_10.pl",
+      "hits": [
+        {
+          "line": 33,
+          "text": "if($itemcount{85062} && $random_result<2)"
+        },
+        {
+          "line": 38,
+          "text": "if($itemcount{85062} && $random_result>1 && $random_result<8)"
+        },
+        {
+          "line": 43,
+          "text": "if($itemcount{85062} && $random_result>7)"
+        }
+      ],
+      "lua_sibling": false
+    },
+    {
+      "path": "quests/halloween_event/Dieffer_Wolfhugger_11.pl",
+      "hits": [
+        {
+          "line": 34,
+          "text": "if($itemcount{85062} && $random_result < 2)"
+        },
+        {
+          "line": 39,
+          "text": "elsif($itemcount{85062} && $random_result > 1 && $random_result < 6)"
+        },
+        {
+          "line": 44,
+          "text": "elsif((($itemcount{85062} && $random_result > 5) || $itemcount{124688}) && $rewards < 11)"
+        },
+        {
+          "line": 79,
+          "text": "if($item2 == 26015){"
+        }
+      ],
+      "lua_sibling": false
+    },
+    {
+      "path": "quests/halloween_event/Dieffer_Wolfhugger_12.pl",
+      "hits": [
+        {
+          "line": 34,
+          "text": "if($itemcount{85062} && $random_result < 2)"
+        },
+        {
+          "line": 39,
+          "text": "elsif($itemcount{85062} && $random_result > 1 && $random_result < 6)"
+        },
+        {
+          "line": 44,
+          "text": "elsif((($itemcount{85062} && $random_result > 5) || $itemcount{124688}) && $rewards < 11)"
+        },
+        {
+          "line": 81,
+          "text": "if($item2 == 26015){"
+        }
+      ],
+      "lua_sibling": false
+    },
+    {
+      "path": "quests/kaladima/Priest_of_Discord.pl",
+      "hits": [
+        {
+          "line": 16,
+          "text": "if($item1 == \"18700\") {"
+        }
+      ],
+      "lua_sibling": false
+    },
+    {
+      "path": "quests/neriakc/Ulraz_S-Lon.pl",
+      "hits": [
+        {
+          "line": 50,
+          "text": "if ($item1==\"18757\"){quest::say(\"Thanks.\");"
+        }
+      ],
+      "lua_sibling": false
+    },
+    {
+      "path": "quests/poknowledge/Dieffer_Wolfhugger.pl",
+      "hits": [
+        {
+          "line": 32,
+          "text": "if($itemcount{85062} && $random_result < 2) {"
+        },
+        {
+          "line": 47,
+          "text": "elsif($itemcount{85062} && $random_result > 1 && $random_result < 6) {"
+        },
+        {
+          "line": 62,
+          "text": "elsif((($itemcount{85062} && $random_result > 5) || $itemcount{124688})) {"
+        }
+      ],
+      "lua_sibling": false
+    },
+    {
+      "path": "quests/riwwi/a_famished_yunjo.pl",
+      "hits": [
+        {
+          "line": 25,
+          "text": "if($itemcount{$i}) {"
+        },
+        {
+          "line": 26,
+          "text": "my $c = $itemcount{$i};"
+        }
+      ],
+      "lua_sibling": false
+    },
+    {
+      "path": "quests/riwwi/a_hungry_yunjo.pl",
+      "hits": [
+        {
+          "line": 24,
+          "text": "if($itemcount{$i}) {"
+        },
+        {
+          "line": 25,
+          "text": "my $c = $itemcount{$i};"
+        }
+      ],
+      "lua_sibling": false
+    },
+    {
+      "path": "quests/riwwi/a_starved_yunjo.pl",
+      "hits": [
+        {
+          "line": 24,
+          "text": "if($itemcount{$i}) {"
+        },
+        {
+          "line": 25,
+          "text": "my $c = $itemcount{$i};"
+        }
+      ],
+      "lua_sibling": false
+    },
+    {
+      "path": "quests/riwwi/a_thirsting_yunjo.pl",
+      "hits": [
+        {
+          "line": 24,
+          "text": "if($itemcount{$i}) {"
+        },
+        {
+          "line": 25,
+          "text": "my $c = $itemcount{$i};"
+        }
+      ],
+      "lua_sibling": false
+    },
+    {
+      "path": "quests/riwwi/an_emaciated_yunjo.pl",
+      "hits": [
+        {
+          "line": 24,
+          "text": "if($itemcount{$i}) {"
+        },
+        {
+          "line": 25,
+          "text": "my $c = $itemcount{$i};"
+        }
+      ],
+      "lua_sibling": false
+    },
+    {
+      "path": "quests/shadowhaven/Therin_Asakith.pl",
+      "hits": [
+        {
+          "line": 12,
+          "text": "if($itemcount{66616} && $random_result<600 ){"
+        },
+        {
+          "line": 17,
+          "text": "elsif($itemcount{66616} && $random_result>601 && $random_result<1300){"
+        },
+        {
+          "line": 22,
+          "text": "elsif($itemcount{66616} && $random_result>1301 && $random_result<1900){"
+        },
+        {
+          "line": 27,
+          "text": "elsif($itemcount{66616} && $random_result>1901 && $random_result<2400){"
+        },
+        {
+          "line": 32,
+          "text": "elsif($itemcount{66616} && $random_result>2401 && $random_result<2800){"
+        },
+        {
+          "line": 37,
+          "text": "elsif($itemcount{66616} && $random_result>2801 && $random_result<3000){"
+        },
+        {
+          "line": 42,
+          "text": "elsif($itemcount{66616} && $random_result==3001){"
+        }
+      ],
+      "lua_sibling": false
+    },
+    {
+      "path": "quests/shadowhaven/Tirac_Goldbender.pl",
+      "hits": [
+        {
+          "line": 13,
+          "text": "if($itemcount{66616} && $random_result<600 ){"
+        },
+        {
+          "line": 18,
+          "text": "elsif($itemcount{66616} && $random_result>601 && $random_result<1300){  quest::summonitem(quest::ChooseRandom(66607,66608,66609));"
+        },
+        {
+          "line": 22,
+          "text": "elsif($itemcount{66616} && $random_result>1301 && $random_result<1900){"
+        },
+        {
+          "line": 27,
+          "text": "elsif($itemcount{66616} && $random_result>1901 && $random_result<2400){"
+        },
+        {
+          "line": 32,
+          "text": "elsif($itemcount{66616} && $random_result>2401 && $random_result<2800){"
+        },
+        {
+          "line": 37,
+          "text": "elsif($itemcount{66616} && $random_result>2801 && $random_result<3000){"
+        },
+        {
+          "line": 42,
+          "text": "elsif($itemcount{66616} && $random_result==3001){"
+        }
+      ],
+      "lua_sibling": false
+    },
+    {
+      "path": "quests/shadowhaven/Vuri_Pandar.pl",
+      "hits": [
+        {
+          "line": 12,
+          "text": "if($itemcount{66616} && $random_result<600 ){"
+        },
+        {
+          "line": 17,
+          "text": "elsif($itemcount{66616} && $random_result>601 && $random_result<1300){  quest::summonitem(quest::ChooseRandom(66610,66611,66612));"
+        },
+        {
+          "line": 21,
+          "text": "elsif($itemcount{66616} && $random_result>1301 && $random_result<1900){"
+        },
+        {
+          "line": 26,
+          "text": "elsif($itemcount{66616} && $random_result>1901 && $random_result<2400){"
+        },
+        {
+          "line": 31,
+          "text": "elsif($itemcount{66616} && $random_result>2401 && $random_result<2800){"
+        },
+        {
+          "line": 36,
+          "text": "elsif($itemcount{66616} && $random_result>2801 && $random_result<3000){"
+        },
+        {
+          "line": 41,
+          "text": "elsif($itemcount{66616} && $random_result==3001){"
+        }
+      ],
+      "lua_sibling": false
+    },
+    {
+      "path": "quests/soltemple/Blaize_the_Radiant.pl",
+      "hits": [
+        {
+          "line": 28,
+          "text": "if(($itemcount{19001} == 1) && ($itemcount{19002} == 1) && ($itemcount{16507} == 1)) {"
+        },
+        {
+          "line": 37,
+          "text": "if(($itemcount{19007} == 1) && ($itemcount{19008} == 1) && ($itemcount{19049} == 1)) {"
+        },
+        {
+          "line": 46,
+          "text": "if(($itemcount{19003} == 1) && ($itemcount{19004} == 1) && ($itemcount{19047} == 1)) {"
+        },
+        {
+          "line": 55,
+          "text": "if(($itemcount{19005} == 1) && ($itemcount{19006} == 1) && ($itemcount{19048} == 1)) {"
+        }
+      ],
+      "lua_sibling": false
+    },
+    {
+      "path": "quests/soltemple/Gardern.pl",
+      "hits": [
+        {
+          "line": 26,
+          "text": "if(($itemcount{10548} == 1) && ($itemcount{10549} == 1) && ($itemcount{10550} == 1) && ($itemcount{6048} == 1)) {"
+        },
+        {
+          "line": 35,
+          "text": "if(($itemcount{10551} == 1) && ($itemcount{6338} == 1) && ($itemcount{10557} == 1) && ($itemcount{14364} == 1)) {"
+        },
+        {
+          "line": 44,
+          "text": "if(($itemcount{10034} == 2) && ($itemcount{10000} == 1)) {"
+        }
+      ],
+      "lua_sibling": false
+    },
+    {
+      "path": "quests/soltemple/Joyce.pl",
+      "hits": [
+        {
+          "line": 36,
+          "text": "if($itemcount{10545} && $itemcount{10547} && $itemcount{10034} && $itemcount{10546} == 1) {"
+        },
+        {
+          "line": 43,
+          "text": "if($itemcount{10539} && $itemcount{10542} && $itemcount{10540} && $itemcount{10541} == 1) {"
+        },
+        {
+          "line": 50,
+          "text": "if($itemcount{10543} && $itemcount{10026} && $itemcount{10544} && $itemcount{2363} == 1) {"
+        },
+        {
+          "line": 57,
+          "text": "if($itemcount{2361} && $itemcount{2362} && $itemcount{15109} && $itemcount{2360} == 1) {"
+        }
+      ],
+      "lua_sibling": false
+    },
+    {
+      "path": "quests/soltemple/Ostorm.pl",
+      "hits": [
+        {
+          "line": 24,
+          "text": "if($itemcount{10035} == 1) {"
+        },
+        {
+          "line": 44,
+          "text": "if(($itemcount{10031} == 2) && ($itemcount{10000} == 1)) {"
+        },
+        {
+          "line": 52,
+          "text": "if($itemcount{16507} == 1) {"
+        }
+      ],
+      "lua_sibling": false
+    },
+    {
+      "path": "quests/soltemple/Solomen.pl",
+      "hits": [
+        {
+          "line": 18,
+          "text": "if($itemcount{14340} == 1){"
+        }
+      ],
+      "lua_sibling": false
+    },
+    {
+      "path": "quests/soltemple/Sultin.pl",
+      "hits": [
+        {
+          "line": 30,
+          "text": "if(($itemcount{10087} == 1) && ($itemcount{6337} == 1)) {"
+        },
+        {
+          "line": 39,
+          "text": "if(($itemcount{12240} == 1) && ($itemcount{6340} == 1)) {"
+        },
+        {
+          "line": 48,
+          "text": "if(($itemcount{2353} == 1) && ($itemcount{2354} == 1) && ($itemcount{2355} == 1) && ($itemcount{2356} == 1)) {"
+        },
+        {
+          "line": 57,
+          "text": "if(($itemcount{2352} == 1) && ($itemcount{10530} == 1) && ($itemcount{10531} == 1) && ($itemcount{10532} == 1)) {"
+        }
+      ],
+      "lua_sibling": false
+    },
+    {
+      "path": "quests/soltemple/Syllina.pl",
+      "hits": [
+        {
+          "line": 44,
+          "text": "if(($itemcount{16484} == 1) && ($itemcount{13239} == 1) && ($itemcount{2309} == 1) && ($itemcount{10535} == 1)) {"
+        },
+        {
+          "line": 53,
+          "text": "if(($itemcount{14363} == 1) && ($itemcount{13234} == 1) && ($itemcount{10534} == 1) && ($itemcount{16485} == 1)) {"
+        },
+        {
+          "line": 62,
+          "text": "if(($itemcount{14364} == 1) && ($itemcount{13180} == 1) && ($itemcount{10533} == 1) && ($itemcount{16483} == 1)) {"
+        }
+      ],
+      "lua_sibling": false
+    },
+    {
+      "path": "quests/soltemple/Vilissia.pl",
+      "hits": [
+        {
+          "line": 29,
+          "text": "if(($itemcount{2352} == 1) && ($itemcount{2368} == 1) && ($itemcount{10558} == 1) && ($itemcount{2367} == 1)) {"
+        },
+        {
+          "line": 38,
+          "text": "if(($itemcount{2332} == 1) && ($itemcount{10553} == 1) && ($itemcount{10554} == 1) && ($itemcount{10555} == 1)) {"
+        },
+        {
+          "line": 47,
+          "text": "if(($itemcount{10035} == 2) && ($itemcount{10000} == 1)) {"
+        },
+        {
+          "line": 56,
+          "text": "if($itemcount{16507} == 1) {"
+        }
+      ],
+      "lua_sibling": false
+    },
+    {
+      "path": "quests/soltemple/Vurgo.pl",
+      "hits": [
+        {
+          "line": 20,
+          "text": "if($itemcount{10538} == 1 && $itemcount{10031} == 1 && $itemcount{7331} == 1 && $itemcount{5103} == 1) { # A Fungus Eye, Fire Opal, Shadowed Knife, Shadowed Scythe"
+        },
+        {
+          "line": 22,
+          "text": "} elsif($itemcount{10536} == 1 && $itemcount{10537} == 1 && $itemcount{10529} == 1) { # Book of Darkness, Book of Frost, Shadowed Book"
+        }
+      ],
+      "lua_sibling": false
+    },
+    {
+      "path": "quests/stonebrunt/Miranda.pl",
+      "hits": [
+        {
+          "line": 25,
+          "text": "if($itemcount{19992} == 1)"
+        },
+        {
+          "line": 34,
+          "text": "if($itemcount{2088} == 1)"
+        }
+      ],
+      "lua_sibling": false
+    },
+    {
+      "path": "quests/stonebrunt/Shazda_Kaekwon.pl",
+      "hits": [
+        {
+          "line": 33,
+          "text": "if($itemcount{6969} == 1) {"
+        },
+        {
+          "line": 37,
+          "text": "if($itemcount{6968} == 1) {"
+        }
+      ],
+      "lua_sibling": false
+    },
+    {
+      "path": "quests/timorous/Xiblin_Fizzlebik.pl",
+      "hits": [
+        {
+          "line": 30,
+          "text": "if (($itemcount{19959} == 1) && ($itemcount{19960} == 1) && ($itemcount{19961} == 1)) {"
+        }
+      ],
+      "lua_sibling": false
+    },
+    {
+      "path": "quests/tipt/#Rikabi_the_Riddler.lua",
+      "hits": [
+        {
+          "line": 121,
+          "text": "if trade_item.valid and riddle_items[trade_item:GetID()] ~= nil then"
+        }
+      ],
+      "lua_sibling": false
+    },
+    {
+      "path": "quests/tox/Emil_Parsini.pl",
+      "hits": [
+        {
+          "line": 12,
+          "text": "if($itemcount{18833} == 1){"
+        }
+      ],
+      "lua_sibling": false
+    }
+  ],
+  "counts": {
+    "lua_trade": 1483,
+    "perl_trade": 1696,
+    "lua_helper": 1033,
+    "perl_helper": 1337
+  },
+  "content": "id\tName\n4178\tCrafted Gauntlets\n10032\tStar Ruby\n13737\tAviak Charm\n213737\tAviak Charm (Polished)\n413737\tAviak Charm (Exalted)\n613737\tAviak Charm (Ascended)\nid\tname\n14075\tShakrn_Meadowgreen\n",
+  "direct_variants": "id\tName\tvariant_id\tvariant_name\n2332\tLizardscale Cloak\t202332\tLizardscale Cloak (Polished)\n2332\tLizardscale Cloak\t402332\tLizardscale Cloak (Exalted)\n2332\tLizardscale Cloak\t602332\tLizardscale Cloak (Ascended)\n2352\tGlowing Mask\t202352\tGlowing Mask (Polished)\n2352\tGlowing Mask\t402352\tGlowing Mask (Exalted)\n2352\tGlowing Mask\t602352\tGlowing Mask (Ascended)\n2353\tGlowing Gloves\t202353\tGlowing Gloves (Polished)\n2353\tGlowing Gloves\t402353\tGlowing Gloves (Exalted)\n2353\tGlowing Gloves\t602353\tGlowing Gloves (Ascended)\n2356\tRadiant Gloves\t202356\tRadiant Gloves (Polished)\n2356\tRadiant Gloves\t402356\tRadiant Gloves (Exalted)\n2356\tRadiant Gloves\t602356\tRadiant Gloves (Ascended)\n2360\tTwice-Woven Cloak\t202360\tTwice-Woven Cloak (Polished)\n2360\tTwice-Woven Cloak\t402360\tTwice-Woven Cloak (Exalted)\n2360\tTwice-Woven Cloak\t602360\tTwice-Woven Cloak (Ascended)\n2361\tFire Goblin Skin\t202361\tFire Goblin Skin (Polished)\n2361\tFire Goblin Skin\t402361\tFire Goblin Skin (Exalted)\n2361\tFire Goblin Skin\t602361\tFire Goblin Skin (Ascended)\n2362\tFrost Goblin Skin\t202362\tFrost Goblin Skin (Polished)\n2362\tFrost Goblin Skin\t402362\tFrost Goblin Skin (Exalted)\n2362\tFrost Goblin Skin\t602362\tFrost Goblin Skin (Ascended)\n2363\tSoiled Boots\t202363\tSoiled Boots (Polished)\n2363\tSoiled Boots\t402363\tSoiled Boots (Exalted)\n2363\tSoiled Boots\t602363\tSoiled Boots (Ascended)\n2367\tBonechipped Mask\t202367\tBonechipped Mask (Polished)\n2367\tBonechipped Mask\t402367\tBonechipped Mask (Exalted)\n2367\tBonechipped Mask\t602367\tBonechipped Mask (Ascended)\n2368\tPatch of Shadow\t202368\tPatch of Shadow (Polished)\n2368\tPatch of Shadow\t402368\tPatch of Shadow (Exalted)\n2368\tPatch of Shadow\t602368\tPatch of Shadow (Ascended)\n5103\tShadowed Scythe\t205103\tShadowed Scythe (Polished)\n5103\tShadowed Scythe\t405103\tShadowed Scythe (Exalted)\n5103\tShadowed Scythe\t605103\tShadowed Scythe (Ascended)\n6048\tDarkwood Staff\t206048\tDarkwood Staff (Polished)\n6048\tDarkwood Staff\t406048\tDarkwood Staff (Exalted)\n6048\tDarkwood Staff\t606048\tDarkwood Staff (Ascended)\n6337\tGolden Rod\t206337\tGolden Rod (Polished)\n6337\tGolden Rod\t406337\tGolden Rod (Exalted)\n6337\tGolden Rod\t606337\tGolden Rod (Ascended)\n6338\tSilver Wand\t206338\tSilver Wand (Polished)\n6338\tSilver Wand\t406338\tSilver Wand (Exalted)\n6338\tSilver Wand\t606338\tSilver Wand (Ascended)\n6340\tGlowing Silver Wand\t206340\tGlowing Silver Wand (Polished)\n6340\tGlowing Silver Wand\t406340\tGlowing Silver Wand (Exalted)\n6340\tGlowing Silver Wand\t606340\tGlowing Silver Wand (Ascended)\n7331\tShadowed Knife\t207331\tShadowed Knife (Polished)\n7331\tShadowed Knife\t407331\tShadowed Knife (Exalted)\n7331\tShadowed Knife\t607331\tShadowed Knife (Ascended)\n10529\tShadowed Book\t210529\tShadowed Book (Polished)\n10529\tShadowed Book\t410529\tShadowed Book (Exalted)\n10529\tShadowed Book\t610529\tShadowed Book (Ascended)\n10546\tWater Ring\t210546\tWater Ring (Polished)\n10546\tWater Ring\t410546\tWater Ring (Exalted)\n10546\tWater Ring\t610546\tWater Ring (Ascended)\n10547\tRing of Evoluoy\t210547\tRing of Evoluoy (Polished)\n10547\tRing of Evoluoy\t410547\tRing of Evoluoy (Exalted)\n10547\tRing of Evoluoy\t610547\tRing of Evoluoy (Ascended)\n10550\tRod of Bone\t210550\tRod of Bone (Polished)\n10550\tRod of Bone\t410550\tRod of Bone (Exalted)\n10550\tRod of Bone\t610550\tRod of Bone (Ascended)\n",
+  "long_name_examples": ""
+}

@@ -1,4 +1,4 @@
-# Substantial class-armor rewards — October 22 candidate
+# Substantial class-armor rewards â€” October 22 candidate
 
 **Not deployed. Owner gameplay and balance acceptance are open.**
 
@@ -122,3 +122,16 @@ unreleased five-family candidate. Tradeskills explains the distinction. Commands
 Hunt/dungeon catalog values and published mechanics remain unchanged. The source
 ledger retains its published baseline; `check_refresh.py --include-worktree`
 correctly reports this unpublished source drift. Publication is pending.
+
+## October 22 integration correction
+
+The ingredient-quality candidate verified that the mounted configuration loads
+root `plugins/`, not the unused `quests/plugins/` copies in this release's helper
+capture. Historical Perl fixture results remain reward-delta controls only.
+Kurron now declares submitted currency to native `CheckHandin` and refunds it
+once on success, preserving the reviewed full-refund policy without weakening
+global money checks. Native ordinary-tier matching also accepts Polished and
+Exalted Darkforge ingredients. See
+[paired integration evidence and QA](../quest-tier-handins-20261022/README.md).
+The original source-only eleven-file activation cannot activate that native
+policy: deploy the paired zone and combined quest set after authorization.
