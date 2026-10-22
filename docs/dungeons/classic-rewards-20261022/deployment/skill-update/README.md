@@ -1,0 +1,1 @@
+Installed operations/world/items/balance/wiki knowledge and reviewed source fingerprints reflect the verified main/live/wiki release. Exact patch, guarded preimages, receipt and passing skill/context validation are retained. Concurrent robe, quest-tier, armor and waypoint knowledge is preserved. Owner gameplay and balance acceptance remain open.
