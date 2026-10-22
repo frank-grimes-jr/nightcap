@@ -9,7 +9,8 @@ remain exact, failed native money checks restore counts, and real item instances
 are retained for returns. Rewards and forging costs do not change. Paired zone
 and seven quest files required; no SQL/cache/client update. Integration also fixes
 Kurron Ni's native currency mismatch while retaining the reviewed full-refund
-policy; all 64 ordinary Darkforge combinations pass. Tested candidate only;
+policy; all 64 ordinary Darkforge combinations pass. PR284/dev and PR287/test
+are merged with matching reviewed trees. Tested candidate only;
 production/main and player acceptance remain pending. Evidence and QA:
 `docs/releases/quest-tier-handins-20261022/`.
 

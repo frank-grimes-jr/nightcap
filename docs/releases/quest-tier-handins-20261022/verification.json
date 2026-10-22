@@ -152,5 +152,6 @@
     "Root plugins/ is configured; unused quests/plugins/ capture cannot establish native behavior. Fresh directory/hash probe retained.",
     "Kurron currency arguments were absent: original native check failed, corrected by exact submitted denominations plus one full refund on success. Removing declarations now fails129/357 callback checks; mutation receipt retained.",
     "Full native source hashes remain identical to built candidate; no rebuild needed."
-  ]
+  ],
+  "promotion": "promotion.json"
 }

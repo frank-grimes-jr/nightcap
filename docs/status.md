@@ -4,7 +4,8 @@
 Shared Lua/native hand-ins and journal deliveries accept ordinary qualities for
 Normal requirements; five older Solusek Ro scripts now use the native checker.
 Crafted Gauntlets has an exact regression using Polished Aviak Charm. Automated
-checks pass; this is not deployed or owner accepted. No SQL/client/cache changes.
+checks pass; PR284/dev and PR287/test are merged. Test c889cd8 exactly matches
+the reviewed candidate tree. This is not deployed or owner accepted. No SQL/client/cache changes.
 The combined class-armor candidate retains its Ascended rewards. Kurron's native
 currency compatibility is corrected with exactly-once full refunds on success.
 Paired native/quest activation and exact in-game QA remain required. See

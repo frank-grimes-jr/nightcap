@@ -10,6 +10,8 @@ Ascended Crafted Gauntlets 604178. Both callbacks pass with all four charm
 qualities. The reward follows the quest's policy, not the ingredient's quality.
 
 This is an implemented, tested candidate, **not deployed or player accepted**.
+PR284 merged to dev and PR287 to test; test c889cd8 has exactly the reviewed
+feature tree. `promotion.json` records the commits. Exact owner QA is ready.
 Production's twelve zone executables were read on October 22 and all matched
 `5dd5a6558c837ff2e4724edcd12afcabd2e846379a9ca7b8a6e57e7715600f7b`.
 The build authenticates and reproduces that baseline before replacing the two
