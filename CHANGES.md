@@ -1,14 +1,15 @@
 # CHANGES
 
-## 2026-10-22 — Hate Keeper in Commonlands candidate
+## 2026-10-22 — Hate Keeper moved to Commonlands
 
 Moves Hate's existing public Keeper to the East Commonlands travel area at
 `/loc -1570,-346,3`. Cross-zone routing selects Hate for entry and journal actions;
 private Hate instances retain their entrance Keeper, including checkpoint reloads.
 Removes Hate's GM-status gate while retaining level46, also allowing normal
 level46+ public Hate access. New zone binary and guarded SQL must activate together.
-Native build/tests, exact SQL rehearsal and terrain checks pass. Main/live approval,
-wiki publication and owner gameplay QA remain pending. [Evidence and exact QA](docs/ops/hate-keeper-commonlands-20261022/README.md).
+Owner-approved PR299 is merged and the paired release is live. All12 zone
+workers,39 schema/499 content checks and preserved state/cache checks pass.
+Wiki466-file publication is verified. Owner gameplay QA remains open. [Evidence and exact QA](docs/ops/hate-keeper-commonlands-20261022/README.md).
 
 ## 2026-10-22 - Robe waist repair accepted
 

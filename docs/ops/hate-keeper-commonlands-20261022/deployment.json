@@ -1,0 +1,259 @@
+{
+  "source_revision": "a736fb02937931254456daf8954d7466a6aa1c28",
+  "deployed": {
+    "runtime": {
+      "image_id": "sha256:88f37a44c1d96318233661ae4b8cd3c5bdef0ab90e56021db5bb538ce117a8b6",
+      "started_at": "2026-10-22T23:01:16.571425537Z",
+      "restart_count": 0,
+      "processes": [
+        [
+          "loginserver",
+          "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf"
+        ],
+        [
+          "world",
+          "49f87aafadcf6a9063e66cf581c4bd6356571c5c5725786657b95f4b8ba0afa7"
+        ],
+        [
+          "ucs",
+          "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714"
+        ],
+        [
+          "zone",
+          "1d4ef362639722b7eaddc49ae2883e2c5abcefc7c5d958f622cfb048308b995f"
+        ],
+        [
+          "zone",
+          "1d4ef362639722b7eaddc49ae2883e2c5abcefc7c5d958f622cfb048308b995f"
+        ],
+        [
+          "zone",
+          "1d4ef362639722b7eaddc49ae2883e2c5abcefc7c5d958f622cfb048308b995f"
+        ],
+        [
+          "zone",
+          "1d4ef362639722b7eaddc49ae2883e2c5abcefc7c5d958f622cfb048308b995f"
+        ],
+        [
+          "zone",
+          "1d4ef362639722b7eaddc49ae2883e2c5abcefc7c5d958f622cfb048308b995f"
+        ],
+        [
+          "zone",
+          "1d4ef362639722b7eaddc49ae2883e2c5abcefc7c5d958f622cfb048308b995f"
+        ],
+        [
+          "zone",
+          "1d4ef362639722b7eaddc49ae2883e2c5abcefc7c5d958f622cfb048308b995f"
+        ],
+        [
+          "zone",
+          "1d4ef362639722b7eaddc49ae2883e2c5abcefc7c5d958f622cfb048308b995f"
+        ],
+        [
+          "zone",
+          "1d4ef362639722b7eaddc49ae2883e2c5abcefc7c5d958f622cfb048308b995f"
+        ],
+        [
+          "zone",
+          "1d4ef362639722b7eaddc49ae2883e2c5abcefc7c5d958f622cfb048308b995f"
+        ],
+        [
+          "zone",
+          "1d4ef362639722b7eaddc49ae2883e2c5abcefc7c5d958f622cfb048308b995f"
+        ],
+        [
+          "zone",
+          "1d4ef362639722b7eaddc49ae2883e2c5abcefc7c5d958f622cfb048308b995f"
+        ]
+      ],
+      "errors": {
+        "native": 0,
+        "quest": 0,
+        "database": 0
+      }
+    },
+    "gateway_open": true,
+    "database_restored": false,
+    "owner_gameplay_accepted": false,
+    "checks": {
+      "schema": 39,
+      "content": 499
+    }
+  },
+  "current_runtime": {
+    "image_id": "sha256:88f37a44c1d96318233661ae4b8cd3c5bdef0ab90e56021db5bb538ce117a8b6",
+    "started_at": "2026-10-22T23:01:16.571425537Z",
+    "restart_count": 0,
+    "processes": [
+      [
+        "loginserver",
+        "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf"
+      ],
+      [
+        "world",
+        "49f87aafadcf6a9063e66cf581c4bd6356571c5c5725786657b95f4b8ba0afa7"
+      ],
+      [
+        "ucs",
+        "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714"
+      ],
+      [
+        "zone",
+        "1d4ef362639722b7eaddc49ae2883e2c5abcefc7c5d958f622cfb048308b995f"
+      ],
+      [
+        "zone",
+        "1d4ef362639722b7eaddc49ae2883e2c5abcefc7c5d958f622cfb048308b995f"
+      ],
+      [
+        "zone",
+        "1d4ef362639722b7eaddc49ae2883e2c5abcefc7c5d958f622cfb048308b995f"
+      ],
+      [
+        "zone",
+        "1d4ef362639722b7eaddc49ae2883e2c5abcefc7c5d958f622cfb048308b995f"
+      ],
+      [
+        "zone",
+        "1d4ef362639722b7eaddc49ae2883e2c5abcefc7c5d958f622cfb048308b995f"
+      ],
+      [
+        "zone",
+        "1d4ef362639722b7eaddc49ae2883e2c5abcefc7c5d958f622cfb048308b995f"
+      ],
+      [
+        "zone",
+        "1d4ef362639722b7eaddc49ae2883e2c5abcefc7c5d958f622cfb048308b995f"
+      ],
+      [
+        "zone",
+        "1d4ef362639722b7eaddc49ae2883e2c5abcefc7c5d958f622cfb048308b995f"
+      ],
+      [
+        "zone",
+        "1d4ef362639722b7eaddc49ae2883e2c5abcefc7c5d958f622cfb048308b995f"
+      ],
+      [
+        "zone",
+        "1d4ef362639722b7eaddc49ae2883e2c5abcefc7c5d958f622cfb048308b995f"
+      ],
+      [
+        "zone",
+        "1d4ef362639722b7eaddc49ae2883e2c5abcefc7c5d958f622cfb048308b995f"
+      ],
+      [
+        "zone",
+        "1d4ef362639722b7eaddc49ae2883e2c5abcefc7c5d958f622cfb048308b995f"
+      ]
+    ],
+    "errors": {
+      "native": 0,
+      "quest": 0,
+      "database": 0
+    }
+  },
+  "contract": {
+    "schema": 39,
+    "content": 499
+  },
+  "services": {
+    "game": {
+      "id": "45d2f2795a3c58ec329247d2a2304fb36dd28cdcf5f5311c19ce172876c8a2e0",
+      "image_id": "sha256:88f37a44c1d96318233661ae4b8cd3c5bdef0ab90e56021db5bb538ce117a8b6",
+      "started_at": "2026-10-22T23:01:16.571425537Z",
+      "restarts": 0,
+      "running": true,
+      "health": "healthy",
+      "oom_killed": false
+    },
+    "gateway": {
+      "id": "f580a6574668158cafa14443ea121eb8b4bba34996077458c8416957aef01d6d",
+      "image_id": "sha256:2f3b9fc4d88afbb9612f7e1bb1202a31c6e975b1df4a76337cc280ac431ca36d",
+      "started_at": "2026-10-22T23:02:57.168160929Z",
+      "restarts": 0,
+      "running": true,
+      "health": null,
+      "oom_killed": false
+    },
+    "db": {
+      "id": "5c34a0594d5015209f7667d4421c00ef492b80298842829b2edb69c69449d96f",
+      "image_id": "sha256:7f22313fc130a377a44999965bcb0a08dd5b21e8502824c1b864f792f9bc66ab",
+      "started_at": "2026-10-20T00:08:02.308087378Z",
+      "restarts": 2,
+      "running": true,
+      "health": "healthy",
+      "oom_killed": false
+    },
+    "web": {
+      "id": "d8fb0c7da13aea642ae505b0c8bed74b529107185d43dbf35406f6b025d4d71d",
+      "image_id": "sha256:7377697a821c131a924a7105fafbe7414db4e9fcc77a6f08f776f33f141ec3f8",
+      "started_at": "2026-09-20T17:47:54.765116169Z",
+      "restarts": 0,
+      "running": true,
+      "health": null,
+      "oom_killed": false
+    },
+    "tunnel": {
+      "id": "30b1d25ff56bffa77a5b05d1b3d2f6c37b8a87dc05ef098721b6be6555235aac",
+      "image_id": "sha256:ff69a2225ad7c6f85ed84fbd5f3087df46202426b2388ec60214098e0adf05e9",
+      "started_at": "2026-09-20T17:53:43.445441644Z",
+      "restarts": 0,
+      "running": true,
+      "health": null,
+      "oom_killed": false
+    }
+  },
+  "state_tables_preserved": 91,
+  "caches": {
+    "items": "cbfc9e8adce57157888ecdde0c516a2bbd7c94739be6d152774914bd10465dee",
+    "spells": "1ebd94788b4af38c9156c425f47be10ac1419372871febb4a589b3a6d08c2fbf"
+  },
+  "backup": {
+    "path": "/opt/nightcap/releases/hate-keeper-commonlands-20261022/private-backup/peq-before.sql.gz",
+    "sha256": "2d763c5f3bb6648e7e18a9e24a16d4444f2444c251f275b5519bf0350d8c43c3",
+    "compressed_bytes": 64974681,
+    "uncompressed_bytes": 462828128,
+    "gzip_integrity": "passed"
+  },
+  "public_keeper": {
+    "id": "9100012",
+    "zone": "ecommons",
+    "version": "0",
+    "x": "-346.000000",
+    "y": "-1570.000000",
+    "z": "3.000000",
+    "heading": "256.000000"
+  },
+  "hate_access": {
+    "zoneidnumber": "76",
+    "short_name": "hateplane",
+    "min_status": "0",
+    "min_level": "46"
+  },
+  "private_keeper": [
+    {
+      "zone_id": "76",
+      "spawn_id": "9100012",
+      "npc_id": "998812",
+      "group_id": "998812",
+      "boss_id": "0",
+      "is_final": "0",
+      "x": "-337.08",
+      "y": "-374.8",
+      "z": "2",
+      "heading": "0",
+      "respawn": "86400",
+      "grid_id": "0"
+    }
+  ],
+  "native_expiry": {
+    "cutoff_epoch": 1792105273,
+    "expired_noncorpse_rows": 0,
+    "native_rule_days": 7,
+    "boundary_window_seconds": 600
+  },
+  "owner_gameplay_accepted": false,
+  "gateway_open": true,
+  "database_restored": false
+}

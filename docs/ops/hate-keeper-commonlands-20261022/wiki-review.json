@@ -1,7 +1,7 @@
 {
   "wiki_base": "5dff50c5cecd4f9062f3e464990ad93276f8c272",
   "wiki_root": "E:\\EQ_Local_Dev\\_worktrees\\hate-keeper-wiki",
-  "status": "candidate only; not published",
+  "status": "published for live testing; owner native QA open",
   "articles": [
     {
       "article": "about",
@@ -36,7 +36,7 @@
     {
       "article": "dungeon-modes",
       "title": "Raid & Grind dungeons",
-      "decision": "candidate location/access notice"
+      "decision": "live location/access notice and Hate location table reconciled"
     },
     {
       "article": "equipment",
@@ -46,7 +46,7 @@
     {
       "article": "features",
       "title": "Features",
-      "decision": "candidate location/access notice"
+      "decision": "live location/access notice and Hate location table reconciled"
     },
     {
       "article": "getting-started",
@@ -56,7 +56,7 @@
     {
       "article": "index",
       "title": "Welcome to the Nightcap Wiki",
-      "decision": "candidate location/access notice"
+      "decision": "live location/access notice and Hate location table reconciled"
     },
     {
       "article": "item-upgrades",
@@ -81,7 +81,7 @@
     {
       "article": "recent-changes",
       "title": "Recent changes",
-      "decision": "candidate location/access notice"
+      "decision": "live location/access notice and Hate location table reconciled"
     },
     {
       "article": "tradeskills",
@@ -91,17 +91,17 @@
     {
       "article": "travel",
       "title": "Travel & instances",
-      "decision": "candidate location/access notice"
+      "decision": "live location/access notice and Hate location table reconciled"
     },
     {
       "article": "tunnel",
       "title": "East Commonlands tunnel",
-      "decision": "candidate location/access notice"
+      "decision": "live location/access notice and Hate location table reconciled"
     },
     {
       "article": "unreleased",
       "title": "In development",
-      "decision": "candidate location/access notice"
+      "decision": "live location/access notice and Hate location table reconciled"
     },
     {
       "article": "waypoints",
@@ -208,5 +208,17 @@
     "articles/travel.json",
     "articles/tunnel.json",
     "articles/unreleased.json"
-  ]
+  ],
+  "release": "20261022-hate-keeper-v1",
+  "changed_public_files": [
+    "dungeon-modes.html",
+    "features.html",
+    "index.html",
+    "recent-changes.html",
+    "search-index.json",
+    "travel.html",
+    "tunnel.html",
+    "unreleased.html"
+  ],
+  "source_main": "a736fb02937931254456daf8954d7466a6aa1c28"
 }
