@@ -1,0 +1,13 @@
+{
+  "revision": "b33ef2c31c26df95d8f36e39dad1dd498067c7fe",
+  "files": {
+    "world.md": {
+      "before_sha256": "6e3c1437d0b3c2315e61a46309d266d1bfea3ed383a829a14e0c1d7da4deaf7d",
+      "after_sha256": "81863d0f4a8d4179aaccf35e451c70fa1d92486c81c421c73860442bba5aa54e"
+    },
+    "sources.json": {
+      "before_sha256": "7ffb8aea264eaca862ecece0bd6e89380a5793684b2c20a8d9193888a91f8f92",
+      "after_sha256": "cc9a35b2c00d99a1529fafce4635380fedf00a60d7f1f53755509a5b89728bfd"
+    }
+  }
+}

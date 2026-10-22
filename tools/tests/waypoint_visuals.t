@@ -14,7 +14,11 @@ our $title_count = 0;
     sub GetY { -82 }
     sub GetZ { 3 }
     sub GetRace { $_[0]->{race} || 1 }
-    sub SendIllusionPacket { $_[0]->{race} = $_[1]->{race}; push @main::illusions, $_[1] }
+    sub GetGender { $_[0]->{gender} || 0 }
+    sub SendIllusionPacket {
+        $_[0]->{race} = $_[1]->{race}; $_[0]->{gender} = $_[1]->{gender};
+        push @main::illusions, $_[1];
+    }
     sub GetNimbusEffect1 { $main::effects[0] || 0 }
     sub GetNimbusEffect2 { $main::effects[1] || 0 }
     sub GetNimbusEffect3 { $main::effects[2] || 0 }
@@ -40,7 +44,8 @@ my $file = "$FindBin::Bin/../../server-mods/quests/global/999240.pl";
 do $file or die "Load $file: $@ $!";
 EVENT_SPAWN();
 is_deeply(\@proximity, [10,60,-107,-57,-27,33], 'discovery box unchanged');
-is($illusions[0]->{race}, 127, 'waypoint has no human mesh');
+is($illusions[0]->{race}, 425, 'waypoint has a persistent crystal mesh');
+is($illusions[0]->{gender}, 2, 'crystal uses its neutral model');
 is_deeply(\@effects, [178], 'one persistent WizardPortal effect');
 if (defined &EVENT_SIGNAL) {
     $signal = 1;
@@ -54,11 +59,18 @@ if (defined &EVENT_SIGNAL) {
     $npc = bless {}, 'Marker';
     @effects = ();
     EVENT_SIGNAL();
-    is($npc->GetRace(), 127, 'live human marker refreshed without respawn');
+    is($npc->GetRace(), 425, 'live marker refreshed without respawn');
     is_deeply(\@effects, [178], 'live marker receives portal');
     @effects = (450,178);
     EVENT_SIGNAL();
     is_deeply(\@effects, [450,178], 'existing nimbus slots retained without duplicates');
+    $npc = bless {race => 127}, 'Marker';
+    $signal = 20261022;
+    EVENT_SIGNAL();
+    is($npc->GetRace(), 425, 'new refresh upgrades an existing invisible marker');
+    $npc = bless {race => 425, gender => 0}, 'Marker';
+    EVENT_SIGNAL();
+    is($npc->GetGender(), 2, 'refresh repairs a crystal with the wrong gender');
 } else { fail('waypoint supports refresh of already spawned markers') }
 is(scalar @writes, 0, 'visual application never writes discoveries');
 EVENT_ENTER();

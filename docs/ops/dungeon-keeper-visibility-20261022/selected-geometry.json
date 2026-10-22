@@ -1,0 +1,486 @@
+{
+  "unrest": {
+    "map": "/home/eqemu/server/maps/base/unrest.map",
+    "points": [
+      {
+        "label": "keeper",
+        "samples": [
+          {
+            "dx": 0.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": -9.5367431640625e-07,
+            "headroom": 20.0
+          },
+          {
+            "dx": 4.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": -9.5367431640625e-07,
+            "headroom": 20.0
+          },
+          {
+            "dx": -4.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": -9.5367431640625e-07,
+            "headroom": 20.0
+          },
+          {
+            "dx": 0.0,
+            "dy": 4.0,
+            "ground_hit": true,
+            "ground_z": -9.5367431640625e-07,
+            "headroom": 20.0
+          },
+          {
+            "dx": 0.0,
+            "dy": -4.0,
+            "ground_hit": true,
+            "ground_z": -9.5367431640625e-07,
+            "headroom": 20.0
+          }
+        ],
+        "x": 67,
+        "y": -38,
+        "z": 3.1
+      },
+      {
+        "label": "approach",
+        "samples": [
+          {
+            "dx": 0.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": -9.5367431640625e-07,
+            "headroom": 20.0
+          },
+          {
+            "dx": 4.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": -9.5367431640625e-07,
+            "headroom": 20.0
+          },
+          {
+            "dx": -4.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": -9.5367431640625e-07,
+            "headroom": 20.0
+          },
+          {
+            "dx": 0.0,
+            "dy": 4.0,
+            "ground_hit": true,
+            "ground_z": -9.5367431640625e-07,
+            "headroom": 20.0
+          },
+          {
+            "dx": 0.0,
+            "dy": -4.0,
+            "ground_hit": true,
+            "ground_z": -9.5367431640625e-07,
+            "headroom": 20.0
+          }
+        ],
+        "x": 59.5,
+        "y": -38.0,
+        "z": 3.1
+      }
+    ],
+    "segments": [
+      {
+        "blocked": false,
+        "from": [
+          52,
+          -38,
+          3.1
+        ],
+        "label": "approach",
+        "to": [
+          67,
+          -38,
+          3.1
+        ]
+      },
+      {
+        "blocked": false,
+        "from": [
+          52,
+          -38,
+          6.1
+        ],
+        "label": "approach",
+        "to": [
+          67,
+          -38,
+          6.1
+        ]
+      }
+    ]
+  },
+  "najena": {
+    "map": "/home/eqemu/server/maps/base/najena.map",
+    "points": [
+      {
+        "label": "keeper",
+        "samples": [
+          {
+            "dx": 0.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": 9.5367431640625e-07,
+            "headroom": 49.96875
+          },
+          {
+            "dx": 4.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": 9.5367431640625e-07,
+            "headroom": 49.96875
+          },
+          {
+            "dx": -4.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": 9.5367431640625e-07,
+            "headroom": 49.96875
+          },
+          {
+            "dx": 0.0,
+            "dy": 4.0,
+            "ground_hit": true,
+            "ground_z": 9.5367431640625e-07,
+            "headroom": 49.96875
+          },
+          {
+            "dx": 0.0,
+            "dy": -4.0,
+            "ground_hit": true,
+            "ground_z": 9.5367431640625e-07,
+            "headroom": 49.96875
+          }
+        ],
+        "x": 858,
+        "y": -61,
+        "z": 4.1
+      },
+      {
+        "label": "approach",
+        "samples": [
+          {
+            "dx": 0.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": 9.5367431640625e-07,
+            "headroom": 49.96875
+          },
+          {
+            "dx": 4.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": 9.5367431640625e-07,
+            "headroom": 49.96875
+          },
+          {
+            "dx": -4.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": 9.5367431640625e-07,
+            "headroom": 49.96875
+          },
+          {
+            "dx": 0.0,
+            "dy": 4.0,
+            "ground_hit": true,
+            "ground_z": 9.5367431640625e-07,
+            "headroom": 49.96875
+          },
+          {
+            "dx": 0.0,
+            "dy": -4.0,
+            "ground_hit": true,
+            "ground_z": 9.5367431640625e-07,
+            "headroom": 49.96875
+          }
+        ],
+        "x": 858.0,
+        "y": -68.5,
+        "z": 4.1
+      }
+    ],
+    "segments": [
+      {
+        "blocked": false,
+        "from": [
+          858,
+          -76,
+          4.1
+        ],
+        "label": "approach",
+        "to": [
+          858,
+          -61,
+          4.1
+        ]
+      },
+      {
+        "blocked": false,
+        "from": [
+          858,
+          -76,
+          7.1
+        ],
+        "label": "approach",
+        "to": [
+          858,
+          -61,
+          7.1
+        ]
+      }
+    ]
+  },
+  "permafrost": {
+    "map": "/home/eqemu/server/maps/base/permafrost.map",
+    "points": [
+      {
+        "label": "keeper",
+        "samples": [
+          {
+            "dx": 0.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": 9.5367431640625e-07,
+            "headroom": 39.96875
+          },
+          {
+            "dx": 4.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": 9.5367431640625e-07,
+            "headroom": 39.96875
+          },
+          {
+            "dx": -4.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": 9.5367431640625e-07,
+            "headroom": 39.96875
+          },
+          {
+            "dx": 0.0,
+            "dy": 4.0,
+            "ground_hit": true,
+            "ground_z": 9.5367431640625e-07,
+            "headroom": 39.96875
+          },
+          {
+            "dx": 0.0,
+            "dy": -4.0,
+            "ground_hit": true,
+            "ground_z": 9.5367431640625e-07,
+            "headroom": 39.96875
+          }
+        ],
+        "x": 46,
+        "y": -121,
+        "z": 2.1
+      },
+      {
+        "label": "approach",
+        "samples": [
+          {
+            "dx": 0.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": 9.5367431640625e-07,
+            "headroom": 39.96875
+          },
+          {
+            "dx": 4.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": 9.5367431640625e-07,
+            "headroom": 39.96875
+          },
+          {
+            "dx": -4.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": 9.5367431640625e-07,
+            "headroom": 39.96875
+          },
+          {
+            "dx": 0.0,
+            "dy": 4.0,
+            "ground_hit": true,
+            "ground_z": 9.5367431640625e-07,
+            "headroom": 39.96875
+          },
+          {
+            "dx": 0.0,
+            "dy": -4.0,
+            "ground_hit": true,
+            "ground_z": 9.5367431640625e-07,
+            "headroom": 39.96875
+          }
+        ],
+        "x": 53.5,
+        "y": -121.0,
+        "z": 2.1
+      }
+    ],
+    "segments": [
+      {
+        "blocked": false,
+        "from": [
+          61,
+          -121,
+          2.1
+        ],
+        "label": "approach",
+        "to": [
+          46,
+          -121,
+          2.1
+        ]
+      },
+      {
+        "blocked": false,
+        "from": [
+          61,
+          -121,
+          5.1
+        ],
+        "label": "approach",
+        "to": [
+          46,
+          -121,
+          5.1
+        ]
+      }
+    ]
+  },
+  "soldungb": {
+    "map": "/home/eqemu/server/maps/base/soldungb.map",
+    "points": [
+      {
+        "label": "keeper",
+        "samples": [
+          {
+            "dx": 0.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": -111.96875,
+            "headroom": 12.0
+          },
+          {
+            "dx": 4.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": -111.96875,
+            "headroom": 12.0
+          },
+          {
+            "dx": -4.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": -111.96875,
+            "headroom": 12.0
+          },
+          {
+            "dx": 0.0,
+            "dy": 4.0,
+            "ground_hit": true,
+            "ground_z": -111.96875,
+            "headroom": 12.0
+          },
+          {
+            "dx": 0.0,
+            "dy": -4.0,
+            "ground_hit": true,
+            "ground_z": -111.96875,
+            "headroom": 12.0
+          }
+        ],
+        "x": -248,
+        "y": -424,
+        "z": -108
+      },
+      {
+        "label": "approach",
+        "samples": [
+          {
+            "dx": 0.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": -111.96875,
+            "headroom": 12.0
+          },
+          {
+            "dx": 4.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": -111.96875,
+            "headroom": 12.0
+          },
+          {
+            "dx": -4.0,
+            "dy": 0.0,
+            "ground_hit": true,
+            "ground_z": -111.96875,
+            "headroom": 12.0
+          },
+          {
+            "dx": 0.0,
+            "dy": 4.0,
+            "ground_hit": true,
+            "ground_z": -111.96875,
+            "headroom": 12.0
+          },
+          {
+            "dx": 0.0,
+            "dy": -4.0,
+            "ground_hit": true,
+            "ground_z": -111.96875,
+            "headroom": 12.0
+          }
+        ],
+        "x": -255.5,
+        "y": -424.0,
+        "z": -108
+      }
+    ],
+    "segments": [
+      {
+        "blocked": false,
+        "from": [
+          -263,
+          -424,
+          -108
+        ],
+        "label": "approach",
+        "to": [
+          -248,
+          -424,
+          -108
+        ]
+      },
+      {
+        "blocked": false,
+        "from": [
+          -263,
+          -424,
+          -105
+        ],
+        "label": "approach",
+        "to": [
+          -248,
+          -424,
+          -105
+        ]
+      }
+    ]
+  }
+}

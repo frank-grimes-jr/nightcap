@@ -1,0 +1,2 @@
+# Asset-generation only; native clients do not need Python or NumPy.
+numpy==2.4.0

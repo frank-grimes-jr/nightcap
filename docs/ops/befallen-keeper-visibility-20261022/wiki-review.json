@@ -1,0 +1,114 @@
+{
+  "date": "2026-10-22",
+  "source_ref": "main434d0e5 with recorded deployment and working documentation changes",
+  "articles": [
+    {
+      "article": "wiki\\articles\\about.json",
+      "before_sha256": "d30e64f41dd4395f4d27163407a134527fca9bf9892dabd816774bd0ebcd1da0",
+      "assessment": "No change: this correction changes only Befallen Keeper presentation; mechanics, commands, rewards and access remain current."
+    },
+    {
+      "article": "wiki\\articles\\advanced-loot.json",
+      "before_sha256": "0f0870dd8c5e412c0a673a7ff551a952965397e5b2ce0dd6bb67ac1336c0e506",
+      "assessment": "No change: this correction changes only Befallen Keeper presentation; mechanics, commands, rewards and access remain current."
+    },
+    {
+      "article": "wiki\\articles\\ascension.json",
+      "before_sha256": "c8f1855d8d4372f23a587bfd7da5af027e0720607fc560b7e73ad87a0e8f095b",
+      "assessment": "No change: this correction changes only Befallen Keeper presentation; mechanics, commands, rewards and access remain current."
+    },
+    {
+      "article": "wiki\\articles\\combat.json",
+      "before_sha256": "0583a10b6d98e3bdb6dade874b19b5c5a546cea034660fd40080a08108cb7594",
+      "assessment": "No change: this correction changes only Befallen Keeper presentation; mechanics, commands, rewards and access remain current."
+    },
+    {
+      "article": "wiki\\articles\\commands.json",
+      "before_sha256": "7b28b5660af28cc58700be74ac22f184a2bde62455286a027fb2c7662cb18e6e",
+      "assessment": "No change: this correction changes only Befallen Keeper presentation; mechanics, commands, rewards and access remain current."
+    },
+    {
+      "article": "wiki\\articles\\dungeon-modes.json",
+      "before_sha256": "df8c2be7185ae55e2117fb1c4067f936db30a624452d7867ae932f1b601fab5b",
+      "assessment": "Publish installed correction as Live testing; preserve /target workaround and explicit unconfirmed rendering."
+    },
+    {
+      "article": "wiki\\articles\\equipment.json",
+      "before_sha256": "aa0defbc66f96bbe250b5c1a350e664b0a85bffc3e6b1ea8eeb690b15b994be5",
+      "assessment": "No change: this correction changes only Befallen Keeper presentation; mechanics, commands, rewards and access remain current."
+    },
+    {
+      "article": "wiki\\articles\\features.json",
+      "before_sha256": "33e657dc016db91cbf302a360ac4fa6173a909e78f923f7b8ea8b74213f17c8a",
+      "assessment": "No change: this correction changes only Befallen Keeper presentation; mechanics, commands, rewards and access remain current."
+    },
+    {
+      "article": "wiki\\articles\\getting-started.json",
+      "before_sha256": "acea4482f627738f5479f52d3c9e2da1c3d0b152bf9b72250fad9be570e291e4",
+      "assessment": "No change: this correction changes only Befallen Keeper presentation; mechanics, commands, rewards and access remain current."
+    },
+    {
+      "article": "wiki\\articles\\index.json",
+      "before_sha256": "91da90ac4971d13f4053408b75553e0653c84f9355ab46750fa49578b416550c",
+      "assessment": "No change: this correction changes only Befallen Keeper presentation; mechanics, commands, rewards and access remain current."
+    },
+    {
+      "article": "wiki\\articles\\item-upgrades.json",
+      "before_sha256": "156334873eb8976b785e5267bb21c297c7e1ab475c21d3cc7d48a7108a36548d",
+      "assessment": "No change: this correction changes only Befallen Keeper presentation; mechanics, commands, rewards and access remain current."
+    },
+    {
+      "article": "wiki\\articles\\launcher.json",
+      "before_sha256": "575e89bfc359eb5ac2427abea1b0f34e653c657d9ad6491bac0625121104f956",
+      "assessment": "No change: this correction changes only Befallen Keeper presentation; mechanics, commands, rewards and access remain current."
+    },
+    {
+      "article": "wiki\\articles\\multiclass.json",
+      "before_sha256": "98bcca88e521daf03f4cb8a482e10493cf7c2f2e93267ad73a9d9a0e2f2101b0",
+      "assessment": "No change: this correction changes only Befallen Keeper presentation; mechanics, commands, rewards and access remain current."
+    },
+    {
+      "article": "wiki\\articles\\pets.json",
+      "before_sha256": "5eee46c3a8a2c2bffe6c6abc2c51a7c0f8180ae65f6e092e120d72c84a05adfb",
+      "assessment": "No change: this correction changes only Befallen Keeper presentation; mechanics, commands, rewards and access remain current."
+    },
+    {
+      "article": "wiki\\articles\\recent-changes.json",
+      "before_sha256": "ba38b04e2df7f188fb7b3afbc59787ee626a68244449ca16d8afe5709551e999",
+      "assessment": "Publish installed correction as Live testing; preserve /target workaround and explicit unconfirmed rendering."
+    },
+    {
+      "article": "wiki\\articles\\tradeskills.json",
+      "before_sha256": "d76ffea75fea16a2a353a5cab1b5e2b783a244908fcfa0903184cd8947a4de7b",
+      "assessment": "No change: this correction changes only Befallen Keeper presentation; mechanics, commands, rewards and access remain current."
+    },
+    {
+      "article": "wiki\\articles\\travel.json",
+      "before_sha256": "a03ba3ae582673d18bd96f2a8fe44fc8eeb769042f3df70639cc3d20cd7f8a20",
+      "assessment": "No change: this correction changes only Befallen Keeper presentation; mechanics, commands, rewards and access remain current."
+    },
+    {
+      "article": "wiki\\articles\\tunnel.json",
+      "before_sha256": "1cd4347301cf3cd5bcc0f2b9b3cdf5aa746582c09ff4294f57ea2f58bcf07447",
+      "assessment": "No change: this correction changes only Befallen Keeper presentation; mechanics, commands, rewards and access remain current."
+    },
+    {
+      "article": "wiki\\articles\\unreleased.json",
+      "before_sha256": "c43ae645f48fb3bbe93d2ceb3fa2e967bdc5b73a794b6f63db7212720059c49a",
+      "assessment": "Publish installed correction as Live testing; preserve /target workaround and explicit unconfirmed rendering."
+    },
+    {
+      "article": "wiki\\articles\\waypoints.json",
+      "before_sha256": "9ef8b93fa52d5b83c479bbb3c877fab4f9373c0f26c84c43908edf3d7e5666bc",
+      "assessment": "No change: this correction changes only Befallen Keeper presentation; mechanics, commands, rewards and access remain current."
+    },
+    {
+      "article": "wiki\\articles\\zone-hunt.json",
+      "before_sha256": "114c593cf0f89288702b7b5fe23f0e563f337b64864dc3b953c9d2c62635044d",
+      "assessment": "No change: this correction changes only Befallen Keeper presentation; mechanics, commands, rewards and access remain current."
+    }
+  ],
+  "generated_catalog": "Reviewed generator and catalog: no item, zone-hunt, acquisition, stat, command or release-mechanic values change; generated routes unchanged.",
+  "features_and_home": "Existing dungeon overview remains accurate; no new mechanic, reward, command or catalog value. Placement and open rendering QA belong in dungeon guide/In development/Recent changes.",
+  "publication": "20261022-befallen-keeper-v1 published;465 origin hashes and rollback rehearsal pass;public verification recorded separately."
+}

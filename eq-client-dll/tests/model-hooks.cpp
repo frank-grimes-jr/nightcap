@@ -1,6 +1,8 @@
 #include <windows.h>
 #include <cassert>
 #include <iostream>
+#include <string>
+#include <vector>
 #include "../src/patch_catalog.h"
 #include "../src/ui_hooks.h"
 #include "../src/model_hooks.h"
@@ -11,8 +13,11 @@ static int __fastcall RegisterCapture(void*, void*, int race, int gender, const 
     captured_code=code; captured_race=race; captured_gender=gender; captured_a=a; captured_b=b;
     return 123;
 }
-static const char* captured_import;
-static void __fastcall ImportCapture(void*,void*,const char* name) { captured_import=name; }
+static std::vector<std::string> captured_imports;
+static void* captured_import_self;
+static void __fastcall ImportCapture(void* self,void*,const char* name) {
+    captured_import_self=self; captured_imports.emplace_back(name);
+}
 
 int main() {
     using namespace nightcap::models;
@@ -70,10 +75,18 @@ int main() {
         assert(race==entry.original && (Registered(race,gender) || (ClassicPlayerRace(race) && (gender==0 || gender==1))));
         if (entry.gender >= 0) assert(gender==entry.gender);
     }
-    ImportsHook(seen,nullptr,"Resources\\GlobalLoad_chr.txt"); assert(!strcmp(captured_import,"nightcap_models_chr.txt"));
+    ImportsHook(seen,nullptr,"Resources\\GlobalLoad_chr.txt");
+    assert((captured_imports==std::vector<std::string>{"nightcap_models_chr.txt"}));
+    assert(captured_import_self==seen);
+    int crystal_race=425,crystal_gender=2;
+    ClassicRace(crystal_race,crystal_gender);
+    assert(crystal_race==425 && crystal_gender==2);
     modern=true;
     RegisterHook(seen,nullptr,60,2,"SKE",7,9); assert(!strcmp(captured_code,"SKE"));
-    ImportsHook(seen,nullptr,"Resources\\GlobalLoad_chr.txt"); assert(!strcmp(captured_import,"Resources\\GlobalLoad_chr.txt"));
+    captured_imports.clear();
+    ImportsHook(seen,nullptr,"Resources\\GlobalLoad_chr.txt");
+    assert((captured_imports==std::vector<std::string>{"nightcap_modern_chr.txt"}));
+    assert(captured_import_self==seen);
     // No silent trampoline installation over unexpected original instructions.
     memory[kModelProfileRva]=0xcc;
     assert(!Install(reinterpret_cast<uintptr_t>(memory)));

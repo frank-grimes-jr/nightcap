@@ -1,0 +1,81 @@
+{
+  "validator": {
+    "exit_code": 0,
+    "output": "Skill is valid!\n"
+  },
+  "topics": {
+    "world": {
+      "exit_code": 0,
+      "total_sources": 96,
+      "candidate_sources": 4,
+      "candidate_unchanged": 4,
+      "other_drift": []
+    },
+    "client": {
+      "exit_code": 1,
+      "total_sources": 187,
+      "candidate_sources": 16,
+      "candidate_unchanged": 16,
+      "other_drift": [
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\eq-launcher\\patch-notes.json",
+          "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
+          "state": "changed: review implementation and evidence"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\robe-visibility\\EQ_Local_Dev\\docs\\releases\\classic-robes-20261022\\README.md",
+          "role": "Reviewed Classic robe candidate source/evidence; native QA and publication pending",
+          "state": "changed: review implementation and evidence"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\robe-visibility\\EQ_Local_Dev\\docs\\releases\\classic-robes-20261022\\QA.md",
+          "role": "Reviewed Classic robe candidate source/evidence; native QA and publication pending",
+          "state": "changed: review implementation and evidence"
+        }
+      ]
+    },
+    "wiki": {
+      "exit_code": 1,
+      "total_sources": 122,
+      "candidate_sources": 6,
+      "candidate_unchanged": 6,
+      "other_drift": [
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\robe-visibility\\EQ_Local_Dev\\wiki\\articles\\equipment.json",
+          "role": "Reviewed Classic robe candidate source/evidence; native QA and publication pending",
+          "state": "changed: review implementation and evidence"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\robe-visibility\\EQ_Local_Dev\\wiki\\articles\\multiclass.json",
+          "role": "Reviewed Classic robe candidate source/evidence; native QA and publication pending",
+          "state": "changed: review implementation and evidence"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\robe-visibility\\EQ_Local_Dev\\wiki\\articles\\features.json",
+          "role": "Reviewed Classic robe candidate source/evidence; native QA and publication pending",
+          "state": "changed: review implementation and evidence"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\robe-visibility\\EQ_Local_Dev\\wiki\\articles\\launcher.json",
+          "role": "Reviewed Classic robe candidate source/evidence; native QA and publication pending",
+          "state": "changed: review implementation and evidence"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\robe-visibility\\EQ_Local_Dev\\wiki\\articles\\index.json",
+          "role": "Reviewed Classic robe candidate source/evidence; native QA and publication pending",
+          "state": "changed: review implementation and evidence"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\robe-visibility\\EQ_Local_Dev\\wiki\\articles\\unreleased.json",
+          "role": "Reviewed Classic robe candidate source/evidence; native QA and publication pending",
+          "state": "changed: review implementation and evidence"
+        },
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\robe-visibility\\EQ_Local_Dev\\wiki\\articles\\recent-changes.json",
+          "role": "Reviewed Classic robe candidate source/evidence; native QA and publication pending",
+          "state": "changed: review implementation and evidence"
+        }
+      ]
+    }
+  }
+}

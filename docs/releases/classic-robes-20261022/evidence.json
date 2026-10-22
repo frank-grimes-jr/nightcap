@@ -1,0 +1,110 @@
+{
+  "date": "2026-10-22",
+  "status": "candidate_not_installed_or_published",
+  "source_base": "7792171c2df7fa206e78e089c8200d552700a208",
+  "source_hashes": {
+    "tools/build_classic_robes.py": "01f9aa8ea0f559d045ce7f186275e338ce55c4663f0658635ba915e59b9bff22",
+    "tools/classic_robe_geometry.py": "d8224fce0f1c9f8e1a718fa36bc3bc996b72276a63e5ca2269e73144f7cdc563",
+    "tools/classic-robes-requirements.txt": "9eb067f16d4ad3f45fc9ccd3649162dac0ae41d27695c77dbe0b842bd76e2ac6",
+    "tools/preview_classic_robes.py": "cbc88788b4ea0b34885d7b325c490a0f5d65ea42c7e977dd722a09ad020693bb",
+    "tools/client_gameplay_assets.py": "f207b6f41b8e987561ae76801e2f4a4e4b56a7984a850c7a6f00f179e0251100",
+    "tools/tests/test_classic_robes.py": "f05df2e91ba934ee64d265b3fc41a3828ef246aff55e28423449273735a90e4f",
+    "eq-client-dll/tests/classic-robes-native.cpp": "09508344e674536743034bedbf95efe66e4cdaa347ce0386ee11d39126b80b05"
+  },
+  "candidate_directory": "E:\\EQ_Local_Dev\\artifacts\\classic-robes-20261022\\candidate-08",
+  "candidate_files": {
+    "global_chr.s3d": {
+      "size": 8222589,
+      "sha256": "c1c6b6edbfa1b335cd1427f95f9a33cf75e33c4054d0fb40ae4f715cd14f5e21"
+    },
+    "global4_chr.s3d": {
+      "size": 2716026,
+      "sha256": "c1e25a088a6d87a93dbaa94012daf0a9fb3dd1668669ec534909d8a3841c99f7"
+    }
+  },
+  "tests": {
+    "robe_python": {
+      "passed": 11
+    },
+    "helmet_python": {
+      "passed": 16
+    },
+    "pfs_python": {
+      "passed": 3
+    },
+    "native": {
+      "passed_cases": 336,
+      "graphics_and_names": "mocked",
+      "selection_and_normalization": "original pinned x86 instructions",
+      "rendering_executed": false
+    },
+    "wiki": {
+      "ran": 30,
+      "passed": 21,
+      "skipped": 9,
+      "skip_reason": "POSIX publication/recovery requires Linux"
+    },
+    "search_scenarios": 6,
+    "equipment_node": 7
+  },
+  "integration": {
+    "full_gameplay_assets_build": "passed at candidate07; both archive bytes matched dedicated builder exactly",
+    "candidate08_delta": "top-edge normal derivative and endpoint regression only; same pipeline",
+    "installed_E_Nightcap_matches_canonical_helmet_input": true,
+    "rebase": "Only newer Keeper operational/wiki evidence; no robe logic changed. Existing published guide additions preserved."
+  },
+  "reference_inputs": {
+    "eqgame_sha256": "2a8702ad9f722704f01355c0750be7d6f164a8b9c9128ba0cf286ea32b405b0e",
+    "graphics_sha256": "ade556b68e98f6f39c5578f70431e11c0b9babcc15b8571eb22cf1e2b654417e"
+  },
+  "review": {
+    "archive": "no actionable findings",
+    "geometry_findings": [
+      "HOF feet",
+      "waist inverse-transpose normals",
+      "native pattern assertions",
+      "top-edge interior derivative"
+    ],
+    "resolution": "all corrected; foot regression demonstrated failure; numeric tangent and endpoint tests pass",
+    "cross_model": "owner explicitly skipped"
+  },
+  "open_gates": [
+    "native model visibility",
+    "all seven pattern swaps and dyes",
+    "animation interpolation/clipping and deep bends",
+    "first/third person and second observer",
+    "owner approval and signed publication"
+  ],
+  "no_mutations": [
+    "protected reference client",
+    "installed player client",
+    "server",
+    "database",
+    "published game or wiki"
+  ],
+  "integrated_source_revision": "178bb35231e58ca98799b56b2ba695ef7504385d",
+  "integrated_base": "88562b1f9793bf28ca083d7ee0ecb364733b83cd",
+  "tested_source_hashes_before_git_normalization": {
+    "tools/build_classic_robes.py": "7c975824b1d435495a3c958b75d15840d44ff1f3a408fe1a2d9d2649f4e45e9a",
+    "tools/classic_robe_geometry.py": "d45833f0f943bd5d3e2f086af501e751c6f3a49529beac1e636205135d9a50ff",
+    "tools/classic-robes-requirements.txt": "2bfc0e0d34ce118c528dcb5e01e1a8c5496fc904a106c755533d867c6f4c0702",
+    "tools/preview_classic_robes.py": "4979f9b338e0f03fbfba132128adfa5185199057d3529f78e87b661c08ab39b1",
+    "tools/client_gameplay_assets.py": "f207b6f41b8e987561ae76801e2f4a4e4b56a7984a850c7a6f00f179e0251100",
+    "tools/tests/test_classic_robes.py": "5803ea0154fcbd733b953962fabb3b85d65fbe07a0c2eaab56b92847e637b052",
+    "eq-client-dll/tests/classic-robes-native.cpp": "09508344e674536743034bedbf95efe66e4cdaa347ce0386ee11d39126b80b05"
+  },
+  "previews": {
+    "final_front": {
+      "path": "preview-front.png",
+      "sha256": "9cb9440db31620b033323ddf2a4b582a56e5cb6c0b958b6af69bc1236399f209",
+      "candidate": "08",
+      "exported_normals": true
+    },
+    "rear_and_walk": {
+      "candidate": "07",
+      "geometry_identical_to_08": true,
+      "difference": "08 corrects top-edge normals only",
+      "scope": "P01 rear and L01 frame3 angle65"
+    }
+  }
+}

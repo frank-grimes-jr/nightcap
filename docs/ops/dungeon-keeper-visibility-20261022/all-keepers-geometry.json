@@ -1,0 +1,733 @@
+{
+  "saved_poses": [
+    {
+      "zone_id": "6",
+      "instance_id": "0",
+      "npc_id": "999229",
+      "spawn2_id": "3266038",
+      "x": "88",
+      "y": "-16",
+      "z": "4.1",
+      "heading": "0",
+      "is_corpse": "0",
+      "is_zone": "0",
+      "buffs_length": "0"
+    },
+    {
+      "zone_id": "6",
+      "instance_id": "0",
+      "npc_id": "999240",
+      "spawn2_id": "3266081",
+      "x": "-598",
+      "y": "-59",
+      "z": "-10.03",
+      "heading": "0",
+      "is_corpse": "0",
+      "is_zone": "0",
+      "buffs_length": "0"
+    },
+    {
+      "zone_id": "36",
+      "instance_id": "0",
+      "npc_id": "999227",
+      "spawn2_id": "3266036",
+      "x": "35",
+      "y": "-82",
+      "z": "3.1",
+      "heading": "0",
+      "is_corpse": "0",
+      "is_zone": "0",
+      "buffs_length": "0"
+    },
+    {
+      "zone_id": "36",
+      "instance_id": "0",
+      "npc_id": "999240",
+      "spawn2_id": "3266054",
+      "x": "35",
+      "y": "-82",
+      "z": "3.1",
+      "heading": "0",
+      "is_corpse": "0",
+      "is_zone": "0",
+      "buffs_length": "0"
+    },
+    {
+      "zone_id": "63",
+      "instance_id": "0",
+      "npc_id": "999228",
+      "spawn2_id": "3266037",
+      "x": "52",
+      "y": "-38",
+      "z": "3.1",
+      "heading": "0",
+      "is_corpse": "0",
+      "is_zone": "0",
+      "buffs_length": "0"
+    },
+    {
+      "zone_id": "63",
+      "instance_id": "0",
+      "npc_id": "999240",
+      "spawn2_id": "3266123",
+      "x": "52",
+      "y": "-38",
+      "z": "3",
+      "heading": "0",
+      "is_corpse": "0",
+      "is_zone": "0",
+      "buffs_length": "0"
+    }
+  ],
+  "map_sha256": {
+    "befallen": "ff79e0f17c61eeb653648ead92abbf8aa5a658cf5f87c4ad26da18d85ac439b6",
+    "unrest": "4f0aa04aaf4f9cee3b6dca60eaa181b99e8753d372c8e5bd1fa928b2489c8a23",
+    "highkeep": "0640d5c11de83e128facb5b77331bf599b3d495e66974d22d8396527f9562a4b",
+    "najena": "02736c545cc8578a29ca543fdf5d010a70d166c23556b8c767b96fbc6fa0f309",
+    "cazicthule": "fb6390b8862a25862fa839940191c1bb7fa9c2bb3031f430362a87bc3dd6434a",
+    "permafrost": "bd5c236151331ec667f9b4441c87f2cc5a429ee4324a5dbe250f745ea5099f7d",
+    "soldungb": "6457a51f76aa7d6a4ebff4b7fa7ca1ed79edeb473b3cf09154e736fbd95bb108"
+  },
+  "geometry": {
+    "befallen": {
+      "map": "/home/eqemu/server/maps/base/befallen.map",
+      "points": [
+        {
+          "label": "keeper_spawn",
+          "samples": [
+            {
+              "dx": 0.0,
+              "dy": 0.0,
+              "ground_hit": true,
+              "ground_z": 0.0,
+              "headroom": 14.0
+            },
+            {
+              "dx": 4.0,
+              "dy": 0.0,
+              "ground_hit": true,
+              "ground_z": 0.0,
+              "headroom": 14.0
+            },
+            {
+              "dx": -4.0,
+              "dy": 0.0,
+              "ground_hit": true,
+              "ground_z": 0.0,
+              "headroom": 14.0
+            },
+            {
+              "dx": 0.0,
+              "dy": 4.0,
+              "ground_hit": true,
+              "ground_z": 0.0,
+              "headroom": 14.0
+            },
+            {
+              "dx": 0.0,
+              "dy": -4.0,
+              "ground_hit": false
+            }
+          ],
+          "x": 35.0,
+          "y": -82.0,
+          "z": 3.0
+        },
+        {
+          "label": "waypoint",
+          "samples": [
+            {
+              "dx": 0.0,
+              "dy": 0.0,
+              "ground_hit": true,
+              "ground_z": 0.0,
+              "headroom": 14.0
+            },
+            {
+              "dx": 4.0,
+              "dy": 0.0,
+              "ground_hit": true,
+              "ground_z": 0.0,
+              "headroom": 14.0
+            },
+            {
+              "dx": -4.0,
+              "dy": 0.0,
+              "ground_hit": true,
+              "ground_z": 0.0,
+              "headroom": 14.0
+            },
+            {
+              "dx": 0.0,
+              "dy": 4.0,
+              "ground_hit": true,
+              "ground_z": 0.0,
+              "headroom": 14.0
+            },
+            {
+              "dx": 0.0,
+              "dy": -4.0,
+              "ground_hit": false
+            }
+          ],
+          "x": 35.0,
+          "y": -82.0,
+          "z": 3.0
+        }
+      ],
+      "segments": []
+    },
+    "unrest": {
+      "map": "/home/eqemu/server/maps/base/unrest.map",
+      "points": [
+        {
+          "label": "keeper_spawn",
+          "samples": [
+            {
+              "dx": 0.0,
+              "dy": 0.0,
+              "ground_hit": true,
+              "ground_z": -9.5367431640625e-07,
+              "headroom": 20.0
+            },
+            {
+              "dx": 4.0,
+              "dy": 0.0,
+              "ground_hit": true,
+              "ground_z": -9.5367431640625e-07,
+              "headroom": 20.0
+            },
+            {
+              "dx": -4.0,
+              "dy": 0.0,
+              "ground_hit": true,
+              "ground_z": -9.5367431640625e-07,
+              "headroom": 20.0
+            },
+            {
+              "dx": 0.0,
+              "dy": 4.0,
+              "ground_hit": true,
+              "ground_z": -9.5367431640625e-07,
+              "headroom": 20.0
+            },
+            {
+              "dx": 0.0,
+              "dy": -4.0,
+              "ground_hit": true,
+              "ground_z": -9.5367431640625e-07,
+              "headroom": 20.0
+            }
+          ],
+          "x": 52.0,
+          "y": -38.0,
+          "z": 3.0
+        },
+        {
+          "label": "waypoint",
+          "samples": [
+            {
+              "dx": 0.0,
+              "dy": 0.0,
+              "ground_hit": true,
+              "ground_z": -9.5367431640625e-07,
+              "headroom": 20.0
+            },
+            {
+              "dx": 4.0,
+              "dy": 0.0,
+              "ground_hit": true,
+              "ground_z": -9.5367431640625e-07,
+              "headroom": 20.0
+            },
+            {
+              "dx": -4.0,
+              "dy": 0.0,
+              "ground_hit": true,
+              "ground_z": -9.5367431640625e-07,
+              "headroom": 20.0
+            },
+            {
+              "dx": 0.0,
+              "dy": 4.0,
+              "ground_hit": true,
+              "ground_z": -9.5367431640625e-07,
+              "headroom": 20.0
+            },
+            {
+              "dx": 0.0,
+              "dy": -4.0,
+              "ground_hit": true,
+              "ground_z": -9.5367431640625e-07,
+              "headroom": 20.0
+            }
+          ],
+          "x": 52.0,
+          "y": -38.0,
+          "z": 3.0
+        }
+      ],
+      "segments": []
+    },
+    "highkeep": {
+      "map": "/home/eqemu/server/maps/base/highkeep.map",
+      "points": [
+        {
+          "label": "keeper_spawn",
+          "samples": [
+            {
+              "dx": 0.0,
+              "dy": 0.0,
+              "ground_hit": true,
+              "ground_z": 0.0,
+              "headroom": 14.0
+            },
+            {
+              "dx": 4.0,
+              "dy": 0.0,
+              "ground_hit": true,
+              "ground_z": 0.0,
+              "headroom": 14.0
+            },
+            {
+              "dx": -4.0,
+              "dy": 0.0,
+              "ground_hit": true,
+              "ground_z": 0.0,
+              "headroom": 14.0
+            },
+            {
+              "dx": 0.0,
+              "dy": 4.0,
+              "ground_hit": true,
+              "ground_z": -9.5367431640625e-07,
+              "headroom": 14.000001907348633
+            },
+            {
+              "dx": 0.0,
+              "dy": -4.0,
+              "ground_hit": true,
+              "ground_z": 0.0,
+              "headroom": 14.0
+            }
+          ],
+          "x": 88.0,
+          "y": -16.0,
+          "z": 4.0
+        },
+        {
+          "label": "waypoint",
+          "samples": [
+            {
+              "dx": 0.0,
+              "dy": 0.0,
+              "ground_hit": true,
+              "ground_z": -13.999999046325684,
+              "headroom": 11.999999046325684
+            },
+            {
+              "dx": 4.0,
+              "dy": 0.0,
+              "ground_hit": true,
+              "ground_z": -14.0,
+              "headroom": 12.0
+            },
+            {
+              "dx": -4.0,
+              "dy": 0.0,
+              "ground_hit": true,
+              "ground_z": -14.0,
+              "headroom": 12.0
+            },
+            {
+              "dx": 0.0,
+              "dy": 4.0,
+              "ground_hit": true,
+              "ground_z": -14.0,
+              "headroom": 12.0
+            },
+            {
+              "dx": 0.0,
+              "dy": -4.0,
+              "ground_hit": true,
+              "ground_z": -14.0,
+              "headroom": 12.0
+            }
+          ],
+          "x": -598.0,
+          "y": -59.0,
+          "z": -10.13
+        }
+      ],
+      "segments": []
+    },
+    "najena": {
+      "map": "/home/eqemu/server/maps/base/najena.map",
+      "points": [
+        {
+          "label": "keeper_spawn",
+          "samples": [
+            {
+              "dx": 0.0,
+              "dy": 0.0,
+              "ground_hit": true,
+              "ground_z": 9.5367431640625e-07,
+              "headroom": 49.96875
+            },
+            {
+              "dx": 4.0,
+              "dy": 0.0,
+              "ground_hit": true,
+              "ground_z": 9.5367431640625e-07,
+              "headroom": 49.96875
+            },
+            {
+              "dx": -4.0,
+              "dy": 0.0,
+              "ground_hit": true,
+              "ground_z": 0.0,
+              "headroom": 49.96875
+            },
+            {
+              "dx": 0.0,
+              "dy": 4.0,
+              "ground_hit": true,
+              "ground_z": 9.5367431640625e-07,
+              "headroom": 49.96875
+            },
+            {
+              "dx": 0.0,
+              "dy": -4.0,
+              "ground_hit": true,
+              "ground_z": 0.0,
+              "headroom": 49.96875
+            }
+          ],
+          "x": 858.0,
+          "y": -76.0,
+          "z": 4.0
+        },
+        {
+          "label": "waypoint",
+          "samples": [
+            {
+              "dx": 0.0,
+              "dy": 0.0,
+              "ground_hit": true,
+              "ground_z": 9.5367431640625e-07,
+              "headroom": 49.96875
+            },
+            {
+              "dx": 4.0,
+              "dy": 0.0,
+              "ground_hit": true,
+              "ground_z": 9.5367431640625e-07,
+              "headroom": 49.96875
+            },
+            {
+              "dx": -4.0,
+              "dy": 0.0,
+              "ground_hit": true,
+              "ground_z": 0.0,
+              "headroom": 49.96875
+            },
+            {
+              "dx": 0.0,
+              "dy": 4.0,
+              "ground_hit": true,
+              "ground_z": 9.5367431640625e-07,
+              "headroom": 49.96875
+            },
+            {
+              "dx": 0.0,
+              "dy": -4.0,
+              "ground_hit": true,
+              "ground_z": 0.0,
+              "headroom": 49.96875
+            }
+          ],
+          "x": 858.0,
+          "y": -76.0,
+          "z": 4.0
+        }
+      ],
+      "segments": []
+    },
+    "cazicthule": {
+      "map": "/home/eqemu/server/maps/base/cazicthule.map",
+      "points": [
+        {
+          "label": "keeper_spawn",
+          "samples": [
+            {
+              "dx": 0.0,
+              "dy": 0.0,
+              "ground_hit": true,
+              "ground_z": 0.0,
+              "headroom": 12.0
+            },
+            {
+              "dx": 4.0,
+              "dy": 0.0,
+              "ground_hit": true,
+              "ground_z": 0.0,
+              "headroom": 12.0
+            },
+            {
+              "dx": -4.0,
+              "dy": 0.0,
+              "ground_hit": true,
+              "ground_z": 0.0,
+              "headroom": 12.0
+            },
+            {
+              "dx": 0.0,
+              "dy": 4.0,
+              "ground_hit": true,
+              "ground_z": 0.0,
+              "headroom": 12.0
+            },
+            {
+              "dx": 0.0,
+              "dy": -4.0,
+              "ground_hit": true,
+              "ground_z": 0.0,
+              "headroom": 12.0
+            }
+          ],
+          "x": -74.0,
+          "y": 71.0,
+          "z": 4.0
+        },
+        {
+          "label": "waypoint",
+          "samples": [
+            {
+              "dx": 0.0,
+              "dy": 0.0,
+              "ground_hit": true,
+              "ground_z": 0.0,
+              "headroom": 80.0
+            },
+            {
+              "dx": 4.0,
+              "dy": 0.0,
+              "ground_hit": true,
+              "ground_z": 0.0,
+              "headroom": 80.0
+            },
+            {
+              "dx": -4.0,
+              "dy": 0.0,
+              "ground_hit": true,
+              "ground_z": 0.0,
+              "headroom": 80.0
+            },
+            {
+              "dx": 0.0,
+              "dy": 4.0,
+              "ground_hit": true,
+              "ground_z": 0.0,
+              "headroom": 80.0
+            },
+            {
+              "dx": 0.0,
+              "dy": -4.0,
+              "ground_hit": true,
+              "ground_z": 0.0,
+              "headroom": 80.0
+            }
+          ],
+          "x": 605.880005,
+          "y": 1326.880005,
+          "z": 4.38
+        }
+      ],
+      "segments": []
+    },
+    "permafrost": {
+      "map": "/home/eqemu/server/maps/base/permafrost.map",
+      "points": [
+        {
+          "label": "keeper_spawn",
+          "samples": [
+            {
+              "dx": 0.0,
+              "dy": 0.0,
+              "ground_hit": true,
+              "ground_z": 0.0,
+              "headroom": 39.96875
+            },
+            {
+              "dx": 4.0,
+              "dy": 0.0,
+              "ground_hit": true,
+              "ground_z": 0.0,
+              "headroom": 39.96875
+            },
+            {
+              "dx": -4.0,
+              "dy": 0.0,
+              "ground_hit": true,
+              "ground_z": 0.0,
+              "headroom": 39.96875
+            },
+            {
+              "dx": 0.0,
+              "dy": 4.0,
+              "ground_hit": true,
+              "ground_z": 0.0,
+              "headroom": 39.96875
+            },
+            {
+              "dx": 0.0,
+              "dy": -4.0,
+              "ground_hit": true,
+              "ground_z": 0.0,
+              "headroom": 39.96875
+            }
+          ],
+          "x": 61.0,
+          "y": -121.0,
+          "z": 2.0
+        },
+        {
+          "label": "waypoint",
+          "samples": [
+            {
+              "dx": 0.0,
+              "dy": 0.0,
+              "ground_hit": true,
+              "ground_z": 0.0,
+              "headroom": 39.96875
+            },
+            {
+              "dx": 4.0,
+              "dy": 0.0,
+              "ground_hit": true,
+              "ground_z": 0.0,
+              "headroom": 39.96875
+            },
+            {
+              "dx": -4.0,
+              "dy": 0.0,
+              "ground_hit": true,
+              "ground_z": 0.0,
+              "headroom": 39.96875
+            },
+            {
+              "dx": 0.0,
+              "dy": 4.0,
+              "ground_hit": true,
+              "ground_z": 0.0,
+              "headroom": 39.96875
+            },
+            {
+              "dx": 0.0,
+              "dy": -4.0,
+              "ground_hit": true,
+              "ground_z": 0.0,
+              "headroom": 39.96875
+            }
+          ],
+          "x": 61.0,
+          "y": -121.0,
+          "z": 2.0
+        }
+      ],
+      "segments": []
+    },
+    "soldungb": {
+      "map": "/home/eqemu/server/maps/base/soldungb.map",
+      "points": [
+        {
+          "label": "keeper_spawn",
+          "samples": [
+            {
+              "dx": 0.0,
+              "dy": 0.0,
+              "ground_hit": true,
+              "ground_z": -111.96875,
+              "headroom": 12.0
+            },
+            {
+              "dx": 4.0,
+              "dy": 0.0,
+              "ground_hit": true,
+              "ground_z": -111.96875,
+              "headroom": 12.0
+            },
+            {
+              "dx": -4.0,
+              "dy": 0.0,
+              "ground_hit": true,
+              "ground_z": -111.96875,
+              "headroom": 12.0
+            },
+            {
+              "dx": 0.0,
+              "dy": 4.0,
+              "ground_hit": true,
+              "ground_z": -111.96875,
+              "headroom": 12.0
+            },
+            {
+              "dx": 0.0,
+              "dy": -4.0,
+              "ground_hit": true,
+              "ground_z": -111.96875,
+              "headroom": 12.0
+            }
+          ],
+          "x": -263.0,
+          "y": -424.0,
+          "z": -108.0
+        },
+        {
+          "label": "waypoint",
+          "samples": [
+            {
+              "dx": 0.0,
+              "dy": 0.0,
+              "ground_hit": true,
+              "ground_z": -111.96875,
+              "headroom": 12.0
+            },
+            {
+              "dx": 4.0,
+              "dy": 0.0,
+              "ground_hit": true,
+              "ground_z": -111.96875,
+              "headroom": 12.0
+            },
+            {
+              "dx": -4.0,
+              "dy": 0.0,
+              "ground_hit": true,
+              "ground_z": -111.96875,
+              "headroom": 12.0
+            },
+            {
+              "dx": 0.0,
+              "dy": 4.0,
+              "ground_hit": true,
+              "ground_z": -111.96875,
+              "headroom": 12.0
+            },
+            {
+              "dx": 0.0,
+              "dy": -4.0,
+              "ground_hit": true,
+              "ground_z": -111.96875,
+              "headroom": 12.0
+            }
+          ],
+          "x": -263.0,
+          "y": -424.0,
+          "z": -108.0
+        }
+      ],
+      "segments": []
+    }
+  }
+}

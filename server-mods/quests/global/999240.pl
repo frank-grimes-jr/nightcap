@@ -5,11 +5,11 @@
 # loads global_player.LUA (Lua is first in _load_precedence, main.cpp), so the
 # Perl global_player.pl — where waypoint discovery used to live — never loads and
 # never ran. This "global by NPC ID" script (quests/global/999240.pl) loads for
-# the marker in all 72 zones regardless of the global_player language.
+# the marker in every catalog zone regardless of the global_player language.
 #
 # On spawn the NPC arms a proximity box around itself; when a client enters it,
 # we record discovery for the current zone. The Waypoint Master in PoK reads
-# nightcap_character_waypoints to offer recall; all 72 zones => title 100.
+# nightcap_character_waypoints to offer recall; the full catalog => title 100.
 # =============================================================================
 
 sub EVENT_SPAWN {
@@ -22,10 +22,12 @@ sub EVENT_SPAWN {
 }
 
 sub waypoint_visual {
-    # IVM is in global_chr; unlike zone-specific NPC models it needs no client
-    # asset update. Keep the nameplate and proximity on this same marker entity.
-    if ($npc->GetRace() != 127) {
-        $npc->SendIllusionPacket({ race => 127, gender => 0, texture => 0,
+    # Requires the paired client: the complete import lists load crs.eqg in both
+    # model modes. The mesh is intended to remain recognizable with particles off;
+    # verify the native material, scale and nameplate in the release QA matrix.
+    # Keep the nameplate and discovery on this same entity, at its existing pose.
+    if ($npc->GetRace() != 425 || $npc->GetGender() != 2) {
+        $npc->SendIllusionPacket({ race => 425, gender => 2, texture => 0,
             helmtexture => 0, size => 6 });
     }
     # RoF2 spellsnew.eff 178 = WizardPortal. Nimbus state is sent to late joiners
@@ -37,7 +39,7 @@ sub waypoint_visual {
 }
 
 sub EVENT_SIGNAL {
-    return unless $signal == 20261011;
+    return unless $signal == 20261011 || $signal == 20261022;
     waypoint_visual();
 }
 

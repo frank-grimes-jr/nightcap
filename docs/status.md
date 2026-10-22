@@ -1,4 +1,56 @@
 # Current Nightcap status
+## Classic race robes — published for live QA, October 22
+
+Generated missing robe bodies for male/female Half Elf, Wood Elf, Barbarian,
+Dwarf, Troll, Ogre and Halfling. Existing skeletons, armor and custom helmets
+are retained. This is an asset correction, with no gameplay permission change.
+Native selection, archive preservation and offline fit checks are distinct from
+owner in-game acceptance. Main PR276 and signed game2026102201 are published
+with owner approval. Close the game, reopen the normal launcher and press Play.
+The two archives change together; 136 other managed files and the current
+DLL/catalog remain. No runtime restart or database change. Matching wiki
+20261022-classic-robes-v1 is published; native visual and animation QA is open.
+See [release evidence and exact QA](releases/classic-robes-20261022/README.md).
+
+
+
+## 2026-10-22 — Waypoint crystal candidate, not deployed
+
+The requested glowing crystal and existing `a waypoint` label are implemented
+with a paired proxy0.11.1/model update. Automated quest, client and packaging
+checks pass. Native particles-off visibility, scale and both model modes need
+owner QA. Main promotion and server/client/wiki publication are pending; the
+current live waypoint still uses its portal-only presentation. No locations,
+discoveries, recall, Keeper behavior or player data changed.
+[Candidate evidence and QA](ops/waypoint-crystal-20261022/README.md).
+
+The candidate now includes main26761ff and preserves signed game2026102201's
+Classic robe archives, other assets and patch history in its unsigned inventory
+plan. Current source/inventory compatibility and merged wiki checks pass;
+deployment authorization and native visibility acceptance remain pending.
+
+## 2026-10-22 — All-dungeon Keeper correction deployed for live QA
+
+An all-seven audit found four more exact waypoint overlaps: Unrest, Najena,
+Permafrost and Nagafen's Lair. The shared quest now separates these four by 15
+units, retaining Befallen's correction and the already-separate High Keep and
+Cazic-Thule poses. Geometry, 52 Keeper/16 waypoint/10 recovery assertions and 8
+operator tests pass. Main PR274 is deployed without restart; visible QA is untested. See
+[full audit, positions and QA](ops/dungeon-keeper-visibility-20261022/README.md).
+
+Wiki `20261022-dungeon-keepers-v1` publishes all seven locations; all 465 public
+files verify. No visible resolution is accepted yet.
+
+## Befallen Keeper visibility — deployed for live QA, October 22
+
+The owner reports a targetable but invisible Keeper. Fresh production inspection
+confirms exact overlap with the waypoint. A scoped quest correction separates the
+eye by 15 units; geometry and 46 regression assertions pass. Main PR272 is deployed without restart;
+the cause of invisibility and rendering acceptance remain open until live QA.
+[Evidence, activation and QA](ops/befallen-keeper-visibility-20261022/README.md).
+
+Wiki `20261022-befallen-keeper-v1` publishes the placement and open visual QA;
+waypoint, dungeon progress, native processes and client remain unchanged.
 
 ## 2026-10-21 - AA million-point release deployed for live QA
 Main PR268/e64f502 and the authorized production rollout are complete. AA costs

@@ -1,0 +1,17 @@
+{
+  "revision": "dbe04dd7c915e6fa03dde485d43837066e765da7",
+  "files": {
+    "world.md": {
+      "before_sha256": "81863d0f4a8d4179aaccf35e451c70fa1d92486c81c421c73860442bba5aa54e",
+      "after_sha256": "d7128c71231810c567115e9ff925b1fcee63dac8c507248cde5b1e41639b0a55"
+    },
+    "wiki.md": {
+      "before_sha256": "7ca90e86b6fb299bfc61fcd13f0618817d3c69ce4165299289d4ca9712d82958",
+      "after_sha256": "f430c9184eb9fe648f31877e4760ea544ee294eac54f89f0223bea2f2a265f2c"
+    },
+    "sources.json": {
+      "before_sha256": "cc9a35b2c00d99a1529fafce4635380fedf00a60d7f1f53755509a5b89728bfd",
+      "after_sha256": "b4c0ca5b6a65051f7c3246eee6518e3f3b7a098b28db9b16b92f8fd4ae64d3e7"
+    }
+  }
+}
