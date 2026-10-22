@@ -195,7 +195,7 @@ def build_image(m):
 
 def rehearsal(p):
     available=int(next(line.split()[1] for line in Path('/proc/meminfo').read_text().splitlines() if line.startswith('MemAvailable:')))*1024
-    assert available>=3*1024**3,'Insufficient memory for capped isolated rehearsal'
+    assert available>=4*1024**3,'Insufficient memory for capped isolated rehearsal'
     size=int(sql("SELECT COALESCE(SUM(data_length+index_length),0) FROM information_schema.tables WHERE table_schema='peq' AND table_name IN ("+','.join("'"+n+"'" for n in PUBLIC)+');'))
     needed=int(size*1.3)+(ROOT/'data/server/shared/items').stat().st_size+512*1024**2
     assert shutil.disk_usage(ROOT).free>=needed,'Insufficient measured clone/cache reserve'
@@ -211,7 +211,12 @@ def rehearsal(p):
         names=sql('SHOW TABLES;').splitlines()
         for t in names:
             assert re.fullmatch('[a-zA-Z_][a-zA-Z_0-9]*',t)
-            sql(f'CREATE TABLE `{database}`.`{t}` LIKE peq.`{t}`;')
+            # LIKE omits foreign keys. Replay the actual DDL in the empty clone,
+            # with constraint ordering deferred until all tables exist.
+            ddl=sql(f'SHOW CREATE TABLE `{t}`;').split('\t',1)[1].strip()
+            assert ddl.startswith(f'CREATE TABLE `{t}` ('),t
+            assert '`peq`.' not in ddl,'Unexpected cross-database definition: '+t
+            sql('SET FOREIGN_KEY_CHECKS=0;\n'+ddl+';',database)
         copy=PUBLIC|{'nightcap_dungeon_state'}
         sql('START TRANSACTION WITH CONSISTENT SNAPSHOT;\n'+'\n'.join(
             f'INSERT INTO `{t}` SELECT * FROM peq.`{t}`;' for t in sorted(copy))+'\nCOMMIT;',database)
@@ -227,11 +232,11 @@ def rehearsal(p):
         def loader(image,name):
             assert shutil.disk_usage(ROOT).free>=512*1024**2+(0 if (runtime/'shared/items').exists() else (ROOT/'data/server/shared/items').stat().st_size)
             with (runtime/(name+'.log')).open('w') as log:
-                result=subprocess.run(['docker','run','--rm','--memory','1536m','--memory-swap','1536m',
+                result=subprocess.run(['docker','run','--rm','--memory','3072m','--memory-swap','3072m',
                     '--network',networks[0],'--user','0',
                     '-v',str(runtime)+':/runtime','--workdir','/runtime','--entrypoint','/opt/nightcap/bin/shared_memory',
                     image,'items'],cwd=ROOT,stdout=log,stderr=subprocess.STDOUT,timeout=240)
-            assert result.returncode==0,'Isolated loader failed; inspect private log'
+            assert result.returncode==0,('Isolated loader failed; inspect private log',result.returncode)
             assert not re.search(r'Unknown column|SQL syntax|Unable to connect|doesn.t exist',(runtime/(name+'.log')).read_text())
         loader(manifest()['base_image_id'],'before')
         before=records(runtime/'shared/items')

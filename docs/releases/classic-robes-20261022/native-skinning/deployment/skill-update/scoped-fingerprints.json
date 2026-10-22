@@ -1,0 +1,521 @@
+{
+  "schema_version": 1,
+  "audited_at": "2026-10-22",
+  "topics": {
+    "client": [
+      {
+        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
+        "path": "tools/build_classic_robes.py",
+        "role": "Reviewed Classic robe source/publication evidence; signed game2026102201 verified; native visual acceptance pending",
+        "revision": "e209649cd70f5aa5d7bbc73813cae7275950af19 + reviewed knowledge/ledger bookkeeping",
+        "sha256": "01f9aa8ea0f559d045ce7f186275e338ce55c4663f0658635ba915e59b9bff22"
+      },
+      {
+        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
+        "path": "tools/classic_robe_geometry.py",
+        "role": "Reviewed native robe binding source and verified2204 delivery; native visual acceptance pending",
+        "revision": "048f22220fec3c572b806dd7bee9188a46b3faac + reviewed private ledger",
+        "sha256": "e85a6a9b690879ba286223d6270e34e405af97a1bed819982a0f2ade0dcad7d9"
+      },
+      {
+        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
+        "path": "tools/classic-robes-requirements.txt",
+        "role": "Reviewed Classic robe source/publication evidence; signed game2026102201 verified; native visual acceptance pending",
+        "revision": "e209649cd70f5aa5d7bbc73813cae7275950af19 + reviewed knowledge/ledger bookkeeping",
+        "sha256": "9eb067f16d4ad3f45fc9ccd3649162dac0ae41d27695c77dbe0b842bd76e2ac6"
+      },
+      {
+        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
+        "path": "tools/client_gameplay_assets.py",
+        "role": "Reviewed Classic robe source/publication evidence; signed game2026102201 verified; native visual acceptance pending",
+        "revision": "e209649cd70f5aa5d7bbc73813cae7275950af19 + reviewed knowledge/ledger bookkeeping",
+        "sha256": "f207b6f41b8e987561ae76801e2f4a4e4b56a7984a850c7a6f00f179e0251100"
+      },
+      {
+        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
+        "path": "tools/preview_classic_robes.py",
+        "role": "Reviewed waist-correction source/delivery; signed2203 verified; owner rejected original waist, corrected native recheck pending",
+        "revision": "a32be0b174bc0a0baabf240c5ad9b3e5d46d40c3 + reviewed ledger bookkeeping",
+        "sha256": "a3f94d60b7672b6157a23e473e6fa4979148bf36e1ee08ce9e07c7ab878c02f4"
+      },
+      {
+        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
+        "path": "tools/tests/test_classic_robes.py",
+        "role": "Reviewed native robe binding source and verified2204 delivery; native visual acceptance pending",
+        "revision": "048f22220fec3c572b806dd7bee9188a46b3faac + reviewed private ledger",
+        "sha256": "d6d1ef16e946795e3b29c94cf6bfd47bc69192295bab09320ccff97f5ab27fee"
+      },
+      {
+        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
+        "path": "eq-client-dll/tests/classic-robes-native.cpp",
+        "role": "Reviewed Classic robe source/publication evidence; signed game2026102201 verified; native visual acceptance pending",
+        "revision": "e209649cd70f5aa5d7bbc73813cae7275950af19 + reviewed knowledge/ledger bookkeeping",
+        "sha256": "09508344e674536743034bedbf95efe66e4cdaa347ce0386ee11d39126b80b05"
+      },
+      {
+        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
+        "path": "docs/adr/0065-classic-race-robe-assets.md",
+        "role": "Reviewed native robe binding source and verified2204 delivery; native visual acceptance pending",
+        "revision": "048f22220fec3c572b806dd7bee9188a46b3faac + reviewed private ledger",
+        "sha256": "d4a774d27322e360dc0a06809a45cbcddcb84ef400d00523a3edb96a492c5f6c"
+      },
+      {
+        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
+        "path": "docs/releases/classic-robes-20261022/README.md",
+        "role": "Reviewed native robe binding source and verified2204 delivery; native visual acceptance pending",
+        "revision": "048f22220fec3c572b806dd7bee9188a46b3faac + reviewed private ledger",
+        "sha256": "5fd54a1c7ea55cd33c1e5a130fc50f06767a6e1af60959b63442b9105118e324"
+      },
+      {
+        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
+        "path": "docs/releases/classic-robes-20261022/QA.md",
+        "role": "Reviewed native robe binding source and verified2204 delivery; native visual acceptance pending",
+        "revision": "048f22220fec3c572b806dd7bee9188a46b3faac + reviewed private ledger",
+        "sha256": "6b647ee7757329e084b07e7b9a225539b643f79db3d7c448c7bcd82144ba4d86"
+      },
+      {
+        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
+        "path": "docs/releases/classic-robes-20261022/evidence.json",
+        "role": "Reviewed Classic robe source/publication evidence; signed game2026102201 verified; native visual acceptance pending",
+        "revision": "e209649cd70f5aa5d7bbc73813cae7275950af19 + reviewed knowledge/ledger bookkeeping",
+        "sha256": "2fe072d32b72a1dd121021190abc4fdb461475e7a6adbfc0613db7d2ac95f931"
+      },
+      {
+        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
+        "path": "docs/releases/classic-robes-20261022/robe-audit.json",
+        "role": "Reviewed Classic robe source/publication evidence; signed game2026102201 verified; native visual acceptance pending",
+        "revision": "e209649cd70f5aa5d7bbc73813cae7275950af19 + reviewed knowledge/ledger bookkeeping",
+        "sha256": "51e6ba146757fa722cb87221cd48bf174f0a315e15af4407a9e766c003b3f401"
+      },
+      {
+        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
+        "path": "docs/releases/classic-robes-20261022/deployment/README.md",
+        "role": "Reviewed waist-correction source/delivery; signed2203 verified; owner rejected original waist, corrected native recheck pending",
+        "revision": "a32be0b174bc0a0baabf240c5ad9b3e5d46d40c3 + reviewed ledger bookkeeping",
+        "sha256": "a6e2b65f3eac36870c78274e12039b2bc72078ab3f59fb3a0a56850a178644d0"
+      },
+      {
+        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
+        "path": "docs/releases/classic-robes-20261022/deployment/prepare.go",
+        "role": "Reviewed Classic robe source/publication evidence; signed game2026102201 verified; native visual acceptance pending",
+        "revision": "e209649cd70f5aa5d7bbc73813cae7275950af19",
+        "sha256": "f247e9e92e228a66b2d5a250ccca20a26cc42455ac005c978bc9905333bc39c9"
+      },
+      {
+        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
+        "path": "docs/releases/classic-robes-20261022/deployment/verify.go",
+        "role": "Reviewed Classic robe source/publication evidence; signed game2026102201 verified; native visual acceptance pending",
+        "revision": "e209649cd70f5aa5d7bbc73813cae7275950af19",
+        "sha256": "c7c210b38cefc6631f5aa423ea6c22256cc6fad66007746a95c164a1705519df"
+      },
+      {
+        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
+        "path": "docs/releases/classic-robes-20261022/deployment/publish.py",
+        "role": "Reviewed Classic robe source/publication evidence; signed game2026102201 verified; native visual acceptance pending",
+        "revision": "e209649cd70f5aa5d7bbc73813cae7275950af19",
+        "sha256": "892a067b8c15904a56028b785c6fe3e4765e67019fa511418243b00009d5c251"
+      },
+      {
+        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
+        "path": "docs/releases/classic-robes-20261022/deployment/test_publish.py",
+        "role": "Reviewed Classic robe source/publication evidence; signed game2026102201 verified; native visual acceptance pending",
+        "revision": "e209649cd70f5aa5d7bbc73813cae7275950af19",
+        "sha256": "bfe555d39a50b241365a7d73834ba750fbbc1fc55d0ad77c5b892fba312b9dbf"
+      },
+      {
+        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
+        "path": "docs/releases/classic-robes-20261022/deployment/deployment.json",
+        "role": "Reviewed Classic robe source/publication evidence; signed game2026102201 verified; native visual acceptance pending",
+        "revision": "e209649cd70f5aa5d7bbc73813cae7275950af19",
+        "sha256": "2b56a008f2ce0aaff2efee3f1d3fdba1d42c01c2a0789698e98ade7241cec71b"
+      },
+      {
+        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
+        "path": "docs/releases/classic-robes-20261022/deployment/hosted-verification.json",
+        "role": "Reviewed Classic robe source/publication evidence; signed game2026102201 verified; native visual acceptance pending",
+        "revision": "e209649cd70f5aa5d7bbc73813cae7275950af19",
+        "sha256": "fe00124ae4f6bffdd5d576d0ed3f6ffef97de2fdb7ed31c98a3f82c548dbea62"
+      },
+      {
+        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
+        "path": "docs/releases/classic-robes-20261022/deployment/recovery.json",
+        "role": "Reviewed Classic robe source/publication evidence; signed game2026102201 verified; native visual acceptance pending",
+        "revision": "e209649cd70f5aa5d7bbc73813cae7275950af19",
+        "sha256": "5401835cfe9ac0859ff87c51e7b19c51a82cc326ff0f8da02fc879bc17e7fccf"
+      },
+      {
+        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
+        "path": "docs/releases/classic-robes-20261022/deployment/release-record.json",
+        "role": "Reviewed Classic robe source/publication evidence; signed game2026102201 verified; native visual acceptance pending",
+        "revision": "e209649cd70f5aa5d7bbc73813cae7275950af19",
+        "sha256": "994a2bd98a3d7efedf1ac06e66c5931bcac58d295496590c8faacc6cc59b86a1"
+      },
+      {
+        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
+        "path": "docs/releases/classic-robes-20261022/waist-correction/README.md",
+        "role": "Reviewed native robe binding source and verified2204 delivery; native visual acceptance pending",
+        "revision": "048f22220fec3c572b806dd7bee9188a46b3faac + reviewed private ledger",
+        "sha256": "83bd6470205070bb5a9b4a7503f40f7c3f8df65f4a7690e4588ebe6994ba6f24"
+      },
+      {
+        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
+        "path": "docs/releases/classic-robes-20261022/waist-correction/evidence.json",
+        "role": "Reviewed waist-correction source/delivery; signed2203 verified; owner rejected original waist, corrected native recheck pending",
+        "revision": "a32be0b174bc0a0baabf240c5ad9b3e5d46d40c3",
+        "sha256": "132bcaa18dfc58b3605ed526d68d2d037be57ace832c5f18bc44e94ca0043e4e"
+      },
+      {
+        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
+        "path": "docs/releases/classic-robes-20261022/waist-correction/robe-audit.json",
+        "role": "Reviewed waist-correction source/delivery; signed2203 verified; owner rejected original waist, corrected native recheck pending",
+        "revision": "a32be0b174bc0a0baabf240c5ad9b3e5d46d40c3",
+        "sha256": "1db256322facfd92b2ba55af1af7ddfb34cbfa9fa2255d8700aff8e92f9f9641"
+      },
+      {
+        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
+        "path": "docs/releases/classic-robes-20261022/waist-correction/deployment/README.md",
+        "role": "Reviewed waist-correction source/delivery; signed2203 verified; owner rejected original waist, corrected native recheck pending",
+        "revision": "a32be0b174bc0a0baabf240c5ad9b3e5d46d40c3",
+        "sha256": "cded2a0809003d079817617eda53a6541cd229b952f308b17da6e4ff0d4d80d8"
+      },
+      {
+        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
+        "path": "docs/releases/classic-robes-20261022/waist-correction/deployment/prepare.go",
+        "role": "Reviewed waist-correction source/delivery; signed2203 verified; owner rejected original waist, corrected native recheck pending",
+        "revision": "a32be0b174bc0a0baabf240c5ad9b3e5d46d40c3",
+        "sha256": "006949d9bf24d62bd6f4d003a5b0071d3ce5539153f6c5a541c42672913129ef"
+      },
+      {
+        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
+        "path": "docs/releases/classic-robes-20261022/waist-correction/deployment/verify.go",
+        "role": "Reviewed waist-correction source/delivery; signed2203 verified; owner rejected original waist, corrected native recheck pending",
+        "revision": "a32be0b174bc0a0baabf240c5ad9b3e5d46d40c3",
+        "sha256": "6fb3d55f7656d277c89f3a184f85fa6e6db8355e55853e26129b665c922d8882"
+      },
+      {
+        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
+        "path": "docs/releases/classic-robes-20261022/waist-correction/deployment/publish.py",
+        "role": "Reviewed waist-correction source/delivery; signed2203 verified; owner rejected original waist, corrected native recheck pending",
+        "revision": "a32be0b174bc0a0baabf240c5ad9b3e5d46d40c3",
+        "sha256": "e7d04fd73e8283f57251c20788ccd46d24b3039e3e0f91f0fdfbd2a8fa8d9e0a"
+      },
+      {
+        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
+        "path": "docs/releases/classic-robes-20261022/waist-correction/deployment/test_publish.py",
+        "role": "Reviewed waist-correction source/delivery; signed2203 verified; owner rejected original waist, corrected native recheck pending",
+        "revision": "a32be0b174bc0a0baabf240c5ad9b3e5d46d40c3",
+        "sha256": "a93ba692a365670d449f2265e3254ba1226ba5a11b792dee58adada8754d6e20"
+      },
+      {
+        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
+        "path": "docs/releases/classic-robes-20261022/waist-correction/deployment/deployment.json",
+        "role": "Reviewed waist-correction source/delivery; signed2203 verified; owner rejected original waist, corrected native recheck pending",
+        "revision": "a32be0b174bc0a0baabf240c5ad9b3e5d46d40c3",
+        "sha256": "4cf09bef635e1467a215a74d3c9bc11e336720ea3cf04dbfebfd87cf5c342d4d"
+      },
+      {
+        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
+        "path": "docs/releases/classic-robes-20261022/waist-correction/deployment/hosted-verification.json",
+        "role": "Reviewed waist-correction source/delivery; signed2203 verified; owner rejected original waist, corrected native recheck pending",
+        "revision": "a32be0b174bc0a0baabf240c5ad9b3e5d46d40c3",
+        "sha256": "a8256248e870d11aa123606ae1d8d4f8dd7f574fca4b381a41ab29eedeb3bbb0"
+      },
+      {
+        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
+        "path": "docs/releases/classic-robes-20261022/waist-correction/deployment/recovery.json",
+        "role": "Reviewed waist-correction source/delivery; signed2203 verified; owner rejected original waist, corrected native recheck pending",
+        "revision": "a32be0b174bc0a0baabf240c5ad9b3e5d46d40c3",
+        "sha256": "38e17e5265c73af98b37ee6b3a386488b47e553f9897b52a99bff3dac9c1d43e"
+      },
+      {
+        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
+        "path": "docs/releases/classic-robes-20261022/waist-correction/deployment/release-record.json",
+        "role": "Reviewed waist-correction source/delivery; signed2203 verified; owner rejected original waist, corrected native recheck pending",
+        "revision": "a32be0b174bc0a0baabf240c5ad9b3e5d46d40c3",
+        "sha256": "10a73c7723e65a9aa9e032107b5e494adad5ae4b7cc4c15734ae133b51e93370"
+      },
+      {
+        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
+        "path": "tools/tests/classic_robes_skinning_native.py",
+        "role": "Reviewed native robe binding source and verified2204 delivery; native visual acceptance pending",
+        "revision": "048f22220fec3c572b806dd7bee9188a46b3faac",
+        "sha256": "dc7c6f771274eef94d7ad685a68014d1321db3793acadee5498794a074a2ae60"
+      },
+      {
+        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
+        "path": "docs/releases/classic-robes-20261022/native-skinning/README.md",
+        "role": "Reviewed native robe binding source and verified2204 delivery; native visual acceptance pending",
+        "revision": "048f22220fec3c572b806dd7bee9188a46b3faac",
+        "sha256": "75a069341e5eb665a2bcdc11daad043b5e932b0622de3530e011f8bd26029596"
+      },
+      {
+        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
+        "path": "docs/releases/classic-robes-20261022/native-skinning/evidence.json",
+        "role": "Reviewed native robe binding source and verified2204 delivery; native visual acceptance pending",
+        "revision": "048f22220fec3c572b806dd7bee9188a46b3faac",
+        "sha256": "31309798f135451642a5c1c17bb09e5288894c902f174d79e36dcc6ded744b86"
+      },
+      {
+        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
+        "path": "docs/releases/classic-robes-20261022/native-skinning/native-checks.json",
+        "role": "Reviewed native robe binding source and verified2204 delivery; native visual acceptance pending",
+        "revision": "048f22220fec3c572b806dd7bee9188a46b3faac",
+        "sha256": "49bc5cfc9d834aa60e748298ae34a0b9705582e0c0cb46740635c103f405ac36"
+      },
+      {
+        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
+        "path": "docs/releases/classic-robes-20261022/native-skinning/native-loader-disassembly.txt",
+        "role": "Reviewed native robe binding source and verified2204 delivery; native visual acceptance pending",
+        "revision": "048f22220fec3c572b806dd7bee9188a46b3faac",
+        "sha256": "f0d8b7abc60e65855503ced82229ff35b638eaab66c708e14572dc23ea840a43"
+      },
+      {
+        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
+        "path": "docs/releases/classic-robes-20261022/native-skinning/preservation.json",
+        "role": "Reviewed native robe binding source and verified2204 delivery; native visual acceptance pending",
+        "revision": "048f22220fec3c572b806dd7bee9188a46b3faac",
+        "sha256": "0b0305f315ffce5abf46989f601e64e60a09fcf566fbe21ace4c09b7af56b4cb"
+      },
+      {
+        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
+        "path": "docs/releases/classic-robes-20261022/native-skinning/deployment/README.md",
+        "role": "Reviewed native robe binding source and verified2204 delivery; native visual acceptance pending",
+        "revision": "048f22220fec3c572b806dd7bee9188a46b3faac",
+        "sha256": "e527a120bc20517e0a5b3f599336163ad548f024449395a1a390a210c6cc5b6f"
+      },
+      {
+        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
+        "path": "docs/releases/classic-robes-20261022/native-skinning/deployment/prepare.go",
+        "role": "Reviewed native robe binding source and verified2204 delivery; native visual acceptance pending",
+        "revision": "048f22220fec3c572b806dd7bee9188a46b3faac",
+        "sha256": "4b5f00a06abfba9a5833dfe499d610fc2152f02ad944d17d6feb1d9a22717368"
+      },
+      {
+        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
+        "path": "docs/releases/classic-robes-20261022/native-skinning/deployment/verify.go",
+        "role": "Reviewed native robe binding source and verified2204 delivery; native visual acceptance pending",
+        "revision": "048f22220fec3c572b806dd7bee9188a46b3faac",
+        "sha256": "482ab2a16e1e78baf4e5514bcac766f90509bac1b459a85314b6e6ce5df7e6e0"
+      },
+      {
+        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
+        "path": "docs/releases/classic-robes-20261022/native-skinning/deployment/publish.py",
+        "role": "Reviewed native robe binding source and verified2204 delivery; native visual acceptance pending",
+        "revision": "048f22220fec3c572b806dd7bee9188a46b3faac",
+        "sha256": "9949cbfbd58b2376e90bf33ebcd833a37e3ce6ac6c8b723d6a65529db325493b"
+      },
+      {
+        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
+        "path": "docs/releases/classic-robes-20261022/native-skinning/deployment/test_publish.py",
+        "role": "Reviewed native robe binding source and verified2204 delivery; native visual acceptance pending",
+        "revision": "048f22220fec3c572b806dd7bee9188a46b3faac",
+        "sha256": "a93ba692a365670d449f2265e3254ba1226ba5a11b792dee58adada8754d6e20"
+      },
+      {
+        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
+        "path": "docs/releases/classic-robes-20261022/native-skinning/deployment/deployment.json",
+        "role": "Reviewed native robe binding source and verified2204 delivery; native visual acceptance pending",
+        "revision": "048f22220fec3c572b806dd7bee9188a46b3faac",
+        "sha256": "fdc8d51b78e3c2633041f93de8da67f89500ecac06f237cfadbcae05db5a4927"
+      },
+      {
+        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
+        "path": "docs/releases/classic-robes-20261022/native-skinning/deployment/hosted-verification.json",
+        "role": "Reviewed native robe binding source and verified2204 delivery; native visual acceptance pending",
+        "revision": "048f22220fec3c572b806dd7bee9188a46b3faac",
+        "sha256": "99a85691a6a8fffc00b8bae232907604777cfdd057760702d92a7ad46fbed315"
+      },
+      {
+        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
+        "path": "docs/releases/classic-robes-20261022/native-skinning/deployment/recovery.json",
+        "role": "Reviewed native robe binding source and verified2204 delivery; native visual acceptance pending",
+        "revision": "048f22220fec3c572b806dd7bee9188a46b3faac",
+        "sha256": "d30bda0958a53efdf499b0a6701c1d038db3e6282cb304b8a58534a5088a8f91"
+      },
+      {
+        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
+        "path": "docs/releases/classic-robes-20261022/native-skinning/deployment/release-record.json",
+        "role": "Reviewed native robe binding source and verified2204 delivery; native visual acceptance pending",
+        "revision": "048f22220fec3c572b806dd7bee9188a46b3faac",
+        "sha256": "55b6e88aa140d7cf8b1c4ed637a9be3a40a9556677cea2f33e7832983f0b5671"
+      }
+    ],
+    "wiki": [
+      {
+        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
+        "path": "wiki/articles/equipment.json",
+        "role": "Reviewed native robe binding source and verified2204 delivery; native visual acceptance pending",
+        "revision": "048f22220fec3c572b806dd7bee9188a46b3faac + reviewed private ledger",
+        "sha256": "b9a661b89130666645024aed7b12ec1362b330f0abeb13042fcb68d5bb9f2df8"
+      },
+      {
+        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
+        "path": "wiki/articles/multiclass.json",
+        "role": "Reviewed native robe binding source and verified2204 delivery; native visual acceptance pending",
+        "revision": "048f22220fec3c572b806dd7bee9188a46b3faac + reviewed private ledger",
+        "sha256": "d4a38567c7c4ec592abafaf2e83ccb3765047f3dd1af0af03b90fa2026195148"
+      },
+      {
+        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
+        "path": "wiki/articles/features.json",
+        "role": "Reviewed native robe binding source and verified2204 delivery; native visual acceptance pending",
+        "revision": "048f22220fec3c572b806dd7bee9188a46b3faac + reviewed private ledger",
+        "sha256": "1dfd3b846873965a74815f41232baadb694dbfcc43fd544fa00eb49561536cf3"
+      },
+      {
+        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
+        "path": "wiki/articles/launcher.json",
+        "role": "Reviewed native robe binding source and verified2204 delivery; native visual acceptance pending",
+        "revision": "048f22220fec3c572b806dd7bee9188a46b3faac + reviewed private ledger",
+        "sha256": "5c578ea7e49cedfcbc0db426a2c11bb59dba6a9fc41fa1680febb0279cce03d0"
+      },
+      {
+        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
+        "path": "wiki/articles/index.json",
+        "role": "Reviewed native robe binding source and verified2204 delivery; native visual acceptance pending",
+        "revision": "048f22220fec3c572b806dd7bee9188a46b3faac + reviewed private ledger",
+        "sha256": "b9c580f45152a08e91dfa814d17562b127ce2e6dce8f0df4961d8bdbd65d9d53"
+      },
+      {
+        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
+        "path": "wiki/articles/unreleased.json",
+        "role": "Reviewed native robe binding source and verified2204 delivery; native visual acceptance pending",
+        "revision": "048f22220fec3c572b806dd7bee9188a46b3faac + reviewed private ledger",
+        "sha256": "cb745b497a2ca42ee487278e072470dfa9403e65bf36133a080a9f38583b8d3e"
+      },
+      {
+        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
+        "path": "wiki/articles/recent-changes.json",
+        "role": "Reviewed native robe binding source and verified2204 delivery; native visual acceptance pending",
+        "revision": "048f22220fec3c572b806dd7bee9188a46b3faac + reviewed private ledger",
+        "sha256": "7de00efcd265e28d6e9d0cf27f484b3bc919594f03b234bebbbd9ac145bcbaed"
+      },
+      {
+        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
+        "path": "wiki/content-review.json",
+        "role": "Reviewed native robe binding source and verified2204 delivery; native visual acceptance pending",
+        "revision": "048f22220fec3c572b806dd7bee9188a46b3faac + reviewed private ledger",
+        "sha256": "cc8f3ab8ecfdb8f890f244feb47f4413b44f5a3a6b2e2ba8b16cd0e0b0a7313b"
+      },
+      {
+        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
+        "path": "docs/releases/classic-robes-20261022/wiki-review.json",
+        "role": "Reviewed Classic robe source/publication evidence; signed game2026102201 verified; native visual acceptance pending",
+        "revision": "e209649cd70f5aa5d7bbc73813cae7275950af19 + reviewed knowledge/ledger bookkeeping",
+        "sha256": "3d6573652b90802ea138dad471ab8ee4004f7c5cc31eb89cc927c45137345217"
+      },
+      {
+        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
+        "path": "docs/releases/classic-robes-20261022/deployment/wiki-review.json",
+        "role": "Reviewed Classic robe source/publication evidence; signed game2026102201 verified; native visual acceptance pending",
+        "revision": "e209649cd70f5aa5d7bbc73813cae7275950af19",
+        "sha256": "b7864e97de95d0edad627d87e50b82f6c0a6275aa5a0d163440d30b12fab7163"
+      },
+      {
+        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
+        "path": "docs/releases/classic-robes-20261022/deployment/publish_wiki.py",
+        "role": "Reviewed Classic robe source/publication evidence; signed game2026102201 verified; native visual acceptance pending",
+        "revision": "e209649cd70f5aa5d7bbc73813cae7275950af19",
+        "sha256": "f2ff3946e642b853b47b1813f2f66f22a92ee48cdb593e9523cafe0514bedb3b"
+      },
+      {
+        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
+        "path": "docs/releases/classic-robes-20261022/deployment/verify_wiki.py",
+        "role": "Reviewed Classic robe source/publication evidence; signed game2026102201 verified; native visual acceptance pending",
+        "revision": "e209649cd70f5aa5d7bbc73813cae7275950af19",
+        "sha256": "a18a7d01c2263e9da011ac4fef8a32f2dd3150577d3dabb061f127aabbe28a8e"
+      },
+      {
+        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
+        "path": "docs/releases/classic-robes-20261022/deployment/wiki-publication.json",
+        "role": "Reviewed Classic robe source/publication evidence; signed game2026102201 verified; native visual acceptance pending",
+        "revision": "e209649cd70f5aa5d7bbc73813cae7275950af19",
+        "sha256": "8fade5703053e88d7c86bdd1b51e0bf28f96ab34c9c64365a6b4ecc69564e913"
+      },
+      {
+        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
+        "path": "docs/releases/classic-robes-20261022/deployment/wiki-public-verification.json",
+        "role": "Reviewed Classic robe source/publication evidence; signed game2026102201 verified; native visual acceptance pending",
+        "revision": "e209649cd70f5aa5d7bbc73813cae7275950af19",
+        "sha256": "9d0054dc05ed287291b2a1f1b1433e379887240e8fdacaef34efaa4fef99177e"
+      },
+      {
+        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
+        "path": "docs/releases/classic-robes-20261022/waist-correction/deployment/wiki-review.json",
+        "role": "Reviewed waist-correction source/delivery; signed2203 verified; owner rejected original waist, corrected native recheck pending",
+        "revision": "a32be0b174bc0a0baabf240c5ad9b3e5d46d40c3",
+        "sha256": "e63ae43366f77040d83f2206dd3b94c172e42ddf47793ce868b608015b612d83"
+      },
+      {
+        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
+        "path": "docs/releases/classic-robes-20261022/waist-correction/deployment/publish_wiki.py",
+        "role": "Reviewed waist-correction source/delivery; signed2203 verified; owner rejected original waist, corrected native recheck pending",
+        "revision": "a32be0b174bc0a0baabf240c5ad9b3e5d46d40c3",
+        "sha256": "74075e028662700d02793861e0f686abfff49bb3e442c4819fc46cc6968d9474"
+      },
+      {
+        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
+        "path": "docs/releases/classic-robes-20261022/waist-correction/deployment/verify_wiki.py",
+        "role": "Reviewed waist-correction source/delivery; signed2203 verified; owner rejected original waist, corrected native recheck pending",
+        "revision": "a32be0b174bc0a0baabf240c5ad9b3e5d46d40c3",
+        "sha256": "337e88a4353dfa8f6902578bf692fdf887d2b3bdc1ad95ef9756a47fb4b89d58"
+      },
+      {
+        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
+        "path": "docs/releases/classic-robes-20261022/waist-correction/deployment/wiki-publication.json",
+        "role": "Reviewed waist-correction source/delivery; signed2203 verified; owner rejected original waist, corrected native recheck pending",
+        "revision": "a32be0b174bc0a0baabf240c5ad9b3e5d46d40c3",
+        "sha256": "ad3fc5eeab97027debac65da9d7151c2240c602f226d159f25f1ad3b57554681"
+      },
+      {
+        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
+        "path": "docs/releases/classic-robes-20261022/waist-correction/deployment/wiki-public-verification.json",
+        "role": "Reviewed waist-correction source/delivery; signed2203 verified; owner rejected original waist, corrected native recheck pending",
+        "revision": "a32be0b174bc0a0baabf240c5ad9b3e5d46d40c3",
+        "sha256": "c13a57d24cb17480b446b9e967f81c31a616c9b2b0b77dea990d33ebbd948d26"
+      },
+      {
+        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
+        "path": "docs/releases/classic-robes-20261022/native-skinning/deployment/wiki-review.json",
+        "role": "Reviewed native robe binding source and verified2204 delivery; native visual acceptance pending",
+        "revision": "048f22220fec3c572b806dd7bee9188a46b3faac",
+        "sha256": "29e2189277d63da74b5d06eedba91a3dabcec3a9f4d48e9d45b44a573c37f67a"
+      },
+      {
+        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
+        "path": "docs/releases/classic-robes-20261022/native-skinning/deployment/concurrent-wiki-reconciliation.json",
+        "role": "Reviewed native robe binding source and verified2204 delivery; native visual acceptance pending",
+        "revision": "048f22220fec3c572b806dd7bee9188a46b3faac",
+        "sha256": "d5fd13f4d2b6550f5570dd2baff61876ad5056a247fa2be404b21a611bf282d1"
+      },
+      {
+        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
+        "path": "docs/releases/classic-robes-20261022/native-skinning/deployment/publish_wiki.py",
+        "role": "Reviewed native robe binding source and verified2204 delivery; native visual acceptance pending",
+        "revision": "048f22220fec3c572b806dd7bee9188a46b3faac",
+        "sha256": "9bf8e015f4f0935c6d947b41e9383224834f5014184e7747f0692a99d31f2fdb"
+      },
+      {
+        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
+        "path": "docs/releases/classic-robes-20261022/native-skinning/deployment/verify_wiki.py",
+        "role": "Reviewed native robe binding source and verified2204 delivery; native visual acceptance pending",
+        "revision": "048f22220fec3c572b806dd7bee9188a46b3faac",
+        "sha256": "5496ab51911e30be1d8a3909979b06bb27c86ea4625c5f569a6b2a0b938bfd59"
+      },
+      {
+        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
+        "path": "docs/releases/classic-robes-20261022/native-skinning/deployment/wiki-publication.json",
+        "role": "Reviewed native robe binding source and verified2204 delivery; native visual acceptance pending",
+        "revision": "048f22220fec3c572b806dd7bee9188a46b3faac",
+        "sha256": "c5b41ce20cd46e24316349b630488c76f480a8b5081b812a953c56d7363b5d3c"
+      },
+      {
+        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
+        "path": "docs/releases/classic-robes-20261022/native-skinning/deployment/wiki-public-verification.json",
+        "role": "Reviewed native robe binding source and verified2204 delivery; native visual acceptance pending",
+        "revision": "048f22220fec3c572b806dd7bee9188a46b3faac",
+        "sha256": "fdf27f902d2aebf9a280fb3b64cb2a02da911afbb480b21204febb5b66f91517"
+      }
+    ]
+  }
+}
