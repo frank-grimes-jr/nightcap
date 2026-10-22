@@ -1,6 +1,6 @@
 {
   "reviewed_at": "2026-10-22",
-  "reviewed_revision": "c6c210085a20ed206a729f4b06ae2a5002ba65b4",
+  "reviewed_revision": "13f7dbde1707b0d18c18a1a0715cf0c04da1d831",
   "source_paths": [
     "server-mods/",
     "eq-client-dll/",
@@ -64,6 +64,7 @@
     "October22 everyClassicdungeon candidate: all21 maintained articles and432 generated reward routes reviewed against26761ff plus working source; seven guides explicitly label21-zone coverage Not released. Hunt48zones/384values and existing commands remain exact. Existingseven live labels and publishedrobe notices retained. Source/build/SQL evidence and exactQA: docs/dungeons/classic-expansion-20261022/. No game or wiki publication; global reviewed revision preserved.",
     "October22 unique Classic raid rewards: all21 guides/432 generated routes reviewed. Seven guides label42 new exclusive designs/84 variants, all414 MAGIC and three planar utility clicks Not released. Hunt catalog/commands unchanged. Local only; published ledger retained. Evidence: docs/dungeons/classic-rewards-20261022/wiki-review.json. Preserve parallel waypoint/quest-armor notices during integration.",
     "October22 main PR293/3af85bb and paired21-dungeon/414-MAGIC deployment verified. All21 guides/432 generated routes reviewed; seven guides/search published as20261022-classic-dungeons-v1 with465public hashes/headers and five private denials.14 newKeeper locations and95 additional objectives documented; Hunt384values/commands and current robe2204/quest-tier/class-armor/waypoint notices retained. Fresh stopped backup and exact state/content/cache checks pass; owner gameplay/balance acceptance open. docs/dungeons/classic-rewards-20261022/deployment/. Final operational and maintained-knowledge receipts add no public payload.",
-    "October22 interactive handbook: current dungeon deployment/publication and scoped robe owner acceptance reviewed through c6c2100. All21 guides/432 generated routes assessed. Home notices, Features, commands,384 values and labels retain meaning; About/Recent changes document browser-local navigation/preferences. Shared HTML/CSS/JS presentation only; publication and native acceptance remain separate. docs/releases/wiki-interactive-20261022/."
+    "October22 interactive handbook: current dungeon deployment/publication and scoped robe owner acceptance reviewed through c6c2100. All21 guides/432 generated routes assessed. Home notices, Features, commands,384 values and labels retain meaning; About/Recent changes document browser-local navigation/preferences. Shared HTML/CSS/JS presentation only; publication and native acceptance remain separate. docs/releases/wiki-interactive-20261022/.",
+    "Interactive handbook final source and publication receipts through 13f7dbde1707b0d18c18a1a0715cf0c04da1d831 reviewed: all465 public hashes/headers, five private-route denials,16 Linux recovery cases and actual rollback/service preservation pass. Public browser smoke verified. Installed wiki knowledge and174 source fingerprints validated; relocated historical receipts are byte-identical. Remaining source drift consisted only of these authored interface/operator/review records. This ledger update changes no public payload or gameplay acceptance."
   ]
 }
