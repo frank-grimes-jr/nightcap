@@ -41,7 +41,11 @@ sub EVENT_ITEM {
     my ($id) = grep { ($itemcount{$_} || 0) == 1 } ($base, $base + 600000);
     $armor{defined $id ? $id : $base} = 1;
   }
-  if (($platinum >= 900) && plugin::check_handin(\%itemcount, %armor)) { #Darkforge Breastplate, Greaves, Helm; original platinum threshold
+  # The active native checker requires currency explicitly. Preserve the reviewed
+  # full-coin-return policy after success; failed trades use native automatic returns.
+  if (($platinum >= 900) && plugin::check_handin(\%itemcount, %armor,
+      platinum => $platinum, gold => $gold, silver => $silver, copper => $copper)) {
+    quest::givecash($copper, $silver, $gold, $platinum);
     quest::say("Well done, $name, I honestly didn't expect to see you again. Yes, yes, this is perfect! My mission is nearly complete!");
     quest::faction(404,7); # Faction: Truespirit
     if ($letter == 0) {

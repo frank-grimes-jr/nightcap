@@ -16,8 +16,10 @@ sub read_text {
 my $capture = decode_json(read_text("$root/docs/releases/quest-armor-20261022/production-reference.json"));
 our ($active_package, $state);
 
-# Execute the captured real plugin helpers. Only the EQEmu variable/native-object
-# boundary is faked; exact-count versus >= checks and currency handling are real.
+# Historical reward-delta controls using the captured quests/plugins helpers.
+# Production loads root plugins/ instead, delegating native CheckHandin. These
+# tests do not prove that native lifecycle; quest_handins.t and compiled native
+# fixtures cover the integrated ordinary-tier and currency compatibility policy.
 for my $path ('plugins/globals.pl', 'plugins/check_handin.pl') {
     my $source = $capture->{helpers}{$path}{source} // die "Missing production helper $path";
     eval "package plugin; no strict; no warnings; $source";
@@ -227,8 +229,13 @@ for my $mask (0..7) {
         my $candidate = load_quest($epic_path,$baseline_only);
         my $baseline = load_quest($epic_path,1);
         my $earned = invoke($candidate,\@pieces,[0,0,0,900]);
-        is_deeply($earned,invoke($baseline,\@normal_darkforge,[0,0,0,900]),
-            'every mixed quality combination has the original successful outcome');
+        my $expected = invoke($baseline,\@normal_darkforge,[0,0,0,900]);
+        # The unused legacy return helper adds a rejection line solely for its
+        # coin refund. Native success plus explicit givecash has no rejection.
+        pop @{$expected->{sayings}} if !$baseline_only &&
+            $expected->{sayings}[-1] eq 'I have no need for this Palwar, you can have it back.';
+        is_deeply($earned,$expected,
+            'mixed quality retains reward/coins; no obsolete helper rejection line');
         is_deeply($earned->{factions},[[404,7]],'original Truespirit faction reward');
         is_deeply($earned->{npc_items},[[18099,1]],'one original Letter to Duriek added to NPC inventory');
         is_deeply($earned->{returned},[],'three required pieces consumed');
@@ -263,7 +270,7 @@ for my $mask (0..7) {
             'a new NPC spawn can carry its own single letter');
     };
 }
-subtest 'Kurron Ni still rejects unaudited quality tiers' => sub {
+subtest 'Legacy helper fixture rejects Polished/Exalted without native tier matching' => sub {
     for my $offset (200000,400000) {
         for my $slot (0..2) {
             my @pieces = @normal_darkforge;

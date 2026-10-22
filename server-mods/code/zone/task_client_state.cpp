@@ -2,6 +2,7 @@
 
 #include "common/events/player_event_logs.h"
 #include "common/misc_functions.h"
+#include "common/quest_item_policy.h"
 #include "common/repositories/character_activities_repository.h"
 #include "common/repositories/character_task_timers_repository.h"
 #include "common/repositories/character_tasks_repository.h"
@@ -502,8 +503,17 @@ bool ClientTaskState::CanUpdate(Client* client, const TaskUpdateFilter& filter, 
 	if (!activity.item_id_list.empty() && filter.item_id != 0 &&
 	    !Tasks::IsInMatchList(activity.item_id_list, std::to_string(filter.item_id)))
 	{
-		LogTasks("client [{}] task [{}]-[{}] failed item match filter", client->GetName(), task_id, client_activity.activity_id);
-		return false;
+		// Delivery accepts verified ordinary qualities for a listed Normal item.
+		// Keep the real item ID for quantity accounting and returns; other activity types stay exact.
+		const auto base_id = filter.item_id % 200000;
+		const bool tier_match = filter.type == TaskActivityType::Deliver &&
+			filter.item_id > 200000 && filter.item_id < 800000 &&
+			Tasks::IsInMatchList(activity.item_id_list, std::to_string(base_id)) &&
+			NightcapQuestItems::Matches(database.GetItem(filter.item_id), database.GetItem(base_id));
+		if (!tier_match) {
+			LogTasks("client [{}] task [{}]-[{}] failed item match filter", client->GetName(), task_id, client_activity.activity_id);
+			return false;
+		}
 	}
 
 	// npc filter supports both npc names and ids in match lists

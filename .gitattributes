@@ -215,3 +215,16 @@ tools/tests/quest_armor_rewards.lua text eol=lf
 tools/tests/quest_armor_rewards.t text eol=lf
 tools/tests/run_quest_armor_lua_tests.py text eol=lf
 tools/tests/test_quest_armor.py text eol=lf
+
+# Preserve the exact paired quest-tier build inputs and release evidence.
+server-mods/code/common/quest_item_policy.h text eol=lf
+server-mods/code/zone/npc.cpp text eol=lf
+server-mods/code/zone/task_client_state.cpp text eol=lf
+server-mods/quests/lua_modules/items.lua text eol=lf
+server-mods/quests/soltemple/Gardern.pl text eol=lf
+server-mods/quests/soltemple/Joyce.pl text eol=lf
+server-mods/quests/soltemple/Sultin.pl text eol=lf
+server-mods/quests/soltemple/Vilissia.pl text eol=lf
+server-mods/quests/soltemple/Vurgo.pl text eol=lf
+docs/releases/quest-tier-handins-20261022/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+docs/releases/quest-tier-handins-20261022/skill-update/*.patch -text -whitespace

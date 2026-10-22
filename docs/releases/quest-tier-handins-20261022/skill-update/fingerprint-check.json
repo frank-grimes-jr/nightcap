@@ -1,0 +1,232 @@
+{
+  "audited_at": "2026-10-22",
+  "scope": "Reviewed local files; not runtime or player QA evidence",
+  "topics": {
+    "world": [
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\quest-tier-handins\\server-mods\\code\\zone\\npc.cpp",
+        "role": "quest ingredient candidate; built/tested, not deployed",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\quest-tier-handins\\server-mods\\code\\zone\\task_client_state.cpp",
+        "role": "quest ingredient candidate; built/tested, not deployed",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\quest-tier-handins\\server-mods\\quests\\lua_modules\\items.lua",
+        "role": "quest ingredient candidate; built/tested, not deployed",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\quest-tier-handins\\server-mods\\quests\\soltemple\\Gardern.pl",
+        "role": "quest ingredient candidate; built/tested, not deployed",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\quest-tier-handins\\server-mods\\quests\\soltemple\\Joyce.pl",
+        "role": "quest ingredient candidate; built/tested, not deployed",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\quest-tier-handins\\server-mods\\quests\\soltemple\\Sultin.pl",
+        "role": "quest ingredient candidate; built/tested, not deployed",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\quest-tier-handins\\server-mods\\quests\\soltemple\\Vilissia.pl",
+        "role": "quest ingredient candidate; built/tested, not deployed",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\quest-tier-handins\\server-mods\\quests\\soltemple\\Vurgo.pl",
+        "role": "quest ingredient candidate; built/tested, not deployed",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\quest-tier-handins\\tools\\tests\\test_quest_handins.py",
+        "role": "quest ingredient candidate; built/tested, not deployed",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\quest-tier-handins\\tools\\tests\\quest_handins.lua",
+        "role": "quest ingredient candidate; built/tested, not deployed",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\quest-tier-handins\\tools\\tests\\quest_handins.t",
+        "role": "quest ingredient candidate; built/tested, not deployed",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\quest-tier-handins\\tools\\tests\\fixtures\\quest_handins.cpp",
+        "role": "quest ingredient candidate; built/tested, not deployed",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\quest-tier-handins\\tools\\tests\\fixtures\\quest_delivery.cpp",
+        "role": "quest ingredient candidate; built/tested, not deployed",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\quest-tier-handins\\server-mods\\quests\\overthere\\Kurron_Ni.pl",
+        "role": "quest ingredient candidate; built/tested, not deployed",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\quest-tier-handins\\docs\\items\\quest-armor-catalog.json",
+        "role": "quest ingredient candidate; built/tested, not deployed",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\quest-tier-handins\\tools\\tests\\quest_armor_rewards.t",
+        "role": "quest ingredient candidate; built/tested, not deployed",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\quest-tier-handins\\tools\\quest_armor.py",
+        "role": "quest ingredient candidate; built/tested, not deployed",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\quest-tier-handins\\docs\\releases\\quest-armor-20261022\\README.md",
+        "role": "quest ingredient candidate; built/tested, not deployed",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\quest-tier-handins\\docs\\releases\\quest-armor-20261022\\QA.md",
+        "role": "quest ingredient candidate; built/tested, not deployed",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\quest-tier-handins\\docs\\releases\\quest-armor-20261022\\manifest.json",
+        "role": "quest ingredient candidate; built/tested, not deployed",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\quest-tier-handins\\docs\\releases\\quest-tier-handins-20261022\\currency-mutation.json",
+        "role": "quest ingredient candidate; built/tested, not deployed",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\quest-tier-handins\\docs\\releases\\quest-tier-handins-20261022\\integrated-native-source-proof.json",
+        "role": "quest ingredient candidate; built/tested, not deployed",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\quest-tier-handins\\docs\\releases\\quest-tier-handins-20261022\\plugin-path-probe.json",
+        "role": "quest ingredient candidate; built/tested, not deployed",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\quest-tier-handins\\tools\\capture_quest_handins.py",
+        "role": "quest ingredient candidate; built/tested, not deployed",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\quest-tier-handins\\docs\\releases\\quest-tier-handins-20261022\\README.md",
+        "role": "quest ingredient candidate; built/tested, not deployed",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\quest-tier-handins\\docs\\releases\\quest-tier-handins-20261022\\QA.md",
+        "role": "quest ingredient candidate; built/tested, not deployed",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\quest-tier-handins\\docs\\releases\\quest-tier-handins-20261022\\verification.json",
+        "role": "quest ingredient candidate; built/tested, not deployed",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\quest-tier-handins\\docs\\releases\\quest-tier-handins-20261022\\review.json",
+        "role": "quest ingredient candidate; built/tested, not deployed",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\quest-tier-handins\\docs\\status.md",
+        "role": "quest ingredient candidate; built/tested, not deployed",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\quest-tier-handins\\CHANGES.md",
+        "role": "quest ingredient candidate; built/tested, not deployed",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\quest-tier-handins\\docs\\releases\\quest-tier-handins-20261022\\promotion.json",
+        "role": "quest ingredient candidate; built/tested, not deployed",
+        "state": "unchanged"
+      }
+    ],
+    "items": [
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\quest-tier-handins\\server-mods\\code\\common\\quest_item_policy.h",
+        "role": "quest ingredient candidate; built/tested, not deployed",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\quest-tier-handins\\docs\\releases\\quest-tier-handins-20261022\\native-build-manifest.json",
+        "role": "quest ingredient candidate; built/tested, not deployed",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\quest-tier-handins\\docs\\releases\\quest-tier-handins-20261022\\production-audit.json",
+        "role": "quest ingredient candidate; built/tested, not deployed",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\quest-tier-handins\\docs\\adr\\0067-tiered-quest-ingredients.md",
+        "role": "quest ingredient candidate; built/tested, not deployed",
+        "state": "unchanged"
+      }
+    ],
+    "wiki": [
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\quest-tier-handins\\wiki\\articles\\equipment.json",
+        "role": "quest ingredient candidate; built/tested, not deployed",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\quest-tier-handins\\wiki\\articles\\features.json",
+        "role": "quest ingredient candidate; built/tested, not deployed",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\quest-tier-handins\\wiki\\articles\\index.json",
+        "role": "quest ingredient candidate; built/tested, not deployed",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\quest-tier-handins\\wiki\\articles\\item-upgrades.json",
+        "role": "quest ingredient candidate; built/tested, not deployed",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\quest-tier-handins\\wiki\\articles\\unreleased.json",
+        "role": "quest ingredient candidate; built/tested, not deployed",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\quest-tier-handins\\wiki\\articles\\recent-changes.json",
+        "role": "quest ingredient candidate; built/tested, not deployed",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\quest-tier-handins\\wiki\\content-review.json",
+        "role": "quest ingredient candidate; built/tested, not deployed",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\quest-tier-handins\\docs\\releases\\quest-tier-handins-20261022\\wiki-review.json",
+        "role": "quest ingredient candidate; built/tested, not deployed",
+        "state": "unchanged"
+      },
+      {
+        "path": "E:\\EQ_Local_Dev\\_worktrees\\quest-tier-handins\\docs\\releases\\quest-tier-handins-20261022\\wiki-refresh.json",
+        "role": "quest ingredient candidate; built/tested, not deployed",
+        "state": "unchanged"
+      }
+    ]
+  }
+}
