@@ -1,0 +1,45 @@
+{
+  "status": "built_not_installed",
+  "baseline_zone_sha256": "6da991b688a5b25819b24274506f2d7a427cd7990ff8ca1992d2beabca75c2f0",
+  "baseline_reproduced": true,
+  "zone_sha256": "8c9b97d53518442f74652518a06cfcfdf2202269ad95f065db57353bc000af31",
+  "candidate_sources": {
+    "zone/dungeon_service.cpp": "8f0d3a8dfd1e763a47c1d1f85021a2606f692d2eaacb0775ef5080248643aa3e",
+    "zone/dungeon_service.h": "05a691d45e50b3ea3cf92bb44ab24dbd4bc78c8847c410d12831ea5124787158",
+    "zone/lua_general.cpp": "79b0e1963decd844dc2a94063714da87987a3e7e3267630246ef1bedfa0fffe0",
+    "common/dungeon_policy.h": "1fe355dd5a4026a539e84826bb128068844ab336a7f7a66dd86624ebe93a90fd",
+    "common/dungeon_catalog.h": "07cd846de75a84b80fa276b7216874b5ec2fbcf7d9e674c52a8412c30ba61fd8",
+    "common/dungeon_contract.h": "9e96a8d3c0506b39caae20a08f1fcaa3969029deb551a29b306d98fa969ba52d",
+    "common/shareddb.cpp": "ecec44c9237ea93c50c4c0d32edd2473598000347fc48078ec4359648965e461",
+    "zone/npc.cpp": "a0494e064f6a42b00363bb35414aa847e07b45cbc7cc5a8b1a124b991f06c50e",
+    "zone/task_client_state.cpp": "f9256e7a23f293b8e3eca7d5b0f235561f17827088af349d72c6b59bff021948",
+    "common/quest_item_policy.h": "c1f62c0948d4d8eea7e9b54419f35410c0827235a6ff630a371c3bdf05c9e2ca"
+  },
+  "retained_inputs_unchanged": true,
+  "lua_archive_sha256": "8f354ef9cfb7d10cc5fe57d8344a7487d83bd17a54ca35532d3491117e8ddc25",
+  "reused_lua_archive_from": null,
+  "other_binaries": {
+    "world": {
+      "baseline": "0b321c9fba510a42381abe5c167d6db94c02cf913dd50a86d6105b68dbd37b95",
+      "candidate": "49f87aafadcf6a9063e66cf581c4bd6356571c5c5725786657b95f4b8ba0afa7"
+    },
+    "shared_memory": {
+      "baseline": "6d71c7e72c4a10f9d5eeb753ff29a3d589151ce1c81a32a7f564dec9c9fd967c",
+      "candidate": "6b314bf087bb06c8fb5ffc6d606090876b17c062f8014acb0e3784d12da9514f"
+    }
+  },
+  "common_archive_sha256": "ca2beae6d3764a138eed6447ffba3ec546c3a5c2dc52cf61726e6c62c9f16246",
+  "abi_changed": false,
+  "production_changed": false,
+  "owner_gameplay_accepted": false,
+  "combined_inputs": {
+    "/tmp/nightcap-aa-pacing-million-v2/spells.cpp.o": "89f3503c68903079591c55a707b2fdbf868be22c2b1fd89fde1763b1b76d8bb8",
+    "/tmp/nightcap-quest-handins-build-v1/npc.cpp.o": "1e609e96a1d152325a939fec750009e17ad0ef9fa6f9c7f95aae8a17ba5b21b8",
+    "/tmp/nightcap-quest-handins-build-v1/task_client_state.cpp.o": "9e446d55612212c191e2e183e3a5d30ef2d48005e94fee30d08de8a937f8c15d",
+    "/tmp/nightcap-classic-rewards-build-v2/dungeon_service.cpp.o": "5d9c5554b202675c4b6b2482d01ce845e05f1bd687f7ec35e21704fbe7a92afb",
+    "/tmp/nightcap-classic-rewards-build-v2/liblua_zone.a": "8f354ef9cfb7d10cc5fe57d8344a7487d83bd17a54ca35532d3491117e8ddc25",
+    "/tmp/nightcap-classic-rewards-build-v2/libcommon.a": "ca2beae6d3764a138eed6447ffba3ec546c3a5c2dc52cf61726e6c62c9f16246"
+  },
+  "quest_tier_behavior_retained": true,
+  "prior_dungeon_zone_sha256": "948e0fd03523e9469e9829e78d6be24052433114541fb8b8eed53443d3274332"
+}

@@ -4,8 +4,12 @@ The owner explicitly requested live deployment of the21-dungeon options and
 unique rewards for in-game testing. This authorizes main promotion for this
 release; gameplay and balance acceptance remain open.
 
-Source e9f4b2c integrates main9379760 without changing the verified seven native
-source hashes or the current game2026102203 client. Exact runtime pairing is in
+Source61230ac integrates main42603ee and its quest-tier matcher/native robe skinning.
+The initial preflight rejected the superseded runtime before evidence creation or
+gameplay changes. combine_build.py reproduces the new6da991b6 live zone exactly,
+then combines its two quest objects with the verified dungeon objects/archives.
+Candidate8c9b97d5 preserves the new matcher; six combined regressions pass. The
+current game2026102204 client remains unchanged. Exact runtime pairing is in
 package-manifest.json. Only the two October22 migrations and eleven plane
 quests plus the new run-identity Lua module are installed. Existing Keeper
 appearance/placement code, newer class armor and waypoint changes are retained.
@@ -34,7 +38,9 @@ pairing, new NPC quest-shadow guards and capped rehearsal memory; all addressed.
 A read-only probe found roughly1GBfree. Eighteen exact unmounted retired test
 cache/staging files were losslessly compressed in place after decompressed SHA256
 verification, recovering space to3.26GB. No backup/player/live file was removed.
-An attempted local archive export was denied by automatic approval review; no
+Six additional historical dungeon/parity binaries were compressed the same way
+to meet the reserve; a second receipt ends in-v2.json. An attempted local archive
+export was denied by automatic approval review; no
 export occurred. Archives remain on the server with
 /opt/nightcap/releases/dungeon-space-20261022.json.
 
