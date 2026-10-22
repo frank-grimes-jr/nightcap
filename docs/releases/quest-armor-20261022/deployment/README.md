@@ -43,6 +43,12 @@ file fsync, replacement and partial recovery execute. Original113 Lua,39 Perl
 and21 source-validator tests remain recorded in ../verification.json.
 Independent review and corrected recovery findings are in `review.json`.
 
+The later ingredient-tier audit identifies root plugins/ as the active native
+helper path. Historical Perl tests here execute captured quests/plugins fixtures;
+they do not establish native currency behavior. The separate quest-tier-handins
+candidate corrects that pre-existing Kurron behavior and broadens tier matching.
+It is not part of this reward-only deployment; retain its separate release gate.
+
 ## Retained recovery
 
 Private full inventory rows, attempt receipts and eleven original files are at

@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "policy_date": "2026-10-22",
-  "status": "candidate; not deployed",
+  "status": "deployed 2026-10-22; native gameplay/balance acceptance open",
   "policy": "Audited substantial class-armor quests grant existing ordinary Ascended rewards even when repeatable. Cheap/basic hand-ins, components, returns, starter gear, spells, weapons, epics and unaudited quests retain existing behavior.",
   "families": [
     {

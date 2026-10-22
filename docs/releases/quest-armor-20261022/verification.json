@@ -97,5 +97,6 @@
   ],
   "deployment": "deployment/apply.json",
   "wiki_publication": "deployment/wiki-publication.json",
-  "wiki_public_verification": "deployment/wiki-public-verification.json"
+  "wiki_public_verification": "deployment/wiki-public-verification.json",
+  "helper_scope_limit": "Historical Perl fixture tests execute captured quests/plugins helpers; current root plugins native behavior is separate. Successor quest-tier-handins candidate audits active helpers/currency and is not part of this reward-only deployment."
 }
