@@ -1,6 +1,6 @@
 {
   "reviewed_at": "2026-10-22",
-  "reviewed_revision": "733ce1d44e2b29cc0923c01912d762542bb041c5",
+  "reviewed_revision": "57d9cdf297e2ad1ff12d86528a86c710624d94ad",
   "source_paths": [
     "server-mods/",
     "eq-client-dll/",
@@ -54,6 +54,7 @@
     "Owner-authorized class-armor PR285/7f97288 deployed October22: eleven scripts,37existing Ascended targets,zero-client admission hold,three Palwar item_id-only corrections and12aggregate reload acknowledgments; unchanged runtime/cache/client. All21maintained articles and432generated routes reviewed; sixguide live notices only,384catalog values and commands unchanged. Concurrent published robe-waist release preserved from its source and receipt. Native fresh-hand-in/equip/relog/balance QA stays open. Evidence: docs/releases/quest-armor-20261022/deployment/.",
     "Final class-armor release records4345dce/733ce1d reviewed: deployed hashes, exact Palwar row preservation, admission recovery fault tests,465public wiki checks and installed knowledge receipts. Historical captured helper fixtures are distinguished from active root-plugin behavior and the separate native ingredient candidate. These final operational/knowledge records add no further public mechanic or catalog change.",
     "October22 robe waist correction: all21 guides and432 generated routes reviewed through main PR286/b3cda30. Seven robe notices updated for signed game2026102203; owner-confirmed waist defect on2201/2202 is distinct from pending native acceptance of2203. Current waypoint/Keeper guidance and PR285 class-armor Not released notices retained. Catalog384 values and commands unchanged. Source drift since10f162c reconciled by group in docs/releases/classic-robes-20261022/waist-correction/deployment/wiki-review.json. Publication receipts remain separate. Final correction delivery records througha32be0b reviewed: client2203 signature/all140 hashes and retained pair, ten Linux publisher tests, wiki20261022-classic-robes-waist-v1/all465 hashes/headers/private denials,16 Linux wiki recovery tests, patch notes and exact QA/recovery. Class-armor guidance remains explicitly unreleased. Final knowledge/ledger receipts add no public payload change.",
-    "The historical robe publication above preceded the separately verified class-armor activation and wiki-v2. Its then-Not-released wording is superseded by the current class-armor release receipts."
+    "The historical robe publication above preceded the separately verified class-armor activation and wiki-v2. Its then-Not-released wording is superseded by the current class-armor release receipts.",
+    "Final integration of concurrent robe release records57d9cdf reviewed. All465 generated public hashes reproduce the verified class-armor wiki-v2 exactly; only private source/evidence metadata merged."
   ]
 }
