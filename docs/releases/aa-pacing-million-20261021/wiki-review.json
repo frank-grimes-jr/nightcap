@@ -1,0 +1,16 @@
+{
+  "scope": "All 21 maintained guides and 432 generated reward routes reviewed against main eace5eb plus candidate changes.",
+  "changed": [
+    "combat",
+    "commands",
+    "features",
+    "getting-started",
+    "index",
+    "multiclass",
+    "recent-changes",
+    "tunnel"
+  ],
+  "unchanged": "Generated hunt item/zone stats and acquisition, catalog, legal AA pool, costs, commands, era and client remain unchanged. Future earned boosts are not announced as available.",
+  "publication": "Prepared; publish only after verified authorized production activation.",
+  "qa": "Owner gameplay and balance acceptance open."
+}
