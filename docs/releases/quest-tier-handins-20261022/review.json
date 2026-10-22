@@ -1,0 +1,26 @@
+{
+  "status": "no outstanding actionable findings",
+  "reviewer": "fresh gpt-6-astra agent",
+  "scope": "native hand-in/return, task filter, Lua helper, legacy Perl recipes and tests",
+  "finding": {
+    "severity": "P3",
+    "file": "server-mods/quests/soltemple/Vilissia.pl",
+    "description": "legacy separators became mojibake",
+    "resolution": "three ASCII hyphens; independently rechecked"
+  },
+  "remaining_limits": [
+    "Inherited multiquest completion clears its donation bucket, including surplus",
+    "Complete task delivery/event/inventory lifecycle requires in-game QA"
+  ],
+  "source_revision": "ea8c84d9014c8aaaa5e097013d013ec1d3f4804b",
+  "integration_review": {
+    "status": "no remaining implementation findings",
+    "reviewer": "same fresh independent reviewer",
+    "finding": "Kurron active native money contract incompatible with captured legacy helper",
+    "resolution": "declare and refund actual currencies once, preserve global strict matching",
+    "test_finding": "callback adapter must reject omitted currency requirements",
+    "test_resolution": "native exact-currency guard added; mutation fails129/357 assertions",
+    "source_hashes_match_build": true
+  },
+  "integrated_revision": "56e6dce5c0999a385484568c231f7a665f7331f3"
+}

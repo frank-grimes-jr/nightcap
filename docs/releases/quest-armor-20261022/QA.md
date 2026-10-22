@@ -25,7 +25,7 @@ characters, owner acceptance or balance pass is claimed by script tests.
    holding classes/AAs/buffs/pets constant. Record incoming damage, kill time and
    sustain; confirm meaningful difficulty and worthwhile dungeon rewards remain.
 
-## Exact Crafted hand-ins — South Karana
+## Exact Crafted hand-ins â€” South Karana
 
 Give the items below together. IDs disambiguate similarly named materials.
 
@@ -59,15 +59,16 @@ and character modifiers) and its Ding call.
 All other catalog branches must also be completed before claiming full-family
 acceptance. A passing representative test proves only that branch and scenario.
 
-## Shadow Knight epic dependency — separate later-era regression
+## Shadow Knight epic dependency â€” separate later-era regression
 
 In an authorized test environment with Overthere available, give Kurron Ni
 Darkforge Helm, Breastplate and Greaves with at least900 platinum. Cover all
-Normal, all Ascended and a mixed set. Expect the original +7 Truespirit change
+Normal, all Ascended and a mixed set. With the integrated tier-hand-in candidate,
+also test Polished and Exalted pieces, including mixed qualities. Expect the original +7 Truespirit change
 and exactly one Letter to Duriek18099 added to the NPC per spawn. Repeat on the
-same spawn: no duplicate letter. A fresh spawn resets that gate. Existing helper
-cash-return behavior remains; this candidate adds no900pp sink. With899pp,
-a missing piece or Polished/Exalted substitutions, no success/letter occurs.
+same spawn: no duplicate letter. A fresh spawn resets that gate. The integrated native compatibility correction explicitly refunds submitted
+coins once after success; this candidate adds no900pp sink. With899pp,
+a missing piece or an unrelated/epic identity, no success/letter occurs.
 Unrelated items return through the original helper. This does not open Kunark
 on the Classic server; use the controlled test environment for this regression.
 

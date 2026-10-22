@@ -1,0 +1,238 @@
+{
+  "library": "C:\\WINDOWS\\system32\\d3dx9_30.dll",
+  "library_sha256": "5edeed79f2359527a55b8189cfa8b9b121cd608d44eead905a0f3436938ad532",
+  "pointer_size": 4,
+  "satisfied": true,
+  "models": [
+    {
+      "name": "released2203/global_chr/BAM",
+      "matches": false,
+      "expectation_satisfied": true,
+      "lost_vertex_count": 31,
+      "lost_chest_seam_count": 11
+    },
+    {
+      "name": "released2203/global_chr/BAF",
+      "matches": false,
+      "expectation_satisfied": true,
+      "lost_vertex_count": 13,
+      "lost_chest_seam_count": 13
+    },
+    {
+      "name": "released2203/global_chr/ELM",
+      "matches": false,
+      "expectation_satisfied": true,
+      "lost_vertex_count": 42,
+      "lost_chest_seam_count": 11
+    },
+    {
+      "name": "released2203/global_chr/ELF",
+      "matches": false,
+      "expectation_satisfied": true,
+      "lost_vertex_count": 13,
+      "lost_chest_seam_count": 13
+    },
+    {
+      "name": "released2203/global_chr/HAM",
+      "matches": false,
+      "expectation_satisfied": true,
+      "lost_vertex_count": 54,
+      "lost_chest_seam_count": 11
+    },
+    {
+      "name": "released2203/global_chr/HAF",
+      "matches": false,
+      "expectation_satisfied": true,
+      "lost_vertex_count": 13,
+      "lost_chest_seam_count": 13
+    },
+    {
+      "name": "released2203/global_chr/DWM",
+      "matches": false,
+      "expectation_satisfied": true,
+      "lost_vertex_count": 11,
+      "lost_chest_seam_count": 11
+    },
+    {
+      "name": "released2203/global_chr/DWF",
+      "matches": false,
+      "expectation_satisfied": true,
+      "lost_vertex_count": 33,
+      "lost_chest_seam_count": 11
+    },
+    {
+      "name": "released2203/global_chr/TRM",
+      "matches": false,
+      "expectation_satisfied": true,
+      "lost_vertex_count": 17,
+      "lost_chest_seam_count": 12
+    },
+    {
+      "name": "released2203/global_chr/TRF",
+      "matches": false,
+      "expectation_satisfied": true,
+      "lost_vertex_count": 53,
+      "lost_chest_seam_count": 10
+    },
+    {
+      "name": "released2203/global_chr/OGM",
+      "matches": false,
+      "expectation_satisfied": true,
+      "lost_vertex_count": 11,
+      "lost_chest_seam_count": 10
+    },
+    {
+      "name": "released2203/global_chr/OGF",
+      "matches": false,
+      "expectation_satisfied": true,
+      "lost_vertex_count": 41,
+      "lost_chest_seam_count": 11
+    },
+    {
+      "name": "released2203/global_chr/HOM",
+      "matches": false,
+      "expectation_satisfied": true,
+      "lost_vertex_count": 10,
+      "lost_chest_seam_count": 10
+    },
+    {
+      "name": "released2203/global_chr/HOF",
+      "matches": false,
+      "expectation_satisfied": true,
+      "lost_vertex_count": 46,
+      "lost_chest_seam_count": 10
+    },
+    {
+      "name": "released2203/global4_chr/BAM",
+      "matches": false,
+      "expectation_satisfied": true,
+      "lost_vertex_count": 31,
+      "lost_chest_seam_count": 11
+    },
+    {
+      "name": "released2203/global4_chr/BAF",
+      "matches": false,
+      "expectation_satisfied": true,
+      "lost_vertex_count": 13,
+      "lost_chest_seam_count": 13
+    },
+    {
+      "name": "regrouped_builder/global_chr/BAM",
+      "matches": true,
+      "expectation_satisfied": true,
+      "lost_vertex_count": 0,
+      "lost_chest_seam_count": 0
+    },
+    {
+      "name": "regrouped_builder/global_chr/BAF",
+      "matches": true,
+      "expectation_satisfied": true,
+      "lost_vertex_count": 0,
+      "lost_chest_seam_count": 0
+    },
+    {
+      "name": "regrouped_builder/global_chr/ELM",
+      "matches": true,
+      "expectation_satisfied": true,
+      "lost_vertex_count": 0,
+      "lost_chest_seam_count": 0
+    },
+    {
+      "name": "regrouped_builder/global_chr/ELF",
+      "matches": true,
+      "expectation_satisfied": true,
+      "lost_vertex_count": 0,
+      "lost_chest_seam_count": 0
+    },
+    {
+      "name": "regrouped_builder/global_chr/HAM",
+      "matches": true,
+      "expectation_satisfied": true,
+      "lost_vertex_count": 0,
+      "lost_chest_seam_count": 0
+    },
+    {
+      "name": "regrouped_builder/global_chr/HAF",
+      "matches": true,
+      "expectation_satisfied": true,
+      "lost_vertex_count": 0,
+      "lost_chest_seam_count": 0
+    },
+    {
+      "name": "regrouped_builder/global_chr/DWM",
+      "matches": true,
+      "expectation_satisfied": true,
+      "lost_vertex_count": 0,
+      "lost_chest_seam_count": 0
+    },
+    {
+      "name": "regrouped_builder/global_chr/DWF",
+      "matches": true,
+      "expectation_satisfied": true,
+      "lost_vertex_count": 0,
+      "lost_chest_seam_count": 0
+    },
+    {
+      "name": "regrouped_builder/global_chr/TRM",
+      "matches": true,
+      "expectation_satisfied": true,
+      "lost_vertex_count": 0,
+      "lost_chest_seam_count": 0
+    },
+    {
+      "name": "regrouped_builder/global_chr/TRF",
+      "matches": true,
+      "expectation_satisfied": true,
+      "lost_vertex_count": 0,
+      "lost_chest_seam_count": 0
+    },
+    {
+      "name": "regrouped_builder/global_chr/OGM",
+      "matches": true,
+      "expectation_satisfied": true,
+      "lost_vertex_count": 0,
+      "lost_chest_seam_count": 0
+    },
+    {
+      "name": "regrouped_builder/global_chr/OGF",
+      "matches": true,
+      "expectation_satisfied": true,
+      "lost_vertex_count": 0,
+      "lost_chest_seam_count": 0
+    },
+    {
+      "name": "regrouped_builder/global_chr/HOM",
+      "matches": true,
+      "expectation_satisfied": true,
+      "lost_vertex_count": 0,
+      "lost_chest_seam_count": 0
+    },
+    {
+      "name": "regrouped_builder/global_chr/HOF",
+      "matches": true,
+      "expectation_satisfied": true,
+      "lost_vertex_count": 0,
+      "lost_chest_seam_count": 0
+    },
+    {
+      "name": "regrouped_builder/global4_chr/BAM",
+      "matches": true,
+      "expectation_satisfied": true,
+      "lost_vertex_count": 0,
+      "lost_chest_seam_count": 0
+    },
+    {
+      "name": "regrouped_builder/global4_chr/BAF",
+      "matches": true,
+      "expectation_satisfied": true,
+      "lost_vertex_count": 0,
+      "lost_chest_seam_count": 0
+    }
+  ],
+  "fixture_scope": "Decoded actual2203/current-builder groups; direct native Set/GetBoneInfluence with identity vertex mapping. Pinned loader disassembly proves the same per-run setter. Full GPU rendering remains untested.",
+  "source_artifacts": {
+    "native-fixtures.json": "a35c32f53b35be660ed0734fd9edd5462885ae8539f7d05218f566865e42ade9",
+    "d3dx-report.json": "574e5abe2bd40fec48258e4fe8f93ac526c8bdac451c827966a71b1d5be640f7",
+    "independent-preservation.json": "7a72e9477dccf97850b2229e7c287f0ca1553b204a0a3064cc57855d1739358d"
+  }
+}

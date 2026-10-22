@@ -1,0 +1,19 @@
+Task delivery regressions passed
+test_actual_native_handins (test_quest_handins.QuestHandins.test_actual_native_handins) ... FAIL
+test_actual_task_delivery_filter (test_quest_handins.QuestHandins.test_actual_task_delivery_filter) ... ok
+
+======================================================================
+FAIL: test_actual_native_handins (test_quest_handins.QuestHandins.test_actual_native_handins)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/nightcap-quest-handins/tools/tests/test_quest_handins.py", line 40, in test_actual_native_handins
+    self.compile_run(fixture)
+  File "/tmp/nightcap-quest-handins/tools/tests/test_quest_handins.py", line 27, in compile_run
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+AssertionError: 1 != 0 : mixed Darkforge rejected
+
+
+----------------------------------------------------------------------
+Ran 2 tests in 6.237s
+
+FAILED (failures=1)

@@ -119,3 +119,16 @@ Verify the three items in game and after relog; no other owned items are implied
 All maintained guides and generated reward routes are reviewed in `wiki-review.json`.
 Equipment, Features, home, In development and Recent changes describe the deployed five-family release as Live testing. Tradeskills explains the distinction. Commands,
 Hunt/dungeon catalog values and published mechanics remain unchanged. The source ledger records the reviewed current-main baseline and supplemental deployment evidence. `check_refresh.py --include-worktree` reports the reviewed release records until their commit is recorded. Wiki20261022-quest-armor-v2 is published; public verification is recorded in deployment/.
+
+## October 22 integration correction
+
+The ingredient-quality release verified that the mounted configuration loads
+root `plugins/`, not the unused `quests/plugins/` copies in this release's helper
+capture. Historical Perl fixture results remain reward-delta controls only.
+Kurron now declares submitted currency to native `CheckHandin` and refunds it
+once on success, preserving the reviewed full-refund policy without weakening
+global money checks. Native ordinary-tier matching also accepts Polished and
+Exalted Darkforge ingredients. See
+[paired integration evidence and QA](../quest-tier-handins-20261022/README.md).
+The original source-only eleven-file activation cannot activate that native
+policy: deploy the paired zone and combined quest set under the owner's October 22 authorization.

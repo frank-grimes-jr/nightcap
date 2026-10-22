@@ -1,0 +1,11 @@
+{
+  "base_sources": {
+    "zone/npc.cpp": "06c5468371e06a539d8b59338ea508c03614e1143ac3c05053a470b6fb3c809c",
+    "zone/task_client_state.cpp": "1b3f7d5f4effb4cc0251c7fe27bcaf9236afc1525e1834f1efdef12d1e5aa2c9"
+  },
+  "candidate_sources": {
+    "zone/npc.cpp": "a0494e064f6a42b00363bb35414aa847e07b45cbc7cc5a8b1a124b991f06c50e",
+    "zone/task_client_state.cpp": "f9256e7a23f293b8e3eca7d5b0f235561f17827088af349d72c6b59bff021948",
+    "common/quest_item_policy.h": "c1f62c0948d4d8eea7e9b54419f35410c0827235a6ff630a371c3bdf05c9e2ca"
+  }
+}

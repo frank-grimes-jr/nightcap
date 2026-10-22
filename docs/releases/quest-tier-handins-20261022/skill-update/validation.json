@@ -1,0 +1,26 @@
+[
+  {
+    "topic": "world",
+    "exit_code": 1,
+    "note": "Full topic includes separately maintained release/candidate sources; scoped current fingerprints checked separately."
+  },
+  {
+    "topic": "items",
+    "exit_code": 0,
+    "note": "Full topic includes separately maintained release/candidate sources; scoped current fingerprints checked separately."
+  },
+  {
+    "topic": "wiki",
+    "exit_code": 1,
+    "note": "Full topic includes separately maintained release/candidate sources; scoped current fingerprints checked separately."
+  },
+  {
+    "check": "skill-creator quick_validate.py",
+    "result": "Skill is valid!",
+    "exit_code": 0
+  },
+  {
+    "check": "scoped reviewed fingerprints",
+    "exit_code": 0
+  }
+]

@@ -19,6 +19,31 @@ the reported Permafrost mismatch. Adds guarded entrance/content SQL, UUID-scoped
 plane quests and restart-safe Sky key services. Automated verification is
 separate from deployment and owner gameplay/balance acceptance; not live.
 See [source, evidence, pairing and exact all-zone QA](docs/dungeons/classic-expansion-20261022/README.md).
+## 2026-10-22 — Tiered quest ingredients (candidate)
+
+Normal quest requirements accept verified Polished, Exalted and Ascended versions
+of the same item through Lua, native Perl hand-ins and task Deliver objectives.
+Fixes Shakrn's Aviak Charm/Crafted Gauntlets rejection and migrates five legacy
+Solusek Ro quests. Exact inputs are preferred, explicit quality requirements
+remain exact, failed native money checks restore counts, and real item instances
+are retained for returns. Rewards and forging costs do not change. Paired zone
+and seven quest files required; no SQL/cache/client update. Integration also fixes
+Kurron Ni's native currency mismatch while retaining the reviewed full-refund
+policy; all 64 ordinary Darkforge combinations pass. PR284/dev and PR287/test
+are merged with matching reviewed trees. Tested candidate only;
+production/main and player acceptance remain pending. Evidence and QA:
+`docs/releases/quest-tier-handins-20261022/`.
+
+
+## 2026-10-22 — Native robe waist binding correction
+
+Owner QA rejected2203 with the gap visible while standing and moving; installed
+archive hashes match. Native DirectX overwrites the earlier torso influence list
+when the skirt repeats its pelvis group. The generator now groups each bone once,
+preserving exact physical geometry, UVs, normals and materials. Actual x86 library
+checks reproduce432 lost influences on the old16 registrations and zero after
+regrouping. Publication and visible recheck remain separate gates. See
+[native binding proof and QA](docs/releases/classic-robes-20261022/native-skinning/README.md).
 
 ## 2026-10-22 — Class-armor release and Palwar correction
 

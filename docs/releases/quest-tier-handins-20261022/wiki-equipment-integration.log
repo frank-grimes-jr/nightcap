@@ -1,0 +1,15 @@
+âœ” every exact published variant name finds its single family (89.372ms)
+âœ” catalog pages contain families once, covering all 96 across eight pages (51.3436ms)
+âœ” gear slot and level filters combine, without including augments (4.2494ms)
+âœ” augments match every compatible socket slot, but not jewelry (0.8443ms)
+âœ” zone filter selects its two families; query narrows by words (1.1096ms)
+âœ” required-level sorting is numerical and paging resets safely on narrow results (1.9942ms)
+âœ” unsafe-looking or unmatched search text returns empty results without markup (0.7039ms)
+â„¹ tests 7
+â„¹ suites 0
+â„¹ pass 7
+â„¹ fail 0
+â„¹ cancelled 0
+â„¹ skipped 0
+â„¹ todo 0
+â„¹ duration_ms 173.3374

@@ -21,6 +21,19 @@ separate from deployment and owner gameplay/balance acceptance; not live.
 See [source, evidence, pairing and exact all-zone QA](dungeons/classic-expansion-20261022/README.md).
 
 ## Classic race robes — published for live QA, October 22
+## Quest ingredient qualities — October 22 candidate
+
+Shared Lua/native hand-ins and journal deliveries accept ordinary qualities for
+Normal requirements; five older Solusek Ro scripts now use the native checker.
+Crafted Gauntlets has an exact regression using Polished Aviak Charm. Automated
+checks pass; PR284/dev and PR287/test are merged. Test c889cd8 exactly matches
+the reviewed candidate tree. This is not deployed or owner accepted. No SQL/client/cache changes.
+The combined class-armor candidate retains its Ascended rewards. Kurron's native
+currency compatibility is corrected with exactly-once full refunds on success.
+Paired native/quest activation and exact in-game QA remain required. See
+[release evidence](releases/quest-tier-handins-20261022/README.md) and
+[QA steps](releases/quest-tier-handins-20261022/QA.md).
+
 
 ## October 22 — Ascended class armor deployed; Palwar corrected
 
@@ -34,6 +47,13 @@ Native fresh-hand-in, inspection/relog and broader balance acceptance remain ope
 [Release evidence and recovery](releases/quest-armor-20261022/deployment/README.md).
 
 ## Classic robe waist correction — published for live QA, October 22
+
+Owner follow-up rejects2203: the gap persists standing and moving, with installed
+hashes confirmed. The native renderer replaces earlier pelvis influences when a
+bone is repeated. A grouped-vertex correction passes actual x86 library checks;
+[native binding evidence](releases/classic-robes-20261022/native-skinning/README.md)
+owns the new candidate and pending visible recheck. The2203 delivery below is
+historical evidence, not acceptance of the waist repair.
 
 Owner QA confirmed waist holes on Barbarian and Half Elf in game2201/2202.
 Source PR286 and signed game **2026102203** join the native torso/skirt seams

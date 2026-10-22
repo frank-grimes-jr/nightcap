@@ -1,0 +1,21 @@
+{
+  "date": "2026-10-22",
+  "owner_report": "Not fixed; gap visible both standing and moving/casting",
+  "installed_release": 2026102203,
+  "installed_archives": {
+    "global_chr.s3d": "36423400d15f478b77e1808e5afb48d5505d788539a35f097f0e7e3acd63bb36",
+    "global4_chr.s3d": "d5d0aecc05029eabae46de5004cca55db2cf387270511b9bc6b618010f81fa51"
+  },
+  "root_cause": "Repeated WLD bone groups overwrite earlier ID3DXSkinInfo influence lists; saved coordinate equality does not imply native retained binding.",
+  "old_affected_registrations": 16,
+  "old_lost_vertex_influences": 432,
+  "old_lost_torso_waist_copies": 181,
+  "corrected_affected_registrations": 16,
+  "corrected_lost_vertex_influences": 0,
+  "independent_review": "No blocker; all ordered triangle-corner attributes preserved exactly.",
+  "offline_regressions": 13,
+  "native_library_cases": 32,
+  "stock_mesh_comparison": 168,
+  "visible_acceptance": "pending; prior2203 rejected",
+  "delivery": "candidate only; publication receipts separate"
+}

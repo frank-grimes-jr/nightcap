@@ -93,7 +93,7 @@ def main():
     result=validate()
     if args.output:
         args.output.parent.mkdir(parents=True,exist_ok=True)
-        args.output.write_text(json.dumps(result,indent=2)+'\n')
+        args.output.write_text(json.dumps(result,indent=2)+'\n', newline='\n')
     print(json.dumps({'reward_count':result['reward_count'],'scripts':len(result['scripts'])}))
 
 

@@ -1,0 +1,990 @@
+tools/tests/quest_handins.t .. ok
+All tests successful.
+Files=1, Tests=357,  1 wallclock secs ( 0.14 usr  0.03 sys +  0.33 cusr  0.10 csys =  0.60 CPU)
+Result: PASS
+# Subtest: soltemple/Cryssia_Stardreamer.pl final reward 4156
+    ok 1 - exact final ordinary Ascended item
+    ok 2 - original XP amount
+    ok 3 - complete event changes only final item; XP, faction, text, returns and currency retained
+    ok 4 - empty repeated hand-in grants no reward
+    ok 5 - empty repeated hand-in grants no XP
+    ok 6 - fresh full hand-in can earn another Ascended item
+    ok 7 - missing input 0 preserves complete return behavior
+    ok 8 - missing input 0 cannot award armor
+    ok 9 - missing input 0 cannot award XP
+    ok 10 - missing input 1 preserves complete return behavior
+    ok 11 - missing input 1 cannot award armor
+    ok 12 - missing input 1 cannot award XP
+    ok 13 - missing input 2 preserves complete return behavior
+    ok 14 - missing input 2 cannot award armor
+    ok 15 - missing input 2 cannot award XP
+    ok 16 - wrong item returns retain original IDs, charges and attunement
+    ok 17 - unrelated excess input keeps existing return behavior
+    ok 18 - excess required input keeps exact-count or takeItems semantics
+    ok 19 - excess currency behavior unchanged
+    1..19
+ok 1 - soltemple/Cryssia_Stardreamer.pl final reward 4156
+# Subtest: soltemple/Cryssia_Stardreamer.pl final reward 4154
+    ok 1 - exact final ordinary Ascended item
+    ok 2 - original XP amount
+    ok 3 - complete event changes only final item; XP, faction, text, returns and currency retained
+    ok 4 - empty repeated hand-in grants no reward
+    ok 5 - empty repeated hand-in grants no XP
+    ok 6 - fresh full hand-in can earn another Ascended item
+    ok 7 - missing input 0 preserves complete return behavior
+    ok 8 - missing input 0 cannot award armor
+    ok 9 - missing input 0 cannot award XP
+    ok 10 - missing input 1 preserves complete return behavior
+    ok 11 - missing input 1 cannot award armor
+    ok 12 - missing input 1 cannot award XP
+    ok 13 - missing input 2 preserves complete return behavior
+    ok 14 - missing input 2 cannot award armor
+    ok 15 - missing input 2 cannot award XP
+    ok 16 - wrong item returns retain original IDs, charges and attunement
+    ok 17 - unrelated excess input keeps existing return behavior
+    ok 18 - excess required input keeps exact-count or takeItems semantics
+    ok 19 - excess currency behavior unchanged
+    1..19
+ok 2 - soltemple/Cryssia_Stardreamer.pl final reward 4154
+# Subtest: soltemple/Cryssia_Stardreamer.pl final reward 4153
+    ok 1 - exact final ordinary Ascended item
+    ok 2 - original XP amount
+    ok 3 - complete event changes only final item; XP, faction, text, returns and currency retained
+    ok 4 - empty repeated hand-in grants no reward
+    ok 5 - empty repeated hand-in grants no XP
+    ok 6 - fresh full hand-in can earn another Ascended item
+    ok 7 - missing input 0 preserves complete return behavior
+    ok 8 - missing input 0 cannot award armor
+    ok 9 - missing input 0 cannot award XP
+    ok 10 - missing input 1 preserves complete return behavior
+    ok 11 - missing input 1 cannot award armor
+    ok 12 - missing input 1 cannot award XP
+    ok 13 - missing input 2 preserves complete return behavior
+    ok 14 - missing input 2 cannot award armor
+    ok 15 - missing input 2 cannot award XP
+    ok 16 - wrong item returns retain original IDs, charges and attunement
+    ok 17 - unrelated excess input keeps existing return behavior
+    ok 18 - excess required input keeps exact-count or takeItems semantics
+    ok 19 - excess currency behavior unchanged
+    1..19
+ok 3 - soltemple/Cryssia_Stardreamer.pl final reward 4153
+# Subtest: soltemple/Cryssia_Stardreamer.pl final reward 4155
+    ok 1 - exact final ordinary Ascended item
+    ok 2 - original XP amount
+    ok 3 - complete event changes only final item; XP, faction, text, returns and currency retained
+    ok 4 - empty repeated hand-in grants no reward
+    ok 5 - empty repeated hand-in grants no XP
+    ok 6 - fresh full hand-in can earn another Ascended item
+    ok 7 - missing input 0 preserves complete return behavior
+    ok 8 - missing input 0 cannot award armor
+    ok 9 - missing input 0 cannot award XP
+    ok 10 - missing input 1 preserves complete return behavior
+    ok 11 - missing input 1 cannot award armor
+    ok 12 - missing input 1 cannot award XP
+    ok 13 - missing input 2 preserves complete return behavior
+    ok 14 - missing input 2 cannot award armor
+    ok 15 - missing input 2 cannot award XP
+    ok 16 - wrong item returns retain original IDs, charges and attunement
+    ok 17 - unrelated excess input keeps existing return behavior
+    ok 18 - excess required input keeps exact-count or takeItems semantics
+    ok 19 - excess currency behavior unchanged
+    1..19
+ok 4 - soltemple/Cryssia_Stardreamer.pl final reward 4155
+# Subtest: soltemple/an_undead_knight.pl final reward 3144
+    ok 1 - exact final ordinary Ascended item
+    ok 2 - original XP amount
+    ok 3 - complete event changes only final item; XP, faction, text, returns and currency retained
+    ok 4 - empty repeated hand-in grants no reward
+    ok 5 - empty repeated hand-in grants no XP
+    ok 6 - fresh full hand-in can earn another Ascended item
+    ok 7 - missing input 0 preserves complete return behavior
+    ok 8 - missing input 0 cannot award armor
+    ok 9 - missing input 0 cannot award XP
+    ok 10 - missing input 1 preserves complete return behavior
+    ok 11 - missing input 1 cannot award armor
+    ok 12 - missing input 1 cannot award XP
+    ok 13 - missing input 2 preserves complete return behavior
+    ok 14 - missing input 2 cannot award armor
+    ok 15 - missing input 2 cannot award XP
+    ok 16 - wrong item returns retain original IDs, charges and attunement
+    ok 17 - unrelated excess input keeps existing return behavior
+    ok 18 - excess required input keeps exact-count or takeItems semantics
+    ok 19 - excess currency behavior unchanged
+    1..19
+ok 5 - soltemple/an_undead_knight.pl final reward 3144
+# Subtest: soltemple/an_undead_knight.pl final reward 3145
+    ok 1 - exact final ordinary Ascended item
+    ok 2 - original XP amount
+    ok 3 - complete event changes only final item; XP, faction, text, returns and currency retained
+    ok 4 - empty repeated hand-in grants no reward
+    ok 5 - empty repeated hand-in grants no XP
+    ok 6 - fresh full hand-in can earn another Ascended item
+    ok 7 - missing input 0 preserves complete return behavior
+    ok 8 - missing input 0 cannot award armor
+    ok 9 - missing input 0 cannot award XP
+    ok 10 - missing input 1 preserves complete return behavior
+    ok 11 - missing input 1 cannot award armor
+    ok 12 - missing input 1 cannot award XP
+    ok 13 - missing input 2 preserves complete return behavior
+    ok 14 - missing input 2 cannot award armor
+    ok 15 - missing input 2 cannot award XP
+    ok 16 - missing input 3 preserves complete return behavior
+    ok 17 - missing input 3 cannot award armor
+    ok 18 - missing input 3 cannot award XP
+    ok 19 - wrong item returns retain original IDs, charges and attunement
+    ok 20 - excess currency behavior unchanged
+    1..20
+ok 6 - soltemple/an_undead_knight.pl final reward 3145
+# Subtest: soltemple/an_undead_knight.pl final reward 3146
+    ok 1 - exact final ordinary Ascended item
+    ok 2 - original XP amount
+    ok 3 - complete event changes only final item; XP, faction, text, returns and currency retained
+    ok 4 - empty repeated hand-in grants no reward
+    ok 5 - empty repeated hand-in grants no XP
+    ok 6 - fresh full hand-in can earn another Ascended item
+    ok 7 - missing input 0 preserves complete return behavior
+    ok 8 - missing input 0 cannot award armor
+    ok 9 - missing input 0 cannot award XP
+    ok 10 - missing input 1 preserves complete return behavior
+    ok 11 - missing input 1 cannot award armor
+    ok 12 - missing input 1 cannot award XP
+    ok 13 - missing input 2 preserves complete return behavior
+    ok 14 - missing input 2 cannot award armor
+    ok 15 - missing input 2 cannot award XP
+    ok 16 - missing input 3 preserves complete return behavior
+    ok 17 - missing input 3 cannot award armor
+    ok 18 - missing input 3 cannot award XP
+    ok 19 - wrong item returns retain original IDs, charges and attunement
+    ok 20 - excess currency behavior unchanged
+    1..20
+ok 7 - soltemple/an_undead_knight.pl final reward 3146
+# Subtest: soltemple/an_undead_knight_.pl final reward 3140
+    ok 1 - exact final ordinary Ascended item
+    ok 2 - original XP amount
+    ok 3 - complete event changes only final item; XP, faction, text, returns and currency retained
+    ok 4 - empty repeated hand-in grants no reward
+    ok 5 - empty repeated hand-in grants no XP
+    ok 6 - fresh full hand-in can earn another Ascended item
+    ok 7 - missing input 0 preserves complete return behavior
+    ok 8 - missing input 0 cannot award armor
+    ok 9 - missing input 0 cannot award XP
+    ok 10 - missing input 1 preserves complete return behavior
+    ok 11 - missing input 1 cannot award armor
+    ok 12 - missing input 1 cannot award XP
+    ok 13 - missing input 2 preserves complete return behavior
+    ok 14 - missing input 2 cannot award armor
+    ok 15 - missing input 2 cannot award XP
+    ok 16 - missing input 3 preserves complete return behavior
+    ok 17 - missing input 3 cannot award armor
+    ok 18 - missing input 3 cannot award XP
+    ok 19 - wrong item returns retain original IDs, charges and attunement
+    ok 20 - excess currency behavior unchanged
+    1..20
+ok 8 - soltemple/an_undead_knight_.pl final reward 3140
+# Subtest: soltemple/an_undead_knight_.pl final reward 3141
+    ok 1 - exact final ordinary Ascended item
+    ok 2 - original XP amount
+    ok 3 - complete event changes only final item; XP, faction, text, returns and currency retained
+    ok 4 - empty repeated hand-in grants no reward
+    ok 5 - empty repeated hand-in grants no XP
+    ok 6 - fresh full hand-in can earn another Ascended item
+    ok 7 - missing input 0 preserves complete return behavior
+    ok 8 - missing input 0 cannot award armor
+    ok 9 - missing input 0 cannot award XP
+    ok 10 - missing input 1 preserves complete return behavior
+    ok 11 - missing input 1 cannot award armor
+    ok 12 - missing input 1 cannot award XP
+    ok 13 - missing input 2 preserves complete return behavior
+    ok 14 - missing input 2 cannot award armor
+    ok 15 - missing input 2 cannot award XP
+    ok 16 - missing input 3 preserves complete return behavior
+    ok 17 - missing input 3 cannot award armor
+    ok 18 - missing input 3 cannot award XP
+    ok 19 - wrong item returns retain original IDs, charges and attunement
+    ok 20 - excess currency behavior unchanged
+    1..20
+ok 9 - soltemple/an_undead_knight_.pl final reward 3141
+# Subtest: soltemple/an_undead_knight_.pl final reward 3142
+    ok 1 - exact final ordinary Ascended item
+    ok 2 - original XP amount
+    ok 3 - complete event changes only final item; XP, faction, text, returns and currency retained
+    ok 4 - empty repeated hand-in grants no reward
+    ok 5 - empty repeated hand-in grants no XP
+    ok 6 - fresh full hand-in can earn another Ascended item
+    ok 7 - missing input 0 preserves complete return behavior
+    ok 8 - missing input 0 cannot award armor
+    ok 9 - missing input 0 cannot award XP
+    ok 10 - missing input 1 preserves complete return behavior
+    ok 11 - missing input 1 cannot award armor
+    ok 12 - missing input 1 cannot award XP
+    ok 13 - missing input 2 preserves complete return behavior
+    ok 14 - missing input 2 cannot award armor
+    ok 15 - missing input 2 cannot award XP
+    ok 16 - wrong item returns retain original IDs, charges and attunement
+    ok 17 - unrelated excess input keeps existing return behavior
+    ok 18 - excess required input keeps exact-count or takeItems semantics
+    ok 19 - excess currency behavior unchanged
+    1..19
+ok 10 - soltemple/an_undead_knight_.pl final reward 3142
+# Subtest: soltemple/an_undead_knight_.pl final reward 3143
+    ok 1 - exact final ordinary Ascended item
+    ok 2 - original XP amount
+    ok 3 - complete event changes only final item; XP, faction, text, returns and currency retained
+    ok 4 - empty repeated hand-in grants no reward
+    ok 5 - empty repeated hand-in grants no XP
+    ok 6 - fresh full hand-in can earn another Ascended item
+    ok 7 - missing input 0 preserves complete return behavior
+    ok 8 - missing input 0 cannot award armor
+    ok 9 - missing input 0 cannot award XP
+    ok 10 - missing input 1 preserves complete return behavior
+    ok 11 - missing input 1 cannot award armor
+    ok 12 - missing input 1 cannot award XP
+    ok 13 - missing input 2 preserves complete return behavior
+    ok 14 - missing input 2 cannot award armor
+    ok 15 - missing input 2 cannot award XP
+    ok 16 - wrong item returns retain original IDs, charges and attunement
+    ok 17 - unrelated excess input keeps existing return behavior
+    ok 18 - excess required input keeps exact-count or takeItems semantics
+    ok 19 - excess currency behavior unchanged
+    1..19
+ok 11 - soltemple/an_undead_knight_.pl final reward 3143
+# Subtest: kithicor/Gandari.pl final reward 3189
+    ok 1 - exact final ordinary Ascended item
+    ok 2 - original XP amount
+    ok 3 - complete event changes only final item; XP, faction, text, returns and currency retained
+    ok 4 - empty repeated hand-in grants no reward
+    ok 5 - empty repeated hand-in grants no XP
+    ok 6 - fresh full hand-in can earn another Ascended item
+    ok 7 - missing input 0 preserves complete return behavior
+    ok 8 - missing input 0 cannot award armor
+    ok 9 - missing input 0 cannot award XP
+    ok 10 - missing input 1 preserves complete return behavior
+    ok 11 - missing input 1 cannot award armor
+    ok 12 - missing input 1 cannot award XP
+    ok 13 - missing input 2 preserves complete return behavior
+    ok 14 - missing input 2 cannot award armor
+    ok 15 - missing input 2 cannot award XP
+    ok 16 - wrong item returns retain original IDs, charges and attunement
+    ok 17 - unrelated excess input keeps existing return behavior
+    ok 18 - excess required input keeps exact-count or takeItems semantics
+    ok 19 - excess currency behavior unchanged
+    1..19
+ok 12 - kithicor/Gandari.pl final reward 3189
+# Subtest: kithicor/Gandari.pl final reward 3181
+    ok 1 - exact final ordinary Ascended item
+    ok 2 - original XP amount
+    ok 3 - complete event changes only final item; XP, faction, text, returns and currency retained
+    ok 4 - empty repeated hand-in grants no reward
+    ok 5 - empty repeated hand-in grants no XP
+    ok 6 - fresh full hand-in can earn another Ascended item
+    ok 7 - missing input 0 preserves complete return behavior
+    ok 8 - missing input 0 cannot award armor
+    ok 9 - missing input 0 cannot award XP
+    ok 10 - missing input 1 preserves complete return behavior
+    ok 11 - missing input 1 cannot award armor
+    ok 12 - missing input 1 cannot award XP
+    ok 13 - missing input 2 preserves complete return behavior
+    ok 14 - missing input 2 cannot award armor
+    ok 15 - missing input 2 cannot award XP
+    ok 16 - wrong item returns retain original IDs, charges and attunement
+    ok 17 - unrelated excess input keeps existing return behavior
+    ok 18 - excess required input keeps exact-count or takeItems semantics
+    ok 19 - excess currency behavior unchanged
+    1..19
+ok 13 - kithicor/Gandari.pl final reward 3181
+# Subtest: kithicor/Gandari.pl final reward 3188
+    ok 1 - exact final ordinary Ascended item
+    ok 2 - original XP amount
+    ok 3 - complete event changes only final item; XP, faction, text, returns and currency retained
+    ok 4 - empty repeated hand-in grants no reward
+    ok 5 - empty repeated hand-in grants no XP
+    ok 6 - fresh full hand-in can earn another Ascended item
+    ok 7 - missing input 0 preserves complete return behavior
+    ok 8 - missing input 0 cannot award armor
+    ok 9 - missing input 0 cannot award XP
+    ok 10 - missing input 1 preserves complete return behavior
+    ok 11 - missing input 1 cannot award armor
+    ok 12 - missing input 1 cannot award XP
+    ok 13 - missing input 2 preserves complete return behavior
+    ok 14 - missing input 2 cannot award armor
+    ok 15 - missing input 2 cannot award XP
+    ok 16 - missing input 3 preserves complete return behavior
+    ok 17 - missing input 3 cannot award armor
+    ok 18 - missing input 3 cannot award XP
+    ok 19 - wrong item returns retain original IDs, charges and attunement
+    ok 20 - excess currency behavior unchanged
+    1..20
+ok 14 - kithicor/Gandari.pl final reward 3188
+# Subtest: kithicor/Gandari.pl final reward 3184
+    ok 1 - exact final ordinary Ascended item
+    ok 2 - original XP amount
+    ok 3 - complete event changes only final item; XP, faction, text, returns and currency retained
+    ok 4 - empty repeated hand-in grants no reward
+    ok 5 - empty repeated hand-in grants no XP
+    ok 6 - fresh full hand-in can earn another Ascended item
+    ok 7 - missing input 0 preserves complete return behavior
+    ok 8 - missing input 0 cannot award armor
+    ok 9 - missing input 0 cannot award XP
+    ok 10 - missing input 1 preserves complete return behavior
+    ok 11 - missing input 1 cannot award armor
+    ok 12 - missing input 1 cannot award XP
+    ok 13 - missing input 2 preserves complete return behavior
+    ok 14 - missing input 2 cannot award armor
+    ok 15 - missing input 2 cannot award XP
+    ok 16 - missing input 3 preserves complete return behavior
+    ok 17 - missing input 3 cannot award armor
+    ok 18 - missing input 3 cannot award XP
+    ok 19 - wrong item returns retain original IDs, charges and attunement
+    ok 20 - excess currency behavior unchanged
+    1..20
+ok 15 - kithicor/Gandari.pl final reward 3184
+# Subtest: kithicor/Leaf_Falldim.pl final reward 3190
+    ok 1 - exact final ordinary Ascended item
+    ok 2 - original XP amount
+    ok 3 - complete event changes only final item; XP, faction, text, returns and currency retained
+    ok 4 - empty repeated hand-in grants no reward
+    ok 5 - empty repeated hand-in grants no XP
+    ok 6 - fresh full hand-in can earn another Ascended item
+    ok 7 - missing input 0 preserves complete return behavior
+    ok 8 - missing input 0 cannot award armor
+    ok 9 - missing input 0 cannot award XP
+    ok 10 - missing input 1 preserves complete return behavior
+    ok 11 - missing input 1 cannot award armor
+    ok 12 - missing input 1 cannot award XP
+    ok 13 - wrong item returns retain original IDs, charges and attunement
+    ok 14 - unrelated excess input keeps existing return behavior
+    ok 15 - excess required input keeps exact-count or takeItems semantics
+    ok 16 - excess currency behavior unchanged
+    1..16
+ok 16 - kithicor/Leaf_Falldim.pl final reward 3190
+# Subtest: kithicor/Leaf_Falldim.pl final reward 3192
+    ok 1 - exact final ordinary Ascended item
+    ok 2 - original XP amount
+    ok 3 - complete event changes only final item; XP, faction, text, returns and currency retained
+    ok 4 - empty repeated hand-in grants no reward
+    ok 5 - empty repeated hand-in grants no XP
+    ok 6 - fresh full hand-in can earn another Ascended item
+    ok 7 - missing input 0 preserves complete return behavior
+    ok 8 - missing input 0 cannot award armor
+    ok 9 - missing input 0 cannot award XP
+    ok 10 - missing input 1 preserves complete return behavior
+    ok 11 - missing input 1 cannot award armor
+    ok 12 - missing input 1 cannot award XP
+    ok 13 - wrong item returns retain original IDs, charges and attunement
+    ok 14 - unrelated excess input keeps existing return behavior
+    ok 15 - excess required input keeps exact-count or takeItems semantics
+    ok 16 - excess currency behavior unchanged
+    ok 17 - insufficient payment returns unchanged
+    ok 18 - 1999 gold cannot earn paid reward
+    ok 19 - equivalent payment of 200 platinum still succeeds
+    1..19
+ok 17 - kithicor/Leaf_Falldim.pl final reward 3192
+# Subtest: kithicor/Leaf_Falldim.pl final reward 3191
+    ok 1 - exact final ordinary Ascended item
+    ok 2 - original XP amount
+    ok 3 - complete event changes only final item; XP, faction, text, returns and currency retained
+    ok 4 - empty repeated hand-in grants no reward
+    ok 5 - empty repeated hand-in grants no XP
+    ok 6 - fresh full hand-in can earn another Ascended item
+    ok 7 - missing input 0 preserves complete return behavior
+    ok 8 - missing input 0 cannot award armor
+    ok 9 - missing input 0 cannot award XP
+    ok 10 - missing input 1 preserves complete return behavior
+    ok 11 - missing input 1 cannot award armor
+    ok 12 - missing input 1 cannot award XP
+    ok 13 - wrong item returns retain original IDs, charges and attunement
+    ok 14 - unrelated excess input keeps existing return behavior
+    ok 15 - excess required input keeps exact-count or takeItems semantics
+    ok 16 - excess currency behavior unchanged
+    1..16
+ok 18 - kithicor/Leaf_Falldim.pl final reward 3191
+# Subtest: lakerathe/Vrynn.pl final reward 4941
+    ok 1 - exact final ordinary Ascended item
+    ok 2 - original XP amount
+    ok 3 - complete event changes only final item; XP, faction, text, returns and currency retained
+    ok 4 - empty repeated hand-in grants no reward
+    ok 5 - empty repeated hand-in grants no XP
+    ok 6 - fresh full hand-in can earn another Ascended item
+    ok 7 - missing input 0 preserves complete return behavior
+    ok 8 - missing input 0 cannot award armor
+    ok 9 - missing input 0 cannot award XP
+    ok 10 - missing input 1 preserves complete return behavior
+    ok 11 - missing input 1 cannot award armor
+    ok 12 - missing input 1 cannot award XP
+    ok 13 - missing input 2 preserves complete return behavior
+    ok 14 - missing input 2 cannot award armor
+    ok 15 - missing input 2 cannot award XP
+    ok 16 - missing input 3 preserves complete return behavior
+    ok 17 - missing input 3 cannot award armor
+    ok 18 - missing input 3 cannot award XP
+    ok 19 - wrong item returns retain original IDs, charges and attunement
+    ok 20 - excess currency behavior unchanged
+    1..20
+ok 19 - lakerathe/Vrynn.pl final reward 4941
+# Subtest: lakerathe/Vrynn.pl final reward 4942
+    ok 1 - exact final ordinary Ascended item
+    ok 2 - original XP amount
+    ok 3 - complete event changes only final item; XP, faction, text, returns and currency retained
+    ok 4 - empty repeated hand-in grants no reward
+    ok 5 - empty repeated hand-in grants no XP
+    ok 6 - fresh full hand-in can earn another Ascended item
+    ok 7 - missing input 0 preserves complete return behavior
+    ok 8 - missing input 0 cannot award armor
+    ok 9 - missing input 0 cannot award XP
+    ok 10 - missing input 1 preserves complete return behavior
+    ok 11 - missing input 1 cannot award armor
+    ok 12 - missing input 1 cannot award XP
+    ok 13 - missing input 2 preserves complete return behavior
+    ok 14 - missing input 2 cannot award armor
+    ok 15 - missing input 2 cannot award XP
+    ok 16 - missing input 3 preserves complete return behavior
+    ok 17 - missing input 3 cannot award armor
+    ok 18 - missing input 3 cannot award XP
+    ok 19 - wrong item returns retain original IDs, charges and attunement
+    ok 20 - excess currency behavior unchanged
+    1..20
+ok 20 - lakerathe/Vrynn.pl final reward 4942
+# Subtest: lakerathe/Vrynn.pl final reward 4943
+    ok 1 - exact final ordinary Ascended item
+    ok 2 - original XP amount
+    ok 3 - complete event changes only final item; XP, faction, text, returns and currency retained
+    ok 4 - empty repeated hand-in grants no reward
+    ok 5 - empty repeated hand-in grants no XP
+    ok 6 - fresh full hand-in can earn another Ascended item
+    ok 7 - missing input 0 preserves complete return behavior
+    ok 8 - missing input 0 cannot award armor
+    ok 9 - missing input 0 cannot award XP
+    ok 10 - missing input 1 preserves complete return behavior
+    ok 11 - missing input 1 cannot award armor
+    ok 12 - missing input 1 cannot award XP
+    ok 13 - missing input 2 preserves complete return behavior
+    ok 14 - missing input 2 cannot award armor
+    ok 15 - missing input 2 cannot award XP
+    ok 16 - missing input 3 preserves complete return behavior
+    ok 17 - missing input 3 cannot award armor
+    ok 18 - missing input 3 cannot award XP
+    ok 19 - wrong item returns retain original IDs, charges and attunement
+    ok 20 - excess currency behavior unchanged
+    1..20
+ok 21 - lakerathe/Vrynn.pl final reward 4943
+# Subtest: lakerathe/Vrynn.pl final reward 4944
+    ok 1 - exact final ordinary Ascended item
+    ok 2 - original XP amount
+    ok 3 - complete event changes only final item; XP, faction, text, returns and currency retained
+    ok 4 - empty repeated hand-in grants no reward
+    ok 5 - empty repeated hand-in grants no XP
+    ok 6 - fresh full hand-in can earn another Ascended item
+    ok 7 - missing input 0 preserves complete return behavior
+    ok 8 - missing input 0 cannot award armor
+    ok 9 - missing input 0 cannot award XP
+    ok 10 - missing input 1 preserves complete return behavior
+    ok 11 - missing input 1 cannot award armor
+    ok 12 - missing input 1 cannot award XP
+    ok 13 - missing input 2 preserves complete return behavior
+    ok 14 - missing input 2 cannot award armor
+    ok 15 - missing input 2 cannot award XP
+    ok 16 - missing input 3 preserves complete return behavior
+    ok 17 - missing input 3 cannot award armor
+    ok 18 - missing input 3 cannot award XP
+    ok 19 - wrong item returns retain original IDs, charges and attunement
+    ok 20 - excess currency behavior unchanged
+    1..20
+ok 22 - lakerathe/Vrynn.pl final reward 4944
+# Subtest: lakerathe/Kyralynn.pl final reward 4945
+    ok 1 - exact final ordinary Ascended item
+    ok 2 - original XP amount
+    ok 3 - complete event changes only final item; XP, faction, text, returns and currency retained
+    ok 4 - empty repeated hand-in grants no reward
+    ok 5 - empty repeated hand-in grants no XP
+    ok 6 - fresh full hand-in can earn another Ascended item
+    ok 7 - missing input 0 preserves complete return behavior
+    ok 8 - missing input 0 cannot award armor
+    ok 9 - missing input 0 cannot award XP
+    ok 10 - missing input 1 preserves complete return behavior
+    ok 11 - missing input 1 cannot award armor
+    ok 12 - missing input 1 cannot award XP
+    ok 13 - missing input 2 preserves complete return behavior
+    ok 14 - missing input 2 cannot award armor
+    ok 15 - missing input 2 cannot award XP
+    ok 16 - missing input 3 preserves complete return behavior
+    ok 17 - missing input 3 cannot award armor
+    ok 18 - missing input 3 cannot award XP
+    ok 19 - wrong item returns retain original IDs, charges and attunement
+    ok 20 - excess currency behavior unchanged
+    1..20
+ok 23 - lakerathe/Kyralynn.pl final reward 4945
+# Subtest: lakerathe/Kyralynn.pl final reward 4947
+    ok 1 - exact final ordinary Ascended item
+    ok 2 - original XP amount
+    ok 3 - complete event changes only final item; XP, faction, text, returns and currency retained
+    ok 4 - empty repeated hand-in grants no reward
+    ok 5 - empty repeated hand-in grants no XP
+    ok 6 - fresh full hand-in can earn another Ascended item
+    ok 7 - missing input 0 preserves complete return behavior
+    ok 8 - missing input 0 cannot award armor
+    ok 9 - missing input 0 cannot award XP
+    ok 10 - missing input 1 preserves complete return behavior
+    ok 11 - missing input 1 cannot award armor
+    ok 12 - missing input 1 cannot award XP
+    ok 13 - missing input 2 preserves complete return behavior
+    ok 14 - missing input 2 cannot award armor
+    ok 15 - missing input 2 cannot award XP
+    ok 16 - missing input 3 preserves complete return behavior
+    ok 17 - missing input 3 cannot award armor
+    ok 18 - missing input 3 cannot award XP
+    ok 19 - wrong item returns retain original IDs, charges and attunement
+    ok 20 - excess currency behavior unchanged
+    1..20
+ok 24 - lakerathe/Kyralynn.pl final reward 4947
+# Subtest: lakerathe/Kyralynn.pl final reward 4948
+    ok 1 - exact final ordinary Ascended item
+    ok 2 - original XP amount
+    ok 3 - complete event changes only final item; XP, faction, text, returns and currency retained
+    ok 4 - empty repeated hand-in grants no reward
+    ok 5 - empty repeated hand-in grants no XP
+    ok 6 - fresh full hand-in can earn another Ascended item
+    ok 7 - missing input 0 preserves complete return behavior
+    ok 8 - missing input 0 cannot award armor
+    ok 9 - missing input 0 cannot award XP
+    ok 10 - missing input 1 preserves complete return behavior
+    ok 11 - missing input 1 cannot award armor
+    ok 12 - missing input 1 cannot award XP
+    ok 13 - missing input 2 preserves complete return behavior
+    ok 14 - missing input 2 cannot award armor
+    ok 15 - missing input 2 cannot award XP
+    ok 16 - missing input 3 preserves complete return behavior
+    ok 17 - missing input 3 cannot award armor
+    ok 18 - missing input 3 cannot award XP
+    ok 19 - wrong item returns retain original IDs, charges and attunement
+    ok 20 - excess currency behavior unchanged
+    1..20
+ok 25 - lakerathe/Kyralynn.pl final reward 4948
+# Subtest: lakerathe/Kyralynn.pl final reward 4946
+    ok 1 - exact final ordinary Ascended item
+    ok 2 - original XP amount
+    ok 3 - complete event changes only final item; XP, faction, text, returns and currency retained
+    ok 4 - empty repeated hand-in grants no reward
+    ok 5 - empty repeated hand-in grants no XP
+    ok 6 - fresh full hand-in can earn another Ascended item
+    ok 7 - missing input 0 preserves complete return behavior
+    ok 8 - missing input 0 cannot award armor
+    ok 9 - missing input 0 cannot award XP
+    ok 10 - missing input 1 preserves complete return behavior
+    ok 11 - missing input 1 cannot award armor
+    ok 12 - missing input 1 cannot award XP
+    ok 13 - missing input 2 preserves complete return behavior
+    ok 14 - missing input 2 cannot award armor
+    ok 15 - missing input 2 cannot award XP
+    ok 16 - missing input 3 preserves complete return behavior
+    ok 17 - missing input 3 cannot award armor
+    ok 18 - missing input 3 cannot award XP
+    ok 19 - wrong item returns retain original IDs, charges and attunement
+    ok 20 - excess currency behavior unchanged
+    1..20
+ok 26 - lakerathe/Kyralynn.pl final reward 4946
+# Subtest: commons/Ranvigoz_Tonsmith.pl remains an unchanged exclusion
+    ok 1 - legacy Normal 4174 resizing remains
+    ok 2 - quality item 204174 is not resized/downgraded
+    ok 3 - quality item 204174 retains ID/charges/attunement on return
+    ok 4 - rejected item 204174 grants no faction
+    ok 5 - poor faction cannot convert 204174
+    ok 6 - quality item 404174 is not resized/downgraded
+    ok 7 - quality item 404174 retains ID/charges/attunement on return
+    ok 8 - rejected item 404174 grants no faction
+    ok 9 - poor faction cannot convert 404174
+    ok 10 - quality item 604174 is not resized/downgraded
+    ok 11 - quality item 604174 retains ID/charges/attunement on return
+    ok 12 - rejected item 604174 grants no faction
+    ok 13 - poor faction cannot convert 604174
+    ok 14 - legacy Normal 4175 resizing remains
+    ok 15 - quality item 204175 is not resized/downgraded
+    ok 16 - quality item 204175 retains ID/charges/attunement on return
+    ok 17 - rejected item 204175 grants no faction
+    ok 18 - poor faction cannot convert 204175
+    ok 19 - quality item 404175 is not resized/downgraded
+    ok 20 - quality item 404175 retains ID/charges/attunement on return
+    ok 21 - rejected item 404175 grants no faction
+    ok 22 - poor faction cannot convert 404175
+    ok 23 - quality item 604175 is not resized/downgraded
+    ok 24 - quality item 604175 retains ID/charges/attunement on return
+    ok 25 - rejected item 604175 grants no faction
+    ok 26 - poor faction cannot convert 604175
+    ok 27 - legacy Normal 4177 resizing remains
+    ok 28 - quality item 204177 is not resized/downgraded
+    ok 29 - quality item 204177 retains ID/charges/attunement on return
+    ok 30 - rejected item 204177 grants no faction
+    ok 31 - poor faction cannot convert 204177
+    ok 32 - quality item 404177 is not resized/downgraded
+    ok 33 - quality item 404177 retains ID/charges/attunement on return
+    ok 34 - rejected item 404177 grants no faction
+    ok 35 - poor faction cannot convert 404177
+    ok 36 - quality item 604177 is not resized/downgraded
+    ok 37 - quality item 604177 retains ID/charges/attunement on return
+    ok 38 - rejected item 604177 grants no faction
+    ok 39 - poor faction cannot convert 604177
+    ok 40 - legacy Normal 4179 resizing remains
+    ok 41 - quality item 204179 is not resized/downgraded
+    ok 42 - quality item 204179 retains ID/charges/attunement on return
+    ok 43 - rejected item 204179 grants no faction
+    ok 44 - poor faction cannot convert 204179
+    ok 45 - quality item 404179 is not resized/downgraded
+    ok 46 - quality item 404179 retains ID/charges/attunement on return
+    ok 47 - rejected item 404179 grants no faction
+    ok 48 - poor faction cannot convert 404179
+    ok 49 - quality item 604179 is not resized/downgraded
+    ok 50 - quality item 604179 retains ID/charges/attunement on return
+    ok 51 - rejected item 604179 grants no faction
+    ok 52 - poor faction cannot convert 604179
+    # Legacy poor-faction branch has no return call; this patch does not change or approve that behavior.
+    1..52
+ok 27 - commons/Ranvigoz_Tonsmith.pl remains an unchanged exclusion
+# Subtest: commons/Timtok_Tonsmith.pl remains an unchanged exclusion
+    ok 1 - legacy Normal 4173 resizing remains
+    ok 2 - quality item 204173 is not resized/downgraded
+    ok 3 - quality item 204173 retains ID/charges/attunement on return
+    ok 4 - rejected item 204173 grants no faction
+    ok 5 - poor faction cannot convert 204173
+    ok 6 - quality item 404173 is not resized/downgraded
+    ok 7 - quality item 404173 retains ID/charges/attunement on return
+    ok 8 - rejected item 404173 grants no faction
+    ok 9 - poor faction cannot convert 404173
+    ok 10 - quality item 604173 is not resized/downgraded
+    ok 11 - quality item 604173 retains ID/charges/attunement on return
+    ok 12 - rejected item 604173 grants no faction
+    ok 13 - poor faction cannot convert 604173
+    ok 14 - legacy Normal 4176 resizing remains
+    ok 15 - quality item 204176 is not resized/downgraded
+    ok 16 - quality item 204176 retains ID/charges/attunement on return
+    ok 17 - rejected item 204176 grants no faction
+    ok 18 - poor faction cannot convert 204176
+    ok 19 - quality item 404176 is not resized/downgraded
+    ok 20 - quality item 404176 retains ID/charges/attunement on return
+    ok 21 - rejected item 404176 grants no faction
+    ok 22 - poor faction cannot convert 404176
+    ok 23 - quality item 604176 is not resized/downgraded
+    ok 24 - quality item 604176 retains ID/charges/attunement on return
+    ok 25 - rejected item 604176 grants no faction
+    ok 26 - poor faction cannot convert 604176
+    ok 27 - legacy Normal 4178 resizing remains
+    ok 28 - quality item 204178 is not resized/downgraded
+    ok 29 - quality item 204178 retains ID/charges/attunement on return
+    ok 30 - rejected item 204178 grants no faction
+    ok 31 - poor faction cannot convert 204178
+    ok 32 - quality item 404178 is not resized/downgraded
+    ok 33 - quality item 404178 retains ID/charges/attunement on return
+    ok 34 - rejected item 404178 grants no faction
+    ok 35 - poor faction cannot convert 404178
+    ok 36 - quality item 604178 is not resized/downgraded
+    ok 37 - quality item 604178 retains ID/charges/attunement on return
+    ok 38 - rejected item 604178 grants no faction
+    ok 39 - poor faction cannot convert 604178
+    ok 40 - legacy Normal 4180 resizing remains
+    ok 41 - quality item 204180 is not resized/downgraded
+    ok 42 - quality item 204180 retains ID/charges/attunement on return
+    ok 43 - rejected item 204180 grants no faction
+    ok 44 - poor faction cannot convert 204180
+    ok 45 - quality item 404180 is not resized/downgraded
+    ok 46 - quality item 404180 retains ID/charges/attunement on return
+    ok 47 - rejected item 404180 grants no faction
+    ok 48 - poor faction cannot convert 404180
+    ok 49 - quality item 604180 is not resized/downgraded
+    ok 50 - quality item 604180 retains ID/charges/attunement on return
+    ok 51 - rejected item 604180 grants no faction
+    ok 52 - poor faction cannot convert 604180
+    # Legacy poor-faction branch has no return call; this patch does not change or approve that behavior.
+    1..52
+ok 28 - commons/Timtok_Tonsmith.pl remains an unchanged exclusion
+# Subtest: commonlands/Ranvigoz_Tonsmith.pl remains an unchanged exclusion
+    ok 1 - legacy Normal 4174 resizing remains
+    ok 2 - quality item 204174 is not resized/downgraded
+    ok 3 - quality item 204174 retains ID/charges/attunement on return
+    ok 4 - rejected item 204174 grants no faction
+    ok 5 - poor faction cannot convert 204174
+    ok 6 - quality item 404174 is not resized/downgraded
+    ok 7 - quality item 404174 retains ID/charges/attunement on return
+    ok 8 - rejected item 404174 grants no faction
+    ok 9 - poor faction cannot convert 404174
+    ok 10 - quality item 604174 is not resized/downgraded
+    ok 11 - quality item 604174 retains ID/charges/attunement on return
+    ok 12 - rejected item 604174 grants no faction
+    ok 13 - poor faction cannot convert 604174
+    ok 14 - legacy Normal 4175 resizing remains
+    ok 15 - quality item 204175 is not resized/downgraded
+    ok 16 - quality item 204175 retains ID/charges/attunement on return
+    ok 17 - rejected item 204175 grants no faction
+    ok 18 - poor faction cannot convert 204175
+    ok 19 - quality item 404175 is not resized/downgraded
+    ok 20 - quality item 404175 retains ID/charges/attunement on return
+    ok 21 - rejected item 404175 grants no faction
+    ok 22 - poor faction cannot convert 404175
+    ok 23 - quality item 604175 is not resized/downgraded
+    ok 24 - quality item 604175 retains ID/charges/attunement on return
+    ok 25 - rejected item 604175 grants no faction
+    ok 26 - poor faction cannot convert 604175
+    ok 27 - legacy Normal 4177 resizing remains
+    ok 28 - quality item 204177 is not resized/downgraded
+    ok 29 - quality item 204177 retains ID/charges/attunement on return
+    ok 30 - rejected item 204177 grants no faction
+    ok 31 - poor faction cannot convert 204177
+    ok 32 - quality item 404177 is not resized/downgraded
+    ok 33 - quality item 404177 retains ID/charges/attunement on return
+    ok 34 - rejected item 404177 grants no faction
+    ok 35 - poor faction cannot convert 404177
+    ok 36 - quality item 604177 is not resized/downgraded
+    ok 37 - quality item 604177 retains ID/charges/attunement on return
+    ok 38 - rejected item 604177 grants no faction
+    ok 39 - poor faction cannot convert 604177
+    ok 40 - legacy Normal 4179 resizing remains
+    ok 41 - quality item 204179 is not resized/downgraded
+    ok 42 - quality item 204179 retains ID/charges/attunement on return
+    ok 43 - rejected item 204179 grants no faction
+    ok 44 - poor faction cannot convert 204179
+    ok 45 - quality item 404179 is not resized/downgraded
+    ok 46 - quality item 404179 retains ID/charges/attunement on return
+    ok 47 - rejected item 404179 grants no faction
+    ok 48 - poor faction cannot convert 404179
+    ok 49 - quality item 604179 is not resized/downgraded
+    ok 50 - quality item 604179 retains ID/charges/attunement on return
+    ok 51 - rejected item 604179 grants no faction
+    ok 52 - poor faction cannot convert 604179
+    # Legacy poor-faction branch has no return call; this patch does not change or approve that behavior.
+    1..52
+ok 29 - commonlands/Ranvigoz_Tonsmith.pl remains an unchanged exclusion
+# Subtest: commonlands/Timtok_Tonsmith.pl remains an unchanged exclusion
+    ok 1 - legacy Normal 4173 resizing remains
+    ok 2 - quality item 204173 is not resized/downgraded
+    ok 3 - quality item 204173 retains ID/charges/attunement on return
+    ok 4 - rejected item 204173 grants no faction
+    ok 5 - poor faction cannot convert 204173
+    ok 6 - quality item 404173 is not resized/downgraded
+    ok 7 - quality item 404173 retains ID/charges/attunement on return
+    ok 8 - rejected item 404173 grants no faction
+    ok 9 - poor faction cannot convert 404173
+    ok 10 - quality item 604173 is not resized/downgraded
+    ok 11 - quality item 604173 retains ID/charges/attunement on return
+    ok 12 - rejected item 604173 grants no faction
+    ok 13 - poor faction cannot convert 604173
+    ok 14 - legacy Normal 4176 resizing remains
+    ok 15 - quality item 204176 is not resized/downgraded
+    ok 16 - quality item 204176 retains ID/charges/attunement on return
+    ok 17 - rejected item 204176 grants no faction
+    ok 18 - poor faction cannot convert 204176
+    ok 19 - quality item 404176 is not resized/downgraded
+    ok 20 - quality item 404176 retains ID/charges/attunement on return
+    ok 21 - rejected item 404176 grants no faction
+    ok 22 - poor faction cannot convert 404176
+    ok 23 - quality item 604176 is not resized/downgraded
+    ok 24 - quality item 604176 retains ID/charges/attunement on return
+    ok 25 - rejected item 604176 grants no faction
+    ok 26 - poor faction cannot convert 604176
+    ok 27 - legacy Normal 4178 resizing remains
+    ok 28 - quality item 204178 is not resized/downgraded
+    ok 29 - quality item 204178 retains ID/charges/attunement on return
+    ok 30 - rejected item 204178 grants no faction
+    ok 31 - poor faction cannot convert 204178
+    ok 32 - quality item 404178 is not resized/downgraded
+    ok 33 - quality item 404178 retains ID/charges/attunement on return
+    ok 34 - rejected item 404178 grants no faction
+    ok 35 - poor faction cannot convert 404178
+    ok 36 - quality item 604178 is not resized/downgraded
+    ok 37 - quality item 604178 retains ID/charges/attunement on return
+    ok 38 - rejected item 604178 grants no faction
+    ok 39 - poor faction cannot convert 604178
+    ok 40 - legacy Normal 4180 resizing remains
+    ok 41 - quality item 204180 is not resized/downgraded
+    ok 42 - quality item 204180 retains ID/charges/attunement on return
+    ok 43 - rejected item 204180 grants no faction
+    ok 44 - poor faction cannot convert 204180
+    ok 45 - quality item 404180 is not resized/downgraded
+    ok 46 - quality item 404180 retains ID/charges/attunement on return
+    ok 47 - rejected item 404180 grants no faction
+    ok 48 - poor faction cannot convert 404180
+    ok 49 - quality item 604180 is not resized/downgraded
+    ok 50 - quality item 604180 retains ID/charges/attunement on return
+    ok 51 - rejected item 604180 grants no faction
+    ok 52 - poor faction cannot convert 604180
+    # Legacy poor-faction branch has no return call; this patch does not change or approve that behavior.
+    1..52
+ok 30 - commonlands/Timtok_Tonsmith.pl remains an unchanged exclusion
+# Subtest: Kurron Ni Normal/Ascended combination 0
+    ok 1 - mixed quality retains reward/coins; no obsolete helper rejection line
+    ok 2 - original Truespirit faction reward
+    ok 3 - one original Letter to Duriek added to NPC inventory
+    ok 4 - three required pieces consumed
+    ok 5 - retains existing helper coin return after presenting 900pp
+    ok 6 - coin without another armor set earns no faction
+    ok 7 - empty repeat cannot duplicate letter
+    ok 8 - another full set retains repeat faction behavior
+    ok 9 - another full set cannot duplicate letter on the same spawn
+    ok 10 - missing piece 0 preserves rejected-item and money returns
+    ok 11 - missing piece 1 preserves rejected-item and money returns
+    ok 12 - missing piece 2 preserves rejected-item and money returns
+    ok 13 - 899 platinum rejects and returns the complete hand-in
+    ok 14 - equivalent gold does not bypass the existing raw-platinum threshold
+    ok 15 - unrelated armor cannot substitute for an epic component
+    ok 16 - unrelated extra item and excess currency retain successful legacy behavior
+    ok 17 - a new NPC spawn can carry its own single letter
+    1..17
+ok 31 - Kurron Ni Normal/Ascended combination 0
+# Subtest: Kurron Ni Normal/Ascended combination 1
+    ok 1 - mixed quality retains reward/coins; no obsolete helper rejection line
+    ok 2 - original Truespirit faction reward
+    ok 3 - one original Letter to Duriek added to NPC inventory
+    ok 4 - three required pieces consumed
+    ok 5 - retains existing helper coin return after presenting 900pp
+    ok 6 - coin without another armor set earns no faction
+    ok 7 - empty repeat cannot duplicate letter
+    ok 8 - another full set retains repeat faction behavior
+    ok 9 - another full set cannot duplicate letter on the same spawn
+    ok 10 - missing piece 0 preserves rejected-item and money returns
+    ok 11 - missing piece 1 preserves rejected-item and money returns
+    ok 12 - missing piece 2 preserves rejected-item and money returns
+    ok 13 - 899 platinum rejects and returns the complete hand-in
+    ok 14 - equivalent gold does not bypass the existing raw-platinum threshold
+    ok 15 - unrelated armor cannot substitute for an epic component
+    ok 16 - unrelated extra item and excess currency retain successful legacy behavior
+    ok 17 - a new NPC spawn can carry its own single letter
+    1..17
+ok 32 - Kurron Ni Normal/Ascended combination 1
+# Subtest: Kurron Ni Normal/Ascended combination 2
+    ok 1 - mixed quality retains reward/coins; no obsolete helper rejection line
+    ok 2 - original Truespirit faction reward
+    ok 3 - one original Letter to Duriek added to NPC inventory
+    ok 4 - three required pieces consumed
+    ok 5 - retains existing helper coin return after presenting 900pp
+    ok 6 - coin without another armor set earns no faction
+    ok 7 - empty repeat cannot duplicate letter
+    ok 8 - another full set retains repeat faction behavior
+    ok 9 - another full set cannot duplicate letter on the same spawn
+    ok 10 - missing piece 0 preserves rejected-item and money returns
+    ok 11 - missing piece 1 preserves rejected-item and money returns
+    ok 12 - missing piece 2 preserves rejected-item and money returns
+    ok 13 - 899 platinum rejects and returns the complete hand-in
+    ok 14 - equivalent gold does not bypass the existing raw-platinum threshold
+    ok 15 - unrelated armor cannot substitute for an epic component
+    ok 16 - unrelated extra item and excess currency retain successful legacy behavior
+    ok 17 - a new NPC spawn can carry its own single letter
+    1..17
+ok 33 - Kurron Ni Normal/Ascended combination 2
+# Subtest: Kurron Ni Normal/Ascended combination 3
+    ok 1 - mixed quality retains reward/coins; no obsolete helper rejection line
+    ok 2 - original Truespirit faction reward
+    ok 3 - one original Letter to Duriek added to NPC inventory
+    ok 4 - three required pieces consumed
+    ok 5 - retains existing helper coin return after presenting 900pp
+    ok 6 - coin without another armor set earns no faction
+    ok 7 - empty repeat cannot duplicate letter
+    ok 8 - another full set retains repeat faction behavior
+    ok 9 - another full set cannot duplicate letter on the same spawn
+    ok 10 - missing piece 0 preserves rejected-item and money returns
+    ok 11 - missing piece 1 preserves rejected-item and money returns
+    ok 12 - missing piece 2 preserves rejected-item and money returns
+    ok 13 - 899 platinum rejects and returns the complete hand-in
+    ok 14 - equivalent gold does not bypass the existing raw-platinum threshold
+    ok 15 - unrelated armor cannot substitute for an epic component
+    ok 16 - unrelated extra item and excess currency retain successful legacy behavior
+    ok 17 - a new NPC spawn can carry its own single letter
+    1..17
+ok 34 - Kurron Ni Normal/Ascended combination 3
+# Subtest: Kurron Ni Normal/Ascended combination 4
+    ok 1 - mixed quality retains reward/coins; no obsolete helper rejection line
+    ok 2 - original Truespirit faction reward
+    ok 3 - one original Letter to Duriek added to NPC inventory
+    ok 4 - three required pieces consumed
+    ok 5 - retains existing helper coin return after presenting 900pp
+    ok 6 - coin without another armor set earns no faction
+    ok 7 - empty repeat cannot duplicate letter
+    ok 8 - another full set retains repeat faction behavior
+    ok 9 - another full set cannot duplicate letter on the same spawn
+    ok 10 - missing piece 0 preserves rejected-item and money returns
+    ok 11 - missing piece 1 preserves rejected-item and money returns
+    ok 12 - missing piece 2 preserves rejected-item and money returns
+    ok 13 - 899 platinum rejects and returns the complete hand-in
+    ok 14 - equivalent gold does not bypass the existing raw-platinum threshold
+    ok 15 - unrelated armor cannot substitute for an epic component
+    ok 16 - unrelated extra item and excess currency retain successful legacy behavior
+    ok 17 - a new NPC spawn can carry its own single letter
+    1..17
+ok 35 - Kurron Ni Normal/Ascended combination 4
+# Subtest: Kurron Ni Normal/Ascended combination 5
+    ok 1 - mixed quality retains reward/coins; no obsolete helper rejection line
+    ok 2 - original Truespirit faction reward
+    ok 3 - one original Letter to Duriek added to NPC inventory
+    ok 4 - three required pieces consumed
+    ok 5 - retains existing helper coin return after presenting 900pp
+    ok 6 - coin without another armor set earns no faction
+    ok 7 - empty repeat cannot duplicate letter
+    ok 8 - another full set retains repeat faction behavior
+    ok 9 - another full set cannot duplicate letter on the same spawn
+    ok 10 - missing piece 0 preserves rejected-item and money returns
+    ok 11 - missing piece 1 preserves rejected-item and money returns
+    ok 12 - missing piece 2 preserves rejected-item and money returns
+    ok 13 - 899 platinum rejects and returns the complete hand-in
+    ok 14 - equivalent gold does not bypass the existing raw-platinum threshold
+    ok 15 - unrelated armor cannot substitute for an epic component
+    ok 16 - unrelated extra item and excess currency retain successful legacy behavior
+    ok 17 - a new NPC spawn can carry its own single letter
+    1..17
+ok 36 - Kurron Ni Normal/Ascended combination 5
+# Subtest: Kurron Ni Normal/Ascended combination 6
+    ok 1 - mixed quality retains reward/coins; no obsolete helper rejection line
+    ok 2 - original Truespirit faction reward
+    ok 3 - one original Letter to Duriek added to NPC inventory
+    ok 4 - three required pieces consumed
+    ok 5 - retains existing helper coin return after presenting 900pp
+    ok 6 - coin without another armor set earns no faction
+    ok 7 - empty repeat cannot duplicate letter
+    ok 8 - another full set retains repeat faction behavior
+    ok 9 - another full set cannot duplicate letter on the same spawn
+    ok 10 - missing piece 0 preserves rejected-item and money returns
+    ok 11 - missing piece 1 preserves rejected-item and money returns
+    ok 12 - missing piece 2 preserves rejected-item and money returns
+    ok 13 - 899 platinum rejects and returns the complete hand-in
+    ok 14 - equivalent gold does not bypass the existing raw-platinum threshold
+    ok 15 - unrelated armor cannot substitute for an epic component
+    ok 16 - unrelated extra item and excess currency retain successful legacy behavior
+    ok 17 - a new NPC spawn can carry its own single letter
+    1..17
+ok 37 - Kurron Ni Normal/Ascended combination 6
+# Subtest: Kurron Ni Normal/Ascended combination 7
+    ok 1 - mixed quality retains reward/coins; no obsolete helper rejection line
+    ok 2 - original Truespirit faction reward
+    ok 3 - one original Letter to Duriek added to NPC inventory
+    ok 4 - three required pieces consumed
+    ok 5 - retains existing helper coin return after presenting 900pp
+    ok 6 - coin without another armor set earns no faction
+    ok 7 - empty repeat cannot duplicate letter
+    ok 8 - another full set retains repeat faction behavior
+    ok 9 - another full set cannot duplicate letter on the same spawn
+    ok 10 - missing piece 0 preserves rejected-item and money returns
+    ok 11 - missing piece 1 preserves rejected-item and money returns
+    ok 12 - missing piece 2 preserves rejected-item and money returns
+    ok 13 - 899 platinum rejects and returns the complete hand-in
+    ok 14 - equivalent gold does not bypass the existing raw-platinum threshold
+    ok 15 - unrelated armor cannot substitute for an epic component
+    ok 16 - unrelated extra item and excess currency retain successful legacy behavior
+    ok 17 - a new NPC spawn can carry its own single letter
+    1..17
+ok 38 - Kurron Ni Normal/Ascended combination 7
+# Subtest: Legacy helper fixture rejects Polished/Exalted without native tier matching
+    ok 1 - tier 200000 slot 0 grants no faction
+    ok 2 - tier 200000 slot 0 grants no letter
+    ok 3 - tier 200000 slot 0 retains original item/currency returns
+    ok 4 - tier 200000 slot 1 grants no faction
+    ok 5 - tier 200000 slot 1 grants no letter
+    ok 6 - tier 200000 slot 1 retains original item/currency returns
+    ok 7 - tier 200000 slot 2 grants no faction
+    ok 8 - tier 200000 slot 2 grants no letter
+    ok 9 - tier 200000 slot 2 retains original item/currency returns
+    ok 10 - tier 400000 slot 0 grants no faction
+    ok 11 - tier 400000 slot 0 grants no letter
+    ok 12 - tier 400000 slot 0 retains original item/currency returns
+    ok 13 - tier 400000 slot 1 grants no faction
+    ok 14 - tier 400000 slot 1 grants no letter
+    ok 15 - tier 400000 slot 1 retains original item/currency returns
+    ok 16 - tier 400000 slot 2 grants no faction
+    ok 17 - tier 400000 slot 2 grants no letter
+    ok 18 - tier 400000 slot 2 retains original item/currency returns
+    1..18
+ok 39 - Legacy helper fixture rejects Polished/Exalted without native tier matching
+1..39
