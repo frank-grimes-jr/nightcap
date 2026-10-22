@@ -1,0 +1,23 @@
+{
+  "status": "applied",
+  "date": "2026-10-22",
+  "source_revision": "178bb35231e58ca98799b56b2ba695ef7504385d",
+  "files": [
+    {
+      "path": "C:\\Users\\verre\\.codex\\skills\\nightcap-development\\references\\client.md",
+      "before_sha256": "a5d29f33d41b1f3e874af5d125c0f6c92c65a84c9bde3347d2c7750486f0f566",
+      "after_sha256": "e1d3b722d6366883efecc5588e327aafce6b0e5a9c8de5e37ced330c952ae4b2"
+    },
+    {
+      "path": "C:\\Users\\verre\\.codex\\skills\\nightcap-development\\references\\wiki.md",
+      "before_sha256": "f430c9184eb9fe648f31877e4760ea544ee294eac54f89f0223bea2f2a265f2c",
+      "after_sha256": "3698dd30f2ec7921034b31e918bf22151160199046c4252f0cd6bd2543f6f73b"
+    },
+    {
+      "path": "C:\\Users\\verre\\.codex\\skills\\nightcap-development\\references\\sources.json",
+      "before_sha256": "b4c0ca5b6a65051f7c3246eee6518e3f3b7a098b28db9b16b92f8fd4ae64d3e7",
+      "after_sha256": "a312df6d028bed104caffe609fcb083ba276292db3bd0483ce30bfc68709372d"
+    }
+  ],
+  "scope": "client and wiki candidate knowledge only; no deployment authority"
+}

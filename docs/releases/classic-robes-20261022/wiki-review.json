@@ -58,7 +58,7 @@
       "title": "Equipment & trading",
       "decision": "explicit unreleased notice",
       "before_sha256": "aa0defbc66f96bbe250b5c1a350e664b0a85bffc3e6b1ea8eeb690b15b994be5",
-      "after_sha256": "638ed83d13bec3036f24d9d5afdc5ef8aac0ef2627ebc1f796440a50663f74ab",
+      "after_sha256": "62439e336d3307af87b97120a799f69b88091173afe96f5fcff0a0bea51d7a3e",
       "retained_status": "Live testing"
     },
     {
@@ -66,7 +66,7 @@
       "title": "Features",
       "decision": "explicit unreleased notice",
       "before_sha256": "33e657dc016db91cbf302a360ac4fa6173a909e78f923f7b8ea8b74213f17c8a",
-      "after_sha256": "f8f37ed9a3fbaf4708af59cd8abf8910a5ada791e1eae7366826015f6835579a",
+      "after_sha256": "d3fd11e1eea8a215afb95751aeff358014175f93f733a3a812281119c2c56846",
       "retained_status": "Live testing"
     },
     {
@@ -82,7 +82,7 @@
       "title": "Welcome to the Nightcap Wiki",
       "decision": "explicit unreleased notice",
       "before_sha256": "91da90ac4971d13f4053408b75553e0653c84f9355ab46750fa49578b416550c",
-      "after_sha256": "6e1e9ba9bca9331b852aa11bfc4251e15b5bf0f078906be83f6206fa19d6d2ae",
+      "after_sha256": "20b5f02c84089e3f79413c3f5aac014d1fc38293110b8a8a6e34fc283e9c9a1e",
       "retained_status": "Reference"
     },
     {
@@ -98,7 +98,7 @@
       "title": "Launcher & interface",
       "decision": "explicit unreleased notice",
       "before_sha256": "575e89bfc359eb5ac2427abea1b0f34e653c657d9ad6491bac0625121104f956",
-      "after_sha256": "12915a6d728d7064c22c8a7d25c85388ab29843df7b3c899d97a43e87e06dffc",
+      "after_sha256": "335f7377b7f6d43fe75ff5f45427c27888b14ac992f494e34465c02cf177a61f",
       "retained_status": "Live testing"
     },
     {
@@ -106,7 +106,7 @@
       "title": "Multiclass & progression",
       "decision": "explicit unreleased notice",
       "before_sha256": "98bcca88e521daf03f4cb8a482e10493cf7c2f2e93267ad73a9d9a0e2f2101b0",
-      "after_sha256": "21cf9f01bce68c59664b57ea4ca978da3616cff7db54032a47271d3a5ce88663",
+      "after_sha256": "b75c5373e1bb7844b94002a28fe00bf415b6639a139c7213629dc24b48b0d684",
       "retained_status": "Live testing"
     },
     {
@@ -196,5 +196,7 @@
       "sha256": "b3d52f4faad38341a940021b4df3060019d7fd6ba7bdd00c79362f951e741aba",
       "publication": "20261022-dungeon-keepers-v1"
     }
-  ]
+  ],
+  "integrated_revision": "178bb35231e58ca98799b56b2ba695ef7504385d",
+  "current_ledger_revision": "7792171c2df7fa206e78e089c8200d552700a208"
 }
