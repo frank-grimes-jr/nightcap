@@ -115,7 +115,7 @@ def health(): r.call('docker','exec',r.state('game')['Id'],'python3','/opt/night
 def startup_guards():
     # These native systems are unused by the custom dungeon service. Do not silently
     # accept startup cleanup; a nonempty case requires its own scoped reconciliation.
-    tables=('shared_tasks','dynamic_zones','dynamic_zone_members','dynamic_zone_lockouts','character_corpses')
+    tables=('shared_tasks','dynamic_zones','dynamic_zone_members','dynamic_zone_lockouts')
     counts={t:int(sql('SELECT COUNT(*) FROM `'+t+'`;')) for t in tables}
     assert not any(counts.values()),('Native shared/dynamic systems need audit',counts)
     for table in ('character_expedition_lockouts','character_task_timers'):
@@ -124,6 +124,13 @@ def startup_guards():
     # Bound both native instance expiry conventions without assuming a newer schema.
     counts['expiring_instances']=int(sql('SELECT COUNT(*) FROM instance_list WHERE never_expires=0 AND start_time+duration<=UNIX_TIMESTAMP()+600;'))
     assert counts['expiring_instances']==0,'Upcoming instance expiry needs audit'
+    decay=int(sql("SELECT COALESCE((SELECT rule_value FROM rule_values WHERE ruleset_id=1 AND rule_name='Character:CorpseDecayTime'),604800000);"))//1000
+    shadow=sql("SELECT LOWER(COALESCE((SELECT rule_value FROM rule_values WHERE ruleset_id=1 AND rule_name='Zone:EnableShadowrest'),'true'));").strip() in ('true','1')
+    predicate=f'time_of_death<>0 AND UNIX_TIMESTAMP()+600-UNIX_TIMESTAMP(time_of_death)>{decay}'
+    if shadow:predicate+=' AND is_buried=0'
+    counts['decaying_corpses']=int(sql('SELECT COUNT(*) FROM character_corpses WHERE '+predicate+';'))
+    counts['instance_corpses']=int(sql('SELECT COUNT(*) FROM character_corpses c JOIN instance_list i ON i.id=c.instance_id WHERE i.never_expires=0;'))
+    assert counts['decaying_corpses']==counts['instance_corpses']==0,'Upcoming native corpse cleanup needs audit'
     return counts
 
 def unchanged(p,installed=False):

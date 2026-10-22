@@ -3,8 +3,8 @@ import ast,hashlib,json,subprocess
 from upload import SSH,STAGE,ARTIFACTS,HERE
 def main():
     folder=ARTIFACTS/'deployment-package-v2'
-    manifest=json.loads((folder/'manifest.json').read_text())
-    old_manifest=hashlib.sha256((folder/'manifest.json').read_bytes()).hexdigest()
+    manifest=json.loads((HERE/'package-manifest.json').read_text())
+    old_manifest=json.loads(json.dumps(manifest))
     root=HERE.parents[3];base=(root/'docs/releases/aa-pacing-million-20261021/rollout.py').read_text()
     funcs='\n\n'.join(ast.get_source_segment(base,n) for n in ast.parse(base).body if isinstance(n,ast.FunctionDef) and n.name in ('market','verify_market'))
     text=(HERE/'rollout.py').read_text().replace('# market()/verify_market() are copied exactly from the reviewed October21\n# operator by prepare_local.py and pin the native once-per-startup rotation.',funcs)
@@ -16,7 +16,7 @@ import hashlib,json,os
 from pathlib import Path
 stage=Path(stage_name)
 assert not (stage/'evidence').exists(),'Cannot alter a preflighted release'
-assert hashlib.sha256((stage/'manifest.json').read_bytes()).hexdigest()==old_manifest
+assert json.loads((stage/'manifest.json').read_text())==old_manifest
 assert hashlib.sha256((stage/'rollout.py').read_bytes()).hexdigest()==old_operator
 for name,digest in manifest['files'].items():
     if name!='rollout.py':assert hashlib.sha256((stage/name).read_bytes()).hexdigest()==digest
