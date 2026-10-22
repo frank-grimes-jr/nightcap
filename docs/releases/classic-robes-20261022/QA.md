@@ -1,10 +1,12 @@
 # Native robe acceptance
 
 Pending: offline previews and mapped-native checks do not complete this gate.
-Use the candidate archive pair in an isolated writable client with the current
-matched Nightcap proxy/catalog and default Classic models. Record both archive
+Signed game release `2026102201` is available for live testing. Close EverQuest
+completely, reopen the normal launcher and press Play. Keep the current matched
+Nightcap proxy/catalog and default Classic models. Record both archive
 hashes, race, gender, item ID/material, zone and screenshots for each result.
-The wearer and observer must both load the candidate.
+The wearer and observer must both load the update. Expected archive hashes are
+in `candidate-package.json`; publication/recovery receipts are in `deployment/`.
 
 1. In the East Commonlands tunnel (`ecommons`), use a test character holding a
    robe-eligible caster class such as Wizard. Repeat with caster in the second
@@ -34,5 +36,7 @@ The wearer and observer must both load the candidate.
 9. A character without a matching held class still cannot equip a restricted
    robe. Verify no damage, defense, mana, skill, item power or class access change.
 
-Main/public release requires owner sign-off under the workspace branch policy.
-Record rejected races/poses and revise the candidate before release.
+The owner explicitly approved main promotion and live-QA publication on October
+22 ("Approved. move into main."). This is a scoped exception before visual QA,
+not acceptance of the scenarios above or standing release permission.
+Record rejected races/poses and deliver any correction as a higher signed release.

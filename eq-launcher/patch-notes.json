@@ -1,5 +1,15 @@
 [
   {
+    "release": 2026102201,
+    "date": "2026-10-22",
+    "changes": [
+      {
+        "kind": "fix",
+        "text": "Live testing: Classic Barbarian, Wood Elf, Half Elf, Dwarf, Troll, Ogre and Halfling models now have robe bodies. Close the game and update through the launcher; native visual and animation QA remains open."
+      }
+    ]
+  },
+  {
     "release": 2026101902,
     "date": "2026-10-19",
     "changes": [
@@ -99,7 +109,7 @@
     "changes": [
       {
         "kind": "feature",
-        "text": "Raid & Grind dungeons are live! Explore seven Classic dungeons solo or with a group of up to six, with new boss objectives and custom rewards."
+        "text": "Raid \u0026 Grind dungeons are live! Explore seven Classic dungeons solo or with a group of up to six, with new boss objectives and custom rewards."
       },
       {
         "kind": "feature",
@@ -139,7 +149,7 @@
       },
       {
         "kind": "feature",
-        "text": "Use Keeper Claim Rewards if a full inventory prevents delivery. Earned claims and permanent completion counts survive run expiry or reset. The Raid & Grind guide on wiki.nightcapgame.org lists every required boss."
+        "text": "Use Keeper Claim Rewards if a full inventory prevents delivery. Earned claims and permanent completion counts survive run expiry or reset. The Raid \u0026 Grind guide on wiki.nightcapgame.org lists every required boss."
       }
     ]
   },

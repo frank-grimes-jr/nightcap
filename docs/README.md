@@ -5,7 +5,7 @@ The [level-one access correction](releases/aa-tbs-level1-20261013/README.md) rem
 
 Start with [current status](status.md), not a dated candidate report.
 
-- [Classic race robe candidate, asset recovery and native QA](releases/classic-robes-20261022/README.md)
+- [Classic race robe release, asset recovery and native QA](releases/classic-robes-20261022/README.md)
 
 - [AA million-point pacing and XP boost retirement](releases/aa-pacing-million-20261021/README.md)
 

@@ -1,0 +1,21 @@
+{
+  "release": 2026101902,
+  "previous_channel_sha256": "b578ea032659fec5fadc320735720b5ae53675856cffcdf9e8176fc1a27ed179",
+  "archives": [
+    {
+      "path": "global4_chr.s3d",
+      "sha256": "7b2c2a2e95229e2fcd755b49042e0ae8fab5908b03a1567b2c97cb60f249c2e1",
+      "size": 2565600,
+      "url": "https://play.nightcapgame.org/release/2026101902/global4_chr.s3d",
+      "required": true
+    },
+    {
+      "path": "global_chr.s3d",
+      "sha256": "d0d830128dc0d306818441d5aa199a32f6b20cb91815a86a62936f9a6e9724f1",
+      "size": 8161221,
+      "url": "https://play.nightcapgame.org/release/2026101902/global_chr.s3d",
+      "required": true
+    }
+  ],
+  "recovery": "Publish these exact prior archive bytes in a higher signed counter; preserve current unrelated descriptors and matched DLL/catalog. Never lower player checkpoints or restore player/database state."
+}
