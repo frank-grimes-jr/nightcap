@@ -1,0 +1,150 @@
+{
+  "schema_version": 1,
+  "policy_date": "2026-10-22",
+  "status": "candidate; not deployed",
+  "policy": "Audited substantial class-armor quests grant existing ordinary Ascended rewards even when repeatable. Cheap/basic hand-ins, components, returns, starter gear, spells, weapons, epics and unaudited quests retain existing behavior.",
+  "families": [
+    {
+      "name": "Crafted",
+      "class": "Warrior",
+      "reason": "Named or dungeon creature trophies from Solusek's Eye, Permafrost, Najena, Mistmoore, Runnyeye and outdoor hunts, with purchased gems. This is earned class armor, not basic smithing.",
+      "scripts": {
+        "southkarana/Shakrn_Meadowgreen.lua": [
+          4173,
+          4178,
+          4180,
+          4176
+        ],
+        "southkarana/Ulan_Meadowgreen.lua": [
+          4177,
+          4179,
+          4175,
+          4174
+        ]
+      }
+    },
+    {
+      "name": "Lambent",
+      "class": "Bard",
+      "reason": "Dungeon and named-creature armor/trophies plus prepared Lambent gems. Gem intermediates remain Normal and all final ingredients remain required.",
+      "scripts": {
+        "soltemple/Cryssia_Stardreamer.pl": [
+          4156,
+          4154,
+          4153,
+          4155
+        ],
+        "soltemple/Walthin_Fireweaver.lua": [
+          4159,
+          4157,
+          4158
+        ]
+      }
+    },
+    {
+      "name": "Darkforge",
+      "class": "Shadow Knight",
+      "reason": "Pairs of decayed armor from Cazic-Thule with additional hunted materials or enchanted platinum. These are final armor rewards; decayed inputs remain unchanged.",
+      "scripts": {
+        "soltemple/an_undead_knight.pl": [
+          3144,
+          3145,
+          3146
+        ],
+        "soltemple/an_undead_knight_.pl": [
+          3140,
+          3141,
+          3142,
+          3143
+        ]
+      }
+    },
+    {
+      "name": "Ivy Etched",
+      "class": "Ranger",
+      "reason": "Named-creature trophies, Rune of Ivy pieces and separate adventure components, with gems or coin. Existing faction and payment requirements remain.",
+      "scripts": {
+        "kithicor/Gandari.pl": [
+          3189,
+          3181,
+          3188,
+          3184
+        ],
+        "kithicor/Leaf_Falldim.pl": [
+          3190,
+          3192,
+          3191
+        ]
+      }
+    },
+    {
+      "name": "Totemic",
+      "class": "Shaman",
+      "reason": "Banded armor is only one input; each final piece also requires dufrenite and two hunted ritual components from named creatures or dungeons. The basic Banded inputs do not become Ascended.",
+      "scripts": {
+        "lakerathe/Vrynn.pl": [
+          4941,
+          4942,
+          4943,
+          4944
+        ],
+        "lakerathe/Kyralynn.pl": [
+          4945,
+          4947,
+          4948,
+          4946
+        ]
+      }
+    }
+  ],
+  "unchanged_crafted_resizing": {
+    "commons/Timtok_Tonsmith.pl": {
+      "4178": 4186,
+      "4176": 4184,
+      "4173": 4181,
+      "4180": 4188
+    },
+    "commons/Ranvigoz_Tonsmith.pl": {
+      "4177": 4185,
+      "4179": 4187,
+      "4175": 4183,
+      "4174": 4182
+    },
+    "commonlands/Timtok_Tonsmith.pl": {
+      "4178": 4186,
+      "4176": 4184,
+      "4173": 4181,
+      "4180": 4188
+    },
+    "commonlands/Ranvigoz_Tonsmith.pl": {
+      "4177": 4185,
+      "4179": 4187,
+      "4175": 4183,
+      "4174": 4182
+    }
+  },
+  "deferred": [
+    "Crafted sizing exchanges remain unchanged. The existing class-match race policy makes resizing unnecessary; accepting upgraded inputs through static summon would need a separate instance-preservation audit.",
+    "Other substantial class quests require branch/input/target audit before catalog admission; eligibility is not limited to one-time quests.",
+    "Armor of Ro finishes through tradeskill recipes, requiring a separate guarded recipe audit rather than changes to its mold-grant quests.",
+    "Temple cleric armor has mixed weapon/shield branches and an older Blaize script without normal rejected-item return handling; audit that flow separately.",
+    "The separate finished cultural tradeskill armor candidate is not deployed by this change."
+  ],
+  "downstream_compatibility": {
+    "overthere/Kurron_Ni.pl": {
+      "before_sha256": "4f4e0e8c746c176ba94f5536d3a6dcb8619bfc501def376b0849ed1fd9e82d4d",
+      "after_sha256": "42914766c0360fe1eaf2703a80f07b37835bb295ffe1b0c105c5bb84257d2cd7",
+      "normal_ids": [
+        3141,
+        3145,
+        3140
+      ],
+      "ascended_ids": [
+        603141,
+        603145,
+        603140
+      ],
+      "reason": "Preserve later Shadow Knight epic progression using any Normal/Ascended combination. Original platinum>=900 gate, helper cash-return behavior, faction and once-per-spawn letter remain."
+    }
+  }
+}

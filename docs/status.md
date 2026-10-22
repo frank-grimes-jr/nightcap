@@ -1,4 +1,14 @@
 # Current Nightcap status
+
+## October 22 — Class-armor reward candidate, not deployed
+
+Palwar's Crafted pieces were Normal because live Meadowgreen scripts grant
+base IDs. The owner's clarified policy includes substantial repeatable class
+armor. The reviewed candidate covers 37 rewards in five families and preserves
+the dependent Darkforge epic hand-in. Existing item definitions are reused;
+production scripts, Palwar's inventory and the public wiki are unchanged.
+[Implementation, release boundary and QA](releases/quest-armor-20261022/README.md).
+
 ## Classic race robes — published for live QA, October 22
 
 Generated missing robe bodies for male/female Half Elf, Wood Elf, Barbarian,
