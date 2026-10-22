@@ -1,0 +1,28 @@
+{
+  "revision": "4345dce plus reviewed release metadata",
+  "files": [
+    {
+      "name": "items.md",
+      "before_sha256": "2082b50ebb1f596fe4a2809919f89804e1883f97b5e9775c5300513afd0d084a",
+      "after_sha256": "7abcc00a04b0eacf4a6ff75494fcb9c9fc54e75f1b9102b6c4b0950f9941bf1e"
+    },
+    {
+      "name": "wiki.md",
+      "before_sha256": "15f287b6e155fc90bbcc8b99bdc1b4635f3ea3833b3dd33ddca3ded68b0a399d",
+      "after_sha256": "b6f40fdb149a6029cc1ac21bd0b7c22b9591918268f4d1c6cd4a1d9f1b67e831"
+    },
+    {
+      "name": "sources.json",
+      "before_sha256": "397ea6bd74594ce0b8d167124424f38185cd710d1cc06f289ad0e82b7c196817",
+      "after_sha256": "89d201388ec28273645179234263a3e18f669bd20226414f19f65546fac0fb9a"
+    }
+  ],
+  "candidate_knowledge_preserved": true,
+  "original_line_endings_preserved": true,
+  "status": "installed with guarded preimages; original line endings preserved",
+  "validation": {
+    "skill_validator": "PASS",
+    "items_context_exit": 0,
+    "wiki_context_exit": 0
+  }
+}

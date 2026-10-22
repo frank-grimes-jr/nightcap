@@ -207,6 +207,7 @@ server-mods/quests/lakerathe/Kyralynn.pl text eol=lf -whitespace
 server-mods/quests/overthere/Kurron_Ni.pl text eol=lf -whitespace
 docs/releases/quest-armor-20261022/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 docs/releases/quest-armor-20261022/skill-update/*.patch -text -whitespace
+docs/releases/quest-armor-20261022/deployment/skill-update/*.patch -text -whitespace
 docs/items/quest-armor-catalog.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 tools/capture_quest_armor.py text eol=lf
 tools/quest_armor.py text eol=lf

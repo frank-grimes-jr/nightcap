@@ -72,9 +72,9 @@ a missing piece or an unrelated/epic identity, no success/letter occurs.
 Unrelated items return through the original helper. This does not open Kunark
 on the Classic server; use the controlled test environment for this regression.
 
-## Palwar correction (separate, only if authorized)
+## Palwar correction (committed offline October22; native confirmation pending)
 
-Log out before the guarded three-piece correction. On login, verify Vambraces,
+The authorized guarded correction committed with zero clients and a login hold. On login, verify Vambraces,
 Breastplate and Plate Boots show Ascended, retain their instance customization and
 equip normally. The captured ordinary definitions give 24/44/24 AC respectively;
 the Breastplate has 50 HP. Relog and verify persistence. Record this separately

@@ -1,0 +1,482 @@
+--- items.md
++++ items.md
+@@ -172,30 +172,49 @@
+ temporary MariaDB guard/forward/inverse cases pass. Evidence/operator/QA:
+ E:/EQ_Local_Dev/_worktrees/loot-quality-rates/docs/ops/loot-quality-rates-20261018/.
+ 
+-## Substantial class-armor rewards — October 22 candidate, not deployed
+-
+-The owner permits substantial repeatable class-armor quests; cheap/basic hand-ins
+-stay excluded. The audited catalog grants existing +600000 Ascended definitions
+-for37 Crafted/Lambent/Darkforge/Ivy Etched/Totemic terminal rewards. Membership
+-is docs/items/quest-armor-catalog.json; no new stats, sockets or eligibility.
+-Other quests, basic crafts, intermediates and epic+800000 stay separate. Armor
+-of Ro and mixed cleric branches require their own audit; never globally hook
+-SummonItem/QuestReward. Owned Palwar items need separate authorized correction.
+-
+-Integrated source: E:/EQ_Local_Dev/_worktrees/quest-tier-handins at 69d3eba33fc5. Kurron requires three
+-Darkforge pieces and raw platinum>=900. Native matching accepts all four ordinary
+-qualities. Declare all submitted denominations to CheckHandin, then refund once
+-on success; failure uses native returns. Preserve faction and one letter/spawn.
+-This corrects a real currency mismatch; unused quests/plugins/ fixture success
+-was not evidence of active live behavior. Root plugins/ is configured instead.
+-
+-All113 armor Lua cases use the current helper.39 historical Perl subtests remain
+-reward-delta controls; compiled native and357 callback assertions cover integrated
+-qualities/returns/currency.21 catalog guards pass. Combined activation needs the
+-paired zone and17 distinct quest/helper files, fresh preimages/cache preflight,
+-supported full-runtime restart, and authorized wiki publication. No SQL/world/
+-client/cache replacement. Preserve earned rewards on recovery. Promoted through dev/test; main/production/player QA remain pending. See promotion.json.
+-Evidence: docs/releases/quest-armor-20261022/ and docs/releases/quest-tier-handins-20261022/.
++## Substantial class-armor rewards — October22 deployed for live QA
++
++Owner-authorized main PR285/7f97288 and the17:07UTC production receipt deploy37
++Crafted/Lambent/Darkforge/Ivy Etched/Totemic rewards as existing +600000 Ascended
++items, even when repeatable; cheap/basic hand-ins remain excluded. Source:
++E:/EQ_Local_Dev/_worktrees/quest-armor-ascended; exact membership is
++ docs/items/quest-armor-catalog.json. No new stats/sockets/eligibility or global
++SummonItem hook. Armor of Ro, mixed cleric quests and cultural crafts remain
++separate audits/candidates. Never imply every crafted item now qualifies.
++
++Ten reward scripts change only final IDs. The eleventh, Kurron Ni, selects each
++submitted Normal/Ascended Darkforge piece under the original platinum>=900 gate.
++The current live release does not include the broader native ingredient-quality
++or currency correction below. The39 historical Perl fixture subtests exercise
++captured quests/plugins code, not the currently configured root plugins/ native
++helper; they prove the tested fixture only. Preserve that distinction in QA.
++113 Lua cases and21 catalog guards are additional candidate evidence.
++
++Fresh roots/all-existing-version probes and37 paired-cache identities passed.
++The zero-client admission hold used world lock plus gateway pause, then12
++aggregate Quest reload acknowledgments; every world/zone lifetime and all5
++service identities were unchanged. No restart/cache/client update. Palwar's
++slots7/17/19 changed4176/4174/4180 to604176/604174/604180 in one full-row-guarded
++transaction. All17 fields except item_id and every other inventory row stayed
++unchanged. This authorized correction is not automatic owned-gear conversion.
++
++Evidence/operator: docs/releases/quest-armor-20261022/deployment/.17 fault tests
++and5 actual MariaDB temporary-table rehearsals pass. Recovery restores scripts
++only, never player snapshots. An uncertain SQL client needs a successful-return
++marker plus exact fresh state before reopening; missing completion/unknown DB
++session stays held. Gateway hold is attempted before a failing world control.
++Public wiki20261022-quest-armor-v2 verifies465files and preserves robe2203 and
++waypoints. Native fresh-hand-in/equip/relog and balance acceptance remain open.
++
++Separate successor candidate: E:/EQ_Local_Dev/_worktrees/quest-tier-handins at
++69d3eba33fc5, promoted through dev/test only. Native matching accepts all four
++ordinary qualities. Kurron declares all submitted denominations to CheckHandin,
++then refunds once on success; failure uses native returns. Preserve three
++pieces/raw900pp, faction and one letter/spawn. This corrects a currency mismatch;
++unused quests/plugins fixture success was not proof of active root plugins/.
++The combined native/17-file activation and357 callback assertions described in
++docs/releases/quest-tier-handins-20261022/ remain separate and undeployed by the
++armor-only release. Rebase its preimages against the now-live eleven scripts.
+ 
+ ## Gear bands and finished cultural armor — October18 candidate
+ 
+--- wiki.md
++++ wiki.md
+@@ -13,18 +13,26 @@
+ 13 Node scenarios and458-page build pass. No public wiki publication claimed.
+ Evidence: docs/releases/quest-tier-handins-20261022/wiki-review.json, wiki-refresh.json and QA.md.
+ 
+-## Class-armor reward candidate — October 22, not published
+-
+-The37-reward/five-family candidate stays Not released. Substantial repeatable
+-class armor qualifies for audit; cheap/basic hand-ins do not. Integrated tier
+-acceptance and Kurron currency correction are documented separately from reward
+-selection. All21 guides/432 generated routes were reviewed; current published
+-waypoint/robe guidance and the publication ledger stay intact. No item catalog
+-values, commands, owned inventory or public release changed in this task.
+-Current integrated source: E:/EQ_Local_Dev/_worktrees/quest-tier-handins at 69d3eba33fc5.
+-Evidence: docs/releases/quest-armor-20261022/ and docs/releases/quest-tier-handins-20261022/wiki-review.json.
+-Pair future publication with the authorized combined native/quest release.
+-Promoted through dev/test; main/production/player QA remain pending. See promotion.json.
++## Class-armor rewards — October22 published, native QA open
++
++Wiki20261022-quest-armor-v2 follows20261022-classic-robes-waist-v1. All465 public
++hashes/security headers and5 private-route denials verify. Six guides plus
++search change: Equipment, Features, home, Tradeskills, In development and Recent
++changes now label37rewards/fivefamilies Live testing.21maintained guides and432
++generated routes were reviewed;384catalog values and commands remain unchanged.
++The first updater stopped on another publisher's lock before changes. Its
++completed robe-waist source/receipt were preserved before rebuilding; never
++republish an older whole-site tree over a concurrent release.
++
++Main PR285/7f97288 and the eleven-script live activation are verified, including
++Palwar's authorized offline three-piece correction. Do not expose private full
++inventory rows in public pages. Broader ingredient-tier/native currency work is
++a separate unpublished candidate; no global quest/craft quality guarantee.
++Source E:/EQ_Local_Dev/_worktrees/quest-armor-ascended; evidence:
++docs/releases/quest-armor-20261022/deployment/{README.md,wiki-review.json,
++wiki-publication.json,wiki-public-verification.json}.14Python content checks,
++13Node scenarios,458-page build and16Linux publisher tests pass. Native delivery,
++relog and owner balance QA remain open despite publication.
+ 
+ ## Every Classic dungeon and relics — October22 unpublished candidate
+ 
+--- sources.json
++++ sources.json
+@@ -82,7 +82,8 @@
+     "quest_armor_candidate_20261022": "d107f901fbf637933f40c86b1ddd0ff819438bce; not deployed; owner gameplay acceptance pending",
+     "waypoint_crystal_deployed_20261022": "10f162c8990b905634fd2ed6e9456af648bef180",
+     "quest_tier_handins_20261022": "69d3eba33fc5e347397c8bedf866f03d8ab42f05",
+-    "classic_dungeon_rewards_candidate_20261022": "ffab60e91036c31bdcb8c9ce75358d4603ad4548"
++    "classic_dungeon_rewards_candidate_20261022": "ffab60e91036c31bdcb8c9ce75358d4603ad4548",
++    "quest_armor_deployed_20261022": "4345dcefb49ba6a1bb37fa48fee3c52f8210e72a; main PR285/7f97288;11quests/Palwar correction/wiki-v2 verified; native QA pending"
+   },
+   "topics": {
+     "operations": [
+@@ -3458,8 +3459,8 @@
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/quest-armor-ascended",
+         "path": "docs/adr/0066-substantial-class-armor-rewards.md",
+-        "role": "Reviewed class-armor candidate; not deployed/published/accepted",
+-        "revision": "d107f901fbf637933f40c86b1ddd0ff819438bce",
++        "role": "Reviewed deployed class-armor release; native gameplay/balance acceptance open",
++        "revision": "4345dcefb49ba6a1bb37fa48fee3c52f8210e72a",
+         "sha256": "5951fea1fff57f7b21a9a4fce3be7956dc56541dce17856e1ac9cc92d159c4f3"
+       },
+       {
+@@ -3472,15 +3473,15 @@
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/quest-armor-ascended",
+         "path": "tools/capture_quest_armor.py",
+-        "role": "Reviewed class-armor candidate; not deployed/published/accepted",
+-        "revision": "d107f901fbf637933f40c86b1ddd0ff819438bce",
++        "role": "Reviewed deployed class-armor release; native gameplay/balance acceptance open",
++        "revision": "4345dcefb49ba6a1bb37fa48fee3c52f8210e72a",
+         "sha256": "1cc1d4729f3538dfc3ece0aa83b45b56df424bb41abfa74957a209f06076b1aa"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/quest-armor-ascended",
+         "path": "tools/tests/quest_armor_rewards.lua",
+-        "role": "Reviewed class-armor candidate; not deployed/published/accepted",
+-        "revision": "d107f901fbf637933f40c86b1ddd0ff819438bce",
++        "role": "Reviewed deployed class-armor release; native gameplay/balance acceptance open",
++        "revision": "4345dcefb49ba6a1bb37fa48fee3c52f8210e72a",
+         "sha256": "53ec21fe0c910dad9d87f14df5d953f9acafce44297b2ab096404eac36dc0445"
+       },
+       {
+@@ -3493,15 +3494,15 @@
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/quest-armor-ascended",
+         "path": "tools/tests/run_quest_armor_lua_tests.py",
+-        "role": "Reviewed class-armor candidate; not deployed/published/accepted",
+-        "revision": "d107f901fbf637933f40c86b1ddd0ff819438bce",
++        "role": "Reviewed deployed class-armor release; native gameplay/balance acceptance open",
++        "revision": "4345dcefb49ba6a1bb37fa48fee3c52f8210e72a",
+         "sha256": "f58e11fd74f0512c6e1d69cfbbf016be8494f2f886cbc087a8a324e5ede94b66"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/quest-armor-ascended",
+         "path": "tools/tests/test_quest_armor.py",
+-        "role": "Reviewed class-armor candidate; not deployed/published/accepted",
+-        "revision": "d107f901fbf637933f40c86b1ddd0ff819438bce",
++        "role": "Reviewed deployed class-armor release; native gameplay/balance acceptance open",
++        "revision": "4345dcefb49ba6a1bb37fa48fee3c52f8210e72a",
+         "sha256": "95feb2f9906b8734a8bc505e2e76ef734f1b9983d3b9e125c463e600d7b9162a"
+       },
+       {
+@@ -3528,85 +3529,85 @@
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/quest-armor-ascended",
+         "path": "docs/releases/quest-armor-20261022/production-reference.json",
+-        "role": "Reviewed class-armor candidate; not deployed/published/accepted",
+-        "revision": "d107f901fbf637933f40c86b1ddd0ff819438bce",
++        "role": "Historical candidate/fixture evidence; deployment/ receipts own current live state",
++        "revision": "4345dcefb49ba6a1bb37fa48fee3c52f8210e72a",
+         "sha256": "2b2e948108e526d1a6f09d0ba7b9069450f298cbb65804c79fb8ebc5d6e54d2b"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/quest-armor-ascended",
+         "path": "docs/releases/quest-armor-20261022/verification.json",
+-        "role": "Reviewed class-armor candidate; not deployed/published/accepted",
+-        "revision": "d107f901fbf637933f40c86b1ddd0ff819438bce",
+-        "sha256": "4f846e4d89c9864a459f56f4d9473a7c90cb9685150ab4ac8221b0c4d7529111"
++        "role": "Reviewed deployed class-armor release; native gameplay/balance acceptance open",
++        "revision": "4345dcefb49ba6a1bb37fa48fee3c52f8210e72a",
++        "sha256": "4e374fa26f2675f81600afa21733bdecee52628343a8cb0608dd819bb78a0600"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/quest-armor-ascended",
+         "path": "server-mods/quests/southkarana/Shakrn_Meadowgreen.lua",
+-        "role": "Reviewed class-armor candidate; not deployed/published/accepted",
+-        "revision": "d107f901fbf637933f40c86b1ddd0ff819438bce",
++        "role": "Reviewed deployed class-armor release; native gameplay/balance acceptance open",
++        "revision": "4345dcefb49ba6a1bb37fa48fee3c52f8210e72a",
+         "sha256": "e895fcdb905e123ed70cd2b7d43a45b42caa4c9351cc267180c8632fa3a6f7d4"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/quest-armor-ascended",
+         "path": "server-mods/quests/southkarana/Ulan_Meadowgreen.lua",
+-        "role": "Reviewed class-armor candidate; not deployed/published/accepted",
+-        "revision": "d107f901fbf637933f40c86b1ddd0ff819438bce",
++        "role": "Reviewed deployed class-armor release; native gameplay/balance acceptance open",
++        "revision": "4345dcefb49ba6a1bb37fa48fee3c52f8210e72a",
+         "sha256": "a0f9f6e327d888979557656e4070b4a9152c905dc9be6f243b00af2687bf07ac"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/quest-armor-ascended",
+         "path": "server-mods/quests/soltemple/Cryssia_Stardreamer.pl",
+-        "role": "Reviewed class-armor candidate; not deployed/published/accepted",
+-        "revision": "d107f901fbf637933f40c86b1ddd0ff819438bce",
++        "role": "Reviewed deployed class-armor release; native gameplay/balance acceptance open",
++        "revision": "4345dcefb49ba6a1bb37fa48fee3c52f8210e72a",
+         "sha256": "f5a79a5dc3fb3a26360cccd6ac81040b36759f61d9dd4c2d06f1d45a6c1c652d"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/quest-armor-ascended",
+         "path": "server-mods/quests/soltemple/Walthin_Fireweaver.lua",
+-        "role": "Reviewed class-armor candidate; not deployed/published/accepted",
+-        "revision": "d107f901fbf637933f40c86b1ddd0ff819438bce",
++        "role": "Reviewed deployed class-armor release; native gameplay/balance acceptance open",
++        "revision": "4345dcefb49ba6a1bb37fa48fee3c52f8210e72a",
+         "sha256": "fe21f7a379d0180ceca1655a9a89caa6bd749a905f37c65692159033f0f301cf"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/quest-armor-ascended",
+         "path": "server-mods/quests/soltemple/an_undead_knight.pl",
+-        "role": "Reviewed class-armor candidate; not deployed/published/accepted",
+-        "revision": "d107f901fbf637933f40c86b1ddd0ff819438bce",
++        "role": "Reviewed deployed class-armor release; native gameplay/balance acceptance open",
++        "revision": "4345dcefb49ba6a1bb37fa48fee3c52f8210e72a",
+         "sha256": "f652cc1c33b7a2d1780247e262f029ea03a11329992a35917c4a2c35a6f3a211"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/quest-armor-ascended",
+         "path": "server-mods/quests/soltemple/an_undead_knight_.pl",
+-        "role": "Reviewed class-armor candidate; not deployed/published/accepted",
+-        "revision": "d107f901fbf637933f40c86b1ddd0ff819438bce",
++        "role": "Reviewed deployed class-armor release; native gameplay/balance acceptance open",
++        "revision": "4345dcefb49ba6a1bb37fa48fee3c52f8210e72a",
+         "sha256": "b3c077d3e936b9de0f5c142fd8609887b6cc8a867af3e08ecb5d782f4e64b84c"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/quest-armor-ascended",
+         "path": "server-mods/quests/kithicor/Gandari.pl",
+-        "role": "Reviewed class-armor candidate; not deployed/published/accepted",
+-        "revision": "d107f901fbf637933f40c86b1ddd0ff819438bce",
++        "role": "Reviewed deployed class-armor release; native gameplay/balance acceptance open",
++        "revision": "4345dcefb49ba6a1bb37fa48fee3c52f8210e72a",
+         "sha256": "2eb1da8b704e61ca6b183c35ac6859872b13895d06cbbe967fda6998f18cd781"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/quest-armor-ascended",
+         "path": "server-mods/quests/kithicor/Leaf_Falldim.pl",
+-        "role": "Reviewed class-armor candidate; not deployed/published/accepted",
+-        "revision": "d107f901fbf637933f40c86b1ddd0ff819438bce",
++        "role": "Reviewed deployed class-armor release; native gameplay/balance acceptance open",
++        "revision": "4345dcefb49ba6a1bb37fa48fee3c52f8210e72a",
+         "sha256": "51ad90d73820f73e3b6f26cd4082fcdb778843602aec4a7578bbc5cb543f3ec9"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/quest-armor-ascended",
+         "path": "server-mods/quests/lakerathe/Vrynn.pl",
+-        "role": "Reviewed class-armor candidate; not deployed/published/accepted",
+-        "revision": "d107f901fbf637933f40c86b1ddd0ff819438bce",
++        "role": "Reviewed deployed class-armor release; native gameplay/balance acceptance open",
++        "revision": "4345dcefb49ba6a1bb37fa48fee3c52f8210e72a",
+         "sha256": "6455945c35e78013b27f79ff7f3b8419cf80b8fc5fba7a536c4c466213cdc1c0"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/quest-armor-ascended",
+         "path": "server-mods/quests/lakerathe/Kyralynn.pl",
+-        "role": "Reviewed class-armor candidate; not deployed/published/accepted",
+-        "revision": "d107f901fbf637933f40c86b1ddd0ff819438bce",
++        "role": "Reviewed deployed class-armor release; native gameplay/balance acceptance open",
++        "revision": "4345dcefb49ba6a1bb37fa48fee3c52f8210e72a",
+         "sha256": "cb52e993ea1cc01942bdaa0c3affd8b39ad3c9ec15761888e2184bce72bbb6ee"
+       },
+       {
+@@ -3776,6 +3777,97 @@
+         "role": "quest ingredient candidate; built/tested, not deployed",
+         "revision": "69d3eba33fc5e347397c8bedf866f03d8ab42f05",
+         "sha256": "7431ca56f1110c6e978fefbd81745e960740dd8dc79f2f8908b3308dd2b1291b"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/quest-armor-ascended",
++        "path": "docs/items/quest-armor-catalog.json",
++        "role": "Reviewed deployed class-armor release; native gameplay/balance acceptance open",
++        "revision": "4345dcefb49ba6a1bb37fa48fee3c52f8210e72a",
++        "sha256": "cd2d53bb96decb6f74dc67e3b7df57a1b1ed765ca54bd557dcd6dc854edf3f79"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/quest-armor-ascended",
++        "path": "docs/releases/quest-armor-20261022/QA.md",
++        "role": "Reviewed deployed class-armor release; native gameplay/balance acceptance open",
++        "revision": "4345dcefb49ba6a1bb37fa48fee3c52f8210e72a",
++        "sha256": "fdc11597de1f5a4b076d460a1e0f3aa14819a56909b8ca6b9022996a47197299"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/quest-armor-ascended",
++        "path": "docs/releases/quest-armor-20261022/README.md",
++        "role": "Reviewed deployed class-armor release; native gameplay/balance acceptance open",
++        "revision": "4345dcefb49ba6a1bb37fa48fee3c52f8210e72a",
++        "sha256": "69adeef85b145d28a7a7f52548e4d7cead5a7e3f236b7118e173320734efaf1a"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/quest-armor-ascended",
++        "path": "docs/releases/quest-armor-20261022/deployment/README.md",
++        "role": "Reviewed deployed class-armor release; native gameplay/balance acceptance open",
++        "revision": "4345dcefb49ba6a1bb37fa48fee3c52f8210e72a",
++        "sha256": "c4b6a909e66a804a944ae15d9d4baefa09d147d1b698b880e8169718fc01a88b"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/quest-armor-ascended",
++        "path": "docs/releases/quest-armor-20261022/deployment/apply.json",
++        "role": "Reviewed deployed class-armor release; native gameplay/balance acceptance open",
++        "revision": "4345dcefb49ba6a1bb37fa48fee3c52f8210e72a",
++        "sha256": "78674138e310fe65649e5f0fce7bcd32c102d1b9b978056309e7ee3e636ea56c"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/quest-armor-ascended",
++        "path": "docs/releases/quest-armor-20261022/deployment/deploy.py",
++        "role": "Reviewed deployed class-armor release; native gameplay/balance acceptance open",
++        "revision": "4345dcefb49ba6a1bb37fa48fee3c52f8210e72a",
++        "sha256": "91af3805f93e4a0acbf23db546387495331c61c6dd255f89c1a686eaf63e60af"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/quest-armor-ascended",
++        "path": "docs/releases/quest-armor-20261022/deployment/remote.py",
++        "role": "Reviewed deployed class-armor release; native gameplay/balance acceptance open",
++        "revision": "4345dcefb49ba6a1bb37fa48fee3c52f8210e72a",
++        "sha256": "24b35e67f7a491db70c54ffefe9fd1a57fda8aa1a8943d25e93a9abd6ed2fa3a"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/quest-armor-ascended",
++        "path": "docs/releases/quest-armor-20261022/deployment/review.json",
++        "role": "Reviewed deployed class-armor release; native gameplay/balance acceptance open",
++        "revision": "4345dcefb49ba6a1bb37fa48fee3c52f8210e72a",
++        "sha256": "b3109332e7395beea6480aca56606cdc8e30c65403b88d57ec7b2ca42e201052"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/quest-armor-ascended",
++        "path": "docs/releases/quest-armor-20261022/deployment/test_remote.py",
++        "role": "Reviewed deployed class-armor release; native gameplay/balance acceptance open",
++        "revision": "4345dcefb49ba6a1bb37fa48fee3c52f8210e72a",
++        "sha256": "b521a948b0e972525e94ba654578abee430866372f866e64da064f603bff5bb8"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/quest-armor-ascended",
++        "path": "docs/releases/quest-armor-20261022/manifest.json",
++        "role": "Historical candidate/fixture evidence; deployment/ receipts own current live state",
++        "revision": "4345dcefb49ba6a1bb37fa48fee3c52f8210e72a",
++        "sha256": "81f64142b2a1e99cafb68fa304d64af8cb96557669d822320a92bd99644736cb"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/quest-armor-ascended",
++        "path": "server-mods/quests/overthere/Kurron_Ni.pl",
++        "role": "Reviewed deployed class-armor release; native gameplay/balance acceptance open",
++        "revision": "4345dcefb49ba6a1bb37fa48fee3c52f8210e72a",
++        "sha256": "42914766c0360fe1eaf2703a80f07b37835bb295ffe1b0c105c5bb84257d2cd7"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/quest-armor-ascended",
++        "path": "tools/quest_armor.py",
++        "role": "Reviewed deployed class-armor release; native gameplay/balance acceptance open",
++        "revision": "4345dcefb49ba6a1bb37fa48fee3c52f8210e72a",
++        "sha256": "eae7be68a5f16407f240b1082dfaa8947ebe05933cfd3d595050c1e2622e0d7c"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/quest-armor-ascended",
++        "path": "tools/tests/quest_armor_rewards.t",
++        "role": "Reviewed deployed class-armor release; native gameplay/balance acceptance open",
++        "revision": "4345dcefb49ba6a1bb37fa48fee3c52f8210e72a",
++        "sha256": "b020469a91b1a26d1f397accae870949b2d221385b9d7ca8caa39c4602bfdb61"
+       }
+     ],
+     "world": [
+@@ -8619,22 +8711,22 @@
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/quest-armor-ascended",
+         "path": "wiki/articles/tradeskills.json",
+-        "role": "Reviewed class-armor candidate; not deployed/published/accepted",
+-        "revision": "d107f901fbf637933f40c86b1ddd0ff819438bce",
+-        "sha256": "c89f1cb4cdd873219bd0875ed3932a5feef3726b71670beb125852c96f6fff7b"
++        "role": "Reviewed deployed class-armor release; native gameplay/balance acceptance open",
++        "revision": "4345dcefb49ba6a1bb37fa48fee3c52f8210e72a",
++        "sha256": "11337cf99d6b72950c61e97849f619152b9804d9a0b0e7eca41534e35eddf722"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/quest-armor-ascended",
+         "path": "docs/releases/quest-armor-20261022/wiki-review.json",
+-        "role": "Reviewed class-armor candidate; not deployed/published/accepted",
+-        "revision": "d107f901fbf637933f40c86b1ddd0ff819438bce",
++        "role": "Historical candidate/fixture evidence; deployment/ receipts own current live state",
++        "revision": "4345dcefb49ba6a1bb37fa48fee3c52f8210e72a",
+         "sha256": "e5ae03234f9d77c5becee531a3bcf787e1ed65a2c1cd605ede6408694692cfeb"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/quest-armor-ascended",
+         "path": "docs/releases/quest-armor-20261022/wiki-refresh.json",
+-        "role": "Reviewed class-armor candidate; not deployed/published/accepted",
+-        "revision": "d107f901fbf637933f40c86b1ddd0ff819438bce",
++        "role": "Historical candidate/fixture evidence; deployment/ receipts own current live state",
++        "revision": "4345dcefb49ba6a1bb37fa48fee3c52f8210e72a",
+         "sha256": "4898c066b7321d4068152967920e9fdfe11a50b56b9c2994923d43dfcbfaff04"
+       },
+       {
+@@ -8832,6 +8924,62 @@
+         "role": "Reviewed waist-correction source/delivery; signed2203 verified; owner rejected original waist, corrected native recheck pending",
+         "revision": "a32be0b174bc0a0baabf240c5ad9b3e5d46d40c3",
+         "sha256": "c13a57d24cb17480b446b9e967f81c31a616c9b2b0b77dea990d33ebbd948d26"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/quest-armor-ascended",
++        "path": "docs/releases/quest-armor-20261022/deployment/wiki-public-verification.json",
++        "role": "Reviewed deployed class-armor release; native gameplay/balance acceptance open",
++        "revision": "4345dcefb49ba6a1bb37fa48fee3c52f8210e72a",
++        "sha256": "2408a6afd9ad1a0b07a230248d51d99daad66010d51379d1e71fdf43ebca123f"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/quest-armor-ascended",
++        "path": "docs/releases/quest-armor-20261022/deployment/wiki-publication.json",
++        "role": "Reviewed deployed class-armor release; native gameplay/balance acceptance open",
++        "revision": "4345dcefb49ba6a1bb37fa48fee3c52f8210e72a",
++        "sha256": "f417a355743dbbc8c061214d234945f93a75c6903afd376a549d10141abb7286"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/quest-armor-ascended",
++        "path": "docs/releases/quest-armor-20261022/deployment/wiki-review.json",
++        "role": "Reviewed deployed class-armor release; native gameplay/balance acceptance open",
++        "revision": "4345dcefb49ba6a1bb37fa48fee3c52f8210e72a",
++        "sha256": "d0b132a339e02c4e8c1b2cd616e3f7b3557ea0d07e85d2d2fcab350f0f8e5a9f"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/quest-armor-ascended",
++        "path": "wiki/articles/equipment.json",
++        "role": "Reviewed deployed class-armor release; native gameplay/balance acceptance open",
++        "revision": "4345dcefb49ba6a1bb37fa48fee3c52f8210e72a",
++        "sha256": "4152209b2dfc1c57dce1d7dde7afc60944ebbedb64f8ab294c12324697c7daea"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/quest-armor-ascended",
++        "path": "wiki/articles/features.json",
++        "role": "Reviewed deployed class-armor release; native gameplay/balance acceptance open",
++        "revision": "4345dcefb49ba6a1bb37fa48fee3c52f8210e72a",
++        "sha256": "32e34ed9aac83dceafc2071b6fd323cead3215613c39252f0dda41baecee578f"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/quest-armor-ascended",
++        "path": "wiki/articles/index.json",
++        "role": "Reviewed deployed class-armor release; native gameplay/balance acceptance open",
++        "revision": "4345dcefb49ba6a1bb37fa48fee3c52f8210e72a",
++        "sha256": "92c81e4ac6842e494ef219a48771d0424e5291577da973fb8318c24264fc23f2"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/quest-armor-ascended",
++        "path": "wiki/articles/recent-changes.json",
++        "role": "Reviewed deployed class-armor release; native gameplay/balance acceptance open",
++        "revision": "4345dcefb49ba6a1bb37fa48fee3c52f8210e72a",
++        "sha256": "99ef25098af0575dc2cdfa330e3ecd9e8c6a2599fa58d1bf08c041495d0c6b31"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/quest-armor-ascended",
++        "path": "wiki/articles/unreleased.json",
++        "role": "Reviewed deployed class-armor release; native gameplay/balance acceptance open",
++        "revision": "4345dcefb49ba6a1bb37fa48fee3c52f8210e72a",
++        "sha256": "795998d2f7ec7ebcc9fce79fdc4e53014d62b1a24f1053b86ad2c48392934ff8"
+       }
+     ]
+   }
