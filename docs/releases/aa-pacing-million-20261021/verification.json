@@ -1,0 +1,20 @@
+{
+  "native_aa_arithmetic_checks": 197,
+  "native_duration_groups": 21,
+  "goldwind_interactions": 6,
+  "operator_tests": {
+    "Windows": 18,
+    "Linux": 18
+  },
+  "wiki": {
+    "content_refresh": 14,
+    "search": 6,
+    "equipment": 7,
+    "Linux_publisher": 16
+  },
+  "red": "XP boost regression failed before fix: stale -1000 retained instead of minimal1.",
+  "build": "Isolated zone build v2 PASS, baseline exactly reproduced, dependencies resolve, no source/link-input drift.",
+  "review": "Independent no blockers; disk reserve finding resolved.",
+  "limitations": "Extracted actual native functions with boundary fakes. No in-game acceptance or deployment claim from tests.",
+  "test_setup": "Initial Perl harness assumed truthy script return; corrected to inspect $@. Initial Linux wiki bundle lacked nginx.conf; supplied actual file and reran16tests."
+}
