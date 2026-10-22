@@ -12,5 +12,14 @@
     "Inherited multiquest completion clears its donation bucket, including surplus",
     "Complete task delivery/event/inventory lifecycle requires in-game QA"
   ],
-  "source_revision": "ea8c84d9014c8aaaa5e097013d013ec1d3f4804b"
+  "source_revision": "ea8c84d9014c8aaaa5e097013d013ec1d3f4804b",
+  "integration_review": {
+    "status": "no remaining implementation findings",
+    "reviewer": "same fresh independent reviewer",
+    "finding": "Kurron active native money contract incompatible with captured legacy helper",
+    "resolution": "declare and refund actual currencies once, preserve global strict matching",
+    "test_finding": "callback adapter must reject omitted currency requirements",
+    "test_resolution": "native exact-currency guard added; mutation fails129/357 assertions",
+    "source_hashes_match_build": true
+  }
 }

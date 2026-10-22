@@ -45,16 +45,20 @@ restore counts. Multiquest completion still clears the whole donation bucket,
 including surplus; this change does not make extra donations refundable.
 
 Production audit confirms Aviak Charm13737/213737/413737/613737, two Star Rubies10032
-at Shakrn Meadowgreen14075 in southkarana -> normal Crafted Gauntlets4178. Five
+at Shakrn Meadowgreen14075 in southkarana. Captured live quest grants4178; the
+integrated class-armor candidate grants604178. Both pass all four charm tiers;
+the ingredient fix preserves whichever reward policy the quest defines. Five
 older soltemple scripts (Gardern/Joyce/Sultin/Vilissia/Vurgo) now delegate their17
-recipes to the native helper; reward/EXP/faction values stay. No inventory-ID
+recipes to the native helper; reward/EXP/faction values stay. Kurron declares actual coins to native matching and refunds them once on
+success, preserving the reviewed no-new-sink policy; failures use native returns.
+No inventory-ID
 normalization or universal reward upgrading. Lua retains trade-slot semantics.
 
 Exact native hand-in/return and task-filter fixtures pass on Windows/Linux; actual
-Shakrn Lua and221 Perl assertions pass. Fresh independent review's Vilissia
+Shakrn Lua and legacy/Kurron Perl controls pass. Fresh independent review's Vilissia
 encoding finding is resolved. Full zone6da991b6 is built over byte-reproduced
 deployed5dd5a655 baseline; two implementation objects change, no ABI. Pair zone
-with six quest files and supported full-runtime restart, not a zone kill or just
+with seven quest files and supported full-runtime restart, not a zone kill or just
 quest reload. No SQL/world/cache/client change; preserve current pair and player
 state during recovery. Full task delivery lifecycle remains in-game QA.
 Source/tests/manifest/review/recovery/QA: {RELEASE}.
@@ -64,7 +68,8 @@ All21 guides and432 generated routes reviewed. Equipment, Features, home,
 item upgrades, In development and Recent changes carry candidate-only notices
 for ordinary quality quest ingredients. Keep quest rewards, explicit quality
 requirements and forging rules distinct. Catalog values/commands are unchanged.
-Current waypoint/robe guidance is preserved by integration; published ledger
+Published waypoint/robe guidance and separate class-armor candidate are preserved;
+published ledger
 is retained and check_refresh includes actual working changes.14 Python checks,
 13 Node scenarios and458-page build pass. No public wiki publication claimed.
 Evidence: {RELEASE}wiki-review.json, wiki-refresh.json and QA.md.
@@ -73,7 +78,46 @@ Evidence: {RELEASE}wiki-review.json, wiki-refresh.json and QA.md.
     for name, content in [('world', body), ('items', body), ('wiki', wiki)]:
         path = SKILL / 'references' / (name + '.md')
         before = path.read_text(encoding='utf-8')
-        updates[path] = (before, section(before, 'Quest ingredient qualities — October 22 candidate', content))
+        after = section(before, 'Quest ingredient qualities — October 22 candidate', content)
+        if name == 'items':
+            after = section(after, 'Substantial class-armor rewards — October 22 candidate, not deployed', f'''
+The owner permits substantial repeatable class-armor quests; cheap/basic hand-ins
+stay excluded. The audited catalog grants existing +600000 Ascended definitions
+for37 Crafted/Lambent/Darkforge/Ivy Etched/Totemic terminal rewards. Membership
+is docs/items/quest-armor-catalog.json; no new stats, sockets or eligibility.
+Other quests, basic crafts, intermediates and epic+800000 stay separate. Armor
+of Ro and mixed cleric branches require their own audit; never globally hook
+SummonItem/QuestReward. Owned Palwar items need separate authorized correction.
+
+Integrated source: {ROOT.as_posix()} at {revision[:12]}. Kurron requires three
+Darkforge pieces and raw platinum>=900. Native matching accepts all four ordinary
+qualities. Declare all submitted denominations to CheckHandin, then refund once
+on success; failure uses native returns. Preserve faction and one letter/spawn.
+This corrects a real currency mismatch; unused quests/plugins/ fixture success
+was not evidence of active live behavior. Root plugins/ is configured instead.
+
+All113 armor Lua cases use the current helper.39 historical Perl subtests remain
+reward-delta controls; compiled native and357 callback assertions cover integrated
+qualities/returns/currency.21 catalog guards pass. Combined activation needs the
+paired zone and17 distinct quest/helper files, fresh preimages/cache preflight,
+supported full-runtime restart, and authorized wiki publication. No SQL/world/
+client/cache replacement. Preserve earned rewards on recovery. {state}
+Evidence: docs/releases/quest-armor-20261022/ and {RELEASE}.
+''')
+        if name == 'wiki':
+            after = section(after, 'Class-armor reward candidate — October 22, not published', f'''
+The37-reward/five-family candidate stays Not released. Substantial repeatable
+class armor qualifies for audit; cheap/basic hand-ins do not. Integrated tier
+acceptance and Kurron currency correction are documented separately from reward
+selection. All21 guides/432 generated routes were reviewed; current published
+waypoint/robe guidance and the publication ledger stay intact. No item catalog
+values, commands, owned inventory or public release changed in this task.
+Current integrated source: {ROOT.as_posix()} at {revision[:12]}.
+Evidence: docs/releases/quest-armor-20261022/ and {RELEASE}wiki-review.json.
+Pair future publication with the authorized combined native/quest release.
+{state}
+''')
+        updates[path] = (before, after)
     source_path = SKILL / 'references/sources.json'
     before = source_path.read_text(encoding='utf-8')
     sources = json.loads(before)
@@ -83,15 +127,29 @@ Evidence: {RELEASE}wiki-review.json, wiki-refresh.json and QA.md.
                   *['server-mods/quests/soltemple/' + n + '.pl' for n in ['Gardern','Joyce','Sultin','Vilissia','Vurgo']],
                   'tools/tests/test_quest_handins.py', 'tools/tests/quest_handins.lua', 'tools/tests/quest_handins.t',
                   'tools/tests/fixtures/quest_handins.cpp', 'tools/tests/fixtures/quest_delivery.cpp',
-                  'tools/capture_quest_handins.py', RELEASE+'README.md', RELEASE+'QA.md',
+                  'server-mods/quests/overthere/Kurron_Ni.pl', 'docs/items/quest-armor-catalog.json',
+                  'tools/tests/quest_armor_rewards.t', 'tools/quest_armor.py',
+                  'docs/releases/quest-armor-20261022/README.md', 'docs/releases/quest-armor-20261022/QA.md',
+                  'docs/releases/quest-armor-20261022/manifest.json',
+                  RELEASE+'currency-mutation.json', RELEASE+'integrated-native-source-proof.json',
+                  RELEASE+'plugin-path-probe.json', 'tools/capture_quest_handins.py', RELEASE+'README.md', RELEASE+'QA.md',
                   RELEASE+'verification.json', RELEASE+'review.json', 'docs/status.md', 'CHANGES.md'],
         'items': ['server-mods/code/common/quest_item_policy.h', RELEASE+'native-build-manifest.json',
-                  RELEASE+'production-audit.json', 'docs/adr/0066-tiered-quest-ingredients.md'],
+                  RELEASE+'production-audit.json', 'docs/adr/0067-tiered-quest-ingredients.md'],
         'wiki': ['wiki/articles/'+n+'.json' for n in ['equipment','features','index','item-upgrades','unreleased','recent-changes']]
                 + ['wiki/content-review.json', RELEASE+'wiki-review.json', RELEASE+'wiki-refresh.json'],
     }
     if promotion.exists():
         paths['world'].append(RELEASE+'promotion.json')
+    # Retain other concurrent candidates and dated deployed evidence. Supersede
+    # only the reviewed class-armor entries whose files changed in this integration.
+    changed = {p for files in paths.values() for p in files}
+    for entries in sources['topics'].values():
+        for entry in entries:
+            if entry['root'].endswith('/quest-armor-ascended') and entry['path'] in changed:
+                entry.update(root=ROOT.as_posix(), revision=revision,
+                             sha256=hashlib.sha256((ROOT/entry['path']).read_bytes()).hexdigest(),
+                             role='Reviewed class-armor/ingredient integration; candidate, not deployed')
     scoped = {'schema_version': sources['schema_version'], 'audited_at': '2026-10-22', 'topics': {}}
     for topic, files in paths.items():
         entries = [{'root': ROOT.as_posix(), 'path': p, 'role': 'quest ingredient candidate; built/tested, not deployed',

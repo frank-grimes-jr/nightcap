@@ -1,0 +1,25 @@
+{
+  "captured_at": "2026-10-22T16:51:12.862300+00:00",
+  "directories": {
+    "patches": "assets/patches/",
+    "opcodes": "assets/opcodes/"
+  },
+  "helpers": {
+    "plugins/check_handin.pl": {
+      "sha256": "40af18d64fe1d6d95650b45a5f2fb54675675958aa74e45b48e6d12508416851",
+      "native_delegation": true
+    },
+    "quests/plugins/check_handin.pl": {
+      "sha256": "5dd2209101838f7397e96dbc1eb7683a5b729e3614d8ad3ef8999ff33c13bc20",
+      "native_delegation": false
+    },
+    "plugins/globals.pl": {
+      "sha256": "90f8a8032c734eb8f010fdb3f27a91698236fbf5152c1547f565519c199cfc29",
+      "native_delegation": true
+    },
+    "quests/plugins/globals.pl": {
+      "sha256": "3eb2ba53d858ef3f5d0361180cf00c3c223a4ae1a1cbb6a1b6a9945cc0de6a86",
+      "native_delegation": false
+    }
+  }
+}

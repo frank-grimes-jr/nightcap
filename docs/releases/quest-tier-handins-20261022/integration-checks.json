@@ -1,0 +1,72 @@
+[
+  {
+    "name": "native-windows",
+    "command": [
+      "python",
+      "-B",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tools/tests",
+      "-p",
+      "test_quest_handins.py",
+      "-v"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "armor-catalog",
+    "command": [
+      "python",
+      "-B",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tools/tests",
+      "-p",
+      "test_quest_armor.py",
+      "-v"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "wiki-python",
+    "command": [
+      "python",
+      "-B",
+      "-m",
+      "unittest",
+      "-v",
+      "test_wiki",
+      "test_refresh"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "wiki-search",
+    "command": [
+      "node",
+      "test_search.cjs"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "wiki-equipment",
+    "command": [
+      "node",
+      "test_equipment.cjs"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "wiki-build",
+    "command": [
+      "python",
+      "-B",
+      "build.py"
+    ],
+    "exit_code": 0
+  }
+]

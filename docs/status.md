@@ -5,9 +5,21 @@ Shared Lua/native hand-ins and journal deliveries accept ordinary qualities for
 Normal requirements; five older Solusek Ro scripts now use the native checker.
 Crafted Gauntlets has an exact regression using Polished Aviak Charm. Automated
 checks pass; this is not deployed or owner accepted. No SQL/client/cache changes.
+The combined class-armor candidate retains its Ascended rewards. Kurron's native
+currency compatibility is corrected with exactly-once full refunds on success.
 Paired native/quest activation and exact in-game QA remain required. See
 [release evidence](releases/quest-tier-handins-20261022/README.md) and
 [QA steps](releases/quest-tier-handins-20261022/QA.md).
+
+
+## October 22 — Class-armor reward candidate, not deployed
+
+Palwar's Crafted pieces were Normal because live Meadowgreen scripts grant
+base IDs. The owner's clarified policy includes substantial repeatable class
+armor. The reviewed candidate covers 37 rewards in five families and preserves
+the dependent Darkforge epic hand-in. Existing item definitions are reused;
+production scripts, Palwar's inventory and the public wiki are unchanged.
+[Implementation, release boundary and QA](releases/quest-armor-20261022/README.md).
 
 ## Classic race robes — published for live QA, October 22
 

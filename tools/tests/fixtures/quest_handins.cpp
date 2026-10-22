@@ -53,12 +53,15 @@ struct Client {
 	std::vector<EQ::ItemInstance> returned;
 	std::vector<uint32> external;
 	PlayerEvent::HandinMoney money;
+	int money_calls = 0;
 	const char *GetCleanName() { return "Player"; }
 	void TrainDiscipline(uint32) {}
 	const std::vector<uint32> &GetExternalHandinItemsReturned() { return external; }
 	PlayerEvent::HandinMoney GetExternalHandinMoneyReturned() { return {}; }
 	void PushItemOnCursor(const EQ::ItemInstance &i,bool) { returned.push_back(i); }
-	void AddMoneyToPP(uint32 c,uint32 s,uint32 g,uint32 p,bool) { money={p,g,s,c}; }
+	void AddMoneyToPP(uint32 c,uint32 s,uint32 g,uint32 p,bool) {
+		money.platinum+=p; money.gold+=g; money.silver+=s; money.copper+=c; ++money_calls;
+	}
 };
 struct NPC {
 // HANDIN_STRUCTS
@@ -88,6 +91,39 @@ int main() { try {
 		database.items.emplace(id, Item{id, name});
 	database.items.at(10032).stackable = true;
 	auto inst = [](uint32 id, int count = 1) { return EQ::ItemInstance{&database.items.at(id), count}; };
+	for (auto [base, name] : std::map<uint32, std::string>{{3140,"Darkforge Helm"},{3141,"Darkforge Breastplate"},{3145,"Darkforge Greaves"}}) {
+		for (auto [offset, suffix] : std::map<uint32, std::string>{{0,""},{200000," (Polished)"},{400000," (Exalted)"},{600000," (Ascended)"}})
+			database.items.emplace(base+offset, Item{base+offset,name+suffix});
+	}
+	for (uint32 helm : {3140u,203140u,403140u,603140u}) {
+		for (uint32 breast : {3141u,203141u,403141u,603141u}) {
+			for (uint32 legs : {3145u,203145u,403145u,603145u}) {
+				NPC n; auto h=inst(helm),b=inst(breast),l=inst(legs);
+				// Kurron selects exact Ascended IDs when present, otherwise Normal requirements.
+				auto req=[](uint32 id){return std::to_string(id>=600000?id:id%200000);};
+				require(n.CheckHandin(&c, {{"platinum",900}}, {{req(helm),1},{req(breast),1},{req(legs),1},{"platinum",900}}, {&h,&b,&l}), "mixed Darkforge rejected");
+				require(n.m_hand_in.items.empty(), "Darkforge ingredients not consumed");
+				c.money={}; c.money_calls=0;
+				c.AddMoneyToPP(0,0,0,900,true); // actual Kurron success callback calls givecash once
+				n.ReturnHandinItems(&c);
+				require(c.money.platinum==900 && c.money_calls==1, "duplicate Darkforge cash refund");
+			}
+		}
+	}
+	{
+		NPC n; auto h=inst(203140), b=inst(403141), l=inst(603145), extra=inst(13738);
+		std::map<std::string,uint32> coins={{"platinum",901},{"gold",1},{"silver",2},{"copper",3}};
+		auto required=coins; required.insert({{"3140",1},{"3141",1},{"603145",1}});
+		require(n.CheckHandin(&c,coins,required,{&h,&b,&l,&extra}), "mixed coins rejected");
+		c.money={}; c.money_calls=0; c.returned.clear(); c.AddMoneyToPP(3,2,1,901,true);
+		n.ReturnHandinItems(&c);
+		require(c.money_calls==1 && c.money.platinum==901 && c.money.gold==1 && c.money.silver==2 && c.money.copper==3, "excess coins duplicated/lost");
+		require(c.returned.size()==1 && c.returned[0].GetID()==13738, "Darkforge extra not returned");
+		NPC missing;
+		require(!missing.CheckHandin(&c,coins,required,{&h,&l}), "missing Darkforge piece accepted");
+		c.money={}; c.money_calls=0; c.returned.clear(); missing.ReturnHandinItems(&c);
+		require(c.money_calls==1 && c.money.platinum==901 && c.returned.size()==2, "failed Darkforge return lost items/coins");
+	}
 	for (uint32 id : {13737u, 213737u, 413737u, 613737u}) {
 		NPC n; auto charm = inst(id), ruby = inst(10032, 3), extra = inst(13738);
 		require(n.CheckHandin(&c, {}, {{"13737",1},{"10032",2}}, {&charm,&ruby,&extra}), "Aviak tier rejected");

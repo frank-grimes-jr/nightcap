@@ -1,0 +1,6 @@
+{
+  "mutation": "remove required denominations from Kurron",
+  "result": "rejected by callback regression",
+  "exit_code": 1,
+  "output_tail": " tools/tests/quest_handins.t line 69.\n#     Structures begin differing at:\n#          $got->[0] = Does not exist\n#     $expected->[0] = '18099'\n\n#   Failed test 'Kurron explicitly refunds once after success'\n#   at tools/tests/quest_handins.t line 70.\n#     Structures begin differing at:\n#          $got->[0] = Does not exist\n#     $expected->[0] = ARRAY(0x604894504618)\n\n#   Failed test 'Kurron accepts complete mixed ordinary qualities'\n#   at tools/tests/quest_handins.t line 69.\n#     Structures begin differing at:\n#          $got->[0] = Does not exist\n#     $expected->[0] = '18099'\n\n#   Failed test 'Kurron explicitly refunds once after success'\n#   at tools/tests/quest_handins.t line 70.\n#     Structures begin differing at:\n#          $got->[0] = Does not exist\n#     $expected->[0] = ARRAY(0x60489450cc58)\n\n#   Failed test 'mixed denominations and excess are refunded exactly once'\n#   at tools/tests/quest_handins.t line 82.\n#     Structures begin differing at:\n#          $got->[0] = Does not exist\n#     $expected->[0] = ARRAY(0x604894551390)\n# Looks like you failed 129 tests of 357.\n"
+}

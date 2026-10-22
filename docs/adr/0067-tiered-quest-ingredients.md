@@ -1,4 +1,4 @@
-# 0066 — Accept ordinary item qualities in Normal quest requirements
+# 0067 — Accept ordinary item qualities in Normal quest requirements
 
 Date: 2026-10-22. Status: implemented candidate; deployment and player QA pending.
 

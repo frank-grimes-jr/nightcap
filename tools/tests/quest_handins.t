@@ -1,9 +1,11 @@
 use strict;
 use warnings;
 use Test::More;
-our (%itemcount, $item1, $item2, $item3, $item4, $platinum, $gold, $silver, $copper, @rewards);
-my %tiered = map { $_ => 1 } (2332,2352,2353,2356,2360,2361,2362,2363,2367,2368,5103,6048,6337,6338,6340,7331,10529,10546,10547,10550);
-sub quest::say {} sub quest::faction {} sub quest::exp {} sub quest::givecash {}
+our (%itemcount, $item1, $item2, $item3, $item4, $platinum, $gold, $silver, $copper, @rewards, $npc, $name);
+my %tiered = map { $_ => 1 } (2332,2352,2353,2356,2360,2361,2362,2363,2367,2368,3140,3141,3145,5103,6048,6337,6338,6340,7331,10529,10546,10547,10550);
+my @refunds;
+sub quest::say {} sub quest::faction {} sub quest::exp {}
+sub quest::givecash { push @refunds, [@_]; }
 sub quest::summonitem { push @rewards, $_[0]; }
 sub plugin::return_items {}
 # Native allocator is exercised separately by compiled test_quest_handins.py.
@@ -11,6 +13,10 @@ sub plugin::return_items {}
 sub plugin::check_handin {
     my ($items, %needed) = @_;
     my %left = %$items;
+    @left{qw(copper silver gold platinum)} = ($copper, $silver, $gold, $platinum);
+    for my $currency (qw(copper silver gold platinum)) {
+        return 0 if ($left{$currency} || 0) != ($needed{$currency} || 0);
+    }
     for my $id (keys %needed) {
         for my $actual ($id, map { $id + $_ } ($tiered{$id} ? (200000,400000,600000) : ())) {
             my $used = ($left{$actual} || 0) < $needed{$id} ? ($left{$actual} || 0) : $needed{$id};
@@ -47,4 +53,32 @@ for my $npc (sort keys %cases) {
         @rewards=(); EVENT_ITEM(); is(scalar @rewards,0,"$npc missing ingredient rejected");
     }
 }
+
+# Current class-armor candidate delegates selected IDs to the same native helper.
+# These callback controls are paired with actual native Darkforge allocation tests.
+{ no warnings 'redefine'; $! = 0; do './server-mods/quests/overthere/Kurron_Ni.pl'; die $@ if $@; die $! if $!; }
+my @letters;
+sub HandinNPC::AddItem { push @letters, $_[1]; }
+$npc = bless {}, 'HandinNPC'; $name = 'Test';
+for my $helm (0,200000,400000,600000) {
+    for my $breast (0,200000,400000,600000) {
+        for my $legs (0,200000,400000,600000) {
+            EVENT_SPAWN(); @letters=(); @refunds=(); $platinum=900;
+            %itemcount=(3140+$helm=>1,3141+$breast=>1,3145+$legs=>1);
+            EVENT_ITEM();
+            is_deeply(\@letters,[18099],'Kurron accepts complete mixed ordinary qualities');
+            is_deeply(\@refunds,[[0,0,0,900]],'Kurron explicitly refunds once after success');
+        }
+    }
+}
+for my $case ([899,{203140=>1,403141=>1,603145=>1}], [900,{203140=>1,603145=>1}], [900,{803140=>1,403141=>1,603145=>1}]) {
+    EVENT_SPAWN(); @letters=(); @refunds=(); ($platinum,my $given)=@$case; %itemcount=%$given;
+    EVENT_ITEM(); is_deeply(\@letters,[],'Kurron rejects missing currency/piece or epic identity');
+    is_deeply(\@refunds,[],'failed Kurron callback leaves returns to native lifecycle');
+}
+EVENT_SPAWN(); @letters=(); @refunds=(); ($copper,$silver,$gold,$platinum)=(3,2,1,901);
+%itemcount=(203140=>1,403141=>1,603145=>1,999998=>1);
+EVENT_ITEM();
+is_deeply(\@refunds,[[3,2,1,901]],'mixed denominations and excess are refunded exactly once');
+is($itemcount{999998},1,'Kurron unrelated extra remains for native return');
 done_testing();

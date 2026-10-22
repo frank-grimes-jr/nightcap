@@ -3,8 +3,11 @@
 Normal-item quest requirements now accept the verified Polished (+200000),
 Exalted (+400000), and Ascended (+600000) definition of that same item. The
 reported regression is Shakrn Meadowgreen (14075), South Karana: Aviak Charm
-213737 plus two Star Rubies 10032 must award Crafted Gauntlets 4178 and 25,000
-ordinary quest EXP. The reward does not inherit the ingredient's quality.
+213737 plus two Star Rubies 10032 must complete the quest and award 25,000
+ordinary quest EXP. The captured live quest awards Normal Crafted Gauntlets
+4178; the separately reviewed class-armor candidate now on dev/test awards
+Ascended Crafted Gauntlets 604178. Both callbacks pass with all four charm
+qualities. The reward follows the quest's policy, not the ingredient's quality.
 
 This is an implemented, tested candidate, **not deployed or player accepted**.
 Production's twelve zone executables were read on October 22 and all matched
@@ -45,6 +48,20 @@ Normal ingredient families in the five scripts have variants. Other literal
 bypasses request items without variants. The five Riwwi loops are food/drink
 turn-ins; generation requires equipment slots/stats or a bag. Tipt's riddle
 counts use ground-spawned riddle tokens. These are not equipment-tier paths.
+The mounted configuration uses the default root `plugins/` directory, whose
+`check_handin.pl` and `globals.pl` delegate to native `CheckHandin`. The old copies
+under `quests/plugins/` are not active. See `plugin-path-probe.json`; the separate
+class-armor capture used those old copies, so its Perl fixture results alone do
+not establish the current native hand-in lifecycle.
+
+Kurron Ni exposed a real currency mismatch: the active native helper rejects
+900pp when the required map declares no currency. The integrated quest now
+declares the exact submitted denominations and refunds them once on success,
+preserving ADR 0066's reviewed no-new-sink policy. Failures use native automatic
+returns. All 64 ordinary Darkforge quality combinations are covered; the raw
+900pp threshold, faction and once-per-spawn letter stay. This is a compatibility
+correction, not evidence that the old live quest successfully accepted coins.
+
 No Polished-family base names longer than 52 bytes were found in the bounded
 name-length query. Future content additions must rerun this audit rather than
 assume every hand-written quest delegates to a shared checker.
@@ -53,9 +70,13 @@ assume every hand-written quest delegates to a shared checker.
 
 The exact compiled `NPC::CheckHandin` method and `ClientTaskState::CanUpdate`
 filter are exercised by `tools/tests/test_quest_handins.py`. Lua executes the
-captured, unchanged Shakrn quest against the actual shared helper. Perl exercises
+captured Shakrn quest and the integrated Ascended-reward quest against the actual
+shared helper. Perl exercises
 all 17 migrated recipes at four input qualities, extras, repeats and omissions
-(221 assertions). Original native/Lua regressions failed on Polished; original
+(221 assertions), plus 136 Kurron callback checks (357 total). The 113 class-armor
+Lua checks pass with the current helper; 39 legacy-helper Perl subtests remain
+historical reward-delta controls, not native-runtime proof. Original native/Lua
+regressions failed on Polished; original
 Perl scripts failed 68/221 assertions. See `verification.json` for final commands
 and exit statuses. Native build and automated tests do not establish player QA.
 
@@ -66,18 +87,22 @@ copied Vilissia script; its three legacy separators now use ASCII hyphens.
 The inherited multiquest surplus rule is explicitly retained. Complete task
 delivery/event/inventory lifecycle remains player QA beyond the compiled filter
 test. Review is not human approval. Exact player checks: [QA.md](QA.md).
-Decision: [ADR 0066](../../adr/0066-tiered-quest-ingredients.md).
+Decision: [ADR 0067](../../adr/0067-tiered-quest-ingredients.md).
 
 ## Activation and recovery
 
 Promotion through dev/test is authorized by the workspace agreement. Main and
 production activation require current owner sign-off. Before an authorized
-activation, compare fresh running hashes, source manifests and all six quest-file
+activation, compare fresh running hashes, source manifests and all seven quest-file
 preimages against this capture; retain any intervening release. Take a fresh
 backup and use the supported whole-runtime release procedure. Deploy the rebuilt
-zone, `quests/lua_modules/items.lua`, and five `quests/soltemple/*.pl` files as one
-release. Lua's module cache needs a verified reload/restart; a quest-only reload
+zone, `quests/lua_modules/items.lua`, five `quests/soltemple/*.pl` files and `quests/overthere/Kurron_Ni.pl`
+as one release. Lua's module cache needs a verified reload/restart; a quest-only reload
 cannot install native changes. Do not kill a single production zone process.
+
+The integrated armor candidate also needs its remaining ten reward-script
+changes if releasing that policy together. Do not deploy an older Kurron file
+over this compatibility correction.
 
 No SQL, world, rule catalog, shared ItemData/cache, launcher or client change is
 required. Preserve the current client/world/cache pair. Retain fresh predecessor

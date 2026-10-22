@@ -1,16 +1,18 @@
-# Exact owner QA — quest item qualities
+# Exact owner QA â€” quest item qualities
 
-Status: pending; run against the paired candidate zone and six quest files.
+Status: pending; run against the paired candidate zone and seven quest files.
 Provision test items on a disposable test character, then perform ordinary NPC
 trades. Keep before/after inventory and task screenshots. Do not infer live
 activation from source promotion to test.
 
 1. **Crafted Gauntlets, Shakrn Meadowgreen, South Karana (`southkarana`, NPC
    14075).** Give Aviak Charm (Polished) **213737** and two Star Rubies **10032**
-   in separate trade slots. Expect exactly one Crafted Gauntlets **4178**, the
+   in separate trade slots. With the integrated class-armor candidate, expect
+   exactly one Crafted Gauntlets (Ascended) **604178**, the
    ordinary quest EXP, and no returned ingredients. Repeat independently with
    Normal **13737**, Exalted **413737**, Ascended **613737**. All award the same
-   normal quest reward; no added quality or bonus reward.
+   configured quest reward; no bonus reward. If testing only the ingredient fix
+   with the captured live quest, its unchanged reward is Normal **4178**.
 2. **Rejected and excess items at Shakrn.** Give Polished charm with only one
    ruby: expect no reward and both original items returned. Give a complete set
    plus an unrelated fourth-slot item: expect one reward and that exact extra
@@ -44,3 +46,13 @@ activation from source promotion to test.
    satisfy an ordinary quest ingredient. Unchanged Lua scripts still expect
    duplicate ingredients in separate trade slots unless they explicitly support
    stacks. No client patch should be required.
+
+7. **Kurron Ni, Overthere, later-era isolated QA only.** Give Darkforge Helm
+   **3140**, Breastplate **3141**, Greaves **3145**, using any mix of Normal or
+   +200000/+400000/+600000 versions, plus **900 platinum**. Expect +7 Truespirit
+   and one Letter to Duriek **18099** on the NPC per spawn. All submitted coins
+   return exactly once, preserving the separate armor candidate's reviewed policy.
+   Repeat with **901pp + 1gp + 2sp + 3cp**, and verify the exact full refund once.
+   Missing/wrong pieces, **899pp**, or equivalent gold without 900pp must fail;
+   native returns retain original items/coins. A second complete set on the same
+   spawn may grant faction but no duplicate letter. This does not unlock Kunark.

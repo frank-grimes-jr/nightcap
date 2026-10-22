@@ -7,9 +7,25 @@ Fixes Shakrn's Aviak Charm/Crafted Gauntlets rejection and migrates five legacy
 Solusek Ro quests. Exact inputs are preferred, explicit quality requirements
 remain exact, failed native money checks restore counts, and real item instances
 are retained for returns. Rewards and forging costs do not change. Paired zone
-and six quest files required; no SQL/cache/client update. Tested candidate only;
+and seven quest files required; no SQL/cache/client update. Integration also fixes
+Kurron Ni's native currency mismatch while retaining the reviewed full-refund
+policy; all 64 ordinary Darkforge combinations pass. Tested candidate only;
 production/main and player acceptance remain pending. Evidence and QA:
 `docs/releases/quest-tier-handins-20261022/`.
+
+
+## 2026-10-22 — Substantial class-armor Ascended rewards (candidate)
+
+Corrects the missing quality selection reported on Palwar's Crafted armor.
+The owner clarified that substantial class-armor quests qualify even when
+repeatable; cheap/basic hand-ins stay excluded. An explicit audited catalog
+selects existing Ascended variants for 37 Crafted, Lambent, Darkforge, Ivy
+Etched and Totemic rewards, preserving original hand-in requirements and XP.
+Kurron Ni's dependent Shadow Knight epic hand-in accepts the original or new
+Ascended Darkforge pieces without bypassing its three-piece/900pp requirement.
+No item-stat/client change or live inventory repair. Quest activation, public
+wiki release and owner gameplay/balance QA remain pending.
+See [evidence and exact QA](docs/releases/quest-armor-20261022/README.md).
 
 ## 2026-10-22 — Classic race robes published for live QA
 

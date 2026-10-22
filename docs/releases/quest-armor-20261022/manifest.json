@@ -1,0 +1,74 @@
+{
+  "status": "candidate; not deployed",
+  "reward_count": 37,
+  "scripts": [
+    {
+      "path": "southkarana/Shakrn_Meadowgreen.lua",
+      "before_sha256": "120aa0f5d8a45388c33c1033007580c96790f2d10ad3b4c64f4f9a18ad829284",
+      "after_sha256": "e895fcdb905e123ed70cd2b7d43a45b42caa4c9351cc267180c8632fa3a6f7d4",
+      "rewards": 4
+    },
+    {
+      "path": "southkarana/Ulan_Meadowgreen.lua",
+      "before_sha256": "be61612776ac6f2154893882337a7c9c1b567bd00e152bd70fcf4fd7ade1a59e",
+      "after_sha256": "a0f9f6e327d888979557656e4070b4a9152c905dc9be6f243b00af2687bf07ac",
+      "rewards": 4
+    },
+    {
+      "path": "soltemple/Cryssia_Stardreamer.pl",
+      "before_sha256": "b6ccb70d191845eb59174d5d3951a43032d10ff516b00a991591b39213745bdc",
+      "after_sha256": "f5a79a5dc3fb3a26360cccd6ac81040b36759f61d9dd4c2d06f1d45a6c1c652d",
+      "rewards": 4
+    },
+    {
+      "path": "soltemple/Walthin_Fireweaver.lua",
+      "before_sha256": "e64ab89dea4b4425128a93c110662d6c745405c2b8aa22a19d7d087d74bf9729",
+      "after_sha256": "fe21f7a379d0180ceca1655a9a89caa6bd749a905f37c65692159033f0f301cf",
+      "rewards": 3
+    },
+    {
+      "path": "soltemple/an_undead_knight.pl",
+      "before_sha256": "2f66d9d3cdb0592f4d93ac15b82b2fb42008c7ff51ae0d96b2df38ad95d81324",
+      "after_sha256": "f652cc1c33b7a2d1780247e262f029ea03a11329992a35917c4a2c35a6f3a211",
+      "rewards": 3
+    },
+    {
+      "path": "soltemple/an_undead_knight_.pl",
+      "before_sha256": "c4e0abffec431b6f424449f292289fc2ab4537cb1573185cedeb65e53b71d045",
+      "after_sha256": "b3c077d3e936b9de0f5c142fd8609887b6cc8a867af3e08ecb5d782f4e64b84c",
+      "rewards": 4
+    },
+    {
+      "path": "kithicor/Gandari.pl",
+      "before_sha256": "32d87da72a95c39fecc0677e5bfd6081e4fba9a40f88d78112b08f106534bc04",
+      "after_sha256": "2eb1da8b704e61ca6b183c35ac6859872b13895d06cbbe967fda6998f18cd781",
+      "rewards": 4
+    },
+    {
+      "path": "kithicor/Leaf_Falldim.pl",
+      "before_sha256": "1db9dc51d83a68ecb1adfee8432bf5f87c452a88bffe840c5f820910ec5ee590",
+      "after_sha256": "51ad90d73820f73e3b6f26cd4082fcdb778843602aec4a7578bbc5cb543f3ec9",
+      "rewards": 3
+    },
+    {
+      "path": "lakerathe/Vrynn.pl",
+      "before_sha256": "75666253cdf30e09e3b0c8b0f68940979a1f389697d00fda86435518e222ddcb",
+      "after_sha256": "6455945c35e78013b27f79ff7f3b8419cf80b8fc5fba7a536c4c466213cdc1c0",
+      "rewards": 4
+    },
+    {
+      "path": "lakerathe/Kyralynn.pl",
+      "before_sha256": "65d870dc9815148dbe549662310738c62af99b1f678fe4ac801fb88b415c6591",
+      "after_sha256": "cb52e993ea1cc01942bdaa0c3affd8b39ad3c9ec15761888e2184bce72bbb6ee",
+      "rewards": 4
+    }
+  ],
+  "compatibility_scripts": [
+    {
+      "path": "overthere/Kurron_Ni.pl",
+      "before_sha256": "4f4e0e8c746c176ba94f5536d3a6dcb8619bfc501def376b0849ed1fd9e82d4d",
+      "after_sha256": "9369463c9221c87c433da30247cacc911fbdfa93ef1dae5041c6c1495994a698"
+    }
+  ],
+  "reference_observed_utc": "2026-10-22T16:08:55.646820+00:00"
+}
