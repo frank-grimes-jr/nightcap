@@ -5,6 +5,8 @@ The [level-one access correction](releases/aa-tbs-level1-20261013/README.md) rem
 
 Start with [current status](status.md), not a dated candidate report.
 
+- [AA million-point pacing and XP boost retirement](releases/aa-pacing-million-20261021/README.md)
+
 - [Reforging default-color correction, deployment and QA](releases/reforge-colors-20261018/README.md)
 
 - [October 17 combined release, recovery and exact gameplay QA](releases/october-17-2026/README.md)

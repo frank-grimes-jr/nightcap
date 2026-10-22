@@ -60,7 +60,7 @@ namespace SpellEffect {
 enum {
  CurrentHP = 0, ArmorClass = 1, WeaponProc = 85, RangedProc = 201, DivineSave = 232,
  SkillAttackProc = 288, CastOnFadeEffect = 289, DefensiveProc = 323,
- CastOnRuneFadeEffect = 333, BardAEDot = 334, TriggerOnCast = 339,
+ CastOnRuneFadeEffect = 333, BardAEDot = 334, PercentXPIncrease = 337, TriggerOnCast = 339,
  SpellTrigger = 340, ProcOnKillShot = 360, SpellOnDeath = 361, ProcOnSpellKillShot = 365,
  CastOnFadeEffectAlways = 373, ApplyEffect = 374, CastOnFadeEffectNPC = 377,
  SympatheticProc = 383, CastOnCurer = 386, CastOnCure = 387,
@@ -85,6 +85,7 @@ bool IsBeneficialSpell(uint16 id) { return IsValidSpell(id) && spells[id].good_e
 bool IsDetrimentalSpell(uint16 id) { return IsValidSpell(id) && !spells[id].good_effect; }
 bool IsDisciplineBuff(uint16 id) { return IsValidSpell(id) && spells[id].discipline; }
 bool IsSuspendableSpell(uint16 id) { return IsValidSpell(id) && spells[id].suspendable; }
+bool IsEffectInSpell(uint16 id, int spa) { return IsValidSpell(id) && std::find(std::begin(spells[id].effect_id), std::end(spells[id].effect_id), spa) != std::end(spells[id].effect_id); }
 namespace AA {
 struct RankEffect { int effect_id = 0, base_value = 0, limit_value = 0; };
 struct Rank { int spell = SPELL_UNKNOWN; std::vector<RankEffect> effects; };
@@ -154,7 +155,36 @@ int main(int argc, char **argv) {
   if (argc != 2) throw std::runtime_error("one control group required");
   std::string group = argv[1];
   Mob player, pet, npc; pet.player = false; pet.pet = true; npc.player = false;
-  if (group == "rabid") {
+  if (group == "xp_boost") {
+   rank(999,999);
+   for (int slot=0; slot<EFFECT_COUNT; ++slot) {
+    spells[21030] = Spell{};
+    spells[21030].effect_id[slot] = SpellEffect::PercentXPIncrease;
+    for (auto target : {&player,&pet}) {
+     for (int old : {-1000,-1}) {
+      int ticks=target->GetBuffDurationForTarget(21030,old);
+      expect(ticks,1,"stale XP boost retained permanence");
+      target->buffs[0]={21030,ticks};
+      fixture_zone.suspended=true; target->BuffProcess();
+      expect(target->buffs[0].ticsremaining,1,"zone suspension changed");
+      fixture_zone.suspended=false; target->BuffProcess();
+      expect(target->buffs[0].ticsremaining,0,"minimum countdown did not tick");
+      target->BuffProcess();
+      expect(target->buffs[0].spellid,SPELL_UNKNOWN,"stale XP boost did not fade");
+     }
+     for (int ticks : {0,1,20,2400,3600,-4})
+      expect(target->GetBuffDurationForTarget(21030,ticks),ticks,"XP remaining duration changed");
+    }
+    expect(npc.GetBuffDurationForTarget(21030,-1000),-1000,"NPC duration changed");
+   }
+   for (int formula : {DF_Permanent,DF_Aura}) {
+    spells[21030].buff_duration_formula=formula;
+    expect(player.GetBuffDurationForTarget(21030,-1),-1,"native permanent formula changed");
+   }
+   spells[21030]=Spell{};
+   expect(player.GetBuffDurationForTarget(21030,2400),PERMANENT_BUFF_DURATION,"ordinary buff lost permanence");
+  }
+  else if (group == "rabid") {
    rank(153,2750);effect(2750,SpellEffect::ApplyEffect,100,30709);
    for (auto id : {2750,30709}) {
     spells[id].buff_duration_formula=DF_Permanent;
@@ -440,6 +470,9 @@ class AATemporaryBuffs(unittest.TestCase):
     def run_group(self, group):
         run = subprocess.run([str(self.exe), group], text=True, capture_output=True, timeout=15)
         self.assertEqual(run.returncode, 0, run.stdout + run.stderr)
+
+    def test_xp_boost_keeps_remaining_timer_and_expires_stale_permanence(self):
+        self.run_group("xp_boost")
 
     def test_rabid_pair_permanent_with_paired_definitions(self):
         self.run_group("rabid")

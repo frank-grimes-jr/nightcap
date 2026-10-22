@@ -1,5 +1,14 @@
 # CHANGES
 
+## 2026-10-21 - AA million-point candidate, owner-authorized rollout
+1,000,000 XP per AA, retaining 10% passive and all earned points/purchases/raw
+remainder. Retires Goldwind's paid XP package while preserving Matron's free
+buffs. XP boosts now retain positive durations; legacy permanent copies receive
+the minimum native countdown when loaded. Zone-only native rebuild plus guarded
+rule/quest activation and full-runtime restart; client/caches unchanged.
+Main/server publication is authorized; execution and owner gameplay acceptance
+are recorded separately in docs/releases/aa-pacing-million-20261021/README.md.
+
 ## 2026-10-21
 ### AA pacing — deployed for live QA
 - Deployed AA:ExpPerPoint 4,000 -> 40,000 after the owner reported points arriving

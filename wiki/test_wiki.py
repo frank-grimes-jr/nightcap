@@ -78,7 +78,7 @@ class WikiTests(unittest.TestCase):
 
     def test_current_mechanics_and_unreleased_labels(self):
         self.assertIn('<strong>10%',self.articles['multiclass']['body'])
-        self.assertIn('40,000 AA experience',self.articles['multiclass']['body'])
+        self.assertIn('1,000,000 AA experience',self.articles['multiclass']['body'])
         self.assertNotIn('plus 1%',self.articles['multiclass']['body'])
         self.assertIn('10%',self.articles['commands']['body'])
         self.assertNotIn('40%',self.articles['commands']['body'])
