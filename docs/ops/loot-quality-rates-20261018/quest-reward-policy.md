@@ -1,3 +1,12 @@
+> **October 22 clarification:** The owner superseded the blanket repeatable-quest
+> exclusion below. Substantial class-armor quests may qualify even when repeatable;
+> cheap/basic hand-ins remain excluded. The reviewed 37-reward candidate and its
+> downstream compatibility are documented in
+> [ADR 0066](../../adr/0066-substantial-class-armor-rewards.md) and
+> [the October 22 report](../../releases/quest-armor-20261022/README.md).
+> This dated October 18 proposal is retained as historical evidence, not the
+> current eligibility contract. The candidate is not deployed.
+
 # Proposed guaranteed Ascended quest rewards
 
 Accepted direction, October 18: final quested armor and weapons should grant
