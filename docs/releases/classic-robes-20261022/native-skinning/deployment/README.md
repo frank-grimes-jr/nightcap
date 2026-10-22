@@ -4,7 +4,9 @@ PR291/main `42603ee` fixes the native bone-run contract after the owner rejected
 2203 while standing and moving. Signed game **2026102204** replaces only the two
 character archives. All 140 HTTPS files (279,407,878 bytes), shipped-key signature
 and actual retained proxy/catalog 0.11.1 pair verify. The other 138 descriptors,
-waypoint assets, history and tombstones remain. Native visual acceptance is open.
+waypoint assets, history and tombstones remain. The owner subsequently confirmed
+**"Fixed"** on October 22. The reported waist issue is closed; broader visual
+regression coverage remains separate. See ../owner-acceptance/owner-confirmation.json.
 Fully exit EverQuest and use normal launcher Play; wearer and observer both update.
 Exact model/zone/animation steps are in [the parent runbook](../README.md).
 

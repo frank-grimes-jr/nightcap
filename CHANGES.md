@@ -1,4 +1,11 @@
 # CHANGES
+
+## 2026-10-22 - Robe waist repair accepted
+
+The owner confirmed "Fixed" after game 2026102204, closing the reported missing
+waist defect. No additional asset or runtime change. Broader race, dye, animation
+and observer regression coverage remains separate. Acceptance evidence:
+`docs/releases/classic-robes-20261022/native-skinning/owner-acceptance/`.
 ## 2026-10-22 — All Classic dungeon options and MAGIC rewards deployed
 
 All 21 Classic combat dungeons, including Fear, Hate and Sky, now offer Raid,

@@ -7,7 +7,9 @@ match2203. This is a native loading defect, not a missing launcher update.
 Status: PR291 merged to main at `42603ee6b9ef8928698d2c6aac0cc7605196229b`.
 Signed game **2026102204** publishes `native-waist-01` for live testing.
 All 140 hosted client files and the shipped-key signature verify.
-Native visible standing, movement, dye and observer acceptance remains open.
+The owner replied **"Fixed"** on October 22 after the 2204 recheck instructions,
+accepting resolution of the reported waist gap. Broader race, dye, animation and
+observer coverage remains separately tracked. See [acceptance scope](owner-acceptance/owner-confirmation.json).
 
 ## Proven cause and correction
 

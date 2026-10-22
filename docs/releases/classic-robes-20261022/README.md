@@ -5,7 +5,8 @@ both the original waist and the shared-seam correction in game 2026102203.
 The gap persisted while standing and moving with the correct installed archives.
 PR291/main `42603ee` and signed game **2026102204** now correct the native bone
 assignment loss. All 140 hosted client files, signature and current DLL/catalog
-pair verify. Native visual acceptance remains open. The protected reference and
+pair verify. The owner confirmed **"Fixed"** on October 22, closing the reported
+waist defect; broader visual regression coverage remains separate. The protected reference and
 installed player client remain read only. See [native binding correction and
 exact recheck](native-skinning/README.md). Earlier evidence retains its historical
 scope; publication alone does not establish that the visible gap is resolved.

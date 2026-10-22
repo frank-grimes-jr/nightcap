@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "audited_at": "2026-10-22",
+  "topics": {
+    "client": [
+      {
+        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
+        "path": "docs/releases/classic-robes-20261022/README.md",
+        "role": "Owner confirmed2204 missing-waist defect fixed; broader native regression matrix remains separate",
+        "revision": "053639d03daf4ef0a4792193b42f49c563db00a1 + reviewed owner-acceptance edits",
+        "sha256": "1f514d5cdc6399d6cbd298a4373433aab7a9a386995c4e06bb7ce20941561fca"
+      },
+      {
+        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
+        "path": "docs/releases/classic-robes-20261022/QA.md",
+        "role": "Owner confirmed2204 missing-waist defect fixed; broader native regression matrix remains separate",
+        "revision": "053639d03daf4ef0a4792193b42f49c563db00a1 + reviewed owner-acceptance edits",
+        "sha256": "1af0e5014fcb8d013426cf5fce964f9ae79583e2035962c13aed9be1b9d6005f"
+      },
+      {
+        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
+        "path": "docs/releases/classic-robes-20261022/native-skinning/README.md",
+        "role": "Owner confirmed2204 missing-waist defect fixed; broader native regression matrix remains separate",
+        "revision": "053639d03daf4ef0a4792193b42f49c563db00a1 + reviewed owner-acceptance edits",
+        "sha256": "3aedb350cfcb2709656a22b0f47c1c5fd69ea29fc67609d67f0c6af10719ddd9"
+      },
+      {
+        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
+        "path": "docs/releases/classic-robes-20261022/native-skinning/deployment/README.md",
+        "role": "Owner confirmed2204 missing-waist defect fixed; broader native regression matrix remains separate",
+        "revision": "053639d03daf4ef0a4792193b42f49c563db00a1 + reviewed owner-acceptance edits",
+        "sha256": "f1b20aed271b26b8a4dbf159ca62bdd07b30144e712cebfbb18e8c13c0195e5a"
+      },
+      {
+        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
+        "path": "docs/releases/classic-robes-20261022/native-skinning/deployment/release-record.json",
+        "role": "Owner confirmed2204 missing-waist defect fixed; broader native regression matrix remains separate",
+        "revision": "053639d03daf4ef0a4792193b42f49c563db00a1 + reviewed owner-acceptance edits",
+        "sha256": "8be5b208b09508ab2ca1c963368c24a08538ff0c87ff46b55cdf34f76259c867"
+      },
+      {
+        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
+        "path": "docs/releases/classic-robes-20261022/native-skinning/owner-acceptance/owner-confirmation.json",
+        "role": "Reviewed scoped owner acceptance and no-public-change wiki assessment",
+        "revision": "053639d03daf4ef0a4792193b42f49c563db00a1 + reviewed owner-acceptance edits",
+        "sha256": "eda221101767869a367a5e14c62bc056ad6ed7ea28a9cf5313c9d876193fc4eb"
+      }
+    ],
+    "wiki": [
+      {
+        "root": "C:/Users/verre/.codex/worktrees/robe-visibility/EQ_Local_Dev",
+        "path": "docs/releases/classic-robes-20261022/native-skinning/owner-acceptance/wiki-impact.json",
+        "role": "Reviewed scoped owner acceptance and no-public-change wiki assessment",
+        "revision": "053639d03daf4ef0a4792193b42f49c563db00a1 + reviewed owner-acceptance edits",
+        "sha256": "c4fa6d2ffb2a6f4bf4ad41ddd22d07f83cce6362cb917684cc9c018e8758aa0a"
+      }
+    ]
+  }
+}

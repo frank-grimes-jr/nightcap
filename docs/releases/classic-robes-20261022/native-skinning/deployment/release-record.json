@@ -17,7 +17,7 @@
   },
   "wiki_release": "20261022-classic-robes-native-waist-v1",
   "owner_report": "2203 not fixed; gap both standing and moving; installed archive hashes match2203",
-  "native_acceptance": "pending",
+  "native_acceptance": "reported missing-waist defect accepted by owner on2026-10-22; broader regression matrix remains separately tracked",
   "proof": "Pinned native loader disassembly and actual x86 d3dx9_30 setter/getter execution; 432 lost old influences versus zero corrected across16 registrations. Identity remapping fixture, not complete native rendered acceptance.",
   "preservation": "All triangle-corner position/bone/UV/normal/material attributes exactly preserved after permutation; all other fragments/textures unchanged.",
   "independent_review": "No blocker after native contract and exact triangle-attribute comparison.",
@@ -37,5 +37,6 @@
   },
   "retained_runtime_pair": "proxy/catalog0.11.1 plus waypoint assets;138 unchanged exact descriptors/URLs; patch history/tombstones retained",
   "reference_and_player_folders": "read only; normal launcher Play installs signed public update",
-  "runtime": "This client/wiki release did not restart services, reload quests or write SQL. Concurrent quest-tier deployment is separate and preserved."
+  "runtime": "This client/wiki release did not restart services, reload quests or write SQL. Concurrent quest-tier deployment is separate and preserved.",
+  "owner_confirmation": "../owner-acceptance/owner-confirmation.json"
 }

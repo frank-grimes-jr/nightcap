@@ -39,7 +39,7 @@ item IDs changed, preserving every other inventory field. Logins are reopened.
 Native fresh-hand-in, inspection/relog and broader balance acceptance remain open.
 [Release evidence and recovery](releases/quest-armor-20261022/deployment/README.md).
 
-## Classic robe native waist binding - published for live QA, October 22
+## Classic robe waist gap - owner confirmed fixed, October 22
 
 The owner rejected game 2203: the waist gap persisted standing and moving, with
 installed archive hashes confirmed. Native skinning replaced earlier torso bone
@@ -48,7 +48,9 @@ assignments when the skirt repeated the same bone. PR291/main `42603ee` and sign
 assignments in the old 16 model registrations and retain every corrected vertex.
 All 140 hosted client files, signature and the existing proxy/catalog 0.11.1 pair
 verify; the other 138 descriptors and waypoint assets remain. This client release
-performed no runtime restart or SQL change. Native visual acceptance is open.
+performed no runtime restart or SQL change. The owner replied **"Fixed"** after
+the 2204 recheck instructions. The reported waist issue is closed; broader
+race/dye/animation/observer regression coverage remains separately tracked.
 Fully exit EverQuest and use normal launcher Play; observers must also update.
 [Proof, delivery, recovery and exact recheck](releases/classic-robes-20261022/native-skinning/README.md).
 

@@ -1,0 +1,22 @@
+{
+  "date": "2026-10-22",
+  "status": "applied",
+  "scope": "Owner confirmation only; no additional release, runtime change or broader QA claim",
+  "files": [
+    {
+      "path": "C:/Users/verre/.codex/skills/nightcap-development/references/client.md",
+      "before_sha256": "282a3ae9da9c06bf4f9dc635796439f6fe22592487044ded4e51a5ca6f47d17f",
+      "after_sha256": "3a5ca811040088c0601ae04af77160f44ede3bbc0220e867d266860d4881deeb"
+    },
+    {
+      "path": "C:/Users/verre/.codex/skills/nightcap-development/references/wiki.md",
+      "before_sha256": "e3c2c763804c8ecda2c7822a257250d8e42dc6d803146c670bd011ca0c137197",
+      "after_sha256": "fed501ec68a4f672a65a6eba0a84fbd6206c3b73920b12a3feafcdf1962086fc"
+    },
+    {
+      "path": "C:/Users/verre/.codex/skills/nightcap-development/references/sources.json",
+      "before_sha256": "d46eb17e268ec2287677686ef63cacb6e549422f9865d389a79a98727bf3a277",
+      "after_sha256": "aca028d855d5088ececbfa06735ab93fc0aa2b2cbf1b07293e329a9105c11695"
+    }
+  ]
+}
