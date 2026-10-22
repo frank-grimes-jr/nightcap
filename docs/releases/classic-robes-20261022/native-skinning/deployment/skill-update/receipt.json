@@ -1,0 +1,23 @@
+{
+  "date": "2026-10-22",
+  "status": "applied",
+  "source_revision": "048f22220fec3c572b806dd7bee9188a46b3faac",
+  "scope": "Native binding contract, real-library proof and limitation, owner2203 rejection, signed2204 delivery, concurrent wiki preservation and pending native QA",
+  "files": [
+    {
+      "path": "C:/Users/verre/.codex/skills/nightcap-development/references/client.md",
+      "before_sha256": "f8171ea7e07327ab67f3ed5bc2b93032896560a5dc90440fc7a6c9b219b1a632",
+      "after_sha256": "282a3ae9da9c06bf4f9dc635796439f6fe22592487044ded4e51a5ca6f47d17f"
+    },
+    {
+      "path": "C:/Users/verre/.codex/skills/nightcap-development/references/wiki.md",
+      "before_sha256": "7a86d20a258ada89f80f6eb1a4f6b6d328f864633518330308e43220f2c121c3",
+      "after_sha256": "872102a1c9aff10d77a0f713708b6bec0899e8351c2ecbcb1513144751f3caa7"
+    },
+    {
+      "path": "C:/Users/verre/.codex/skills/nightcap-development/references/sources.json",
+      "before_sha256": "41cfcddf0b92dd45526c7925a736e44d816e00442b8c324975ebf5c8bcf34f68",
+      "after_sha256": "c885a1b60030cb86ba145b46195378f88d991ff8f4f4992243e2db3bfd333a8b"
+    }
+  ]
+}
