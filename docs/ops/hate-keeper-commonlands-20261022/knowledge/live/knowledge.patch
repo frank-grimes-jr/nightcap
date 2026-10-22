@@ -1,0 +1,418 @@
+--- a/references/world.md
++++ b/references/world.md
+@@ -1,9 +1,10 @@
+ # Quests, tunnel services and travel
+ 
+-## Hate Keeper in Commonlands — October22 candidate
++## Hate Keeper in Commonlands — October22 deployed for live QA
+ 
+ Source E:/EQ_Local_Dev/_worktrees/hate-keeper-commonlands, feature/hate-keeper-commonlands.
+-Built/tested, not main-promoted or deployed; owner main/live sign-off is pending.
++Owner explicitly approved main/server promotion. PR299/a736fb0 and paired
++production activation are verified; owner native gameplay acceptance stays open.
+ The public Hate Keeper998812/spawn9100012 moves to East Commonlands22 at
+ /loc -1570,-346,3 between Mirielle and Khalure. KeeperDungeon binds this exact
+ public host/NPC to Hate76. Admission precedes mutations; arrival uses destination
+@@ -12,14 +13,16 @@
+ Removing Hate's status80 restriction also opens public classic Hate to ordinary
+ level46+ players; level46 is retained. No client/quest/world/cache change.
+ 
+-Install scoped SQL and the new zone together, with a full controlled runtime
+-restart. The read-only audit found zero unmanaged Hate instances; repeat the
+-NULL-safe notes check after writers stop. Capture fresh public saved rows then;
+-invalidate only the old non-corpse Keeper, never restore player/run snapshots.
++Scoped SQL and zone1d4ef362 are live after a full controlled runtime restart.
++The stopped NULL-safe check found zero unmanaged Hate instances. Fresh saved
++rows were captured, backed up and only the old public non-corpse Keeper scope
++invalidated. Player/run state, quests, caches and other content were preserved.
++All12 workers, native health and39/499 runtime checks verify; gateway is open.
++Never restore player/run snapshots or replay the isolated inverse after activity.
+ 39schema/499content successor checks, exact-baseline build,18 source regressions,
+ SQL forward/failure/inverse/scope rehearsal and production-matching terrain pass.
+-Independent source/operator review completed; live execution and native QA remain
+-open. Evidence/recovery/exact QA: docs/ops/hate-keeper-commonlands-20261022/.
++Independent source/operator review and live execution completed. Native owner
++visibility/travel/gameplay QA remains open. Evidence/recovery/exact QA: docs/ops/hate-keeper-commonlands-20261022/.
+ 
+ ## Quest ingredient qualities — October22 deployed for live QA
+ 
+--- a/references/wiki.md
++++ b/references/wiki.md
+@@ -1,20 +1,25 @@
+ # Official player wiki and Features
+ 
+-## Hate Keeper relocation — October22 candidate guidance
+-
+-E:/EQ_Local_Dev/_worktrees/hate-keeper-wiki branches from the published Build Lab
+-source5dff50c. Seven Not released notices cover Hate's proposed Commonlands spot,
+-level46 access and private entrance continuity. All22 guides/432 generated routes
+-were assessed; commands,384 Hunt catalog values, Build Lab and the interactive
+-handbook remain.16 wiki checks pass and459 pages build. Source drift is recorded
+-without blindly advancing the ledger. This candidate is not published and does
+-not supersede the current Build Lab public release. Main/live and owner QA gates
+-remain open. Evidence: docs/ops/hate-keeper-commonlands-20261022/wiki-review.json
+-in the gameplay candidate checkout; publish only after verified live activation.
++## Hate Keeper relocation — October22 published for live testing
++
++Current wiki release20261022-hate-keeper-v1 follows Build Lab. Source is
++E:/EQ_Local_Dev/_worktrees/hate-keeper-wiki. Seven guides plus search now give
++East Commonlands /loc -1570,-346,3, retained private Hate entrance and level46
++entry without GM status. Owner-authorized PR299 and live activation are verified;
++native visibility/travel/gameplay acceptance stays open. All22 guides/432 routes
++reviewed; commands,384 Hunt item values, Build Lab and handbook preserved.
++
++All466 HTTPS hashes/security headers and five private denials pass.16 local
++content/source checks,16 Linux publisher/recovery tests and real pointer rollback
++passed. No Nginx reload, private/config/service changes or client pairing.
++The prior Build Lab payload was reproduced exactly before publication. Evidence:
++docs/ops/hate-keeper-commonlands-20261022/ in the gameplay checkout. Source drift
++records reconcile both branch histories; do not overwrite this newer publication.
+ 
+ ## Build Lab — October22 published
+ 
+-Current wiki release is `20261022-build-lab-v1` after the interactive handbook.
++Build Lab was published as `20261022-build-lab-v1` after the interactive handbook;
++its payload is preserved by the subsequent Hate Keeper publication.
+ Source E:/EQ_Local_Dev/_worktrees/wiki-interactive, branch feature/build-lab.
+ `wiki/build_lab.py`, `assets/build-lab-model.js`, `build-lab.js` and `build-lab.css`
+ add A/B builds, effective stat inputs, eight pinned spells, Hunt item differences,
+--- a/references/operations.md
++++ b/references/operations.md
+@@ -1,4 +1,18 @@
+ # Source authority, builds and reloads
++
++## Hate Keeper Commonlands — October22 deployed
++
++Owner-approved PR299/a736fb0 changes only zone executable1d4ef362 and scoped
++Keeper content. All12 zones,39 schema/499 content checks, native health and open
++gateway verify. Current world, shared_memory, quests, caches, client2204 and
++unrelated services/content remain. Fresh stopped backup and player/custom/saved
++state checks passed, with native expiry and one market rotation reconciled.
++No database restoration. Private release stage:
++/opt/nightcap/releases/hate-keeper-commonlands-20261022. Read redacted receipts
++and recovery/owner QA in docs/ops/hate-keeper-commonlands-20261022/ from
++E:/EQ_Local_Dev/_worktrees/hate-keeper-commonlands. Do not replay activation or
++the isolated inverse. Public Hate now allows ordinary level46+ entry. Owner
++in-game acceptance remains open. Wiki20261022-hate-keeper-v1 is verified.
+ 
+ ## Classic dungeon options and MAGIC rewards — October22 live testing
+ 
+--- a/references/sources.json
++++ b/references/sources.json
+@@ -88,7 +88,9 @@
+     "wiki_interactive_20261022": "b6fe8e2965df33c7961d61c3f2659bdaae5e0b2e",
+     "build_lab_20261022": "35c8e17a2f2395f96c787ab38d06344a3e962b0b",
+     "hate_keeper_world_candidate_20261022": "af58032512ff50435fa925e5c21dd207be140843",
+-    "hate_keeper_wiki_candidate_20261022": "5bd264fdb41b42b9a241b12d91d0d4b393c58736"
++    "hate_keeper_wiki_candidate_20261022": "5bd264fdb41b42b9a241b12d91d0d4b393c58736",
++    "hate_keeper_deployed_20261022": "b23dc0bedfaf23dae975ee435618e51fb43df501",
++    "hate_keeper_wiki_published_20261022": "b077d4995e932ac35383189b66859c65b36554d5"
+   },
+   "topics": {
+     "operations": [
+@@ -1027,6 +1029,41 @@
+         "revision": "0d61d9b473221f36cd6b840f1128b0ef9fe91ee7",
+         "sha256": "e74ff656e8b9943f10c11d3fd6653b51f498ec04681cb9a2d87734512f1ee1b7",
+         "role": "Reviewed live Classic dungeon release; owner gameplay/balance QA open"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/hate-keeper-commonlands",
++        "path": "docs/ops/hate-keeper-commonlands-20261022/deployment.json",
++        "revision": "b23dc0bedfaf23dae975ee435618e51fb43df501",
++        "sha256": "2edb985dadbc5eb93ee04675552f318aa4e85067979a18b6d8b8af547453588f",
++        "role": "Reviewed deployed Keeper/publication evidence; owner native QA open"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/hate-keeper-commonlands",
++        "path": "docs/ops/hate-keeper-commonlands-20261022/README.md",
++        "revision": "b23dc0bedfaf23dae975ee435618e51fb43df501",
++        "sha256": "7a9c85b6f3295e0d6e34255de334c3ba8df73ff5caacd2bc9e51dfc92f0c13cf",
++        "role": "Reviewed deployed Keeper/publication evidence; owner native QA open"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/hate-keeper-commonlands",
++        "path": "docs/ops/hate-keeper-commonlands-20261022/authorization.json",
++        "revision": "b23dc0bedfaf23dae975ee435618e51fb43df501",
++        "sha256": "7d0eecc9dd28fec8b57b3dccde77bab28b538f6933bbd64bf575e30969985853",
++        "role": "Reviewed deployed Keeper/publication evidence; owner native QA open"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/hate-keeper-commonlands",
++        "path": "docs/ops/hate-keeper-commonlands-20261022/wiki-publication.json",
++        "revision": "b23dc0bedfaf23dae975ee435618e51fb43df501",
++        "sha256": "3fa26a5974381c1c80b7a9a943c47442a77d348793fdc1b2874b1ef07a71e611",
++        "role": "Reviewed deployed Keeper/publication evidence; owner native QA open"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/hate-keeper-commonlands",
++        "path": "docs/ops/hate-keeper-commonlands-20261022/wiki-public-verification.json",
++        "revision": "b23dc0bedfaf23dae975ee435618e51fb43df501",
++        "sha256": "890cdba0fa62c15baa7e20865a83df03466dd4ebc7daacc5bc09dd74eb968f45",
++        "role": "Reviewed deployed Keeper/publication evidence; owner native QA open"
+       }
+     ],
+     "multiclass": [
+@@ -5351,100 +5388,128 @@
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/hate-keeper-commonlands",
+         "path": "server-mods/code/zone/dungeon_service.cpp",
+-        "revision": "af58032512ff50435fa925e5c21dd207be140843",
++        "revision": "b23dc0bedfaf23dae975ee435618e51fb43df501",
+         "sha256": "c88cca5d370f1c0257cf1563ac625e428c7cb926234f475419e132cbd2e434d5",
+-        "role": "Reviewed Hate Keeper candidate; main/live, publication and owner QA pending"
++        "role": "Verified live Hate Keeper release; owner native gameplay acceptance open"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/hate-keeper-commonlands",
+         "path": "server-mods/code/common/dungeon_policy.h",
+-        "revision": "af58032512ff50435fa925e5c21dd207be140843",
++        "revision": "b23dc0bedfaf23dae975ee435618e51fb43df501",
+         "sha256": "f6017610f1c917a44937c93cad74625cad329a21bc3a4a10fd2bebe81efe46bf",
+-        "role": "Reviewed Hate Keeper candidate; main/live, publication and owner QA pending"
++        "role": "Verified live Hate Keeper release; owner native gameplay acceptance open"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/hate-keeper-commonlands",
+         "path": "server-mods/code/common/dungeon_catalog.h",
+-        "revision": "af58032512ff50435fa925e5c21dd207be140843",
++        "revision": "b23dc0bedfaf23dae975ee435618e51fb43df501",
+         "sha256": "9cf10740697459fb8a11729688b266620ba9cd2b995a88d81bf5e3098b038719",
+-        "role": "Reviewed Hate Keeper candidate; main/live, publication and owner QA pending"
++        "role": "Verified live Hate Keeper release; owner native gameplay acceptance open"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/hate-keeper-commonlands",
+         "path": "server-mods/code/common/dungeon_contract.h",
+-        "revision": "af58032512ff50435fa925e5c21dd207be140843",
++        "revision": "b23dc0bedfaf23dae975ee435618e51fb43df501",
+         "sha256": "b19325fc33265b2c731cbf59edd46d64ce0303d87cfe0ed7088c9b26f8fc8e59",
+-        "role": "Reviewed Hate Keeper candidate; main/live, publication and owner QA pending"
++        "role": "Verified live Hate Keeper release; owner native gameplay acceptance open"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/hate-keeper-commonlands",
+         "path": "docs/dungeons/runtime-contract.json",
+-        "revision": "af58032512ff50435fa925e5c21dd207be140843",
++        "revision": "b23dc0bedfaf23dae975ee435618e51fb43df501",
+         "sha256": "3b88a1a2b69ba291a4dc3e14dfde4146de1c5d99d2fe79faee533823b614c761",
+-        "role": "Reviewed Hate Keeper candidate; main/live, publication and owner QA pending"
++        "role": "Verified live Hate Keeper release; owner native gameplay acceptance open"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/hate-keeper-commonlands",
+         "path": "tools/hate_keeper.py",
+-        "revision": "af58032512ff50435fa925e5c21dd207be140843",
++        "revision": "b23dc0bedfaf23dae975ee435618e51fb43df501",
+         "sha256": "35d0fc5cdccfa72646e0ab53c62e071015c0abd088c96b1a7b0f36ab90708cd6",
+-        "role": "Reviewed Hate Keeper candidate; main/live, publication and owner QA pending"
++        "role": "Verified live Hate Keeper release; owner native gameplay acceptance open"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/hate-keeper-commonlands",
+         "path": "tools/dungeon_catalog.py",
+-        "revision": "af58032512ff50435fa925e5c21dd207be140843",
++        "revision": "b23dc0bedfaf23dae975ee435618e51fb43df501",
+         "sha256": "92679d2e26251215c25f23d2ca74e466d7d80d8e711216773d4ece0db14784e7",
+-        "role": "Reviewed Hate Keeper candidate; main/live, publication and owner QA pending"
++        "role": "Verified live Hate Keeper release; owner native gameplay acceptance open"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/hate-keeper-commonlands",
+         "path": "tools/dungeon_refresh_contract.py",
+-        "revision": "af58032512ff50435fa925e5c21dd207be140843",
++        "revision": "b23dc0bedfaf23dae975ee435618e51fb43df501",
+         "sha256": "1c2ff512a84b583a129475a88baafcec1457bff50157c3d4f0ec2c97c09cff21",
+-        "role": "Reviewed Hate Keeper candidate; main/live, publication and owner QA pending"
++        "role": "Verified live Hate Keeper release; owner native gameplay acceptance open"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/hate-keeper-commonlands",
+         "path": "tools/tests/test_hate_keeper.py",
+-        "revision": "af58032512ff50435fa925e5c21dd207be140843",
++        "revision": "b23dc0bedfaf23dae975ee435618e51fb43df501",
+         "sha256": "023d443581347630960cbf0529c6c129cb8e605137f9de205e752ad70973f8dd",
+-        "role": "Reviewed Hate Keeper candidate; main/live, publication and owner QA pending"
++        "role": "Verified live Hate Keeper release; owner native gameplay acceptance open"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/hate-keeper-commonlands",
+         "path": "tools/tests/test_hate_keeper_content.py",
+-        "revision": "af58032512ff50435fa925e5c21dd207be140843",
++        "revision": "b23dc0bedfaf23dae975ee435618e51fb43df501",
+         "sha256": "e9b611b6c411f16733cbb585b9f12376899093f8f52b8283f97ef543f4f979d9",
+-        "role": "Reviewed Hate Keeper candidate; main/live, publication and owner QA pending"
++        "role": "Verified live Hate Keeper release; owner native gameplay acceptance open"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/hate-keeper-commonlands",
+         "path": "tools/tests/test_classic_dungeon_private.py",
+-        "revision": "af58032512ff50435fa925e5c21dd207be140843",
++        "revision": "b23dc0bedfaf23dae975ee435618e51fb43df501",
+         "sha256": "8594a52f5399a443da2551ac04328d2c49579e0754c3275a4f297486717a9adf",
+-        "role": "Reviewed Hate Keeper candidate; main/live, publication and owner QA pending"
++        "role": "Verified live Hate Keeper release; owner native gameplay acceptance open"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/hate-keeper-commonlands",
+         "path": "tools/tests/test_dungeon_journal.py",
+-        "revision": "af58032512ff50435fa925e5c21dd207be140843",
++        "revision": "b23dc0bedfaf23dae975ee435618e51fb43df501",
+         "sha256": "ef058177e932944d2b35afe535732f92cc4ecb81fa874868df2a3cecd8304574",
+-        "role": "Reviewed Hate Keeper candidate; main/live, publication and owner QA pending"
++        "role": "Verified live Hate Keeper release; owner native gameplay acceptance open"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/hate-keeper-commonlands",
++        "path": "docs/ops/hate-keeper-commonlands-20261022/rollout.py",
++        "revision": "b23dc0bedfaf23dae975ee435618e51fb43df501",
++        "sha256": "26bc50f568cab1a0e0932869855ce7d702c41063136f6d791dc68309b767e5f3",
++        "role": "Verified live Hate Keeper release; owner native gameplay acceptance open"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/hate-keeper-commonlands",
++        "path": "docs/ops/hate-keeper-commonlands-20261022/deployment.json",
++        "revision": "b23dc0bedfaf23dae975ee435618e51fb43df501",
++        "sha256": "2edb985dadbc5eb93ee04675552f318aa4e85067979a18b6d8b8af547453588f",
++        "role": "Reviewed deployed Keeper/publication evidence; owner native QA open"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/hate-keeper-commonlands",
+         "path": "docs/ops/hate-keeper-commonlands-20261022/README.md",
+-        "revision": "af58032512ff50435fa925e5c21dd207be140843",
+-        "sha256": "3e06af67d68b079de5fcb2955628bafc2644f6ccb4e7d92485c8b1fdb100d9b7",
+-        "role": "Reviewed Hate Keeper candidate; main/live, publication and owner QA pending"
++        "revision": "b23dc0bedfaf23dae975ee435618e51fb43df501",
++        "sha256": "7a9c85b6f3295e0d6e34255de334c3ba8df73ff5caacd2bc9e51dfc92f0c13cf",
++        "role": "Reviewed deployed Keeper/publication evidence; owner native QA open"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/hate-keeper-commonlands",
+-        "path": "docs/ops/hate-keeper-commonlands-20261022/rollout.py",
+-        "revision": "af58032512ff50435fa925e5c21dd207be140843",
+-        "sha256": "26bc50f568cab1a0e0932869855ce7d702c41063136f6d791dc68309b767e5f3",
+-        "role": "Reviewed Hate Keeper candidate; main/live, publication and owner QA pending"
++        "path": "docs/ops/hate-keeper-commonlands-20261022/authorization.json",
++        "revision": "b23dc0bedfaf23dae975ee435618e51fb43df501",
++        "sha256": "7d0eecc9dd28fec8b57b3dccde77bab28b538f6933bbd64bf575e30969985853",
++        "role": "Reviewed deployed Keeper/publication evidence; owner native QA open"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/hate-keeper-commonlands",
++        "path": "docs/ops/hate-keeper-commonlands-20261022/wiki-publication.json",
++        "revision": "b23dc0bedfaf23dae975ee435618e51fb43df501",
++        "sha256": "3fa26a5974381c1c80b7a9a943c47442a77d348793fdc1b2874b1ef07a71e611",
++        "role": "Reviewed deployed Keeper/publication evidence; owner native QA open"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/hate-keeper-commonlands",
++        "path": "docs/ops/hate-keeper-commonlands-20261022/wiki-public-verification.json",
++        "revision": "b23dc0bedfaf23dae975ee435618e51fb43df501",
++        "sha256": "890cdba0fa62c15baa7e20865a83df03466dd4ebc7daacc5bc09dd74eb968f45",
++        "role": "Reviewed deployed Keeper/publication evidence; owner native QA open"
+       }
+     ],
+     "client": [
+@@ -9401,13 +9466,6 @@
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
+-        "path": "docs/ops/nightcap-wiki.md",
+-        "role": "Reviewed Build Lab implementation, scope, tests or verified publication",
+-        "revision": "35c8e17a2f2395f96c787ab38d06344a3e962b0b + reviewed release records",
+-        "sha256": "690df8e6e1e4d6f747ffe3d539f2b64afca38becae83cc4f983fafbdb3f8bdb2"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/wiki-interactive",
+         "path": "docs/releases/build-lab-20261022/README.md",
+         "role": "Reviewed Build Lab implementation, scope, tests or verified publication",
+         "revision": "35c8e17a2f2395f96c787ab38d06344a3e962b0b + reviewed release records",
+@@ -9535,58 +9593,65 @@
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/hate-keeper-wiki",
+         "path": "wiki/articles/dungeon-modes.json",
+-        "revision": "5bd264fdb41b42b9a241b12d91d0d4b393c58736",
+-        "sha256": "b48648078ac79824414f7d18cd5ce6f3269db6e02337a81ecc1a919a3c6c6753",
+-        "role": "Reviewed Hate Keeper candidate; main/live, publication and owner QA pending"
++        "revision": "b077d4995e932ac35383189b66859c65b36554d5",
++        "sha256": "3a214296f91b2b0354845edbc3361fdd054a7e6b20916e320b9b2ed69f6fccfd",
++        "role": "Verified live Hate Keeper release; owner native gameplay acceptance open"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/hate-keeper-wiki",
+         "path": "wiki/articles/tunnel.json",
+-        "revision": "5bd264fdb41b42b9a241b12d91d0d4b393c58736",
+-        "sha256": "5b2e1c073ffb9b4007da713b7187350c0ad0485a897930164a7df5c6fd550e66",
+-        "role": "Reviewed Hate Keeper candidate; main/live, publication and owner QA pending"
++        "revision": "b077d4995e932ac35383189b66859c65b36554d5",
++        "sha256": "54729f674a2d364ba1f9726a3c16eb7c61b20028f53a676912ac6147843b7d6e",
++        "role": "Verified live Hate Keeper release; owner native gameplay acceptance open"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/hate-keeper-wiki",
+         "path": "wiki/articles/travel.json",
+-        "revision": "5bd264fdb41b42b9a241b12d91d0d4b393c58736",
+-        "sha256": "97b7bc433b032fedfcbd62fff31a5ee877475d0233f6a82f56b8014a3de4d3fb",
+-        "role": "Reviewed Hate Keeper candidate; main/live, publication and owner QA pending"
++        "revision": "b077d4995e932ac35383189b66859c65b36554d5",
++        "sha256": "04b5735495ae40b886f5dd4abf83b3ed48e7e8bc3bfc18c9ec41ef55eff9fea9",
++        "role": "Verified live Hate Keeper release; owner native gameplay acceptance open"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/hate-keeper-wiki",
+         "path": "wiki/articles/features.json",
+-        "revision": "5bd264fdb41b42b9a241b12d91d0d4b393c58736",
+-        "sha256": "ac8443f286f79460d8fbcec5a199f4360cb9cf41f9f7e771993192d81b0b7302",
+-        "role": "Reviewed Hate Keeper candidate; main/live, publication and owner QA pending"
++        "revision": "b077d4995e932ac35383189b66859c65b36554d5",
++        "sha256": "3c549e1edc6a0726183ff859be632d7d1f9bc7cfc2334cab07f2f22443595f68",
++        "role": "Verified live Hate Keeper release; owner native gameplay acceptance open"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/hate-keeper-wiki",
+         "path": "wiki/articles/index.json",
+-        "revision": "5bd264fdb41b42b9a241b12d91d0d4b393c58736",
+-        "sha256": "f81a073c2d5fe7209c6c2f1592ced9283f45cfbcbec44657a9d60ff5dbfbdd8c",
+-        "role": "Reviewed Hate Keeper candidate; main/live, publication and owner QA pending"
++        "revision": "b077d4995e932ac35383189b66859c65b36554d5",
++        "sha256": "d98ab31930875a6a0016a4bafd677103f881e4cd845169fc851b36e665eb5dae",
++        "role": "Verified live Hate Keeper release; owner native gameplay acceptance open"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/hate-keeper-wiki",
+         "path": "wiki/articles/unreleased.json",
+-        "revision": "5bd264fdb41b42b9a241b12d91d0d4b393c58736",
+-        "sha256": "984bacd81182b7f2c352f32b5daebbd8379d0554fde1b2b6818243cbacd57a0f",
+-        "role": "Reviewed Hate Keeper candidate; main/live, publication and owner QA pending"
++        "revision": "b077d4995e932ac35383189b66859c65b36554d5",
++        "sha256": "df80bd930e29969deb6e51af617679521c3603877264b7331d77baf800f7e153",
++        "role": "Verified live Hate Keeper release; owner native gameplay acceptance open"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/hate-keeper-wiki",
+         "path": "wiki/articles/recent-changes.json",
+-        "revision": "5bd264fdb41b42b9a241b12d91d0d4b393c58736",
+-        "sha256": "1ff2cad8a29e9850e047cc145584c2ad57a136ec2614fe9348d9ec6b59a0cc6c",
+-        "role": "Reviewed Hate Keeper candidate; main/live, publication and owner QA pending"
++        "revision": "b077d4995e932ac35383189b66859c65b36554d5",
++        "sha256": "f78944da2e4d0ff2dbd64b88c21c377fdd0e04aa927e974bd91ff1b6f6cf1f1f",
++        "role": "Verified live Hate Keeper release; owner native gameplay acceptance open"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/hate-keeper-wiki",
+         "path": "wiki/content-review.json",
+-        "revision": "5bd264fdb41b42b9a241b12d91d0d4b393c58736",
+-        "sha256": "9caa91933c137ebf03c3cf4265b370b94f72238528a78cc290d0c1aacb072e35",
+-        "role": "Reviewed Hate Keeper candidate; main/live, publication and owner QA pending"
++        "revision": "b077d4995e932ac35383189b66859c65b36554d5",
++        "sha256": "a4f87fd288d64a636441613143e77b0f25f8504a0b96a22547afea00a7f41a3f",
++        "role": "Verified live Hate Keeper release; owner native gameplay acceptance open"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/hate-keeper-wiki",
++        "path": "docs/ops/nightcap-wiki.md",
++        "revision": "b077d4995e932ac35383189b66859c65b36554d5",
++        "sha256": "3b83c4e8e3b26273691ecd9b36c6faa38c8e937c09070e2ef80cee39c8176b7e",
++        "role": "Current published Hate Keeper wiki runbook; native QA open"
+       }
+     ]
+   }

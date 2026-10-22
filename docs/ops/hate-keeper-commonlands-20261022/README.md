@@ -1,9 +1,14 @@
 # Plane of Hate Keeper relocation — October 22, 2026
 
-**Built and tested candidate. Not deployed, merged to main, published or accepted
-in game.** User requested moving the Plane of Hate Keeper to Commonlands after
-the production audit found the existing service behind Hate's GM access gate.
-The repository's main promotion gate still requires owner sign-off.
+**Main and production deployment verified; owner gameplay acceptance remains open.**
+The owner explicitly approved "Push to main and server". PR299 merged as
+`a736fb0`; the paired move is live and gateway access is open. All12 zone workers
+match the tested new binary and39 schema/499 content checks pass. A fresh stopped
+backup and exact player/state/content/cache preservation were verified.
+`deployment.json` is the redacted receipt; private full backup stays on the host.
+Wiki `20261022-hate-keeper-v1` verifies all466 public hashes/security headers and
+five private-route denials. No client update. These checks do not replace the
+owner QA below.
 
 ## Result
 
@@ -47,8 +52,9 @@ that can be cached indefinitely.
 
 ## Activation and recovery
 
-1. Obtain owner main/live sign-off; merge the reviewed source through the
-   repository release process. Keep the manual checks below open.
+1. Owner main/live sign-off was received and PR299 merged. The steps below
+   describe the completed release; do not blindly replay its immutable stage.
+   Keep the manual checks below open.
 2. Run `prepare.py --name approved-SHORTREV` with a fresh name from this checkout.
    Preparation never overwrites an existing immutable package. It authenticates the build sources and
    fresh live base image and pins the retained operator. Inspect its package
@@ -94,6 +100,10 @@ incompatible new activity and its own preservation check.
    Check one original Keeper (Befallen) and another new Keeper (Fear) for menu
    and destination regressions. Relog and confirm saved progress remains.
 
-Wiki candidate is based on the current published Build Lab checkout and retains
-its interactive shell. Seven affected guides/notices are updated; catalog item
-values, commands and other dungeon policies are unchanged. Publication pending.
+Wiki publication preserves the exact preceding Build Lab release and its
+interactive shell. Only seven guides plus search changed. All22 guides and432
+generated routes were reviewed; catalog values, commands and other dungeon
+policies remain.16 content/source checks,16 Linux publisher/recovery checks and
+the real old/new pointer rollback rehearsal pass. Source:
+`E:/EQ_Local_Dev/_worktrees/hate-keeper-wiki`; publication and HTTPS receipts are
+retained alongside this record. Owner gameplay acceptance remains open.

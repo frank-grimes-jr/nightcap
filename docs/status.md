@@ -1,12 +1,14 @@
 # Current Nightcap status
 
-## 2026-10-22 — Hate Keeper relocation ready for approval
+## 2026-10-22 — Hate Keeper relocation deployed
 
-Candidate moves the public Hate Keeper to East Commonlands `/loc -1570,-346,3`,
+The public Hate Keeper is now in East Commonlands `/loc -1570,-346,3`,
 with native Hate routing, correct arrival/journal and private Keeper continuity.
 Hate's level46 requirement stays; its status80 gate is removed for public/private
-access. Built and tested against the exact live baseline; production unchanged.
-Main/live sign-off, wiki publication and owner QA remain open.
+access. Owner-authorized main PR299 and paired production activation are
+verified: all12 zones,39 schema/499 content checks, fresh stopped backup and
+player/state/cache preservation. Gateway open; no client update. Wiki466 files
+verify over HTTPS. Owner in-game visibility/travel/gameplay QA remains open.
 [Release and exact in-game checks](ops/hate-keeper-commonlands-20261022/README.md).
 ## 2026-10-22 — All Classic dungeon options and MAGIC rewards deployed
 
