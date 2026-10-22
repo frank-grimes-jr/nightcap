@@ -1,9 +1,10 @@
 # Classic race robe visibility — October 22, 2026
 
-Status: generated candidate on `feature/robe-visibility`, based on main
-`7792171c2df7fa206e78e089c8200d552700a208`. Not installed or published. Native
-visual and animation acceptance remains open. The protected RoF2 reference and
-the installed player client were read only.
+Status: source merged through PR276 at main
+`4661ddcd3ed6389fce8d9120358d4b6a2b157622`; signed game `2026102201` published
+for live testing with owner approval. Native visual and animation acceptance
+remains open. The protected RoF2 reference and installed player client remained
+read only. See [publication and verification](deployment/README.md).
 
 ## Result and boundaries
 
@@ -84,15 +85,14 @@ faces only in the inspection, without changing game UVs.
 
 ## Activation and recovery
 
-The branch agreement permits feature/dev/test work; main requires owner in-game
-sign-off. Follow [exact QA](QA.md) in an isolated writable client. Never modify
-`Client_RoF2_Dev`. Back up the test client's two original archives and hashes,
-close the game, then replace both together. A production launcher update can
-restore published hashes, so verify the test files actually loaded.
+The owner approved this main promotion and live-QA publication on October 22:
+"Approved. move into main." This is a scoped exception before native acceptance,
+not standing permission for future releases. Follow [exact QA](QA.md). Close
+EverQuest completely, reopen the normal launcher and press Play to install
+signed game `2026102201`. Never modify `Client_RoF2_Dev`.
 
-After acceptance and authorized publication, retain all other current signed
-manifest assets and the matching DLL/catalog, replace only the two archives,
-assign a new immutable game release and verify every hosted hash. Full client
+The publication retains all 136 other signed manifest assets and their URLs,
+including the matching DLL/catalog, and replaces only the two archives. Full client
 exit/update/relaunch is required; server quest/cache reloads cannot load client
 archives. No server restart is needed. Observers need the same asset update.
 
@@ -104,12 +104,14 @@ Do not restore player settings or any database state.
 
 All 21 maintained articles and generated item/zone guidance were assessed.
 Equipment, Multiclass, Features, Launcher, home, In development and Recent
-changes receive explicit candidate notices. Commands, catalog values, reward
+changes receive explicit live-testing notices. Commands, catalog values, reward
 templates, stats and released mechanics stay unchanged. Existing Keeper source
 drift retains its separate evidence; the global ledger is not blindly advanced.
-Local wiki edits are not publication. See `wiki-review.json`.
+See the initial `wiki-review.json` and current `deployment/wiki-review.json`;
+the latter's publication and HTTPS receipts distinguish delivery from native QA.
 
 Built: missing Classic robe assets, canonical packaging, regression/native
 fixtures and reproducible previews. Cut: unnecessary native hooks, permission
 changes, forced modern models and new skeletons. Open: actual native rendering,
-full animation acceptance and signed release. No claim of owner QA completion.
+full animation acceptance. Signed delivery is recorded separately; no claim of
+owner QA completion.

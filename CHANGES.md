@@ -1,12 +1,15 @@
 # CHANGES
-## 2026-10-22 — Classic race robes candidate
+## 2026-10-22 — Classic race robes published for live QA
 
 Adds missing robe bodies for both genders of Half Elf, Wood Elf, Barbarian,
 Dwarf, Troll, Ogre and Halfling, preserving native skeletons, original armor
 and HE90 helmets. The native client already selects these bodies; no permission
 or executable patch is needed. Canonical client generation includes both global
-archives and now requires the pinned NumPy build dependency. Candidate only;
-native appearance/animation QA and publication remain open. See
+archives and now requires the pinned NumPy build dependency. Owner-approved
+main PR276 and signed game2026102201 publish both archives; 136 other client
+assets and the matching DLL/catalog remain intact. Close the game and update
+through the normal launcher; no server restart. Native appearance/animation QA
+remains open. Wiki20261022-classic-robes-v1 carries matching live-testing guidance. See
 [evidence, recovery and exact QA](docs/releases/classic-robes-20261022/README.md).
 
 
