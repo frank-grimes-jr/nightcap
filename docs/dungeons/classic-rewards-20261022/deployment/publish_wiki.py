@@ -37,7 +37,7 @@ print(json.dumps({'release':release,'config_sha256':hashlib.sha256((base/'nginx.
     manifest = json.loads(files[1].read_text(encoding='utf-8'))
     assert len(manifest) == 465 and set(manifest) == set(before['manifest'])
     changed = sorted(name for name in manifest if manifest[name] != before['manifest'][name])
-    assert set(changed) == {'dungeon-modes.html','equipment.html','features.html','index.html','travel.html','unreleased.html','recent-changes.html','search-index.json'}, changed
+    assert set(changed) == {'dungeon-modes.html','equipment.html','features.html','index.html','travel.html','unreleased.html','recent-changes.html','all-pages.html','search-index.json'}, changed
     (HERE/'wiki-before.json').write_text(json.dumps(before,indent=2)+'\n')
     pins = {p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in files}
     upload = '/home/ubuntu/classic-dungeons-wiki-20261022-v1'

@@ -1,27 +1,18 @@
 # Current Nightcap status
-## 2026-10-22 — Unique Classic raid rewards candidate
+## 2026-10-22 — All Classic dungeon options and MAGIC rewards deployed
 
-Adds42 dungeon-specific designs /84 Polished and Ascended definitions for the
-14 added Classic dungeons. All414 dungeon rewards become MAGIC; the existing330
-retain IDs, names and stats, with220 flag-only updates. Fear, Hate and Sky gain
-nine authored relics and three level46 equipped utility clicks with shared reuse.
-New numeric power stays within existing dungeon-band budgets. Guarded full-row
-migration, matching world/zone/shared_memory and regenerated caches are required.
-No production activation or player/balance acceptance. Full catalog, evidence,
-rollout boundaries and QA: [unique rewards](dungeons/classic-rewards-20261022/README.md).
+All 21 Classic combat dungeons, including Fear, Hate and Sky, now offer Raid,
+Grind, Enter, Join, Status, Claim Rewards and Reset. The 14 additions have 42
+unique designs in Polished and Ascended versions; all 414 dungeon reward
+definitions are MAGIC. Existing reward identities and other stats remain.
+Planar relics include level-46 equipped utility clicks with shared family reuse.
+Main PR293/3af85bb and the paired live deployment are verified. Owner gameplay
+and balance acceptance remain open.
 
-## 2026-10-22 — Every Classic dungeon candidate
+Fresh backup, exact state/content/cache preservation and all12 workers verified.
+Current client2204 and quest-tier behavior retained. Wiki465-file publication
+verified. [Deployment, recovery and QA](dungeons/classic-rewards-20261022/deployment/README.md).
 
-Extends Raid/Grind and Enter, Join, Status, Claim Rewards and Reset to21 Classic
-dungeons including Fear, Hate and Sky. Preserves the original seven indices,
-run revision and330 reward definitions. Fixes stale native item guards behind
-the reported Permafrost mismatch. Adds guarded entrance/content SQL, UUID-scoped
-plane quests and restart-safe Sky key services. Automated verification is
-separate from deployment and owner gameplay/balance acceptance; not live.
-See [source, evidence, pairing and exact all-zone QA](dungeons/classic-expansion-20261022/README.md).
-
-## Classic race robes — published for live QA, October 22
-## Quest ingredient qualities — October 22 candidate
 ## Quest ingredient qualities - October22 deployed for live QA
 
 Owner-authorized PR290 (`c66df0e`) is on main and the paired zone/seven-file

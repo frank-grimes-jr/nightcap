@@ -12,6 +12,8 @@ result={'free_bytes':shutil.disk_usage(stage).free,'services':{s:op.r.compact(s)
         'evidence_files':sorted(p.name for p in op.EVIDENCE.iterdir())}
 if action=='progress':
     result['clone_tables']=op.sql("SELECT TABLE_SCHEMA,COUNT(*) FROM information_schema.TABLES WHERE TABLE_SCHEMA LIKE 'nightcap_classic_stage_%' GROUP BY TABLE_SCHEMA;")
+    result['rehearsal_logs']={p.name:p.stat().st_size for p in (stage/'rehearsal-runtime').glob('*.log')}
+    result['container_memory']=op.r.out('docker','stats','--no-stream','--format','{{.Name}} {{.MemUsage}}')
 else:
     p=op.load('preflight.json');result['preflight']={'manifest_sha256':p['manifest_sha256'],'new_image_id':p['new_image_id']}
     result['rehearsal']=op.load('rehearsal.json')

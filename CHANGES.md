@@ -1,4 +1,18 @@
 # CHANGES
+## 2026-10-22 — All Classic dungeon options and MAGIC rewards deployed
+
+All 21 Classic combat dungeons, including Fear, Hate and Sky, now offer Raid,
+Grind, Enter, Join, Status, Claim Rewards and Reset. The 14 additions have 42
+unique designs in Polished and Ascended versions; all 414 dungeon reward
+definitions are MAGIC. Existing reward identities and other stats remain.
+Planar relics include level-46 equipped utility clicks with shared family reuse.
+Main PR293/3af85bb and the paired live deployment are verified. Owner gameplay
+and balance acceptance remain open.
+
+Fresh backup, exact state/content/cache preservation and all12 workers verified.
+Current client2204 and quest-tier behavior retained. Wiki465-file publication
+verified. [Deployment, recovery and QA](docs/dungeons/classic-rewards-20261022/deployment/README.md).
+
 ## 2026-10-22 — Unique Classic raid rewards candidate
 
 Adds42 dungeon-specific designs /84 Polished and Ascended definitions for the

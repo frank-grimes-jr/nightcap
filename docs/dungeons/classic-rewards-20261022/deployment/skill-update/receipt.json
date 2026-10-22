@@ -1,0 +1,12 @@
+{
+  "result": "PASS",
+  "installed_sha256": {
+    "operations.md": "00e4c5f1e5cc37b9381482771247d51b79583bc7a4cda00cefc7d47afffe56a0",
+    "world.md": "35c0edcbe6a640c36941b2c6ae3ef2ef3ded8ded6ffd7392388e438fe219c3a4",
+    "items.md": "b68c0cc970ed06cd3f22b1d61d713a708634b02bf503bbcde63b73a2cce62911",
+    "balance.md": "0858d60cd8883a15659204384b98529d0fe1cebc8e89335093bed0a546e39068",
+    "wiki.md": "e3c2c763804c8ecda2c7822a257250d8e42dc6d803146c670bd011ca0c137197",
+    "sources.json": "d46eb17e268ec2287677686ef63cacb6e549422f9865d389a79a98727bf3a277"
+  },
+  "owner_gameplay_accepted": false
+}

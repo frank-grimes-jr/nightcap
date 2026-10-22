@@ -1,12 +1,12 @@
 # Official Nightcap wiki — hosting and maintenance
 
-Updated October 21, 2026.
+Updated October 22, 2026.
 
 ## Current state
 
-- **Public URL: https://wiki.nightcapgame.org/** — live and verified October 21, 2026 (EDT).
-- **Active OVH origin release:** `20261021-aa-million-v1`; previous release
-  `20261021-aa-pacing-v1` is retained for recovery.
+- **Public URL: https://wiki.nightcapgame.org/** — live and verified October 22, 2026 (EDT).
+- **Active OVH origin release:** `20261022-classic-dungeons-v1`; previous release
+  `20261022-classic-robes-native-waist-v1` is retained for recovery.
 - **Features:** major departures from Classic, with dedicated upgrade and crafting guides.
 - **Equipment:** 96 item families with four quality links each, gear/augment
   views, name/slot/level/zone filters, sorting and 12-family pagination.
@@ -20,6 +20,16 @@ Updated October 21, 2026.
 
 Source and build commands: [wiki/README.md](../../wiki/README.md).
 Architecture: [ADR 0059](../adr/0059-official-public-wiki.md).
+
+## October22 Classic dungeon options and rewards
+
+All21 maintained guides and432 generated reward routes were reviewed. Seven
+dungeon guides and search now show21 dungeons/414 MAGIC items as Live testing,
+with14 new Keeper locations,95 added objectives and planar utility restrictions.
+All465 public hashes/headers and five private denials verify;16 Linux recovery
+tests and real pointer rollback pass. Current robes2204, quest ingredients,
+class armor, waypoints, catalog384values and commands remain unchanged.
+[Exact deployment and player QA](../dungeons/classic-rewards-20261022/deployment/README.md).
 
 ## October 21 AA million-point and XP boost publication
 

@@ -1,6 +1,6 @@
 # In-game acceptance — unique Classic raid rewards
 
-Candidate only. Run after an explicitly authorized paired deployment. Use non-GM
+Deployed for live testing on October22; results remain unconfirmed. Use non-GM
 characters for click, reagent, level and restriction checks. The expansion's
 `../classic-expansion-20261022/QA.md` still applies to all21 Keepers, run isolation,
 tasks, credit, shared loot, Sky keys, deadlines and recovery.
