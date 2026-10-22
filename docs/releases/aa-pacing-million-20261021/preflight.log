@@ -1,0 +1,68 @@
+{"stage": "/opt/nightcap/releases/aa-pacing-million-20261021", "verified_files": 7, "free_bytes": 1219747840}
+Verified with access closed.
+Verified with access closed.
+Access open.
+Verified with access closed.
+Access open.
+Verified with access closed.
+Verified with access closed.
+Access open.
+Verified with access closed.
+Nightcap native crypto self-test passed
+Nightcap native crypto self-test passed
+----------------------------------------------------------------------
+Ran 18 tests in 0.168s
+
+OK
+/srv/nightcap/quests/ecommons/Magus_Goldwind.pl syntax OK
+/srv/nightcap/quests/poknowledge/Magus_Goldwind.pl syntax OK
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 129B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/nightcap-game:aa-pacing-million-20261021-baseline
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 84B done
+#3 DONE 0.0s
+
+#4 [1/2] FROM docker.io/library/nightcap-game:aa-pacing-million-20261021-baseline@sha256:fd49b8895a09d6f137c4b9bf06f4fb0f3e6911b4e99ab44d7e056ea05e727115
+#4 resolve docker.io/library/nightcap-game:aa-pacing-million-20261021-baseline@sha256:fd49b8895a09d6f137c4b9bf06f4fb0f3e6911b4e99ab44d7e056ea05e727115 0.0s done
+#4 ...
+
+#5 [internal] load build context
+#5 transferring context: 316.26MB 3.6s done
+#5 DONE 3.6s
+
+#4 [1/2] FROM docker.io/library/nightcap-game:aa-pacing-million-20261021-baseline@sha256:fd49b8895a09d6f137c4b9bf06f4fb0f3e6911b4e99ab44d7e056ea05e727115
+#4 DONE 4.4s
+
+#6 [2/2] COPY bin/zone /opt/nightcap/bin/zone
+#6 DONE 0.7s
+
+#7 exporting to image
+#7 exporting layers
+#7 exporting layers 15.6s done
+#7 exporting manifest sha256:9b62d0539f844ec1cc6c4edecdfccd8b676a7c91e86173a7319bbdf17f6a036b done
+#7 exporting config sha256:26bf5a7d593f707397d37028e34a7c12b49f01b13974774c780be10795c9fa6f done
+#7 exporting attestation manifest sha256:39280068887695297604a37b7ffaf24e86bbfd826efea74a45547a493d2840df done
+#7 exporting manifest list sha256:94f517b775e49145481f5a58a8989bfe12cf3aa7941a3f7ae4970ef8b4965089 done
+#7 naming to docker.io/library/nightcap-game:aa-pacing-million-20261021 done
+#7 unpacking to docker.io/library/nightcap-game:aa-pacing-million-20261021
+#7 unpacking to docker.io/library/nightcap-game:aa-pacing-million-20261021 2.3s done
+#7 DONE 18.1s
+Traceback (most recent call last):
+  File "/opt/nightcap/releases/aa-pacing-million-20261021/rollout.py", line 361, in <module>
+    {'preflight': preflight, 'activate': activate, 'open': open_access,
+  File "/opt/nightcap/releases/aa-pacing-million-20261021/rollout.py", line 174, in preflight
+    assert shutil.disk_usage(ROOT).free >= 768*1024**2, 'Reserve stopped backup and runtime headroom'
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Reserve stopped backup and runtime headroom
+Traceback (most recent call last):
+  File "<stdin>", line 20, in <module>
+  File "/usr/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['python3', '/opt/nightcap/releases/aa-pacing-million-20261021/rollout.py', 'preflight']' returned non-zero exit status 1.

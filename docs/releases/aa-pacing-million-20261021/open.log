@@ -1,0 +1,15 @@
+Access open.
+ Container nightcap-production-db-1 Running
+ Container nightcap-production-game-1 Running
+ Container nightcap-production-db-1 Waiting
+ Container nightcap-production-db-1 Healthy
+ Container nightcap-production-game-1 Waiting
+ Container nightcap-production-game-1 Healthy
+ Container nightcap-production-gateway-1 Starting
+ Container nightcap-production-gateway-1 Started
+ Container nightcap-production-gateway-1 Waiting
+ Container nightcap-production-db-1 Waiting
+ Container nightcap-production-game-1 Waiting
+ Container nightcap-production-gateway-1 Healthy
+ Container nightcap-production-game-1 Healthy
+ Container nightcap-production-db-1 Healthy

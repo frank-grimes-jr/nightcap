@@ -1,0 +1,10 @@
+{
+  "world/world_boot.cpp": {
+    "manifest_sha256": "610089a3bd657b73b782cff61ea4f84d3c30bcf793c0da31fe2ddd81a60a291c",
+    "matches_raw_or_normalized": true
+  },
+  "common/repositories/zone_state_spawns_repository.h": {
+    "manifest_sha256": "3135f488ffcbb85a4b6879744dcda59470d4cdd3c54aa289dd94540d54867927",
+    "matches_raw_or_normalized": true
+  }
+}

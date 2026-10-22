@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "/opt/nightcap/releases/aa-pacing-million-20261021/finish_cache.py", line 82, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/opt/nightcap/releases/aa-pacing-million-20261021/finish_cache.py", line 79, in main
+    if action=='finish':finish(op)
+                        ^^^^^^^^^^
+  File "/opt/nightcap/releases/aa-pacing-million-20261021/finish_cache.py", line 39, in finish
+    assert op.sql('SELECT COUNT(*) FROM '+scratch+' o JOIN peq.zone_state_spawns n ON n.id=o.id WHERE NOT('+same+');').strip()=='0'
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+Traceback (most recent call last):
+  File "<stdin>", line 5, in <module>
+  File "/usr/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['python3', '/opt/nightcap/releases/aa-pacing-million-20261021/finish_cache.py', 'finish']' returned non-zero exit status 1.

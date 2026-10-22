@@ -3,8 +3,8 @@
   "native_duration_groups": 21,
   "goldwind_interactions": 6,
   "operator_tests": {
-    "Windows": 18,
-    "Linux": 18
+    "Windows": 23,
+    "Linux": 23
   },
   "wiki": {
     "content_refresh": 14,
@@ -16,5 +16,20 @@
   "build": "Isolated zone build v2 PASS, baseline exactly reproduced, dependencies resolve, no source/link-input drift.",
   "review": "Independent no blockers; disk reserve finding resolved.",
   "limitations": "Extracted actual native functions with boundary fakes. No in-game acceptance or deployment claim from tests.",
-  "test_setup": "Initial Perl harness assumed truthy script return; corrected to inspect $@. Initial Linux wiki bundle lacked nginx.conf; supplied actual file and reran16tests."
+  "test_setup": "Initial Perl harness assumed truthy script return; corrected to inspect $@. Initial Linux wiki bundle lacked nginx.conf; supplied actual file and reran16tests. Private guide verifier initially used /index.html (404 by design); corrected to the existing root route and verified all5 hashes plus CSP/private-cache protections.",
+  "recovery_tests": "Five tests cover actual finish/open compatibility, retained original hold, drift and backup/start failure; exact float/text comparison SQL verified.",
+  "deployment": {
+    "main": "e64f502",
+    "pr": 268,
+    "gateway_open": true,
+    "zone_sha256": "5dd5a6558c837ff2e4724edcd12afcabd2e846379a9ca7b8a6e57e7715600f7b",
+    "cache_expiry_authenticated": 485,
+    "database_restored": false,
+    "owner_gameplay_accepted": false
+  },
+  "publication": {
+    "wiki_files": 465,
+    "guide_files": 5,
+    "result": "PASS"
+  }
 }

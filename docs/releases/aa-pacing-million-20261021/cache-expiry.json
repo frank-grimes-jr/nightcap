@@ -1,0 +1,33 @@
+{
+  "expired": 485,
+  "zones": [
+    38,
+    75
+  ],
+  "corpse_rows": 0,
+  "instance": 0,
+  "survivors_exact": true,
+  "other_player_custom_state_preserved": true,
+  "first_market_rotation": {
+    "before": [
+      "1",
+      "1",
+      "88",
+      "0",
+      "4",
+      "2.500000",
+      "2026-10-20 00:22:46"
+    ],
+    "after": [
+      "1",
+      "1",
+      "89",
+      "0",
+      "4",
+      "2.500000",
+      "2026-10-22 00:22:53"
+    ],
+    "offers": 42,
+    "capacity": 44
+  }
+}
