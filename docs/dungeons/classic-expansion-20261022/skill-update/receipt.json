@@ -1,0 +1,12 @@
+{
+  "status": "installed",
+  "source_commit": "c4fb75cdec971172657040a28661fa84e995d725",
+  "files": {
+    "world.md": "1e20cf3144f141a4b2f6e4d05f511276992e6553490b2642c4f3823c52dbd5af",
+    "wiki.md": "50dc97a5829dca91a1f64b72437f46eb2c15fc82d42a7304d3244d0ea7a5d3c4",
+    "sources.json": "36fd4e84a66cb7632414119f89a999851f0fbe56061cb877c5c1ebeb0885c8ef"
+  },
+  "production_changed": false,
+  "validation": "Skill is valid; all47 scoped source fingerprints unchanged",
+  "wiki_impact": "Knowledge bookkeeping only; candidate notices and published-status boundary unchanged."
+}
