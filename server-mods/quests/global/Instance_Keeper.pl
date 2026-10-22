@@ -83,13 +83,27 @@ sub keeper_visual {
         helmtexture => 0, size => 3 });
 }
 
+sub keeper_position {
+    # Befallen's spawn and saved state overlap the waypoint portal. Keep the
+    # service eye 15 units into the entrance, facing arrivals, in every instance.
+    # Absolute coordinates avoid cumulative offsets on reload or saved-state boot.
+    return unless $zonesn eq 'befallen' && $npc->GetNPCTypeID() == 999227;
+    return if abs($npc->GetX() - 35) < 0.25
+        && abs($npc->GetY() + 67) < 0.25
+        && abs($npc->GetZ() - 3.1) < 0.25
+        && abs($npc->GetHeading() - 256) < 0.25;
+    $npc->GMMove(35, -67, 3.1, 256, 1);
+}
+
 sub EVENT_SPAWN {
     keeper_visual();
+    keeper_position();
 }
 
 sub EVENT_SIGNAL {
-    return unless $signal == 20261014;
+    return unless $signal == 20261014 || $signal == 20261022;
     keeper_visual();
+    keeper_position();
 }
 
 sub EVENT_SAY {
