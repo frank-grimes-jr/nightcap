@@ -1,4 +1,18 @@
 # CHANGES
+## 2026-10-22 — Tiered quest ingredients (candidate)
+
+Normal quest requirements accept verified Polished, Exalted and Ascended versions
+of the same item through Lua, native Perl hand-ins and task Deliver objectives.
+Fixes Shakrn's Aviak Charm/Crafted Gauntlets rejection and migrates five legacy
+Solusek Ro quests. Exact inputs are preferred, explicit quality requirements
+remain exact, failed native money checks restore counts, and real item instances
+are retained for returns. Rewards and forging costs do not change. Paired zone
+and seven quest files required; no SQL/cache/client update. Integration also fixes
+Kurron Ni's native currency mismatch while retaining the reviewed full-refund
+policy; all 64 ordinary Darkforge combinations pass. Tested candidate only;
+production/main and player acceptance remain pending. Evidence and QA:
+`docs/releases/quest-tier-handins-20261022/`.
+
 
 ## 2026-10-22 — Substantial class-armor Ascended rewards (candidate)
 
@@ -28,24 +42,24 @@ remains open. Wiki20261022-classic-robes-v1 carries matching live-testing guidan
 
 
 
-## 2026-10-22 — Glowing waypoint crystal candidate
+## 2026-10-22 — Glowing waypoint crystals deployed for live QA
 
-The owner selected a glowing crystal with a waypoint label. Marker999240 uses
-Crystal Shard geometry plus the existing portal glow and nameplate. Locations,
-attunement, recall, Explorer progress and Keepers are preserved. The paired
-proxy0.11.1 loads a complete crystal-capable list in both model modes and retains
-all22 prior model archives. Do not deploy the quest without its matching client.
-Automated checks pass; native visibility QA and main/server/client/wiki publication
-remain pending. [Design, pairing and exact QA](docs/ops/waypoint-crystal-20261022/README.md).
+The owner authorized “Merge to main and server” and confirmed EverQuest was
+fully closed. Main PR280 (`f293626`) and signed game **2026102202** are deployed.
+The complete signed 140-file client inventory, actual DLL/catalog pairing and
+all HTTPS hashes verify; 135 prior descriptors, including Classic robes, are
+preserved. Quest activation verified zero clients, the exact committed LF hash,
+12 aggregate reload acknowledgments and signal20261022. Login admissions were
+restored; world/all12 zone lifetimes, five services and Keeper quest are unchanged.
+No database write, native restart, repop or saved-state rewrite was needed.
 
-Integrated the subsequently published Classic robe release through main26761ff.
-The complete unsigned waypoint inventory plan preserves its two archives and all
-135 unrelated descriptors; all25 model-contract entries match. The merged wiki
-passes its content/search checks. No additional production change is authorized.
+Wiki20261022-waypoint-crystal-v1 is published with all465 public files verified.
 
-Installed Nightcap world/client/wiki knowledge and 26 candidate fingerprints
-are updated and validated. Unrelated concurrent source drift remains recorded
-separately in the [maintenance receipt](docs/ops/waypoint-crystal-20261022/skill-update/README.md).
+Fully close EverQuest and use normal launcher Play before testing. Crystal/label
+appearance, particles low/off, both model modes and discovery/recall still need
+owner in-game acceptance. Locations and earned progress are unchanged.
+
+[Deployment, recovery and exact QA](docs/ops/waypoint-crystal-20261022/README.md).
 
 ## 2026-10-22 — All-dungeon Keeper correction deployed for live QA
 

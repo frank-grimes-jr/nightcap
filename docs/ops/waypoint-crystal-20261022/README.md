@@ -1,11 +1,11 @@
-# Waypoint crystal — October 22, 2026 candidate
+# Waypoint crystal — deployed October 22, 2026 for live QA
 
 The owner reports waypoints have no obvious graphic and selected a glowing
 crystal with a label. NPC 999240 now uses Crystal Shard (race 425, neutral gender,
 size 6), retaining its existing `a waypoint` nameplate and WizardPortal nimbus
 178. Actual model geometry provides an additional cue; appearance with particles
-off still requires native QA. **Not deployed or published.** Do not apply the
-quest alone: it requires the paired client below. Existing positions are retained.
+off still requires native QA. **Main PR280, signed game2026102202 and the paired quest are deployed.**
+Do not apply the quest without the paired client below. Existing positions are retained.
 Historical October 13 portal acceptance does not resolve this new report.
 
 ## Design and pairing
@@ -23,7 +23,7 @@ Historical October 13 portal acceptance does not resolve this new report.
   generate/hash both lists and byte-identical stock `crs.eqg`. Proxy and packager
   share the 25-file contract. All 22 existing isolated model archives retain their
   bytes. Missing/changed paired assets fail the startup gate in both modes.
-  Proxy/catalog candidate version is 0.11.1.
+  Published proxy/catalog version is 0.11.1.
 
 Portal-only presentation depends on particles and has no mesh. A banner was
 considered; the owner chose the crystal. A humanoid guide would avoid client
@@ -67,7 +67,8 @@ Both catalog generators support `--check`; the model generator also requires
 
 ## Activation and recovery
 
-1. Main promotion and production/client/wiki publication require owner approval.
+1. The owner authorized this main/server release and its necessary paired
+   publication. This is not standing approval for later releases.
    Inspect the latest channel and preserve its complete signed inventory, current
    DLL/catalog pairing, unrelated assets and patch-note history. The staged
    five-file client delta is not a complete signed release. Assign a fresh higher
@@ -81,9 +82,12 @@ Both catalog generators support `--check`; the model generator also requires
    lock and supported quest reload without timer reset. Signal only NPC999240 with
    20261022. Verify hashes, reload logs, continuity and no Perl errors. Unbooted
    zones apply on spawn. No process kill, repop, saved-state deletion or SQL rewrite.
-4. For quest recovery, restore race127/gender0/size6 on active markers using a
-   scoped temporary signal handler, then reinstall the retained quest bytes and
-   reload. Restoring bytes alone does not undo an active illusion. Retain portal178.
+4. Run the retained operator's `activate.py rollback`: restore the exact backed-up
+   quest, reload without timer reset, then signal only NPC999240 with20261011.
+   The verified old handler actively restores race127/gender0/size6 and portal178;
+   no temporary quest is needed. Restoring bytes alone does not undo an illusion.
+   The operator preserves the original admission state, holds access after uncertain
+   post-write failure, validates owned partial files and supports exact rollback retry.
    Client recovery uses the prior complete matching pair at a higher counter;
    never lower checkpoints or restore player snapshots. Added crystal files may
    remain inert with the old proxy.
@@ -110,13 +114,13 @@ Both catalog generators support `--check`; the model generator also requires
 
 ## Wiki impact
 
-`wiki-review.json` assesses all maintained guides and generated reward routes.
-Waypoint Explorer, In development and Recent changes receive explicitly
-unreleased notices. Features/home/travel/dungeon descriptions, commands and
-reward catalog retain their released meaning. Local edits are not public;
-publication remains pending.
+All21 maintained guides and432 generated reward routes were reviewed again.
+Waypoint Explorer, In development and Recent changes now describe the deployed
+crystal with Live testing labels and the paired launcher instructions. Other
+guides, Features/home summaries, commands and catalog values retain their meaning.
+See deployment/wiki-review.json and the separate publication/HTTPS receipts.
 
-## Current release compatibility
+## Pre-publication compatibility evidence (historical)
 
 The candidate now incorporates main26761ff, including the published Classic robe
 release. A fresh HTTPS channel read exactly matches the previously verified signed
@@ -134,3 +138,20 @@ robe notices and unreleased crystal notices survive the resolved wiki merge.
 The published robe ledger e209649 is retained. The merged wiki passes 14 Python,
 6 search and 7 equipment checks and builds 458 pages. No native gameplay or
 publication acceptance is implied by these source/inventory checks.
+
+## Verified activation
+
+The owner authorized “Merge to main and server” and confirmed EverQuest was
+fully closed. Main PR280 (`f293626`) and signed game **2026102202** are deployed.
+The complete signed 140-file client inventory, actual DLL/catalog pairing and
+all HTTPS hashes verify; 135 prior descriptors, including Classic robes, are
+preserved. Quest activation verified zero clients, the exact committed LF hash,
+12 aggregate reload acknowledgments and signal20261022. Login admissions were
+restored; world/all12 zone lifetimes, five services and Keeper quest are unchanged.
+No database write, native restart, repop or saved-state rewrite was needed.
+
+Fully close EverQuest and use normal launcher Play before testing. Crystal/label
+appearance, particles low/off, both model modes and discovery/recall still need
+owner in-game acceptance. Locations and earned progress are unchanged.
+
+[Operator, tests, release hashes and recovery](deployment/README.md).

@@ -1,0 +1,60 @@
+--- C:/Users/verre/.codex/skills/nightcap-development/references/world.md
++++ C:/Users/verre/.codex/skills/nightcap-development/references/world.md
+@@ -42,0 +43,7 @@
++
++Source promoted through dev PR278 and test PR279/c209952; test has the exact
++reviewed candidate tree. Quest19/Python27 and launcher pairing/inventory suites
++pass after the dev merge. PR279 carries the exact five-step in-game QA. Main
++remains26761ff; no client/server/wiki publication or native acceptance. The owner
++has not yet approved main or paired release. Branch receipt: promotion.json in
++docs/ops/waypoint-crystal-20261022/, source442dce3.
+--- C:/Users/verre/.codex/skills/nightcap-development/references/client.md
++++ C:/Users/verre/.codex/skills/nightcap-development/references/client.md
+@@ -3,0 +4,7 @@
++
++Source promoted through dev PR278 and test PR279/c209952; test has the exact
++reviewed candidate tree. Quest19/Python27 and launcher pairing/inventory suites
++pass after the dev merge. PR279 carries the exact five-step in-game QA. Main
++remains26761ff; no client/server/wiki publication or native acceptance. The owner
++has not yet approved main or paired release. Branch receipt: promotion.json in
++docs/ops/waypoint-crystal-20261022/, source442dce3.
+--- C:/Users/verre/.codex/skills/nightcap-development/references/wiki.md
++++ C:/Users/verre/.codex/skills/nightcap-development/references/wiki.md
+@@ -3,0 +4,7 @@
++
++Source promoted through dev PR278 and test PR279/c209952; test has the exact
++reviewed candidate tree. Quest19/Python27 and launcher pairing/inventory suites
++pass after the dev merge. PR279 carries the exact five-step in-game QA. Main
++remains26761ff; no client/server/wiki publication or native acceptance. The owner
++has not yet approved main or paired release. Branch receipt: promotion.json in
++docs/ops/waypoint-crystal-20261022/, source442dce3.
+--- C:/Users/verre/.codex/skills/nightcap-development/references/sources.json
++++ C:/Users/verre/.codex/skills/nightcap-development/references/sources.json
+@@ -79 +79,2 @@
+-    "waypoint_crystal_integrated_20261022": "23e551eafe824363767f8c7ac66776e6431b362f"
++    "waypoint_crystal_integrated_20261022": "23e551eafe824363767f8c7ac66776e6431b362f",
++    "waypoint_crystal_test_promotion_20261022": "442dce32933dd76c648e71b85baf428b958a67ac"
+@@ -4119,0 +4121,7 @@
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev",
++        "path": "docs/ops/waypoint-crystal-20261022/promotion.json",
++        "role": "Verified waypoint source promotion through test only; main/publication and native QA pending",
++        "sha256": "f90ec6c6e21aa6e4ecfe6eb80fcfe94ce89c250cd01a8337440ff6a2f206cabb",
++        "revision": "442dce32933dd76c648e71b85baf428b958a67ac"
+@@ -5501,0 +5510,7 @@
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev",
++        "path": "docs/ops/waypoint-crystal-20261022/promotion.json",
++        "role": "Verified waypoint source promotion through test only; main/publication and native QA pending",
++        "sha256": "f90ec6c6e21aa6e4ecfe6eb80fcfe94ce89c250cd01a8337440ff6a2f206cabb",
++        "revision": "442dce32933dd76c648e71b85baf428b958a67ac"
+@@ -7456,0 +7472,7 @@
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev",
++        "path": "docs/ops/waypoint-crystal-20261022/promotion.json",
++        "role": "Verified waypoint source promotion through test only; main/publication and native QA pending",
++        "sha256": "f90ec6c6e21aa6e4ecfe6eb80fcfe94ce89c250cd01a8337440ff6a2f206cabb",
++        "revision": "442dce32933dd76c648e71b85baf428b958a67ac"

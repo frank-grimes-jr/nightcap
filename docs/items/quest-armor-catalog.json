@@ -133,7 +133,7 @@
   "downstream_compatibility": {
     "overthere/Kurron_Ni.pl": {
       "before_sha256": "4f4e0e8c746c176ba94f5536d3a6dcb8619bfc501def376b0849ed1fd9e82d4d",
-      "after_sha256": "42914766c0360fe1eaf2703a80f07b37835bb295ffe1b0c105c5bb84257d2cd7",
+      "after_sha256": "9369463c9221c87c433da30247cacc911fbdfa93ef1dae5041c6c1495994a698",
       "normal_ids": [
         3141,
         3145,
@@ -144,7 +144,7 @@
         603145,
         603140
       ],
-      "reason": "Preserve later Shadow Knight epic progression using any Normal/Ascended combination. Original platinum>=900 gate, helper cash-return behavior, faction and once-per-spawn letter remain."
+      "reason": "Native tier-helper integration accepts all ordinary Darkforge qualities. Retain platinum>=900 and full-coin-return policy by explicitly declaring submitted denominations and refunding once only after success; failure uses native return. Faction and once-per-spawn letter stay."
     }
   }
 }
