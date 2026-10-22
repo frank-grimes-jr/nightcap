@@ -1,5 +1,14 @@
 # CHANGES
 
+## 2026-10-22 — Befallen Keeper visibility candidate
+
+The targetable-but-invisible report revealed the Keeper and waypoint at exactly
+the same entrance pose. The quest now separates Befallen Keeper 999227 by 15 units
+on spawn/live refresh, including saved-state and private-instance loads. Dungeon
+actions, waypoint and player progress stay unchanged. Native geometry, 30 Keeper
+and 16 waypoint checks pass. Not deployed; visible resolution requires owner QA.
+Details: [evidence and QA](docs/ops/befallen-keeper-visibility-20261022/README.md).
+
 ## 2026-10-21 - AA million-point release deployed for live QA
 Main PR268/e64f502 and the authorized production rollout are complete. AA costs
 1,000,000 XP per point; 10% passive earning, earned points, purchases and raw

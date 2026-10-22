@@ -1,0 +1,119 @@
+{
+  "date": "2026-10-22",
+  "source_base": "c154d88550ffe02265dc207323267af9989bb9eb",
+  "status": "tested_candidate_not_deployed",
+  "production_observation": {
+    "zone": "befallen",
+    "zone_id": 36,
+    "keeper_npc_id": 999227,
+    "keeper_spawn2_id": 3266036,
+    "waypoint_npc_id": 999240,
+    "waypoint_spawn2_id": 3266054,
+    "both_spawn_xyz": [
+      35,
+      -82,
+      3
+    ],
+    "both_saved_public_xyz": [
+      35,
+      -82,
+      3.1
+    ],
+    "keeper_bodytype": 1,
+    "keeper_model_override": 0,
+    "quest_sha256": "b4fc39bd29cbc0856b8ec9bd0072285e5cade672fa43cf853bf96009d30bf7a9",
+    "stationary_spawn": {
+      "pathgrid": 0,
+      "dist": 0,
+      "min_x": 0,
+      "max_x": 0,
+      "min_y": 0,
+      "max_y": 0,
+      "wp_spawns": 0
+    }
+  },
+  "geometry": {
+    "map_sha256": "ff79e0f17c61eeb653648ead92abbf8aa5a658cf5f87c4ad26da18d85ac439b6",
+    "production_map_matches_local": true,
+    "probe_sha256": "14006936e7e314ca807f73702458a5960500368a1962ca1720eddbd3a9167cf9",
+    "target_xyz": [
+      35,
+      -67,
+      3.1
+    ],
+    "target_heading": 256,
+    "portal_separation": 15,
+    "sample_centers": [
+      [
+        35,
+        -67,
+        3
+      ],
+      [
+        35,
+        -74,
+        3
+      ]
+    ],
+    "sample_offsets_xy": [
+      [
+        0,
+        0
+      ],
+      [
+        4,
+        0
+      ],
+      [
+        -4,
+        0
+      ],
+      [
+        0,
+        4
+      ],
+      [
+        0,
+        -4
+      ]
+    ],
+    "ground_hits": 10,
+    "max_absolute_ground_z": 1e-06,
+    "min_headroom": 11.8986,
+    "clear_rays": [
+      [
+        [
+          35,
+          -82,
+          3
+        ],
+        [
+          35,
+          -67,
+          3
+        ]
+      ],
+      [
+        [
+          35,
+          -82,
+          6
+        ],
+        [
+          35,
+          -67,
+          6
+        ]
+      ]
+    ]
+  },
+  "validation": {
+    "keeper_assertions_passed": 30,
+    "waypoint_assertions_passed": 16,
+    "perl_syntax": "pass",
+    "pre_fix_regression": "new relocation expectations fail",
+    "visible_client_acceptance": "pending",
+    "invisibility_root_cause": "overlap confirmed; rendering causality remains unproven",
+    "independent_review": "No blocking implementation findings. Verified native movement/guard binding and saved-state ordering; stationary grid/roam fields subsequently confirmed in production. Test wording narrowed; rollback retains scoped inverse position handler."
+  }
+}

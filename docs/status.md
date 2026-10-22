@@ -1,5 +1,13 @@
 # Current Nightcap status
 
+## Befallen Keeper visibility — candidate, October 22
+
+The owner reports a targetable but invisible Keeper. Fresh production inspection
+confirms exact overlap with the waypoint. A scoped quest correction separates the
+eye by 15 units; geometry and 46 regression assertions pass. It is not deployed;
+the cause of invisibility and rendering acceptance remain open until live QA.
+[Evidence, activation and QA](ops/befallen-keeper-visibility-20261022/README.md).
+
 ## 2026-10-21 - AA million-point release deployed for live QA
 Main PR268/e64f502 and the authorized production rollout are complete. AA costs
 1,000,000 XP per point; 10% passive earning, earned points, purchases and raw
