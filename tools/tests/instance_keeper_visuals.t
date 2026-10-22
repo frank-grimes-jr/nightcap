@@ -117,4 +117,37 @@ EVENT_SPAWN();
 is(scalar @moves,$count+2,'native ground offset does not cause repeated movement');
 is(scalar @lookups,$legacy_lookups,'visual correction never reads or changes dungeon state');
 is(scalar @native_actions,2,'visual correction never invokes a dungeon action');
+
+# Every audited overlap gets an absolute pose; already-separate dungeons do not.
+my @placements = (
+    ['unrest',999228,67,-38,3.1,384],
+    ['najena',999230,858,-61,4.1,256],
+    ['permafrost',999232,46,-121,2.1,128],
+    ['soldungb',999233,-248,-424,-108,384],
+);
+for my $row (@placements) {
+    my ($zone,$type,@pose)=@$row;
+    $zonesn=$zone; $npc=bless {type=>$type,race=>108},'Keeper';
+    EVENT_SPAWN();
+    is_deeply($moves[-1],[@pose,1],"$zone separates an existing eye on spawn");
+    my $before=scalar @moves;
+    $signal=20261022; EVENT_SIGNAL(); EVENT_SIGNAL();
+    is(scalar @moves,$before,"$zone repeat refresh is idempotent");
+    $npc=bless {type=>$type},'Keeper'; EVENT_SIGNAL();
+    is_deeply($moves[-1],[@pose,1],"$zone loaded Keeper moves to fixed pose");
+    $before=scalar @moves;
+    $npc=bless {type=>999229,race=>108},'Keeper'; EVENT_SIGNAL();
+    is(scalar @moves,$before,"$zone wrong type is never moved");
+}
+for my $row (['highkeep',999229],['cazicthule',999231]) {
+    ($zonesn,my $type)=@$row;
+    my $before=scalar @moves;
+    $npc=bless {type=>$type},'Keeper'; EVENT_SPAWN();
+    $signal=20261022; EVENT_SIGNAL();
+    is(scalar @moves,$before,"$zonesn separate placement preserved");
+    is($npc->GetRace(),108,"$zonesn shared appearance retained");
+}
+is(scalar @lookups,$legacy_lookups,'all-zone placement never reads dungeon state');
+is(scalar @native_actions,2,'all-zone placement never invokes dungeon actions');
+
 done_testing();

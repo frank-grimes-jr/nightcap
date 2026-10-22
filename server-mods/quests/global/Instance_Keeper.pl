@@ -84,15 +84,23 @@ sub keeper_visual {
 }
 
 sub keeper_position {
-    # Befallen's spawn and saved state overlap the waypoint portal. Keep the
-    # service eye 15 units into the entrance, facing arrivals, in every instance.
-    # Absolute coordinates avoid cumulative offsets on reload or saved-state boot.
-    return unless $zonesn eq 'befallen' && $npc->GetNPCTypeID() == 999227;
-    return if abs($npc->GetX() - 35) < 0.25
-        && abs($npc->GetY() + 67) < 0.25
-        && abs($npc->GetZ() - 3.1) < 0.25
-        && abs($npc->GetHeading() - 256) < 0.25;
-    $npc->GMMove(35, -67, 3.1, 256, 1);
+    # Only audited waypoint overlaps: fixed poses also normalize saved spawns.
+    # High Keep and Cazic-Thule are already separate and retain their placement.
+    my %positions = (
+        befallen => [999227,35,-67,3.1,256],
+        unrest => [999228,67,-38,3.1,384],
+        najena => [999230,858,-61,4.1,256],
+        permafrost => [999232,46,-121,2.1,128],
+        soldungb => [999233,-248,-424,-108,384],
+    );
+    my $pose = $positions{$zonesn};
+    return unless $pose && $npc->GetNPCTypeID() == $pose->[0];
+    my ($type, $x, $y, $z, $heading) = @$pose;
+    return if abs($npc->GetX() - $x) < 0.25
+        && abs($npc->GetY() - $y) < 0.25
+        && abs($npc->GetZ() - $z) < 0.25
+        && abs($npc->GetHeading() - $heading) < 0.25;
+    $npc->GMMove($x, $y, $z, $heading, 1);
 }
 
 sub EVENT_SPAWN {

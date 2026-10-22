@@ -1,5 +1,14 @@
 # Current Nightcap status
 
+## 2026-10-22 — Remaining dungeon Keeper overlap correction
+
+An all-seven audit found four more exact waypoint overlaps: Unrest, Najena,
+Permafrost and Nagafen's Lair. The shared quest now separates these four by15
+units, retaining Befallen's correction and the already-separate High Keep and
+Cazic-Thule poses. Geometry,52 Keeper/16 waypoint/10 recovery assertions and8
+operator tests pass. Activation and visible QA remain distinct; see
+[full audit, positions and QA](ops/dungeon-keeper-visibility-20261022/README.md).
+
 ## Befallen Keeper visibility — deployed for live QA, October 22
 
 The owner reports a targetable but invisible Keeper. Fresh production inspection
