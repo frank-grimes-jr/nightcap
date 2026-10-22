@@ -1,0 +1,31 @@
+ Container nightcap-production-gateway-1 Stopping 
+ Container nightcap-production-gateway-1 Stopped 
+ Container nightcap-production-game-1 Stopping 
+ Container nightcap-production-game-1 Stopped 
+ Container nightcap-production-db-1 Running 
+ Container nightcap-production-game-1 Recreate 
+ Container nightcap-production-game-1 Recreated 
+ Container nightcap-production-db-1 Waiting 
+ Container nightcap-production-db-1 Healthy 
+ Container nightcap-production-game-1 Starting 
+ Container nightcap-production-game-1 Started 
+ Container nightcap-production-db-1 Waiting 
+ Container nightcap-production-game-1 Waiting 
+ Container nightcap-production-db-1 Healthy 
+ Container nightcap-production-game-1 Healthy 
+ Container nightcap-production-gateway-1 Stopping 
+ Container nightcap-production-gateway-1 Stopped 
+ Container nightcap-production-game-1 Stopping 
+ Container nightcap-production-game-1 Stopped 
+Traceback (most recent call last):
+  File "/opt/nightcap/releases/aa-pacing-million-20261021/rollout.py", line 361, in <module>
+    {'preflight': preflight, 'activate': activate, 'open': open_access,
+  File "/opt/nightcap/releases/aa-pacing-million-20261021/rollout.py", line 226, in activate
+    assert saved_state() == data; untouched(p, 'before' if recovery else 'after'); health(); r.closed_ports()
+           ^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+Traceback (most recent call last):
+  File "<stdin>", line 4, in <module>
+  File "/usr/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['python3', '/opt/nightcap/releases/aa-pacing-million-20261021/rollout.py', 'activate']' returned non-zero exit status 1.

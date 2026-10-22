@@ -1,16 +1,24 @@
 # CHANGES
 
-## 2026-10-21 - AA million-point candidate, owner-authorized rollout
-1,000,000 XP per AA, retaining 10% passive and all earned points/purchases/raw
-remainder. Retires Goldwind's paid XP package while preserving Matron's free
-buffs. XP boosts now retain positive durations; legacy permanent copies receive
-the minimum native countdown when loaded. Zone-only native rebuild plus guarded
-rule/quest activation and full-runtime restart; client/caches unchanged.
-Main/server publication is authorized; execution and owner gameplay acceptance
-are recorded separately in docs/releases/aa-pacing-million-20261021/README.md.
+## 2026-10-21 - AA million-point release deployed for live QA
+Main PR268/e64f502 and the authorized production rollout are complete. AA costs
+1,000,000 XP per point; 10% passive earning, earned points, purchases and raw
+partial XP are preserved. Goldwind's paid XP package is retired in Commonlands
+and its legacy PoK script. Matron Restora's free ordinary buffs remain.
+XP boosts retain positive durations; stale nonexpiring finite-duration copies
+receive the minimum countdown when loaded and fade as unsuspended timers run.
+
+The paired zone/rule/quest release passed all 12 zone checks and reopened access.
+Current zone SHA starts 5dd5a655; world, client and caches remain paired/unchanged.
+Two capacity preflight holds and normal seven-day expiry of 485 non-corpse NPC
+cache rows were diagnosed with original receipts retained. A fresh stopped
+backup preceded the final restart; all other player/custom state was preserved.
+Wiki20261021-aa-million-v1 and the matching private guide verify all 465/5 files.
+Owner gameplay/balance acceptance remains open; exact QA and evidence:
+docs/releases/aa-pacing-million-20261021/README.md.
 
 ## 2026-10-21
-### AA pacing — deployed for live QA
+### Earlier 40,000-XP trial — superseded by the million-point release
 - Deployed AA:ExpPerPoint 4,000 -> 40,000 after the owner reported points arriving
   too quickly. Retain 10% passive, normal leveling, earned points and purchases.
 - Guarded forward/inverse SQL and native conversion checks accompany exact QA.

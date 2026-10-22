@@ -5,8 +5,8 @@ Updated October 21, 2026.
 ## Current state
 
 - **Public URL: https://wiki.nightcapgame.org/** — live and verified October 21, 2026 (EDT).
-- **Active OVH origin release:** `20261021-aa-pacing-v1`; previous release
-  `20261019-thj-behaviors-live-v1` is retained for recovery.
+- **Active OVH origin release:** `20261021-aa-million-v1`; previous release
+  `20261021-aa-pacing-v1` is retained for recovery.
 - **Features:** major departures from Classic, with dedicated upgrade and crafting guides.
 - **Equipment:** 96 item families with four quality links each, gear/augment
   views, name/slot/level/zone filters, sorting and 12-family pagination.
@@ -21,15 +21,15 @@ Updated October 21, 2026.
 Source and build commands: [wiki/README.md](../../wiki/README.md).
 Architecture: [ADR 0059](../adr/0059-official-public-wiki.md).
 
-## October 21 AA pacing publication
+## October 21 AA million-point and XP boost publication
 
-Seven maintained guides and search now reflect the activated 40,000 XP-per-AA
-threshold, unchanged 10% passive earning and preserved earned progress. All 21
-guides and generated reward templates/catalog were reviewed; item/zone values
-and command behavior are unchanged. All 465 HTTPS files, headers and private-source
-denials verify. Rollback was rehearsed with private downloads, web configuration
-and service identities preserved. Owner gameplay acceptance remains open.
-Evidence: [AA pacing release](aa-point-cost-40000-20261021/README.md).
+Eight guides and search reflect 1,000,000 XP per AA, 10% passive, Goldwind's
+retirement, Matron's free buffs and the temporary XP boost policy. All 21 guides
+and 432 generated reward routes were reviewed; catalog values and command behavior
+remain unchanged. All 465 HTTPS hashes/headers and five private-route denials
+verify. Publication rehearsed rollback while preserving private downloads,
+configuration and services. Owner gameplay acceptance remains open. Evidence:
+[AA release](../releases/aa-pacing-million-20261021/README.md).
 
 ## October 19 client launch repair
 

@@ -1,5 +1,5 @@
 {
-  "scope": "All 21 maintained guides and 432 generated reward routes reviewed against main eace5eb plus candidate changes.",
+  "scope": "All 21 maintained guides and 432 generated reward routes reviewed against main e64f502 and final deployment/publication evidence.",
   "changed": [
     "combat",
     "commands",
@@ -11,6 +11,6 @@
     "tunnel"
   ],
   "unchanged": "Generated hunt item/zone stats and acquisition, catalog, legal AA pool, costs, commands, era and client remain unchanged. Future earned boosts are not announced as available.",
-  "publication": "Prepared; publish only after verified authorized production activation.",
+  "publication": "Verified wiki20261021-aa-million-v1 (465 HTTPS files) and private guide20261021-aa-million-guide-v1 (5); rollback and protections passed.",
   "qa": "Owner gameplay and balance acceptance open."
 }
