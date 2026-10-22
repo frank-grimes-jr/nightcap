@@ -14,7 +14,10 @@ HELPER = Path('/opt/nightcap/releases/zone-hunt-20261009/runtime_ops.py')
 PUBLIC = {'items','spells_new','npc_types','spawn2','spawngroup','spawnentry','tasks',
           'task_activities','tasksets','nightcap_dungeon_spawns','doors','merchantlist',
           'zone','content_flags','faction_list','aa_ability','aa_ranks','aa_rank_effects',
-          'rule_sets','rule_values','variables','logsys_categories'}
+          'rule_sets','rule_values','variables','logsys_categories',
+          'loottable','loottable_entries','lootdrop','lootdrop_entries',
+          'npc_spells','npc_spells_entries','npc_faction','npc_faction_entries',
+          'grid','grid_entries'}
 EXTRA_STATE = {'account','inventory','sharedbank','guild_bank','keyring','quest_globals',
                'timers','completed_tasks','instance_list','instance_list_player',
                'respawn_times','zone_state_spawns','guilds','guild_members','pets',

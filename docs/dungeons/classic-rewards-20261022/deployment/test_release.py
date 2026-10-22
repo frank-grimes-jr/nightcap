@@ -1,11 +1,20 @@
 """Packaging and preservation checks runnable without production credentials."""
-import ast,importlib.util,sys,tarfile,unittest
+import ast,importlib.util,json,re,sys,tarfile,unittest
 from pathlib import Path
 HERE=Path(__file__).resolve().parent
 spec=importlib.util.spec_from_file_location('prepare',HERE/'prepare_local.py')
 prepare=importlib.util.module_from_spec(spec);spec.loader.exec_module(prepare)
 
 class Release(unittest.TestCase):
+    def test_clone_includes_every_runtime_content_dependency(self):
+        tree=ast.parse((HERE/'rollout.py').read_text())
+        public=ast.literal_eval(next(n.value for n in tree.body if isinstance(n,ast.Assign)
+            and any(isinstance(t,ast.Name) and t.id=='PUBLIC' for t in n.targets)))
+        contract=json.loads((HERE.parents[3]/'docs/dungeons/runtime-contract.json').read_text())
+        referenced={m.group(1) for c in contract['content'] for m in re.finditer(
+            r'\b(?:FROM|JOIN)\s+`?([A-Za-z_][A-Za-z_0-9]*)',c['sql'],re.I)}
+        self.assertFalse(referenced-public-{'nightcap_dungeon_state'},referenced-public)
+
     def test_windows_packaging_sets_executable_modes(self):
         for name in ('bin/zone','bin/world','bin/shared_memory','cache_check'):
             entry=tarfile.TarInfo(name);entry.mode=0o666

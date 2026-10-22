@@ -21,6 +21,8 @@ def main():
         body=re.sub(r'<p\b[^>]*>.*?</p>',notice,body,flags=re.S)
         body=body.replace('available from all seven entrance Keepers','available from all 21 entrance Keepers')
         body=body.replace('each of the seven released dungeons','each of the 21 released dungeons')
+        body=body.replace('Raid or Grind in seven private dungeons','Raid or Grind in all 21 Classic dungeons')
+        body=body.replace('All seven dungeons in both modes need in-game checks.','All 21 dungeons in both modes need in-game checks.')
         body=body.replace('Instance Keepers offer Befallen, Unrest, High Keep, Najena, Cazic-Thule, Permafrost, and Nagafen’s Lair.',
             'Instance Keepers offer all 21 Classic combat dungeons, including Fear, Hate and Sky.')
         body=body.replace('October 22 — every Classic dungeon candidate','October 22 — every Classic dungeon and unique rewards live')
@@ -46,7 +48,7 @@ def main():
             assert 'id="added-keepers"' not in body and 'id="added-objectives"' not in body
             body=body.replace('<h2 id="unique-rewards">',table+bosses+'<h2 id="unique-rewards">',1)
             body=body.replace('Every dungeon uses these designs at its equipment band:','Every dungeon uses these designs at its equipment band. Original dungeons:')
-            article['summary']='Raid and Grind choices, Keepers, objectives and unique MAGIC rewards across21 Classic dungeons, including Fear, Hate and Sky.'
+            article['summary']='Raid and Grind choices, Keepers, objectives and unique MAGIC rewards across 21 Classic dungeons, including Fear, Hate and Sky.'
         assert body!=article['body'],name
         article['body']=body;article['updated']='2026-10-22'
         article['sources'].append('docs/dungeons/classic-rewards-20261022/deployment/: paired21-zone/414-MAGIC release verified; owner gameplay and balance QA open')

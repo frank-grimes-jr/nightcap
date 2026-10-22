@@ -5,7 +5,7 @@ STAGE=Path('/opt/nightcap/releases/classic-dungeons-rewards-20261022')
 spec=importlib.util.spec_from_file_location('rollout',STAGE/'rollout.py')
 op=importlib.util.module_from_spec(spec);spec.loader.exec_module(op)
 parser=argparse.ArgumentParser()
-parser.add_argument('--cause',choices=('isolated-loader-memory','clone-foreign-keys'),required=True)
+parser.add_argument('--cause',choices=('isolated-loader-memory','clone-foreign-keys','clone-content-dependencies'),required=True)
 args=parser.parse_args()
 assert __debug__;os.umask(0o077);op.initialize()
 with (op.ROOT/'.deployment.lock').open('a') as lock,open('/var/lock/nightcap-gm.lock','a') as gm:
