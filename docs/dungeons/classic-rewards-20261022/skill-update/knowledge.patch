@@ -1,0 +1,753 @@
+--- references/world.md
++++ references/world.md
+@@ -32,51 +32,48 @@
+ state during recovery. Full task delivery lifecycle remains in-game QA.
+ Source/tests/manifest/review/recovery/QA: docs/releases/quest-tier-handins-20261022/.
+ 
+-## Every Classic dungeon — October22 candidate, not deployed
+-
+-The owner explicitly includes Fear, Hate and Sky. Candidate source c4fb75cdec97 in
+-E:/EQ_Local_Dev/_worktrees/classic-dungeon-options covers21 combat dungeon zones,
+-147 objectives and42 journals. Original seven indices/objectives/tasks, revision
+-2026101601 and all330 current reward definitions remain exact. Added finals reuse
+-shared band saber/signet/satchel designs; no new power tier or balance acceptance.
+-Current native populations are retained, including the Hole; only the previously
+-released private Classic CT restoration is historical. Cities/outdoors/service
+-temples are outside this combat-dungeon list.
+-
+-The Permafrost screenshot mismatch reproduced read-only:39 schema checks passed,
+-41 old item batches failed after the October18 retune. Current compiler330 items
+-matched production exactly; refreshed original252 checks all passed. The expanded
+-contract needs the new additive SQL. Never replay the old October16 item guards
+-or replace the current production cache with an older local cache.
+-
+-Native eq.get_dungeon_run_id() plus the paired nightcap_dungeons Lua module
+-scopes Sky globals by UUID even after expiry/suspension. Managed Fear cannot
+-toggle public instance-zero conditions. Five canonical private Sky boss points
+-replace delayed/gated actors; four use8h Grind timers, princess retains4h.
+-Seven protected canonical Sirran copies keep all eight token exchanges available
+-after idle/restart. The managed saved-state loader intentionally skips living
+-dynamic NPCs: do not rely on quest-spawned Sirran for recovery or globally enable
+-dynamic replay. Managed timers/donation never remove required objectives; public
+-quest behavior remains. Bazzt private z806 is ground-probed.
+-
+-Source: tools/classic_dungeon_catalog.py, classic_dungeon_migration.py,
+-dungeon_refresh_contract.py; native dungeon_service/catalog/contract/policy;
+-paired11 plane scripts and server-mods/lua_modules/nightcap_dungeons.lua.
+-Evidence: docs/dungeons/classic-expansion-20261022/{README.md,QA.md,
+-verification.json,rehearsal.json,build-manifest.json,review.md}.
+-20 focused native/catalog/actual-Lua tests,483 isolated SQL predicates, geometry,
+-independent review and native build pass. Zone babebceb5 reproduces/authenticates
+-the retained5dd5a655 baseline before replacement. This is not installed or accepted.
+-
+-Pair zone+11 quests+module at server/lua_modules; existing ItemData/rule ABI,
+-world/shared_memory/client and330 item definitions do not change. Verify current
+-cache. Full-runtime maintenance is required by production's supervisor. No main
+-promotion, deployment, cache replacement, player-state rewrite or wiki publication
+-is authorized by this candidate. After added runs exist, preserve a compatible
+-21-zone binary and earned state; do not revert blindly to seven-zone service.
+-
+-
+-Audited 2026-10-12. Placement history has several revisions; use current feature source and exact runbook, not a convenient old SQL file.
++## Every Classic dungeon and unique rewards — October22 candidate, not deployed
++
++Source ffab60e91036 in E:/EQ_Local_Dev/_worktrees/classic-dungeon-options covers21
++Classic combat dungeon zones including Fear/Hate/Sky,147 objectives and42 journals.
++Originalseven indices/objectives/tasks and revision2026101601 remain stable.
++All21 finals now have three exclusive designs. Added14 contribute84 definitions;
++all414 rewards are MAGIC. Existing330 change only220 MAGIC flags; old names,
++stats, IDs, runs, earned rewards and recorded drops remain. Current native content
++is retained, including the Hole; private Classic CT remains the prior restoration.
++
++The screenshot mismatch was stale October16 item predicates after October18's
++retune:39 schema checks passed and41 old item batches failed in the read-only
++capture. Current guards derive from the reviewed compiler, not live acceptance
++hashes. The combined candidate requires the additive dungeon SQL followed by
++20261022_classic_dungeon_rewards.sql; never rerun old October16 installation.
++
++Native eq.get_dungeon_run_id() and paired nightcap_dungeons Lua module isolate
++plane quest state by permanent UUID. ManagedFear cannot toggle public conditions.
++Sky uses five canonical private bosses plus seven protected persistent Sirran
++services; four bosses use8h Grind timers and princess4h. All eight key routes
++retain required tokens. Managed saved-state skips living dynamic NPCs, so do not
++rely on temporary quest-spawned services. Bazzt z806 is ground-probed. Public and
++legacy quest behavior remains. Every-zone gameplay and solo balance remain open.
++
++Pair matching world,zone,shared_memory, regenerated target item cache and the
++11 plane quest scripts/Lua module. common/shareddb consumes the expanded reward
++range; ItemData/rule ABI is unchanged. Existing spell IDs need no new client
++assets: preserve the current signed client and never downgrade parallel releases.
++Production child exit restarts the runtime: use full maintenance, not zone kill.
++After access, preserve a compatible21-zone/414-item runtime and all earned state.
++
++Current source/evidence: tools/classic_dungeon_rewards.py, classic_reward_migration.py,
++dungeon_catalog.py, dungeon_refresh_contract.py; common/dungeon_policy/contract;
++docs/dungeons/classic-rewards-20261022/{README.md,REWARDS.md,QA.md,verification.json,
++rehearsal.json,build-manifest.json,cache-verification.json,review.md}. Prior
++classic-expansion-20261022 records retain their pre-reward330-item scope.
++Native world/zone/shared_memory build and baseline reproduction pass;39schema/
++497content SQL checks and414 actual cache rows/888 negative cases pass. Broader
++77-test suite:74pass,2optionalDBskips,1 unchanged generator drift reproduced at
++HEAD. Historical installation/package/verification and expansion-only rehearsal
++entrypoints are frozen; use combined reward rehearsal. No production/main/wiki
++activation or owner acceptance is claimed.
+ 
+ ## Routing and APIs
+ 
+--- references/wiki.md
++++ references/wiki.md
+@@ -26,24 +26,23 @@
+ Pair future publication with the authorized combined native/quest release.
+ Tested candidate; main/production/player QA remain pending.
+ 
+-## Every Classic dungeon — October22 unpublished candidate
+-
+-Source c4fb75cdec97 in E:/EQ_Local_Dev/_worktrees/classic-dungeon-options adds explicit
+-Not released notices to Dungeon modes, Features, home, Travel, Equipment, In
+-development and Recent changes. All21 maintained guides and432 generated reward
+-routes were reviewed independently. Preserve originalseven Live testing and
+-published robe game2026102201 notices. Added14 finals use existing shared designs;
+-exclusive designs apply to the releasedseven. ManagedSky permanent Sirran services
+-and4h/8h timers are distinguished from public/legacy Sky.
+-
+-The Hunt catalog48zones/384variants, commands and unrelated guides remain exact.
+-Global reviewed_revision is retained; scoped candidate evidence is appended to
+-wiki/content-review.json. check_refresh --ref HEAD --include-worktree correctly
+-reports source review required; it is not a publication approval.14 Python checks,
+-13 Node scenarios and458-page build pass. docs/dungeons/classic-expansion-20261022/
+-{wiki-review.json,wiki-refresh.json,verification.json,QA.md} own impact and status.
+-No gameplay/main promotion, wiki publication or owner gameplay acceptance.
+-
++## Every Classic dungeon and relics — October22 unpublished candidate
++
++Source ffab60e91036 in E:/EQ_Local_Dev/_worktrees/classic-dungeon-options updates seven
++guides with explicit Not released coverage:21 combat dungeons,42 new designs/
++84 variants, all414 MAGIC and three level46 planar utilities. Dungeon modes lists
++all42 design names and explains Sky's Bat Wing/no-levitation restriction. Existing
++seven Live testing history remains separate. All21 guides/432 generated routes
++reviewed;48-zone/384-item Hunt catalog and commands are unchanged. Do not merge
++these dungeon candidates into the published Hunt equipment projection.
++
++21 Python checks pass with9 POSIX skips;13 Node scenarios and458-page build pass.
++Global publication ledger remains unchanged; scoped candidate review records
++source drift without claiming publication. Preserve newer parallel waypoint,
++robe, class-armor and other notices when integrating; do not publish this older
++whole-site tree over a newer public version. Current evidence:
++docs/dungeons/classic-rewards-20261022/{wiki-review.json,wiki-refresh.json,README.md}.
++No main/gameplay deployment, wiki publication or owner gameplay/balance acceptance.
+ 
+ ## Waypoint crystal - October22 published, native QA open
+ 
+--- references/items.md
++++ references/items.md
+@@ -1,4 +1,39 @@
+ # Items, loot, forging and economy
++
++## Unique Classic dungeon relics — October22 candidate
++
++ffab60e91036 in E:/EQ_Local_Dev/_worktrees/classic-dungeon-options appends42 authored
++designs/84 Polished-Ascended variants at960330–960413. Every21 dungeon final owns
++three designs, retaining80/18/2 quantity and90/10 quality rolls. Shared completion
++pool and Grind remain. All414 dungeon definitions are MAGIC:220 existing flag
++updates only. legacy_items() and existing_items() preserve frozen330 preimages.
++Current items() applies MAGIC afterward and appends the new level-band templates.
++
++New numeric power equals existing slot/band/quality ceilings; only stat pairs and
++resist distribution change. Recommended level follows20/30/40/50 band; planes
++require46. All remain tradeable, permanent, non-LORE, zero resale and unforgeable.
++Authored inspect lore is narrative, not LORE ownership. No new heroics, haste,
++regen, focus/proc multipliers or new spell/client assets are introduced.
++
++Fear Visage of Unbroken Will uses SeeInvisible80; Hate Maestro's Unfinished
++Requiem uses Invisibility42; Sky Astrolabe of the Eighth Island uses Levitate261.
++EquipClick4/level46/unlimited charges, base10s casts and300/600/900s reuse. Groups
++91/92/93 share both qualities/copies, native timers191/192/193 plus persisted
++character_item_recast timestamps. Existing focus reductions apply. Levitate uses
++Bat Wing13068 subject to native conservation and remains forbidden inside Sky;
++it never replaces keys. Full click fields and inspect lore are cache-guarded.
++
++Guarded SQL checks complete330 public preimages, utility spells, all new-ID refs
++including dungeon members/loot and serialized checkpoints/corpses, item cooldown
++groups, native timers and character_item_recast. Repeated or partial writes fail
++closed. Rebuild common/shareddb and service consumers; pair world/zone/loader/cache.
++Retain definitions/earned receipts on disable. No destructive live bootstrap.
++Source/tests/evidence: tools/classic_dungeon_rewards.py, classic_reward_migration.py,
++tests/test_classic_dungeon_rewards.py, rehearse_classic_rewards.py and
++rehearse_classic_reward_cache.py; docs/dungeons/classic-rewards-20261022/.
++39schema/497content predicates and414 actual cache rows/888 negative cases pass.
++Independent review is complete; gameplay, balance and deployment remain open.
++
+ 
+ ## Quest ingredient qualities — October 22 candidate
+ 
+@@ -72,9 +107,9 @@
+ cap at reviewed top reductions. No universal THJ multiplier is inferred.
+ 
+ The209-family starter policy preserves modest quality steps below comparable
+-Normal dungeon gear, fixed weapon delay and cultural armor exclusion. Current
+-dungeon_catalog.items() emits the retuned330-definition catalog; legacy_items()
+-is only the dated preimage. item_scaling_overrides.py owns the final fresh
++Normal dungeon gear, fixed weapon delay and cultural armor exclusion. The deployed October18 catalog has330 definitions. Current candidate
++dungeon_catalog.items() emits414 MAGIC definitions; existing_items() retains the
++retuned330 and legacy_items() the dated pre-retune migration preimage. item_scaling_overrides.py owns the final fresh
+ bootstrap block and requires exact present identities. The generic two-column
+ SD/HA planner excludes these families; never rerun destructive bootstrap live.
+ 
+--- references/balance.md
++++ references/balance.md
+@@ -1,4 +1,18 @@
+ # Combat and balance knowledge
++
++## Classic dungeon relic budgets — October22 unreleased candidate
++
++Candidate ffab60e91036 uses reviewed existing dungeon slot/band/quality values for84
++new definitions, with equal primary-stat/resist totals. It introduces no raw
++power tier, focus, heroics, haste or regen. Planes require46 and earn nine themed
++relics, including native SeeInvisible/Invisibility/Levitate utility clicks with
++shared quality-family cooldowns. Existing focus reductions and reagent/zone rules
++remain; Sky itself forbids Levitate. Numeric budget tests and native cache checks
++do not establish solo difficulty or multiclass/pet balance. Record legal spent
++AAs, gear, resources, deaths and clear times at each band and46–50 planes before
++promotion. docs/dungeons/classic-rewards-20261022/{REWARDS.md,QA.md,verification.json}
++owns the proposal and acceptance boundary; source tools/classic_dungeon_rewards.py.
++
+ 
+ ## THJ custom behavior and stock gear — October 19, deployed for live testing
+ 
+--- references/sources.json
++++ references/sources.json
+@@ -81,7 +81,8 @@
+     "classic_dungeon_candidate_20261022": "c4fb75cdec971172657040a28661fa84e995d725",
+     "quest_armor_candidate_20261022": "d107f901fbf637933f40c86b1ddd0ff819438bce; not deployed; owner gameplay acceptance pending",
+     "waypoint_crystal_deployed_20261022": "10f162c8990b905634fd2ed6e9456af648bef180",
+-    "quest_tier_handins_20261022": "56e6dce5c0999a385484568c231f7a665f7331f3"
++    "quest_tier_handins_20261022": "56e6dce5c0999a385484568c231f7a665f7331f3",
++    "classic_dungeon_rewards_candidate_20261022": "ffab60e91036c31bdcb8c9ce75358d4603ad4548"
+   },
+   "topics": {
+     "operations": [
+@@ -3642,6 +3643,139 @@
+         "role": "quest ingredient candidate; built/tested, not deployed",
+         "revision": "56e6dce5c0999a385484568c231f7a665f7331f3",
+         "sha256": "7431ca56f1110c6e978fefbd81745e960740dd8dc79f2f8908b3308dd2b1291b"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
++        "path": "tools/classic_dungeon_rewards.py",
++        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
++        "revision": "ffab60e91036c31bdcb8c9ce75358d4603ad4548",
++        "sha256": "59fb0474d2349f9dde7c8ff34b8e3ee66c1b473486112490f77369299b31747f"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
++        "path": "tools/classic_reward_migration.py",
++        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
++        "revision": "ffab60e91036c31bdcb8c9ce75358d4603ad4548",
++        "sha256": "ad2abbc895625ed1b7e5da2e63b68fffd0ff1108a647b2327051f273ac9f23a4"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
++        "path": "tools/dungeon_catalog.py",
++        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
++        "revision": "ffab60e91036c31bdcb8c9ce75358d4603ad4548",
++        "sha256": "d770b7110f618416e3780ca4b7ff83ad97a1c2ec56e2d19a2e585ae441b31b92"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
++        "path": "tools/dungeon_contract.py",
++        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
++        "revision": "ffab60e91036c31bdcb8c9ce75358d4603ad4548",
++        "sha256": "cec4e2bdc38a651f6c8302e0074528c678376df27a0340ee850ccec770d6dfcf"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
++        "path": "tools/dungeon_refresh_contract.py",
++        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
++        "revision": "ffab60e91036c31bdcb8c9ce75358d4603ad4548",
++        "sha256": "d7be6c091966de2dafd71c7fd2b89f1a5ec1ea5efd8352dd14a4ebb0e9b2f2f1"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
++        "path": "server-mods/code/common/dungeon_policy.h",
++        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
++        "revision": "ffab60e91036c31bdcb8c9ce75358d4603ad4548",
++        "sha256": "1fe355dd5a4026a539e84826bb128068844ab336a7f7a66dd86624ebe93a90fd"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
++        "path": "server-mods/code/common/dungeon_contract.h",
++        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
++        "revision": "ffab60e91036c31bdcb8c9ce75358d4603ad4548",
++        "sha256": "9e96a8d3c0506b39caae20a08f1fcaa3969029deb551a29b306d98fa969ba52d"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
++        "path": "server-mods/sql/20261022_classic_dungeon_rewards.sql",
++        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
++        "revision": "ffab60e91036c31bdcb8c9ce75358d4603ad4548",
++        "sha256": "0fbce207ca162f6aae7bcf31eacbcce8a48e1c3ea94ac54d6edf33a99ddcb6de"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
++        "path": "tools/tests/test_classic_dungeon_rewards.py",
++        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
++        "revision": "ffab60e91036c31bdcb8c9ce75358d4603ad4548",
++        "sha256": "bcb0c9a7aedc46788465d7bc4e5733c0cc1b6319f3ab2dc7bd19022269ac9d31"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
++        "path": "tools/tests/rehearse_classic_rewards.py",
++        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
++        "revision": "ffab60e91036c31bdcb8c9ce75358d4603ad4548",
++        "sha256": "17a4f0b2259d9ac8c4345bb6f7834eb5ffbb86c71226e618467e43773b62f11b"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
++        "path": "tools/tests/rehearse_classic_reward_cache.py",
++        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
++        "revision": "ffab60e91036c31bdcb8c9ce75358d4603ad4548",
++        "sha256": "bf71868c6ffdd06425b8517c4af73035488b3c81b5cf98c20752c065c86c160e"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
++        "path": "docs/dungeons/classic-rewards-20261022/README.md",
++        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
++        "revision": "ffab60e91036c31bdcb8c9ce75358d4603ad4548",
++        "sha256": "8bbc27624dd01975fb89281d532c59532a020f13cfc21ce99bc23ef8a4a980ba"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
++        "path": "docs/dungeons/classic-rewards-20261022/QA.md",
++        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
++        "revision": "ffab60e91036c31bdcb8c9ce75358d4603ad4548",
++        "sha256": "0431cf8ad03d6e256b5b4156ebe1a1508da95d3f865ab954cf349998b677af5c"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
++        "path": "docs/dungeons/classic-rewards-20261022/REWARDS.md",
++        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
++        "revision": "ffab60e91036c31bdcb8c9ce75358d4603ad4548",
++        "sha256": "9d1d5babe864544a27ed1da87d962d38fb0cb19709332fd20ca1aac137a25506"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
++        "path": "docs/dungeons/classic-rewards-20261022/verification.json",
++        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
++        "revision": "ffab60e91036c31bdcb8c9ce75358d4603ad4548",
++        "sha256": "80779da56e313bb2f1b0c96ee7883dc1de35b07f5fd3ac9fa4efb374d4bed3af"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
++        "path": "docs/dungeons/classic-rewards-20261022/rehearsal.json",
++        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
++        "revision": "ffab60e91036c31bdcb8c9ce75358d4603ad4548",
++        "sha256": "02d020927c753d8360e3aa05a447a21cce23899217827b3fe9b46337d9f21d67"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
++        "path": "docs/dungeons/classic-rewards-20261022/build-manifest.json",
++        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
++        "revision": "ffab60e91036c31bdcb8c9ce75358d4603ad4548",
++        "sha256": "5054e7254bc6b9725d96e36294278895a6c9f9db717643714a4d25d9a8d0647d"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
++        "path": "docs/dungeons/classic-rewards-20261022/cache-verification.json",
++        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
++        "revision": "ffab60e91036c31bdcb8c9ce75358d4603ad4548",
++        "sha256": "facfbfb19b033075626949399774d192fe50682e1d7254fe1d11214630c1edb6"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
++        "path": "docs/dungeons/classic-rewards-20261022/review.md",
++        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
++        "revision": "ffab60e91036c31bdcb8c9ce75358d4603ad4548",
++        "sha256": "3d8b6fd7ebe025ee186cad16b9ce7439e44cc54e3bf9aa0a08acac76cfbee79c"
+       }
+     ],
+     "world": [
+@@ -4356,20 +4490,6 @@
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+-        "path": "server-mods/code/common/dungeon_contract.h",
+-        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+-        "sha256": "77b8e0a1d59e860c72618fd3592e0565a01fbb23cc8ec25a5adb63718ffc2796",
+-        "revision": "c4fb75cdec971172657040a28661fa84e995d725"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+-        "path": "server-mods/code/common/dungeon_policy.h",
+-        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+-        "sha256": "dc851a89f29eb9b57485b07c8aadabdc5117185fa11832a3a3bda442ed7c8c5d",
+-        "revision": "c4fb75cdec971172657040a28661fa84e995d725"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+         "path": "server-mods/lua_modules/nightcap_dungeons.lua",
+         "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+         "sha256": "7bded6e8ad4dae6ecac00aadb17ab9f01bc1957f566981f6f1d168937c435636",
+@@ -4398,13 +4518,6 @@
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+-        "path": "tools/dungeon_refresh_contract.py",
+-        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+-        "sha256": "aaf7153bd4bb7f12a91c6aa33301553d9fbbab29c62991550c33a375c905375a",
+-        "revision": "c4fb75cdec971172657040a28661fa84e995d725"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+         "path": "tools/prepare_classic_dungeons.py",
+         "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+         "sha256": "d86b8124405150301b19781527ba25b732839e9af64adaa80552a492cf159a9c",
+@@ -4413,9 +4526,9 @@
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+         "path": "tools/tests/test_classic_dungeon_catalog.py",
+-        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+-        "sha256": "1558828e9e4866335f58395da46dac00fd742dcffe53097f65f166fd5e7e5162",
+-        "revision": "c4fb75cdec971172657040a28661fa84e995d725"
++        "role": "Reviewed combined Classic dungeon/reward candidate; not deployed or accepted",
++        "sha256": "f62dfc3a5abe953602b505e829efa3dbe87dd5d8aaffbbc5d19514db793104be",
++        "revision": "ffab60e91036c31bdcb8c9ce75358d4603ad4548"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+@@ -4448,9 +4561,9 @@
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+         "path": "tools/tests/test_dungeon_policy.py",
+-        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+-        "sha256": "00e0ceb4b2838f0137cb542889e78cba032580fc61b56abe6b6ddb84868819d0",
+-        "revision": "c4fb75cdec971172657040a28661fa84e995d725"
++        "role": "Reviewed combined Classic dungeon/reward candidate; not deployed or accepted",
++        "sha256": "7a85e25f28e7cdcc0eb85d6969124122a912b9caf4b4a8f1a7b73c721c649221",
++        "revision": "ffab60e91036c31bdcb8c9ce75358d4603ad4548"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+@@ -4462,16 +4575,16 @@
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+         "path": "tools/tests/rehearse_classic_dungeons.py",
+-        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+-        "sha256": "1e30f6b9d7cd64528c95ab4f41cd917c333421c32ad7f5d085428c913f288eca",
+-        "revision": "c4fb75cdec971172657040a28661fa84e995d725"
++        "role": "Reviewed combined Classic dungeon/reward candidate; not deployed or accepted",
++        "sha256": "65efe8af2b020e9844319cd2ff8dfce570792fad7ee9822ced363f1022611ae6",
++        "revision": "ffab60e91036c31bdcb8c9ce75358d4603ad4548"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+         "path": "docs/dungeons/classic-expansion-20261022/README.md",
+-        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+-        "sha256": "c080e024a75a13c9df59a9a140786dd61a1edf03acdb0ed5e20d31b679abd7f4",
+-        "revision": "c4fb75cdec971172657040a28661fa84e995d725"
++        "role": "Reviewed combined Classic dungeon/reward candidate; not deployed or accepted",
++        "sha256": "a2a28254c78ad8dfd2754de58fb24c3d9507a8fba7f1fc08915444c51e7fb2a5",
++        "revision": "ffab60e91036c31bdcb8c9ce75358d4603ad4548"
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+@@ -4836,6 +4949,139 @@
+         "role": "quest ingredient candidate; built/tested, not deployed",
+         "revision": "56e6dce5c0999a385484568c231f7a665f7331f3",
+         "sha256": "953bb791180244daca49499842f3f7369fd197862173fc23513709a1a0599956"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
++        "path": "tools/classic_dungeon_rewards.py",
++        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
++        "revision": "ffab60e91036c31bdcb8c9ce75358d4603ad4548",
++        "sha256": "59fb0474d2349f9dde7c8ff34b8e3ee66c1b473486112490f77369299b31747f"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
++        "path": "tools/classic_reward_migration.py",
++        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
++        "revision": "ffab60e91036c31bdcb8c9ce75358d4603ad4548",
++        "sha256": "ad2abbc895625ed1b7e5da2e63b68fffd0ff1108a647b2327051f273ac9f23a4"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
++        "path": "tools/dungeon_catalog.py",
++        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
++        "revision": "ffab60e91036c31bdcb8c9ce75358d4603ad4548",
++        "sha256": "d770b7110f618416e3780ca4b7ff83ad97a1c2ec56e2d19a2e585ae441b31b92"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
++        "path": "tools/dungeon_contract.py",
++        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
++        "revision": "ffab60e91036c31bdcb8c9ce75358d4603ad4548",
++        "sha256": "cec4e2bdc38a651f6c8302e0074528c678376df27a0340ee850ccec770d6dfcf"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
++        "path": "tools/dungeon_refresh_contract.py",
++        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
++        "revision": "ffab60e91036c31bdcb8c9ce75358d4603ad4548",
++        "sha256": "d7be6c091966de2dafd71c7fd2b89f1a5ec1ea5efd8352dd14a4ebb0e9b2f2f1"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
++        "path": "server-mods/code/common/dungeon_policy.h",
++        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
++        "revision": "ffab60e91036c31bdcb8c9ce75358d4603ad4548",
++        "sha256": "1fe355dd5a4026a539e84826bb128068844ab336a7f7a66dd86624ebe93a90fd"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
++        "path": "server-mods/code/common/dungeon_contract.h",
++        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
++        "revision": "ffab60e91036c31bdcb8c9ce75358d4603ad4548",
++        "sha256": "9e96a8d3c0506b39caae20a08f1fcaa3969029deb551a29b306d98fa969ba52d"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
++        "path": "server-mods/sql/20261022_classic_dungeon_rewards.sql",
++        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
++        "revision": "ffab60e91036c31bdcb8c9ce75358d4603ad4548",
++        "sha256": "0fbce207ca162f6aae7bcf31eacbcce8a48e1c3ea94ac54d6edf33a99ddcb6de"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
++        "path": "tools/tests/test_classic_dungeon_rewards.py",
++        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
++        "revision": "ffab60e91036c31bdcb8c9ce75358d4603ad4548",
++        "sha256": "bcb0c9a7aedc46788465d7bc4e5733c0cc1b6319f3ab2dc7bd19022269ac9d31"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
++        "path": "tools/tests/rehearse_classic_rewards.py",
++        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
++        "revision": "ffab60e91036c31bdcb8c9ce75358d4603ad4548",
++        "sha256": "17a4f0b2259d9ac8c4345bb6f7834eb5ffbb86c71226e618467e43773b62f11b"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
++        "path": "tools/tests/rehearse_classic_reward_cache.py",
++        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
++        "revision": "ffab60e91036c31bdcb8c9ce75358d4603ad4548",
++        "sha256": "bf71868c6ffdd06425b8517c4af73035488b3c81b5cf98c20752c065c86c160e"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
++        "path": "docs/dungeons/classic-rewards-20261022/README.md",
++        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
++        "revision": "ffab60e91036c31bdcb8c9ce75358d4603ad4548",
++        "sha256": "8bbc27624dd01975fb89281d532c59532a020f13cfc21ce99bc23ef8a4a980ba"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
++        "path": "docs/dungeons/classic-rewards-20261022/QA.md",
++        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
++        "revision": "ffab60e91036c31bdcb8c9ce75358d4603ad4548",
++        "sha256": "0431cf8ad03d6e256b5b4156ebe1a1508da95d3f865ab954cf349998b677af5c"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
++        "path": "docs/dungeons/classic-rewards-20261022/REWARDS.md",
++        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
++        "revision": "ffab60e91036c31bdcb8c9ce75358d4603ad4548",
++        "sha256": "9d1d5babe864544a27ed1da87d962d38fb0cb19709332fd20ca1aac137a25506"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
++        "path": "docs/dungeons/classic-rewards-20261022/verification.json",
++        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
++        "revision": "ffab60e91036c31bdcb8c9ce75358d4603ad4548",
++        "sha256": "80779da56e313bb2f1b0c96ee7883dc1de35b07f5fd3ac9fa4efb374d4bed3af"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
++        "path": "docs/dungeons/classic-rewards-20261022/rehearsal.json",
++        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
++        "revision": "ffab60e91036c31bdcb8c9ce75358d4603ad4548",
++        "sha256": "02d020927c753d8360e3aa05a447a21cce23899217827b3fe9b46337d9f21d67"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
++        "path": "docs/dungeons/classic-rewards-20261022/build-manifest.json",
++        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
++        "revision": "ffab60e91036c31bdcb8c9ce75358d4603ad4548",
++        "sha256": "5054e7254bc6b9725d96e36294278895a6c9f9db717643714a4d25d9a8d0647d"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
++        "path": "docs/dungeons/classic-rewards-20261022/cache-verification.json",
++        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
++        "revision": "ffab60e91036c31bdcb8c9ce75358d4603ad4548",
++        "sha256": "facfbfb19b033075626949399774d192fe50682e1d7254fe1d11214630c1edb6"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
++        "path": "docs/dungeons/classic-rewards-20261022/review.md",
++        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
++        "revision": "ffab60e91036c31bdcb8c9ce75358d4603ad4548",
++        "sha256": "3d8b6fd7ebe025ee186cad16b9ce7439e44cc54e3bf9aa0a08acac76cfbee79c"
+       }
+     ],
+     "client": [
+@@ -7328,6 +7574,27 @@
+         "role": "Verified production deployment; owner gameplay QA pending",
+         "revision": "70966674868e48466fa5ba4ae3393e08fd0df2ed",
+         "sha256": "57f930fb8dc37a8fe02f0e037f42a74622969bccbf8015223cb88253f2ee50e3"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
++        "path": "tools/classic_dungeon_rewards.py",
++        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
++        "revision": "ffab60e91036c31bdcb8c9ce75358d4603ad4548",
++        "sha256": "59fb0474d2349f9dde7c8ff34b8e3ee66c1b473486112490f77369299b31747f"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
++        "path": "tools/tests/test_classic_dungeon_rewards.py",
++        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
++        "revision": "ffab60e91036c31bdcb8c9ce75358d4603ad4548",
++        "sha256": "bcb0c9a7aedc46788465d7bc4e5733c0cc1b6319f3ab2dc7bd19022269ac9d31"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
++        "path": "docs/dungeons/classic-rewards-20261022/QA.md",
++        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
++        "revision": "ffab60e91036c31bdcb8c9ce75358d4603ad4548",
++        "sha256": "0431cf8ad03d6e256b5b4156ebe1a1508da95d3f865ab954cf349998b677af5c"
+       }
+     ],
+     "wiki": [
+@@ -8246,62 +8513,6 @@
+       },
+       {
+         "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+-        "path": "wiki/articles/dungeon-modes.json",
+-        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+-        "sha256": "0ef9c732bc87198674d7e87f8257d4aefe65f2fad6ce95d14ca446329f2f5ce4",
+-        "revision": "c4fb75cdec971172657040a28661fa84e995d725"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+-        "path": "wiki/articles/features.json",
+-        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+-        "sha256": "0425e38b1b47a26d8771ece671e73ebdb40930ee704c6537f980239e48315139",
+-        "revision": "c4fb75cdec971172657040a28661fa84e995d725"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+-        "path": "wiki/articles/index.json",
+-        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+-        "sha256": "5777957102c4e0dafa3bca6c39345f11a081b2e35dcf34ac05928295fc9b1552",
+-        "revision": "c4fb75cdec971172657040a28661fa84e995d725"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+-        "path": "wiki/articles/travel.json",
+-        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+-        "sha256": "83d08ee67ccd25a11c8a847d85a620ee3d6b906c62816541c01b7f44b7f551de",
+-        "revision": "c4fb75cdec971172657040a28661fa84e995d725"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+-        "path": "wiki/articles/equipment.json",
+-        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+-        "sha256": "a0e2096ebc631099c934cf8a9f28d6d356b585a356ddffe5542bc5298f4f3d5e",
+-        "revision": "c4fb75cdec971172657040a28661fa84e995d725"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+-        "path": "wiki/articles/unreleased.json",
+-        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+-        "sha256": "3c4abe0f6a1dee1e07473425952d031b57c621822919cdf27342a0607e23f283",
+-        "revision": "c4fb75cdec971172657040a28661fa84e995d725"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+-        "path": "wiki/articles/recent-changes.json",
+-        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+-        "sha256": "40f698b765da044241841fea2f1f2c1902c72ccfc03ac45caf912e9d8f5ff264",
+-        "revision": "c4fb75cdec971172657040a28661fa84e995d725"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+-        "path": "wiki/content-review.json",
+-        "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+-        "sha256": "70aeabe0ae8326ed93446f7fbf08e2b8572fa9a598554d530314a46a040769f2",
+-        "revision": "c4fb75cdec971172657040a28661fa84e995d725"
+-      },
+-      {
+-        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
+         "path": "docs/dungeons/classic-expansion-20261022/wiki-review.json",
+         "role": "Reviewed every-Classic-dungeon candidate; not deployed/accepted",
+         "sha256": "fe97682603032da66877f14a161169799debb2bb8873186b6697a78207ea3566",
+@@ -8432,6 +8643,69 @@
+         "role": "quest ingredient candidate; built/tested, not deployed",
+         "revision": "56e6dce5c0999a385484568c231f7a665f7331f3",
+         "sha256": "fbf49a21c00545c3b055177c82cb5b6c31b571b5e49340734c99e948d39d5996"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
++        "path": "wiki/articles/dungeon-modes.json",
++        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
++        "revision": "ffab60e91036c31bdcb8c9ce75358d4603ad4548",
++        "sha256": "3d265de09c3b0c2bea2e43b8b4936c155c12e8b5a573530cf7f45b986cbb42aa"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
++        "path": "wiki/articles/equipment.json",
++        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
++        "revision": "ffab60e91036c31bdcb8c9ce75358d4603ad4548",
++        "sha256": "8fdf721e545d9b0a7dc0ad3247c8fec04464cbc7984ad3f018d9a806c1bc4415"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
++        "path": "wiki/articles/features.json",
++        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
++        "revision": "ffab60e91036c31bdcb8c9ce75358d4603ad4548",
++        "sha256": "78b79342ce68eeb602ade57a3f77d5c2949381afa725d475e8c9752f232a81b6"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
++        "path": "wiki/articles/index.json",
++        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
++        "revision": "ffab60e91036c31bdcb8c9ce75358d4603ad4548",
++        "sha256": "7c7ecb285abce38369d75d2d589e25e613aa0e4c9f9cde2743703374ed1c30ac"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
++        "path": "wiki/articles/travel.json",
++        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
++        "revision": "ffab60e91036c31bdcb8c9ce75358d4603ad4548",
++        "sha256": "b3bf61c3435166a0310b4e112650cd894ba2e694d4c3681be9330d683f57bc12"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
++        "path": "wiki/articles/unreleased.json",
++        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
++        "revision": "ffab60e91036c31bdcb8c9ce75358d4603ad4548",
++        "sha256": "b7c54934541821ba7034983f1f1c40ae280b17f0ebba15436febc607b4c2d227"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
++        "path": "wiki/articles/recent-changes.json",
++        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
++        "revision": "ffab60e91036c31bdcb8c9ce75358d4603ad4548",
++        "sha256": "7a2d3f6f9fb1d28f6037a811b873f18cf24b04d7bf153ffd8558fceaa04e4c0f"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
++        "path": "wiki/content-review.json",
++        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
++        "revision": "ffab60e91036c31bdcb8c9ce75358d4603ad4548",
++        "sha256": "9f69dab213b248e2e1563657f2c388f96518443d1853ae90afa31c013bfe29a9"
++      },
++      {
++        "root": "E:/EQ_Local_Dev/_worktrees/classic-dungeon-options",
++        "path": "docs/dungeons/classic-rewards-20261022/wiki-review.json",
++        "role": "Reviewed unique Classic reward candidate; not deployed/accepted",
++        "revision": "ffab60e91036c31bdcb8c9ce75358d4603ad4548",
++        "sha256": "15829e58cbbefb4a1ead3a80611a0a8ebf1f5a1ded5ad20868c00a40d7af2b89"
+       }
+     ]
+   }
