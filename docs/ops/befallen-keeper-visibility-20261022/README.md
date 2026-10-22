@@ -1,6 +1,15 @@
 # Befallen Keeper visibility — October 22, 2026
 
-Status: tested candidate; not deployed or accepted in game.
+Status: main PR272 / 434d0e5 deployed October 22 for live QA. Visible acceptance is pending.
+
+The installed quest SHA is `3c22ca3d3e4a1b39b56c018ea97c5daea5abf735b633bf8a389ebb6ae7e8da4d`.
+Twelve aggregate quest reload acknowledgments arrived before refresh signal 20261022.
+World and all 12 zone PID/start times, five service identities/start times and the
+waypoint quest remained unchanged. Befallen was unloaded at preflight; its next
+normal boot applies EVENT_SPAWN. No restart, database rewrite or client patch.
+The operator's nine tests pass; independent review approved the repaired
+reload-before-signal ordering. See deployment.json; this is deployment evidence,
+not proof of signal processing by an absent NPC or visible rendering.
 
 The owner reports a targetable but invisible Instance Keeper in Befallen. A fresh
 production read found Keeper 999227 / spawn 3266036 and waypoint 999240 / spawn
@@ -9,14 +18,14 @@ were at `35,-82,3.1`. The waypoint uses a portal nimbus over an invisible actor;
 the Keeper uses a small eye. Overlap is confirmed. It is a plausible cause of
 occlusion and poor selection, not proof of every rendering failure.
 
-The installed Keeper quest is intact (SHA-256
+Before deployment, the installed Keeper quest was intact (SHA-256
 `b4fc39bd29cbc0856b8ec9bd0072285e5cade672fa43cf853bf96009d30bf7a9`).
 All seven Keeper definitions have bodytype 1, model override 0, and normal
 targetability. The inspected E:/Nightcap client has both EYE and its Classic ZAP
 alias and its October 21 log records loading that alias. That installation's
 archive presence does not prove rendering on the reporting client.
 
-## Candidate
+## Released correction
 
 The shared Keeper quest applies an absolute position only for NPC 999227 in
 Befallen: DB XYZ `35,-67,3.1`, heading 256, or player `/loc -67,35,3.1`.
@@ -83,7 +92,7 @@ snapshots, dungeon ledgers, loot or whole zone state for this cosmetic rollback.
    this issue open and capture the reporting client's fresh model/target evidence.
 
 The older October 13 acceptance remains historical and does not close this new
-Befallen report. This candidate has no current deployment or rendering approval.
+Befallen report. Deployment is verified; this report still has no owner rendering acceptance.
 
 ## Guarded operator
 
@@ -94,3 +103,26 @@ service identities, unchanged waypoint and quest reload acknowledgments.
 `python run.py rollback` installs the retained position-recovery helper.
 Receipts are retained in `/opt/nightcap/backups/befallen-keeper-visibility-20261022`.
 An incomplete operation must be inspected; never blindly retry it.
+
+## Wiki publication
+
+Release `20261022-befallen-keeper-v1` updates Dungeon modes, In development,
+Recent changes and search. The entire wiki impact review retains Features/home,
+commands and all generated reward values. The guarded publisher verified 465
+origin files, rehearsed pointer rollback, and preserved services/private downloads
+and web configuration. Sixteen Linux publisher tests pass. An initial missing
+nginx test fixture stopped before publication; its failure remains in the private
+stage and the old pointer/stage hashes were verified before completion. Public
+hashes and headers are independently recorded in wiki-public-verification.json.
+This publication does not establish visual acceptance of the Keeper.
+
+## Source encoding provenance
+
+Committed LF quest bytes hash `e78eb53a54a8d39ac915efa0c131c0171094841d833842c5802f57895ae865a2`.
+The installed `3c22ca3d...` payload came from Windows cp1252 decoding followed by
+UTF-8 encoding in the inherited operator pattern. Only nine comment lines changed;
+executable code and dialogue are identical. deployment.json records both hashes
+for candidate and recovery. The historical operator now states this encoding
+explicitly to preserve the exact retained recovery-byte guard. New release
+operators should preserve UTF-8 bytes. No further runtime write was necessary.
+The ninth operator regression verifies the comment-only boundary and payload pin.

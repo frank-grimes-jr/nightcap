@@ -1,13 +1,16 @@
 # CHANGES
 
-## 2026-10-22 — Befallen Keeper visibility candidate
+## 2026-10-22 — Befallen Keeper correction deployed for live QA
 
 The targetable-but-invisible report revealed the Keeper and waypoint at exactly
 the same entrance pose. The quest now separates Befallen Keeper 999227 by 15 units
 on spawn/live refresh, including saved-state and private-instance loads. Dungeon
 actions, waypoint and player progress stay unchanged. Native geometry, 30 Keeper
-and 16 waypoint checks pass. Not deployed; visible resolution requires owner QA.
+and 16 waypoint checks pass. Main PR272 is deployed by quest reload; no restart. Visible resolution requires owner QA.
 Details: [evidence and QA](docs/ops/befallen-keeper-visibility-20261022/README.md).
+
+Wiki `20261022-befallen-keeper-v1` publishes the placement and open visual QA;
+waypoint, dungeon progress, native processes and client remain unchanged.
 
 ## 2026-10-21 - AA million-point release deployed for live QA
 Main PR268/e64f502 and the authorized production rollout are complete. AA costs

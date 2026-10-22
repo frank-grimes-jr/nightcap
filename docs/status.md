@@ -1,12 +1,15 @@
 # Current Nightcap status
 
-## Befallen Keeper visibility — candidate, October 22
+## Befallen Keeper visibility — deployed for live QA, October 22
 
 The owner reports a targetable but invisible Keeper. Fresh production inspection
 confirms exact overlap with the waypoint. A scoped quest correction separates the
-eye by 15 units; geometry and 46 regression assertions pass. It is not deployed;
+eye by 15 units; geometry and 46 regression assertions pass. Main PR272 is deployed without restart;
 the cause of invisibility and rendering acceptance remain open until live QA.
 [Evidence, activation and QA](ops/befallen-keeper-visibility-20261022/README.md).
+
+Wiki `20261022-befallen-keeper-v1` publishes the placement and open visual QA;
+waypoint, dungeon progress, native processes and client remain unchanged.
 
 ## 2026-10-21 - AA million-point release deployed for live QA
 Main PR268/e64f502 and the authorized production rollout are complete. AA costs

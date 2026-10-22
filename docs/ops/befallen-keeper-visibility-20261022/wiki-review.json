@@ -1,6 +1,6 @@
 {
   "date": "2026-10-22",
-  "source_ref": "HEAD with working changes",
+  "source_ref": "main434d0e5 with recorded deployment and working documentation changes",
   "articles": [
     {
       "article": "wiki\\articles\\about.json",
@@ -30,7 +30,7 @@
     {
       "article": "wiki\\articles\\dungeon-modes.json",
       "before_sha256": "df8c2be7185ae55e2117fb1c4067f936db30a624452d7867ae932f1b601fab5b",
-      "assessment": "Add current selection workaround and explicitly undeployed candidate."
+      "assessment": "Publish installed correction as Live testing; preserve /target workaround and explicit unconfirmed rendering."
     },
     {
       "article": "wiki\\articles\\equipment.json",
@@ -75,7 +75,7 @@
     {
       "article": "wiki\\articles\\recent-changes.json",
       "before_sha256": "ba38b04e2df7f188fb7b3afbc59787ee626a68244449ca16d8afe5709551e999",
-      "assessment": "Record player report/workaround without claiming deployment."
+      "assessment": "Publish installed correction as Live testing; preserve /target workaround and explicit unconfirmed rendering."
     },
     {
       "article": "wiki\\articles\\tradeskills.json",
@@ -95,7 +95,7 @@
     {
       "article": "wiki\\articles\\unreleased.json",
       "before_sha256": "c43ae645f48fb3bbe93d2ceb3fa2e967bdc5b73a794b6f63db7212720059c49a",
-      "assessment": "Record candidate and open visible acceptance."
+      "assessment": "Publish installed correction as Live testing; preserve /target workaround and explicit unconfirmed rendering."
     },
     {
       "article": "wiki\\articles\\waypoints.json",
@@ -109,6 +109,6 @@
     }
   ],
   "generated_catalog": "Reviewed generator and catalog: no item, zone-hunt, acquisition, stat, command or release-mechanic values change; generated routes unchanged.",
-  "features_and_home": "Existing dungeon overview remains accurate; no new feature or deployed behavior. Candidate belongs in In development and reported issue in dungeon guide/Recent changes.",
-  "publication": "pending; local article edits are not a public release"
+  "features_and_home": "Existing dungeon overview remains accurate; no new mechanic, reward, command or catalog value. Placement and open rendering QA belong in dungeon guide/In development/Recent changes.",
+  "publication": "20261022-befallen-keeper-v1 published;465 origin hashes and rollback rehearsal pass;public verification recorded separately."
 }

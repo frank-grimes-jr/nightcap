@@ -32,6 +32,17 @@ class OperatorTests(unittest.TestCase):
         self.stack.enter_context(patch.object(op,'game',side_effect=lambda *a:op.sha(op.QUEST.read_bytes())))
         self.stack.enter_context(contextlib.redirect_stdout(io.StringIO()))
     def apply(self):return op.execute('apply',b'new',b'recovery','reviewed')
+    def test_retained_payload_diff_changes_only_comments(self):
+        root=Path(__file__).resolve().parents[3]
+        for path in (root/'server-mods/quests/global/Instance_Keeper.pl',Path(__file__).with_name('Instance_Keeper.recovery.pl')):
+            source=path.read_bytes().replace(b'\r\n',b'\n')
+            retained=path.read_text(encoding='cp1252').encode('utf-8')
+            self.assertEqual(len(source.splitlines()),len(retained.splitlines()))
+            changed=[a for a,b in zip(source.splitlines(),retained.splitlines()) if a!=b]
+            self.assertEqual(len(changed),9)
+            self.assertTrue(all(line.lstrip().startswith(b'#') for line in changed))
+            if path.name=='Instance_Keeper.pl':
+                self.assertEqual(op.sha(retained),'3c22ca3d3e4a1b39b56c018ea97c5daea5abf735b633bf8a389ebb6ae7e8da4d')
     def test_apply_and_position_recovery(self):
         self.apply()
         self.assertEqual((op.OUT/'original.pl').read_bytes(),b'old')

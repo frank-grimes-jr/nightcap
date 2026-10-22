@@ -1,0 +1,101 @@
+--- a/references/world.md
++++ b/references/world.md
+@@ -90 +90 @@
+-Eight operator tests and independent review cover drift, uncertain attempts,
++Nine operator tests and independent review cover drift, uncertain attempts,
+@@ -104,0 +105,5 @@
++Committed LF quest SHAe78eb53a differs from installed3c22ca3d because the initial
++Windows operator decoded UTF-8 as cp1252. Only nine comments changed; executable
++code/dialogue match. The historical run.py explicitly preserves this encoding
++and recoveryd52e27ab so its exact rollback guard remains valid; new operators
++must preserve UTF-8 bytes. No further live write was needed for comment encoding.
+--- a/references/sources.json
++++ b/references/sources.json
+@@ -75 +75 @@
+-    "befallen_keeper_live_20261022": "10b93948ae82e4c3bfdd16810da279b2f24a6a24"
++    "befallen_keeper_live_20261022": "b33ef2c31c26df95d8f36e39dad1dd498067c7fe"
+@@ -3453 +3453 @@
+-        "revision": "10b93948ae82e4c3bfdd16810da279b2f24a6a24",
++        "revision": "b33ef2c31c26df95d8f36e39dad1dd498067c7fe",
+@@ -3455 +3455 @@
+-        "role": "Reviewed Befallen-only placement correction; main PR272 deployed by quest reload with8 operator tests and52 quest/recovery assertions; unchanged native lifetimes; visible owner QA pending"
++        "role": "Reviewed Befallen-only placement correction; main PR272 deployed by quest reload with9 operator tests and52 quest/recovery assertions; unchanged native lifetimes; visible owner QA pending"
+@@ -4008 +4008 @@
+-        "revision": "10b93948ae82e4c3bfdd16810da279b2f24a6a24",
++        "revision": "b33ef2c31c26df95d8f36e39dad1dd498067c7fe",
+@@ -4010 +4010 @@
+-        "role": "Reviewed Befallen-only placement correction; main PR272 deployed by quest reload with8 operator tests and52 quest/recovery assertions; unchanged native lifetimes; visible owner QA pending"
++        "role": "Reviewed Befallen-only placement correction; main PR272 deployed by quest reload with9 operator tests and52 quest/recovery assertions; unchanged native lifetimes; visible owner QA pending"
+@@ -4015,3 +4015,3 @@
+-        "revision": "10b93948ae82e4c3bfdd16810da279b2f24a6a24",
+-        "sha256": "0c4713b39c890ca9b73a1b0dc186dcc47ee04f84c25be36eac82bb747e32c1f8",
+-        "role": "Reviewed Befallen-only placement correction; main PR272 deployed by quest reload with8 operator tests and52 quest/recovery assertions; unchanged native lifetimes; visible owner QA pending"
++        "revision": "b33ef2c31c26df95d8f36e39dad1dd498067c7fe",
++        "sha256": "576b991bf343cbc52f25d020dfae72b60b99079c2a844df8901541e2fdb6421a",
++        "role": "Reviewed Befallen-only placement correction; main PR272 deployed by quest reload with9 operator tests and52 quest/recovery assertions; unchanged native lifetimes; visible owner QA pending"
+@@ -4022 +4022 @@
+-        "revision": "10b93948ae82e4c3bfdd16810da279b2f24a6a24",
++        "revision": "b33ef2c31c26df95d8f36e39dad1dd498067c7fe",
+@@ -4024 +4024 @@
+-        "role": "Reviewed Befallen-only placement correction; main PR272 deployed by quest reload with8 operator tests and52 quest/recovery assertions; unchanged native lifetimes; visible owner QA pending"
++        "role": "Reviewed Befallen-only placement correction; main PR272 deployed by quest reload with9 operator tests and52 quest/recovery assertions; unchanged native lifetimes; visible owner QA pending"
+@@ -4029 +4029 @@
+-        "revision": "10b93948ae82e4c3bfdd16810da279b2f24a6a24",
++        "revision": "b33ef2c31c26df95d8f36e39dad1dd498067c7fe",
+@@ -4031 +4031 @@
+-        "role": "Reviewed Befallen-only placement correction; main PR272 deployed by quest reload with8 operator tests and52 quest/recovery assertions; unchanged native lifetimes; visible owner QA pending"
++        "role": "Reviewed Befallen-only placement correction; main PR272 deployed by quest reload with9 operator tests and52 quest/recovery assertions; unchanged native lifetimes; visible owner QA pending"
+@@ -4036 +4036 @@
+-        "revision": "10b93948ae82e4c3bfdd16810da279b2f24a6a24",
++        "revision": "b33ef2c31c26df95d8f36e39dad1dd498067c7fe",
+@@ -4038 +4038 @@
+-        "role": "Reviewed Befallen-only placement correction; main PR272 deployed by quest reload with8 operator tests and52 quest/recovery assertions; unchanged native lifetimes; visible owner QA pending"
++        "role": "Reviewed Befallen-only placement correction; main PR272 deployed by quest reload with9 operator tests and52 quest/recovery assertions; unchanged native lifetimes; visible owner QA pending"
+@@ -4043 +4043 @@
+-        "revision": "10b93948ae82e4c3bfdd16810da279b2f24a6a24",
++        "revision": "b33ef2c31c26df95d8f36e39dad1dd498067c7fe",
+@@ -4045 +4045 @@
+-        "role": "Reviewed Befallen-only placement correction; main PR272 deployed by quest reload with8 operator tests and52 quest/recovery assertions; unchanged native lifetimes; visible owner QA pending"
++        "role": "Reviewed Befallen-only placement correction; main PR272 deployed by quest reload with9 operator tests and52 quest/recovery assertions; unchanged native lifetimes; visible owner QA pending"
+@@ -4050,3 +4050,3 @@
+-        "revision": "10b93948ae82e4c3bfdd16810da279b2f24a6a24",
+-        "sha256": "27ccb6afea2d4ea4fa4652a5baa3d5543bea93a8d208e7250882fb345c041026",
+-        "role": "Reviewed Befallen-only placement correction; main PR272 deployed by quest reload with8 operator tests and52 quest/recovery assertions; unchanged native lifetimes; visible owner QA pending"
++        "revision": "b33ef2c31c26df95d8f36e39dad1dd498067c7fe",
++        "sha256": "920dedd0b34abc4b46b0486c2ebbaf8d552e378e8c63a47e99273eb91c417854",
++        "role": "Reviewed Befallen-only placement correction; main PR272 deployed by quest reload with9 operator tests and52 quest/recovery assertions; unchanged native lifetimes; visible owner QA pending"
+@@ -4057,3 +4057,3 @@
+-        "revision": "10b93948ae82e4c3bfdd16810da279b2f24a6a24",
+-        "sha256": "f6b90d40efe1f387a688e608bda5423fb261f9c97be4e9e7f2bdf905977cac20",
+-        "role": "Reviewed Befallen-only placement correction; main PR272 deployed by quest reload with8 operator tests and52 quest/recovery assertions; unchanged native lifetimes; visible owner QA pending"
++        "revision": "b33ef2c31c26df95d8f36e39dad1dd498067c7fe",
++        "sha256": "ed47e7c8b7595c7d04e509d5116d5d08512630d01f3421938e7fc821ba8d8e6f",
++        "role": "Reviewed Befallen-only placement correction; main PR272 deployed by quest reload with9 operator tests and52 quest/recovery assertions; unchanged native lifetimes; visible owner QA pending"
+@@ -4064,3 +4064,3 @@
+-        "revision": "10b93948ae82e4c3bfdd16810da279b2f24a6a24",
+-        "sha256": "203de5ea74d653d7f7809947b79d37b81b05530416510399352825816ab9355e",
+-        "role": "Reviewed Befallen-only placement correction; main PR272 deployed by quest reload with8 operator tests and52 quest/recovery assertions; unchanged native lifetimes; visible owner QA pending"
++        "revision": "b33ef2c31c26df95d8f36e39dad1dd498067c7fe",
++        "sha256": "f80e0c9d9be74440b4ca3036907fe86d82130e055653a6379104bb5af3bfea03",
++        "role": "Reviewed Befallen-only placement correction; main PR272 deployed by quest reload with9 operator tests and52 quest/recovery assertions; unchanged native lifetimes; visible owner QA pending"
+@@ -6404 +6404 @@
+-        "revision": "10b93948ae82e4c3bfdd16810da279b2f24a6a24",
++        "revision": "b33ef2c31c26df95d8f36e39dad1dd498067c7fe",
+@@ -6782 +6782 @@
+-        "revision": "10b93948ae82e4c3bfdd16810da279b2f24a6a24",
++        "revision": "b33ef2c31c26df95d8f36e39dad1dd498067c7fe",
+@@ -6932 +6932 @@
+-        "revision": "10b93948ae82e4c3bfdd16810da279b2f24a6a24",
++        "revision": "b33ef2c31c26df95d8f36e39dad1dd498067c7fe",
+@@ -7009 +7009 @@
+-        "revision": "10b93948ae82e4c3bfdd16810da279b2f24a6a24",
++        "revision": "b33ef2c31c26df95d8f36e39dad1dd498067c7fe",
+@@ -7023 +7023 @@
+-        "revision": "10b93948ae82e4c3bfdd16810da279b2f24a6a24",
++        "revision": "b33ef2c31c26df95d8f36e39dad1dd498067c7fe",
+@@ -7030 +7030 @@
+-        "revision": "10b93948ae82e4c3bfdd16810da279b2f24a6a24",
++        "revision": "b33ef2c31c26df95d8f36e39dad1dd498067c7fe",
+@@ -7037 +7037 @@
+-        "revision": "10b93948ae82e4c3bfdd16810da279b2f24a6a24",
++        "revision": "b33ef2c31c26df95d8f36e39dad1dd498067c7fe",
