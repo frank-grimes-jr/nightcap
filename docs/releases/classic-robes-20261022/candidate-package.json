@@ -1,0 +1,16 @@
+{
+  "path": "E:\\EQ_Local_Dev\\artifacts\\classic-robes-20261022\\classic-robes-candidate-08.zip",
+  "size": 10632696,
+  "sha256": "b342deed6dc3ccb29be4f17d36859700e7be3f500410d984e4df7c3041f41316",
+  "status": "unreleased_not_installed",
+  "files": {
+    "global_chr.s3d": {
+      "size": 8222589,
+      "sha256": "c1c6b6edbfa1b335cd1427f95f9a33cf75e33c4054d0fb40ae4f715cd14f5e21"
+    },
+    "global4_chr.s3d": {
+      "size": 2716026,
+      "sha256": "c1e25a088a6d87a93dbaa94012daf0a9fb3dd1668669ec534909d8a3841c99f7"
+    }
+  }
+}

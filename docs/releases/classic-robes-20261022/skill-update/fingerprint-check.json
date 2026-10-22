@@ -1,0 +1,115 @@
+{
+  "audited_at": "2026-10-22",
+  "scope": "Reviewed local files; not runtime or player QA evidence",
+  "topics": {
+    "client": [
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\robe-visibility\\EQ_Local_Dev\\tools\\build_classic_robes.py",
+        "role": "Reviewed Classic robe candidate source/evidence; native QA and publication pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\robe-visibility\\EQ_Local_Dev\\tools\\classic_robe_geometry.py",
+        "role": "Reviewed Classic robe candidate source/evidence; native QA and publication pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\robe-visibility\\EQ_Local_Dev\\tools\\classic-robes-requirements.txt",
+        "role": "Reviewed Classic robe candidate source/evidence; native QA and publication pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\robe-visibility\\EQ_Local_Dev\\tools\\client_gameplay_assets.py",
+        "role": "Reviewed Classic robe candidate source/evidence; native QA and publication pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\robe-visibility\\EQ_Local_Dev\\tools\\preview_classic_robes.py",
+        "role": "Reviewed Classic robe candidate source/evidence; native QA and publication pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\robe-visibility\\EQ_Local_Dev\\tools\\tests\\test_classic_robes.py",
+        "role": "Reviewed Classic robe candidate source/evidence; native QA and publication pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\robe-visibility\\EQ_Local_Dev\\eq-client-dll\\tests\\classic-robes-native.cpp",
+        "role": "Reviewed Classic robe candidate source/evidence; native QA and publication pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\robe-visibility\\EQ_Local_Dev\\docs\\adr\\0065-classic-race-robe-assets.md",
+        "role": "Reviewed Classic robe candidate source/evidence; native QA and publication pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\robe-visibility\\EQ_Local_Dev\\docs\\releases\\classic-robes-20261022\\README.md",
+        "role": "Reviewed Classic robe candidate source/evidence; native QA and publication pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\robe-visibility\\EQ_Local_Dev\\docs\\releases\\classic-robes-20261022\\QA.md",
+        "role": "Reviewed Classic robe candidate source/evidence; native QA and publication pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\robe-visibility\\EQ_Local_Dev\\docs\\releases\\classic-robes-20261022\\evidence.json",
+        "role": "Reviewed Classic robe candidate source/evidence; native QA and publication pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\robe-visibility\\EQ_Local_Dev\\docs\\releases\\classic-robes-20261022\\robe-audit.json",
+        "role": "Reviewed Classic robe candidate source/evidence; native QA and publication pending",
+        "state": "unchanged"
+      }
+    ],
+    "wiki": [
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\robe-visibility\\EQ_Local_Dev\\wiki\\articles\\equipment.json",
+        "role": "Reviewed Classic robe candidate source/evidence; native QA and publication pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\robe-visibility\\EQ_Local_Dev\\wiki\\articles\\multiclass.json",
+        "role": "Reviewed Classic robe candidate source/evidence; native QA and publication pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\robe-visibility\\EQ_Local_Dev\\wiki\\articles\\features.json",
+        "role": "Reviewed Classic robe candidate source/evidence; native QA and publication pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\robe-visibility\\EQ_Local_Dev\\wiki\\articles\\launcher.json",
+        "role": "Reviewed Classic robe candidate source/evidence; native QA and publication pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\robe-visibility\\EQ_Local_Dev\\wiki\\articles\\index.json",
+        "role": "Reviewed Classic robe candidate source/evidence; native QA and publication pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\robe-visibility\\EQ_Local_Dev\\wiki\\articles\\unreleased.json",
+        "role": "Reviewed Classic robe candidate source/evidence; native QA and publication pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\robe-visibility\\EQ_Local_Dev\\wiki\\articles\\recent-changes.json",
+        "role": "Reviewed Classic robe candidate source/evidence; native QA and publication pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\robe-visibility\\EQ_Local_Dev\\wiki\\content-review.json",
+        "role": "Reviewed Classic robe candidate source/evidence; native QA and publication pending",
+        "state": "unchanged"
+      },
+      {
+        "path": "C:\\Users\\verre\\.codex\\worktrees\\robe-visibility\\EQ_Local_Dev\\docs\\releases\\classic-robes-20261022\\wiki-review.json",
+        "role": "Reviewed Classic robe candidate source/evidence; native QA and publication pending",
+        "state": "unchanged"
+      }
+    ]
+  }
+}
