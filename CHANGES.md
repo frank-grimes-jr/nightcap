@@ -20,6 +20,7 @@ plane quests and restart-safe Sky key services. Automated verification is
 separate from deployment and owner gameplay/balance acceptance; not live.
 See [source, evidence, pairing and exact all-zone QA](docs/dungeons/classic-expansion-20261022/README.md).
 ## 2026-10-22 — Tiered quest ingredients (candidate)
+## 2026-10-22 — Tiered quest ingredients deployed for live QA
 
 Normal quest requirements accept verified Polished, Exalted and Ascended versions
 of the same item through Lua, native Perl hand-ins and task Deliver objectives.
@@ -30,8 +31,10 @@ are retained for returns. Rewards and forging costs do not change. Paired zone
 and seven quest files required; no SQL/cache/client update. Integration also fixes
 Kurron Ni's native currency mismatch while retaining the reviewed full-refund
 policy; all 64 ordinary Darkforge combinations pass. PR284/dev and PR287/test
-are merged with matching reviewed trees. Tested candidate only;
-production/main and player acceptance remain pending. Evidence and QA:
+are merged with matching reviewed trees. Owner-authorized main PR290 and paired
+production deployment now verify all12 zones, fresh stopped backup and preserved
+player/custom/content/cache/client state. Wiki465-file publication verifies;
+owner gameplay acceptance remains pending. Evidence and QA:
 `docs/releases/quest-tier-handins-20261022/`.
 
 

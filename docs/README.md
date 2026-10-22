@@ -1,5 +1,7 @@
 # Nightcap documentation
 
+- [Quest ingredient qualities: deployed for live QA, October22](releases/quest-tier-handins-20261022/deployment/README.md)
+
 Current AA release: [all-class changes and exact live QA](releases/thj-all-class-aa-20261019/README.md).
 The [level-one access correction](releases/aa-tbs-level1-20261013/README.md) remains in effect.
 

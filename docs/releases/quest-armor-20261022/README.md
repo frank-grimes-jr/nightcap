@@ -131,4 +131,6 @@ global money checks. Native ordinary-tier matching also accepts Polished and
 Exalted Darkforge ingredients. See
 [paired integration evidence and QA](../quest-tier-handins-20261022/README.md).
 The original source-only eleven-file activation cannot activate that native
-policy: deploy the paired zone and combined quest set under the owner's October 22 authorization.
+policy: the later PR290 deployment installs the paired zone and seven quest/helper files.
+The ten existing armor reward scripts are retained. Current evidence is in the
+linked ingredient-quality deployment record.

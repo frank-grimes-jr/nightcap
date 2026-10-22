@@ -1,0 +1,120 @@
+{
+  "source_ref": "c66df0e4b36a6f9a041f9ef3ad609779fd1eb85e",
+  "status": "published_and_verified_live_testing",
+  "maintained_articles": [
+    {
+      "slug": "about",
+      "sha256": "d30e64f41dd4395f4d27163407a134527fca9bf9892dabd816774bd0ebcd1da0",
+      "decision": "unchanged; reviewed mechanic has no impact"
+    },
+    {
+      "slug": "advanced-loot",
+      "sha256": "0f0870dd8c5e412c0a673a7ff551a952965397e5b2ce0dd6bb67ac1336c0e506",
+      "decision": "unchanged; reviewed mechanic has no impact"
+    },
+    {
+      "slug": "ascension",
+      "sha256": "c8f1855d8d4372f23a587bfd7da5af027e0720607fc560b7e73ad87a0e8f095b",
+      "decision": "unchanged; reviewed mechanic has no impact"
+    },
+    {
+      "slug": "combat",
+      "sha256": "0583a10b6d98e3bdb6dade874b19b5c5a546cea034660fd40080a08108cb7594",
+      "decision": "unchanged; reviewed mechanic has no impact"
+    },
+    {
+      "slug": "commands",
+      "sha256": "7b28b5660af28cc58700be74ac22f184a2bde62455286a027fb2c7662cb18e6e",
+      "decision": "unchanged; reviewed mechanic has no impact"
+    },
+    {
+      "slug": "dungeon-modes",
+      "sha256": "946c54451e6576ee781a25a855d3b42d526a7493e65b55847125f127619cc2a9",
+      "decision": "unchanged; reviewed mechanic has no impact"
+    },
+    {
+      "slug": "equipment",
+      "sha256": "5fbb84655c096747393ace56a667fa2812b02cdca66dc2935e7e7cfc70a4b67e",
+      "decision": "live-testing ingredient notice"
+    },
+    {
+      "slug": "features",
+      "sha256": "6dda6e32950a542dff88ba9304f33c3298ca7191b98b9ddae67a978fcb0637f0",
+      "decision": "live-testing ingredient notice"
+    },
+    {
+      "slug": "getting-started",
+      "sha256": "acea4482f627738f5479f52d3c9e2da1c3d0b152bf9b72250fad9be570e291e4",
+      "decision": "unchanged; reviewed mechanic has no impact"
+    },
+    {
+      "slug": "index",
+      "sha256": "1c51b02c42ec21ebe5dc87c5865ba8b62076905714772b3a485dcb1cc2d79596",
+      "decision": "live-testing ingredient notice"
+    },
+    {
+      "slug": "item-upgrades",
+      "sha256": "2cd0eb8d124f77b64551f29499e9af0b4e5f6e3e8173187cde403ffd9bb1a27d",
+      "decision": "live-testing ingredient notice"
+    },
+    {
+      "slug": "launcher",
+      "sha256": "7c42c35ed003835623a63b0cffd1cca5ab1306f4c28c7e6a8325748e078b976c",
+      "decision": "unchanged; reviewed mechanic has no impact"
+    },
+    {
+      "slug": "multiclass",
+      "sha256": "6cd66e903215fbea467ae1866042f1de6658a1bf5513d31535907f9b8fa2dd42",
+      "decision": "unchanged; reviewed mechanic has no impact"
+    },
+    {
+      "slug": "pets",
+      "sha256": "5eee46c3a8a2c2bffe6c6abc2c51a7c0f8180ae65f6e092e120d72c84a05adfb",
+      "decision": "unchanged; reviewed mechanic has no impact"
+    },
+    {
+      "slug": "recent-changes",
+      "sha256": "0690604d4b180665bafbd204011e9bc17b7b18b5c3c769397e2070d04f2d0531",
+      "decision": "live-testing ingredient notice"
+    },
+    {
+      "slug": "tradeskills",
+      "sha256": "11337cf99d6b72950c61e97849f619152b9804d9a0b0e7eca41534e35eddf722",
+      "decision": "unchanged; reviewed mechanic has no impact"
+    },
+    {
+      "slug": "travel",
+      "sha256": "a03ba3ae582673d18bd96f2a8fe44fc8eeb769042f3df70639cc3d20cd7f8a20",
+      "decision": "unchanged; reviewed mechanic has no impact"
+    },
+    {
+      "slug": "tunnel",
+      "sha256": "1cd4347301cf3cd5bcc0f2b9b3cdf5aa746582c09ff4294f57ea2f58bcf07447",
+      "decision": "unchanged; reviewed mechanic has no impact"
+    },
+    {
+      "slug": "unreleased",
+      "sha256": "57abec708b756c17ee1ca9d202c059028f32b79630769c52f6e2bc88f303403e",
+      "decision": "live-testing ingredient notice"
+    },
+    {
+      "slug": "waypoints",
+      "sha256": "0da7b500fff27f39137d699ad25cae8aba8e8f739b7bb55b6978b8caee592672",
+      "decision": "unchanged; reviewed mechanic has no impact"
+    },
+    {
+      "slug": "zone-hunt",
+      "sha256": "114c593cf0f89288702b7b5fe23f0e563f337b64864dc3b953c9d2c62635044d",
+      "decision": "unchanged; reviewed mechanic has no impact"
+    }
+  ],
+  "generated_routes": 432,
+  "catalog_values": 384,
+  "catalog_sha256": "22701edeaf267067dfbe7225398b4944d6a69b080480ac06f0d153ca92eae0ae",
+  "commands": "unchanged; no new command",
+  "current_client": "2026102203 retained",
+  "armor_rewards": "PR285 deployed five-family Ascended rewards retained",
+  "scope": "Ordinary ingredient matching changes acceptance only, not item stats, tiers, reward eligibility, era or crafting recipes.",
+  "release": "20261022-quest-tiers-v1",
+  "evidence": "wiki-public-verification.json"
+}

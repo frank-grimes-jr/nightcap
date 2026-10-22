@@ -1,5 +1,5 @@
 {
-  "source_revision": "e9f4b2ca79da1efb3610d5ca1ba14e03d0c01838",
+  "source_revision": "61bd1d6f17e40e98cbe8e77ee711aa2f2f6e1a34",
   "files": {
     "cache_check": "cc3c245aec1a3c27a3a952e1110780458199a641509037a5922a37e6ea767860",
     "magic-only-ids.json": "8ac60d86f176deb8ab5a84019fd8432eb09800993532273a3818bde392bf38a8",
@@ -7,7 +7,7 @@
     "runtime-contract.json": "7990ed30eb24c08b782ee33db3fdb6db3aa1a1da6debc3bc247bb3b54c0ac7c1",
     "bin/shared_memory": "6b314bf087bb06c8fb5ffc6d606090876b17c062f8014acb0e3784d12da9514f",
     "bin/world": "49f87aafadcf6a9063e66cf581c4bd6356571c5c5725786657b95f4b8ba0afa7",
-    "bin/zone": "948e0fd03523e9469e9829e78d6be24052433114541fb8b8eed53443d3274332",
+    "bin/zone": "8c9b97d53518442f74652518a06cfcfdf2202269ad95f065db57353bc000af31",
     "lua_modules/nightcap_dungeons.lua": "7bded6e8ad4dae6ecac00aadb17ab9f01bc1957f566981f6f1d168937c435636",
     "sql/20261022_classic_dungeons.sql": "276d23c69e1992980d3c272f4b2cd6b3c43bea6b7fe4febdcd35d37c70ff4d33",
     "sql/20261022_classic_dungeon_rewards.sql": "0fbce207ca162f6aae7bcf31eacbcce8a48e1c3ea94ac54d6edf33a99ddcb6de",
@@ -25,7 +25,7 @@
   },
   "base_hashes": {
     "bin/world": "0b321c9fba510a42381abe5c167d6db94c02cf913dd50a86d6105b68dbd37b95",
-    "bin/zone": "5dd5a6558c837ff2e4724edcd12afcabd2e846379a9ca7b8a6e57e7715600f7b",
+    "bin/zone": "6da991b688a5b25819b24274506f2d7a427cd7990ff8ca1992d2beabca75c2f0",
     "bin/ucs": "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714",
     "bin/loginserver": "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf",
     "bin/shared_memory": "6d71c7e72c4a10f9d5eeb753ff29a3d589151ce1c81a32a7f564dec9c9fd967c",
@@ -33,12 +33,12 @@
     "configure.py": "90873958dfb013201dd9c9552beaccdd88984a2e55739da07874fa4a95a84e57",
     "accounts.py": "400d4e7a5d0bedeed47ffdb33b142a4a62a3f939a35466da66ce3201ae52ef5c"
   },
-  "base_image_id": "sha256:15a159c0f9a80d541856d7412e59d94baa6b29cc320c397cab9e3d44278ecfff",
+  "base_image_id": "sha256:085f3021e6a9cd9d67bdf027575f3d15b61516e3db3e375b281b5551051bad1a",
   "runtime_helper_sha256": "a3242bee3e8d4a7e60ea81bbd6fd34587201b712247665f3c03673733b95a811",
-  "client_channel_sha256": "87eadd9c0e7c278d46b79f7d62c3dbc9f8d8f16158ead90cc0bc17b9c4194c62",
+  "client_channel_sha256": "562cac1419a64f916370b34a707ec5d6a39493ca5f5a4ed0f64e1853e5654ebf",
   "binaries": {
     "world": "49f87aafadcf6a9063e66cf581c4bd6356571c5c5725786657b95f4b8ba0afa7",
-    "zone": "948e0fd03523e9469e9829e78d6be24052433114541fb8b8eed53443d3274332",
+    "zone": "8c9b97d53518442f74652518a06cfcfdf2202269ad95f065db57353bc000af31",
     "shared_memory": "6b314bf087bb06c8fb5ffc6d606090876b17c062f8014acb0e3784d12da9514f",
     "ucs": "63b72f4f81dcaccf56ba76602db0e64e300f3ec2eb2715ade9a514f570086714",
     "loginserver": "754373bd4a647138869c93e0f459afbae74cb979edc5d2a5b8c597311c28babf"

@@ -22,17 +22,19 @@ See [source, evidence, pairing and exact all-zone QA](dungeons/classic-expansion
 
 ## Classic race robes — published for live QA, October 22
 ## Quest ingredient qualities — October 22 candidate
+## Quest ingredient qualities - October22 deployed for live QA
 
-Shared Lua/native hand-ins and journal deliveries accept ordinary qualities for
-Normal requirements; five older Solusek Ro scripts now use the native checker.
-Crafted Gauntlets has an exact regression using Polished Aviak Charm. Automated
-checks pass; PR284/dev and PR287/test are merged. Test c889cd8 exactly matches
-the reviewed candidate tree. This is not deployed or owner accepted. No SQL/client/cache changes.
-The combined class-armor candidate retains its Ascended rewards. Kurron's native
-currency compatibility is corrected with exactly-once full refunds on success.
-Paired native/quest activation and exact in-game QA remain required. See
-[release evidence](releases/quest-tier-handins-20261022/README.md) and
-[QA steps](releases/quest-tier-handins-20261022/QA.md).
+Owner-authorized PR290 (`c66df0e`) is on main and the paired zone/seven-file
+release is installed. All12 zones match6da991b6; gateway access is open. Normal
+quest requirements accept Polished, Exalted and Ascended family variants in
+shared hand-ins and task Deliver. Shakrn accepts Polished Aviak Charm plus two
+Star Rubies for the current Ascended Crafted Gauntlets604178 reward. Five older
+Temple quests now share native matching; Kurron preserves its full-coin refund.
+Fresh stopped backup and47 player/28 custom tables,14 content tables,8133 other
+runtime files, current caches/world/client all verified. No client update.
+Wiki20261022-quest-tiers-v1 verifies465 public files. Owner gameplay acceptance
+remains open: [QA](releases/quest-tier-handins-20261022/QA.md),
+[deployment and recovery](releases/quest-tier-handins-20261022/deployment/README.md).
 
 
 ## October 22 — Ascended class armor deployed; Palwar corrected

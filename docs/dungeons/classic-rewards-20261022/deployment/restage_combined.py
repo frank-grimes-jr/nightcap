@@ -1,8 +1,9 @@
 """Replace the un-preflighted candidate zone, retain new live baseline/client."""
-import gzip,hashlib,json,shutil,subprocess
+import argparse,gzip,hashlib,json,shutil,subprocess
 from upload import ARTIFACTS,HERE,SSH,STAGE
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 def main():
+    parser=argparse.ArgumentParser();parser.add_argument('--uploaded',action='store_true');args=parser.parse_args()
     old_folder=ARTIFACTS/'deployment-package-v2'
     previous=json.loads((old_folder/'manifest.json').read_text())
     original_sha=sha(old_folder/'manifest.json')
@@ -21,13 +22,13 @@ def main():
     if not archive.exists():
         with zone.open('rb') as src,gzip.open(archive,'xb',compresslevel=1) as dst:shutil.copyfileobj(src,dst)
     remote='/home/ubuntu/classic-combined-zone-20261022.gz'
-    subprocess.run(['scp',*SSH[1:-1],str(archive),SSH[-1]+':'+remote],check=True,timeout=300)
-    code='stage_name='+repr(STAGE)+'\narchive_name='+repr(remote)+'\narchive_sha='+repr(sha(archive))+'\nold_manifest_sha='+repr(original_sha)+'\nmanifest='+repr(manifest)+'\n'+r'''
+    if not args.uploaded:subprocess.run(['scp',*SSH[1:-1],str(archive),SSH[-1]+':'+remote],check=True,timeout=300)
+    code='stage_name='+repr(STAGE)+'\narchive_name='+repr(remote)+'\narchive_sha='+repr(sha(archive))+'\nprevious_manifest='+repr(previous)+'\nmanifest='+repr(manifest)+'\n'+r'''
 import gzip,hashlib,json,os,shutil
 from pathlib import Path
 stage=Path(stage_name);archive=Path(archive_name)
 assert not (stage/'evidence').exists()
-assert hashlib.sha256((stage/'manifest.json').read_bytes()).hexdigest()==old_manifest_sha
+assert json.loads((stage/'manifest.json').read_text())==previous_manifest
 assert hashlib.sha256(archive.read_bytes()).hexdigest()==archive_sha
 previous=json.loads((stage/'manifest.json').read_text())
 assert hashlib.sha256((stage/'bin/zone').read_bytes()).hexdigest()==previous['files']['bin/zone']
