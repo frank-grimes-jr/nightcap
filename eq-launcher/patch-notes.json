@@ -1,5 +1,25 @@
 [
   {
+    "release": 2026102203,
+    "date": "2026-10-22",
+    "changes": [
+      {
+        "kind": "fix",
+        "text": "Fixed the missing waist between Classic robe torsos and skirts across all seven added races. Close EverQuest completely and update through the launcher; please recheck appearance and movement."
+      }
+    ]
+  },
+  {
+    "release": 2026102202,
+    "date": "2026-10-22",
+    "changes": [
+      {
+        "kind": "fix",
+        "text": "Live testing: Waypoints now have a glowing crystal and waypoint label. Close EverQuest completely and use launcher Play to update both model modes. Discovery and recall locations are unchanged; native visibility QA remains open."
+      }
+    ]
+  },
+  {
     "release": 2026102201,
     "date": "2026-10-22",
     "changes": [

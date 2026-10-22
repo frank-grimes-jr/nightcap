@@ -1,0 +1,27 @@
+{
+  "validator": "Skill is valid!",
+  "candidate_entries": 31,
+  "topics": {
+    "world": {
+      "exit_code": 0,
+      "candidate_unchanged": 5,
+      "other_drift": []
+    },
+    "client": {
+      "exit_code": 1,
+      "candidate_unchanged": 18,
+      "other_drift": [
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\eq-launcher\\patch-notes.json",
+          "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
+          "state": "changed: review implementation and evidence"
+        }
+      ]
+    },
+    "wiki": {
+      "exit_code": 0,
+      "candidate_unchanged": 8,
+      "other_drift": []
+    }
+  }
+}

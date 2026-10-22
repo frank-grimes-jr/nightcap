@@ -1,0 +1,47 @@
+{
+  "status": "installed",
+  "source_revision": "442dce32933dd76c648e71b85baf428b958a67ac",
+  "files": [
+    {
+      "path": "C:\\Users\\verre\\.codex\\skills\\nightcap-development\\references\\world.md",
+      "before_sha256": "6fa587a3ffad89929c0452c89e6f2acd16b86e30e3dca56a5d0dd0d416ad3425",
+      "after_sha256": "862cfe83ab476d61e06acbb86c095725bcd3ba4f1e000fcc5da7214ed726a5bc"
+    },
+    {
+      "path": "C:\\Users\\verre\\.codex\\skills\\nightcap-development\\references\\client.md",
+      "before_sha256": "bb86dbf24307fdcf4d749453f17718078ff8d007fea8b2782d404ad6b4da30cd",
+      "after_sha256": "e27d5925b19aa2ca5c34ef40edd57a0e875b07c722aad5bdff3a8c54f6b82ce0"
+    },
+    {
+      "path": "C:\\Users\\verre\\.codex\\skills\\nightcap-development\\references\\wiki.md",
+      "before_sha256": "d7a6289e1c77d2d7a271e282d185fb0fc362c4cd2088f00703912438acede6ca",
+      "after_sha256": "1e30364e13c30b8bc825c8d8c7524c6a47a81c4d2d78bd8b5ee9ac33cac4f160"
+    },
+    {
+      "path": "C:\\Users\\verre\\.codex\\skills\\nightcap-development\\references\\sources.json",
+      "before_sha256": "de4e2b9c9bd227f48aa514c95eb449267f86b69748921f48133320a4b2c35022",
+      "after_sha256": "0927103b4aa0226a4cf21d918c66466089c4811b2334c72b1b0fcd9b962c06fb"
+    }
+  ],
+  "validator": "Skill is valid!",
+  "checks": {
+    "world": {
+      "candidate_unchanged": 6,
+      "other_drift": []
+    },
+    "client": {
+      "candidate_unchanged": 19,
+      "other_drift": [
+        {
+          "path": "C:\\Users\\verre\\.codex\\worktrees\\thj-item-spell-parity\\EQ_Local_Dev\\eq-launcher\\patch-notes.json",
+          "role": "Reviewed combined THJ/pet/WPM deployment; owner gameplay QA open",
+          "state": "changed: review implementation and evidence"
+        }
+      ]
+    },
+    "wiki": {
+      "candidate_unchanged": 9,
+      "other_drift": []
+    }
+  }
+}

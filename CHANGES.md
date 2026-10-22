@@ -20,6 +20,44 @@ plane quests and restart-safe Sky key services. Automated verification is
 separate from deployment and owner gameplay/balance acceptance; not live.
 See [source, evidence, pairing and exact all-zone QA](docs/dungeons/classic-expansion-20261022/README.md).
 
+## 2026-10-22 — Class-armor release and Palwar correction
+
+Owner-authorized PR285 is on main and all eleven quest scripts are activated.
+Thirty-seven substantial class-armor rewards now grant Ascended items; basic
+hand-ins remain unchanged. Palwar’s Vambraces, Breastplate and Plate Boots were
+upgraded while offline, changing only three item IDs and retaining all instance
+and other inventory data. No runtime restart or client/cache change was needed.
+Seventeen operator fault tests and five real temporary-table MariaDB rehearsals
+passed; uncertain SQL completion retains the admission hold. Native gameplay and
+balance QA remain open. [Deployment evidence](docs/releases/quest-armor-20261022/deployment/README.md).
+
+## 2026-10-22 — Classic robe waist correction
+
+Owner QA found a missing waist on Barbarian and Half Elf. All fourteen added
+models used unjoined torso/skirt surfaces. The generator now closes the eight
+native waist edges with matching local coordinates and pelvis binding, spreading
+the displacement down the skirt to prevent inverted faces. Existing UVs, bones,
+faces, native body parts and helmets remain. Twelve robe, sixteen helmet and
+three PFS tests pass; independent serialized-geometry review passes. Corrective
+signed game2026102203 is published through main PR286, preserving138 other
+client files and the waypoint pair. All140 client files and465 wiki files verify.
+Native waist/animation acceptance remains open. Evidence and recheck are tracked in
+[waist correction](docs/releases/classic-robes-20261022/waist-correction/README.md).
+
+## 2026-10-22 — Substantial class-armor Ascended rewards (candidate)
+
+Corrects the missing quality selection reported on Palwar's Crafted armor.
+The owner clarified that substantial class-armor quests qualify even when
+repeatable; cheap/basic hand-ins stay excluded. An explicit audited catalog
+selects existing Ascended variants for 37 Crafted, Lambent, Darkforge, Ivy
+Etched and Totemic rewards, preserving original hand-in requirements and XP.
+Kurron Ni's dependent Shadow Knight epic hand-in accepts the original or new
+Ascended Darkforge pieces without bypassing its three-piece/900pp requirement.
+No item-stat/client change or live inventory repair. Quest activation and owner
+gameplay/balance QA remain pending. Explicitly unreleased candidate guidance is
+included in wiki20261022-classic-robes-waist-v1.
+See [evidence and exact QA](docs/releases/quest-armor-20261022/README.md).
+
 ## 2026-10-22 — Classic race robes published for live QA
 
 Adds missing robe bodies for both genders of Half Elf, Wood Elf, Barbarian,
@@ -34,6 +72,25 @@ remains open. Wiki20261022-classic-robes-v1 carries matching live-testing guidan
 [evidence, recovery and exact QA](docs/releases/classic-robes-20261022/README.md).
 
 
+
+## 2026-10-22 — Glowing waypoint crystals deployed for live QA
+
+The owner authorized “Merge to main and server” and confirmed EverQuest was
+fully closed. Main PR280 (`f293626`) and signed game **2026102202** are deployed.
+The complete signed 140-file client inventory, actual DLL/catalog pairing and
+all HTTPS hashes verify; 135 prior descriptors, including Classic robes, are
+preserved. Quest activation verified zero clients, the exact committed LF hash,
+12 aggregate reload acknowledgments and signal20261022. Login admissions were
+restored; world/all12 zone lifetimes, five services and Keeper quest are unchanged.
+No database write, native restart, repop or saved-state rewrite was needed.
+
+Wiki20261022-waypoint-crystal-v1 is published with all465 public files verified.
+
+Fully close EverQuest and use normal launcher Play before testing. Crystal/label
+appearance, particles low/off, both model modes and discovery/recall still need
+owner in-game acceptance. Locations and earned progress are unchanged.
+
+[Deployment, recovery and exact QA](docs/ops/waypoint-crystal-20261022/README.md).
 
 ## 2026-10-22 — All-dungeon Keeper correction deployed for live QA
 

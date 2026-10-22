@@ -2,6 +2,7 @@
 package main
 
 var classicModelNames = []string{
+	"crs.eqg",
 	"ncm01_chr.s3d",
 	"ncm02_chr.s3d",
 	"ncm03_chr.s3d",
@@ -25,9 +26,11 @@ var classicModelNames = []string{
 	"ncm21_chr.s3d",
 	"ncm22_chr.s3d",
 	"nightcap_models_chr.txt",
+	"nightcap_modern_chr.txt",
 }
 
 var classicModelDigests = map[string]string{
+	"crs.eqg":                 "0a06d4b41d49843b40518105b50057a50d1abb07147e10fb3769135ee1223f6b",
 	"ncm01_chr.s3d":           "8354da04868a47e6de06d589b61df5cfb92c0a7dc14ceff3e81bbd45c8c17876",
 	"ncm02_chr.s3d":           "2bb0a9a97f4cf7c85b66021683beb031adbe25446d522661f55d1f0b5232d9bc",
 	"ncm03_chr.s3d":           "ff94f5f28afffb7f06cb0ca886982321b31816684b013c67b5030f5eda6836ed",
@@ -50,5 +53,6 @@ var classicModelDigests = map[string]string{
 	"ncm20_chr.s3d":           "fb6fd9f4f471a93cc9127b6a558a0bcbfb3b0c17dd2d4b6dc22454676e3ead34",
 	"ncm21_chr.s3d":           "a521a30f20128860fa4fb586e9218c1495bbdaebc3d3696ec53db69f8c59aafa",
 	"ncm22_chr.s3d":           "05456af2c2f738cab109392a273d73047bc7109e1a69532aa192ec8a92844f1f",
-	"nightcap_models_chr.txt": "b3ac03507bf6dad1807155386eb248904bdb0c7055af6c6da9f14aea52e5bec5",
+	"nightcap_models_chr.txt": "0f4a170e588cc9475a8abb57425406b87d49eb26c82a3839fa6907e8f15ce470",
+	"nightcap_modern_chr.txt": "505533bcf05cb38eeb8f241ea942312ea28ad82813ce3559f5ff5dd994ff179f",
 }

@@ -1,0 +1,102 @@
+{
+  "date": "2026-10-22",
+  "status": "deployed; owner native gameplay/balance acceptance open",
+  "production_write_performed": true,
+  "source_baseline": "f293626",
+  "capture": "production-reference.json",
+  "tests": [
+    {
+      "suite": "actual Lua5.1 quest callbacks with captured items.lua",
+      "passed": 113,
+      "failed": 0,
+      "command": "python tools/tests/run_quest_armor_lua_tests.py --helpers-capture docs/releases/quest-armor-20261022/production-reference.json --docker-container akk-stack-eqemu-server-1",
+      "boundary": "native Client/NPC APIs mocked; local container only"
+    },
+    {
+      "suite": "actual Perl callbacks with captured globals.pl/check_handin.pl",
+      "passed_subtests": 39,
+      "failed": 0,
+      "command": "perl tools/tests/quest_armor_rewards.t .",
+      "boundary": "native objects mocked"
+    },
+    {
+      "suite": "catalog/source validator mutation controls",
+      "passed": 21,
+      "failed": 0,
+      "command": "python -m unittest discover -s tools/tests -p test_quest_armor.py -v",
+      "independent_review_rerun": true
+    },
+    {
+      "suite": "wiki content/links/packaging/source refresh",
+      "passed": 14,
+      "failed": 0,
+      "command": "test_wiki + test_refresh via unittest with tempfile.tempdir under E:/EQ_Local_Dev/artifacts/quest-armor-tests/temp"
+    },
+    {
+      "suite": "wiki search",
+      "passed_scenarios": 6,
+      "command": "node wiki/test_search.cjs"
+    },
+    {
+      "suite": "wiki equipment catalog",
+      "passed": 7,
+      "command": "node wiki/test_equipment.cjs"
+    },
+    {
+      "suite": "wiki build",
+      "pages": 458,
+      "command": "python -B wiki/build.py"
+    },
+    {
+      "suite": "deployment failure/recovery",
+      "passed": 17,
+      "command": "python docs/releases/quest-armor-20261022/deployment/test_remote.py -v",
+      "boundary": "Windows ownership and directory fsync mocked; actual atomic replacement exercised"
+    },
+    {
+      "suite": "actual MariaDB temporary inventory transaction",
+      "passed": 5,
+      "command": "python docs/releases/quest-armor-20261022/deployment/test_remote.py --local-sql",
+      "boundary": "local disposable MariaDB10.5.4; exact generated SQL; all17columns preserved; charge/case/trailing-space drift and replay reject"
+    },
+    {
+      "suite": "Linux wiki publisher recovery",
+      "passed": 16,
+      "boundary": "actual host temporary site; existing updater"
+    }
+  ],
+  "red_evidence": {
+    "lua_baseline": {
+      "cases": 113,
+      "passed": 49,
+      "failed": 64
+    },
+    "perl_reward_baseline": {
+      "reward_branches_failed": 26,
+      "unchanged_sizing_controls_passed": 4
+    },
+    "kurron_baseline": {
+      "ascended_combinations_failed": 7,
+      "normal_and_wrong_tier_controls_passed": 2
+    }
+  },
+  "resolved_findings": [
+    "Independent review found Kurron Ni requires Normal Darkforge Helm/Breastplate/Greaves; captured current production source, audited dependencies, added mixed Normal/Ascended compatibility and executable tests.",
+    "First compatibility candidate short-circuited before check_handin for incomplete armor; this skipped legacy coin-return state. Runtime tests caught it. Final selector always supplies three requirement IDs, preserving helper invocation under original platinum gate. Full Perl suite passes.",
+    "Windows sandbox temp paths initially blocked wiki packaging/git fixtures. Re-ran all14 affected tests with an explicit task-local temp directory; passed. No test requirements weakened."
+  ],
+  "review": {
+    "independent_agent": "quest_reward_review",
+    "result": "No remaining required findings",
+    "runtime_test_agent": "quest_reward_tests",
+    "scope": "correctness, dependency compatibility, source identity, regression tests, docs/wiki and release boundary"
+  },
+  "open": [
+    "native fresh-hand-in/full-cursor/equip/relog QA",
+    "owner progression and balance acceptance"
+  ],
+  "deployment": "deployment/apply.json",
+  "wiki_publication": "deployment/wiki-publication.json",
+  "wiki_public_verification": "deployment/wiki-public-verification.json",
+  "helper_scope_limit": "Historical Perl fixture tests execute captured quests/plugins helpers; current root plugins native behavior is separate. Successor quest-tier-handins candidate audits active helpers/currency and is not part of this reward-only deployment."
+}

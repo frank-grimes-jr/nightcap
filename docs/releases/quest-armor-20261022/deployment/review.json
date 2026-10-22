@@ -1,0 +1,27 @@
+{
+  "date": "2026-10-22",
+  "owner_authorization": "Promote to main and deploy; upgrade Palwar three affected pieces after confirming logout.",
+  "main_pr": "https://github.com/frank-grimes-jr/nightcap/pull/285",
+  "main_commit": "7f97288",
+  "review": "No remaining required source findings after independent review",
+  "reviewer": "quest_reward_review",
+  "source_sha256": {
+    "remote.py": "24b35e67f7a491db70c54ffefe9fd1a57fda8aa1a8943d25e93a9abd6ed2fa3a",
+    "deploy.py": "91af3805f93e4a0acbf23db546387495331c61c6dd255f89c1a686eaf63e60af"
+  },
+  "resolved": [
+    "Retain admission hold until uncertain inventory outcomes are reconciled.",
+    "Require successful SQL-client completion marker; old/new rows alone cannot prove a timed-out DB session ended.",
+    "Pause gateway before querying a possibly failed world-control endpoint.",
+    "Compare custom string data byte-for-byte in full-row SQL guards.",
+    "Authenticate and fsync retained quest preimages before installation."
+  ],
+  "remaining": [
+    "Reload log reports12aggregate acknowledgments; individual worker identity is not in those log lines.",
+    "Native player delivery/equip/relog and balance QA are not inferred from deployment."
+  ],
+  "post_review_checks": {
+    "fault_injection_passed": 17,
+    "actual_mariadb_rehearsals_passed": 5
+  }
+}

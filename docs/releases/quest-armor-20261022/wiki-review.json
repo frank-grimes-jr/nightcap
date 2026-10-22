@@ -1,0 +1,115 @@
+{
+  "reviewed_at": "2026-10-22",
+  "source_ref": "f293626 plus task working changes",
+  "publication": "pending; no live wiki changes",
+  "articles": [
+    {
+      "path": "wiki/articles/about.json",
+      "title": "About this wiki",
+      "decision": "Reviewed: no change to this guide’s system, instructions or release status"
+    },
+    {
+      "path": "wiki/articles/advanced-loot.json",
+      "title": "Advanced loot",
+      "decision": "Reviewed: no change to this guide’s system, instructions or release status"
+    },
+    {
+      "path": "wiki/articles/ascension.json",
+      "title": "Ascension quest",
+      "decision": "Reviewed: no change to this guide’s system, instructions or release status"
+    },
+    {
+      "path": "wiki/articles/combat.json",
+      "title": "Combat, buffs & recovery",
+      "decision": "Reviewed: no change to this guide’s system, instructions or release status"
+    },
+    {
+      "path": "wiki/articles/commands.json",
+      "title": "Command reference",
+      "decision": "Reviewed: no change to this guide’s system, instructions or release status"
+    },
+    {
+      "path": "wiki/articles/dungeon-modes.json",
+      "title": "Raid & Grind dungeons",
+      "decision": "Reviewed: no change to this guide’s system, instructions or release status"
+    },
+    {
+      "path": "wiki/articles/equipment.json",
+      "title": "Equipment & trading",
+      "decision": "Updated candidate scope; release labels preserved"
+    },
+    {
+      "path": "wiki/articles/features.json",
+      "title": "Features",
+      "decision": "Updated candidate scope; release labels preserved"
+    },
+    {
+      "path": "wiki/articles/getting-started.json",
+      "title": "Getting started",
+      "decision": "Reviewed: no change to this guide’s system, instructions or release status"
+    },
+    {
+      "path": "wiki/articles/index.json",
+      "title": "Welcome to the Nightcap Wiki",
+      "decision": "Updated candidate scope; release labels preserved"
+    },
+    {
+      "path": "wiki/articles/item-upgrades.json",
+      "title": "Item upgrades",
+      "decision": "Reviewed: no change to this guide’s system, instructions or release status"
+    },
+    {
+      "path": "wiki/articles/launcher.json",
+      "title": "Launcher & interface",
+      "decision": "Reviewed: no change to this guide’s system, instructions or release status"
+    },
+    {
+      "path": "wiki/articles/multiclass.json",
+      "title": "Multiclass & progression",
+      "decision": "Reviewed: no change to this guide’s system, instructions or release status"
+    },
+    {
+      "path": "wiki/articles/pets.json",
+      "title": "Pets & pet armor",
+      "decision": "Reviewed: no change to this guide’s system, instructions or release status"
+    },
+    {
+      "path": "wiki/articles/recent-changes.json",
+      "title": "Recent changes",
+      "decision": "Updated candidate scope; release labels preserved"
+    },
+    {
+      "path": "wiki/articles/tradeskills.json",
+      "title": "Tradeskills & Craft All",
+      "decision": "Updated candidate scope; release labels preserved"
+    },
+    {
+      "path": "wiki/articles/travel.json",
+      "title": "Travel & instances",
+      "decision": "Reviewed: no change to this guide’s system, instructions or release status"
+    },
+    {
+      "path": "wiki/articles/tunnel.json",
+      "title": "East Commonlands tunnel",
+      "decision": "Reviewed: no change to this guide’s system, instructions or release status"
+    },
+    {
+      "path": "wiki/articles/unreleased.json",
+      "title": "In development",
+      "decision": "Updated candidate scope; release labels preserved"
+    },
+    {
+      "path": "wiki/articles/waypoints.json",
+      "title": "Waypoint Explorer",
+      "decision": "Reviewed: no change to this guide’s system, instructions or release status"
+    },
+    {
+      "path": "wiki/articles/zone-hunt.json",
+      "title": "Zone hunt & forging",
+      "decision": "Reviewed: no change to this guide’s system, instructions or release status"
+    }
+  ],
+  "catalog": "All432 generated routes/384 custom Hunt item values retain existing acquisition and stats; ordinary37 quest rewards are outside this generated Hunt catalog.",
+  "commands": "No new command or syntax; unchanged.",
+  "limitations": "Source ledger remains the published e209649 baseline; current check_refresh drift is reviewed, not hidden. Concurrent waypoint candidate and published robe notices preserved."
+}

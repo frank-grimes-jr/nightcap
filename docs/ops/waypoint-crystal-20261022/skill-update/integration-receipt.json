@@ -1,0 +1,276 @@
+{
+  "status": "installed",
+  "source_revision": "23e551eafe824363767f8c7ac66776e6431b362f",
+  "files": [
+    {
+      "path": "C:\\Users\\verre\\.codex\\skills\\nightcap-development\\references\\world.md",
+      "before_sha256": "e06028a10c3866a0162c86c76e2718aa2c9b12e01f76b7e283d5eec805a98d75",
+      "after_sha256": "6fa587a3ffad89929c0452c89e6f2acd16b86e30e3dca56a5d0dd0d416ad3425"
+    },
+    {
+      "path": "C:\\Users\\verre\\.codex\\skills\\nightcap-development\\references\\client.md",
+      "before_sha256": "201755480f594fd93855bb636bcc42da81f12c033b81a9eeb0fba63f79a5967e",
+      "after_sha256": "bb86dbf24307fdcf4d749453f17718078ff8d007fea8b2782d404ad6b4da30cd"
+    },
+    {
+      "path": "C:\\Users\\verre\\.codex\\skills\\nightcap-development\\references\\wiki.md",
+      "before_sha256": "3034fd9f2978169dfa47efa669a0e65b545046d1dc05e31e2b046853b9a9fbb1",
+      "after_sha256": "d7a6289e1c77d2d7a271e282d185fb0fc362c4cd2088f00703912438acede6ca"
+    },
+    {
+      "path": "C:\\Users\\verre\\.codex\\skills\\nightcap-development\\references\\sources.json",
+      "before_sha256": "c05c1ece7ee54ae4b179fb30af1c246e0766eae29fd7078d4982fcac9ef0260b",
+      "after_sha256": "de4e2b9c9bd227f48aa514c95eb449267f86b69748921f48133320a4b2c35022"
+    }
+  ],
+  "scoped_sources": [
+    {
+      "topic": "world",
+      "root": "C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev",
+      "path": "server-mods/quests/global/999240.pl",
+      "role": "October22 waypoint crystal candidate; reviewed source, not deployment or native visual acceptance",
+      "sha256": "981a7c3cb56f265bb3ffe1db9d5e23aa2e3aee9d415288f75beb123580a9c58a",
+      "revision": "367e6406a093d3c8a9adffb62837200d8ad04be0"
+    },
+    {
+      "topic": "world",
+      "root": "C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev",
+      "path": "tools/tests/waypoint_visuals.t",
+      "role": "October22 waypoint crystal candidate; reviewed source, not deployment or native visual acceptance",
+      "sha256": "1833e460df1165b59d9726df28da8ba3f9d0219aa116800b4d9516a025c6518d",
+      "revision": "367e6406a093d3c8a9adffb62837200d8ad04be0"
+    },
+    {
+      "topic": "world",
+      "root": "C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev",
+      "path": "docs/ops/waypoint-crystal-20261022/README.md",
+      "role": "Reviewed waypoint integration with published robe release; candidate not deployed",
+      "sha256": "4a83224f52e45e603a353db9c14fca41c0f52e6c92f917518fa9bc15f72b782d",
+      "revision": "23e551eafe824363767f8c7ac66776e6431b362f"
+    },
+    {
+      "topic": "world",
+      "root": "C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev",
+      "path": "docs/ops/waypoint-crystal-20261022/verification.json",
+      "role": "October22 waypoint crystal candidate; reviewed source, not deployment or native visual acceptance",
+      "sha256": "aa3e51c0b8be5f5ebafa69fc6a269b78a3c2a1b08d9fe102b9029eb847022e6f",
+      "revision": "367e6406a093d3c8a9adffb62837200d8ad04be0"
+    },
+    {
+      "topic": "world",
+      "root": "C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev",
+      "path": "docs/ops/waypoint-crystal-20261022/integration.json",
+      "role": "Reviewed waypoint integration and unsigned inventory; no deployment/native visual acceptance",
+      "sha256": "eca221ed3fb262dd4790caf8d53821c0997e3378a87e6f4075677664c0b9cf76",
+      "revision": "23e551eafe824363767f8c7ac66776e6431b362f"
+    },
+    {
+      "topic": "client",
+      "root": "C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev",
+      "path": "eq-client-dll/src/model_hooks.h",
+      "role": "October22 waypoint crystal candidate; reviewed source, not deployment or native visual acceptance",
+      "sha256": "f1215c7ba2a69008d4c4ce46e862c62b69faf2ad14b25201c501463a7c9eefb3",
+      "revision": "367e6406a093d3c8a9adffb62837200d8ad04be0"
+    },
+    {
+      "topic": "client",
+      "root": "C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev",
+      "path": "eq-client-dll/src/model_catalog.h",
+      "role": "October22 waypoint crystal candidate; reviewed source, not deployment or native visual acceptance",
+      "sha256": "4762e280bbd5c5c852f6ac7bb6e8cee8d66f9cfb28a9d697aafed5ac7f33a0bf",
+      "revision": "367e6406a093d3c8a9adffb62837200d8ad04be0"
+    },
+    {
+      "topic": "client",
+      "root": "C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev",
+      "path": "eq-client-dll/src/runtime_contract.h",
+      "role": "October22 waypoint crystal candidate; reviewed source, not deployment or native visual acceptance",
+      "sha256": "64c99eb75d6d0502a6b835def114978285b011816ba9c73a01d379d4ea6762ea",
+      "revision": "367e6406a093d3c8a9adffb62837200d8ad04be0"
+    },
+    {
+      "topic": "client",
+      "root": "C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev",
+      "path": "eq-client-dll/config/classic-models.json",
+      "role": "October22 waypoint crystal candidate; reviewed source, not deployment or native visual acceptance",
+      "sha256": "7e28df55278b0b81090ec8ec6870e7714bb8da731986cc5e0ebf76a86ee47839",
+      "revision": "367e6406a093d3c8a9adffb62837200d8ad04be0"
+    },
+    {
+      "topic": "client",
+      "root": "C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev",
+      "path": "eq-client-dll/config/patch-sites.json",
+      "role": "October22 waypoint crystal candidate; reviewed source, not deployment or native visual acceptance",
+      "sha256": "282eef8492f50153a3b14ef9dda78ad446c9e835d659d9a28b37681be30fc3ed",
+      "revision": "367e6406a093d3c8a9adffb62837200d8ad04be0"
+    },
+    {
+      "topic": "client",
+      "root": "C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev",
+      "path": "eq-client-dll/tests/model-hooks.cpp",
+      "role": "October22 waypoint crystal candidate; reviewed source, not deployment or native visual acceptance",
+      "sha256": "e8eb245355df8a8e47afb3f038e547c4da4588875ed78a920625acdde31379f9",
+      "revision": "367e6406a093d3c8a9adffb62837200d8ad04be0"
+    },
+    {
+      "topic": "client",
+      "root": "C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev",
+      "path": "tools/client_classic_models.py",
+      "role": "October22 waypoint crystal candidate; reviewed source, not deployment or native visual acceptance",
+      "sha256": "b2fb39c55e7f600136d71d0df8a0511579300fe50295d32869401b1f3b658823",
+      "revision": "367e6406a093d3c8a9adffb62837200d8ad04be0"
+    },
+    {
+      "topic": "client",
+      "root": "C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev",
+      "path": "tools/generate-classic-model-contract.py",
+      "role": "October22 waypoint crystal candidate; reviewed source, not deployment or native visual acceptance",
+      "sha256": "bb0d69654dbe6e09fda78d2e48f2e2dcd0ec0bec3be9440e097d2e396c769ed8",
+      "revision": "367e6406a093d3c8a9adffb62837200d8ad04be0"
+    },
+    {
+      "topic": "client",
+      "root": "C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev",
+      "path": "tools/tests/test_waypoint_model.py",
+      "role": "October22 waypoint crystal candidate; reviewed source, not deployment or native visual acceptance",
+      "sha256": "46228d987cd66ac75ade1cb1db22ddaf2002387e5ccca656c963f6a1071be809",
+      "revision": "367e6406a093d3c8a9adffb62837200d8ad04be0"
+    },
+    {
+      "topic": "client",
+      "root": "C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev",
+      "path": "eq-launcher/cmd/nightcap-package/classic_models.go",
+      "role": "October22 waypoint crystal candidate; reviewed source, not deployment or native visual acceptance",
+      "sha256": "090db85e82e2644c814ba59920d05bdb6b8c570aca1a8e744f70278c3dbe2f99",
+      "revision": "367e6406a093d3c8a9adffb62837200d8ad04be0"
+    },
+    {
+      "topic": "client",
+      "root": "C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev",
+      "path": "eq-launcher/cmd/nightcap-package/classic_models_test.go",
+      "role": "October22 waypoint crystal candidate; reviewed source, not deployment or native visual acceptance",
+      "sha256": "38559e1b4c941a91ab3dc86c4ef69ce254226de211b193ef216e41b93706c602",
+      "revision": "367e6406a093d3c8a9adffb62837200d8ad04be0"
+    },
+    {
+      "topic": "client",
+      "root": "C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev",
+      "path": "eq-launcher/internal/preflight/proxy_catalog_test.go",
+      "role": "October22 waypoint crystal candidate; reviewed source, not deployment or native visual acceptance",
+      "sha256": "27c605ac7b323c576986be34a4828a6a67a519a5351c5e58df7aaf372b6c0391",
+      "revision": "367e6406a093d3c8a9adffb62837200d8ad04be0"
+    },
+    {
+      "topic": "client",
+      "root": "C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev",
+      "path": "eq-launcher/internal/preflight/catalog.json",
+      "role": "October22 waypoint crystal candidate; reviewed source, not deployment or native visual acceptance",
+      "sha256": "282eef8492f50153a3b14ef9dda78ad446c9e835d659d9a28b37681be30fc3ed",
+      "revision": "367e6406a093d3c8a9adffb62837200d8ad04be0"
+    },
+    {
+      "topic": "client",
+      "root": "C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev",
+      "path": "eq-launcher/internal/preflight/testdata/released-catalog-20261019.json",
+      "role": "October22 waypoint crystal candidate; reviewed source, not deployment or native visual acceptance",
+      "sha256": "2599919e5701d4b2dc43e569da72a3d99e503ae6f511f690d7a09fe581f1a8b4",
+      "revision": "367e6406a093d3c8a9adffb62837200d8ad04be0"
+    },
+    {
+      "topic": "client",
+      "root": "C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev",
+      "path": "docs/ops/waypoint-crystal-20261022/candidate.json",
+      "role": "October22 waypoint crystal candidate; reviewed source, not deployment or native visual acceptance",
+      "sha256": "3ec663c9a528f329a29bbb431b84e3f25712e5c6375dbf2ddf9fd3897e9f3b10",
+      "revision": "367e6406a093d3c8a9adffb62837200d8ad04be0"
+    },
+    {
+      "topic": "client",
+      "root": "C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev",
+      "path": "docs/ops/waypoint-crystal-20261022/verification.json",
+      "role": "October22 waypoint crystal candidate; reviewed source, not deployment or native visual acceptance",
+      "sha256": "aa3e51c0b8be5f5ebafa69fc6a269b78a3c2a1b08d9fe102b9029eb847022e6f",
+      "revision": "367e6406a093d3c8a9adffb62837200d8ad04be0"
+    },
+    {
+      "topic": "client",
+      "root": "C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev",
+      "path": "docs/ops/waypoint-crystal-20261022/integration.json",
+      "role": "Reviewed waypoint integration and unsigned inventory; no deployment/native visual acceptance",
+      "sha256": "eca221ed3fb262dd4790caf8d53821c0997e3378a87e6f4075677664c0b9cf76",
+      "revision": "23e551eafe824363767f8c7ac66776e6431b362f"
+    },
+    {
+      "topic": "client",
+      "root": "C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev",
+      "path": "docs/ops/waypoint-crystal-20261022/client-inventory-plan.json",
+      "role": "Reviewed waypoint integration and unsigned inventory; no deployment/native visual acceptance",
+      "sha256": "99b0a52fb5529c9b7a38e2656af1fc258cc7715fb290444fb3d08942278a8a23",
+      "revision": "23e551eafe824363767f8c7ac66776e6431b362f"
+    },
+    {
+      "topic": "wiki",
+      "root": "C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev",
+      "path": "wiki/articles/waypoints.json",
+      "role": "October22 waypoint crystal candidate; reviewed source, not deployment or native visual acceptance",
+      "sha256": "686d5adc21ba8f4b8620e240dd901704a077e43cd4cc91e803b7fcbed2b202fa",
+      "revision": "367e6406a093d3c8a9adffb62837200d8ad04be0"
+    },
+    {
+      "topic": "wiki",
+      "root": "C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev",
+      "path": "wiki/articles/unreleased.json",
+      "role": "Reviewed waypoint integration with published robe release; candidate not deployed",
+      "sha256": "fe3edf0e905c6c8865fe8e344a1e69b96dbe5f1f99f9b4824273142fac375ac2",
+      "revision": "23e551eafe824363767f8c7ac66776e6431b362f"
+    },
+    {
+      "topic": "wiki",
+      "root": "C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev",
+      "path": "wiki/articles/recent-changes.json",
+      "role": "Reviewed waypoint integration with published robe release; candidate not deployed",
+      "sha256": "ead9895c5c137a5698d85101df7cbac649379f5e7b947f7b92951a5d7575777d",
+      "revision": "23e551eafe824363767f8c7ac66776e6431b362f"
+    },
+    {
+      "topic": "wiki",
+      "root": "C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev",
+      "path": "wiki/content-review.json",
+      "role": "Reviewed waypoint integration with published robe release; candidate not deployed",
+      "sha256": "f1f6dd8e53eaffb21d05a7828ba07645f212ecaace8cbedf8b781e3a1261074c",
+      "revision": "23e551eafe824363767f8c7ac66776e6431b362f"
+    },
+    {
+      "topic": "wiki",
+      "root": "C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev",
+      "path": "docs/ops/waypoint-crystal-20261022/wiki-review.json",
+      "role": "October22 waypoint crystal candidate; reviewed source, not deployment or native visual acceptance",
+      "sha256": "699131a204294018419c3bfe6f0078408052dbc31bb0d90d4cd74c02e850c308",
+      "revision": "367e6406a093d3c8a9adffb62837200d8ad04be0"
+    },
+    {
+      "topic": "wiki",
+      "root": "C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev",
+      "path": "docs/ops/waypoint-crystal-20261022/wiki-refresh.json",
+      "role": "October22 waypoint crystal candidate; reviewed source, not deployment or native visual acceptance",
+      "sha256": "279852587805593798e6fe7b9f482c284670fc5a0d9c1c877d20cccc3b9833df",
+      "revision": "367e6406a093d3c8a9adffb62837200d8ad04be0"
+    },
+    {
+      "topic": "wiki",
+      "root": "C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev",
+      "path": "docs/ops/waypoint-crystal-20261022/wiki-integration-review.json",
+      "role": "Reviewed waypoint integration and unsigned inventory; no deployment/native visual acceptance",
+      "sha256": "ccd46451844ac0f68990a16ca9f33872c7d4093afdd51e25d70c71da07ecf8c1",
+      "revision": "23e551eafe824363767f8c7ac66776e6431b362f"
+    },
+    {
+      "topic": "wiki",
+      "root": "C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev",
+      "path": "docs/ops/waypoint-crystal-20261022/wiki-refresh-integration.json",
+      "role": "Reviewed waypoint integration and unsigned inventory; no deployment/native visual acceptance",
+      "sha256": "a1b68da97ecf99c41e833555dd01908024433e20db2c513a37a135bece5543b4",
+      "revision": "23e551eafe824363767f8c7ac66776e6431b362f"
+    }
+  ]
+}

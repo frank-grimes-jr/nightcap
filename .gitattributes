@@ -192,3 +192,26 @@ site-assets/* -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-
 docs/releases/zone-loot-20261009/production*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 docs/releases/zone-loot-20261009/website*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 docs/releases/zone-loot-20261009/ops/* -text -whitespace
+
+# Quest armor uses exact production preimages; retain imported whitespace and LF.
+server-mods/quests/southkarana/Shakrn_Meadowgreen.lua text eol=lf -whitespace
+server-mods/quests/southkarana/Ulan_Meadowgreen.lua text eol=lf -whitespace
+server-mods/quests/soltemple/Cryssia_Stardreamer.pl text eol=lf -whitespace
+server-mods/quests/soltemple/Walthin_Fireweaver.lua text eol=lf -whitespace
+server-mods/quests/soltemple/an_undead_knight.pl text eol=lf -whitespace
+server-mods/quests/soltemple/an_undead_knight_.pl text eol=lf -whitespace
+server-mods/quests/kithicor/Gandari.pl text eol=lf -whitespace
+server-mods/quests/kithicor/Leaf_Falldim.pl text eol=lf -whitespace
+server-mods/quests/lakerathe/Vrynn.pl text eol=lf -whitespace
+server-mods/quests/lakerathe/Kyralynn.pl text eol=lf -whitespace
+server-mods/quests/overthere/Kurron_Ni.pl text eol=lf -whitespace
+docs/releases/quest-armor-20261022/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+docs/releases/quest-armor-20261022/skill-update/*.patch -text -whitespace
+docs/releases/quest-armor-20261022/deployment/skill-update/*.patch -text -whitespace
+docs/items/quest-armor-catalog.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+tools/capture_quest_armor.py text eol=lf
+tools/quest_armor.py text eol=lf
+tools/tests/quest_armor_rewards.lua text eol=lf
+tools/tests/quest_armor_rewards.t text eol=lf
+tools/tests/run_quest_armor_lua_tests.py text eol=lf
+tools/tests/test_quest_armor.py text eol=lf

@@ -1,5 +1,8 @@
 # Classic robe publication — October 22, 2026
 
+Historical game2026102201 publication. The owner later confirmed waist gaps;
+[current correction2203](../waist-correction/README.md) supersedes these archives.
+
 Owner instruction: **“Approved. move into main.”** This followed the concrete
 candidate, exact native QA and request for signed live-QA publication. It
 authorizes this main promotion and client publication before visual acceptance;

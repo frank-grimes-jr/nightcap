@@ -1,0 +1,63 @@
+{
+  "date": "2026-10-22",
+  "source_base": "1ae9b04080f12098592a96d54116aa511be1c3bf",
+  "owner_report": {
+    "confirmed_races": [
+      "Barbarian",
+      "Half Elf"
+    ],
+    "other_races": "suspected by owner; same unjoined topology confirmed in all fourteen generated actors",
+    "native_acceptance": "waist defect rejected; correction not yet accepted"
+  },
+  "reproduction": {
+    "original_shared_waist_edges": 0,
+    "expected_edges": 8,
+    "failed_original_registrations": 16,
+    "rim_only_inverted_face_regression_failures": 12
+  },
+  "final_tests": {
+    "robe": 12,
+    "helmet": 16,
+    "PFS": 3
+  },
+  "independent_review": {
+    "registrations": 16,
+    "shared_directed_edges": 8,
+    "collapsed_or_reversed_skirt_faces": 0,
+    "outward_seam_faces": true,
+    "exported_seam_normals_agree": true,
+    "UV_bone_polygon_arrays_preserved": true,
+    "remaining_geometry_blockers": 0
+  },
+  "previews": [
+    {
+      "file": "preview-reported-races.png",
+      "pose": "P02",
+      "angle": 25,
+      "actors": [
+        "BAM",
+        "BAF",
+        "HAM",
+        "HAF"
+      ]
+    },
+    {
+      "file": "preview-all-races.png",
+      "pose": "L01",
+      "frame": 3,
+      "angle": 155,
+      "actors": "all fourteen"
+    }
+  ],
+  "archives": {
+    "global_chr.s3d": {
+      "size": 8221984,
+      "sha256": "36423400d15f478b77e1808e5afb48d5505d788539a35f097f0e7e3acd63bb36"
+    },
+    "global4_chr.s3d": {
+      "size": 2715894,
+      "sha256": "d5d0aecc05029eabae46de5004cca55db2cf387270511b9bc6b618010f81fa51"
+    }
+  },
+  "native_correction_acceptance": "pending"
+}

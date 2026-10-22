@@ -19,10 +19,37 @@ def digest(raw):
     return hashlib.sha256(raw).hexdigest()
 
 
+def global_model_files(client, models, modern_source):
+    """Add reviewed native geometry without changing classic aliases or INIs."""
+    source = (client / modern_source['source']).read_bytes()
+    if digest(source) != modern_source['sha256']:
+        raise ValueError('Unsupported modern import list')
+    rows = source.decode('ascii').splitlines()
+    if not rows or int(rows[0]) != len(rows) - 1:
+        raise ValueError('Invalid modern import count')
+    files, imports = {}, rows[1:]
+    for model in models:
+        code, name = model['code'], model['archive']
+        if name in files or any(line.split(',')[0] == code for line in imports):
+            raise ValueError('Duplicate global model')
+        raw = (client / name).read_bytes()
+        if digest(raw) != model['sha256']:
+            raise ValueError('Unsupported global model: ' + name)
+        if code + '.mod' not in read_pfs(raw):
+            raise ValueError('Missing global model geometry: ' + code)
+        files[name] = raw
+        imports.append(code + ',' + name.removesuffix('.eqg'))
+    if len(imports) >= 1000:
+        raise ValueError('Excessive global model imports')
+    files['nightcap_modern_chr.txt'] = (str(len(imports)) + '\n' + '\n'.join(imports) + '\n').encode('ascii')
+    return files
+
+
 def model_files(client):
     plan = json.loads(PLAN.read_bytes())
     files = {}
-    imports = list(plan['stock_imports'])
+    imports = list(plan['stock_imports']) + [
+        m['code'] + ',' + m['archive'].removesuffix('.eqg') for m in plan['global_models']]
     for archive in plan['archives']:
         raw = (client / archive['source']).read_bytes()
         if digest(raw) != archive['source_sha256']:
@@ -66,6 +93,7 @@ def model_files(client):
     if len(imports) >= 1000 or len(set(x.split(',')[0] for x in imports)) != len(imports):
         raise ValueError('Duplicate or excessive global model imports')
     files['nightcap_models_chr.txt'] = (str(len(imports)) + '\n' + '\n'.join(imports) + '\n').encode('ascii')
+    files.update(global_model_files(client, plan['global_models'], plan['modern_imports']))
     return files
 
 

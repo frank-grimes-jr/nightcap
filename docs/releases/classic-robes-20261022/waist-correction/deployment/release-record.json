@@ -1,0 +1,26 @@
+{
+  "date": "2026-10-22",
+  "owner_authorization": "Approved. move into main. Continued corrective delivery after the owner reported the waist hole; native visual acceptance remains separate.",
+  "source_pr": "https://github.com/frank-grimes-jr/nightcap/pull/286",
+  "main_merge": "b3cda309c06f79670b95cd3c31995d125ea34bd5",
+  "client_release": 2026102203,
+  "wiki_release": "20261022-classic-robes-waist-v1",
+  "native_acceptance": "pending",
+  "original_waist_QA": "Owner confirmed missing waist on Barbarian and Half Elf in the original2201/2202 archives.",
+  "independent_review": "All16 serialized registrations pass shared-edge, winding, noncollapsed/nonreversed-face, normals, UV/bone/topology preservation checks after correcting the initial rim-only candidate.",
+  "tests": {
+    "robe": 12,
+    "helmet": 16,
+    "PFS": 3,
+    "Linux_client_publisher": 10,
+    "local_wiki_pass": 21,
+    "local_wiki_POSIX_skips": 9,
+    "search_scenarios": 6,
+    "equipment_checks": 7,
+    "Linux_wiki_recovery": 16
+  },
+  "client_preservation": "138 other exact descriptors/URLs and current waypoint assets, proxy/catalog0.11.1, settings, patch-note history and tombstones retained.",
+  "protected_reference_client": "read only",
+  "installed_player_client": "read only; normal launcher Play installs the public update",
+  "runtime": "No server restart, quest reload or SQL change."
+}

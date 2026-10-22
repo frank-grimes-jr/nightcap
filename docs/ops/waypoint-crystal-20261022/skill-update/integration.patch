@@ -1,0 +1,124 @@
+--- C:/Users/verre/.codex/skills/nightcap-development/references/world.md
++++ C:/Users/verre/.codex/skills/nightcap-development/references/world.md
+@@ -60,0 +61,4 @@
++
++Integration23e551e includes the subsequently published Classic robe release;
++all14 tested waypoint implementation hashes are retained. The unsigned client
++inventory plan preserves that release. See integration.json for current evidence.
+--- C:/Users/verre/.codex/skills/nightcap-development/references/client.md
++++ C:/Users/verre/.codex/skills/nightcap-development/references/client.md
+@@ -35,0 +36,9 @@
++
++Integration23e551e includes main26761ff and published signed game2026102201.
++A fresh HTTPS channel hash matches the previously signature-verified envelope.
++client-inventory-plan.json preserves135 unrelated descriptors/URLs, including
++both robe archives, patch history and tombstones. Three replacements and two
++additions yield140 descriptors; all25 model-contract hashes match. This is an
++unsigned nonpublishable plan. A fresh baseline, higher counter, approved patch
++note, signing and full-pair validation remain required after authorization.
++All14 tested waypoint implementation hashes are unchanged by the merge.
+--- C:/Users/verre/.codex/skills/nightcap-development/references/wiki.md
++++ C:/Users/verre/.codex/skills/nightcap-development/references/wiki.md
+@@ -5,14 +5,16 @@
+-Candidate367e640 in C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev
+-reviews all21 maintained articles and432 generated reward routes. Waypoint
+-Explorer, In development and Recent changes describe the chosen crystal/label
+-as Not released. Features/home/travel/dungeons, commands and catalog values keep
+-their released meaning. Source ledger7792171 is retained with a scoped review;
+-check_refresh still reports review required rather than claiming publication.
+-The known source delta through base88562b1 is Keeper deployment/wiki/knowledge
+-evidence, not a new gameplay change. Unrelated robe candidate records are retained.
+-
+-docs/ops/waypoint-crystal-20261022/{wiki-review.json,wiki-refresh.json,
+-verification.json} records decisions and hashes.14 Python content/refresh tests,
+-6 search cases,7 equipment checks and458-page build pass. Native visual QA,
+-paired signed client/server activation and public wiki publication are pending;
+-the prior published20261022-dungeon-keepers-v1 remains the recorded public state.
++Integrated candidate23e551e in C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev
++includes main26761ff and the published Classic robe source/release. All21 articles
++and432 generated reward routes were reviewed again. Waypoint Explorer, In
++development and Recent changes keep the crystal Not released; the latter two
++also preserve the published robe notices. Five other robe guides match main
++exactly. Features/home/travel/dungeons, commands and catalog values retain their
++released meaning. Published source ledger e209649 remains, with a separate scoped
++waypoint review; check_refresh still correctly reports candidate source drift.
++
++docs/ops/waypoint-crystal-20261022/{integration.json,wiki-integration-review.json,
++wiki-refresh-integration.json} supersedes the earlier baseline review for current
++compatibility.14 Python tests,6 search cases,7 equipment checks and458-page build
++pass. Original verification/review files retain their earlier scope. Current
++published wiki20261022-classic-robes-v1 remains separate from this unpublished
++candidate. Paired main/client/server/wiki publication and native visual QA remain
++pending. The complete unsigned inventory plan retains the published robe assets.
+--- C:/Users/verre/.codex/skills/nightcap-development/references/sources.json
++++ C:/Users/verre/.codex/skills/nightcap-development/references/sources.json
+@@ -78 +78,2 @@
+-    "classic_robes_published_20261022": "e209649cd70f5aa5d7bbc73813cae7275950af19; main PR276/4661ddc; signed game2026102201 and wiki20261022-classic-robes-v1 verified; native QA pending"
++    "classic_robes_published_20261022": "e209649cd70f5aa5d7bbc73813cae7275950af19; main PR276/4661ddc; signed game2026102201 and wiki20261022-classic-robes-v1 verified; native QA pending",
++    "waypoint_crystal_integrated_20261022": "23e551eafe824363767f8c7ac66776e6431b362f"
+@@ -4102,3 +4103,3 @@
+-        "role": "October22 waypoint crystal candidate; reviewed source, not deployment or native visual acceptance",
+-        "sha256": "1c9c3a5bbf3957e07767d799b334890fc32f51639e81d73c1d7cd8855c1ce9a5",
+-        "revision": "367e6406a093d3c8a9adffb62837200d8ad04be0"
++        "role": "Reviewed waypoint integration with published robe release; candidate not deployed",
++        "sha256": "4a83224f52e45e603a353db9c14fca41c0f52e6c92f917518fa9bc15f72b782d",
++        "revision": "23e551eafe824363767f8c7ac66776e6431b362f"
+@@ -4111,0 +4113,7 @@
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev",
++        "path": "docs/ops/waypoint-crystal-20261022/integration.json",
++        "role": "Reviewed waypoint integration and unsigned inventory; no deployment/native visual acceptance",
++        "sha256": "eca221ed3fb262dd4790caf8d53821c0997e3378a87e6f4075677664c0b9cf76",
++        "revision": "23e551eafe824363767f8c7ac66776e6431b362f"
+@@ -5479,0 +5488,14 @@
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev",
++        "path": "docs/ops/waypoint-crystal-20261022/integration.json",
++        "role": "Reviewed waypoint integration and unsigned inventory; no deployment/native visual acceptance",
++        "sha256": "eca221ed3fb262dd4790caf8d53821c0997e3378a87e6f4075677664c0b9cf76",
++        "revision": "23e551eafe824363767f8c7ac66776e6431b362f"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev",
++        "path": "docs/ops/waypoint-crystal-20261022/client-inventory-plan.json",
++        "role": "Reviewed waypoint integration and unsigned inventory; no deployment/native visual acceptance",
++        "sha256": "99b0a52fb5529c9b7a38e2656af1fc258cc7715fb290444fb3d08942278a8a23",
++        "revision": "23e551eafe824363767f8c7ac66776e6431b362f"
+@@ -7355,3 +7377,3 @@
+-        "role": "October22 waypoint crystal candidate; reviewed source, not deployment or native visual acceptance",
+-        "sha256": "aa18d7c9051e9e4929006af2b1a998c496754d9346ec6ce4d03a606b2a758b7c",
+-        "revision": "367e6406a093d3c8a9adffb62837200d8ad04be0"
++        "role": "Reviewed waypoint integration with published robe release; candidate not deployed",
++        "sha256": "fe3edf0e905c6c8865fe8e344a1e69b96dbe5f1f99f9b4824273142fac375ac2",
++        "revision": "23e551eafe824363767f8c7ac66776e6431b362f"
+@@ -7362,3 +7384,3 @@
+-        "role": "October22 waypoint crystal candidate; reviewed source, not deployment or native visual acceptance",
+-        "sha256": "5d8dc239174c65ecdd6741ff2c35dc42f4dda4b9d098f968573fe01222ce2e49",
+-        "revision": "367e6406a093d3c8a9adffb62837200d8ad04be0"
++        "role": "Reviewed waypoint integration with published robe release; candidate not deployed",
++        "sha256": "ead9895c5c137a5698d85101df7cbac649379f5e7b947f7b92951a5d7575777d",
++        "revision": "23e551eafe824363767f8c7ac66776e6431b362f"
+@@ -7369,3 +7391,3 @@
+-        "role": "October22 waypoint crystal candidate; reviewed source, not deployment or native visual acceptance",
+-        "sha256": "1fce5d39a48023c8d2b4f8fca03ea9e7105c0cf00388e6a5d41f358c63afacb2",
+-        "revision": "367e6406a093d3c8a9adffb62837200d8ad04be0"
++        "role": "Reviewed waypoint integration with published robe release; candidate not deployed",
++        "sha256": "f1f6dd8e53eaffb21d05a7828ba07645f212ecaace8cbedf8b781e3a1261074c",
++        "revision": "23e551eafe824363767f8c7ac66776e6431b362f"
+@@ -7420,0 +7443,14 @@
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev",
++        "path": "docs/ops/waypoint-crystal-20261022/wiki-integration-review.json",
++        "role": "Reviewed waypoint integration and unsigned inventory; no deployment/native visual acceptance",
++        "sha256": "ccd46451844ac0f68990a16ca9f33872c7d4093afdd51e25d70c71da07ecf8c1",
++        "revision": "23e551eafe824363767f8c7ac66776e6431b362f"
++      },
++      {
++        "root": "C:/Users/verre/.codex/worktrees/waypoint-markers/EQ_Local_Dev",
++        "path": "docs/ops/waypoint-crystal-20261022/wiki-refresh-integration.json",
++        "role": "Reviewed waypoint integration and unsigned inventory; no deployment/native visual acceptance",
++        "sha256": "a1b68da97ecf99c41e833555dd01908024433e20db2c513a37a135bece5543b4",
++        "revision": "23e551eafe824363767f8c7ac66776e6431b362f"
