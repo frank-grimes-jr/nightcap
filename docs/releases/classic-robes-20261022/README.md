@@ -1,10 +1,13 @@
 # Classic race robe visibility — October 22, 2026
 
-Status: source merged through PR276 at main
-`4661ddcd3ed6389fce8d9120358d4b6a2b157622`; signed game `2026102201` published
-for live testing with owner approval. Native visual and animation acceptance
-remains open. The protected RoF2 reference and installed player client remained
-read only. See [publication and verification](deployment/README.md).
+Status: original source PR276/game2026102201 added robe bodies. Owner QA then
+confirmed waist holes on Barbarian and Half Elf. Source PR286 and signed game
+**2026102203** now publish a shared-seam correction across all seven added races,
+both genders. All140 hosted client files verify, retaining the newer waypoint
+assets and matched proxy/catalog0.11.1. Native recheck remains open.
+The protected reference and installed player client remain read only.
+See [waist correction and delivery evidence](waist-correction/README.md).
+Original candidate/publication records below retain their historical scope.
 
 ## Result and boundaries
 

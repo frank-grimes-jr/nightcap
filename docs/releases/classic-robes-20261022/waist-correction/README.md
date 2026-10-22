@@ -6,10 +6,12 @@ waist acceptance of the original game2026102201 assets, also retained by the
 waypoint update2026102202. Other races were suspected by the owner; source
 inspection found the same unjoined topology on all fourteen added models.
 
-Status: corrected candidate `waist-fix-02`, signed publication being prepared.
+Status: source PR286 merged at `b3cda309c06f79670b95cd3c31995d125ea34bd5`;
+signed game **2026102203** publishes corrected `waist-fix-02` for live testing.
 Native visual/animation acceptance remains pending. No protected reference or
-installed player client was modified. The latest waypoint assets and matching
-proxy/catalog0.11.1 must be retained in the follow-up release.
+installed player client was modified. All140 public client files verify; the138
+other descriptors and current waypoint assets with matching proxy/catalog0.11.1
+are retained.
 
 ## Correction and proof
 
@@ -37,7 +39,7 @@ visual acceptance. Existing original-fragment/texture/helmet/foot checks pass.
 
 ## Native recheck and recovery
 
-After the corrected signed update is published, fully close EverQuest, reopen
+To install corrected game2026102203, fully close EverQuest, reopen
 the normal launcher and press Play. The observer also needs the update. In East
 Commonlands, start with Barbarian and Half Elf, both genders: equip a legal robe,
 inspect the waist front/back/sides, hold weapons, turn, walk/run, cast, sit and
@@ -52,5 +54,9 @@ and player settings. No server restart, quest reload or database change is neede
 
 `deployment/` records signed bytes, preservation, tests and publication separately
 from owner visual acceptance. Wiki impact covers all21 guides/432 generated routes;
-seven robe notices will describe the correction, preserving current waypoint and
-Keeper guidance, commands, item stats and catalog values.
+seven robe notices describe the correction, preserving current waypoint and
+Keeper guidance, commands, item stats and catalog values. Current main class-armor
+notices remain explicitly Not released. Wiki20261022-classic-robes-waist-v1
+verifies all465 HTTPS files/headers and five private-route denials;16 Linux
+recovery tests and actual pointer rollback rehearsal pass. No Nginx reload.
+See [delivery evidence](deployment/README.md).

@@ -1,0 +1,20 @@
+{
+  "previous_release": 2026102202,
+  "archives": [
+    {
+      "path": "global4_chr.s3d",
+      "sha256": "c1e25a088a6d87a93dbaa94012daf0a9fb3dd1668669ec534909d8a3841c99f7",
+      "size": 2716026,
+      "url": "https://play.nightcapgame.org/release/2026102201/global4_chr.s3d",
+      "required": true
+    },
+    {
+      "path": "global_chr.s3d",
+      "sha256": "c1c6b6edbfa1b335cd1427f95f9a33cf75e33c4054d0fb40ae4f715cd14f5e21",
+      "size": 8222589,
+      "url": "https://play.nightcapgame.org/release/2026102201/global_chr.s3d",
+      "required": true
+    }
+  ],
+  "recovery": "Emergency fallback only: prior archives restore the known waist defect. Publish a higher signed counter preserving all current unrelated descriptors, waypoint assets and valid DLL/catalog. Never lower player checkpoints or restore player data."
+}
