@@ -1,6 +1,9 @@
 # Native robe acceptance
 
-Pending: offline previews and mapped-native checks do not complete this gate.
+Owner confirmed **"Fixed"** on October 22 after game 2026102204, closing the
+reported missing-waist issue. This is not a claim that every combination below
+was manually checked. Broader regression coverage remains separately tracked.
+Acceptance: `native-skinning/owner-acceptance/owner-confirmation.json`.
 Signed game release `2026102204` is available for live testing. Close EverQuest
 completely, reopen the normal launcher and press Play. Keep the current matched
 Nightcap proxy/catalog and default Classic models. Record both archive
