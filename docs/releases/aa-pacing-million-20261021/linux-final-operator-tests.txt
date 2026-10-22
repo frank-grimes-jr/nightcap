@@ -1,0 +1,40 @@
+Verified cache expiry and restarted runtime with access closed.
+Access open.
+Verified cache expiry and restarted runtime with access closed.
+Verified with access closed.
+Verified with access closed.
+Access open.
+Verified with access closed.
+Access open.
+Verified with access closed.
+Verified with access closed.
+Access open.
+Verified with access closed.
+test_closed_recovery_cannot_rebaseline_unexplained_player_changes (test_content.Content.test_closed_recovery_cannot_rebaseline_unexplained_player_changes) ... ok
+test_corrupt_saved_quest_blocks_recovery_before_replacement (test_content.Content.test_corrupt_saved_quest_blocks_recovery_before_replacement) ... ok
+test_forward_and_inverse_preserve_other_runtime_and_exact_rule_images (test_content.Content.test_forward_and_inverse_preserve_other_runtime_and_exact_rule_images) ... ok
+test_partial_quest_transition_recoverable_without_reapplying_unknown_content (test_content.Content.test_partial_quest_transition_recoverable_without_reapplying_unknown_content) ... ok
+test_uncertain_commit_not_replayed_and_recovery_preserves_new_state (test_content.Content.test_uncertain_commit_not_replayed_and_recovery_preserves_new_state) ... ok
+test_unknown_rule_or_quest_image_rejected_before_attempt (test_content.Content.test_unknown_rule_or_quest_image_rejected_before_attempt) ... ok
+test_cache_hash_count_and_unrelated_player_drift_reject_before_backup (test_finish_cache.FinishCache.test_cache_hash_count_and_unrelated_player_drift_reject_before_backup) ... ok
+test_failed_backup_holds_without_retrying_or_overwriting_receipts (test_finish_cache.FinishCache.test_failed_backup_holds_without_retrying_or_overwriting_receipts) ... ok
+test_failed_start_holds_both_services_in_finish_operation_folder (test_finish_cache.FinishCache.test_failed_start_holds_both_services_in_finish_operation_folder) ... ok
+test_finish_receipts_feed_real_open_without_removing_original_hold (test_finish_cache.FinishCache.test_finish_receipts_feed_real_open_without_removing_original_hold) ... ok
+test_state_change_after_finish_prevents_real_open (test_finish_cache.FinishCache.test_state_change_after_finish_prevents_real_open) ... ok
+test_changed_closed_state_cannot_open (test_rollout.FailureBoundaries.test_changed_closed_state_cannot_open) ... ok
+test_recovery_preserves_subsequent_earned_state_and_current_timers (test_rollout.FailureBoundaries.test_recovery_preserves_subsequent_earned_state_and_current_timers) ... ok
+test_recovery_refuses_unrelated_newer_release (test_rollout.FailureBoundaries.test_recovery_refuses_unrelated_newer_release) ... ok
+test_stale_manifest_or_runtime_is_rejected_before_stopping (test_rollout.FailureBoundaries.test_stale_manifest_or_runtime_is_rejected_before_stopping) ... ok
+test_stop_start_backup_and_preservation_failures_hold_both_services (test_rollout.FailureBoundaries.test_stop_start_backup_and_preservation_failures_hold_both_services) ... ok
+test_success_preserves_current_state_and_requires_separate_open (test_rollout.FailureBoundaries.test_success_preserves_current_state_and_requires_separate_open) ... ok
+test_uncertain_gateway_open_is_held_and_not_replayed (test_rollout.FailureBoundaries.test_uncertain_gateway_open_is_held_and_not_replayed) ... ok
+test_authenticated_local_tag_builds_without_registry_pull (test_rollout.ImageBuild.test_authenticated_local_tag_builds_without_registry_pull) ... ok
+test_tag_drift_before_build_rejects_without_building (test_rollout.ImageBuild.test_tag_drift_before_build_rejects_without_building) ... ok
+test_tag_drift_during_build_rejects_candidate (test_rollout.ImageBuild.test_tag_drift_during_build_rejects_candidate) ... ok
+test_overcapacity_wrong_epoch_and_invalid_offers_are_rejected (test_rollout.MarketValidation.test_overcapacity_wrong_epoch_and_invalid_offers_are_rejected) ... ok
+test_partial_or_exhausted_stock_is_valid (test_rollout.MarketValidation.test_partial_or_exhausted_stock_is_valid) ... ok
+
+----------------------------------------------------------------------
+Ran 23 tests in 0.601s
+
+OK

@@ -10,20 +10,21 @@ using repository loading artwork and Nightcap-only player-facing branding. The o
   No public apex/www site, new DNS route or Cloudflare sign-in is needed.
 - Apex/www and unknown Host headers return 404 at the origin. The unused public
   virtual host was removed before closing this task. No DNS/WAF rules changed.
-- Active release: `20261021-aa-pacing-guide-v1`, selected by
+- Active release: `20261021-aa-million-guide-v1`, selected by
   `/opt/nightcap/deploy/production/data/public/player-site/current`.
 - The website operation preserves all five container identities/start times,
   both patch channels, the existing setup guide and friend ZIP. It does not
   restart the game or mutate the database; gameplay deployment is recorded separately.
 
-## October 21 AA pacing publication
+## October 21 AA million-point and XP boost publication
 
-The private guide now states 40,000 XP per AA, retaining 10% passive earning and
-earned points, purchases and raw partial XP. Only the HTML changed; all four
-assets are preserved. Stage/rollback rehearsal, all five HTTPS hashes and route
-protections passed. Existing web configuration and service identities are unchanged.
-Gameplay pacing acceptance remains open. Evidence:
-[AA pacing release](aa-point-cost-40000-20261021/README.md).
+The private guide states 1,000,000 XP per AA, 10% passive earning, preserved
+earned progress, Goldwind's retired XP package and Matron's free ordinary buffs.
+XP boost timers and future-boost proposal boundaries match the deployed release.
+Only HTML changed; all four assets remain exact. All five HTTPS hashes and route
+protections verify, with rollback rehearsed and services/configuration preserved.
+Owner gameplay acceptance remains open. Evidence:
+[AA release](../releases/aa-pacing-million-20261021/README.md).
 
 ## October 17 publication
 
