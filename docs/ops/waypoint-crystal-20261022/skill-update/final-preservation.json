@@ -1,0 +1,11 @@
+{
+  "status": "passed",
+  "candidate_sections_preserved": 3,
+  "candidate_fingerprints_preserved": 26,
+  "other_concurrent_whole_file_updates": [
+    "C:\\Users\\verre\\.codex\\skills\\nightcap-development\\references\\client.md",
+    "C:\\Users\\verre\\.codex\\skills\\nightcap-development\\references\\wiki.md",
+    "C:\\Users\\verre\\.codex\\skills\\nightcap-development\\references\\sources.json"
+  ],
+  "note": "Receipt captures installation-time hashes; later unrelated skill updates are preserved, not overwritten."
+}

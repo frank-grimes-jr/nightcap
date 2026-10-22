@@ -1,0 +1,42 @@
+{
+  "status": "promoted_to_test_not_deployed",
+  "candidate_revision": "94d09c2a9d1a9fde85b8122766882a3c575761f0",
+  "candidate_tree": "07df48c3bf3262ecb7b1d1278b80d9669aa80ec4",
+  "test_revision": "c209952e467d87421226a5d1c99765c6810094d4",
+  "main_unchanged": "26761ff5837746ace4725f8715bc6782e48fdf5b",
+  "pull_requests": [
+    {
+      "baseRefName": "dev",
+      "headRefOid": "94d09c2a9d1a9fde85b8122766882a3c575761f0",
+      "mergeCommit": {
+        "oid": "763f1368228b9afcf7f419db8028ad5b6ade26f2"
+      },
+      "mergedAt": "2026-10-22T15:09:14Z",
+      "state": "MERGED",
+      "url": "https://github.com/frank-grimes-jr/nightcap/pull/278"
+    },
+    {
+      "baseRefName": "test",
+      "headRefOid": "763f1368228b9afcf7f419db8028ad5b6ade26f2",
+      "mergeCommit": {
+        "oid": "c209952e467d87421226a5d1c99765c6810094d4"
+      },
+      "mergedAt": "2026-10-22T15:12:09Z",
+      "state": "MERGED",
+      "url": "https://github.com/frank-grimes-jr/nightcap/pull/279"
+    }
+  ],
+  "after_dev_verification": {
+    "tree_identical_to_reviewed_candidate": true,
+    "quest_assertions": 19,
+    "python_waypoint_tests": 27,
+    "launcher_package_preflight_manifest": "passed"
+  },
+  "manual_qa": "Exact five-step spike-out included in PR279 and README.md; not yet performed.",
+  "wiki_impact": "Branch promotion changes no player-facing availability. Existing Not released waypoint notices and current robe guide remain accurate. No public publication.",
+  "pending": [
+    "Owner sign-off for main and paired client/server/wiki publication",
+    "Native visibility and behavior QA in both model modes"
+  ],
+  "authorization_basis": "AGENTS.md permits autonomous dev/test promotion; test to main requires user sign-off."
+}

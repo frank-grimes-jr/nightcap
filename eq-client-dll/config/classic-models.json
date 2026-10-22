@@ -2,6 +2,17 @@
   "schema": 1,
   "preference": "[Nightcap] UseModernModels=TRUE",
   "scope": "original counterparts; later-only creatures retain their available model",
+  "modern_imports": {
+    "source": "Resources/GlobalLoad_chr.txt",
+    "sha256": "0b0ca125859b4737b04f0d7ad4b5a885fea315fbc2b7fee6bb18da79bf4d3a69"
+  },
+  "global_models": [
+    {
+      "code": "crs",
+      "archive": "crs.eqg",
+      "sha256": "0a06d4b41d49843b40518105b50057a50d1abb07147e10fb3769135ee1223f6b"
+    }
+  ],
   "stock_imports": [
     "liz,liz_chr",
     "skn,skn_chr",

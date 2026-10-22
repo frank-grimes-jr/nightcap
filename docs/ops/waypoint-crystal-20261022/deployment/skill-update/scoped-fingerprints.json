@@ -1,0 +1,218 @@
+{
+  "result": "PASS",
+  "entries": 53,
+  "checked": [
+    {
+      "topic": "world",
+      "path": "server-mods/quests/global/999240.pl"
+    },
+    {
+      "topic": "world",
+      "path": "tools/tests/waypoint_visuals.t"
+    },
+    {
+      "topic": "world",
+      "path": "docs/ops/waypoint-crystal-20261022/README.md"
+    },
+    {
+      "topic": "world",
+      "path": "docs/ops/waypoint-crystal-20261022/verification.json"
+    },
+    {
+      "topic": "world",
+      "path": "docs/ops/waypoint-crystal-20261022/integration.json"
+    },
+    {
+      "topic": "world",
+      "path": "docs/ops/waypoint-crystal-20261022/promotion.json"
+    },
+    {
+      "topic": "world",
+      "path": "docs/ops/waypoint-crystal-20261022/deployment/README.md"
+    },
+    {
+      "topic": "world",
+      "path": "docs/ops/waypoint-crystal-20261022/deployment/quest_remote.py"
+    },
+    {
+      "topic": "world",
+      "path": "docs/ops/waypoint-crystal-20261022/deployment/world_control.py"
+    },
+    {
+      "topic": "world",
+      "path": "docs/ops/waypoint-crystal-20261022/deployment/test_quest.py"
+    },
+    {
+      "topic": "world",
+      "path": "docs/ops/waypoint-crystal-20261022/deployment/quest-apply.json"
+    },
+    {
+      "topic": "world",
+      "path": "docs/ops/waypoint-crystal-20261022/deployment/review.json"
+    },
+    {
+      "topic": "client",
+      "path": "eq-client-dll/src/model_hooks.h"
+    },
+    {
+      "topic": "client",
+      "path": "eq-client-dll/src/model_catalog.h"
+    },
+    {
+      "topic": "client",
+      "path": "eq-client-dll/src/runtime_contract.h"
+    },
+    {
+      "topic": "client",
+      "path": "eq-client-dll/config/classic-models.json"
+    },
+    {
+      "topic": "client",
+      "path": "eq-client-dll/config/patch-sites.json"
+    },
+    {
+      "topic": "client",
+      "path": "eq-client-dll/tests/model-hooks.cpp"
+    },
+    {
+      "topic": "client",
+      "path": "tools/client_classic_models.py"
+    },
+    {
+      "topic": "client",
+      "path": "tools/generate-classic-model-contract.py"
+    },
+    {
+      "topic": "client",
+      "path": "tools/tests/test_waypoint_model.py"
+    },
+    {
+      "topic": "client",
+      "path": "eq-launcher/cmd/nightcap-package/classic_models.go"
+    },
+    {
+      "topic": "client",
+      "path": "eq-launcher/cmd/nightcap-package/classic_models_test.go"
+    },
+    {
+      "topic": "client",
+      "path": "eq-launcher/internal/preflight/proxy_catalog_test.go"
+    },
+    {
+      "topic": "client",
+      "path": "eq-launcher/internal/preflight/catalog.json"
+    },
+    {
+      "topic": "client",
+      "path": "eq-launcher/internal/preflight/testdata/released-catalog-20261019.json"
+    },
+    {
+      "topic": "client",
+      "path": "docs/ops/waypoint-crystal-20261022/candidate.json"
+    },
+    {
+      "topic": "client",
+      "path": "docs/ops/waypoint-crystal-20261022/verification.json"
+    },
+    {
+      "topic": "client",
+      "path": "docs/ops/waypoint-crystal-20261022/integration.json"
+    },
+    {
+      "topic": "client",
+      "path": "docs/ops/waypoint-crystal-20261022/client-inventory-plan.json"
+    },
+    {
+      "topic": "client",
+      "path": "docs/ops/waypoint-crystal-20261022/promotion.json"
+    },
+    {
+      "topic": "client",
+      "path": "docs/ops/waypoint-crystal-20261022/deployment/README.md"
+    },
+    {
+      "topic": "client",
+      "path": "docs/ops/waypoint-crystal-20261022/deployment/prepare.go"
+    },
+    {
+      "topic": "client",
+      "path": "docs/ops/waypoint-crystal-20261022/deployment/publish.py"
+    },
+    {
+      "topic": "client",
+      "path": "docs/ops/waypoint-crystal-20261022/deployment/test_publish.py"
+    },
+    {
+      "topic": "client",
+      "path": "docs/ops/waypoint-crystal-20261022/deployment/verify.go"
+    },
+    {
+      "topic": "client",
+      "path": "docs/ops/waypoint-crystal-20261022/deployment/deployment.json"
+    },
+    {
+      "topic": "client",
+      "path": "docs/ops/waypoint-crystal-20261022/deployment/hosted-verification.json"
+    },
+    {
+      "topic": "client",
+      "path": "eq-launcher/patch-notes.json"
+    },
+    {
+      "topic": "wiki",
+      "path": "wiki/articles/waypoints.json"
+    },
+    {
+      "topic": "wiki",
+      "path": "wiki/articles/unreleased.json"
+    },
+    {
+      "topic": "wiki",
+      "path": "wiki/articles/recent-changes.json"
+    },
+    {
+      "topic": "wiki",
+      "path": "wiki/content-review.json"
+    },
+    {
+      "topic": "wiki",
+      "path": "docs/ops/waypoint-crystal-20261022/wiki-review.json"
+    },
+    {
+      "topic": "wiki",
+      "path": "docs/ops/waypoint-crystal-20261022/wiki-refresh.json"
+    },
+    {
+      "topic": "wiki",
+      "path": "docs/ops/waypoint-crystal-20261022/wiki-integration-review.json"
+    },
+    {
+      "topic": "wiki",
+      "path": "docs/ops/waypoint-crystal-20261022/wiki-refresh-integration.json"
+    },
+    {
+      "topic": "wiki",
+      "path": "docs/ops/waypoint-crystal-20261022/promotion.json"
+    },
+    {
+      "topic": "wiki",
+      "path": "docs/ops/waypoint-crystal-20261022/deployment/wiki-review.json"
+    },
+    {
+      "topic": "wiki",
+      "path": "docs/ops/waypoint-crystal-20261022/deployment/publish_wiki.py"
+    },
+    {
+      "topic": "wiki",
+      "path": "docs/ops/waypoint-crystal-20261022/deployment/verify_wiki.py"
+    },
+    {
+      "topic": "wiki",
+      "path": "docs/ops/waypoint-crystal-20261022/deployment/wiki-publication.json"
+    },
+    {
+      "topic": "wiki",
+      "path": "docs/ops/waypoint-crystal-20261022/deployment/wiki-public-verification.json"
+    }
+  ]
+}

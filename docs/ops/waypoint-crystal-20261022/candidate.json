@@ -1,0 +1,33 @@
+{
+  "status": "unsigned_candidate_not_installed",
+  "proxy_version": "0.11.1",
+  "kind": "five_file_delta_not_full_signed_inventory",
+  "files": {
+    "dinput8.dll": {
+      "size": 617472,
+      "sha256": "013e2323cf4146db34760fbc93b1ed684841c0d11ed9df42d99d6c318a14a1df"
+    },
+    "nightcap-patch-sites.json": {
+      "size": 9542,
+      "sha256": "282eef8492f50153a3b14ef9dda78ad446c9e835d659d9a28b37681be30fc3ed"
+    },
+    "crs.eqg": {
+      "size": 181442,
+      "sha256": "0a06d4b41d49843b40518105b50057a50d1abb07147e10fb3769135ee1223f6b"
+    },
+    "nightcap_models_chr.txt": {
+      "size": 2156,
+      "sha256": "0f4a170e588cc9475a8abb57425406b87d49eb26c82a3839fa6907e8f15ce470"
+    },
+    "nightcap_modern_chr.txt": {
+      "size": 167,
+      "sha256": "505533bcf05cb38eeb8f241ea942312ea28ad82813ce3559f5ff5dd994ff179f"
+    }
+  },
+  "quest_sha256": "981a7c3cb56f265bb3ffe1db9d5e23aa2e3aee9d415288f75beb123580a9c58a",
+  "prior_archives_preserved": 22,
+  "classic_imports_retained": 155,
+  "modern_imports_retained": 13,
+  "native_visual_qa": "pending",
+  "server_client_wiki_deployment": "not_authorized_or_performed"
+}

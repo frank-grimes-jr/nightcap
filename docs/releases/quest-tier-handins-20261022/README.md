@@ -33,8 +33,11 @@ implementation objects; `native-build-manifest.json` records the result.
 - Exact items are preferred over better qualities. Explicit quality requirements
   reserve their inputs first. Mixed ordinary qualities can meet a Normal count;
   one instance cannot meet two requirements. Failed ingredient/money/unknown-ID
-  checks restore tentative native counts. Retained multiquest items keep real
-  IDs. Lua's existing one-item-per-trade-slot convention is unchanged.
+  checks restore tentative native counts. Normal hand-in returns preserve
+  instances. Retained partial multiquest items keep real IDs. The existing
+  multiquest completion rule still clears its entire donation bucket, including
+  surplus: this fix does not make extra multiquest donations refundable. Lua's
+  existing one-item-per-trade-slot convention is unchanged.
 
 `production-audit.json` is a dated, read-only capture: shared helpers, the exact
 Shakrn quest, 33 potential bypass scripts and joined item definitions. Twenty
@@ -56,9 +59,13 @@ all 17 migrated recipes at four input qualities, extras, repeats and omissions
 Perl scripts failed 68/221 assertions. See `verification.json` for final commands
 and exit statuses. Native build and automated tests do not establish player QA.
 
-Author review covers correctness, item preservation, explicit-tier boundaries,
-API availability, source provenance, cost (four trade slots), and wiki impact.
-It is not independent or human approval. Exact player checks: [QA.md](QA.md).
+Author and fresh independent review cover correctness, item preservation,
+explicit-tier boundaries, API availability, source provenance, cost (four trade
+slots), and wiki impact. Review found one dialogue encoding regression in the
+copied Vilissia script; its three legacy separators now use ASCII hyphens.
+The inherited multiquest surplus rule is explicitly retained. Complete task
+delivery/event/inventory lifecycle remains player QA beyond the compiled filter
+test. Review is not human approval. Exact player checks: [QA.md](QA.md).
 Decision: [ADR 0066](../../adr/0066-tiered-quest-ingredients.md).
 
 ## Activation and recovery
