@@ -8,11 +8,12 @@ import re
 import shutil
 import tarfile
 from catalog import catalog_articles
+import experience
 
 ROOT = Path(__file__).resolve().parent
 ORIGIN = 'https://wiki.nightcapgame.org'
 CATEGORIES = ['Getting started', 'Character', 'Equipment', 'Adventuring', 'World', 'Quests', 'Reference']
-ASSET_VERSION = hashlib.sha256(b''.join((ROOT/'assets'/name).read_bytes() for name in ['wiki.css', 'equipment.css', 'search.js', 'equipment.js'])).hexdigest()[:12]
+ASSET_VERSION = hashlib.sha256(b''.join((ROOT/'assets'/name).read_bytes() for name in ['wiki.css', 'equipment.css', 'experience.css', 'search.js', 'equipment.js', 'experience.js'])).hexdigest()[:12]
 
 
 def plain(value):
@@ -42,31 +43,32 @@ def load_articles():
 
 def render(title, description, body, page, category='Reference', status='Reference', updated='2026-10-16', toc=''):
     e = html.escape
-    nav = [('index', 'Main page'), ('getting-started', 'Getting started'), ('features', 'Features'), ('all-pages', 'All articles'),
-           ('zones', 'Zones & rewards'), ('items', 'Equipment'), ('commands', 'Commands'), ('recent-changes', 'Recent changes')]
-    navigation = ''.join(f'<a href="{slug}.html"'+(' aria-current="page"' if slug == page else '')+f'>{label}</a>' for slug, label in nav)
+    nav = [('index', '⌂', 'The campfire'), ('getting-started', '↗', 'Getting started'), ('features', '✧', 'Features'), ('all-pages', '▤', 'All articles'),
+           ('zones', '◇', 'Zones & rewards'), ('items', '⚒', 'Equipment'), ('commands', '⌘', 'Commands'), ('recent-changes', '◷', 'Recent changes')]
+    navigation = ''.join(f'<a href="{slug}.html"'+(' aria-current="page"' if slug == page else '')+f'><span aria-hidden="true">{icon}</span>{label}</a>' for slug, icon, label in nav)
     category_nav = ''.join(f'<a href="{"items.html" if c == "Equipment" else "all-pages.html#category-"+str(i)}">{e(c)}</a>' for i, c in enumerate(CATEGORIES))
     breadcrumb = '<a href="items.html">Equipment</a>' if category == 'Equipment' and page != 'items' else e(category)
     badge = f'<span class="badge {"unreleased" if status == "Not released" else ""}">{e(status)}</span>'
     return f'''<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{e(title)} · Nightcap Wiki</title><meta name="description" content="{e(description, quote=True)}">
-<meta name="theme-color" content="#153e33"><link rel="canonical" href="{ORIGIN}/{page+'.html' if page != 'index' else ''}">
+<meta name="theme-color" content="#102b25"><link rel="canonical" href="{ORIGIN}/{page+'.html' if page != 'index' else ''}">
 <link rel="icon" href="assets/moon.svg"><link rel="stylesheet" href="assets/wiki.css?v={ASSET_VERSION}"><script src="assets/search.js?v={ASSET_VERSION}" defer></script></head>
-<body><a class="skip" href="#content">Skip to content</a>
+<body data-page="{page}" class="{'home-page' if page == 'index' else 'guide-page'}"><a class="skip" href="#content">Skip to content</a><progress class="reading-progress" max="100" value="0" aria-label="Reading progress" hidden></progress>
 <header class="masthead"><a class="brand" href="index.html"><span class="moon" aria-hidden="true">☾</span><span>NIGHTCAP<small>THE OFFICIAL WIKI</small></span></a>
-<form class="search" action="search.html" role="search"><label class="sr-only" for="wiki-search">Search the wiki</label><input type="search" id="wiki-search" name="q" placeholder="Search articles, zones, items…" maxlength="160"><button type="submit">Search</button></form>
+<form class="search" action="search.html" role="search"><label class="sr-only" for="wiki-search">Search the wiki</label><input type="search" id="wiki-search" name="q" placeholder="Search guides, zones, items…" maxlength="160"><button type="submit">Search</button></form><button class="quick-trigger" type="button" data-open-search hidden>Quick search <kbd>/</kbd></button>
 <a class="player-site" href="https://play.nightcapgame.org/">Player site <span aria-hidden="true">↗</span><small>Approved players</small></a></header>
 <div class="layout"><aside class="sidebar"><details class="navigation" open><summary>Wiki navigation</summary><nav aria-label="Wiki">{navigation}</nav></details>
 <div class="sidebar-categories"><p class="side-label">EXPLORE NIGHTCAP</p><nav aria-label="Categories">{category_nav}</nav></div>
-<div class="era-note"><span class="side-label">CURRENT CHAPTER</span><strong>Classic</strong><span>Level cap 50</span><span>Solo preferred · Friends welcome</span></div></aside>
-<div class="page"><div class="page-tabs"><span>Article</span><a href="about.html">About this wiki</a><a href="recent-changes.html">Updates</a></div>
+<div class="personal-tools" hidden><button type="button" data-open-saved>☆ Saved guides <span data-saved-count>0</span></button><button type="button" data-theme-toggle aria-pressed="false">☼ Light mode</button></div>
+<div class="era-note"><span class="side-label">THE CURRENT CHAPTER</span><strong>Classic, reimagined.</strong><span>Level cap 50 · Three classes</span><span>Solo preferred. Friends welcome.</span><a href="features.html">Discover Nightcap →</a></div></aside>
+<div class="page"><div class="page-tabs"><span>THE NIGHTCAP HANDBOOK</span><a href="about.html">About this wiki ↗</a></div>
 <main id="content" tabindex="-1"><div class="breadcrumb"><a href="index.html">Nightcap Wiki</a><span aria-hidden="true"> / </span>{breadcrumb}</div>
-<div class="title-row"><h1>{e(title)}</h1>{badge}</div><p class="subtitle">{e(description)}</p>
+<div class="title-row"><h1>{e(title)}</h1>{badge}</div><p class="subtitle">{e(description)}</p><div class="article-tools" hidden><button type="button" data-save-page aria-pressed="false">☆ Save this guide</button><span class="reading-time"></span></div>
 {('<aside class="notice">This feature is built but not released. The details below describe the candidate.</aside>' if status == 'Not released' else '')}
-{toc}<article>{body}</article>
+<div class="reading-layout">{toc}<article>{body}</article></div>
 <div class="article-meta">Reviewed <time datetime="{updated}">{updated}</time> · Official Nightcap guide · <a href="about.html#corrections">Report a correction</a></div></main>
-<footer><span>One more adventure before the lights go out.</span><a href="about.html">About &amp; content policy</a><a href="#content">Back to top ↑</a></footer></div></div></body></html>'''
+<footer><span>☾ One more adventure before the lights go out.</span><a href="about.html">About &amp; content policy</a><a href="#content">Back to top ↑</a></footer></div></div>{experience.dialogs()}</body></html>'''
 
 
 def build():
@@ -81,12 +83,16 @@ def build():
     for name in ['wiki.css', 'search.js', 'moon.svg', 'traders-at-dusk.png']:
         shutil.copyfile(ROOT / 'assets' / name, out / 'assets' / name)
     # Keep the existing public asset allowlist: bundle the two small browser features.
-    (out/'assets/search.js').write_bytes((ROOT/'assets/search.js').read_bytes() + b'\n' + (ROOT/'assets/equipment.js').read_bytes())
-    (out/'assets/wiki.css').write_bytes((ROOT/'assets/wiki.css').read_bytes() + b'\n' + (ROOT/'assets/equipment.css').read_bytes())
+    (out/'assets/search.js').write_bytes(b'\n'.join((ROOT/'assets'/name).read_bytes() for name in ['search.js', 'equipment.js', 'experience.js']))
+    (out/'assets/wiki.css').write_bytes(b'\n'.join((ROOT/'assets'/name).read_bytes() for name in ['wiki.css', 'equipment.css', 'experience.css']))
     for a in articles:
         headings = re.findall(r'<h2 id="([^"]+)">(.+?)</h2>', a['body'])
         toc = '<nav class="contents" aria-label="On this page"><strong>Contents</strong><ol>'+''.join(f'<li><a href="#{id}">{title}</a></li>' for id, title in headings)+'</ol></nav>' if len(headings) > 1 else ''
-        (out / (a['slug'] + '.html')).write_text(render(a['title'], a['summary'], a['body'], a['slug'], a['category'], a['status'], a['updated'], toc), encoding='utf-8')
+        body = a['body']
+        if a['slug'] == 'index':
+            body = experience.home(body, {item['slug']: item for item in articles})
+            toc = ''
+        (out / (a['slug'] + '.html')).write_text(render(a['title'], a['summary'], body, a['slug'], a['category'], a['status'], a['updated'], toc), encoding='utf-8')
     listing = ''
     for i, category in enumerate(CATEGORIES):
         group = sorted([a for a in articles if a['category'] == category], key=lambda a: a['title'].lower())

@@ -1,5 +1,14 @@
 # CHANGES
 
+## 2026-10-22 — Interactive wiki handbook
+
+Reworked the public wiki around four adventure paths, instant quick search,
+browser-local saved guides, light/dark reading modes, responsive navigation and
+reading progress. Original home release notices remain intact in an expandable
+section. All 458 HTML pages, catalog values, gameplay labels and equipment filters
+are preserved. No new dependencies or hosting policy changes. Tests and guarded
+publication state: `docs/releases/wiki-interactive-20261022/`.
+
 ## 2026-10-22 - Robe waist repair accepted
 
 The owner confirmed "Fixed" after game 2026102204, closing the reported missing

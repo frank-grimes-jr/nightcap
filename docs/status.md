@@ -1,4 +1,13 @@
 # Current Nightcap status
+
+## 2026-10-22 — Interactive wiki interface
+
+The redesigned handbook adds adventure paths, quick search, saved guides and
+light/dark reading modes across the existing HTML wiki. Gameplay content, labels,
+commands and catalog values remain unchanged. Local verification and publication
+receipts: [wiki interface release](releases/wiki-interactive-20261022/README.md).
+Publication is pending until that release's origin and public receipts pass.
+
 ## 2026-10-22 — All Classic dungeon options and MAGIC rewards deployed
 
 All 21 Classic combat dungeons, including Fear, Hate and Sky, now offer Raid,

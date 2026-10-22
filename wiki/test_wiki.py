@@ -112,6 +112,28 @@ class WikiTests(unittest.TestCase):
         self.assertNotIn('sources',index[0])
         self.assertTrue(all(a['text'] for a in index))
 
+    def test_home_preserves_release_prose_and_progressive_navigation(self):
+        source = self.articles['index']['body']
+        page = (self.out/'index.html').read_text(encoding='utf-8')
+        notices = source.split('<div class="welcome">')[0]
+        self.assertIn(notices, page)
+        self.assertLess(page.index('class="welcome"'), page.index('class="release-digest"'))
+        for key, _, _, _, slugs in build.experience.PATHS:
+            self.assertIn(f'id="path-{key}"', page)
+            self.assertNotIn(f'id="path-{key}" hidden', page)
+            for slug in slugs:
+                self.assertIn(f'href="{slug}.html"', page)
+
+    def test_interactive_shell_and_public_asset_allowlist(self):
+        for page in self.pages.values():
+            self.assertIn('quick-search', page.ids)
+            self.assertIn('saved-guides', page.ids)
+        self.assertEqual({p.name for p in (self.out/'assets').iterdir()},
+                         {'wiki.css', 'search.js', 'moon.svg', 'traders-at-dusk.png'})
+        bundle = (self.out/'assets/search.js').read_text(encoding='utf-8')
+        self.assertIn('nightcap.saved', bundle)
+        self.assertIn('searchGeneration', bundle)
+
     def test_public_payload_excludes_private_material(self):
         forbidden = re.compile(r'135\.148\.47\.202|/opt/nightcap|C:/Users|\.ssh/|BEGIN .*PRIVATE KEY|scrypt|account_password|docs/releases/|github.com/frank-grimes',re.I)
         for p in self.out.rglob('*'):

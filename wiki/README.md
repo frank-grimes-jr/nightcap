@@ -13,6 +13,7 @@ database, server APIs or account system are needed.
 python -B -m unittest -v test_wiki test_deploy test_update test_refresh
 node test_search.cjs
 node test_equipment.cjs
+node test_experience.cjs
 python -B build.py --package ABSOLUTE_NEW_FILENAME.tar.gz
 python -B -m http.server 8767 --bind 127.0.0.1 --directory dist
 ```
@@ -48,6 +49,30 @@ The URL preserves filters; all item links remain in static HTML without JavaScri
 the existing public assets by `build.py`, with content-based cache versioning.
 Run `test_equipment.cjs` for filtering, paging and all 384 exact variant names.
 This is a custom-system and reward wiki; it is not the full ordinary game database.
+
+## Interactive handbook
+
+`experience.py` composes four home-page reading paths from maintained article
+titles/summaries. It moves the original release notices intact into a native
+disclosure below the discovery tools. Keep those notices and their fragment IDs.
+`assets/experience.css` supplies dark/light tokens and responsive layouts;
+`assets/experience.js` supplies quick search (`/`, Ctrl/Command+K), browser-local
+bookmarks, theme preferences, path URL/Back state and reading progress/contents.
+The builder bundles these into the existing versioned CSS/JS asset allowlist.
+There are still 458 HTML pages and 465 public files; no runtime packages or new
+hosting configuration are required.
+
+Article prose, directory links and all four paths remain available without JS.
+Search loads its public index only on demand. Saved pages and theme use the
+`nightcap.saved` and `nightcap.theme` local-storage keys, never a server account.
+Stored titles render as text and only local safe slugs become links. Blocked
+storage falls back to the current page visit with a visible message. Native
+dialogs manage keyboard focus; reduced motion and print remain supported.
+
+Run `test_experience.cjs` for history, storage, search races and failure recovery.
+Repeat real-browser responsive/keyboard checks for shell changes, including the
+Equipment directory and long dungeon guides. Exact release evidence lives in
+`docs/releases/wiki-interactive-20261022/`.
 
 ## Verification contract
 
