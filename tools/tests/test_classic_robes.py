@@ -1,5 +1,6 @@
 """Robe coverage regression against the actual Classic archives."""
 import os
+from collections import Counter
 import json
 from pathlib import Path
 import struct
@@ -15,7 +16,7 @@ from helmet_wld_layout import reference_fields, mesh_block
 from helmet_wld import decode_mesh
 from build_winged_helmet_client import helmet_files
 from build_classic_robes import robe_files, add_robes
-from classic_robe_geometry import skeleton, labels, material_labels, skirt_warp
+from classic_robe_geometry import skeleton, labels, material_labels, skirt_warp, world_points
 
 ROOT = Path(__file__).resolve().parents[2]
 REFERENCE = Path('E:/EQ_Local_Dev/Client_RoF2_Dev/everquest_rof2')
@@ -130,6 +131,44 @@ class ClassicRobeCoverage(unittest.TestCase):
             with self.subTest(code=code):
                 self.assertGreater(old_materials.count(foot), 0)
                 self.assertEqual(new_materials.count(foot), old_materials.count(foot))
+
+    def test_chest_and_skirt_share_a_closed_rigidly_bound_waist(self):
+        # Compare serialized geometry and bone identity, not the fitter's audit.
+        # Coincidence in one world pose alone can separate during animation.
+        for archive, codes in (('global_chr.s3d', TARGETS), ('global4_chr.s3d', ('BAM', 'BAF'))):
+            wld = _Wld(read_pfs(self.generated[archive])[archive.replace('.s3d', '.wld')])
+            for code in codes:
+                model = decode_mesh(wld.fragments[wld.by_name[code + '01_DMSPRITEDEF'][0] - 1])
+                keys = [(bone, *point) for point, bone in zip(model['vertices'], labels(model))]
+                edges = {'chest': Counter(), 'skirt': Counter()}
+                directed = {'chest': set(), 'skirt': set()}
+                for polygon, mat in zip(model['polygons'], material_labels(wld, model)):
+                    part = 'skirt' if mat == 'CLK0405_MDF' else 'chest' if mat in ('CLK0401_MDF', 'CLK0402_MDF') else None
+                    if part:
+                        a, b, c = [keys[i] for i in polygon[1:]]
+                        edges[part].update(tuple(sorted(edge)) for edge in ((a, b), (b, c), (c, a)))
+                        directed[part].update(((a, b), (b, c), (c, a)))
+                shared = set(edges['chest']) & set(edges['skirt'])
+                with self.subTest(archive=archive, code=code):
+                    self.assertEqual(len(shared), 8, 'Open waist: torso and skirt must share all eight native edges')
+                    self.assertTrue(all(edges['chest'][edge] == edges['skirt'][edge] == 1 for edge in shared))
+                    self.assertEqual(len({(b, a) for a, b in directed['chest']} & directed['skirt']), 8,
+                                     'Joined surfaces must traverse waist edges in opposite directions')
+                    degree = Counter(vertex for edge in shared for vertex in edge)
+                    self.assertEqual(len(degree), 8)
+                    self.assertTrue(all(count == 2 for count in degree.values()))
+                    _, transforms = skeleton(wld, code, 'P01')
+                    points = world_points(model, transforms, code)
+                    seam_ids = [i for i, key in enumerate(keys) if key in degree]
+                    center = points[seam_ids].mean(axis=0)
+                    for polygon, mat in zip(model['polygons'], material_labels(wld, model)):
+                        if mat != 'CLK0405_MDF' or not any(keys[i] in degree for i in polygon[1:]):
+                            continue
+                        a, b, c = points[list(polygon[1:])]
+                        outward = -np.cross(b - a, c - a)
+                        radial = ((a + b + c) / 3 - center)[:2]
+                        self.assertGreater(float(np.dot(outward[:2], radial)), 1e-7,
+                                           'Waist closure folded an adjacent skirt face inward')
 
     def test_cloth_material_chains_precede_their_consumers(self):
         for archive, codes in (('global_chr.s3d', TARGETS), ('global4_chr.s3d', ('BAM', 'BAF'))):
