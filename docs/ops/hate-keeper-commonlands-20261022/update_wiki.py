@@ -16,7 +16,7 @@ def main():
         inventory.append({'article':path.stem,'title':article['title'],'decision':'candidate location/access notice' if changed else 'no impact: existing guidance and status retained'})
         if changed:
             assert 'id="hate-commonlands-candidate"' not in article['body']
-            article['body']=notice+article['body'];article['reviewed']='2026-10-22'
+            article['body']=notice+article['body'];article['updated']='2026-10-22'
             article['sources'].append(reference)
             if path.stem=='dungeon-modes':article['keywords'].extend(['Hate Keeper Commonlands','Plane of Hate level 46'])
             path.write_text(json.dumps(article,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
