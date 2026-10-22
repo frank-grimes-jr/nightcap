@@ -1,0 +1,14 @@
+{
+  "result": "PASS",
+  "release": "20261022-classic-robes-native-waist-v1",
+  "verified_at": "2026-10-22T18:18:08.502473+00:00",
+  "files": 465,
+  "sha256_and_security_headers": true,
+  "private_routes_denied": [
+    ".env",
+    "articles/item-upgrades.json",
+    "content-review.json",
+    "catalog.json",
+    "wiki/current/index.html"
+  ]
+}

@@ -24,24 +24,18 @@ item IDs changed, preserving every other inventory field. Logins are reopened.
 Native fresh-hand-in, inspection/relog and broader balance acceptance remain open.
 [Release evidence and recovery](releases/quest-armor-20261022/deployment/README.md).
 
-## Classic robe waist correction — published for live QA, October 22
+## Classic robe native waist binding - published for live QA, October 22
 
-Owner follow-up rejects2203: the gap persists standing and moving, with installed
-hashes confirmed. The native renderer replaces earlier pelvis influences when a
-bone is repeated. A grouped-vertex correction passes actual x86 library checks;
-[native binding evidence](releases/classic-robes-20261022/native-skinning/README.md)
-owns the new candidate and pending visible recheck. The2203 delivery below is
-historical evidence, not acceptance of the waist repair.
-
-Owner QA confirmed waist holes on Barbarian and Half Elf in game2201/2202.
-Source PR286 and signed game **2026102203** join the native torso/skirt seams
-for all seven added Classic races, both genders. All140 hosted hashes/signature
-and the actual DLL/catalog pair verify. The138 other descriptors, waypoint
-assets and proxy/catalog0.11.1 remain. No runtime restart or database change.
-Fully close EverQuest, reopen the normal launcher and press Play; observers
-also need the update. Native waist/animation recheck is open.
-Wiki20261022-classic-robes-waist-v1 verifies465 public files and private denials.
-[Evidence, recovery and exact recheck](releases/classic-robes-20261022/waist-correction/README.md).
+The owner rejected game 2203: the waist gap persisted standing and moving, with
+installed archive hashes confirmed. Native skinning replaced earlier torso bone
+assignments when the skirt repeated the same bone. PR291/main `42603ee` and signed
+**2026102204** group each bone once. Actual x86 DirectX checks reproduce 432 lost
+assignments in the old 16 model registrations and retain every corrected vertex.
+All 140 hosted client files, signature and the existing proxy/catalog 0.11.1 pair
+verify; the other 138 descriptors and waypoint assets remain. This client release
+performed no runtime restart or SQL change. Native visual acceptance is open.
+Fully exit EverQuest and use normal launcher Play; observers must also update.
+[Proof, delivery, recovery and exact recheck](releases/classic-robes-20261022/native-skinning/README.md).
 
 ## 2026-10-22 — Waypoint crystals deployed for live QA
 

@@ -1,0 +1,14 @@
+{
+  "result": "PASS",
+  "release": "20261022-quest-tiers-v1",
+  "verified_at": "2026-10-22T18:08:47.144416+00:00",
+  "files": 465,
+  "sha256_and_security_headers": true,
+  "private_routes_denied": [
+    ".env",
+    "articles/item-upgrades.json",
+    "content-review.json",
+    "catalog.json",
+    "wiki/current/index.html"
+  ]
+}

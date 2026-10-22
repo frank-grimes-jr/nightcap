@@ -1,5 +1,9 @@
 # Classic robe waist correction — October 22, 2026
 
+Owner follow-up rejected this 2203 repair: the gap remained while standing and
+moving with matching installed archives. [Game 2204 native binding correction](../native-skinning/README.md)
+supersedes these assets. The records below describe the earlier seam correction.
+
 The owner supplied a native screenshot showing a hole between the Barbarian
 torso and robe skirt and confirmed the same defect on Half Elf. This rejects
 waist acceptance of the original game2026102201 assets, also retained by the

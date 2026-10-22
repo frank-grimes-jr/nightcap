@@ -1,13 +1,14 @@
 # Classic race robe visibility — October 22, 2026
 
-Status: original source PR276/game2026102201 added robe bodies. Owner QA then
-confirmed waist holes on Barbarian and Half Elf. Source PR286 and signed game
-**2026102203** now publish a shared-seam correction across all seven added races,
-both genders. All140 hosted client files verify, retaining the newer waypoint
-assets and matched proxy/catalog0.11.1. Native recheck remains open.
-The protected reference and installed player client remain read only.
-See [waist correction and delivery evidence](waist-correction/README.md).
-Original candidate/publication records below retain their historical scope.
+Status: original PR276/game 2026102201 added robe bodies. Owner QA rejected
+both the original waist and the shared-seam correction in game 2026102203.
+The gap persisted while standing and moving with the correct installed archives.
+PR291/main `42603ee` and signed game **2026102204** now correct the native bone
+assignment loss. All 140 hosted client files, signature and current DLL/catalog
+pair verify. Native visual acceptance remains open. The protected reference and
+installed player client remain read only. See [native binding correction and
+exact recheck](native-skinning/README.md). Earlier evidence retains its historical
+scope; publication alone does not establish that the visible gap is resolved.
 
 ## Result and boundaries
 
