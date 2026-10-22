@@ -77,3 +77,8 @@ downloads, config and services remain. `wiki-review.json`, `wiki-publication.jso
 and `wiki-public-verification.json` separate review, origin publication and public
 verification. Installed Nightcap knowledge is updated by `refresh_skill.py`, with
 exact patch, fingerprints and receipt in `skill-update/`.
+
+Concurrent main PR291 arrived during closeout. Its native robe-binding candidate
+and owner rejection of2203 are preserved in the merged source/status. The client
+preservation above is dated deployment evidence, not robe gameplay acceptance;
+that separate candidate owns subsequent client/wiki publication.
